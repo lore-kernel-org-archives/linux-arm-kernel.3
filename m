@@ -4,146 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D90EECD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:33:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91773CD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NOuFb+ByEHgxeRzxtQH/alALv56e2ocT5u4L3QypiV8=; b=F5naVfJOTFd5dKM1+4Mu5Z88M5
-	yk8OfuzW7PNCN4XpUzp5K4PgdafrkKHi1hZfwow2z283dxyo4Tbd/pxTSb9ARrPFEcIy0dQPNLeuo
-	wmbIwdwl8Y7L9O0TRYE+n1u1wCJptEAsEe4LueY01NRlLLntk1NdFgYgo81kDlRS0EOUWhK/dcvuN
-	6P2jeZ7g0MHhtSlIECJ4KiwlZOpWZQogccC3fhTrrn8a1HHO1t9UI05IKJcYgrAzvUa+7nQdG/gkK
-	FsgDt32N8fazRzVcZf1hDpiMzEkJWi/87EFe2G27ziRQk/EAR6f2a0Cnx1Bsc2cjBtp5QfwGfzOO9
-	cHX0SsJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=coPWzdunrUu5dnMXo2xgB1O23ZMxkZq+e5FYUmmfKyQ=; b=cXrrcMn5NydZj+5Oi7RswWNemd
+	j3IdEaAORRCYRWp61sgU9M+G6P4eK2wmbd5T+Wc2gTx4IB5KMuaKgCWccffRuRPhe1qhMS59H29Bh
+	1pH0ysbKFhNtLZz8G3kkmK6shH+lbxz8LfZgF+xyKs8qqOC505Olp3YOmeyoivX3+ad2sWxRN9TyJ
+	RJKcsoBVGGcRwbub46jTihtdOwb4hK4JwvjZ5IEmUGJmS+JSByftR7f9MARSeBNJbij3RaEAgVHlH
+	y1hl+fwHi28f4PJi6753/nbm2ZEB9b0+yd6jKqXWG7Gp4br1Euo51DEiABhrOakKNF4Y0Yb1Uwe12
+	OGA0Yt5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWlS-000000002g7-3zgg;
-	Wed, 06 May 2026 07:33:50 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wKWmd-000000002sf-0Xpq;
+	Wed, 06 May 2026 07:35:03 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWlR-000000002fU-3XYG
+	id 1wKWmb-000000002rZ-1l1X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 07:33:50 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6465vNi6153474
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 6 May 2026 07:33:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	NOuFb+ByEHgxeRzxtQH/alALv56e2ocT5u4L3QypiV8=; b=ba6EmG0JJiyqB2ZQ
-	v/Y3QIaFvBt9+1ILVqzRipuIm56I1BpZgACotDiIjGXxxZfH2qKPaqMyPTBSb8/B
-	T4Pk7S0I4Ft1qC0bVoFbCAzV0UVEERlvESdmV1Y4PYrkooLRjiJ86okzulhIHQDT
-	5MMJDdLu7lfZiQVXnJN0zK+gQg1JCQ+o22w0pPGkDrr6fMUugNsVRP6yIfTlD6PS
-	+GHRrQTWt0qA0X1AF7vzqitP7yxThzamWwgliNISZ1eAAWJ63qSZkG6brUxdobWV
-	6BsjkWtmvingkYQLVDZdQvPeDnlsttEjZZqqSMGtOG8Yz/Wj+bUTfpAySv1bNoiA
-	tluiMg==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dyj80bgf9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 07:33:45 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-82f9429f49cso7473072b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 00:33:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778052825; x=1778657625; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NOuFb+ByEHgxeRzxtQH/alALv56e2ocT5u4L3QypiV8=;
-        b=IgCgW0oVpS89ChhJSvxdIPyUGT04ehgMgH51MoSEJNoT3mYAgOczoWk1Hto4An9y2z
-         c1P/p2AKscJPrUgWWZSMGyyTQwofvCCNHWDVrRIML1nbRXMvqcWhSwsXS3G/aeiD8pB/
-         aDJgSvWnwMXMrkdx569hkKF1hNFBcA7bcg8UjeKxwwys74C0EMPbahAbAqc++CbYZF9K
-         YBA3HZqkdd8aWsqmPOaN0HnAqOvRcwrpHa69RPXa2OAeznwUSJyxnIR/AFlkhCm/jjlA
-         f51IjrEvcA9AP+F3hrBttN7li78oZ2dlcvInH+5O4GhgtRUSaQqbaJJJcr0kRalGRuzK
-         eP4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778052825; x=1778657625;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NOuFb+ByEHgxeRzxtQH/alALv56e2ocT5u4L3QypiV8=;
-        b=LqHiwrP8ml/Dsr+dwMna9ilcZzcl/v8CLijUkr/spK2GcPNxzkTOBYV8NI5z+o0NiS
-         UeN7MooposwFvguhT4EmJPTTJP/wu+trGWPrwTLiYsBH00CUxisLBlOO2rFQ+UYvE43H
-         rUSOeolFKJpvwfuyhqnDDubFwtZqRPcV96NgFh4bNc2Vyqz2fBH3ZgoVanYeapiN5NTD
-         5A5cdgMWx4fFUAWRXMEATdyMP57eT6exbOtDqzBDBSREjROSVwArotm2eqL3TYtJoCv3
-         2S9z4S/sJpnj+yCS0L6OIgXnBMcO5TC9l6BO+DcBJIH33cIrV1OY32rA8Pz8TO6Jl95Y
-         P7FQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8sv2zh3dvjpOYv2wVNQUP8zHtcA1rJwk+88lPDBUSLvPLCaFhrAOHyds33/Ld+IKdLkVbUzbKN+CSEya6ffZGa@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6UBW2pLIbbdwujH9iyKVGTjpnYoZt/7EJ+Zp7oeIy56SdlfvG
-	7NtyFjwhnbQ4RLHSRm7Kzd0vS94wrANO9bNttst1/K+nQrfazxS7zNvM3edM28A00gvzCMaZhO4
-	zkDzxr91ddcNUKHL45G/PtPTsg0UdLi4chKI0Tv/urSuUT6Y4gafTq4n0PNnL+0ou341BjrjCKj
-	5iWQ==
-X-Gm-Gg: AeBDietsEdrbFd/ZYfHK4bvehHKh4QMfUEeuxoGHACv+TjFl8GNhrY8E2wRsRLrFnGu
-	2C06ZkhCLW0Vg0nSyY/t1pHxvlnckO2cCPc1t1vSYAXURihzZ3BSdZA+9t0ZPecC5vaWF4v/qOf
-	zIHnlZ94aT3rP4U/PBhR2OiaHgdEnTlDWaUlr4AP9f4dx7EwClB1jsDm5wraBnBr8SbTejbONyQ
-	ggH+fQRQn/5SRtZayUpSjlG86tIzOpYk1p9W2Q/ZbfsxrIDBk2SV+S2mio4c+b2XIgu4Jf9ADrb
-	qDPQo5N3zc0zzg05tOKAtckjKLd3/5zp+kfqdXyhzbnlGYYQTgvO/WJfInW6pPXeCZ3HB5qPJjz
-	rcobcYKb28H9K6f3kaYShB8jCSb7Vtcne4FmKfEcCoJexqJRjEPiii++9Apfxip3E3Om3ByzcT0
-	5ZGe/oXBM3EV1zlIsUxPZhAQ==
-X-Received: by 2002:a05:6a00:27a7:b0:839:e27c:6cc9 with SMTP id d2e1a72fcca58-83a5e348860mr1855014b3a.35.1778052825203;
-        Wed, 06 May 2026 00:33:45 -0700 (PDT)
-X-Received: by 2002:a05:6a00:27a7:b0:839:e27c:6cc9 with SMTP id d2e1a72fcca58-83a5e348860mr1854982b3a.35.1778052824660;
-        Wed, 06 May 2026 00:33:44 -0700 (PDT)
-Received: from [10.133.33.194] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839679c8c1bsm5511412b3a.34.2026.05.06.00.33.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 May 2026 00:33:44 -0700 (PDT)
-Message-ID: <e0fa7079-6f57-4b5d-8b5d-ff10264caf1a@oss.qualcomm.com>
-Date: Wed, 6 May 2026 15:33:38 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 00/27] CoreSight: Refactor power management for
- CoreSight path
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>,
-        Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>,
-        Keita Morisaki <keyz@google.com>,
-        Yuanfang Zhang
- <quic_yuanfang@quicinc.com>,
-        Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
-        Peter Zijlstra <peterz@infradead.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20260501-arm_coresight_path_power_management_improvement-v11-0-fc7fb9d5af1c@arm.com>
+	Wed, 06 May 2026 07:35:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wMLbcfuNNvt3t1sh7WWxFcrxVzGqaMxsn9TuQ35cYs5LsbA7So7Rngcx3SI2RDAw9PjqaM0ZfZLS4Hc8A1UYyLt8ffW4V1zqvkfakZO5v/gb7FTV3Wh212b1ldXHtAwAR9IM9g+aD21ymzUSSoBTJKwEdxuf/rvVzeVPn48xobeDmpT/jn/UjAwaE3yA7SVMSezXacD782AyZ7PwS84gZ0Vx5mRKiOVlWfaoG3VGTaENIOZ8yMKpQIp5d/B4ftOMa/WluqW/fxEYKioJSKEaCGQZLo6/CVCsZ2BgycY7TZLiI7WDsXjTyE7mGsHIn3rMbEzPb2oZ/+8c8VNFt/K8hQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=coPWzdunrUu5dnMXo2xgB1O23ZMxkZq+e5FYUmmfKyQ=;
+ b=n2NXWtc5PWCvA61QKNgeRAagSC21DecC6W7s5l/5Co0L9x68ig5JIm4VUHXJ8fAGwR851BbA2aMtQdyXrPDwylvj8Ih/jFfyADSyCETBoD1RNBfGHEEtZb6+fupyRImqjPKq/Ep4+o5iMeqVSa4Ul/Sf0JpCOgFLf0maF6m/bmwiKUrsHN1lVZ11R9bvj/vkrhMtKXAgkpgUzxXRzM4oNeOaf6xaJpttmf2w/U75OKFbv8+0vO0iBg01kNlfoGO3I+tel6bmsBX9cgdgAqVEM7D62LcxeMZvN6g17m/OLU4hjFZINkKCFhmm1uTGD7vRd1sMC31gwVrtQCDRw8xH6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=coPWzdunrUu5dnMXo2xgB1O23ZMxkZq+e5FYUmmfKyQ=;
+ b=VwTwAgmNjokiE74qSZ//9k6TkQBh+AUqcIW5916FP3iSOlti+lYPIvpi94lU7tAG1JzzKECLcUniz5rn9rQiLFo2KtrA/tGA4Yskfqhhrap6ULWoKsI/0P1k7oN0dAa9UyaoUae0JYFMCYqdMhjQNSA++0A96w5LlHPDqDN2+5USh8AIDvZqHpb6SZdnHbleIFer9dP4D0tUiwufzKs6SJ/L8njm4iJFZohlXgA7Z6MPnCFQAs/srx+4EvMY5lhvSzI71tFVCrhU7nHtPWOU3ivyfmSjzvsSRTopFXGqyAhlFNdwSKSuxyLu2kBKnY0dfpLba0GatYqD1jTZKUH0jQ==
+Received: from DBBPR04MB7500.eurprd04.prod.outlook.com (2603:10a6:10:1f4::16)
+ by PA3PR04MB11228.eurprd04.prod.outlook.com (2603:10a6:102:4b0::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
+ 2026 07:34:55 +0000
+Received: from DBBPR04MB7500.eurprd04.prod.outlook.com
+ ([fe80::c291:543b:4bde:cee7]) by DBBPR04MB7500.eurprd04.prod.outlook.com
+ ([fe80::c291:543b:4bde:cee7%6]) with mapi id 15.20.9891.008; Wed, 6 May 2026
+ 07:34:55 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank Li <frank.li@nxp.com>,
+	"chleroy@kernel.org" <chleroy@kernel.org>, "horms@kernel.org"
+	<horms@kernel.org>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>
+CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>
+Subject: RE: [PATCH v5 net-next 09/15] net: dsa: add NETC switch tag support
+Thread-Topic: [PATCH v5 net-next 09/15] net: dsa: add NETC switch tag support
+Thread-Index: AQHc2EvUOY2eXubYx0SUTOxsaXqwubYAogjg
+Date: Wed, 6 May 2026 07:34:55 +0000
+Message-ID: <DBBPR04MB75007E458BA3BB1787F81D8B883F2@DBBPR04MB7500.eurprd04.prod.outlook.com>
+References: <20260430024945.3413973-1-wei.fang@nxp.com>
+ <20260430024945.3413973-10-wei.fang@nxp.com>
+In-Reply-To: <20260430024945.3413973-10-wei.fang@nxp.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260501-arm_coresight_path_power_management_improvement-v11-0-fc7fb9d5af1c@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=XvnK/1F9 c=1 sm=1 tr=0 ts=69faeed9 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=Rg6frwBbQHgqRIZAXMsA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: vb5iZHeEjU10pqviDT_iwuna-FZWIXxB
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDA3MSBTYWx0ZWRfXxY1L/EGsKBy4
- NeNrKx9aCOIYWfeSDuS6S9OFcXso5SPC/teARNBdc6Az3IzMOSHgX7h4A19tnEh4caDiRKnEyvT
- jZ1Vs36gWt21a6Urz/SM/8a/4OWsLgGftwUSyseHsLG3H5eGBB+kFACdEQUOfy3tY2XZIiDspZo
- NxqKwcZpQKAZLdNOVjDJGcSiQV6SljElcIp18J2j5DIVLlYhEyebD9WFRS3kqUWzbGd2G0iQtMb
- NxUyTKcMGoXRHLq8wvip6rfd+VjmW7b36nPCIb/SrZ0kqPWThn6yIVoKzJfZzTJ82COf14C/175
- KRWUn5A58guAwDGTBW5+te6YR/9U1OoPZm0v1VhYUNqxEHvCoubnh+aWSnVBrBRlSqCmGVdNFFZ
- Hl31WgvwtjNLv8Weg2x4D33hPQRB9FdUVqN4eGZVsd/aDJp8mw0YeVBius4+0eOhUJ9czZpbZ15
- fNAxShfTceHEbJahBbw==
-X-Proofpoint-GUID: vb5iZHeEjU10pqviDT_iwuna-FZWIXxB
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 bulkscore=0 suspectscore=0 priorityscore=1501
- lowpriorityscore=0 adultscore=0 clxscore=1015 spamscore=0 phishscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2605060071
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DBBPR04MB7500:EE_|PA3PR04MB11228:EE_
+x-ms-office365-filtering-correlation-id: 6e4ebbb1-5c34-4f44-9768-08deab41f7d9
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|366016|921020|38070700021|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: U8U8kvZY5rPeGMfZ27Oed6+j+KjS/dTveFGpXB96ssUJhDR0S5kCMuqHtnNduNSxkv6ZgsIJPw5YPu0femrFbvKHMPjO/lAPliXucRGCWGnuR+rezZxkZnCI0qQRt1oMtDGeSkyr0OrF0IBb7Ow6KYObJSiHJ8p7x1RNkMZ2TGS5i5w1ehkzWt+bmZebpSmTxjSCE7yC7hKwNGdpBN7pFGURESh2DpDaOHSVpfVPB7ArtZHq4PRFJDPs+1JqBycxtbwiVsXrz46Nb7KWqcjMhclg5Cxkm9ACnGr39RO+H3fVtGGywlNZL9RjxeDpt3OZYlIhcG+x5xt0VICsqWDGOg2wMl1faEijUH6HkesYihEJOOni0anLNdGy2z9ef9LXgNBjAQfXSBwPhcXlx9rPmC9y963GxD7WuDkFAPCRLubGp23C9C30hOL7v1p05K787Itl4GBi6mVEmSv6mx8gTDRh8Uko3ddP/dRAQq2lBQEtKNx2544yXYBZ3MY5hwMjIkn8wkvP9kyUOkeQLV4UxzqCYvdajVOuYMjRCXRVoy2HTOoxgGGMaBoNDJrkGf5bWmalr1JuWvoUmGrzYYQb4aO8faf/i8Yt7Z4V7RyAkOlYw/1EPyNZfA+2W5aiWKcXuWXuba12PKDVxXbJaT+eJ+SNqoDF/+iqZBl0jhhT7GQ2u26GGOPDcvtT41uurnuC9j6ymOLkmrmloeeON86MY2DT78FqHK3SYYg72GNYlo5SHfrnQuyrReQUZD/N4tsRKWSaBEo9GdtbJhjiWIQeDA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR04MB7500.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(366016)(921020)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?zJoJTFOygzc1IUOFLbqITpdKXbqOYxGCpQ0pVk6GdANhDhTa453t90xMWxO3?=
+ =?us-ascii?Q?D8imLiMtKuNCpBmRCg1yEfjAsEkSIdMeGrAj1/2y5INWkTdELnrjPxKenT37?=
+ =?us-ascii?Q?flYf1EkgU7x/pdh9xQu63oU4iWPYEQ+l8nCfD97u0nmde4HI4ff5CIOJ6cMc?=
+ =?us-ascii?Q?jrHTixgvvEXqeycLt88vbS0pgFXl7wsEC5Pm6nJ7EgBITCQIHiLli5rl/JoX?=
+ =?us-ascii?Q?MovfAy5/bg5lhM+20iNgIstCey7nCArWvf4nSooWLVs9Gn3dztdvsMtHg+nf?=
+ =?us-ascii?Q?v1Ecl8I3lnHHeY5psHENjgY+trSmD9u8HpF2/dWGWYpLTchH30CH2TzaEfnv?=
+ =?us-ascii?Q?YIMPluAo1CvcwbyGfczkQ+qFeg1rXV0yDutj70Pfbwm1Or5zRh0ctvnY6XyG?=
+ =?us-ascii?Q?mGW5e+KmP/N0DKHzlXY3qNZIqtWCQmjq2c9G2jrQHpJQkru6Z4taKJZkdfUB?=
+ =?us-ascii?Q?4pqVXxxAhFCbJ4nsQ+XTifF3sLQ3P2WaerBOY2T/xzFEO9ZcQaTuW9SogATa?=
+ =?us-ascii?Q?7DX+w2Ipentxm2OjwO/rdMwWhj3gOlrIpNJ6iMQw+zvjjLSVxCiGzBF92+me?=
+ =?us-ascii?Q?lzTovHqqSHq0NY8Jgz1CTNuW4+QuBKT8ATGkGWd1V4rUxO3bwdBptZPwxxlF?=
+ =?us-ascii?Q?de5P1WAMALxsEf2XJfGZnnNIjrQZxfrh9HSvSiPJuWg3S1ykFyDwwLx6aWLl?=
+ =?us-ascii?Q?4XwDqFIBqVEAqKUOraBsMohwlR+Mi2EpPg/yfERmgTfF0zzCz8N+8t0P2dja?=
+ =?us-ascii?Q?n5zu5b99ZRnUIhX+2S0Tj4nAXRwJWbsH6M3hfhyy847YULNbLjXjLn5vWZI2?=
+ =?us-ascii?Q?DIAHNTeD2AT/jes7NK/QjKyJvPiYg6177dHMPEeEV2XCIqx204nRVRU1JPAt?=
+ =?us-ascii?Q?44gSBSOnO3CXajbwdpKeAnW1/2lutCtG5EIuDig2Hz8KoNKXr36LrJQzKwI5?=
+ =?us-ascii?Q?1h9MNUfCmjhMdgaIzt4AJbAlMM7hJWHWY87RYnlkDS3y9o+US8gIUNa54ONC?=
+ =?us-ascii?Q?Qva5nTP8V8B9ezXrP+eOtfF+0hC8odV5539XquGMMwzjaF9vhVuyBrfgeex/?=
+ =?us-ascii?Q?ndasrYDgNfikZoq5O7+8Kh4WTpDj+f1rHj9ykG/R0EbJ4ducpC7llsv5Reza?=
+ =?us-ascii?Q?jIZtMCA/sT/s3VTSn2sLxQcsBrAhECcHqjToqFcNOAAdEx0RC9ZXu1DMbqTw?=
+ =?us-ascii?Q?A40hysJEZeUoHrC1F2h5idDvtTARBgpR6hMQIQ53O/C4hFVGRuWz+98cUYw2?=
+ =?us-ascii?Q?JbJXwt+zw+r3bXmkIq9IVPZXyAGGLOZseuWI+UqnkkeVjvnfBwQMvMyfoIQn?=
+ =?us-ascii?Q?BTFgcnVlMeXFx7DTu/N9O2m7AhwQ8DTznVL2RqXv3H8LNV36jAGrKXjni/Cq?=
+ =?us-ascii?Q?WX8afhkD1t+ZLLUtF0eGd6McyAP+S3OkKSA/gu5M8wL0UN6dx4e0iKgC5FY0?=
+ =?us-ascii?Q?gxIN0AHALk/YJeoHdYEyNNwnj7YNSRf/1CZ+ckoCfn8sbdMZXyKWg1PBXUuZ?=
+ =?us-ascii?Q?zE+0vXilTcOefTHw4H11QTo6pYhoUxdz/aG0Sd2NTlVcGiFus4o/fflikBU2?=
+ =?us-ascii?Q?xvkPLAJdlSSt749SdvVdZlX3M3Y7wcj3qOIhxWBqPK7vAgdW2tp+4yrG9941?=
+ =?us-ascii?Q?iFaNcpBEGgiDK6wCgpEr/0HYP1kRKCZ0RTKOWYd0ukyBwwf5s98ZZ4RJ20DQ?=
+ =?us-ascii?Q?tqlCsF5644WQBLpJpKyTFxj31UF1hUjSfhJvlJvriHmGoaDa?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DBBPR04MB7500.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e4ebbb1-5c34-4f44-9768-08deab41f7d9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2026 07:34:55.2519
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mKTR3uHNu9pGSc5TY7T51VftRDEH3Aa5PH+UOnPge7vdHu15v1ZUhq1K9HfFVLf8qoxg7cOi73ahgj02E0rkEw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11228
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_003349_930427_732289D1 
-X-CRM114-Status: GOOD (  26.46  )
+X-CRM114-CacheID: sfid-20260506_003501_461531_1839C948 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,241 +151,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +static void netc_flow_dissect(const struct sk_buff *skb, __be16 *proto,
+> +			      int *offset)
+> +{
+> +	struct netc_tag_cmn *tag_cmn =3D (struct netc_tag_cmn *)(skb->data - 2)=
+;
+> +	int tag_len =3D netc_get_rx_tag_len(tag_cmn->type);
+> +
+> +	*offset =3D tag_len;
+> +	*proto =3D ((__be16 *)skb->data)[(tag_len / 2) - 1];
 
+Below is the comment from Sashiko.
 
-On 5/2/2026 12:47 AM, Leo Yan wrote:
-> This series focuses on CoreSight path power management.  The changes can
-> be divided into four parts for review:
-> 
->    Patches 01 - 09: Preparison for CPU PM:
->                     Fix helper enable failure handling.
->                     Refactor CPU ID stored in csdev.
->                     Move CPU lock to sysfs layer.
-> 		   Move per-CPU source pointer from etm-perf to core layer.
-> 		   Refactor etm-perf to retrieve source via per-CPU's event
-> 		   data for lockless and get source reference during AUX
-> 		   setup.
->    Patches 10 - 12: Refactor CPU idle flow managed in the CoreSight core
->                     layer.
->    Patches 13 - 22: Refactor path enable / disable with range, control path
->                     during CPU idle.
->    Patches 23 - 24: Support the sink (TRBE) control during CPU idle.
->    Patches 25 - 27: Move CPU hotplug into the core layer, and fix sysfs
->                     mode for hotplug.
-> 
-> This series is rebased on the coresight-next branch and has been verified
-> on Juno-r2 (ETM + ETR) and FVP RevC (ETE + TRBE).  Built successfully
-> for armv7 (ARCH=arm).
-> 
+Can this direct access to skb->data cause an out-of-bounds read?
 
-Tested on QCOM sa8775p-ride platform with sysfs mode:
+When __skb_flow_dissect() invokes ops->flow_dissect() on a packet injected =
+by
+a local user with a small linear area (where skb_headlen(skb) < tag_len),
+these accesses might read past skb->tail into uninitialized memory or unmap=
+ped
+pages.
 
-=== 1. Prerequisites ===
-PASS: Running as root
-PASS: CoreSight bus present
-PASS: Sink: tmc_etr0
-   Sink is TRBE: 0
-PASS: Source: etm0
-   Source CPU: 0
-   Online CPUs: 8
-   All CoreSight devices:
-     ctcu0
-     cti_sys0
-     etm0
-     etm1
-     etm2
-     etm3
-     etm4
-     etm5
-     etm6
-     etm7
-     funnel0
-     funnel1
-     funnel2
-     funnel3
-     funnel4
-     funnel5
-     funnel6
-     funnel7
-     replicator0
-     replicator1
-     replicator2
-     stm0
-     tmc_etf0
-     tmc_etr0
-     tmc_etr1
-     tpdm0
-     tpdm1
-     tpdm10
-     tpdm11
-     tpdm2
-     tpdm3
-     tpdm4
-     tpdm5
-     tpdm6
-     tpdm7
-     tpdm8
-     tpdm9
+Since pskb_may_pull() cannot be used on a const struct sk_buff, does this
+dissector need to use skb_header_pointer() to safely extract the fields?
 
-=== 2. Sysfs mode: basic enable/disable ===
-PASS: Sink tmc_etr0 enabled
-PASS: Source etm0 enabled
-PASS: Source etm0 disabled cleanly
-PASS: Sink tmc_etr0 disabled cleanly
-
-=== 3. Sysfs mode: repeated enable/disable cycles (10x) ===
-PASS: 10 enable/disable cycles completed without error
-
-=== 4. Sysfs: enable source with no active sink ===
-PASS: Enable without sink returned error (expected)
-
-=== 5. Sysfs: enable/disable all online per-CPU sources ===
-     etm0 (cpu0): enabled OK
-     etm1 (cpu1): enabled OK
-     etm2 (cpu2): enabled OK
-     etm3 (cpu3): enabled OK
-     etm4 (cpu4): enabled OK
-     etm5 (cpu5): enabled OK
-     etm6 (cpu6): enabled OK
-     etm7 (cpu7): enabled OK
-PASS: All online per-CPU sources enabled/disabled successfully
-
-=== 6. csdev->cpu sysfs attribute (Patch 3: CPU ID in coresight_device) ===
-     etm0: cpu = 0 (OK)
-     etm1: cpu = 1 (OK)
-     etm2: cpu = 2 (OK)
-     etm3: cpu = 3 (OK)
-     etm4: cpu = 4 (OK)
-     etm5: cpu = 5 (OK)
-     etm6: cpu = 6 (OK)
-     etm7: cpu = 7 (OK)
-PASS: All 8 per-CPU sources have valid 'cpu' attribute
-
-=== 7. CPU online validation before path build (Patch 27) ===
-   Offlining cpu1 (source: etm1)
-[  146.339051] psci: CPU1 killed (polled 0 ms)
-PASS: P27: Enable on offline cpu1 rejected before path build 
-(enable_source=0)
-[  146.689573] Detected PIPT I-cache on CPU1
-[  146.689635] GICv3: CPU1: found redistributor 100 region 
-0:0x0000000017a80000
-[  146.689801] CPU1: Booted secondary processor 0x0000000100 [0x410fd4b2]
-   cpu1 back online
-
-=== 8. CPU hotplug: core layer disables full sysfs path on CPU offline 
-(Patch 26) ===
-   Starting sysfs trace on cpu1 (source: etm1)
-   Offlining cpu1 while tracing active...
-[  147.498731] psci: CPU1 killed (polled 0 ms)
-PASS: P26: Source auto-disabled by core coresight_dying_cpu() on CPU offline
-     Sink state after hotplug: 1
-PASS: No kernel errors in dmesg during hotplug
-[  148.365194] Detected PIPT I-cache on CPU1
-[  148.365249] GICv3: CPU1: found redistributor 100 region 
-0:0x0000000017a80000
-[  148.365393] CPU1: Booted secondary processor 0x0000000100 [0x410fd4b2]
-PASS: cpu1 re-onlined
-
-=== 9. CPU hotplug: re-enable sysfs tracing after CPU re-online ===
-PASS: Tracing re-enabled on cpu1 after hotplug cycle
-
-=== 10. CPU PM: path control during CPU idle (Patch 22) ===
-   Sleeping 4s to allow CPU idle entry (source: etm0, cpu: 0)...
-   Idle entries on cpu0 during test: 49
-PASS: P22: Source still enabled after idle — path save/restore working
-
-Thanks,
-Jie
-
-> ---
-> Changes in v11:
-> - Moved per-CPU source pointer from etm-perf to core (Suzuki).
-> - Added grabbing/ungrabbing csdev for device reference (Suzuki).
-> - Minor refine for error handling and logs in CPU PM (James).
-> - Refactored etm-perf with fetching path/source from event data (Suzuki).
-> - Fixed Helper error handling (sashiko).
-> - Added Jie's test tag (thanks!).
-> - Minor improvement for comments and commit logs.
-> - Link to v10: https://lore.kernel.org/r/20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com
-> 
-> Changes in v10:
-> - Removed redundant checks in ETMv4 PM callbacks (sashiko).
-> - Added a new const structure etm4_cs_pm_ops (sashiko).
-> - Used fine-grained spinlock on sysfs_active_config (sashiko).
-> - Blocked notification after failures in save / restore to avoid lockups.
-> - Changed Change CPUHP_AP_ARM_CORESIGHT_STARTING to
->    CPUHP_AP_ARM_CORESIGHT_ONLINE so that the CPU hotplug callback runs in
->    the thread context (sashiko).
-> - Link to v9: https://lore.kernel.org/r/20260401-arm_coresight_path_power_management_improvement-v9-0-091d73e44072@arm.com
-> 
-> Changes in v9:
-> - Changed to use per-CPU path pointer with lockless access.
-> - Removed the change for adding csdev->path, the related refactoring
->    will be sent separately.
-> - Re-orged patches to avoid intermediate breakage (sashiko).
-> - Link to v8: https://lore.kernel.org/r/20260325-arm_coresight_path_power_management_improvement-v8-0-7b1902e18041@arm.com
-> 
-> Changes in v8:
-> - Moved the "cpu" field in coresight_device for better pack with new
->    patch 01 (Suzuki).
-> - Added check if not set CPU for per_cpu_source/per_cpu_sink (Suzuki).
-> - Renamed spinlock name in syscfg (Suzuki).
-> - Refactored paired enable and disable path with new patches
->    10 and 12 (Suzuki).
-> - Link to v7: https://lore.kernel.org/r/20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> 
-> ---
-> Leo Yan (26):
->        coresight: Handle helper enable failure properly
->        coresight: Extract device init into coresight_init_device()
->        coresight: Populate CPU ID into coresight_device
->        coresight: Remove .cpu_id() callback from source ops
->        coresight: Take hotplug lock in enable_source_store() for Sysfs mode
->        coresight: perf: Retrieve path and source from event data
->        coresight: Take a reference on csdev
->        coresight: Move per-CPU source pointer to core layer
->        coresight: Grab per-CPU source device during AUX setup
->        coresight: Register CPU PM notifier in core layer
->        coresight: etm4x: Hook CPU PM callbacks
->        coresight: etm4x: Remove redundant checks in PM save and restore
->        coresight: syscfg: Use IRQ-safe spinlock to protect active variables
->        coresight: Move source helper disabling to coresight_disable_path()
->        coresight: Control path with range
->        coresight: Use helpers to fetch first and last nodes
->        coresight: Introduce coresight_enable_source() helper
->        coresight: Save active path for system tracers
->        coresight: etm4x: Set active path on target CPU
->        coresight: etm3x: Set active path on target CPU
->        coresight: sysfs: Use source's path pointer for path control
->        coresight: Control path during CPU idle
->        coresight: Add PM callbacks for sink device
->        coresight: sysfs: Increment refcount only for system tracers
->        coresight: Move CPU hotplug callbacks to core layer
->        coresight: sysfs: Validate CPU online status for per-CPU sources
-> 
-> Yabin Cui (1):
->        coresight: trbe: Save and restore state across CPU low power state
-> 
->   drivers/hwtracing/coresight/coresight-catu.c       |   2 +-
->   drivers/hwtracing/coresight/coresight-core.c       | 530 ++++++++++++++++++---
->   drivers/hwtracing/coresight/coresight-cti-core.c   |   9 +-
->   drivers/hwtracing/coresight/coresight-etm-perf.c   | 268 ++++++-----
->   drivers/hwtracing/coresight/coresight-etm3x-core.c |  73 +--
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 166 ++-----
->   drivers/hwtracing/coresight/coresight-priv.h       |   6 +
->   drivers/hwtracing/coresight/coresight-syscfg.c     |  38 +-
->   drivers/hwtracing/coresight/coresight-syscfg.h     |   2 +
->   drivers/hwtracing/coresight/coresight-sysfs.c      | 133 ++----
->   drivers/hwtracing/coresight/coresight-trbe.c       |  61 ++-
->   include/linux/coresight.h                          |  15 +-
->   include/linux/cpuhotplug.h                         |   2 +-
->   13 files changed, 833 insertions(+), 472 deletions(-)
-> ---
-> base-commit: 971f3474f8898ae8bbab19a9b547819a5e6fbcf1
-> change-id: 20251104-arm_coresight_path_power_management_improvement-dab4966f8280
-> 
-> Best regards,
+This is a false positive, or at least it can be ignored. The RX minimum fra=
+me
+length of each NETC switch port is set to 64 bytes. The frame will be recei=
+ved
+by the ENETC driver. From the hardware perspective, each RX BD receive
+buffer is at least 128 bytes, so the skb's linear buffer will definitely co=
+ntain
+the switch tag.
 
 
