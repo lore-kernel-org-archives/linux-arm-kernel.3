@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCD4CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 16:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817B3CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 16:15:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TV6rjtUZylJXwa6ZmlS9vj62Pg7wQym17Q8x6SDp1So=; b=I8LDbKVj8FAJEurEcQ24GVKPGT
-	Q0zpZcBOvvOqDCtX/g+4JEuUMwJ9KfUxcJbj1Bq7b+6P1wbBvMFFggA9OH2lh1KdZDSUVqcThthgO
-	BDz4yZBT3DfjJKLFvzjmQeyEpWIfdedGeUGYufSaUl+w9d9CVI7LUfbfhmm2uMo03cgfhbpsHNv7n
-	YXUJZj7z1ytNyJgZlzQ6d8hY+Mqzv8m8p3zTLefXji8A+/Lz6ex0uJloxh83x46IfS+5Envsmi8Oy
-	IalNO2ETuisV1nv7892juo+mcQeklpJ/t5adbewe2Z6S+qq7NHkDPgiDed3JfHl8mwUefIhJie4eU
-	G4WqvIsQ==;
+	bh=FFGQIxzV0XqW9nC0/AKOyv2OIrk100bnZQY5xlfWlcc=; b=LlQDqtDqSMi82/BJhvkdsHaDMY
+	BOT8itnKfwKQ3Ajfo3ODMcAPNSjRaecr3McZsVjS6OGedEgoDfkZAJt4jreXlJd058hoDjZwa2iTf
+	QqAqBl9XpTJXoyJQ+c3B/QuPNIfy9MIPS+X7KofKAdV9tqHqHwYxwCfeQ3XykjYhi19BtLIqOkOGA
+	RWHR84O5U60GISciGqM6+fnBtZWdytxyrgYKHFb0xR1aEa1cpfgqTGOH4+8cOTJkQHuUWzuA/0NVS
+	QVYIbofdGco3HEHMklN/nnS6WdNHldJtwQKFl9KrC8y1/vHIyyAg6HIsZWxgsu0NXSdSSmq5vZ4tw
+	UjmB/g6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKete-00000001T9n-0xag;
-	Wed, 06 May 2026 16:14:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKetv-00000001TKT-0ftl;
+	Wed, 06 May 2026 16:15:07 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeta-00000001T6b-3ZmI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 16:14:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 930EE44259;
-	Wed,  6 May 2026 16:14:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76FE9C2BCF4;
-	Wed,  6 May 2026 16:14:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778084086;
-	bh=7EoFpIqU2CY22TlcKHX1E+bFT6rvufgU5nKroWLs2cw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kIxHMonyq1fOO8k8K595ytjPY6L/xMoNUXFblzwYg9ZXf8fL5h5ikvvZX/Idh75Hf
-	 3xP71VnX9wjjd0DxpTinrY2E3ofkxR89hX6OKJtVaivwfEVXXNQDknZlNZ4Hy3UTDd
-	 h5YoWID5TNljH6LbVY4azh+utumI7Tfa+XmWyAO0uDBWlOVttzjQYEoAkT/mfHQxca
-	 UInn+oRUNEuEFKTNIFFdyCkUqnBYm/zd9OXQ5sw5sIi0S3YP7YP9Lc9PLMt45QwxHI
-	 tPnvY4KAS5hrrP68b63LJkiQSPnwaiHQJbAiEC9J0S3A5v0UiIq2irkn/AgN74jjK8
-	 +MI81HQtOVmNQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wKetY-00000000MId-2aiV;
-	Wed, 06 May 2026 16:14:44 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] KVM: arm64: nv: Consider the DS bit when translating TCR_EL2
-Date: Wed,  6 May 2026 17:14:42 +0100
-Message-ID: <177808404890.2712489.4128021964001358070.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260505144735.1496530-1-weilin.chang@arm.com>
-References: <20260505144735.1496530-1-weilin.chang@arm.com>
+	id 1wKett-00000001THW-2IkP;
+	Wed, 06 May 2026 16:15:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=FFGQIxzV0XqW9nC0/AKOyv2OIrk100bnZQY5xlfWlcc=;
+	b=dxaB81nrrQv9ZYzmI+hxe9hf8pTaEG82gZB2ZW/exdXHtXFqRWfJtaSl9rVb7X
+	g/HMC0XeUUgN9EmtXmooML8TP+K1xVY24fdLXFsnpQJQWKCb1Xdp+1TyCuNEY9fh
+	YefWdL+yAUf76s44LeF+K8/ooMF18Pq7SeBqqoHafOxRI=
+Received: from [IPV6:240e:b8f:927e:5900:dbee:26f0:1b68:48a4] (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgDnr1XeaPtpun1fDQ--.22605S2;
+	Thu, 07 May 2026 00:14:23 +0800 (CST)
+Message-ID: <72aff075-847d-4e30-a5c3-bf26670646b5@163.com>
+Date: Thu, 7 May 2026 00:14:22 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, weilin.chang@arm.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/8] PCI: cadence: LGA: Add max_link_speed field and
+ 100 ms delay after link training
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ vigneshr@ti.com, jingoohan1@gmail.com, thomas.petazzoni@bootlin.com,
+ pali@kernel.org, ryder.lee@mediatek.com, jianjun.wang@mediatek.com,
+ claudiu.beznea.uj@bp.renesas.com, mpillai@cadence.com, robh@kernel.org,
+ s-vadapalli@ti.com, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260506152346.166056-1-18255117159@163.com>
+ <20260506152346.166056-3-18255117159@163.com>
+ <jmqw5tmgbpou5lanjcnolrpmipgnny6chm53wqybtqg4epfuql@cxqryplrmylk>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <jmqw5tmgbpou5lanjcnolrpmipgnny6chm53wqybtqg4epfuql@cxqryplrmylk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: PSgvCgDnr1XeaPtpun1fDQ--.22605S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWrWrAFWDCF43GF48Zr43Jrb_yoW5ArW8pa
+	yDGa4fGF1IqrWY93WkZ3W5XryYqas0k3s7Kws2ka4xWr13Cr1UJF12gF15WF9xKrWDAr17
+	ZF1DtF9rGF4ayFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UN6pPUUUUU=
+X-Originating-IP: [240e:b8f:927e:5900:dbee:26f0:1b68:48a4]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwx+qTmn7aN9kqQAA3Q
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_091446_911113_47644029 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260506_091505_967572_4108885C 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,26 +82,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 05 May 2026 15:47:35 +0100, Wei-Lin Chang wrote:
-> When running an nVHE L1, TCR_EL2 is mapped to TCR_EL1. Writes to the
-> register are trapped and written to TCR_EL1 after a translation.
-> Booting an nVHE L1 with 52-bit VA isn't working because the translation
-> was ignoring the DS bit set by the guest, hence causing repeating level
-> 0 faults. Add it in the translation function.
+
+
+On 5/7/26 00:03, Manivannan Sadhasivam wrote:
+> On Wed, May 06, 2026 at 11:23:40PM +0800, Hans Zhang wrote:
+>> The Cadence LGA (Legacy Architecture IP) PCIe host controller currently
+>> lacks the mandatory 100 ms delay after link training completes for speeds
+>>> 5.0 GT/s, as required by PCIe r6.0 sec 6.6.1.
+>>
+>> Add a 'max_link_speed' field to struct cdns_pcie to record the maximum
+>> supported link speed (or the currently configured speed). In the common
+>> host layer function cdns_pcie_host_start_link(), after the link has been
+>> successfully established, call pcie_wait_after_link_train() to insert the
+>> required delay if max_link_speed > 2.
+>>
+>> Glue drivers must set max_link_speed appropriately (e.g., from the device
+>> tree property "max-link-speed") to enable the delay.
+>>
 > 
+> You need to club those glue driver patches into this one. Otherwise, you'll end
+> up breaking bisectability.
+
+Hi Mani,
+
+Will change.
+
+Best regards,
+Hans
+
 > 
-> [...]
-
-Applied to fixes, thanks!
-
-[1/1] KVM: arm64: nv: Consider the DS bit when translating TCR_EL2
-      commit: 8d9b9d985ad3a81c751a6b97edaf1d3c0780af7c
-
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
+> - Mani
+> 
+>> Signed-off-by: Hans Zhang <18255117159@163.com>
+>> ---
+>>   drivers/pci/controller/cadence/pcie-cadence-host-common.c | 4 ++++
+>>   drivers/pci/controller/cadence/pcie-cadence.h             | 2 ++
+>>   2 files changed, 6 insertions(+)
+>>
+>> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-common.c b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+>> index 2b0211870f02..51376f69d007 100644
+>> --- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+>> +++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+>> @@ -14,6 +14,7 @@
+>>   
+>>   #include "pcie-cadence.h"
+>>   #include "pcie-cadence-host-common.h"
+>> +#include "../../pci.h"
+>>   
+>>   #define LINK_RETRAIN_TIMEOUT HZ
+>>   
+>> @@ -115,6 +116,9 @@ int cdns_pcie_host_start_link(struct cdns_pcie_rc *rc,
+>>   	if (!ret && rc->quirk_retrain_flag)
+>>   		ret = cdns_pcie_retrain(pcie, pcie_link_up);
+>>   
+>> +	if (!ret)
+>> +		pcie_wait_after_link_train(pcie->max_link_speed);
+>> +
+>>   	return ret;
+>>   }
+>>   EXPORT_SYMBOL_GPL(cdns_pcie_host_start_link);
+>> diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
+>> index 574e9cf4d003..e222b095d2b6 100644
+>> --- a/drivers/pci/controller/cadence/pcie-cadence.h
+>> +++ b/drivers/pci/controller/cadence/pcie-cadence.h
+>> @@ -86,6 +86,7 @@ struct cdns_plat_pcie_of_data {
+>>    * @ops: Platform-specific ops to control various inputs from Cadence PCIe
+>>    *       wrapper
+>>    * @cdns_pcie_reg_offsets: Register bank offsets for different SoC
+>> + * @max_link_speed: maximum supported link speed
+>>    */
+>>   struct cdns_pcie {
+>>   	void __iomem		             *reg_base;
+>> @@ -98,6 +99,7 @@ struct cdns_pcie {
+>>   	struct device_link	             **link;
+>>   	const  struct cdns_pcie_ops          *ops;
+>>   	const  struct cdns_plat_pcie_of_data *cdns_pcie_reg_offsets;
+>> +	int				     max_link_speed;
+>>   };
+>>   
+>>   /**
+>> -- 
+>> 2.34.1
+>>
+> 
 
 
