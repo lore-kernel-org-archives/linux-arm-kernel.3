@@ -4,66 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 104E3FF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 May 2026 23:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3C9CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 00:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MeGMWQbLjZspQ8v1tlpfYlPx2YUAxwMS3yXl0onGmug=; b=gCgs+MlFO19CEokImzslVQxCa+
-	7FT2um19/oJEM7+LUZkk/xmMiQzD1CMTk9yfKOlMePjiIR8on/Jv+IUqxH7rtjDgeg+BVi0G11Q51
-	TADTdwK8JmZd+O4IC0wbRYjWTF79V8n+5wMxEhaO8WONG67iS9QhWjR6kxAfJOaUKxB3AE6QQemiK
-	w3YzVoT1E/uWIlKSfE6tZ/A/fa2DXua5dCFrO9J0dUGW/Q2TG+mMWUjJZW1qRs8SfY6krzMzjR1pn
-	IkJamfgHkjkXy8twDTKYxrj4hsYXxzEzo2eWKTPFgpLwjdQ8xYbiHqeTUNZYqwjjnfTCbiy5GrJm5
-	0k2+6o5w==;
+	bh=1YNIUtYOAEzFl5jRvxqILmZomuAINmo2Khle6yMwqNg=; b=FE7Sja2fyUqimEBP/sjDVa2oa8
+	a6sLbSA5AKmKA1p64h61luqJ+Szp8bsPV/RMIo9czXRRlQTG3r1tjkvWIWgdO285OF7qvA6957JqA
+	z99q6LT9nNC0F8Fv+bJ55e8S4iLewa35gZjA2XvXAsri+nSEbpkM6bkAqouANAC3UopM2/LhiYxh0
+	ZFuEdGzGj0d3nfbPPGiMmYZvORvyXbRQyZl51Fz6485N3fybxvWkIRdW6duTGwRlW2Bem+57ml8ad
+	XxlXDrvPJGHMO73aOcDLh77xuVA3dJBpClz2BnIRqdDZXQ/d/AHqnCa9zly5NapXE04VxRz1V8tAE
+	WRXGUVUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKPem-00000000Gb0-0qIY;
-	Tue, 05 May 2026 23:58:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKPgp-00000000Grn-1nEz;
+	Wed, 06 May 2026 00:00:35 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKPek-00000000GaP-2Myu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 May 2026 23:58:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0FD946024D;
-	Tue,  5 May 2026 23:58:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95368C2BCB4;
-	Tue,  5 May 2026 23:58:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778025504;
-	bh=oZi5mOLJO5tHaHGOBk0mIAUMjE6TaWnkHFAMBM6by+c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JsmR+I5H5ev8eTvCdYfQowrbT0G+qLlOffLa6uWw/PMCnR5YANoFysupz43z1cPV3
-	 yygfJJWwCDheUdWDgoCBEM/PYXcP6bOICgdUTDCg1Ym7sB8ukKk+5POoeBuxS4MiPg
-	 5Crk8mUZ/kMz/n5PwGij9h/Hot1o4HwTGePlMgZ1lVq0hhnc1YcsGfDb9H+CA2LJus
-	 Hj/HYGg5IbzsJU6HJTeTMG9NqpFNOIYdNAl7iXo5QTIoY2t5k1olVcKiSDtujuFUP3
-	 4Fehqr9TDWriaorqRQdmuUF+RHQWUcEJm9jwqsaPoHRo66yxbWNa8P0zAKWAjoE5AW
-	 XXI5hzmYEtpbA==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 9B99D1AC5878; Wed, 06 May 2026 00:58:21 +0100 (BST)
-Date: Wed, 6 May 2026 08:58:21 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v2 2/3] ASoC: pxa2xx: push gpio usage into arch code
-Message-ID: <afqEHZSUCASXPUze@sirena.co.uk>
-References: <20260505202426.3605262-1-arnd@kernel.org>
- <20260505202426.3605262-2-arnd@kernel.org>
+	id 1wKPgm-00000000Gqz-2OdT;
+	Wed, 06 May 2026 00:00:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SOllEwp6DeG/eyRZXCgBb5tIfMaTa9j/DdNJ6/74ON66j9exOapw+J8wBN1OojSNs97rKofU8B/v4D2V1ndpis5v/g0iLwZ5wiVIjPpnb+RCSt3o2wZ5J3Wda2atIq+pA1ZSKJIjmBrr6bCBzbFLCO54hlG1FAZTW3UDopyCpJzvZTodseumZWm1VcSx2cSE0CyueaH0LEbNdYMCRG7PfedauD5Ol1r4IGiiisLG+Ykk6s7taD59grcSc79MQSkj9Ye3SXIAZbw2ljOMyDQWI58VgNTU8iOSWOkka3Eq1I3aFiBv8e4ZecwP8oXnCgOgT+EnM0HYXJjs9Xcr7Xq0zQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1YNIUtYOAEzFl5jRvxqILmZomuAINmo2Khle6yMwqNg=;
+ b=JPe6pFI7H8I8LltszQLOlI2XacAiePnoyUIfxYtpPoxkgUTjAuUXmYz0ZvXoBaZ+dmuDN3oV199R/Eu/eW6XRNl1PRvdl3aJugvb9RJauG3UBpOXpI8TReJcnKJVWpU3mXPuov3MXdr6PX67U0wZsWx0jhe4oMnuZmhPNeWdhFf2+79FsLduvcJiLk2Bk/VXOsvt+iVnGmG4WffmNp/VC5wYIioFNObCjipPdNML2aex/HpsDscfLrZ1SI953QJuZG92xSnW9ts05B+C66k1fwcZqlPf3W5U4yrnuxrBdu6H8Mbe0RXPLLY9sFG82OvmEgtqMX6awQGpmt32JAxECQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=genexis.eu;
+ dkim=pass header.d=genexis.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=genexis.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1YNIUtYOAEzFl5jRvxqILmZomuAINmo2Khle6yMwqNg=;
+ b=mZhCMiXoWVk2Xi5CXnCoZrKdsRta7vcB9T6mm4uXlEET14tVtf6GZyBt8CoiNJ+PaKUuB/cDCngZIHsWs/KPv6tNIsMQv+6zsfAJpLmAFGFgYOlgxLfqM7Pj37pCUahbSqyXUOghl1zcBfaAOCjAs4P5SkD8yKOZUqU97gyjPbVSgOnOmMUqBb57gtJrbUCaUNmKioPbg67PDuhgQ6ZNivH42qjVyoY/2qTfU4hcbh1AA8mwSXDkIAWhVWHazu5bkkghctL9gBikqnyELwtcgdzB3nnIDvG9Qhzr+FuXxAx+eLCfZFmsc4ZAY0VgB8yBH0QY0549BI1CTHkd0vqFEw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=genexis.eu;
+Received: from DB9PR08MB6697.eurprd08.prod.outlook.com (2603:10a6:10:2ad::14)
+ by DU2PR08MB10132.eurprd08.prod.outlook.com (2603:10a6:10:49a::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Wed, 6 May
+ 2026 00:00:23 +0000
+Received: from DB9PR08MB6697.eurprd08.prod.outlook.com
+ ([fe80::bdec:3e95:6614:441f]) by DB9PR08MB6697.eurprd08.prod.outlook.com
+ ([fe80::bdec:3e95:6614:441f%6]) with mapi id 15.20.9870.023; Wed, 6 May 2026
+ 00:00:23 +0000
+Message-ID: <5f3b3b38-1b53-4b9a-9673-de4ca321b3f1@genexis.eu>
+Date: Wed, 6 May 2026 02:00:20 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next RFC PATCH v5 08/10] dt-bindings: net: pcs: Document
+ support for Airoha Ethernet PCS
+To: Christian Marangi <ansuelsmth@gmail.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ llvm@lists.linux.dev
+References: <20260505182713.27644-1-ansuelsmth@gmail.com>
+ <20260505182713.27644-9-ansuelsmth@gmail.com>
+Content-Language: en-US
+From: Benjamin Larsson <benjamin.larsson@genexis.eu>
+In-Reply-To: <20260505182713.27644-9-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: GVZP280CA0081.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:274::8) To DB9PR08MB6697.eurprd08.prod.outlook.com
+ (2603:10a6:10:2ad::14)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0lcLZ48zRt5QpNpN"
-Content-Disposition: inline
-In-Reply-To: <20260505202426.3605262-2-arnd@kernel.org>
-X-Cookie: Alex Haley was adopted!
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR08MB6697:EE_|DU2PR08MB10132:EE_
+X-MS-Office365-Filtering-Correlation-Id: e881d99e-7dcf-45e2-c583-08deab027849
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|921020|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: AtjM9YpRxieDJ5F7seLmYaefnBV6lXyaCcoJEFalH5uSETeGUFIwLmx88rRUedRwBztN1WbAht/+oXqPeE+6vg3Xx71/r8G+pNe8o8uOfKe1i37vN6GrL43POxdR66kIzVinXHHLSBHeeiYz/5n4M613s2PuMPsjqVKMAPZHjOF/SqJ3+xvkVWK9DsKb/PSRPOcbx5iolzNxpqrfGII+cEApvIva3XaFHqrJ6YL2jkSY+N0UjlfChGpSV9JFwwgb9/b0XdjlODB6GD07hofUEddabnMeDa7HFPgbiMl1vF/MTXlRwsHLw0XgtvhzScjNCU0oLImqc7kBeIlhhM/H5xe4+8/bQ+lS/N3wJC3pqcBWK9RjUObVJEJK9uPxfH3yYXtmgtvQrOROkeyJNHUaElI1e8MiPf3+zcbei0k8AM0alnus3l0EFdH2K3HwA+FVj+5YVOqo6ltl6Q/3lzJxt3WOrkxOFIMNQigZ1eaBvaZnPT9NiWb9wMHhgj27rMdNlv070Q1JUNGpecy8yo9Knuciz966h6J2MW68H1teE7y1Yy5r2MTisQ6ebxm9LqfcUiLmydh85vF9Cot83QiVzDAtzNuIewEa7HTR2vvG0xz8DOcixot6YanwxnM0RO3qVpXJn7luFIVj7F/Yp1kJbahtP5KiqHxsh7wdrnG/JL2yni3F4Jy5QamzJDRsh4T1
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB6697.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q3VhV0lpZ296VS9SdEo3RWs3NDVWZTYwaGNPWHA3alNOaEdhS1JNUkpDb1hC?=
+ =?utf-8?B?SGpsdnl0eDdRUWFYSzVteHc1VGk2QWZQbW95bWhsL1UxVjZEWmlHakVhbXp2?=
+ =?utf-8?B?T05xMEw4MGFJRmZMamQ3akRocW0zNnc1L21UaEdBdk05YXJ1VHE1VzBGQ0tV?=
+ =?utf-8?B?bFFjMnUwTmsxbEd2QzV5Y1M1cG1mYUZuRTJPL2FYRFJTOUcwYzNkZ09yWHhZ?=
+ =?utf-8?B?T3hsNnQvbGpQU0xjVjVNRlZhRk9rbEhIZjk5QzV3elZ4SmtCUmNVNEozUXhV?=
+ =?utf-8?B?YTZJTzVxVU1FRy85cENCdW9iNy9UcjhqZUtNcXZQWVBPQ2d6TStJb1loa2Fw?=
+ =?utf-8?B?Z0FRcThpVmFUaTRVSmh3eUhVV2pQOGYxWjNRQ2hIaVFiR2lIUmM2QWxRY0th?=
+ =?utf-8?B?eGd2bFU3Y2ZPSFp5MlJlNW41VVc0b1FpY1dzRld0Z1pDK3NtbXphdE5FNnlU?=
+ =?utf-8?B?V1llbmcwTm1acmRBSGRvWVhCWTErelJPdGtzak5sL2dWYmh1RFFVdXhzVDh4?=
+ =?utf-8?B?eUZqTDQzcGtZRjJSMHRwTlVqUzBQMHMvM2RaTTdSWitDdndEK0RGMzRDNzc2?=
+ =?utf-8?B?eFc2RDl1dUl4Q2xaWUZvaDU5cmlZVUU4MUdlVHVGZ0YyTFptM0dtMjlRQ0hx?=
+ =?utf-8?B?RmZpOHkrc2hlUHdkQ3VYbXFTVENKWHNHUjRPOVRzT2h4SUR2QThENWdNd1dJ?=
+ =?utf-8?B?YStHNFlha0lrMnJBOTA1MmxsZHNqTmZEeWRhZ1NmbUJJZkpWdi9qb3VnTVhZ?=
+ =?utf-8?B?THFNQ05RbjJkS2xpQWlYWjdxclpDbFZrSzh0dUZscGdka05Rem45WG56NmxX?=
+ =?utf-8?B?dWhPSzR6R084UEFtME9wQjF0VXBFUUdlV3RFcFNSLy9yVkhxV1NOcXNveTdF?=
+ =?utf-8?B?cUFGTE9HRWtLZnp3VWVJei8vSnFBcGF5NnYxM3oxSmVkWHpua1M2WktKN25q?=
+ =?utf-8?B?YUtGZWhQWkVOTDBTcFpwdUgyeWVsQm1jNitHVmNyRGNFSzRmaGZlUUxBQ1J1?=
+ =?utf-8?B?S1JvZHFaTjlYcmttQ2pMNTR1bEF6dk1pdXB0cmpTOGJ4amU2N1k3c0h4aTQw?=
+ =?utf-8?B?QmhLbTd5alFtRDJHQUdkZWowY1JiN09ZUnpkM1NIOS9meDUyUFhDdy9acjcv?=
+ =?utf-8?B?N2w3TjFGZS9iZEpVUUhNR1JMRlRYd1FpaEJxbGsyOTJwWkhxbk5MODd3UnlQ?=
+ =?utf-8?B?RlViODdVWXAwTmtqNi9vS2E0U0pyWnFBVWJnY0NpbWdrbEsvNndmZmpMR3JE?=
+ =?utf-8?B?WHh5T2JjaVdNdHBrT3B3VTRnTHFTUHRoRkFPd3krOUluNUxnREg5MXVuZWlC?=
+ =?utf-8?B?a01GdkV2c1pVTEJWbmJSazNjRVFoaFpBNDFJalFHUjNLU1dnOEUwT1NXaHdW?=
+ =?utf-8?B?SStIWERPZVpkTHRJTmNyYkszcm1xRENodDMwdHZnMlhyVVhwNkZyTForaEpy?=
+ =?utf-8?B?OVZLOVEyeGtjbVByc0pOaVhsV3ZVWmQ2bWt3WWJsS2pMTmdUYTZCOVVQSWZC?=
+ =?utf-8?B?NnMvMEg5MVdEZ2ZsMWFVeUpoSGlXRSthc2Fkc2xvd0lmNkp2TDlmUGhCNmo1?=
+ =?utf-8?B?Zm51RDBlYk95enZoM3JIdCtMKzgvWTU1L21QMGg4eWs3dVc4eHRUZ1FJNy85?=
+ =?utf-8?B?UlhtSktQSlJoT2MvdGZKYkVUVVQxbnp1TlJHNHZRZDFQVklsMHd3alU5dkJK?=
+ =?utf-8?B?ZEZBWU1saHJOaXFOOHdoQmllWS93QmthdlczbVA5WitJL2VVMGRad082Rllo?=
+ =?utf-8?B?ZjZVczE4aU55dzFhVVU1M29uV3pKcmhidStPeHl1ZmtJWGpBbzFROXhIVzg5?=
+ =?utf-8?B?c29FdWt5QXE0dkJrUEVpK3RSYkdPbUZQd0ExZGgxL29ITGVPSnlxbU9rZkFF?=
+ =?utf-8?B?eEpXdjhJemV2bmQ1Vi9oN00zUG5sUW05c09EWjdlZGtFQnJEQXp2ZzFOajlh?=
+ =?utf-8?B?cjBvSEhLSWNSamhDRjIvdCtMSkxQM2UrZlhhaWF1VHYwS1BHbC9uTDRRc2Uz?=
+ =?utf-8?B?UVZLR3BkZGM0Mnc5MFIyRXNFMS81NENQamt5d3RXVjZFMEc2eXA1aUhhSFlQ?=
+ =?utf-8?B?TUhzRFFxZDkrVUpaancrWERCc2pTaStQMnVkMTQyWXQ0cDFRM0hDQzBDQ2tL?=
+ =?utf-8?B?V201bHVxTTNSUVBtMGhDTlROaW82dFBOWGVvVnpVQ2pURTJiSlkzeWxrbG5x?=
+ =?utf-8?B?VDdjZ3lXMXBBV3FvdkZrNzNmUjdNM2REWlNMNTlvYVAvdkxhcUJWOFFMcU9Q?=
+ =?utf-8?B?Rk5nblIxanM5SlpDczNKQ0xvTERMOUFNOWhNTE80VnFSZHNoOUJmcngrNUdF?=
+ =?utf-8?B?Z1RaaWNRRXFoNmhvaGhzcWRLa3pPZEtBSnUrVHVxYjJsUi9XOUlTYjlpVkNw?=
+ =?utf-8?Q?nhfJ2Qa1qKr1ul0c=3D?=
+X-OriginatorOrg: genexis.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: e881d99e-7dcf-45e2-c583-08deab027849
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR08MB6697.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 00:00:23.4866
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AfaybxIm3fCPu3JQQY2hV5/l8xWNE7VTzBbc3q88hHQ81bkYN9/Bz/7sj/BMaGyH1rvrngbr9Y61B/V3aKOBA1jEHZYpYQboNylIiWYGQyQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB10132
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_170032_645339_658685A3 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +160,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi.
 
---0lcLZ48zRt5QpNpN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 05/05/2026 20:27, Christian Marangi wrote:
+> Document support for Airoha Ethernet PCS for AN7581 SoC.
+>
+> Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
+> the various Serdes port supporting different Media Independent Interface
+> (10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
 
-On Tue, May 05, 2026 at 10:24:25PM +0200, Arnd Bergmann wrote:
+10GBASE-R
 
-> index 7df78867db49..0d5eaf4b100c 100644
-> --- a/include/linux/platform_data/asoc-pxa.h
-> +++ b/include/linux/platform_data/asoc-pxa.h
-> @@ -6,6 +6,6 @@
->  #include <sound/pcm.h>
->  #include <sound/ac97_codec.h>
-> =20
-> -extern void pxa27x_configure_ac97reset(int reset_gpio, bool to_gpio);
-> +extern void pxa27x_configure_ac97reset(struct gpio_desc *reset_gpio, boo=
-l to_gpio);
-> =20
->  #endif
+> This follow the new PCS provider with the use of #pcs-cells property.
+>
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>   .../bindings/net/pcs/airoha,pcs.yaml          | 112 ++++++++++++++++++
+>   1 file changed, 112 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+> new file mode 100644
+> index 000000000000..8bcf7757c728
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+> @@ -0,0 +1,112 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/pcs/airoha,pcs.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Airoha Ethernet PCS and Serdes
+> +
+> +maintainers:
+> +  - Christian Marangi <ansuelsmth@gmail.com>
+> +
+> +description:
+> +  Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
+> +  the various Serdes port supporting different Media Independent Interface
+> +  (10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
 
-You're adding a use of struct gpio_desc but not including the header for
-it or declaring it.  Which won't really matter here but still.
+10GBASE-R
 
---0lcLZ48zRt5QpNpN
-Content-Type: application/pgp-signature; name="signature.asc"
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - airoha,an7581-pcs-eth
+> +      - airoha,an7581-pcs-pon
+> +
+> +  reg:
+> +    items:
+> +      - description: XFI MAC reg
+> +      - description: HSGMII AN reg
+> +      - description: HSGMII PCS reg
+> +      - description: MULTI SGMII reg
+> +      - description: USXGMII reg
+> +      - description: HSGMII rate adaption reg
+> +      - description: XFI Analog register
+> +      - description: XFI PMA (Physical Medium Attachment) register
 
------BEGIN PGP SIGNATURE-----
+reg or register ?
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmn6hBwACgkQJNaLcl1U
-h9BV7wf+Jmw366XieA0d2MdbU3V0YXlDc+OCwyOPneDbRc8EVPKcVBtuGL3uDNrg
-mcKj4o5Vz6xBqJTo601VF9QKjxP8m6GHMoBaqnTigLj2cpijXYk/P/IRg5R5++tZ
-HUivwwyNM4Irp8wRyEn2+I+6cdRX/urSBzRNVPhyIC/VIKNSG4BjfMr7v2t26PMj
-J1iCQ/psxlDDj8pxFHtBlgG9FTLDJFJUnbAGVSE3kMFFk9XAbnj2rTOqvtzfXt62
-Z2aDCvNtzaCV/H0mN1uRyJGNdf2GCv8Qg30aT7ytbEB0PBUbozCbe4ZYQbLQ74N6
-kITzSVhWFCoWqejbh9OCPiE1wKlwEw==
-=yhzA
------END PGP SIGNATURE-----
 
---0lcLZ48zRt5QpNpN--
+MvH
+
+Benjamin Larsson
+
+
 
