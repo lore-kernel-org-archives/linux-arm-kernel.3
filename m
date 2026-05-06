@@ -4,108 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A64CCD343B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 16:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4318ECD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 16:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BJMOv/O1aBiuZmzmoKoUVmuRuzbELseC26dfufZxuYY=; b=Rkbty/LqLZl858bgIFlVAbTMqe
-	KpBv8gbu/8jXNI31kivR+yWJULjWfFMJkL+Z9XJWTLY20NDOsiI+5K8WtcXqf1HC/YYWDJWey/Dsr
-	FD5zBfdEqNtgE//TIMCdlPXOgaxTPcFVTuTcAwHz2nBhEfOXgsKjQ4SpaclTfv3duH/CLYu1OqGD/
-	KobjMlrYJzWe6tLjRvMs83TA9WX+UhDIdRfZyBV29EPgP4X1XLtN2LjW3rl3URIxTo5qjJ6f+kP7o
-	VpRTCv2Lmo56M4hI3prARFmAsiv3DAysq8VaNkj3HI0MICflf7sTdWsfZGlaN28zqO9CF3yvE0Pr/
-	x676ftjQ==;
+	bh=vl6gtDEwP/WGqP4XGKgcHTsYq0tg7ZJDq6KWRqpyQPY=; b=CigB9RgTyL7frEuVYYyWKjQQ9m
+	l3nG1aiptTJl1lvWjPQEiichfdR8jlsKg4GWlsXul28YiSXPwdx0H6fxhmECD3RBok/tlm71nMvza
+	LZDFVrdCZMdwfc1ag55rdCP6Q9eAVdteE2P6Oupq/AA7lrMbi7rf3NCs0c+au1gHNIvEyxSI8cKkv
+	SozU3xGNli+gCOmjdse419ejhdISvViLTQicyzqYjruDAG6+41Ye+i1Nxcv8gkw88Nf3DG46FnM1i
+	OU/BbAlqetEfogH6hRucmJDXZysDOCVyv/xAYgVvuMdRAL9doXyuBvTs28UWQR7BZdwTseUCeBTDe
+	xx8S7V1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeu4-00000001TSD-2MKS;
-	Wed, 06 May 2026 16:15:16 +0000
-Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
+	id 1wKewN-00000001UBn-3zmo;
+	Wed, 06 May 2026 16:17:39 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeu3-00000001TPa-1WEV
+	id 1wKewN-00000001UBU-1fIr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 16:15:15 +0000
-Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-6530287803cso6877499d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 09:15:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778084113; cv=none;
-        d=google.com; s=arc-20240605;
-        b=MJ1cEhDritwv/PgprCru1ZOFpnD/4o2ra1fuxsh3x4TWEwF5duW/OuMgahRQUJLaBC
-         ElXA3CtwaY+bg4RsBipkpKnRIo3tY+mee9eb8Kyjda6voxH/hy2VEHO8k94XergWN10Q
-         g3NZ3FqwUp5HZJhwcXB3Jd2Y/hnlVj80DSHOzj46UXZqk+46YtBCRzrE+WBE9m1+En9/
-         j1/njANbDh40B55S6BbTHyUxuMjVbwOKYf64FCF+vXjox5seTCCRLJ+wUq1QZ+I38ElQ
-         iiZAqYiCc9s7ytkpef3n3nY1GGYYDvKMjzczwPH8s5ocNWyg70xw8evYghaxJ3JX0Yqa
-         GsKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=BJMOv/O1aBiuZmzmoKoUVmuRuzbELseC26dfufZxuYY=;
-        fh=qlwXurcfnMmXELSfZfqM1Ewr2Fh7k/9/RyXPUV88Lns=;
-        b=ei7ZO2gC7PeBFWJ+DPMuP1y3my1udMuUhg+vW0Jjrs/TguG9kbmJFWASpetdxpXzPS
-         g9C/ZczBtPvV2Oq7vuL5kHMLzBGFYz2cJmSPFpJuLTGkzvp5FqaoKYzWs1R4L92JJLKT
-         WDK4se6HCKfIyaVbndkthe+IJgLMUMrm50V0IkuiHUEToSMDhTtsK712NXMyr7fWAwx9
-         oTyKrIX2wWnjv+3+nB+JZObNTJuDEFgic0IdkOEewLJeLExT1avzJwOT3qpwC/AkJLLD
-         Or+ijGHwlW/X1Cnfym1VzuTJ41PDsB78o0mTVSX7+MKis51m3Xupnt2s0CWep53kpnx1
-         aqhw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 06 May 2026 16:17:39 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 646EGBxq3309059
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 6 May 2026 16:17:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	vl6gtDEwP/WGqP4XGKgcHTsYq0tg7ZJDq6KWRqpyQPY=; b=f4hebraPSXWso2xB
+	ZVPODWHYJbqc3TcCB42zbDmh25VHSdrAzg8ksAJxrehsSfknt8AJiTyZlX2fQc2I
+	RrIWQz+LLUrdBF/iEkdFr1oas3qykbOLqYaYEqFEOGxofcMzbDduREJH9y8gkmhb
+	EFj2lNsg1jiKixua3ZCuwkin7hPgn89sbV1uMqspGI1Kr+RliKkx8eYOuGTOisbA
+	Re2F/bnXgehXejg1JUoKj8DrOxLdVjotiBCBnLG+/7cTVo5nh6GVdZaEAz0nzNMO
+	+oYBELy/9yLHek0rBE/FVICz1PsvlXge5e+KYvwb4d22kiAQacqe0mC3Za8j8RmA
+	H62Dsg==
+Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e078sgghp-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 16:17:38 +0000 (GMT)
+Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-95cf2f6a8d6so2746255241.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 09:17:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778084113; x=1778688913; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BJMOv/O1aBiuZmzmoKoUVmuRuzbELseC26dfufZxuYY=;
-        b=Xm+3lrf5/D/O1BBI/3rtE/8pBAzJdXVVBiyckoYH0F0rcp68lYfkn8ymttW/3sUK9Z
-         CohzL2e9dbXTwrsA2tmslt/aI9rDUuXuoak/8mWSEERl8gpmwPdpUhXhIQUkkaZ79Ckw
-         pYvgAXICk+EGXvcUARts4eAYJZK/PM4N1gYnqDdQdi6pkwGRjmfTPgsaEzJ1lv7zbOMV
-         jm5VnAht32WJ2MdcTfbF7gJf2/76zQ3LO03nzG9v38MSfT+GP+HoxtPVMBBl4lnloS5R
-         lCFydWUSkjO6vJ2XWrFc/PDM7H8D5FMwLQ/AYlBVeP7aZOwfnaKO80P4W+QXU4lO6Gi0
-         cmHw==
+        d=oss.qualcomm.com; s=google; t=1778084258; x=1778689058; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vl6gtDEwP/WGqP4XGKgcHTsYq0tg7ZJDq6KWRqpyQPY=;
+        b=b/5FOlNW6FEbjPD2E/ghFspflCkQATJ8EL3sWtyzJVjOrWR1zyM2xmnHFUgxrjy645
+         C4XNMHiE11qnJtvvJV8ApQU8fyVLvAR6Q2IDGKtD8+vPBpbj8ptlYhzKOhuSGPzIA7MJ
+         L1lZhP2saZQJhv4yF/ajTVPI5oQFXSiztRIaVx/5JUQM8diFZ4uQlwK3qHnOJeJj4wpG
+         5Llu9n2FB4aAQYOClOVlwcLetxVAnkZD2SEN+WAga7ltXqOZLmQYObDrx71Gs1MLXcJS
+         cQvy4wdGXIMaqb0yO/d1ulH0x9Cx2qFG2jtxsFca/D36S36U+ewCrxnagjVGwSM2Aehb
+         VF/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778084113; x=1778688913;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=BJMOv/O1aBiuZmzmoKoUVmuRuzbELseC26dfufZxuYY=;
-        b=rBRcGWdG+LqR7SaB5rn7+x5E1IEEUDWYKkIIKCIGQIU2XDihfKhqGOhmXZXiLB9kaT
-         ULMhiBfU2dvVWhNoCHUTFDuVkDp6BAloDzuqQhjEgK8Omd9Ig8IDzfv1j7rNRnHbOrzp
-         kdhKfpiW8wrMbtJP3GZPhDqZw048A8OJ/FpcCd1N1BbV58iofvB10jEJwZ7JW9D7zBuW
-         Lne4LwMcMsj4IniT1jr1Y3YpEN3E3URPh7nzxcuyC8aFPvZW5ue3v/QsV2gqzSaCkQFj
-         cDFCgRSBMKGcVWoOfl0AbkN73ER/LTUJ/umuFfVVZutKSYWqgbt3fz2B4E0UMgVBI3ZO
-         mO6Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/C6DSx0VLTFfZxaj8IIdBl7xkzTvW5tFRKlUV4xIchRCYDQ1q3aLHjxyAso8ybz3+AluUA37psqjO5dCqVnu0T@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTz0xdpn+IZa5yp9/1FRDWFxwADzWjiKrFB3ZKrEg8EOsaK9w6
-	/ROQZ0R6zfN01z+kha2IWLxXipClLJsO2kZaeCD58+rvNJB0LfyPTfqOsgc53Q6h4X+VxrNJ383
-	PmCkNiLam6eUz0BLhCFTFRHpc3LLHbMA=
-X-Gm-Gg: AeBDiesE3PGhUBLgnmSQyOhUy6Az5RozdO3qDUNrDndHRdGgwAFBwrIhmgnZL9nI8jv
-	b74LJ2qqI+6JmmgEJnoOXStWK8sSQW7j0cIpSjWciVH/9VIP43HUxbkEZV9DhUpEcBrxT7IGNXn
-	1sNrKaLzkOIbVv2TdyOkYqvgqT/xqCu3G1S2L36FoFchY/sl4GGB8kQiweA9/NsW7GfZEBDcJyE
-	42q2q/Ryp2T/vyfkt3ZS1rq73O8Ak0f/D7oQXDkqG1WVqATjqJ7bvw9aTKg1aQdt/6l6xq8OzkB
-	rRrKRpVgmHY8h2T+aDV3
-X-Received: by 2002:a05:690e:68d:b0:65c:4a30:305f with SMTP id
- 956f58d0204a3-65c799d739amr3244253d50.51.1778084112913; Wed, 06 May 2026
- 09:15:12 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778084258; x=1778689058;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vl6gtDEwP/WGqP4XGKgcHTsYq0tg7ZJDq6KWRqpyQPY=;
+        b=h+IYMFk+5NFhcwT8xXzKVTNfAJR70W8ZiGoD9eQhoBYIdjZjvt7JUX9LuAFQmWxy9a
+         UaSNxVQxvCco0RK2P3qjII07T957Nd1ILFioB8FAUK+4+44BfVIOeyTK3IvjHF03QNDx
+         d6ldFWZmvOdBMgoKqDj/1Ejwi1EhJ80Q6XkPiLy4qijppxGOLskTxnXwSxMXAxFEY/u7
+         llqhzvMNLsIGR6EdQjJLPz2KgRVj3UHZlICeprv6zvpgghzStbf0GXoH+wi53mHKfzef
+         jpmfPIUzCc9gfT4hox9/VsOBJy3hKUY4zv4L/5FQojG2WMZ8R1BbV9MK5WeWWcox7+9b
+         2T8w==
+X-Forwarded-Encrypted: i=1; AFNElJ/y0Ri80Uy10KVBTF02Xk9np7vdFLuLROhAnlJ/YpvKoCWP7N4dsPmQ0r2DRu8eBCUCvt1Z42UW4cai5+1sc9YP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8NUVez76B9bcJeU3lRzNwYK0Ihw6dG4SWDeNFYchfnj53teM7
+	RFrsH0Yi+9MlN1mftxcT6G87EIJj+JVwsU1FZFG7f5wd2IPM5gWHFwj1RlDRF6/4OSrD/p2xJ//
+	fVzVtOAzRcDt4hGiaL5TFrNoOzq2Lci/i6zUcqQAxtpUwp6Pk6lwtfvhMaHH5lIhjgAzclh7Fwt
+	r6Bw==
+X-Gm-Gg: AeBDies80WWbK3H8BKY7eLOgWCbxXf2deJVYBCtjM6P3Clhyc4TNHOiFcOWpzcIh2As
+	FrIiuJOEYbNH+xWUdGUv3SwZWNvkFtQ0+ivdI9qyHuH8VfenYFIt6CfV/g7uzW6SyaVPa3PjyBB
+	dD3hM12qho+4XgCrCWUBiMtR6/lwEwJ50qyQYacXj/946qYta654Q2/+bHJ3YJ+bFvd8nCMeoDs
+	2H0xeGkn8tLVYxBGdUiZhg0iIGI9XMj+8wfcUKB9mG26OzJKOzqd/ZTsGslihLkH1jlCP0zamk6
+	TH2tiIKM0zsLtMfChYN80vk6NWsiAmdxj4wMC77fFSlxlKyPVxqnwD5T00WKgetFEQ4gQurbm1X
+	L5S7nMIQHBk2Rg86pXrbJiUFtP3zPmmIIMnumzaiAPjvp1t8ahaWQbBG0Ced1loNh0K5w/YmOMk
+	i5W8r+8M1fryUmX96dhyI=
+X-Received: by 2002:a05:6122:8106:b0:56f:b831:909c with SMTP id 71dfb90a1353d-57544474e1emr3810510e0c.1.1778084257938;
+        Wed, 06 May 2026 09:17:37 -0700 (PDT)
+X-Received: by 2002:a05:6122:8106:b0:56f:b831:909c with SMTP id 71dfb90a1353d-57544474e1emr3810491e0c.1.1778084257512;
+        Wed, 06 May 2026 09:17:37 -0700 (PDT)
+Received: from ?IPV6:2a05:6e02:1041:c10:41ef:7b80:b3e8:2c1a? ([2a05:6e02:1041:c10:41ef:7b80:b3e8:2c1a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e53891d62sm95223275e9.1.2026.05.06.09.17.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 May 2026 09:17:36 -0700 (PDT)
+Message-ID: <2e9dd9fc-a42b-40ea-8393-3bf66955c4f2@oss.qualcomm.com>
+Date: Wed, 6 May 2026 18:17:35 +0200
 MIME-Version: 1.0
-References: <20260504214613.121283-1-m32285159@gmail.com> <20260506165112.4425c378@jic23-huawei>
-In-Reply-To: <20260506165112.4425c378@jic23-huawei>
-From: Maxwell Doose <m32285159@gmail.com>
-Date: Wed, 6 May 2026 11:15:01 -0500
-X-Gm-Features: AVHnY4IuSavlIV275gr_U5thFF__q-qs11Ev6DJHLLnKSIdfl8ffZ-u6PNefrPM
-Message-ID: <CAKqfh0EMM3n=jZX4f1xJ4Ks+xg4CvSw_1FF13cFbSiCMLh0eVg@mail.gmail.com>
-Subject: Re: [PATCH] iio: adc: xilinx-ams: Replace spin_lock() and unlock()
- calls with guard(spinlock*)()
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: salih.erim@amd.com, conall.ogriofa@amd.com, michal.simek@amd.com, 
-	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, "open list:XILINX AMS DRIVER" <linux-iio@vger.kernel.org>, 
-	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/4] thermal: qoriq: add i.MX93 tmu support
+To: Jacky Bai <ping.bai@nxp.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Frank Li <Frank.Li@nxp.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, Alice Guo <alice.guo@nxp.com>
+References: <20260430-imx93_tmu-v6-0-485459d7b54f@nxp.com>
+ <20260430-imx93_tmu-v6-2-485459d7b54f@nxp.com>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+In-Reply-To: <20260430-imx93_tmu-v6-2-485459d7b54f@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=Lc8MLDfi c=1 sm=1 tr=0 ts=69fb69a2 cx=c_pps
+ a=KB4UBwrhAZV1kjiGHFQexw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=8AirrxEcAAAA:8
+ a=_0vOcDHEFh9t5MRidCsA:9 a=QEXdDO2ut3YA:10 a=o1xkdb1NAhiiM49bd1HK:22
+ a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDE1OSBTYWx0ZWRfXzETeCoa6hRUD
+ PMUqOCpuWBj84YnjvYnZW0ZBLx2Qo7iyUd38C+0ouSqO3Ud8IBHBtQZTIhHZPToEWsvD1EzaqiK
+ DBe/Riv82My6+0Pw2jDaPabv88G0wzEWJDNmnQPijVyWTuYiFxR6DiRRcU68Agt2dORZWbiNs0U
+ VwpsY/cENa21zX4yD44uvnLzyOOGOnbM67p4eZtv+/WRHUW/SrrgeaTrjRQ2AZsW0q+bgiHPAbD
+ PqVbIvpaBJfRf/uY/fe89TqCqxh4VGqZf62+FdJKCvbKTkLYn/EwZc3MDCSXondrPEieYphTMoi
+ hthdxOW1J1DL+udorGmvYBQHD+VdNDgP6WVBeWlMm+nh1IHpGkMk+W/lxJkATIVQ89wkC2fVkN5
+ PexuTwsKB+zZlAjGY4DrfBVbw119wu+iTtxkL9Ru3XOtAkmw9pLFqpic12WUIh3jVB2ooWnmk7U
+ UI7BlQ5DpJ8Hxg0jGAQ==
+X-Proofpoint-ORIG-GUID: UCI8XQKH8znEufcMg-dgzohbMmHmaUhb
+X-Proofpoint-GUID: UCI8XQKH8znEufcMg-dgzohbMmHmaUhb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-06_01,2026-05-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 adultscore=0 priorityscore=1501 clxscore=1015
+ impostorscore=0 bulkscore=0 suspectscore=0 malwarescore=0 phishscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2605060159
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_091515_406241_BBB8E0BB 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20260506_091739_448759_EAE3C3E4 
+X-CRM114-Status: GOOD (  18.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,58 +158,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 6, 2026 at 10:51=E2=80=AFAM Jonathan Cameron <jic23@kernel.org>=
- wrote:
->
-> On Mon,  4 May 2026 16:46:12 -0500
-> Maxwell Doose <m32285159@gmail.com> wrote:
->
-> > Include linux/cleanup.h to take advantage of RAII macros.
-> >
-> > Replace spin_lock() and unlock() calls with their RAII macro
-> > counterparts. This will help modernize the code and increase readabilit=
-y.
-> >
-> > Remove "flags" variables where spin_lock_irqsave() has been replaced
-> > with guard(spinlock_irqsave)()
-> >
-> > Signed-off-by: Maxwell Doose <m32285159@gmail.com>
->
-> Hi Maxwell
->
-> One thing inline.
->
-> Thanks,
->
-> Jonathan
->
-> >  static void ams_enable_channel_sequence(struct iio_dev *indio_dev)
-> > @@ -1060,9 +1058,8 @@ static void ams_unmask_worker(struct work_struct =
-*work)
-> >  {
-> >       struct ams *ams =3D container_of(work, struct ams, ams_unmask_wor=
-k.work);
-> >
-> > -     spin_lock_irq(&ams->intr_lock);
-> > +     guard(spinlock_irq)(&ams->intr_lock);
->
-> This increases the scope to include scheduling delayed work. Seems unwise
-> in general and should definitely be mentioned in the commit message.
-> Use a scoped_guard() here probably or leave it alone.
->
+On 4/30/26 04:53, Jacky Bai wrote:
+> For Thermal monitor unit(TMU) used on i.MX93, the HW revision info read
+> from the ID register is the same the one used on some of the QorIQ
+> platform, but the config has some slight differance. Add i.MX93 compatible
+> string and corresponding code for it.
+> 
+> Signed-off-by: Alice Guo <alice.guo@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> ---
 
-Will add tonight.
+[ ... ]
 
-best regards,
-max
+> +	data->drvdata = of_device_get_match_data(&pdev->dev);
+> +	if (!data->drvdata)
+> +		return dev_err_probe(dev, -EINVAL, "Failed to get match data\n");
+
+I'm not sure testing the return value is something very accurate because 
+it is like the code is testing itself as everything is self-encapsulated 
+in the driver.
+
+> +
+
+[ ... ]
+
+>   static const struct of_device_id qoriq_tmu_match[] = {
+> -	{ .compatible = "fsl,qoriq-tmu", },
+> -	{ .compatible = "fsl,imx8mq-tmu", },
+> +	{ .compatible = "fsl,qoriq-tmu", .data = &qoriq_tmu_data },
+> +	{ .compatible = "fsl,imx8mq-tmu", .data = &imx8mq_tmu_data },
+> +	{ .compatible = "fsl,imx93-tmu", .data = &imx93_data },
+>   	{},
+>   };
+>   MODULE_DEVICE_TABLE(of, qoriq_tmu_match);
 
 
 
-> >       ams_unmask(ams);
-> > -     spin_unlock_irq(&ams->intr_lock);
-> >
-> >       /* If still pending some alarm re-trigger the timer */
-> >       if (ams->current_masked_alarm)
->
->
 
