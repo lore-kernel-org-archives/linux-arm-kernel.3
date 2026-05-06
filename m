@@ -4,74 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B870CD343B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80185CD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nIiyHD4R5oG9FPiv5BI4H9LmmIPziFbR2ju0A0ZxIi8=; b=QV6aUH4YT2CvxNUFYXQS+GRQs/
-	v95+AwG2PdHbO6gS/i6u8IyliuAE6SvE7XMUfLI68sD46A9uri3hcCIrqdzHSegki1SjsN9txNnh1
-	ilOSsEvrdA6TaWwIMkPzFFDhtVZ3cRmpg1/0kUDdPg5z6As5Oqj54eHO6H4FOyqj4kK0aQXhW8zBZ
-	BMPhbkqabWO6pW1ZBThn05E6GqMh2cTJAQoxLdrbE/WneVhXJ8Xxnk7y9dlYu3DJKYEH20bf/WK86
-	v8mHXQFNr7kwr72+LEa3hAiQStaVc85Ick8Hn9cVCL1ENkjqyxCk7j+BPDG31HNqVbAsVy0HZSKFa
-	ABxcsJKw==;
+	bh=3B9YW1Ck4qu2cjRy/tdGiyuUBQqV/sa7sjOilg8iEYU=; b=VCpFYaIZ3EY8ZEc+RKqSp1IOfU
+	DHpAamQ2OJQ19j8gdPPXCsJaBvVIFyuc8So50The5wGOgsFIaRlUXmsVDAPn5dPsQ7hq9019QZi+2
+	STG/04ab8lJYvro8dlSCFHZ1Lq6BO9SWf8TWSr0Jef7u2FJGEIhSw+0g5Kyimj3kB6VQIl7iSvOC/
+	q90MhDW/7IHcqElcZEfJ7Av3ZhVw33i5GMOhzq/u4jpNNxpV3Tt8QyZX42ql86svvXWMf9zx+dXwS
+	2xVTJat6mjV5pFHyEfy565RStgqoTla4p3DUI8E7yvLFjylnnCsgJ0wxKW9vdKEclblqPQo4C5o4N
+	VxCIIjKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeF5-00000001LT1-2WOi;
-	Wed, 06 May 2026 15:32:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKeGQ-00000001Lv3-42ql;
+	Wed, 06 May 2026 15:34:18 +0000
+Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeF4-00000001LRV-0bE1;
-	Wed, 06 May 2026 15:32:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B6BCF40BDA;
-	Wed,  6 May 2026 15:32:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57EB1C2BCB0;
-	Wed,  6 May 2026 15:32:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778081572;
-	bh=zum1bFqqE6ET+3OdOi3NoPnuFsNs2Tr0kQTqHlVTzt0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P8XGCe6gMwHVbCWcAz9IfUGA84Ywlch3e6oZInGSI/VOxy30IX2AGUvHGpGVSlx/4
-	 COQjCrKt1bZ6ZDyDSXCqUA89htROrN9FPQ3Iwvc75rz8Xsg3YV9Q71ZU/LryusajXh
-	 Cu5o6cNLesDic+osa8bTG7bAi3Pn4UV1he710HLCg1m2vkiMHC8u6V9rZH4RuE5aQx
-	 rMhxNdEbSNhwOUHtxT2Vi/F6yGcJXRi5fd0GqOtQFBf3rKb1Zsum8T0Qiov48vP2ZK
-	 7TRPhUjPGGoK0nPjgodOh6pa09n7QvM8Ix+/pKRvr29rUe6stlKhJxb6oe/2HTw4ef
-	 /0G4v5Y3pFu4A==
-Date: Wed, 6 May 2026 10:32:50 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	kernel@collabora.com, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, Chen Zhong <chen.zhong@mediatek.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Sen Chu <sen.chu@mediatek.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
-	Lee Jones <lee@kernel.org>, linux-mediatek@lists.infradead.org,
-	Sean Wang <sean.wang@mediatek.com>,
-	Andy Shevchenko <andy@kernel.org>, linux-pm@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Macpaul Lin <macpaul.lin@mediatek.com>
-Subject: Re: [PATCH 4/9] dt-bindings: iio: adc: mt6359: Add MT6365 PMIC AuxADC
-Message-ID: <177808157001.2166222.1416480244789545684.robh@kernel.org>
-References: <20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com>
- <20260429-mediatek-genio-mt6365-cleanup-v1-4-6f43838be92f@collabora.com>
+	id 1wKeGQ-00000001LuP-0SOR;
+	Wed, 06 May 2026 15:34:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ija0YOG4T+Kk/07ZVui716yBO9OUruC65lls4+0xymBAqOcQ5gDkMYOs7oEUKgiKn2VqbT3GCls7qCgyZ7kj2ClpaHbFTDHMphGolDIcjdSEoF39hp4Zyce6rsQ/09SfHjNiEdfIJKOd5tbN/HyQ2P2vhIAHqm5YyzWbr3VsMIy2GzHPOvSn/uCy7R0dL4dEHGuTnzfgTSQdZXzlVd2GRagE3Iy1PLj0OUx3t1jsYkXEVkPzaeMTlbjTSpHj7YVbaWb2imeWRC3S5THHo8LczNlV71DjYoM9jgFT6HHMd421JZxwmDvxSrsjO7ErSDY7Vnns/sX54Jm68xrp8EgGMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3B9YW1Ck4qu2cjRy/tdGiyuUBQqV/sa7sjOilg8iEYU=;
+ b=xnsuhzOOH02px7P/TRyvyJ5HNB925/zUfOz3F/6ubyYcXSzBKVFTxrutlB4oyd35Y2bABZulHWQ3JmcO95let1wRBnhIHsvaDVWyWYGhkQ88nlg+cQXbM20YS/WzLwR+AL2fnEqyXfWMc8Cghfj9czCz5JBWFt51EZmPdACQN79sKO15FFTrwv4APHu9tyaDmu9oQk1Bi6FzJnC7n8xiZBuTkZdGld1qdoiRCMGr2wg3tIezTZP7utQ7we2qFD9I6ZHJc4H7FoIrKGvMCXGsBbhDfu9kkvitnCjZxy2TRnScZ3DJbKk6KYHy5BLyZuJqe6NmGzhwWfzyTBY8eh1Prg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3B9YW1Ck4qu2cjRy/tdGiyuUBQqV/sa7sjOilg8iEYU=;
+ b=RtPJ61aJnw//JHMREBv8+34o9+0SLiu6/jBNQESu7dPp8Iq/xVc/LY0xsjygGI0S6np19Ya4uTDDvWugY3ZBLlNeSqZUuiVLe4l5NeehQ6jsO3BBMnQT0r+7+Wxbokae3fBjAkKuJgTwL2FsrIydQ9WUPeValu9/4DGmyVUfwvI=
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
+ by OSZPR01MB8218.jpnprd01.prod.outlook.com (2603:1096:604:1a7::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.17; Wed, 6 May
+ 2026 15:34:15 +0000
+Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
+ ([fe80::87d1:4928:d55:97de%4]) with mapi id 15.20.9891.008; Wed, 6 May 2026
+ 15:34:15 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Hans Zhang <18255117159@163.com>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "mani@kernel.org"
+	<mani@kernel.org>, "vigneshr@ti.com" <vigneshr@ti.com>,
+	"jingoohan1@gmail.com" <jingoohan1@gmail.com>, "thomas.petazzoni@bootlin.com"
+	<thomas.petazzoni@bootlin.com>, "pali@kernel.org" <pali@kernel.org>,
+	"ryder.lee@mediatek.com" <ryder.lee@mediatek.com>,
+	"jianjun.wang@mediatek.com" <jianjun.wang@mediatek.com>, Claudiu Beznea
+	<claudiu.beznea.uj@bp.renesas.com>, "mpillai@cadence.com"
+	<mpillai@cadence.com>
+CC: "robh@kernel.org" <robh@kernel.org>, "s-vadapalli@ti.com"
+	<s-vadapalli@ti.com>, "linux-omap@vger.kernel.org"
+	<linux-omap@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-renesas-soc@vger.kernel.org"
+	<linux-renesas-soc@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v2 1/8] PCI: Add pcie_wait_after_link_train() helper
+Thread-Topic: [PATCH v2 1/8] PCI: Add pcie_wait_after_link_train() helper
+Thread-Index: AQHc3WypLYbFrTGQQEK3Lt/fnk7ymbYBIExA
+Date: Wed, 6 May 2026 15:34:14 +0000
+Message-ID: <TY3PR01MB1134694C0F3D14E4A69EFB8CA863F2@TY3PR01MB11346.jpnprd01.prod.outlook.com>
+References: <20260506152346.166056-1-18255117159@163.com>
+ <20260506152346.166056-2-18255117159@163.com>
+In-Reply-To: <20260506152346.166056-2-18255117159@163.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|OSZPR01MB8218:EE_
+x-ms-office365-filtering-correlation-id: b1f5b8f9-eaab-4b5c-c3fd-08deab84edf1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|921020|38070700021|18002099003|56012099003|22082099003;
+x-microsoft-antispam-message-info: xAntCA+hOnGYLejX/VhdJvJSy6xuw1AkmAnuzvOTs27Rhh+goC16tpX+9xfeA+tkctJYvZAn1zBRz4XgSg1gACiI3sjjHY0GG0yf1wwFTtii1UL7RVzlgJjRnFSJ1RMpK2DpEWUyCMq5Xp/ErQjYPOc67sVBipsjkatNts8ibA6U6W3sVH3tgzSmvMCWZJNHGqcRYBlS7+WTBrkJsqOk3mttq0qLAMtjvqVM1h7oCzzeankoqJlrJuSKb74ryRv69wjZZyXF6aFTVVqwytPdoy1F3UGcDIriwOYBH88nIuKeIVi4AVHrFgJizuwPtEX12EJZtonYnls9RBCBFWy1Rd1Ftltzb6TA+GH9bCd6Bu25GMrIkIVJpMoFQQOuyTbkEVtn/gib26YDEK0P8gMjd4c7ZcdcIHQs+lQnGZLmAHvLOi/rCTGjD3EQVIvAoFRwtabFpjWVMRtKsza4MVXP68b7byN4/U1AyvzyW3uhrsJsQsXs7hf1FKi5IzwufEpMe0X2lImNU+8VxBe40GX8/jiroTI7kzcbQ9yxCNiBkrej0LmxjvdX18Wiwr7v1xJUbMPrYQwGxg6DS89jzXxKrtAQOmNMOcTgzXpyTBctMd5t22I9HSX8qo45F8S+viowKElQlZJC4q7TmtY3AwJsYjA1MV1zFI6k4Nl5LrcKX/Lko6tnnzqXbbl0ZsXpBOVnE/m6BpcMkcTSpbT2cLLwYLlb2XS875oUulpY/V07Fmx8J5x7Gns/MHw4s390thlXBqhQYqrtdgo5m31NBrh8iA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(921020)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?QBb8NPB88SppxanmO4JYuzSCFcKdkbPU7Rnyy75ZJdGgjwpbWq4o+Q9IGK4r?=
+ =?us-ascii?Q?/3wCXcHSnJZr088BQIN8HtygQJToCLZ6CTNPGv3ed0ZTtUZm+NkqJffCijvq?=
+ =?us-ascii?Q?Z1LGCALoO3dXjj8VR/rqre3IDmcPhCW4OCT3kgir7R7StRqIPMMpEtriAZ42?=
+ =?us-ascii?Q?9ngGFfKQ6+eUa0iwHmZEu9xZwt0iXpsBsfZ7RubkXAHw+9xaBey0kyM8/Rsf?=
+ =?us-ascii?Q?4Xacg4kyl5plDGIeS1KXAqcBTVV0BQvUbSrh4HVReSghoAhi44aCnrBWQ9Ff?=
+ =?us-ascii?Q?OLfoDnxDujJ1FA7gyy2WR4/K4MCCWNRFegH9afVz7Ptiw26B2Hn8Rh1IBiM7?=
+ =?us-ascii?Q?h/0+yZg6+Jyb3bJhJnq5skTrEah7I1ZXk/ttrcSO9x1iouYkqIUctpVDNOKi?=
+ =?us-ascii?Q?3F6BWTvQLZa9oSFKfib2tDMisN7ZyaRUi9chLrkHWhp4M3KtDaXnl9zjj47T?=
+ =?us-ascii?Q?i/fQIhO9uOvZyGlNPcHuTAvzKlCwe9spyjeJPTyC8TMpUbBVjX7eAIb52LYJ?=
+ =?us-ascii?Q?pO3W+Imoiq4WXvbGXI482BG05x4QcZLMFFjHIjjCE241mRSuOuS4QPiSvxWg?=
+ =?us-ascii?Q?i1E8/TzcA7u7QmL4nq8BjBNCF1S7F5a+3a5oAjkJZG5PNLkXjU1s82KpnRKG?=
+ =?us-ascii?Q?XLBNwhazxexoo/V3UXNWvMRFq+KAsfKDqwUqtF2TKopW6o4FqfZH4z85cb+k?=
+ =?us-ascii?Q?myU64LsscpHtnUDx9+5f5sPyNWxdN2715Ta+9S7pnr6DGYQTW54rAD4+9tUi?=
+ =?us-ascii?Q?SX0//Joqj2MMQxRmj8RDVrUKV5Xt5f5gkLYKXUDOJow39LZ6OVNCUu2vCZrr?=
+ =?us-ascii?Q?ovTgfPs0zWom+52LaYyJBvFVWrOsnDzzzk3cW3SV+Cl6koLa2+y9WjxyopH0?=
+ =?us-ascii?Q?j7LUjiLwioJFTOcqQDfgO4ryg7B/K71pVDpy7LTAQS0gxj9OkgLa5RmCD+fo?=
+ =?us-ascii?Q?eQSdMlHMVLwl4o+WjyR27xV/T1BB/Of2YBkwM3kr6bFAVY8Irwb7/U2eQ5a8?=
+ =?us-ascii?Q?fBvI893ECTTqdWdodAIGZv24WLatr1VtjlaiKGv41DHhI0PNH1JA8riyrrjt?=
+ =?us-ascii?Q?GMfudPxMM2Ss4aBqQRYIZxceTMheeY0sVLuPXgbuZoYSERw701D8cMvXZxZd?=
+ =?us-ascii?Q?gZ3reTUprwuyEUvnEEKSlDFUyz1dm33kE/D97yeEJt2XD4LhlRxkTy4fDU3x?=
+ =?us-ascii?Q?y+q9Eriq9Sb5Xz7i6pTBmRZCmj7rK9Q+vo7glgVl6HiT+nsO2s7Y2R4lzr/j?=
+ =?us-ascii?Q?jMHOes/HG+95UiOxWWw2/NiDTaHBcAX1CuM7A3QEupoJvUj1E04jjugLcWrb?=
+ =?us-ascii?Q?ya8bIUuH2OfGR+paR6UE04ULSLJWStTL/07e23bx9ycQvjScje5bft+Kkzm/?=
+ =?us-ascii?Q?krtdNfYRSs8jj6Bdl4vnOwEGuHlCBt1fJHTlF+cZ3DtGjfJhJyTTIuba/yTG?=
+ =?us-ascii?Q?E82L1U19t0dYeoPqxS4+AduH18S2vpz+ZtFDczn5WfKXHwvvMI0tqLk/8AuX?=
+ =?us-ascii?Q?s5XHtFQ1IBIHUQgTJ8IGs6STTG3vk5ml+IqI9X7sv/ZNpooKxgDXbaplSRpr?=
+ =?us-ascii?Q?BuLz4meNJCEZRLAxPKeWNQ3r2wvNe9/UcGTEhY/pzUQO08jc8bEdosKT6vY4?=
+ =?us-ascii?Q?PczllOdswOnMXRzcHujF1MdH9tfs8/RG59xp8YXzDJ4/gGISO+P3rPaPsmen?=
+ =?us-ascii?Q?cyhLmU/TcTfHSwcgho7DLS/+xsfvN2otd0Ft5kpwhhDDlTKioSI5bRZm3GJc?=
+ =?us-ascii?Q?sBLiNTLIWA=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260429-mediatek-genio-mt6365-cleanup-v1-4-6f43838be92f@collabora.com>
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b1f5b8f9-eaab-4b5c-c3fd-08deab84edf1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2026 15:34:14.9080
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: rAgYJl/hNfUgvRRCRKf/2QNzW7ogANDgj3KxYI5SSb0CkwX1XSBZUfv7gDj/+Ro8+RjvGjkb//5bQ16/uy+i+SEU7r/Kpccff6mZRhOG1eE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSZPR01MB8218
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_083254_285762_7800CD9A 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20260506_083418_149128_3266D79E 
+X-CRM114-Status: GOOD (  19.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,16 +154,67 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 29 Apr 2026 11:44:17 +0200, Louis-Alexis Eyraud wrote:
-> Add compatible string for the AuxADC block found on the MT6365 PMIC,
-> that is compatible with the one found in MT6359.
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> ---
->  .../bindings/iio/adc/mediatek,mt6359-auxadc.yaml        | 17 +++++++++++------
->  1 file changed, 11 insertions(+), 6 deletions(-)
-> 
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> -----Original Message-----
+> From: Hans Zhang <18255117159@163.com>
+> Sent: 06 May 2026 16:24
+> Subject: [PATCH v2 1/8] PCI: Add pcie_wait_after_link_train() helper
+>=20
+> PCIe r6.0, sec 6.6.1 (Conventional Reset) requires that for a Downstream =
+Port supporting Link speeds
+> greater than 5.0 GT/s, software must wait a minimum of 100 ms after Link =
+training completes before
+> sending any Configuration Request.
+>=20
+> Introduce a static inline helper pcie_wait_after_link_train() that checks=
+ the given max_link_speed (2 =3D
+> 5.0 GT/s, 3 =3D 8.0 GT/s, etc.) and calls
+> msleep(100) only when the speed is greater than 5.0 GT/s. The helper uses=
+ the existing
+> PCIE_RESET_CONFIG_WAIT_MS macro defined in pci.h.
+>=20
+> This allows multiple host controller drivers to share the same mandatory =
+delay without duplicating the
+> logic.
+>=20
+> Signed-off-by: Hans Zhang <18255117159@163.com>
+> ---
+>  drivers/pci/pci.h | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+>=20
+> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h index 4a14f88e543a..a8=
+705a2a2d85 100644
+> --- a/drivers/pci/pci.h
+> +++ b/drivers/pci/pci.h
+> @@ -60,6 +60,19 @@ struct pcie_tlp_log;
+>   */
+>  #define PCIE_RESET_CONFIG_WAIT_MS	100
+>=20
+> +/**
+> + * pcie_wait_after_link_train - Wait 100 ms if link speed > 5 GT/s
+> + * @max_link_speed: the maximum link speed (2 =3D 5.0 GT/s, 3 =3D 8.0 GT=
+/s,
+> +...)
+> + *
+> + * Must be called after Link training completes and before the first
+> + * Configuration Request is sent.
+> + */
+> +static inline void pcie_wait_after_link_train(int max_link_speed) {
+> +	if (max_link_speed > 2)
+> +		msleep(PCIE_RESET_CONFIG_WAIT_MS);
+> +}
+
+Maybe move this patch to the user??
+
+Cheers,
+Biju
+
+> +
+>  /* Parameters for the waiting for link up routine */
+>  #define PCIE_LINK_WAIT_MAX_RETRIES	10
+>  #define PCIE_LINK_WAIT_SLEEP_MS		90
+> --
+> 2.34.1
+>=20
 
 
