@@ -4,46 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C42DCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FB3CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=saMnMXZ0mJWN/PyvgDAHIylIseG/y632KwwqLD6Pj8Y=; b=Ry8ZHYh2xprDbVDcolFXjFUAy3
-	WdmNYdAodx1buohSC9/jHZ1nwAI27apirCwwWM5deWbKsHlU6JngpH0df3aLF3zTaJ55NFJfJ8AWt
-	Fm0NYsXVDT2GDyROox1HU2yMawmsgbxSt3YEZ4b8eiOlEot8zchzjL3BajZYKpnHNvjBTzF8oHGzp
-	KAJzRWd9MXbhjJQWfg0cjl9rulrg/DwBwqlj7aQjH3RvTDhg3+OUEwIeIAjx2MLjrw9197q/D+hxF
-	zNnpyfVsLKtgWKOnkdS4bECWcUqyo6J99mY8tm4McBBShhQXdswMoef0vh43+uY68eV7l+ytqffMW
-	QfSs9SAA==;
+	bh=8IJBhseJN4AMQCxKEWX1XNX+9nBbaimun8zImzXxaBM=; b=K1FjaQdbZwGsspoPwiW/pqsKwh
+	ytjpn6cpe0V4zroEYINN4i6mX5gwZDWgbLFo/qAZ2V4Kf0o1jyo40sZrsE8Fngt5Mc2SEcjAbqrX+
+	kVvXBlvxA1cIN6kwsv7I9RPWxHjocNPRbcbPI/l7p032Hlyu5BvwNJXhTdidfQ5G7OhY1ccyX9ET6
+	tixL4z/5080e/PqAdeKQGtG7SgKzHoPtX11Pz8bCXstjDwRinMBLSebC/r8wyGRzaW6kyEloY9Sj4
+	suu3SJ1VHxCwYzoInmtc71jCz4XnzmLH5yhns3uhdnoQ0V49GarHKibSnpIhTrIrn9Ca2w4kHK51j
+	zb3O+Qvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKX0b-000000004Xa-2ddU;
-	Wed, 06 May 2026 07:49:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKX0a-000000004X9-0y7f
+	id 1wKX1H-000000004fT-3SQl;
+	Wed, 06 May 2026 07:50:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKX1G-000000004el-3og8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 07:49:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 916FC1A9A;
-	Wed,  6 May 2026 00:49:21 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 457723F7B4;
-	Wed,  6 May 2026 00:49:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778053766; bh=KYnY7cZLCn3yUntUGYtEU90OG8jzwZlgNRSgNLo5+Ag=;
+	Wed, 06 May 2026 07:50:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C6A7E60252;
+	Wed,  6 May 2026 07:50:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8D6EC2BCB8;
+	Wed,  6 May 2026 07:50:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778053809;
+	bh=FaaXScUXPb4sIbB5rQFiyH9iXewmrp5Aw7s3e5Jdplc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i4aNvl5vftIV5T7ycw01h/G/dLS2cPEqU5WqMO4ENkXkyF2JobHhJwjokr9Cuwp7a
-	 OD4UEZSDjySjDGXWQpsC2oyTI2hAvAG1Jn4rBPuvEffLxhSAb2X0cxwqy/S1Ll6UMr
-	 1CBk8NBYdqmzpeC8EhbUfunmh42k3ejJe/TqOpmY=
-Date: Wed, 6 May 2026 08:49:20 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
+	b=BmiFgJDcmg4CFoejvO8C4n0h0pBRtvpbW6SbUDtVBlt4iL5637qI0NCzi0kkfnCjE
+	 9gNNmNLicDpjIxyC6mfUBnabIACOGJZvremJt+8XdDWJ/6U8DIvWoMA/V9D4akqysa
+	 zP7gNn5sD7lAoaJMYUr2qKZernYXvuf2eBHpp97tpVIEcItJ5HXXlWXCtNiG426gPt
+	 aBsW2kk7x3xSmlQWxO9qiM1oLB+K8DAdATVHBbnxhK9TyjCpE6vctvt0nXGc7wGiIs
+	 IZltuRhARE/qRNcq+mqaOCwfY4IlLpN5lr0TPizRXpGRAHsbpaHMXw50XAsGUfmjOH
+	 bx4AYlC42FPbw==
+Date: Wed, 6 May 2026 08:50:03 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
 Cc: linux-integrity@vger.kernel.org, keyrings@vger.kernel.org,
 	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	jarkko@kernel.org, zohar@linux.ibm.com, roberto.sassu@huawei.com,
 	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
@@ -51,23 +55,15 @@ Cc: linux-integrity@vger.kernel.org, keyrings@vger.kernel.org,
 	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
 	suzuki.poulose@arm.com, yuzenghui@huawei.com,
 	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [RFC PATCH 2/3] firmware: arm_ffa: initialise ff-a after
- finalising pKVM initialisation
-Message-ID: <afrygFx4OoCbbr+a@e129823.arm.com>
+Subject: Re: [RFC PATCH 1/3] arm64: KVM: defer kvm_init() to finalise_pkvm()
+ when pKVM is enabled
+Message-ID: <20260506-spirited-impartial-sparrow-66efae@sudeepholla>
 References: <20260505095409.1948371-1-yeoreum.yun@arm.com>
- <20260505095409.1948371-3-yeoreum.yun@arm.com>
- <20260505-super-gecko-of-argument-655030@sudeepholla>
- <afoHizU8NgFWzvYW@e129823.arm.com>
- <20260505-adaptable-mussel-of-virtuosity-2751db@sudeepholla>
- <afohuFhVBIyUFEMT@e129823.arm.com>
- <20260506-warm-deer-of-energy-522bfa@sudeepholla>
+ <20260505095409.1948371-2-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260506-warm-deer-of-energy-522bfa@sudeepholla>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_004928_363216_699BF884 
-X-CRM114-Status: GOOD (  38.60  )
+In-Reply-To: <20260505095409.1948371-2-yeoreum.yun@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,95 +78,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-> On Tue, May 05, 2026 at 05:58:32PM +0100, Yeoreum Yun wrote:
-> > Hi Sudeep,
-> > 
-> > > On Tue, May 05, 2026 at 04:06:51PM +0100, Yeoreum Yun wrote:
-> > > > Hi Sudeep,
-> > > > 
-> > > > > On Tue, May 05, 2026 at 10:54:08AM +0100, Yeoreum Yun wrote:
-> > > > > > When pKVM is enabled, the FF-A driver must be initialised after pKVM.
-> > > > > > Otherwise, pKVM cannot negotiate the FF-A version or obtain the RX/TX
-> > > > > > buffer information, leading to failures in FF-A calls.
-> > > > > > 
-> > > > > > Currently, pKVM initialisation completes at device_initcall_sync,
-> > > > > > while ffa_init() runs at the device_initcall level.
-> > > > > > 
-> > > > > > So far, linker deployes kvm_arm_init() before ffa_init(), and SMCs can
-> > > > > > still be trapped even before finalise_pkvm() is invoked.
-> > > > > > As a result, this issue has not been observed.
-> > > > > > 
-> > > > > > However, relying on above stuff is fragile.
-> > > > > > Therefore, when pKVM is enabled, the FF-A infrastructure should be
-> > > > > > initialised only after pKVM initialisation has been fully finalised.
-> > > > > > 
-> > > > > > To achieve this, introduce an ffa_root_dev ("arm-ffa") and
-> > > > > > a corresponding driver to defer initialisation of the FF-A infrastructure
-> > > > > > until pKVM initialisation is complete, and to defer probing of all FF-A devices until then
-> > > > > > when pKVM is enabled.
-> > > > > > 
-> > > > > 
-> > > > > I don't like this whole ffa root device design.
-> > > > > Two question for now:
-> > > > > 1. Can FF-A be a module on systems with pKVM which removes the need for all
-> > > > >    this dance done here ?
-> > > > 
-> > > > But this means we reduce the other feature e.x) IMA with TPM over
-> > > > FF-A and pKVM feature. Since IMA must be a built-in, we couldn't avoid
-> > > > to build FF-A driver with built-in.
-> > > > 
-> > > > > 2. If it is a requirement to have this built-in, I prefer to add a probe
-> > > > >    and defer it instead of this root ffa device.
-> > > > 
-> > > > But, How? anyway all of FF-A device & driver couldn't be probed unless
-> > > > FF-A initialisation is finished and How can we trigger FF-A initailise
-> > > > after pKVM finish its initialisation?
-> > > > 
-> > > > The problem is ff-a intiailisation happens before pKVM finish its
-> > > > initailasation and to do defer probe, it should use dd-model and
-> > > > As we discussed in other thread, notifier couldn't be a soluation.
-> > > > 
-> > > > Could you let me share other way I'm missing?
-> > > > 
-> > > 
-> > > Will something like below work ?
-> > 
-> > It might work and when I write the code I thougt about whether to
-> > use add platform device but I didn't find why this is better than
-> > to create root device of FF-A (anyway creating a simple platform device
-> > for FF-A seems similar to create root device)
+On Tue, May 05, 2026 at 10:54:07AM +0100, Yeoreum Yun wrote:
+> This patch is a preparatory change to address dependency issues
+> between the FF-A driver and pKVM.
 > 
-> First, you tried to force the FF-A core to be treated as an FF-A device, then
-> added several bus-code changes to handle it as a "special root" device while
-> skipping all FF-A device functionality. Please consider the purpose of
-> creating it as an FF-A device if additional code is then required to bypass
-> the functionality it provides.
-
-Okay. I'll do with platform device then.
-
+> kvm_init() should be invoked from finalise_pkvm(),
+> as this is the point where pKVM initialisation is finalised and
+> the system transitions into the protected mode.
 > 
-> > If you don't mind why it would be better than to create FF-A root
-> > device in FF-A bus?
-> > 
-> > > If we add DT bindings, then we can add
-> > > of_match_table and drop the platform device creation. Also we can adjust
-> > > the parent device the way you have done by a simple change(not done in
-> > > this untested/not compiled change).
-> > 
-> > Might for a DT, but do we need to platform device creation for ACPI case
-> > anyway?
-> > 
-> >
+> Deferring kvm_init() ensures that KVM is initialised only after pKVM has
+> fully established its protected environment.
 > 
-> Just acpi_match_table instead of of_match_table.
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  arch/arm64/kvm/arm.c  |  8 +++++---
+>  arch/arm64/kvm/pkvm.c | 15 ++++++++++++++-
+>  2 files changed, 19 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 8bb2c7422cc8..663b1d447a9b 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -3025,9 +3025,11 @@ static __init int kvm_arm_init(void)
+>  	 * FIXME: Do something reasonable if kvm_init() fails after pKVM
+>  	 * hypervisor protection is finalized.
+>  	 */
+> -	err = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
+> -	if (err)
+> -		goto out_subs;
+> +	if (!is_protected_kvm_enabled()) {
+> +		err = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
+> +		if (err)
+> +			goto out_subs;
+> +	}
+>  
+>  	/*
+>  	 * This should be called after initialization is done and failure isn't
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 053e4f733e4b..48b06d384570 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -17,6 +17,7 @@
+>  #include "hyp_constants.h"
+>  
+>  DEFINE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
+> +EXPORT_SYMBOL_GPL(kvm_protected_mode_initialized);
+>
 
-I mean like DT node, it seems to add some "FF-A" device for this.
-Anyway, right now as your suggestion, let me respin with platform device
-again.
+I am not sure if this is needed when FF-A is built as module. If others
+are OK with it, I am fine. But I am thinking if we need to use this in
+FF-A driver which can be built-in or a module, we can add
+IS_BUILTIN(CONFIG_ARM_FFA_*)
 
 -- 
-Sincerely,
-Yeoreum Yun
+Regards,
+Sudeep
 
