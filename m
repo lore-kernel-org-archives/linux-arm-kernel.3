@@ -4,73 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C049FCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 05:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E20CD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 06:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwSmyMibPpckv2HK2SNJzhT8JDQqQqNhy40Vtm5GpMI=; b=Xnz9+LGmrX9nJTSY7B1LFFW6/Z
-	F/0zej4bNxj+XrPL83cFq4vzzjrOl/CyefCpMw46PmtVjS0nNVbMW3YjkPTcw4kv59Qnxq8Yycr2K
-	gbRo/N3rq7efGGtYU15MmsrwjtQyysFflg1gXlds9Wg3c70+eL7gwh9YjJpssMZKCCIs+1lXHPMOW
-	n4mAq1AHj0/zoPOv5jphERiZXZyveGUB9FoGrsB1zO6GflRYH2quUiHJXJvUfXgDvYDR5kwPgeWsY
-	Au+Guzuawyl9A880SpSwAummt4D1QoK8e4ZuAz8eq8TsndKysr/kR5kyeamxzjVHB0l36sFcbMkJC
-	3Cx9f66A==;
+	bh=gz1HZ+EVZeonG3LIhX6FUqqkF2YUXEJS5a5BJlylTPE=; b=wc4EcUzAgZoOC82lVjYjSn7QeL
+	4z1S9ZNVVue2Nu1uE76kllMJ6n+qfGfiYcZemvNpaaa+cS4czNOi9M7yiVJWhm2ecr6zRLS1oLD3/
+	j9baJefvhcLZMnMPsX95IRVGMG0nNS3Tu+7YVqSBh5VsnRvIH1frMRAbTYFLsLmSItX2YEW+bW4oQ
+	4Pam+kpXYKr1vIJr6SVk+FGt9d3NksMaDDTQBe/YfDN8l/WE1sv1L6rIexik2c+iRgCKQLrdMcsdj
+	58TLfDuNcd0FuL5mxYNBeeBAfZCYXAj+JFF/GUzPEI8KUUoK4hgIrVl0JfS7rIE7dn34peenRFCf8
+	eODlrv9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKVDZ-00000000prs-2Mzp;
-	Wed, 06 May 2026 05:54:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKVDW-00000000prN-087k
+	id 1wKVNd-00000000qub-1z5s;
+	Wed, 06 May 2026 06:05:09 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKVNa-00000000qty-2t1P
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 05:54:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A28319F6;
-	Tue,  5 May 2026 22:54:34 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7374B3F7B4;
-	Tue,  5 May 2026 22:54:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778046880; bh=n19EvKj9ct8WooqEGIU96Ez3cJ1oH3gc14hD5umAenU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W+4eIhwbn7rw9HtfloGyopJGPMzUByUeKixAFz193Mkz0xdeDphTN4xqLf04XWs8O
-	 aWhpj6LNS6pMGe8aY82wj8s1kG/NGvejLFdkoFCHmnhilJR7EFC+e87JStoIqu7GTX
-	 Hftc6y/Jcm6wqu70VK1DoNZmB6V+3c4g8pmNicO0=
-Date: Wed, 6 May 2026 06:54:33 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Mimi Zohar <zohar@linux.ibm.com>
-Cc: David Safford <david.safford@gmail.com>,
-	Jonathan McDowell <noodles@earth.li>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-	sebastianene@google.com
-Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
-Message-ID: <afrXmRiq7XvSe6yN@e129823.arm.com>
-References: <cover.1777036497.git.noodles@meta.com>
- <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
- <afMlgstqahnZg68h@e129823.arm.com>
- <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
- <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
- <202f90682fe47bb5fb9b08f8678ae00981b5290b.camel@linux.ibm.com>
- <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	Wed, 06 May 2026 06:05:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778047507; x=1809583507;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=GzAbMlLj/SJ5VJwCyJW0YnHZjWeKgF9tiqeED14RR4Y=;
+  b=gRtnKd7fw2uVczKQQj6cMB6FmJlThxxaqji4rY4Mc8bNl8554QN05wjK
+   utmVrvb/IaKLOzufalJXThIC5g1Xruf1zfD6hiB0NHe2WU+rZc2JsFnbO
+   iwxyg60LLF6oy0q03k2WAD8w6BSm/u7FQEeOipknCZxnB0pcVZPQo4PcI
+   k4b8ooRe6lkOCndnrKldUtRGECfqDY0XUZzeQxyyCmVL5PKl4xQykb02D
+   fBpLqd76UUzJNLqkgb3JtErR9lY3i89rW21A6GJhFYrkUV4r6Pbvc+41d
+   YbTUWU3MNjrEWkOtojX09Mb3W7xJQzJ7jIitrvzHNHfV1XIbdN3k7hLaQ
+   g==;
+X-CSE-ConnectionGUID: pUhysmTWRMq/gr4J79WRGQ==
+X-CSE-MsgGUID: YmPWzIiARNeyoCq7Z97Y3Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11777"; a="90041139"
+X-IronPort-AV: E=Sophos;i="6.23,219,1770624000"; 
+   d="scan'208";a="90041139"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 May 2026 23:05:00 -0700
+X-CSE-ConnectionGUID: Dsqkdx8lQ16c+sjMyNlRUw==
+X-CSE-MsgGUID: S8XNI74mRbiK/mJ+eh1z6w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,219,1770624000"; 
+   d="scan'208";a="235906930"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 May 2026 23:04:53 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Tue, 5 May 2026 23:04:50 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Tue, 5 May 2026 23:04:50 -0700
+Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.14) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Tue, 5 May 2026 23:04:50 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fz6LIVMZ4lavqjr+rVCwkJK5gnvtAeX6zbmBh9g4L1jgrQPUj+7tadPR6UDpkEjxgWs8WxdiAKZMcFGqVmgQukrFIzTEYVG4SheaF+B5gHBfTYRBLgDrMOv7hyV5cUYr7jc50mSDfQEXQKuccza8wY08gEv5ygDPIGpczHTjxmppNg4WGkJ2juctabSiJhSFVuPAy6+492HGbE3nWtxQL0lVFguos1CxioNt6bUY0yRLuDceICQhpfjUIAwgqSbMNnwEi00sqboMeT6Eomq7uh4jTvJlHdrgtAKcvTZHzBzUyY+jCD5Kr83GKf8vypk22QQmnPbaKpY1dNYErWrKzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gz1HZ+EVZeonG3LIhX6FUqqkF2YUXEJS5a5BJlylTPE=;
+ b=L125E/pXtEf8AeB4coplUHDDeSruwi7NxcD275agqx3wixcnwIoZCvC7Z9NWd2uM0GxehHapw0XvPdbWY/qhK1UQrwJinP+jUyOtazUdm2LChXHuGS7AP5IwqjeVaUt/n7JH0aMd/ftBzmuLLbz02nclZR7WcJhzCzabXoyEi1C5UiMKsWamB5Cc7aFWOkL4WMYHVuNpg9wSTNi3GHHGrtOOCP9X60wTyX0tNlBufWRuIsPQfW3ji6cI8QN+ppIShUqFbuTOlCezdulVrxOjEZw9Rnd3Dk132mX+VzXuXEJMM0hWWLI2Osq2oN94aniZ8Ah9trly5E4IpEVOHRxGnA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by MN0PR11MB6135.namprd11.prod.outlook.com (2603:10b6:208:3c9::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Wed, 6 May
+ 2026 06:04:42 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.20.9870.023; Wed, 6 May 2026
+ 06:04:42 +0000
+Message-ID: <e9bc0e10-9473-4308-80a8-f7830112cc69@intel.com>
+Date: Wed, 6 May 2026 09:04:36 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] mmc: sdhci-esdhc-imx: consolidate imx25/35 data
+ and add Kingston CID
+To: =?UTF-8?Q?Adri=C3=A1n_Garc=C3=ADa_Casado?=
+	<adriangarciacasado42@gmail.com>, Ulf Hansson <ulf.hansson@linaro.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>, Jens Axboe <axboe@kernel.dk>, "Miri
+ Korenblit" <miriam.rachel.korenblit@intel.com>
+CC: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Haibo Chen
+	<haibo.chen@nxp.com>, Frank Li <Frank.Li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Boqun Feng <boqun@kernel.org>,
+	<linux-mmc@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-block@vger.kernel.org>,
+	<rust-for-linux@vger.kernel.org>, <linux-wireless@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, =?UTF-8?Q?Adri=C3=A1n_Garc=C3=ADa_Casado?=
+	<adriangarciacicuelo@gmail.com>
+References: <20260315172746.270734-1-adriangarciacasado42@gmail.com>
+ <20260315172746.270734-4-adriangarciacasado42@gmail.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20260315172746.270734-4-adriangarciacasado42@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
+X-ClientProxiedBy: DUZPR01CA0159.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4bd::16) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|MN0PR11MB6135:EE_
+X-MS-Office365-Filtering-Correlation-Id: a524fa9a-cc78-4d1d-744f-08deab355d7a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: XQHb0DRXXU78bDteGxTgidAbY3tfWxk1768xpa6/Q99CyVA13LT5OroMqccsjuBV5N9jPC527dLjUSXnq+dcmA9ACS+lbjXypzR31FQMa3e+YQzPkneAySKHot8R0Ip4wie6lMb2r0nej7nsoEQYr7FoquNvDHNysmWEN7B2QvnC5nQK42z83vOhO2gB6T/KJeSGbOBGBk0AnI0XEG6IOPm8lGJ2TzRcZbsBitjciCXOQwv1WzfRSVZM8MV1lAg5W4KIeXf72p0L0QGJ0UHYKZMzniqRS7kgycKCEtlxRHcoyGo0zue9Tehcr8NcSDiPqYRDOZfFGpcP4/a/rbAJvg73N8R+mLYoXksDz1tmk4drTN3wA8yIiFQ9Oh6BuKV1aEzyyccaKaHmvgGeqSLzf9Hj0+zb4+4nctkUvB8S4zfyyuWDQNDJZCzSVPjdGmvQ53fD2ojySk6B07QlVc5b7HHNhWIebKoWbq9M8akGi6gdWf++W6YzZ1GYGsIlbtkLSkFHGPlURt+n8B6xB+TDgJj44zVMZUMCU7tISnxUsDCgfrme2ZPu/rv066amCRhCenFJjewLgvlBRKHWp1zQAr6NfL6sgKuWWNpkmQ4reuUzV9r7AgDD1CkXFy1CaQU3l55bxNKtou0P740bfzQTTSwup+GSrBC7XH1eyZg/zaKZzqSLDSYNGoMnneCmpow1
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RGhMOGNNTmdzM1R0VElESWRycEwvaTRkL0RXeGhkOTBVY2hDaENxUzN0b09E?=
+ =?utf-8?B?eVZJWGdicFFyb05GSnBBR09odzdXeFlOcWgwRWczb1puYmU5Rm9CNU9aSldO?=
+ =?utf-8?B?SG43NXNYL3J2RnVNakd3WHhXdEdLVzgyMjFYWUE5ckhNWFNSUlV5U2g4QVBw?=
+ =?utf-8?B?MjNld0ZqMUtjWUQ3Sk1CaWFvQWIrYUdRUGZZaXV1cTZBZkMyVTlJcmVOTjdF?=
+ =?utf-8?B?eDAxdkx5aTVLNjNEZGt6Ykx4QUtQOERhbnNmTno2UEM2UnN5aEZQVnNTZU8v?=
+ =?utf-8?B?US9rQ3lvT21sTFBqdUlFY0VNRWNsUHpYbXhiQ0hZamFiOVVUUW1xZno1RXhX?=
+ =?utf-8?B?WmkxMG13WDg5YXpHdnlzRHVNcmhXMWdENUl1TTJOdkc4OUQvUG11dEgxdGIz?=
+ =?utf-8?B?Ui9JcWZIUkJMRlVFUDFwbTJ3U1RKVjJsWTlvM1k0Z3lUejNyd2dTYjlrRXgy?=
+ =?utf-8?B?MWYrTmRiZ3hqVVJhdGZxVGF3d29tY1JWSTU4akFtaCtFNTNiY1VNd2QyeVdG?=
+ =?utf-8?B?aVhpS010V0ZJUDh1R0xGYnBJTHJPTXIwbURGSFM4enFyNmNaRG9wT2hkSlJy?=
+ =?utf-8?B?cENXbW40ZjdWYVcxNkhKaTFCZ0Q5QVB4SERyNHF1QVlUM0xpUEUwRDc2bkpK?=
+ =?utf-8?B?aXNKdDI1L0xyOVVZYkh1TE9qcDhUR01OR01pdmsvT0lGbG15UE04ZnZDTnlk?=
+ =?utf-8?B?RTQ5NVhjWWJ2LzVrZzQrdjZkNGxnLzI3ZU1uMlJIcEJGSjQxenNyTTlTcVV0?=
+ =?utf-8?B?N2VZVTN2VHlZTmVpU29Pa3VjT2VkbUtTSC9wTjZBMkNaMCt1eEFCVVBNN3FR?=
+ =?utf-8?B?dTRab3NBQTFUek1xeUNFS1R4QlkxVmRSZ0U5alJPb2QrcEpSS3h2UjhPSWE3?=
+ =?utf-8?B?aHhrQTRJK3pzUVoyRkRuWUNiRVI0OVRDc3pTUEcyYnkwa1dFd2dsNlF5NGsy?=
+ =?utf-8?B?ak1SMVVUTk1GY3Njb3RZTGlOOUkxbVM0aFVzQml1dStZWlQwSFB6WjRsRzdy?=
+ =?utf-8?B?eW9KSlMrY3c3S2oxdE9OREZ4aURvQnI1eHhBYmtRTzlESFU0b0xreGRoN1d2?=
+ =?utf-8?B?MHZkb0lJUEVhZkxUVEJkNWUrcjJNcHYrbHVHMVF1SmFTZ01ZaW5tNkloN0NC?=
+ =?utf-8?B?dmk3Tk1WV1R2dXdmYVFBZ2c4ZW1wdFdHUHpNWVhidXdySHp6ajJjaEp6dEV1?=
+ =?utf-8?B?QTV2MzVrd0FLOVpQRkp5ano2dWRMSzlHY29zSFpkTDQvb09pWWpyb05oVUpF?=
+ =?utf-8?B?SkFnOHFvU3owWE16YkRlczF6VG16RmZZQnk0SytIUmswTGF5MlNvdndrUys1?=
+ =?utf-8?B?RkY0WWlmWFI3NWM1aVpNWjdCaGI5VmdLZEg2MVA1bkRRbWRnak1lK1hsUkZ1?=
+ =?utf-8?B?RkFqaUtWcC9lVWhCalV0NWo5dDgyUWZ4d0IzNzJnaEIzdFZHaURBeE8rY2Jy?=
+ =?utf-8?B?WS9iUkMzaWRyY09HRVFIaGVZR2ZWNUFJSEw4WGF5OWsvc080YTNPTEdHQk82?=
+ =?utf-8?B?RXdiTi9DVW9PM0hZTy91YnF1RDEzcmRvRWkrTGNOT0NJQmhwVkQ4WDJwd2g4?=
+ =?utf-8?B?VlFWdk9kK0thaldXRVlROSs5eVFra0ZScG5xSlhlS3RhS21vNk15dlFLNHpx?=
+ =?utf-8?B?UENtZ29jNFFOdC9rNW5neUxVRVEwb0pxWStlV25xVlZFdS9BRGNMQTlZNy9B?=
+ =?utf-8?B?c3Vxd3NhN2dtMTFjTGo2cFE4MXFoY0hhRHdldjRhdDB2KzlUZUlhUTN1Zmlm?=
+ =?utf-8?B?aDdJUE14dy84VnVHbUlicnV2VHJPcW1MMVZoTzV1MUhHWFhpV1ZzdTNMWm1S?=
+ =?utf-8?B?WTlSdXg2L1RzWFBSU1BiQTRGWVpUWGE1bEJCMHk2SlhUVFFkVGd0RXl1Y3Ix?=
+ =?utf-8?B?U2ZOZkJnc2RLODhQM0s0TDlLOGlGQTV6bHFQRDR0ZUVaUnhGcXhmcExYWGU4?=
+ =?utf-8?B?cFJnK1NpcTduUTBNRVhsL1QrUGZuVnFMdmp2YVNVZDg3WEJmaGtEVWx1OG4z?=
+ =?utf-8?B?VjlGZlNnQ01VK3diZ0J3Y29YSVRjc2FZUzEyOU5ZYlIvaGU5d2JORkt3Tno3?=
+ =?utf-8?B?b1FjdFhicm8wNURSUk9FVHdTdEx4cmlEREJqeEhFMjFIRkFVQTVQQjgxdHlS?=
+ =?utf-8?B?NnA1bmNUSXgxS0JPNG8vMXdRSVRQc2tBdDdtVkJyZWp0Q1hrazhuc2JDVTVw?=
+ =?utf-8?B?NXZ0NGhzYmNBSENja0cxanhPRlU4eERMVCswUDVldTFYcXJxcnFIbjlvdHJX?=
+ =?utf-8?B?U1lJMkdMTTAvK093aS9tT1lZcHdwMy90NlJKVllsNlNWSlB4M1o4UDhIQTVQ?=
+ =?utf-8?B?c3BNNEJuNXMyQlZUYXp3SVVMcjVGZ3pZeHVuNVIrd0xWMTlXUHZ6WXlqbUVy?=
+ =?utf-8?Q?K7RWMeRV+IwzwFgs=3D?=
+X-Exchange-RoutingPolicyChecked: naR18JsY6JmcGKjtoorBXKMFsGWicf5u2hxQK0n8L7nTc6dUsYBwYa2sQDn91mFaSWleypAexZE3YVKjNESRqxJ4nMQrIU5bRz0qr5hXAeJqvcqJhXxFbQ/ESaiLe9bhNmKq/3iDxk8jaWDeLPm28y271YDMDz6Dwv5u32e9l8vGD3tgJbHYjMooZ9ywRxbK0IdjYNsNkpt/ej7DQexDanDJ7X+eGyjDP9+mCdNk15vUZtLAZiosPQFUCSyoHjlWPZr6U37jbePoaIJIfEPpuPDeRIL8iEdte8/Gfjy/u2gJUSQx3dMX38G2ALAydg3lbrPWRb4lOJX8RMAAdP7A0g==
+X-MS-Exchange-CrossTenant-Network-Message-Id: a524fa9a-cc78-4d1d-744f-08deab355d7a
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 06:04:42.5847
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: L6ppNYUDQjyGMHgpK4EYHleq6BohAVL/uSinn2AajNjuH5qPFygKK3fp7izNgjEY0ABfSiUOSqxx8KVzzyb6IQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR11MB6135
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_225442_257992_4BEF6128 
-X-CRM114-Status: GOOD (  25.58  )
+X-CRM114-CacheID: sfid-20260505_230506_809511_E7B2F54B 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,80 +196,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mimi,
-
-> On Sun, 2026-05-03 at 07:36 -0400, Mimi Zohar wrote:
-> > On Fri, 2026-05-01 at 12:52 -0400, David Safford wrote:
-> > > On Thu, Apr 30, 2026 at 5:43 PM Mimi Zohar <zohar@linux.ibm.com> wrote:
-> > > > 
-> > > > On Thu, 2026-04-30 at 10:48 +0100, Yeoreum Yun wrote:
-> > > > > With above change I confirmed there is no meaurement log
-> > > > > between boot_aggregate and boot_aggregate_late except "kernel_version"
-> > > > > But this is ignorable since this UTS measurement is done in
-> > > > > "ima_init_core() (old: ima_init())" and it is part of ima initialisation.
-> > > > > 
-> > > > > 1. ima_policy=tcb
-> > > > > 
-> > > > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
-> > > > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate
-> > > > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate_late
-> > > > >   10 7c23cc970eceec906f7a41bc2fbde770d7092209 ima-ng sha256:72ade6ae3d35cfe5ede7a77b1c0ed1d1782a899445fdcb219c0e994a084a70d5 /bin/busybox
-> > > snip
-> > > > > 
-> > > > > 2. ima_policy=critical_data
-> > > > > 
-> > > > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
-> > > > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate
-> > > > >   10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf sha256:0c907aab3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2 kernel_version 372e312e302d7263312b // Ignorable since it's generated by ima_init(_core)().
-> > > > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate_late
-> > > > > 
-> > > > > Therefore, init_ima() could move into late_initcall_sync like v1 did:
-> > > > >   - https://lore.kernel.org/all/20260417175759.3191279-2-yeoreum.yun@arm.com/
-> > > > 
-> > > > Thanks, Yeoreum.  It's a bit premature to claim it's "safe" to move the
-> > > > initcall.  Hopefully others will respond.
-> > > > 
-> > > > Mimi
-> > > 
-> > > I have also run with this patch on a number of bare metal and virtual machines,
-> > > running everything from default Fedora 44 to a version with everything turned on
-> > > (uefi secure boot, UKI with sdboot stub measurements, IMA measurement
-> > > and appraisal enabled,
-> > > all systemd measurements on, and systemd using the TPM for root
-> > > partition decryption.)
-> > > I too see only the kernel_version event between the normal and late
-> > > calls, if ima_policy=critical_data.
-> > 
-> > Thanks, Dave!  Were all the systems you tested x86_64?  The next step would be
-> > to test on different arch's (e.g. Z, Power).
+On 15/03/2026 19:26, Adrián García Casado wrote:
+> Consolidate esdhc_imx25 and esdhc_imx35 soc data into a single shared
+> struct since they share the same flags. This reduces redundancy. Also
+> add the CID_MANFID_KINGSTON definition to quirks.h for centralized
+> management.
 > 
-> On both Z and PowerVM, there are ~30 measurements between boot_aggregate and
-> boot_aggregate_late.  For example, on PowerVM:
+> Signed-off-by: Adrián García Casado <adriangarciacicuelo@gmail.com>
+
+scripts/checkpatch.pl warning:
+
+WARNING: From:/Signed-off-by: email address mismatch: 'From: "Adrián García Casado" <adriangarciacasado42@gmail.com>' != 'Signed-off-by: Adrián García Casado <adriangarciacicuelo@gmail.com>'
+
+> ---
+>  drivers/mmc/core/quirks.h          |  4 ++++
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 12 ++++--------
+>  2 files changed, 8 insertions(+), 8 deletions(-)
 > 
-> # grep -n boot_aggregate
-> /sys/kernel/security/integrity/ima/ascii_runtime_measurements
-> 
-> 1:10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
-> sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
-> boot_aggregate 
-> 31:10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
-> sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
-> boot_aggregate_late
-> 
-> It would be interesting to the results from a Raspberry Pi 5 as well,
-> with/without a TPM.
+> diff --git a/drivers/mmc/core/quirks.h b/drivers/mmc/core/quirks.h
+> index c417ed34c..d736bb4be 100644
+> --- a/drivers/mmc/core/quirks.h
+> +++ b/drivers/mmc/core/quirks.h
+> @@ -15,6 +15,10 @@
+>  
+>  #include "card.h"
+>  
+> +#ifndef CID_MANFID_KINGSTON
+> +#define CID_MANFID_KINGSTON	0x70
+> +#endif
 
-Honestly, I find this result hard to accept.
+CID_MANFID_KINGSTON is already defined in "card.h"
+so the change is not needed.
 
-This effectively means that there is code invoking IMA measurement during late_initcall().
-It also implies that if, in the future, a late_initcall is added that performs
-an IMA measurement before IMA initialization has occurred accoding to order by linker,
-that measurement could be missed.
+> +
+>  static const struct mmc_fixup __maybe_unused mmc_sd_fixups[] = {
+>  	/*
+>  	 * Kingston Canvas Go! Plus microSD cards never finish SD cache flush.
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index a7a5df673..9cfa26722 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -256,11 +256,7 @@ struct esdhc_soc_data {
+>  	u32 quirks;
+>  };
+>  
+> -static const struct esdhc_soc_data esdhc_imx25_data = {
+> -	.flags = ESDHC_FLAG_ERR004536,
+> -};
+> -
+> -static const struct esdhc_soc_data esdhc_imx35_data = {
+> +static const struct esdhc_soc_data esdhc_imx25_35_data = {
+>  	.flags = ESDHC_FLAG_ERR004536,
+>  };
+>  
+> @@ -391,8 +387,8 @@ struct pltfm_imx_data {
+>  };
+>  
+>  static const struct of_device_id imx_esdhc_dt_ids[] = {
+> -	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_data, },
+> -	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx35_data, },
+> +	{ .compatible = "fsl,imx25-esdhc", .data = &esdhc_imx25_35_data, },
+> +	{ .compatible = "fsl,imx35-esdhc", .data = &esdhc_imx25_35_data, },
+>  	{ .compatible = "fsl,imx51-esdhc", .data = &esdhc_imx51_data, },
+>  	{ .compatible = "fsl,imx53-esdhc", .data = &esdhc_imx53_data, },
+>  	{ .compatible = "fsl,imx6sx-usdhc", .data = &usdhc_imx6sx_data, },
+> @@ -414,7 +410,7 @@ MODULE_DEVICE_TABLE(of, imx_esdhc_dt_ids);
+>  
+>  static inline int is_imx25_esdhc(struct pltfm_imx_data *data)
+>  {
+> -	return data->socdata == &esdhc_imx25_data;
+> +	return data->socdata == &esdhc_imx25_35_data;
+>  }
 
-Could you please check how the index (1, 31) was added to either
-ima_template_entry or ima_queue_entry to produce this result?
+Doesn't look right.
+Previously this matched only "fsl,imx25-esdhc".
+Now it also matches "fsl,imx35-esdhc".  So this change
+has unintended consequences.
 
--- 
-Sincerely,
-Yeoreum Yun
+>  
+>  static inline int is_imx53_esdhc(struct pltfm_imx_data *data)
+
 
