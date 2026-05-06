@@ -4,117 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D98EFF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:04:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 347A0FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Dw62R+FCByi5gopu+2HRV5jigeobhWPm71jGGzho2Q=; b=pcW+MB2LSmLwpeVy6000XwWIkG
-	Wil0WaKsAfomRCuLaL7zoGMC9SA6XZZdKjyzcRLeTlc6bPaszQn7uxLLCGKGXtSda9cWQLEHvlJ0K
-	wzIgjt0uM324SwwNRp4GRt4NNpLSnIMbClsCqre8zrx+VU8jS4aQFwm2mmoezcCRlUu6j7wyudVk7
-	pbwOC6u4Nkk88XHtayVK/8szlGhfOpQxQiqvZLmUZKi13vfdsvu7UzOpzxunt+09mMgJDAwCd89qI
-	1SdxX9egxsPTy7dM4uKSVdzj2jYqaJ+VAyi0t7GCxLumpN+bCLD8fgmcdcMlqxhL4AeB5OmwuViTf
-	YyYw140A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jsD9mMCCpukEdwiIZPox/sOpEjhE31kEGDjuvOB20/g=; b=FCP3XLfXl/zzeqiTgsQTQ5/U3f
+	ZoW+4N52QGsUKCthk8OFbVARIoEu3h4FNR+yxJv9I6XnVT1PAx5IV3nL2g3+jlflr+sNpnPH5FhmY
+	CsEN/DvZQfs3kbyPC0koJWp5laCpkuO5kJgu52RAl2Nxl1mX/ewe182aI22leILypSyYZfy0lmLqy
+	SSva4AdHBj6NNrznbuyg0MDBqugrRgkUwljOSct/sSV7NcjxUQcfJaLw30jRUZpt15mP6YY5eH9+y
+	IXxUwpFkuKBgFH1UD/KdP+UwojaLn4p52oFPVLmMS8PywKH+jo60OUdRgpR1ALfLZvHb/oq1Pp6it
+	LyfYD+0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcr3-00000000zkj-0a1m;
-	Wed, 06 May 2026 14:04:01 +0000
-Received: from mail-eastus2azon11011066.outbound.protection.outlook.com ([52.101.57.66] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wKcr7-00000000zmN-1LUy;
+	Wed, 06 May 2026 14:04:05 +0000
+Received: from mail-vs1-xe2d.google.com ([2607:f8b0:4864:20::e2d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcr1-00000000zk2-0Qkc
+	id 1wKcr5-00000000zkW-2eQu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 14:03:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u23pHIv+QxXTyQEJPRNFRLWibSxEi70tVGutoI/qZ9Ze196L4maDXTLPXi6VoyGLOmrfsp1XeE56kfPOpOiO9BbAWC5wxIqComk5XsfwmGVXcAJfC6JeSRfsxeL+P0ddvPfdUjYqsZPU627QXZ05RiqHVgIJdyx22zBFVYAe6RkQfinQwI42dptRVLQE4qQRjhH3xegKtRiO2SIu3a6Od18ot6uM/Ft7GBeiWoclFvE8hJNU+eCYqY6KmF1QLwmSp1L2TEp6e+ipg1TQ10teeHCnshmA2qmi4L5sZdTU8SulYF+K3VAFkw5nG8nh8CiQL9yRpRKKjFEAo1RuGFtsDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8Dw62R+FCByi5gopu+2HRV5jigeobhWPm71jGGzho2Q=;
- b=oLTb3e5xiPU07yFFZys9f4aPAk2IBD5kK+z3f+NsySD9hWOt6G1GDBcHMLv2hBvLTDZXhtNB80+RFLHcMDSK1I2JyUN3yLp8ZpX+ib/KpRafH/YJsTeOFrwAC+bb5/4k4fJXoXnz2nH6M5FnRY6cJX+ZFErvQx9P5L81As4AG+9NFPnFFJjdteCSfzFmL/XzleNM2Llo8DlR24qQwxNhOWigMAfcwZCem57jwFV7Rc31blQZ7n7SHehaocHZ2dFtopqIgQv3hEeMiMlldFZG43oKR4TQeTNkWZvyH0S7yPo0il8aAA+k0t5D/HjTPYt0NMZhStEoys+2R09VNQT96w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8Dw62R+FCByi5gopu+2HRV5jigeobhWPm71jGGzho2Q=;
- b=FBbwJVgFF367sijRnHEDscpdLDriglrRoZdmhkqJSL4tCS+IhPSU38IZIuwfNnvZQGD+ic5Qaytp41tlZXImwjiULOzSFSd/ZlorLKS9qi5sDIQ3Uxi1+dYE6Of1jJS6VaLU37OBLtbbO1c81QW0jWeLhNi8p37JHFDE3wwzyOo=
-Received: from PH7PR03CA0014.namprd03.prod.outlook.com (2603:10b6:510:339::10)
- by SA2PR10MB4618.namprd10.prod.outlook.com (2603:10b6:806:11f::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
- 2026 14:03:52 +0000
-Received: from MW1PEPF0001615B.namprd21.prod.outlook.com
- (2603:10b6:510:339:cafe::5d) by PH7PR03CA0014.outlook.office365.com
- (2603:10b6:510:339::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.16 via Frontend Transport; Wed,
- 6 May 2026 14:03:52 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MW1PEPF0001615B.mail.protection.outlook.com (10.167.249.86) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.1 via Frontend Transport; Wed, 6 May 2026 14:03:51 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 6 May
- 2026 09:03:49 -0500
-Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 6 May
- 2026 09:03:48 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 6 May 2026 09:03:48 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 646E3m571214599;
-	Wed, 6 May 2026 09:03:48 -0500
-Date: Wed, 6 May 2026 09:03:48 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Md Shofiqul Islam <shofiqtest@gmail.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <ssantosh@kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3] soc: ti: knav_qmss_queue: free resources in remove
- callback
-Message-ID: <20260506140348.isoq2arfmaai3plh@perch>
-References: <20260505234600.8196-1-shofiqtest@gmail.com>
+	Wed, 06 May 2026 14:04:03 +0000
+Received: by mail-vs1-xe2d.google.com with SMTP id ada2fe7eead31-60fee2fa3b8so2255266137.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 07:04:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778076239; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Pq5O9Yzpk96J5YlIkQOE6/QTPzBjrhhMgYtOz+8+D6jzcbylwEvRP6Bq8wpZkkqQ8D
+         er67neOJs2zs+MggVtXnG8cdHNAZFErIS05gMr4PGKDrU259ALZx2kBwnGXjtd0kMw3V
+         13r2+r2OMjNvEJ0F1ONXN5mjPYBdr7L7OsdRhH6l1mdUOWgT6hNov8HvTd1PvFde2b1n
+         /AnyKb8h8HxKzrPgkf7cuJl6pMUTukSXNDL4W+bZcsXB/9v+WgABWo0mwSuaeJ3e7Ejq
+         2uWnyBgiIrt23ElMk+jDknRZ/avoEBuFduVxFm0pInbKiI9l/MO0MubWKD6+yElm5idc
+         NYHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=jsD9mMCCpukEdwiIZPox/sOpEjhE31kEGDjuvOB20/g=;
+        fh=/0zNHY/TPRRMRSnkmeytoE9JkV8DQsFebxakHElwlPc=;
+        b=a7k2NL/kE63Ag6N3dsTVSjlGQRw/+opcXXFOMYPdUV64I2+iG3aL1kgEmxGT0AA9DH
+         8qo8tGOvJbFfgqH6U44CVDL4zO38IhHT69+CmfVIzmXmdlYFvlYWpFf0Mtrky/a9kR0S
+         3hcrZDV5OwDXRjsQUwddTt9ewR8gD/3vbtun1HmGvLSjCaLv/5ZXYbtB6N2iE6Vv3VGq
+         NJtIYGOIm8bnFLDPi6umZd81SuqXtwTHrSmnHdk1JzwSLAhd3s/NbScC51UP7Ej0bHiZ
+         rKkOB+zbFFmCoaGBNADY9ay4xJ2VOXFpy6AvJeYehrJPvNnJxkBUJhqn+cwX1wcghhuN
+         25og==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778076239; x=1778681039; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jsD9mMCCpukEdwiIZPox/sOpEjhE31kEGDjuvOB20/g=;
+        b=ECCMkgyp1ritS0X3DBpzwBAV7Dg9bCmF5XyoCuZTDXAAdDQMv8eMPMONRyebRuW6v1
+         pYVQKoqTCdKoBV+zFd1IbrQNejH24ErZ6DFaJVQpf0wwgM67bqOo2eF0gsUyW/XH6Mo3
+         yshKAsrZ8RP5gnEXjBYh9Hdp04dH7Zn685vCefJXKP2QAUkAfMGmB+KwALLpkRO6yig7
+         +kL5oXEwBA8lg5PZ3FKB9IEFKRiGIFJZ6nVxMwWnMzp43LyV3AH0Av1mC2jJXSlL5/E0
+         X4nrsc2BIlwNscGFvda+dev6iwKmk8tHSMG4Lq4KDaLjsXRVSv7Z+15/K4mzo/4km1LR
+         bwWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778076239; x=1778681039;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=jsD9mMCCpukEdwiIZPox/sOpEjhE31kEGDjuvOB20/g=;
+        b=YBd7AookKLwynt2NU9Np0743t0+4R9ykThrHlVhsFyEcasOWvmkBwbS2XXWrrmui+R
+         t+Ems0zWtW3Nm7KQc/XOpNTxUcbyl1ap/tEoYi6L7PffJVFxuehBpnuNbxZBDVpdfQ1w
+         D6lBjwamOcoTP5oGDHOtzWfsP874WxzwObberjbIjE1VMfy5BVVXbCWbeY8TZydEJVSX
+         1tC+bg28KdhqrNKqpyf3/boFHHT7+a5YgWNZjcjVBvJk0GJpIoNOzzwqSSFBYbnh5jLv
+         cmNtvonjQaQOrvaUsMAnoXMWAYgN5w/gCtxBEk0TRtfnraAe6okecKVVkKeb9hlZP6TY
+         PjBQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8Hn1C+MYu7yBjDphQPVm3hdYmMDze9L4YlLOSR6TAQm0n+kDhtd0E1WshreMJ4mgmuoZs50dT9F2tpp6n3x9tB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1N5azeaDYS52LjvuiIE7nYZjW7Hyc33IOp9COHRPhMmUNskcZ
+	QhlfkfJvOy+0lMzN7o0f1yjqiqkB9HSYOW5T4unajw3yJ7FOD9EQGHpH0X+0DuENUcSgGhnkaNo
+	O/ZRIGcyrndTHqjPtOfVGT2kVyHvofYM=
+X-Gm-Gg: AeBDietCir/4wXi9rqVJvnddksqHqqFl2JMCG7dZNac5sy4KTlAC9s0o8xJCU+/2ekC
+	i5NwnxAnNXFvcP/nMeA/SQhfGg1EJL+9tJ9efG8e1CyK0mfBRThLa+2gcrF0NwYutgGLy/5YsKF
+	yYVVI6p6qHD5RHb992MunzeeDxJF5tJ+YDtGX1Sh6key6NrySwZYqlRCfV/KSN59WIUnnlVi0Vo
+	FL8oDoxKydPvMO0dKvhvScYhOQdYi5dFFEf7oJjKUBR/BoSCWbvWjy6ViTr45GsVofusVKmOvkC
+	3rLO8iQpOGNxN6QIOswEFO+gtag/xkB7mYKM84TqLG97kr1rhg==
+X-Received: by 2002:a05:6102:4a8c:b0:605:889a:89a1 with SMTP id
+ ada2fe7eead31-630f9041b24mr1272953137.23.1778076137325; Wed, 06 May 2026
+ 07:02:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260505234600.8196-1-shofiqtest@gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW1PEPF0001615B:EE_|SA2PR10MB4618:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d8b415c-a416-4301-0fa4-08deab784d84
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: B8AdL30qiPcBlec9/HXbXB9NEFYlPnhReG0DP+ET86JJtFsHHNzMsytA4+08kE7bddRND9p+tVkYvupaI+US/ZOxBuWeRTYUOl7XXDE4PEQumjlj+MQq1LO+G9n9BFjd3cx0AUJCfEUXw2TfJbRwMEV8ObzCO8G0oZhf4K8Znyiqhzf0AyjqkAsYu6eo70mI4LoAxs+DsNAgKlnVP14wbiPRTFBtSI9Bi8O/kgQUhrX7xE6l4gdALZDMq04aQy0JEDXA07CNBLytATIK+qMzFcQsDetEQIcK4YWrsnHywxYLKEySS6IHBBR62CQEQGhmxdByecMSVyJeh1pfgASH+y5VNiupa9DIHXzrHfYK8c7eEUP4Ki3kZPI9NOg/J66kwYXGrRtjctTIELQYLCaSZhpvZGr/CnW4bShAW+z7CHPMWEbvYm9oloByaWtSrsZ9ElL+nWFh7hbWDvU+3cC9bl4YtNyy+MdOi+SnZXufT1zlTpuXjDuSM7ZGyj8QeChGBWk6jzO/+epVzUEMAaDrlF3IGU20NnOH4t9EUVWxd0Df2eZP606Dl1Y6Tqh6MnDBdeZz6U9zXZbBYJ5hXY+C9mFUizOR+7lyhd+xsGuNWpPfyCpRLccpuZ6hbb2o4Z6oNnHCbEfDPviJV3s09RnnDodvqbG636aQFp/iF8lzTrzvDgiSBj1qJID+Xv92PBgmM4Bv2fMwyc27Z+mTDn8w8UBGMXCGtLDu9IAJ5w+Khxo=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: lUGL7n3wYSiWXJUV8K6q3uH2tTqLBXDvyl7DO2R4pC5UO5jqGvuqM+4ns8Ftbq9G30JWgOX0y6cZNW0e+QzEX3KdtH8zf51s+MK6exkNeOZrgBQcyddTsrqNcFvouy5Ho+xobTCBaXUYMShjpGr+7ODOla9/e5d5guKAUO5kAgf0CbVRu3HknxZlUod41xXm5JIH2BfK+YciY4tZetMiCIUlIFlPed2vffv0kbojznkggf4MlqMeOkkN6r1k6whWJFg3X53A5oP3S0jfo3IktpNDcY5czCGkcvdAJiJyd3Ji29n0br0IXQ71ZnDdm0dSdONns6Y0TxFmuYb6Q4x4tK8R0LEc8K7eEuzS+vETKPuJJ1ZmTMNfgjL83xlULytKnyrAdRX7r+VBrWyW7StIpp8H1ot32iEnsMJ8QlFBhfqxQgbCdr4uKqXeh+hjgaSn
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 14:03:51.6752
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d8b415c-a416-4301-0fa4-08deab784d84
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MW1PEPF0001615B.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4618
+References: <20260501095433.1609309-1-mitltlatltl@gmail.com>
+ <20260501095433.1609309-4-mitltlatltl@gmail.com> <OmTXoHZJTSGePymL9I-1Cw@puri.sm>
+In-Reply-To: <OmTXoHZJTSGePymL9I-1Cw@puri.sm>
+From: Pengyu Luo <mitltlatltl@gmail.com>
+Date: Wed, 6 May 2026 22:01:22 +0800
+X-Gm-Features: AVHnY4Jp93agdi_Y8mXGWuXYD7rYu7UJTV_Ohq4VXA590K98lCrI7__F8JibURM
+Message-ID: <CAH2e8h6YM1D6K-SKg8UUL_-jJ0uuEvU1iK-xZtguNTurfO-U4Q@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] media: hi846: Add 6MP and 8MP modes support
+To: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Martin Kepplinger-Novakovic <martink@posteo.de>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Hans Verkuil <hverkuil@kernel.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_070359_351837_5ACEFBB8 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20260506_070403_694198_57821595 
+X-CRM114-Status: GOOD (  32.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,48 +123,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02:46-20260506, Md Shofiqul Islam wrote:
-> Implement the TODO in knav_queue_remove() by stopping PDSPs and
-> freeing queue regions and queue ranges before disabling runtime PM,
-> mirroring the cleanup performed in the probe error path.
-> 
-> This ensures resources are released on driver unbind and avoids
-> leaking queue/region state.
+On Wed, May 6, 2026 at 8:51=E2=80=AFPM Sebastian Krzyszkowiak
+<sebastian.krzyszkowiak@puri.sm> wrote:
+>
+> On pi=C4=85tek, 1 maja 2026 11:54:32 czas =C5=9Brodkowoeuropejski letni P=
+engyu Luo
+> wrote:
+> > Hi846 is an 8MP sensor, but the upstream driver has only supported 2MP
+> > mode for years. This patch adds 6MP and 8MP modes to maximize sensor
+> > utilization.
+> >
+> > Note that these modes require 4-lane MIPI CSI-2, as the downstream
+> > driver only exposes 2MP, 6MP, and 8MP configurations in 4-lane
+> > operation on the target device. The register sequences are extracted
+> > from the downstream Windows driver.
+>
+> Has this been tested in this form at all? I tried, failed and looking at =
+the
+> driver I don't see how could it ever end up using these modes in its curr=
+ent
+> state. It can only cause troubles when used with 2 lanes, while 4 lanes a=
+re
+> completely broken.
+>
 
-Missing Signed-off-by -> please run checkpatch --strict.
+I may have messed up. I tested it with two more patches. The first
+patch removes 480P and 720P, the second uses a new 4-lane init list.(I
+just sincerely followed the downstream) Since I didn't think much, I
+thought removing modes would not break things, I just tested without
+the second patch, so it works for me.
 
-ERROR: Missing Signed-off-by: line by nominal patch author 'Md Shofiqul Islam <shofiqtest@gmail.com>'
+> The driver defaults to its first supported mode, which happens to be a 64=
+0x480
+> mode that only defines its register list for 2 lanes. hi846_set_format wa=
+s
+> supposedly meant to check whether the mode returned by v4l2_find_nearest_=
+size
+> is compatible with the used lane count, but it does so too early - it act=
+ually
+> checks it against the already set mode rather than the one it's about to =
+set.
+> This means that you're never going to be able to set any valid mode when =
+using
+> 4 lanes without fixing this first.
+>
+> And even if this was fixed, with 2 lanes this makes some calls from users=
+pace
+> that previously succeeded now fail when v4l2_find_nearest_size happens to=
+ match
+> a mode that's only supported with 4 lanes. v4l2_find_nearest_size would h=
+ave to
+> be fed with already filtered list of modes to fix that (which would actua=
+lly
+> make the check mentioned above unnecessary).
+>
+> Of course these are preexisting issues in the driver, but they make it
+> impossible to actually use what's being added in this patch and to add th=
+ese
+> modes without causing regressions. So far these didn't matter as this dri=
+ver
+> was only ever used with 2 lanes, but they have to be fixed first before a=
+dding
+> any actual 4 lane usage or modes that require 4 lanes.
+>
 
-> ---
->  drivers/soc/ti/knav_qmss_queue.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
-> index 86d7a9c9a..8d8245352 100644
-> --- a/drivers/soc/ti/knav_qmss_queue.c
-> +++ b/drivers/soc/ti/knav_qmss_queue.c
-> @@ -1873,7 +1873,11 @@ static int knav_queue_probe(struct platform_device *pdev)
->  
->  static void knav_queue_remove(struct platform_device *pdev)
->  {
-> -	/* TODO: Free resources */
-> +	struct knav_device *kdev = platform_get_drvdata(pdev);
-> +
-I suggest adding:
-	device_ready = false;
-> +	knav_queue_stop_pdsps(kdev);
-> +	knav_queue_free_regions(kdev);
-> +	knav_free_queue_ranges(kdev);
->  	pm_runtime_put_sync(&pdev->dev);
->  	pm_runtime_disable(&pdev->dev);
->  }
-> -- 
-> 2.51.1
-> 
+Thanks for your feedback. I think we can use specific modes for
+different lane modes. The snippet like
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+    hi846->supported_modes =3D supported_modes;
+    hi846->num_modes =3D ARRAY_SIZE(supported_modes) - 2;
+    if (hi846->nr_lanes =3D=3D 4) {
+        hi846->supported_modes =3D supported_modes + 1;
+        hi846->num_modes =3D ARRAY_SIZE(supported_modes) - 1;
+    }
+
+Best wishes,
+Pengyu
+
+> S.
+>
+>
 
