@@ -4,87 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57DABCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:03:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53CFCCD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6lCUuXDcwuMuvkw++7nOHtFX8FGwzsSx+p3o4zIoa/I=; b=2sxgKLJb0xW8wrgey7mKboKVve
-	aM3RyP+jNmlyzQ4XIxbRB5o+dJDF1UwIKPZibOotUUO+csNvnUi+QGCNl2lLkLSp52vBvTs4IgH5h
-	GBw5OuWAHhLpObUZN+9ZgEEYUYtTfi/a7mrj2dqJuw+AS6FAIJfHVY4zKvKpmaqBIWRq9O2izDRZf
-	+yzz2/ZJjwBsUV0Adt7Rg58ddVp0JxtZHMvkNqRO/DLHThwAqjQwkEKDpaOTVdEq7N5yU5DrH7hF5
-	MO/MtIEExxakIWwZpHsyvl430SH2bKI1CV6BUMBcQMCa6C8thQxQ8T8/aiRn2dUTa/d48MyELa/uA
-	+rqbO8cg==;
+	bh=B3ABkZmo+Tys72clJH32VJZ0LIeUJAKzD6QrLAYNZdk=; b=M3OthUu8kSYZT4OKvD+yyMzWbb
+	H8t/aV0rEEA+Y5EpGHAHpQnDqTy5KQ5bYrsr+n5YoEbqRiuOIcpRz/q4Fn3sKkpHw55IeZ7NUJMaC
+	VEyorsAglwKUR/sfaDof2Ij/bJ9JMLhnBLhOQKrj6zkkJLJ65HabYRSEr1DXhf0ZIlUZvpXurlNNn
+	Aexh2xIvK26Ucr2XUhxkCJwbd4tcxi3nquyq0FUH6fmFPAjTMQC/zc5xY7U02Gq23Splnrnt7tBqt
+	fzI95i4eeTcvjLmCyZ2J33RNA4NKk98e4p71ibuqt+Ds50vUEmRVBI3PcK9G6Jb90b4krQwMQYLs1
+	DCm4QWHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdmx-00000001E7W-1f6C;
-	Wed, 06 May 2026 15:03:51 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wKdn3-00000001EAA-22Iq;
+	Wed, 06 May 2026 15:03:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdmv-00000001E6S-3bgJ
+	id 1wKdn2-00000001E9V-0k9C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 15:03:49 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-43eb05b1875so3528432f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 08:03:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778079828; x=1778684628; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6lCUuXDcwuMuvkw++7nOHtFX8FGwzsSx+p3o4zIoa/I=;
-        b=O5KsqXhBOJQm7RZrqZApcs53l6+QRNHorLSDUpy9eA0IqF7khIhA4rUjSpjFQDh1ng
-         CBrNAg2GdmmJ8xr5c4URBOozHLZrTUOBwdSKF6sKmj3/itIPhBmQDVLv/Ifvz14vT/2b
-         RWeeaIdgd0w4A+4Mr0KF70POTLZ5MXVL0zjUb7ARcnOPvXYKTGthO3ig4EC01k1DRNg7
-         A29AYD5SGQmr95vtF80+NhTxrMOnWCgf+WryfmbjMc5GqB5CTyI6CP8vVOHRILgwQshY
-         El5ztwVedRlXekrM8lx/kno1Cc6vkyH83/qjRoWxI1JhXuhPrt2v3NHWCDgne2tUBWj0
-         dhIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778079828; x=1778684628;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6lCUuXDcwuMuvkw++7nOHtFX8FGwzsSx+p3o4zIoa/I=;
-        b=O3ubQCBAbg2ib3LXTb0YHHYeZhAVgLEwhK12Kz5/tCtbaywOjhsZyJ4a1Y14hm52jM
-         JWqiZ9/xrzke7q12wnMyfnHJ7gp4wT4JJyf2cACe5FxusyIkUAXqNi084Jgsr2wPYTwe
-         jQF9uVlsYxzYUCoZ1vuvLcp0r1nJAE0hu85JAgFZmEyx4iMNX0WD2DimaxdXOXGR+IOz
-         IussGyUfL8D8FiT2YzaOUN0sARAoPCOrUuLqnsaUO1Fky4CHdvWHDgraT6Xpaear4439
-         RKATAsfsPxDk11GznF1ale95zXHs2VJyYbu2uhaok1wvPlVruZ/LhJJsQKLl1HrXrXMt
-         dp9A==
-X-Gm-Message-State: AOJu0YyprhZ8WZJjvORjANE7DJEhWrhtHiokkqGGwpNmHp1hoE62M83F
-	l7EnlgD5S1bSKtNcKp8X6AHRWhUJBG5jiQrI0oZpTMk238taan6xGtunU9iMVTZUFw==
-X-Gm-Gg: AeBDiesSkb7UE15MnqIhyi0nt4apRpx15XBbahpknP6cR39c31EEyjj/O+gVEJG6HvD
-	PvQzrEdNvole5axbMv1OoGyaod8vbKsWCZp3DdyeTqIpq/GQKvTSpxE4w7+Nh6xWbAHrNkdOtpw
-	C3gmZ32iJiq5qEE2SfJYqE0PZ+Z3kkNOET0bBN1zribj0ZU4w/xpmd6fkN3oOi4QIY8piw3Ts9g
-	9eHH00wvddFNobugKQ6I+TUlYRadd3qFp9naPjWJP0y8q5UKo7Eu2bcbXr2t8WCuHTweIqwd3JP
-	0INtr4El703sdH1gWrGCEbMfo4tEdTLfkMDDplEl3c7AaSf73MewaqxJoMOEYouqKC2xcZOR6XK
-	FKgDlbFC+tp57UgVegCnFNopvfLG7ihNopKFTGTmRo1GwBZKm/N2rIbBW+rchOM0zhgk6FBEDLC
-	h75cnuCr2cK7nZILcOqsAzHXID19JPo2ZXRC6DUMP7ihhRajm0pm3RjIP7+VeNUxnc4lF7CAKcD
-	DFqpLESELu7E91l
-X-Received: by 2002:a05:600c:3e8d:b0:48a:6268:18a9 with SMTP id 5b1f17b1804b1-48e51f32797mr69446495e9.13.1778079827439;
-        Wed, 06 May 2026 08:03:47 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-450524834eesm12653531f8f.4.2026.05.06.08.03.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 08:03:46 -0700 (PDT)
-Date: Wed, 6 May 2026 16:03:43 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, tabba@google.com
-Subject: Re: [PATCH] KVM: arm64: Harden clock for nvhe/pKVM
-Message-ID: <aftYT7BY_9ZdGxmA@google.com>
-References: <20260430103724.2151625-1-smostafa@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260430103724.2151625-1-smostafa@google.com>
+	Wed, 06 May 2026 15:03:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ACD6C441F6;
+	Wed,  6 May 2026 15:03:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DBDFC2BCB8;
+	Wed,  6 May 2026 15:03:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778079835;
+	bh=9wYxQMmVtBz3DEPWlbfvcyKeSl2P2HX1/nFCNbnRXls=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RFpwT+nC2ToI8BxTZFN8/5u1tm+3XR/8IolTmSTdxDuUH4ga2bcXbIEO5MD+izzJ4
+	 dbZ/i5b1gy9lmmy/B3/OvVn5WFeVb8oRgO3nD2f3hpUWDMZTZgotkRhXa3/atRqhAz
+	 r7EByGrr6h3BSOu4SOb9aaWOBYi8a1yaSQvIk6YV8Z/h6kzODBHBtAwKYrR3UPxN2I
+	 WOSZ4Qzk7mfCa9D7KSpaBqIKltq0ag0Cxgvwjsz5OSTkGI0WDX1RFBbDewjzTN/yBM
+	 iYQklEifxgdd1uI4wJxFNFsKsfHXGzW0u7qtRyIjEYbrxsovlw+74J9LsIXq49Zb4D
+	 mEGWB5UqF3I6w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wKdmz-00000000KcH-1ZnQ;
+	Wed, 06 May 2026 15:03:53 +0000
+Date: Wed, 06 May 2026 16:03:53 +0100
+Message-ID: <861pfozijq.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 17/43] KVM: arm64: gic-v5: Enable VPE DBs on VPE reset and disable on teardown
+In-Reply-To: <20260427160547.3129448-18-sascha.bischoff@arm.com>
+References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
+	<20260427160547.3129448-18-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_080349_907365_961FDC9E 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20260506_080356_254994_657DD1BD 
+X-CRM114-Status: GOOD (  28.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,40 +97,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 10:37:24AM +0000, Mostafa Saleh wrote:
-> Sashiko(locally) reports possiblity of division by zero and
-> out-of-bounds bitwise shift in trace_clock_update().
+On Mon, 27 Apr 2026 17:11:50 +0100,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > 
-> Although the clock update is untrusted, we should at least have some
-> basic checks to avoid the clock value getting out of sync if the host
-> is buggy.
-
-I am not sure about the gain here. The host can still write values that will
-make it out of sync anyway.
-
-The timestamp is ultimately fed and read by the host.
-
+> Ensure that each VPE doorbell is enabled on the host prior to running
+> the guest by enabling it as part of vgic_v5_reset(). Add a function to
+> disable it again as part of VM teardown, vgic_v5_disable_vcpu(), which
+> also frees the IRQ again.
 > 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 > ---
->  arch/arm64/kvm/hyp/nvhe/clock.c | 3 +++
->  1 file changed, 3 insertions(+)
+>  arch/arm64/kvm/vgic/vgic-v5.c | 29 +++++++++++++++++++++++++++++
+>  1 file changed, 29 insertions(+)
 > 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/clock.c b/arch/arm64/kvm/hyp/nvhe/clock.c
-> index 32fc4313fe43..a7fc61976fd0 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/clock.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/clock.c
-> @@ -35,6 +35,9 @@ void trace_clock_update(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cyc)
->  	struct clock_data *clock = &trace_clock_data;
->  	u64 bank = clock->cur ^ 1;
->  
-> +	if (!mult || shift >= 64)
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index 9347bc6895223..48ffcb2494db3 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -736,6 +736,31 @@ void vgic_v5_reset(struct kvm_vcpu *vcpu)
+>  		kvm_vm_dead(vcpu->kvm);
+>  		return;
+>  	}
+> +
+> +	enable_irq(vgic_v5_vpe_db(vcpu));
+
+Odd. Why do you need to manage the enabling of the doorbell? I see
+from the previous patch that you set it as IRQ_NOAUTOEN, but this
+seems to be cargo-culted from GICv4 (which really needs it).
+
+My expectations that since the doorbell is controlled from KVM and is
+only one-shot, we should be OK. This is the flow that v4.1 adopts,
+without a need to baby-sit the interrupt state.
+
+> +}
+> +
+> +static void vgic_v5_disable_vcpu(struct kvm_vcpu *vcpu)
+> +{
+> +	int virq = vgic_v5_vpe_db(vcpu);
+> +
+> +	if (!vcpu->kvm->arch.vgic.gicv5_vm.domain)
 > +		return;
 > +
->  	clock->data[bank].mult			= mult;
->  	clock->data[bank].shift			= shift;
->  	clock->data[bank].epoch_ns		= epoch_ns;
-> -- 
-> 2.54.0.545.g6539524ca2-goog
-> 
+> +	if (!virq)
+> +		return;
+> +
+> +	/*
+> +	 * We are called in the vgic_v5_teardown path. We no longer need the
+> +	 * doorbell virqs.
+> +	 */
+> +	disable_irq(virq);
+
+And then this can go as well.
+
+> +
+> +	/* Free the doorbell irq (counter-part to request_irq)*/
+> +	free_irq(virq, vcpu);
+> +
+> +	/* Remove the irq from the domain too */
+> +	irq_domain_free_irqs(virq, 1);
+
+Surely you remove the domain at some point. That should cover the
+freeing of all the doorbells.
+
+>  }
+>  
+>  int vgic_v5_map_resources(struct kvm *kvm)
+> @@ -875,6 +900,10 @@ void vgic_v5_teardown(struct kvm *kvm)
+>  			kvm_err("Failed to release VM 0x%x\n", dist->gicv5_vm.vm_id);
+>  	}
+>  
+> +	/* Goodbye doorbells */
+> +	kvm_for_each_vcpu(i, vcpu, kvm)
+> +		vgic_v5_disable_vcpu(vcpu);
+> +
+>  	vgic_v5_teardown_per_vm_domain(&kvm->arch.vgic.gicv5_vm);
+>  
+>  	vgic_v5_release_vm_id(kvm);
+
+I reckon this patch would be better folded into the previous one, so
+that we can see both the requesting and freeing of the doorbell
+interrupt in the same patch.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
