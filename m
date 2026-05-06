@@ -4,126 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745F3CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 01:57:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98103CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 02:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mPUXvQr0DL2aUfFDDGcRA7zO6a5bS6JyLG5LMOkTYnY=; b=f9vipEEUks9PXxnW1P6wh58Vdo
-	LEzhbBdJm+0XW+ZHX/0ck4QJc9I6YX5ixXbdYDdopwAZzxolbmhfY8R/hIFlaw1145DNKYVRN2CpN
-	xVJyXNhJBtzwg5R4WQencWprisMhuVm8WQ+ajV2TuR06yVmqlI4VmXC0vrE3hAKYKtqfY7bU9IAJ+
-	zr4HxeR5/YGGrPcHhLSJrDIyRqc3AYbFY8Nw0VjnXk2D0jNqafimR4ZKgE/ped9vSgXxkBzitdwvz
-	7MOFYbJkIM0ZjnV1WX2DP8lH2oUdx73aobMnPiqBbqXKayJcQzUh3/VemV0Or8BsOtsno0MHRpiq1
-	8IR3lovg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nruCB6ibq9+1PRX77kFEv5gkcVE1RGi6EA4xSfKhv1w=; b=sTT94qv3MnOcgAY4m/mu7dDAAy
+	ZEJAU9jg+wO/sjLn5BrB5rjq0G3MvdGAZ3y8sIDoKgWWyWqfMdodkvi8zP2JBLkVR1Da+BqUEcYk1
+	9Uy6Yoiuk5IaJQ+WZWR9VIdB/23mBuyB0OV2EhCE0ep1At/ILQEPo4p5rntvq1MWCXmLFVgt0D328
+	wYCBYXbap6VU4DDO8Z1rTR/zu8azU13mxEX1yxkcXexiJVCtw8KrZZC+IJrm9WrZKEhmyz0+aWRqp
+	6y9eHsiHBs1ZrAPlE2DUVJnMEs/4MYUvVlMvexbIh/c3BUIWdBy7zkOc1hESiuLGgFVF6v+gtZsV2
+	TwgFpNGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKRVo-00000000TA9-2dsi;
-	Wed, 06 May 2026 01:57:20 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wKRbM-00000000TnC-1KB4;
+	Wed, 06 May 2026 02:03:04 +0000
+Received: from mail-m15597.qiye.163.com ([101.71.155.97])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKRVk-00000000T9X-0BJX
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 01:57:19 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 645IwSLe2807042;
-	Wed, 6 May 2026 01:51:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=mPUXvQ
-	r0DL2aUfFDDGcRA7zO6a5bS6JyLG5LMOkTYnY=; b=aYbrNUsXrOVLIHBZV5Q85x
-	BsILi4YiLeXFewVtcZzxrPMY+LQixqWlryu562VRcR3UU0fOh5gC7ABLOA9/va4k
-	dzLb64+vwGGcZ8TYCQXkaI4ew8vqEFhTpN1p84gciOQSyn17fsP1309DyiGVuHpw
-	HgBaX617ElFnq4lukca1UFzXa3lMrlxn7bcjBYurGzll0ha/IGwTD1T2K+NnfsfG
-	ZXM8gDJvDBC70ubsjWt+tRpNC8QeqLfJtUmXafLOTflyXgb/C4QitQjGTvI+/r5Q
-	BJx1mNWUI+W5u25ZfKfo2HiFgXzxbb5NSO+/rQ5sGBTETBeL0q+4mLHBnLHM0VqQ
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9v7ejhm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 06 May 2026 01:51:56 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6461di1R000554;
-	Wed, 6 May 2026 01:51:54 GMT
-Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dww3h469n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 06 May 2026 01:51:54 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
-	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6461pspQ18088522
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 6 May 2026 01:51:54 GMT
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 587685805C;
-	Wed,  6 May 2026 01:51:54 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EE27D58058;
-	Wed,  6 May 2026 01:51:51 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.111.233])
-	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Wed,  6 May 2026 01:51:51 +0000 (GMT)
-Message-ID: <5debff82dc758d9c91223e4f1f5b9e39a3fcd4f5.camel@linux.ibm.com>
-Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Paul Moore <paul@paul-moore.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan McDowell
- <noodles@earth.li>,
-        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, jmorris@namei.org, serge@hallyn.com,
-        roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-        sebastianene@google.com
-In-Reply-To: <CAHC9VhRUgNA=Sj=jhD=zOt8R80Q+FQj+H0nYSy-FAujTL3EKPA@mail.gmail.com>
-References: <cover.1777036497.git.noodles@meta.com>
-	 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
-	 <afMlgstqahnZg68h@e129823.arm.com>
-	 <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
-	 <CAHC9VhRsnmPp2KmQAns5uq5qXX5EF2xQQzyfTgrPi4O9AXyPpg@mail.gmail.com>
-	 <ba4bf28314b679474a6a8da6298e548e54b3754c.camel@linux.ibm.com>
-	 <CAHC9VhRE2kRr1fdDf6xgQgpSrtvqtP8Vy9LVGJhDZFUbzLKGmQ@mail.gmail.com>
-	 <ff28c6dcb60c357c752724927addaa8c4fd3bf2c.camel@linux.ibm.com>
-	 <CAHC9VhQY2TMkTvQq9P8oZteQWQSr7qq2utOuH+pdVx+8jWLBCw@mail.gmail.com>
-	 <a9412fe10e70ce95dd70556ace19368bec5c188c.camel@linux.ibm.com>
-	 <CAHC9VhRUgNA=Sj=jhD=zOt8R80Q+FQj+H0nYSy-FAujTL3EKPA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Tue, 05 May 2026 21:51:51 -0400
+	id 1wKRbI-00000000TlN-3Rrt;
+	Wed, 06 May 2026 02:03:03 +0000
+Received: from [172.16.12.77] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3d3be398c;
+	Wed, 6 May 2026 10:02:44 +0800 (GMT+08:00)
+Message-ID: <f91f1ebe-c41e-42ae-a860-5e4c99c34784@rock-chips.com>
+Date: Wed, 6 May 2026 10:02:33 +0800
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDAxMyBTYWx0ZWRfXz6ovra1ZP5dV
- 9+4nab46Mm0AiXxdRchnCrnZ6nYbmlX2zpyBXoKIhL9iosrrYx5AkLmtCh4hOAylWClqqxq/AzK
- LdTX3n6OZ5l+YG3jEQHIq76bpB/wCTy55H34eMOuams8C6pBXxjbaWmhC5rMtQJPxzvyNHR/vhj
- HqsUTG5MMv8WTrQ3cpZBazw4cK9C0cuADP0qZxC61YX7o8HcYtKn4iXhJK2ws4z0YGMHo+F5y/v
- rgiuaszci1gcnyyzsS9J5/TYgVXc3zTX34OHidFywnJgPtoeNVwWL7LmnvGh6cYvyv5XziMhVCK
- IvfCUsSphb74suCPm1oO3hVNAUTUMAM7IZ6LmtS98IKCBBtLuXOSnSG5+APSOuP2ZTkKtqkePHX
- wLMcuiO9wzZ54BfN/nT6bRJCkQ6R1siN+R7C9IhAlgU21Hl90jjS+fe1jr+xHxvJ9Qdpkmp/Eg3
- Ff9ZnzjZEx6nwv6CVtQ==
-X-Proofpoint-GUID: S5ruvBnGVWmRMC517U5ostDLkLMj2qIw
-X-Proofpoint-ORIG-GUID: 3iMKloGi8mSPmMG2C40umVb3LfXDp303
-X-Authority-Analysis: v=2.4 cv=eu/vCIpX c=1 sm=1 tr=0 ts=69fa9ebc cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
- a=2NmI_m57lu5WmJoAan0A:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
- suspectscore=0 malwarescore=0 bulkscore=0 impostorscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605060013
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] MAINTAINERS: Track dw-hdmi-qp under Rockchip DRM
+ drivers
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ kernel@collabora.com
+References: <20260506-maintainers-rk-drm-upd-v1-1-f67537b4bb29@collabora.com>
+Content-Language: en-US
+From: Andy Yan <andy.yan@rock-chips.com>
+In-Reply-To: <20260506-maintainers-rk-drm-upd-v1-1-f67537b4bb29@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9dfb05f30309d6kunmab154c12257ce3
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZGh1PGlZCGE1IT0NKHx
+	gdT0xWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tIVUpLSEpKQkxVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=hox6Sfk13RUdtTP3RnPnUTOekDVp54uGomPSD1YHgkTMK5CVz0VJC/BBVQoZGV3Vdynk+HuhiAAqhmY+s0+kCY1dBY4ffmhguQqqw84+EPEylKc9GsfraPyVHI/OggExK4sm1F8bYjqG2zgM+YfrAun2tnj4GNo0BVtf/qwAAoY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=nruCB6ibq9+1PRX77kFEv5gkcVE1RGi6EA4xSfKhv1w=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_185716_119699_237937BC 
-X-CRM114-Status: GOOD (  23.49  )
+X-CRM114-CacheID: sfid-20260505_190301_561293_F7C71060 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,54 +80,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-05-05 at 18:55 -0400, Paul Moore wrote:
-> On Tue, May 5, 2026 at 5:05=E2=80=AFPM Mimi Zohar <zohar@linux.ibm.com> w=
-rote:
-> > On Mon, 2026-05-04 at 16:51 -0400, Paul Moore wrote:
-> > > On Mon, May 4, 2026 at 8:03=E2=80=AFAM Mimi Zohar <zohar@linux.ibm.co=
-m> wrote:
-> > > > On Sun, 2026-05-03 at 12:46 -0400, Paul Moore wrote:
-> > > > > Regardless, assuming you always want IMA to leverage a TPMs when =
-they
-> > > > > exist, your reply suggests that using an initcall based IMA init
-> > > > > scheme, even a late-sync initcall, may not be sufficient because
-> > > > > deferred TPM initialization could happen later, yes?
-> > > >=20
-> > > > Well yeah.  The TPM could be configured as a module, but that scena=
-rio is not of
-> > > > interest.  That's way too late.  The case being addressed in this p=
-atch set is
-> > > > when the TPM driver tries to initialize at device_initcall, returns
-> > > > EPROBE_DEFER, and is retried at deferred_probe_initcall (late_initc=
-all).  Since
-> > > > ordering within an initcall is not supported, this patch attempts t=
-o initialize
-> > > > IMA at late_initcall and similarly retries, in this case, at late_i=
-nitcall_sync.
-> > >=20
-> > > Okay, so from a TPM initialization perspective you are satisfied with
-> > > a late-sync IMA initialization, yes?
-> >=20
-> > No. On some architectures moving IMA initialization from the late_initc=
-all to
-> > late_initcall_sync does not miss any measurement records. However, as p=
-reviously
-> > mentioned, Linux running in a PowerVM LPAR the move would drop ~30 meas=
-urement
-> > records[1].  So no, only if the TPM is not initialized by late_initcall=
-, should
-> > IMA retry at late_initcall_sync.
->=20
-> What do you do in the PowerVM LPAR when the TPM is not avaiable at
-> late initcall and you have to defer IMA initialization until
-> late-sync?
+Hello,
 
-Your question is hypothetical, as the TPM isn't deferred, so IMA doesn't go=
- into
-TPM-bypass mode.  Testing on a PowerVM LPAR demonstrated that it skips ~30
-measurement list records.  So moving the initcall to late_initcall_sync wou=
-ld
-cause a regression.
+On 5/6/26 06:31, Cristian Ciocaltea wrote:
+> The DW HDMI QP TX library was developed for and is currently only used
+> by Rockchip platforms.  Add it to the Rockchip DRM drivers section to
+> ensure all relevant parties are kept in the loop on any changes.
+> 
+> As its file paths fall outside the generic wildcard patterns defined in
+> the ARM/Rockchip SoC support section, also add the
+> linux-rockchip@lists.infradead.org mailing list to avoid any
+> notification gaps.
+> 
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>   MAINTAINERS | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 0dfad67f66c0..cb3c8e5fcb21 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -8754,11 +8754,14 @@ M:	Sandy Huang <hjc@rock-chips.com>
+>   M:	Heiko Stübner <heiko@sntech.de>
+>   M:	Andy Yan <andy.yan@rock-chips.com>
+>   L:	dri-devel@lists.freedesktop.org
+> +L:	linux-rockchip@lists.infradead.org
+>   S:	Maintained
+>   T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
+>   F:	Documentation/devicetree/bindings/display/rockchip/
+> +F:	drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.*
+>   F:	drivers/gpu/drm/ci/xfails/rockchip*
+>   F:	drivers/gpu/drm/rockchip/
+> +F:	include/drm/bridge/dw_hdmi_qp.h
 
-Mimi
+
+
+Acked-by: Andy Yan <andy.yan@rock-chips.com>
+
+>   
+>   DRM DRIVERS FOR STI
+>   M:	Alain Volmat <alain.volmat@foss.st.com>
+> 
+> ---
+> base-commit: 4cd074ae20bbcc293bbbce9163abe99d68ae6ae0
+> change-id: 20260506-maintainers-rk-drm-upd-c463f6b04769
+> 
+> 
+
 
