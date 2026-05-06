@@ -4,121 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D0F6CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 06:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00B4CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 06:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yVN6e2XkmFqmabK7+ZBMtAt2PpBLGy1gsGYGviFXBgM=; b=a5iX4vjkY7muIqfmnwkQTqS+AH
-	cpSgaQbfTQr9KQzQrzNXUxJmpopq5RbcxUxAwfhn1IkomjFtdkT4jSplLpb22fSnaCqIR/NaGg6V3
-	p2nzZZ8a+I6K8WDVRpiGKD4qxTt/OzyA+YP8Quw7mqQNu6NNJdhYORdUigeMJE9hY2fmAaQgNYxUc
-	aUF3kY/F0akNGoJ0pfbhe0aTn1ETsLsv7bF/N2T0oxvmF0qpdGp+fgvXWXu6gF6Xo0LgHC6WZmTSf
-	3HihIhR2Y9jpIh/0bq1MWiWtKf9nOHEl2tgZdmgadR+HLVJJuOFtFGBRrQb6tsoR6CitgJIBcUe5J
-	YCWR5p3w==;
+	bh=QFBoEv8v084BfoqwXczJZhbGZtca4Wxb8uo/uPmEYgg=; b=C07SX2fhdDPrv3Wl3KQZsYz+Es
+	ahICiZ2c5ObNBDKkwcJSuEAhDO2f9bGK824HaNNV9QHEGdqALdZ7IuiSPfQXsSDGSi1qcP8+7FObP
+	P/bftkCLvusO6rFBpE04MsyFypqL6mLAqNjNEMVlZO39CkuO09sMd2cfPjkFYTf/pgpYVMqF2QGAq
+	qRsoeoyX46MOX4G8YSmfHXvBwf4volOK+RIviN5ONW2ILQkIK8rFrDXY+jVIeAQMEbMXlel1CVjWu
+	YB6zSFrzxn7RFp2v0h9zCsKDEsMckNBVRu5d/XHXk/9ECOZEfQbiQ64eE6iebnKtoDqEP7OxSS0GJ
+	232sSElg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKVUJ-00000000rbm-0leX;
-	Wed, 06 May 2026 06:12:03 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wKVbf-00000000sSi-0NxY;
+	Wed, 06 May 2026 06:19:39 +0000
+Received: from todd.t-8ch.de ([159.69.126.157])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKVUG-00000000rai-3zS9
+	id 1wKVbc-00000000sRO-0vnu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 06:12:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FQWmNHjbhF9Q+94ZIK7JoOQYooLuFS/g8sNqrJxP0/+qHj9Ir/ez+MW2yjxPCdafNp2Jtmi3tNIjDCj0UUTOLj9IJ2E77ew5cQz2VtLAjiBmMtYsb5csiwUEv8L9dDqxv7eF0S/DpwXA9es3aProJLVgR7saHgxxeWD6Uj/LyQgf33DFVR5YUEevplkRxxGq7uA+sjsp3riWeMBQeNWyl1XdkYAoDe92zJY6jt+9x6Kr01X5gQUe79rAbHw35zycWSo/HjqImnIsT8q2QeqEVV8cuY+LUejnCxfJh3Uc3ItbcPWPls6moqW/1/2qjR4BBOGHwhtZ3pQ5mHTSFMqatA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yVN6e2XkmFqmabK7+ZBMtAt2PpBLGy1gsGYGviFXBgM=;
- b=f4zDP+DoFcm/7jyogfsvtqppASR65Z1OEBptiFWPpJtwn8sBVjVVEp4zURfuThhZqla/mRDrt72bnbpRW2xI/f7JTxroo4d6VwDXRwS35ajGzuTSuj6dM6QYIJ5AYhSKTf0PmltBS031DmDF43RvlKVOqyC697FGgPtfkJqnK5oYxoaWeuY6cN+hGdEjkbEeh74cS2fQZNnPmPa4K3ApR9CxZ9AuTsDT8n+i5zjyfXiJzoA/+UNAI9F9ECzSZ1NKzhrlRTwjuaos3PLxwkLaykTmt4aVsD6i9lytfOtKSsLJASj5QODJgtyZxdo0IX2dtAW6L8WCrnyiANMiJ41VuA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yVN6e2XkmFqmabK7+ZBMtAt2PpBLGy1gsGYGviFXBgM=;
- b=powSkruuZWShvOciDdTVL/7d7mWH0NLdNl0NjbGbLjTUq33+dVYs6nzf/l610dFsg+UBia6SXi3vYYGctqBsMNWpUUkhvjbnrimxXqIKPoP1qMy2sO/ArkTDi21Thk7B7W4sGYaKna1XBDtn3x/7X+uxnlkoGhi74NRlVs2D+gzcod56ll9A1MW5hjzsThISRqRL/oRR0EX9KP3Dz4zEj8+bqyCnb5C7gAh72xp2ScSCACPuFF+aJdh6TSn881PGKxGm4M6JmVRcTrbz6MjQ7QYT4Gl6p2USt7wN+FszbnUEROPbPSHpop5tC8rTvXplgjQsd94/R6QHVH6q2nb2Ng==
-Received: from BN0PR04CA0061.namprd04.prod.outlook.com (2603:10b6:408:ea::6)
- by IA0PR12MB7529.namprd12.prod.outlook.com (2603:10b6:208:431::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
- 2026 06:11:48 +0000
-Received: from BN2PEPF000044A9.namprd04.prod.outlook.com
- (2603:10b6:408:ea:cafe::6c) by BN0PR04CA0061.outlook.office365.com
- (2603:10b6:408:ea::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9870.25 via Frontend Transport; Wed,
- 6 May 2026 06:11:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BN2PEPF000044A9.mail.protection.outlook.com (10.167.243.103) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Wed, 6 May 2026 06:11:48 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 5 May
- 2026 23:11:31 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Tue, 5 May 2026 23:11:31 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 5 May 2026 23:11:27 -0700
-Date: Tue, 5 May 2026 23:11:24 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <iommu@lists.linux.dev>, Jonathan Hunter <jonathanh@nvidia.com>, "Joerg
- Roedel" <joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-tegra@vger.kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Thierry
- Reding" <thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, "Will
- Deacon" <will@kernel.org>, David Matlack <dmatlack@google.com>, Pasha
- Tatashin <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, Samiullah
- Khawaja <skhawaja@google.com>, Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 1/9] iommu/arm-smmu-v3: Add struct arm_smmu_cmd to
- represent the HW format command
-Message-ID: <afrbjKNmTI7xyKF2@nvidia.com>
-References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
- <1-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+	Wed, 06 May 2026 06:19:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
+	s=mail; t=1778048370;
+	bh=hvqJbeP9p+DGmQxzChdUPddmFOg9jOAGvwXULn0ZZtQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lJFELCGX2tnCb7XQ6D91OyvhKKho8SSNh/MtHe/NkjVeDbHLNTKJAPJcFPMyY698i
+	 ACQ/CSywPxE4pjIU0nD9MsCr5kv9O9wlnTPjUQbdVtF1V/zQxqkTr+lZTy0rRJMs52
+	 VlS6OW2VZgMAxVC1O2tWeoNE5iJXDh6xZIIpOjj0=
+Date: Wed, 6 May 2026 08:19:30 +0200
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+	William Zhang <william.zhang@broadcom.com>, Anand Gore <anand.gore@broadcom.com>, 
+	Kursad Oney <kursad.oney@broadcom.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Benson Leung <bleung@chromium.org>, 
+	Guenter Roeck <groeck@chromium.org>, linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev
+Subject: Re: [PATCH] leds: Move MODULE_DEVICE_TABLE next to the table itself
+Message-ID: <357c1670-c8f5-4506-a49a-b9315201d3c3@t-8ch.de>
+References: <20260505102846.186219-2-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <1-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A9:EE_|IA0PR12MB7529:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1bf27f82-230e-4462-a324-08deab365b90
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|36860700016|1800799024|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: aDfIiovrda9ZFDPP6aICXnB59Ay/C5osfoQMf0K4Zq99T4WUBiZH0jSKkE05Mg4NaketMXtflpJYMPbT/gPTUr8kmNJS/Vd32tRriuhm2T/rtRlv17oa1xkqX9qkhuyifctGTKlO/sG8FAM0HJTA1D6LKzktzxcaB8tUozvlu87wyN6QNYHqL/5vWf/p2EiDXsb+S7L1XvIekXlJyY+RLWcbuc2XszE6qHvM7VIaK9E7o6Jm2pwwK/6abWWokMbbZFC+GFvM6jgt8u5alOT23+0CCiL8y87aNj4Th/hPlUURGzG2drWOi1WIoykdsK2ysFujEuyY6uRotFFa3MVQnefhNpFP1c5JAon5WOWkpRdyrF7DilyIWf12CzJdy+LdLciJN3wu6nT8JS7pmM9QS7eviuIvAzgNfYeFQoH2klbfcIUHBkWDG/5BJOVfmZpn6KMCCXOWzpcIs+s4u/a6zv5Ba/FXup6s/2I1jvOGaiF8plnHce0A6dts3fDyvFdoezNdWvgDjIytwxfkAJqjMq3n4ptrCrrs9n/Mlv/dc7Mw1O1TaSTvUH3MDLj9hN8Ds7SoF6BBq9wiz1kmJq4tE21/uesrZzxmGTCsSCQRnbfBjbsGtiOL4J6pB5ovkqQlrw7PKCvegOq0Q8BkNST74S7pVprhRyVgF0eJtKDmZM60aU/gb4UwqyCxA4tH2c0NFiYSICxya+GqE8f8wOS5wM6XoQsBRMbSTfvTm/kT+z4=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(36860700016)(1800799024)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 85Tc6Ieql8x5tU3JbM/GKXh6Y1TJ0u82D48qwZ/qE3iUdO/+Obh5KAnOriYQrUNloUVX+gFPC6bBaGLCBR1VATzHnbom6TNsbfsYzfFTT422DJF8FIf1zmItrRMtiv/h+xa8mNFxj4Jb3pFthKuVFvqXkCeCeH+curuWSXMbps4TJH6h3mLOma5+OD4kcmmafNL31Zds1iprObcSRtPArkUDf4RVuU14XfaWZEEoEgGEaHjiLgo9k7OyK23qUtgN63T7LyWoc9w1SsLLAm9xubtea+NzzatPhmbc1XHZsJbPHkeQUpEi4mKcU9w/+spSWzxJXyatO2+BY3WnZ4BEs9FazsvSFxRKYX/bd/RIaE29rpJ8TeUln6fF0eUoJ2+I9VA52AKTUtgugjPv37TH4wokP0IBWworl0zRMZQzmqgQcK3ia8+/ciZa1maiShTG
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 06:11:48.3989
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1bf27f82-230e-4462-a324-08deab365b90
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A9.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7529
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260505102846.186219-2-krzysztof.kozlowski@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_231201_009723_8B2B13B1 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20260505_231936_408120_1397291B 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,19 +69,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 01, 2026 at 11:29:10AM -0300, Jason Gunthorpe wrote:
-> Like STE/CD, add a wrapper struct around the u64 array to represent the
-> already FIELD_PREP'd command data. Unlike the STE/CD this is a u64
-> because the command submission path will have the swap to le64.
+On 2026-05-05 12:28:45+0200, Krzysztof Kozlowski wrote:
+> By convention MODULE_DEVICE_TABLE() immediately follows the ID table it
+> exports, because this is easier to read and verify.  It also makes more
+> sense since #ifdef for ACPI or OF could hide both of them.
 > 
-> This makes the API clearer when a u64 is referring to a formatted
-> command and makes the following changes easier to follow.
+> Most of the privers already have this correctly placed, so adjust
+> the missing ones.  No functional impact.
 > 
-> Move the command constants out of the struct and into an enum alongside
-> the rest of the constants defining the HW format so the entire HW format
-> is self contained and independent of struct arm_smmu_cmdq_ent.
-> 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Acked-by: Thomas Weißschuh <linux@weissschuh.net> # leds-cros_ec.c
+
+> ---
+>  drivers/leds/blink/leds-bcm63138.c | 2 +-
+>  drivers/leds/leds-cros_ec.c        | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+
+(...)
 
