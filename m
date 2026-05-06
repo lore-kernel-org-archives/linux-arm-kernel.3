@@ -4,77 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FEF9CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BBB2CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JKdLVGrmHhvdkzh0pRDqKHogP5OoA8p2Eh+buAf0ngY=; b=HeAN+4pku9qf4AKiB7SAN7jGbZ
-	3u4PRB6jdch9wAQeRIMNyA4K37pQn2zVf2HkJnEZSY9VJIK7i1vL5YvMED0XicgBrwx8yy/eJWZOh
-	Z5IbmASIWQWokPfUMlP3nyMbaOMAIGqYxH26Sivh40ybkrJTGBZvN5IfMyz545M9TBjniEtEMYn5V
-	ULOTatEv5m4L7kDl3Jq3veo2eogia0LwgwBtxlJA3rmmHLLSW5RvgE14uTgSNuQ9TOj/2r1L0psuD
-	GpqViR3NwbZM7X40PpHmjxW3NSXs5DbR2Se9/8qfQ6KAKx9ebXUVBOhbHFVRlRw3av9/Lv2WgS64U
-	ct72mg5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q2lP0HZIFaUTa4jmw6G0JLXO3flz+kFDmEXu8yrHe60=; b=PtYVSaZhUW5CupSTcPJFFXBnqv
+	8R+2B8446SvJud50E3T116ucC04MjfvNOOmdmdp9UmeSCc6GvUVgvRVJYHlAULeuyqFs2g03nSutu
+	e2qQaOnSVOE3UZ2GMNu+pS7Ph/3ot+7vx/aeFklfoVRRoXiUlUCVpGUQDpbjz5rC0N+/1268eSfHZ
+	brpls+WR45wD2tKZaM3s4xjv15NoN/d4ArGkRY09xyXWw9XtHJdMEpkMouQoWMBzjtsdwkEzxEf+Z
+	i6mIwQhEDiDZMXZZFHoA5kmLbZFHnL0CBLq6XoZcNijRrnIulksq6J/jd2/aRLBXzfjkuofqqWBlF
+	tsutsDtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKX3Q-000000004us-0F8C;
-	Wed, 06 May 2026 07:52:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKX3P-000000004uL-0Zq1;
-	Wed, 06 May 2026 07:52:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDC9816F8;
-	Wed,  6 May 2026 00:52:16 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7F223F7B4;
-	Wed,  6 May 2026 00:52:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778053942; bh=6FFVqh/7MHmu6fMlze6Pr8sVj+Fc68+P/CMCl97GJHY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=meaziBh2Y9VBs+iy/L6rKp64Itbk/SuVY9x+LY628fB+3BjdMpShAfiz7kxaVUmK3
-	 ML5Shd4PkZizJdBxdiUxDSD16EtZOZgzSYKb2WqhuFmuhUGrne0s9eqpQddsN+hRNR
-	 s8bBXG8z4UPrCKTSgYHbdm5hCjsmKq0wzvAMc6Yo=
-Date: Wed, 6 May 2026 08:52:10 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Naman Jain <namjain@linux.microsoft.com>
-Cc: Marc Zyngier <maz@kernel.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Michael Kelley <mhklinux@outlook.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org, vdso@mailbox.org,
-	ssengar@linux.microsoft.com
-Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for
- mshv_vtl_return_call
-Message-ID: <afrzKl3ixCUUVL6C@J2N7QTR9R3>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
- <20260423124206.2410879-8-namjain@linux.microsoft.com>
- <aeolHwXHFH4AnX_n@J2N7QTR9R3.cambridge.arm.com>
- <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
+	id 1wKX78-000000005MQ-2jS6;
+	Wed, 06 May 2026 07:56:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKX76-000000005Lf-42VT;
+	Wed, 06 May 2026 07:56:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B41B64157A;
+	Wed,  6 May 2026 07:56:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97CDC2BCB8;
+	Wed,  6 May 2026 07:56:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778054170;
+	bh=juwrtWczzTPvQJJwIG07H9kX0vRNlp9abje+dq/wKWQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Mlid59Fm7N4bpcaqRnWYuJsBdUgzafUkj2zf45JTU3c49ZMis9RT2P+qU+RNz7Rmy
+	 SH8EbtgsZ5iwwf0D+RQKI9CyaTfLRg6j7ZhnSm4GbV4RmE2Fg/xVMYUZo1n553OplQ
+	 T/G1vYwseBIUFXVqzgB3q5/u3PGKMnshzoizZyQOuSkluLzKXsGsqEZv/jDwxm3k/J
+	 AWs12P+xDUHTkow75J50MAtkUXJDVHUMaX5r/+peAEUN8Sxk32kqQzAbPRxQhSqESk
+	 m4ISfabBNeVZTHbEN8hBB+IMGcsVUSiH6zrKm+1Z7MHx6YvVXvpwiQ4hUhSZLbGRMQ
+	 X4yn8oRjy2LQA==
+Message-ID: <389917bb-c64c-4ac2-ab8f-b28ab0a89ecb@kernel.org>
+Date: Wed, 6 May 2026 09:56:03 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/13] dt-bindings: iio: adc: add mt6323 PMIC AUXADC
+To: rva333@protonmail.com, Jonathan Cameron <jic23@kernel.org>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Srinivas Kandagatla <srini@kernel.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+ Lee Jones <lee@kernel.org>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
+ Ben Grisdale <bengris32@protonmail.ch>
+References: <20260504-mt6323-v1-0-799b58b355ff@protonmail.com>
+ <20260504-mt6323-v1-1-799b58b355ff@protonmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260504-mt6323-v1-1-799b58b355ff@protonmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_005223_278997_80949009 
-X-CRM114-Status: GOOD (  44.69  )
+X-CRM114-CacheID: sfid-20260506_005613_043978_7778AD3C 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,161 +128,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 29, 2026 at 03:26:11PM +0530, Naman Jain wrote:
-> On 4/23/2026 7:26 PM, Mark Rutland wrote:
-> > On Thu, Apr 23, 2026 at 12:41:57PM +0000, Naman Jain wrote:
-
-[ non-SMMC hypercall code omitted for brevity ]
-
-> > NAK to this.
-> > 
-> > * This is a non-SMCCC hypercall, which we have NAK'd in general in the
-> >    past for various reasons that I am not going to rehash here.
-> > 
-> > * It's not clear how this is going to be extended with necessary
-> >    architecture state in future (e.g. SVE, SME). This is not
-> >    future-proof, and I don't believe this is maintainable.
-> > 
-> > * This breaks general requirements for reliable stacktracing by
-> >    clobbering state (e.g. x29) that we depend upon being valid AT ALL
-> >    TIMES outside of entry code.
-> > 
-> > * IMO, if this needs to be saved/restored, that should happen in
-> >    whatever you are calling.
-> > 
-> > Mark.
+On 04/05/2026 20:24, Roman Vivchar via B4 Relay wrote:
+> From: Roman Vivchar <rva333@protonmail.com>
 > 
-> Merging threads for addressing comments from Mark Rutland and Marc Zyngier
-> on this patch.
+> The MediaTek mt6323 PMIC includes an AUXADC used for battery voltage,
+> temperature, and other internal measurements.
 > 
-> Thanks for reviewing the changes. Please allow me to briefly explain the use
-> case here and then address your comments.
+> Add the devicetree binding documentation and the associated header file
+> defining the ADC channel constants.
 > 
-> Hyper-V's Virtual Trust Levels (VTLs) provide hardware-enforced isolation
-> within a single VM, analogous to ARM TrustZone. The kernel runs in VTL2
-> (higher privilege) as a "paravisor", a security monitor that handles
-> intercepts for the primary OS in VTL0 (lower privilege). The VTL switch
-> (mshv_vtl_return_call) is functionally equivalent to KVM's guest enter/exit.
+> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
 
-It's worth noting that for KVM, the KVM hyp code is *tightly* coupled
-with the host kernel (they are one single binary object), and the
-calling convention between the two is an implementation detail that can
-change at any time without any ABI concerns.
+Sorry, but that's not possible or explain please how YAML file can be
+tested on a device.
 
-While I appreciate this might be trying to do the same thing from a
-*functional* perspective, it's certainly different from a
-maintainability perspective, and can't be treated in the same way.
 
-> It saves VTL2 state, loads VTL0's GPRs other registers from a shared context
-> structure, issues hvc #3 to let VTL0 run, and on return saves VTL0's updated
-> state back.
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+>  .../bindings/iio/adc/mediatek,mt6323-auxadc.yaml   | 39 ++++++++++++++++++++++
+>  .../dt-bindings/iio/adc/mediatek,mt6323-auxadc.h   | 16 +++++++++
+>  2 files changed, 55 insertions(+)
 > 
-> Coming to the problems with the code, I have identified a few ways to
-> address them.
-> 
-> I can put the assembly code in a separate .S file with
-> SYM_FUNC_START/SYM_FUNC_END and marked as noinstr, to prevent ftrace/kprobes
-> from instrumenting between the GPR load and the hvc, which could have
-> corrupted VTL0 register state. This should solve x29 clobbering, stack
-> tracing problems.
+> diff --git a/Documentation/devicetree/bindings/iio/adc/mediatek,mt6323-auxadc.yaml b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6323-auxadc.yaml
+> new file mode 100644
+> index 000000000000..7dc1ac8bf253
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6323-auxadc.yaml
+> @@ -0,0 +1,39 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/iio/adc/mediatek,mt6323-auxadc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek MT6323 PMIC AUXADC
+> +
+> +maintainers:
+> +  - Roman Vivchar <rva333@protonmail.com>
+> +
+> +description: >
+> +  The Auxiliary Analog/Digital Converter (AUXADC) is an ADC found
+> +  in the MediaTek MT6323 PMIC, performing various PMIC related measurements
+> +  such as battery and PMIC internal voltage regulators temperatures,
+> +  accessory detection resistance (usually, for a 3.5mm audio jack)
+> +  other than voltages for various PMIC internal components.
+> +
+> +properties:
+> +  compatible:
+> +    const: mediatek,mt6323-auxadc
+> +
+> +  "#io-channel-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - "#io-channel-cells"
 
-My point was that you must not clobber those registers.
 
-Looking at the TLFS document you linked below, it says:
+This is heavily incomplete node... or unnecessarily split. Why it cannot
+be part of parent binding? Or even parent node?
 
-| Note: X29 (FP/frame pointer), X30 (LR/link register), and SP are private
-| per-VTL
 
-... so clobbering those doesn't seem to be necessary anyway. Clearly
-having an arbitrary calling convention is confusing for everyone.
-
-> I should use kernel_neon_begin()/kernel_neon_end() to save/restore the full
-> extended FP state of the current task in VTL2. VTL0's Q0-Q31 can be
-> loaded/saved separately via fpsimd_load_state()/fpsimd_save_state(). This
-> way, the assembly touches none of the SIMD registers. This is SVE/SME-safe
-> for VTL2's task state. VTL0 still only carries Q0-Q31 in the context struct,
-> and extending to SVE, SME is a future context struct change, which will need
-> Hyper-V arm64 ABI support.
-> This way, VTL2's callee-saved regs (x19-x28, x29, x30) are explicitly saved
-> to the stack frame at the top and restored at the bottom of assembly code.
-> The C caller (in hv_vtl.c) is a clean function call.
-
-That doesn't really address my concerns here.
-
-I do not think that Linux should have to save/restore anything here;
-that should be the job of the real hypervisor. The arbitrary separation
-of PE state into private and shared (with shred state being directly
-exposed to Linux) is a problem for maintainability and forward
-compatibility.
-
-Looking at the TLFS document you linked below, I see:
-
-| Note: SVE state (Z0-Z31, P0-P15, FFR) and SME state are VTL-private.
-| The lower 128-bit portion (Q registers) is shared, but the upper bits
-| of Z registers may be corrupted on VTL transitions. Software should
-| not rely on Z register contents being preserved across VTL switches.
-
-... which is certainly going to be a pain to manage.
-
-Note in particular "SME state" is not an architectural term. I don't
-know which state in particular that is intended to cover (e.g. ZA, ZT0,
-SVCR, all streaming mode state)?
-
-There's no mention of SVCR, so I don't know how this is going to
-interact with management of ZA state (ZA and ZT0, which are dependent
-upon SVCR.ZA) or streaming mode (dependent upon SVCR.SM). That state has
-been *incredibly* painful for us to manage generally. Regardless of the
-SMCCC concerns, that needs to be specified better.
-
-> Regarding Non-SMCCC "hvc #3" call, I have a limitation here owing to the ABI
-> that is defined by the Hyper-V hypervisor. Fixing this requires a
-> hypervisor-side change to support SMCCC-style dispatch for VTL return. Until
-> then, hvc #3 is the only working interface. Moreover there would be backward
-> compatibility issues with this new ABI interface, if at all it is added.
-
-To be clear, that's Microsoft's problem, not the Linux kernel
-community's problem. My NAK still stands.
-
-Multiple years ago now, we made it clear that we would not accept a
-non-SMCCC calling convention. Ignoring the substance of that feedback,
-and inventing a new calling convention after that point is a
-self-inflicted problem.
-
-[...]
-
-> Link to TLFS: https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/vsm#on-arm64-platforms-3
-
-For shared state, aside fomr GPRs and FPSIMD/SVE/SME state, that says:
-
-| * System Information Registers (read-only or non-security-critical):
-|   * System identification and feature registers
-|   * Cache and TLB type information
-
-It's *implied* that some of those registers might be writable, but as
-the specific set of registers is not described I cannot tell. Are there
-any writable system registers which are shared?
-
-I don't see how we can know which registers we might need to
-save/restore without that being explicitly documented.
-
-I also see:
-
-| Note: SPE (Statistical Profiling Extension) state is shared across VTLs,
-| except for PMBSR_EL1 which is VTL-private.
-
-If "SPE state" includes PMBPTR or PMBLIMITR (which is the obvious
-reading), this would be a security problem, as a lower-privileged VTL
-could clobber those and cause SPE to write to arbitrary memory
-immediately upon return to the higher-privileged VTL. Having PMBSR be
-private on its own isn't sufficient to prevent that (e.g. since the
-higher-privileged VTL could have its own active SPE profiling session).
-
-I'm not keen on requiring hyper-v specific hooks in the SPE driver to
-achieve that, and I'm also not keen on having hyper-v support code poke
-SPE registers behind the SPE driver's back.
-
-This does not give me confidence that any future PE state (e.g. things
-like TRBE) will be managed in a safe way either.
-
-Mark.
+Best regards,
+Krzysztof
 
