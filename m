@@ -4,111 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA40AFF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF682CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HMqtzthmmxcj8980T7+TeoJ+yGWILo8EmSubHe/kC1o=; b=5Ata3JRhzG1BGL4oeUCIZebaeK
-	mIA/jvrcPtEHBMSGSPFCE67ROrYG5fZ+jyaVg3cBViOVgzZ5XSi8Xu1cUJhi/34Z/nLXIxDl9bzcI
-	IAmuCQ6Lj0sovuDNSLcz9w6CpdGcRMJ+Z6VIjS4NzeDZQoYss23YU+047HesPfAp3zlpqfWI5Swjq
-	qOnVI7kHLgrl1qwod/tiMlK5/vg6Oabcel3LXtixuwrhWQIntgEszWKgAGoISzddwo2fmw4I+3/0j
-	RWHu5Cb6QXDHcKKyPhf/HFdpTQevP/cWmSbFiCWNpOQs9auPR4WVi44bzwY1piPXWNfckWKJli2fk
-	Pb8a3aKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XBCM6xv4Yg8/S1sk1lPfe+sG+a+CcBVlpaZP7IkBPRk=; b=zt9nILxHvw5+5aHNgBF57dZe45
+	XwW+56fQn4qbCqfhHHE9FuUZF48tGq9OvN5p0fFauqgVvLzpji6gQtRYGXfnjzwngfFa/jpkVUVH/
+	Y2/zcDSONml1/4FJCyIzLUMJi6Il2Byyy5DAkjRdRXBGtauAQ6PenkinHexdtvmSQ/eKshaQdTJ1/
+	HbwlpHUGoE7QnJbVg/8h5nzyKeyflsmrhcWgMkZdCjHr+SYrDTSkSWoXsHOnHGyCgwK51gEm3ALxo
+	NnBN8IoxVUQWuJLNuE1PjKI4sTDdQiIaXdxU9Lk+piV/HnH8FPYnga8K2TKvpLwC4XrH+oGY7UDdB
+	yXCKMjxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcQh-00000000uxU-0YYV;
-	Wed, 06 May 2026 13:36:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKcRh-00000000vCA-1oMW;
+	Wed, 06 May 2026 13:37:49 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcQf-00000000uww-3Xfc;
-	Wed, 06 May 2026 13:36:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F2CD43703;
-	Wed,  6 May 2026 13:36:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9692C2BCB8;
-	Wed,  6 May 2026 13:36:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778074605;
-	bh=7I7M1eUDVF5088ev2jyWTqkJf4GORVg6OfRPDZkIzIU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EJbOClFHa2CcPRVkMYmz3+QesZYjQNBc5i5M+WR8ZnFT9UmFA+x50oAQQSJHu+wKe
-	 CKDdBcu44jNL7MH1Pyrr3IenoyMDkNSEABAhwHqFAn/+ZNZ/Ru37bg++86Ty4aioHL
-	 N5IHrimxJBe6wi+A/9kPXXbRDlqhk8j7H69HKEnsRDr+nKqVonKkbB6FioOrf5bMWj
-	 9HGQy1nIB2gw9ozVOnTFkBJvuNpLhFXBGunovGg103oANtLK7ie1csTZoX2AXucpP1
-	 pD8b2yqX9SOWfN/J6LLnlsAkljS7Ud+emFKAVa3IviQ4g5dCqsvTx79S+JR1fMJmhu
-	 Rt40RKlmr6k9A==
-Message-ID: <f4212885-fcfe-4687-ba1f-b8713b1ecdad@kernel.org>
-Date: Wed, 6 May 2026 15:36:39 +0200
+	id 1wKcRg-00000000vBf-2R5S
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 May 2026 13:37:48 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-488a14c31eeso48555825e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 06:37:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778074667; x=1778679467; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=XBCM6xv4Yg8/S1sk1lPfe+sG+a+CcBVlpaZP7IkBPRk=;
+        b=bedGH42w3gnFfI0prR5gCbUpbwWiltUKnNzyU/EOGplsQOsEjnpdihe2Tbgllk/qHk
+         /1RblW/KaeDodm+9DDexuZP+g7ivJdkkjnXH2M3VPc65SfuIk66wVR0SVzVfS6Eq13kH
+         gJsA1u+SSM9Mcx0mdwqeWamuYRZfCWMm7K2pVsSBsRbmhr+irogffpYkuOT/AqCdiv8a
+         oq1e80PLYaGww1CXhMg1R0bOZQHk/D10toUL128zdAJE61NHnYuw5DtxVu4YkOn/Gzwp
+         xqx0Vmu0/vuk2Wbi3N6ca11UIzUuqOhKyEGSeC+/SQ7Y3YojG8N+USeK/nEKPvu8cx+8
+         yFIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778074667; x=1778679467;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XBCM6xv4Yg8/S1sk1lPfe+sG+a+CcBVlpaZP7IkBPRk=;
+        b=GE7oJosrfRTTE+B+yoH4BOx6zseqOj98MTl/pmwSdsJ54Zstjd71ot59JsF6LfRNMF
+         BXBeUB3GogeYhW8Mag8LYPxlNxkzCAmySXOGUPPEExuwibBNbMpyJk2qhd0mpniThH+3
+         9W3kzg91p1JlW+mo6jJav2Iox6Cy2iORv8xg5fltIei3CQoQBaAx4ii0nQArXiH19bo/
+         57c6h+R34hNqf9zPPaPpqN4o6l2xavm+SKbD3BmrnEQihjnXEPmKhJPt+Ob33RyGOLIW
+         s9hsNuBdrVF9HlNltScV4Qo/SuyS82/NWZh84zIS7+5+OYV7shg3E2gA99bVHEDEToL2
+         kP4Q==
+X-Forwarded-Encrypted: i=1; AFNElJ8Z3eZW6EiQgnPlWKOkJEBXHsiVdbenBJMNti8nZEdBPmns6ZpkQhQygAY+WPcyzPxEttSr99hJty/bo34yHnb3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXcPwrs/kVuIPmBWh2x5lV3ksAtGwk/W0+uhMjFzEROGhj1IRC
+	CINBW0sDYedVnozP0Zsb/xAVS6oB6v+15eICvs5YdFByGj3tVSPSh7/j143d3emWJg==
+X-Gm-Gg: AeBDiet+67NPQj355WwuRoE/ji1y6TVyGKZEBZDiRUlXqJ8fmRrBp4y37BjNuiYrxSV
+	kjMwkIGkg4A6SSM09JWS8HOa80gnwzkNj/R9uc6Ncx1pepsGECGnI1wE0dTD9a2FT0RHdGfgbQX
+	RLoy9BVl8D7PY3aktnPKzL90SbCSE6ZXzPXXKVPQ2vSBPJmyzVITNuZ0NaBeHeoOHauA3gydcfG
+	ZK8bgeKhhSomtr5cR4ouR+aGOeqIZQzn91fKPOvmbMrgLQ0zBL8FaPKCwOOZ2xx8c8mxVvHTuPe
+	8gXPKJffjWg3D9eFtZkTLaI4tT3uEQwndttPtaJ7d4N1B6OTihzZZ/hysz9Bem14UAYqzMPEIWn
+	LfpHWhie7GI3AeTIQjHiP+IBj25ioUW9b5f+ql2IUU+Gp52XX0iesaO6AWNbRLOLxkjIhiKV7qM
+	KtZFPmXuAqHhbuFAsQnaMmkYFluewe/kjLuTr2fFvQgqzhEPMnCd11+lsYJrD5ATRsZOH+/NKlK
+	MU03aPmdO/ih/5r
+X-Received: by 2002:a05:600c:a08b:b0:489:1f3e:5f69 with SMTP id 5b1f17b1804b1-48e51f40252mr61663985e9.18.1778074666409;
+        Wed, 06 May 2026 06:37:46 -0700 (PDT)
+Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e5312df8dsm16977685e9.18.2026.05.06.06.37.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 May 2026 06:37:45 -0700 (PDT)
+Date: Wed, 6 May 2026 14:37:41 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH v2] KVM: arm64: Work around C1-Pro erratum 4193714 for
+ protected guests
+Message-ID: <aftEJffxGZ_XSk2E@google.com>
+References: <20260505165205.2690919-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: remoteproc: mtk,scp: Allow multiple memory
- regions
-To: Arnab Layek <arnab.layek@mediatek.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20260506133157.3283204-1-arnab.layek@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260506133157.3283204-1-arnab.layek@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260505165205.2690919-1-catalin.marinas@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_063645_930780_6C13A352 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260506_063748_659699_B2B9D0FD 
+X-CRM114-Status: GOOD (  40.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,44 +104,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/05/2026 15:31, Arnab Layek wrote:
-> Update the memory-region property to support 1-2 reserved memory
-> regions instead of exactly one. This is needed for newer MediaTek
-> SoCs like MT8188 which require additional memory regions for SCP
-> operation.
-
-So where is the compatible? Already there?
-
+On Tue, May 05, 2026 at 05:52:03PM +0100, Catalin Marinas wrote:
+> From: James Morse <james.morse@arm.com>
 > 
-> Tested on MT8188 Geralt platform.
-
-You cannot test binding.
-
+> C1-Pro cores with SME have an erratum where TLBI+DSB does not complete
+> all outstanding SME accesses. Instead a DSB needs to be executed on the
+> affected CPUs. The implication is that pages cannot be unmapped from the
+> host Stage 2 and then provided to a protected guest or to the
+> hypervisor. Host SME accesses may still complete after this point.
 > 
-> Signed-off-by: Arnab Layek <arnab.layek@mediatek.com>
+> This erratum breaks pKVM's guarantees, and the workaround is hard to
+> implement as EL2 and EL1 share a security state meaning EL1 can mask
+> IPIs sent by EL2, leading to interrupt blackouts.
+> 
+> Instead, do this in EL3. This has the advantage of a separate security
+> state, meaning lower EL cannot mask the IPI. It is also simpler for EL3
+> to know about CPUs that are off or in PSCI's CPU_SUSPEND.
+> 
+> Add the needed hook to host_stage2_set_owner_metadata_locked(). This
+> covers the cases where the host loses access to a page:
+> 
+>   __pkvm_host_donate_guest()
+>   __pkvm_guest_unshare_host()
+>   host_stage2_set_owner_locked() when owner_id == PKVM_ID_HYP
+> 
+> Since pKVM relies on the firmware call for correctness, check for the
+> firmware counterpart during protected KVM initialisation and fail the
+> pKVM initialisation if it is missing.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Co-developed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oupton@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Vincent Donnefort <vdonnefort@google.com>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Sudeep Holla <sudeep.holla@kernel.org>
 > ---
->  .../devicetree/bindings/remoteproc/mtk,scp.yaml        | 10 ++++++++--
->  1 file changed, 8 insertions(+), 2 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> index bdbb12118da4..9f6dca94ff40 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> @@ -55,7 +55,10 @@ properties:
->        initializing SCP.
+> Added the kvm-arm list this time, missed it in v1.
+> 
+> Changelog below but it's only probing if the firmware counterpart is
+> present and disable the hypervisor. If that's too harsh, we can leave it
+> as a warning and maybe add a static label/flag to avoid the unnecessary
+> SMC call on page donation.
+
+As the pKVM upstream support is currently experimental and the protection
+incomplete (see Documentation/virt/kvm/arm/pkvm.rst) perhaps a simple WARN() is
+enough?
+
+> 
+> Changes:
+> 
+> v2:
+> 
+> (v1: https://lore.kernel.org/r/20260430155911.628402-1-catalin.marinas@arm.com)
+> 
+> - Add a check in init_hyp_mode() if KVM is running in protected mode and
+>   refuse initialising the hypervisor if the firmware does not provide
+>   the workaround counterpart
+> - Add 'Co-developed-by: me'
+> 
+> v1:
+> 
+> (pre-7.1-rc: https://lore.kernel.org/r/20260323162408.4163113-6-catalin.marinas@arm.com)
+> 
+> - Move the hook to host_stage2_set_owner_metadata_locked()
+> - Use hyp_smccc_1_1_smc()
+> 
+>  arch/arm64/kvm/arm.c                  | 21 +++++++++++++++++++++
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 24 +++++++++++++++++++++++-
+>  include/linux/arm-smccc.h             |  6 ++++++
+>  3 files changed, 50 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 176cbe8baad3..51b6db45a54f 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -4,6 +4,7 @@
+>   * Author: Christoffer Dall <c.dall@virtualopensystems.com>
+>   */
 >  
->    memory-region:
-> -    maxItems: 1
-> +    description:
-> +      Phandle to the reserved memory regions.
-> +    minItems: 1
-> +    maxItems: 2
+> +#include <linux/arm-smccc.h>
+>  #include <linux/bug.h>
+>  #include <linux/cpu_pm.h>
+>  #include <linux/errno.h>
+> @@ -2634,6 +2635,22 @@ static int init_pkvm_host_sve_state(void)
+>  	return 0;
+>  }
+>  
+> +static int pkvm_check_sme_dvmsync_fw_call(void)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	if (!cpus_have_final_cap(ARM64_WORKAROUND_4193714))
+> +		return 0;
+> +
+> +	arm_smccc_1_1_smc(ARM_SMCCC_CPU_WORKAROUND_4193714, &res);
+> +	if (res.a0) {
+> +		kvm_err("pKVM requires firmware support for C1-Pro erratum 4193714\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  /*
+>   * Finalizes the initialization of hyp mode, once everything else is initialized
+>   * and the initialziation process cannot fail.
+> @@ -2834,6 +2851,10 @@ static int __init init_hyp_mode(void)
+>  		if (err)
+>  			goto out_err;
+>  
+> +		err = pkvm_check_sme_dvmsync_fw_call();
+> +		if (err)
+> +			goto out_err;
+> +
+>  		err = kvm_hyp_init_protection(hyp_va_bits);
+>  		if (err) {
+>  			kvm_err("Failed to init hyp memory protection\n");
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 28a471d1927c..7d59faa99fee 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -5,6 +5,8 @@
+>   */
+>  
+>  #include <linux/kvm_host.h>
+> +#include <linux/arm-smccc.h>
+> +
 
-Just like I sent some patches long time ago for iommus Mediatek media
-bindings - fix it the same way. Pity the patches were not picked up,
-even though sending twice, but that does not give you easier way to get
-incorrect code in. You just multiple poor patterns...
+nit: probably not necessary with the nvhe/arm-smccc.h include below.
 
-Best regards,
-Krzysztof
+>  #include <asm/kvm_emulate.h>
+>  #include <asm/kvm_hyp.h>
+>  #include <asm/kvm_mmu.h>
+> @@ -14,6 +16,7 @@
+>  
+>  #include <hyp/fault.h>
+>  
+> +#include <nvhe/arm-smccc.h>
+>  #include <nvhe/gfp.h>
+>  #include <nvhe/memory.h>
+>  #include <nvhe/mem_protect.h>
+> @@ -29,6 +32,19 @@ static struct hyp_pool host_s2_pool;
+>  static DEFINE_PER_CPU(struct pkvm_hyp_vm *, __current_vm);
+>  #define current_vm (*this_cpu_ptr(&__current_vm))
+>  
+> +static void pkvm_sme_dvmsync_fw_call(void)
+> +{
+> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714)) {
+> +		struct arm_smccc_res res;
+> +
+> +		/*
+> +		 * Ignore the return value. Probing for the workaround
+> +		 * availability took place in init_hyp_mode().
+> +		 */
+> +		hyp_smccc_1_1_smc(ARM_SMCCC_CPU_WORKAROUND_4193714, &res);
+> +	}
+> +}
+> +
+>  static void guest_lock_component(struct pkvm_hyp_vm *vm)
+>  {
+>  	hyp_spin_lock(&vm->lock);
+> @@ -574,8 +590,14 @@ static int host_stage2_set_owner_metadata_locked(phys_addr_t addr, u64 size,
+>  	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
+>  			      addr, size, &host_s2_pool,
+>  			      KVM_HOST_INVALID_PTE_TYPE_DONATION, annotation);
+> -	if (!ret)
+> +	if (!ret) {
+> +		/*
+> +		 * After stage2 maintenance has happened, but before the page
+> +		 * owner has changed.
+> +		 */
+> +		pkvm_sme_dvmsync_fw_call();
+>  		__host_update_page_state(addr, size, PKVM_NOPAGE);
+> +	}
+>  
+>  	return ret;
+>  }
+> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+> index 50b47eba7d01..e7195750d21b 100644
+> --- a/include/linux/arm-smccc.h
+> +++ b/include/linux/arm-smccc.h
+> @@ -105,6 +105,12 @@
+>  			   ARM_SMCCC_SMC_32,				\
+>  			   0, 0x3fff)
+>  
+> +/* C1-Pro erratum 4193714: SME DVMSync early acknowledgement */
+> +#define ARM_SMCCC_CPU_WORKAROUND_4193714				\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+> +			   ARM_SMCCC_SMC_32,				\
+> +			   ARM_SMCCC_OWNER_CPU, 0x10)
+> +
+>  #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
+>  	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
+>  			   ARM_SMCCC_SMC_32,				\
 
