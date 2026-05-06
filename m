@@ -4,182 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D66CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D90EECD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:In-reply-to:Subject:Cc:To:From:References:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EuOriAeP1p0PItdku8vf2P5ApSdUuusCcGtQuIiVZ64=; b=Pu7uKCx//Mb2AZspt/juBCaiec
-	/ThWjmlGA2W8m2uzjz3KAm8omBRu2l/ZwTOnfTHzDsZMMV6W5MrVX5cOG0Ns1H/Q4me7wUlaxHKHZ
-	XeQmlrNosVyyxy07O80wPiPQVOpv+jUtY2U7zkFUuaP5hywlwtXnitCye51fyE3xz2fnmiM2hSjDF
-	p4QeBP9EroyaLC9sGvpG5saOAzzWLXKFGAUxXQmXV90MIFgb+WcOtRVm0Gh8QOabBwWoccwmjHi3h
-	6xM+fpt22JrD1RyL7HmngrhEwuzZ6hYQqRf8fvXwsskIaj47n2zi2WzN9LD+hOKg/LEk/FWZC9EmN
-	NSjd3RAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NOuFb+ByEHgxeRzxtQH/alALv56e2ocT5u4L3QypiV8=; b=F5naVfJOTFd5dKM1+4Mu5Z88M5
+	yk8OfuzW7PNCN4XpUzp5K4PgdafrkKHi1hZfwow2z283dxyo4Tbd/pxTSb9ARrPFEcIy0dQPNLeuo
+	wmbIwdwl8Y7L9O0TRYE+n1u1wCJptEAsEe4LueY01NRlLLntk1NdFgYgo81kDlRS0EOUWhK/dcvuN
+	6P2jeZ7g0MHhtSlIECJ4KiwlZOpWZQogccC3fhTrrn8a1HHO1t9UI05IKJcYgrAzvUa+7nQdG/gkK
+	FsgDt32N8fazRzVcZf1hDpiMzEkJWi/87EFe2G27ziRQk/EAR6f2a0Cnx1Bsc2cjBtp5QfwGfzOO9
+	cHX0SsJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWjK-000000002Jo-2V3a;
-	Wed, 06 May 2026 07:31:38 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1wKWlS-000000002g7-3zgg;
+	Wed, 06 May 2026 07:33:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWjJ-000000002JK-2I8P
+	id 1wKWlR-000000002fU-3XYG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 07:31:37 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 645HGeKt3875344;
-	Wed, 6 May 2026 07:30:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=EuOriAeP1p0PItdku8
-	vf2P5ApSdUuusCcGtQuIiVZ64=; b=gLJV/Q+NYQpIHQbCSbEdaioSoCKE4r6xny
-	Tffp/X+jjG7WybHrmmxBClRIOiOzKlHuMgbWY1uBLViFG4Alom9GGWRzKsCckfeF
-	zH6TeC5Hd5fls9hzUqFbeBMKrE11dK97GvHQjhhFcDHV0iFkbrx96Jbt23D7/+QC
-	hMphOIq1GeLbGXhwBOYpgDlzt3Uj8FtK01Gz9wiFc+KgY/pxWSMW8ZpLRjHALS1P
-	xZmgyD4Gcng3SH/dV5E6dcYoQPlGeZxTVsIl7wW0u2BPvJEdzcmXDpZq4ZNJnNOs
-	ly+ZBfLAORIsB6xb8YcDSpJnydQpVDm7mME1tqm4ikmOm7yh/f7g==
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4dw9epxapc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 06 May 2026 07:30:37 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.7/8.18.1.7) with ESMTP id 6467LPK6018657;
-	Wed, 6 May 2026 07:30:37 GMT
-Received: from bl2pr02cu003.outbound.protection.outlook.com (mail-eastusazon11011023.outbound.protection.outlook.com [52.101.52.23])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4dx576ru22-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 06 May 2026 07:30:36 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fsH0zule0dQ3aBQnoB+aJxDfGLeIJoUqz9iTi1XjeDoTOiKaF/TfVmQsn2fqOstS3uul7Edh//WRG/uCTGvT7eXdvaEJgD6t38qNYEtwVakv+qyhKrcPBZMtq4JbCLgwe43RehTyfBuZTR/v/wYGXW+aB945JQc8lOxTiV7P9MAyrvLT0CWXSoGFMCpO1bde+ugNUBB3aoNwkUDUyJMGVkxPDzLEbCmljBFmodaQmqjwNddA0wNEoQehCR3TN9Wd2oEoWC10ao4g2tZuoRh9ASYW1Dt3eMA2P1e1SpKg3WccBCWMQtMPaU6ItAmtQ900DUoVETQjHI9tHWO84GP0og==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EuOriAeP1p0PItdku8vf2P5ApSdUuusCcGtQuIiVZ64=;
- b=ROvf+l1SnFp9UMkzgxVxCe4tDG+7O0YOWVvoIMWdjmz9o43h1KqBBvmMHLwO+Zn3I/8iM4s9V5QbZs1mYMpkX6yos0ocHLZAeUtJczFU6ItmQcw5t869o3pJUuX1Il33uOcsJ+5wtNaeERxooAYar9CD4rQh8RfI4oGS2UYCrYXNPcyimN1R8Cshoq/glegDjw8XgyWbIlnhPBqhSLDnkJ7juOGqu3Ht+2TchCYMf7m0NUglAnaK9Enu8R0nfXyc1BfBY7ItAKatQlhTQzgzlDzCnImPDNKmjw7bmuPPBJn5KtZVNeOfTJ9elLWMHtaAQTL8EUrV+gznfZQ67R7ilA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+	Wed, 06 May 2026 07:33:50 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6465vNi6153474
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 6 May 2026 07:33:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	NOuFb+ByEHgxeRzxtQH/alALv56e2ocT5u4L3QypiV8=; b=ba6EmG0JJiyqB2ZQ
+	v/Y3QIaFvBt9+1ILVqzRipuIm56I1BpZgACotDiIjGXxxZfH2qKPaqMyPTBSb8/B
+	T4Pk7S0I4Ft1qC0bVoFbCAzV0UVEERlvESdmV1Y4PYrkooLRjiJ86okzulhIHQDT
+	5MMJDdLu7lfZiQVXnJN0zK+gQg1JCQ+o22w0pPGkDrr6fMUugNsVRP6yIfTlD6PS
+	+GHRrQTWt0qA0X1AF7vzqitP7yxThzamWwgliNISZ1eAAWJ63qSZkG6brUxdobWV
+	6BsjkWtmvingkYQLVDZdQvPeDnlsttEjZZqqSMGtOG8Yz/Wj+bUTfpAySv1bNoiA
+	tluiMg==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dyj80bgf9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 07:33:45 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-82f9429f49cso7473072b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 00:33:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EuOriAeP1p0PItdku8vf2P5ApSdUuusCcGtQuIiVZ64=;
- b=ogQNO8kZxC3bsHV3m7QDb79hw111PuGwGdvjRqo85C2owsyMGQzssLw41Rqm0qwe6qPVckaoDWkHR7G4+BfOM6q8Gg3Pft2AWwfp2cZGCQKUQeiBeInYcGI6uClaAOSrNeQY0U+kcRHRuGXIbCICY/n0rmPHVnhZrRnC3MkinfE=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by BY5PR10MB4307.namprd10.prod.outlook.com (2603:10b6:a03:212::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.27; Wed, 6 May
- 2026 07:30:31 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574%6]) with mapi id 15.20.9891.008; Wed, 6 May 2026
- 07:30:31 +0000
-References: <20260408122538.3610871-1-ankur.a.arora@oracle.com>
- <20260408122538.3610871-2-ankur.a.arora@oracle.com>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-        bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com,
-        will@kernel.org, peterz@infradead.org, akpm@linux-foundation.org,
-        mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
-        ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
-        memxor@gmail.com, zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
-        rdunlap@infradead.org, david.laight.linux@gmail.com,
-        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com, ashok.bhat@arm.com
-Subject: Re: [PATCH v11 01/14] asm-generic: barrier: Add
- smp_cond_load_relaxed_timeout()
-In-reply-to: <20260408122538.3610871-2-ankur.a.arora@oracle.com>
-Date: Wed, 06 May 2026 00:30:29 -0700
-Message-ID: <874iklm1uy.fsf@oracle.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR04CA0257.namprd04.prod.outlook.com
- (2603:10b6:303:88::22) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+        d=oss.qualcomm.com; s=google; t=1778052825; x=1778657625; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NOuFb+ByEHgxeRzxtQH/alALv56e2ocT5u4L3QypiV8=;
+        b=IgCgW0oVpS89ChhJSvxdIPyUGT04ehgMgH51MoSEJNoT3mYAgOczoWk1Hto4An9y2z
+         c1P/p2AKscJPrUgWWZSMGyyTQwofvCCNHWDVrRIML1nbRXMvqcWhSwsXS3G/aeiD8pB/
+         aDJgSvWnwMXMrkdx569hkKF1hNFBcA7bcg8UjeKxwwys74C0EMPbahAbAqc++CbYZF9K
+         YBA3HZqkdd8aWsqmPOaN0HnAqOvRcwrpHa69RPXa2OAeznwUSJyxnIR/AFlkhCm/jjlA
+         f51IjrEvcA9AP+F3hrBttN7li78oZ2dlcvInH+5O4GhgtRUSaQqbaJJJcr0kRalGRuzK
+         eP4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778052825; x=1778657625;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NOuFb+ByEHgxeRzxtQH/alALv56e2ocT5u4L3QypiV8=;
+        b=LqHiwrP8ml/Dsr+dwMna9ilcZzcl/v8CLijUkr/spK2GcPNxzkTOBYV8NI5z+o0NiS
+         UeN7MooposwFvguhT4EmJPTTJP/wu+trGWPrwTLiYsBH00CUxisLBlOO2rFQ+UYvE43H
+         rUSOeolFKJpvwfuyhqnDDubFwtZqRPcV96NgFh4bNc2Vyqz2fBH3ZgoVanYeapiN5NTD
+         5A5cdgMWx4fFUAWRXMEATdyMP57eT6exbOtDqzBDBSREjROSVwArotm2eqL3TYtJoCv3
+         2S9z4S/sJpnj+yCS0L6OIgXnBMcO5TC9l6BO+DcBJIH33cIrV1OY32rA8Pz8TO6Jl95Y
+         P7FQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8sv2zh3dvjpOYv2wVNQUP8zHtcA1rJwk+88lPDBUSLvPLCaFhrAOHyds33/Ld+IKdLkVbUzbKN+CSEya6ffZGa@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6UBW2pLIbbdwujH9iyKVGTjpnYoZt/7EJ+Zp7oeIy56SdlfvG
+	7NtyFjwhnbQ4RLHSRm7Kzd0vS94wrANO9bNttst1/K+nQrfazxS7zNvM3edM28A00gvzCMaZhO4
+	zkDzxr91ddcNUKHL45G/PtPTsg0UdLi4chKI0Tv/urSuUT6Y4gafTq4n0PNnL+0ou341BjrjCKj
+	5iWQ==
+X-Gm-Gg: AeBDietsEdrbFd/ZYfHK4bvehHKh4QMfUEeuxoGHACv+TjFl8GNhrY8E2wRsRLrFnGu
+	2C06ZkhCLW0Vg0nSyY/t1pHxvlnckO2cCPc1t1vSYAXURihzZ3BSdZA+9t0ZPecC5vaWF4v/qOf
+	zIHnlZ94aT3rP4U/PBhR2OiaHgdEnTlDWaUlr4AP9f4dx7EwClB1jsDm5wraBnBr8SbTejbONyQ
+	ggH+fQRQn/5SRtZayUpSjlG86tIzOpYk1p9W2Q/ZbfsxrIDBk2SV+S2mio4c+b2XIgu4Jf9ADrb
+	qDPQo5N3zc0zzg05tOKAtckjKLd3/5zp+kfqdXyhzbnlGYYQTgvO/WJfInW6pPXeCZ3HB5qPJjz
+	rcobcYKb28H9K6f3kaYShB8jCSb7Vtcne4FmKfEcCoJexqJRjEPiii++9Apfxip3E3Om3ByzcT0
+	5ZGe/oXBM3EV1zlIsUxPZhAQ==
+X-Received: by 2002:a05:6a00:27a7:b0:839:e27c:6cc9 with SMTP id d2e1a72fcca58-83a5e348860mr1855014b3a.35.1778052825203;
+        Wed, 06 May 2026 00:33:45 -0700 (PDT)
+X-Received: by 2002:a05:6a00:27a7:b0:839:e27c:6cc9 with SMTP id d2e1a72fcca58-83a5e348860mr1854982b3a.35.1778052824660;
+        Wed, 06 May 2026 00:33:44 -0700 (PDT)
+Received: from [10.133.33.194] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839679c8c1bsm5511412b3a.34.2026.05.06.00.33.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 May 2026 00:33:44 -0700 (PDT)
+Message-ID: <e0fa7079-6f57-4b5d-8b5d-ff10264caf1a@oss.qualcomm.com>
+Date: Wed, 6 May 2026 15:33:38 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|BY5PR10MB4307:EE_
-X-MS-Office365-Filtering-Correlation-Id: 914042f9-43f9-41f1-6a83-08deab415a53
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: zoX1YSA/S5NZ/T44zi8OXbUM75yTzf+Bkp03amfUW6UIXKobS4EMtjLw0cFKsBuz76zSyzRWJZCkOUAGZ8EEWUyuHNlnoAV5kqlPP3cW/Z9Rn2chccUV5V3sICcgd9FuoI6CsXqHTVJ+x6E06kySe2yO8sTsG39ynfqv4ZdgYBHA+/pbMdRFOSeB6FlcozoYB0FkQEuC9r2NqzE7Ii6MsbQD66UulPMN+E0tBTH2fyejOzg9X/tQ+icaE6vSgE4pe9h4Ab0mt9qsj61LizHnAQ/aExIS/LEH/QLYS0dgHITZKmehDEvH9N/5ShfxVWf+t4KYJIwApieESc/uK/YHxfO6WGsQqZUl16uwwSONglXICgP3ENydNIc3UCexPEeEX1aOpWuOwYPaH9cRNNCSq6P/yw9hXjU8qC+MvMmBbpIv2hVhesEYWf9A7rz2lrZ5LkzplUWAgPUcBbdDZbl/LBzc4dFW7Av+7D4Nu/oftJG7ZrIZqKNpYRWn7+gLYbsDTMYKvf3S3Lvb4BwAc5PKKddld0vQSmUYuMvOlsZnNNNiygw26FLqJihLB7OdISjSdOFWVwE9R/xGEOI/PcOam/rT3VMwiZxFojP1ocLZqRBETt8yLpURipMlUTSrFsFDfRT/BQgykO0qwOL9CDtlNsa0SZsZSLE4zfeIO72XGuskOFLhGLUYukPy95MAm00a
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YXKfyt9zS7DtKZTKkcz8/ZXI29TOkW//B1ZeoAMdTwPEaOV5y3UfE0Zrqi5b?=
- =?us-ascii?Q?p3JzE1w1nJfulXFMv5POEnny9yZXwSCUqEhpoK5gMu2Geu3v4TUe6Brh9YtC?=
- =?us-ascii?Q?2AF3XQRFr5Ph/erBWRBYzGhSjiZrKFyZwRbgPMpanj2t6FaDgfjDk5zPEaYp?=
- =?us-ascii?Q?0lER9gIATxlXrmgehKmdjwuhwsB8sTQKUEgzBXMDY4+Im2C7RoM55vvWAZtp?=
- =?us-ascii?Q?XJEdVdFkEaFUfMoGhUJTM+rs+8uVEcW+wDqYcQDmG7pvwBhZloH0Zj7Y5uOS?=
- =?us-ascii?Q?ehjFC3J3RDSbSYAnXUgLbc3FVx51Ib8BDuUnzCdPhE6ZCY3iXEdalHkevJod?=
- =?us-ascii?Q?W2dZ+Sv7DHFoFkYVsL0ymkFKxqFSoDIhidHlv7scWadsSVPeyUH1uRaLWjbl?=
- =?us-ascii?Q?77JxfPWbSy3wNRnkLtcRM6upN6IjQMaMAqfFXj7ChGB0+lLn6LkwWmgyug7Y?=
- =?us-ascii?Q?Ps8LRo+EQHwCROk6JM1Gd1E+wgmlYUKQL+L5IJKwSS276jtxCXI1gTer3bNw?=
- =?us-ascii?Q?KtNLDaS3tTBJh1Veq9GrT3zwkUF5YwuLYUB23F/bqu5GvaSyckJqgG2oW7G0?=
- =?us-ascii?Q?P66GufRTf9mxm31QIicSVOl46IRAH/48VU7Cee/lveVlxnt8jTcKdHosJFYe?=
- =?us-ascii?Q?JHzCpXtFy8vh0KK99kaB5RU+F7hJSrOAEKuGqG40s8d0BS6PwQefIPq99Yns?=
- =?us-ascii?Q?/C6nRvwkLHwjXUENoparHnPyLtf8/luBNYm4FcsGFxq3UKDEGIL5y4P+I3vo?=
- =?us-ascii?Q?PYXUe8NOWVgz8SUQDSIqJQrs6Ky09/lyDTF01xqrs91YUwMJsd51wnUWCV7c?=
- =?us-ascii?Q?0VLeoe0ym3OI/wZrwUw5rlrn3/gutvLgsIUHGLPYzKm55GhUxUW+a4EowPPb?=
- =?us-ascii?Q?N3Mm3OeyuGVsTkHhhRV9UsJDD4ZCHqJLWj2ubgY167we+CSin/IFyig0ihB+?=
- =?us-ascii?Q?jUfXNJyfVVD3tUPJyoyLgT8DscoLx0EacGzonVOQQBve+j28Yiy/1rWQJa4D?=
- =?us-ascii?Q?03RxZNFFZtm56cs5VdqieacGrycpKyUicIPQz8LHgbgENA0h+jAUU90WRVPL?=
- =?us-ascii?Q?TitzSfU0pCtIPV/IHCTbggG3LzlJ/tvPcOULvd6bWrdldTg6wb5UsSaRcBC0?=
- =?us-ascii?Q?vhxtygO0R746IE1xhX22oPIZL/XZ6KwPlFMAq12wY/2l7SicBN+5zDJ4pkt4?=
- =?us-ascii?Q?5wWojf4J7pWHoKaGtXBrBA5bnygXdv98tPuu4DNcWKjxiGwOLz/X/ZWFVpWe?=
- =?us-ascii?Q?a/TQSp0Y1l34CBPce0gnDfrCxbO7c3D+RtMs4/db7j0C2xAv5qUNlpvMznhq?=
- =?us-ascii?Q?OvJzkQNNKV0CYzd/rG0ErYhbjMECKTUVH+e4isA7jl9v9RhR0HybmdCdgSGF?=
- =?us-ascii?Q?DPvdW3cb1Z4s8gisGjnIsOO13hlTxtsk6f9DSm2WhK2g653Hud/gD+YDHV52?=
- =?us-ascii?Q?SY7rkDgAy2FqV/Lv1qKHorTha0EyxM9jA/PPg4eKCr0+c4HDOOQDpUizHEOF?=
- =?us-ascii?Q?FR8loUPsDNFtL2jgGb1r+Uu1JlX8Sh2RnwKd3ZDIm6N6PjjNq6OTK9R02c76?=
- =?us-ascii?Q?S9d+7qbySEQxnSe402Qqxz9V1g2EFp/LQ4mJKx08pKmpEnedYuqRxM88QQcC?=
- =?us-ascii?Q?hzeb+JNlOp61pN43aQ+V/vU+8DUc2y0NTNgNt0Q/AQQZgtCLFbiH5xySKm8G?=
- =?us-ascii?Q?SZk4bh9fYQBeILn4NiXkh3+2HPFyacNVhlC7UbSY2YsRuxGMUgUQ5+phlgIS?=
- =?us-ascii?Q?dIrLMXcrq1kvB+3RObeM4nvULBUE7Ds=3D?=
-X-Exchange-RoutingPolicyChecked: j5dQInvdi6RJf50v0nRF1IiRfSTEt/MYT9w9CDw0iWc200ognyl48tUmKrLnPQbZymWKsSHruywRSgvaqu+gyowaTNqiUjlEFu+2MTS5CwE+9YF1X2s1XGjur3XWCZByBGy086kcq2bRwVrbi0O2oStCFDmeqJlzyazNdX5G5emSPH+2+Eb8MUBH9EWH+xTXyRpO67K+t4400LORqjmw3YtrGwsagFSpWzoZ1G76tIp/4loCBzQPFuCnjPwlJ5EPkYJ9SWzG6A9UxO0MSOq3Q1zSEwFenqix073r7O4+73kyQg1n/NjM5Q9pP/s1E5O1Z1VyGmttfbFn7ITEp011JA==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: ARGMWCQOXkaNVp65tS/bdvj8y5sDAGbh1tGXt2TaAhTdojNjiDuARvXw/PVfu+zlT/Izu7SApkZ18rnfOzTCKb62ddTiWj/S4h8N15vIbeUDBRXyqUmQV0uDH/9zBrezelNPmRmbGXh5EhY+mTVBRkK1Q7WsHIqjDwfpiYzHNohoF+oH0E+iyQIK9ARuZrnDaHyD9tpHiX5H0h8MkDmmAr8UJxb9T0SO89TzAjFDG5Is6Nq3fJmBDc1HpOcCQV7wrX1rg8QGNStIMbYpFvPRBqSY83Z01wksoWpvorvJnaTJ526p+cGmyQhz8Q6JMEp+LT2VJ4F3R03bEp0bnvd073pIIV0BYIVnquXq5ld2fjQbx7ksJ438gpjtCdlUfXWGaBTO0DWgIV8C4zcxItN/2Ej6iQi76Tls8jU72LWzdZKGLqnwQB+uxBJhW5y4sFoBj5HgazoDtzmr7heKkIIvwF1KlF01VUDiFaWiVi7RAgOsu0mLOc7+d/HDTxbSt75JaEeCqzOrEv5ZBNIFesLSacSdt+FkmdOniODa4EVAU1xEdivMAqi5YhyeDHBd0GpayV+T/AxJN2q476l0MXktiUER3oB/H7VoBCahSZx7JNM=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 914042f9-43f9-41f1-6a83-08deab415a53
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 07:30:31.3237
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: w1SGWgZebjLbIWfTH7YwkKi2zFIgbhOHPZoKggpSmd2iXFw32ux+M4KIaQYdN9LpZP8pyLQGNg8qba4D3Kqy3TTZiuupMGxfb8IQs7OY9aE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4307
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 00/27] CoreSight: Refactor power management for
+ CoreSight path
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+        Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>,
+        Keita Morisaki <keyz@google.com>,
+        Yuanfang Zhang
+ <quic_yuanfang@quicinc.com>,
+        Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
+        Peter Zijlstra <peterz@infradead.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20260501-arm_coresight_path_power_management_improvement-v11-0-fc7fb9d5af1c@arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260501-arm_coresight_path_power_management_improvement-v11-0-fc7fb9d5af1c@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=XvnK/1F9 c=1 sm=1 tr=0 ts=69faeed9 cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=Rg6frwBbQHgqRIZAXMsA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: vb5iZHeEjU10pqviDT_iwuna-FZWIXxB
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDA3MSBTYWx0ZWRfXxY1L/EGsKBy4
+ NeNrKx9aCOIYWfeSDuS6S9OFcXso5SPC/teARNBdc6Az3IzMOSHgX7h4A19tnEh4caDiRKnEyvT
+ jZ1Vs36gWt21a6Urz/SM/8a/4OWsLgGftwUSyseHsLG3H5eGBB+kFACdEQUOfy3tY2XZIiDspZo
+ NxqKwcZpQKAZLdNOVjDJGcSiQV6SljElcIp18J2j5DIVLlYhEyebD9WFRS3kqUWzbGd2G0iQtMb
+ NxUyTKcMGoXRHLq8wvip6rfd+VjmW7b36nPCIb/SrZ0kqPWThn6yIVoKzJfZzTJ82COf14C/175
+ KRWUn5A58guAwDGTBW5+te6YR/9U1OoPZm0v1VhYUNqxEHvCoubnh+aWSnVBrBRlSqCmGVdNFFZ
+ Hl31WgvwtjNLv8Weg2x4D33hPQRB9FdUVqN4eGZVsd/aDJp8mw0YeVBius4+0eOhUJ9czZpbZ15
+ fNAxShfTceHEbJahBbw==
+X-Proofpoint-GUID: vb5iZHeEjU10pqviDT_iwuna-FZWIXxB
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0
- suspectscore=0 adultscore=0 mlxlogscore=999 mlxscore=0 phishscore=0
- spamscore=0 malwarescore=0 lowpriorityscore=0 classifier=spam adjust=0
- reason=mlx scancount=1 engine=8.19.0-2604200000 definitions=main-2605060071
-X-Proofpoint-ORIG-GUID: QHvQLj0Xq-b9D51zg58MRu2OFUREDtGx
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDA3MSBTYWx0ZWRfXzR/+YBNPq9f2
- GIN8i9fPtwzbRRdXt7wIlMKfSTWPJvZnW8WR0gQG645pVUVEsXOy3vJ78IAe0Ln+P9jP8Un6YkE
- sCrbDpKlFn2LQUfFoYb5M12xSI5Tyr00Wp6vuheXaIas0qwUX3DpiLjZJfinsT7n7mOZmJ9kuF7
- S2fmnI0pZ4jqGWg5e9IpFEk0vQB7oyzZ8fOmeRhzCcXdmUAzTCbTGx09vfxp3x8ebL39YNpbtmg
- 0VL2CSWvNlqs9q+UPUX4oOddV3Jq7uOCunnq8yWFg560/Q/tDlfHEmMtfi+CboKOPIZC9iICU+V
- GPztpj7i3h33Oqm7GhTZccLeZ3pp235Q0El+kHGetuBLplsx8ai8NVSj7Ai8Kxn4MkhqgIx8FiI
- uywgh3x3Y1f1GDT11CXQ1th84ZzpWhG7ix8+B/0fXO2rN8IALwLD7zt6bk0SEOl8t24+DvnYGU9
- CCkZogbwK/mJdq2dSJQ==
-X-Authority-Analysis: v=2.4 cv=YKKvDxGx c=1 sm=1 tr=0 ts=69faee1d b=1 cx=c_pps
- a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=NGcC8JguVDcA:10
- a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=jiCTI4zE5U7BLdzWsZGv:22
- a=EIcjfB9IiI4px24ztqRk:22 a=yPCof4ZbAAAA:8 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8
- a=JfrnYn6hAAAA:8 a=BBXGc6A9iwDNzdzZ20gA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
- a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-GUID: QHvQLj0Xq-b9D51zg58MRu2OFUREDtGx
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 bulkscore=0 suspectscore=0 priorityscore=1501
+ lowpriorityscore=0 adultscore=0 clxscore=1015 spamscore=0 phishscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2605060071
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_003137_804496_89198A7D 
-X-CRM114-Status: GOOD (  29.58  )
+X-CRM114-CacheID: sfid-20260506_003349_930427_732289D1 
+X-CRM114-Status: GOOD (  26.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,190 +159,240 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Ankur Arora <ankur.a.arora@oracle.com> writes:
 
-> Add smp_cond_load_relaxed_timeout(), which extends
-> smp_cond_load_relaxed() to allow waiting for a duration.
->
-> We loop around waiting for the condition variable to change while
-> peridically doing a time-check. The loop uses cpu_poll_relax() to slow
-> down the busy-wait, which, unless overridden by the architecture
-> code, amounts to a cpu_relax().
->
-> Note that there are two ways for the time-check to fail: the timeout
-> case or, @time_expr_ns returning an invalid value (negative or zero).
-> The second failure mode allows for clocks attached to the clock-domain
-> of @cond_expr --  which might cease to operate meaningfully once some
-> state internal to @cond_expr has changed -- to fail.
->
-> Evaluation of @time_expr_ns: in the fastpath we want to keep the
-> performance close to smp_cond_load_relaxed(). So defer evaluation
-> of the potentially costly @time_expr_ns to the slowpath.
->
-> This also means that there will always be some hardware dependent
-> duration that has passed in cpu_poll_relax() iterations at the time
-> of first evaluation. Additionally cpu_poll_relax() is not guaranteed
-> to return at timeout boundary. In sum, expect timeout overshoot when
-> we exit due to expiration of the timeout.
->
-> The number of spin iterations before time-check, SMP_TIMEOUT_POLL_COUNT
-> is chosen to be 200 by default. With a cpu_poll_relax() iteration
-> taking ~20-30 cycles (measured on a variety of x86 platforms), we
-> expect a time-check every ~4000-6000 cycles.
->
-> The outer limit of the overshoot is double that when working with the
-> parameters above. This might be higher or lower depending on the
-> implementation of cpu_poll_relax() across architectures.
->
-> Lastly, config option ARCH_HAS_CPU_RELAX indicates availability of a
-> cpu_poll_relax() that is cheaper than polling. This might be relevant
-> for cases with a long timeout.
->
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: linux-arch@vger.kernel.org
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
+On 5/2/2026 12:47 AM, Leo Yan wrote:
+> This series focuses on CoreSight path power management.  The changes can
+> be divided into four parts for review:
+> 
+>    Patches 01 - 09: Preparison for CPU PM:
+>                     Fix helper enable failure handling.
+>                     Refactor CPU ID stored in csdev.
+>                     Move CPU lock to sysfs layer.
+> 		   Move per-CPU source pointer from etm-perf to core layer.
+> 		   Refactor etm-perf to retrieve source via per-CPU's event
+> 		   data for lockless and get source reference during AUX
+> 		   setup.
+>    Patches 10 - 12: Refactor CPU idle flow managed in the CoreSight core
+>                     layer.
+>    Patches 13 - 22: Refactor path enable / disable with range, control path
+>                     during CPU idle.
+>    Patches 23 - 24: Support the sink (TRBE) control during CPU idle.
+>    Patches 25 - 27: Move CPU hotplug into the core layer, and fix sysfs
+>                     mode for hotplug.
+> 
+> This series is rebased on the coresight-next branch and has been verified
+> on Juno-r2 (ETM + ETR) and FVP RevC (ETE + TRBE).  Built successfully
+> for armv7 (ARCH=arm).
+> 
+
+Tested on QCOM sa8775p-ride platform with sysfs mode:
+
+=== 1. Prerequisites ===
+PASS: Running as root
+PASS: CoreSight bus present
+PASS: Sink: tmc_etr0
+   Sink is TRBE: 0
+PASS: Source: etm0
+   Source CPU: 0
+   Online CPUs: 8
+   All CoreSight devices:
+     ctcu0
+     cti_sys0
+     etm0
+     etm1
+     etm2
+     etm3
+     etm4
+     etm5
+     etm6
+     etm7
+     funnel0
+     funnel1
+     funnel2
+     funnel3
+     funnel4
+     funnel5
+     funnel6
+     funnel7
+     replicator0
+     replicator1
+     replicator2
+     stm0
+     tmc_etf0
+     tmc_etr0
+     tmc_etr1
+     tpdm0
+     tpdm1
+     tpdm10
+     tpdm11
+     tpdm2
+     tpdm3
+     tpdm4
+     tpdm5
+     tpdm6
+     tpdm7
+     tpdm8
+     tpdm9
+
+=== 2. Sysfs mode: basic enable/disable ===
+PASS: Sink tmc_etr0 enabled
+PASS: Source etm0 enabled
+PASS: Source etm0 disabled cleanly
+PASS: Sink tmc_etr0 disabled cleanly
+
+=== 3. Sysfs mode: repeated enable/disable cycles (10x) ===
+PASS: 10 enable/disable cycles completed without error
+
+=== 4. Sysfs: enable source with no active sink ===
+PASS: Enable without sink returned error (expected)
+
+=== 5. Sysfs: enable/disable all online per-CPU sources ===
+     etm0 (cpu0): enabled OK
+     etm1 (cpu1): enabled OK
+     etm2 (cpu2): enabled OK
+     etm3 (cpu3): enabled OK
+     etm4 (cpu4): enabled OK
+     etm5 (cpu5): enabled OK
+     etm6 (cpu6): enabled OK
+     etm7 (cpu7): enabled OK
+PASS: All online per-CPU sources enabled/disabled successfully
+
+=== 6. csdev->cpu sysfs attribute (Patch 3: CPU ID in coresight_device) ===
+     etm0: cpu = 0 (OK)
+     etm1: cpu = 1 (OK)
+     etm2: cpu = 2 (OK)
+     etm3: cpu = 3 (OK)
+     etm4: cpu = 4 (OK)
+     etm5: cpu = 5 (OK)
+     etm6: cpu = 6 (OK)
+     etm7: cpu = 7 (OK)
+PASS: All 8 per-CPU sources have valid 'cpu' attribute
+
+=== 7. CPU online validation before path build (Patch 27) ===
+   Offlining cpu1 (source: etm1)
+[  146.339051] psci: CPU1 killed (polled 0 ms)
+PASS: P27: Enable on offline cpu1 rejected before path build 
+(enable_source=0)
+[  146.689573] Detected PIPT I-cache on CPU1
+[  146.689635] GICv3: CPU1: found redistributor 100 region 
+0:0x0000000017a80000
+[  146.689801] CPU1: Booted secondary processor 0x0000000100 [0x410fd4b2]
+   cpu1 back online
+
+=== 8. CPU hotplug: core layer disables full sysfs path on CPU offline 
+(Patch 26) ===
+   Starting sysfs trace on cpu1 (source: etm1)
+   Offlining cpu1 while tracing active...
+[  147.498731] psci: CPU1 killed (polled 0 ms)
+PASS: P26: Source auto-disabled by core coresight_dying_cpu() on CPU offline
+     Sink state after hotplug: 1
+PASS: No kernel errors in dmesg during hotplug
+[  148.365194] Detected PIPT I-cache on CPU1
+[  148.365249] GICv3: CPU1: found redistributor 100 region 
+0:0x0000000017a80000
+[  148.365393] CPU1: Booted secondary processor 0x0000000100 [0x410fd4b2]
+PASS: cpu1 re-onlined
+
+=== 9. CPU hotplug: re-enable sysfs tracing after CPU re-online ===
+PASS: Tracing re-enabled on cpu1 after hotplug cycle
+
+=== 10. CPU PM: path control during CPU idle (Patch 22) ===
+   Sleeping 4s to allow CPU idle entry (source: etm0, cpu: 0)...
+   Idle entries on cpu0 during test: 49
+PASS: P22: Source still enabled after idle — path save/restore working
+
+Thanks,
+Jie
+
 > ---
-> Notes:
->    - add a comment mentioning that smp_cond_load_relaxed_timeout() might
->      be using architectural primitives that don't support MMIO.
->      (David Laight, Catalin Marinas)
->
->  include/asm-generic/barrier.h | 69 +++++++++++++++++++++++++++++++++++
->  1 file changed, 69 insertions(+)
->
-> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
-> index d4f581c1e21d..e5a6a1c04649 100644
-> --- a/include/asm-generic/barrier.h
-> +++ b/include/asm-generic/barrier.h
-> @@ -273,6 +273,75 @@ do {									\
->  })
->  #endif
->
-> +/*
-> + * Number of times we iterate in the loop before doing the time check.
-> + * Note that the iteration count assumes that the loop condition is
-> + * relatively cheap.
-> + */
-> +#ifndef SMP_TIMEOUT_POLL_COUNT
-> +#define SMP_TIMEOUT_POLL_COUNT		200
-> +#endif
-> +
-> +/*
-> + * Platforms with ARCH_HAS_CPU_RELAX have a cpu_poll_relax() implementation
-> + * that is expected to be cheaper (lower power) than pure polling.
-> + */
-> +#ifndef cpu_poll_relax
-> +#define cpu_poll_relax(ptr, val, timeout_ns)	cpu_relax()
-> +#endif
-> +
-> +/**
-> + * smp_cond_load_relaxed_timeout() - (Spin) wait for cond with no ordering
-> + * guarantees until a timeout expires.
-> + * @ptr: pointer to the variable to wait on.
-> + * @cond_expr: boolean expression to wait for.
-> + * @time_expr_ns: expression that evaluates to monotonic time (in ns) or,
-> + *  on failure, returns a negative value.
-> + * @timeout_ns: timeout value in ns
-> + * Both of the above are assumed to be compatible with s64; the signed
-> + * value is used to handle the failure case in @time_expr_ns.
-> + *
-> + * Equivalent to using READ_ONCE() on the condition variable.
-> + *
-> + * Callers that expect to wait for prolonged durations might want
-> + * to take into account the availability of ARCH_HAS_CPU_RELAX.
-> + *
-> + * Note that @ptr is expected to point to a memory address. Using this
-> + * interface with MMIO will be slower (since SMP_TIMEOUT_POLL_COUNT is
-> + * tuned for memory) and might also break in interesting architecture
-> + * dependent ways.
-> + */
-> +#ifndef smp_cond_load_relaxed_timeout
-> +#define smp_cond_load_relaxed_timeout(ptr, cond_expr,			\
-> +				      time_expr_ns, timeout_ns)		\
-> +({									\
-> +	typeof(ptr) __PTR = (ptr);					\
-> +	__unqual_scalar_typeof(*ptr) VAL;				\
-> +	u32 __n = 0, __spin = SMP_TIMEOUT_POLL_COUNT;			\
-> +	s64 __timeout = (s64)timeout_ns;				\
-> +	s64 __time_now, __time_end = 0;					\
-> +									\
-> +	for (;;) {							\
-> +		VAL = READ_ONCE(*__PTR);				\
-> +		if (cond_expr)						\
-> +			break;						\
-> +		cpu_poll_relax(__PTR, VAL, (u64)__timeout);		\
-> +		if (++__n < __spin)					\
-> +			continue;					\
-> +		__time_now = (s64)(time_expr_ns);			\
-> +		if (unlikely(__time_end == 0))				\
-> +			__time_end = __time_now + __timeout;		\
-> +		__timeout = __time_end - __time_now;			\
-> +		if (__time_now <= 0 || __timeout <= 0) {		\
-> +			VAL = READ_ONCE(*__PTR);			\
-> +			break;						\
-> +		}							\
-> +		__n = 0;						\
-> +	}								\
-> +	(typeof(*ptr))VAL;						\
-> +})
-> +#endif
-> +
+> Changes in v11:
+> - Moved per-CPU source pointer from etm-perf to core (Suzuki).
+> - Added grabbing/ungrabbing csdev for device reference (Suzuki).
+> - Minor refine for error handling and logs in CPU PM (James).
+> - Refactored etm-perf with fetching path/source from event data (Suzuki).
+> - Fixed Helper error handling (sashiko).
+> - Added Jie's test tag (thanks!).
+> - Minor improvement for comments and commit logs.
+> - Link to v10: https://lore.kernel.org/r/20260405-arm_coresight_path_power_management_improvement-v10-0-13e94754a8be@arm.com
+> 
+> Changes in v10:
+> - Removed redundant checks in ETMv4 PM callbacks (sashiko).
+> - Added a new const structure etm4_cs_pm_ops (sashiko).
+> - Used fine-grained spinlock on sysfs_active_config (sashiko).
+> - Blocked notification after failures in save / restore to avoid lockups.
+> - Changed Change CPUHP_AP_ARM_CORESIGHT_STARTING to
+>    CPUHP_AP_ARM_CORESIGHT_ONLINE so that the CPU hotplug callback runs in
+>    the thread context (sashiko).
+> - Link to v9: https://lore.kernel.org/r/20260401-arm_coresight_path_power_management_improvement-v9-0-091d73e44072@arm.com
+> 
+> Changes in v9:
+> - Changed to use per-CPU path pointer with lockless access.
+> - Removed the change for adding csdev->path, the related refactoring
+>    will be sent separately.
+> - Re-orged patches to avoid intermediate breakage (sashiko).
+> - Link to v8: https://lore.kernel.org/r/20260325-arm_coresight_path_power_management_improvement-v8-0-7b1902e18041@arm.com
+> 
+> Changes in v8:
+> - Moved the "cpu" field in coresight_device for better pack with new
+>    patch 01 (Suzuki).
+> - Added check if not set CPU for per_cpu_source/per_cpu_sink (Suzuki).
+> - Renamed spinlock name in syscfg (Suzuki).
+> - Refactored paired enable and disable path with new patches
+>    10 and 12 (Suzuki).
+> - Link to v7: https://lore.kernel.org/r/20260320-arm_coresight_path_power_management_improvement-v7-0-327ddd36b58b@arm.com
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> 
+> ---
+> Leo Yan (26):
+>        coresight: Handle helper enable failure properly
+>        coresight: Extract device init into coresight_init_device()
+>        coresight: Populate CPU ID into coresight_device
+>        coresight: Remove .cpu_id() callback from source ops
+>        coresight: Take hotplug lock in enable_source_store() for Sysfs mode
+>        coresight: perf: Retrieve path and source from event data
+>        coresight: Take a reference on csdev
+>        coresight: Move per-CPU source pointer to core layer
+>        coresight: Grab per-CPU source device during AUX setup
+>        coresight: Register CPU PM notifier in core layer
+>        coresight: etm4x: Hook CPU PM callbacks
+>        coresight: etm4x: Remove redundant checks in PM save and restore
+>        coresight: syscfg: Use IRQ-safe spinlock to protect active variables
+>        coresight: Move source helper disabling to coresight_disable_path()
+>        coresight: Control path with range
+>        coresight: Use helpers to fetch first and last nodes
+>        coresight: Introduce coresight_enable_source() helper
+>        coresight: Save active path for system tracers
+>        coresight: etm4x: Set active path on target CPU
+>        coresight: etm3x: Set active path on target CPU
+>        coresight: sysfs: Use source's path pointer for path control
+>        coresight: Control path during CPU idle
+>        coresight: Add PM callbacks for sink device
+>        coresight: sysfs: Increment refcount only for system tracers
+>        coresight: Move CPU hotplug callbacks to core layer
+>        coresight: sysfs: Validate CPU online status for per-CPU sources
+> 
+> Yabin Cui (1):
+>        coresight: trbe: Save and restore state across CPU low power state
+> 
+>   drivers/hwtracing/coresight/coresight-catu.c       |   2 +-
+>   drivers/hwtracing/coresight/coresight-core.c       | 530 ++++++++++++++++++---
+>   drivers/hwtracing/coresight/coresight-cti-core.c   |   9 +-
+>   drivers/hwtracing/coresight/coresight-etm-perf.c   | 268 ++++++-----
+>   drivers/hwtracing/coresight/coresight-etm3x-core.c |  73 +--
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 166 ++-----
+>   drivers/hwtracing/coresight/coresight-priv.h       |   6 +
+>   drivers/hwtracing/coresight/coresight-syscfg.c     |  38 +-
+>   drivers/hwtracing/coresight/coresight-syscfg.h     |   2 +
+>   drivers/hwtracing/coresight/coresight-sysfs.c      | 133 ++----
+>   drivers/hwtracing/coresight/coresight-trbe.c       |  61 ++-
+>   include/linux/coresight.h                          |  15 +-
+>   include/linux/cpuhotplug.h                         |   2 +-
+>   13 files changed, 833 insertions(+), 472 deletions(-)
+> ---
+> base-commit: 971f3474f8898ae8bbab19a9b547819a5e6fbcf1
+> change-id: 20251104-arm_coresight_path_power_management_improvement-dab4966f8280
+> 
+> Best regards,
 
-A cluster of issues that got flagged by sashiko was around timeout_ns
-being specified as s64 and a bunch of potential edge cases around
-that.
-
-These were mostly caused by an implicit assumption in the code that
-the timeout specified by the caller is generally reasonable. So, way
-below S64_MAX, not 0 etc.
-
-I think this is worth cleaning up a bit. The change is mostly around
-introducing a u32 __itertime and explicitly computing the waiting time.
-And adding a check to ensure that we start with a valid value.
-
-This does make the implementation a little more involved. So just wanted
-to see if people have any opinions on this?
-
-+#ifndef smp_cond_load_relaxed_timeout
-+#define smp_cond_load_relaxed_timeout(ptr, cond_expr,          \
-+                                     time_expr_ns, timeout_ns) \
-+({                                                             \
-+       typeof(ptr) __PTR = (ptr);                              \
-+       __unqual_scalar_typeof(*(ptr)) VAL;                     \
-+       u32 __count = 0, __spin = SMP_TIMEOUT_POLL_COUNT;       \
-+       s64 __timeout = (s64)(timeout_ns);                      \
-+       s64 __time_now, __time_end = 0;                         \
-+       u32 __maybe_unused __itertime;                          \
-+                                                               \
-+       for (__itertime = NSEC_PER_USEC;                        \
-+               VAL = READ_ONCE(*__PTR), __timeout > 0; ) {     \
-+               if (cond_expr)                                  \
-+                       break;                                  \
-+               cpu_poll_relax(__PTR, VAL, __itertime);         \
-+               if (++__count < __spin)                         \
-+                       continue;                               \
-+               __time_now = (s64)(time_expr_ns);               \
-+               if (unlikely(__time_end == 0))                  \
-+                       __time_end = __time_now + __timeout;    \
-+               __timeout = __time_end - __time_now;            \
-+               if (__time_now <= 0 || __timeout <= 0) {        \
-+                       VAL = READ_ONCE(*__PTR);                \
-+                       break;                                  \
-+               }                                               \
-+               __itertime = __timeout % NSEC_PER_MSEC +        \
-+                               NSEC_PER_USEC;                  \
-+               __count = 0;                                    \
-+       }                                                       \
-+       (typeof(*(ptr)))VAL;                                    \
-+})
-+#endif
-
-Thanks
-
---
-ankur
 
