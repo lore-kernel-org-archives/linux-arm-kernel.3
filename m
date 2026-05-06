@@ -4,144 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0868CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 11:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF68CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 11:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XIVvCag5+qHTXfZfw4sjt+95kJffxAurMP3XU4MOgXI=; b=db6MZbROIRCE7VFDTMSJAhhzp2
-	AJExWTRHyChH86nqTKIkoGFSh4fQGnE5sGIND+Xfx/gcnUXobR6XGzcf/wVDMBJlyi8C44W8suSU/
-	CZafbwguMjtL32NPBfoB6026x9Uf43znkFtkR46m8jo41G48kiPY7KWP39Tc61zeBAXswt0BTHyG7
-	SOJvJu0B4VY6z8knpjybW9nyaHYU1w3h30vsFpjEIkwpqGq1eHhnVY/LP11qHljoj5bVwR4mf9LBi
-	3KZtr5afrc+P+AeDASai0cPPWhyAB6AqFO4dJNqwpDa8jCYRhTazGBRupo/tfKotHv4CHKOhoA07K
-	nXG6Vqog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IVj1fWCL5+lK+iedLmeQpkoKIZN4NJDvNvjAcGI6dJ4=; b=I2UsCRiXpiLrYq
+	VzL5HarsRnG9WqxVYd+iQoAL4K29+oylIXmJ3ag6QLdawlh0EYhfOO59zC4YOg2elBnKNtZ6qPPCG
+	xS1hynkFvjbuyEBK90xaOP+GTty5IYPGQTS8eZ6L5VAdj+eO1v3q1BxBDjKlJcgbkbujx9KBcwFfN
+	uFRRAxVrWKuYddWDwh7hzgwt51i0AFyk28hJcI/SZ+vK0Quoo7/x1DVqC6l6dGVeZ/9NPpY27oxut
+	3CvyxKMsxSiffe7vyYm/0fk+yACZeMVlPLZjVocKihtT5JoHW4Dw0KaN7mzmkXzwhbi95p74UNzmB
+	Y5ceTNcUAKoVH2RAIg7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKaQX-00000000cjU-3IQA;
-	Wed, 06 May 2026 11:28:29 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wKab6-00000000eNb-3OXy;
+	Wed, 06 May 2026 11:39:24 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKaQW-00000000cie-0dDI
+	id 1wKab6-00000000eN3-0Nem
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 11:28:28 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6466aqKb248341
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 6 May 2026 11:28:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XIVvCag5+qHTXfZfw4sjt+95kJffxAurMP3XU4MOgXI=; b=kKF+OFjOj0ly2Gqg
-	hOV2AQlQtPG896p5oCmC1Pg0znphnzTUjMdFriP7jVFiD7r5xGKO/u1cpXqREjN2
-	S4ZkZdQrKXc/bhEfGZl/jJiUETw4cbymRaOJnlX/yYOVZT012teCdFhhayF6Xbe1
-	KKTIcaJqXWhB5/rogJ9HiEIWBr1Ir+JMMvB9JWvi/t+6Yt1+5uDDx6q5l0ZxX/MB
-	vH0uK7z+VScbMiQhOiCZswXcfDVqfAlgzvJ7iYJNQ7d2dJ5yPfj21BozJ7iwrk1P
-	Ls6K4SZL8+8MPz6Z/pRmgCgV/11gX7BABZWpPaifjrTnTGr0mdSO8RNDCMBfJpDz
-	oL9ilw==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4dyjq447y0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 11:28:26 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-514551d5f2aso39967551cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 04:28:26 -0700 (PDT)
+	Wed, 06 May 2026 11:39:24 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-43d73352cf2so5781700f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 04:39:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778066906; x=1778671706; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XIVvCag5+qHTXfZfw4sjt+95kJffxAurMP3XU4MOgXI=;
-        b=XndRTuVXfyRCX7GWL4pSCTv0uQrc6VVyHPzWJUN5ZqEnGIxFCv87ZFEqcp+CF8dkjo
-         hOqHKNH1WTSGpBHBatMhIvhtn0Z5Axi7OS0UMEJul+mspXopFXag7XHLcFo7vgWJrASn
-         YdxH/oH+g9CYwQqciG3Sc+8VzpXrNO18X1T4DVVfjObG0A/x5lr3Qoo84xHYxWgDCO8n
-         VrUpmC59GtwjPxxUa9GRVwb/sPPAgtlmucGXHRQ+wp+4xqHE9QC+SAa3SMUY6dxlxQP0
-         jHFRebReLnNAgfojOIKtULt2TPh1X5fdT/hU+Kzx4eeJt7L2jv6Q2QimaazQ0z5UWxaG
-         hQkQ==
+        d=linaro.org; s=google; t=1778067562; x=1778672362; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IVj1fWCL5+lK+iedLmeQpkoKIZN4NJDvNvjAcGI6dJ4=;
+        b=wkqQ+IwJzgvsM4cIfRkWfZCHyZgHfllpgz1FN+hdbAvBZns6ZIeOzM4kmHQF4y8DVV
+         +PqhHj2FI2s1gJQjpObp40PSRL9wxkY+NnjitHi0ee9zx6j21oWc3mrC4ttj71/EEagS
+         R+vLabNNDzqEI8NBQwmQXBOLl8yo9V0YZOy3VTFCobdxrq8l4BWtMZMTFmhItpA09gKL
+         Ot3zIC5SDLWkX0lcK2BlwiimnU0uUNkcAF8JuVttRABbfND+C9sC2MHjkZWO+N3qlAW7
+         +nqR0Qyu3PElKZb3U2/nTpoWjJfXqba6jk12Tm5LuqP8ldLgnGO+1HKK8z/fHS8700Kx
+         IyiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778066906; x=1778671706;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XIVvCag5+qHTXfZfw4sjt+95kJffxAurMP3XU4MOgXI=;
-        b=ME96+b5n89Kaaua1eITX244PX1TpxrUAzbK/JHpngFC3gz2hkO8mhAvECoYpG8YfmE
-         QsHG1+3zic/ANyBgo5SWdUVk/RJCVeDzYs5CimnRZN+3U+fJBCxdNkS3olSs9cwQ83+C
-         S2up0zNEmDYvbw0xWczGY8BTgIrPCRxDxsZ9Ghv5C296oLzHHkZAukbMaL6dafqp4bf/
-         3ViJBAHExkKT82CzMsJcWRQR7dhVdFteUlXm5CMo9/OW6vrOSgVMYUme70gmIovlJRkA
-         zgTKrSl0d1L7WcRqZ/cKDk7QFsaQ4vTovvvCQmIYsZJG5wxxjC9Oj+cFyhCB5MShdRTm
-         okyg==
-X-Forwarded-Encrypted: i=1; AFNElJ8x7UVHaIFTsR7kSR9GYqEhkWm7VpcfU/HetWtJEnezsV1+0z1H3S6AjyTMImVth+jInWf8+/ykcLSYalbMa09L@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1K11NtHgoy1pWCHBiRMiwAQb+CXNJp5/nMSs7o9/DiD6VjAe4
-	tntRFvIPO4/TcZjrl1INsgzTCGeJ7wcjopKCIbLq1R6jLEF+YiQgJoFxDMJXmbrs0kUotf/JPn0
-	hrUb0+/yoC53Ts5XAUYXBpM2G6AWlHelLkAg+9/eLHX4QTmVK+8B2ZptZXm/KzHdajZ5Rf7UCqT
-	kfqw==
-X-Gm-Gg: AeBDieu3x06YECWjDZJ2SVc6xWrPcEonqOVEI7WAZGwdtZsu1xGK+floFrU9OC8BXMG
-	Ji7FsnCHyIbqXr0h6gEG6hqr1L0mAlsgEArcd2bQqC32BO7AVZ7IyVk67RUN2ixtO5nfPvwHhLq
-	FZhKbQLqICDXElQ/8CKGzhfVkuy7PS142Y7fSqjQiADmUqgYTlgLD4JFunYkX6W2PIIVE8RblST
-	pkwGlIkEqT3KBmPqWxsD2BqX6LA7tusBEk6hKwqdukopiRhg1OFkjlyffea8JU8BOnqI7I/g4pM
-	/5+/dbTzzaoWtd55UEXNLeyBC5vfgeIP4F4f4/ssFmVXzkitOVxS39Lr5Cgcfah51h7pwSuJ3vg
-	bShUZsuyFtDvoRppN3eR83r51+uGo2RALuis3scRx+xcbOeukW2SyJjBtDa9traEr/IyvqgMpzV
-	pxgEJUoAnLSK+rAhGPVp8=
-X-Received: by 2002:a05:622a:620a:b0:50f:c26d:f314 with SMTP id d75a77b69052e-514621df688mr43427391cf.57.1778066905707;
-        Wed, 06 May 2026 04:28:25 -0700 (PDT)
-X-Received: by 2002:a05:622a:620a:b0:50f:c26d:f314 with SMTP id d75a77b69052e-514621df688mr43425951cf.57.1778066903771;
-        Wed, 06 May 2026 04:28:23 -0700 (PDT)
-Received: from ?IPV6:2a05:6e02:1041:c10:41ef:7b80:b3e8:2c1a? ([2a05:6e02:1041:c10:41ef:7b80:b3e8:2c1a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45052a48c04sm12287193f8f.15.2026.05.06.04.28.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 May 2026 04:28:23 -0700 (PDT)
-Message-ID: <9ca77795-ebd2-4157-9e74-1fa1001e750b@oss.qualcomm.com>
-Date: Wed, 6 May 2026 13:28:22 +0200
+        d=1e100.net; s=20251104; t=1778067562; x=1778672362;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IVj1fWCL5+lK+iedLmeQpkoKIZN4NJDvNvjAcGI6dJ4=;
+        b=ndzTaPKx8DgK4+wj0UTyJ0tnKcc7f10pKcMTsGAOE4QCezmpDoEFtcqqOyTjL4rv8b
+         s3Fb0fU6fzayZZ/C6hppx3QfgGwY6spZY2jLV+iiHxianiI/Ts1xUc3Yn0pqHTRpP+Jg
+         bgtdOKnOVUmpkIb027hctQJQk7remdaCGzEkehwoSeYENWuG/BMzsTve6p2WBZzed9Jk
+         lsF7OD0x895KyDVFLpFysjGUVk9RzR787Y+GjDyfRTEjhWA5zGPDCQvsysmjiwMmwx6G
+         Ntd/VIxg1KZwBd5p2x35SM2rsT6nOo1nvWAJ5JEnD56rwl+33oBPPHKfzkiUyQpTG56e
+         w+Ew==
+X-Forwarded-Encrypted: i=1; AFNElJ/JDavq2W75QlmRM8paRkoBUJlTqDj9Ue09J8HAg7qbegb4csGIE0zBmGihg02zUAT+C26BKPTQU22NexySANu7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyKH/xuHuwW7GesghZJMEh6RSFH2CMkjGttxCkVPWCCayXew2V
+	+NvqNhM+HLIEg5ZSBKeem4Jc4Jf0rMYbaUHjG1JI4Kevdp28jNEeANnVmHq9Vy1qCEA=
+X-Gm-Gg: AeBDievNJnclSoI/El7Iy761ozMFc2xGzrLMx8zcfv6rvgjH/Y9IyNAuuHke4SN6Dcv
+	BCsjIbBcgb3QT/+dUb7rmh0nNk6muxSsoYcYIIb4pI15TSbe+O+DXK8WRpOLgSsaYvUzyIj8Lud
+	fRprozUYwp90flOrWYwmt9jyvH/NXI5gc7INtRkYuwaRxeDdI3Ybzkn7nlGQ0Sd9EKqrlViwnvg
+	rSl8PWIoFMyruhzhe+VFqglP4Io9y+h6+KI9EKo4K5OIP0/yAhZqdvHw+vkxJV15eFlvF/v3F9h
+	DsZpYvNN9uDJZHNQkwMZV//qFnDOO3JqnI3DgukcwekUXfzGJTPf5pLBT7LD3bD9I28Y1LjdL4W
+	s4ObUldaxLGJdtOUojEUSaIrX9cfPRpV3nRYHeKX6unM+fK9HC33NDo9zK+4eFJsuRG30LriDat
+	AFddN3QAKdbcA69NqpKvFDqStYTVpcB6Tuwg5/CYNSggtNNtvZxKtzHeTtfFjXZo0GqEa5mrs4y
+	lnH/1wue2eR1Ie8yg==
+X-Received: by 2002:a05:6000:22c4:b0:43d:1c21:ead5 with SMTP id ffacd0b85a97d-4515ce1c6bcmr5425016f8f.22.1778067561946;
+        Wed, 06 May 2026 04:39:21 -0700 (PDT)
+Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4505238e6e0sm11852350f8f.6.2026.05.06.04.39.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 May 2026 04:39:21 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Subject: [PATCH 0/6] firmware: samsung: acpm: TMU support and cleanups
+Date: Wed, 06 May 2026 11:39:02 +0000
+Message-Id: <20260506-acpm-tmu-helpers-v1-0-a9cd5daf8355@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/4] Add hstimer support for H616 and T113-S3
-To: Michal Piekos <michal.piekos@mmpsystems.pl>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Thomas Gleixner
- <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        Maxime Ripard <mripard@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-        Andre Przywara <andre.przywara@arm.com>,
-        Conor Dooley <conor.dooley@microchip.com>
-References: <20260428-h616-t113s-hstimer-v3-0-7e02178a93ee@mmpsystems.pl>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-In-Reply-To: <20260428-h616-t113s-hstimer-v3-0-7e02178a93ee@mmpsystems.pl>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=MYxcfZ/f c=1 sm=1 tr=0 ts=69fb25da cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=I7hbHXdXhLuFcQShn1MA:9
- a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDExMiBTYWx0ZWRfX/hEz6nHUwIbT
- d6zUZe+CGHLVJ66ITuIkwCQFLJkLwygY0RXHOtdx05b6Lj986KO9O4pAMU8HHTTt4y52ktU/Iqh
- K9Z34S/ybWjXicZDr3HSqsmgZroJDbJ+UVLOek0HaQHv0KAoxkUcpJ5vbXbD2qeK7cei4CNkwFj
- iTKGRIBcLgLpgnE+VA9hFvv4pbE/4Mtov4d6mwxT58K39ODep88JD4vJDAE0GYPPisRLk7ta8cy
- j13YJeHTSU75BBd1gcLohBfoIoGkOzgdBheyZBspkkcOKYbGqDl2G5m/j6mMwVxB36r5degIDMl
- hA88Ba0LKCSQv5tCHyNQOkl8Gw7149Fk+k3/LuLgzdKvEcJJfr0KHhT4Z/kY8fK8djMekiGyGMJ
- 7bcp0rfXEVn6i8qFE9GABvOOJEJKgUXuZwGKVknrjasvECAV+MSZ10hhvuKCJPfrP9/31hflE4N
- Z7FlG3Er90qjXemRdrw==
-X-Proofpoint-GUID: 6GtuGDamUpKSBVexDjJaBZITZqu1D6Yq
-X-Proofpoint-ORIG-GUID: 6GtuGDamUpKSBVexDjJaBZITZqu1D6Yq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-05_03,2026-04-30_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
- phishscore=0 clxscore=1015 priorityscore=1501 bulkscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605060112
+X-B4-Tracking: v=1; b=H4sIAFYo+2kC/0XNQQ6DIBCF4asQ1p0GqKjhKo0LxLGSFqGAponx7
+ qW66PKf5H2z0YTRYqKKbDTiapP1cwl+IdRMen4g2KE0FUzUTDIJ2gQH2S0w4StgTFAZqUeGYmS
+ NoWUWIo72c5D37uyI76XI+Tz+YUUOthK3kz12kHSa7NNDxOBjTqBRtH2Ng5QtV6v8/eh1QjDeO
+ ZsVWZsrh2g47fb9C9kMBjfQAAAA
+X-Change-ID: 20260505-acpm-tmu-helpers-4c5af0e2f07c
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Lee Jones <lee@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+ peter.griffin@linaro.org, andre.draszik@linaro.org, jyescas@google.com, 
+ kernel-team@android.com, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778067561; l=3632;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=9wjIXq96Ye0zgM2I0ds4oYNVzLtE1yAQNKLV1EIU9V8=;
+ b=r8xf8GxAIL1BdWW1vT0QMZLJ3de6b9Cpy9hf2Hon4GLaqnK6iD4XK7jpdzHllGv0zilynV9Wm
+ nlU05KGBnMgAK9cl50FBjPbEhD8d5fkX9k59ZWvBPIxJDpcyysnx9mP
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_042828_311659_F88F7B96 
-X-CRM114-Status: GOOD (  14.34  )
+X-CRM114-CacheID: sfid-20260506_043924_184313_CB7E6AFA 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,21 +119,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/28/26 18:26, Michal Piekos wrote:
-> Add support for Allwinner D1 high speed timer in sun5i hstimer driver
-> and describe corresponding nodes in dts for H616 and T113-S3 SoC's.
-> 
-> D1 and H616 uses same model as existing driver except register shift
-> compared to older variants.
-> 
-> Added register layout abstraction in the driver, extended the binding
-> with new compatibles and wired up dts nodes for T113-S3 and H616 which
-> uses D1 as fallback compatible.
-> 
-> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> ---
+Hi all,
 
-Applied patches 1 and 2
+This series introduces protocol support for the Exynos
+Thermal Management Unit (TMU) to the ACPM driver, alongside several
+cleanups.
 
-Thanks
+These patches are split from the following set:
+Link: https://lore.kernel.org/linux-samsung-soc/20260423-acpm-tmu-v4-0-8b59f8548634@linaro.org/#t
+
+Dependencies
+============
+
+Please note that this series is based on top of the ACPM polling and
+LKMM fixes series:
+Link: https://lore.kernel.org/linux-samsung-soc/20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org/
+
+The MFD and clk maintainers are included because of the cleanup patches
+(3 and 4). ACPM updated some structures that the mfd and clk client
+drivers are using, so these patches shall naturally go via the Samsung
+SoC tree.
+
+Note that when compiling with W=1 one will see the following kdoc
+false-positive warning:
+  CC [M]  drivers/firmware/samsung/exynos-acpm.o
+Warning: drivers/firmware/samsung/exynos-acpm.c:118 struct member '__counted_by_ptr(cmdcnt' not described in 'acpm_rx_data'
+Warning: linux/drivers/firmware/samsung/exynos-acpm.c:118 struct member '__counted_by_ptr(cmdcnt' not described in 'acpm_rx_data'
+
+This is not a dependency per se, but wanted to let you know that
+I proposed the following patch to fix it:
+Link: https://lore.kernel.org/all/20260506-kdoc-__counted_by_ptr-v1-1-70763486871f@linaro.org/
+
+Cheers,
+ta
+
+---
+Changes since 20260113-acpm-tmu-27e21f0e2c3b:v4:
+- reword commit message of first patch emphasizing there's no
+  functional change (Krzysztof)
+- remove static keyword from `static void acpm_set_xfer`
+- replace for loop with memcpy in acpm_tmu_set_threshold()
+- update kernel doc on devm_acpm_get_by_phandle()
+
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+
+---
+Tudor Ambarus (6):
+      firmware: samsung: acpm: Consolidate transfer initialization helper
+      firmware: samsung: acpm: Annotate rx_data->cmd with __counted_by_ptr
+      firmware: samsung: acpm: Drop redundant _ops suffix in acpm_ops members
+      firmware: samsung: acpm: Make acpm_ops const and access via pointer
+      firmware: samsung: acpm: Add TMU protocol support
+      firmware: samsung: acpm: Add devm_acpm_get_by_phandle helper
+
+ drivers/clk/samsung/clk-acpm.c                     |   8 +-
+ drivers/firmware/samsung/Makefile                  |   1 +
+ drivers/firmware/samsung/exynos-acpm-dvfs.c        |  20 +-
+ drivers/firmware/samsung/exynos-acpm-pmic.c        |  20 +-
+ drivers/firmware/samsung/exynos-acpm-tmu.c         | 239 +++++++++++++++++++++
+ drivers/firmware/samsung/exynos-acpm-tmu.h         |  28 +++
+ drivers/firmware/samsung/exynos-acpm.c             | 113 +++++++---
+ drivers/firmware/samsung/exynos-acpm.h             |   2 +
+ drivers/mfd/sec-acpm.c                             |   6 +-
+ .../linux/firmware/samsung/exynos-acpm-protocol.h  |  32 ++-
+ 10 files changed, 397 insertions(+), 72 deletions(-)
+---
+base-commit: 5e9b7d093f3f77cb0af4409559e3d139babfb443
+change-id: 20260505-acpm-tmu-helpers-4c5af0e2f07c
+prerequisite-change-id: 20260423-acpm-fixes-sashiko-reports-ae28b6ed5581:v5
+prerequisite-patch-id: 18d89d0e2bc0efe2cb366746ac4db36f4682f061
+prerequisite-patch-id: e877f865862ee94f5750b877b5fad863d8acd7c8
+prerequisite-patch-id: b5da16b5c6d6731ea519ed68302fd52ce57c7ffa
+prerequisite-patch-id: df5b1d9df4c8894afaff645c9eb84aa4e3daeeee
+prerequisite-patch-id: be74a55583acb36dedca3e118f49633172979617
+prerequisite-patch-id: 31ebc7bd806d4d466c256049f32e3270e2caeeb6
+prerequisite-patch-id: 7ea0832fcf76e4f40e18b74083904e7e37e1addf
+
+Best regards,
+-- 
+Tudor Ambarus <tudor.ambarus@linaro.org>
+
 
