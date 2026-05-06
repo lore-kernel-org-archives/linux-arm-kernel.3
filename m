@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6E1CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D8C9CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bZxI4LsfcMWt6ba+IFpGYGNMJB4Eed98Z2DKHmyuPJA=; b=eH3NWM8JkZ2nhiPE8TKRnbl7dt
-	E/x6GQb8isaRpuqazfmesIoPheTFFHfBcVPxYmFW2h2dfRDnHq4+JVKZSEg7FKjk6gOw2ArWJRE+p
-	C9sLfihoF80p5W1eRCVCjvYO+Vle+jQ2MyxMLKOuhf5snfMk7MTAEL26iO5qkykLSVPHX672RGlwi
-	V1TT6ani9Sg9jP3IjheVMRnLsyApjVcMsZmeZ+FqaeFuR+P+L796NYFR0fprvXoSHymtCMeTBi5r6
-	xaMYetsqi45/+Lwt2CmnwnSPFBCLr8U+F/+/d/by8IAD0oBG5+A0yacoKaYc2ah7tA0A0/15//Gqi
-	2T+aRuyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wvzsU878s43V9yqsfqVgWPJGSTifXNGQZFIt8LMxa+Q=; b=4H4sy/aegQaeO2WpIspKB65GVP
+	imQe9POJDgYU/RkTx5XgbMrx1WP8rWn67mGe1ZO/lMTx7uzRo+G7lq0OE0m2PtECaljKkNSdu9r/R
+	LqvmESNkivcCwMIha2TgSjrvxswRk77jfeFf/S07Lwb7lFxEBa10n/Rh3IKJZdIFUEqwx/A9++K9y
+	OQeQYGmKsR9p4g7jLABGdP3oojmLo/WCF3s2WmtZ5HIRXMxwZaXgKgbyyRq4hQ61o20sHVCvJfNoo
+	NKmb1IAo8m5+uJcvLObv9De1QsannJqkpXrtkSFfWPRBhm9u9K/1kGFjMR+HmiSEuBHYbNvdz6MXV
+	iFixdmJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXZD-000000009Gh-1Vzc;
-	Wed, 06 May 2026 08:25:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXZC-000000009Fy-0cNF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 08:25:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D3931A25;
-	Wed,  6 May 2026 01:25:07 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3C7773F836;
-	Wed,  6 May 2026 01:25:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778055912; bh=GvuUkUcWvf2zjTxhCcjwgeRUpxr1nMMzXKYOaWAuLx8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TdpcStlqvQO/Otsz1RsCmARd9jJ38Y6Rpymau4IOcfWk4Iy0YDmOSOyUD+Uat9gS/
-	 lWPJsqB5DzMkXVPACD7ijAmZAoZOhJM8vIbvtw9SknyEZEMNOXFoBTV93dEf51fO/H
-	 PVLMYXkac6geaa1gSe5Nn/2iDtkS/Mje35jA/eFU=
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	quic_yingdeng@quicinc.com,
-	Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Jie Gan <jie.gan@oss.qualcomm.com>
-Subject: Re: [PATCH] coresight: cti: Fix DT filter signals silently ignored
-Date: Wed,  6 May 2026 09:24:59 +0100
-Message-ID: <177805588674.639041.8334808426614149633.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260426-nr_sigs-v1-1-3b9df99dab97@oss.qualcomm.com>
-References: <20260426-nr_sigs-v1-1-3b9df99dab97@oss.qualcomm.com>
+	id 1wKXaT-000000009R0-2Twi;
+	Wed, 06 May 2026 08:26:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKXaS-000000009Qk-1sa2;
+	Wed, 06 May 2026 08:26:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2EA7D60132;
+	Wed,  6 May 2026 08:26:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52B52C2BCB8;
+	Wed,  6 May 2026 08:26:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778055990;
+	bh=DwhWJ+pjboLiRZQ//nb4qIvtmoRjATdD0FdPcN1x66U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PyEHbRzA0y5lw0cj+yZr4bB+/4LvtgCP5SZAWG6zAEiNWvUdwLqXrq/BTzFn8uidp
+	 zCye+WOEYVheWeB4oZEWhI1hhXht+PaEFaau5JS9P8QZGSnOVnTGBZfDpkPxGOz5CR
+	 ZeecwFgVF5XoK+N1H8szpwHjF9fTzPHmTTiNOag/ywoMra5CekYiXgh8dPO+Yyco8q
+	 sta4sZx/DJ6bnGbyHxTLcGV95YQbaWusIs7JM3CVHuvk9uw5OmfEDqO57MrClW5qDY
+	 B+yCW/OkgDnoEd11cuzqGfdUwNnmMQViqkPERV8RKWigR0c8lKA4qYVg58OaO9bSIS
+	 YjqVfCLxnte1g==
+Date: Wed, 6 May 2026 10:26:28 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Roman Vivchar <rva333@protonmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, 
+	David Lechner <dlechner@baylibre.com>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Srinivas Kandagatla <srini@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Lee Jones <lee@kernel.org>, 
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
+	Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH 13/13] MAINTAINERS: add mt6323 drivers maintainer
+Message-ID: <20260506-honest-cyan-cow-d6c5b0@quoll>
+References: <20260504-mt6323-v1-0-799b58b355ff@protonmail.com>
+ <20260504-mt6323-v1-13-799b58b355ff@protonmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_012514_323054_F2EAC358 
-X-CRM114-Status: UNSURE (   5.91  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260504-mt6323-v1-13-799b58b355ff@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 26 Apr 2026 17:59:34 +0800, Yingchao Deng wrote:
-> In cti_plat_process_filter_sigs(), after allocating a temporary
-> cti_trig_grp struct via kzalloc_obj(), the code never assigns tg->nr_sigs
-> = nr_filter_sigs. Since kzalloc zero-initialises the struct, tg->nr_sigs
-> remains 0. cti_plat_read_trig_group() guards with:
->     if (!tgrp->nr_sigs)
->         return 0;
+On Mon, May 04, 2026 at 09:25:05PM +0300, Roman Vivchar wrote:
+> Add myself as MediaTek mt6323 AUXADC, EFUSE and thermal driver maintainer.
 > 
-> [...]
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+>  MAINTAINERS | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index d1cc0e12fe1f..53493a24d00a 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -16337,6 +16337,18 @@ S:	Orphan
+>  F:	Documentation/devicetree/bindings/mtd/mediatek,mtk-nfc.yaml
+>  F:	drivers/mtd/nand/raw/mtk_*
+>  
+> +MEDIATEK PMIC AUXADC DRIVER
+> +M:	Roman Vivchar <rva333@protonmail.com>
+> +S:	Maintained
+> +F:	Documentation/devicetree/bindings/iio/adc/mediatek,mt6323-auxadc.yaml
+> +F:	drivers/iio/adc/mt6323-auxadc.c
 
-Applied, thanks!
+This should be squashed with individual patches. Otherwise how do you
+imagine this being applied? By which maintainer?
 
-[1/1] coresight: cti: Fix DT filter signals silently ignored
-      https://git.kernel.org/coresight/c/551bb2fd5e4e
+You also should not merge independent patchsets into one patchset. I see
+no dependencies here at all, although if you fix your MFD binding then
+there would be a dependency...
 
 Best regards,
--- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+Krzysztof
+
 
