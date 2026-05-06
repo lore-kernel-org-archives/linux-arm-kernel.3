@@ -4,115 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D8BCD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 19:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF4ACD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 19:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gS4y0A9iirAPQF6+tXC+YIwa/x1zAzWqagwvhjVFdBI=; b=rnzCQpPQyyycgeZfqSsHecADhw
-	VGfMCIdFyZJ2lPIuztUlpzrYcJYZhVsVCJMg3C6CJK5H6Y5XGrVP+h5ZT+EkPCT4o5oPdaH+KCa6V
-	VLfyDhP3VjUYR3I+LsPxFcO+p+WYys5ISaKDsAaJgb5CtQiaDVL5+M3PzUul1bDI05JioKfHSvtVL
-	w8n0AVjHPFE9MrU9AZqYs8lUT3G/YO7YUuYh84lpDl9ZM8+CUk329irulS+2yROY/tW++Rbf1US09
-	dKE+4VvWGs7C5nMFr5PJhsw9/oEqM4B7wLrjjZBdw+lKqsymNWjExiqNeG54ByEdhfnmz0XHPKky2
-	XOFor5GA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nu1vquhEqOoFVaPIOUS9hiptXEpJ1h/rprk6WqGjJDY=; b=yX0gJg6RHtLjIzwcvUef6DQ4Sn
+	GZrgM0Jc5z5C9iwnLxDTMQAlAgNcRVlvPAwdWLfWMewJjR8HL6ZLqY6rOk6cNTFYTEP6pA7oLG1v0
+	Jlc9pOtdkga1X5b+3tAuMymLj1kCEc7s4Kf3kD52xAf60QB6NxC5c3TqO7egXd1RYjxZwL60ZrkYO
+	AAHlVNbiSF9GUXKOE0HiWh0xLmfZNkIRgRn03WxoDgXAIwTjqytebGZ3YWp/Y1MkM2KkXsvZaR9C2
+	rZtrCthn4Xf1q7yj04w/0Xlrc+rRGfXTSuYn7GoZwB/gK6Fn+FLMsRxoD4nMZ7ZP7R6sceImVnzfy
+	UlrCayrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKi0l-00000001tCJ-0YlO;
-	Wed, 06 May 2026 19:34:23 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1wKiF8-00000001ufA-1wnr;
+	Wed, 06 May 2026 19:49:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKi0k-00000001tAp-293k
+	id 1wKiF7-00000001uee-3S8s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 19:34:22 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-448528f4e69so43760f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 12:34:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778096061; x=1778700861; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gS4y0A9iirAPQF6+tXC+YIwa/x1zAzWqagwvhjVFdBI=;
-        b=OIZ/VfvycUsFHzGjoM8ag5yvctV5PvE2kXIIFBSsFj+1kKVJPjYePgjKF+CZL5vtA4
-         rMAx+1wXQQ6jmpkr2HAw6k4MHVE8c8hi3KZ9ppGPUvxtbMGnMJaXoi5HjyPollBYGNN/
-         SyMbbufRZHkv44jkTqvK2Hf9l/93QNzQN5lSRz6LtzP8UJTGEcR580toMthCdnU2pUKo
-         h1GvJTPb15kJ9ST2YmfWzEhXIowI98N5HrBluwsOOkvP++AfSTqikJCQVmULh/9M0OWx
-         iRQppFK0pPM0UEVRLvz479lKGzuFdoW9CU7v3Z7DnC/mxkR3VlvsNdgrNWbyv6lFmz17
-         5Fhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778096061; x=1778700861;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gS4y0A9iirAPQF6+tXC+YIwa/x1zAzWqagwvhjVFdBI=;
-        b=g84T28lKKwif+V/OvlC1cwiFVyHFHKerUQDdDK4IwQtZijLhd+ohATGE7+UyDGQVR0
-         LtgUMVP+ub0oOEYuACcvFTQ1eY7xFvAsOiCKx0YbVZo57w7Biaqi0iPH3wM2gEo0i0j1
-         7CGpJOaUezJKU0PeaqmXFPs8QynYACfednTtzEH0mOP+a+pSHG/iWiBF2HrJsTc0Q7qZ
-         B34fffg9M8VuEYeVZsRwZXd0d2yJNtLB38RxIDb3+CD8VZ9KqEYgJTvhSjdq7XsXIZ7Q
-         9upR4eYTDTEXXwnbUw8dTWvDpTKR0DVoaYtbU92qRZ+twS6wp9o7TbGIxQYGmCi0O5xF
-         GbIw==
-X-Forwarded-Encrypted: i=1; AFNElJ9yhiLan3BZSSobCTg92gQfZT1egP7IBjAcj+PomQmLxHCgVlYTmnuWsxJR1Vc+3v/XGiTJblJv1yM6wu2aEINJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwW4OKrOLbD9ghsSwoZqkuAmdGg8p3HiMrhMXe9RwCuwtD+Ym9p
-	5YPGmJSHuCGGzKGQ0fNA5F33v3QH/bg6lINBN6JhPSbcH18h1CnelDRu
-X-Gm-Gg: AeBDieuYzXwWjRJfnY2HdqHEJ2oQvPErAVoGsuymjRBkumuhvgj9wyMaSR4WQyzcHaD
-	dXMMmZHdJrBtNTb5tZG5Hljn2wA7Z5lSJk1mCsRKVSlZ5/ThQ3KjBZZ6p1TZ4Rwl/ue1qKA2TmL
-	g8m+gBGuJVKKyDuXA2/0ojmQ/bovAd0QpqwFfujLvt+G/y4s3tRzErY2ydcaE5sJLwkBxT0HwPi
-	dz08+t9VSTOXmUMl9OE9fPAnjS7mbh34oPrrr934g6+z8Uxny92Wl0kr4GKAt4G5n07Uw7enHqm
-	61xyyhW9BYme+dRr8rKnd4DIb8aRVCrtTtij9rTpvyQAv+0s+5fkKkFWcrY3zxV+2ybA2oCRBQR
-	CCo9nnnERu+b3E+aspiinxGtTxFZViWE1f+gRhSrV5QZhPOQbgP/ir3y4o9/aQxWkEopAkUI3mJ
-	3hh7TUdXirciBYqClvOAE+3e0HyHYpqB2C5PnJxhm32wk=
-X-Received: by 2002:a05:6000:61e:b0:43f:dd91:b022 with SMTP id ffacd0b85a97d-4515d5c62dbmr8130105f8f.35.1778096060617;
-        Wed, 06 May 2026 12:34:20 -0700 (PDT)
-Received: from [192.168.0.2] ([197.250.51.29])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45055960022sm14895673f8f.26.2026.05.06.12.34.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 12:34:20 -0700 (PDT)
-From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Wed, 06 May 2026 22:33:23 +0300
-Subject: [PATCH v8 6/6] ARM: zte: defconfig: Add a zx29 defconfig file
+	Wed, 06 May 2026 19:49:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A4ABA43C9F
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  6 May 2026 19:49:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80ECDC2BCB0;
+	Wed,  6 May 2026 19:49:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778096949;
+	bh=eKuy7X2bPfQQngcZlWjAGcHROH9JN9FtPA/+aDIQWeA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Vph2x3BPSzZ5RIOODvIAYAR3IfRO4N9+RIa/ESncGOp5K1DmEV/6eps+gulCXJV6I
+	 AMf6ehBJ3Sh+k8YHtUSB9WZFq2xYPqt+R4vbgK8EK2twX6mdUXFiHmBYtiKt2Ka+3M
+	 pKIp4Bs8sd4OhtClurTG7ogR9ZtMLCtmKFqJxfVd8Yyzz8ZIIgy/14vKXNJlkWFDiV
+	 BgXNWikpkNYydJtXz13wBFmFV4c0nbwA19sljfNLjibcrSRfJx/6o8tuCff1CKcrB+
+	 uaMhEWjMhiu7dkVa6RGeVbo3psnZsrcrrATqPwoWAZ3eKxhTLUiV0dEILUqFUuIIjE
+	 U0NpSud7BYeCg==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: ARM SoC Team <arm@kernel.org>,
+	SoC Team <soc@kernel.org>,
+	ALKML <linux-arm-kernel@lists.infradead.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Arnd Bergmann <arnd@kernel.org>
+Subject: [GIT PULL] firmware: arm_ffa: Fixes for v7.1-rc1(Round 2)
+Date: Wed,  6 May 2026 20:46:00 +0100
+Message-ID: <20260506194602.3474096-1-sudeep.holla@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260506-send-v8-6-f1bdf3243b34@gmail.com>
-References: <20260506-send-v8-0-f1bdf3243b34@gmail.com>
-In-Reply-To: <20260506-send-v8-0-f1bdf3243b34@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Linus Walleij <linusw@kernel.org>, Drew Fustini <fustini@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- soc@lists.linux.dev, linux-serial@vger.kernel.org, 
- =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2692;
- i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=G9Xq9sd+6bjzfjcLh5R7mw658ItOtP/fk9pwzabCi8g=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBp+5eW6XFShsEbvickZ5UqM6E5AMKOWZpit/c5T
- 28CQqM8q+OJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCafuXlhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiKthA//dOP8gGnDvZOJKjesK1+9mAKL14rxHMC
- MbFWuaURLvKqqveJGAQhzIfj0IkXo/MUKHJ6ZWF0EkJ0e2lUGcoVplpyE+du7MbRiEVCMpweemz
- 7U3549Izr/d0hD48eqAEfVrXYO/m69sfQRHBKn3YY4bTUa6NgWVxwtark24yeWWweZ5wCFpwuDe
- 7S+b7p2huG1vzQO5eIXJ0zaLddeSElRgHchH8j5YfJT1bnVc5/htntO+xdQMAjQgp+1BWOLJ8sa
- h/3NSUXQHiNlE6qGUnix1O+TCTF61wbgP81Las5AKnfu8ubPeZXe3U5t0d4Qxsg2gXGcGf7IGJ6
- JHPBYtEtoXnjZHtSXhVl8CFkB+Gb7VEU9oiZ0QLQ+lbom1o1h5+BDHc2jT+iP51Od3PzYK7pz/7
- xvgUKmJcRobAf5jdX9K4WmOFfWD9keLiGBm4Aa3eLZ92au/6QO5Hq17kKmuSSdxvsOz0r2Sa7KE
- EU0DoqmHPTk4MybIilkwwkDJvhnhOg/DW9VI/RTjSFP3+e33bA0UQ6W0/eIRvjtrICZe+++KQrj
- FltFSjrXJ+J2g6O9u1iRytS/Hzx/yXB4zYZi68veh/QmV/kDNQiucJbpK6HnfkWQ1CH6OOAGnWi
- 6/vKNtId2fLN6rtpfFwec4r/iin6t35K/e/Bw7L7hny4L7oC6F80=
-X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
- fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_123422_575263_EB3EE98D 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20260506_124913_913234_A80441A4 
+X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,97 +72,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This enables existing drivers for hardware that is present on this board
-even if it is not present in the DT yet.
+Hi ARM SoC Team,
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
----
+Please pull !
 
-Changes: v8: Remove BINFMT_FLAT. I have no idea how that slipped in (Sashiko)
-Changes: v5 to v6: Regenerate the file with make savedefconfig.
+Most of the issues addressed are found by sashiko and other AI agents.
+It all started with me missing the report by Sashiko in [1]. Each round of
+fix expanded the AI scope of review and unearthed more issues.
 
-An open question: What's the appropriate name? zx29_defconfig?
-zte_defconfig? zte_zx29_defconfig? There's e.g. stm32_defconfig without
-an extra mention of STMicro in the name.
----
- MAINTAINERS                     |  1 +
- arch/arm/configs/zx29_defconfig | 53 +++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 54 insertions(+)
+Regards,
+Sudeep
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b0b774aace55..0b392a364e32 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3777,6 +3777,7 @@ M:	Stefan Dösinger <stefandoesinger@gmail.com>
- F:	Documentation/arch/arm/zte/
- F:	Documentation/devicetree/bindings/arm/zte.yaml
- F:	arch/arm/boot/dts/zte/
-+F:	arch/arm/configs/zx29_defconfig
- F:	arch/arm/mach-zte/
- 
- ARM/ZYNQ ARCHITECTURE
-diff --git a/arch/arm/configs/zx29_defconfig b/arch/arm/configs/zx29_defconfig
-new file mode 100644
-index 000000000000..b7f77e7a618f
---- /dev/null
-+++ b/arch/arm/configs/zx29_defconfig
-@@ -0,0 +1,53 @@
-+CONFIG_SYSVIPC=y
-+CONFIG_BLK_DEV_INITRD=y
-+# CONFIG_RD_BZIP2 is not set
-+# CONFIG_RD_LZMA is not set
-+# CONFIG_RD_XZ is not set
-+# CONFIG_RD_LZ4 is not set
-+CONFIG_EXPERT=y
-+CONFIG_KALLSYMS_ALL=y
-+CONFIG_ARCH_ZTE=y
-+CONFIG_ARM_PSCI=y
-+CONFIG_ARM_APPENDED_DTB=y
-+CONFIG_CMDLINE="console=ttyAMA0 earlyprintk root=/dev/ram rw"
-+CONFIG_CPU_FREQ=y
-+CONFIG_CPUFREQ_DT_PLATDEV=y
-+# CONFIG_SUSPEND is not set
-+CONFIG_PM=y
-+CONFIG_NET=y
-+CONFIG_PACKET=y
-+CONFIG_UNIX=y
-+CONFIG_INET=y
-+# CONFIG_STANDALONE is not set
-+# CONFIG_PREVENT_FIRMWARE_BUILD is not set
-+# CONFIG_ALLOW_DEV_COREDUMP is not set
-+CONFIG_MTD=y
-+CONFIG_MTD_BLOCK=y
-+CONFIG_BLK_DEV_RAM=y
-+CONFIG_BLK_DEV_RAM_COUNT=4
-+CONFIG_SRAM=y
-+CONFIG_KEYBOARD_GPIO_POLLED=y
-+# CONFIG_INPUT_MOUSE is not set
-+CONFIG_VT_HW_CONSOLE_BINDING=y
-+CONFIG_SERIAL_AMBA_PL011=y
-+CONFIG_SERIAL_AMBA_PL011_CONSOLE=y
-+CONFIG_SERIAL_DEV_BUS=y
-+# CONFIG_HW_RANDOM is not set
-+CONFIG_PINCTRL=y
-+CONFIG_GPIOLIB=y
-+CONFIG_GPIO_GENERIC_PLATFORM=y
-+CONFIG_POWER_RESET=y
-+CONFIG_MFD_SYSCON=y
-+CONFIG_REGULATOR=y
-+CONFIG_REGULATOR_FIXED_VOLTAGE=y
-+# CONFIG_HID is not set
-+CONFIG_USB_DWC2=y
-+CONFIG_USB_GADGET=y
-+CONFIG_MMC=y
-+CONFIG_MMC_DW=y
-+CONFIG_RESET_CONTROLLER=y
-+CONFIG_RESET_SIMPLE=y
-+CONFIG_JFFS2_FS=y
-+CONFIG_PRINTK_TIME=y
-+CONFIG_DEBUG_LL=y
-+CONFIG_EARLY_PRINTK=y
+[1] https://sashiko.dev/#/patchset/20260402113939.930221-1-sebastianene@google.com
 
--- 
-2.53.0
+-->8
 
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/ffa-fixes-7.1-2
+
+for you to fetch changes up to a6848a50404eefb6f0b131c21881a2d8d21b31a9:
+
+  firmware: arm_ffa: Fix sched-recv callback partition lookup (2026-05-05 16:42:49 +0100)
+
+----------------------------------------------------------------
+Arm FF-A fixes for v7.1
+
+The updates fix several robustness issues in the FF-A bus and core driver,
+mostly around notification handling, RxTx buffer sizing, firmware-provided
+bounds, and cleanup paths.
+
+The notification fixes make per-CPU notification work truly per-CPU, avoid
+running per-vCPU notification handling from IPI context, keep RX buffer
+release serialized under rx_lock, validate framework notification payload
+layout before copying from the shared RX buffer, and avoid dereferencing
+notifier entries after they may have been unregistered.
+
+The remaining fixes reject FF-A drivers without an ID table at registration
+time, avoid freeing an unallocated RX buffer after allocation failure,
+unregister the FF-A v1.0 bus notifier on teardown, bound register-based
+PARTITION_INFO_GET descriptor copies, align the stored RxTx buffer size with
+the size mapped to firmware, and fix sched-recv callback partition lookup on
+the circular partition list.
+
+----------------------------------------------------------------
+Sudeep Holla (11):
+      firmware: arm_ffa: Check for NULL FF-A ID table while driver registration
+      firmware: arm_ffa: Skip free_pages on RX buffer alloc failure
+      firmware: arm_ffa: Avoid collapsing NPI work from different CPUs
+      firmware: arm_ffa: Fix per-vcpu self notifications handling in workqueue
+      firmware: arm_ffa: Unregister bus notifier on teardown for FF-A v1.0
+      firmware: arm_ffa: Bound PARTITION_INFO_GET_REGS copies
+      firmware: arm_ffa: Keep framework RX release under lock
+      firmware: arm_ffa: Validate framework notification message layout
+      firmware: arm_ffa: Align RxTx buffer size before mapping
+      firmware: arm_ffa: Snapshot notifier callbacks under lock
+      firmware: arm_ffa: Fix sched-recv callback partition lookup
+
+ drivers/firmware/arm_ffa/bus.c    |   4 +-
+ drivers/firmware/arm_ffa/driver.c | 144 ++++++++++++++++++++++++++------------
+ 2 files changed, 104 insertions(+), 44 deletions(-)
 
