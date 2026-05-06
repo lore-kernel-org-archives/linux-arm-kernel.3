@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF3ECD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8619CCD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G3+Pw4BOMf+A6M0ux2tYa+aIcpRxduR/OGHZg/4z2U4=; b=1ESmqDbjuyoE9fHSPjRBZCoqrc
-	bpcvG0OfDoKj4tx38/0OovuY9T5iq1kswz7jCUllh4D4EBe9FsJegfH9rzGrg1cW0QHR8uWA2D7GZ
-	qG2j5WHDa+5KGzwfdlD/xC9G7VEVjkzMJ6hkzfprNbe3Mc5S/+t9lOqYIqnLYIstbozFYWWObNz8s
-	D4AxH3tPYYExzi2aeLfCRA6+Dwuo66SA9gOLQiLwNBR8N4eWqm0IdkO/MLjzdgIG4VcilaqtlMYNR
-	kWzSgu1ksnAERTp6eviK58JQR+w3CgBqA73+w4GzmzdNB2MBib5qWVFdk8XuuhMVKcJBBI3v6ydGQ
-	/8wKCucw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nu/5wT5jlnwzrwMmx9CCzWySzYFarqeUlZxvck6ibMA=; b=aTUMjRt+eX1D8HMBUshGAmScfk
+	MMBIwSQP7qbcmCkeVzNsMRYzALl9RY5s/+Hf+x0KezbxyV9Qy3tC14Nb6j5IJJGHLN/DLKDGIVato
+	N8n9VAeTD1wn/MnycxDzVMIOasU06fv01/RE55bgPKpLEz7drQHqmnNw9U5HWm6KExVCZvDyPQgDR
+	DBwQr1NAciC6KiE1/l5BrfSagLaGtTctPNnGnZc0PCeywgnjzzcuJOA8JyVzpvw4wZGvBZaXtmEwg
+	QP+RuXyNQW3DjIs31HXqmw8l2pYxJgWpWafLVDC8WCkJ2ucuN3PXxerKhPrQ1SyYxjOV8n3LtwSiy
+	y5LUERRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZqU-00000000Xgz-3dCy;
-	Wed, 06 May 2026 10:51:14 +0000
+	id 1wKZqz-00000000Xpw-04R0;
+	Wed, 06 May 2026 10:51:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZqT-00000000XfI-1Mbw
+	id 1wKZqx-00000000XpY-4BwC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 10:51:13 +0000
+	Wed, 06 May 2026 10:51:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C25DF3319;
-	Wed,  6 May 2026 03:51:04 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8425B3F836;
-	Wed,  6 May 2026 03:51:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 867413319;
+	Wed,  6 May 2026 03:51:37 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49EA53F836;
+	Wed,  6 May 2026 03:51:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778064670; bh=mLq4TYQ+p660O5valtgnJ3LrPuMxPXfWPFxW8jxq8TM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=HhbmJIyP9sJImfrgGpIg9HwAvlfR0pBsXr5v0luiixEE4kRlqA3UwFXBPEXZcJhfF
-	 Zj9jsusPv3Ts5AACq5YHPuxlUPuCA6HmU6NsRqFWERiU2mpZw5oUQZhEcLRx1xSiYC
-	 p7+CE3QvEgODB1jgUMQuj4OCtScayA3nY18WMotQ=
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: tabba@google.com,
-	David.Hildenbrand@arm.com
-Subject: [RFC PATCH] KVM: arm64: Align KVM_EXIT_MEMORY_FAULT error codes with documentation
-Date: Wed,  6 May 2026 11:50:53 +0100
-Message-ID: <20260506105053.107404-1-alexandru.elisei@arm.com>
-X-Mailer: git-send-email 2.54.0
+	t=1778064702; bh=iYNXb++hIJ9OfRQc9+FWnMLqhZrlCDWvv412uOnwE/g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CLbSYu+sRwtJr3t9K16SL9rXHW8Z+pbVRQ+RJhmov6xkSlmuLFbW/FfcaeqvTpJ+V
+	 p9B3F82aA9Gq8jU87onEpr6LkVcoe/pE5Co5Z+plDH5fLGRiM2Kvox/A4beffwA4Rq
+	 QCTUJyzR9QEdd3QKEfZIbyYQdzHUy8dROaLjdR3E=
+Date: Wed, 6 May 2026 11:51:37 +0100
+From: Philip Radford <philip.radford@arm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
+	sudeep.holla@arm.com, james.quinlan@broadcom.com,
+	f.fainelli@gmail.com, vincent.guittot@linaro.org,
+	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
+	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
+	souvik.chakravarty@arm.com
+Subject: Re: [PATCH v5 12/12] powercap: arm_scmi: Synthetic zone
+ enable/disable
+Message-ID: <afsdOZ690p_vn9sq@donnerap.manchester.arm.com>
+References: <20260428090922.346069-1-philip.radford@arm.com>
+ <20260428090922.346069-13-philip.radford@arm.com>
+ <afpu-Wf01J3l0gAu@pluto>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <afpu-Wf01J3l0gAu@pluto>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_035113_439498_CA9CF463 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20260506_035144_121264_47CDFA67 
+X-CRM114-Status: GOOD (  34.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,139 +76,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The documentation for KVM_EXIT_MEMORY_FAULT states:
+On Tue, May 05, 2026 at 11:28:09PM +0100, Cristian Marussi wrote:
+> On Tue, Apr 28, 2026 at 10:09:21AM +0100, Philip Radford wrote:
+> > Add functionality to disable and enable the synthetic zone which
+> > also affects the immediate children of the synthetic zone by applying
+> > the same command to them.
+> > 
 
-'Note!  KVM_EXIT_MEMORY_FAULT is unique among all KVM exit reasons in that
-it accompanies a return code of '-1', not '0'!  errno will always be set to
-EFAULT or EHWPOISON when KVM exits with KVM_EXIT_MEMORY_FAULT, userspace
-should assume kvm_run.exit_reason is stale/undefined for all other error
-numbers'.
+Hi,
 
-where a return code of '-1' is special because according to man 2 ioctl:
+> > Signed-off-by: Philip Radford <philip.radford@arm.com>
+> > ---
+> >  drivers/powercap/arm_scmi_powercap.c | 81 ++++++++++++++++++++++++++++
+> >  1 file changed, 81 insertions(+)
+> > 
+> > diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
+> > index 81b5214acda4..1ed2949b06cb 100644
+> > --- a/drivers/powercap/arm_scmi_powercap.c
+> > +++ b/drivers/powercap/arm_scmi_powercap.c
+> > @@ -270,6 +270,85 @@ static int instance_root_release(struct powercap_zone *pz)
+> >  	return 0;
+> >  }
+> >  
+> > +static int instance_root_set_enable_state(struct powercap_zone *pz, bool enable)
+> > +{
+> > +	struct scmi_powercap_zone *root;
+> > +	struct scmi_powercap_root *pr;
+> > +	struct scmi_powercap_zone *child;
+> 
+> ...child and root on the same line of declarations...
+> 
 
-'On error, -1 is returned, and errno is set to indicate the error'.
+Noted.
 
-Putting the two together means that the ioctl KVM_RUN must 1) complete with
-an error and 2) that error must must be either EFAULT or EHWPOISON for
-userspace to detect a KVM_EXIT_MEMORY_FAULT VCPU exit.
+> > +	int ret, first_err = 0;
+> > +
+> > +	if (!pz)
+> > +		return -EINVAL;
+> > +
+> > +	root = to_scmi_powercap_zone(pz);
+> > +	pr = container_of(root, struct scmi_powercap_root, instance_root);
+> 
+> ...another user of you new macro !
+> 
 
-On a kvm_gmem_get_pfn() error, gmem_abort() prepares the
-KVM_EXIT_MEMORY_FAULT exit_reason and propagates the error back to
-userspace. kvm_gmem_get_pfn() does not massage the error code, and if the
-error is not -EFAULT or -EHWPOISON, userspace implementing the ABI fails to
-detect the memory fault exit.
+:)
 
-Things get more complicated with kvm_handle_vncr_abort().
-kvm_translate_vncr(), similar to gmem_abort(), prepares the VCPU to exit
-with KVM_EXIT_MEMORY_FAULT and propagates the error code from
-kvm_gmem_get_pfn(). Then kvm_handle_vncr_abort() does a number of things
-based on this specific error code:
+> > +
+> > +	list_for_each_entry(child, &pr->registered_zones[0], node) {
+> > +		if (child == &pr->instance_root)
+> > +			continue;
+> > +
+> > +		if (child->info->parent_id != SCMI_POWERCAP_ROOT_ZONE_ID)
+> > +			continue;
+> > +
+> > +		if (!child->info->cpli[0].cap_config)
+> > +			continue;
+> > +
+> > +		ret = powercap_ops->cap_enable_set(child->ph, child->info->id, enable);
+> > +
+> > +		if (ret && !first_err) {
+> 
+> ...mmm what is the logic here ? why not bailing out on any error ?
+> 
 
-- If it's -EAGAIN, KVM resumes the guest. Note that KVM, when handling a
-  *host* fault on a guest_memfd backed VMA, retries the fault handling if
-  kvm_gmem_get_pfn() returns -EAGAIN.
-- If it's -ENOMEM, -EFAULT, -EIO or -EHWPOISON, it returns to userspace
-  with 0 (success), meaning that, according to the documentation, userspace
-  will not detect the memory fault exit.
-- If it's -EINVAL, -ENOENT, -EACCESS, KVM injects a synchronous exception
-  back to the guest.
-- If it's -EPERM, KVM injects a permission fault.
-- If the error code is something else, KVM resumes the guest.
+Good point. I was initially trying to prevent one error stopping everything without
+checking the other children, but even as I'm writing this out I can see the fault in
+that logic.
 
-Bring a measure of order to all of this by implementing the documented
-behaviour. -EAGAIN is treated as an error, similar to the
-__kvm_faultin_pfn() behaviour for an anonymous VMA.
+> > +			first_err = ret;
+> > +			dev_err(child->dev, "failed to %s zone %s: %d\n",
+> > +				enable ? "enable" : "disable",
+> > +				child->info->name, ret);
+> > +		}
+> > +	}
+> > +
+> > +	return first_err;
+> 
+> ...especially if you anyway fails globally on any error....
+> ..I am not completely sure bit given that youare operating on a
+> synthetic zone that you enable as a whole, while acting on its children
+> in the backstage...I would say that if any enable/disable fails on a
+> chidlren you should revert the enable status of the children thate were
+> succesffull and report the error...I mean the state of top synthatic
+> zones AND the states of the children MUST remain consistent...
+> ...it CANNOT be that some chidlren fails, some succeeds and you report
+> an error..it must be all or nothing...
+> ...example..top syntethic zone is OFF if all children were successfully
+> disabled...on a failure with one of the children you shoudl revert the
+> already successfully set children and report the global error...
+> 
 
-Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
----
+Point taken, this needs reworking.
 
-This has the potential to break userspace, hence the RFC tag.
+> > +}
+> > +
+> > +static int instance_root_set_enable(struct powercap_zone *pz, bool mode)
+> > +{
+> > +	return instance_root_set_enable_state(pz, mode);
+> > +}
+> > +
+> > +static int instance_root_get_enable(struct powercap_zone *pz, bool *mode)
+> > +{
+> > +	struct scmi_powercap_zone *root;
+> > +	struct scmi_powercap_root *pr;
+> > +	struct scmi_powercap_zone *child;
+> > +	bool enabled;
+> > +	int ret;
+> > +
+> > +	if (!pz || !mode)
+> > +		return -EINVAL;
+> > +
+> > +	root = to_scmi_powercap_zone(pz);
+> > +	pr = container_of(root, struct scmi_powercap_root, instance_root);
+> > +
+> > +	*mode = true;
+> > +
+> > +	list_for_each_entry(child, &pr->registered_zones[0], node) {
+> 
+> mmm...what is the point here of scanning the children to GET the
+> state...you should report the top syntethic zone state right ?
+> You could have disable children directly...that wont be reflected in the
+> Linux powercap hiearcrhy right ?
+> I mean should you NOT simply return the stae of the top syntethic zone
+> which is should have saved in the previous state_set operation above ?
+> 
+> I think that anyway if you disable a zone...any zone...ONLY that zone is
+> marked as disable in Lnux powercap ... am I right ? 
+> 
+> Then probably our SCMI fw will do much more on all the children..
+> 
 
-I went back and forth on the fix. I cannot test any of this and I have no
-context around the usage of guest_memfd. In the end I settled on strictly
-implementing the documented behaviour.
+Good point, I'll simplify it to report a saved state for the synthetic root.
 
-Really not sure what userspace is supposed to do to fixup the fault if
-kvm_gmem_get_pfn() returns -EAGAIN either.
-
-Someone with more knowledge please chime in!
-
- arch/arm64/kvm/mmu.c    |  8 +++++++-
- arch/arm64/kvm/nested.c | 24 +++++++++++++-----------
- 2 files changed, 20 insertions(+), 12 deletions(-)
-
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index d089c107d9b7..ea6c96818fc6 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1610,7 +1610,13 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
- 	if (ret) {
- 		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
- 					      write_fault, exec_fault, false);
--		return ret;
-+		switch (ret) {
-+		case -EFAULT:
-+		case -EHWPOISON:
-+			return ret;
-+		default:
-+			return -EFAULT;
-+		}
- 	}
- 
- 	if (!(s2fd->memslot->flags & KVM_MEM_READONLY))
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 883b6c1008fb..ef426c94daff 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1320,8 +1320,14 @@ static int kvm_translate_vncr(struct kvm_vcpu *vcpu, bool *is_gmem)
- 		ret = kvm_gmem_get_pfn(vcpu->kvm, memslot, gfn, &pfn, &page, NULL);
- 		if (ret) {
- 			kvm_prepare_memory_fault_exit(vcpu, vt->wr.pa, PAGE_SIZE,
--					      write_fault, false, false);
--			return ret;
-+						      write_fault, false, false);
-+			switch (ret) {
-+			case -EFAULT:
-+			case -EHWPOISON:
-+				return ret;
-+			default:
-+				return -EFAULT;
-+			}
- 		}
- 	}
- 
-@@ -1401,23 +1407,19 @@ int kvm_handle_vncr_abort(struct kvm_vcpu *vcpu)
- 
- 		switch (ret) {
- 		case -EAGAIN:
-+		case -ENOMEM:
- 			/* Let's try again... */
- 			break;
--		case -ENOMEM:
-+		case -EFAULT:
-+		case -EHWPOISON:
- 			/*
- 			 * For guest_memfd, this indicates that it failed to
- 			 * create a folio to back the memory. Inform userspace.
- 			 */
- 			if (is_gmem)
--				return 0;
--			/* Otherwise, let's try again... */
--			break;
--		case -EFAULT:
--		case -EIO:
--		case -EHWPOISON:
--			if (is_gmem)
--				return 0;
-+				return ret;
- 			fallthrough;
-+		case -EIO:
- 		case -EINVAL:
- 		case -ENOENT:
- 		case -EACCES:
-
-base-commit: 7fd2df204f342fc17d1a0bfcd474b24232fb0f32
--- 
-2.54.0
-
+Regards,
+Phil
 
