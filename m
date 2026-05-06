@@ -4,97 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85595CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 19:59:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 299A8CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 20:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BPFeHG3eQWm7h273qNIPgzRDB2uND5oH+mVxaZVS8FQ=; b=cSaTMP6HOCONeOZ0HOP8MLw2pd
-	2NGeG6De5Xk73K4cSflRV4j29SQaN8AZ12IXIdCsKXh/4bu7I8Qnwqs6Kmr1c7QLjGyvaSmFrldGc
-	Uy/dcTUjqz8czZtFqn5tkM6hibq9/eW4N72yddaf9RP0tQi6K6q4dhHQnpUDwDgp0i4xYCnL0hIys
-	wOBXpPXinL7h+PMEbn8JDrUjjU0tDS9LydnlGJGJ50yb2S3GAsnub5Xbsah1nDqM+sy61fIHYDZpS
-	VYIRbqcReX/xBSdXDPGJppiLkhVEEONNtVI26E5nmH3hJC3QtLxaoZovUNYHSt5UwiUuSUr1FTpXw
-	4S6qaxiw==;
+	bh=k+9b5zzrb/0B1k0xtNQ/ysdxsC4W03HpPIPeiSvLbhA=; b=zXZpnAWoONehhAX0Ti0TrAR3AE
+	xTTb8/OQm0QN3e0h91uWbLN+1EsTX+4bUk1S1HPMkUZTbbZjP1m8PGAOZbMlAZ313oUFHCKmWN28i
+	BKFrCIbNq59dQQKgmCKZ1QqLQLJ5y9Qg7QrOfvaUKqt9QH15hnrAUmwxC1IWVbJL7stAAYafD77oD
+	cgQRTNZfyYBJH7qzmEAoyGsarV/wVnbqK0eQ7cwFIA74lQHjqpkOGk2KLE5NiQMBG2D7UMsacXu3t
+	pUqU7gz2Ej58Ey5FYZmqPuWQuLFW2RVpcqguwImLfH0XrKVSaPE0SA1oimcLZe5Eb6w8Al2pHW7Rq
+	DzrQOT3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKiOz-00000001vd7-42aa;
-	Wed, 06 May 2026 19:59:25 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1wKiVV-00000001wOb-3E3W;
+	Wed, 06 May 2026 20:06:10 +0000
+Received: from mail-eastus2azon11021133.outbound.protection.outlook.com ([52.101.57.133] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKiOy-00000001vce-1A31
+	id 1wKiVT-00000001wNM-30OL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 19:59:24 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-364f65f6eaeso99640a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 12:59:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778097563; x=1778702363; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=BPFeHG3eQWm7h273qNIPgzRDB2uND5oH+mVxaZVS8FQ=;
-        b=hG0dK26ty9qzproARhTd9kipETyep2Af6TmK3LjotOWX1mtLuUefCOHMVS0K3VNlLO
-         UZN2TedA753Ge1AyyIDZtSS1xaP4iYsgTzonK/s5++krCkAWwTIEf/JiFGKQP2kwVdQw
-         +6rCxQsxbjk19DF31JNEM3sjrWBDV3HFczo5q+dSG0gr7sDRHU1E+8kfKNMcUtkfpZG1
-         +Wgvb0n+1Jd91qiACt8UexQEFRYzvGu6PQ9lWcizh9oBCax3i0HqavBgFUHu1bgE2g3f
-         j1mENmvEtpW5XY+c7QMBr5wrhjDmMPZsWcshyP4ZPMlLG2eHMTOHgrY+8zowvaHFIZ/q
-         fDVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778097563; x=1778702363;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BPFeHG3eQWm7h273qNIPgzRDB2uND5oH+mVxaZVS8FQ=;
-        b=HQXOwmKUV+90JUu2opeDFNPACnj7VWtlKus+wsew5jsEWoekfany6IL5NMYO3ozs80
-         9rLtiBU96mRxNkORkrNs5v2IPUjrg1FJZlZJP+G9RcsoO1MSt17jRE4kFHUW+Qa0eeu4
-         lujEYZQP0E9zqVqxTHEHNIBmST4DgU1Q666ujPtamJE1HHsc7LOR0mS95yCx4tHvL0yG
-         /3Mx/dEsnCs/oIfMGJJBbztK3f2iMGWCGR/VpOcE0Y8vntIqkIFyZ84cFZjeC2KQ075d
-         IAOqSaojccfJKNt/AOTQ+5tuufFxlQLlQYIr9M4h9DgconAcY3jC7nPnFNg+0hesHYIn
-         626A==
-X-Forwarded-Encrypted: i=1; AFNElJ9GzOxZ1GiQgeGHXVK5LQ2CP+ESY5r3kPIVEr+kL3EA28xmwqrA9yZrDxpnF+wG8hNPkgGYvf6/QFXpQ8lwzFW/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmgqeV2/iTIgcQbmUNpUpiDzzWhM5VLTjWT/V3npAXH7vfpp0w
-	xx1v/J6XmYaFBMubseVeuOgiE4usSebW4GjCpTQBYmz9VLZZcSw9Frv3
-X-Gm-Gg: AeBDiesfdK1jin8tgDhjyYTtisAz1BxTIkY7OgIcodQA74mzE1bTVX4IRJbX02YfZyn
-	KHTP6CgPjuRk8RZYHbU9uu5wpt9iSMdBZOK5+COl7ZFShy4Gflf8dT6t41NbFq/waMS6kJ8mcex
-	CS7GuSqQACjbteQSUX5kmkyhAL061cuLxCKb45BF1Jdz2bnjLNCH11DMvNTjumvJvrZ5Yt7Faob
-	bsvPpjJTz+2DE2MZiXw+k574VCSc+A7kq4cfLOEz9IwIs/Aa6o+v/bY/dNclCbDyzL8iONkk0XA
-	QS5h5HMcZWl46oB03sVuAVhAaIeWuqTHhudJpL8HDSUpiHBFai/WNJ0ch6Zt+di5C3iWo/0jT6z
-	PnPfEUd17+fmfqaqPAE3wbeJjLzp650zSCD+mpTEyfYVmBwM7iQi79ir4irze8PSZjebe3KIhOD
-	FkjcAerdwwsXw0hpSpVWZbpdWaDQOTf5wKiRa+3Qxd0jyMljtxlsIkimRpG73nTjwJBEeRGksUr
-	NpTEjlPNoA=
-X-Received: by 2002:a17:90b:3a8b:b0:364:8f64:49ea with SMTP id 98e67ed59e1d1-365ac795084mr4891618a91.27.1778097562894;
-        Wed, 06 May 2026 12:59:22 -0700 (PDT)
-Received: from localhost.localdomain ([115.110.225.242])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-365b0058b30sm1935300a91.0.2026.05.06.12.59.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 12:59:22 -0700 (PDT)
-From: Shitalkumar Gandhi <shital.gandhi45@gmail.com>
-X-Google-Original-From: Shitalkumar Gandhi <shitalkumar.gandhi@cambiumnetworks.com>
-To: MD Danish Anwar <danishanwar@ti.com>,
-	Parvathi Pudi <parvathi@couthit.com>
-Cc: Roger Quadros <rogerq@kernel.org>,
-	Mohan Reddy Putluru <pmohan@couthit.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Simon Horman <horms@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	netdev@vger.kernel.org,
+	Wed, 06 May 2026 20:06:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hhPd9zr7bdbZ9srihwd0KWfbsNhseoYqw1FWSfv58r50Y7zR0CA2+UEEMsGIqC3lGK8WGpee/fmVpXmw+4IYipb/GDBy1rUqV8uHpPImlkajbUp5EmTHH9RMT1l6JIUV26icNuyWDzCRSCJdFbnWuqG9sdFFnTcDFvuJLScQbDsKQiHEohi6V+mOn/Hfxz3cDZjgYRm5jjS4aI4YK5Ye+2+Z7spEng4ar0HPYpRHG0iYKfHlLXts+6jKL9ohsEG6XRY9woZQ1eaqNbuvL8bd3A3QDxan+NQva3eONvbGONdupXQDI+qLT1QZIUtvnNsSubQrdPs784i6XbhLguIkSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k+9b5zzrb/0B1k0xtNQ/ysdxsC4W03HpPIPeiSvLbhA=;
+ b=EbRlyv6f90seAX355BNW4UrxcTpDLuuc2Dm1J2qB8Hoy+i+D5zmklx7p1B2zdpneCsWI7iqfzdZUjgzTRo14ftBD0R0dtHzfa421IohpiJf3P1e6QZ49KwIgfI0GlmcH9rfWAns4tRBJouMOETRct4/QNXBKwKrPFcYp78EI61R7/gJluNJCCnYfxyXlYZcr2s32ekpP8XFGLXmeDScuRzf/wLQSKFCSwB/wbuo1T3Fy21rmDb5p0dd96OU+LUl3qPa689XB6pqzSyQobte76qDBDOs384cUw2Jgw2wjKn7nmn+xkP9GnAzS+Ojo102h3ASOjbrM1osbEUSO4YIu3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=in-advantage.com; dmarc=pass action=none
+ header.from=in-advantage.com; dkim=pass header.d=in-advantage.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=in-advantage.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k+9b5zzrb/0B1k0xtNQ/ysdxsC4W03HpPIPeiSvLbhA=;
+ b=ScRjOHn3PqU317ebccUUhdAOSyyJn/r+rqJjfw7swYIEljCa9n4piEzwSH3+3C9mZfqQ2B8WpHYncw6QTCJ1AZOIBy2dBwI+eGUAvvi8H/piy/qT8nFVh4zn7uUfOIFoOU6r9vPh43igNarpTlcTWt9OBK1wOAsUuyZQU/px/uw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=in-advantage.com;
+Received: from SJ5PPF2BB505D96.namprd10.prod.outlook.com
+ (2603:10b6:a0f:fc02::796) by DM4PR10MB6278.namprd10.prod.outlook.com
+ (2603:10b6:8:b8::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.27; Wed, 6 May
+ 2026 20:05:57 +0000
+Received: from SJ5PPF2BB505D96.namprd10.prod.outlook.com
+ ([fe80::5876:2319:6c09:9a2b]) by SJ5PPF2BB505D96.namprd10.prod.outlook.com
+ ([fe80::5876:2319:6c09:9a2b%4]) with mapi id 15.20.9891.008; Wed, 6 May 2026
+ 20:05:57 +0000
+From: Colin Foster <colin.foster@in-advantage.com>
+To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Shitalkumar Gandhi <shitalkumar.gandhi@cambiumnetworks.com>
-Subject: [PATCH net] net: ti: icssm-prueth: fix eth_ports_node leak in probe
-Date: Thu,  7 May 2026 01:28:13 +0530
-Message-Id: <20260506195813.641610-1-shitalkumar.gandhi@cambiumnetworks.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
+	linux-clk@vger.kernel.org
+Cc: Brian Masney <bmasney@redhat.com>,
+	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>
+Subject: [PATCH v1 0/3] clock-wizard fixups
+Date: Wed,  6 May 2026 15:05:52 -0500
+Message-ID: <20260506200555.2558434-1-colin.foster@in-advantage.com>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BL1PR13CA0089.namprd13.prod.outlook.com
+ (2603:10b6:208:2b8::34) To SJ5PPF2BB505D96.namprd10.prod.outlook.com
+ (2603:10b6:a0f:fc02::796)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PPF2BB505D96:EE_|DM4PR10MB6278:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96bb53e0-609e-4a69-4cec-08deabaae2e8
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|56012099003|18002099003|55112099003;
+X-Microsoft-Antispam-Message-Info: zVW616/y6RGtS4mTPcqHHSRayhjHrQLnODqanBGYgVbXxegnmWj4PBa0kxAkuv1pbh1oLuUbXuIcOeCNkaZaNiBbW0a+XQqequY/+jQKYQz7pxoT25Kr1/wVyuRMhsVwV33XPAfxs1Vt+biEc9MbH9md3VazRYrnHvEwN4cJF+30RCyVmvY3IidAHhHNjN0qDaX19INDldNtYaeLUfmSWtNPnFPAeTrirzD7M5XPg5He4bq/U7r4dw0h5FwN9d80sOb/NrPkM75ftj5LVlgfK91FOL3ue3f1jukkT2yk5Mlm8xFCb6AVdJCR4trNQ5d1qxugFPsFzhys4qwFxj0W7+lpT75yw5ro441DrOunWFABPBBMJEjylAmhoceEhNxWJNmCJMVq75/PNL9+Kd5PfQhmfeGMCB1bO/bcTDkdwVUd3cqbT7EEZEnIzNDvBm1E1SyryMY0bUDxtMhoNwzsqkmYKSUF5sAGPKxK3kGhe8nOQVqHZsrwzkqRlzI+ij/lEJTdSUsXSz6qao6OySLp7VRGzlp+RB8aIKpH94Ylv2qG0dGGw4uZbxvSi0mkYOp7OOcpA+PFYxTcHmfRJB9HhmFh5eP/c4jNIC5OA3T4QuzDvGTnEuotVe20uYCb0HO9JofySUwGM6DeLqNJJaUDaesYswLO/9mSUVEgCC6oBNKEDDyvrX18OZpWiKBYxIF3
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ5PPF2BB505D96.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(56012099003)(18002099003)(55112099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oktvF003QibFldx9PbOBhtI2SvEpNTWm2OLh0fCF8xeJG4nFSsdM9JSlsc0K?=
+ =?us-ascii?Q?CH1jLmcAq02cNT6lqYVB4acqsoovNYTnpOGIeiq0MVuRlf6Lr50hAcbBXZRg?=
+ =?us-ascii?Q?wr7rv2+q6k+0CfB/JJwmOnDUfPeZF/9jE39JjixLboBVVvz4L7+jwqHlWQb+?=
+ =?us-ascii?Q?8g6uoxHJJWEGciGhcyANmsStP1BmnfBbkdcWw/5AN4hBofjuLiHuWDLfMtTX?=
+ =?us-ascii?Q?DWZQBh7BVy2Lv4/VuUtK3six2YQg4mRI78zSNS7yTHuzkNR3a1mDU1Sue4Yp?=
+ =?us-ascii?Q?8FPwntkPMNuOrSEZWkt53VTh9P/ZHkBQh/Qj7/ul3b3iNFNhWElmFBX1+C09?=
+ =?us-ascii?Q?nCVufemmvxykDEMufgqWsw4D2yEtHrT616qSFt48saUAoS2N6DrXy7eSg5sU?=
+ =?us-ascii?Q?63os3hVmv3I6gWdEQtVECM2dHUbQ3r1BpJU085TEVAs3T40HrnHTsLZFa+R/?=
+ =?us-ascii?Q?9vkrbtE7kAjC6uzMbc+YhDItTW9bUmXvN//hUXmidZZnGNB5KNmWjfV0EIAB?=
+ =?us-ascii?Q?0FYNRN9e6M6fQnr6O2L5mUCrDAZh4PjwEa8DJ/0QVo+M8yYMUH+ONJxa6ANK?=
+ =?us-ascii?Q?TAq+KIQ6rA/gqsji2zje50ENKL9GiugVUwrhgLzIVbr60FYc3J0ZqPbld/S4?=
+ =?us-ascii?Q?seTV9rpiqw0sPRUq3pabRYFbUkfIF2E47i24wxan/8wmRNl49iD6StfoASBo?=
+ =?us-ascii?Q?PY2qI5HYW/mp7WhtVU93NWjTjijzaQRfDTu8n/j1yB6UoT7dOTU8+VXEhs6B?=
+ =?us-ascii?Q?6TQblxYYtayT1wGt0iUc7eQSVAW0KBZtPLNAfRqskFoA6vaVv/NRwTacT9ky?=
+ =?us-ascii?Q?LV/N/6zUyTPFpiGLswLZTeqV9DQm5zBYqrQv7IR1+InLO8CwZI7/4aIHci60?=
+ =?us-ascii?Q?FUIp+bzBi63EwzYY855zGu40hGAijGt18+NXw+SEXFqB67wb32OvEZEvLoLv?=
+ =?us-ascii?Q?3Pd6pde/HchwYxEsiBYoiyyk63/tIYDvLb3pjqqlSkmWvuidb7nrgQ1MqZF7?=
+ =?us-ascii?Q?Kf+qMCYrLNfVFxA5ZRjLjlFt/BN7s161NInB7zoFtFa5Lv/SJCJrc0YxwMjo?=
+ =?us-ascii?Q?b4KTyNIPbWtOEe10rRAJpRi/XNvX4bLR839NzX1kkvdxmhnW1xjM47OI6d07?=
+ =?us-ascii?Q?C/1+aqVrqjDVjhOgjHQTNbFbB3Rd+Q9FZZdN/GDboSnc0+XbjW6bpz6mTo8Q?=
+ =?us-ascii?Q?OVw+bZDIulnDyJuepwPuLHlDmjuHdS4EXnOGYimcnDlhqT1KLcT4Bny+ijAy?=
+ =?us-ascii?Q?m8XtjRr6ftKDtvvP5gGFDW4sGmzZ0dnkchNWctFKAS4epsuDIft/DQkFidTQ?=
+ =?us-ascii?Q?YiGWspxGtMyGXEkkqHkaeb+Bn67gcCABRHseisJKiWcNb41ZHBw2fK/I2j7L?=
+ =?us-ascii?Q?OVO7Gk5v7F32v42ZwjIHDrgoI/oRQ+4ssYmhTL3rb5gGrHcNt+FdeOIsJ1es?=
+ =?us-ascii?Q?nNM61cOTi6QHEqDLSwbn1lceYUFpGY7Peki+ZwXeZZE6jDxHS3qYVaq7MJo7?=
+ =?us-ascii?Q?3HqvRtfT+DV6E6sXSKwyTco/090nTOlS97cCWJJs+2diKC6cuD7V3wJF1Owg?=
+ =?us-ascii?Q?jXTGj4tquKxFdmlxJhnYp3hRQ6wJEu6+3PUeTEB28LiGesEwnuFdvBK68jAp?=
+ =?us-ascii?Q?da6fJCebbSIt+aO94OymA5eIgT9Nt8EMjIucf0C4IELH48ZNwntXHJMuymSq?=
+ =?us-ascii?Q?IRBLoinVk2Km14V6bdP1QcVKOXn0Nzc0RL5CzpeeCop9+FQj3D6LwzRKR083?=
+ =?us-ascii?Q?E1aMfATFRbGcB1RnSobRf67+KvdwM/w=3D?=
+X-OriginatorOrg: in-advantage.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96bb53e0-609e-4a69-4cec-08deabaae2e8
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PPF2BB505D96.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 20:05:57.4468
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 48e842ca-fbd8-4633-a79d-0c955a7d3aae
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sQbiwhKlKqjJaXqjEcD9wx2I4+byUXyYrEBJpjIbPjFZKFm7EDWFBrLV+dinynydQ1HXpWc+9VXRLfZ3DbJdNvzkwbCxgg6f8QgQU/GMFHY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6278
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_125924_313657_A52E11EF 
-X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-CacheID: sfid-20260506_130607_894809_3EDCE387 
+X-CRM114-Status: UNSURE (   8.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,31 +141,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The error path on of_property_read_u32() failure inside
-icssm_prueth_probe() returns without putting eth_ports_node,
-which was acquired before the for_each_child_of_node() loop.
+The clock-wizard driver had a hard-coded 20KHz minimum accuracy. This
+led to out-of-tree drivers silently failing to set clock rates instead
+of dealing with the best-effort.
 
-Drop it before returning.
+Remove this 20KHz restriction to match the Versal clock wizard driver.
+There also was a bug in the difference calculation that is addressed in
+the first patch.
 
-Fixes: 511f6c1ae093 ("net: ti: icssm-prueth: Adds ICSSM Ethernet driver")
-Signed-off-by: Shitalkumar Gandhi <shitalkumar.gandhi@cambiumnetworks.com>
----
- drivers/net/ethernet/ti/icssm/icssm_prueth.c | 1 +
- 1 file changed, 1 insertion(+)
+The second patch optimizes the search if an exact match is found.
 
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index 53bbd9290904..b7e94244355a 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -1825,6 +1825,7 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 			dev_err(dev, "%pOF error reading port_id %d\n",
- 				eth_node, ret);
- 			of_node_put(eth_node);
-+			of_node_put(eth_ports_node);
- 			return ret;
- 		}
- 
+The third removes the restriction.
+
+Colin Foster (3):
+  clk: clocking-wizard: fix clock difference detection
+  clk: clocking-wizard: optimize clock search
+  clk: clocking-wizard: remove 20kHz restriction
+
+ drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
 -- 
-2.25.1
+2.43.0
 
 
