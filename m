@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 066A0CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461EDCD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:59:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xrx+HqhAxeOv5DoMJYmySVbA1MpZzn0b1/D3AeLRg58=; b=NaaWtfhrG04pv8Tfiui9ju1oCX
-	xGhj78w5lFUawO1F0fmFygneqXF51lX7NSTUkWtT0PjtP6EOno7IvN9ZFa2n1gX6IM5OX0ZOOE6Y2
-	iFVyfouh2cnQT3lSoJTlUpfsQ9nnk7d81GNU0WoJ0BB0cTKgSYllyCFGCsn65P9jejRcC2gHpOQfm
-	qumpyBetqsBhlmbmOPfNoocAjCDoo5SOHEHqEVvgFv7UrE97+qeUMQs6C7eoCnDHsuD/2BRZyhYHc
-	xiTYw+znNTh4oiovKLc+xU5uV3wg16Ovl1d6v2yA2DAUMbnugA8oBDKd6kcpTrWdBVMfeBaSk3kor
-	f/Q75o8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vp0YaEHA+Vz07FZCGn4HZFYiAua40SZzSJgjDcDx34I=; b=K7uiX6ZXaHq1oZ6cqPW2FX80O+
+	g1nTU2iY+3Gmt1NhnLHNeljN1Ih20YA2aGMhVOt8OXL4ndeL6IQaS6R0mC8ZWWOvAkWCZd5iO7olg
+	CRrlqQiehLDBEKvUDvpKS+Aou4KIvtyMaynsqbeJ3mrjPkc6IPUcR2PkDC9GgJo/w/yZ4yGi6ljNl
+	m/iuwZyxp+BSSgn+CZw6cNtA7OXLzvQwJTyZYbRv1fkv8p8DBdKb0H/WDyAHIbjtEadBR4erHFewU
+	UO/uiLYZwhTAAfxueMjySwU3I3QG9dx5i4yX7Hm/6cz8bSpikao01qJyOw3F96QTTClU8/tU+5RAP
+	vaxiJJeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZxq-00000000YkO-2c8p;
-	Wed, 06 May 2026 10:58:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZxp-00000000Yk3-1nDX
+	id 1wKZye-00000000Yv8-3SWx;
+	Wed, 06 May 2026 10:59:40 +0000
+Received: from mail-4319.protonmail.ch ([185.70.43.19])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKZyc-00000000Ytl-47KB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 10:58:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46BBF3319;
-	Wed,  6 May 2026 03:58:43 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E06A3F836;
-	Wed,  6 May 2026 03:58:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778065128; bh=aQfsV2SqE6kU4SVIid6MOpxYl3B3Uko4bftEJ8oCdog=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kpI7YXBx7bQ0HlHyprN3ILWivU+ISemkX0wJ31Ad1W6z7Qlkutk71D+vaoCehQjEY
-	 bdO0wfarRKzrWvnQnoIOtNnFC6sVjeMJsKwCpzC7Hi4TnkZmrwvvImqjV7s7sPFVYG
-	 vhJ+Ca76Us05zKFsGC+F4zuxEuSDOWW2raT2IyO4=
-Date: Wed, 6 May 2026 11:58:44 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: David Sauerwein <dssauerw@amazon.de>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	nh-open-source@amazon.com
-Subject: Re: [PATCH] arm64: Fix garbled logs caused by race between multiple
- stack traces
-Message-ID: <afse5Ld52p7DmidK@arm.com>
-References: <20260430084738.73909-1-dssauerw@amazon.de>
+	Wed, 06 May 2026 10:59:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1778065173; x=1778324373;
+	bh=Vp0YaEHA+Vz07FZCGn4HZFYiAua40SZzSJgjDcDx34I=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=EGvbsrKRp1zTJyOrjN5rl3dTlWGFVpAz7bq3iUMc856yy0WajiUiNmBoE98uFZwHb
+	 ykdM8CowM5+bdvhIWDGn/bOquMNDH3qQbBNbUNYYcIHks6ZiSyKRAeUST60HSRvX5R
+	 IlMYZxq5ha+Wqiwhpy7e9xNrZ3jSD0BIdSKDvFzoG3PvI39J4aXFoIF3zq/WXKsvBH
+	 gPaae4kOBbCZUEaxc5fCn+oX6Y2+g+8dn73HAu5zkr5dedRensLsNleyTMlI9B0L+/
+	 Y1N1N1tC6rchd1GSkbGloTh1k10xUJGSBmwk1HK1A9n/iqg4Pezkz87lRXumhtE1HT
+	 H5LqCYAtGqxlQ==
+Date: Wed, 06 May 2026 10:59:29 +0000
+To: Krzysztof Kozlowski <krzk@kernel.org>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Srinivas Kandagatla <srini@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH 01/13] dt-bindings: iio: adc: add mt6323 PMIC AUXADC
+Message-ID: <evJBbJD1B9GjUyj5xyiJVUw-Ufib330tbUxxamM8-e4kJeNlwcENufbYZHdDWb0ZItz1fsEAbDaSFk0ObL4y0zenRr4vA4KOn6IHxuBP4VQ=@protonmail.com>
+In-Reply-To: <389917bb-c64c-4ac2-ab8f-b28ab0a89ecb@kernel.org>
+References: <20260504-mt6323-v1-0-799b58b355ff@protonmail.com> <20260504-mt6323-v1-1-799b58b355ff@protonmail.com> <389917bb-c64c-4ac2-ab8f-b28ab0a89ecb@kernel.org>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: c2fe990d4bbda504abf775e2c63ea9d8db350fca
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260430084738.73909-1-dssauerw@amazon.de>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_035849_504059_CB009D1B 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20260506_035939_172175_974FFBF4 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,68 +69,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 08:47:38AM +0000, David Sauerwein wrote:
-> When multiple stack traces are printed at the same time, the lines that
-> contain register values may get split into multiple separate lines.
-> Some stray empty lines may appear as well.
-> 
-> [ 2013.814455] ------------[ cut here ]------------
-> [ 2013.814455] ------------[ cut here ]------------
-> [ 2013.814459] WARNING: CPU: 12 PID: 626 at src/arch/arm64/kvm/../../../virt/kvm/kvm_main.c:3860 mark_page_dirty_in_slot+0x5c/0xd8
-> [ 2013.814457] WARNING: CPU: 3 PID: 620 at src/arch/arm64/kvm/../../../virt/kvm/kvm_main.c:3860 mark_page_dirty_in_slot+0x5c/0xd8
-> [...]
-> [ 2013.814483] x29: ffff8000873b3b10
-> [ 2013.814484] x29: ffff800083fd3b10
-> [ 2013.814484]  x28: ffff00001d71e300 x27: 0000000000000001
-> [ 2013.814486] x26: ffff800080c63b80 x25: ffff800080c63000
-> [ 2013.814487]  x28: ffff00001d71a100 x27: 0000000000000001
-> [ 2013.814488]  x24: 0000000000401b14
-> [ 2013.814489]
-> [ 2013.814489] x26: ffff800080f5bb80 x25: ffff800080f5b000
-> [ 2013.814491]
-> [ 2013.814491] x23: ffff0000117b2000 x22: ffff00001e22bd88 x21: 0000ff9cc1b14000
-> [ 2013.814493]  x24: 0000000000402230
-> [ 2013.814494]
-> [ 2013.814495] x20: ffff800080c63000
-> [ 2013.814495] x23: ffff00001d916f00
-> [ 2013.814496]  x19: 0000000000000000 x18: ffff8000808c1660
-> [ 2013.814497] x17: 0000000000000000
-> [...]
-[...]
-> @@ -235,12 +235,22 @@ void __show_regs(struct pt_regs *regs)
->  	i = top_reg;
->  
->  	while (i >= 0) {
-> -		printk("x%-2d: %016llx", i, regs->regs[i]);
-> +		/*
-> +		 * Buffer is big enough to hold the output for 3 register
-> +		 * plus some extra.
-> +		 */
-> +		char buf[80];
-> +		int len;
-> +
-> +		len = scnprintf(buf, sizeof(buf), "x%-2d: %016llx",
-> +				i, regs->regs[i]);
->  
->  		while (i-- % 3)
-> -			pr_cont(" x%-2d: %016llx", i, regs->regs[i]);
-> +			len += scnprintf(buf + len, sizeof(buf) - len,
-> +					 " x%-2d: %016llx",
-> +					 i, regs->regs[i]);
->  
-> -		pr_cont("\n");
-> +		printk("%s\n", buf);
+On Wednesday, May 6th, 2026 at 10:56 AM, Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
 
-While the above does solve the line splitting, the trace is still not
-that readable as we get line interleaving.
+> On 04/05/2026 20:24, Roman Vivchar via B4 Relay wrote:
+> > From: Roman Vivchar <rva333@protonmail.com>
+> >
+> > The MediaTek mt6323 PMIC includes an AUXADC used for battery voltage,
+> > temperature, and other internal measurements.
+> >
 
-I wonder whether we could do something like dump_stack_lvl() at the
-show_regs() level to synchronise the printing. If that works, we
-wouldn't need the above change (which isn't incorrect but maybe we can
-do better).
+...
 
-Thanks.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: mediatek,mt6323-auxadc
+> > +
+> > +  "#io-channel-cells":
+> > +    const: 1
+> > +
+> > +required:
+> > +  - compatible
+> > +  - "#io-channel-cells"
+>=20
+>=20
+> This is heavily incomplete node... or unnecessarily split. Why it cannot
+> be part of parent binding? Or even parent node?
+>
 
--- 
-Catalin
+The MediaTek mt6359 AUXADC also has a very similar binding. The mt6323
+cannot be merged there because it has a different hardware.
+
+Should this go as a child for the mt6397 mfd like mediatek,mt6323-led?
+It currently references only mediatek,mt6359-auxadc.yaml, so perhaps
+the mt6359 should be merged to the mfd, and then use oneOf for the
+compatible property?
+
+Best regards,
+Roman
 
