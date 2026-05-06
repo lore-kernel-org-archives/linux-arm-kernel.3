@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984FFCD342C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F3A8CD3439
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,52 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2cwGeHNcmJAvrQlCzpYY2M9z9bo0h/nw65Xl5jCTQI=; b=p9PEXorjNoQaj+XIWVCIS37Fnc
-	oigmUS+aZfu5+WYp7Pc0FOz5uVgGn9PHUrhDj67VzNkTdo8HoznOvc4balpHpsBrx/70dbnKNW0sn
-	3htp2R4CIfv46HMDf7gjU92hgGlkN4jiFPdmRhzyGyvKX4LXIg/1r7nvRxvnYqipSja9MfrV0PzgM
-	66uwZQAO0MCPgeetHJFd4vmmmgELmvBiul6a40EF8F7X16JxqFc9KXV7wifOr7rdhu5/rbstnig/D
-	tT3dUlrGlW4A08VbClsGUrGVVU18Jh8ChQgDXDsUYMLCUWmnpFH51RrL+930burqdkNBfCjXj21b7
-	W+EOGKwQ==;
+	bh=zbR5ceHBbK1Nm8XxJV55BunvCKadPA56wyVaVOGmxB8=; b=VnVsG1M3N9bQnSbYwzq2cCqDtn
+	+zC97gv61OqPnW72YVqxONd1ipgJfG7nT/eK1i+K8xwqNl2TUmaCx/7PwPXGM2kC/K+G0TFutU1oq
+	YGBnYxYB5+A1SThMLQkh1TZK34q0ZeeYqNilQGtGLN5bSs0tbdAo66+BiKUCCWIw93StTLf34P1pw
+	7+ede8oNfjmGvh07xQCEdRnPjTG2ioTQqSU2a2LWVFlU3rYnRJb6dCfUgdEIV+BChY9mOLVkPESmo
+	Q1URFFtVKUO8PONmSsihlB6P2k0XPaeKaFfgLWfxDTlqzbvGi1HIJ3I76FhlNL8gs0NTTCQN/yPac
+	Q+K46DDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXvg-00000000DcK-2sbI;
+	id 1wKXvg-00000000DcR-3FLO;
 	Wed, 06 May 2026 08:48:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXvf-00000000DbX-1LID
-	for linux-arm-kernel@lists.infradead.org;
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKXvf-00000000Dba-1hgK;
 	Wed, 06 May 2026 08:48:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 252251A25;
-	Wed,  6 May 2026 01:48:20 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D9C63F836;
-	Wed,  6 May 2026 01:48:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778057305; bh=wrb8clZHgzuT7wnWp03Lc8ni6ePYR/XDW2BT0jrafHU=;
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D894860132;
+	Wed,  6 May 2026 08:48:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2A17C2BCC4;
+	Wed,  6 May 2026 08:48:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778057306;
+	bh=IUO5lXUDkT4nvUBviJejZvM9e4p1qGcE/fMZ5yRqht4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FJsX3oJscwUJepHOsPZ3ynrLiBLn+T7I6Mc7PTjhGEj3JpgrdwU1lPyv0Ecn+R7K+
-	 4nHxkBhWl5vY3K/OeWMNLghyqCgDoBUcNDW9ZywX8pmQIfh/+wFcXiKGKyaX0Z2W2I
-	 8WGNEfzptfk+txOWwvtvb0e8l4slKkWVzJ+hDl0o=
-Date: Wed, 6 May 2026 09:48:22 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v6 04/13] coresight: etm4x: exclude ss_status from
- drvdata->config
-Message-ID: <20260506084822.GC3778514@e132581.arm.com>
-References: <20260422132203.977549-1-yeoreum.yun@arm.com>
- <20260422132203.977549-5-yeoreum.yun@arm.com>
+	b=oyYTCfoLxt9bBadi2EzSMoURTPGCD/lKkFKebSQF7LnOtBPR7VpN5fo8iYNGExYVa
+	 pzOx4fSjkWAUmltCJw7h9vFz4ijQnMvAm1HfN1G3MPdgeGBbcpUuo3/7au0nR0YPik
+	 QP0PIXAdZ0urf5mL1ZHZpMfa3ImOrTwCrDGS6rGzzuXKml0O331yQiC2f/f/zdkqUb
+	 icnkpvTei2+s4rP+rPmBhJDOyhpeHek2fYHa5d41MUUvOCZVLneiy8qWgxAQTW/q3p
+	 aDLeYpf2toLXyU3+GN4x4R8CHJovyT4t6/+1ytZyodVy0KkHqIds6KcxOgk8aI6cBi
+	 YCO2FlL2Ct/SA==
+Date: Wed, 6 May 2026 10:48:20 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Sunil V L <sunilvl@ventanamicro.com>, Marc Zyngier <maz@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Anup Patel <anup@brainfault.org>, Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev
+Subject: Re: [PATCH 2/2] irqchip/gic-v5: Add IWB to ACPI probe dependency
+ control
+Message-ID: <afsAVO+vTQp2r/EI@lpieralisi>
+References: <20260505-gic-v5-acpi-iwb-probe-deferral-v1-0-b37b85998362@kernel.org>
+ <20260505-gic-v5-acpi-iwb-probe-deferral-v1-2-b37b85998362@kernel.org>
+ <875x51y6gi.ffs@tglx>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260422132203.977549-5-yeoreum.yun@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_014827_400421_31D731BD 
-X-CRM114-Status: GOOD (  14.64  )
+In-Reply-To: <875x51y6gi.ffs@tglx>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,55 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 02:21:54PM +0100, Yeoreum Yun wrote:
+On Tue, May 05, 2026 at 09:58:05PM +0200, Thomas Gleixner wrote:
+> On Tue, May 05 2026 at 10:48, Lorenzo Pieralisi wrote:
+> > On Arm GICv5 systems, wired IRQs routed to an IWB may require resolving
+> 
+> S/IRQs/interrupts/g
+> 
+> Changelogs are prose and not an acronym dump ground.
+> 
+> >  drivers/acpi/arm64/iort.c        | 22 +++++++++++++++++++---
+> >  drivers/acpi/scan.c              |  1 +
+> >  drivers/irqchip/irq-gic-v5-iwb.c |  5 +++++
+> >  drivers/irqchip/irq-gic-v5.c     | 13 +++++++++++--
+> >  include/linux/acpi_iort.h        |  3 ++-
+> 
+> I'm confused about the conglomerate of files affected by an irqchip
+> change...
 
-[...]
-
-> @@ -573,11 +573,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->  		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
->  
->  	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> -		/* always clear status bit on restart if using single-shot */
-> -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
->  		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
-> -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
-> +		/* always clear status and pending bits on restart if using single-shot */
-> +		etm4x_relaxed_write32(csa, 0x0, TRCSSCSRn(i));
-
-I am not confident what is the right way to handle the pending bit.
-I looked a bit Arm ARM but still no clue. In particular, I suspect it
-may need to be handled when disabling the trace in etm4_disable_hw().
-
-Let's make it clear with some internal check.
-
-> @@ -1829,8 +1829,8 @@ static ssize_t sshot_ctrl_store(struct device *dev,
->  	raw_spin_lock(&drvdata->spinlock);
->  	idx = config->ss_idx;
->  	config->ss_ctrl[idx] = FIELD_PREP(TRCSSCCRn_SAC_ARC_RST_MASK, val);
-> -	/* must clear bit 31 in related status register on programming */
-> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
-> +	/* must clear bit 31 and 30 in related status register on programming */
-> +	drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
-
-Similarly, the question is: if it is in a pending state, how can we
-ensure the state machine works properly with the new settings?
-
->  	raw_spin_unlock(&drvdata->spinlock);
->  	return size;
->  }
-
-> @@ -1879,8 +1879,8 @@ static ssize_t sshot_pe_ctrl_store(struct device *dev,
->  	raw_spin_lock(&drvdata->spinlock);
->  	idx = config->ss_idx;
->  	config->ss_pe_cmp[idx] = FIELD_PREP(TRCSSPCICRn_PC_MASK, val);
-> -	/* must clear bit 31 in related status register on programming */
-> -	config->ss_status[idx] &= ~TRCSSCSRn_STATUS;
-> +	/* must clear bit 31 and 30 in related status register on programming */
-> +	drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
-
-Ditto.
+True, I can split the ACPI changes into a separate patch though on its
+own it would not be that useful because the resulting code would have
+no user - I will do what you and Rafael prefer.
 
 Thanks,
-Leo
+Lorenzo
+
+> Thanks,
+> 
+>         tglx
 
