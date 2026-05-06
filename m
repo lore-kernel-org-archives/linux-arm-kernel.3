@@ -4,92 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF682CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC64CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:From:Date:Reply-To:To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XBCM6xv4Yg8/S1sk1lPfe+sG+a+CcBVlpaZP7IkBPRk=; b=zt9nILxHvw5+5aHNgBF57dZe45
-	XwW+56fQn4qbCqfhHHE9FuUZF48tGq9OvN5p0fFauqgVvLzpji6gQtRYGXfnjzwngfFa/jpkVUVH/
-	Y2/zcDSONml1/4FJCyIzLUMJi6Il2Byyy5DAkjRdRXBGtauAQ6PenkinHexdtvmSQ/eKshaQdTJ1/
-	HbwlpHUGoE7QnJbVg/8h5nzyKeyflsmrhcWgMkZdCjHr+SYrDTSkSWoXsHOnHGyCgwK51gEm3ALxo
-	NnBN8IoxVUQWuJLNuE1PjKI4sTDdQiIaXdxU9Lk+piV/HnH8FPYnga8K2TKvpLwC4XrH+oGY7UDdB
-	yXCKMjxQ==;
+	bh=9z6XJfx0McRXgfG+ESzo7dm092rIL3bS6DYQK7Vt2zk=; b=OMWWxOQNvzvnn8m4hfWsST/aCI
+	Jg1hqGuXAHBofoaci9llBdkI5IRg0dJ/8bZqWBfrHsm04VWbAiLCmATiWVS0V13fgr1mu7bSENCR8
+	TzVkjOxzuZO9L+IJG/oZnhhPWFWTvGXEk1048VPkl9rSctvuFc+j8wWxlGwnjvZ53lhzxu8sGHcLa
+	hhGtmE5Lu6vfkP/Oztm7EFNkMUPrxFgeD746xLySAF11BkhB4KhVB7ppkIgYxT3LTQSvlJhtkKQ+1
+	BgQ/aNezOFKoonrs3JQ7UGjyVn1D27ks0WsSqAXLRJXNCrUT9EJPM0oQCBNPw6H3dkoPrDMXC6d09
+	gB/So8MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcRh-00000000vCA-1oMW;
-	Wed, 06 May 2026 13:37:49 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcRg-00000000vBf-2R5S
+	id 1wKcTR-00000000vR6-2fef;
+	Wed, 06 May 2026 13:39:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKcTQ-00000000vQk-25B9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 13:37:48 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-488a14c31eeso48555825e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 06:37:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778074667; x=1778679467; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XBCM6xv4Yg8/S1sk1lPfe+sG+a+CcBVlpaZP7IkBPRk=;
-        b=bedGH42w3gnFfI0prR5gCbUpbwWiltUKnNzyU/EOGplsQOsEjnpdihe2Tbgllk/qHk
-         /1RblW/KaeDodm+9DDexuZP+g7ivJdkkjnXH2M3VPc65SfuIk66wVR0SVzVfS6Eq13kH
-         gJsA1u+SSM9Mcx0mdwqeWamuYRZfCWMm7K2pVsSBsRbmhr+irogffpYkuOT/AqCdiv8a
-         oq1e80PLYaGww1CXhMg1R0bOZQHk/D10toUL128zdAJE61NHnYuw5DtxVu4YkOn/Gzwp
-         xqx0Vmu0/vuk2Wbi3N6ca11UIzUuqOhKyEGSeC+/SQ7Y3YojG8N+USeK/nEKPvu8cx+8
-         yFIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778074667; x=1778679467;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XBCM6xv4Yg8/S1sk1lPfe+sG+a+CcBVlpaZP7IkBPRk=;
-        b=GE7oJosrfRTTE+B+yoH4BOx6zseqOj98MTl/pmwSdsJ54Zstjd71ot59JsF6LfRNMF
-         BXBeUB3GogeYhW8Mag8LYPxlNxkzCAmySXOGUPPEExuwibBNbMpyJk2qhd0mpniThH+3
-         9W3kzg91p1JlW+mo6jJav2Iox6Cy2iORv8xg5fltIei3CQoQBaAx4ii0nQArXiH19bo/
-         57c6h+R34hNqf9zPPaPpqN4o6l2xavm+SKbD3BmrnEQihjnXEPmKhJPt+Ob33RyGOLIW
-         s9hsNuBdrVF9HlNltScV4Qo/SuyS82/NWZh84zIS7+5+OYV7shg3E2gA99bVHEDEToL2
-         kP4Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8Z3eZW6EiQgnPlWKOkJEBXHsiVdbenBJMNti8nZEdBPmns6ZpkQhQygAY+WPcyzPxEttSr99hJty/bo34yHnb3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXcPwrs/kVuIPmBWh2x5lV3ksAtGwk/W0+uhMjFzEROGhj1IRC
-	CINBW0sDYedVnozP0Zsb/xAVS6oB6v+15eICvs5YdFByGj3tVSPSh7/j143d3emWJg==
-X-Gm-Gg: AeBDiet+67NPQj355WwuRoE/ji1y6TVyGKZEBZDiRUlXqJ8fmRrBp4y37BjNuiYrxSV
-	kjMwkIGkg4A6SSM09JWS8HOa80gnwzkNj/R9uc6Ncx1pepsGECGnI1wE0dTD9a2FT0RHdGfgbQX
-	RLoy9BVl8D7PY3aktnPKzL90SbCSE6ZXzPXXKVPQ2vSBPJmyzVITNuZ0NaBeHeoOHauA3gydcfG
-	ZK8bgeKhhSomtr5cR4ouR+aGOeqIZQzn91fKPOvmbMrgLQ0zBL8FaPKCwOOZ2xx8c8mxVvHTuPe
-	8gXPKJffjWg3D9eFtZkTLaI4tT3uEQwndttPtaJ7d4N1B6OTihzZZ/hysz9Bem14UAYqzMPEIWn
-	LfpHWhie7GI3AeTIQjHiP+IBj25ioUW9b5f+ql2IUU+Gp52XX0iesaO6AWNbRLOLxkjIhiKV7qM
-	KtZFPmXuAqHhbuFAsQnaMmkYFluewe/kjLuTr2fFvQgqzhEPMnCd11+lsYJrD5ATRsZOH+/NKlK
-	MU03aPmdO/ih/5r
-X-Received: by 2002:a05:600c:a08b:b0:489:1f3e:5f69 with SMTP id 5b1f17b1804b1-48e51f40252mr61663985e9.18.1778074666409;
-        Wed, 06 May 2026 06:37:46 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e5312df8dsm16977685e9.18.2026.05.06.06.37.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 06:37:45 -0700 (PDT)
-Date: Wed, 6 May 2026 14:37:41 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
+	Wed, 06 May 2026 13:39:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEBD019F6;
+	Wed,  6 May 2026 06:39:29 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 75C623F7B4;
+	Wed,  6 May 2026 06:39:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778074775; bh=X1DW65cFOZTQJq07rALhs9VeCiIyBm5QnFundIjdxyg=;
+	h=Date:From:Cc:Subject:References:In-Reply-To:From;
+	b=OOT99HGUwDRz/VqppQ7JwvNwRaZNNUy3nvIXGebB256s5BGRBQM67qOKrq48J4Ck0
+	 zzeINSuZTgVG14wmLA9UsA4XCmQSjQkQESkhVFT0qZhxPoAcdco4sCn3gVpYeBMffU
+	 PkeuUxSQhAzQ5OFHhtZrSpiamYRsCJInGszFJSvc=
+Date: Wed, 6 May 2026 14:39:30 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>, To: Sean Christopherson <seanjc@google.com>;
+Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH v2] KVM: arm64: Work around C1-Pro erratum 4193714 for
- protected guests
-Message-ID: <aftEJffxGZ_XSk2E@google.com>
-References: <20260505165205.2690919-1-catalin.marinas@arm.com>
+	tabba@google.com, David.Hildenbrand@arm.com
+Subject: Re: [RFC PATCH] KVM: arm64: Align KVM_EXIT_MEMORY_FAULT error codes
+ with documentation
+Message-ID: <aftEkgnDdL2AY_6H@raptor>
+References: <20260506105053.107404-1-alexandru.elisei@arm.com>
+ <afs3wp7xBUf2jYK4@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260505165205.2690919-1-catalin.marinas@arm.com>
+In-Reply-To: <afs3wp7xBUf2jYK4@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_063748_659699_B2B9D0FD 
-X-CRM114-Status: GOOD (  40.22  )
+X-CRM114-CacheID: sfid-20260506_063936_617632_D500AC43 
+X-CRM114-Status: GOOD (  28.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,202 +71,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 05:52:03PM +0100, Catalin Marinas wrote:
-> From: James Morse <james.morse@arm.com>
-> 
-> C1-Pro cores with SME have an erratum where TLBI+DSB does not complete
-> all outstanding SME accesses. Instead a DSB needs to be executed on the
-> affected CPUs. The implication is that pages cannot be unmapped from the
-> host Stage 2 and then provided to a protected guest or to the
-> hypervisor. Host SME accesses may still complete after this point.
-> 
-> This erratum breaks pKVM's guarantees, and the workaround is hard to
-> implement as EL2 and EL1 share a security state meaning EL1 can mask
-> IPIs sent by EL2, leading to interrupt blackouts.
-> 
-> Instead, do this in EL3. This has the advantage of a separate security
-> state, meaning lower EL cannot mask the IPI. It is also simpler for EL3
-> to know about CPUs that are off or in PSCI's CPU_SUSPEND.
-> 
-> Add the needed hook to host_stage2_set_owner_metadata_locked(). This
-> covers the cases where the host loses access to a page:
-> 
->   __pkvm_host_donate_guest()
->   __pkvm_guest_unshare_host()
->   host_stage2_set_owner_locked() when owner_id == PKVM_ID_HYP
-> 
-> Since pKVM relies on the firmware call for correctness, check for the
-> firmware counterpart during protected KVM initialisation and fail the
-> pKVM initialisation if it is missing.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Co-developed-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Vincent Donnefort <vdonnefort@google.com>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Sudeep Holla <sudeep.holla@kernel.org>
-> ---
-> 
-> Added the kvm-arm list this time, missed it in v1.
-> 
-> Changelog below but it's only probing if the firmware counterpart is
-> present and disable the hypervisor. If that's too harsh, we can leave it
-> as a warning and maybe add a static label/flag to avoid the unnecessary
-> SMC call on page donation.
+Hi Sean,
 
-As the pKVM upstream support is currently experimental and the protection
-incomplete (see Documentation/virt/kvm/arm/pkvm.rst) perhaps a simple WARN() is
-enough?
+Thanks for the explanations!
+
+On Wed, May 06, 2026 at 05:44:50AM -0700, Sean Christopherson wrote:
+> On Wed, May 06, 2026, Alexandru Elisei wrote:
+> > The documentation for KVM_EXIT_MEMORY_FAULT states:
+> > 
+> > 'Note!  KVM_EXIT_MEMORY_FAULT is unique among all KVM exit reasons in that
+> > it accompanies a return code of '-1', not '0'!  errno will always be set to
+> > EFAULT or EHWPOISON when KVM exits with KVM_EXIT_MEMORY_FAULT, userspace
+> > should assume kvm_run.exit_reason is stale/undefined for all other error
+> > numbers'.
+> > 
+> > where a return code of '-1' is special because according to man 2 ioctl:
+> > 
+> > 'On error, -1 is returned, and errno is set to indicate the error'.
+> > 
+> > Putting the two together means that the ioctl KVM_RUN must 1) complete with
+> > an error and 2) that error must must be either EFAULT or EHWPOISON for
+> > userspace to detect a KVM_EXIT_MEMORY_FAULT VCPU exit.
+> 
+> Yes and no.  The key escape valve we (very deliberately) gave ourselves is this:
+> 
+>   userspace should assume kvm_run.exit_reason is stale/undefined for all other
+>   error numbers.
+> 
+> As arm64 already does, that clause allows KVM to "speculatively" set exit_reason
+> to KVM_EXIT_MEMORY_FAULT.  Which is by design.  The userspace flow is intended
+> to be "if KVM_RUN returns EFAULT or EHWPOISON, then check for KVM_EXIT_MEMORY_FAULT
+> to see if KVM provided more information about why the EFAULT/EHWPOISON error was
+> returned".
+
+Hm... In general, "speculatively" populating exit_reason with
+KVM_EXIT_MEMORY_FAULT when userspace is not intended to use that information
+looks a bit dubious to me. Why do the work if userspace is not supposed to use
+the information?
+
+Regarding gmem_abort(). As I see it, if today someone writes userspace that
+relies on any of the undocumented error codes propagated from kvm_gmem_get_pfn()
+to handle KVM_EXIT_MEMORY_FAULT, that means that KVM can never use those error
+codes for any other exit_reason in the future, because that userspace will
+break.
+
+I'm sure this was all carefully considered when designing the interface, I was
+just curious how this particular problem has been solved.
 
 > 
-> Changes:
+> > On a kvm_gmem_get_pfn() error, gmem_abort() prepares the
+> > KVM_EXIT_MEMORY_FAULT exit_reason and propagates the error back to
+> > userspace. kvm_gmem_get_pfn() does not massage the error code, and if the
+> > error is not -EFAULT or -EHWPOISON, userspace implementing the ABI fails to
+> > detect the memory fault exit.
+> > 
+> > Things get more complicated with kvm_handle_vncr_abort().
+> > kvm_translate_vncr(), similar to gmem_abort(), prepares the VCPU to exit
+> > with KVM_EXIT_MEMORY_FAULT and propagates the error code from
+> > kvm_gmem_get_pfn(). Then kvm_handle_vncr_abort() does a number of things
+> > based on this specific error code:
+> > 
+> > - If it's -EAGAIN, KVM resumes the guest. Note that KVM, when handling a
+> >   *host* fault on a guest_memfd backed VMA, retries the fault handling if
+> >   kvm_gmem_get_pfn() returns -EAGAIN.
 > 
-> v2:
+> Totally fine.
 > 
-> (v1: https://lore.kernel.org/r/20260430155911.628402-1-catalin.marinas@arm.com)
+> > - If it's -ENOMEM, -EFAULT, -EIO or -EHWPOISON, it returns to userspace
+> >   with 0 (success), meaning that, according to the documentation, userspace
+> >   will not detect the memory fault exit.
 > 
-> - Add a check in init_hyp_mode() if KVM is running in protected mode and
->   refuse initialising the hypervisor if the firmware does not provide
->   the workaround counterpart
-> - Add 'Co-developed-by: me'
-> 
-> v1:
-> 
-> (pre-7.1-rc: https://lore.kernel.org/r/20260323162408.4163113-6-catalin.marinas@arm.com)
-> 
-> - Move the hook to host_stage2_set_owner_metadata_locked()
-> - Use hyp_smccc_1_1_smc()
-> 
->  arch/arm64/kvm/arm.c                  | 21 +++++++++++++++++++++
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 24 +++++++++++++++++++++++-
->  include/linux/arm-smccc.h             |  6 ++++++
->  3 files changed, 50 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 176cbe8baad3..51b6db45a54f 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -4,6 +4,7 @@
->   * Author: Christoffer Dall <c.dall@virtualopensystems.com>
->   */
->  
-> +#include <linux/arm-smccc.h>
->  #include <linux/bug.h>
->  #include <linux/cpu_pm.h>
->  #include <linux/errno.h>
-> @@ -2634,6 +2635,22 @@ static int init_pkvm_host_sve_state(void)
->  	return 0;
->  }
->  
-> +static int pkvm_check_sme_dvmsync_fw_call(void)
-> +{
-> +	struct arm_smccc_res res;
-> +
-> +	if (!cpus_have_final_cap(ARM64_WORKAROUND_4193714))
-> +		return 0;
-> +
-> +	arm_smccc_1_1_smc(ARM_SMCCC_CPU_WORKAROUND_4193714, &res);
-> +	if (res.a0) {
-> +		kvm_err("pKVM requires firmware support for C1-Pro erratum 4193714\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  /*
->   * Finalizes the initialization of hyp mode, once everything else is initialized
->   * and the initialziation process cannot fail.
-> @@ -2834,6 +2851,10 @@ static int __init init_hyp_mode(void)
->  		if (err)
->  			goto out_err;
->  
-> +		err = pkvm_check_sme_dvmsync_fw_call();
-> +		if (err)
-> +			goto out_err;
-> +
->  		err = kvm_hyp_init_protection(hyp_va_bits);
->  		if (err) {
->  			kvm_err("Failed to init hyp memory protection\n");
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index 28a471d1927c..7d59faa99fee 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -5,6 +5,8 @@
->   */
->  
->  #include <linux/kvm_host.h>
-> +#include <linux/arm-smccc.h>
-> +
+> Also totally fine, and working as intended.  KVM_EXIT_MEMORY_FAULT is provided
+> for scenarios where (a) the issue is likely related to the GPA and (b) userspace
+> can remedy the underlying issue using the information provided in kvm_run.memory_fault.
 
-nit: probably not necessary with the nvhe/arm-smccc.h include below.
+If KVM_RUN always returns 0 when exit_reason = KVM_EXIT_MEMORY_FAULT, which is what
+kvm_handle_vncr_abort() does, how will userspace ever be able to handle the
+fault?
 
->  #include <asm/kvm_emulate.h>
->  #include <asm/kvm_hyp.h>
->  #include <asm/kvm_mmu.h>
-> @@ -14,6 +16,7 @@
->  
->  #include <hyp/fault.h>
->  
-> +#include <nvhe/arm-smccc.h>
->  #include <nvhe/gfp.h>
->  #include <nvhe/memory.h>
->  #include <nvhe/mem_protect.h>
-> @@ -29,6 +32,19 @@ static struct hyp_pool host_s2_pool;
->  static DEFINE_PER_CPU(struct pkvm_hyp_vm *, __current_vm);
->  #define current_vm (*this_cpu_ptr(&__current_vm))
->  
-> +static void pkvm_sme_dvmsync_fw_call(void)
-> +{
-> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714)) {
-> +		struct arm_smccc_res res;
-> +
-> +		/*
-> +		 * Ignore the return value. Probing for the workaround
-> +		 * availability took place in init_hyp_mode().
-> +		 */
-> +		hyp_smccc_1_1_smc(ARM_SMCCC_CPU_WORKAROUND_4193714, &res);
-> +	}
-> +}
-> +
->  static void guest_lock_component(struct pkvm_hyp_vm *vm)
->  {
->  	hyp_spin_lock(&vm->lock);
-> @@ -574,8 +590,14 @@ static int host_stage2_set_owner_metadata_locked(phys_addr_t addr, u64 size,
->  	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
->  			      addr, size, &host_s2_pool,
->  			      KVM_HOST_INVALID_PTE_TYPE_DONATION, annotation);
-> -	if (!ret)
-> +	if (!ret) {
-> +		/*
-> +		 * After stage2 maintenance has happened, but before the page
-> +		 * owner has changed.
-> +		 */
-> +		pkvm_sme_dvmsync_fw_call();
->  		__host_update_page_state(addr, size, PKVM_NOPAGE);
-> +	}
->  
->  	return ret;
->  }
-> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-> index 50b47eba7d01..e7195750d21b 100644
-> --- a/include/linux/arm-smccc.h
-> +++ b/include/linux/arm-smccc.h
-> @@ -105,6 +105,12 @@
->  			   ARM_SMCCC_SMC_32,				\
->  			   0, 0x3fff)
->  
-> +/* C1-Pro erratum 4193714: SME DVMSync early acknowledgement */
-> +#define ARM_SMCCC_CPU_WORKAROUND_4193714				\
-> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-> +			   ARM_SMCCC_SMC_32,				\
-> +			   ARM_SMCCC_OWNER_CPU, 0x10)
-> +
->  #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
->  	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
->  			   ARM_SMCCC_SMC_32,				\
+Thanks,
+Alex
 
