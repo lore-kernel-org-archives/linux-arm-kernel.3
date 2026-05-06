@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DEF4CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9C9CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F75doG2AVgpG4HeACKqqKwUCIbiK8dceUZGKreJew5U=; b=ZLAYQDKInYu94SWrSx3nICnfdV
-	vPzoaNEocPAXq2DUdgzGKgyLO7ZSJfd9h9lmS5ze6PmHQwaQCFZXZM2YJYsajzY3lf1fv9UDpB166
-	F9nZJv3cE9j9pixcxYjrhEPKYZ/U4lEDK52LUVqUk2g2lRVrrDSu3oc4/JtL0vUfYG+JymAAkgLZ+
-	qn4PNEmyYUfNA8cdwUlooDRZroncaiw38Q68JuS3oE+1IT05fJZMrPV9x6DGQyUcUmtqld/wSM8/p
-	JLN9nnC/7gTr/bOdH84Wq4hTcw1mIjGi3jtA36fgJLeX5f+wz1TNycLVmmL37Bd6UUuRYKHBuKNqP
-	2KcCeRew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r+3zMFVVj9UB5jPBDF/Iei/5MDTRVSSS5oxCdMSbVFk=; b=zygiMCQM0jaUHtkxkZ+blqlIkq
+	BepYeUMJUX7EXePJKjrBKTgZ4H+5p9iGvq6lf4vTTFibCqtsTp1p36HBKvsXxwGbAQq5MnkA8LvVU
+	CwqkhJpu65dW26lu9qz6Ba6W88hBy+azC6WHGcfF68a/GKdc5R2hD9eEAcBSPnEO8hXvZKGujxoJa
+	xkdHGLXa49H9q8x3FQIi+WoSlzADHSGVnwyt/ECqlH77nALNP8iZiCu90mpQlB439YiGzlOCZNdSo
+	UPeKGc1thEFlbjhvIuFsIwTh8eknyhM6zEGHKIwITBBp/YpqFZVDp15aR31OVZ6eJCTXdF+biP+RY
+	1s30TRsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKd8R-000000013qq-2srP;
-	Wed, 06 May 2026 14:21:59 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wKd9n-000000014At-4850;
+	Wed, 06 May 2026 14:23:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKd8Q-000000013q9-10nr
+	id 1wKd9l-000000014A1-3fwi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 14:21:58 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 64FFE63D;
-	Wed,  6 May 2026 16:21:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778077313;
-	bh=0Uq1YugYUXzi8pj8HXdSH3+9q4grpd3YGFD2ihnyGEM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dWFsteE5Yud9FRc62Ue8FUO1vdIwK1vF//+75iUC2X7IJ1qEGI5wf7uLMVSqUixQL
-	 CYkQY5kk6D7xRaLVAInGyyQB7WpzGQiea6RSDdQasbUA8cRbp62zKd8B/r+vafVkbC
-	 XaHtZPTfgKXiZBHn4Bu0KHJZEpO9vq4rEUHNlxPM=
-Date: Wed, 6 May 2026 17:21:55 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Robby Cai <robby.cai@nxp.com>, Frank.Li@nxp.com, martink@posteo.de,
-	rmfrfs@gmail.com, kernel@puri.sm, mchehab@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	martin.kepplinger@puri.sm, imx@lists.linux.dev,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: dt-bindings: nxp,imx8mq-mipi-csi2: Fix example
- endpoint label typo
-Message-ID: <20260506142155.GR1598374@killaraus.ideasonboard.com>
-References: <20260506090124.2960477-1-robby.cai@nxp.com>
- <5ad1e2df-85f3-4f9a-ab9d-b6ae34eebed3@kernel.org>
+	Wed, 06 May 2026 14:23:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DE4A46014B;
+	Wed,  6 May 2026 14:23:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D4E8C2BCB0;
+	Wed,  6 May 2026 14:23:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778077400;
+	bh=c1KSkEhGkgjTtE0mW/P5fl7nv0e6sQl0nC4LywPg2jA=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=oEwt1g3WbZaVC75K30zWVTBZeP2GzhD/cAV8r18lBJbwxYV7ExIy3ntAICoUAaody
+	 DIItMuwdbmTxCv0Tj6q/OJp2S3gF0D7ILUZP4v0v/H9Op48bYJK7Z26hnaq2qbv6sg
+	 HQc16yz1CVBiVBfquOvsk2Ye7hP/7KPIXOy+fu7VW6NEQWN37TJjpeL9SWkG4uDICU
+	 tX611tgTeWss1ucyWwCt2cf1jCyFP9Ri2TQv+haPvQ1Ke+nIThSrrzhppFzel1AgPR
+	 2N5rBcUkQ4fdgMdFnxPt9WqUWOAzJs29IlGpHIng/viXrtzbl1tGzrbRVlays/7Ecw
+	 KhGGipTVyGcQQ==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v4 3/3] coco: guest: arm64: Query host IPA-change
+ alignment via RHI
+In-Reply-To: <86tssvyz2v.wl-maz@kernel.org>
+References: <20260427063108.909019-1-aneesh.kumar@kernel.org>
+ <20260427063108.909019-4-aneesh.kumar@kernel.org>
+ <86y0i8zo9f.wl-maz@kernel.org> <yq5a4ikv1c7p.fsf@kernel.org>
+ <86tssvyz2v.wl-maz@kernel.org>
+Date: Wed, 06 May 2026 19:53:11 +0530
+Message-ID: <yq5ase84d3cg.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <5ad1e2df-85f3-4f9a-ab9d-b6ae34eebed3@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_072158_418016_C4B3AD07 
-X-CRM114-Status: GOOD (  18.77  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,44 +82,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 06, 2026 at 03:33:57PM +0200, Krzysztof Kozlowski wrote:
-> On 06/05/2026 11:01, Robby Cai wrote:
-> > The example in imx8mq-mipi-csi2.yaml uses imx8mm_mipi_csi_{in,out} endpoint
-> > labels, which is confusing for an i.MX8MQ binding. Rename the labels to
-> > imx8mq_mipi_csi_{in,out} for consistency.
-> > 
-> > Fixes: 37255747ecbd ("media: dt-bindings: media: document the nxp,imx8mq-mipi-csi2 receiver phy and controller")
-> 
-> Nothing to fix here. Otherwise explain the bug.
-> 
-> > Signed-off-by: Robby Cai <robby.cai@nxp.com>
-> > ---
-> >  .../devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> > index 4fcfc4fd3565..71f79651dd96 100644
-> > --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> > +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> > @@ -220,7 +220,7 @@ examples:
-> >              port@0 {
-> >                  reg = <0>;
-> >  
-> > -                imx8mm_mipi_csi_in: endpoint {
-> > +                imx8mq_mipi_csi_in: endpoint {
-> 
-> Drop the labels instead - they are not used.
+Marc Zyngier <maz@kernel.org> writes:
 
-I think the label has value, it improves readability of the example by
-making the purpose of the endpoints more explicit. I won't fight for it
-though, I know it's hard to change your mind.
+> On Tue, 28 Apr 2026 13:49:46 +0100,
+> Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+>>=20
+>> Marc Zyngier <maz@kernel.org> writes:
+>>=20
+>> > On Mon, 27 Apr 2026 07:31:08 +0100,
+>> > "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+>> >>=20
+>> >> Add the Realm Host Interface support needed to query host configurati=
+on
+>> >> from a Realm guest. Define the RHI hostconf SMCs, add rsi_host_call()=
+, and
+>> >> use them during Realm initialization to retrieve the host IPA-change
+>> >> alignment size.
+>> >
+>> > I don't understand what "IPA-change" means. What you are after is the
+>> > host's sharing granule size.
+>> >
+>>=20
+>> This is part of the RHI specification, and the call is named
+>> RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT. The intent is to determine the
+>> alignment requirements for changing IPA attributes (protected vs.
+>> unprotected IPA
+>
+> This really is a terrible name. Why the 'change' part? It doesn't
+> change, it is a constant.
+>
 
-> This is just churn and for sure not a fix.
-> 
-> NAK
+How about rhi_get_host_sharing_alignment()? or can you suggest a better
+name I can switch to?
 
--- 
-Regards,
+> Oh well...
+>
+> [...]
+>
+>> >> +static inline unsigned long rsi_host_call(struct rsi_host_call *rhi_=
+call)
+>> >> +{
+>> >> +	phys_addr_t addr =3D virt_to_phys(rhi_call);
+>> >> +	struct arm_smccc_res res;
+>> >> +
+>> >> +	arm_smccc_1_1_invoke(SMC_RSI_HOST_CALL, addr, &res);
+>> >
+>> > Errr... What guarantees that *rhi_call is *IPA contiguous*? This is
+>> > incredibly fragile. You should at the very least check that this isn't
+>> > vmalloc'd.
+>> >
+>>=20
+>>=20
+>> I didn=E2=80=99t quite follow that. We have other RSI calls (even RMI ca=
+lls)
+>> that do similar things, and the caller understands that the address
+>> should be IPA-contiguous.
+>
+> Does it? Where is it documented?  All you get is a pointer, so all
+> bets are off.
+>
 
-Laurent Pinchart
+We have multiple rmi and rsi calls that takes ipa values. asm/rmi_cmds.h
+and asm/rsi_cmds.h. Some of them takes phys_addr_t while others take
+unsigned long. The spec mention these as 64 bits values. May be we
+should switch them all to u64. x86 also having similar discussion=20
+https://lore.kernel.org/all/afOrd7JYkUfe7wcZ@google.com
+
+>
+>> Are you suggesting that all RSI calls should
+>> add checks for this?. or are you suggesting to update the API to
+>>=20
+>> unsigned long rsi_host_call(unsigned long rhi_call_phys) ?
+>
+> I'm suggesting that this API is subtly broken because it makes random
+> assumption about the physical contiguity of the VA space. It does so
+> without any check, without any documentation.
+>
+> Simply changing the parameter to phys_addr_t could at the very least
+> capture some of the requirements, but I'd like something in big bold
+> letters.
+>
+
+
+virt_to_phys() emits a WARN if the address is not part of the linear
+map. Are you suggesting that we should add additional checks to the call
+sites that pass such addresses?
+
+Sorry, it=E2=80=99s still not clear to me how you want these calls to be
+updated.
+
+The pattern I=E2=80=99ve been following is:
+
+Lower-level calls that use arm_smccc_1_1_invoke() take parameters as
+unsigned long. I initially wanted to switch this to u64, but since
+kvm/rmi.c uses unsigned long, it was decided to keep it consistent.
+
+This approach is used in cases where the same argument is passed across
+multiple calls, for example:
+
+phys_addr_t rd_phys =3D virt_to_phys(realm->rd);
+rmi_vdev_create(rd_phys, ...);
+rmi_vdev_lock(rd_phys, ...);
+
+For calls like rsi_host_call(), I chose to pass a struct pointer to
+maintain better type safety:
+
+static inline unsigned long rsi_host_call(struct rsi_host_call *rhi_call)
+{
+	phys_addr_t addr =3D virt_to_phys(rhi_call);
+
+	arm_smccc_1_1_invoke(SMC_RSI_HOST_CALL, addr, &res);
+}
+
+Note that virt_to_phys() will WARN if the address is not part of the
+linear map
+
+Could you clarify what changes you would like to see in these
+interfaces?
+
+-aneesh
+
 
