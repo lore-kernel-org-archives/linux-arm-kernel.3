@@ -4,137 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B6FCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 11:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB82CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 11:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0oPLdXXouDVkhJv0oKpMf1eGEE226oo0STDXOOYuHJQ=; b=VE2axYSXuQol1x5Y2WlaN5/3MC
-	GNWzhPTOUzaD5+wnKSapctJkLViFAMcwU0AZXdmN2KTyScPZ7rH2OuBmWdARcoKsH+aa07u97Aq3H
-	l8mV9Xm8YWXJjYi8TJ2jbOkEcEjMOf+pZ6nZbvCEEgRI6hKXlLSFR6UBlKCJyMP3kfSkz9DRjAgW0
-	sizwQ1fm9U4dkY3T4qHyhHMDoMRET9oSCBLtIna/mqS2a2w2FBrFJweypMsZOwwCKTt8Zpq2CKTA+
-	sMvVYi5bouhHij81TVFEhlq1C9IiW2sWA22XaVSLg416CYQ5g0rL5VUwbtq2hsN0n+yn6QnHaEd92
-	KdA6XnFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CoZuVGMzrLKqPde8Gc9GLmVdmA+y/Ik+9dvrqcNrnBw=; b=oH9z8tcA3MQITxQkMmUk/hRbc8
+	AWVg1QyeeEc/zSCdMvA2ffPQdIUnTDe56dOhBjGQpNYIeEGsN5pr71xJH2+u52hjj4tk70tXVXQgm
+	UhX0LkDkXq/5NOAL/pxXqj8FuBMjwZS6+S58W27eIl4LjOQfne819tBu+iEBg//NnteRHl8tUGMzD
+	7MZTrTuQbX5Pz5IkkP9eybwWzcs262KsiL4kbmp5g7WXMvGJB2ydmpVRA4MGgSel87bZMRTzNFs2u
+	HWNfgkFUhUyW/8G2xU5uv0TwG6zSGTxpUathZS2NkdxrpADDBpY7zfNYFuOuApDzA+v8Ylb1t+qbO
+	+oq10W4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKacK-00000000f3B-3OIx;
-	Wed, 06 May 2026 11:40:40 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wKajU-00000000g7Y-2Qt7;
+	Wed, 06 May 2026 11:48:04 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKacJ-00000000f1z-3N0W
+	id 1wKajT-00000000g77-2pMN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 11:40:39 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6467KUUZ529341
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 6 May 2026 11:40:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	0oPLdXXouDVkhJv0oKpMf1eGEE226oo0STDXOOYuHJQ=; b=pDkpRUnKxfGFLMT5
-	IN9zzXR7jhmgMF1GVsF3zijISdON48bJVwWva/q0u0GihR5r1vz1O+2J7MsBo43P
-	cqZVAU11HbGoawH34omEc3A++vGylnf9Kb25BsYi1w1dTWZov8Srucv3oMR5sb1W
-	LNoWgFdQKjKrekMnMgjHRT4egouTlr60rtxBzR0T1v1RmzC2BIdrbd8VCCGLyVK6
-	AjRB8+3XLAFpEGJcSCzIxHBaWmL/MvWYb39ydI1kDGjODtj1ktEE96R6GOmnFQsI
-	w66NyMy9WFDMvwwXf1tsubzcjgHn2DVJLyq8nMJRsft5JWnYUG6sBbWtlI6wZ+sm
-	mALumA==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e015x9114-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 11:40:38 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-c81086bf930so431217a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 04:40:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778067638; x=1778672438; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0oPLdXXouDVkhJv0oKpMf1eGEE226oo0STDXOOYuHJQ=;
-        b=SkC6MUNmVevMpaD+P6lQXQfM72YizZ8q1RhhlQQXxs2YweIDF4HpjnSWN35HCZIAJz
-         opY7JndPnXcYhViBAVhr8KdlaMblLQdMg1lh+hICUBD+BbUjsY19ami821RksKliREMk
-         Fme515MhXpricScVjDEWKzQDhZdicspzX/oz0gYNuB1yZHsoNIS3c47J0cax7Q9SnozT
-         eOiGw9A1kxOwhPslva5PuAQNZo61KIrRe9HydAOsXN6AHj85dkcwIfEMxx/zWEeFk1ux
-         UfYDRQpNtv2EKpKbFY5RzoYw034TtQkXD+ws990suSLUWC8+bTdEHV+2NGC+aVjJzdLw
-         gApw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778067638; x=1778672438;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0oPLdXXouDVkhJv0oKpMf1eGEE226oo0STDXOOYuHJQ=;
-        b=EP7xs+9RLzEWx/mRtxmpLwoAU+VdSDA1viGPGyKeX9s6dS+qrSbvfqlm8eSJXq7yme
-         bk8OzuNWFbzFTc1jxa3kwvb+wJ9BU8aTZLdcKrastM2ejGiwOVCfRIy+QdAIb8DnZ9Yu
-         sjDNCimqOxlr1Ah9KPGG5/RSBW5igQgeHoLRoTkoNl7zLVPoXP7BzNuYZoMDlOK13E2P
-         zz9Yg98bcE5B+rGkrThV6aiKQ5eQ6UDPAPYivP3ItgwKSVwkf0DuietEcPM9AAyUMotv
-         AEbDYxjt82ZOMPODrAilMmo0X2oFYHxvo/pAfr0YYuYnF4/D4Jt+Pq53hKOreaE8hYLS
-         oldQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/H+tb+gHMSCVwv2cRy9ak7JP3ymcUjl7XPZTsqqAN0ZL5/5JzhB1uIA9Lbov2JTQnMjNmmmNf8A7CcgPMWfoZs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPOrH1gRCFf5zHy3GsAx2nkBuvIeYVZ2+pBt1xBE1ksqNEZMw7
-	Nady7yNwLtSP+L2MYjpVN6smwqIKnyFwCitFQIz4ydhl//3chMwNg507aEdCCwMq79k/YI9XRGE
-	BArtuYvuBaEnnFCuuLbOJGppQftBkVuzr7ajtJmoMxJHJDs2cCpMvLBLa449j8WSyRbSP/HfwfC
-	Az6w==
-X-Gm-Gg: AeBDieupL4JXGlTclQm0L6XBeWnSIAs+2iFbrLmgY6AEFy3r2mJClEUinxTrrXT/ZyP
-	dmAnEklBXc1sJkPvJ2W2S2aeIfKdFv9+R/BEQ6leuvNaAhe5y4A1HU3j8geci8wy93nHQR54iVA
-	c4Apuwla4AO2jxBxxjDpgwyzmz30mhb3921UdWNoM+ws3GdVLtfBZHJwGmLFk95RKdLLT5spWs2
-	nDHGQ0o+197u4T3t96CKp5Jw1TBj3bQcaEw5+xG90RlipStkbq6bGZaRB1ohnNWWUWUu4+p+KcO
-	lPZCopMmgJiDg5QUpUOv5nHTn/7DC4uXju8o3XJCv0/s2SwqCsVJYbp4/5j+T0NPnSRs6YEw6MU
-	SasIUcdi8DaA4hF5SOUkm9BpOLsqEWFw=
-X-Received: by 2002:a05:6a20:3d85:b0:35d:cc9a:8bc1 with SMTP id adf61e73a8af0-3aa5a315ec9mr2589456637.27.1778067636418;
-        Wed, 06 May 2026 04:40:36 -0700 (PDT)
-X-Received: by 2002:a05:6a20:3d85:b0:35d:cc9a:8bc1 with SMTP id adf61e73a8af0-3aa5a315ec9mr2589412637.27.1778067635781;
-        Wed, 06 May 2026 04:40:35 -0700 (PDT)
-Received: from [192.168.1.102] ([120.60.67.236])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83965946543sm7058783b3a.16.2026.05.06.04.40.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 04:40:35 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
-To: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
-        kwilczynski@kernel.org, robh@kernel.org, bhelgaas@google.com,
-        s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-        Richard Zhu <hongxing.zhu@nxp.com>
-Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-        stable@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-In-Reply-To: <20260319090844.444987-1-hongxing.zhu@nxp.com>
-References: <20260319090844.444987-1-hongxing.zhu@nxp.com>
-Subject: Re: [PATCH v2] PCI: imx6: Fix IMX6SX_GPR12_PCIE_TEST_POWERDOWN
- handling
-Message-Id: <177806763016.14331.14072129675795042605.b4-ty@b4>
-Date: Wed, 06 May 2026 17:10:30 +0530
+	Wed, 06 May 2026 11:48:03 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6465XHDN1385448;
+	Wed, 6 May 2026 11:47:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=CoZuVG
+	MzrLKqPde8Gc9GLmVdmA+y/Ik+9dvrqcNrnBw=; b=TbB5uinXdty9XaiN6bMvAt
+	KHlS5Qiu7HF/X2dDIMDsXCxbXLgCri+Lxg6s1p97tZEFYQBlHOWZJBLU9W7Q0kv/
+	JP2y8I0UczGu89H1fUULS7mDwrxKPwrWhZLGNELW0vTBS6CkDFfnbzVtzrckUD0d
+	oqDew4ZnY3RoeS4oMlam/cu7TtjXx2e7doIKPhGB/8UOXXn/Xui5IHpKhlkbhpkV
+	BNcyeSJDkY9EwBsabry4a6VM5C4Psb1Gli1J/nPCUyEoN+8biH21f5j3RyjH7Ol7
+	my3evYM96gZIJOwmqJPQRIdiidigJIfehpNMMoxh1/wo4Hv5s8ycEQ/yHaTvPLPw
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9x4rc09-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 06 May 2026 11:47:46 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 646BdZuP004811;
+	Wed, 6 May 2026 11:47:44 GMT
+Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dwuyw63vc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 06 May 2026 11:47:44 +0000 (GMT)
+Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
+	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 646BlGTw9830974
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 6 May 2026 11:47:16 GMT
+Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1158B5805F;
+	Wed,  6 May 2026 11:47:44 +0000 (GMT)
+Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9F59F58051;
+	Wed,  6 May 2026 11:47:42 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.187.213])
+	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Wed,  6 May 2026 11:47:42 +0000 (GMT)
+Message-ID: <9ff4853a8e9932b3a1424f2a6c3347f1723fb5f4.camel@linux.ibm.com>
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: David Safford <david.safford@gmail.com>,
+        Jonathan McDowell	
+ <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
+        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <afrXmRiq7XvSe6yN@e129823.arm.com>
+References: <cover.1777036497.git.noodles@meta.com>
+	 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
+	 <afMlgstqahnZg68h@e129823.arm.com>
+	 <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
+	 <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
+	 <202f90682fe47bb5fb9b08f8678ae00981b5290b.camel@linux.ibm.com>
+	 <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
+	 <afrXmRiq7XvSe6yN@e129823.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 06 May 2026 07:47:42 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.0
-X-Authority-Analysis: v=2.4 cv=Os1/DS/t c=1 sm=1 tr=0 ts=69fb28b6 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=SQtj7D3ryojUavkWoQJ0Rg==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=VwQbUJbxAAAA:8 a=VlnV4lHhP5wV_tSmghEA:9 a=QEXdDO2ut3YA:10
- a=x9snwWr2DeNwDh03kgHS:22
-X-Proofpoint-GUID: A6L888ZlUCoeyhqO8uyCUKchpjcw0Elq
-X-Proofpoint-ORIG-GUID: A6L888ZlUCoeyhqO8uyCUKchpjcw0Elq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDExNCBTYWx0ZWRfX5nHJULWNM3VY
- EXksN2mrIyRHtuDNOEh/26feLZH/8Hiv2F5DgVkgiCa5fdE4OG4wn0JSg55k4JAQQ/y0KlM3jM+
- IxOPWtgfbCTnhDffazOsWyD0JjQc5fG2TUmfha/W7pij6kBy92NYk4qvx7jY5x2sKyP4fQRHR+o
- t7RRQr52GtpuDv+vSqtr/eoRXnVSZtYRpNNcx68YHyflwCekQksN3RKei92kcClA/toUqWok6BY
- /aGSPH9P1pT3Wlx9iUt1kfsqtMoOAlikYj28Z7rNSMFBkACXCopD09kuGsERmvAFBtHtuIV8FuL
- xaqCsWeQW5o1wSGcAuJWj/i+uC0M+gOCrMRZWuA0vbQEjnxYQRd2ePvoNqknhAdS5W3cRsvoSkG
- 5jZFnW99uwQALEbQU/uuRDrlxPpad93QHjC4kepq/SLNgDuKfnmVe3qaoJzEA1Yyu0CJUHTXiSF
- X+j7l6uvjQH1UudVXUQ==
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDExNCBTYWx0ZWRfXxvIr9kK7Z5Ca
+ YVY8N0eesJnNiFb4FtL5ir7Z4DK0QkF/UHY8jB1hjIVr393tcRP1ujEG8S4xPq+MibIlJjjRlPI
+ 4p/9oB1Ppja5wDoiQEo9XCVgOUYZkS5gmcscaDACqLmjNzIto+777KIaD0d7Tchd0Ok4FsLKTpI
+ 5M1pXNsjk/0rf+KHwEvPxw3Lqp0U6B7DxWczQE/XiRwzB1y+LvUN3yVHqj4tiJPvrryOdCu2wx/
+ /QoSkhF84NMFcbTcmsjufpvn6VPFujeUkQYEHf4AFt4Fiwx1yVxz+xgwX3y3uC5ctit2KWZk8Sg
+ /yAeImCaMyxLdgYBoSSoVQuQeh4GAnT87TAha2Uv45OLHUIQy6nkrU7Zcm8m3t+YWAO1B+uwLV3
+ bGfzLdLUbyBKoiQxzdGuPSVtzPEdhMmk9to7VbWEt7xNMIJVyroQtoG6oe91Dj7bChn0ccjYhYE
+ nplG7y923rA3M+N5Gow==
+X-Proofpoint-ORIG-GUID: zBCpxcB4SOpi00kKIDQpauz6hvzgZ9gV
+X-Proofpoint-GUID: 5f63IcCaRWTpmjciH9SIG7FkzvtdsUaz
+X-Authority-Analysis: v=2.4 cv=W7UIkxWk c=1 sm=1 tr=0 ts=69fb2a62 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8
+ a=7CQSdrXTAAAA:8 a=VnNF1IyMAAAA:8 a=LclGMN0sgN7LpYzSrHoA:9 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-05_03,2026-04-30_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 priorityscore=1501 spamscore=0 clxscore=1011
- malwarescore=0 lowpriorityscore=0 adultscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605060114
+ priorityscore=1501 adultscore=0 lowpriorityscore=0 malwarescore=0
+ suspectscore=0 spamscore=0 clxscore=1015 phishscore=0 bulkscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2605060114
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_044039_852219_BE8D39FF 
-X-CRM114-Status: GOOD (  11.61  )
+X-CRM114-CacheID: sfid-20260506_044803_727635_F2125DEC 
+X-CRM114-Status: GOOD (  32.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,26 +138,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 2026-05-06 at 06:54 +0100, Yeoreum Yun wrote:
+> Hi Mimi,
+>=20
+> > On Sun, 2026-05-03 at 07:36 -0400, Mimi Zohar wrote:
+> > > On Fri, 2026-05-01 at 12:52 -0400, David Safford wrote:
+> > > > On Thu, Apr 30, 2026 at 5:43=E2=80=AFPM Mimi Zohar <zohar@linux.ibm=
+.com> wrote:
+> > > > >=20
+> > > > > On Thu, 2026-04-30 at 10:48 +0100, Yeoreum Yun wrote:
+> > > > > > With above change I confirmed there is no meaurement log
+> > > > > > between boot_aggregate and boot_aggregate_late except "kernel_v=
+ersion"
+> > > > > > But this is ignorable since this UTS measurement is done in
+> > > > > > "ima_init_core() (old: ima_init())" and it is part of ima initi=
+alisation.
+> > > > > >=20
+> > > > > > 1. ima_policy=3Dtcb
+> > > > > >=20
+> > > > > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
+> > > > > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:000=
+0000000000000000000000000000000000000000000000000000000000000 boot_aggregat=
+e
+> > > > > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:000=
+0000000000000000000000000000000000000000000000000000000000000 boot_aggregat=
+e_late
+> > > > > >   10 7c23cc970eceec906f7a41bc2fbde770d7092209 ima-ng sha256:72a=
+de6ae3d35cfe5ede7a77b1c0ed1d1782a899445fdcb219c0e994a084a70d5 /bin/busybox
+> > > > snip
+> > > > > >=20
+> > > > > > 2. ima_policy=3Dcritical_data
+> > > > > >=20
+> > > > > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
+> > > > > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:000=
+0000000000000000000000000000000000000000000000000000000000000 boot_aggregat=
+e
+> > > > > >   10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf sha256:0c=
+907aab3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2 kernel_versi=
+on 372e312e302d7263312b // Ignorable since it's generated by ima_init(_core=
+)().
+> > > > > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:000=
+0000000000000000000000000000000000000000000000000000000000000 boot_aggregat=
+e_late
+> > > > > >=20
+> > > > > > Therefore, init_ima() could move into late_initcall_sync like v=
+1 did:
+> > > > > >   - https://lore.kernel.org/all/20260417175759.3191279-2-yeoreu=
+m.yun@arm.com/
+> > > > >=20
+> > > > > Thanks, Yeoreum.  It's a bit premature to claim it's "safe" to mo=
+ve the
+> > > > > initcall.  Hopefully others will respond.
+> > > > >=20
+> > > > > Mimi
+> > > >=20
+> > > > I have also run with this patch on a number of bare metal and virtu=
+al machines,
+> > > > running everything from default Fedora 44 to a version with everyth=
+ing turned on
+> > > > (uefi secure boot, UKI with sdboot stub measurements, IMA measureme=
+nt
+> > > > and appraisal enabled,
+> > > > all systemd measurements on, and systemd using the TPM for root
+> > > > partition decryption.)
+> > > > I too see only the kernel_version event between the normal and late
+> > > > calls, if ima_policy=3Dcritical_data.
+> > >=20
+> > > Thanks, Dave!  Were all the systems you tested x86_64?  The next step=
+ would be
+> > > to test on different arch's (e.g. Z, Power).
+> >=20
+> > On both Z and PowerVM, there are ~30 measurements between boot_aggregat=
+e and
+> > boot_aggregate_late.  For example, on PowerVM:
+> >=20
+> > # grep -n boot_aggregate
+> > /sys/kernel/security/integrity/ima/ascii_runtime_measurements
+> >=20
+> > 1:10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
+> > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
+> > boot_aggregate=20
+> > 31:10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
+> > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
+> > boot_aggregate_late
+> >=20
+> > It would be interesting to the results from a Raspberry Pi 5 as well,
+> > with/without a TPM.
+>=20
+> Honestly, I find this result hard to accept.
+>=20
+> This effectively means that there is code invoking IMA measurement during=
+ late_initcall().
+> It also implies that if, in the future, a late_initcall is added that per=
+forms
+> an IMA measurement before IMA initialization has occurred accoding to ord=
+er by linker,
+> that measurement could be missed.
 
-On Thu, 19 Mar 2026 17:08:44 +0800, Richard Zhu wrote:
-> The IMX6SX_GPR12_PCIE_TEST_POWERDOWN bit does not control the PCIe
-> reference clock on i.MX6SX. Instead, it is part of i.MX6SX PCIe core
-> reset sequence.
-> 
-> Move the IMX6SX_GPR12_PCIE_TEST_POWERDOWN assertion/deassertion into
-> the core reset functions to properly reflect its purpose. Remove the
-> .enable_ref_clk callback for i.MX6SX since it was incorrectly
-> manipulating this bit.
-> 
-> [...]
+Exactly.  The results are simply from booting with the builtin "tcb" and
+"critical_data" policies.
 
-Applied, thanks!
+$ sudo grubby --args=3D"ima_policy=3D\"tcb|critical_data\"" --update-kernel
+/boot/vmlinuz-${SUFFIX}
 
-[1/1] PCI: imx6: Fix IMX6SX_GPR12_PCIE_TEST_POWERDOWN handling
-      commit: 5a8c573879379eed867d279f7437dd4e3aebbb7f
+>=20
+> Could you please check how the index (1, 31) was added to either
+> ima_template_entry or ima_queue_entry to produce this result?
 
-Best regards,
--- 
-Manivannan Sadhasivam <mani@kernel.org>
+The grep "-n" option includes line numbers.  It doesn't have anything to do=
+ with
+the kernel.
 
+Mimi
 
