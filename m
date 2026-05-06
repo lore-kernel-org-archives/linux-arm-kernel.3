@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B8BCD343B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B40E6FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=21im18CnslCvYwXS2NJ84S3pXykaNCx3/vuExYBK0cE=; b=1/+nyQYvcnew6XqZa2PhCOzdwK
-	pmxQu9WsJiSQq70hrvEWtyX/VyIC7gFxPkk1mzwrxfMPnYyaK/IMtQB+hZWDRoGhEK0tLuPEx9wkJ
-	nDJ5ThaAchjrrchdBpj56ZuXEcHfliB1IB+IkqOsznUX9bPr2gbYng6sNC5AWM37Z5wmBGpgC4JjX
-	aUW4sw7jKSdZqXMtGSPUoRVkuaMhq4gJnULGlTzpVfxboSu472JRmDcjuG5axxsVDADQh4Y0jZQM0
-	8Y+8eBz2lzXGwfZwAwNyNpKLUYnlxk7kmoeIP/dJU61aSaU617cBXf5X6TOWpRjFljItRHB1UMXU4
-	85qMyyTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=75VjGYMnWtipTjsQd1WVPagWhV6uFhuR1eOGHawgBlA=; b=HiWhpo4pdSrXTEer2aVWHLFWYJ
+	vZCN4pAhE/e/n+FI0llJzcki8qi+Sc83vtgkEbNbh7SZoUSpM6isBfxxCgwUwS8Em7lHMvyOkjTN5
+	/ZkX/Sq4nNw3yfN6waW3QQbK4lLRnv6iO297qh+0BOw2uaXADoSPYtxtwKCIv4t1ILgCnrlAs8RcT
+	8Rs4nBt8flkAutZuoK6MC0CoKyTpV1bkh+DOylZCIuVdJVu6T9vD87WJ7xYG7r5ezNUTD/2a1qbVs
+	XwourNDHSXNdG97WLKgo8aTDaSTXlxRYQl5MxsQSLaPP38SskDgVvHvoBVe/01RtwSrZ2No3jX0sI
+	ffxQY77w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcjM-00000000yO5-3hra;
-	Wed, 06 May 2026 13:56:04 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcjK-00000000yMY-0aEi
+	id 1wKckc-00000000ykm-0x1h;
+	Wed, 06 May 2026 13:57:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKckb-00000000yjM-29on
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 13:56:02 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-c70c112cb61so4058079a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 06:56:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778075761; x=1778680561; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=21im18CnslCvYwXS2NJ84S3pXykaNCx3/vuExYBK0cE=;
-        b=Jx60ETY8Nyyi9vJ3RL/GBhAPimmFauXTBevLgvsR27T3OEKW7ZSfjySfWeniiMIyZO
-         dDjS2127HyDEAqhqj3Ctk7ddZYD2sW3EszoK07uWd5Ie75JfL9charYvTzh9CuHhwAdP
-         QUp4/9rt5g7izDxlx5SAz2w3mZLFsfq86TaAiLDlK0AiXUC8UNBdTyoeCr5lk7nWfZMw
-         Vo5DGlFtA2NJGk6UYgPEQ/ChSFiXOtRB+W0pecJ3B7FzrRCavOucD8foAM0w8Y5pR42w
-         1p4LgpCHOlUBsxTLMBP9c9i7LMaXpbNxSiPM3XAlPfAzrtuhz1FGtiLE5EIlREOYm6cK
-         yWgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778075761; x=1778680561;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=21im18CnslCvYwXS2NJ84S3pXykaNCx3/vuExYBK0cE=;
-        b=dKFz3beqVOcS7OyauvTCDp7XFL9ZaIu2ElmO1YI/lh+8XL3059d4c3bB316qDcrg7O
-         rD18gEbwBTXn2XpQ/L2kMCEdu9aaM+L4PMdI3UvI/OgjpH5JiFBsFcCep+Xya/Qu9Dm6
-         lx/EAoHfCXgpZzeeTtSKHbnPGcQ9a6O7UGyoD5r8yfSii3PxDB/EYHf+aSkaAgDpCzIL
-         gZsRSrOONxqDOHf5W93bawwDXYKrLHdpybYSO+BVt+0wiRPJjv1sZxnFBORfaVzaF5x+
-         5v2MhA+PURDIvwuwjTNsxBiqSBGn7cY5AgxyCAXoBDgh0pclFhGey+EtkXniZBOE+6Pv
-         mcCg==
-X-Forwarded-Encrypted: i=1; AFNElJ88YX2/qZ7yyfk3Bfua11nVhA/lrYUpKGdkc+Choa8wWMrEVKZy08QzEhWxuKLS9ToKRONU0gDtxXeZdy2PYW5w@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn83F0isXU7lCYWEZjsyat9BGNajKXS5+F9E4qZye49m/7FqwT
-	9QG64GJ2thOo+bA0DKXTx7jTfM+8BQ0170Cq+Sj1crWgCnvLpusHgY+J
-X-Gm-Gg: AeBDiesIkfuh5n/iUQA9ui7gxXTWhUdmb+177QbMNhquJXMQMbi6cTlYRRgID3JU/gt
-	+iglcBp3Up/F6r/ZXlotMmdCzs0ut5OC1kPCvdpWQs6+6+JGLulKBY+xSormbKmZ58JRUp6VpbZ
-	/G8Wt6bgQ9ZxMih4i/7NCs2vhgQSBD8KxwRfuHqgZMI9EZVtd3oxGYA2p5P7NZPZJ6HrdXGLYO6
-	NjSumMrdK2gu6IaSYF+mxgH06sqdIujgk81BfB3gLLn1itmxyVIzZRpRCPPOfQ6Jx/+bFBjAgrm
-	t67ZmIZphXQErLbUExtK/fh9OOecSr6zCrcmPVCo5fZiJWIk7wpgaTkDbwaq25PSfS7YGcZuJG/
-	D2W4QHBtSRLHdk+5lOX8RQ1a3yH2zw41wUngh0bnuFTnlkAWdacEdQxBLSs/2bUltvtxQAF3PJy
-	U/7aYZNaqHiRCuMRn1AfBRJFKYR4aBjaDOdx2CQGkvfoC40+t6Ep74TtCj
-X-Received: by 2002:a05:6a20:2443:b0:39b:ba95:b127 with SMTP id adf61e73a8af0-3aa5a83151bmr4200206637.4.1778075760634;
-        Wed, 06 May 2026 06:56:00 -0700 (PDT)
-Received: from [192.168.1.3] ([60.243.224.75])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8242b811a5sm2326811a12.20.2026.05.06.06.55.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 May 2026 06:56:00 -0700 (PDT)
-Message-ID: <b386707d-944f-485b-8a06-236c1242f5ee@gmail.com>
-Date: Wed, 6 May 2026 19:25:52 +0530
+	Wed, 06 May 2026 13:57:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7D701A25;
+	Wed,  6 May 2026 06:57:12 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2C3963F7B4;
+	Wed,  6 May 2026 06:57:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778075838; bh=qAxl0RqtACkHiwzEDE0zWDfw6tUQYsvu/LQEyZO/AkA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Wh5Dv8Spfr4cehZvmkTo+VGhkybCzPCOIagZiw2rRjeAKplHHfzv6dAzxjDBD+ZWZ
+	 UMAZ2SCVCNte9NjytmyRPpe3Jib05FwIYLLNQsNBVfYFFs48R1DKAdnnco/5QrjWcA
+	 BL++VUG9CzKbW8Z1Nn4uKYXJ9WhejPuqDlErDvWQ=
+Date: Wed, 6 May 2026 14:57:12 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Mimi Zohar <zohar@linux.ibm.com>
+Cc: David Safford <david.safford@gmail.com>,
+	Jonathan McDowell <noodles@earth.li>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+Message-ID: <aftIuPwNeuzc9nY1@e129823.arm.com>
+References: <cover.1777036497.git.noodles@meta.com>
+ <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
+ <afMlgstqahnZg68h@e129823.arm.com>
+ <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
+ <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
+ <202f90682fe47bb5fb9b08f8678ae00981b5290b.camel@linux.ibm.com>
+ <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
+ <afrXmRiq7XvSe6yN@e129823.arm.com>
+ <9ff4853a8e9932b3a1424f2a6c3347f1723fb5f4.camel@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] dt-bindings: mmc: st,sdhci: convert to DT schema
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Patrice Chotard <patrice.chotard@foss.st.com>, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260503-st-mmc-v2-0-11ae3216d2ce@gmail.com>
- <20260503-st-mmc-v2-2-11ae3216d2ce@gmail.com>
- <20260504-rational-gleaming-clam-aeaaff@quoll>
-Content-Language: en-US
-From: Charan Pedumuru <charan.pedumuru@gmail.com>
-In-Reply-To: <20260504-rational-gleaming-clam-aeaaff@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9ff4853a8e9932b3a1424f2a6c3347f1723fb5f4.camel@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_065602_187644_EC5150DF 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20260506_065721_647915_D3C94D76 
+X-CRM114-Status: GOOD (  45.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,112 +87,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mimi,
 
+> On Wed, 2026-05-06 at 06:54 +0100, Yeoreum Yun wrote:
+> > Hi Mimi,
+> > 
+> > > On Sun, 2026-05-03 at 07:36 -0400, Mimi Zohar wrote:
+> > > > On Fri, 2026-05-01 at 12:52 -0400, David Safford wrote:
+> > > > > On Thu, Apr 30, 2026 at 5:43 PM Mimi Zohar <zohar@linux.ibm.com> wrote:
+> > > > > > 
+> > > > > > On Thu, 2026-04-30 at 10:48 +0100, Yeoreum Yun wrote:
+> > > > > > > With above change I confirmed there is no meaurement log
+> > > > > > > between boot_aggregate and boot_aggregate_late except "kernel_version"
+> > > > > > > But this is ignorable since this UTS measurement is done in
+> > > > > > > "ima_init_core() (old: ima_init())" and it is part of ima initialisation.
+> > > > > > > 
+> > > > > > > 1. ima_policy=tcb
+> > > > > > > 
+> > > > > > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
+> > > > > > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate
+> > > > > > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate_late
+> > > > > > >   10 7c23cc970eceec906f7a41bc2fbde770d7092209 ima-ng sha256:72ade6ae3d35cfe5ede7a77b1c0ed1d1782a899445fdcb219c0e994a084a70d5 /bin/busybox
+> > > > > snip
+> > > > > > > 
+> > > > > > > 2. ima_policy=critical_data
+> > > > > > > 
+> > > > > > >   # cat /sys/kernel/security/ima/ascii_runtime_measurements
+> > > > > > >   10 0adefe762c149c7cec19da62f0da1297fcfbffff ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate
+> > > > > > >   10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf sha256:0c907aab3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2 kernel_version 372e312e302d7263312b // Ignorable since it's generated by ima_init(_core)().
+> > > > > > >   10 4e5d73ebadfd8f850cb93ce4de755ba148a9a7d5 ima-ng sha256:0000000000000000000000000000000000000000000000000000000000000000 boot_aggregate_late
+> > > > > > > 
+> > > > > > > Therefore, init_ima() could move into late_initcall_sync like v1 did:
+> > > > > > >   - https://lore.kernel.org/all/20260417175759.3191279-2-yeoreum.yun@arm.com/
+> > > > > > 
+> > > > > > Thanks, Yeoreum.  It's a bit premature to claim it's "safe" to move the
+> > > > > > initcall.  Hopefully others will respond.
+> > > > > > 
+> > > > > > Mimi
+> > > > > 
+> > > > > I have also run with this patch on a number of bare metal and virtual machines,
+> > > > > running everything from default Fedora 44 to a version with everything turned on
+> > > > > (uefi secure boot, UKI with sdboot stub measurements, IMA measurement
+> > > > > and appraisal enabled,
+> > > > > all systemd measurements on, and systemd using the TPM for root
+> > > > > partition decryption.)
+> > > > > I too see only the kernel_version event between the normal and late
+> > > > > calls, if ima_policy=critical_data.
+> > > > 
+> > > > Thanks, Dave!  Were all the systems you tested x86_64?  The next step would be
+> > > > to test on different arch's (e.g. Z, Power).
+> > > 
+> > > On both Z and PowerVM, there are ~30 measurements between boot_aggregate and
+> > > boot_aggregate_late.  For example, on PowerVM:
+> > > 
+> > > # grep -n boot_aggregate
+> > > /sys/kernel/security/integrity/ima/ascii_runtime_measurements
+> > > 
+> > > 1:10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
+> > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
+> > > boot_aggregate 
+> > > 31:10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
+> > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
+> > > boot_aggregate_late
+> > > 
+> > > It would be interesting to the results from a Raspberry Pi 5 as well,
+> > > with/without a TPM.
+> > 
+> > Honestly, I find this result hard to accept.
+> > 
+> > This effectively means that there is code invoking IMA measurement during late_initcall().
+> > It also implies that if, in the future, a late_initcall is added that performs
+> > an IMA measurement before IMA initialization has occurred accoding to order by linker,
+> > that measurement could be missed.
+> 
+> Exactly.  The results are simply from booting with the builtin "tcb" and
+> "critical_data" policies.
+> 
+> $ sudo grubby --args="ima_policy=\"tcb|critical_data\"" --update-kernel
+> /boot/vmlinuz-${SUFFIX}
 
-On 04-05-2026 13:13, Krzysztof Kozlowski wrote:
-> On Sun, May 03, 2026 at 08:35:30AM +0000, Charan Pedumuru wrote:
->> +$id: http://devicetree.org/schemas/mmc/st,sdhci.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: STMicroelectronics SDHCI-ST MMC/SD Controller
->> +
->> +description:
->> +  The STMicroelectronics SDHCI-ST MMC/SD host controller, which is
->> +  compliant with the SD Host Controller Interface (SDHCI) specification and
->> +  is used to interface with MMC, SD and SDIO cards. The ST SDHCI controller
->> +  extends the standard SDHCI capabilities with platform-specific
->> +  configurations such as additional register regions,clock inputs, and delay
->> +  control mechanisms required for signal timing adjustments which are
->> +  necessary to support high-speed modes and ensure reliable data transfer
->> +  across different ST SoCs.
->> +
->> +allOf:
->> +  - $ref: mmc-controller.yaml#
->> +
->> +maintainers:
->> +  - Peter Griffin <peter.griffin@linaro.org>
->> +
->> +properties:
->> +  compatible:
->> +    oneOf:
->> +      - const: st,sdhci
->> +      - items:
->> +          - const: st,sdhci-stih407
->> +          - const: st,sdhci
->> +
->> +  reg:
->> +    minItems: 1
->> +    items:
->> +      - description: Base address and size of the MMC controller registers
-> 
-> s/Base address and size of the//
+Thanks. but I still wonder what meaasurements there are between
+boot_aggregate and boot_aggregate_late.
+Might be there would be key measurements if it takes more than
+5 mins before generating boot_aggregate_late but this seems rare.
 
-Okay, I will remove these words.
+If you don't mind, would you share the contents of the log between
+boot_aggregate and boot_aggregate_late?
+since I only get a kernel_version in my environment.
 
-> 
->> +      - description: Base address and size of the MMC delay/auxiliary registers
-> 
-> Here the same
+And I think we can collect missing measurements before ima_init_core()
+into another separate list than ima_measurements in ima_add_template_entry() and
+we can extend them after boot_aggreagate log generation at ima_init_core()
+then ima initialisation could be moved to late_initcall_sync like
+(just for a test and share concept):
 
-Okay.
+-------&<-------
+diff --git a/security/integrity/ima/ima.h b/security/integrity/ima/ima.h
+index 9a1117112fb2..737c1ac8ad77 100644
+--- a/security/integrity/ima/ima.h
++++ b/security/integrity/ima/ima.h
+@@ -67,6 +67,7 @@ extern int ima_appraise;
+ extern struct tpm_chip *ima_tpm_chip;
+ extern const char boot_aggregate_name[];
+ extern const char boot_aggregate_late_name[];
++extern bool ima_extend_on;
 
-> 
->> +
->> +  reg-names:
->> +    oneOf:
->> +      - items:
->> +          - const: mmc
-> 
-> Drop three lines above
+ /* IMA event related data */
+ struct ima_event_data {
+@@ -107,6 +108,7 @@ struct ima_template_desc {
 
-Sure.
+:...skipping...
+diff --git a/security/integrity/ima/ima.h b/security/integrity/ima/ima.h
+index 9a1117112fb2..737c1ac8ad77 100644
+--- a/security/integrity/ima/ima.h
++++ b/security/integrity/ima/ima.h
+@@ -67,6 +67,7 @@ extern int ima_appraise;
+ extern struct tpm_chip *ima_tpm_chip;
+ extern const char boot_aggregate_name[];
+ extern const char boot_aggregate_late_name[];
++extern bool ima_extend_on;
 
-> 
->> +      - items:
-> 
-> So this is just items like you have in "reg" part. Same syntax.
-> 
->> +          - const: mmc
->> +          - const: top-mmc-delay
->> +
->> +  clocks:
-> 
-> Here and:
+ /* IMA event related data */
+ struct ima_event_data {
+@@ -107,6 +108,7 @@ struct ima_template_desc {
 
-Should I add minItems and maxItems instead of items?
+ struct ima_template_entry {
+        int pcr;
++       int violation;
+        struct tpm_digest *digests;
+        struct ima_template_desc *template_desc; /* template descriptor */
+        u32 template_data_len;
+@@ -317,6 +319,7 @@ unsigned long ima_get_binary_runtime_size(void);
+ int ima_init_template(void);
+ void ima_init_template_list(void);
+ int __init ima_init_digests(void);
++int __init ima_extend_deferred(void);
+ void __init ima_init_reboot_notifier(void);
+ int ima_lsm_policy_change(struct notifier_block *nb, unsigned long event,
+                          void *lsm_data);
+diff --git a/security/integrity/ima/ima_init.c b/security/integrity/ima/ima_init.c
+index edd063b99685..f6a2b53c1dcb 100644
+--- a/security/integrity/ima/ima_init.c
++++ b/security/integrity/ima/ima_init.c
+@@ -149,10 +149,22 @@ int __init ima_init_core(bool late)
+        rc = ima_init_digests();
+        if (rc != 0)
+                return rc;
++
++       ima_extend_on = true;
++
+        rc = ima_add_boot_aggregate(late);      /* boot aggregate must be first entry */
+        if (rc != 0)
+                return rc;
 
-> 
->> +    items:
->> +      - description: Clock for the MMC controller
->> +      - description: Interconnect (ICN) clock
->> +
->> +  clock-names:
-> 
-> here: Old binding icn is optional. You need to explain in the commit msg
-> all the changes done during conversion.
++       /* This is just for a test. */
++       if (!late)
++               ima_extend_on = false;
++       else  {
++               rc = ima_extend_deferred();
++               if (rc != 0)
++                       return rc;
++       }
++
+        ima_init_policy();
 
-Okay, I will write this change in commit message.
+        rc = ima_fs_init();
+diff --git a/security/integrity/ima/ima_queue.c b/security/integrity/ima/ima_queue.c
+index 319522450854..81f2ee070fee 100644
+--- a/security/integrity/ima/ima_queue.c
++++ b/security/integrity/ima/ima_queue.c
+@@ -22,10 +22,13 @@
 
-> 
->> +    items:
->> +      - const: mmc
->> +      - const: icn
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  interrupt-names:
->> +    const: mmcirq
->> +
->> +  resets:
->> +    maxItems: 1
-> 
-> Best regards,
-> Krzysztof
-> 
+ #define AUDIT_CAUSE_LEN_MAX 32
+
++bool ima_extend_on;
++
+ /* pre-allocated array of tpm_digest structures to extend a PCR */
+ static struct tpm_digest *digests;
+
+ LIST_HEAD(ima_measurements);   /* list of all measurements */
++static LIST_HEAD(ima_extend_deferred_head);
+ #ifdef CONFIG_IMA_KEXEC
+ static unsigned long binary_runtime_size;
+ #else
+@@ -91,6 +94,7 @@ static int get_binary_runtime_size(struct ima_template_entry *entry)
+        return size;
+ }
+
++
+ /* ima_add_template_entry helper function:
+  * - Add template entry to the measurement list and hash table, for
+  *   all entries except those carried across kexec.
+@@ -98,7 +102,8 @@ static int get_binary_runtime_size(struct ima_template_entry *entry)
+  * (Called with ima_extend_list_mutex held.)
+  */
+ static int ima_add_digest_entry(struct ima_template_entry *entry,
+-                               bool update_htable)
++                               bool update_htable,
++                               struct list_head *measurements_list)
+ {
+        struct ima_queue_entry *qe;
+        unsigned int key;
+@@ -111,7 +116,7 @@ static int ima_add_digest_entry(struct ima_template_entry *entry,
+        qe->entry = entry;
+
+        INIT_LIST_HEAD(&qe->later);
+-       list_add_tail_rcu(&qe->later, &ima_measurements);
++       list_add_tail_rcu(&qe->later, measurements_list);
+
+        atomic_long_inc(&ima_htable.len);
+        if (update_htable) {
+@@ -173,6 +178,7 @@ int ima_add_template_entry(struct ima_template_entry *entry, int violation,
+        char tpm_audit_cause[AUDIT_CAUSE_LEN_MAX];
+        int audit_info = 1;
+        int result = 0, tpmresult = 0;
++       struct list_head *measurements_list;
+
+        mutex_lock(&ima_extend_list_mutex);
+
+@@ -195,15 +201,21 @@ int ima_add_template_entry(struct ima_template_entry *entry, int violation,
+                }
+        }
+
++
++       entry->violation = violation;
++       measurements_list = (ima_extend_on) ? &ima_measurements :
++                                             &ima_extend_deferred_head;
++
+        result = ima_add_digest_entry(entry,
+-                                     !IS_ENABLED(CONFIG_IMA_DISABLE_HTABLE));
++                                     !IS_ENABLED(CONFIG_IMA_DISABLE_HTABLE),
++                                     measurements_list);
+        if (result < 0) {
+                audit_cause = "ENOMEM";
+                audit_info = 0;
+                goto out;
+        }
+
+-       if (violation)          /* invalidate pcr */
++       if (violation)                  /* invalidate pcr */
+                digests_arg = digests;
+
+        tpmresult = ima_pcr_extend(digests_arg, entry->pcr);
+@@ -225,7 +237,7 @@ int ima_restore_measurement_entry(struct ima_template_entry *entry)
+        int result = 0;
+
+        mutex_lock(&ima_extend_list_mutex);
+-       result = ima_add_digest_entry(entry, 0);
++       result = ima_add_digest_entry(entry, 0, &ima_measurements);
+        mutex_unlock(&ima_extend_list_mutex);
+        return result;
+ }
+@@ -288,3 +300,23 @@ int __init ima_init_digests(void)
+
+        return 0;
+ }
++
++int __init ima_extend_deferred(void)
++{
++       guard(mutex)(&ima_extend_list_mutex);
++       struct ima_queue_entry *qe;
++       struct tpm_digest *digests_arg;
++       int ret = 0;
++
++       list_for_each_entry(qe, &ima_extend_deferred_head, later) {
++               digests_arg = (qe->entry->violation) ? digests : qe->entry->digests;
++               ret = ima_pcr_extend(digests_arg, qe->entry->pcr);
++               if (ret)
++                       /* TODO: audit? */
++                       break;
++       }
++
++       list_splice_tail_init(&ima_extend_deferred_head, &ima_measurements);
++
++       return ret;
++}
 
 -- 
-Best Regards,
-Charan.
-
+Sincerely,
+Yeoreum Yun
 
