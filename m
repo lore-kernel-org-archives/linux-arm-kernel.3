@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 792ACCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77686CD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZAySrM3bN8yQAz+pyh9tgVeeAYL6w3U2oSQp8JsglNA=; b=H36AUQYYNfEJQjHWRbLj06ZVzv
-	GZfEGa6Nj8dpB7ZkkZBvuDC67fZvDs8k5RZybfmbHCc0i6EfgxNu3TVzeZA0MewwBaz9eOXNO0jIE
-	ysrnTF+rfUvEPCrMslsQ/ZTeY6dathss6g0qQVfFd4+vpNIzlxowycq2Dy2KcTJTgHnpgpFQv6E/H
-	VsrFYNfPhB0GvLsBlHjIuzRKFpXbtK/nGUo95BtVPnvdCsGKtWrs9IWQx9CgwYgcEcMxwZ+vAMV1Y
-	lT3lFUEojby3c0jEKAL/o7pQ6RXxMZMlDof78cfhI5BjgIRSHiWZIkhWQHcyckLe4QYmJXfqR5Wwp
-	XrmepVvA==;
+	bh=hpSjTagPhl7VYCNjsjMoXdAj9yIuGfraDWHI738kHCI=; b=SqMjtuteINBY3bg6zJpLuiirQ8
+	qwOTnw9eCmAkY2CzQ53t0PRlkDgW49PwbyXRKz7qm0yreV3aXqEBG1GQ3NwzaoAWlKo/1X82Xodcz
+	oGfrxzu1dmdw1iSZ5WMvV8I98DVK5IQmE9pUEL9JMQ9vooEZFeM7TUMF7D3dWaGJf0Fu1rew7c0XX
+	MLHjPpf1jRBng1WLfZevhD35S/uOvvqdd90rGx2KaF09+Wi8afM+vyo34Wl1NI36Pt5KEfxXPuh1q
+	UxxHvKbKwxk4mgJiHqkWY9bgcIgrR7cZHgkkaeSso+sstoAfhuod4vXr6mwheRPaHJ0qr1LA4xSm1
+	yV70/Pag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdce-00000001BMN-41fm;
-	Wed, 06 May 2026 14:53:12 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wKdcs-00000001BTQ-0mG6;
+	Wed, 06 May 2026 14:53:26 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdcd-00000001BL8-0B1y
+	id 1wKdcr-00000001BSF-2KwA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 14:53:11 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48e56c1bf5dso3719005e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 07:53:10 -0700 (PDT)
+	Wed, 06 May 2026 14:53:25 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48e56c1bf5dso3721055e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 07:53:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778079189; x=1778683989; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1778079204; x=1778684004; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ZAySrM3bN8yQAz+pyh9tgVeeAYL6w3U2oSQp8JsglNA=;
-        b=sQjEG8gdpq+V2HLFeFpizp03XNu46cARfdZ+rigEAC/daB+JspnXm2LzpeksHU4pH1
-         Y8nHT1DIWJX71FKN2+VWhQfyu6GuuklmcmXWVxVJPh8g5HPvRZlN7FyKYAzmo6e9/GH/
-         rdDobLCFJPIIDpcYDLsqrDl7cKKhVLapVEAHQiHI7qnrQMDUNkIYHZ5mpM8kdTtAoPMX
-         f62+tBRQmBwSQ7b7SbARBPF6waXErtTup31igHmTNRyuNl6KlKKfINd80/4/Yclpkphd
-         NDMyqW1BeKP4k/jh/GPF/iSanDrozmJxES9bn10XBY9H8I9Mr7hg/VdZ7monBYHGJKxN
-         WX2Q==
+        bh=hpSjTagPhl7VYCNjsjMoXdAj9yIuGfraDWHI738kHCI=;
+        b=dPkszWCv/9wKUzcafLnh14VeBkrPI7IF49vAAgeunmgMBH0UQFYm9lyE3zle8lO7h0
+         5jdybIvCTnTemB3H+MG9bbm9j6Ntj6Qg4fnRMIq42/MhMH9GnSvtqafarCnte284q/qr
+         mapafzoxGTGbmg0blZKhFjNdDBATcqdrdFqOERAtfRllgudoBA+sRDQpoeK3jZICnVTH
+         MR7qiH7Zvv5BL5HF//9VzFOo8a/tlCtdRdR5HoTmWcyn11Cjg93QcJbTGm0jDEKqM1kM
+         XRN83iX81BvG8wKx73d9yjeWbm2avbjgjopVuS1nG1WisoijP2barytRuFOX/okSjVsH
+         QIqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778079189; x=1778683989;
+        d=1e100.net; s=20251104; t=1778079204; x=1778684004;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ZAySrM3bN8yQAz+pyh9tgVeeAYL6w3U2oSQp8JsglNA=;
-        b=p4AaZSN9aXcy2XZf+GBh/+rvl4aZ7mKWMW5ZmGGVNJiwEqD6hC2vljwwR0oZTNnaVv
-         kCUgWtb7Rffw0E/W2eyxD3rWlEFQivgQpuqzFOSRpMvYWGHcOt8tg+J4vqyqVZDa9vSb
-         IEew7x1gyzOdo8dxyn6FjelTPmaCKtDqzMjGNPkEntJTAdCThpmd7jdkIkZXagttaOIa
-         9BVgui1wV+6Szzuez+mGzzswh4l6gCyh2kNUXALv7VfpTMydu94USuHK/7YZwCM5CUBY
-         QSlPN4oBfmxxDV6JvUOjbxx1+V4ALGegTqtvgsX14YXItSCV17kgIeC7zIGOFqMyYo0X
-         UXsQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9sPBakcBinuCybPk/4+DAbg7rgGrD8djaHD80okcrZf6N5/kjN6PSNTAVJjZ3CJD/Y2Fy1ZJ/GOPI24uod+cN/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvH1ZrmModHzOO1e9vgBdIqRu6ZO40fZYCDnDixu01jAi1/mjg
-	MR+q1hUKfvxbQRgOEjisaNQKKpFziuRYUjl5jbdbntCaEXea9PSHls1BATJV1G8yUFg=
-X-Gm-Gg: AeBDietvNrXN7w72VK8y6K9k2bvJ0pBl0w2dxdimMkBVy9pntscJkqZc72AZ4NqtfwG
-	BMrk1vRs4jmefdwIVGTE8QfIFCTbzESebnkmnkAWthAZlc6+WcLzvzqMV+Wv7lLYvDBaRj4Na7G
-	G60mZGy+f+X8G4eSt/0cYUJ6BV4OLcBFH/VrC+IvpS/CRdAoMqvzfgF1clF6v3Wge0qpQ9aP/yQ
-	n4mma2CRfDgipx+HYZ4GjWO7B9nIRPlcNxw/yH0YRI9WTT2Rpt28wV0p218son08wz/naSBDklf
-	Ih2zXaOuScyk2YNSEXBNEECxZiQp664qoYLcbKuDcIgV3bgdX+Do7QgW6irv0FPBb6VWN3FUStS
-	Ey2ldm5YrRdnp5tAqn7Mk2Jjfdj9Aya0HzvGhHFunb6mODeYds36hcnMf0La4A500zD7V+/fkaU
-	HJk+0sRsEzYp8vJ+mXmn8ZpiwhxtZ7pO+/Zs7kZ6dMe46Mz9YdYOOMZCk9tptb4A//8f/BwgluN
-	SPXv8IyrdfzSPcvug==
-X-Received: by 2002:a05:600c:3e8d:b0:48a:6268:18a9 with SMTP id 5b1f17b1804b1-48e51f32797mr68799045e9.13.1778079188986;
-        Wed, 06 May 2026 07:53:08 -0700 (PDT)
+        bh=hpSjTagPhl7VYCNjsjMoXdAj9yIuGfraDWHI738kHCI=;
+        b=TDg0vrAfMT6M7EJaLykbXzrw/MrYrnq0AuxYtKlO8OWTj47iRapIq9WBMqt89a9KV8
+         5VrEt5ovwdDej1Git5A1U83Y8/iqJEC1oVj9D79HymDKV6FcIyskQeSExJ10gJUbYaKb
+         yyu1Y/NfY3m5SmWceM0AON+1KJblXd9WtlWhsKg46MS0Xn+j8Kkd1KtB//JIGUGp2UmD
+         BVL2Hh641mnSWtRGrMnwAj9GX6NNK3WqAXSRcffs4wGmTbQT+HO2Zo/ZHDF5ZZ3J2HcJ
+         7+U9xoww7uTf/Sqh4vpKnKptVIJeT9ANyNJZtAz5/NryfcZW91zr2bAJHI9UWuiNEFL4
+         hAZg==
+X-Forwarded-Encrypted: i=1; AFNElJ+D9d7TJvdzu96A3Pey1fhyteLEq617Sj9vHBIVb5r+4q+w8I64TjEMbEdiJJq1cm5iIc9USbDDLmXUHTSmZXeq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoCoRzmHbj978/7Em129KspGVjcH2VKcPRBrODVQv4oDaZENfP
+	txlumYgacvqCL2CSYSAPmihOk3JFslIOQKa1SWlzkDYrxsvGwdEu+m+BALqOSUfcjXY=
+X-Gm-Gg: AeBDieszIoIhdOnob6j0CxFXX+omdqQVoKLs1wzgy2/+ecUCwR05piosf0J0brM46Ll
+	gkHRtsQEnQUyAoTkEJS6yMVKvOwf+dLdCR4WsGkwgIvc0lQoVuyIOXMoQMOWvPt8wnrqoBw0Bxk
+	UVV9Um7ON8qlQE6kZFC79kRV1cUV8guroiY3fYxgtFloyCSKci4noWfo4kJNBsgmWRTkmLCdY6n
+	7MlUG6RNPIjunSIdYyiwKaFYyNkhHbIx3FRixsAQP6+14M4Ae6aN0xgt4bJLHL1Ksq2MLg9aBhG
+	BzyXFPtI7Y4pYDyw/ROizOeR5p9ojQpVGhsiLbnFlBFIL3Y8jp20OO2kSIZIuK0JOCI+/u6rhAz
+	tAKspcSO7pWaUK9leC8SW5Zu21AnpmBHc74QnX6APnrcT/M2tWlqjKUMHtAZxNCPEDv9U6hzTZr
+	ul55wBdSIyZEi68RcX/Uci1UVfAt85Vf4Q855i+bXYHw+OkJbil0NpHGpiUbasN+Ji60hYilonr
+	qs+ZcPqwJxFrelhzA==
+X-Received: by 2002:a05:600c:1c0f:b0:48a:5342:36b5 with SMTP id 5b1f17b1804b1-48e51f3deddmr72610725e9.21.1778079203544;
+        Wed, 06 May 2026 07:53:23 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:5798:67fd:c866:b378? ([2a01:e0a:106d:1080:5798:67fd:c866:b378])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e530b05d9sm25672695e9.3.2026.05.06.07.53.07
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e530a68aesm28180715e9.1.2026.05.06.07.53.22
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 May 2026 07:53:08 -0700 (PDT)
-Message-ID: <f29df43b-111d-471b-8579-0196596fc32b@linaro.org>
-Date: Wed, 6 May 2026 16:53:07 +0200
+        Wed, 06 May 2026 07:53:22 -0700 (PDT)
+Message-ID: <40518e75-fea1-4367-a47a-024cf115bd12@linaro.org>
+Date: Wed, 6 May 2026 16:53:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v4 07/16] phy: rockchip: usbdp: Support single-lane DP
+Subject: Re: [PATCH v4 08/16] phy: rockchip: usbdp: Rename DP lane functions
 To: Sebastian Reichel <sebastian.reichel@collabora.com>,
  Vinod Koul <vkoul@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
  Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>,
@@ -89,7 +89,7 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  linux-kernel@vger.kernel.org, kernel@collabora.com,
  devicetree@vger.kernel.org
 References: <20260428-rockchip-usbdp-cleanup-v4-0-7775671ece22@collabora.com>
- <20260428-rockchip-usbdp-cleanup-v4-7-7775671ece22@collabora.com>
+ <20260428-rockchip-usbdp-cleanup-v4-8-7775671ece22@collabora.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -116,12 +116,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20260428-rockchip-usbdp-cleanup-v4-7-7775671ece22@collabora.com>
+In-Reply-To: <20260428-rockchip-usbdp-cleanup-v4-8-7775671ece22@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_075311_137599_DB9D8629 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20260506_075325_631873_2CE3BA56 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,174 +138,62 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 4/28/26 18:13, Sebastian Reichel wrote:
-> From: Zhang Yubing <yubing.zhang@rock-chips.com>
+> The common prefix for DisplayPort related functions is rk_udphy_dp_
+> (with a final _), so update the two DP lane functions to follow that
+> scheme.
 > 
-> Implement support for using just a single DisplayPort line.
-> 
-> Signed-off-by: Zhang Yubing <yubing.zhang@rock-chips.com>
 > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
->   drivers/phy/rockchip/phy-rockchip-usbdp.c | 61 +++++++++++++------------------
->   1 file changed, 25 insertions(+), 36 deletions(-)
+>   drivers/phy/rockchip/phy-rockchip-usbdp.c | 10 +++++-----
+>   1 file changed, 5 insertions(+), 5 deletions(-)
 > 
 > diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> index febc148a754e..bf8394174294 100644
+> index bf8394174294..6d7ca11b308e 100644
 > --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 > +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> @@ -193,6 +193,7 @@ struct rk_udphy {
->   	int id;
->   
->   	bool dp_in_use;
-> +	int dp_lanes;
->   
->   	/* PHY const config */
->   	const struct rk_udphy_cfg *cfgs;
-> @@ -537,6 +538,13 @@ static void rk_udphy_usb_bvalid_enable(struct rk_udphy *udphy, u8 enable)
->    * <0 1>                  dpln0         dpln1       usbrx         usbtx
->    * <2 3>                  usbrx         usbtx       dpln0         dpln1
+> @@ -547,7 +547,7 @@ static void rk_udphy_usb_bvalid_enable(struct rk_udphy *udphy, u8 enable)
 >    * ---------------------------------------------------------------------------
-> + * if 1 lane for dp function, 2 lane for usb function, define rockchip,dp-lane-mux = <x>;
-> + * sample as follow:
-> + * ---------------------------------------------------------------------------
-> + *                        B11-B10       A2-A3       A11-A10       B2-B3
-> + * rockchip,dp-lane-mux   ln0(tx/rx)    ln1(tx)     ln2(tx/rx)    ln3(tx)
-> + * <0>                    dpln0         \           usbrx         usbtx
-> + * ---------------------------------------------------------------------------
 >    */
 >   
->   static void rk_udphy_dplane_select(struct rk_udphy *udphy)
-> @@ -544,18 +552,18 @@ static void rk_udphy_dplane_select(struct rk_udphy *udphy)
+> -static void rk_udphy_dplane_select(struct rk_udphy *udphy)
+> +static void rk_udphy_dp_lane_select(struct rk_udphy *udphy)
+>   {
 >   	const struct rk_udphy_cfg *cfg = udphy->cfgs;
 >   	u32 value = 0;
->   
-> -	switch (udphy->mode) {
-> -	case UDPHY_MODE_DP:
-> -		value |= 2 << udphy->dp_lane_sel[2] * 2;
-> +	switch (udphy->dp_lanes) {
-> +	case 4:
->   		value |= 3 << udphy->dp_lane_sel[3] * 2;
-> +		value |= 2 << udphy->dp_lane_sel[2] * 2;
->   		fallthrough;
->   
-> -	case UDPHY_MODE_DP_USB:
-> -		value |= 0 << udphy->dp_lane_sel[0] * 2;
-> +	case 2:
->   		value |= 1 << udphy->dp_lane_sel[1] * 2;
-> -		break;
-> +		fallthrough;
->   
-> -	case UDPHY_MODE_USB:
-> +	case 1:
-> +		value |= 0 << udphy->dp_lane_sel[0] * 2;
-
-What's the point of keeping this no-op calculation ?
-
->   		break;
->   
->   	default:
-> @@ -568,28 +576,6 @@ static void rk_udphy_dplane_select(struct rk_udphy *udphy)
+> @@ -576,7 +576,7 @@ static void rk_udphy_dplane_select(struct rk_udphy *udphy)
 >   		     FIELD_PREP(DP_AUX_DOUT_SEL, udphy->dp_aux_dout_sel) | value);
 >   }
 >   
-> -static int rk_udphy_dplane_get(struct rk_udphy *udphy)
-> -{
-> -	int dp_lanes;
-> -
-> -	switch (udphy->mode) {
-> -	case UDPHY_MODE_DP:
-> -		dp_lanes = 4;
-> -		break;
-> -
-> -	case UDPHY_MODE_DP_USB:
-> -		dp_lanes = 2;
-> -		break;
-> -
-> -	case UDPHY_MODE_USB:
-> -	default:
-> -		dp_lanes = 0;
-> -		break;
-> -	}
-> -
-> -	return dp_lanes;
-> -}
-> -
->   static void rk_udphy_dplane_enable(struct rk_udphy *udphy, int dp_lanes)
+> -static void rk_udphy_dplane_enable(struct rk_udphy *udphy, int dp_lanes)
+> +static void rk_udphy_dp_lane_enable(struct rk_udphy *udphy, int dp_lanes)
 >   {
 >   	u32 val = 0;
-> @@ -659,6 +645,7 @@ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
->   	}
->   
->   	rk_udphy_mode_set(udphy, UDPHY_MODE_DP_USB);
-> +	udphy->dp_lanes = 2;
->   }
->   
->   static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
-> @@ -897,7 +884,7 @@ static int rk_udphy_parse_lane_mux_data(struct rk_udphy *udphy)
->   		return 0;
->   	}
->   
-> -	if (num_lanes != 2 && num_lanes != 4)
-> +	if (num_lanes != 1 && num_lanes != 2 && num_lanes != 4)
->   		return dev_err_probe(udphy->dev, -EINVAL,
->   				     "invalid number of lane mux\n");
->   
-> @@ -923,7 +910,8 @@ static int rk_udphy_parse_lane_mux_data(struct rk_udphy *udphy)
->   	}
->   
->   	udphy->mode = UDPHY_MODE_DP;
-> -	if (num_lanes == 2) {
-> +	udphy->dp_lanes = num_lanes;
-> +	if (num_lanes == 1 || num_lanes == 2) {
->   		udphy->mode |= UDPHY_MODE_USB;
->   		udphy->flip = (udphy->lane_mux_sel[0] == PHY_LANE_MUX_DP);
->   	}
-> @@ -1074,18 +1062,17 @@ static int rk_udphy_dp_phy_exit(struct phy *phy)
->   static int rk_udphy_dp_phy_power_on(struct phy *phy)
->   {
->   	struct rk_udphy *udphy = phy_get_drvdata(phy);
-> -	int ret, dp_lanes;
-> +	int ret;
->   
->   	mutex_lock(&udphy->mutex);
->   
-> -	dp_lanes = rk_udphy_dplane_get(udphy);
-> -	phy_set_bus_width(phy, dp_lanes);
-> +	phy_set_bus_width(phy, udphy->dp_lanes);
->   
->   	ret = rk_udphy_power_on(udphy, UDPHY_MODE_DP);
+>   	int i;
+> @@ -1072,9 +1072,9 @@ static int rk_udphy_dp_phy_power_on(struct phy *phy)
 >   	if (ret)
 >   		goto unlock;
 >   
-> -	rk_udphy_dplane_enable(udphy, dp_lanes);
-> +	rk_udphy_dplane_enable(udphy, udphy->dp_lanes);
+> -	rk_udphy_dplane_enable(udphy, udphy->dp_lanes);
+> +	rk_udphy_dp_lane_enable(udphy, udphy->dp_lanes);
 >   
->   	rk_udphy_dplane_select(udphy);
+> -	rk_udphy_dplane_select(udphy);
+> +	rk_udphy_dp_lane_select(udphy);
 >   
-> @@ -1365,6 +1352,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
->   		udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
->   		udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
->   		mode = UDPHY_MODE_DP;
-> +		udphy->dp_lanes = 4;
->   		break;
+>   unlock:
+>   	mutex_unlock(&udphy->mutex);
+> @@ -1092,7 +1092,7 @@ static int rk_udphy_dp_phy_power_off(struct phy *phy)
+>   	struct rk_udphy *udphy = phy_get_drvdata(phy);
 >   
->   	case TYPEC_DP_STATE_D:
-> @@ -1381,6 +1369,7 @@ static int rk_udphy_typec_mux_set(struct typec_mux_dev *mux,
->   			udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
->   		}
->   		mode = UDPHY_MODE_DP_USB;
-> +		udphy->dp_lanes = 2;
->   		break;
->   	}
->   
-> @@ -1529,7 +1518,7 @@ static int rk_udphy_probe(struct platform_device *pdev)
->   		ret = PTR_ERR(udphy->phy_dp);
->   		return dev_err_probe(dev, ret, "failed to create DP phy\n");
->   	}
-> -	phy_set_bus_width(udphy->phy_dp, rk_udphy_dplane_get(udphy));
-> +	phy_set_bus_width(udphy->phy_dp, udphy->dp_lanes);
->   	udphy->phy_dp->attrs.max_link_rate = 8100;
->   	phy_set_drvdata(udphy->phy_dp, udphy);
+>   	mutex_lock(&udphy->mutex);
+> -	rk_udphy_dplane_enable(udphy, 0);
+> +	rk_udphy_dp_lane_enable(udphy, 0);
+>   	rk_udphy_power_off(udphy, UDPHY_MODE_DP);
+>   	mutex_unlock(&udphy->mutex);
 >   
 > 
 
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+
+Thanks,
+Neil
 
