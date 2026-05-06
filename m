@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC53CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD80CD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jERKJjknkdQ4i9JtoqjPY+iXeD3hkNunomlZQlqiv/8=; b=hoeEsZOCKIvzIhDdvqujB4a+aW
-	Piq1K5aB62UWjPg33FWLfQgAcO5TU1Z3g6UHaX8N0hsMFd2+v2tD8FEkTtMBK9DGdYZ8dFA+bjK1/
-	MMzh4LxD4g1uANbZkXcr/wOpofws9wz8Y/w4A8bH93jCFGIXm7bM7SLtLtQow8TIOw7bGZWwzZ/B8
-	EI4Jv4j6gZMEFfqrOf47xikTsTcXgKGyO3M6H/nZim6gLSOUGWkXJZEULowmWCSBdkb8JlwQyJkWs
-	wdX+oUfNsWo0rfqQrvlnlumfdqKIfxpON+YwKVInljLBSgWWYPKrULe3eHAs3wx5/W6nBSC2pwdnO
-	jhoakHlQ==;
+	bh=xgbuIPvwGTDZ1vH1DcLJwAkJi5BHMTFvMXCyADYeRKI=; b=zXHaU9KF1MiYXHZFaajkqolhrp
+	3cc+g9ExiHUwXNgYNQzmblrd5Wo/EN45XphzO7Me4MSMoBsBDhdoFT2vQ0uuSVfCMfAlgN5BE7b6+
+	ycLfXS94xuTZRpKtWVEqQEBVfG/XTPXjWWf1nWAklQsCU+GTXXDrWAzeb/R/ZMqZkG+HVckIRGC9g
+	YGI7XVXpwiHXERvFjNaMZiwrUl96xJmCZpGJC2SIOqNsgERU5Q8ctH7/XTy0ISyNpJH0uyCDNy5wn
+	iR8F3JLh23GHSd5UUm2gPEQ5DUX0dMFES2uP8d8cRcCRHqJ7P6+Ua4q2CC6vhSUT8kEgp45QxowUP
+	Q9gkxYCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdZ6-000000019vT-34h9;
-	Wed, 06 May 2026 14:49:32 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wKdZE-00000001A0x-1xsR;
+	Wed, 06 May 2026 14:49:40 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdZ5-000000019tk-28zV
+	id 1wKdZD-000000019yY-1jrf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 14:49:31 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-488ff90d6c7so62179665e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 07:49:31 -0700 (PDT)
+	Wed, 06 May 2026 14:49:39 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-449de065cb3so4208281f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 07:49:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778078970; x=1778683770; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1778078977; x=1778683777; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=jERKJjknkdQ4i9JtoqjPY+iXeD3hkNunomlZQlqiv/8=;
-        b=t+Mip8SPjQu/xIIZXsODgo65Ou1PlZgG2uyYQ39msfCQGDCTpeXvyUkHUMmEm4RX2S
-         4ROq4uEgquxFXwgzz6agOCqy3AOAnQE1xQ10keUzTYX5aCOnMYTLH4RQ510TcLzF672S
-         PzVTJN5Qocxi+HtosCkNRiw/n1ss9NnP8WkuOvmmofZTAK9YEwlWmdvAvysgolYzounK
-         b4kCgPTMtKrIHLWZ00iBqA4po3x2MUg50VXqmTMh7Z6CsoZq7jHJKiDCFP3HT3gWq5Yn
-         ZbX5eLmYcctNMk9OwmtAfBziNV4MIiRoQEVGDYlF+Gp3RhwwW3smuVqW4vhlnc+0iBD8
-         xCSQ==
+        bh=xgbuIPvwGTDZ1vH1DcLJwAkJi5BHMTFvMXCyADYeRKI=;
+        b=JrhYrE+S9MzFP6Nq6tTfOU+5OBmIToQj2bctqfpYBJg6BTNpHavH5888toanlK1DLL
+         TPIeWIRuyxaYSBUWcJ0Y+UpsLR+B1LH/Wjsk7/0KZL6l5f1VzLRTbaMe3JNcPgUdF4S3
+         xTaE0UHdUB6EWE2aErNydIxM1TRO76ffDjumySBjGefAhyfzTEJGrDxTidYzizO6ulm5
+         rnXCbRUUzraJu03/IDhzOBl4xfDKZZE6h3MOeS5ZxOC5o7e7PSL3PhZHXhntC7mN5jiz
+         3AWLzEgU/4dPFCQ3/KgGYUpRtmQhoflxYVp3CDv2vSlgIxGdDOtARjF6Ys30jxethYDG
+         lVsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778078970; x=1778683770;
+        d=1e100.net; s=20251104; t=1778078977; x=1778683777;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:references:cc:to:subject:reply-to:from:user-agent
          :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=jERKJjknkdQ4i9JtoqjPY+iXeD3hkNunomlZQlqiv/8=;
-        b=DTKc9hPIeI58kNr8zY5NghifnGzvw10Lo8rA/NHydQDX28cgn3BDv3YsmJ0/06kPSw
-         fFRvfLXj2GD9fRWBYaogsjcX6S7OZV+NptQjzYTxUZ4NEntSPTrVW8kxsREIsAvGqdj0
-         id8aYPnaAOU7lKGjbW0P/6TwbCT23NHQ11xQAK9KVZPWiaZidK2cYp5i3MRU8y5/oCY0
-         tIikd3QDyX+5jOKqcO6nx+rCiMiFGFhjS3x/IMPk7hVx9EJpM9k4kQcfHS7n1AGh9qX6
-         vlNAUOhpp7YPlwdyEqAC+cxy6elcNyWOQhfTCb8ulLH/PxTzYSpD0fL3/+DGwLtt9PWG
-         yb2A==
-X-Forwarded-Encrypted: i=1; AFNElJ9fHoigVhSeUX4/YvVXc26b8AznasmD8tmjqKL+yXfARkn/gvazOifXelZLv0z6+UBHRHNBSpvzIW4rznEjg/y/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGEOY+vy9ewMTW0HKX22T5kfIA13OlJU6rO4E1QuOYBH/Csrqc
-	kEgSvbgLoHLAlMrCT8DxoqKhL8BoN/LdSLDwtohkQKdhROS8f86tZer1mpN2af3pbD4=
-X-Gm-Gg: AeBDievfy9+KUdyqJmSzYL+B9ltS4bVuiSBMGOvQVmHmOjW01V1t8Hr7H0nzVA1koAv
-	MnXdr9YQgW1BGQ+zr1Nz8K9jrJ/A3hVDhsn27pl4rPdYpMCYDSiGT8+2qfkJIv/4QUlOaA1J7eU
-	40HeKh1w6bAhF/JrEX7lQAr0cAqnGCqhLkvU7a3K51iMbdiwlSAxh/ur947AY0eODE7KGX28wLT
-	olrdhsZLDdrSIVApSidHB6VBeeVHpGDO5LLAWTrSGTjmbsRTu/jbReHl5cjYVK+452P66AfZUhv
-	I7GdysrSg+7dDXqk/wq/aSM0aoOSpz7mek6m1AnhOBCOWKoyDTcdBZLgYO5g7mzjWgIis1qOPaL
-	NvCyFdEvr4LeMJjfryF0KQwp4BvzoD/yX4h3KCPrTbiE2K5R8T+pdJXAiEeK3wlKkNKGx2mwb2I
-	pFrVeroP4GpU9acwVitlN14Obx5aK3GD6XczMIwLwBZHwULsFDfWgTUIOJv6y5eyRUAByhYjOHt
-	rM8+w1x9Upob/phTg==
-X-Received: by 2002:a05:600c:8907:b0:48a:65ad:1881 with SMTP id 5b1f17b1804b1-48e51f32a46mr51738465e9.13.1778078969666;
-        Wed, 06 May 2026 07:49:29 -0700 (PDT)
+        bh=xgbuIPvwGTDZ1vH1DcLJwAkJi5BHMTFvMXCyADYeRKI=;
+        b=JNMIvAiWmo1wD/G8aZ1mG6RO36Bd7ilp+WtWWdrq4yROuj8/4sUESTvxn0vAqUDlbT
+         JamembPeOh/2/4KtaWVhhJC0tixPIWoafDm8b19Bivbe1HIdybt/rKoMt1x6fpOWbLSZ
+         8CUtLsWZaQQ7B/SBo7wamx2f915SAiVmr9iHJPOC/C0DlnGUlDfk+uvcEnWn2Tvymsnq
+         qMXcI65JJ2LIc471ZEB0T7c35TEXG0V+eET7EAg+62a3MVekn4I+ltXYzI3qtYbWgSxx
+         rm2oj8SPtr2EAWeITpQ1WMd0XXaZ3qPfnRj1Si2Jz45MBZPK8JWCSJZjaEVuJxntcBav
+         VzJA==
+X-Forwarded-Encrypted: i=1; AFNElJ/5wcDLy3bbRs4lUvnvqwaGD+snZvZ0JYyJIRSIPuti5vieWfOU4pDJdXXprgPDYRQadXdpr9E9qti5sqRm7r9x@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCeeXgxh57qys4Em2MfaM96OOTKzeZn78eLpXQmXBfD6nq8OuG
+	aqVafIpCk2sBkrHZvstbsQjSrJpMN6RphbWwxzNqie5b3S5V+CCflNAncMsee79fJjA=
+X-Gm-Gg: AeBDietoaPLAxDeohXXLiLyZJK8UgKqXrPmoWBCkHFgoFMoMNUkVad91jTdnGJGwsm4
+	4lWNpkfoGkPlN+hIcPp8Cd8KCkAbEC5qy2iDxfwpAXbu5dsou5ZmnOfjxdgYSK0v+mOImi/lbZb
+	ZhudAaaPRT6paYK0jlkJvrxbxd3yTwI/nVMpbeKwUDWxnmJc1kO/4hTMSSUpQbkUDrkjM/EIx+I
+	8tav6KjQBBNHXfA9cg2IdDBH/J9TaGc2tHB/2xu2xbyfY6EImTJ0KQEouJsNVDZO6KskYJKZxdS
+	uX2z7VK/PNPWBiPp1M13bQMCDdsRPZiqh1Z++kgP71u+6aSYa7/kZ7UYWLBvE80eSCiYtGDWC8H
+	TnbksSMFGYoN600lXWBfHIy02SLut73n1B1kcF7H4DbtsYZ59R6DX0qwBkt+S1Ycp5o0acZ2NLy
+	btFeox2ZNq3Gc4Vgos3BnK+/Nkzh1cpDitdYFDcaYdQCcuBzQLfhNrG78iUr4QR87icqtPEhHIW
+	gcdHW3Zu4nBXUNNKw==
+X-Received: by 2002:a05:6000:2013:b0:43c:f3ef:ee36 with SMTP id ffacd0b85a97d-4515d4d0fbcmr6911189f8f.33.1778078977349;
+        Wed, 06 May 2026 07:49:37 -0700 (PDT)
 Received: from ?IPV6:2a01:e0a:106d:1080:5798:67fd:c866:b378? ([2a01:e0a:106d:1080:5798:67fd:c866:b378])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e5312dcbesm18061055e9.22.2026.05.06.07.49.28
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45054b02c5asm13014040f8f.19.2026.05.06.07.49.36
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 May 2026 07:49:29 -0700 (PDT)
-Message-ID: <3010fcb6-f5af-41e2-aa5a-ba4401513a52@linaro.org>
-Date: Wed, 6 May 2026 16:49:27 +0200
+        Wed, 06 May 2026 07:49:36 -0700 (PDT)
+Message-ID: <ab5efb9a-a2a7-4871-94c3-599ba8510dd3@linaro.org>
+Date: Wed, 6 May 2026 16:49:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v4 04/16] phy: rockchip: usbdp: Amend SSC modulation
- deviation
+Subject: Re: [PATCH v4 05/16] phy: rockchip: usbdp: Fix LFPS detect threshold
+ control
 To: Sebastian Reichel <sebastian.reichel@collabora.com>,
  Vinod Koul <vkoul@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
  Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>,
@@ -88,9 +88,9 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
  linux-kernel@vger.kernel.org, kernel@collabora.com,
- devicetree@vger.kernel.org
+ devicetree@vger.kernel.org, William Wu <william.wu@rock-chips.com>
 References: <20260428-rockchip-usbdp-cleanup-v4-0-7775671ece22@collabora.com>
- <20260428-rockchip-usbdp-cleanup-v4-4-7775671ece22@collabora.com>
+ <20260428-rockchip-usbdp-cleanup-v4-5-7775671ece22@collabora.com>
 Content-Language: en-US, fr
 Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
@@ -117,12 +117,12 @@ Autocrypt: addr=neil.armstrong@linaro.org; keydata=
  4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
  QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
 Organization: Linaro
-In-Reply-To: <20260428-rockchip-usbdp-cleanup-v4-4-7775671ece22@collabora.com>
+In-Reply-To: <20260428-rockchip-usbdp-cleanup-v4-5-7775671ece22@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_074931_738204_FACF9268 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20260506_074939_485024_A600EE6B 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,51 +139,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 4/28/26 18:13, Sebastian Reichel wrote:
-> From: Frank Wang <frank.wang@rock-chips.com>
+> From: William Wu <william.wu@rock-chips.com>
 > 
-> Move SSC modulation deviation into private config of clock
+> According to the LFPS Tx Low Power/LFPS Rx Detect Threshold [1],
+> the device under test(DUT) must not respond if LFPS below the
+> minimum LFPS Rx Detect Threshold 100mV. Test fail on Rockchip
+> platforms, because the default LFPS detect threshold is set to
+> 65mV.
 > 
->   - 24M: 0x00d4[5:0] = 0x30
->   - 26M: 0x00d4[5:0] = 0x33
+> The USBDP PHY LFPS detect threshold voltage could be set to
+> 30mV ~ 140mV, and since there could be 10-20% PVT variation,
+> we set LFPS detect threshold voltage to 110mV.
 > 
-> Signed-off-by: Frank Wang <frank.wang@rock-chips.com>
-> [Taken over from rockchip's kernel tree; register 0x00d4 is not
-> described in the TRM]
+> [1] https://compliance.usb.org/resources/LFPS_Rx_Tx_Low_Power_Compliance_Update_Rev5.pdf
+> 
+> Signed-off-by: William Wu <william.wu@rock-chips.com>
+> [Taken over from rockchip's kernel tree; the registers are not described
+> in the TRM]
 > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 > ---
->   drivers/phy/rockchip/phy-rockchip-usbdp.c | 8 ++++----
->   1 file changed, 4 insertions(+), 4 deletions(-)
+>   drivers/phy/rockchip/phy-rockchip-usbdp.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> index 98562a888b42..1f686844c337 100644
+> index 1f686844c337..97e53b933225 100644
 > --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 > +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-> @@ -350,7 +350,8 @@ static const struct reg_sequence rk_udphy_24m_refclk_cfg[] = {
->   	{0x0a64, 0xa8}, {0x1a3c, 0xd0},
->   	{0x1a44, 0xd0}, {0x1a48, 0x01},
->   	{0x1a4c, 0x0d}, {0x1a54, 0xe0},
-> -	{0x1a5c, 0xe0}, {0x1a64, 0xa8}
-> +	{0x1a5c, 0xe0}, {0x1a64, 0xa8},
-> +	{0x00d4, 0x30}
->   };
->   
->   static const struct reg_sequence rk_udphy_26m_refclk_cfg[] = {
-> @@ -377,7 +378,7 @@ static const struct reg_sequence rk_udphy_26m_refclk_cfg[] = {
->   	{0x0c30, 0x0e}, {0x0c48, 0x06},
->   	{0x1c30, 0x0e}, {0x1c48, 0x06},
->   	{0x028c, 0x18}, {0x0af0, 0x00},
-> -	{0x1af0, 0x00}
-> +	{0x1af0, 0x00}, {0x00d4, 0x33}
->   };
->   
->   static const struct reg_sequence rk_udphy_init_sequence[] = {
-> @@ -412,8 +413,7 @@ static const struct reg_sequence rk_udphy_init_sequence[] = {
+> @@ -413,7 +413,8 @@ static const struct reg_sequence rk_udphy_init_sequence[] = {
 >   	{0x0070, 0x7d}, {0x0074, 0x68},
 >   	{0x0af4, 0x1a}, {0x1af4, 0x1a},
 >   	{0x0440, 0x3f}, {0x10d4, 0x08},
-> -	{0x20d4, 0x08}, {0x00d4, 0x30},
-> -	{0x0024, 0x6e},
-> +	{0x20d4, 0x08}, {0x0024, 0x6e}
+> -	{0x20d4, 0x08}, {0x0024, 0x6e}
+> +	{0x20d4, 0x08}, {0x0024, 0x6e},
+> +	{0x09c0, 0x0a}, {0x19c0, 0x0a}
 >   };
 >   
 >   static inline int rk_udphy_grfreg_write(struct regmap *base,
