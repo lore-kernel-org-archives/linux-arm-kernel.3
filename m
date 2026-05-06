@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2081ACD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA40AFF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4y8kZhJWtqk30HpFaDH6xIuj0b+Q4HZfkJlgWNiLSgs=; b=KXy0FQVXFGbaRs6BRpNnw8qf3r
-	ekEr4xtz0+aU+S1vxAtvjBYQEvehJQqexR+LfQvoDItfswZ69sZRkJ1bIgxTKrAD4LdtLTkY3c3zN
-	e+2n1Ontxr+oIAcHGH4JgNBWecE7G2rcE7cJmZCr/qrcL76XptrOD7aGG+8owrp+CyF29gK79sbmK
-	vp2gGvnfGw10Ha/ktZ7rgTOgQE4us329z/ixcj40d8wySeX1/jqRTHXiFQR4EMudG89s6drylbXYZ
-	K1wgViTZFNM7dG3eehdhCDicvBsnnwamharBC9MZqoStygVIcW6pkTgJqs4q0Ll75i7RYCclrE5ov
-	mkg8VMYQ==;
+	bh=HMqtzthmmxcj8980T7+TeoJ+yGWILo8EmSubHe/kC1o=; b=5Ata3JRhzG1BGL4oeUCIZebaeK
+	mIA/jvrcPtEHBMSGSPFCE67ROrYG5fZ+jyaVg3cBViOVgzZ5XSi8Xu1cUJhi/34Z/nLXIxDl9bzcI
+	IAmuCQ6Lj0sovuDNSLcz9w6CpdGcRMJ+Z6VIjS4NzeDZQoYss23YU+047HesPfAp3zlpqfWI5Swjq
+	qOnVI7kHLgrl1qwod/tiMlK5/vg6Oabcel3LXtixuwrhWQIntgEszWKgAGoISzddwo2fmw4I+3/0j
+	RWHu5Cb6QXDHcKKyPhf/HFdpTQevP/cWmSbFiCWNpOQs9auPR4WVi44bzwY1piPXWNfckWKJli2fk
+	Pb8a3aKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcO7-00000000uXm-3Qyh;
-	Wed, 06 May 2026 13:34:07 +0000
+	id 1wKcQh-00000000uxU-0YYV;
+	Wed, 06 May 2026 13:36:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKcO6-00000000uX7-0u20
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 13:34:06 +0000
+	id 1wKcQf-00000000uww-3Xfc;
+	Wed, 06 May 2026 13:36:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 06427405A3;
-	Wed,  6 May 2026 13:34:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A72BC2BCB8;
-	Wed,  6 May 2026 13:33:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F2CD43703;
+	Wed,  6 May 2026 13:36:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9692C2BCB8;
+	Wed,  6 May 2026 13:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778074443;
-	bh=YshSG+jEZSwzCbdJ4jDr60hn3hQDUfkq89jqa5o9J50=;
+	s=k20201202; t=1778074605;
+	bh=7I7M1eUDVF5088ev2jyWTqkJf4GORVg6OfRPDZkIzIU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qdLAuEoarlvWQFVS18RsdiGDZiM1aagLv4kBPglSttVyPwWiOKaZRqtzf7CVl8bsH
-	 vo66qBIcrlbi+mQJWAOBGKqrcV8ZzGwt7/kiuacW8HS+1ksIDS+NDW5ogV30ccR9aI
-	 iu3jMFPR18qwRRJTqZiuV41lPF5qrs6G8KEBmHDKBKhBBXSxu0BwCeKD13EulgBxTo
-	 u6S84xkkkFu7iBUyMF1Te74+ySF3/URpaJS6kaKZXeinLifk7+WLWJXTDNHDYwEVJ4
-	 1TuErwj9K1Hs9weQU/kSc3eoaqyjVBUghGtLi7rKdBGpX6Ue2LglK9H1krlMYggNIy
-	 ko1GkfQRSViLw==
-Message-ID: <5ad1e2df-85f3-4f9a-ab9d-b6ae34eebed3@kernel.org>
-Date: Wed, 6 May 2026 15:33:57 +0200
+	b=EJbOClFHa2CcPRVkMYmz3+QesZYjQNBc5i5M+WR8ZnFT9UmFA+x50oAQQSJHu+wKe
+	 CKDdBcu44jNL7MH1Pyrr3IenoyMDkNSEABAhwHqFAn/+ZNZ/Ru37bg++86Ty4aioHL
+	 N5IHrimxJBe6wi+A/9kPXXbRDlqhk8j7H69HKEnsRDr+nKqVonKkbB6FioOrf5bMWj
+	 9HGQy1nIB2gw9ozVOnTFkBJvuNpLhFXBGunovGg103oANtLK7ie1csTZoX2AXucpP1
+	 pD8b2yqX9SOWfN/J6LLnlsAkljS7Ud+emFKAVa3IviQ4g5dCqsvTx79S+JR1fMJmhu
+	 Rt40RKlmr6k9A==
+Message-ID: <f4212885-fcfe-4687-ba1f-b8713b1ecdad@kernel.org>
+Date: Wed, 6 May 2026 15:36:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: dt-bindings: nxp,imx8mq-mipi-csi2: Fix example
- endpoint label typo
-To: Robby Cai <robby.cai@nxp.com>, laurent.pinchart@ideasonboard.com,
- Frank.Li@nxp.com, martink@posteo.de, rmfrfs@gmail.com, kernel@puri.sm,
- mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, martin.kepplinger@puri.sm
-Cc: imx@lists.linux.dev, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260506090124.2960477-1-robby.cai@nxp.com>
+Subject: Re: [PATCH] dt-bindings: remoteproc: mtk,scp: Allow multiple memory
+ regions
+To: Arnab Layek <arnab.layek@mediatek.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20260506133157.3283204-1-arnab.layek@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260506090124.2960477-1-robby.cai@nxp.com>
+In-Reply-To: <20260506133157.3283204-1-arnab.layek@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_063406_317517_ABAABAE3 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20260506_063645_930780_6C13A352 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,37 +123,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/05/2026 11:01, Robby Cai wrote:
-> The example in imx8mq-mipi-csi2.yaml uses imx8mm_mipi_csi_{in,out} endpoint
-> labels, which is confusing for an i.MX8MQ binding. Rename the labels to
-> imx8mq_mipi_csi_{in,out} for consistency.
+On 06/05/2026 15:31, Arnab Layek wrote:
+> Update the memory-region property to support 1-2 reserved memory
+> regions instead of exactly one. This is needed for newer MediaTek
+> SoCs like MT8188 which require additional memory regions for SCP
+> operation.
+
+So where is the compatible? Already there?
+
 > 
-> Fixes: 37255747ecbd ("media: dt-bindings: media: document the nxp,imx8mq-mipi-csi2 receiver phy and controller")
+> Tested on MT8188 Geralt platform.
 
-Nothing to fix here. Otherwise explain the bug.
+You cannot test binding.
 
-> Signed-off-by: Robby Cai <robby.cai@nxp.com>
+> 
+> Signed-off-by: Arnab Layek <arnab.layek@mediatek.com>
 > ---
->  .../devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  .../devicetree/bindings/remoteproc/mtk,scp.yaml        | 10 ++++++++--
+>  1 file changed, 8 insertions(+), 2 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> index 4fcfc4fd3565..71f79651dd96 100644
-> --- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> +++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
-> @@ -220,7 +220,7 @@ examples:
->              port@0 {
->                  reg = <0>;
+> diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> index bdbb12118da4..9f6dca94ff40 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> @@ -55,7 +55,10 @@ properties:
+>        initializing SCP.
 >  
-> -                imx8mm_mipi_csi_in: endpoint {
-> +                imx8mq_mipi_csi_in: endpoint {
+>    memory-region:
+> -    maxItems: 1
+> +    description:
+> +      Phandle to the reserved memory regions.
+> +    minItems: 1
+> +    maxItems: 2
 
-Drop the labels instead - they are not used.
-
-This is just churn and for sure not a fix.
-
-NAK
-
+Just like I sent some patches long time ago for iommus Mediatek media
+bindings - fix it the same way. Pity the patches were not picked up,
+even though sending twice, but that does not give you easier way to get
+incorrect code in. You just multiple poor patterns...
 
 Best regards,
 Krzysztof
