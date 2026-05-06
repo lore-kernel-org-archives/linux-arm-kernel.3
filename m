@@ -4,111 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F22CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 00:51:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFEC3CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 01:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIkhsuFDNVg2QL0eFScvFiGzWT8ms604ryNMjv2aL68=; b=3sJNEHbk6X2BuvMlHfOCFzWOFi
-	pA7B5u2sACNBlD22AgicZ2lql5ZQ1qTMGmxaWWcd8LdzEsGcKtjE8HOScW+bwbHGUqegyPiZDBv6W
-	8p2NpYrroHvz+43/gMBv8TvUzzY91OiKgAO08c+zgRjArlTSEOZ9S/Re6rbiYGPld/kV50vsMJP04
-	eubEpnz2rhzSStCMl8aNhToy+CzZsl8LxBbmAssdJAfK4PqXYCEfazofZE9r24n6ZGcAG9672eluJ
-	3zZD6F3l0/mIVP3RWAxGXU70bGkynCmTBO3UB9JW9abQLJ/ACvuvjHipScLLZpNhxDuhaoIloJWdO
-	c5MpJjVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NwzorkUFHXdlT8TM8w+mRBafUN4j5T2DUosmDnooYsY=; b=uRYZnB8wV/wUbGS1JGbgLuVKlq
+	T34pMYW0DHbttdLjnr41vYMAIlwcF9ny6CW0AmVIWRI/glcO7YjOKFbiARWgS1LswJOTiimL9LhMY
+	eiLjOClfbzuKoSn1WjFG//c4s8PrRvy8AgM4x+Jkq1P0Y+WF9qJb/Ajl+6K3sRsPipRJADgpVVibQ
+	tzhFPncAa6weMPHHbv0ffp/XGjGbsZi4u/ie7sAfjoJ5iGNfIAUYYRvszZG/YrUmE4B3kImuiai81
+	4KG//eYoU1tmz9AoSN1vNmHMTghn9BaFjWEsmozzZ57ChTK06vwezuMQkgIvvx26Srq4Ma8R5mPJ7
+	selWnxyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKQTn-00000000LZC-35nZ;
-	Wed, 06 May 2026 00:51:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wKQdz-00000000Msh-3zUq;
+	Wed, 06 May 2026 01:01:43 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKQTi-00000000LTS-2uOe
+	id 1wKQdx-00000000Mry-1eIL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 00:51:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1778028665;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FIkhsuFDNVg2QL0eFScvFiGzWT8ms604ryNMjv2aL68=;
-	b=BKgWPdtzRfLK13KDD/62zLRbDJxVlvY1Q3svsuJJ/EAqTDRI8hte7KdUCGx+IOR8i37CzA
-	SW1W+MIR6/FVmuGo6LFL4sjaVCY2Sc9gWBSLe01cWmwqW4bV3hSh2wlEgpCFTQ8DKWw/MO
-	lPetJIE3Fw8AgqIxJp24AzIuFT3TidY=
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com
- [209.85.222.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-354-PKeX4sDfMR-lB0pp0nxnSg-1; Tue, 05 May 2026 20:51:02 -0400
-X-MC-Unique: PKeX4sDfMR-lB0pp0nxnSg-1
-X-Mimecast-MFC-AGG-ID: PKeX4sDfMR-lB0pp0nxnSg_1778028662
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8eabf08affaso1646775085a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 17:51:02 -0700 (PDT)
+	Wed, 06 May 2026 01:01:42 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-671dad7cac8so6503713a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 18:01:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778029299; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QoLCDoLZJXUlbCIHCjOX9OkuiBnrHflDuNsd+KbI6Fdx9AVhtEP8ZkRWlIg0oXpgPq
+         gMf2QT8AosgdvKXe+QA7YTBRa/ac3jTCK8fyDAnDN3PC/tnqSnJkbW/Zc1UA0PW1AOHG
+         akqmRlxXqPItHul1skBsfJKTO0p/osZEJxT2IEBsZE4CiAY5Tf9fwxnB5UebYsoon3Vf
+         wQgSIyyVXkNpdfHBgqNaORy3fK3J4zX4/wqhrg+pEOFPbpY0b1bnt34l9iRPMCPw8Isu
+         ykO/kdZ42/lOEdrP+hi63RTjqI38l0wUX0r3/yDl0MHXPkbWYs+T3LANn+sfmmKrc0WK
+         bqOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=NwzorkUFHXdlT8TM8w+mRBafUN4j5T2DUosmDnooYsY=;
+        fh=wIw5L0XyZ+Jz0cQWdUk4v4n9KVsCv+23Z5RF7fPgBWM=;
+        b=BNfmL3LcjM1CDKcUZp0Hm61SWywVi2rTr3Z/7aaVNB6INdnEX+y0Cxn6y2q2MOKRVN
+         N5bMn5N14KeskNzB7luSTYjpfjPb7lHVFTAioCW+8TlOPCyx0rpnvVzfWrkQsgGpgNW8
+         edehEmjDw4zGdB5v9B0FFoPpHvkvxcCnTabRpYBHecWnbC7neJRlVVGW8qCkwAkUml06
+         6GtB7QeatSxEvmzGpOfPC9UcrLY3Z6CQo1adU/isOhseVXKeCpgYdbJRPHbpY4AU8cFC
+         3YMErDNNgZHRNQq3IMVBKvhqyMKg0G6+LG/by49r/tPfvMvS85POXjaYYuGojbIT2y1l
+         whoA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778029299; x=1778634099; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=NwzorkUFHXdlT8TM8w+mRBafUN4j5T2DUosmDnooYsY=;
+        b=N6TtkNpuNaR5avPYXAt/78TIIHN1YTNHZ4isFuEAKNIopInvTDsbyek8N9hG1wmE6W
+         71k3WcAi3kkyFEsbOh+9LIOuFwPyC4Fok/vp5FwfaOKvGzRBMWMDohILLGTJJkWiDVkG
+         qGumRYBLSec43kqWOAR/BdAAzdOcdiTKqFWdQi2M4vWEiN2prifcTS26Gmh4l/URRFLh
+         WNw/Eke3t82VHZmpDYRZTBlMWR8y4o0Kf2Rmq7U5vYmMimnAomTASr9AkcFne+oFj6Ru
+         Lnsbbyfa9QgItNAbdeE6LnUIHOW6gBuL8gi2mQvs8n+9e0fHe4dYPvMbgiTjGVpBNyFF
+         toeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778028662; x=1778633462;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=FIkhsuFDNVg2QL0eFScvFiGzWT8ms604ryNMjv2aL68=;
-        b=nb3Jc09l7yomtLhSJmF2KW9EQs6m9Ii4SH8T7c49dgA1GbTazj0PglnUmEA4aFQe9s
-         G+U0SgAnb7EOgE5JDf98pAMCsC5JWuWzBPxE/NTVAqZCVSY3Rjo+8Vl0Hahe6KLYWvZM
-         sERP7U6/EX9DEbbGGFKj4R09qye5FZu8yBxmrpCCVkLj2yoiUsykLb55Zhhxs+w2Fkcj
-         LK368IR6Gt9cRSDAc8MAQgZaKg0gfQQZtxXifkPq3pHqoydAKwPDBSdmlee+4Klc9hJ5
-         2pAgRM6yfZ0Dpf6SOofdzRthhKiUwC8Sfdg9nEkJmXFUELA3l2svLg7IkTdzoHb9d+5c
-         BBiA==
-X-Forwarded-Encrypted: i=1; AFNElJ9iq8w+guTW5loEeuewMhN/3PkHlxUR4LZxd5w0pd4jLGW6oDyC9Wh+7UWtpHWY8k+9EMoYpOONND1oHmaOFUf7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKah71JtVTWFbVX3ndOjO/jfnz6Op2Xj+pEXQxO6g4pS0Ljn2s
-	oufJk5M0fiDWpd8j+duNYKO8OzWse6PuEuGtGyK/BiQ7eO0uh9aoX4PeRklEK1YS95sMnCSuUYS
-	IaavCxo/7T5zYja1bwBZnGc6vI8ahYI3wMNUvXGraCiaT5uo3zOdcFexLghtT4OOurVHIF1ShTg
-	XK
-X-Gm-Gg: AeBDieuEbnaJDJu+IVjKtapMZBtw92iLMB3/xvjO1xlKBv3mNZ4gk28fJWv2okZ/La+
-	Z2xqSnMwnPD9yJ1nh6CeFqsIsB52eJs6Qh220mwqRkbKKngT5jE8G2uVJTbCNb36dx+Oxw7Eio1
-	irxH7TqEozEGcZUv7uTov9mCzwODkx7+dgLR+7IuH8MCH8v6OqC3n5yHTWZxQBXxHCGcaQ+O/eT
-	McSx83jBcaxXxVsa2DqD9eh3uovoXDhNhAL1sl3jcmY/51MfOVdnWOF+paBN2KrqmfBUBVW7J2u
-	kTIksUo30Wd9mNKErNNrVY5zTGSgdPlm2T9jcwmSVOUy/GnHwnE8HpbsDItOrZsoE0gdOHkiXt6
-	p/1CLqH7zUNjx7EfkJTuhBwhsNgfbc4N5sADXSrQXdIL5UoZm/19oxOl10Zk/PKSNQRtDHEz5
-X-Received: by 2002:a05:620a:29cf:b0:8ee:9f5e:e13c with SMTP id af79cd13be357-904d4d530d6mr225965585a.21.1778028661659;
-        Tue, 05 May 2026 17:51:01 -0700 (PDT)
-X-Received: by 2002:a05:620a:29cf:b0:8ee:9f5e:e13c with SMTP id af79cd13be357-904d4d530d6mr225963285a.21.1778028661222;
-        Tue, 05 May 2026 17:51:01 -0700 (PDT)
-Received: from [192.168.1.15] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8fc2c91fb3bsm1464933385a.41.2026.05.05.17.50.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 May 2026 17:50:58 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-Date: Tue, 05 May 2026 20:49:11 -0400
-Subject: [PATCH v3 15/15] pmdomain: mediatek: mtk-mfg: use
- clk_determine_rate_noop()
+        d=1e100.net; s=20251104; t=1778029299; x=1778634099;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NwzorkUFHXdlT8TM8w+mRBafUN4j5T2DUosmDnooYsY=;
+        b=RGlo6Y2dxj2Fi5IFGw323Oaxyz5V8zXfHwzKqcw4afiE3W2/vWx2eC/F8o06y1IUEo
+         td54KUHUec+xZOP1UgA9lYltxEZQyRV92u8n5tsSKnvGIu++gyliJUXnevLTpUKYeWRV
+         azUZz0G/7WQe6cW+swE8v12LD6Gg8aPSBlpjLk3tsPog8EIQdJ+04hOhDNwEdJrrjnGP
+         BjyiW924NDHONPqIofPKKbOgE1bAJWUBfpKXcO0J6gRZ8CnSY54pE2KcmCUGwZiQi/D+
+         nxadLBj4REYRw1xL1SupE7xlee2Hudd/YVY18bF4reBfZQ4mV4G8y3rcU9iacDS2ALUQ
+         sgyw==
+X-Forwarded-Encrypted: i=1; AFNElJ/ZOuwN6/0r6SBJkzaHsMzo96Vy7RqFkCesS1Q/JjZaq6GmX4leU1wHFaBMzj70/B387pbS3ZKddoPgFLi5Sfmd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmhPgSUCNbMtpVQDInx9QKke8qD8ZsE+reGe5soMTyWfGquGsH
+	KO5OmPkGcPjiOjG5uXIGSUm13KTw5YU8oNYo0zKQzzJGHGwES3tl644AAmO/6ofJk5WaDV+FQrp
+	sHLXSifBKZHnq4iTPT8//Or2xV3VYPyA=
+X-Gm-Gg: AeBDievXIfB+oRqPpw3pc8DGqFHmm5heBAqT5vRSJ4yY79VUzBRgTamfNb2aVztd2hk
+	y/GYYjXBHk6OyeY/BDKGN0k43Ng8iyJ7Rjoup0x247QznLoGgJTuxm9rUaUG0dGTdzAceo+DrTp
+	g0/Rhmu/1jj15RcrvgER17VfKjHZDsgmQi6jMpQEnNOy0fXSF/52aJKYcGjtEFnDbtRb/NI35Y9
+	kMhbs8qdDQ1r3kN7Q2eLuXHQhg8y7eKZQzzr0SaFvOAyAx9or5EVBsephL4sQfG78cLuB/xBUKX
+	6PsUlKWHqBNgiMvXCOI2
+X-Received: by 2002:a05:6402:561b:b0:674:74bf:8813 with SMTP id
+ 4fb4d7f45d1cf-67d648a2908mr225875a12.21.1778029298587; Tue, 05 May 2026
+ 18:01:38 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20260505-clk-determine-rate-noop-v3-15-f3f829fbacdf@redhat.com>
-References: <20260505-clk-determine-rate-noop-v3-0-f3f829fbacdf@redhat.com>
-In-Reply-To: <20260505-clk-determine-rate-noop-v3-0-f3f829fbacdf@redhat.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Ulf Hansson <ulfh@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2643; i=bmasney@redhat.com;
- s=20250903; h=from:subject:message-id;
- bh=wJwL5Ib1H4VqqPNlUn54BDvQ0NT7cZrT9AxzX6ejkYo=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDJ/TfB7WDX36Oq1G0SYpUQLPGs71kSvW7Hzy9IO85uvW
- 1MPta8o7ShlYRDjYpAVU2RZkmtUEJG6yvbeHU0WmDmsTCBDGLg4BWAiGuIM/31XfVr7f7Z/evlk
- 8cZa8byLHUcWLtCYcGribON/RwM7bJYwMizMbLu5tf36tHP3791WnvaCVeOBevw/pXV2Ra1bPT/
- rfOQEAA==
-X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
- fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 2vm7f3yEFhKFsxyVsfTpyvpNKhwxbmuCxXqE9j455ZM_1778028662
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+References: <20260503-mt7925-tdls-fixes-v1-0-dde847e21081@gmail.com>
+ <20260503-mt7925-tdls-fixes-v1-1-dde847e21081@gmail.com> <CAGp9LzogKfGovfDw+=m4BkqWAakFTStXH20cQ_FA_5-zo+rmGA@mail.gmail.com>
+In-Reply-To: <CAGp9LzogKfGovfDw+=m4BkqWAakFTStXH20cQ_FA_5-zo+rmGA@mail.gmail.com>
+From: ElXreno <elxreno@gmail.com>
+Date: Wed, 6 May 2026 04:00:00 +0300
+X-Gm-Features: AVHnY4INobXxdEOMhemHPoV056iwAV8b_9YlbIjpzUDt0nGFCtcSzWUQppCzglI
+Message-ID: <CAJ5_wsS1fMRvD0akfPB-FTcnk+j0pULHrzvOCgVVh1XVbmOmnw@mail.gmail.com>
+Subject: Re: [PATCH 1/2] wifi: mt76: mt792x: disable HW TX/RX encap offload to
+ fix TDLS direct-link
+To: Sean Wang <sean.wang@kernel.org>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
+	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Soul Huang <Soul.Huang@mediatek.com>, Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, 
+	Deren Wu <deren.wu@mediatek.com>, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_175108_444404_D5176D33 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20260505_180141_475288_4DE35633 
+X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,73 +123,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop the driver-specific empty determine_rate() function and use the new
-shared clk_determine_rate_noop() helper.
+Hi Sean,
 
-Signed-off-by: Brian Masney <bmasney@redhat.com>
----
-To: Ulf Hansson <ulfh@kernel.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Michael Turquette <mturquette@baylibre.com>
-To: Stephen Boyd <sboyd@kernel.org>
-To: Brian Masney <bmasney@redhat.com>
-Cc: linux-clk@vger.kernel.org
-Cc: linux-pm@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-mediatek@lists.infradead.org
----
- drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 23 ++---------------------
- 1 file changed, 2 insertions(+), 21 deletions(-)
+Thanks for the review. You're right that the global disable was too
+broad. v2 scopes the fix per-TDLS-peer; rationale and changelog are in
+the v2 cover letter.
 
-diff --git a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-index 3ce6fb74dd53..64fef838776e 100644
---- a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-+++ b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-@@ -310,25 +310,6 @@ static unsigned long mtk_mfg_recalc_rate_gpu(struct clk_hw *hw,
- 	return readl(mfg->shared_mem + GF_REG_FREQ_OUT_GPU) * HZ_PER_KHZ;
- }
- 
--static int mtk_mfg_determine_rate(struct clk_hw *hw,
--				  struct clk_rate_request *req)
--{
--	/*
--	 * The determine_rate callback needs to be implemented to avoid returning
--	 * the current clock frequency, rather than something even remotely
--	 * close to the frequency that was asked for.
--	 *
--	 * Instead of writing considerable amounts of possibly slow code just to
--	 * somehow figure out which of the three PLLs to round for, or even to
--	 * do a search through one of two OPP tables in order to find the closest
--	 * OPP of a frequency, just return the rate as-is. This avoids devfreq
--	 * "rounding" a request for the lowest frequency to the possibly very
--	 * high current frequency, breaking the powersave governor in the process.
--	 */
--
--	return 0;
--}
--
- static unsigned long mtk_mfg_recalc_rate_stack(struct clk_hw *hw,
- 					       unsigned long parent_rate)
- {
-@@ -339,12 +320,12 @@ static unsigned long mtk_mfg_recalc_rate_stack(struct clk_hw *hw,
- 
- static const struct clk_ops mtk_mfg_clk_gpu_ops = {
- 	.recalc_rate = mtk_mfg_recalc_rate_gpu,
--	.determine_rate = mtk_mfg_determine_rate,
-+	.determine_rate = clk_determine_rate_noop,
- };
- 
- static const struct clk_ops mtk_mfg_clk_stack_ops = {
- 	.recalc_rate = mtk_mfg_recalc_rate_stack,
--	.determine_rate = mtk_mfg_determine_rate,
-+	.determine_rate = clk_determine_rate_noop,
- };
- 
- static const struct clk_init_data mtk_mfg_clk_gpu_init = {
-
--- 
-2.54.0
-
+Best regards,
+ElXreno
 
