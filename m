@@ -4,95 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7777CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E31FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gMeTRBDmDnSb/6bNUDbfXXIg58i3yRtlbEoK09izD2M=; b=W/lPj0uMXmn1ZO1SQHEFNacWbE
-	OAD4aBqjVnLvDIKh2g36ajs1riOXkJgOWBP4mynRfHszfn+sODCM01wBFJLdyBF7x7w9qQ1+KUcTI
-	bUjgwteQsxV2GZqf9354XOnKY1U/CguKMSIj4Ytu/6Prjl+l9eoSKxdM23IWSYesdmISgECaib/Hz
-	wruCua4KTPQZyxB9kgmujy7tG4U3oyUoMOu5LdoIJ4oW4kJECd42PY6VDbwKQuF6kX9kFpDakVw/o
-	mWn9wtGBYBP0VAufiwWt2rFsfL0REHBi/Aprvg+WqvOACCOwSF42OYWvIdifr8MVjpRoLGmNjgMUZ
-	o6nw9E+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gkcGmXg709UchoeBb+ayEFY84FKzk00zigTRHZ9oDz0=; b=3XrsSiXG8kLS2fiICb++AfypN4
+	qMKn28GgfgU2y8aUnfEwLrvurjKG3yiZaKvMwuDjOP7qu8OcgGebldK+310yCw/llNAga+3Iv279p
+	a/Y9lUYZcTiyxKe4Sa9/XAYo4fxZjj8HmuaQbg707KqLc5gg8e0+7t8aU1QF5lgkxOvuye3P2eyxH
+	uxWrd87bIVcI/fOdn6eSN1UvtmO29sFR7IJ801PT/Roddk06xBvrMYdhquLrlkHh1SGd532t105vu
+	BXZ1f/f9X+X0VDPx1CqRrY7si+p5Tq0+7hJSU0sHt6hx62LD+X7q0Nm+2j4WEtvuD0i1Bjq7Pn+y5
+	b6DMGGNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKbtH-00000000q6T-3scA;
-	Wed, 06 May 2026 13:02:15 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1wKcjJ-00000000yMZ-3Hz6;
+	Wed, 06 May 2026 13:56:01 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKbtF-00000000q48-1Cbh
+	id 1wKcjI-00000000yM1-1fUc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 13:02:13 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5a86e4b950cso2843726e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 06:02:12 -0700 (PDT)
+	Wed, 06 May 2026 13:56:00 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2b2e91add2aso63158775ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 06:55:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778072531; x=1778677331; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+        d=google.com; s=20251104; t=1778075758; x=1778680558; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gMeTRBDmDnSb/6bNUDbfXXIg58i3yRtlbEoK09izD2M=;
-        b=SRgoLgJ4edkBsXWApigLQVrm9aCo+qx+9s4Q7jx1qr8jPOdUd6/qGcvWmiObqNXhYw
-         5DMNeX/SgJIqtG9tPzNcGExIxF/VelA9qDIuLWGKRn609+UITVQjvEd97OLxmWl2EDar
-         nIFfrGqDmhkXGdCwsyDCY4B0VcLoDLaULk7Qoz5dlOQ+C+slr6/ZpizibyCkQ74W0EGI
-         Kqjx4D7yc25CKwt65yCqPYKNLtqioq8kcTry5jy37G1aGSKxWFwyarRwJt7Sd/X67cn8
-         3z+0OqNsojVETfV0FAyfs8Dh0/K4voXeHVcDOdxnv1/P3jRSg46lTckikB5TyZpGs4Ig
-         WAYg==
+        bh=gkcGmXg709UchoeBb+ayEFY84FKzk00zigTRHZ9oDz0=;
+        b=reJdCUcp1xN4850A7mH5RL2taW/odIDJCoPFFxNulZ635JxQ7HO888oaE8OTvHpADU
+         Md+et0BCY0ILCK38Olvq/mS+KqVT3HSp2MlP1XFhTOSFc092PeT/cy3MRNKbgb3akb31
+         E4cTv/MbmL/4z0ZDrcnNL7mH2Eil4nPgrUPwZUwx+gKCibUe2KcOZFFMxscUx+etDzqH
+         Fb35lv8/Pw4XMZGpOjSXkBnbeeZzVWVacxf3JNrzpCNr/8PVhJA4UtzSjcPzn+T6LitZ
+         KDZn37S6RJOP25rYtMQecVhDbR/p2TeqIxbSRCoLQFUsb6YvC0mE2v0LQ/LWTBQ+OCxB
+         YnoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778072531; x=1778677331;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gMeTRBDmDnSb/6bNUDbfXXIg58i3yRtlbEoK09izD2M=;
-        b=dboM/jygJ5h//aOJuro/DG7C1c8AnRXd5yXWWy+HRn9aMZRRRkrj3ZliQz5fFdDilS
-         EUkFFmZv5COOZLqs3b1MlxcLG6WI6D30rmxCgFlXm/HsQvEtOuQVxcVLtvynF6K91IWE
-         Rp+caomUg0FCr0hbmfccCo30NNIxRp5Ay8/Fi8RVvETzthD8mGQUe8XngRNbbNwS8FzI
-         3bSKdmBhe47jjrakNAAUNzvbm6WMOpKhucCkU59U1neWkE+rcIsYM9RyzLom5YVbo5dL
-         9LWaAzzDcXHXWRIbPfkdO56sSJfhyH1XcogxP/UifZS3z//E/CrLYJs6to1bMyjsIKe1
-         DWww==
-X-Forwarded-Encrypted: i=1; AFNElJ+NV19gn1ssTUNmxIrEl6TNICzQo2Xxh1tH7EvXA1Uhi9dd4kg9ZOvpRQzyI1PbkD+GdRY78rxXdjR485IEZFKx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhrKxWAwS7I0RwbaHACS214NdRmJ+BPMSIDI6GoI7XsZJQ6BzB
-	WeIElMgeCUOEdhnW6N7ZES13KRnevE1JRpXcDCkKMe7CRz3BfjNFhi2x
-X-Gm-Gg: AeBDieu38nt0qQGqFns2NqPAaAjUMBKrxecwDCaFdjbVUDNpic61Zln5XDFW9ZNiY26
-	/ol5fMhnEbRsU8JAZvRNbEqQJZsohkZ6NZd6hYMIrHdN6EK7lnM3gWQHvN5p0h1X4g91WbSpAPB
-	rpyBCSSlPbJjE7dtolj5mab7WzoCl7S27Xr5GLNo1QgHWvEx+gl7JhH7/KuqmJBsWZHC5P75Mn1
-	DKJcQc8TdL4Ktsr+HQDGryzwfolvvHui4+5dvX2lb/bRm1H/tvoDyckCu80XZsInM1cpnTkncWu
-	z5lQ6caAMOvl97QpngPj10Qk9DVqCd33o7xh8yIJhOiXkloNpTU4yDTXN49kLO9fwMLucZce4pb
-	jUxl1cLjapqxPrGV/e5tt4ElLDF9oY7G2rWU59ROmuHVFDIvllP5RwEKF1BiH0OYz458/a/TgIP
-	/zxG1ETUsFHshtt1Jq09+KPUhDcBu2UMlaPTWabDi8tkx2Hu3LGHijmpSEOIXCKjlrsMvvVTPWa
-	Bqza/Wvfwb+bwHeedbwhqx4bsvqWExEjTymlVKV9X8X1s0/NniOJeUt5WD4HFYf8xGNIa2/22XN
-	+wljrcy5Xkc=
-X-Received: by 2002:a05:6512:6c7:b0:5a8:9135:127e with SMTP id 2adb3069b0e04-5a891351b19mr136583e87.18.1778072530001;
-        Wed, 06 May 2026 06:02:10 -0700 (PDT)
-Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45052a488d8sm12288076f8f.12.2026.05.06.06.02.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 06:02:09 -0700 (PDT)
-From: Franz Schnyder <fra.schnyder@gmail.com>
-Date: Wed, 06 May 2026 15:01:55 +0200
-Subject: [PATCH 1/3] dt-bindings: arm: fsl: add Aquila iMX95
-MIME-Version: 1.0
+        d=1e100.net; s=20251104; t=1778075758; x=1778680558;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=gkcGmXg709UchoeBb+ayEFY84FKzk00zigTRHZ9oDz0=;
+        b=AHejSbv1qTq8Sj1NeKIQcmchR5Xj2crmDySZ3l16z1wzyMr0TrBmNSZ//8REhhREWC
+         Fxg0z/49DcCjCjSZT5Bjy1TegbWkWYJUNitNVdmAAsDcIHhwmmCKskZC+/J3hHcNa2ul
+         rI3KRN+PqgyZtmbTr4nyszlA4MZE+lpyDhAvPGMEW5VLPmGSReGRxfFawJ8BvzdlMPek
+         6FonMupJF0Z78SwGNQuYu8/ro40Xbbge94LxFrf115kxrF4xlg07fQUy0wW/Is9cuPqZ
+         J+TSF4bFwj7OGJHu0GZu3J8Df0ll2UpN9PfkXXKiQYOL5wpflHISq7NwiCYtNIDiDRyb
+         2Sgw==
+X-Forwarded-Encrypted: i=1; AFNElJ8bOStnJ3yNv2tDRUnhdFgqycYczAbJBj2UPPGwkRDWiRNy7CIzUBxJdN0lnGPfgsIbtYr6HRPMLr131+7qfNIE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDycLHq47Xp4L/1A4U55b5PYRxufsRx6/NGjVV2AMCbNbd4FYH
+	JnBpkVAd9IGr7VT/dmE5CzQL8KNoZNCFGMzwxItLrAcfK3UwXAXwSAQfRyzQ/vvqAPMnO6ZVdZZ
+	fhePwjQ==
+X-Received: from pllt5.prod.google.com ([2002:a17:902:dcc5:b0:2b2:48d8:c695])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:3d07:b0:2b2:ebed:7af8
+ with SMTP id d9443c01a7336-2ba78b3ffdamr36929145ad.1.1778075758298; Wed, 06
+ May 2026 06:55:58 -0700 (PDT)
+Date: Wed, 6 May 2026 06:55:57 -0700
+In-Reply-To: <25838e74-01dd-d085-395b-676266dc9a9a@loongson.cn>
+Mime-Version: 1.0
+References: <20260504224213.1049426-1-jthoughton@google.com>
+ <20260504224213.1049426-2-jthoughton@google.com> <25838e74-01dd-d085-395b-676266dc9a9a@loongson.cn>
+Message-ID: <aftIbW9G4RfoTuXh@google.com>
+Subject: Re: [PATCH 1/5] KVM: arm64: Grab KVM MMU write lock in kvm_arch_flush_shadow_all()
+From: Sean Christopherson <seanjc@google.com>
+To: Bibo Mao <maobibo@loongson.cn>
+Cc: James Houghton <jthoughton@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Gavin Shan <gshan@redhat.com>, Shaoqin Huang <shahuang@redhat.com>, 
+	Ricardo Koller <ricarkol@google.com>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, James Hogan <jhogan@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260506-add-aquila-imx95-v1-1-69c8ee1c5413@toradex.com>
-References: <20260506-add-aquila-imx95-v1-0-69c8ee1c5413@toradex.com>
-In-Reply-To: <20260506-add-aquila-imx95-v1-0-69c8ee1c5413@toradex.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Franz Schnyder <franz.schnyder@toradex.com>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_060213_346815_61896D7E 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260506_065600_444743_B9F11823 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +98,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Franz Schnyder <franz.schnyder@toradex.com>
+On Wed, May 06, 2026, Bibo Mao wrote:
+> On 2026/5/5 =E4=B8=8A=E5=8D=886:42, James Houghton wrote:
+> > kvm_arch_flush_shadow_all() may sometimes be called on the same `kvm`
+> > concurrently in the event that the KVM's `mm` is __mmput() at the
+> > same time that last reference to the KVM is being dropped.
+> >=20
+> > T1              T2
+> > KVM_CREATE_VM
+> >                  Get VM file from T1
+> > close VM
+> > exit_mm()       close VM
+> >=20
+> > T1: exit_mm() -> kvm_mmu_notifier_release() -> kvm_flush_shadow_all(),
+> >      with only the KVM srcu read lock held.
+> >=20
+> > T2: kvm_vm_release() ---> mmu_notifier_unregister() ->
+> >      kvm_mmu_notifier_release() -> kvm_flush_shadow_all(),
+> >      again, with only the KVM srcu read lock held.
+> By looking through the code, kvm_arch_destroy_vm() will free PGD page onl=
+y,
+> page table walking is executing in deleting memslot or exit_mm().
+>=20
+> With normal code, life cycle of VM is something like this:
 
-Add DT compatible strings for the Aquila i.MX95 SoM and its supported
-carrier boards: the Aquila Development Board and the Clover carrier
-board.
+Not necessarily.  Abruptly closing the VM, as described below, is also "nor=
+mal"
+(though likely uncommon).
 
-Link: https://www.toradex.com/computer-on-modules/aquila-arm-family/nxp-imx95
-Link: https://www.toradex.com/products/carrier-board/aquila-development-board-kit
-Link: https://www.toradex.com/products/carrier-board/clover
-Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
----
- Documentation/devicetree/bindings/arm/fsl.yaml | 8 ++++++++
- 1 file changed, 8 insertions(+)
+>   KVM_CREATE_VM
+>     Create_VCPUs
+>     Create memslots
+>     Destroy_VCPUs
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 59f7f168bf7c4..ea4cc98dadebc 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1507,6 +1507,14 @@ properties:
-           - const: phytec,imx95-phycore-fpsc  # phyCORE-i.MX 95 FPSC
-           - const: fsl,imx95
- 
-+      - description: Toradex Boards with Aquila iMX95 Modules
-+        items:
-+          - enum:
-+              - toradex,aquila-imx95-clover # Aquila iMX95 Module on Clover Board
-+              - toradex,aquila-imx95-dev    # Aquila iMX95 Module on Aquila Development Board
-+          - const: toradex,aquila-imx95     # Aquila iMX95 Module
-+          - const: fsl,imx95
-+
-       - description: Toradex Boards with SMARC iMX95 Modules
-         items:
-           - const: toradex,smarc-imx95-dev # Toradex SMARC iMX95 on Toradex SMARC Development Board
+This is incorrect.  KVM doesn't provide any way for userspace to destroy vC=
+PUs.
+Userspace can fully release every vCPU fd, but the vCPU object within KVM s=
+tays
+alive (and indirectly reachable) until the VM is destroyed.
 
--- 
-2.43.0
+>     Destroy memslots
+>   close VM
+>   exit_mm()
 
+Note, exit_mm() may or may not be called.  E.g. there are VMMs that will de=
+stroy
+a VM and start a new one (perhaps even the same conceptual virtual machine)=
+ in
+the same process / mm_struct / address space.
+
+> And there is kvm_get_kvm()/kvm_put_kvm() function call with creating/dest=
+roy
+> vCPUs, however no such operations with memslot operation. Is it possible
+> that VM is destroyed without removing memslots, such as the following
+> operation.
+>   KVM_CREATE_VM
+>     Create memslots
+>   close VM
+>   exit_mm()
+
+Yep.  KVM cannot make any assumptions when it comes to userspace-initiated
+operations.  Even a VMM that super strictly follows the first approach may =
+exit
+abruptly, without destroying memslots, e.g. if it's OOM-killed.
 
