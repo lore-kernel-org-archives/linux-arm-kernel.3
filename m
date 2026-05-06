@@ -4,108 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7EBCCD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 18:51:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3863CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 19:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qVXRMaORBAm1p+hmPERIzD3vaX/XPR3tJcXrI0tApsg=; b=DKsWg+TnHoy0zuP3jGsiacjb4O
-	4cUuPYp5RMHR8nkwVtgY2PWXrq+++M1p1xjweRClnxPsyUOMY5USFxqtxsQqGtpVSJ2k2rxplEGac
-	nD9Al5VG7iowUjrCItDZh0n1+etYMiPwcwd3jQwG8ZYiDD28Ey92WfeLNZhIPX8ko7j9yWQE6Fc73
-	meIFd9RO8MrveVmqPbCImAhavfdkgyC+516j9AkH2F8ULZCsBVpYCihUmL2lzbmMviBYj2Ke90CBi
-	qpbj1cJ8X113+1DPbnplLFT78nqlMSrRT0q/6pObsppY5q+AEK/Tt7VBH6+P0BGRhp4L6E1AhgtIB
-	lRgWd8sg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RWaGVwrz8dpWHB2wk2T9j8VY/b7+3Y4aZTgZzUxXD1Y=; b=MttHMeLlxkEEhH1Gbi3qoLQMEK
+	OMb7F84OD16wgGV3bYmuuoxOMa8uZimPD2EohFgTdepUHsO5iu8srVWAgb4jcQf7mmjM11KQxRL0I
+	C+FvGb+mgm3amlYl4NAElStyGbn5m14r0kgtJfKIBXTXxjkAl1MIT18qpHYD4R3n/+ZUQOiF3LWvZ
+	Ya6fKlisxi0QA6tu9+wMkWX9nIBRXkhzlXcGACRdBh88ZUWyYxUTdt77oaFklwtzTwjNxYr2MYGuv
+	DyPDCnHXnSTzSNtxE1EhI9wSd1jaX1/UY9fAhMYJhRearGQF87ovy5BVwKMdt0MYoqdwSa/tNg9Be
+	RqIhcCAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKhL6-00000001oJ5-09px;
-	Wed, 06 May 2026 18:51:20 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1wKhZ8-00000001pwq-0MXm;
+	Wed, 06 May 2026 19:05:50 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKhL4-00000001oIb-2JA8
+	id 1wKhZ6-00000001pw7-2MRL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 18:51:18 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-8ef45a6d9dfso3878585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 11:51:17 -0700 (PDT)
+	Wed, 06 May 2026 19:05:49 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-48d10c981e4so100855e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 12:05:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1778093477; x=1778698277; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qVXRMaORBAm1p+hmPERIzD3vaX/XPR3tJcXrI0tApsg=;
-        b=wedYCcc0N8L4Z29/3l6d/pbfFh32+zNdjXBIlLGuBlMDOCThnEwph99T2F9R42fTme
-         jZ6v4mWQn7H4wW+tMk/d2UzJn1XeseSJZtdR9tUGJk9km2jSI4VoSVwY10ZdUCbjNe+J
-         d74NHD9M03h4aVB6Pj/PGzDx4WndWKDHBdpdXNseWkIjfwW5sCb4PE9/W8CS1XGikkoV
-         Vx536RrddJ+IkE9JGE3Cr90hHwqRX2hS0RwFb7Dr3b/rzrkA3vRAscdO2XlrVn3A/Ibh
-         Y6x9VuGdRwpR/m2FWk9SgRRUBH8Vau5xsTRrAMwW61tLAFz9V1Xh9ZE9H6jnwdd1aAC9
-         HJxA==
+        d=gmail.com; s=20251104; t=1778094346; x=1778699146; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RWaGVwrz8dpWHB2wk2T9j8VY/b7+3Y4aZTgZzUxXD1Y=;
+        b=IkPC4+TmMLcXpGMv/wppRdgJ/CskgOlcvrGGxgROpDdwOQ4hFE6D0rPEM+VcyDgVNa
+         S1/es9bFkYFkV9Sko19sKytSQNhQGGD7RYo26O6Phk6Rsjc+rRzn93nBPbJ/4/Yh+Mek
+         aq5wxuCWw9wLbaAxJ/B8ItKVi1QX3v2G7jcN2xRlhZ4ybyx0aoz1F2rGHHB9FCkP8Ofl
+         9q7FiMs0H9DRlVg6FBLJK5gNcjOUbyPeLtX/K94L7m51RFNgrJ37D6izjUHSSXORu3S8
+         hOxrPhirjxeFTwSdWxNM/6Pk5czEUz3aWUi9U+Bx0gkjEXonwdzcQAL/3/50JatHJ+oN
+         +TfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778093477; x=1778698277;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qVXRMaORBAm1p+hmPERIzD3vaX/XPR3tJcXrI0tApsg=;
-        b=pP0soUYiu0fP7H5O2ch6YrqGJvLE8KpJdUpnBXb433mZaShZYweoctMqg3E+FgQF5q
-         gvzEsH5riBiUHjSX/QKmKIh4MAS7iUJV+WICGaVtV+7HB0SoxFC4x4HPWaiMGhdEuKFM
-         HMZiTo6Dl4g7W8PKkhefWcS/cVHvQoUjfanjsCjaPXEWKA8/J2Jysqd2N6qbDLAadcID
-         fMD9/Mq88aIyYOw7emPLUlqHur1ZlW3MpfznJ91k0D9K4+UgPruziu0jd7Vqe3VqCeN2
-         RZntLK3uu+DqHZ+RAnexSSIbsc690B21D2O58Y+Qmbhl3svFAx54yfM9eB1XInBDJjEb
-         28ow==
-X-Forwarded-Encrypted: i=1; AFNElJ9EL2PhhjlzZGYAtRPZ3xuS3RmAtX5pY9KhQNTSi4i4XeH6ofvRY9kfQ87YkYm/9Yqxgzehzq0njH49vPgGJUgW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBzCnZyS4/bh8F21Xxn7mvAUaLvZdj/VEU5XRUHwzciOMG3JST
-	RQuT+UiwAgr9D96IaBfbi80BhdPtuwH6Dz52Op9sOSOUm4Sbf2taXdDPbFjCevcMQXI=
-X-Gm-Gg: AeBDiev5N0idVivAzoxTA56SoCDQWtfsLQzRHuBQVUeHi8Bo1B97Esc9RhL6SThJ0xe
-	2iBOJxzlJDz1FyWSQJ2VCF90uRV+YF3kgRjJDFON/D0KNHhWKfowkVhtfBk/I8yuO3Q03unyoin
-	exZgWujAy6k2M/8kl75yGN0I7fynAqBW1Q5jKTOKv3dxuFBtD4IEvKlrr4n6OMZZpcTiacZEEzg
-	wmhvJR4qzz7mj9VUeDgFFGuCplcFpJ3hM/C3vhhWUTXSLNucRNtBKbYutu1wI/NdX8rgvGnhqWE
-	pR7CPYO4theMab1exQb2CT4bkWTBbEIB8HwrCnxCpLkaOBI7dcTgQt6m0JvOvmRpx2ExAjZscva
-	CQCc4BLFpQx1G/nRTvMjEdbv2eL7WmDqdcBcAwgQt9w4reiVaAP77ONbP0Yle2i++CTtSTYdQu7
-	j3zCHGXX8+0uR9Bg9YAphJPD1kn5QX1zB8fePAEwqO1ZP76s/TdLCfvlsaNjg9XjVmiQ4aF05e0
-	A==
-X-Received: by 2002:a05:620a:1a13:b0:8cf:d804:456a with SMTP id af79cd13be357-904d4c54265mr713100885a.20.1778093476942;
-        Wed, 06 May 2026 11:51:16 -0700 (PDT)
-Received: from [172.22.22.28] (c-75-72-117-212.hsd1.mn.comcast.net. [75.72.117.212])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8fc293837b5sm1889639085a.10.2026.05.06.11.51.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 May 2026 11:51:16 -0700 (PDT)
-Message-ID: <a52659e8-0382-4eb2-ab2f-5563bbb73fcc@riscstar.com>
-Date: Wed, 6 May 2026 13:51:12 -0500
+        d=1e100.net; s=20251104; t=1778094346; x=1778699146;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RWaGVwrz8dpWHB2wk2T9j8VY/b7+3Y4aZTgZzUxXD1Y=;
+        b=nSImp575xT3LT28DMS7bOSBBZspJ9lb74+O8p2lDmAWa17W3IlgdXSXVnKkoanWnds
+         DPxjdMoHDWQ+Mo9v565H4cYKYDlrZuu05CPweSxjc+KJdq8kAPFt9R9QN/wt9Bgy84/H
+         UKNfhQpjLKS7t6qnOKzgeOxIxyMbADjbQpI3T7+cXQTKXdhOcfT7jGojht5cD6DlUhYt
+         E+na7ARA3DjWIdQGoBIqy5giWms++audbfiOI/MkxMGHp6M//Pu8H+h8YqLFfP+mNlYV
+         GUCseQ3Ri4cSkG97QTA5zkZMrJwBkKlBtkM2c7KrNtWogeCrOudiUEVDIGPxUI7JgQ1A
+         sY4w==
+X-Forwarded-Encrypted: i=1; AFNElJ+NoUbAD+/DAQAqkEDDFoKuTDOTpelF1LhslLVvWkGejENyo+IXzbeFl6/Eo2HiDgmsgi6ujDjPfMPTG1XOOV5V@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGopiTpujVssj56PFDAIFsFjAfjSBN2D25AZmfLE35Ly5tyJMM
+	K/6qL0NmYAT9gjpMX4y6CZ6tf0+QHCZ17ieCSyO77KXQRuSQqUGbdlKY
+X-Gm-Gg: AeBDiev98kvG8R5vEBKTauFo97Cf5YnnpboeP9skkpPV8fJ7sGhgtdMhh9o+OwcNVR+
+	FBwllgtJxB10tQ7DLQuE1Z/bi/WvzBVqKYS6yGZIdRs5cAm2z716rrdTti2OxI2fbiuuwAThU74
+	+mhiXii1KMIyBPd8Tjd6VxGotim7YY+/QrFhmtmPrF8N87Xg+KN54pWwmJTdgYgOdUYy90Gvwp+
+	GKqlZb9Taje9puITsgesZOGd0iplQP+m/j9YsmB0lDOihoDOwXGi/RHQ3SlDdunMT8GxnkP4Cxr
+	V79HNyWysG0xRoNZhAm+ToNdqkO4gOgicXKUeOpM3FqTX0+v56I+hmg8+WJyxRfyLjKLyTxE+bY
+	iAoTxONNlD/rlZdaUoxSLBhYPfHYTVns8MA0vieQ53zhnaQ23gV1rlBzX8P5THkISa1/Uf8hyns
+	GBlz6YE/xHtcDAnICXhufkpxaVFl97gMhDAsHFz9HHI8pHXpYvzqE2
+X-Received: by 2002:a05:600c:4588:b0:48a:5302:8ed9 with SMTP id 5b1f17b1804b1-48e52f1574emr36086805e9.0.1778094346183;
+        Wed, 06 May 2026 12:05:46 -0700 (PDT)
+Received: from LAPTOP-9UC0RPH4.localdomain ([82.215.118.79])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e530b212esm30832605e9.1.2026.05.06.12.05.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 May 2026 12:05:45 -0700 (PDT)
+From: Stepan Ionichev <sozdayvek@gmail.com>
+To: ulfh@kernel.org
+Cc: brgl@kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Stepan Ionichev <sozdayvek@gmail.com>
+Subject: [PATCH] mmc: davinci: avoid NULL deref of host->data in IRQ handler
+Date: Thu,  7 May 2026 00:05:37 +0500
+Message-ID: <20260506190538.596-1-sozdayvek@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 09/12] gpio: tc956x: add TC956x/QPS615 support
-To: Julian Braha <julianbraha@gmail.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, maxime.chevallier@bootlin.com,
- rmk+kernel@armlinux.org.uk, andersson@kernel.org, konradybcio@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, linusw@kernel.org,
- brgl@kernel.org, arnd@arndb.de, gregkh@linuxfoundation.org
-Cc: daniel@riscstar.com, mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com,
- alexandre.torgue@foss.st.com, ast@kernel.org, boon.khai.ng@altera.com,
- chenchuangyu@xiaomi.com, chenhuacai@kernel.org, daniel@iogearbox.net,
- hawk@kernel.org, hkallweit1@gmail.com, inochiama@gmail.com,
- john.fastabend@gmail.com, livelycarpet87@gmail.com,
- matthew.gerlach@altera.com, mcoquelin.stm32@gmail.com, me@ziyao.cc,
- prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com,
- rohan.g.thomas@altera.com, sdf@fomichev.me, siyanteng@cqsoftware.com.cn,
- weishangjuan@eswincomputing.com, wens@kernel.org, netdev@vger.kernel.org,
- bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260501155421.3329862-1-elder@riscstar.com>
- <20260501155421.3329862-10-elder@riscstar.com>
- <1fe6bcb7-b5c0-454f-ad54-5014006edab5@gmail.com>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <1fe6bcb7-b5c0-454f-ad54-5014006edab5@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_115118_861206_423CE31E 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260506_120548_622897_D32B48A6 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,43 +98,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/2/26 10:42 PM, Julian Braha wrote:
-> On 5/1/26 16:54, Alex Elder wrote:
->> +config GPIO_TC956X
->> +	tristate "Toshiba TC956X GPIO support"
->> +	depends on TOSHIBA_TC956X_PCI
->> +	default m if TOSHIBA_TC956X_PCI
-> 
-> Hi Alex,
-> 
-> In your Kconfig changes, this condition 'if TOSHIBA_TC956X_PCI' is dead
-> code. Since you have the dependency on TOSHIBA_TC956X_PCI, you can just
-> make the 'default m' unconditional - assuming this is what you intended.
+mmc_davinci_irq() returns early only when both host->cmd and
+host->data are NULL:
 
-I'm not sure I'd call it "dead" but you're right, it's not
-necessary because it already depends on that symbol.
+  if (host->cmd == NULL && host->data == NULL) {
+          ...
+          return IRQ_NONE;
+  }
 
-> Perhaps you would prefer to use 'default TOSHIBA_TC956X_PCI', which
-> would have GPIO_TC956X default to 'm' or 'y' when TOSHIBA_TC956X_PCI is
-> 'm' or 'y', respectively.
+So we may legitimately reach the rest of the handler with
+host->data == NULL (and therefore data == NULL). The DATDNE branch
+already guards against this with an explicit "if (data != NULL)"
+check, but the subsequent TOUTRD ("read data timeout") and
+CRCWR/CRCRD ("data CRC error") branches dereference data
+unconditionally:
 
-Yeah that might be better.  I'd like to eventually include
-COMPILE_TEST as well, and that might need the "if" on the
-default.  I'll find out whenever I test that.
+  if (qstatus & MMCST0_TOUTRD) {
+          data->error = -ETIMEDOUT;        <-- NULL deref
+          ...
+          davinci_abort_data(host, data);
+  }
 
-This GPIO feature should still be a module even if
-TOSHIBA_TC956X_PCI is y, because it's not always
-necessary to enable the GPIO driver (depending on
-how devicetree defines the PHY resets).
+  if (qstatus & (MMCST0_CRCWR | MMCST0_CRCRD)) {
+          data->error = -EILSEQ;           <-- NULL deref
+          ...
+  }
 
-So:  In drivers/gpio/Kconfig it will be "default m", and
-for drivers/net/ethernet/stmicro/stmmac/Kconfig it will be
-default TOSHIBA_TC956X_PCI (at least for now).
+If either bit is set in qstatus while host->data is NULL, the kernel
+will crash inside the IRQ handler. smatch flags this:
 
-Thanks a lot for the suggestion.
+  drivers/mmc/host/davinci_mmc.c:933 mmc_davinci_irq() error: we
+    previously assumed 'data' could be null (see line 914)
 
-					-Alex
+Gate both branches on a non-NULL data, matching the existing pattern
+used by the DATDNE branch.
 
-> - Julian Braha
+No functional change for callers where data is non-NULL, which is
+the only case in which these branches did meaningful work before
+this change.
+
+Signed-off-by: Stepan Ionichev <sozdayvek@gmail.com>
+---
+ drivers/mmc/host/davinci_mmc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/mmc/host/davinci_mmc.c b/drivers/mmc/host/davinci_mmc.c
+index 42b0118a4..42ad87aa4 100644
+--- a/drivers/mmc/host/davinci_mmc.c
++++ b/drivers/mmc/host/davinci_mmc.c
+@@ -928,7 +928,7 @@ static irqreturn_t mmc_davinci_irq(int irq, void *dev_id)
+ 		}
+ 	}
+ 
+-	if (qstatus & MMCST0_TOUTRD) {
++	if (data && (qstatus & MMCST0_TOUTRD)) {
+ 		/* Read data timeout */
+ 		data->error = -ETIMEDOUT;
+ 		end_transfer = 1;
+@@ -940,7 +940,7 @@ static irqreturn_t mmc_davinci_irq(int irq, void *dev_id)
+ 		davinci_abort_data(host, data);
+ 	}
+ 
+-	if (qstatus & (MMCST0_CRCWR | MMCST0_CRCRD)) {
++	if (data && (qstatus & (MMCST0_CRCWR | MMCST0_CRCRD))) {
+ 		/* Data CRC error */
+ 		data->error = -EILSEQ;
+ 		end_transfer = 1;
+-- 
+2.43.0
 
 
