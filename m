@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BBB2CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82B86CD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2lP0HZIFaUTa4jmw6G0JLXO3flz+kFDmEXu8yrHe60=; b=PtYVSaZhUW5CupSTcPJFFXBnqv
-	8R+2B8446SvJud50E3T116ucC04MjfvNOOmdmdp9UmeSCc6GvUVgvRVJYHlAULeuyqFs2g03nSutu
-	e2qQaOnSVOE3UZ2GMNu+pS7Ph/3ot+7vx/aeFklfoVRRoXiUlUCVpGUQDpbjz5rC0N+/1268eSfHZ
-	brpls+WR45wD2tKZaM3s4xjv15NoN/d4ArGkRY09xyXWw9XtHJdMEpkMouQoWMBzjtsdwkEzxEf+Z
-	i6mIwQhEDiDZMXZZFHoA5kmLbZFHnL0CBLq6XoZcNijRrnIulksq6J/jd2/aRLBXzfjkuofqqWBlF
-	tsutsDtg==;
+	bh=p3/EADdmMNEyzs6reOc1JSR1ahb/Jkvzimw+1gullJI=; b=bvvnb5xPtodAX/h53PtFEt6qkR
+	JpJTf5aleHm+AGlEOQiatvQgGMpRIxXGsR2dWta7sEvu9dZF2/lKWZySNgjjaX1W6KCFzg9eTmcUO
+	rZz1c3b8E1IdjrBkn3Ckc83W3/p90agDbRPiG7AORXMz0oAEKxVTy1pg1r1e/aql8Jd2MJtGqnZuA
+	Fy9sNI7X08OJpvRyNJO0x4p0g+eGXPoNkGv+dwXHyH4HGccZgHCnezhuC4zuyIlPwkl0OpMLI5JK9
+	MuFytDlFU4jK10LYVBmV8zxTDsIZ7f5fw/mQHiQQGFOvaYzC3hTDYQk+9I7s2HDztjO9zhmaJhu7G
+	IsgkkPWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKX78-000000005MQ-2jS6;
-	Wed, 06 May 2026 07:56:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKX8V-000000005du-14rl;
+	Wed, 06 May 2026 07:57:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKX76-000000005Lf-42VT;
-	Wed, 06 May 2026 07:56:13 +0000
+	id 1wKX8T-000000005d9-1Gjs;
+	Wed, 06 May 2026 07:57:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B41B64157A;
-	Wed,  6 May 2026 07:56:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97CDC2BCB8;
-	Wed,  6 May 2026 07:56:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1CE2743832;
+	Wed,  6 May 2026 07:57:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E69A9C2BCB8;
+	Wed,  6 May 2026 07:57:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778054170;
-	bh=juwrtWczzTPvQJJwIG07H9kX0vRNlp9abje+dq/wKWQ=;
+	s=k20201202; t=1778054256;
+	bh=ckP/O7E/RV7oPB0vyQ9xjZ9ZUW9/8/F/FAoMbJhQbGQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Mlid59Fm7N4bpcaqRnWYuJsBdUgzafUkj2zf45JTU3c49ZMis9RT2P+qU+RNz7Rmy
-	 SH8EbtgsZ5iwwf0D+RQKI9CyaTfLRg6j7ZhnSm4GbV4RmE2Fg/xVMYUZo1n553OplQ
-	 T/G1vYwseBIUFXVqzgB3q5/u3PGKMnshzoizZyQOuSkluLzKXsGsqEZv/jDwxm3k/J
-	 AWs12P+xDUHTkow75J50MAtkUXJDVHUMaX5r/+peAEUN8Sxk32kqQzAbPRxQhSqESk
-	 m4ISfabBNeVZTHbEN8hBB+IMGcsVUSiH6zrKm+1Z7MHx6YvVXvpwiQ4hUhSZLbGRMQ
-	 X4yn8oRjy2LQA==
-Message-ID: <389917bb-c64c-4ac2-ab8f-b28ab0a89ecb@kernel.org>
-Date: Wed, 6 May 2026 09:56:03 +0200
+	b=dP2kmVEVUDa9jE6VB4gFSSqD9E7xFUc0+00VkR6ObBUunHN3TupH5S0qgLMkizV9W
+	 O+3wngyJHgdpUsRpQKwudpNF115TzWnvXgDHgd7rX0bhf6LKmjuDG5Ua2+zJxnM/yx
+	 lZYi9pGsgsj2wZPcx68M128hBsPNTp7XwEItGX1Mtebe9h2jRxeH7i8VjiXJHQ62Xb
+	 wpLObFov8YYtNAHQd3hPb0xecyo+l5e25BEiH4ZYSbXsxkDnqsSRLolETg1T7qiq7V
+	 Rnf1SjMsWh8rQkd6mnkSIryK3GtiG4zrAg1WLCq51Z4jJwng+E1a0FQwiSW2n69L+i
+	 EgIrrt8wnySng==
+Message-ID: <210109d6-4255-42c2-8fc2-f986f26f7d5a@kernel.org>
+Date: Wed, 6 May 2026 09:57:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/13] dt-bindings: iio: adc: add mt6323 PMIC AUXADC
+Subject: Re: [PATCH 02/13] dt-bindings: nvmem: add mt6323 PMIC EFUSE
 To: rva333@protonmail.com, Jonathan Cameron <jic23@kernel.org>,
  David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
  <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
@@ -62,7 +62,7 @@ Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
  Ben Grisdale <bengris32@protonmail.ch>
 References: <20260504-mt6323-v1-0-799b58b355ff@protonmail.com>
- <20260504-mt6323-v1-1-799b58b355ff@protonmail.com>
+ <20260504-mt6323-v1-2-799b58b355ff@protonmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260504-mt6323-v1-1-799b58b355ff@protonmail.com>
+In-Reply-To: <20260504-mt6323-v1-2-799b58b355ff@protonmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_005613_043978_7778AD3C 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20260506_005737_537595_98FD98B0 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,62 +131,58 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 04/05/2026 20:24, Roman Vivchar via B4 Relay wrote:
 > From: Roman Vivchar <rva333@protonmail.com>
 > 
-> The MediaTek mt6323 PMIC includes an AUXADC used for battery voltage,
-> temperature, and other internal measurements.
+> The MediaTek mt6323 PMIC includes an EFUSE used for storing calibration
+> data.
 > 
-> Add the devicetree binding documentation and the associated header file
-> defining the ADC channel constants.
+> Add the device tree binding documentation for the MediaTek mt6323 EFUSE.
 > 
 > Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
 
-Sorry, but that's not possible or explain please how YAML file can be
-tested on a device.
+Drop.
 
+I actually wonder how v1 could even receive such tags.
 
 > Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 > ---
->  .../bindings/iio/adc/mediatek,mt6323-auxadc.yaml   | 39 ++++++++++++++++++++++
->  .../dt-bindings/iio/adc/mediatek,mt6323-auxadc.h   | 16 +++++++++
->  2 files changed, 55 insertions(+)
+>  .../bindings/nvmem/mediatek,mt6323-efuse.yaml      | 42 ++++++++++++++++++++++
+>  1 file changed, 42 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/iio/adc/mediatek,mt6323-auxadc.yaml b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6323-auxadc.yaml
+> diff --git a/Documentation/devicetree/bindings/nvmem/mediatek,mt6323-efuse.yaml b/Documentation/devicetree/bindings/nvmem/mediatek,mt6323-efuse.yaml
 > new file mode 100644
-> index 000000000000..7dc1ac8bf253
+> index 000000000000..eb2437b0c1f0
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6323-auxadc.yaml
-> @@ -0,0 +1,39 @@
+> +++ b/Documentation/devicetree/bindings/nvmem/mediatek,mt6323-efuse.yaml
+> @@ -0,0 +1,42 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/iio/adc/mediatek,mt6323-auxadc.yaml#
+> +$id: http://devicetree.org/schemas/nvmem/mediatek,mt6323-efuse.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: MediaTek MT6323 PMIC AUXADC
+> +title: MediaTek MT6323 PMIC EFUSE
+> +
+> +description: |
+
+Do not need '|' unless you need to preserve formatting.
+
+> +  MT6323 efuse is used for storing calibration data, such as thermal sensor
+> +  calibration.
 > +
 > +maintainers:
 > +  - Roman Vivchar <rva333@protonmail.com>
 > +
-> +description: >
-> +  The Auxiliary Analog/Digital Converter (AUXADC) is an ADC found
-> +  in the MediaTek MT6323 PMIC, performing various PMIC related measurements
-> +  such as battery and PMIC internal voltage regulators temperatures,
-> +  accessory detection resistance (usually, for a 3.5mm audio jack)
-> +  other than voltages for various PMIC internal components.
+> +allOf:
+> +  - $ref: nvmem.yaml#
 > +
 > +properties:
 > +  compatible:
-> +    const: mediatek,mt6323-auxadc
-> +
-> +  "#io-channel-cells":
-> +    const: 1
+> +    const: mediatek,mt6323-efuse
 > +
 > +required:
 > +  - compatible
-> +  - "#io-channel-cells"
 
-
-This is heavily incomplete node... or unnecessarily split. Why it cannot
-be part of parent binding? Or even parent node?
+Again, heavily incomplete binding. How do you access the efuse memory if
+device has no resources?
 
 
 Best regards,
