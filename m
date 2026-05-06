@@ -4,135 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 125BBCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3256FCD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
-	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PnOefGTI0cf18Z8MTj6MleCguWEHQlhho9M+GtQESow=; b=UsP2EarUg6UlcROlyp56cQY4qe
-	1L9xuGW1piBdlVUqNuk+8djgDDGM3Dy0BsMo84++V8Zez/bzpq8oT4KTXfNS02G9EAPYpMNPzGABV
-	/3sLFalRAle8PrjKaWHD3P6m3bkB7I9WWOfuvN3p0CYSn5gYNqcy3Mx+bDxnwtkY7HqD3UBgRVCFx
-	+WLz8ZhbOEQ4QRmUENbzJknRA110oQLanziW2ccqVRFKWZZh4sDCNQT580csqRD/pv0xl5IbJJEnP
-	FEr1F0KhMyaWp+/SEm4q/4/GZIzegujSHKqatW9XeRK/GEd+RStR0mtyqiWZmJJLRP+0WWKCe+E+3
-	Gmnmybfg==;
+	bh=0/W7qZT5O8z085sn4mW/UkbICY8RKtYfsrB4Yj1GnNQ=; b=ljVsJgyIdXDieiQYMRS8yTlrvw
+	QaOoOQFiBGoBWYMOyxA7eGBGtX0VdafBr9yjRXeAj3ju4oYOcNO8v2pcRczSAHgIbSdrnHzI3RgB5
+	542QOb/XCSnJ9rpBUFm7NojUDiZm0r+7HwOGU6TurAbpC8GHMhZRaOqVfImaHWklLK0/CyP5qI0Rw
+	TFMy46+CsopoLpDdI1Ua1JO05z8pnbCOzFma6PJoSxKlLT4V49eLR29BRl3G2El82KmWM6gxVyEWt
+	7PX59pmG1DyZhsljxQaXPhhYQtOh+/d/SjzAmY1d9ODClB1oY37cF+K5hOLtZrJsxGt3Vcu5MLotQ
+	/ewtmTsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdiV-00000001D0P-0MyK;
-	Wed, 06 May 2026 14:59:15 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wKdk5-00000001DUB-1xlz;
+	Wed, 06 May 2026 15:00:53 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdiT-00000001Cza-39w4
+	id 1wKdk4-00000001DSo-3Sj0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 14:59:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NTDvvK60XSMlelqvxzl+7B/4uS16tf+4A9fUdOhf7i7UHh5FLzlVR0DvI2N3tc84+rspr8+DAIUUJ7Wz0DTLmncttZCLB0oPgHcpSZZY4zR6KaBs5ka8OQXcmHzReSqgL/VXdBCcWWKk5dS2885NC+TCOwpFZG5Fg90fWKNKxEYxZlfOFvJGpb2r6rJ/oxkai8/ZnnAIutFa/+EIGHDq/j3IwrCTcw97MBvIt20aQjXN51GtEfEFk9GAZ8/jgcOGYg/+nOu4BQ9qWVb9SbzcYYrNQ9nAgKTHNHLJxm/dcWjNrzO1/VokJx09Z4M/Y8+R9wyJ7gfVs850ArmG9EEv3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PnOefGTI0cf18Z8MTj6MleCguWEHQlhho9M+GtQESow=;
- b=EKI/i1ERniECZjJD+uZEPkEQw1jLYX7oz5PoO27TGJWnPuFTNaC4W7lWnYcTGjwL8mJYVPiAKnbAErvYtmeAY54LNs/1a0hFMzn7Sb3lPU8M0APWZR3LCVK344ISUZ+aQhq4mHeCrgqKgf598868nYG1MYeK3UTtEecshPxfyHKKYG/Jrte9mMuLGpsG2fnHdiIg/KhN5LProecnazTtncjf6dY6lqnmIh2zGkIF5yxmCCYbXU+T9ybkT0/7RubkTQ16f31u3kYsbPsJUe7uNfTPibZGiSQSQmUIQISu8Qju5uby6v5JUhBP29TY4zQcqA4x9IhKakyWhFnqIu/6Hg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PnOefGTI0cf18Z8MTj6MleCguWEHQlhho9M+GtQESow=;
- b=gdlpQvqt3SahyGEDFnUQF3RKJxacitzhCZSuvrLvf0XoM8gEhzQfcbEnnUZzkUMMmMmN6asUcTMcE4mAONBI4v6yKDuCvl4inRyJ3BDMgiVOwrOrwa+gs+QaNpeA3lSrBESilevw2JqvRxitW+vT4Py4acO659jWNcLVgccvB/BD4VQILW79VUWnvYA9JIP+OfCk4Ociv4tZdCwFj8DiWjH5YCs0yKy+Xs2zKLti0MQVek51IQWQAkcCxjAYJVA4k0QVAYKtzizghEfpbZ/zhO4AQyRjvY7eCr+hUreERJhpNj8ljLxrWAeWP5Qu1iAqVCZXSLgoPfjxmqfMs/Cxvg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DBBPR04MB7673.eurprd04.prod.outlook.com (2603:10a6:10:202::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
- 2026 14:59:08 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%6]) with mapi id 15.20.9870.023; Wed, 6 May 2026
- 14:59:07 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- frank.li@nxp.com, s.hauer@pengutronix.de, festevam@gmail.com, 
- Richard Zhu <hongxing.zhu@nxp.com>
-Cc: kernel@pengutronix.de, devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260506055316.2798693-1-hongxing.zhu@nxp.com>
-References: <20260506055316.2798693-1-hongxing.zhu@nxp.com>
-Subject: Re: [PATCH v9 0/3] Add i.MX943 PCIe supports
-Message-Id: <177807954574.853863.624761746932435454.b4-ty@nxp.com>
-Date: Wed, 06 May 2026 10:59:05 -0400
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SA0PR11CA0010.namprd11.prod.outlook.com
- (2603:10b6:806:d3::15) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Wed, 06 May 2026 15:00:52 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-445795cf6f1so4091728f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 08:00:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1778079651; x=1778684451; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0/W7qZT5O8z085sn4mW/UkbICY8RKtYfsrB4Yj1GnNQ=;
+        b=UYPSC9K1HhAD56HRaAtuUjnlMNWneIHALp1h7eUPcxAxpRAK64XoddBmRBYWNZKt9+
+         Yn69ByOBY+Ab8ANQMclTw9ch/b2r23l4N541d81PdUn6KzrZtQU+3x+1W6CSRUtmEbhI
+         5RjiTJSUk/eMclwWcxT0x4Zk9zwpaOcYwn4Zv3dHuhn2b/cXKfG/6f9RNpW/lI8wZiH9
+         CeHu4NdqnW/bmapBgUuhbXM05/mS/awa+eNEj40L7bB7vNU7lZnhwPnKOVQh/kKKZ8fV
+         KA1w5AL0o6qlcuaZWt9jEs7RSCEsWUUtJURIkI0sXjv7GnjYobWfSEATbUXEzt+sE52W
+         tfaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778079651; x=1778684451;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0/W7qZT5O8z085sn4mW/UkbICY8RKtYfsrB4Yj1GnNQ=;
+        b=ccfg1Z2G5ec98tEiaNJ29fOjJRTbMtjdxeZZwCP6JeKS1W+S8xYPU0hDlcInHGNog7
+         iEZKjVnZTDW4QFLV2VkUL3N/Zjb7Dd91QF8kXMqMQf3JzmgTR/XeTWHK0/d5Actro7w4
+         HZowWZZetdrpVhIRp+R5TLCLxkbiN0AMnPfNFVh6zZIYM1lXUFu1DODfRcPsw1xssaDS
+         AfcMengxddGK7QezAO1i2aSnrx8UvktREDGTHgoX6ZVls2zRNK5mExzL8oS9fuUHiHuE
+         By9ZLNOpksutSFQrki9e2bp0E7me13U5JOCZ4h6R3L5Aoh4C45o5eX6mHkzqfNKnsABa
+         HJLQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8YrMzERQWGw9iiuHszfDnjxexnFzO/XqGagNv2jX5pfGcflOu6Sd051ajVMeL1hFXnEO++2aJRZ7fDJtH3SFju@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZpURLukEKW7K5ofoPVQDt07K6KOW/NRms//4iKd9gGPdYG2Ep
+	Z6kwW5auU5ZplCkSLTYq+hGWSZOByINmpDKGhOvZkIBrq9djIBPnhxALr2aHKOrE/MU=
+X-Gm-Gg: AeBDieuusz92SyW2jqvatN04pKEH0wa3lvLWh9AbhqfrP0Q8DwvAhL8DfZc5dy43Xxk
+	xwAM6jDuZX25YEPFm98tro6rB2WZbsJXy3Oe0zYmLsoDMfz28go77NnCxt+AHNK3inDtOUHgAYW
+	Uw6z9+hHoNRZgQJE5SG/Ht532gUbrTpSVp2B9bggkGjKmE+TaNEDEZIWXBpLU3StsckVQYQs2CH
+	DjaZJmYBYGfj3Eo8nO07LgpVIskHUMIvZ2LKX1sNDlDNtKUtDoq2IDFOcTYq/1/MOEuHfOzljDt
+	xS3FOSlA+j1XfNjtvFomdrWqTV7Q1AXXx+SlVtQMiuc70vbhwHrFJBztW+v8Mo82yyN9pIdYn/P
+	fsDrGX47nZa+MXWzJYrBtGsHGTaKTW7R6XR95V9W4UDBuekOe0LI2/Jly1PcbSAGhfTAasaOKBE
+	e1iH4+uqm1lQ9DRaGwy+EHILz5mMp2L9xsRu3Lq6Wlulnh3hb8dWelHaJl98fC+o2xvpcMI/SCl
+	lDNyYwgaBKaVVYEGFROYOK5mbXt
+X-Received: by 2002:a05:6000:18a6:b0:43d:761d:5423 with SMTP id ffacd0b85a97d-4515ad767eamr7192146f8f.16.1778079650163;
+        Wed, 06 May 2026 08:00:50 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:106d:1080:5798:67fd:c866:b378? ([2a01:e0a:106d:1080:5798:67fd:c866:b378])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45054b03df9sm12728674f8f.24.2026.05.06.08.00.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 May 2026 08:00:49 -0700 (PDT)
+Message-ID: <4d77bbef-6350-48e1-93a5-d256fc8bc8cd@linaro.org>
+Date: Wed, 6 May 2026 17:00:47 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DBBPR04MB7673:EE_
-X-MS-Office365-Filtering-Correlation-Id: cc60d390-1b6d-4b05-5e4a-08deab8005e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|7416014|52116014|366016|38350700014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: gR+lGn1XRZWqB4WXbYW1fn75dDs/dpT0YVgyaEyX6RhebLJ78WNXFEVSNOuc0NoYYV2HR9L8/gtx9KiiUudOVKiKVCW3XqSXzVYri2HEyu6zOV6DSbKux6rvcShZWLq3IrteqRe/HJHIrEa3Bl1iarUTAXq67IxiBdr3mJnJli1mxE3UDAR77HjJE0hYMRDmEwRx06pbU6d8zzJSPkqQcCgvE6FGn+SXT1OSxWW+j8dwHqOmG8dSYuu51zmgH/y9EqCLaByVAofAdIF2aYFnDxB4KnR7haP+fLfWLisg4b7CZlCh+dBHjWUh4jc86r/w4gG2phny044bzvhjpPn7Ma9tGmDxUU3QZgmnHHS6YmLmxjHBChNJxO3Yq4o8xm+ZfqXT3mGVrGcGwPSWlkoYrA/LRLNJD+8fLzl7rgzDFh0MeR67/mGlAj85XVt9K0jIB5d6GzN2OGGGcVMj0zoAcgxXCD/YgotyUH/P2rbB3xWBWxmmDMYFp6k/av43sTCRAO7Qg0uPEgA/BTq8hbJFWgBovRw/L+okvJbEUt/+9yxpyxoEm+Twlj+160wVH7ML1k46FGpRISOC9S/U/ZBMfDgpC2Hjg9uTQ4hcw2avDt+EQ/FWaAc9FW+gf5UlxzkHSZbpundYjcPrfsydvdO9HHbt51wOBE3wjEaRXtPu3YxzU/U0oewj3WZ3aeexTpT8AlOGD2ECjsb/SzdfVFEO12K62ikS4jrpumV0KYCpQf8uKridQPop7oIUIBPlYaRz
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(7416014)(52116014)(366016)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QjRBR090WWVyNXIzUlVncDFjYjhlQklFOG1VNWVwelJjL0NGamU0VFdtZXZ0?=
- =?utf-8?B?d1BES2poR2I0bnFPNkV2cW1IOGZWU3NZSGJlY3dSWFdpQkVSMzFQMk1VbjFm?=
- =?utf-8?B?TG43R244V3BIZEx2UEdxbGJZYUxsa0pmMHZlck15dU05MlB6Z25NRnFvRnlE?=
- =?utf-8?B?ZS9kTHpxdUVSUEtBZWkveGFCdTNqYU5ITjhSbzl4ZWxYZkVhcnlpb3QyazBh?=
- =?utf-8?B?WGRuNWFSVFZGMXVGZkhqckFEQVJhRVA2VTdlNVJudi8wdU5DTXRNQWw0Qm4x?=
- =?utf-8?B?TDdVRU5BRGRSU2NiYzVoZ2oySlFUQVI4ZUJBYk03YW1WVTdBd2p3WC8xb1cv?=
- =?utf-8?B?bWdkTXdiR2NHeUl4YVFCeGsvQTJ2NzlWdEtWRGN0OGJEZWtCa1BxQ0NELzlY?=
- =?utf-8?B?M3dwWDNQNHF5Tm90OVBJbmlUMEMyb1IyQnBYa29GSUx0c0tXeTNHZ2ZSbnNU?=
- =?utf-8?B?YldqT3ZqOHRxbG1BenJCOWZKalp5OEdhSDltSzF4QkVQWW1NY0xESXdjL2t2?=
- =?utf-8?B?ZC9COGZ5ZmFPVUNQZENOMDFCbm9DN3V0QnVqOE5xYmtXQ0N4MjNLZlNMZmFD?=
- =?utf-8?B?OUVBNzgyMXFBZmp5Y3RubnZlWWNsNTg3SkphZkdWR3BFNHNpNHRFOXYxQ00r?=
- =?utf-8?B?bjhOQ1NlNzdFSFUvck9zRllrQUVPWEtHM3lHV052ZHNrN2ZkQWJFbnBZdDNZ?=
- =?utf-8?B?Vnp4MkpjMGRlVERvTHlLamIzWGFyNjhuanpkZkI4ZzBpN2xwU2pXejVnWXB4?=
- =?utf-8?B?SXJOK3RSblJzS2xpRlJJVURxeHMzVnA2T1lEdENvRnJWNnFQQlQwWHNhMnE1?=
- =?utf-8?B?eGpSWnJFQkszOTZDRStVK2tmSVZETllPNXRydythNWYwNjNBTkx2djZCZXg2?=
- =?utf-8?B?a2xhUnpjZGNiT0tKYVRsNFVjaGZaYklXdW1vTk80VGJZQ2pPZis5enJaS0VP?=
- =?utf-8?B?TXVqaFlHRjJEU0RBRHFLcERNSGxUbWJmSytqckxuL0ZPd0RMUHIyNHluSVF1?=
- =?utf-8?B?SHZUdDl1Tyt5RG9qeis3TUdBQzRNczhUbFlCSm92dGRma2R5dVVjUDIzaVM1?=
- =?utf-8?B?TXdXM3N2Y0pPSC9nVFprT0cvaE96Z2ovQ0s3c2Zka1BkSGZnR0ZZSlZlMEl3?=
- =?utf-8?B?S2h4MUxFMW1JQTJlVjF3bTJkZGZDMWpneDdGMldCWjI5em1GVEdFSVBRdU52?=
- =?utf-8?B?T2RXNi9RN1lNdnAwUHdXUVhGTEFZRE9rVWZjRDFyL0FCanV1RUIwY3Z6SEdS?=
- =?utf-8?B?aTZMcG1YUXRnSVJpbWRRV2JUQ1JYSXhCT0JoTzJTMnUyTDJSb2hsaXNLOWFy?=
- =?utf-8?B?VU5OUmJmckxkNjc3SFdDV0RjZmJIRUJvOE41cmliaTIyMytIcFEybVdhYlc2?=
- =?utf-8?B?b05QMEk1MGlYQjJIVkswNmlyNEhUTGZsNVZtbVg2RnpHNnhnOVNOZm9CNzRN?=
- =?utf-8?B?UmFmQ0lHTS9QN2JpazR5QXhnVXFpYlJOUWs2YXJjVmpTZzFzSHA3VnZrdVlj?=
- =?utf-8?B?NHR1TGVUZWlqaStVLzY0T3Q5Z3BWVG5QTVR0RzZyaVRJeHFkbWlXci94LzE3?=
- =?utf-8?B?Kys1WTI0N0laVTN5OXVqRHRPTzBidTRHc0pPWVd5SVNqbFNLZmd0RElhTXNJ?=
- =?utf-8?B?a0IxTVZZdFNDdDlEZ1JKT25hSmhjRDV6T1pLY0ltT2s1R091YWxQMFZidERp?=
- =?utf-8?B?SFZsNXRIcHBzdURRbjhndkRHOXFyQlRUMjdBakdpK0pjVXFTY204R0o1Wnpu?=
- =?utf-8?B?ZGVZUmx5b04zbVhhbi9NcGRPT3o0QVdZdElXZ01QUXZDRFFkNEt2TFhIODZ3?=
- =?utf-8?B?SXZpcnljOXZieUxLYjJYVnQ2WVEyZ3p3TU9xK3lZTHgvY25iMlVTUzJDVUhW?=
- =?utf-8?B?UEZSUm81K0k5ZUVvVmxabXRxRndsMSsxZDFMTEwzRXJFWjFUWWxnNW9UUUhT?=
- =?utf-8?B?UTgzSnIrQWdxaDhQT01hdC92ckNURnpKNDdRRE1UNDJFSVU4MVRZSnV3QXBO?=
- =?utf-8?B?bklEMGRrOG9neTl0R2o4elpKaEdOQW9lZ3F1c1JmK3N4M25Qa1VQY01rNVFB?=
- =?utf-8?B?R1NJVUJ1MXBNOHJEb3NsbDFFeDdtK3VBUmZ2R0U2Zkk0Qmc4R3FtN0t4L1FZ?=
- =?utf-8?B?TVpscHl6dnduSmJ1ZTNsTEZ4UkhmbXhxTFRBb0RIdDRPeEFZdXI2NkNIelVW?=
- =?utf-8?B?QzZnL3ZlcW5LbFJPMkRkMXN5VThLTTk4aFpOSFF6dWdkQWVxdlF0ZGhOU3Jh?=
- =?utf-8?B?TGJmTjg4UUh2RWtCamNJajFHWERTdEUzcm5RcFV1YWxRejJiaWdWV2ZqSC9r?=
- =?utf-8?Q?8CP+yNtDD3zdw/PWyJ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cc60d390-1b6d-4b05-5e4a-08deab8005e8
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 14:59:07.8115
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SlDIrQnMFkruY8ozGxcpgaU62jRaH64JwDL9Z+gNHAALHnHq4MxQ9eDft1m60S+VQbFeknBYuDYQGh4cprA6aQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7673
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH] phy: rockchip: inno-hdmi: Change TMDS rate handling to
+ configure() ops
+To: Jonas Karlman <jonas@kwiboo.se>, Vinod Koul <vkoul@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260503172936.194003-1-jonas@kwiboo.se>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20260503172936.194003-1-jonas@kwiboo.se>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_075913_795961_B1CFAB19 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260506_080052_906586_53569F82 
+X-CRM114-Status: GOOD (  24.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,32 +127,102 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 06 May 2026 13:53:13 +0800, Richard Zhu wrote:
-> This patch-set adds i.MX943 PCIe supports on EVK board. Please pay
-> attention to that it relies on the patch-set[1], and the PCIe1 port on
-> the EVK board relies on the [2].
+On 5/3/26 19:29, Jonas Karlman wrote:
+> The commit 10ed34d6eaaf ("phy: Add HDMI configuration options")
+> introduced a way for HDMI PHYs to be configured through the generic
+> phy_configure() function.
 > 
-> Both of them are included in the v7.0 kernel.
-> [1] https://lore.kernel.org/imx/176649331066.523506.9443864112044699350.b4-ty@kernel.org/
-> [2] https://lore.kernel.org/imx/inzg46tc2fwsajxq4vzdyuiq7krzy6xtcg2mjaieninz7zsmgm@mtdjr4tuegpq/
+> This driver currently derives the TMDS character rate from the pixel
+> clock and the PHY bus width setting. However, no in-tree consumer of
+> this PHY has ever called phy_set_bus_width() to change the TMDS rate.
 > 
-> [...]
+> Change the TMDS character rate handling to depend on the configure() ops
+> before any PHY consumer needs to configure a TMDS character rate that is
+> different from the pixel clock rate.
+> 
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> ---
+> A near future drm/rockchip: dw_hdmi: series plans to include a call to
+> phy_configure() to configure this HDMI PHYs TMDS character rate.
+> ---
+>   drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 30 ++++++++++---------
+>   1 file changed, 16 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
+> index 1483907413fa..7f0563d4d482 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
+> @@ -245,6 +245,7 @@ struct inno_hdmi_phy {
+>   	struct clk *phyclk;
+>   	unsigned long pixclock;
+>   	unsigned long tmdsclock;
+> +	struct phy_configure_opts_hdmi hdmi_cfg;
+>   };
+>   
+>   struct pre_pll_config {
+> @@ -554,19 +555,10 @@ static inline void inno_update_bits(struct inno_hdmi_phy *inno, u8 reg,
+>   static unsigned long inno_hdmi_phy_get_tmdsclk(struct inno_hdmi_phy *inno,
+>   					       unsigned long rate)
+>   {
+> -	int bus_width = phy_get_bus_width(inno->phy);
+> -
+> -	switch (bus_width) {
+> -	case 4:
+> -	case 5:
+> -	case 6:
+> -	case 10:
+> -	case 12:
+> -	case 16:
+> -		return (u64)rate * bus_width / 8;
+> -	default:
+> -		return rate;
+> -	}
+> +	if (inno->hdmi_cfg.tmds_char_rate)
+> +		return inno->hdmi_cfg.tmds_char_rate;
+> +
+> +	return rate;
 
-Applied, thanks!
+Can't you keep both until dw-hdmi calls the configure op ?
 
-[1/3] arm64: dts: imx94: Add pcie0 and pcie0-ep supports
-      commit: 43a2c0c0664a14b08a9de6e3d26121070ea55715
-[2/3] arm64: dts: imx943: Add pcie1 and pcie1-ep supports
-      commit: 7f7b2317069d8a4e56de38606180e60c0969767c
-[3/3] arm64: dts: imx943-evk: Add pcie[0,1] and pcie-ep[0,1] support
-      commit: d570a0d019a3d84832bfc6867647d3581b0052f3
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+>   }
+>   
+>   static irqreturn_t inno_hdmi_phy_rk3328_hardirq(int irq, void *dev_id)
+> @@ -602,6 +594,16 @@ static irqreturn_t inno_hdmi_phy_rk3328_irq(int irq, void *dev_id)
+>   	return IRQ_HANDLED;
+>   }
+>   
+> +static int inno_hdmi_phy_configure(struct phy *phy,
+> +				   union phy_configure_opts *opts)
+> +{
+> +	struct inno_hdmi_phy *inno = phy_get_drvdata(phy);
+> +
+> +	inno->hdmi_cfg = opts->hdmi;
+> +
+> +	return 0;
+> +}
+> +
+>   static int inno_hdmi_phy_power_on(struct phy *phy)
+>   {
+>   	struct inno_hdmi_phy *inno = phy_get_drvdata(phy);
+> @@ -668,6 +670,7 @@ static int inno_hdmi_phy_power_off(struct phy *phy)
+>   
+>   static const struct phy_ops inno_hdmi_phy_ops = {
+>   	.owner = THIS_MODULE,
+> +	.configure = inno_hdmi_phy_configure,
+>   	.power_on = inno_hdmi_phy_power_on,
+>   	.power_off = inno_hdmi_phy_power_off,
+>   };
+> @@ -1392,7 +1395,6 @@ static int inno_hdmi_phy_probe(struct platform_device *pdev)
+>   	}
+>   
+>   	phy_set_drvdata(inno->phy, inno);
+> -	phy_set_bus_width(inno->phy, 8);
+>   
+>   	if (inno->plat_data->ops->init) {
+>   		ret = inno->plat_data->ops->init(inno);
 
 
