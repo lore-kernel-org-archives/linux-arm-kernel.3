@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EEB9CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA86CD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yA4Q4VrBxQuoKXsSh7fBnRgwqj5jLm5OpfFWZ/Xem1k=; b=DJgbMgP7GAkhF9jkZkHNQv2w5C
-	QyL2qS3cQ2/0S2bvHHChnoZVUgsiiPsdQ+XMc1yTFaxofnF6jz3H20S4U2uJQEOwN/KwaFQEW/dK0
-	3RWgFtJaF9OrhNsYgPZNX3OWKvseKNOYXnttnIjAAbCyhOObTbL419hgJEtc+JCGjwcwDIAPGdd+Z
-	Qrm+G5NOVpUj7MNV5JOkyHZg8YnxjMf4YGhSXH7wxfvEc8jiGuafzuHC10Ng3kBjZqV4gBpoNc7W/
-	h3vCyby1B8vmEFDvSeOIOIRon/PTyGcjh4gRzwF3aFnb8jma57UO5zUxm2pzZD5yhosjXFwGvyRB9
-	LJd5/Elg==;
+	bh=XgKxceKbmfcJbbVOUTAY2dSAIhU9o+HuhfL5A1ljHaQ=; b=qUP0/wNbQbd6B/iPtB4G9n+A+s
+	NUWfCFlt1CaT/EiQNpZHnrAYBbxK7K5gUyfKhmRYx0C6PLG3aexOorTa4sN7dakaFb++2xW+1qsXM
+	4nzRO3o+mnaXjXaPJpgFramBHOjDbfd5YrcXdhPNmpkxg1vpAWJSFLB15X00nmzKnJ1oI73udZXcd
+	Eaqw3Nrk2fLTl91XzaqmnOT3o+Pf+t7NI48OHV0Q+SOlIvL0UAfQj2FrC/XiSSAB4UOkUokc7q8Hd
+	1pKV0QbmeWSvFaY3RUtqNyXycYdO1Rsjzy1GeMo2TEQ97JfjCiprbYtHz81VeTh3/7ypSdxyFGPyh
+	D8L01AOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXKk-000000007JA-3q0y;
-	Wed, 06 May 2026 08:10:18 +0000
-Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
+	id 1wKXMe-000000007Yz-16YS;
+	Wed, 06 May 2026 08:12:16 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXKk-000000007Ik-14om
+	id 1wKXMd-000000007XY-22nO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 08:10:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1778055015; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=yA4Q4VrBxQuoKXsSh7fBnRgwqj5jLm5OpfFWZ/Xem1k=;
-	b=wWI3MuuSQHMMB59hlK0PsnGobl15v8pe0O73bEp9T4VUHPN8dTQtm3msArq3iTP9d21vHHmQz2xPSgr/VLAemJ3uJtUfV0MwqDu9Q14yWNhQyrVF0YNc76Qyv3IQ2dKJ8AME3AYsoswRqLY28L6i9TVJxtpZSBeihqKBGu9X3K0=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037033178;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=22;SR=0;TI=SMTPD_---0X2NUGIF_1778055011;
-Received: from 30.221.149.96(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X2NUGIF_1778055011 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 06 May 2026 16:10:12 +0800
-Message-ID: <8f1529af-f6fe-44bc-a4b1-c47a19824d1e@linux.alibaba.com>
-Date: Wed, 6 May 2026 16:10:11 +0800
+	Wed, 06 May 2026 08:12:15 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 6 May
+ 2026 16:06:58 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Wed, 6 May 2026 16:06:58 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Date: Wed, 6 May 2026 16:06:18 +0800
+Subject: [PATCH v9 1/3] dt-bindings: pinctrl: Add
+ aspeed,ast2700-soc0-pinctrl
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/8] ras: aest: extend AEST support to Device Tree
- frontend
-To: Umang Chheda <umang.chheda@oss.qualcomm.com>,
- Ruidong Tian <tianruidong@linux.alibaba.com>, Tony Luck
- <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, catalin.marinas@arm.com,
- will@kernel.org, lpieralisi@kernel.org, rafael@kernel.org,
- mark.rutland@arm.com, Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- Faruque Ansari <faruque.ansari@oss.qualcomm.com>
-References: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
-From: Ruidong Tian <tianruidong@linux.alibaba.com>
-In-Reply-To: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260506-upstream_pinctrl-v9-1-0636e22343ad@aspeedtech.com>
+References: <20260506-upstream_pinctrl-v9-0-0636e22343ad@aspeedtech.com>
+In-Reply-To: <20260506-upstream_pinctrl-v9-0-0636e22343ad@aspeedtech.com>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Joel
+ Stanley" <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"Linus Walleij" <linusw@kernel.org>, Billy Tsai <billy_tsai@aspeedtech.com>,
+	"Bartosz Golaszewski" <brgl@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
+CC: Andrew Jeffery <andrew@aj.id.au>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
+	<linux-gpio@vger.kernel.org>, <linux-clk@vger.kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778054817; l=5365;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=umFpfd66BRJCJk5jOcCmR9w9vfYsC79aq8DVfgDGxeU=;
+ b=xg4WMR3SyfP2VQQyIr/FVoEhOjgyYTCWgZA9aF4SNa2Z0C0xCPy3HpVnEhOrdh/AocWmrizHV
+ nWTrhwcM2iGBzOUaz41W8GZ4VjwoMcJkfPg+6px3lIvdgytkLEmVjTC
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_011018_478430_31F3DFCB 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20260506_011215_522141_FB16A708 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,170 +78,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Umang,
+Add a device tree binding for the pin controller found in the
+ASPEED AST2700 SoC0.
 
-Thanks for your patch.
+The controller manages various peripheral functions such as eMMC, USB,
+VGA DDC, JTAG, and PCIe root complex signals.
 
-Would it be okay if I include this patch in the next version of the AEST 
-patch series? I will make sure to add your Signed-off-by line.
+Describe the AST2700 SoC0 pin controller using standard pin multiplexing
+and configuration properties.
 
-Best regards,
-Ruidong
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+---
+ .../pinctrl/aspeed,ast2700-soc0-pinctrl.yaml       | 188 +++++++++++++++++++++
+ 1 file changed, 188 insertions(+)
 
-在 2026/5/5 20:23, Umang Chheda 写道:
-> This series extends Tian Ruidong’s [1] ACPI-based AEST support series
-> to also cover Device Tree based platforms.
-> 
-> While the existing AEST driver relies on the AEST ACPI table [3], many
-> embedded Arm platforms use Device Tree exclusively and cannot use the
-> driver today. This series adds a DT frontend that mirrors the ACPI
-> implementation and feeds the same core driver, keeping ACPI and DT
-> paths functionally equivalent.
-> 
-> Along the way, several correctness issues were identified in the core
-> driver and are fixed in the first part of this series.
-> 
-> The DT frontend is mutually exclusive with ACPI and does not introduce
-> any DT-specific logic into the core.
-> 
-> How to test with QEMU
-> --------------------------
-> Tian Ruidong's QEMU fork [2] emulates AEST MMIO error records on the
-> virt machine.  To test the DT frontend:
-> 
-> 1. Build QEMU:
-> 
->       git clone https://github.com/winterddd/qemu.git
->       cd qemu
->       git checkout c5e2d5dec9fd62ba622314c40bff0fbecb4dfb34
->       ./configure --target-list=aarch64-softmmu
->       make -j$(nproc)
-> 
-> 2. Build the kernel with:
-> 
->       CONFIG_OF_AEST=y
->       CONFIG_AEST=y
->       CONFIG_ARM64_RAS_EXTN=y
->       CONFIG_RAS=y
-> 
-> 3. Add the following DT node to your virt machine DTB.  The QEMU
->     fork maps DRAM error records at 0x090d0000 (SPI 44) and CMN
->     vendor records at 0x090e0000 (SPI 45):
-> 
->       aest {
->           compatible = "arm,aest";
->           #address-cells = <2>;
->           #size-cells = <2>;
->           ranges;
->           interrupt-parent = <&gic>;
-> 
->           /* DRAM memory node — MMIO at 0x090d0000, SPI 44 */
->           aest-dram0@90d0000 {
->               compatible               = "arm,aest-memory";
->               arm,interface-type       = <1>;
->               arm,group-format         = <0>;
->               arm,interface-flags      = <0x22>;
->               arm,num-records          = <4>;
->               arm,record-impl          = /bits/ 64 <0x0>;
->               arm,status-report        = /bits/ 64 <0x0>;
->               arm,addr-mode            = /bits/ 64 <0x0>;
->               arm,proximity-domain     = <0>;
->               reg                      = <0x0 0x090d0000 0x0 0x1000>,
->                                          <0x0 0x090d0800 0x0 0x200>,
->                                          <0x0 0x090d0e00 0x0 0x100>;
->               reg-names                = "errblock", "fault-inject",
->                                          "err-group";
->               interrupts               = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
->               interrupt-names          = "fhi";
->           };
-> 	};
-> 
-> 4. Boot QEMU with acpi=off:
-> 
->       ./qemu-system-aarch64 \
->         -machine virt,accel=tcg,gic-version=3 \
->         -cpu cortex-a57 -m 2G -smp 4 \
->         -kernel Image -dtb virt-aest.dtb \
->         -append "console=ttyAMA0 acpi=off earlycon" \
->         -nographic
-> 
-> 5. Verify probe:
-> 
->       dmesg | grep "DT AEST"
->       # Expected: DT AEST: registered 1 AEST error source(s) from DT
->       ls /sys/kernel/debug/aest/
-> 
-> 6. Inject a CE error via the QEMU MMIO fault injection registers.
->     The QEMU device accepts 64-bit accesses only (use devmem with
->     the 64-bit width flag):
-> 
->       devmem 0x090d0808 64 0x80000040   # CDOFF | CE inject
-> 
->     This triggers QEMU's error_record_inj_write() which sets
->     ERR<n>STATUS.V=1 and asserts the IRQ.  The kernel driver's
->     aest_irq_func() fires, reads the status, and logs:
-> 
->       AEST: {1}[Hardware Error]: Hardware error from AEST memory.90d0000
->       AEST: {1}[Hardware Error]: Error from memory at SRAT proximity domain 0x0
-> 
-> Testing
-> -------
-> - Validated on Qualcomm's lemans-evk and monaco-evk board with DT boot.
-> - Validated CE and UE injection via debugfs soft_inject.
-> - Tested ACPI path is unaffected: ACPI boot continues to use
->    drivers/acpi/arm64/aest.c unchanged.
-> 
-> [1] https://lore.kernel.org/lkml/20260122094656.73399-1-tianruidong@linux.alibaba.com/
-> [2] https://github.com/winterddd/qemu/tree/error_record
-> [3] https://developer.arm.com/documentation/den0085/0200/
-> 
-> Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
-> ---
-> Umang Chheda (8):
->        ras: aest: Fix shared processor node handling and error log messages
->        ras: aest: Fix CE/UE error counts not incrementing in debugfs
->        ras: aest: Skip unimplemented records in debugfs
->        ras: aest: Add panic_on_ue module parameter
->        dt-bindings: arm: ras: Introduce bindings for ARM AEST
->        ras: aest: Add DT frontend for ARM AEST RAS error sources
->        arm64: dts: qcom: lemans: add AEST error nodes
->        arm64: dts: qcom: monaco: add AEST error nodes
-> 
->   .../devicetree/bindings/arm/arm,aest.yaml          | 406 +++++++++++++
->   arch/arm64/boot/dts/qcom/lemans.dtsi               |  41 ++
->   arch/arm64/boot/dts/qcom/monaco.dtsi               |  41 ++
->   drivers/ras/aest/Kconfig                           |  15 +-
->   drivers/ras/aest/Makefile                          |   2 +
->   drivers/ras/aest/aest-core.c                       |  63 +-
->   drivers/ras/aest/aest-of.c                         | 673 +++++++++++++++++++++
->   drivers/ras/aest/aest-sysfs.c                      |  27 +-
->   drivers/ras/aest/aest.h                            |  15 +-
->   include/dt-bindings/arm/aest.h                     |  43 ++
->   10 files changed, 1310 insertions(+), 16 deletions(-)
-> ---
-> base-commit: a67b7fd0dd1f6ccf3d128dc2099cdb07af1f6a09
-> change-id: 20260505-aest-devicetree-support-a3722d90e1f5
-> prerequisite-message-id: <20260122094656.73399-1-tianruidong@linux.alibaba.com>
-> prerequisite-patch-id: c5a7c6431c6c1e6351241e694ee053800039d41d
-> prerequisite-patch-id: 1f6e2c20829eee41a210dd8a538f1e8efcc65872
-> prerequisite-patch-id: 5556287e3f46c2ed2c0431c53c7782e87bcbd866
-> prerequisite-patch-id: 2edae0a136d7779b8f686181720e71d044a73311
-> prerequisite-patch-id: b5190b2844dcb01e72f87a59f3a29548795fdb82
-> prerequisite-patch-id: 7ba848583708b2ae776a7ce847bb056e3de7f77b
-> prerequisite-patch-id: 397e5b22802b67942435f4f2968f0b1e210ba0e8
-> prerequisite-patch-id: 2169f4b65537eecbd0ccbd2ad6b28c64ec44655d
-> prerequisite-patch-id: b626f85d98747595b3240bc49e6ad9c9dd5c0fa9
-> prerequisite-patch-id: 1323dfd2eebad2ef6514dbbce58ba08e8859f894
-> prerequisite-patch-id: 95b826e5e329408437a3ef336c4f45d4d74f82bb
-> prerequisite-patch-id: b60ff489a5a33c5d5220fa8144af7b7511769cba
-> prerequisite-patch-id: 43f35a52b8a3d13c938ff08083403c1d3bd0df8b
-> prerequisite-patch-id: c55d4e9117ca36d3c2cba82d550a618cb82bb745
-> prerequisite-patch-id: 3885e10f318ae8101d6909b35d92a976cc359e3c
-> prerequisite-patch-id: 92958cde05577f069c5659018a274bb39cfb6b24
-> 
-> Best regards,
-> --
-> Umang Chheda <umang.chheda@oss.qualcomm.com>
-> 
+diff --git a/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
+new file mode 100644
+index 000000000000..407a64f28d49
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml
+@@ -0,0 +1,188 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/aspeed,ast2700-soc0-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ASPEED AST2700 SoC0 Pin Controller
++
++maintainers:
++  - Billy Tsai <billy_tsai@aspeedtech.com>
++
++description: >
++  The AST2700 features a dual-SoC architecture with two interconnected SoCs,
++  each having its own System Control Unit (SCU) for independent pin control.
++  This pin controller manages the pin multiplexing for SoC0.
++
++  The SoC0 pin controller manages pin functions including eMMC, VGA DDC,
++  dual USB3/USB2 ports (A and B), JTAG, and PCIe root complex interfaces.
++
++properties:
++  compatible:
++    const: aspeed,ast2700-soc0-pinctrl
++
++  reg:
++    maxItems: 1
++
++patternProperties:
++  '-state$':
++    description: |
++      Pin control state.
++
++      If 'function' is present, the node describes a pinmux state and must
++      specify 'groups'.
++
++      For pin configuration, exactly one of 'groups' or 'pins' must be
++      specified in each state node. Group-level configuration applies to all
++      pins in the group. Pin-level configuration may be supplied in a
++      separate state node for individual pins; when both group-level and
++      pin-level configuration apply to the same pin, the pin-level
++      configuration takes precedence.
++
++    type: object
++    allOf:
++      - $ref: pinmux-node.yaml#
++      - $ref: pincfg-node.yaml#
++      - if:
++          required:
++            - function
++        then:
++          required:
++            - groups
++      - oneOf:
++          - required:
++              - groups
++          - required:
++              - pins
++
++    additionalProperties: false
++
++    properties:
++      function:
++        enum:
++          - EMMC
++          - JTAGDDR
++          - JTAGM0
++          - JTAGPCIEA
++          - JTAGPCIEB
++          - JTAGPSP
++          - JTAGSSP
++          - JTAGTSP
++          - JTAGUSB3A
++          - JTAGUSB3B
++          - PCIERC0PERST
++          - PCIERC1PERST
++          - TSPRSTN
++          - UFSCLKI
++          - USB2AD0
++          - USB2AD1
++          - USB2AH
++          - USB2AHP
++          - USB2AHPD0
++          - USB2AXH
++          - USB2AXH2B
++          - USB2AXHD1
++          - USB2AXHP
++          - USB2AXHP2B
++          - USB2AXHPD1
++          - USB2BD0
++          - USB2BD1
++          - USB2BH
++          - USB2BHP
++          - USB2BHPD0
++          - USB2BXH
++          - USB2BXH2A
++          - USB2BXHD1
++          - USB2BXHP
++          - USB2BXHP2A
++          - USB2BXHPD1
++          - USB3AXH
++          - USB3AXH2B
++          - USB3AXHD
++          - USB3AXHP
++          - USB3AXHP2B
++          - USB3AXHPD
++          - USB3BXH
++          - USB3BXH2A
++          - USB3BXHD
++          - USB3BXHP
++          - USB3BXHP2A
++          - USB3BXHPD
++          - VB
++          - VGADDC
++
++      groups:
++        enum:
++          - EMMCCDN
++          - EMMCG1
++          - EMMCG4
++          - EMMCG8
++          - EMMCWPN
++          - JTAG0
++          - PCIERC0PERST
++          - PCIERC1PERST
++          - TSPRSTN
++          - UFSCLKI
++          - USB2A
++          - USB2AAP
++          - USB2ABP
++          - USB2ADAP
++          - USB2AH
++          - USB2AHAP
++          - USB2B
++          - USB2BAP
++          - USB2BBP
++          - USB2BDBP
++          - USB2BH
++          - USB2BHBP
++          - USB3A
++          - USB3AAP
++          - USB3ABP
++          - USB3B
++          - USB3BAP
++          - USB3BBP
++          - VB0
++          - VB1
++          - VGADDC
++
++      pins:
++        enum:
++          - AB13
++          - AB14
++          - AC13
++          - AC14
++          - AD13
++          - AD14
++          - AE13
++          - AE14
++          - AE15
++          - AF13
++          - AF14
++          - AF15
++
++      drive-strength:
++        enum: [3, 6, 8, 11, 16, 18, 20, 23, 30, 32, 33, 35, 37, 38, 39, 41]
++
++      bias-disable: true
++      bias-pull-up: true
++      bias-pull-down: true
++
++required:
++  - compatible
++  - reg
++
++allOf:
++  - $ref: pinctrl.yaml#
++
++additionalProperties: false
++
++examples:
++  - |
++    pinctrl@400 {
++        compatible = "aspeed,ast2700-soc0-pinctrl";
++        reg = <0x400 0x318>;
++        emmc-state {
++            function = "EMMC";
++            groups = "EMMCG1";
++        };
++    };
+
+-- 
+2.34.1
 
 
