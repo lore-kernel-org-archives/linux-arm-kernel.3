@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80413CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:26:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF82CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AhI1dr6jijKSPxyrQzWgADDBwPMWKkN3nQrw+HmubJM=; b=dhz49JYv1pD8gVLiD10mZhkx2V
-	IHu49Cagvnz2gX0T+4NfJnRwAI1csb2LViqoXiRoLGsZ941X0Y20Ct+uqTvz0zB8BrvB5rDrDA9/2
-	lMqmXegzdjGR8dOmh7ZCWHj28D2uuVXjTTcfpg4qrTJu7lgpqnJIvyRlUwBneiSVZJW3juluIlA5V
-	XR9iC2OzrrlDi/vHjS4qIHn3yjNO0snPrBNOgLU0SGZn+zAKYg+sVC43zOFV34nJJQmdH9CA20DaQ
-	RfUwRGXtFqXfAUsrnEDalT6h7iL6ikqJo4tnw8kBnGeZL3Hgv0fDOtS+R3flM5NiFlHJMch6h6fN3
-	coYFOLgw==;
+	bh=j8K6Vn31mUx/5f0i+rVyE2TilvTczYHetbh2S8zMQkE=; b=nH8HT3rYjVaDlgEhsZVC019vWG
+	+N1x3kSKi2JoP5I4uzmwFAGGTR5CVjcPT5LTrVFZfikRnuvQJLOcROUzlnI4JCAiOuLYC+V1xdx9C
+	jZ3OU1EV9MA5s7jIze9EDWQk8NoPPuTk+kG/r0L7igfZYSJrPRxJNZOlc1qjq+xsnoMD98Hok5LZs
+	SO0p8iGCiE8a+UQ2G15S3ifsy9NXGqzyXVt31/vPaZ7pql6TbI2Jh7/I5epvq6LzdrGCzmqScOv5A
+	GDcUuEhXwLEZAv4vNnd/iV+tX6NhVcCm4gqTG1k+3d9bkTEwu1w2hO9dAQu6mtBwO1W81qqI22crc
+	C5naBNTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWeA-000000001Fc-29KO;
-	Wed, 06 May 2026 07:26:18 +0000
+	id 1wKWeD-000000001HO-2rT2;
+	Wed, 06 May 2026 07:26:21 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWe9-000000001Ez-0Cwy
+	id 1wKWeB-000000001GV-37SH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 07:26:17 +0000
+	Wed, 06 May 2026 07:26:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1778052376; x=1809588376;
+  t=1778052381; x=1809588381;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=p4pAZ0/fok0BwxIaJ58/y4fEjxsVXXl/HmXllQWn8+4=;
-  b=UB+FesavpPOt5hHbmI8nEsipdsR0MhKN0kDaKEjH6/zWK0QQiVwa9BkY
-   Kckr+gPvDc0DBM3JDiVCx+G9mNrd2HwEPH3GP0QFA+xmtTA0SKcz5yiFs
-   0xAgGwwVo8QEVLyrNCpMxt9S6BOULWDrGbIg5g7ZgOmWkmbcDswAPQuun
-   WaO4eK43AmosSl8PMXMfhWsX0+2vcBrpIKjjWo4WXsywKWxfabfvBV4C8
-   AKUZrHBgHWe1a69bnv7GytVTZSsRnR7WMdYF8aTqCnHP8jlTLceORIEdm
-   3kXoOc1xEAbyGt8Yzu5wCHv3HdsUhvTod2PgasvcaBiGEdeSVc0wi7UNz
-   w==;
-X-CSE-ConnectionGUID: aytPD8RyTQSa+hCeH27eTA==
-X-CSE-MsgGUID: xUSBkdGQR/+QHPXKO4BH+Q==
+  bh=JITsFlRhNPddbBiE7x9vC95CAEMQC2QeFvYuXGtu3Jk=;
+  b=vs5qxlovYC920e+15m3k9ESNzafy98yGhl13VJVwR8+rI9gN30/jHzvg
+   HJ7JK+PQSSeRu/B0pXcATMsAgxFwxztNRbsHSnsdynAlrNhKhSNGNjbxZ
+   aLp3q+umx3PiKE88O7QHqqPyWDLmq0Yz149NghBd2kZcuH/AtxFqZalL4
+   MHQn08wB3DZDZLiQsUtyV9GMzNUko+gOArHtvKkWyVTwHqWcJW6TyShOu
+   Hm7lXqH+AxPPbjJW14uMztzj26yK0+yOzxusnUQ3gUmsOpVbNc+z2iLpz
+   W7yhXWYI929yW3OEf7MJ4/4792Df/LK+dK3X+72jWKUW/PMzgentgRI/+
+   A==;
+X-CSE-ConnectionGUID: 55FQtZaxTi6fR0HFIcyGwg==
+X-CSE-MsgGUID: eFJSXsBaReiFcz9TRMe1zw==
 X-IronPort-AV: E=Sophos;i="6.23,219,1770620400"; 
-   d="scan'208";a="57105539"
+   d="scan'208";a="65355704"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2026 00:26:15 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 May 2026 00:26:20 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.37; Wed, 6 May 2026 00:26:15 -0700
+ 15.1.2507.58; Wed, 6 May 2026 00:26:18 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Wed, 6 May 2026 00:26:11 -0700
+ 15.1.2507.58 via Frontend Transport; Wed, 6 May 2026 00:26:15 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Wed, 6 May 2026 09:25:37 +0200
-Subject: [PATCH net v2 2/4] net: sparx5: fix sleep in atomic context in MAC
- table access
+Date: Wed, 6 May 2026 09:25:38 +0200
+Subject: [PATCH net v2 3/4] net: sparx5: fix wrong chip ids for TSN SKUs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260506-misc-fixes-sparx5-lan969x-v2-2-fb236aa96908@microchip.com>
+Message-ID: <20260506-misc-fixes-sparx5-lan969x-v2-3-fb236aa96908@microchip.com>
 References: <20260506-misc-fixes-sparx5-lan969x-v2-0-fb236aa96908@microchip.com>
 In-Reply-To: <20260506-misc-fixes-sparx5-lan969x-v2-0-fb236aa96908@microchip.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
@@ -74,11 +73,12 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
 	Philipp Zabel <p.zabel@pengutronix.de>, <kees@kernel.org>
 CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, Steen Hegelund
-	<steen.hegelund@microchip.com>, <linux-rt-devel@lists.linux.dev>
+	<steen.hegelund@microchip.com>, <linux-rt-devel@lists.linux.dev>, Andrew Lunn
+	<andrew@lunn.ch>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_002617_106587_84F7D754 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20260506_002619_802341_B0CFD012 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,73 +93,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sparx5_set_rx_mode() runs with netif_addr_lock_bh held and iterates
-dev->mc via __dev_mc_sync(), which per address calls sparx5_mc_sync() /
-sparx5_mc_unsync() -> sparx5_mact_learn() / sparx5_mact_forget().  These
-take sparx5->lock, a mutex, and then poll the MAC access command
-register with readx_poll_timeout(). A mutex may block, which is not
-allowed from atomic context.
+The TSN SKUs in enum spx5_target_chiptype have incorrect IDs:
 
-Convert the driver to the new .ndo_set_rx_mode_async callback introduced
-in commit 3554b4345d85 ("net: introduce ndo_set_rx_mode_async and
-netdev_rx_mode_work"). The async callback is invoked from process
-context, so the mutex and sleeping completion poll can remain.
+  SPX5_TARGET_CT_7546TSN    = 0x47546,
+  SPX5_TARGET_CT_7549TSN    = 0x47549,
+  SPX5_TARGET_CT_7552TSN    = 0x47552,
+  SPX5_TARGET_CT_7556TSN    = 0x47556,
+  SPX5_TARGET_CT_7558TSN    = 0x47558,
 
-Observed with CONFIG_PROVE_LOCKING, CONFIG_DEBUG_SPINLOCK,
-CONFIG_DEBUG_MUTEXES and CONFIG_DEBUG_ATOMIC_SLEEP enabled:
+The value read back from the chip is GCB_CHIP_ID_PART_ID, which is a
+GENMASK(27, 12) field, i.e. at most 16 bits wide. It can never match
+these IDs, so probing a TSN part fails with a "Target not supported"
+error.
 
-  BUG: sleeping function called from invalid context at kernel/locking/mutex.c:591
-  in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 217, name: ip
-  preempt_count: 201, expected: 0
-  Call trace:
-   __might_resched+0x144/0x248
-   __might_sleep+0x48/0x7c
-   __mutex_lock+0x74/0x850
-   mutex_lock_nested+0x24/0x30
-   sparx5_mact_learn+0x78/0x100
-   sparx5_mc_sync+0x40/0x54
-   __hw_addr_sync_dev+0xc4/0x170
-   sparx5_set_rx_mode+0x4c/0x58
-   __dev_set_rx_mode+0x64/0xa4
-   __dev_open+0x1ec/0x26c
+Fix the enum to use the actual 16-bit part IDs returned by the
+hardware: 0x0546, 0x0549, 0x0552, 0x0556 and 0x0558.
 
-Fixes: b37a1bae742f ("net: sparx5: add mactable support")
+Reported-by: Andrew Lunn <andrew@lunn.ch>
+Fixes: 3cfa11bac9bb ("net: sparx5: add the basic sparx5 driver")
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ drivers/net/ethernet/microchip/sparx5/sparx5_main.h | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-index 1d34af78166a..1061874c9edc 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_netdev.c
-@@ -162,13 +162,15 @@ static int sparx5_port_stop(struct net_device *ndev)
- 	return 0;
- }
- 
--static void sparx5_set_rx_mode(struct net_device *dev)
-+static void sparx5_set_rx_mode(struct net_device *dev,
-+			       struct netdev_hw_addr_list *uc,
-+			       struct netdev_hw_addr_list *mc)
- {
- 	struct sparx5_port *port = netdev_priv(dev);
- 	struct sparx5 *sparx5 = port->sparx5;
- 
- 	if (!test_bit(port->portno, sparx5->bridge_mask))
--		__dev_mc_sync(dev, sparx5_mc_sync, sparx5_mc_unsync);
-+		__hw_addr_sync_dev(mc, dev, sparx5_mc_sync, sparx5_mc_unsync);
- }
- 
- static int sparx5_port_get_phys_port_name(struct net_device *dev,
-@@ -249,7 +251,7 @@ static const struct net_device_ops sparx5_port_netdev_ops = {
- 	.ndo_open               = sparx5_port_open,
- 	.ndo_stop               = sparx5_port_stop,
- 	.ndo_start_xmit         = sparx5_port_xmit_impl,
--	.ndo_set_rx_mode        = sparx5_set_rx_mode,
-+	.ndo_set_rx_mode_async  = sparx5_set_rx_mode,
- 	.ndo_get_phys_port_name = sparx5_port_get_phys_port_name,
- 	.ndo_set_mac_address    = sparx5_set_mac_address,
- 	.ndo_validate_addr      = eth_validate_addr,
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+index d5e6644ff124..078e02627394 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
+@@ -31,11 +31,11 @@ enum spx5_target_chiptype {
+ 	SPX5_TARGET_CT_7552       = 0x7552,  /* SparX-5-128 Enterprise */
+ 	SPX5_TARGET_CT_7556       = 0x7556,  /* SparX-5-160 Enterprise */
+ 	SPX5_TARGET_CT_7558       = 0x7558,  /* SparX-5-200 Enterprise */
+-	SPX5_TARGET_CT_7546TSN    = 0x47546, /* SparX-5-64i Industrial */
+-	SPX5_TARGET_CT_7549TSN    = 0x47549, /* SparX-5-90i Industrial */
+-	SPX5_TARGET_CT_7552TSN    = 0x47552, /* SparX-5-128i Industrial */
+-	SPX5_TARGET_CT_7556TSN    = 0x47556, /* SparX-5-160i Industrial */
+-	SPX5_TARGET_CT_7558TSN    = 0x47558, /* SparX-5-200i Industrial */
++	SPX5_TARGET_CT_7546TSN    = 0x0546,  /* SparX-5-64i Industrial */
++	SPX5_TARGET_CT_7549TSN    = 0x0549,  /* SparX-5-90i Industrial */
++	SPX5_TARGET_CT_7552TSN    = 0x0552,  /* SparX-5-128i Industrial */
++	SPX5_TARGET_CT_7556TSN    = 0x0556,  /* SparX-5-160i Industrial */
++	SPX5_TARGET_CT_7558TSN    = 0x0558,  /* SparX-5-200i Industrial */
+ 	SPX5_TARGET_CT_LAN9694    = 0x9694,  /* lan969x-40 */
+ 	SPX5_TARGET_CT_LAN9691VAO = 0x9691,  /* lan969x-40-VAO */
+ 	SPX5_TARGET_CT_LAN9694TSN = 0x9695,  /* lan969x-40-TSN */
 
 -- 
 2.34.1
