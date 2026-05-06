@@ -4,62 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A5BCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 17:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E36CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 17:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hjm7NoGgKSxevgsF+2TQsRrcA7FECgBjprgUC8nh9mo=; b=Ki/4wGd3TlnKsfaBy8jbcncuBZ
-	Ms9WmLsEQzbwW8hSOiMbu+9M5WmCYOX/UcgJ15UJIzeR8n+HmDCPhmJLDgl5uAE5B366FDXz9lq6+
-	8F3qpS4AJKiBMUi/KF4l+ID1+0sE5oxnMlYwuK9eLUstU+zfWBHAAs4ap9sh0x/dbpnzaZ13aK1ED
-	x2QVNdtBg2wvnAD99q90qt1xe1hn7O75BpuNuq0WOsgRUU2fkUNofgm851zWr7F8oFOj6aW/HV/da
-	NGXC5/3P7aKtN6P3gnddaz88CgBWQn+Z2y7VsqZ9E1JGJicVdeMnHP8e/vEjzF7/ijYOQD6cOOv4w
-	UsjZo/kw==;
+	bh=6i1w8FUVeMItLfoBEsQ1m6McI0ZsDh5XdVy3i6eNKsY=; b=VfgMbeZHQ7UQjxiV5AFH/FfVSl
+	Ykgu4HI90zfEam78STc9Dxki41s6D+3E6ttY6eE2BYmiFQep5cLIduN5/6nJ3c48kHUBa4x9eOyHP
+	k2WX1gH5VcIGYpd7selF9dq6IYvqOYTHqy8NFS7OTrOb9x77yoMgLt6qVkdcc+7hVs17bsMb5IAZ9
+	TIIpj884V5w4ugof78NgXbg+VVBVbV/kp0/Enk6Kp1TQyTM2fLJHMWAqTD0VN39+5qlazZgEyHRgS
+	fjTYukq6CNGobMcKeXKdwerR4I/CSQhiyA9L7Q9MjzlIbGzb9GQTpjg6QZgw9VzgvO7JxrmWUP+WU
+	Nei7sXJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKg66-00000001fNe-1eh7;
-	Wed, 06 May 2026 17:31:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKgDZ-00000001g9h-0DdS;
+	Wed, 06 May 2026 17:39:29 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKg62-00000001fN5-2RFj
+	id 1wKgDT-00000001g8g-0KzQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 17:31:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D90B241501;
-	Wed,  6 May 2026 17:31:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21E85C2BCB0;
-	Wed,  6 May 2026 17:31:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778088701;
-	bh=IXW/gs6w5MDeR9oMEXijuhUMUHTh6E+zU+M+iFLMlpU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dx4isqLgc1x044bHqO4HPhxPHkU5q1I21A0oaqtU2HF+Qa84+yMomcDCGJSrY6DCM
-	 Zb9Tzppb8RpJElwMjzQywDASxzwAiwwct4qwAhHBN/TZCbPCirZbvLIMkWVFB0dZK0
-	 Q1h6UUI7HDoETh2igqwGdFUSasl4gESt2HcrFSyNi+2ElnAqA6SsgivETY/ljf/59z
-	 n2YyKpEG9jUDsUJ5geeKAAeGL1QEjWKTc4zP3MIRPjGb9oZPBuLHRu4SI36cxq54bQ
-	 OHCyMLHWA0RlzmbzCY2422zCZp6NLoN7VZWr+1mKDzUaCSBcL25H5ooE6cD4WrkFn/
-	 jGaeq/kaWyDAw==
-Date: Wed, 6 May 2026 18:31:37 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Rembrandt <kernel@rembrandt.dev>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linusw@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: arm: st,nomadik: Convert to DT schema
-Message-ID: <20260506-turmoil-chef-81946165534a@spud>
-References: <20260506170236.2610955-1-kernel@rembrandt.dev>
+	Wed, 06 May 2026 17:39:23 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4891c00e7aeso57833975e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 10:39:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778089160; x=1778693960; darn=lists.infradead.org;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6i1w8FUVeMItLfoBEsQ1m6McI0ZsDh5XdVy3i6eNKsY=;
+        b=DVMr+L9OC1KLO5AGfoLBuAydxMANEHaTT2oWX+oiYxxDWZPazjNg/dZf7At7pelvWS
+         rqmhIx8Ejvv740kwXQsp1V9D38xwJcN8hzCVzjsEyfyfh3S3o+Q4tx8TVLV7eAX9JCs0
+         PbmZ4zgStFXwgiw7bM3d4QddqNW+i4irnte6j+DV1/FrwquyvFRdEsD+pOGpq98UiVAo
+         p97qpZajls4igWeqX88Bgd6p5DB8rOlUan+zD8YhWxbN6Iqn0srlxyY/GvMp4vcnjbBT
+         4gTeAPCNnvnxaQ1fmz9MEWQQcauSR6Rr843MTjITRP+iPG4WAVhg08Y0r8809FzrzHd9
+         CZGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778089160; x=1778693960;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6i1w8FUVeMItLfoBEsQ1m6McI0ZsDh5XdVy3i6eNKsY=;
+        b=dDHUtpe6szyOcjEWJSel30U2umOQgl83fKquXMwIfPZZ/rUxFZKQGEFIJQOViuca2I
+         MhJuUBMqTWcjnsIRcB8pjfzM2mStFyw2DWEaXFSIOKty/NjBX9OzGnFJEfgSvLRKlRp/
+         6q6UzDwE2iYlJby41VH52C7Ikyj9o8lh2UZzV1GGWfIFqDOMqlfoF4bRqqCd50gRv9pj
+         xJhuAmGP8ycldm4Rs7d3BwdnjXDWEkF5Ez1KIzi6V3TY1P7t5+IL/JVkBI3wa297nogT
+         r5sGRygwx07GmMyeiDVRYJ68r9jAOevhXn2Mtw7RBfiEi/5UfXAuPKyTfcZJLNa7qm0f
+         6jug==
+X-Forwarded-Encrypted: i=1; AFNElJ8cVxa9M7C3Q+eS5JqWRyha3IBa3TmvpMdq3qVEGIj4qFmpPifv8g2NYHCd7CGeM2FIpSVczBZYckYpv6aBk9pK@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiacAu8SHYJmDsdb6ItSZwEMrzHi7rZxufPfNR2G2P/iUG7egJ
+	+tc6scQ0K/QUHEFIkb3excSmtM5KfxfEvMNO2kRTMJm+BsMDY6Qwxqji
+X-Gm-Gg: AeBDievszeh1ih8b/BSm5LJuE2Pazt7g47cMxJaOe2fgoJ4fGMR568W9gozf4ExcP2X
+	fBgQFm4vgooaeVsvDunQG2qOClTEHvylIwlqZ71tye6DhrxrNlaq5mFi8UMOF4MfyOIHU4hQd8Z
+	gb6MBz8kj12GNkZ42bBVRpCKRIjAc5XoeiZyuqZGovO1LxCMJqXjljCH4GPZ8dAw5sJ5YKzj0At
+	51rouyRw2EduLjgTAEbetPIuRTN+ZdXDCGyCTIOWVocv3TfqOh5WxaFw8LmHLG15c0OIwUsEGMZ
+	Kup2E03LbdiCvwTzrXun0UCSRhlSrxiw9BRCWUAb/DEgcPGiecMPvqzselmCcmDG5NoLt5g8VSQ
+	HbQW9qPOD/I/WyOaAUIxECKKwu3clkpuizxSV9xhKxfYZdIjK0TvBhh7K8f9X41gzkALW516dQH
+	nv4KmA0My295FphVNVnWyAm9svb901w94zpetZ9RrUf0F9eo2s+9GU
+X-Received: by 2002:a05:600c:2e0c:b0:48e:526e:1011 with SMTP id 5b1f17b1804b1-48e526e106bmr38312325e9.25.1778089160201;
+        Wed, 06 May 2026 10:39:20 -0700 (PDT)
+Received: from strix.localnet ([197.250.51.29])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e53116a9fsm31957135e9.8.2026.05.06.10.39.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 May 2026 10:39:19 -0700 (PDT)
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Drew Fustini <fustini@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, soc@lists.linux.dev, linux-serial@vger.kernel.org
+Subject: Re: [PATCH v7 6/6] ARM: zte: defconfig: Add a zx29 defconfig file
+Date: Wed, 06 May 2026 20:39:02 +0300
+Message-ID: <5379905.31r3eYUQgx@strix>
+In-Reply-To: <CAD++jL=S6DSOuC-PXFn76SA7e-Lgueu9Z2wuF7icXCVX7MBpJw@mail.gmail.com>
+References: <20260429-send-v7-0-b432e00d2db8@gmail.com>
+ <20260429-send-v7-6-b432e00d2db8@gmail.com>
+ <CAD++jL=S6DSOuC-PXFn76SA7e-Lgueu9Z2wuF7icXCVX7MBpJw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RGBws5Tk3qhVLKYL"
-Content-Disposition: inline
-In-Reply-To: <20260506170236.2610955-1-kernel@rembrandt.dev>
+Content-Type: multipart/signed; boundary="nextPart5014054.LvFx2qVVIh";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_103144_552153_01300448 
-X-CRM114-Status: GOOD (  20.15  )
+X-CRM114-CacheID: sfid-20260506_103923_172834_7657CE9F 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,93 +107,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---RGBws5Tk3qhVLKYL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+--nextPart5014054.LvFx2qVVIh
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: Linus Walleij <linusw@kernel.org>
+Date: Wed, 06 May 2026 20:39:02 +0300
+Message-ID: <5379905.31r3eYUQgx@strix>
+MIME-Version: 1.0
 
-On Wed, May 06, 2026 at 07:02:36PM +0200, Andrew Rembrandt wrote:
-> Convert the ST Nomadik boards binding from free-form text to DT schema.
->=20
-> The binding documents the Nomadik NHK15/USB-S8815 platform compatibles
-> and keeps the existing example.
->=20
-> Signed-off-by: Andrew Rembrandt <kernel@rembrandt.dev>
-> ---
->  .../devicetree/bindings/arm/st,nomadik.yaml   | 36 ++++++++++++++++++
->  .../devicetree/bindings/arm/ste-nomadik.txt   | 38 -------------------
->  MAINTAINERS                                   |  2 +-
->  3 files changed, 37 insertions(+), 39 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/arm/st,nomadik.yaml
->  delete mode 100644 Documentation/devicetree/bindings/arm/ste-nomadik.txt
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/st,nomadik.yaml b/Docu=
-mentation/devicetree/bindings/arm/st,nomadik.yaml
-> new file mode 100644
-> index 000000000000..9a6d1458cad3
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/st,nomadik.yaml
-> @@ -0,0 +1,36 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/st,nomadik.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ST Nomadik SoC based Boards
-> +
-> +maintainers:
-> +  - Linus Walleij <linusw@kernel.org>
-> +
-> +description: |
-> +  Boards using the Nomadik SoC platform
-> +
-> +properties:
-> +  $nodename:
-> +    const: '/'
-> +  compatible:
-> +    oneOf:
-> +      - const: st,nomadik-nhk-15
-> +      - const: calaosystems,usb-s8815
-> +
-> +additionalProperties: true
-> +
-> +examples:
-> +  - |
-> +    usb-s8815 {
-> +        ethernet-gpio {
-> +            gpios =3D <&gpio3 19 0x1>;
-> +            interrupts =3D <19 0x1>;
-> +            interrupt-parent =3D <&gpio3>;
-> +        };
-> +        mmcsd-gpio {
-> +            gpios =3D <&gpio3 16 0x1>;
-> +        };
-> +    };
+Hi,
 
-This example should just be removed, it has nothing to do with what's in
-the binding above. The text binding describes it as a "required node",
-but no node by the name appears in the kernel sources.
+Am Dienstag, 5. Mai 2026, 12:54:29 Ostafrikanische Zeit schrieb Linus Walle=
+ij:
+> On Wed, Apr 29, 2026 at 9:14=E2=80=AFPM Stefan D=C3=B6singer
+> I'm in favor of this, mainly because multi_v7 is pretty useless
+> for this board, it is absolutely too big to boot on the machine,
+> the board is odd and need some ARM64 stuff.
 
-With it gone,
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+I added it more out of cluenessness, thought that every board should have a=
+=20
+defconfig and Sashiko let me know that multi_v7 is the preferred. But I lik=
+e=20
+your reasoning. I'll send a v8 with some of Sashiko's (very impressive)=20
+findings but keep the defconfig.
 
-pw-bot: changes-requested
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Cheers,
-Conor.
+Thanks for the reviews as always, and thanks to Krzysztof for the yeoman's=
+=20
+work of guiding noobs over and over again!
 
---RGBws5Tk3qhVLKYL
+--nextPart5014054.LvFx2qVVIh
 Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaft6+QAKCRB4tDGHoIJi
-0uk7AQDoPwVpfTCEtPu/YLhKAFhJCyzqRG9Psyh7SjBjLJQSDQD9GvcsDxGN1a6P
-GpyjKA5lv3Ffwr4tM+0mwUmH6KsHywQ=
-=37OC
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmn7fLYbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiGRcP/ihTsoTIIoe31SesPPm7
+q97WA2l0QuRdt6uaaVSwsjuCxhCKwuVvPOYPsy5+/F0BG9UxylI20cKySsfndZyc
+kMG7hIOD2GgP2oFpXvD9Rm6mABU/01SRMgYxJ8BERldruK2XBi/tTl5z9mLCU9Gv
+6hHKRVkiS28GG08oKXywoEXba+Dt5a4HLk6oVy1UgP9OlImj1Bm+KPD3wvWmlRsL
+fYr2suEdrJ76ox0Mx0kHIrwqhGpDEOAwm3g5pjmNOEcXS1eVXW1QLSg83wN2KOty
+3NWXcwr0KxZjxMc6zkq2jqMZmx/4d7Mdijbs/TInuprU1G9mUcyVvi6BHFYS5Hpz
+2ezEEESl6nIbaMpA9zFZWHkhouqr2bOVH12W0Exkml/rhwIQBRv3S53wAeYeR3Mv
+H1LNEaKdJgZWKKL5f9WC9q4QFQ7CKJQZc+jnArsKp9GkdC1uRLWzLP3eriuRsgbf
+zAOrJSziqrze8Dq2VNH9OpqyNk0W92TO4mmUMNrsqpTMh3dDMM8MiM4VJcLIhb/J
+xUUZ4kRf2lHfx/KAJnn9munL1lsJa/k1zBVxarYe1ASh9ivRxqyojTcy0AIPklbQ
+eaQp/Vj1+rGq43J9RuCxFzqT22DpbK9xsmEcxNaCzW+ECpBXRqhclbKHHYESo/aF
++r9T9FDiyUEQwbmVCzN6OIBc
+=eicH
 -----END PGP SIGNATURE-----
 
---RGBws5Tk3qhVLKYL--
+--nextPart5014054.LvFx2qVVIh--
+
+
+
 
