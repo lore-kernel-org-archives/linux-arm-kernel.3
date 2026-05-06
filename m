@@ -4,65 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6897BCD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 01:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745F3CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 01:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5QkCCPmEUet18iwVTOXpl2KN3gCpaXWtyiZR527oaXs=; b=KDs3ctLzkUF1VpKDnqK5nY4ApK
-	RzuyWIgNsJ/CajrZptC1ldN5ISYg9fEf6iR9t8DYfGY0a3Mb04b3OABV5I0p3AzvtRSE9uQ8mWdNI
-	yLV1XW1zAmgBfhJHbnGezzb/V343Hl0ViEmPulO361uBZ5C/Ppify2tJ/F+oqJhnrTF5DxXNcteSb
-	sXyfn1i/1xFMuWmHYcvUN38EUNL5CT91EETbyUa9O9w+A0LmapqIn0GbaybwprIgrx2kzQEiJ+w5/
-	yuhx24hS5+gTZEfGArsBd9d/75VlUxDzPVq0VNYS5GeQNHzeDikmCaEXChL9+mBTvuWA86EzDseGf
-	MbaEBINw==;
+	bh=mPUXvQr0DL2aUfFDDGcRA7zO6a5bS6JyLG5LMOkTYnY=; b=f9vipEEUks9PXxnW1P6wh58Vdo
+	LEzhbBdJm+0XW+ZHX/0ck4QJc9I6YX5ixXbdYDdopwAZzxolbmhfY8R/hIFlaw1145DNKYVRN2CpN
+	xVJyXNhJBtzwg5R4WQencWprisMhuVm8WQ+ajV2TuR06yVmqlI4VmXC0vrE3hAKYKtqfY7bU9IAJ+
+	zr4HxeR5/YGGrPcHhLSJrDIyRqc3AYbFY8Nw0VjnXk2D0jNqafimR4ZKgE/ped9vSgXxkBzitdwvz
+	7MOFYbJkIM0ZjnV1WX2DP8lH2oUdx73aobMnPiqBbqXKayJcQzUh3/VemV0Or8BsOtsno0MHRpiq1
+	8IR3lovg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKRPy-00000000SSA-49ad;
-	Wed, 06 May 2026 01:51:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wKRVo-00000000TA9-2dsi;
+	Wed, 06 May 2026 01:57:20 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKRPx-00000000SRn-0WRy;
-	Wed, 06 May 2026 01:51:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F6E760123;
-	Wed,  6 May 2026 01:51:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E996C2BCB4;
-	Wed,  6 May 2026 01:51:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778032274;
-	bh=rZGbP7UVSJQLbomugjy0SBe34Yd1bEsmhshX1oItOXo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VKnMC9Af9zyMVkAZ3683otI/LgubBaZvrCRPg4y2mubUZ8JHFwvPcQC4rztW27bOm
-	 kOm7cwUT07yU8UYQz4zLdvuVbzLSWaprXSNOZzVhfuTni8P0PxH6BM681/2D3j+/ob
-	 CjALN1Mhcgdob4ftf2pzjZp9Nh3j3IM3tQcpEi8mRqDKrm54QcW1LESyIla3EGmwip
-	 H29FY6TLiKOswKlzYRB6BS9cvZJm/2U96hMnZzDeAv/wkdgs+f2Shuf6VeUsJOdB2X
-	 0hAMQ1Je+3KqqL6lZe4Hn8OJ8OSJJzIz8HlF9vIFq8Ywqbs/TkTcDj9dNhN/KGiB90
-	 +HV47N+hmO7/Q==
-Date: Tue, 5 May 2026 20:51:12 -0500
-From: Rob Herring <robh@kernel.org>
-To: Chen Wandun <chenwandun1@gmail.com>
-Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, akpm@linux-foundation.org,
-	bhe@redhat.com, rppt@kernel.org, pasha.tatashin@soleen.com,
-	pratyush@kernel.org, ruirui.yang@linux.dev, corbet@lwn.net,
-	skhan@linuxfoundation.org, catalin.marinas@arm.com, will@kernel.org,
-	chenhuacai@kernel.org, kernel@xen0n.name, pjw@kernel.org,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, saravanak@kernel.org,
-	chenwandun@lixiang.com, zhaomeijing@lixiang.com, everyzhao@126.com
-Subject: Re: [PATCH 02/11] of: reserved_mem: reject reserved memory outside
- physical address range
-Message-ID: <20260506015112.GA286568-robh@kernel.org>
-References: <20260429065831.1510858-1-chenwandun@lixiang.com>
- <20260429065831.1510858-3-chenwandun@lixiang.com>
+	id 1wKRVk-00000000T9X-0BJX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 May 2026 01:57:19 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 645IwSLe2807042;
+	Wed, 6 May 2026 01:51:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=mPUXvQ
+	r0DL2aUfFDDGcRA7zO6a5bS6JyLG5LMOkTYnY=; b=aYbrNUsXrOVLIHBZV5Q85x
+	BsILi4YiLeXFewVtcZzxrPMY+LQixqWlryu562VRcR3UU0fOh5gC7ABLOA9/va4k
+	dzLb64+vwGGcZ8TYCQXkaI4ew8vqEFhTpN1p84gciOQSyn17fsP1309DyiGVuHpw
+	HgBaX617ElFnq4lukca1UFzXa3lMrlxn7bcjBYurGzll0ha/IGwTD1T2K+NnfsfG
+	ZXM8gDJvDBC70ubsjWt+tRpNC8QeqLfJtUmXafLOTflyXgb/C4QitQjGTvI+/r5Q
+	BJx1mNWUI+W5u25ZfKfo2HiFgXzxbb5NSO+/rQ5sGBTETBeL0q+4mLHBnLHM0VqQ
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9v7ejhm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 06 May 2026 01:51:56 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6461di1R000554;
+	Wed, 6 May 2026 01:51:54 GMT
+Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dww3h469n-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 06 May 2026 01:51:54 +0000 (GMT)
+Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
+	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6461pspQ18088522
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 6 May 2026 01:51:54 GMT
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 587685805C;
+	Wed,  6 May 2026 01:51:54 +0000 (GMT)
+Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id EE27D58058;
+	Wed,  6 May 2026 01:51:51 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.111.233])
+	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed,  6 May 2026 01:51:51 +0000 (GMT)
+Message-ID: <5debff82dc758d9c91223e4f1f5b9e39a3fcd4f5.camel@linux.ibm.com>
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Paul Moore <paul@paul-moore.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan McDowell
+ <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, jmorris@namei.org, serge@hallyn.com,
+        roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <CAHC9VhRUgNA=Sj=jhD=zOt8R80Q+FQj+H0nYSy-FAujTL3EKPA@mail.gmail.com>
+References: <cover.1777036497.git.noodles@meta.com>
+	 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
+	 <afMlgstqahnZg68h@e129823.arm.com>
+	 <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
+	 <CAHC9VhRsnmPp2KmQAns5uq5qXX5EF2xQQzyfTgrPi4O9AXyPpg@mail.gmail.com>
+	 <ba4bf28314b679474a6a8da6298e548e54b3754c.camel@linux.ibm.com>
+	 <CAHC9VhRE2kRr1fdDf6xgQgpSrtvqtP8Vy9LVGJhDZFUbzLKGmQ@mail.gmail.com>
+	 <ff28c6dcb60c357c752724927addaa8c4fd3bf2c.camel@linux.ibm.com>
+	 <CAHC9VhQY2TMkTvQq9P8oZteQWQSr7qq2utOuH+pdVx+8jWLBCw@mail.gmail.com>
+	 <a9412fe10e70ce95dd70556ace19368bec5c188c.camel@linux.ibm.com>
+	 <CAHC9VhRUgNA=Sj=jhD=zOt8R80Q+FQj+H0nYSy-FAujTL3EKPA@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Tue, 05 May 2026 21:51:51 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260429065831.1510858-3-chenwandun@lixiang.com>
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDAxMyBTYWx0ZWRfXz6ovra1ZP5dV
+ 9+4nab46Mm0AiXxdRchnCrnZ6nYbmlX2zpyBXoKIhL9iosrrYx5AkLmtCh4hOAylWClqqxq/AzK
+ LdTX3n6OZ5l+YG3jEQHIq76bpB/wCTy55H34eMOuams8C6pBXxjbaWmhC5rMtQJPxzvyNHR/vhj
+ HqsUTG5MMv8WTrQ3cpZBazw4cK9C0cuADP0qZxC61YX7o8HcYtKn4iXhJK2ws4z0YGMHo+F5y/v
+ rgiuaszci1gcnyyzsS9J5/TYgVXc3zTX34OHidFywnJgPtoeNVwWL7LmnvGh6cYvyv5XziMhVCK
+ IvfCUsSphb74suCPm1oO3hVNAUTUMAM7IZ6LmtS98IKCBBtLuXOSnSG5+APSOuP2ZTkKtqkePHX
+ wLMcuiO9wzZ54BfN/nT6bRJCkQ6R1siN+R7C9IhAlgU21Hl90jjS+fe1jr+xHxvJ9Qdpkmp/Eg3
+ Ff9ZnzjZEx6nwv6CVtQ==
+X-Proofpoint-GUID: S5ruvBnGVWmRMC517U5ostDLkLMj2qIw
+X-Proofpoint-ORIG-GUID: 3iMKloGi8mSPmMG2C40umVb3LfXDp303
+X-Authority-Analysis: v=2.4 cv=eu/vCIpX c=1 sm=1 tr=0 ts=69fa9ebc cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
+ a=2NmI_m57lu5WmJoAan0A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 phishscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
+ suspectscore=0 malwarescore=0 bulkscore=0 impostorscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605060013
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260505_185716_119699_237937BC 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,66 +138,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 29, 2026 at 02:58:22PM +0800, Chen Wandun wrote:
-> early_init_dt_reserve_memory() does not validate whether the region
-> falls within physical memory. If a device tree incorrectly specifies a
-> reserved memory region outside the physical address range:
-> 
->  - For the non-nomap path, memblock_reserve() blindly adds the region
->    to memblock.reserved, creating a stale entry that refers to
->    non-existent memory.
-> 
->  - For the nomap path, memblock_mark_nomap() silently fails to match
->    any region in memblock.memory, but still returns success.
-> 
-> Add a memblock_overlaps_region() check at the entry of
-> early_init_dt_reserve_memory() to reject such regions before any
-> memblock operation takes place. This also simplifies the existing nomap
-> guard: the original "overlaps && is_reserved" condition reduces to just
-> "is_reserved", since the overlap with physical memory is already
-> guaranteed by the new check.
+On Tue, 2026-05-05 at 18:55 -0400, Paul Moore wrote:
+> On Tue, May 5, 2026 at 5:05=E2=80=AFPM Mimi Zohar <zohar@linux.ibm.com> w=
+rote:
+> > On Mon, 2026-05-04 at 16:51 -0400, Paul Moore wrote:
+> > > On Mon, May 4, 2026 at 8:03=E2=80=AFAM Mimi Zohar <zohar@linux.ibm.co=
+m> wrote:
+> > > > On Sun, 2026-05-03 at 12:46 -0400, Paul Moore wrote:
+> > > > > Regardless, assuming you always want IMA to leverage a TPMs when =
+they
+> > > > > exist, your reply suggests that using an initcall based IMA init
+> > > > > scheme, even a late-sync initcall, may not be sufficient because
+> > > > > deferred TPM initialization could happen later, yes?
+> > > >=20
+> > > > Well yeah.  The TPM could be configured as a module, but that scena=
+rio is not of
+> > > > interest.  That's way too late.  The case being addressed in this p=
+atch set is
+> > > > when the TPM driver tries to initialize at device_initcall, returns
+> > > > EPROBE_DEFER, and is retried at deferred_probe_initcall (late_initc=
+all).  Since
+> > > > ordering within an initcall is not supported, this patch attempts t=
+o initialize
+> > > > IMA at late_initcall and similarly retries, in this case, at late_i=
+nitcall_sync.
+> > >=20
+> > > Okay, so from a TPM initialization perspective you are satisfied with
+> > > a late-sync IMA initialization, yes?
+> >=20
+> > No. On some architectures moving IMA initialization from the late_initc=
+all to
+> > late_initcall_sync does not miss any measurement records. However, as p=
+reviously
+> > mentioned, Linux running in a PowerVM LPAR the move would drop ~30 meas=
+urement
+> > records[1].  So no, only if the TPM is not initialized by late_initcall=
+, should
+> > IMA retry at late_initcall_sync.
+>=20
+> What do you do in the PowerVM LPAR when the TPM is not avaiable at
+> late initcall and you have to defer IMA initialization until
+> late-sync?
 
-While I agree, I suspect we already have cases abusing reserved-memory 
-like this.
+Your question is hypothetical, as the TPM isn't deferred, so IMA doesn't go=
+ into
+TPM-bypass mode.  Testing on a PowerVM LPAR demonstrated that it skips ~30
+measurement list records.  So moving the initcall to late_initcall_sync wou=
+ld
+cause a regression.
 
-> 
-> Signed-off-by: Chen Wandun <chenwandun@lixiang.com>
-> Tested-by: Zhao Meijing <zhaomeijing@lixiang.com>
-> ---
->  drivers/of/of_reserved_mem.c | 15 +++++++++++----
->  1 file changed, 11 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
-> index 9d1b0193864c..03c676052dab 100644
-> --- a/drivers/of/of_reserved_mem.c
-> +++ b/drivers/of/of_reserved_mem.c
-> @@ -112,14 +112,21 @@ static int fdt_fixup_reserved_mem_node(unsigned long node,
->  static int __init early_init_dt_reserve_memory(phys_addr_t base,
->  					       phys_addr_t size, bool nomap)
->  {
-> +	if (!memblock_overlaps_region(&memblock.memory, base, size)) {
-> +		phys_addr_t end = base + size - 1;
-> +
-> +		pr_warn("Reserved memory region %pa..%pa is outside of physical memory\n",
-> +			&base, &end);
-> +		return -EINVAL;
-> +	}
-> +
->  	if (nomap) {
->  		/*
->  		 * If the memory is already reserved (by another region), we
-> -		 * should not allow it to be marked nomap, but don't worry
-> -		 * if the region isn't memory as it won't be mapped.
-> +		 * should not allow it to be marked nomap. The region being
-> +		 * physical memory is guaranteed by the overlap check above.
->  		 */
-> -		if (memblock_overlaps_region(&memblock.memory, base, size) &&
-> -		    memblock_is_region_reserved(base, size))
-> +		if (memblock_is_region_reserved(base, size))
->  			return -EBUSY;
->  
->  		return memblock_mark_nomap(base, size);
-> -- 
-> 2.43.0
-> 
+Mimi
 
