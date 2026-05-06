@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A1A2CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 12:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7440BCD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 12:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ur8c28lhnUflYWUOGV0vG2eZfjzXIY6F2Cmao5d8XfQ=; b=DBm27YNy2EIpGUH9MDWuwmOzhG
-	S0Twp0JWCufqUH/x6oG0g7rjy/S7eYw/EugZtkdnMQSnNmReOA6Ee17qFpmow2MeeQSb/w4o7WM17
-	SFbjw0oKrwgrjHOx+GWybpOGrw3DLhuE4nPUoDBMl48K5dJRA4F2OgbMicBrWdha7rwl9mh7+vwCE
-	5te4dgUOFFZ0WgQWCnjAZrUmvJzBUCqMKRnay7htGwEvWzi4oio17dot1lP/Ue3LXedsZN1wZ7RVm
-	At6cjDadRos5Fwkb7Z4H6xOsSRGLH9vmFRChRlzXqV9dyLh3cN5VFdgibg2dUOMJMtu1Y6/fPYxsz
-	/PgArMsA==;
+	bh=18GKF7IU2JXtGXP7TC6a3Q70FuCb/15ssJjAdTLISl0=; b=vo3++8gPzLfDyRk4YfUNLogEbZ
+	s6+Q5tyBRddURWsF9emIYFqaLmLpSLQwxIKM2/a3S1FCqJiAMdSvfZCjxFh+GvTmKa8nnH+QCZvWu
+	PExmP9Ndie0P6wgoauD7UTb8OvZoQQFiiyiXtd1pjXjmQaCugUsXE148NAQZpLCeSEeQXIVGMhg3q
+	oKBon0i6nyWVwJ0TKN0AU9WPNoeRZ6IfCe4vL8pf944/OF7p2zt+oOQ3LWnHrbmbFvG4Asn6rXsL5
+	zYBtyIE2gt6c4+VT3yaAecjMmU5C9GfViTr8KK+TJs0X+u5L6Rn8KSXoflg2fGHxa2s+399yI2VA7
+	GNoQYjHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKbYV-00000000n5X-1IeT;
-	Wed, 06 May 2026 12:40:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKbYT-00000000n4b-1H5e
+	id 1wKbYv-00000000nCM-1k4q;
+	Wed, 06 May 2026 12:41:13 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKbYu-00000000nBg-0v2p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 12:40:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64F131A9A;
-	Wed,  6 May 2026 05:40:38 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 59B943F836;
-	Wed,  6 May 2026 05:40:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778071243; bh=roG9jIEcvqLpVOFpK2wPqagrkQmdJh1NYxFbv3chBNY=;
+	Wed, 06 May 2026 12:41:12 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4965463D;
+	Wed,  6 May 2026 14:41:07 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1778071267;
+	bh=/4qS0BCUqnUnIcX+Zc+8rx4aZz63MpUdpO+lQvtF0Ek=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mnYLglEyYvd+CNgIlsFM2VVyuLWaa6JyAumtdUbbpi6Kl+JX1ENkFOYIHEtK9fkVw
-	 TcHnG/92OxVON/c/achNdlKYKoQyk4hWC1uOFuuCf13zczHnI5bt/zo8O14jN1vFg1
-	 YcpmEqebRClOPKiVo24dfRhmvlRJ0zTJlkZ+DgQU=
-Date: Wed, 6 May 2026 13:40:39 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH] KVM: arm64: Work around C1-Pro erratum 4193714 for
- protected guests
-Message-ID: <afs2xxlaGdQk3Utn@arm.com>
-References: <20260430155911.628402-1-catalin.marinas@arm.com>
- <afsgm6pVTFwtqc4e@google.com>
+	b=GeLo/yo3QjcqXJGrQ7VPAVJ05lU97o1Q6RzYZ+aFuik9ya4cG8e7L7Fcb0LuT2IcV
+	 zLelYH2L7ryuBTxslH6ztkeSl+MiKOlhDh1RoAjYblIAyz0phRMGq9rXhfuPYkj7Ip
+	 v/Tip/5I+5UHTSN/gkg/1+LNq93yfHO6YqEtvqk4=
+Date: Wed, 6 May 2026 15:41:09 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Xiaolei Wang <xiaolei.wang@windriver.com>
+Cc: mchehab@kernel.org, Frank.li@nxp.com, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, aisheng.dong@nxp.com,
+	jacopo@jmondi.org, guoniu.zhou@nxp.com, s.riedmueller@phytec.de,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] media: imx8-isi: fix isi->pipes memory leak in
+ probe and remove
+Message-ID: <20260506124109.GP1598374@killaraus.ideasonboard.com>
+References: <20260506031210.2769998-1-xiaolei.wang@windriver.com>
+ <20260506031210.2769998-4-xiaolei.wang@windriver.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <afsgm6pVTFwtqc4e@google.com>
+In-Reply-To: <20260506031210.2769998-4-xiaolei.wang@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_054045_386699_9B7CCBB7 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20260506_054112_404377_52D63FB4 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +72,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 06, 2026 at 12:06:03PM +0100, Vincent Donnefort wrote:
-> On Thu, Apr 30, 2026 at 04:59:11PM +0100, Catalin Marinas wrote:
-> > From: James Morse <james.morse@arm.com>
-> > 
-> > C1-Pro cores with SME have an erratum where TLBI+DSB does not complete
-> > all outstanding SME accesses. Instead a DSB needs to be executed on the
-> > affected CPUs. The implication is pages cannot be unmapped from the
-> > host Stage 2 then provided to the guest. Host SME accesses may occur
-> > after this point.
-> > 
-> > This erratum breaks pKVM's guarantees, and the workaround is hard to
-> > implement as EL2 and EL1 share a security state meaning EL1 can mask
-> > IPIs sent by EL2, leading to interrupt blackouts.
-> > 
-> > Instead, do this in EL3. This has the advantage of a separate security
-> > state, meaning lower EL cannot mask the IPI. It is also simpler for EL3
-> > to know about CPUs that are off or in PSCI's CPU_SUSPEND.
-> > 
-> > Add the needed hook to host_stage2_set_owner_metadata_locked(). This
-> > covers the cases where the host loses access to a page:
-> > 
-> >   __pkvm_host_donate_guest()
-> >   __pkvm_guest_unshare_host()
-> >   host_stage2_set_owner_locked() when owner_id == PKVM_ID_HYP
-> > 
-> > Signed-off-by: James Morse <james.morse@arm.com>
-> > [catalin.marinas@arm.com: move the hook to host_stage2_set_owner_metadata_locked()]
-> > [catalin.marinas@arm.com: use hyp_smccc_1_1_smc()]
-> > Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Mark Rutland <mark.rutland@arm.com>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > Cc: Oliver Upton <oupton@kernel.org>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Vincent Donnefort <vdonnefort@google.com>
-> > Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Sudeep Holla <sudeep.holla@kernel.org>
-> > ---
+Hello Xiaolei,
+
+Thank you for the patch.
+
+On Wed, May 06, 2026 at 11:12:09AM +0800, Xiaolei Wang wrote:
+> mxc_isi_probe() allocates isi->pipes with kzalloc_objs() but never
+> frees it on any probe failure path or in mxc_isi_remove(), leaking
+> the allocation on every failed probe and every normal unbind.
 > 
-> Reviewed-by: Vincent Donnefort <vdonnefort@gogle.com>
+> Fix this by switching from kzalloc_objs() to devm_kcalloc(), which
+> ties the allocation lifetime to the device and eliminates the need
+> for explicit kfree() in all error paths and in mxc_isi_remove().
 
-Thanks Vincent. Would you mind having a look at v2 as well:
+There's ongoing work to add a devm_kzalloc_objs(), to I'd rather not
+revert to kcalloc. If you want to fix this leak now without waiting for
+devm_kzalloc_objs(), I would prefer adding kfree() in error paths and in
+mxc_isi_remove().
 
-https://lore.kernel.org/r/20260505165205.2690919-1-catalin.marinas@arm.com
-
-The only addition is not initialising pKVM if the firmware doesn't
-implement the SMC handler.
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> index 2d639b789910..2b76fb9c18f6 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> @@ -485,7 +485,8 @@ static int mxc_isi_probe(struct platform_device *pdev)
+>  
+>  	isi->pdata = of_device_get_match_data(dev);
+>  
+> -	isi->pipes = kzalloc_objs(isi->pipes[0], isi->pdata->num_channels);
+> +	isi->pipes = devm_kcalloc(dev, isi->pdata->num_channels,
+> +				  sizeof(*isi->pipes), GFP_KERNEL);
+>  	if (!isi->pipes)
+>  		return -ENOMEM;
+>  
 
 -- 
-Catalin
+Regards,
+
+Laurent Pinchart
 
