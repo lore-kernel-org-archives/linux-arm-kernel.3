@@ -4,139 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91773CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9F5CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=coPWzdunrUu5dnMXo2xgB1O23ZMxkZq+e5FYUmmfKyQ=; b=cXrrcMn5NydZj+5Oi7RswWNemd
-	j3IdEaAORRCYRWp61sgU9M+G6P4eK2wmbd5T+Wc2gTx4IB5KMuaKgCWccffRuRPhe1qhMS59H29Bh
-	1pH0ysbKFhNtLZz8G3kkmK6shH+lbxz8LfZgF+xyKs8qqOC505Olp3YOmeyoivX3+ad2sWxRN9TyJ
-	RJKcsoBVGGcRwbub46jTihtdOwb4hK4JwvjZ5IEmUGJmS+JSByftR7f9MARSeBNJbij3RaEAgVHlH
-	y1hl+fwHi28f4PJi6753/nbm2ZEB9b0+yd6jKqXWG7Gp4br1Euo51DEiABhrOakKNF4Y0Yb1Uwe12
-	OGA0Yt5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j7OoOHB9ZeRPphxXVnwAj4bNVeeDK0KkFiEVcVNSXqU=; b=Rk2EtJ0q4yZn4Ysguq5mvbuRdc
+	4PBCBzcSsVNnLVE8g9UvYkWCPd1+mEFX1xneQy864BWppevk4MdgiQZt7Jup8w8zP3Re/kCS+dxnX
+	LSITAx05hCa1R6CS1bx0jRUyazDilvBI1jN7lNmQNXmuk/0CgRP+YzmpTtaEB6pJ5NOerZ2WArNJA
+	dMQQVo1BQq831FN5m1vyKNouBUxa/ph01qFraRFCwWrLldjNIbweWuk2HVYqZrXX2nircdJ4i/21Z
+	yVSdPCaa+zGRnxvev0Q1Wx36FEnSRrzGFdB/gb5BrVwswwuExmQz8s6vVXxNBodpx88ZhIi5Og8oD
+	oAixdXsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWmd-000000002sf-0Xpq;
-	Wed, 06 May 2026 07:35:03 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wKWuq-000000003pS-3dQz;
+	Wed, 06 May 2026 07:43:32 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWmb-000000002rZ-1l1X
+	id 1wKWup-000000003p1-2iL3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 06 May 2026 07:43:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=j7OoOHB9ZeRPphxXVnwAj4bNVeeDK0KkFiEVcVNSXqU=; b=Lf21GeJrNBgcTy7CCLIILg+XyL
+	ct2vMy9UTG7kDOeDzWh+NCyfzRYlDsd6/F3RP00nOYKsB84WGJkvT9ej3AQMNB7qTs3/OqRc4f+zK
+	cIu3+sPuiAMLOuF3ZGAGASwXzWhtrGMlkGTpFRUVDRKpWS/mObmWr9Ofmo2IwZj/sQM7B0WscpT41
+	RVfTApVphvZsLdrztbbBRZEHPeETZHd77/XL8Y8pl9KsXkB46JDZws1ZuGnptKIlgKF0jAfojlZ4N
+	gTLrE3jxABw8o3QPPXKlB2gEERiqOGz9KFsK0aCMWIFYjvUT+tJUdzMtum5JZH/9z6eoUbl4FEje/
+	wd24hDiQ==;
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKWWa-00000000pHw-2MaQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 07:35:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wMLbcfuNNvt3t1sh7WWxFcrxVzGqaMxsn9TuQ35cYs5LsbA7So7Rngcx3SI2RDAw9PjqaM0ZfZLS4Hc8A1UYyLt8ffW4V1zqvkfakZO5v/gb7FTV3Wh212b1ldXHtAwAR9IM9g+aD21ymzUSSoBTJKwEdxuf/rvVzeVPn48xobeDmpT/jn/UjAwaE3yA7SVMSezXacD782AyZ7PwS84gZ0Vx5mRKiOVlWfaoG3VGTaENIOZ8yMKpQIp5d/B4ftOMa/WluqW/fxEYKioJSKEaCGQZLo6/CVCsZ2BgycY7TZLiI7WDsXjTyE7mGsHIn3rMbEzPb2oZ/+8c8VNFt/K8hQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=coPWzdunrUu5dnMXo2xgB1O23ZMxkZq+e5FYUmmfKyQ=;
- b=n2NXWtc5PWCvA61QKNgeRAagSC21DecC6W7s5l/5Co0L9x68ig5JIm4VUHXJ8fAGwR851BbA2aMtQdyXrPDwylvj8Ih/jFfyADSyCETBoD1RNBfGHEEtZb6+fupyRImqjPKq/Ep4+o5iMeqVSa4Ul/Sf0JpCOgFLf0maF6m/bmwiKUrsHN1lVZ11R9bvj/vkrhMtKXAgkpgUzxXRzM4oNeOaf6xaJpttmf2w/U75OKFbv8+0vO0iBg01kNlfoGO3I+tel6bmsBX9cgdgAqVEM7D62LcxeMZvN6g17m/OLU4hjFZINkKCFhmm1uTGD7vRd1sMC31gwVrtQCDRw8xH6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=coPWzdunrUu5dnMXo2xgB1O23ZMxkZq+e5FYUmmfKyQ=;
- b=VwTwAgmNjokiE74qSZ//9k6TkQBh+AUqcIW5916FP3iSOlti+lYPIvpi94lU7tAG1JzzKECLcUniz5rn9rQiLFo2KtrA/tGA4Yskfqhhrap6ULWoKsI/0P1k7oN0dAa9UyaoUae0JYFMCYqdMhjQNSA++0A96w5LlHPDqDN2+5USh8AIDvZqHpb6SZdnHbleIFer9dP4D0tUiwufzKs6SJ/L8njm4iJFZohlXgA7Z6MPnCFQAs/srx+4EvMY5lhvSzI71tFVCrhU7nHtPWOU3ivyfmSjzvsSRTopFXGqyAhlFNdwSKSuxyLu2kBKnY0dfpLba0GatYqD1jTZKUH0jQ==
-Received: from DBBPR04MB7500.eurprd04.prod.outlook.com (2603:10a6:10:1f4::16)
- by PA3PR04MB11228.eurprd04.prod.outlook.com (2603:10a6:102:4b0::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
- 2026 07:34:55 +0000
-Received: from DBBPR04MB7500.eurprd04.prod.outlook.com
- ([fe80::c291:543b:4bde:cee7]) by DBBPR04MB7500.eurprd04.prod.outlook.com
- ([fe80::c291:543b:4bde:cee7%6]) with mapi id 15.20.9891.008; Wed, 6 May 2026
- 07:34:55 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
-	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank Li <frank.li@nxp.com>,
-	"chleroy@kernel.org" <chleroy@kernel.org>, "horms@kernel.org"
-	<horms@kernel.org>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>
-Subject: RE: [PATCH v5 net-next 09/15] net: dsa: add NETC switch tag support
-Thread-Topic: [PATCH v5 net-next 09/15] net: dsa: add NETC switch tag support
-Thread-Index: AQHc2EvUOY2eXubYx0SUTOxsaXqwubYAogjg
-Date: Wed, 6 May 2026 07:34:55 +0000
-Message-ID: <DBBPR04MB75007E458BA3BB1787F81D8B883F2@DBBPR04MB7500.eurprd04.prod.outlook.com>
-References: <20260430024945.3413973-1-wei.fang@nxp.com>
- <20260430024945.3413973-10-wei.fang@nxp.com>
-In-Reply-To: <20260430024945.3413973-10-wei.fang@nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DBBPR04MB7500:EE_|PA3PR04MB11228:EE_
-x-ms-office365-filtering-correlation-id: 6e4ebbb1-5c34-4f44-9768-08deab41f7d9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|366016|921020|38070700021|56012099003|22082099003|18002099003;
-x-microsoft-antispam-message-info: U8U8kvZY5rPeGMfZ27Oed6+j+KjS/dTveFGpXB96ssUJhDR0S5kCMuqHtnNduNSxkv6ZgsIJPw5YPu0femrFbvKHMPjO/lAPliXucRGCWGnuR+rezZxkZnCI0qQRt1oMtDGeSkyr0OrF0IBb7Ow6KYObJSiHJ8p7x1RNkMZ2TGS5i5w1ehkzWt+bmZebpSmTxjSCE7yC7hKwNGdpBN7pFGURESh2DpDaOHSVpfVPB7ArtZHq4PRFJDPs+1JqBycxtbwiVsXrz46Nb7KWqcjMhclg5Cxkm9ACnGr39RO+H3fVtGGywlNZL9RjxeDpt3OZYlIhcG+x5xt0VICsqWDGOg2wMl1faEijUH6HkesYihEJOOni0anLNdGy2z9ef9LXgNBjAQfXSBwPhcXlx9rPmC9y963GxD7WuDkFAPCRLubGp23C9C30hOL7v1p05K787Itl4GBi6mVEmSv6mx8gTDRh8Uko3ddP/dRAQq2lBQEtKNx2544yXYBZ3MY5hwMjIkn8wkvP9kyUOkeQLV4UxzqCYvdajVOuYMjRCXRVoy2HTOoxgGGMaBoNDJrkGf5bWmalr1JuWvoUmGrzYYQb4aO8faf/i8Yt7Z4V7RyAkOlYw/1EPyNZfA+2W5aiWKcXuWXuba12PKDVxXbJaT+eJ+SNqoDF/+iqZBl0jhhT7GQ2u26GGOPDcvtT41uurnuC9j6ymOLkmrmloeeON86MY2DT78FqHK3SYYg72GNYlo5SHfrnQuyrReQUZD/N4tsRKWSaBEo9GdtbJhjiWIQeDA==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR04MB7500.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(366016)(921020)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?zJoJTFOygzc1IUOFLbqITpdKXbqOYxGCpQ0pVk6GdANhDhTa453t90xMWxO3?=
- =?us-ascii?Q?D8imLiMtKuNCpBmRCg1yEfjAsEkSIdMeGrAj1/2y5INWkTdELnrjPxKenT37?=
- =?us-ascii?Q?flYf1EkgU7x/pdh9xQu63oU4iWPYEQ+l8nCfD97u0nmde4HI4ff5CIOJ6cMc?=
- =?us-ascii?Q?jrHTixgvvEXqeycLt88vbS0pgFXl7wsEC5Pm6nJ7EgBITCQIHiLli5rl/JoX?=
- =?us-ascii?Q?MovfAy5/bg5lhM+20iNgIstCey7nCArWvf4nSooWLVs9Gn3dztdvsMtHg+nf?=
- =?us-ascii?Q?v1Ecl8I3lnHHeY5psHENjgY+trSmD9u8HpF2/dWGWYpLTchH30CH2TzaEfnv?=
- =?us-ascii?Q?YIMPluAo1CvcwbyGfczkQ+qFeg1rXV0yDutj70Pfbwm1Or5zRh0ctvnY6XyG?=
- =?us-ascii?Q?mGW5e+KmP/N0DKHzlXY3qNZIqtWCQmjq2c9G2jrQHpJQkru6Z4taKJZkdfUB?=
- =?us-ascii?Q?4pqVXxxAhFCbJ4nsQ+XTifF3sLQ3P2WaerBOY2T/xzFEO9ZcQaTuW9SogATa?=
- =?us-ascii?Q?7DX+w2Ipentxm2OjwO/rdMwWhj3gOlrIpNJ6iMQw+zvjjLSVxCiGzBF92+me?=
- =?us-ascii?Q?lzTovHqqSHq0NY8Jgz1CTNuW4+QuBKT8ATGkGWd1V4rUxO3bwdBptZPwxxlF?=
- =?us-ascii?Q?de5P1WAMALxsEf2XJfGZnnNIjrQZxfrh9HSvSiPJuWg3S1ykFyDwwLx6aWLl?=
- =?us-ascii?Q?4XwDqFIBqVEAqKUOraBsMohwlR+Mi2EpPg/yfERmgTfF0zzCz8N+8t0P2dja?=
- =?us-ascii?Q?n5zu5b99ZRnUIhX+2S0Tj4nAXRwJWbsH6M3hfhyy847YULNbLjXjLn5vWZI2?=
- =?us-ascii?Q?DIAHNTeD2AT/jes7NK/QjKyJvPiYg6177dHMPEeEV2XCIqx204nRVRU1JPAt?=
- =?us-ascii?Q?44gSBSOnO3CXajbwdpKeAnW1/2lutCtG5EIuDig2Hz8KoNKXr36LrJQzKwI5?=
- =?us-ascii?Q?1h9MNUfCmjhMdgaIzt4AJbAlMM7hJWHWY87RYnlkDS3y9o+US8gIUNa54ONC?=
- =?us-ascii?Q?Qva5nTP8V8B9ezXrP+eOtfF+0hC8odV5539XquGMMwzjaF9vhVuyBrfgeex/?=
- =?us-ascii?Q?ndasrYDgNfikZoq5O7+8Kh4WTpDj+f1rHj9ykG/R0EbJ4ducpC7llsv5Reza?=
- =?us-ascii?Q?jIZtMCA/sT/s3VTSn2sLxQcsBrAhECcHqjToqFcNOAAdEx0RC9ZXu1DMbqTw?=
- =?us-ascii?Q?A40hysJEZeUoHrC1F2h5idDvtTARBgpR6hMQIQ53O/C4hFVGRuWz+98cUYw2?=
- =?us-ascii?Q?JbJXwt+zw+r3bXmkIq9IVPZXyAGGLOZseuWI+UqnkkeVjvnfBwQMvMyfoIQn?=
- =?us-ascii?Q?BTFgcnVlMeXFx7DTu/N9O2m7AhwQ8DTznVL2RqXv3H8LNV36jAGrKXjni/Cq?=
- =?us-ascii?Q?WX8afhkD1t+ZLLUtF0eGd6McyAP+S3OkKSA/gu5M8wL0UN6dx4e0iKgC5FY0?=
- =?us-ascii?Q?gxIN0AHALk/YJeoHdYEyNNwnj7YNSRf/1CZ+ckoCfn8sbdMZXyKWg1PBXUuZ?=
- =?us-ascii?Q?zE+0vXilTcOefTHw4H11QTo6pYhoUxdz/aG0Sd2NTlVcGiFus4o/fflikBU2?=
- =?us-ascii?Q?xvkPLAJdlSSt749SdvVdZlX3M3Y7wcj3qOIhxWBqPK7vAgdW2tp+4yrG9941?=
- =?us-ascii?Q?iFaNcpBEGgiDK6wCgpEr/0HYP1kRKCZ0RTKOWYd0ukyBwwf5s98ZZ4RJ20DQ?=
- =?us-ascii?Q?tqlCsF5644WQBLpJpKyTFxj31UF1hUjSfhJvlJvriHmGoaDa?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 06 May 2026 07:18:31 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=j7OoOHB9ZeRPphxXVnwAj4bNVeeDK0KkFiEVcVNSXqU=;
+	b=YNVZl++ulB7Lj+02fluir6bwhbtbxqLMkPxn2pz6YWGVOXXm6saH+jt7RQqwZU12KHe1Is2Rh
+	RRqUA9DRKbaUlfL2QrdDiPZs+Cs8pMYDuZFAD4sgMtBDdKs/UrbAJ/5SbrU4Wz6Ju4uWhs070Dm
+	5kW4p86Fc5a5TcUqPb3OrXQ=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4g9RPj28kwzmV69;
+	Wed,  6 May 2026 15:11:21 +0800 (CST)
+Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
+	by mail.maildlp.com (Postfix) with ESMTPS id DF5934048B;
+	Wed,  6 May 2026 15:17:53 +0800 (CST)
+Received: from [10.67.120.222] (10.67.120.222) by
+ kwepemk500005.china.huawei.com (7.202.194.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 6 May 2026 15:17:53 +0800
+Message-ID: <e4a2b49a-0efe-4942-9683-9c9a5af1b12a@huawei.com>
+Date: Wed, 6 May 2026 15:17:52 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DBBPR04MB7500.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e4ebbb1-5c34-4f44-9768-08deab41f7d9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2026 07:34:55.2519
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: mKTR3uHNu9pGSc5TY7T51VftRDEH3Aa5PH+UOnPge7vdHu15v1ZUhq1K9HfFVLf8qoxg7cOi73ahgj02E0rkEw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11228
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/6] selftests/resctrl: Introduced linked list
+ management for IMC counters
+To: Reinette Chatre <reinette.chatre@intel.com>, <tony.luck@intel.com>,
+	<Dave.Martin@arm.com>, <james.morse@arm.com>, <babu.moger@amd.com>,
+	<shuah@kernel.org>, <tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>,
+	<ben.horgan@arm.com>, <jonathan.cameron@huawei.com>, <zengheng4@huawei.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kselftest@vger.kernel.org>, <linuxarm@huawei.com>
+CC: <xiaqinxin@huawei.com>, <prime.zeng@hisilicon.com>,
+	<wangyushan12@huawei.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
+	<wangzhou1@hisilicon.com>
+References: <20260410093352.3988125-1-wuyifan50@huawei.com>
+ <20260410093352.3988125-2-wuyifan50@huawei.com>
+ <b1d3a653-79a5-44db-8d57-c052ae537823@intel.com>
+From: wuyifan <wuyifan50@huawei.com>
+In-Reply-To: <b1d3a653-79a5-44db-8d57-c052ae537823@intel.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.222]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk500005.china.huawei.com (7.202.194.90)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_003501_461531_1839C948 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260506_081829_452373_AA832EC3 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,37 +101,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static void netc_flow_dissect(const struct sk_buff *skb, __be16 *proto,
-> +			      int *offset)
-> +{
-> +	struct netc_tag_cmn *tag_cmn =3D (struct netc_tag_cmn *)(skb->data - 2)=
-;
-> +	int tag_len =3D netc_get_rx_tag_len(tag_cmn->type);
-> +
-> +	*offset =3D tag_len;
-> +	*proto =3D ((__be16 *)skb->data)[(tag_len / 2) - 1];
+Hi Reinette,
 
-Below is the comment from Sashiko.
+On 4/23/2026 12:02 AM, Reinette Chatre wrote:
+> Hi Yifan,
+>
+> On 4/10/26 2:33 AM, Yifan Wu wrote:
+>> @@ -113,6 +115,7 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
+>>   				    unsigned int *count)
+>>   {
+>>   	char imc_events_dir[PATH_MAX], imc_counter_cfg[PATH_MAX];
+>> +	struct imc_counter_config *imc_counter;
+>>   	unsigned int orig_count = *count;
+>>   	char cas_count_cfg[1024];
+>>   	struct dirent *ep;
+>> @@ -167,11 +170,17 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
+>>   			ksft_print_msg("Maximum iMC count exceeded\n");
+>>   			goto out_close;
+>>   		}
+>> +		imc_counter = calloc(1, sizeof(*imc_counter));
+>> +		if (!imc_counter) {
+>> +			ksft_perror("Unable to allocate memory for iMC counters\n");
+>> +			goto out_close;
+>> +		}
+>>   
+>>   		imc_counters_config[*count].type = type;
+>>   		get_read_event_and_umask(cas_count_cfg, *count);
+>>   		/* Do not fail after incrementing *count. */
+>>   		*count += 1;
+>> +		list_add(&imc_counter->entry, &imc_counters_list);
+>>   	}
+>>   	if (*count == orig_count) {
+>>   		ksft_print_msg("Unable to find events in %s\n", imc_events_dir);
+> Should cleanup_read_mem_bw_imc() be called on error exit path?
+Thank you for your suggestion. When parse_imc_read_bw_events() exits with an
+error, the linked list imc_counters_list will be cleaned up in 
+test_cleanup().
 
-Can this direct access to skb->data cause an out-of-bounds read?
+main()
+└── run_single_test()
+     ├── mbm_run_test()
+     │   └── resctrl_val()
+     │       └── mbm_init()
+     │           └── initialize_read_mem_bw_imc()
+     │               └── enumerate_imcs()
+     │                   └── read_from_imc_dir()
+     │                       └── parse_imc_read_bw_events()
+     │                           └── calloc()
+     └── test_cleanup()
+         └── mbm_test_cleanup()
+             └── cleanup_read_mem_bw_imc()
 
-When __skb_flow_dissect() invokes ops->flow_dissect() on a packet injected =
-by
-a local user with a small linear area (where skb_headlen(skb) < tag_len),
-these accesses might read past skb->tail into uninitialized memory or unmap=
-ped
-pages.
+Calling cleanup_read_mem_bw_imc() in the error exit path may be intended
+to prevent resource leaks. However, this results in the function being 
+called
+repeatedly in both the error exit branch and test_cleanup().
 
-Since pskb_may_pull() cannot be used on a const struct sk_buff, does this
-dissector need to use skb_header_pointer() to safely extract the fields?
+Is there any specific intention behind calling it in 
+parse_imc_read_bw_events()?
+Or should the cleanup be uniformly handled in test_cleanup()?
 
-This is a false positive, or at least it can be ignored. The RX minimum fra=
-me
-length of each NETC switch port is set to 64 bytes. The frame will be recei=
-ved
-by the ENETC driver. From the hardware perspective, each RX BD receive
-buffer is at least 128 bytes, so the skb's linear buffer will definitely co=
-ntain
-the switch tag.
+Yifan
+
 
 
