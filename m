@@ -4,148 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D3C9CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 00:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB1DCD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 00:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1YNIUtYOAEzFl5jRvxqILmZomuAINmo2Khle6yMwqNg=; b=FE7Sja2fyUqimEBP/sjDVa2oa8
-	a6sLbSA5AKmKA1p64h61luqJ+Szp8bsPV/RMIo9czXRRlQTG3r1tjkvWIWgdO285OF7qvA6957JqA
-	z99q6LT9nNC0F8Fv+bJ55e8S4iLewa35gZjA2XvXAsri+nSEbpkM6bkAqouANAC3UopM2/LhiYxh0
-	ZFuEdGzGj0d3nfbPPGiMmYZvORvyXbRQyZl51Fz6485N3fybxvWkIRdW6duTGwRlW2Bem+57ml8ad
-	XxlXDrvPJGHMO73aOcDLh77xuVA3dJBpClz2BnIRqdDZXQ/d/AHqnCa9zly5NapXE04VxRz1V8tAE
-	WRXGUVUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:MIME-Version:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b9H8cYKTCyIKnl9+d/AL5JHJT5IYmUArCaFMH4v5EuY=; b=TqZYh8y1+uGGB0nIBRnp9rMiK6
+	uq9Y+6aKUgWLQoDD3orVj4rybXAiceufttx5axuniCTR89zxYUfIEenixBx1+d/kOBMQVCL5JmCC7
+	hsbIrdn0yVCmAfPlYiyU6+mexNUNjZG34j4i5zx5S1b34cLrYVtYIRR9Wx5Ksxy5Co/lJGtd+vT0+
+	TLd6IBI1gauDM5qU3VgukCln5QT4k/UbLO9Zq/lenFfm5G8/RfqqM0uNmPV1BWVBumA5imHW04DWN
+	SLgrCooGzW004zShrUL9fSZtu2lXxvy6sLGfPAYfdFUOhApbmAa9WzOB09HnQPWblULLyQA6oTqVg
+	GpJRWhcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKPgp-00000000Grn-1nEz;
-	Wed, 06 May 2026 00:00:35 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wKQTE-00000000L6V-0KgR;
+	Wed, 06 May 2026 00:50:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKPgm-00000000Gqz-2OdT;
-	Wed, 06 May 2026 00:00:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SOllEwp6DeG/eyRZXCgBb5tIfMaTa9j/DdNJ6/74ON66j9exOapw+J8wBN1OojSNs97rKofU8B/v4D2V1ndpis5v/g0iLwZ5wiVIjPpnb+RCSt3o2wZ5J3Wda2atIq+pA1ZSKJIjmBrr6bCBzbFLCO54hlG1FAZTW3UDopyCpJzvZTodseumZWm1VcSx2cSE0CyueaH0LEbNdYMCRG7PfedauD5Ol1r4IGiiisLG+Ykk6s7taD59grcSc79MQSkj9Ye3SXIAZbw2ljOMyDQWI58VgNTU8iOSWOkka3Eq1I3aFiBv8e4ZecwP8oXnCgOgT+EnM0HYXJjs9Xcr7Xq0zQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1YNIUtYOAEzFl5jRvxqILmZomuAINmo2Khle6yMwqNg=;
- b=JPe6pFI7H8I8LltszQLOlI2XacAiePnoyUIfxYtpPoxkgUTjAuUXmYz0ZvXoBaZ+dmuDN3oV199R/Eu/eW6XRNl1PRvdl3aJugvb9RJauG3UBpOXpI8TReJcnKJVWpU3mXPuov3MXdr6PX67U0wZsWx0jhe4oMnuZmhPNeWdhFf2+79FsLduvcJiLk2Bk/VXOsvt+iVnGmG4WffmNp/VC5wYIioFNObCjipPdNML2aex/HpsDscfLrZ1SI953QJuZG92xSnW9ts05B+C66k1fwcZqlPf3W5U4yrnuxrBdu6H8Mbe0RXPLLY9sFG82OvmEgtqMX6awQGpmt32JAxECQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=genexis.eu;
- dkim=pass header.d=genexis.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=genexis.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1YNIUtYOAEzFl5jRvxqILmZomuAINmo2Khle6yMwqNg=;
- b=mZhCMiXoWVk2Xi5CXnCoZrKdsRta7vcB9T6mm4uXlEET14tVtf6GZyBt8CoiNJ+PaKUuB/cDCngZIHsWs/KPv6tNIsMQv+6zsfAJpLmAFGFgYOlgxLfqM7Pj37pCUahbSqyXUOghl1zcBfaAOCjAs4P5SkD8yKOZUqU97gyjPbVSgOnOmMUqBb57gtJrbUCaUNmKioPbg67PDuhgQ6ZNivH42qjVyoY/2qTfU4hcbh1AA8mwSXDkIAWhVWHazu5bkkghctL9gBikqnyELwtcgdzB3nnIDvG9Qhzr+FuXxAx+eLCfZFmsc4ZAY0VgB8yBH0QY0549BI1CTHkd0vqFEw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=genexis.eu;
-Received: from DB9PR08MB6697.eurprd08.prod.outlook.com (2603:10a6:10:2ad::14)
- by DU2PR08MB10132.eurprd08.prod.outlook.com (2603:10a6:10:49a::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Wed, 6 May
- 2026 00:00:23 +0000
-Received: from DB9PR08MB6697.eurprd08.prod.outlook.com
- ([fe80::bdec:3e95:6614:441f]) by DB9PR08MB6697.eurprd08.prod.outlook.com
- ([fe80::bdec:3e95:6614:441f%6]) with mapi id 15.20.9870.023; Wed, 6 May 2026
- 00:00:23 +0000
-Message-ID: <5f3b3b38-1b53-4b9a-9673-de4ca321b3f1@genexis.eu>
-Date: Wed, 6 May 2026 02:00:20 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next RFC PATCH v5 08/10] dt-bindings: net: pcs: Document
- support for Airoha Ethernet PCS
-To: Christian Marangi <ansuelsmth@gmail.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Philipp Zabel <p.zabel@pengutronix.de>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- llvm@lists.linux.dev
-References: <20260505182713.27644-1-ansuelsmth@gmail.com>
- <20260505182713.27644-9-ansuelsmth@gmail.com>
-Content-Language: en-US
-From: Benjamin Larsson <benjamin.larsson@genexis.eu>
-In-Reply-To: <20260505182713.27644-9-ansuelsmth@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: GVZP280CA0081.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:150:274::8) To DB9PR08MB6697.eurprd08.prod.outlook.com
- (2603:10a6:10:2ad::14)
+	id 1wKQTA-00000000L4x-2838
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 May 2026 00:50:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1778028629;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=b9H8cYKTCyIKnl9+d/AL5JHJT5IYmUArCaFMH4v5EuY=;
+	b=ZohWz6HQUllvYrwQGEODoMsIiQ3IY3+ACIHrwjzLt7LaVHKXDKqcWHSTZ9lir9SiDQDZmB
+	b/jQW6qFvbPBB9ikCFxjYhr3F9jnJHYhJOnjB+Pf4b1qIajGNB43tnpw7SCulgAZxRfgSG
+	HBs1ZwsXGyfyjkAkxaeQKnTdtKN0eaw=
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
+ [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-323-8CK3zrsnNW25HRHaj7fmkQ-1; Tue, 05 May 2026 20:50:28 -0400
+X-MC-Unique: 8CK3zrsnNW25HRHaj7fmkQ-1
+X-Mimecast-MFC-AGG-ID: 8CK3zrsnNW25HRHaj7fmkQ_1778028628
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8eb82634cbeso1174120085a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 May 2026 17:50:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778028628; x=1778633428;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=b9H8cYKTCyIKnl9+d/AL5JHJT5IYmUArCaFMH4v5EuY=;
+        b=Srp/wi+2sX2IlTv6tPiylW6aolZr36KrbMWKVrDRPeetyl5nIl32/wT+HgT0Z4IUcd
+         g79yEZgxqVjI68EbfOOHZFSFYPuxy/Ns7+cp8pkcAEUEsMcUKEo/F1evJeSV0nRXVu+v
+         h0FjOwHjIRPXq7ks9ZzoFlmaaMzjXN8uE+pQTe/CMeYXMXH2kx7xyJM+ta7HGwGiy/Tw
+         znxO9gjp7azQgZ1MLei1zVkEWHPiX1Vu2CjYsXHpBi+1xRQYvQyAYeGnqrLQnJY1Smrf
+         3VQnJhQzI7xsWhsUbPlUGAqL8wEtR7MISGVvhHzIoPFAAxSfVgyL2V/yIHdViHocMh6j
+         Krbw==
+X-Forwarded-Encrypted: i=1; AFNElJ+Pnt5oQeH20jVQaDz/+XoS49v0HCaOK2PBLdA1l2aiTQqZgEcHdVM2MVqnEiPs+03TRBfDeNowzYcPfNoMJ3yr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWs8/6ndsuIvL/ZkJ15e0FsYyDUOVVcN1VW/n4mFA9V9+lIb/L
+	3QLJpjeUNkTiluIpEbocWmjD0uuKGDtldhM8LAh6spCczrPVhubpRkMTNFNwbDtDXM5mOu+Eqad
+	jWxxJTIgerAvccVijH5DrGF6OXXYJB6SeKnADtwdwgMuIZl7uu2BfApWohBb5zMhezWaFgacgnt
+	Ge
+X-Gm-Gg: AeBDietg8q+ofAvMbhck+pBDYK9OO4SpIqsDAOe/HxP6o6RmEHUjW/RY4qAGwqJLTcT
+	gCi4J4IEPh5Sk8oEYCNHFkF0FyVKucQKYGvN2vg/drvNy6sMqAUEPjXof8mQLxUV6rhVAtdq46O
+	A1BhympQSEnw0ilB1hJegGoajW0lkznEG/wAHOlOHiMsdWrlVxzFfCiAYl5vZ2jkM3ebBVR+zI3
+	dQzq5yAPBxhfTaME70yrDADoBzH1Kz1ImB9B9avkGAImc8grGAqlr+o5FTRTIhMdrqK02cyzI+Q
+	+PxOXg4icfqv3M3xLxGCMly2yX+t7duEITTEtZoliB67DhTvhdVTAjxGvmhm91V4YBsP6xoAzIY
+	oEl4x//gcb23yQfiAx/nwSEUn6fT567HCxr0LHSmDldOjlsl5mchGPfLwlTxxHQ6I/+YiE9w7
+X-Received: by 2002:a05:620a:454d:b0:8cd:7952:d449 with SMTP id af79cd13be357-904d5f00d9emr231854085a.29.1778028627991;
+        Tue, 05 May 2026 17:50:27 -0700 (PDT)
+X-Received: by 2002:a05:620a:454d:b0:8cd:7952:d449 with SMTP id af79cd13be357-904d5f00d9emr231848285a.29.1778028627449;
+        Tue, 05 May 2026 17:50:27 -0700 (PDT)
+Received: from [192.168.1.15] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8fc2c91fb3bsm1464933385a.41.2026.05.05.17.50.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 May 2026 17:50:26 -0700 (PDT)
+From: Brian Masney <bmasney@redhat.com>
+Subject: [PATCH v3 00/15] clk: introduce clk_determine_rate_noop() and
+ update drivers to use it
+Date: Tue, 05 May 2026 20:48:56 -0400
+Message-Id: <20260505-clk-determine-rate-noop-v3-0-f3f829fbacdf@redhat.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR08MB6697:EE_|DU2PR08MB10132:EE_
-X-MS-Office365-Filtering-Correlation-Id: e881d99e-7dcf-45e2-c583-08deab027849
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|921020|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: AtjM9YpRxieDJ5F7seLmYaefnBV6lXyaCcoJEFalH5uSETeGUFIwLmx88rRUedRwBztN1WbAht/+oXqPeE+6vg3Xx71/r8G+pNe8o8uOfKe1i37vN6GrL43POxdR66kIzVinXHHLSBHeeiYz/5n4M613s2PuMPsjqVKMAPZHjOF/SqJ3+xvkVWK9DsKb/PSRPOcbx5iolzNxpqrfGII+cEApvIva3XaFHqrJ6YL2jkSY+N0UjlfChGpSV9JFwwgb9/b0XdjlODB6GD07hofUEddabnMeDa7HFPgbiMl1vF/MTXlRwsHLw0XgtvhzScjNCU0oLImqc7kBeIlhhM/H5xe4+8/bQ+lS/N3wJC3pqcBWK9RjUObVJEJK9uPxfH3yYXtmgtvQrOROkeyJNHUaElI1e8MiPf3+zcbei0k8AM0alnus3l0EFdH2K3HwA+FVj+5YVOqo6ltl6Q/3lzJxt3WOrkxOFIMNQigZ1eaBvaZnPT9NiWb9wMHhgj27rMdNlv070Q1JUNGpecy8yo9Knuciz966h6J2MW68H1teE7y1Yy5r2MTisQ6ebxm9LqfcUiLmydh85vF9Cot83QiVzDAtzNuIewEa7HTR2vvG0xz8DOcixot6YanwxnM0RO3qVpXJn7luFIVj7F/Yp1kJbahtP5KiqHxsh7wdrnG/JL2yni3F4Jy5QamzJDRsh4T1
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB6697.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q3VhV0lpZ296VS9SdEo3RWs3NDVWZTYwaGNPWHA3alNOaEdhS1JNUkpDb1hC?=
- =?utf-8?B?SGpsdnl0eDdRUWFYSzVteHc1VGk2QWZQbW95bWhsL1UxVjZEWmlHakVhbXp2?=
- =?utf-8?B?T05xMEw4MGFJRmZMamQ3akRocW0zNnc1L21UaEdBdk05YXJ1VHE1VzBGQ0tV?=
- =?utf-8?B?bFFjMnUwTmsxbEd2QzV5Y1M1cG1mYUZuRTJPL2FYRFJTOUcwYzNkZ09yWHhZ?=
- =?utf-8?B?T3hsNnQvbGpQU0xjVjVNRlZhRk9rbEhIZjk5QzV3elZ4SmtCUmNVNEozUXhV?=
- =?utf-8?B?YTZJTzVxVU1FRy85cENCdW9iNy9UcjhqZUtNcXZQWVBPQ2d6TStJb1loa2Fw?=
- =?utf-8?B?Z0FRcThpVmFUaTRVSmh3eUhVV2pQOGYxWjNRQ2hIaVFiR2lIUmM2QWxRY0th?=
- =?utf-8?B?eGd2bFU3Y2ZPSFp5MlJlNW41VVc0b1FpY1dzRld0Z1pDK3NtbXphdE5FNnlU?=
- =?utf-8?B?V1llbmcwTm1acmRBSGRvWVhCWTErelJPdGtzak5sL2dWYmh1RFFVdXhzVDh4?=
- =?utf-8?B?eUZqTDQzcGtZRjJSMHRwTlVqUzBQMHMvM2RaTTdSWitDdndEK0RGMzRDNzc2?=
- =?utf-8?B?eFc2RDl1dUl4Q2xaWUZvaDU5cmlZVUU4MUdlVHVGZ0YyTFptM0dtMjlRQ0hx?=
- =?utf-8?B?RmZpOHkrc2hlUHdkQ3VYbXFTVENKWHNHUjRPOVRzT2h4SUR2QThENWdNd1dJ?=
- =?utf-8?B?YStHNFlha0lrMnJBOTA1MmxsZHNqTmZEeWRhZ1NmbUJJZkpWdi9qb3VnTVhZ?=
- =?utf-8?B?THFNQ05RbjJkS2xpQWlYWjdxclpDbFZrSzh0dUZscGdka05Rem45WG56NmxX?=
- =?utf-8?B?dWhPSzR6R084UEFtME9wQjF0VXBFUUdlV3RFcFNSLy9yVkhxV1NOcXNveTdF?=
- =?utf-8?B?cUFGTE9HRWtLZnp3VWVJei8vSnFBcGF5NnYxM3oxSmVkWHpua1M2WktKN25q?=
- =?utf-8?B?YUtGZWhQWkVOTDBTcFpwdUgyeWVsQm1jNitHVmNyRGNFSzRmaGZlUUxBQ1J1?=
- =?utf-8?B?S1JvZHFaTjlYcmttQ2pMNTR1bEF6dk1pdXB0cmpTOGJ4amU2N1k3c0h4aTQw?=
- =?utf-8?B?QmhLbTd5alFtRDJHQUdkZWowY1JiN09ZUnpkM1NIOS9meDUyUFhDdy9acjcv?=
- =?utf-8?B?N2w3TjFGZS9iZEpVUUhNR1JMRlRYd1FpaEJxbGsyOTJwWkhxbk5MODd3UnlQ?=
- =?utf-8?B?RlViODdVWXAwTmtqNi9vS2E0U0pyWnFBVWJnY0NpbWdrbEsvNndmZmpMR3JE?=
- =?utf-8?B?WHh5T2JjaVdNdHBrT3B3VTRnTHFTUHRoRkFPd3krOUluNUxnREg5MXVuZWlC?=
- =?utf-8?B?a01GdkV2c1pVTEJWbmJSazNjRVFoaFpBNDFJalFHUjNLU1dnOEUwT1NXaHdW?=
- =?utf-8?B?SStIWERPZVpkTHRJTmNyYkszcm1xRENodDMwdHZnMlhyVVhwNkZyTForaEpy?=
- =?utf-8?B?OVZLOVEyeGtjbVByc0pOaVhsV3ZVWmQ2bWt3WWJsS2pMTmdUYTZCOVVQSWZC?=
- =?utf-8?B?NnMvMEg5MVdEZ2ZsMWFVeUpoSGlXRSthc2Fkc2xvd0lmNkp2TDlmUGhCNmo1?=
- =?utf-8?B?Zm51RDBlYk95enZoM3JIdCtMKzgvWTU1L21QMGg4eWs3dVc4eHRUZ1FJNy85?=
- =?utf-8?B?UlhtSktQSlJoT2MvdGZKYkVUVVQxbnp1TlJHNHZRZDFQVklsMHd3alU5dkJK?=
- =?utf-8?B?ZEZBWU1saHJOaXFOOHdoQmllWS93QmthdlczbVA5WitJL2VVMGRad082Rllo?=
- =?utf-8?B?ZjZVczE4aU55dzFhVVU1M29uV3pKcmhidStPeHl1ZmtJWGpBbzFROXhIVzg5?=
- =?utf-8?B?c29FdWt5QXE0dkJrUEVpK3RSYkdPbUZQd0ExZGgxL29ITGVPSnlxbU9rZkFF?=
- =?utf-8?B?eEpXdjhJemV2bmQ1Vi9oN00zUG5sUW05c09EWjdlZGtFQnJEQXp2ZzFOajlh?=
- =?utf-8?B?cjBvSEhLSWNSamhDRjIvdCtMSkxQM2UrZlhhaWF1VHYwS1BHbC9uTDRRc2Uz?=
- =?utf-8?B?UVZLR3BkZGM0Mnc5MFIyRXNFMS81NENQamt5d3RXVjZFMEc2eXA1aUhhSFlQ?=
- =?utf-8?B?TUhzRFFxZDkrVUpaancrWERCc2pTaStQMnVkMTQyWXQ0cDFRM0hDQzBDQ2tL?=
- =?utf-8?B?V201bHVxTTNSUVBtMGhDTlROaW82dFBOWGVvVnpVQ2pURTJiSlkzeWxrbG5x?=
- =?utf-8?B?VDdjZ3lXMXBBV3FvdkZrNzNmUjdNM2REWlNMNTlvYVAvdkxhcUJWOFFMcU9Q?=
- =?utf-8?B?Rk5nblIxanM5SlpDczNKQ0xvTERMOUFNOWhNTE80VnFSZHNoOUJmcngrNUdF?=
- =?utf-8?B?Z1RaaWNRRXFoNmhvaGhzcWRLa3pPZEtBSnUrVHVxYjJsUi9XOUlTYjlpVkNw?=
- =?utf-8?Q?nhfJ2Qa1qKr1ul0c=3D?=
-X-OriginatorOrg: genexis.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: e881d99e-7dcf-45e2-c583-08deab027849
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR08MB6697.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 00:00:23.4866
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AfaybxIm3fCPu3JQQY2hV5/l8xWNE7VTzBbc3q88hHQ81bkYN9/Bz/7sj/BMaGyH1rvrngbr9Y61B/V3aKOBA1jEHZYpYQboNylIiWYGQyQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB10132
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqDMBBG4avIrDsQNVHpVYqLoH90aJvIREpBv
+ LvB5bd476AMFWR6VgcpfpIlxYL2UdG0+riAZS6mxjSdccbx9HnzjB36lQhWv4NjShvXvXfWhn4
+ w9UCl3hRB/vf5NZ7nBVsAcIVpAAAA
+X-Change-ID: 20260505-clk-determine-rate-noop-17a544f78018
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>
+Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>, Abel Vesa <abelvesa@kernel.org>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Anson Huang <anson.huang@nxp.com>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Andrea della Porta <andrea.porta@suse.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Orson Zhai <orsonzhai@gmail.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Chunyan Zhang <zhang.lyra@gmail.com>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Ulf Hansson <ulfh@kernel.org>, linux-arm-msm@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ arm-scmi@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
+ linux-pm@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3477; i=bmasney@redhat.com;
+ s=20250903; h=from:subject:message-id;
+ bh=zMeXAyyLpb1ycANNIw7NwRnIidpI1as921qDmQJS1JY=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDJ/TXBhDD/HJ+irfPCG5f8LBYvv8Dx9dmqr4NPkLyFFK
+ ++kbGS41lHKwiDGxSArpsiyJNeoICJ1le29O5osMHNYmUCGMHBxCsBEFrEwMqxq53uRvrC91Ddt
+ SpiPrVzUGZG/vn+yPrXy74upe2fVfJGRYcr2/5NeNj+qTdRbHh6S2B+gniyyo6Z0VsK7yHUStra
+ VbAA=
+X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
+ fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: W3TvmRaOKItB7zWkpgknxyY4KTr-s-EgwN8w5Zq9iYI_1778028628
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260505_170032_645339_658685A3 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20260505_175032_637612_142691E4 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,73 +148,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi.
+There are some clocks where the determine_rate clk op is just an empty
+function that returns 0. This can be either because the rounding is
+managed by the firmware/hardware, or the clock is capable of any rate.
+Let's add a new new shared function to clk.c named
+clk_determine_rate_noop(), and update all of the drivers that have an
+empty determine_rate() ops to use this new shared function.
 
-On 05/05/2026 20:27, Christian Marangi wrote:
-> Document support for Airoha Ethernet PCS for AN7581 SoC.
->
-> Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
-> the various Serdes port supporting different Media Independent Interface
-> (10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
+The first patch in this series also includes a minor cleanup to
+drivers/clk/imx/clk-scu.c. I included it as the first patch so it
+doesn't get buried in the middle of this series. I change this same
+driver later in the series to use clk_determine_rate_noop().
 
-10GBASE-R
+Changes since v2:
+https://lore.kernel.org/all/20260309-clk-det-rate-fw-managed-v2-0-c48ef5a3100a@redhat.com/
+- Dropped the NOOP flag and just use a dedicated noop function.
 
-> This follow the new PCS provider with the use of #pcs-cells property.
->
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->   .../bindings/net/pcs/airoha,pcs.yaml          | 112 ++++++++++++++++++
->   1 file changed, 112 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
->
-> diff --git a/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
-> new file mode 100644
-> index 000000000000..8bcf7757c728
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
-> @@ -0,0 +1,112 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/pcs/airoha,pcs.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Airoha Ethernet PCS and Serdes
-> +
-> +maintainers:
-> +  - Christian Marangi <ansuelsmth@gmail.com>
-> +
-> +description:
-> +  Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
-> +  the various Serdes port supporting different Media Independent Interface
-> +  (10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
+Merge Strategy
+--------------
+All of this needs to be directly merged by Stephen as one series into
+his tree. Subsystem maintainers: please leave a Reviewed-by or Acked-by
+for Stephen. To reduce the noise, I am only CCing people on their
+respective drivers.
 
-10GBASE-R
+Since there's only 3 drivers outside of drivers/clk that need to be
+updated, I included them in this same series for completeness. These
+should go through Stephen's tree as well.
 
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - airoha,an7581-pcs-eth
-> +      - airoha,an7581-pcs-pon
-> +
-> +  reg:
-> +    items:
-> +      - description: XFI MAC reg
-> +      - description: HSGMII AN reg
-> +      - description: HSGMII PCS reg
-> +      - description: MULTI SGMII reg
-> +      - description: USXGMII reg
-> +      - description: HSGMII rate adaption reg
-> +      - description: XFI Analog register
-> +      - description: XFI PMA (Physical Medium Attachment) register
+Signed-off-by: Brian Masney <bmasney@redhat.com>
+---
+Brian Masney (15):
+      clk: imx: scu: drop redundant init.ops variable assignment
+      clk: add clk_determine_rate_noop()
+      clk: hisilicon: hi3660-stub: use clk_determine_rate_noop()
+      clk: imx: scu: use clk_determine_rate_noop()
+      clk: qcom: rpm: use clk_determine_rate_noop()
+      clk: qcom: rpmh: use clk_determine_rate_noop()
+      clk: qcom: smd-rpm: use clk_determine_rate_noop()
+      clk: renesas: rzg2l-cpg: use clk_determine_rate_noop()
+      clk: rp1: use clk_determine_rate_noop()
+      clk: samsung: acpm: use clk_determine_rate_noop()
+      clk: scpi: use clk_determine_rate_noop()
+      clk: sprd: use clk_determine_rate_noop()
+      phy: mediatek: phy-mtk-hdmi-mt2701: use clk_determine_rate_noop()
+      pmdomain: mediatek: airoha: use clk_determine_rate_noop()
+      pmdomain: mediatek: mtk-mfg: use clk_determine_rate_noop()
 
-reg or register ?
+ drivers/clk/clk-rp1.c                           |  8 +-------
+ drivers/clk/clk-scpi.c                          | 14 +-------------
+ drivers/clk/clk.c                               | 18 ++++++++++++++++++
+ drivers/clk/hisilicon/clk-hi3660-stub.c         | 12 +-----------
+ drivers/clk/imx/clk-scu.c                       | 24 +++---------------------
+ drivers/clk/qcom/clk-rpm.c                      | 15 ++-------------
+ drivers/clk/qcom/clk-rpmh.c                     |  8 +-------
+ drivers/clk/qcom/clk-smd-rpm.c                  | 13 +------------
+ drivers/clk/renesas/rzg2l-cpg.c                 |  8 +-------
+ drivers/clk/samsung/clk-acpm.c                  | 14 +-------------
+ drivers/clk/sprd/pll.c                          |  8 +-------
+ drivers/phy/mediatek/phy-mtk-hdmi-mt2701.c      |  8 +-------
+ drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c |  8 +-------
+ drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c    | 23 ++---------------------
+ include/linux/clk-provider.h                    |  1 +
+ 15 files changed, 36 insertions(+), 146 deletions(-)
+---
+base-commit: 4cd074ae20bbcc293bbbce9163abe99d68ae6ae0
+change-id: 20260505-clk-determine-rate-noop-17a544f78018
 
-
-MvH
-
-Benjamin Larsson
-
+Best regards,
+-- 
+Brian Masney <bmasney@redhat.com>
 
 
