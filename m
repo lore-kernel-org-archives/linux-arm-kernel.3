@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA6BCD343B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 16:04:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF35CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 16:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uMnYomw7wkM/4yGc5Bu3qyGXNBMc4omZ0x90cKOmQrc=; b=e/EIIlnZUfVo9b5kCRy+zXlm/N
-	9g2SXcbwwz3JhkWcGJ9nwnmNXH2a+qKewvwILNne8nZs2p8/PMDoB4HTkllc8gMKn2vKG3w8Eoyc2
-	YVBoSkUBsjESA0+QIoPywWsbN8Yr64IXFoRbMxa6Ji/4LB+Ay2209ZXnCVjHsimjDv2sR18rQM1IF
-	TPB1REMtZznf7DkUwI60qBfbVyFuPOnlVPZq6OQtr9yThZW/UEW6q2odN5A7BqscUulbKUg56J9jv
-	Z67yLntgdHq6GdFx4wkm5rjYdgXHFPwo5/jy8CibJdnuR3GKHCSalTdZ18yqaSY1TZMvQF83Es3ne
-	pGu2xjqw==;
+	bh=AXqRKZhjFEyi/ltX9hOBH+ro2nwh6ncmYIwX+HcE4pQ=; b=ALk0UXzP4UvfEpaE7oazXQ49fa
+	mO1bJTbZUt72lP8KnTyjH+v4/jd1PCV9WlkNWcmv5p2Yl2QGD1qalZzmPIFzKetuV2ilS86w780hE
+	lAK/naZESrSM7J0ypZJn/mLwkAr2TrTrTWi7SY+hME3Cief175+KDRPRAbgyJ5gmcW4h60JcJMefj
+	ynQs7uk9nbpYit9n/noHOwS9WYUuGqygmvQGASgqrTsGGLzrHfYwmr84YJPnJ+d9KsuO0pZ7L1f2b
+	zvdqXEiig11mMCOpjUNeobmf0tjz5nAtFeq2zhoOBivBj19lvu1XCve+KpnAegC9+irwAHq++qkm/
+	GfTwPPaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeja-00000001ROn-0ZpP;
-	Wed, 06 May 2026 16:04:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wKem4-00000001Rrj-2CZa;
+	Wed, 06 May 2026 16:07:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKejZ-00000001ROY-0ZP7;
-	Wed, 06 May 2026 16:04:25 +0000
+	id 1wKem3-00000001RrM-1vMq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 May 2026 16:06:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 562B36014B;
-	Wed,  6 May 2026 16:04:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C581C2BCB0;
-	Wed,  6 May 2026 16:04:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E449D60139;
+	Wed,  6 May 2026 16:06:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 991FBC2BCB8;
+	Wed,  6 May 2026 16:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778083464;
-	bh=6FVEWNBCSGLEKdFaLuHudNfHQjAUWParHoWV/FsZ0nY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a6VD1Djs+ELVFmhOF0ioeTY8/DahRm6ZRoCGweQFimAHuF1bmhpEmvZmi9o5DG9yq
-	 /87bwBvuuWRV7apF9HB8NGiBO8F4mLdb/S4YvfuNkV/EgSHNP/Q8OwjI4O26oW3J+S
-	 EHhKrXX+/LY+AWNsYkwiQw0nXPhaumq0wuvQP5YWPY5zXv1IXCYMUiACmT6fTVnqmA
-	 r0IEm0u/ml9HwI/WCvnxOwHikxK7IAaBD2K13w2ZGb1yVxo7oxdHarISmdXH12YY9H
-	 WmBtCQE92qijSN64OJDYRBnAP/nwgfNLQeeUu6kTKdiOZVAib+Zopr1CC9fXsS3wk4
-	 RIkU+e3baqU8Q==
-Date: Wed, 6 May 2026 21:34:14 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	vigneshr@ti.com, jingoohan1@gmail.com, thomas.petazzoni@bootlin.com, 
-	pali@kernel.org, ryder.lee@mediatek.com, jianjun.wang@mediatek.com, 
-	claudiu.beznea.uj@bp.renesas.com, mpillai@cadence.com, robh@kernel.org, s-vadapalli@ti.com, 
-	linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/8] PCI: j721e: Set max_link_speed to enable 100 ms
- delay after link up
-Message-ID: <rlsvpbo4gcix3mmbfsxvmfebnnn4bqm3cv34x4qkxuv3zwydnm@ehi3el63z664>
-References: <20260506152346.166056-1-18255117159@163.com>
- <20260506152346.166056-5-18255117159@163.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260506152346.166056-5-18255117159@163.com>
+	s=k20201202; t=1778083618;
+	bh=p1HSZhk3xZr7JtjEv3xBoO2014jkOSMUATxVPDTI3No=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=n5e4XPrhHrhHVJr7uGcgtPtHPW2SDW+A2JwGpABnw7Fx2XoZdSLWQZOC9OB+lXjNb
+	 +Ebrorl4Gku68OWN94QgSu52ym9nGlQYR6dDY6YCt4aL4omu1l/HU1CDUcOP2gHhPe
+	 oBU6/lzn2NIhWWvB39+z4gciSCEcuTNIhQupCHNIKt7G6n3Kzcfer3aVVAjYExdgA/
+	 i3DMSScco00mkKK9baFm8PKVF/2RmcazBkJ3P5Pd3i6NK870GrAzjEM/cHlbA0rxvU
+	 onvGhslJPNHjSyZXoN29oFVJlF4Ef0syCgW0WCbO3CTgHf4soOT9IubGrC/HetA/2r
+	 H4La0Qck9DpEA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wKem0-00000000M8k-2oCw;
+	Wed, 06 May 2026 16:06:56 +0000
+Date: Wed, 06 May 2026 17:06:56 +0100
+Message-ID: <86y0hwy127.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Vincent Donnefort <vdonnefort@google.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH v2] KVM: arm64: Work around C1-Pro erratum 4193714 for protected guests
+In-Reply-To: <afti13dXA6DjGXR3@arm.com>
+References: <20260505165205.2690919-1-catalin.marinas@arm.com>
+	<aftEJffxGZ_XSk2E@google.com>
+	<afti13dXA6DjGXR3@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, vdonnefort@google.com, will@kernel.org, james.morse@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, mark.rutland@arm.com, oupton@kernel.org, lpieralisi@kernel.org, sudeep.holla@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,37 +89,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 06, 2026 at 11:23:42PM +0800, Hans Zhang wrote:
-> Set cdns_pcie.max_link_speed to the maximum supported link speed
-> (obtained from the device tree property "max-link-speed") in
-> j721e_pcie_set_link_speed(). This activates the post-link delay logic
-> added in cdns_pcie_host_start_link() when the controller supports
-> speeds greater than 5 GT/s.
+On Wed, 06 May 2026 16:48:39 +0100,
+Catalin Marinas <catalin.marinas@arm.com> wrote:
 > 
-> As required by PCIe r6.0 sec 6.6.1, and following the same approach as
-> commit 80dc18a0cba8d ("PCI: dwc: Ensure that dw_pcie_wait_for_link()
-> waits 100 ms after link up"), this ensures a 100 ms delay after link
-> training completes before any Configuration Request is sent.
+> On Wed, May 06, 2026 at 02:37:41PM +0100, Vincent Donnefort wrote:
+> > On Tue, May 05, 2026 at 05:52:03PM +0100, Catalin Marinas wrote:
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > index 28a471d1927c..7d59faa99fee 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > @@ -5,6 +5,8 @@
+> > >   */
+> > >  
+> > >  #include <linux/kvm_host.h>
+> > > +#include <linux/arm-smccc.h>
+> > > +
+> > 
+> > nit: probably not necessary with the nvhe/arm-smccc.h include below.
 > 
-> Signed-off-by: Hans Zhang <18255117159@163.com>
-> ---
->  drivers/pci/controller/cadence/pci-j721e.c | 1 +
->  1 file changed, 1 insertion(+)
+> Ah, yes. Some left-over from before I changed it to use hyp_smccc_* and
+> had to include nvhe/arm-smccc.h.
 > 
-> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-> index bfdfe98d5aba..ee85b8e04f5b 100644
-> --- a/drivers/pci/controller/cadence/pci-j721e.c
-> +++ b/drivers/pci/controller/cadence/pci-j721e.c
-> @@ -206,6 +206,7 @@ static int j721e_pcie_set_link_speed(struct j721e_pcie *pcie,
->  	    (pcie_get_link_speed(link_speed) == PCI_SPEED_UNKNOWN))
->  		link_speed = 2;
->  
-> +	pcie->cdns_pcie.max_link_speed = link_speed;
+> Marc, do you want me to respin or you can drop this include when
+> applying.
 
-What about other glue drivers?
+I'll fix it locally, no need to resend.
 
-- Mani
+Thanks,
+
+	M.
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Without deviation from the norm, progress is not possible.
 
