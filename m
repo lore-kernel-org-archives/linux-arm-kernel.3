@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8619CCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:51:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 066A0CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nu/5wT5jlnwzrwMmx9CCzWySzYFarqeUlZxvck6ibMA=; b=aTUMjRt+eX1D8HMBUshGAmScfk
-	MMBIwSQP7qbcmCkeVzNsMRYzALl9RY5s/+Hf+x0KezbxyV9Qy3tC14Nb6j5IJJGHLN/DLKDGIVato
-	N8n9VAeTD1wn/MnycxDzVMIOasU06fv01/RE55bgPKpLEz7drQHqmnNw9U5HWm6KExVCZvDyPQgDR
-	DBwQr1NAciC6KiE1/l5BrfSagLaGtTctPNnGnZc0PCeywgnjzzcuJOA8JyVzpvw4wZGvBZaXtmEwg
-	QP+RuXyNQW3DjIs31HXqmw8l2pYxJgWpWafLVDC8WCkJ2ucuN3PXxerKhPrQ1SyYxjOV8n3LtwSiy
-	y5LUERRA==;
+	bh=Xrx+HqhAxeOv5DoMJYmySVbA1MpZzn0b1/D3AeLRg58=; b=NaaWtfhrG04pv8Tfiui9ju1oCX
+	xGhj78w5lFUawO1F0fmFygneqXF51lX7NSTUkWtT0PjtP6EOno7IvN9ZFa2n1gX6IM5OX0ZOOE6Y2
+	iFVyfouh2cnQT3lSoJTlUpfsQ9nnk7d81GNU0WoJ0BB0cTKgSYllyCFGCsn65P9jejRcC2gHpOQfm
+	qumpyBetqsBhlmbmOPfNoocAjCDoo5SOHEHqEVvgFv7UrE97+qeUMQs6C7eoCnDHsuD/2BRZyhYHc
+	xiTYw+znNTh4oiovKLc+xU5uV3wg16Ovl1d6v2yA2DAUMbnugA8oBDKd6kcpTrWdBVMfeBaSk3kor
+	f/Q75o8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZqz-00000000Xpw-04R0;
-	Wed, 06 May 2026 10:51:45 +0000
+	id 1wKZxq-00000000YkO-2c8p;
+	Wed, 06 May 2026 10:58:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZqx-00000000XpY-4BwC
+	id 1wKZxp-00000000Yk3-1nDX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 10:51:44 +0000
+	Wed, 06 May 2026 10:58:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 867413319;
-	Wed,  6 May 2026 03:51:37 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49EA53F836;
-	Wed,  6 May 2026 03:51:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 46BBF3319;
+	Wed,  6 May 2026 03:58:43 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E06A3F836;
+	Wed,  6 May 2026 03:58:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778064702; bh=iYNXb++hIJ9OfRQc9+FWnMLqhZrlCDWvv412uOnwE/g=;
+	t=1778065128; bh=aQfsV2SqE6kU4SVIid6MOpxYl3B3Uko4bftEJ8oCdog=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CLbSYu+sRwtJr3t9K16SL9rXHW8Z+pbVRQ+RJhmov6xkSlmuLFbW/FfcaeqvTpJ+V
-	 p9B3F82aA9Gq8jU87onEpr6LkVcoe/pE5Co5Z+plDH5fLGRiM2Kvox/A4beffwA4Rq
-	 QCTUJyzR9QEdd3QKEfZIbyYQdzHUy8dROaLjdR3E=
-Date: Wed, 6 May 2026 11:51:37 +0100
-From: Philip Radford <philip.radford@arm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, linux-pm@vger.kernel.org,
-	sudeep.holla@arm.com, james.quinlan@broadcom.com,
-	f.fainelli@gmail.com, vincent.guittot@linaro.org,
-	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
-	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
-	souvik.chakravarty@arm.com
-Subject: Re: [PATCH v5 12/12] powercap: arm_scmi: Synthetic zone
- enable/disable
-Message-ID: <afsdOZ690p_vn9sq@donnerap.manchester.arm.com>
-References: <20260428090922.346069-1-philip.radford@arm.com>
- <20260428090922.346069-13-philip.radford@arm.com>
- <afpu-Wf01J3l0gAu@pluto>
+	b=kpI7YXBx7bQ0HlHyprN3ILWivU+ISemkX0wJ31Ad1W6z7Qlkutk71D+vaoCehQjEY
+	 bdO0wfarRKzrWvnQnoIOtNnFC6sVjeMJsKwCpzC7Hi4TnkZmrwvvImqjV7s7sPFVYG
+	 vhJ+Ca76Us05zKFsGC+F4zuxEuSDOWW2raT2IyO4=
+Date: Wed, 6 May 2026 11:58:44 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: David Sauerwein <dssauerw@amazon.de>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	nh-open-source@amazon.com
+Subject: Re: [PATCH] arm64: Fix garbled logs caused by race between multiple
+ stack traces
+Message-ID: <afse5Ld52p7DmidK@arm.com>
+References: <20260430084738.73909-1-dssauerw@amazon.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <afpu-Wf01J3l0gAu@pluto>
+In-Reply-To: <20260430084738.73909-1-dssauerw@amazon.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_035144_121264_47CDFA67 
-X-CRM114-Status: GOOD (  34.81  )
+X-CRM114-CacheID: sfid-20260506_035849_504059_CB009D1B 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,139 +70,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 11:28:09PM +0100, Cristian Marussi wrote:
-> On Tue, Apr 28, 2026 at 10:09:21AM +0100, Philip Radford wrote:
-> > Add functionality to disable and enable the synthetic zone which
-> > also affects the immediate children of the synthetic zone by applying
-> > the same command to them.
-> > 
-
-Hi,
-
-> > Signed-off-by: Philip Radford <philip.radford@arm.com>
-> > ---
-> >  drivers/powercap/arm_scmi_powercap.c | 81 ++++++++++++++++++++++++++++
-> >  1 file changed, 81 insertions(+)
-> > 
-> > diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-> > index 81b5214acda4..1ed2949b06cb 100644
-> > --- a/drivers/powercap/arm_scmi_powercap.c
-> > +++ b/drivers/powercap/arm_scmi_powercap.c
-> > @@ -270,6 +270,85 @@ static int instance_root_release(struct powercap_zone *pz)
-> >  	return 0;
-> >  }
-> >  
-> > +static int instance_root_set_enable_state(struct powercap_zone *pz, bool enable)
-> > +{
-> > +	struct scmi_powercap_zone *root;
-> > +	struct scmi_powercap_root *pr;
-> > +	struct scmi_powercap_zone *child;
+On Thu, Apr 30, 2026 at 08:47:38AM +0000, David Sauerwein wrote:
+> When multiple stack traces are printed at the same time, the lines that
+> contain register values may get split into multiple separate lines.
+> Some stray empty lines may appear as well.
 > 
-> ...child and root on the same line of declarations...
-> 
+> [ 2013.814455] ------------[ cut here ]------------
+> [ 2013.814455] ------------[ cut here ]------------
+> [ 2013.814459] WARNING: CPU: 12 PID: 626 at src/arch/arm64/kvm/../../../virt/kvm/kvm_main.c:3860 mark_page_dirty_in_slot+0x5c/0xd8
+> [ 2013.814457] WARNING: CPU: 3 PID: 620 at src/arch/arm64/kvm/../../../virt/kvm/kvm_main.c:3860 mark_page_dirty_in_slot+0x5c/0xd8
+> [...]
+> [ 2013.814483] x29: ffff8000873b3b10
+> [ 2013.814484] x29: ffff800083fd3b10
+> [ 2013.814484]  x28: ffff00001d71e300 x27: 0000000000000001
+> [ 2013.814486] x26: ffff800080c63b80 x25: ffff800080c63000
+> [ 2013.814487]  x28: ffff00001d71a100 x27: 0000000000000001
+> [ 2013.814488]  x24: 0000000000401b14
+> [ 2013.814489]
+> [ 2013.814489] x26: ffff800080f5bb80 x25: ffff800080f5b000
+> [ 2013.814491]
+> [ 2013.814491] x23: ffff0000117b2000 x22: ffff00001e22bd88 x21: 0000ff9cc1b14000
+> [ 2013.814493]  x24: 0000000000402230
+> [ 2013.814494]
+> [ 2013.814495] x20: ffff800080c63000
+> [ 2013.814495] x23: ffff00001d916f00
+> [ 2013.814496]  x19: 0000000000000000 x18: ffff8000808c1660
+> [ 2013.814497] x17: 0000000000000000
+> [...]
+[...]
+> @@ -235,12 +235,22 @@ void __show_regs(struct pt_regs *regs)
+>  	i = top_reg;
+>  
+>  	while (i >= 0) {
+> -		printk("x%-2d: %016llx", i, regs->regs[i]);
+> +		/*
+> +		 * Buffer is big enough to hold the output for 3 register
+> +		 * plus some extra.
+> +		 */
+> +		char buf[80];
+> +		int len;
+> +
+> +		len = scnprintf(buf, sizeof(buf), "x%-2d: %016llx",
+> +				i, regs->regs[i]);
+>  
+>  		while (i-- % 3)
+> -			pr_cont(" x%-2d: %016llx", i, regs->regs[i]);
+> +			len += scnprintf(buf + len, sizeof(buf) - len,
+> +					 " x%-2d: %016llx",
+> +					 i, regs->regs[i]);
+>  
+> -		pr_cont("\n");
+> +		printk("%s\n", buf);
 
-Noted.
+While the above does solve the line splitting, the trace is still not
+that readable as we get line interleaving.
 
-> > +	int ret, first_err = 0;
-> > +
-> > +	if (!pz)
-> > +		return -EINVAL;
-> > +
-> > +	root = to_scmi_powercap_zone(pz);
-> > +	pr = container_of(root, struct scmi_powercap_root, instance_root);
-> 
-> ...another user of you new macro !
-> 
+I wonder whether we could do something like dump_stack_lvl() at the
+show_regs() level to synchronise the printing. If that works, we
+wouldn't need the above change (which isn't incorrect but maybe we can
+do better).
 
-:)
+Thanks.
 
-> > +
-> > +	list_for_each_entry(child, &pr->registered_zones[0], node) {
-> > +		if (child == &pr->instance_root)
-> > +			continue;
-> > +
-> > +		if (child->info->parent_id != SCMI_POWERCAP_ROOT_ZONE_ID)
-> > +			continue;
-> > +
-> > +		if (!child->info->cpli[0].cap_config)
-> > +			continue;
-> > +
-> > +		ret = powercap_ops->cap_enable_set(child->ph, child->info->id, enable);
-> > +
-> > +		if (ret && !first_err) {
-> 
-> ...mmm what is the logic here ? why not bailing out on any error ?
-> 
-
-Good point. I was initially trying to prevent one error stopping everything without
-checking the other children, but even as I'm writing this out I can see the fault in
-that logic.
-
-> > +			first_err = ret;
-> > +			dev_err(child->dev, "failed to %s zone %s: %d\n",
-> > +				enable ? "enable" : "disable",
-> > +				child->info->name, ret);
-> > +		}
-> > +	}
-> > +
-> > +	return first_err;
-> 
-> ...especially if you anyway fails globally on any error....
-> ..I am not completely sure bit given that youare operating on a
-> synthetic zone that you enable as a whole, while acting on its children
-> in the backstage...I would say that if any enable/disable fails on a
-> chidlren you should revert the enable status of the children thate were
-> succesffull and report the error...I mean the state of top synthatic
-> zones AND the states of the children MUST remain consistent...
-> ...it CANNOT be that some chidlren fails, some succeeds and you report
-> an error..it must be all or nothing...
-> ...example..top syntethic zone is OFF if all children were successfully
-> disabled...on a failure with one of the children you shoudl revert the
-> already successfully set children and report the global error...
-> 
-
-Point taken, this needs reworking.
-
-> > +}
-> > +
-> > +static int instance_root_set_enable(struct powercap_zone *pz, bool mode)
-> > +{
-> > +	return instance_root_set_enable_state(pz, mode);
-> > +}
-> > +
-> > +static int instance_root_get_enable(struct powercap_zone *pz, bool *mode)
-> > +{
-> > +	struct scmi_powercap_zone *root;
-> > +	struct scmi_powercap_root *pr;
-> > +	struct scmi_powercap_zone *child;
-> > +	bool enabled;
-> > +	int ret;
-> > +
-> > +	if (!pz || !mode)
-> > +		return -EINVAL;
-> > +
-> > +	root = to_scmi_powercap_zone(pz);
-> > +	pr = container_of(root, struct scmi_powercap_root, instance_root);
-> > +
-> > +	*mode = true;
-> > +
-> > +	list_for_each_entry(child, &pr->registered_zones[0], node) {
-> 
-> mmm...what is the point here of scanning the children to GET the
-> state...you should report the top syntethic zone state right ?
-> You could have disable children directly...that wont be reflected in the
-> Linux powercap hiearcrhy right ?
-> I mean should you NOT simply return the stae of the top syntethic zone
-> which is should have saved in the previous state_set operation above ?
-> 
-> I think that anyway if you disable a zone...any zone...ONLY that zone is
-> marked as disable in Lnux powercap ... am I right ? 
-> 
-> Then probably our SCMI fw will do much more on all the children..
-> 
-
-Good point, I'll simplify it to report a saved state for the synthetic root.
-
-Regards,
-Phil
+-- 
+Catalin
 
