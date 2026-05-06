@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD73BCD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:06:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2FFECD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qt2HGrXPLQycWQQy/Cjb5HlQSRkdj/GSEKb5kpr7+68=; b=Qfc4OhyGQLF7ffuHnQe7p44Gst
-	TIzl1bNzsmKLE2IxnhJ19wKRD8Ed0f8z9rp2bScgzQNGs2EZKOsAEnJbSyKphbElaKKXz2M4aS2Vq
-	9o+YYEX46SRv1WqgrFAbjVfHPAiUPWT+objaQ7Yklfa+cb4R4eXNSwXP6jnL9XnsB9zZ3dNJMo+aa
-	pTLfwit/nWMWBcOzvMGjxOkyWTBTPhfZzyzpOho84wobd8Vt2dSVBeJwESSWxck201vf164a6od+n
-	ZAu7/tJkutnzaXk+avMux8VkJwkZ0UJGYc/SGz++gQi4Pnc9DhTrKhGyAEGCVEE6jUMZGs7JBOz2v
-	LpOwLeqA==;
+	bh=U/rvMeUsp+Th3MTKB/4X5GkEFsXCvCrhahVYSvDtQ1Y=; b=Ja62DWtnScxzdJdOw+eWusjYXB
+	vVNaYnzll3oDFVNi8XqjkZhfWB9CPlIBKATvvuhlIM+KdQZpZRmv4u4SAktZygbSKIjNUUIdcqYX1
+	owP0rJK5dWEr4Ia32Oi7CcvhNliw4XqNw4owfZSQ6sD8pJLtlYCh0u32TDtnxlMuDFOl3RTSHQkoK
+	YfyYI9n1oI0lEkkdLGA7x6UpuUryjelGmrz2EEkrLR40NhjHDFqojtyYcektJhuSdy4xOKXsvQmeZ
+	lawudB+qT2xFE2U7PRrDWYb/I4ezy0TvY+6yXzqBO5tLOYil1KK8qc3pQCGaFg5/KjNgopBZyfFH9
+	QYar4zGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdpf-00000001EmT-2U6N;
-	Wed, 06 May 2026 15:06:39 +0000
-Received: from pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.83.148.184])
+	id 1wKdq1-00000001EuQ-35vg;
+	Wed, 06 May 2026 15:07:01 +0000
+Received: from pdx-out-002.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.246.1.125])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKdpd-00000001Eld-0Qn5
+	id 1wKdpz-00000001Et2-3nfD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 15:06:37 +0000
+	Wed, 06 May 2026 15:07:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1778079997; x=1809615997;
+  t=1778080019; x=1809616019;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=Qt2HGrXPLQycWQQy/Cjb5HlQSRkdj/GSEKb5kpr7+68=;
-  b=f/fuM9sZuKyRq5Xt4Mvs1PX974+Er8+KgsLk+TvLs4HhTJyBcD2wiyWj
-   qaivETd4CM8r0dSfXj5KiSx3Y77hixQCyJ8KYhFqaqDzDTIM9fhVMoz9q
-   xiUb3LWHPLO6M8aoqyXR87qWpQntgC/GGPUG+Qlfa57K6FLxkUk05vqfK
-   +kyxb50AL2y1DKOEYATM1KhkKSn32hBFbaWOxCwi2A+U0zAVoKyKIklbM
-   PbEsa4cUZ6yIAy7agt/f78ggXRRNaqSUbW0qHgcNG2KJtY/lVu+pY6eT3
-   ujFDHsE/eL9lPfukd/FKJ8pulkp2jO/49lbj69T5bJoLhDDdIh3k+hUA/
+  bh=U/rvMeUsp+Th3MTKB/4X5GkEFsXCvCrhahVYSvDtQ1Y=;
+  b=QIZ9/1RiELaA68XvmXg7AJdSTJ6d76i5h0vSH70prnLuJMo4fmubXHDE
+   dYmvFJ9p/owPih1PU6PBTrU9iODhaPxdKE2+3HYfG865S/tZdCCOxn9bj
+   d6mJ/QijeOWrE1mKwjSHgP06ClX7ENWxJQX9XxRzBR60/7KYa1mt47fA0
+   rx1G+CjAokQdyVp+9ST3Tokiu72SuYCsl+vQiOmmig4PrPCtYxSo5Wm7J
+   qMMOgvsUiKcnC0Vg9dYTGqXWCowrjUEtFXmOTFIcgOrBUzKBsUvxwos7h
+   jPmDxi0NLD4FObfebCvbzZj3iOy0wdCEa8z8pFya0hxALC1AZ7MI+yQW0
    w==;
-X-CSE-ConnectionGUID: FpKGDPPDTbilxUFbQUb+oA==
-X-CSE-MsgGUID: TlIn3Q7eRwyi2ArP7bf0oA==
+X-CSE-ConnectionGUID: pBgyRvOKTPKCQgsJmnMkdA==
+X-CSE-MsgGUID: plt9Ar9xQ5mQMllXEPvCpg==
 X-IronPort-AV: E=Sophos;i="6.23,219,1770595200"; 
-   d="scan'208";a="18791000"
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-014.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2026 15:06:32 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.105:24373]
+   d="scan'208";a="19005044"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-002.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2026 15:06:55 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [205.251.233.111:23550]
  by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.20.153:2525] with esmtp (Farcaster)
- id 25a03849-80ff-445e-8e23-f965dc2a85fc; Wed, 6 May 2026 15:06:31 +0000 (UTC)
-X-Farcaster-Flow-ID: 25a03849-80ff-445e-8e23-f965dc2a85fc
+ id b8767516-fa69-4398-a5c2-3a41f5800182; Wed, 6 May 2026 15:06:55 +0000 (UTC)
+X-Farcaster-Flow-ID: b8767516-fa69-4398-a5c2-3a41f5800182
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Wed, 6 May 2026 15:06:31 +0000
+ Wed, 6 May 2026 15:06:55 +0000
 Received: from dev-dsk-yigitogu-1a-d17f6574.eu-west-1.amazon.com
  (172.19.100.7) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37; Wed, 6 May 2026
- 15:06:29 +0000
+ 15:06:53 +0000
 From: Yigit Oguz <yigitogu@amazon.de>
 To: <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
 	<baolu.lu@linux.intel.com>, <dwmw2@infradead.org>,
 	<suravee.suthikulpanit@amd.com>
 CC: <jgg@ziepe.ca>, <nicolinc@nvidia.com>, <iommu@lists.linux.dev>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	"Lilit Janpoladyan" <lilitj@amazon.com>, Yigit Oguz <yigitogu@amazon.de>
-Subject: [PATCH 1/3] iommu/arm-smmu-v3: Print PCI vendor:device ID in SMMU translation fault logs
-Date: Wed, 6 May 2026 15:05:37 +0000
-Message-ID: <20260506150541.60467-2-yigitogu@amazon.de>
+	"Yigit Oguz" <yigitogu@amazon.de>, Lilit Janpoladyan <lilitj@amazon.com>
+Subject: [PATCH 2/3] iommu/vt-d: Add PCI segment and vendor:device ID to DMAR fault logs
+Date: Wed, 6 May 2026 15:05:38 +0000
+Message-ID: <20260506150541.60467-3-yigitogu@amazon.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260506150541.60467-1-yigitogu@amazon.de>
 References: <20260506150541.60467-1-yigitogu@amazon.de>
 MIME-Version: 1.0
 X-Originating-IP: [172.19.100.7]
-X-ClientProxiedBy: EX19D041UWB004.ant.amazon.com (10.13.139.143) To
+X-ClientProxiedBy: EX19D036UWB001.ant.amazon.com (10.13.139.133) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_080637_187948_6D0E85F6 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260506_080700_979608_B157A0B8 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,63 +95,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogTGlsaXQgSmFucG9sYWR5YW4gPGxpbGl0akBhbWF6b24uY29tPgoKRm9yIHRyYW5zbGF0
-aW9uLCBhZGRyZXNzLXNpemUsIGFjY2VzcywgYW5kIHBlcm1pc3Npb24gZmF1bHRzLCBsb29rIHVw
-CnRoZSBwY2lfZGV2IGZyb20gdGhlIGV2ZW50IGFuZCBhcHBlbmQgdGhlIFBDSSB2ZW5kb3I6ZGV2
-aWNlIElEIGFmdGVyCnRoZSBkZXZpY2UgbmFtZSwgZS5nLjoKCiAgZXZlbnQ6IEZfVFJBTlNMQVRJ
-T04gY2xpZW50OiAwMDAxOjAyOjAyLjQgWzFkMGY6ODA2MV0gc2lkOiAuLi4KCkZvciBub24tUENJ
-IGRldmljZXMgb3IgdW5hc3NpZ25lZCBTSURzIHRoZSBvdXRwdXQgaXMgdW5jaGFuZ2VkLgoKU2ln
-bmVkLW9mZi1ieTogTGlsaXQgSmFucG9sYWR5YW4gPGxpbGl0akBhbWF6b24uY29tPgpTaWduZWQt
-b2ZmLWJ5OiBZaWdpdCBPZ3V6IDx5aWdpdG9ndUBhbWF6b24uZGU+Ci0tLQogZHJpdmVycy9pb21t
-dS9hcm0vYXJtLXNtbXUtdjMvYXJtLXNtbXUtdjMuYyB8IDI5ICsrKysrKysrKysrKysrKysrKy0t
-LQogMSBmaWxlIGNoYW5nZWQsIDI1IGluc2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pCgpkaWZm
-IC0tZ2l0IGEvZHJpdmVycy9pb21tdS9hcm0vYXJtLXNtbXUtdjMvYXJtLXNtbXUtdjMuYyBiL2Ry
-aXZlcnMvaW9tbXUvYXJtL2FybS1zbW11LXYzL2FybS1zbW11LXYzLmMKaW5kZXggZThkN2RiZTQ5
-NWYwLi5hYjFhZmEzNjk2NWEgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvaW9tbXUvYXJtL2FybS1zbW11
-LXYzL2FybS1zbW11LXYzLmMKKysrIGIvZHJpdmVycy9pb21tdS9hcm0vYXJtLXNtbXUtdjMvYXJt
-LXNtbXUtdjMuYwpAQCAtMjIxMywxMiArMjIxMywzMCBAQCBzdGF0aWMgdm9pZCBhcm1fc21tdV9k
-dW1wX3Jhd19ldmVudChzdHJ1Y3QgYXJtX3NtbXVfZGV2aWNlICpzbW11LCB1NjQgKnJhdywKIAog
-I2RlZmluZSBBUk1fU01NVV9FVlRfS05PV04oZSkJKChlKS0+aWQgPCBBUlJBWV9TSVpFKGV2ZW50
-X3N0cikgJiYgZXZlbnRfc3RyWyhlKS0+aWRdKQogI2RlZmluZSBBUk1fU01NVV9MT0dfRVZUX1NU
-UihlKSBBUk1fU01NVV9FVlRfS05PV04oZSkgPyBldmVudF9zdHJbKGUpLT5pZF0gOiAiVU5LTk9X
-TiIKLSNkZWZpbmUgQVJNX1NNTVVfTE9HX0NMSUVOVChlKQkoZSktPmRldiA/IGRldl9uYW1lKChl
-KS0+ZGV2KSA6ICIodW5hc3NpZ25lZCBzaWQpIgorCisvKiAiU1NTUzpCQjpERC5GIFtWVlZWOkRE
-RERdXDAiIOKAlCAxMiArIDEgKyAxMSArIDEgPSAyNTsgcm91bmQgdG8gcG93ZXIgb2YgMiAqLwor
-I2RlZmluZSBBUk1fU01NVV9DTElFTlRfTEVOCTMyCisKK3N0YXRpYyBjb25zdCBjaGFyICphcm1f
-c21tdV9mbXRfY2xpZW50KHN0cnVjdCBhcm1fc21tdV9ldmVudCAqZSwgY2hhciAqYnVmLCBzaXpl
-X3Qgc3opCit7CisJc3RydWN0IHBjaV9kZXYgKnA7CisKKwlpZiAoIWUtPmRldikKKwkJcmV0dXJu
-ICIodW5hc3NpZ25lZCBzaWQpIjsKKwlpZiAoIWRldl9pc19wY2koZS0+ZGV2KSkKKwkJcmV0dXJu
-IGRldl9uYW1lKGUtPmRldik7CisKKwlwID0gdG9fcGNpX2RldihlLT5kZXYpOworCXNucHJpbnRm
-KGJ1Ziwgc3osICIlcyBbJTA0eDolMDR4XSIsIGRldl9uYW1lKGUtPmRldiksIHAtPnZlbmRvciwg
-cC0+ZGV2aWNlKTsKKwlyZXR1cm4gYnVmOworfQogCiBzdGF0aWMgdm9pZCBhcm1fc21tdV9kdW1w
-X2V2ZW50KHN0cnVjdCBhcm1fc21tdV9kZXZpY2UgKnNtbXUsIHU2NCAqcmF3LAogCQkJCXN0cnVj
-dCBhcm1fc21tdV9ldmVudCAqZXZ0LAogCQkJCXN0cnVjdCByYXRlbGltaXRfc3RhdGUgKnJzKQog
-eworCWNoYXIgY2xpZW50YnVmW0FSTV9TTU1VX0NMSUVOVF9MRU5dOworCiAJaWYgKCFfX3JhdGVs
-aW1pdChycykpCiAJCXJldHVybjsKIApAQCAtMjIzMCw3ICsyMjQ4LDggQEAgc3RhdGljIHZvaWQg
-YXJtX3NtbXVfZHVtcF9ldmVudChzdHJ1Y3QgYXJtX3NtbXVfZGV2aWNlICpzbW11LCB1NjQgKnJh
-dywKIAljYXNlIEVWVF9JRF9BQ0NFU1NfRkFVTFQ6CiAJY2FzZSBFVlRfSURfUEVSTUlTU0lPTl9G
-QVVMVDoKIAkJZGV2X2VycihzbW11LT5kZXYsICJldmVudDogJXMgY2xpZW50OiAlcyBzaWQ6ICUj
-eCBzc2lkOiAlI3ggaW92YTogJSNsbHggaXBhOiAlI2xseCIsCi0JCQlBUk1fU01NVV9MT0dfRVZU
-X1NUUihldnQpLCBBUk1fU01NVV9MT0dfQ0xJRU5UKGV2dCksCisJCQlBUk1fU01NVV9MT0dfRVZU
-X1NUUihldnQpLAorCQkJYXJtX3NtbXVfZm10X2NsaWVudChldnQsIGNsaWVudGJ1ZiwgQVJNX1NN
-TVVfQ0xJRU5UX0xFTiksCiAJCQlldnQtPnNpZCwgZXZ0LT5zc2lkLCBldnQtPmlvdmEsIGV2dC0+
-aXBhKTsKIAogCQlkZXZfZXJyKHNtbXUtPmRldiwgIiVzICVzICVzICVzIFwiJXNcIiVzJXMgc3Rh
-ZzogJSN4IiwKQEAgLTIyNDcsMTQgKzIyNjYsMTYgQEAgc3RhdGljIHZvaWQgYXJtX3NtbXVfZHVt
-cF9ldmVudChzdHJ1Y3QgYXJtX3NtbXVfZGV2aWNlICpzbW11LCB1NjQgKnJhdywKIAljYXNlIEVW
-VF9JRF9DRF9GRVRDSF9GQVVMVDoKIAljYXNlIEVWVF9JRF9WTVNfRkVUQ0hfRkFVTFQ6CiAJCWRl
-dl9lcnIoc21tdS0+ZGV2LCAiZXZlbnQ6ICVzIGNsaWVudDogJXMgc2lkOiAlI3ggc3NpZDogJSN4
-IGZldGNoX2FkZHI6ICUjbGx4IiwKLQkJCUFSTV9TTU1VX0xPR19FVlRfU1RSKGV2dCksIEFSTV9T
-TU1VX0xPR19DTElFTlQoZXZ0KSwKKwkJCUFSTV9TTU1VX0xPR19FVlRfU1RSKGV2dCksCisJCQlh
-cm1fc21tdV9mbXRfY2xpZW50KGV2dCwgY2xpZW50YnVmLCBBUk1fU01NVV9DTElFTlRfTEVOKSwK
-IAkJCWV2dC0+c2lkLCBldnQtPnNzaWQsIGV2dC0+ZmV0Y2hfYWRkcik7CiAKIAkJYnJlYWs7CiAK
-IAlkZWZhdWx0OgogCQlkZXZfZXJyKHNtbXUtPmRldiwgImV2ZW50OiAlcyBjbGllbnQ6ICVzIHNp
-ZDogJSN4IHNzaWQ6ICUjeCIsCi0JCQlBUk1fU01NVV9MT0dfRVZUX1NUUihldnQpLCBBUk1fU01N
-VV9MT0dfQ0xJRU5UKGV2dCksCisJCQlBUk1fU01NVV9MT0dfRVZUX1NUUihldnQpLAorCQkJYXJt
-X3NtbXVfZm10X2NsaWVudChldnQsIGNsaWVudGJ1ZiwgQVJNX1NNTVVfQ0xJRU5UX0xFTiksCiAJ
-CQlldnQtPnNpZCwgZXZ0LT5zc2lkKTsKIAl9CiB9Ci0tIAoyLjQ3LjMKCgoKCkFtYXpvbiBXZWIg
-U2VydmljZXMgRGV2ZWxvcG1lbnQgQ2VudGVyIEdlcm1hbnkgR21iSApUYW1hcmEtRGFuei1TdHIu
-IDEzCjEwMjQzIEJlcmxpbgpHZXNjaGFlZnRzZnVlaHJ1bmc6IENocmlzdG9mIEhlbGxtaXMsIEFu
-ZHJlYXMgU3RpZWdlcgpFaW5nZXRyYWdlbiBhbSBBbXRzZ2VyaWNodCBDaGFybG90dGVuYnVyZyB1
-bnRlciBIUkIgMjU3NzY0IEIKU2l0ejogQmVybGluClVzdC1JRDogREUgMzY1IDUzOCA1OTcK
+Include the full SSSS:BB:DD.F address with PCI segment and
+vendor:device ID (VVVV:DDDD) in DMAR fault messages. Uses
+iommu->segment for the PCI domain and pci_get_domain_bus_and_slot
+to look up the pci_dev. Falls back to segment:BDF without
+vendor:device if the device is not found.
+
+This brings Intel IOMMU fault logging in line with the ARM SMMUv3
+event decoding, making it easier to identify faulting devices
+(e.g. after FLR) without cross-referencing lspci.
+
+Before:
+  DMAR: [DMA Write NO_PASID] Request device [86:00.0] fault addr 0xe0000000
+	[fault reason 0x05] PTE Write access is not set
+
+After:
+  DMAR: [DMA Write NO_PASID] Request device [0000:86:00.0 8086:1533] fault addr 0xe0000000
+  	[fault reason 0x05] PTE Write access is not set
+
+Signed-off-by: Yigit Oguz <yigitogu@amazon.de>
+Signed-off-by: Lilit Janpoladyan <lilitj@amazon.com>
+Assisted-by: Claude:claude-4.6-opus
+---
+ drivers/iommu/intel/dmar.c | 33 +++++++++++++++++++++------------
+ 1 file changed, 21 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/iommu/intel/dmar.c b/drivers/iommu/intel/dmar.c
+index d33c119a935e..225fa498d714 100644
+--- a/drivers/iommu/intel/dmar.c
++++ b/drivers/iommu/intel/dmar.c
+@@ -1890,30 +1890,39 @@ static int dmar_fault_do_one(struct intel_iommu *iommu, int type,
+ {
+ 	const char *reason;
+ 	int fault_type;
++	u8 bus = source_id >> 8;
++	u8 devfn = source_id & 0xFF;
++	struct pci_dev *pdev;
++	char devid[48];
+ 
+ 	reason = dmar_get_fault_reason(fault_reason, &fault_type);
+ 
++	pdev = pci_get_domain_bus_and_slot(iommu->segment, bus, devfn);
++	if (pdev) {
++		snprintf(devid, sizeof(devid), "%04x:%02x:%02x.%d %04x:%04x",
++			 iommu->segment, bus, PCI_SLOT(devfn), PCI_FUNC(devfn),
++			 pdev->vendor, pdev->device);
++		pci_dev_put(pdev);
++	} else {
++		snprintf(devid, sizeof(devid), "%04x:%02x:%02x.%d",
++			 iommu->segment, bus, PCI_SLOT(devfn), PCI_FUNC(devfn));
++	}
++
+ 	if (fault_type == INTR_REMAP) {
+-		pr_err("[INTR-REMAP] Request device [%02x:%02x.%d] fault index 0x%llx [fault reason 0x%02x] %s\n",
+-		       source_id >> 8, PCI_SLOT(source_id & 0xFF),
+-		       PCI_FUNC(source_id & 0xFF), addr >> 48,
+-		       fault_reason, reason);
++		pr_err("[INTR-REMAP] Request device [%s] fault index 0x%llx [fault reason 0x%02x] %s\n",
++		       devid, addr >> 48, fault_reason, reason);
+ 
+ 		return 0;
+ 	}
+ 
+ 	if (pasid == IOMMU_PASID_INVALID)
+-		pr_err("[%s NO_PASID] Request device [%02x:%02x.%d] fault addr 0x%llx [fault reason 0x%02x] %s\n",
++		pr_err("[%s NO_PASID] Request device [%s] fault addr 0x%llx [fault reason 0x%02x] %s\n",
+ 		       type ? "DMA Read" : "DMA Write",
+-		       source_id >> 8, PCI_SLOT(source_id & 0xFF),
+-		       PCI_FUNC(source_id & 0xFF), addr,
+-		       fault_reason, reason);
++		       devid, addr, fault_reason, reason);
+ 	else
+-		pr_err("[%s PASID 0x%x] Request device [%02x:%02x.%d] fault addr 0x%llx [fault reason 0x%02x] %s\n",
++		pr_err("[%s PASID 0x%x] Request device [%s] fault addr 0x%llx [fault reason 0x%02x] %s\n",
+ 		       type ? "DMA Read" : "DMA Write", pasid,
+-		       source_id >> 8, PCI_SLOT(source_id & 0xFF),
+-		       PCI_FUNC(source_id & 0xFF), addr,
+-		       fault_reason, reason);
++		       devid, addr, fault_reason, reason);
+ 
+ 	dmar_fault_dump_ptes(iommu, source_id, addr, pasid);
+ 
+-- 
+2.47.3
+
+
+
+
+Amazon Web Services Development Center Germany GmbH
+Tamara-Danz-Str. 13
+10243 Berlin
+Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
+Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
+Sitz: Berlin
+Ust-ID: DE 365 538 597
 
 
