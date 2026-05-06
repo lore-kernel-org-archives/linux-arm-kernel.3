@@ -4,143 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245F8CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 482EBCD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:32:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DMIaYbNWaiHrDF5cYUmGixCW9jzdZLJhobzh6LB/yUU=; b=Ve+TkawfLd8cfl1t1jgmkLNY47
-	L+T4Hdtjjh5VAee5svXX18yWo/P4QgEViPlUUlvb8+Bf3GsJgIjVuXtwfYQNwqTPzIOPg5E+CiYkB
-	38fd6B/jde22Ib+MrDrmtAxuMiPcYWQdca2e8I8866D6tKArdse4yGgi3JlZE5PN4dFWD3jvJ1yGJ
-	Q7ifSvahwpLY0zUu3Dsynd/or1eXrgtVW7qjJBt8artlV6GUZ52L0zIvADxbaPLYnKo+W5GrYGJdf
-	2BIf2l775vtxOKE8Zlmx3coQR21oK4gx8PBU+suLlPaFoiNLu2sL9K3XWYHlOTX5pnzeLEgdWKHJs
-	irjAzu9A==;
+	bh=K9tn9Kq4tpdLI9N9hz49uapAKWylQwew2NPmVkeW/GA=; b=1o+OVeIaP4vlTbPN4Qhfxg/2MP
+	sJYoqS44AtA6uWKy4rl8hZNEigs0OeGo2Mu8LTjQh+qRLDcejCqHtHeA3RJ9i62IENhusFjpLMOHj
+	JUKgbJdG0hpOzM5XjiAv5/KTDvEy/C+zErKiteuW+6WOx1thdyWN9LPus6SgCh6/XOL/QEnFxWg5A
+	kM6+Kik6Rv3yrDsZfT7fp8Y++dm+4759c++xBV2VznXVEw9Fx319eRpEF7l36V5kP6Q5WsqP6lWPk
+	saVeLADZP2UwHvZJfETQUpVKzo6j4d3VtG+sq5pF5cvQlKCf1Uw5WZjDaSRd7XqdgAers6OCnd9qP
+	ePRuWCwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeDv-00000001Kwv-3aJf;
-	Wed, 06 May 2026 15:31:43 +0000
-Received: from mail-japanwestazlp170100003.outbound.protection.outlook.com ([2a01:111:f403:c407::3] helo=OS0P286CU011.outbound.protection.outlook.com)
+	id 1wKeEZ-00000001LCK-1Dgo;
+	Wed, 06 May 2026 15:32:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeDu-00000001Kvq-1fqz;
-	Wed, 06 May 2026 15:31:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oV87Tv+xF7tcR0QZ9W0PIsT1iOAUyjFMY5qVf7HB86gzYyuCY+yaMMpLNiYGuGF0VFTlxtzCQ/P9nqlQ0119zxED3NJQJh9adTthzDnDDdrEx7Sd6kWRCljKLRbRF3aBdUFcxAq3VQAqe4WkwFkWxqOkUKWxEn1lnqmO4NNetY0SStgXNeRyjGIJN0ASwCXqmFjcnSmEL8kmCUuglLQwU9cQJ6Cj9IpycvbhkXH+JsEeFGZcV0moaSJwjkLJmUhX8Jz98XOjjZLW2ik5VsTPOjr+lapYm/yOARcfhvQtSwuBRp56GqOAYNbjFsluZdiluAonJ0Prn+wsYUqVD3aW0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DMIaYbNWaiHrDF5cYUmGixCW9jzdZLJhobzh6LB/yUU=;
- b=tiRxg3IgtFjRy4Uxs2gPRpGhXy9XUFmov6hq9+h6kVsEJXKN2g/+H/tvsALyeZ4MpC9+SrIXjVx8kFdZBZqXiFNFpfFRVAuwgTEsi99sNDY6geIyDC2plDwSC77GJirlqPnfu6LWwCLpx0eVVcXHjDx+BZWDhRcA5MkUYmP4ku3WZWSd1xndRTSpmV6Gab6EhM4EfHiRptwoAmAOb1bJVPMD1RX7G1SHz7lL/vzOVgZZdhyc0mezcALla1M6vv5Cq0242yIWKF7qCzp5URHxpsyGusKnesLQg/iYihoeT6ZxDd9+RjW28CDWutq4pUNjaKiHPQyWS22OI9A5k4mMTQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DMIaYbNWaiHrDF5cYUmGixCW9jzdZLJhobzh6LB/yUU=;
- b=MrXjg6HqIAKG9JMVGJYBtVekatAHosq6g07piTgo/X32tkAappmPc0xIot4BP8NAuAGvzKK0sauUBncAp8TScO2k0tIcW/HhIRJ4AvNEFtFUUosyLiiuDfb3xpM6tSdm75ahETXVGtcO8tfyY/X6oTaYSLCIpLVB6SG/IxUShsc=
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com (2603:1096:400:3d0::7)
- by OSZPR01MB8218.jpnprd01.prod.outlook.com (2603:1096:604:1a7::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.17; Wed, 6 May
- 2026 15:31:28 +0000
-Received: from TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::87d1:4928:d55:97de]) by TY3PR01MB11346.jpnprd01.prod.outlook.com
- ([fe80::87d1:4928:d55:97de%4]) with mapi id 15.20.9891.008; Wed, 6 May 2026
- 15:31:28 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: Hans Zhang <18255117159@163.com>, "bhelgaas@google.com"
-	<bhelgaas@google.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "mani@kernel.org"
-	<mani@kernel.org>, "vigneshr@ti.com" <vigneshr@ti.com>,
-	"jingoohan1@gmail.com" <jingoohan1@gmail.com>, "thomas.petazzoni@bootlin.com"
-	<thomas.petazzoni@bootlin.com>, "pali@kernel.org" <pali@kernel.org>,
-	"ryder.lee@mediatek.com" <ryder.lee@mediatek.com>,
-	"jianjun.wang@mediatek.com" <jianjun.wang@mediatek.com>, Claudiu Beznea
-	<claudiu.beznea.uj@bp.renesas.com>, "mpillai@cadence.com"
-	<mpillai@cadence.com>
-CC: "robh@kernel.org" <robh@kernel.org>, "s-vadapalli@ti.com"
-	<s-vadapalli@ti.com>, "linux-omap@vger.kernel.org"
-	<linux-omap@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "linux-renesas-soc@vger.kernel.org"
-	<linux-renesas-soc@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2 2/8] PCI: cadence: LGA: Add max_link_speed field and
- 100 ms delay after link training
-Thread-Topic: [PATCH v2 2/8] PCI: cadence: LGA: Add max_link_speed field and
- 100 ms delay after link training
-Thread-Index: AQHc3WyHWuzP4HYMG0eDqePELVP1gbYBH4gw
-Date: Wed, 6 May 2026 15:31:28 +0000
-Message-ID: <TY3PR01MB11346620B7637A16120FDED26863F2@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-References: <20260506152346.166056-1-18255117159@163.com>
- <20260506152346.166056-3-18255117159@163.com>
-In-Reply-To: <20260506152346.166056-3-18255117159@163.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY3PR01MB11346:EE_|OSZPR01MB8218:EE_
-x-ms-office365-filtering-correlation-id: cd116b98-141d-4462-c520-08deab848aba
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|921020|38070700021|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: NEoZArqVqP55DDw4ULz0fXGVmQcsDYTILwHTrGaCrTqST+dlkDo2sXsatJ6GzcqxYWV7nJB4Jt4NgQ6IBCTWEpB6fxS9YqGrZhendema0r4EDbGoFmZhh4e8YSSrGRH52WlyM8rjVFXGt5/YQ+tigySBnjtTb15zeigiT6pz4kgNQiL3q6h4J43qBax+v32D9dx51kQdvIHl5fV1jR46DWojDYx7UaFmuve4Du9B5PE98UQixplOcxV7K6Jde8xmpIM6Ne3odG0/HVZFcfEodjr52ypiQCatFtufGXee8N3tD9kRLYLlqftPQyIflMrQC5lQqSZKei0qktH93wzk8eriakX4thfPjT7LWdUqaB/NfI4sjkB8mHB1dicmW46Ot/ZT182hB0GY0tnQZIOO8u8RQ/FsNY13pDP1+mZklUrcJTmG/FBiqFIDbEczmKkREQ1Iwud7gKRRBiRxYpHgMN5vN9jLcTbFe4QpQnojlywLZwCrATpx5QURRNFDS7/FRVBdLwxVbahyjI3tcuXQQAjoya/Ca3/1051s8PPWq0BWSPPIT98phbhDPgI9lPc9MaUB/pgGcIKQrfN9U8YIXEehEVwWOfdmQEHn1xwtKW7d/cDKGwpRAkLsw1/NKtq7+dlllUYfohpQazX8/NndqJ2itqSXbHAZGANByErgD2OdKju+0/oDuyzGIZz8B3Xw2UHNhBV0lPi5NSDlCznnn/lE9GsD2+9N0Ds0a65FhCL42L6uc5B1Rxt//Sf6JIVm80kmvpmYzAmepHaHBYU/qw==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11346.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(921020)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?G8Yb+/PNMlxzl4m/PDzkSamPrZ6wlerzZDu+nHezGyPLnr35K18DMImwaAp1?=
- =?us-ascii?Q?4y3MIIm3yRvaV/I/LJaA/JfL6W6XVVgAbfbXAVx1lSsqU0sbfD27MeO1HWNz?=
- =?us-ascii?Q?ZpbiJaguLSM/VdEkTNqpzNqYMHW5DkP6KGyOCK1ZZ1XfNtpDE0PeYRMkUSH6?=
- =?us-ascii?Q?I3Vp6G3u/4Cjr25YeFznOTpFXJAzKOPjwSybeJLUWVK6iGSZBzZ6h0JC62rg?=
- =?us-ascii?Q?Li/ngFcsRcpqYwZWjTH23yBZ5yEnUGaPRIfSxLM6aHYJ3bs7O7Zp5geC7uQ7?=
- =?us-ascii?Q?bCxgucht6Rld5Ju7eR3FuS9GAFnh3UcpL/N7MQgVIpAJTM5reM7XMkF79Xzf?=
- =?us-ascii?Q?wCdNzGleBfPnwKUejpdqFMc9lRdHnerji5yRwLZY0SFdlxygBg2CIeSjv7fC?=
- =?us-ascii?Q?XPDkWVF3z5kyIglI9V6BP7pQOxpXInGdsbNdsMJKvdd+WZAuMbbhkxolVwv8?=
- =?us-ascii?Q?XEliZhRwgwLZR58nntAsf4qKyy5UcwfLJr5A28QfTi/LXXNzVZJwmUHsIvIh?=
- =?us-ascii?Q?oqj9i8pbcndajsMwp313T7qUDjtD4PKH3VDnKRp9uckG7pFqgR4T2iztvDwl?=
- =?us-ascii?Q?COjv26gt+oJ4+2WMY07+TvjjFpOaZNELnkwrHy9RGxg9KvkTm6lkpuXDHpFx?=
- =?us-ascii?Q?iq6RNNIUKNYhD2uYlptJZb1ic6NMBbj1ynB/cacLh5BIOGhPIuWAzbwSAmHJ?=
- =?us-ascii?Q?V01lOtZVvG7pk2WMG0uW0VJRFK4y6KDVS7BTmOfj9okUyB19oOFTDqCXWfce?=
- =?us-ascii?Q?mf2jI2uw9+A3WlBrs/Db3kZAnx2jMn7RdIKPU1VPRWCVJcooRJttTUIywoHu?=
- =?us-ascii?Q?tpzokxHWOvtC31mBN3RoyzzFjuWogLR/O38N3WE+XOrZ2rewH1ilL/bdwxWv?=
- =?us-ascii?Q?eEBWfT1h50E5dZiQKh4Zde9vXmUAze//fUlRm1qEUBPoUxBHCtfdMPQI0KDh?=
- =?us-ascii?Q?33bRCBmylwZPq+tHfjiiLzvSg2f9ZZmisC7eqMwR4SdIUa3L69UMCC/g5JD9?=
- =?us-ascii?Q?sRSTQpzgmgxrakCVhlHvPQZl+WGrTY0SFyYv52kBVeQHVmvhTTPMtmRIQTgg?=
- =?us-ascii?Q?YIEw08EheEe54pkmVkK30DtPZfM2w8X8+2FDmrfua7zq0J51wV2kOSefkAc4?=
- =?us-ascii?Q?P+ZuLUsrF95WgCeFzVaClAS75H4zT1VQYv+AyIgFizJD1+Q5w05+TfzLVI8i?=
- =?us-ascii?Q?iZtP3kzQhx0SWQ2SDBmR1N5nklAg/IKSorDmPkC1h46ZMTXN7A9F4NcJMhf/?=
- =?us-ascii?Q?/S0IUQyAZ9ZPicKqAUOuJq04M8VQaB5maL+QL5K1Bea4SgDn1zSiPFxh6vW0?=
- =?us-ascii?Q?R1lwHrXKcGZ0dk3UeUGkKPAMrElxUH4ruP66zRdwPIFVI2m60oWqLXkXff8J?=
- =?us-ascii?Q?TU/FT/SUT7kBPBkOuNDxr0GdwNrCzWQjM6RM8BnCpilf71hfAaY1QrH4o9+F?=
- =?us-ascii?Q?o9GH2nQJvkmfTOqtRtvU8UENKo17OEkr9QC79By6Zxp6Zwp+tEHgkP430IoW?=
- =?us-ascii?Q?AJptv5y7ma/JIk4gUGJMXhmQ15Uw9DS24hB95kTYb2uW2krbFtOGjgfe2mLR?=
- =?us-ascii?Q?2LNpFl2svJdZF6lEIjygM5uL1GA2qMlyFBwYxmNlrr2bRhQwMurM/JBPnB1n?=
- =?us-ascii?Q?Av6tghnfsPmVjkyg7U4/UmENTImJgyx+phuwwCubhG9c8cqaE8O6EXoKrfGi?=
- =?us-ascii?Q?p6fgVqm1EIKK4cIu2QgxmO/pVulJtTrMieYRwGl3r7S9c9BGvozu7R27mWDi?=
- =?us-ascii?Q?qIAQ4mAloA=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1wKeEY-00000001LBc-05z3;
+	Wed, 06 May 2026 15:32:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E9D1D6013B;
+	Wed,  6 May 2026 15:32:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 690D3C2BCB0;
+	Wed,  6 May 2026 15:32:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778081540;
+	bh=Z8nEPenX4TJdhrXgJ7ghrwizbjBvQ1xCIwn0oI8yavA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=URVdJszvdIFFyTDuQUlwecaT++vnVVLr0/BQkIc8MD8H2nfKf8gxdYHZbiNHA9Ylk
+	 Y8cR0+NjDS5HhyPC+/gwBvbz/dsnXwYh35XLDyio9uIAPxP2YVQ2hUrfoVzFSPjVYB
+	 Z7cF09xM7rdK6DhzPETQnq1K/1Q4zw611gAIaF0rV/x4LWgPes/1N1csPAhWdXglIL
+	 GVhb2UVOFR/N6MuaPgG0pSmsvq55R7Pu1k2X7UMHS894+L5cW1uQbkhIu4H7g6lW/A
+	 /sKevocI26B6gL9hj3xnZ5Er4zySpmEihZHCHxaxH0w6z7aGpCo/vBFtOCGeTTrFl8
+	 33/ZbPuCbBHHQ==
+Date: Wed, 6 May 2026 10:32:18 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, kernel@collabora.com,
+	Andy Shevchenko <andy@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>, linux-iio@vger.kernel.org,
+	linux-pm@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>,
+	Sean Wang <sean.wang@mediatek.com>, Sen Chu <sen.chu@mediatek.com>,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, Lee Jones <lee@kernel.org>,
+	linux-input@vger.kernel.org, Chen Zhong <chen.zhong@mediatek.com>,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 2/9] dt-bindings: mfd: mediatek: mt6397: Add MT6365 PMIC
+ support
+Message-ID: <177808153813.2165238.1499393868566610666.robh@kernel.org>
+References: <20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com>
+ <20260429-mediatek-genio-mt6365-cleanup-v1-2-6f43838be92f@collabora.com>
 MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11346.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd116b98-141d-4462-c520-08deab848aba
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2026 15:31:28.4395
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: yBW9PjudmoBN7sMIcByi2IIKtvzTTupRVV+lFcY0eABU7l0b6Q7EqGLLtPQFf4owJf3VlwApRiiEOEeZZdrhk53buapL2gM0bbGDr0WEyQk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSZPR01MB8218
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_083142_456824_5D3F9ACF 
-X-CRM114-Status: GOOD (  19.55  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260429-mediatek-genio-mt6365-cleanup-v1-2-6f43838be92f@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,97 +83,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-> -----Original Message-----
-> From: linux-arm-kernel <linux-arm-kernel-bounces@lists.infradead.org> On =
-Behalf Of Hans Zhang
-> Sent: 06 May 2026 16:24
-> Subject: [PATCH v2 2/8] PCI: cadence: LGA: Add max_link_speed field and 1=
-00 ms delay after link
-> training
->=20
-> The Cadence LGA (Legacy Architecture IP) PCIe host controller currently l=
-acks the mandatory 100 ms
-> delay after link training completes for speeds
-> > 5.0 GT/s, as required by PCIe r6.0 sec 6.6.1.
->=20
-> Add a 'max_link_speed' field to struct cdns_pcie to record the maximum su=
-pported link speed (or the
-> currently configured speed). In the common host layer function cdns_pcie_=
-host_start_link(), after the
-> link has been successfully established, call pcie_wait_after_link_train()=
- to insert the required delay
-> if max_link_speed > 2.
->=20
-> Glue drivers must set max_link_speed appropriately (e.g., from the device=
- tree property "max-link-
-> speed") to enable the delay.
->=20
-> Signed-off-by: Hans Zhang <18255117159@163.com>
+On Wed, 29 Apr 2026 11:44:15 +0200, Louis-Alexis Eyraud wrote:
+> MT6365 PMIC is compatible with MT6359, so add the compatible strings
+> for the main and sub devices (regulator, rtc, audio codec).
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 > ---
->  drivers/pci/controller/cadence/pcie-cadence-host-common.c | 4 ++++
->  drivers/pci/controller/cadence/pcie-cadence.h             | 2 ++
->  2 files changed, 6 insertions(+)
->=20
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
-> b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
-> index 2b0211870f02..51376f69d007 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
-> +++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
-> @@ -14,6 +14,7 @@
->=20
->  #include "pcie-cadence.h"
->  #include "pcie-cadence-host-common.h"
-> +#include "../../pci.h"
->=20
->  #define LINK_RETRAIN_TIMEOUT HZ
->=20
-> @@ -115,6 +116,9 @@ int cdns_pcie_host_start_link(struct cdns_pcie_rc *rc=
-,
->  	if (!ret && rc->quirk_retrain_flag)
->  		ret =3D cdns_pcie_retrain(pcie, pcie_link_up);
->=20
-> +	if (!ret)
-> +		pcie_wait_after_link_train(pcie->max_link_speed);
-> +
->  	return ret;
->  }
->  EXPORT_SYMBOL_GPL(cdns_pcie_host_start_link);
-> diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/=
-controller/cadence/pcie-
-> cadence.h
-> index 574e9cf4d003..e222b095d2b6 100644
-> --- a/drivers/pci/controller/cadence/pcie-cadence.h
-> +++ b/drivers/pci/controller/cadence/pcie-cadence.h
-> @@ -86,6 +86,7 @@ struct cdns_plat_pcie_of_data {
->   * @ops: Platform-specific ops to control various inputs from Cadence PC=
-Ie
->   *       wrapper
->   * @cdns_pcie_reg_offsets: Register bank offsets for different SoC
-> + * @max_link_speed: maximum supported link speed
+>  Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
 
-Maximum to make consistent with other comments?
-
-
->   */
->  struct cdns_pcie {
->  	void __iomem		             *reg_base;
-> @@ -98,6 +99,7 @@ struct cdns_pcie {
->  	struct device_link	             **link;
->  	const  struct cdns_pcie_ops          *ops;
->  	const  struct cdns_plat_pcie_of_data *cdns_pcie_reg_offsets;
-> +	int				     max_link_speed;
-
-unsigned int as speed cannot be negative??
-
-Cheers,
-Biju
-
->  };
->=20
->  /**
-> --
-> 2.34.1
->=20
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
