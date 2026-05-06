@@ -4,78 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A4AACD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 12:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A55CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 12:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n+YdK4NbXs+ZsodRXvW6iokqWV0RltJ5UQ3bl9FDyjo=; b=nhjzNegmx7Umi1LrpbdUl5Fi5M
-	I0iIXzi9NnkvKTgKa1xdElol6Sw8CltAduLdIEYbDobpMrwGIiibDarKIiQSE7AHbgkq08XRD0L2s
-	wjO22VjFPXKHOiMLKGYBBXH/O6FXLXWi76oFafSC1FinDDUkiq6Pw3SZwecpfWR479edJ2IFDpL3+
-	nccPC6n1uJJZ6352Aq7wVHIBvAL6qbGj/0JGqmHGunyvRzJq730zrmITI7ZuZk58ENF7/gRXKVsvt
-	b0NKUhir3wIzTUYDlsxXGN3o6uaiajOhxqbUS0bUoge8un64m/eVGWJAO8fH3kMfApKRyvj2/VET0
-	p6Tucvgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yyfk8X7hQAsUD9G+4fe4CzUE4boCyIRsCV8/4Z21Gnc=; b=WesEgrkQgmn21aK91X2LK4M+yP
+	GNe/tl3XV8VO46Y/VM6vxg+VEkTdmvAj7B2suunthhoPEBOWJKLDT/q8CmxtJuemTbQVZ21vHg13T
+	YjStlKgZcEU2emuLz2i/Oze6fLlxkmY8HZxDvafACBsDmBhWI5vDpvue0FAKweaddhAgDqb2yQRYF
+	2qroMy6NiRD+ufJg4ODdw6YW4rUa6+q3dHXgQP7FrhBXp3u0WjMBlQtMqi3knwNz4XYQHNA1mUu9h
+	4N/iZ6mzVQGwNJHSK5TX3JZqwAm1d3vAbL0pKnI4Qee1+FTLFF/ca8/jHhTPtXvSgA/ds455UfyWu
+	HUSfjFFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKbcY-00000000o0q-07U8;
-	Wed, 06 May 2026 12:44:58 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1wKbde-00000000oI2-13Ng;
+	Wed, 06 May 2026 12:46:06 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKbcW-00000000o00-48Lm
+	id 1wKbdc-00000000oHa-3qPC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 12:44:57 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-c801ba7685cso1377166a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 05:44:55 -0700 (PDT)
+	Wed, 06 May 2026 12:46:05 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4893940bb5eso35603865e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 05:46:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778071495; x=1778676295; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=n+YdK4NbXs+ZsodRXvW6iokqWV0RltJ5UQ3bl9FDyjo=;
-        b=W99gymOphLh2/HnM/VsjeNnslUUXLwQK2P4aXbYDceSmK8bH7zP3OBbeBYKFPcm/ZQ
-         TFdnKLF+4MDIG79J49AnFM1B1ZYE4YN5N+qdypJZlmY/ecvfkgT6LjMNJqK7zFFlIMRV
-         vVCL1HsVSKK225evud+bklJtLg+qsMwP7PNQr7RA8XrD2nSu3piKFM4dHNHKE39b41vF
-         kuQcltIkwY2OUkqoGBkT+34HFgIQE7+xkDmDJqqaEKgeH+9AAjKQLLSDOu+dFa4zIK4n
-         TFVaMra1w4dxRisX/pM3CxodKhmLcn4nJeN8L69QVx1ADDWyT29rLod1pfrJffssW5hA
-         Jagg==
+        d=linaro.org; s=google; t=1778071563; x=1778676363; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Yyfk8X7hQAsUD9G+4fe4CzUE4boCyIRsCV8/4Z21Gnc=;
+        b=ZjX+nIdOJ6e12BZoCc01zd3WezysG0DIABRfJ92l0dvQvMbtLt9XosEM08l0hXFWsu
+         7uc9xuRnIS0KDNzq3kNp0dMX56P5A38ekrmzbCl2LCNXUhN+gVWbZxEpMJGOzd5Ya2lv
+         +fGACL4GYb1jUQkNr9cJ7umCihM3mRABgo3cqDoaLhxUUKN8GaGj53linQcIqdxyWYgF
+         nd3ubFpIKCaym4udEFA8S2uCzLxcU4Pz/gutU9N694AWpEkifQGbu67C65WoyxwviMfh
+         576WTXWGP04fEEVj+apXRcET5ndoCJx9XPyYSw3b2ZEdDMtOySc6TjBxKf1iRvja03py
+         xP2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778071495; x=1778676295;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=n+YdK4NbXs+ZsodRXvW6iokqWV0RltJ5UQ3bl9FDyjo=;
-        b=iqiWGls8EUQjsdh1iSjBp1eQJ26X3ERdAh5o87DCeXWYQW57qGbPbym+u0rwPy/6sq
-         2XCehayUZ/ZMldHMxydcEg5gpmZxLnBzFCXWRC2qulpVt9sNQM6F+Nec39Y8p4Zc9Dkd
-         qW7k56pW6L4Tq1tRFu2UjYngGLuAP4I7KdKaQUPX1PjRaWc+4Sv2J37VWXCjBf2oGiZl
-         Xz3gJqZntvGYeuB8NTSoDlOlmqW7nfIisDGuFN5vIab/LBo6h5fZ1c+AkQPO07SnCXQe
-         Zg+aP9WWiUj6neDGrjZ8UmNJJs1ulspd3kRmIK0WPfxCiPVoSTQR0oD7r9G7S6ees1Rv
-         OArA==
-X-Forwarded-Encrypted: i=1; AFNElJ9uADtRMJU5Z1gAAmiHagY94eiPhEhddIYxnDXhbjH367ebheG69OPIRlNxkcGrRK7tj7bwNdHF68YnfjKun6t7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzINWyWagRKjhLwGHKKr68BMvaodV2evDGMmJ/lSgxuxpsLbRw
-	vn0A4UaSs6Lu62FsKjfYtbfBesKCPnpDu7myRo9k9wZxWKvHVBhLq+FG60AZb7DfwDDDeRm3z/8
-	n5SNcjA==
-X-Received: from pgbcx10.prod.google.com ([2002:a05:6a02:220a:b0:c79:22b6:a344])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:549d:b0:3a3:602d:a0d8
- with SMTP id adf61e73a8af0-3aa5a8c5818mr3174269637.17.1778071494440; Wed, 06
- May 2026 05:44:54 -0700 (PDT)
-Date: Wed, 6 May 2026 05:44:50 -0700
-In-Reply-To: <20260506105053.107404-1-alexandru.elisei@arm.com>
-Mime-Version: 1.0
-References: <20260506105053.107404-1-alexandru.elisei@arm.com>
-Message-ID: <afs3wp7xBUf2jYK4@google.com>
-Subject: Re: [RFC PATCH] KVM: arm64: Align KVM_EXIT_MEMORY_FAULT error codes
- with documentation
-From: Sean Christopherson <seanjc@google.com>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	tabba@google.com, David.Hildenbrand@arm.com
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20251104; t=1778071563; x=1778676363;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Yyfk8X7hQAsUD9G+4fe4CzUE4boCyIRsCV8/4Z21Gnc=;
+        b=qUR3qUrTiDrMn62OwulHWiGKDkphWohpj8Nn6pgG4VV//Oi7mDAsZb0h35qMouVwlW
+         2FF1OCS28waMaLkjxAhe94Ebia9W6W5JsFGGIq8IQGYVWgVcFGwmmQmn7ikFjp/Ft27M
+         l7wAkcAbGUdwbZI4UQ8JNPATnT9IWfZDvlA+l9+xDMc0b7SISxiwTa0LcgBnyppzBRIj
+         O7kyOatSMYdr0aN2cyRwNcL5XENhxUEndU/7Q5jINUVpJhIE5VnAFu9L+sXW8F7f6prx
+         CjFdZcbNXMmBDVXOftcuByut4b0eS83oo/72nyyqcGnQpUAJ7yknWnUs88szo7bmC8G2
+         3+Qg==
+X-Forwarded-Encrypted: i=1; AFNElJ8L2JMpEmUkVxdJFxvzTfQFXS0hbOUJeKr5S49QjhDk9GuociCvh9b10+vbGLWm19veCmVbWFqGev0IquE78rN/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6DvSJ4cNXrDQwqtHtyISwzprw+ToYIZAdzNd3ATd2GdSozKwq
+	/XqeMPwKmOwjA6zAn1t8Ami0WfPlxwT6yNSka/v6HmCphlrLbILUDhvN+Nl7ESO38pQ=
+X-Gm-Gg: AeBDiet5f/JABdi0VcJGo+Xg+u7x8v0VWBklWw9RIWy6nOI+q9z65Ocuf0hj/RSCNXE
+	VqMVM2vspuX4HdFX0bNJlkRxkM/eXnBnytc2akHbciVvTo9+dvT6of7/XnDhBr15wn/8oYbKUGG
+	/oeJdh0Ox4dfqL87wF//6vqiDLSZX/3mGB6I5KRi0gtoH5gJMYulpTPBEYtGYeVNP1LW4dA55FD
+	lfjdpEVK+dUaVLIwvfopTCbZB/adlE2f7GkacXmCv8SOyCeDtt5BehuPEvxGNr1H89RKAiAczTn
+	rmqiz2RIV6ej0LfxkHloLOdxi7aveAESEDBz5CjsDHtiRquVxD4ZTFX427DUR7oXWtAkZiofjGu
+	ZTJaBAi2Ach5+zcYyyRW+D3CxoEK8uGpIJBQlyjLob3YcL/6tsqSndrHfWDgTMdfBJ7b0VQz1CR
+	NUKcY7TVF9s4ftieo9DGcOQKztTFGVKkgqQLALgboI1KU=
+X-Received: by 2002:a05:600c:8218:b0:48a:6798:52e9 with SMTP id 5b1f17b1804b1-48e51dd386fmr64833155e9.0.1778071563011;
+        Wed, 06 May 2026 05:46:03 -0700 (PDT)
+Received: from [10.11.12.108] ([79.115.63.228])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e5382a327sm84332045e9.0.2026.05.06.05.46.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 May 2026 05:46:02 -0700 (PDT)
+Message-ID: <473925ee-ba57-44f4-8993-d953d29caa18@linaro.org>
+Date: Wed, 6 May 2026 15:45:59 +0300
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: samsung: exynos850: mark APM I3C clocks as critical
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: Brian Masney <bmasney@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Juan Yescas <jyescas@google.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+References: <20260430-exynos850-i3c-criticalclocks-v1-1-6e1fd8dfa21b@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20260430-exynos850-i3c-criticalclocks-v1-1-6e1fd8dfa21b@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_054457_031391_57AAD103 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20260506_054604_972413_D6DB545B 
+X-CRM114-Status: UNSURE (   5.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,70 +110,6 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 06, 2026, Alexandru Elisei wrote:
-> The documentation for KVM_EXIT_MEMORY_FAULT states:
-> 
-> 'Note!  KVM_EXIT_MEMORY_FAULT is unique among all KVM exit reasons in that
-> it accompanies a return code of '-1', not '0'!  errno will always be set to
-> EFAULT or EHWPOISON when KVM exits with KVM_EXIT_MEMORY_FAULT, userspace
-> should assume kvm_run.exit_reason is stale/undefined for all other error
-> numbers'.
-> 
-> where a return code of '-1' is special because according to man 2 ioctl:
-> 
-> 'On error, -1 is returned, and errno is set to indicate the error'.
-> 
-> Putting the two together means that the ioctl KVM_RUN must 1) complete with
-> an error and 2) that error must must be either EFAULT or EHWPOISON for
-> userspace to detect a KVM_EXIT_MEMORY_FAULT VCPU exit.
 
-Yes and no.  The key escape valve we (very deliberately) gave ourselves is this:
-
-  userspace should assume kvm_run.exit_reason is stale/undefined for all other
-  error numbers.
-
-As arm64 already does, that clause allows KVM to "speculatively" set exit_reason
-to KVM_EXIT_MEMORY_FAULT.  Which is by design.  The userspace flow is intended
-to be "if KVM_RUN returns EFAULT or EHWPOISON, then check for KVM_EXIT_MEMORY_FAULT
-to see if KVM provided more information about why the EFAULT/EHWPOISON error was
-returned".
-
-> On a kvm_gmem_get_pfn() error, gmem_abort() prepares the
-> KVM_EXIT_MEMORY_FAULT exit_reason and propagates the error back to
-> userspace. kvm_gmem_get_pfn() does not massage the error code, and if the
-> error is not -EFAULT or -EHWPOISON, userspace implementing the ABI fails to
-> detect the memory fault exit.
-> 
-> Things get more complicated with kvm_handle_vncr_abort().
-> kvm_translate_vncr(), similar to gmem_abort(), prepares the VCPU to exit
-> with KVM_EXIT_MEMORY_FAULT and propagates the error code from
-> kvm_gmem_get_pfn(). Then kvm_handle_vncr_abort() does a number of things
-> based on this specific error code:
-> 
-> - If it's -EAGAIN, KVM resumes the guest. Note that KVM, when handling a
->   *host* fault on a guest_memfd backed VMA, retries the fault handling if
->   kvm_gmem_get_pfn() returns -EAGAIN.
-
-Totally fine.
-
-> - If it's -ENOMEM, -EFAULT, -EIO or -EHWPOISON, it returns to userspace
->   with 0 (success), meaning that, according to the documentation, userspace
->   will not detect the memory fault exit.
-
-Also totally fine, and working as intended.  KVM_EXIT_MEMORY_FAULT is provided
-for scenarios where (a) the issue is likely related to the GPA and (b) userspace
-can remedy the underlying issue using the information provided in kvm_run.memory_fault.
-
-ENOMEM doesn't meet (a), and EIO doesn't meet (b) (and probably not (a) in the
-vast majority of cases either).
-
-> - If it's -EINVAL, -ENOENT, -EACCESS, KVM injects a synchronous exception
->   back to the guest.
-> - If it's -EPERM, KVM injects a permission fault.
-> - If the error code is something else, KVM resumes the guest.
-
-All of these are totally fine.  The fact that KVM "scribbled" kvm_run a bit is
-a non-issue, because KVM will fill kvm_run with the correct information on the
-next userspace exit, or will exit with an error that doesn't utilize kvm_run (in
-which case userspace shouldn't be looking at it), or KVM is buggy somewhere else.
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 
