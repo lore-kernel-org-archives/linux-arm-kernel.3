@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4AA0CD343B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754E2CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2oy5TxTsivt5GDed1MMSGAN9jqKbQ/uEw4RschNDW0A=; b=oAo3/DX6DZvERs86wcvAzkOm8Q
-	UREUGjazc32peFZVPOvC7ratMZeeg5yWdVg1AjXntUe3wN36gzhefT/ophn3fvdbtDEDEb11qyX/N
-	cH5CuXL1TKmugdA1dqcqES4h3lA2JmNet7EGsvXZkQz+LWPLR3cuDzH3Idovk4vMUJYHQe7Z3IFxM
-	Ng9icQmKc7J1DICctt7EuDMhis6/Y7MqhDmRBwr04W/WaIfVDEVHSVeZX1SY9ErgGaimll9WSf7q8
-	CpVk5ZQReZ9seo371XGUMDeFt1r/J+kdEXJnkId6bR4b/gbtoVSUAEYb8pzTJv9wKEPe4u20MshFY
-	LAtW6tkQ==;
+	bh=rsfzxlWlUfAtZGI+qAXkjznTjniwrhyCHyN/kFIVlaQ=; b=tdeA8o3jLcix5RIJMW4AWsi49W
+	IEoOcoCdEYNjo2kwCjnbzwxgvse5dNAlZSN2qCqkvnUNoFQ4lIDJdvegDp3KhxAnSU2/DvkJLAje4
+	i8gQFJaFcUgi5Yjfh+7vKdy1iuKi/BqsoFK3+aSV5JVqQjqhxDLEK5S8zF8wq79Wrvmb4WaLhD9XH
+	sGm+AGWqyv5HJPvqO02hTAgoFQMTXq+VcQQZv9cBxp8jouqDui3WpIbXD/GBuNBRM09A/X+NqG4NY
+	J4M/06OcV5pCAKD4MLrlNg1dhp2Xo5G/A41ABmpw5mcr3FMKFF1cqkmHVKbB4vscmUhKVR5ais6pp
+	Jwahac1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeGy-00000001M6L-0WtB;
-	Wed, 06 May 2026 15:34:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeGw-00000001M5i-1KkL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 15:34:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C28D46013B;
-	Wed,  6 May 2026 15:34:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 737A5C2BCB0;
-	Wed,  6 May 2026 15:34:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778081689;
-	bh=4POrRoo1sRsS9U1jgl89A/gMYkb6/DDL8ozghhsh5xM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=L1OMJgZKybDQisblTbniU+sNh4haZY4OYruHL6oBaY5HXw1WErNbpgTPV8bublrLh
-	 obVL+OOaGPvbfuGz4eE+v/2NapW6T5xsodo0Bp6/bnMzSQtX69N1aSBd7JWb7a7vYL
-	 3uvtO2Sh75ZHsoz9sGLDuVtZ/ivSehYrxEgUsw7+vgnjY8Kh0Sd5JFuLgQVMQlRnMw
-	 1aqHBnVJhw/7GQDAYkvrjPzfMZVCc4ZcxXyLYPFFWzNsBMI5U7YRvpfPaBgEgHQi5A
-	 eAYQN1rk8WxSRqc84tuaCEc1mfJo8dmg7/Sm5Wx6LXQbRPsfxsw8MTg7iAYTRiEHBV
-	 GiFQHHHdtl2eA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wKeGt-00000000LRQ-15uY;
-	Wed, 06 May 2026 15:34:47 +0000
-Date: Wed, 06 May 2026 16:34:46 +0100
-Message-ID: <86zf2cy2jt.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: Mostafa Saleh <smostafa@google.com>,
+	id 1wKeJC-00000001MWM-2LXs;
+	Wed, 06 May 2026 15:37:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKeJA-00000001MVf-39sN;
+	Wed, 06 May 2026 15:37:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67E5B1682;
+	Wed,  6 May 2026 08:37:01 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 923CB3F7B4;
+	Wed,  6 May 2026 08:37:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778081826; bh=5jyzOt/YE4MAJ87a+6OW9BOIOtlHnKUUXQbFsJ69GA8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bMdi+zP3Eg/uLU1d3mO63YYr4BA3ZO4t1algcuI4CFGs8XeA9T34+qb0rdR39jzeg
+	 j06elKg2k5eNJF+ZUZm4HfbXrZgBVCdvHX1pcaN+Q7kkJVmt6743pZjHTA/47tQcPO
+	 EhPeVMH+7RxtBnh++b/ct/abuXYH8cT/M2HIAXHg=
+Date: Wed, 6 May 2026 16:37:01 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Will Deacon <will@kernel.org>, Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	tabba@google.com
-Subject: Re: [PATCH] KVM: arm64: Harden clock for nvhe/pKVM
-In-Reply-To: <aftc7n_-43ozFFbl@google.com>
-References: <20260430103724.2151625-1-smostafa@google.com>
-	<aftYT7BY_9ZdGxmA@google.com>
-	<CAFgf54o7pGrtBY1mHuptnCNrRSGVPU=WHW=Qf5v+wGL6Gum-Dg@mail.gmail.com>
-	<aftc7n_-43ozFFbl@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vdonnefort@google.com, smostafa@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH v4 3/8] arm64/runtime-const: Introduce
+ runtime_const_mask_32()
+Message-ID: <aftgHVEW3dsnblfc@arm.com>
+References: <20260430094730.31624-1-kprateek.nayak@amd.com>
+ <20260430094730.31624-4-kprateek.nayak@amd.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260430094730.31624-4-kprateek.nayak@amd.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260506_083708_838909_F11B381E 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,57 +77,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 May 2026 16:23:26 +0100,
-Vincent Donnefort <vdonnefort@google.com> wrote:
->=20
-> On Wed, May 06, 2026 at 04:10:20PM +0100, Mostafa Saleh wrote:
-> > On Wed, May 6, 2026 at 4:03=E2=80=AFPM Vincent Donnefort <vdonnefort@go=
-ogle.com> wrote:
-> > >
-> > > On Thu, Apr 30, 2026 at 10:37:24AM +0000, Mostafa Saleh wrote:
-> > > > Sashiko(locally) reports possiblity of division by zero and
-> > > > out-of-bounds bitwise shift in trace_clock_update().
-> > > >
-> > > > Although the clock update is untrusted, we should at least have some
-> > > > basic checks to avoid the clock value getting out of sync if the ho=
-st
-> > > > is buggy.
->=20
-> > >
-> > > I am not sure about the gain here. The host can still write values th=
-at will
-> > > make it out of sync anyway.
-> > >
-> > > The timestamp is ultimately fed and read by the host.
-> > >
-> >=20
-> > This is not about having the clock in sync, but to avoid executing
-> > undefined behavior, such as division by zero or large shifts in cases
-> > if the host is buggy and not malicious.
-> > That was reported by Sashiko
-> > https://sashiko.dev/#/patchset/20260501111928.259252-1-smostafa%40googl=
-e.com
-> >=20
-> > Thanks,
-> > Mostafa
->=20
-> I would then reword that to make it clear it just prevents the host trigg=
-ering
-> UB on the hypervisor. It doesn't really harden much, which is fine becaus=
-e that
-> data isn't relevant for the hypervisor.
+On Thu, Apr 30, 2026 at 09:47:25AM +0000, K Prateek Nayak wrote:
+> Futex hash computation requires a mask operation with read-only after
+> init data that will be converted to a runtime constant in the subsequent
+> commit.
+> 
+> Introduce runtime_const_mask_32 to further optimize the mask operation
+> in the futex hash computation hot path. GCC generates a:
+> 
+>   movz  w1, #lo16, lsl #0     // w1 = bits [15:0]
+>   movk  w1, #hi16, lsl #16    // w1 = full 32-bit value
+>   and   w0, w0, w1	      // w0 = w0 & w1
+> 
+> pattern to tackle arbitrary 32-bit masks and the same was also suggested
+> by Claude which is implemented here. The final (__ret & mask) operation
+> is intentiaonally placed outside of asm block to allow compilers to
+> further optimize it if possible.
+> 
+> __runtime_fixup_ptr() already patches a "movz, + movk lsl #16" sequence
+> which has been reused to patch the same sequence for
+> __runtime_fixup_mask().
+> 
+> Assisted-by: Claude:claude-sonnet-4-5
+> Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
 
-I can repaint the commit message when applying this.
-
->=20
-> Other than that:
->=20
-> Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-
-Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
