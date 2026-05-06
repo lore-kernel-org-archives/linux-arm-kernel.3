@@ -4,72 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBBC8CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:58:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B91CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eM+m2eCUmMkGv/JWcVqrZUI1hPEFHjAma0mQL3kbae4=; b=bZmlf7fIj5uQFQEyVtsuKmkwGi
-	C3mXDFoOcbrhLH8B/rLSnuzFh/VWBHTUCMA6C9XgHNn93N1u7hX2xB2zs4wvZNgLQLmy0UFVHvvcn
-	hYMrz+SqTa5fkVHj7jcZpM7SkBrLZAGAOPwh3jdc2QILqRkJ8O8Td4OwA3sVZfhRiGFOEOGqkJvn9
-	+Td1pR9VwrnrgkcoWfvrYu2Cw5iIlAsdQR8OD7vgMHapP3q2Xz8krrJApR8s5qTwcOKzUf2oMTzTT
-	nmI712QA/dF4pHuFlYVWpnR3ont/u6BeXVGVqKo3MXAiI96zRsWKeVIRTVrY7wrfeP1BwWJfpHz7g
-	kbygn/0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EhzB8ETmB1Gn6S1MA51/Lwkn0HDnlQZbCh2CXttfCBk=; b=ZiriAV42OCT2+ZQ3WeYAVApxbv
+	6nC2xIkDcKtmKpjaSQHI6k/is3zLvDEmEXsOEd/E4rKZWXoP1E35+P8l106Lf9dXLI3j04wVJ9Ue4
+	NaoNM9tujuSnRYJRpNXOZcs0BLchcYc2Dbk3bRACcL9f4yuWelJUkahzZ5RxZI/s9Dl7s2h3KxTkO
+	v7A9KysnFbFjARbJ7JeO/S9o7c90omYj0UgW4qM8rs7kcjefJA0Z3o7FWnRRLSy8cDJMn860bCSP7
+	CSZsLQlYfaurWN44GLhZjc8XbySJgrFAEF/NM5Sdk1KvdfyJh1rAgnPZEnCdXcWAyFHt8Q7e4tcfm
+	vWAlnKLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKY5T-00000000GQP-1E7H;
-	Wed, 06 May 2026 08:58:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKY5S-00000000GQ5-13SY
+	id 1wKY5Z-00000000GSF-23X0;
+	Wed, 06 May 2026 08:58:41 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKY5Y-00000000GRQ-3EF2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 08:58:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F2AC1A25;
-	Wed,  6 May 2026 01:58:27 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2E203F836;
-	Wed,  6 May 2026 01:58:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778057913; bh=qmBmjzeAcJ5nql9S7tzn6aZ63xzXy+8siom1eVtABjk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WQg9q3wMZNS1Lu5L5NkIQs4DobfTcUmY2PhRDEDniXlR58HKmmfpRpdh3Aa8RmmBn
-	 fJrO031dJgDWxwpzKa7fbFC5z3tMFCLuNVdeAurF7QW3BOT+hLdvJ0Oi+8wtkoAw1J
-	 7KfSmYPOZnWpMoT140ilwt+hj1udjhcYEogZrObE=
-Date: Wed, 6 May 2026 09:58:27 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-integrity@vger.kernel.org, keyrings@vger.kernel.org,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	jarkko@kernel.org, zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [RFC PATCH 2/3] firmware: arm_ffa: initialise ff-a after
- finalising pKVM initialisation
-Message-ID: <afsCs56KfpoMhPH9@e129823.arm.com>
-References: <20260505095409.1948371-1-yeoreum.yun@arm.com>
- <20260505095409.1948371-3-yeoreum.yun@arm.com>
- <20260505-super-gecko-of-argument-655030@sudeepholla>
- <afoHizU8NgFWzvYW@e129823.arm.com>
- <20260505-adaptable-mussel-of-virtuosity-2751db@sudeepholla>
- <afohuFhVBIyUFEMT@e129823.arm.com>
- <20260506-warm-deer-of-energy-522bfa@sudeepholla>
- <afrygFx4OoCbbr+a@e129823.arm.com>
- <20260506-colossal-bee-of-discussion-08ac76@sudeepholla>
+	Wed, 06 May 2026 08:58:40 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-488b0046078so53695185e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 01:58:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778057918; x=1778662718; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EhzB8ETmB1Gn6S1MA51/Lwkn0HDnlQZbCh2CXttfCBk=;
+        b=NpAo8Wl3P1g9VeFwb0C41UEEokCl9lXY4cuj0+wzZqx3ixtRFp4/P9Dpu+pdhWq/5v
+         ngywpTo33fWPK5e1ymtEpnXfmKvC3G/3FCIKffeo6xJ+w/wL1ONeQtAsoVZCsnxZlzE5
+         kKgXnanz562MK4MZLw5xdjIYTvGaqxtaQ5y/cuqNo2ytJeb/iLerwof0F432rp9fCFb8
+         2prP8FZDQb/eo5DjbPHB8XgNIptSO7Cs9/LLeyp1um2aCNaVAHEOx8vDQpIIPKUWKphl
+         BbaK5C3wMHF+kK8ZVonKu6DydHETfNITuinx6uf1B4Gnem8dfraoaeUaZE6v8rUKpuDw
+         3mXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778057918; x=1778662718;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=EhzB8ETmB1Gn6S1MA51/Lwkn0HDnlQZbCh2CXttfCBk=;
+        b=e3kg4kjOj/nRxwiHi4o70BI/L7dz4RTXjUEMYyM7XYPQEJyTgqJ3IXwOH4hKcGZupp
+         J3DwGCT9qD+xlND6laNQBsQl5TIbNcBUdOHHGOYFYZRX/zrojGe6f6ds/BQaSJXNmKMf
+         m8QBTUEDcXiFynpwbEW3D1YjDLnL/KXmhXSlBeWxc5sRj4w27QaWceG5vDGCV6/ojkC2
+         7DVfw8k3flBKfGiHg0zORKhTP0+YeMmWP9Nrgf6awIFcB2gUsCVndixP/O++Asj/DApW
+         6LJ8BXoPFRjNhE1x84Mip6NG7eJa7bSlLYP1H6fUXEAdZlaiQIDl4YN8h7Y8m7PfnMNr
+         Fi/Q==
+X-Forwarded-Encrypted: i=1; AFNElJ9Ce/ObNk586+7/asRR7B3fsALjH/B8EkOEbB0DlhlX/C+cYQJW6cDMlwF9x+dg0lw1AbIDK0AToel14sY3Rxm6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFLPtpdHb4kXS9OQR+0vqaSdCdgz3pPyPGEENDg8CCCslTUuZc
+	OpuMrYDv/VvxD3zyiqWVQzP4Adn6jY6QZupkmUnOed73Q6645bFPYTJA
+X-Gm-Gg: AeBDietDkBnFEyp/XMY64FInhuCy97N42svAJ7Dqm+DrxChFwQZJpk9FkNZiGjIIL9q
+	E6WF5K0/eC65v1pauaPKbh2oXM4copMR+oKpsYPH5cf1qYiDxw8vE+x9dW0PNAjpYp6cRUnpnns
+	BEFjTll3dJPi5xpxdGJ8P402PqSxmBPfPblVHGqN2XbKCByjxtf4DNvAd8otJWTVbniyIbU0cbj
+	hI0e53pDAfRRx29wVCTvUKMh7kTxbMagH1sy/8zbwpKQE9ePAlDqEiwoFRvH0oGtn/OYKxRlHDc
+	GUoTmJfXtS36GLVmuZ8ZiSqsWfbiMxwc5WU7TFc4NeqIxsA4YTjjWB9YqnZaGQ4TeOK5Ljc1s+p
+	xpnnWXEi9agNLOzQ79Ghn37JGZSLcHA4GYc00B63tU0IM4ldbK5dMY7sLe2g9T+XBiy/puRnOSJ
+	ye/3sIC6ZPWYOpryoVENQEt0cPiOgGpR5+OKZhSYRNeOipAemTdT5uyVwPlL8aBQKeuRVZKTsvl
+	JQ=
+X-Received: by 2002:a05:600d:6:b0:48a:8905:a500 with SMTP id 5b1f17b1804b1-48e51f1d04bmr31640885e9.12.1778057917950;
+        Wed, 06 May 2026 01:58:37 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e538a50d0sm55769975e9.5.2026.05.06.01.58.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 May 2026 01:58:37 -0700 (PDT)
+Date: Wed, 6 May 2026 09:58:36 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com,
+ will@kernel.org, peterz@infradead.org, akpm@linux-foundation.org,
+ mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
+ rafael@kernel.org, daniel.lezcano@linaro.org, memxor@gmail.com,
+ zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com, rdunlap@infradead.org,
+ joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+ konrad.wilk@oracle.com, ashok.bhat@arm.com
+Subject: Re: [PATCH v11 01/14] asm-generic: barrier: Add
+ smp_cond_load_relaxed_timeout()
+Message-ID: <20260506095836.216d9cc5@pumpkin>
+In-Reply-To: <874iklm1uy.fsf@oracle.com>
+References: <20260408122538.3610871-1-ankur.a.arora@oracle.com>
+	<20260408122538.3610871-2-ankur.a.arora@oracle.com>
+	<874iklm1uy.fsf@oracle.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260506-colossal-bee-of-discussion-08ac76@sudeepholla>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_015834_345533_8318C516 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20260506_015840_866902_D2340D80 
+X-CRM114-Status: GOOD (  51.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +110,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Wed, May 06, 2026 at 08:49:20AM +0100, Yeoreum Yun wrote:
-> > Hi,
-> > 
-> > I mean like DT node, it seems to add some "FF-A" device for this.
-> > Anyway, right now as your suggestion, let me respin with platform device
-> > again.
-> > 
+On Wed, 06 May 2026 00:30:29 -0700
+Ankur Arora <ankur.a.arora@oracle.com> wrote:
+
+> Ankur Arora <ankur.a.arora@oracle.com> writes:
 > 
-> Please check my branch ffa_plat_dev [1] as I noted in the last email.
+> > Add smp_cond_load_relaxed_timeout(), which extends
+> > smp_cond_load_relaxed() to allow waiting for a duration.
+> >
+> > We loop around waiting for the condition variable to change while
+> > peridically doing a time-check. The loop uses cpu_poll_relax() to slow
+> > down the busy-wait, which, unless overridden by the architecture
+> > code, amounts to a cpu_relax().
+> >
+> > Note that there are two ways for the time-check to fail: the timeout
+> > case or, @time_expr_ns returning an invalid value (negative or zero).
+> > The second failure mode allows for clocks attached to the clock-domain
+> > of @cond_expr --  which might cease to operate meaningfully once some
+> > state internal to @cond_expr has changed -- to fail.
+> >
+> > Evaluation of @time_expr_ns: in the fastpath we want to keep the
+> > performance close to smp_cond_load_relaxed(). So defer evaluation
+> > of the potentially costly @time_expr_ns to the slowpath.
+> >
+> > This also means that there will always be some hardware dependent
+> > duration that has passed in cpu_poll_relax() iterations at the time
+> > of first evaluation. Additionally cpu_poll_relax() is not guaranteed
+> > to return at timeout boundary. In sum, expect timeout overshoot when
+> > we exit due to expiration of the timeout.
+> >
+> > The number of spin iterations before time-check, SMP_TIMEOUT_POLL_COUNT
+> > is chosen to be 200 by default. With a cpu_poll_relax() iteration
+> > taking ~20-30 cycles (measured on a variety of x86 platforms), we
+> > expect a time-check every ~4000-6000 cycles.
+> >
+> > The outer limit of the overshoot is double that when working with the
+> > parameters above. This might be higher or lower depending on the
+> > implementation of cpu_poll_relax() across architectures.
+> >
+> > Lastly, config option ARCH_HAS_CPU_RELAX indicates availability of a
+> > cpu_poll_relax() that is cheaper than polling. This might be relevant
+> > for cases with a long timeout.
+> >
+> > Cc: Arnd Bergmann <arnd@arndb.de>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Peter Zijlstra <peterz@infradead.org>
+> > Cc: linux-arch@vger.kernel.org
+> > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> > Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
+> > ---
+> > Notes:
+> >    - add a comment mentioning that smp_cond_load_relaxed_timeout() might
+> >      be using architectural primitives that don't support MMIO.
+> >      (David Laight, Catalin Marinas)
+> >
+> >  include/asm-generic/barrier.h | 69 +++++++++++++++++++++++++++++++++++
+> >  1 file changed, 69 insertions(+)
+> >
+> > diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
+> > index d4f581c1e21d..e5a6a1c04649 100644
+> > --- a/include/asm-generic/barrier.h
+> > +++ b/include/asm-generic/barrier.h
+> > @@ -273,6 +273,75 @@ do {									\
+> >  })
+> >  #endif
+> >
+> > +/*
+> > + * Number of times we iterate in the loop before doing the time check.
+> > + * Note that the iteration count assumes that the loop condition is
+> > + * relatively cheap.
+> > + */
+> > +#ifndef SMP_TIMEOUT_POLL_COUNT
+> > +#define SMP_TIMEOUT_POLL_COUNT		200
+> > +#endif
+> > +
+> > +/*
+> > + * Platforms with ARCH_HAS_CPU_RELAX have a cpu_poll_relax() implementation
+> > + * that is expected to be cheaper (lower power) than pure polling.
+> > + */
+> > +#ifndef cpu_poll_relax
+> > +#define cpu_poll_relax(ptr, val, timeout_ns)	cpu_relax()
+> > +#endif
+> > +
+> > +/**
+> > + * smp_cond_load_relaxed_timeout() - (Spin) wait for cond with no ordering
+> > + * guarantees until a timeout expires.
+> > + * @ptr: pointer to the variable to wait on.
+> > + * @cond_expr: boolean expression to wait for.
+> > + * @time_expr_ns: expression that evaluates to monotonic time (in ns) or,
+> > + *  on failure, returns a negative value.
+> > + * @timeout_ns: timeout value in ns
+> > + * Both of the above are assumed to be compatible with s64; the signed
+> > + * value is used to handle the failure case in @time_expr_ns.
+> > + *
+> > + * Equivalent to using READ_ONCE() on the condition variable.
+> > + *
+> > + * Callers that expect to wait for prolonged durations might want
+> > + * to take into account the availability of ARCH_HAS_CPU_RELAX.
+> > + *
+> > + * Note that @ptr is expected to point to a memory address. Using this
+> > + * interface with MMIO will be slower (since SMP_TIMEOUT_POLL_COUNT is
+> > + * tuned for memory) and might also break in interesting architecture
+> > + * dependent ways.
+> > + */
+> > +#ifndef smp_cond_load_relaxed_timeout
+> > +#define smp_cond_load_relaxed_timeout(ptr, cond_expr,			\
+> > +				      time_expr_ns, timeout_ns)		\
+> > +({									\
+> > +	typeof(ptr) __PTR = (ptr);					\
+> > +	__unqual_scalar_typeof(*ptr) VAL;				\
+> > +	u32 __n = 0, __spin = SMP_TIMEOUT_POLL_COUNT;			\
+> > +	s64 __timeout = (s64)timeout_ns;				\
+> > +	s64 __time_now, __time_end = 0;					\
+> > +									\
+> > +	for (;;) {							\
+> > +		VAL = READ_ONCE(*__PTR);				\
+> > +		if (cond_expr)						\
+> > +			break;						\
+> > +		cpu_poll_relax(__PTR, VAL, (u64)__timeout);		\
+> > +		if (++__n < __spin)					\
+> > +			continue;					\
+> > +		__time_now = (s64)(time_expr_ns);			\
+> > +		if (unlikely(__time_end == 0))				\
+> > +			__time_end = __time_now + __timeout;		\
+> > +		__timeout = __time_end - __time_now;			\
+> > +		if (__time_now <= 0 || __timeout <= 0) {		\
+> > +			VAL = READ_ONCE(*__PTR);			\
+> > +			break;						\
+> > +		}							\
+> > +		__n = 0;						\
+> > +	}								\
+> > +	(typeof(*ptr))VAL;						\
+> > +})
+> > +#endif
+> > +  
 > 
-> -- 
-> Regards,
-> Sudeep
+> A cluster of issues that got flagged by sashiko was around timeout_ns
+> being specified as s64 and a bunch of potential edge cases around
+> that.
 > 
-> [1] https://git.kernel.org/sudeep.holla/l/ffa_plat_dev
+> These were mostly caused by an implicit assumption in the code that
+> the timeout specified by the caller is generally reasonable. So, way
+> below S64_MAX, not 0 etc.
 
-Sorry, I've seen this email after I sent former mail.
+There are plenty of ways kernel code can break things.
+Provided this code doesn't itself overwrite anywhere (rather than
+just loop forever or return immediately etc) I'd be tempted to
+just document the valid range rather than slow everything down
+with the extra tests.
 
-And since platform_driver_probe() prevents deferred probe.
-I think it need to change jsut platform_driver_register()
-for ffa_driver.
+	David
 
-Thanks!
+> 
+> I think this is worth cleaning up a bit. The change is mostly around
+> introducing a u32 __itertime and explicitly computing the waiting time.
+> And adding a check to ensure that we start with a valid value.
+> 
+> This does make the implementation a little more involved. So just wanted
+> to see if people have any opinions on this?
+> 
+> +#ifndef smp_cond_load_relaxed_timeout
+> +#define smp_cond_load_relaxed_timeout(ptr, cond_expr,          \
+> +                                     time_expr_ns, timeout_ns) \
+> +({                                                             \
+> +       typeof(ptr) __PTR = (ptr);                              \
+> +       __unqual_scalar_typeof(*(ptr)) VAL;                     \
+> +       u32 __count = 0, __spin = SMP_TIMEOUT_POLL_COUNT;       \
+> +       s64 __timeout = (s64)(timeout_ns);                      \
+> +       s64 __time_now, __time_end = 0;                         \
+> +       u32 __maybe_unused __itertime;                          \
+> +                                                               \
+> +       for (__itertime = NSEC_PER_USEC;                        \
+> +               VAL = READ_ONCE(*__PTR), __timeout > 0; ) {     \
+> +               if (cond_expr)                                  \
+> +                       break;                                  \
+> +               cpu_poll_relax(__PTR, VAL, __itertime);         \
+> +               if (++__count < __spin)                         \
+> +                       continue;                               \
+> +               __time_now = (s64)(time_expr_ns);               \
+> +               if (unlikely(__time_end == 0))                  \
+> +                       __time_end = __time_now + __timeout;    \
+> +               __timeout = __time_end - __time_now;            \
+> +               if (__time_now <= 0 || __timeout <= 0) {        \
+> +                       VAL = READ_ONCE(*__PTR);                \
+> +                       break;                                  \
+> +               }                                               \
+> +               __itertime = __timeout % NSEC_PER_MSEC +        \
+> +                               NSEC_PER_USEC;                  \
+> +               __count = 0;                                    \
+> +       }                                                       \
+> +       (typeof(*(ptr)))VAL;                                    \
+> +})
+> +#endif
+> 
+> Thanks
+> 
+> --
+> ankur
+> 
 
--- 
-Sincerely,
-Yeoreum Yun
 
