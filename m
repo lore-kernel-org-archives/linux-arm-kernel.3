@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE37CD343B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF491CD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wGnmOOBzZuUARk/pj3iKyJk1WQ5Urjo5Iwu8FNayqp8=; b=Ekn12V+JWrHNL74DEhfs5wmAON
-	ev5QOxmeP9F00VkHF4HDTRuLpoMcsXrq49WqwdRwdeumUZs0oQHRMDjzItUrQT86po23moshxemrX
-	VQaPhyUZYhe+yUC3cWt/XAR7KTTH3h7fe/eJKP8TWo+XkQvFgBW3BHcRK6TyVdAw5LDNPe8MBwBTr
-	GCiGn62FEF+Cozk6iVmV9sjwGwEu3rYqUSVlQ732lfmTRqrKjfoh/TCF2EPnUW46gjPoFMP24sY5W
-	cGSvbceutydl/VaVseUNIgJMCxcbA2wKZdiJIY54ExJ8k6vK2U03dSEEK2l0P4ArI0DwxJiNWUyvJ
-	/CySW3cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l4iPEfWcc7X8JrLXvRE/IMmI6tuGNT0CT7um2a6wCEQ=; b=XOVWeHsVHlnCiBgyy5o+AB+BNN
+	SwLeTm80DXgzaz+fcFvkvIPxnLwrs3wJveS7g4Og52H1DTz9nXWReDqnB1S+R4B1dNJcCAz33IrYy
+	tl6+EhHJyB8NAVcc+S03683EcfE/VFc0xPP653U1zm+hdsnKG/TGriT20w9VQHgnkB1Z8agUSojs9
+	StqQoJ/+77QuIB/p6q/y8So1VJ1AYV6mv44GLe4hI9V+RxCisi9zYbBbjjfyzGIOtQMNqB8hYX9YV
+	7zxSmFpPgOMhgUZeY7q4DYR1qOLBWuVctft76ar7a2bnRWLXd1nEcnaR0ebiNRZbEab4LCeuJv18Q
+	YoeFoFWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKe2s-00000001HtG-2V0J;
-	Wed, 06 May 2026 15:20:18 +0000
+	id 1wKe4Y-00000001IFU-3MpS;
+	Wed, 06 May 2026 15:22:03 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKe2r-00000001Hso-1XKl
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 15:20:17 +0000
+	id 1wKe4X-00000001IEk-1X71;
+	Wed, 06 May 2026 15:22:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8818D440D3;
-	Wed,  6 May 2026 15:20:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1932C2BCB0;
-	Wed,  6 May 2026 15:20:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1495641987;
+	Wed,  6 May 2026 15:22:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9CA2C2BCB0;
+	Wed,  6 May 2026 15:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778080816;
-	bh=Z6fQ0YAqtLbGIy9ba3h1aZ5bW6uBRB8+wtS8/48DFo4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CFnwSGKNuFLNRZcK4eZ7wIM2U4JnaLUW7a54+wwIkyrq7/rkSteWfKxwdeLo1IWk/
-	 YrFL/E0KCegfcG5p1cWT76ctk8sjGTIq+gVOA20/AYDThn/izCNEMWgUpVowQui7Pp
-	 kE3ve223x6bqkb4queH1HSIkK9nc/7+lyKvAEYX1XnyU5WFMs12VL1ps+0zSWhhf/0
-	 m8BuPR5ynvoRua8puN5oMnELw/v18vm6E8JWLL58zCqvF+RvKuYcTXPpFv+Lo5w5wz
-	 t3Iz1RJQ/eMs2N6KRIhiEKwgsjjxhJI6LKA3de4DqGbj2WaAvn/gVCHM6VQ/vlecEv
-	 DWVG5FA8YC0/A==
-Date: Wed, 6 May 2026 16:20:05 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Angelo Dureghello <angelo@kernel-space.org>
-Cc: Greg Ungerer <gerg@linux-m68k.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, Arnd Bergmann
- <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
- linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, Angelo
- Dureghello <adureghello@baylibre.com>
-Subject: Re: [PATCH 10/10] iio: dac: add mcf54415 DAC
-Message-ID: <20260506162005.50408fde@jic23-huawei>
-In-Reply-To: <20260504-wip-stmark2-dac-v1-10-874c36a4910d@baylibre.com>
-References: <20260504-wip-stmark2-dac-v1-0-874c36a4910d@baylibre.com>
-	<20260504-wip-stmark2-dac-v1-10-874c36a4910d@baylibre.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20201202; t=1778080921;
+	bh=irybcLo3uyE+65mJf+bqaAsN/vMB7QXfzRfYKYjBRtI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jBg49DDbHmd4skBXAJTkUnm42TbQTgIORC78toZgV1RQnD6MiF1WthoBXlGtzKbKA
+	 JyiOkutAMkyi2qOBKtVpbp/10iXvSwSZtnWaWrEdYFI/WRhg0HjF1mbIP/1yNoFTXW
+	 MagCahNPmv9JzqLzc8mOFWkC1+vLiWBO4BoQnVjE69Q50Ha9MTUN9RB1WsqSwF1hpn
+	 E70QEW9H5OyHqgJsgz1tTFzFB5mF46VgLrIYpoRBYyIb6Fl4Z3Q4izmCq6SccfnWWO
+	 KaZHzOEqaUPrWNKjMdbJRhf7PuhHeQCo1Y6cwhxMn13ivJHLKQ6JVJ9L1Lvp7wO7aB
+	 VIqSkZe9HxtcA==
+Date: Wed, 6 May 2026 10:21:58 -0500
+From: Rob Herring <robh@kernel.org>
+To: Saravana Kannan <saravanak@kernel.org>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Russell King <linux@armlinux.org.uk>, linux-mtd@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] ARM: at91: remove unnecessary
+ of_platform_default_populate calls
+Message-ID: <20260506152158.GA2136148-robh@kernel.org>
+References: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
+ <20260105-at91-probe-v3-3-594013ff2965@kernel.org>
+ <20260423-stoke-ocean-139dbe306256@thorsis.com>
+ <20260424-worried-renewal-924d34ed945c@thorsis.com>
+ <87tsswfnmy.fsf@bootlin.com>
+ <20260429-lushly-greasily-c14c01c1aee8@thorsis.com>
+ <87lde6cdc4.fsf@bootlin.com>
+ <20260429-blazing-thus-c1a4eb9b6b0c@thorsis.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260429-blazing-thus-c1a4eb9b6b0c@thorsis.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_082017_454550_82BBA34C 
-X-CRM114-Status: GOOD (  50.42  )
+X-CRM114-CacheID: sfid-20260506_082201_442633_89D47723 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,346 +84,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 04 May 2026 19:16:48 +0200
-Angelo Dureghello <angelo@kernel-space.org> wrote:
-
-> From: Angelo Dureghello <adureghello@baylibre.com>
+On Wed, Apr 29, 2026 at 03:02:22PM +0200, Alexander Dahl wrote:
+> Hello Miquel,
 > 
-> Add basic version of mcf54415 DAC driver. DAC is embedded in the cpu and
-> DAC configuration registers are mapped in the internal IO address space.
+> Am Wed, Apr 29, 2026 at 11:42:19AM +0200 schrieb Miquel Raynal:
+> > Hi Alexander,
+> > 
+> > >     [    0.958298] bus: 'platform': add driver atmel-ebi
+> > >     [    0.958451] platform 10000000.ebi: bus: 'platform': __driver_probe_device: matched device with driver atmel-ebi
+> > >     [    0.958566] platform 10000000.ebi: error -EPROBE_DEFER: wait for supplier /ahb/apb/pinctrl@fffff400/ebi/ebi-data-lsb
+> > >     [    0.958649] platform 10000000.ebi: Added to deferred list
+> > >     [    0.959429] bus: 'platform': remove driver atmel-ebi
+> > >     [    0.959540] driver: 'atmel-ebi': driver_release
+> > 
+> > Interesting.
+> > 
+> > If you look at the very last line of the driver, the EBI driver does not
+> > use a standard "module_platform_driver" macro, it uses some kind of
+> > run-once probe that is kept in an __init section:
+> > https://elixir.bootlin.com/linux/v7.0.1/source/drivers/memory/atmel-ebi.c#L637
+> > 
+> > And this seems to be incompatible with probe deferrals:
+> > https://elixir.bootlin.com/linux/v7.0.1/source/drivers/base/platform.c#L948
 > 
-> The DAC accepts a 12-bit digital signal and creates a monotonic 12-bit
-> analog output varying from ~DAC_VREFL to ~DAC_VREFH. The DAC module
-> consists of a conversion unit, an output amplifier, and the associated
-> digital control blocks. DAC_VREFL and DAC_VREFH defaults respectivley to
-Spell check.
+> Indeed. o.O
 
-> 0 and 0xfff.
-
-is DAC_VFEFL == 0? If not should have an _offset based on what it is. If
-it's common floating line then we can think about whether we need to describe
-it or it's just implicit as should be tied to whatever passes for 0V locally.
-
-> 
-> This initial version of the driver is minimalistic, "output raw" only, to
-> be extended in the future. DMA and external sync are disabled, default mode
-> is high speed, default format is right-justified 12bit on 16bit word.
-> 
-> Basic tests done on stmark2 mcf54415-based board, voltage check on DAC0:
-> 
-> /sys/bus/iio/devices/iio:device0 # ls
-> name                 out_voltage_raw      subsystem
-> out_conversion_mode  out_voltage_scale    uevent
-https://sashiko.dev/#/patchset/20260504-wip-stmark2-dac-v1-0-874c36a4910d%40baylibre.com
-
-Sashiko noted this.  Doesn't seem to be such a thing as out_conversion_mode
-which is good given I'd have moaned about custom ABI without docs.
-On the other hand it did hallucinate IIO_CHAN_INFO_CONVERSION_MODE when
-there is no such thing.
-
-As noted though too much for a patch description given most of this is entirely standard.
+Saravana, Is there something we can do to make this issue more obvious?
 
 > 
-> /sys/bus/iio/devices/iio:device0 # cat name
-> mcf54415_dac.0
+> > I would suggest trying something alone these lines:
+> > 
+> > --- a/drivers/memory/atmel-ebi.c
+> > +++ b/drivers/memory/atmel-ebi.c
+> > @@ -633,5 +633,6 @@ static struct platform_driver atmel_ebi_driver = {
+> >                 .of_match_table = atmel_ebi_id_table,
+> >                 .pm = &atmel_ebi_pm_ops,
+> >         },
+> > +       .probe = atmel_ebi_probe,
+> >  };
+> > -builtin_platform_driver_probe(atmel_ebi_driver, atmel_ebi_probe);
+> > +builtin_platform_driver(atmel_ebi_driver);
+> > 
+> > Memory taken by the probe function will remain mapped. That seems to be
+> > the drawback.
 > 
-> /sys/bus/iio/devices/iio:device0 #
+> This works.  Sent a patch, see:
 > 
-> echo 4095 > out_voltage_raw     => voltage abt 3.3V by oscilloscope
-> echo 4096 > out_voltage_raw     => roll over to 0V
-Why?  Should be bounds checked and return -EINVAL or -ERANGE
-(we aren't particularly fixed on which)
-
-> echo 0 > out_voltage_raw        => voltage is 0V
-> echo 2048 > out_voltage_raw     => voltage is abt 1.7V, mid scale
+> https://lore.kernel.org/all/20260429125930.844790-1-ada@thorsis.com/
 > 
-> Same behavior for /sys/bus/iio/devices/iio:device1.
+> Regarding the drawback: This can't be much memory, can it?
 > 
-> Generated a sine wave by shell script, sine shape is good.
+> Greets
+> Alex
 > 
-> Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
-> ---
->  drivers/iio/dac/Kconfig        |  10 +++
->  drivers/iio/dac/Makefile       |   1 +
->  drivers/iio/dac/mcf54415_dac.c | 200 +++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 211 insertions(+)
-> 
-> diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
-> index cd4870b65415..17550e99cfdd 100644
-> --- a/drivers/iio/dac/Kconfig
-> +++ b/drivers/iio/dac/Kconfig
-> @@ -516,6 +516,16 @@ config MAX5821
->  	  Say yes here to build support for Maxim MAX5821
->  	  10 bits DAC.
->  
-> +config MCF54415_DAC
-> +	tristate "NXP MCF54415 DAC driver"
-> +	depends on M5441x
-
-If we can add a || COMPIlE_TEST that would be much appreciated as
-then we'll get some better build coverage.
-
-May need some stubs if there is anything not already stubbed out.
-
-> +	help
-> +	  Say yes here to build support for NXP MCF54415
-> +	  12bit DAC.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called mcf54415_dac.
-> +
->  config MCP4725
->  	tristate "MCP4725/6 DAC driver"
->  	depends on I2C
-> diff --git a/drivers/iio/dac/Makefile b/drivers/iio/dac/Makefile
-> index 2a80bbf4e80a..1cb93e83d0eb 100644
-> --- a/drivers/iio/dac/Makefile
-> +++ b/drivers/iio/dac/Makefile
-> @@ -51,6 +51,7 @@ obj-$(CONFIG_MAX517) += max517.o
->  obj-$(CONFIG_MAX22007) += max22007.o
->  obj-$(CONFIG_MAX5522) += max5522.o
->  obj-$(CONFIG_MAX5821) += max5821.o
-> +obj-$(CONFIG_MCF54415_DAC) += mcf54415_dac.o
->  obj-$(CONFIG_MCP4725) += mcp4725.o
->  obj-$(CONFIG_MCP4728) += mcp4728.o
->  obj-$(CONFIG_MCP47FEB02) += mcp47feb02.o
-> diff --git a/drivers/iio/dac/mcf54415_dac.c b/drivers/iio/dac/mcf54415_dac.c
-> new file mode 100644
-> index 000000000000..4031a5dc1f9d
-> --- /dev/null
-> +++ b/drivers/iio/dac/mcf54415_dac.c
-> @@ -0,0 +1,200 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * NXP mcf54415 DAC driver
-> + *
-> + * Copyright 2026 BayLibre - adureghello@baylibre.com
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/bits.h>
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/platform_device.h>
-> +
-> +#include <linux/iio/iio.h>
-> +
-> +#define MCF54415_DAC_CR			0x00
-> +#define MCF54415_DAC_CR_PDN		BIT(0)
-> +#define MCF54415_DAC_CR_HSLS		BIT(6)
-> +#define MCF54415_DAC_CR_WMLVL		GENMASK(9, 8)
-> +#define MCF54415_DAC_CR_FILT		BIT(12)
-> +
-> +#define MCF54415_DAC_DATA		0x02
-> +
-> +#define MCF54415_DAC_READY_US		12
-
-I'd put this inline instead of having a define given it's only used in one
-place and  the documentation on why it is 12 is there.
-
-> +
-> +struct mcf54415_dac {
-> +	struct clk *clk;
-> +	struct device *dev;
-
-Sashiko noted dev isn't used after assignment so drop it.
-
-> +	void __iomem *regs;
-> +};
-> +
-> +static void mcf54415_dac_init(struct mcf54415_dac *info)
-> +{
-> +	int val;
-> +
-> +	/* Keeping defaults and enable DAC (bit 0 set to 0) */
-> +	val = MCF54415_DAC_CR_FILT;
-> +	val |= FIELD_PREP(MCF54415_DAC_CR_WMLVL, 1);
-> +
-> +	writew(val, info->regs + MCF54415_DAC_CR);
-> +
-> +	/* DAC is ready after 12us, from RM table 40-3  */
-> +	fsleep(MCF54415_DAC_READY_US);
-> +}
-> +
-> +static void mcf54415_dac_exit(void *data)
-> +{
-> +	struct mcf54415_dac *info = data;
-> +	int val;
-> +
-> +	val = readw(info->regs + MCF54415_DAC_CR);
-> +	val |= MCF54415_DAC_CR_PDN;
-
-Even though simple, might be worth using regmap and
-taking advantage of regmaps rich set of RMW operations.
-
-> +	writew(val, info->regs + MCF54415_DAC_CR);
-> +}
-> +
-> +#define MCF54415_DAC_CHAN { \
-> +	.type = IIO_VOLTAGE, \
-> +	.output = 1, \
-> +	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW), \
-> +	.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE), \
-> +}
-> +
-> +static const struct iio_chan_spec mcf54415_dac_iio_channels[] = {
-> +	MCF54415_DAC_CHAN
-> +};
-> +
-> +static int mcf54415_read_raw(struct iio_dev *indio_dev,
-> +			struct iio_chan_spec const *chan,
-> +			int *val, int *val2,
-> +			long mask)
-> +{
-> +	struct mcf54415_dac *info = iio_priv(indio_dev);
-> +
-> +	switch (mask) {
-> +	case IIO_CHAN_INFO_RAW:
-> +		*val = readw(info->regs + MCF54415_DAC_DATA);
-Any chance there is anything in higher bits?  Maybe mask to be sure
-(sashiko moaned about this)
-
-> +		return IIO_VAL_INT;
-> +	case IIO_CHAN_INFO_SCALE:
-> +		/* Reference voltage as per ColdFire datasheet is 3.3V */
-> +		*val = 3300 /* mV */;
-> +		*val2 = 12;
-> +		return IIO_VAL_FRACTIONAL_LOG2;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int mcf54415_write_raw(struct iio_dev *indio_dev,
-> +			struct iio_chan_spec const *chan,
-> +			int val, int val2,
-> +			long mask)
-> +{
-> +	struct mcf54415_dac *info = iio_priv(indio_dev);
-> +
-> +	switch (mask) {
-> +	case IIO_CHAN_INFO_RAW:
-> +		writew(val, info->regs + MCF54415_DAC_DATA);
-
-Should return an error if val is too large. Same thing as the overflow
-thing in the commit message that I commented on above. 
-
-> +		return 0;
-> +
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-> +
-> +static const struct iio_info mcf54415_dac_iio_info = {
-> +	.read_raw = &mcf54415_read_raw,
-> +	.write_raw = &mcf54415_write_raw,
-> +};
-> +
-> +static int mcf54415_dac_probe(struct platform_device *pdev)
-> +{
-> +	struct iio_dev *indio_dev;
-> +	struct mcf54415_dac *info;
-> +	int ret;
-> +
-> +	indio_dev = devm_iio_device_alloc(&pdev->dev,
-
-Quite a lot of use of pdev->dev. I'd introduce a local
-struct device *dev = &pdev->dev;
-and use that.
-
-> +					  sizeof(struct mcf54415_dac));
-> +	if (!indio_dev)
-> +		return -ENOMEM;
-> +
-> +	info = iio_priv(indio_dev);
-> +	info->dev = &pdev->dev;
-As noted above, this doesn't seem to be used.
-> +
-> +	info->regs = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(info->regs))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(info->regs),
-> +				     "failed to get io regs\n");
-> +
-> +	info->clk = devm_clk_get_enabled(&pdev->dev, "dac");
-> +	if (IS_ERR(info->clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(info->clk),
-> +				     "failed getting clock\n");
-> +
-> +	platform_set_drvdata(pdev, indio_dev);
-> +
-> +	indio_dev->name = dev_name(&pdev->dev);
-
-This should be the part number.  dev_name has an irritating habit
-of being something more complex. What is it here? Just hard coding
-it probably simpler even if it happens to be something that works in
-this case.
-
-If you need to differentiate between multiple instances, use a label
-instead of name.
-
-> +	indio_dev->info = &mcf54415_dac_iio_info;
-> +	indio_dev->modes = INDIO_DIRECT_MODE;
-> +	indio_dev->channels = mcf54415_dac_iio_channels;
-> +	indio_dev->num_channels = ARRAY_SIZE(mcf54415_dac_iio_channels);
-> +
-> +	mcf54415_dac_init(info);
-> +
-> +	ret = devm_add_action_or_reset(&pdev->dev, mcf54415_dac_exit, info);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = devm_iio_device_register(&pdev->dev, indio_dev);
-> +	if (ret)
-> +		dev_err(&pdev->dev, "couldn't register the device\n");
-
-I think this was already pointed out.  It's really easy to see if this
-failed (the device isn't there) so we tend not to bother printing
-an error on it happening.  Thus
-	return devm_iio_device_register()
-
-> +
-> +	return ret;
-> +}
-
-> +
-> +static DEFINE_SIMPLE_DEV_PM_OPS(mcf54415_dac_pm_ops, mcf54415_dac_suspend,
-> +				mcf54415_dac_resume);
-> +
-> +static struct platform_driver mcf54415_dac_driver = {
-> +	.probe          = mcf54415_dac_probe,
-> +	.driver         = {
-> +		.name   = "mcf54415_dac",
-> +		.pm     = pm_sleep_ptr(&mcf54415_dac_pm_ops),
-> +	},
-> +};
-To me the alignment of this structure is misleading to the eye as stuff
-in the substructure aligns with the main one.  I'd prefer
-
-static struct platform_driver mcf54415_dac_driver = {
-	.probe = mcf54415_dac_probe,
-	.driver = {
-		.name = "mcf54415_dac",
-		.pm = pm_sleep_ptr(&mcf54415_dac_pm_ops),
-	},
-};
-
-Because this sort of alignment forcing is a common source of annoying
-churn in follow up patches for very little in readability gains.
-When it's arrays of numeric data it is worth doing but not for fields
-of a structure.
-
-
-> +module_platform_driver(mcf54415_dac_driver);
-> +
-> +MODULE_AUTHOR("Angelo Dureghello <angelo@kernel-space.org>");
-> +MODULE_DESCRIPTION("NXP MCF54415 DAC driver");
-> +MODULE_LICENSE("GPL");
-> 
-
 
