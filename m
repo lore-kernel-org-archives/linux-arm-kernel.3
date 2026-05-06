@@ -4,111 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A507FFF8855
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 13:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E770FF8855
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:00:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yAGZRzNWoj71eYuAlCwOROEzF/QQfxUQn3hZ1d0klWU=; b=fkZpb6SAO6DvRg0P5xb0Ff3ZiJ
-	2gUVbM/R4ma4Hy/stxsG6K5KSf5X2hckGeAuO9M/6Q3MahIuQv9lcNuk/7aW/eqkIdpVkpcdo5AWf
-	9IypK8sH70daEh03dwn33qqCoSiHHxtvKYojUFmKiMvvkLyyKZ+bI7jW8xFQCmKRZz7TabCL0NBnw
-	1HLFnzye5FeifLdQUZMxVlOa07eFvv4peJYQaD7HO7wT54wxGlsK0uJwJX2wYQgKQw+1cMpvFLoSd
-	7NsqS+o5swhP6tvIMHJkM+GEcqYfmqCH7BeTyRuVYzhPJSj9Yrrl2wQ483p1YdTkWaIQRfl91e6LH
-	V1oF/8EA==;
+	bh=v+E2kAh0VgWyPm65Y2TxWasBIMLId3U/8TmLrfnqd94=; b=j4wljpqrc1+YCp26cGeVzVHh8p
+	kmBsoSZGUvtJT+BxtT3vXYJysTWLMbz+CIfLRVeDJQ35yMpV7vZ+s6eM8h3I2dxz/BIGtkPN5hu2k
+	Jd13qmmOmAUkh9WVVavhkLhUvFNB3szCe8BfR93bfeYIXhRhIlI6SYO60cW0DpopiTYaAYb097ik5
+	kyEUkhUD4LVJBobRZ2Q+8UP1iL8AzxXwyhWClXbawet6QBsk+4Rz2hVLlrgjJEOeF3YeZ5/5bJJK8
+	MRdPocjPEewxFL7lM/wtUwOe84qXDIJk+RxUXcD4DyDYLuvPiGHzeAIBC8yKcpVAQf4RhVMl1qoWP
+	XUlUC7mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKclY-00000000yvi-1Xws;
-	Wed, 06 May 2026 13:58:20 +0000
-Received: from mail-yx1-xb131.google.com ([2607:f8b0:4864:20::b131])
+	id 1wKcno-00000000zF7-2rI7;
+	Wed, 06 May 2026 14:00:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKclW-00000000yvF-3dZw
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 13:58:18 +0000
-Received: by mail-yx1-xb131.google.com with SMTP id 956f58d0204a3-6587cee8b57so7333847d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 06:58:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778075898; cv=none;
-        d=google.com; s=arc-20240605;
-        b=TtdrW2YJClFgRD81EzVUuX96nYttB0sNQBroe2mxfa1ykDdGrdJD2nv2ib5AoeLia3
-         tRbPqIyztBY9Xtm9oxDh5PwP9M0Xksw2t31oj8duMDmCNh50fCTFhV4/sWFhl+Nvjdvz
-         XU3qamTqWn5o3QA9Tdyihm9IO1Ps6ukh30/gWeVXDWUkhM0sax2Klm/oQjfvSHEW0r+B
-         cHYyH8e26+e/BhoqC3ToNMh2GRwIC4K39Y+SpzFuiZBZhrzSc+Yetfo3C7E3KDmyUjcY
-         +6usJUdC3qjr24Z+9oQ1xdrKZ1ldX04UXDCyH0PkcTsMx3ly3HEvGDUB5hidbr3DQ+Pd
-         BEVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=yAGZRzNWoj71eYuAlCwOROEzF/QQfxUQn3hZ1d0klWU=;
-        fh=IgjLtoSxZKBdBg+SN9WI9Q3D9H/aXXx01/mbdHZQoQ8=;
-        b=Tz9k2bTzDHNwgUGKdWvNjUvb6dOrJ4hcxE/Nc2bkSe22VLpm/kX65EePuuNLGDsSgP
-         WeRAvMK2LZ0eBJk50vb39wodiPIDEiw28zSXM22jZcDUeE7YxEt7yiQsFNEisV3yR28d
-         S/6A6V4/iLq9S0/4sWcb6AivKOJn+VhF8Sp3w026SwrAHRXdt5EbC3CXMj6retITkwot
-         C60xwLqUDiHta+eHchOw0drvdASBvjaQz16sKETYy0vDWyW9OdxMreohSyX8xjrd5sq5
-         DYcQOpFBeLo4nntUKt8GmlWix5lUXADDGF6JykDD4zWYwhnCgQBL2dyx4pF666FflVH9
-         aiug==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778075898; x=1778680698; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=yAGZRzNWoj71eYuAlCwOROEzF/QQfxUQn3hZ1d0klWU=;
-        b=qpi/GvAk2KhRy4WgRcW4WCSun1DL166A7fc9mhiPB0nMyAhpIHb/ptZ1nlR2Au7CYT
-         1yGd8jTChwCQ72Btl0njugjVBNSZk3x/JS9MQ89oAOQBqxnUygn/eB/DZx3lkW+3VEGS
-         gGCulOB0n5MnCro6dslAOoJT19xu1Uk0HSCD5M87PjGxcEDWzfzeF+5BRsGz05dKm9OV
-         3GivrS656QEDNY+9oPbXerVi/iQ5OPoHp2aRxFyVnnASDPEe8jpILAfXlLjqsgTt9JSq
-         JEQ1RJOs2hw6HyneKOMM2PWPNhZUk573c7/2iSaWdshgSvlotgEeGOCEdg75w7/Rw0uM
-         B9jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778075898; x=1778680698;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yAGZRzNWoj71eYuAlCwOROEzF/QQfxUQn3hZ1d0klWU=;
-        b=b6PG3gNkiy2wfnAinWbW4QM3NhN2ufcGu09H4dxDm/zOlE476qkIx+A5vGMwrk0ru6
-         C5RzXAcb4olaU6vgNFDgloZnT4X9vzxT+zx03aSufg1DB2EiC1zVf8htPSow4rC6wiIm
-         FbzQvOYSzSbzZDntpfP73BoP/6G94tSptWUrR66V0jxpnPgZ0bFn92eC1Xxr92ivp6Wl
-         jbb0Lbk5j/tx0Rn+ShTShkwBw/jKCveO7z0V5vt9s3geGCpqHs0g5dVRo0R4h2eVNf3A
-         HHmS038nEmeeJ0+D1njeqaYEt1UUyPuC1kF1DVlZDCpIF/JoPm9bH4odOdM61k3CWWZD
-         0swg==
-X-Forwarded-Encrypted: i=1; AFNElJ8MJ3qyA2QGo8+0PMD5Sb2+8zGCWwP2nIw3dNXLkM4k2GuwP3nU4iJimU6nDrzFJMJwAGs/LBqwtd/eCtFhYjwx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDa3Pi1Xc/hw6efk0Z7buKOyOMF7hGB19MYYggeTRalQ6Z9JlX
-	pWDF5uU3IYGYuQsY3UFN9ai8cG/i/C4NpK1Xfug88DTHfQJHbuIXXGPlO0wg29oZ5+TZ7a+v3ZD
-	DV9vxpQswrhIngO2xcuTuT/tLDNOkStE=
-X-Gm-Gg: AeBDiesL8rjy9RJoFWCVGxAiO5MgwvUjXTeNfflX8b8SLFdmeZNpRcfz0ZtqUpQLeKS
-	dIOhG5lFuArZWUt02x7O41c4WVdkCyoO+PHd7DuH1NhxOmxk7ZYKBrJvoyamEeixkqdemRkQrBG
-	NFe5GmuFMcfy8TfHWkW90qM51rTw6fvy2l7yeFoHTDX5+i+qWifeakjkZdQvPjoIps1jBY/65bK
-	/1e5FfjZdvrFtb42blopvik52fHZGm3NaDkvatkij/OavzR2IBbHxc7PsAnpUA4APLBHheoLwBW
-	zFUho+ZnPXt1NbNd8seebgVrkujjvA==
-X-Received: by 2002:a05:690e:1688:b0:651:be8b:e87e with SMTP id
- 956f58d0204a3-65c799989cemr4075950d50.34.1778075897748; Wed, 06 May 2026
- 06:58:17 -0700 (PDT)
+	id 1wKcnn-00000000zE7-1JlP;
+	Wed, 06 May 2026 14:00:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A4B9401AB;
+	Wed,  6 May 2026 14:00:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0B25C2BCB0;
+	Wed,  6 May 2026 14:00:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778076038;
+	bh=3ABq0vmLnrToEl3embQcbEbCFFAlngxTw8HcWTYfpyQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lbbRqzsHEvuSkXGa4Rq5zx+PXjsv9/714dfoVAo7p5j+HQdbVor0KXnElBQ4b/Xal
+	 PiXiGmTODUQOu3x3zRDyPM3eHLpMmqcJBmgyz1WIio5CPxG35X1OlkckWcoE/no36v
+	 Ut3/ZcCjRTyc+Jj5F2Efp3PIaLh4oiaIrshTXG8ZS8syUYP6SUkVyzXeupWAml3r2N
+	 +YOf6WdB1pFgwaZrybzDsYRUyIVerbufJTdirhipRIXKfIj/YQvE6FwbwHZ0/K2FLQ
+	 +E6XjYuV3ytgHjZ8zOAcEEEVHeE0RYiQ71TdguOZSPBSH2/A/plVO6PZsyZptYT2yo
+	 hFH7PAMulrExQ==
+Date: Wed, 6 May 2026 19:30:27 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: helgaas@kernel.org, bhelgaas@google.com, 
+	Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, heiko@sntech.de, 
+	yue.wang@amlogic.com, pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org, 
+	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com, 
+	martin.blumenstingl@googlemail.com, cassel@kernel.org, linux-pci@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v7 0/2] PCI: Configure Root Port MPS during host probing
+Message-ID: <vpuzlzry7uulctur7kwtlogniuhogd5ybmrwjtos2v7yryf47v@yj2ocobbog6s>
+References: <20251127170908.14850-1-18255117159@163.com>
 MIME-Version: 1.0
-References: <20260506092324.635014-1-lgs201920130244@gmail.com> <afsO9TxVuz79FFQ0@raspi>
-In-Reply-To: <afsO9TxVuz79FFQ0@raspi>
-From: Guangshuo Li <lgs201920130244@gmail.com>
-Date: Wed, 6 May 2026 21:58:07 +0800
-X-Gm-Features: AVHnY4IW3B6qWimauAAC6R2YoxAVTsxlXp2RYpmYRhFA5w6dajkgOR-Qizc8_E8
-Message-ID: <CANUHTR8PNO-3hfEMCz4Zz_2ERLonE7OyNzPWtAaDtVpNB=YGhw@mail.gmail.com>
-Subject: Re: [PATCH v5] drm/bridge: imx8qxp-pxl2dpi: avoid ERR_PTR with
- device_node cleanup
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251127170908.14850-1-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_065818_910320_63C723F1 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20260506_070039_396340_51F02C23 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,45 +76,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Liu,
+On Fri, Nov 28, 2025 at 01:09:06AM +0800, Hans Zhang wrote:
+> Current PCIe initialization exhibits a key optimization gap: Root Ports
+> may operate with non-optimal Maximum Payload Size (MPS) settings. While
+> downstream device configuration is handled during bus enumeration, Root
+> Port MPS values inherited from firmware or hardware defaults often fail
+> to utilize the full capabilities supported by controller hardware. This
+> results in suboptimal data transfer efficiency throughout the PCIe
+> hierarchy.
+> 
+> This patch series addresses this by:
+> 
+> 1. Core PCI enhancement (Patch 1):
+> - Proactively configures Root Port MPS during host controller probing
+> - Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
+> - Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
+>   and not in PCIE_BUS_PEER2PEER mode (which requires default 128 bytes)
+> - Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
+> - Preserves standard MPS negotiation during downstream enumeration
+> 
+> 2. Driver cleanup (Patch 2):
+> - Removes redundant MPS configuration from Meson PCIe controller driver
+> - Functionality is now centralized in PCI core
+> - Simplifies driver maintenance long-term
+> 
 
-Thanks for the clarification.
+For the series,
 
-On Wed, 6 May 2026 at 17:49, Liu Ying <victor.liu@nxp.com> wrote:
->
+Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
 
->
-> By "minimal" in v4 comment, I meant not to use __free(device_node)
-> in imx8qxp_pxl2dpi_get_available_ep_from_port() and
-> imx8qxp_pxl2dpi_set_pixel_link_sel() - please keep using
-> __free(device_node) in imx8qxp_pxl2dpi_find_next_bridge().
->
->
-> >   - Keep imx8qxp_pxl2dpi_get_available_ep_from_port() unchanged.
->
-> No, please fix imx8qxp_pxl2dpi_get_available_ep_from_port() to make it
-> return int.
->
-> >   - Do not change imx8qxp_pxl2dpi_set_pixel_link_sel().
->
-> No, you need to change it.
->
-> --
-> Regards,
-> Liu Ying
+Bjorn: Could you please take a look? This series has been floating for a
+while...
 
-I misunderstood your previous comment. I will update the patch to keep
-using __free(device_node) in imx8qxp_pxl2dpi_find_next_bridge(),
-change imx8qxp_pxl2dpi_get_available_ep_from_port() to return int and
-pass the endpoint through an output argument, but avoid adding cleanup
-action usage in imx8qxp_pxl2dpi_get_available_ep_from_port() and
-imx8qxp_pxl2dpi_set_pixel_link_sel().
+- Mani
 
-I will also drop the unnecessary local NULL initialization for ep,
-since the helper initializes the output argument to NULL.
+> ---
+> Changes in v7:
+> - Exclude PCIE_BUS_PEER2PEER mode from Root Port MPS configuration
+> - Remove redundant check for upstream bridge (Root Ports don't have one)
+> - Improve commit message and code comments as per Bjorn.
+> 
+> Changes for v6:
+> https://patchwork.kernel.org/project/linux-pci/patch/20251104165125.174168-1-18255117159@163.com/
+> 
+> - Modify the commit message and comments. (Bjorn)
+> - Patch 1/2 code logic: Add !bridge check to configure MPS only for Root Ports
+>   without an upstream bridge (root bridges), avoiding incorrect handling of
+>   non-root-bridge Root Ports (Niklas).
+> 
+> Changes for v5:
+> https://patchwork.kernel.org/project/linux-pci/patch/20250620155507.1022099-1-18255117159@163.com/
+> 
+> - Use pcie_set_mps directly instead of pcie_write_mps.
+> - The patch 1 commit message were modified.
+> 
+> Changes for v4:
+> https://patchwork.kernel.org/project/linux-pci/patch/20250510155607.390687-1-18255117159@163.com/
+> 
+> - The patch [v4 1/2] add a comment to explain why it was done this way.
+> - The patch [v4 2/2] have not been modified.
+> - Drop patch [v3 3/3]. The Maintainer of the pci-aardvark.c file suggests
+>   that this patch cannot be submitted. In addition, Mani also suggests
+>   dropping this patch until this series of issues is resolved.
+> 
+> Changes for v3:
+> https://patchwork.kernel.org/project/linux-pci/patch/20250506173439.292460-1-18255117159@163.com/
+> 
+> - The new split is patch 2/3 and 3/3.
+> - Modify the patch 1/3 according to Niklas' suggestion.
+> 
+> Changes for v2:
+> https://patchwork.kernel.org/project/linux-pci/patch/20250425095708.32662-1-18255117159@163.com/
+> 
+> - According to the Maintainer's suggestion, limit the setting of MPS
+>   changes to platforms with controller drivers.
+> - Delete the MPS code set by the SOC manufacturer.
+> ---
+> 
+> Hans Zhang (2):
+>   PCI: Configure Root Port MPS during host probing
+>   PCI: dwc: Remove redundant MPS configuration
+> 
+>  drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
+>  drivers/pci/probe.c                    | 12 ++++++++++++
+>  2 files changed, 12 insertions(+), 17 deletions(-)
+> 
+> 
+> base-commit: 765e56e41a5af2d456ddda6cbd617b9d3295ab4e
+> -- 
+> 2.34.1
+> 
 
-I will send a v6.
-
-Best regards,
-Guangshuo
+-- 
+மணிவண்ணன் சதாசிவம்
 
