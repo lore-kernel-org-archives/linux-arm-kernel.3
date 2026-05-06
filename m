@@ -4,73 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D791CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 20:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD347CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 20:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pe/35GHt0GGUlqdC6M1xfqxH9+eIUbSBIk6ceC+kDRk=; b=vanvR1xXI0txr/m0k81zuwKfl/
-	Z3lJ16Om0s6ouqJmDLtwx0QYXXD5Dl6my/RbwbDcKRqdKkt1Ws1wFov6pKtjYpc70jqstLgkMDpcM
-	yEulNZBPKCtCS2BdzpHDWZRJ8bOxDapKyqwpMtbCEbARRoAA3udHqSFZfFC9Sr0BtzndoHeR3JhqP
-	fMs5jCRkV4XZiPQGlrDtlBgTP5aOQP7pg7Kv+vYIDvmrPLaTZgAEy1fRHXxothvkct0Q6t4zsjcbX
-	vstnUPd9Dboz4XwvBKsGyDoT5IEMVifLlIgof5tyxZHMVEHrXltCXBgwuPFnrTM9BGirsd5xWFQu0
-	oXMheVAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WnlEYTtzjafAlMfUH7IJz7ulUph3WkfYyDbQ6nfk8Lg=; b=W31FIZ/vbscnDvHtlZo+K2R2tc
+	rwSMt6lGnNNQtjh9/ZYBhth2qR/gMpWQIq0W8ci44VliuRLfbSjiR8E4GAwDK3ATs56yXTKwesrvB
+	d5tm/wzMsp1e9KpSeOyEkmkpZ+JQAOg6Q9EhDe5FPbVTKrogXTj9YNABYvfXE3fVAfjkdbaMqOKSO
+	oG+w0qIbpEdL3ffjuaTu60ol5XM0+SSpkTyvSSu66GymatKgzpPNwaThegH6Ou0KQtUuINzcXYgRQ
+	p6FrmZ7GxontWSJdbP5xFya8TrOyCwORSxEh2n+LJxxZzvaApXfwKmKGRs2Sfl2vFfjWlgLZK3Ywl
+	ThqFK7Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKhv0-00000001s5K-0Alf;
-	Wed, 06 May 2026 19:28:26 +0000
-Received: from mxout4.routing.net ([2a03:2900:1:a::9])
+	id 1wKj6n-000000020lo-2RMh;
+	Wed, 06 May 2026 20:44:41 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKhuv-00000001s0x-2NR7;
-	Wed, 06 May 2026 19:28:21 +0000
-Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout4.routing.net (Postfix) with ESMTP id DB92F1013EC;
-	Wed,  6 May 2026 19:28:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=routing; t=1778095697;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pe/35GHt0GGUlqdC6M1xfqxH9+eIUbSBIk6ceC+kDRk=;
-	b=QMNO4b4Vv25tvtJRC8/pqiJJmuG1zgPfrZxWeW6s0HokGGDgHAN6wvWVOkm7i9vA/vK8ud
-	+W7sgwu/vGD8fvRliphBHy0Q8BnJXISVLqaobkASojNBpeciiyyxEQnmmRPQekjyrM7KuW
-	YKsiZprGqq121By2DdnelRAeGMZ9T/o=
-Received: from frank-u24.. (unknown [217.61.157.0])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id 9BA0C1226F3;
-	Wed,  6 May 2026 19:28:16 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Russell King <linux@armlinux.org.uk>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Mason Chang <mason-cw.chang@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>
-Subject: [net-next v7 3/3] net: ethernet: mtk_eth_soc: Add LRO support
-Date: Wed,  6 May 2026 21:28:03 +0200
-Message-ID: <20260506192806.143725-4-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260506192806.143725-1-linux@fw-web.de>
-References: <20260506192806.143725-1-linux@fw-web.de>
+	id 1wKj6k-000000020hT-1wzJ;
+	Wed, 06 May 2026 20:44:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Su3K/YoWVGIv1PrYP5zKHjh6YEmwf3cG2u8+vLcaJtDSGxpnznXZhKnHRuQVJPbhQbCO+xP3uSZjv043I3BfphGuvwdLZtpVKmlLfHAOtAU4o1pf2yR3/fOSdyCknPP7urtqdgLeFd6QqNP7vdm2qx/JE/9akerLP4bYjXiF6Fu4FIiLm9OnPz4QLbrkhutkPlNt/zixzlj146xr0LPARSY3Kzr2H5s+TkUTNvTkeDbbDs9koNLrymegVzdsMqjbAQvUOfFs0vWOxmNUsHIPrXErcnJj9AYAq053NEMaaPjDwSlMbPuols2lnq5mSPo+uil2299mCqTI7BVa528bOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WnlEYTtzjafAlMfUH7IJz7ulUph3WkfYyDbQ6nfk8Lg=;
+ b=O9N3a3mNZzEKoG4ldaBZxiTpvNIh8kD8UldrQjle8oSgqaMR6w80R5fYKLmZVIRH0GOFAOAz+DjJlZEk5x3EvgAqklgQhGEM6tW1fsFM3a54wliyon3N+JS+ywulfHa3vUYBQ54gToL86MyI2hTuzrsghcJuLld1YnuLw9QkDEUBsCehUttk9fiJEL9YWlmAhj14et17t34U4uIgFW7ArGMX6wfl3O/mio5JrdNw5IjoZRZlsNBGqllND2oxOa5P34sLnynmt19RYCUpxkYTYVB+NlIFik0mx97A9tG0mp02/i8t5J5txbkKGSR28i9tjGYYxB5rridVVKy3UaU4fw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WnlEYTtzjafAlMfUH7IJz7ulUph3WkfYyDbQ6nfk8Lg=;
+ b=SwHoF/fexbp2pbMCROdoHoUgd9nrULTmvc4DIPr8OyJ3FMPUCiq0Vux4+W4Rqt0HOAOse5U5iLlpbib8l1hLk4vdebEIXFwN4quL2lURHVfGBsjk7XggPEjJSHXcZ+wreo1+XFNgayMtMggeDjYaK0yse+t3v3fBskci5uyPdncrmF/kjiEQLIvb2O7vIafPGE77uvdfXasmOWtM35NRyISkhIhdHkeLpDyBshfI9OAICyT6SQVG5tnGWZPVxWUkpu8L2+WNY1eCBb351UhWbK/gwho8OuqeXebqzVQSWjqEPxarv6h1F4PN7UEI9uang3JmPqW2bjf3auKSjs5gbQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
+ by GV1PR04MB10479.eurprd04.prod.outlook.com (2603:10a6:150:1cd::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
+ 2026 20:44:32 +0000
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.20.9891.008; Wed, 6 May 2026
+ 20:44:32 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Date: Wed, 06 May 2026 16:44:13 -0400
+Subject: [PATCH v4 1/9] dmaengine: Add API to combine configuration and
+ preparation (sg and single)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260506-dma_prep_config-v4-1-85b3d22babff@nxp.com>
+References: <20260506-dma_prep_config-v4-0-85b3d22babff@nxp.com>
+In-Reply-To: <20260506-dma_prep_config-v4-0-85b3d22babff@nxp.com>
+To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>, 
+ Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>, 
+ Herbert Xu <herbert@gondor.apana.org.au>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, Koichiro Den <den@valinux.co.jp>, 
+ Niklas Cassel <cassel@kernel.org>
+Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org, 
+ mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778100264; l=7332;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=rKGad3Y9jDTy3ErmCpirSi1ak0zuyxePwG7VCxtVVFY=;
+ b=46XFsQOdyZbgJJq6MOMDuk07LFbG/x7HHQ/35f1PqR6iWo5Gl1xAalyPx6uilPER214FVMYsU
+ Yu+9GnPBTHuDd7x881RSzKB+0XWpQDFXYnNpT3+5JI+mBk+ZMDgYe2I
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SA1P222CA0051.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:2d0::24) To DU0PR04MB9372.eurprd04.prod.outlook.com
+ (2603:10a6:10:35b::7)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|GV1PR04MB10479:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96da19e5-3244-4794-4c5f-08deabb046ee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|52116014|1800799024|7416014|22082099003|11062099010|921020|7136999003|18002099003|38350700014|56012099003;
+X-Microsoft-Antispam-Message-Info: s/rnrRcHsp9VKYpEXrFU7uG5BPEB6XJhm+XdvZPVKQ5FCgBUgF9Yni7bynBM0UFF7tpDrX85t15mwHya5l0kLya8QD/Bq8OYoQ2173opTbPZtzKt3oShNeGd8bEdYrCisvogI6HV7oppOmBCS6qeXeh2p968a6Q8HYRp4BUXOIhK3eDI/IuvlH8bxklCz6FliIGykJAklQhb/L1EfbdNgkg/GmrAX3wL5+6ZEkMWofokeIsBuAOkhftUPtgVUS3EOu9Kgr6rRrUgMp+/S4TMIBA6nLrA5DYpBls6r6EXDFVPinPOOcuCrzYJleaKK5hzLyjci3VzI08KgQyDlpBYd2boU2CcWEPFPiQZkXcnqA5zOVstS+x9WytuAgPzGK1aMFRHOiKzz98t8ZNaJchlfa1rorjAY0P26rEr9ZzY9gbpchFsHfhwCJv06S40ekR3F9lZ2bSF5a4b7a+OBvFtU1GsSBCOMNB9Rr/ny3vuFXA88r4ltft9k4oeAXpxHabKTvABDLoO4flNmIc9suiFqz1ZNP25Z7MiT+Vz+nBYdfZwbSoTCvb3N6YPLs1BbpfnVg0mErTfDsMpPkgwxSLdMC7e61Q6wgdLWT9EcV/vyFiVY6vSDT7F+vpRH7kTN9/XSnfi/32uh/ruV8LydiVbKAEK2cWPknxLIf5zu8BPxBAxLVjY1G+ezF0upjiyffDUAOerylp5FUluZD38/x9+Pk7YmCNpAVIvPa+Qg+wqXNGU2KPZ+qJ9/z7c0ZurVgUhDZtx/8O7ztwp6+TjsCkGTQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(52116014)(1800799024)(7416014)(22082099003)(11062099010)(921020)(7136999003)(18002099003)(38350700014)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YVpRcXJlMm5rUWMrZnlHNHRaRndxUFp0ZlR5bWdIdER6ZjdNajVlSC9LV1Ru?=
+ =?utf-8?B?WjlnTWxMblR4MTZ5Q0pmMklpMEpVS2Q0QjFYeXMxbWgzU3hQT1BHS2M2RUNI?=
+ =?utf-8?B?Y1ZxQ1laalFKSHN3T1FBNHZTK3RhZXVTcklZSlJ6SlhqRk9ESUhLdUVsRUZE?=
+ =?utf-8?B?ektLcWZqOHJ5NExpOU9sT1M5Nk8rMWI3SUMyRzJBRVRIUnkzOU1lRHkrZkVH?=
+ =?utf-8?B?d1FMTER4ZlNUaGxDemd5T1poOFhLWDhXQ0dWRWRjMGlER0NQaVlvQ2lmOVNm?=
+ =?utf-8?B?ZW9NdWpYQ3h6OUlUOC8wTU1mQzFRWkFoekpGbnM4elVML1FWaFFoL0krUG9s?=
+ =?utf-8?B?L0dMNnkvTUdiTUpmOTBqbG1aS3FITW5ETWdvS1MyNTVFMVJ4eGpLa0wwTlds?=
+ =?utf-8?B?eUs1dWV2RmRleGlWUmtzSzZwVzYyRVFYVTZycWF3VGhaV05TdmxsMXg0cEI1?=
+ =?utf-8?B?K3FYSEl5U0tCVTFCY3hXSEJScWttbFh3SlJLeE5aY1pWNjA5NUxwdEVUbHUx?=
+ =?utf-8?B?Yk40TVoxeDBDa0dKNUx4TFBiajR3NVJOdUlmZC9hMGVtc1lFc3Z2MXlhUU95?=
+ =?utf-8?B?RFlnWnBnRnprTElob2Roa3ZLaWg4VC9yN1MxVUQ4WVA1eDg5Mk1XZDlqS3Rs?=
+ =?utf-8?B?QUFza2IyTmRpaXhqM0Y4eGZ2ZXN2QzluL3FlL0ZSdHJSYktFS3EwbmVUZTBD?=
+ =?utf-8?B?d3JOcC9HZi9MclNRZVJjVkZqc0NCalZTelF4bEhJQ2NoN05reVhVVkkyOWdV?=
+ =?utf-8?B?NmlkWDFQYlo2ajRFajdGL0l5TU1GUnpNWmc3a09GTWNDenR1OXB4NWIrWGFG?=
+ =?utf-8?B?NGdrdXZtWW9zclNBMGQ3TDBoZ0F0eGYyQzN1dGFrRUhDWk9adk8xTVUvNkt2?=
+ =?utf-8?B?dXBJU1lwOFN4aHNiSXVJRFJHRTFlWEttQlFWVW1HY2g5NmRsSC9XcVV0SHZY?=
+ =?utf-8?B?RHFaazc0OGJwU2VIeUZoTlNDSjJhTFhLem1QTkw2cEZhM2gyVWFDTExJQzFW?=
+ =?utf-8?B?b3BtZmk2RlRPOXBnZE9qY0xJM0hVaFIrTm5DYTA2aThaUzN4L0c5bVMwSk9T?=
+ =?utf-8?B?clM4LzFoRHNwUnNJOGhWZnhYRnExNGxHR0xFTDN2UzZMU0J5ZHJsSWZiZW1R?=
+ =?utf-8?B?QThLZUFoWDg0R3o4ZEM0TzlxNDUvYW9jZkRjMi9UMkthQ2FyQzVBSXYxYlJO?=
+ =?utf-8?B?aTAvNUVTZVlWM1hZVlovUXBxWUtkcHk4M1A3Umx0OUFmQmxwUExVYW9aNjB4?=
+ =?utf-8?B?VTZLbGk2N291SVh2VWdGU29ncE13U09pVnJ4NnExVmRmL3VpTnRma2Vwaytt?=
+ =?utf-8?B?em5vdkZSd0pYS21oRUR1cTN2ejlKVnA4aEsySzBINXJ3b09JVFJlSDNYMy9j?=
+ =?utf-8?B?TE55NC81bjh1Ti9HaWFHVG5zejdQcWpWRXNrc1h2UjhnRnJNdlFSd3ozSVIx?=
+ =?utf-8?B?UVJRQjMwV1RVQWFIRWZtWkxLZVlNTmpXbDJCT3QzeVJNZnBoMFBoYVJEelBa?=
+ =?utf-8?B?Vk9iTlEvSFc2TVltRmQ5Rm9LajdoY1pSWVJiYm9UNnRKdVozb3M2MFNVV2N3?=
+ =?utf-8?B?eUhrRWJzOFRucDdWNjVOMXM2U3NNNmd6Yjg3MFBJT1FYNzAzdjQ1RjJxenZU?=
+ =?utf-8?B?dGl6YUNoaGZqMnZnbTBKUW5FSHh1R1NiWlpOYytEK00rNnppL0k5UXJ3WGpy?=
+ =?utf-8?B?UFQyazVrZmhpYk1FNndmU2FrTWMyWTBkdlpMUnBLQ0gxMnVXOFNvdjdTOFVD?=
+ =?utf-8?B?TDdEcWNNU244U3pqOXJWYmNTQVJISENYL3pHU2ZmQys4VlVEWVMycFYwOVZE?=
+ =?utf-8?B?OVR5UFpVVm1UdkFlbkJhcHJLTkFtdmQzYnoxckEvSHJrVEZ3aUZnMitrd29i?=
+ =?utf-8?B?MmJMaXQ1cVZSWXFzejR4c2k0cmdwRlo3M1p5NElnQlRHWkNoS1dQTHVRV1hH?=
+ =?utf-8?B?R2JDVnN3TkhLcEh4K3hSeUcxRXh3d096Z2tkTG9tQ2pSM21UVGNPQ3NKWkpX?=
+ =?utf-8?B?N1hieGlQanBJbkFwU1dsdG9JNTl3MWdFOFcweHA0VmNyNG1MOUVWQ0FoUEM3?=
+ =?utf-8?B?bHVXUThjVjFxdWc0YlgxT1hERldOZy81aC9Kdk9YdWVPL1R1amVGUTVzMkNi?=
+ =?utf-8?B?RDVDbHF3c2FQVlU3Vk1PWjBBWW1jWUhiRktIY0VtbUdWMlBHZnBBbWRudFlI?=
+ =?utf-8?B?NHNVU1pFak1kc01IK0J5K3UzZ29qd1BjMERINXdMT2wyYmFTeStXMFVGUVpL?=
+ =?utf-8?B?aU5PRmJZRmk2MVA0NHlOSGl3c3N1RmVxdE16NnFBellUTHZHcFZNTklkVjdS?=
+ =?utf-8?B?UE56UnBOQVBUaFBNb2Z6eVdwNTZkdTQ2MjBCTGI0cjM1dml4MlBRdz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96da19e5-3244-4794-4c5f-08deabb046ee
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9372.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 20:44:32.8100
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +0pj2cAjE6XXn3XBygIB01eaLcV6eSWAiNCIvXyoc0GQtSfJMF8NieH/hHqPGN+V2FyM5oh8OeIT9AVFVzU3eg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10479
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_122821_903185_18689324 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20260506_134438_655532_A2D3A07B 
+X-CRM114-Status: GOOD (  20.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,625 +164,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mason Chang <mason-cw.chang@mediatek.com>
+Previously, configuration and preparation required two separate calls. This
+works well when configuration is done only once during initialization.
 
-Add Large Receive Offload support to mediatek ethernet driver and
-activate it for MT7988.
+However, in cases where the burst length or source/destination address must
+be adjusted for each transfer, calling two functions is verbose and
+requires additional locking to ensure both steps complete atomically.
 
-Signed-off-by: Mason Chang <mason-cw.chang@mediatek.com>
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Add a new API dmaengine_prep_config_single() and dmaengine_prep_config_sg()
+and callback device_prep_config_sg() that combines configuration and
+preparation into a single operation. If the configuration argument is
+passed as NULL, fall back to the existing implementation.
+
+Tested-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-v7:
-- fix u32 vs. be32 reported by patchwork check
-- add L4 PSH check
-  https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/7521c42b0bd5be20d52e20b110daea8c756fc069%5E%21/#F1
-- Add HW LRO max 4-depth VLAN support including switch special tag.
-  https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/35490cec6a2e5982532935fb0a1c884f7c4efdb0%5E%21/#F2
+change in v4
+- drop context in device_prep_config_sg()
 
-v6:
-- fix some Macro argument '...' may be better as '(...)' to avoid precedence issues for LRO
-- drop unused MTK_CTRL_DW0_SDL_MASK
+change in v3
+- remove Deprecated for callback device_prep_slave_sg().
+- Move condition check before sg init.
+- split function at return type.
+- move safe version to next patch
 
-v5:
-- fix too long lines reported by checkpatch
-  MTK_LRO_RING_RELINQUISH_REQ
-  MTK_LRO_RING_RELINQUISH_DONE
-  irq handling (MTK_HW_LRO_IRQ + MTK_HW_LRO_RING)
-
-v4:
-- fix lro reverse christmas tree and LRO params suggested by andrew
-- drop mtk_hwlro_stats_ebl and unused IS_HW_LRO_RING (only used in
-  properitary debugfs)
-
-v2:
-- drop link to commit for 6.6 patch
+change in v2
+- add () for function
+- use short name device_prep_sg(), remove "slave" and "config". the 'slave'
+is reduntant. after remove slave, the function name is difference existed
+one, so remove _config suffix.
 ---
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 251 +++++++++++++++++---
- drivers/net/ethernet/mediatek/mtk_eth_soc.h |  51 ++--
- 2 files changed, 247 insertions(+), 55 deletions(-)
+ Documentation/driver-api/dmaengine/client.rst |  9 ++++
+ include/linux/dmaengine.h                     | 63 +++++++++++++++++++++++----
+ 2 files changed, 64 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 908fd88287ac..3ffd89aa7727 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -2793,7 +2793,7 @@ static int mtk_rx_alloc(struct mtk_eth *eth, int ring_no, int rx_flag)
+diff --git a/Documentation/driver-api/dmaengine/client.rst b/Documentation/driver-api/dmaengine/client.rst
+index d491e385d61a98b8a804cd823caf254a2dc62cf4..5ee5d4a3596dd986b02f1bce3078ca6c4c1fb45a 100644
+--- a/Documentation/driver-api/dmaengine/client.rst
++++ b/Documentation/driver-api/dmaengine/client.rst
+@@ -80,6 +80,10 @@ The details of these operations are:
  
- 	if (rx_flag == MTK_RX_FLAGS_HWLRO) {
- 		rx_data_len = MTK_MAX_LRO_RX_LENGTH;
--		rx_dma_size = MTK_HW_LRO_DMA_SIZE;
-+		rx_dma_size = MTK_HW_LRO_DMA_SIZE(eth);
- 	} else {
- 		rx_data_len = ETH_DATA_LEN;
- 		rx_dma_size = soc->rx.dma_size;
-@@ -2806,7 +2806,7 @@ static int mtk_rx_alloc(struct mtk_eth *eth, int ring_no, int rx_flag)
- 	if (!ring->data)
- 		return -ENOMEM;
+   - slave_sg: DMA a list of scatter gather buffers from/to a peripheral
  
--	if (mtk_page_pool_enabled(eth)) {
-+	if (mtk_page_pool_enabled(eth) && rcu_access_pointer(eth->prog))  {
- 		struct page_pool *pp;
++  - config_sg: Similar with slave_sg, just pass down dma_slave_config
++    struct to avoid calling dmaengine_slave_config() every time adjusting the
++    burst length or the FIFO address is needed.
++
+   - peripheral_dma_vec: DMA an array of scatter gather buffers from/to a
+     peripheral. Similar to slave_sg, but uses an array of dma_vec
+     structures instead of a scatterlist.
+@@ -106,6 +110,11 @@ The details of these operations are:
+ 		unsigned int sg_len, enum dma_data_direction direction,
+ 		unsigned long flags);
  
- 		pp = mtk_create_page_pool(eth, &ring->xdp_q, ring_no,
-@@ -2952,10 +2952,11 @@ static void mtk_rx_clean(struct mtk_eth *eth, struct mtk_rx_ring *ring, bool in_
++     struct dma_async_tx_descriptor *dmaengine_prep_config_sg(
++		struct dma_chan *chan, struct scatterlist *sgl,
++		unsigned int sg_len, enum dma_transfer_direction dir,
++		unsigned long flags, struct dma_slave_config *config);
++
+      struct dma_async_tx_descriptor *dmaengine_prep_peripheral_dma_vec(
+ 		struct dma_chan *chan, const struct dma_vec *vecs,
+ 		size_t nents, enum dma_data_direction direction,
+diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
+index b3d251c9734e95e1b75cf6763d4d2c3a1c6a9910..defa377d2ef54d94e6337cdfa7826a091295535e 100644
+--- a/include/linux/dmaengine.h
++++ b/include/linux/dmaengine.h
+@@ -835,6 +835,7 @@ struct dma_filter {
+  *	where the address and size of each segment is located in one entry of
+  *	the dma_vec array.
+  * @device_prep_slave_sg: prepares a slave dma operation
++ * @device_prep_config_sg: prepares a slave DMA operation with dma_slave_config
+  * @device_prep_dma_cyclic: prepare a cyclic dma operation suitable for audio.
+  *	The function takes a buffer of size buf_len. The callback function will
+  *	be called after period_len bytes have been transferred.
+@@ -934,6 +935,10 @@ struct dma_device {
+ 		struct dma_chan *chan, struct scatterlist *sgl,
+ 		unsigned int sg_len, enum dma_transfer_direction direction,
+ 		unsigned long flags, void *context);
++	struct dma_async_tx_descriptor *(*device_prep_config_sg)(
++		struct dma_chan *chan, struct scatterlist *sgl,
++		unsigned int sg_len, enum dma_transfer_direction direction,
++		unsigned long flags, struct dma_slave_config *config);
+ 	struct dma_async_tx_descriptor *(*device_prep_dma_cyclic)(
+ 		struct dma_chan *chan, dma_addr_t buf_addr, size_t buf_len,
+ 		size_t period_len, enum dma_transfer_direction direction,
+@@ -974,22 +979,44 @@ static inline bool is_slave_direction(enum dma_transfer_direction direction)
+ 	       (direction == DMA_DEV_TO_DEV);
+ }
  
- static int mtk_hwlro_rx_init(struct mtk_eth *eth)
+-static inline struct dma_async_tx_descriptor *dmaengine_prep_slave_single(
+-	struct dma_chan *chan, dma_addr_t buf, size_t len,
+-	enum dma_transfer_direction dir, unsigned long flags)
++static inline struct dma_async_tx_descriptor *
++dmaengine_prep_config_single(struct dma_chan *chan, dma_addr_t buf, size_t len,
++			     enum dma_transfer_direction dir,
++			     unsigned long flags,
++			     struct dma_slave_config *config)
  {
--	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
--	int i;
- 	u32 ring_ctrl_dw1 = 0, ring_ctrl_dw2 = 0, ring_ctrl_dw3 = 0;
-+	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
-+	const struct mtk_soc_data *soc = eth->soc;
- 	u32 lro_ctrl_dw0 = 0, lro_ctrl_dw3 = 0;
-+	int i, val;
- 
- 	/* set LRO rings to auto-learn modes */
- 	ring_ctrl_dw2 |= MTK_RING_AUTO_LERAN_MODE;
-@@ -2974,30 +2975,50 @@ static int mtk_hwlro_rx_init(struct mtk_eth *eth)
- 	ring_ctrl_dw2 |= MTK_RING_MAX_AGG_CNT_L;
- 	ring_ctrl_dw3 |= MTK_RING_MAX_AGG_CNT_H;
- 
--	for (i = 1; i < MTK_MAX_RX_RING_NUM; i++) {
-+	for (i = 1; i <= MTK_HW_LRO_RING_NUM(eth); i++) {
- 		mtk_w32(eth, ring_ctrl_dw1, MTK_LRO_CTRL_DW1_CFG(reg_map, i));
- 		mtk_w32(eth, ring_ctrl_dw2, MTK_LRO_CTRL_DW2_CFG(reg_map, i));
- 		mtk_w32(eth, ring_ctrl_dw3, MTK_LRO_CTRL_DW3_CFG(reg_map, i));
- 	}
- 
- 	/* IPv4 checksum update enable */
--	lro_ctrl_dw0 |= MTK_L3_CKS_UPD_EN;
-+	lro_ctrl_dw0 |= MTK_L3_CKS_UPD_EN(eth);
- 
- 	/* switch priority comparison to packet count mode */
- 	lro_ctrl_dw0 |= MTK_LRO_ALT_PKT_CNT_MODE;
- 
-+	/* enable L4 PSH flag check */
-+	lro_ctrl_dw0 |= MTK_LRO_L4_CTRL_PSH_EN;
+ 	struct scatterlist sg;
 +
- 	/* bandwidth threshold setting */
--	mtk_w32(eth, MTK_HW_LRO_BW_THRE, MTK_PDMA_LRO_CTRL_DW2);
-+	mtk_w32(eth, MTK_HW_LRO_BW_THRE, MTK_PDMA_LRO_CTRL_DW2(reg_map));
- 
- 	/* auto-learn score delta setting */
--	mtk_w32(eth, MTK_HW_LRO_REPLACE_DELTA, MTK_PDMA_LRO_ALT_SCORE_DELTA);
-+	mtk_w32(eth, MTK_HW_LRO_REPLACE_DELTA, MTK_PDMA_LRO_ALT_SCORE_DELTA(reg_map));
- 
- 	/* set refresh timer for altering flows to 1 sec. (unit: 20us) */
- 	mtk_w32(eth, (MTK_HW_LRO_TIMER_UNIT << 16) | MTK_HW_LRO_REFRESH_TIME,
- 		MTK_PDMA_LRO_ALT_REFRESH_TIMER);
- 
--	/* set HW LRO mode & the max aggregation count for rx packets */
--	lro_ctrl_dw3 |= MTK_ADMA_MODE | (MTK_HW_LRO_MAX_AGG_CNT & 0xff);
-+	if (mtk_is_netsys_v3_or_greater(eth)) {
-+		val = mtk_r32(eth, reg_map->pdma.rx_cfg);
-+		mtk_w32(eth, val | ((MTK_PDMA_LRO_SDL + MTK_MAX_RX_LENGTH) <<
-+			MTK_RX_CFG_SDL_OFFSET), reg_map->pdma.rx_cfg);
++	if (!chan || !chan->device)
++		return NULL;
 +
-+		lro_ctrl_dw0 |= MTK_PDMA_LRO_SDL << MTK_CTRL_DW0_SDL_OFFSET;
+ 	sg_init_table(&sg, 1);
+ 	sg_dma_address(&sg) = buf;
+ 	sg_dma_len(&sg) = len;
+ 
+-	if (!chan || !chan->device || !chan->device->device_prep_slave_sg)
++	if (chan->device->device_prep_config_sg)
++		return chan->device->device_prep_config_sg(chan, &sg, 1, dir,
++							   flags, config);
 +
-+		/* enable cpu reason black list */
-+		lro_ctrl_dw0 |= MTK_LRO_CRSN_BNW(eth);
++	if (config)
++		if (dmaengine_slave_config(chan, config))
++			return NULL;
 +
-+		/* no use PPE cpu reason */
-+		mtk_w32(eth, 0xffffffff, MTK_PDMA_LRO_CTRL_DW1(reg_map));
-+	} else {
-+		/* set HW LRO mode & the max aggregation count for rx packets */
-+		lro_ctrl_dw3 |= MTK_ADMA_MODE | (MTK_HW_LRO_MAX_AGG_CNT & 0xff);
-+	}
-+
-+	/* enable max 4-depth VLAN support including switch special tag */
-+	lro_ctrl_dw3 |= MTK_LRO_VLAN_VID_CMP_DEPTH | MTK_LRO_VLAN_EN;
++	if (!chan->device->device_prep_slave_sg)
+ 		return NULL;
  
- 	/* the minimal remaining room of SDL0 in RXD for lro aggregation */
- 	lro_ctrl_dw3 |= MTK_LRO_MIN_RXD_SDL;
-@@ -3005,8 +3026,19 @@ static int mtk_hwlro_rx_init(struct mtk_eth *eth)
- 	/* enable HW LRO */
- 	lro_ctrl_dw0 |= MTK_LRO_EN;
- 
--	mtk_w32(eth, lro_ctrl_dw3, MTK_PDMA_LRO_CTRL_DW3);
--	mtk_w32(eth, lro_ctrl_dw0, MTK_PDMA_LRO_CTRL_DW0);
-+	mtk_w32(eth, lro_ctrl_dw3, MTK_PDMA_LRO_CTRL_DW3(reg_map));
-+	mtk_w32(eth, lro_ctrl_dw0, MTK_PDMA_LRO_CTRL_DW0(reg_map));
-+
-+	if (mtk_is_netsys_v2_or_greater(eth)) {
-+		i = (soc->rx.desc_size == sizeof(struct mtk_rx_dma_v2)) ? 1 : 0;
-+		mtk_m32(eth, MTK_RX_DONE_INT(eth, MTK_HW_LRO_RING(eth, i)),
-+			MTK_RX_DONE_INT(eth, MTK_HW_LRO_RING(eth, i)), reg_map->pdma.int_grp);
-+		mtk_m32(eth, MTK_RX_DONE_INT(eth, MTK_HW_LRO_RING(eth, i + 1)),
-+			MTK_RX_DONE_INT(eth, MTK_HW_LRO_RING(eth, i + 1)),
-+			reg_map->pdma.int_grp + 0x4);
-+		mtk_m32(eth, MTK_RX_DONE_INT(eth, MTK_HW_LRO_RING(eth, i + 2)),
-+			MTK_RX_DONE_INT(eth, MTK_HW_LRO_RING(eth, i + 2)), reg_map->pdma.int_grp3);
-+	}
- 
- 	return 0;
- }
-@@ -3014,16 +3046,16 @@ static int mtk_hwlro_rx_init(struct mtk_eth *eth)
- static void mtk_hwlro_rx_uninit(struct mtk_eth *eth)
- {
- 	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
--	int i;
- 	u32 val;
-+	int i;
- 
- 	/* relinquish lro rings, flush aggregated packets */
--	mtk_w32(eth, MTK_LRO_RING_RELINQUISH_REQ, MTK_PDMA_LRO_CTRL_DW0);
-+	mtk_w32(eth, MTK_LRO_RING_RELINQUISH_REQ(eth), MTK_PDMA_LRO_CTRL_DW0(reg_map));
- 
- 	/* wait for relinquishments done */
- 	for (i = 0; i < 10; i++) {
--		val = mtk_r32(eth, MTK_PDMA_LRO_CTRL_DW0);
--		if (val & MTK_LRO_RING_RELINQUISH_DONE) {
-+		val = mtk_r32(eth, MTK_PDMA_LRO_CTRL_DW0(reg_map));
-+		if (val & MTK_LRO_RING_RELINQUISH_DONE(eth)) {
- 			msleep(20);
- 			continue;
- 		}
-@@ -3031,11 +3063,11 @@ static void mtk_hwlro_rx_uninit(struct mtk_eth *eth)
- 	}
- 
- 	/* invalidate lro rings */
--	for (i = 1; i < MTK_MAX_RX_RING_NUM; i++)
-+	for (i = 1; i <= MTK_HW_LRO_RING_NUM(eth); i++)
- 		mtk_w32(eth, 0, MTK_LRO_CTRL_DW2_CFG(reg_map, i));
- 
- 	/* disable HW LRO */
--	mtk_w32(eth, 0, MTK_PDMA_LRO_CTRL_DW0);
-+	mtk_w32(eth, 0, MTK_PDMA_LRO_CTRL_DW0(reg_map));
+ 	return chan->device->device_prep_slave_sg(chan, &sg, 1,
+ 						  dir, flags, NULL);
  }
  
- static void mtk_hwlro_val_ipaddr(struct mtk_eth *eth, int idx, __be32 ip)
-@@ -3048,7 +3080,7 @@ static void mtk_hwlro_val_ipaddr(struct mtk_eth *eth, int idx, __be32 ip)
- 	/* invalidate the IP setting */
- 	mtk_w32(eth, (reg_val & ~MTK_RING_MYIP_VLD), MTK_LRO_CTRL_DW2_CFG(reg_map, idx));
- 
--	mtk_w32(eth, ip, MTK_LRO_DIP_DW0_CFG(idx));
-+	mtk_w32(eth, ip, MTK_LRO_DIP_DW0_CFG(reg_map, idx));
- 
- 	/* validate the IP setting */
- 	mtk_w32(eth, (reg_val | MTK_RING_MYIP_VLD), MTK_LRO_CTRL_DW2_CFG(reg_map, idx));
-@@ -3064,7 +3096,7 @@ static void mtk_hwlro_inval_ipaddr(struct mtk_eth *eth, int idx)
- 	/* invalidate the IP setting */
- 	mtk_w32(eth, (reg_val & ~MTK_RING_MYIP_VLD), MTK_LRO_CTRL_DW2_CFG(reg_map, idx));
- 
--	mtk_w32(eth, 0, MTK_LRO_DIP_DW0_CFG(idx));
-+	mtk_w32(eth, 0, MTK_LRO_DIP_DW0_CFG(reg_map, idx));
- }
- 
- static int mtk_hwlro_get_ip_cnt(struct mtk_mac *mac)
-@@ -3080,6 +3112,65 @@ static int mtk_hwlro_get_ip_cnt(struct mtk_mac *mac)
- 	return cnt;
- }
- 
-+static int mtk_hwlro_add_ipaddr_idx(struct net_device *dev, u32 ip4dst)
++static inline struct dma_async_tx_descriptor *
++dmaengine_prep_slave_single(struct dma_chan *chan, dma_addr_t buf, size_t len,
++			    enum dma_transfer_direction dir,
++			    unsigned long flags)
 +{
-+	struct mtk_mac *mac = netdev_priv(dev);
-+	const struct mtk_reg_map *reg_map;
-+	struct mtk_eth *eth = mac->hw;
-+	u32 reg_val;
-+	int i;
-+
-+	reg_map = eth->soc->reg_map;
-+
-+	/* check for duplicate IP address in the current DIP list */
-+	for (i = 1; i <= MTK_HW_LRO_DIP_NUM(eth); i++) {
-+		reg_val = mtk_r32(eth, MTK_LRO_DIP_DW0_CFG(reg_map, i));
-+		if (reg_val == ip4dst)
-+			break;
-+	}
-+
-+	if (i < MTK_HW_LRO_DIP_NUM(eth) + 1) {
-+		netdev_warn(dev, "Duplicate IP address at DIP(%d)!\n", i);
-+		return -EEXIST;
-+	}
-+
-+	/* find out available DIP index */
-+	for (i = 1; i <= MTK_HW_LRO_DIP_NUM(eth); i++) {
-+		reg_val = mtk_r32(eth, MTK_LRO_DIP_DW0_CFG(reg_map, i));
-+		if (reg_val == 0UL)
-+			break;
-+	}
-+
-+	if (i >= MTK_HW_LRO_DIP_NUM(eth) + 1) {
-+		netdev_warn(dev, "DIP index is currently out of resource!\n");
-+		return -EBUSY;
-+	}
-+
-+	return i;
++	return dmaengine_prep_config_single(chan, buf, len, dir, flags, NULL);
 +}
 +
-+static int mtk_hwlro_get_ipaddr_idx(struct net_device *dev, u32 ip4dst)
+ /**
+  * dmaengine_prep_peripheral_dma_vec() - Prepare a DMA scatter-gather descriptor
+  * @chan: The channel to be used for this descriptor
+@@ -1010,17 +1037,37 @@ static inline struct dma_async_tx_descriptor *dmaengine_prep_peripheral_dma_vec(
+ 							    dir, flags);
+ }
+ 
+-static inline struct dma_async_tx_descriptor *dmaengine_prep_slave_sg(
+-	struct dma_chan *chan, struct scatterlist *sgl,	unsigned int sg_len,
+-	enum dma_transfer_direction dir, unsigned long flags)
++static inline struct dma_async_tx_descriptor *
++dmaengine_prep_config_sg(struct dma_chan *chan, struct scatterlist *sgl,
++			 unsigned int sg_len, enum dma_transfer_direction dir,
++			 unsigned long flags, struct dma_slave_config *config)
+ {
+-	if (!chan || !chan->device || !chan->device->device_prep_slave_sg)
++	if (!chan || !chan->device)
++		return NULL;
++
++	if (chan->device->device_prep_config_sg)
++		return chan->device->device_prep_config_sg(chan, sgl, sg_len,
++				dir, flags, config);
++
++	if (config)
++		if (dmaengine_slave_config(chan, config))
++			return NULL;
++
++	if (!chan->device->device_prep_slave_sg)
+ 		return NULL;
+ 
+ 	return chan->device->device_prep_slave_sg(chan, sgl, sg_len,
+ 						  dir, flags, NULL);
+ }
+ 
++static inline struct dma_async_tx_descriptor *
++dmaengine_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
++			unsigned int sg_len, enum dma_transfer_direction dir,
++			unsigned long flags)
 +{
-+	struct mtk_mac *mac = netdev_priv(dev);
-+	struct mtk_eth *eth = mac->hw;
-+	u32 reg_val;
-+	int i;
-+
-+	/* find out DIP index that matches the given IP address */
-+	for (i = 1; i <= MTK_HW_LRO_DIP_NUM(eth); i++) {
-+		reg_val = mtk_r32(eth, MTK_LRO_DIP_DW0_CFG(eth->soc->reg_map, i));
-+		if (reg_val == ip4dst)
-+			break;
-+	}
-+
-+	if (i >= MTK_HW_LRO_DIP_NUM(eth) + 1) {
-+		netdev_warn(dev, "DIP address is not exist!\n");
-+		return -ENOENT;
-+	}
-+
-+	return i;
++	return dmaengine_prep_config_sg(chan, sgl, sg_len, dir, flags, NULL);
 +}
 +
- static int mtk_hwlro_add_ipaddr(struct net_device *dev,
- 				struct ethtool_rxnfc *cmd)
- {
-@@ -3088,15 +3179,19 @@ static int mtk_hwlro_add_ipaddr(struct net_device *dev,
- 	struct mtk_mac *mac = netdev_priv(dev);
- 	struct mtk_eth *eth = mac->hw;
- 	int hwlro_idx;
-+	__be32 ip4dst;
- 
- 	if ((fsp->flow_type != TCP_V4_FLOW) ||
- 	    (!fsp->h_u.tcp_ip4_spec.ip4dst) ||
- 	    (fsp->location > 1))
- 		return -EINVAL;
- 
--	mac->hwlro_ip[fsp->location] = htonl(fsp->h_u.tcp_ip4_spec.ip4dst);
--	hwlro_idx = (mac->id * MTK_MAX_LRO_IP_CNT) + fsp->location;
-+	ip4dst = htonl(fsp->h_u.tcp_ip4_spec.ip4dst);
-+	hwlro_idx = mtk_hwlro_add_ipaddr_idx(dev, ip4dst);
-+	if (hwlro_idx < 0)
-+		return hwlro_idx;
- 
-+	mac->hwlro_ip[fsp->location] = ip4dst;
- 	mac->hwlro_ip_cnt = mtk_hwlro_get_ip_cnt(mac);
- 
- 	mtk_hwlro_val_ipaddr(eth, hwlro_idx, mac->hwlro_ip[fsp->location]);
-@@ -3112,13 +3207,17 @@ static int mtk_hwlro_del_ipaddr(struct net_device *dev,
- 	struct mtk_mac *mac = netdev_priv(dev);
- 	struct mtk_eth *eth = mac->hw;
- 	int hwlro_idx;
-+	__be32 ip4dst;
- 
- 	if (fsp->location > 1)
- 		return -EINVAL;
- 
--	mac->hwlro_ip[fsp->location] = 0;
--	hwlro_idx = (mac->id * MTK_MAX_LRO_IP_CNT) + fsp->location;
-+	ip4dst = mac->hwlro_ip[fsp->location];
-+	hwlro_idx = mtk_hwlro_get_ipaddr_idx(dev, ip4dst);
-+	if (hwlro_idx < 0)
-+		return hwlro_idx;
- 
-+	mac->hwlro_ip[fsp->location] = 0;
- 	mac->hwlro_ip_cnt = mtk_hwlro_get_ip_cnt(mac);
- 
- 	mtk_hwlro_inval_ipaddr(eth, hwlro_idx);
-@@ -3126,6 +3225,24 @@ static int mtk_hwlro_del_ipaddr(struct net_device *dev,
- 	return 0;
- }
- 
-+static void mtk_hwlro_netdev_enable(struct net_device *dev)
-+{
-+	struct mtk_mac *mac = netdev_priv(dev);
-+	struct mtk_eth *eth = mac->hw;
-+	int i, hwlro_idx;
-+
-+	for (i = 0; i < MTK_MAX_LRO_IP_CNT; i++) {
-+		if (mac->hwlro_ip[i] == 0)
-+			continue;
-+
-+		hwlro_idx = mtk_hwlro_get_ipaddr_idx(dev, mac->hwlro_ip[i]);
-+		if (hwlro_idx < 0)
-+			continue;
-+
-+		mtk_hwlro_val_ipaddr(eth, hwlro_idx, mac->hwlro_ip[i]);
-+	}
-+}
-+
- static void mtk_hwlro_netdev_disable(struct net_device *dev)
- {
- 	struct mtk_mac *mac = netdev_priv(dev);
-@@ -3133,8 +3250,14 @@ static void mtk_hwlro_netdev_disable(struct net_device *dev)
- 	int i, hwlro_idx;
- 
- 	for (i = 0; i < MTK_MAX_LRO_IP_CNT; i++) {
-+		if (mac->hwlro_ip[i] == 0)
-+			continue;
-+
-+		hwlro_idx = mtk_hwlro_get_ipaddr_idx(dev, mac->hwlro_ip[i]);
-+		if (hwlro_idx < 0)
-+			continue;
-+
- 		mac->hwlro_ip[i] = 0;
--		hwlro_idx = (mac->id * MTK_MAX_LRO_IP_CNT) + i;
- 
- 		mtk_hwlro_inval_ipaddr(eth, hwlro_idx);
- 	}
-@@ -3314,6 +3437,8 @@ static int mtk_set_features(struct net_device *dev, netdev_features_t features)
- 
- 	if ((diff & NETIF_F_LRO) && !(features & NETIF_F_LRO))
- 		mtk_hwlro_netdev_disable(dev);
-+	else if ((diff & NETIF_F_LRO) && (features & NETIF_F_LRO))
-+		mtk_hwlro_netdev_enable(dev);
- 
- 	return 0;
- }
-@@ -3371,8 +3496,8 @@ static int mtk_dma_init(struct mtk_eth *eth)
- 		return err;
- 
- 	if (eth->hwlro) {
--		for (i = 1; i < MTK_MAX_RX_RING_NUM; i++) {
--			err = mtk_rx_alloc(eth, i, MTK_RX_FLAGS_HWLRO);
-+		for (i = 0; i < MTK_HW_LRO_RING_NUM(eth); i++) {
-+			err = mtk_rx_alloc(eth, MTK_HW_LRO_RING(eth, i), MTK_RX_FLAGS_HWLRO);
- 			if (err)
- 				return err;
- 		}
-@@ -3434,8 +3559,8 @@ static void mtk_dma_free(struct mtk_eth *eth)
- 
- 	if (eth->hwlro) {
- 		mtk_hwlro_rx_uninit(eth);
--		for (i = 1; i < MTK_MAX_RX_RING_NUM; i++)
--			mtk_rx_clean(eth, &eth->rx_ring[i], false);
-+		for (i = 0; i < MTK_HW_LRO_RING_NUM(eth); i++)
-+			mtk_rx_clean(eth, &eth->rx_ring[MTK_HW_LRO_RING(eth, i)], false);
- 	}
- 
- 	if (MTK_HAS_CAPS(eth->soc->caps, MTK_RSS)) {
-@@ -3630,16 +3755,21 @@ static int mtk_start_dma(struct mtk_eth *eth)
- 			val |= MTK_RX_BT_32DWORDS;
- 		mtk_w32(eth, val, reg_map->qdma.glo_cfg);
- 
--		mtk_w32(eth,
--			MTK_RX_DMA_EN | rx_2b_offset |
--			MTK_RX_BT_32DWORDS | MTK_MULTI_EN,
--			reg_map->pdma.glo_cfg);
-+		val = mtk_r32(eth, reg_map->pdma.glo_cfg);
-+		val |= MTK_RX_DMA_EN | rx_2b_offset |
-+		       MTK_RX_BT_32DWORDS | MTK_MULTI_EN;
-+		mtk_w32(eth, val, reg_map->pdma.glo_cfg);
- 	} else {
- 		mtk_w32(eth, MTK_TX_WB_DDONE | MTK_TX_DMA_EN | MTK_RX_DMA_EN |
- 			MTK_MULTI_EN | MTK_PDMA_SIZE_8DWORDS,
- 			reg_map->pdma.glo_cfg);
- 	}
- 
-+	if (eth->hwlro && mtk_is_netsys_v3_or_greater(eth)) {
-+		val = mtk_r32(eth, reg_map->pdma.glo_cfg);
-+		mtk_w32(eth, val | MTK_RX_DMA_LRO_EN, reg_map->pdma.glo_cfg);
-+	}
-+
- 	return 0;
- }
- 
-@@ -3798,6 +3928,14 @@ static int mtk_open(struct net_device *dev)
- 			}
- 		}
- 
-+		if (eth->hwlro) {
-+			for (i = 0; i < MTK_HW_LRO_RING_NUM(eth); i++) {
-+				napi_enable(&eth->rx_napi[MTK_HW_LRO_RING(eth, i)].napi);
-+				mtk_rx_irq_enable(eth, MTK_RX_DONE_INT(eth,
-+								       MTK_HW_LRO_RING(eth, i)));
-+			}
-+		}
-+
- 		refcount_set(&eth->dma_refcnt, 1);
- 	} else {
- 		refcount_inc(&eth->dma_refcnt);
-@@ -3893,6 +4031,14 @@ static int mtk_stop(struct net_device *dev)
- 		}
- 	}
- 
-+	if (eth->hwlro) {
-+		for (i = 0; i < MTK_HW_LRO_RING_NUM(eth); i++) {
-+			mtk_rx_irq_disable(eth, MTK_RX_DONE_INT(eth, MTK_HW_LRO_RING(eth, i)));
-+			napi_synchronize(&eth->rx_napi[MTK_HW_LRO_RING(eth, i)].napi);
-+			napi_disable(&eth->rx_napi[MTK_HW_LRO_RING(eth, i)].napi);
-+		}
-+	}
-+
- 	cancel_work_sync(&eth->rx_dim.work);
- 	cancel_work_sync(&eth->tx_dim.work);
- 
-@@ -4301,6 +4447,14 @@ static int mtk_napi_init(struct mtk_eth *eth)
- 		}
- 	}
- 
-+	if (eth->hwlro) {
-+		for (i = 0; i < MTK_HW_LRO_RING_NUM(eth); i++) {
-+			rx_napi = &eth->rx_napi[MTK_HW_LRO_RING(eth, i)];
-+			rx_napi->eth = eth;
-+			rx_napi->rx_ring = &eth->rx_ring[MTK_HW_LRO_RING(eth, i)];
-+		}
-+	}
-+
- 	return 0;
- }
- 
-@@ -5352,6 +5506,7 @@ static int mtk_probe(struct platform_device *pdev)
- {
- 	struct resource *res = NULL;
- 	struct device_node *mac_np;
-+	u8 lro_irq, lro_ring;
- 	struct mtk_eth *eth;
- 	char *irqname;
- 	int err, i;
-@@ -5577,6 +5732,23 @@ static int mtk_probe(struct platform_device *pdev)
- 						goto err_free_dev;
- 				}
- 			}
-+
-+			if (eth->hwlro) {
-+				for (i = 0; i < MTK_HW_LRO_RING_NUM(eth); i++) {
-+					lro_irq = MTK_HW_LRO_IRQ(eth, i);
-+					lro_ring = MTK_HW_LRO_RING(eth, i);
-+					irqname = devm_kasprintf(eth->dev, GFP_KERNEL,
-+								 "%s LRO RX %d",
-+								 dev_name(eth->dev), i);
-+					err = devm_request_irq(eth->dev,
-+							       eth->irq_pdma[lro_irq],
-+							       mtk_handle_irq_rx, IRQF_SHARED,
-+							       irqname,
-+							       &eth->rx_napi[lro_ring]);
-+					if (err)
-+						goto err_free_dev;
-+				}
-+			}
- 		} else {
- 			irqname = devm_kasprintf(eth->dev, GFP_KERNEL, "%s RX",
- 						 dev_name(eth->dev));
-@@ -5648,6 +5820,13 @@ static int mtk_probe(struct platform_device *pdev)
- 				       mtk_napi_rx);
- 	}
- 
-+	if (eth->hwlro) {
-+		for (i = 0; i < MTK_HW_LRO_RING_NUM(eth); i++) {
-+			netif_napi_add(eth->dummy_dev, &eth->rx_napi[MTK_HW_LRO_RING(eth, i)].napi,
-+				       mtk_napi_rx);
-+		}
-+	}
-+
- 	platform_set_drvdata(pdev, eth);
- 	schedule_delayed_work(&eth->reset.monitor_work,
- 			      MTK_DMA_MONITOR_TIMEOUT);
-@@ -5696,6 +5875,12 @@ static void mtk_remove(struct platform_device *pdev)
- 		for (i = 1; i < MTK_RX_RSS_NUM(eth); i++)
- 			netif_napi_del(&eth->rx_napi[MTK_RSS_RING(i)].napi);
- 	}
-+
-+	if (eth->hwlro) {
-+		for (i = 0; i < MTK_HW_LRO_RING_NUM(eth); i++)
-+			netif_napi_del(&eth->rx_napi[MTK_HW_LRO_RING(eth, i)].napi);
-+	}
-+
- 	mtk_cleanup(eth);
- 	free_netdev(eth->dummy_dev);
- 	mtk_mdio_cleanup(eth);
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-index 378cf47913ef..d4fe42a935b1 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -35,7 +35,7 @@
- #define MTK_DMA_SIZE(x)		(SZ_##x)
- #define MTK_FQ_DMA_HEAD		32
- #define MTK_FQ_DMA_LENGTH	2048
--#define MTK_RX_ETH_HLEN		(ETH_HLEN + ETH_FCS_LEN)
-+#define MTK_RX_ETH_HLEN		(VLAN_ETH_HLEN + VLAN_HLEN + ETH_FCS_LEN)
- #define MTK_RX_HLEN		(NET_SKB_PAD + MTK_RX_ETH_HLEN + NET_IP_ALIGN)
- #define MTK_DMA_DUMMY_DESC	0xffffffff
- #define MTK_DEFAULT_MSG_ENABLE	(NETIF_MSG_DRV | \
-@@ -63,10 +63,9 @@
- 
- #define MTK_QRX_OFFSET		0x10
- 
--#define MTK_MAX_RX_RING_NUM	4
--#define MTK_HW_LRO_DMA_SIZE	8
--
--#define	MTK_MAX_LRO_RX_LENGTH		(4096 * 3)
-+#define MTK_MAX_RX_RING_NUM	(8)
-+#define MTK_HW_LRO_DMA_SIZE(eth)	(mtk_is_netsys_v3_or_greater(eth) ? 64 : 8)
-+#define	MTK_MAX_LRO_RX_LENGTH		(4096 * 3 + MTK_MAX_RX_LENGTH)
- #define	MTK_MAX_LRO_IP_CNT		2
- #define	MTK_HW_LRO_TIMER_UNIT		1	/* 20 us */
- #define	MTK_HW_LRO_REFRESH_TIME		50000	/* 1 sec. */
-@@ -182,31 +181,39 @@
- #define MTK_CDMM_THRES		0x165c
- 
- /* PDMA HW LRO Control Registers */
--#define MTK_PDMA_LRO_CTRL_DW0	0x980
--#define MTK_HW_LRO_RING_NUM(eth)		(mtk_is_netsys_v3_or_greater(eth) ? 4 : 3)
-+#define MTK_HW_LRO_DIP_NUM(eth)		(mtk_is_netsys_v3_or_greater(eth) ? 4 : 3)
-+#define MTK_HW_LRO_RING_NUM(eth)	(mtk_is_netsys_v3_or_greater(eth) ? 4 : 3)
-+#define MTK_HW_LRO_RING(eth, x)		((x) + (mtk_is_netsys_v3_or_greater(eth) ? 4 : 1))
-+#define MTK_HW_LRO_IRQ(eth, x)		((x) + (mtk_is_netsys_v3_or_greater(eth) ? 0 : 1))
-+#define MTK_LRO_CRSN_BNW(eth)		BIT((mtk_is_netsys_v3_or_greater(eth) ? 22 : 6))
- #define MTK_LRO_EN			BIT(0)
- #define MTK_NON_LRO_MULTI_EN		BIT(2)
- #define MTK_LRO_DLY_INT_EN		BIT(5)
--#define MTK_L3_CKS_UPD_EN		BIT(7)
--#define MTK_L3_CKS_UPD_EN_V2		BIT(19)
-+#define MTK_L3_CKS_UPD_EN(eth)		BIT(mtk_is_netsys_v3_or_greater(eth) ? 19 : 7)
- #define MTK_LRO_ALT_PKT_CNT_MODE	BIT(21)
--#define MTK_LRO_RING_RELINQUISH_REQ	(0x7 << 26)
--#define MTK_LRO_RING_RELINQUISH_REQ_V2	(0xf << 24)
--#define MTK_LRO_RING_RELINQUISH_DONE	(0x7 << 29)
--#define MTK_LRO_RING_RELINQUISH_DONE_V2	(0xf << 28)
--
--#define MTK_PDMA_LRO_CTRL_DW1	0x984
--#define MTK_PDMA_LRO_CTRL_DW2	0x988
--#define MTK_PDMA_LRO_CTRL_DW3	0x98c
-+#define MTK_LRO_RING_RELINQUISH_REQ(eth)	(mtk_is_netsys_v3_or_greater(eth) ? \
-+						0xf << 24 : 0x7 << 26)
-+#define MTK_LRO_RING_RELINQUISH_DONE(eth)	(mtk_is_netsys_v3_or_greater(eth) ? \
-+						0xf << 28 : 0x7 << 29)
-+
-+#define MTK_PDMA_LRO_CTRL_DW0(reg_map)	((reg_map)->pdma.lro_ctrl_dw0)
-+#define MTK_PDMA_LRO_CTRL_DW1(reg_map)	((reg_map)->pdma.lro_ctrl_dw0 + 0x04)
-+#define MTK_PDMA_LRO_CTRL_DW2(reg_map)	((reg_map)->pdma.lro_ctrl_dw0 + 0x08)
-+#define MTK_PDMA_LRO_CTRL_DW3(reg_map)	((reg_map)->pdma.lro_ctrl_dw0 + 0x0c)
-+#define MTK_LRO_VLAN_EN			(0xf << 8)
-+#define MTK_LRO_VLAN_VID_CMP_DEPTH	(0x3 << 12)
-+#define MTK_LRO_L4_CTRL_PSH_EN		BIT(23)
- #define MTK_ADMA_MODE		BIT(15)
- #define MTK_LRO_MIN_RXD_SDL	(MTK_HW_LRO_SDL_REMAIN_ROOM << 16)
- 
-+#define MTK_CTRL_DW0_SDL_OFFSET	(3)
-+
- #define MTK_RX_DMA_LRO_EN	BIT(8)
- #define MTK_MULTI_EN		BIT(10)
- #define MTK_PDMA_SIZE_8DWORDS	(1 << 4)
- 
- /* PDMA RSS Control Registers */
--#define MTK_RX_NAPI_NUM			(4)
-+#define MTK_RX_NAPI_NUM			(8)
- #define MTK_RX_RSS_NUM(eth)		((eth)->soc->rss_num)
- #define MTK_RSS_RING(x)			(x)
- #define MTK_RSS_EN			BIT(0)
-@@ -242,11 +249,10 @@
- #define MTK_PDMA_DELAY_PTIME_MASK	0xff
- 
- /* PDMA HW LRO Alter Flow Delta Register */
--#define MTK_PDMA_LRO_ALT_SCORE_DELTA	0xa4c
-+#define MTK_PDMA_LRO_ALT_SCORE_DELTA(reg_map)	((reg_map)->pdma.lro_alt_score_delta)
- 
- /* PDMA HW LRO IP Setting Registers */
--#define MTK_LRO_RX_RING0_DIP_DW0	0xb04
--#define MTK_LRO_DIP_DW0_CFG(x)		(MTK_LRO_RX_RING0_DIP_DW0 + (x * 0x40))
-+#define MTK_LRO_DIP_DW0_CFG(reg_map, x)	((reg_map)->pdma.lro_ring_dip_dw0 + ((x) * 0x40))
- #define MTK_RING_MYIP_VLD		BIT(9)
- 
- /* PDMA HW LRO Ring Control Registers */
-@@ -1187,7 +1193,8 @@ enum mkt_eth_capabilities {
- 
- #define MT7988_CAPS  (MTK_36BIT_DMA | MTK_GDM1_ESW | MTK_GMAC2_2P5GPHY | \
- 		      MTK_MUX_GMAC2_TO_2P5GPHY | MTK_QDMA | MTK_RSTCTRL_PPE1 | \
--		      MTK_RSTCTRL_PPE2 | MTK_SRAM | MTK_PDMA_INT | MTK_RSS)
-+		      MTK_RSTCTRL_PPE2 | MTK_SRAM | MTK_PDMA_INT | MTK_RSS | \
-+		      MTK_HWLRO)
- 
- struct mtk_tx_dma_desc_info {
- 	dma_addr_t	addr;
+ #ifdef CONFIG_RAPIDIO_DMA_ENGINE
+ struct rio_dma_ext;
+ static inline struct dma_async_tx_descriptor *dmaengine_prep_rio_sg(
+
 -- 
 2.43.0
 
