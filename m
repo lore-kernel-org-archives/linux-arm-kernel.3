@@ -4,70 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9C9CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251E4CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r+3zMFVVj9UB5jPBDF/Iei/5MDTRVSSS5oxCdMSbVFk=; b=zygiMCQM0jaUHtkxkZ+blqlIkq
-	BepYeUMJUX7EXePJKjrBKTgZ4H+5p9iGvq6lf4vTTFibCqtsTp1p36HBKvsXxwGbAQq5MnkA8LvVU
-	CwqkhJpu65dW26lu9qz6Ba6W88hBy+azC6WHGcfF68a/GKdc5R2hD9eEAcBSPnEO8hXvZKGujxoJa
-	xkdHGLXa49H9q8x3FQIi+WoSlzADHSGVnwyt/ECqlH77nALNP8iZiCu90mpQlB439YiGzlOCZNdSo
-	UPeKGc1thEFlbjhvIuFsIwTh8eknyhM6zEGHKIwITBBp/YpqFZVDp15aR31OVZ6eJCTXdF+biP+RY
-	1s30TRsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5RGPGtjg6gfxQd5la71FcBlakZT2mGW9DnwBFYIWLZk=; b=MAwHvqWSHHw1AfYWY+W18ZkQoi
+	k4BWdw4luQzTawi7Haot+C3jJ9QlnDJbcIvhlV7Kxg9MHQpXSJTs35SFbOxjMsU7yw9ZpiIoJbhrB
+	LBX/jxncvjvp7zSNYNJKF9Qy7SBuG8oo+LQCt/uTcsM73UgUPT0NYeRk5kfOpPfpjr9Zp3slppJSC
+	xmnBQ0iUVefU7mOUkkPzGiukvHmI7+nO0pt0liVhQcNWW7ZXzIXjaS5vTi6Q1zcikED2YmAxJDPsu
+	8TW9yO8m4G2VIaL753Df/uBlToEbzyrYTIcApNkEVYaoG7Se5AyY0takEW4QpmFMOR320USjAGtJB
+	gYzpNL9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKd9n-000000014At-4850;
-	Wed, 06 May 2026 14:23:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wKdAt-000000014Qa-0cN4;
+	Wed, 06 May 2026 14:24:31 +0000
+Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKd9l-000000014A1-3fwi
+	id 1wKdAr-000000014Pj-3Xtm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 14:23:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DE4A46014B;
-	Wed,  6 May 2026 14:23:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D4E8C2BCB0;
-	Wed,  6 May 2026 14:23:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778077400;
-	bh=c1KSkEhGkgjTtE0mW/P5fl7nv0e6sQl0nC4LywPg2jA=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=oEwt1g3WbZaVC75K30zWVTBZeP2GzhD/cAV8r18lBJbwxYV7ExIy3ntAICoUAaody
-	 DIItMuwdbmTxCv0Tj6q/OJp2S3gF0D7ILUZP4v0v/H9Op48bYJK7Z26hnaq2qbv6sg
-	 HQc16yz1CVBiVBfquOvsk2Ye7hP/7KPIXOy+fu7VW6NEQWN37TJjpeL9SWkG4uDICU
-	 tX611tgTeWss1ucyWwCt2cf1jCyFP9Ri2TQv+haPvQ1Ke+nIThSrrzhppFzel1AgPR
-	 2N5rBcUkQ4fdgMdFnxPt9WqUWOAzJs29IlGpHIng/viXrtzbl1tGzrbRVlays/7Ecw
-	 KhGGipTVyGcQQ==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v4 3/3] coco: guest: arm64: Query host IPA-change
- alignment via RHI
-In-Reply-To: <86tssvyz2v.wl-maz@kernel.org>
-References: <20260427063108.909019-1-aneesh.kumar@kernel.org>
- <20260427063108.909019-4-aneesh.kumar@kernel.org>
- <86y0i8zo9f.wl-maz@kernel.org> <yq5a4ikv1c7p.fsf@kernel.org>
- <86tssvyz2v.wl-maz@kernel.org>
-Date: Wed, 06 May 2026 19:53:11 +0530
-Message-ID: <yq5ase84d3cg.fsf@kernel.org>
+	Wed, 06 May 2026 14:24:29 +0000
+Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-65c6a2158d3so1665019d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 07:24:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778077469; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Nui3sbF6/m0Q0bzMbPEBe+oZ/Cnr1dERrD4HNb6OOZPtI9+uvwzueXFCyqNqQpmZGc
+         2WXXa3TE+2iCy4d9N80y8OhZ509/u5uOtUSlqt+TyfKSp7He+jo1KsVrz+MgnvCHDEBt
+         RLYJZEwVQZkjQ9cgtUpTKV5F4i4lVyMmXlhdU41UY/rG0oNYGp4/jNVeRg52FDnBmp0v
+         WsaTJgbOvRz8buVDYg6tLNDLux6RCkfXOboA912MSPF5qAKNSIsYH0lfJtglVUrcEEIy
+         OmSUDAJD9JjCmTN2MwRaPwF/2bMiOe1iSqiDjb15ok/hTKcOsJ425u9ZrUOQ3sg1OOXB
+         3Ylg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=5RGPGtjg6gfxQd5la71FcBlakZT2mGW9DnwBFYIWLZk=;
+        fh=3YEWEtolHCPgVqfBz9tj9YF5OBTJ0ckOrsFF5xsVu4k=;
+        b=JWv/ekBMzILYdMlpB7O2lOysCljHytlU5eo6o7IKg8JcKq0IaqyuXiwQHKxMOdubNK
+         /1Ge/sT9VVWH35eXY0irBsYeJKazWEIXAXT8U6pxHav/x0hYNfhmcJpHzePWXCOxmtIU
+         pj1eD0aRgBdKRs/g8cFfL5waZjwUcm5vyUdC72h69ZWgopB0IswhTvY6yU92vw52NZM+
+         WdkyGyFJkvXLKePuxb6nkyeOn3dm2MKMPk4L2Gz4NTqv5UcuaE9XZ6lsytkH2mH+otdu
+         uVPMPnszvbvjMuvj89MZSTn1rMvCjwdmlQh5PSr1CmKFGcF7fLD+xNlp/piq9e9Lt5Oc
+         GXxQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778077469; x=1778682269; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=5RGPGtjg6gfxQd5la71FcBlakZT2mGW9DnwBFYIWLZk=;
+        b=hKi0haCTZM+6cwtyeBZ4Y7dhDYGIWD8/kJXomFTwZ1jYdhgHeBX0nYArRD4bjR3NOa
+         y7E78Z/RFLp1TA225A6Jqs8qI8SzdDYUd6VKetUkmZIj0MhCj+3uGDVy6uttEE7ib+tg
+         3aRXZ1R6xFYyP0/eBpfmqXtEstkXI0svU0dLKOSlCpnYwNALpVhhL5eaeRFFHHrOfn/H
+         jLsThg2mqllCb/9DeoXFC9w53vGoALqv3/kZVF6tHf7Gitiyw2NwD8+eh2D9sx19zMb4
+         RLd3A0hQ8SfuzaQOYgFvYzJxXbQnfEe+6tEFJxwrRGYG1hLfYMCt6ohvFQI4LqLsR+Wc
+         i5/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778077469; x=1778682269;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5RGPGtjg6gfxQd5la71FcBlakZT2mGW9DnwBFYIWLZk=;
+        b=tZij32DxZSn8hBnXtNwLUipFyJWG46KtAqleUFOgu8W+BGJNazw+tnWds5IvUi3X3J
+         cPPrY/CXtz8rxI26SUCxndgCnm+O8eKRdRBFBhW7ORNPAKu2iBqVwDCETE+gEA6p1Jpp
+         QpggOni1Q1c3+qnTPHZFkDZO5zS+hwG2GUH+9lbWeN5uJQ9vhB/3NcU49HBZjM7YvECd
+         JJvAa0/mm3a2a20mkaEWXauRzVeqTDGeyWs31xTi6pp7gtxGO7j3Bpu+BWyoJj/gkG7Z
+         fyY7votA5nw1a5Nnr1q6QIHPgEK/KnvqqMQuPYHrzn3Lnsz4IymYDFSmzRb5PPPwmzjr
+         psTQ==
+X-Forwarded-Encrypted: i=1; AFNElJ960+jZ18v0HWjidelsAxsmVJ3EczZqYlElY0r3MLe585MotIH9hWZa3SXzxUcXMQ1LNkD49wQy5nphct1qRmdd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzY7TgP/gtM305I8YyaCgs/y1GKklKweB+5GNdDlgp3kSYc3hd0
+	P2PLbeVyOGjRi12BV54M03JAbk5zaocQ5QsHYTWm93Uhe28i+X9WmgNSuFBtq+YwUs+fDKiEipx
+	F6Ons/bE0ALKiu+5Z0B1reRy/kofCdJk=
+X-Gm-Gg: AeBDievNin1gFRmQ+43ZtqfsS5cDDdlIlwC39lLl/wiw+zdQdDrm2jurRRnlUWrfiBV
+	mZUdpPF5fe4J34EKbvMdDjO22rDRLsAJcp/QERqvFcFXSLl/JnfldrdfZvGvtqkOIPT+ezQl4ef
+	3JVDHREFdoGi9uiISStucbUrdg+jRuFBSMDyOgoRDW0ZS10eBkH5ehVcVvqpppwp3vg4qb+3KPK
+	QrUZHEIyA57JOaQU0L/8mlNXMmedcjdr8yjPhIJ1Djay2HCd2opJ2rYtDC9b1I5sMiHTJN9rpPU
+	HLPZR3TTqrKC65ig3VQ=
+X-Received: by 2002:a05:690e:4844:b0:650:6cb:a720 with SMTP id
+ 956f58d0204a3-65c7999803bmr2796421d50.39.1778077468595; Wed, 06 May 2026
+ 07:24:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+References: <20260506092324.635014-1-lgs201920130244@gmail.com>
+ <afsO9TxVuz79FFQ0@raspi> <CANUHTR8PNO-3hfEMCz4Zz_2ERLonE7OyNzPWtAaDtVpNB=YGhw@mail.gmail.com>
+In-Reply-To: <CANUHTR8PNO-3hfEMCz4Zz_2ERLonE7OyNzPWtAaDtVpNB=YGhw@mail.gmail.com>
+From: Guangshuo Li <lgs201920130244@gmail.com>
+Date: Wed, 6 May 2026 22:24:17 +0800
+X-Gm-Features: AVHnY4KKgBYwbo8b0KFKRUex7D8jzHNmM2otoNT3MCUewJRlzLyKPSEF6hD8vf0
+Message-ID: <CANUHTR_201tMArsXEjuPKW=drk5hfyfneG-sJDqScfxNLLM=Rg@mail.gmail.com>
+Subject: Re: [PATCH v5] drm/bridge: imx8qxp-pxl2dpi: avoid ERR_PTR with
+ device_node cleanup
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260506_072429_890757_BA315439 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,124 +124,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marc Zyngier <maz@kernel.org> writes:
+Hi Liu,
 
-> On Tue, 28 Apr 2026 13:49:46 +0100,
-> Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
->>=20
->> Marc Zyngier <maz@kernel.org> writes:
->>=20
->> > On Mon, 27 Apr 2026 07:31:08 +0100,
->> > "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
->> >>=20
->> >> Add the Realm Host Interface support needed to query host configurati=
-on
->> >> from a Realm guest. Define the RHI hostconf SMCs, add rsi_host_call()=
-, and
->> >> use them during Realm initialization to retrieve the host IPA-change
->> >> alignment size.
->> >
->> > I don't understand what "IPA-change" means. What you are after is the
->> > host's sharing granule size.
->> >
->>=20
->> This is part of the RHI specification, and the call is named
->> RHI_HOSTCONF_GET_IPA_CHANGE_ALIGNMENT. The intent is to determine the
->> alignment requirements for changing IPA attributes (protected vs.
->> unprotected IPA
+On Wed, 6 May 2026 at 21:58, Guangshuo Li <lgs201920130244@gmail.com> wrote:
 >
-> This really is a terrible name. Why the 'change' part? It doesn't
-> change, it is a constant.
+> I will also drop the unnecessary local NULL initialization for ep,
+> since the helper initializes the output argument to NULL.
 >
-
-How about rhi_get_host_sharing_alignment()? or can you suggest a better
-name I can switch to?
-
-> Oh well...
+> I will send a v6.
 >
-> [...]
->
->> >> +static inline unsigned long rsi_host_call(struct rsi_host_call *rhi_=
-call)
->> >> +{
->> >> +	phys_addr_t addr =3D virt_to_phys(rhi_call);
->> >> +	struct arm_smccc_res res;
->> >> +
->> >> +	arm_smccc_1_1_invoke(SMC_RSI_HOST_CALL, addr, &res);
->> >
->> > Errr... What guarantees that *rhi_call is *IPA contiguous*? This is
->> > incredibly fragile. You should at the very least check that this isn't
->> > vmalloc'd.
->> >
->>=20
->>=20
->> I didn=E2=80=99t quite follow that. We have other RSI calls (even RMI ca=
-lls)
->> that do similar things, and the caller understands that the address
->> should be IPA-contiguous.
->
-> Does it? Where is it documented?  All you get is a pointer, so all
-> bets are off.
->
+> Best regards,
+> Guangshuo
 
-We have multiple rmi and rsi calls that takes ipa values. asm/rmi_cmds.h
-and asm/rsi_cmds.h. Some of them takes phys_addr_t while others take
-unsigned long. The spec mention these as 64 bits values. May be we
-should switch them all to u64. x86 also having similar discussion=20
-https://lore.kernel.org/all/afOrd7JYkUfe7wcZ@google.com
+One correction to my previous reply: I will keep the local ep variable
+in imx8qxp_pxl2dpi_find_next_bridge() initialized to NULL, since
+checkpatch requires pointers with the __free attribute to be
+initialized.
 
->
->> Are you suggesting that all RSI calls should
->> add checks for this?. or are you suggesting to update the API to
->>=20
->> unsigned long rsi_host_call(unsigned long rhi_call_phys) ?
->
-> I'm suggesting that this API is subtly broken because it makes random
-> assumption about the physical contiguity of the VA space. It does so
-> without any check, without any documentation.
->
-> Simply changing the parameter to phys_addr_t could at the very least
-> capture some of the requirements, but I'd like something in big bold
-> letters.
->
-
-
-virt_to_phys() emits a WARN if the address is not part of the linear
-map. Are you suggesting that we should add additional checks to the call
-sites that pass such addresses?
-
-Sorry, it=E2=80=99s still not clear to me how you want these calls to be
-updated.
-
-The pattern I=E2=80=99ve been following is:
-
-Lower-level calls that use arm_smccc_1_1_invoke() take parameters as
-unsigned long. I initially wanted to switch this to u64, but since
-kvm/rmi.c uses unsigned long, it was decided to keep it consistent.
-
-This approach is used in cases where the same argument is passed across
-multiple calls, for example:
-
-phys_addr_t rd_phys =3D virt_to_phys(realm->rd);
-rmi_vdev_create(rd_phys, ...);
-rmi_vdev_lock(rd_phys, ...);
-
-For calls like rsi_host_call(), I chose to pass a struct pointer to
-maintain better type safety:
-
-static inline unsigned long rsi_host_call(struct rsi_host_call *rhi_call)
-{
-	phys_addr_t addr =3D virt_to_phys(rhi_call);
-
-	arm_smccc_1_1_invoke(SMC_RSI_HOST_CALL, addr, &res);
-}
-
-Note that virt_to_phys() will WARN if the address is not part of the
-linear map
-
-Could you clarify what changes you would like to see in these
-interfaces?
-
--aneesh
-
+Best regards,
+Guangshuo
 
