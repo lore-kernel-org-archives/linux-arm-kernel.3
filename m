@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C500BCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 09:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9042FCD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 09:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j6IL/ss3Y8x+u4i8PpUFYL9uKyD/qSTFj96oAhsxiYI=; b=3QKDVWpGzv85gx0HGwvQ8NhZZK
-	eqIR8yt/EZnePu8W7ePWID1Xg6lrUdX272VCiqzLp45wxHjr/nf5P3yAdEoVqUEzGtQWmVab9fzA2
-	bL0338qug+mgjQkKPmF62KJNZf/O8orsqLWPZQctxeBuhImy1SDw/lwXp9PXR0WLhJ9jsZ7jHXVoK
-	ikZX5FOneVq3dEwOJivVpCt6NO5AUShrXgoaKTMPujNt3DTEsmnv3yflCqjMOK0WJFauMPCPol/rG
-	HktOR7D+AYfo7fAsyYPAw6NBYDnNZpt1CPO9dbR4NcmB0GzNPI4b1lilhr/DY4PoyEohipRBAn2ig
-	1PAuqH9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E2WE2FcRP/+08k99BObQNj1dBzL60749QOmanc9utXE=; b=ZWPZJN8DhWMrjntQ/Wb9sN7CtS
+	r2mx5VmlSHm8Ed/L9Xr+8CgprjpB9WYlkxr6tR8/CP2YUDxRtUntHxVJ3pquYuhHqbRFLKNvemWim
+	2gYZ8bA6r36dmG5Rso5tR0c4Gaf/vzgx2IDUnXiIf4wFmrFaEUhAWyQ2avKkxxRtr7Kydoxv8ppl0
+	8v7gAlyTvYulgQsuTu7kgvoI3YyL9yZSYrf7hn5C4U1+vunVlFD7N5A7OLKVdnPrYKM2KsPsXn3ct
+	jkHPJ9kD3ivBCRUV8+Vsplv3mP0gx6O5grBYMvzCmAt59VegJHcoYbEsRBHio1KKykl7UmhCYniPA
+	Vah86mzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKYPn-00000000KW3-2Rda;
-	Wed, 06 May 2026 09:19:35 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wKXjQ-00000000AtA-12OL;
+	Wed, 06 May 2026 08:35:48 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKYPm-00000000KVX-22id
+	id 1wKXjM-00000000Apl-3Xix
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 09:19:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=j6IL/ss3Y8x+u4i8PpUFYL9uKyD/qSTFj96oAhsxiYI=; b=a2+5mhfXsYqjwb5n9M1cQeTM/k
-	oK4uKxfhpc7jWMvfhz5ksp5uTuk4RKb72wO/UeGEhBgvkDqVaTaMKJJyhQMwXm15tcfvey+J0ocL8
-	Xft9WjfAKS6VgFYGZAAOfyksmNG5t3t3/wj1AR0hxbb1hfE2u7u2zjyuicM0zrROFgHFmNw8W3BXp
-	oZidG2psKz2JzqcqoD/Mc8UcB7OKauhotRCOyINn+yU7MBJR5Q4EVT3jGq2BgyGqu32ceKMnCAvHg
-	oT4K/sh7NbbOBM4ECf/HPnSyZtRlnTAMPw8Srk5HMDJBljPlkBtnbej/3/cU+/LpbdKgR/diyYpvQ
-	5Dfs/Xsw==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wKYPe-003UEa-1l;
-	Wed, 06 May 2026 09:19:26 +0000
-Date: Wed, 6 May 2026 02:19:22 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Oleg Nesterov <oleg@redhat.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH] arm64/fpsimd: ptrace: zero target's fpsimd_state, not
- the tracer's
-Message-ID: <afsFFVFqFkexsCAR@gmail.com>
-References: <20260505-fix_ptrace-v1-1-36ac1f6d0bfb@debian.org>
- <afojVYiwkiHN43RW@J2N7QTR9R3.cambridge.arm.com>
+	Wed, 06 May 2026 08:35:45 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 8DBD31A3552;
+	Wed,  6 May 2026 08:35:42 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6030E6053C;
+	Wed,  6 May 2026 08:35:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9FE30102F2230;
+	Wed,  6 May 2026 10:35:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1778056541; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=E2WE2FcRP/+08k99BObQNj1dBzL60749QOmanc9utXE=;
+	b=ctCa/RqxxQGEhWPHahPVrU0XgLbTCuosiwMY8lB6HgLyNzrr0unrPPNxYh5m1IV4lCcdQU
+	nDQpXL/Mx3XxpCyc6JDquH5CMZujJbEvCYf7rKcT8TOOD5ZTCqsfkZ/eHbv7QI+Zg91pzY
+	s0Ua8hMtbf8/VxYLNnrVgTTnlYn50jaWdcxwQoYi8BBXcl8l93i56YtSnE0U396PC3EmVh
+	eFctCiX3/8ea4NqR+bWJqClgo02hR97H4FluYggcY8nQC0Ji76Agz5LQ2hKbYHtBlxHRq1
+	Pj8DVGHWgfz83pruFlAasakSiJZs6y4FHHJo3bgF81PIDAVtiIPuv2cYAzAjUw==
+From: "Thomas Richard (TI)" <thomas.richard@bootlin.com>
+Date: Wed, 06 May 2026 10:35:26 +0200
+Subject: [PATCH v7 2/4] firmware: ti_sci: add support for restoring IRQs
+ during resume
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afojVYiwkiHN43RW@J2N7QTR9R3.cambridge.arm.com>
-X-Debian-User: leitao
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260506-ti-sci-jacinto-s2r-restore-irq-v7-2-037098a35215@bootlin.com>
+References: <20260506-ti-sci-jacinto-s2r-restore-irq-v7-0-037098a35215@bootlin.com>
+In-Reply-To: <20260506-ti-sci-jacinto-s2r-restore-irq-v7-0-037098a35215@bootlin.com>
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>
+Cc: Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>, 
+ Abhash Kumar <a-kumar2@ti.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, 
+ "Thomas Richard (TI)" <thomas.richard@bootlin.com>, 
+ Dhruva Gole <d-gole@ti.com>, Kendall Willis <k-willis@ti.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_021934_542700_CFFE72A7 
-X-CRM114-Status: GOOD (  23.94  )
+X-CRM114-CacheID: sfid-20260506_013545_212634_9E6F4534 
+X-CRM114-Status: GOOD (  25.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,61 +85,352 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mark,
+Some DM-Firmware are not able to restore the IRQ context after a
+suspend-resume. The IRQ_CONTEXT_LOST firmware capability has been
+introduced to identify this characteristic. In this case the
+responsibility is delegated to the ti_sci driver, which maintains an
+internal list of all requested IRQs. This list is updated on each
+set()/free() operation, and all IRQs are restored during the resume_noirq()
+phase.
 
-On Tue, May 05, 2026 at 06:05:25PM +0100, Mark Rutland wrote:
-> Hi Breno,
-> 
-> On Tue, May 05, 2026 at 09:02:13AM -0700, Breno Leitao wrote:
-> > sve_set_common() is the backend for PTRACE_SETREGSET(NT_ARM_SVE) and
-> > PTRACE_SETREGSET(NT_ARM_SSVE). Every write in the function operates on
-> > the tracee (target) - except a single memset that uses current instead,
-> > zeroing the tracer's saved V0-V31 / FPSR / FPCR shadow on every ptrace
-> > SETREGSET call.
-> 
-> Sorry about this; this was my bad and definitely needs to be fixed.
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
+Reviewed-by: Kendall Willis <k-willis@ti.com>
+Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
+---
+ drivers/firmware/ti_sci.c | 201 +++++++++++++++++++++++++++++++++++++++++++---
+ drivers/firmware/ti_sci.h |   2 +
+ 2 files changed, 191 insertions(+), 12 deletions(-)
 
-No worries at all. While investigating random coredumps in the Meta fleet
-with some colleagues, the randomness of the crashes reminded me of a similar
-issue I encountered 10 years ago, where floating-point and vector registers
-weren't being properly restored at context switch due to a kernel bug,
-and created a reproducer in commit 77fad8bfb1d2f ("selftests/powerpc:
-Check FP/VEC on exception in TM"). So, this class of bugs is not
-special, although *very* hard to debug.
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index eaeaaae94142..531ac3aa38b8 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -12,11 +12,13 @@
+ #include <linux/cpu.h>
+ #include <linux/debugfs.h>
+ #include <linux/export.h>
++#include <linux/hashtable.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
+ #include <linux/kernel.h>
+ #include <linux/mailbox_client.h>
+ #include <linux/module.h>
++#include <linux/mutex.h>
+ #include <linux/of.h>
+ #include <linux/of_platform.h>
+ #include <linux/platform_device.h>
+@@ -87,6 +89,16 @@ struct ti_sci_desc {
+ 	int max_msg_size;
+ };
+ 
++/**
++ * struct ti_sci_irq - Description of allocated irqs
++ * @node: Link to hash table
++ * @desc: Description of the irq
++ */
++struct ti_sci_irq {
++	struct hlist_node node;
++	struct ti_sci_msg_req_manage_irq desc;
++};
++
+ /**
+  * struct ti_sci_info - Structure representing a TI SCI instance
+  * @dev:	Device pointer
+@@ -101,6 +113,8 @@ struct ti_sci_desc {
+  * @chan_rx:	Receive mailbox channel
+  * @minfo:	Message info
+  * @node:	list head
++ * @irqs:	List of allocated irqs
++ * @irq_lock:	Protection for irq hash list
+  * @host_id:	Host ID
+  * @fw_caps:	FW/SoC low power capabilities
+  * @users:	Number of users of this instance
+@@ -118,6 +132,8 @@ struct ti_sci_info {
+ 	struct mbox_chan *chan_rx;
+ 	struct ti_sci_xfers_info minfo;
+ 	struct list_head node;
++	DECLARE_HASHTABLE(irqs, 8);
++	struct mutex irq_lock;
+ 	u8 host_id;
+ 	u64 fw_caps;
+ 	/* protected by ti_sci_list_mutex */
+@@ -2301,6 +2317,32 @@ static int ti_sci_manage_irq(const struct ti_sci_handle *handle,
+ 	return ret;
+ }
+ 
++/**
++ * ti_sci_irq_hash() - Helper API to compute irq hash for the hash table.
++ * @irq:	irq to hash
++ *
++ * Return: the computed hash value.
++ */
++static int ti_sci_irq_hash(struct ti_sci_msg_req_manage_irq *irq)
++{
++	return irq->src_id ^ irq->src_index;
++}
++
++/**
++ * ti_sci_irq_equal() - Helper API to compare two irqs (generic headers are not
++ *                       compared)
++ * @irq_a:	irq_a to compare
++ * @irq_b:	irq_b to compare
++ *
++ * Return: true if the two irqs are equal, else false.
++ */
++static bool ti_sci_irq_equal(struct ti_sci_msg_req_manage_irq *irq_a,
++			     struct ti_sci_msg_req_manage_irq *irq_b)
++{
++	return !memcmp(&irq_a->valid_params, &irq_b->valid_params,
++		       sizeof(*irq_a) - sizeof(irq_a->hdr));
++}
++
+ /**
+  * ti_sci_set_irq() - Helper api to configure the irq route between the
+  *		      requested source and destination
+@@ -2324,15 +2366,60 @@ static int ti_sci_set_irq(const struct ti_sci_handle *handle, u32 valid_params,
+ 			  u16 dst_host_irq, u16 ia_id, u16 vint,
+ 			  u16 global_event, u8 vint_status_bit, u8 s_host)
+ {
++	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
++	struct ti_sci_msg_req_manage_irq *desc;
++	struct ti_sci_irq *irq;
++	int ret;
++
++	/*
++	 * Lock for set_irq() and free_irq() to keep the IRQ hash list
++	 * consistent only if MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST is set. Else
++	 * IRQ hash list is not used.
++	 */
++	if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST)
++		mutex_lock(&info->irq_lock);
++
+ 	pr_debug("%s: IRQ set with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
+ 		 __func__, valid_params, src_id, src_index,
+ 		 dst_id, dst_host_irq, ia_id, vint, global_event,
+ 		 vint_status_bit);
+ 
+-	return ti_sci_manage_irq(handle, valid_params, src_id, src_index,
+-				 dst_id, dst_host_irq, ia_id, vint,
+-				 global_event, vint_status_bit, s_host,
+-				 TI_SCI_MSG_SET_IRQ);
++	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
++				dst_id, dst_host_irq, ia_id, vint,
++				global_event, vint_status_bit, s_host,
++				TI_SCI_MSG_SET_IRQ);
++
++	if (ret || !(info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST))
++		goto end;
++
++	irq = kzalloc_obj(*irq, GFP_KERNEL);
++	if (!irq) {
++		ti_sci_manage_irq(handle, valid_params, src_id, src_index,
++				  dst_id, dst_host_irq, ia_id, vint,
++				  global_event, vint_status_bit, s_host,
++				  TI_SCI_MSG_FREE_IRQ);
++		ret = -ENOMEM;
++		goto end;
++	}
++
++	desc = &irq->desc;
++	desc->valid_params = valid_params;
++	desc->src_id = src_id;
++	desc->src_index = src_index;
++	desc->dst_id = dst_id;
++	desc->dst_host_irq = dst_host_irq;
++	desc->ia_id = ia_id;
++	desc->vint = vint;
++	desc->global_event = global_event;
++	desc->vint_status_bit = vint_status_bit;
++	desc->secondary_host = s_host;
++
++	hash_add(info->irqs, &irq->node, ti_sci_irq_hash(desc));
++
++end:
++	if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST)
++		mutex_unlock(&info->irq_lock);
++	return ret;
+ }
+ 
+ /**
+@@ -2358,15 +2445,56 @@ static int ti_sci_free_irq(const struct ti_sci_handle *handle, u32 valid_params,
+ 			   u16 dst_host_irq, u16 ia_id, u16 vint,
+ 			   u16 global_event, u8 vint_status_bit, u8 s_host)
+ {
++	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
++	struct ti_sci_msg_req_manage_irq irq_desc;
++	struct device *dev = info->dev;
++	struct ti_sci_irq *this_irq;
++	struct hlist_node *tmp_node;
++	int ret;
++
++	if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST)
++		mutex_lock(&info->irq_lock);
++
+ 	pr_debug("%s: IRQ release with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
+ 		 __func__, valid_params, src_id, src_index,
+ 		 dst_id, dst_host_irq, ia_id, vint, global_event,
+ 		 vint_status_bit);
+ 
+-	return ti_sci_manage_irq(handle, valid_params, src_id, src_index,
+-				 dst_id, dst_host_irq, ia_id, vint,
+-				 global_event, vint_status_bit, s_host,
+-				 TI_SCI_MSG_FREE_IRQ);
++	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
++				dst_id, dst_host_irq, ia_id, vint,
++				global_event, vint_status_bit, s_host,
++				TI_SCI_MSG_FREE_IRQ);
++
++	if (ret || !(info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST))
++		goto end;
++
++	irq_desc.valid_params = valid_params;
++	irq_desc.src_id = src_id;
++	irq_desc.src_index = src_index;
++	irq_desc.dst_id = dst_id;
++	irq_desc.dst_host_irq = dst_host_irq;
++	irq_desc.ia_id = ia_id;
++	irq_desc.vint = vint;
++	irq_desc.global_event = global_event;
++	irq_desc.vint_status_bit = vint_status_bit;
++	irq_desc.secondary_host = s_host;
++
++	hash_for_each_possible_safe(info->irqs, this_irq, tmp_node, node,
++				    ti_sci_irq_hash(&irq_desc)) {
++		if (ti_sci_irq_equal(&irq_desc, &this_irq->desc)) {
++			hlist_del(&this_irq->node);
++			kfree(this_irq);
++			goto end;
++		}
++	}
++
++	dev_warn(dev, "%s: should not be here, IRQ was not found in hash list\n",
++		 __func__);
++
++end:
++	if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST)
++		mutex_unlock(&info->irq_lock);
++	return ret;
+ }
+ 
+ /**
+@@ -3847,7 +3975,10 @@ static int ti_sci_suspend_noirq(struct device *dev)
+ static int ti_sci_resume_noirq(struct device *dev)
+ {
+ 	struct ti_sci_info *info = dev_get_drvdata(dev);
+-	int ret = 0;
++	struct ti_sci_msg_req_manage_irq *irq_desc;
++	struct ti_sci_irq *irq;
++	struct hlist_node *tmp_node;
++	int ret = 0, err = 0, i;
+ 	u32 source;
+ 	u64 time;
+ 	u8 pin;
+@@ -3859,13 +3990,50 @@ static int ti_sci_resume_noirq(struct device *dev)
+ 			return ret;
+ 	}
+ 
++	switch (pm_suspend_target_state) {
++	case PM_SUSPEND_MEM:
++		if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST) {
++			hash_for_each_safe(info->irqs, i, tmp_node, irq, node) {
++				irq_desc = &irq->desc;
++				ret = ti_sci_manage_irq(&info->handle,
++							irq_desc->valid_params,
++							irq_desc->src_id,
++							irq_desc->src_index,
++							irq_desc->dst_id,
++							irq_desc->dst_host_irq,
++							irq_desc->ia_id,
++							irq_desc->vint,
++							irq_desc->global_event,
++							irq_desc->vint_status_bit,
++							irq_desc->secondary_host,
++							TI_SCI_MSG_SET_IRQ);
++				if (ret) {
++					dev_err(dev, "failed to restore IRQ with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
++						irq_desc->valid_params,
++						irq_desc->src_id,
++						irq_desc->src_index,
++						irq_desc->dst_id,
++						irq_desc->dst_host_irq,
++						irq_desc->ia_id,
++						irq_desc->vint,
++						irq_desc->global_event,
++						irq_desc->vint_status_bit);
++					err = ret;
++				}
++			}
++		}
++		break;
++	default:
++		break;
++	}
++
+ 	ret = ti_sci_msg_cmd_lpm_wake_reason(&info->handle, &source, &time, &pin, &mode);
+ 	/* Do not fail to resume on error as the wake reason is not critical */
+ 	if (!ret)
+ 		dev_info(dev, "ti_sci: wakeup source:0x%x, pin:0x%x, mode:0x%x\n",
+ 			 source, pin, mode);
+ 
+-	return 0;
++	return err;
+ }
+ 
+ static void ti_sci_pm_complete(struct device *dev)
+@@ -4014,13 +4182,14 @@ static int ti_sci_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	ti_sci_msg_cmd_query_fw_caps(&info->handle, &info->fw_caps);
+-	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s%s\n",
++	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s%s%s\n",
+ 		info->fw_caps & MSG_FLAG_CAPS_GENERIC ? "Generic" : "",
+ 		info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO ? " Partial-IO" : "",
+ 		info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED ? " DM-Managed" : "",
+ 		info->fw_caps & MSG_FLAG_CAPS_LPM_ABORT ? " LPM-Abort" : "",
+ 		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : "",
+-		info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED ? " BoardConfig-Managed" : ""
++		info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED ? " BoardConfig-Managed" : "",
++		info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST ? " IRQ-Context-Lost" : ""
+ 	);
+ 
+ 	ti_sci_setup_ops(info);
+@@ -4053,6 +4222,14 @@ static int ti_sci_probe(struct platform_device *pdev)
+ 	list_add_tail(&info->node, &ti_sci_list);
+ 	mutex_unlock(&ti_sci_list_mutex);
+ 
++	if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST) {
++		ret = devm_mutex_init(dev, &info->irq_lock);
++		if (ret)
++			return ret;
++
++		hash_init(info->irqs);
++	}
++
+ 	ret = of_platform_populate(dev->of_node, NULL, NULL, dev);
+ 	if (ret) {
+ 		dev_err(dev, "platform_populate failed %pe\n", ERR_PTR(ret));
+diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
+index d90de59e29eb..67f16e8c69a1 100644
+--- a/drivers/firmware/ti_sci.h
++++ b/drivers/firmware/ti_sci.h
+@@ -151,6 +151,7 @@ struct ti_sci_msg_req_reboot {
+  *		MSG_FLAG_CAPS_LPM_ABORT: Abort entry to LPM
+  *		MSG_FLAG_CAPS_IO_ISOLATION: IO Isolation support
+  *		MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED: LPM config done statically for the DM via boardcfg
++ *		MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST: DM is not able to restore IRQ context
+  *
+  * Response to a generic message with message type TI_SCI_MSG_QUERY_FW_CAPS
+  * providing currently available SOC/firmware capabilities. SoC that don't
+@@ -164,6 +165,7 @@ struct ti_sci_msg_resp_query_fw_caps {
+ #define MSG_FLAG_CAPS_LPM_ABORT		TI_SCI_MSG_FLAG(9)
+ #define MSG_FLAG_CAPS_IO_ISOLATION	TI_SCI_MSG_FLAG(7)
+ #define MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED	TI_SCI_MSG_FLAG(12)
++#define MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST	TI_SCI_MSG_FLAG(14)
+ #define MSG_MASK_CAPS_LPM		GENMASK_ULL(4, 1)
+ 	u64 fw_caps;
+ } __packed;
 
-> > Due to FPSIMD lazy save/restore the wipe only takes effect when the
-> > tracer's CPU FPSIMD binding is dropped after the memset; the next
-> > return to userspace then reloads V0-V31, FPSR and FPCR as zero. No
-> > signal is raised and ptrace() returns success.
-> 
-> You're right that the corruption of the tracer's state is often masked,
-> but I don't think the last paragraph describes the circumstances
-> entirely accurately (e.g. if the binding is lost *before* the memset(),
-> the issue can still occur).
-> 
-> I think it would be better to say:
-> 
->   The corruption of the tracer's saved FPSIMD state is not always
->   observable. Where the tracer's state is live on a CPU, this may reused
->   without loading the corrupted state from memory, and will eventually
->   be written back over the corrupted state. Where the tracer's state is
->   saved in SVE_PT_REGS_SVE format, only the FPSR and FPCR are clobbered,
->   and the effective copy of the vectors is in the task's sve_state.
+-- 
+2.53.0
 
-Ack!
-
-> > Fixes: 316283f276eb ("arm64/fpsimd: ptrace: Consistently handle partial writes to NT_ARM_(S)SVE")
-> > Signed-off-by: Breno Leitao <leitao@debian.org>
-> 
-> This will need to be Cc'd to stable.
-> 
-> With the fixups above (which I assume Catalin or Will can handle):
-> 
-> Acked-by: Mark Rutland <mark.rutland@arm.com>
-
-Thank you for the review. I won't respin it, assuming Catalin or Will
-can handle the message rewrite.
-
-Thanks again!
---breno
 
