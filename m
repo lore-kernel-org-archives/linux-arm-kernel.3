@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1E7CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8C4CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 14:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LGlW74vpJcZ4OSVM+89PNXDIFyepH4PZecQS8TKIPag=; b=giH0dWiLOhZpuhWyPd9BqrtT6g
-	/PuMgeT613ZHxT4cgkNX4Q2o/7fGDujzMU4Qi/yYhn6DkP4kBLpptXdGrILEw2viD3tFcGJjv9NP/
-	31EM5ux+UwujDrMNe10MbEp+EYvTe4QFWUyLOtQrht5KN+yFeVa8gQf4J1k1KcIN/1LY3B1SZWOqY
-	I9yuRORACtdmCEu1tj1JDljJJSaC+i2Lt0Z05HGQe4Uo4NgmTepoqIDZapwj+jFV2i5EfyNnt5lBM
-	JInikTejF4o3mEJ7xgt57PKZ/OCUtD9lYPlu6exNSXA5GUTOmhgh33AoRqqrP86Rc3mLIp8Xo0dAE
-	YHKNy7Og==;
+	bh=axKXpRIHt6qjcIh+2Ek3dSegeDiQqTySXOyV3gOwTT4=; b=ly84N2Si4EzYKbZ+BTkeyaaWQO
+	b3r5iYLT2+OEQnvHvAIMrTW+qkP+nuZ9bmBomgyqSwdXXVPGnVbElA5fNxlHQ6Xz5d5RrlMVN+hA2
+	5n2n6lJQ1RCp0j7Uiek5xbqgoIFO0FDGCK7otN2P87JMxLc1fMa9L4SUar+BatZ2GOedB548ObECJ
+	qoNdDcUuzk1gVfL8St6hMrhXzBC/O7WqtVG8WBQ8k1fXoOCeSOYALNRnoFYGlH5PwoHXsNX31LQk+
+	VKLFLwB+29p1uVBRZHn+MQQOzkgWIA29MMzR5L3teWmunx7pDG7WthLqSBCLYriWoSCYwtvxz/biT
+	wmu/u21A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKd5f-000000013LY-0kIB;
-	Wed, 06 May 2026 14:19:07 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wKd7c-000000013fN-2HpG;
+	Wed, 06 May 2026 14:21:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKd5e-000000013Ku-0S2q
+	id 1wKd7c-000000013et-0764
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 14:19:06 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-703d-e500--2a1.rev.dnainternet.fi [IPv6:2001:14ba:703d:e500::2a1])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 423B463D;
-	Wed,  6 May 2026 16:19:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778077140;
-	bh=faLeW0wtzD3frY5Q7ZoepRa1sIizw1jaytAj9zqKE5I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QdkgGNsGh0t/g9DtHJ+l3yZR9k8jmOHAsxfu2OsdU3z+PWu0lxW3INXfnW7jIR6zH
-	 qxo1709JWCey5XCpOAaPpqg+kv4EZt9A/vSwuHzTyl5QRlAF1OlMXHuDntNWer2brp
-	 nGbvCRjF/dqU1k1azSc3NrT2RCYadvVoau0s7ED4=
-Date: Wed, 6 May 2026 17:19:02 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Xiaolei Wang <xiaolei.wang@windriver.com>
-Cc: mchehab@kernel.org, Frank.li@nxp.com, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, aisheng.dong@nxp.com,
-	jacopo@jmondi.org, guoniu.zhou@nxp.com, s.riedmueller@phytec.de,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] media: imx8-isi: clean up already-initialized
- pipes on probe failure
-Message-ID: <20260506141902.GQ1598374@killaraus.ideasonboard.com>
-References: <20260506031210.2769998-1-xiaolei.wang@windriver.com>
- <20260506031210.2769998-5-xiaolei.wang@windriver.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260506031210.2769998-5-xiaolei.wang@windriver.com>
+	Wed, 06 May 2026 14:21:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DEA9240251;
+	Wed,  6 May 2026 14:21:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B541FC2BCB8;
+	Wed,  6 May 2026 14:21:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778077265;
+	bh=umm4HdWyCPYaIO2fZ8n3QZB0yUdy8VV15bRudhM1b0I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PQbZpGrMJnw5aWNl//GCDPjScEtCRrCer1LXKxdKBEGP/3s4Sb0xkgQdFtnFxwDD5
+	 EpkHdKW+Rrdgi/mwPXq5P4lOiLKYIiEw8YVYbWRakR0ZauoRUe3aKT6jucHrU972gy
+	 5ImfuorHgqAGmQgAjuGrqO7U/OWP4YtjWV8NGm5G6UKGteIPcarkGQfHbz7grMd39F
+	 hYHWITwvV85Di8PVwgpNDsX3y0jpvraDrKt2h28Y2sdVH9+qsZNrE/H76Tgep7urL8
+	 8hIaLAzRVzeilpCYZv5At7fa3Z5pRheU2QpfFf6Uk37XJ2onKD/YrTbd1FFTbxcjsP
+	 ZBALklqQqdiEA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wKd7X-00000000JPG-2CxU;
+	Wed, 06 May 2026 14:21:03 +0000
+Date: Wed, 06 May 2026 15:21:03 +0100
+Message-ID: <864ikkzkj4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH v2] KVM: arm64: Work around C1-Pro erratum 4193714 for protected guests
+In-Reply-To: <aftEJffxGZ_XSk2E@google.com>
+References: <20260505165205.2690919-1-catalin.marinas@arm.com>
+	<aftEJffxGZ_XSk2E@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, mark.rutland@arm.com, oupton@kernel.org, lpieralisi@kernel.org, sudeep.holla@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_071906_286374_5160E8FD 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20260506_072108_108802_A0107C84 
+X-CRM114-Status: GOOD (  31.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,43 +91,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Xiaolei,
-
-Thank you for the patch.
-
-On Wed, May 06, 2026 at 11:12:10AM +0800, Xiaolei Wang wrote:
-> When mxc_isi_pipe_init() fails partway through the channel loop or
-> when mxc_isi_v4l2_init() fails, the already initialized pipes are
-> not cleaned up.
+On Wed, 06 May 2026 14:37:41 +0100,
+Vincent Donnefort <vdonnefort@google.com> wrote:
 > 
-> Fix this by calling mxc_isi_pipe_cleanup() for each already-initialized
-> pipe in the err_xbar error path.
+> On Tue, May 05, 2026 at 05:52:03PM +0100, Catalin Marinas wrote:
+> > From: James Morse <james.morse@arm.com>
+> > 
+> > C1-Pro cores with SME have an erratum where TLBI+DSB does not complete
+> > all outstanding SME accesses. Instead a DSB needs to be executed on the
+> > affected CPUs. The implication is that pages cannot be unmapped from the
+> > host Stage 2 and then provided to a protected guest or to the
+> > hypervisor. Host SME accesses may still complete after this point.
+> > 
+> > This erratum breaks pKVM's guarantees, and the workaround is hard to
+> > implement as EL2 and EL1 share a security state meaning EL1 can mask
+> > IPIs sent by EL2, leading to interrupt blackouts.
+> > 
+> > Instead, do this in EL3. This has the advantage of a separate security
+> > state, meaning lower EL cannot mask the IPI. It is also simpler for EL3
+> > to know about CPUs that are off or in PSCI's CPU_SUSPEND.
+> > 
+> > Add the needed hook to host_stage2_set_owner_metadata_locked(). This
+> > covers the cases where the host loses access to a page:
+> > 
+> >   __pkvm_host_donate_guest()
+> >   __pkvm_guest_unshare_host()
+> >   host_stage2_set_owner_locked() when owner_id == PKVM_ID_HYP
+> > 
+> > Since pKVM relies on the firmware call for correctness, check for the
+> > firmware counterpart during protected KVM initialisation and fail the
+> > pKVM initialisation if it is missing.
+> > 
+> > Signed-off-by: James Morse <james.morse@arm.com>
+> > Co-developed-by: Catalin Marinas <catalin.marinas@arm.com>
+> > Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Cc: Oliver Upton <oupton@kernel.org>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Vincent Donnefort <vdonnefort@google.com>
+> > Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > Cc: Sudeep Holla <sudeep.holla@kernel.org>
+> > ---
+> > 
+> > Added the kvm-arm list this time, missed it in v1.
+> > 
+> > Changelog below but it's only probing if the firmware counterpart is
+> > present and disable the hypervisor. If that's too harsh, we can leave it
+> > as a warning and maybe add a static label/flag to avoid the unnecessary
+> > SMC call on page donation.
 > 
-> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+> As the pKVM upstream support is currently experimental and the protection
+> incomplete (see Documentation/virt/kvm/arm/pkvm.rst) perhaps a simple WARN() is
+> enough?
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+I'd rather not set expectations that this behaviour can be preserved
+over time. If someone with a broken CPU starts making use of pKVM,
+even as a toy, they can legitimately expect this to be working in the
+long run without any firmware update.
 
-> ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> index 2b76fb9c18f6..8533a979d60a 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
-> @@ -539,6 +539,8 @@ static int mxc_isi_probe(struct platform_device *pdev)
->  	return 0;
->  
->  err_xbar:
-> +	while (i--)
-> +		mxc_isi_pipe_cleanup(&isi->pipes[i]);
->  	mxc_isi_crossbar_cleanup(&isi->crossbar);
->  
->  	return ret;
+I would prefer setting the record straight from the start that this
+isn't something that can be supported. Someone motivated enough can
+always remove the check and run stuff, at their own risks.
+
+Thanks,
+
+	M.
 
 -- 
-Regards,
-
-Laurent Pinchart
+Without deviation from the norm, progress is not possible.
 
