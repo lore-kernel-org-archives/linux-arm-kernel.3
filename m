@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51B60CD343B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CA0CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LszCurdEFO+gZG00jUn6BF5va881gN4RYCn+EeYYN5U=; b=ygct+5Hw7ABG/YKY7JVo2Mqoir
-	0KAux4HO2n5Q5gFprvJyLNtr72RhWixOaCfArGnTaaC8jo3s+xZOPypHGhkh2LDNX1kIeQIPhHTUQ
-	ZLV3nymTrmDJb3QbDGWmsljPMYI+0zajefrTEhogC5qm1fJH49r/C9AUskFvMgeoTgVDyADXZCSPW
-	PWELxJ0r2e9xNq1hd6QyZDinM9r/YbA522d83c037ynpUgynRGukNEJxrSe3oOTNLgFMLso8Z3U78
-	XakmY30969qzDQcJwqenzhzDlS5MC6pIaGFRERNJPOD6dFW7+qHdpGBzyRD0NrlewXft3urvz7YSp
-	INKlLk1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FZtW5QUo3aWsouIsx0CrHk4eN1I58naseKKxoox5+7I=; b=IV1HNxW1tmxHjC2BEymBb3pqVg
+	6BaDcirY4isUBmMTTevMsi6YHrJiKZQVk+DxPFktcZhk5cttc6x+m0JwxQ3vYPYBaY+1nHHDcjEGw
+	a9jXmgQD/wFDZ9wXexoql/wKc3ooieq1n3+j41APmDFXTi1l/QqAKhlt6t3sbnxJnQnUBv2gE8GCH
+	UnX7wZnjA9IpW5swZiB/K8rK/klwdCRIqdI+agpk/BUVRg66DTUGwK/uIqWYfjqN+MCAA1WbZSo4e
+	7nOCgFqYmJql2B5k0lK8IwZrRcGdjX8HYYkSMix0kVppduFX/+6CD+jOagbnaFhhDNttEdu0gw0hz
+	rZDwRwvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKe7Y-00000001JLu-240a;
-	Wed, 06 May 2026 15:25:08 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKe7T-00000001J9P-1SYB;
-	Wed, 06 May 2026 15:25:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ls
-	zCurdEFO+gZG00jUn6BF5va881gN4RYCn+EeYYN5U=; b=JFRLZgkFncbn0mZNVg
-	bgNHubQd2aPL4LijHJB40HyofKtgnKXK/l/zOe/rxEUlfEd81kJOJUgRm0+pP/OV
-	P+jjvmAXcXOFBsV5KwowqixbwwbfdRbSKDDHtyQ2drM4edrLxursidDltRtTZVYg
-	1b40+r7YCxWL/6hNT6OdZz2S0=
-Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wCHAqsXXftpv5CgDg--.43926S5;
-	Wed, 06 May 2026 23:24:12 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	vigneshr@ti.com,
-	jingoohan1@gmail.com,
-	thomas.petazzoni@bootlin.com,
-	pali@kernel.org,
-	ryder.lee@mediatek.com,
-	jianjun.wang@mediatek.com,
-	claudiu.beznea.uj@bp.renesas.com,
-	mpillai@cadence.com
-Cc: robh@kernel.org,
-	s-vadapalli@ti.com,
-	linux-omap@vger.kernel.org,
+	id 1wKeBD-00000001KMd-1240;
+	Wed, 06 May 2026 15:28:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKeBC-00000001KM6-1Jfe;
+	Wed, 06 May 2026 15:28:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C8961A00;
+	Wed,  6 May 2026 08:28:47 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 471923F7B4;
+	Wed,  6 May 2026 08:28:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778081332; bh=GIso8zzP6WAZvBCfiOiq2OM7xb6XbVZS+Ipq3OD55sQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BtEvq0hOdFvxUgOxCi2MB69loUyTEabOCf0BaPHD2hMrEuCGOXgUv/70AUtuV964m
+	 aeCZZ0B7oQV/nD37CLaFZFnrdPqAG/fEOiVGTZiVZHq9BhO/sTZCn86wqVIkBBfO8l
+	 AuSF/N1qkMfY3ghKS4w3SHk8JlixjHj4Z6b+0hd0=
+Date: Wed, 6 May 2026 16:28:47 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Will Deacon <will@kernel.org>, Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v2 3/8] PCI: cadence: HPA: Add 100 ms delay after link training
-Date: Wed,  6 May 2026 23:23:41 +0800
-Message-Id: <20260506152346.166056-4-18255117159@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260506152346.166056-1-18255117159@163.com>
-References: <20260506152346.166056-1-18255117159@163.com>
+	Jisheng Zhang <jszhang@kernel.org>
+Subject: Re: [PATCH v4 2/8] arm64/runtime-const: Use
+ aarch64_insn_patch_text_nosync() for patching
+Message-ID: <afteLyir2cGUbEi_@arm.com>
+References: <20260430094730.31624-1-kprateek.nayak@amd.com>
+ <20260430094730.31624-3-kprateek.nayak@amd.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCHAqsXXftpv5CgDg--.43926S5
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ZF1xur47GryfZF47ZFy3XFb_yoW8XF18pa
-	yDGF1xCF1xZr4Y9an5A3W3Xr1aqasxA3srt3yv9w1xZF9xCrWDtF4IgF13Xa45KFZFvr17
-	Xw1DtF9rGr45ZFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U1SoXUUUUU=
-X-Originating-IP: [240e:b8f:927e:5900:dbee:26f0:1b68:48a4]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwx23W2n7XR0yzQAA3f
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260430094730.31624-3-kprateek.nayak@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_082503_803684_7DD911DF 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260506_082854_402454_B81F8AB2 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,43 +77,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Cadence HPA (High Performance Architecture IP) specific link setup
-function cdns_pcie_hpa_host_link_setup() waits for the link to come up
-but does not implement the required 100 ms delay after link training
-completes for speeds > 5.0 GT/s (PCIe r6.0 sec 6.6.1).
+On Thu, Apr 30, 2026 at 09:47:24AM +0000, K Prateek Nayak wrote:
+> The current scheme to directly patch the kernel text for runtime
+> constants runs into the following issue with futex adapted to using
+> runtime constants on arm64:
+> 
+>   Unable to handle kernel write to read-only memory at virtual address ...
+> 
+> The pc points to the *p assignment in the following call chain:
+> 
+>   futex_init()
+>     runtime_const_init(shift, __futex_shift)
+>       __runtime_fixup_shift()
+>         *p = cpu_to_le32(insn);
+> 
+> which suggests that core_initcall() is too late to patch the kernel text
+> directly unlike the "d_hash_shift" which is initialized during
+> vfs_caches_init_early() before the protections are in place.
+> 
+> Use aarch64_insn_patch_text_nosync() to patch the runtime constants
+> instead of doing it directly to allow runtime_const_init() slightly
+> later into the boot.
+> 
+> Since aarch64_insn_patch_text_nosync() calls caches_clean_inval_pou()
+> internally, __runtime_fixup_caches() ends up being redundant.
+> runtime_const_init() are rare and the overheads of multiple calls to
+> caches_clean_inval_pou() instead of batching them together should be
+> negligible in practice.
+> 
+> The cpu_to_le32() conversion of instruction isn't necessary since it is
+> handled later in the aarch64_insn_patch_text_nosync() call-chain:
+> 
+>   aarch64_insn_patch_text_nosync(addr, insn)
+>     aarch64_insn_write(addr, insn)
+>       __aarch64_insn_write(addr, cpu_to_le32(insn))
+> 
+> Sashiko noted that aarch64_insn_patch_text_nosync() does not expect a
+> lm_alias() address and Catalin suggested it is safe to drop the
+> lm_alias() for runtime patching since the kernel text is readable. The
+> address passed to fixup function is interpreted as a __le32 and
+> dereferenced as is to read the opcode at the patch site.
+> 
+> No functional changes are intended.
+> 
+> Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
 
-Add a call to pcie_wait_after_link_train() immediately after the link is
-confirmed to be up, using the max_link_speed previously stored in struct
-cdns_pcie. This ensures compliance with the specification regardless of
-whether the HPA or LGA path is used.
-
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
- drivers/pci/controller/cadence/pcie-cadence-host-hpa.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c b/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
-index 0f540bed58e8..62e939906785 100644
---- a/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
-+++ b/drivers/pci/controller/cadence/pcie-cadence-host-hpa.c
-@@ -15,6 +15,7 @@
- 
- #include "pcie-cadence.h"
- #include "pcie-cadence-host-common.h"
-+#include "../../pci.h"
- 
- static u8 bar_aperture_mask[] = {
- 	[RP_BAR0] = 0x3F,
-@@ -304,6 +305,8 @@ int cdns_pcie_hpa_host_link_setup(struct cdns_pcie_rc *rc)
- 	ret = cdns_pcie_host_wait_for_link(pcie, cdns_pcie_hpa_link_up);
- 	if (ret)
- 		dev_dbg(dev, "PCIe link never came up\n");
-+	else
-+		pcie_wait_after_link_train(pcie->max_link_speed);
- 
- 	return ret;
- }
--- 
-2.34.1
-
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
