@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FB3CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FEF9CD3424
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8IJBhseJN4AMQCxKEWX1XNX+9nBbaimun8zImzXxaBM=; b=K1FjaQdbZwGsspoPwiW/pqsKwh
-	ytjpn6cpe0V4zroEYINN4i6mX5gwZDWgbLFo/qAZ2V4Kf0o1jyo40sZrsE8Fngt5Mc2SEcjAbqrX+
-	kVvXBlvxA1cIN6kwsv7I9RPWxHjocNPRbcbPI/l7p032Hlyu5BvwNJXhTdidfQ5G7OhY1ccyX9ET6
-	tixL4z/5080e/PqAdeKQGtG7SgKzHoPtX11Pz8bCXstjDwRinMBLSebC/r8wyGRzaW6kyEloY9Sj4
-	suu3SJ1VHxCwYzoInmtc71jCz4XnzmLH5yhns3uhdnoQ0V49GarHKibSnpIhTrIrn9Ca2w4kHK51j
-	zb3O+Qvg==;
+	bh=JKdLVGrmHhvdkzh0pRDqKHogP5OoA8p2Eh+buAf0ngY=; b=HeAN+4pku9qf4AKiB7SAN7jGbZ
+	3u4PRB6jdch9wAQeRIMNyA4K37pQn2zVf2HkJnEZSY9VJIK7i1vL5YvMED0XicgBrwx8yy/eJWZOh
+	Z5IbmASIWQWokPfUMlP3nyMbaOMAIGqYxH26Sivh40ybkrJTGBZvN5IfMyz545M9TBjniEtEMYn5V
+	ULOTatEv5m4L7kDl3Jq3veo2eogia0LwgwBtxlJA3rmmHLLSW5RvgE14uTgSNuQ9TOj/2r1L0psuD
+	GpqViR3NwbZM7X40PpHmjxW3NSXs5DbR2Se9/8qfQ6KAKx9ebXUVBOhbHFVRlRw3av9/Lv2WgS64U
+	ct72mg5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKX1H-000000004fT-3SQl;
-	Wed, 06 May 2026 07:50:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKX1G-000000004el-3og8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 07:50:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C6A7E60252;
-	Wed,  6 May 2026 07:50:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8D6EC2BCB8;
-	Wed,  6 May 2026 07:50:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778053809;
-	bh=FaaXScUXPb4sIbB5rQFiyH9iXewmrp5Aw7s3e5Jdplc=;
+	id 1wKX3Q-000000004us-0F8C;
+	Wed, 06 May 2026 07:52:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKX3P-000000004uL-0Zq1;
+	Wed, 06 May 2026 07:52:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDC9816F8;
+	Wed,  6 May 2026 00:52:16 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7F223F7B4;
+	Wed,  6 May 2026 00:52:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778053942; bh=6FFVqh/7MHmu6fMlze6Pr8sVj+Fc68+P/CMCl97GJHY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BmiFgJDcmg4CFoejvO8C4n0h0pBRtvpbW6SbUDtVBlt4iL5637qI0NCzi0kkfnCjE
-	 9gNNmNLicDpjIxyC6mfUBnabIACOGJZvremJt+8XdDWJ/6U8DIvWoMA/V9D4akqysa
-	 zP7gNn5sD7lAoaJMYUr2qKZernYXvuf2eBHpp97tpVIEcItJ5HXXlWXCtNiG426gPt
-	 aBsW2kk7x3xSmlQWxO9qiM1oLB+K8DAdATVHBbnxhK9TyjCpE6vctvt0nXGc7wGiIs
-	 IZltuRhARE/qRNcq+mqaOCwfY4IlLpN5lr0TPizRXpGRAHsbpaHMXw50XAsGUfmjOH
-	 bx4AYlC42FPbw==
-Date: Wed, 6 May 2026 08:50:03 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-integrity@vger.kernel.org, keyrings@vger.kernel.org,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	jarkko@kernel.org, zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [RFC PATCH 1/3] arm64: KVM: defer kvm_init() to finalise_pkvm()
- when pKVM is enabled
-Message-ID: <20260506-spirited-impartial-sparrow-66efae@sudeepholla>
-References: <20260505095409.1948371-1-yeoreum.yun@arm.com>
- <20260505095409.1948371-2-yeoreum.yun@arm.com>
+	b=meaziBh2Y9VBs+iy/L6rKp64Itbk/SuVY9x+LY628fB+3BjdMpShAfiz7kxaVUmK3
+	 ML5Shd4PkZizJdBxdiUxDSD16EtZOZgzSYKb2WqhuFmuhUGrne0s9eqpQddsN+hRNR
+	 s8bBXG8z4UPrCKTSgYHbdm5hCjsmKq0wzvAMc6Yo=
+Date: Wed, 6 May 2026 08:52:10 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Naman Jain <namjain@linux.microsoft.com>
+Cc: Marc Zyngier <maz@kernel.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Long Li <longli@microsoft.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Michael Kelley <mhklinux@outlook.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-riscv@lists.infradead.org, vdso@mailbox.org,
+	ssengar@linux.microsoft.com
+Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for
+ mshv_vtl_return_call
+Message-ID: <afrzKl3ixCUUVL6C@J2N7QTR9R3>
+References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+ <20260423124206.2410879-8-namjain@linux.microsoft.com>
+ <aeolHwXHFH4AnX_n@J2N7QTR9R3.cambridge.arm.com>
+ <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260505095409.1948371-2-yeoreum.yun@arm.com>
+In-Reply-To: <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260506_005223_278997_80949009 
+X-CRM114-Status: GOOD (  44.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,59 +89,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 10:54:07AM +0100, Yeoreum Yun wrote:
-> This patch is a preparatory change to address dependency issues
-> between the FF-A driver and pKVM.
-> 
-> kvm_init() should be invoked from finalise_pkvm(),
-> as this is the point where pKVM initialisation is finalised and
-> the system transitions into the protected mode.
-> 
-> Deferring kvm_init() ensures that KVM is initialised only after pKVM has
-> fully established its protected environment.
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
->  arch/arm64/kvm/arm.c  |  8 +++++---
->  arch/arm64/kvm/pkvm.c | 15 ++++++++++++++-
->  2 files changed, 19 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 8bb2c7422cc8..663b1d447a9b 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -3025,9 +3025,11 @@ static __init int kvm_arm_init(void)
->  	 * FIXME: Do something reasonable if kvm_init() fails after pKVM
->  	 * hypervisor protection is finalized.
->  	 */
-> -	err = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
-> -	if (err)
-> -		goto out_subs;
-> +	if (!is_protected_kvm_enabled()) {
-> +		err = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
-> +		if (err)
-> +			goto out_subs;
-> +	}
->  
->  	/*
->  	 * This should be called after initialization is done and failure isn't
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 053e4f733e4b..48b06d384570 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -17,6 +17,7 @@
->  #include "hyp_constants.h"
->  
->  DEFINE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
-> +EXPORT_SYMBOL_GPL(kvm_protected_mode_initialized);
->
+On Wed, Apr 29, 2026 at 03:26:11PM +0530, Naman Jain wrote:
+> On 4/23/2026 7:26 PM, Mark Rutland wrote:
+> > On Thu, Apr 23, 2026 at 12:41:57PM +0000, Naman Jain wrote:
 
-I am not sure if this is needed when FF-A is built as module. If others
-are OK with it, I am fine. But I am thinking if we need to use this in
-FF-A driver which can be built-in or a module, we can add
-IS_BUILTIN(CONFIG_ARM_FFA_*)
+[ non-SMMC hypercall code omitted for brevity ]
 
--- 
-Regards,
-Sudeep
+> > NAK to this.
+> > 
+> > * This is a non-SMCCC hypercall, which we have NAK'd in general in the
+> >    past for various reasons that I am not going to rehash here.
+> > 
+> > * It's not clear how this is going to be extended with necessary
+> >    architecture state in future (e.g. SVE, SME). This is not
+> >    future-proof, and I don't believe this is maintainable.
+> > 
+> > * This breaks general requirements for reliable stacktracing by
+> >    clobbering state (e.g. x29) that we depend upon being valid AT ALL
+> >    TIMES outside of entry code.
+> > 
+> > * IMO, if this needs to be saved/restored, that should happen in
+> >    whatever you are calling.
+> > 
+> > Mark.
+> 
+> Merging threads for addressing comments from Mark Rutland and Marc Zyngier
+> on this patch.
+> 
+> Thanks for reviewing the changes. Please allow me to briefly explain the use
+> case here and then address your comments.
+> 
+> Hyper-V's Virtual Trust Levels (VTLs) provide hardware-enforced isolation
+> within a single VM, analogous to ARM TrustZone. The kernel runs in VTL2
+> (higher privilege) as a "paravisor", a security monitor that handles
+> intercepts for the primary OS in VTL0 (lower privilege). The VTL switch
+> (mshv_vtl_return_call) is functionally equivalent to KVM's guest enter/exit.
+
+It's worth noting that for KVM, the KVM hyp code is *tightly* coupled
+with the host kernel (they are one single binary object), and the
+calling convention between the two is an implementation detail that can
+change at any time without any ABI concerns.
+
+While I appreciate this might be trying to do the same thing from a
+*functional* perspective, it's certainly different from a
+maintainability perspective, and can't be treated in the same way.
+
+> It saves VTL2 state, loads VTL0's GPRs other registers from a shared context
+> structure, issues hvc #3 to let VTL0 run, and on return saves VTL0's updated
+> state back.
+> 
+> Coming to the problems with the code, I have identified a few ways to
+> address them.
+> 
+> I can put the assembly code in a separate .S file with
+> SYM_FUNC_START/SYM_FUNC_END and marked as noinstr, to prevent ftrace/kprobes
+> from instrumenting between the GPR load and the hvc, which could have
+> corrupted VTL0 register state. This should solve x29 clobbering, stack
+> tracing problems.
+
+My point was that you must not clobber those registers.
+
+Looking at the TLFS document you linked below, it says:
+
+| Note: X29 (FP/frame pointer), X30 (LR/link register), and SP are private
+| per-VTL
+
+... so clobbering those doesn't seem to be necessary anyway. Clearly
+having an arbitrary calling convention is confusing for everyone.
+
+> I should use kernel_neon_begin()/kernel_neon_end() to save/restore the full
+> extended FP state of the current task in VTL2. VTL0's Q0-Q31 can be
+> loaded/saved separately via fpsimd_load_state()/fpsimd_save_state(). This
+> way, the assembly touches none of the SIMD registers. This is SVE/SME-safe
+> for VTL2's task state. VTL0 still only carries Q0-Q31 in the context struct,
+> and extending to SVE, SME is a future context struct change, which will need
+> Hyper-V arm64 ABI support.
+> This way, VTL2's callee-saved regs (x19-x28, x29, x30) are explicitly saved
+> to the stack frame at the top and restored at the bottom of assembly code.
+> The C caller (in hv_vtl.c) is a clean function call.
+
+That doesn't really address my concerns here.
+
+I do not think that Linux should have to save/restore anything here;
+that should be the job of the real hypervisor. The arbitrary separation
+of PE state into private and shared (with shred state being directly
+exposed to Linux) is a problem for maintainability and forward
+compatibility.
+
+Looking at the TLFS document you linked below, I see:
+
+| Note: SVE state (Z0-Z31, P0-P15, FFR) and SME state are VTL-private.
+| The lower 128-bit portion (Q registers) is shared, but the upper bits
+| of Z registers may be corrupted on VTL transitions. Software should
+| not rely on Z register contents being preserved across VTL switches.
+
+... which is certainly going to be a pain to manage.
+
+Note in particular "SME state" is not an architectural term. I don't
+know which state in particular that is intended to cover (e.g. ZA, ZT0,
+SVCR, all streaming mode state)?
+
+There's no mention of SVCR, so I don't know how this is going to
+interact with management of ZA state (ZA and ZT0, which are dependent
+upon SVCR.ZA) or streaming mode (dependent upon SVCR.SM). That state has
+been *incredibly* painful for us to manage generally. Regardless of the
+SMCCC concerns, that needs to be specified better.
+
+> Regarding Non-SMCCC "hvc #3" call, I have a limitation here owing to the ABI
+> that is defined by the Hyper-V hypervisor. Fixing this requires a
+> hypervisor-side change to support SMCCC-style dispatch for VTL return. Until
+> then, hvc #3 is the only working interface. Moreover there would be backward
+> compatibility issues with this new ABI interface, if at all it is added.
+
+To be clear, that's Microsoft's problem, not the Linux kernel
+community's problem. My NAK still stands.
+
+Multiple years ago now, we made it clear that we would not accept a
+non-SMCCC calling convention. Ignoring the substance of that feedback,
+and inventing a new calling convention after that point is a
+self-inflicted problem.
+
+[...]
+
+> Link to TLFS: https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/vsm#on-arm64-platforms-3
+
+For shared state, aside fomr GPRs and FPSIMD/SVE/SME state, that says:
+
+| * System Information Registers (read-only or non-security-critical):
+|   * System identification and feature registers
+|   * Cache and TLB type information
+
+It's *implied* that some of those registers might be writable, but as
+the specific set of registers is not described I cannot tell. Are there
+any writable system registers which are shared?
+
+I don't see how we can know which registers we might need to
+save/restore without that being explicitly documented.
+
+I also see:
+
+| Note: SPE (Statistical Profiling Extension) state is shared across VTLs,
+| except for PMBSR_EL1 which is VTL-private.
+
+If "SPE state" includes PMBPTR or PMBLIMITR (which is the obvious
+reading), this would be a security problem, as a lower-privileged VTL
+could clobber those and cause SPE to write to arbitrary memory
+immediately upon return to the higher-privileged VTL. Having PMBSR be
+private on its own isn't sufficient to prevent that (e.g. since the
+higher-privileged VTL could have its own active SPE profiling session).
+
+I'm not keen on requiring hyper-v specific hooks in the SPE driver to
+achieve that, and I'm also not keen on having hyper-v support code poke
+SPE registers behind the SPE driver's back.
+
+This does not give me confidence that any future PE state (e.g. things
+like TRBE) will be managed in a safe way either.
+
+Mark.
 
