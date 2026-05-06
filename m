@@ -4,98 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20648CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 02:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38ADCD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 02:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZ2uNQaIyWygj63TOUGOyVmTMo1Pm5LqNBlZ9r/otPw=; b=iPrgxMLjWTQb5AJl5VdvKmPl4P
-	ZLfVbARrZJZD2GA14A/oWrj5o8iZTet0Zva6BvVW4QJvEmZPxYya6lvmMZLfAKbuG+gbiQukJbgtt
-	mLjJux2D1TMkKBcUL+Ook55RYMRVR39NRLJinPvEbrpsHQ5KhhQ3AQHNo0hCI9dI86XlWdYqxCSRs
-	YVozXVbs6x9za8p3UyKg4WpLsro6sKFkGo+qNmZ7Go3hlC8YQD1iyNFPPomILfWole0rB7Gx891bh
-	KC/YwjwhY+ZNYWy7PtSXs6Gks9nCQdp8pYCv8LKohVdkt1s10dYlYEWv1QFdvwtD52uCQW2W54VzS
-	wgP/XGGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2dL8X4RBEmlMQxTMxZ6z5ZDFuKlqCd7zEBN2BSxoQgE=; b=BakdRdGdQp0xDkZQy6vS1ExOTT
+	y3GlQr/5fg4n4KogemkLS0ryadW+UarBygxkeMfbfRUNE50qewqquFTpIF/3wnrZnRdQwJBd8KZ/K
+	caPcafEWKUq5HeMrXb2kp90YdiGtmGmRldV/5Mq2NovgKlAfCugQKT5nd6fkmfkVsBpX/7TONx0tB
+	eOYKnv/dCm/y3mYGs46PeGZ6XSGIezdE7Nr4nUZSV5Fcopq1B0dyD7viDcvBo2lef2f/zYXa0J4WK
+	BpKvI3Sj3qxBIsXou07lbwsnRVQGvZh5atGIeR6cxdBRfOfoGWbV+6+oJBob4dDa6sas9ZJPxzACk
+	9iU82Z8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKS2E-00000000WJ5-3iQS;
-	Wed, 06 May 2026 02:30:50 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wKSHa-00000000XwY-0z2O;
+	Wed, 06 May 2026 02:46:42 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKS2D-00000000WIn-3OOS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 06 May 2026 02:30:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=kZ2uNQaIyWygj63TOUGOyVmTMo1Pm5LqNBlZ9r/otPw=; b=olxER0+So68F9hiEZgTr/Syoap
-	l38sRuinQ+w4m3Re8uc1pkzI4avkxm7icju8/9i5kFSUIoD/5initL/tI3WI4Q8SCGc6H0ayfjbKN
-	IMlEWuQ9CDBGejxwEzl5Ncb4v4zAg3r7bDdMxGhZwXc11uf2Epe/DaB9baqYCWTlTK1JEnYYEoreS
-	6Lv29P395teCTnaz5m615+enzMwDZl5L4nJF4Io2P7ud/BH18ke8fwC8bI0AKVnmgtvFwT4KR9Zuy
-	5C3gM+gZWj/VUS/VhSOrxvUUMVxHtPclNB/+9oZ9qNLm+2c43oXRp5kWMctpc7IjNbYZzkAxFbd+W
-	ROm35u3Q==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by casper.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKS28-00000000Y7O-2SAm
+	id 1wKSHX-00000000Xw5-3SZw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 02:30:48 +0000
-Received: from loongson.cn (unknown [10.20.42.62])
-	by gateway (Coremail) with SMTP id _____8DxsOrCp_ppL_oGAA--.22894S3;
-	Wed, 06 May 2026 10:30:26 +0800 (CST)
-Received: from [10.20.42.62] (unknown [10.20.42.62])
-	by front1 (Coremail) with SMTP id qMiowJDxB8G1p_ppz2Z7AA--.24349S3;
-	Wed, 06 May 2026 10:30:15 +0800 (CST)
-Subject: Re: [PATCH 1/5] KVM: arm64: Grab KVM MMU write lock in
- kvm_arch_flush_shadow_all()
-To: James Houghton <jthoughton@google.com>,
- Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Sean Christopherson <seanjc@google.com>,
- Gavin Shan <gshan@redhat.com>, Shaoqin Huang <shahuang@redhat.com>,
- Ricardo Koller <ricarkol@google.com>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- James Hogan <jhogan@kernel.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, kvm@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20260504224213.1049426-1-jthoughton@google.com>
- <20260504224213.1049426-2-jthoughton@google.com>
-From: Bibo Mao <maobibo@loongson.cn>
-Message-ID: <25838e74-01dd-d085-395b-676266dc9a9a@loongson.cn>
-Date: Wed, 6 May 2026 10:27:19 +0800
-User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
-MIME-Version: 1.0
-In-Reply-To: <20260504224213.1049426-2-jthoughton@google.com>
-Content-Type: text/plain; charset=utf-8; format=flowed
+	Wed, 06 May 2026 02:46:41 +0000
+Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 646186Nw2226351;
+	Tue, 5 May 2026 19:46:28 -0700
+Received: from ph7pr06cu001.outbound.protection.outlook.com (mail-westus3azon11020114.outbound.protection.outlook.com [52.101.201.114])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4dyupyr785-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 05 May 2026 19:46:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BAjOgS7wIcFgXmop/f8lDoTVrUtDdVP3MGp/SwNhmwPueyiPUJusryznLHj73F6fVP2TK3UZF1xegw5xvtUUb0thYHm63h2b36NimffPIPvBf9mAH9VjOEuWWBHYUN7SVCBKW4sc222nh9h7qocHH6exx8utZ+JktpN0pKja5syelbFNFbZiUE6UZjFQ04zwjeioJ7GIFCvgU6ME24a835U4On0rnmkCjp/FB44sxNtgp6BmGPNpeVS4k5ZrkLwuJnhYZ3kG56Mzv/gBDEXoEK0AJYWnTkVD1XAb8n3E6DJ+mgHKII8PdWw5tPFgml2gjIWpY8OLq1al6VRp7bik6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2dL8X4RBEmlMQxTMxZ6z5ZDFuKlqCd7zEBN2BSxoQgE=;
+ b=LzYIKm5dv9FqHQ2xcHNMHrTtkmeCXphcO65CSKect8MQ1coROtRd3CEhyPmlYXz7g/U0TOGtEm+p6z7mvXONuMbkbyr/buuOxuSUKkEEbI9OvaQyuYhQYBPgVI4l/95nuI4NjINEnU2CYUIy/FQcxJ2j0htgo8P4qXxe0kPZG7+0BEchRL+CwXpMKZrhbucspbdcHKbJCW6tjS+sCvBaSZchz7OZf2Ds+1syyzA2I6nCH1sGcVTBUSk3hn7TEkza9dT9UeQuht1UaJlHIzUPLlUYwgtxH2Uj3B9d9PbBMVgVOKZxDzYi6j//jpIW/AifS/jTEozKziTa9Ze5yVHhRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=marvell.com; dmarc=pass action=none header.from=marvell.com;
+ dkim=pass header.d=marvell.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2dL8X4RBEmlMQxTMxZ6z5ZDFuKlqCd7zEBN2BSxoQgE=;
+ b=Ipgx9uNhiN5BnlczNI3/NNgyjIBwaz9ADJQuVi6Pa1llkYPvdSE4dlOzIZH6/EPtZpet2FCpqqsyQHB3IU9T9bvVk3cN6Xa/X1YjConMumpat/y9IpbexcSVKUo30HrdHwWBRf8+a1jOCLQDtTTVkV74dyy6ZaEEpaylafnp0qg=
+Received: from MN0PR18MB5847.namprd18.prod.outlook.com (2603:10b6:208:4c4::12)
+ by PH0PR18MB5089.namprd18.prod.outlook.com (2603:10b6:510:170::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Wed, 6 May
+ 2026 02:46:15 +0000
+Received: from MN0PR18MB5847.namprd18.prod.outlook.com
+ ([fe80::48b4:4ff8:d5f4:a49a]) by MN0PR18MB5847.namprd18.prod.outlook.com
+ ([fe80::48b4:4ff8:d5f4:a49a%5]) with mapi id 15.20.9891.008; Wed, 6 May 2026
+ 02:46:15 +0000
+From: Ratheesh Kannoth <rkannoth@marvell.com>
+To: "bjorn@helgaas.com" <bjorn@helgaas.com>
+CC: Bjorn Helgaas <helgaas@kernel.org>,
+        "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        "bhelgaas@google.com" <bhelgaas@google.com>,
+        "will@kernel.org" <will@kernel.org>,
+        "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>,
+        "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+        "mani@kernel.org" <mani@kernel.org>,
+        "robh@kernel.org" <robh@kernel.org>,
+        "vidyas@nvidia.com" <vidyas@nvidia.com>
+Subject: RE: Re: Re: [PATCH v2] PCI: host-common: Request bus reassignment
+ when not probe-only
+Thread-Topic: Re: Re: [PATCH v2] PCI: host-common: Request bus reassignment
+ when not probe-only
+Thread-Index: AQHc3QKBrc74cXnvwkeJkqw+7UbM0g==
+Date: Wed, 6 May 2026 02:46:14 +0000
+Message-ID: <MN0PR18MB5847913D9E15805B85A0AAD2D33F2@MN0PR18MB5847.namprd18.prod.outlook.com>
+References: <20260414081730.3864372-1-rkannoth@marvell.com>
+ <20260504224955.GA669929@bhelgaas>
+ <MN0PR18MB5847809DF7EB9A3ECA4A4159D33E2@MN0PR18MB5847.namprd18.prod.outlook.com>
+ <CABhMZUW5Y3g86_ki8MfcqX9Qj63TxqQR=m74c8sBm-puZGEvUg@mail.gmail.com>
+In-Reply-To: <CABhMZUW5Y3g86_ki8MfcqX9Qj63TxqQR=m74c8sBm-puZGEvUg@mail.gmail.com>
+Accept-Language: en-US
 Content-Language: en-US
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qMiowJDxB8G1p_ppz2Z7AA--.24349S3
-X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
-X-Coremail-Antispam: 1Uk129KBj93XoWxWryxWry7uF4rWrWDXFy7Jwc_yoWrKFW7pF
-	WDCa4DGr45Gr1Y9343Jw1DZw1F9ws5KF1fGFy5XayrtFyYv3s8K3WvyF1xAFW5JrZ7WFZa
-	vF15Krn8A3yvywbCm3ZEXasCq-sJn29KB7ZKAUJUUUU7529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUPFb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	Gr0_Gr1UM2kKe7AKxVWUXVWUAwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
-	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAVWU
-	twAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
-	k0xIA0c2IEe2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l
-	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_Jrv_JF1lx2IqxVAqx4xG67AKxV
-	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
-	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
-	4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
-	42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUceOJUUUUU
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR18MB5847:EE_|PH0PR18MB5089:EE_
+x-ms-office365-filtering-correlation-id: 223fbbfd-f0b9-4e68-14b6-08deab19a428
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|22082099003|56012099003|18002099003|38070700021;
+x-microsoft-antispam-message-info: rPzCrUOoIdl+IkOJTbcqE9ihPoxc8ecrDXdnshD31jjRNRSJf7YClVpcNk61BREafzqhPNR8JxSWgwvm3Jl8kohMDMEyCR9Wv2hU0O8r5pBrJji6HS8cPZ2ubz2PwdTXHKEHdkrRDqoPEexJxjLPwVUzqH3Fqlbt/akvvksCrYwWpqG++7cHHhwZpD62FNUBJnRwo6Mo55r/jPzKr3FI0LJeRATYEE6oNpNLk2uws/fw980wz5796lJCWezUKpisKmy234HinBOPR6R/dXwP6fJ3yeFWt/H4tqVBjdXIYkumQmpnFUcvNiIwpdiM8tVsRDvLMCirjQZ01Ge1TNSXLEaoc4p4uU5R4SgkQPD5S/SIZ+NkZEwn+UJOvRZRM/Jwld6Zy6M4Y7f2/jNihPHkZmHn7+A5AAjsVgP63ACwXSpYmeG2Qp5RE2HI1pweqafna4ylNFALZgqLqUDoBH78S0E8/wQMAwrtVyHoUhkKvpKBnseWMVyoGd3cBpSZfWKb+GrU2sUepChY4M+A/zphWM45a9siZVzlDh11yBLhiRTiuQgqM1/Hh0M6GwDhSKdgVTnXekqPgNHqY53+4oC1X/3UMU7VgWsDAue2Zn1FXEiOjDHOKMiGJy1+PxldbIhsLTdgGrZlBr8ArTXtb8O+EGq3/+bJwJsw9BLzpC5Wudwh1lTamHD9+cLAopORq6lP
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR18MB5847.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(22082099003)(56012099003)(18002099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZE1uS0RyRSt5eDdJUlRCdnZ4WHJzMCt0eWtuWndWQ2d3eWVwc05ZR3piMUhM?=
+ =?utf-8?B?eTZMRlFOdjA3bGhQUFZzYlhTMjExN3lFSktjRjE5WllUTm0rYUxSbjdraEh1?=
+ =?utf-8?B?RFpXNGdiVWJ5UXA0YWp6USs2UmpyMWNJWUd0RDEyUE9VS1l1M2FYZzRsVTFD?=
+ =?utf-8?B?eE5YaWVrS3FqdmVkMTRnQ0Y0MkJNZThBK01nWWRYV0h3M3RnVmNYQlI3V1U0?=
+ =?utf-8?B?Nkh2dkhTd1QvZnFOd3Y3d0o0YkFBRkU0a3lOTlJIZmRDeEdCV0NNOEJ0QVA1?=
+ =?utf-8?B?Sm1jRlg5MXBUcE82ZzRJRnpBVUJGZHdLc0trbk5xYUxWRUFhU05JV2YrOWhW?=
+ =?utf-8?B?NmtrVUJTSStWKzVqL3pORlJ3ZDRHNjRoaVZWUWVOako3NlIvdEM4U3cwZ0Zt?=
+ =?utf-8?B?eVVTTDNCL0h5bG5IRFZObmcxai96emN2Ry9uekpadFpkcjJyMHlPckdUVGJs?=
+ =?utf-8?B?QVZoM1I4aEw0SkY3UVNEK2h4WlJ5MGRXTDN1clBpUDRtSkM3aVdvSENWZVJw?=
+ =?utf-8?B?Y1BkalpFazYwbUVuUjQ2Ym14blZwRzhvNmdYMFd3VTRJaDE0NzhRVFV5YUx1?=
+ =?utf-8?B?eTBYVW5UcTM2b2M2Q1NrbXBSZE9EejRLRDFQSDF0UHBhMW9Lc1FhRUVqVUdY?=
+ =?utf-8?B?ME9CNStlb29GWTZEZWdvb2liUTlKZ05FbzJVVU9xNFB6U0dSeDRORkQxVUs4?=
+ =?utf-8?B?TzYrakF5OVozTndxdklLT2JhS0Z0UWtNL21tVGpTL05zY0Z0VmxaWUNYYy9a?=
+ =?utf-8?B?dmlXMDVwREdFYTQxY3RKY1Z5ZE1PbStadUVDdTFpZGRZUE1EcTlWWks1UkJz?=
+ =?utf-8?B?aXFzbk5wSEE4dy9nQmgzeGd0OWpoQlY3MHRZRThGWTcwb1F3OEs0SGthTys5?=
+ =?utf-8?B?SUE1Z1FJUEdWUjUvWTduTklrLzY3eDNzekxYUFJnNjBPVVQrVnpYcHZyQkNC?=
+ =?utf-8?B?WVFxUWNRNFQ4LzJDR092cFo2Rkh5Nk1sdGZqZG5jQzhsaHdmRUFNbGlGVWhO?=
+ =?utf-8?B?YkI2Tm5HcWE5Y21MdGxWVExEb1BRRUNTck0vVUxEcllEalB1QlZpVG5aNjVI?=
+ =?utf-8?B?WDl3SnFtV0lYRjhBMFVHNHRkVHpQeU9UL1ppK1VDUzdTQ29OL2tJdGt0WlE3?=
+ =?utf-8?B?Vy90NHkwbWlGd1pSUGFENkpRd0xVQmRydzBFZVRxa25YUFltL0lLWERkSDFm?=
+ =?utf-8?B?TGQvN013OCtTMVU4aWRHei9qNnh1Y2pQVG1jNVJMR2NJVEtjQzNkbmFJbk4y?=
+ =?utf-8?B?b2JGdUVVcFdQRWRzaXU3ODYrYk83emNRVytSVVVGbGFCVjRud1MxUWE4M1N4?=
+ =?utf-8?B?OUd6ZWVEU2p1MEk3UmMwcWFVU0hSWVFxbkppL0dHbDBqT3FTdkhvaVl3aXM2?=
+ =?utf-8?B?TkpFTXNqNHRKTDYxbjNoWDNDc2IzM3orVXI0VnNpak9WaWtXM3JSSXFyQXEr?=
+ =?utf-8?B?UGx4c25vSlAvajhNdjFwcXU3dUlYcnNpUjNad3FuYXBlQnYzVjZ2empRaWFO?=
+ =?utf-8?B?SitkM0Y3OWVLWDl5ZEQxODlVWWNVR1cvSGxJZXFJTmZTczFvdHBlU2U3WlND?=
+ =?utf-8?B?T3pZQmRkVDdib25RRzBXNnpobVA5ejR5Q0VuVVA2K0J3OTVkWTMwVnh1RFk4?=
+ =?utf-8?B?NFZVNzIzeEFjNGo5OGlNdG9yaThGU01aRnNUb1o1R3d5R1ZQcWNpeTFNU3Q3?=
+ =?utf-8?B?aWNmbjh3Yk1jR2Rvc0hYYWJHSVZBN2FmL2ovTkZqWjV4RklmbHVEY2N1L1Vl?=
+ =?utf-8?B?eXVWZEVaNVZFZGJkR0hyTi9kdk1ZT2JUT3ppYmhIYmFhZGQxdU95VlJ4b2hK?=
+ =?utf-8?B?NkZCVFJDNkt4MUFyZFFEZDNwdEVhSERPNE1hOGJlYTdRZm1NMmd3clBpWDN1?=
+ =?utf-8?B?VmlTSTA1czkyRmVwN0xkYUtERkdPQjN2dWl6bS9XblFTL29ETGxaWUtsZmd5?=
+ =?utf-8?B?SEliYkJIY2EvMHlZbHRySUp3eTIwWEk5YjQxcTJhUkRTVi9VTktocmdSN0ta?=
+ =?utf-8?B?Unoxd1dLQUZYSjNORkt3U3RrVHJqT1Brb1VsaEg2WXh4d3FoUjRvYUpKeGdR?=
+ =?utf-8?B?M0NPWEo5TkVuOFB3UFNYc0wzZlJrZk9YWHRtS2Q5dm9GaHY4V1R2MEJBTkcv?=
+ =?utf-8?B?ZXdCcUdLL1NWNE0wYWhTUWhvam1CT09zUXV4RGdoZmRRT2ZxVVl4eHBsTWkr?=
+ =?utf-8?B?SE4rSDJBMDQ3MkpxWjY0eTlMUkFKV2lKTTB2T1NsK1VjWW1JS0NOTGRQUmFC?=
+ =?utf-8?B?c0lJYzcyV0pZUEVwRE1KRTRCQ0xoODM0SXBSaGhyZFdjd3c4dXVycmlwTmtp?=
+ =?utf-8?Q?Fx5Rm5yFMrn65SWLsc?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: Tqt0Rw5whC4p2s+E/6F5LTPDetMp0WZXy4OV+qHkcCPOR7LeVdEx/D/aanoSYlfAvMCfD1k0edRWoUWEUBNq4FQ4Pf/BpjMusDPcBtCmQ5aXQgEld1FQraFxpo5aj2dhMYdNMJrGVLg9wFbqIbeRKjQnVygsNhIuDePQ1Haremn6WU4KyyV6EPvwK54rf1KRJCMEW7/bIiWNkWqBFjnV7yjlnt6zlXxaHa25wGHLUEVaMQcpde9vlfDia+E9Gfh7X6KQDKqZs/baJvWqPC/g0T/9nSQBnA0a8YOulam63GXkmqKQgCAKVQd7j2RtlPloLbKgdithzcRtqT7WkV3QUw==
+X-OriginatorOrg: marvell.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR18MB5847.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 223fbbfd-f0b9-4e68-14b6-08deab19a428
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2026 02:46:14.9465
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 70e1fb47-1155-421d-87fc-2e58f638b6e0
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: iWxOhNtDFQR0VJkD4bBa9ciRUq5v0xwLbwiU2XEbkC5LYLeejjkjI5xcySWlvgTPwoFMU+sGOYi8/1NnjN3Zhg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR18MB5089
+X-Proofpoint-GUID: _vGbRUX9dg56PUJFkRazZKHvuPHA9oeg
+X-Proofpoint-ORIG-GUID: _vGbRUX9dg56PUJFkRazZKHvuPHA9oeg
+X-Authority-Analysis: v=2.4 cv=BoOtB4X5 c=1 sm=1 tr=0 ts=69faab83 cx=c_pps
+ a=b+YkWSWpBA3VYLEuQ6BQHg==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=NGcC8JguVDcA:10 a=-AAbraWEqlQA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=l0iWHRpgs5sLHlkKQ1IR:22 a=TtqV-g6YmW1Jfm2GSLaY:22 a=RpNjiQI2AAAA:8
+ a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=FlG6zWXmIzq583POqvsA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA2MDAyNCBTYWx0ZWRfX03J1KyGeJspv
+ d/iFV4XllMLnbfA8SPa2x9GbC7MK2Tohgb1xkHX7oFl4hvXuwtBKKXAxOnOKQ4vopnWCY/5r7yb
+ wQhD3l1OOzGAGAGPqSkx1q6cqlq/9DCM9vDCB2h2BluSBsnx+G8hi+rM9W4pAOrQ+r4V0mr8Ps6
+ WWBL+Y5VU/aeicU3+qHUjRiPCVR2uxMCMkdrdTPvTHqyRUIR7+SxAAMF/h/K9edr7QwBi9ayD6m
+ nDssEqnpV2iEmc21VOT+5jqL14WJJJKjRLcmw+FkWdrUzPM3B9dNb6yTVA2ECYlg01t1k25tzHv
+ w8tnUBfyDpV8tzAg+6fAwEtaH1205zxawXwsERFe0DNQSASGaJxQbea43JhwMQMdK/GXoWOHWs2
+ 3SCML4Ne/uNxGmQJEj0ra8Q+BjpZ4EaEhd87gfzAsG0ZB7AcB7nbU0TO2iz2YWWqSAfJvJGI7e+
+ dcV+BpdrDmc2SpFIAgQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-05_02,2026-04-30_02,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_033045_506515_F63E18F2 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20260505_194639_887001_13338C15 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,153 +191,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2026/5/5 上午6:42, James Houghton wrote:
-> kvm_arch_flush_shadow_all() may sometimes be called on the same `kvm`
-> concurrently in the event that the KVM's `mm` is __mmput() at the
-> same time that last reference to the KVM is being dropped.
-> 
-> T1              T2
-> KVM_CREATE_VM
->                  Get VM file from T1
-> close VM
-> exit_mm()       close VM
-> 
-> T1: exit_mm() -> kvm_mmu_notifier_release() -> kvm_flush_shadow_all(),
->      with only the KVM srcu read lock held.
-> 
-> T2: kvm_vm_release() ---> mmu_notifier_unregister() ->
->      kvm_mmu_notifier_release() -> kvm_flush_shadow_all(),
->      again, with only the KVM srcu read lock held.
-By looking through the code, kvm_arch_destroy_vm() will free PGD page 
-only, page table walking is executing in deleting memslot or exit_mm().
-
-With normal code, life cycle of VM is something like this:
-   KVM_CREATE_VM
-     Create_VCPUs
-     Create memslots
-     Destroy_VCPUs
-     Destroy memslots
-   close VM
-   exit_mm()
-
-And there is kvm_get_kvm()/kvm_put_kvm() function call with 
-creating/destroy vCPUs, however no such operations with memslot 
-operation. Is it possible that VM is destroyed without removing 
-memslots, such as the following operation.
-   KVM_CREATE_VM
-     Create memslots
-   close VM
-   exit_mm()
-
-Regards
-Bibo Mao
-
-> 
-> This leads to a potential double-free of
-> kvm->arch.kvm_mmu_free_memory_cache and now with NV
-> kvm->arch.nested_mmus.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: e7bf7a490c68 ("KVM: arm64: Split huge pages when dirty logging is enabled")
-> Signed-off-by: James Houghton <jthoughton@google.com>
-> ---
->   arch/arm64/include/asm/kvm_mmu.h |  1 +
->   arch/arm64/kvm/mmu.c             | 23 +++++++++++++++++++----
->   arch/arm64/kvm/nested.c          |  4 +++-
->   3 files changed, 23 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-> index 01e9c72d6aa7..30d5c24fcebb 100644
-> --- a/arch/arm64/include/asm/kvm_mmu.h
-> +++ b/arch/arm64/include/asm/kvm_mmu.h
-> @@ -178,6 +178,7 @@ void stage2_unmap_vm(struct kvm *kvm);
->   int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long type);
->   void kvm_uninit_stage2_mmu(struct kvm *kvm);
->   void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu);
-> +void kvm_free_stage2_pgd_locked(struct kvm_s2_mmu *mmu);
->   int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
->   			  phys_addr_t pa, unsigned long size, bool writable);
->   
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index d089c107d9b7..4bab407d43bb 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1021,7 +1021,9 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
->   
->   void kvm_uninit_stage2_mmu(struct kvm *kvm)
->   {
-> -	kvm_free_stage2_pgd(&kvm->arch.mmu);
-> +	lockdep_assert_held_write(&kvm->mmu_lock);
-> +
-> +	kvm_free_stage2_pgd_locked(&kvm->arch.mmu);
->   	kvm_mmu_free_memory_cache(&kvm->arch.mmu.split_page_cache);
->   }
->   
-> @@ -1095,12 +1097,14 @@ void stage2_unmap_vm(struct kvm *kvm)
->   	srcu_read_unlock(&kvm->srcu, idx);
->   }
->   
-> -void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
-> +static void __kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu, bool locked)
->   {
->   	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
->   	struct kvm_pgtable *pgt = NULL;
->   
-> -	write_lock(&kvm->mmu_lock);
-> +	if (!locked)
-> +		write_lock(&kvm->mmu_lock);
-> +
->   	pgt = mmu->pgt;
->   	if (pgt) {
->   		mmu->pgd_phys = 0;
-> @@ -1111,7 +1115,8 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->   	if (kvm_is_nested_s2_mmu(kvm, mmu))
->   		kvm_init_nested_s2_mmu(mmu);
->   
-> -	write_unlock(&kvm->mmu_lock);
-> +	if (!locked)
-> +		write_unlock(&kvm->mmu_lock);
->   
->   	if (pgt) {
->   		kvm_stage2_destroy(pgt);
-> @@ -1119,6 +1124,16 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->   	}
->   }
->   
-> +void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
-> +{
-> +	__kvm_free_stage2_pgd(mmu, false);
-> +}
-> +
-> +void kvm_free_stage2_pgd_locked(struct kvm_s2_mmu *mmu)
-> +{
-> +	__kvm_free_stage2_pgd(mmu, true);
-> +}
-> +
->   static void hyp_mc_free_fn(void *addr, void *mc)
->   {
->   	struct kvm_hyp_memcache *memcache = mc;
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 883b6c1008fb..977598bff5e6 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1190,11 +1190,13 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
->   {
->   	int i;
->   
-> +	guard(write_lock)(&kvm->mmu_lock);
-> +
->   	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
->   		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
->   
->   		if (!WARN_ON(atomic_read(&mmu->refcnt)))
-> -			kvm_free_stage2_pgd(mmu);
-> +			kvm_free_stage2_pgd_locked(mmu);
->   	}
->   	kvfree(kvm->arch.nested_mmus);
->   	kvm->arch.nested_mmus = NULL;
-> 
-
+PkZyb206IEJqb3JuIEhlbGdhYXMgPGJqb3JuLmhlbGdhYXNAZ21haWwuY29tPiANCj5TZW50OiBU
+dWVzZGF5LCBNYXkgNSwgMjAyNiA4OjU1IFBNDQoNCj5JIGRvbid0IGhhdmUgYWNjZXNzIHRvIHRo
+YXQgYnVnIHJlcG9ydC4gIElmIHRoZXJlJ3Mgbm90aGluZyBzZWNyZXQgaW4NCj5pdCwgY2FuIHlv
+dSBtYWtlIGl0IHB1YmxpYz8NCkFwb2xvZ2llcyBmb3IgdGhlIGFjY2VzcyBpc3N1ZS4gSSBhbSBz
+dGlsbCBmYW1pbGlhcml6aW5nIG15c2VsZiB3aXRoIHRoZSBwbGF0Zm9ybSdzIHByaXZhY3kgc2V0
+dGluZ3MsIGJ1dCBJIGNlcnRhaW5seSBpbnRlbmRlZCBmb3IgdGhpcyB0byBiZSBhIHB1YmxpYyBy
+ZXBvcnQuIA0KSSdsbCBleHBsb3JlIHRoZSBzZXR0aW5ncyBub3cgdG8gbWFrZSBpdCBnZW5lcmlj
+L3B1YmxpYyBhbmQgd2lsbCBnZXQgYmFjayB0byB5b3UNCg0KPkkgYXNzdW1lIHRoaXMgaXMgdGhl
+IHNhbWUgaXNzdWUgeW91IG1lbnRpb25lZCBhdA0KPmh0dHBzOi8vdXJsZGVmZW5zZS5wcm9vZnBv
+aW50LmNvbS92Mi91cmw/dT1odHRwcy0zQV9fbG9yZS5rZXJuZWwub3JnX2FsbF9hYmtxbS01RkxD
+ZDl6QU04Y1ctNDBya2Fubm90aC0yRE9wdGlQbGV4LTJENzA5MF8tM0YmZD1Ed0lGYVEmYz1uS2pX
+ZWMyYjZSMG1PeVBhejd4dGZRJnI9YWVrY3N5QkNIMDBfTGV3ckVEY1FCenNSdzhLQ3BVUjB2WmJf
+YXVUSGs0TSZtPXlIN0VlQmU5SHdSbGxEOEstPlBGTlMyQ01GU2xjYUJIVTZvM0RZYTF4bmRKdndW
+U0hJNGFQV2k5OHVES1BSSUpJJnM9Qks0X052bVhhcXlzemtNVkhXQVBUYTlNZWFYLTI2S2EzeFQ2
+TktTWHdGUSZlPQ0KWWVzLiBJIGJlbGlldmUsIHdlIGNhbiBpZ25vcmUgQnVnemlsbGEgcmVwb3J0
+IGFzIHBlciBodHRwczovL3d3dy5rZXJuZWwub3JnL2RvYy9odG1sL3Y0LjE5L2FkbWluLWd1aWRl
+L3JlcG9ydGluZy1idWdzLmh0bWwgPw0KIk9uY2UgeW91IGtub3cgdGhlIHN1YnN5c3RlbSB0aGF0
+IGlzIGNhdXNpbmcgdGhlIGlzc3VlLCB5b3Ugc2hvdWxkIHNlbmQgYSBidWcgcmVwb3J0LiBTb21l
+IG1haW50YWluZXJzIHByZWZlciBidWdzIHRvIGJlIHJlcG9ydGVkIHZpYSBidWd6aWxsYSAoaHR0
+cHM6Ly9idWd6aWxsYS5rZXJuZWwub3JnKSwgd2hpbGUgb3RoZXJzIHByZWZlciB0aGF0IGJ1Z3Mg
+YmUgcmVwb3J0ZWQgdmlhIHRoZSBzdWJzeXN0ZW0gbWFpbGluZyBsaXN0LiINCg0KPllvdXIgZW1h
+aWwgcmVzcG9uc2Ugd2FzIEhUTUwsIHNvIHRoZSBtYWlsaW5nIGxpc3RzIHJlamVjdGVkIGl0LCB3
+aGljaA0KPmlzIHdoeSB5b3VyIHJlc3BvbnNlIGRvZXNuJ3QgYXBwZWFyIGhlcmU6DQo+aHR0cHM6
+Ly91cmxkZWZlbnNlLnByb29mcG9pbnQuY29tL3YyL3VybD91PWh0dHBzLTNBX19sb3JlLmtlcm5l
+bC5vcmdfYWxsXzIwMjYwNDE0MDgxNzMwLjM4NjQzNzItMkQxLTJEcmthbm5vdGgtNDBtYXJ2ZWxs
+LmNvbV90Xy0yM3UmZD1Ed0lGYVEmYz1uS2pXZWMyYjZSMG1PeVBhejd4dGZRJnI9YWVrY3N5QkNI
+MDBfTGV3ckVEY1FCenNSdzhLQ3BVUjB2WmJfYXVUSGs0TSZtPXlIN0VlQmU5SHdSbGxEOEstPlBG
+TlMyQ01GU2xjYUJIVTZvM0RZYTF4bmRKdndWU0hJNGFQV2k5OHVES1BSSUpJJnM9N1hmM2lrVVBa
+cFRqYm5YM0IwemltcHNIRk1nSng4Z3VSa3lHQWw3R1h6OCZlPQ0KU29ycnkgYWJvdXQgdGhhdC4g
+TXkgbWFpbCBjbGllbnQgKE91dGxvb2spIGRlZmF1bHRlZCB0byBIVE1MIGZvcm1hdHRpbmcuIFdp
+bGwgYmUgbW9yZSBjYXJlZnVsIGluIGZ1dHVyZS4NCg0K
 
