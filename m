@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDAB5CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 16:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF50CD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 16:14:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jZZKucDS9LY8FXeEJnTpsGEk3KUkIQjyQmRctRwv82I=; b=JeI0KLFX1wgVh2OLd6lIRgnU1B
-	COM2DuImBeWMNjGmV3/4fMDkmgJsayOLi2W9ThdFVsjBPhg/YHrMo2BTudwxC3TGzzNg+MWRy/lox
-	JaY8ERegRBAMlDq4gyspMbbnW7ylvXggtWWwaCBxGLL7hyxs4K/nIm7Ttygc3kxq6+YIbPJSF/eBi
-	2p9HrwRrq8Hzm2LBg6U0uaDqHmNpsTWb9Up/1tFzzJMrETFeNafn6YwjketvjgK5ae99yHgiO1PxV
-	QiD/G07I+SihR+5gKbi3ckxwkARBPl5YpV0bFdmD/EINxrQtSuLzA2GITdFLTZJ/5gpuje/yIoNO5
-	mesVcXeg==;
+	bh=scqFfPItdGINGCWBU061MbMp1aJ9X/xDHgUNHVisgCE=; b=QE3ak5jEf58RnrnLKTuGzm66Dc
+	0iwe3N84XDd/UwEforlcEoG/hqhbsDTk7ERkRZswOt/h38t11lbG1NcNLh1oVlE1BneQrQk20DM/l
+	TvkzTyQJ5D7yhJ0t3/srRjVDymPEUv5S35f6vNrNVj1OllE8erTlCAHWo0dVqbyR63VLXlnqZVH9q
+	nLwoV7TgJxepa/zE1rq5jcNcnNuV5Vk6LmEWtbAhnrdR5/7z1GJx4ylvSYI8Ruehu5KozCwbaCwJe
+	7Mfzw/MtaKm725OndGdAqMxaIRXATEKD/nZrWNiiVc/LuJZntZ4Vdi0e4WQQXjJ2Tqst1gTbbbUtM
+	PTUuhW2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKetQ-00000001T1P-3W77;
-	Wed, 06 May 2026 16:14:36 +0000
+	id 1wKetW-00000001T4V-3uO5;
+	Wed, 06 May 2026 16:14:42 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKetQ-00000001T0F-0nEN
+	id 1wKetS-00000001T2M-445o
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 16:14:36 +0000
+	Wed, 06 May 2026 16:14:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A5F9943E15;
-	Wed,  6 May 2026 16:14:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 878CAC2BCF4;
-	Wed,  6 May 2026 16:14:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B112F44224;
+	Wed,  6 May 2026 16:14:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CDFCC2BCB8;
+	Wed,  6 May 2026 16:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778084075;
-	bh=A0quAGCK/EpA/Nbo/d5YzQaDvSpRk944McU1GFhDxkQ=;
+	s=k20201202; t=1778084078;
+	bh=NWybhyhZOftJ9uYzJ6gBhCYWxRgsVrDsoYwiBx0JL+M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=W2tcqdr1OXMwzgVW+ML6e0udUsOw82v+LM6zMQ8UEzrumicQwEBVBnXTX9rPy8jlF
-	 phbB/435SXxp/Ovuy4GpGmWJ9Ru/VRHvBZA+WJBlDKsruheQY9Qe4kGiQN6H/WiRYR
-	 5U7qj6fNGAaNx2sMV/FnUGMRG+598BpUdt2A+y7RFFLpkXOMjoN31vV0fZuUtbhmTI
-	 B5eRAn1pDoTD43ddHFqNLGReBz/vDphDCwvdFF1Gopaqm0VS2Zldo6x1pbrZ/i8YrM
-	 Mt0uu03NamOjYbYzAkj3Xa4W3priDIDpYDTYvRzQUqb/RiPEpfvapJm+KTGUCcyBcU
-	 6G5gisiA5IZTg==
+	b=d5fY96X9nEDw11sMbwI3KaWS9j+3p2jEuuARhK9OvDaBwQN9wAzJfEOtWtSDYHx4d
+	 5u1Bj/VqUmri3eMVa6zUn5h8lZZ7o1UAJQ7w1+F8SSiwkYhvC8orc6RISZX0hzCycL
+	 PWwrNOPQ3CstXUbeKGvYkn9Eg9wuOoLniZrCGOXZBWXzmgg5VpUNz9Z1440KnXV/0X
+	 6xNWZTWAu9BWtF8/2gWoP8Ko9LcD7mjGd79E4jzFe0sb20whz6+UO6tsPVK3qJ0Gzt
+	 wxCgbnXkbrZ0t5cnxBOjIAhS7WlD3hoKdbKXcnv/TJ86GNE8SvGM5Yfnz0gH42nFmT
+	 b9Ps6XZ4W1bWw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wKetN-00000000MI5-1ObS;
-	Wed, 06 May 2026 16:14:33 +0000
+	id 1wKetQ-00000000MI9-1pD4;
+	Wed, 06 May 2026 16:14:36 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
+To: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Cc: James Morse <james.morse@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
-	tabba@google.com,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: mark.rutland@arm.com
-Subject: Re: [PATCH v2] KVM: arm64: Handle permission faults with guest_memfd
-Date: Wed,  6 May 2026 17:14:30 +0100
-Message-ID: <177808404891.2712489.7110397022243564508.b4-ty@kernel.org>
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH v2] KVM: arm64: Work around C1-Pro erratum 4193714 for protected guests
+Date: Wed,  6 May 2026 17:14:33 +0100
+Message-ID: <177808404886.2712489.16077885657000139159.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260505094913.75317-1-alexandru.elisei@arm.com>
-References: <20260505094913.75317-1-alexandru.elisei@arm.com>
+In-Reply-To: <20260505165205.2690919-1-catalin.marinas@arm.com>
+References: <20260505165205.2690919-1-catalin.marinas@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, tabba@google.com, alexandru.elisei@arm.com, mark.rutland@arm.com
+X-SA-Exim-Rcpt-To: will@kernel.org, catalin.marinas@arm.com, james.morse@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, mark.rutland@arm.com, oupton@kernel.org, vdonnefort@google.com, lpieralisi@kernel.org, sudeep.holla@kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_091436_247747_3639542B 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20260506_091440_334496_76FAD012 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,21 +89,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 05 May 2026 10:49:13 +0100, Alexandru Elisei wrote:
-> gmem_abort() calls kvm_pgtable_stage2_map() to make changes to stage 2. It
-> does this for both relaxing permissions on an existing mapping and to
-> install a missing mapping.
+On Tue, 05 May 2026 17:52:03 +0100, Catalin Marinas wrote:
+> C1-Pro cores with SME have an erratum where TLBI+DSB does not complete
+> all outstanding SME accesses. Instead a DSB needs to be executed on the
+> affected CPUs. The implication is that pages cannot be unmapped from the
+> host Stage 2 and then provided to a protected guest or to the
+> hypervisor. Host SME accesses may still complete after this point.
 > 
-> kvm_pgtable_stage2_map() doesn't make changes to stage 2 if there is an
-> existing, valid entry and the new entry modifies only the permissions.
-> This is checked in:
+> This erratum breaks pKVM's guarantees, and the workaround is hard to
+> implement as EL2 and EL1 share a security state meaning EL1 can mask
+> IPIs sent by EL2, leading to interrupt blackouts.
 > 
 > [...]
 
 Applied to fixes, thanks!
 
-[1/1] KVM: arm64: Handle permission faults with guest_memfd
-      commit: 9be19df816dea9eb7dfe1661b3690bed6a2cb146
+[1/1] KVM: arm64: Work around C1-Pro erratum 4193714 for protected guests
+      commit: 1f7305d87aa23db2579df222eba504a333c2c978
 
 Cheers,
 
