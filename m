@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55986CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99CCBCD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i7i67lqwqKk10wMuYQxF5+U/o7nLQyiyUN7/CthSSj4=; b=qt5eVdRxk36XUgGchYrijSmQ3L
-	ou9s8TeXxScJOWXmsrIcj0zK2ecbCK5ANxyB+JAiea/kuI/JPltL0LE1V0ggd+rOn/bzqLqCMqyjT
-	v1ZGMDh9yeUr7qvCBVnPgsgOeEx6shNqCdioSowZ9xJi98hcRj3Nomv53qCkaUAryOYtej/i86PH6
-	hoBIH6rgAyPxEsBi4Z05P5NHG4UrMJoXnuGpZzNMvLhnm4zNItyc9lkOgE49WYf513o3YVwQdes34
-	TuOr3d6sB6KP4pzGqhmTSFWjXNmg+hjwAx13aiZgI60XHFLZiRK9t0f7SorjJLukcl/9EX2F69b1m
-	LPV5a/Bg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uOAoBddxsglhKkgyRLY9K1ZWbN+d1/gjljjCY02+NAU=; b=yjfBL3MZxthCgOuO6NXURLE4tv
+	wE5bJNwH7VeI2aRzFTG12WpIYT7/VVwfX/q5p4iXSfjv/u2iFk788LZW90382D6OlTj/+uqjNl5Vd
+	YBr1oCmuT3Yt50mfi48sHqrQX8pjd1FK//9Vg2DYgivWF4OmihiSQE2QVK4Qycy2G4nW0W3GlpC4+
+	s1BhT/jSd/msCRka4urFE+uWmnRLSfUW/pa85pdJ5jHUz/Cvi1ehkof4k1VdcnAw0gcU+PRyn00hO
+	E0VwSkzConYMFtEDmqGG2VeW/X70kzgptc7tg9mB2ZMgfsnwpZq1i6vbJhh1PiqncWYOFwG6M8XDo
+	sFliJ4Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXyH-00000000EAo-1doR;
+	id 1wKXyH-00000000EAz-25Yb;
 	Wed, 06 May 2026 08:51:09 +0000
 Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKXyE-00000000E8J-2jvu
+	id 1wKXyE-00000000Dp9-34Q5
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 06 May 2026 08:51:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
   t=1778057466; x=1809593466;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=gH4tNHByD1p7a5F+z6izPFgbESyPETnNCM9qNzu3rBw=;
-  b=OZlTGtuhMJR/1viI2G27rjiq84inC5oxBK1nF/Zhqzjtu0iupHMo9cEE
-   9H90DdbhvuqbFH+Hyi2LTxPYUR//dZRfPOeUHUxMnzSMV2imE3zXXFitX
-   K/7TQQwfA0Iut4znv8ND1dZFmZ8D23CV1n5NxTf9/VK/u1xolosc9gEqc
-   hXRBeWjmzb78oY3m0Oi4hDw4OlFUXBLn2S2+SCYiS7H4KAJFmO006jsg5
-   KsIRuXUo+NBoTKkIzTnuDzLkZvNaXokFldNphRE5EuFcSGwv1WmSASGVX
-   XPr7UuCMINvrmQ6TFVW8ag1l8VTHCwN5lwJ+Puw4ihJKItM1VsfgQRUSE
-   A==;
-X-CSE-ConnectionGUID: pJz2oUMzS6ewDQO8HsiYsA==
-X-CSE-MsgGUID: nv33d9uWSteM7fki4VSXqw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11777"; a="78869744"
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=sXJPnH5sx+BWU1msStd23fcHDa5lpoLcmHDRRBzqQto=;
+  b=NUd7VnGsrVqtjNhtekTXREftU+YjyvEvqZEOMN7NfqWp+11I66qLKIi9
+   gIGd/TALxuMt212L8qAF2LmINII39gozPke5oq5WuCtV3HJ0QtGqfjyw6
+   0vSJeSmHhBQqbQi+NbibuWJOR5jrr48UQkushY+MVEQrHQ/BWrV9JSao3
+   s2MigWSBzh7MxZ3sCB15ESJVh1t9f5RWfnDbbOEgh3yNC28Hla+WzcMX5
+   gRB6Ya57w4N+5lZQq5KYVCS2TGEtvOOMQKCGECbCSgmr+E1t3NJuLF4vL
+   1CdyLbUMBRlXPj7Tr6ZLdtoT+aOE6bsf28rqRXFhr36KMT6izdMBFaMpj
+   w==;
+X-CSE-ConnectionGUID: mnwwQw65Rxa37ELmVdjmjA==
+X-CSE-MsgGUID: o/ORoi+KSfeWLt3UcvbBSQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11777"; a="78869762"
 X-IronPort-AV: E=Sophos;i="6.23,219,1770624000"; 
-   d="scan'208";a="78869744"
+   d="scan'208";a="78869762"
 Received: from fmviesa002.fm.intel.com ([10.60.135.142])
   by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 May 2026 01:49:05 -0700
-X-CSE-ConnectionGUID: d2Qu+C2NTJOdJ6Z0amNnPQ==
-X-CSE-MsgGUID: /FRO+juXR4qywqDmV2LS9g==
+X-CSE-ConnectionGUID: 7oVySJZXR2SeQRTaEQijuw==
+X-CSE-MsgGUID: +2LzXYrIRjS+0AiMEPw9Yg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.23,219,1770624000"; 
-   d="scan'208";a="259510102"
+   d="scan'208";a="259510105"
 Received: from black.igk.intel.com ([10.91.253.5])
   by fmviesa002.fm.intel.com with ESMTP; 06 May 2026 01:49:01 -0700
 Received: by black.igk.intel.com (Postfix, from userid 1003)
-	id EEEE995; Wed, 06 May 2026 10:48:59 +0200 (CEST)
+	id 076229B; Wed, 06 May 2026 10:49:00 +0200 (CEST)
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Sai Krishna Musham <sai.krishna.musham@amd.com>,
 	Niklas Cassel <cassel@kernel.org>,
@@ -75,16 +75,17 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Greentime Hu <greentime.hu@sifive.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
-Subject: [PATCH v1 0/4] PCI: dwc: Drop or replace unused linux/gpio.h
-Date: Wed,  6 May 2026 10:47:23 +0200
-Message-ID: <20260506084858.867884-1-andriy.shevchenko@linux.intel.com>
+Subject: [PATCH v1 3/4] PCI: fu740: Drop unused include
+Date: Wed,  6 May 2026 10:47:26 +0200
+Message-ID: <20260506084858.867884-4-andriy.shevchenko@linux.intel.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260506084858.867884-1-andriy.shevchenko@linux.intel.com>
+References: <20260506084858.867884-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_015106_729223_D8565CD3 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260506_015106_806148_4178085C 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,23 +100,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The <linux/gpio.h> is a legacy header that is going to die.
-Make sure that PCI DesignWare drivers do not include it.
+This file does not use the symbols from the legacy
+<linux/gpio.h> header, so let's drop it.
 
-Compile tested on x86_64.
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/pci/controller/dwc/pcie-fu740.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-Andy Shevchenko (4):
-  PCI: amd-mdb: Use the right GPIO header
-  PCI: designware-plat: Drop unused include
-  PCI: fu740: Drop unused include
-  PCI: visconti: Drop unused include
-
- drivers/pci/controller/dwc/pcie-amd-mdb.c         | 2 +-
- drivers/pci/controller/dwc/pcie-designware-plat.c | 1 -
- drivers/pci/controller/dwc/pcie-fu740.c           | 1 -
- drivers/pci/controller/dwc/pcie-visconti.c        | 1 -
- 4 files changed, 1 insertion(+), 4 deletions(-)
-
+diff --git a/drivers/pci/controller/dwc/pcie-fu740.c b/drivers/pci/controller/dwc/pcie-fu740.c
+index 66367252032b..d0a34f680397 100644
+--- a/drivers/pci/controller/dwc/pcie-fu740.c
++++ b/drivers/pci/controller/dwc/pcie-fu740.c
+@@ -13,7 +13,6 @@
+ 
+ #include <linux/clk.h>
+ #include <linux/delay.h>
+-#include <linux/gpio.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
 -- 
 2.50.1
 
