@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23338CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 17:08:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF9BCD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 17:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WG6xl+zArKhOaKdO3w71nbx8p2GqDAZeXAH/EjoYemA=; b=SPCqi5IsQIlKohPOF+a5/BwISw
-	i5GxL0HbBK04bpT2ZrI2aIgvWW2/+sLFfSY8isD88oVGtSslMTu8x68ea61baFmybLmaNYj5Xi6Er
-	VVVAVWfsA8Y80RWQ4kYB10lbQ2n8Gga0GC55VEpday73UoMIOqduOZOEYGiGP6Nv5hhdYlhepZO4q
-	o0/2wisqeYnckA4BTKeWcGyz+fX6bR3alqrlZcCFjzKd9Wm4GvkE80RS7cp/HLIN4bR/BSmJ0uNrx
-	7kINPgcejIkbHrtqT4EdMALmZqt8eJkrwHnAtSntWZIXtSsfrp5tDLiygU5pYlDXA5CIKCKTjxYYY
-	cvs+Do+g==;
+	bh=Xe86PdiXqLS2iOWkR3ssBBeNry96Lj+AG0WMYOF0w6k=; b=yMY3GofcTSocUOlzb5A21MOdmQ
+	I5l28YuB46CkDG/8TkvKsHKCaQ6Beq1fGTQgnt+zaBDtgwaCBYODM1Kp5Ud3S9xU6hx1lv3Nz6iaQ
+	d5N5906ZNqIxfxml94fpcRMF009Fr3+FMc4m4s93FHN9qHCPFF4V/ewBDi5so+VNI6X9sPHkuo3XF
+	yHBwXdibtoO7iOxaM8kdVcyy5IDuoDTuu5cmsdZ8fX9/gwS3m3wvaAV0Vf2IPT05yOOdT+8mIUG2J
+	274KKUW9IsaZ3ExIk0TyiWm1KPnmlrmbYxjv/bk5CP67cIDmM1BFx1Ehzsoo2Djuyzaut0XxQ/frL
+	0MfD5/VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKfjh-00000001bY0-0MyK;
-	Wed, 06 May 2026 17:08:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wKftM-00000001cot-0QWQ;
+	Wed, 06 May 2026 17:18:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKfjf-00000001bXR-3M2e;
-	Wed, 06 May 2026 17:08:35 +0000
+	id 1wKftK-00000001coh-34x5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 May 2026 17:18:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EED546015B;
-	Wed,  6 May 2026 17:08:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62C94C2BCB0;
-	Wed,  6 May 2026 17:08:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B9F556012A;
+	Wed,  6 May 2026 17:18:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6572CC2BCB0;
+	Wed,  6 May 2026 17:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778087314;
-	bh=BMEOMKlCQHVzxUJsWvxH+VWNDNsnOa86BVNbOsfuUpg=;
+	s=k20201202; t=1778087913;
+	bh=MKhUYQpBlny7azoXrW/1cc8EFMweik0RsJgT4PfJcCg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KCgO/4lfvlhr58bNd1rnosxSp3cQL0RDHVEFc0noaCY0Dy4skeO1ZVlYjCHH6pq8D
-	 mg23M7LCdrRdSNNVMglJimnDHXgVdN7f6qMRnKt+RD8wr+fbex8VusCrSOj+1PQcHe
-	 /4lDBJdfVMZBwp+oAv0VlfZFb0RVb4AJS//pYejsSMGOoWVaj58yyhk/e761StBwGs
-	 1OCycAJREI9arLs0pkiQSvV8leGcY2xw7170XL1l04kw7LtiQDnDyu/ZAw5QTpL1tn
-	 B6qOmt9xFACoE3kzKWpodenJKQ/7ivA4waHngKu27qyV8O0mZAvFRsGTa0No/AzOG2
-	 BN9nqp9qzfwyQ==
-Date: Wed, 6 May 2026 22:38:26 +0530
+	b=qoWPL3Nsa592G0H63aOsgPrEkmTLcpRkbrfNV7OC4DWMxTKy2IDG2Qc17AfORMvq4
+	 FbSVF/sPo06kkMotuJ/o4sVm7svEICB+ZJbSFwR6lwTlowN93OBCs/pr1Vuw7/qm7q
+	 EZvNp3ac49h9cx2x9zr4JzPLDETsuiLwSZtAM5KkQ877nuZBKP2nvaV7JjtmckTntZ
+	 oHJep68hzu31R7L13ClBJStJLWg872OkCWuUXX4pRddpPgOMnD+r0Ebo0EoqYF9dMt
+	 /nZs2bvQc9aoToDq2ANXwUMwNTaeAzoA8yQCRjq9kmqmEPug/eMI3m3GLFFfxjTdEn
+	 l534aEB+eQdoQ==
+Date: Wed, 6 May 2026 22:48:25 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Dom Cobley <popcornmix@gmail.com>, 
-	Phil Elwell <phil@raspberrypi.com>, Jim Quinlan <jim2101024@gmail.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Hans Zhang <18255117159@163.com>, 
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] PCI: brcmstb: Assign pcie->gen from
- of_pci_get_max_link_speed()
-Message-ID: <t3u7r2ee6gdkjceula2ctvgditgxibwxcpaejc7ekbgdjog3br@c6n6ztzsbhpu>
-References: <mid:20260501202438.376033-1-florian.fainelli@broadcom.com>
- <20260506164537.103196-1-florian.fainelli@broadcom.com>
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, mark.rutland@arm.com, lpieralisi@kernel.org, 
+	bjorn.andersson@oss.qualcomm.com, konrad.dybcio@oss.qualcomm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Konrad Dybcio <konradybcio@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH] firmware: psci: Set pm_set_resume/suspend_via_firmware()
+ for SYSTEM_SUSPEND
+Message-ID: <4ympdtnpqrydnjmapuswsnig7ymuopy4kpxqclyxnoaqgpdmxl@eywcfbu3avtg>
+References: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
+ <acrdFfk8al80dynq@baldur>
+ <ces6pczk5yo2v5h6sga2dl2xuncqv4pmudunc7dhyeiy6swfh7@bk7vxdxrsrzz>
+ <adO1lS2g8Hewj0Ol@baldur>
+ <a6lce6bq3yjzidxzq6w2xuiyevvgfuu5crbijtzeiukecmwvhh@k2w64iyj7q7q>
+ <cbffc0ec-2961-4a3f-91e8-770f3f7f8bcc@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260506164537.103196-1-florian.fainelli@broadcom.com>
+In-Reply-To: <cbffc0ec-2961-4a3f-91e8-770f3f7f8bcc@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 06, 2026 at 09:45:37AM -0700, Florian Fainelli wrote:
-> After commit 03f920936977 ("PCI: controller: Validate max-link-speed"),
-> pcie->gen stopped being assigned and as a result the established PCIe
-> link would stop supporting Gen3 speeds on 2712 since pcie->gen is used
-> to populate LnkCntl2 and LnkCap in brcm_pcie_set_gen().
+On Tue, May 05, 2026 at 02:47:08PM +0100, Jon Hunter wrote:
+> Hi Mani,
 > 
-> Whether the 'max-link-speed' property is not specified, or it exceeds
-> Gen3, resort to the HW defaults.
+> On 06/04/2026 15:29, Manivannan Sadhasivam wrote:
 > 
-> Link: https://github.com/raspberrypi/linux/issues/7343
-> Reported-by: Dom Cobley <popcornmix@gmail.com>
-> Reported-by: Phil Elwell <phil@raspberrypi.com>
-> Fixes: 03f920936977 ("PCI: controller: Validate max-link-speed")
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> ...
+> 
+> > Sure. It makes logical sense to relate this API behavior with the state of CX.
+> > I'll send v2 with the updated commit message.
+> 
+> Did you ever send a V2? I am not sure if I missed it and so wanted to check.
+> 
 
-Since this is a 7.1 material:
+No, I didn't. I had some offline discussions with Bjorn and concluded that it
+might not be appropriate to set pm_set_resume/suspend_via_firmware() for all
+firmware flavors that our Qcom SoCs support.
 
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+Then I found out a limitation with our Root Complex IPs in exiting L1ss if the
+platform is suspended. So sent out a series to fix that and that allowed me to
+get past the NVMe issue coincidentally.
 
-> Change-Id: Ic5431469dd7a6c8b391f84f27119dad876256880
-
-This Change-Id is irrelevant to upstream.
+But since this patch applies to other ARM64 SoCs, it logically makes sense to
+apply it IMO. So, I'll leave it to PSCI maintainers to decide.
 
 - Mani
 
-> ---
-> Changes in v2:
-> 
-> - utilize of_pci_get_max_link_speed() directly
-> - also validate against exceeding Gen3
-> 
->  drivers/pci/controller/pcie-brcmstb.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> index 714bcab97b60..08a0e7091ced 100644
-> --- a/drivers/pci/controller/pcie-brcmstb.c
-> +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -2072,8 +2072,10 @@ static int brcm_pcie_probe(struct platform_device *pdev)
->  		return PTR_ERR(pcie->clk);
->  
->  	ret = of_pci_get_max_link_speed(np);
-> -	if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
-> +	if (ret < 0 || ret > 3)
->  		pcie->gen = 0;
-> +	else
-> +		pcie->gen = ret;
->  
->  	pcie->ssc = of_property_read_bool(np, "brcm,enable-ssc");
->  
-> -- 
-> 2.34.1
-> 
+[1] https://lore.kernel.org/linux-pci/20260414-l1ss-fix-v1-0-adbb4555b5ab@oss.qualcomm.com
 
 -- 
 மணிவண்ணன் சதாசிவம்
