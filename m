@@ -4,98 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77B91CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8515DCD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 08:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EhzB8ETmB1Gn6S1MA51/Lwkn0HDnlQZbCh2CXttfCBk=; b=ZiriAV42OCT2+ZQ3WeYAVApxbv
-	6nC2xIkDcKtmKpjaSQHI6k/is3zLvDEmEXsOEd/E4rKZWXoP1E35+P8l106Lf9dXLI3j04wVJ9Ue4
-	NaoNM9tujuSnRYJRpNXOZcs0BLchcYc2Dbk3bRACcL9f4yuWelJUkahzZ5RxZI/s9Dl7s2h3KxTkO
-	v7A9KysnFbFjARbJ7JeO/S9o7c90omYj0UgW4qM8rs7kcjefJA0Z3o7FWnRRLSy8cDJMn860bCSP7
-	CSZsLQlYfaurWN44GLhZjc8XbySJgrFAEF/NM5Sdk1KvdfyJh1rAgnPZEnCdXcWAyFHt8Q7e4tcfm
-	vWAlnKLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i5+Tl/zgsVwD9/kCdwVAFUSzbATI/y+YyCX93snTxj0=; b=KlvDivLMVqBv6DCc5HupK4tZL0
+	+p82ZxIIsZxDyH/DNVlvDyJibbLX7r+7bj9BxVdq0AairhncIYB/XYlqJKm7q2FIS5e2ByFXOoPOW
+	CIWyzJ7Ox9Xsm8T9ygTFlFC3u8+Mr8KNLhScdqfPEjcGAzi8yaX/qez/49TmLfDwhLWB4eYS6IpoS
+	GN2lIg6fQ0DcBUHxOxwHrSX3U5dwEvhjdXp6dH2EHiuQhR1UcdCnIFfHQXfbzlN9dNVFSb5GeDcfO
+	pD1jgO7g6v38KWFXKvRu16xc4Gxrrv3HenC2/F11dPwKIiqwvb1MR0yONaBWXop/QyZUSM5JTO9Mo
+	2bqp2pcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKY5Z-00000000GSF-23X0;
-	Wed, 06 May 2026 08:58:41 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wKY6N-00000000Ght-2zK9;
+	Wed, 06 May 2026 08:59:31 +0000
+Received: from mail-swedencentralazon11013038.outbound.protection.outlook.com ([52.101.83.38] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKY5Y-00000000GRQ-3EF2
+	id 1wKY6M-00000000GgH-19dz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 08:58:40 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-488b0046078so53695185e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 01:58:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778057918; x=1778662718; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EhzB8ETmB1Gn6S1MA51/Lwkn0HDnlQZbCh2CXttfCBk=;
-        b=NpAo8Wl3P1g9VeFwb0C41UEEokCl9lXY4cuj0+wzZqx3ixtRFp4/P9Dpu+pdhWq/5v
-         ngywpTo33fWPK5e1ymtEpnXfmKvC3G/3FCIKffeo6xJ+w/wL1ONeQtAsoVZCsnxZlzE5
-         kKgXnanz562MK4MZLw5xdjIYTvGaqxtaQ5y/cuqNo2ytJeb/iLerwof0F432rp9fCFb8
-         2prP8FZDQb/eo5DjbPHB8XgNIptSO7Cs9/LLeyp1um2aCNaVAHEOx8vDQpIIPKUWKphl
-         BbaK5C3wMHF+kK8ZVonKu6DydHETfNITuinx6uf1B4Gnem8dfraoaeUaZE6v8rUKpuDw
-         3mXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778057918; x=1778662718;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=EhzB8ETmB1Gn6S1MA51/Lwkn0HDnlQZbCh2CXttfCBk=;
-        b=e3kg4kjOj/nRxwiHi4o70BI/L7dz4RTXjUEMYyM7XYPQEJyTgqJ3IXwOH4hKcGZupp
-         J3DwGCT9qD+xlND6laNQBsQl5TIbNcBUdOHHGOYFYZRX/zrojGe6f6ds/BQaSJXNmKMf
-         m8QBTUEDcXiFynpwbEW3D1YjDLnL/KXmhXSlBeWxc5sRj4w27QaWceG5vDGCV6/ojkC2
-         7DVfw8k3flBKfGiHg0zORKhTP0+YeMmWP9Nrgf6awIFcB2gUsCVndixP/O++Asj/DApW
-         6LJ8BXoPFRjNhE1x84Mip6NG7eJa7bSlLYP1H6fUXEAdZlaiQIDl4YN8h7Y8m7PfnMNr
-         Fi/Q==
-X-Forwarded-Encrypted: i=1; AFNElJ9Ce/ObNk586+7/asRR7B3fsALjH/B8EkOEbB0DlhlX/C+cYQJW6cDMlwF9x+dg0lw1AbIDK0AToel14sY3Rxm6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFLPtpdHb4kXS9OQR+0vqaSdCdgz3pPyPGEENDg8CCCslTUuZc
-	OpuMrYDv/VvxD3zyiqWVQzP4Adn6jY6QZupkmUnOed73Q6645bFPYTJA
-X-Gm-Gg: AeBDietDkBnFEyp/XMY64FInhuCy97N42svAJ7Dqm+DrxChFwQZJpk9FkNZiGjIIL9q
-	E6WF5K0/eC65v1pauaPKbh2oXM4copMR+oKpsYPH5cf1qYiDxw8vE+x9dW0PNAjpYp6cRUnpnns
-	BEFjTll3dJPi5xpxdGJ8P402PqSxmBPfPblVHGqN2XbKCByjxtf4DNvAd8otJWTVbniyIbU0cbj
-	hI0e53pDAfRRx29wVCTvUKMh7kTxbMagH1sy/8zbwpKQE9ePAlDqEiwoFRvH0oGtn/OYKxRlHDc
-	GUoTmJfXtS36GLVmuZ8ZiSqsWfbiMxwc5WU7TFc4NeqIxsA4YTjjWB9YqnZaGQ4TeOK5Ljc1s+p
-	xpnnWXEi9agNLOzQ79Ghn37JGZSLcHA4GYc00B63tU0IM4ldbK5dMY7sLe2g9T+XBiy/puRnOSJ
-	ye/3sIC6ZPWYOpryoVENQEt0cPiOgGpR5+OKZhSYRNeOipAemTdT5uyVwPlL8aBQKeuRVZKTsvl
-	JQ=
-X-Received: by 2002:a05:600d:6:b0:48a:8905:a500 with SMTP id 5b1f17b1804b1-48e51f1d04bmr31640885e9.12.1778057917950;
-        Wed, 06 May 2026 01:58:37 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e538a50d0sm55769975e9.5.2026.05.06.01.58.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 01:58:37 -0700 (PDT)
-Date: Wed, 6 May 2026 09:58:36 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com,
- will@kernel.org, peterz@infradead.org, akpm@linux-foundation.org,
- mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
- rafael@kernel.org, daniel.lezcano@linaro.org, memxor@gmail.com,
- zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com, rdunlap@infradead.org,
- joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
- konrad.wilk@oracle.com, ashok.bhat@arm.com
-Subject: Re: [PATCH v11 01/14] asm-generic: barrier: Add
- smp_cond_load_relaxed_timeout()
-Message-ID: <20260506095836.216d9cc5@pumpkin>
-In-Reply-To: <874iklm1uy.fsf@oracle.com>
-References: <20260408122538.3610871-1-ankur.a.arora@oracle.com>
-	<20260408122538.3610871-2-ankur.a.arora@oracle.com>
-	<874iklm1uy.fsf@oracle.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Wed, 06 May 2026 08:59:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JcOYr0/mOlhLEhryoKiYvAfFgJRXfv2erGQqKTxaLWXwBN8BwFSSFtiCsqV1Ku1OJsnRLZQxKkz3bcQ/wHhFkkiAI53cl5/PCJXJDVEUFHt/s/klMZtgcCa/iYXt2s3TxRy5+Jl34g07Znjw1PvUZnTd2Qei72kBgTX7qihPIlU7MguT86VGZlXr+vFs+OoATXXQVR7k4zTB0ZWwFVHCR+gYcGR4TWeeHaequ7ZrGh3oLu1e6heiGS3ZY8Z6Ah3Dxah8CUTA2K9chBCx4hg0NTmJ/jEGP2AeCM18V66ouzhwBzNCgYXk+/1kIffi9SNG6Cu3auVgc9D5wUkR2PKTDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i5+Tl/zgsVwD9/kCdwVAFUSzbATI/y+YyCX93snTxj0=;
+ b=F1mL7rlFThxY95WqCYeFkvqBAF/TZXTupdXcNA4diBrPEZtzx09V9wjqX0kIlcmxESwADJTNHw3QssY3BQ8F6kKl8UCMsM2CIoKH1jCP5GF4T64jm9FrGWtppt2s86F8UG4SanOMZfe5WLTYwfYqN3ycwIoUFpZoXAQ7jCVhW6oTn00Tpn3vI73jf0fKyc64bRU0iXPbwaJy8mKs3TncabI5+d61YTbTim8x41tdsXrxSfRomPWZLRx5m/7CJ7GC0sm52nvbZi7KjNMaIJIobhJXZvbjT9isp3Z2Swc+5sieDyvWy0Clj9w3ED8jR0hQzekW3meNgJwSXwsXkXFf4Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i5+Tl/zgsVwD9/kCdwVAFUSzbATI/y+YyCX93snTxj0=;
+ b=kLtS140upRkm6IWy54d7Y7PRLiBrHEjJJv9ZABKoxeP6fcWiYtyVpA65zzocKf7ZjGktC1ZC9EimldsEx05awVpUONLeSKpxGq02DCuSel1umitMsznesIiZsIEAiNaFJXrlFfHu0JzrkssCpCB6EHqoURxqA46RdqycJemcmoIEvfEt+mRXZ4S+4fEYs3iGUCpeYrhAwQcY+8tyqiDosQ5i6d7xxHg6Ov5cUi4zwRV6o5TZKafJjWxKQgnNXv1pcMMkNGABW7gFdn/ewGLyDuQ4nrkvPLZCVaqbPQL9ZwcjwlsSaioLGrnYnkP68XyS49y/YhzinztnqN8+YjOGzg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB7821.eurprd04.prod.outlook.com (2603:10a6:102:c5::5)
+ by DUZPR04MB10040.eurprd04.prod.outlook.com (2603:10a6:10:4dd::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
+ 2026 08:59:22 +0000
+Received: from PA4PR04MB7821.eurprd04.prod.outlook.com
+ ([fe80::67dc:4bd2:8552:9b50]) by PA4PR04MB7821.eurprd04.prod.outlook.com
+ ([fe80::67dc:4bd2:8552:9b50%5]) with mapi id 15.20.9891.008; Wed, 6 May 2026
+ 08:59:22 +0000
+From: Robby Cai <robby.cai@nxp.com>
+To: laurent.pinchart@ideasonboard.com,
+	Frank.Li@nxp.com,
+	martink@posteo.de,
+	rmfrfs@gmail.com,
+	kernel@puri.sm,
+	mchehab@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	martin.kepplinger@puri.sm
+Cc: imx@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] media: dt-bindings: nxp,imx8mq-mipi-csi2: Fix example endpoint label typo
+Date: Wed,  6 May 2026 17:01:24 +0800
+Message-Id: <20260506090124.2960477-1-robby.cai@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MAXP287CA0024.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a00:49::32) To PA4PR04MB7821.eurprd04.prod.outlook.com
+ (2603:10a6:102:c5::5)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB7821:EE_|DUZPR04MB10040:EE_
+X-MS-Office365-Filtering-Correlation-Id: 823e44b4-d1a9-4e44-ad90-08deab4dc401
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|52116014|1800799024|18002099003|56012099003|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: 8qrNNtGcEqEPXz9V9+R7i2FWfi+b5vFPgmr9GoIAHV/ZKeRd/O5gOCWD8n5WcuRHeIv8niPHHBVjHddW4lChUFytZJtVhXhr8XoRvLO1pXA4hXCMmCaqQvJ76YjhF9O9EICulmkwLkmWSCcrYixXx8ilbcrEiNtOjmtmiKvB+P+b4IcZ1QFWUGbWzfJj4LcrBbrlpdckv5U4yTvDrb6SpOXdh5gvFNpTI3fHodQVv6f3vCcsj6sVeOKBWeo3sEyGOhfHrBHCbNePdbZ67RYxYADDhz2WqNekbZYMkTn/f/VESx7b/MV0q2i0Lxa61mfIUFVpbVgCuwLDiXojeFe0VEIfQwfXwsm68aZwSQWgijEowvpiaGESG8qmwVVTx9mPv6/7eSrShBG3sblZTHS7n1gR02GNx+EMj6I9Kk5xdEsDKni0bRxaRJ7VnO67KpNWIgF9se74zvkpmfQ9B86kE4ICTLCuYbPP+SMY/7rglLV8MNv0l9asTrnM5M/aaaM394rdzear7GAw3jaSiWc6ItAMQm0KemJnY+7/a5GgkYL/Kp2GsPZ0CMq/rFi5/at9V1MUNP0FB+cpnlk4AIxHeCkX3x+5VzHUx6OzRyd7OsPX83EYy05mwOZSiNKAMujgD6KbhL+g0VxvhTI2taG556GRPuPpE8mxswlRXygobRbmGrMtbjwMkc1reSnqsVIQQzu8KDD3wEhULI8hQLMAxKSrKdwdBfWRqzbBwLxc5D9ZsTLl1c5zP98LXaMR44f1Qq1tOwkSS5YgxFjdaDXdGg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7821.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(52116014)(1800799024)(18002099003)(56012099003)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zU9WqH2NNUU0HWaLInud+0l530sgi80lkvuYdMTLmeioBsuB30bORLLiF2bR?=
+ =?us-ascii?Q?ORsxMwPdX1nEZhSuP60s0zIof72IXtgeFyR8HoiXl5qrEK0jtYHT7+0OQF5k?=
+ =?us-ascii?Q?maY8M0LUs5bCiyFDDmsjUJHwAHP8Jw8OIq8YMQ80rd1sZNNmgNnILS2Cgkmc?=
+ =?us-ascii?Q?Pi1fm0b5Zy6aDdO/eZr7L73o0EC8n4yFjvl8upv8waSrKzTmrLDg1kXYq4cm?=
+ =?us-ascii?Q?mQv7/HvEK23d+vGBpdCf833ynwtGM/aL81nGHpYxZlHz/iD0ZbbSFVjpJnL+?=
+ =?us-ascii?Q?VruM27GgzYB43DR4kBdyyRZKoSbxK8Z4e0X9FUmNF0EdfVmI+WDmwaphB1YM?=
+ =?us-ascii?Q?vIeeVvJtCUs90+RwVauEYAv2GPT6gmcbCvsYwYGImN960Tn0RXO5o3LpDMLo?=
+ =?us-ascii?Q?e+HTv6GinExw/6rIaK8qITxMRHq8GKczpa64/7Epuq/ZfhZ4xTXxAF5PBnyB?=
+ =?us-ascii?Q?zyu05ncTbqJsKH8JN1kX3iWF8GJtXLDO1i2/wjphSBXibI3g5hUWXHpw1Ozm?=
+ =?us-ascii?Q?X+47WDIFb44wBQGsBxKdnXY0KAt9MhXEVpRtaMjkA4/g3jsScGZtKaG6JUTi?=
+ =?us-ascii?Q?EHFUusArqRoqXh4eLYHXlti081Yp2lFsgcNSr6KjPRU1DSEPPRAubErngXRN?=
+ =?us-ascii?Q?/ORVnrGL2ChGO6qVDdgPFz7AyT4awVwEVna9/uBHWayvDe4Eo7Amz69J9KIQ?=
+ =?us-ascii?Q?Koi2U8gR0pFTxSmOU9oDTA72FdV3JWfS4ULNTdUsGoa+5uXbHPE5L3b50czA?=
+ =?us-ascii?Q?m5p7B0RjcrDgrXzxGgjVE4EWuHWo3INkCHiKzNLe06fS2sUGIH93becF0F0Q?=
+ =?us-ascii?Q?QCA8WQlXgXVhISXD2Bclhdr3B8UdQ4yOlKTSNzKBG6J/xHC7EKFnhPA4njah?=
+ =?us-ascii?Q?8vkpcBFdkZC6vWS2p5eWTtVKPqSWiiglSciT+fj3Clqym3nk7GyEwx9Fky/e?=
+ =?us-ascii?Q?30Nr5cUwfciDBOxrkQI/o2038QjZhyGF3SgZO6tWQEJcgGWu+4500U3zEbo9?=
+ =?us-ascii?Q?yzD/njLUuOqboLHFkLmzAOQq4NbDSs8iVyzgOhA5+gCZwMC+1LteXXrBikgp?=
+ =?us-ascii?Q?+gLjbWCz8SixBQJyX9LDiTQ7nV2H80b4jW1U5/juJvdHQOZC0QdgPsCHPKrk?=
+ =?us-ascii?Q?lgyfOielLwqEljDt78/sWNc8RGHYw75yU8w0poNGqXHxugT4EfrnSAv/tjvu?=
+ =?us-ascii?Q?/KTmwQEHKegXJH4K9pSs4WpD8kv+4ZYs/5YYCMxpIfPlX1wP2oUO7R2h5BRD?=
+ =?us-ascii?Q?hEi8FvQmqOAAirnUxnvqRic6ycJ4W1AoP07ksLMHVzJ06VFQDc8EZ4aUKvNB?=
+ =?us-ascii?Q?Uw52yarO4uYNf0PwMrx7yv9oc1uwt7dA4cHla8eokKUOyyGWdhA0TjyVx8oj?=
+ =?us-ascii?Q?o21w8OcwK9dIjstTOiRkzrREUt6B6/F7XMUjIXcsgaKs3WzyM5cnuR+XVypl?=
+ =?us-ascii?Q?D78TYza1wmqzC/kQ+Q/eCXHK4Gey1AKEJWcmN4A38Dl90QDJgB61Qdjd5UZU?=
+ =?us-ascii?Q?VJlUQYKOnbbmIbkciAc8/Rnf2FlNbv5ux2K5uNpV3O/ZDAf57XnEfFJt/jVJ?=
+ =?us-ascii?Q?xQSTc1rrcA3dLpscX/LS2/jFQW6002H88tH446frmblL1TLH0YC5EBLK+HM0?=
+ =?us-ascii?Q?o+E9rzftzwk2L9hPEy9Bc3GPTiIGdPter4NXHE1TL7BmoSAt1mtf2rRH8MTn?=
+ =?us-ascii?Q?gFzqoSqjfWyvE3Ni553zQQhCmhh9OGLnDWya+Dso3zHBcBALwXCOVceLhKOt?=
+ =?us-ascii?Q?JrKstmzthw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 823e44b4-d1a9-4e44-ad90-08deab4dc401
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7821.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 08:59:22.4088
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kmCk9yn3ONrHvdenBPmsUNMGm/rye7qY3leLab0z4tsoHTz/S2G96bPaTuyI6bym9fn/dM/hb5gaehZMOI/pYg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB10040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_015840_866902_D2340D80 
-X-CRM114-Status: GOOD (  51.54  )
+X-CRM114-CacheID: sfid-20260506_015930_314681_B993DD1F 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,204 +149,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 May 2026 00:30:29 -0700
-Ankur Arora <ankur.a.arora@oracle.com> wrote:
+The example in imx8mq-mipi-csi2.yaml uses imx8mm_mipi_csi_{in,out} endpoint
+labels, which is confusing for an i.MX8MQ binding. Rename the labels to
+imx8mq_mipi_csi_{in,out} for consistency.
 
-> Ankur Arora <ankur.a.arora@oracle.com> writes:
-> 
-> > Add smp_cond_load_relaxed_timeout(), which extends
-> > smp_cond_load_relaxed() to allow waiting for a duration.
-> >
-> > We loop around waiting for the condition variable to change while
-> > peridically doing a time-check. The loop uses cpu_poll_relax() to slow
-> > down the busy-wait, which, unless overridden by the architecture
-> > code, amounts to a cpu_relax().
-> >
-> > Note that there are two ways for the time-check to fail: the timeout
-> > case or, @time_expr_ns returning an invalid value (negative or zero).
-> > The second failure mode allows for clocks attached to the clock-domain
-> > of @cond_expr --  which might cease to operate meaningfully once some
-> > state internal to @cond_expr has changed -- to fail.
-> >
-> > Evaluation of @time_expr_ns: in the fastpath we want to keep the
-> > performance close to smp_cond_load_relaxed(). So defer evaluation
-> > of the potentially costly @time_expr_ns to the slowpath.
-> >
-> > This also means that there will always be some hardware dependent
-> > duration that has passed in cpu_poll_relax() iterations at the time
-> > of first evaluation. Additionally cpu_poll_relax() is not guaranteed
-> > to return at timeout boundary. In sum, expect timeout overshoot when
-> > we exit due to expiration of the timeout.
-> >
-> > The number of spin iterations before time-check, SMP_TIMEOUT_POLL_COUNT
-> > is chosen to be 200 by default. With a cpu_poll_relax() iteration
-> > taking ~20-30 cycles (measured on a variety of x86 platforms), we
-> > expect a time-check every ~4000-6000 cycles.
-> >
-> > The outer limit of the overshoot is double that when working with the
-> > parameters above. This might be higher or lower depending on the
-> > implementation of cpu_poll_relax() across architectures.
-> >
-> > Lastly, config option ARCH_HAS_CPU_RELAX indicates availability of a
-> > cpu_poll_relax() that is cheaper than polling. This might be relevant
-> > for cases with a long timeout.
-> >
-> > Cc: Arnd Bergmann <arnd@arndb.de>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Peter Zijlstra <peterz@infradead.org>
-> > Cc: linux-arch@vger.kernel.org
-> > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> > Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
-> > ---
-> > Notes:
-> >    - add a comment mentioning that smp_cond_load_relaxed_timeout() might
-> >      be using architectural primitives that don't support MMIO.
-> >      (David Laight, Catalin Marinas)
-> >
-> >  include/asm-generic/barrier.h | 69 +++++++++++++++++++++++++++++++++++
-> >  1 file changed, 69 insertions(+)
-> >
-> > diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
-> > index d4f581c1e21d..e5a6a1c04649 100644
-> > --- a/include/asm-generic/barrier.h
-> > +++ b/include/asm-generic/barrier.h
-> > @@ -273,6 +273,75 @@ do {									\
-> >  })
-> >  #endif
-> >
-> > +/*
-> > + * Number of times we iterate in the loop before doing the time check.
-> > + * Note that the iteration count assumes that the loop condition is
-> > + * relatively cheap.
-> > + */
-> > +#ifndef SMP_TIMEOUT_POLL_COUNT
-> > +#define SMP_TIMEOUT_POLL_COUNT		200
-> > +#endif
-> > +
-> > +/*
-> > + * Platforms with ARCH_HAS_CPU_RELAX have a cpu_poll_relax() implementation
-> > + * that is expected to be cheaper (lower power) than pure polling.
-> > + */
-> > +#ifndef cpu_poll_relax
-> > +#define cpu_poll_relax(ptr, val, timeout_ns)	cpu_relax()
-> > +#endif
-> > +
-> > +/**
-> > + * smp_cond_load_relaxed_timeout() - (Spin) wait for cond with no ordering
-> > + * guarantees until a timeout expires.
-> > + * @ptr: pointer to the variable to wait on.
-> > + * @cond_expr: boolean expression to wait for.
-> > + * @time_expr_ns: expression that evaluates to monotonic time (in ns) or,
-> > + *  on failure, returns a negative value.
-> > + * @timeout_ns: timeout value in ns
-> > + * Both of the above are assumed to be compatible with s64; the signed
-> > + * value is used to handle the failure case in @time_expr_ns.
-> > + *
-> > + * Equivalent to using READ_ONCE() on the condition variable.
-> > + *
-> > + * Callers that expect to wait for prolonged durations might want
-> > + * to take into account the availability of ARCH_HAS_CPU_RELAX.
-> > + *
-> > + * Note that @ptr is expected to point to a memory address. Using this
-> > + * interface with MMIO will be slower (since SMP_TIMEOUT_POLL_COUNT is
-> > + * tuned for memory) and might also break in interesting architecture
-> > + * dependent ways.
-> > + */
-> > +#ifndef smp_cond_load_relaxed_timeout
-> > +#define smp_cond_load_relaxed_timeout(ptr, cond_expr,			\
-> > +				      time_expr_ns, timeout_ns)		\
-> > +({									\
-> > +	typeof(ptr) __PTR = (ptr);					\
-> > +	__unqual_scalar_typeof(*ptr) VAL;				\
-> > +	u32 __n = 0, __spin = SMP_TIMEOUT_POLL_COUNT;			\
-> > +	s64 __timeout = (s64)timeout_ns;				\
-> > +	s64 __time_now, __time_end = 0;					\
-> > +									\
-> > +	for (;;) {							\
-> > +		VAL = READ_ONCE(*__PTR);				\
-> > +		if (cond_expr)						\
-> > +			break;						\
-> > +		cpu_poll_relax(__PTR, VAL, (u64)__timeout);		\
-> > +		if (++__n < __spin)					\
-> > +			continue;					\
-> > +		__time_now = (s64)(time_expr_ns);			\
-> > +		if (unlikely(__time_end == 0))				\
-> > +			__time_end = __time_now + __timeout;		\
-> > +		__timeout = __time_end - __time_now;			\
-> > +		if (__time_now <= 0 || __timeout <= 0) {		\
-> > +			VAL = READ_ONCE(*__PTR);			\
-> > +			break;						\
-> > +		}							\
-> > +		__n = 0;						\
-> > +	}								\
-> > +	(typeof(*ptr))VAL;						\
-> > +})
-> > +#endif
-> > +  
-> 
-> A cluster of issues that got flagged by sashiko was around timeout_ns
-> being specified as s64 and a bunch of potential edge cases around
-> that.
-> 
-> These were mostly caused by an implicit assumption in the code that
-> the timeout specified by the caller is generally reasonable. So, way
-> below S64_MAX, not 0 etc.
+Fixes: 37255747ecbd ("media: dt-bindings: media: document the nxp,imx8mq-mipi-csi2 receiver phy and controller")
+Signed-off-by: Robby Cai <robby.cai@nxp.com>
+---
+ .../devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml       | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-There are plenty of ways kernel code can break things.
-Provided this code doesn't itself overwrite anywhere (rather than
-just loop forever or return immediately etc) I'd be tempted to
-just document the valid range rather than slow everything down
-with the extra tests.
-
-	David
-
-> 
-> I think this is worth cleaning up a bit. The change is mostly around
-> introducing a u32 __itertime and explicitly computing the waiting time.
-> And adding a check to ensure that we start with a valid value.
-> 
-> This does make the implementation a little more involved. So just wanted
-> to see if people have any opinions on this?
-> 
-> +#ifndef smp_cond_load_relaxed_timeout
-> +#define smp_cond_load_relaxed_timeout(ptr, cond_expr,          \
-> +                                     time_expr_ns, timeout_ns) \
-> +({                                                             \
-> +       typeof(ptr) __PTR = (ptr);                              \
-> +       __unqual_scalar_typeof(*(ptr)) VAL;                     \
-> +       u32 __count = 0, __spin = SMP_TIMEOUT_POLL_COUNT;       \
-> +       s64 __timeout = (s64)(timeout_ns);                      \
-> +       s64 __time_now, __time_end = 0;                         \
-> +       u32 __maybe_unused __itertime;                          \
-> +                                                               \
-> +       for (__itertime = NSEC_PER_USEC;                        \
-> +               VAL = READ_ONCE(*__PTR), __timeout > 0; ) {     \
-> +               if (cond_expr)                                  \
-> +                       break;                                  \
-> +               cpu_poll_relax(__PTR, VAL, __itertime);         \
-> +               if (++__count < __spin)                         \
-> +                       continue;                               \
-> +               __time_now = (s64)(time_expr_ns);               \
-> +               if (unlikely(__time_end == 0))                  \
-> +                       __time_end = __time_now + __timeout;    \
-> +               __timeout = __time_end - __time_now;            \
-> +               if (__time_now <= 0 || __timeout <= 0) {        \
-> +                       VAL = READ_ONCE(*__PTR);                \
-> +                       break;                                  \
-> +               }                                               \
-> +               __itertime = __timeout % NSEC_PER_MSEC +        \
-> +                               NSEC_PER_USEC;                  \
-> +               __count = 0;                                    \
-> +       }                                                       \
-> +       (typeof(*(ptr)))VAL;                                    \
-> +})
-> +#endif
-> 
-> Thanks
-> 
-> --
-> ankur
-> 
+diff --git a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+index 4fcfc4fd3565..71f79651dd96 100644
+--- a/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
++++ b/Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+@@ -220,7 +220,7 @@ examples:
+             port@0 {
+                 reg = <0>;
+ 
+-                imx8mm_mipi_csi_in: endpoint {
++                imx8mq_mipi_csi_in: endpoint {
+                     remote-endpoint = <&imx477_out>;
+                     data-lanes = <1 2 3 4>;
+                 };
+@@ -229,7 +229,7 @@ examples:
+             port@1 {
+                 reg = <1>;
+ 
+-                imx8mm_mipi_csi_out: endpoint {
++                imx8mq_mipi_csi_out: endpoint {
+                     remote-endpoint = <&csi_in>;
+                 };
+             };
+-- 
+2.37.1
 
 
