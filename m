@@ -4,57 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D478CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51EB6CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:37:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PsnnDILYM+i/jfjogwZ5fiET/ImLTjDreuVQVaiyqhQ=; b=RmQU4yoqKqeKs1Fjs6H97/b2Dz
-	SW4Hib2Eia7QjOjvGuwP/yIDQpSxBkS/lTyERVd9or8x+0HoF/QclyDsgyxMTqyMF08oqLJAXvS4N
-	5HA92CcfjpAjONMKOEMGTZx1N5cmtfwD08FjewZj/kflDww0QpH4JntybKuTSg3JrwERD8GNr2lpt
-	ZNeA+E+rraMnxC8MuF6N03UR/D5DWnwoTrTJBOodBNNRyDXtlgROthEb2Ux0X81WUpboi0K3rjTmD
-	kLkjArD7amYd8ZiDbQp+LDAU3uGIJkBHBm/KhGjL4gpIm0fLMrLXqtZDqGfpUVSAhxPoVUr1CkWpe
-	pvxfnG3w==;
+	bh=I4nYWZkVFx0cNBWI24z56+J0OCC7ADIsqmFr3iteHqg=; b=TXjgK57PCG5gGvUDtHIPoF+BCP
+	qKaT+hZZRDHo+r+sxGUaRo0coNzheu/l+svUQETc4j30QzgQDntUD5jQ6G4r4jBt6lVidgf6AnUv8
+	gZBzIsMGeejOGuW0HP5TodE3aF6zdlm5PE3pmBeIfTYS/ERJML29KuNgm40d7PcYAv8YIE/QcxAZb
+	+b2jPLiI8kVFrvrxi+S8igdUdrCXjmJSzMIUou34FtDkbI0oAbdpTiouq8fS+kNjien73Nn3ZhQ/P
+	HRlTBHG17jfpcEkaVzsauF7rFcezOdvDdUljR8hE6ySUUcJvd4UwFmSQo/GT57Q2Sc6yLLKQMLm4y
+	0hQAWLPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZbP-00000000VWP-114D;
-	Wed, 06 May 2026 10:35:39 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZbN-00000000VVy-1Cbr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 06 May 2026 10:35:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=PsnnDILYM+i/jfjogwZ5fiET/ImLTjDreuVQVaiyqhQ=; b=r5Hqa8f+OrzGkMHuhv492SeWU8
-	A/T8WeqqaJ8LkMNuoZONo5Nqd/F41gZioIIBAYQfZzmmmr/lhchWBMn9DDIRv98D4IPq/SZc0QY6p
-	64q8u8XZw6V9GnuQ+TInbdf5zSAuZgLfPyA5f97urRbWEgbgQRAYKZZ6mpoHzOmDf9Raaj5szuWM7
-	GIJnba8rp8J1RuxusNHjDejodtcjFJ0vUe1uMOLN7JYgh1pazw5n/b8TT03UJpXpkMfRUd1XVSfk8
-	IOb3o1BKjmlQ2enDry8RyneKy3jSchDDYvVpR8JfcdsP54QUaSo7Bo5vG4B+JpY5VvzS8TTUR6kEv
-	9+vRWckg==;
+	id 1wKZd6-00000000Vqy-22Ex;
+	Wed, 06 May 2026 10:37:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by casper.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZbJ-00000001Emt-33hk
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKZd4-00000000VqN-3f5v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 10:35:36 +0000
+	Wed, 06 May 2026 10:37:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 461173319;
-	Wed,  6 May 2026 03:35:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6AEC23319;
+	Wed,  6 May 2026 03:37:16 -0700 (PDT)
 Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 903EB3F836;
-	Wed,  6 May 2026 03:35:29 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B20843F836;
+	Wed,  6 May 2026 03:37:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778063731; bh=lFBt7cX5hmxlQcwDFjhXc5XRX3lnJKyd2KhSymeJKco=;
+	t=1778063841; bh=5c4pTncPmX+luIL7Evtc7A40nYaSrPqfh+f4kQDYM2k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XSHmFbcaMIX7DwiulDd8W4KXYW7o/+2OKEwZA0mbEVgbjTQVFXMtDMLnZLjMvmpEK
-	 MkpTGQzO35C6VAxBd26OmTVz4Xa/kVaB3hRRGeB9XawxsiwvkeHpbewTD8L8gm//SX
-	 ZfDDsXNsxWFC/uFxk7cG/vKCn41Lcn56+M/FT6z8=
-Date: Wed, 6 May 2026 11:35:27 +0100
+	b=Z5myFUTOkpLhUhZHLyv4iC+h4GXSOln/Lh+okHyslh8+3y4BGuAqNbdZFUUGrw4Iw
+	 jzwkPZNwVVn+7QKwVJMbmpDhzyYdEBeWI7OTDrdCOQRYXVAChEdEWtqN4gpYCiZHeO
+	 ErBYfHXa+rzFploFlocnXV7x9AjHC/oz7YEc85Ho=
+Date: Wed, 6 May 2026 11:37:17 +0100
 From: Philip Radford <philip.radford@arm.com>
 To: Cristian Marussi <cristian.marussi@arm.com>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -64,19 +49,19 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	etienne.carriere@st.com, peng.fan@oss.nxp.com, michal.simek@amd.com,
 	quic_sibis@quicinc.com, dan.carpenter@linaro.org, d-gole@ti.com,
 	souvik.chakravarty@arm.com
-Subject: Re: [PATCH v5 10/12] powercap: arm_scmi: Create synthetic parent
- node for multi-instance
-Message-ID: <afsZbxQO5Akcvgnl@donnerap.manchester.arm.com>
+Subject: Re: [PATCH v5 11/12] powercap: arm_scmi: Add get_power_uw to
+ synthetic node
+Message-ID: <afsZ3WFA38iiifsw@donnerap.manchester.arm.com>
 References: <20260428090922.346069-1-philip.radford@arm.com>
- <20260428090922.346069-11-philip.radford@arm.com>
- <afppNhDnS3IuwelG@pluto>
+ <20260428090922.346069-12-philip.radford@arm.com>
+ <afprmEnMf5mNf8NE@pluto>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <afppNhDnS3IuwelG@pluto>
+In-Reply-To: <afprmEnMf5mNf8NE@pluto>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_113534_286549_CCF19CC9 
-X-CRM114-Status: GOOD (  41.22  )
+X-CRM114-CacheID: sfid-20260506_033722_948204_53044028 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,229 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 11:03:34PM +0100, Cristian Marussi wrote:
-> On Tue, Apr 28, 2026 at 10:09:19AM +0100, Philip Radford wrote:
-> > SCMI powercap domains are exposed as a flat list and may include
-> > multiple top-level domains without a parent. When registered with
-> > the powercap framework, these appear as independent root zones
-> > with no common hierarchy. The driver probes domains per SCMI
-> > instance, but when registering with the powercap framework, these
-> > would be combined into a single tree. This is particularly evident
-> > in multi-instance setups where zone IDs and parent zones can only
-> > coexist with other zones and parents from the same instance.
-> 
-> Hi,
-> 
-
-Hi, thanks for the review.
-
-> I know the problem you are trying to solve is real and advised for this
-> solution BUT saying that the domains are exposed in a flat list upfront
-> is not correct and misleading I think...the problem revolves around the
-> fact that...
-> 
-> SCMI powercap domains are represented with a hierarchical structure
-> (if any such structure exists platform side) which can be comprised
-> of multiple trees (a forest of powercap zones trees) each with its own
-> top root powercap zone.
-> On a system designed to expose multipe SCMI instances each of such
-> instance could enumerate a pretty much similar/simmetrical hierarchy of
-> powercap zomes, all sharing most probably the same IDs for children and
-> parents...all of these simmetrical hierarchies can coexist as long as
-> they are confined into their own instance 'space'.
-> 
-> Given that the Powercap framework does NOT have the concept of instances
-> collating all of these zones into the same Linux Powercap top node leads
-> to an artificially flattened tree of powercap where all the boudnaries
-> between instances are squashes into one single structure....possibly
-> combining multiple unrelated SCMI zones under a single unrelated Linux
-> powercap zone (by virtue of simmetrical parent-child relations)
-> 
-> So the need for a (functionally limited) unifying synthetic top root for
-> each instance...
-> 
-> I am sure you can summarize all of these better :P):
-> 
-
-Understood. I will re-work the explanation in a better way.
-
+On Tue, May 05, 2026 at 11:13:44PM +0100, Cristian Marussi wrote:
+> On Tue, Apr 28, 2026 at 10:09:20AM +0100, Philip Radford wrote:
+> > Exposes the current power usage from the immediate children of
+> > the synthetic (root) powercap node. Iterates over pr->spzones and
+> > sums per-zone power.
 > > 
-> > Create a synthetic root zone to act as a common parent for all
-> > top-level domains. Creates a single hierarchy and unified entry
-> > point per-instance for userspace.
-> > 
+
+Hi,
+
 > > Signed-off-by: Philip Radford <philip.radford@arm.com>
 > > ---
-> > ---
-> >  drivers/powercap/arm_scmi_powercap.c | 67 ++++++++++++++++++++++++++--
-> >  1 file changed, 64 insertions(+), 3 deletions(-)
+> >  drivers/powercap/arm_scmi_powercap.c | 29 ++++++++++++++++++++++++++--
+> >  1 file changed, 27 insertions(+), 2 deletions(-)
 > > 
 > > diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-> > index 7f2bb162f96c..d74869af1633 100644
+> > index d74869af1633..81b5214acda4 100644
 > > --- a/drivers/powercap/arm_scmi_powercap.c
 > > +++ b/drivers/powercap/arm_scmi_powercap.c
-> > @@ -36,6 +36,7 @@ struct scmi_powercap_root {
-> >  	struct scmi_powercap_zone *spzones;
-> >  	struct list_head *registered_zones;
-> >  	struct list_head scmi_zones;
-> > +	struct scmi_powercap_zone instance_root;
-> >  };
+> > @@ -270,9 +270,34 @@ static int instance_root_release(struct powercap_zone *pz)
+> >  	return 0;
+> >  }
 > >  
-> >  static struct powercap_control_type *scmi_top_pcntrl;
-> > @@ -263,12 +264,47 @@ static const struct powercap_zone_constraint_ops constraint_ops  = {
-> >  	.get_name = scmi_powercap_get_name,
-> >  };
-> >  
-> > +/* Multi-instance constraints to meet driver requrements */
-> > +static int instance_root_release(struct powercap_zone *pz)
-> > +{
-> > +	return 0;
-> > +}
-> > +
-> > +static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *v)
-> > +{
-> > +	*v = 0;
-> > +	return 0;
-> > +}
-> > +
-> > +static int instance_root_set_constraint(struct powercap_zone *pz, int cid, u64 v)
-> > +{
-> > +	return -EOPNOTSUPP;
-> > +}
-> > +
-> > +static int instance_root_get_constraint(struct powercap_zone *pz, int cid, u64 *v)
-> > +{
-> > +	return -EOPNOTSUPP;
-> > +}
-> 
-> I would explain here better WHY you cannot really implement all the
-> fuctionalities on these toproot syntehtc zones...and WHY it is NOT an
-> issue but STILL it is enough to solve our problem with the multiple
-> instances configurations...
-> 
-
-No probs. I'll include the fact that full zone semantics aren't available for the
-synthetic zone.
-
-> > +
-> > +static const struct powercap_zone_ops instance_root_ops = {
-> > +	.get_max_power_range_uw = scmi_powercap_get_max_power_range_uw,
-> > +	.get_power_uw = instance_root_get_power_uw,
-> > +	.release = instance_root_release,
-> > +};
-> > +
-> > +static const struct powercap_zone_constraint_ops instance_root_const_ops = {
-> > +	.set_power_limit_uw = instance_root_set_constraint,
-> > +	.get_power_limit_uw = instance_root_get_constraint,
-> > +	.set_time_window_us = instance_root_set_constraint,
-> > +	.get_time_window_us = instance_root_get_constraint,
-> > +};
-> > +
-> >  static void scmi_powercap_unregister_all_zones(struct scmi_powercap_root *pr)
+> > -static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *v)
+> > +static int instance_root_get_power_uw(struct powercap_zone *pz, u64 *power_uw)
 > >  {
-> >  	int i;
-> >  
-> >  	/* Un-register children zones first starting from the leaves */
-> > -	for (i = pr->num_zones - 1; i >= 0; i--) {
-> > +	for (i = pr->num_zones; i >= 0; i--) {
-> >  		if (!list_empty(&pr->registered_zones[i])) {
-> >  			struct scmi_powercap_zone *spz;
-> >  
-> > @@ -313,7 +349,6 @@ static int scmi_powercap_register_zone(struct scmi_powercap_root *pr,
-> >  				   parent ? &parent->zone : NULL,
-> >  				   &zone_ops, spz->info->num_cpli, &constraint_ops);
-> >  	if (!IS_ERR(z)) {
-> > -		spz->height = scmi_powercap_get_zone_height(spz);
+> > -	*v = 0;
+> > +	struct scmi_powercap_zone *root = to_scmi_powercap_zone(pz);
+> > +	struct scmi_powercap_zone *child;
+> > +	struct scmi_powercap_root *pr;
+> > +	u64 acc = 0;
+> > +	u64 p;
 > 
-> I have to admit I'd have to look back at how I implemneted this powercap zone
-> walking at registration tome :D .. but HOW can you get rid of spz->height here ?
+> These u64 can live on a single line...
 > 
 
-I've overlooked this, sorry. I'd removed it to set spz to include the synthetic zone if it
-was teh parent zone and ignore it if not. I can't rememeber removing the new logic but I'll
-rectify it for V6.
+No probs.
 
-> ...also because now spz->height is NOT set anywhere (presumable zeroed
-> at init) and also why you have NOT removed also scmi_powercap_get_zone_height
-> since nobody is calling it ?
+> > +	int ret;
+> > +
+> > +	if (!pz || !power_uw)
+> > +		return -EINVAL;
+> > +
+> > +	pr = container_of(root, struct scmi_powercap_root, instance_root);
 > 
-> ...also because I am pretty sure that all the management of the height of
-> the nodes in the binary trees where crucial when tearing down the hierarchy of
-> powercap zones ... (see explanation preceding scmi_zones_register())
+> usually we define macros to wrap this like to_scmi_powercap_zone()...
+> ...even if used only once...this could be a new to_scmi_powercap_root()
 > 
-> ...mmmm.... have you tried to unload the arm_scmi_powercap driver with these
-> new changes for the syntethic powercap zones ?
-> 
-> I just did :P
-> 
-> ---8<----
-> root@deb-guest:~# modprobe -r arm_scmi_powercap
-> [   28.939470] Unable to handle kernel paging request at virtual address fffffffffffffc90
-> [   28.942910] Mem abort info:
-> [   28.947866]   ESR = 0x0000000096000006
-> [   28.953034]   EC = 0x25: DABT (current EL), IL = 32 bits
-> [   28.957189]   SET = 0, FnV = 0
-> [   28.957437]   EA = 0, S1PTW = 0
-> [   28.958254]   FSC = 0x06: level 2 translation fault
-> [   28.959025] Data abort info:
-> [   28.959511]   ISV = 0, ISS = 0x00000006, ISS2 = 0x00000000
-> [   28.960049]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> [   28.961191]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> [   28.962227] swapper pgtable: 4k pages, 48-bit VAs, pgdp=000000010261b000
-> [   28.963105] [fffffffffffffc90] pgd=0000000000000000, p4d=00000001030ff403, pud=0000000103100403, pmd=0000000000000000
-> [   28.964189] Internal error: Oops: 0000000096000006 [#1]  SMP
-> [   28.964994] Modules linked in: arm_scmi_powercap(-) cpufreq_powersave cpufreq_conservative
-> [   28.966300] CPU: 2 UID: 0 PID: 227 Comm: modprobe Not tainted 7.1.0-rc1-00012-g383eb3db9548 #2 PREEMPT 
-> [   28.967170] Hardware name: linux,dummy-virt (DT)
-> [   28.967925] pstate: 61400005 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-> [   28.969245] pc : device_del+0x3c/0x3b0
-> [   28.969963] lr : device_unregister+0x28/0x90
-> [   28.970342] sp : ffff800083b73b30
-> [   28.970753] x29: ffff800083b73b50 x28: ffff000005d86000 x27: 0000000000000000
-> [   28.971448] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
-> [   28.972159] x23: fffffffffffffff0 x22: ffff80007b1e30c0 x21: ffff000006f3c080
-> [   28.972701] x20: fffffffffffffc30 x19: fffffffffffffc50 x18: 0000000000000000
-> [   28.973237] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-> [   28.973899] x14: 0000000000000000 x13: 0000000000000000 x12: ffff000007338880
-> [   28.974795] x11: ffff0000056bbc10 x10: ffff000009ca0c00 x9 : ffff800080c44480
-> [   28.975483] x8 : 0101010101010101 x7 : 7f7f7f7f7f7f7f7f x6 : fefefeff6364626d
-> [   28.976161] x5 : 8080808000000000 x4 : 0000000000000020 x3 : ffff80008243c534
-> [   28.976842] x2 : ffff000005d86000 x1 : 0000000000000000 x0 : fffffffffffffce0
-> [   28.977511] Call trace:
-> [   28.977738]  device_del+0x3c/0x3b0 (P)
-> [   28.978047]  device_unregister+0x28/0x90
-> [   28.978371]  powercap_unregister_zone+0x54/0x78
-> [   28.978781]  scmi_powercap_unregister_all_zones+0x84/0xc8 [arm_scmi_powercap]
-> [   28.979344]  scmi_powercap_remove+0x1c/0x38 [arm_scmi_powercap]
-> [   28.979821]  scmi_dev_remove+0x28/0x40
-> [   28.980136]  device_remove+0x54/0x90
-> [   28.980428]  device_release_driver_internal+0x1cc/0x230
-> [   28.980845]  driver_detach+0x54/0xc0
-> [   28.981136]  bus_remove_driver+0x74/0x100
-> [   28.981454]  driver_unregister+0x38/0x68
-> [   28.981774]  scmi_driver_unregister+0x28/0x1a0
-> [   28.982147]  scmi_powercap_exit+0x18/0xe20 [arm_scmi_powercap]
-> [   28.982560]  __arm64_sys_delete_module+0x1b0/0x2e0
-> [   28.982870]  invoke_syscall.constprop.0+0x48/0x120
-> [   28.983219]  el0_svc_common.constprop.0+0x40/0xe8
-> [   28.983628]  do_el0_svc+0x24/0x38
-> [   28.983916]  el0_svc+0x38/0x138
-> [   28.984201]  el0t_64_sync_handler+0xa0/0xe8
-> [   28.984557]  el0t_64_sync+0x198/0x1a0
-> [   28.984901] Code: f9429c01 f9000fe1 d2800001 91024260 (f9402276) 
-> [   28.985443] ---[ end trace 0000000000000000 ]---
-> Segmentation fault
-> --->8----
-> 
-> This does NOT happen without your syntethic node changes since the driver on
-> unload took care to remove/unregister powercap zones starting from the
-> leaves so as not to remove parents that were still referenced ....
-> 
-> .... you should always test also as a loadable module and manually load/unload
-> then testing...
-> 
-> I will review this again in V6...plesse double check to preserve the
-> original zone-walking algo...
 
-Understood. Sorry, I'll fully test for V6.
+Will do.
+
+> > +	if (!pr)
+> > +		return -ENODEV;
+> > +
+> > +	list_for_each_entry(child, &pr->registered_zones[0], node) {
+> > +		if (child == &pr->instance_root)
+> > +			continue;
+> 
+> You'll need to check this in light of the fixes of previous patch
+> 
+
+No worries.
+
+Regards,
+Phil
 
