@@ -4,141 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 889D2CD3424
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AEE9CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 07:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FRIMfFBwB5qjEkjy+MVoP/dubLHzL7QTTzDJW8peLog=; b=SUmAON0jgtAp/Gi4K+d5sEU7Zn
-	QLYabHaULULPk13KwkXtbaUadFuxdWCPb1xurH9ldgGCXAFf28uoA0qIdvwdFwQlJnV1DCuayqV76
-	9g//DtKaupJJS3HruUvAPNicBJEX2kvqgiP0uYLFb+0qca15j3P59McaJ4CttQhNQqXVmvlf5zXAU
-	kbz0JcXzmmXI3aWXEnsJethY0fNoReUk2p1wi/h1IeuWP9OohyVwt17bupJZ2SAU8oPNpiFt6mP7n
-	nFdOTgWAnZ+oVVhy9K8ZgEaOnstKkXse2EZTrVMEti7w31HQCmpww9+rT52PeAtP1FqTU/15yuVNG
-	+/LXRgjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VZwft+AsINXg1IUeonWXJmzw912+qyNo0VTvDBtvk5E=; b=E4km2/0YC2PYyt4gOALW/Ehzji
+	zcNjVP3IGNgJA3Nt3dg6FhQLbES4esv6HoJHDAdNd8affJl8eeHOGxA70LfF7ulDBDRLXQm1yLJDt
+	LibZR4X3yCFsf5D8XKBHnHk6uxUaXtvGP44jQab/fk1uijMR8tWW+JCsirbld4d+QP7bukNv1gO7X
+	iAVaOC9wJS7EiI2Y3mh81Rb1rGiLl9CPZwbHsUQy6h8oohMuGiIky2II0KJ6bOfF3eV2b27ipv8uv
+	BKyhY8ccAKsZZ8YpbfDuIU1Z7kjL1OrLvGxDVo3HmuoziCKy3KRRQ/7plgLIqMXjDJ5fwTk0Q7Q7f
+	kf8IC0NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWZM-000000000Tj-2p83;
-	Wed, 06 May 2026 07:21:20 +0000
-Received: from mail-francesouthazon11011062.outbound.protection.outlook.com ([40.107.130.62] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wKWa2-000000000bh-3Qlm;
+	Wed, 06 May 2026 07:22:02 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKWZL-000000000TK-0JSZ
+	id 1wKWa1-000000000am-1ejs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 07:21:19 +0000
+	Wed, 06 May 2026 07:22:02 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mGoR4tFpvr+2WrYzHY3vlFf4L2I6ZyzTnrnQQBXttNbIu8xDdOo8fmUc4BGbNs3TCQRXei5TpA82Wtv/LR7IibHlwcp19yDh7SBU37L41eyAAgHsqVSmuoOp5lros1GMyS0JEANudeQd57na6lCGvW8Ba5MQZ/UedReFOX4WaO+g8goDAAJ71Bpeh41MKGqa/+jTrYCaFmSxmspnkNGo5HRNr+UM1pER6MspVhsjXcnTnATl9n5xV9qDWwSdxX2Uvta7CtcwwK0fvHle0zEviEGhAENPuZBDayC7KbY4XhPcNX00hJYjEu+x73EgI8AVaQ/OxX591VV9+1npN+XhqA==
+ b=Br2tgw6LTJFtvq/QVwBCfdUOVH9GcHKmmnMBsQaaTiqGxTLXYT+20dLxEWLKYYnSnlNxHmgHFbrOsnX2otRqo89otPBiVPnti2pLiP/YAKsxmRKl7ZeQlI4wCNLEdeUwVjhnZmBxlcmha4YcYoNqRZTxSe0yxvTZ1llDDURCqwvddSolX8gj6k1VnhmcBEYMynYVvcVSxs1IMBKOgZP04YSlogRNjzbRK/mwN3FHKNZjvvgmykDByHFBHCe59as9xGhu1Ubs1r7ii15aPH//1Rg/Sh+O5NySQHJLKldak31TWqqMXYfWh6EedE8wUu32h16ZPAbw4Qor+7OakyFKBQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FRIMfFBwB5qjEkjy+MVoP/dubLHzL7QTTzDJW8peLog=;
- b=pNGwsZtM8XDFBA+ePOgxbX1wT3f6Zn7G1nxJZy7vxFUhYRtm3OWVVaWYykRyfsRGV8MnllKrtP44nlZi+mN2fz2WzsZUOI1KvSEs+yUZWmGXxuSDOnTCMlDTeggJbtBylUaROg+zAgiB93QhsVfLU6qs1JcZN1bLWn0XyaZvaJ5HpPxpVpZJzSLW4rik7qjliYpMjqlruWB4Bjp+U0PMDPiGG20Q2jC9OZqFqyzgbOaRNZ7KjPqdJu8r52BpAWo6H5//SsKUvlJrL9gmpVSI55ZubI/hE91gSPCylkZ3VqMo8OhyHSmA0yA8SBWG//9ZgYgpOhHNCE+iHl578FLAzw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=VZwft+AsINXg1IUeonWXJmzw912+qyNo0VTvDBtvk5E=;
+ b=f8GdXYdWYR9TsfrsBgoAuzWakpFLoxG7gccJuPHhMVYUw/sxUMnjjMAldSfXiiFRbmdxAVQxNO1e5Fwn/0qOmQMRHXc13ciOcRQDVEUteiBAS+ZFGy9Fe/y0lDnzQRdmt3EXaXAnc80FN+ZV7u9vW85ndU6YH37K5L5gFoVzELE/rYND7jJ0JVms5c/3SNTkN3T5LGBmYgCQFwXmgGji/qL/Xo4FyXtl/fJwB1vStltuVon0rLSRKWvB56mX4S8ty3ACvncgl5VmhO2mpuYM4ujALwQs1Knu69+sIoqcUgSpnE0dxNfLbYZx+2l5yvcSa+kJYR0v67RO2MC1vY0Qkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FRIMfFBwB5qjEkjy+MVoP/dubLHzL7QTTzDJW8peLog=;
- b=GzCxyydyTPswr2PoWPWRKZDtNBhHKua6vZQb+wXYPrNLENxP094mMHEabLPQ9ONVb/Q6EFqtdbEoDfFZ+IW4ay8LjrqMklbqzumpDHAzss4Lm77j1PMo6dibwIAjWn7V6eTFZS34SUNe59y7Figjt+Qoo0Df1On953hTEkFvk9nN3tOkRx5BiaGpCIjzj0J4qU14fHtyOafb4WkLxwh3joQ4DyKFdlJfmvFUISee6/ibf1JTbp3p4D7zCcAVGTedNRQIhBlxR8M67eRSdL9iY594YBuqqyyflqA0hD/zP55FEgfNdy4Y46tYxtmsDqcDaom07Y76tFrHP/qyPDFNBQ==
-Received: from DBBPR04MB7500.eurprd04.prod.outlook.com (2603:10a6:10:1f4::16)
- by VI0PR04MB10710.eurprd04.prod.outlook.com (2603:10a6:800:260::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Wed, 6 May
- 2026 07:21:11 +0000
-Received: from DBBPR04MB7500.eurprd04.prod.outlook.com
- ([fe80::c291:543b:4bde:cee7]) by DBBPR04MB7500.eurprd04.prod.outlook.com
- ([fe80::c291:543b:4bde:cee7%6]) with mapi id 15.20.9891.008; Wed, 6 May 2026
- 07:21:11 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
-	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank Li <frank.li@nxp.com>,
-	"chleroy@kernel.org" <chleroy@kernel.org>, "horms@kernel.org"
-	<horms@kernel.org>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>
-Subject: RE: [PATCH v5 net-next 06/15] net: enetc: add support for the
- "Update" operation to buffer pool table
-Thread-Topic: [PATCH v5 net-next 06/15] net: enetc: add support for the
- "Update" operation to buffer pool table
-Thread-Index: AQHc2EvGYQLCqoBg/E+Cc4krWk1Fi7YAnjaA
-Date: Wed, 6 May 2026 07:21:11 +0000
-Message-ID: <DBBPR04MB7500426432361E0957AC1E86883F2@DBBPR04MB7500.eurprd04.prod.outlook.com>
-References: <20260430024945.3413973-1-wei.fang@nxp.com>
- <20260430024945.3413973-7-wei.fang@nxp.com>
-In-Reply-To: <20260430024945.3413973-7-wei.fang@nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DBBPR04MB7500:EE_|VI0PR04MB10710:EE_
-x-ms-office365-filtering-correlation-id: 1f6b8b1a-1c39-435d-5591-08deab400cba
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|366016|921020|38070700021|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: u7/lyvpjO6UvVGx7oKLupgDZHyYpMZbQJNv2fMTeKT3u7YzODtGcXMOjBxIWKPk8IwaTGySxZtYeu9tgYdohWHNyh62PZ7vmG7578Pb2mPNiRV5CUsrTi5nw+BxT0NurKgF3gbIDXO7+02cwiDmVjrvIo1meL3vWqkIbTRwSz+jga6D3Qch9vFTHCzTojTWBaBT/BeWZJJ5qxG3dP4lWQye59uGLLYPwEbnMRsHbARY27eIeOM+qABebQ1V/uBFVjSxs+FbRmAIX2ZQp1GaST5SffHPkQVFJUNhT8Z8G33GVpKu8rIIaOTUKXMWuNdInFgYxF7/qa2EpzJPqCSL+MPlROUNGm/9as/Blq5J+50RjtN5VAJnZcucBPUcqWWrvFt9St9lEGTHKUWkZwf1wuaq0fd9HthtMJVIrZbUrbWF4D5SghOKeCUT/Wsl50Tyb0Kokg9VfRppJQzHBaiYChwP5rUr2WRfyZ4CHpEQ9b3jG8b6R1DAmVEaHTSVXCU1500vs5/m4FjgR0+8/Q5rbDQoc1XFAP9CAAr3+e3LYb8c4I/qEEFu7kvi+y5MGu+ppa4loqY0U9aHatZ9gSbaj+Qwg9nTaKrQnQUBYZS/fulePIlJv+utGTZp3ytf66LqK/YBsLeBp8TxJLWqitbu77pANWAfrfFI5O+AKPwcMlRf/UyS3f4RzQoILJD8Rqnbfzgh/RfeUJZdqxDk8jYVqD8Yp21Ybq7yKOJMfcucdj1lYnFjNe3G11p1Zk8LOXRNfHgmvhpEFI8f+CjiOzUeefA==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR04MB7500.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(366016)(921020)(38070700021)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?2BcVrHN84Je1d3VHpXIQasW1lQB7Ix7zNcgJNggcvh5DL509adIBSdK2G0Kk?=
- =?us-ascii?Q?Q5OhwyPG9PbqYxNqh9TOyydWct9bhaiCv9xHsYY+PJQGsaG11A4cVKFYGjiT?=
- =?us-ascii?Q?ccQBJSdN5oW/ome5ruv02QNTp5O+3FhJlfxMRYSFQ4cQCd+pEOXf1SpuU43R?=
- =?us-ascii?Q?13oY8lwVZozvowxQAhVPr7wo0YPA8Jjf3Nq1UCHHrx3mPaFysAdtBybTEeWo?=
- =?us-ascii?Q?Ms92uTsp8yevyQI6r5yzAVzpxMk/FWNe9c7XzN6t8NoW1GpXPF6nM3SdsL27?=
- =?us-ascii?Q?MqNxicrghYolnl5OVt7rrTOVnW57//2I7RHrNJf/9NZZ1WwJIpow546yeli1?=
- =?us-ascii?Q?IJMp67Ek5O4E7iekA2zXE4cu2cTrT2+cy5t9h+hbX/Nw8vI26t+IJ8SnbYZ4?=
- =?us-ascii?Q?v6MSrXTUanzdYh8oOex7iOj8BTRSRNBUPsgKsi0pxzavPYwC2Ynfh3/Ek6su?=
- =?us-ascii?Q?zIoWYP3XOOOSTjsblHL79TTLDd/rYVBaPaLvJB6Az4UjSl7CpFzoyd61uNLi?=
- =?us-ascii?Q?J27g5ZRUBhjgybZs1RHqvrX9gQ1+CX6AX/9GkkouE/pFWL99Czx2BYVF1C40?=
- =?us-ascii?Q?4vQAg9xuQe4JT7k9r5Wd/d/wbufALijKE3lCadBPi1pJ1hqwWvHiFzpBEmV0?=
- =?us-ascii?Q?4O19oQJqzRD0w3ZFgerW0DGpykMsjqWxCGOt1IdZYM78yknZQHk4/DMMvltH?=
- =?us-ascii?Q?Q8efDpmAFvXGhMO0S6khMJ4fjjxtByYap/UB/Favh+xW6NlFtnQ775MnlPXH?=
- =?us-ascii?Q?z5ND3GqOdV/TuoW2/fKjdCbemxw0tvGGEfmQvfN2Mh8LxsAV8p/BdhChsdDs?=
- =?us-ascii?Q?eZF3YGTy5jYxqRcYLGa8+HjX57sBggKooVpomRXxjPtNaDauTJABooStvsoX?=
- =?us-ascii?Q?JsvZnpUQiGDUbr33blt/VPzpVKZDp+9No7lkTVLmDtp3J9yImqlavopelwHY?=
- =?us-ascii?Q?i0Ri9gRbUrdeJi+2fFMNu7OHjUNzNvuvVyDrKvXNIJaReFlsUuSS94ebZfuG?=
- =?us-ascii?Q?FMOVTh7M8a3er0YQwIuGXsEtd9Tlzk3gafr/B17WWb5yYrxZBL3b+LxNemN4?=
- =?us-ascii?Q?IFUdGyZW7570sGwdWrjMX6SxmjBMtqFPgGzVXpeDn9ilBaaQWy9GPjjhylZv?=
- =?us-ascii?Q?KGcE7DSBqRKYpi01kl6mzv4Zt09V1W2wRket8FOTvc+8FGpPxKsO7qXPxhG8?=
- =?us-ascii?Q?fa5wTinl3lB347VoP3hxblpji/O2H7SK4dQHsDjx02w/5mKjfbtiRgQ83IQ1?=
- =?us-ascii?Q?Ws38UPe/YNaAkL2h/mLunGvR5rC5ZmWf/G31B3yAKxx04BQBZ7+lbxGMGCI4?=
- =?us-ascii?Q?PqUS/F/zJeposBp8X3r/pG+Qcozdtukj6uqBSMU6gO3sDJRyq1UcMrIX0p+9?=
- =?us-ascii?Q?kgHzdCITxL/Rm/N3UwHG0mAvQxJy52OAqJYnRkZxP03cJIv/LBbmdvO13NZW?=
- =?us-ascii?Q?MYWVepvrNccy8JV/w7c9rQ3kVLkaEd1SDOh9mUY+l7CY6rs4L0jvDpPFdaev?=
- =?us-ascii?Q?0RjsCN5v6TjEjiSUdbSS9+GpLqzl8tKS2nBQ1eA6IBAOIaUWlEdU4TUEGYxK?=
- =?us-ascii?Q?Ldl0jbJF8Nr1B8DThiLXcuEg+89LB5Exw1v+SUe8a8RS4Gdg/qXOr2i89Z81?=
- =?us-ascii?Q?oXLHoFPdbHdRhxxQwYl0G0bN9bv7X44KrOI4FxhljiY0hA3u1pR4Bnb5QpXJ?=
- =?us-ascii?Q?+KRltrevMerSJCEjlovLhdYYgHLvTGc+BaFaABPtMuqB6slt?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ bh=VZwft+AsINXg1IUeonWXJmzw912+qyNo0VTvDBtvk5E=;
+ b=LX9rJoMtH292bi/68CXYs+o36itPwOzRKEqupRKGhUCa70u3+kmunqu1yj3xogxbzoyCrbhRhyxctRiMW/Mkk7XYv5Si1lxT2mvHiYNZ8vMxi0KUztK6ukNMYgJI+76KCJCOReK9g7PKh8csqEbCGrDJ0adVTEPj6FHUPwSGCZbbUVVTWgeyyaiXEAHKZ22uPx5BSVywLA6xTHF7fMg9B3D+ctHKyuRyLd8V3LHWmuyJq83V2UcOg0PdeDj60kh0VdgDxhKTtvNbkWpG3EN2mFKS/25Ou9qFGyBWEAa251VPqec2PMNV/IfkSNfYVEfqCiEqytwGj3oRbVC4HRIKmA==
+Received: from DUZPR01CA0272.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b9::12) by GV1PR10MB6291.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:150:91::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
+ 2026 07:21:52 +0000
+Received: from DB5PEPF00014B8D.eurprd02.prod.outlook.com
+ (2603:10a6:10:4b9:cafe::1b) by DUZPR01CA0272.outlook.office365.com
+ (2603:10a6:10:4b9::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.15 via Frontend Transport; Wed,
+ 6 May 2026 07:21:51 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ DB5PEPF00014B8D.mail.protection.outlook.com (10.167.8.201) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9891.9 via Frontend Transport; Wed, 6 May 2026 07:21:51 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 6 May
+ 2026 09:24:27 +0200
+Received: from [10.48.87.127] (10.48.87.127) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 6 May
+ 2026 09:20:49 +0200
+Message-ID: <617b40df-6e51-44d0-9803-60b2e47217ff@foss.st.com>
+Date: Wed, 6 May 2026 09:20:48 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DBBPR04MB7500.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1f6b8b1a-1c39-435d-5591-08deab400cba
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 May 2026 07:21:11.2707
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v22 0/7] Introduction of a remoteproc tee to load signed
+ firmware
+To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Jens Wiklander <jens.wiklander@linaro.org>,
+	"Rob Herring" <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	"Conor Dooley" <conor+dt@kernel.org>, Sumit Garg <sumit.garg@kernel.org>
+CC: <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-remoteproc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <op-tee@lists.trustedfirmware.org>,
+	<devicetree@vger.kernel.org>
+References: <20260414152904.1679724-1-arnaud.pouliquen@foss.st.com>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+In-Reply-To: <20260414152904.1679724-1-arnaud.pouliquen@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.127]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB5PEPF00014B8D:EE_|GV1PR10MB6291:EE_
+X-MS-Office365-Filtering-Correlation-Id: 285a4a96-5212-4460-4a0a-08deab4024e9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|30052699003|36860700016|18002099003|22082099003|56012099003|13003099007;
+X-Microsoft-Antispam-Message-Info: cc3xLUxc6W9q39hagzCbRApCa2Zp2Bwde0tULN0Rzw06y1lfTu8SBY5k8K5FlcDZeB+o+dv+OD/M8HTIMruiY3QvUMt6k3+8Sg6gFOenDDTyNXcz49yQ9IsOGxn/h7+6FLiRy6EHsY68qfWM3+aa3ZsoFxdzVrpVYhl6APekLFqueG2EHGgi/48M8HRYq5M16YG0ZpjlyuQ2HmjOvzr7Fm6/CS+INsBL+z19v3R9F6nqJRge4lOEMICcRR5GlRLiv4227jJDe3CnhPfsfpqb0DdsRBJOAcxqeaCdrJ5mMlVdvhV4RvuE5+MxH98wV0pkac5ogKO0LQbR338jVXe+HQJKuHVUm/poskv2LYJThuUBjIithkFbrMYdRfEBwBfcH5lccklEWvmRJHFoUz/EBAezVch652yeogXuZa/ffw4a+if5HjnbQ8Bh9GUoX5ZwYTRKDEt1BpRXMmq4nPLTBCsrc2phLT6dwJDnF7tCfLPHcF63N+X5mRo9Dws1ii+euXf/0MDGbAat9fBvqErX5vqKC1vbBncvNrogG7Iety4j/O8T21KMJHR/0w8Mstp8jyfhQ9C0v+bERJEjcuxqcMhgKc+jRoFq1fVCS2K1iiFqWXjRodZg8V6cj8zPOmkgewjyLcgCQll71DsFZIurLw9cfcwM0qcyMzNZ/U8s7ODvp71iCbFHa/zqX5awpMXZ
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(30052699003)(36860700016)(18002099003)(22082099003)(56012099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Lh17XcS17sih1uJoHCMGTUjWRtDlZ192EEyGHLGYr6eSPU+qhOipZd0jhSSn91SCck1EvJHAAD0bb9Ls3WbTDRp5dGxhgRR7X7/dtjjIc0GRoocmjfG3ojG05Fk/n0K8i9cIZyhtuoxeSiglJ6wdYa9Rz/1P6GH2pxSoBmet6DGJvJNo1d769RlCbe6iGmmvDYcRwA6ICgOtpCv6Wehci/rO1zxJdavcBjcbnhD4/u7shwCOmsu8Y/AH7VP/CNCnIMaTSLfwOfYTKgIs8JCOor2GnJHbBXV0YGyD2hdZ8HdGVOx5qyhtQo+oJ8grcTcKomOWnoNEgkxt7rzzoJPCRPJKhU7YC1wrtOpsptT4CM8Vm69DI+cxOtf2wvE1SgUofpeLt6cIfs++3DmEF00Ip8vAialoA4C58cHqIoeWXFSehVKm0zutaxWw2rE/dhJL
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 07:21:51.7479
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: TQrs10N44/VdtADJW+GYogerv7N/FfVCpv9P+5EIN0J2M8x78RDjufHCYiTbmtN2gD+WDUuk76kUdbVH3s0uPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10710
+X-MS-Exchange-CrossTenant-Network-Message-Id: 285a4a96-5212-4460-4a0a-08deab4024e9
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B8D.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB6291
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_002119_149696_A8A24D64 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260506_002202_179547_170ABD48 
+X-CRM114-Status: GOOD (  29.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,64 +132,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +int ntmp_bpt_update_entry(struct ntmp_user *user, u32 entry_id,
-> +			  const struct bpt_cfge_data *cfge)
-> +{
-> +	struct bpt_req_update *req;
-> +	struct netc_swcbd swcbd;
-> +	struct netc_cbdr *cbdr;
-> +	union netc_cbd cbd;
-> +	int err;
-> +
-> +	swcbd.size =3D sizeof(*req);
-> +	err =3D ntmp_alloc_data_mem(user->dev, &swcbd, (void **)&req);
-> +	if (err)
-> +		return err;
-> +
-> +	ntmp_fill_crd_eid(&req->rbe, user->tbl.bpt_ver, 0,
-> +			  NTMP_GEN_UA_CFGEU | BPT_UA_BPSEU, entry_id);
+Hello,
 
-Below is the comment from Sashiko.
+Just a gentle reminder: as a first step, I would appreciate it if we 
+could at least finalize the discussion on the bindings based on phandles.
 
-Will setting the BPT_UA_BPSEU flag cause issues here?
+Thanks,
+Arnaud
 
-The BPT_UA_BPSEU flag instructs the hardware to update the Buffer Pool Stat=
-us
-Entry (BPSE), but the allocated request buffer (struct bpt_req_update) only
-contains the configuration data (struct bpt_cfge_data), entirely omitting t=
-he
-status data (struct bpt_bpse_data):
-drivers/net/ethernet/freescale/enetc/ntmp_private.h:
-struct bpt_req_update {
-	struct ntmp_req_by_eid rbe;
-	struct bpt_cfge_data cfge;
-};
-
-Because the length passed to the hardware is only
-sizeof(struct bpt_req_update), will the hardware either reject the command
-due to a length mismatch, or read past the end of the cfge structure and
-write garbage into the hardware buffer pool's operational status fields?
-
-This is a false positive, BPSEU flag indicates buffer pool state element
-update. The state information is maintained by the table's internal buffer,
-the table will clear the information if BPSEU flag is set.
-
-> +	req->cfge =3D *cfge;
-> +	ntmp_fill_request_hdr(&cbd, swcbd.dma, NTMP_LEN(swcbd.size, 0),
-> +			      NTMP_BPT_ID, NTMP_CMD_UPDATE,
-> NTMP_AM_ENTRY_ID);
-> +
-> +	ntmp_select_and_lock_cbdr(user, &cbdr);
-> +	err =3D netc_xmit_ntmp_cmd(cbdr, &cbd, &swcbd);
-> +	if (err)
-> +		dev_err(user->dev,
-> +			"Failed to update %s entry 0x%x, err: %pe\n",
-> +			ntmp_table_name(NTMP_BPT_ID), entry_id, ERR_PTR(err));
-> +
-> +	ntmp_unlock_cbdr(cbdr);
-> +
-> +	return err;
-> +}
-> +EXPORT_SYMBOL_GPL(ntmp_bpt_update_entry);
+On 4/14/26 17:28, Arnaud Pouliquen wrote:
+> Main updates from version V21[1]:
+> --------------------------------
+> This version removes the st,stm32mp1-m4-tee compatibility string,
+> which no longer seems to be accepted by the Devicetree maintainers.
+> As a consequence, the stm32-rproc-tee driver, introduced to simplify
+> the code, is removed. The STM32 integration reuses the existing
+> stm32_rproc driver implemented in V19.
+> 
+> The devicetree is now structured as follows:
+> 
+>      firmware {
+>          tee_rproc: optee-rproc {
+>              compatible = "80a4c275-0a47-4905-8285-1486a9771a08";
+>          };
+>      };
+> 
+>      m4: m4@10000000 {
+>        compatible = "st,stm32mp1-m4";
+>        reg = <0x10000000 0x40000>,
+>              <0x30000000 0x40000>,
+>              <0x38000000 0x10000>;
+> 
+>        mboxes = <&ipcc 0>, <&ipcc 1>, <&ipcc 2>, <&ipcc 3>;
+>        mbox-names = "vq0", "vq1", "shutdown", "detach";
+> 
+>        memory-region = <&vdev0vring0>, <&m_ipc_shm>, <&mcuram2>,
+>                        <&vdev0vring1>, <&vdev0buffer>, <&retram>;
+> 
+>        interrupt-parent = <&exti>;
+>        interrupts = <68 1>;
+> 
+>        st,rproc-tee = <&tee_rproc 0>;
+> 
+>        status = "okay";
+>      };
+> 
+> As a consequence, this version:
+> - reintroduce v19 commits for stm32_rproc.c driver , adding the support
+>    of the st,rproc-tee binding.
+> - drops the dedicated remoteproc-tee.yaml and st,stm32-rproc-tee.yaml
+>    bindings from the series.
+> - extends st,stm32-rproc.yaml with st,rproc-tee to describe the link to
+>    the TEE remoteproc backend.
+> - removes the dedicated stm32_rproc_tee.c driver and reuses stm32_rproc.c
+>    for both native and TEE-controlled cases.
+> - keeps remoteproc_tee.c aligned with the phandle-based lookup introduced
+>    in v21 and uses a device_link between the STM32 remoteproc instance and
+>    the TEE backend device.
+> 
+> More details are available in each patch commit message.
+> 
+> Main updates from version V20[3]:
+> --------------------------------
+> To address Rob’s concern on v20concerning resource declaration under the
+> tee node, the device tree is now structured as follows,replacing the
+> child-parent hierarchy with a phandle:
+> 
+>      firmware {
+>          tee_rproc: optee-rproc {
+>              compatible = "80a4c275-0a47-4905-8285-1486a9771a08";
+>          };
+>      };
+> 
+>      m4: m4@0 {
+>        compatible = "st,stm32mp1-m4-tee";
+>        reg = <0 0>;
+> 
+>        mboxes = <&ipcc 0>, <&ipcc 1>, <&ipcc 2>;
+>        mbox-names = "vq0", "vq1", "shutdown";
+> 
+>        memory-region = <&vdev0vring0>, <&m_ipc_shm>, <&mcuram2>,
+>                        <&vdev0vring1>, <&vdev0buffer>, <&retram>;
+> 
+>        interrupt-parent = <&exti>;
+>        interrupts = <68 1>;
+> 
+>        rproc-tee-phandle = <&tee_rproc 0>;
+>        st,auto-boot;
+>        wakeup-source;
+> 
+>        status = "okay";
+>      };
+> 
+> As a consequence, this version:
+> - Updates the device tree and bindings to:
+>    - Change the compatible property from
+>      "rproc-service-80a4c275-0a47-4905-8285-1486a9771a08" to
+>      "80a4c275-0a47-4905-8285-1486a9771a08".
+>    - Use the rproc-tee-phandle to avoid the parent-child hierarchy.
+> - Updates stm32_rproc_tee.c and remoteproc_tee.c to adapt to the new bindings.
+> - Updates remoteproc_tee.c to compute the device tree compatible string from
+>    the TEE UUID.
+> 
+> Main updates from version V19[4]:
+> --------------------------------
+> The devicetree is now structured as follows:
+> 
+> 	firmware {
+> 		optee {
+> 			compatible = "linaro,optee-tz";
+> 			method = "smc";
+> 			#address-cells = <1>;
+> 			#size-cells = <0>;
+> 			rproc-service@0 {
+> 				compatible = "rproc-service-80a4c275-0a47-4905-8285-1486a9771a08";
+> 				reg = <0>;
+> 				#address-cells = <1>;
+> 				#size-cells = <0>;
+> 				status = "okay";
+> 				m4: m4@0 {
+> 					compatible = "st,stm32mp15-m4-tee";
+> 					reg = <0>;
+> 					mboxes = <&ipcc 0>, <&ipcc 1>, <&ipcc 2>;
+> 					mbox-names = "vq0", "vq1", "shutdown";
+> 					memory-region = <&vdev0vring0>,	<&m_ipc_shm>, <&mcuram2>,
+> 							<&vdev0vring1>, <&vdev0buffer>, <&retram>;
+> 					interrupt-parent = <&exti>;
+> 					interrupts = <68 1>;
+> 					status = "okay";
+> 				};
+> 			};
+> 		};
+> 	};
+> 
+> As a consequence, this version:
+> 
+> - Introduces a new stm32_rproc_tee.c remoteproc driver.
+> 
+>    Instead of further complicating the existing stm32_rproc.c driver, a
+>    dedicated TEE-based driver is added. Both drivers are intended to also
+>    support the STM32MP2x Cortex-M33 remote processor in a next step.
+> 
+> - Reworks the bindings:
+>    - Drop the st,stm32-rproc.yaml updates that were introduced in previous
+>      revisions.
+>    - Add remoteproc-tee.yaml for the
+>      "rproc-service-80a4c275-0a47-4905-8285-1486a9771a08" compatible.
+>    - Add st,stm32-rproc-tee.yaml for the "st,stm32mp15-m4-tee" compatible.
+> 
+> - Reworks the probing sequence:
+> 
+>    The m4@0 device is now probed by the remoteproc-tee driver, which itself
+>    is instantiated by the TEE (OP-TEE) bus.
+> 
+> More details are available in each patch commit message.
+> 
+> [1] https://lore.kernel.org/linux-remoteproc/20260317180329.1207625-1-arnaud.pouliquen@foss.st.com/
+> [2] https://lore.kernel.org/linux-remoteproc/20251217153917.3998544-1-arnaud.pouliquen@foss.st.com/
+> [3] https://lore.kernel.org/linux-devicetree/20250625094028.758016-1-arnaud.pouliquen@foss.st.com/
+> 
+> 
+> Tested-on:
+> ---------
+> commit 591cd656a1bf ("Linux 7.0-rc7")
+> 
+> Description of the feature:
+> --------------------------
+> This series proposes the implementation of a remoteproc tee driver to
+> communicate with a TEE trusted application responsible for authenticating
+> and loading the remoteproc firmware image in an Arm secure context.
+> 
+> 1) Principle:
+> 
+> The remoteproc tee driver provides services to communicate with the OP-TEE
+> trusted application running on the Trusted Execution Context (TEE).
+> The trusted application in TEE manages the remote processor lifecycle:
+> 
+> - authenticating and loading firmware images,
+> - isolating and securing the remote processor memories,
+> - supporting multi-firmware (e.g., TF-M + Zephyr on a Cortex-M33),
+> - managing the start and stop of the firmware by the TEE.
+> 
+> 2) Format of the signed image:
+> 
+> Refer to:
+> https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/src/remoteproc_core.c#L18-L57
+> 
+> 3) OP-TEE trusted application API:
+> 
+> Refer to:
+> https://github.com/OP-TEE/optee_os/blob/master/ta/remoteproc/include/ta_remoteproc.h
+> 
+> 4) OP-TEE signature script
+> 
+> Refer to:
+> https://github.com/OP-TEE/optee_os/blob/master/scripts/sign_rproc_fw.py
+> 
+> Example of usage:
+> sign_rproc_fw.py --in <fw1.elf> --in <fw2.elf> --out <signed_fw.sign> --key ${OP-TEE_PATH}/keys/default.pem
+> 
+> 
+> 5) Impact on User space Application
+> 
+> No sysfs impact. The user only needs to provide the signed firmware image
+> instead of the ELF image.
+> 
+> 
+> For more information about the implementation, a presentation is available here
+> (note that the format of the signed image has evolved between the presentation
+> and the integration in OP-TEE).
+> 
+> https://resources.linaro.org/en/resource/6c5bGvZwUAjX56fvxthxds
+> 
+> Arnaud Pouliquen (7):
+>    dt-bindings: firmware: Add TEE remoteproc service binding
+>    dt-bindings: remoteproc: st,stm32-rproc: add st,rproc-tee
+>    remoteproc: core: Introduce rproc_pa_to_va helper
+>    remoteproc: Introduce optional release_fw operation
+>    remoteproc: Add TEE support
+>    remoteproc: stm32: Create sub-functions to request shutdown and
+>      release
+>    remoteproc: stm32: Add support of an OP-TEE TA to load the firmware
+> 
+>   .../bindings/remoteproc/remoteproc-tee.yaml   |  36 +
+>   .../bindings/remoteproc/st,stm32-rproc.yaml   |  55 +-
+>   drivers/remoteproc/Kconfig                    |  10 +
+>   drivers/remoteproc/Makefile                   |   1 +
+>   drivers/remoteproc/remoteproc_core.c          |  56 ++
+>   drivers/remoteproc/remoteproc_internal.h      |   6 +
+>   drivers/remoteproc/remoteproc_tee.c           | 789 ++++++++++++++++++
+>   drivers/remoteproc/stm32_rproc.c              | 249 ++++--
+>   include/linux/remoteproc.h                    |   6 +
+>   include/linux/remoteproc_tee.h                |  98 +++
+>   10 files changed, 1220 insertions(+), 86 deletions(-)
+>   create mode 100644 Documentation/devicetree/bindings/remoteproc/remoteproc-tee.yaml
+>   create mode 100644 drivers/remoteproc/remoteproc_tee.c
+>   create mode 100644 include/linux/remoteproc_tee.h
+> 
+> 
+> base-commit: 591cd656a1bf5ea94a222af5ef2ee76df029c1d2
 
 
