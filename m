@@ -4,92 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A41CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 11:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAB0CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 11:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jfb1CZzld1w+AYshPyetwxz0Ey757X/HVG1TgmeDSYU=; b=J3yqcWwqwUpciSl3NAvq/cWtXq
-	o/tLUbCFQl/tpXopza6fnxYYRu/wUKOq5JqmZL71KRL0ESWAxSCowT226h7pMwXBcHYJ2ZDb5GuTN
-	q+u4QI2taIoXuREy65X2TCm/8mpiZavTzoWqMI0xixHC631WAL583Oi9PG8Nr2r13U2ZdnukEAofn
-	54TwS1XJ2dfRGWT4KzOG7kOqyL1R7JE1NtL92WKAARdaKE9sJ2fNNFO2nb+123bmMfnysaeddnLza
-	Moi0bl0Id8BIjByGH9ED0qgCLKmA/ZwEYw1cY6pJ8J1zh2hPNTaDwuLZOoxjTVlVkWs0nJQ9GWyzN
-	6xWTCVWQ==;
+	bh=AfN0H5M8Q/r16hqwDOVheTHjmfIEomibxA1V1NGFP4E=; b=NLzlfQLHtgZwVXcbtHtxdcN4pv
+	YYSH1FFU+Ty1afZ0Rw7XCDfZ5jZ/hm5oPIsa+ll47nUkU7unqNCRYT0zOiN+aNrxMTDPzu4WhnED5
+	QG+kqXDUIgOXDHzv2qbvUGBpjV9bzu1H8fsQsI4jzHLsZN1DVahvag0y0CZsug3eocysQDrxLtYgJ
+	NfasEYLUZMByJtm3S4G6xqg2WU6KjclBwavrlEbdfzpwds3ZomaWib2n9ryEdhFtxsFeOsl6VS9u8
+	QAnyv/YzRdPSZ8O/jRFHEEEqo8aZDECUKrIKo+tmkVBxHXoqWSdxSNKPPUQMfotlvl8HfEFg4qm0C
+	jfdQDrHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKa50-00000000Zmg-1to3;
-	Wed, 06 May 2026 11:06:14 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wKa87-00000000aEe-3eSL;
+	Wed, 06 May 2026 11:09:27 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKa4y-00000000Zln-1MCm
+	id 1wKa86-00000000aEF-4C6c
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 06 May 2026 11:09:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=AfN0H5M8Q/r16hqwDOVheTHjmfIEomibxA1V1NGFP4E=; b=E8oGC2UFT8Iuy4qf2ZGvY4fNWT
+	eDIfC31BFexz4WYGh1tVGmAOHJEvExMscb1+pI7c1whlW7+wGc4nDITTk7QaEw7e7L2vhHsng7/HI
+	P3fxzvu2seGVc6WpUXp+O/xv85hPO0Udu84XcsNXUYx5LkfUAiGHvIACygDw9YTCW7Kh/+RGGu6EA
+	gNO4VcD+KyjzN3k4KPPJNsAU6tSahqsoDPdwtj9tLEO/4odnPyk5hPGD5XGWDe9Yir6ndl5/SVphf
+	bumrg9bQBlM4UDDgXPI95890VIq9UNHTMwqW09ZURVDRTKPzoGdcASPVmYHYdbZ59KqEohfTavy8E
+	EESlBkMg==;
+Received: from mail-eastus2azon11011013.outbound.protection.outlook.com ([52.101.57.13] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKa82-00000001IKf-3sEM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 11:06:12 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-488b150559bso43388685e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 04:06:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778065568; x=1778670368; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Jfb1CZzld1w+AYshPyetwxz0Ey757X/HVG1TgmeDSYU=;
-        b=H2b6QeJPFIpb5R4rcwRFgaD8G8HIZD78HhlYSb2iZZq367jWzPAGuuYuqf8tJDev/Z
-         b/OHq8Yac7FnAnzejGnNmTARVndQADDOYDkWETqtB24J50aDkq2CflDqTh0wJiSyKf9V
-         XNqu21juLQulaaozGWcik4TF8sjt3ONRbAfWOfjQegZI8ns/VAxRCbI9lzpX9BCPML/O
-         n/d7IC1ElNhVm0MSrhYDSKuCh54vnJ8IZMJ5U731fv4hgie9xEWOXVsZvX4qXr+mYfH4
-         IBWS9IiTV+7FCMcIwigNqisn6xoUeGNURAQHAZRRiBW1cGtyVkX9LRBwktsi22d5jkE7
-         qQHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778065568; x=1778670368;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Jfb1CZzld1w+AYshPyetwxz0Ey757X/HVG1TgmeDSYU=;
-        b=H8e3OHwiUQiSR7WUfUEZuBMjUDpGTZbJXs7RforoAxuvbwvgcCculUMIYd6vg1cwER
-         sBcioigkC0YoyAVCSh/inerfpV0w2GhJoa5GjuMIEGqpx8pGeXfobrh+WRtoSS/aztQB
-         iWcaCebcCxEGXrm/215e+tyhAEBugAGcE+GaGILHNQy51Kaa8CRkEKFCIxabHVJSQBaL
-         VSkua9AtpuwFoml/U3sXlzA9snZjVxghpzdchB8KRJ8JIkG9SrNoceVgro7tdzDuHasV
-         iFuyv3SWdF/pyVKx/poY97eIK34CVZEaU57MJVXdHgAsgqMMkzNqzYNhe/PLUXmYMBGz
-         TQMQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9dXNVZU2loX6RGsBFiNQ8n+UkjSmAxGe7gXxP+51nlMxMb2GOINxC20sC2fvs84zWVE2wGA/W7I+kX2mrGYtXN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXVX/IIBfR1i9hMNVU6FrK+lta5NKaukvgI7pJMGHCeOt8b1g1
-	8yEWMvU6DjwxSMOjio2lw7/2G+BIo60CBNCBR4mC+wOlDYQnbdIrkJxSOoh0rD/D5A==
-X-Gm-Gg: AeBDieu0DKAHqas54o3vbVS+4KtePETttFQNHLS0AiNo0yXMzTrst4x8T+BFVhmnBcw
-	dAXxOy0vnOuV/egyIGFaLm9zciALAO7PhE8qg2VDBXl1Dh6fx1t/wpgOoCUtEAuBjAAZxz84dIN
-	ok3jgHpcJ+AjVy5fgx2CdWqjLYFOjaBdyVW4SNLEyGjR8lsusV5e7QzUCOKz8lhQQrgdRtrRA/Q
-	ZEGbbfUP6bVvbzoPLHcaowrTqVdpbwRDXAFa1xzqZnqfqzSypWV4QdfUWCR0OL/Ew9KzV0mprSY
-	LXh8pbK1IyV5fxcC8xNBtol2m8km4kfdEq6jepMXkOaxO+Dx1ZS1LQWCeHT4pVsSXryE1Fjk0Rj
-	Pq9Nfiqs9Jqs3Nc3s96cBKIfq8Nl7Kt7MODXV4H09Nw6so8Rs1xPFz6iWkEu5h1PsnuOn548SWg
-	BW579p5w8dzOXQYe7ii2dgp/rF5XZyItHak4b1wGxjmqgl3RK977jtWg1D719pDLun8V7tWT3rU
-	BJ908WK3VMyLd46FFj+2Ajn5zA=
-X-Received: by 2002:a05:600c:8906:b0:48a:93d2:609b with SMTP id 5b1f17b1804b1-48e51f45c46mr38505655e9.28.1778065567947;
-        Wed, 06 May 2026 04:06:07 -0700 (PDT)
-Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e538a5486sm42410345e9.6.2026.05.06.04.06.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 May 2026 04:06:07 -0700 (PDT)
-Date: Wed, 6 May 2026 12:06:03 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH] KVM: arm64: Work around C1-Pro erratum 4193714 for
- protected guests
-Message-ID: <afsgm6pVTFwtqc4e@google.com>
-References: <20260430155911.628402-1-catalin.marinas@arm.com>
+	Wed, 06 May 2026 11:09:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LMvbCv5HfemFg2sSV7O/cXMjpJqJCCdDMW87FfXLH/NMqI+pVvO8viVOeZeiUpp5Ryt3p5HYBSQ/F/+v2kAjeKd2zubmh9FRPsRF5g9gmGSyI47GTLqS15BhZv8NjOKvapTZdT0LBMefVaBsMSxWLVqwAIYQoG77FU9m7Hh3FCYr3eAaTV+fSUpqSZKM1a9EU2Rm0b8pLuwIfKNSMtKgafcVnM6XkkwxOEFSCuK7urAIkWtdeth7vK1YNp34C962rOmCYY+PifT5UiSYVI4htbhy8yjBkCMljrdJTj6kFIJygpDc8bv2ZLerXwNUu4CwG4QLa90cq5rVZUn3nxNLoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AfN0H5M8Q/r16hqwDOVheTHjmfIEomibxA1V1NGFP4E=;
+ b=BQjY+VCuW8zES14bdrZjV3r1P1l+Vfvk38cykvpDdx7bT0GZgSp3sodFwtwn57cF7Wm7yt4LMinU+chPO/NRo6+FyjcXiXEzYPGtCzQbv6bdRYFzDkGUT/g+QptRhTaWilIZ8295ZG/tDSOH7hEyZdiQYko65H5m4/Vx1rQHqIKgwFLivmN4M+UrPbX8FtQgpnGBw9XgntKrGhd8njwssWYQbK6Qyb2rj+emFALMqRu6YP2nFiQJsPWjF2jiE8SX+/x4sGNctffOUsO7+0rkdXuLjUH4exZYYsi6yxcb6bsdTjU5hMHxa451mZU/y+Z1J6msa+1De79y4U54nZ5vMQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AfN0H5M8Q/r16hqwDOVheTHjmfIEomibxA1V1NGFP4E=;
+ b=Ub1n0yeoe5YVPBx5XP/6xXg4bb1J21JeMZy0/52ZZqHx/XvkJ3ZIPAaqRzF/QwBVsaf0/ynPN6wahtk2+Jy4FmWsBEPDZK9sFL3iCpMXWaaM6qgprvz07jXL+F0nvvOM2h99NFTXCy6jxUgU91d8OOy+Hi+/KtdXTY7jkDkCJ/E=
+Received: from CY5PR15CA0075.namprd15.prod.outlook.com (2603:10b6:930:18::7)
+ by MN2PR10MB4238.namprd10.prod.outlook.com (2603:10b6:208:1d3::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 6 May
+ 2026 11:09:15 +0000
+Received: from CY4PEPF0000E9DB.namprd05.prod.outlook.com
+ (2603:10b6:930:18:cafe::55) by CY5PR15CA0075.outlook.office365.com
+ (2603:10b6:930:18::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.15 via Frontend Transport; Wed,
+ 6 May 2026 11:09:15 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CY4PEPF0000E9DB.mail.protection.outlook.com (10.167.241.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9891.9 via Frontend Transport; Wed, 6 May 2026 11:09:15 +0000
+Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 6 May
+ 2026 06:09:11 -0500
+Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 6 May
+ 2026 06:09:11 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Wed, 6 May 2026 06:09:11 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 646B9BOV938080;
+	Wed, 6 May 2026 06:09:11 -0500
+Date: Wed, 6 May 2026 06:09:11 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Rosen Penev <rosenp@gmail.com>
+CC: <dmaengine@vger.kernel.org>, Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+	Vignesh R <vigneshr@ti.com>, Vinod Koul <vkoul@kernel.org>, Frank Li
+	<Frank.Li@kernel.org>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
+	<ssantosh@kernel.org>, Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva"
+	<gustavoars@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-hardening@vger.kernel.org>
+Subject: Re: [PATCHv2] firmware: ti_sci: simplify resource allocation
+Message-ID: <20260506110910.su2s6ncsi2xfdiwm@pureblood>
+References: <20260504031209.618949-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260430155911.628402-1-catalin.marinas@arm.com>
+In-Reply-To: <20260504031209.618949-1-rosenp@gmail.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9DB:EE_|MN2PR10MB4238:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34bbb321-7ae3-4e62-c19a-08deab5fe942
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|36860700016|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: MCHrfzp7qPstGYsPC9FAZZzoZXtL/cfSDd2zG+VWsILLPuS3Y2dejWvvtpTBmR3PcFcuWcmGe2zKDTNMZVeHapkztEern63jYkxk7KTt50hXcrtS6dCLJnDMSLI+fcYIPc2Z3vjbVZikkdCp1P8X+D2MPMg9x1yQdysoavW5l8Z9FaYYpVusTiNt4goPWTRV9Pzb9Wux79WahC0EnS+U5RAdajA7Qydt6copDdIOgz78QNuWpLW/fcHkO5lwlR1TkrHMP1t567mkPRO24DBWymyRra26b3uWUCUMocEYsuqjZQxZD4/J/IVOYem40SdClsfPmm3D5I8FdV1cCh54vFkPJ4pLDXr/2wMirTcZwuhxB0Hw264QPNE9dKJ4AKiECMPwJsTDM9bYiV0zLccRBwH+S7beWfgYr4USBIhdVXEV51Zb6xRPgj8P0i493XwZUf5RYmxQVTVAsDpfgK3GyeNDKdr5ae6oSpkQcZcFO0Ib7qdav892Pf/Hz0VnbEvGeHLExNcKIwwbrvftZTPozzGBNek5FxKhKx9kV/H1t0eVOYNRvSmHmREZ9EFkpSsrMb5XSabvzPGpnHpzqv/0UEK2dp1azHpi0BQmWXECrTtEkr+QZD+XWbaAvONhyedd1GiHaWY0frpR0yY4jj2f/4MMizcrDQEzjtTvZf2B0de7J0D/0niEqRvk2VzR11ZuWZHToGlga3ojEWyCU0kAfVTfJYrVVlzp40Um8K8DdzI=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(36860700016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: GS6tE7L4WyLqHfNFvWXFtioBvtzrjTm+0caSi8pjAynSRuXvWIBEc95P19AStLVMuNH3e43fIyD82Wh8g2Hi4GwoRQjvLVJ7pTImqR5EJZbFReq+QAELfMYTItRjnppY9arCd6y0wpz27y4OjB20hH/j3RQDXYuYU2gcAcccStHiazA5DWsP+n5NeRtGh5yWpzePv536iqbH15kyYWohFrnWAvpDpUcB4BJs1yKKLc8b4/Gy0PSi6N1lvbCz6AC6AiUNeYhzSv78riy0rXn+ufDRYXJVOW7AWnXMYYvEGRJCzX8AjbbhaQfVfzKDfOw/ouyp3KZZMezelUiZCVZaaeKTMvDjwDVdD5ew9pkD9Equz3rOdYbYZfRUbYBWiF/LLzdOw1L+XlgyB4dLnVa2kmdw7/w2ll3HRugVvGpVLJ5Hg4swNoe/h72dx/mmwT0l
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 May 2026 11:09:15.6030
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34bbb321-7ae3-4e62-c19a-08deab5fe942
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9DB.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR10MB4238
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_040612_394518_3D13DF78 
-X-CRM114-Status: GOOD (  36.04  )
+X-CRM114-CacheID: sfid-20260506_120923_266059_1EF3A7A9 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,140 +147,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 04:59:11PM +0100, Catalin Marinas wrote:
-> From: James Morse <james.morse@arm.com>
+For some reason, replying drops the CC list. manually added them in.
+
+On 20:12-20260503, Rosen Penev wrote:
+> Use a flexible array member to combine allocations.
 > 
-> C1-Pro cores with SME have an erratum where TLBI+DSB does not complete
-> all outstanding SME accesses. Instead a DSB needs to be executed on the
-> affected CPUs. The implication is pages cannot be unmapped from the
-> host Stage 2 then provided to the guest. Host SME accesses may occur
-> after this point.
+> Add __counted_by for extra runtime analysis.
 > 
-> This erratum breaks pKVM's guarantees, and the workaround is hard to
-> implement as EL2 and EL1 share a security state meaning EL1 can mask
-> IPIs sent by EL2, leading to interrupt blackouts.
+> Fixup k3-udma as well since ti_sci_resource is used there as well and
+> needs fixing up to use kzalloc_flex.
 > 
-> Instead, do this in EL3. This has the advantage of a separate security
-> state, meaning lower EL cannot mask the IPI. It is also simpler for EL3
-> to know about CPUs that are off or in PSCI's CPU_SUSPEND.
-> 
-> Add the needed hook to host_stage2_set_owner_metadata_locked(). This
-> covers the cases where the host loses access to a page:
-> 
->   __pkvm_host_donate_guest()
->   __pkvm_guest_unshare_host()
->   host_stage2_set_owner_locked() when owner_id == PKVM_ID_HYP
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> [catalin.marinas@arm.com: move the hook to host_stage2_set_owner_metadata_locked()]
-> [catalin.marinas@arm.com: use hyp_smccc_1_1_smc()]
-> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Vincent Donnefort <vdonnefort@google.com>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Sudeep Holla <sudeep.holla@kernel.org>
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
+>  v2: add k3-udma fixes.
+>  drivers/dma/ti/k3-udma.c               | 180 +++++++++++++------------
+>  drivers/firmware/ti_sci.c              |   7 +-
+>  include/linux/soc/ti/ti_sci_protocol.h |   2 +-
+>  3 files changed, 98 insertions(+), 91 deletions(-)
 
-Reviewed-by: Vincent Donnefort <vdonnefort@gogle.com>
+Since majority of the changes are via k3-udma.c, if this could go via
+dma tree, it would be nice. Else, please give an ack and I can carry on
+my tree.
 
-> 
-> That's a rebase to 7.1-rc1 together with a few tweaks. The initial
-> workaround for pKVM was posted here:
-> 
-> https://lore.kernel.org/r/20260323162408.4163113-6-catalin.marinas@arm.com
-> 
-> I dropped the vN numbering since the original series evolved a bit. I
-> also changed the subject here, more suitable for a stand-alone patch.
-> 
-> Changes since last time:
-> 
-> - Use hyp_smccc_1_1_smc() instead of arm_smccc_1_1_smc() as suggested by
->   Vincent
-> 
-> - Do the SMC only when the host loses access to a page and not when the
->   ownership transition happens in the other direction. Guests do not
->   have access to SME in current mainline
-> 
-> I looked at the Android16 backport from Vincent and it covers more
-> cases but they do not apply to mainline (sglists, donate to FF-A). I
-> could not figure out why changing a host permission from RW to R or
-> !valid matters for this workaround, so that's not done here either.
-> 
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c | 20 +++++++++++++++++++-
->  include/linux/arm-smccc.h             |  6 ++++++
->  2 files changed, 25 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index 28a471d1927c..75977179c9d1 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -5,6 +5,8 @@
->   */
+For the following:
+Reviewed-by: Nishanth Menon <nm@ti.com>
+
+> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+> index e027a2bd8f26..04d99c1fafa1 100644
+> --- a/drivers/firmware/ti_sci.c
+> +++ b/drivers/firmware/ti_sci.c
+> @@ -3574,16 +3574,11 @@ devm_ti_sci_get_resource_sets(const struct ti_sci_handle *handle,
+>  	bool valid_set = false;
+>  	int i, ret, res_count;
 >  
->  #include <linux/kvm_host.h>
-> +#include <linux/arm-smccc.h>
-> +
->  #include <asm/kvm_emulate.h>
->  #include <asm/kvm_hyp.h>
->  #include <asm/kvm_mmu.h>
-> @@ -14,6 +16,7 @@
+> -	res = devm_kzalloc(dev, sizeof(*res), GFP_KERNEL);
+> +	res = devm_kzalloc(dev, struct_size(res, desc, sets), GFP_KERNEL);
+>  	if (!res)
+>  		return ERR_PTR(-ENOMEM);
 >  
->  #include <hyp/fault.h>
+>  	res->sets = sets;
+> -	res->desc = devm_kcalloc(dev, res->sets, sizeof(*res->desc),
+> -				 GFP_KERNEL);
+> -	if (!res->desc)
+> -		return ERR_PTR(-ENOMEM);
+> -
+>  	for (i = 0; i < res->sets; i++) {
+>  		ret = handle->ops.rm_core_ops.get_range(handle, dev_id,
+>  							sub_types[i],
+> diff --git a/include/linux/soc/ti/ti_sci_protocol.h b/include/linux/soc/ti/ti_sci_protocol.h
+> index fd104b666836..7632bb11c862 100644
+> --- a/include/linux/soc/ti/ti_sci_protocol.h
+> +++ b/include/linux/soc/ti/ti_sci_protocol.h
+> @@ -599,7 +599,7 @@ struct ti_sci_handle {
+>  struct ti_sci_resource {
+>  	u16 sets;
+>  	raw_spinlock_t lock;
+> -	struct ti_sci_resource_desc *desc;
+> +	struct ti_sci_resource_desc desc[] __counted_by(sets);
+>  };
 >  
-> +#include <nvhe/arm-smccc.h>
->  #include <nvhe/gfp.h>
->  #include <nvhe/memory.h>
->  #include <nvhe/mem_protect.h>
-> @@ -29,6 +32,15 @@ static struct hyp_pool host_s2_pool;
->  static DEFINE_PER_CPU(struct pkvm_hyp_vm *, __current_vm);
->  #define current_vm (*this_cpu_ptr(&__current_vm))
->  
-> +static void pkvm_sme_dvmsync_fw_call(void)
-> +{
-> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_4193714)) {
-> +		struct arm_smccc_res res;
-> +
-> +		hyp_smccc_1_1_smc(ARM_SMCCC_CPU_WORKAROUND_4193714, &res);
-> +	}
-> +}
-> +
->  static void guest_lock_component(struct pkvm_hyp_vm *vm)
->  {
->  	hyp_spin_lock(&vm->lock);
-> @@ -574,8 +586,14 @@ static int host_stage2_set_owner_metadata_locked(phys_addr_t addr, u64 size,
->  	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
->  			      addr, size, &host_s2_pool,
->  			      KVM_HOST_INVALID_PTE_TYPE_DONATION, annotation);
-> -	if (!ret)
-> +	if (!ret) {
-> +		/*
-> +		 * After stage2 maintenance has happened, but before the page
-> +		 * owner has changed.
-> +		 */
-> +		pkvm_sme_dvmsync_fw_call();
->  		__host_update_page_state(addr, size, PKVM_NOPAGE);
-> +	}
->  
->  	return ret;
->  }
-> diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-> index 50b47eba7d01..e7195750d21b 100644
-> --- a/include/linux/arm-smccc.h
-> +++ b/include/linux/arm-smccc.h
-> @@ -105,6 +105,12 @@
->  			   ARM_SMCCC_SMC_32,				\
->  			   0, 0x3fff)
->  
-> +/* C1-Pro erratum 4193714: SME DVMSync early acknowledgement */
-> +#define ARM_SMCCC_CPU_WORKAROUND_4193714				\
-> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-> +			   ARM_SMCCC_SMC_32,				\
-> +			   ARM_SMCCC_OWNER_CPU, 0x10)
-> +
->  #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
->  	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
->  			   ARM_SMCCC_SMC_32,				\
+>  #if IS_ENABLED(CONFIG_TI_SCI_PROTOCOL)
+> -- 
+> 2.54.0
+> 
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
