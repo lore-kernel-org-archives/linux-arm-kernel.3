@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B21CD342C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3CFCD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 10:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rEf+QF8cDPXceBxP70Jj9VU95LyjIJ2Vip/589+YH0Y=; b=Xn+q3RV75sd6/NiBdxHSTdh5Wd
-	GlFupiPBlrwXXmiWJvouKewmSar2j+MuO0GLiz+iVVViqtRcDvfOLgwHvcpzzWtmmy3lfyKfhGoUM
-	i70aFScunTDeXou0iBRFIc8E96DQva9SjT27+BiQulikyMpj8qNxRtkm/6yCVzLrsCHVN7XztRbfg
-	TM6p7KUBbzB2ps2RuVhkBHXF3Gdy7eMEDXkijNrmJCkUE35RQQcrdreu10+q2gpmZIkiBg1xPhJy6
-	ezfXbRbctk1Lt0SBDaRLkzN4r4raARReJwd08UKu/rVCg6eAtkJR2XPlVjSS2Yaa1Ve0S/q+6rljr
-	mqlmF7eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O9FuCdO7aIMJEVIcWanVW94iMvXcDLqljJiei2BDwek=; b=4XbzSORK6Vf9cEwZzGTdK+grA0
+	MMYlTGv4wcr3czZ+2vEtITYlmVmhuQisDtYmN/qRaKf7wKxPogvF6ZbeK27qMjLkLk0IH51TBTF86
+	1GPgj+SWoB5bhOJhUbdXhjrPCPJiNQ6S//65GWB5zUMnjKfbhylBAIriQICGL8G3x4z5i6a82Kzvd
+	iepNk9UTeTIDXND5rCE/Bsck2FSrYglRpPKYvwSpFmVOMMYFD/TOk62ztgPt6lXw0u3PqJLDuvW5a
+	Lfn9fHQa0WSZmJ5enYEetD+4eg05r86kuItQgKLzqKJhJ8mkXjxnBgKO1QWr+t68jpUTfP/M0w7u4
+	zEpD7yWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZIX-00000000Sqb-0fPT;
-	Wed, 06 May 2026 10:16:09 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZIV-00000000Spn-1SCK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 06 May 2026 10:16:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=rEf+QF8cDPXceBxP70Jj9VU95LyjIJ2Vip/589+YH0Y=; b=KJDoEETdzXzJ6+r002hngF8yYH
-	oCU46fWl4u3V5pqAGfs2fqT+AV3UqQus+KHBddyrGE2zWb9ri1kFTYme+LO2nFQ6eE0jDALsrlrvk
-	3SO8bN7/7xVu7+JvEmldeKXAS5d8e2tg2iLtZAeUeKC4MuGnCQIjvgYQ7H0wNWdOplPW84+A/kV2H
-	kV6dWzLgHZBtWcy9zzCyK6NE5D5/geoggzysZu2/ei8aEVxVboXqzMrVwsdBgukcZPE58HZAvBnQg
-	HJwAMpCBSTzsVwA5ZoTSBnUMUPSmTkFnFIvG7pLjMfla8bDQAqO6Pwkbt/6YqBWryZEuKHqmv8SFE
-	gErlBO/g==;
-Received: from s106b.cyber-folks.pl ([195.78.66.88])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKZIR-00000001COb-2Fp5
+	id 1wKZL4-00000000T67-21Bg;
+	Wed, 06 May 2026 10:18:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKZL3-00000000T5d-1FEr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 10:16:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=mmpsystems.pl; s=x; h=Cc:To:Message-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rEf+QF8cDPXceBxP70Jj9VU95LyjIJ2Vip/589+YH0Y=; b=mDlVWEVKgngZzTseLTMNbUGwZk
-	JyfwRYdjdkrPCByRvn8ok9fCz2Z4vrI/uooCaY5lC8tvRPQdhVdR5N3MBDymQUEFE/9+BHhw3cisr
-	BbjllNP5PRX1k6hFKIVqo8ifRUnsT8CVnmnV0WQGE8u3ebPo47J2cW45gmdI/DUtNf65s9hsofi9d
-	vv16b5E+gZvmLNkeu8/O/1zKQF9whPX6BY5wSEkjt5+lGOUFRCAxTeNG+dxRMkIoyzw/XuCn8tJlt
-	qKU9Yg+T+wW68Tyt2/BDqvlrg/7EKe8ozNPJf6CxxzQ644173UGFUgBwF92xTyle/Av6lnQUXyCSN
-	ILhCCwog==;
-Received: from user-188-33-36-99.play-internet.pl ([188.33.36.99] helo=localhost)
-	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <michal.piekos@mmpsystems.pl>)
-	id 1wKZI1-0000000DXxR-23bm;
-	Wed, 06 May 2026 12:15:37 +0200
-From: Michal Piekos <michal.piekos@mmpsystems.pl>
-Date: Wed, 06 May 2026 12:14:31 +0200
-Subject: [PATCH v3] arm: dts: allwinner: t113s: enable watchdog for reboot
+	Wed, 06 May 2026 10:18:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DB913319;
+	Wed,  6 May 2026 03:18:38 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20D533F836;
+	Wed,  6 May 2026 03:18:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778062723; bh=QgSl24i2a3vecWgnD3FTFmRLvLM7+ddvbva5hDFdMX0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AkuzRWMbpH28zIU/AJOwgmNs04JbgbYjj33svjLg1dTjpWgvKncHKVkdG9hImnisH
+	 TGwqC6eyG2HKM7iYq8HxvAl+qvxQi/f8nOqXqJuwyLieHr5SniCxXsGFovlVN40cUW
+	 SUYJlfTdK5+beTTfzAkW6ekIe0vTKYj1GT6Pf83s=
+Date: Wed, 6 May 2026 11:18:41 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Jie Gan <jie.gan@oss.qualcomm.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v11 25/27] coresight: sysfs: Increment refcount only for
+ system tracers
+Message-ID: <20260506101841.GF3778514@e132581.arm.com>
+References: <20260501-arm_coresight_path_power_management_improvement-v11-0-fc7fb9d5af1c@arm.com>
+ <20260501-arm_coresight_path_power_management_improvement-v11-25-fc7fb9d5af1c@arm.com>
+ <c7e4349a-3c47-4908-b677-15a5360ce7a9@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260506-t113-mangopi-reboot-hang-v3-1-fa15a360a520@mmpsystems.pl>
-X-B4-Tracking: v=1; b=H4sIAIYU+2kC/43NQQ7CIBAF0Ks0rMXA0FbrynsYF5QOlkQKAUJsm
- t5d2pVxYVz+mT9vFhIxGIzkUi0kYDbRuKkEcaiIGuX0QGqGkgkwaFnNgSbOBbVl47yhAXvnEt2
- KVHWyG1CfAaEn5dwH1Oa107d7yaOJyYV5/5T5Nv0DzZxy2jAGSssWmVJXa32cY0Ibj/5JNjjDB
- wbNDwwKpgdRC2AnWff4ja3r+gYyYodzEQEAAA==
-X-Change-ID: 20260412-t113-mangopi-reboot-hang-c9a9def82e2b
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Michal Piekos <michal.piekos@mmpsystems.pl>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778062495; l=1217;
- i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
- bh=RIZFKu0YFjj7EBH23MsJ7RM+THIvDb3yzeXZZe8JlHI=;
- b=Whfd5bW+3yqgekFwmeFvDl+NjTsUzrNampq+WZUHFRgq+FAdlYA32aSD9DkVyGflXx1DsaczL
- SeR9q64rPuQAWKaX77Gc3odTlstSzKbsJ6syBCCFSWF9qoXwxttEdj8
-X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
- pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
-X-Authenticated-Id: michal.piekos@mmpsystems.pl
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c7e4349a-3c47-4908-b677-15a5360ce7a9@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_111604_051482_0CA70A33 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260506_031845_376891_5CCA35A2 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,46 +80,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reboot hangs on T113s boards because no restart handler is
-available.
+On Wed, May 06, 2026 at 10:57:20AM +0100, Suzuki K Poulose wrote:
+> On 01/05/2026 17:48, Leo Yan wrote:
+> > Except for system tracers (e.g. STM), other sources treat multiple
+> > enables as equivalent to a single enable. The device mode already
+> > tracks the binary state, so it is redundant to operate refcount.
+> > 
+> > Refactor to maintain the refcount only for system sources. This
+> > simplifies future CPU PM handling without refcount logic.
+> > 
+> > Tested-by: James Clark <james.clark@linaro.org>
+> > Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> > Reviewed-by: James Clark <james.clark@linaro.org>
+> > Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> > Signed-off-by: Leo Yan <leo.yan@arm.com>
+> > ---
+> >   drivers/hwtracing/coresight/coresight-sysfs.c | 41 ++++++++++++++++++---------
+> >   1 file changed, 27 insertions(+), 14 deletions(-)
+> > 
+> > diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+> > index 0aebafcb8d0e8e699652244af5202e7c4dc4e9b1..42cf07b8d15a420e963650000dc32bbb38f0aa62 100644
+> > --- a/drivers/hwtracing/coresight/coresight-sysfs.c
+> > +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+> > @@ -39,6 +39,28 @@ ssize_t coresight_simple_show32(struct device *_dev,
+> >   }
+> >   EXPORT_SYMBOL_GPL(coresight_simple_show32);
+> > +static void coresight_source_get_refcnt(struct coresight_device *csdev)
+> > +{
+> > +	/*
+> > +	 * There could be multiple applications driving the software
+> > +	 * source. So keep the refcount for each such user when the
+> > +	 * source is already enabled.
+> > +	 *
+> > +	 * No need to increment the reference counter for other source
+> > +	 * types, as multiple enables are the same as a single enable.
+> > +	 */
+> > +	if (csdev->subtype.source_subtype ==
+> > +			CORESIGHT_DEV_SUBTYPE_SOURCE_SOFTWARE)
+> 
+> Minor nit: You must check the csdev->type == DEV_TYPE_SOURCE before
+> check the subtype.
 
-Enable the SoC watchdog whose driver registers a restart handler.
+I will add a helper coresight_is_software_source().
 
-Tested on LCPI-PC-T113/F113.
-
-Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
----
-Changes in v3:
-- Fix referencing the node
-- Link to v2: https://lore.kernel.org/r/20260425-t113-mangopi-reboot-hang-v2-1-fd343207a4be@mmpsystems.pl
-
-Changes in v2:
-- Moved watchdog enablement to SoC level dts following Jernej's
-  suggestion
-- Link to v1: https://lore.kernel.org/r/20260412-t113-mangopi-reboot-hang-v1-1-5002cfa6e0cc@mmpsystems.pl
----
- arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
-index 424f4a2487e2..3ca0897353be 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
-+++ b/arch/arm/boot/dts/allwinner/sun8i-t113s.dtsi
-@@ -90,3 +90,7 @@ cpu-crit {
- 		};
- 	};
- };
-+
-+&wdt {
-+	status = "okay";
-+};
-
----
-base-commit: 74fe02ce122a6103f207d29fafc8b3a53de6abaf
-change-id: 20260412-t113-mangopi-reboot-hang-c9a9def82e2b
-
-Best regards,
---  
-Michal Piekos <michal.piekos@mmpsystems.pl>
-
+Thanks,
+Leo
 
