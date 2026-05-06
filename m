@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66327CD343B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:29:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF8ACD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 May 2026 15:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tPed1cEalE8p9ynIcjerRfBMest/+qZpKOCHipzUr1A=; b=QPCXzfmeTLa/67i5FDD4xbeJWa
-	GGYtqwu3nTpD05+1Q2MXgaMdHLD4FoX6KDPLWNV2YWX6+JO6iwWkEshDNiHd0qS0dIvqAR6WMi5K5
-	2qCtceQsy1Kw/2xzuDz9X1qsNK8f44KYPLZyfN8gE4nMKKYyfES5jwwpPuiECjBRDPYpRuAYGbGMa
-	0uN5LeEKVrU1trXG0DJoUPQrlMF8uBgF0lFllBHwIBTtgTa3tNsEh5aP3Eneazb5HG8R3/MhoYMWA
-	/tcELS27g31OOAapdT7suNPMSpOV4WNzHZZraDutOt2kZiPYfHV7KSdYcVhPbg6dQITq3ppejHK/K
-	bytbCGbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LpMiaMn6dAmQVtExkum+YevLhvle5EftrSlfv8b97nA=; b=zG2WTVpoLpDIdL2gCaU+iQS4T1
+	rFANFshU/I1E2qp5iW86UlZDewqi8LxseYjLf5B3u5lnRGiNidLaC3ZBqtJb2Jgb+Dl5ECZqL/fvT
+	H3GjQtvqCJARGGck1q2fop8bFsq9dhQEJ36O0KXqBn7bB9fZmiiu0RnkucqY0Hy7tT1ZXb9gFv5Jj
+	PSgsX84t0F++55I/teGlZa9lTnwhT7VKv4geJ60v0Z3NyQA2JyMZoHyVBa3Jiqwv1QEMrk1bYoyrc
+	rWg4/BGACDlelfBePrSQw3jS3OlLbOmyoOUkY0H4V/5O1r3MR/Wk+Sh75gp5Z/5zfViIIDvkG9qVE
+	LSPluCRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeC1-00000001KYg-20i2;
-	Wed, 06 May 2026 15:29:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKeC0-00000001KXv-2Fa2
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 May 2026 15:29:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB5FC1A00;
-	Wed,  6 May 2026 08:29:37 -0700 (PDT)
-Received: from [10.57.35.178] (unknown [10.57.35.178])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0ECE23F7B4;
-	Wed,  6 May 2026 08:29:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778081383; bh=ip9HLEiG0rLbNmSPtdtn1g8pMwO4gElNKtnSHYmseRU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uFirFSB72AiOef9KIv+LoT9vVvtJCtTeQjSPmbbHWBwooyjT8eiFl6hli9r8u2BPS
-	 gHyC5cl7Wkl3o2/jxclgGiXD3j4kM3UhGaulOOhnlK8I+2AmysP0zN+JdbUzX+Vc9a
-	 hoBjF8BQMLMCsZkysXmV9xqpxgEHR0MXfBg+hjU8=
-Message-ID: <77d63e89-04be-4b76-b360-dc45badd1a78@arm.com>
-Date: Wed, 6 May 2026 17:29:30 +0200
+	id 1wKeDi-00000001Ksq-32Pm;
+	Wed, 06 May 2026 15:31:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKeDh-00000001KsI-3Ywf;
+	Wed, 06 May 2026 15:31:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4580043C48;
+	Wed,  6 May 2026 15:31:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6784C2BCB0;
+	Wed,  6 May 2026 15:31:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778081489;
+	bh=IgHqoBvpmtUA7FgXX/Le9CmNm36RAHe0VSyPKzaNLfU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Qapj2ZbJvROo6HMGSV8FORvgrI9+0dhDdr5aft67gXjbpw92uNrsHG5vt8FhEeQ3e
+	 ItYO/Aowm+Dg6y/ZaoLVCdxffOSyqnVLui0pLHwEAmCpkH7F84xGgW2fH2weUl6uU/
+	 TFGVlgx9gljReqc2Leb7nX1UO/vL9CHvZLQKhtER/RISgk1ylzCBe9/VeTrAcVJDWI
+	 B8NHnsRILYZYFUo0bPIbQhBe4NwJ7RUIll/oC2Aa9bLprg4Nxl81L5lk2uwN57SHnI
+	 0XHdf1CF/wXotjhxzx1lVcWaA6XOrzkb3miEXU25G+R/2k/mQ+197EnuUOS7iVeCW7
+	 0PU+5kX9UVJGw==
+Date: Wed, 6 May 2026 10:31:26 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Sen Chu <sen.chu@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>, Lee Jones <lee@kernel.org>,
+	linux-mediatek@lists.infradead.org,
+	Jonathan Cameron <jic23@kernel.org>, devicetree@vger.kernel.org,
+	kernel@collabora.com,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	linux-input@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Chen Zhong <chen.zhong@mediatek.com>, linux-pm@vger.kernel.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	linux-iio@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/9] dt-bindings: mfd: mediatek: mt6397: Add rtc for
+ MT6359
+Message-ID: <177808148601.2163979.5712342936678937427.robh@kernel.org>
+References: <20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com>
+ <20260429-mediatek-genio-mt6365-cleanup-v1-1-6f43838be92f@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v7 00/24] pkeys-based page table hardening
-To: linux-hardening@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- "David Hildenbrand (Arm)" <david@kernel.org>, Ira Weiny
- <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- Yang Shi <yang@os.amperecomputing.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org,
- Lorenzo Stoakes <ljs@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Vlastimil Babka <vbabka@kernel.org>
-References: <20260505-kpkeys-v7-0-20c0bdd97197@arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260505-kpkeys-v7-0-20c0bdd97197@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260429-mediatek-genio-mt6365-cleanup-v1-1-6f43838be92f@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_082944_661332_F555CB6D 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260506_083129_908584_E70C0F97 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,67 +85,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/05/2026 18:05, Kevin Brodsky wrote:
-> Kevin Brodsky (23):
->       mm: Introduce kpkeys
->       set_memory: Introduce set_memory_pkey() stub
->       arm64: mm: Enable overlays for all EL1 indirect permissions
->       arm64: Introduce por_elx_set_pkey_perms() helper
->       arm64: Implement asm/kpkeys.h using POE
->       arm64: set_memory: Implement set_memory_pkey()
->       arm64: Context-switch POR_EL1
->       arm64: Enable kpkeys
->       memblock: Move INIT_MEMBLOCK_* macros to header
->       mm: kpkeys: Introduce kpkeys_hardened_pgtables feature
->       mm: kpkeys: Protect regular page tables
->       mm: kpkeys: Introduce early page table allocator
->       mm: kpkeys: Protect vmemmap page tables
->       mm: kpkeys: Introduce hook for protecting static page tables
->       arm64: kpkeys: Implement arch_supports_kpkeys_early()
->       arm64: kpkeys: Support KPKEYS_CTX_PGTABLES
->       arm64: kpkeys: Ensure the linear map can be modified
->       arm64: kpkeys: Protect early page tables
->       arm64: kpkeys: Protect init_pg_dir
->       arm64: kpkeys: Guard page table writes
->       arm64: kpkeys: Batch KPKEYS_CTX_PGTABLES switches
->       arm64: kpkeys: Enable kpkeys_hardened_pgtables support
->       mm: Add basic tests for kpkeys_hardened_pgtables
->
-> Yeoreum Yun (1):
->       arm64: Initialize POR_EL1 register on cpu_resume()
->
->  arch/arm64/Kconfig                        |   2 +
->  arch/arm64/include/asm/cpufeature.h       |  12 ++
->  arch/arm64/include/asm/kpkeys.h           |  76 ++++++++++++
->  arch/arm64/include/asm/pgtable-prot.h     |  16 +--
->  arch/arm64/include/asm/pgtable.h          |  66 +++++++++-
->  arch/arm64/include/asm/por.h              |  11 ++
->  arch/arm64/include/asm/processor.h        |   2 +
->  arch/arm64/include/asm/set_memory.h       |   4 +
->  arch/arm64/kernel/cpufeature.c            |   5 +-
->  arch/arm64/kernel/process.c               |   9 ++
->  arch/arm64/kernel/sleep.S                 |  12 ++
->  arch/arm64/mm/fault.c                     |   2 +
->  arch/arm64/mm/init.c                      |   1 +
->  arch/arm64/mm/mmu.c                       |  48 +++++---
->  arch/arm64/mm/pageattr.c                  |  29 ++++-
->  include/asm-generic/kpkeys.h              |  21 ++++
->  include/linux/kpkeys.h                    | 177 ++++++++++++++++++++++++++
->  include/linux/memblock.h                  |  11 ++
->  include/linux/mm.h                        |  14 ++-
->  include/linux/set_memory.h                |   7 ++
->  mm/Kconfig                                |   5 +
->  mm/Makefile                               |   2 +
->  mm/kpkeys_hardened_pgtables.c             | 180 +++++++++++++++++++++++++++
->  mm/memblock.c                             |  11 --
->  mm/sparse-vmemmap.c                       |  29 +++--
->  mm/tests/kpkeys_hardened_pgtables_kunit.c | 198 ++++++++++++++++++++++++++++++
->  security/Kconfig.hardening                |  24 ++++
->  27 files changed, 923 insertions(+), 51 deletions(-)
 
-Sashiko has found quite a few issues, some of which are potentially
-concerning. I'll address them in RFC v8 - no need to point me to them
-until then.
+On Wed, 29 Apr 2026 11:44:14 +0200, Louis-Alexis Eyraud wrote:
+> The rtc block of MT6359 PMIC is compatible with the one found in MT6358
+> but this compatibility was never expressed in the dt-bindings, so add
+> the missing compatible string for the rtc subnode.
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-- Kevin
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
 
