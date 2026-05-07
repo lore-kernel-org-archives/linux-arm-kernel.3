@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C5C1CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 13:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC5ACD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 13:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RtzP57UXUm85OPkvizoSGXF1wAN47TiL0RnGW2p7TxY=; b=i6qgNaq2FClW8fqqBQv2DczRzk
-	yCK9tgm9ALSqVU3na5o82Wzdd/QFi+hS/yZ3n02xECauZFP8bENyZlqIE2Jy5iAe+G0NpsC9TXfLc
-	HuSbJNRv/5QCW/EO6ddOEp5YJE4AA/XDlAZzcusT2nBRlf8LfkCgG2hhmbM/iDmEAkD0/z5hDnzO0
-	8wmRYBaAhabFkPmROb8ikEbLHV5DuMeXtDRJUqKstnD+80fSI920i9r1eJilfFyfT1jY0aMFUsnaF
-	OaXcZAp1V7F5lT9cfpBpFXST7dXITUuqV7uDDjW+7+zKhKamla9i3ovQvbCzaoMVc8u2ZXEbSINSQ
-	86fLzY2w==;
+	bh=EjLii+UVAxxUE1lRMJnRgBpuZnA4/R7NKW2C9QtWbBE=; b=muZZICPkVon8RIkD87KUTIZJ1P
+	F62H7Jqo44cxeypH+fdFC/K51EOEnfevt0L0ZE4T7h8n/qzz4VC2bcRElA9DG9b9y3ButBlBj4L5k
+	KjamH70xYdBiIFg4C8fk/mqYO6LzJ2iDnId/uJjMRXBaYVnCjEtq6DBU9JGSr9VraJSpBHNUEL26y
+	DXF1BKjTv7KBhiKM/taHjnF9MJWi/1arH+2dPQMzzJozRgkJN2UROGXLgPw595q9oGtEsP1YvHe6I
+	54QENqU+aS7jOf7Rv6Ro4enLOtlbmr5fPV8gR4ElQ6KFzenIi9hnnmSpPru5nOtVjqXLxuv0sgLb1
+	rFDVp1Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKz3C-00000003wpB-02sU;
-	Thu, 07 May 2026 13:46:02 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wKz3G-00000003wsF-0q4h;
+	Thu, 07 May 2026 13:46:06 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKz39-00000003wn6-2AOI
+	id 1wKz3D-00000003wpS-1ZBf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 13:46:00 +0000
+	Thu, 07 May 2026 13:46:04 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 1EA114E42C31;
-	Thu,  7 May 2026 13:45:58 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 8A449C5DC5E;
+	Thu,  7 May 2026 13:46:49 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DE06E60495;
-	Thu,  7 May 2026 13:45:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E2ACD108194AE;
-	Thu,  7 May 2026 15:45:52 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CD45B60495;
+	Thu,  7 May 2026 13:46:01 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DE9B9108194B1;
+	Thu,  7 May 2026 15:45:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1778161556; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1778161560; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=RtzP57UXUm85OPkvizoSGXF1wAN47TiL0RnGW2p7TxY=;
-	b=I70fN5ypih0XjYhzsQvcof/74Ijv7zwpyhaaEfqKbQ/tBh9dsGEz1lmBOsajlDpOmPsQiu
-	n4taQqavyWRH/IaRZm+efBklRheKiFAUP1vNI5NKRf5CxbQMA0Yn/0kMPIsUqplLE6dSTM
-	frR4kS1nnVaEs3AuJL8gIv+grBuJBo2i8MxZPQD3VkXhu8c+1TgU1ihVP6M6bx7bUt9Mvt
-	fs8GNKzmKCCgSzubZy8FO0TzNLBJuQMV0khAGrePDehQoXHWQIKTkifuUtGe+VcBvZATwO
-	rUp2BtGiy6QPbl8ZTDKd65qiX/aa4QSClx1drEaOXcFu02fCweCjmDR8MMZqbQ==
+	bh=EjLii+UVAxxUE1lRMJnRgBpuZnA4/R7NKW2C9QtWbBE=;
+	b=mNqUq6Z/Itr5zMQoehVcmStSXKbhYx6Tw8PHwdV1d3IffODa8Td2iOGpPeLndE8Y5gbLMz
+	y31Yc2n9n921mJ263I7WEnqU6tBRF2cV/L1szoIblnUtPSUDuF+H8M7wdYd/UiKUp0TxAD
+	gvy+H89m74UQvyxkKI5yEDGLLHthkR9viMPNQhaBbSwp7LtpblMt6ZIR/oI7EA/XMZp80E
+	FwZ6pEwYuo/u5kEDhqnAeyrW9snMwoPZ42zOrmsGNDjOMn2pA1sdXZOYw7agBFSHV9Hl5g
+	g0mOt7qrucWPV1TRgNmQhFHfaXF0wqP5zaL+IiXgOItqOnvbbXDo4/VypT6JLg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 07 May 2026 15:45:21 +0200
-Subject: [PATCH v5 03/11] drm/msm/hdmi: switch to
+Date: Thu, 07 May 2026 15:45:22 +0200
+Subject: [PATCH v5 04/11] drm/hisilicon/kirin: switch to
  of_drm_get_bridge_by_endpoint()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260507-drm-bridge-alloc-getput-panel_or_bridge-v5-3-472b913b5cb7@bootlin.com>
+Message-Id: <20260507-drm-bridge-alloc-getput-panel_or_bridge-v5-4-472b913b5cb7@bootlin.com>
 References: <20260507-drm-bridge-alloc-getput-panel_or_bridge-v5-0-472b913b5cb7@bootlin.com>
 In-Reply-To: <20260507-drm-bridge-alloc-getput-panel_or_bridge-v5-0-472b913b5cb7@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -78,7 +78,7 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.15.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_064559_703942_49C89B38 
+X-CRM114-CacheID: sfid-20260507_064603_561978_DCF49649 
 X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,63 +99,40 @@ This driver calls drm_of_find_panel_or_bridge() with a NULL pointer in the
 Replace this call with the simpler of_drm_get_bridge_by_endpoint().
 
 Since of_drm_get_bridge_by_endpoint() increases the refcount of the
-returned bridge, ensure it is put on removal.
+returned bridge, ensure it is put on removal. Here the bridge pointer is
+only stored in a temporary variable, so a cleanup action is enough.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
 ---
+ drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-Changes in v5:
-- simplify error management code flow
-
-Changes in v4:
-- ensure next_bridge is put on later probe failures
-
-Changes in v3:
-- fix ERR_PTR deref when -ENODEV is returned
----
- drivers/gpu/drm/msm/hdmi/hdmi.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/gpu/drm/msm/hdmi/hdmi.c b/drivers/gpu/drm/msm/hdmi/hdmi.c
-index d9491aac1a89..3640be8c1bf9 100644
---- a/drivers/gpu/drm/msm/hdmi/hdmi.c
-+++ b/drivers/gpu/drm/msm/hdmi/hdmi.c
-@@ -285,9 +285,14 @@ static int msm_hdmi_dev_probe(struct platform_device *pdev)
- 	spin_lock_init(&hdmi->reg_lock);
- 	mutex_init(&hdmi->state_mutex);
+diff --git a/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c b/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
+index e80debdc4176..ab3cd309505a 100644
+--- a/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
++++ b/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
+@@ -778,17 +778,16 @@ static int dsi_host_init(struct device *dev, struct dw_dsi *dsi)
+ static int dsi_bridge_init(struct drm_device *dev, struct dw_dsi *dsi)
+ {
+ 	struct drm_encoder *encoder = &dsi->encoder;
+-	struct drm_bridge *bridge;
++	struct drm_bridge *bridge __free(drm_bridge_put) = NULL;
+ 	struct device_node *np = dsi->dev->of_node;
+-	int ret;
  
--	ret = drm_of_find_panel_or_bridge(dev_of_node(dev), 1, 0, NULL, &hdmi->next_bridge);
--	if (ret && ret != -ENODEV)
+ 	/*
+ 	 * Get the endpoint node. In our case, dsi has one output port1
+ 	 * to which the external HDMI bridge is connected.
+ 	 */
+-	ret = drm_of_find_panel_or_bridge(np, 1, 0, NULL, &bridge);
+-	if (ret)
 -		return ret;
-+	struct drm_bridge *next_bridge __free(drm_bridge_put) =
-+		of_drm_get_bridge_by_endpoint(dev_of_node(dev), 1, 0);
-+	if (IS_ERR(next_bridge)) {
-+		if (PTR_ERR(next_bridge) != -ENODEV)
-+			return PTR_ERR(next_bridge);
-+
-+		next_bridge = NULL;
-+	}
++	bridge = of_drm_get_bridge_by_endpoint(np, 1, 0);
++	if (IS_ERR(bridge))
++		return PTR_ERR(bridge);
  
- 	hdmi->mmio = msm_ioremap(pdev, "core_physical");
- 	if (IS_ERR(hdmi->mmio))
-@@ -367,6 +372,8 @@ static int msm_hdmi_dev_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_put_phy;
- 
-+	hdmi->next_bridge = no_free_ptr(next_bridge);
-+
- 	return 0;
- 
- err_put_phy:
-@@ -381,6 +388,7 @@ static void msm_hdmi_dev_remove(struct platform_device *pdev)
- 	component_del(&pdev->dev, &msm_hdmi_ops);
- 
- 	msm_hdmi_put_phy(hdmi);
-+	drm_bridge_put(hdmi->next_bridge);
- }
- 
- static int msm_hdmi_runtime_suspend(struct device *dev)
+ 	/* associate the bridge to dsi encoder */
+ 	return drm_bridge_attach(encoder, bridge, NULL, 0);
 
 -- 
 2.53.0
