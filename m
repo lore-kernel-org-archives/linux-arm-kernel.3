@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB59CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85ACCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rwIVVjmIEnqDiiPGwYTSnWAaq2tQIAapO4ksJdHV1KA=; b=rwCEP4P5Eqkb9Vhj4CvlhJW15P
-	6ndUCVsrUKPn6NWhGFNKetIAhbrxssNYXVqCvKp15BL+8Rc8l3Sw6R0FGU8HTBGg3zgozeE0Wxce2
-	xaNKa5sSBA52hzp+4IQ3kJ26KwXxfZSPvaTpjyPhnXCTqCBGlEyZWiFMKbbWLcAvL/sRpkvSXtELW
-	IFp8D+etiY07lZ+VZnXAHcyM8Oy84MITUFPLle7TvoDd9MXMGSLCKyQUXuM7rBAFs9FuCD7bdeebI
-	nQQvRuAkScEdaIn1O99fziwYNKKzYFB/fET1I74cYSpx0ZpeQiVOpCNKa0/3Vfpakx4cIWNcGdQUO
-	iLE1a0OA==;
+	bh=+deBbbW7AY9atiWPYAkYMpHhMSI1LaTAQJTDOZuTb9Y=; b=SRlAQzpaimq2lOBeG8V32DxheR
+	h7MdDhQo0RC9+e9MvpeRp9GOODZZAybZK5sedFrmE2AjSIZ86duT+FXka9yDS1kkORlMjbOmHlVbo
+	TjTwCeD4kf3oiF9ahT19GhyBhbJK7pklgu953I3NL+/ghxGdDp0uRP/Gn47l0nFIwdyP7eeed9zMM
+	gsgfkhvU47a0tVWFobKbEiGisN3vL0UxiZWAoIv3SSlFtN4rjnJXRjpFM62bp2DPo5gLGLpOmosbo
+	mQOOvrU5ZqjLIvgaPO1JnCAvFFFLlLdcJQuksEda5VPekTE6Uc3FGRdeFIE9xepclk2FP71crA7HL
+	iiDv89HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKy61-00000003nu1-1Jrz;
-	Thu, 07 May 2026 12:44:53 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wKyEg-00000003p13-0oM1;
+	Thu, 07 May 2026 12:53:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKy5y-00000003nsv-1R6K
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 12:44:52 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 9E50D4E42C2E;
-	Thu,  7 May 2026 12:44:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6829160495;
-	Thu,  7 May 2026 12:44:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9109510819491;
-	Thu,  7 May 2026 14:44:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1778157885; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=rwIVVjmIEnqDiiPGwYTSnWAaq2tQIAapO4ksJdHV1KA=;
-	b=FHUkH6AlB5RFtdLF2lcGxWLZgfOI9EtcurYBu3XqwTTpEdVMSLQjgS+rK10L8XbULOb3Do
-	4aFnlg0nHpiHjKvZzQJ0Bm3EoPlikdol42qr68oBNf8uB2zX7+l2FYK475GEFrK0efCbgF
-	ZH/wa/ln0vaLISqeB7mS8BNMPuLHcjK4OpEu/lNYeQRw4wEOyIMKF6MOK8mFakNcTzwvUh
-	I7C3C/VBIU66Vgog4dIWMMQ0ELmjR9NeciKj060OZYC3xAlgI05Ii2hwh8GbFgCKLoscrW
-	J/Da+0HPYsswCYDYB7n26HOGY+49HJ9YLM8rl/U+9dGTVyz8qLH+BpBbgOHxOg==
-Message-ID: <6397da3a-4643-4d9d-97e1-70f7a9b8d5d8@bootlin.com>
-Date: Thu, 7 May 2026 14:44:34 +0200
+	id 1wKyEe-00000003p0i-3Xql;
+	Thu, 07 May 2026 12:53:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 002F960181;
+	Thu,  7 May 2026 12:53:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0272BC2BCB2;
+	Thu,  7 May 2026 12:53:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778158427;
+	bh=NDq1yRkDTD9n1Z9MRjKoR/KHoPrasWXZhi/Utqu0UcA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=N1jGAtff4iiwWK8TKDqlW/GLbEyNu3o3HVgehLHfvadTuXxf0BrWwQYQlSTGU0kWc
+	 NRSJH4ZQ9uNyjB5ig8ciNzDaG6IDvDP2IoCHLirfjtUhdGxA03Pwwj6F9mSmDUz5LV
+	 +Ll2TquOmBdV1ZWPAFpUHRQ6158JRSd6XZ4VYB2vvsDzZnHCUimBCuFLIUad5x+BaT
+	 nbN9iG1eXcXzbe8UKNtLfDju67QwMZ3r2a24adutuhe9CDmdlOYdx9TZJ6JQOT7Cbq
+	 3H2ETgluYKH8BwEQW2QtaDyPMzqkMdnE6NZkWsA8omTUdQfmtZdnl6aIDq46kZWVZ6
+	 nzmsj+38KEQYg==
+From: Lee Jones <lee@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Beniamino Galvani <b.galvani@gmail.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Ronald Claveau <linux-kernel-dev@aliel.fr>
+Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org
+In-Reply-To: <20260421-add-mcu-fan-khadas-vim4-v4-1-447114a28f2d@aliel.fr>
+References: <20260421-add-mcu-fan-khadas-vim4-v4-1-447114a28f2d@aliel.fr>
+Subject: Re: (subset) [PATCH v4 1/8] dt-bindings: mfd: khadas: Add new
+ compatible for Khadas VIM4 MCU
+Message-Id: <177815842272.1844364.17432398965217021542.b4-ty@b4>
+Date: Thu, 07 May 2026 13:53:42 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 net-next 11/15] net: dsa: netc: add phylink MAC
- operations
-To: Wei Fang <wei.fang@nxp.com>, claudiu.manoil@nxp.com,
- vladimir.oltean@nxp.com, xiaoning.wang@nxp.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- f.fainelli@gmail.com, frank.li@nxp.com, chleroy@kernel.org,
- horms@kernel.org, linux@armlinux.org.uk
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-References: <20260430024945.3413973-1-wei.fang@nxp.com>
- <20260430024945.3413973-12-wei.fang@nxp.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260430024945.3413973-12-wei.fang@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_054450_659987_8FD1C91F 
-X-CRM114-Status: GOOD (  26.24  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,422 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, 21 Apr 2026 13:49:18 +0200, Ronald Claveau wrote:
+> The Khadas VIM4 MCU register is slightly different
+> from previous boards' MCU.
+> This board also features a switchable power source for its fan.
 
-On 30/04/2026 04:49, Wei Fang wrote:
-> Different versions of NETC switches have different numbers of ports and
-> MAC capabilities. Add .phylink_get_caps() to struct netc_switch_info,
-> allowing each NETC switch version to implement its own callback for
-> obtaining MAC capabilities.
-> 
-> Implement the phylink_mac_ops callbacks: .mac_config(), .mac_link_up(),
-> and .mac_link_down(). Note that flow-control configuration is not yet
-> supported in .mac_link_up(), but will be implemented in a subsequent
-> patch.
-> 
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
+Applied, thanks!
 
-The phylink part looks good to me,
+[1/8] dt-bindings: mfd: khadas: Add new compatible for Khadas VIM4 MCU
+      commit: a10878e699567d88267200afdb165107567e0287
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-> ---
->  drivers/net/dsa/netc/netc_main.c      | 243 ++++++++++++++++++++++++++
->  drivers/net/dsa/netc/netc_platform.c  |  38 ++++
->  drivers/net/dsa/netc/netc_switch.h    |   4 +
->  drivers/net/dsa/netc/netc_switch_hw.h |  26 +++
->  4 files changed, 311 insertions(+)
-> 
-> diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
-> index 90a2d8cfd3d2..edf50cb32cb6 100644
-> --- a/drivers/net/dsa/netc/netc_main.c
-> +++ b/drivers/net/dsa/netc/netc_main.c
-> @@ -44,6 +44,26 @@ static void netc_mac_port_wr(struct netc_port *np, u32 reg, u32 val)
->  		netc_port_wr(np, reg + NETC_PMAC_OFFSET, val);
->  }
->  
-> +static void netc_mac_port_rmw(struct netc_port *np, u32 reg,
-> +			      u32 mask, u32 val)
-> +{
-> +	u32 old, new;
-> +
-> +	if (is_netc_pseudo_port(np))
-> +		return;
-> +
-> +	WARN_ON((mask | val) != mask);
-> +
-> +	old = netc_port_rd(np, reg);
-> +	new = (old & ~mask) | val;
-> +	if (new == old)
-> +		return;
-> +
-> +	netc_port_wr(np, reg, new);
-> +	if (np->caps.pmac)
-> +		netc_port_wr(np, reg + NETC_PMAC_OFFSET, new);
-> +}
-> +
->  static void netc_port_get_capability(struct netc_port *np)
->  {
->  	u32 val;
-> @@ -522,10 +542,232 @@ static void netc_switch_get_ip_revision(struct netc_switch *priv)
->  	priv->revision = FIELD_GET(IPBRR0_IP_REV, val);
->  }
->  
-> +static void netc_phylink_get_caps(struct dsa_switch *ds, int port,
-> +				  struct phylink_config *config)
-> +{
-> +	struct netc_switch *priv = ds->priv;
-> +
-> +	priv->info->phylink_get_caps(port, config);
-> +}
-> +
-> +static void netc_port_set_mac_mode(struct netc_port *np,
-> +				   unsigned int mode,
-> +				   phy_interface_t phy_mode)
-> +{
-> +	u32 mask = PM_IF_MODE_IFMODE | PM_IF_MODE_REVMII;
-> +	u32 val = 0;
-> +
-> +	switch (phy_mode) {
-> +	case PHY_INTERFACE_MODE_RGMII:
-> +	case PHY_INTERFACE_MODE_RGMII_ID:
-> +	case PHY_INTERFACE_MODE_RGMII_RXID:
-> +	case PHY_INTERFACE_MODE_RGMII_TXID:
-> +		val |= IFMODE_RGMII;
-> +		break;
-> +	case PHY_INTERFACE_MODE_RMII:
-> +		val |= IFMODE_RMII;
-> +		break;
-> +	case PHY_INTERFACE_MODE_REVMII:
-> +		val |= PM_IF_MODE_REVMII;
-> +		fallthrough;
-> +	case PHY_INTERFACE_MODE_MII:
-> +		val |= IFMODE_MII;
-> +		break;
-> +	case PHY_INTERFACE_MODE_SGMII:
-> +	case PHY_INTERFACE_MODE_2500BASEX:
-> +		val |= IFMODE_SGMII;
-> +		break;
-> +	default:
-> +		break;
-> +	}
-> +
-> +	netc_mac_port_rmw(np, NETC_PM_IF_MODE(0), mask, val);
-> +}
-> +
-> +static void netc_mac_config(struct phylink_config *config, unsigned int mode,
-> +			    const struct phylink_link_state *state)
-> +{
-> +	struct dsa_port *dp = dsa_phylink_to_port(config);
-> +
-> +	netc_port_set_mac_mode(NETC_PORT(dp->ds, dp->index), mode,
-> +			       state->interface);
-> +}
-> +
-> +static void netc_port_set_speed(struct netc_port *np, int speed)
-> +{
-> +	netc_port_rmw(np, NETC_PCR, PCR_PSPEED, PSPEED_SET_VAL(speed));
-> +}
-> +
-> +static void netc_port_set_rgmii_mac(struct netc_port *np,
-> +				    int speed, int duplex)
-> +{
-> +	u32 mask, val;
-> +
-> +	mask = PM_IF_MODE_SSP | PM_IF_MODE_HD | PM_IF_MODE_M10;
-> +
-> +	switch (speed) {
-> +	default:
-> +	case SPEED_1000:
-> +		val = FIELD_PREP(PM_IF_MODE_SSP, SSP_1G);
-> +		break;
-> +	case SPEED_100:
-> +		val = FIELD_PREP(PM_IF_MODE_SSP, SSP_100M);
-> +		break;
-> +	case SPEED_10:
-> +		val = FIELD_PREP(PM_IF_MODE_SSP, SSP_10M);
-> +		break;
-> +	}
-> +
-> +	if (duplex != DUPLEX_FULL)
-> +		val |= PM_IF_MODE_HD;
-> +
-> +	netc_mac_port_rmw(np, NETC_PM_IF_MODE(0), mask, val);
-> +}
-> +
-> +static void netc_port_set_rmii_mii_mac(struct netc_port *np,
-> +				       int speed, int duplex)
-> +{
-> +	u32 mask, val = 0;
-> +
-> +	mask = PM_IF_MODE_SSP | PM_IF_MODE_HD | PM_IF_MODE_M10;
-> +
-> +	if (speed == SPEED_10)
-> +		val |= PM_IF_MODE_M10;
-> +
-> +	if (duplex != DUPLEX_FULL)
-> +		val |= PM_IF_MODE_HD;
-> +
-> +	netc_mac_port_rmw(np, NETC_PM_IF_MODE(0), mask, val);
-> +}
-> +
-> +static void netc_port_mac_rx_enable(struct netc_port *np)
-> +{
-> +	netc_port_rmw(np, NETC_POR, POR_RXDIS, 0);
-> +	netc_mac_port_rmw(np, NETC_PM_CMD_CFG(0), PM_CMD_CFG_RX_EN,
-> +			  PM_CMD_CFG_RX_EN);
-> +}
-> +
-> +static void netc_port_wait_rx_empty(struct netc_port *np, int mac)
-> +{
-> +	u32 val;
-> +
-> +	/* PM_IEVENT_RX_EMPTY is a read-only bit, it is automatically set by
-> +	 * hardware if RX FIFO is empty and no RX packet receive in process.
-> +	 * And it is automatically cleared if RX FIFO is not empty or RX
-> +	 * packet receive in process.
-> +	 */
-> +	if (read_poll_timeout(netc_port_rd, val, val & PM_IEVENT_RX_EMPTY,
-> +			      100, 10000, false, np, NETC_PM_IEVENT(mac)))
-> +		dev_warn(np->switch_priv->dev,
-> +			 "swp%d MAC%d: RX is not idle\n", np->dp->index, mac);
-> +}
-> +
-> +static void netc_port_mac_rx_graceful_stop(struct netc_port *np)
-> +{
-> +	u32 val;
-> +
-> +	if (is_netc_pseudo_port(np))
-> +		goto rx_disable;
-> +
-> +	if (np->caps.pmac) {
-> +		netc_port_rmw(np, NETC_PM_CMD_CFG(1), PM_CMD_CFG_RX_EN, 0);
-> +		netc_port_wait_rx_empty(np, 1);
-> +	}
-> +
-> +	netc_port_rmw(np, NETC_PM_CMD_CFG(0), PM_CMD_CFG_RX_EN, 0);
-> +	netc_port_wait_rx_empty(np, 0);
-> +
-> +	if (read_poll_timeout(netc_port_rd, val, !(val & PSR_RX_BUSY),
-> +			      100, 10000, false, np, NETC_PSR))
-> +		dev_warn(np->switch_priv->dev, "swp%d RX is busy\n",
-> +			 np->dp->index);
-> +
-> +rx_disable:
-> +	netc_port_rmw(np, NETC_POR, POR_RXDIS, POR_RXDIS);
-> +}
-> +
-> +static void netc_port_mac_tx_enable(struct netc_port *np)
-> +{
-> +	netc_mac_port_rmw(np, NETC_PM_CMD_CFG(0), PM_CMD_CFG_TX_EN,
-> +			  PM_CMD_CFG_TX_EN);
-> +	netc_port_rmw(np, NETC_POR, POR_TXDIS, 0);
-> +}
-> +
-> +static void netc_port_wait_tx_empty(struct netc_port *np, int mac)
-> +{
-> +	u32 val;
-> +
-> +	/* PM_IEVENT_TX_EMPTY is a read-only bit, it is automatically set by
-> +	 * hardware if TX FIFO is empty. And it is automatically cleared if
-> +	 * TX FIFO is not empty.
-> +	 */
-> +	if (read_poll_timeout(netc_port_rd, val, val & PM_IEVENT_TX_EMPTY,
-> +			      100, 10000, false, np, NETC_PM_IEVENT(mac)))
-> +		dev_warn(np->switch_priv->dev,
-> +			 "swp%d MAC%d: TX FIFO is not empty\n",
-> +			 np->dp->index, mac);
-> +}
-> +
-> +static void netc_port_mac_tx_graceful_stop(struct netc_port *np)
-> +{
-> +	netc_port_rmw(np, NETC_POR, POR_TXDIS, POR_TXDIS);
-> +
-> +	if (is_netc_pseudo_port(np))
-> +		return;
-> +
-> +	netc_port_wait_tx_empty(np, 0);
-> +	if (np->caps.pmac)
-> +		netc_port_wait_tx_empty(np, 1);
-> +
-> +	netc_mac_port_rmw(np, NETC_PM_CMD_CFG(0), PM_CMD_CFG_TX_EN, 0);
-> +}
-> +
-> +static void netc_mac_link_up(struct phylink_config *config,
-> +			     struct phy_device *phy, unsigned int mode,
-> +			     phy_interface_t interface, int speed,
-> +			     int duplex, bool tx_pause, bool rx_pause)
-> +{
-> +	struct dsa_port *dp = dsa_phylink_to_port(config);
-> +	struct netc_port *np;
-> +
-> +	np = NETC_PORT(dp->ds, dp->index);
-> +	netc_port_set_speed(np, speed);
-> +
-> +	if (phy_interface_mode_is_rgmii(interface))
-> +		netc_port_set_rgmii_mac(np, speed, duplex);
-> +
-> +	if (interface == PHY_INTERFACE_MODE_RMII ||
-> +	    interface == PHY_INTERFACE_MODE_REVMII ||
-> +	    interface == PHY_INTERFACE_MODE_MII)
-> +		netc_port_set_rmii_mii_mac(np, speed, duplex);
-> +
-> +	netc_port_mac_tx_enable(np);
-> +	netc_port_mac_rx_enable(np);
-> +}
-> +
-> +static void netc_mac_link_down(struct phylink_config *config,
-> +			       unsigned int mode,
-> +			       phy_interface_t interface)
-> +{
-> +	struct dsa_port *dp = dsa_phylink_to_port(config);
-> +	struct netc_port *np;
-> +
-> +	np = NETC_PORT(dp->ds, dp->index);
-> +	netc_port_mac_rx_graceful_stop(np);
-> +	netc_port_mac_tx_graceful_stop(np);
-> +}
-> +
-> +static const struct phylink_mac_ops netc_phylink_mac_ops = {
-> +	.mac_config		= netc_mac_config,
-> +	.mac_link_up		= netc_mac_link_up,
-> +	.mac_link_down		= netc_mac_link_down,
-> +};
-> +
->  static const struct dsa_switch_ops netc_switch_ops = {
->  	.get_tag_protocol		= netc_get_tag_protocol,
->  	.setup				= netc_setup,
->  	.teardown			= netc_teardown,
-> +	.phylink_get_caps		= netc_phylink_get_caps,
->  };
->  
->  static int netc_switch_probe(struct pci_dev *pdev,
-> @@ -564,6 +806,7 @@ static int netc_switch_probe(struct pci_dev *pdev,
->  	ds->num_ports = priv->info->num_ports;
->  	ds->num_tx_queues = NETC_TC_NUM;
->  	ds->ops = &netc_switch_ops;
-> +	ds->phylink_mac_ops = &netc_phylink_mac_ops;
->  	ds->priv = priv;
->  	priv->ds = ds;
->  
-> diff --git a/drivers/net/dsa/netc/netc_platform.c b/drivers/net/dsa/netc/netc_platform.c
-> index abd599ea9c8d..bb4f92d238cb 100644
-> --- a/drivers/net/dsa/netc/netc_platform.c
-> +++ b/drivers/net/dsa/netc/netc_platform.c
-> @@ -11,8 +11,46 @@ struct netc_switch_platform {
->  	const struct netc_switch_info *info;
->  };
->  
-> +static void imx94_switch_phylink_get_caps(int port,
-> +					  struct phylink_config *config)
-> +{
-> +	config->mac_capabilities = MAC_1000FD;
-> +
-> +	switch (port) {
-> +	case 0 ... 1:
-> +		__set_bit(PHY_INTERFACE_MODE_SGMII,
-> +			  config->supported_interfaces);
-> +		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-> +			  config->supported_interfaces);
-> +		config->mac_capabilities |= MAC_2500FD;
-> +		fallthrough;
-> +	case 2:
-> +		config->mac_capabilities |= MAC_10 | MAC_100;
-> +		__set_bit(PHY_INTERFACE_MODE_MII,
-> +			  config->supported_interfaces);
-> +		__set_bit(PHY_INTERFACE_MODE_RMII,
-> +			  config->supported_interfaces);
-> +		/* Port 0 and 1 do not support REVMII */
-> +		if (port == 2)
-> +			__set_bit(PHY_INTERFACE_MODE_REVMII,
-> +				  config->supported_interfaces);
-> +
-> +		phy_interface_set_rgmii(config->supported_interfaces);
-> +		break;
-> +	case 3: /* CPU port */
-> +		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
-> +			  config->supported_interfaces);
-> +		config->mac_capabilities |= MAC_10FD | MAC_100FD |
-> +					    MAC_2500FD;
-> +		break;
-> +	default:
-> +		break;
-> +	}
-> +}
-> +
->  static const struct netc_switch_info imx94_info = {
->  	.num_ports = 4,
-> +	.phylink_get_caps = imx94_switch_phylink_get_caps,
->  };
->  
->  static const struct netc_switch_platform netc_platforms[] = {
-> diff --git a/drivers/net/dsa/netc/netc_switch.h b/drivers/net/dsa/netc/netc_switch.h
-> index dac19bfba02b..eb65c36ecead 100644
-> --- a/drivers/net/dsa/netc/netc_switch.h
-> +++ b/drivers/net/dsa/netc/netc_switch.h
-> @@ -34,6 +34,7 @@ struct netc_switch;
->  
->  struct netc_switch_info {
->  	u32 num_ports;
-> +	void (*phylink_get_caps)(int port, struct phylink_config *config);
->  };
->  
->  struct netc_port_caps {
-> @@ -70,6 +71,9 @@ struct netc_switch {
->  	struct ntmp_user ntmp;
->  };
->  
-> +#define NETC_PRIV(ds)			((struct netc_switch *)((ds)->priv))
-> +#define NETC_PORT(ds, port_id)		(NETC_PRIV(ds)->ports[(port_id)])
-> +
->  /* Write/Read Switch base registers */
->  #define netc_base_rd(r, o)		netc_read((r)->base + (o))
->  #define netc_base_wr(r, o, v)		netc_write((r)->base + (o), v)
-> diff --git a/drivers/net/dsa/netc/netc_switch_hw.h b/drivers/net/dsa/netc/netc_switch_hw.h
-> index 0419f7f9207e..7d9afb493053 100644
-> --- a/drivers/net/dsa/netc/netc_switch_hw.h
-> +++ b/drivers/net/dsa/netc/netc_switch_hw.h
-> @@ -67,6 +67,14 @@
->  #define  PQOSMR_VQMP			GENMASK(19, 16)
->  #define  PQOSMR_QVMP			GENMASK(23, 20)
->  
-> +#define NETC_POR			0x100
-> +#define  POR_TXDIS			BIT(0)
-> +#define  POR_RXDIS			BIT(1)
-> +
-> +#define NETC_PSR			0x104
-> +#define  PSR_TX_BUSY			BIT(0)
-> +#define  PSR_RX_BUSY			BIT(1)
-> +
->  #define NETC_PTCTMSDUR(a)		(0x208 + (a) * 0x20)
->  #define  PTCTMSDUR_MAXSDU		GENMASK(15, 0)
->  #define  PTCTMSDUR_SDU_TYPE		GENMASK(17, 16)
-> @@ -123,6 +131,24 @@ enum netc_mfo {
->  #define NETC_PM_MAXFRM(a)		(0x1014 + (a) * 0x400)
->  #define  PM_MAXFRAM			GENMASK(15, 0)
->  
-> +#define NETC_PM_IEVENT(a)		(0x1040 + (a) * 0x400)
-> +#define  PM_IEVENT_TX_EMPTY		BIT(5)
-> +#define  PM_IEVENT_RX_EMPTY		BIT(6)
-> +
-> +#define NETC_PM_IF_MODE(a)		(0x1300 + (a) * 0x400)
-> +#define  PM_IF_MODE_IFMODE		GENMASK(2, 0)
-> +#define   IFMODE_MII			1
-> +#define   IFMODE_RMII			3
-> +#define   IFMODE_RGMII			4
-> +#define   IFMODE_SGMII			5
-> +#define  PM_IF_MODE_REVMII		BIT(3)
-> +#define  PM_IF_MODE_M10			BIT(4)
-> +#define  PM_IF_MODE_HD			BIT(6)
-> +#define  PM_IF_MODE_SSP			GENMASK(14, 13)
-> +#define   SSP_100M			0
-> +#define   SSP_10M			1
-> +#define   SSP_1G			2
-> +
->  #define NETC_PEMDIOCR			0x1c00
->  #define NETC_EMDIO_BASE			NETC_PEMDIOCR
->  
+--
+Lee Jones [李琼斯]
 
 
