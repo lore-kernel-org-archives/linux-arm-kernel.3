@@ -4,108 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E4DECD343F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9324DCD3442
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 10:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IF7uiHUYLYrhqG+FspNFwJJCVwTRPmqazl4TaUyXmq0=; b=ndQ7nMr9p1t0o5+3pQsbjQ02eg
-	zHOv+sc62g/0wZ1yziO0gVzdCpwUivwUaJaBQwmqLwD6xVX1QgdQT7RnVhJGnAOCLpuBtg7+t0wF0
-	J7f1xs395GTdSWEPCwrEqjVuNDm5DBQKMsRGxuZZOmqBga3ljwp0/4vEZ/KlvDwYKtc0K09ggymgE
-	/Abn+KcvQu9TBlOUPDog4ol04zIzrM53QcnJeR6ewdpMI4bB/+ygIKkdBDJfx44ZZvySsq4k6RYza
-	9eDKh0IcdB7Cilz8DFZcImJZba/7/HpJpNzDCNl1i5bTXr9+P6oufC+4QPiFurPU+hFajik2D8/Yx
-	SE23wUXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2lKTW+i8UJBtkHL3OH6w7/0rjCssXD0R+ErNGJjjE6E=; b=J3yTLxFmAA+QYhPUJZXQvQJEBg
+	4a0fC8ggRqCe2isSbDTDn0/MNw07QhzkMxmRCD0gWSsHFZYuBsNgSthiP36dyop1EsyBUK7rd9AUD
+	IItc+Mlfm8axdYt4al5W4AuCU8UfVw6ZkNK1zCMkJaW8Y064oQbMZoVYG8fs7nu8dGLNN66ayB29/
+	Ub8HqzRD1p60ClQ0/G8ILKPT88UgDNGLolAsIiqz3g4nygoqIS7+IjigDKynmFQfmtrdV9PZDH88P
+	yylV9tt2rRZFbARyJL3FkJ9u+d+KMyFOsXzSmfT4T305SYEzZe4MIJh0tULTquiw9ILJaF5rv/pVh
+	N/GiTO6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKwMw-00000003YGx-1Nyl;
-	Thu, 07 May 2026 10:54:14 +0000
-Received: from mail-ed1-f51.google.com ([209.85.208.51])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKwMt-00000003YFk-1ydT
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wKwMu-00000003YGQ-0zJo;
 	Thu, 07 May 2026 10:54:12 +0000
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-67b7c77865dso1036908a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 03:54:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778151248; cv=none;
-        d=google.com; s=arc-20240605;
-        b=PWqNV+5aR/m3iKrMK3zc/Eo1giFzgirdmzHdQxEgbq0t5QyvEXy1/rb75wFm2awnPU
-         BYCePlMLO0O6DaHq9VG90w8dMjA3p1jEN3icvxyL7zbt1pgfL/5ba0YT5hIH6lQRYyFV
-         vb4RfIxlTqf/4eSp2TQPxCM4uHLbFmisIr5w++jOiQVGDpXivhav0Lk5j01VOnKFNXua
-         QpMIqRMSrWf/bTIIkQjf+mUUq7B8hYbzES2Sy4HCVHdxhN6MhlSQt7MYCjD6e3FUIwH2
-         QbF8nULl+uhGlI9J3lYaJ7MGzpdwRqUd3UIfNi2ufGOcCOIzM0h9cVAfiFiEt+ggI44x
-         n2Vw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=IF7uiHUYLYrhqG+FspNFwJJCVwTRPmqazl4TaUyXmq0=;
-        fh=P2YxDuHemjZv3vrE0jq5zOBqCPXQN1wMI3Yuh7yDO04=;
-        b=H+M+Fu9O+XJ9saPNAXxVEA1PhEPJitnNcuDzVPglCmvBBVIG9D88GJxDpO9Iwi1iC5
-         fILDVJed/j+udwYaMt9BJwfMmQ/QvfnhkKnoPYojdWlgmS5F8NW/xDW9zYbxq6SY6y1M
-         f4Jxq2z8adLjaZ74ShE4OM41qrWwpCPxdxUcEV0AGJjk0eu4aSWXEhpIbTlRzgfXPGg+
-         bVj6xkqNawbksGmyMXjlaChMWgtE+0tsjIHy9P/HWKt8lhZAS5BXxx0zmAjSHwGnNrqz
-         iShPvRQIa0lhwKEPI8GfIha9kHrXsVFqxfSEZhHQu+hTcwDBvr4jkDg3fcMqhkUQyT0s
-         WblQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKwMs-00000003YFm-1UfI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 07 May 2026 10:54:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=2lKTW+i8UJBtkHL3OH6w7/0rjCssXD0R+ErNGJjjE6E=; b=BIFKE04wUQjJjZ0VYj4+6I61zR
+	TyBiKheG5Ty7DLPxT4PVAtq4q3/tyiQO4d6h3m+/EolX6pnM7bupLnAAItPWSMJ5+lYypXIYPJDVn
+	zXSmMKWpzXwJaavWFbxk1R0gR6AihebOtJ2zer3Hn0TD6GK7+F6OP1vUuY92zgc27eRC/4+6mSkiv
+	7WUvTlROskaSYKyc3RymqHRtxPEIPM0T3+Kb2SLCP6fI5owYudgYtP1MmtEHtCe9tgnTIssCtirej
+	o1rxa1nNbgCkdvCbYvViZNSMeAkmyHVx2KWYbJBk3oxYf4ZKFkNgSa0z8bggnkQD2EykOQ9AT2e23
+	nEB8NKtQ==;
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKwMn-00000003HUn-1bX8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 May 2026 10:54:08 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48374014a77so8190315e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 03:54:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778151248; x=1778756048; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=IF7uiHUYLYrhqG+FspNFwJJCVwTRPmqazl4TaUyXmq0=;
-        b=GVbOiDhjGzT+mxeM7NlpVhcK8mhHVoIVK8clsltfkZ3aSYy71MgBNHgUeFR/bLhlRi
-         kMSHDDnxxy1DXTJ+W7VU+hoMc1JJY6sjmCoq42ULw9G5pcgrjLnmKDMb3Y9Na39kBrSC
-         9lOQofFHs/82kcb6kDI3zrzpTRSwbMKNQsLQu6y0jqiwE+F4+vVajiv4Bb7pRo/xtMvo
-         XYCYwaQaVUavWpzaXv7wmgFg9WYuAZLzS+JPRNU7vfTHjGDFUOny/8vkpx2RDteqXqNZ
-         kq27jenU686EBJo+DcdYvYlUQDF/8URFq81QXFKLqvhC6t5VpB+ht0y6QqDy9JK60CxA
-         8WuA==
+        d=linaro.org; s=google; t=1778151244; x=1778756044; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2lKTW+i8UJBtkHL3OH6w7/0rjCssXD0R+ErNGJjjE6E=;
+        b=aRhLbwl5HRf1Xg30pSdnEkKSPqHSOPMNKRinT2sncYC7OMjscsaVjxw8jUPX9j/woV
+         DswoUs5JcEGZgb5x7BdUsyuWNG27aHM+p2Xd14crYwgYWXO6y5DaRERADxa8aiFvDGW9
+         +4Au7syI0kgtFe77F1OYx84jMjuoC31hoCaU31YjpyvjxCfP/xyEthTdjyZ1udCT/GGa
+         VOF4V+bxkSUdqF3hqVt2o7mRka+P7e/sbRuwdanybBkKvmX6jX35gx9+Qn+NK8gEsWDv
+         qs90TJ/Jp9+/WzlzcxMRHomWpLSYuc6n23gV9NI2lhKy0S2J3BBffuCeLpO8olB4SJlh
+         BzSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778151248; x=1778756048;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1778151244; x=1778756044;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=IF7uiHUYLYrhqG+FspNFwJJCVwTRPmqazl4TaUyXmq0=;
-        b=DARUnFNL/Au1atyweU/ylbrFMy/JD5mjNKxi1PRY6O1Jx+sUtTMz8mSHEr+tcoyRzM
-         9ea2B2xzc9JXiQ5UB1d4XKBntobdKmRtraR0oWizNNFwdr51lX2Yx8IWO2xoffJ677cc
-         efHPJkLAzh/WWDes8ESGzI9oQlznjszTOEGkSWeMQ0iwfY8d4SWhT5NfC/bDuw1ZFDlb
-         r8//Icme50jyRcrb/g+j3ueeJNgMH6MjROnY8KM74u5zEvpG9ADSU5+v8z62xvsUdM/B
-         mRtCGXWy4McOMm/FpzsyDcAhxa3KzSz2IvdfKtBKE8zvH7tF4EmpO0d4UtpoE+CSrYgF
-         t6hQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9ZVlGs+6NOCoFzull2I89UnK7k2o1RvbjWyiR31uz4sSlppPwzWebJNvQJywuVmOz7Swf3k7+xGJ+hJbRJ4D4X@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMNN11u3sWrfxL+ngRLbx66p4I2P+7ZXN0wSnX7c0g8Iz749U8
-	PRvxhjNeWotmMFeK4+LY54opcb2gPcJLi1G+pR/MhOumljPWw8r81nR83qMBqMT3a3XsNShqz/Q
-	kGmIXAieK7OnE1qBCvh50Ocl92SdfKAhd3dFzWpFzPA==
-X-Gm-Gg: AeBDievQEQhTskhJgNksiyJLo5VZd8NwO+SC+MdMtZDhxcSxLgeEcBmbg82tXBRQkaF
-	gH6JrWB4jPJqOlzWs9W3YoyRaMY20pxtLF4xYHcjppB7fby5ijqSuRwYzYw8+ByKmmnsmuPtZxq
-	eo+218NEoiZxvsAhx5tQAGONoGbBpA1IqgApu7ZGi1iNVq8Cs93V+88MPWu6WTwEs1BVmYsWeWX
-	0TzV8nTjURiGMSdbRYPmCK3TJff/gNquEP2MnIORF/ohaJBVcVDXPqCfhZ9uUekmLcdyHZ+TTg2
-	mPbYCWe4MLFZe7Fet/vEMNBsHwZ4DXlpLOWdSEfmNdYLxKa3We4=
-X-Received: by 2002:a05:6402:3137:b0:67c:4e1b:9134 with SMTP id
- 4fb4d7f45d1cf-67d642c320fmr2566539a12.14.1778151248006; Thu, 07 May 2026
- 03:54:08 -0700 (PDT)
+        bh=2lKTW+i8UJBtkHL3OH6w7/0rjCssXD0R+ErNGJjjE6E=;
+        b=izg84PPFDubyAwWmiRM9PAcq8QeaJFLvH3/HttKTmkwSGXyHcWhYP46RlQIvUBowXe
+         InfNBYWeV+utRFAH3rPiWs4S308n3t/oLUKL1mjRxojmsEURtN0UxxZQZaE+1usySqHC
+         RzgTA4HDi7xnJKIh4fp0EBCYCcazpi8tL3NgRruN6ZbN4UWJJlN5Esz+AgdjPXgNgOrH
+         IJagkyyRdy2yy5UAxRo09vYQp5qTncTHENOdOg6t0pbS4x+nQCwS055JG0wPaetRJ3Q8
+         yMKiFEdwh1DCwUY2cPltgnNcg6Obcw/FsA87jjElVXBvu09jYpjldiM1oaUzi1NolHlm
+         Fvtw==
+X-Forwarded-Encrypted: i=1; AFNElJ/gfBcTfnLgWbNCtf0TONui4rECW/vRz83qCd9n+6kbgAEirgXbJu08yAbksxUtKo1bFQdC0f0AVRHW+w8jvXn5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwtRFSMiHufY3TXRTG48j6AXUPhQE8aCtXMBJ0nL1VswkyUfml
+	xtokGPucYK5LNenyf7siuqsWyWrhaKJh2CZMi/mjqLoZEsgRplYjepRZp0Makwq9KOMB26xzb7c
+	WlkXY3AU=
+X-Gm-Gg: AeBDiet8RlCoJtaRyEJ0pl/8yk3uPpJqDUcfT7FZ2sBRo6z+Cwu7+fk++PxiLrgLZu7
+	LuYWx7EAdcpqJbNpvnioyEOm5sNGMdcx9NyTNt+u/AEMB3t4GaB+reuwQvP+BQTBYPeR1TUTtY2
+	Ii6i9DKaBr7mIpT3Au0yJpIyobr/ibJrcY6Nm7p2j+tdoc8G5Az9Phn3CiR5czl2XyvL6ZPH+bp
+	1bzS5SCmTl/wtu5kuuiRVcTTm9evca+I9jpEBQJqs0MHwq/bTQQC1VEZ7eYoVJXRsc7/Yq+8+26
+	pWOH0U5Nn8ltzQcKhJzY6wEza8l3pdyFbjDPZlnx22FM1izRPhYW8VeLagf6ULsB403fZQUUnJX
+	zfKaDqLllb/7aa3SH/QfWz6hpkCx/YbATj9u8mjL0C0m2SbSgsxg1x1SEo+hv40vgZN7DDihvUm
+	06wJXd6bD0sXB0nKKXPMxjDQKF00z1
+X-Received: by 2002:a05:600c:3b17:b0:489:5022:39a4 with SMTP id 5b1f17b1804b1-48e51e20705mr110818075e9.9.1778151243546;
+        Thu, 07 May 2026 03:54:03 -0700 (PDT)
+Received: from ho-tower-lan.lan ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e538ca8c0sm107180055e9.13.2026.05.07.03.54.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 May 2026 03:54:03 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Date: Thu, 07 May 2026 11:53:45 +0100
+Subject: [PATCH] coresight: trbe: Hide enable_sink sysfs file
 MIME-Version: 1.0
-References: <20260505171457.1960837-1-visitorckw@gmail.com>
-In-Reply-To: <20260505171457.1960837-1-visitorckw@gmail.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Thu, 7 May 2026 11:53:56 +0100
-X-Gm-Features: AVHnY4LKSqPHnQncQquj9gD7adTrcRRUygj_CaGGPmUeQcE-vkzmMD9ri7yM0M8
-Message-ID: <CADrjBPp321nAD1nKs3VApd-6t6guK7b6k-cjsXHhS19_fJiOVQ@mail.gmail.com>
-Subject: Re: [PATCH] clk: samsung: gs101: Fix missing USI7_USI DIV clock in peric0_clk_regs
-To: Kuan-Wei Chiu <visitorckw@gmail.com>
-Cc: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com, 
-	mturquette@baylibre.com, sboyd@kernel.org, andre.draszik@linaro.org, 
-	tudor.ambarus@linaro.org, alim.akhtar@samsung.com, semen.protsenko@linaro.org, 
-	wllee@google.com, hsuanting@google.com, marscheng@google.com, 
-	jserv@ccns.ncku.edu.tw, eleanor15x@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	visitorckw@google.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260507-james-cs-hide-trbe-enable-v1-1-b4e40439f44c@linaro.org>
+X-B4-Tracking: v=1; b=H4sIADhv/GkC/x3MywrCMBBG4Vcps3Ygjb0EX0VcpMlfO1KjZEQKJ
+ e/e0OW3OGcnRRYo3ZqdMv6i8kkV7aWhsPj0BEusJmvsYHoz8Mu/oRyUF4ngX57ASH5awdfg4ug
+ 6jDY6qv03Y5btfN8fpRzB3uI8awAAAA==
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_035411_527808_CBEA25A7 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20260507_115405_903183_128866EF 
+X-CRM114-Status: GOOD (  21.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,21 +117,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 May 2026 at 18:15, Kuan-Wei Chiu <visitorckw@gmail.com> wrote:
->
-> In the peric0_clk_regs array, the divider register offset for USI6 was
-> accidentally listed twice, while the divider for USI7 was omitted.
->
-> Missing this DIV register causes the USI7 clock divider setting to be
-> lost and reset to its hardware default value during a suspend/resume
-> cycle.
->
-> Replace the duplicated USI6 DIV entry with the correct USI7 DIV
-> register.
->
-> Fixes: 893f133a040b ("clk: samsung: gs101: add support for cmu_peric0")
-> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
-> ---
+TRBE doesn't support sysfs mode, but the enable_sink file can still be
+successfully written to enable the device, and only attempting to enable
+the source would later fail.
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Avoid misleading users by adding a flag that devices can use to hide
+either the enable_sink or enable_source files, and set it for TRBE.
+
+Don't set it for ETE as it's possible that ETE could appear on the
+legacy bus and work with sysfs, and writing to enable_source already
+reports EINVAL if the device doesn't support sysfs mode.
+
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ drivers/hwtracing/coresight/coresight-core.c  |  1 +
+ drivers/hwtracing/coresight/coresight-sysfs.c | 19 +++++++++++++------
+ drivers/hwtracing/coresight/coresight-trbe.c  |  7 +++++++
+ include/linux/coresight.h                     | 10 ++++++++--
+ 4 files changed, 29 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 46f247f73cf6..5244ff579ef6 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -1341,6 +1341,7 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 	csdev->ops = desc->ops;
+ 	csdev->access = desc->access;
+ 	csdev->orphan = true;
++	csdev->no_sysfs_mode = desc->flags & CORESIGHT_DESC_NO_SYSFS_MODE;
+ 
+ 	csdev->dev.type = &coresight_dev_type[desc->type];
+ 	csdev->dev.groups = desc->groups;
+diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+index d2a6ed8bcc74..5729f16df2c4 100644
+--- a/drivers/hwtracing/coresight/coresight-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+@@ -387,16 +387,23 @@ static ssize_t label_show(struct device *dev,
+ }
+ static DEVICE_ATTR_RO(label);
+ 
+-static umode_t label_is_visible(struct kobject *kobj,
+-				   struct attribute *attr, int n)
++static umode_t coresight_attr_is_visible(struct kobject *kobj,
++					 struct attribute *attr, int n)
+ {
+ 	struct device *dev = kobj_to_dev(kobj);
++	struct coresight_device *csdev = to_coresight_device(dev);
+ 
+ 	if (attr == &dev_attr_label.attr) {
+ 		if (fwnode_property_present(dev_fwnode(dev), "label"))
+ 			return attr->mode;
+ 		else
+ 			return 0;
++	} else if (attr == &dev_attr_enable_sink.attr ||
++		   attr == &dev_attr_enable_source.attr) {
++		if (csdev->no_sysfs_mode)
++			return 0;
++		else
++			return attr->mode;
+ 	}
+ 
+ 	return attr->mode;
+@@ -410,7 +417,7 @@ static struct attribute *coresight_sink_attrs[] = {
+ 
+ static struct attribute_group coresight_sink_group = {
+ 	.attrs = coresight_sink_attrs,
+-	.is_visible = label_is_visible,
++	.is_visible = coresight_attr_is_visible,
+ };
+ __ATTRIBUTE_GROUPS(coresight_sink);
+ 
+@@ -422,7 +429,7 @@ static struct attribute *coresight_source_attrs[] = {
+ 
+ static struct attribute_group coresight_source_group = {
+ 	.attrs = coresight_source_attrs,
+-	.is_visible = label_is_visible,
++	.is_visible = coresight_attr_is_visible,
+ };
+ __ATTRIBUTE_GROUPS(coresight_source);
+ 
+@@ -433,7 +440,7 @@ static struct attribute *coresight_link_attrs[] = {
+ 
+ static struct attribute_group coresight_link_group = {
+ 	.attrs = coresight_link_attrs,
+-	.is_visible = label_is_visible,
++	.is_visible = coresight_attr_is_visible,
+ };
+ __ATTRIBUTE_GROUPS(coresight_link);
+ 
+@@ -444,7 +451,7 @@ static struct attribute *coresight_helper_attrs[] = {
+ 
+ static struct attribute_group coresight_helper_group = {
+ 	.attrs = coresight_helper_attrs,
+-	.is_visible = label_is_visible,
++	.is_visible = coresight_attr_is_visible,
+ };
+ __ATTRIBUTE_GROUPS(coresight_helper);
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 1511f8eb95af..75c1fa6ab620 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -1289,6 +1289,13 @@ static void arm_trbe_register_coresight_cpu(struct trbe_drvdata *drvdata, int cp
+ 	desc.ops = &arm_trbe_cs_ops;
+ 	desc.groups = arm_trbe_groups;
+ 	desc.dev = dev;
++	/*
++	 * ETE isn't connected to TRBE with a link like other Coresight devices
++	 * and the TRBE driver has been written to always assume Perf mode, so
++	 * Prevent sysfs from being used.
++	 */
++	desc.flags = CORESIGHT_DESC_NO_SYSFS_MODE;
++
+ 	trbe_csdev = coresight_register(&desc);
+ 	if (IS_ERR(trbe_csdev))
+ 		goto cpu_clear;
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index 2131febebee9..ccd99a480477 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -141,6 +141,8 @@ struct csdev_access {
+ 		.base		= (_addr),	\
+ 	})
+ 
++#define CORESIGHT_DESC_NO_SYSFS_MODE	BIT(0)
++
+ /**
+  * struct coresight_desc - description of a component required from drivers
+  * @type:	as defined by @coresight_dev_type.
+@@ -163,6 +165,7 @@ struct coresight_desc {
+ 	const struct attribute_group **groups;
+ 	const char *name;
+ 	struct csdev_access access;
++	u32 flags;
+ };
+ 
+ /**
+@@ -260,7 +263,6 @@ struct coresight_trace_id_map {
+  *		device's spinlock when the coresight_mutex held and mode ==
+  *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
+  *		spinlock.
+- * @orphan:	true if the component has connections that haven't been linked.
+  * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
+  *		by writing a 1 to the 'enable_sink' file.  A sink can be
+  *		activated but not yet enabled.  Enabling for a _sink_ happens
+@@ -276,6 +278,8 @@ struct coresight_trace_id_map {
+  * @config_csdev_list:  List of system configurations added to the device.
+  * @cscfg_csdev_lock:	Protect the lists of configurations and features.
+  * @active_cscfg_ctxt:  Context information for current active system configuration.
++ * @orphan:	true if the component has connections that haven't been linked.
++ * @no_sysfs_mode:	Device can't be activated from sysfs, only via Perf.
+  */
+ struct coresight_device {
+ 	struct coresight_platform_data *pdata;
+@@ -286,7 +290,6 @@ struct coresight_device {
+ 	struct device dev;
+ 	atomic_t mode;
+ 	int refcnt;
+-	bool orphan;
+ 	/* sink specific fields */
+ 	bool sysfs_sink_activated;
+ 	struct dev_ext_attribute *ea;
+@@ -300,6 +303,9 @@ struct coresight_device {
+ 	struct list_head config_csdev_list;
+ 	raw_spinlock_t cscfg_csdev_lock;
+ 	void *active_cscfg_ctxt;
++	/* flags */
++	bool orphan : 1;
++	bool no_sysfs_mode : 1;
+ };
+ 
+ /*
+
+---
+base-commit: 551bb2fd5e4ed63d33aa11f07102cce5179b7595
+change-id: 20260506-james-cs-hide-trbe-enable-3c8d784e72d8
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
+
 
