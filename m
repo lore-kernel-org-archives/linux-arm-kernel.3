@@ -4,74 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFE1CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 01:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BEFFCD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 02:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kc/N3n+7loQMyba5P8cYwIqFKTl21WxVBIFggMR75dw=; b=RGHc8aEghPt6N1ruTFsSFtPG6w
-	VXfFeQiZTZJ/Jd8Y/9yqsievT1ZMhSpqRwKeTFswsQsPeNa5tojxGrDP17LWaTaffJdQcjjzRucyw
-	Dn05dDtnXx9z9XwZuq1ybN/w5wD8Sh4iTUX/pnHxJ20uFYYvoGA96NPOenFXzgCSueReEgxayqAus
-	xqWzQjp/I+USftdyTCPRfrP9tBo0jYjtJjfJiC2FLu6MDdYhLK+rKLc1AenEEUffRfqiSTKeSoTBx
-	8LASs3vpGjv3wstZvKHNP5MUM2BIIo0w1nB1pLpgTy+gfag/FlGffzKoJ4+ropEp+zGPSWFTgKN3R
-	SBUVe3qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ouxuxkb2XL/1BdZHuL17sgoRhDhsBbMfXFLBNuX0ULw=; b=PrinV6EHneaC7g1vzP/ItP7/Z1
+	KGOOzpxbfiySzVjxzem87Jy3tqaQcHWe56lw+Utype9e95tTmsBqPsC35iyhyRQfcCyHQkmCzpgZ8
+	sRckOt1hOvc0oPqLLcJX523vNI3Cjno0SbT1i5gGluFBwkSMwGJBaIgKyN1epR4M3QnUAqbHkasnf
+	mVligCPW55kQVB6UZaC7F3dpsjoKpJPko+BAbKiIGAKmqrKOS7vGKrY04eqxXBxXRMJnIfJlAGHRF
+	PSziJP95P5ifuvpXZvAlf2A9RxeveFSLxBge0qqfh44AHHeJpD8HIjKS42iW9wR5ehO9z8NO5eqig
+	IJ9veLlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKnpj-00000002SgV-0sOa;
-	Thu, 07 May 2026 01:47:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKoA3-00000002Uay-07Vt;
+	Thu, 07 May 2026 02:08:23 +0000
+Received: from mail-swedencentralazon11013033.outbound.protection.outlook.com ([52.101.83.33] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKnph-00000002Sfo-0Xwo
+	id 1wKoA1-00000002UaL-1b4K
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 01:47:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE89643D86;
-	Thu,  7 May 2026 01:47:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 112AFC2BCB2;
-	Thu,  7 May 2026 01:47:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778118439;
-	bh=6oPqUQeDpsE8w0JZIJK2Mlj2sXrItkxuCsWEs0mWd1c=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=rPeFV52baWiWpN63e2cLNZ10CQskn6kxlWKTb9NHF9qpTHzI6lzIKjsv7b5LTZUIo
-	 INdkNV5tu+qymTPW885yXsyQMI6EeCHNo5ug4jgnvTBrTSSZGpu0OOJBpWCMhNP6XW
-	 +ukh199ecuoMjmzx3MqmzFH34KM1R8ZkRZ8xFnqWQYe6ZSDlxrevvVl3eso7B0+tWa
-	 o1NGRAbjo3ekqz9b/HkthbCsyst6ihuaTSazFgE3kZUGMIuH3P7aZxrZW1qqcAClGz
-	 t0Tol5HYs4rLgUkYH+X3omXMqJgCfn79rbco9IKRw5TsbkRc+wWSc0m9KdfKAMGWXq
-	 6fCBV4fLKKRsA==
-From: Mark Brown <broonie@kernel.org>
-To: linux-kernel@vger.kernel.org, Randy Dunlap <rdunlap@infradead.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Andi Shyti <andi.shyti@kernel.org>, linux-spi@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260506175144.449364-1-rdunlap@infradead.org>
-References: <20260506175144.449364-1-rdunlap@infradead.org>
-Subject: Re: [PATCH v3] spi: s3c64xx: fix all kernel-doc warnings
-Message-Id: <177811673301.749715.1643862335362913694.b4-ty@b4>
-Date: Thu, 07 May 2026 10:18:53 +0900
+	Thu, 07 May 2026 02:08:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V8Diog+4X+TkiIkOn78aAxSftT8eDZmN2meUWF1w5HuDrPROcEki5lCxRMPQ/Hq+uUKmwwBktc6gZnJVHpiFtT8FF/JUX7A0VYmauvuUvExltzY+ArqgcPfYHIafy8G3R3TczQk12Wp4gJi1XhQmAubxJwrbN6Y282WNKv5Scj2XbcysUlupPq5AlzsKBNMbmsb9MYNy8tOk1dLRLjr1mlvWlQtcghRj+/1iVTvyqMmQoO7xoc+71RqF6EKUYJDaZ1dobsmr2asXPfwxNgzivtbG6eeks1VeRKEMRwb4yMRbLw+7NcY43yyywfzYV5q9Q6E1VswlJqwxfBLfDh5+Fg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ouxuxkb2XL/1BdZHuL17sgoRhDhsBbMfXFLBNuX0ULw=;
+ b=kbS5MoloCpO8CRnYHS8knPB+aIFXrnqlEm7U/y7EIIR8GyyVXItxOAZBaQF7zJlMCrM3d/20EA2Adaw1ZzGTMgwAHWw4+cUd++v/P6JFAIhRCLdEVBwsrlY3MYiel2jCNjuoqSf6PaippwRWxffV2pFH8w9fg1ad7UDG9N3aywWW+NznioQNoIy7ud8q4mC2poCTdrCGGu2WVnvR9CFcg77ktnnWCWw7Y3zkKxwrMsFzniiRY3UcoL9+p1aRjmn1m6B3uW7tU7scTcHwW6cp8dkZBeccad7YuiyEu9EfLDFWsEM/UU6pKVAMxTgiokArwT+CV2I4NPr7FUN+bMq9JQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ouxuxkb2XL/1BdZHuL17sgoRhDhsBbMfXFLBNuX0ULw=;
+ b=N2jcTQmp8xDxkmOniWSuzxKwhFTyZ2016l40sqmCi9dxC+FjKnDvv5amUPzE6rM0Ma53M8CMG89FHVFnoYGixM0NKQAx1RN9JPBA9Uqm0hdzqSO1zNKUwBnUPuuFiyurhISWaZqer8ekbb9qZDWjoR1+sxUvA8QZsBlQgumClURjV106bHihMB1v3P5/+uDiDohldexFmG4Dp5BmHOWD+Jhnl3vgVJUPzRSEr0JSlUDCy9iRa2pX08fzTT3aVXFSCKH29SuUgSZJ6sjTmuPCnaarEehNwcV614DeSI8CgN4DttQu91jjhxU8mYB2yYzN/BJbpVsZ03FOAVg540EcYQ==
+Received: from AM9PR04MB7491.eurprd04.prod.outlook.com (2603:10a6:20b:283::7)
+ by PA1PR04MB10700.eurprd04.prod.outlook.com (2603:10a6:102:48e::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Thu, 7 May
+ 2026 02:08:15 +0000
+Received: from AM9PR04MB7491.eurprd04.prod.outlook.com
+ ([fe80::3203:e51d:557b:a195]) by AM9PR04MB7491.eurprd04.prod.outlook.com
+ ([fe80::3203:e51d:557b:a195%6]) with mapi id 15.20.9891.016; Thu, 7 May 2026
+ 02:08:15 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank Li <frank.li@nxp.com>,
+	"chleroy@kernel.org" <chleroy@kernel.org>, "horms@kernel.org"
+	<horms@kernel.org>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>
+CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>
+Subject: RE: [PATCH v5 net-next 12/15] net: dsa: netc: add FDB, STP, MTU, port
+ setup and host flooding support
+Thread-Topic: [PATCH v5 net-next 12/15] net: dsa: netc: add FDB, STP, MTU,
+ port setup and host flooding support
+Thread-Index: AQHc2EvhWB5l3RgFg0WQ0IZZ22fm2rYB2AYA
+Date: Thu, 7 May 2026 02:08:15 +0000
+Message-ID: <AM9PR04MB749190BBD0C9389F17242090883C2@AM9PR04MB7491.eurprd04.prod.outlook.com>
+References: <20260430024945.3413973-1-wei.fang@nxp.com>
+ <20260430024945.3413973-13-wei.fang@nxp.com>
+In-Reply-To: <20260430024945.3413973-13-wei.fang@nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB7491:EE_|PA1PR04MB10700:EE_
+x-ms-office365-filtering-correlation-id: 7174be37-a000-4bec-ddd8-08deabdd7ff4
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|19092799006|366016|921020|38070700021|3023799003|22082099003|18002099003|56012099003;
+x-microsoft-antispam-message-info: bk4EPG9VXr5y42c5XZ/NZ4C90H1g2TPRFpJhR8xFleUkfD2rBcmcuTAAAu7pLqGaYeeUsf0si/i7NGSzyEhOW3NMP31gkdiOC/P8ByMhsVOXC2H8oGNY0R7aHhdmjwK/zcgXtMH5+ArC6bIOmuLMHuVtcwYaKMGWtE3m+zCJV+ip6TscVOGzRLCAxDX+RIsoy1+83ld50s8GX50tlxTskfR5qgUoaq5eHgGJo6nfIVltzfLvzy/siO+KeTt0GXs2C32Dk5CQLq2jaaiG+SXtkfpRU8mIN1w1uMKPTGFKKCtrRJCnFeZppIkkoa6BekHXjIcnmhY59yTjINNPY6QdSWUkh5AjpsqfacUuhHYzjSA7ZDEbyqDRuGD+u+YnZLCD7j3IjfJbdBEiLcDCoWk/pKDGEhT4LO/aD6jyGxk5u2FPpN5RbEtyZlu51bj1LvXI3uyUplXiET4Pr24l9QyAdEGrrXqAALfIijA8FKyhWu+nKlbwitOPkI+NoscQloPVi0/Bq2aN8ud5ojSETI2wxayWZ9gVCvp4hAWVD68v5xNxgYuCZncXSDapSpF6TkNm4refq5w6dLTpsCI8e5N3h79nDagrOUW0JAJnKMKy7CRzUzR7DmCBGAx112oudE361topKtGIozg20scC+ox0mZN40eC7S2T6M2yZEqjulh81ekHnsfVOccrIcySLGbHs/+/M96/9jYtVBI/ytWSXkq6aKjYbw7Suwip6OFlkFXTBCdgAWoupE5XKvjkM/54kDfNsSKEuXy18A+LK4z8UNA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB7491.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(19092799006)(366016)(921020)(38070700021)(3023799003)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?koi8-r?Q?VryC8cbo/QoT6AflwiStQBsAmsxj4s4gSwTaZ3Ztf+3EHpWOWZBvv4i8N4SI9X?=
+ =?koi8-r?Q?G9rPSS+QdAdmTQwoSJ84wLQPBJnvpRMT1oZHWYlm1sO8XpnKe5BZOwNaNOnMw2?=
+ =?koi8-r?Q?9n1oVPxml7aLiT2L8vxrnaYSFGvVTl5/DzXfHOmCCSEYGIvZhg4yAQ0+7vjf2B?=
+ =?koi8-r?Q?nEl3juh9TxyiTjAh1LX4NL0kq+3GHUoHUqx874ZeVW4UzChtz95Sb93UgF/Z8R?=
+ =?koi8-r?Q?Cx5s0dcfmQlbaIx8X4p2KqRg557dkRPeRT12+UxT8XlDm7H5zWE/XNni0ayf0u?=
+ =?koi8-r?Q?1X98fRGE1DwyLeXf8OzZMpsABZn0oSbUB9iYtsxdjvXExaxB9nhhlZZrZHsq8I?=
+ =?koi8-r?Q?Rh1Xa6PxSF1Hnez01Kq/itMU4M4pfuB0Zj+6dSh5PVx7RbTBhBDfvcmnl8dVXH?=
+ =?koi8-r?Q?VWg1YSaMFNeksY2zujwdlEMw9gKGMudtcXlB0GNs5iYZAExXxCsQJNNHcq69B/?=
+ =?koi8-r?Q?ATurhET1BkYRaP79cTpydvxguMzxcKzErfaF7bdQuG3j95Qb7GwXFUsDwWtcS8?=
+ =?koi8-r?Q?VtVSO+DFaoPFy2ttcy4KgMol/SPVQCQID8D0DDHdzSn19VWvWu39fpTrVzHuU+?=
+ =?koi8-r?Q?VUq8PSWBsEZYPffRbDCdCQoAYCUIn+Kf7GUq0yvy9IIHe+XOrnrPW6N8/mT5wK?=
+ =?koi8-r?Q?nOO6tuiIEOAMUXchJA+dzUKZZ725pVVqspYarjbhZYW2kbYpXtyXqpe0ADT6k8?=
+ =?koi8-r?Q?oIv0QbS1YUy14tSI28jEa8+QT6qbZA8E2bxXDrxaenaCehZK83sKPeb9gFoHfC?=
+ =?koi8-r?Q?YTdPmqKaRngH2A8kD8C5wagV+MU6ZQ58MM+9tML2zxhNyCYtpwR5/kRuIQe4G6?=
+ =?koi8-r?Q?JU4L90UUWsBvFM2KgOjinTK+AFcE+Zf1LC7aOgNXBYE4HkjhXx6ZTestsslnZS?=
+ =?koi8-r?Q?tlkkxkdgAw7KOoK023pk/R6wlY/u0KDAlGQCT95DtcQEArS8CMXctAiM9nlLKf?=
+ =?koi8-r?Q?0PT8pg9yVVwhFTQDbojrxLYLdqCSyTV//VqPulRy/A2clComxQBJKFstWtpTNz?=
+ =?koi8-r?Q?u2cXCZdw+0CUxu31fgsfLnLJK+nGvX8QCs7n6wI4iZCcgUajbt92PPXBv8ZsoF?=
+ =?koi8-r?Q?TiZguflyuu/NjKl2DCteJctjMqrhylDcbMcnCCIN/iOY3ZL44O79WmbakWF9zu?=
+ =?koi8-r?Q?4FCYk8/rra8jNUpJo2E1iCplRWaTogV8mwV26e+POKgj/d8Powgx86hWdx5ISW?=
+ =?koi8-r?Q?vBAQrN/ZLrRBnWscr0wCWXOoNvS0Z+fWRUzsvd+ERQgvtiIsDs03wEcC3wIMan?=
+ =?koi8-r?Q?OzPQKWcw5rrBOQWj/vigy0690pX97Hdpona2dXoQGI8H+NVs0P1yWcgDkI/8Wr?=
+ =?koi8-r?Q?e58sYvq6P1Ogh7z9Vr0UrCIvVynuz7LTNIoEKIPMItikpVkzKKJbdYK4i29LxA?=
+ =?koi8-r?Q?Kpt0ug28MIP/Qg7Dehwn823k30Uoo602v60d4w1k/tcufL8vkEh4RH0cqF6ztu?=
+ =?koi8-r?Q?By7iMevmw068gAMneU6MZ1mCoqR20o55pj+xCRfACRPOZeKZcPXKQlAkZXvQLH?=
+ =?koi8-r?Q?ePythZoIT0O4a5txAXKHL35OHyEQfxODAxp0UnBfIBnnKk24TIsCdlEcptcDOd?=
+ =?koi8-r?Q?jRIjajeAm3uuPmIfoA9UPiZWHFXCYLEt+4qxF+pBEJG3Wc2ZnifYlZDBdKikRS?=
+ =?koi8-r?Q?Oal4bril08KOzYDdEnBUB7U/t8yeT0KoB5WkXXOI8ar0JXClpzvPm3?=
+Content-Type: text/plain; charset="koi8-r"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1096; i=broonie@kernel.org;
- h=from:subject:message-id; bh=6oPqUQeDpsE8w0JZIJK2Mlj2sXrItkxuCsWEs0mWd1c=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBp++8l1LUVHXJo2w9BV3WOQuAI2XVKIGYbdB3tO
- zbrcdh3DNaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCafvvJQAKCRAk1otyXVSH
- 0LTjB/9yTFNLkx8jEZ0VZ4qokDcNmeA5KRProQ3mNEjqpaks05CrEoBcza5CxtIkTqSAhnIfGTr
- nGP9cGdWtr/WtBBd5iIQYWg1sNhy08xtQgDYQX1GTlfbOK9stdmU86g/9EncYVQRLSj0co0I2AF
- cQyGZhGEJvWABz+tdRWXRN+82hRzYeZksJoazo+2W/2zV/cx9MLBcyKsLDO8qHHv3FhVd6pVM9y
- b4Xdviyl2SUy1Fvb0APUYLfemvBVkhiHAWns9IAnvVCI0Lo98z+szZABh6dAKxbT+WKodrZZdqd
- 8N4hlB9JJ46j0v0bG6FY1faA6ky420vKZ2DvSq2E6YGGju+q
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB7491.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7174be37-a000-4bec-ddd8-08deabdd7ff4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 May 2026 02:08:15.5537
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 8Zad/03NodU12suX0ldKfctPcAopAte54QXPQJKKone5Y8EkH405KgrSusMXs3+0LyQo8apzul3kYkFtvyu6VQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10700
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_184721_201216_BC1557AB 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260506_190821_422177_EC2A56CF 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +152,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 May 2026 10:51:44 -0700, Randy Dunlap wrote:
-> spi: s3c64xx: fix all kernel-doc warnings
+There are some false positives reported by Sashiko, see the comments
+from Sashiko and my response inline. Other comments are useful and
+I will add improvements in v6.
 
-Applied to
+>  static int netc_setup(struct dsa_switch *ds)
+>  {
+>  	struct netc_switch *priv =3D ds->priv;
+> @@ -393,6 +627,8 @@ static int netc_setup(struct dsa_switch *ds)
+>  	if (err)
+>  		return err;
+>=20
+> +	netc_get_switch_capabilities(priv);
+> +
+>  	err =3D netc_init_all_ports(priv);
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.2
+Sashiko says:
+Since the DSA subsystem can call setup() and teardown() multiple times
+(for example, if the CPU master interface is unbound and rebound), does
+calling netc_init_all_ports() here leak memory?
 
-Thanks!
+Looking at netc_init_all_ports(), it uses devm_kcalloc() and devm_kzalloc()
+for the priv->ports array and port structures. Because devm_ allocations
+are tied to the PCI device lifetime, they won't be freed during teardown(),
+which could lead to a memory leak on each rebind.
 
-[1/1] spi: s3c64xx: fix all kernel-doc warnings
-      https://git.kernel.org/broonie/spi/c/88f731e79629
+Response: Analysis of the DSA core driver reveals the following call stack
+for setup():
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+netc_switch_probe()
+	=84=80=80dsa_register_switch()
+		 =84=80=80 dsa_switch_probe()
+			   =84=80=80 dsa_tree_setup()
+				     =84=80=80 dsa_tree_setup_switches()
+						   =84=80=80 dsa_switch_setup()
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+netc_setup() is only called when the switch driver probes, so it will not
+be called multiple times during the lifetime of the DSA switch device.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+[...]
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
 
-Thanks,
-Mark
+> +static int netc_port_fdb_add(struct dsa_switch *ds, int port,
+> +			     const unsigned char *addr, u16 vid,
+> +			     struct dsa_db db)
+> +{
+> +	struct netc_port *np =3D NETC_PORT(ds, port);
+> +
+> +	/* Currently, only support standalone port mode, so only
+> +	 * NETC_STANDALONE_PVID (=3D 0) is supported here.
+> +	 */
+> +	if (vid !=3D NETC_STANDALONE_PVID)
+> +		return -EOPNOTSUPP;
+> +
+> +	return netc_port_set_fdb_entry(np, addr, vid);
+> +}
+
+Sashiko says:
+Does this implementation break network isolation between standalone ports?
+
+The driver sets ds->fdb_isolation =3D true in netc_switch_probe(), which
+means it must isolate FDB entries per standalone port or bridge. However,
+the isolation context (struct dsa_db db) is ignored here and all entries
+are placed in NETC_STANDALONE_PVID (0).
+
+If the same MAC address is added to multiple standalone ports, such as an
+IPv6 multicast group, the single FDB entry in VID 0 is updated to include
+all these ports in its port_bitmap. A frame matching this MAC arriving on
+one standalone port will then be switched in hardware to the other
+standalone ports, instead of keeping the traffic properly isolated.
+
+Response: Currently, the NETC switch only supports single port mode, so
+all the FDB entries are only added to the CPU port, they will not be added
+to the user ports. So this is a false positive.
 
 
