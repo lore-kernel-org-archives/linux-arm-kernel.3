@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CFE1CD37AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 22:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A43CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 23:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UXLiYME2DQTxz2pd/kx7mapaCXMWwSBAZuumfi0p9Io=; b=CBBdEa0mPQPriPcVPaANEgYTTg
-	oazMOIlrWkjzyH3d/cYB434zTx0WpoYY1+JJNFdbuVt1nXY69l0VIoe+n9WwgHTLX8mTmDuJ0q7K/
-	hPuD8gITlzkTurlCz/R6Iw0R4gdGiNZJ364UfUWi0xujxeqpVNGRtpSV/1TkLm3r3Kzc+VoteGADO
-	AT1525JNI+YpXOdT7+pTgkPIQQxxtnCChAVFcJOY4gU8wOuL7JI+5VGcKdznAlJYv2HztZPUUm/Jl
-	dXueFdxqiCGRypVO732NF7Hj0wUOGH0aLZY/iEUD4bYgYAAr5ijd09ylSdMGic12UFnWj4fBdpGFB
-	PnBzwkvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pelQApbcBsrUZTE2lQtmnFfkKMi2RYMScySj6MYqs/o=; b=Q79T8jg+rPK6k5PK3er+6ROe/g
+	OzB1gIMUbLVRFcAdv9O4mxCcsxcqL00IVJGtpdZCHUq7Rg2k8OJ7TqWc1EsFn3wJDJ/ZBY9sVNhWH
+	mPPffVEIKldxk7ZSKuCFS/l+CemY19u630gdoCrBs9H4+QiRa7saVn9z46XQM9ZxW40AOyF+gv8if
+	9WMjZiCFvT85yXzyAB4BKbZbN/hc5zBETn1BbNN7kNBs0OD1oOuY0ldYXW7mq7BvkKL2QhhtoVA7o
+	7SCPlrSPV7GuBq1WkpcmRyv1TpC+xBCWzPgyspgqoc2G3nIuR2esosWB/QcT1cX2+FCxWEeUMGIf0
+	C7XixmtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL7Ee-000000053Mt-2OYG;
-	Thu, 07 May 2026 22:30:24 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wL8M4-00000005Ab5-0XjG;
+	Thu, 07 May 2026 23:42:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL7Ec-000000053MM-0ygL
+	id 1wL8M1-00000005AaW-2j2U
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 22:30:23 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2b2e8b95bdbso19175ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 15:30:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778193021; x=1778797821; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UXLiYME2DQTxz2pd/kx7mapaCXMWwSBAZuumfi0p9Io=;
-        b=afsCly6mMnpIKF7/DqT4jtsPA1rvMZ8Ms+eJN99LIUHzpJVyFu6q2FXLta+xHnNw0W
-         xJ0DDknBdekC1b75Pxd5FL7/V6T0ZfhecM3+MytiF5Li8pfDOaCM8OqmeFNgPwIFoBAh
-         C7KYfmuHOSZ3g6l1iW0GEypFqMLk24KMp/l1EmafzYXw5G+qHkcXHSglihDl8hHAoETH
-         oDK1i0qRtNLZWt0wVHPz/Q+u6EQWGqEepVjS+kh0B1Ypn2+A6W/8xcVm1W9DklL8t1yI
-         dN+3RvFrTBAA/7c/blZW1LCIDN7n1NjPCYPTou2cZ5gxSLnFdRfcJdTosIATIvbvZts8
-         Z70w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778193021; x=1778797821;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UXLiYME2DQTxz2pd/kx7mapaCXMWwSBAZuumfi0p9Io=;
-        b=I+foVhzVE5rxCySodzUxOV4gJ+G1DtBBhBuLxqqP3ynEqZMSsIyG41sVzVZwGeF0Se
-         wP2lKf0DbF3vTl5VyWCmzYva9fVGRXcNPR4tmFYUyfI/xUefcZ1JobeaURO2pcMBLXTG
-         uj+11QzlkXGDnhEg5iSaoEfq/w/Hl2krsaoy04iBVIal8iFvdit2uuSFfBzIG01qL5Sq
-         +apyINzkTOM9kkvrczkFOm7xnPrZALo6KaM8vSEsXZvIlrNkNHGbwJx5JHkCzMJ/kxa+
-         cxKkugmXEgTJIWIrriQGBouqDbyGC924F/K25I4TmrHW2myikeCYD1BTMAJJsq3JIGJs
-         ocHw==
-X-Forwarded-Encrypted: i=1; AFNElJ/fSoKtwV5l6viIqNcs27eFg1rlIehI7DBZHyzadWtvjdLDuO7i6I2ahMhtXllPysWvTrWCbr1I02eju0PaCIAn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy82P1h8O7VB72Kf41GTUfx+yh1BlM8lbNzboVvBwT1ue/Yv0gy
-	6WIhiWlIVD+29Fc9LWS17F46qOten/eqcCctbIhU+8ksnIZ1If9BN9GUND41BG+woyP+Yxi2emI
-	zuj8SNw==
-X-Gm-Gg: Acq92OGla2A0M+eihMh8XqtmWbQRJXa6NNtfPEHIJ4HOq5qC3xxiTPdx1so6PoP3fKM
-	7JpMhNG5jH0yeBThzOBTEtFD2Qy0n76gNXLD76SjJ/q8nc971blGHJqNABlor0We63wwRG8NrFh
-	WnAFkF/76EFh+p24xvQwq3nanf8cRE2aygGvh2juziu2q3nI/qpY7VMBd2K1kr7AgGfZHnNM8nv
-	a8663+RJJktZfKGjh6ts+0WvXGI+Eg4An+7VkKQT8J3YtkP2YCL7+qIWKOWmqSDhf3wF+JhMB8r
-	TqDAJjIDG0gFENevjnuMzjjzNRrU+YnGOWsjGTinCFUakPfdu8fmvWkyE1x3F/GxXYSZKjQheOj
-	JfkMjL6tPjeJjZ0FW5c5kvbwUBtjt+z6o54EQmMsAjfee3pkuOQcIDwoZmP57JS06nQlrIhHzv0
-	tsseO6il3KoAs8InxRPJrjcExFDOzINBy/MoxjVQZRGVoD5aDk0u2E6WXbgJZLrT9pFZcV
-X-Received: by 2002:a17:902:d50d:b0:2b2:5931:5950 with SMTP id d9443c01a7336-2bae9e68566mr1529465ad.16.1778193020571;
-        Thu, 07 May 2026 15:30:20 -0700 (PDT)
-Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bae788e042sm7614555ad.79.2026.05.07.15.30.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 May 2026 15:30:19 -0700 (PDT)
-Date: Thu, 7 May 2026 22:30:14 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3-sva: Enable Hardware Access and
- Hardware Dirty bits
-Message-ID: <af0SdkjQOZxnnaQb@google.com>
-References: <20260503135413.1108138-1-nicolinc@nvidia.com>
+	Thu, 07 May 2026 23:42:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E61FD4455A
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  7 May 2026 23:42:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB9C1C2BD00
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  7 May 2026 23:42:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778197324;
+	bh=p7Rx6qNuAwgaIK8zmFad1PXiQo0SfDFYMCJz06kHD8g=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=XVSXDHrpJKD3xum7FnwZCCrA8iQEYbbX5GpPhqtER+Kb6ORUOY3o6PbYdaH27ErrQ
+	 kOT8v1aEKkqxk3pXWvcFlkpl9WqFtXYrCXYyzwY9QlBKenIv8N4ArqaqEbDr34fGlc
+	 v6s6uH/QYfdQQkmL6JKXVMxYqW1O2LOnJAsCod7JH6RB4mWoJSrBAIcwEzGXRaVPa6
+	 9V2lo8OCSID8OvbS0r0xvh7WvOtEv0WIpowa09YfkGNLYVEfEfbosRNN2LybFa7EfU
+	 UsV+GtnDWNlb2e/HbImt4blT9TVNkcaoufYLk3uCSmoQJLcp/3Fwxc2xjxD0jGNocb
+	 Tq1eNGpBaQ4ZA==
+Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-67e9e343b22so760279a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 16:42:04 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+RyCmgiAUgGZA2eEG/chWcLVpdJOnRWmlMFOVGQ1CaZPfl0lMAo+uHckgulm3XC0B/vghOXWHUyk/M1ISbXeLW@lists.infradead.org
+X-Gm-Message-State: AOJu0YysLvYYDqpH+AZrMjKm+nijDqNYNa0a0FUeTpU4k8G9cxV7c0iC
+	xzxIhl5ArYuK1Kkr0o0mxGVlssMqanLPxe2hMP75DiOuzAv4igKWERgyaTheTMEFPVsJ/M4xCuD
+	XzA9sPuSjyckmeSku4syqfRFpYNex2A==
+X-Received: by 2002:aa7:da02:0:b0:66e:e024:1a08 with SMTP id
+ 4fb4d7f45d1cf-67d646b082bmr4114635a12.24.1778197322778; Thu, 07 May 2026
+ 16:42:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260503135413.1108138-1-nicolinc@nvidia.com>
+References: <20260501155421.3329862-1-elder@riscstar.com> <20260501155421.3329862-9-elder@riscstar.com>
+In-Reply-To: <20260501155421.3329862-9-elder@riscstar.com>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 7 May 2026 18:41:49 -0500
+X-Gmail-Original-Message-ID: <CAL_Jsq+GY5O-ygTHDOA8pVBDi_aKcmcJ0yt-3Rv4a4=Ygk66uQ@mail.gmail.com>
+X-Gm-Features: AVHnY4JOM9jN3mcHfPknCHd75ZrjDOMLe5cKzgxlMhp-0Ek9NIaM4mPgQRK3hWI
+Message-ID: <CAL_Jsq+GY5O-ygTHDOA8pVBDi_aKcmcJ0yt-3Rv4a4=Ygk66uQ@mail.gmail.com>
+Subject: Re: [PATCH net-next 08/12] dt-bindings: net: toshiba,tc965x-dwmac:
+ add TC956x Ethernet bridge
+To: Alex Elder <elder@riscstar.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com, 
+	rmk+kernel@armlinux.org.uk, andersson@kernel.org, konradybcio@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org, 
+	arnd@arndb.de, gregkh@linuxfoundation.org, 
+	Daniel Thompson <daniel@riscstar.com>, mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com, 
+	alexandre.torgue@foss.st.com, ast@kernel.org, boon.khai.ng@altera.com, 
+	chenchuangyu@xiaomi.com, chenhuacai@kernel.org, daniel@iogearbox.net, 
+	hawk@kernel.org, hkallweit1@gmail.com, inochiama@gmail.com, 
+	john.fastabend@gmail.com, julianbraha@gmail.com, livelycarpet87@gmail.com, 
+	matthew.gerlach@altera.com, mcoquelin.stm32@gmail.com, me@ziyao.cc, 
+	prabhakar.mahadev-lad.rj@bp.renesas.com, richardcochran@gmail.com, 
+	rohan.g.thomas@altera.com, sdf@fomichev.me, siyanteng@cqsoftware.com.cn, 
+	weishangjuan@eswincomputing.com, wens@kernel.org, netdev@vger.kernel.org, 
+	bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_153022_281904_27D51C8A 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20260507_164205_732884_60BF2CBC 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,54 +99,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 03, 2026 at 06:54:12AM -0700, Nicolin Chen wrote:
-> HTTU is introduced by utilizing the Dirty Bit Modifier (DBM) in the PTE.
-> When kernel maps a clean but writable page, it will set PTE_READONLY and
-> PTE_DBM (aka PTE_WRITE) at the same time. When a write occurs, an HTTU-
-> capable MMU will automatically clear the PTE_RDONLY bit without software
-> intervention.
-> 
-> On the other hand, SMMU has the same HTTU feature, yet it is not enabled
-> in the SVA CD. As a result, SMMU will not clear the PTE_RDONLY bit while
-> sharing the CPU page table, resulting in unnecessary stalls.
-> 
-> Thus, enable CTXDESC_CD_0_TCR_HA and CTXDESC_CD_0_TCR_HD in the SVA CD.
-> 
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+On Fri, May 1, 2026 at 10:55=E2=80=AFAM Alex Elder <elder@riscstar.com> wro=
+te:
+>
+> From: Daniel Thompson <daniel@riscstar.com>
+>
+> Add devicetree bindings for the Toshiba TC956x family of Ethernet-AVB/TSN
+> bridges.
+>
+> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
+> Signed-off-by: Alex Elder <elder@riscstar.com>
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> index f1f8e01a7e914..1ed8a6f29dc44 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> @@ -92,6 +92,16 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
->  
->  		target->data[1] = cpu_to_le64(virt_to_phys(mm->pgd) &
->  					      CTXDESC_CD_1_TTB0_MASK);
+>  .../bindings/net/toshiba,tc956x-dwmac.yaml    | 111 ++++++++++++++++++
+>  1 file changed, 111 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/toshiba,tc956x-=
+dwmac.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.y=
+aml b/Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
+> new file mode 100644
+> index 0000000000000..d95d22a3761da
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
+> @@ -0,0 +1,111 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/toshiba,tc956x-dwmac.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +		/*
-> +		 * Enable Hardware Access and Dirty updates (DBM) if supported.
-> +		 * This is safe to enable by default, as PTE_WRITE and PTE_DBM
-> +		 * share the same bit.
-> +		 */
-> +		if (master->smmu->features & ARM_SMMU_FEAT_HA)
-> +			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
-> +		if (master->smmu->features & ARM_SMMU_FEAT_HD)
-> +			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
+> +title: Toshiba TC956x Ethernet-AVB/TSN Controller
+> +
+> +maintainers:
+> +  - Alex Elder <elder@riscstar.com>
+> +  - Daniel Thompson <daniel@riscstar.com>
+> +
+> +description: |
+> +  This node provides properties for configuring the Ethernet PCI functio=
+ns
+> +  that are attached to the internal downstream port of the TC956x's PCIe
+> +  switch.
+> +
+> +  TC956x are a family of Ethernet-AVB/TSN bridge chips that combine a PC=
+Ie
+> +  switch together with a number of Ethernet controllers. These bindings
+> +  cover only the Ethernet functions of these devices.
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/pci-bus-common.yaml#
+> +  - $ref: /schemas/pci/pci-device.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - pci1179,0220 # Toshiba TC9564 (a.k.a. Qualcomm QPS615)
+> +
+> +  "#gpio-cells":
+> +    const: 2
+> +
+> +  gpio-controller: true
+> +
+> +  # We can't allOf reference Ethernet-controller.yaml because we end up =
+with
+> +  # contradictory $nodename rules (`ethernet@` versus `pci@`). Happily o=
+nly a
+> +  # small number of the properties are useful on TC956x so we can just r=
+eference
+> +  # what we need.
 
-IIUC, we should be setting these if IO_PGTABLE_QUIRK_ARM_HD is present?
+That would be due to the error sashiko pointed out. 'pci' is for PCI
+bridges (host or PCI-PCI).
 
-I think the driver maintains a clear distinction between HW capability 
-(FEAT_HA/HD) and feature enablement (IO_PGTABLE_QUIRK_ARM_HD). 
-
-We set IO_PGTABLE_QUIRK_ARM_HD during S1 domain finalize if 
-IOMMU_HWPT_ALLOC_DIRTY_TRACKING flag is passed. Hence, we should check
-for that flag OR IO_PGTABLE_QUIRK_ARM_HD before enabling these in CD..
-
-Thanks,
-Praan
-
+Rob
 
