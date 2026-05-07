@@ -4,118 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5578BCD3444
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 15:57:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA4BCD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 15:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HFueIRg8EdjLYpRhCKi8UPsT8Gv4kSjtO04cZyD+nng=; b=nz0DlovGJTRTV52srnI5PgbcKX
-	P+Jx5vO4ZgmTfGcDk/rYgRR2MZfO5MQ+mJlZacqKvvgEVCPjq90zHh/rcQE2WoHrKCr3fb1YBrzkv
-	U34GNsZap0hZuxhGAQFlmijdlTAgQxEl7WVzP8VkhXv3zwRB/mENcz7Dbq+ghoqahw+VrNpA4i48Y
-	UKWXUfaNakweA/54BJuhvIlk2LT72uTKp9wmtUFYQC/o3DdvozgUwakuga33nONE4SJTJ9typ5rmv
-	+pIxiqiADgvmj4q75Ttxu9fAbVZZRepHReEvkaDCw810E5JJEXIf8IQxtNA+W0JUx8r5cKBLTMVG8
-	mekQD18w==;
+	bh=cTwxtiG8T7aliZMirEQRyxQuxXCZuWOL+KmVOLNLrIs=; b=Sj8z/2D2gB2KJ/tPWa8JOgma3n
+	mDFfHqIBWwlcDDDkV9KK2QhCpRTpjInKrDzMCpNecwMSveU4/8AxWhIoO1FgZ1dkBvEODFQPJdi0u
+	Y3S0ap/qOy1dDI725goq/TPntF/42v3WRnqPoKueY915vCWsCdpPtg9PO12bqs393Tph+SUrvQXrg
+	JiONPnzxgNO1QE4TnCWpshZwutD3V0dqYoHnjgduSMj4p1IwY0mZpQg2BdiSsD8SQHlPcQFSuLE94
+	dOrWsw1X74jffoLs6j7huktVkPkMtTvsUeNEpSGmwmqpJcDebCUCClimWNAxlg5Ra8MNjeoJpFwaE
+	DNzpkC4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL16H-00000004GWU-2Q5v;
-	Thu, 07 May 2026 15:57:21 +0000
-Received: from mail-eastusazon11011023.outbound.protection.outlook.com ([52.101.52.23] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wL16d-00000004Gb5-30ho;
+	Thu, 07 May 2026 15:57:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL16E-00000004GVb-1TE0
+	id 1wL16b-00000004GaX-43Wc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 15:57:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HIc1lQkqWiCYILt1ln6UlH5a7g1AiHKLJ4AHcK2JS+ijNtVJA4z95BHIBccoPur5eskU04BLGsfLV8yLvKRtxYnW1+SyKkXf/XxUHtYDJ+Em5/AZ4WGJ7gGonLAr0w9vzR2rcU/Bs0RxQRmm7chqh0JUgtGCOO9CBOScD+QVAPnbICcG+UIW+19D/GiQEIW6HzB1e3PCoAJWCAT4+wTvVrHdnoSJB3tnfx+TDWSn3F1z25sGzncYK4L8KdXC/MJLZ9cQtiGmaqYDxWRae91YVrOqYmrFV8IKpMvktKjEqI81Edzp1X/5fzZl9k/rydVtUwtjhaTTqvR2G3N70kwD4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HFueIRg8EdjLYpRhCKi8UPsT8Gv4kSjtO04cZyD+nng=;
- b=ofK1fiyRb5yIY0n9nufQb+9rOJ9c89X4w7BvaKUMenMGCMN/t032Hrdg5o6UjG6wU7hXz7XyTpRIKzarKX34w3KrWS0cAH+tSr9/sGIMMP+J7fHufJw6pHOLikaQ1gtd3sLsfJdTLDirRNYM/KZsKJsQOWUdhZjhJplD0qrS1f76aZwhwjMtZn5dqXo9CTTXTyfAf8VjG9oR4GXTyPl6HoUeIJdRmw429+a8Utn/nnw2hzSRWJlofvjdXf5jb+c9dqQWqNARXU5xz/Jw0RxKcCXlsWQjTcjbYl4Cs7XOBZ3nBW+g99YDmpqAyvHMBxpyhsQlQO2WhrCvog9sOPTtbQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HFueIRg8EdjLYpRhCKi8UPsT8Gv4kSjtO04cZyD+nng=;
- b=iXq9FF1JTdftJcD/9Tgk2UJ4oXLWCE4Tsgf/JVnnzbinOkhY1FLi564ihOfaA7l3VmltOhkRlslfdJePVUxltycI91f1Pj+4D6bNaRlbrAGm8GfUb569jYnSeLlnU6KZhroHEbYeUQK+h00RtlQleH5bbnQ8qGwhIwGPlNGG61E=
-Received: from CY5PR19CA0117.namprd19.prod.outlook.com (2603:10b6:930:64::18)
- by SA2PR10MB4810.namprd10.prod.outlook.com (2603:10b6:806:11c::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.17; Thu, 7 May
- 2026 15:57:13 +0000
-Received: from CY4PEPF0000E9D2.namprd03.prod.outlook.com
- (2603:10b6:930:64:cafe::34) by CY5PR19CA0117.outlook.office365.com
- (2603:10b6:930:64::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.18 via Frontend Transport; Thu,
- 7 May 2026 15:57:12 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CY4PEPF0000E9D2.mail.protection.outlook.com (10.167.241.137) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Thu, 7 May 2026 15:57:12 +0000
-Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 7 May
- 2026 10:57:11 -0500
-Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 7 May
- 2026 10:57:10 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 7 May 2026 10:57:10 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 647FvANC3961383;
-	Thu, 7 May 2026 10:57:10 -0500
-Date: Thu, 7 May 2026 10:57:10 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Markus Schneider-Pargmann <msp@baylibre.com>
-Subject: Re: [PATCH v4 1/4] arm64: dts: ti: k3-am62a7-sk: Split r5f memory
- region
-Message-ID: <20260507155710.5zch4ghhzrj7hnlh@immovably>
-References: <20260429-topic-am62a-ioddr-dt-v6-19-v4-0-fc27d6ac753c@baylibre.com>
- <20260429-topic-am62a-ioddr-dt-v6-19-v4-1-fc27d6ac753c@baylibre.com>
- <20260505124121.hffywentvo5pusfx@glowing>
- <DICGZTCMDWHK.HMQMCB8M32ZV@baylibre.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <DICGZTCMDWHK.HMQMCB8M32ZV@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D2:EE_|SA2PR10MB4810:EE_
-X-MS-Office365-Filtering-Correlation-Id: 30f98e54-a9ba-4362-fb33-08deac514da4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|82310400026|1800799024|56012099003|22082099003|3023799003|18002099003;
-X-Microsoft-Antispam-Message-Info: zHbVq9W50LxyDyPWacf12gk3SdV3kmeAZdSWmr2Gpdh/0YbcbsXOxZaZXu4c+F55d1hv2iagH9T2QwEq/jiGzA0Fv8w8s6+TR6PCALnMuOg4kFtxgn6Fj4nuO+Sk6UILumS7kFb+1JZl/UDggANNegkocblwVqfVW5wUy4xpviTGWYN0B7vJf2/A1+4XkpxQZo73d0RgP/OsYTyo3bsiaS7c65n2XSMG24oy5sQpShS+WIlswfi1MrXrd+tovmh08o/ySG9/Bpnlsd0PpaMvDKOBaSVarctmpux2+8lu4bhHM5J9JglyDlZcsgoiJ2P7Xe9vUDizi2ugd4AhPWKaroh968cJeuj7j3kwmaOplfGgDs9QnnkVyAKh1+8ykNhCyfoy/VCACHakGYiRH3DyduN2GF6HQbvia9x2vx0PrpQ7DtQptgTdfjvIlGYQ/ucEuTWJy/PPvKOZqvnPQ71b97fFUeSDP0Et/rEzmOXJI4m/R25Pb0JpjRJai/b7+0n9Ryr6ZNnRczWeZJRfMNf1Gt9lVHvEuFH+Kf3fTKd6SG3/9HT+WZh63ADF/17GtXZUr4id6u5cqJ8P7mz242JTlbcLm1IeFwaOwfPcYfyjU5nxtNtz+l5NbMuTYYqnR4nK0exC2k+YhQwPu3EgMgtVnJLXMW4K1Q74xedhznHpPL/FNPTwc98aEOFKRWmETc/IxzJ0196zuASl01Q13k7GngTvboFDCn7NpX182nDkthw=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(82310400026)(1800799024)(56012099003)(22082099003)(3023799003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: uyXBFPO9c+TDYI1sasWeKRPRWqfRKt2dP7sJwNfJlrq3CyvoZKoxrJruTNZIwtSX4RxnnrBbmTrvEcJDh4PhT5s4EJXE6fepcTCTL4pFNVVuiZ4XDAfxujeRFUJTIzjjEVZu7JhJx36a9FX44iiY8DUqGqNJz8k8qOYmMdL//LeN5lnExQtHc40lAdzuAWI7a/M9zHCZ4MNjzNddgUNo8LOog1UWyd5NaalBwN5ikvgrA43BLPCNFhNjhLWM61n6KghvnKq3YjQyGNKrqVJtpWdXFYyyi/Cxp4wdXXpNx6O1yqk+AtuyMn9/2eRf7NZFzFUi+VgWp64EF6okjNgxh0hA858+hTC6mVlyYNb+POb+153CuFoLykMOrPpcP2Ml2J4Xyu4Rw1Ce61as6vkUFj/kY2FPjVlk2gFr5UGAEbT6QrNKBzaq8mdmNBOH/AnT
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 15:57:12.7352
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 30f98e54-a9ba-4362-fb33-08deac514da4
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D2.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4810
+	Thu, 07 May 2026 15:57:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A4A941894;
+	Thu,  7 May 2026 15:57:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF6DEC2BCB2;
+	Thu,  7 May 2026 15:57:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778169461;
+	bh=SRDQGAD1Jdb8rMWAaZJsxwcnVMafxfPILg9InfBnZk8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=BW6G5dbHPaISsPWE5mSZF9XcFmisdWcuoAKiW5zf0L3W7E4POAvDn732x84epIMl7
+	 nL+2cxtZ7AI1v1hOywTgzUA7IJzucqLN2kWzZf9Cx0+QT5B6ZtuCNa95UNRDmrik37
+	 B/MPn/Si4AsLpY1++E4JIWONY2cqBvsXA8rs0mQ+VPruEIU4hnjSJS1/ISetecwSTX
+	 ld+uGPWrx3At5c/+y4mURuzcC/wfYlRkgFOyW6rCvT8NC8XOQhy0b7ofpuprvih9eV
+	 78U15qZk4aaa7h7v7Cv8VfO7j7RTOrchBruaJiAGEMbeIbKsEvLS++6RtJ1b1Ao3cU
+	 uE85PDi3IRH9w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wL16U-000000002I0-0wWs;
+	Thu, 07 May 2026 15:57:34 +0000
+Date: Thu, 07 May 2026 16:57:33 +0100
+Message-ID: <86o6irxlea.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org,	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,	devicetree@vger.kernel.org,	Lorenzo Pieralisi
+ <lpieralisi@kernel.org>,	Hanjun Guo <guohanjun@huawei.com>,	Sudeep Holla
+ <sudeep.holla@kernel.org>,	Catalin Marinas <catalin.marinas@arm.com>,	Will
+ Deacon <will@kernel.org>,	"Rafael J. Wysocki" <rafael@kernel.org>,	Mark
+ Rutland <mark.rutland@arm.com>,	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
+ <conor+dt@kernel.org>,	Chen-Yu Tsai <wens@kernel.org>,	Jernej Skrabec
+ <jernej.skrabec@gmail.com>,	Samuel Holland <samuel@sholland.org>,	Neil
+ Armstrong <neil.armstrong@linaro.org>,	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,	Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,	Ge Gordon <gordon.ge@bst.ai>,	BST
+ Linux Kernel Upstream Group <bst-upstream@bstai.top>,	Jesper Nilsson
+ <jesper.nilsson@axis.com>,	Lars Persson <lars.persson@axis.com>,	Alim
+ Akhtar <alim.akhtar@samsung.com>,	Ivaylo Ivanov
+ <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,	Sascha Hauer
+ <s.hauer@pengutronix.de>,	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen <dinguyen@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,	AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,	Thierry Reding
+ <thierry.reding@kernel.org>,	Jonathan Hunter <jonathanh@nvidia.com>,	Bjorn
+ Andersson <andersson@kernel.org>,	Konrad Dybcio <konradybcio@kernel.org>,
+	Andreas =?UTF-8?B?RsOkcmJlcg==?= <afaerber@suse.de>,	Shawn Lin
+ <shawn.lin@rock-chips.com>,	Orson Zhai <orsonzhai@gmail.com>,	Baolin Wang
+ <baolin.wang@linux.alibaba.com>,	Michal Simek <michal.simek@amd.com>
+Subject: Re: [PATCH 14/16] arm64: dts: rockchip: Add EL2 virtual timer interrupt
+In-Reply-To: <3690258.8hzESeGDPO@phil>
+References: <20260507125544.2903406-1-maz@kernel.org>
+	<20260507125544.2903406-15-maz@kernel.org>
+	<3690258.8hzESeGDPO@phil>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: heiko@sntech.de, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, a
+ faerber@suse.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_085718_393073_CBBB0F64 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20260507_085742_043276_41CFF2EC 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,38 +108,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, Mathieu Poirier <mathieu.poirier@linaro.org>, Dhruva Gole <d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, Kevin Hilman <khilman@baylibre.com>, Bjorn Andersson <andersson@kernel.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, Kendall Willis <k-willis@ti.com>, devicetree@vger.kernel.org, Vishal Mahaveer <vishalm@ti.com>, Sebin Francis <sebin.francis@ti.com>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Tero Kristo <kristo@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15:14-20260507, Markus Schneider-Pargmann wrote:
-> >
-> > So we go ahead an override the definitions of ipc-firmware.dtsi for
-> > wkup_r5fss0_core0 here - explaining why the build does'nt fail. I am
-> > confused why the ipc firmware dtsi was'nt updated instead? is this
-> > something different firmware dtsi now? if so, we should split the
-> > ipc-firmware.dtsi accordingly. Commit message does'nt mention the same
-> > either. This right solution is to make up our minds if ipc-firmware.dtsi
-> > is meant for LPM mode support or not. if not, split the dtsi, if yes, do
-> > the mods in the ipc.dtsi
-> 
-> We can update the firmware definitions as well. I currently only did
-> this for am62a and am62p as these require the new format so IO+DDR
-> works. But if you prefer I can make the changes to firmware.dtsi
-> instead.
+On Thu, 07 May 2026 16:33:21 +0100,
+Heiko Stuebner <heiko@sntech.de> wrote:
+>=20
+> Hi Mark,
 
-That was the entire purpose of splitting ipc-firmware.dtsi out -
-if the default firmware carveouts have changed, do the change in
-ipc-firmware.dtsi. That way some other firmware people will have could
-potentially have their own dtsi files and handle things appropriately
-there, even if they are using the same evm OR if they use the exact
-ipc-firmware on different boards, that will appropriately introduce
-the change there as well. BUT, do check first.
+s/k/c/ ;-)
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+>=20
+> Am Donnerstag, 7. Mai 2026, 14:55:42 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb Marc Zyngier:
+> > The ARMv8.2 based CPUs used in a number of Rockchip SoCs are missing
+> > the EL2 virtual timer interrupt. Add it.
+>=20
+> the message talks about "a number of Rockchip SoCs", but below there are
+> only the rk3566/rk3568 variants? Or does it just mean the two?
+
+I have no idea how many Socs are covered by the 'x' in the filename,
+and I can't say I looked too hard -- I simply checked that whichever
+file was including this one was describing CPUs that were guaranteed
+to implement this timer.
+
+>=20
+> In any case,
+>=20
+> Acked-by: Heiko Stuebner <heiko@sntech.de>
+
+Thanks!
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
