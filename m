@@ -4,60 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A8E0CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A9CCD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oysCO2GNq+pfDUxK0gk5J79L5g3WyP7UgX/D+7UD3M0=; b=0lpBMbNatun3ek3PFtVagAF/xa
-	SSanmo5oawo3x7YIfWo/GxlRfekN24LruNqm1PkrxH1y83EvC6y+/trBNwg11RB/aarty7483mlNg
-	2+e9waeWUkXZHFjhYql9ZJKkRnCRAz80MrGmS+9mo1WaiOzwjWdl1GQMJVWKQH6Mmn64B9d44ungC
-	NJe76MhuHd/ay1Qf5IsLc4p2Rwvmhzn79biH1/6OKymdg9iY0XAzfCB6bmykUQopaW7+xXFPwVEUr
-	WULnYqDQc4TL94AfjJdzRErNvdd0m92olR88koO0jfKOU5mnIwZlHQDZZS0h7r8aVCuI1fS+rTy9q
-	SPagqQsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LesHN31mCjr5jRcDiMym3uEgbcNnP5dqKjhsiJ4N0Ig=; b=gUvfH2IltwgIDTaZmo3/DhYk4u
+	Wcn8FaJyr+93b2zjpaWw3L5RFO3+Ml143BbRkID9TGWyRo9B6svitgRHrfs66HEJLBDb3lSJiao5+
+	C97pDy+DnbRGjcJYcJ//7YFVkHR6MbiqfPvWg6zomgsgclbdNyOUbyRzXDTK1doNcNJCgPutsNNKn
+	2PO+T2NNhfBMMzhpSyyZinW1hnZUQo9I4SqNyPYcCDZnXQj8bLF6+XKS/Ct1DFShvONZQObv/DOCO
+	TP3UtD65nShiDlubF7MjQQ2Dj7HbaqxJNxo4NUHQiw0YstIKgq76o01J0tEuKOz6KaxlEmlxWsDpo
+	TwTXVKRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKuMo-00000003Dnn-0z6k;
-	Thu, 07 May 2026 08:45:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKuMl-00000003Dmu-2FGJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 08:45:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C24422F8;
-	Thu,  7 May 2026 01:45:48 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DC2D3F836;
-	Thu,  7 May 2026 01:45:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778143553; bh=OOppSG08L/KO4ewNhuiOGUn8DWyo80ypF6cLMLTTsYE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ufrmHspjVCl4Wzf0NQBsG9zpogPjmvRIN1w+ESiaSlDExzghg2rqd8dhdsCqAR69g
-	 8hZG8qjjFi6QLj+2oPUa2khfsO2MREpvN3a0jiv3RWVVv/UzdDsvHNrl+0TdcjdGQg
-	 wyLfzq6PWCP3Ivvzk4azYH5V3T7Jw1ERbkYc1EVw=
-Date: Thu, 7 May 2026 09:45:46 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	tabba@google.com, David.Hildenbrand@arm.com
-Subject: Re: [RFC PATCH] KVM: arm64: Align KVM_EXIT_MEMORY_FAULT error codes
- with documentation
-Message-ID: <afxROjBUVzeQQNfg@raptor>
-References: <20260506105053.107404-1-alexandru.elisei@arm.com>
- <afs3wp7xBUf2jYK4@google.com>
+	id 1wKuPA-00000003EBL-3ere;
+	Thu, 07 May 2026 08:48:24 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKuP8-00000003EA4-2ooG;
+	Thu, 07 May 2026 08:48:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1778143703; x=1809679703;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=vPRwvxMb5A9mdiX3Oz9wTv571xXQ5Sv70RbsEc7FkgU=;
+  b=HrjHsYikL+eUcq2F8O0O4dBj9BdEsYk62aeUmCgxty6w18vqiRM1Zc46
+   KBCrc2IJoBQ05gn90MLqkTtC5MRP4iCUX3/cNlsg0nHlr+8PrtqCpudS0
+   JryA/hNgQuG8UMPIQsyxpvu1y0Ul81rTwHk55WbRdX7EES7E70fIHSLTE
+   7i+p6OAMXQaC9Udxqv6HUzcJpf6giaK5iiQ7oHr/trmDRBpavIItTzgmb
+   FD+kJwosJtkUIi6t85YBtf7GXj0qKK5vE8Fh4FLgvMiRdIukxC4sLXOMZ
+   50I89KOXJDsLlgs2qcf4w8fbkGjIohOoaWleUIrpvBiZ+vYn9AIB4fgtM
+   g==;
+X-CSE-ConnectionGUID: ljsisRZxTBOMkS3YHim8dQ==
+X-CSE-MsgGUID: Ig6znDXhROWm1UMuhm6iRw==
+X-IronPort-AV: E=Sophos;i="6.23,221,1770620400"; 
+   d="scan'208";a="288533272"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 07 May 2026 01:48:22 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Thu, 7 May 2026 01:48:21 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Thu, 7 May 2026 01:48:12 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <alexandre.belloni@bootlin.com>, <Frank.Li@nxp.com>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<claudiu.beznea@tuxon.dev>, <linux@armlinux.org.uk>,
+	<mturquette@baylibre.com>, <sboyd@kernel.org>, <tytso@mit.edu>,
+	<aubin.constans@microchip.com>, <Ryan.Wanner@microchip.com>,
+	<romain.sioen@microchip.com>, <durai.manickamkr@microchip.com>,
+	<cristian.birsan@microchip.com>, <adrian.hunter@intel.com>,
+	<jarkko.nikula@linux.intel.com>, <npitre@baylibre.com>,
+	<linux-i3c@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-clk@vger.kernel.org>
+CC: <manikandan.m@microchip.com>
+Subject: [PATCH v6 0/5] Add microchip sama7d65 SoC I3C support
+Date: Thu, 7 May 2026 14:18:00 +0530
+Message-ID: <20260507084805.481737-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afs3wp7xBUf2jYK4@google.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_014555_712147_8D86149B 
-X-CRM114-Status: GOOD (  28.47  )
+X-CRM114-CacheID: sfid-20260507_014822_724721_9EFFE57F 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,87 +90,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+Add support for microchip sama7d65 SoC I3C master only IP which is
+based on mipi-i3c-hci from synopsys implementing version 1.0
+specification. The platform specific changes are integrated in the
+mipi-i3c-hci driver using existing quirks
 
-(Resending this because I managed to mess up the headers, sorry for the
-duplicate).
+I3C in master mode supports up to 12.5MHz, SDR mode data transfer in
+mixed bus mode (I2C and I3C target devices on same i3c bus).
 
-Thanks for the explanations!
+Please refer to the individual patches for changelogs.
 
-On Wed, May 06, 2026 at 05:44:50AM -0700, Sean Christopherson wrote:
-> On Wed, May 06, 2026, Alexandru Elisei wrote:
-> > The documentation for KVM_EXIT_MEMORY_FAULT states:
-> > 
-> > 'Note!  KVM_EXIT_MEMORY_FAULT is unique among all KVM exit reasons in that
-> > it accompanies a return code of '-1', not '0'!  errno will always be set to
-> > EFAULT or EHWPOISON when KVM exits with KVM_EXIT_MEMORY_FAULT, userspace
-> > should assume kvm_run.exit_reason is stale/undefined for all other error
-> > numbers'.
-> > 
-> > where a return code of '-1' is special because according to man 2 ioctl:
-> > 
-> > 'On error, -1 is returned, and errno is set to indicate the error'.
-> > 
-> > Putting the two together means that the ioctl KVM_RUN must 1) complete with
-> > an error and 2) that error must must be either EFAULT or EHWPOISON for
-> > userspace to detect a KVM_EXIT_MEMORY_FAULT VCPU exit.
-> 
-> Yes and no.  The key escape valve we (very deliberately) gave ourselves is this:
-> 
->   userspace should assume kvm_run.exit_reason is stale/undefined for all other
->   error numbers.
-> 
-> As arm64 already does, that clause allows KVM to "speculatively" set exit_reason
-> to KVM_EXIT_MEMORY_FAULT.  Which is by design.  The userspace flow is intended
-> to be "if KVM_RUN returns EFAULT or EHWPOISON, then check for KVM_EXIT_MEMORY_FAULT
-> to see if KVM provided more information about why the EFAULT/EHWPOISON error was
-> returned".
+base-commit: 8ab992f815d6736b5c7a6f5fd7bfe7bc106bb3dc
 
-Hm... In general, "speculatively" populating exit_reason with
-KVM_EXIT_MEMORY_FAULT when userspace is not intended to use that information
-looks a bit dubious to me. Why do the work if userspace is not supposed to use
-the information?
+Durai Manickam KR (2):
+  clk: at91: sama7d65: add peripheral clock for I3C
+  ARM: dts: microchip: add I3C controller
 
-Regarding gmem_abort(). As I see it, if today someone writes userspace that
-relies on any of the undocumented error codes propagated from kvm_gmem_get_pfn()
-to handle KVM_EXIT_MEMORY_FAULT, that means that KVM can never use those error
-codes for any other exit_reason in the future, because that userspace will
-break.
+Manikandan Muralidharan (3):
+  dt-bindings: i3c: mipi-i3c-hci: add Microchip SAMA7D65 compatible
+  i3c: mipi-i3c-hci: add microchip sama7d65 SoC compatible with the
+    required quirk
+  ARM: configs: at91: sama7: add sama7d65 i3c-hci
 
-I'm sure this was all carefully considered when designing the interface, I was
-just curious how this particular problem has been solved.
+ .../devicetree/bindings/i3c/mipi-i3c-hci.yaml | 27 ++++++++++++++++---
+ arch/arm/boot/dts/microchip/sama7d65.dtsi     |  8 ++++++
+ arch/arm/configs/sama7_defconfig              |  2 ++
+ drivers/clk/at91/sama7d65.c                   |  1 +
+ drivers/i3c/master/mipi-i3c-hci/core.c        | 10 +++++++
+ 5 files changed, 44 insertions(+), 4 deletions(-)
 
-> 
-> > On a kvm_gmem_get_pfn() error, gmem_abort() prepares the
-> > KVM_EXIT_MEMORY_FAULT exit_reason and propagates the error back to
-> > userspace. kvm_gmem_get_pfn() does not massage the error code, and if the
-> > error is not -EFAULT or -EHWPOISON, userspace implementing the ABI fails to
-> > detect the memory fault exit.
-> > 
-> > Things get more complicated with kvm_handle_vncr_abort().
-> > kvm_translate_vncr(), similar to gmem_abort(), prepares the VCPU to exit
-> > with KVM_EXIT_MEMORY_FAULT and propagates the error code from
-> > kvm_gmem_get_pfn(). Then kvm_handle_vncr_abort() does a number of things
-> > based on this specific error code:
-> > 
-> > - If it's -EAGAIN, KVM resumes the guest. Note that KVM, when handling a
-> >   *host* fault on a guest_memfd backed VMA, retries the fault handling if
-> >   kvm_gmem_get_pfn() returns -EAGAIN.
-> 
-> Totally fine.
-> 
-> > - If it's -ENOMEM, -EFAULT, -EIO or -EHWPOISON, it returns to userspace
-> >   with 0 (success), meaning that, according to the documentation, userspace
-> >   will not detect the memory fault exit.
-> 
-> Also totally fine, and working as intended.  KVM_EXIT_MEMORY_FAULT is provided
-> for scenarios where (a) the issue is likely related to the GPA and (b) userspace
-> can remedy the underlying issue using the information provided in kvm_run.memory_fault.
+-- 
+2.25.1
 
-If KVM_RUN always returns 0 when exit_reason = KVM_EXIT_MEMORY_FAULT, which is what
-kvm_handle_vncr_abort() does, how will userspace ever be able to handle the
-fault?
-
-Thanks,
-Alex
 
