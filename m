@@ -4,100 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2493ECD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9946ACD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tKBAwkvhtjuXDyDqChVpUmkpaBFOZ2EpVTKNNIDAY9E=; b=LJea36GKR3etPQ/0xH6uYyBlq+
-	A3gczQWsY2YKm+TeE8MT9JFgGkQi9nohj3szQnR15IfpnVSCslsViIuo2MBTnkhr/mhbFcX0p+VGP
-	I5wpsMbIqr4rwm129NPbLFA1adDm80QGrdhBCqPxUyhQwAgEcY+5gLuqI3OV3zMQ7L+2cMVHDEBr8
-	6++ok3zO9aIX4Caxqnv5aJ8pEoFNn8JTZO01ciCYYX00FyGSqpCAouETjv/5Ql6FiuNce8VHZWyd0
-	DsZXF/op7RcfoFVxOXAqHAo+YqMzO008K9SPbeGBC6MBst5/LhWXnB5/tv7rwsSZKVjLnx4536TIq
-	UHF4Sc3A==;
+	bh=JipXC9zl8vvcvEWV8ytAzAb0ko1bPw2NpPGFvQ/U6qU=; b=lP51yPCXRfvofBG6CL8dqc1hXt
+	m2p2O70dP5+e3dK1vXk4MsZ/Eh3FT5ny/+sd7t0V9j2h8q8ziO3jJjsjGJPdE955+vS52a17SObtw
+	KrJEMU2wDxaCqFrrmN9E6xwZB1o1Die2vBMFoDhqaF6a5PSrCd+WO4dERPHTr9m1pQ4r5D09q6dte
+	tGFmFVbv4OLRhJw83FmybyYsyfC6MblWWjyFiCrXwF46K4Dkbcx3CdkR31CVKXgzPezw3AIjVj6Ow
+	/ssHIJbj6NXLogs919e+JWK8XmgtPKCDRes8+pE1LPXd3ZqAeY+n3dv30+ociXN8UmONDRtXVsSEm
+	3lf3HYeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKu91-00000003BXN-0TvL;
-	Thu, 07 May 2026 08:31:43 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKu8z-00000003BW3-0iAd
+	id 1wKu9R-00000003Bem-115Z;
+	Thu, 07 May 2026 08:32:09 +0000
+Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKu9O-00000003BdP-2VcE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 08:31:42 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-44a5174670eso323504f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 01:31:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778142699; x=1778747499; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tKBAwkvhtjuXDyDqChVpUmkpaBFOZ2EpVTKNNIDAY9E=;
-        b=kvq9cbtmTwzXIalNQW7ZzlZz/5k0hgQjXoc7fzhLDJJzOeZTNQU1one8kRVvxcgM7C
-         pMtNCJCbn0x46S5DsW+LJwMBYWliGlsxK8vRn4txhDTxutM3E6Ogu+UZGwLaVnxuCg1C
-         Mjb6ckQ/4uLRSPUH9qREdGrZFIFRawsWHVGQZiAVinbRU5a8viadwqYBnIoUzeTqG6PH
-         AJbFTzbPlT7HuzdrkojGp/3vzKHIdf3e0lkvWD37yyeM/A9s11kQ2JWYEEL+aegl2+SB
-         BmF5lUvtC4JGZN9edtuHCz4rPSZfptdmvpzqZIiviPKVFJr6C7NUStN/OUI/G36JA23t
-         8V4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778142699; x=1778747499;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tKBAwkvhtjuXDyDqChVpUmkpaBFOZ2EpVTKNNIDAY9E=;
-        b=FxQ32k4NhQWkpm5f6NO0FlQh6BnXGFKv7UCeZ0/qArySrLtezuvoI7kFvDTcGVbXmg
-         nCM5xZ7V5UoklM9HEWrvQBTjHPJOgl4ppdkoYh9srf4eLj9eSxztxXRxm1RYJXkLi5TY
-         A3jDqUL8cQo50e5HoUu6cw2lwMOFcAIhdC6L31qEtoaeWUScQuvn6eL5RG4ws7rfcOU8
-         LB6BIGO8WG31FzjqXRKbt36a9xftRTLl6Yv7eEewY/HVub1Q5twg/b+MfgnVX7WbvtlP
-         XDARevcCIUC1HEx3aDiLgfr/K3uAgeEnuVm2fVYOGhhMCdanHDwMvnw+unEiT/H1oTDl
-         P5cg==
-X-Forwarded-Encrypted: i=1; AFNElJ+MXOeWCyIMbhRbuK/sUU5qxUkiMiLY5zgOgpuan/Kf1jFvJBZYA6oMat70lR2iAaJM+b61JM6USYHMuCXeoFzX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyz7SWhS9S8EkbKJp1CxrixX8+geIcAhzzCB04rBMlZ2YMf5xNi
-	jksyBAB2exo+WZ5GunY1rPj/2OcZ9NMQ1HDeFIF3sLy/wNCs7KvAX3td9mq0XlrmJvY=
-X-Gm-Gg: AeBDiev3hXom+7Ujog/Ci4VFXJQuwb3V/Vj9EnYtEMHF9KNftzzknQKx5venOsR0IVe
-	cKTjMikB/YqWFB6wdoNNA7eJ8fW4+YjAIfiODCiwvozu0mXXx/zhnYmQmJh53dPFd/+5DQrmcz3
-	sXdQqOvF9aHFjRih6/sFkg+nQXazXrcQRLFU68NmovnUZ5Y1LJbdsy/c7shnLbch0Y0O5aIIiGn
-	19XDsweUPzIJQaWHF1tHo5GTCaInsNEqp1H7ALu6nWj9x5yIc/6/bq8T3DqZ/g0b+Ihvf+lnpDo
-	OBjYv+I4bEy2oZ7gMofWcCbO98Ha34yEBjzfDY7P0oHfDOIPZpDSaLwZJmThPULvMMZMgUgTznu
-	FzsCuELv3K9ka9w8p+aPCuc/ALIZc7RyUrQUrO/jz5LZiDRJ4zinNC2vWua04wG8keClxJJ3nl3
-	8Gb1yR8le+FihFy0EyzpWvf7MzaGSu16K9Whr9TYoWkq0=
-X-Received: by 2002:a05:600c:1e8a:b0:488:fd7e:1063 with SMTP id 5b1f17b1804b1-48e51f4cdcdmr110121985e9.29.1778142699031;
-        Thu, 07 May 2026 01:31:39 -0700 (PDT)
-Received: from [10.11.12.108] ([79.115.63.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e53895effsm103806205e9.3.2026.05.07.01.31.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 May 2026 01:31:38 -0700 (PDT)
-Message-ID: <806da86b-45b7-43cc-b364-97bade8f4041@linaro.org>
-Date: Thu, 7 May 2026 11:31:32 +0300
+	Thu, 07 May 2026 08:32:08 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app1 (Coremail) with SMTP id TAJkCgC3THH6TfxpQ34XAA--.24500S2;
+	Thu, 07 May 2026 16:31:55 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net v1 1/2] dt-bindings: ethernet: eswin: refine delay model and HSP register description
+Date: Thu,  7 May 2026 16:31:36 +0800
+Message-ID: <20260507083136.175-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
+In-Reply-To: <20260507083037.152-1-lizhi2@eswincomputing.com>
+References: <20260507083037.152-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/6] firmware: samsung: acpm: Add TMU protocol support
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Lee Jones <lee@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- peter.griffin@linaro.org, jyescas@google.com, kernel-team@android.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260506-acpm-tmu-helpers-v1-0-a9cd5daf8355@linaro.org>
- <20260506-acpm-tmu-helpers-v1-5-a9cd5daf8355@linaro.org>
- <DIBOWQYHOPOU.3PCLCL8030WRL@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <DIBOWQYHOPOU.3PCLCL8030WRL@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TAJkCgC3THH6TfxpQ34XAA--.24500S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxuw1DAryxXw48KFyUGry5twb_yoW7ury7pa
+	y5CrW5Grn8Xr4fWanrtw109ryaqan3WF43Cr18Jr97Xan09F9Yqr13tFy5Xa4UCrWxZFyU
+	urZ0ga1rZ34qk3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBv14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
+	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
+	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l
+	IxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRuHqcUUUUU=
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_013141_233929_1E782FFD 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20260507_013206_806369_B8F01485 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,85 +97,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Zhi Li <lizhi2@eswincomputing.com>
 
+Refine the EIC7700 Ethernet dt-binding based on observed hardware behavior
+and clarify the original delay model for eth0.
 
-On 5/6/26 6:13 PM, Alexey Klimov wrote:
-> On Wed May 6, 2026 at 12:39 PM BST, Tudor Ambarus wrote:
->> The Thermal Management Unit (TMU) on the Google GS101 SoC is managed
->> through a hybrid model shared between the kernel and the Alive Clock
->> and Power Manager (ACPM) firmware.
->>
->> Add the protocol helpers required to communicate with the ACPM for
->> thermal operations, including initialization, threshold configuration,
->> temperature reading, and system suspend/resume handshakes.
->>
->> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->> ---
->>  drivers/firmware/samsung/Makefile                  |   1 +
->>  drivers/firmware/samsung/exynos-acpm-tmu.c         | 239 +++++++++++++++++++++
->>  drivers/firmware/samsung/exynos-acpm-tmu.h         |  28 +++
->>  drivers/firmware/samsung/exynos-acpm.c             |  12 ++
->>  .../linux/firmware/samsung/exynos-acpm-protocol.h  |  18 ++
->>  5 files changed, 298 insertions(+)
->>
->> diff --git a/drivers/firmware/samsung/Makefile b/drivers/firmware/samsung/Makefile
->> index 80d4f89b33a9..5a6f72bececf 100644
->> --- a/drivers/firmware/samsung/Makefile
->> +++ b/drivers/firmware/samsung/Makefile
->> @@ -3,4 +3,5 @@
->>  acpm-protocol-objs			:= exynos-acpm.o
->>  acpm-protocol-objs			+= exynos-acpm-pmic.o
->>  acpm-protocol-objs			+= exynos-acpm-dvfs.o
->> +acpm-protocol-objs			+= exynos-acpm-tmu.o
->>  obj-$(CONFIG_EXYNOS_ACPM_PROTOCOL)	+= acpm-protocol.o
->> diff --git a/drivers/firmware/samsung/exynos-acpm-tmu.c b/drivers/firmware/samsung/exynos-acpm-tmu.c
->> new file mode 100644
->> index 000000000000..c68d60b4c0b3
->> --- /dev/null
->> +++ b/drivers/firmware/samsung/exynos-acpm-tmu.c
-> 
-> [..]
-> 
->> +static int acpm_tmu_to_linux_err(s8 fw_err)
->> +{
->> +	/*
->> +	 * ACPM_TMU_INIT uses BIT(0) and BIT(1) of msg.rx.ret to flag APM
->> +	 * capabilities. Treat zero and all positive values as success.
-> 
-> ACPM_TMU_INIT returns capabilities inside designated error field?
+The previous binding used an enum-based definition for
+rx-internal-delay-ps and tx-internal-delay-ps. Replace it with a
+range-based model using:
 
-yes
+  - minimum: 0
+  - maximum: 2540
+  - multipleOf: 20
 
-> What about other messages/commands? They just return error code there?
+This better reflects the actual hardware implementation, which
+supports 20ps granularity delay steps in the MAC RGMII interface.
 
-all the other commands either return -1 for errors, regardless of the error
-type, or 0 for success.
-> 
->> +	 */
->> +	if (fw_err >= 0)
->> +		return 0;
->> +
->> +	if (fw_err == -1)
->> +		return -EACCES;
->> +
->> +	return -EIO;
->> +}
-> 
-> Could we map these return values with better granularity instead of
-> returning -EIO for everything else that is not minus one?
+The tx/rx internal delay values are clarified as MAC-side programmable
+delay components applied on the RGMII clock/data path, representing
+the effective delay seen at the MAC interface.
 
-I think we're good as we are now. The firmware returns either -1 for errors,
-zero for success, or BIT(0) and BIT(1) for TMU_INIT to flag some capabilities.
-I can't tell if there are other commands that return capabilities as well,
-or if there are other capabilities for TMU_INIT, I don't have access to the
-firmware code.
+This does not change the intended hardware semantics, but aligns the
+binding with the actual hardware implementation.
 
-> 
-> Is this error code convertation applies only to TMU protocol?
+These properties are optional and only required when MAC-side fine
+tuning is needed; otherwise delay alignment is provided by PHY or
+board design.
 
-yes
+Depending on the selected RGMII timing mode, delay alignment may be
+provided by the PHY (e.g. rgmii-id) or by board/MAC-side configuration.
+When PHY or board design already provides the required delay, these
+MAC-side properties may be omitted. When MAC-side fine tuning is
+required, they should be provided to describe the internal RGMII
+timing adjustment.
 
-Cheers,
-ta
+Additionally, extend the description of the HSP subsystem register
+layout used by the MAC glue logic. This includes explicit TXD and RXD
+delay control registers to ensure deterministic initialization and
+to override any residual configuration potentially left by bootloaders.
+
+Add reference to the EIC7700X SoC Technical Reference Manual,
+Chapter 10 ("High-Speed Interface"), Part 4 for background of the
+HSP CSR block:
+https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
+
+There are no in-tree users of this binding, so no ABI impact is
+expected.
+
+Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7700 SoC")
+Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+---
+ .../bindings/net/eswin,eic7700-eth.yaml       | 50 +++++++++++++------
+ 1 file changed, 36 insertions(+), 14 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+index 91e8cd1db67b..fab95603bd82 100644
+--- a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
++++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+@@ -63,16 +63,39 @@ properties:
+       - const: stmmaceth
+ 
+   rx-internal-delay-ps:
+-    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
++    minimum: 0
++    maximum: 2540
++    multipleOf: 20
++    description:
++      RX internal delay in picoseconds applied on the RGMII clock at the MAC
++      side. The hardware supports 20 ps steps.
++      This property is optional and only needed when MAC-side delay tuning
++      is required.
+ 
+   tx-internal-delay-ps:
+-    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
++    minimum: 0
++    maximum: 2540
++    multipleOf: 20
++    description:
++      TX internal delay in picoseconds applied on the RGMII clock at the MAC
++      side. The hardware supports 20 ps steps.
++      This property is optional and only needed when MAC-side delay tuning
++      is required.
+ 
+   eswin,hsp-sp-csr:
+     description:
+       HSP CSR is to control and get status of different high-speed peripherals
+       (such as Ethernet, USB, SATA, etc.) via register, which can tune
+       board-level's parameters of PHY, etc.
++
++      Additional background information about the High-Speed Subsystem
++      and the HSP CSR block is available in Chapter 10 ("High-Speed Interface")
++      of the EIC7700X SoC Technical Reference Manual, Part 4
++      (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf). The manual is
++      publicly available at
++      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
++
++      This reference is provided for background information only.
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+     items:
+       - items:
+@@ -82,6 +105,8 @@ properties:
+           - description: Offset of AXI clock controller Low-Power request
+                          register
+           - description: Offset of register controlling TX/RX clock delay
++          - description: Offset of register controlling TXD delay
++          - description: Offset of register controlling RXD delay
+ 
+ required:
+   - compatible
+@@ -93,8 +118,6 @@ required:
+   - phy-mode
+   - resets
+   - reset-names
+-  - rx-internal-delay-ps
+-  - tx-internal-delay-ps
+   - eswin,hsp-sp-csr
+ 
+ unevaluatedProperties: false
+@@ -104,24 +127,23 @@ examples:
+     ethernet@50400000 {
+         compatible = "eswin,eic7700-qos-eth", "snps,dwmac-5.20";
+         reg = <0x50400000 0x10000>;
+-        clocks = <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
+-                <&d0_clock 193>;
+-        clock-names = "axi", "cfg", "stmmaceth", "tx";
+         interrupt-parent = <&plic>;
+         interrupts = <61>;
+         interrupt-names = "macirq";
+-        phy-mode = "rgmii-id";
+-        phy-handle = <&phy0>;
++        clocks = <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
++                <&d0_clock 193>;
++        clock-names = "axi", "cfg", "stmmaceth", "tx";
+         resets = <&reset 95>;
+         reset-names = "stmmaceth";
+-        rx-internal-delay-ps = <200>;
+-        tx-internal-delay-ps = <200>;
+-        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118>;
+-        snps,axi-config = <&stmmac_axi_setup>;
++        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
++        phy-handle = <&phy0>;
++        phy-mode = "rgmii-id";
+         snps,aal;
+         snps,fixed-burst;
+         snps,tso;
+-        stmmac_axi_setup: stmmac-axi-config {
++        snps,axi-config = <&stmmac_axi_setup_gmac0>;
++
++        stmmac_axi_setup_gmac0: stmmac-axi-config {
+             snps,blen = <0 0 0 0 16 8 4>;
+             snps,rd_osr_lmt = <2>;
+             snps,wr_osr_lmt = <2>;
+-- 
+2.25.1
+
 
