@@ -4,61 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20EACD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 13:56:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D5CCD343B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 14:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=et12f+JBlWCvrIykUAG98jlPA42V3ob8Dp6+bnOSQHI=; b=Iact0bW488cgRyuv4XeIsB9CPZ
-	x5/scNDgAygW12xYV7G5BuaeZCCs+vmyBnY8+awQCoYhEere+/nQb1BejiyGw/Q5eoLZ8cTHD5GRO
-	+JY8WA+DFZHREqEhfbUdeClvliD6znbBMVP9XXsPpWYybKQzT6YYRiGSgGAqDHHKKbg+q55LOupfk
-	zUwUuNhp+Rq97u4xXjqBUrK5VoPL/OFZRbTpgXgObUfOKFCaEelODz2uS0pIEMq6gNJHVdILzItas
-	YkB20YBCil/KmId/kwFVHyRcXgoEritnJl0mpCKcEgJIXcBMOjGQZnWOrNn97LfeCDjaeH3n5zF0m
-	1MyfahPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oWtZDRH0XY4nauxzG4LAo3FtS1diyaJai6sOkl7fPQs=; b=IsfTfdDpOPRiKBreA94JFurt0T
+	Ea9h62C3XXUtM7F05ZozgWB4/o6E/BnmolOvt+9u+seh0qOOuRNSXghdwqNvi0Z6WRckX/zBHo/tq
+	VIqHBhskcQ2wAk74dDqRvmU1NIDIKqd7aFpg2Odxn6YwovMKvkpVtghgreczDgXRgwF3qwK3apUOH
+	WZTnly7pDsziTOPI6xknJ2OF7Zndf/T5XbCvY/jrW/Lim3SKEcxh/3w83ORf9WEATx75VR60O9rmD
+	7JfmhuVhiezM4ZKX000IYMTCWtFm5FPFHn6JAh9k34Uz+BDU9BNic6H6skuAQTqThWF1s08ogVUdE
+	SDJEQ7WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKzCx-00000003yp0-12sW;
-	Thu, 07 May 2026 13:56:07 +0000
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
+	id 1wKzI7-00000003zx2-2L48;
+	Thu, 07 May 2026 14:01:27 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKzCu-00000003yoQ-16AU
+	id 1wKzI4-00000003zw2-31zr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 13:56:05 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1778162158;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=et12f+JBlWCvrIykUAG98jlPA42V3ob8Dp6+bnOSQHI=;
-	b=H3SD+9aorpsQgmKm9KhQNK1BtZ3U1CBgSmkr7fhAsep8OsdnD3LfhUOp0POFY9GuOZdSPP
-	Hc/a39hxl+LfPkCUCbzBal1QRgiKThoTTJ86ECBSlAewFmUFo9M8fS5fyYARTFshkHY/vX
-	Y9el1qMVOp614bKobm4/Cobe1wCM1II=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Thorsten Blum <thorsten.blum@linux.dev>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] crypto: atmel-ecc - replace min_t with min
-Date: Thu,  7 May 2026 15:55:27 +0200
-Message-ID: <20260507135525.331107-3-thorsten.blum@linux.dev>
+	Thu, 07 May 2026 14:01:25 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 647BJdhk2510470;
+	Thu, 7 May 2026 14:01:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=oWtZDR
+	H0XY4nauxzG4LAo3FtS1diyaJai6sOkl7fPQs=; b=rWIIQGqO5ieaq2jgp0h46T
+	4fkuwRSNebflUT/BhuDUB6kpY6AintAlvo2zEvDOdVfqd6boVkNyAs6meD4A/FFQ
+	KFr4tK7B6j3yRiWpd2J8rmgXoHJBgKXWaDUXEYbDFFTY1VX/VMe2LeHoiLsdOmhL
+	1HbkTq0gdlRtHmizJnotlGIQxkwUkWrdnOjOoDAjG5DuwzyFwr5VwP7lYcNXIbmk
+	DDQwML4lkooRevRkN8ftspbYJffqpZ/d4cNTA90J0CU2/woiAuzqM5X9wVmVYxi5
+	hJVTkci3lIGaZrGg0Y9DioUdZUTIDOp73jUquvbtfifvrIjI5GtH2LOS89aOHpcg
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9x4xub3-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 07 May 2026 14:00:59 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 647DsTLf030229;
+	Thu, 7 May 2026 14:00:57 GMT
+Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dwuywbyfd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 07 May 2026 14:00:57 +0000 (GMT)
+Received: from smtpav04.dal12v.mail.ibm.com (smtpav04.dal12v.mail.ibm.com [10.241.53.103])
+	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 647E0T5a31523562
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 7 May 2026 14:00:29 GMT
+Received: from smtpav04.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3305A5805A;
+	Thu,  7 May 2026 14:00:57 +0000 (GMT)
+Received: from smtpav04.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 8868B58052;
+	Thu,  7 May 2026 14:00:55 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.30.146])
+	by smtpav04.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Thu,  7 May 2026 14:00:55 +0000 (GMT)
+Message-ID: <adbf47af6a52b3da7a1e502037fdcac92ed63089.camel@linux.ibm.com>
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Roberto Sassu <roberto.sassu@huaweicloud.com>,
+        Paul Moore
+	 <paul@paul-moore.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Jonathan McDowell
+ <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, jmorris@namei.org, serge@hallyn.com,
+        roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <8c99263d8e63100e0b5e6c8cf739f7f6e7e79f6b.camel@huaweicloud.com>
+References: <cover.1777036497.git.noodles@meta.com>
+		 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
+		 <afMlgstqahnZg68h@e129823.arm.com>
+		 <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
+		 <CAHC9VhRsnmPp2KmQAns5uq5qXX5EF2xQQzyfTgrPi4O9AXyPpg@mail.gmail.com>
+		 <ba4bf28314b679474a6a8da6298e548e54b3754c.camel@linux.ibm.com>
+		 <CAHC9VhRE2kRr1fdDf6xgQgpSrtvqtP8Vy9LVGJhDZFUbzLKGmQ@mail.gmail.com>
+		 <ff28c6dcb60c357c752724927addaa8c4fd3bf2c.camel@linux.ibm.com>
+		 <CAHC9VhQY2TMkTvQq9P8oZteQWQSr7qq2utOuH+pdVx+8jWLBCw@mail.gmail.com>
+		 <a9412fe10e70ce95dd70556ace19368bec5c188c.camel@linux.ibm.com>
+		 <CAHC9VhRUgNA=Sj=jhD=zOt8R80Q+FQj+H0nYSy-FAujTL3EKPA@mail.gmail.com>
+		 <5debff82dc758d9c91223e4f1f5b9e39a3fcd4f5.camel@linux.ibm.com>
+		 <19dfb0e2730.2843.85c95baa4474aabc7814e68940a78392@paul-moore.com>
+		 <461ec995935e2b42a8414f6f87063ff2557bbfb4.camel@linux.ibm.com>
+	 <8c99263d8e63100e0b5e6c8cf739f7f6e7e79f6b.camel@huaweicloud.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 07 May 2026 10:00:55 -0400
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1183; i=thorsten.blum@linux.dev; h=from:subject; bh=aVCy1hInQ45HcL3yLOgWnhTxaxk2VpYFwSI9ioAk6Bw=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJl/Zp5j6TX1Ck2RDYkxvn9sel7jxkuL/e/sfFDxrdJns 4WMs9yyjlIWBjEuBlkxRZYHs37M8C2tqdxkErETZg4rE8gQBi5OAZhIAjvD/6onj37d/17GskSt UH5Ja8h04W/frGQMo8zmGRxYt7tgzVpGhsMbeg0tXq7f9+a/bGb7tOTjQr3V+jZ/P4pZbaz5EPM 7hh8A
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA3MDEzNiBTYWx0ZWRfXxfALLztlGl7O
+ tSbUOVQ3WbBM1bCCw1QNc8e46+M02jlRVTzWpNfWqV4U4JYHyDBSb2F2Vj00SQKW1n/4sA6Cuge
+ RLHY0vuM/M1XTJDJnGzrrF5HF0oLVqqXgzvkR7Ruexa1itwjH9dJZ/xyEiP4xo/6fF447binzzB
+ 75wqfSNI7nok9TxDlUiRhfFQxu7TIM+X7JNVVY6I3bFW411fYwah3kBn8xu4wFlY5f8WkFtIF8G
+ GHzgTjorO//v02HL0BQwnEv6Ywtq72RMr7rc1qXN6z/TwqniSLS/2Zy02CYKg1hrnxXdyfeaBkR
+ IDalQF57kTg7knAnD3MdOB3f+orldz3xGdFCvxkl8QSHPPr8xdomE8Hgo1IGEAmMhO0hRfJhWVu
+ 2+sU/An7SAhWiG+aHD8pW4yWeLMghEWvpGPxH5Y350JV7VRJRatU5ue+ERXEVT17nyQW0V5CQvD
+ ltTOzRTGcHdMiptRffg==
+X-Proofpoint-ORIG-GUID: 4Ev7-NHEpeuk_LfgDJ-Qhn0RMmKkW_iI
+X-Proofpoint-GUID: IvDOIm6WvmeJI_VGRy5Jq49N0vizzzck
+X-Authority-Analysis: v=2.4 cv=W7UIkxWk c=1 sm=1 tr=0 ts=69fc9b1b cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
+ a=eeChVw4XoIuzKrOC7zMA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-07_01,2026-05-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 adultscore=0 lowpriorityscore=0 malwarescore=0
+ suspectscore=0 spamscore=0 clxscore=1015 phishscore=0 bulkscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2605070136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_065604_527713_A3C5AC23 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260507_070124_776881_3970BE1A 
+X-CRM114-Status: GOOD (  37.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +145,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the simpler min() macro since the values are all unsigned and
-compatible.
+On Thu, 2026-05-07 at 10:10 +0200, Roberto Sassu wrote:
+> On Wed, 2026-05-06 at 22:25 -0400, Mimi Zohar wrote:
+> > On Tue, 2026-05-05 at 22:11 -0400, Paul Moore wrote:
+> > > On May 5, 2026 9:57:23 PM Mimi Zohar <zohar@linux.ibm.com> wrote:
+> > > > On Tue, 2026-05-05 at 18:55 -0400, Paul Moore wrote:
+> > > > > On Tue, May 5, 2026 at 5:05=E2=80=AFPM Mimi Zohar <zohar@linux.ib=
+m.com> wrote:
+> > > > > > On Mon, 2026-05-04 at 16:51 -0400, Paul Moore wrote:
+> > > > > > > On Mon, May 4, 2026 at 8:03=E2=80=AFAM Mimi Zohar <zohar@linu=
+x.ibm.com> wrote:
+> > > > > > > > On Sun, 2026-05-03 at 12:46 -0400, Paul Moore wrote:
+> > > > > > > > > Regardless, assuming you always want IMA to leverage a TP=
+Ms when they
+> > > > > > > > > exist, your reply suggests that using an initcall based I=
+MA init
+> > > > > > > > > scheme, even a late-sync initcall, may not be sufficient =
+because
+> > > > > > > > > deferred TPM initialization could happen later, yes?
+> > > > > > > >=20
+> > > > > > > > Well yeah.  The TPM could be configured as a module, but th=
+at scenario is=20
+> > > > > > > > not of
+> > > > > > > > interest.  That's way too late.  The case being addressed i=
+n this patch set is
+> > > > > > > > when the TPM driver tries to initialize at device_initcall,=
+ returns
+> > > > > > > > EPROBE_DEFER, and is retried at deferred_probe_initcall (la=
+te_initcall).  Since
+> > > > > > > > ordering within an initcall is not supported, this patch at=
+tempts to initialize
+> > > > > > > > IMA at late_initcall and similarly retries, in this case, a=
+t=20
+> > > > > > > > late_initcall_sync.
+> > > > > > >=20
+> > > > > > > Okay, so from a TPM initialization perspective you are satisf=
+ied with
+> > > > > > > a late-sync IMA initialization, yes?
+> > > > > >=20
+> > > > > > No. On some architectures moving IMA initialization from the la=
+te_initcall to
+> > > > > > late_initcall_sync does not miss any measurement records. Howev=
+er, as=20
+> > > > > > previously
+> > > > > > mentioned, Linux running in a PowerVM LPAR the move would drop =
+~30 measurement
+> > > > > > records[1].  So no, only if the TPM is not initialized by late_=
+initcall, should
+> > > > > > IMA retry at late_initcall_sync.
+> > > > >=20
+> > > > > What do you do in the PowerVM LPAR when the TPM is not avaiable a=
+t
+> > > > > late initcall and you have to defer IMA initialization until
+> > > > > late-sync?
+> > > >=20
+> > > > Your question is hypothetical ...
+> > >=20
+> > > <heavy eye roll>
+> > >=20
+> > > > ... as the TPM isn't deferred, so IMA doesn't go into
+> > > > TPM-bypass mode.  Testing on a PowerVM LPAR demonstrated that it sk=
+ips ~30
+> > > > measurement list records.  So moving the initcall to late_initcall_=
+sync would
+> > > > cause a regression.
+> > >=20
+> > > Let me rephrase to make the question clear - how do you plan to handl=
+e a=20
+> > > system where you lose measurements by waiting until late-sync, but th=
+e TPM=20
+> > > is not available at the late initcall.
+> >=20
+> > There have been suggestions to queue the IMA measurements, but that goe=
+s against
+> > the "measure before use" principle. The solution is not to defer IMA
+> > initialization for all systems, but to differentiate the boot_aggregate=
+ record
+> > (boot_aggregate vs. boot_aggregate_late) based on when the TPM becomes =
+available
+> > relative to IMA's initcall.  IMA's job is simply to collect and provide=
+ the
+> > measurement list.  Based on the attestation service policy, the attesta=
+tion
+> > service will decide whether a measurement list containing boot_aggregat=
+e_late is
+> > acceptable.
+>=20
+> Agreed on no violation of the measure and load principle.
+>=20
+> But also the two boot_aggregate solution does not work. If there are
+> measurements before boot_aggregate_late, they can corrupt the system
+> without noticing, and the corrupted system would emit the
+> boot_aggregate measurement (non-late) to pass verification.
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- drivers/crypto/atmel-ecc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+This is a risk management issue. The conservative option is to continue
+initializing IMA only at late_initcall, as we have been doing, and accept t=
+he
+late TPM initialization limitation. The alternative is to also allow IMA to
+initialize at late_initcall_sync, controlled by a Kconfig option, so that
+existing systems are unaffected while systems with late TPM initialization =
+can
+opt in to boot_aggregate_late support.
 
-diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index b6a77c8d439c..2cf53f0b6742 100644
---- a/drivers/crypto/atmel-ecc.c
-+++ b/drivers/crypto/atmel-ecc.c
-@@ -56,7 +56,7 @@ static void atmel_ecdh_done(struct atmel_i2c_work_data *work_data, void *areq,
- 		goto free_work_data;
- 
- 	/* might want less than we've got */
--	n_sz = min_t(size_t, ATMEL_ECC_NIST_P256_N_SIZE, req->dst_len);
-+	n_sz = min(ATMEL_ECC_NIST_P256_N_SIZE, req->dst_len);
- 
- 	/* copy the shared secret */
- 	copied = sg_copy_from_buffer(req->dst, sg_nents_for_len(req->dst, n_sz),
-@@ -150,7 +150,7 @@ static int atmel_ecdh_generate_public_key(struct kpp_request *req)
- 		return -EINVAL;
- 
- 	/* might want less than we've got */
--	nbytes = min_t(size_t, ATMEL_ECC_PUBKEY_SIZE, req->dst_len);
-+	nbytes = min(ATMEL_ECC_PUBKEY_SIZE, req->dst_len);
- 
- 	/* public key was saved at private key generation */
- 	copied = sg_copy_from_buffer(req->dst,
+Mimi
 
