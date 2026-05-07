@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1817BCD3442
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3DE9CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:22:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6mn0oYr2VZrCNI6U9frwbxqw7vWlxIIVmvJQiIxgUHk=; b=M/1R2ui5fwMlmhrLQvDNwtiheP
-	RCt/fx1JyjwH1hah32ZFv3Q/ynUJSkXTl1vLbE1ubvqBQ1DlC1W3IugN5yZMWfAJ23bdtVWMXuPKl
-	lHWp1WgQ7viGKNYeLh+SlHuLkuavb/9io7XT2adm1vFUZOSpwYcHt281t+o9QXHNKf95ReWbKk3vA
-	AIe6NbV2aPOUu1WknqvTa4ZIkz3CMqyk4uU1pMT4atNTHiEJ//iecO4T6SvlvnHtMvGLox+7u/b+b
-	QDfQRKySK2FbPiuO11u3WYUjil1uHO4ayrTT+jgsKzEAS8msOjGqyAQL8yrhUI0rtvWTWGR1hV93b
-	ozNP9fTg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3C6nhWoCQoOfbCFWe6Vj2CZX1sOLd1QfogJ/iI4y+No=; b=GcwtoH5ROrqoSNIVP303X4VCJN
+	Q+BrH9Q6zvlPoGQYZsww+l9ZW3bcYZrpE/41CMW1/oKzuwYgle9WbXBZ5KyBrQd0JcGlf3HFYvUCU
+	82sXJxcj5MSZrxBOFmxZpBMt2Hjg7frX8CskSRKk3Bss6YFqb+3Z1wTToXF3+oA9V9z4yIlGag8P3
+	xuqiVQA2xy/C1V1c9BlNMbqSnScZWdgXCDQXV9wef73wv82EQ2Euc7UYD1xGRDbMdQPfnskdFYyoT
+	6oO3lwdyc3EnaB7jVGISwR76YeVnfKcnfr/m9QUOZr0ZaPASGu901G0YgEIdpHjDlb8sonVb1qCs3
+	UJMOyhYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKtzC-000000039YE-0zCt;
-	Thu, 07 May 2026 08:21:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wKtzh-000000039pS-33t3;
+	Thu, 07 May 2026 08:22:05 +0000
+Received: from bg1.exmail.qq.com ([114.132.58.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKtzB-000000039XQ-0eKm;
-	Thu, 07 May 2026 08:21:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 974646015B;
-	Thu,  7 May 2026 08:21:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 43478C2BCB2;
-	Thu,  7 May 2026 08:21:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778142092;
-	bh=ADtYUrAasvGOltfd9FShuLbJhinKTxBPxoHCICnXTv0=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=i7qiVokwvsXAC/sUis4JV+ecyTT7U+VbOhqUONVnGGDfRYGui3xgy6rLXBPQV4znC
-	 VYXmQGm7tY4YglsevSuvUXSaWZTWT1sfFiXl9wBqOG97aYBcJ4I4F/ATG/CN45kePo
-	 QnS8qlV3CI4eXJLjKk+wTwMt1apK8ijNpBEIGFBS1XKNxxHbR8NNj0Mnf8N3/bFIZC
-	 HMQO3C20Ir1g2uCZC8V2mhmY05M1WiUMzhx7wbH5q178jPVt4dtrIQC9psogaINED/
-	 oJl8617MGDODwoe+xYHHBriqKH94jkl77rsj/GysDY2JWPqnuu/RW6b6WGU+SivbTi
-	 ImK8dCz/zPgQg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 31E0FCD3427;
-	Thu,  7 May 2026 08:21:32 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Subject: [PATCH v2 0/2] pinctrl: add support amlogic a9
-Date: Thu, 07 May 2026 08:21:05 +0000
-Message-Id: <20260507-a9-pinctrl-v2-0-49774feff2ef@amlogic.com>
+	id 1wKtze-000000039mP-31Mn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 May 2026 08:22:04 +0000
+X-QQ-mid: zesmtpgz6t1778142077t63181914
+X-QQ-Originating-IP: jfpb67kdMjgSXRETIGIS0RyRqVsnPNrvm+HhFO3Cm1Q=
+Received: from [127.0.0.1] ( [116.234.74.217])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 07 May 2026 16:21:15 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16652249558774308387
+Message-ID: <330D3C56EBC6D08F+3d956321-39de-4308-a977-ad8f7101ed92@radxa.com>
+Date: Thu, 7 May 2026 16:21:15 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] iommu: arm-smmu-qcom: Ensure smmu is powered up in
+ set_ttbr0_cfg
+To: Anna Maniscalco <anna.maniscalco2000@gmail.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260325-qcom_smmu_pmfix-v2-1-ba769a6ad0be@gmail.com>
+Content-Language: en-US
+From: Xilin Wu <sophon@radxa.com>
+In-Reply-To: <20260325-qcom_smmu_pmfix-v2-1-ba769a6ad0be@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHFL/GkC/02NwQqDMBBEf0X23C1mUak99T+KhyQmuqCJJBIs4
- r832ktv82YY3g7RBDYRnsUOwSSO7F0GuhWgR+kGg9xnBiqpKQW1KFtc2Ok1TDnWQkhJVCkL+aB
- kNKiCdHo8L9YHdGZbz2kJxvJ2ed5d5pHj6sPn0iZxtj9DRY9/QxJYou4bIZSqbU39S86TH1jft
- Z+hO47jCxssS6zBAAAA
-X-Change-ID: 20260129-a9-pinctrl-a9511aa224bf
-To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778142090; l=833;
- i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=ADtYUrAasvGOltfd9FShuLbJhinKTxBPxoHCICnXTv0=;
- b=+WPtDI+UlHraHDXBTPvl2FM/S60lk+5x68/SNLerSm/CfB7+/O7viEMzuv4ZAUaWnS6YseElv
- 3trpOG25Uf1DbIa9FB3fm7J1h0rS0e7B4OD5g3UmGfF6ya2xc+isLPO
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
- auth_id=578
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:radxa.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: MLQK/Qc97rZTdr43tE6TitzHEJbKv06OUWn26Wu5R9PnDVVhF3/Q8HTP
+	TOZz+mS8WseFACwoZ9cYuBoqc5fh9dwvj5DwTzQE2dItJ0/gRPyZT368v5JG+zqgMvUSq62
+	nYIXJRmTCOwNwQeVV9Ab/+kAsPC8cnVn/NxwN7GL5hCccJKc6faKgCyRM3NSloSso0Sq5kZ
+	6l5dkDtdzt8crcTKXQTK+YM/2rAcMkyy3PClSnBGLQfn77AJqMrBOscqwaqH52V5uPdf1Nl
+	QUX0co19a9erRCp3j6EM/HYXYFPOo5Ci7SSskCUWqQ+61f5uNKCdv2W9oq6BuzXy/AyEb20
+	1H8f2E6FDLoCsxGTfkEjrAAhRtuzBzOYQlxlmtP01O3Bu7eCUfmQAxP+RRYorTCm6/p25W3
+	xJvp9xT5wdv98cbAWu9XJkJad08a8BhZMiubUy0dJoorXDd0zpz1Qj7o3xufni6C5zvRK+x
+	XGHvpJO1286Mx8C5w4OEV2yvzHbzemw/6yKrbMCqgiUbe/3ExmmUrGd2pPTFKnwtQV4Qb4X
+	+vPzT1CfkqTkAsPYIJ8UruktFVC+FjPcqfI7vyV7LO27uShoYxiAZlDHYgnMS71fDiG3llO
+	4aCRAbO17TlAX9rIYZLxEber84WmRO8TBbfgdDqME+jpmX2m2r7hatx1fRIoWBILmxQ0WK8
+	g9dEgZaD/1fOJ9omiLuPstv1TT5K+N5za3JzVkcFYMtB/0ie8Qpj2PIqD/Kvywzcll3KBaa
+	PFkMHIyI8XeymlamuXbxCPtyeKZ/IZQKC2dOUPLZ7rxxMJ0KaKSMPBkIToxJnGCT28136X/
+	nEEU/NwK2OJY3FRM11p/NMkyfsJRV9wX8r/IZbnjQRGSstxJCOAVwy0ZafNmvDJCOCoe8/6
+	DAK+HpwDC07dtvVLbt2cDsUUsjy9bzyYAWidSHuc1pndOVrOKj5TtV13iId0Z2D/MWcbhwo
+	SqTJUFMS2NJx/+MwBqp3usAVFsK0Mb9eQ0ckZ+YBxZoZvMYV81b3QAgF/NQy1CvgA/sGDtr
+	vGfF9BGMzzW0d+c2JR
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260507_012203_091526_EF212D23 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +86,65 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl bindings and driver about for amlogic a9.
+On 3/26/2026 5:11 AM, Anna Maniscalco wrote:
+> Previously the device was being accessed while potentially in a
+> suspended state.
+> 
+> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+> ---
+> Changes in v2:
+> - Simplify patch by acquiring device just around the call that needs it
+> - Link to v1: https://lore.kernel.org/r/20260210-qcom_smmu_pmfix-v1-1-78b7143ac053@gmail.com
+> ---
+>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 9 +++++++++
+>   1 file changed, 9 insertions(+)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> index 573085349df3..cab7d110aaf5 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> @@ -231,6 +231,7 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
+>   	struct io_pgtable *pgtable = io_pgtable_ops_to_pgtable(smmu_domain->pgtbl_ops);
+>   	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+>   	struct arm_smmu_cb *cb = &smmu_domain->smmu->cbs[cfg->cbndx];
+> +	int ret;
+>   
+>   	/* The domain must have split pagetables already enabled */
+>   	if (cb->tcr[0] & ARM_SMMU_TCR_EPD1)
+> @@ -260,8 +261,16 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
+>   		cb->ttbr[0] |= FIELD_PREP(ARM_SMMU_TTBRn_ASID, cb->cfg->asid);
+>   	}
+>   
+> +	ret = pm_runtime_resume_and_get(smmu_domain->smmu->dev);
+> +	if (ret < 0) {
+> +		dev_err(smmu_domain->smmu->dev, "failed to get runtime PM: %d\n", ret);
+> +		return -ENODEV;
+> +	}
+> +
+>   	arm_smmu_write_context_bank(smmu_domain->smmu, cb->cfg->cbndx);
+>   
+> +	pm_runtime_put_autosuspend(smmu_domain->smmu->dev);
+> +
+>   	return 0;
+>   }
+>   
+> 
+> ---
+> base-commit: 50c4a49f7292b33b454ea1a16c4f77d6965405dc
+> change-id: 20260210-qcom_smmu_pmfix-2aead2ba4e20
+> 
+> Best regards,
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
-Changes in v2:
-- Add a commit message explaining why it is not compatible with previous SoCs and rebase code.
-- Link to v1: https://lore.kernel.org/r/20260428-a9-pinctrl-v1-0-cd611bb5f52d@amlogic.com
+May I ask what is the status of this patch? Without this patch, I can 
+trigger a crash easily on sc8280xp by running fastfetch multiple times.
 
----
-Xianwei Zhao (2):
-      dt-bindings: pinctl: amlogic,pinctrl-a4: Add compatible string for A9
-      pinctrl: meson: support amlogic A9 SoC
+Tested-by: Xilin Wu <sophon@radxa.com> # sc8280xp-radxa-dragon-q8b
 
- .../bindings/pinctrl/amlogic,pinctrl-a4.yaml       |  1 +
- drivers/pinctrl/meson/pinctrl-amlogic-a4.c         | 61 ++++++++++++++++++++--
- 2 files changed, 57 insertions(+), 5 deletions(-)
----
-base-commit: eccd2fde7dbc398a6aba9120c01247beeca55aec
-change-id: 20260129-a9-pinctrl-a9511aa224bf
-
-Best regards,
 -- 
-Xianwei Zhao <xianwei.zhao@amlogic.com>
-
+Best regards,
+Xilin Wu <sophon@radxa.com>
 
 
