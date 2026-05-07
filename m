@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7BFCD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 07:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D63FCD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 07:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DhzpA8NsTz/+V0K0dsPsaOESAJ4FZBxYUWkuaahgCkI=; b=uAYFIZxxqwLFK9KX9fePnVlakU
-	bks+Pci6CgilgRm4ORh48b3GInYryZT/f3xbpcsvsbWfYicheFiA8+rM8WLqZG2cHpV3fE0Fh0MvZ
-	MDSiFNzndCyzyV1NKGCQkpHpzO2BBWsq638p4e1GyWYVIpJuBxyklvUn04a5dF1u/sQQl/WhrJEUO
-	lPvVmTYXAYMxqcIutPCtY7sCf5rehtws1NZ9fOch/JY9dUsPN2P8GcDHXEsu0xm7wfh2MimiUDe+m
-	ai1qfQ+/8ojkfho8gq4EqDy4n4qUdkhwMcPLKsEW9t9QyTR17jTjynu7Qfzx4zos++f50wg50utDy
-	P2ZW7c0A==;
+	bh=U0DLBQ104H4pRJmAnhQAaxKxLWgSeWObdD3M2XI1ycA=; b=1H9gsnWZrsBVI5UODiGhJfJu4X
+	Wpy5VbY60fxYPGj+KXYrABspFDS6TvNH7yt4/sam1kvSU4sIIVX+F/0qswBsab4ORpaRmVAXege7p
+	PMTRazhHRIX6HtfegDN9V1qDjfpj++tMLikabayEhZ7zA9DhEzsmpsCIh5jpWIoc+8Kaz/ikNLF+l
+	1noWBBVEP3Qt2s0+DqlNitFrouNsEc6iL257uaZ4UtRjh2sPg5EpbWIeDJpsqoTYUQDWRZpSAw8E9
+	dweJcle+VQbfiCmEHxsmnafKTblO4kvvRXXcJPKZ+ikNVMpsHCZZTjZBND6fHutaFUHw0H9hiDjqc
+	67Im22Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKtEe-000000032Bx-2e3p;
-	Thu, 07 May 2026 07:33:28 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
+	id 1wKtEg-000000032Cl-35vl;
+	Thu, 07 May 2026 07:33:30 +0000
+Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKtEc-000000032Aj-46xk
+	id 1wKtEe-000000032Bs-3QmC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 07:33:27 +0000
-Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
-	by mailfout.phl.internal (Postfix) with ESMTP id 435B9EC00CE;
-	Thu,  7 May 2026 03:33:26 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-12.internal (MEProxy); Thu, 07 May 2026 03:33:26 -0400
+	Thu, 07 May 2026 07:33:28 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 1CDB014000BF;
+	Thu,  7 May 2026 03:33:28 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Thu, 07 May 2026 03:33:28 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1778139206;
-	 x=1778225606; bh=DhzpA8NsTz/+V0K0dsPsaOESAJ4FZBxYUWkuaahgCkI=; b=
-	mQYNSi8FbVElXwCtBag/AxoCT5bz9DO00U0OfJ5CZsvI64kYjDMs75DD5PsEb8zS
-	7CKzwpvsFM3nWTHHVsh+QzcoVo9IVEw7O6osZJVpK5s3mp+edWa6Q9cbweylJGs/
-	RFQ5VVf8fVDjtbWyN58vC4l880AZXyq/J7t4+ZyMq3ImaxH1gXGrKQLXA64rZLgo
-	zOenhd8UqfTA553IDUqHmQLQCD3FtpcI5bd0ZGck60HIc7Gcw/pbfA3u8NFDGX9w
-	GQOF483E2mJV0PhlZXdC1//G7YqMvsVxX1WfxAGaCM51RRbvGAqTbHFQOTtBc1vr
-	/mC8XZEB1veV0wQF8pAvWw==
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1778139208;
+	 x=1778225608; bh=U0DLBQ104H4pRJmAnhQAaxKxLWgSeWObdD3M2XI1ycA=; b=
+	U5YaNNGddboE6bAKZ376AARROX4Y3BxGHD1pPJ6l0mOFrcH/8Fskvv9LXWF9WMj6
+	KfzJlSIkpOc411Fy070L4yw6dRA4gY4PrYKi4xL6B2fuFv74HU34197CLzWxWOqk
+	xl3J+IzoiGmXZAzjKgYmdmclL+gIU4YtXWuL3EoTczm7EFoZoEJamSUIbyjrTlPn
+	gD8n3dybwmofsZBqj4rXCoyVOS9qufR8c3/Qbm4RLz8nHKw+UNoikvsK0dOkGAE4
+	IoySreYNncDO/+9Bv6p1JgsyzYzRPh+vgi8aNcFFc+zA5T7yhaMPi3nD2onPUAI0
+	oplTuMw/VuTE36sQWJd/7g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1778139206; x=
-	1778225606; bh=DhzpA8NsTz/+V0K0dsPsaOESAJ4FZBxYUWkuaahgCkI=; b=Y
-	fjXnRhTXsWGJtFtou/Q7mIxrIzgjPu/MK6mZGX5gP5Uw8Y8Ln1F6y0f75q1YuMJ4
-	clybjoG4lvvgTul/P28wxDfAoLmE07oO5CioFGL4Yatcy/tEIL3DrBb7Ii9vo34D
-	OdgA9ggcLLGNzfTd+l6U2W6VjlCRQ7eEKy+Lqp5/c0dadAi0G9bx7n0o/hkZwJ2X
-	0eIfpLLj7Hf48l/KX7zZsdq88tSLMFJf1mg9KsFTx/gHgBl+7rWGzhL+/5XnncFR
-	X7oK/lQACXteKpUPvT5DzChfGEWjHoY1F3m5uQRDIOSN1wb1jAEBb8K1IQEOYcLG
-	+fjnLYlmLn+OJYkPvT/Xw==
-X-ME-Sender: <xms:RUD8aVN1hVM2vFgKP5I6-GNSokrmaZED2pTRNft8h_IFEoqD_FKJNA>
-    <xme:RUD8ac1dkRZt9nTekcSyOgMhAdXuXFajFAvH_2cCuyaVUfLMwMipWebPZ88p45Ba7
-    MDDaXRm9Xd0Zgtc5Pf6XIvTbCPlsbGqghQFWkrq5ZFgTno1J5D8ZORH>
-X-ME-Received: <xmr:RUD8ac1mc6hUu88LsP3NnQVKnq9k2_8v1iz6QzMtuzz9KfqO6L7FO2CdzeFNAB1Dt8IQ4Xdjkxoa7eHltERGTGCtOQi-V0FpdrU0ew>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1778139208; x=
+	1778225608; bh=U0DLBQ104H4pRJmAnhQAaxKxLWgSeWObdD3M2XI1ycA=; b=B
+	WYPxutghXFvpUGV6Udapz9Pqk5gIRztxFWgpcNQ985LuIIg/ZkbU6320vIh9J305
+	5AnU1OUXR60Bjn6Qekxve0yUKDuEyUHPjspMbO0YBHA1nTOcMx2xyIo8xBcDbfGa
+	hP/pPsfD3AbB9p2X1rDttdG9ietnKQURW0KcU6AHsptgM8WK4GbwI3ccYT/grBNF
+	29NB3KNTFr5UOeT8Iqw9j0IhpiaqOGaQENt/NhoOyK5mp/2h4WUgdrfQM+Jvr54U
+	1VD4HM4QvStlUzNBUb2cU+B3OM2gmxTOgluIIA8+94pJqrC2FUQl4Vl5U/cgOP6q
+	hjrkvpGRqOwAOwqLVYirw==
+X-ME-Sender: <xms:R0D8aZJcr9dek-cMkGyKpR_vxiTyA9UTpBWOYwLiVo1GzQphQVIvMw>
+    <xme:R0D8aaBtP9KguDfYptjpduN3y21MkhtUD13p_EN3eLpOdCGSr3LYwVS4ALYiAa2M7
+    3RvhT1yxh3d6qsS9m8EIiFpJ54gnaPL9GsyZAjWo0_Tj_gD3fKoA3dl>
+X-ME-Received: <xmr:R0D8aaS1S4Sbw_sVT2uDkhlsKJx8aoJ-uR7cFPgIrekLTvdY_He2yS-klo7e0ypqryVJzLSL7VRLWjPNh1pFHvotUBBgzsEGAOho4g>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddutdeikeekucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpeflrghnnhgv
-    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepfe
-    ehheeileduffehteeihfdvtdelffdutdeludduiedutedvfeffheekhefgtedtnecuvehl
+    gurhephfffufggtgfgkfhfjgfvvefosehtkeertdertdejnecuhfhrohhmpeflrghnnhgv
+    ucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepgf
+    ekieetieeltdetieetfeevieejtdeileelieetleegjefghfejvefhgefhvdeknecuvehl
     uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepjhesjhgrnhhnrg
     hurdhnvghtpdhnsggprhgtphhtthhopeduledpmhhouggvpehsmhhtphhouhhtpdhrtghp
     thhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugi
@@ -76,22 +76,22 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddutdeikeekucetufdote
     hgpdhrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepuhhklhgv
     ihhnvghksehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrd
     hlihhnuhigrdguvghv
-X-ME-Proxy: <xmx:RUD8aS9Cfs6o150MLaPjLgtpgHJLpIKjdf8pQGMkShi0WMNLF4ahCg>
-    <xmx:RUD8aQZPoCkzurQbeR5G2Mue2NfWFkKl_vc_2nqAA_DTqqJsXTNRyg>
-    <xmx:RUD8aZzzOyFdMCPVKckx6rx3knJ8flClSoIm7b0po-Gkynl6QAmr2A>
-    <xmx:RUD8aW-aoFokf9gloLNDr7BmKDwVf6fT0Lbo-pk94ZoIWSfat3hviA>
-    <xmx:RkD8aZ9-qzFasEid6Fs2X3V87C1Z7Uaa04ZCSJ3wmMn0Nw_S5jqopvCm>
+X-ME-Proxy: <xmx:R0D8abr9oOBYNk6bMqiPlTk7yBD3zNgv0q4DRYKTC3TWt79lPX4brA>
+    <xmx:R0D8aTULDYVZ71zrz1LEP3cwYRW7VIAqtKYX6xEWwNoyOD2SBVnFQg>
+    <xmx:R0D8aZ9N7vx4vdaWGPYARKVc-ItYHNLDxG1ku89K6AZYni6iI5HBjA>
+    <xmx:R0D8abafM7fJ73pf3DdrQa7aAqXguADL4DZME12wB4rPmj3ejBzeJw>
+    <xmx:SED8aQIs9mJTv8IKh-rZFUgKyCxb2bJexhdTd-RnHzC3ZeZD7K1BG-Im>
 Feedback-ID: i47b949f6:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 7 May 2026 03:33:25 -0400 (EDT)
+ 7 May 2026 03:33:27 -0400 (EDT)
 From: Janne Grunau <j@jannau.net>
-Date: Thu, 07 May 2026 09:33:08 +0200
-Subject: [PATCH v3 2/5] dt-bindings: watchdog: apple,wdt: Add t8122
+Date: Thu, 07 May 2026 09:33:09 +0200
+Subject: [PATCH v3 3/5] dt-bindings: pwm: apple,s5l-fpwm: Add t8122
  compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260507-apple-m3-initial-devicetrees-v3-2-ca07c81b5dc7@jannau.net>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260507-apple-m3-initial-devicetrees-v3-3-ca07c81b5dc7@jannau.net>
 References: <20260507-apple-m3-initial-devicetrees-v3-0-ca07c81b5dc7@jannau.net>
 In-Reply-To: <20260507-apple-m3-initial-devicetrees-v3-0-ca07c81b5dc7@jannau.net>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -106,18 +106,18 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-watchdog@vger.kernel.org, linux-pwm@vger.kernel.org, 
  Janne Grunau <j@jannau.net>, Joshua Peisach <jpeisach@ubuntu.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1090; i=j@jannau.net;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1086; i=j@jannau.net;
  s=yk2025; h=from:subject:message-id;
- bh=tqRDD38M1lfDTOrUhWfFbq/m1TiGBjjHF1HjCcLG/DA=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsw/DnZvPv7+uCZm4bUNF5PPFwstErzlxLaW9emmwD+XN
- wZ/0Am71lHKwiDGxSArpsiSpP2yg2F1jWJM7YMwmDmsTCBDGLg4BWAiG38xMlxkOl/Yw9zRWla6
- 2apgWY/Vh9Nqx9ZK/vq7ytF7+87jQssYGXZu2OcZEz9B6NmCCT5vNtw5udjN9d/UxEOCRzXKmMK
- 02HgA
+ bh=gUN8s2Ri7zG9BdlChN+PUyMx26oLN03c/SpGRdRYMTI=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsw/Dna7Hq8Wnz1FwKF59hOrbW90XTir8vazJM7iaBN78
+ OrKwnmJHaUsDGJcDLJiiixJ2i87GFbXKMbUPgiDmcPKBDKEgYtTACayvZqRoWHKrtJdfo1Jahyu
+ CWl35jZ8a2jLPPgrndM9p5N9momICsNf0YqDy4r8GKyFOYNVI/6Khulf0dnBmuV3do3P3VIvzxZ
+ 2AA==
 X-Developer-Key: i=j@jannau.net; a=openpgp;
  fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_003327_312393_78D1BDD0 
-X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-CacheID: sfid-20260507_003328_925690_DCB2262A 
+X-CRM114-Status: UNSURE (   8.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -133,33 +133,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The watchdog on the Apple silicon t8122 (M3) SoC is compatible with the
-existing driver. Add "apple,t8122-wdt" as SoC specific compatible under
-"apple,t8103-wdt" used by the driver.
+The PWM controller on the Apple silicon t8122 (M3) SoC is compatible
+with the existing driver. Add "apple,t8122-fpwm" as SoC specific
+compatible under "apple,s5l-fpwm" used by the driver.
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Uwe Kleine-König <ukleinek@kernel.org>
 Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 Reviewed-by: Neal Gompa <neal@gompa.dev>
 Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- Documentation/devicetree/bindings/watchdog/apple,wdt.yaml | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml b/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
-index 05602678c070..845b5e8b5abc 100644
---- a/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
-@@ -16,7 +16,9 @@ properties:
-   compatible:
-     oneOf:
-       - items:
--          - const: apple,t6020-wdt
-+          - enum:
-+              - apple,t6020-wdt
-+              - apple,t8122-wdt
-           - const: apple,t8103-wdt
-       - items:
-           - enum:
+diff --git a/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml b/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
+index d8f4f9ffe884..25ef04b60ca1 100644
+--- a/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
+@@ -18,6 +18,7 @@ properties:
+       - enum:
+           - apple,t8103-fpwm
+           - apple,t8112-fpwm
++          - apple,t8122-fpwm
+           - apple,t6000-fpwm
+           - apple,t6020-fpwm
+       - const: apple,s5l-fpwm
 
 -- 
 2.54.0
