@@ -4,78 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130D4CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 14:53:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C02CD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 14:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mD80HyVHazAI7zY5u5ppiXiv/kRQLmFGurqGNhp1Zzg=; b=UpJUhjO/2zzQXKQvv2RT0EQcSG
-	vbspCEZlDthBW4xAwdE3RdNd2JFbvws1jVFgGbtOPvpdNkFWEtRhvvdsAFu4/Y1tdPnByu6aNdyH9
-	h+wcgeMrcJpmB9EUFnneWAhgDRKIY0XCtCzv/624DEF1o5I4x6vL7Sekk2WL3qUgbLcVRQrehqFf1
-	BU3u2+hFJBNc4gPabpjIvHfJgT2ePYk0G8F8wo7dmLqZvVNDIjp+h9gB3fKlVKoa0W52/npd5aIfw
-	LMrDPdBbNXIQ6qp+EMQFjGL5N5F1QppKEBVfgFmx0yEI2vyKWOm6hdGNdfinVPvNwLk531AJF/M4i
-	qG8ny76Q==;
+	bh=tNetuxkRt+N+4b2uSrH5ou0P5bOjAaDGsQRXbP0f+Xw=; b=QXwBlS5WebstXmpLmzjSdULaiu
+	aTCwTrWb9ryTze9e70LdrFpInZm3bBxPHYkyGCjhoc+1AQviaKQ9Gw7UlVd1opNuhu3XTGsWTQHkE
+	mXZY41W11fXEBDRXkUqlWaPh7LtSqu8XqE9xG4mrrDWThF+WeShfmEGousppjppzieBtZeMFLCG41
+	Z1BSuMcNSv3aX1jEyM/8I5H1mINAHAPiTS32EoPpwmmwdijlwelnVIgoGDWobTC50jaYIiXSnrlm8
+	Kd383Ok6bec3bK8LycHTAobXovTQRo5XDjvfU2+YslUZnnJlrVurLTuQhDgL437XAgre2R4qfBaLk
+	xym8g7Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL05u-000000046iy-44zJ;
-	Thu, 07 May 2026 14:52:54 +0000
+	id 1wL07v-0000000479t-1jiw;
+	Thu, 07 May 2026 14:54:59 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL05t-000000046iP-0ZgP;
-	Thu, 07 May 2026 14:52:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1778165549; cv=none; 
+	id 1wL07t-0000000479I-1xGD;
+	Thu, 07 May 2026 14:54:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1778165671; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=gnoQamEnOtplYB0I+IAslgQbn8pbGYB69jQehTFsGfodQdyEq9N8s+8IaNQKwXL/NDNsawSM/Z24cn1OYsoIL42X1HyPLDQRnaqTCp8EbXe1KuvMvk5LtH+mEi7GRXP3W5KPsCWtActawG/STVReMfEy/yqHt7lFbvRLBwzGCUM=
+	b=T8Ex0I6R6Kc95dgWSzf49Nw5eDqQnUIdIobggoG+yhFnDI14pX3v/So6Ofta8XQ7LfDF+jMnt/vJzzybHqvSTMUz3qGpHhFWlc78ZOCDxTyWC8obSsd/FiEBkw+9C1sBr14sbDYwjfXzN/UFY4UZx25trcMM7jq5bNfMBa1okZI=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1778165549; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=mD80HyVHazAI7zY5u5ppiXiv/kRQLmFGurqGNhp1Zzg=; 
-	b=AhxTDMRqMIdHYGdQlIxOWo/w5Yz5yPQybWfRB7KQ1G+XgIQR5AJA3uWTDk39YfBwadzwFfM+oo75B9ALzq5a14hn5rLGvoIvrTx3fI+FWIlw96uB17G4kVkwssUehgccD4OFIVq/EeR8ESEfE98d1Z0/BybHWz4mqdIF6H4BYTo=
+	t=1778165671; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=tNetuxkRt+N+4b2uSrH5ou0P5bOjAaDGsQRXbP0f+Xw=; 
+	b=bbqTPH4v2MNwkXrRMOvT0NWaeya0EUs1bWLuGn9FHYPtY7NKv8+qoDv+Wu1u3OTOzB+pfGI7shTRh/o/1Yy/9QUs7y6INH9nHZLxiVkanOIuPyKOx6U7ayAD5juPBknsuu49KXFo0X+IaqhcdMypji6BLWRnUofWiFm7FV6tKl4=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1778165549;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=mD80HyVHazAI7zY5u5ppiXiv/kRQLmFGurqGNhp1Zzg=;
-	b=fOdineQxBdsWNaByWoVgw199d+7PDlanFfm3mIwEsyWRlUH/RmGfoI/q97LzGnFF
-	Pmgf2QzTPK0zhkSxGjMMGx7TbjLzXoS0N7L2tSBhWBqurBEKHhmumI2uDwqlYmkXsm6
-	ki/LIERCJEAVU8uJ1GOsXQbZSpcwpdfMack/cvjY=
-Received: by mx.zohomail.com with SMTPS id 1778165548105701.1379238259724;
-	Thu, 7 May 2026 07:52:28 -0700 (PDT)
-Message-ID: <2c441d51f6a865ddb6e67b63cd26a651ed3ff058.camel@collabora.com>
-Subject: Re: [PATCH net-next v2 4/4] net: phy: Introduce Airoha AN8801/R
- Gigabit Ethernet PHY driver
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>,  Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley	
- <conor+dt@kernel.org>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Heiner Kallweit	
- <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com,
- matthias.bgg@gmail.com, 	kernel@collabora.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, 	linux-kernel@vger.kernel.org
-Date: Thu, 07 May 2026 16:52:22 +0200
-In-Reply-To: <3688a285-7f98-4afa-80ad-697094cd7b97@lunn.ch>
-References: <20260326-add-airoha-an8801-support-v2-0-1a42d6b6050f@collabora.com>
-	 <20260326-add-airoha-an8801-support-v2-4-1a42d6b6050f@collabora.com>
-	 <3688a285-7f98-4afa-80ad-697094cd7b97@lunn.ch>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1778165671;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=tNetuxkRt+N+4b2uSrH5ou0P5bOjAaDGsQRXbP0f+Xw=;
+	b=biSdJiwecFJhgMX9AlCKB0S+0fCEKx89Auy+BkwYYsIwiTPt4cXifAV3ZgPlscQS
+	vZwoGuYKPiNTxB3P3zMTUv/yR+zGXHbBxmZlnO4BYgCTo20ErY1EehOIAYv+1qwv5w2
+	ay8jEoqxvcEtC+f4kjHZ5A9yJ7sqJWMPdn99460M=
+Received: by mx.zohomail.com with SMTPS id 1778165669942952.534754209186;
+	Thu, 7 May 2026 07:54:29 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>,
+ "T.J. Mercier" <tjmercier@google.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Daniel Almeida <daniel.almeida@collabora.com>,
+ Alice Ryhl <aliceryhl@google.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Ketil Johnsen <ketil.johnsen@arm.com>, Ketil Johnsen <ketil.johnsen@arm.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linaro-mm-sig@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 6/8] drm/panthor: Explicit expansion of locked VM region
+Date: Thu, 07 May 2026 16:54:21 +0200
+Message-ID: <vq-4uSFHRCWR0Whm98eJ2Q@collabora.com>
+In-Reply-To: <kC1hpRBAS8uGaw7vVFyW2g@collabora.com>
+References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
+ <20260505140516.1372388-7-ketil.johnsen@arm.com>
+ <kC1hpRBAS8uGaw7vVFyW2g@collabora.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_075253_239084_28F390DA 
-X-CRM114-Status: GOOD (  23.44  )
+X-CRM114-CacheID: sfid-20260507_075457_556673_988B118E 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,149 +93,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On Wednesday, 6 May 2026 17:14:45 Central European Summer Time Nicolas Frat=
+taroli wrote:
+> On Tuesday, 5 May 2026 16:05:12 Central European Summer Time Ketil Johnse=
+n wrote:
+> > Currently the panthor_vm_lock_region() function will implicitly expand
+> > an already locked VM region. This can be problematic because the caller
+> > do not reliably know if it needs to call panthor_vm_unlock_region()
+> > or not.
+> >=20
+> > Worth noting, there is currently no known issues with this as the code
+> > is written today.
+> >=20
+> > This change introduces panthor_vm_expand_region() which will only work
+> > if there is already a locked VM region. This again means that the
+> > original lock and unlock functions can work as a pair. This pairing is
+> > needed for subsequent protected memory changes.
+> >=20
+> > Signed-off-by: Ketil Johnsen <ketil.johnsen@arm.com>
+> > ---
+> >  drivers/gpu/drm/panthor/panthor_mmu.c | 69 +++++++++++++++++++--------
+> >  1 file changed, 50 insertions(+), 19 deletions(-)
+> >=20
+>=20
+> While trying this series, I attempted my usual
+> `modprobe -r panthor && modprobe panthor protected_heap_name=3Ddefault_cm=
+a_region`.
+>=20
+> Unfortunately, it oopses when attempting to unmap the sg for a bo labeled
+> "FW section" on panthor module unload, and I bisected it to this patch.
 
-On Thu, 2026-03-26 at 13:47 +0100, Andrew Lunn wrote:
-> > +static int an8801r_led_blink_set(struct phy_device *phydev, u8
-> > index,
-> > +				 unsigned long *delay_on,
-> > +				 unsigned long *delay_off)
-> > +{
->=20
-> ...
->=20
-> > +	ret =3D phy_modify_mmd(phydev, MDIO_MMD_VEND2,
-> > LED_ON_CTRL(index),
-> > +			=C2=A0=C2=A0=C2=A0=C2=A0 LED_ON_EN, blink ? LED_ON_EN : 0);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	return 0;
->=20
-> Just
->=20
->=20
-> 	return phy_modify_mmd(phydev, MDIO_MMD_VEND2,
-> LED_ON_CTRL(index),
-> 			=C2=A0=C2=A0=C2=A0=C2=A0 LED_ON_EN, blink ? LED_ON_EN : 0);
->=20
-> > +		if (!led_trigger)
-> > +			continue;
-> > +
-> > +		ret =3D an8801r_led_hw_control_set(phydev, led_id,
-> > led_trigger);
-> > +		if (ret)
-> > +			return ret;
-> > +	}
-> > +	return 0;
-> > +}
->=20
->=20
-> Please take a look at all your functions. Can the last error check be
-> removed and just use return ret, etc.
-I'll fix this in the next version.
+Okay, so this one is due to the iomem access rework having landed
+in drm-misc-next already, but this series being based on something
+before that, so now all the new gpu_read(_.*)? and gpu_write.* calls
+pass a panthor_device to something that expects the iomem. Since the
+iomem uses void pointers, this wasn't caught by the compiler.
+
+So, no "real" bug here, just an incredible dice roll for luck from my side.
+
+Kind regards
+Nicolas Frattaroli
 
 >=20
-> > +static int an8801r_of_init_leds(struct phy_device *phydev, u8
-> > *led_cfg)
-> > +{
-> > +	struct device *dev =3D &phydev->mdio.dev;
-> > +	struct device_node *np =3D dev->of_node;
-> > +	struct device_node *leds;
-> > +	u32 function_enum_idx;
-> > +	int ret;
-> > +
-> > +	if (!np)
-> > +		return 0;
-> > +
-> > +	/* If devicetree is present, leds configuration is
-> > required */
-> > +	leds =3D of_get_child_by_name(np, "leds");
-> > +	if (!leds)
-> > +		return 0;
-> > +
-> > +	for_each_available_child_of_node_scoped(leds, led) {
-> > +		u32 led_idx;
-> > +
-> > +		ret =3D of_property_read_u32(led, "reg", &led_idx);
-> > +		if (ret)
-> > +			goto out;
-> > +
-> > +		if (led_idx >=3D AN8801R_NUM_LEDS) {
-> > +			ret =3D -EINVAL;
-> > +			goto out;
-> > +		}
-> > +
-> > +		ret =3D of_property_read_u32(led, "function-
-> > enumerator",
-> > +					=C2=A0=C2=A0 &function_enum_idx);
-> > +		if (ret)
-> > +			function_enum_idx =3D AN8801R_LED_FN_NONE;
-> > +
+> The oops:
 >=20
-> What is this doing? Is this documented in the binding?
-The `function-enumerator` property is only documented in the led common
-dt-binding file. The an8801 dt-bindings inherits this property from the
-ethernet-phy dt-bindings.
+> [  598.515550] Unable to handle kernel paging request at virtual address =
+0000000000400267
+> [  598.516864] Mem abort info:
+> [  598.517676]   ESR =3D 0x0000000096000004
+> [  598.518560]   EC =3D 0x25: DABT (current EL), IL =3D 32 bits
+> [  598.520414]   SET =3D 0, FnV =3D 0
+> [  598.521275]   EA =3D 0, S1PTW =3D 0
+> [  598.522099]   FSC =3D 0x04: level 0 translation fault
+> [  598.523069] Data abort info:
+> [  598.524311]   ISV =3D 0, ISS =3D 0x00000004, ISS2 =3D 0x00000000
+> [  598.525566]   CM =3D 0, WnR =3D 0, TnD =3D 0, TagAccess =3D 0
+> [  598.526850]   GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, Xs =3D 0
+> [  598.527905] user pgtable: 4k pages, 48-bit VAs, pgdp=3D0000000104056000
+> [  598.529019] [0000000000400267] pgd=3D0000000000000000, p4d=3D000000000=
+0000000
+> [  598.530170] Internal error: Oops: 0000000096000004 [#1]  SMP
+> [  598.531158] Modules linked in: btusb btrtl btmtk btintel btbcm bluetoo=
+th ecdh_generic ecc kpp snd_soc_hdmi_codec cfg80211 r8169 rfkill_gpio pwm_f=
+an rfkill snd_soc_es8316 rtc_hym8563 rk805_pwrkey at24 fusb302 tcpm aux_hpd=
+_bridge display_connector snd_soc_simple_card phy_rockchip_samsung_hdptx ph=
+y_rockchip_usbdp rockchip_thermal typec phy_rockchip_naneng_combphy rockchi=
+p_saradc industrialio_triggered_buffer kfifo_buf rockchipdrm inno_hdmi dw_d=
+p hantro_vpu rockchip_vdec dw_mipi_dsi2 v4l2_jpeg v4l2_vp9 rockchip_rga dw_=
+mipi_dsi v4l2_h264 synopsys_hdmirx v4l2_dv_timings spi_rockchip_sfc videobu=
+f2_dma_contig videobuf2_dma_sg v4l2_mem2mem videobuf2_memops dw_hdmi_qp onb=
+oard_usb_dev analogix_dp videobuf2_v4l2 videobuf2_common snd_soc_rockchip_i=
+2s_tdm dw_hdmi videodev mc drm_display_helper nvme cec panthor(-) drm_gpuvm=
+ drm_exec gpu_sched drm_dp_aux_bus drm_dma_helper drm_client_lib nvme_core =
+drm_kms_helper drm pci_endpoint_test backlight snd_soc_audio_graph_card snd=
+_soc_simple_card_utils fuse dm_mod
+> [  598.541237] CPU: 6 UID: 0 PID: 806 Comm: modprobe Not tainted 7.1.0-rc=
+2-00726-g8ab0a3092b56-dirty #2 PREEMPT
+> [  598.542733] Hardware name: Radxa ROCK 5T (DT)
+> [  598.543746] pstate: 80400009 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYP=
+E=3D--)
+> [  598.544991] pc : dma_unmap_sg_attrs (kernel/dma/mapping.c:0)
+> [  598.546021] lr : panthor_gem_free_object (include/linux/dma-mapping.h:=
+565 drivers/gpu/drm/panthor/panthor_gem.c:308 drivers/gpu/drm/panthor/panth=
+or_gem.c:469) panthor
+> [  598.547180] sp : ffff80008835bb90
+> [  598.548123] x29: ffff80008835bb90 x28: ffff00012610bf00 x27: 000000000=
+0000000
+> [  598.549412] x26: 0000000000000000 x25: 0000000000000000 x24: 000000000=
+0000000
+> [  598.550696] x23: ffff000127194600 x22: ffff0001271943d0 x21: ffff00011=
+8671000
+> [  598.551984] x20: ffff000127194200 x19: ffff000127194600 x18: 000000000=
+02ab980
+> [  598.553273] x17: 00000000002ab980 x16: ffffa39a6b372a04 x15: 000000000=
+0000000
+> [  598.554568] x14: 0000000000000010 x13: 0000000000000000 x12: 000000000=
+000003c
+> [  598.555864] x11: 0000000000000002 x10: ffff000100a5d000 x9 : ffff00011=
+8671000
+> [  598.557164] x8 : ffff000102f8b490 x7 : ffff000149569000 x6 : ffff00014=
+9569000
+> [  598.558461] x5 : ffff000100faa7e8 x4 : 0000000000000000 x3 : 000000000=
+0000000
+> [  598.559763] x2 : 0000000000000010 x1 : ffff000127194000 x0 : 000000000=
+040000f
+> [  598.561069] Call trace:
+> [  598.561961]  dma_unmap_sg_attrs (kernel/dma/mapping.c:0) (P)
+> [  598.563038] panthor_gem_free_object (include/linux/dma-mapping.h:565 d=
+rivers/gpu/drm/panthor/panthor_gem.c:308 drivers/gpu/drm/panthor/panthor_ge=
+m.c:469) panthor
+> [  598.564218] drm_gem_object_free (drivers/gpu/drm/drm_gem.c:1148) drm
+> [  598.565386] panthor_kernel_bo_destroy (include/linux/kref.h:65 include=
+/drm/drm_gem.h:565 include/drm/drm_gem.h:578 drivers/gpu/drm/panthor/pantho=
+r_gem.c:1317) panthor
+> [  598.566575] panthor_fw_unplug (drivers/gpu/drm/panthor/panthor_fw.c:13=
+06) panthor
+> [  598.567705] panthor_device_unplug (drivers/gpu/drm/panthor/panthor_dev=
+ice.c:103) panthor
+> [  598.568878] panthor_remove (drivers/gpu/drm/panthor/panthor_drv.c:1846=
+) panthor
+> [  598.569991]  platform_remove (drivers/base/platform.c:1435)
+> [  598.571029]  device_release_driver_internal (drivers/base/dd.c:619 dri=
+vers/base/dd.c:1352 drivers/base/dd.c:1375)
+> [  598.572209]  driver_detach (drivers/base/dd.c:1438)
+> [  598.573237]  bus_remove_driver (drivers/base/bus.c:825)
+> [  598.574304]  driver_unregister (drivers/base/driver.c:277)
+> [  598.575363]  platform_driver_unregister (drivers/base/platform.c:920)
+> [  598.576494] cleanup_module (drivers/gpu/drm/panthor/panthor_devfreq.c:=
+134) panthor
+> [  598.577617]  __arm64_sys_delete_module (kernel/module/main.c:863 kerne=
+l/module/main.c:804 kernel/module/main.c:804)
+> [  598.578751]  invoke_syscall (arch/arm64/kernel/syscall.c:35 arch/arm64=
+/kernel/syscall.c:49)
+> [  598.579794]  el0_svc_common (arch/arm64/kernel/syscall.c:121)
+> [  598.580842]  do_el0_svc (arch/arm64/kernel/syscall.c:140)
+> [  598.581862]  el0_svc (arch/arm64/kernel/entry-common.c:723)
+> [  598.582853]  el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:74=
+2)
+> [  598.583949]  el0t_64_sync (arch/arm64/kernel/entry.S:594)
+>=20
+> Kind regards,
+> Nicolas Frattaroli
+>=20
+>=20
+>=20
 
-We aimed to have this PHY have its led behaviour (how many to enable
-and what their role shall be) configurable using devicetree and not to
-rely on a default configuration, hard-coded in the driver (like the
-air_en8811h driver did) and also make use of the led hardware
-offloading (for functions like 100/1000, activity blinking, and others)
-that this PHY is capable of.
 
-From the available property list for the led node, this one seems to be
-appropriate to distinguish between the possible LAN functions, that=20
-would mean that a specific LED has either a link or RX/Tx activity=20
-role.=C2=A0That is why we used it but we could be wrong.
 
-The an8801 dt-bindings (in patch 1) misses the possible values and
-should improved in that regard and I'll fix them in next version if
-this implementation seems acceptable to you.
->=20
-> > +		if (function_enum_idx >=3D AN8801R_LED_FN_MAX) {
-> > +			ret =3D -EINVAL;
-> > +			goto out;
-> > +		}
-> > +
-> > +		led_cfg[led_idx] =3D function_enum_idx;
-> > +	}
-> > +out:
-> > +	of_node_put(leds);
-> > +	return ret;
-> > +}
->=20
-> > +static int an8801r_read_status(struct phy_device *phydev)
-> > +{
-> > +	int prev_speed, ret;
-> > +	u32 val;
-> > +
-> > +	prev_speed =3D phydev->speed;
-> > +
-> > +	ret =3D genphy_read_status(phydev);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (phydev->link && prev_speed !=3D phydev->speed) {
-> > +		val =3D phydev->speed =3D=3D SPEED_1000 ?
-> > +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 AN8801_BPBUS_LINK_MODE_1000 : 0;
-> > +
-> > +		return an8801_buckpbus_reg_rmw(phydev,
-> > +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > AN8801_BPBUS_REG_LINK_MODE,
-> > +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0
-> > AN8801_BPBUS_LINK_MODE_1000,
-> > +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 val);
-> > +	};
->=20
-> This is unusual. What is it doing? Please add a comment.
-This call is to ensure that the PHY switches to the expected 1Gbps=20
-speed when available.=C2=A0
-I'll confirm it and add a comment in v3.
 
-Best regards,
-Louis-Alexis
->=20
-> 	Andrew
 
