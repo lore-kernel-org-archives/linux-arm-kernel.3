@@ -4,86 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB887CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 15:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3231DCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 15:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5uZ47QgdNT8eYDme7GTHDVZkXTUa8iTiEeyTCwFSHCQ=; b=IOFwaRcCn7H7D6twzowmZ+mtu+
-	/vCxLG6OpSzvb+ocHioupaxJz9MKNVEv74/qOApRsDciOiWLKBDwDT7oXIPP/ysekzYCB5KQK7Ovq
-	Otm5Dwo0/KoVTF912kM+bZH0PU11DFyru/46cxKGJYyMf9cUotUCD/c1cdklaS0XwymyU93YCF5g7
-	yxiDN9dr4rJTay8T3442zx9eiaxzg1JnKHMNt7ZUP/T4CE8wygCGfmeNKqXt3Fi7d7aJz9qFoL0Zc
-	Blii/Kmct1UJRij8PkGxRpfVEIc/e3w9P82d//kYF7Nm/Yx0L61e+tz1wYW29Ao12bwrH8KFnO4oF
-	BlsYT/mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EhQrAQa75d2J0YA5KpT6AkN5xsQFVAOM6cWXJDqCQUw=; b=e4DHD+lz6n03WR19XLBSkWm0CH
+	KldsyJEXsZwrd5wuyzjpiuVO9njAV6zyqia9lv6STCvR4fLKVZI93Ghsq4UOv5CA9fw4IRXUldLkQ
+	uGNtlYMF3iXA4h2kJO6LaGQWsNYWbsUdMZ642YMobRsOMUk95TWc5lhecXUbzd4GLGR288pW5xnew
+	L7uYA6QtRY6RLSKhkNg48ujvWFU0/yCWTJOWayA8mknrWcH1OV6QyvRv1XsN4NvZnf/SZwjj+iiAI
+	8SadFm3vE2260a1ZSuNvD0sdN8Pvh6T5aOh8zSKiZNxz3ic2pXaX9/HpTDf6X9aBTjuUYN6oaAtVa
+	7i/ENvBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL0s5-00000004EMj-33VW;
-	Thu, 07 May 2026 15:42:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wL0tL-00000004EbE-3lr5;
+	Thu, 07 May 2026 15:43:59 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL0s3-00000004EM9-2LXz
+	id 1wL0tJ-00000004EZo-1B6i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 15:42:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D67D9434BA;
-	Thu,  7 May 2026 15:42:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACAEDC2BCB2;
-	Thu,  7 May 2026 15:42:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778168558;
-	bh=l1ZPnnUQo3LA7hrPEfFbmz90OUYfRkfGIapw7V4O47Y=;
-	h=From:To:Cc:Subject:Date:From;
-	b=IyOMHArEmgi0Q5vGh1Du3NDsI2BpGYwYQjALrYGiVjrX+0vCKu09jJ0vFfepHcjo/
-	 xDn90EmBuObaJoFsF9RF/vvl0RY+jG97lmNVMaU+XM56t8NzM4UEa6Y+tg/Epr+Tif
-	 0qyBNhy8eKUSpu26ge9xIi/GlL7fESAHcWZekUS1Q/SrXtKgy+Y7IAlaXqpZfudix0
-	 avkfhEESCpbR6+BNj5UswHve3fUXzMSu+At1soFld57tG8iNa2gq3jJ7wAE5iwufU8
-	 KGlR1ALBLD/o5RvphbioZvPjmuZLsvN3gLvOwIrkY2cq8Fm1Pnq1C6wI396s/Vw6Ps
-	 IKsOcUDc29bXQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wL0s0-000000001gn-216s;
-	Thu, 07 May 2026 15:42:36 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Alexandru Elisei <alexandru.elisei@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	James Morse <james.morse@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Sebastian Ott <sebott@redhat.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Yuan Yao <yaoyuan@linux.alibaba.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Subject: [GIT PULL] KVM/arm64 fixes for 7.1, take #2
-Date: Thu,  7 May 2026 16:42:21 +0100
-Message-ID: <20260507154221.2905554-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Thu, 07 May 2026 15:43:58 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-488af96f6b2so11909485e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 08:43:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778168635; x=1778773435; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EhQrAQa75d2J0YA5KpT6AkN5xsQFVAOM6cWXJDqCQUw=;
+        b=a0uXZr5oPkdBrPup/7kY3VOXd7C+z5kAfgqPwOfpJ+o1MA/XwoYet5UgOTmG45BywX
+         xzt9pz0zH2NLo+urgA0Wg9RWd1UIVvHiuaMp4BeNfBA/P8TQX1nkt3Bx+cSqv2s1L5cy
+         WIXKNCRFEXbLln8V0twYsZ+90v57AQcBz2pIHE3PPlfF1YzKDzEgL7GoikAkM9ebht5D
+         GOnt7Puwi0ZT4xatmXShPT0RVnLeqmtXDuA/6GPtSnjoj/KiDyP71NWqZf3DkRg/Lh/W
+         UoQBT2hMoiIK2RmZmBxOfOAdHzhXv/kTGj7yM8FQVX0RGPAdInVr2P5t973K6am9NHdg
+         Wbqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778168635; x=1778773435;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EhQrAQa75d2J0YA5KpT6AkN5xsQFVAOM6cWXJDqCQUw=;
+        b=Vs2vI3NqOQSjMmdtBb+04gBGAUa36VQf0sCXi+8eemMyt7KQQakNgrAmyDYg3LaVf9
+         4e4fAyfmbVF/jnHV5y8jW4AmCweOG3RrZ+yk0PXy5qlhDe/RVKRy5Cjiz9+77UvccT+O
+         GIzBuZfl4NkzuN3NHE1ZchdvKP+XudrE7991OQKXYwsBEHWmgadt+uffGEFOJHmQKPbx
+         TH9CMTXIPqrvudSBtdXw9iA6/XLzQmPeCZqVJ/aoaUXpzmmDVT7u4UjuoGqxrhNRtlLo
+         ttO3CftPmJtDSCE0sixr8Ft1vzUbh7oApfhNmbXYXiH0+6KHP6/BMs2ez9x+Fs3Yn74C
+         CePg==
+X-Forwarded-Encrypted: i=1; AFNElJ8171FY94/Jpri+de0i9eScclC5QkyHxyG68gT6OOMDDk1+MuhFsEPG1IeiH/kL/Wq/QCFSxdEnKpjUuWvmhi/D@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrZXwmZp64YE5ROIH2AtLV0eImChmnVeaE0a3TtWM/+rX1MktP
+	fP3HmD1QWoeo67IVDDEnqjLLhGySsjnM5nn121SSzxaN93rCsFO0KtqTso+C
+X-Gm-Gg: AeBDievKdv8Jiu3JT2ThXnVlvzE0p3/7s64UNDopjLs8SkauO0WNRr1DgOPjE/UbYYk
+	UCUX3KqWwQPiSvUadx0GGLJS1cbiQtfSQ8t2zaJcvAFdG83/cqaeOyp/dMCPQKGBXZCtuvXMdLe
+	FxC3+sM7gsc/yqtkh8K6/xC7GMUSfCrSzGHTYm3J1DTzF57Te2jNzychDBO41GWwOO9vprhTBWo
+	nsUNC1pjU7XLXPArVmTBivw+p9eUE2Can0rV8sxbd7NXZhCfX9W2AOuvYlVwaBFmZ27RIFgz8qr
+	qq7WgK+xoAgEnbMQyxSrWhdPSmwBM5XUCVm1whBSLqe/DIW/aVvPHYiES2t82w+S7sh/wXJ4elb
+	cIQ6SJkr3GND0Uo60h+w5wx1FV5lfugfuG+qvTECuKYeiHylQ6cZVMaWUg950HpYJS+8sXhzMEL
+	gtIlFqmVAq0ZZfrIgrQt9KzAZiD2LPSBm87cv2WsLPUMor1xZeb4a+hCT4amG8PjiLxdl2OhqSR
+	sfe0pbKx/WXawXfZo4=
+X-Received: by 2002:a05:600c:a305:b0:48d:364:6c54 with SMTP id 5b1f17b1804b1-48e51f4144amr102180955e9.23.1778168635011;
+        Thu, 07 May 2026 08:43:55 -0700 (PDT)
+Received: from [192.168.1.17] (host-79-50-55-97.retail.telecomitalia.it. [79.50.55.97])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e53891d62sm209994895e9.1.2026.05.07.08.43.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 May 2026 08:43:54 -0700 (PDT)
+From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+Date: Thu, 07 May 2026 17:43:15 +0200
+Subject: [PATCH v3] iommu: arm-smmu-qcom: Ensure smmu is powered up in
+ set_ttbr0_cfg
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, alexandru.elisei@arm.com, catalin.marinas@arm.com, tabba@google.com, james.morse@arm.com, lpieralisi@kernel.org, mark.rutland@arm.com, smostafa@google.com, oupton@kernel.org, sebott@redhat.com, seiden@linux.ibm.com, sudeep.holla@kernel.org, vdonnefort@google.com, weilin.chang@arm.com, will@kernel.org, yaoyuan@linux.alibaba.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260507-qcom_smmu_pmfix-v3-1-af8cd05831a2@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNzQrCMBAGX6XkbCTZ9Ec9+R4iZdOubcA0NdGgl
+ L67aS8K4nE+dmYnFsgbCuyQTcxTNMG4IYHaZKzpceiImzYxAwGlACn4rXG2DtY+6tFezJMDEra
+ gMScQLFmjpzSvxdM5cW/C3fnX+iDKZf3fipJLXu10JXOFjSjUsbNortt0xpZWhI+voPj1Ifkaq
+ 3KPJbZC07c/z/Mb6SbGKO4AAAA=
+X-Change-ID: 20260210-qcom_smmu_pmfix-2aead2ba4e20
+To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Anna Maniscalco <anna.maniscalco2000@gmail.com>, 
+ Rob Clark <rob.clark@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778168633; l=2650;
+ i=anna.maniscalco2000@gmail.com; s=20240815; h=from:subject:message-id;
+ bh=JvTfGtQt/QzZHDNLS/mKUWRZZK3nInAjvOmIg4zwlgw=;
+ b=78r+QvfiiQHi317bGaK1Vp3B2bi2od5HUfeBqAj9XVv3eh8gwkCyaKS+hC7krNXwwLSK/Ustd
+ uBpdiT/GZqBDZ8rCiOrpauIwtCS2Vf4qswB9VZB1iXJHovt55TZVPwy
+X-Developer-Key: i=anna.maniscalco2000@gmail.com; a=ed25519;
+ pk=0zicFb38tVla+iHRo4kWpOMsmtUrpGBEa7LkFF81lyY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_084239_634982_B0B1D5EF 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20260507_084357_342335_D2463757 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,109 +113,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Paolo,
+arm_smmu_write_context_bank() assumes it is being called with RPM
+active, but it turns out that is not guaranteed in the path from
+qcom_adreno_smmu_set_ttbr0_cfg(), so it's possible for the register
+writes to get lost when configuring the context bank while the GPU is
+idle, leading to page faults later.
+Add the RPM calls here to make sure the SMMU is active before we touch
+it.
 
-Here's the second set of KVM/arm64 fixes for 7.1. Nothing too horrible
-this time, aside from an ARM erratum workaround that has little impact
-on KVM, but relies on some firmware dealing with the problem. Bleh.
+Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+Reviewed-by: Rob Clark <rob.clark@oss.qualcomm.com>
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+---
+Changes in v3:
+- Changed commit message to be more self-contained as suggested.
+- Collected RBs
+- Link to v2: https://lore.kernel.org/r/20260325-qcom_smmu_pmfix-v2-1-ba769a6ad0be@gmail.com
 
-The rest is a small collection of bug fixes, mostly affecting the MMU
-(permission fault handling with guest_memfd, 52bit VA with NV), and a
-small set of AI-enhanced fixes from Fuad. I guess I'll have to get
-used to that.
+Changes in v2:
+- Simplify patch by acquiring device just around the call that needs it
+- Link to v1: https://lore.kernel.org/r/20260210-qcom_smmu_pmfix-v1-1-78b7143ac053@gmail.com
 
-And last but not least, Steffen joins the merry band of KVM/arm64
-reviewers in preparation of s390 and arm64 being joined at the hip...
+To: Rob Clark <robin.clark@oss.qualcomm.com>
+To: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+To: Joerg Roedel <joro@8bytes.org>
+Cc: iommu@lists.linux.dev
+Cc: linux-arm-msm@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-Please pull,
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index 573085349df3..cab7d110aaf5 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -231,6 +231,7 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
+ 	struct io_pgtable *pgtable = io_pgtable_ops_to_pgtable(smmu_domain->pgtbl_ops);
+ 	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+ 	struct arm_smmu_cb *cb = &smmu_domain->smmu->cbs[cfg->cbndx];
++	int ret;
+ 
+ 	/* The domain must have split pagetables already enabled */
+ 	if (cb->tcr[0] & ARM_SMMU_TCR_EPD1)
+@@ -260,8 +261,16 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
+ 		cb->ttbr[0] |= FIELD_PREP(ARM_SMMU_TTBRn_ASID, cb->cfg->asid);
+ 	}
+ 
++	ret = pm_runtime_resume_and_get(smmu_domain->smmu->dev);
++	if (ret < 0) {
++		dev_err(smmu_domain->smmu->dev, "failed to get runtime PM: %d\n", ret);
++		return -ENODEV;
++	}
++
+ 	arm_smmu_write_context_bank(smmu_domain->smmu, cb->cfg->cbndx);
+ 
++	pm_runtime_put_autosuspend(smmu_domain->smmu->dev);
++
+ 	return 0;
+ }
+ 
 
-	M.
+---
+base-commit: 50c4a49f7292b33b454ea1a16c4f77d6965405dc
+change-id: 20260210-qcom_smmu_pmfix-2aead2ba4e20
 
-The following changes since commit 7fd2df204f342fc17d1a0bfcd474b24232fb0f32:
+Best regards,
+--  
+Anna Maniscalco <anna.maniscalco2000@gmail.com>
 
-  Linux 7.1-rc2 (2026-05-03 14:21:25 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git kvmarm-fixes-7.1-2
-
-for you to fetch changes up to effc0a39b8e0f30670fe24f51e44329d4324e566:
-
-  KVM: arm64: Pre-check vcpu memcache for host->guest donate (2026-05-07 14:12:42 +0100)
-
-----------------------------------------------------------------
-KVM/arm64 fixes for 7.1, take #2
-
-- Add the pKVM side of the workaround for ARM's erratum 4193714, provided
-  that the EL3 firmware does its part of the job. KVM will refuse to
-  initialise otherwise.
-
-- Correctly handle 52bit VAs for guest EL2 stage-1 translations when
-  running under NV with E2H==0.
-
-- Correctly deal with permission faults in guest_memfd memslots.
-
-- Fix the steal-time selftest after the infrastructure was reworked.
-
-- Make sure the host cannot pass a non-sensical clock update to the
-  EL2 tracing infrastructure.
-
-- Appoint Steffen Eiden as a reviewer in anticipation of the KVM/s390
-  ability to run arm64 guests, which will inevitably lead to arm64
-  code being directly used on s390.
-
-- Make sure that EL2 is configured with both exception entry and exit
-  being Context Synchronization Events.
-
-- Handle the current vcpu being NULL on EL2 panic.
-
-- Fix the selftest_vcpu memcache being empty at the point of donation or
-  sharing.
-
-- Check that the memcache has enough capacity before engaging on the
-  share/donate path.
-
-- Fix __deactivate_fgt() to use its parameter rather than a variable
-  in the macro context.
-
-----------------------------------------------------------------
-Alexandru Elisei (1):
-      KVM: arm64: Handle permission faults with guest_memfd
-
-Fuad Tabba (6):
-      KVM: arm64: Make EL2 exception entry and exit context-synchronization events
-      KVM: arm64: Guard against NULL vcpu on VHE hyp panic path
-      KVM: arm64: Fix __deactivate_fgt macro parameter typo
-      KVM: arm64: Seed pkvm_ownership_selftest vcpu memcache
-      KVM: arm64: Pre-check vcpu memcache for host->guest share
-      KVM: arm64: Pre-check vcpu memcache for host->guest donate
-
-James Morse (1):
-      KVM: arm64: Work around C1-Pro erratum 4193714 for protected guests
-
-Mostafa Saleh (1):
-      KVM: arm64: Remove potential UB on nvhe tracing clock update
-
-Sebastian Ott (1):
-      KVM: selftests: arm64: Fix steal_time test after UAPI refactoring
-
-Steffen Eiden (1):
-      MAINTAINERS: Add Steffen as reviewer for KVM/arm64
-
-Wei-Lin Chang (1):
-      KVM: arm64: nv: Consider the DS bit when translating TCR_EL2
-
- MAINTAINERS                              |  1 +
- arch/arm64/include/asm/kvm_nested.h      |  1 +
- arch/arm64/include/asm/sysreg.h          |  2 +-
- arch/arm64/kvm/arm.c                     | 21 ++++++++++++++
- arch/arm64/kvm/hyp/include/hyp/switch.h  |  2 +-
- arch/arm64/kvm/hyp/nvhe/clock.c          |  3 ++
- arch/arm64/kvm/hyp/nvhe/mem_protect.c    | 47 +++++++++++++++++++++++++++++++-
- arch/arm64/kvm/hyp/nvhe/pkvm.c           | 16 ++++++++++-
- arch/arm64/kvm/hyp/vhe/switch.c          |  3 +-
- arch/arm64/kvm/mmu.c                     | 29 ++++++++++++++------
- include/linux/arm-smccc.h                |  6 ++++
- tools/testing/selftests/kvm/steal_time.c |  2 ++
- 12 files changed, 120 insertions(+), 13 deletions(-)
 
