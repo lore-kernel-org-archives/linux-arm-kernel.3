@@ -4,110 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F5FBCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 15:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB887CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 15:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gTYDekqrRUKGwMcBjdQn1nmLxpQn+Cw3upH2qbMNVlQ=; b=MvdjFwgWrZZ8KhdpLcCY6iggsW
-	K/0mlYs2nXzm0XLiaDd8aowNoyr4FdGqvalllU+ye3IgcE6lwVDR1W7R5R9WJBcL9LNuvniCD4yNr
-	6RAIi5knFNgzCWEjTkaGAc6gBUWtmafkNmz2d5TAPMKVcecXOAJXkOscoUStpTdZhFz4+xjX5OxXv
-	KTuGpjnMjGOdW2+6jEz8rxnc4RDL7TFhIn6vDFVJFl4FRO08ohQq5si39u7KOccTn2TUxQP4m8nik
-	7+Bw1XMZcyfwaFz+RgJxD7j0yZkDGmColYZyZeTKPs/RzyrX7KHUSBIM/kNtiA5Gt1D+JBsuoOVcc
-	E1bApHxg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5uZ47QgdNT8eYDme7GTHDVZkXTUa8iTiEeyTCwFSHCQ=; b=IOFwaRcCn7H7D6twzowmZ+mtu+
+	/vCxLG6OpSzvb+ocHioupaxJz9MKNVEv74/qOApRsDciOiWLKBDwDT7oXIPP/ysekzYCB5KQK7Ovq
+	Otm5Dwo0/KoVTF912kM+bZH0PU11DFyru/46cxKGJYyMf9cUotUCD/c1cdklaS0XwymyU93YCF5g7
+	yxiDN9dr4rJTay8T3442zx9eiaxzg1JnKHMNt7ZUP/T4CE8wygCGfmeNKqXt3Fi7d7aJz9qFoL0Zc
+	Blii/Kmct1UJRij8PkGxRpfVEIc/e3w9P82d//kYF7Nm/Yx0L61e+tz1wYW29Ao12bwrH8KFnO4oF
+	BlsYT/mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL0ol-00000004Dk8-1Rf8;
-	Thu, 07 May 2026 15:39:15 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wL0s5-00000004EMj-33VW;
+	Thu, 07 May 2026 15:42:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL0oj-00000004DjR-2JLf
+	id 1wL0s3-00000004EM9-2LXz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 15:39:14 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ba180a022dso99605ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 08:39:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778168353; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Wd0SESMhQmxhUc4WF+ckKvveRvBMltbu7ntenafWNKhmYKzK6lR9bQeWS9XQ3Y9aPv
-         K+/dff5W0QxXjy85ItMeTxcFRyWXqLAQ7gf0zdGeW+ovkV8hRZ639hJk0aroRNq+wVO5
-         aPMMDefrNZQKQTuhYhC00TiyMs12BUKoD/9E8Qg4PsACojZx11jxryFZoKvGXQr6mWxa
-         JPUpn4krB8pgHlO9vRbPezqV+1nxMgLUs93gKz0pRaVQu2RL03krggmtTsmXIR0t49ls
-         9Jlymz2WzTKJh/4VKbNMLXcmuqEnoSHDewx1W3saYGeTrsTzXhGx6kvupGVvpvHpzvRP
-         n2pA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=gTYDekqrRUKGwMcBjdQn1nmLxpQn+Cw3upH2qbMNVlQ=;
-        fh=16VYXny8eqeA1b8znsCZm5xNP3zFiv1Dwkr42zecRLI=;
-        b=iAE/eSsUxSjnoEmSkQC++5fksiUJ078V/+Kx8u5JzKNrH1GvIN+ZqtEBRASVFQcSr3
-         OMHYzKnat1oVF/RNOJneb/QK5PuNKyTvIoC8X6wY07+esV3mzvWQWZftSMkLuUeNTSOj
-         MHuU9tN/yHl0geaqFsxnRZXfiMcqSeap+hH0t8Ac3njuEQ9iULs5JWR0jXw1yvoI9P0u
-         sbjPtthhYcsqkqiQX0x8pqll3MUGOj0VaE6aB4blW+/akWYP8+AMGKemohVa7+FuHT1i
-         u1SHM1i6oJEY9CnPbcJ3ehjBmThgzqNRgwVcdaHBSIeBpJWeg8UBrHJVV8ZuzLvxWexc
-         rB9w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778168353; x=1778773153; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gTYDekqrRUKGwMcBjdQn1nmLxpQn+Cw3upH2qbMNVlQ=;
-        b=Sk/XNKYSPjJs/THUFoGHrhDXpLv2wEmLnDJIyig7pWYD3XforvF7v4Fuvu30hs9130
-         ipNj1MXgxw9HKY6jdPGOIAj+bTWAmZAKu/RhmS+WP/n+LTQhAL8/MB4TwsJX1d3WQi1W
-         En4aDHDLy4ausNt0b73QtTW3A60zIXCN2S+zr2X81GPzTgrwiiB5FD2Ijv5yuYjnGrFr
-         8AZeVrPA+3JOxDcLiPt2DQvp4rs/VkGIiXsZNKeD91zhAbwTnjhlFC+haYp1Y0HOOmXg
-         IMuLwpH0efbRrS+14dhtNoFjN/cc75fQcQjDdfK7R3oWC+kM7jdZDcZ2rLKnx4OcaWbi
-         mmew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778168353; x=1778773153;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gTYDekqrRUKGwMcBjdQn1nmLxpQn+Cw3upH2qbMNVlQ=;
-        b=tNe3AdkyBKHSdge35ce8P3wcXi34KCS6vSXQxn19YH/uyiVvxgtHlfx0geyLtIXLAv
-         7o0Qen7ApJzu/Fy9ZyMl12pMvFvYAuHL5C2SCsaQTEVP0AZqkG6eKFg/H9YXiaJ5HhBe
-         eIgQqnZUOYhSee0iaxub4l4OYOFtyRjOGPmctKc6j5loJBtrH5186Icw9aiJGTSbX3Ug
-         MXkyJKLWIcwxZjxE+hNH3X7Abmx+ZBZEzCV96i98po/OvJrKXixGZUq86kbJcglZVi7Y
-         fUoiIzOHRQXzIHZN8nLUn1OXqAb8ybnxibvUuG4FUTinGLttZgiCl4n7gEcyU4nPbt5P
-         +uyA==
-X-Forwarded-Encrypted: i=1; AFNElJ8M04Ga0WFlB86HT4vkIYRjelPvdHyi0XacKOqYYWy3JmjQrtdSf/QxVEMl8WBvavUhro/eKQv9RwHXoECJ0is+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzrz8R/R5OwOx4mQTfbIAzhQKn5eV1O2tvDqvMcnV+7M5koOVBL
-	ieVMESG/o2PDIUQqSFU8dxobhLI4C9+s1oX3jfy4ZN5hx4MUNhg9OTgpSDqc/HRVyWMWtNfBkae
-	2wE3HpgqUqTdDV6r01svyHQtVkAIjZCqBzR8IjcFn
-X-Gm-Gg: AeBDieuJardE5STPC1SwJyCoAGGB5j3oe1Bn4+HCbL8OppJhMcPjgu4z5eWxx3iYVco
-	XJiP/kc8wg6LNqwc5fVGjizZlSiGLIpwPMHFZNlVruVFbiw06zGuHPbKYCu36p6+SCmA590xvXP
-	fAOyLL14AhSyHsqQ89vxdZZSemp3S8z2WXxgXK2UgAa6GIVJRtYrM/Pa8HvEdCFauhG4F2f5gQf
-	dXfbgl3f+JXzc/mF59xSCgnQOoT5uFvU5cI8LyMI2YbGsUuxsbxrbE6spATIbSKo/7RrTeJes9h
-	XZ4nNu49q42wehDajw5se7apeQMJ56QkJDtn1/GaD5PE2qEAtf9r7yh/FD4=
-X-Received: by 2002:a17:903:1b63:b0:2a7:6c4e:5914 with SMTP id
- d9443c01a7336-2bab602610emr4140185ad.6.1778168352129; Thu, 07 May 2026
- 08:39:12 -0700 (PDT)
+	Thu, 07 May 2026 15:42:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D67D9434BA;
+	Thu,  7 May 2026 15:42:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACAEDC2BCB2;
+	Thu,  7 May 2026 15:42:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778168558;
+	bh=l1ZPnnUQo3LA7hrPEfFbmz90OUYfRkfGIapw7V4O47Y=;
+	h=From:To:Cc:Subject:Date:From;
+	b=IyOMHArEmgi0Q5vGh1Du3NDsI2BpGYwYQjALrYGiVjrX+0vCKu09jJ0vFfepHcjo/
+	 xDn90EmBuObaJoFsF9RF/vvl0RY+jG97lmNVMaU+XM56t8NzM4UEa6Y+tg/Epr+Tif
+	 0qyBNhy8eKUSpu26ge9xIi/GlL7fESAHcWZekUS1Q/SrXtKgy+Y7IAlaXqpZfudix0
+	 avkfhEESCpbR6+BNj5UswHve3fUXzMSu+At1soFld57tG8iNa2gq3jJ7wAE5iwufU8
+	 KGlR1ALBLD/o5RvphbioZvPjmuZLsvN3gLvOwIrkY2cq8Fm1Pnq1C6wI396s/Vw6Ps
+	 IKsOcUDc29bXQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wL0s0-000000001gn-216s;
+	Thu, 07 May 2026 15:42:36 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Alexandru Elisei <alexandru.elisei@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	James Morse <james.morse@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Sebastian Ott <sebott@redhat.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Yuan Yao <yaoyuan@linux.alibaba.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Subject: [GIT PULL] KVM/arm64 fixes for 7.1, take #2
+Date: Thu,  7 May 2026 16:42:21 +0100
+Message-ID: <20260507154221.2905554-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-References: <20260507063737.3542950-1-wangyushan12@huawei.com> <20260507063737.3542950-5-wangyushan12@huawei.com>
-In-Reply-To: <20260507063737.3542950-5-wangyushan12@huawei.com>
-From: Ian Rogers <irogers@google.com>
-Date: Thu, 7 May 2026 08:39:01 -0700
-X-Gm-Features: AVHnY4JkF3wXUtyPgEEQCuM_Et67c3otP3W1Tw-K0ZP-yh5Rc7qin9Nk03qhBV8
-Message-ID: <CAP-5=fUVf-6Xcd+xQBm9FbwbWsUff0PYuH54mrBkLeVyU2cj8Q@mail.gmail.com>
-Subject: Re: [RFT PATCH v2 4/7] perf-x86: iostat: Change iostat_prefix() to static
-To: Yushan Wang <wangyushan12@huawei.com>
-Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
-	namhyung@kernel.org, mark.rutland@arm.com, alexander.shishkin@linux.intel.com, 
-	jolsa@kernel.org, adrian.hunter@intel.com, james.clark@arm.com, 
-	john.g.garry@oracle.com, will@kernel.org, mike.leach@arm.com, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, jic23@kernel.org, leo.yan@linux.dev, 
-	robin.murphy@arm.com, linuxarm@huawei.com, hejunhao3@huawei.com, 
-	prime.zeng@hisilicon.com, fanghao11@huawei.com, wangzhou1@hisilicon.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, alexandru.elisei@arm.com, catalin.marinas@arm.com, tabba@google.com, james.morse@arm.com, lpieralisi@kernel.org, mark.rutland@arm.com, smostafa@google.com, oupton@kernel.org, sebott@redhat.com, seiden@linux.ibm.com, sudeep.holla@kernel.org, vdonnefort@google.com, weilin.chang@arm.com, will@kernel.org, yaoyuan@linux.alibaba.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_083913_595377_3CCADE91 
-X-CRM114-Status: GOOD (  21.86  )
+X-CRM114-CacheID: sfid-20260507_084239_634982_B0B1D5EF 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,132 +98,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 6, 2026 at 11:37=E2=80=AFPM Yushan Wang <wangyushan12@huawei.co=
-m> wrote:
->
-> Change iostat_prefix() to static function, since it is not used outside.
->
-> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+Paolo,
 
-Reviewed-by: Ian Rogers <irogers@google.com>
+Here's the second set of KVM/arm64 fixes for 7.1. Nothing too horrible
+this time, aside from an ARM erratum workaround that has little impact
+on KVM, but relies on some firmware dealing with the problem. Bleh.
 
-> ---
->  tools/perf/util/iostat.c     |  7 ------
->  tools/perf/util/iostat.h     |  2 --
->  tools/perf/util/x86-iostat.c | 44 ++++++++++++++++++------------------
->  3 files changed, 22 insertions(+), 31 deletions(-)
->
-> diff --git a/tools/perf/util/iostat.c b/tools/perf/util/iostat.c
-> index b770bd473af7..a68ab100780d 100644
-> --- a/tools/perf/util/iostat.c
-> +++ b/tools/perf/util/iostat.c
-> @@ -37,13 +37,6 @@ __weak void iostat_print_metric(struct perf_stat_confi=
-g *config __maybe_unused,
->  {
->  }
->
-> -__weak void iostat_prefix(struct evlist *evlist __maybe_unused,
-> -                         struct perf_stat_config *config __maybe_unused,
-> -                         char *prefix __maybe_unused,
-> -                         struct timespec *ts __maybe_unused)
-> -{
-> -}
-> -
->  __weak void iostat_print_counters(struct evlist *evlist __maybe_unused,
->                                   struct perf_stat_config *config __maybe=
-_unused,
->                                   struct timespec *ts __maybe_unused,
+The rest is a small collection of bug fixes, mostly affecting the MMU
+(permission fault handling with guest_memfd, 52bit VA with NV), and a
+small set of AI-enhanced fixes from Fuad. I guess I'll have to get
+used to that.
 
-This change doesn't remove the weak symbols, but they should go. We
-should use the ELF machine to determine which architecture version to
-use.
+And last but not least, Steffen joins the merry band of KVM/arm64
+reviewers in preparation of s390 and arm64 being joined at the hip...
 
-Thanks,
-Ian
+Please pull,
 
-> diff --git a/tools/perf/util/iostat.h b/tools/perf/util/iostat.h
-> index a4e7299c5c2f..820930a096d9 100644
-> --- a/tools/perf/util/iostat.h
-> +++ b/tools/perf/util/iostat.h
-> @@ -35,8 +35,6 @@ int iostat_parse(const struct option *opt, const char *=
-str,
->                  int unset __maybe_unused);
->  void iostat_list(struct evlist *evlist, struct perf_stat_config *config)=
-;
->  void iostat_release(struct evlist *evlist);
-> -void iostat_prefix(struct evlist *evlist, struct perf_stat_config *confi=
-g,
-> -                  char *prefix, struct timespec *ts);
->  void iostat_print_header_prefix(struct perf_stat_config *config);
->  void iostat_print_metric(struct perf_stat_config *config, struct evsel *=
-evsel,
->                          struct perf_stat_output_ctx *out);
-> diff --git a/tools/perf/util/x86-iostat.c b/tools/perf/util/x86-iostat.c
-> index 7442a2cd87ed..f8d4c9718594 100644
-> --- a/tools/perf/util/x86-iostat.c
-> +++ b/tools/perf/util/x86-iostat.c
-> @@ -332,6 +332,28 @@ static int iostat_event_group(struct evlist *evl,
->         return ret;
->  }
->
-> +static void iostat_prefix(struct evlist *evlist,
-> +                         struct perf_stat_config *config,
-> +                         char *prefix, struct timespec *ts)
-> +{
-> +       struct iio_root_port *rp =3D evlist->selected->priv;
-> +
-> +       if (rp) {
-> +               /*
-> +                * TODO: This is the incorrect format in JSON mode.
-> +                *       See prepare_timestamp()
-> +                */
-> +               if (ts)
-> +                       sprintf(prefix, "%6lu.%09lu%s%04x:%02x%s",
-> +                               ts->tv_sec, ts->tv_nsec,
-> +                               config->csv_sep, rp->domain, rp->bus,
-> +                               config->csv_sep);
-> +               else
-> +                       sprintf(prefix, "%04x:%02x%s", rp->domain, rp->bu=
-s,
-> +                               config->csv_sep);
-> +       }
-> +}
-> +
->  int iostat_prepare(struct evlist *evlist, struct perf_stat_config *confi=
-g)
->  {
->         if (evlist->core.nr_entries > 0) {
-> @@ -396,28 +418,6 @@ void iostat_release(struct evlist *evlist)
->         }
->  }
->
-> -void iostat_prefix(struct evlist *evlist,
-> -                  struct perf_stat_config *config,
-> -                  char *prefix, struct timespec *ts)
-> -{
-> -       struct iio_root_port *rp =3D evlist->selected->priv;
-> -
-> -       if (rp) {
-> -               /*
-> -                * TODO: This is the incorrect format in JSON mode.
-> -                *       See prepare_timestamp()
-> -                */
-> -               if (ts)
-> -                       sprintf(prefix, "%6lu.%09lu%s%04x:%02x%s",
-> -                               ts->tv_sec, ts->tv_nsec,
-> -                               config->csv_sep, rp->domain, rp->bus,
-> -                               config->csv_sep);
-> -               else
-> -                       sprintf(prefix, "%04x:%02x%s", rp->domain, rp->bu=
-s,
-> -                               config->csv_sep);
-> -       }
-> -}
-> -
->  void iostat_print_header_prefix(struct perf_stat_config *config)
->  {
->         if (config->csv_output)
-> --
-> 2.33.0
->
+	M.
+
+The following changes since commit 7fd2df204f342fc17d1a0bfcd474b24232fb0f32:
+
+  Linux 7.1-rc2 (2026-05-03 14:21:25 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git kvmarm-fixes-7.1-2
+
+for you to fetch changes up to effc0a39b8e0f30670fe24f51e44329d4324e566:
+
+  KVM: arm64: Pre-check vcpu memcache for host->guest donate (2026-05-07 14:12:42 +0100)
+
+----------------------------------------------------------------
+KVM/arm64 fixes for 7.1, take #2
+
+- Add the pKVM side of the workaround for ARM's erratum 4193714, provided
+  that the EL3 firmware does its part of the job. KVM will refuse to
+  initialise otherwise.
+
+- Correctly handle 52bit VAs for guest EL2 stage-1 translations when
+  running under NV with E2H==0.
+
+- Correctly deal with permission faults in guest_memfd memslots.
+
+- Fix the steal-time selftest after the infrastructure was reworked.
+
+- Make sure the host cannot pass a non-sensical clock update to the
+  EL2 tracing infrastructure.
+
+- Appoint Steffen Eiden as a reviewer in anticipation of the KVM/s390
+  ability to run arm64 guests, which will inevitably lead to arm64
+  code being directly used on s390.
+
+- Make sure that EL2 is configured with both exception entry and exit
+  being Context Synchronization Events.
+
+- Handle the current vcpu being NULL on EL2 panic.
+
+- Fix the selftest_vcpu memcache being empty at the point of donation or
+  sharing.
+
+- Check that the memcache has enough capacity before engaging on the
+  share/donate path.
+
+- Fix __deactivate_fgt() to use its parameter rather than a variable
+  in the macro context.
+
+----------------------------------------------------------------
+Alexandru Elisei (1):
+      KVM: arm64: Handle permission faults with guest_memfd
+
+Fuad Tabba (6):
+      KVM: arm64: Make EL2 exception entry and exit context-synchronization events
+      KVM: arm64: Guard against NULL vcpu on VHE hyp panic path
+      KVM: arm64: Fix __deactivate_fgt macro parameter typo
+      KVM: arm64: Seed pkvm_ownership_selftest vcpu memcache
+      KVM: arm64: Pre-check vcpu memcache for host->guest share
+      KVM: arm64: Pre-check vcpu memcache for host->guest donate
+
+James Morse (1):
+      KVM: arm64: Work around C1-Pro erratum 4193714 for protected guests
+
+Mostafa Saleh (1):
+      KVM: arm64: Remove potential UB on nvhe tracing clock update
+
+Sebastian Ott (1):
+      KVM: selftests: arm64: Fix steal_time test after UAPI refactoring
+
+Steffen Eiden (1):
+      MAINTAINERS: Add Steffen as reviewer for KVM/arm64
+
+Wei-Lin Chang (1):
+      KVM: arm64: nv: Consider the DS bit when translating TCR_EL2
+
+ MAINTAINERS                              |  1 +
+ arch/arm64/include/asm/kvm_nested.h      |  1 +
+ arch/arm64/include/asm/sysreg.h          |  2 +-
+ arch/arm64/kvm/arm.c                     | 21 ++++++++++++++
+ arch/arm64/kvm/hyp/include/hyp/switch.h  |  2 +-
+ arch/arm64/kvm/hyp/nvhe/clock.c          |  3 ++
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c    | 47 +++++++++++++++++++++++++++++++-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c           | 16 ++++++++++-
+ arch/arm64/kvm/hyp/vhe/switch.c          |  3 +-
+ arch/arm64/kvm/mmu.c                     | 29 ++++++++++++++------
+ include/linux/arm-smccc.h                |  6 ++++
+ tools/testing/selftests/kvm/steal_time.c |  2 ++
+ 12 files changed, 120 insertions(+), 13 deletions(-)
 
