@@ -4,83 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD38CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 03:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B41CD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 03:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZaiVA7FK64HzHiW79paCCu3hRwFlMBFKVgvgM3gbwUQ=; b=pAiJsYZErc1Sd6y0J8SRuxyP/m
-	5tGGNiLPG1ktTzDrpV1w9dLc15rYzJeN3zAla5OYo2W/QG0aQuV9PMn5IqXW8o65Rwtmx6Ckuyvil
-	hMlbODAS6t0fTPOEIPrf2BU+FlYMEcGzLl1iNyzZX4vUjA+FBNd6NRY3TZcPgfIDcvtG/gxB5Eq9T
-	ZsjZ1u2mwtdJQPGg0v/AzZbZvLbwcv/JokBS7P/UDpWSvsW0h2+q9ynEl4AziKhEq5KgTgs7bJD5R
-	OXtVgXeNZo0MzNtZBUIbF+/xeUtxUh3BK5oITcwKBW19uAZobS/Vo3dcestlT4P2TiyHdeKQtOZb8
-	9E32xTYw==;
+	bh=rZQFEwGWEejZnIjR16srvUHLZyDzW48Tun86OyBW5Vg=; b=cPSmKGeJpEnvRjAymnz5JJA3n9
+	icS5SjOjtSXwH3KR256aprFf5yj5Xhv3Ij8VqqwGWy1COmaz5axsfshnNIPU3G8h8nATnUkjKFwLQ
+	o4wZSiO93t/zCeHw9CufHRVgPqd7kb/7ymbVRAjftG6ERcZ4NqLdI5UFLWwflQiHQuv+0FdMfXru/
+	9DAOdN0pU/AUBFTPSZHRtbZzRKfgUei/82fNz5DrrixWod4A2c5X+iqaV7pLMh4aY72zFyWP9JZMd
+	3LG4VTOE9O49XhabZzw2dl18VxSE1wJUZC81FjE0xik0KF4JFSyEcm0o0pWqcA8x+YtY6HvuGZ4S1
+	Yr6SizAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKpeG-00000002f3j-0krg;
-	Thu, 07 May 2026 03:43:40 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKpeE-00000002f3L-1hue;
-	Thu, 07 May 2026 03:43:38 +0000
-Received: from [10.95.65.64] (unknown [167.220.238.64])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 33FE320B7165;
-	Wed,  6 May 2026 20:43:26 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 33FE320B7165
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1778125413;
-	bh=ZaiVA7FK64HzHiW79paCCu3hRwFlMBFKVgvgM3gbwUQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZNlBaGdBTGgWhXBzXBgqOVZm/b/shQdBDzoIUFvlVMUYDb35gRYc2aRNtfBtUwVde
-	 0yvNU7byjWVWhwL6ErC+tJLxcEwic9+viIQo4EvQsOVk3Ed9dZyD3pgRTvCuHQWwws
-	 ORdyFcW2lS6CP3jUPBUMPamNznpGn0N/JJmWavVk=
-Message-ID: <b9ab1860-ec82-4a82-abac-f099a3747ba8@linux.microsoft.com>
-Date: Thu, 7 May 2026 09:13:27 +0530
+	id 1wKptk-00000002gRx-27zG;
+	Thu, 07 May 2026 03:59:40 +0000
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKpti-00000002gRJ-1K1p
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 May 2026 03:59:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QlAy9NwatMejnYMaDadnFZ4ObPrQe2OIzsj7JYxePRQ/Fre9reJBB39aCaDGAV35UV4/AtRjFjXv5nscvAGH2flRjBriMPlCuOJROYg7CVAK76IKaNZ73ydZhsYYsPpn6JG3+vRg9Dtj9Yex+kS6Zze0MVzK1f6p53mA4mkTSgHe6VaidZjh9eAuEl99ZyP9k3iBWhbsJlvTEG6qXpQGj+29zvuVhlh1cNwQgBbCtJ+Bycj8MkuTl0fBuXcsZwM1D4WQ/H+xWS0H4HUErerBsiIqEpiTl8iYzjNuoxK8HEs7PZ31LBc8bA1pdt5ZZflgLZes0E8c+8eEVit22RYGAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rZQFEwGWEejZnIjR16srvUHLZyDzW48Tun86OyBW5Vg=;
+ b=P0ka/Uo0xg4fH4V2N6KS3Gux/P0PAVEn64qnf39J16BijmdL8eRnIkEjdOz24+PxKmjFWa4nx6MYailV9a1e5tX5aYNZ5TdCN0dJDwiBQS26YmLRB3QAo6l+hhaB/1WrBVJEQkBwIBNULIZRjY1r/pDY26FOW8dp5gm/FjsITEFwL+pFI8T2w4LD2nmCyJ3eOyIwr+ndlQBUIETO+1WRO5d0AHnHQU10+w2vTVn2GKoLvgdhF1PHuyrQDkRbAeHUgCEtjbQi/nE73A/nX9Wck6J1z6DsgSiZMEVm5+4CJ1EjFEfBDbm6VyWHLo0hNWFMErTdc9aFsvxSTITQ3LAXbg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rZQFEwGWEejZnIjR16srvUHLZyDzW48Tun86OyBW5Vg=;
+ b=Zs0KUFgD3xjpagyBqrLGlmYyQRZuhxhI4rK+fduMy+L7Osmd1PFeZ4IqgugUC1DKhJXkwdOabmgPJrQVd/WWq5RdjtLcOGewKlUYNlgQJLKjZfTMydEqE/upETpBoqKltZc6wQ5nYE7YukWWUII1SkrMVtfjIE6SP0oIi+/pYaY=
+Received: from DM6PR06CA0069.namprd06.prod.outlook.com (2603:10b6:5:54::46) by
+ DS7PR10MB4942.namprd10.prod.outlook.com (2603:10b6:5:3ab::24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9891.15; Thu, 7 May 2026 03:59:31 +0000
+Received: from DS1PEPF00017094.namprd03.prod.outlook.com
+ (2603:10b6:5:54:cafe::ff) by DM6PR06CA0069.outlook.office365.com
+ (2603:10b6:5:54::46) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.17 via Frontend Transport; Thu,
+ 7 May 2026 03:59:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ DS1PEPF00017094.mail.protection.outlook.com (10.167.17.137) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9891.9 via Frontend Transport; Thu, 7 May 2026 03:59:28 +0000
+Received: from DFLE210.ent.ti.com (10.64.6.68) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 6 May
+ 2026 22:59:09 -0500
+Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE210.ent.ti.com
+ (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 6 May
+ 2026 22:59:09 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 6 May 2026 22:59:09 -0500
+Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6473x4RY2782454;
+	Wed, 6 May 2026 22:59:05 -0500
+Message-ID: <4cd95d07-302c-4572-990b-e054d6d0d7d9@ti.com>
+Date: Thu, 7 May 2026 09:29:04 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/15] Drivers: hv: mshv_vtl: Move
- hv_vtl_configure_reg_page() to x86
-To: Michael Kelley <mhklinux@outlook.com>
-Cc: Marc Zyngier <maz@kernel.org>, Timothy Hayes <timothy.hayes@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Sascha Bischoff <sascha.bischoff@arm.com>,
- mrigendrachaubey <mrigendra.chaubey@gmail.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "vdso@mailbox.org" <vdso@mailbox.org>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- "K . Y . Srinivasan" <kys@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "x86@kernel.org" <x86@kernel.org>, "H . Peter Anvin" <hpa@zytor.com>,
- Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
- <20260423124206.2410879-10-namjain@linux.microsoft.com>
- <SN6PR02MB4157467FDBC0203C67A67042D4362@SN6PR02MB4157.namprd02.prod.outlook.com>
- <567cf73b-6a48-4fc3-b312-9be6d71e2f22@linux.microsoft.com>
- <SN6PR02MB4157AD364DE0755DE070D286D4312@SN6PR02MB4157.namprd02.prod.outlook.com>
- <024aed8c-cd97-45f0-a653-489fc334a2b9@linux.microsoft.com>
- <SN6PR02MB4157D109AF4B5C62EF7F0E2CD43F2@SN6PR02MB4157.namprd02.prod.outlook.com>
+Subject: Re: [PATCH v1] pmdomain: ti_sci: re-sync TIFS with genpd on resume
+To: Sebin Francis <sebin.francis@ti.com>, Vitor Soares <ivitro@gmail.com>,
+	Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, "Santosh
+ Shilimkar" <ssantosh@kernel.org>, Ulf Hansson <ulfh@kernel.org>
+CC: Vitor Soares <vitor.soares@toradex.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Tomi Valkeinen
+	<tomi.valkeinen@ideasonboard.com>, Kevin Hilman <khilman@baylibre.com>,
+	<vishalm@ti.com>, <d-gole@ti.com>, Devarsh Thakkar <devarsht@ti.com>,
+	<stable@vger.kernel.org>, Kendall Willis <k-willis@ti.com>
+References: <20260427074808.3244226-2-ivitro@gmail.com>
+ <1fb0739e-b84f-42f1-9c96-88b5cc5866a8@ti.com>
+ <c0fe43a2339c802e9ce5900092cd530a2ba17a6b.camel@gmail.com>
+ <17cbaadb-5aa7-40f4-848c-ba8e88fbd333@ti.com>
+ <0cad7e5e41b9e2c6ec545050dd0d3c6b3e085d2c.camel@gmail.com>
+ <bb80889e-0b25-4ea0-b895-83c2b1683272@ti.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
 Content-Language: en-US
-From: Naman Jain <namjain@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157D109AF4B5C62EF7F0E2CD43F2@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <bb80889e-0b25-4ea0-b895-83c2b1683272@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017094:EE_|DS7PR10MB4942:EE_
+X-MS-Office365-Filtering-Correlation-Id: c1395ffd-8b53-495c-7c1f-08deabed0973
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|376014|7416014|82310400026|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: n0D1hviRSuXX4u7YX9W3IB/OOqMcDpUHMrSb9T9FndqK4QJitwJsP8iYT8ib6klU6lgqeOmbd84MdQw3DiuALJWDBry4eYqSUVt4PHBkftTj4EtXfoOvXJVm94HbjtFyefuF8OdW+iGw/FLkzEWT1FhUbf15SAAGEJE3YXZ4NKe88UXh9ldKD5c69qO0oS1qeOs1lVJRr6JlhUct0gFrZpX9nnUFVypQi6OacedArkbp0N/6fwclrGGbwqN7cNRktLhEDyrMfqwSH+awWUQm/wdCYmahkridyeASpY0RZu6R4MDuxtfoJJQMVwIHCqT28q5Ekskttezx0L0d7aRJ3Ngm9WjRRdb6qbQto1EeKihdzBxU14bMSZFvw8OB2dIYm+e2e0LvkVNr5yNwYi9oLeMQ7TFMGR3gP/3LJDL7e7Va8Ia8owzlHpRm54IP/A0eKsI9tv4S5omkRcEDuxWYfvO5om+LrzxbXTUEgKHOiOuyBYdUc2+JLj2imuZK3zXQuYPILSLvrmz40h4UWMF3rJcnK9ng+KLZ7UXxQLE+1UJOitG/dCYo6smEFKq5pFf1l7aErWxAiKFUMY57dn6gjM/iMMo2JwkRLBijBJNrAxKOJUbxE5l/03ohKDEjoMxEaHqtouVS1Tsfmq3fq/MTWuu4O2T700WKQtjQXhnWX/QlFfp//UVgsQkYHC5eUCO/B0tdPtyBXFVieQClyX3JFi3+WUwJM0hPi4uyYUgKAjg=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(7416014)(82310400026)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 4St4tFo7+IArMXDBcgU1twtDODBiRkQZSx+V/suFuauPHLrkhFBqHf2pk5jXsilD56uXs9w1YyvrWaq2CSPtJNq3yGmIOQHj08/O2jyGkRO185pi1a7nuYXWQRRZHFmmhnEotoL1wc+IhnuoPpQ9C85Z7LmnawsJ2AX4jW912moic1w77k7h90yC2Fm1KkMaDUgSyAeXkfE2QH4P6Dl+b3toBIyS1EK0ajzRMq5o0HSpjg5xLOrN41frM+fcrzPP/uYlq9bBH+OFFI0S3hXqRMF/DPfRYU2tF8HhY9Qmc0jXb6Y03QRYSvNHc/scy9Gz6ZPGGvYie9sOYV1hAGozcv+RVL6ctEQ92Uwlhxc/2t8PmVIqCf+KqqC3+8PFM1LPPDk2fJ4OynvuJOmbxDROtP6nQCF0lG8R94Ym4ZDjW2d1jfTEvM2Z7OHsUOr11Rn1
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 03:59:28.6390
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c1395ffd-8b53-495c-7c1f-08deabed0973
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017094.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR10MB4942
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_204338_487349_394C3262 
-X-CRM114-Status: GOOD (  40.15  )
+X-CRM114-CacheID: sfid-20260506_205938_435861_692636A2 
+X-CRM114-Status: GOOD (  18.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,160 +142,230 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 5/6/2026 8:06 PM, Michael Kelley wrote:
-> From: Naman Jain <namjain@linux.microsoft.com> Sent: Tuesday, May 5, 2026 10:50 PM
+On 06/05/26 19:56, Sebin Francis wrote:
+> Hi Vitor
+> 
+> On 04/05/26 11:56, Vitor Soares wrote:
+>> Hello Sebin
 >>
->> On 5/4/2026 9:36 PM, Michael Kelley wrote:
->>> From: Naman Jain <namjain@linux.microsoft.com> Sent: Wednesday, April 29, 2026 2:58 AM
+>> On Thu, 2026-04-30 at 16:17 +0530, Sebin Francis wrote:
+>>> Hi Vitor,
+>>>
+>>> On 29/04/26 21:56, Vitor Soares wrote:
+>>>> Hi Vignesh
 >>>>
->>>> On 4/27/2026 11:10 AM, Michael Kelley wrote:
->>>>> From: Naman Jain <namjain@linux.microsoft.com> Sent: Thursday, April 23, 2026 5:42 AM
->>>>>>
->>>>>> Move hv_vtl_configure_reg_page() from drivers/hv/mshv_vtl_main.c to
->>>>>> arch/x86/hyperv/hv_vtl.c. The register page overlay is an x86-specific
->>>>>> feature that uses HV_X64_REGISTER_REG_PAGE, so its configuration belongs
->>>>>> in architecture-specific code.
->>>>>>
->>>>>> Move struct mshv_vtl_per_cpu and union hv_synic_overlay_page_msr to
->>>>>> include/asm-generic/mshyperv.h so they are visible to both arch and
->>>>>> driver code.
->>>>>>
->>>>>> Change the return type from void to bool so the caller can determine
->>>>>> whether the register page was successfully configured and set
->>>>>> mshv_has_reg_page accordingly.
->>>>>>
->>>>>> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
->>>>>> ---
->>>>>>     arch/x86/hyperv/hv_vtl.c       | 32 ++++++++++++++++++++++
->>>>>>     drivers/hv/mshv_vtl_main.c     | 49 +++-------------------------------
->>>>>>     include/asm-generic/mshyperv.h | 17 ++++++++++++
->>>>>>     3 files changed, 53 insertions(+), 45 deletions(-)
->>>>>>
+>>>> Thank you for the review.
 >>>>
->>>> <snip>
->>>>
->>>>>>     #if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
->>>>>> +/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
+>>>> On Wed, 2026-04-29 at 10:03 +0530, Vignesh Raghavendra wrote:
+>>>>> Hi Vitor
 >>>>>
->>>>> This comment pre-dates your patch, but I don't understand the point
->>>>> it is trying to make. The comment is factually true, but I don't know
->>>>> why calling that out is relevant. The REG_PAGE MSR seems to be
->>>>> conceptually separate and distinct from the SIMP MSR, so the fact
->>>>> that the layouts are the same is just a coincidence. Or is there some
->>>>> relationship between the two MSRs that I'm not aware of, and the
->>>>> comment is trying (and failing?) to point out?
+>>>>> On 27/04/26 13:18, Vitor Soares wrote:
+>>>>>> From: Vitor Soares <vitor.soares@toradex.com>
+>>>>>>
+>>>>>> When a device in a TI SCI power domain is on the wakeup path of a
+>>>>>> wakeup-capable child, the suspend path skips genpd_sync_power_off().
+>>>>>> No put_device is sent to TIFS and the domain's genpd status remains
+>>>>>> ON.
+>>>>>
+>>>>> Correction of terminologies: TIFS is Root of trust component and is
+>>>>> not
+>>>>> usually involved in power management, that would be DM (Device
+>>>>> Manager)
+>>>>>
 >>>>
->>>> This was added as per suggestion from Nuno in my initial series for
->>>> MSHV_VTL. If the reference in "identical to" is misleading, I should
->>>> remove it.
+>>>> Thank you for the clarification. I will address this on v2. Also, I was
+>>>> thinking
+>>>> to replace put_device/get_device with ti_sci_pd_power_off/
+>>>> ti_sci_pd_power_on
+>>>> if
+>>>> that makes more clear the content.
 >>>>
->>>> https://lore.kernel.org/all/68143eb0-e6a7-4579-bedb-4c2ec5aaef6b@linux.microsoft.com/
+>>>>> But to be really sure who is doing what, Could you provide an example
+>>>>> and the platform on which you see the issue / external abort?
+>>>>>
 >>>>
->>>> Quoting:
->>>> """
->>>> it is a generic structure that
->>>> appears to be used for several overlay page MSRs (SIMP, SIEF, etc).
+>>>> This was reproduced on our Toradex Verdin AM62P WB and the driver
+>>>> for our
+>>>> Wi-Fi
+>>>> module on the SDIO bus calls device_init_wakeup() during the
+>>>> initialization.
 >>>>
->>>> But, the type doesn't appear in the hv*dk headers explicitly; it's just
->>>> used internally by the hypervisor.
+>>>> After enter in suspend, it show the following error resume path:
 >>>>
->>>> I think it should be renamed with a hv_ prefix to indicate it's part of
->>>> the hypervisor ABI, and a brief comment with the provenance:
 >>>>
->>>> /* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */
->>>> union hv_synic_overlay_page_msr {
->>>> 	/* <snip> */
->>>> };
+>>>> [   41.759341] Internal error: synchronous external abort:
+>>>> 0000000096000010
+>>>> [#1]
+>>>> SMP
+>>>> [   41.843286] CPU: 0 UID: 0 PID: 933 Comm: rtcwake Tainted: G  
+>>>> M       O
+>>>> 6.18.21-dirty #3 PREEMPT
+>>>> [   41.852762] Tainted: [M]=MACHINE_CHECK, [O]=OOT_MODULE
+>>>> [   41.857891] Hardware name: Toradex Verdin AM62P WB on Verdin
+>>>> Development
+>>>> Board (DT)
+>>>> [   41.865537] pstate: 200000c5 (nzCv daIF -PAN -UAO -TCO -DIT -SSBS
+>>>> BTYPE=-
+>>>> -)
+>>>> [   41.872492] pc : regmap_mmio_read32le+0x8/0x20
+>>>> [   41.876941] lr : regmap_mmio_read+0x44/0x70
+>>>> [   41.881120] sp : ffff800081fdb8e0
+>>>> [   41.884428] x29: ffff800081fdb8e0 x28: 0000000000000000 x27:
+>>>> ffffa95bb64aa9c8
+>>>> [   41.891563] x26: 0000000000000000 x25: 0000000000000000 x24:
+>>>> 0000000000000000
+>>>> [   41.898697] x23: 0000000080000000 x22: ffff000002df5c00 x21:
+>>>> ffff800081fdb9b4
+>>>> [   41.905831] x20: 0000000000000100 x19: ffff000001286400 x18:
+>>>> 0000000000000000
+>>>> [   41.912965] x17: 2d69696d67722f79 x16: 687020726f662067 x15:
+>>>> ffff00007fb74f40
+>>>> [   41.920100] x14: 00000000000002ea x13: 000000000000031f x12:
+>>>> 0000000000000000
+>>>> [   41.927234] x11: 00000000000000c0 x10: 00000000000009e0 x9 :
+>>>> ffff800081fdb7a0
+>>>> [   41.934368] x8 : ffff00007fb6ce00 x7 : 0000000000000000 x6 :
+>>>> 0000000000000000
+>>>> [   41.941502] x5 : ffffa95bb57948d8 x4 : 0000000000000100 x3 :
+>>>> 0000000000000100
+>>>> [   41.948636] x2 : ffffa95bb5795034 x1 : 0000000000000100 x0 :
+>>>> ffff80008025d100
+>>>> [   41.955770] Call trace:
+>>>> [   41.958211]  regmap_mmio_read32le+0x8/0x20 (P)
+>>>> [   41.962655]  _regmap_bus_reg_read+0x70/0xb0
+>>>> [   41.966839]  _regmap_read+0x64/0xdc
+>>>> [   41.970327]  _regmap_update_bits+0xf4/0x140
+>>>> [   41.974509]  regmap_update_bits_base+0x64/0x98
+>>>> [   41.978952]  sdhci_am654_runtime_resume+0x138/0x208
+>>>> [   41.983830]  pm_generic_runtime_resume+0x2c/0x44
+>>>> [   41.988445]  __genpd_runtime_resume+0x30/0x7c
+>>>> [   41.992804]  genpd_runtime_resume+0xdc/0x2e8
+>>>> [   41.997073]  pm_runtime_force_resume+0x68/0xf4
+>>>> [   42.001517]  dpm_run_callback+0x8c/0x14c
+>>>> [   42.005439]  device_resume+0x11c/0x34c
+>>>> [   42.009188]  dpm_resume+0x178/0x1f0
+>>>> [   42.012673]  dpm_resume_end+0x18/0x34
+>>>> [   42.016332]  suspend_devices_and_enter+0x4a4/0x668
+>>>> [   42.021123]  pm_suspend+0x170/0x2dc
+>>>> [   42.024610]  state_store+0x80/0x104
+>>>> [   42.028096]  kobj_attr_store+0x18/0x2c
+>>>> [   42.031845]  sysfs_kf_write+0x7c/0x94
+>>>> [   42.035508]  kernfs_fop_write_iter+0x130/0x1fc
+>>>> [   42.039949]  vfs_write+0x200/0x370
+>>>> [   42.043351]  ksys_write+0x6c/0x100
+>>>> [   42.046752]  __arm64_sys_write+0x1c/0x28
+>>>> [   42.050673]  invoke_syscall.constprop.0+0x50/0xe4
+>>>> [   42.055378]  do_el0_svc+0x40/0xc4
+>>>> [   42.058691]  el0_svc+0x40/0x15c
+>>>> [   42.061834]  el0t_64_sync_handler+0xa0/0xe4
+>>>> [   42.066015]  el0t_64_sync+0x198/0x19c
+>>>> [   42.069680] Code: aa0603e0 d65f03c0 f9400000 8b214000 (b9400000)
+>>>>
+>>>>>
+>>>>>>
+>>>>>> TIFS powers off the hardware during deep sleep regardless, since it
+>>>>>> was never informed to keep the domain active. On resume, because the
+>>>>>> domain's genpd status is ON, no get_device is issued. The driver
+>>>>>> then accesses registers of a powered-off domain, causing a
+>>>>>> synchronous external abort (AXI bus error, ESR 0x96000010).
+>>>>>
+>>>>> Hmm, if something is wakeup source, I would expect even TIFS/DM not to
+>>>>> turn if off, else module wakeup wouldn't work.
+>>>>>
+>>>>
+>>>> I tested UART as a wakeup source and I couldn't reproduce this
+>>>> issue. My
+>>>> understanding is that UART has its own TI SCI domain and
+>>>> device_may_wakeup()
+>>>> is
+>>>> true directly on that domain device, so the set_device_constraint fires
+>>>> correctly and DM keeps it powered.
+>>>>
+>>>> Here is my tracking of the issue:
+>>>>
+>>>> Wi-Fi driver registers as wakeup source:
+>>>> device_init_wakeup(mmc0:0001)
+>>>>
+>>>> During suspend/resume.
+>>>> dpm_suspend()
+>>>> ->genpd_suspend_dev(fa20000.mmc)
+>>>>      ->ti_sci_pd_suspend(fa20000.mmc)
+>>>>         ->ti_sci_pd_set_wkup_constraint(fa20000.mmc)
+>>>>           device_may_wakeup(fa20000.mmc)  = false
+>>>>           set_device_constraint never sent to DM
+>>>>
+>>>>
+>>>> dpm_suspend_noirq()
+>>>> ->genpd_finish_suspend(fa20000.mmc)
+>>>>     ->device_awake_path(fa20000.mmc) = true
+>>>>     ->GENPD_FLAG_ACTIVE_WAKEUP = true
+>>>>       genpd status = GENPD_STATE_ON
+>>>>       skip power_off (ti_sci_pd_power_off)
+>>>>
+>>>> On deep sleep entry, DM powers off fa20000.mmc independently.
+>>>> It received no set_device_constraint nor ti_sci_pd_power_off.
 >>>
->>> OK, so this union is not associated *only* with the REG_PAGE MSR
->>> (though that MSR is the only current user). Instead, it is intended to
->>> be a more generic description of MSRs that set up overlay pages. I
->>> don't think I had previously noticed Nuno's comment on the topic.
+>>> In AM62P fa20000.mmc is part of main domain. During deepsleep the entire
+>>> main domain is turned off by the DM, that is why you see the failures.
 >>>
->>> Looking through hvgdk_mini.h and hvhdk.h, I see 6 definitions that
->>> are exactly the same:
+>>> In-order to debug this we need to check why pd off and pd on call is not
+>>> getting called for fa20000.mmc during suspend and resume.
+>>
+>> This is an expected behavior from genpd. On suspend,
+>> ti_sci_pd_power_off is not
+>> called because genpd_finish_suspend() takes an early return when both
+>> device_awake_path() and GENPD_FLAG_ACTIVE_WAKEUP are true.
+>>                                                                 On
+>> resume, ti_sci_pd_power_on is not called because genpd sees the domain
+>> status
+>> as GENPD_STATE_ON (it was never cleared) and skips the power-on entirely.
+>>
 >>>
->>> * union hv_reference_tsc_msr
->>> * union hv_x64_msr_hypercall_contents
->>> * union hv_vp_assist_msr_contents
->>> * union hv_synic_simp
->>> * union hv_synic_siefp
->>> * union hv_synic_sirbp
+>>>>
+>>>> I attempted to fix this by calling set_device_constraint when
+>>>> device_wakeup_path() is true but it prevented the system from
+>>>> entering deep
+>>>> sleep entirely.
 >>>
->>> There's an argument to be made for removing these 6 unique definitions
->>> and using union hv_synic_overlay_page_msr instead (though "synic"
->>> would need to be removed from the name).  I would not object to such
->>> an approach. It's a small extra layer of conceptual indirection, but saves
->>> some lines of code for duplicative definitions. The alternative is to drop
->>> the idea of a generic overlay page MSR layout, and replace union
->>> hv_synic_overlay_page_msr with a definition that is specific to the
->>> REG_PAGE MSR, like the other six above.
+>>> In AM62P the DM manager selects the low power mode to enter based on the
+>>> constrains set. The mode selection logic will ensure that if a
+>>> constraint is set on the device, it will select a low power mode in
+>>> which the device is kept on or can wake the system up. the MMC is part
+>>> of main domain and there is no low power mode in which the MMC can stay
+>>> alive or generate a wake up interrupt. so when a constraint is set of
+>>> MMC, we cannot enter any low power mode. that why you see a failure.
 >>>
 >>
->> Hi Michael,
->>
->> While having a generic definition looks good to have here, I can see two
->> reasons for not going ahead with generic overlay page definition:
->> 1. All of the above definitions are present in Hyper-V headers and
->> generalizing them would deviate from the strategy of keeping the kernel
->> headers in line with Hyper-V headers.
->> 2. For any of these definitions, if the use-case requires using some of
->> these reserved bits, then it would be a problem. I can actually see that
->> happening in "hv_x64_msr_hypercall_contents" in the corresponding
->> variant in the Hyper-V header.
+>> This is consistent with what we observed. I am open to suggestions if
+>> there is a
+>> better way to handle this.
 > 
-> Your points are certainly valid, and I'm good with not going the
-> generic route.
+> We looked into this issue and found the root-cause. What we have
+> identified is that, there was bug in our ti_sci driver. In ti_sci driver
+> we were not handling the devices in which the child device can act as a
+> wake up source, we only handled the cases in which the device can act as
+> a wake up source. Kendall is working on fix for this. soon she will post
+> the fix.
 > 
->>
->>> I could go either way. If we want to use a generic overlay page definition,
->>> then that approach should be applied everywhere. With the current
->>> state of your patch set, we're halfway in between -- the generic definition
->>> is used one place, but duplicative specific MSR definitions are used other
->>> places. That's probably the least desirable approach.
->>>
->>> Michael
->>
->>
->> Now, coming back to the hv_synic_overlay_page_msr definition. While
->> Nuno's comment hinted at it being "generic", the same is not documented
->> in the name of this structure or its comments. So it should be safe to
->> assume that it is specific to synic_overlay_page_msr usage. But since it
->> is not part of Hyper-V header as such, we needed that comment:
->> "/* SYNIC_OVERLAY_PAGE_MSR - internal, identical to hv_synic_simp */"
->>
+> With the fix, if you suspend it will fail because the wake up is enabled
+> for the WiFi, as a constraint will be sent to the DM firmware and DM
+> will NACK the suspend because it cannot suspend with WiFi acting as a
+> wake up source. But you can disable the wake up of WiFi from the sysfs
+> entry and try suspend then suspend and resume will work.
 > 
-> An "overlay page" is a generic concept in the Hyper-V world, and it is used
-> in multiple places in the guest<->hypervisor interface. The old PDF version of
-> the Hyper-V TLFS describes overlay pages in the section 5.2.1 entitled "GPA
-> Overlay Pages". See [1]. Unfortunately, this material about overlay pages
-> doesn't seem to have been carried over to the web page version of the TLFS.
-> 
-> So in my thinking, the name "hv_synic_overlay_page_msr" is inherently
-> a generic definition that could be applied to multiple MSRs that are used to
-> specify overlay pages. Your patch is about a specific MSR,
-> HV_X64_REGISTER_REG_PAGE, which happens to be used to define an
-> overlay page. But if the decision is to *not* go the generic route, I
-> would expect to see something like "union hv_x64_reg_page_msr"
-> that is specific to the REG_PAGE MSR, and to have that type used in
-> hv_vtl_configure_reg_page(). The definition of hv_x64_reg_page_msr
-> would not have a comment referencing the SIMP or any other MSR
-> because it would be a standalone definition that is specific to
-> HV_X64_REGISTER_REG_PAGE. Then the pattern would be the same as
-> the other six cases that I listed above.
-> 
-> When not using the generic approach, hv_synic_overlay_page_msr
-> really has no purpose, and could go away.
-> 
-> Michael
-> 
-> [1] https://github.com/MicrosoftDocs/Virtualization-Documentation/raw/live/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v6.0b.pdf
 
+To avoid above and still have wakeup from WiFi supported (if needed), 
+this should use IO Daisy chain as the wakeup source and not SDIO 
+directly (MMC IP isnt capable of waking up the system but any activity 
+on the IOPAD can wakeup the system (similar to Main UART)
 
-Thanks for suggesting this, I was not aware of it. I'll change it to 
-hv_x64_reg_page_msr and remove the comment.
+https://software-dl.ti.com/processor-sdk-linux/esd/AM62PX/latest/exports/docs/linux/Foundational_Components/Power_Management/pm_wakeup_sources.html#main-i-o-daisy-chain
 
-Regards,
-Naman
+[...]
+
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
 
