@@ -4,99 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1926CCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 354ABCD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vhLkLTolbyFKFrJFgOsn5aZNEw5iIaEfKoEnlONf3Ys=; b=wSm93P14k4f0sKDoFnf20ZQFsy
-	le+m9s3Qz/L9J49gmweXUuD16kUZ7V4phHC+c1L2HcJ0j/wwWLKTo6DFFOOB+lnrNUa+10TYo1/1D
-	MybYF4KgF0185zkqIaWBlsCoYqC1LX5Xz4GcjmtshybrkYhlkywOtcJP0Qg4F59g8dH6TLOxh7wNm
-	2MB1yHrGZ8XA6xIc8YA+mU1kJUoHBVzidKbhiksZoLc+eVutKdUkPUzEkxjCNFljNdOaFcd1RZ9jM
-	BolT1N+EmxlOgvOXdge4LiO0ineN/3/VVt3+qQGirGarHGSqkmtgKJMbiQswiIAcSVXD7ptOH1+ob
-	YmyYXmvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tv6ESL3sqOkfsUQX3nZNF8lwSawGbrEYEhFUcZ/x1Kc=; b=2eGvnO1X9gW0vYpXE/7L5oNwcj
+	d8/aDcjultJbgFzinzjvYjzwRqC+2Ru0lwZPcabWAjPUWLODRkkkBYuCVhJ9Cawl5w3/DY2+J1mBB
+	xDraBTjp4iLm6jlgyOaZ/7r8UiI9Y2ETe70YaWGDVmL7ArhkTIM4qm9ebGPXJssXslrWBEIPqooo/
+	cs30NAepOUl83PYMpmRLkjkQyzp6hU+q9Ov4naVlTge6eLcboMoE+P8r0VLY0fTVIJSwOejwd9Gnw
+	6SM7feiJKoADttja3F7t63DDBehZchjxZtvNAySSkKOEcWzC3yupNhWUkFMUT24sg5u9sC5BmcFe1
+	gvrg8L4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvU0-00000003PxV-3Y3D;
-	Thu, 07 May 2026 09:57:28 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wKvVQ-00000003QIr-0sFs;
+	Thu, 07 May 2026 09:58:56 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvTy-00000003PwS-04fS
+	id 1wKvVO-00000003QIC-2ngt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 09:57:27 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-488ad135063so5861635e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:57:24 -0700 (PDT)
+	Thu, 07 May 2026 09:58:55 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-c801ba7685cso368337a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:58:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778147843; x=1778752643; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vhLkLTolbyFKFrJFgOsn5aZNEw5iIaEfKoEnlONf3Ys=;
-        b=cb39xyw12q/5F7ubLrK9HJBptEPlg0TceEzgL4neXVy+Dv5ncgWkHhLgpMiDw4Ouwu
-         GWaxJVgHXNpbfaAv8yqf0ivZiwujVVuFIdnKOY9CZK/oMleOU/DTqeh5mHB1dE/2Bw83
-         KV2D5PqvQV3YG6Avo8YpW5g+a/JxQd6DtLRFFVTPne8MmUtWQFoxxtD33Q9lRnON2qwt
-         p7syByG4Q9gGzovYxHsj6FRosCLpGrfVSuY/l4jbRMx/kouCw6Ssd0nEPY7EKmizc7qi
-         99oB8nFxMA8BGUZn4NlQIDNT0rHY6P+Sj4vssmhBlYnOAsXZnOSx5K6l+IV6yylTXemL
-         NULw==
+        d=google.com; s=20251104; t=1778147933; x=1778752733; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Tv6ESL3sqOkfsUQX3nZNF8lwSawGbrEYEhFUcZ/x1Kc=;
+        b=ebrr3lnNNGqPqLkU69x2nZCF9BHdzHmKy9pARtxHBIiZiZmTuptXFDFaoCPnzAt6fV
+         XRbsNpR56g0AGOGfnZZ2bDFbafhMFbusUCHqbBlXzwXaqj6XoFXhfxIAGARtWsiB52f2
+         tF2EgFlJ3kRHrDYKuQbGOYAQF3nsx8KJ8RxwqCuElbjPb1Yk6xPkrGMwqV0zlvJzIyAt
+         CqSUA1E27wTDbz+xRT4ejCt7j4PtxSZJhC43KNujXpJek8gdHOwEtbzGLID0xZEomuNb
+         8Pd4Ck73Au0RO2BvYEJWBjyZx9fpVKzgWBJJ1/uWbqplLNltTK7j6+pfvg1RPLPr4pko
+         loaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778147843; x=1778752643;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=vhLkLTolbyFKFrJFgOsn5aZNEw5iIaEfKoEnlONf3Ys=;
-        b=lx0IEht3AXGeueFpeGjykeiZt5wUwJgzbooZhrfUy+7BlzOnP6t6COH78V77b/UCPJ
-         m+HLEeMTZMsdjTQCB3Y3bfo8YMb8zdTD8doAF9Vh3fFpbjjIHVZowxdghOdBN1eVdYjv
-         ZCjXzdoKVOOxDJ/qqDQVywCMwhnCEAA8dZDJyxv3u9PVfK9IqKfoU6euF6KROLO+n+JR
-         LecYNZO3p446Bn0bpBr90wt875g3zfIhxgDg34ONzm01Ip+yYgwXw57iuMzN3C3/k0L9
-         eY2xRpKnkyuu3q8o6PRsUvHfdGb/ruezzi5Bu7KYSPm8QEZsP+Y2C0H20MK/+MYitosZ
-         wQAg==
-X-Forwarded-Encrypted: i=1; AFNElJ9ZhWEGpwl73hdFmgo/lGxAWb4wX6u0m1cmoLmWKZRzt2kJKeq0zSw7bhstJ73gL6YaSiOyDFRiVkCqbTsBEB5G@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFw0u/nBfcaFt4nGYo5k0sWoUAjEsz7H5wgx0PbNMxT4RjJhPN
-	p84Ay+2aA8QjzQSqEiRqiRrez6xhTXvNhmXX4NnbqhQV9Yd1kHkzGEYOEeOjUpAl
-X-Gm-Gg: AeBDievaxDCzv2jjyPwKpzd38QRV0zt486VQMQ3ZTvs37Y1aRdhKU1Y8yMdPHYkML6m
-	qTRPay8djT/81hmxcI7T93hAqRKGgOjfOYoszi5o4mB5hfajaqSsdDoa6i0HB1oWKue+J8iCM3C
-	lHAQhvYN6ly4q7xbMJbn5O4Zi78YbzEUKnhfbAwTYGesb8JV27Mnqm2n2UWWahZqSpcSQRRFBzG
-	mqxVXWtNKJEFbcsSeAuiCQ/+DM/v4X83brnOs6rpULx8VZ9uixO0V1Qw59FQUCg4i5KcfR+ZyYe
-	02l2U8Y1EAIEpH9mFCu2fdgt1v8ysAGmlwssY+BIMKeAKkC7zL4X5sRD+Mvy4myFLxwE1y8pMUK
-	CxUgBMtuySumzTLyRY3mF/oazH51pOGZLjeHDICcIei0ZRaLtv4aAvXCzVDSnrKPXfrfw34Bp5n
-	pBllkyKBt0ozhR/wC/En7TQMRV/IQymZpvpegjy2kxee9450OHfjVwbff7AWnLmk16uunutLs=
-X-Received: by 2002:a05:600c:1e8a:b0:488:fd7e:1063 with SMTP id 5b1f17b1804b1-48e51f4cdcdmr114717615e9.29.1778147843159;
-        Thu, 07 May 2026 02:57:23 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e538ca8c0sm104145975e9.13.2026.05.07.02.57.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 May 2026 02:57:22 -0700 (PDT)
-Date: Thu, 7 May 2026 10:57:21 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com,
- will@kernel.org, peterz@infradead.org, akpm@linux-foundation.org,
- mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
- rafael@kernel.org, daniel.lezcano@linaro.org, memxor@gmail.com,
- zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com, rdunlap@infradead.org,
- joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
- konrad.wilk@oracle.com, ashok.bhat@arm.com
-Subject: Re: [PATCH v11 01/14] asm-generic: barrier: Add
- smp_cond_load_relaxed_timeout()
-Message-ID: <20260507105721.66ba1e45@pumpkin>
-In-Reply-To: <87o6isl0nl.fsf@oracle.com>
-References: <20260408122538.3610871-1-ankur.a.arora@oracle.com>
-	<20260408122538.3610871-2-ankur.a.arora@oracle.com>
-	<874iklm1uy.fsf@oracle.com>
-	<20260506095836.216d9cc5@pumpkin>
-	<87o6isl0nl.fsf@oracle.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+        d=1e100.net; s=20251104; t=1778147933; x=1778752733;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Tv6ESL3sqOkfsUQX3nZNF8lwSawGbrEYEhFUcZ/x1Kc=;
+        b=g/Qy5ofvJskBgXlzEgfau+RcJr8UmeCQ7S4fCY7EHTGD151Mjhqq1HK/7ZGP4Hv379
+         /Mcmm+E3NC1YPocDYQDHBQlKfuJpqzTa1gj6/CKOIT6eTg4O1aImRbahaRTE/jmdvKVf
+         2oibtCGEc937AgPoBeofqxMVNNSA2ewUKTSYmtpld/iZUc/5Yz5cQu2UbyZ7T1BsFKNw
+         IN+yCcfokhR8f0K/ETaLbO1GZCApSYGdY6SSmNs3Olph/+mi6MwBTmyD90TMuNXGn5TF
+         CUVox+TYosAnYlqsEOBz/Q6hk2lcItFbrkMNrathbVsSwQNhKHiqdQa8rmO4MGte8sN/
+         n/0w==
+X-Forwarded-Encrypted: i=1; AFNElJ/jfQOTXDmmQO4NgXsriHObXmAonkLLLTZdnHHrAhtta2fZGyhQcKEGWFRiClq2NdjkoDAdT0iTQ3AONNmTjokc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQgxyAYViHiwez5L4L1lYaLVm52n6l0Ty58VjBn2Dk4rUdUl02
+	xfLMVhPQ5IgPomrPqboDL01due0Pn/MiU19Dq/eOYnREzv2QkZfhlIOYeSyXPX2393lhnrifRke
+	/t00/U+OhTLevQCADuO2oPzTvxw==
+X-Received: from pgac3.prod.google.com ([2002:a05:6a02:2943:b0:c6e:228a:f070])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a21:6d88:b0:39b:e710:e2e2 with SMTP id adf61e73a8af0-3aa5ac1ae28mr8112180637.46.1778147932850;
+ Thu, 07 May 2026 02:58:52 -0700 (PDT)
+Date: Thu,  7 May 2026 09:58:51 +0000
+In-Reply-To: <20260424133953.GY3611611@ziepe.ca>
+Mime-Version: 1.0
+References: <20260424133953.GY3611611@ziepe.ca>
+X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
+Message-ID: <20260507095851.3220765-1-joonwonkang@google.com>
+Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
+From: Joonwon Kang <joonwonkang@google.com>
+To: jgg@ziepe.ca
+Cc: Alexander.Grest@microsoft.com, amhetre@nvidia.com, 
+	baolu.lu@linux.intel.com, iommu@lists.linux.dev, joonwonkang@google.com, 
+	joro@8bytes.org, jpb@kernel.org, kees@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	nicolinc@nvidia.com, praan@google.com, robin.murphy@arm.com, 
+	smostafa@google.com, will@kernel.org, jacob.jun.pan@linux.intel.com, 
+	easwar.hariharan@linux.microsoft.com, kevin.tian@intel.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_025726_134766_6425CDF1 
-X-CRM114-Status: GOOD (  64.54  )
+X-CRM114-CacheID: sfid-20260507_025854_714664_246D5D55 
+X-CRM114-Status: GOOD (  33.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,318 +93,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 May 2026 13:54:06 -0700
-Ankur Arora <ankur.a.arora@oracle.com> wrote:
+Hi Jason, thank you for your review and sorry for the late reply.
 
-> David Laight <david.laight.linux@gmail.com> writes:
+> On Fri, Apr 24, 2026 at 08:53:39AM +0000, Joonwon Kang wrote:
+> > For SVA, the IOMMU core always allocates PASID from the global PASID
+> > space. The use of this global PASID space comes from the limitation of
+> > the ENQCMD instruction in Intel CPUs that it fetches its PASID operand
+> > from IA32_PASID, which is per-task.
 > 
-> > On Wed, 06 May 2026 00:30:29 -0700
-> > Ankur Arora <ankur.a.arora@oracle.com> wrote:
-> >  
-> >> Ankur Arora <ankur.a.arora@oracle.com> writes:
-> >>  
-> >> > Add smp_cond_load_relaxed_timeout(), which extends
-> >> > smp_cond_load_relaxed() to allow waiting for a duration.
-> >> >
-> >> > We loop around waiting for the condition variable to change while
-> >> > peridically doing a time-check. The loop uses cpu_poll_relax() to slow
-> >> > down the busy-wait, which, unless overridden by the architecture
-> >> > code, amounts to a cpu_relax().
-> >> >
-> >> > Note that there are two ways for the time-check to fail: the timeout
-> >> > case or, @time_expr_ns returning an invalid value (negative or zero).
-> >> > The second failure mode allows for clocks attached to the clock-domain
-> >> > of @cond_expr --  which might cease to operate meaningfully once some
-> >> > state internal to @cond_expr has changed -- to fail.
-> >> >
-> >> > Evaluation of @time_expr_ns: in the fastpath we want to keep the
-> >> > performance close to smp_cond_load_relaxed(). So defer evaluation
-> >> > of the potentially costly @time_expr_ns to the slowpath.
-> >> >
-> >> > This also means that there will always be some hardware dependent
-> >> > duration that has passed in cpu_poll_relax() iterations at the time
-> >> > of first evaluation. Additionally cpu_poll_relax() is not guaranteed
-> >> > to return at timeout boundary. In sum, expect timeout overshoot when
-> >> > we exit due to expiration of the timeout.
-> >> >
-> >> > The number of spin iterations before time-check, SMP_TIMEOUT_POLL_COUNT
-> >> > is chosen to be 200 by default. With a cpu_poll_relax() iteration
-> >> > taking ~20-30 cycles (measured on a variety of x86 platforms), we
-> >> > expect a time-check every ~4000-6000 cycles.
-> >> >
-> >> > The outer limit of the overshoot is double that when working with the
-> >> > parameters above. This might be higher or lower depending on the
-> >> > implementation of cpu_poll_relax() across architectures.
-> >> >
-> >> > Lastly, config option ARCH_HAS_CPU_RELAX indicates availability of a
-> >> > cpu_poll_relax() that is cheaper than polling. This might be relevant
-> >> > for cases with a long timeout.
-> >> >
-> >> > Cc: Arnd Bergmann <arnd@arndb.de>
-> >> > Cc: Will Deacon <will@kernel.org>
-> >> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> >> > Cc: Peter Zijlstra <peterz@infradead.org>
-> >> > Cc: linux-arch@vger.kernel.org
-> >> > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> >> > Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
-> >> > ---
-> >> > Notes:
-> >> >    - add a comment mentioning that smp_cond_load_relaxed_timeout() might
-> >> >      be using architectural primitives that don't support MMIO.
-> >> >      (David Laight, Catalin Marinas)
-> >> >
-> >> >  include/asm-generic/barrier.h | 69 +++++++++++++++++++++++++++++++++++
-> >> >  1 file changed, 69 insertions(+)
-> >> >
-> >> > diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
-> >> > index d4f581c1e21d..e5a6a1c04649 100644
-> >> > --- a/include/asm-generic/barrier.h
-> >> > +++ b/include/asm-generic/barrier.h
-> >> > @@ -273,6 +273,75 @@ do {									\
-> >> >  })
-> >> >  #endif
-> >> >
-> >> > +/*
-> >> > + * Number of times we iterate in the loop before doing the time check.
-> >> > + * Note that the iteration count assumes that the loop condition is
-> >> > + * relatively cheap.
-> >> > + */
-> >> > +#ifndef SMP_TIMEOUT_POLL_COUNT
-> >> > +#define SMP_TIMEOUT_POLL_COUNT		200
-> >> > +#endif
-> >> > +
-> >> > +/*
-> >> > + * Platforms with ARCH_HAS_CPU_RELAX have a cpu_poll_relax() implementation
-> >> > + * that is expected to be cheaper (lower power) than pure polling.
-> >> > + */
-> >> > +#ifndef cpu_poll_relax
-> >> > +#define cpu_poll_relax(ptr, val, timeout_ns)	cpu_relax()
-> >> > +#endif
-> >> > +
-> >> > +/**
-> >> > + * smp_cond_load_relaxed_timeout() - (Spin) wait for cond with no ordering
-> >> > + * guarantees until a timeout expires.
-> >> > + * @ptr: pointer to the variable to wait on.
-> >> > + * @cond_expr: boolean expression to wait for.
-> >> > + * @time_expr_ns: expression that evaluates to monotonic time (in ns) or,
-> >> > + *  on failure, returns a negative value.
-> >> > + * @timeout_ns: timeout value in ns
-> >> > + * Both of the above are assumed to be compatible with s64; the signed
-> >> > + * value is used to handle the failure case in @time_expr_ns.
-> >> > + *
-> >> > + * Equivalent to using READ_ONCE() on the condition variable.
-> >> > + *
-> >> > + * Callers that expect to wait for prolonged durations might want
-> >> > + * to take into account the availability of ARCH_HAS_CPU_RELAX.
-> >> > + *
-> >> > + * Note that @ptr is expected to point to a memory address. Using this
-> >> > + * interface with MMIO will be slower (since SMP_TIMEOUT_POLL_COUNT is
-> >> > + * tuned for memory) and might also break in interesting architecture
-> >> > + * dependent ways.
-> >> > + */
-> >> > +#ifndef smp_cond_load_relaxed_timeout
-> >> > +#define smp_cond_load_relaxed_timeout(ptr, cond_expr,			\
-> >> > +				      time_expr_ns, timeout_ns)		\
-> >> > +({									\
-> >> > +	typeof(ptr) __PTR = (ptr);					\
-
-		auto __PTR = ptr;
-
-> >> > +	__unqual_scalar_typeof(*ptr) VAL;				\
-
-It can't matter if integer promotions before assigning to VAL.
-So something like:
-		auto VAL = 1 ? 0 : *__PTR + 0;
-will generate a suitable writable variable.
-(The '+ 0' is needed because some versions of gcc incorrectly propagate
-'const'.)
-
-> >> > +	u32 __n = 0, __spin = SMP_TIMEOUT_POLL_COUNT;			\
-> >> > +	s64 __timeout = (s64)timeout_ns;				\
-
-The (s64) cast can only hide errors.
-
-> >> > +	s64 __time_now, __time_end = 0;					\
-> >> > +									\
-> >> > +	for (;;) {							\
-> >> > +		VAL = READ_ONCE(*__PTR);				\
-> >> > +		if (cond_expr)						\
-> >> > +			break;						\
-> >> > +		cpu_poll_relax(__PTR, VAL, (u64)__timeout);		\
-
-That doesn't look right, __timeout is relative; if the underlying code
-uses the timeout then the code delays for 200 * timeout_ns before even
-looking at the actual time.
-If you want to spin then you may not even want the cpu_relax() at all.
-(Or with a very short timeout as in the version below.)
-
-> >> > +		if (++__n < __spin)					\
-> >> > +			continue;					\
-> >> > +		__time_now = (s64)(time_expr_ns);			\
-
-Another cast that can only hide bugs.
-
-> >> > +		if (unlikely(__time_end == 0))				\
-> >> > +			__time_end = __time_now + __timeout;		\
-> >> > +		__timeout = __time_end - __time_now;			\
-> >> > +		if (__time_now <= 0 || __timeout <= 0) {		\
-> >> > +			VAL = READ_ONCE(*__PTR);			\
-> >> > +			break;						\
-> >> > +		}							\
-> >> > +		__n = 0;						\
-
-Resetting the spin count doesn't look right at all.
-In principle the code will delay for 200 * __timeout.
-Possibly the earlier check should be:
-			if (__n < __spin) {
-				__n++;
-				continue;
-			}
-(Or just don't worry that the code will spin again after 4M loops.
-The problem you have is that if cpu_poll_relay() ignores the timeout you
-probably want to spin 'for a bit' in code that only accesses local data
-(in particular avoiding evaluating cond_expr or time_expr_ns).
-
-> >> > +	}								\
-> >> > +	(typeof(*ptr))VAL;						\
-
-That cast is pointless; the return value will be subject to 'integer promotion'
-and converted to a rvalue - which removes any const/volatile qualifiers. 
-
-> >> > +})
-> >> > +#endif
-> >> > +  
-> >>
-> >> A cluster of issues that got flagged by sashiko was around timeout_ns
-> >> being specified as s64 and a bunch of potential edge cases around
-> >> that.
-> >>
-> >> These were mostly caused by an implicit assumption in the code that
-> >> the timeout specified by the caller is generally reasonable. So, way
-> >> below S64_MAX, not 0 etc.  
-> >
-> > There are plenty of ways kernel code can break things.
-> > Provided this code doesn't itself overwrite anywhere (rather than
-> > just loop forever or return immediately etc) I'd be tempted to
-> > just document the valid range rather than slow everything down
-> > with the extra tests.  
-> 
-> I don't disagree. In this case, however, it's somewhat borderline.
-> 
-> On the pro side, we get rid of some of the implicit type conversions
-> and assumptions around those.
-> 
-> On the negative, it adds an extra modulo operation in the slow path.
-> And, the for loop is structured a little differently from the usual
-> version.
-> 
-> On balance, I think this is a good change if only because it makes
-> the types a little more explicit.
-> 
-> Ankur
-> 
-> > 	David
-> >  
-> >>
-> >> I think this is worth cleaning up a bit. The change is mostly around
-> >> introducing a u32 __itertime and explicitly computing the waiting time.
-> >> And adding a check to ensure that we start with a valid value.
-> >>
-> >> This does make the implementation a little more involved. So just wanted
-> >> to see if people have any opinions on this?
-> >>
-> >> +#ifndef smp_cond_load_relaxed_timeout
-> >> +#define smp_cond_load_relaxed_timeout(ptr, cond_expr,          \
-> >> +                                     time_expr_ns, timeout_ns) \
-> >> +({                                                             \
-> >> +       typeof(ptr) __PTR = (ptr);                              \
-> >> +       __unqual_scalar_typeof(*(ptr)) VAL;                     \
-> >> +       u32 __count = 0, __spin = SMP_TIMEOUT_POLL_COUNT;       \
-> >> +       s64 __timeout = (s64)(timeout_ns);                      \
-> >> +       s64 __time_now, __time_end = 0;                         \
-> >> +       u32 __maybe_unused __itertime;                          \
-> >> +                                                               \
-> >> +       for (__itertime = NSEC_PER_USEC;                        \
-
-Ok, so that limits the initial 'spin' to 200 usecs.
-That gets added to any caller-specified timeout.
-
-> >> +               VAL = READ_ONCE(*__PTR), __timeout > 0; ) {     \
-
-Broken indentation.
-I'd change it back to a for (;;) loop.
-
-If __timeout <= 0 then the code goes through the 'timer expired'
-path (below) on the first iteration.
-So the extra check is just bloat.
-
-> >> +               if (cond_expr)                                  \
-> >> +                       break;                                  \
-> >> +               cpu_poll_relax(__PTR, VAL, __itertime);         \
-> >> +               if (++__count < __spin)                         \
-> >> +                       continue;                               \
-> >> +               __time_now = (s64)(time_expr_ns);               \
-> >> +               if (unlikely(__time_end == 0))                  \
-> >> +                       __time_end = __time_now + __timeout;    \
-> >> +               __timeout = __time_end - __time_now;            \
-> >> +               if (__time_now <= 0 || __timeout <= 0) {        \
-> >> +                       VAL = READ_ONCE(*__PTR);                \
-> >> +                       break;                                  \
-> >> +               }                                               \
-
-How about:
-			if (unlikely(__time_end == 0)) {
-				if (__time_now <= 0)
-					goto timed_out;
-				__time_end = __time_now + __timeout;
-			} else {
-				if (__time_now >= __time_end) {
-timed_out:
-					VAL = READ_ONCE(*__PTR);
-					break;
-				}
-				__timeout = __time_end - __time_now;
-			}
-				
-> >> +               __itertime = __timeout % NSEC_PER_MSEC +        \
-> >> +                               NSEC_PER_USEC;                  \
-
-That seems to just be putting a bound on the timeout.
-So the '% NSEC_PER_MSEC' could be '& ((1u << 20) - 1)'
-replacing an expensive signed divide with a cheap mask.
-
-But overall this is a lot of code to inline.
-It has to be possible to get it down to something like:
-	struct info info = { .tmo_ns = timeout_ns };
-	for (;;) {
-		VAL = READ_ONCE(PTR);
-		if (cond_expr)
-			break;
-		if (_smp_cond_load_relaxed_timeout(&info, PTR, VAL))
-			break;
-	}
-	VAL;
-(yes, I know it isn't that simple because the arm 'relax' code
-has a re-read in it so needs to know the size.)
-
--- David
-
-
-> >> +               __count = 0;                                    \
-> >> +       }                                                       \
-> >> +       (typeof(*(ptr)))VAL;                                    \
-> >> +})
-> >> +#endif
-> >>
-> >> Thanks
-> >>
-> >> --
-> >> ankur
-> >>  
-> 
-> 
-> --
-> ankur
+> That's right, and all the iommu drivers should have no issue with
+> per-device pasid or they are not following the API contract..  I
+> believe that has been taking care of already.
 > 
 
+Thanks for this info that every IOMMU should support per-device PASID
+space already, i.e. each device behind the IOMMU can have its own PASID
+space.
+
+Let me clarify my understanding first to prevent future confusion.
+
+The reason of using the global PASID space in the first place, i.e.
+`iommu_global_pasid_ida`, is to support the case where a userspace driver
+wants to communicate with multiple devices using the ENQCMD instruction
+without kernel's intervention. Since the ENQCMD instruction fetches PASID
+from the per-process IA32_PASID, the userspace driver could not use a
+different PASID for each device. If a syscall had been provided to change
+the process' current PASID, however, we might have been able to get rid of
+the use of the global PASID space, although it may cause other issues and
+require research on feasibility and effectiveness.
+
+Please let me know if there is any other reason of the global PASID space
+use that the team considered back then.
+
+> So, I don't think this is an iommu driver capability.
+> 
+> Instead, you have to decide if the PASID is per device or not based on
+> if the system will use ENQCMD or any similar instruction.  I
+> understand ARM has introduced a similar instruction.
+> 
+
+By "similar instruction" on ARM, I guess you mean ST64BV0, which fetches
+the bottom 32 bits data from ACCDATA_EL1. Please let me know if you meant
+others as it will matter. If ST64BV0 is supported on ARM, however, it
+would mean that ST64B and ST64BV are also supported already according to
+the ID_AA64ISAR1_EL1's LS64 field. The latter 2 instructions are just to
+atomically store whatever user wants to a memory location without
+referring to ACCDATA_EL1 and all the 3 instructions can be run at EL0. So,
+the userspace driver would have enough capability to designate arbitrary
+PASID as it wants via the latter 2 instructions when communicating with
+multiple devices.
+
+> So you may be better off with some kind of 'arch has enqcmd like
+> instruction' to control this instead of involving the iommu driver.
+> 
+
+If the above makes sense, I guess we could lift the use of the global
+PASID space on ARM unconditionally. What do you think?
+
+> > - The device is not a PCIe device.
+> > - The device is to use SVA.
+> > - The supported SSID/PASID space is very small for the device; only 1 to
+> >   3 SSIDs are supported.
+> 
+> Yuk
+> 
+> > With this setup, when other modules have allocated all the PASIDs that
+> > our device is expected to use from the global PASID space via APIs like
+> > iommu_alloc_global_pasid() or iommu_sva_bind_device(), SVA binding to
+> > our device fails due to the lack of available PASIDs.
+> 
+> So you have multiple SVA using devices as well? Or multiple instances
+> of the same device?
+
+We have multiple processes and a single device, those processes want to
+do SVA with the same device, and only one process will do SVA with the
+device at a time. Though, the problem occurs even when irrelevant
+processes allocate the PASIDs from the global PASID space for their own
+irrelevant purposes.
+
+Thanks,
+Joonwon Kang
 
