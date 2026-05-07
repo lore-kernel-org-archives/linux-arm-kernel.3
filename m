@@ -4,136 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9714ECD37AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 21:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70869CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 21:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Dtcr049p0EJGsAsqkEVu0AC9WSYEbM8jTdJetZMbdg=; b=DE0fJUo/LQgNJ1v1mpdVL2PcVc
-	3KZrGUoaYHZgflcCSbf7Rj5MZVO0G5Bxdfgx+/N6bBkhcgHVtSFLvvE23ZP2FVenSYoK3zfv/OHdN
-	ESunDGmw56Ma1d0vpL7duod/UBEWDPBXg9a2kWI5Z7LHnwy6LaMD7rG9/qkAVpvW6fVdVEX/4lZ6Z
-	GVF9CkyW2TmYd70N9ieBqPoNFXL6XGpQO2QK6EWnfBjE6JYLfdk6bVam/bpofYiJpyz9xhAOzds/M
-	F8CAOif6gaa02NtsyOD6F3hYmuDIA9WnDgPxNo9WyY+mFcXF8zIBBXk0b09Pa2PGfG1shtjK7sXzR
-	MRGNoMhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/f/daljdiwLsgNrUd3388kjiOo+NhyBkONh4Yx2Sqg4=; b=wvX4akD5OwYJMkp8/ra7ff3w3j
+	pEboMYtcDLYsAIiep3A8KwAhilnlmrQWhutPmsq4rdD9fcCUmOoPCd15skC+8fK3AHh+nz/S2PAww
+	m2cLGSH6p47gbXflRnA6PshTeF1tc1fmPTKQJCX19/zCy+il25nHqa0ziyA8GzVE9ZAGYT0JhGgAv
+	fO0HCBj8jBk/N2iRMIPjpKx61rcqPLSfPB7aq9nsstmrRtDwVbOk+LKETQwLOUj+Nm4kCs1STZUxX
+	9dp+ln+06vGGvM0/LZcKyLkU3EmCvhYW/gAlgmOHERQim+ZP9xjZzH6i3ExatCIGfNowqMYEfRLH6
+	7fawdB5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL5xQ-00000004t22-1yli;
-	Thu, 07 May 2026 21:08:32 +0000
-Received: from mail-francesouthazon11011063.outbound.protection.outlook.com ([40.107.130.63] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wL6Ax-00000004uBf-3n46;
+	Thu, 07 May 2026 21:22:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL5xN-00000004t0T-31PR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 21:08:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o+nEphKY2U5IQY4R1+N0SUsblvPDFF+inXYmxinnFdt8RW+yh9N4fifLYGgVqrIObGNAlbTns6b9YBdnbQLCWgX7G9OtirITYgQb2A1fryeLrIuSkglA2DQndTDUDnqgEEuSYg78Tagl5aMh9H3CtKSw/YDhfbouVSYdZUlJzarpwRczEcO3Fapa8QXfI+nzspwaZuUpLsfuI7qAsavIp+1VGq1ReddUIGJNbVQtXKPRZ1y24wCmcUYMyGY1LyjlbK3D8ZJlK8HRIy0BnmwrfhZ0TjL/REhw4x3QjKt6424RX9vS8LvHonZ8IMK4c7UbQiGMuAV2ZngjSmiFkJUccw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2Dtcr049p0EJGsAsqkEVu0AC9WSYEbM8jTdJetZMbdg=;
- b=r8tupm95DkYE4G/nGfiQhTeeGpZbNw4gMJmNqvfkjuSAM+6b4CLwiBVvIzq1yS2eJ22C04fAxIVo9BXl0RlQMFpd6ixawS5YqTP+1ISJjMcwGGX4QDOSFJyaEH0sAVwEiVpujrBmDwyRhjckCXzNd/Jeg0YxjTRzgx31y0mJllVlJ+mIxZjAdKTRecL/E+LyOBP7IIUcyBm0GTq0A7Qcgq9cu/PlZyjN8uHKopo6XdEm1zrylzP7WLAg1PsQX41qh0/LAjMvjnP2KlP/Se8irTIJUSNKkAJXkz2gejycbksiY3I4uHlX1HjB0TlUQA5KizMhGlBkvkSON/aFeJgcMw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2Dtcr049p0EJGsAsqkEVu0AC9WSYEbM8jTdJetZMbdg=;
- b=aHAtmzxz/tXyfpfVFozhFv7nCcgh0vfkGUZ8rKQHXtQU4GjV8H6Z7zFy7Fdvwye+z1BZh6H0dpmD9XgtMzzylK4Ns+F/kd2FLUFy1holwADV97mcElnNLLZjcM1L0ZfoVLskdo2DqJIkk/klJdUfo7IHBj3NQnx860rb8qvz1etTIv6Dx/qk/tZzCy+GEzn/IxXVel3HcuS3JzGhFMH+P69E2hvbe8OOQGjkFJeWRpBOlba3aQWxuDLinmODsuUO+Kc3arVq+IiaPcx3iX8WpxPk9nT6+5V4pnOTVmQcFJbY2myabUQg+3AQhxrndgOcaKrEZppALjxFU7bwhlbeGw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DU2PR04MB8773.eurprd04.prod.outlook.com (2603:10a6:10:2e0::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Thu, 7 May
- 2026 21:08:22 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9891.016; Thu, 7 May 2026
- 21:08:22 +0000
-Date: Thu, 7 May 2026 17:08:14 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/bridge: imx93-mipi-dsi: Fix mode validation
-Message-ID: <afz_PgdCHxFqtx1T@lizhi-Precision-Tower-5810>
-References: <20260227-imx93-mipi-dsi-fix-mode-validation-v1-1-a9cd67991280@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260227-imx93-mipi-dsi-fix-mode-validation-v1-1-a9cd67991280@nxp.com>
-X-ClientProxiedBy: SN6PR16CA0066.namprd16.prod.outlook.com
- (2603:10b6:805:ca::43) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1wL6Au-00000004uAE-3EUw;
+	Thu, 07 May 2026 21:22:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B32CA60181;
+	Thu,  7 May 2026 21:22:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16169C2BCB2;
+	Thu,  7 May 2026 21:22:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778188947;
+	bh=P4++UjBg4l7FEQ69FE68v2vf9fDUEYzzRnc4E/RaMhw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=t37YOzFgI597+Pd5NGo+NR1AFaItYRHaaKSUluxmYhBYOoiFwJ6PVvdWv+vq5Y29j
+	 LkVwpcM6uBB6EMtppmfT1OkWmY7nJ41dEfzra0uqkuWaY7VQHCmBiNfOZrvQ7MZN6p
+	 P3TfR70wL+bFtUYcUW91ahmAm3e79Qci8ALvD4pi8gWnBqXPzo8Wmn1rWesc0cNcqd
+	 B2rbp4oxD619w5ClA/dZFw8MjJBejaqNnQdZdsxmnTFKWpt0+MTO5LcjxPsZlW2ZHe
+	 /0DXQVRH8z5HTuG0XBBMUSqfc2AgnU7j6CAj4lJv6lW71ze6hc4f27eZmvt2ei4DIK
+	 QBKLFXDLHUJ1Q==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 07 May 2026 23:21:44 +0200
+Subject: [PATCH net-next v4 01/10] dt-bindings: net: airoha: Add EN7581
+ ethernet-ports properties
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU2PR04MB8773:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f2cabd0-1349-4863-62cf-08deac7cc511
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|366016|52116014|1800799024|7416014|38350700014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: BB/IyHx+anZKq5TZ24nIkn+Ptn5WbF2v15Z6NNM5mc3tClR2Nc8ZoRVw24EqNSdA91CmLj9mPwpKT30fJvF/YYlei7vaCoK0f4KW8ao245evm6r0t3eJmCkD8wYFSCiRxr6cs/fJ4f2z4pd5ctkQt5WjBGLfJYkoaOBh9PNSx6ZZczNcL0G7jxGr2ScK7cZwWHOFcTCy/a5oBadXQGNm+pDFoLrrhZQip5+/MfbkGi4goUgZPfPE+b4E5HBU6W261Lwk8j1vZgv8W/ieZWWAzLMBHJgB2UTIMC3USZWjqVcdXjXnQJb7CQ5yGWWhKuEYNmC1q1limA2acP8t44FsWgTbGIsmxnSNGS8IWDVbD6agHQkml8uQwHuW2xodU2Wi8igKmHeNeqshIgqYYFvd5Hn/gV2u1Nj2XhTPvmiBGLNvohjw90OvsMqK4NB1LKCzOR0j6oarH/W/jVE4WGoe45xcphtSkTaM9wEWeU8ZhPJQL9AwHyQBA4KNiDry5HN1qM67uCpF/SxbbvUhqPjo0nfA0NAVBp0DoAYhk61+9Ii/p4TYG5NpQ6/DHFhLNIj2mBBHfsmRDeF6TjB2TaNjr89ojwVjtPBHbHSggNVg/Ab+30cQM1z520XneT+xN1nRiSxl1QGpuPrygDkPS3w497rA7nG9DDPYYPBBn4n70oq1dJYeMSNLP/29+sE7lnQftH8YDFFq0NrBIR+eFTC1Fl/qg0OyedIkCru0LhsxcNuEUJ30fo/nrXu24Y7Wzi7p
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(366016)(52116014)(1800799024)(7416014)(38350700014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QqQuXkMA6oEe6rVZ0quGRXiTTuYC7HWB75jukyZjpWH1cb0/9flP+wqQeA3e?=
- =?us-ascii?Q?rDERDAp5xhOiGQD3sqLB8Bh/qQ2qwKMo7kPl/QWc2q4Ddmq1BRb2Vrv03kM/?=
- =?us-ascii?Q?sU1XIHrwxgUXqc/NgU4hHsr67zhz1GDNdRpiHVpW/hKpQQNcf6RZajWTufDd?=
- =?us-ascii?Q?LOnu2B9/uMefGgDe4kLvsbeJs+36oqR3E82DcCGSRrZLiQ0WURrzYozn+izD?=
- =?us-ascii?Q?vDyuRvCCX650cUbcP7PFPyYZVmVVRZLkKw42DpoNfwJMmDFKll+nph0tp8id?=
- =?us-ascii?Q?UmO0apzlYIUp8WHQC4esRxKirSJ2XYCpYxs8sDWiI17bze8n9wxh7GXqMd7R?=
- =?us-ascii?Q?qWPC5TsOXTjdWTatnfdeUV7HTJvsW/EzbjPnlpbo9/feMf8bik9rAlEKz1O3?=
- =?us-ascii?Q?vYXAHX5vYDEfFoFdqO9USvuq0WQXIMS1tGzaGEb1OOveA2fAlYv+gTsEBZ0J?=
- =?us-ascii?Q?7ILrqehZXTWXkQwyFh13WSU1GRQqn1eC1qp/k7BlsEgWMrmRVnIQVn7YABQy?=
- =?us-ascii?Q?5q6yrQ13VXycNrioh/7gGJ/wJ/iYCdYneuIHlvUVRI45PDRSdouMh0zxzesZ?=
- =?us-ascii?Q?3+N6UyDkH1aqRqcGEaZHW0fO1PzWv6o1nKnjZ8XY17sVrsXoVg4CfN42+wic?=
- =?us-ascii?Q?NlxxXSGFD79w1WHxjbM6TCuvIN8IEaSE8U6h5hcijWUYJN977n4LgNv/y+a6?=
- =?us-ascii?Q?w4NwhHWtATJEzfkCRDggVSREmAraQzfQ4Q4S75iQg5aigMIhX4JPaZtXV1W4?=
- =?us-ascii?Q?XqcOZGdYk9lehth969bCoT0oOY65AAfPRtECf41xO4Xdrmtl70xs7YQSsI2O?=
- =?us-ascii?Q?0kR3KgvBR35CNYUhxFuCY9MLNwqPBycaW80A3w9veJ9dGYIK9ClWGBLJwdnP?=
- =?us-ascii?Q?MaTVRLHaqDhUDw28B9MnGeXaAvVjgohjKisrFCtMM3BL6zJiwnIpFa4+9hfD?=
- =?us-ascii?Q?cBQIAKEdSIb+MZqyxeGfZsQwgZiQ28OpqsLfxefQ+GbfIwm41/wrfGuS0ox6?=
- =?us-ascii?Q?JUOGKPQlhfJiNV+gQvP3xjT+1DBcJJXpQIwsDH+1BrcNSHlczYRLCzgxLZ42?=
- =?us-ascii?Q?fcvOp7RnDqahByLdoioUSByVBGUwGXGqwIprTe7Ld5lf7tWW/trGz+gLK6ur?=
- =?us-ascii?Q?cfFRqKEGKI3isIQ0ytwi7Bh2z1QFMk687EifL+HrpYVJI1rCJW54YZPJ24gg?=
- =?us-ascii?Q?m2kC4WHflFPvdBudo61fyvoxuuEl3YAc4dFna0LqGICyUU7sxgPphLHlrq4Z?=
- =?us-ascii?Q?qfsdgpM66vx0Aprvx/M3iSJcg55iTAhiPOqTiUA+OfKZBYw8auzWo2v9Isgd?=
- =?us-ascii?Q?I2/rbaheyMXdqn9nlr+ESNYa1rhoNYKu0OsqCbbp9vWALUlExp9LEBhgrM6s?=
- =?us-ascii?Q?Kg46S8ZoRU9vOq94S0fTWbXcysutEATqrqryMS5q6gGdfw9RW3mA2v55J6Jb?=
- =?us-ascii?Q?DG+GqagdSvC4pPyPeC9oVv+UUdktbojO65cqgGRUCIXIX/ks2zHsPl1cHFYy?=
- =?us-ascii?Q?F4OB5XDkYXsY2dgcAuLeRvqSdYsDoW9N+fWjcdALBBtePYSHmJIJ5cgDf3KI?=
- =?us-ascii?Q?ygLej2Bv2zayew8aszvksWFytfXDXOaKqAGV7vxBEzT4jpfsydyn+yWYJ8fj?=
- =?us-ascii?Q?6bpbGgujiIRt3srVoQnP5GPbwQ2tHMPSrEqYvUyd4X98QpdP/LZ4DxmEJzM2?=
- =?us-ascii?Q?iRrlAS+SGbqDQPxiP1U8WjQkTQRqqCKUP7AC4XMKv/LpjD1O?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f2cabd0-1349-4863-62cf-08deac7cc511
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 21:08:21.9330
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fGuTbEIUskFlqgopI24fCXfPCmmKxEhZuRK2gTJIv6XbcMazl1neqSkMVZFaIFvpe5OJvxnkjOyB4L9LI7IR0A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8773
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_140829_769930_78C9829A 
-X-CRM114-Status: GOOD (  21.25  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260507-airoha-eth-multi-serdes-v4-1-af613b61ae02@kernel.org>
+References: <20260507-airoha-eth-multi-serdes-v4-0-af613b61ae02@kernel.org>
+In-Reply-To: <20260507-airoha-eth-multi-serdes-v4-0-af613b61ae02@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>, 
+ Benjamin Larsson <benjamin.larsson@genexis.eu>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, devicetree@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,74 +75,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 27, 2026 at 03:36:41PM +0800, Liu Ying wrote:
-> Instead of checking the last bridge's operation bit masks against
-> DRM_BRIDGE_OP_DETECT and DRM_BRIDGE_OP_EDID to determine if allowing
-> +/-0.5% pixel clock rate deviation, check any bridge after this bridge,
-> because the last bridge is usually a display connector bridge without
-> any operation bit mask when the clock rate deviation is allowed.
->
-> Fixes: ce62f8ea7e3f ("drm/bridge: imx: Add i.MX93 MIPI DSI support")
-> Fixes: 5849eff7f067 ("drm/bridge: imx93-mipi-dsi: use drm_bridge_chain_get_last_bridge()")
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> ---
+EN7581 and AN7583 SoCs support connecting multiple external SerDes to GDM3
+or GDM4 ports via a hw arbiter that manages the traffic in a TDM manner.
+As a result multiple net_devices can connect to the same GDM{3,4} port
+and there is a theoretical "1:n" relation between GDM ports and
+net_devices.
+Introduce the ethernet-port property in order to model a given net_device
+that is connected via the external arbiter to the GDM{3,4} port (that
+is represented by the ethernet property. Please note GDM1 or GDM2 does not
+support the connection with the external arbiter and are represented
+by ethernet property.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ .../devicetree/bindings/net/airoha,en7581-eth.yaml | 52 +++++++++++++++++++++-
+ 1 file changed, 51 insertions(+), 1 deletion(-)
 
->  drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c | 33 ++++++++++++++++-------------
->  1 file changed, 18 insertions(+), 15 deletions(-)
->
-> diff --git a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
-> index 8f312f9edf97..6d65df9ed970 100644
-> --- a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
-> +++ b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
-> @@ -493,21 +493,24 @@ static enum drm_mode_status
->  imx93_dsi_validate_mode(struct imx93_dsi *dsi, const struct drm_display_mode *mode)
->  {
->  	struct drm_bridge *dmd_bridge = dw_mipi_dsi_get_bridge(dsi->dmd);
-> -	struct drm_bridge *last_bridge __free(drm_bridge_put) =
-> -		drm_bridge_chain_get_last_bridge(dmd_bridge->encoder);
-> -
-> -	if ((last_bridge->ops & DRM_BRIDGE_OP_DETECT) &&
-> -	    (last_bridge->ops & DRM_BRIDGE_OP_EDID)) {
-> -		unsigned long pixel_clock_rate = mode->clock * 1000;
-> -		unsigned long rounded_rate;
-> -
-> -		/* Allow +/-0.5% pixel clock rate deviation */
-> -		rounded_rate = clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
-> -		if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
-> -		    rounded_rate > pixel_clock_rate * 1005 / 1000) {
-> -			dev_dbg(dsi->dev, "failed to round clock for mode " DRM_MODE_FMT "\n",
-> -				DRM_MODE_ARG(mode));
-> -			return MODE_NOCLOCK;
-> +
-> +	drm_for_each_bridge_in_chain_from(dmd_bridge, bridge) {
-> +		if ((bridge->ops & DRM_BRIDGE_OP_DETECT) &&
-> +		    (bridge->ops & DRM_BRIDGE_OP_EDID)) {
-> +			unsigned long pixel_clock_rate = mode->clock * 1000;
-> +			unsigned long rounded_rate;
-> +
-> +			/* Allow +/-0.5% pixel clock rate deviation */
-> +			rounded_rate = clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
-> +			if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
-> +			    rounded_rate > pixel_clock_rate * 1005 / 1000) {
-> +				dev_dbg(dsi->dev,
-> +					"failed to round clock for mode " DRM_MODE_FMT "\n",
-> +					DRM_MODE_ARG(mode));
-> +				return MODE_NOCLOCK;
-> +			}
-> +
-> +			break;
->  		}
->  	}
->
->
-> ---
-> base-commit: 877552aa875839314afad7154b5a561889e87ea9
-> change-id: 20260227-imx93-mipi-dsi-fix-mode-validation-425c872a2493
->
-> Best regards,
-> --
-> Liu Ying <victor.liu@nxp.com>
->
+diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+index fbe2ddcdd909..73ba37872247 100644
+--- a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
++++ b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
+@@ -130,6 +130,38 @@ patternProperties:
+         maximum: 4
+         description: GMAC port identifier
+ 
++      '#address-cells':
++        const: 1
++      '#size-cells':
++        const: 0
++
++    allOf:
++      - if:
++          properties:
++            reg:
++              items:
++                - enum:
++                    - 3
++                    - 4
++        then:
++          patternProperties:
++            "^ethernet-port@[0-5]$":
++              type: object
++              unevaluatedProperties: false
++              description: External ethernet port ID available on the GDM port
++
++              properties:
++                compatible:
++                  const: airoha,eth-port
++
++                reg:
++                  maxItems: 1
++                  description: External ethernet port identifier
++
++              required:
++                - compatible
++                - reg
++
+     required:
+       - reg
+       - compatible
+@@ -191,9 +223,27 @@ examples:
+         #address-cells = <1>;
+         #size-cells = <0>;
+ 
+-        mac: ethernet@1 {
++        mac1: ethernet@1 {
+           compatible = "airoha,eth-mac";
+           reg = <1>;
+         };
++
++        mac4: ethernet@4 {
++          compatible = "airoha,eth-mac";
++          reg = <4>;
++
++          #address-cells = <1>;
++          #size-cells = <0>;
++
++          ethernet-port@0 {
++            compatible = "airoha,eth-port";
++            reg = <0>;
++          };
++
++          ethernet-port@1 {
++            compatible = "airoha,eth-port";
++            reg = <1>;
++          };
++        };
+       };
+     };
+
+-- 
+2.54.0
+
 
