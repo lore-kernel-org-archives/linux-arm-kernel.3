@@ -4,138 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B59BCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 01:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E214FCD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 01:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iHJ6nXuQ4SshV/oziQ5Gh1tJp9/USsj3RYqxbBv4csQ=; b=eqFDPcfCclE9+OOS+r0B8+3v3i
-	WaH0BO55MKGgixNikGlzFGnGp9W+SBfF3C8kI8WnpgUoCPtQx0ee+4zpbhZpnbBmoPUzf5VnqxHAR
-	ApV51xa6+Wj8UvqZaIBJL65eK+dfUEcBVCCTpSYZWTOL0l177lMkL5m3F2l313lCOuNQN2I2KjUqj
-	N+k88IP8UwP7QZTvwzFW56LUkgTCG4MTFKk6aUAXXNhOJpR/l0GaYR1B26aO6fiSNg2ALalEOzpwg
-	oj7rSHESM+pTQcYdpqIos6bNt+gRcWNVFYBZJaCXQ6bT7cQbKcsY7t+tRbSWYbeMzjpfIwbOgXYu1
-	Lq7bbdqg==;
+	bh=3tLEP0XjaIARNFnU2GkzHmxBTHr1qQc7KqDVAp+GPgA=; b=daBpYWiZ5dCsf9T95XEdUxrme2
+	FhGZBhUDbvul2MushyX+8J2t8f+k45bySLz1rw4H4p6IBBfXpMJGNRJIGWelD588ns8fEPyXZUR50
+	RWz6QfvpGsLMovtEr/BMGsufbXQk0PEelSeXprYJuRxZ/dj1FBTTjGZUKLuuZ2HgsHywx7lULnVDZ
+	GGFZkYaIDVmM48OyaE58Cw+ZfDWxpHs2sbhA7MaW5N3u2pjPJMwecZxIY+gihcAUEkJfWVwDwnqge
+	A3bq4isQA3lEaZutBiX7OhnayPCqTjAkrQCr+6+fS88OkPJO9fGje634wyiEg21uL/eRktpgWaqvu
+	UqPfqLjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKnhE-00000002RbW-1Yuk;
-	Thu, 07 May 2026 01:38:36 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wKnm5-00000002SK0-3aHC;
+	Thu, 07 May 2026 01:43:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKnhC-00000002Ra0-1dtb
+	id 1wKnm4-00000002SJh-1DMe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 07 May 2026 01:43:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=3tLEP0XjaIARNFnU2GkzHmxBTHr1qQc7KqDVAp+GPgA=; b=C4YOtgD17KlRP9yxucc5eKyNPG
+	8tBfHrrzc1biLttSLxZhSHYaN4h2/Ni4/ScEHTSveW287cbow8KBgY0VG3Z42FtPy6hDhFYQ435Uw
+	sec0kV94edAcjf5/JnVu0pvAkiBMT9Qtu2h9nOzRGjSMqJYG1RfxUO8SJKenLyiNCLI+TpA+ms/I7
+	7Xj/EAVd0bg8MLQYzTj75fwGykp14s96RgIIDS0XIkeB8i7slU9oAziPdWZBckWyVgixtp21KPfWu
+	73hqHySVpDUeBOXZAH8jbfAB4wZnVD1zk7UKusjNSRc/RBH7Ta4+05I7WS88AXX6Tvp6dpz2UvJQm
+	T/BCxAag==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKnls-00000002Nqm-1l1J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 01:38:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LOwqTSCr6TiIVaxuiMBb4jgRYTQ46RTrj96cANikRKvuWcfTEHeo7YDwpP0TbnJGJdZyqhPI3mhbuWn4CkUhsDpOciqFYxGU+1Gr2MBXIQKOo3rizai1EdEI7R/Ub/y4kytJKCvpjR967h6yePwuLLxJYwfhI3cfGW0AzGXP2r38OSPc3kg72l6KfJnxECDNop/oJXDCw3r31uQQChCx2RET4+EdGHhxDLTJzMNsKytiCJsBPvqn9JVmNl7LfDiTwn8DDNvaGJPl1ML2+vOVbL1gTlCPTF5eXJVXQ4adVKF0dFbrJC0/Z5trQ7blvFo8TxEEBFOvGfOM5DQA9mahAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iHJ6nXuQ4SshV/oziQ5Gh1tJp9/USsj3RYqxbBv4csQ=;
- b=ZB6Uvs4eFgXvYOaEgnVuJ1J5mxnyJYQ4Gybbl+wlNpv8j9yplBuRVoea7RYkTgTp3mLCh/ErN+AffnbGba5yxQ7LvWvVH9x77LnYstmoE7+8OhrTXlcywr8UHjV/0yLyYNpq0HJt9mjIs6E3dhKkbk/LvNKI49zkFuzDyodwrviQuNxqTk++pK9k1kF0Nx3FIz/FyGZg9givh8ApAk9EBHDD/DeXtySIRFqaMc9aezH3DbzTq5r2YC0jH5wFHvrFN+lCbs0TXcmh+MTgGp9nanmppKb/TtJi9FqGk+y1fmhKR1VhL/FEsMsApoqTC2+oA4IN4b75ke/LCmqCWrDcAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iHJ6nXuQ4SshV/oziQ5Gh1tJp9/USsj3RYqxbBv4csQ=;
- b=jYmC2/3l0ODeiwx9VBl/SZs0lrP3mA8FcGAs6oFv0jV7fmS7lNIR3TIHgvzTrMBsJJHrdsxQWV8N7I5hKBzWlU4yHclaxdkMpgiWk/IrGUh6KuNGb3TNNxsl3ivJjgd1SywxztNHxQd6d61YvgbV3GQYrrbyG/yRNH2MRkWveTHyHPN/as9DU+3oaHIEE5KHUaQUJs3f+WWvaKko20YPlMT9sK6AL7vyFTANzZv+6UQCotI1TauxOSsP5GUCSW7CjCmLFUlG6J+cRYp8LKiwlFQppZ1M4/zxAljJ/KMufN94VtTiLff5ADrhZPcsLaISBWbtFMT30rQnEBsXM09ppw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
- by PA2PR04MB10514.eurprd04.prod.outlook.com (2603:10a6:102:41e::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Thu, 7 May
- 2026 01:38:29 +0000
-Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
- ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
- ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.20.9870.023; Thu, 7 May 2026
- 01:38:29 +0000
-From: Chancel Liu <chancel.liu@nxp.com>
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	festevam@gmail.com,
-	nicoleotsuka@gmail.com,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	shumingf@realtek.com,
-	pierre-louis.bossart@linux.dev,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 3/3] ASoC: fsl: imx-rpmsg: Switch to core ignore-suspend-widgets support
-Date: Thu,  7 May 2026 10:36:54 +0900
-Message-ID: <20260507013654.2945915-4-chancel.liu@nxp.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260507013654.2945915-1-chancel.liu@nxp.com>
-References: <20260507013654.2945915-1-chancel.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SEWP216CA0087.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2bf::14) To AM9PR04MB8353.eurprd04.prod.outlook.com
- (2603:10a6:20b:3ef::22)
+	Thu, 07 May 2026 01:43:33 +0000
+Received: from loongson.cn (unknown [10.20.42.62])
+	by gateway (Coremail) with SMTP id _____8AxX+su7vtpGFUHAA--.23820S3;
+	Thu, 07 May 2026 09:43:10 +0800 (CST)
+Received: from [10.20.42.62] (unknown [10.20.42.62])
+	by front1 (Coremail) with SMTP id qMiowJBxacEo7vtpjfx7AA--.25500S3;
+	Thu, 07 May 2026 09:43:05 +0800 (CST)
+Subject: Re: [PATCH 1/5] KVM: arm64: Grab KVM MMU write lock in
+ kvm_arch_flush_shadow_all()
+To: Sean Christopherson <seanjc@google.com>
+Cc: James Houghton <jthoughton@google.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Gavin Shan <gshan@redhat.com>,
+ Shaoqin Huang <shahuang@redhat.com>, Ricardo Koller <ricarkol@google.com>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+ James Hogan <jhogan@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, kvm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20260504224213.1049426-1-jthoughton@google.com>
+ <20260504224213.1049426-2-jthoughton@google.com>
+ <25838e74-01dd-d085-395b-676266dc9a9a@loongson.cn>
+ <aftIbW9G4RfoTuXh@google.com>
+From: Bibo Mao <maobibo@loongson.cn>
+Message-ID: <833b7f62-5e9f-26e7-f60d-2ac1dd24c031@loongson.cn>
+Date: Thu, 7 May 2026 09:40:10 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8353:EE_|PA2PR04MB10514:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6be9ff3b-10a5-456b-f000-08deabd95757
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|19092799006|52116014|366016|921020|38350700014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: kBM/xioG2eXmITrpsbKsJQ53HnYUhLaRkiunnMdf+2phRFbOItiTT39wP5G2rpP18YkiN3scE7qzv2TCuNJOsLxMIO8lkzxD4jGMEIVGpsKQVf/faRMo09d0EHrtW4pSt1/xd8Yiio9qGkPhDEqKY5Cm7OFuGlK3bY/URFT8FNlecQKeiCLe86TYV2iIwQVPjnfcX4M9V2SrDoHXxJcrAORYb+AZIfYRB8lSvGjLSF6h93X1ceyXuYHdVKhDzppzLnHFMQUbp43pFIs+R7l1Si69eZ5IUmKKIO0it8PpK9GNtnkoIKYedbDDloOfJjy4nF3xm4VNg2pdeSNw1LgnxtYSPfRLM8Y2ctYJEySPu5g2dztE6N8nP3ZN2aRO07E/1YXKB9kPxDBuuuQ+QrOKMBP+UkM8UMcgJzMgo0rRzHNgKABhOaghIuJquVbgoncwPTUPrXtZOPd43YY4NchTPpc5Wh1us7oQyCobXTZjgLI6RVUzaFDCqOfaQGJT0Nm+J9KkyeFFh4G6/1rFV3+UBwDgLXbvHw67GGSR3SBTdoan3bk2bYbpeQVzyogO4Q8m8IMzKnQRiMt4hw3rrToe0F884Af/kysXfSRAuqqZ4C3Q4w4IrSCspbUGWTqv5qdhDo5+durLGv/yZqy05RwQQC5dkZAH7w166yGbFVtcGlbB1afOV6pZ3UKygrkU6d6TXNmSW3K5cjBfk+ysxMBlmPgwN/eCBpz4npiVLcLdRd8yOAgJfSHLj5BE6LBThIgSB1yd2xq6knnyYknNaI9K2A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(19092799006)(52116014)(366016)(921020)(38350700014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F4rW0XztjmeV5j2nSEUTXZctRzYpZo5I+rdXf47FPjohYCIEMOVQDuaOCBap?=
- =?us-ascii?Q?c7Igox4VPgqzq8Fhp9KMb9Z/pA1E2o0LzK0ClPzxlnx/mQgsIMr5r1VPS8zC?=
- =?us-ascii?Q?2KgKVhd6nn4TXwRJXJjkvewsp+TIHwzCaP6v9eSdM1mnJAUVrmkhV2m94H8b?=
- =?us-ascii?Q?uD3MwzPHvzOOu2y8woZbGKmzyCnccOft/vRMhaexRGOv30pQalI7F9DspkM8?=
- =?us-ascii?Q?TyzPjC87gYLT9Kt8O0e2M1ZiXaN/q15WYXjing+QagAbpprzz7Tr1wut1TZc?=
- =?us-ascii?Q?3OCQaI7UkM6cXQ0Z1EKxUZajfwdAjbYm8V0mEh44gbztFWQEdNyheUHrJR9X?=
- =?us-ascii?Q?XOmFU5HLeSzljrS9cBMRAblantXMCkoaC/tlEvlVgz1i3ed7s5tSQLaFtSWb?=
- =?us-ascii?Q?rqNmSaAth8f5EkjROMB11Jek3F2RLlKc4cjv79EPANAXQJ3XTB6wg+dHBpD5?=
- =?us-ascii?Q?KL3w84vq0/IEHFtrwF96dBwgG/J8VdxfhPG8qfmDLkyDGWVmfJGwFNWqmwpK?=
- =?us-ascii?Q?t6mazQjR27I+JME7EVxyhPBRVDvoKS4I006KXZpv35jfqhCZytpOWw45zxMq?=
- =?us-ascii?Q?QIejZHX80Wuu2sycQAC8F7qFnaiLE3AhuqUiqqRIt3CHdCxWFLvfJeUjfgB/?=
- =?us-ascii?Q?Odvp8vFdE4bJemWfwKfWCWVX/mLzdnh7stc7CyPXFuVm6pXbvwQzJD/CYKKz?=
- =?us-ascii?Q?QUDq0K1KC7TyQrt4Lit7xL9qBCGXZ7xF/Vqb6sKZnJbYgc6vyZO4Gik2oJ1G?=
- =?us-ascii?Q?CfoJbchC0Wieu9PI/Sg5P7+zlpFKap+qJsSQZcfQPZyUiHeAb+K7ewVG3GMC?=
- =?us-ascii?Q?9A74qcDd4k2ySh78f4V0PTpntb+z9skkw50doW0/k8ImIc/7tPY4fZkATMp4?=
- =?us-ascii?Q?mgpueGwnTEocw5+TpwYm0U0KUaF68y4ByP+ipvd8AL2pCOn2I86Ad5q3jyBl?=
- =?us-ascii?Q?qWARXnaPSluqA7bkx/ftIDUO44rv5gdagMcqspv1DaT/cyAqNH2Yr8r2uxqy?=
- =?us-ascii?Q?tfsXzWm3DuL/0EypvjlnkPdFaIprxpHHxFX97bsxAXoRtwCjFtv2i4WW3LWl?=
- =?us-ascii?Q?Lkdqf+D4aiG+nQbH1T/OWgd88EO4N3lap0N3tH3pYTWRFNZUZ/Kb5FgJNAb9?=
- =?us-ascii?Q?sHFiOiKmTpG0+miGSfUNKfT8zW+3Ja49PD292iKokeF7Wmn6ufpym9Ib1VQ0?=
- =?us-ascii?Q?nQwNCJxkk/CQqAWsZckCC+TBAFg3GUx0A/vEIyUe7VARY489tvkmlB5S/T7D?=
- =?us-ascii?Q?FaoJwPf35QC29wmk4ZrzG2DwB1VxSfBPPg9prLOx4bmD3t5BJRXiGhiPub7Z?=
- =?us-ascii?Q?6lF/JCRLPpoQIKGaVG7ktX/q4yLfTTQXZtY6BXl6HauikBAGQadVYFYKYyMl?=
- =?us-ascii?Q?YyeezGKSjS1tCqEWig2r+WPhi+paeJYjW2VPVFda5lyxFSrRG8Wrt0VmFOJR?=
- =?us-ascii?Q?kQhWIrHAV0oox47n7/ruE8JWgYwGwTGLWUKRmsS8T7nPhcYBrAjQ5EVdTWQ7?=
- =?us-ascii?Q?adG3UQ5QtNgQO3Ct8TVQDHATU5vTmoaIC03aAVxpK8fCMT4FaA++nGNCYOk+?=
- =?us-ascii?Q?rnpYaB0J+eNNU0SKNYn9iQZykKQ/PRZacB+GijcQusM6XRckok8B1RFMPwjY?=
- =?us-ascii?Q?X8mmGYIp422wrVKZxvPxsdpj1kCVLQtYXfzgqRTVZPyJxUKQk2Fo6NxJQpGM?=
- =?us-ascii?Q?MvZK3jQ+gA62UhBmmcSkv0Hbsn+EAteEOp5UQ6W+116ML6ZRxl0MCVzPsZG5?=
- =?us-ascii?Q?/BHgwt74dg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6be9ff3b-10a5-456b-f000-08deabd95757
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 01:38:29.5903
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZICdXlvn+k1q21DgoRTk36eMN3Llwl5/9vtLh0j93ILRZ5L5B3yoI3vVpd6XIjVT8aC82sDGbKl8ZjoFUgsgUQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10514
+In-Reply-To: <aftIbW9G4RfoTuXh@google.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qMiowJBxacEo7vtpjfx7AA--.25500S3
+X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
+X-Coremail-Antispam: 1Uk129KBj93XoWxZr1rJF1DJFWxtw1UKw43twc_yoW5GFyxpF
+	WUC3WqgrWDA340kw4kZ3WkWw1FyaykGr4UJw1Ygry5urs8Gwn3KF4SyFy0kFZ7ZrZ7GFWq
+	qF45tr95Zas8ZrXCm3ZEXasCq-sJn29KB7ZKAUJUUUUr529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUPYb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
+	Gr0_Gr1UM2kKe7AKxVWUXVWUAwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYI
+	kI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWU
+	AwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMx
+	k0xIA0c2IEe2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l
+	4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAFwI0_Jrv_JF1lx2IqxVAqx4xG67AKxV
+	WUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI
+	7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r
+	1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI
+	42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07jeuWdUUUUU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_183834_437723_7B1BDB94 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20260507_024325_346253_D234C06B 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,74 +112,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx-rpmsg machine driver currently implements its own logic to
-parse ignore-suspend-widgets from Device Tree and manually traverse
-DAPM widgets to mark them as ignore_suspend.
 
-It also has a potential issue that some widgets listed in the property
-(e.g. "Headphone Jack") belong to card or CPU DAI DAPM context.
 
-Switch to use snd_soc_of_parse_ignore_suspend_widgets() with the
-introduction of a generic ignore-suspend-widgets mechanism in the ASoC
-core.
+On 2026/5/6 下午9:55, Sean Christopherson wrote:
+> On Wed, May 06, 2026, Bibo Mao wrote:
+>> On 2026/5/5 上午6:42, James Houghton wrote:
+>>> kvm_arch_flush_shadow_all() may sometimes be called on the same `kvm`
+>>> concurrently in the event that the KVM's `mm` is __mmput() at the
+>>> same time that last reference to the KVM is being dropped.
+>>>
+>>> T1              T2
+>>> KVM_CREATE_VM
+>>>                   Get VM file from T1
+>>> close VM
+>>> exit_mm()       close VM
+>>>
+>>> T1: exit_mm() -> kvm_mmu_notifier_release() -> kvm_flush_shadow_all(),
+>>>       with only the KVM srcu read lock held.
+>>>
+>>> T2: kvm_vm_release() ---> mmu_notifier_unregister() ->
+>>>       kvm_mmu_notifier_release() -> kvm_flush_shadow_all(),
+>>>       again, with only the KVM srcu read lock held.
+>> By looking through the code, kvm_arch_destroy_vm() will free PGD page only,
+>> page table walking is executing in deleting memslot or exit_mm().
+>>
+>> With normal code, life cycle of VM is something like this:
+> 
+> Not necessarily.  Abruptly closing the VM, as described below, is also "normal"
+> (though likely uncommon).
+> 
+>>    KVM_CREATE_VM
+>>      Create_VCPUs
+>>      Create memslots
+>>      Destroy_VCPUs
+> 
+> This is incorrect.  KVM doesn't provide any way for userspace to destroy vCPUs.
+> Userspace can fully release every vCPU fd, but the vCPU object within KVM stays
+> alive (and indirectly reachable) until the VM is destroyed.
+yes, that is so. For users, there is vCPU fd release interface. As for 
+vCPU object release, it is kind of internal implementation in KVM.
+> 
+>>      Destroy memslots
+>>    close VM
+>>    exit_mm()
+> 
+> Note, exit_mm() may or may not be called.  E.g. there are VMMs that will destroy
+> a VM and start a new one (perhaps even the same conceptual virtual machine) in
+> the same process / mm_struct / address space.
+> 
+>> And there is kvm_get_kvm()/kvm_put_kvm() function call with creating/destroy
+>> vCPUs, however no such operations with memslot operation. Is it possible
+>> that VM is destroyed without removing memslots, such as the following
+>> operation.
+>>    KVM_CREATE_VM
+>>      Create memslots
+>>    close VM
+>>    exit_mm()
+> 
+> Yep.  KVM cannot make any assumptions when it comes to userspace-initiated
+> operations.  Even a VMM that super strictly follows the first approach may exit
+> abruptly, without destroying memslots, e.g. if it's OOM-killed.
+oh, I see. If so, the implementation about kvm_arch_destroy_vm() on 
+Loongarch is problematic, it needs consider this kind of abnormal VM 
+destroy, take page table walk and free page tables. I had thought that 
+memslots create/destroy should call kvm_get_kvm()/kvm_put_kvm() :(
 
-Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
----
- sound/soc/fsl/imx-rpmsg.c | 26 +++++++++-----------------
- 1 file changed, 9 insertions(+), 17 deletions(-)
-
-diff --git a/sound/soc/fsl/imx-rpmsg.c b/sound/soc/fsl/imx-rpmsg.c
-index 40e0043cfe15..fd4624786b62 100644
---- a/sound/soc/fsl/imx-rpmsg.c
-+++ b/sound/soc/fsl/imx-rpmsg.c
-@@ -87,7 +87,6 @@ static int imx_rpmsg_late_probe(struct snd_soc_card *card)
- 	int ret;
- 
- 	if (data->lpa) {
--		struct snd_soc_component *codec_comp;
- 		struct device_node *codec_np;
- 		struct device_driver *codec_drv;
- 		struct device *codec_dev = NULL;
-@@ -107,22 +106,6 @@ static int imx_rpmsg_late_probe(struct snd_soc_card *card)
- 			}
- 		}
- 		if (codec_dev) {
--			codec_comp = snd_soc_lookup_component_nolocked(codec_dev, NULL);
--			if (codec_comp) {
--				int i, num_widgets;
--				const char *widgets;
--				struct snd_soc_dapm_context *dapm;
--
--				num_widgets = of_property_count_strings(data->card.dev->of_node,
--									"ignore-suspend-widgets");
--				for (i = 0; i < num_widgets; i++) {
--					of_property_read_string_index(data->card.dev->of_node,
--								      "ignore-suspend-widgets",
--								      i, &widgets);
--					dapm = snd_soc_component_to_dapm(codec_comp);
--					snd_soc_dapm_ignore_suspend(dapm, widgets);
--				}
--			}
- 			codec_drv = codec_dev->driver;
- 			if (codec_drv->pm) {
- 				memcpy(&lpa_pm, codec_drv->pm, sizeof(lpa_pm));
-@@ -274,6 +257,15 @@ static int imx_rpmsg_probe(struct platform_device *pdev)
- 		}
- 	}
- 
-+	if (data->lpa && of_property_present(np, "ignore-suspend-widgets")) {
-+		ret = snd_soc_of_parse_ignore_suspend_widgets(&data->card,
-+							      "ignore-suspend-widgets");
-+		if (ret) {
-+			dev_err(&pdev->dev, "failed to parse ignore-suspend-widgets: %d\n", ret);
-+			goto fail;
-+		}
-+	}
-+
- 	platform_set_drvdata(pdev, &data->card);
- 	snd_soc_card_set_drvdata(&data->card, data);
- 	ret = devm_snd_soc_register_card(&pdev->dev, &data->card);
--- 
-2.50.1
+Regards
+Bibo Mao
 
 
