@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C79E4CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 090EBCD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RBJX9JrYpwkYMirbLBkB1WokxpcXHQ8R4LjNXJ+B7/I=; b=44+S7NTvsAwFTsLLAHCD2kh9Xt
-	+xVbc2HP4SLUf1OTqblSM28+f5Pf9/LNGjQ3CzQ5F1MKDxZwC1cLW9WfLAW4CyXnoSkqMvZu5iV8E
-	06R1qgTN/NLezu9ablVaaaQVMKKWh3Q2+CIRZI0vAa7PadNFcXYMIS1Bhy7qicB358ZQHrjyT/C25
-	HM1ZP3jROIR/TbdTXsVVfJwGtaHkjxGVKtZDpWNtGphH8bEPHn4y+JFWDBp5VrukpMZEYsvJ1CXBI
-	6UxGvoRif1v/u+kS0d3Gdc/leRtjrxzZD2PnX12XLLHwQcIamzleC+/ife1CyS0oXCFAk2WSrGGem
-	+PpHVxLg==;
+	bh=2OYJiuqVpyKViXyG6Zk9NfPtWrmK4HelqMx5atiBdjA=; b=WKZouCsS65n5W1A2Jwu+iq8sfG
+	59Z/pYi1NyuyD2xV0/2dAaKZgIV7BhRptwb3HUoYuC8Jw6EPYsscJgAkF5wQf0YBBGLGj2+Q2KcVX
+	2xQAjcfdds1yITZ+KaPUT2rf8Vkvrn83kY5BUDtcZS05UOgqflTdoC2m3anMGkdVyDdB9QyTqkwSs
+	+yhpWpyhwPuucbGyWG0V0G8/Lu6YEk7Z/e/JCo08uETvHkQHiAeecPggSfXmy/N9GvvEFwq9bvBuZ
+	ocXekB85v/qVT7npj7T6buUiMi3rjou7HGZlSKK0mK9OJdBBv5fzW6Hy/aTViwNKUYfiGJg1R8jNU
+	6Vqupc4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKyGu-00000003pQF-03IP;
-	Thu, 07 May 2026 12:56:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKyGt-00000003pP2-2j06;
+	Thu, 07 May 2026 12:56:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKyGq-00000003pLm-1qyC
+	id 1wKyGp-00000003pKz-1mUS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 12:56:05 +0000
+	Thu, 07 May 2026 12:56:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A8D4444316;
+	by sea.source.kernel.org (Postfix) with ESMTP id 587DC44197;
 	Thu,  7 May 2026 12:56:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FB15C4DE1B;
-	Thu,  7 May 2026 12:56:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FD24C4AF51;
+	Thu,  7 May 2026 12:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778158561;
-	bh=pSC+Wz3RdPQ5vZ/77OK/N1UzWpdcXw75IYRf3Cx9KpI=;
+	s=k20201202; t=1778158558;
+	bh=jmztYL+cRetID0Id+T0uR/HfaxaSY7cdDgh3n5/jrck=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hr//lE5BXql89qyasDHL2mo2OqWjztkKcwY4gx3htD4jtU7bvlR8cVJBHQJUUOTgA
-	 c5KJXR9rP1NeJIZwUFGUgCL4Vp1VT41BwJ0lIweQjfe/XYvNprThl5med2/XVDGmU3
-	 IQdlFb4nx9Y/eZFlkcQBYQxFN/R6/BMO/MDD8bCHGyZyl3VDpijBkgpI9Sun6GtiyR
-	 5QYB9Jsj5MmceM5vqRppvvxBFbOttFmULU7xwC+DxNcsf02IUg3oSEV3kQ16cJ6KHw
-	 7Rwn2bOZnohI+s2IOF5dDerkLAZsmpqgy/ngeOiyUUoe7vea+aF6exgPnqUq9B76Ab
-	 bt6P484o9we9g==
+	b=V4wqzSuwuZmFBP1AYiBi9xtz60JFhzvxqIwimyJTstBjGNuyWtoXnSRRoKFcgz6Y/
+	 IuAphYyswgyREfOthSY9wHlNF8qj5EorQwCJK1w2Uk6D9N7FanYAcPHIHcxOo1rcuf
+	 44fM07Hm4pygxoKeX4cIYXN+DfWE9S2Nmz+3v4pfMhLNygveV3ZqxiPHnYpOeOQc+L
+	 ippHJ0cYkCj99A1K72R87ktEC+Xw7PAMysDGnXSysziLUQtSoAXlUCEWmgUVzmVHXM
+	 WdXuDGYFw0WNBCxkhEIpoGcnWjCbEAxCpRJZ0P2IDclexs0jxwsPr6+TYJBBYMqX3D
+	 qG+148ZT8lNqQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wKyGk-00000000d7d-3AWs;
-	Thu, 07 May 2026 12:55:58 +0000
+	id 1wKyGh-00000000d7d-3zVR;
+	Thu, 07 May 2026 12:55:56 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -95,9 +95,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH 07/16] arm64: dts: exynos: Add EL2 virtual timer interrupt
-Date: Thu,  7 May 2026 13:55:35 +0100
-Message-ID: <20260507125544.2903406-8-maz@kernel.org>
+Subject: [PATCH 02/16] clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE
+Date: Thu,  7 May 2026 13:55:30 +0100
+Message-ID: <20260507125544.2903406-3-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260507125544.2903406-1-maz@kernel.org>
 References: <20260507125544.2903406-1-maz@kernel.org>
@@ -109,8 +109,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_055604_521144_E65E95CA 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20260507_055603_507205_7E87A99B 
+X-CRM114-Status: GOOD (  26.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,88 +125,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A bunch of Samsung SoCs are missing the EL2 virtual timer interrupt
-despite using ARMv8.1+ CPUs. Add the missing interrupt, except for
-those broken designs where the interrupt is documented as not being
-wired.
+When running with at EL2 with VHE enabled, the architecture provides
+two EL2 timer/counters, dubbed physical and virtual. Apart from their
+names, they are strictly identical.
+
+However, they don't get virtualised the same way, specially when
+it comes to adding arbitrary offsets to the timers. When running as
+a guest, the host CNTVOFF_EL2 does apply to the guest's view of
+CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
+the architecture is broken past the first level of virtualisation
+(it lacks some essential mechanisms to be usable, despite what
+the ARM ARM pretends).
+
+This means that when running as a L2 guest hypervisor, using the
+physical timer results in traps to L0, which are then forwarded to
+L1 in order to emulate the offset, leading to even worse performance
+due to massive trap amplification (the combination of register and
+ERET trapping is absolutely lethal).
+
+Switch the arch timer code to using the virtual timer when running
+in VHE by default, only using the physical timer if the interrupt
+is not correctly described in the firmware tables (which seems
+to be an unfortunately common case). This comes as no impact on
+bare-metal, and slightly improves the situation in the virtualised
+case.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/boot/dts/exynos/axis/artpec9.dtsi | 3 ++-
- arch/arm64/boot/dts/exynos/exynos2200.dtsi   | 3 ++-
- arch/arm64/boot/dts/exynos/exynos990.dtsi    | 3 ++-
- arch/arm64/boot/dts/exynos/exynosautov9.dtsi | 3 ++-
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 3 ++-
- 5 files changed, 10 insertions(+), 5 deletions(-)
+ drivers/clocksource/arm_arch_timer.c | 44 ++++++++++++++++------------
+ 1 file changed, 25 insertions(+), 19 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/exynos/axis/artpec9.dtsi b/arch/arm64/boot/dts/exynos/axis/artpec9.dtsi
-index f8ed43c6e8258..cd46aaf056287 100644
---- a/arch/arm64/boot/dts/exynos/axis/artpec9.dtsi
-+++ b/arch/arm64/boot/dts/exynos/axis/artpec9.dtsi
-@@ -272,6 +272,7 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
- 	};
- };
-diff --git a/arch/arm64/boot/dts/exynos/exynos2200.dtsi b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
-index 6487ccb58ae76..59662f9bdb98f 100644
---- a/arch/arm64/boot/dts/exynos/exynos2200.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
-@@ -1911,7 +1911,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
- 		/*
- 		 * Non-updatable, broken stock Samsung bootloader does not
- 		 * configure CNTFRQ_EL0
-diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
-index f8e2a31b4b751..2e6fb24a3c928 100644
---- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
-@@ -405,7 +405,8 @@ timer {
- 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
- 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
- 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
--			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
-+			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index 90aeff44a2764..eaf276a9b9d28 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -688,6 +688,7 @@ static void __arch_timer_setup(struct clock_event_device *clk)
+ 	clk->irq = arch_timer_ppi[arch_timer_uses_ppi];
+ 	switch (arch_timer_uses_ppi) {
+ 	case ARCH_TIMER_VIRT_PPI:
++	case ARCH_TIMER_HYP_VIRT_PPI:
+ 		clk->set_state_shutdown = arch_timer_shutdown_virt;
+ 		clk->set_state_oneshot_stopped = arch_timer_shutdown_virt;
+ 		sne = erratum_handler(set_next_event_virt);
+@@ -879,7 +880,7 @@ static void __init arch_timer_banner(void)
+ 	pr_info("cp15 timer running at %lu.%02luMHz (%s).\n",
+ 		(unsigned long)arch_timer_rate / 1000000,
+ 		(unsigned long)(arch_timer_rate / 10000) % 100,
+-		(arch_timer_uses_ppi == ARCH_TIMER_VIRT_PPI) ? "virt" : "phys");
++		arch_timer_ppi_names[arch_timer_uses_ppi]);
+ }
  
- 		/*
- 		 * Non-updatable, broken stock Samsung bootloader does not
-diff --git a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-index 66628cb32776e..2c34a2b30ad02 100644
---- a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-@@ -148,7 +148,8 @@ timer {
- 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
- 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
- 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
--			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
-+			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
-+			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
- 	};
+ u32 arch_timer_get_rate(void)
+@@ -1023,6 +1024,7 @@ static int __init arch_timer_register(void)
+ 	ppi = arch_timer_ppi[arch_timer_uses_ppi];
+ 	switch (arch_timer_uses_ppi) {
+ 	case ARCH_TIMER_VIRT_PPI:
++	case ARCH_TIMER_HYP_VIRT_PPI:
+ 		err = request_percpu_irq(ppi, arch_timer_handler_virt,
+ 					 "arch_timer", arch_timer_evt);
+ 		break;
+@@ -1090,25 +1092,34 @@ static int __init arch_timer_common_init(void)
+ /**
+  * arch_timer_select_ppi() - Select suitable PPI for the current system.
+  *
+- * If HYP mode is available, we know that the physical timer
+- * has been configured to be accessible from PL1. Use it, so
+- * that a guest can use the virtual timer instead.
++ * On AArch32, if HYP mode is available, we know that the physical
++ * timer has been configured to be accessible from PL1. Use it, so
++ * that a guest can use the virtual timer instead (though KVM host
++ * support has long been removed).
+  *
+- * On ARMv8.1 with VH extensions, the kernel runs in HYP. VHE
+- * accesses to CNTP_*_EL1 registers are silently redirected to
+- * their CNTHP_*_EL2 counterparts, and use a different PPI
+- * number.
++ * On ARMv8.1 with FEAT_VHE, the kernel runs in EL2. Accesses to
++ * CNTV_*_EL1 registers are silently redirected to their CNTHV_*_EL2
++ * counterparts, and the timer uses a different PPI number. Similar
++ * thing happen when using the EL2 physical timer. Note that a bunch
++ * of DTs out there omit the virtual EL2 timer, so fallback gracefully
++ * on the physical timer.
++ *
++ * Without VHE, if no interrupt provided for virtual timer, we'll have
++ * to stick to the physical timer. It'd better be accessible...
+  *
+- * If no interrupt provided for virtual timer, we'll have to
+- * stick to the physical timer. It'd better be accessible...
+  * For arm64 we never use the secure interrupt.
+  *
+  * Return: a suitable PPI type for the current system.
+  */
+ static enum arch_timer_ppi_nr __init arch_timer_select_ppi(void)
+ {
+-	if (is_kernel_in_hyp_mode())
++	if (is_kernel_in_hyp_mode()) {
++		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI])
++			return ARCH_TIMER_HYP_VIRT_PPI;
++
++		pr_warn_once("VHE without EL2 virtual timer interrupt, broken firmware\n");
+ 		return ARCH_TIMER_HYP_PPI;
++	}
  
- 	fixed-rate-clocks {
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index d085f9fb0f62a..86933f22647b7 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -1856,7 +1856,8 @@ timer {
- 		   <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
- 		   <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
- 		   <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
--		   <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>;
-+		   <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
-+		   <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>;
- 	};
- };
+ 	if (!is_hyp_mode_available() && arch_timer_ppi[ARCH_TIMER_VIRT_PPI])
+ 		return ARCH_TIMER_VIRT_PPI;
+@@ -1200,14 +1211,9 @@ static int __init arch_timer_acpi_init(struct acpi_table_header *table)
+ 	if (ret)
+ 		return ret;
+ 
+-	arch_timer_ppi[ARCH_TIMER_PHYS_NONSECURE_PPI] =
+-		acpi_gtdt_map_ppi(ARCH_TIMER_PHYS_NONSECURE_PPI);
+-
+-	arch_timer_ppi[ARCH_TIMER_VIRT_PPI] =
+-		acpi_gtdt_map_ppi(ARCH_TIMER_VIRT_PPI);
+-
+-	arch_timer_ppi[ARCH_TIMER_HYP_PPI] =
+-		acpi_gtdt_map_ppi(ARCH_TIMER_HYP_PPI);
++	/* The GTDT parser can't be bothered with the secure timer */
++	for (int i = ARCH_TIMER_PHYS_NONSECURE_PPI; i < ARCH_TIMER_MAX_TIMER_PPI; i++)
++		arch_timer_ppi[i] = acpi_gtdt_map_ppi(i);
+ 
+ 	arch_timer_populate_kvm_info();
  
 -- 
 2.47.3
