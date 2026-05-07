@@ -4,129 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE563CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A8E0CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:CC:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rl6LgXxPLAVsnYwBosaHNVVrrWGDgEJ44oBQ4KSFjBw=; b=McH/DlKik7G2F4qgqtahsD5YFb
-	Ce6uIOxYaoBVzI2TKXqrXoBd/FeMwEX2fhpxHYBKfKSkOi4551arGM+saefpoT8JHEK5LrR6/jvW6
-	K2HwWPqD6LWlPAJXUB6Iz8/HiyKRBcjpQ/WIlJ1ZkfKX5R2xR3SC49ev899gTqjS21JMTrAwF322e
-	6p2FcHPJLZTbDEe1Ny6tKvvkrQjJllC6KpGzPV5zySXDXOHCu4HLvGylL7Xp1RxWl4GBllZtfbAxk
-	T0OAOmQUhNIN6B5Wbs5wt3OmkJj0RIIdEeeWJo5xUrIvnnRKWcBB9tgwTEhUioUmn6xv8DT8/E5je
-	V74cFDMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oysCO2GNq+pfDUxK0gk5J79L5g3WyP7UgX/D+7UD3M0=; b=0lpBMbNatun3ek3PFtVagAF/xa
+	SSanmo5oawo3x7YIfWo/GxlRfekN24LruNqm1PkrxH1y83EvC6y+/trBNwg11RB/aarty7483mlNg
+	2+e9waeWUkXZHFjhYql9ZJKkRnCRAz80MrGmS+9mo1WaiOzwjWdl1GQMJVWKQH6Mmn64B9d44ungC
+	NJe76MhuHd/ay1Qf5IsLc4p2Rwvmhzn79biH1/6OKymdg9iY0XAzfCB6bmykUQopaW7+xXFPwVEUr
+	WULnYqDQc4TL94AfjJdzRErNvdd0m92olR88koO0jfKOU5mnIwZlHQDZZS0h7r8aVCuI1fS+rTy9q
+	SPagqQsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKuK9-00000003DHf-43l4;
-	Thu, 07 May 2026 08:43:13 +0000
-Received: from mail-westus2azon11012018.outbound.protection.outlook.com ([52.101.48.18] helo=MW6PR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKuK7-00000003DH7-1ruO
+	id 1wKuMo-00000003Dnn-0z6k;
+	Thu, 07 May 2026 08:45:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKuMl-00000003Dmu-2FGJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 08:43:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TBvIH+SFJiKYcFzQfl8sUuED0ddlXSZloVL8CdZX4u+vvSUDwGFlDROZcVwvq835NryfOc4CKtEKFkRgUcWcDpPHtERaiDTDm/4rtGQXbsRF99Rr6oVVIldcUpdCTfMrGuAM8cLkR1WbKcptCYDA+JwNSgxcoDErvxSWBtH2VxRxNwcNwHKihFnGBY9Z+waH0COZXeJ4zxr+9oCSrrCysKGwjwZ5N0u14+wacZFb55eBfRnlAmSEzGqNO0uWJTbP/ajaRKs1I35LUy98xIMPlhXOj/PPAe1h3lZDFaRTF20EDgeAHihrbmW8dqjhcmSxDDNNRRuUeiodyvXxmcyJ9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Rl6LgXxPLAVsnYwBosaHNVVrrWGDgEJ44oBQ4KSFjBw=;
- b=gWU4yxvj66f57ZBUPFGVGvbRDfJvroV5CnsdKp8bnVELdE3sCABLZvpsEWTMIGUMs+Wb0igo5Y8Pj3jrs1bZAZ6Wjx1V4LFdP8YwgW0WyXjKNp233nwTdiTSlsH7WdoCAsBu+nRY7uTssYVy+A7L3/JAfpDNJvXsOAMK0OHVCRIoCXIyPOH6GzZ0mCp7zm9VyZ/784Yx6ULN4hBOonhImRlon0yK9ny3ZuZPShL0l7HDZ+8oD36AiLPktW0gMcyJ3zGIgj3EgfVBAL18i8iWX9VRBInoLdzrwwul1LS7FQ5gK2DcWsbepRkVDddVZw57BgOYvpVmcbIOWmKFE/W1xw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Rl6LgXxPLAVsnYwBosaHNVVrrWGDgEJ44oBQ4KSFjBw=;
- b=rlnXXvQl2LkShuq5oFB0slPLh7y8K23fka061mpM2xYWReCV433J1MM6LYkG79tT9jdresOAvGR3HSrdCVSONPg7WkxQEkMNHQU0+7BdydyiZ2zrePbiTQrOvX2ZxW0VdARgaePPYkjjdT1J51eCki1YhBCT/vNSzzY5wBjEp3w=
-Received: from CH0PR03CA0373.namprd03.prod.outlook.com (2603:10b6:610:119::7)
- by PH7PR10MB5816.namprd10.prod.outlook.com (2603:10b6:510:127::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.16; Thu, 7 May
- 2026 08:43:06 +0000
-Received: from CH1PEPF0000AD7D.namprd04.prod.outlook.com
- (2603:10b6:610:119:cafe::69) by CH0PR03CA0373.outlook.office365.com
- (2603:10b6:610:119::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.17 via Frontend Transport; Thu,
- 7 May 2026 08:43:06 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CH1PEPF0000AD7D.mail.protection.outlook.com (10.167.244.86) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Thu, 7 May 2026 08:43:05 +0000
-Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 7 May
- 2026 03:43:02 -0500
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 7 May
- 2026 03:43:02 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 7 May 2026 03:43:02 -0500
-Received: from [10.24.73.74] (uda0492258.dhcp.ti.com [10.24.73.74])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6478gtxF2944601;
-	Thu, 7 May 2026 03:42:56 -0500
-Message-ID: <0043574e-6721-445b-ad01-54446dd72395@ti.com>
-Date: Thu, 7 May 2026 14:15:18 +0530
+	Thu, 07 May 2026 08:45:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C24422F8;
+	Thu,  7 May 2026 01:45:48 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0DC2D3F836;
+	Thu,  7 May 2026 01:45:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778143553; bh=OOppSG08L/KO4ewNhuiOGUn8DWyo80ypF6cLMLTTsYE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ufrmHspjVCl4Wzf0NQBsG9zpogPjmvRIN1w+ESiaSlDExzghg2rqd8dhdsCqAR69g
+	 8hZG8qjjFi6QLj+2oPUa2khfsO2MREpvN3a0jiv3RWVVv/UzdDsvHNrl+0TdcjdGQg
+	 wyLfzq6PWCP3Ivvzk4azYH5V3T7Jw1ERbkYc1EVw=
+Date: Thu, 7 May 2026 09:45:46 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	tabba@google.com, David.Hildenbrand@arm.com
+Subject: Re: [RFC PATCH] KVM: arm64: Align KVM_EXIT_MEMORY_FAULT error codes
+ with documentation
+Message-ID: <afxROjBUVzeQQNfg@raptor>
+References: <20260506105053.107404-1-alexandru.elisei@arm.com>
+ <afs3wp7xBUf2jYK4@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <josua@solid-run.com>,
-	<matthias.schiffer@ew.tq-group.com>, <d.haller@phytec.de>,
-	<francesco.dolcini@toradex.com>, <joao.goncalves@toradex.com>,
-	<emanuele.ghidoli@toradex.com>, <ernest.vanhoecke@toradex.com>,
-	<rogerq@kernel.org>, <eballetb@redhat.com>, <robertcnelson@gmail.com>,
-	<afd@ti.com>, <u-kumar1@ti.com>, <stable@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <luis.parga@ti.com>, <srk@ti.com>,
-	<s-vadapalli@ti.com>
-Subject: Re: [PATCH v2 02/13] arm64: dts: ti: k3-am642-phyboard-electra-rdk:
- fix USB clocking for compliance
-To: Wadim Egorov <w.egorov@phytec.de>
-References: <20260506141040.1368918-1-s-vadapalli@ti.com>
- <20260506141040.1368918-3-s-vadapalli@ti.com>
- <d0eb7931-bcbc-4ca6-8ab5-4c12d134545a@phytec.de>
-Content-Language: en-US
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-In-Reply-To: <d0eb7931-bcbc-4ca6-8ab5-4c12d134545a@phytec.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7D:EE_|PH7PR10MB5816:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4a2f48a0-7f67-4ff6-faef-08deac14a80e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|7416014|1800799024|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 3iWMAdsYcHK4yyYuf5YSMJyL88Q5DYFsom2dNEUkOZHgrQmyL0kSAcPVjKDj5rdFRPo+A1QEw8whLJ5Cq86reT7y2Ql64iSk42jVYXwUZGiUlbzVfut6D53VpiTrNZVgFpYQARan/TBb9oUt8hgV0vJJGFUlXu5Qpi2evixr+en60jlWFcnfcupv3JGSTij/J80w3q3lsXYAmNTaj8SGCOXjscRq/QwXr/ZaXYh8waI0iC0H6GyAjhsnkWkw6P6uQKhkRA+S9/VeKra/cNZCXQvCArwVCngshnRp96GMswLTrT8yICzC8AiCPvrO1z16Wkp/XCq0vEXf81ntCko5ZdmooJRHQSqgZ9CSmdeWATc4YVXz224bNZAp++TGdXy2xCUkoChuCQqrRevP6riPUWPseioeSa2uJ0TMZkCD50Zlrqjt1APjapLvXz2HnIFPa1SHwvwM3gHYf3ZMzYlgPwxuCNpUtYgfJv1GzQfhlcXQ1s2oOj2zFAewg7poQJRGR6AL07YhYapXsopT2+yYgf5MH3lXCOnqirdcdxWGBdpvUaC4OWSUANYqaGDcD5fVKmiObeV7zj7w6XMy4+QqAEDdKlTQictX7JybBY/m/qd8RMYkbgBvBlI8CbXzSNbahoQIel1rQrbRGiUJz8Hujs271Av+d7GU/0jCwn5KHTAMtDYsy3GPh2P58tA9ncrDZpn8VU+30if/8wYKlY6k0os2HDZF6AfAmiN8dAivpYo=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(7416014)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: EtS32vw6W2Aa8fjYsSIWAmILhm/yx5986cxUgXpJ6plOVAMx/+TiowUWA4WX/QkJ55QC1otABm3D+CuBwG4MveS7matpAjOvJuhY3jfnZF6AQwW3tEnKZRH2W97mviiY05DtzBRy0769T0XDm1kupKhiRy9c5KlkJitZ2Ox9pg0GgW1JgrR3rLGOdZvTKCP9A9u0yypdW1ro8EeyO91BNEUK9Di8pOcVrANhomHK+znCkFzziqydnNHB//AzQrXuL+SDW3gVwMO8FlWXNlgmGJYk8bvFyMOtZYmfCzpyatPUBxHreGQDhH9RDb9x4Y+iGIKtGtW2zAWpjgRXgwqZXwhXEByft/+geTCUMokbg85OByVOsJpxAqjTtRX1MAAbZo7JKwbWQa/b5Rc7X002AbGA7Vb/wSABJTnfMV+yyeNUfzDBkWr5EYCc8tgnqaXf
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 08:43:05.1071
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4a2f48a0-7f67-4ff6-faef-08deac14a80e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7D.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB5816
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <afs3wp7xBUf2jYK4@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_014311_543159_117B5462 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20260507_014555_712147_8D86149B 
+X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,56 +72,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/05/26 13:55, Wadim Egorov wrote:
-> Hi,
+Hi Sean,
+
+(Resending this because I managed to mess up the headers, sorry for the
+duplicate).
+
+Thanks for the explanations!
+
+On Wed, May 06, 2026 at 05:44:50AM -0700, Sean Christopherson wrote:
+> On Wed, May 06, 2026, Alexandru Elisei wrote:
+> > The documentation for KVM_EXIT_MEMORY_FAULT states:
+> > 
+> > 'Note!  KVM_EXIT_MEMORY_FAULT is unique among all KVM exit reasons in that
+> > it accompanies a return code of '-1', not '0'!  errno will always be set to
+> > EFAULT or EHWPOISON when KVM exits with KVM_EXIT_MEMORY_FAULT, userspace
+> > should assume kvm_run.exit_reason is stale/undefined for all other error
+> > numbers'.
+> > 
+> > where a return code of '-1' is special because according to man 2 ioctl:
+> > 
+> > 'On error, -1 is returned, and errno is set to indicate the error'.
+> > 
+> > Putting the two together means that the ioctl KVM_RUN must 1) complete with
+> > an error and 2) that error must must be either EFAULT or EHWPOISON for
+> > userspace to detect a KVM_EXIT_MEMORY_FAULT VCPU exit.
 > 
-> On 5/6/26 5:09 PM, Siddharth Vadapalli wrote:
->> According to section "6.5.3 Normative Spread Spectrum Clocking (SSC)" of
->> the USB 3.2 Specification, SSC should be enabled by default. This protects
->> against EMI violations. Hence, enable internal SSC for USB SuperSpeed.
->>
->> Fixes: c48ac0efe6d7 ("arm64: dts: ti: Add support for phyBOARD-Electra-AM642")
->> Cc: <stable@vger.kernel.org>
->> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
->> ---
->>
->> v1:
->> https://lore.kernel.org/r/20260505110631.1144200-3-s-vadapalli@ti.com/
->> No changes since v1.
->>
->>   arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts | 9 +++++++++
->>   1 file changed, 9 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
->> index 793538f94942..a85d7d08bd1b 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
->> +++ b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
->> @@ -439,12 +439,21 @@ &sdhci1 {
->>   	status = "okay";
->>   };
->>   
->> +&serdes_wiz0 {
->> +	ti,core-clk-sel = <1>;  /* Select internal reference clock */
->> +	ti,ssc-enable; /* Enable SSC */
->> +	ti,ssc-type = <1>; /* 1 for Downspread */
->> +	ti,ssc-frequency-hz = <33000>; /* 33 KHz */
->> +	ti,ssc-depth-per-mil = <5>; /* 0.5% depth */
+> Yes and no.  The key escape valve we (very deliberately) gave ourselves is this:
 > 
-> I don't think the comments are very helpful. The property names already give a meaning.
+>   userspace should assume kvm_run.exit_reason is stale/undefined for all other
+>   error numbers.
+> 
+> As arm64 already does, that clause allows KVM to "speculatively" set exit_reason
+> to KVM_EXIT_MEMORY_FAULT.  Which is by design.  The userspace flow is intended
+> to be "if KVM_RUN returns EFAULT or EHWPOISON, then check for KVM_EXIT_MEMORY_FAULT
+> to see if KVM provided more information about why the EFAULT/EHWPOISON error was
+> returned".
 
-The comments have been added for three reasons:
-1. The meaning of the following properties isn't obvious:
-	ti,core-clk-sel = <1>
-	ti,ssc-type = <1>
-2. For ease of 'grepping'. Grepping for '33 KHz' for example based on the 
-USB 3.2 Specification's modulation rate will not show '33000' in the results.
-3. Completeness / Consistency. Since some of the less obvious properties 
-have been described via comments, the remaining have also been commented 
-on, although it is obvious what it means (ti,ssc-enable for example).
+Hm... In general, "speculatively" populating exit_reason with
+KVM_EXIT_MEMORY_FAULT when userspace is not intended to use that information
+looks a bit dubious to me. Why do the work if userspace is not supposed to use
+the information?
 
-Unless you have a strong objection to removing the comments, I would prefer 
-retaining them. Please let me know.
+Regarding gmem_abort(). As I see it, if today someone writes userspace that
+relies on any of the undocumented error codes propagated from kvm_gmem_get_pfn()
+to handle KVM_EXIT_MEMORY_FAULT, that means that KVM can never use those error
+codes for any other exit_reason in the future, because that userspace will
+break.
 
-Regards,
-Siddharth.
+I'm sure this was all carefully considered when designing the interface, I was
+just curious how this particular problem has been solved.
+
+> 
+> > On a kvm_gmem_get_pfn() error, gmem_abort() prepares the
+> > KVM_EXIT_MEMORY_FAULT exit_reason and propagates the error back to
+> > userspace. kvm_gmem_get_pfn() does not massage the error code, and if the
+> > error is not -EFAULT or -EHWPOISON, userspace implementing the ABI fails to
+> > detect the memory fault exit.
+> > 
+> > Things get more complicated with kvm_handle_vncr_abort().
+> > kvm_translate_vncr(), similar to gmem_abort(), prepares the VCPU to exit
+> > with KVM_EXIT_MEMORY_FAULT and propagates the error code from
+> > kvm_gmem_get_pfn(). Then kvm_handle_vncr_abort() does a number of things
+> > based on this specific error code:
+> > 
+> > - If it's -EAGAIN, KVM resumes the guest. Note that KVM, when handling a
+> >   *host* fault on a guest_memfd backed VMA, retries the fault handling if
+> >   kvm_gmem_get_pfn() returns -EAGAIN.
+> 
+> Totally fine.
+> 
+> > - If it's -ENOMEM, -EFAULT, -EIO or -EHWPOISON, it returns to userspace
+> >   with 0 (success), meaning that, according to the documentation, userspace
+> >   will not detect the memory fault exit.
+> 
+> Also totally fine, and working as intended.  KVM_EXIT_MEMORY_FAULT is provided
+> for scenarios where (a) the issue is likely related to the GPA and (b) userspace
+> can remedy the underlying issue using the information provided in kvm_run.memory_fault.
+
+If KVM_RUN always returns 0 when exit_reason = KVM_EXIT_MEMORY_FAULT, which is what
+kvm_handle_vncr_abort() does, how will userspace ever be able to handle the
+fault?
+
+Thanks,
+Alex
 
