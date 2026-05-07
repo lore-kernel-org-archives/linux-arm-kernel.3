@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45B95CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 15:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F5FBCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 15:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hl3OPaa+HqsVW3wENlJ/AzITxIxhv+o3/IRQF7Ihs4o=; b=T8TOMPfySQWCLzCMlve1PPAPfy
-	ez1bd3lFF0s/BevGbVLruYXZPBsfzgZI2vbc+TdmOmzlXrKK0Yc9TtG4mP9C8YiWbwzpWhQEJ9Mjz
-	XlWS1dzTsPIC7Ju6kCTku1pKGr5YhZoPuf3IaU5tnXY+umtxrt6OymfL54B5HnEJMIUpoIVPUd1jB
-	/kb7QJA1IwHmcQvXE1TjzkrHVVUC6X3t2COmqYlUmFL07PVdWjQCxXG8/Yejj9wL/LuPemktHT8Jy
-	ozajXsxYzmnoqC0OJjmBJvo6+eZ98hnxgWExUPsTeosWcJlQi1Ov1eCniDHWrXK1ZOLPewGl7fnoD
-	mSlGHNRg==;
+	bh=gTYDekqrRUKGwMcBjdQn1nmLxpQn+Cw3upH2qbMNVlQ=; b=MvdjFwgWrZZ8KhdpLcCY6iggsW
+	K/0mlYs2nXzm0XLiaDd8aowNoyr4FdGqvalllU+ye3IgcE6lwVDR1W7R5R9WJBcL9LNuvniCD4yNr
+	6RAIi5knFNgzCWEjTkaGAc6gBUWtmafkNmz2d5TAPMKVcecXOAJXkOscoUStpTdZhFz4+xjX5OxXv
+	KTuGpjnMjGOdW2+6jEz8rxnc4RDL7TFhIn6vDFVJFl4FRO08ohQq5si39u7KOccTn2TUxQP4m8nik
+	7+Bw1XMZcyfwaFz+RgJxD7j0yZkDGmColYZyZeTKPs/RzyrX7KHUSBIM/kNtiA5Gt1D+JBsuoOVcc
+	E1bApHxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL0lP-00000004D96-3Kqj;
-	Thu, 07 May 2026 15:35:47 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wL0ol-00000004Dk8-1Rf8;
+	Thu, 07 May 2026 15:39:15 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL0lN-00000004D81-0tnD
+	id 1wL0oj-00000004DjR-2JLf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 15:35:46 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2ba3b9bcf69so97655ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 08:35:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778168144; cv=none;
+	Thu, 07 May 2026 15:39:14 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ba180a022dso99605ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 08:39:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778168353; cv=none;
         d=google.com; s=arc-20240605;
-        b=JVXd5vvwWaoaLX/hGvGnZpDS+0a1nAwCWKxBvkNZX4v27N99MWNjEWzQum9DathPcj
-         kroKLAWmh6NlUu3+ai+o/mlXeOcT8ykiX4rjlRDJ9RTNMGeeb0ZZ8w3bY70UbjOVsXNq
-         ep85Nuvq5BhOvIGfvYx55JMzr9RPt3NbwzIEcBSWML/dpiBqaBEFIC10P7t084opTEf1
-         A5vgNmvQPEz0YtXd1foFJrD7GtRnOyGne+pn3L75D1RWng5zK1iICiXTeFz+w7dLn6Sr
-         JktfynHR4vz3QRbT5nejTwULwrjP76FRNz6GwSHdMcM7O3Vo04uufy9rMqZyuv/WVNAZ
-         AwoA==
+        b=Wd0SESMhQmxhUc4WF+ckKvveRvBMltbu7ntenafWNKhmYKzK6lR9bQeWS9XQ3Y9aPv
+         K+/dff5W0QxXjy85ItMeTxcFRyWXqLAQ7gf0zdGeW+ovkV8hRZ639hJk0aroRNq+wVO5
+         aPMMDefrNZQKQTuhYhC00TiyMs12BUKoD/9E8Qg4PsACojZx11jxryFZoKvGXQr6mWxa
+         JPUpn4krB8pgHlO9vRbPezqV+1nxMgLUs93gKz0pRaVQu2RL03krggmtTsmXIR0t49ls
+         9Jlymz2WzTKJh/4VKbNMLXcmuqEnoSHDewx1W3saYGeTrsTzXhGx6kvupGVvpvHpzvRP
+         n2pA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=hl3OPaa+HqsVW3wENlJ/AzITxIxhv+o3/IRQF7Ihs4o=;
-        fh=YHDiPpm/lQZ4Popk7BJczupleN078ci42sxlNJLgH2w=;
-        b=VPMcvzMcKSqCd9dC7N5Dq805g/rN/cci0zJYXDSDrAtPMI79xa/oxO2sQYT/zb7d2p
-         ehJqmeJo3DUFHPUFSudhXwhuDcBf41wC8XC13NUCIQR+mUwUjoiZtY+CqM7NDdHkigXN
-         tcnk2sgBV8vvNCUWOTtM4udTBn89/d11EXqJOcBa3ri9/wmEay9sa0RzRHC60o09z4yi
-         157gjVR19R/2WeH58Q0vqk0wYsa+EJG4CixHyrFOsuE6/h22Twb+Yfu4DU8uwxvvEtAv
-         Hsjy4faYd9rlPyTkkGIZYUvY/2UbEerVgQNJ0uwlYoRvIsTPq6dRBF7okr0xn2ze2ps9
-         K2Rw==;
+        bh=gTYDekqrRUKGwMcBjdQn1nmLxpQn+Cw3upH2qbMNVlQ=;
+        fh=16VYXny8eqeA1b8znsCZm5xNP3zFiv1Dwkr42zecRLI=;
+        b=iAE/eSsUxSjnoEmSkQC++5fksiUJ078V/+Kx8u5JzKNrH1GvIN+ZqtEBRASVFQcSr3
+         OMHYzKnat1oVF/RNOJneb/QK5PuNKyTvIoC8X6wY07+esV3mzvWQWZftSMkLuUeNTSOj
+         MHuU9tN/yHl0geaqFsxnRZXfiMcqSeap+hH0t8Ac3njuEQ9iULs5JWR0jXw1yvoI9P0u
+         sbjPtthhYcsqkqiQX0x8pqll3MUGOj0VaE6aB4blW+/akWYP8+AMGKemohVa7+FuHT1i
+         u1SHM1i6oJEY9CnPbcJ3ehjBmThgzqNRgwVcdaHBSIeBpJWeg8UBrHJVV8ZuzLvxWexc
+         rB9w==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778168144; x=1778772944; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1778168353; x=1778773153; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hl3OPaa+HqsVW3wENlJ/AzITxIxhv+o3/IRQF7Ihs4o=;
-        b=Tc4jSKDXXIdgy+bwFeBmhBYY62imvd4KAZT2Wnub5C5yPLSX8fXrzk3CEMI4udQA3W
-         91efoKZmLkoVbjeVfEXwWyUr0v0JBLuKwCRjp8Lj5YivblFuBPs5wm93WrJpkkV94JoV
-         5OU5KnEJ3C/MVl7BDV49JVYVtf833TtFT7C6gX2Kqer1meFXUKhEniYL6ee90hScdy47
-         JaVU/W7nLdHf1+Ow65zI8d15cPJli8WywV9QsVnlWaPHI0+JXgJulCpbtvvU1gC4HY3Z
-         ieclCCtSi9XzgHrA3GMK09/r1c4kQ1voRwRfgyu0eyyfRb9DnJ4wtPxVvt8KdH1HgD3C
-         5+5Q==
+        bh=gTYDekqrRUKGwMcBjdQn1nmLxpQn+Cw3upH2qbMNVlQ=;
+        b=Sk/XNKYSPjJs/THUFoGHrhDXpLv2wEmLnDJIyig7pWYD3XforvF7v4Fuvu30hs9130
+         ipNj1MXgxw9HKY6jdPGOIAj+bTWAmZAKu/RhmS+WP/n+LTQhAL8/MB4TwsJX1d3WQi1W
+         En4aDHDLy4ausNt0b73QtTW3A60zIXCN2S+zr2X81GPzTgrwiiB5FD2Ijv5yuYjnGrFr
+         8AZeVrPA+3JOxDcLiPt2DQvp4rs/VkGIiXsZNKeD91zhAbwTnjhlFC+haYp1Y0HOOmXg
+         IMuLwpH0efbRrS+14dhtNoFjN/cc75fQcQjDdfK7R3oWC+kM7jdZDcZ2rLKnx4OcaWbi
+         mmew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778168144; x=1778772944;
+        d=1e100.net; s=20251104; t=1778168353; x=1778773153;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=hl3OPaa+HqsVW3wENlJ/AzITxIxhv+o3/IRQF7Ihs4o=;
-        b=QNju40ksND6zsNTQidv50dvyHmSI2qoUsPMR54N6B/a4KlUwU6I4YxJGYZDuy2uOJI
-         1DCUOTe7bY6AqdAoIbmeIBlp2FNQDtMGvOU7NCiH9p5LtQmXuKKlkSTs5VgZIoWcA0zh
-         mQnBJ4TuC5aDMaZaMr1XAdtea21uwDsrT62slULMwxUwjhtBY7nkm1CvYv9Mzp07hKGI
-         b8TyXOYMR61CCQQoWLZ/g4JgtTuflvvTxko5gIXii80jEQxOSWgefo0/GaJDDQyvqNE+
-         xpF3of9Mnb1SBvukbItkiSHXrQ1aNKLFFgbHhWl5LgQC71VINWwjCsfrUfyMaCmVVZu9
-         XPIw==
-X-Forwarded-Encrypted: i=1; AFNElJ8wQZOHsZi/YBu2QxiHCZsBGJsf0rZuz0Yvv7bnd72r+27X/zbTpthIuENOANNJYaYdCM9HatR8bjam/azAKc0s@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywnezpe0YPfYJGRyFXB5/z5TY0QBxINlFDXYekRfDO8ubyDI6yC
-	7N7lxng1z7YNFGctC2bEvs8/IbYjQ9zaGAy1pD9XZZSA9vtxSt9fQS2SsIWE8NdYnTCfiNbm5ng
-	PziRf/R206EIc5LZ9m17+Xc5JtSLvvzPgiCgXDQba
-X-Gm-Gg: Acq92OFRCSLpBwiYXNNYwdQ3IlAX9DG1Iuxa6Mb5tiri2QwCT2Hz+GHqZuN+B/Lkour
-	wqksN/5Q0xARArSP0ONCX/NzNi7Z9oUhNeqWFuw22MavI2QrwJGn40htZs2HPEfFlR7vkqR0gGZ
-	+if5EDTXtxiZX8DE+nQuuJM8ULhRS2HUkwHTFlo9VGjQK7IWHU2+NBBoH+7QN1/31qV5SvDAKYz
-	QaxcaNxiApJBDjaxW6vkGKM6BwJD9kgTxOfIgCGC/t7Y4CK2/QcpN4yeHlk7S5kfWK074mAeywb
-	EJNfn5OVwQlQF6hh1t48TQt+GB6QojmAhkqVA8yPFrLMqOOwHbntZpi3G9/mG+q9bo7Dew==
-X-Received: by 2002:a17:903:f84:b0:2b0:b458:2dc3 with SMTP id
- d9443c01a7336-2bae5b14ae2mr373815ad.21.1778168143999; Thu, 07 May 2026
- 08:35:43 -0700 (PDT)
+        bh=gTYDekqrRUKGwMcBjdQn1nmLxpQn+Cw3upH2qbMNVlQ=;
+        b=tNe3AdkyBKHSdge35ce8P3wcXi34KCS6vSXQxn19YH/uyiVvxgtHlfx0geyLtIXLAv
+         7o0Qen7ApJzu/Fy9ZyMl12pMvFvYAuHL5C2SCsaQTEVP0AZqkG6eKFg/H9YXiaJ5HhBe
+         eIgQqnZUOYhSee0iaxub4l4OYOFtyRjOGPmctKc6j5loJBtrH5186Icw9aiJGTSbX3Ug
+         MXkyJKLWIcwxZjxE+hNH3X7Abmx+ZBZEzCV96i98po/OvJrKXixGZUq86kbJcglZVi7Y
+         fUoiIzOHRQXzIHZN8nLUn1OXqAb8ybnxibvUuG4FUTinGLttZgiCl4n7gEcyU4nPbt5P
+         +uyA==
+X-Forwarded-Encrypted: i=1; AFNElJ8M04Ga0WFlB86HT4vkIYRjelPvdHyi0XacKOqYYWy3JmjQrtdSf/QxVEMl8WBvavUhro/eKQv9RwHXoECJ0is+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzrz8R/R5OwOx4mQTfbIAzhQKn5eV1O2tvDqvMcnV+7M5koOVBL
+	ieVMESG/o2PDIUQqSFU8dxobhLI4C9+s1oX3jfy4ZN5hx4MUNhg9OTgpSDqc/HRVyWMWtNfBkae
+	2wE3HpgqUqTdDV6r01svyHQtVkAIjZCqBzR8IjcFn
+X-Gm-Gg: AeBDieuJardE5STPC1SwJyCoAGGB5j3oe1Bn4+HCbL8OppJhMcPjgu4z5eWxx3iYVco
+	XJiP/kc8wg6LNqwc5fVGjizZlSiGLIpwPMHFZNlVruVFbiw06zGuHPbKYCu36p6+SCmA590xvXP
+	fAOyLL14AhSyHsqQ89vxdZZSemp3S8z2WXxgXK2UgAa6GIVJRtYrM/Pa8HvEdCFauhG4F2f5gQf
+	dXfbgl3f+JXzc/mF59xSCgnQOoT5uFvU5cI8LyMI2YbGsUuxsbxrbE6spATIbSKo/7RrTeJes9h
+	XZ4nNu49q42wehDajw5se7apeQMJ56QkJDtn1/GaD5PE2qEAtf9r7yh/FD4=
+X-Received: by 2002:a17:903:1b63:b0:2a7:6c4e:5914 with SMTP id
+ d9443c01a7336-2bab602610emr4140185ad.6.1778168352129; Thu, 07 May 2026
+ 08:39:12 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260507063737.3542950-1-wangyushan12@huawei.com> <20260507063737.3542950-4-wangyushan12@huawei.com>
-In-Reply-To: <20260507063737.3542950-4-wangyushan12@huawei.com>
+References: <20260507063737.3542950-1-wangyushan12@huawei.com> <20260507063737.3542950-5-wangyushan12@huawei.com>
+In-Reply-To: <20260507063737.3542950-5-wangyushan12@huawei.com>
 From: Ian Rogers <irogers@google.com>
-Date: Thu, 7 May 2026 08:35:31 -0700
-X-Gm-Features: AVHnY4I9DKnPTVL3K0VhIs7W11tZTlL6bzHpAZiuhFaMk_dPdRFxYtcZFku_Z1A
-Message-ID: <CAP-5=fV5WiyB3mghvns1ZW6ewS0=CP4nx+f_ggLgECkqv7VWww@mail.gmail.com>
-Subject: Re: [RFT PATCH v2 3/7] perf-x86: iostat: Move iostat arch-specific
- implementation to util
+Date: Thu, 7 May 2026 08:39:01 -0700
+X-Gm-Features: AVHnY4JkF3wXUtyPgEEQCuM_Et67c3otP3W1Tw-K0ZP-yh5Rc7qin9Nk03qhBV8
+Message-ID: <CAP-5=fUVf-6Xcd+xQBm9FbwbWsUff0PYuH54mrBkLeVyU2cj8Q@mail.gmail.com>
+Subject: Re: [RFT PATCH v2 4/7] perf-x86: iostat: Change iostat_prefix() to static
 To: Yushan Wang <wangyushan12@huawei.com>
 Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
 	namhyung@kernel.org, mark.rutland@arm.com, alexander.shishkin@linux.intel.com, 
@@ -107,8 +106,8 @@ Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_083545_252111_AD48E8F1 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20260507_083913_595377_3CCADE91 
+X-CRM114-Status: GOOD (  21.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,56 +125,128 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Wed, May 6, 2026 at 11:37=E2=80=AFPM Yushan Wang <wangyushan12@huawei.co=
 m> wrote:
 >
-> To support cross-platform iostat capabilities, like record/report on
-> different platforms, architecture-specific implementation of iostat
-> should be moved out of arch directory to get built. Build scripts are
-> changed accordingly.
+> Change iostat_prefix() to static function, since it is not used outside.
 >
 > Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
-> ---
->  tools/perf/arch/x86/util/Build                           | 1 -
->  tools/perf/util/Build                                    | 1 +
->  tools/perf/{arch/x86/util/iostat.c =3D> util/x86-iostat.c} | 0
->  3 files changed, 1 insertion(+), 1 deletion(-)
->  rename tools/perf/{arch/x86/util/iostat.c =3D> util/x86-iostat.c} (100%)
 
-To avoid cluttering up tools/perf/util, would it make sense to create
-a "tools/perf/util/iostat-arch" directory similar to  annotate-arch,
-dwarf-regs-arch, kvm-stat-arch and perf-regs-arch?
+Reviewed-by: Ian Rogers <irogers@google.com>
+
+> ---
+>  tools/perf/util/iostat.c     |  7 ------
+>  tools/perf/util/iostat.h     |  2 --
+>  tools/perf/util/x86-iostat.c | 44 ++++++++++++++++++------------------
+>  3 files changed, 22 insertions(+), 31 deletions(-)
+>
+> diff --git a/tools/perf/util/iostat.c b/tools/perf/util/iostat.c
+> index b770bd473af7..a68ab100780d 100644
+> --- a/tools/perf/util/iostat.c
+> +++ b/tools/perf/util/iostat.c
+> @@ -37,13 +37,6 @@ __weak void iostat_print_metric(struct perf_stat_confi=
+g *config __maybe_unused,
+>  {
+>  }
+>
+> -__weak void iostat_prefix(struct evlist *evlist __maybe_unused,
+> -                         struct perf_stat_config *config __maybe_unused,
+> -                         char *prefix __maybe_unused,
+> -                         struct timespec *ts __maybe_unused)
+> -{
+> -}
+> -
+>  __weak void iostat_print_counters(struct evlist *evlist __maybe_unused,
+>                                   struct perf_stat_config *config __maybe=
+_unused,
+>                                   struct timespec *ts __maybe_unused,
+
+This change doesn't remove the weak symbols, but they should go. We
+should use the ELF machine to determine which architecture version to
+use.
 
 Thanks,
 Ian
 
-> diff --git a/tools/perf/arch/x86/util/Build b/tools/perf/arch/x86/util/Bu=
-ild
-> index b94c91984c66..358541beaa0f 100644
-> --- a/tools/perf/arch/x86/util/Build
-> +++ b/tools/perf/arch/x86/util/Build
-> @@ -7,7 +7,6 @@ perf-util-y +=3D event.o
->  perf-util-y +=3D evlist.o
->  perf-util-y +=3D mem-events.o
->  perf-util-y +=3D evsel.o
-> -perf-util-y +=3D iostat.o
+> diff --git a/tools/perf/util/iostat.h b/tools/perf/util/iostat.h
+> index a4e7299c5c2f..820930a096d9 100644
+> --- a/tools/perf/util/iostat.h
+> +++ b/tools/perf/util/iostat.h
+> @@ -35,8 +35,6 @@ int iostat_parse(const struct option *opt, const char *=
+str,
+>                  int unset __maybe_unused);
+>  void iostat_list(struct evlist *evlist, struct perf_stat_config *config)=
+;
+>  void iostat_release(struct evlist *evlist);
+> -void iostat_prefix(struct evlist *evlist, struct perf_stat_config *confi=
+g,
+> -                  char *prefix, struct timespec *ts);
+>  void iostat_print_header_prefix(struct perf_stat_config *config);
+>  void iostat_print_metric(struct perf_stat_config *config, struct evsel *=
+evsel,
+>                          struct perf_stat_output_ctx *out);
+> diff --git a/tools/perf/util/x86-iostat.c b/tools/perf/util/x86-iostat.c
+> index 7442a2cd87ed..f8d4c9718594 100644
+> --- a/tools/perf/util/x86-iostat.c
+> +++ b/tools/perf/util/x86-iostat.c
+> @@ -332,6 +332,28 @@ static int iostat_event_group(struct evlist *evl,
+>         return ret;
+>  }
 >
->  perf-util-$(CONFIG_LOCAL_LIBUNWIND)    +=3D unwind-libunwind.o
+> +static void iostat_prefix(struct evlist *evlist,
+> +                         struct perf_stat_config *config,
+> +                         char *prefix, struct timespec *ts)
+> +{
+> +       struct iio_root_port *rp =3D evlist->selected->priv;
+> +
+> +       if (rp) {
+> +               /*
+> +                * TODO: This is the incorrect format in JSON mode.
+> +                *       See prepare_timestamp()
+> +                */
+> +               if (ts)
+> +                       sprintf(prefix, "%6lu.%09lu%s%04x:%02x%s",
+> +                               ts->tv_sec, ts->tv_nsec,
+> +                               config->csv_sep, rp->domain, rp->bus,
+> +                               config->csv_sep);
+> +               else
+> +                       sprintf(prefix, "%04x:%02x%s", rp->domain, rp->bu=
+s,
+> +                               config->csv_sep);
+> +       }
+> +}
+> +
+>  int iostat_prepare(struct evlist *evlist, struct perf_stat_config *confi=
+g)
+>  {
+>         if (evlist->core.nr_entries > 0) {
+> @@ -396,28 +418,6 @@ void iostat_release(struct evlist *evlist)
+>         }
+>  }
 >
-> diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-> index 70cc91d00804..c7e5ada3800d 100644
-> --- a/tools/perf/util/Build
-> +++ b/tools/perf/util/Build
-> @@ -127,6 +127,7 @@ perf-util-y +=3D thread-stack.o
->  perf-util-y +=3D spark.o
->  perf-util-y +=3D topdown.o
->  perf-util-y +=3D iostat.o
-> +perf-util-y +=3D x86-iostat.o
->  perf-util-y +=3D stream.o
->  perf-util-$(CONFIG_LIBTRACEEVENT) +=3D kvm-stat.o
->  perf-util-y +=3D kvm-stat-arch/
-> diff --git a/tools/perf/arch/x86/util/iostat.c b/tools/perf/util/x86-iost=
-at.c
-> similarity index 100%
-> rename from tools/perf/arch/x86/util/iostat.c
-> rename to tools/perf/util/x86-iostat.c
+> -void iostat_prefix(struct evlist *evlist,
+> -                  struct perf_stat_config *config,
+> -                  char *prefix, struct timespec *ts)
+> -{
+> -       struct iio_root_port *rp =3D evlist->selected->priv;
+> -
+> -       if (rp) {
+> -               /*
+> -                * TODO: This is the incorrect format in JSON mode.
+> -                *       See prepare_timestamp()
+> -                */
+> -               if (ts)
+> -                       sprintf(prefix, "%6lu.%09lu%s%04x:%02x%s",
+> -                               ts->tv_sec, ts->tv_nsec,
+> -                               config->csv_sep, rp->domain, rp->bus,
+> -                               config->csv_sep);
+> -               else
+> -                       sprintf(prefix, "%04x:%02x%s", rp->domain, rp->bu=
+s,
+> -                               config->csv_sep);
+> -       }
+> -}
+> -
+>  void iostat_print_header_prefix(struct perf_stat_config *config)
+>  {
+>         if (config->csv_output)
 > --
 > 2.33.0
 >
