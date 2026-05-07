@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF5ACD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 14:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F34DCD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 14:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UOJ1V4ifTqP/cJ4OegoGALC8/FhHM+q5oHSuYMNp5js=; b=ZljCT6urb5CLT3mLw4bE8qoiwD
-	khty5dTzx+1Tb9HyobP3jPVYobCoCGbE2IUVBNQa2Kg5N89ApcAbsfDafkqyQBg7IVGwy23d875wO
-	LoX37E0qrAN9JosXG0VNldYWDe4gJNQhFtDwpKwDqCyaxWWrPcgWD7DUBxZMXpipmLi/W0WYLz/Vp
-	OMDOe55fNXsdGzCv6z2ZooL8rjI7ceOOBu+Ew7Uq2dcndRlSkVUnddmMVw0q/5cHdw0kYPlWoqi74
-	snK5x3uAcQMSPOTO5cMRNM2me8iC9nkaTqTef0YeWjBxe9MutrNLIzE2OFS5ujvF/5A13ivI7OCeG
-	PAN/ziFg==;
+	bh=fyk8eDbl85Hd7XiZtHIzqBxAFI/hqUpEHNnD2/TC2s0=; b=hExojkxqDs/9tKoIpllWjo7O7I
+	tGv6Toq8f79YL6FpPNrXwVWpAAcLpC0mJV7DVcShFqW5RyofTfMTzlSebEJyZ8sWcFU4fL56HgFri
+	2vAf3rt1ryIY2YqRATBezrhR0wDmAfivB7mv9oymR8/UdXNf8DBDCAbzAksaV6pPK01K3vi69WfYq
+	7iZbhAQj+B4/oAQ/nj9bqZasJ9TMGScQqdHZw0MhVIqOCyRIxCUg405zTxvic+bl+YKPG6LgHgg0o
+	mgx5lf/pYXqoieZjJH2kOtcj/nz/6YrH3LuiP/QkBQpuBG9cvIAglXIS3y+e6+Wlhx5jDMyxcMxss
+	JBD5fjCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL00y-000000045yn-1fFe;
-	Thu, 07 May 2026 14:47:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL00v-000000045y3-0ciq
+	id 1wL03G-000000046Ir-2ftw;
+	Thu, 07 May 2026 14:50:10 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wL03E-000000046I7-2Ygm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 14:47:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6D39315F;
-	Thu,  7 May 2026 07:47:36 -0700 (PDT)
-Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D11C43F763;
-	Thu,  7 May 2026 07:47:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778165262; bh=i3owsY/+oXUlrOEzPMd95B5YMU8jZAMY2STW0oTZHr8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gtVe0tCZhXfitC5cNR5oLS4Itl1ViKnX/RdnkkwvXSspbw4Qja0B4d+oICIcuzcxU
-	 Y+b2xi4mr31KS2oqujVgdhS8xTYVNeb77wnBKIeWZVaf7xvwQ5+7jdPhKubUdDbrfQ
-	 gMG2hfB/lwk/4gp0yzmFoNePWFxYiVqe3p9lsyz0=
-Message-ID: <d071cc86-0449-430f-a572-4f43c3440748@arm.com>
-Date: Thu, 7 May 2026 15:47:38 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] iommu: arm-smmu-qcom: Ensure smmu is powered up in
- set_ttbr0_cfg
-To: Anna Maniscalco <anna.maniscalco2000@gmail.com>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
- Joerg Roedel <joro@8bytes.org>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	Thu, 07 May 2026 14:50:09 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-488ad135063so9008895e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 07:50:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778165407; x=1778770207; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fyk8eDbl85Hd7XiZtHIzqBxAFI/hqUpEHNnD2/TC2s0=;
+        b=lwVvkQpwu1w9DPeoIrmrgt1frivtRWPuw5Bw/yVpiUfDRTubTvGIowBljHLpauKQOi
+         d5wMbp6u3VunsDcdVvtgMNkgaJ3TfC6O459iy2EB27PEF8EASCRhgMSNfEuWSMmlLVA6
+         A75hcZWuX85Ce+Iit/fLkKziTi8jGeNxpW3nC8grsie4jLNnMCVDrQcTbqSA4EEX9NFf
+         gyOiYxqvXGarcUlbCAUJyGkBGvTwBWpmjWD6AWhLWnjMX/nJsqFeoqn1mQstuTNLYrHs
+         KMHpMEYJoe/6osKUxDhmeoEko76izRC6if/wYn0IFjvzO8jRm+9vCFwGad0rdRl50EoC
+         c9Nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778165407; x=1778770207;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=fyk8eDbl85Hd7XiZtHIzqBxAFI/hqUpEHNnD2/TC2s0=;
+        b=razYfd722RDlHcehdXM8tHQIATtoiakrGl3e82HVmZjLch/5L4bzoQnG05JIE5hAQu
+         l6EVjcEZ7VMUVC4agXT/NMrccWrcNML/niQzjtY37/qOTvxNawgfOwwH01XPA0Cxyx2E
+         EuHNLkDAkltefQ8TOwSNj7Zea5J3UBm4K8GxY82JsfHK70MwSsBAUYWstDI9H4xgDzsV
+         tG2DlIXabfpKUmj6zHJWDYI+Rvj5cKdUZHJS6lGez18DM4nibIEVjb7Lj1/eftUj00C0
+         TreT3wPEuyVyyT/z2EK4ajrnRIxNvIG+SebxsHiwuMdHqntswACFWYGPMteGUgNDeFVz
+         CHSA==
+X-Forwarded-Encrypted: i=1; AFNElJ80EP3dgAx3wcYTSpCXZT2IEI/tu1Mb3r9OOOg4/BP0P9K8Yvr5MZNzvcxVvzB5gk7clA1Ipehzk9r6wsbinDbr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzqgh6K/XekumeZJc+e3vXrNQqWqGAC98k7g6P/Ts0h7Z1OH3lk
+	X71XcnVxjs+BC9hl8R5yWpbnj4uUueooo0/PMZgxlyi6O8sHaxbYn+wt
+X-Gm-Gg: AeBDievkHgPOPUWwYou2MzYlH2zheQ0wlo9GZijqskR7ShRYC3ZwXff3s4HWRqLLhzw
+	cFyJ6Adc84SNq48Zpne8aRfH5Z+FjxFvgbOdSgqlE6mxAOZrpCM+s9sOJUR+nG1gfGkpYshoKzp
+	zfR6KBs4D2oCn3JNbxgcU+mBq3o0qMcdKUBly3hT3Dg/Fy8vuTPobkjR4Mc2mFjxfYsyVbxdmEy
+	5Z+mhHR0l+hJv+Bb60EX66vXZaz5eHn1E/EKwHGBV9QLcsZLU311zjYool9wY90hkkBIAaDWqiA
+	Dd3MTauAjKkPwa+BQIgRCbqRHpg8VF7AoPq8HXqy5zXT4RG/LdMPpwssrUylfDDY+PkE8GqXsB6
+	FTm9rF9RK+Y22IpBslW860Y8dIUbi/9ExbBZD3TSfSISjXM6w9muDum+Vvt1kuH0J1Gac5cghIX
+	k8eT3nTVvTVlYQMsGM6HFdm7cI+fNy4TpSPY6bmWR4oLYOdJj+wv2XocmPr8X/oYBQJyI+7WRUu
+	NiiqNKV/mFT/Q==
+X-Received: by 2002:a05:600c:8012:b0:48e:5fb8:f80f with SMTP id 5b1f17b1804b1-48e5fb8fac9mr40003765e9.24.1778165406496;
+        Thu, 07 May 2026 07:50:06 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e53895effsm125874225e9.3.2026.05.07.07.50.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 May 2026 07:50:06 -0700 (PDT)
+Date: Thu, 7 May 2026 15:50:04 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+ <davem@davemloft.net>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, linux-crypto@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260325-qcom_smmu_pmfix-v2-1-ba769a6ad0be@gmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260325-qcom_smmu_pmfix-v2-1-ba769a6ad0be@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH] crypto: atmel-ecc - replace min_t with min
+Message-ID: <20260507155004.4d537703@pumpkin>
+In-Reply-To: <20260507135525.331107-3-thorsten.blum@linux.dev>
+References: <20260507135525.331107-3-thorsten.blum@linux.dev>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_074745_280167_8C000C11 
-X-CRM114-Status: GOOD (  24.04  )
+X-CRM114-CacheID: sfid-20260507_075008_672187_534B6874 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +103,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/03/2026 9:11 pm, Anna Maniscalco wrote:
-> Previously the device was being accessed while potentially in a
-> suspended state.
+On Thu,  7 May 2026 15:55:27 +0200
+Thorsten Blum <thorsten.blum@linux.dev> wrote:
 
-The SMMU driver's own write_context_bank() calls all look to be safely 
-within arm_smmu_rpm_get() scopes that are holding an RPM count when 
-relevant (or the one at probe time before RPM is activated at all), so 
-indeed this seems like the appropriate solution for here where we're 
-free to assume that Adreno platforms must always have a power domain.
-
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
-
-Just a minor nit: it's probably OK in this case (unless Will disagrees), 
-but for future patches, it's preferable for the commit message to be 
-self-contained, so as to give a sufficiently clear description of the 
-problem, and summary of the solution, without having to be read in the 
-context of the title and the whole diff to make sense. For example, if I 
-were writing this I'd put it something like:
-
-"
-   iommu/arm-smmu-qcom: Ensure SMMU is powered up in set_ttbr0_cfg
-
-   arm_smmu_write_context_bank() assumes it is being called with RPM
-   active, but it turns out that is not guaranteed in the path from
-   qcom_adreno_smmu_set_ttbr0_cfg(), so it's possible for the the
-   register accesses to lead to an [external abort/hang/whatever] when
-   [doing whatever it is] while the GPU is idle. Add the RPM calls here
-   to make sure the SMMU is active before we touch it.
-"
-
-Thanks,
-Robin.
-
-> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-> ---
-> Changes in v2:
-> - Simplify patch by acquiring device just around the call that needs it
-> - Link to v1: https://lore.kernel.org/r/20260210-qcom_smmu_pmfix-v1-1-78b7143ac053@gmail.com
-> ---
->   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 9 +++++++++
->   1 file changed, 9 insertions(+)
+> Use the simpler min() macro since the values are all unsigned and
+> compatible.
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> index 573085349df3..cab7d110aaf5 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-> @@ -231,6 +231,7 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
->   	struct io_pgtable *pgtable = io_pgtable_ops_to_pgtable(smmu_domain->pgtbl_ops);
->   	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
->   	struct arm_smmu_cb *cb = &smmu_domain->smmu->cbs[cfg->cbndx];
-> +	int ret;
->   
->   	/* The domain must have split pagetables already enabled */
->   	if (cb->tcr[0] & ARM_SMMU_TCR_EPD1)
-> @@ -260,8 +261,16 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const void *cookie,
->   		cb->ttbr[0] |= FIELD_PREP(ARM_SMMU_TTBRn_ASID, cb->cfg->asid);
->   	}
->   
-> +	ret = pm_runtime_resume_and_get(smmu_domain->smmu->dev);
-> +	if (ret < 0) {
-> +		dev_err(smmu_domain->smmu->dev, "failed to get runtime PM: %d\n", ret);
-> +		return -ENODEV;
-> +	}
-> +
->   	arm_smmu_write_context_bank(smmu_domain->smmu, cb->cfg->cbndx);
->   
-> +	pm_runtime_put_autosuspend(smmu_domain->smmu->dev);
-> +
->   	return 0;
->   }
->   
-> 
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+
+I'm all for nuking min_t(), so:
+
+Reviewed-by: David Laight <david.laght.linux@gmail.com>
+
 > ---
-> base-commit: 50c4a49f7292b33b454ea1a16c4f77d6965405dc
-> change-id: 20260210-qcom_smmu_pmfix-2aead2ba4e20
+>  drivers/crypto/atmel-ecc.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> Best regards,
+> diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+> index b6a77c8d439c..2cf53f0b6742 100644
+> --- a/drivers/crypto/atmel-ecc.c
+> +++ b/drivers/crypto/atmel-ecc.c
+> @@ -56,7 +56,7 @@ static void atmel_ecdh_done(struct atmel_i2c_work_data *work_data, void *areq,
+>  		goto free_work_data;
+>  
+>  	/* might want less than we've got */
+> -	n_sz = min_t(size_t, ATMEL_ECC_NIST_P256_N_SIZE, req->dst_len);
+> +	n_sz = min(ATMEL_ECC_NIST_P256_N_SIZE, req->dst_len);
+
+Not entirely related, but (to me) the arguments are in the wrong order.
+
+>  
+>  	/* copy the shared secret */
+>  	copied = sg_copy_from_buffer(req->dst, sg_nents_for_len(req->dst, n_sz),
+> @@ -150,7 +150,7 @@ static int atmel_ecdh_generate_public_key(struct kpp_request *req)
+>  		return -EINVAL;
+>  
+>  	/* might want less than we've got */
+> -	nbytes = min_t(size_t, ATMEL_ECC_PUBKEY_SIZE, req->dst_len);
+> +	nbytes = min(ATMEL_ECC_PUBKEY_SIZE, req->dst_len);
+>  
+>  	/* public key was saved at private key generation */
+>  	copied = sg_copy_from_buffer(req->dst,
+> 
 
 
