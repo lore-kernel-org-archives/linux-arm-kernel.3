@@ -4,158 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6803CCD3442
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F8CCD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5enEFJRtE878pWt0gQJ+BbdNdbU4zjKVb852buTicnQ=; b=PSFt/Y40FoW7hzbj5GyM/hoKT1
-	VdOwOVWH+lXeWOTVTt/r1JLE2715s/U4PEhABcftwuKxv65zbEP6I6jZp/ItooliTcVZvIjryNb/g
-	jcOGeAyfE+PeIpLSER7L+K5odlaz98Q25l2kEjzulaUZJjdxFFiBOOnmB/mvdmbOka3dycIVgNnDQ
-	nH23ek37lXkbfbwukUgpKPDx6ELwEEVIuAk7VCHQXhr3nrLR6Rb+qVW8KeOAGXJgHIzQHT6HvoExh
-	OD0Q+bLRZ/gV+OiL89umTh+pU7tVq+D82bjm7SvAqrS+YbYbr3OHCZ/4lzTeV0nZUWNFLs3qUOOqv
-	h4o2TqvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DJFhlhCeFrLG8D3BZsphXQxlHW1aEO91AkSao6yRrGw=; b=KxWxMHR2goQNyC5Wovumb7VNA9
+	sLjdg20oU1I5N6tOwozmXPlbxQWpGkk3uusgi/2xcsGhjfGi0sorCaZP99qAyMdw0z1w/dNVakPFt
+	hSpRr8cCu5B3+1eQUpFAnJ8HuxiJDH1fFIZ+/9JunROJ4IxXQ3C1+iY+DJG+tVZIKGnTNsApFMWkL
+	vRjSovYG0Pe5Ctz3EgAsUsUVztVbl8Cq8zOlQAK3n5DqoVPYTRHlOg1SOzhiSEtVlSToTWcjfwOv5
+	X6abvGsq14A0otX3ymGjM08KgKgWlRaOPDZApr1ukwQY0BIrXEbr4Skl2MYr7wZKL5UpbsNSTM/p5
+	Y6bJ80Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKu39-00000003AV6-0ybj;
-	Thu, 07 May 2026 08:25:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKu37-00000003AU1-1jaU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 07 May 2026 08:25:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=5enEFJRtE878pWt0gQJ+BbdNdbU4zjKVb852buTicnQ=; b=fb1mtiQY1eNT7bichdeizJEGf/
-	re6hhgH2MRNRHIHg+rU2+uM+7KWtE2va+TIq3CVRblqhbGKoln+PW+cySI9JY3zkFtfm6f7vLX3If
-	VNu5q8NurDtuqoyrOdnEAYMIu1mTuG9rylHTouhNT5B9X+izot28Frj+2wiU7gpFBZjDhOw4AgtED
-	KGNTFnK5G5ddbR5Ss7HXnH3hQ98fYI1Um/FgTCdHThiB6AvryLcxeck/HuzZAMFj2on3QjrODGyY2
-	pZykGCSSrd9GWWC52yTaQsobRO1hp81LigmDHCGaM1gCoxDU7aRw4QKptSClH5eXMCg8BF//eXIZV
-	LpH9OINw==;
-Received: from mail-westeuropeazon11020137.outbound.protection.outlook.com ([52.101.69.137] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKu32-00000002uSV-2ac4
+	id 1wKu8W-00000003BQC-3Lx8;
+	Thu, 07 May 2026 08:31:12 +0000
+Received: from azure-sdnproxy.icoremail.net ([207.46.229.174])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKu8S-00000003BPH-1hDB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 08:25:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AOYBgFH/RiqZfTNDW2EnL5o9KUmOurF/sMTAJ4v2/Ypn8FeQWUA+1ZiLd4mH2HduGUXVDS6b7NDIErUadVo5Ji0yYwbuQ7Vv3vztDUaeHDh5l8RC96oZwFRqBSRWcAsdKYMHmz2uWjbrVIWUPDbfcilG04hwkubaHX9dZr8fWdABflz5vlDHkRbHR868TXqj7W5B/+vZi2plQMlwMy9BZ2xXKzy4yGQKJphP4gNGQBEPcK97OmIV/pKKeFGQC37G+ssLx+JTcPi41IZJk6gA+xaENi1Om8d7Uc8g6nMNTnPXubv9dysHZpjkKSK2xII5QCsfqAcv84gIlybmuatnqg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5enEFJRtE878pWt0gQJ+BbdNdbU4zjKVb852buTicnQ=;
- b=ZPFZlogPBf0zEZyAAeAXjJgY1jcAqErqrzSk03K66G8qTIeaJ9Ilms251mc0242HiY5SGuAEmZEfWQla7NE3hKmOUs409u9BsIb8hRs8cNHmbrSmH8C9skaLQwJUKmMXlrjONxZrC175dTztAXaIvz3p84vNb4oVmHYbSogGhIdKzus5sMgYoUQVcmMM5uju0lLGXIrGYH6eDPj+UhBZPkqEJ8j+zb0mzHp/nDVNtY6r4gbNGYr2c3Y9xnmb8wTuxrlE4YK/CEUpywrgeK6z2JrDpduY26HTPYhAV7eWPKsSP5TgH5F2ORCxY1KoVjzFj+acVCMJGeu8f2Bi2aspbg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5enEFJRtE878pWt0gQJ+BbdNdbU4zjKVb852buTicnQ=;
- b=ZA4N5KJE46NhlQd5a3NlCDZog10AIjYen8CBhjNATa/aPc32qixrDlV1C2uGNQwVTxHEmwzetj8mswaIiRXI6PNnH/b7VNJCSObAXDse3ziJzICj0ZFhye5Jm791bkmbqQnahswxmCLsXba35iDcX4euvi+ke+YNTMBawsAP+kyXxRQyPdjkfKyA2dqWmrfgaGRXBbborUDPnBHixu3K9/KbVy8O9SPOXQZLSX0hvUVe9j2agboQAwenzt9irivKq375Fnw0yZS1/+G03w1CET2MEUyIOlqtdD11Vgm75AGwd1hmBmgKQIPcDXHybOyT9ByBmt3Z4Vm5LUdTCxZLEQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
- by VI1P195MB0511.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:157::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.17; Thu, 7 May
- 2026 08:25:25 +0000
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::295f:9a59:b66a:621a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::295f:9a59:b66a:621a%6]) with mapi id 15.20.9891.016; Thu, 7 May 2026
- 08:25:24 +0000
-Message-ID: <d0eb7931-bcbc-4ca6-8ab5-4c12d134545a@phytec.de>
-Date: Thu, 7 May 2026 11:25:21 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/13] arm64: dts: ti: k3-am642-phyboard-electra-rdk:
- fix USB clocking for compliance
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, nm@ti.com, vigneshr@ti.com,
- kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- josua@solid-run.com, matthias.schiffer@ew.tq-group.com, d.haller@phytec.de,
- francesco.dolcini@toradex.com, joao.goncalves@toradex.com,
- emanuele.ghidoli@toradex.com, ernest.vanhoecke@toradex.com,
- rogerq@kernel.org, eballetb@redhat.com, robertcnelson@gmail.com, afd@ti.com,
- u-kumar1@ti.com
-Cc: stable@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- luis.parga@ti.com, srk@ti.com
-References: <20260506141040.1368918-1-s-vadapalli@ti.com>
- <20260506141040.1368918-3-s-vadapalli@ti.com>
-Content-Language: en-US
-From: Wadim Egorov <w.egorov@phytec.de>
-In-Reply-To: <20260506141040.1368918-3-s-vadapalli@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR09CA0139.eurprd09.prod.outlook.com
- (2603:10a6:803:12c::23) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:4b3::21)
+	Thu, 07 May 2026 08:31:10 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app2 (Coremail) with SMTP id TQJkCgBHXqG0Tfxps3kXAA--.38748S2;
+	Thu, 07 May 2026 16:30:45 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net v1 0/2] net: stmmac: eic7700: fix delay calculation and initialization ordering
+Date: Thu,  7 May 2026 16:30:36 +0800
+Message-ID: <20260507083037.152-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|VI1P195MB0511:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95d88632-4534-4758-9a1c-08deac122fd3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|921020|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: jwbUz/ezEPTS8jQR6XeEt4XvM6AjptPxe3tpeOg8ZoUplBVR9xGo8KIZJ3CtsIXaflnck8Rqj+M2K3IY7JEEZNOxggzpEPmlOCD0/i3yDhsFL7VohixBy+9joYmr1Sf5Ublw5PTlUSsdof7PWtVXp876QSY4S7TFnxm/Cdcuh3QnnLPLuPxNSKhXMup8O2yGfChMS0YwraSvA72xtXW/b0VdCII9dvzb+9xY0AkyQdF3gIxS0cZSH9GG178mDxsf/Qg6ESBliu+eXfdR3sJpXXgJw3ZQP8xwsVcASN+g3A7XQwC4L39od7zMur3+tnNBtHE//B5rh1/dEpCIMsrOdpDAyBnI5D+GmIRLlH+rcs8/mFvivIqJBLQCqHg0wtgAtSCY0KQgsr2qAmIQxRxT4pRPZolqbGlGq3elQ8Yfl3rWmMf++mS95qvEeZbQoM7uz5zbMDRfoULAQaodg4G+LoW17YedgpZ/Onjjc7WK/5dcXjimz2sgpFK/itMjexRniJq707LehgaZOBgeU2eA3riH2BwXmfj1Eph8xOex9pfshGpNxT9oPPmvzqF32uGxBS0yg2J8bmCcEj5saZiz3J1o44M0+CUD1klG25/CKaTRxbeJmJCX8nd7USI6rkietuklh2MGxDRN4ldJF5ntsVCbHPMMPThS0NynOvyNl+T/++KWbDj988Z0W0WYa52WAS3UjQfwqRTuXfSL3i68rhmLvzeKZT5h21wkOqZVkFtMXj8sUO41balZCFJ9tehn
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(921020)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U2hjWnppV0FXNWVhMlJXNXJCa24xU1hWNHBqN0tyOEY5RFhMeVo3SDducjN2?=
- =?utf-8?B?eERZN0ZBSnhMWkc1Y01rcVJwbkpLTTBEKzFTVTNReTcwWmkxWjdrRVEyQXAw?=
- =?utf-8?B?QmZQTGg3WmhrZGljY0ZGcmtqSmlrek9XeUNlK3UwZ1ozQ0U5STBPNEwzeTIv?=
- =?utf-8?B?MU50UnJ1WEJxTHNQU0FKZ1BjUzZTRllWSjc4T3EwY0h1aU81eXRPM2JYcnFJ?=
- =?utf-8?B?ZFoyY2Q5Smh6SjFxRHRIbk1iUlhGOVA1VG1UVkVvVHl2SjJWd1BuOHgxd25G?=
- =?utf-8?B?TkJmWnF2b3lZekJSaGt3M0hEbDFhWDhkUDRKbXphbWUwYXYvV2hCQkMwQ2Jr?=
- =?utf-8?B?MEdtRUVXOU52VVRQcTgrSXlwT1NGc1ozWnhHUlVyNVhVbnZMNVJTOVFDQ1Fx?=
- =?utf-8?B?b1NrZHJPUVZPcklzd0lDUHUrSDNDNDlXQmdtTnhjbXZVbUFtVGVZL0p5V3p0?=
- =?utf-8?B?YzU2SDFLTFZ4Vy9XOFR1RVZ1YS91eVBXQmFpbU9WZTRKREE1QVlBZlp6N0pI?=
- =?utf-8?B?MG9qQk1lT2ZsSkRmc01IUUl4LzBjSU83M1hEYXRqWW1Bem42UzFiZW1yRkNk?=
- =?utf-8?B?dXNySFZDeVdlbjBUaHloRklDU05BRVVNdVpYQlFSenpkZitET1FkYkZJcTB5?=
- =?utf-8?B?WVdDSnpUOUhUdTNQdXhzbW9NTFZ4Um5hTWlPUkI5Nk5aOU9vd3pnUXptdTBT?=
- =?utf-8?B?YWRueVgxbWVYVXAxZVdibHRwMWxPUk9JMDJYRlhNaDh2NzBYWUtMdFUrY0pI?=
- =?utf-8?B?MU8raWZ4SFpJb2F6Q2hVY2pNZGtqRkkwUVNwbFg2cGVvTXVWVFNwRnFVbUxj?=
- =?utf-8?B?YVJCdnJZMmdyMlpiWlRHbXB4bi9qZG5HS2tDZGRRYXY1OFcwaDdDaUhsVzZu?=
- =?utf-8?B?TVp0Mk1oYnR1T0RRV09scGpzVFVMdGZPdzZid3haT2ZBNDBLR0dzZjFqV1N1?=
- =?utf-8?B?aEJ2bHEraW5ReWxqSitLSUFJQ0lvVEhiejJxcnZBcnFjcHlnd0p0VnJmMTBx?=
- =?utf-8?B?N1BmcTRWT05CQmgwcWNkb2lqMFZYZE5qSmFlaWZxa00wUUdkQjRqTUFpMXpG?=
- =?utf-8?B?cmo2NFdFamJOVFE0NmRWVm9rc0sra29DRzAzOUsrOTdjRUpJUUdtaEsxRE4z?=
- =?utf-8?B?VmJ0aGdvOWRGd1lreHFKUnlESzJQZDBVZ2RrdDlyQTJJcDAwSWQ2SGxFbWFF?=
- =?utf-8?B?VHVmekdxWCtvcjI1SkozL3RDeWV3UDE3UUszbzVrVjhWUDQzMG9QZCtzZ0Zh?=
- =?utf-8?B?K3VoYUt2d3FUWEJzTUwzRnhmMEFGVFlIUVd3WHhXUmdUWmJnaVZacFFKaXU2?=
- =?utf-8?B?OTBXcWtuak9ONFlRQW1CL0RVdzZuRzhDNWJlUDJBUVNRYXZXVWhUeWwybFUw?=
- =?utf-8?B?cUg5YkVkUzVGaTkyT25pVStsY3BFcDU0TzJ4czBSWW1TeXcyejVsazQ0TTJp?=
- =?utf-8?B?c1ZVTE1zdGk2dnhhZWw3TUs3ZFVsbkRYckhwaFNyZ1FSZGRUYVNzZklkWm1l?=
- =?utf-8?B?SXVCT3ZuQXZaWHdZZmFLVERKbmplRURFV0wzZ3NuV3MwVnVjS3FRRmpaYjdO?=
- =?utf-8?B?K2VEK0k3SnF5RXZrUUhOcFJrbXVXT1VLZVZCeFkxMmtCdE10c0lBRFgreE1a?=
- =?utf-8?B?Z3FhZWhtaGhHbHNuL0laeFhoQ0pzZGs3WFhtM2pGYS9rNkxQaUdKUHcyZ0ZJ?=
- =?utf-8?B?d056K1dWUlc2dWxPM2tqTTBHZXE0SnM4dlJNNjVGdTl2ZlRxQWtkZDhwUnJi?=
- =?utf-8?B?b3NXNVNsdGtjVjJESWF1aFBudTN4dGhuWGRuTytkQU03Y1lBUTIreis2Mmg2?=
- =?utf-8?B?ZUxHKytINnFjdTNFcXMrcHZkazRITFJsT3pOWTQ4UC81Ny91MEtMbHJ6b250?=
- =?utf-8?B?VHVYUWgxWkNZcWdYbWpkbHZaWjY0ZzdsMTB0ZDc5L3Jzckk2NERnckp3czMy?=
- =?utf-8?B?WWcwU2VpSjN0VzJmZFVWOWVmRFdSVURPbzVISHBTZkYxWmdPVXo2bWdSdm5U?=
- =?utf-8?B?Z05Gc2pPeFRoTGMwU0JMNWxXK0FTa1dXbjFyOXJiTGJnay94ODZrb2xFblFK?=
- =?utf-8?B?STlUQlU2aDFyMFRSMkZHSEorbm96NWQ5QjQrYjVpYndYakNlY3F2bGdTUG9E?=
- =?utf-8?B?eVVQK3NtRXVab2FvaE92UlVqY3B0VUhrT01sWWpNMXZVOGVnTWVWZFprUHg0?=
- =?utf-8?B?MTZ5TUM1YnZEdGk0cTBpVEFBRFRuREcrTVF4amhFMVdLNnhMb1NEZ0E5Zkd2?=
- =?utf-8?B?bHRIRTFPQWg0Y1B3WUdYSDRyeGZ6RHBacjJqRE41ak9JVUwrL1E3WjA4VFZr?=
- =?utf-8?B?Zmx5ZUlVUmg4OSt4cHJJS25OYTlxSzBzbldubkNWTHF6TkVFZmhmQT09?=
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95d88632-4534-4758-9a1c-08deac122fd3
-X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 08:25:24.7970
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e0QeQ+XoCnwYscF2TF8hksKadpRCqcUhqtiGgYRwqCBtENVPiDLgsoXRFMLVxbGQxqPv+RLJvYyOjf2z3RkZhA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1P195MB0511
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TQJkCgBHXqG0Tfxps3kXAA--.38748S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ur47uFy3Kw4UAr1UCF4UArb_yoW8Kryxpa
+	95Kr15t340qFyxGwn2vF1Iqa4rXay8Ga15Cr1rXr95Z3Z8CF9Yyr1xKw4DuFy7Ar4xZF1Y
+	vryjq3Z8Ca4qyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBv14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
+	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
+	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l
+	IxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRkwIhUUUUU=
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_092533_728863_47CB64C7 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20260507_013108_790508_4060C67E 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,56 +96,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Zhi Li <lizhi2@eswincomputing.com>
 
-On 5/6/26 5:09 PM, Siddharth Vadapalli wrote:
-> According to section "6.5.3 Normative Spread Spectrum Clocking (SSC)" of
-> the USB 3.2 Specification, SSC should be enabled by default. This protects
-> against EMI violations. Hence, enable internal SSC for USB SuperSpeed.
-> 
-> Fixes: c48ac0efe6d7 ("arm64: dts: ti: Add support for phyBOARD-Electra-AM642")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
-> 
-> v1:
-> https://lore.kernel.org/r/20260505110631.1144200-3-s-vadapalli@ti.com/
-> No changes since v1.
-> 
->  arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
-> index 793538f94942..a85d7d08bd1b 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
-> @@ -439,12 +439,21 @@ &sdhci1 {
->  	status = "okay";
->  };
->  
-> +&serdes_wiz0 {
-> +	ti,core-clk-sel = <1>;  /* Select internal reference clock */
-> +	ti,ssc-enable; /* Enable SSC */
-> +	ti,ssc-type = <1>; /* 1 for Downspread */
-> +	ti,ssc-frequency-hz = <33000>; /* 33 KHz */
-> +	ti,ssc-depth-per-mil = <5>; /* 0.5% depth */
+This series fixes several issues in the EIC7700 DWMAC glue driver
+affecting existing eth0 functionality due to incorrect delay programming
+and initialization ordering.
 
-I don't think the comments are very helpful. The property names already give a meaning.
+The previous implementation used an incorrect delay step (100 ps),
+while the hardware operates with 20 ps granularity. This resulted in
+incorrect programming of RX/TX delay values relative to the actual
+hardware timing model.
 
-Regards,
-Wadim
+In addition, the driver did not guarantee that clocks were enabled
+before accessing HSP CSR registers, and did not explicitly clear
+TXD/RXD delay registers, which may leave residual configuration from
+the bootloader and affect RGMII timing determinism.
 
-> +};
-> +
->  &serdes0 {
->  	serdes0_pcie_usb_link: phy@0 {
->  		reg = <0>;
->  		cdns,num-lanes = <1>;
->  		#phy-cells = <0>;
->  		cdns,phy-type = <PHY_TYPE_USB3>;
-> +		cdns,ssc-mode = <2>; /* 2 for internal SSC */
->  		resets = <&serdes_wiz0 1>;
->  	};
->  };
+The device tree binding is updated to reflect the actual hardware delay
+model and to clarify the semantics of MAC-side delay configuration,
+aligning it with the real programming model without changing the
+intended semantic meaning of the properties.
+
+Changes in this series:
+  - Correct delay step from 100 ps to 20 ps and validate input range
+  - Ensure clocks are enabled before CSR access
+  - Clear TXD/RXD delay registers during initialization
+  - Update dt-binding to use range-based constraints (0-2540 ps, 20 ps step)
+  - Make delay properties optional depending on RGMII mode
+  - Clarify MAC-side delay semantics in binding documentation
+
+These changes correct eth0 behavior and hardware programming correctness
+for existing usage.
+
+The previous revisions (v1-v7) mixed bug fixes and new functionality.
+Based on review feedback, the changes are now split, and this series
+contains only fixes targeting the net tree. Eth1 enablement will be
+submitted separately to net-next.
+
+Previous discussion:
+  https://lore.kernel.org/lkml/20260427072353.1114-1-lizhi2@eswincomputing.com/
+
+This binding update is safe as there are currently no in-tree users
+relying on the previous enum-based representation.
+
+Zhi Li (2):
+  dt-bindings: ethernet: eswin: refine delay model and HSP register
+    description
+  net: stmmac: eic7700: fix delay step calculation and ensure safe
+    register initialization
+
+ .../bindings/net/eswin,eic7700-eth.yaml       |  50 ++++--
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 154 +++++++++++++-----
+ 2 files changed, 148 insertions(+), 56 deletions(-)
+
+-- 
+2.25.1
 
 
