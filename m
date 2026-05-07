@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D676CD3442
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 11:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F8BCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 11:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sO+oTKqw2ne9EcS/rAtbJzqhHraiHwvETBiNmNIcMKw=; b=r9IO4umdK70Q1msundArwtYlX+
-	8f9Mwd2/0qhPWiWQT1196K4P5/XDwFI2CDYebRV/KuSmIGYSfV0/gUMjfuhTQ0N8QpritWg69dAcv
-	OFNS7C5NBBVMhL+bCQZVrRppJmoGpK9wPA3ohrb4QA/U9EFLT8OJ0PhUp4+wZ1tGvbdC1UiEcBE4t
-	ePs0J3OFBd/tJvIrozOUndxSu7PEPEq+G2JVkSw99s0f5MGJibmnzKh5wQZIUv4m+ztrBMiyO/B+Z
-	w7IS8364nluzOj5P1tYmpb9EVEH9lhaiOGljrF2joJI7qstuQoOALC45krSlXBWKWiQvDejKhHC7q
-	R3KXa2Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i+BM3TCa9qCzg8rf0CxOrNKtcXVplw/GYWNhUanCydw=; b=ErS4O48TUtHOab5W34tcAsqi+f
+	3dwZvpr8xXeXeAMHckwGYDOXaYmbFxvg/Cu45iGCmGPFDHIXTbBMN+iDihIlZw7H0SzkijTCebAMM
+	tfaPNYn+dVnCo6SAHV87qKRtZXaZfuMzNyEWPrvFGxSICVVCTsZLtQk4KDRxGJ8Zu2E5VcEXcDBoY
+	gihCdloZAxEtl+lumcV5J1Czfr/f00TdKAAhirHK6hf14LnSuVPNmb8Fi5ohzQBheQdseuXCNODpJ
+	r1kKPrLzNj2MTX7W4CqQcoVQXmM3Pben50RAiwt/AfiLuc1KK1C2f6RFOL1gef0oxCckKLd3p/bbk
+	1mS6avfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKxAP-00000003h9j-2zwe;
-	Thu, 07 May 2026 11:45:21 +0000
-Received: from mail-m19731113.qiye.163.com ([220.197.31.113])
+	id 1wKxDn-00000003hdW-0YbB;
+	Thu, 07 May 2026 11:48:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKxAM-00000003h7V-3rGk;
-	Thu, 07 May 2026 11:45:20 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3d7b63a84;
-	Thu, 7 May 2026 19:30:12 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	nicolas.frattaroli@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	sebastian.reichel@collabora.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	luca.ceresoli@bootlin.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v3 10/10] drm/rockchip: analogix_dp: Add support for RK3576
-Date: Thu,  7 May 2026 19:29:48 +0800
-Message-Id: <20260507112948.1115003-11-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260507112948.1115003-1-damon.ding@rock-chips.com>
-References: <20260507112948.1115003-1-damon.ding@rock-chips.com>
+	id 1wKxDk-00000003hcs-1KXS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 May 2026 11:48:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B666F401C6;
+	Thu,  7 May 2026 11:48:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81408C2BCB8;
+	Thu,  7 May 2026 11:48:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778154527;
+	bh=skOLNCIOu8uLMNUP2/UbRZTYsUmk4aY5Jmdqccs0fUI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AGG5YSDOLsnijaOhfJiAG7RtYI0t+/QnZ1xLmZMAnTj9AqGPHkZNHiYjooSzzui8t
+	 vU/2NjNcuPLsxl1IsS8WNqOWii8Ro19vV06oaH9AZ59+g0uJ0tobOynFLv4tk0IGCt
+	 xn1Vcb68lw/0wfz9AbJVWNigkzY0ecdJ7ep7d9si+LnjiYQhEDARDQXo6ad5OnLmNp
+	 OAVIHKs6JZTGftmMwPJf1CnRXRdXsJPthxN081GmtKaxF9Ko+7YCPDlDNJ3maf4nFg
+	 HpJvWxmRMdU1ZNrXvk84n8DtB7qf+NqkwQ5THhZG88rqM2MWLc7Bp8ZFZrGgVI9ZgQ
+	 EH4XM+iIMbdbQ==
+Date: Thu, 7 May 2026 17:18:34 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: arnd@arndb.de, Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+	arnd@arndb.de, mark.rutland@arm.com, bjorn.andersson@oss.qualcomm.com, 
+	konrad.dybcio@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Konrad Dybcio <konradybcio@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@linaro.org>, Sudeep Holla <sudeep.holla@arm.com>, soc@lists.linux.dev
+Subject: Re: [PATCH] firmware: psci: Set pm_set_resume/suspend_via_firmware()
+ for SYSTEM_SUSPEND
+Message-ID: <kkrjrwkibs6uthp6dpo2fv4c6rehrc2dkntyp2iafvx53tgub5@eg7hqkgu2ztu>
+References: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
+ <acJO+fhjeguDZaRa@lpieralisi>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e0233d67a03a3kunm4d1cbcd72742
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDHxhPVh5IS0xCGB1CTR9KTVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=OA82KaYHjMb7gMfrthk4mC9R/T7KFhGa5jRiZA7GYE5vmt/OsgzTLRm6b9iSpTxF9mSog+aR+SjBEanTq7X+B06xHTnAth8M6lPvXsDNbJ3sDKzSWMt/8n3Fc6M+4bARh+mMCHcxsLraH1yoTFSjdBskCiU9QBSZaxmj+H/HH94=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=sO+oTKqw2ne9EcS/rAtbJzqhHraiHwvETBiNmNIcMKw=;
-	h=date:mime-version:subject:message-id:from;
+In-Reply-To: <acJO+fhjeguDZaRa@lpieralisi>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_044519_151915_515BBD7B 
-X-CRM114-Status: GOOD (  10.57  )
+X-CRM114-CacheID: sfid-20260507_044848_424121_5A347C4C 
+X-CRM114-Status: GOOD (  30.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,58 +77,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RK3576 integrates the Analogix eDP 1.3 TX controller IP and the HDMI/eDP
-TX Combo PHY based on a Samsung IP block - both of which are the same as
-those on RK3588.
+On Tue, Mar 24, 2026 at 09:44:41AM +0100, Lorenzo Pieralisi wrote:
+> [+Arnd, arm-soc - to pick this up please]
+> 
 
-The patch currently adds only the basic support, specifically RGB output
-up to 4K@60Hz, without the tests for audio, PSR and other eDP 1.3 specific
-features.
+Arnd, could you please pick this up?
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+- Mani
 
----
+> On Wed, Dec 31, 2025 at 09:51:26PM +0530, Manivannan Sadhasivam wrote:
+> > From: Konrad Dybcio <konradybcio@kernel.org>
+> > 
+> > PSCI specification defines the SYSTEM_SUSPEND feature which enables the
+> > firmware to implement the suspend to RAM (S2RAM) functionality by
+> > transitioning the system to a deeper low power state. When the system
+> > enters such state, the power to the peripheral devices might be removed. So
+> > the respective device drivers must prepare for the possible removal of the
+> > power by performing actions such as shutting down or resetting the device
+> > in their system suspend callbacks.
+> > 
+> > The Linux PM framework allows the platform drivers to convey this info to
+> > device drivers by calling the pm_set_suspend_via_firmware() and
+> > pm_set_resume_via_firmware() APIs.
+> > 
+> > Hence, if the PSCI firmware supports SYSTEM_SUSPEND feature, call the above
+> > mentioned APIs in the psci_system_suspend_begin() and
+> > psci_system_suspend_enter() callbacks.
+> > 
+> > Signed-off-by: Konrad Dybcio <konrad.dybcio@linaro.org>
+> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> > [mani: reworded the description to be more elaborative]
+> > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+> > ---
+> > 
+> > This patch was part of an old series that didn't make it to mainline due to
+> > objections in the binding and exposing CPU_SUSPEND as S2RAM patches:
+> > https://lore.kernel.org/all/20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com/
+> > 
+> > But this patch on its own is useful for platforms implementing the S2RAM
+> > feature in PSCI firmware. So I picked it up, tested on Qcom X1E T14s and
+> > resending it.
+> > 
+> >  drivers/firmware/psci/psci.c | 10 ++++++++++
+> >  1 file changed, 10 insertions(+)
+> 
+> Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> 
+> > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> > index 38ca190d4a22..e73bae6cb23a 100644
+> > --- a/drivers/firmware/psci/psci.c
+> > +++ b/drivers/firmware/psci/psci.c
+> > @@ -539,12 +539,22 @@ static int psci_system_suspend(unsigned long unused)
+> >  
+> >  static int psci_system_suspend_enter(suspend_state_t state)
+> >  {
+> > +	pm_set_resume_via_firmware();
+> > +
+> >  	return cpu_suspend(0, psci_system_suspend);
+> >  }
+> >  
+> > +static int psci_system_suspend_begin(suspend_state_t state)
+> > +{
+> > +	pm_set_suspend_via_firmware();
+> > +
+> > +	return 0;
+> > +}
+> > +
+> >  static const struct platform_suspend_ops psci_suspend_ops = {
+> >  	.valid          = suspend_valid_only_mem,
+> >  	.enter          = psci_system_suspend_enter,
+> > +	.begin          = psci_system_suspend_begin,
+> >  };
+> >  
+> >  static void __init psci_init_system_reset2(void)
+> > -- 
+> > 2.48.1
+> > 
 
-Changes in v2:
-- Split out a separate patch to enable the "hclk" clock.
-- Add Reviewed-by tag.
-
-Changes in v3:
-- Add Reviewed-by tag.
----
- drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index a864bcf8200e..75706a2fdba8 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -522,6 +522,14 @@ static const struct rockchip_dp_chip_data rk3288_dp[] = {
- 	{ /* sentinel */ }
- };
- 
-+static const struct rockchip_dp_chip_data rk3576_edp[] = {
-+	{
-+		.chip_type = RK3576_EDP,
-+		.reg = 0x27dc0000,
-+	},
-+	{ /* sentinel */ }
-+};
-+
- static const struct rockchip_dp_chip_data rk3588_edp[] = {
- 	{
- 		.edp_mode = GRF_REG_FIELD(0x0000, 0, 0),
-@@ -539,6 +547,7 @@ static const struct rockchip_dp_chip_data rk3588_edp[] = {
- static const struct of_device_id rockchip_dp_dt_ids[] = {
- 	{.compatible = "rockchip,rk3288-dp", .data = &rk3288_dp },
- 	{.compatible = "rockchip,rk3399-edp", .data = &rk3399_edp },
-+	{.compatible = "rockchip,rk3576-edp", .data = &rk3576_edp },
- 	{.compatible = "rockchip,rk3588-edp", .data = &rk3588_edp },
- 	{}
- };
 -- 
-2.34.1
-
+மணிவண்ணன் சதாசிவம்
 
