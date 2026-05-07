@@ -4,171 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65865CD3442
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4463CCD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xCCJ3WD0XRJefs6CFtktA21OMHhNfXgeFUFwVL5AjPk=; b=f7RG5rUGryYj0W0w++mie5Xab7
-	v+xFQ9S36bbc78/3+ZGOPSF5N0bii53iuROFZLPCrCKWn6Pl7N0hjMbMHXvHZvlVUseHoTVe3zeET
-	64TQhSweZFGzGBqPwTyrkLAbNND+q0k1RE+ufROO7JtsQhU4RI56pEgK+SuCtImaGXv/NYiwPb2tM
-	zUOeU5xvXyq6YZ1S4dPGDOsYAqSnNu/C0MQHGEEzPq61LXA95BniCwXVqbkhP0ibuyD8M+8t1KTnp
-	4uo3ULl9oeGFPAqvGVJDZmVophxh32AHBjnwXQcnB30U+k9LeU31LbCRv10T9y/RuiaI72W7pNpAB
-	n/SuC3UA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1S6h3QY5kcGjmOO7UrBHNvJaD3QhiUgFB8DMut95WyY=; b=OXEIjSkK5yT5Opelmeyu1Wfk+Z
+	rMN14Ktddutd7aqcnxbPb/m/pG15KEk9487bZE7qA3PXb+CT8Zgesp98fagBWHIfDnkUe3wys007T
+	3XsnCfhETrM8wz7z8MuuU14T8iV95+pmAqOACxcuGq5iCQHiMGlagsnM/rwMjg+ogHrCCGYcx0Men
+	17zyZNjgtLiivMBYuYCPp1WZjmC1xJKqjedumXhmgqAkeNRZ3l9YCBoXVhqgNhdMbbVgxevFZEdwO
+	kVNRP1CnbwFyqmC5djVP+X8OsHMrPNgMcocqcfnB5VdnoGV1NBa5lV/DSA+pjtj254DZqGMJq9sBf
+	s+1AReoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKttI-000000037dU-32p1;
-	Thu, 07 May 2026 08:15:28 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1wKtzC-000000039Yf-1kCa;
+	Thu, 07 May 2026 08:21:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKttG-000000037cN-19Lx
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 08:15:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1778141726; x=1809677726;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=Hs2l0+rYcQ6xCrHZ925yzOVmlnCGgA8lEGk1WHb+PFI=;
-  b=TW8397dW4SPZ1/YGy4ZEyqYV78rm8v9JxmilccOodQ3onNRwJQ6OtDiU
-   pjWzpcfwn207i7Frhfbqm3rLPPpow5PBw5sTA1/Am6ZOHR9oyxB5OUpQk
-   5yjSPPZBq0lVynWQe9qMnoLldFAf4c4H0GxAd0QiyrCRD649DwSSY+UD+
-   MmnMtsHA3ZZxpNTpxzUwzIs2xAMq+QkyU3fviUPFi+gw3UIbvx8Zlc6X3
-   f1LEBENZ15gEl820NjARVkOa+mZXUzTqLXqRgaq9YePcGskJOfiqBfE9c
-   mxbhPjmx1R/3R+8xVc7tvg2uBEkqNbGycEyJboHc0w/mUyOKu1X+Gl8wI
-   w==;
-X-CSE-ConnectionGUID: y3Fs2IfOTEatecjZMYceXw==
-X-CSE-MsgGUID: LouA9REgQTqic9nj6t5Ttg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11778"; a="82709320"
-X-IronPort-AV: E=Sophos;i="6.23,221,1770624000"; 
-   d="scan'208";a="82709320"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 May 2026 01:15:25 -0700
-X-CSE-ConnectionGUID: CnCg71j0SqGM4fH0j9Yojw==
-X-CSE-MsgGUID: hW7mK+DvRMW1gKZEtMEKiA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,221,1770624000"; 
-   d="scan'208";a="240726207"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 May 2026 01:15:25 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Thu, 7 May 2026 01:15:24 -0700
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Thu, 7 May 2026 01:15:24 -0700
-Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.20) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Thu, 7 May 2026 01:15:23 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CeFcXn5yprxXYPfiMz/QXt2JJlwxiUyX7Anmkj+wncLdCi/L1slRvhuK11gIvyrfmxbA8jFLXuZb4JrrTEjFLB10k/1UurPBE9s5lxAYqqnMJqW8aoh53ZBHQrHmBpf4igapx52vvrYGDcrDjWh4rczZMHKAcG2KNrJ4OUgefK3DLbmbXCH0c4N3kvgzYSyedoJ/gfqr/a6slnMJRWfxc13WCU+8KEmBzDcuyW3MrL7AtLnZpMXu1Qtcbix+iLDxm8RsexD3UaK40QIMjps69jQNVH5HNsuwFptr0Jm9sZ/VHhfwRnQOcB/xtmVZgZvL6r/8xKcwUFmGF56EMHlbZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xCCJ3WD0XRJefs6CFtktA21OMHhNfXgeFUFwVL5AjPk=;
- b=PVZtyRpNkCagSrpI4nvdb5Zlti/zWqRwgq/AFgwhQlRxVTEch9oevXVCoeiuV2wn9lEELlkD+tTUNkunsynfOH1uHnT9X69nXkoRrizEjYgLz7iF57zP7nqRhOlGXbwPPnRPBfsGmgibGLP5AW76WfzJuDrVpYKddobo+9ArD8B24zM1vSmJ/NoCkPphqOrrzDjcSpTIfMr/cDR1Snzl2yeAiwRbrrLiT860CJGCKKBfeQNIOTV5MRvk+9+wKr745UES1bTCdopgctjzSQMBpA0zIc+zKB9Gb/NWDjEC7Svj5Je4tjuS/Y3qEIl9+Mp1SFtfvmxqUeQultj7aKhLrQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
- by SA1PR11MB6894.namprd11.prod.outlook.com (2603:10b6:806:2b1::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Thu, 7 May
- 2026 08:15:21 +0000
-Received: from BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
- ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9891.017; Thu, 7 May 2026
- 08:15:21 +0000
-From: "Tian, Kevin" <kevin.tian@intel.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>, Joonwon Kang <joonwonkang@google.com>
-CC: "will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>, "jpb@kernel.org"
-	<jpb@kernel.org>, "nicolinc@nvidia.com" <nicolinc@nvidia.com>,
-	"praan@google.com" <praan@google.com>, "kees@kernel.org" <kees@kernel.org>,
-	"amhetre@nvidia.com" <amhetre@nvidia.com>, "Alexander.Grest@microsoft.com"
-	<Alexander.Grest@microsoft.com>, "baolu.lu@linux.intel.com"
-	<baolu.lu@linux.intel.com>, "smostafa@google.com" <smostafa@google.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH RFC] iommu: Enable per-device SSID space for SVA
-Thread-Topic: [PATCH RFC] iommu: Enable per-device SSID space for SVA
-Thread-Index: AQHc08flq+VZwzTmIU+htlLOaFupobXuOBmAgBQSqNA=
-Date: Thu, 7 May 2026 08:15:21 +0000
-Message-ID: <BN9PR11MB5276E9D968D3738CCE7125248C3C2@BN9PR11MB5276.namprd11.prod.outlook.com>
-References: <20260424085339.3503582-1-joonwonkang@google.com>
- <20260424133953.GY3611611@ziepe.ca>
-In-Reply-To: <20260424133953.GY3611611@ziepe.ca>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|SA1PR11MB6894:EE_
-x-ms-office365-filtering-correlation-id: 7ebed20b-1de4-4329-a2d5-08deac10c844
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|3023799003|38070700021|56012099003|22082099003|18002099003;
-x-microsoft-antispam-message-info: UKLg4l3tMWbkLg5OpVHTsRk0vt65/S8q5h3BFShaNU86jNExlGcdbPWFhnbgwHReV+zkAJfvvoOEqNygE7lnAXd/4PXn4pfM0sKYYBu5fNWX56+iMbmuONlwCXkL261RZrGzYm06XAa1ojaK1Y3qoeLcAjGcKB3kHFiwNy7RH9Yedx2Qk4plyF8pXybZBKZ4sMUm4kC0Q/KnsAgCV09DBms0hQiMS+pGaTRDeeuk5fSzdXrE0srKNSRYQSqs1lqA/+YKYf6IyXaoDJzkVCj++k2acUmwGMgcI/SscDTtXIk+AzD6uIbfln8k9Tmd/tFnufAtGqnEdq9I2VQeRfDioRXecVa0sy3i8TDbdAxYMV9E2m/t7UGU9OAP9bqqWu3P8c69XjpqgMlsAxBBDcHmaeO3xJh5dYfV6NA724eNNAya8SpJ7jYgxfGbBsK8iGrJdoP2jIAqWN3tPSxm7xBiiZw9yN5zrSTjV/adr8MCZuHK1AK472C0kTQYTbN1WUIWaDcBrIB/GergN/zwTHj7hnO364fdAgftQIoieVMraor/oteJKNGhnw0qSOh61hggXwoH6wy/6wWcejlmFlaTwatah5Q0gvf0vTTpMJ2kmytmTC8dKyuDw2CO7x/R+/ITPIJC/28Wpx7VTbri5eC64bgLNWe+k1AViM1CEZ+Xa2+FUKlF1eEc/CSDgmLDyAY3FivnSyLrzCxzLKiLHDWGKFPFqgBtp9/8cV/8rzRrTWzBp9z6bA39Wftp5pgSUprZ
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(3023799003)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?IdRXpshFp2kuHFlzn0WQu8Gjaap4VrRYIdXkY/5dEcBRsJjgq6BAq0fErOZd?=
- =?us-ascii?Q?7yazPKCcrWP5zuj6rnSmNXJQTxPEUzsDN4yUC3fm6Hl5+OVHHWRrg9AUT6ah?=
- =?us-ascii?Q?ZguchFolu3ZP2R+5aDw7tgjEmwr+IouD57dj1Y9FekEw8Jz67iEqcBRmxIo+?=
- =?us-ascii?Q?cbLZQMJVjxiRZEtRzmgeNAgSd2NgJo3Nt8qQ8W/f00I7vpk0Ikbiji5hA3r8?=
- =?us-ascii?Q?VMW5mgCrMFngtzxBV4aadotRmsify4iZqBsDqtwa96DXydKT5/MYq+QwBTOG?=
- =?us-ascii?Q?87sYTloHIhAui5EJrCw2ami1zmg681q3kRT91mbZ6y/J6/rflocgHYNMgNjS?=
- =?us-ascii?Q?q0oCows/6rGW8IqaM74+pVYuoltOq9zYRmZqa1P5MUleYA9eoZNivyOiRvG2?=
- =?us-ascii?Q?RoPsxXvhSKXvIaXYzBn6mw1+ivxDRNE8QhtNMvKyWrlgYr+ApeGqZM0/iln8?=
- =?us-ascii?Q?reblMRPt7S3tGiaF9lqUv7lsox4z2OYEWDmY+fCDeuNcnvksZCg83ThNxAtH?=
- =?us-ascii?Q?KtA6Wbno2vUc92eUmimzoFfbU6rmzrXy42w0a//RbGXHvYhIHBm6MKRoGmd5?=
- =?us-ascii?Q?C9lLw+MV9ORcTcm1Om0Wuxzrq3Jha4TyCgBGymf68fICZfyWwErVtvmvylNI?=
- =?us-ascii?Q?+aMkM4zpoNmmoH+kiX5Hqp7O2JvOXpdSzUilHoniR92eE0BCEI2C3Zqt0wuc?=
- =?us-ascii?Q?SqGtaihJucVRf/P8wMcsjjnIj4/VuxgMRKiEPBRAKAKnRkh1Trf6Buqnimhu?=
- =?us-ascii?Q?2ZBy1lGB7ZgexXPhNhnDGLECVM/AbPZ9Uqac+ZnetLje1t2bGWQHUDbWBxWN?=
- =?us-ascii?Q?3WDMqcVTU82YlS88H71cPNf8S0XpG4pOPpSI/0gIzQevownUKhVbX3N8W1lL?=
- =?us-ascii?Q?A5rQYsZU5rVjAzpZDMxr/kQVybwQVSlgiw4PpyriTfgjimSCvURTz3m6l+F8?=
- =?us-ascii?Q?OU3I9WXep3NGALb7HnujOCKY/i/WqOJfFNOLd/0cyqie2J7saiei2X1BJI7g?=
- =?us-ascii?Q?qp31LfNMg7Qd7chsdjqvNNIygN6aJ94MauqILjeMiVhCXKYqcO+v42t4XP54?=
- =?us-ascii?Q?V31T/3STwTXeQPeIUdEJ58HVWtCXGVrkdqeV2s+Qq3jnfd36dppOmSzwzJDm?=
- =?us-ascii?Q?QMUVYh6L66qmR13wc2mIf0iRbkr1gFcwRo+35wdqFoe0KuGrAz5UwxNFd0c3?=
- =?us-ascii?Q?1t5gQS+Rb2iqutOrx4LNwaa2gcMSSP9MHYVh3YmSGWtz1/S0x46GqLMsw+hw?=
- =?us-ascii?Q?HAXsBZgczK5sv+XKkhVP8Hk9oVYYqqf0efn/0ItjRdS3XaN2Y/9IjOiE4IJr?=
- =?us-ascii?Q?U776+Urhse2vs1C2q6ZD6MY/R5Rh2nFeLH+tlzquoUPp6DNoKqVeNbbvfhiG?=
- =?us-ascii?Q?RrlAFaOGk4t6ftaoBKqdVEq3BFj0fslYNzPBNg0E/eGbg8nlTaAyNEFgDPU9?=
- =?us-ascii?Q?jBN5+q0FnUiH32lpfolCwv0s/vdehF7J+6oz36ZK0r2LrPisQay/n+6a1fcC?=
- =?us-ascii?Q?jUmAYVI+VTWa1xxzjmmhWXKp+AVnKNL5vWAHp8UiOjxdp1aXE6dF+ibS5F5h?=
- =?us-ascii?Q?nw2Q6liNjHubqutU2mga6CQzI86OQCv790REek9puI6GESL0xu7Ic4mkOztJ?=
- =?us-ascii?Q?o7pxq+7o+KfteIvgcHKD5PPDifsSW9rsjKRluqACb5WQt/KrEYMt0vfm71/l?=
- =?us-ascii?Q?pJMzZ1UUfa/whzN7zFS9Vb6d1a0r9mNW5oilAzAdPWgjHzUDVsaCw3dzwSNY?=
- =?us-ascii?Q?gEyn3Np/Jg=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1wKtzB-000000039XS-22rS;
+	Thu, 07 May 2026 08:21:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E53A46091C;
+	Thu,  7 May 2026 08:21:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 57D38C2BCC4;
+	Thu,  7 May 2026 08:21:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778142092;
+	bh=8aeJQiLBuxd455YFaEljjwg6lhpF/r3XUhK49nGVI7U=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=h1om2BGnVR5firCJkeZie4gqp4TGpqMx6f8gRxXXNAulMcrwvmJsLRqTh9qtueerV
+	 QkiM4SwtaKrYtZZcQBFIxuyoxGTAOW99dn9F2sK6gkh+RGA+1b6PmQeSQ8N5aYpkMJ
+	 qIVfxQVUN7PaeWGOT33HWT6bue547mLow9TjgDziOtO/iOwK1I4w9o5EhiQD+VJqW0
+	 KU/N/yWChtTdUwgpE2Elk35g7MeJZZBOZG49+yajeMvSfeMgIGfViy8/jKmVX3/uyz
+	 UMrFoFQS/wpIVGUSQlj+BXMWZKEHtpaYoZu9D5cizkGmbxamejmDmoktvGk/JdIO+H
+	 u3WV+fANB82mg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4713DCD3442;
+	Thu,  7 May 2026 08:21:32 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Thu, 07 May 2026 08:21:06 +0000
+Subject: [PATCH v2 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add
+ compatible string for A9
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: NTtYruKHDYfZn/q3X1eEA1GKPLl63iC64JBoGWkc/JMWdvUL3UJX9I6qJba/yVzuUwlMZXrInEOyG1WqR75u35sfKAhj7huAXvOkkNmQ9tvlekANzrana5wMIJuV6vg/iTfHw6YHGOZp5g4kwSesk3ZfQOoDNk0eWn5d7uLIhAvczdQPQqLrwFxX/pYCj8G/L2hU0i1tB5BkXTnkPaf2m+fLzQWZuAppjuK0ip05aqf1zIbrWyOWHEeF6URdaouHhmvJNn3r0pO8D/ecKqFyW5W/gBlfebNW+/4aoy6xCO3bSL2G2fNFwVB0/h1MDvwGfDhGAII2a5N3naLrEVhrmw==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7ebed20b-1de4-4329-a2d5-08deac10c844
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 May 2026 08:15:21.2484
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 3lSYdtZwyHwOlrTXE5+FVh9YUTWaehDQJMqMLE11++TqJ+on0qxkP9yLX9nSx705YUOm0HXl1k811nsgd6H25Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB6894
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_011526_363206_094FD37C 
-X-CRM114-Status: GOOD (  17.39  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260507-a9-pinctrl-v2-1-49774feff2ef@amlogic.com>
+References: <20260507-a9-pinctrl-v2-0-49774feff2ef@amlogic.com>
+In-Reply-To: <20260507-a9-pinctrl-v2-0-49774feff2ef@amlogic.com>
+To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778142090; l=952;
+ i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
+ bh=2k1vwugiyN7k/DWuDNDfM9Z7PSgwUGyVNp5bE4hZPfA=;
+ b=/O0SdmfGmeHXAbzezFdWPAvKdMJ3GQgtmapaC+6y6ZR9JBMfRyV7rwkGoJDfltl7UujQrVKf2
+ ehAiFcAoK7pCzs9FeiYRjaj1UFwsd0zLfwGASJtGQXpoickEbDINlmn
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
+ auth_id=578
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,36 +86,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> From: Jason Gunthorpe <jgg@ziepe.ca>
-> Sent: Friday, April 24, 2026 9:40 PM
->=20
-> On Fri, Apr 24, 2026 at 08:53:39AM +0000, Joonwon Kang wrote:
-> > For SVA, the IOMMU core always allocates PASID from the global PASID
-> > space. The use of this global PASID space comes from the limitation of
-> > the ENQCMD instruction in Intel CPUs that it fetches its PASID operand
-> > from IA32_PASID, which is per-task.
->=20
-> That's right, and all the iommu drivers should have no issue with
-> per-device pasid or they are not following the API contract..  I
-> believe that has been taking care of already.
->=20
-> So, I don't think this is an iommu driver capability.
->=20
-> Instead, you have to decide if the PASID is per device or not based on
-> if the system will use ENQCMD or any similar instruction.  I
-> understand ARM has introduced a similar instruction.
->=20
-> So you may be better off with some kind of 'arch has enqcmd like
-> instruction' to control this instead of involving the iommu driver.
->=20
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-if both arch and device support enqcmd-like insn...
+Update dt-binding document for pinctrl of Amlogic A9.
 
-I recalled this was discussed years ago. For devices like this, just
-let driver manage its own pasid space then have a new interface
-e.g. iommu_sva_bind_device_pasid(dev, mm, pasid) to use the
-specified pasid.
+In Amlogic A9 SoC, a bank mux register reuse other banks.
+The multiplexed part requires special processing and is
+therefore incompatible with the previous SoCs.
+
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+ Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+index 6ba66c2033b4..b69db1b95345 100644
+--- a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
+@@ -17,6 +17,7 @@ properties:
+     oneOf:
+       - enum:
+           - amlogic,pinctrl-a4
++          - amlogic,pinctrl-a9
+           - amlogic,pinctrl-s6
+           - amlogic,pinctrl-s7
+       - items:
+
+-- 
+2.52.0
+
+
 
