@@ -4,115 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5D2CD3442
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E498CD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2g4HOatV1Ssugu2qkDT6I/dNGmnk+MzQNypIG54pufk=; b=HQCxNe+qkZKwJ5WQktMbrYKdlw
-	A1NJduzWouC/hjPJ3lFP5WQ9tEhWa7a/yz59kEzsateqVUgD8DMJHZ23WORuQ+KeSCUf6o9DHP6OW
-	OT4cV/fuGiQJ8eAqREL08/7ubq5lFjD2ruX1wfu2W/Po6FkMFMyLDX/3p+4Uoh7DZr76sa8CDQ//N
-	NBvy2bW+aJbT5AIRPIvv+EYDb2EtYnnZkGADUwBdMM9F2aQ84d28UySbeUMGiJ1YyxlpbteL/iczz
-	t/IhEDFy5YJMf6QLxLFR9e9Y3N8cHZitpXbLQRAdJjMZmcI3XUASDPCs9+6G3PJUl8YfB5ZT+CjP5
-	WfpTbMkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QfUFoc81hVGu9gP50alI9SF7Jjd0HuyaUi9m0FbL6LY=; b=RZ6ALZ5Fn2H2yLH7OLvdbneIiZ
+	YxvMZq2260gZC0mTZgP8+o6PmIBeOPKgxbG99f+Fyk5Fyh+XlPf1ca0irEEyYOrsgWCF9Gh5vnlBW
+	j1VTBT5dbBWuaM45/CR6y4GuCl+CZWeKfsKkW6nK9ONmV2wu31zf8vOKoSQYqRb3Ra/b7/Yk/VFSy
+	W2zPcfI+QV5LM4NHNucLB1jvFi/T4YzzDQ3tDDy278mibRGNInHHMY1yQtQLS4vfQtr/Pd20+RSG4
+	q+1Ir9nV1iU/MFgz38fOak0XRZoDaBshAX3aGxb0STWTGnWWT/R32CSqUp1yCiUpdHFO5Vcv0EIA2
+	rxVF3AlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKuPD-00000003EDy-45t2;
-	Thu, 07 May 2026 08:48:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wKuPG-00000003EFK-0Y9u;
+	Thu, 07 May 2026 08:48:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKuPC-00000003EBs-0R2X
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 07 May 2026 08:48:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2g4HOatV1Ssugu2qkDT6I/dNGmnk+MzQNypIG54pufk=; b=LA4oe+UKaCvqLXg+7PgQOy7/8p
-	fPEcd0XUYK3mJEoqWDrU6T5nhhwXAgR+h8DfczFDeO8V8cWnTyuy8RGSGYQp7GixIvg3hes07tVsm
-	fG3snXsU9g+GTq7YN+yc1m2rIjIZJiP9n9r7kqTBnrXk48iMQxWpQVRPeRilnTJQoDDFeP01TSzLq
-	E4a6JmMXoH2a13nl4vcYhES9GTX+ptjgt/C2AiA6RwFJZSezsV/cjKhWSzEMCsWkuXiMpjnS2rigv
-	d/bHutskr65u5X6SRNstO0K3ET3FsReKDAiE3AujWv7GLqmRrBvB3v5rUq4D1caqegTK6MpSe/1SB
-	nLIcHZwA==;
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKuP8-00000002xlO-3Uku
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 08:48:24 +0000
-Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-2aaed195901so2970445ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 01:48:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778143700; x=1778748500; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2g4HOatV1Ssugu2qkDT6I/dNGmnk+MzQNypIG54pufk=;
-        b=r3rBcs5gUDKWlI8PS1ryE7c1lzGXvmmUrXlxeX+6kjdc5Lnj25/WpxT3D/c+6uObkT
-         iWmi4lJA58aZWq9AFb3V+mFAK+kVAzsb4jVJyEQghQHatUlgZuubVD8SajJaXA0KZSm6
-         xDoCGpc+OhlDGuSp0XPgY5I0m4szy5FvW69FIzA+FVKkj32HBJkV0rMr2IeOfGQOav3O
-         jBrEojfYCR8XyYUZ1ufy2P5bx3qLOSZjZv2HDeAMpFyBD3RwUkzt4Sdt6X5bVJPy6kRI
-         tJNANQg206GnhbaJ9UNZqRMaEYyuoH5n2O0thYZdZD0Fp9HVB/2AEUapIh6q5HWHHOYk
-         Fb+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778143700; x=1778748500;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2g4HOatV1Ssugu2qkDT6I/dNGmnk+MzQNypIG54pufk=;
-        b=clbapUENwgDCgXFON6lTcAswcxY7DYKZgVzQQ+SP6sGQat5xWJaGNZDEyIN6AxR8SB
-         53UckY5AntyOTV+C3eqAQjghjn2gSAdr3QTtnvXwK93JjhffplZwvE0chCMw4iZ+e7Ki
-         vPZawdFtBn+irtOmH0UWJfHJgd6cC1UZdjQXgigz0aKNuH99mtQwrJtG6lfAan3L2o9h
-         Kz+ZLxvXYOWf4nyKrlP9nWNShSypv6aeRbfAzWVVj2mKFrKn26hK+T7MsyDKV73BGsEP
-         Z3WezpgKUNgTxTaVxim2o9Wi8RE9Kx5GY8+mTmfYeLDUiuvcvru8Vy98PdzEwzoNdcAa
-         O9Zg==
-X-Forwarded-Encrypted: i=1; AFNElJ9N4Ge3okSvA7bBnNdLbWtTKl1YHpwhMyASpUVsBnL4cgP1WyKuXu0ispmSytPU3C61ti2ck7QVtDIzcaonwuEp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz504ArYaAP/P65TWqz6vPhTQB5hwrk1TPPRbQ6ERItpgqjTiSN
-	MDB88bXqcIN0OlA014B+b2g5FBUzqCUYee5g9rJSIG5htLmLDvD6u9jh
-X-Gm-Gg: AeBDievkkeZ5SMMWWIkintFgNI0tAiFoJyslmD7X8CeL1/wmJOsNYP0l0UsG+5rRrIC
-	CcR+Jv5jADR3fJHCPzjWyizlHLmcmKf9nZE+Dy0Hdu82x703ukfuOHQpriiAO7PuVk+NB75Iqz8
-	yPJvRYbRiTi3dDdF1v3pjI3mAe0mtZAcLJHFkYTC/Jlw/hgdbU+GvzzwreeDWqyauOuWDV88qvt
-	hi2NV179o61FkqQELe89P0Z6LHZ1pSYHe3xugLF1al7WkuQohziLRFBdtZE8RfzIMYYH1WQkw34
-	18gtPDaaVU9Gp8C44OtYR+6/CWf3Pq+SA/PEvrFdOrJjG7k/dD+c6CVfRUiIYImmVvBqihuKLKz
-	nd5pIeBeIxxu9+X4+6OzXldxju11BFnZsDpGND40YWSgVgIv+e22BNoGfwfFZeRQf5HgrobxJJ4
-	US33m81v7SOURRSKv68v+UB3aXAg0HbYAG8HwEcbSyqw==
-X-Received: by 2002:a17:903:903:b0:2b0:5d60:7f3f with SMTP id d9443c01a7336-2ba78f7320amr72637805ad.16.1778143700446;
-        Thu, 07 May 2026 01:48:20 -0700 (PDT)
-Received: from [10.125.112.20] ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2babab0152csm19143165ad.35.2026.05.07.01.48.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 May 2026 01:48:19 -0700 (PDT)
-Message-ID: <6056bd1f-3998-44ff-8c4f-972704e0b896@gmail.com>
-Date: Thu, 7 May 2026 16:48:09 +0800
+	id 1wKuPD-00000003EDE-0uKx;
+	Thu, 07 May 2026 08:48:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C0B3E43E08;
+	Thu,  7 May 2026 08:48:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27BE5C2BCB2;
+	Thu,  7 May 2026 08:48:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778143706;
+	bh=1dxLIMyeH6ASIo+C1XdXDmD5C+ZI9/aOanZo36hb3U8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EZfiMdCwxFX1fwzvvE6RmY9TTyrItR3XUIk2CQpoikH3Lf681+Jf+laxq7te6R8Bl
+	 ieqc7ass6oH+xod4ryqzpYmONyn4f6n4VbTcRHHukqGCMDyIMyy9Fgj95MlNyw6jWM
+	 9Y9o83oX36hRozySeypB+GBiuXuWyAorh6W/nNqaURGmjrneOphG66H+ONGNGHPO1o
+	 RPR9kiISikxw6eclcMlNS9DCdFmOZa8WFhygpFmHdlbLkzKNzVp5N2YKE8LS2uZfwu
+	 lT87HTaGq3x4vl1vWGbSZ4dEHR2PHvoNlplToKfvXrT+bowU/PFw9pN62hwmJdiN1E
+	 ABqdaFKHOMBnQ==
+Date: Thu, 7 May 2026 14:18:14 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Dom Cobley <popcornmix@gmail.com>, 
+	Phil Elwell <phil@raspberrypi.com>, Jim Quinlan <jim2101024@gmail.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Hans Zhang <18255117159@163.com>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] PCI: brcmstb: Assign pcie->gen from
+ of_pci_get_max_link_speed()
+Message-ID: <q3c6li5kld57rdxxpxr3dxvimzvdyr57irtj2iyryftri6cy43@3vbacremhcls>
+References: <mid:20260501202438.376033-1-florian.fainelli@broadcom.com>
+ <20260506164537.103196-1-florian.fainelli@broadcom.com>
+ <t3u7r2ee6gdkjceula2ctvgditgxibwxcpaejc7ekbgdjog3br@c6n6ztzsbhpu>
+ <83ceeae6-20e8-40a5-bc0b-6231d2118b6e@broadcom.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/11] of: reserved_mem: add no-dump crash_mem exclusion
- helpers
-To: Rob Herring <robh@kernel.org>
-Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, akpm@linux-foundation.org, bhe@redhat.com,
- rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
- ruirui.yang@linux.dev, corbet@lwn.net, skhan@linuxfoundation.org,
- catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
- kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, saravanak@kernel.org, chenwandun@lixiang.com,
- zhaomeijing@lixiang.com, everyzhao@126.com
-References: <20260429065831.1510858-1-chenwandun@lixiang.com>
- <20260429065831.1510858-8-chenwandun@lixiang.com>
- <20260506145022.GA2084721-robh@kernel.org>
-Content-Language: en-US
-From: Wandun <chenwandun1@gmail.com>
-In-Reply-To: <20260506145022.GA2084721-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <83ceeae6-20e8-40a5-bc0b-6231d2118b6e@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_094823_267513_9FB052CC 
-X-CRM114-Status: GOOD (  22.40  )
+X-CRM114-CacheID: sfid-20260507_014827_278660_D33FD0D2 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,105 +80,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 06, 2026 at 11:15:50AM -0700, Florian Fainelli wrote:
+> On 5/6/26 10:08, Manivannan Sadhasivam wrote:
+> > On Wed, May 06, 2026 at 09:45:37AM -0700, Florian Fainelli wrote:
+> > > After commit 03f920936977 ("PCI: controller: Validate max-link-speed"),
+> > > pcie->gen stopped being assigned and as a result the established PCIe
+> > > link would stop supporting Gen3 speeds on 2712 since pcie->gen is used
+> > > to populate LnkCntl2 and LnkCap in brcm_pcie_set_gen().
+> > > 
+> > > Whether the 'max-link-speed' property is not specified, or it exceeds
+> > > Gen3, resort to the HW defaults.
+> > > 
+> > > Link: https://github.com/raspberrypi/linux/issues/7343
+> > > Reported-by: Dom Cobley <popcornmix@gmail.com>
+> > > Reported-by: Phil Elwell <phil@raspberrypi.com>
+> > > Fixes: 03f920936977 ("PCI: controller: Validate max-link-speed")
+> > > Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> > 
+> > Since this is a 7.1 material:
+> > 
+> > Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+> 
+> Thanks!
+> 
+> > 
+> > > Change-Id: Ic5431469dd7a6c8b391f84f27119dad876256880
+> > 
+> > This Change-Id is irrelevant to upstream.
+> 
+> Should I resubmit or can it be stripped while applying?
 
-On 5/6/26 22:50, Rob Herring wrote:
-> On Wed, Apr 29, 2026 at 02:58:27PM +0800, Chen Wandun wrote:
->> Provide two kdump-oriented helpers so that arch kexec_file code does
->> not have to open-code the no-dump filtering loop:
->>
->>   - of_reserved_mem_no_dump_nr_ranges() returns the number of reserved
->>     regions flagged with linux,no-dump. Each exclusion may split one
->>     existing crash_mem range into two, so callers use this count to
->>     pre-size their crash_mem allocation.
->>
->>   - of_reserved_mem_exclude_no_dump() walks the reserved_mem[] array
->>     and calls crash_exclude_mem_range() for each no-dump region.
->>
->> Both helpers are guarded by CONFIG_KEXEC_FILE; empty inline stubs are
->> provided for the !KEXEC_FILE case so architecture code can call them
->> unconditionally.
->>
->> The consumers are added in the following arm64, riscv and loongarch
->> patches in this series.
->>
->> Signed-off-by: Chen Wandun <chenwandun@lixiang.com>
->> Tested-by: Zhao Meijing <zhaomeijing@lixiang.com>
->> ---
->>   drivers/of/of_reserved_mem.c    | 54 +++++++++++++++++++++++++++++++++
->>   include/linux/of_reserved_mem.h | 15 +++++++++
->>   2 files changed, 69 insertions(+)
->>
->> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
->> index 4b80420da2d2..038056a6408a 100644
->> --- a/drivers/of/of_reserved_mem.c
->> +++ b/drivers/of/of_reserved_mem.c
->> @@ -27,6 +27,10 @@
->>   
->>   #include "of_private.h"
->>   
->> +#ifdef CONFIG_KEXEC_FILE
->> +#include <linux/crash_core.h>
->> +#endif
-> You shouldn't need ifdef around includes.
->
->> +
->>   static struct reserved_mem reserved_mem_array[MAX_RESERVED_REGIONS] __initdata;
->>   static struct reserved_mem *reserved_mem __refdata = reserved_mem_array;
->>   static int total_reserved_mem_cnt = MAX_RESERVED_REGIONS;
->> @@ -916,6 +920,56 @@ struct reserved_mem *of_reserved_mem_lookup(struct device_node *np)
->>   }
->>   EXPORT_SYMBOL_GPL(of_reserved_mem_lookup);
->>   
->> +#ifdef CONFIG_KEXEC_FILE
-> Use 'if (IS_ENABLED())' within the function.
-Get it, thanks.
->
->> +/**
->> + * of_reserved_mem_no_dump_nr_ranges() - count reserved regions flagged
->> + * with the linux,no-dump property.
->> + *
->> + * Each such region may split an existing crash_mem range into two when
->> + * it is excluded, so callers can use this count to pre-size their
->> + * crash_mem allocation.
->> + */
->> +unsigned int of_reserved_mem_no_dump_nr_ranges(void)
->> +{
->> +	unsigned int i, n = 0;
->> +
->> +	for (i = 0; i < reserved_mem_count; i++)
->> +		if (reserved_mem[i].no_dump)
->> +			n++;
->> +	return n;
->> +}
->> +
->> +/**
->> + * of_reserved_mem_exclude_no_dump() - exclude no-dump reserved regions
->> + * from a crash_mem list.
->> + * @cmem: crash memory list to modify
->> + *
->> + * Walks the reserved_mem[] array and calls crash_exclude_mem_range() for
->> + * every region with no_dump set. Intended to be called from arch kdump
->> + * code when constructing the elfcorehdr.
->> + *
->> + * Returns 0 on success, or a negative error returned by
->> + * crash_exclude_mem_range() on the first failure.
->> + */
->> +int of_reserved_mem_exclude_no_dump(struct crash_mem *cmem)
->> +{
->> +	unsigned int i;
->> +	int ret;
->> +
->> +	for (i = 0; i < reserved_mem_count; i++) {
->> +		struct reserved_mem *r = &reserved_mem[i];
->> +
->> +		if (!r->no_dump || !r->size)
->> +			continue;
->> +		ret = crash_exclude_mem_range(cmem, r->base,
->> +					      r->base + r->size - 1);
->> +		if (ret)
->> +			return ret;
->> +	}
->> +	return 0;
->> +}
->> +#endif /* CONFIG_KEXEC_FILE */
+I hope Bjorn can drop it while applying.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
