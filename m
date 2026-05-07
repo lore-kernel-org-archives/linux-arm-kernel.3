@@ -4,82 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17D6CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 13:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A90B0CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 13:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ns/a6A5OfHZ9FJw10SrmHZd5BFniI+8KztNlf9kJGbE=; b=H+S4nxwW1zNERu1rz7jjCdkFpL
-	7ZcrpQiW84o7cM3s3Q8CmJPh/AKx2oU06nahT10LDZ256fBvaXsukWlHQcQJHDydx/mIJvGpQQ6fW
-	iYFp7GJguvfckHLMIZXBM7TXLNN4xklX12sBGnKLO4upyQ/4U8xUFrX1+kwN9GM+6O0P0WNepRKLf
-	mQFF8wxhnh8ogq1Q5XCBxgKByGgnxA651kbugJQNwLTUAnM90OAWWdCmrg4B7pfkpZk16laQVytTe
-	pI3wF81WL5gRNIGBtuJhngKftSTyjulXadE7kSNU+X+u9AYg9dXk3f4XQBWhkq9DJ6uBDOglHcDY5
-	HGPMIaMQ==;
+	bh=kdwPUE6uMU4a+MsZ+02gTvznxPhCfL9jHHrYZahv22g=; b=or+6+jQxQyTSwlwlUCb71jGKO5
+	tnil0R7kXlCU0vq0L/jIkujuSJWvtdB7ZnYWKENFSLb8rWjHbMZN1iuhyYtrJyhggGaUiBqJo3J6M
+	zia765yBGVxHlBoNLgyVZkaECUgFBqk7mcVGSNigLWumjykCpwdjGeLTgqxHpLY+NhesqVlzKaJNf
+	FXAfpUhnjfP4//w+jEesitvI+mLTR9NjIWOJZNXS0gr9mk3p5XY067KrtzCUNnAXdCiVrXZcjJSpF
+	rvCWZ7v+livsmlghddfQYQ4VavRrWRr9pTO6u5YI62tK2KEeThss3Tc9vq52B9p9/dM0/CuoHU5Vl
+	LGpoNJVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKyeM-00000003tCU-2hfc;
-	Thu, 07 May 2026 13:20:22 +0000
+	id 1wKyH3-00000003pdc-0ROx;
+	Thu, 07 May 2026 12:56:17 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKyeJ-00000003tC4-3xpE
+	id 1wKyGt-00000003pMA-1Txr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 13:20:21 +0000
+	Thu, 07 May 2026 12:56:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 378D744127;
-	Thu,  7 May 2026 13:20:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11717C2BCB2;
-	Thu,  7 May 2026 13:20:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D5A144428;
+	Thu,  7 May 2026 12:56:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC8B7C2BCF5;
+	Thu,  7 May 2026 12:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778160019;
-	bh=36ZswlSdEoa6CeQfZEQN8KqozyQBxq2eB7Tc0h/yYIU=;
+	s=k20201202; t=1778158562;
+	bh=CJXY43NWPhe/kEFDLFlqtBJ4A3u4UFccm33o2sFJ4aY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B8HSypZiCPj9qsm8/i8LQ4YAD7nehVRteknpw9ph2arJnL2pPxB3EBmL3dAGahj9j
-	 sZCTrYzPYsJOJY9lBy5ozrsDHwGQb3KkOUMzb/VDkwDPdRZfPH370snZJWPdDAfp/3
-	 OvCtvvkrU/DtmwViqSqTnUCIq4uIJUdI+zMb6A8/wAinaOWvKJuFkRwGQdiVi/X1ps
-	 oeUL7Sku6N7VAbfQcyI55LL+7j6vCP8GaVvHC8bcNAlI8i9oeEatjdfbFr9XZqEyHb
-	 95CaKZp8yIJwE0UfTY4ab21x2T9drfmD//DwvU1HLGDnHWS6gNknjuVh45WFWLV7UY
-	 Nj8i5My6W4B3w==
+	b=mSM0vSwEN1Ftvy7cGmWM3VCf1fYefJyIOC9v1s2PgVtv4DasoMlB5VQA1p365GJlq
+	 qhcLIV3NIzW2Q5Igg685SbWr3lkfM8vve3VUpiflyzr4OUbNNDT9HalBUPCaJHq2vX
+	 SNz4EMoDlwp4EI6ahIVa9ZG/xr2RTZrmIwtBrWprnDcPDVYmzoBPFPH6RmbRLMfA4A
+	 8hf4zc9c/mkFqwuaIQTwicb4uMO6gntcWnCz0H3v6es1e/B8TmROSiaPt3qUpU4VWB
+	 CHpEkW/AGJmXrLif75DsHoK3x3CFNvbsbRQMX12qDQ+Chzx5JnW0f/UG+WALuQ5jtP
+	 6tPfeDd16S1Ew==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wKyeG-00000000dmL-3G5r;
-	Thu, 07 May 2026 13:20:16 +0000
+	id 1wKyGl-00000000d7d-1JI4;
+	Thu, 07 May 2026 12:55:59 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>
-Cc: james.morse@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	qperret@google.com,
-	vdonnefort@google.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	yaoyuan@linux.alibaba.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+To: linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 0/6] KVM: arm64: EL2 synchronisation and pKVM stage-2 error propagation fixes
-Date: Thu,  7 May 2026 14:20:13 +0100
-Message-ID: <177816000554.2904218.14736928674688744601.b4-ty@kernel.org>
+	devicetree@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Ge Gordon <gordon.ge@bst.ai>,
+	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: [PATCH 08/16] arm64: dts: freescale: Add EL2 virtual timer interrupt
+Date: Thu,  7 May 2026 13:55:36 +0100
+Message-ID: <20260507125544.2903406-9-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260501112149.2824881-1-tabba@google.com>
-References: <20260501112149.2824881-1-tabba@google.com>
+In-Reply-To: <20260507125544.2903406-1-maz@kernel.org>
+References: <20260507125544.2903406-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oupton@kernel.org, tabba@google.com, james.morse@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, vdonnefort@google.com, catalin.marinas@arm.com, will@kernel.org, yaoyuan@linux.alibaba.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
+ heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_062020_007221_93F6EF43 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260507_055607_456617_E1AE711E 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +125,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 01 May 2026 12:21:43 +0100, Fuad Tabba wrote:
-> V2 of the kvm/arm64 audit fixes [1].
-> 
-> Changes since v1:
-> 
->     Patch 1 (SCTLR_EL2.EIS|EOS): Fixes: tag corrected to 0a35bd285f43
->     ("arm64: Convert SCTLR_EL2 to sysreg infrastructure"); the commit
->     message now explains that the conversion auto-generated
->     SCTLR_EL2_RES1 to UL(0).  Code unchanged.
-> 
-> [...]
+The ARMv8.2 based CPUs used in a number of NXP/FSL SoCs are missing
+the EL2 virtual timer interrupt. Add it.
 
-Applied to fixes, thanks!
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/boot/dts/freescale/imx91_93_common.dtsi | 3 ++-
+ arch/arm64/boot/dts/freescale/imx94.dtsi           | 3 ++-
+ arch/arm64/boot/dts/freescale/imx95.dtsi           | 3 ++-
+ arch/arm64/boot/dts/freescale/imx952.dtsi          | 3 ++-
+ arch/arm64/boot/dts/freescale/s32n79.dtsi          | 3 ++-
+ 5 files changed, 10 insertions(+), 5 deletions(-)
 
-[1/6] KVM: arm64: Make EL2 exception entry and exit context-synchronization events
-      commit: d7396a72eae795d7f968fb451237b6ac1616d712
-[2/6] KVM: arm64: Guard against NULL vcpu on VHE hyp panic path
-      commit: 300fac4cc266b7782d88602b6b6a7faf31ce6405
-[3/6] KVM: arm64: Fix __deactivate_fgt macro parameter typo
-      commit: d4d215e5b81ba5acb17752cab12c514a8062bada
-[4/6] KVM: arm64: Seed pkvm_ownership_selftest vcpu memcache
-      commit: 5130d450d1488e62e1b5310f41910a3c7320e827
-[5/6] KVM: arm64: Pre-check vcpu memcache for host->guest share
-      commit: 8234409ffb656970e2f5b29e416f041419980bef
-[6/6] KVM: arm64: Pre-check vcpu memcache for host->guest donate
-      commit: effc0a39b8e0f30670fe24f51e44329d4324e566
-
-Cheers,
-
-	M.
+diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+index 46a5d2df074d5..679b9a6f7160f 100644
+--- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+@@ -82,7 +82,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		arm,no-tick-in-suspend;
+ 		interrupt-parent = <&gic>;
+diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
+index c460ece6070f8..7431ce293625b 100644
+--- a/arch/arm64/boot/dts/freescale/imx94.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+@@ -147,7 +147,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		interrupt-parent = <&gic>;
+ 		arm,no-tick-in-suspend;
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 71394871d8dd0..e318048dc755b 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -524,7 +524,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		arm,no-tick-in-suspend;
+ 		interrupt-parent = <&gic>;
+diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/dts/freescale/imx952.dtsi
+index b30707837f353..7c65956bc72dc 100644
+--- a/arch/arm64/boot/dts/freescale/imx952.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
+@@ -298,7 +298,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		arm,no-tick-in-suspend;
+ 		interrupt-parent = <&gic>;
+diff --git a/arch/arm64/boot/dts/freescale/s32n79.dtsi b/arch/arm64/boot/dts/freescale/s32n79.dtsi
+index 94ab58783fdc8..fb40abec4c5cd 100644
+--- a/arch/arm64/boot/dts/freescale/s32n79.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32n79.dtsi
+@@ -357,6 +357,7 @@ timer: timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
 -- 
-Without deviation from the norm, progress is not possible.
-
+2.47.3
 
 
