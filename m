@@ -4,113 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C10CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14240CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iVYOFKxX2nTK7xBG+dFvf5BN63MQ7IZrJ1lALABuKpI=; b=pY04iIVmAqz0V3Z6vHip9g6W5+
-	/G0z1yjwz6m8CRnrAaWqcLBpGX4+JVk0lgkk8yce11sUoCEfyfzESTz3YXw0f95r/Q/DC14HyAkGB
-	tDD55A+Rju/TjtQFuzaADcSvuris4SrY5ag2YQOjNyiEM5BbGHIbDmlBqKxyGu/aoFNVE+eXoGYWP
-	BvZaWZQ57Mn4Lz7n9Uy6Lvy/xw88T4N+eDRKK7ruUrUsoj64eM6NwXaMiPWDQKmoWrZO3ZB1X8Sd6
-	QVwwEAXEoi8fgbS6Q+E0mI2aQfHDd+AO6yPuPBLo37dI68eaoPMLSFwdLy6i8zKHJ8N1yHNjeQ/xd
-	+eqPq2iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ToHG0ImZuU7qfiLVYyvzh0UYOmMSy3wf8sf14WtJAwU=; b=jh3ef1XorrBH5bxZxthIsmiFsT
+	1J7bDn4ZdUTNioWf5tPX9Pw52yU5vE/Q9RgXaCqiZ2fV3pG05eVr7JAOEqnc86hZbGlqEsWGJP57D
+	ARHg2VyOlid7LB8FJm7ZasrUWhVZNxKdGZOU8SDwnzyafjDTSi0+Gm70+Xh2bik7cqj1sIq2StiN3
+	WRib3aAob/ShKBhCkbRY3xu4uvX893INDTVygjudSNst7pjQtE202m3kZF1MVYq+FCTqQSDly89vR
+	1O7Mb2ftN1yzfzxth6Vt6jAmmbCED6/I5D+2Rpv6eS4HKHRZvB2sHW6rQynE0A2wrRINLo2TsAmHR
+	y8vFnpcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKyH3-00000003pe6-14CD;
-	Thu, 07 May 2026 12:56:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKyHX-00000003qP9-29Tp;
+	Thu, 07 May 2026 12:56:47 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKyGt-00000003pM9-3H4E
+	id 1wKyHS-00000003qEH-0FVO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 12:56:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1AF0244454;
-	Thu,  7 May 2026 12:56:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE39DC2BCFA;
-	Thu,  7 May 2026 12:56:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778158563;
-	bh=C8QlCN0PZK11mrLCs9oNNpttQLwIcnWA9/xtBgloldA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F9IQmMxP91Og2ndw7nbq7bf9f5YZBGH4jqYScfZV/WGLI6qCsqNIEPHsf2o90n4H1
-	 pcw44gGrzUwKeKBUPLTnNSj6WAJNnG+F7MbtZOW0A0Dw9HXY4IA/J5ebP4ucNAG//i
-	 eJJ30mwM94mPrdNqv7L+BOh6trbGQSpyrBMwElTJavFNnCViqZoqLMJ74Ius6Okv54
-	 7MPT/0VAXKxc10mhKLEhpiKXy9UOVc9oSGSqV0MduyPREnuy//AuOUBH/7+aHy8CfG
-	 IHAIpjNiKE0q0N/AZ2CrL3fXMy4DdKlMlHOZL21Ks707fOYeZZ/NJZ3jvO3fqUCATf
-	 RYALOdSPqteFA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wKyGm-00000000d7d-1QD8;
-	Thu, 07 May 2026 12:56:00 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Ge Gordon <gordon.ge@bst.ai>,
-	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH 10/16] arm64: dts: mediatek: Add EL2 virtual timer interrupt
-Date: Thu,  7 May 2026 13:55:38 +0100
-Message-ID: <20260507125544.2903406-11-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260507125544.2903406-1-maz@kernel.org>
-References: <20260507125544.2903406-1-maz@kernel.org>
+	Thu, 07 May 2026 12:56:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Avl13UbHFEUe+qudjjqO0in4K9A+dHocrxps8hfMO/8mjlBbsP2UuZj05Q3JdHGq4U3wog5GyTIq/ByATZP2j/1LlAU7nQmKmvJGZ4y3bkgSLOui6oQUhpx2sAi6hkIZOreqAcZeQmlXyCOv6tZ6emui2AVBaHiKqZZt29OGyDKZ7fwoP66vBZTafOBo7EXzppM58G4jWzW8rEsBVaOJSOJGRLuRcQlVCoHubjUlGdK/cqR101BEMKxq8la9GfQMZ8rCv3hinCwFfHnb8VzGo34mPP7hJGU7O8vchEOXqCHZm32Q9ebRwF1l3zYK423lcetWgX5J6GVG37ouVYTHdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ToHG0ImZuU7qfiLVYyvzh0UYOmMSy3wf8sf14WtJAwU=;
+ b=OShTaS2Qqs1nBWMNtHpKe2jH2z6ThRI8KxRNLY3PvbMGVXm04mfsE2B0lfJUHze6uaaSFpgGswQRfabbMDNCLJNXYkz5lDYGb8jmbi2FUEsT/syQgX/1yApIA3mty9HOVXQSTSqxVmipxLUhhhsyGoz5wCDjKkx9CRtCVX2AcgFuCF6T3B/fiJ/zYB3xsMreFkqcXslYw5+IOKh0g4V43GdSU6CudrzX+J2Oni1FFbR0OrQyZMl/XagX5xNybXjsMK2jVxZXSZQMwFp5QfJCwcQSUVoOKJVOkPU8KGYqUUjdkXSIHV/eg7KGnz1Qf9Db5js9SNz0Q9y+jxTSCdXaAw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ToHG0ImZuU7qfiLVYyvzh0UYOmMSy3wf8sf14WtJAwU=;
+ b=OobXvUn5IDiJzg8sYoeP1SKKGpDCuJ32CSyL2Iv6vlMKWUJycWlJYBvRGFzPkGMethEmvLbF36ivWSj3EIRwBpNhkS7O3syTCJKkI6nG1rNwfxjNaAqJsncBomYV9s86mKIW2K1kKNhDUWsRXA2EsFaA4Ny6XvAuFhzIREdgTZ/j1CMSx6GoFMtBVee6RdZgrrgEJuiItbc391mfjTdnRVrQf6hTChMS0V5Bb5rWvghWvxe5RRyV5FLvXkM1oJlDF6t6csHhbwrTHVZkdKgqMDZ1tY5Y/Xi0ThrJMcWFwZEMbkdLGZUCw5PK/7orc20xrQuHmiqurxzN6Yq4iw6T4Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
+ by PR3P195MB0617.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:31::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.19; Thu, 7 May
+ 2026 12:56:35 +0000
+Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ ([fe80::295f:9a59:b66a:621a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ ([fe80::295f:9a59:b66a:621a%6]) with mapi id 15.20.9891.016; Thu, 7 May 2026
+ 12:56:35 +0000
+Message-ID: <8bff1c7d-e43d-41e6-8b1f-476e8b5caefa@phytec.de>
+Date: Thu, 7 May 2026 15:56:32 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 02/13] arm64: dts: ti: k3-am642-phyboard-electra-rdk:
+ fix USB clocking for compliance
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, nm@ti.com, vigneshr@ti.com,
+ kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ josua@solid-run.com, matthias.schiffer@ew.tq-group.com, d.haller@phytec.de,
+ francesco.dolcini@toradex.com, joao.goncalves@toradex.com,
+ emanuele.ghidoli@toradex.com, ernest.vanhoecke@toradex.com,
+ rogerq@kernel.org, eballetb@redhat.com, robertcnelson@gmail.com, afd@ti.com,
+ u-kumar1@ti.com
+Cc: stable@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ luis.parga@ti.com, srk@ti.com
+References: <20260506141040.1368918-1-s-vadapalli@ti.com>
+ <20260506141040.1368918-3-s-vadapalli@ti.com>
+Content-Language: en-US
+From: Wadim Egorov <w.egorov@phytec.de>
+In-Reply-To: <20260506141040.1368918-3-s-vadapalli@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1P191CA0008.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:800:1ba::6) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:4b3::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
- heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|PR3P195MB0617:EE_
+X-MS-Office365-Filtering-Correlation-Id: 23d3c793-e3dd-48ad-6f3f-08deac3811eb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|921020|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: duhuxnouFYBoUdUnjov94AzNFx8vn3Z3r3fnSVHV/fk0x2yheFIdWb8KXOeJXdCgRuks5uE/FluumY09xTTTYppz4ldctCrC0d9cKWSlQ23+Q0ZamafQIigo37lbWQAYEeE1DAUKD7eXqxpbd+YNoZIVgVuyQFoH5jTU4axtM2zaOBp9BQIa5qU3F7+3nlOTmyCJfE/+AQ6Qj8LkcCzhUIewkMsdCWNmyzl7TGkbpnl/pc34dxgSyApeMtG/CGGjHYPRF09Bagp5FbBYhVeMaFk2dlqzPlxSgoSVL8T4aoMfADuNAvli+3KQxE4LxAHQ3N3vz9vkLeF8zAAKcDzXm+WrJwwjPbUdizH9g8GtNx0/0O6xO3gm4SlFP98UGJbJ36/rv05hatPywitqoj/M89wU9i1azliaYhTZilecH1b5Jl+hLO3P4ZIBaEnDOPiMgSs5tzx3ksbrF5aqV6Ux0qqa2U809AkwkRepYlGhv/jW1a/EJsSlWjRtnSNpssEVLPxEOQ1zLEj9mUZ3Q/pJgkZjpOE8mY4zQAD8E0qUmh0/yaCcRXNn5jzK1SypWUv34B62Gv49IRYsn69xUdlzICvcOPjLDwToUCjsokNOSxnlzEP8AagqKwrYc5Nk6pl0Ssa/0dqNa5pnJAFnlBX9P2r+VjEraq5RQJYxHzI5eNWgiYGMexNthNxamXI06+xXF6ub/sHB8WKwiPvNFXW/77vNOlRh3zOOhZClHTuWPKrHHx3dS+8w1C4om7iU5A9B
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(921020)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ekF6a2FZT2ljNHp4NEJINDhHVE5PKzc5ZG55QUcyN25BRnI4N1Y0d2ROWTE1?=
+ =?utf-8?B?aldaUThDcWR2MmxkOWpKVUVtdllKNlNUak40aWtnWW1SZkF2dHEyVlZITFRR?=
+ =?utf-8?B?aTVodEdOajY4dXB4ZFg3eEtyUmhhZFI2eGpZN0FWQmhMZnBoa2dRMkJNWE45?=
+ =?utf-8?B?WTVYQzZVY1lMeU9hdXh4NTJuRDF0QzNjVUwxaTd0b2JXNlE4L09lbjdZNDhC?=
+ =?utf-8?B?OVZWeW80QmMybVU5aEl1M3ZFZDZtSGZ6M3F4ZEdzdGxxQXBJRU9pRXpxVTdj?=
+ =?utf-8?B?U3BBaU45TExoaEYyazZFUmkwYlFhYjdKWFJnV1o2dVhzeEtwQ2htUDNzd0w0?=
+ =?utf-8?B?TVRTYTFtd2NUdEgwRS9ldFI5TS9oUGdTaXpmdDloOE9wZ0tudUFTN05oNWxs?=
+ =?utf-8?B?TnZ2bm9NWVFHTVd2ZDVCVnRpdGRuVTBoYTZnWUpTa0wrR3QyZVE0SUZkbXN2?=
+ =?utf-8?B?cmk5UWhkeTYwRi9oaUU1dkQrV2FoSFRFVjkyemtWd0pmOW5kc2pLcWhtcEdm?=
+ =?utf-8?B?b0Z3aDFGVi9yazI4YmhHc1J2bnZTcGJwSklxU1A0RVVmQ1dSRnVyb0M4ZlVM?=
+ =?utf-8?B?TGQ0SzE3bnpkZzJybnNkUkVmc2ZTTklFaHNUYk5JeGp2UUx4V1pyVGI0MEFy?=
+ =?utf-8?B?elZzbEtOaGhFZFBwam5rcG5PQWJpZm9Pd0FRRm9jakpDRHJJWllhRSs2eEN3?=
+ =?utf-8?B?RWRtMFNyNHdXUkVIMk93cjlTZjZQa0hsNjRiUmpDaWY2YjVkY3hzc01ra09y?=
+ =?utf-8?B?TllQbUtYNzdxa05idFdnbC9ScllrdEhFRHR4aTFnM0FIK3kvUStVMlRtREwr?=
+ =?utf-8?B?NXZVYnprTXNrMzZ4NEJOclNrM0RYUnFrZWVMMVR5QnJBalZPZGhJNGVTa21m?=
+ =?utf-8?B?NUQ5MlpVWC9WcmtrdkZiRXJHbERXSVVZbG52SnEvOUJxM3pnZFk2cWtmWk5n?=
+ =?utf-8?B?RE45bkI4NlZLeE5ZZlE0RlhlZTh4SWhNeGRHVEFXMzY5T282UlFPYlo1RDZp?=
+ =?utf-8?B?bGpvQytvVTF0Vjcva0NNeWFzRnlCVGtJb3JwY1ZCVFRDMHBvUDEzUDMrb2ly?=
+ =?utf-8?B?akVseFE1MjZkUXJBZUtld3BCdTNWU0JzUnFzdmt2WlFyeFdGNHZMcVlBUmxs?=
+ =?utf-8?B?NVJXenAxZWkxVW92M0YySlVqcUUzUmxMNVJLdnp1ZWpIVjdRZ0RSdll6TldN?=
+ =?utf-8?B?VjFRMjZCSlM0Um5CM2R3OFpabHJqdnZ2L2Uvd1Z1b1R3TXlKTk9OcHBNZWZ4?=
+ =?utf-8?B?UWRkWE1wcCtzUWcvSEhhT205Q1JuSXhnM1MybHd1Q3ppWm9ETG5wcUR5cllD?=
+ =?utf-8?B?cjhXWDNhZkkyOXZQQzhMeWdHQUtlanpacEVmUkUwRFRTSml5bDVveS9SMHBV?=
+ =?utf-8?B?VEpmYnpiYmEyRVR0ZW5UcGpQTjViTTRsaXdOTkZGT0o0ZVcvZWZsbi9DRHRk?=
+ =?utf-8?B?UDZyNWlCanYwSmRPQ01Ud0RSWmFHbDlBTVM5dUNtMkhTZ0xJQ091SHc2bmtT?=
+ =?utf-8?B?ZzdTOWE0Z3F1STJPQVZJUk9hZlFVMnlSN0hwbjBDVVkxYVFVVGdrcng5MGEv?=
+ =?utf-8?B?SDBTMTBMWXYrVGtReTlDdjBqUGUvOXBjNEkzWlVWV2tlNXRFMFN2Mk50d21o?=
+ =?utf-8?B?a3lzakVXNzlDTS92bzJwalF3ajhWN2NJRjNnRnd1MnN4ZDA4eFFBRkdYaVJz?=
+ =?utf-8?B?alN0TjhjNEZFNHh3Q2hSTzNDOFNFRkFyYWdCWG9iU1NIb1N0cXU0RmtIdHZQ?=
+ =?utf-8?B?cURvVUFjc0c2R29McDRSdXNLQzEzS0p5RTQ1YU9aWC9xR25OSFFrOGd3SnZj?=
+ =?utf-8?B?cFpQdzFVdnErRmM2UHJLY2M1N0pVL2F4USsvenprYy9Bb25UQlQ1SDduUC9l?=
+ =?utf-8?B?d0hsRFM2Z2dCUStJVjJVd2VrRWJQeWNYSEpOeTdoTDNTRU85eXdCZ3BKV1k5?=
+ =?utf-8?B?U1p3Q2xnNjg3OHAyaTZtVXVQNzZiSTNTV0FjYVAza2FOdElZdFhydi9Wa1Rs?=
+ =?utf-8?B?NXZlQnVmU2ZGSTB2UHdvZTYyVlB2WndpVVRlYklHa0k1VTA4N3c4Q2tUcjh4?=
+ =?utf-8?B?QmlYazNaeUE2OE5uREM5SGxzK2M4Skh5ZDM5eTFNb0RTM0VFQWRqZjR1Qi9p?=
+ =?utf-8?B?YW55cHgvUU54VjR0NllXY1YxSXMrUVRZcWxha1lpb1VEV0xZb2hBQndZa2Q3?=
+ =?utf-8?B?NDNTTmx6REJ1ZCtGOXY3MUEvZ2xTNnRTMnJXRE9neVpOTHByZjVNUnd2UXlU?=
+ =?utf-8?B?OXBoSWVzN290L29qY3BjTmJMY0tQNFoyajl0UHNnaStlVFBMdFViMThLM1FS?=
+ =?utf-8?B?QXFVMytUV0lhNVcvRHZqSVNIU1hZWVhEZUdKa2VQZW5uenNwbmhLdz09?=
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 23d3c793-e3dd-48ad-6f3f-08deac3811eb
+X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 12:56:35.3539
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7gEo4O8e0fEfwExVeT16oSysaqAgtuvpSzMg2c+mZyZotuMmP1CpFWDQD4TNiAJLJQ5PeE613iwiEKIg4/zbgA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3P195MB0617
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_055607_879081_54F86B27 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20260507_055642_444173_91ABC611 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,89 +155,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARMv8.1+ based CPUs used in a number of Mediatek SoCs are missing
-the EL2 virtual timer interrupt. Add it.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/boot/dts/mediatek/mt6779.dtsi | 3 ++-
- arch/arm64/boot/dts/mediatek/mt8186.dtsi | 3 ++-
- arch/arm64/boot/dts/mediatek/mt8188.dtsi | 3 ++-
- arch/arm64/boot/dts/mediatek/mt8192.dtsi | 3 ++-
- arch/arm64/boot/dts/mediatek/mt8195.dtsi | 3 ++-
- 5 files changed, 10 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt6779.dtsi b/arch/arm64/boot/dts/mediatek/mt6779.dtsi
-index 70f3375916e8c..106df7603d533 100644
---- a/arch/arm64/boot/dts/mediatek/mt6779.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt6779.dtsi
-@@ -108,7 +108,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
- 	};
- 
- 	soc {
-diff --git a/arch/arm64/boot/dts/mediatek/mt8186.dtsi b/arch/arm64/boot/dts/mediatek/mt8186.dtsi
-index b91f88ffae0e8..a4621ce370d8e 100644
---- a/arch/arm64/boot/dts/mediatek/mt8186.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8186.dtsi
-@@ -815,7 +815,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
- 	};
- 
- 	soc {
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-index 75133794cec38..614e75f46c72d 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
-@@ -918,7 +918,8 @@ timer: timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
- 		clock-frequency = <13000000>;
- 	};
- 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8192.dtsi b/arch/arm64/boot/dts/mediatek/mt8192.dtsi
-index 9f8f115edd4cc..873c4fae6afc9 100644
---- a/arch/arm64/boot/dts/mediatek/mt8192.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8192.dtsi
-@@ -328,7 +328,8 @@ timer: timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
- 		clock-frequency = <13000000>;
- 	};
- 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-index c72e34c57629d..3c9a7a08612b9 100644
---- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-@@ -451,7 +451,8 @@ timer: timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
- 	};
- 
- 	soc {
--- 
-2.47.3
+On 5/6/26 5:09 PM, Siddharth Vadapalli wrote:
+> According to section "6.5.3 Normative Spread Spectrum Clocking (SSC)" of
+> the USB 3.2 Specification, SSC should be enabled by default. This protects
+> against EMI violations. Hence, enable internal SSC for USB SuperSpeed.
+> 
+> Fixes: c48ac0efe6d7 ("arm64: dts: ti: Add support for phyBOARD-Electra-AM642")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+
+Acked-by: Wadim Egorov <w.egorov@phytec.de>
+
+> ---
+> 
+> v1:
+> https://lore.kernel.org/r/20260505110631.1144200-3-s-vadapalli@ti.com/
+> No changes since v1.
+> 
+>  arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+> index 793538f94942..a85d7d08bd1b 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+> @@ -439,12 +439,21 @@ &sdhci1 {
+>  	status = "okay";
+>  };
+>  
+> +&serdes_wiz0 {
+> +	ti,core-clk-sel = <1>;  /* Select internal reference clock */
+> +	ti,ssc-enable; /* Enable SSC */
+> +	ti,ssc-type = <1>; /* 1 for Downspread */
+> +	ti,ssc-frequency-hz = <33000>; /* 33 KHz */
+> +	ti,ssc-depth-per-mil = <5>; /* 0.5% depth */
+> +};
+> +
+>  &serdes0 {
+>  	serdes0_pcie_usb_link: phy@0 {
+>  		reg = <0>;
+>  		cdns,num-lanes = <1>;
+>  		#phy-cells = <0>;
+>  		cdns,phy-type = <PHY_TYPE_USB3>;
+> +		cdns,ssc-mode = <2>; /* 2 for internal SSC */
+>  		resets = <&serdes_wiz0 1>;
+>  	};
+>  };
 
 
