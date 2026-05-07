@@ -4,126 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A296CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 02:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F3FACD342C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 02:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G54Gb+cLRFUkbIEboLmEaupzeGnojpqAjzSov5KrAbw=; b=wdjKWRIZ6DBFLkxN7+wgPD7mHX
-	zPs/w4Nyg6qDpBrlvQnmbI3sFl6I6c9aUQ4knXXh/kIqpoAbBL5XSR5o7tDICwI0j6tdAYiJxOe2y
-	aVGNbVVO+kxtyj4gqDRx51ifGaG3xJQeybAwKVebmzMcfDDHsNZLcMiu0aWf4ANTDK0ri4ft3NVtR
-	cTliK+18kipBbfqywvLIP6cTG3c0hB9Xxe5x9DXOLK5IH/yGf0K1fxoo/+WqOqm2T88YC+SdVAiwb
-	gXCC3Ov2uzlHUdpEahHEahmTdUbNMU1iuk4THjYhyLdFIX8wIS0Z5P0ggUGSqaWslP0jxfWrlrVBD
-	x70/y5qg==;
+	bh=gTdJAAz9h9cp89iquOygpaohN+RrKF/eO812+hQBckw=; b=EBJ3XL6An9N52EdYrOnxU+GQ6U
+	Wp7T9pRfKq6WfYiaDNJsulivByCMSHgygsO7kHWaWR7if/cLx6+wtt6RcrSi/QJLfRXhM6l20/68K
+	Xk/6KPhm1pCa/Vnl3h9yLu2V+tFwW/zmmmGktYehcv4lrVw7PuiRU6VhjiUrxvLsBHO6fJsZm2XnB
+	PvFckvDO7Ae840asrBt1aIBH04BltpHK4DAbC4kSDoWxyJngsZP3RuqRi9nnH9KvSdA2cNcvPb66W
+	I10ecI2wkckWN8dgQw2dskrZGOuZY4n8zvwsiM3AVGcOKWp/FN06G1+0T7IpFt/Vfku4RPH2Dcvb9
+	Vt8g6wFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKoXr-00000002XgN-203N;
-	Thu, 07 May 2026 02:32:59 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wKogF-00000002YZd-0nie;
+	Thu, 07 May 2026 02:41:39 +0000
+Received: from mail-northeuropeazon11010018.outbound.protection.outlook.com ([52.101.84.18] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKoXq-00000002Xfs-2saw
+	id 1wKogC-00000002YZG-2gF3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 02:32:58 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 646E5xdS345657;
-	Thu, 7 May 2026 02:32:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=G54Gb+
-	cLRFUkbIEboLmEaupzeGnojpqAjzSov5KrAbw=; b=E2YRJZdlBljqeNThxgnAZv
-	loBWloPFgENCzuuf8eya92cq0hQ8usfk0uRMCWvUMpDrpma8EnhoZ/rQRgNhvmJU
-	PW+3el6PEcPZXZPvtNOVr2uRri50IevwsikHNxZLiBGq8utBjSOe7YeC5EWNHXmf
-	yC6vBZ34jWG/5fIr1/sxlKm5+DocY9iy3C5//6mXaIgxW+I5D2aMb/P6GqOwKvdG
-	yt1wj3MM21QG30E7UXKXJvAodGJlFIUqPz5cx/3lOTb2/IgTYIIuUnwvEFjkUaJE
-	B5tTj0fcjoFH+ziVRiZ4JiHI9BdWrLSLplI4DhfEJYzHk/K7OmSN0KRD9XLlu3fQ
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9y4u0br-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 07 May 2026 02:32:32 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6472Oi83006744;
-	Thu, 7 May 2026 02:32:32 GMT
-Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dwuyw96v4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 07 May 2026 02:32:32 +0000 (GMT)
-Received: from smtpav01.dal12v.mail.ibm.com (smtpav01.dal12v.mail.ibm.com [10.241.53.100])
-	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6472W32L16777772
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 7 May 2026 02:32:04 GMT
-Received: from smtpav01.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7E73958058;
-	Thu,  7 May 2026 02:32:31 +0000 (GMT)
-Received: from smtpav01.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 05CB458057;
-	Thu,  7 May 2026 02:32:30 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.185.101])
-	by smtpav01.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Thu,  7 May 2026 02:32:29 +0000 (GMT)
-Message-ID: <9d1af933ef218b159762884357d127e3644dfe2c.camel@linux.ibm.com>
-Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: David Safford <david.safford@gmail.com>,
-        Jonathan McDowell	
- <noodles@earth.li>,
-        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
-        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-        sebastianene@google.com
-In-Reply-To: <aftIuPwNeuzc9nY1@e129823.arm.com>
-References: <cover.1777036497.git.noodles@meta.com>
-	 <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
-	 <afMlgstqahnZg68h@e129823.arm.com>
-	 <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
-	 <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
-	 <202f90682fe47bb5fb9b08f8678ae00981b5290b.camel@linux.ibm.com>
-	 <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
-	 <afrXmRiq7XvSe6yN@e129823.arm.com>
-	 <9ff4853a8e9932b3a1424f2a6c3347f1723fb5f4.camel@linux.ibm.com>
-	 <aftIuPwNeuzc9nY1@e129823.arm.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 07 May 2026 02:41:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xDMtlPqjVAnuZdYoGAiv8v8htE3s31q2LTf2mBYDjVG84wAiOMJDhAcENYAY/TEtecE9oTUELzT4ehC/0IIeT4M2dEJ/6pyb1q5Qpos92q3ElkDpLnq5yrw55B+P2X009wsrSNkf7xQHwXKsdQ0wEiasFTMb1NVMDYjVDl31T/YGH/qpiv0LzIy0RElg2VSEudArZzLHc01w0l1Hjc+c5BtFSx3oKUaCz5yb3UmjKSG+YqcVZNR7DZJQqiPFvrgQlkTbKTBUPGZ6A0lcGS9hx5skkZ9FDrT6CAvRA1EdedZUoqCit8bsSp4FTcLDvSInh8gDD6BRELwhAuU+zkUseQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gTdJAAz9h9cp89iquOygpaohN+RrKF/eO812+hQBckw=;
+ b=nGG7SSYVv6uK4sUuJuZjwwn//I4tDtpn1aBrUDxMHuJ8GYm1Y5wSNEj/r1O8GZz1h94fH2gBgLXR9NE8TB0JGYxrgbu9E1Z4vRYbO1C69Hf5LC25WVnZSOd6EG6oi4nNLKCFbDy3aZH2OqXqdiYGcMX9B2uVdFGkk14YR8KUKEj++XaFfky36w4FG15wmWfLKomMlQldquVXnLtkWZREf39Xj6veY05Dr3Dy9ilWKf821HzThpRYk/NLYtcZsPZkBIaEj7VglK8AK7MahLbdmFGEJyG0G+1dI5L69CUsfbGAfJY7wf1wdQ3BGQYUxEfvqEAg+SZJufuj528RpwcERg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gTdJAAz9h9cp89iquOygpaohN+RrKF/eO812+hQBckw=;
+ b=Zs3FgiHb/5bko7Di/AgWqoZumja1FKsI8KQKxVTHXaRrdNPWbPzSPgrpWYoW/7adVTO6xSM2pFUv7NZWpxW+d4wYfkkWqv0gqLSh7AkMSfSvEBYlqWrcliNcOcIckjr3JbvdEpyUm4p2BuUCK+kjL9YFcfsPhAe2Hp62j/7mJT2dKXlkFEMVirfOoLe3TdP8e0vLqT4fHj6WwV5oX0SFsgEN5tiNMXtpxfST3+3qqB6GeGndZYTUXO9WV82yUQ8H0AnF/ptrDNGse/xVNkTETnO5RbH/fhhhApIBMtLsQp9gOhyG92+L7Zmtj9a75KUrpeYR5LSOh4o6mynzbpVB7g==
+Received: from DBBPR04MB7500.eurprd04.prod.outlook.com (2603:10a6:10:1f4::16)
+ by DU4PR04MB11725.eurprd04.prod.outlook.com (2603:10a6:10:626::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Thu, 7 May
+ 2026 02:41:31 +0000
+Received: from DBBPR04MB7500.eurprd04.prod.outlook.com
+ ([fe80::c291:543b:4bde:cee7]) by DBBPR04MB7500.eurprd04.prod.outlook.com
+ ([fe80::c291:543b:4bde:cee7%6]) with mapi id 15.20.9891.016; Thu, 7 May 2026
+ 02:41:31 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank Li <frank.li@nxp.com>,
+	"chleroy@kernel.org" <chleroy@kernel.org>, "horms@kernel.org"
+	<horms@kernel.org>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>
+CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>
+Subject: RE: [PATCH v5 net-next 14/15] net: dsa: netc: add support for the
+ standardized counters
+Thread-Topic: [PATCH v5 net-next 14/15] net: dsa: netc: add support for the
+ standardized counters
+Thread-Index: AQHc2Evqr/Y+KyRnR0mgO12vGrKs4LYB4XnQ
+Date: Thu, 7 May 2026 02:41:31 +0000
+Message-ID: <DBBPR04MB75001C6850BFBCBD825E9D43883C2@DBBPR04MB7500.eurprd04.prod.outlook.com>
+References: <20260430024945.3413973-1-wei.fang@nxp.com>
+ <20260430024945.3413973-15-wei.fang@nxp.com>
+In-Reply-To: <20260430024945.3413973-15-wei.fang@nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DBBPR04MB7500:EE_|DU4PR04MB11725:EE_
+x-ms-office365-filtering-correlation-id: 4bf6fa01-7488-4a5c-eee2-08deabe225aa
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|1800799024|18002099003|921020|38070700021|22082099003|56012099003;
+x-microsoft-antispam-message-info: E/Ih/PmfxRpfwuLcQZBEuRglRx46CSobrxt+ZRVUJJLK3RzC6iJFSEk4+tONJQH4y2OFksPl9Myi45rGA8Fuzk8mmSEp9igfLaRrquZmXCk1mbbn+Xt/hNlLnhfkEnl3BaSw76H95CkUeqoH6lDfFLZakNoOS8Enm2hqkm0bqIP7/mcI0vaNtkb0unacKqv+epebVEI4V/I+NeoDEnrxeRs2aWOfaB1jjXLkjR2SBo7J8oVwyJ+9zF7yMwBmv3DBmBSTKvRItsy7wCDTtOHrYf/PdJeLHLvlqSFccAXPXmS2RtixGKKf01aRwpwOeEeyAhOqPkz1RTPhnMA1gCFQnP4TfMscrEAbX4ExXRREaQWH2LAU2vmb5qukCcbZZEOCiJZzd+xsGqLJMjHoPIicqmJpPD9b0Cbf50CuX4yhlfaY695el92ImKJKRZUgy1BiG+VIHfTV/Wp8MU8H8TziwwiQVBntqDAiRSn2zPGyT7Dg7ckQBZcx0D2Arhp/MgiZXGkZJ5DF+LjNlVaEst2WxrVxExkAiI1b7SxCA2bN/mbSv4n/ouxp4xUWl26TQ9fJpd6UnIwec3ZtnRaxt3mceX8fUNIC0Bg2dsmCrfMw52btC+yK9504CRW9MMQzAjQSIv9HsOfD7gGl/zTDJuEXraKro9UA3NOYlx0Cwf7OqzzAyYjkPFocBnywLcqV5Hwex5G9q2XWR6wYbhf05TGVXApejxLC6b2JBu/IOiOvG7OLkU5Dkny2V3ZfKpE7XS3/eupjN/RbRuq0tpokhVQmFg==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR04MB7500.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(1800799024)(18002099003)(921020)(38070700021)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?p/lD97mwG/u0w4DbvZCbNBYzLvoR+UNzbQs7gs5djglkZD16fpFkfgt/g05O?=
+ =?us-ascii?Q?1v1WRT+9lPvYTZgAV/exJhmLTqV1hDXe1/DLe06SFU0T29c672h+DpsQc0IH?=
+ =?us-ascii?Q?4lS20bLB+HF2tcNjeWSMBI0Q524ASFiYmsDhiNJLWO8mjn42A6Rjf64Z5tIw?=
+ =?us-ascii?Q?0utYFdeUgRr/dO3xCRM6DC4oCe2CbCvLuDg71gHO9DoNe3DN5xvFXTwrlx7A?=
+ =?us-ascii?Q?o97La6rEkHVsDZMzRl4z8BZ0tSsqHXChNaw/h22R5LdXuv4aTAid5/uq/dMX?=
+ =?us-ascii?Q?zLC+bJuboY92fStl4cDnjNPWJ0x+mVeI+5YcjizBl/rhAm2Ih0byCgTs/nV0?=
+ =?us-ascii?Q?JG1y42mVka1C8Sj89UiuN4zXwDvxSYeNselmDzr71WbQin4ABY7xW4s6CUFl?=
+ =?us-ascii?Q?b4amY65U8lnms+Apkc4hvtn4Q8JS8ytP/RWE7FFGE6puqQgpUzYbO0snI1Is?=
+ =?us-ascii?Q?EGBjI/eYMPU7gdY26wHmpDtJr3fGyFe61OheGI6SssjsA0VMc1mxHo9wth5C?=
+ =?us-ascii?Q?PMdVVWFVPuQXms/iVvOGo1MPhGqwCdnJZyiCMCI4rkr/UWYKU4tAOR6zA847?=
+ =?us-ascii?Q?jeHWTCMOVIWtRp/+YzLv6hQHyi1aL8UOOLGi/3CCTwZT8OEaaf5HUSOFc01c?=
+ =?us-ascii?Q?xxjEM63M//+X29/Q64mmtcTejKhkx8QStGPeq5nzaK+AyRPtRe/XThvEVu3T?=
+ =?us-ascii?Q?vppMwh/fkKF3wc2BcKtywK+oqKQLUEOuf+wNKmxBEecRYcH86ue6M5lrUuL2?=
+ =?us-ascii?Q?HxO7Pa3D2VzsPb6aL9/iL0oyPpTDD1LXdsmRYLWQ86E5cZ7sEtI2Ku2cGiSF?=
+ =?us-ascii?Q?UjcbMYeG4eCmZdFARgc/8NOh4oZScruAYbQeFp0dw7pSHCHsWPU/4Dyv+mDA?=
+ =?us-ascii?Q?DmjPHL5tihLtI7AxIfCMTUQuDi7/wmO/YGKKDPNHbPbgn/8J59c5Vru8B3P9?=
+ =?us-ascii?Q?Nd/U2VhpS7lqSi/z7XeKWJkhhd6YfW0zXBMI5pUwUUpIcGB3rkXiHCj4Gnre?=
+ =?us-ascii?Q?jwVX8fhNVDV8+j4qv3/DDDwjigXrlxSxU46q07bw2aQSJeJConl+mzdS+5ik?=
+ =?us-ascii?Q?9LR2MpRmTPWFK64RBClk/XADuqHxQof69zriLnzOnMjJIbTKbhxZh3GQfUkl?=
+ =?us-ascii?Q?Yzvh1LuQBoPJ3uykCPUyyM2bACcMKGIXlzoRm0dJf34s7UivMPQFdjYZR6W7?=
+ =?us-ascii?Q?AOXMxpfefFnC2YT4amDptUHmmphSA2yxwX1Y/R3etOXRIoa4irQrN36WDC7t?=
+ =?us-ascii?Q?bB4pmWHOUPz7cG7lhJlqJPm+5pSXbznvZsmvivb+7ZF8RbFdzJQVkoq6Lu3t?=
+ =?us-ascii?Q?hU3hA5T3ARSdq5tH1kuI1Apv6ZuZS1eRM0ZcOm3KHWUeAbvfYE+8VcnYa4HV?=
+ =?us-ascii?Q?7PPySCwaMzs6NF6U6ENIuiEg52frfEnbMYsC8txXaw4ZOYMBeCRB5BNZOBux?=
+ =?us-ascii?Q?6fMtKsyvr6LCnsZmGd5rjHYjCloyiq2gwIdOoc//KfJOtqgT5C7X11syZp7O?=
+ =?us-ascii?Q?bG1tmAwoXORiwhdQ9TojuypCp/VAu6XTBFvXppnAyADIdbmyxxpxUVC2DcKV?=
+ =?us-ascii?Q?v/pxJvJxUF4pRAgSR5xG2rhvsVAiWUtdMM1jY3YblWPJ6QzrY57YnsDr7MhY?=
+ =?us-ascii?Q?5d9NjSLViw1gO1n0Ra+wT9njhfA1T0uAcRI2QXkbqN2NKOBCPuxSFPpdpb11?=
+ =?us-ascii?Q?TEu19u18BR0NksT2SU57G1sdotbOf/iFsWRitNcIAC5po9OJ?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
-Date: Wed, 06 May 2026 22:32:29 -0400
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA3MDAxOSBTYWx0ZWRfX/wI5MltGI2jK
- SAPdjyiKaqYSESQfXBZQr4YDbAOp789xXeRnX6xCpKXM806lYTFicr6HlvcXUWjUbRdfwpshplA
- FN7CPgbQrU0o9ECxu6FLReQ+XKC7OQmjmqSug64AvuHx1kcXukx1piWMrpEK8zxijmDbqX/2gjR
- vgAy43ZqEqEQqqlEFAg6Dmt3w/yFjUIskgMeG1tCQH0XLkr1Il16ifWzdAyVV/H7EI7ZHor+u4y
- eUSE3m+ycBzOITRJCheEbMcJOxcCMgix5SGUhm5eEA9FJ5oBlmw0NL3HsWnf7XcL3UZR38I7KpW
- WC6oxTns1gBMvaMU9Gd8XHj/26doKULu/9T+36stA5/VL4sdGcKtYxhkc8pHr/cgnFwR/Io3baA
- 194pbpAwQr+Cmkb742a/jOH1qOrNbkez8jwASe7m87NMh2Yc8Gbg58w6jz5T2NhhYXhP3/gFDJn
- Tujvo6xW5aI0de6EMnA==
-X-Authority-Analysis: v=2.4 cv=J4GaKgnS c=1 sm=1 tr=0 ts=69fbf9c1 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=m9HOTMdBMQe0Gn0v4mgA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: e6M0uRBZls558OJDknEqrrkj8yQfGBSE
-X-Proofpoint-ORIG-GUID: Km0qcUF54Y2_9sobEgIwtcp1AiL4FYVD
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-06_02,2026-05-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 malwarescore=0 bulkscore=0 suspectscore=0
- priorityscore=1501 spamscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605070019
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DBBPR04MB7500.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4bf6fa01-7488-4a5c-eee2-08deabe225aa
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 May 2026 02:41:31.6074
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: +X6iLbjTO21IAyUXXnBYcF556ukUC86rEv4/EzuNqOrujBSKMk+QAxtcr4HJHnU6DItgXW7JCRRRlZSRxf9kjg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11725
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_193258_899562_92A63B0C 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20260506_194137_738790_26568CB5 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,161 +153,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2026-05-06 at 14:57 +0100, Yeoreum Yun wrote:
-> > > > On both Z and PowerVM, there are ~30 measurements between boot_aggr=
-egate and
-> > > > boot_aggregate_late.  For example, on PowerVM:
-> > > >=20
-> > > > # grep -n boot_aggregate
-> > > > /sys/kernel/security/integrity/ima/ascii_runtime_measurements
-> > > >=20
-> > > > 1:10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
-> > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f3=
-48d5
-> > > > boot_aggregate=20
-> > > > 31:10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
-> > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f3=
-48d5
-> > > > boot_aggregate_late
-> > > >=20
-> > > > It would be interesting to the results from a Raspberry Pi 5 as wel=
-l,
-> > > > with/without a TPM.
-> > >=20
-> > > Honestly, I find this result hard to accept.
-> > >=20
-> > > This effectively means that there is code invoking IMA measurement du=
-ring late_initcall().
-> > > It also implies that if, in the future, a late_initcall is added that=
- performs
-> > > an IMA measurement before IMA initialization has occurred accoding to=
- order by linker,
-> > > that measurement could be missed.
-> >=20
-> > Exactly.  The results are simply from booting with the builtin "tcb" an=
-d
-> > "critical_data" policies.
-> >=20
-> > $ sudo grubby --args=3D"ima_policy=3D\"tcb|critical_data\"" --update-ke=
-rnel
-> > /boot/vmlinuz-${SUFFIX}
+> diff --git a/include/linux/fsl/netc_global.h b/include/linux/fsl/netc_glo=
+bal.h
+> index fdecca8c90f0..5b8ff528d369 100644
+> --- a/include/linux/fsl/netc_global.h
+> +++ b/include/linux/fsl/netc_global.h
+> @@ -5,6 +5,7 @@
+>  #define __NETC_GLOBAL_H
 >=20
-> Thanks. but I still wonder what meaasurements there are between
-> boot_aggregate and boot_aggregate_late.
-> Might be there would be key measurements if it takes more than
-> 5 mins before generating boot_aggregate_late but this seems rare.
+>  #include <linux/io.h>
+> +#include <linux/io-64-nonatomic-lo-hi.h>
 >=20
-> If you don't mind, would you share the contents of the log between
-> boot_aggregate and boot_aggregate_late?
-> since I only get a kernel_version in my environment.
-
-     1	10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
-sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
-boot_aggregate=20
-     2	10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf
-sha256:0c907aab3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2
-kernel_version 372e312e302d7263312b
-     3	10 92c40bfd65512d5224cddb9fb64fef0d72e1c182 ima-sig
-sha256:412bae0d0e85a99971d6eda198dd2fed3c2959715e8a17a4caddc7bc605bdeeb
-/usr/bin/kmod=20
-     4	10 a18f997e1e82d0ef416f93683966d7dda875d71c ima-sig
-sha256:0050fcc672e03cfdc3a50c771ca9f5219478e5538980a26fd4484620712d8163
-/usr/lib64/ld64.so.2=20
-     5	10 88f343618caeeed92ed8281d627f4565b0499d66 ima-sig
-sha256:a0e83c084d8c227f1150a8cd94eece61f62bc1da30f98d1cf57ca7db241a9c45
-/etc/ld.so.cache=20
-     6	10 e047868f01908eb95aa180693291decab82bb6be ima-sig
-sha256:42ebf9cc684419de4d8a1d624102716d88fbcf957f47e50a9a08e38b338023ac
-/usr/lib64/libzstd.so.1.5.5=20
-     7	10 da069bc6a44d454510a76c69d3a54c3b238ae27e ima-sig
-sha256:9b7c788e75c16c8827062016cf15826e43661c4b5b56813ea07ff2635bea2710
-/usr/lib64/liblzma.so.5.6.2=20
-     8	10 7ade414e736e7b449cda5ec5e0277b99548e89c6 ima-sig
-sha256:d899452e8e6369e436ba1a565833d6dcf0d09c35e40ffc0979cf4de2bdb8f421
-/usr/lib64/libz.so.1.3.1.zlib-ng=20
-     9	10 9a9da8326f36237a47d6ed21bdffd0e1ff855e2a ima-sig
-sha256:a848f396db7ad135f851b5e9aeb32f4a3ef1439c7913b9b95ab1cda69251f6ad
-/usr/lib64/libcrypto.so.3.5.1=20
-    10	10 3201d27cd4028f02fc9088ec33e2d0ceb72d2c5b ima-sig
-sha256:e52dcd1850555c08d60fefe56694c1179b4eaa5796db0907606552ece8e1bab1
-/usr/lib64/libgcc_s-14-20250617.so.1=20
-    11	10 3b4c6f13e52ca060b290709f737b1ff66564226f ima-sig
-sha256:f2a900a5b980b289dc028dd3caab16b1b0ad037f2e875546bb3197d23ff241f0
-/usr/lib64/glibc-hwcaps/power10/libc.so.6=20
-    12	10 b23b616cbd3c9dc4c5743d121c1c5a702b461a9c ima-sig
-sha256:5a682022beeea9ee7f36a70f0465942bf32e9675d3f45355088e148787e02175
-/usr/lib/modprobe.d/dist-alsa.conf=20
-    13	10 aec07fad18697f295d7e06796fc8dfd3b472f9c3 ima-sig
-sha256:067d949bab3bb085d0936031881ff73b2ab39f34b9a90cbd01396d1987ff6658
-/usr/lib/modprobe.d/dist-blacklist.conf=20
-    14	10 c402c56b66e65914148efd6e3cf0b1d616daabe6 ima-sig
-sha256:120a02e9b88ba74949224eca7385825e39880f5687f739ade07d94ee22ffe325
-/etc/modprobe.d/firewalld-sysctls.conf=20
-    15	10 e358ca12bd58e1ce4845e299e1aea8b81edf86f9 ima-sig
-sha256:fa27abcd357a16ee1254ba38d1225b7f0724036c07ce3d0e83b29eb72d97c419
-/etc/modprobe.d/l2tp_eth-blacklist.conf=20
-    16	10 4b036d41435d7df3a72b38880f5fe231904b7b66 ima-sig
-sha256:ecf5f948bfbfb726879a910b3174d139c8af6b1745c88dcc1e4a1cf532c02299
-/etc/modprobe.d/l2tp_ip-blacklist.conf=20
-    17	10 9c53a7a48c1b5218417c4f25c4a34c09a9f39830 ima-sig
-sha256:f76c4ac232d5e96c57961a9f10194703b4df6d119530046f0b23eee70bfcb089
-/etc/modprobe.d/l2tp_ip6-blacklist.conf=20
-    18	10 6c41d7b7d251c400b7e0ba76f7b386a746e8f4ec ima-sig
-sha256:5cbc958f893a599ef19437014696dd7b112cf9af6a4348830177f8a8f78aa1b3
-/etc/modprobe.d/l2tp_netlink-blacklist.conf=20
-    19	10 f37ef48faef5bc51e29d47531726af0bd0654655 ima-sig
-sha256:7a3d63acb49e4a69b482f26624761b5778fbd6b77be8a3f36926b379b5f965ed
-/etc/modprobe.d/l2tp_ppp-blacklist.conf=20
-    20	10 82ef59779acdfd6e9b35521bfa09e6ba86fd6174 ima-sig
-sha256:6a8f2009d87deba7a2de46e3d0c46b114fe388d188b00b9a382fc2156aabb676
-/usr/lib/modules/7.1.0-rc1+/modules.softdep=20
-    21	10 6ae994e33a6313ab4535da90f5cb6c3beaec7b86 ima-sig
-sha256:268695dbf23bd0170ec9a95b10e8d596205fd7436617d10101907171bf004b7c
-/etc/modprobe.d/sctp-blacklist.conf=20
-    22	10 b2c238ae66b03f56191d9955a5ad0f3110bb7e2b ima-sig
-sha256:64a8ebb0a1fd712a9aeb7aa0f0ad0b72d3277034c8bfa3b66ab063e201d6527e
-/etc/modprobe.d/sctp_diag-blacklist.conf=20
-    23	10 c0443f2d3c078959ae86276df23abe172234a55d ima-sig
-sha256:e5a3958cbd3684b63f3cada6604469cc56f727b106d5524daf5aefa6935a48ce
-/usr/lib/modprobe.d/systemd.conf=20
-    24	10 5c46e012bc7fffc3256b166282a7eaa4bea5fa33 ima-sig
-sha256:6560abcdd2cdb41e1d0fe73052298d612920d5bccb4a3a7c82bc73895128e760
-/etc/modprobe.d/tipc_diag-blacklist.conf=20
-    25	10 d5fb1836364732fbc4f87aa7d2c984cf30bdbfd3 ima-sig
-sha256:358703c09ac2d2c653e11bbc7c65d378c8496e87ca47307f86c36b0b29640598
-/etc/modprobe.d/tuned.conf=20
-    26	10 a85107163729f696f316d46c0bf3f65f713ba972 ima-sig
-sha256:7410bb4cec56892e8b0010c5c8b72be532784ccf0240aa0677c5be085a530f65
-/usr/lib/modules/7.1.0-rc1+/modules.dep.bin=20
-    27	10 80eb261ffb2cc3528d90c33b1c624f657a045867 ima-sig
-sha256:856e0f083226f8b4fb7d1d71447fb841dae18ea9a50ea6d8505a206167288e1d
-/usr/lib/modules/7.1.0-rc1+/modules.alias.bin=20
-    28	10 6af2d661da470d7a1c9909ddbc074d3d265eb1d7 ima-sig
-sha256:4853ca200598c52970c380fda99484068e7db4961a4f94faac6abcfbbd52d150
-/usr/lib/modules/7.1.0-rc1+/modules.symbols.bin=20
-    29	10 6f9cd405bd57d925baae6ae66c273c61c90b3bc8 ima-sig
-sha256:193d1e1004848f7d391877507b69a7953e1f94ddbe70eb0e2cf6dc45fce7cd6a
-/usr/lib/modules/7.1.0-rc1+/modules.builtin.alias.bin=20
-    30	10 4e20b980bf3a825a866be0c46033ed654df4aeba ima-sig
-sha256:3a0e3c56d51ba98258ff13f93f82c837de22f4b707d24678f82893babf4d77ea
-/usr/lib/modules/7.1.0-rc1+/modules.builtin.bin=20
-    31	10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
-sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
-boot_aggregate_late=20
-    32	10 81830cd3d799e006698258dc1b11fe29a56eeef5 ima-sig
-sha256:d1651dc50bb5b92c1badcab9aa4dbbca40cb704cdc707d1c536b41d7b1aa465e
-/usr/lib/systemd/systemd=20
-
+>  static inline u32 netc_read(void __iomem *reg)
+>  {
+> @@ -16,4 +17,9 @@ static inline void netc_write(void __iomem *reg, u32 va=
+l)
+>  	iowrite32(val, reg);
+>  }
 >=20
-> And I think we can collect missing measurements before ima_init_core()
-> into another separate list than ima_measurements in ima_add_template_entr=
-y() and
-> we can extend them after boot_aggreagate log generation at ima_init_core(=
-)
-> then ima initialisation could be moved to late_initcall_sync like
-> (just for a test and share concept):
+> +static inline u64 netc_read64(void __iomem *reg)
+> +{
+> +	return ioread64(reg);
+> +}
+> +
 
-That breaks the "measure before use" principle.
+Sashiko says:
 
-Mimi
+Will this cause a build failure on 32-bit architectures? I noticed
+ioread64() is used here, but it is strictly gated behind #ifdef CONFIG_64BI=
+T
+in include/asm-generic/io.h. Even though linux/io-64-nonatomic-lo-hi.h is
+included above, ioread64() isn't provided by that header.
+
+If this is updated to use readq() to fix the 32-bit build, could it lead to
+torn reads? On 32-bit systems, readq() falls back to lo_hi_readq(), which
+reads the lower 32 bits and then the upper 32 bits sequentially.=20
+
+Since these are live, continuously incrementing hardware counters, a wrap o=
+f
+the lower 32 bits between reads could result in a spurious counter spike of
+~4.29 billion. Would it be safer to use a read-high, read-low, read-high
+retry loop to ensure atomicity on 32-bit architectures?
+
+First, if CONFIG_64BIT is not selected, then ioread64() is provided by
+linux/io-64-nonatomic-lo-hi.h. Sashiko mistakenly believed that
+linux/io-64-nonatomic-lo-hi.h did not provide ioread64().
+
+i.MX9x and S32N7 and subsequent SoCs are all arm64 architectures,
+netc_read64() is used to read 64-bit registers of NETC.
+
+So this is a false positive.
+
 
