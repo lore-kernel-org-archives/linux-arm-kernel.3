@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2637ECD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:29:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7ACACD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LmEIVv5Hxh+mKmeuHsN7vP/fAMiciYkPlIj13WZ+oiE=; b=fzcQiWJtIlsF642VTDhMbUFHgg
-	WgXMdJho6wROOhZfp5PavGW9jucYWiBdQeDaUkPGBkTxziKeABqugs6NGLy4PCdb5CP2bAiOpZHqy
-	qjSKW7WLS6zdg5cuzvWyD0UEfoZN+HiE1G2OtOESOEKpBu5Qmv3PVCRasr21AhkGooJfAeZCLS94Q
-	HGQxgkrgaClvfVtDPHz3qLP1I7uK4Vpto0PEBr4nvxkJOMxo25K+ATrmOpETpoQeAb0lG4ey7/5CC
-	GBk3OY544KjMuJA0MCLzY7ubVShavrcfH866fIUQ7iSV6HUMaprwtSTJeHds+7BcoQhUlTvPFtbIR
-	yAiGJ0QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zekQpqKpT4s8RFnUNKGxX5SxB87NjFnJjrLeVc/FR64=; b=sHNOcfy/PqgsaGVv7VaDOk/VBI
+	B0JeQX5OY4X5zO/+az7fvuMronpYejsQw30jKKJWipbHRJfF5kK5FP6TRIZGqK2F3SsI0t6EoK137
+	T4ZGS3HegI7tsRiFZr4ipKGBhUXrboQVPjPcO9Ur4xLr6EymYWxY8z6HK6L75roXYEHbQhdIWL9eI
+	tumJY+6WY9Lb9WkdVTP3o/Qlw09KJoIQyu6dsjGJA0R9GtogEkA8S0y5+s9Wbivd1Zp4xyQFtDaEr
+	2iKmEQwClPMUdKd3X4qaXmq3Q8avehXnjoaUuDWpxlGx414mQ3E/LuP5ChvsAslVcRvqN4YxCTm+Y
+	JePH5uIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKxr7-00000003mHT-3PH8;
-	Thu, 07 May 2026 12:29:29 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wKy0K-00000003nBC-2lZP;
+	Thu, 07 May 2026 12:39:00 +0000
+Received: from pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com ([34.218.115.239])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKxr4-00000003mGL-2p1M
+	id 1wKy0H-00000003nAS-2RZo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 12:29:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=LmEIVv5Hxh+mKmeuHsN7vP/fAMiciYkPlIj13WZ+oiE=; b=MY/2xBVpjxX2ZXH6RhO3LIF2+N
-	x4csJK/N/xl92PKhwsmp0UjPRbRm/Rrtz4SozNtBf6AqtO5BJoH769H2UhBcDCNP470yRW+O/UVsa
-	pyds4D5Cno6Z40QB5+xOuQhW+Sr4uB2BZ2Pl5t32AxN2j3/AVfxPOL/DF5VxOthAVWf0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wKxqo-001oGr-6c; Thu, 07 May 2026 14:29:10 +0200
-Date: Thu, 7 May 2026 14:29:10 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: lizhi2@eswincomputing.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
-Subject: Re: [PATCH net v1 1/2] dt-bindings: ethernet: eswin: refine delay
- model and HSP register description
-Message-ID: <2436c6e9-4aad-4ffd-9fef-0cbbe38dc66d@lunn.ch>
-References: <20260507083037.152-1-lizhi2@eswincomputing.com>
- <20260507083136.175-1-lizhi2@eswincomputing.com>
+	Thu, 07 May 2026 12:38:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1778157537; x=1809693537;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=zekQpqKpT4s8RFnUNKGxX5SxB87NjFnJjrLeVc/FR64=;
+  b=WhRHeD4cv782QKyQimnLeSvhEmDxG0/8ShLc/aU00hJ5kcl8WdW1H011
+   pK8LdH+Rw6VWROQXpdhkCGWkmZ/MnRb9UKRgBFWdA9KSbT8Na7w5KCAoH
+   KTABLrR6DnyHuOE0jgqeqViQa5cMSnZwD8czGsDfQR9UTYC6VZPUTuLJ4
+   A5anJ0n0muycIo4HvRzt30ymm1wIz6DzWN+uHnbLCxEyXPRsjC+d37kYK
+   BTGPGFmwZ1oGYOr/ajs8/wRPq2qV1/ri0qagKlwRsmubUZNnS776GFaq/
+   MILyFdVBWAmxsRlkFxC/WtxSHJYJa8a6E6y9eD2h/LjjdIsWB7jRHSB7h
+   w==;
+X-CSE-ConnectionGUID: 5X2Nbu3aT/u3joJ99P5Bew==
+X-CSE-MsgGUID: Ub7javUGSmqdHyK3PyBmMg==
+X-IronPort-AV: E=Sophos;i="6.23,221,1770595200"; 
+   d="scan'208";a="18889034"
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-013.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 May 2026 12:38:51 +0000
+Received: from EX19MTAUWC002.ant.amazon.com [205.251.233.111:30294]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.37.224:2525] with esmtp (Farcaster)
+ id d18333ff-2050-4e63-8c0d-e81be0ca1dec; Thu, 7 May 2026 12:38:51 +0000 (UTC)
+X-Farcaster-Flow-ID: d18333ff-2050-4e63-8c0d-e81be0ca1dec
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWC002.ant.amazon.com (10.250.64.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
+ Thu, 7 May 2026 12:38:50 +0000
+Received: from dev-dsk-dssauerw-1b-2c5f429c.eu-west-1.amazon.com
+ (10.13.238.31) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37; Thu, 7 May 2026
+ 12:38:48 +0000
+From: David Sauerwein <dssauerw@amazon.de>
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<nh-open-source@amazon.com>
+Subject: Re: [PATCH] arm64: Fix garbled logs caused by race between multiple stack traces
+Date: Thu, 7 May 2026 12:38:46 +0000
+Message-ID: <20260507123846.35621-1-dssauerw@amazon.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <afse5Ld52p7DmidK@arm.com>
+References: <afse5Ld52p7DmidK@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260507083136.175-1-lizhi2@eswincomputing.com>
+X-Originating-IP: [10.13.238.31]
+X-ClientProxiedBy: EX19D045UWC004.ant.amazon.com (10.13.139.203) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_052926_714728_B92712AA 
-X-CRM114-Status: UNSURE (   6.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260507_053857_697337_9E699130 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,46 +93,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->      ethernet@50400000 {
->          compatible = "eswin,eic7700-qos-eth", "snps,dwmac-5.20";
->          reg = <0x50400000 0x10000>;
-> -        clocks = <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
-> -                <&d0_clock 193>;
-> -        clock-names = "axi", "cfg", "stmmaceth", "tx";
->          interrupt-parent = <&plic>;
->          interrupts = <61>;
->          interrupt-names = "macirq";
-> -        phy-mode = "rgmii-id";
-> -        phy-handle = <&phy0>;
-> +        clocks = <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
-> +                <&d0_clock 193>;
-> +        clock-names = "axi", "cfg", "stmmaceth", "tx";
+On Wed, May 06, 2026 at 11:58:44AM +0100, Catalin Marinas wrote:
+> While the above does solve the line splitting, the trace is still not
+> that readable as we get line interleaving.
+>
+> I wonder whether we could do something like dump_stack_lvl() at the
+> show_regs() level to synchronise the printing. If that works, we
+> wouldn't need the above change (which isn't incorrect but maybe we can
+> do better).
 
-Please don't move the clocks around, since they have nothing to do
-with RGMII delays.
+I think the change is still needed in either case. Other threads can log
+something unrelated to the stack traces which can still cause the
+register lines to be broken. After all, use of pr_cont is discouraged.
+checkpatch.pl warns saying "Avoid logging continuation uses where
+feasible" when adding new callers of pr_cont.
+
+I agree though that forcing stack traces to be printed sequentially
+would help with readability. Maybe this can be added as a separate
+change.
+
+Thanks,
+David
 
 
->          resets = <&reset 95>;
->          reset-names = "stmmaceth";
-> -        rx-internal-delay-ps = <200>;
-> -        tx-internal-delay-ps = <200>;
-> -        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118>;
-> -        snps,axi-config = <&stmmac_axi_setup>;
-> +        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
-> +        phy-handle = <&phy0>;
-> +        phy-mode = "rgmii-id";
->          snps,aal;
->          snps,fixed-burst;
->          snps,tso;
-> -        stmmac_axi_setup: stmmac-axi-config {
-> +        snps,axi-config = <&stmmac_axi_setup_gmac0>;
-> +
-> +        stmmac_axi_setup_gmac0: stmmac-axi-config {
 
-And what do these changes have to do with RGMII delays?
+Amazon Web Services Development Center Germany GmbH
+Tamara-Danz-Str. 13
+10243 Berlin
+Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
+Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
+Sitz: Berlin
+Ust-ID: DE 365 538 597
 
-    Andrew
-
----
-pw-bot: cr
 
