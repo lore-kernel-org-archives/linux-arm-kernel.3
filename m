@@ -4,127 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68BADCD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 16:00:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC341CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 16:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h5qlMXbFpRlE4X3MIQCAxqaW35emWVZDHc8//Mm+AHg=; b=s+hadmjMVbO98mGtm17jj6xh1C
-	IKuUJ/FT74I+i36fbOdg676CH50y9gJ+ZNz16RezukRpZUZ6PEJDNkD/ZU7/+9Z+k7DliRxmzqtfo
-	zAWcigwMSRlfXGWhu6X8QNCsVy4L8EyZXyD6seXjB5N3NGBLNP6Dnl/nmdNBKuqfvOeakodHdgJxh
-	63AuR3ZLcURaereQbl3wUVBCwRC1rDrtLwPZgbM5KPysirXK8CsUXMXUsb7PdT261d5StHYZdFWG3
-	ZtjcoMPdLaP+zqS8Do/XOgmQy52SjeWEs3Ui9eZ6Mug3GcFZG4SnsKkyNCk/7QYn+nQsnvPbA9IN7
-	ZIkiRCzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jgziH4kIZ7vCwuDFMy2H2sa/DZNDXnfB805FtgBuIlQ=; b=V7ascLamgDhl4rmtG5uLsqlIuA
+	NY0RcA1zTb3a4LG2CgripWCXPWzSSpRs47Rbvhnq2OkTNW5ftqCQt8knGQu/x4jAJturL9jQ76I01
+	QabVCns/L8Hm7ENQFxJAkzcd+D/5UDu1KCvPlvaSM3cUAPFKDOce2S7v6mZsTLQb3fLpy5dwr4hPW
+	3ma+XGDYYZlog5EyJi533RFtYrY0RhE8GZM9spo1zJjF3Xd06hJXiU8PnoNpLc5SyNx6f2lDoLYzF
+	/0hlbsebWNQBzpfEZihx4kkjYp4ZWegcZb5mSQ0XFzAsV+xqB/iNfwuK01zoMY7O9E0pl1pfbmCQn
+	fho+erNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL18q-00000004Guq-0U3a;
-	Thu, 07 May 2026 16:00:00 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wL19k-00000004H8v-25Qi;
+	Thu, 07 May 2026 16:00:56 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL18n-00000004Gu6-3Q0f
+	id 1wL19h-00000004H81-3zLU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 15:59:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SOsKGTesoqqYEIO5/FZ+T6X6w5prXsNUS8pXFXQCGyVuMlgaU5niE0xfDOnv5KojDuIEJVuRWwhbd/qHiqCnt+Ni9/gEnlLArJAnBqrCCasZHkfU2TRVsZoCX0KBIaYdBoA0uKh9BkvZz10+qUgTsqp5rouNGLleD85ulESwycr9gjgQSqbbpsAOf/5aoH6jIaGUhKyeyCLJdoHX68Wcp/0aXmhGwuMAGT1diiNKUjFbcO9QwJvpA8VXZC16fv67Eob6y9nwzbw9F5JIQKLts3HfQxX8dy40gfN10N5PgepRT85TBF76Tp0QdhIPsG6yA/bAtm5DNiqIuGURIjLCEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=h5qlMXbFpRlE4X3MIQCAxqaW35emWVZDHc8//Mm+AHg=;
- b=aco06SjNplQfMySR2veUmKR0erBoidZS/faQSwbyqNFTLTE5K2BsejNOlRIjK99XCLWaxTVnl3Du+aLsT0l1qVQBvOTjetL7cuvRchdZ6t7vzyBFn2zza/+k3ngmSFHEqcYojOuAJIOsY40C6lKdh+jnXoI9veChXtgxwUBHGzsMyl9hjSDOtNDLYZvD4xjj8uHg4rZCrFgGSigh7MhiUOPavxWiF2JviVaHJ/GixflxVYZn0b53q5DGBNpz+sZwXBR56aysvzbEFh+ezzcRZ/9U4ZUemnJR70vEysqSnT2sJLAfUm24UXLJ+dYBLncCky4qsbR7GTjmIShDCs7m/A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=h5qlMXbFpRlE4X3MIQCAxqaW35emWVZDHc8//Mm+AHg=;
- b=dVaxD4EDUn01lJPm8NMrD69FsxVf6kXLx1MndwR+XIFnZqj3MqvroeY9c8UEd7aHPTsNIH38rpEpn63kBuNnhvkIWuXo4px0fdYtmlTYlTwf4ueNWtJhFW+w/smNsOPx1iKObppVxavgXK/HDVpEReF538L/EES6OLjeOuG6mHs=
-Received: from PH1PEPF0001330A.namprd07.prod.outlook.com (2603:10b6:518:1::19)
- by PH7PR10MB7768.namprd10.prod.outlook.com (2603:10b6:510:30d::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Thu, 7 May
- 2026 15:59:47 +0000
-Received: from CY4PEPF0000E9D4.namprd03.prod.outlook.com
- (2a01:111:f403:f912::4) by PH1PEPF0001330A.outlook.office365.com
- (2603:1036:903:47::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.16 via Frontend Transport; Thu,
- 7 May 2026 15:59:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CY4PEPF0000E9D4.mail.protection.outlook.com (10.167.241.139) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Thu, 7 May 2026 15:59:46 +0000
-Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 7 May
- 2026 10:59:46 -0500
-Received: from DLEE214.ent.ti.com (157.170.170.117) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 7 May
- 2026 10:59:45 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE214.ent.ti.com
- (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 7 May 2026 10:59:45 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 647Fxjx03965288;
-	Thu, 7 May 2026 10:59:45 -0500
-Date: Thu, 7 May 2026 10:59:45 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-CC: Robert Nelson <robertcnelson@gmail.com>, <vigneshr@ti.com>,
-	<kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <josua@solid-run.com>, <w.egorov@phytec.de>,
-	<matthias.schiffer@ew.tq-group.com>, <d.haller@phytec.de>,
-	<francesco.dolcini@toradex.com>, <joao.goncalves@toradex.com>,
-	<emanuele.ghidoli@toradex.com>, <ernest.vanhoecke@toradex.com>,
-	<rogerq@kernel.org>, <eballetb@redhat.com>, <afd@ti.com>, <u-kumar1@ti.com>,
-	<stable@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<luis.parga@ti.com>, <srk@ti.com>
-Subject: Re: [PATCH v2 00/13] TI: K3 DTS: fix USB Clocking for Compliance
-Message-ID: <20260507155945.alnz3z543gxnulxq@procurer>
-References: <20260506141040.1368918-1-s-vadapalli@ti.com>
- <CAOCHtYjJRmr5LhRePqaOomjVHb=o+B8-3+6BN89Xx9erwRdcng@mail.gmail.com>
- <0e9e5de7-b456-4da3-8165-8ed7d66f2671@ti.com>
+	Thu, 07 May 2026 16:00:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778169654; x=1809705654;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=8BPtm1ERjnpYkkfFpMlDgHXX0eJd4mOVQdjMNGpCaCY=;
+  b=C7NSu8YJxPMrD97+bngifOaDYpzHo0yFXbxdnlXDvK9+I/6TjKOPyoXb
+   9Pu4LEl0DcKRb9oCVRKmr9HI0UtPGAsi7FT8+LUg8QNHCfunrRPhpdaBs
+   dKQz9IndzDMvtOCRM0StEep3xue7xYK/oED2qOYR6vwiSTC1ADIUsLO+z
+   jznoBNmQzenAN9Uu9NpTdlJm7pDmHtiDyahlIekhm5JD1BzHElPmiGsrM
+   qUOuWeSeoeZVE9AF2xAZIAtxai9xNihu9UZsKte7pNeE4VK0VGnPVTaNj
+   swrAQxTtZXhev0qmtQz4s5o2v8JVF2gA2jzbqBoi3iZlFpw3KCGuP0T7h
+   w==;
+X-CSE-ConnectionGUID: IJvFxRwnQqSovUil7D4KAg==
+X-CSE-MsgGUID: BpJIrh3cQcSaTVTMYx4xyg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11779"; a="90502282"
+X-IronPort-AV: E=Sophos;i="6.23,221,1770624000"; 
+   d="scan'208";a="90502282"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 May 2026 09:00:50 -0700
+X-CSE-ConnectionGUID: W8JdCnF+Q1ynh0P7UD8UIg==
+X-CSE-MsgGUID: mY5sbussT2WvLYe2eD1VnQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,221,1770624000"; 
+   d="scan'208";a="266870993"
+Received: from linux.intel.com ([10.54.29.200])
+  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 May 2026 09:00:50 -0700
+Received: from [10.246.17.81] (unknown [10.246.17.81])
+	by linux.intel.com (Postfix) with ESMTP id 9DE2F20B5713;
+	Thu,  7 May 2026 09:00:46 -0700 (PDT)
+Message-ID: <b1d56feb-9847-41b1-8bba-733963055cae@linux.intel.com>
+Date: Thu, 7 May 2026 18:00:45 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/7] soc: aspeed: Add AST2600 eSPI controller support
+To: YH Chung <yh_chung@aspeedtech.com>, Arnd Bergmann <arnd@arndb.de>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>, Philipp Zabel
+ <p.zabel@pengutronix.de>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+ "maciej.lawniczak@intel.com" <maciej.lawniczak@intel.com>,
+ Mark Brown <broonie@kernel.org>
+References: <20260313-upstream_espi-v1-0-9504428e1f43@aspeedtech.com>
+ <20260313-energy-casket-ca8adc1f1fd1@spud>
+ <23909400-4e7f-49c9-a982-14036372af98@app.fastmail.com>
+ <c3b28ee92fa46700887d0c68b23045b2418358a7.camel@codeconstruct.com.au>
+ <KL1PR0601MB4276ED93723F0B1F42349AD89041A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <0f7f0f96-a918-47d5-a0bd-bbde494c8fed@app.fastmail.com>
+ <KL1PR0601MB4276B5BE3B96C18E3A66AD709049A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <14870d17-2471-4522-b8b5-03cb9002a4f7@app.fastmail.com>
+ <KL1PR0601MB42763DAD359305DEBA4B769D9057A@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+ <KL1PR0601MB427603A6A5768D6A537CAFCB905AA@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+Content-Language: en-US
+From: "Shulzhenko, Oleksandr" <oleksandr.shulzhenko@linux.intel.com>
+In-Reply-To: <KL1PR0601MB427603A6A5768D6A537CAFCB905AA@KL1PR0601MB4276.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <0e9e5de7-b456-4da3-8165-8ed7d66f2671@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D4:EE_|PH7PR10MB7768:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0cc0765f-82e8-4a29-a652-08deac51a95c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|7416014|376014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: bmhu4Jd1/cwg71tHJvj8z9SHmvNbXWCzN5dKISExq7bH8bsesTRhw1IuWSu4oZ4OamIGG922XhRzyujdGnUohMkYL7qjasxytxkXEWL8icerkDX6Fq0vRzC2j68eosh+v9bhQ53Tu6ojLpuQx708c13bNwhbwPJIbYX7R/jFrE3OkI2PhuuhBMK1cRC3i8A5dfalyASApADh5eafaf2Rm6vgPREV/jGVncI3/4j1dgo+j1AXjFw8yCKyNpv1+O37nt3l76MXabm14qRuA7Jf+bju/pX50d3VzrcJ46zksAKpoBd7H3Xat28ce4HxbvbDskUjnSiHi23JsROSUDIzeXvTHI2Z0f5RHn8AmIGBLeKmsFukwDsYdTvrUZwZN9u+SL9raQKpsgMkQRjWBCQ7o2zPD7fx2ZT5QRfxiNukWlg6bhhc7Fsx3VmhIJVEgrVsCxCHFFoHfx9fdNjYTLky69pRZOR5XSaay+jFX5rQ0onwEu5GCT6vfVAN8tUbrudkrkk3WeS/p7YZHMnMjWA1ax5GPrEVeSy5UFEvw6xygvQEi0uwvpf0RQO5XkCl1S/Qt0iHOidX8p5JQOug+Y87NvhNFgpPhS0pNw/QfxpT6I/hh2rl+eqp+7bmkso2PwBAjj020RvhqVKHrtMqrFqbC9iWo2PHeD3J9pJGUNkM5tOHPLlsCCV7ddNsNhPFPZ31T02mL5ls/3bA+3Ujog38OArk6sZbII/VEoCvvFNhjYc=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(7416014)(376014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: DJTxeq81vG8AaEix7tn8UvMiIIXYQy1M+sLJm0J/z2MiBQ+H3TEJXZyiglcQwFyOJMeuOM2d0sFDe3bP+MUlfQv25B66lvm5p2sp4rC+P2JxU50D4OQ59pwczWytQU/SgtSFkJ/Xd2yLJxq6MgALsGscP5eNAhnLxoOxEajA/d21ZjA8AXS9KHVetd2qMh6XFYYolhjV4c1knUtiQ/2Ssrcc3F41m2hxGKgQZt7FTT9YPGkRBkecnsMz4OSvSYNHAs2cIhnNGWr8iSQlHGyeVxE2Dz7FOtZFlaIVF3SenEZkeIkD76ovnsyHI68lkuqyp7LKgy3/dUsagNP/7U6xZl2PfaI6YGrWtDVJFWVAJG2im1veZIFn4whZ/ff9G4l33sUSTnmQ5/dFqHY3DFADVA5w+hiy9knHgQfZKqVPMtIKncbdQw/oo0Y7UJHzytKx
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 15:59:46.6108
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0cc0765f-82e8-4a29-a652-08deac51a95c
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D4.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB7768
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_085957_854821_FE57F03E 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20260507_090054_004777_B2E6C7E3 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,40 +108,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12:14-20260507, Siddharth Vadapalli wrote:
-> On 06/05/26 22:37, Robert Nelson wrote:
-> > On Wed, May 6, 2026 at 9:08 AM Siddharth Vadapalli <s-vadapalli@ti.com> wrote:
-> > > 
-> > > Hello,
-> > > 
-> > > This series enables Internal Spread Spectrum Clocking (SSC) for USB
-> > > SuperSpeed configuration. This is mandated by the USB Specification
-> > > section 6.5.3 Normative Spread Spectrum Clocking (SSC).
-> > > 
-> > > Series has been posted as individual patches for respective boards since
-> > > the Fixes tag is different for each board and needs to be backported via
-> > > stable.
-> > 
-> > While yes, that's true for stable branches.  Since these are so
-> > similar, wouldn't it be best to push them to the board soc family
-> > headers?
-> 
-> I see individual patches per board+SoC combination for new features as well.
-> So having individual patches for Fixes seems to be preferred given that
-> squashing all Fixes tags into a single patch doesn't make it easy for
-> backporting and reverting in case of issues is also easier for individual
-> patches.
+On 4/7/2026 11:36 AM, YH Chung wrote:
+> Hi Arnd,
+>
+> Thanks for the comments and questions.
+>
+>> These all seem to be viable options, but I still think we should focus on
+>> agreeing on a design for the low-level hardware interface and whether this
+>> can or should be abstracted between SoC vendor specific drivers before
+>> trying to solve the user interface side.
+>   
+> Could you share your thoughts on whether it would make sense to accept our
+> eSPI driver as is, and whether it should live under the SoC vendor-specific
+> directories? Any comment would be greatly appreciated.
+>
+> Thanks,
+> YunHsuan
 
-It is not clear to me the path to stable here.
-1. Driver fixes
-2. binding updates
-3. dts fixes
+Hi YunHsuan,
 
-How are we lining these up for stable?
+Let me add my 5 cents on this matter.
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Integrating this driver into the SPI subsystem may allow reusing some 
+existing definitions, e.g.|spi_controller|,|spi_message|, and perhaps 
+parts related to single/dual/quad I/O handling. At the same time, parts 
+such as the Flash channel (included in the current series), and OOB / 
+Virtual Wire support (I would expect to come later), appear to be 
+specific to the Intel eSPI protocol. Modeling all of that as just 
+another SPI IP driver may introduce some awkward layering and overhead.
+
+Also, the current series already seems to separate common eSPI logic 
+from AST2600-specific pieces, assuming that 2700 driver is also coming 
+at some point.
+
+This makes me wonder whether a dedicated eSPI layer/subsystem could be a 
+better fit — either under the SPI or as something separate (but not SoC 
+driver).
+
+Given my limited experience with SPI/eSPI, could you help clarify a few 
+points for me (and probably others as well)?
+
+  * How much of the SPI subsystem can be reused for this implementation,
+    both for the current patchset and for likely future extensions?
+  * Are there any pitfalls or abstraction mismatches in trying to reuse
+    the SPI core here?
+
+I think this would help make the subsystem placement discussion much 
+clearer.
+
+
 
