@@ -4,179 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B0ECD3442
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 582F7CD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mKRDwNHO9CCOWjAuV2t7h3EkjZpo/JcMPvzaQJBw8UE=; b=hE8A8e7zS+Al9cYN7Rf1zTbRCU
-	cUlt9xZ1BeoNkVsKb2iYUn7IqY0upai3yJx5n2VMR9w+xYE4W53By1OSrAM599fJyjeylUZiIcvL+
-	pSmUhoNFklXmL6r97GzcUoKnxS2+fTmClF8eD7DKSgYFFwlLxWor2GdTLbEQYScSwRVzRfGSQn8uI
-	4ApS5nFBVGi++c6ArNY+BwglL3r+vGqmHQkUQbhcEQ3T2COyRHIBJxQnwkQWOvn73u8r6yLOwtDZx
-	aH5wByYU23b3XRSQC5bDo9BOUuH+EQpUfA5p4STHlEyZYuvFKWN2VuZEv2htWrzEHz14C/xArLIuG
-	SZZ7TnQw==;
+	bh=/1NONxnec+n06CLcBCODwxosB4SRQUb5g6JkJE9QSFI=; b=dlPnZuASfkGzaoOTGO3iE+qIBX
+	0YU42TvYztzWk8lHOrbydtK7UjAi9qU5qeveVzDcb0kvD4vGMJWTeb39CT0t+wiThTARV18vQFfN9
+	6mEjiUMROHBzX4jEeynQvi4hBdQCUIFDk4/Ejm45LzeS7qXep+pLUOQa5RNyNSyEwN1VFF2RPMQVh
+	i0aFRBGucn1x0X0yA1mwBtXWwqbG68ygC9jc/xZQ55kuKC5CiwxcSX3o64LDZHiBhJMZa0M5HFP1g
+	VKxxukc2/zGyLxG3hW6YVphHzYGUkiq6A/MHIIJRy5X6d5vPBSp//jQSPK4GrP1y3/zYn1A/z7kOj
+	uVcWuMxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKueK-00000003HIf-19nl;
-	Thu, 07 May 2026 09:04:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wKutA-00000003J1L-2vFO;
+	Thu, 07 May 2026 09:19:24 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKueI-00000003HIK-11BP;
-	Thu, 07 May 2026 09:04:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=mKRDwNHO9CCOWjAuV2t7h3EkjZpo/JcMPvzaQJBw8UE=; b=l9UpdGBgNyleY/PYSWTo1CP4MF
-	Z33DOitNUEpuzIHmorJWZzBa5WTCaL/X7xXBBI7IljP0xki/yj75cizThdaGOhDX+J1n5yX1fPtRz
-	+VrurCBAlM6ENJzNbqu8iD0BT8p8tmbw69RgXVB5WmGeIr4R7BNSW03LshgxlGc3VcZ+3sQXlX1N6
-	0MXPPn97Lr9LKjtUEu4cni1QxKoFqkCGBXmBjWQFvGw5BzOsBMaaC6zNbmsV10z6EzZTPhoTgZNwy
-	HurinOYK1MSCx9TMTSkw9BqpGWGXZ+rrO3BEXEnPdPwe1ryH9TXoJHcVQK6sTNPlxsULSMRjySwAX
-	dgYHyJuw==;
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKueE-000000030iC-0Sbc;
-	Thu, 07 May 2026 09:04:00 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=JaVPDLzoFMGlVWswQI90aXUWM5ym9xObmWHYQwpRKvNf4VDe9PX5mIfH8Sn/sPQN0J3Qvd/QP5M36PKJh8hBegY19ciVepxShUJSyTJ7shaVHFcbIL72Pyf4Qz4dPo8CJ3hR/37LUMSy/0aHbWdy+2rvwiP7/RXyP4XjpuaEW0WRxkSS3G1KyiXIhfg4qnW4TY2yTEbKpwjQxYfLTW/AwSPPVJHw+TLSDFwlUxWnclgS6CNUwcQyu/5lrIjY7HppVgOlUT05GisuGoDtDuZdqGrzp9lOO8ZJqMQqbldxZBqYHIs46TOA/4mDFGL/G5/BLPC37mbOBpQFlaI1X8iXuA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mKRDwNHO9CCOWjAuV2t7h3EkjZpo/JcMPvzaQJBw8UE=;
- b=AIMt1TIB1WGdYbZMiGI3MiWDjZjxozw9wvzDnhQn4PJNzoOoAlsvkHf5+h4xLu0SXYLswsnAsChqktjVoTDYB9wSBNWqSe6AcC7AAnleS9IICVVnF3fwREzV6gd+Ndqt1vG+LMUBtWFTS5c8rOpGYGTONdd+acmHAl8gRTg2HYpBHKo5J5KWwGbMmel4i2KKfojHkohZ8qJiBPfDKTH9g0SkBfeVpOVwMYCYLtGASNFb9/7RA2o3FhQQJR5COUn2AviX8UsAM8cC0/hHpGBMMEO20bMmC+ojBQOheSl8Su9fbFsyuWVTgv7zS4XPbBAMHCW7U6mDrA8tt0AEjAaQgg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=collabora.com smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mKRDwNHO9CCOWjAuV2t7h3EkjZpo/JcMPvzaQJBw8UE=;
- b=UmXr930SmYZf8KzIPx5ni4l7KoRwmJhd1dB7ffQ5AuZJ8wCQTA7OPlC5jEl8W66ginn4h+4p9/x1giNAZkSLK+0Yc+AQldDxWNoGF33ff+smcHGlH3NL2hl5xMcB3a6NOV/8gvxqWQDgVBoNFgYjdiBAstcHQfj5uJ9jmFhgoEo=
-Received: from DU7P194CA0013.EURP194.PROD.OUTLOOK.COM (2603:10a6:10:553::29)
- by AS8PR08MB5896.eurprd08.prod.outlook.com (2603:10a6:20b:294::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Thu, 7 May
- 2026 09:03:50 +0000
-Received: from DB5PEPF00014B9A.eurprd02.prod.outlook.com
- (2603:10a6:10:553:cafe::13) by DU7P194CA0013.outlook.office365.com
- (2603:10a6:10:553::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.17 via Frontend Transport; Thu,
- 7 May 2026 09:03:50 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB5PEPF00014B9A.mail.protection.outlook.com (10.167.8.167) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.9
- via Frontend Transport; Thu, 7 May 2026 09:03:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vchLfvXcp1FeT5MRB1Rymxi8FdCVkBZtar8yMCBJAxZaalf0AoudpP3VKcM4q1VmzDYKaNnsH8woNXluAKmc/96onwY9xecT+c6sxS18rl/kQeq6p4pp1LC7oIAcsX2+4U7pUNtn1ra9fH4tmBWO+y5q+2gzbcTToTtg8T4WaWpjbVU0eUHQEKqwicyJJWF/1lyYAk68sjVQwKmJG7keplpnsm2XhNXPzWpu3uMs49gTdpls1Hf/GzWgzKYutqXw1GUbOGeUKxS6pqYj6fdNV9vf3ghN/dkr+ktDzrBLr+dzwEf6EYh9L6j4ke562oHkIABJdTrkUPAbm/8hj2kmzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mKRDwNHO9CCOWjAuV2t7h3EkjZpo/JcMPvzaQJBw8UE=;
- b=uBWLjFiXpoHsTxGpU/vbLdZDPf9eNsLwIhhH65b+b8PHmS5B8eypQ4CnwYzApsDm1R9b60USpg2dQ/Sf+fZWYPcdNOWtfXA5waGjV3mstbXBFrjWZK/LBmGNjkaA9OM/i8jGgj5ck+rb+MNq8Q6ZZ2w+SAFxbs9jpsMWP4vIf5bDOSyqkU1rxM4haWUiyA35Uq4WZQbziMiKYhVj5C19TPeYPcoUi3OVRY4dkzqMdjwwMNcnfiA12YiCaPV0iypOb1VzbOh2KMi3pPow51vOsUSNImqJcCHMUlTIKvQU2qeW8LP4Fsx5kRxIKxC03lvXsoI8JulVAkOq8X1IiWa7MQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mKRDwNHO9CCOWjAuV2t7h3EkjZpo/JcMPvzaQJBw8UE=;
- b=UmXr930SmYZf8KzIPx5ni4l7KoRwmJhd1dB7ffQ5AuZJ8wCQTA7OPlC5jEl8W66ginn4h+4p9/x1giNAZkSLK+0Yc+AQldDxWNoGF33ff+smcHGlH3NL2hl5xMcB3a6NOV/8gvxqWQDgVBoNFgYjdiBAstcHQfj5uJ9jmFhgoEo=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from PAWPR08MB9996.eurprd08.prod.outlook.com (2603:10a6:102:35a::11)
- by GV1PR08MB11050.eurprd08.prod.outlook.com (2603:10a6:150:1f4::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Thu, 7 May
- 2026 09:02:44 +0000
-Received: from PAWPR08MB9996.eurprd08.prod.outlook.com
- ([fe80::5856:8db5:9ee6:414f]) by PAWPR08MB9996.eurprd08.prod.outlook.com
- ([fe80::5856:8db5:9ee6:414f%6]) with mapi id 15.20.9891.016; Thu, 7 May 2026
- 09:02:43 +0000
-Date: Thu, 7 May 2026 11:02:26 +0200
-From: Marcin =?utf-8?Q?=C5=9Alusarz?= <marcin.slusarz@arm.com>
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Cc: Ketil Johnsen <ketil.johnsen@arm.com>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T.J. Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Steven Price <steven.price@arm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linaro-mm-sig@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Florent Tomasin <florent.tomasin@arm.com>, nd@arm.com
-Subject: Re: [PATCH 4/8] drm/panthor: Add support for protected memory
- allocation in panthor
-Message-ID: <afxVIuVVPisBQ9p_@e129842.arm.com>
-References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
- <20260505140516.1372388-5-ketil.johnsen@arm.com>
- <20260505181523.49a3d85c@fedora>
+	id 1wKut9-00000003J0K-0HwU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 May 2026 09:19:24 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4891b4934ffso72985e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:19:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778145560; x=1778750360; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/1NONxnec+n06CLcBCODwxosB4SRQUb5g6JkJE9QSFI=;
+        b=kBRrnmaQRpFKq864kBv27F4Tf2eMSYXPeD0GP3BHOEFVNCdFoTnReYxQha+Uk1xKu/
+         yw+UUJzfzydss2FwW0YiaKXFoRYYbm7SY3SrowJbE4q7O24vy1BYVkUhm9xTlongId7v
+         nN/RybJplyPHkLeg+niPzdwmzGMztcKiaZAaq/qx3vzD9gtsLWVfGPjNQAsuSFG0Ez03
+         GJhbjUwqWLMMpoYXBNvFFescF3za+ydI3zkJ6WE6ypuBDPNn332NZRbGDtYAzvA8BXq2
+         E7ve8cB8NVCZrsz65KQikx2FYETpzJ4mdgpJ73gIcVXjAYqGXOL52sjmM09MJu2Iw5i9
+         qOuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778145560; x=1778750360;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/1NONxnec+n06CLcBCODwxosB4SRQUb5g6JkJE9QSFI=;
+        b=Eha3touuqAMAzF1/Q3KCgmr/BIl858E0tSi7HLF+/P7xDnibW+G1DSkGCLk120tWGq
+         U4zCSHYNCcEXHJrlGIlb1lT9KNL0cgepO5O0Gh1EeKc2xPf3piKz63/e0JFzoSzierg7
+         kHVyrrELW8XqyLhz5JvfEesRb+w22t+N9XQSmZbmZ3UNDUTRZyW4WSk8bx29OxVkgGkg
+         qtyakMJzO5VZ5fXOX4V+oIpHXQn43YK1SxBsa33KJWfFTt/cRwYl9Gnh4IlftzIT03tZ
+         hld+/54WdA6Wy5x7vsPIai79ZCjh+erwANsEKgPGLM23JosZSjaoR8RG/GZZQngGmAR9
+         aBjg==
+X-Forwarded-Encrypted: i=1; AFNElJ+U0RPAI7S++ckeNmlsNoigxwuxNFXAPNCOZcWHiu5yCxQEo69nGKJdPWa8CWSYed/4x2FpTEkahFED+RWla8S6@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWXC7mehf20RFSjHK89ege6Ayw1vuNntn+ex3LswSe8LNK2n0A
+	N01uE7GkU3q2iSRhWo2jmwebqwLUMJ5PMVSaD2g1PgbyE+sMs8tCTagA1d3FqieJgg==
+X-Gm-Gg: AeBDietWQTVfg2H1ybgtLPPk+Dqb1XQBVcHeSozqhXTTWwICPCJx/TzwF27ve8+YldV
+	bJaXzfok820UkubUN7m7x2wlp83qr8Mn88lmKB3FZKX23rkNwTfPDrdO+v4xiy+mgfnWM45Atr6
+	0wmybR6mEA9vP4Q2IpqgRBoTnoG9avEDuZzZWuCppqYNwbKqLkAIjbpCBJcLaW2+FuteVVDApcs
+	UhPg20sQ1zPfmTO4Yd3v6sEZnqA0SI80qqqF7uG33tB7KAioMRKBD2nx2rMyvAuTl9IbLvQJRWG
+	ae25T0qYEd1EHRG3GOlkK82aiVSlhMiMxa/T2reaoLOFLJ/3ECqYP+S7nSCVKgLjGs4oHOh9eD4
+	+xh2DvM7txAGVyD6dye5dzAadi6u36VZJgldIpV81Y+3w91ZLiCOyVqcsigCxSCudL4kYUPpRHI
+	yLQVJaxLKLABR4dIOjU2TiAVEr9cDk8YH+ch5/c4Yyu69sn9sokm89cJK3lcU0kdUD8+KcfM0Zk
+	pnSsIMKTPTz8dxf
+X-Received: by 2002:a05:600d:844a:10b0:48a:5d95:d33e with SMTP id 5b1f17b1804b1-48e5d45d196mr626835e9.6.1778145559566;
+        Thu, 07 May 2026 02:19:19 -0700 (PDT)
+Received: from google.com (8.181.38.34.bc.googleusercontent.com. [34.38.181.8])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-450524831cdsm20663750f8f.5.2026.05.07.02.19.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 May 2026 02:19:18 -0700 (PDT)
+Date: Thu, 7 May 2026 09:19:14 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>
+Subject: Re: [PATCH 1/9] iommu/arm-smmu-v3: Add struct arm_smmu_cmd to
+ represent the HW format command
+Message-ID: <afxZEgun2BjHJ-WJ@google.com>
+References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <1-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260505181523.49a3d85c@fedora>
-X-ClientProxiedBy: LO6P123CA0002.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:338::6) To PAWPR08MB9996.eurprd08.prod.outlook.com
- (2603:10a6:102:35a::11)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: PAWPR08MB9996:EE_|GV1PR08MB11050:EE_|DB5PEPF00014B9A:EE_|AS8PR08MB5896:EE_
-X-MS-Office365-Filtering-Correlation-Id: ad911ab8-5169-4bd0-8354-08deac178e16
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info-Original: K2xq1PP1A6l1UvXWdW+Bj3nc83B+6K+LRaqYD+uZ3voE28di9ZdhYBdJ+10lN0zlphXI7fWHUKsHiSo8xKRGY45ZpNodTZJ8cuBZgt6WIUiw5r8PqsTFSxY81ZEG9OmVruVbyqdcJrLej/kwzLtEupdhZiaFFAwQA2ZD7ktQFC5VrQpnexOP7/VjMyDS0Ma+Rud5eg8TkO+qxkiIRXgUygEYc0mK0YVKi/pGw78nIY6LqcUCNM04zfq1Lm2u8q7bSZ5wjrCGJmUpuWj0mGqZT/lVn3ij6mxzHCLxU38m5N96dSq6QCgnVI9QQ21Ah4aVMbxWvuT1CClG4utEilBmnxV/acmr2/ahJzYOChXIW/nMA3g5mjDoqwbeTot4lhfq9x9i4dSKLJoN2NcUTAwtH6ZycNkv8/mRM8oC4qKz6OG31i/n8K2mSSPlyJCrLv1JqJkGfwphZTiPOIE3gc8QrtDbTdlweqRqMzSsglTZPVIWflyrXgu/0LdHyWTCsbo3408kdolhybyi7Qivo3+nx6qAHwQkzHV3YOwe/vI2aWeHv6vt/Bt8dqF3m++ubE2tag2NrcsVYWRpRv+BT0ircb+Wg+grvBlnRdeFEmUmD31wSRDX9aQ9IWVlr+amVxx7z10EXySFtnHjoFwnuLwwrCKT/zKTKwT/Fr740vOTzeKBwMIvGIbWEpBtF2Kft78J
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB9996.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: XJ1T6EoheAt6U+FREPkCNk9lmTPcfzSATSqW1yw+CL0VauPjAPvg0atTwGy6E2XOscgZriGtllJzvEMDByJ4mXxl/Ewd17+joUZcDGAkkNpoorbenAno8gaoJzpGnd7tBaucC1+bzNRn2jLbBwjfwuAj4DuBctHLOiNP3BFJ0924yDQhuVvuzerWRC3DBzOMlXTwNn+ocgGK+qu7RLmxsTOn2HXVIofFOfw8ZFtSeVo+D3yPyzzdrCxlEm+y9q52IoryKTY8yY5td+OF83hiRJWkaZwxBNKp4aCORgcJPmzxpzAwQj89zk9lpksBqnqxrRQ+mwyr1BnUbNO5VI/XOw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB11050
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B9A.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: a30f35dd-b7e1-4ff8-fb75-08deac176625
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|35042699022|376014|36860700016|7416014|14060799003|82310400026|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 4PMk609cGl8yM/iCXDNq5MjFLTeHOukpC5pJhnfVbfogGwBsn5pIpif3fJhaCOG9DbPAuTTMEuA6IfI2Q0HZsPj5q7U1Ji+KAOM8FteiWOL5bgewPeYl/k2w2Md/Vi3gzTybGSFUUxkFM0llVyEPrxEyDSQzY7CkLIXVhA4mYeJWF1I6KteFe5XCKM07NTIwGWF0wDp8P7LRrY5hEgOZ9aPI+5Hn03JIA5o4kD5wYPlY7AEC5oCyOK2zKyferyuw8GFn4DRJzwBSmGc3JR2OBtwpMDHF/+ycijpTdfVGRRUdMDg/FvnhIZJ5ESo69SO4DrrgL0N2avMSm2EmtkYjGrEctdglGVZRzDx0ttq8OR5TNggQG1qW8k0xsx3UvBa48p6WBTWCPGkv93W7wJUMaA3zEjAykwnB5IMen0mmiIdmwphVpmpWt0s2S80WVKWFrMA+LYecfMgLxwmTg3xLWM8XjsxIZsemBKlTd7E6oke6Ejn3sZifEizoQofBt2dA0Zis2tstRAQ8uKX8vrCJ+kUiECCYcZhJgBXqlulbXbA5DVwREYK2XNWUWN0qlmIcFEmygQAiNVdVFt67mtPimnJG4yH3EpnKvvo5hxoOw8heYVnY4NAr0xjBSPzDE6mDIFl7wXPQhLdOcTq2RTHYLl65psdzQDNbyYVZdx/wAA1Uz0kLogqsJ7z5wyHctR1LrSPDw74THoT5b3dE+cj7ZKO2eVglJpNevoNi+5xG9wo=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(35042699022)(376014)(36860700016)(7416014)(14060799003)(82310400026)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: QJWvgALR1WNRC/tRN7VrsCzAf3Sm1moslUv4ThmlKKZEXxBFtSs3iaYs3DQarPjewgLny9TBYL7//x2E5/Rkzq6lSTm2fe9fdT1tWdMnPrsUkqcXYEtCX8nJ+xtnbVmZqrPEOY/I6MsfHaVkIpE5G0mlMCsNeQ+j7mqLvACpwIEqMC+06VuElmspkuE403j6m3vHZ1VZ+BE1YyPOTUPpyLz9rbwZ64WMZMWZliJ+sXtoDR5Z2rzXTXpsYmaPA8P09wuP5u1V1ejspl+jxwICVbreAq7GebtqHXWlovOtIw4vPEAkO7hXpgpCIVx/xY6ysq3IxDEO/gVW9V4K1BBigyebMooHZ7J2ebjniigoc9BAI+nbLG6lcBWzSIjIezAF/MfMM6GVT6G4OVo8xwMT+/PMDONZUrB/MKnaTXMIcDWP/r/U+qO5u9D45kH1roa7
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 09:03:50.0262
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ad911ab8-5169-4bd0-8354-08deac178e16
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9A.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB5896
+In-Reply-To: <1-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_100358_559249_583FB201 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20260507_021923_134540_73D3BCAA 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,41 +107,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 06:15:23PM +0200, Boris Brezillon wrote:
-> > @@ -277,9 +286,21 @@ int panthor_device_init(struct panthor_device *ptdev)
-> >  			return ret;
-> >  	}
-> >  
-> > +	/* If a protected heap name is specified but not found, defer the probe until created */
-> > +	if (protected_heap_name && strlen(protected_heap_name)) {
+On Fri, May 01, 2026 at 11:29:10AM -0300, Jason Gunthorpe wrote:
+> Like STE/CD, add a wrapper struct around the u64 array to represent the
+> already FIELD_PREP'd command data. Unlike the STE/CD this is a u64
+> because the command submission path will have the swap to le64.
 > 
-> Do we really need this strlen() > 0? Won't dma_heap_find() fail is the
-> name is "" already?
+> This makes the API clearer when a u64 is referring to a formatted
+> command and makes the following changes easier to follow.
+> 
+> Move the command constants out of the struct and into an enum alongside
+> the rest of the constants defining the HW format so the entire HW format
+> is self contained and independent of struct arm_smmu_cmdq_ent.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
-If dma_heap_find() will fail, then the whole probe with fail too.
-This check prevents that. I'm not sure why it's needed at all, but if
-it is really needed, then s/strlen(protected_heap_name)/protected_heap_name[0]/
-would simplify this.
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
 
-> > +		ptdev->protm.heap = dma_heap_find(protected_heap_name);
-> > +		if (!ptdev->protm.heap) {
-> > +			drm_warn(&ptdev->base,
-> > +				 "Protected heap \'%s\' not (yet) available - deferring probe",
-> > +				 protected_heap_name);
-> > +			ret = -EPROBE_DEFER;
-> > +			goto err_rpm_put;
+Thanks,
+Mostafa
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 48 ++++++++++++---------
+>  1 file changed, 28 insertions(+), 20 deletions(-)
 > 
-> If you move the heap retrieval before the rpm enablement, you can get
-> rid of this goto err_rpm_put.
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index ef42df4753ec4d..092179f689e9f1 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -390,6 +390,10 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+>  
+>  #define CMDQ_PROD_OWNED_FLAG		Q_OVERFLOW_FLAG
+>  
+> +struct arm_smmu_cmd {
+> +	u64 data[CMDQ_ENT_DWORDS];
+> +};
+> +
+>  /*
+>   * This is used to size the command queue and therefore must be at least
+>   * BITS_PER_LONG so that the valid_map works correctly (it relies on the
+> @@ -426,6 +430,8 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+>  #define CMDQ_ATC_1_SIZE			GENMASK_ULL(5, 0)
+>  #define CMDQ_ATC_1_ADDR_MASK		GENMASK_ULL(63, 12)
+>  
+> +#define ATC_INV_SIZE_ALL 52
+> +
+>  #define CMDQ_PRI_0_SSID			GENMASK_ULL(31, 12)
+>  #define CMDQ_PRI_0_SID			GENMASK_ULL(63, 32)
+>  #define CMDQ_PRI_1_GRPID		GENMASK_ULL(8, 0)
+> @@ -447,6 +453,28 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+>  #define CMDQ_SYNC_0_MSIDATA		GENMASK_ULL(63, 32)
+>  #define CMDQ_SYNC_1_MSIADDR_MASK	GENMASK_ULL(51, 2)
+>  
+> +enum arm_smmu_cmdq_opcode {
+> +	CMDQ_OP_PREFETCH_CFG = 0x1,
+> +	CMDQ_OP_CFGI_STE = 0x3,
+> +	CMDQ_OP_CFGI_ALL = 0x4,
+> +	CMDQ_OP_CFGI_CD = 0x5,
+> +	CMDQ_OP_CFGI_CD_ALL = 0x6,
+> +	CMDQ_OP_TLBI_NH_ALL = 0x10,
+> +	CMDQ_OP_TLBI_NH_ASID = 0x11,
+> +	CMDQ_OP_TLBI_NH_VA = 0x12,
+> +	CMDQ_OP_TLBI_NH_VAA = 0x13,
+> +	CMDQ_OP_TLBI_EL2_ALL = 0x20,
+> +	CMDQ_OP_TLBI_EL2_ASID = 0x21,
+> +	CMDQ_OP_TLBI_EL2_VA = 0x22,
+> +	CMDQ_OP_TLBI_S12_VMALL = 0x28,
+> +	CMDQ_OP_TLBI_S2_IPA = 0x2a,
+> +	CMDQ_OP_TLBI_NSNH_ALL = 0x30,
+> +	CMDQ_OP_ATC_INV = 0x40,
+> +	CMDQ_OP_PRI_RESP = 0x41,
+> +	CMDQ_OP_RESUME = 0x44,
+> +	CMDQ_OP_CMD_SYNC = 0x46,
+> +};
+> +
+>  /* Event queue */
+>  #define EVTQ_ENT_SZ_SHIFT		5
+>  #define EVTQ_ENT_DWORDS			((1 << EVTQ_ENT_SZ_SHIFT) >> 3)
+> @@ -520,15 +548,10 @@ struct arm_smmu_cmdq_ent {
+>  
+>  	/* Command-specific fields */
+>  	union {
+> -		#define CMDQ_OP_PREFETCH_CFG	0x1
+>  		struct {
+>  			u32			sid;
+>  		} prefetch;
+>  
+> -		#define CMDQ_OP_CFGI_STE	0x3
+> -		#define CMDQ_OP_CFGI_ALL	0x4
+> -		#define CMDQ_OP_CFGI_CD		0x5
+> -		#define CMDQ_OP_CFGI_CD_ALL	0x6
+>  		struct {
+>  			u32			sid;
+>  			u32			ssid;
+> @@ -538,16 +561,6 @@ struct arm_smmu_cmdq_ent {
+>  			};
+>  		} cfgi;
+>  
+> -		#define CMDQ_OP_TLBI_NH_ALL     0x10
+> -		#define CMDQ_OP_TLBI_NH_ASID	0x11
+> -		#define CMDQ_OP_TLBI_NH_VA	0x12
+> -		#define CMDQ_OP_TLBI_NH_VAA	0x13
+> -		#define CMDQ_OP_TLBI_EL2_ALL	0x20
+> -		#define CMDQ_OP_TLBI_EL2_ASID	0x21
+> -		#define CMDQ_OP_TLBI_EL2_VA	0x22
+> -		#define CMDQ_OP_TLBI_S12_VMALL	0x28
+> -		#define CMDQ_OP_TLBI_S2_IPA	0x2a
+> -		#define CMDQ_OP_TLBI_NSNH_ALL	0x30
+>  		struct {
+>  			u8			num;
+>  			u8			scale;
+> @@ -559,8 +572,6 @@ struct arm_smmu_cmdq_ent {
+>  			u64			addr;
+>  		} tlbi;
+>  
+> -		#define CMDQ_OP_ATC_INV		0x40
+> -		#define ATC_INV_SIZE_ALL	52
+>  		struct {
+>  			u32			sid;
+>  			u32			ssid;
+> @@ -569,7 +580,6 @@ struct arm_smmu_cmdq_ent {
+>  			bool			global;
+>  		} atc;
+>  
+> -		#define CMDQ_OP_PRI_RESP	0x41
+>  		struct {
+>  			u32			sid;
+>  			u32			ssid;
+> @@ -577,14 +587,12 @@ struct arm_smmu_cmdq_ent {
+>  			enum pri_resp		resp;
+>  		} pri;
+>  
+> -		#define CMDQ_OP_RESUME		0x44
+>  		struct {
+>  			u32			sid;
+>  			u16			stag;
+>  			u8			resp;
+>  		} resume;
+>  
+> -		#define CMDQ_OP_CMD_SYNC	0x46
+>  		struct {
+>  			u64			msiaddr;
+>  		} sync;
+> -- 
+> 2.43.0
 > 
-> > +		}
-> > +	}
-> > +
-> >  	ret = panthor_hw_init(ptdev);
-> >  	if (ret)
-> > -		goto err_rpm_put;
-> > +		goto err_dma_heap_put;
-> >  
-> >  	ret = panthor_pwr_init(ptdev);
-> >  	if (ret)
 
