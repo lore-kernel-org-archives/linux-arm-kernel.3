@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2CECD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D984CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oFzbf4Mo3ZUJ3TRLxmNYLnRznZXLPNlVmRM9z2LvdLc=; b=1EPRqI9Q7Y6dYNIoZA8h+hgoJ5
-	YnIHc2scja4284ZXDObvRu98W2bSmr6hVsiIgqUxctnu2LajKh7WNkR1TDjX5i42AmoIJTlXpoLiJ
-	vP7JK2o7WBGRjs6kdH9cvodssepSPniCBcGG0sc3rF+xHqlY+l6g9cGfse45LbNRSjIJnOuO/W7gD
-	OHx8nIfbHOAscBRq/5ns5u3jOQrDl6E7GmatVAy09azygE3/RsYRftJdecjtgKBbtMa9sZJtZ+SM5
-	eRRFAQawpDx6hs2w8H8jYKkRfPmonwoVHXeDnN1DV1Ye+AI6EkR67UEoxPL0iHkkq1tAiDkeBYLVD
-	htzYC+iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NBH0jyNZrOzmMWTTXswtxOpylKAjIZZm3k5vmlmFTBY=; b=cK4zYEKj6yA12U9MHPfc7qT53t
+	fVbr/FPeJxkvrSPeqgSu1cGDFmhXEABKwhmYObTJhDCs2GtLuZw9HX6vO/LzZFO/tCBONoMbt/QhC
+	4axtopcNRaJ82uMCfoaWjskO8iUgZgm7BPMUZ7aEli0X89LcpbHnM45ZdUfmFD0OmY/Bk90Fw+3PB
+	8bLFHWvAMPzsOWPagDcO9jRPf1c/bcEyULEWz1KQ4jgoVCUNVkNnm3hPnqxVjYsCpmlVt3KB7fIx8
+	FUclp9AQkmCIWr4Ek/PiUrtPBQlAES2Dszju/OX+5InbLj/JZ3Gyofgaqz+tM9qt7NBBGr70SEbXu
+	tGvmbkyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvHn-00000003OGj-01vS;
-	Thu, 07 May 2026 09:44:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKvNe-00000003OqO-2YxF;
+	Thu, 07 May 2026 09:50:54 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvHk-00000003OFw-01yQ
+	id 1wKvNb-00000003Opt-2ltp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 09:44:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B09DC43DE7
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  7 May 2026 09:44:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66A0EC2BCB2
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  7 May 2026 09:44:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778147085;
-	bh=Jjnn4yrDTrZX08ni2x7bn720XfEgnPw2PfUE6M7ahIw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=qqjGNMvV31nKILNRLnEfl9xhDx2UrF0buO2OdXbecwgZvZpWUc2PWF6VcD/Xi9zdW
-	 w/J/5Tu1wRL5Ce2ZE7Hc5gQj4uYOVCR4KwpaxbwrPzqMjZptUDDcqSFD5NnxcA+1k3
-	 uZ/p+VROYY7lxK7Jp0fD6gcBcTEYDUAGnBEhudvQ8vdP8/OlxK8XKvh8PhjO3v2CVb
-	 D6mbYl3pQd16JmGt8gkQZiUWmRSBePbLKnlDI7l3IHazpidknz+dxXQj8PwBgzZBOJ
-	 UsBlxairo1QZyNDZilFJT5OIGw61w+FDKPcIz2vkDPtyw8K1c9kncnO+nmwl5jAMve
-	 mi82bMQ+wqhkw==
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-59dea72099eso594526e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:44:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/qgRsnZjbbGRvfpbz7isw4X/vIa5vOSoaKX3CzkArlPhmb0Nj0Ju7sOktoQ5DkB4aA0VxsH/hvGQTULT7oG/o5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeWmvzpTPesHFq2kMVdVJv1WTbvusCNDyjzSE3NYyE6ud95uM8
-	dE/+C6ACoIUnjht4utiTWVlL8S0zGC3pNraYIbuHrQ55AGX57C5gwanxG9IcB45n1+e9wrA/dsK
-	P6n01+72udwktOPVki+bXdEXmbpTzlSE=
-X-Received: by 2002:a05:6512:3f23:b0:5a8:638d:6f53 with SMTP id
- 2adb3069b0e04-5a887adaa88mr2727485e87.6.1778147083932; Thu, 07 May 2026
- 02:44:43 -0700 (PDT)
+	Thu, 07 May 2026 09:50:53 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1778147447;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NBH0jyNZrOzmMWTTXswtxOpylKAjIZZm3k5vmlmFTBY=;
+	b=leWMdPdyfke1PG9kBHkhG5M8+CkYZqJLTLAqeCjYiODinG+/j5IfywZS4BLtwSeOnAhR6D
+	pw/eSfCLzgoMv61xYkcFltHJt75Aj5NL592c/QId6geF4NJndJWESdEbRgVpzZJaKCAEAk
+	S46RxvcRAIZA9ahHYcTAxrtRU+Lc+i248yF5/kVapuIJ8z3dVEqbikVTF3jyXqEuOI+x3T
+	3bevzAN4DzkSVknLp5v6SvQ6O8TC9Rp1nxTnpME2Yz+kDQdJ86k1KXyx7rg0SDmJQCUrew
+	Jl0XoiQVfdJ919Xfgwb85G6jo2BOn+QjO9UZmH6nOsM9NQzLPu3et2OdyeeYug==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1778147447;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NBH0jyNZrOzmMWTTXswtxOpylKAjIZZm3k5vmlmFTBY=;
+	b=Tq2nphDtcvBpFn3zxihLGoMnyKDvoUWprRrJufVzWFnDKGTEAFUEQ7hCJcHsFd6FLZEOal
+	HAqr18N14WAjRFBg==
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Ilpo =?utf-8?Q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Thomas Fourier <fourier.thomas@gmail.com>,
+	Kees Cook <kees@kernel.org>, linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, sparclinux@vger.kernel.org
+Subject: Re: [PATCH tty v4 2/6] serial: Replace driver usage of UPF_CONS_FLOW
+In-Reply-To: <20260506121606.5805-3-john.ogness@linutronix.de>
+References: <20260506121606.5805-1-john.ogness@linutronix.de>
+ <20260506121606.5805-3-john.ogness@linutronix.de>
+Date: Thu, 07 May 2026 11:56:46 +0206
+Message-ID: <87lddvy2dl.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-References: <20260414-axiado-ax3000-sgpio-controller-v1-0-b5c7e4c2e69b@axiado.com>
- <20260414-axiado-ax3000-sgpio-controller-v1-1-b5c7e4c2e69b@axiado.com>
- <CAD++jL=yc4rmNELLKUpreUqRbQ1Krg95C-o1xSrnD9Aicm4wgw@mail.gmail.com> <106b7b64-ed6e-499f-b5ac-60c1277f2f03@axiado.com>
-In-Reply-To: <106b7b64-ed6e-499f-b5ac-60c1277f2f03@axiado.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 7 May 2026 11:44:32 +0200
-X-Gmail-Original-Message-ID: <CAD++jLn4R9ubqHsek-56s1sF9YhxYt4-C2TPdYGcYjy2MC6q_Q@mail.gmail.com>
-X-Gm-Features: AVHnY4KA8TveR2zDsS46EaI7LI2muWnzNFMg-HaAe4yTbCLUY8SRows5ieuqqDs
-Message-ID: <CAD++jLn4R9ubqHsek-56s1sF9YhxYt4-C2TPdYGcYjy2MC6q_Q@mail.gmail.com>
-Subject: Re: [PATCH 1/3] dt-bindings: gpio: add Axiado SGPIO controller
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
-	Prasad Bolisetty <pbolisetty@axiado.com>, Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Harshit Shah <hshah@axiado.com>, SriNavmani A <srinavmani@axiado.com>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_024448_087276_79052FBD 
-X-CRM114-Status: GOOD (  31.13  )
+X-CRM114-CacheID: sfid-20260507_025051_841405_A60E1F9C 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,97 +85,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Petar,
+Hi,
 
-On Thu, May 7, 2026 at 10:06=E2=80=AFAM Petar Stepanovic <pstepanovic@axiad=
-o.com> wrote:
+(This email is particularly directed at the Samsung folks.)
 
-> >> +  '#gpio-cells':
-> >> +    const: 2
-> > Are you sure you don't want to use 3 here instead and split the 128
-> > GPIOs into 4 "banks" second cell being the bank number?
-> > <&gpio 2 4>; ?
-> >
-> > Maybe this also solves the 512 GPIO by grouping the GPIOs into
-> > 8 banks...?
+Responding to Sashiko:
+
+https://sashiko.dev/#/patchset/20260506121606.5805-1-john.ogness%40linutronix.de
+
+On 2026-05-06, Sashiko wrote:
+>> diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
+>> index e27806bf2cf3e..2f94fc798cffb 100644
+>> --- a/drivers/tty/serial/samsung_tty.c
+>> +++ b/drivers/tty/serial/samsung_tty.c
+>> @@ -319,7 +319,7 @@ static void s3c24xx_serial_stop_tx(struct uart_port *port)
+>>  	ourport->tx_enabled = 0;
+>>  	ourport->tx_in_progress = 0;
+>>  
+>> -	if (port->flags & UPF_CONS_FLOW)
+>> +	if (uart_cons_flow_enabled(port))
+>>  		s3c24xx_serial_rx_enable(port);
 >
-> Thank you for the suggestion. We would prefer to keep #gpio-cells =3D <2>
-> to stay aligned with existing SGPIO drivers and current DTS usage.
-> A single linear offset is sufficient to identify each GPIO, so introducin=
-g a
-> bank cell would add additional complexity without a clear benefit.
-> Any internal bank handling can remain within the driver if needed.
-
-If each bank also has its own associated IRQ line, for instance, then
-this also reflects the hardware in a better way. But it seems this
-controller has just one single IRQ line for all GPIOs, so maybe
-this is better.
-
-> >> +  ngpios:
-> >> +    description: The number of gpios this controller has.
-> >> +    $ref: /schemas/types.yaml#/definitions/uint32
-> >
-> > Same here, certainly the 128 variant has 128 gpios and
-> > the 512 has 512 GPIOs? Just use the compatible string
-> > to infer this.
+> This isn't a new bug introduced by this patch, but does this code
+> result in a recursive spinlock acquisition and deadlock when console
+> flow control is enabled?
 >
-> This seems to be platform-specific rather than strictly hardware-dependen=
-t.
-> We were considering keeping it as a separate property (possibly renamed t=
-o |axiado,sgpio-ngpios|).
-> Would you prefer that, or deriving it from the compatible string?
-
-In this case it is fine to use ngpios.
-
-ngpios is used when the hardware can actually do more
-GPIO lines, but they are not routed out on the package of
-the silicon, for example.
-
-> >> +  dout-init:
-> >> +    description: Initial values for the dout registers.
-> >> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> >> +    minItems: 4
-> >> +    maxItems: 4
-> > In:
-> > Documentation/devicetree/bindings/gpio/nxp,pcf8575.yaml
-> >
-> > you find:
-> >
-> >   lines-initial-states:
-> >     $ref: /schemas/types.yaml#/definitions/uint32
-> >     description:
-> >       Bitmask that specifies the initial state of each line.
-> >       When a bit is set to zero, the corresponding line will be initial=
-ized to
-> >       the input (pulled-up) state.
-> >       When the  bit is set to one, the line will be initialized to the
-> >       low-level output state.
-> >       If the property is not specified all lines will be initialized to=
- the
-> >       input state.
-> >
-> > If this is what you want, use this standard binding instead.
+> The serial core framework calls port->ops->stop_tx() with the
+> port->lock spinlock already held. When uart_cons_flow_enabled(port)
+> evaluates to true, s3c24xx_serial_stop_tx() invokes
+> s3c24xx_serial_rx_enable().
 >
-> In our case, the hardware provides dedicated DOUT registers where
-> each bit directly controls the output level (0 =3D low, 1 =3D high).
+> Looking at s3c24xx_serial_rx_enable(), it unconditionally attempts to
+> acquire the exact same lock again:
 >
-> The lines-initial-states property also encodes input state semantics,
-> so it does not map directly to this hardware.
+> static void s3c24xx_serial_rx_enable(struct uart_port *port)
+> {
+> 	struct s3c24xx_uart_port *ourport = to_ourport(port);
+> 	unsigned long flags;
+> 	...
+> 	uart_port_lock_irqsave(port, &flags);
+> 	...
+> }
 >
-> Would you prefer adapting to lines-initial-states despite this,
-> or using a separate property for output initialization?
+> Because spinlocks are not recursive in the kernel, it appears this
+> sequence would cause an immediate deadlock on the same CPU.
 
-Please use lines-initial-states, support also input mode setting
-and write more than one register if necessary.
+Although out of scope for my series, the reported issue is real. Perhaps
+something for Krzysztof or Alim to look into.
 
-Setting up the dout-states for lines which are supposed to be used
-as inputs just doesn't make sense does it?
+>> @@ -493,7 +493,7 @@ static void s3c24xx_serial_start_tx(struct uart_port *port)
+>>  	struct tty_port *tport = &port->state->port;
+>>  
+>>  	if (!ourport->tx_enabled) {
+>> -		if (port->flags & UPF_CONS_FLOW)
+>> +		if (uart_cons_flow_enabled(port))
+>>  			s3c24xx_serial_rx_disable(port);
+>
+> Similarly here, s3c24xx_serial_start_tx() is also called with
+> port->lock held, and s3c24xx_serial_rx_disable() will attempt to
+> acquire port->lock again:
+>
+> static void s3c24xx_serial_rx_disable(struct uart_port *port)
+> {
+> 	struct s3c24xx_uart_port *ourport = to_ourport(port);
+> 	unsigned long flags;
+> 	...
+> 	uart_port_lock_irqsave(port, &flags);
+> 	...
+> }
+>
+> Could this pre-existing locking issue in the samsung_tty driver be
+> addressed so that the rx enable/disable helpers do not try to take the
+> port lock when it is already held by the caller?
 
-It is better if the device tree has this deeper semantic which
-provides useful information for the developer and makes the
-author of the device tree be more careful and detail-oriented
-around the actual usecase.
+Also legitimate. But out of scope for my series.
 
-Yours,
-Linus Walleij
+John Ogness
 
