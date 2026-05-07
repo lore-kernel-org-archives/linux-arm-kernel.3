@@ -4,91 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11A12CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85426CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xw5SJ5ouCRYB/b5GcNxozXNcJ8qmSd+3bPwo/jj3Nqc=; b=u677r4nzk9s8CRaqeLv3dy14x4
-	/UDEOs5p96XdBl8jtZ6WK+cIz/EEcEpRRJfUUPTboUJ7G5eEN2w4mQCej9FTH5OleFPNFmmjErvLe
-	R8mGCYAs6s7XRJlJwufq1ztRzNtC/NAA9SbG6wwWtTQ8TBfVa0B6HtVEPnPhpof7TPzQMRTp13gow
-	bEjQoR9O9iF2OK+8ldNfvNPJWg6imvbpQFZnmm4n4esRKXBC0C4xKK4/Lms5ZTmkVetzOsgplE659
-	rHHbGBDp/Qcf41KSLtPzA3/12syto0JWIHbnsJbEPS6mS4SkIPCPkZoccT425EUkLGiehxiM7yuS9
-	rt9QviDQ==;
+	bh=Qnf2eLwM4+kE1SjnDabjK0264s7bGpHMEasvI8tC1Ds=; b=M2/yy7/PS4RkF+8RGtXH4FOu9k
+	c/OYu7xUAWizUJIRRud3h8mX+gSEIBp4R9YHLw2A7uJKK90cyUBKUPrqU/tJpEbLXuDyqvXCa4WND
+	rzBSIZzPwi8cGYqRKYon+jrnuUrFPczXH9NU92011/NipH6rx991G0Lg/jwz6GOnBXN1VKX7fTOLB
+	WycvAPFTS7bEvuM6KR2I/fuCdJUNRxqqv2GP10WiL9jXMdOA83GX9sy8Lhn96tFJgcPiCZY5+BPHG
+	jxu3tnBjkmk0AcLpxETIOW6nMpc3OK+FdGgp1xbAkZxvRsxdXx1XUCsISbJTOeCWka7VdTuMxtv3x
+	2+eGD38g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKxUl-00000003jnY-3xry;
-	Thu, 07 May 2026 12:06:23 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wKxZH-00000003kSn-1rGo;
+	Thu, 07 May 2026 12:11:03 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKxUh-00000003jlp-3z54
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 12:06:21 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-449cdc12a8aso80563f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 05:06:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778155577; x=1778760377; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xw5SJ5ouCRYB/b5GcNxozXNcJ8qmSd+3bPwo/jj3Nqc=;
-        b=RuIw70aPruUkCw2VczMZCCDlR911SMvGEGYIigXBvDuMyrc/2D6DDx+122bOa83nb3
-         dfAVR0f+/8ojYxT2PCv1vRF4xh7vidht+VfBJYxy1TPWgu9TmWVry5KQrX7G8ADdxKiH
-         O94vovkiBYMaBn22r1xUCJhndcxYtJj6gFrM9QP3xYjNyuMMxY0lsLkLdrtj4e34ZurJ
-         Gj1IKt4cCRDyegSkuHi/D6IrphMfo6oqCa4hBtzhmFRfUpsBX8WPQ0+SMCBwS4bxNkLW
-         4oYubj1wRFgWnfNZtZcOgn/Gbeg+D7ZTIa7oijfzk8r/x+pVP5r66VxWcO9vnNzqCMq7
-         JqnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778155577; x=1778760377;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xw5SJ5ouCRYB/b5GcNxozXNcJ8qmSd+3bPwo/jj3Nqc=;
-        b=rE6KiyrhrfyURlq/N3i9zzS/g7uoqTGlaTuadjlIP/r6q/R5rZFQzJgW2s+0JLX8VZ
-         6g7tnZE4zcUTcI9+tKccu449GetSY39J9DiA2IgKeG13+SpKXM8jTcU6Q+bomlqW/dLt
-         td/3sy5d3pRupD4+KdcQNPWYma4OpcR0ke4cUfxaP7Ls9+HmHMuF0zqH2l1jmT+Jqb1+
-         iCXGgVPIYRXmUNonB+CK9wdmqV2MT/DV5dtSh7zaqb2EBL6iFpCwnSQGDc1hQrYVw1IU
-         Kq13iQBTxiB0b7svuE8qvlrR5j4froj/5wbFwRE3Mx1gAcJROv5pFFdDVdfAo6jWXaXE
-         kbNA==
-X-Forwarded-Encrypted: i=1; AFNElJ89XtQUKr3jYVv7sPQ7Vz1mPHV6iROn/Y6ovBTgbHvB3UWdN7845XxFxSe36oAVCWXbLgvENLx8ekEDd5/w7JAL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZkiMsx5la4Lex1RggOjEh9C/mvMGFYegU/B43Sk2HS0D17mo9
-	o7GVNAzBPHn4WWs9J6qTLbJXnIae72jCZM6vAeEZqvHv1KvpHO9YZ4A3
-X-Gm-Gg: AeBDieupBS8OXqt9/sk9hHdnub9IT1eXmiwUI+dlR9DEy4RdNeAJ4mTXdswIKwwgpXI
-	FtrsWxfXj/2yZi4IiH20b9/ixXA504v91JSf2nUtopmQJ1B/VU3eFnzYOGq+xnMsw3l2Shcix52
-	XI3GcQAEPXbjmYYl6aGkKcrU//yNdIpx0O3mFwoFWDuaNePiZ/UpAU8PSL+gApqb5h03gyN1vn6
-	VTqjhbOJs8Ytl70lu8R9ZB6gjjTsRPhsHTYlepwF0+iPWUQBrhCTsjQiKgeIfoiPRNvC4mT3Xug
-	8SdPPp+PLfVZxs6iMZxJXuO/+chXcihV4zPXdH9fGqFBqHLy2e+673zWrr7ibOed9lumJWIUaLr
-	3K8jwujCzlv3chHoTf83nosoLCt57toIjBiqEPU4QKyCDHkFKpufvDoK4fSYR9XEmjvoOQNF5Rr
-	qiBhwxJkdKRygauSU/FdaDPuBgoC5rRb0xmPCJ
-X-Received: by 2002:a05:6000:4517:b0:448:71e8:4b3b with SMTP id ffacd0b85a97d-451a71f62e6mr3350578f8f.5.1778155577326;
-        Thu, 07 May 2026 05:06:17 -0700 (PDT)
-Received: from skbuf ([2a02:2f04:d403:cf00:be4e:5cc8:5753:4a2f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45055960902sm21613178f8f.28.2026.05.07.05.06.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 May 2026 05:06:16 -0700 (PDT)
-Date: Thu, 7 May 2026 15:06:14 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: David Carlier <devnexen@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Hector Martin <marcan@marcan.st>,
-	Philipp Zabel <p.zabel@pengutronix.de>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] phy: apple: atc: Fix typec switch/mux leak and UAF on
- unbind
-Message-ID: <20260507120614.jlygedfycdjxbvoo@skbuf>
-References: <20260420231014.35462-1-devnexen@gmail.com>
+	id 1wKxZE-00000003kRt-0veN;
+	Thu, 07 May 2026 12:11:01 +0000
+Date: Thu, 7 May 2026 14:10:55 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1778155856;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Qnf2eLwM4+kE1SjnDabjK0264s7bGpHMEasvI8tC1Ds=;
+	b=c7r7tsUr+Mfn7uVXgPj25HKQLHBzCNoekFyQiZXMf9vpnnC7aSUpxkjtoxqd6D0WH4jzBX
+	tXNdLFEjtfE9OC7V8T4mYEcwq+Z8Mmhx6uW2eSLLfhOhFJPxRgNUU0y0sBEINT2RVYTQPa
+	vgtA1S/RoqlF1oGRauLvJL1oEZFX14qwi1iTSB5TORowjkRN3+efCwLU0wIrK1xtHfSwmY
+	unYA4Ck2+7vvlqT+tR+s0Fq6P34lc5L6vDl9QOIcikVDoP2grQ+O1Jb0ryCbKTLlq+Y6Te
+	bsqA8NJ4R0NE94B2qcNQMhAiWmyfaupEkPlLCpGsgT/E93eEfmxZZdpua7S4BQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1778155856;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Qnf2eLwM4+kE1SjnDabjK0264s7bGpHMEasvI8tC1Ds=;
+	b=2B4U11ne735cTdYGVFsZmWhT33/A2bEvWvslomWiaABRO5XjhPyBKUVz9sM6dpIIjg9GWw
+	1WCO/shUNfdNgMCA==
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+To: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
+	Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 0/4] nvmem: Add Raspberry Pi OTP nvmem driver
+Message-ID: <gbc67d5odk7d4l3rl66dsyeqazuidfiogfsteiwey53jr47tnu@auterzljztgh>
+References: <20260506-rpi-otp-driver-v3-0-294602663695@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260420231014.35462-1-devnexen@gmail.com>
+In-Reply-To: <20260506-rpi-otp-driver-v3-0-294602663695@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_050620_017702_35AFA9CC 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20260507_051100_400486_A13EE8AE 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,110 +80,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sashiko says:
+Hi,
 
-commit 13bcb3149b5056d5815f8cd52f9e018076602989
-Author: David Carlier <devnexen@gmail.com>
-phy: apple: atc: Fix typec switch/mux leak and UAF on unbind
+replying to sashiko
 
-This commit addresses a typec switch and mux leak during unbind by
-saving the registered devices and unregistering them via
-devm_add_action_or_reset. It also drops unused struct fields.
+>commit ee93b9620650bb02f494ab88ef4e18464c95770f
+>Author: Gregor Herburger <gregor.herburger@linutronix.de>
+>nvmem: Add the Raspberry Pi OTP driver
+>This commit adds a new nvmem driver to support OTP registers on Raspberry Pi
+>platforms. It accesses the OTP memory through the videocore firmware
+>interface.
+>> diff --git a/drivers/nvmem/raspberrypi-otp.c b/drivers/nvmem/raspberrypi-otp.c
+>> new file mode 100644
+>> index 0000000000000..1edf2d5538d04
+>> --- /dev/null
+>> +++ b/drivers/nvmem/raspberrypi-otp.c
+>> @@ -0,0 +1,120 @@
+>[ ... ]
+>> +struct rpi_otp_priv {
+>> +	struct rpi_firmware *fw;
+>> +	struct device *dev;
+>> +	u32 read_tag;
+>> +	u32 write_tag;
+>> +};
+>> +
+>> +struct rpi_otp_header {
+>> +	__le32 start;
+>> +	__le32 count;
+>> +	__le32 data[] __counted_by(count);
+>Is the __counted_by attribute safe to use with explicitly endian types?
+>On big-endian architectures (which are supported via COMPILE_TEST), the
+>native bounds checking logic will evaluate the byte-swapped __le32 value as a
+>massive integer (e.g., a count of 1 evaluates to 16777216).
+>Does this unintentionally bypass the bounds checking defenses?
 
-> diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
-> index e9d106f135c51..4156fabad742c 100644
-> --- a/drivers/phy/apple/atc.c
-> +++ b/drivers/phy/apple/atc.c
-[ ... ]
-> @@ -2066,15 +2063,25 @@ static int atcphy_sw_set(struct typec_switch_dev *sw, enum typec_orientation ori
->  	return 0;
->  }
->
-> +static void atcphy_typec_switch_unregister(void *data)
-> +{
-> +	typec_switch_unregister(data);
-> +}
-> +
->  static int atcphy_probe_switch(struct apple_atcphy *atcphy)
->  {
-> +	struct typec_switch_dev *sw;
->  	struct typec_switch_desc sw_desc = {
->  		.drvdata = atcphy,
->  		.fwnode = atcphy->dev->fwnode,
->  		.set = atcphy_sw_set,
->  	};
->
-> -	return PTR_ERR_OR_ZERO(typec_switch_register(atcphy->dev, &sw_desc));
-> +	sw = typec_switch_register(atcphy->dev, &sw_desc);
-> +	if (IS_ERR(sw))
-> +		return PTR_ERR(sw);
-> +
-> +	return devm_add_action_or_reset(atcphy->dev, atcphy_typec_switch_unregister, sw);
->  }
+Yes that is right on compile tests on big-endian it will bypass the run time
+check. I can use the __counted_by_le() macro to disable it on big-endian and
+keep it on little-endian.
 
-Could this lead to a use-after-free if consumers still hold a reference to
-the switch or mux?
+>> +};
+>> +
+>> +static int rpi_otp_read(void *context, unsigned int offset, void *buf, size_t bytes)
+>> +{
+>> +	struct rpi_otp_priv *priv = context;
+>> +	struct rpi_otp_header *fwbuf;
+>> +	u32 count = bytes / 4;
+>> +	int ret;
+>> +
+>> +	fwbuf = kzalloc(struct_size(fwbuf, data, count), GFP_KERNEL);
+>Could an unaligned length request cause an out-of-bounds write here?
+>If a caller requests an unaligned length (e.g., bytes = 3), count truncates
+>to 0, allocating an 8-byte structure.
 
-When the driver unbinds, devm cleanup runs and frees the apple_atcphy
-structure. The devm action calls typec_switch_unregister(), which drops the
-sysfs representation but doesn't free the device object if a consumer (like
-TCPM or a Type-C port driver) still holds a reference.
+I first thought that alignment is checked in the nvmem system (with
+nvmem_device::stride and nvmem_device::word_size)  but that is only true for
+sysfs accesses. The nvmem_device_read/nvmem_device_write functions call directly
+into the callback function of the driver. I guess there should be an alignment
+check in this functions as well.
 
-If the consumer is not unbound concurrently, it retains the reference and
-remains active. Unregistering the switch does not clear its .set callback.
-If a cable replug or orientation change occurs, the consumer could call
-typec_switch_set(), which would invoke atcphy_sw_set().
+For now I will add an alignment check into my functions.
 
-Since atcphy_sw_set() extracts the freed apple_atcphy pointer from drvdata
-and attempts to acquire its mutex, could this result in a use-after-free?
-[ ... ]
+>> +	if (!fwbuf)
+>> +		return -ENOMEM;
+>> +
+>> +	fwbuf->start = cpu_to_le32(offset / 4);
+>> +	fwbuf->count = cpu_to_le32(count);
+>> +
+>> +	ret = rpi_firmware_property(priv->fw, priv->read_tag, fwbuf,
+>> +				    sizeof(struct rpi_otp_header) + bytes);
+>> +	if (ret)
+>> +		goto out;
+>> +
+>> +	memcpy(buf, fwbuf->data, bytes);
+>With an unaligned bytes request, would this memcpy write past the bounds of
+>the 0-count fwbuf array? 
+>Should there be an explicit alignment check for bytes and offset at the start
+>of the function?
 
-> @@ -2146,15 +2153,25 @@ static int atcphy_mux_set(struct typec_mux_dev *mux, struct typec_mux_state *sta
->  	return atcphy_configure(atcphy, target_mode);
->  }
->
-> +static void atcphy_typec_mux_unregister(void *data)
-> +{
-> +	typec_mux_unregister(data);
-> +}
-> +
->  static int atcphy_probe_mux(struct apple_atcphy *atcphy)
->  {
-> +	struct typec_mux_dev *mux;
->  	struct typec_mux_desc mux_desc = {
->  		.drvdata = atcphy,
->  		.fwnode = atcphy->dev->fwnode,
->  		.set = atcphy_mux_set,
->  	};
->
-> -	return PTR_ERR_OR_ZERO(typec_mux_register(atcphy->dev, &mux_desc));
-> +	mux = typec_mux_register(atcphy->dev, &mux_desc);
-> +	if (IS_ERR(mux))
-> +		return PTR_ERR(mux);
-> +
-> +	return devm_add_action_or_reset(atcphy->dev, atcphy_typec_mux_unregister, mux);
->  }
+Yes see above.
 
-Are we exposed to the same issue here with typec_mux_unregister()?
-If a consumer still holds a reference to the mux device after the driver
-unbinds and devm frees apple_atcphy, could an alt-mode transition invoke
-atcphy_mux_set() and access the freed memory?
+>> +
+>> +out:
+>> +	kfree(fwbuf);
+>> +	return ret;
+>> +}
+>> +
+>> +static int rpi_otp_write(void *context, unsigned int offset, void *val, size_t bytes)
+>> +{
+>> +	struct rpi_otp_priv *priv = context;
+>> +	struct rpi_otp_header *fwbuf;
+>> +	u32 count = bytes / 4;
+>> +	int ret;
+>> +
+>> +	fwbuf = kzalloc(struct_size(fwbuf, data, count), GFP_KERNEL);
+>> +	if (!fwbuf)
+>> +		return -ENOMEM;
+>> +
+>> +	fwbuf->start = cpu_to_le32(offset / 4);
+>> +	fwbuf->count = cpu_to_le32(count);
+>> +	memcpy(fwbuf->data, val, bytes);
+>Similarly, could this memcpy write out-of-bounds if bytes is not aligned to
+>a 4-byte boundary?
 
-[human]
+Yes see above.
 
-Basically it is stating that consumers will continue to hold a reference
-to the Type-C mux and switch even if you go to the extent of unregistering
-them from the framework. This is a known problem in many subsystems;
-even the PHY framework suffers from it.
-https://lore.kernel.org/linux-phy/aZejMSJ9qqRWb2pX@google.com/
+>> +
+>> +	ret = rpi_firmware_property(priv->fw, priv->write_tag, fwbuf,
+>> +				    sizeof(struct rpi_otp_header) + bytes);
+>> +
+>> +	kfree(fwbuf);
+>> +	return ret;
+>> +}
+>> +
+>> +static int rpi_otp_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	struct nvmem_device *nvmem;
+>> +	struct rpi_otp_priv *priv;
+>> +	const struct rpi_otp_driver_data *data;
+>> +	struct nvmem_config config = {
+>> +		.read_only = false,
+>> +		.word_size = 4,
+>> +		.stride = 4,
+>> +		.reg_read = rpi_otp_read,
+>> +		.reg_write = rpi_otp_write,
+>> +		.id = NVMEM_DEVID_NONE,
+>> +	};
+>> +
+>> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+>> +	if (!priv)
+>> +		return -ENOMEM;
+>> +
+>> +	data = dev_get_platdata(dev);
+>> +	if (!data)
+>> +		return -ENODEV;
+>> +
+>> +	priv->fw = dev_get_drvdata(dev->parent);
+>> +	priv->dev = dev;
+>> +	priv->read_tag = data->read_tag;
+>> +	priv->write_tag = data->write_tag;
+>> +	config.dev = dev;
+>> +	config.priv = priv;
+>> +	config.name = data->name;
+>> +	config.size = data->size;
+>> +
+>> +	nvmem = devm_nvmem_register(dev, &config);
+>Does this devres usage introduce a use-after-free risk during device unbind?
+>If an in-kernel consumer holds a reference to the nvmem device,
+>devm_nvmem_unregister() drops its refcount but returns while the consumer's
+>reference keeps the device alive.
+>The devres framework will then proceed to free the priv structure.
+>If the consumer subsequently calls nvmem_device_read(), will it dereference
+>the freed priv pointer inside rpi_otp_read()?
 
-I don't know how the Type-C framework deals with this, so maybe you can
-clarify in your commit message what kind of problems the deregistration
-will get rid of, and what kind of problems it won't.
-
-How do the cable replug or alt mode changes trigger calls to
-atcphy_sw_set() and atcphy_mux_set()? A call stack would help.
-
-Ideally you want to help the reviewer understand that the change is
-obviously correct and takes into consideration all relevant factors.
+Wow good catch. This took me a while to understand but i guess it can indeed
+cause an use-after-free error error for in-kernel consumers. I will look into
+it.
 
