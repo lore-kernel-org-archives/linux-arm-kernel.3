@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C6CACD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 17:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CDC4CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 17:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0toma1xmSC9xv/9BmJInwKZjunhjsuj/gvMWm6C4OBA=; b=FPJTpvv5styhkzt0EFzhSmcW6h
-	odH/r51HelQ5G4DhRg3xZcBkAqn1YQlxcNlhPSRn6+0sTIvt8DNs/jc9jGxB/uelFoD1O5ikWcc9C
-	0ztboniosnukBtUGf83emKD8+dBRTPXAOzAEshj8knq5l0DsWux53FkePN2XfBXOIb+Qh+LUGFu8I
-	QA2JkVJwEsI7z2buno9vK2qMkHB/M4cJjSJqGv8T4VMeuSAz84uduFFDcP3wFQ/keS3NCPojVBspr
-	cWyDoQvjsbjm8IzzlDyuH5IBHlKTY+95lQa4exuIJbzDsQEBxOG6aHRnkMiMrACtAdWlKvEXOUQVL
-	ZiISMe5Q==;
+	bh=P2uFCtkUNsia+m6fpAEh1XqkuX3NtaugGNibOKloo4o=; b=Mtbwv1jpIMTnkUkwVarY8kAbYg
+	KtjbOqX6YtEtbDQCvMw1XF9Fym32EqrId8VGkOapfslCtNs263IWQRJ3IuPWuk0CVYIgs/SL05WYr
+	qi5r6mXFkRzVzMka6TzN3ewXeFMzLG4wdtab4vgJmgB3Yhte+egHS2Kd+ujLWKjaqkWzIyRoijKHt
+	E4rNxtW8QfwzquLYb3ZDFJb0lCItJoBpQq0VzHBZyJUAfxpyrlVrTO9Yqd/APIXVhSflZ/V3WnqCJ
+	+NFYGyct7OzjIdDqrxtULX5mqo2HhX4cmJF/JnRq8uLKj6EISK+a/qf1nJj6M1BhTEvTpzMsbFWgh
+	IXoRXuIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL2SJ-00000004StA-0hmc;
-	Thu, 07 May 2026 17:24:11 +0000
+	id 1wL2Ss-00000004TTN-2m1Y;
+	Thu, 07 May 2026 17:24:46 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL2SI-00000004SrN-15Kh
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 17:24:10 +0000
+	id 1wL2Sq-00000004TRA-3E57;
+	Thu, 07 May 2026 17:24:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CDD5F6024D;
-	Thu,  7 May 2026 17:24:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60D79C2BCB8;
-	Thu,  7 May 2026 17:24:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 373E06024D;
+	Thu,  7 May 2026 17:24:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F400C2BCB2;
+	Thu,  7 May 2026 17:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778174648;
-	bh=/sS7TF2P2okui5cV7b+Als4wJCVp4SLHRLCa7RkEj1U=;
+	s=k20201202; t=1778174683;
+	bh=P2uFCtkUNsia+m6fpAEh1XqkuX3NtaugGNibOKloo4o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UdswB355jFD2zrL4Pa+3RgmzzXRASCQOfMaY250v5ADrpPwzKPyQ1reRgmi8vIUZX
-	 jg78dR41y+75bhPNSSaT/tDhc3FnIAYrUQw+F5xWj7EYJscwL6jV6nc94PiCzcApH6
-	 T1hWAFr/JRX2P0n8P1LCU0LZuDvk+gGlWW5pe1X2IvGG7H4ZvNlPkX7CkPpISf8wWJ
-	 0Fr4DKckV79NbiPyAipnYFyv9zmJ6TZ1MIBZUNwUbZKEYuptfOieHc2822Y3Bcs80P
-	 9KpiTUmdyD88nqopJAO7X7HE7VgsCKFawK4wJ8lzjPwpUaMwgc7plAmtM3VncEmcfA
-	 ES7AXyQilubfA==
-Date: Thu, 7 May 2026 18:24:02 +0100
+	b=CpwAj9kc8UHoERSQHR0XSVqory3ohRb6FqTA8C81qrIvv/U+4tAaRBmUd5plpauW6
+	 O2+JfcJ/rrfXrnYcdDnCt4nXNbQ7v8EyO5n7h3FzT2LaOIxaF7axtWgiCEMU+q6X3A
+	 S+SXGhN92RGwwBvB1L4ZrstRVtXNn95gG9/V78z9EnqRy/Bkbjcn9Fbb7RhN/K1eUs
+	 LPu0e+wfwM7aZMG9k9BAxL/mgkZkFnHfloGEYsd48Oj1b3Pct2pPAN9xwN8aMIBJbH
+	 ZAIPpiwJixuexPRRoCx0FKTdHCo8iikc2sMAFS8fY6VLthtXyBd5rRsqg/1CTTB/sd
+	 TsYOru+1Mv6yw==
+Date: Thu, 7 May 2026 18:24:39 +0100
 From: Conor Dooley <conor@kernel.org>
-To: lizhi2@eswincomputing.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+To: xianwei.zhao@amlogic.com
+Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
-Subject: Re: [PATCH net v1 1/2] dt-bindings: ethernet: eswin: refine delay
- model and HSP register description
-Message-ID: <20260507-mural-moocher-ad6e07ef8ae0@spud>
-References: <20260507083037.152-1-lizhi2@eswincomputing.com>
- <20260507083136.175-1-lizhi2@eswincomputing.com>
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add
+ compatible string for A9
+Message-ID: <20260507-juice-helpless-b04e31e10778@spud>
+References: <20260507-a9-pinctrl-v2-0-49774feff2ef@amlogic.com>
+ <20260507-a9-pinctrl-v2-1-49774feff2ef@amlogic.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="75aYy/57ywRVeCVd"
+	protocol="application/pgp-signature"; boundary="hcasBY/b5pRydqvZ"
 Content-Disposition: inline
-In-Reply-To: <20260507083136.175-1-lizhi2@eswincomputing.com>
+In-Reply-To: <20260507-a9-pinctrl-v2-1-49774feff2ef@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,194 +79,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---75aYy/57ywRVeCVd
+--hcasBY/b5pRydqvZ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Thu, May 07, 2026 at 04:31:36PM +0800, lizhi2@eswincomputing.com wrote:
-> From: Zhi Li <lizhi2@eswincomputing.com>
->=20
-> Refine the EIC7700 Ethernet dt-binding based on observed hardware behavior
-> and clarify the original delay model for eth0.
->=20
-> The previous binding used an enum-based definition for
-> rx-internal-delay-ps and tx-internal-delay-ps. Replace it with a
-> range-based model using:
->=20
->   - minimum: 0
->   - maximum: 2540
->   - multipleOf: 20
->=20
-> This better reflects the actual hardware implementation, which
-> supports 20ps granularity delay steps in the MAC RGMII interface.
->=20
-> The tx/rx internal delay values are clarified as MAC-side programmable
-> delay components applied on the RGMII clock/data path, representing
-> the effective delay seen at the MAC interface.
->=20
-> This does not change the intended hardware semantics, but aligns the
-> binding with the actual hardware implementation.
->=20
-> These properties are optional and only required when MAC-side fine
-> tuning is needed; otherwise delay alignment is provided by PHY or
-> board design.
->=20
-> Depending on the selected RGMII timing mode, delay alignment may be
-> provided by the PHY (e.g. rgmii-id) or by board/MAC-side configuration.
-> When PHY or board design already provides the required delay, these
-> MAC-side properties may be omitted. When MAC-side fine tuning is
-> required, they should be provided to describe the internal RGMII
-> timing adjustment.
->=20
-> Additionally, extend the description of the HSP subsystem register
-> layout used by the MAC glue logic. This includes explicit TXD and RXD
-> delay control registers to ensure deterministic initialization and
-> to override any residual configuration potentially left by bootloaders.
->=20
-> Add reference to the EIC7700X SoC Technical Reference Manual,
-> Chapter 10 ("High-Speed Interface"), Part 4 for background of the
-> HSP CSR block:
-> https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual=
-/releases
->=20
-> There are no in-tree users of this binding, so no ABI impact is
-> expected.
->=20
-> Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7700 =
-SoC")
-> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
-> ---
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-While this is v1, it's really v8 and there should therefore be a
-changelog that explains where my ack and the new compatible went.
-
-Cheers,
-Conor.
-
->  .../bindings/net/eswin,eic7700-eth.yaml       | 50 +++++++++++++------
->  1 file changed, 36 insertions(+), 14 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml=
- b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-> index 91e8cd1db67b..fab95603bd82 100644
-> --- a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-> +++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
-> @@ -63,16 +63,39 @@ properties:
->        - const: stmmaceth
-> =20
->    rx-internal-delay-ps:
-> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
-> +    minimum: 0
-> +    maximum: 2540
-> +    multipleOf: 20
-> +    description:
-> +      RX internal delay in picoseconds applied on the RGMII clock at the=
- MAC
-> +      side. The hardware supports 20 ps steps.
-> +      This property is optional and only needed when MAC-side delay tuni=
-ng
-> +      is required.
-> =20
->    tx-internal-delay-ps:
-> -    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
-> +    minimum: 0
-> +    maximum: 2540
-> +    multipleOf: 20
-> +    description:
-> +      TX internal delay in picoseconds applied on the RGMII clock at the=
- MAC
-> +      side. The hardware supports 20 ps steps.
-> +      This property is optional and only needed when MAC-side delay tuni=
-ng
-> +      is required.
-> =20
->    eswin,hsp-sp-csr:
->      description:
->        HSP CSR is to control and get status of different high-speed perip=
-herals
->        (such as Ethernet, USB, SATA, etc.) via register, which can tune
->        board-level's parameters of PHY, etc.
-> +
-> +      Additional background information about the High-Speed Subsystem
-> +      and the HSP CSR block is available in Chapter 10 ("High-Speed Inte=
-rface")
-> +      of the EIC7700X SoC Technical Reference Manual, Part 4
-> +      (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf). The manual is
-> +      publicly available at
-> +      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference=
--Manual/releases
-> +
-> +      This reference is provided for background information only.
->      $ref: /schemas/types.yaml#/definitions/phandle-array
->      items:
->        - items:
-> @@ -82,6 +105,8 @@ properties:
->            - description: Offset of AXI clock controller Low-Power request
->                           register
->            - description: Offset of register controlling TX/RX clock delay
-> +          - description: Offset of register controlling TXD delay
-> +          - description: Offset of register controlling RXD delay
-> =20
->  required:
->    - compatible
-> @@ -93,8 +118,6 @@ required:
->    - phy-mode
->    - resets
->    - reset-names
-> -  - rx-internal-delay-ps
-> -  - tx-internal-delay-ps
->    - eswin,hsp-sp-csr
-> =20
->  unevaluatedProperties: false
-> @@ -104,24 +127,23 @@ examples:
->      ethernet@50400000 {
->          compatible =3D "eswin,eic7700-qos-eth", "snps,dwmac-5.20";
->          reg =3D <0x50400000 0x10000>;
-> -        clocks =3D <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
-> -                <&d0_clock 193>;
-> -        clock-names =3D "axi", "cfg", "stmmaceth", "tx";
->          interrupt-parent =3D <&plic>;
->          interrupts =3D <61>;
->          interrupt-names =3D "macirq";
-> -        phy-mode =3D "rgmii-id";
-> -        phy-handle =3D <&phy0>;
-> +        clocks =3D <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
-> +                <&d0_clock 193>;
-> +        clock-names =3D "axi", "cfg", "stmmaceth", "tx";
->          resets =3D <&reset 95>;
->          reset-names =3D "stmmaceth";
-> -        rx-internal-delay-ps =3D <200>;
-> -        tx-internal-delay-ps =3D <200>;
-> -        eswin,hsp-sp-csr =3D <&hsp_sp_csr 0x100 0x108 0x118>;
-> -        snps,axi-config =3D <&stmmac_axi_setup>;
-> +        eswin,hsp-sp-csr =3D <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
-> +        phy-handle =3D <&phy0>;
-> +        phy-mode =3D "rgmii-id";
->          snps,aal;
->          snps,fixed-burst;
->          snps,tso;
-> -        stmmac_axi_setup: stmmac-axi-config {
-> +        snps,axi-config =3D <&stmmac_axi_setup_gmac0>;
-> +
-> +        stmmac_axi_setup_gmac0: stmmac-axi-config {
->              snps,blen =3D <0 0 0 0 16 8 4>;
->              snps,rd_osr_lmt =3D <2>;
->              snps,wr_osr_lmt =3D <2>;
-> --=20
-> 2.25.1
->=20
-
---75aYy/57ywRVeCVd
+--hcasBY/b5pRydqvZ
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCafzKsgAKCRB4tDGHoIJi
-0kXYAQDSJ5Nb/+ywgAZ6JhcPy0ioHT02zVbqxDPEW5juK6NEAgEA3mw2372IXYbh
-JQseHS5qL3qXMdFwjwp4T713jZ3Ybws=
-=kGYF
+iHQEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCafzK1wAKCRB4tDGHoIJi
+0lmTAPj2IuWZOzkdHyd1WG3b7KQWEm0yZDOhSvUgbOssnp7HAQCGYO2izgbTLuuW
+g6S0C7Z2i/91Jf5RCru9LETDYWvfCw==
+=CbFS
 -----END PGP SIGNATURE-----
 
---75aYy/57ywRVeCVd--
+--hcasBY/b5pRydqvZ--
 
