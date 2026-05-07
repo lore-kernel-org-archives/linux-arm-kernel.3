@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6FCCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 16:08:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAC9CD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 16:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rdy5PtRz/HkDIo5L6Ua+6U739iTp3/ZnRsbhHuHjN8M=; b=XNqK0yyz4JJM5OXX8BG18VamY+
-	kTD3pHtZLmyETxp7OhjfYl6yxi3HpaoIVjx4oMlrTD/mP0C8r9QapTWelxbISjkYuByrzD47hNNOM
-	t6tVx1qCxLiRY7DmT+pOHJNUsUSsmsEyqv8ji688xgwAcYpjtWD4oUgzar/1GQmGv4hzvSSjrkCOM
-	I7XTmgwPBs0BXt0RxqM1Ee2D+H/6mucHzacBXDzsEh3pRi2fN6uthZ+fzdwvCAEeIAGypyhCyl8rZ
-	9kDCMra/EvNR9xdYdieBQK8H/6BuKTeLnCB0vGgXTo2bID2Vxww5V8pGDlolxJDzrhEZsrz4vYE2K
-	hDxKiPnQ==;
+	bh=7GjT8jvwulPqP8B31j4N+jS1twNrmu/SOUTc9Uxtl5o=; b=aTgwPf3GGKPgYdKttLKxRkqzVQ
+	oZ81W/QZDqCr9clKWzNaW3nWchaFP3uCk9D+WyeSA6+fbFZQe47Q8uB+b4xlQ2fu8BGZxVj9QbLNy
+	F4umqya+TBtazEMP5clkGftLeqBI+kHDyszPI0wJ5zxaoZgGiJwXrrIu8w6TUOAZGteVQMIPlp+x5
+	koitznSazxMmtndXc+8j6ZYZniuEpBQWMlDFA0RdhAJwpNrmlu+aOZTUcl2A7i1NgtuPsV/cVSWE4
+	kyczjtBGIReJ0nU/WWUgUkc4hhTxYcWxpedzZx+4med9Zh3UWRbfeWjWrCuwRf9CK03KZTwQgUy1E
+	3n/8i5Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL1Gn-00000004I6V-3z4d;
-	Thu, 07 May 2026 16:08:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wL1Im-00000004IJP-0zT1;
+	Thu, 07 May 2026 16:10:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL1Gm-00000004I6I-2i2H
+	id 1wL1Ik-00000004IJH-3NMK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 16:08:12 +0000
+	Thu, 07 May 2026 16:10:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1E33F6015B;
-	Thu,  7 May 2026 16:08:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 032ABC2BCB2;
-	Thu,  7 May 2026 16:08:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 427D060252;
+	Thu,  7 May 2026 16:10:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32DA5C2BCB2;
+	Thu,  7 May 2026 16:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778170091;
-	bh=rdy5PtRz/HkDIo5L6Ua+6U739iTp3/ZnRsbhHuHjN8M=;
+	s=k20201202; t=1778170214;
+	bh=fxwf3I7h7jhgXQ9lw8NOcAt3++3EMEiDRO+U9K4nGPQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ZXrsRXuKTrmWAAJUa/ZIgyYSyMYUwzsrAWEGTT9WgtinnjihNNt5J1INMOcC5Tlem
-	 8gOuJNJ7PQHkv0Srns0u6bacUCy6qOnXpPznj6aJvQ2HiBEM7xB82cIFNkKOlVKLG0
-	 QXSaW964r2JHVTGrZROhhEviR+vhEMrhsQbC2CxSj43S8k9zj6APVJK2K2qAoG3nsI
-	 kROWk7pxQXJ/t8LyEWDRCsK5mKEmVRfytDKhjmLKOH1PBe9LkiM1Wo8dsiRhKEmxHS
-	 Qx3cK4tJQHi8yFgf/j2nr7C9nJoQVpdoA4BpMuSpkYH77ZeG+Q44AijNGPS1kacAt1
-	 rR2rJz7j26lWw==
-Date: Thu, 7 May 2026 09:08:10 -0700
+	b=uCuMcWr9E0ZYLfq7TWoM2JB4UuCJ5bmGDp0CgS8YV6u1Fu0kGSIeqXuQ+gVHco7Yh
+	 zCswGy+R6KX6gxhvA1t8Q7c59bspjQE2GEETMR7FN9xMOXyqgfD3OTEhn7WRAikeFz
+	 EC7RaHAG3XRcRMCf5VuwHJUTYism9BYK94Jdwit95i01F0BVQWJuLqjVQYFr1n5sZl
+	 B5TkDpQz9BHM0Rpo0gR0IfFVcdnBI4NiLJkMnsg56gBUZmpKy6vAARBhOvfFNlgMhu
+	 dEw12El0DxT3k8NKYtbojeCWFp/dpFPqO8zc7d/ijxCMyDylN6kGvHu9xwpqrRTQFE
+	 EFbSf7FyaNXpg==
+Date: Thu, 7 May 2026 09:10:12 -0700
 From: Jakub Kicinski <kuba@kernel.org>
 To: Daniel Machon <daniel.machon@microchip.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
@@ -54,13 +54,13 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
  <bjarni.jonasson@microchip.com>, Lars Povlsen <lars.povlsen@microchip.com>,
  Philipp Zabel <p.zabel@pengutronix.de>, <kees@kernel.org>,
  <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-rt-devel@lists.linux.dev>
-Subject: Re: [PATCH net v2 1/4] net: sparx5: defer VCAP debugfs creation
- until after netdev registration
-Message-ID: <20260507090810.53e66ef6@kernel.org>
-In-Reply-To: <20260506-misc-fixes-sparx5-lan969x-v2-1-fb236aa96908@microchip.com>
+ <linux-arm-kernel@lists.infradead.org>, <linux-rt-devel@lists.linux.dev>,
+ Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH net v2 0/4] net: sparx5: misc fixes for sparx5 and
+ lan969x
+Message-ID: <20260507091012.7eeb17f5@kernel.org>
+In-Reply-To: <20260506-misc-fixes-sparx5-lan969x-v2-0-fb236aa96908@microchip.com>
 References: <20260506-misc-fixes-sparx5-lan969x-v2-0-fb236aa96908@microchip.com>
-	<20260506-misc-fixes-sparx5-lan969x-v2-1-fb236aa96908@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
@@ -78,14 +78,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 6 May 2026 09:25:36 +0200 Daniel Machon wrote:
-> Move the debugfs setup into a new sparx5_debugfs() helper in
-> sparx5_debugfs.c, invoked after sparx5_register_notifier_blocks()
-> succeeds so the netdev names are finalized. sparx5_vcap_init() now
-> only deals with VCAP state. The sparx5/ debugfs root is created in
-> the new helper as well.
+On Wed, 6 May 2026 09:25:35 +0200 Daniel Machon wrote:
+>       net: sparx5: fix wrong chip ids for TSN SKUs
+>       net: sparx5: configure serdes for 1000BASE-X in sparx5_port_init()
 
-netdev names are never final :( User can change them at any time.
-The best practice is to name the debugfs file by some stable hw-related
-property, bus, port number etc.
+Let me grab these two already. patch 1 I think needs more work,
+patch 2 is probably fine but maybe we should address the sashiko
+issue in the same series
 
