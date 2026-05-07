@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F8BCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 11:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13989CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 11:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i+BM3TCa9qCzg8rf0CxOrNKtcXVplw/GYWNhUanCydw=; b=ErS4O48TUtHOab5W34tcAsqi+f
-	3dwZvpr8xXeXeAMHckwGYDOXaYmbFxvg/Cu45iGCmGPFDHIXTbBMN+iDihIlZw7H0SzkijTCebAMM
-	tfaPNYn+dVnCo6SAHV87qKRtZXaZfuMzNyEWPrvFGxSICVVCTsZLtQk4KDRxGJ8Zu2E5VcEXcDBoY
-	gihCdloZAxEtl+lumcV5J1Czfr/f00TdKAAhirHK6hf14LnSuVPNmb8Fi5ohzQBheQdseuXCNODpJ
-	r1kKPrLzNj2MTX7W4CqQcoVQXmM3Pben50RAiwt/AfiLuc1KK1C2f6RFOL1gef0oxCckKLd3p/bbk
-	1mS6avfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jAW3SqBHkrLFhHli0X0A0K7Zkr/1/cw1gsdqcyZhvzE=; b=F+UdhvuMr+JGZud6klfxUm3VH9
+	xJ598YWidNy0uSyk4gd8p4zrakMTCFb2cmiMtb3Ew0qE2tBhyX2MnJz8wUXP7C0ffpTr4SCFtSIRV
+	IrGfk3uMwHT1zKvHx8+bmbJNPwN3lCI4+QVSngEKvNNl/18y1CdLU/yCgCwv4CR1VwIhvMQzqAVU8
+	GMB0UekO6czYqYPHjKSX+9N/NHZwIG/8lAdOFm8bTuxwUJhUF/u7scdR1l66UIGcfhCsn/mAE7nIa
+	LEYFiwsmiUBJYkIkoC5AmoyhNvFNLWyDEMNPX3zLjnKGWlIOTyWY/ryfFk9UOcUxTlDYfdw2t7xHl
+	FuK2iUfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKxDn-00000003hdW-0YbB;
-	Thu, 07 May 2026 11:48:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKxIv-00000003iM3-3pDb;
+	Thu, 07 May 2026 11:54:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKxDk-00000003hcs-1KXS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 11:48:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B666F401C6;
-	Thu,  7 May 2026 11:48:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81408C2BCB8;
-	Thu,  7 May 2026 11:48:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778154527;
-	bh=skOLNCIOu8uLMNUP2/UbRZTYsUmk4aY5Jmdqccs0fUI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AGG5YSDOLsnijaOhfJiAG7RtYI0t+/QnZ1xLmZMAnTj9AqGPHkZNHiYjooSzzui8t
-	 vU/2NjNcuPLsxl1IsS8WNqOWii8Ro19vV06oaH9AZ59+g0uJ0tobOynFLv4tk0IGCt
-	 xn1Vcb68lw/0wfz9AbJVWNigkzY0ecdJ7ep7d9si+LnjiYQhEDARDQXo6ad5OnLmNp
-	 OAVIHKs6JZTGftmMwPJf1CnRXRdXsJPthxN081GmtKaxF9Ko+7YCPDlDNJ3maf4nFg
-	 HpJvWxmRMdU1ZNrXvk84n8DtB7qf+NqkwQ5THhZG88rqM2MWLc7Bp8ZFZrGgVI9ZgQ
-	 EH4XM+iIMbdbQ==
-Date: Thu, 7 May 2026 17:18:34 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: arnd@arndb.de, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
-	arnd@arndb.de, mark.rutland@arm.com, bjorn.andersson@oss.qualcomm.com, 
-	konrad.dybcio@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Konrad Dybcio <konradybcio@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@linaro.org>, Sudeep Holla <sudeep.holla@arm.com>, soc@lists.linux.dev
-Subject: Re: [PATCH] firmware: psci: Set pm_set_resume/suspend_via_firmware()
- for SYSTEM_SUSPEND
-Message-ID: <kkrjrwkibs6uthp6dpo2fv4c6rehrc2dkntyp2iafvx53tgub5@eg7hqkgu2ztu>
-References: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
- <acJO+fhjeguDZaRa@lpieralisi>
+	id 1wKxIt-00000003iLM-2vEv;
+	Thu, 07 May 2026 11:54:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1778154843;
+	bh=6BJjaGOruHF5NtcX/6zf6Bu/wTeaT/tj56yBW3eKEjU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fPmUsP6Biz1SZnJghN6tCtUsycAXbfsN/MzfNobVHwNqgB9kUdtzRDrm7ogE3kUmV
+	 1KDDDRUWg2fjogTnUTYzgF84lYdKCv6j/In8onWuNjag38GBGDvUnROplZj2yWZhfL
+	 NkM1qmranfx0+bTAFnW3K5+3qzk/cZ6W9Vmu4X+KK7wK0pOHDN34U4vAiHVUfXeg6Z
+	 VV+J44rQsAIf+Bk6E7Pe3FkLjB/Wl1R5/SFqZlP8qc3JfmltvLQveBlZNxBGuINO9h
+	 +ICAiSORgAbWgWhwR5Dc7w958IByNyyynEWatcnxaomqoIEzijteBXQrJZekWZmmyG
+	 cp7GXoQgAYdmA==
+Received: from fedora (unknown [100.64.0.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E4C6717E131F;
+	Thu,  7 May 2026 13:54:02 +0200 (CEST)
+Date: Thu, 7 May 2026 13:53:56 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Marcin =?UTF-8?B?xZpsdXNhcno=?= <marcin.slusarz@arm.com>
+Cc: Ketil Johnsen <ketil.johnsen@arm.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Sumit Semwal
+ <sumit.semwal@linaro.org>, Benjamin Gaignard
+ <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>,
+ John Stultz <jstultz@google.com>, "T.J. Mercier" <tjmercier@google.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>, Steven Price
+ <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, Daniel Almeida
+ <daniel.almeida@collabora.com>, Alice Ryhl <aliceryhl@google.com>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Florent Tomasin <florent.tomasin@arm.com>, nd@arm.com
+Subject: Re: [PATCH 4/8] drm/panthor: Add support for protected memory
+ allocation in panthor
+Message-ID: <20260507135356.5428d50d@fedora>
+In-Reply-To: <afxVIuVVPisBQ9p_@e129842.arm.com>
+References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
+	<20260505140516.1372388-5-ketil.johnsen@arm.com>
+	<20260505181523.49a3d85c@fedora>
+	<afxVIuVVPisBQ9p_@e129842.arm.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <acJO+fhjeguDZaRa@lpieralisi>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_044848_424121_5A347C4C 
-X-CRM114-Status: GOOD (  30.33  )
+X-CRM114-CacheID: sfid-20260507_045407_881888_6D57154F 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,83 +93,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 24, 2026 at 09:44:41AM +0100, Lorenzo Pieralisi wrote:
-> [+Arnd, arm-soc - to pick this up please]
-> 
+On Thu, 7 May 2026 11:02:26 +0200
+Marcin =C5=9Alusarz <marcin.slusarz@arm.com> wrote:
 
-Arnd, could you please pick this up?
+> On Tue, May 05, 2026 at 06:15:23PM +0200, Boris Brezillon wrote:
+> > > @@ -277,9 +286,21 @@ int panthor_device_init(struct panthor_device *p=
+tdev)
+> > >  			return ret;
+> > >  	}
+> > > =20
+> > > +	/* If a protected heap name is specified but not found, defer the p=
+robe until created */
+> > > +	if (protected_heap_name && strlen(protected_heap_name)) { =20
+> >=20
+> > Do we really need this strlen() > 0? Won't dma_heap_find() fail is the
+> > name is "" already? =20
+>=20
+> If dma_heap_find() will fail, then the whole probe with fail too.
+> This check prevents that.
 
-- Mani
+Yeah, that's also a questionable design choice. I mean, we can
+currently probe and boot the FW even though we never setup the
+protected FW sections, so why should we defer the probe here? Can't we
+just retry the next time a group with the protected bit is created and
+fail if we can find a protected heap?
 
-> On Wed, Dec 31, 2025 at 09:51:26PM +0530, Manivannan Sadhasivam wrote:
-> > From: Konrad Dybcio <konradybcio@kernel.org>
-> > 
-> > PSCI specification defines the SYSTEM_SUSPEND feature which enables the
-> > firmware to implement the suspend to RAM (S2RAM) functionality by
-> > transitioning the system to a deeper low power state. When the system
-> > enters such state, the power to the peripheral devices might be removed. So
-> > the respective device drivers must prepare for the possible removal of the
-> > power by performing actions such as shutting down or resetting the device
-> > in their system suspend callbacks.
-> > 
-> > The Linux PM framework allows the platform drivers to convey this info to
-> > device drivers by calling the pm_set_suspend_via_firmware() and
-> > pm_set_resume_via_firmware() APIs.
-> > 
-> > Hence, if the PSCI firmware supports SYSTEM_SUSPEND feature, call the above
-> > mentioned APIs in the psci_system_suspend_begin() and
-> > psci_system_suspend_enter() callbacks.
-> > 
-> > Signed-off-by: Konrad Dybcio <konrad.dybcio@linaro.org>
-> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> > [mani: reworded the description to be more elaborative]
-> > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-> > ---
-> > 
-> > This patch was part of an old series that didn't make it to mainline due to
-> > objections in the binding and exposing CPU_SUSPEND as S2RAM patches:
-> > https://lore.kernel.org/all/20241028-topic-cpu_suspend_s2ram-v1-0-9fdd9a04b75c@oss.qualcomm.com/
-> > 
-> > But this patch on its own is useful for platforms implementing the S2RAM
-> > feature in PSCI firmware. So I picked it up, tested on Qcom X1E T14s and
-> > resending it.
-> > 
-> >  drivers/firmware/psci/psci.c | 10 ++++++++++
-> >  1 file changed, 10 insertions(+)
-> 
-> Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> 
-> > diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
-> > index 38ca190d4a22..e73bae6cb23a 100644
-> > --- a/drivers/firmware/psci/psci.c
-> > +++ b/drivers/firmware/psci/psci.c
-> > @@ -539,12 +539,22 @@ static int psci_system_suspend(unsigned long unused)
-> >  
-> >  static int psci_system_suspend_enter(suspend_state_t state)
-> >  {
-> > +	pm_set_resume_via_firmware();
-> > +
-> >  	return cpu_suspend(0, psci_system_suspend);
-> >  }
-> >  
-> > +static int psci_system_suspend_begin(suspend_state_t state)
-> > +{
-> > +	pm_set_suspend_via_firmware();
-> > +
-> > +	return 0;
-> > +}
-> > +
-> >  static const struct platform_suspend_ops psci_suspend_ops = {
-> >  	.valid          = suspend_valid_only_mem,
-> >  	.enter          = psci_system_suspend_enter,
-> > +	.begin          = psci_system_suspend_begin,
-> >  };
-> >  
-> >  static void __init psci_init_system_reset2(void)
-> > -- 
-> > 2.48.1
-> > 
+> I'm not sure why it's needed at all, but if
+> it is really needed, then s/strlen(protected_heap_name)/protected_heap_na=
+me[0]/
+> would simplify this.
 
--- 
-மணிவண்ணன் சதாசிவம்
+It's not so much about how you do the test, and more about the case
+you're trying to protect against. I guess here you assume that
+panthor.protected_heap_name=3D"" means "I don't have a protected heap for
+you". If it's deemed acceptable, this should most certainly be
+described somewhere.
+
+>=20
+> > > +		ptdev->protm.heap =3D dma_heap_find(protected_heap_name);
+> > > +		if (!ptdev->protm.heap) {
+> > > +			drm_warn(&ptdev->base,
+> > > +				 "Protected heap \'%s\' not (yet) available - deferring probe",
+> > > +				 protected_heap_name);
+> > > +			ret =3D -EPROBE_DEFER;
+> > > +			goto err_rpm_put; =20
+> >=20
+> > If you move the heap retrieval before the rpm enablement, you can get
+> > rid of this goto err_rpm_put.
+> >  =20
+> > > +		}
+> > > +	}
+> > > +
+> > >  	ret =3D panthor_hw_init(ptdev);
+> > >  	if (ret)
+> > > -		goto err_rpm_put;
+> > > +		goto err_dma_heap_put;
+> > > =20
+> > >  	ret =3D panthor_pwr_init(ptdev);
+> > >  	if (ret) =20
+
 
