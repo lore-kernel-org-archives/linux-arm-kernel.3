@@ -4,96 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C06CD3442
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65865CD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nlujo7B4GXnOEwb19kGu4mpvesYmekRBqIKCAW22YrQ=; b=kFIplbEipgnbzz9cWF9iQ33iPQ
-	51qeT17HquC0hr5GyrbMZNH+zZejrqnd/eZYYRMXjFkImPDYyRVSoE1nLeg62fOKh+IDucBH5lA4Z
-	U09aK9r52y8TQCADfyS5IHrEbDuJuUQn9Wsxr/XpSznBhMBBR88d9CcKYuhREVgR1zWgRAlIB2WQU
-	BnxxNLk3QVqo3spNs0IAp8LHY52sfSwEXq8VdNQEDv+RziedajCC9RBu++z9fRWsTo7u7LDOZvCPu
-	PdQ7trvzUxK16z5nHhyjnqwNqBageUZb/E1ghXoSbxxLbeOOcdfZCg9jLMYKqx96nmL6tQCgRz0V7
-	1iCvaT3g==;
+	bh=xCCJ3WD0XRJefs6CFtktA21OMHhNfXgeFUFwVL5AjPk=; b=f7RG5rUGryYj0W0w++mie5Xab7
+	v+xFQ9S36bbc78/3+ZGOPSF5N0bii53iuROFZLPCrCKWn6Pl7N0hjMbMHXvHZvlVUseHoTVe3zeET
+	64TQhSweZFGzGBqPwTyrkLAbNND+q0k1RE+ufROO7JtsQhU4RI56pEgK+SuCtImaGXv/NYiwPb2tM
+	zUOeU5xvXyq6YZ1S4dPGDOsYAqSnNu/C0MQHGEEzPq61LXA95BniCwXVqbkhP0ibuyD8M+8t1KTnp
+	4uo3ULl9oeGFPAqvGVJDZmVophxh32AHBjnwXQcnB30U+k9LeU31LbCRv10T9y/RuiaI72W7pNpAB
+	n/SuC3UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKtrl-000000037IR-3EuM;
-	Thu, 07 May 2026 08:13:53 +0000
-Received: from mail-pj1-f54.google.com ([209.85.216.54])
+	id 1wKttI-000000037dU-32p1;
+	Thu, 07 May 2026 08:15:28 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKtri-000000037Hc-213k
+	id 1wKttG-000000037cN-19Lx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 08:13:51 +0000
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-365212191f6so395572a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 01:13:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778141629; x=1778746429;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nlujo7B4GXnOEwb19kGu4mpvesYmekRBqIKCAW22YrQ=;
-        b=gt8CY8IC6hcGupQ18diNaC19lU0R/TjphEZAbU/+HIl6yw4n/h48Kjsb+vQOClVRhS
-         ei9V+q06eVFkKi2MJbssdb9rCs4vxspwTaO0HvICJNO9kM+W3w2HKM52NU8+k0D2suvX
-         7t0wKipDxWIrDSWaYAQN6dQH9dSg0xhpw0Ey7yd4TArMmKww9Jb2K0ceO7VmL/6Muv09
-         Fc2yG04JqSuomzPMdXeXgCAwdZEn4UhxeHKsw41oDwBK7XsjIUru9xiHYHXWEzYLMiTL
-         orMakeLGuVfyy7kSPGlRlrHf1bXuAME1/gg1HGFpAG63vI997ZSg3g5b03+8brTR1UsM
-         txOg==
-X-Forwarded-Encrypted: i=1; AFNElJ+tyY8Kp8JhjR5/qv16tO7OoDsMUi4tHi01Lqw2dgUS9ZZK/boBKm/sDKlHGIDYXJozCkQqBPFSY0QCiTaHdRNF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzR15xPVXoqkSVKKJJF9N3yzBkJaZi9MimbkwWQSikpnw5SRSgI
-	/f3asU3PyDb8MSrPcrfpo5eb5Uo15yyEg+ixfIqyO1W75n6Qfrw6dtwHZe9C+OwLmXM=
-X-Gm-Gg: AeBDievIuRgKd0MSkQfBmM2efmXZj1ejjjOfmruHmBZNh7yxJ8P4XDUfjIKNAv0zW/2
-	UVeZPyEgcmbhJKHEoX3O79B7V6EMMyk3KQJmw2mJCFtR1X/JaVhbN07uk3Sv7ilUhUBDk+iRgCK
-	ZfBCpeXt20dkAO+BrGgzjX4ub20cJsamSTpAZIteplmdTBtr73gg58ltzGtvQAgJhp4p4OQw3zD
-	PCMlhSTqAHHOg8Qqmw5qsVPnQuRpWl8TnRNlcF+i7++ptXoEoBgIDI3B45c3c2tfMmzRYUk0WQ0
-	MPAH9+rLWfDF9WDyB8iEInOteCgNRRQf75JUD9e+NF1ibU9VlGAWigjLLafogrUk1QHspmprJDu
-	u1XjnEYcHXrB0SAMFmG5NsUepj7rF1dWJGEgUGM+XInp4/mSY/jVgHxthLWagWzs0zl1OFlThCy
-	xbyuDTmAmzYhsXTdzTq6ZY8D9D9pnAjA0hPqh1aHSRmG1SbnlBcu8LzIKKUcAvh64neOztYKvPg
-	A==
-X-Received: by 2002:a17:90b:3f45:b0:364:6558:99bf with SMTP id 98e67ed59e1d1-365ac0801a8mr6776923a91.14.1778141629148;
-        Thu, 07 May 2026 01:13:49 -0700 (PDT)
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com. [74.125.82.170])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8253b46c42sm1360370a12.25.2026.05.07.01.13.48
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 May 2026 01:13:48 -0700 (PDT)
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-2f0d3e07e30so1438305eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 01:13:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8JNcastNd+sHjrU0mrpzvwHv5ucoHSPWi08azBye1nH7k4rz1LhfrMbpwMvBdagJz9UiiLZJAmnAIsaGQcrIoJ@lists.infradead.org
-X-Received: by 2002:a05:6102:304e:b0:62e:79ee:4cda with SMTP id
- ada2fe7eead31-630f8e6ad78mr3364577137.3.1778141327428; Thu, 07 May 2026
- 01:08:47 -0700 (PDT)
+	Thu, 07 May 2026 08:15:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778141726; x=1809677726;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=Hs2l0+rYcQ6xCrHZ925yzOVmlnCGgA8lEGk1WHb+PFI=;
+  b=TW8397dW4SPZ1/YGy4ZEyqYV78rm8v9JxmilccOodQ3onNRwJQ6OtDiU
+   pjWzpcfwn207i7Frhfbqm3rLPPpow5PBw5sTA1/Am6ZOHR9oyxB5OUpQk
+   5yjSPPZBq0lVynWQe9qMnoLldFAf4c4H0GxAd0QiyrCRD649DwSSY+UD+
+   MmnMtsHA3ZZxpNTpxzUwzIs2xAMq+QkyU3fviUPFi+gw3UIbvx8Zlc6X3
+   f1LEBENZ15gEl820NjARVkOa+mZXUzTqLXqRgaq9YePcGskJOfiqBfE9c
+   mxbhPjmx1R/3R+8xVc7tvg2uBEkqNbGycEyJboHc0w/mUyOKu1X+Gl8wI
+   w==;
+X-CSE-ConnectionGUID: y3Fs2IfOTEatecjZMYceXw==
+X-CSE-MsgGUID: LouA9REgQTqic9nj6t5Ttg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11778"; a="82709320"
+X-IronPort-AV: E=Sophos;i="6.23,221,1770624000"; 
+   d="scan'208";a="82709320"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 May 2026 01:15:25 -0700
+X-CSE-ConnectionGUID: CnCg71j0SqGM4fH0j9Yojw==
+X-CSE-MsgGUID: hW7mK+DvRMW1gKZEtMEKiA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,221,1770624000"; 
+   d="scan'208";a="240726207"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 May 2026 01:15:25 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 7 May 2026 01:15:24 -0700
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Thu, 7 May 2026 01:15:24 -0700
+Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.20) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 7 May 2026 01:15:23 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CeFcXn5yprxXYPfiMz/QXt2JJlwxiUyX7Anmkj+wncLdCi/L1slRvhuK11gIvyrfmxbA8jFLXuZb4JrrTEjFLB10k/1UurPBE9s5lxAYqqnMJqW8aoh53ZBHQrHmBpf4igapx52vvrYGDcrDjWh4rczZMHKAcG2KNrJ4OUgefK3DLbmbXCH0c4N3kvgzYSyedoJ/gfqr/a6slnMJRWfxc13WCU+8KEmBzDcuyW3MrL7AtLnZpMXu1Qtcbix+iLDxm8RsexD3UaK40QIMjps69jQNVH5HNsuwFptr0Jm9sZ/VHhfwRnQOcB/xtmVZgZvL6r/8xKcwUFmGF56EMHlbZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xCCJ3WD0XRJefs6CFtktA21OMHhNfXgeFUFwVL5AjPk=;
+ b=PVZtyRpNkCagSrpI4nvdb5Zlti/zWqRwgq/AFgwhQlRxVTEch9oevXVCoeiuV2wn9lEELlkD+tTUNkunsynfOH1uHnT9X69nXkoRrizEjYgLz7iF57zP7nqRhOlGXbwPPnRPBfsGmgibGLP5AW76WfzJuDrVpYKddobo+9ArD8B24zM1vSmJ/NoCkPphqOrrzDjcSpTIfMr/cDR1Snzl2yeAiwRbrrLiT860CJGCKKBfeQNIOTV5MRvk+9+wKr745UES1bTCdopgctjzSQMBpA0zIc+zKB9Gb/NWDjEC7Svj5Je4tjuS/Y3qEIl9+Mp1SFtfvmxqUeQultj7aKhLrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by SA1PR11MB6894.namprd11.prod.outlook.com (2603:10b6:806:2b1::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Thu, 7 May
+ 2026 08:15:21 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::f997:762f:f079:134f%5]) with mapi id 15.20.9891.017; Thu, 7 May 2026
+ 08:15:21 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>, Joonwon Kang <joonwonkang@google.com>
+CC: "will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>, "jpb@kernel.org"
+	<jpb@kernel.org>, "nicolinc@nvidia.com" <nicolinc@nvidia.com>,
+	"praan@google.com" <praan@google.com>, "kees@kernel.org" <kees@kernel.org>,
+	"amhetre@nvidia.com" <amhetre@nvidia.com>, "Alexander.Grest@microsoft.com"
+	<Alexander.Grest@microsoft.com>, "baolu.lu@linux.intel.com"
+	<baolu.lu@linux.intel.com>, "smostafa@google.com" <smostafa@google.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH RFC] iommu: Enable per-device SSID space for SVA
+Thread-Topic: [PATCH RFC] iommu: Enable per-device SSID space for SVA
+Thread-Index: AQHc08flq+VZwzTmIU+htlLOaFupobXuOBmAgBQSqNA=
+Date: Thu, 7 May 2026 08:15:21 +0000
+Message-ID: <BN9PR11MB5276E9D968D3738CCE7125248C3C2@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <20260424085339.3503582-1-joonwonkang@google.com>
+ <20260424133953.GY3611611@ziepe.ca>
+In-Reply-To: <20260424133953.GY3611611@ziepe.ca>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|SA1PR11MB6894:EE_
+x-ms-office365-filtering-correlation-id: 7ebed20b-1de4-4329-a2d5-08deac10c844
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|3023799003|38070700021|56012099003|22082099003|18002099003;
+x-microsoft-antispam-message-info: UKLg4l3tMWbkLg5OpVHTsRk0vt65/S8q5h3BFShaNU86jNExlGcdbPWFhnbgwHReV+zkAJfvvoOEqNygE7lnAXd/4PXn4pfM0sKYYBu5fNWX56+iMbmuONlwCXkL261RZrGzYm06XAa1ojaK1Y3qoeLcAjGcKB3kHFiwNy7RH9Yedx2Qk4plyF8pXybZBKZ4sMUm4kC0Q/KnsAgCV09DBms0hQiMS+pGaTRDeeuk5fSzdXrE0srKNSRYQSqs1lqA/+YKYf6IyXaoDJzkVCj++k2acUmwGMgcI/SscDTtXIk+AzD6uIbfln8k9Tmd/tFnufAtGqnEdq9I2VQeRfDioRXecVa0sy3i8TDbdAxYMV9E2m/t7UGU9OAP9bqqWu3P8c69XjpqgMlsAxBBDcHmaeO3xJh5dYfV6NA724eNNAya8SpJ7jYgxfGbBsK8iGrJdoP2jIAqWN3tPSxm7xBiiZw9yN5zrSTjV/adr8MCZuHK1AK472C0kTQYTbN1WUIWaDcBrIB/GergN/zwTHj7hnO364fdAgftQIoieVMraor/oteJKNGhnw0qSOh61hggXwoH6wy/6wWcejlmFlaTwatah5Q0gvf0vTTpMJ2kmytmTC8dKyuDw2CO7x/R+/ITPIJC/28Wpx7VTbri5eC64bgLNWe+k1AViM1CEZ+Xa2+FUKlF1eEc/CSDgmLDyAY3FivnSyLrzCxzLKiLHDWGKFPFqgBtp9/8cV/8rzRrTWzBp9z6bA39Wftp5pgSUprZ
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(3023799003)(38070700021)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?IdRXpshFp2kuHFlzn0WQu8Gjaap4VrRYIdXkY/5dEcBRsJjgq6BAq0fErOZd?=
+ =?us-ascii?Q?7yazPKCcrWP5zuj6rnSmNXJQTxPEUzsDN4yUC3fm6Hl5+OVHHWRrg9AUT6ah?=
+ =?us-ascii?Q?ZguchFolu3ZP2R+5aDw7tgjEmwr+IouD57dj1Y9FekEw8Jz67iEqcBRmxIo+?=
+ =?us-ascii?Q?cbLZQMJVjxiRZEtRzmgeNAgSd2NgJo3Nt8qQ8W/f00I7vpk0Ikbiji5hA3r8?=
+ =?us-ascii?Q?VMW5mgCrMFngtzxBV4aadotRmsify4iZqBsDqtwa96DXydKT5/MYq+QwBTOG?=
+ =?us-ascii?Q?87sYTloHIhAui5EJrCw2ami1zmg681q3kRT91mbZ6y/J6/rflocgHYNMgNjS?=
+ =?us-ascii?Q?q0oCows/6rGW8IqaM74+pVYuoltOq9zYRmZqa1P5MUleYA9eoZNivyOiRvG2?=
+ =?us-ascii?Q?RoPsxXvhSKXvIaXYzBn6mw1+ivxDRNE8QhtNMvKyWrlgYr+ApeGqZM0/iln8?=
+ =?us-ascii?Q?reblMRPt7S3tGiaF9lqUv7lsox4z2OYEWDmY+fCDeuNcnvksZCg83ThNxAtH?=
+ =?us-ascii?Q?KtA6Wbno2vUc92eUmimzoFfbU6rmzrXy42w0a//RbGXHvYhIHBm6MKRoGmd5?=
+ =?us-ascii?Q?C9lLw+MV9ORcTcm1Om0Wuxzrq3Jha4TyCgBGymf68fICZfyWwErVtvmvylNI?=
+ =?us-ascii?Q?+aMkM4zpoNmmoH+kiX5Hqp7O2JvOXpdSzUilHoniR92eE0BCEI2C3Zqt0wuc?=
+ =?us-ascii?Q?SqGtaihJucVRf/P8wMcsjjnIj4/VuxgMRKiEPBRAKAKnRkh1Trf6Buqnimhu?=
+ =?us-ascii?Q?2ZBy1lGB7ZgexXPhNhnDGLECVM/AbPZ9Uqac+ZnetLje1t2bGWQHUDbWBxWN?=
+ =?us-ascii?Q?3WDMqcVTU82YlS88H71cPNf8S0XpG4pOPpSI/0gIzQevownUKhVbX3N8W1lL?=
+ =?us-ascii?Q?A5rQYsZU5rVjAzpZDMxr/kQVybwQVSlgiw4PpyriTfgjimSCvURTz3m6l+F8?=
+ =?us-ascii?Q?OU3I9WXep3NGALb7HnujOCKY/i/WqOJfFNOLd/0cyqie2J7saiei2X1BJI7g?=
+ =?us-ascii?Q?qp31LfNMg7Qd7chsdjqvNNIygN6aJ94MauqILjeMiVhCXKYqcO+v42t4XP54?=
+ =?us-ascii?Q?V31T/3STwTXeQPeIUdEJ58HVWtCXGVrkdqeV2s+Qq3jnfd36dppOmSzwzJDm?=
+ =?us-ascii?Q?QMUVYh6L66qmR13wc2mIf0iRbkr1gFcwRo+35wdqFoe0KuGrAz5UwxNFd0c3?=
+ =?us-ascii?Q?1t5gQS+Rb2iqutOrx4LNwaa2gcMSSP9MHYVh3YmSGWtz1/S0x46GqLMsw+hw?=
+ =?us-ascii?Q?HAXsBZgczK5sv+XKkhVP8Hk9oVYYqqf0efn/0ItjRdS3XaN2Y/9IjOiE4IJr?=
+ =?us-ascii?Q?U776+Urhse2vs1C2q6ZD6MY/R5Rh2nFeLH+tlzquoUPp6DNoKqVeNbbvfhiG?=
+ =?us-ascii?Q?RrlAFaOGk4t6ftaoBKqdVEq3BFj0fslYNzPBNg0E/eGbg8nlTaAyNEFgDPU9?=
+ =?us-ascii?Q?jBN5+q0FnUiH32lpfolCwv0s/vdehF7J+6oz36ZK0r2LrPisQay/n+6a1fcC?=
+ =?us-ascii?Q?jUmAYVI+VTWa1xxzjmmhWXKp+AVnKNL5vWAHp8UiOjxdp1aXE6dF+ibS5F5h?=
+ =?us-ascii?Q?nw2Q6liNjHubqutU2mga6CQzI86OQCv790REek9puI6GESL0xu7Ic4mkOztJ?=
+ =?us-ascii?Q?o7pxq+7o+KfteIvgcHKD5PPDifsSW9rsjKRluqACb5WQt/KrEYMt0vfm71/l?=
+ =?us-ascii?Q?pJMzZ1UUfa/whzN7zFS9Vb6d1a0r9mNW5oilAzAdPWgjHzUDVsaCw3dzwSNY?=
+ =?us-ascii?Q?gEyn3Np/Jg=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-References: <cover.1776793163.git.geert+renesas@glider.be> <72e2a0e7a5abda02fe36b3f5851842f7a77b2593.1776793163.git.geert+renesas@glider.be>
- <aekXUvIPb8nkhdKu@pluto> <CAMuHMdWJvMH+a1RqozbaCxxH_8M569JcruTFa8PW+87FysnjHw@mail.gmail.com>
- <ae6Zp54NhKlVes8J@pluto>
-In-Reply-To: <ae6Zp54NhKlVes8J@pluto>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 7 May 2026 10:08:36 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVunEehM01pLa3t5a6o0NmMOCQRwh7n5J+OkDk2YR9kUA@mail.gmail.com>
-X-Gm-Features: AVHnY4JbGLo8_iAmQ_D9O0588NyvaqL5CIqCjBD959GBuikmvjn-HVAEApsHrL4
-Message-ID: <CAMuHMdVunEehM01pLa3t5a6o0NmMOCQRwh7n5J+OkDk2YR9kUA@mail.gmail.com>
-Subject: Re: [PATCH/RFC 05/14] firmware: arm_scmi: Add scmi_get_base_info()
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, Saravana Kannan <saravanak@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Ulf Hansson <ulfh@kernel.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-Exchange-RoutingPolicyChecked: NTtYruKHDYfZn/q3X1eEA1GKPLl63iC64JBoGWkc/JMWdvUL3UJX9I6qJba/yVzuUwlMZXrInEOyG1WqR75u35sfKAhj7huAXvOkkNmQ9tvlekANzrana5wMIJuV6vg/iTfHw6YHGOZp5g4kwSesk3ZfQOoDNk0eWn5d7uLIhAvczdQPQqLrwFxX/pYCj8G/L2hU0i1tB5BkXTnkPaf2m+fLzQWZuAppjuK0ip05aqf1zIbrWyOWHEeF6URdaouHhmvJNn3r0pO8D/ecKqFyW5W/gBlfebNW+/4aoy6xCO3bSL2G2fNFwVB0/h1MDvwGfDhGAII2a5N3naLrEVhrmw==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7ebed20b-1de4-4329-a2d5-08deac10c844
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 May 2026 08:15:21.2484
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 3lSYdtZwyHwOlrTXE5+FVh9YUTWaehDQJMqMLE11++TqJ+on0qxkP9yLX9nSx705YUOm0HXl1k811nsgd6H25Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB6894
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_011350_524240_EA59B14F 
-X-CRM114-Status: GOOD (  61.45  )
+X-CRM114-CacheID: sfid-20260507_011526_363206_094FD37C 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,153 +183,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+> From: Jason Gunthorpe <jgg@ziepe.ca>
+> Sent: Friday, April 24, 2026 9:40 PM
+>=20
+> On Fri, Apr 24, 2026 at 08:53:39AM +0000, Joonwon Kang wrote:
+> > For SVA, the IOMMU core always allocates PASID from the global PASID
+> > space. The use of this global PASID space comes from the limitation of
+> > the ENQCMD instruction in Intel CPUs that it fetches its PASID operand
+> > from IA32_PASID, which is per-task.
+>=20
+> That's right, and all the iommu drivers should have no issue with
+> per-device pasid or they are not following the API contract..  I
+> believe that has been taking care of already.
+>=20
+> So, I don't think this is an iommu driver capability.
+>=20
+> Instead, you have to decide if the PASID is per device or not based on
+> if the system will use ENQCMD or any similar instruction.  I
+> understand ARM has introduced a similar instruction.
+>=20
+> So you may be better off with some kind of 'arch has enqcmd like
+> instruction' to control this instead of involving the iommu driver.
+>=20
 
-On Mon, 27 Apr 2026 at 01:03, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> On Fri, Apr 24, 2026 at 02:08:55PM +0200, Geert Uytterhoeven wrote:
-> > On Wed, 22 Apr 2026 at 20:45, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > > On Tue, Apr 21, 2026 at 08:11:38PM +0200, Geert Uytterhoeven wrote:
-> > > > Currently non-SCMI drivers cannot find out what the specific versions of
-> > > > each SCMI provider implementation on the running system are.
-> > >
-> > > Thanks for your patches....this is not a proper full review of the series,
-> > > BUT this patch catched my eye..
-> > >
-> > > Indeed, yes, it is deliberate that the SCMI version information is NOT
-> > > exposed out of the SCMI world, since being the SCMI an attempt to
-> > > standardize a common FW interface (as in [1] of course), you should not
-> > > know what runs inside the black-box, it should be irrelevant...
-> > >
-> > > ...indeed the versioning is used inside the SCMI stack to deal properly
-> > > with different protocol versions implemented by the server OR to apply
-> > > proper quirks when needed, but all the rest should be standard....
-> > >
-> > > ...you should NOT really behave differently based on the underneath
-> > > protocol or firmare implementation version...it is the SCMI stack that
-> > > should behave properly, transparently...
-> >
-> > Oh well...
-> >
-> > > Having said that...I understand that at least it could be useful to be able
-> > > to query the SCMI stack to know, even from non-SCMI drivers, WHICH quirks
-> > > have been applied/activated at run time...but anything more than that it
-> >
-> > I see no need for that, but we can discover which quirks have been
-> > applied from the kernel log ;-)
->
-> Ok so I may have misunderstood...it seemed to me, glancing through the
-> series that you wanted sort of reconfigure other non-SCMI drivers based
-> on the SCMI FW version assuming that some quirks were applied BUT also
-> that some sort of corrective workaround was needed additionally...so
-> what I was saying was that: is not more straightforward to be possibly
-> able to check if a quirk has been applied instead of querying the
-> version from outside ?
+if both arch and device support enqcmd-like insn...
 
-I am not sure I can implement everything as quirks...
-Also, as quirks.h lives under drivers/firmware/arm_scmi/, accessing
-quirks.h elsewhere requires a relative include path.
-
-> > > Also because this should be one of the selling point of the SCMI stack
-> > > in a virtualized environment: you can ship the same kernel drivers with
-> > > the same DT and you know that ID=<N> will always identify the specific
-> > > resource that is needed by your driver without worrying about the fact
-> > > that in reality in the backstage the effectively managed physical resource
-> > > could be different across different platforms, because that does not matter
-> >
-> > This sounds strange to me, do I understand it correctly?
-> > So the ID should (1) be tied to the use-case, and not to the underlying
-> > hardware, and (2) be the same for different platforms?
-> >
-> > For (1): Then we must not put these IDs in DT at all, as DT is supposed
-> >     to describe the hardware (and firmware IDs in DT were IMHO already
-> >     a stretch before).
-> > For (2): How can there be a contiguous list of IDs, as not all platforms
-> >     may have the same underlying hardware?
->
-> I would NOT say that an SCMI FW must behave like this regarding IDs, but it
-> is a possible SCMI deployed setup that can be useful in virtualized setups
->
-> I mean, the DT describes the hardware of course BUT when you refer to
-> some of this hardware DT bits from some other subsystem by referencing a
-> phandle, even in the non-SCMI world, you are in fact selecting a specific
-> resource that fit you use case, right ? Can we say this ?
-> I mean you needed that specific clock or regulator that you described
-> previously so as to be able to enable some other piece of HW...
-
-OK.
-
-> Now, the SCMI provides an abstraction on top of this, since you really
-> discover domain IDs of a specific class (clocks/regulators etc) you are
-> in fact describing an HW abstraction that you then refer with the usual
-> phandle...also because there is NOT so much SCMI hardware to describe,
-> given that the HW is handled transparently (opaquely really :P) by the
-> driver on the FW side...
->
-> ...you basically obtain such domain ID, usable as phandles through dynamic
-> SCMI enumeration so that you can use it all over your DT to make use of such
-> resources...
->
-> ...on top of this, consider that the SCMI server CAN provide to its agents
-> a per-agent-view of the world, IOW it can (and should) expose to a specific
-> agent ONLY the resources needed by that agent, i.e. it can expose the set
-> of resources 1-N to two distinct agents and that does NOT mean that the
-> underlying physical resource mapped by ID=3 in both agents has to be
-> effectively the same piece of hardware: it could be the case, and this
-> would be useful to exposed and managed properly a shared resource, or
-> it could also be that the same ID=3 could refer to completely distinct
-> pieces of the same class of hardware...(same protocol same class of
-> resource...)
->
-> In fact the SCMI server provides an abstraction, sometime a mere illusion
-> to the agents...
->
-> So in a virtualized ennvironment you could expose the same ID to a pair
-> of distinct agents on distinct VMs, so that you can use the same driver
-> and same DT despite the fact that maybe the underlying resources are
-> distinct pieces of hardware ...
-
-I am not sure how this can actually work.  Many clock, reset, and
-power domain resources cannot just be remapped to different hardware,
-as they are related to other hardware resources described in DT,
-which are not handled by SCMI.
-
-Take for example a serial port:
-
-    serial@c0714000 {
-            compatible = "vendor,serial"'
-            reg = <0 0xc0714000 0 0x60>;
-            interrupts = <GIC_ESPI 15 IRQ_TYPE_LEVEL_HIGH>;
-            clocks = <&scmi_clk 42>, <&scmi_clk 43>, <&scif_clk>;
-            clock-names = "fck", "brg_int", "scif_clk";
-            dmas = <&dmac1 0x33>, <&dmac1 0x32>;
-            dma-names = "tx", "rx";
-            power-domains = <&scmi_pd 44>;
-            resets = <&scmi_reset 45>;
-            status = "disabled";
-    };
-
-The clock, power-domain, and reset cannot be remapped to a different
-serial port instance, as they are tied intimately to this specific
-instance at MMIO address 0xc0714000, which is wired to a specific ESPI
-interrupt and to specific DMA controller channels.
-
-> ...OR on the other side you could decide to share the same resource with
-> different agents (say a clock) and take care, as a server, of armonizing
-> conflicting requests from different agents (e.g. by refcounting enable/disable
-> across all agents), WITHOUT necessarily need to expose that same resource
-> with the same ID to both agents...
-
-E.g. preventing the inadvertent disabling of shared resources like
-shared parent clocks I can agree with.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+I recalled this was discussed years ago. For devices like this, just
+let driver manage its own pasid space then have a new interface
+e.g. iommu_sva_bind_device_pasid(dev, mm, pasid) to use the
+specified pasid.
 
