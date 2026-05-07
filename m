@@ -4,111 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 737D7CD3442
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A525CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hCxd+5uv4hdNBXidMCSMq1z3BpfTFZGcppb4STtJd00=; b=HrfWvOUFeHMrgbh7+1WPlKlg/G
-	5DAFbfpuckMnzfLw8DWnoZzvYUUsaRc+GT6zcfJ6fAKFdH18nWoOS5sUytojhhlKoQXwl2djoy3nZ
-	wby0bo0aX6EDQd+OQLrvuNMkvdoCx155k5QBws4bM7taWejHfyXHf+XtrIiEQcOqYtyEtbX1fhNn+
-	Sy9yYTeJH9GoJjn24XMGf7YNwUNpOiTnDBQgwjjyLah4IeeG7umqGQsSZtz1IKe4x0UQi7i2HATh/
-	KMDAh4X0TYMWUS+deoxY4QaQUONSoDTlQsn299WenmDKOTDXeVNDpYL4X3X3iOuuhNzhqKYKT7zkQ
-	MAo4mPbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JUrNwnrnHXKNK1Z+tsaGPk05Wyp59KKsZWMiHJkBCuY=; b=T58BY2yaEoUY2oVtkj/Tl5Mwsn
+	qIknDXbr/ajQzhsO5q6L13DYvu/xkOsHzDqTx5fv52jEpGpi5J9oRg7TLz9mD+m2EuSCcCLNo6G2v
+	79synEM9hNas2uK0k6R3ndd9S2tleJIsQ6EicarQWTwgs13NAxDXDwGM5QPSFTAhQkXM7J78YijSM
+	kYP9Ze53Kf1/KpcpkNhVToL4SHemWoEN8Rz9Lm0bKWr8zWRU7tDYvGtk3r3jrRpmU3LIdxMCkTy+9
+	zHj5t5suUaL1kP5HmRh7Vn+Ri7r3fH10tNM6mTXociX631q9t296YLYr1fdsHSre2qyXtEbwoTTBJ
+	URkT6JlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvEI-00000003NXe-0uJi;
-	Thu, 07 May 2026 09:41:14 +0000
-Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
+	id 1wKvF6-00000003NlU-1lEf;
+	Thu, 07 May 2026 09:42:04 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvEG-00000003NWr-0RXo
+	id 1wKvF3-00000003NkU-32IG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 09:41:13 +0000
-Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-651d692e833so589806d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:41:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778146870; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QuruQH+lVbZF2+PzgDTcgdgMKb5/PyNyyMo/wsZNEKjn1YIyMpmmvi2zoNE9bcP9XY
-         IGWx0/jDgbNDDiNgqf3GL04XEO0pzQVK7aRn/JrepS3Jf9y61W5ufSjA9Sl1DP/9exUL
-         EktTpShXvsgZi+TLHuTbgck1rcMcTI8zEyWA9tz5UCswPeu73ZthgQ2uLqVeUuyE7Yad
-         HP29wmvgpeyr4Y3k9vWrB2Mg0UkXWsVotjWs4YT3N+rSIMVh7XRMFdqIWDNjPOn12yi9
-         lo3/12xnaIml+0gQR/Nr/7sgDJ0q3iItylEQ5kiMZ6tQ//Zq6PnwOy1rB3nfSn/A7EH5
-         48hA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=hCxd+5uv4hdNBXidMCSMq1z3BpfTFZGcppb4STtJd00=;
-        fh=LgcMSQwQxcRNCKhzAhDYK4yfH6oVejdaYz1LX+JYUYQ=;
-        b=I+dr//9ZLRqSoK55pW7vulYBuQfbfM0GrhisHvoElw9XZZLgxz3hWL5v4/yYANQJ6w
-         EYp6HSUtmK6wwX46yjwVhKMZ3SH1FVg+WpV5b9EHVSjKQIHbi8QU1U9Topwc6Xg0K8Wr
-         KvgPjADzhstYBAXWR7vxyhWksXciqvAN/nwOYZUmcY2OjyJL97aP22VPkVfGBZsKDx+B
-         OHKf7SqiFToqKUQ+A79J24RHBgRNV0aBElqYxiKD7ByYLIxzbzYhiWzZF1zyFTbZDWWM
-         6WCV9EnkzsGnDS95zTHf0cFf8Il4PqGs5bM8p7qZ7CGeirXt9bAYRCaNsALfjz1iTDDS
-         wo1w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 07 May 2026 09:42:02 +0000
+Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-82748257f5fso1103140b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:42:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778146870; x=1778751670; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hCxd+5uv4hdNBXidMCSMq1z3BpfTFZGcppb4STtJd00=;
-        b=Y4YZIYuC/mh7b66V8y+8q6RQakIY/fZbtvP9d2BsFPLMnI8CAHnbrrfFjte63Dh2UR
-         /gxzaKX7+qJ9tHM3xIykdmZUsSIb+ZrhJkPkNScdZfCfy5mvMVpX2pxsIOWOGwHgGi/F
-         nttw+AA9KZp4JX78K6g3E0877z/Z2ZrIYqmn7SoD6ryVJdGdtTAKDAJ/pPL1Hs6W88vu
-         IiLhLTEt3FkyZfef342vZznpC/gOtKJnZxQcMPQWYM7Qd9JP/7c3Ss3i0URz6Ws5XHmM
-         BcCohiVuc8LDz+MWlNNGLWZOk1/rlMPHvENZQsANVpHq0QTcEFpq+b/fyw5J5VMFgaUR
-         3Twg==
+        d=gmail.com; s=20251104; t=1778146921; x=1778751721; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=JUrNwnrnHXKNK1Z+tsaGPk05Wyp59KKsZWMiHJkBCuY=;
+        b=ITBpeySW6a6eibrRTB32ZR65rtLEkeVANQMTTdWQJPbt/1kMTVPveWzWNfPnC2cBMU
+         WYFKebZw8YSOhHQH79tt6o9e3LI0DziiE9kjmMQSSa582fpRFUfKRZqzPYlIgagkvwVs
+         ZAvgr6hUyWVDtyL9lGxRWs08DYrHB12h7tUewr1hZLFn5nISFAwyHzLz4fHb/HE4q7Uh
+         s4a3CdvqRoFPDNsjMEqoo3KwtSZC3bVistUGZgbwHphEb03dF13LZVkPhFWzhF9XERfo
+         M7kjknavjxi3X52Y1SzTiGVtyvewEPAbII2I4ygTJsi0csKBf5lfQJJDIrPUbNkbD9J/
+         bh3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778146870; x=1778751670;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hCxd+5uv4hdNBXidMCSMq1z3BpfTFZGcppb4STtJd00=;
-        b=OwkI9Fdjy6CId5WVvP96ohjnx5cuG3Ahb1NOCQHDHtAfC8jeCgPsl7d4ej5pW+702p
-         nwI8NjDnze5gdI9NagoXhPwAdFEBtTao6rqOXZhULJZQCRQLp+mSKwUOks0/FYDtfKoQ
-         X2PJmaHKblRB+kxZ2sEJH7XY6zZ4BuzTvwqNNt2G4JHtGxh2+4VTrSBierENkfs+88dG
-         +n2pLBfYM4//WuZbm/nnk4oDwDcBANMr2M4IcPSWl6sVC1Zk7oKREjUjjVQhHArUL+r8
-         8S1Vfz9Hjjcbdq8x+0uUMeb8urd5uisuFroAS+zTW4JWvsbf70DFD+iGqkXIUiNkArlJ
-         JVvg==
-X-Forwarded-Encrypted: i=1; AFNElJ/sB98txsK6zJavCnxXE+9UrAkNSDok1FirF/ZCfcDnxBFg68rZAKHgVgBA0vmyjMDmZtGzjdv91ZeQsoEAVli6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy72aUd3He/zH18hVDpL/myjO1/MCR+GTvyRfzN6LjS7qk1qOhd
-	mHjgdw1n8gvFSeq/EcCsmT+UYt3bPgbUhfNcEtxSDAku+hIjqkpAm6JZvckUo4Hgtp8nN7UK0E7
-	vXk+mJrwRr8Y1D5hMJohRmVznspfRWSk=
-X-Gm-Gg: AeBDievuGRk5vHOsD4woWsd8ItAxHTjSWV19n8qZdFK90LsjzkL3ccm6DSs6Ywk7+qQ
-	U5W8Lr6GXSjUp+l+TLI/onO9Bxdh64kHC4/NqtUglx0jUCj8fiTFT+AaNS1zfiLPUUnn3xKqw/Y
-	2gYrEgKiz/OjOCYoT5uxyVSIgWjwQ5BHzKblgqttEaQzCJ6swF3CKdVBGGPavhPnd5sL/gjR9Eq
-	GcUgD8PV0r2nCaufSrhNnW/GPzXx4tltxjpeZ/lpMArOCEyb4NgsjzLE9frnp5sq/X/lFqPlbo9
-	yG0jFReQk7mxiOyhA58=
-X-Received: by 2002:a05:690e:1516:b0:65d:796d:8f00 with SMTP id
- 956f58d0204a3-65d796d9d08mr2772997d50.41.1778146870374; Thu, 07 May 2026
- 02:41:10 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778146921; x=1778751721;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JUrNwnrnHXKNK1Z+tsaGPk05Wyp59KKsZWMiHJkBCuY=;
+        b=LFe2TFFPK/Jr2n2F04SBfsYE6eBJ/xSwshAf0/i1TIIymbyrnlIzWEUYmROC3x5jYY
+         UR1eGcDrhzUQfuo43Wl46TDGXb+P5s0wMImZucqx5iuU+ONMZE9tAYRf+OTGvDduVqXH
+         F3btQ68fv4SSYFOrtqtJoneotkwtM5QX1oGL1U3DYxHMDPVpQiZU2kvGDdYNFjpv7QTL
+         N0A3YQ7kkBW41T/YT91aK67aB2pBD4D8rXjnm2rTKcVbodaL/0sb+uhwCuoD6zi9tyfl
+         00Znydl/GdxNiytJV1rm/55uvvu+Ei62EAurUVO0yZMgHAP6rOecPW3m2Fk5afs6S76Y
+         sYrw==
+X-Forwarded-Encrypted: i=1; AFNElJ+syVq5C66vU4cqZw5JKEaOy3ugh7VPjTCfiWsAdbht16cUM2SLTNeyXGgr2o1aeQzSeuMyLNjbUkzbMoC48KJt@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrkXT+05MFYWS0XWs+WTeFHM8gcNHJ0vVhKSYczRN8HR8JMwpA
+	R4GAvC0DyElRmgTg890Ixb1bgyKBZY2h+3P5eH14UeQre/uR2Mb/hbwJ
+X-Gm-Gg: AeBDieuz1bilXvNcUj87HQV4DWi4+4eKDhmiz28H1AOhagA69wDCP8i1G9oMEXUInxD
+	0Ju2cwjeEyksMiGiPV+CsKay/pflQFuQFq4B8TZ18GbIWB55ElJ/xAWstktZgHXQ60S1tDvFy4z
+	ukCNJ4QoZgBXEM4vK7WIfppqZBy22M2ESfqlnNZBhF0EMzcTJBhaw56viETb1JNbxZBuSIy9p/g
+	cxzEvAQhg2IpxS8SWodBgbz6Lp2lO2Tc+utqqf65jUuLOgI/eUn3/UQ5Lgtw6WQBzDQ/aEOQjja
+	nUBtOCaeaA7hjdknrr8Nk4t/6EZOnvqTrjJpHu072na2ZmQmokcOpeJx/e2+tm4rnP/Ar2V2Olk
+	PfIaj+28Q0SmP+lhxCuV23c3CBvjEzXtojD5k73kAoJnw8WIXL/gUfIn4AZTTejAAay21zbVZNd
+	E3wlzhoYgY+4kkvdU4W50EsIfu1jQBeTem9Dm1FVrYxpl5BZg9GCSF
+X-Received: by 2002:a05:6a00:4093:b0:82f:3e9:7bec with SMTP id d2e1a72fcca58-83bb7abceeemr1949432b3a.12.1778146920796;
+        Thu, 07 May 2026 02:42:00 -0700 (PDT)
+Received: from [10.125.112.20] ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83965c30ddasm10264549b3a.21.2026.05.07.02.41.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 07 May 2026 02:42:00 -0700 (PDT)
+Message-ID: <eece7690-634a-43c5-9b20-0afc174a89a0@gmail.com>
+Date: Thu, 7 May 2026 17:41:49 +0800
 MIME-Version: 1.0
-References: <20260506142434.643523-1-lgs201920130244@gmail.com> <afv21xfKE9PxGWuD@raspi>
-In-Reply-To: <afv21xfKE9PxGWuD@raspi>
-From: Guangshuo Li <lgs201920130244@gmail.com>
-Date: Thu, 7 May 2026 17:40:59 +0800
-X-Gm-Features: AVHnY4KYf5mnb43sXj58-NXgedFQvaoKgE77KqA04IMyO14JzMOPYqCJb3R-yfY
-Message-ID: <CANUHTR8BS9fo0a6s=+M6bfgCgcWtrpepg3ayv3F2bkDoWkYmDg@mail.gmail.com>
-Subject: Re: [PATCH v6] drm/bridge: imx8qxp-pxl2dpi: avoid ERR_PTR with
- device_node cleanup
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/11] of: reserved_mem: add linux,no-dump property
+ support for reserved memory regions
+To: Rob Herring <robh@kernel.org>
+Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, akpm@linux-foundation.org, bhe@redhat.com,
+ rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
+ ruirui.yang@linux.dev, corbet@lwn.net, skhan@linuxfoundation.org,
+ catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, saravanak@kernel.org, chenwandun@lixiang.com,
+ zhaomeijing@lixiang.com, everyzhao@126.com
+References: <20260429065831.1510858-1-chenwandun@lixiang.com>
+ <20260429065831.1510858-6-chenwandun@lixiang.com>
+ <20260506144542.GA2072596-robh@kernel.org>
+Content-Language: en-US
+From: Wandun <chenwandun1@gmail.com>
+In-Reply-To: <20260506144542.GA2072596-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_024112_147465_43402B13 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20260507_024201_761677_B0EF0BA8 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,42 +112,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Liu,
 
-Thanks for the review.
 
-On Thu, 7 May 2026 at 10:18, Liu Ying <victor.liu@nxp.com> wrote:
+On 5/6/26 22:45, Rob Herring wrote:
+> On Wed, Apr 29, 2026 at 02:58:25PM +0800, Chen Wandun wrote:
+>> Add a 'no_dump' field to struct reserved_mem and parse the
+>> 'linux,no-dump' device tree property during reserved memory node
+>> initialization. This property allows device tree authors to mark
+>> specific reserved memory regions that should be excluded from kdump
+>> vmcore dumps.
+>>
+>> Reserved memory regions used by device firmware (e.g., GPU, DSP, modem)
+>> typically contain data that is not useful for kernel crash analysis and
+>> can significantly increase vmcore size. The 'linux,no-dump' property
+>> provides a declarative way to indicate these regions should be filtered
+>> out when constructing the elfcorehdr for kdump.
+>>
+>> The property is named with a 'linux,' prefix because kdump/vmcore is
+>> Linux-specific and the property is an OS hint rather than a hardware
+>> description, matching existing properties such as 'linux,cma-default'
+>> and 'linux,usable-memory-range'.
+>>
+>> The 'linux,no-dump' property is only effective when the region:
+>>   - Does not have 'no-map': these regions are already excluded from
+>>     vmcore since they are removed from the linear mapping (MEMBLOCK_NOMAP).
+>>   - Does not have 'reusable': CMA reusable regions are actively used by
+>>     the kernel for movable page allocations, and their contents are
+>>     valuable for crash analysis.
+>>
+>> The no-dump status is also printed in the boot log alongside the
+>> existing nomap and reusable flags for diagnostic purposes.
+> I think this property is the wrong way around and probably not needed.
+> The default should be exclude the regions, but if Linux is using the
+> regions (like CMA) then it can decide on its own to include them.
 >
-> On Wed, May 06, 2026 at 10:24:34PM +0800, Guangshuo Li wrote:
->
-> [...]
->
-> > Initialize the output
-> > argument to NULL so callers using cleanup variables hold either NULL or
-> > a valid device_node pointer on error paths.
->
-> I'd rephrase:
-> Initialize the output argument to NULL so callers hold either NULL on
-> error paths or a valid device_node pointer on successful path.
->
-> >
-> > Keep explicit of_node_put() usage in the helper and in
-> > imx8qxp_pxl2dpi_set_pixel_link_sel() so the fix avoids adding more
-> > cleanup action usage there.
->
-> This sentence is not necessary, so I prefer to dropping it.
->
-> With these fixed:
-> Reviewed-by: Liu Ying <victor.liu@nxp.com>
-> Thanks!
->
-> --
-> Regards,
-> Liu Ying
+> With the restructuring that went into 7.1, it should be possible for the
+> CMA code (and code for any other regions) to set some flag for the
+> region.
+Agree that the property direction is wrong. Rework in v2:
+   - Default: exclude reserved regions from vmcore
+   - CMA (reusable) setup path marks regions as kernel-managed general 
+memory → include
+   - No DT binding needed; linux,no-dump proposal withdrawn
 
-I will rephrase that sentence as suggested and drop the unnecessary
-sentence in v7.
+Thanks.
+>
+> Rob
 
-Best regards,
-Guangshuo
 
