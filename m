@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE0DCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 04:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7852DCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 05:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W0DHod1QupYhQTZujfaV/Hb38/e/CA0nUqmq7QjctZ0=; b=MULiBcygjPwosDTjKoGDp2FKSb
-	dfO1MyEi3Ke0+mAK7+l+bVohS2XWMQYCjknAg5+6ryR+DahmGNR2RmydOMGnDpKDycUPEMBbCAsmi
-	2QXweF7oLSqiOECDihMdgmMNMC4Mj0gF1d18d3yXcxg+IDNbeeHS7DVzHIRxHbfFIgvvXbjl7N/MD
-	T7bdOlg3RA/0m7VTRPGzyDOZRRDw2err1X1EUtFeob0S394L0aJdaw69nyWt6SRRkbZxpwV49d0kE
-	fgIPoGm/anJ5FVhLHtT940TVY1OBl667WYLl/FOn4ZTv17MkQJlqx3i6xrfod1pUx5B866HOIGYsI
-	m5TwEjIA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VCzQfTRK49IWaZiPW/ydQ0Qt+IWS1LBpwzZsb8SJN0A=; b=Iy3ENdXkw3HAxoadmgJCt5rcTt
+	Ju5h13HOA/OCKKq6qaYHHq/WdI1pAie/NNY4fSbJrUeHgbaxwMDQ8tyTvRBEdatjgLKU/wR6ta9cs
+	cFLlKQOMOqqVDhrSq5gPo1F1VS/KiUQd+JTpDXoP6SbeqAe3X5a/OYUIwo88Icber/CUfLa+85V6o
+	hSz3LgFuengH5OINMp8UuTUpzMW4TyrVg9uPwHc8IvrPt/LEGX0X7iTq8eHLACX82BGXG/WiLep1m
+	LIJrujFPk5oP1bAxdvVtDq9g74DbNX4j5tdTpeB4rGg5HJofLbQkYOWhoqXwePIcRseqMP+aZUBQv
+	ks9QnQJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKq7y-00000002hkX-1K9U;
-	Thu, 07 May 2026 04:14:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wKrJ4-00000002oBh-2ODP;
+	Thu, 07 May 2026 05:29:54 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKq7w-00000002hin-1gfE
+	id 1wKrJ3-00000002oB8-1ws3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 04:14:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 843EF43DAB;
-	Thu,  7 May 2026 04:14:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38117C2BCC7;
-	Thu,  7 May 2026 04:14:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778127259;
-	bh=N3+MD8teZfj8M3IcjL1QaKuP26duMfx7mziauhL1yWI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=TuqHI9rN2EF7G8y22fyB9UEo+J25HaaUc2pLAajvvEAjm3dFFh4dUCwe89ep65fBx
-	 oziDSaCE9M1Bd3ZHNq3BxpKaxrUfQO14SHdIyjXLiuhxGjef4hEGfTL//Seskza7FZ
-	 cndJAtzIEkufVu6e34ZO+kLK0DuXofGzjWCJo9qDnTOv2xd36pUJsOCRE8B6kkVm8v
-	 ieHqYH8O/E3LvzFdOqs2zVF+E1tuTkiPPignNVHIojWniQdz/QGo63ohu5OGu5kMJ+
-	 lSe+/0MbggHpHh4G5ag6swRgs5nEtaeRcdlEcTlqEw6cZcnevUkRabUHEbx3V7Q1YL
-	 wAUeKFHVl7QHA==
-Date: Thu, 7 May 2026 13:14:16 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Steven Rostedt <rostedt@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
- Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v19 0/7] ring-buffer: Making persistent ring buffers
- robust
-Message-Id: <20260507131416.35bc304d89f974ae3b33d20b@kernel.org>
-In-Reply-To: <20260502181619.7f5003dc@robin>
-References: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
-	<20260502152304.560a5954@robin>
-	<20260502181619.7f5003dc@robin>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Thu, 07 May 2026 05:29:53 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2adff872068so2296615ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 May 2026 22:29:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1778131792; x=1778736592; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VCzQfTRK49IWaZiPW/ydQ0Qt+IWS1LBpwzZsb8SJN0A=;
+        b=Q5GPwry65sgwlG666K2LkL+Eh3i50i6/hoQzlf1XzAkiH9fY06h8XRnU9nieusMkr7
+         tL5UNKtIdAozL+uaSQAmjrWuiowmwgAUossS+GzlHHDCz+LDuUKCrBEJJtwxI2Zrv+Ug
+         ernZp4eEwMhY9babNP6WetMQps1hpjc+p+khE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778131792; x=1778736592;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VCzQfTRK49IWaZiPW/ydQ0Qt+IWS1LBpwzZsb8SJN0A=;
+        b=LVJXx5fTkWGhFuK9U8u7eqrErBNuDz6vQ3EC79z3SDCCWsgMiz1+BO1YqExMponhh2
+         uYztOQCIgMhE8PTVm8/eBhlQNJ0XquerZ87fsjiqhvjHFlgkEb3fjIyPiAs790jptTOK
+         y2u6umdDF1KVP5CAGQ9p8EDTEbGFLyudumpwM06LmCVFyruTcmDWPNpOEKX1G7FEtiGQ
+         cTYs0FsRRfqXBUFbPQdVlmQg/hUeGPx8Z97sJMkl25dknOP7y3Vl6mGjzsX21v0Ht73F
+         k/ZyqzQ42S+dIZwGNuX+vzvOT8v/14SX2D6lPOUA94wrVgR3zLfREyyQYKQ7r2s+B1Si
+         Mraw==
+X-Forwarded-Encrypted: i=1; AFNElJ9r3227m06vwlvIHFf5IKab2XGqCKzL2s67JATzCOvzX+62cN4nLfLJMIYRxO+Id/yqKqkBZgmCTCnsysSuS9Iq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiDMB4jpY6r478DlHLah7Tim1UjdvJo9ZaXhzjYxaBLDnpdS9I
+	s2oX08uUs3v5R71mgopc0xWiIOEz5yWPI3Vc9HKVzKDarG0ze2QbKn3O6cDaU0mlxw==
+X-Gm-Gg: AeBDietb48uSK1MsZHXP3LkOkdeQT5ZygLEpdw8rWEOKFAlL5SrbFJWhZOUgiq3Z0eA
+	RGwzXwfnqMG/aNiW20awYMYgu9fTAMyAPCNwdDCWKxujIvJKGWa2SkxuUBrZH4cT503pIwsvxgA
+	QEJtJOIfX5tooQHVmmeQ3IQL+gnANsgzR8qld5jCspaZZwfz7g87DvIBAvc+hsj7XF+tmRwOtqA
+	i/5K+f+uOAcP2F/yUdfbezMrvr6So/xyWOA/k5YGlyBUi6BHLyWUoluigV+zi/sXZuIP6Lc4eEx
+	G3qdtxQhBBv780ztzHp+baNy9C2hqKQZjgibkP9ACOZ5evqvflhmMl4ZJYA+FPCOvWx8FZpI33P
+	/NZOLHZow/8TbXckpFoff5Sb49J2H577sGHiAfzDvNzwyRaXuGmRgeBDwpAYFiKOxF99MTQOzL1
+	ur6vgCjIpB7Tdfle3x+Ug1sgFtJ8mRfc2PLUvbvNu5inUramvOmcKKterAgLskFvM3ZDVM4B/0E
+	SLAyE/Ue1FIBlOFuQ8=
+X-Received: by 2002:a17:903:390f:b0:2b0:5ae9:ee4 with SMTP id d9443c01a7336-2ba79285966mr62622245ad.5.1778131791791;
+        Wed, 06 May 2026 22:29:51 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:3117:fcaa:4a23:3480])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2babaac34dbsm11126885ad.10.2026.05.06.22.29.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 May 2026 22:29:50 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] power: sequencing: print power sequencing device parent in debugfs
+Date: Thu,  7 May 2026 13:29:41 +0800
+Message-ID: <20260507052943.3133349-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.54.0.545.g6539524ca2-goog
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_211420_493642_D714F5B6 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20260506_222953_646523_2A98A130 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,82 +95,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2 May 2026 18:17:06 -0400
-Steven Rostedt <rostedt@kernel.org> wrote:
+The debugfs summary currently shows the power sequencing device's name.
+This is not really helpful since the device name is always "pwrseq.N".
 
-> On Sat, 2 May 2026 15:23:04 -0400
-> Steven Rostedt <rostedt@goodmis.org> wrote:
-> 
-> > Hi Masami,
-> > 
-> > I applied your patches and enabled your ptracingtest code. I noticed
-> > that when there's dropped pages, the trace output is not in order:
-> > 
-> >  # trace-cmd start -B ptracingtest -e all -v -e '*lock*'
-> >  # taskset -c 5 echo c > /proc/sysrq-trigger
-> > 
-> > On reboot, I ran:
-> > 
-> >  # trace-cmd show -B ptracingtest > /tmp/trace.out
-> > 
-> > Then executed the attached perl program:
-> > 
-> >   # ./read-ts.pl < /tmp/trace.out
-> > 
-> > And it errors our:
-> > 
-> >  30.212495 < 30.213534
-> >            <...>-1048    [005] d....    30.212495: irq_enable: caller=irqentry_exit+0xf5/0x710 parent=0x0
-> > 
-> > That is, I think the zero timestamps may be messing with the order.
-> > 
-> 
-> Ah, I think I found the problem. The iterator needs the same logic you
-> added for the consuming read:
-> 
-> diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-> index 7bfbed0ac90c..90a7fa772fe3 100644
-> --- a/kernel/trace/ring_buffer.c
-> +++ b/kernel/trace/ring_buffer.c
-> @@ -6105,12 +6105,14 @@ rb_iter_peek(struct ring_buffer_iter *iter, u64 *ts)
->  	struct ring_buffer_per_cpu *cpu_buffer;
->  	struct ring_buffer_event *event;
->  	int nr_loops = 0;
-> +	int max_loops;
->  
->  	if (ts)
->  		*ts = 0;
->  
->  	cpu_buffer = iter->cpu_buffer;
->  	buffer = cpu_buffer->buffer;
-> +	max_loops = cpu_buffer->ring_meta ? cpu_buffer->nr_pages : 3;
->  
->  	/*
->  	 * Check if someone performed a consuming read to the buffer
-> @@ -6133,7 +6135,7 @@ rb_iter_peek(struct ring_buffer_iter *iter, u64 *ts)
->  	 * the ring buffer with an active write as the consumer is.
->  	 * Do not warn if the three failures is reached.
->  	 */
-> -	if (++nr_loops > 3)
-> +	if (++nr_loops > max_loops)
->  		return NULL;
->  
->  	if (rb_per_cpu_empty(cpu_buffer))
-> 
-> 
-> I'll test this some more, and make a proper patch.
+Also print the parent device's name. This would likely be the device
+node name from the device tree, something like "nvme-connector". This
+would make it much easier for the developer to associate the summary
+with a certain device.
 
-Ah, indeed. Thanks for fixing!
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ drivers/power/sequencing/core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-BTW, shouldn't we unify common logic of those functions?
-
-Thank you,
-
-> 
-> -- Steve
-> 
-
-
+diff --git a/drivers/power/sequencing/core.c b/drivers/power/sequencing/core.c
+index 4dff71be11b6..14335c4f813e 100644
+--- a/drivers/power/sequencing/core.c
++++ b/drivers/power/sequencing/core.c
+@@ -1043,7 +1043,7 @@ static int pwrseq_debugfs_seq_show(struct seq_file *seq, void *data)
+ 	struct pwrseq_target *target;
+ 	struct pwrseq_unit *unit;
+ 
+-	seq_printf(seq, "%s:\n", dev_name(dev));
++	seq_printf(seq, "%s (%s):\n", dev_name(dev), dev_name(dev->parent));
+ 
+ 	seq_puts(seq, "  targets:\n");
+ 	list_for_each_entry(target, &pwrseq->targets, list)
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+2.54.0.545.g6539524ca2-goog
+
 
