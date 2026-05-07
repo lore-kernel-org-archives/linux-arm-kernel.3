@@ -4,128 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB217CD3442
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 10:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E375CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 10:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JoRWGgOZZS3G91zVwdG4c9Lrn6Mvfm03iqOH0vlvM/U=; b=OPXlPzMhYwMMY4dRtGf44cAn8j
-	z44/vdnPF7P8ZkfP0DDNvTk8LwSJlk2imZVi/84scVCvdF0N8014u79Pina34h0T0JNseW0hXzeQo
-	J3VFiCOwn9U4i9EqJK6dkZOlw0s5pRGibBeRw95XN3D8ZkzqL/hYNPw3IIySRF48NZuBSz37ICYRH
-	nzQ8xnBTChLrerRSNXYJ+ooXNZarYgwDa407y86qg8Ma+jnyEJXEvN8N/6nsn7XjNt+lF4kcXLNPG
-	Ng79MEuiorEfAt12MsusA8+M309mnIq6ICCI779xOH2DeXha6N9Jx3mO1Jq+kQUIKFyrPJ3WUzkP5
-	IJ5V0ujg==;
+	bh=Ox+ASz/ygCGbDPlwbrM1KbYJZn86PmGYPGqT1vetcCo=; b=NWcyRtXRyRDfXJXgxok92aiowH
+	bS/ODHjiq/3i9X14uu2LZjKupXkXi7g8wu+wHBDBLf8EmCzYWnhhC8POP3FJChZwwIxSccEQQUsGJ
+	g0GNYN5vYYVVzEEmuRX5s3WynXolLThRDzE61WNB4S02rEYM45hu6GYhybCOfvbzWPdmFtzVpyCzi
+	ZXGM6m4t08koUq3CdytDYz38c1KHGNaixa6e5LzKMkWPcW3D057HI0UVQDpzcTbSzw4NipNe6pOoI
+	cs8Po6ifl605tdUgs3q+ZMEcZkl/TPOC7FwOy94QvNQQqdLSY6kymOycQYzYJWkmGCP+G0eJkDVZD
+	yJ2T9WzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvu1-00000003TdJ-0VXk;
-	Thu, 07 May 2026 10:24:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wKwFC-00000003X84-0lIN;
+	Thu, 07 May 2026 10:46:14 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvtz-00000003TcV-12KR
+	id 1wKwF9-00000003X70-43kY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 10:24:20 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 647AKWck1669936
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 7 May 2026 10:24:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=JoRWGgOZZS3G91zVwdG4c9Lr
-	n6Mvfm03iqOH0vlvM/U=; b=TkUzYLVdDiDMQQqwZkOHH0vOVJwRA6Fw9vGkCznr
-	P8/7iK/sHrwHY8tJTuFv67LAHfocEBWPmPzwLzOiq0RdZmXlt2DBqAGBnW1eo35L
-	cHbnbTy0xVf6ITKvwk5QV0pR/K2lsaCdRkZhMJKdTzaLWiHJeXN4Tek1xCn4MUBt
-	zk5zvD7ZX9wKua1nA/kGk08oZxomwuJDb5mMxHicFnb6RA9vjBCqY1MVMT8Zq7/b
-	HzkyYbDDUlWhcWz1MCIpGGh7Q3kkM800DjV9rV/CD2ipSvNG+UgAjabH/5dGtAU4
-	cKiWwlr1JRVNBZ+M+oxzMKTHXjP+B6QwlIoA4VWWCZwjWw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e0k1p1e7y-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 10:24:18 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8d4c2906fdfso71010085a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 03:24:18 -0700 (PDT)
+	Thu, 07 May 2026 10:46:13 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4893940bb5eso4084435e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 03:46:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778149458; x=1778754258; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778150770; x=1778755570; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JoRWGgOZZS3G91zVwdG4c9Lrn6Mvfm03iqOH0vlvM/U=;
-        b=fw8scXAqpXNpCfEHCPK+Bi19Z1M7/++ymuZFXwzWEZzNn7Mu5faohLeiEjSSMifWTQ
-         wafNtIit8gsZpELpKnWcQchlrlZe+B+U8gHN+l1+B4AhPnY3C6Y3MuTcH8xX9JNMIDyS
-         EdjBjbyVVCC5BIBkHbAzP3piAk6s60H3orDouUb2djCOtc0VaI3TyDjr84n02HEddcxy
-         hS3HcZBuZ9XuPFp5oVPrnsKiyTdeiROG3xIllEkGJL2tAW1oeD3RnjGWUMen+uOWjKcb
-         W+caiEe3LxZ5RS+cQdq7rnN8C8nMzGA/3ElrCq6AZwgtNcQSxb02C5WZCawVSivD9ORP
-         jp0g==
+        bh=Ox+ASz/ygCGbDPlwbrM1KbYJZn86PmGYPGqT1vetcCo=;
+        b=Dwzop05FBUeq1UcgSnLbBrABqjTcwP6vN5AgbijkuVf+kth6Uy+5mMXp4KXFbGeq1l
+         FxzVodVXYttE+jEG1HDTYKZeyP84GSdVnwFkYkocyud6REMm6d/6q/sQSKZ79H46ol1Z
+         db5Bpv1xEYc4/lgTDXE3jXgoYQ86+f0Sv15l3yCyCYOqVWB21zuyn89oAhAtrVcPm5f7
+         CM3udCN8n/aExZ93siEYEtFrNlL77BsEcQN1et6oPEY1E/OCpjr+Zlt9AavHrEVWz00Q
+         vGPE0aH3OtAzR3v8C9BL/JohiJO+QwI2P9cpic3zchH9LuG+KNiBMKvw+qVPbAH706zu
+         pjwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778149458; x=1778754258;
+        d=1e100.net; s=20251104; t=1778150770; x=1778755570;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JoRWGgOZZS3G91zVwdG4c9Lrn6Mvfm03iqOH0vlvM/U=;
-        b=mZTCyZn4wK/hJqjsHfUcdrXLxV3a0Aox+m/hirCqQfVJPyzVvOlViT3Nz4kKsu5vBm
-         S2RE/ns1x8Udsngwpk2RC8cKp5rFAJim51HvBpoix1oHrL+1+kE3PiJxPBpJrtav/Njw
-         x8WdzgbAIng4sknkpH03nvWYbCsDQN6O+hbjSExHiH8IQU4gkoHxwL8zdpOqRhJ+30WB
-         p10e3ctYb3i0mmlnJkgCon9LuX5hK0i5lfCPZnfjFTQDwJunACnLeYue3Kh18ErzuONF
-         LDB2VM7DTHHEkcxgNt5oC1uw2zyOoOaL/DFcb5RLHAu0gmu1df2zSKJNv91DuPqTRMMU
-         rscQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/RxfGTm1r/yPTxR28HJgReCB/y1Y3u61W3oHxZVODeR3prS0TxfoxcwLs7zSWtiDEf/2Rc6ShyrhU8a+r+AWf+@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywve2L/FrVmGYTgeS0Fh8B8h8JNrj4J1DkNNYGYh/imNctl2LP4
-	lExUREWBmTrHZhSxHGHHCxEnrYgGR1IxOAZgPsMtmU3BDRA5IedhNfaW2yZeyq5FuxA8CEDVj4s
-	xlVEObsbejMYLzkWyNvAj2zko1EWrDuAyKCLmSFqipAhXcJ3VbCTZ/W8r1pfMfb87NqI5W43KxO
-	eKAg==
-X-Gm-Gg: AeBDiesyDQkQHVHU6tWa2aKbPf2YkI4HX9HdBGjIR3rknlnaLwW8Ra9IWjiujq37IMx
-	1hMnCu58Khi9ebr8PD1EkWA6ANr/YxLlEkF7ZnyReOvi9L28SK5jzhcVOydhV/bLL5tr6pjMG8d
-	OQ6/RO61dPi8/EyIeOW4bgGYOEa37YTa84oanhWEuzB3Dp9NsEg8yGG1QFQR3jD0AjImEebUtaT
-	4MwMy6kGjDqn1prYsai6jD7RSLhVGSjN81XhFhal89zxfQZ0UyEw7jBCWTp3FhuBKL/zZhhPl8A
-	ggjHPxcjzYaN3QC1MxdICFgWhg+A8dKeR0cOBiU2gZdHmohKllP6DJDO2Jw6PM8b3YHq7jUUXzz
-	9EbNrWJBnwJ9snzdTUvSq6LDZRsTATXqJnIivPZT8UYuhQ/OYk0g5oKANZwJoTDUBq6Yz/vyfca
-	JnqQv8cxCsCA8KqMGJb024HcD7e6Yuq2P3sRCDX6++iJpQow==
-X-Received: by 2002:a05:622a:4a8e:b0:50f:ade2:2da with SMTP id d75a77b69052e-51461fcdddamr103694141cf.44.1778149456925;
-        Thu, 07 May 2026 03:24:16 -0700 (PDT)
-X-Received: by 2002:a05:622a:4a8e:b0:50f:ade2:2da with SMTP id d75a77b69052e-51461fcdddamr103690731cf.44.1778149455632;
-        Thu, 07 May 2026 03:24:15 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3939a58fa47sm37503021fa.37.2026.05.07.03.24.13
+        bh=Ox+ASz/ygCGbDPlwbrM1KbYJZn86PmGYPGqT1vetcCo=;
+        b=OmvYHttTy4uoCrGdSioTNlGhCC2d5HIo5Fw2lgs8IBj/Kl6ynDkcoVrGJPs5dh0lBg
+         8ovDYjgSIHiziaGdP75zSm+vh8LwBPUsDFDInEHCKaZ7zdqdG9eT+lmHlhxSjl7ePgZ5
+         uzrQb/rsNuY/MpPQCKFQ6GBwwoZX4WzqhFvjSpVkPkqPgEhvlqNSbHDumAglUuUp9qZZ
+         nzC76zcPdODAW3fT2WU9H8XZhROocVvEoLn0uTSRLhy0EreNuKdRPbk9tSVJHWTTOyXQ
+         05AEFI0FdLaIGcIaO7hEh5FCf5BRSP6jtRT3GqVb/EtBxXWdrn3RJhZb2kYYcqjr1+rQ
+         cnuw==
+X-Forwarded-Encrypted: i=1; AFNElJ9c1FFKSNHlqgqgCnvHKOH4GCKbvSo2+oaoaJcdGo+KNk77XyYDut34c2jD8ZilLjWBGIZbrUnyVKGXBmJYM4wq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/G43zUUH78zGL8pAsziqnQonzxdP3KEyooRfX75nvx8p2meZl
+	j/t3Vuqpgtj37bKPrHb86/jf7vYazqiK+ykyWosy4elOqnHsNVX+pbZA
+X-Gm-Gg: AeBDieuki0vr/CKroOtHX9sRFhenU7pdjZAQkmS8ztXfpKobZNKmqjkSZ3dPKRIGTHd
+	ftE+WIXUfbmAdJc3cBVZ0iaJjJDMdsPC34VFPoWQoJoDU4u6ZEQNuRwSL084jvmIPoR7VQ7A9DO
+	i+TVVPP+U88eFZlO9BoRF7aWsIiVMGLe+WbBEZguKm/V4Ar1jkhMYZq7YIP50KacxXiqlMs3G1m
+	O8OXBzWDcoXJqlBlSppEyPRg6ha1eS7eLBtQiTujdtEYOCBPZ77cTMJ/RJlRQOOk0nw6xSG1c9q
+	Xjy6Oq3c8ukF6rN9L2WWS2of9LxZbridqQd6GNVLTDay/Cdnlk9EDn+Fx52e75jaHDH51uf8cS/
+	3Y1Ur4YSA0QGRNODb6h3fZoqYT+9H7oKPiOSqGwO6LiBUwpCuCff44TrY0ZFk46UJJwROLp6c6B
+	mKWewY7IigN5bHkZEEJ0J5x/SR2UbN/DCo+72ECRZE0hb7T436ZstSmaNllU4R+F4OMDS+ggfFx
+	bAAYzJFOiIyjwj2Mq83JxIHoXvTa63bqO0UiFGKeSkWzMGunAKHl69am6ARwCF5ZjpZmbyeWMr7
+	xpLDfiQj
+X-Received: by 2002:a05:600c:8b04:b0:47e:e2eb:bc22 with SMTP id 5b1f17b1804b1-48e51f183demr114547455e9.5.1778150769818;
+        Thu, 07 May 2026 03:46:09 -0700 (PDT)
+Received: from franzs-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e538b6e9bsm197646665e9.10.2026.05.07.03.46.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 May 2026 03:24:13 -0700 (PDT)
-Date: Thu, 7 May 2026 13:24:12 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: x@2005.tr
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/rockchip: Open-code drm_simple_encoder_init()
-Message-ID: <g7p4goe3fhnfxgp2tsopvvgbqmvvkktji25h4rsrbkavxac2es@ghc5v7xjw64e>
-References: <20260506165346.19819-1-x@2005.tr>
+        Thu, 07 May 2026 03:46:09 -0700 (PDT)
+Date: Thu, 7 May 2026 12:46:08 +0200
+From: Franz Schnyder <fra.schnyder@gmail.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jun.li@nxp.com, 
+	Francesco Dolcini <francesco@dolcini.it>
+Subject: Re: [PATCH v3 3/3] usb: dwc3: imx8mp: disable auto suspend for host
+ role
+Message-ID: <k2sxmwhrv3tivustfnpz54ehuufkcrcruu2uuukuyugqtqljzl@5roxndm5fn5u>
+References: <20260108081433.2119328-1-xu.yang_2@nxp.com>
+ <20260108081433.2119328-3-xu.yang_2@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260506165346.19819-1-x@2005.tr>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA3MDEwMyBTYWx0ZWRfX96A6qFx7IT14
- /HY9G0zETOniOpUfOzC3xwCUdifPhBSCPLzft5iDxzNzAn2E5An2dJoTfiRcefkcUVydcBlEBcA
- UZ5U9fI3B94IympEi4C4fI/4IhCDytJThYjRtFnVt4FkxAm88JsVqi6khJZ5FzmcotWU639YheC
- LQPvooamuTNSAMK6vr+f6miA4SgSfD6olATZedFs+ENBTlgXo5omcKBAQRZmU45HSm3BvrFTXA8
- naJyObuRy/UjGwX4lSYofDP3fx0B+EckqYGnSOqwkLexxrrk9ot4oKjK5cC2zlpX4wEvlllFAsV
- yVtChDB5blL/A9KMDPHeUsFzIuO/uTBA7EAPoQTdUVlAEc4mFHkUtsO/i1jwosNok3g6m+hI/ft
- a1l8IGwoDHcL7mb2UZ4GlASv2QqoAIukcZfVOZrTml/zjgArk0IxiYbeqDGJjdJc7SdVo1MDgza
- Wq1oCMIpgK9yFdizK6Q==
-X-Proofpoint-GUID: ks5VZRx2EOF5Ea7vR4gA6QiNcGb462Ln
-X-Proofpoint-ORIG-GUID: ks5VZRx2EOF5Ea7vR4gA6QiNcGb462Ln
-X-Authority-Analysis: v=2.4 cv=K4IS2SWI c=1 sm=1 tr=0 ts=69fc6852 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=EUspDBNiAAAA:8
- a=K37GZDC8KpGTtN--OQ8A:9 a=CjuIK1q_8ugA:10 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-06_02,2026-05-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 adultscore=0 malwarescore=0 lowpriorityscore=0
- impostorscore=0 phishscore=0 clxscore=1015 bulkscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605070103
+In-Reply-To: <20260108081433.2119328-3-xu.yang_2@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_032419_294488_17F9DC0F 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20260507_034612_038046_7AE787B8 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,29 +104,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 06, 2026 at 07:53:45PM +0300, x@2005.tr wrote:
-> From: Favilances Noir <favilances@proton.me>
+On Thu, Jan 08, 2026 at 04:14:33PM +0800, Xu Yang wrote:
+> Do dwc3 core auto suspend enable for device and disable for host
+> , this can make sure dwc3 core device auto suspend setting is
+> correct all the time, the background of disable dwc3 core device
+> auto suspend is to make its parent device suspend immediately
+> (so wakeup enable can be enabled) after xhci-plat device suspended,
+> for device mode, we keep the dwc3 core device auto suspend is to
+> give some wait for gadget to be enumerated.
 > 
-> drm_simple_encoder_init() wraps drm_encoder_init().
+> Note: It's a temporary solution until we switch to using the new
+>       flatten model.
 > 
-> It uses drm_encoder_cleanup() as the encoder destroy callback.
-> 
-> Add driver-local drm_encoder_funcs and call drm_encoder_init() directly.
-> 
-> This is a TODO cleanup towards removing drm_simple_encoder_init().
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Favilances Noir <favilances@proton.me>
-> ---
->  drivers/gpu/drm/rockchip/rockchip_rgb.c | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
-> 
+> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Hi Xu,
 
+We have a kernel issue introduced by this patch on an iMX95, where we 
+use the dwc3 usb as otg. This appears to be due to a race condition that
+occurs during probe, when the parent attempts to access the driver data
+from the dwc3 child. I saw your work on the new flattened model driver 
+for the iMX SoCs and that it will soon be applied to the iMX95 as well. 
+Does this mean that the issue shown below should no longer appear, as 
+there will be no parent/child dependency?
 
--- 
-With best wishes
-Dmitry
+Do you think there are any actions needed on this patch?
+
+Here the warning with decoded trace:
+
+[    6.905882] ------------[ cut here ]------------
+[    6.910518] WARNING: drivers/base/core.c:1640 at device_del+0x2b4/0x384, CPU#4: 5/87
+[    6.919309] Modules linked in: libaes(+) tcpci(+) ulpi tcpm phy_fsl_imx8mq_usb(+) gf128mul snd_soc_simple_card(+) ehci_hcd imx_pc4
+[    6.964627] CPU: 4 UID: 0 PID: 87 Comm: kworker/u24:5 Not tainted 7.0.0-rc1+ #2 PREEMPT
+[    6.972716] Hardware name: Aquila iMX95 on Aquila Development Board (DT)
+[    6.979409] Workqueue: events_unbound deferred_probe_work_func
+[    6.985247] pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    6.992199] pc : device_del (drivers/base/core.c:1640 drivers/base/core.c:3882)
+[    6.996028] lr : device_del (drivers/base/core.c:1634 drivers/base/core.c:3882)
+[    6.999865] sp : ffff800080b339f0
+[    7.003169] x29: ffff800080b339f0 x28: 0000000000000000 x27: 0000000000000000
+[    7.010295] x26: ffff00008004ac28 x25: ffff0001ff067610 x24: ffff00008befdcc0
+[    7.017427] x23: ffff000080ad8810 x22: 0000000004208060 x21: ffffa5bb53ea78f0
+[    7.024560] x20: ffff00008befdc10 x19: ffff00008befdcb8 x18: 0000000000000000
+[    7.031693] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+[    7.038825] x14: 0000000000000004 x13: ffff000080129910 x12: 0000000000000000
+[    7.045958] x11: ffff0000822ac0e8 x10: ffff0000822ac000 x9 : ffff000080129910
+[    7.053090] x8 : ffff0000822ac028 x7 : 0000000000000000 x6 : ffff0000822af458
+[    7.060223] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
+[    7.067356] x2 : ffff00008253e580 x1 : 0000000000000003 x0 : ffff0000895d1400
+[    7.074485] Call trace:
+[    7.076923]  device_del (drivers/base/core.c:1640 drivers/base/core.c:3882) (P)
+[    7.080754]  platform_device_del.part.0 (drivers/base/platform.c:794)
+[    7.085458]  platform_device_unregister (drivers/base/platform.c:593 drivers/base/platform.c:835)
+[    7.090164]  of_platform_device_destroy (drivers/of/platform.c:621 drivers/of/platform.c:607)
+[    7.094950]  device_for_each_child_reverse (drivers/base/core.c:4048)
+[    7.099922]  of_platform_depopulate (./include/linux/of.h:208 drivers/of/platform.c:644 drivers/of/platform.c:640)
+[    7.104282] dwc3_imx8mp_probe (drivers/usb/dwc3/dwc3-imx8mp.c:291) dwc3_imx8mp
+[    7.109588]  platform_probe (drivers/base/platform.c:1449)
+[    7.113260]  really_probe (drivers/base/dd.c:583 drivers/base/dd.c:661)
+[    7.116833]  __driver_probe_device (drivers/base/dd.c:803)
+[    7.121199]  driver_probe_device (drivers/base/dd.c:833)
+[    7.125385]  __device_attach_driver (drivers/base/dd.c:962)
+[    7.129831]  bus_for_each_drv (drivers/base/bus.c:500)
+[    7.133663]  __device_attach (drivers/base/dd.c:1035)
+[    7.137494]  device_initial_probe (drivers/base/dd.c:1088)
+[    7.141671]  bus_probe_device (drivers/base/bus.c:576)
+[    7.145502]  deferred_probe_work_func (drivers/base/dd.c:125 (discriminator 14))
+[    7.150035]  process_one_work (kernel/workqueue.c:3286)
+[    7.154047]  worker_thread (kernel/workqueue.c:3352 kernel/workqueue.c:3439)
+[    7.157791]  kthread (kernel/kthread.c:467)
+[    7.161030]  ret_from_fork (arch/arm64/kernel/entry.S:861)
+[    7.164610] ---[ end trace 0000000000000000 ]---
+
+Best regards,
+
+Franz
 
