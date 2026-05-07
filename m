@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C111CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 11:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC623CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 11:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4r8mXmt6skT6Iq4+j8vT+vFH5yMYCK775SlOiUC7Pz8=; b=aozkGfyNatpZ7a7Mys5nm7Z979
-	uW2IN7sTk+vTYXb0Q3zD4jf1JkDjvi7cBoWkm7NqwCl0RQgSjURRkFbnDiavXoHz7SzeU54mX4IRX
-	Yx8NNgL42XNMjDJx9QaZVQr6Ai1uW7Us7V+fU9VvJryrGYJCgklAEgLLtwlFCNmbHofYyvvgqgWIt
-	laLwhsxTJk8db+n7s11vJB9EG8h+V9Pwa+8BOsTtiFZzoCo6kMu+VdDPLZP7ZPsYlWs72WFpTFAf1
-	AAbpnEsu54rk0PVosGEysH83+eGeFBtAJ3EgFyO51rOVyB4M04qSyl2vhgscZKxyKVQxB0kt/kaNF
-	DSFca+vw==;
+	bh=ZET4GDyvNY1+2FL6EzMZ6GSoVef07DU3MtZp4qPNVvA=; b=rrRjJuvfFQlq+7SzL7CdgGtHNz
+	aMf/03C9z0RtKKH82mbYWGR+M/s/PWdA/zVT83PmlTYvBxUXiKHqmT9Futgf40Snz/N2GjxzOkkbO
+	Yxq7Kn6ksijo7xTerLbUd7roln9OEmp0PxO//gQnOIT0zAqkxqP4gd3dBIrOav970jnD/3KuFj/eu
+	bX+kXJsygLGUt33lYEff2j7E8G1zzWCFQW741rYgo89ZUutVhParNl619FMyvxK36HUwDNyGq/sN3
+	GLw015/TISIvEuf+UvZT3vY6kjgy/szn8QvaFf8K23nk1Ji8BX9dD4Ll/FKO9p5qgwjapjP1zfYeQ
+	q1TNGFLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKx8N-00000003gbW-02VH;
-	Thu, 07 May 2026 11:43:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wKx9z-00000003h14-1Xa2;
+	Thu, 07 May 2026 11:44:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKx8L-00000003gbG-3rr9;
-	Thu, 07 May 2026 11:43:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=4r8mXmt6skT6Iq4+j8vT+vFH5yMYCK775SlOiUC7Pz8=; b=cIprbon4xAZUZxkLolSUwuPPuW
-	4u9IsCOsQY0qCm0oV82oN+GCBIxfqX5u5XV8hLtAn8vUNqCYITPS6L+tbA68Nv6wdQXMmE4vrbN8L
-	gY/XRHRXz2CYOM4NINMoDCiSrC07dKkwa6AAvSzkoGLZXzrM47t3Ia6IqSDG3qgbC+QIDnnuXZLx9
-	pXQUdI29P27pslgsUInh7kPeRxusaLLnkDWCKzgZXSQb7zLOyQK4uKC29qbCa0md8QnJRqgQtGps9
-	Io65q1yeYIefAvHF9LRUGJMlC/QGr16KvvORol2YRkZjQBf03TDI5eHrBBZLMe56s4fWt0Bf3y+4b
-	r5mwZ+QA==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKx8H-00000003Nxo-2XUl;
-	Thu, 07 May 2026 11:43:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=4r8mXmt6skT6Iq4+j8vT+vFH5yMYCK775SlOiUC7Pz8=; b=CrnNjN0m1XtdyHqmY1+DsuV07f
-	lXViUR5+x6r0ra86n7QkOwbcU9cOmz6apNfoWfKVfKmcJ0LTLLHu7825NJV++k9NI0JkU8ZbOfOJ0
-	8U8tTajXryp345oruqepaUy0z0sRG7tMwko2jAZWy5hG0fd1Ddzfss/vs9nf4VZk7koMLfx6y0tNG
-	IjcH5Ymz08Nax4PCDgDuLTP7d5c7A9EVicNV/qLjb73snybFH8ZkjDQuKCX3dICtovMpiBpKGl6bE
-	r/CkQXJUkeTN+Q9fvmAiv3/uxerNxIMwlZBBdkOOpmtLi7ILOe/5+Q90pXE+RE0TrP/WM+FlhBLpQ
-	DSRMe4rw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: hjc@rock-chips.com, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org, Damon Ding <damon.ding@rock-chips.com>
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
- cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
- dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com,
- dianders@chromium.org, m.szyprowski@samsung.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Damon Ding <damon.ding@rock-chips.com>
-Subject: Re: [PATCH v3 01/10] dt-bindings: display: rockchip: analogix-dp: Expand
- clock-names "hclk" for the third clock
-Date: Thu, 07 May 2026 13:42:50 +0200
-Message-ID: <4528155.7s5MMGUR32@phil>
-In-Reply-To: <6496645.8F6SAcFxjW@phil>
-References: <20260507112948.1115003-1-damon.ding@rock-chips.com>
- <20260507112948.1115003-2-damon.ding@rock-chips.com>
- <6496645.8F6SAcFxjW@phil>
+	id 1wKx9w-00000003h0Q-3gef
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 May 2026 11:44:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E98443972;
+	Thu,  7 May 2026 11:44:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1E29C2BCB2;
+	Thu,  7 May 2026 11:44:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778154292;
+	bh=jTnvtAFFnsIrZicTBdhLaws8Zfm6vt3oXsIQRVkiHjw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fbetJZh8QF+19DK4P580Sxu0oRB/09PJQOlcMHn8yyDPCoG2QK7qzxj6qV8RHiaP/
+	 8Jh1hwR8ddK4Gy8xrvgmGRDkd/pBhlQHWyqjMk4CmheIF3vUExWYtjR9oFutartqN/
+	 b63MJna/F5vBVlfJ/9eDiOCXeY0J3A3YpFQN3FTBVX4C78iXTM0e4aae5JaOoawMQs
+	 1bpw+Ma9I4/Y/4TXrfZ221UwWUgXFtGe5yHcvQZU62NwM0Ktpl0YtGad/igd5dDRq/
+	 r9F2hDmTP/zlbaZ0zAncsPw2WUwNyGJdtdTZfawdvjUyeWBPWrybYGOZuzNhU9yoSr
+	 NgHdL7gms42nw==
+Date: Thu, 7 May 2026 17:14:39 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, mark.rutland@arm.com, lpieralisi@kernel.org, 
+	bjorn.andersson@oss.qualcomm.com, konrad.dybcio@oss.qualcomm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Konrad Dybcio <konradybcio@kernel.org>, Konrad Dybcio <konrad.dybcio@linaro.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH] firmware: psci: Set pm_set_resume/suspend_via_firmware()
+ for SYSTEM_SUSPEND
+Message-ID: <i5gyutgzfckobfaidbwtlzpgjsdcarbg3mroqhvfy6eha7pvax@egxycr4kp7xw>
+References: <20251231162126.7728-1-manivannan.sadhasivam@oss.qualcomm.com>
+ <acrdFfk8al80dynq@baldur>
+ <ces6pczk5yo2v5h6sga2dl2xuncqv4pmudunc7dhyeiy6swfh7@bk7vxdxrsrzz>
+ <adO1lS2g8Hewj0Ol@baldur>
+ <a6lce6bq3yjzidxzq6w2xuiyevvgfuu5crbijtzeiukecmwvhh@k2w64iyj7q7q>
+ <cbffc0ec-2961-4a3f-91e8-770f3f7f8bcc@nvidia.com>
+ <4ympdtnpqrydnjmapuswsnig7ymuopy4kpxqclyxnoaqgpdmxl@eywcfbu3avtg>
+ <49a68039-3a59-4b4c-acbd-0fa917d0e456@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <49a68039-3a59-4b4c-acbd-0fa917d0e456@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_124310_093297_589AA021 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20260507_044452_936118_81D84C04 
+X-CRM114-Status: GOOD (  25.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 7. Mai 2026, 13:40:09 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Heiko Stuebner:
-> Hi Damon,
->=20
-> Am Donnerstag, 7. Mai 2026, 13:29:39 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Damon Ding:
-> > The RK3588 eDP controller needs the video datapath clock "hclk" to work
-> > well. Previously, it works without explicitly adding this clock because
-> > the 'rockchip,vo-grf =3D <&vo1_grf>' property implicitly enables HCLK_V=
-O1.
-> >
-> > Fixes: f855146263b1 ("dt-bindings: display: rockchip: analogix-dp: Add =
-support for RK3588")
-> > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> > ---
-> >  .../bindings/display/rockchip/rockchip,analogix-dp.yaml       | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchi=
-p,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/roc=
-kchip,analogix-dp.yaml
-> > index d99b23b88cc5..d2bc8636b626 100644
-> > --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analo=
-gix-dp.yaml
-> > +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analo=
-gix-dp.yaml
-> > @@ -26,7 +26,9 @@ properties:
-> >      items:
-> >        - const: dp
-> >        - const: pclk
-> > -      - const: grf
-> > +      - enum:
-> > +          - grf
-> > +          - hclk
->=20
-> are you sure about that?
->=20
-> The edp uses the vo1-grf - so what enables its clock?
-> For example the hdmi controllers on rk3588 also use the vo1-grf and
-> explicitly handle that clock.
->=20
-> So who does it for the eDP?
+On Thu, May 07, 2026 at 11:54:08AM +0100, Jon Hunter wrote:
+> 
+> On 06/05/2026 18:18, Manivannan Sadhasivam wrote:
+> > On Tue, May 05, 2026 at 02:47:08PM +0100, Jon Hunter wrote:
+> > > Hi Mani,
+> > > 
+> > > On 06/04/2026 15:29, Manivannan Sadhasivam wrote:
+> > > 
+> > > ...
+> > > 
+> > > > Sure. It makes logical sense to relate this API behavior with the state of CX.
+> > > > I'll send v2 with the updated commit message.
+> > > 
+> > > Did you ever send a V2? I am not sure if I missed it and so wanted to check.
+> > > 
+> > 
+> > No, I didn't. I had some offline discussions with Bjorn and concluded that it
+> > might not be appropriate to set pm_set_resume/suspend_via_firmware() for all
+> > firmware flavors that our Qcom SoCs support.
+> > 
+> > Then I found out a limitation with our Root Complex IPs in exiting L1ss if the
+> > platform is suspended. So sent out a series to fix that and that allowed me to
+> > get past the NVMe issue coincidentally.
+> > 
+> > But since this patch applies to other ARM64 SoCs, it logically makes sense to
+> > apply it IMO. So, I'll leave it to PSCI maintainers to decide.
+> 
+> 
+> I am not sure I follow the above. Sounds like you don't want to apply this
+> because it may not work for all Qualcomm SoCs, but regardless of that you
+> will leave to the PSCI maintainers to decide?
+> 
 
-Ah, ... found the hclk_vo1 in the following patches.
+No, I was saying that there is no need to respin this patch and the PSCI
+maintainers can apply this patch as-is.
 
-Still the binding commit message could use some more words about what that
-clock is, and why it can "replace" the GRF clock from earlier SoCs.
+> Anyway, I have resumed the discussion on the original thread [0] because
+> this has been broken now for the last two kernel releases.
+> 
 
-Heiko
+Sure. We were carrying out-of-tree patch to fix this issue ever since we started
+supporting NVMe on Qcom SoCs ;)
 
+- Mani
 
+-- 
+மணிவண்ணன் சதாசிவம்
 
