@@ -4,86 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C14ECD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42051CD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+tQL7HC23Glh/rH6/kwY9gPBHANaMS39PoPvCNROoI=; b=KWrC7y0VQvTyyeHi4OeYuyTlTD
-	QRo51TnCuJUzkrqsaj9cxmpPUeR4Qx0X2r3uTagVe3bf0hHexy04OslZReCJGTRM1r5RA8QnWfQU1
-	QeF+18gfCVYMej71GnbwU72nXs/pW/5OIcK8PPwhOo9uHn56c+XnAMtG7sAcWGqvXB+5ltvngGm70
-	LHe6BdvmjwpIRNKvXeg+OiQTIFuJyke6t5pid8EjrXKjVeH1hLcJ2f9j6cqmU91a3oG4ez/tQlbbU
-	bqj9zfhxwlnmiSztykePTHEaRIwvG/8CImLRfKz/La3oHfp25QyWMGyMB4pd+4+0UIKeDzXiXfTe6
-	ZdQN/9Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3DChg0VKli/eox/50RDLC0AeEnxituixU6XJ1AwoBK8=; b=MZCy6E6NbcNs77CyDuOZeC1vib
+	lIhDMWDwBFhUWLODJdJx2DT6fFhzN7jp/J3Hc95iG9r2zFXuymVTrWhh5YoRll8joZGOBUpG3wwoW
+	XBw7wxStsXVkwydgYHqhgumCzi93AXj2tav4kRv6WGs+ZRiI4GprGuxzO1/DFx/OyFWCmIcIyQntd
+	MSlMLlUv6KWou+X9ORltA9RnFMWpEaX5COv7KLsbjo4ilmBZsEcmEaMrnNEpgrORH6euiksFqQoEo
+	+mYvywu7s5rKK9xIsE4o6rDqrTR43hvl17M5BWLL24R7Y+ChNXpMn5Hcjc1iUO5f9jlwrko5BHF18
+	nDTYdDyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKu9s-00000003Bl8-1UVW;
-	Thu, 07 May 2026 08:32:36 +0000
-Received: from azure-sdnproxy.icoremail.net ([13.76.78.106])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKu9q-00000003BkH-1XzO
+	id 1wKuEZ-00000003COM-0JWI;
+	Thu, 07 May 2026 08:37:27 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKuEW-00000003CNG-1SND
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 08:32:35 +0000
-Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
-	by app2 (Coremail) with SMTP id TQJkCgDX7J8QTvxpvXkXAA--.8522S2;
-	Thu, 07 May 2026 16:32:18 +0800 (CST)
-From: lizhi2@eswincomputing.com
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com,
-	Zhi Li <lizhi2@eswincomputing.com>
-Subject: [PATCH net v1 2/2] net: stmmac: eic7700: fix delay step calculation and ensure safe register initialization
-Date: Thu,  7 May 2026 16:32:10 +0800
-Message-ID: <20260507083214.192-1-lizhi2@eswincomputing.com>
-X-Mailer: git-send-email 2.52.0.windows.1
-In-Reply-To: <20260507083037.152-1-lizhi2@eswincomputing.com>
-References: <20260507083037.152-1-lizhi2@eswincomputing.com>
+	Thu, 07 May 2026 08:37:26 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 57D9E664;
+	Thu,  7 May 2026 10:37:15 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1778143035;
+	bh=yRFEhZivggtsy1WIFd6s2+6wukdiSm1BWUEOTkcdLww=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oKycNdg59d7OwdoyMEAlp+6nNCTsV+oTKqmePm/AglampNq+MeTusQ8o2Qh2JiLrH
+	 iplD8fALtVKRbIXEOsWsS1zi44JawHQy32wTmkRWPyHwqWisAcKlVxnRrRs7J37S1q
+	 j7M7LegsLVeuWMI0blp6aZuSObq0z0jTSHTDGpFM=
+Date: Thu, 7 May 2026 11:37:17 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Xiaolei Wang <xiaolei.wang@windriver.com>
+Cc: mchehab@kernel.org, Frank.li@nxp.com, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, aisheng.dong@nxp.com,
+	jacopo@jmondi.org, guoniu.zhou@nxp.com, s.riedmueller@phytec.de,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3 3/4] media: nxp: imx8-isi: Fix missing
+ v4l2_subdev_cleanup() in pipe init error path
+Message-ID: <20260507083717.GH1778786@killaraus.ideasonboard.com>
+References: <20260507041318.491594-1-xiaolei.wang@windriver.com>
+ <20260507041318.491594-4-xiaolei.wang@windriver.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TQJkCgDX7J8QTvxpvXkXAA--.8522S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3CFW7GF4UtFyxuF13JFWDurg_yoWDWw1xpF
-	WkAFy5tr1jqF1fG3yvyF40qa4Fkw47WF1fArZ3GFn2vF90yrn8XayjyayakF98Wry7ZF15
-	J3yUJFyxuF129FJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBm14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1U
-	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
-	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRNSdgDUUUU
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260507041318.491594-4-xiaolei.wang@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_013234_578716_B63CCAB2 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20260507_013724_817673_FE0F1916 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,299 +72,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhi Li <lizhi2@eswincomputing.com>
+On Thu, May 07, 2026 at 12:13:17PM +0800, Xiaolei Wang wrote:
+> After v4l2_subdev_init_finalize() succeeds in mxc_isi_pipe_init(), if
+> platform_get_irq() or devm_request_irq() fails, the error path jumps to
+> a label that only calls media_entity_cleanup() and mutex_destroy(),
+> missing the v4l2_subdev_cleanup() call needed to free the subdev active
+> state allocated by v4l2_subdev_init_finalize().
+> 
+> Add an error_subdev label that calls v4l2_subdev_cleanup() before
+> falling through to the existing error cleanup.
+> 
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
 
-Fix several issues in the EIC7700 DWMAC glue driver related to delay
-configuration and register initialization.
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 
-The hardware implements TX/RX delay with a granularity of 20 ps per
-step, but the driver previously assumed a 100 ps step. Update the
-definitions to match the actual hardware behaviour and align with
-the binding constraints.
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> index cb50af2270f6..a59b9456b590 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> @@ -796,18 +796,20 @@ int mxc_isi_pipe_init(struct mxc_isi_dev *isi, unsigned int id)
+>  	irq = platform_get_irq(to_platform_device(isi->dev), id);
+>  	if (irq < 0) {
+>  		ret = irq;
+> -		goto error;
+> +		goto error_subdev;
+>  	}
+>  
+>  	ret = devm_request_irq(isi->dev, irq, mxc_isi_pipe_irq_handler,
+>  			       0, dev_name(isi->dev), pipe);
+>  	if (ret < 0) {
+>  		dev_err(isi->dev, "failed to request IRQ (%d)\n", ret);
+> -		goto error;
+> +		goto error_subdev;
+>  	}
+>  
+>  	return 0;
+>  
+> +error_subdev:
+> +	v4l2_subdev_cleanup(sd);
+>  error:
+>  	media_entity_cleanup(&sd->entity);
+>  	mutex_destroy(&pipe->lock);
 
-Introduce explicit definitions for the maximum programmable delay
-range based on the hardware limits.
-
-Move HSP CSR configuration into the initialization path after clocks
-are enabled. This ensures that all register accesses occur with the
-required clocks active, avoiding undefined behaviour.
-
-Clear the TXD and RXD delay control registers during initialization
-to override any residual configuration left by the bootloader. This
-ensures deterministic RGMII timing and prevents unintended delay
-being applied.
-
-The MAC RGMII delay programming is only required for 100Mbps and
-1000Mbps modes, where precise clock-to-data alignment is necessary for
-reliable sampling.
-
-For 10Mbps operation, timing margins are sufficiently relaxed and no
-additional delay compensation is required. In this case, the driver
-falls back to a safe default configuration with delay disabled.
-
-For unsupported or unexpected link speeds, the driver avoids
-programming invalid delay values and falls back to a safe default
-state by explicitly clearing the delay configuration.
-
-Explicitly programming zero ensures that no residual delay settings
-from previous configurations or bootloader state remain active.
-
-These changes fix incorrect delay programming and initialization
-ordering for existing users.
-
-This also aligns the driver implementation with the updated device
-tree binding.
-
-Fixes: ea77dbbdbc4e ("net: stmmac: add Eswin EIC7700 glue driver")
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
----
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 154 +++++++++++++-----
- 1 file changed, 112 insertions(+), 42 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-index bcb8e000e720..0f1c62062797 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-@@ -28,20 +28,31 @@
- 
- /*
-  * TX/RX Clock Delay Bit Masks:
-- * - TX Delay: bits [14:8] — TX_CLK delay (unit: 0.1ns per bit)
-- * - RX Delay: bits [30:24] — RX_CLK delay (unit: 0.1ns per bit)
-+ * - TX Delay: bits [14:8] — TX_CLK delay (unit: 0.02ns per bit)
-+ * - RX Delay: bits [30:24] — RX_CLK delay (unit: 0.02ns per bit)
-  */
- #define EIC7700_ETH_TX_ADJ_DELAY	GENMASK(14, 8)
- #define EIC7700_ETH_RX_ADJ_DELAY	GENMASK(30, 24)
- 
--#define EIC7700_MAX_DELAY_UNIT 0x7F
-+#define EIC7700_MAX_DELAY_STEPS		0x7F
-+#define EIC7700_DELAY_STEP_PS		20
-+#define EIC7700_MAX_DELAY_PS	\
-+	(EIC7700_MAX_DELAY_STEPS * EIC7700_DELAY_STEP_PS)
- 
- static const char * const eic7700_clk_names[] = {
- 	"tx", "axi", "cfg",
- };
- 
- struct eic7700_qos_priv {
-+	struct device *dev;
- 	struct plat_stmmacenet_data *plat_dat;
-+	struct regmap *eic7700_hsp_regmap;
-+	u32 eth_axi_lp_ctrl_offset;
-+	u32 eth_phy_ctrl_offset;
-+	u32 eth_txd_offset;
-+	u32 eth_clk_offset;
-+	u32 eth_rxd_offset;
-+	u32 eth_clk_dly_param;
- };
- 
- static int eic7700_clks_config(void *priv, bool enabled)
-@@ -61,8 +72,28 @@ static int eic7700_clks_config(void *priv, bool enabled)
- static int eic7700_dwmac_init(struct device *dev, void *priv)
- {
- 	struct eic7700_qos_priv *dwc = priv;
-+	int ret;
-+
-+	ret = eic7700_clks_config(dwc, true);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_set_bits(dwc->eic7700_hsp_regmap,
-+			      dwc->eth_phy_ctrl_offset,
-+			      EIC7700_ETH_TX_CLK_SEL |
-+			      EIC7700_ETH_PHY_INTF_SELI);
-+	if (ret) {
-+		eic7700_clks_config(dwc, false);
-+		return ret;
-+	}
-+
-+	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_axi_lp_ctrl_offset,
-+		     EIC7700_ETH_CSYSREQ_VAL);
-+
-+	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_txd_offset, 0);
-+	regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_rxd_offset, 0);
- 
--	return eic7700_clks_config(dwc, true);
-+	return 0;
- }
- 
- static void eic7700_dwmac_exit(struct device *dev, void *priv)
-@@ -88,18 +119,38 @@ static int eic7700_dwmac_resume(struct device *dev, void *priv)
- 	return ret;
- }
- 
-+static void eic7700_dwmac_fix_speed(void *priv, phy_interface_t interface,
-+				    int speed, unsigned int mode)
-+{
-+	struct eic7700_qos_priv *dwc = (struct eic7700_qos_priv *)priv;
-+	bool needs_calibration = false;
-+
-+	switch (speed) {
-+	case SPEED_1000:
-+	case SPEED_100:
-+		needs_calibration = true;
-+		fallthrough;
-+	case SPEED_10:
-+		break;
-+	default:
-+		dev_err(dwc->dev, "invalid speed %u\n", speed);
-+		break;
-+	}
-+
-+	if (needs_calibration) {
-+		regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_clk_offset,
-+			     dwc->eth_clk_dly_param);
-+	} else {
-+		regmap_write(dwc->eic7700_hsp_regmap, dwc->eth_clk_offset, 0);
-+	}
-+}
-+
- static int eic7700_dwmac_probe(struct platform_device *pdev)
- {
- 	struct plat_stmmacenet_data *plat_dat;
- 	struct stmmac_resources stmmac_res;
- 	struct eic7700_qos_priv *dwc_priv;
--	struct regmap *eic7700_hsp_regmap;
--	u32 eth_axi_lp_ctrl_offset;
--	u32 eth_phy_ctrl_offset;
--	u32 eth_phy_ctrl_regset;
--	u32 eth_rxd_dly_offset;
--	u32 eth_dly_param = 0;
--	u32 delay_ps;
-+	u32 delay_ps, val;
- 	int i, ret;
- 
- 	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-@@ -116,70 +167,88 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
- 	if (!dwc_priv)
- 		return -ENOMEM;
- 
-+	dwc_priv->dev = &pdev->dev;
-+
- 	/* Read rx-internal-delay-ps and update rx_clk delay */
- 	if (!of_property_read_u32(pdev->dev.of_node,
- 				  "rx-internal-delay-ps", &delay_ps)) {
--		u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
-+		if (delay_ps % EIC7700_DELAY_STEP_PS)
-+			return dev_err_probe(&pdev->dev, -EINVAL,
-+				"rx delay must be multiple of %dps\n",
-+				EIC7700_DELAY_STEP_PS);
- 
--		eth_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
--		eth_dly_param |= FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
--	} else {
--		return dev_err_probe(&pdev->dev, -EINVAL,
--			"missing required property rx-internal-delay-ps\n");
-+		if (delay_ps > EIC7700_MAX_DELAY_PS)
-+			return dev_err_probe(&pdev->dev, -EINVAL,
-+				"rx delay out of range\n");
-+
-+		val = delay_ps / EIC7700_DELAY_STEP_PS;
-+
-+		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
-+		dwc_priv->eth_clk_dly_param |=
-+				 FIELD_PREP(EIC7700_ETH_RX_ADJ_DELAY, val);
- 	}
- 
- 	/* Read tx-internal-delay-ps and update tx_clk delay */
- 	if (!of_property_read_u32(pdev->dev.of_node,
- 				  "tx-internal-delay-ps", &delay_ps)) {
--		u32 val = min(delay_ps / 100, EIC7700_MAX_DELAY_UNIT);
-+		if (delay_ps % EIC7700_DELAY_STEP_PS)
-+			return dev_err_probe(&pdev->dev, -EINVAL,
-+				"tx delay must be multiple of %dps\n",
-+				EIC7700_DELAY_STEP_PS);
- 
--		eth_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
--		eth_dly_param |= FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
--	} else {
--		return dev_err_probe(&pdev->dev, -EINVAL,
--			"missing required property tx-internal-delay-ps\n");
-+		if (delay_ps > EIC7700_MAX_DELAY_PS)
-+			return dev_err_probe(&pdev->dev, -EINVAL,
-+				"tx delay out of range\n");
-+
-+		val = delay_ps / EIC7700_DELAY_STEP_PS;
-+
-+		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
-+		dwc_priv->eth_clk_dly_param |=
-+				 FIELD_PREP(EIC7700_ETH_TX_ADJ_DELAY, val);
- 	}
- 
--	eic7700_hsp_regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
--							     "eswin,hsp-sp-csr");
--	if (IS_ERR(eic7700_hsp_regmap))
-+	dwc_priv->eic7700_hsp_regmap =
-+			syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-+							"eswin,hsp-sp-csr");
-+	if (IS_ERR(dwc_priv->eic7700_hsp_regmap))
- 		return dev_err_probe(&pdev->dev,
--				PTR_ERR(eic7700_hsp_regmap),
-+				PTR_ERR(dwc_priv->eic7700_hsp_regmap),
- 				"Failed to get hsp-sp-csr regmap\n");
- 
- 	ret = of_property_read_u32_index(pdev->dev.of_node,
- 					 "eswin,hsp-sp-csr",
--					 1, &eth_phy_ctrl_offset);
-+					 1, &dwc_priv->eth_phy_ctrl_offset);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret,
- 				     "can't get eth_phy_ctrl_offset\n");
- 
--	regmap_read(eic7700_hsp_regmap, eth_phy_ctrl_offset,
--		    &eth_phy_ctrl_regset);
--	eth_phy_ctrl_regset |=
--		(EIC7700_ETH_TX_CLK_SEL | EIC7700_ETH_PHY_INTF_SELI);
--	regmap_write(eic7700_hsp_regmap, eth_phy_ctrl_offset,
--		     eth_phy_ctrl_regset);
--
- 	ret = of_property_read_u32_index(pdev->dev.of_node,
- 					 "eswin,hsp-sp-csr",
--					 2, &eth_axi_lp_ctrl_offset);
-+					 2, &dwc_priv->eth_axi_lp_ctrl_offset);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret,
- 				     "can't get eth_axi_lp_ctrl_offset\n");
- 
--	regmap_write(eic7700_hsp_regmap, eth_axi_lp_ctrl_offset,
--		     EIC7700_ETH_CSYSREQ_VAL);
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 3, &dwc_priv->eth_clk_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "can't get eth_clk_offset\n");
- 
- 	ret = of_property_read_u32_index(pdev->dev.of_node,
- 					 "eswin,hsp-sp-csr",
--					 3, &eth_rxd_dly_offset);
-+					 4, &dwc_priv->eth_txd_offset);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret,
--				     "can't get eth_rxd_dly_offset\n");
-+				     "can't get eth_txd_offset\n");
- 
--	regmap_write(eic7700_hsp_regmap, eth_rxd_dly_offset,
--		     eth_dly_param);
-+	ret = of_property_read_u32_index(pdev->dev.of_node,
-+					 "eswin,hsp-sp-csr",
-+					 5, &dwc_priv->eth_rxd_offset);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "can't get eth_rxd_offset\n");
- 
- 	plat_dat->num_clks = ARRAY_SIZE(eic7700_clk_names);
- 	plat_dat->clks = devm_kcalloc(&pdev->dev,
-@@ -208,6 +277,7 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
- 	plat_dat->exit = eic7700_dwmac_exit;
- 	plat_dat->suspend = eic7700_dwmac_suspend;
- 	plat_dat->resume = eic7700_dwmac_resume;
-+	plat_dat->fix_mac_speed = eic7700_dwmac_fix_speed;
- 
- 	return devm_stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
- }
 -- 
-2.25.1
+Regards,
 
+Laurent Pinchart
 
