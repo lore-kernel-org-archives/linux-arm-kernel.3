@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19200CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 21:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F42BCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 21:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CU5hc1DA1CiGChg4fsggJp0axPdZ5rWF4k15UEJ0d14=; b=tbMdT4+8hxMS3fzjdfdRWAOkkL
-	JGDDiiuLajEBrdntgr2vbB5oLhGBswPfHTehi8E1fHstDLzqC+ep13V2zcQZMjboJTsy8xs6XnFbt
-	1IZhVQ7dTKfzOADqAxoUGAMbMV78jISlOvvo8dhqwpXcY22Q0M5brFfmK4OKRa9sXXT/DzBxezWN+
-	6osG30wcEbxzjEJsh/V61CBfY5Bw7fSGNAKR998hudfoutalMiAc+7+oVoNHSi21G09NZwvDzRduE
-	Q3R7N11iW1tVqzflg3/43c9XbL/jP6pjOs0sZtBeaMM+eSRy6hfM8XVR4TKH8+zaIm/ZcQ59tQolc
-	OdocEl2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=59AbTfsbJ8BKP/Y9A5bkq/pQV+P5x16v9MWoFB6Ie+I=; b=vTjM7mlzF/HrcvM9E2+EBkqiIT
+	sfeeXs9z9ysDwkP5jcyk3nQNKVxijVMGUFK8sMr9fE9qxKsa3SRlAzGKEhFEXK5pJGR2ouJFcbLwv
+	F5DHVjZJhKBt4JL/SJ5TNMZycDWwx6a+b7c+NERASkeySSX7FWmIWpY3R562U7h3POOWwC0JKy0RU
+	N/OVZZGkToGoIzaVUXdbe9Lqz54KMEE/yDHbUYrGL62axgJHXBCaZu4A5MNdW7D+R2om3q0mElEt8
+	hMnEaFPMzji/7kxs+LRewcuYSNZrUO+lhqVvipMAswz5T178osyzgU5j3dgrMTeTIiZ4FH/rObFoh
+	ptzI4TIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL6BM-00000004ulF-0Jvb;
-	Thu, 07 May 2026 21:22:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wL6DZ-00000004veD-3LQS;
+	Thu, 07 May 2026 21:25:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL6BI-00000004ueG-1kj2;
-	Thu, 07 May 2026 21:22:52 +0000
+	id 1wL6DW-00000004vdP-3uUH
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 May 2026 21:25:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D5C9660181;
-	Thu,  7 May 2026 21:22:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31FFBC2BCF5;
-	Thu,  7 May 2026 21:22:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 140F7439DF;
+	Thu,  7 May 2026 21:25:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19F25C2BCB2;
+	Thu,  7 May 2026 21:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778188971;
-	bh=fcQuV8WMZWguNDOAHbXa5lYO/Ui/98EqaE3hlGtG44Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Fm2Gguc/CP29SWELe5aR27miAGHD2sKbHJxjOSO75cX+a9JZ/ttCWEpYK8h4ypTfS
-	 PqNOfQzmZBWWehIHrNRWLl7WhpOCe1wxeVUJl/gDQniKdzneE5NLsuCmTWexZFBiIw
-	 rlDI7o2OS8U+2proT2vNEKDp18oYeooiS28VhN45y8c+BdIXXlpoOf204Ey3AATXAq
-	 7ohK0B8dtjAuSREsFH7RQfNocorPPPjG7Y1iMzU2GWiPOD509deh+KJmtmuRDLmVa2
-	 QGKGq0Q9kd9EjLqyMqSy21uG8NKSy8ku9IDRc0MYMAUAyNzTIRcABxW01Yo6jjA7H9
-	 F37sIzNB1SG0Q==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 07 May 2026 23:21:53 +0200
-Subject: [PATCH net-next v4 10/10] net: airoha: Support multiple LAN/WAN
- interfaces for hw MAC address configuration
+	s=k20201202; t=1778189109;
+	bh=4xVIrB3BoO25kpWCsGNHbaYhrNjLMgOZJqdAM781Ba0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sOLHZcyng7jEWIx7N1q/jm8C7FHsoVY69SWitvcQ7M2O3YjaRO9f7ONaz7MrP3Wqa
+	 zsOxPtOgvSlQRjbcbARjJBV/yD8Aqs1xPgzFBZLfUeXPOFSEyvJJMsB566vkV3/ZZx
+	 5ldy6tithi+fVbc0+oAG5cpq8XutxP0NFtqvrABUuxyKT7A6rXYBpUK1QP6M2cSIFz
+	 1CQEpg5eA2oUtBWWEpxV8o0iB8+ibyMDGPW58JJdUU/E79Slein8QzNBNHRCZ3aW6J
+	 VRa8cW1ZzlEtBdCkU665GDlHWNTPM4X1S5XsWpDNGi/4HTBxpCcBHux36YsNIMvkfa
+	 FiQl6pTFGzUqg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: netdev@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	"Aaro Koskinen" <aaro.koskinen@iki.fi>,
+	"Andreas Kemnade" <andreas@kemnade.info>,
+	"Bartosz Golaszewski" <brgl@kernel.org>,
+	=?UTF-8?q?Beno=C3=AEt=20Cousson?= <bcousson@baylibre.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	"Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+	"Eric Dumazet" <edumazet@google.com>,
+	"Felipe Balbi" <balbi@kernel.org>,
+	"Jakub Kicinski" <kuba@kernel.org>,
+	"Johannes Berg" <johannes@sipsolutions.net>,
+	"Kevin Hilman" <khilman@baylibre.com>,
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+	"Linus Walleij" <linusw@kernel.org>,
+	"Paolo Abeni" <pabeni@redhat.com>,
+	"Rob Herring" <robh+dt@kernel.org>,
+	"Roger Quadros" <rogerq@kernel.org>,
+	"Tony Lindgren" <tony@atomide.com>,
+	linux-wireless@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: [PATCH 0/3] [v5 net-next] wireless: p54 devicetree conversion
+Date: Thu,  7 May 2026 23:24:48 +0200
+Message-Id: <20260507212451.3333185-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260507-airoha-eth-multi-serdes-v4-10-af613b61ae02@kernel.org>
-References: <20260507-airoha-eth-multi-serdes-v4-0-af613b61ae02@kernel.org>
-In-Reply-To: <20260507-airoha-eth-multi-serdes-v4-0-af613b61ae02@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>, 
- Benjamin Larsson <benjamin.larsson@genexis.eu>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- Madhur Agrawal <madhur.agrawal@airoha.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260507_142511_014329_4CF145D1 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,149 +92,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EN7581 and AN7583 SoCs provide registers to configure hardware LAN/WAN
-MAC addresses, used to determine whether received traffic is destined for
-this host or should be forwarded to another device.
-The SoC hardware design assumes all interfaces configured as LAN (or WAN)
-share a common upper MAC address, which is programmed into the
-REG_FE_{LAN,WAN}_MAC_H register. The lower bytes of 'local' addresses can
-be expressed as a range via the REG_FE_MAC_LMIN and REG_FE_MAC_LMAX
-registers.
-Previously, only a single interface was considered when programming these
-registers. Extend the logic to derive the correct minimum and maximum
-values for REG_FE_MAC_LMIN/REG_FE_MAC_LMAX when two or more interfaces are
-configured as LAN or WAN.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+This is an older patch of mine that I lost track of. We already decided
+a while ago that the OMAP2 platform should probably be removed entirely,
+and this is the only known user, but it's probably a good idea to still
+get the driver changes in, in case there are other out-of-tree users.
+
+We probably don't have to worry about bisectability any more though,
+so the devicetree and driver changes can just get merged independently
+through the OMAP and wireless trees, respectively.
+
+     Arnd
+
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 73 +++++++++++++++++++++++++++-----
- 1 file changed, 63 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 8617dd4f7932..fbfefd0ec355 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -71,20 +71,67 @@ static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
- 	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
- }
- 
--static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
-+static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
- {
- 	struct airoha_eth *eth = dev->eth;
--	u32 val, reg;
-+	u8 ref_addr[ETH_ALEN] = {};
-+	u32 reg, val, lmin, lmax;
-+	int i;
-+
-+	lmin = (addr[3] << 16) | (addr[4] << 8) | addr[5];
-+	lmax = lmin;
-+
-+	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+		struct airoha_gdm_port *port = eth->ports[i];
-+		int j;
-+
-+		if (!port)
-+			continue;
-+
-+		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
-+			struct airoha_gdm_dev *iter_dev;
-+			struct net_device *netdev;
-+
-+			iter_dev = port->devs[j];
-+			if (!iter_dev || iter_dev == dev)
-+				continue;
-+
-+			if (airoha_is_lan_gdm_dev(iter_dev) !=
-+			    airoha_is_lan_gdm_dev(dev))
-+				continue;
-+
-+			netdev = iter_dev->dev;
-+			if (netdev->reg_state != NETREG_REGISTERED)
-+				continue;
-+
-+			ether_addr_copy(ref_addr, netdev->dev_addr);
-+			val = (netdev->dev_addr[3] << 16) |
-+			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
-+			if (val < lmin)
-+				lmin = val;
-+			if (val > lmax)
-+				lmax = val;
-+		}
-+	}
-+
-+	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
-+		/* According to the HW design, hw mac address MS bits
-+		 * must be the same for each net_device with the same
-+		 * LAN/WAN configuration.
-+		 */
-+		return -EINVAL;
-+	}
- 
- 	reg = airoha_is_lan_gdm_dev(dev) ? REG_FE_LAN_MAC_H : REG_FE_WAN_MAC_H;
- 	val = (addr[0] << 16) | (addr[1] << 8) | addr[2];
- 	airoha_fe_wr(eth, reg, val);
- 
--	val = (addr[3] << 16) | (addr[4] << 8) | addr[5];
--	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), val);
--	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), val);
-+	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), lmin);
-+	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), lmax);
- 
- 	airoha_ppe_init_upd_mem(dev);
-+
-+	return 0;
- }
- 
- static void airoha_set_gdm_port_fwd_cfg(struct airoha_eth *eth, u32 addr,
-@@ -1792,13 +1839,18 @@ static int airoha_dev_stop(struct net_device *netdev)
- static int airoha_dev_set_macaddr(struct net_device *netdev, void *p)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+	struct sockaddr *addr = p;
- 	int err;
- 
--	err = eth_mac_addr(netdev, p);
-+	err = eth_prepare_mac_addr_change(netdev, p);
- 	if (err)
- 		return err;
- 
--	airoha_set_macaddr(dev, netdev->dev_addr);
-+	err = airoha_set_macaddr(dev, addr->sa_data);
-+	if (err)
-+		return err;
-+
-+	eth_commit_mac_addr_change(netdev, p);
- 
- 	return 0;
- }
-@@ -1903,6 +1955,7 @@ static int airoha_dev_init(struct net_device *netdev)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
- 	struct airoha_gdm_port *port = dev->port;
-+	int err;
- 
- 	switch (port->id) {
- 	case AIROHA_GDM3_IDX:
-@@ -1922,12 +1975,12 @@ static int airoha_dev_init(struct net_device *netdev)
- 	}
- 
- 	airoha_dev_set_qdma(dev);
--	airoha_set_macaddr(dev, netdev->dev_addr);
-+	err = airoha_set_macaddr(dev, netdev->dev_addr);
-+	if (err)
-+		return err;
- 
- 	if (!airoha_is_lan_gdm_dev(dev) &&
- 	    (port->id == AIROHA_GDM3_IDX || port->id == AIROHA_GDM4_IDX)) {
--		int err;
--
- 		err = airoha_set_gdm2_loopback(dev);
- 		if (err) {
- 			dev->flags &= ~PRIV_FLAG_WAN;
+v4 Link: https://lore.kernel.org/all/20260430081242.3686993-1-arnd@kernel.org/
+v3 Link: https://lore.kernel.org/all/20260427142355.2532714-1-arnd@kernel.org/
+v2 Link: https://lore.kernel.org/all/20230404082401.1087835-1-arnd@kernel.org/
+
+Cc: "Aaro Koskinen" <aaro.koskinen@iki.fi>
+Cc: "Andreas Kemnade" <andreas@kemnade.info>
+Cc: "Arnd Bergmann" <arnd@arndb.de>
+Cc: "Bartosz Golaszewski" <brgl@kernel.org>
+Cc: "Benoît Cousson" <bcousson@baylibre.com>
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>
+Cc: "Eric Dumazet" <edumazet@google.com>
+Cc: "Felipe Balbi" <balbi@kernel.org>
+Cc: "Jakub Kicinski" <kuba@kernel.org>
+Cc: "Johannes Berg" <johannes@sipsolutions.net>
+Cc: "Kevin Hilman" <khilman@baylibre.com>
+Cc: "Krzysztof Kozlowski" <krzk+dt@kernel.org>
+Cc: "Linus Walleij" <linusw@kernel.org>
+Cc: "Paolo Abeni" <pabeni@redhat.com>
+Cc: "Rob Herring" <robh+dt@kernel.org>
+Cc: "Roger Quadros" <rogerq@kernel.org>
+Cc: "Tony Lindgren" <tony@atomide.com>
+Cc: linux-wireless@vger.kernel.org
+Cc: netdev@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-gpio@vger.kernel.org
+Cc: linux-omap@vger.kernel.org
+
+
+
+Arnd Bergmann (3):
+  [v5 net-next] dt-bindings: net: add st,stlc4560/p54spi binding
+  [v5 net-next] p54spi: convert to devicetree
+  [v5 omap] ARM: dts: omap2: add stlc4560 spi-wireless node
+
+ .../bindings/net/wireless/st,stlc4560.yaml    | 61 +++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ arch/arm/boot/dts/ti/omap/omap2.dtsi          |  4 ++
+ .../dts/ti/omap/omap2420-n8x0-common.dtsi     | 12 ++++
+ arch/arm/mach-omap2/board-n8x0.c              | 18 -----
+ drivers/net/wireless/intersil/p54/p54spi.c    | 67 +++++++------------
+ drivers/net/wireless/intersil/p54/p54spi.h    |  3 +
+ 7 files changed, 104 insertions(+), 62 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/wireless/st,stlc4560.yaml
 
 -- 
-2.54.0
+2.39.5
 
 
