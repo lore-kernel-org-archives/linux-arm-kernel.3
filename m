@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4463CCD3442
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 784B5CD3427
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 08:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1S6h3QY5kcGjmOO7UrBHNvJaD3QhiUgFB8DMut95WyY=; b=OXEIjSkK5yT5Opelmeyu1Wfk+Z
-	rMN14Ktddutd7aqcnxbPb/m/pG15KEk9487bZE7qA3PXb+CT8Zgesp98fagBWHIfDnkUe3wys007T
-	3XsnCfhETrM8wz7z8MuuU14T8iV95+pmAqOACxcuGq5iCQHiMGlagsnM/rwMjg+ogHrCCGYcx0Men
-	17zyZNjgtLiivMBYuYCPp1WZjmC1xJKqjedumXhmgqAkeNRZ3l9YCBoXVhqgNhdMbbVgxevFZEdwO
-	kVNRP1CnbwFyqmC5djVP+X8OsHMrPNgMcocqcfnB5VdnoGV1NBa5lV/DSA+pjtj254DZqGMJq9sBf
-	s+1AReoQ==;
+	bh=XeQQMk/5rux/ANZsWQWNxIkn1zvLYwxGC56gQCdSCWA=; b=t20G6isNSMTrgJnchQoMo4jU0H
+	SIUtAV8diGgZB1mgbh++40D9Jod03u0g143NysPqnABpl9vNQxKYSDCB6VF+s8AVhjedK2N/6nFE3
+	p24Xlsph3fGJbjTbMxTx/XnhPJBiLtnQ797DH8yOQq1SgdEqKaZzhue0PRRr1iw9GeBSHfCa5RnsX
+	GCTvJg+XY3ZdJ7grZtxmYJtn3m5ny+RcgSHH4Gz6GXeb+610sVOlXT2hKgqp1+bnqWQ7QZxWjkyQ9
+	ItGDitfBQfPfFfAA91c3O3dP4ldsLZTvyzj1Ydyb/5Wp40MafDPl0K6kv1L/JwH7P1awjIbAfnCbq
+	CushmlbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKtzC-000000039Yf-1kCa;
+	id 1wKtzC-000000039Yx-28K6;
 	Thu, 07 May 2026 08:21:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKtzB-000000039XS-22rS;
+	id 1wKtzB-000000039XR-1ySB;
 	Thu, 07 May 2026 08:21:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E53A46091C;
+	by tor.source.kernel.org (Postfix) with ESMTP id E5B5461146;
 	Thu,  7 May 2026 08:21:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 57D38C2BCC4;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 65725C2BCC7;
 	Thu,  7 May 2026 08:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1778142092;
-	bh=8aeJQiLBuxd455YFaEljjwg6lhpF/r3XUhK49nGVI7U=;
+	bh=oiLEXyRhdWpejzZHvrLjebKJzafiM7XepMhEKuUFNMU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=h1om2BGnVR5firCJkeZie4gqp4TGpqMx6f8gRxXXNAulMcrwvmJsLRqTh9qtueerV
-	 QkiM4SwtaKrYtZZcQBFIxuyoxGTAOW99dn9F2sK6gkh+RGA+1b6PmQeSQ8N5aYpkMJ
-	 qIVfxQVUN7PaeWGOT33HWT6bue547mLow9TjgDziOtO/iOwK1I4w9o5EhiQD+VJqW0
-	 KU/N/yWChtTdUwgpE2Elk35g7MeJZZBOZG49+yajeMvSfeMgIGfViy8/jKmVX3/uyz
-	 UMrFoFQS/wpIVGUSQlj+BXMWZKEHtpaYoZu9D5cizkGmbxamejmDmoktvGk/JdIO+H
-	 u3WV+fANB82mg==
+	b=hRe2P56Aj9SDyzwbtsmkKbeOOJIAV7JhGm+vD4eyKbZncTHj4BG7BTLOTHKZoo87d
+	 C0o4R9pxXKHZDu77EorK4isrYvqK3H8EDzreAOgOOsmDwXZJF3rzdSMoAKIyY0oqkh
+	 Wq7djEN+JRRwIvhJRU/RnyBEbBHPMwmOsJqq0WRA8BXA5uUtK6Vd9NxRTRa0aUN1SX
+	 laZp47yqt1SdwBbgIhQa+qvTmD5x6enS8HoGkZFCVk0PTcq2EMGvWDB9qK3+WT6SCE
+	 aZqB6xfHTE8Po3IY9tMIyqhsoxp35YU9bqB5lszcoeBHaNlfLrLLvC0zNjqB/PmQ1f
+	 R67/Ujq+RRlMA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4713DCD3442;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C664CD3445;
 	Thu,  7 May 2026 08:21:32 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Thu, 07 May 2026 08:21:06 +0000
-Subject: [PATCH v2 1/2] dt-bindings: pinctl: amlogic,pinctrl-a4: Add
- compatible string for A9
+Date: Thu, 07 May 2026 08:21:07 +0000
+Subject: [PATCH v2 2/2] pinctrl: meson: support amlogic A9 SoC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260507-a9-pinctrl-v2-1-49774feff2ef@amlogic.com>
+Message-Id: <20260507-a9-pinctrl-v2-2-49774feff2ef@amlogic.com>
 References: <20260507-a9-pinctrl-v2-0-49774feff2ef@amlogic.com>
 In-Reply-To: <20260507-a9-pinctrl-v2-0-49774feff2ef@amlogic.com>
 To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -65,11 +64,11 @@ Cc: linux-amlogic@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778142090; l=952;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778142090; l=4554;
  i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=2k1vwugiyN7k/DWuDNDfM9Z7PSgwUGyVNp5bE4hZPfA=;
- b=/O0SdmfGmeHXAbzezFdWPAvKdMJ3GQgtmapaC+6y6ZR9JBMfRyV7rwkGoJDfltl7UujQrVKf2
- ehAiFcAoK7pCzs9FeiYRjaj1UFwsd0zLfwGASJtGQXpoickEbDINlmn
+ bh=0I+nUQAPK0/ZQZJyj6bd7cC0tFUiA5rnV9znz28YQwo=;
+ b=JkYKjG5FuE+M+pQgOrQ5ZP0g8hhFSF0g6oeYwT1XrkpVqm9AMWvAOSUDi+Bb5CALV0K0wmbcX
+ opf6fiXOer0BbrSNGSegxbXsRofZKdw6FV6Cx40e63REQKWWxvU7nsT
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
@@ -92,29 +91,157 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Update dt-binding document for pinctrl of Amlogic A9.
+In Amlogic A9 SoC, subordinate bank reuse other master bank is
+not from bit0, and subordinate bank reuse multi master banks.
 
-In Amlogic A9 SoC, a bank mux register reuse other banks.
-The multiplexed part requires special processing and is
-therefore incompatible with the previous SoCs.
+This submission implements this situation.
 
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/pinctrl/meson/pinctrl-amlogic-a4.c | 61 +++++++++++++++++++++++++++---
+ 1 file changed, 56 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
-index 6ba66c2033b4..b69db1b95345 100644
---- a/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/amlogic,pinctrl-a4.yaml
-@@ -17,6 +17,7 @@ properties:
-     oneOf:
-       - enum:
-           - amlogic,pinctrl-a4
-+          - amlogic,pinctrl-a9
-           - amlogic,pinctrl-s6
-           - amlogic,pinctrl-s7
-       - items:
+diff --git a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
+index 35d27626a336..1fae372bdbad 100644
+--- a/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
++++ b/drivers/pinctrl/meson/pinctrl-amlogic-a4.c
+@@ -55,14 +55,18 @@ struct aml_pio_control {
+  * partial bank(subordinate) pins mux config use other bank(main) mux registgers
+  * m_bank_id:	the main bank which pin_id from 0, but register bit not from bit 0
+  * m_bit_offs:	bit offset the main bank mux register
++ * s_bit_offs:	start bit that subordinate bank use mux register
+  * sid:         start pin_id of subordinate bank
+  * eid:         end pin_id of subordinate bank
++ * next:	subordinate bank reused multiple other bank groups.
+  */
+ struct multi_mux {
+ 	unsigned int m_bank_id;
+ 	unsigned int m_bit_offs;
++	unsigned int s_bit_offs;
+ 	unsigned int sid;
+ 	unsigned int eid;
++	const struct multi_mux *next;
+ };
+ 
+ struct aml_pctl_data {
+@@ -124,12 +128,51 @@ static const char *aml_bank_name[31] = {
+ "GPIOCC", "TEST_N", "ANALOG"
+ };
+ 
++static const struct multi_mux multi_mux_a9[] = {
++	{
++		.m_bank_id = AMLOGIC_GPIO_C,
++		.m_bit_offs = 4,
++		.s_bit_offs = 0,
++		.sid = (AMLOGIC_GPIO_D << 8) + 16,
++		.eid = (AMLOGIC_GPIO_D << 8) + 16,
++		.next = &multi_mux_a9[1],
++	}, {
++		.m_bank_id = AMLOGIC_GPIO_AO,
++		.m_bit_offs = 0,
++		.s_bit_offs = 52,
++		.sid = (AMLOGIC_GPIO_D << 8) + 17,
++		.eid = (AMLOGIC_GPIO_D << 8) + 17,
++		.next = NULL,
++	}, {
++		.m_bank_id = AMLOGIC_GPIO_A,
++		.m_bit_offs = 0,
++		.s_bit_offs = 80,
++		.sid = (AMLOGIC_GPIO_Y << 8) + 8,
++		.eid = (AMLOGIC_GPIO_Y << 8) + 9,
++		.next = NULL,
++	}, {
++		.m_bank_id = AMLOGIC_GPIO_CC,
++		.m_bit_offs = 24,
++		.s_bit_offs = 0,
++		.sid = (AMLOGIC_GPIO_X << 8) + 16,
++		.eid = (AMLOGIC_GPIO_X << 8) + 17,
++		.next = NULL,
++	},
++};
++
++static const struct aml_pctl_data a9_priv_data = {
++	.number = ARRAY_SIZE(multi_mux_a9),
++	.p_mux = multi_mux_a9,
++};
++
+ static const struct multi_mux multi_mux_s7[] = {
+ 	{
+ 		.m_bank_id = AMLOGIC_GPIO_CC,
+ 		.m_bit_offs = 24,
++		.s_bit_offs = 0,
+ 		.sid = (AMLOGIC_GPIO_X << 8) + 16,
+ 		.eid = (AMLOGIC_GPIO_X << 8) + 19,
++		.next = NULL,
+ 	},
+ };
+ 
+@@ -142,13 +185,17 @@ static const struct multi_mux multi_mux_s6[] = {
+ 	{
+ 		.m_bank_id = AMLOGIC_GPIO_CC,
+ 		.m_bit_offs = 24,
++		.s_bit_offs = 0,
+ 		.sid = (AMLOGIC_GPIO_X << 8) + 16,
+ 		.eid = (AMLOGIC_GPIO_X << 8) + 19,
++		.next = NULL,
+ 	}, {
+ 		.m_bank_id = AMLOGIC_GPIO_F,
+ 		.m_bit_offs = 4,
++		.s_bit_offs = 0,
+ 		.sid = (AMLOGIC_GPIO_D << 8) + 6,
+ 		.eid = (AMLOGIC_GPIO_D << 8) + 6,
++		.next = NULL,
+ 	},
+ };
+ 
+@@ -177,31 +224,34 @@ static int aml_pctl_set_function(struct aml_pinctrl *info,
+ 	struct aml_gpio_bank *bank = gpio_chip_to_bank(range->gc);
+ 	unsigned int shift;
+ 	int reg;
+-	int i;
++	int i, loop_count;
+ 	unsigned int offset = bank->mux_bit_offs;
+ 	const struct multi_mux *p_mux;
+ 
+ 	/* peculiar mux reg set */
+-	if (bank->p_mux) {
+-		p_mux = bank->p_mux;
++	loop_count = 10;
++	p_mux = bank->p_mux;
++	while (p_mux && loop_count) {
+ 		if (pin_id >= p_mux->sid && pin_id <= p_mux->eid) {
+ 			bank = NULL;
+ 			for (i = 0; i < info->nbanks; i++) {
+ 				if (info->banks[i].bank_id == p_mux->m_bank_id) {
+ 					bank = &info->banks[i];
+-						break;
++					break;
+ 				}
+ 			}
+ 
+ 			if (!bank || !bank->reg_mux)
+ 				return -EINVAL;
+ 
+-			shift = (pin_id - p_mux->sid) << 2;
++			shift = ((pin_id - p_mux->sid) << 2) + p_mux->s_bit_offs;
+ 			reg = (shift / 32) * 4;
+ 			offset = shift % 32;
+ 			return regmap_update_bits(bank->reg_mux, reg,
+ 					0xf << offset, (func & 0xf) << offset);
+ 		}
++		p_mux = p_mux->next;
++		loop_count--;
+ 	}
+ 
+ 	/* normal mux reg set */
+@@ -1159,6 +1209,7 @@ static int aml_pctl_probe(struct platform_device *pdev)
+ 
+ static const struct of_device_id aml_pctl_of_match[] = {
+ 	{ .compatible = "amlogic,pinctrl-a4", },
++	{ .compatible = "amlogic,pinctrl-a9", .data = &a9_priv_data, },
+ 	{ .compatible = "amlogic,pinctrl-s7", .data = &s7_priv_data, },
+ 	{ .compatible = "amlogic,pinctrl-s6", .data = &s6_priv_data, },
+ 	{ /* sentinel */ }
 
 -- 
 2.52.0
