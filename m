@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1472DCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 21:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D7BCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 21:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HVdlb3WFF0Fl3Y7uXYVCDmcgfL8tnu8Ea2WG8L6Ditk=; b=b5JjLW3PFuf3Us2XLyyqNn+IOo
-	yaXhRytCZuAJ+P1fQlsWlKzwEx/dY2COvVOYFEnFHKEjzqhKiBHSn9zsgdOFAhXKOVPCuv50cJYpH
-	uzTOEEmbyUMBhtA/UESfRfEIc2zUigdTEMtjDhbDwek+JFVuMmgwV/qZTom11NdP3u+Z8NoQ2xtkS
-	kgZmp+WsSs3sNoFXY8wCnzcm5X9HXqTAr1aHHnCoUTy5BEeD0/4ydOGoa76WlMo0p7twcw4yAHFpE
-	SEdiEB/Ojo503agnD8ActAtKKrNKezKa/n+WizOyrB4ZAHuLXRLNV6oGund18T0B1bRKRmlMWKhmG
-	ATnpEwhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/FeMOvmuf6KIhFyaGt+YUt9wBtHU6hPhRfOy3bGffo8=; b=yItsjHa/oWmSl8BPs7blQB8AMF
+	bTltTfpEOnccpenWwZYm+QBIcBQaCJ8KvYfa4J+Y7cuPsUgnVRQRRlU7aoQqqoxVOZ5CVbq78vGbv
+	c0r2cpnwl/XB12iutd7X2K6BHGY/Gbxfg+7Wqm3TRd2K/G64laSTGGxwC56mi0VUCPpSH1U359nsy
+	bhgK153kVNMjatE8bJQpHXr0GkrI2Odrq603gMDs1W2W31UgiIxzav4CYGA0MQ8rJPXCyD7JjieDC
+	NTXR6n4hSaVOnGms7Ai4dNye/GM496NW7f2dw/sIEFL2rAmxGoyGB4vQTjFbCQrQvUq5j2zpybvIe
+	nfBGU/6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL6Dp-00000004vkg-0aUr;
-	Thu, 07 May 2026 21:25:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wL6Ig-00000004wRG-47PD;
+	Thu, 07 May 2026 21:30:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL6Dn-00000004vjv-1JQU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 21:25:27 +0000
+	id 1wL6Ie-00000004wQl-3eLQ;
+	Thu, 07 May 2026 21:30:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC8DC61143;
-	Thu,  7 May 2026 21:25:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A2A3C2BCB2;
-	Thu,  7 May 2026 21:25:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 197C36024D;
+	Thu,  7 May 2026 21:30:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FD30C2BCB2;
+	Thu,  7 May 2026 21:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778189126;
-	bh=967SAUmoPk5dGwXhSfxFZoiPaIjGZ3mUvj6JEmqje9c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rlKD61xAhMKu5ZX4Hq85D9ZIRD5bUHdYUyYrpi6ltiG1xmOgkZUNm9Z3tfQCmlF32
-	 aO0RZBr8JX+eaDtVy8fLCDuwx+MUFB8ho6nDxSbE4eSU/8SLrsNAgfe69YkkaHNN6N
-	 d3FcwoN81brfqvtFtklJvFf/2dzcGqKGcIqcuPsNJZ8Uwvjco1CTmEbn81joVF4evN
-	 KMVouQY80ASy9nYs817jqoEnSMIkE8dx8qunj4rsUfvU6utz+5t4t/9En9bgLdln5Z
-	 +a+DyTNNU36AXLx2NBRAmu88SdD9s1UD1BbMkzW3nOfj6sPq7ur0m3l3lnov3huPGd
-	 qgffZ3wGsod/g==
-From: Arnd Bergmann <arnd@kernel.org>
-To: netdev@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	"Aaro Koskinen" <aaro.koskinen@iki.fi>,
-	"Andreas Kemnade" <andreas@kemnade.info>,
-	"Bartosz Golaszewski" <brgl@kernel.org>,
-	=?UTF-8?q?Beno=C3=AEt=20Cousson?= <bcousson@baylibre.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	"Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
-	"Eric Dumazet" <edumazet@google.com>,
-	"Felipe Balbi" <balbi@kernel.org>,
-	"Jakub Kicinski" <kuba@kernel.org>,
-	"Johannes Berg" <johannes@sipsolutions.net>,
-	"Kevin Hilman" <khilman@baylibre.com>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Linus Walleij" <linusw@kernel.org>,
-	"Paolo Abeni" <pabeni@redhat.com>,
-	"Rob Herring" <robh+dt@kernel.org>,
-	"Roger Quadros" <rogerq@kernel.org>,
-	"Tony Lindgren" <tony@atomide.com>,
-	linux-wireless@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [PATCH 3/3] [v5 omap] ARM: dts: omap2: add stlc4560 spi-wireless node
-Date: Thu,  7 May 2026 23:24:51 +0200
-Message-Id: <20260507212451.3333185-4-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260507212451.3333185-1-arnd@kernel.org>
-References: <20260507212451.3333185-1-arnd@kernel.org>
-MIME-Version: 1.0
+	s=k20201202; t=1778189427;
+	bh=7E4rp+S4dqE0OVdstaoROQZLQNR9BomvZCyTiVcToKw=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=JP+tRaG2NL8qdE5D6PVSpQ5I6vDQosXt9S2m2W0CXsjlSr61fgsBw3lRkOY6nwgdb
+	 lAhuVEpOL9n+h7bqzbfWCW0GUj4vReohE2r1IoVRn/vZvx6lgxIV/+hd8+HfKTujre
+	 hLmsHYSk0vbcj2jqokpp8rUQ2w7UZprVGEN4ONUcJBIAjb+pWB4efRRM93IjwNMS8D
+	 8SeYJgiqBdZIF4vbGYROv1EahDoxf1wJlCJUlA6LMxJoh52W6DTcjLuv4QmDl2H7xo
+	 IfHOwegNi9DrpP8JSPFkQx44XYkneIdfHWzf5WRgH+GudQdILoxHaNytMrBgR00J+D
+	 4i4mqR6bL8tow==
+Date: Thu, 07 May 2026 16:30:25 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, 
+ Paolo Abeni <pabeni@redhat.com>, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, linux-kernel@vger.kernel.org, 
+ linux-mmc@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Jeff Johnson <jjohnson@kernel.org>, 
+ linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ linux-usb@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ ath11k@lists.infradead.org, linux-spi@vger.kernel.org, 
+ linux-remoteproc@vger.kernel.org, Ulf Hansson <ulfh@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Andi Shyti <andi.shyti@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, linux-wireless@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, linux-sound@vger.kernel.org, 
+ linux-i2c@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
+ netdev@vger.kernel.org, ath10k@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+In-Reply-To: <20260507201749.2605365-1-robh@kernel.org>
+References: <20260507201749.2605365-1-robh@kernel.org>
+Message-Id: <177818942584.2803269.2192622854542354589.robh@kernel.org>
+Subject: Re: [PATCH v2] dt-bindings: Fix phandle-array constraints, again
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,62 +88,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
 
-Converted from the platform_device creation in board-n8x0.c.
+On Thu, 07 May 2026 15:16:00 -0500, Rob Herring (Arm) wrote:
+> The unfortunately named 'phandle-array' property type is really a matrix
+> with phandle and fixed arg cells entries. A matrix property should have 2
+> levels of items constraints.
+> 
+> Acked-by: Mark Brown <broonie@kernel.org>
+> Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> v2:
+>  - Add proper descriptions for 'qcom,smem-states'. Thanks Krzysztof!
+>  - Fix i2c-parent warning
+>  - Fix extra blank lines
+> ---
+>  .../rockchip/rockchip,rk3399-cdn-dp.yaml       |  2 ++
+>  .../bindings/i2c/i2c-demux-pinctrl.yaml        |  1 +
+>  .../mmc/hisilicon,hi3798cv200-dw-mshc.yaml     |  7 ++++---
+>  .../devicetree/bindings/net/qcom,bam-dmux.yaml | 12 ++++++++++++
+>  .../devicetree/bindings/net/qcom,ipa.yaml      | 12 ++++++++++++
+>  .../bindings/net/wireless/qcom,ath10k.yaml     |  8 +++++++-
+>  .../bindings/net/wireless/qcom,ath11k.yaml     |  8 +++++++-
+>  .../net/wireless/qcom,ipq5332-wifi.yaml        | 18 ++++++++++++++++++
+>  .../bindings/pci/toshiba,tc9563.yaml           |  5 +++--
+>  .../remoteproc/qcom,msm8916-mss-pil.yaml       |  6 ++++++
+>  .../remoteproc/qcom,msm8996-mss-pil.yaml       |  7 +++++++
+>  .../bindings/remoteproc/qcom,pas-common.yaml   |  6 ++++++
+>  .../remoteproc/qcom,qcs404-cdsp-pil.yaml       |  6 ++++++
+>  .../remoteproc/qcom,sc7180-mss-pil.yaml        |  6 ++++++
+>  .../remoteproc/qcom,sc7280-adsp-pil.yaml       |  6 ++++++
+>  .../remoteproc/qcom,sc7280-mss-pil.yaml        |  6 ++++++
+>  .../remoteproc/qcom,sc7280-wpss-pil.yaml       |  6 ++++++
+>  .../remoteproc/qcom,sdm845-adsp-pil.yaml       |  6 ++++++
+>  .../bindings/remoteproc/qcom,wcnss-pil.yaml    |  6 ++++++
+>  .../devicetree/bindings/sound/samsung,tm2.yaml |  8 ++++++--
+>  .../bindings/spi/st,stm32mp25-ospi.yaml        |  5 +++--
+>  .../bindings/usb/chipidea,usb2-common.yaml     |  2 ++
+>  .../devicetree/bindings/usb/ci-hdrc-usb2.yaml  |  7 ++++---
+>  23 files changed, 142 insertions(+), 14 deletions(-)
+> 
 
-Link: https://lore.kernel.org/all/20230314163201.955689-1-arnd@kernel.org/
-Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- arch/arm/boot/dts/ti/omap/omap2.dtsi                |  4 ++++
- arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi | 12 ++++++++++++
- 2 files changed, 16 insertions(+)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/arch/arm/boot/dts/ti/omap/omap2.dtsi b/arch/arm/boot/dts/ti/omap/omap2.dtsi
-index afabb36a8ac1..fdc1790adf43 100644
---- a/arch/arm/boot/dts/ti/omap/omap2.dtsi
-+++ b/arch/arm/boot/dts/ti/omap/omap2.dtsi
-@@ -129,6 +129,8 @@ i2c2: i2c@48072000 {
- 		};
- 
- 		mcspi1: spi@48098000 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			compatible = "ti,omap2-mcspi";
- 			ti,hwmods = "mcspi1";
- 			reg = <0x48098000 0x100>;
-@@ -140,6 +142,8 @@ mcspi1: spi@48098000 {
- 		};
- 
- 		mcspi2: spi@4809a000 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			compatible = "ti,omap2-mcspi";
- 			ti,hwmods = "mcspi2";
- 			reg = <0x4809a000 0x100>;
-diff --git a/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi b/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
-index 63b0b4921e4e..fe9dd8bbfc85 100644
---- a/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
-+++ b/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
-@@ -109,3 +109,15 @@ partition@5 {
- 		};
- 	};
- };
-+
-+&mcspi2 {
-+	status = "okay";
-+
-+	wifi@0 {
-+		reg = <0>;
-+		compatible = "st,stlc4560";
-+		spi-max-frequency = <48000000>;
-+		interrupts-extended = <&gpio3 23 IRQ_TYPE_EDGE_RISING>;
-+		powerdown-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>; /* gpio 97 */
-+	};
-+};
--- 
-2.39.5
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/i2c/i2c-demux-pinctrl.example.dtb: i2c-mux3 (i2c-demux-pinctrl): i2c-parent:0: [2, 3, 4] is too long
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-demux-pinctrl.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/i2c/i2c-demux-pinctrl.example.dtb: i2c-mux3 (i2c-demux-pinctrl): i2c-parent: [[2, 3, 4]] is too short
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-demux-pinctrl.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260507201749.2605365-1-robh@kernel.org
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
