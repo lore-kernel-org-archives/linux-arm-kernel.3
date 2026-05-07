@@ -4,72 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86804CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 21:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A10BACD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 21:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EGD8JspjmSP80eMiWCiz+GZtznF5vZ7uaGhPmePdXwA=; b=i2ygCcnsyzRWGxAac2G3GfOmqG
-	xbQMgfLSrn1g2YHhwfwGU0CXC34lm0W5ExhEEYi9opf80Co9hsRJnEJw2XEZ3vyMwpUaryvgWHNxP
-	f6mfszPhRRsp3ctQ2bY/QS6XcfAdzvlyV12CqfCLJQvSiKn6hLll7LcCfR4Aw/IQe8D4DR9y2Vlli
-	hF9InmoyKtVQgfeiRXrEv5JGQA22oPlU+DTnMwz85+Lpg/w8tRabFv21MOk8I8W8jSJrFUzYLqMKL
-	YFwxClF9mLWKLWIg/drRFN+kL/1xKbPtttT18Lvfj/tXThwgFU3Qzkd1CWrmBJeraDXJwIUBzm9k+
-	I9DpMKlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aN/MoGo/0OBj5lX14oDE14F1c1D7CB1rzMZQxCCROZQ=; b=iM2cRTFN3ltWZy+Y7gHqm6tHVU
+	zIOrGdG8+7waEGsd+dXwA4gym2SFznObzFel9/fUKZ2zFMw1rAMc1FCdDAljMzlZ97Yfs+FqjL9jn
+	CGVAEDjbdVRHf7im59GC+FqrsyQoXRPGTx2EGPzypR6PD1B5cFDomE8GdBM8eDrSJSv9hJ3hfWWbQ
+	uh/l5+0w9NscuQ7CecOpYYLtE/TbQe7DV4U9ohTSMbnyjEhiI6MBNGih5473WiA2AeZ7AW+tW29v0
+	78tBgEp3asba4+ZPm0MUr6Kp79misUyTvWVOmLLVXkt+3pTb7J34MTfOAdMfm8XxX0TdM1XK4DH3y
+	YBHAkKng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL6OS-00000004xHl-3mSD;
-	Thu, 07 May 2026 21:36:28 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wL6OX-00000004xJi-07Az;
+	Thu, 07 May 2026 21:36:33 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL6OQ-00000004xHA-2rbS;
-	Thu, 07 May 2026 21:36:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=EGD8JspjmSP80eMiWCiz+GZtznF5vZ7uaGhPmePdXwA=; b=ax
-	2WpD9Ob8DtriFO3GDwHPYC3Ncwa+gpynnAQ+4hmtkSIpOyUzG5g0UVfxxXCg9p6MguhSVilkZCaTj
-	aW/gry1sjeMoGSCmIinzbRZPPgvV6wv9Iw7VyXF1xpz8v3y72HK7LaKta313siWMhGgP9d3EKuySO
-	IwLHdeLowl0KnWo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wL6O5-001s1n-AV; Thu, 07 May 2026 23:36:05 +0200
-Date: Thu, 7 May 2026 23:36:05 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, kevin-kw.huang@airoha.com,
-	macpaul.lin@mediatek.com, matthias.bgg@gmail.com,
-	kernel@collabora.com, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 3/4] net: phy: air_phy_lib: Factorize
- BuckPBus register accessors
-Message-ID: <d7580b92-f165-4135-85b9-ec89a2568949@lunn.ch>
-References: <20260326-add-airoha-an8801-support-v2-0-1a42d6b6050f@collabora.com>
- <20260326-add-airoha-an8801-support-v2-3-1a42d6b6050f@collabora.com>
- <3bd7803d-4c4a-4f61-9434-a6bf25627b58@lunn.ch>
- <9f569ba00b959b701a7a51bcd7347c1a108a15ee.camel@collabora.com>
+	id 1wL6OT-00000004xHi-3nRw
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 May 2026 21:36:31 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gBQYR6z4vz9vHM;
+	Thu,  7 May 2026 23:36:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1778189788;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aN/MoGo/0OBj5lX14oDE14F1c1D7CB1rzMZQxCCROZQ=;
+	b=hid+k1D5ogrx5G1lWd7pUQ9CoVlwl9a/2OZM8TPGYYY64ydMa9M+cAHol5Vq69qSY1wD+w
+	c3OAPMLqyGmMPyPaDWwjVQHxfyfrcof9UdlEiKt6pQzfnI7grBUM6NQO6VooYzKrHhMV96
+	zoHb/KRQ44q8MEKR9XMkWRyHcGJRqfuoWyxLIq2/bYM9VeOHNLkK7BzxqL0Zi3ATWfy90O
+	KH2bp7vOzWUHfEaE+caQun7dox5w3HvaVjaHVm31R4oP/LyBgg13gYNlkRuC405HG0/STE
+	U6v54wENsDBgOwzNkT4dAjaTFanls6nJ46k1Yp5ruhNpN9Y3VvUGcNO8aA/+dA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=DHVO4ux1;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+Message-ID: <fa28c6fe-484c-4133-824e-649c52ef2200@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1778189786;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=aN/MoGo/0OBj5lX14oDE14F1c1D7CB1rzMZQxCCROZQ=;
+	b=DHVO4ux1H/KOBsyRCO1LJQTL1AsPUk6OH15mgKVB2SR719sbrwLhBqkf0pJwNw2F/u1RCY
+	Xh1DXe05bHIeDCthuo/tmzyeZJtI0jKnm+R5/Shf7GM1aYMEdaOVfuFuScpklPu/EERepj
+	WEeEsEZSS5pAUtOnT0ZsMV0HHcOMRPseJ0+gxoKKrlx/0cgy5HwKejkeo2dHciYNIzAMtL
+	cTPHYXxVywmd6sldoy8hVdioPDpoqEbYQwLRSTBb44R31vSLBkcInog6QLffxaDN1cK24L
+	LRq2M1TQQWvGGxiol6tiquQp8uS+EokFt+VaF15ueTD/H8i6t7cxAoubvrvsBQ==
+Date: Thu, 7 May 2026 23:36:17 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <9f569ba00b959b701a7a51bcd7347c1a108a15ee.camel@collabora.com>
+Subject: Re: [PATCH/RFC 10/14] dt-bindings: power: Document Renesas R-Car X5H
+ Module Controller
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+ Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>,
+ Saravana Kannan <saravanak@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Ulf Hansson <ulfh@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1776793163.git.geert+renesas@glider.be>
+ <053c312d07445517d8f9c84bfe3cc8fb72d4cd9a.1776793163.git.geert+renesas@glider.be>
+ <bf83a028-3ef3-482a-9ce3-8aec16f6ebed@mailbox.org>
+ <CAMuHMdWN2zaZrY2jKKXpNqrP8xSqc-uJTr-siTBgaA=-EY_4BQ@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdWN2zaZrY2jKKXpNqrP8xSqc-uJTr-siTBgaA=-EY_4BQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: zpfhg6i8eyntcpfuwy38ym1zyrgr17gc
+X-MBO-RS-ID: 45b055b3220d0470145
+X-Rspamd-Queue-Id: 4gBQYR6z4vz9vHM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_143626_721711_3E5B6A84 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20260507_143630_099049_AD67CEF9 
+X-CRM114-Status: GOOD (  37.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,46 +112,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 02:11:54PM +0200, Louis-Alexis Eyraud wrote:
-> Hi Andrew,
-> 
-> On Thu, 2026-03-26 at 13:30 +0100, Andrew Lunn wrote:
-> > > @@ -480,8 +287,8 @@ static int en8811h_wait_mcu_ready(struct
-> > > phy_device *phydev)
-> > >  {
-> > >  	int ret, reg_value;
-> > >  
-> > > -	ret = air_buckpbus_reg_write(phydev, EN8811H_FW_CTRL_1,
-> > > -				     EN8811H_FW_CTRL_1_FINISH);
-> > > +	ret = air_phy_buckpbus_reg_write(phydev,
-> > > EN8811H_FW_CTRL_1,
-> > > +					
-> > > EN8811H_FW_CTRL_1_FINISH);
-> > 
-> > Is a rename required? Is the namespace air_buckpbus_ used somewhere
-> > else?
-> > 
-> > 	Andrew
-> Sorry for the delay.
-> 
-> The air_buckpbus_ namespace is only used in the air_en8811h driver.
-> It seemed better to me that in the new air_phy_lib, all functions (the
-> buckpbus accessors and air_phy_read/write_page functions) started with
-> the same prefix. That is the reason I renamed them, even if not
-> required.
-> 
-> As an alternative, to avoid renaming those buckpbus function calls on
-> air_en8811h driver and reduce this patch changes, I can add macros at
-> the beginning of the file such as:
-> ```
-> #define air_buckpbus_reg_write(_phydev, _pbus_address, _pbus_data) \
-> 	air_phy_buckpbus_reg_write(_phydev, _pbus_address, _pbus_data)
+On 5/7/26 9:37 AM, Geert Uytterhoeven wrote:
 
-No don't do this.
+Hello Geert,
 
-If you want to rename them, rename them. But do it in a patch which
-only contains a rename. That is easier to review, and more obviously
-correct.
+> On Thu, 7 May 2026 at 00:58, Marek Vasut <marek.vasut@mailbox.org> wrote:
+>> On 4/21/26 8:11 PM, Geert Uytterhoeven wrote:
+>>> +  '#power-domain-cells':
+>>> +    description: |
+>>> +      - The first power domain specifier cell must be either the Module
+>>> +        Power Domain Gating (MPDG) register index (0x00-0x3f) from the
+>>> +        datasheet,
+>>
+>> I agree with this part.
+>>
+>>> or a Power Domain number, as defined in
+>>> +        <dt-bindings/power/renesas,r8a78000-mdlc.h>,
+>>
+>> I do not understand this part, please see end of this email ...
+>>
+>>> +      - The second power domain specifier cell must be the module number
+>>> +        (0x00-0xff), composed of the Module System Reset (MSRES) register index
+>>> +        in the high nibble, and the Module Reset Destination bitfield index in
+>>> +        the low nibble.
+>>> +    const: 2
+>>
+>> I am unsure about this part.
+>>
+>> There are multiple MDLC blocks, AON, SCP, HSCN, and so on. Each MDLC
+>> block contains multiple Module Power Domain Gating registers (MPDGn) and
+>> multiple Module System RESet register (MSRES) .
+>>
+>> I do understand and agree that the first power-domains-cells cell must
+>> be the identifier of power domain within the MDLC block.
+>>
+>> However, I do not understand the second cell. The MDLC bindings already
+>> contain reset-cells, which should be used to refer to a reset within the
+>> MDLC block. Resets within the MDLC block are operated using the MSRES
+>> registers. Why are resets conflated into power-domain-cells ?
+> 
+> The Module Reset Destination bitfields in the MSRES registers are
+> 2-bit wide, and control both Reset and Module Standby.  Hence the
+> same register bitfields are referred to in the power-domains and
+> resets properties, through the module number.
+> 
+> Module Standby controls the clock(s) going into the module,
+> and is modelled as an SCMI clock (SCP_CLOCK_ID_MDLC_*) by the SCP
+> firmware. This is very similar to how MSTP (Module Stop) clocks are
+> handled on earlier R-Car SoCs (except that the SCP_CLOCK_ID_MDLC_*
+> clocks have a zero rate :-(.
+> 
+> Summarized, the first cell is the power domain part, and the second
+> cell is the clock domain part.
 
-	Andrew
+Thank you for the clarification.
+
+Since there are up to 32 MPDG registers, and 256 resets, can we encode 
+both into a single cell ?
+
+(mpdg_register_offset << 16) | (reset_bit_offset << 0)
+
+I cannot tell whether this is much better, but it at least ties the PD 
+components (power domain and clock domain) into a single value, which 
+matches reality a bit better. The current split power domain and clock 
+domain description in two cells gives me the illusion that it is 
+possible to mix and match power domains and clock domains in DT 
+description, but in fact the two cells are strongly tied together.
+
+If we cannot encode the two into a single cell, maybe we can at least 
+have some sort of macro for this, e.g. this (0xff as no MPDG register 
+bits for this block):
+#define R8A78000_MDLC_PD_HSCIF0 (0xff << 16) ((0x5 << 4) | (0x3 << 0))
+
+What do you think ?
+
+> So perhaps I will clarify like this:
+> 
+>        - The first power domain specifier cell is the power domain part, and
+>          must be either the Module Power Domain Gating (MPDG) register index
+
+... for power domains which are backed by MDPG bits, and which can be 
+controlled in that manner ...
+
+>          (0x00-0x3f) from the datasheet, or a Power Domain number, as defined in
+>          <dt-bindings/power/renesas,r8a78000-mdlc.h>,
+
+... for power domains which are always on, and for which there are no 
+MPDG bits which can be used to control them ...
+
+>        - The second power domain specifier cell is the clock domain part, and
+>          must be the module number (0x00-0xff), composed of the Module System
+>          Reset (MSRES) register index in the high nibble, and the Module Reset
+>          Destination bitfield index in the low nibble.
+
+I can understand this.
+
+>>> +  '#reset-cells':
+>>> +    description:
+>>> +      The single reset specifier cell must be the module number (0x00-0xff).
+>>> +    const: 1
+>>
+>> [...]
+>>
+>>> +#ifndef __DT_BINDINGS_POWER_RENESAS_R8A78000_MDLC_H__
+>>> +#define __DT_BINDINGS_POWER_RENESAS_R8A78000_MDLC_H__
+>>> +
+>>> +/* R-Car X5H MDLC Power Domains */
+>>> +
+>>> +#define R8A78000_MDLC_PD_AON                 0x40
+>>> +#define R8A78000_MDLC_PD_SCP                 0x41
+>>> +#define R8A78000_MDLC_PD_APL                 0x42
+>>> +#define R8A78000_MDLC_PD_CMN                 0x43
+>>> +#define R8A78000_MDLC_PD_ACL                 0x44
+>> ... what do these numbers represent ? Shouldn't those be register
+>> offsets from MDLC MPDG00 according to power-domain-cells ?
+> 
+> These are Power Domains that are not backed by any of the 64 Module
+> Power Domain Gating (MPDG) registers in MDLC blocks.
+
+I suspect that might not be entirely correct for all of them, please 
+read on and see CMN below.
+
+> It is not clear to me if they can be controlled manually, probably
+> they are just always sequenced automatically on power-up.  As the
+> documentation does treat them as separate domains (see e.g. Table 14.1
+> Power Supply Voltage Monitor Functions), I figured they would better be
+> exposed as separate domains, instead of as a single always-on domain,
+> like on earlier R-Car SoCs (cfr. R8A779*_PD_ALWAYS_ON domains number
+> 32 or 64).
+> 
+> See also the X5H_Power_domain_structure.xlsx attachment in the R-Car
+> X5H documentation.
+
+This is indeed helpful piece of documentation, together with X5H_MS, but 
+I think the later is still being updated.
+
+Let's take PD_AC00 , AP core 0 , as a domain of interest. My 
+understanding is, that the domain structure for PD_AC00 looks as follows:
+
+PD_AON {
+   PD_SCP { };
+   PD_APL {
+     hierarchy is SYSSS
+     always-power-on
+     PD_CMN {
+       hierarchy is CMNN
+       power-gating-bit is MDLC_CMNN 20
+       PD_APU0 {
+         hierarchy is SYSSS
+         power-gating is done by APMU
+         PD_ACL0 {
+           hierarchy is CMNN
+           power-gating-bit is MDLC_CMNN 16
+           PD_AC00 {
+             hierarchy is CMNN
+             power-gating-bit is MDLC_CMNN 0
+           };
+           ...
+         };
+         ...
+       };
+       ...
+     };
+     ...
+     PD_HSCIF0 {
+       hierarchy is PERW
+       power-gating-bit is MDLC_PERW 23
+     };
+   };
+   ...
+};
+
+With this in mind, I think CPU 0 DT node should refer to the PD_AC00 
+power domain this way:
+
+cpu@0 {
+   ...
+   power-domains = <&mdlc_cmnn R8A78000_MDLC_PD_AC00>;
+   ...
+};
+
+The MDLC driver would pass the PD_AC00 domain ID to matching SCMI power 
+domain management protocol call, or, for bare-metal MDLC driver, would 
+have to internally encode PD hierarchy, walk it, and apply PD operations 
+in each step.
+
+I think even for SCIF/HSCIF, the power domain reference should be 
+something along the lines of the following description. The MDLC driver 
+should internally encode that R8A78000_MLDC_PD_HSCIF0 is a sub-domain of 
+R8A78000_MDLC_PD_APL .
+
+serial@c0710000 {
+   ...
+   power-domains = <&mdlc_perw R8A78000_MDLC_PD_HSCIF0>;
+   ...
+};
+
+>> If those are power domain IDs, then I am unsure why e.g. for SCIF the
+>> domain ID is R8A78000_MDLC_PD_APL in [PATCH/RFC 13/14] arm64: dts:
+>> renesas: r8a78000: Add CPG/MDLC nodes . Could you please expand on that ?
+> 
+> See the "Module Standby" attachment X5H_MS.xlsx in the R-Car X5H
+> documentation. The "PERW" tab shows that all PERW devices are located
+> in the PD_APL power domain, which is always-on.
+> This is different from e.g. the UFS controllers: they are located in
+> their own PD_UFS0 and PD_UFS1 power domains, which are controlled
+> through the Module Power Domain Gating registers (MPDGn) (cfr. the
+> "PERE" tab).
+Thank you for this clarification !
 
