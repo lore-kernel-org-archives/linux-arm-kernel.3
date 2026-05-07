@@ -4,148 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC97CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 15:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBA6CD3439
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 15:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MeEODZjRA4liT1mQOVL+XlN6FECQ6ttZUbZtASXBGIA=; b=v5Fob5glPwhXNjvlv2LwonCVdi
-	N+UxnotztRXp61OWFEqnUxz5csYvlOOsOUXwWcxU9KXnAcvv8X2hO96eNZ1EjaXdD+rNyj3c9SEc+
-	/MMUo+k/cB0PfF1BzJgvW3/Sv1jnamVjcbugk+SxUYNEauW0lZi44EQc6DDGqVrJRmfiuhd/qWpMf
-	GqG3RjBIHai0TKbhw/Nv4Ihxg7vGdEg0TyobsAAb+iY84/eCD7EAY5A8UxMOrlB6eLYZwy5PfqqGY
-	G8FuD9XmXQfGWZHgLN3b/o80JR25FVXSea6CUGvllUX5Cw/idnICxLEqXsOlYi0sDCoCCmn2HImc1
-	LaYmzBPA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eSOmSFJwCPNmD4rhxZFAOsBilrO5DsGS6d5uAovPx48=; b=WahLnMs/iNbxRpxww5ndH+TiSu
+	jtDvHETKDlCO4cAJiM/G2DgDdZlLy1w4ir7Mh7yr4oahcnbxxUIjhSWXJzlKdjtiDake/FhJyKUh3
+	XxcdRewKlhiIKwKLNoevFErXwLFOMJMSFNxcq9RsOwhKEnVFhp3ot0hAtAdG28nPnXBRPRbrVKTYi
+	s8CLqqKbrNbjIZqE+J02ZW6mHyu5dRUqJZTOOuM2bRTSrNHQlm5fXdpqNKP4MEutUAzA8jIG+W1dn
+	eS5jAXfisJRT+ZcjKAIn8npkoshA/aGldqu7s1PQdnuazu2kqZGdm2k1yh2QeqcJVI/Hcb7DGpBBY
+	hOC4sh5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL0te-00000004EhC-0hJV;
-	Thu, 07 May 2026 15:44:18 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wL0u7-00000004EqU-1XIL;
+	Thu, 07 May 2026 15:44:47 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL0tb-00000004Efe-1oSy
+	id 1wL0u5-00000004EpD-03Z4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 15:44:16 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-44509921fbcso564051f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 08:44:14 -0700 (PDT)
+	Thu, 07 May 2026 15:44:46 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-488af9fdaa7so6610545e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 08:44:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778168653; x=1778773453; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MeEODZjRA4liT1mQOVL+XlN6FECQ6ttZUbZtASXBGIA=;
-        b=nqim2N5OMV+LCR/LXLxW08u+dopZxH1ZgFPx2epZVD855w4DqW6dVUER5Lc1VdYLW0
-         RMaYEshGw1oN4iuHJnEO0og0Ysw4QExe0fS0S4g3V4oD7jqxNUZAxnWyU+B4c9GspxO9
-         xDbCTTOB16btI7s3kxSWy//17Tfsw6rijAjdBbOJ9gf2X8YHcA8lTPx2kCUVWDYXrc+l
-         p2ZnKCyG96uliIDm4+pBdCUnIa5qWJpBkMIY3bOhzNzX9eJyJLFclu0T8SRyEO8/NEAQ
-         JwK/X5Njw+ua5M4y7EDSEePLgsIOlkVubMyF6ZGhsONIDHj9H5c0tNOnx2Iaeu+lB8oJ
-         sBAw==
+        d=gmail.com; s=20251104; t=1778168683; x=1778773483; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=eSOmSFJwCPNmD4rhxZFAOsBilrO5DsGS6d5uAovPx48=;
+        b=iRoGkLti3nD20mKXcOX2WRdi0GO1O+YuiyjF3KClwUF/9y6MM7n5ioWUQ3FpnB8DVh
+         NG99ewge66BEdj7dIMDDK4oM8mSFOK48pDB+atK5cDrErVwYMLVOvoaAKpJxbQVsA23v
+         vJsFS+QqZmg1tUK5KjeLnMv2dWhH+4yWX6YpftELeTSOboRwaezostlsEOPJsEOYFTyO
+         ydGCC6jxzSQmDZDV7axuv8tXKQWf09MYmpFeVD8AJTOBmM9qtd2Ne3l98FpeQd2kAJJ8
+         Ygj0uMFMFlvnpoTEgT6wDe0mJB0Ib246y+wj0tZgGx+LHJIhJXqWLiX62UQuLccbGmX8
+         aHEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778168653; x=1778773453;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MeEODZjRA4liT1mQOVL+XlN6FECQ6ttZUbZtASXBGIA=;
-        b=OIIkXRhYse6PZ1OQfTMk+qd5aIoZ2P7RB7nJrPdO84XrVM/GTVtr/UH5/6JMPhMWal
-         xYXrVjNbx5MP2ynR8XO1z5qN69nIahli/auCO4CJ32I1e+xpWNGxoXElIPpEqgIlnOfa
-         NeWf4PN/pgagLz4CKN+lX+6WnR+lpO8bMMXyspNtKfROK3/viMebs3EF29DNQh2zIXL1
-         g/0/XSEgRP3WchKwRQrtq8xDa8LKo0yj6Y/tm78kK9STDvn4BBZ2Q9PoHhG1sR3dDVjv
-         2JlYOPMKwsKN7OoPrBA30Ny/o0Y4vkh8WpAofto4NvvMH0ugMy5MfTKFxcl7+s2bFp34
-         tpFQ==
-X-Forwarded-Encrypted: i=1; AFNElJ95N9H+NAwNxHvfz5k1Waai4tNhgOOUuqxdamoFk8dEil02N1Or28MftJp7MguIydfzwhdYWZDHhjWu7g6NoPsf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdN96D5TjLfjdAofouWQNA6KqgWnUeo68GMXGsJEGbVnyvHUkz
-	69GUhctzpECdI7zBMynwcZq4fzbp8PdNjBY4RqAe9A+N6UOVhMyvBW763oAUchVmDBE=
-X-Gm-Gg: AeBDieuqWsRzUu1nntwQjvqMA+2j0DMCvBZwPJRBH7xJMYXa1aoK+6lOzSpJOS+DBrr
-	qaNRwLZvs4+9hrAFiiH7LMzggQcJ9N0ZV5comAYWMR0J7TS6O/iEsTDmLat6yzWG8yvzmBnHYKb
-	MMqhNbAXc1SOYHG793IaPDJeCYrzt5z7I4GoGkZHVI9WN+2SN3p/yWSAy8SF5Pld1GGFyoafjqI
-	EoA8ohnDTgV1hP9d5GdgHsdPqjSf0IgyxutpNqmXTzSrT4Yhl9FUDNH8UxxWyUwdwU19k3RVSDk
-	RhAbXMS03OByIZklRnQGV7jVkAgfVsKFJ0FwzFE7sFkVd9TyIHFasaApNq36pz32MJ9UVWecBJ+
-	0YFTyHE1NYT8v8JinhWSjHQi5C36uujX8u1qo6aMIcK5chg9Yowl8JsT5Fy6vRC309DmN3Ct6bp
-	nAcVaXe3tzOLQThOGLNLB6FjtG6+T2+d9Pm+MZ3TQFj7C+7c/wndidPC6Ln5TLP7/Ds/CYD0r6v
-	uvcPRcTcPnZfmKNN1JZBkSspdKB
-X-Received: by 2002:a05:600c:8485:b0:488:af7f:775f with SMTP id 5b1f17b1804b1-48e51f32a64mr146074295e9.18.1778168652626;
-        Thu, 07 May 2026 08:44:12 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:6762:47bb:1e06:ff70? ([2a01:e0a:106d:1080:6762:47bb:1e06:ff70])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e538aaa0fsm161995425e9.7.2026.05.07.08.44.10
+        d=1e100.net; s=20251104; t=1778168683; x=1778773483;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eSOmSFJwCPNmD4rhxZFAOsBilrO5DsGS6d5uAovPx48=;
+        b=eepYpwwiF3psQbwK3jKPlfs3EioDdUrrEefscJ1JOl+y2UCScTV3VhW/QRInGWQFBh
+         R4aoRoO9zbBGPU6l5sPlPgR2YvQtAOK01LQ/Rw/h8jmjytqiz9RHoQdw5Snt34M/LSz+
+         lVUFUnEQDKWUznDZ4Eink1pbn4PUF8mxf6lOkTefq9Dn/Xecc2rcm02cZktIPvjmXnjm
+         1A7xTfu5aEkkj4jC7KOu8mj3eKroPFVcfyDj7sD92DrATLutNH+vuMo/Kruv8gpykS+F
+         MubMQiHQpHt0UnqzvyuZKOZcVdRaRw+31RWmMrmU4ZoqC//ApksttvUydCttB0172daX
+         oHuA==
+X-Forwarded-Encrypted: i=1; AFNElJ+KTMO9/kvkIOv54xdSiSgaNICLWuC0o1R7LKd/r5Fx5GjRuZaTe6SyC/IvnpTTSdClc2eZVsPfcu/ygnFua2v3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkdPbR1WLcbPy5ffNwxiffBLbXkdUJx9nfxh8ceP6GTMbuaQkG
+	T2B2dllV8wejRKjJCXRrbLQMAPQav2nJ7Hhmm4R3XwqrojasiPeX8XY=
+X-Gm-Gg: AeBDievO6h9O5pLvvQh8cFTkkoxO9SsNfsUCTl8c4BTXSpL1JhVSl92KoDYVDLmv5z9
+	VFnwe+jKND1fFbwusGM1FafA95dZTr1al9ZSrzR+Wknu374qt3kXlurqaLW2ASaJR635rmV6VLb
+	+SCzWluDLjU1RVucXPTts+e5GffpD/7vQ74aoLTcuHv0qE98aOII/0WsfvweD8OKkjIEyNySAzD
+	6DirBNuaOyPBNNRYOdNzT0WWKU55Ne1h3IXqtmpYeWJnHseC3JFpMQ5rWcPDQ8aC8CGXYr9sp1K
+	WjdgSAJeUslei6Mu7wPqdg9naLx5eaxy5rNSilF7LtnxyBMwipZ630vdb0nqAMEwWymvaNuMlO0
+	BYgzMF64dpPuWfdg3meJwsgQhAtH7dJl2VlSeop/txvRgmeN8JR4aswHi4wGBJLRtnejafmCGyt
+	B7j3UgHYdWSXtsNV8MLfQ3iXGzmtZGJOiwinek3pA5YUIirDseXK8uUIierIQxqSL33phUUqBsz
+	sEqnBifkLgRnvlS4Mc=
+X-Received: by 2002:a05:600c:2d15:b0:485:9a50:3370 with SMTP id 5b1f17b1804b1-48e51e16d0bmr83937765e9.8.1778168682869;
+        Thu, 07 May 2026 08:44:42 -0700 (PDT)
+Received: from [192.168.1.17] (host-79-50-55-97.retail.telecomitalia.it. [79.50.55.97])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e530fe317sm65839805e9.4.2026.05.07.08.44.41
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 May 2026 08:44:11 -0700 (PDT)
-Message-ID: <b8dca238-e791-4185-8a0b-cf7a44b9f5f6@linaro.org>
-Date: Thu, 7 May 2026 17:44:10 +0200
+        Thu, 07 May 2026 08:44:42 -0700 (PDT)
+Message-ID: <c6e73ca7-fc97-483a-8abf-f2c31407807c@gmail.com>
+Date: Thu, 7 May 2026 17:44:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH 05/16] arm64: dts: amlogic: Add EL2 virtual timer
- interrupt
-To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Ge Gordon <gordon.ge@bst.ai>,
- BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Lars Persson <lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
- <afaerber@suse.de>, Heiko Stuebner <heiko@sntech.de>,
- Shawn Lin <shawn.lin@rock-chips.com>, Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Michal Simek <michal.simek@amd.com>
-References: <20260507125544.2903406-1-maz@kernel.org>
- <20260507125544.2903406-6-maz@kernel.org>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260507125544.2903406-6-maz@kernel.org>
+Subject: Re: [PATCH v2] iommu: arm-smmu-qcom: Ensure smmu is powered up in
+ set_ttbr0_cfg
+To: Robin Murphy <robin.murphy@arm.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+ Joerg Roedel <joro@8bytes.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260325-qcom_smmu_pmfix-v2-1-ba769a6ad0be@gmail.com>
+ <d071cc86-0449-430f-a572-4f43c3440748@arm.com>
+Content-Language: en-US
+From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+In-Reply-To: <d071cc86-0449-430f-a572-4f43c3440748@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_084415_535862_E83358E1 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20260507_084445_078438_13962ACD 
+X-CRM114-Status: GOOD (  29.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,199 +103,95 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/7/26 14:55, Marc Zyngier wrote:
-> The ARMv8.2 based CPUs used in a number of Amlogic SoCs are missing
-> the EL2 virtual timer interrupt. Add it.
-> 
-> This requires some surgery in the "common" files to move the timer
-> node to locations that makes it possible to add the interrupt only
-> where it is actually implemented.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->   arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi |  8 --------
->   arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |  8 ++++++++
->   arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        |  9 +++++++++
->   arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi        |  3 ++-
->   arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi        |  3 ++-
->   arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi       |  3 ++-
->   arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi  | 13 -------------
->   arch/arm64/boot/dts/amlogic/meson-g12.dtsi         |  9 +++++++++
->   arch/arm64/boot/dts/amlogic/meson-sm1.dtsi         | 10 ++++++++++
->   9 files changed, 42 insertions(+), 24 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi
-> index 54d7a2d56ef64..6f559e4dd9ee9 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi
-> @@ -7,14 +7,6 @@
->   #include <dt-bindings/interrupt-controller/arm-gic.h>
->   #include <dt-bindings/gpio/gpio.h>
->   / {
-> -	timer {
-> -		compatible = "arm,armv8-timer";
-> -		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-> -	};
-> -
->   	psci {
->   		compatible = "arm,psci-1.0";
->   		method = "smc";
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> index fce45933fa28b..c28fc7fcbae7f 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
-> @@ -86,6 +86,14 @@ pwrc: power-controller {
->   			#power-domain-cells = <1>;
->   		};
->   	};
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-> +	};
->   };
->   
->   &apb {
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-> index 2b12d8284594f..c22c0acb4807e 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
-> @@ -49,6 +49,15 @@ pwrc: power-controller {
->   			#power-domain-cells = <1>;
->   		};
->   	};
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-> +	};
->   };
->   
->   &apb {
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-> index ab3acef2b147e..853d32929ff46 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
-> @@ -56,7 +56,8 @@ timer {
->   		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
->   			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
->   			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> -			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
->   	};
->   
->   	psci {
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-> index a3faf4d188e11..bfaac5f3e22da 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
-> @@ -94,7 +94,8 @@ timer {
->   		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
->   			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
->   			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
->   	};
->   
->   	psci {
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
-> index 0c4417bcd6827..32d8683059964 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
-> @@ -58,7 +58,8 @@ timer {
->   		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
->   			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
->   			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
->   	};
->   
->   	psci {
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
-> index 00609d2da6743..a911a5181a88d 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
-> @@ -2579,19 +2579,6 @@ map {
->   		};
->   	};
->   
-> -	timer {
-> -		compatible = "arm,armv8-timer";
-> -		interrupts = <GIC_PPI 13
-> -			(GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 14
-> -			(GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 11
-> -			(GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 10
-> -			(GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>;
-> -		arm,no-tick-in-suspend;
-> -	};
-> -
->   	xtal: xtal-clk {
->   		compatible = "fixed-clock";
->   		clock-frequency = <24000000>;
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-g12.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12.dtsi
-> index 664912d1beaab..866fc07d1b0ae 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-g12.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-g12.dtsi
-> @@ -43,6 +43,15 @@ tdmif_c: audio-controller-2 {
->   		clock-names = "sclk", "lrclk", "mclk";
->   		status = "disabled";
->   	};
-> +
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 14 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 11 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>;
-> +		arm,no-tick-in-suspend;
-> +	};
->   };
->   
->   &apb {
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi
-> index 8f5b850b1774f..77c72936ffdd3 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi
-> @@ -128,6 +128,16 @@ l2: l2-cache0 {
->   		};
->   	};
->   
-> +	timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 14 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 11 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 12 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>;
-> +		arm,no-tick-in-suspend;
-> +	};
-> +
->   	cpu_opp_table: opp-table {
->   		compatible = "operating-points-v2";
->   		opp-shared;
+On 5/7/26 4:47 PM, Robin Murphy wrote:
+> On 25/03/2026 9:11 pm, Anna Maniscalco wrote:
+>> Previously the device was being accessed while potentially in a
+>> suspended state.
+>
+> The SMMU driver's own write_context_bank() calls all look to be safely 
+> within arm_smmu_rpm_get() scopes that are holding an RPM count when 
+> relevant (or the one at probe time before RPM is activated at all), so 
+> indeed this seems like the appropriate solution for here where we're 
+> free to assume that Adreno platforms must always have a power domain.
+>
+> Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+>
+> Just a minor nit: it's probably OK in this case (unless Will 
+> disagrees), but for future patches, it's preferable for the commit 
+> message to be self-contained, so as to give a sufficiently clear 
+> description of the problem, and summary of the solution, without 
+> having to be read in the context of the title and the whole diff to 
+> make sense. For example, if I were writing this I'd put it something 
+> like:
+>
+> "
+>   iommu/arm-smmu-qcom: Ensure SMMU is powered up in set_ttbr0_cfg
+>
+>   arm_smmu_write_context_bank() assumes it is being called with RPM
+>   active, but it turns out that is not guaranteed in the path from
+>   qcom_adreno_smmu_set_ttbr0_cfg(), so it's possible for the the
+>   register accesses to lead to an [external abort/hang/whatever] when
+>   [doing whatever it is] while the GPU is idle. Add the RPM calls here
+>   to make sure the SMMU is active before we touch it.
+> "
+>
+> Thanks,
+> Robin.
+Thanks for the feedback, I've sent a v3 with an improved commit message.
+>
+>> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+>> ---
+>> Changes in v2:
+>> - Simplify patch by acquiring device just around the call that needs it
+>> - Link to v1: 
+>> https://lore.kernel.org/r/20260210-qcom_smmu_pmfix-v1-1-78b7143ac053@gmail.com
+>> ---
+>>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 9 +++++++++
+>>   1 file changed, 9 insertions(+)
+>>
+>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c 
+>> b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>> index 573085349df3..cab7d110aaf5 100644
+>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+>> @@ -231,6 +231,7 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const 
+>> void *cookie,
+>>       struct io_pgtable *pgtable = 
+>> io_pgtable_ops_to_pgtable(smmu_domain->pgtbl_ops);
+>>       struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+>>       struct arm_smmu_cb *cb = &smmu_domain->smmu->cbs[cfg->cbndx];
+>> +    int ret;
+>>         /* The domain must have split pagetables already enabled */
+>>       if (cb->tcr[0] & ARM_SMMU_TCR_EPD1)
+>> @@ -260,8 +261,16 @@ static int qcom_adreno_smmu_set_ttbr0_cfg(const 
+>> void *cookie,
+>>           cb->ttbr[0] |= FIELD_PREP(ARM_SMMU_TTBRn_ASID, cb->cfg->asid);
+>>       }
+>>   +    ret = pm_runtime_resume_and_get(smmu_domain->smmu->dev);
+>> +    if (ret < 0) {
+>> +        dev_err(smmu_domain->smmu->dev, "failed to get runtime PM: 
+>> %d\n", ret);
+>> +        return -ENODEV;
+>> +    }
+>> +
+>>       arm_smmu_write_context_bank(smmu_domain->smmu, cb->cfg->cbndx);
+>>   +    pm_runtime_put_autosuspend(smmu_domain->smmu->dev);
+>> +
+>>       return 0;
+>>   }
+>>
+>> ---
+>> base-commit: 50c4a49f7292b33b454ea1a16c4f77d6965405dc
+>> change-id: 20260210-qcom_smmu_pmfix-2aead2ba4e20
+>>
+>> Best regards,
+>
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Best regards,
+-- 
+Anna Maniscalco <anna.maniscalco2000@gmail.com>
 
-Thanks,
-Neil
 
