@@ -4,135 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567B8CD3439
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 16:03:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70583CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 16:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:References:
-	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zNwHnQaONgoLcqdrTrHJ1DTeYxhEylonw73C3p4qkhI=; b=gyG6Jh/ESvhlO6WaAb4x3N6QvF
-	GYyKg8QRCH3PUP2+129ju4EoTYhuGVyJwCwyqQV4/Pr0bgAoBH/tvpvO8oKZ0ErgRl5OzDnN27AQp
-	h5cw8K9e2q8Uv0jtUr3gprbb1Cd1GM6nEO5r4IuoY0CBxxwHHNkwTwfDLI/dPqpALaytoGjqs/EGh
-	230KL3ALxVMZ0LFWyIHd5lDOx+8IUL48XPRk9i6paZ4BEyGI19Mn5aLkhhPBKXJ6+3P7v7fTGbXTe
-	g0qrWuWcRFWxUtM8HeLfTLx9r04boXh6i2R4H7ljoslh7zF4yca+MWoT1HauKbb8rREF3wonQeObC
-	8mxrw7HQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s9Gr6Q0uw3RTSizSYDcmK4n12KMJ9B4RCF7XSCBCJkk=; b=v2ed6Fdqxgww0UgQ1+LQ6BTg9p
+	OFEWn8JVCukPak/C9kb0wRV3YiHWLq4y6hWvbN8IZFivrONnhqiHDYJr5O/uznxET0DE8r7CBfCMM
+	bgVC5IuIBuCX47P2PYqeB2qOLjlXkprWUzUhKlTMxTtk18eZ5mm6sxVN3ZJr9b91TzPIr41xj2fTH
+	iixpUCc508qO9BeBR3MxTYAWVcuKT2ML0l/MSjsefUuVZRY+BKe1mE31HOcP51Kl1h9k5ITvvoWEe
+	UKH2oRH/Ye/Lc6LoNWkZ8raMn8fWgXLa2cDaZ6GvBwxuP4EspOGkA7Up9RzEwCjpWCdLJGHUi/7mA
+	IQ8YDNWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL1CN-00000004HS9-3TAo;
-	Thu, 07 May 2026 16:03:39 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL1CL-00000004HRU-0CWc
+	id 1wL1CT-00000004HTo-3rbf;
+	Thu, 07 May 2026 16:03:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wL1CQ-00000004HSa-3k4q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 16:03:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vIpDuTZi/wz3rh0z1UWWQk4sDvrfjdf1ySL2ejuA7PzKHUBgQpc7Ah1HLvl/gMl7GiIPXCKtVJRYj4SGN7Q776w5uNPbilVOghviYxHZN6yRrmqRWXIEgfiJO94oAq80zUy+jc/8dEs/v1/aPGCzzVbkQXSddue+BITfZgPM3R+oD49Ivc+4AJkbd74ndiHv7mSr7yoMwoAysrY2MpHW4E5Wv2sHVaHy9W75xSVREkKnpWW/1bAOgPWiAdGg3WvMYbKdFnx/VE63bgy26Cvox6/VC6BxJcSkGhFMu17rLuDqwksA1ecliBCW+UVmGUxVRAtXKQyjzt0G/nZBLhj8Hw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zNwHnQaONgoLcqdrTrHJ1DTeYxhEylonw73C3p4qkhI=;
- b=n6goQ5Ddx6516jjWDTKD3NioPbWhhEJ2amQNU/v3jLUa9SCxvms3NHvWD6NQq3AqUcqXloFehSiT93oBfalcXFM8GiZJbfkhhhuYtYg28djgkwwU8rrMtimabJhJPoiiuAD8ZyCL/WU3/pAHyO6JxFtEcMNmi0vh6Lx4Z6O5s/UGex/BOKT/qnzHPllNwrw0jMOWl+7K/Wx+w93Q/uhDA5XpRKVMoi30mYUEZemsGIuuSR7r15c7rE2hwweddcQGG6vNCwjGY5yg+IzhY1hb293xJDEX14gQA5rBN4UAxcgBNzu/RXPJgyS54Jk3pcgp5EF6Tcf8wLk1izMRmmSAug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zNwHnQaONgoLcqdrTrHJ1DTeYxhEylonw73C3p4qkhI=;
- b=dQuFe2ecVHUxNNFn9an85tBL6gJQoGpTLq51yc+WcUJ03jO3kccA6160/Vh41H7zf+rk8gxJ59xLV8CL0wONq9thzm5IVQe8bODISLhK7aGAjfG1GZI9Txdoiq4qhSNgClB5BrUNf+jBbVfFQTPxQjRk6aeH8Sk4DtLjQa8E1InkFHgLseDVrl9N8+wV937dhzcnLGmdI/ps2Ltof9OgQvkqYVfl2bg70ufH78mceoAn/cgjDrIQ6tqz9X6P6/5aQcPffZOLMMraablFQkMRYqwev18cRX8mnfLBOUdEmFsV7+RCY/do6k3HL8iwa1+CuSoNMjUxqw+XZ30K7kmL0w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DBBPR04MB7690.eurprd04.prod.outlook.com (2603:10a6:10:200::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.17; Thu, 7 May
- 2026 16:03:30 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9891.016; Thu, 7 May 2026
- 16:03:29 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- hongxing.zhu@nxp.com, Sherry Sun <sherry.sun@nxp.com>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260507065330.516142-1-sherry.sun@nxp.com>
-References: <20260507065330.516142-1-sherry.sun@nxp.com>
-Subject: Re: [PATCH V4 0/3] arm64: dts: imx: Disable PCIe by default and
- add overlay support for M.2 connector
-Message-Id: <177816980694.338814.8886539511728175045.b4-ty@nxp.com>
-Date: Thu, 07 May 2026 12:03:26 -0400
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SN7PR04CA0151.namprd04.prod.outlook.com
- (2603:10b6:806:125::6) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Thu, 07 May 2026 16:03:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01B9F3558;
+	Thu,  7 May 2026 09:03:36 -0700 (PDT)
+Received: from [10.1.196.96] (eglon.cambridge.arm.com [10.1.196.96])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4559A3F763;
+	Thu,  7 May 2026 09:03:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778169821; bh=tiS1CF4xwZtTPzaUlNB7YfKrijbiOLCs8ErKVDBsQrs=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=riOfFVv6C6yVxErR2wjQwnAzJHlaUXH/xcDnhM7+B7xdNZkaSLYDQJcZZ4sLGY6fs
+	 neHgwUlx/AJ5xYCN0tcZlPmxQUPRa7i5MsYKPyq9R8WKWhKnK6TyenLJFCrhn/vZ2c
+	 2BGOpJTytYPMljyFRBL1A5eGX5a5rrbMhdJJcPXc=
+Message-ID: <b9900d7a-eaaf-4f1a-b79e-aa968a7b6e29@arm.com>
+Date: Thu, 7 May 2026 17:03:36 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DBBPR04MB7690:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0563f53e-8201-4c4d-19fa-08deac522e04
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|1800799024|366016|38350700014|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: wjNo1l0VweYk7I6TmjnToaSBsF83HO9ZG0xZFxGWhMkhMTOQ6MBpdjCCH4mmyvcQQb2zGeXCanl09bDa+3Skpuhde3AXBVHhR/R8X8KnKr7nqGsAdE/3LY3jMHfDsmxNPj5OpTEZ8q2UXpBfgcLUsSADdEdF8shWGYNulFDNAZXy8JSuLNqQ4JPlLR4MZdxZxFz5LnEgUpysX43RsLdMTReHS/JbTch64I8dzsfyQN3kVkx3gQue2Ie8L/u+2vtaKAJ7K/mncGybAU4XmX8LRxlIdzPxaswbt3jLU3W80lTlwTly/pHzNUCk3KUKh596R3ZzGk4g0VRUMRLaupOaa8oPkyySztdJjTUpJ9aTl5nqyx8PXRQ2ilOTSiazcjJtmro/t0ZB3z2yKPRUQMHbAJLdyPjQXGk0JQ771QfeI99bClZds4ZK1djMw8Iii38U6Vs2FRxqZgeGh5/DiM+9s3aorWBGSDq3jcUgwe1s8U+NQr4fxbGPgVdLk1nbd/1+ju4zZgsJ20sJB0vjKIxOW3xLhE0a/aA4LB3zO1r5RPqveCyCmdeIiHi0l1TUoBs6DPBo7WDjai4DNE+8KyDpZb/JDAP2rTIMZUvsrZdSIMGjPBMav7oWilr1Flpm3OW8kSmg5Bmy4bCVxSo8ezXvkm/4SBzScPgUMVB9adJCbhaN6R/gm1cyo8xA9s0OXrhqLFk/h6CBYJ7BgdtEZka1vrc9JuVwJyBjIDy4V6ZNhuZmwAnVWMEKmRbYg21XD4B2
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dlVidml1V3U4Slp1ME0yNFFKWTdMT2t2WmRablpCY1NrMXRrTFRuWUVLUmVP?=
- =?utf-8?B?MElZbDFJTXllQUhJMmVQZjhodHFFaVdXMFpQNEttdkhKeWRULzkrTnJ4YXJI?=
- =?utf-8?B?ZTFQSk5pYVdwMmxtYitQd25oRW4vYTY2UGJyRWlVLytxYzlKeFp5TVJHMDNv?=
- =?utf-8?B?VDNTblZqNGtlR3dtZ3Q3VXZxWGpKSlFvNU5ycUNwTklJeGhTZXJaMFBiZm5E?=
- =?utf-8?B?UStiWWd3NkpHOXgxK24wWnhLQ1JYRWZrTUhTeTFpYlhZVENKN0NqUUxxTWJu?=
- =?utf-8?B?aTQ0MTk1WHlMNWtwSEZIUVRKNEtSRjEvR1greVdXOXJaZHo0SXlFQVhaQWYx?=
- =?utf-8?B?dXlYekd5bUFpTHlsWCswcWZybXpabEY2YUtFVmxLNktMdmowQk5qZXRnQ3k5?=
- =?utf-8?B?STVTL3FJd3NKQjlHaEZCVU5maHZIdElzdmE4cmt5N09UYTIreFBuay9jSjhm?=
- =?utf-8?B?L0dBWDd5OXJVam1RVWpDVHN2cm82T3o3R1YrSGx2bmkxWnpMeFZDVDQ2akM0?=
- =?utf-8?B?aFQ4U2VURTNMVEd2aDZwb0ZHa3J5MWY3b2YwYkM4a0dubEIrOElncFpCK0lB?=
- =?utf-8?B?NENRS1pQSmd6UXNleHFmSjJobVMwNHNWQjg2NVZyYVFlZkc5eC9HSWM5cXlh?=
- =?utf-8?B?Um5GZDFCeDBGbVZzREJKZFQ5dXcyRTg2WU5Oc2NJSW5VQndGcjdXZ3N2Wkgy?=
- =?utf-8?B?UmVOeDFmRmVVdmRJNnduRDJJRStOUkpwTHp5Sm9BSXJ2OUZnQTFJRDVNQkl5?=
- =?utf-8?B?UUwyOWlhTGZsZWRDci84UnBkZVNMQ016NTJCenQzM08zMVg5SWRLT3JaVXlY?=
- =?utf-8?B?Y1pNeDNlWE1CT2s2N1o5WlZ1Y3JYS2Nxb3dOMGZkZWtmYVdqRGxGNm9Fdmo2?=
- =?utf-8?B?bXo0Q2Z1anNVV2ZKYXc0YklEZVRuRk9zam9TQTd6YVlXTDhmVCtCS3lqcGY4?=
- =?utf-8?B?bUdzYmh1czE4eG03VEJoZmZqYjJVVFNBb3BwY0hZZUtZZUNucURsT2NsajV2?=
- =?utf-8?B?UHZTTDNRNENNa2p2b2oreEh4L21XZGc1WjVlM2ZYVjd5Z1pUb2t3bGNmbThZ?=
- =?utf-8?B?ZTRmL3FlTXlLZXNla3Z4eXEzdjNjR2RqZ1EwZ25jbWovUTZnWldNUCtXNGEx?=
- =?utf-8?B?RDN2UW0xOWoycVhGUy8vdDl2bVNDVjc4d0pCNEpOeW1GdEhEcko2ajFCVzVq?=
- =?utf-8?B?ajZWOGZFL3gwajE1dmgvV09jcDNVQld0WnNDbnVkNW85UUxlNnBIVDgxSU40?=
- =?utf-8?B?d1BvZmx1UEFuTXBPTmZDbUdsVXpmcjJybTVhcVA1bzNBUFRjVkVCcGJtN2xI?=
- =?utf-8?B?UWNRRWQ1YkFJcUNPSEFGTFBocmZnNUNCZ2hJWDc0V3lzWktQTVF1cVdXb2p0?=
- =?utf-8?B?bWxFM3o4TzF1d0JvUlBlRnhjK0RTUGJnQUdBZUUyQXNBSHlsMnBjMWpjNmpp?=
- =?utf-8?B?R3BxUnJVRHVIUC9NaXdjeXRLaFJjUE4rMSttaENjcXNZL2JiUUMyWlowNzJY?=
- =?utf-8?B?c2o2TmFUOCsyMVFrcVJkMEo5Z3c0aDRvUjBHa0NHcklGU3JrbEZUaEdTZU1i?=
- =?utf-8?B?VGRBeFIwNUhpY3ZDd3RYWjNCNzIrY0c4bGd6Tk9hVUVsdk02MitIbUd0UlVk?=
- =?utf-8?B?MTNXS2NOY3VZcFZaRGVKRFVyamh3dCtqZXNEWFZKV29JVkFkOUlid2V0SS9J?=
- =?utf-8?B?bCtUTGF0SlRVMU81YmVrdXZhM2Q4Y0o1L3hFeFlYM2E1UWN2c3RpYUlPUUps?=
- =?utf-8?B?OXFhYjJkS2pyQUloNTlXclJKaUo4Z3BBQ1pQWjV3SHhrUkJGZHYwdUNUbEhx?=
- =?utf-8?B?WmNQZ2Jub3kyMmwyTXVpSk9nTDl6QmFWbWpDTGgrRU1XNm5lRnlVTDFPMENZ?=
- =?utf-8?B?WUVoRU5yL1M1UDc5M1JTTStWV3lwUkFCSkE4cUZkbU1JZHd0T0JlSlZ6S1V2?=
- =?utf-8?B?TWgyMENLcWtJM1pKN0o5RmREMVhwL1p0dVZ4MVJjOUxPSml5czMvbFpKOWJS?=
- =?utf-8?B?MVRnK011TG83QzRuZ3lNMEN3S3d0NjYxdXI0QWdiM3JpZ3ZscWg2bmx2dzBX?=
- =?utf-8?B?amJlS2xtejB6NmhMQzFCWkhLZ2ptQ3ZBbVBqZ3VFYm13dER5WlNaTEtTd1Zn?=
- =?utf-8?B?Z3p6OWxOc2hUS284NnZaenZZNHhLZG1IRk1EcHFrVXR5ZVJOUnMwa0UxaFBK?=
- =?utf-8?B?U2ZCVU1SYVVsN2VINGVZUk5GaENza1o1WGgxM1RNZ3pVd1pYbTFiZkpxMjQz?=
- =?utf-8?B?Q3htRFMrNGFJeTBpcERZUjNzM1BTYlQ0YmJZd2oybjNnMEUyTElpMzl4cmlU?=
- =?utf-8?B?Mmt1SGtSVkdETWFSZXhHdTY1NzUzVkpBY1J1dDYyMkhybHpGU3RwZz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0563f53e-8201-4c4d-19fa-08deac522e04
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 16:03:29.5367
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FAHe+1JqZrC9hRLoqYragOhYdmJzs1rwH5HwZmEvmqaG0K1qLYVkwueIbOGBZpiDO9hddoUYKkKPEjLlLOoKoA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7690
+User-Agent: Mozilla Thunderbird
+From: James Morse <james.morse@arm.com>
+Subject: Re: [PATCH v2 2/2] arm_mpam: Update architecture version check for
+ MPAM MSC
+To: Zeng Heng <zengheng4@huawei.com>, xry111@xry111.site,
+ catalin.marinas@arm.com, maz@kernel.org, ardb@kernel.org,
+ yang@os.amperecomputing.com, ryan.roberts@arm.com, kevin.brodsky@arm.com,
+ reinette.chatre@intel.com, miko.lenczewski@arm.com, will@kernel.org,
+ suzuki.poulose@arm.com, thuth@redhat.com, ben.horgan@arm.com,
+ james.clark@linaro.org, lpieralisi@kernel.org, broonie@kernel.org,
+ oupton@kernel.org, anshuman.khandual@arm.com, yeoreum.yun@arm.com,
+ leo.yan@arm.com, mrigendra.chaubey@gmail.com, fenghuay@nvidia.com,
+ ahmed.genidi@arm.com, mark.rutland@arm.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ wangkefeng.wang@huawei.com
+References: <20260203095406.6437-1-zengheng4@huawei.com>
+ <20260203095406.6437-3-zengheng4@huawei.com>
+Content-Language: en-GB
+In-Reply-To: <20260203095406.6437-3-zengheng4@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_090337_094053_06DCC536 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260507_090343_096534_6ACA70B1 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,37 +80,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Zeng,
 
-On Thu, 07 May 2026 14:53:27 +0800, Sherry Sun wrote:
-> On both i.MX8MP EVK and i.MX95-15x15 EVK boards, the M.2 connector
-> shares a common regulator between USDHC (for SDIO WiFi) and PCIe
-> controllers. The non-deterministic probe order between these two
-> buses can break the PCIe initialization sequence, causing PCIe
-> devices to fail detection intermittently.
-> 
-> The out-of-box module on i.MX8MP EVK and i.MX95-15x15 EVK are SDIO
-> WiFi (IW612), this series changes the default configuration to
-> match the out-of-box hardware (SDIO WiFi) and provides a device
-> tree overlay for users who need PCIe functionality:
-> 1. Disable PCIe in the default device tree
-> 2. Keep USDHC enabled for SDIO WiFi
-> 3. Add 'm2_usdhc' label to support overlay
-> 4. Provide a common overlay (imx-m2-pcie.dtso) to enable PCIe and
->    disable USDHC when needed
-> 
-> [...]
+On 03/02/2026 09:54, Zeng Heng wrote:
+> In addition to updating the CPU MPAM version check, the MPAM MSC version
+> check also need to be updated. mpam_msc_check_aidr() is added to check
+> the MSC AIDR register, ensuring that both the major and minor version
+> numbers fall within the supported range of the MPAM architecture version.
 
-Applied, thanks!
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 744df3a6a078..a58031f0a280 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -202,6 +202,17 @@ static inline void _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val
+>  
+>  #define mpam_write_monsel_reg(msc, reg, val)   _mpam_write_monsel_reg(msc, MSMON_##reg, val)
+>  
+> +static bool mpam_msc_check_aidr(struct mpam_msc *msc)
+> +{
+> +	u32 rev;
+> +
+> +	rev = __mpam_read_reg(msc, MPAMF_AIDR) & MPAMF_AIDR_ARCH_REV;
+> +
+> +	return rev == MPAM_ARCHITECTURE_V0_1 ||
+> +	       rev == MPAM_ARCHITECTURE_V1_0 ||
+> +	       rev == MPAM_ARCHITECTURE_V1_1;
+> +}
+> +
+>  static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+>  {
+>  	u64 idr_high = 0, idr_low;
+> @@ -842,9 +853,8 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  
+>  	lockdep_assert_held(&msc->probe_lock);
+>  
+> -	idr = __mpam_read_reg(msc, MPAMF_AIDR);
+> -	if ((idr & MPAMF_AIDR_ARCH_MAJOR_REV) != MPAM_ARCHITECTURE_V1) {
+> -		dev_err_once(dev, "MSC does not match MPAM architecture v1.x\n");
 
-[1/3] arm64: dts: imx8mp-evk: Disable PCIe bus in the default dts
-      commit: a4e6b9643aa4c6f539afefc9eb4768603853a6bc
-[2/3] arm64: dts: imx95-15x15-evk: Disable PCIe bus in the default dts
-      commit: fbff6c34d9e8a9f010396d96ae627ca04403033f
-[3/3] arm64: dts: imx: Add common imx-m2-pcie.dtso to enable PCIe on M.2 connector
-      commit: 5f9e9f83aee0fa8f2124c6f192505de2cdf7c5dc
+This deliberately only checks the major number. (The MSC architecture always had a
+major and minor number). Before your change, MPAM v1.2 is supported, after we'd
+get an error for a MPAM v1.2 MSC. (if such a thing exists)
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+I think its simpler to rule out the unsupported combinations, something like:
+| static bool mpam_msc_check_aidr(struct mpam_msc *msc)
+| {
+| 	u32 rev;
+|
+| 	rev = __mpam_read_reg(msc, MPAMF_AIDR) & MPAMF_AIDR_ARCH_REV;
+|
+| 	 /*
+| 	 * v0.0 and >v2.x aren't supported, but anything else should be backward
+|	 * compatible to v0.1 or v1.0.
+|	 */
+| 	if (!rev)
+| 		return false;
+| 	if (rev & MPAMF_AIDR_ARCH_MAJOR_REV > MPAM_ARCHITECTURE_V1)
+| 		return false;
+|
+| 	return true;
+| }
+
+> +	if (!mpam_msc_check_aidr(msc)) {
+> +		dev_err_once(dev, "MSC does not match MPAM architecture\n");
+>  		return -EIO;
+>  	}
+
+I'd like to keep the 'v1.x' in this message - this should help folk with old stable
+kernels running on new hardware work out why the feature isn't available.
+(assuming they have some documentation that says v2.0 in it!)
+
+I've rebased this with the above changes, which I'll post shortly for fixes.
+
+
+Thanks,
+
+James
 
 
