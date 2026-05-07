@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF38BCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C79E4CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 12:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=17qyLrfd7n8eqOTbUhg/EMA3CBcEUPIbhyu4FIcDpUI=; b=nAVljgwfXdJsOgG4NNzjVK9NB8
-	bwmef+/KW63hNfamYQ/rbLeyYxUDGdQCDsELAOG+89rwqAb3pbV7JDNsVi9GONBA01dP2iMbkML7j
-	8k7IJB3hFZ5kZKQFtzPMJP3xCxDyDsqPBB0f33QLVE+1jtrZ3/J5MAVj0f4L+neDSuDfjYt0dFRUv
-	+N5Kqq+x5WrnQQRtoDd/WChQVNO7srQ40ZJhRJhUJNqsRI8qDDStcjk1ut7FpJqvIXlXD678dmxlO
-	1zQpA6zLj2Y3ktJkNZs96YfPT0LwmIR5p8yKz682Svntb7AfTg6/vU8uU3EspnujLmhXr7oHpcEUi
-	s6v3DFxQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RBJX9JrYpwkYMirbLBkB1WokxpcXHQ8R4LjNXJ+B7/I=; b=44+S7NTvsAwFTsLLAHCD2kh9Xt
+	+xVbc2HP4SLUf1OTqblSM28+f5Pf9/LNGjQ3CzQ5F1MKDxZwC1cLW9WfLAW4CyXnoSkqMvZu5iV8E
+	06R1qgTN/NLezu9ablVaaaQVMKKWh3Q2+CIRZI0vAa7PadNFcXYMIS1Bhy7qicB358ZQHrjyT/C25
+	HM1ZP3jROIR/TbdTXsVVfJwGtaHkjxGVKtZDpWNtGphH8bEPHn4y+JFWDBp5VrukpMZEYsvJ1CXBI
+	6UxGvoRif1v/u+kS0d3Gdc/leRtjrxzZD2PnX12XLLHwQcIamzleC+/ife1CyS0oXCFAk2WSrGGem
+	+PpHVxLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKyGr-00000003pMq-26Ak;
-	Thu, 07 May 2026 12:56:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wKyGu-00000003pQF-03IP;
+	Thu, 07 May 2026 12:56:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKyGo-00000003pKQ-3wkL
+	id 1wKyGq-00000003pLm-1qyC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 12:56:04 +0000
+	Thu, 07 May 2026 12:56:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3350A43B85;
+	by sea.source.kernel.org (Postfix) with ESMTP id A8D4444316;
 	Thu,  7 May 2026 12:56:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDE6CC2BCB2;
-	Thu,  7 May 2026 12:55:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FB15C4DE1B;
+	Thu,  7 May 2026 12:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778158558;
-	bh=FsT+l541Gc3Q7KiBKJU7i6Nxs2fnWFdQHwCIG1QZY9g=;
-	h=From:To:Cc:Subject:Date:From;
-	b=hbzlviSehE3Eeso/9orgo3CdelO5SyRunrXAgqqTz666wYOwAP4qZuCKOT8ZJVfma
-	 cfORGQ69ITXIaNXxUgpsOYR9wVFADqCmmPjq3S3idVTV2CrCPWtWFFnn98U/ku0XBW
-	 Uu2/YKzuNtKA/ViGpzbc/0C2TeIRb6/qMXTc5BAi9Mfz8t2Zc4P1ogKMXLyp8AV1fO
-	 5kwNEwJwLE79sK1SerENnCqTHLRE00cv4WygqAke9HNb5qs9QZJ0z8Vr6UAfShwQeG
-	 E2RiNIyFPENVo0ityypqieToLnEe1hXb0/ng2Jpi/YQqhB51rDNX6bcf8Pq7frPvUS
-	 gviWUKCWFy5Cg==
+	s=k20201202; t=1778158561;
+	bh=pSC+Wz3RdPQ5vZ/77OK/N1UzWpdcXw75IYRf3Cx9KpI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hr//lE5BXql89qyasDHL2mo2OqWjztkKcwY4gx3htD4jtU7bvlR8cVJBHQJUUOTgA
+	 c5KJXR9rP1NeJIZwUFGUgCL4Vp1VT41BwJ0lIweQjfe/XYvNprThl5med2/XVDGmU3
+	 IQdlFb4nx9Y/eZFlkcQBYQxFN/R6/BMO/MDD8bCHGyZyl3VDpijBkgpI9Sun6GtiyR
+	 5QYB9Jsj5MmceM5vqRppvvxBFbOttFmULU7xwC+DxNcsf02IUg3oSEV3kQ16cJ6KHw
+	 7Rwn2bOZnohI+s2IOF5dDerkLAZsmpqgy/ngeOiyUUoe7vea+aF6exgPnqUq9B76Ab
+	 bt6P484o9we9g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wKyGg-00000000d7d-3aSc;
-	Thu, 07 May 2026 12:55:54 +0000
+	id 1wKyGk-00000000d7d-3AWs;
+	Thu, 07 May 2026 12:55:58 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -95,10 +95,12 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH 00/16] arm64: Use EL2 virtual timer when running VHE
-Date: Thu,  7 May 2026 13:55:28 +0100
-Message-ID: <20260507125544.2903406-1-maz@kernel.org>
+Subject: [PATCH 07/16] arm64: dts: exynos: Add EL2 virtual timer interrupt
+Date: Thu,  7 May 2026 13:55:35 +0100
+Message-ID: <20260507125544.2903406-8-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260507125544.2903406-1-maz@kernel.org>
+References: <20260507125544.2903406-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -107,8 +109,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_055603_024720_FC23CC58 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20260507_055604_521144_E65E95CA 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,122 +125,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series aims at making the kernel use the EL2 virtual timer rather
-than the EL2 physical timer when running VHE. It doesn't change
-anything when running bare-metal, but is significantly better when
-running as a guest as CNTVOFF_EL2 virtualises correctly, while
-CNTPOFF_EL2 doesn't.
+A bunch of Samsung SoCs are missing the EL2 virtual timer interrupt
+despite using ARMv8.1+ CPUs. Add the missing interrupt, except for
+those broken designs where the interrupt is documented as not being
+wired.
 
-The first patch teaches the ACPI GTDT parsing about the EL2 vtimer
-interrupt. The table was specified years ago, just that nobody added
-the necessary logic to the parser.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/boot/dts/exynos/axis/artpec9.dtsi | 3 ++-
+ arch/arm64/boot/dts/exynos/exynos2200.dtsi   | 3 ++-
+ arch/arm64/boot/dts/exynos/exynos990.dtsi    | 3 ++-
+ arch/arm64/boot/dts/exynos/exynosautov9.dtsi | 3 ++-
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi | 3 ++-
+ 5 files changed, 10 insertions(+), 5 deletions(-)
 
-The second patch is the important one. It changes the PPI selection
-logic to pick the EL2 vtimer over the EL2 ptimer *if* the interrupt
-exists in the firmware tables.
-
-As usual, firmware is in a sorry state (both DT and ACPI alike), but
-given that this is to run as a guest, who cares as long as the VMM is
-doing the right thing.
-
-The following patches are totally optional and can be dropped as
-necessary: they clean up the DT binding to make it crystal clear that
-no, you can't decide to drop an interrupt while copy-pasting your DT
-from somewhere else.
-
-They finally add missing EL2 vtimer interrupts to a bunch of DTs where
-I could guess the PPI number based on the other interrupts. I've left
-the Marvell AC5 crap behind as they have been creative in the PPI
-assignment, and life is too short to care about it.
-
-This has been tested both as a KVM guest and on bare metal (QC X1e and
-Amlogic SM1).
-
-Marc Zyngier (16):
-  ACPI: GTDT: Parse information related to the EL2 virtual timer
-  clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when
-    running VHE
-  dt-bindings: timer: arm,arch_timer: Fix requirements for interrupt
-    description
-  arm64: dts: allwinner: Add EL2 virtual timer interrupt
-  arm64: dts: amlogic: Add EL2 virtual timer interrupt
-  arm64: dts: bst: Add EL2 virtual timer interrupt
-  arm64: dts: exynos: Add EL2 virtual timer interrupt
-  arm64: dts: freescale: Add EL2 virtual timer interrupt
-  arm64: dts: intel: Add EL2 virtual timer interrupt
-  arm64: dts: mediatek: Add EL2 virtual timer interrupt
-  arm64: dts: nvidia: Add EL2 virtual timer interrupt
-  arm64: dts: qcom: Add EL2 virtual timer interrupt
-  arm64: dts: realtek: Add EL2 virtual timer interrupt
-  arm64: dts: rockchip: Add EL2 virtual timer interrupt
-  arm64: dts: sprd: Add EL2 virtual timer interrupt
-  arm64: dts: xilinx: Add EL2 virtual timer interrupt
-
- .../bindings/timer/arm,arch_timer.yaml        | 21 ++++-----
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  3 +-
- .../boot/dts/amlogic/amlogic-a4-common.dtsi   |  8 ----
- arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi   |  8 ++++
- arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi   |  9 ++++
- arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi   |  3 +-
- arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi   |  3 +-
- arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi  |  3 +-
- .../boot/dts/amlogic/meson-g12-common.dtsi    | 13 ------
- arch/arm64/boot/dts/amlogic/meson-g12.dtsi    |  9 ++++
- arch/arm64/boot/dts/amlogic/meson-sm1.dtsi    | 10 +++++
- arch/arm64/boot/dts/bst/bstc1200.dtsi         |  3 +-
- arch/arm64/boot/dts/exynos/axis/artpec9.dtsi  |  3 +-
- arch/arm64/boot/dts/exynos/exynos2200.dtsi    |  3 +-
- arch/arm64/boot/dts/exynos/exynos990.dtsi     |  3 +-
- arch/arm64/boot/dts/exynos/exynosautov9.dtsi  |  3 +-
- arch/arm64/boot/dts/exynos/google/gs101.dtsi  |  3 +-
- .../boot/dts/freescale/imx91_93_common.dtsi   |  3 +-
- arch/arm64/boot/dts/freescale/imx94.dtsi      |  3 +-
- arch/arm64/boot/dts/freescale/imx95.dtsi      |  3 +-
- arch/arm64/boot/dts/freescale/imx952.dtsi     |  3 +-
- arch/arm64/boot/dts/freescale/s32n79.dtsi     |  3 +-
- .../arm64/boot/dts/intel/socfpga_agilex5.dtsi |  3 +-
- arch/arm64/boot/dts/mediatek/mt6779.dtsi      |  3 +-
- arch/arm64/boot/dts/mediatek/mt8186.dtsi      |  3 +-
- arch/arm64/boot/dts/mediatek/mt8188.dtsi      |  3 +-
- arch/arm64/boot/dts/mediatek/mt8192.dtsi      |  3 +-
- arch/arm64/boot/dts/mediatek/mt8195.dtsi      |  3 +-
- arch/arm64/boot/dts/nvidia/tegra194.dtsi      |  2 +
- arch/arm64/boot/dts/nvidia/tegra234.dtsi      |  3 +-
- arch/arm64/boot/dts/qcom/eliza.dtsi           |  3 +-
- arch/arm64/boot/dts/qcom/hamoa.dtsi           |  3 +-
- arch/arm64/boot/dts/qcom/kaanapali.dtsi       |  3 +-
- arch/arm64/boot/dts/qcom/kodiak.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/lemans.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/milos.dtsi           |  1 +
- arch/arm64/boot/dts/qcom/monaco.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sar2130p.dtsi        |  3 +-
- arch/arm64/boot/dts/qcom/sc7180.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sc8180x.dtsi         |  3 +-
- arch/arm64/boot/dts/qcom/sc8280xp.dtsi        |  3 +-
- arch/arm64/boot/dts/qcom/sdm670.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sdm845.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sdx75.dtsi           |  1 +
- arch/arm64/boot/dts/qcom/sm4450.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sm6350.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sm6375.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sm8150.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sm8250.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sm8350.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sm8450.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sm8550.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sm8650.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/sm8750.dtsi          |  3 +-
- arch/arm64/boot/dts/qcom/talos.dtsi           |  3 +-
- arch/arm64/boot/dts/realtek/rtd16xx.dtsi      |  3 +-
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  3 +-
- arch/arm64/boot/dts/sprd/sc9863a.dtsi         |  3 +-
- arch/arm64/boot/dts/sprd/ums512.dtsi          |  3 +-
- arch/arm64/boot/dts/sprd/ums9620.dtsi         |  3 +-
- arch/arm64/boot/dts/xilinx/versal-net.dtsi    |  3 +-
- drivers/acpi/arm64/gtdt.c                     | 25 +++++++++++
- drivers/clocksource/arm_arch_timer.c          | 44 +++++++++++--------
- 63 files changed, 200 insertions(+), 104 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/exynos/axis/artpec9.dtsi b/arch/arm64/boot/dts/exynos/axis/artpec9.dtsi
+index f8ed43c6e8258..cd46aaf056287 100644
+--- a/arch/arm64/boot/dts/exynos/axis/artpec9.dtsi
++++ b/arch/arm64/boot/dts/exynos/axis/artpec9.dtsi
+@@ -272,6 +272,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/exynos/exynos2200.dtsi b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
+index 6487ccb58ae76..59662f9bdb98f 100644
+--- a/arch/arm64/boot/dts/exynos/exynos2200.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
+@@ -1911,7 +1911,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
+ 		/*
+ 		 * Non-updatable, broken stock Samsung bootloader does not
+ 		 * configure CNTFRQ_EL0
+diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+index f8e2a31b4b751..2e6fb24a3c928 100644
+--- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+@@ -405,7 +405,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
+ 
+ 		/*
+ 		 * Non-updatable, broken stock Samsung bootloader does not
+diff --git a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
+index 66628cb32776e..2c34a2b30ad02 100644
+--- a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
+@@ -148,7 +148,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW)>;
+ 	};
+ 
+ 	fixed-rate-clocks {
+diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+index d085f9fb0f62a..86933f22647b7 100644
+--- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
++++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
+@@ -1856,7 +1856,8 @@ timer {
+ 		   <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
+ 		   <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
+ 		   <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
+-		   <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>;
++		   <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>,
++		   <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(8) | IRQ_TYPE_LEVEL_LOW) 0>;
+ 	};
+ };
+ 
 -- 
 2.47.3
 
