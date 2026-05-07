@@ -4,73 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D984CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8999DCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NBH0jyNZrOzmMWTTXswtxOpylKAjIZZm3k5vmlmFTBY=; b=cK4zYEKj6yA12U9MHPfc7qT53t
-	fVbr/FPeJxkvrSPeqgSu1cGDFmhXEABKwhmYObTJhDCs2GtLuZw9HX6vO/LzZFO/tCBONoMbt/QhC
-	4axtopcNRaJ82uMCfoaWjskO8iUgZgm7BPMUZ7aEli0X89LcpbHnM45ZdUfmFD0OmY/Bk90Fw+3PB
-	8bLFHWvAMPzsOWPagDcO9jRPf1c/bcEyULEWz1KQ4jgoVCUNVkNnm3hPnqxVjYsCpmlVt3KB7fIx8
-	FUclp9AQkmCIWr4Ek/PiUrtPBQlAES2Dszju/OX+5InbLj/JZ3Gyofgaqz+tM9qt7NBBGr70SEbXu
-	tGvmbkyQ==;
+	bh=n2r+8tONPidRwC+bDiqTgIec2G+NFWKd4YQ4XHysQOU=; b=NCfyH4DOME8XZn3oE1ni6AAqlc
+	4H7HfHeUo6PyFgxpRqGQJ5i8ht7esaW/wF3hzV/CO5hkt03raq/pvu54mcH/Zn8iBS0p5JlGMn+6h
+	lIwaOWtroebllv1ugqwhHLhEZM4Tm2HXjyMJzcR2rSx1a8Wy6bBIj9xdtVEbqL0NWJaHfzpjjVPCT
+	LXhgD7zl+DqqldeyLNnqZXWUl8UtRfctY5NwsIn+/4fJ4n1Ip2cUsYVFsw2qv1R+2qoqkouRbD7qS
+	KE6gRx2LU0X81tlo/EUO4uxVeQaSTp6cUFeT9SKis02ZOtg9n8vbiMJDM/3C+rZdjeqUqZVHKJyTp
+	JyWr5cWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvNe-00000003OqO-2YxF;
-	Thu, 07 May 2026 09:50:54 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wKvOo-00000003P6m-3sQ1;
+	Thu, 07 May 2026 09:52:06 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvNb-00000003Opt-2ltp
+	id 1wKvOl-00000003P5R-2j2U
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 09:50:53 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1778147447;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NBH0jyNZrOzmMWTTXswtxOpylKAjIZZm3k5vmlmFTBY=;
-	b=leWMdPdyfke1PG9kBHkhG5M8+CkYZqJLTLAqeCjYiODinG+/j5IfywZS4BLtwSeOnAhR6D
-	pw/eSfCLzgoMv61xYkcFltHJt75Aj5NL592c/QId6geF4NJndJWESdEbRgVpzZJaKCAEAk
-	S46RxvcRAIZA9ahHYcTAxrtRU+Lc+i248yF5/kVapuIJ8z3dVEqbikVTF3jyXqEuOI+x3T
-	3bevzAN4DzkSVknLp5v6SvQ6O8TC9Rp1nxTnpME2Yz+kDQdJ86k1KXyx7rg0SDmJQCUrew
-	Jl0XoiQVfdJ919Xfgwb85G6jo2BOn+QjO9UZmH6nOsM9NQzLPu3et2OdyeeYug==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1778147447;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NBH0jyNZrOzmMWTTXswtxOpylKAjIZZm3k5vmlmFTBY=;
-	b=Tq2nphDtcvBpFn3zxihLGoMnyKDvoUWprRrJufVzWFnDKGTEAFUEQ7hCJcHsFd6FLZEOal
-	HAqr18N14WAjRFBg==
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Ilpo =?utf-8?Q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Thomas Fourier <fourier.thomas@gmail.com>,
-	Kees Cook <kees@kernel.org>, linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, sparclinux@vger.kernel.org
-Subject: Re: [PATCH tty v4 2/6] serial: Replace driver usage of UPF_CONS_FLOW
-In-Reply-To: <20260506121606.5805-3-john.ogness@linutronix.de>
-References: <20260506121606.5805-1-john.ogness@linutronix.de>
- <20260506121606.5805-3-john.ogness@linutronix.de>
-Date: Thu, 07 May 2026 11:56:46 +0206
-Message-ID: <87lddvy2dl.fsf@jogness.linutronix.de>
+	Thu, 07 May 2026 09:52:06 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6473eRvO026468
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 7 May 2026 09:52:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=n2r+8tONPidRwC+bDiqTgIec
+	2G+NFWKd4YQ4XHysQOU=; b=hk7CjrAbJWAFwoncPo8nXNSnkdWhlPzugC0Vuvbz
+	oIs0tE86AQcPzXfDNbxNpJJC2h6m8Kzu3bYkDemd7XS6rc9QehjtbuV9ZL/FxZhz
+	V+9VdE0I6Z812O4YAeCm1QCkhhgvRXznAYBODvtx/HrBInLvd9ON/OlZBCRKmYo7
+	l/S6DiNpwzeIpQg7lnGhTiRTO6IgvYJII+56JS59usJiElGT3k/oskeLJ0/Tdman
+	IZQ+h9pvhK2OYgmUrQjH/DSz4DzKha+cWGlUNod8b7bB3Jfb27siJT2aHK6A84mh
+	hdrgVyyxuyMM3C92Ib81826vOMOkMOIUlSep3lVWR5Dqog==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e0k1t1a97-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 09:52:01 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8ed2c173d3bso127729685a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:52:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1778147521; x=1778752321; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=n2r+8tONPidRwC+bDiqTgIec2G+NFWKd4YQ4XHysQOU=;
+        b=XvsHLTa9D4ctJraFPhoXcot5XyYA1GXSb/N070dk4IU+RsAsmhtiLA4+nDhLVkMdaJ
+         rgaPcqfSFNMTV6OGr1Jzu1WG7RO32nAnNH0k9FY4O231kNJOGeusTYGxq9VxUPBKNbui
+         6RnBe6u6TmwGmMm00JcMjpuC9q1rctDWSUyRVCmuCfq1XU6zfcu1NkgQXT5yeENn8/nA
+         iHr3LaxKfyMCEVk/pi8Wmm/j3rLtjbAc8yOqjuLlLbGVdGtTvHmtlPc3VVzlYdGn6Gm7
+         M0vq7vDKBuSIhxXygv0mu5Y4tO07bdOos/vj2KHIJIfttxZmE3wUrgKD+NexdkggxTJB
+         sMwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778147521; x=1778752321;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=n2r+8tONPidRwC+bDiqTgIec2G+NFWKd4YQ4XHysQOU=;
+        b=l8ip7B8+NvwpXvxHzFVn06ZSumdZS5RlRzlB/5RvCatJWog7STaYEAyXH1KPI6KkBD
+         4vQkliquErm58Rcyg+kZ7VB2B0xTc+NuT/nGo1lMQBVcaobq+ww6SjngldAAS2eL71+9
+         xQgLWGAsW28Q7cob06Q5XPOil23IPRifwWQSLRJtMm7aNT8KnBOgH82wibd/1OtrzgHw
+         YZPxmAkcchAH0eP8TiOONoIk4oTzAEFatbZ8ypEESpg0zTaFhH7PvQaT0bQIq+RAi3jU
+         VRJvrSlG0RLHgouoMAoSHqcKxXS1yc9ZggLI3fOkC9JzJwkYf+Oly2dWW5WH7g2maDia
+         p1cw==
+X-Forwarded-Encrypted: i=1; AFNElJ+wgPMs1jx/YySrCWvmvpx4ALCNCr7aLrBm4/Dv0n+woBUDQpfLUYpfEyxUgfOT9FeZn8hT8VvO2fqKR7Rfimo+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjPGTJw0QCdKk9RE/qbqAGlBI/Nxb2LNmdCum7ydijzjHg8CHg
+	eEUyPvLiZATlqngeEeIhQmqYVR3Kcqv4sXZhNyP16WKc9MjFMi/7fF6VTQBSsYrMjn23WIEz3FW
+	9NGzapYpll7rt/0T2/4Rpx9LyF3SP/93gyN5CJ1iW3mfGPuIhpDoNzaI3qNta8YRDIscpIyqg+H
+	tL4Q==
+X-Gm-Gg: AeBDieu+CJnKk9iswiQ3FteRgB++08mW5jGNAJV5kNXLu31EJWzicen8xMNv+lE3H91
+	VjSj+BEo/WIfsiV4qweWFUFeqmoGw283dfi4eXLqR8m2IZWdiD5wODOHBnRGl97NXKTXLusHn9R
+	Oer9SKmcGHG7TygqDbbdlsFsulpPu5cuZRW7AIhx7wOo4Zsj1PgDnp17whINBvxjr205TQvj9H2
+	3ToHKyCxdZQz0/7g6l7Mbnw/gf9g+jd7n1W1gR8RIbGl6XDXtka89lovVmLJQ2VpzQlG0oj7xvk
+	IC13S3TQ4F+rvbg5L43hebPYYFmn0W9EhQhvy9PDT2+KFredZOfNjhxf01sutoMue2X+sAsRtFm
+	B4LB8x1h1zpIZTseGjH9lwy3WeL9fma96JJqLVKtmvGlt5nc0a+f6YxWhMqIKOojEwKPwAe2KB0
+	Sj1GFoiVx/Vmvr0KhaQX+azKAHN7uEPEbagKyHC4wgdxw+jQ==
+X-Received: by 2002:a05:620a:1a20:b0:8fc:5e81:28eb with SMTP id af79cd13be357-904d65e1e89mr1081201285a.42.1778147520850;
+        Thu, 07 May 2026 02:52:00 -0700 (PDT)
+X-Received: by 2002:a05:620a:1a20:b0:8fc:5e81:28eb with SMTP id af79cd13be357-904d65e1e89mr1081198385a.42.1778147520392;
+        Thu, 07 May 2026 02:52:00 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a85c33c8a3sm5505238e87.54.2026.05.07.02.51.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 May 2026 02:51:58 -0700 (PDT)
+Date: Thu, 7 May 2026 12:51:56 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Junzhi Zhao <junzhi.zhao@mediatek.com>, Jie Qiu <jie.qiu@mediatek.com>,
+        dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] drm/mediatek: hdmi: report jack plugged state from
+ bridge enable/disable
+Message-ID: <lhxivpwo6aq3ehgzsnkgxnqis5tptmey4dtbhaokyckkl7ghbn@dzaj225pnpk3>
+References: <a3e22cbae528c9a38d854a586d1736b860998d41.1776265222.git.daniel@makrotopia.org>
+ <c4d62fc2244fb72207855c5a366ff10fad419f2d.1776265222.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c4d62fc2244fb72207855c5a366ff10fad419f2d.1776265222.git.daniel@makrotopia.org>
+X-Authority-Analysis: v=2.4 cv=EoPiaycA c=1 sm=1 tr=0 ts=69fc60c1 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=VwQbUJbxAAAA:8
+ a=VT4XjZGOAAAA:8 a=_OD9tO1ZYgXKlZaMhT4A:9 a=CjuIK1q_8ugA:10
+ a=IoWCM6iH3mJn3m4BftBB:22 a=6CpsfURP9XNmmWg3j1mJ:22
+X-Proofpoint-ORIG-GUID: nKDXt7nN5K71fY89gS4m6rbQ4-yT1wrk
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA3MDA5OCBTYWx0ZWRfX9oma9T/u+08n
+ PhUYtO88gAXOch8mwN0MenO5bJI8MbbGC2L0vMOOrjmXF9uXZa2+uZwkS7+U97wEKgWfpDVeeV9
+ hBWAr2Feo8v05rGjHeTJE3fCpBOMxhlWTv9N2ERwnPZkNkg0P0Z0v3rfR8UReJE1VSTl2Jgof5a
+ KWU+Yz+aZrnKEYR/eVvcAd5r+vzZX5zjSDLHG6/oYmVak03yQUR+NefcJhikEbo+yADo3fb+XYP
+ ExK7+8/Guty7bNzTRWsxJPrqJMP5352lQl0rraYkR41VlgiUTxfYHxkcjhQc3d/oVRGjF1EBXzx
+ 8fpLui9CFTEoFxNO5z34LNZdiZAN/NWNb73cGZ6JBNslgCehmamk+1BiZCCTbOjOxO/7KtojDDd
+ DuLGYoqCc73qc2zVTZiwLqDDKhVp+CAcN3dkmBM7nBEE7VqBv9e1W7Sfx5e55rhxMC1RZY3b3nM
+ j1KqllOCBdllNPTPC8w==
+X-Proofpoint-GUID: nKDXt7nN5K71fY89gS4m6rbQ4-yT1wrk
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-06_02,2026-05-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 bulkscore=0 impostorscore=0 lowpriorityscore=0
+ phishscore=0 malwarescore=0 priorityscore=1501 clxscore=1015 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605070098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_025051_841405_A60E1F9C 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20260507_025203_796466_5AEE82C4 
+X-CRM114-Status: GOOD (  24.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,80 +149,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Apr 15, 2026 at 04:04:16PM +0100, Daniel Golle wrote:
+> Notify hdmi-codec of the current sink plugged state from
+> mtk_hdmi_bridge_atomic_enable() and mtk_hdmi_bridge_atomic_disable()
+> via mtk_hdmi_update_plugged_status(). This matches the pattern used
+> by dw-hdmi, which invokes handle_plugged_change() from the bridge
+> enable and disable paths so that ASoC jack state stays in sync with
+> the actual sink presence across atomic commit cycles, and not only
+> on CEC HPD transitions.
+> 
+> Userspace audio daemons (e.g. pipewire) rely on the jack state to
+> route streams, restore per-sink volume levels, and recover the last
+> used device after a reconnect. Without this, those transitions are
+> missed whenever the sink change is driven by a mode set rather than
+> by a bare HPD event.
 
-(This email is particularly directed at the Samsung folks.)
+I can only hope to see mtk_hdmi to migrate to DRM_BRIDGE_OP_HDMI and
+DRM_BRIDGE_OP_HDMI_AUDIO...
 
-Responding to Sashiko:
+I think the correct timing was discussed several times and the overall
+conclusion was that the correct time is when the actual HDMI cable is
+being plugged / unplugged. See the discussion around [1] and the
+captured response of Mark Brown.
 
-https://sashiko.dev/#/patchset/20260506121606.5805-1-john.ogness%40linutronix.de
+[1] https://lore.kernel.org/dri-devel/cwxmu5a37qaqerpaolohxw57nzerkvlumx4dsqwmqwx5t7xhxo@kq6j63hfydra/
 
-On 2026-05-06, Sashiko wrote:
->> diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
->> index e27806bf2cf3e..2f94fc798cffb 100644
->> --- a/drivers/tty/serial/samsung_tty.c
->> +++ b/drivers/tty/serial/samsung_tty.c
->> @@ -319,7 +319,7 @@ static void s3c24xx_serial_stop_tx(struct uart_port *port)
->>  	ourport->tx_enabled = 0;
->>  	ourport->tx_in_progress = 0;
->>  
->> -	if (port->flags & UPF_CONS_FLOW)
->> +	if (uart_cons_flow_enabled(port))
->>  		s3c24xx_serial_rx_enable(port);
->
-> This isn't a new bug introduced by this patch, but does this code
-> result in a recursive spinlock acquisition and deadlock when console
-> flow control is enabled?
->
-> The serial core framework calls port->ops->stop_tx() with the
-> port->lock spinlock already held. When uart_cons_flow_enabled(port)
-> evaluates to true, s3c24xx_serial_stop_tx() invokes
-> s3c24xx_serial_rx_enable().
->
-> Looking at s3c24xx_serial_rx_enable(), it unconditionally attempts to
-> acquire the exact same lock again:
->
-> static void s3c24xx_serial_rx_enable(struct uart_port *port)
-> {
-> 	struct s3c24xx_uart_port *ourport = to_ourport(port);
-> 	unsigned long flags;
-> 	...
-> 	uart_port_lock_irqsave(port, &flags);
-> 	...
-> }
->
-> Because spinlocks are not recursive in the kernel, it appears this
-> sequence would cause an immediate deadlock on the same CPU.
+> 
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> ---
+>  drivers/gpu/drm/mediatek/mtk_hdmi.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> index 9050d7785f109..565bb72c9b63a 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> @@ -1013,6 +1013,8 @@ static void mtk_hdmi_bridge_atomic_disable(struct drm_bridge *bridge,
+>  	hdmi->curr_conn = NULL;
+>  
+>  	hdmi->enabled = false;
+> +
+> +	mtk_hdmi_update_plugged_status(hdmi);
+>  }
+>  
+>  static void mtk_hdmi_bridge_atomic_post_disable(struct drm_bridge *bridge,
+> @@ -1082,6 +1084,8 @@ static void mtk_hdmi_bridge_atomic_enable(struct drm_bridge *bridge,
+>  	mtk_hdmi_clk_enable_audio(hdmi);
+>  
+>  	hdmi->enabled = true;
+> +
+> +	mtk_hdmi_update_plugged_status(hdmi);
+>  }
+>  
+>  static const struct drm_bridge_funcs mtk_hdmi_bridge_funcs = {
+> -- 
+> 2.53.0
 
-Although out of scope for my series, the reported issue is real. Perhaps
-something for Krzysztof or Alim to look into.
-
->> @@ -493,7 +493,7 @@ static void s3c24xx_serial_start_tx(struct uart_port *port)
->>  	struct tty_port *tport = &port->state->port;
->>  
->>  	if (!ourport->tx_enabled) {
->> -		if (port->flags & UPF_CONS_FLOW)
->> +		if (uart_cons_flow_enabled(port))
->>  			s3c24xx_serial_rx_disable(port);
->
-> Similarly here, s3c24xx_serial_start_tx() is also called with
-> port->lock held, and s3c24xx_serial_rx_disable() will attempt to
-> acquire port->lock again:
->
-> static void s3c24xx_serial_rx_disable(struct uart_port *port)
-> {
-> 	struct s3c24xx_uart_port *ourport = to_ourport(port);
-> 	unsigned long flags;
-> 	...
-> 	uart_port_lock_irqsave(port, &flags);
-> 	...
-> }
->
-> Could this pre-existing locking issue in the samsung_tty driver be
-> addressed so that the rx enable/disable helpers do not try to take the
-> port lock when it is already held by the caller?
-
-Also legitimate. But out of scope for my series.
-
-John Ogness
+-- 
+With best wishes
+Dmitry
 
