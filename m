@@ -4,83 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D23C1CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:34:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8574BCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pg18/DzPAz6n2EUKFraCzWPc1dvLgfrdplVOvzpq5g0=; b=ywNhjsUFuiyCKcW0Ny1FBqL1f0
-	kJIQb0UNDPEkz2YEuh9AB2HJexsbyG696/BtO9stTeycvfstrvoA6SU3AOoKD+kRG2SZ7pyeqECMa
-	R/zV4Wir76JW+OSv69JvXpc8VIPeKmflPkxccUf1+R7S/RsmJLKMzmY0mp07BhsljMMz0M0zGNbQD
-	umhK8FXauRFu7r/NdMO71ivPpJtNwmPkz+JzrcmiQVb15dJpIP23PAvDSkf1tgHKP96mT9syZMbXR
-	cm7dx9igSyX0DnQ3n9CIUzPrj6RrQ7OS2Gw9C11HOiri48AihzvIHY9ZKwtX14RLBmd0tyTjwAggf
-	cHHoVotw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JUkIjpcmnqAY6snj5K4KsoGXaSrVhFlzy2v4P9fV3pM=; b=R5PO2GtfIgMxM3r8SQIEEBUNz8
+	pvWa0fBNwQUrmDZyxQpiXk7OkNLTWac41TsEZisyGRLXKgD3U64Iczxe4Ci9oC7Ua/5+wcveXpqF7
+	QAKcK4JY7PGprn7aD5ZNC0d8iVB+steNFIy7cA66wH5e38qLvWZXoAaY7up3CwKlwbaJAy/V8w8NQ
+	ZMPC6iI9zRYE38S1RkqkHg6UUBZ+SJEvspO5qhgPM560hv39nWQsYbG/GDr/gDvgQTY7FQGggjPKo
+	r2YpZg/iGOME5znLfGduUfWSvWRGysCVexxnfPSVrcHdOWuW+cdO2omfo2wPWIzuAADeBb5cUm6I0
+	ncITXOLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKv83-00000003MSy-0Jr1;
-	Thu, 07 May 2026 09:34:47 +0000
-Received: from mail-vk1-f169.google.com ([209.85.221.169])
+	id 1wKv91-00000003Mge-16H7;
+	Thu, 07 May 2026 09:35:47 +0000
+Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKv80-00000003MSK-3qde
+	id 1wKv8y-00000003Mg7-3hzd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 09:34:45 +0000
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-56a8fdaddebso214160e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:34:44 -0700 (PDT)
+	Thu, 07 May 2026 09:35:45 +0000
+Received: by mail-pj1-x1043.google.com with SMTP id 98e67ed59e1d1-366089e42eeso276185a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:35:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778146544; x=1778751344; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=JUkIjpcmnqAY6snj5K4KsoGXaSrVhFlzy2v4P9fV3pM=;
+        b=bpfq/2HDfg72vYjM32RZpg212fRKAE7SXeISg9P2vkDCFcQarQfSNhArrkBJk2BHXx
+         598jq5mXU5j8q2uN7P+IityOW/KrlTmKVyl8VgADcHQC7iHT5QOzV6Ayrv88EunJP5J4
+         1Vj7gxHSFC0NFv2A5TM2l9yKpPnQ3c/yPLkqMSdlqlbO49puGqVmmgTrqVNGzQMZ51Yg
+         Rhl7JrTy3PGqhf/COS4EbcApdQswJEiDyYxr6C89wtz2sWFGeSqjYOoJYtNp4v17kaAQ
+         oHlULYdOfu5EEoSgCODJ07TqHqGXjUJQfq96JY4UDCgCWa6cQp/8ycewocLYlrN1gCwV
+         z4nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778146483; x=1778751283;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Pg18/DzPAz6n2EUKFraCzWPc1dvLgfrdplVOvzpq5g0=;
-        b=DmspCZukBalVeqd+CtJja6teR460LDS2unzcmUMnmldePRYQJqHNavMs70eAXXSpt6
-         +pwzOxBgl7Y4kHr85qvoCF+nBz/4w8yC/Y0o3R9tfV+QVgQfMlV5ry1Q3NSSdbKEJfI1
-         GeT5syXJDhV80qpdfBF3CgRALzQG0OgYn+KbQOlpOQ4Nufduk1aGfZn5sJISX1bmoPia
-         DMB7WyLbO8VyzRaZzF4wXdaXqvdKE8Rkr4afKkEPUha93KPEyYhNYf6bULcpfcAV5qf3
-         ZucmmAnp1RcyXQSWE8bT/bscG9yQq4X5JqH8cYipPgI5GPWz4wzFSl22Uw+HG1NQ9yt7
-         RLWw==
-X-Gm-Message-State: AOJu0YwLEBLUyqlfLQZMLXrLbtLZmyLcscrRthxGmWPADo9BR3Tl48Uh
-	mMMzhBM/g4hGPy+FQ0EpHbvSKQnkjWDqdRv38nMCsiarjgj67UiTGApAGPD7CUWFfUs=
-X-Gm-Gg: AeBDiesd/TZw0ooKyJuItRDze2SR14sZlZJSYDfCnXIAdX+JWkWhQwsebawJUqonmJi
-	759UKMjnQ0uWSa93ODCcyNKPfyWK4pmV3MHTbkYXi4vm/HTtMxiJA83GFPXG8NKbCCH7BzQTBKe
-	mmwQtTRXfsl0k8qk+/i93ioULcV/b65NrsGBZ1SFKBlpfSXV8U+ZdcxZBuU48U71nzsIpRApp2H
-	gIZK6m/DexridpKS64OBA6YpxzIToLNO+quufegKILR/0x2f3yd5n+RGaCckG8/V69+Vt3BSn5p
-	ScquLrqrHcvlALeziL3t3nIjnMycQLxY2eTM4S1pTIrFJ2zikRzOCzLFpbwnchMlnN4lP6GT/Bk
-	1ONvoN2S5cyvV8hWR5zsw+63Qn8M4/+H8oy6iswaCK2Ha9E3PRS3zD8ZzuQqvFkjhAleFOT+6qo
-	nnDyt0m6ba04GW49vQ9Z6NXyZR38vnnglSjBAOYDDoMzRMwL3RhQM7A7Zi0S9m2PU6xNgCpFry7
-	rvPRWXLu/ZYHCQAvRVt
-X-Received: by 2002:a05:6122:1da5:b0:575:29ef:7df8 with SMTP id 71dfb90a1353d-57559571a5cmr3739356e0c.2.1778146483620;
-        Thu, 07 May 2026 02:34:43 -0700 (PDT)
-Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com. [209.85.222.42])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-95d338eefe9sm4238690241.7.2026.05.07.02.34.42
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20251104; t=1778146544; x=1778751344;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=JUkIjpcmnqAY6snj5K4KsoGXaSrVhFlzy2v4P9fV3pM=;
+        b=KnIPcuXi6Na7g/OuawJgZ47BSXAY6Y4Fm2vpZY1TmlFVjAn1Txrfi6/rd8eVUFIf4b
+         CTrikpmDxVpTyJ94GkyzXrQjeOIbDES6Oq3B3w0om4lq2ddDHyK+OVLAntr8R1PI1rOW
+         qB9x6xzpptSuVqg4V+3u0VNMoby7A7QJaOpvMKx/Q9VQ/EMPw5dL7F0EId+2n07jHqnZ
+         d28qs7vkE1jEuJFaEUt8ZTibZISd0EpUQzz+idez2UgEO58TheuMqw+BhhgtLwvGmGhW
+         g2ZplcmLg03jZ9Vx81YATV3ndnsp092LAgmWIE8wiqPNqiVnTYa6NfR4VKUujhcrME98
+         bgVw==
+X-Forwarded-Encrypted: i=1; AFNElJ8kZOiZyoVCZelgpc0xJLe4JQKzXzEp2RZPz1IvFrtlc7VdqeVtaC49Hle+5TCnge0YK1Km9NhcVP+LuVC+0saI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLPEWQ6yUzjz5WnCNdaV0ntuvipZJ65rWvCfr3osTyhGlTeyad
+	FmojhGdRsZur3vim6/gG9J5i5OIj9TlUW8EneFsW7crQig5L/fbShzas
+X-Gm-Gg: AeBDiev5HV7YcD0daiyykHpujGTCCRtC95NYX46GxqfGg2hjHrynpUSHIW9Yurz2d6Q
+	xyjIDHBoqTKWRpjI/sdjmc/fJINyYYbwyl55d6jheX1A51hnMkRdrha4k+IPrY1FZ0GqaFvuOz2
+	nNuGHVjFHfVvYm+HoT4EJlZoJ0tNAwm+2KKRQRiyLRmar9szRdfLP1pgjU6iS5FIx3TUZgag/kZ
+	zLwNPdh1qq7aqwfuoqpPbMRWK5po+KUMABmwMxu578lgVmc0xx/qfIIMOrozwNzTvURuwqk1meK
+	CKe0vbQBg713Y9opeQbJazMHgQaeoesrCAzZ77vyrOpeKqkNBbyE8TWVRjSn6HeTaN9LCGtgfvv
+	h6iRzpySp9+EQJYNH+RcZHEtSUNAvxYLJKHWUG83oxL2wAsL2jhJufD2oLv9ET6brnsRxsm4weM
+	vVHKUF3ou8oAEfaPrYYE6ZCWUpeSl4cKAUheikxEbCXA==
+X-Received: by 2002:a17:90b:1c8b:b0:356:35a5:4a64 with SMTP id 98e67ed59e1d1-365ab9b8e5dmr6393838a91.4.1778146543874;
+        Thu, 07 May 2026 02:35:43 -0700 (PDT)
+Received: from [10.125.112.20] ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-365b4c19387sm6651310a91.7.2026.05.07.02.35.34
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 May 2026 02:34:42 -0700 (PDT)
-Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-956849ae1efso171446241.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:34:42 -0700 (PDT)
-X-Received: by 2002:a05:6102:509f:b0:606:49d:183f with SMTP id
- ada2fe7eead31-630f9060df1mr2849018137.26.1778146482430; Thu, 07 May 2026
- 02:34:42 -0700 (PDT)
+        Thu, 07 May 2026 02:35:43 -0700 (PDT)
+Message-ID: <1a8af3cf-5edc-4ca4-b340-12ebeb2ed982@gmail.com>
+Date: Thu, 7 May 2026 17:35:33 +0800
 MIME-Version: 1.0
-References: <20260504225515.114986-1-marek.vasut+renesas@mailbox.org> <20260504225515.114986-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260504225515.114986-2-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 7 May 2026 11:34:31 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXxjMbbnU0DE5VZ_trgpOmykZtMogX=ENoU+fnP9r6j=g@mail.gmail.com>
-X-Gm-Features: AVHnY4JrmA0rqCd6_oyesdTMolRy2oBM0JSfiD2aIIZPeGwPtc5XxCSK-5XF7ko
-Message-ID: <CAMuHMdXxjMbbnU0DE5VZ_trgpOmykZtMogX=ENoU+fnP9r6j=g@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: renesas: salvator-common: Sort sound node
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/11] of: reserved_mem: reject reserved memory outside
+ physical address range
+To: Rob Herring <robh@kernel.org>
+Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, akpm@linux-foundation.org, bhe@redhat.com,
+ rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
+ ruirui.yang@linux.dev, corbet@lwn.net, skhan@linuxfoundation.org,
+ catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
+ kernel@xen0n.name, pjw@kernel.org, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, saravanak@kernel.org, chenwandun@lixiang.com,
+ zhaomeijing@lixiang.com, everyzhao@126.com
+References: <20260429065831.1510858-1-chenwandun@lixiang.com>
+ <20260429065831.1510858-3-chenwandun@lixiang.com>
+ <20260506015112.GA286568-robh@kernel.org>
+Content-Language: en-US
+From: Wandun <chenwandun1@gmail.com>
+In-Reply-To: <20260506015112.GA286568-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_023444_955917_F1204EAA 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20260507_023544_932789_B0DE6C77 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,24 +112,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 May 2026 at 00:55, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Sort /sound {} node in the correct order alphabetically.
-> No functional change.
+
+
+On 5/6/26 09:51, Rob Herring wrote:
+> On Wed, Apr 29, 2026 at 02:58:22PM +0800, Chen Wandun wrote:
+>> early_init_dt_reserve_memory() does not validate whether the region
+>> falls within physical memory. If a device tree incorrectly specifies a
+>> reserved memory region outside the physical address range:
+>>
+>>   - For the non-nomap path, memblock_reserve() blindly adds the region
+>>     to memblock.reserved, creating a stale entry that refers to
+>>     non-existent memory.
+>>
+>>   - For the nomap path, memblock_mark_nomap() silently fails to match
+>>     any region in memblock.memory, but still returns success.
+>>
+>> Add a memblock_overlaps_region() check at the entry of
+>> early_init_dt_reserve_memory() to reject such regions before any
+>> memblock operation takes place. This also simplifies the existing nomap
+>> guard: the original "overlaps && is_reserved" condition reduces to just
+>> "is_reserved", since the overlap with physical memory is already
+>> guaranteed by the new check.
+> While I agree, I suspect we already have cases abusing reserved-memory
+> like this.
+Sashiko reviewed this patch and told me:
+"Historically, the reserved-memory binding is often used to describe 
+hardware
+SRAM, DSP memory, or IOMEM carveouts that reside outside of system RAM."
+IIUC, nowdays using mmio-sram DT binding is more appropriate for SRAM or 
+IOMEM carveouts.
+Should I drop this patch or keep it ?
+Thanks.
 >
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+>> Signed-off-by: Chen Wandun <chenwandun@lixiang.com>
+>> Tested-by: Zhao Meijing <zhaomeijing@lixiang.com>
+>> ---
+>>   drivers/of/of_reserved_mem.c | 15 +++++++++++----
+>>   1 file changed, 11 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
+>> index 9d1b0193864c..03c676052dab 100644
+>> --- a/drivers/of/of_reserved_mem.c
+>> +++ b/drivers/of/of_reserved_mem.c
+>> @@ -112,14 +112,21 @@ static int fdt_fixup_reserved_mem_node(unsigned long node,
+>>   static int __init early_init_dt_reserve_memory(phys_addr_t base,
+>>   					       phys_addr_t size, bool nomap)
+>>   {
+>> +	if (!memblock_overlaps_region(&memblock.memory, base, size)) {
+>> +		phys_addr_t end = base + size - 1;
+>> +
+>> +		pr_warn("Reserved memory region %pa..%pa is outside of physical memory\n",
+>> +			&base, &end);
+>> +		return -EINVAL;
+>> +	}
+>> +
+>>   	if (nomap) {
+>>   		/*
+>>   		 * If the memory is already reserved (by another region), we
+>> -		 * should not allow it to be marked nomap, but don't worry
+>> -		 * if the region isn't memory as it won't be mapped.
+>> +		 * should not allow it to be marked nomap. The region being
+>> +		 * physical memory is guaranteed by the overlap check above.
+>>   		 */
+>> -		if (memblock_overlaps_region(&memblock.memory, base, size) &&
+>> -		    memblock_is_region_reserved(base, size))
+>> +		if (memblock_is_region_reserved(base, size))
+>>   			return -EBUSY;
+>>   
+>>   		return memblock_mark_nomap(base, size);
+>> -- 
+>> 2.43.0
+>>
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.2.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
