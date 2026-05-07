@@ -4,55 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4828CCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 11:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C20CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 11:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a+W/MI4RalnWOPI6s6gJjU+S1tfYwTsCpKSoFMctY2s=; b=v/YPQ1IUvb8EXDmKRX3Ch49Vae
-	RSjPqsazUfxiZ5BaDJx80yXIcNYbWs/1UEcze1HH5fs78dP0FeUbpqCRhNZnkHa/ID3PCeCfzrEzF
-	p9GwBH/gRIQkYVIsSQPEEhBF6bi1Cz+fQvwTPCxNElwTk9dNlq4c0YBggamcO9vvt2sAnRkyM8ebS
-	/hYhpjl5yhGIZ65rI5DCYnzBpSIUY3QSQlCorS84Ke9UCnb/y/PunUVDbdUUZI9lFEWL7eUVjbV+o
-	QtfH/7RmDFvZEmlckaUjCnRPjD47+qQek1jLdhE60xx4KOZvCOYkuyy5wA0gX8s+wIfdqHmoE8GNd
-	xjEdrCjA==;
+	bh=w818RurETCJS+GlpNeVFl+AKbJrzyGMsmZ6uPaaY+NI=; b=0ctTqNBelS9VLrKPMNrNJ05n/Z
+	daJYAWkeGY2rKrD5Mo5zG5fZZIpzKjJ40Dc9vtzdUgh6YwRWdzf+bKnTipDZOCNdlXer/1YidkuiB
+	bd64N3hunNXO6+gaib8OPvnldMnpjLP3VE7SOxVYFbTbdTNUOI6n/Cw1ehqtJ193CcuhUlUKbv/MN
+	eDdZNTO/N5HSK7lpT3iGhyCDjhuok5ZYpIkBzIthLDKCInwYQ86haPvAXt6X9QWv4qrp9oD1zSwyE
+	dujXA5lv/9W2wXH2kp9moxU/Y83MjBETPyLf6R5krURVRFOSoWDlK/S0EJ+rWbuYmbn+RSfASJWjF
+	ghLa2GYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKwua-00000003cKZ-0xId;
-	Thu, 07 May 2026 11:29:00 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wKwvn-00000003cen-3svb;
+	Thu, 07 May 2026 11:30:15 +0000
+Received: from mail-m32107.qiye.163.com ([220.197.32.107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKwuU-00000003cIY-2VPQ;
-	Thu, 07 May 2026 11:28:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=a+W/MI4RalnWOPI6s6gJjU+S1tfYwTsCpKSoFMctY2s=; b=wu879gum6DnRyNGit0y5IBWjGx
-	CtMTwasYcGXkMpm1/NRXklW/8L+Ix1r1TDNGMfnFn0MajiEsEnOt7yfJKC/4Gw3auIZQH5OpPNG58
-	ttgUzv9t9oE2w2nzwsni3kUPDrz6x33SSkmSMHkdjtZd066wMZV1qutCrwrxfUyisixOMJ+dgiSNc
-	uOACS/PhP7srev5lUjB6n/sXd/acD12rUeAqCLESOmfh6FPBgpb1xoPXBiqr0ayt2jy/mNzrxdsyX
-	RPVqUx0zGy9GFtwW1tcGpUXG9RHlpEg0CQlUW2NltXH2wvN3es40S2Op/6EQcu/BGGR86Pkxjd0+N
-	TkPg45mg==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-arm-kernel@lists.infradead.org,
+	id 1wKwvj-00000003caw-2sJx;
+	Thu, 07 May 2026 11:30:14 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3d7b63a3b;
+	Thu, 7 May 2026 19:29:57 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	nicolas.frattaroli@collabora.com,
+	cristian.ciocaltea@collabora.com,
+	sebastian.reichel@collabora.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: Re: [PATCH] arm64: dts: rockchip: Add watchdog node for RK3528
-Date: Thu,  7 May 2026 13:28:48 +0200
-Message-ID: <177815332417.3559576.4763546226468728352.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260506092804.3320931-1-heiko@sntech.de>
-References: <20260506092804.3320931-1-heiko@sntech.de>
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v3 02/10] dt-bindings: display: rockchip: analogix-dp: Add descriptions for clocks
+Date: Thu,  7 May 2026 19:29:40 +0800
+Message-Id: <20260507112948.1115003-3-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260507112948.1115003-1-damon.ding@rock-chips.com>
+References: <20260507112948.1115003-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e02339b5c03a3kunm4d1cbcd72698
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGUNLVkNMTEhLSEweGExMT1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=L1zfI8akAB34lMldFIE3/Mo6XdJxj05JxGEeLlXteZhNJBQqCwuoQzQA+aN0hxkq+q+42DYrrztGlC2gA8qvXYegv/pexCkYLB420nlV4o+k8N90M7EyTsheirLTG5hfbTSC9++krJI7FKO8zWNMhCbahxBAQuwpXfM0w7tZ7t0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=w818RurETCJS+GlpNeVFl+AKbJrzyGMsmZ6uPaaY+NI=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_042854_632617_23E604D2 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20260507_043012_268482_1F48177E 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,18 +96,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add detailed description for each clock entry in the device tree
+binding.
 
-On Wed, 06 May 2026 11:28:04 +0200, Heiko Stuebner wrote:
-> Add the node describing the watchdog on the RK3528 SoC.
-> 
-> 
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+---
+ .../bindings/display/rockchip/rockchip,analogix-dp.yaml      | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Applied, thanks!
-
-[1/1] arm64: dts: rockchip: Add watchdog node for RK3528
-      commit: eb24b60553e0692cbbec2863ca31d2a56bff098d
-
-Best regards,
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+index d2bc8636b626..0651853a7a5d 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+@@ -19,7 +19,10 @@ properties:
+ 
+   clocks:
+     minItems: 2
+-    maxItems: 3
++    items:
++      - description: Reference clock
++      - description: APB bus clock
++      - description: GRF or AHB bus clock
+ 
+   clock-names:
+     minItems: 2
 -- 
-Heiko Stuebner <heiko@sntech.de>
+2.34.1
+
 
