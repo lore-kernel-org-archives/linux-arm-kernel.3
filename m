@@ -4,99 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7496ACD3442
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 737D7CD3442
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 09:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iO2qxGV2Dz72sotDpa6WZEWx9OFKl0tlRmAkWtejDhY=; b=BUfnDjG1hafPPLOSSA4jG1fjc1
-	sFZ+7CVZS7yjkjyf3tDbW0CyvXXaSlWmB3D8nYr58+7BYL3LyMOg41xV5Iv+fN3QuGPg6mmGIyqPr
-	SZsrh8PNtsUrZycPApMbkX5qMlmsqYq/uMi/RqzsYRfU/S6dDM08GVCxJ9OJ4vVvD5kEkDMMEbXDs
-	W3teRmQ1w2Jwi85d/1xyoZMMNSPfnN6M2YNACEMKcx2C5ZwlN+MZLUqmuAYwf/WYwPpL6hFYvUeVk
-	V0SosJVfJ9ggVLpbxgk6lWCYlqScAJQEG4dI4rl7aLqHki3RtdcJq6GsPGD8rh6NLOo98ygJ7dYLu
-	4O3/BAbg==;
+	bh=hCxd+5uv4hdNBXidMCSMq1z3BpfTFZGcppb4STtJd00=; b=HrfWvOUFeHMrgbh7+1WPlKlg/G
+	5DAFbfpuckMnzfLw8DWnoZzvYUUsaRc+GT6zcfJ6fAKFdH18nWoOS5sUytojhhlKoQXwl2djoy3nZ
+	wby0bo0aX6EDQd+OQLrvuNMkvdoCx155k5QBws4bM7taWejHfyXHf+XtrIiEQcOqYtyEtbX1fhNn+
+	Sy9yYTeJH9GoJjn24XMGf7YNwUNpOiTnDBQgwjjyLah4IeeG7umqGQsSZtz1IKe4x0UQi7i2HATh/
+	KMDAh4X0TYMWUS+deoxY4QaQUONSoDTlQsn299WenmDKOTDXeVNDpYL4X3X3iOuuhNzhqKYKT7zkQ
+	MAo4mPbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvDG-00000003NIU-48NC;
-	Thu, 07 May 2026 09:40:10 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wKvEI-00000003NXe-0uJi;
+	Thu, 07 May 2026 09:41:14 +0000
+Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKvDE-00000003NHp-2Nu0
+	id 1wKvEG-00000003NWr-0RXo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 09:40:09 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-48d1c670255so79325e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:40:07 -0700 (PDT)
+	Thu, 07 May 2026 09:41:13 +0000
+Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-651d692e833so589806d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 02:41:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778146870; cv=none;
+        d=google.com; s=arc-20240605;
+        b=QuruQH+lVbZF2+PzgDTcgdgMKb5/PyNyyMo/wsZNEKjn1YIyMpmmvi2zoNE9bcP9XY
+         IGWx0/jDgbNDDiNgqf3GL04XEO0pzQVK7aRn/JrepS3Jf9y61W5ufSjA9Sl1DP/9exUL
+         EktTpShXvsgZi+TLHuTbgck1rcMcTI8zEyWA9tz5UCswPeu73ZthgQ2uLqVeUuyE7Yad
+         HP29wmvgpeyr4Y3k9vWrB2Mg0UkXWsVotjWs4YT3N+rSIMVh7XRMFdqIWDNjPOn12yi9
+         lo3/12xnaIml+0gQR/Nr/7sgDJ0q3iItylEQ5kiMZ6tQ//Zq6PnwOy1rB3nfSn/A7EH5
+         48hA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=hCxd+5uv4hdNBXidMCSMq1z3BpfTFZGcppb4STtJd00=;
+        fh=LgcMSQwQxcRNCKhzAhDYK4yfH6oVejdaYz1LX+JYUYQ=;
+        b=I+dr//9ZLRqSoK55pW7vulYBuQfbfM0GrhisHvoElw9XZZLgxz3hWL5v4/yYANQJ6w
+         EYp6HSUtmK6wwX46yjwVhKMZ3SH1FVg+WpV5b9EHVSjKQIHbi8QU1U9Topwc6Xg0K8Wr
+         KvgPjADzhstYBAXWR7vxyhWksXciqvAN/nwOYZUmcY2OjyJL97aP22VPkVfGBZsKDx+B
+         OHKf7SqiFToqKUQ+A79J24RHBgRNV0aBElqYxiKD7ByYLIxzbzYhiWzZF1zyFTbZDWWM
+         6WCV9EnkzsGnDS95zTHf0cFf8Il4PqGs5bM8p7qZ7CGeirXt9bAYRCaNsALfjz1iTDDS
+         wo1w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778146807; x=1778751607; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=iO2qxGV2Dz72sotDpa6WZEWx9OFKl0tlRmAkWtejDhY=;
-        b=Cl8M3xRH83q26w6Pr7EJiXUpgtnrYmEnHTzYwFA5QIyCU4kcRm8PVvI1JzHeZO8isS
-         wFe7SVoMrA7y6X3/KaUyKpOlTCwyQ84lySEzh6MTEtaz8b+X/WwM830oBFhLMepfI2zE
-         RF6M81HxNSbNNKctXSpaSJmW5przuGLEZpAvwCEebv6dcIP0EI9sCl951EjagMc2iBBI
-         EC6mlBhuVYva78KImtW7Hqo/zBB6RDyhfHCqJ7U5Sma5yt7DucDdu9CJWciV0y8KYJFu
-         lHd2DQRQd09LiJTphlnM78h0Wwk6gNfWAzlyXbAB8ZUkHHGZ6X5Ma3qKcvaBfKdyh7uZ
-         9i0g==
+        d=gmail.com; s=20251104; t=1778146870; x=1778751670; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=hCxd+5uv4hdNBXidMCSMq1z3BpfTFZGcppb4STtJd00=;
+        b=Y4YZIYuC/mh7b66V8y+8q6RQakIY/fZbtvP9d2BsFPLMnI8CAHnbrrfFjte63Dh2UR
+         /gxzaKX7+qJ9tHM3xIykdmZUsSIb+ZrhJkPkNScdZfCfy5mvMVpX2pxsIOWOGwHgGi/F
+         nttw+AA9KZp4JX78K6g3E0877z/Z2ZrIYqmn7SoD6ryVJdGdtTAKDAJ/pPL1Hs6W88vu
+         IiLhLTEt3FkyZfef342vZznpC/gOtKJnZxQcMPQWYM7Qd9JP/7c3Ss3i0URz6Ws5XHmM
+         BcCohiVuc8LDz+MWlNNGLWZOk1/rlMPHvENZQsANVpHq0QTcEFpq+b/fyw5J5VMFgaUR
+         3Twg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778146807; x=1778751607;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iO2qxGV2Dz72sotDpa6WZEWx9OFKl0tlRmAkWtejDhY=;
-        b=soOXc6iW31Wj3IvUIZqmOqULF2K1ztzvPHgd0tDUvbIadeNQc6JbKRK7Jxvpb/JtNc
-         wBbmbkgL0ptC3+oSc7TylYfq8LnO4l+ophUgFosDMcgzGZL9ZnP8cR437eKDMDgf4u1x
-         YSuyaWHs0l2RRbpCy50Rf8lF/9GqDuz7LgaV51L7HQb7VyXPqs+o3n9Nh5LyWaHU/Nh5
-         xNzTqBf7vTi5ouGmWoPSD0tYieggcjH9SQqc3tttnXVw5hdNA2vDk2ZxmqRWNNeChg4T
-         JiC8NoVMHylXt+Svu56mUvykrO73PEud6Nfu4nLhysvgzsLjgjPFCYyF6gGJzZsDDLGM
-         EJvA==
-X-Gm-Message-State: AOJu0Yxgj7XXeSLjNym11/PVacBJe8Kya3qlTnC8TMi/MeFBoSxbupWG
-	GmW/X80kjFhBpuGeoyIlTtnIV40DBLwkzDeOUBhwoOF2Xn09mVJmMBiUSVZ0d0Sqaw==
-X-Gm-Gg: AeBDieuTrb8k0Xr1JpSIBbP24Ecgls9L4r9vUuid/xbvopPE1R9HIfqhtt5vvwLPviy
-	8pPJ/v+jUkGuBTTmTqzWqOh6DoCPv7kxUEDKW6Vb39EgQOuPTAKX4r7FfB/bLdPNO0fQHGxJnVx
-	0itwNbn6AAmwi9SgnRd/N+85eYUa2S8PcX8r+/bQM7EWc0IfgIJpr25wgcG2j603BuiE+C4qzyQ
-	FRU4106hQYZInbQn6jKHSm9Z6jkOPZ5PE2egIRNJnkGJjEGG0ENBO8H+8CNxpSAd8K//JfrsPpJ
-	2gmeQt53+nbC9mHHxQFWluyjBVKzr4U8juonVfk9pGImRabuoAxv6sAagQzSvHSEORfTPvctnk+
-	QybeyD3woPg2riygwFsXbsMbtral7lifHz+kAWHFDgbEUOpFpeeeHs+6eenSJLgkIh7LfRnX4uN
-	hx+1bXbR7YcQMpSt0R3FjP6aSzWjqj5FO8xvBafB5RmKy/y9Zdn7s3dYqQ+iWoz2IAa3aDBNfQt
-	VoykA==
-X-Received: by 2002:a7b:c314:0:b0:48a:5f32:62d0 with SMTP id 5b1f17b1804b1-48e5d650751mr703025e9.12.1778146806189;
-        Thu, 07 May 2026 02:40:06 -0700 (PDT)
-Received: from google.com (8.181.38.34.bc.googleusercontent.com. [34.38.181.8])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e531578c8sm38996315e9.34.2026.05.07.02.40.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 May 2026 02:40:05 -0700 (PDT)
-Date: Thu, 7 May 2026 09:40:00 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 04/25] iommu/arm-smmu-v3: Move TLB range invalidation
- into common code
-Message-ID: <afxd8Km40A5ulZvd@google.com>
-References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-5-smostafa@google.com>
- <20260501124143.GB6912@ziepe.ca>
- <afiN1UwS9q6F6A_v@google.com>
- <afoYBYIJOTClsdLS@ziepe.ca>
- <afoeIVIGE-JjYy22@google.com>
- <afsPfEzgGtAFrN5P@ziepe.ca>
+        d=1e100.net; s=20251104; t=1778146870; x=1778751670;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hCxd+5uv4hdNBXidMCSMq1z3BpfTFZGcppb4STtJd00=;
+        b=OwkI9Fdjy6CId5WVvP96ohjnx5cuG3Ahb1NOCQHDHtAfC8jeCgPsl7d4ej5pW+702p
+         nwI8NjDnze5gdI9NagoXhPwAdFEBtTao6rqOXZhULJZQCRQLp+mSKwUOks0/FYDtfKoQ
+         X2PJmaHKblRB+kxZ2sEJH7XY6zZ4BuzTvwqNNt2G4JHtGxh2+4VTrSBierENkfs+88dG
+         +n2pLBfYM4//WuZbm/nnk4oDwDcBANMr2M4IcPSWl6sVC1Zk7oKREjUjjVQhHArUL+r8
+         8S1Vfz9Hjjcbdq8x+0uUMeb8urd5uisuFroAS+zTW4JWvsbf70DFD+iGqkXIUiNkArlJ
+         JVvg==
+X-Forwarded-Encrypted: i=1; AFNElJ/sB98txsK6zJavCnxXE+9UrAkNSDok1FirF/ZCfcDnxBFg68rZAKHgVgBA0vmyjMDmZtGzjdv91ZeQsoEAVli6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy72aUd3He/zH18hVDpL/myjO1/MCR+GTvyRfzN6LjS7qk1qOhd
+	mHjgdw1n8gvFSeq/EcCsmT+UYt3bPgbUhfNcEtxSDAku+hIjqkpAm6JZvckUo4Hgtp8nN7UK0E7
+	vXk+mJrwRr8Y1D5hMJohRmVznspfRWSk=
+X-Gm-Gg: AeBDievuGRk5vHOsD4woWsd8ItAxHTjSWV19n8qZdFK90LsjzkL3ccm6DSs6Ywk7+qQ
+	U5W8Lr6GXSjUp+l+TLI/onO9Bxdh64kHC4/NqtUglx0jUCj8fiTFT+AaNS1zfiLPUUnn3xKqw/Y
+	2gYrEgKiz/OjOCYoT5uxyVSIgWjwQ5BHzKblgqttEaQzCJ6swF3CKdVBGGPavhPnd5sL/gjR9Eq
+	GcUgD8PV0r2nCaufSrhNnW/GPzXx4tltxjpeZ/lpMArOCEyb4NgsjzLE9frnp5sq/X/lFqPlbo9
+	yG0jFReQk7mxiOyhA58=
+X-Received: by 2002:a05:690e:1516:b0:65d:796d:8f00 with SMTP id
+ 956f58d0204a3-65d796d9d08mr2772997d50.41.1778146870374; Thu, 07 May 2026
+ 02:41:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <afsPfEzgGtAFrN5P@ziepe.ca>
+References: <20260506142434.643523-1-lgs201920130244@gmail.com> <afv21xfKE9PxGWuD@raspi>
+In-Reply-To: <afv21xfKE9PxGWuD@raspi>
+From: Guangshuo Li <lgs201920130244@gmail.com>
+Date: Thu, 7 May 2026 17:40:59 +0800
+X-Gm-Features: AVHnY4KYf5mnb43sXj58-NXgedFQvaoKgE77KqA04IMyO14JzMOPYqCJb3R-yfY
+Message-ID: <CANUHTR8BS9fo0a6s=+M6bfgCgcWtrpepg3ayv3F2bkDoWkYmDg@mail.gmail.com>
+Subject: Re: [PATCH v6] drm/bridge: imx8qxp-pxl2dpi: avoid ERR_PTR with
+ device_node cleanup
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, dri-devel@lists.freedesktop.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_024008_659109_6456A2A3 
-X-CRM114-Status: GOOD (  28.52  )
+X-CRM114-CacheID: sfid-20260507_024112_147465_43402B13 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,44 +123,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 06, 2026 at 06:53:00AM -0300, Jason Gunthorpe wrote:
-> On Tue, May 05, 2026 at 04:43:13PM +0000, Mostafa Saleh wrote:
-> > On Tue, May 05, 2026 at 01:17:09PM -0300, Jason Gunthorpe wrote:
-> > > On Mon, May 04, 2026 at 12:15:17PM +0000, Mostafa Saleh wrote:
-> > > 
-> > > > I am not sure if it’s worth it, the hypervisor is much simpler, there
-> > > > is a single page table, it’s locked (also identity mapped), it’s
-> > > > updated on VM boot/teardown only, we don’t even use iotlb_gather at
-> > > > the moment, although possible but I wanted to keep this series as
-> > > > simple as I can then we can add more features later.
-> > > > So this patch is the least intrusive change, as whatever the main SMMUv3
-> > > > driver does, the range tlb invalidation logic is the same.
-> > > > But I am happy to experiment with that when posted.
-> > > 
-> > > Okay, then maybe just always push a full invalidation?
-> > 
-> > Like full address space invalidation? that will not be optimal and
-> > will affect every device on the system, why would we do that if we
-> > know the address?
-> 
-> Not every device, just wipe the VMID. If you say it is rare then keep
-> it simple. If you need to be narrow then use the proper infastructure
-> with a gather. No reason to make something boutique for pkvm here.
+Hi Liu,
 
-But all devices share the same VMID, which impacts all devices on the
-system, and is not that rare to ignore.
+Thanks for the review.
 
-I can add gather support, it’s not that complicated, it is currently
-supported in Android.
-But that doesn’t solve the problem, which is: At some point, whether
-eagerly from the page table code, through gather sync or a fancy
-invalidation array, the driver will need to populate a range
-invalidation command (tg, ttl, scale...) and this logic is better
-shared with the main driver which is this patch does.
+On Thu, 7 May 2026 at 10:18, Liu Ying <victor.liu@nxp.com> wrote:
+>
+> On Wed, May 06, 2026 at 10:24:34PM +0800, Guangshuo Li wrote:
+>
+> [...]
+>
+> > Initialize the output
+> > argument to NULL so callers using cleanup variables hold either NULL or
+> > a valid device_node pointer on error paths.
+>
+> I'd rephrase:
+> Initialize the output argument to NULL so callers hold either NULL on
+> error paths or a valid device_node pointer on successful path.
+>
+> >
+> > Keep explicit of_node_put() usage in the helper and in
+> > imx8qxp_pxl2dpi_set_pixel_link_sel() so the fix avoids adding more
+> > cleanup action usage there.
+>
+> This sentence is not necessary, so I prefer to dropping it.
+>
+> With these fixed:
+> Reviewed-by: Liu Ying <victor.liu@nxp.com>
+> Thanks!
+>
+> --
+> Regards,
+> Liu Ying
 
-Thanks,
-Mostafa
+I will rephrase that sentence as suggested and drop the unnecessary
+sentence in v7.
 
-> 
-> Jason
+Best regards,
+Guangshuo
 
