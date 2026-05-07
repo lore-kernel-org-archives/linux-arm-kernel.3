@@ -4,92 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E375CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 10:46:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFAECD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 10:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ox+ASz/ygCGbDPlwbrM1KbYJZn86PmGYPGqT1vetcCo=; b=NWcyRtXRyRDfXJXgxok92aiowH
-	bS/ODHjiq/3i9X14uu2LZjKupXkXi7g8wu+wHBDBLf8EmCzYWnhhC8POP3FJChZwwIxSccEQQUsGJ
-	g0GNYN5vYYVVzEEmuRX5s3WynXolLThRDzE61WNB4S02rEYM45hu6GYhybCOfvbzWPdmFtzVpyCzi
-	ZXGM6m4t08koUq3CdytDYz38c1KHGNaixa6e5LzKMkWPcW3D057HI0UVQDpzcTbSzw4NipNe6pOoI
-	cs8Po6ifl605tdUgs3q+ZMEcZkl/TPOC7FwOy94QvNQQqdLSY6kymOycQYzYJWkmGCP+G0eJkDVZD
-	yJ2T9WzQ==;
+	bh=OJoMClM82QzX+aGWXXRpJH1kO6RtFIoJ4NC0MWGce34=; b=hu/mGhMeqGrRMG8NN2y6VW8pyE
+	1QupVTb8RHpeA/dVDJOJ9CaXhw3Lst0d4thmRBEDdpB91aeFFQHt/TotydaquWWJz8AZ/zD5DsKPI
+	j/+90YQWkq5R9rnF43EpTAul/pVti4BF09PhWSxVUmJegEwrFo4Tir1dbFMsrml6XpQ44tsUKoiV0
+	afHxYDoKhVySbtBAMfI20T2125MqE74vY7Bqc3603osutGtmOvqXvgsaMUH8it1BpoQQvCAzO5a4E
+	Xwf3hjKOzeEdivQJoy5koDQA4kKiDpg8GOlECgAoB9eWK0T2MF9OHXKrMTwedwA7Mj4L2BTifwvT1
+	+1AJBaxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKwFC-00000003X84-0lIN;
-	Thu, 07 May 2026 10:46:14 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wKwHs-00000003XUV-2obP;
+	Thu, 07 May 2026 10:49:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKwF9-00000003X70-43kY
+	id 1wKwHq-00000003XTv-3j07
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 07 May 2026 10:48:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=OJoMClM82QzX+aGWXXRpJH1kO6RtFIoJ4NC0MWGce34=; b=OE1RXXtGNaTHalCqszKQCf2nHR
+	zamiuXCe+E6StHO2UrLZQj6UtAgey9mtcvbCYeLtIkN7Kpyv0aDSb2eGQSuGXd16y4aTzQewZH4Sx
+	WqpHiPwg6H2hv35FDDnIuArF+1ZToEoJ50hFjKRFzGdQrZOX9KVIiNYioxBp55cJp+oVXHQ/a8WVK
+	7Cpfj8haOi/4MW6+fb6tQ7ZT19EZiOfp/JxxB1J3nOpf+0R/1zejSMi2E5FHOPnU1pljddo4TwI/a
+	XCCHPqN2H4s/JFlfMa+717mUKfWtCcIRGTvHkFpI+aYB/zONaR8alvyIbBKvooXMR+owKSgfYzYWP
+	KjyWzvFA==;
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKwHn-00000003FxG-3kJl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 10:46:13 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4893940bb5eso4084435e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 03:46:11 -0700 (PDT)
+	Thu, 07 May 2026 10:48:57 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-488940ccfa6so72185e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 03:48:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778150770; x=1778755570; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1778150933; x=1778755733; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ox+ASz/ygCGbDPlwbrM1KbYJZn86PmGYPGqT1vetcCo=;
-        b=Dwzop05FBUeq1UcgSnLbBrABqjTcwP6vN5AgbijkuVf+kth6Uy+5mMXp4KXFbGeq1l
-         FxzVodVXYttE+jEG1HDTYKZeyP84GSdVnwFkYkocyud6REMm6d/6q/sQSKZ79H46ol1Z
-         db5Bpv1xEYc4/lgTDXE3jXgoYQ86+f0Sv15l3yCyCYOqVWB21zuyn89oAhAtrVcPm5f7
-         CM3udCN8n/aExZ93siEYEtFrNlL77BsEcQN1et6oPEY1E/OCpjr+Zlt9AavHrEVWz00Q
-         vGPE0aH3OtAzR3v8C9BL/JohiJO+QwI2P9cpic3zchH9LuG+KNiBMKvw+qVPbAH706zu
-         pjwA==
+        bh=OJoMClM82QzX+aGWXXRpJH1kO6RtFIoJ4NC0MWGce34=;
+        b=mRZvsbzORfLIyQQhOBxKAHOCOiPKtsEAMnrRtcxoWel1uZPpgwS3ZJH4cD34ZgBCOR
+         a4dSCWei4ihywvdE7X9ODptfiFPlTfwJRxF/LCDLG7coq5HvT5oBSuRkUiBMfHgp8ZlD
+         gOQ+wpIqqcDBgEPP+TvqkCFORtBHM5F8z3mE4OT0cYwR17qQn2ZOxCGUnjPItFxi6js1
+         ZZ+lMlLN8h7maXpveOHvwKDnGn9AHMBE/qAWYmUdEPR5EOHUfES1Rgar0yK9t5fYKWV1
+         zXn/mzOF/ouS5+MSNPmh71jzVHY6L5KitmV6zactZywuicCQSB6kCE2OY2ZYzwVpf8D8
+         2p7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778150770; x=1778755570;
+        d=1e100.net; s=20251104; t=1778150933; x=1778755733;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Ox+ASz/ygCGbDPlwbrM1KbYJZn86PmGYPGqT1vetcCo=;
-        b=OmvYHttTy4uoCrGdSioTNlGhCC2d5HIo5Fw2lgs8IBj/Kl6ynDkcoVrGJPs5dh0lBg
-         8ovDYjgSIHiziaGdP75zSm+vh8LwBPUsDFDInEHCKaZ7zdqdG9eT+lmHlhxSjl7ePgZ5
-         uzrQb/rsNuY/MpPQCKFQ6GBwwoZX4WzqhFvjSpVkPkqPgEhvlqNSbHDumAglUuUp9qZZ
-         nzC76zcPdODAW3fT2WU9H8XZhROocVvEoLn0uTSRLhy0EreNuKdRPbk9tSVJHWTTOyXQ
-         05AEFI0FdLaIGcIaO7hEh5FCf5BRSP6jtRT3GqVb/EtBxXWdrn3RJhZb2kYYcqjr1+rQ
-         cnuw==
-X-Forwarded-Encrypted: i=1; AFNElJ9c1FFKSNHlqgqgCnvHKOH4GCKbvSo2+oaoaJcdGo+KNk77XyYDut34c2jD8ZilLjWBGIZbrUnyVKGXBmJYM4wq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/G43zUUH78zGL8pAsziqnQonzxdP3KEyooRfX75nvx8p2meZl
-	j/t3Vuqpgtj37bKPrHb86/jf7vYazqiK+ykyWosy4elOqnHsNVX+pbZA
-X-Gm-Gg: AeBDieuki0vr/CKroOtHX9sRFhenU7pdjZAQkmS8ztXfpKobZNKmqjkSZ3dPKRIGTHd
-	ftE+WIXUfbmAdJc3cBVZ0iaJjJDMdsPC34VFPoWQoJoDU4u6ZEQNuRwSL084jvmIPoR7VQ7A9DO
-	i+TVVPP+U88eFZlO9BoRF7aWsIiVMGLe+WbBEZguKm/V4Ar1jkhMYZq7YIP50KacxXiqlMs3G1m
-	O8OXBzWDcoXJqlBlSppEyPRg6ha1eS7eLBtQiTujdtEYOCBPZ77cTMJ/RJlRQOOk0nw6xSG1c9q
-	Xjy6Oq3c8ukF6rN9L2WWS2of9LxZbridqQd6GNVLTDay/Cdnlk9EDn+Fx52e75jaHDH51uf8cS/
-	3Y1Ur4YSA0QGRNODb6h3fZoqYT+9H7oKPiOSqGwO6LiBUwpCuCff44TrY0ZFk46UJJwROLp6c6B
-	mKWewY7IigN5bHkZEEJ0J5x/SR2UbN/DCo+72ECRZE0hb7T436ZstSmaNllU4R+F4OMDS+ggfFx
-	bAAYzJFOiIyjwj2Mq83JxIHoXvTa63bqO0UiFGKeSkWzMGunAKHl69am6ARwCF5ZjpZmbyeWMr7
-	xpLDfiQj
-X-Received: by 2002:a05:600c:8b04:b0:47e:e2eb:bc22 with SMTP id 5b1f17b1804b1-48e51f183demr114547455e9.5.1778150769818;
-        Thu, 07 May 2026 03:46:09 -0700 (PDT)
-Received: from franzs-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e538b6e9bsm197646665e9.10.2026.05.07.03.46.08
+        bh=OJoMClM82QzX+aGWXXRpJH1kO6RtFIoJ4NC0MWGce34=;
+        b=hX5ljm11N6HG8yRTurNfV8csgimceyG4CUgAtylUsIq+frBnugx8yUC75IsPHr7BcY
+         TMI9R4DKggxnF0OXZX43gAPKUk1kVO5aeXtWPzXy2JWwkVqNh+9hUdMZUekHg6o/gZ2Q
+         8hHfD7FUzXVZCvRSuN/QiWmJwGsOnNRgE1OduQFiBT018l6QaDh9JVRZomyQLpzKVNaX
+         ymm77GVamCU3E5rlv0UlsrWruFCJ6gZ7iOWEjV08SGDhfRNOsVcFd1rOwzixKOLKueA2
+         6xq4mH4kYv0bSNZOFFl/D2EmuZPjr6f3O2PDJr8ylgT+VA8rAfOPu5oymgempEtIAswI
+         U7Yw==
+X-Forwarded-Encrypted: i=1; AFNElJ84DDeZIp2SAgGuhzgowieUtNNRVM9I7fY+Tq0Obl/+pTlE5cbeYgdhw++ZA49HZytxKFVFR9TpIn+6W8UzjbO+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7Uu01NqICl+/QtXzYE7S/K/qh9qZ02ywx/fxHqR/2Wbt7j5qU
+	MQtWtg1yI6INVf9T+gYoeuI7BggKUjdQQ5/wWs5gf41Pk1+akmCPKr79BHOmM5qAqA==
+X-Gm-Gg: AeBDietoz6MgrQXTGb5WQovc+UTDRJ4W4ieOrdE8M6o4+uVPDEAcDkE3EMkLBqYtI2e
+	qxVwDkYsb5bY25lSBxLyOUXwyBQSo+8rY0HbGvnRy/4H+umqN3Ln70XQWSKorAJdM77SKWGOhfR
+	pWfnBZn3OcWxTVJvaq3Gi1NmBkeRxp/dl+JcHdGE6SgbbAvalJelf4i0R80bBK8lTThBwpAmJ/T
+	PIJzncysqtjHcb+JtB9OOje28UkOKYBWoji3uO/BwzYfB4bwHHXFrO5fs9GOXTB2UYqYRxS++f2
+	wSgXK9re1NY1pTlq1svmxViR5QiWN6osst8x7AKeAGBxpUI9UAbjJq0xJKEfhl7hm5EzkGaTkn5
+	gGfcDy5h3qMVgVXAa8wt7xopYHiKit9gmiwIPXRYV29ek5AXHGeMh+XMQLC66mOf7LuIceKwTuM
+	pu7v1ywQIToO9yHJYYhyGMbqkVCdI3P6wJ/ieKDDiPbT5J5AJtr5HvHgdScLPhFluQX6kVXCklH
+	TvmIVIupo64eYNf6OU=
+X-Received: by 2002:a05:600c:48a1:b0:48a:5d55:c194 with SMTP id 5b1f17b1804b1-48e52ef8beemr1106625e9.7.1778150933019;
+        Thu, 07 May 2026 03:48:53 -0700 (PDT)
+Received: from google.com (117.15.199.104.bc.googleusercontent.com. [104.199.15.117])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45054b02802sm19772180f8f.17.2026.05.07.03.48.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 May 2026 03:46:09 -0700 (PDT)
-Date: Thu, 7 May 2026 12:46:08 +0200
-From: Franz Schnyder <fra.schnyder@gmail.com>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jun.li@nxp.com, 
-	Francesco Dolcini <francesco@dolcini.it>
-Subject: Re: [PATCH v3 3/3] usb: dwc3: imx8mp: disable auto suspend for host
- role
-Message-ID: <k2sxmwhrv3tivustfnpz54ehuufkcrcruu2uuukuyugqtqljzl@5roxndm5fn5u>
-References: <20260108081433.2119328-1-xu.yang_2@nxp.com>
- <20260108081433.2119328-3-xu.yang_2@nxp.com>
+        Thu, 07 May 2026 03:48:52 -0700 (PDT)
+Date: Thu, 7 May 2026 10:48:46 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: catalin.marinas@arm.com, oupton@kernel.org, will@kernel.org,
+	joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	android-kvm@google.com, mrigendra.chaubey@gmail.com,
+	perlarsen@google.com, suzuki.poulose@arm.com, vdonnefort@google.com,
+	yuzenghui@huawei.com, Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: Forward FFA_NOTIFICATION* calls to TrustZone
+Message-ID: <afxuDpecPCVA56cL@google.com>
+References: <20260501114447.2389222-2-sebastianene@google.com>
+ <86wlxgy00t.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260108081433.2119328-3-xu.yang_2@nxp.com>
+In-Reply-To: <86wlxgy00t.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_034612_038046_7AE787B8 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20260507_114856_282649_D020E124 
+X-CRM114-Status: GOOD (  32.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,80 +118,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 08, 2026 at 04:14:33PM +0800, Xu Yang wrote:
-> Do dwc3 core auto suspend enable for device and disable for host
-> , this can make sure dwc3 core device auto suspend setting is
-> correct all the time, the background of disable dwc3 core device
-> auto suspend is to make its parent device suspend immediately
-> (so wakeup enable can be enabled) after xhci-plat device suspended,
-> for device mode, we keep the dwc3 core device auto suspend is to
-> give some wait for gadget to be enumerated.
+On Wed, May 06, 2026 at 05:29:22PM +0100, Marc Zyngier wrote:
+
+Hello Marc,
+
+> [+ Sudeep]
 > 
-> Note: It's a temporary solution until we switch to using the new
->       flatten model.
+> On Fri, 01 May 2026 12:44:48 +0100,
+> Sebastian Ene <sebastianene@google.com> wrote:
+> > 
+> > Remove the FFA_NOTIFICATION* calls from the blocklist used by the pKVM
+> > FF-A proxy. This restriction was preventing the use of asynchronous
+> > signaling mechanisms defined by the Arm FF-A specification to
+> > communicate with the secure services.
+> > While these calls are markes as optional, there is no reason why the
+> > hypervisor proxy would block them because:
+> > 
+> > 1. Host is the Sole Non-Secure Endpoint: The Host operates as the
+> >    only Non-Secure VM ID (VM ID 0) recognized by the Secure World.
 > 
-> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> Where is this enforced?
+> 
 
-Hi Xu,
+There is no enforcement in place in the hypervisor since we don't proxy
+FF-A from guest VMs, there is only one non-secure user of this which is the host.
 
-We have a kernel issue introduced by this patch on an iMX95, where we 
-use the dwc3 usb as otg. This appears to be due to a race condition that
-occurs during probe, when the parent attempts to access the driver data
-from the dwc3 child. I saw your work on the new flattened model driver 
-for the iMX SoCs and that it will soon be applied to the iMX95 as well. 
-Does this mean that the issue shown below should no longer appear, as 
-there will be no parent/child dependency?
+> >    Because all forwarded notifications are inherently attributed to
+> >    the Host by the SPMC, there is no risk of VM ID spoofing
+> >    originating from the Normal World.
+> 
+> I don't understand: either the host is always using VM ID 0, and we
+> have ways to check and enforce this (how?), or the simple fact that
+> the request comes from NS is a guarantee that the SPMC will treat the
+> VM ID as 0.
+> 
+> Which one is it?
 
-Do you think there are any actions needed on this patch?
+My understanding is that when the hypervisor doesn't handle the allocation of
+the non-secure IDs (through FFA_ID_GET), everything that comes from non-secure
+is treated as having the VM ID 0 by the SPMC.
 
-Here the warning with decoded trace:
+Thanks for having a look,
+Sebastian 
 
-[    6.905882] ------------[ cut here ]------------
-[    6.910518] WARNING: drivers/base/core.c:1640 at device_del+0x2b4/0x384, CPU#4: 5/87
-[    6.919309] Modules linked in: libaes(+) tcpci(+) ulpi tcpm phy_fsl_imx8mq_usb(+) gf128mul snd_soc_simple_card(+) ehci_hcd imx_pc4
-[    6.964627] CPU: 4 UID: 0 PID: 87 Comm: kworker/u24:5 Not tainted 7.0.0-rc1+ #2 PREEMPT
-[    6.972716] Hardware name: Aquila iMX95 on Aquila Development Board (DT)
-[    6.979409] Workqueue: events_unbound deferred_probe_work_func
-[    6.985247] pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    6.992199] pc : device_del (drivers/base/core.c:1640 drivers/base/core.c:3882)
-[    6.996028] lr : device_del (drivers/base/core.c:1634 drivers/base/core.c:3882)
-[    6.999865] sp : ffff800080b339f0
-[    7.003169] x29: ffff800080b339f0 x28: 0000000000000000 x27: 0000000000000000
-[    7.010295] x26: ffff00008004ac28 x25: ffff0001ff067610 x24: ffff00008befdcc0
-[    7.017427] x23: ffff000080ad8810 x22: 0000000004208060 x21: ffffa5bb53ea78f0
-[    7.024560] x20: ffff00008befdc10 x19: ffff00008befdcb8 x18: 0000000000000000
-[    7.031693] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-[    7.038825] x14: 0000000000000004 x13: ffff000080129910 x12: 0000000000000000
-[    7.045958] x11: ffff0000822ac0e8 x10: ffff0000822ac000 x9 : ffff000080129910
-[    7.053090] x8 : ffff0000822ac028 x7 : 0000000000000000 x6 : ffff0000822af458
-[    7.060223] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000000
-[    7.067356] x2 : ffff00008253e580 x1 : 0000000000000003 x0 : ffff0000895d1400
-[    7.074485] Call trace:
-[    7.076923]  device_del (drivers/base/core.c:1640 drivers/base/core.c:3882) (P)
-[    7.080754]  platform_device_del.part.0 (drivers/base/platform.c:794)
-[    7.085458]  platform_device_unregister (drivers/base/platform.c:593 drivers/base/platform.c:835)
-[    7.090164]  of_platform_device_destroy (drivers/of/platform.c:621 drivers/of/platform.c:607)
-[    7.094950]  device_for_each_child_reverse (drivers/base/core.c:4048)
-[    7.099922]  of_platform_depopulate (./include/linux/of.h:208 drivers/of/platform.c:644 drivers/of/platform.c:640)
-[    7.104282] dwc3_imx8mp_probe (drivers/usb/dwc3/dwc3-imx8mp.c:291) dwc3_imx8mp
-[    7.109588]  platform_probe (drivers/base/platform.c:1449)
-[    7.113260]  really_probe (drivers/base/dd.c:583 drivers/base/dd.c:661)
-[    7.116833]  __driver_probe_device (drivers/base/dd.c:803)
-[    7.121199]  driver_probe_device (drivers/base/dd.c:833)
-[    7.125385]  __device_attach_driver (drivers/base/dd.c:962)
-[    7.129831]  bus_for_each_drv (drivers/base/bus.c:500)
-[    7.133663]  __device_attach (drivers/base/dd.c:1035)
-[    7.137494]  device_initial_probe (drivers/base/dd.c:1088)
-[    7.141671]  bus_probe_device (drivers/base/bus.c:576)
-[    7.145502]  deferred_probe_work_func (drivers/base/dd.c:125 (discriminator 14))
-[    7.150035]  process_one_work (kernel/workqueue.c:3286)
-[    7.154047]  worker_thread (kernel/workqueue.c:3352 kernel/workqueue.c:3439)
-[    7.157791]  kthread (kernel/kthread.c:467)
-[    7.161030]  ret_from_fork (arch/arm64/kernel/entry.S:861)
-[    7.164610] ---[ end trace 0000000000000000 ]---
-
-Best regards,
-
-Franz
+> 
+> > 
+> > 2. No Memory Pointers or Addresses: The FFA_NOTIFICATION_* ABIs
+> >    operate strictly via register-based parameters, passing only
+> >    VM IDs, VCPU IDs, flags, and bitmaps. Because these calls do
+> >    not contain memory addresses, offsets, or pointers, forwarding
+> >    them doesn't pose a risk of memory-based confused deputy attack
+> >    (e.g., tricking the SPMC into overwriting protected memory).
+> >
+> > While the pKVM proxy behaves as a relayer, it doesn't currently have its
+> > own FF-A ID(only the host has the ID 0). The behavior of the setup
+> > flow is covered by the spec in the: '10.9 Notification support without
+> > a Hypervisor'.
+> > 
+> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 8 --------
+> >  1 file changed, 8 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > index 1af722771178..a82d0cd22a17 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > @@ -675,14 +675,6 @@ static bool ffa_call_supported(u64 func_id)
+> >  	case FFA_RXTX_MAP:
+> >  	case FFA_MEM_DONATE:
+> >  	case FFA_MEM_RETRIEVE_REQ:
+> > -       /* Optional notification interfaces added in FF-A 1.1 */
+> > -	case FFA_NOTIFICATION_BITMAP_CREATE:
+> > -	case FFA_NOTIFICATION_BITMAP_DESTROY:
+> > -	case FFA_NOTIFICATION_BIND:
+> > -	case FFA_NOTIFICATION_UNBIND:
+> > -	case FFA_NOTIFICATION_SET:
+> > -	case FFA_NOTIFICATION_GET:
+> > -	case FFA_NOTIFICATION_INFO_GET:
+> >  	/* Optional interfaces added in FF-A 1.2 */
+> >  	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
+> >  	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
+> 
+> Shouldn't these be sanitised in a way? A bunch of registers are SBZ in
+> the spec, and I'd expect this to be enforced.
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
