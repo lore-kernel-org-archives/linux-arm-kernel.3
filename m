@@ -4,107 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0C75CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 11:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E809CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 11:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2t++Big+xUoAOFwEvlD6LQmlFsv/9Bm6ONnqBrqhXfc=; b=1GncBnWiQMtJQl8Cy1/b4VD6/E
-	OVyZjrJQmNsM1urZuHAJBjHFUihQceQcgBzGg7wKbQjsba72lWNWWNxLIyTBxXZCTl//2ALtyTdjL
-	gSvPrLW0zTXSxEr+qgbj4bWUHtMUofQb/8QE/gH7N0/gdn1AKSjsyITGcHb2kPlHxDNgpfGM+059P
-	Q9cZLbfcjJp974KIiaGKLRRNc+58p9CvZu8gmcFcFQn1kGCLAnIXl206Qo1/la4AReWvJwsiLl+WR
-	kJ6RCJz4lktSBb2zCHZtlbicc53n/v+LvXwUJq6g4uXLRNFAAAcY7P6ZLdzqUJot2dV3bSJf1t5tS
-	Kolqv38A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FomEAYdAik4HwDQHklL8rlVv12AzA09UWLuUsHpy4Ts=; b=BG3wjkziff82yjWUZgsbhwSlfp
+	bLKxa2eG6GHeIEcTeDZVGxZGUbeIReYAkD7/N8WDsV9ykSV/XrGL3vBEg4eEst0asGd4AmuW4nKf5
+	ThQ95ZcsQCWleE6aYw7ln9MkPvSqa4lJrSSHVnDeV2R/3Mx80t2pjc2Oww7IO2KaNF2DEko/dbEFi
+	42J8AzMbffEC2vUT9QBtLvVILJf8H3m1s1kijasxr5zg8cbYYQi/RiIDiQZNRfAZkqW5OhuIx2boC
+	kpTyEYojb6kginfWPCnJc6MyX2rjEVcXNXgBsGhBW7Mwuso1otl4FRC5g69bVJO+/86oz64Xe+XwW
+	P+qnF5mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKwSn-00000003ZJl-0iYz;
-	Thu, 07 May 2026 11:00:17 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1wKwnq-00000003bcu-21Lc;
+	Thu, 07 May 2026 11:22:02 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKwSl-00000003ZJL-1CfH
+	id 1wKwnn-00000003bc9-0iUm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 11:00:16 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6763cc8775cso3372102a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 May 2026 04:00:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778151613; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QQDh25HCNfe3NlLubgDozb7GQ0TTXj6tw8cTDgniz65CMB0Zh0+HWZoLx20RnKzY/2
-         SJydH2WCfL4vAhg0XdSIINwuoAXkzNXc7AXmlRrHTfbTNkPMSPr6D68wKHW6dp03twjc
-         /w77SKFZbGaAFpy2H15WtOawML2RBLaKfuAVVaSVweaG0BbuZyjXGYXuB4lJuZsuHYMd
-         wnvbWAsali3y9VdoBOFZ9K3t2jz6IWSeA5UEKV9Rv+JekEs4B+7TvckHENmyRMRuj/NR
-         4wV5AwY/z7vYUX0bQvsr9YDHXFEDC0QwZg0VmhvMb4JLJfPft1VQ7naYPqmdAjAnbIb1
-         V7dQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=2t++Big+xUoAOFwEvlD6LQmlFsv/9Bm6ONnqBrqhXfc=;
-        fh=34u+gKpfrtK/xKk/+taqOaB4QoqH748y3q3mw4W7d7g=;
-        b=OOqEEXKY6wIp0hzc6r+Icop6vdrzUhKndaKEJWat3WD/5HPdUckd3RwemJmtqeTXaN
-         k5MAfacjRNOUNOuF100Z6bX69hcrbAGxaDTdcMs1JcUW/5C+mN8F/9CgRVgyZQjkyOTQ
-         AcVoA77dpbVQFil0YoVF6ZM3gv/R8VR9o2vu9C690SvDsQk+L0ySSrh0ByBjDUUNdjhG
-         /8tASRJtyNakjnGg/qY3G6S2d4rGg6w/w+DpLxyY8WDjExtlcFRK8wX1Q7ro1wTDDntP
-         Muxbq5L+VBR5aIba+AS+CKHI6EHZZXCX8h/48iwlRN9wosW+EdnWkQ3t8gyNjEFL7jTn
-         ezlg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778151613; x=1778756413; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=2t++Big+xUoAOFwEvlD6LQmlFsv/9Bm6ONnqBrqhXfc=;
-        b=Lg/juRfPmCEq84tpUfD90xwl4bD4vUs7S+OVPalHL6WssP2D81kuVMeUwK/r5jvX0B
-         Xv1/38SUpzahzCKvobCnDuyBwjIB+lPvP1zPdHONHuvqxRUjz588RRNO6pQsFAxjR/8v
-         cQB+Kmt1ogdLn09RIe48wqJ7s8+BfcrYZ0y6pRHsHPq09vkhozQcQzagIMeatPdAXTyd
-         DSluGDG6hwW9WjraDnwqRJOzyUUDMc7nMvNubtBuvlcPqKza0EZaAAUG+SI2GMk3PnN9
-         B577QwQnzoGgAsisriH3g0/CWZE25oaqqSmGDoJOtSwOX7fjvTdawWrBemK/zWQEE4AH
-         RG4Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778151613; x=1778756413;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2t++Big+xUoAOFwEvlD6LQmlFsv/9Bm6ONnqBrqhXfc=;
-        b=UU03o0p/Gcwed84n5A/umNelwJEY8Y2oy4Ctt+VWNNjjHr8jmWsIEuHhMh7FVVEOyB
-         LIlhlYrefUXhKvpJDPgjhSncxKqCkcjF5/4t5c8fFMxNF6yPJ6gKQgJeSIMTasgBTLtZ
-         esF4D2jzVYgeRjbDt27BXiJ4s8coEIvFGfOkYehLMssagEtWkOlFF9nDGaBWDOM3x3f/
-         /OrH6+4y2/G8NLQuQuq0ChLMIbBh5ewu+r2hdNzT2n2JP4RyciHJ7ycTiaUUkmy4xrGW
-         9euq3bgE8+XQR/l1Dp/TKqB+7bkys6VS97zkXUE/icg12g4XSi/z3iEGPfBOLw/nM/n0
-         kTaQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8m17NvnxK1w7VLxAGiDEmENLfudTyWS1aoSV4vgE+OBniEPZ6SJMcdGs4Hr1DapBS6vjLzuXNMBeKWG/j6Kztv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEyW+OuosDXtwQ1dKZOKepFOdzrysC3FT3P8/kS/iWnKDw9Ofy
-	w0olVWQK3jYzQhyTxzJyYKYlOZRxp28BeWsKmu/TJhAcVlQt+AbmgxddqmWaS48YumsFW+jbqCs
-	0v8WQyowYRoM8J8A4y6l45mGHbsJ8TyhrqmgkEQjbrw==
-X-Gm-Gg: AeBDietZzuxley85CvWg8ASpoATrj+6OCxOUsmbmgl0lYl4jNGy12cyRgWAPDkVeJeW
-	ObpRfguTVDGQAu1J17ufGhKUpR1wnAQKghbjmageiiePdt4g0xT/XOcUYUzCgtMnu84LnBkD1/n
-	CVzfhJz79i4bbnur99mItPc58BRmAGMRmfgb+1YmXJ3Y/fZdB+SnwolBe8rAhNLCJuXXslMqkWy
-	cRoNf2etCmjwKMciYp3lrtbNMzwnwV8UoX4+7qe6htg5vFKkeQT2eeYE1nwyQBiKFa5OsQatEbF
-	fuYL2sNx8Ez7HnrvY3abFeiK6DqQ7jJu+tZkm3qGHxZUgcfyMEQbpJfZloqZJw==
-X-Received: by 2002:a05:6402:a583:20b0:676:d851:447e with SMTP id
- 4fb4d7f45d1cf-67e0dbfa297mr864649a12.4.1778151613070; Thu, 07 May 2026
- 04:00:13 -0700 (PDT)
+	Thu, 07 May 2026 11:22:01 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 264464E42C2C;
+	Thu,  7 May 2026 11:21:53 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E50F860495;
+	Thu,  7 May 2026 11:21:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DC49A102F24D0;
+	Thu,  7 May 2026 13:21:42 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1778152911; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=FomEAYdAik4HwDQHklL8rlVv12AzA09UWLuUsHpy4Ts=;
+	b=p2LEdreKQU9Whuz9NS1a6llAszhUVywcfElxsQhXyjSxrqKsBjxbAtFgzNMmfqBMzG2wZr
+	BvS6WoISuifX3s2eZ6aXvN262FR8oQcSQ2PkS2T1bddy6fKB46af9iGx3uaDztsTwj9u6G
+	U0Cc/uQv8Hv8xhVA/hpU5q7Tys/j8iPb/jH5EjQl9JZJG4b6Z8HKV5u7mHa22zWXEPiohv
+	KlxXxNfUZmP7MT+nFc2Kiw5ooZtKj/fQNjXR4Jw0gxzwAEFLUVB5stoEnfSusJVeWM+VUW
+	QdG6GRC5qTR6gdf5GwcqnFkub93PVMMKtJDOHeBeFqvmdv1Py2YvDa7MAmAdAg==
+Message-ID: <92e8a3dd-a46a-499f-b5f6-99f7b99f45f5@bootlin.com>
+Date: Thu, 7 May 2026 13:21:41 +0200
 MIME-Version: 1.0
-References: <20260429-exynos850-ap2apm-mailbox-v3-0-8e2719608c46@linaro.org> <20260429-exynos850-ap2apm-mailbox-v3-1-8e2719608c46@linaro.org>
-In-Reply-To: <20260429-exynos850-ap2apm-mailbox-v3-1-8e2719608c46@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Thu, 7 May 2026 12:00:01 +0100
-X-Gm-Features: AVHnY4LglSrSyhxrD3_RZ-F9y2tAHPw4q5NwDa0ckqm4CO9WeIJhM2zzkB74KAY
-Message-ID: <CADrjBPoxH8ZguPMygP4X_DDC4PCbGu5fR4UnfLV1Qd=UKQ5yyQ@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] dt-bindings: mailbox: google,gs101-mbox: Add samsung,exynos850-mbox
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Jassi Brar <jassisinghbrar@gmail.com>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v1 2/2] net: stmmac: eic7700: fix delay step
+ calculation and ensure safe register initialization
+To: lizhi2@eswincomputing.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ rmk+kernel@armlinux.org.uk, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
+ pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+ weishangjuan@eswincomputing.com
+References: <20260507083037.152-1-lizhi2@eswincomputing.com>
+ <20260507083214.192-1-lizhi2@eswincomputing.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260507083214.192-1-lizhi2@eswincomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_040015_350438_CE37EA39 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20260507_042159_662615_3A517BA4 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,39 +85,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Apr 2026 at 20:00, Alexey Klimov <alexey.klimov@linaro.org> wrote:
->
-> Document support for a mailbox present on Exynos850-based platforms.
-> The registers offsets are different from gs101 mailbox, but the
-> workflow is similar, hence new compatible.
->
-> Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
+Hi,
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+On 07/05/2026 10:32, lizhi2@eswincomputing.com wrote:
+> From: Zhi Li <lizhi2@eswincomputing.com>
+> 
+> Fix several issues in the EIC7700 DWMAC glue driver related to delay
+> configuration and register initialization.
+> 
+> The hardware implements TX/RX delay with a granularity of 20 ps per
+> step, but the driver previously assumed a 100 ps step. Update the
+> definitions to match the actual hardware behaviour and align with
+> the binding constraints.
+> 
+> Introduce explicit definitions for the maximum programmable delay
+> range based on the hardware limits.
+> 
+> Move HSP CSR configuration into the initialization path after clocks
+> are enabled. This ensures that all register accesses occur with the
+> required clocks active, avoiding undefined behaviour.
+> 
+> Clear the TXD and RXD delay control registers during initialization
+> to override any residual configuration left by the bootloader. This
+> ensures deterministic RGMII timing and prevents unintended delay
+> being applied.
+> 
+> The MAC RGMII delay programming is only required for 100Mbps and
+> 1000Mbps modes, where precise clock-to-data alignment is necessary for
+> reliable sampling.
+> 
+> For 10Mbps operation, timing margins are sufficiently relaxed and no
+> additional delay compensation is required. In this case, the driver
+> falls back to a safe default configuration with delay disabled.
+> 
+> For unsupported or unexpected link speeds, the driver avoids
+> programming invalid delay values and falls back to a safe default
+> state by explicitly clearing the delay configuration.
+> 
+> Explicitly programming zero ensures that no residual delay settings
+> from previous configurations or bootloader state remain active.
+> 
+> These changes fix incorrect delay programming and initialization
+> ordering for existing users.
+> 
+> This also aligns the driver implementation with the updated device
+> tree binding.
 
->  Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->
-> diff --git a/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml b/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml
-> index e249db4c1fbc..c109c1f7af24 100644
-> --- a/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml
-> +++ b/Documentation/devicetree/bindings/mailbox/google,gs101-mbox.yaml
-> @@ -20,7 +20,9 @@ description:
->
->  properties:
->    compatible:
-> -    const: google,gs101-mbox
-> +    enum:
-> +      - google,gs101-mbox
-> +      - samsung,exynos850-mbox
->
->    reg:
->      maxItems: 1
->
-> --
-> 2.51.0
->
+There's a lot going on in this patch, can you split this into patches
+that solves each of these individual issues ?
+
+It's a mix of fixes (the reg access moved after clk config for example)
+and non-fixes (the RGMII timings, you're improving the granularity of
+the delays, is this required to fix existing setups, or is it a generic
+improvement ?), splitting this would make it both easier to review, and
+easier to bisect should problems arise in the future.
+
+Thanks,
+
+Maxime
+
+
 
