@@ -4,75 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D55BCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 05:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E56CECD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 06:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xcdrf+zwQfmVUgGc5ecwQvCxAs8gbsSwCVc/pqKnVIk=; b=jg1nI6aZKRzSYXDme7/e2jiNx4
-	UTsv3Z1L3xQoZX9Y1VFLIXQIP2TpyR2tpzWvR5jIs28hKrI6BPzDjkKQffehmv5VopitbfN+lpkOT
-	Y1AfMiCqyj5FyLmiLJpvXOoGugdgFTsSrQx5Rms3oEBM2NmJUf7yZxWmWy5kyL+PnEw9INIppz0rn
-	EnBYaCsETdrCFoIuhSetqbYA8VGwiViG6+EGUAqfDQ2SrhiclTTKROwQjblLJWWW7R+omJVLzGU1i
-	ZdcqhQQiCWDArQzpu9ZI0IKM2nb3R76KSPf7lZlhCzJnxMBOhK05NU4fd5eG+jn3nNE+gvqhzNot4
-	d0CwIiHA==;
+	bh=nsFZx3bfxXg8ShXMYtcbUQOwqOnAxp0AdK8J6gLLROA=; b=Iifk/TPrXxiSvzS42ZVdWqXwUX
+	drgQ8kFbaxLURbCwdWiTSRx8mcAAWyKM+jFUNAcudtDnHVuCrnKmOD4a20670WXtCgNeUDpY5pGH+
+	GjKf4vrq/nloNjfrxyUoQmGndrXSF7GPxMapJXefXIBBOcd6nFsGCpQEAF4H4ELEPNyoQLyqvU7LX
+	hn0m8479mrl8UGUgnzogPz3dNR21Yk2KR7rhnUgXzmMzIlgPRSAHPscwkdVjyX/QhlMi+oKHURWLW
+	gN36KN6iUhcHpj1NFnGRp2MLNMOGVxvG8Au4l+nOhsCHftGujbKYD+ss40zdSJeGoyAk0SW5DSQBN
+	i0EXdaYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKrcn-00000002qKl-2r0i;
-	Thu, 07 May 2026 05:50:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wKrcm-00000002qK2-2TG9
+	id 1wKs4v-00000002sjI-05kA;
+	Thu, 07 May 2026 06:19:21 +0000
+Received: from mail-westeuropeazon11013015.outbound.protection.outlook.com ([52.101.72.15] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wKs4t-00000002sij-40WO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 05:50:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2A2BD16A3;
-	Wed,  6 May 2026 22:50:08 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 39CEA3F7B4;
-	Wed,  6 May 2026 22:50:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778133013; bh=N83Tg/5qN3B5sB3DgLQu5VzhQZ92JV9fdxAFceELhSM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Csm2kSJy1F/6YEdno8ZvFowSyI/PWcP3YQuRpMXSwzNq59yvzl47PtOshE92sd95P
-	 mCzg4eQNpeAvcbY27U8dpkV8u3MYqvn46KwL+WVAfKMOE7/6CYT7NY7hi4+quWvgYt
-	 85qUtCybFOLZQM2JSSfjyjhfMVkT36I9dvc7jZlg=
-Date: Thu, 7 May 2026 06:50:06 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Mimi Zohar <zohar@linux.ibm.com>
-Cc: David Safford <david.safford@gmail.com>,
-	Jonathan McDowell <noodles@earth.li>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-	sebastianene@google.com
-Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
-Message-ID: <afwoDgaJxmKwOhXp@e129823.arm.com>
-References: <7734099f5e7fda5480bca016a9e6707983325fbd.camel@linux.ibm.com>
- <afMlgstqahnZg68h@e129823.arm.com>
- <9f188536f09a2db30877d6bfbb84aeaf2565cccf.camel@linux.ibm.com>
- <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
- <202f90682fe47bb5fb9b08f8678ae00981b5290b.camel@linux.ibm.com>
- <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
- <afrXmRiq7XvSe6yN@e129823.arm.com>
- <9ff4853a8e9932b3a1424f2a6c3347f1723fb5f4.camel@linux.ibm.com>
- <aftIuPwNeuzc9nY1@e129823.arm.com>
- <9d1af933ef218b159762884357d127e3644dfe2c.camel@linux.ibm.com>
+	Thu, 07 May 2026 06:19:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ywMDwjpXTDABQmH5NY3inur2GepZee5070qvktvNUy0gZep48BatQxiP6XkhNKdVfzBarA61ztqsiBgXNi8+l2Hj2pU3yL8A/jDqNFhIwsbM731NVAMRexJ1slMrCVBYAyVUYAa0XPAeVdXyQqjiuWb9jsLBLIxqFllPLwWVniLe/YQH9D88gY4URVEJZi36Jz6Z4DW7xWJmL6H31CMAccllPGnlDIZkCvZUevKZVJYHPkIR82xN8cZUAAlLbACzT7DaOZWg2CAqxLbsJZjzWoM+6dOKOdKGYBPb/DiyMtFKZmERKO4wKp9LWGqST9idKGG/rjYYxM2LcFqy+NlW3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nsFZx3bfxXg8ShXMYtcbUQOwqOnAxp0AdK8J6gLLROA=;
+ b=hyrdof6GFf8vQ13WOO4WF+C5LfAXTPAvNPOaOfTcycpoqZ8lAM3nFsH0Ewmr78GJ0OQD/1UNqWQuWuYXIBJdlFkqXPtc74GwfWQwgZuNhJzkfekwfRftA4xlSbYcgLYS9Iitki6N1laTNXUBkJYDseJ/dwMZmOBQtIVBm+oyYXMBn3F1lJf8rIxUZ80ceDumJ/Ygdjbu0HOD+8lMPCIpJtQfIpmn53oA9ijfCt5FFVu2JhY1JzddOFXxCVCXv76p+LIAYAbL1ngb1WHnUJps8PP+y9Gtb3acFtaq6SgyLfYLYMTm6Tywl6RZuDW+JM4HxuhDl0RgpLMR2hWNzjtNoQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nsFZx3bfxXg8ShXMYtcbUQOwqOnAxp0AdK8J6gLLROA=;
+ b=WTPiphayoaDCSaKFsBhWEqyIIe1yg63Ax3H5zoPw9aBwXuXI4zVjQX/4szF7d5fD6Mv6jzmuysZLK1/6LDUFMLx+A3aIEPq+q3iDEKE1IDO5vJcaKq0zhqruoj4TtxY4a2wpVAbyb+cloAlDsrLnOjIOvaydtLAtCkoRC4PLaInBRad/as1O0YQgu8biomGojpOBk586YhpEDwWz8q464vbEBvCov7nLVxos7Whz3DTyw85eFSqe0mI2qJy7dOS443btAHtyvM7XfNiVpMBCldd6uiibLH1lZku/i4kw2YMd4YOAMocL6/m3Qdre2vahpHBPoSq80eqp4NI8rNp22A==
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by AS1PR04MB9408.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4d8::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.17; Thu, 7 May
+ 2026 06:19:13 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.20.9891.008; Thu, 7 May 2026
+ 06:19:13 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
+	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, Hongxing
+ Zhu <hongxing.zhu@nxp.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH V3 3/3] arm64: dts: imx: Add common imx-m2-pcie.dtso to
+ enable PCIe on M.2 connector
+Thread-Topic: [PATCH V3 3/3] arm64: dts: imx: Add common imx-m2-pcie.dtso to
+ enable PCIe on M.2 connector
+Thread-Index: AQHcvDGyzMMz/N9whkmi6YJpOEE5P7X/5hGAgAJ0NhA=
+Date: Thu, 7 May 2026 06:19:13 +0000
+Message-ID: <VI0PR04MB12114E0CEBECC811C11C3E5C2923C2@VI0PR04MB12114.eurprd04.prod.outlook.com>
+References: <20260325083201.2637520-1-sherry.sun@nxp.com>
+ <20260325083201.2637520-4-sherry.sun@nxp.com>
+ <afofv3GjEpS67ayb@lizhi-Precision-Tower-5810>
+In-Reply-To: <afofv3GjEpS67ayb@lizhi-Precision-Tower-5810>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|AS1PR04MB9408:EE_
+x-ms-office365-filtering-correlation-id: 4229fee3-aa84-4771-60cd-08deac008ee1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|19092799006|1800799024|7416014|366016|38070700021|56012099003|18002099003|22082099003;
+x-microsoft-antispam-message-info: BJg/nk4U/h+RMZKr5sOg0ecwzXr8mocmxgKToiXo5yLwaVSVJrWoL0RzHB5i+SVWT8b7sQUo23zHi5RmmomOiofqX1OrhmYTRwDUYz3KvG/7sJnzS6bMotf0pCOvuDLR3LIfrCKjOGn6dHNpXYJEFW97vKK3PlAZ6gkLXTcj9yH7liy8CZaoLArOl50AmTPQUlTlaalPGT3HvsSinXb0FJ7VghpLI8P+RY3LJZwDnKPFdPeCq5aHC6J1MOqvCBbCa0yzuJCiAhmOPOAoA+SGEIWKed35He34f3cnMNgC+inFct0wHoRAvy2Nf3/rZyYx/5j1DOiFjiNTuHDmJ5PI7jM3wPUL+zokxTOv4VtwpgCu6F23lTCDP93MHh4Jaz190Q0B62ywHjziWo0lz2dovBJheaw5UfSPcCYA6lI78X4SPr0uUIj7Ix5hYIGC2F9l+MC/RPEYrvn2FFhW3M7DN+EQKay2bmDqZZYr5OXhgCUHuam4LcGAGsRAq09oS/NKjjKgzTZa3FYweeU888wC/CmahiFPJ7zCYNnia1bhHITVJvdgelFlsUQRgDrB0KFStrcpbpaNOKuwwXBPCsp1lf1RbmtjoWRIJZVt6MwXo/M5X/hnDRfZc+1q7GeiCT91A7f69ePYqRf7GbOFXqV9fQGfHFSOs/eQ9Q7I2juyGlZYe3jNU2n5Bqbe27VWmPknBEzrlvb4sxQuB6r1M+eRTbPqdbpk/VVRehEEnsV6y+2dJtlx+iyXglnwHvWYambe
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(1800799024)(7416014)(366016)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?OY9Rrc1nErVte9pI5wvXFv9wx+dfsiFtkh7uoQY8gmSSgssH86Z85ZYexhsg?=
+ =?us-ascii?Q?HUFu/ud+8NGFeSh0Jl0a/6J3V/apicnKS+TG/1ntap4yPKvwZutje6NpOZj8?=
+ =?us-ascii?Q?0MCO37TKxG3TWyJ94YiHFasjLD0GiO+/UW0bo8B7p4iaqDBnJPxDRryYZSyL?=
+ =?us-ascii?Q?k3RgCCY9YqfwGjWVBX5Paf7N7BFaMsBnrWPCWy4liKHmSK/TpWYLlKtVmZ1p?=
+ =?us-ascii?Q?VsgTU6fiHUQ1BgWBwslhvEKjDQSsAiNFqDIRzJxeyXsMOIE+zNG5qzrBfii+?=
+ =?us-ascii?Q?EVaTBjKgOsSe9uon4LGNdkkGS/QeAoG1qOCp19t9//6gUxXUtPs2Z5/gxGqA?=
+ =?us-ascii?Q?lu/K8dP4NyK53d906/2llM/Ox05/A31mpwH5bV6xdMwBI2w17uSD7DdwC9Nh?=
+ =?us-ascii?Q?YYU8p0g9YjyEBDUaiDwqoj58HkdyMFUNJCVIXwguukVwDA7onQ0PqPPu6+19?=
+ =?us-ascii?Q?LYE3GrqgaVVUsydCYDDJ5GRDOcrDn4OFPjmD7Rvx7Igcfw/zKkWUaGQrJlmq?=
+ =?us-ascii?Q?rgDTjfqigvmfXU/DPpLI7LSle1Vd6WffUd2BfwfZ5S9pDav2M9DpMB1tI7uB?=
+ =?us-ascii?Q?ORsQnrd702pgHEi2Z8c2T/2tDwgtBjzKdeki3N9ufCF/l4iaKlVX/ze/Yvjy?=
+ =?us-ascii?Q?gBL8m+RzI3Kjm7hp9zueWCrCmn/CrKGLCRI2M9vBf9T2mO/ZkFULB8WvPcU0?=
+ =?us-ascii?Q?p5LaLRd3LC/buhLQmuJRBYmDml/vFhUah9Xq69P7T9Pf1INcPIkbflEk0oal?=
+ =?us-ascii?Q?OK9vsm1dqmqa5rMQ87s+FALqmHAWik3ydNSq/GkuSG50TXR2vkQap5cMpUA3?=
+ =?us-ascii?Q?5Jq+4Fi4f8p4RKJFoe718+R4BDEHJbe1bdH6QQVo1iB6bguLefIIBo0yC/lx?=
+ =?us-ascii?Q?g7RdHwYna3NOwqDTdkhwRC39UbiEIUJqH/Gqs8d+cu3jM7qPVF3oCVnEcFjZ?=
+ =?us-ascii?Q?tauOoO02BzHmiCkNJ3lnJzPXlH3BlVcf+BU64nzQPgCZRF0JZgL+1+/PxyuW?=
+ =?us-ascii?Q?XA+uFFjs+OyYJnQWjp3qOSFhd7tshnJt3PqIYPCladAQNh9PfpDD/c1LlWne?=
+ =?us-ascii?Q?gajlls9YptujJwvgkFHdgEiIUf64Jkljp936XScbT4vT8RJTogKcxkNca5T/?=
+ =?us-ascii?Q?0KlNJZ4m63WYDDtAyiYfh1mM9xsXB+IxbpBa35FgrTuHo53XKSEj0t9sTpTW?=
+ =?us-ascii?Q?tYrjk8Kwdu4NC8NhsjSPlS8ApUIU3a4eZIosyk7OZaKOfyC5bBYCztCXVaPo?=
+ =?us-ascii?Q?9jz3vU1t9SGtMP4debSBZiRTukAnMT3ZdMaq0ZMYdTAGn26sM1JbZMC5dQwt?=
+ =?us-ascii?Q?kxmCjlN27zBfESOz2fj9IPYvsAVcqC+7INWm4+tg5DNzodnFA+D3ZfcLcFc8?=
+ =?us-ascii?Q?BejVuLwzH79Ft1/+SjwYBCk35c5ytQD8ydckSKxz4KvlKjjTBWxZE1q6qWyh?=
+ =?us-ascii?Q?E2sBXfuZ1kpEe+SHqGS5MFgol6bXwrTRDmQFl1kioKPHjr/X/cPq8eqX+jhV?=
+ =?us-ascii?Q?uozVdeNC2SfCPgIC7H84maZdAivbgcbcYnE7iexjvibC1elx6vnSibpg9v5W?=
+ =?us-ascii?Q?qX43knlzqq23cwfym3aMQuP6u1s4YaGdWjNmdNI3aWAxbKvdXINpsG8mXA7e?=
+ =?us-ascii?Q?TiZ9Lg/XKF9JRZMn+V7JFxdalbHKVhx4B4u0Gxvp81pPc4036TsJ+mDWQsWC?=
+ =?us-ascii?Q?EyuLhJudkt5yQvu8+M5EN7aCmM2sK3RJ0RW2W82CD3vfXnoy?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9d1af933ef218b159762884357d127e3644dfe2c.camel@linux.ibm.com>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4229fee3-aa84-4771-60cd-08deac008ee1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 May 2026 06:19:13.0254
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: cxanitoTuAEr4nLVuLacCtf4C3yeeuVgj9frdGiAHOLwDblEMUeaj8BmUrKYm13kSkc+Jsf6vXKM5l+fPAtQHQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9408
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260506_225016_856548_3F95DE14 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20260506_231920_023529_979D587A 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,161 +147,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mimi,
+> Subject: Re: [PATCH V3 3/3] arm64: dts: imx: Add common imx-m2-pcie.dtso
+> to enable PCIe on M.2 connector
+>=20
+> On Wed, Mar 25, 2026 at 04:32:01PM +0800, Sherry Sun wrote:
+> > Some i.MX boards (i.MX8MP EVK and i.MX95-15x15 EVK) have M.2
+> > connectors that are physically wired to both USDHC and PCIe
+> > controllers. The default device tree enables USDHC for SDIO WiFi
+> > modules and disables PCIe to avoid regulator conflicts.
+> >
+> > Add a common imx-m2-pcie.dtso that can be applied to enable PCIe and
+> > disable USDHC when a PCIe module is installed in the M.2 connector.
+> >
+> > This creates the following DTB files:
+> > - imx8mp-evk-pcie.dtb: i.MX8MP EVK with PCIe enabled
+> > - imx95-15x15-evk-pcie.dtb: i.MX95-15x15 EVK with PCIe enabled
+> >
+> > Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> > ---
+>=20
+> Please rebase it to imx/dt64, and prefer use b4 or provide base-commit
+> information. ref https://people.kernel.org/monsieuricon/all-patches-must-
+> include-base-commit-info
 
-> On Wed, 2026-05-06 at 14:57 +0100, Yeoreum Yun wrote:
-> > > > > On both Z and PowerVM, there are ~30 measurements between boot_aggregate and
-> > > > > boot_aggregate_late.  For example, on PowerVM:
-> > > > > 
-> > > > > # grep -n boot_aggregate
-> > > > > /sys/kernel/security/integrity/ima/ascii_runtime_measurements
-> > > > > 
-> > > > > 1:10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
-> > > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
-> > > > > boot_aggregate 
-> > > > > 31:10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
-> > > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
-> > > > > boot_aggregate_late
-> > > > > 
-> > > > > It would be interesting to the results from a Raspberry Pi 5 as well,
-> > > > > with/without a TPM.
-> > > > 
-> > > > Honestly, I find this result hard to accept.
-> > > > 
-> > > > This effectively means that there is code invoking IMA measurement during late_initcall().
-> > > > It also implies that if, in the future, a late_initcall is added that performs
-> > > > an IMA measurement before IMA initialization has occurred accoding to order by linker,
-> > > > that measurement could be missed.
-> > > 
-> > > Exactly.  The results are simply from booting with the builtin "tcb" and
-> > > "critical_data" policies.
-> > > 
-> > > $ sudo grubby --args="ima_policy=\"tcb|critical_data\"" --update-kernel
-> > > /boot/vmlinuz-${SUFFIX}
-> > 
-> > Thanks. but I still wonder what meaasurements there are between
-> > boot_aggregate and boot_aggregate_late.
-> > Might be there would be key measurements if it takes more than
-> > 5 mins before generating boot_aggregate_late but this seems rare.
-> > 
-> > If you don't mind, would you share the contents of the log between
-> > boot_aggregate and boot_aggregate_late?
-> > since I only get a kernel_version in my environment.
-> 
->      1	10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
-> sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
-> boot_aggregate 
->      2	10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf
-> sha256:0c907aab3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2
-> kernel_version 372e312e302d7263312b
->      3	10 92c40bfd65512d5224cddb9fb64fef0d72e1c182 ima-sig
-> sha256:412bae0d0e85a99971d6eda198dd2fed3c2959715e8a17a4caddc7bc605bdeeb
-> /usr/bin/kmod 
->      4	10 a18f997e1e82d0ef416f93683966d7dda875d71c ima-sig
-> sha256:0050fcc672e03cfdc3a50c771ca9f5219478e5538980a26fd4484620712d8163
-> /usr/lib64/ld64.so.2 
->      5	10 88f343618caeeed92ed8281d627f4565b0499d66 ima-sig
-> sha256:a0e83c084d8c227f1150a8cd94eece61f62bc1da30f98d1cf57ca7db241a9c45
-> /etc/ld.so.cache 
->      6	10 e047868f01908eb95aa180693291decab82bb6be ima-sig
-> sha256:42ebf9cc684419de4d8a1d624102716d88fbcf957f47e50a9a08e38b338023ac
-> /usr/lib64/libzstd.so.1.5.5 
->      7	10 da069bc6a44d454510a76c69d3a54c3b238ae27e ima-sig
-> sha256:9b7c788e75c16c8827062016cf15826e43661c4b5b56813ea07ff2635bea2710
-> /usr/lib64/liblzma.so.5.6.2 
->      8	10 7ade414e736e7b449cda5ec5e0277b99548e89c6 ima-sig
-> sha256:d899452e8e6369e436ba1a565833d6dcf0d09c35e40ffc0979cf4de2bdb8f421
-> /usr/lib64/libz.so.1.3.1.zlib-ng 
->      9	10 9a9da8326f36237a47d6ed21bdffd0e1ff855e2a ima-sig
-> sha256:a848f396db7ad135f851b5e9aeb32f4a3ef1439c7913b9b95ab1cda69251f6ad
-> /usr/lib64/libcrypto.so.3.5.1 
->     10	10 3201d27cd4028f02fc9088ec33e2d0ceb72d2c5b ima-sig
-> sha256:e52dcd1850555c08d60fefe56694c1179b4eaa5796db0907606552ece8e1bab1
-> /usr/lib64/libgcc_s-14-20250617.so.1 
->     11	10 3b4c6f13e52ca060b290709f737b1ff66564226f ima-sig
-> sha256:f2a900a5b980b289dc028dd3caab16b1b0ad037f2e875546bb3197d23ff241f0
-> /usr/lib64/glibc-hwcaps/power10/libc.so.6 
->     12	10 b23b616cbd3c9dc4c5743d121c1c5a702b461a9c ima-sig
-> sha256:5a682022beeea9ee7f36a70f0465942bf32e9675d3f45355088e148787e02175
-> /usr/lib/modprobe.d/dist-alsa.conf 
->     13	10 aec07fad18697f295d7e06796fc8dfd3b472f9c3 ima-sig
-> sha256:067d949bab3bb085d0936031881ff73b2ab39f34b9a90cbd01396d1987ff6658
-> /usr/lib/modprobe.d/dist-blacklist.conf 
->     14	10 c402c56b66e65914148efd6e3cf0b1d616daabe6 ima-sig
-> sha256:120a02e9b88ba74949224eca7385825e39880f5687f739ade07d94ee22ffe325
-> /etc/modprobe.d/firewalld-sysctls.conf 
->     15	10 e358ca12bd58e1ce4845e299e1aea8b81edf86f9 ima-sig
-> sha256:fa27abcd357a16ee1254ba38d1225b7f0724036c07ce3d0e83b29eb72d97c419
-> /etc/modprobe.d/l2tp_eth-blacklist.conf 
->     16	10 4b036d41435d7df3a72b38880f5fe231904b7b66 ima-sig
-> sha256:ecf5f948bfbfb726879a910b3174d139c8af6b1745c88dcc1e4a1cf532c02299
-> /etc/modprobe.d/l2tp_ip-blacklist.conf 
->     17	10 9c53a7a48c1b5218417c4f25c4a34c09a9f39830 ima-sig
-> sha256:f76c4ac232d5e96c57961a9f10194703b4df6d119530046f0b23eee70bfcb089
-> /etc/modprobe.d/l2tp_ip6-blacklist.conf 
->     18	10 6c41d7b7d251c400b7e0ba76f7b386a746e8f4ec ima-sig
-> sha256:5cbc958f893a599ef19437014696dd7b112cf9af6a4348830177f8a8f78aa1b3
-> /etc/modprobe.d/l2tp_netlink-blacklist.conf 
->     19	10 f37ef48faef5bc51e29d47531726af0bd0654655 ima-sig
-> sha256:7a3d63acb49e4a69b482f26624761b5778fbd6b77be8a3f36926b379b5f965ed
-> /etc/modprobe.d/l2tp_ppp-blacklist.conf 
->     20	10 82ef59779acdfd6e9b35521bfa09e6ba86fd6174 ima-sig
-> sha256:6a8f2009d87deba7a2de46e3d0c46b114fe388d188b00b9a382fc2156aabb676
-> /usr/lib/modules/7.1.0-rc1+/modules.softdep 
->     21	10 6ae994e33a6313ab4535da90f5cb6c3beaec7b86 ima-sig
-> sha256:268695dbf23bd0170ec9a95b10e8d596205fd7436617d10101907171bf004b7c
-> /etc/modprobe.d/sctp-blacklist.conf 
->     22	10 b2c238ae66b03f56191d9955a5ad0f3110bb7e2b ima-sig
-> sha256:64a8ebb0a1fd712a9aeb7aa0f0ad0b72d3277034c8bfa3b66ab063e201d6527e
-> /etc/modprobe.d/sctp_diag-blacklist.conf 
->     23	10 c0443f2d3c078959ae86276df23abe172234a55d ima-sig
-> sha256:e5a3958cbd3684b63f3cada6604469cc56f727b106d5524daf5aefa6935a48ce
-> /usr/lib/modprobe.d/systemd.conf 
->     24	10 5c46e012bc7fffc3256b166282a7eaa4bea5fa33 ima-sig
-> sha256:6560abcdd2cdb41e1d0fe73052298d612920d5bccb4a3a7c82bc73895128e760
-> /etc/modprobe.d/tipc_diag-blacklist.conf 
->     25	10 d5fb1836364732fbc4f87aa7d2c984cf30bdbfd3 ima-sig
-> sha256:358703c09ac2d2c653e11bbc7c65d378c8496e87ca47307f86c36b0b29640598
-> /etc/modprobe.d/tuned.conf 
->     26	10 a85107163729f696f316d46c0bf3f65f713ba972 ima-sig
-> sha256:7410bb4cec56892e8b0010c5c8b72be532784ccf0240aa0677c5be085a530f65
-> /usr/lib/modules/7.1.0-rc1+/modules.dep.bin 
->     27	10 80eb261ffb2cc3528d90c33b1c624f657a045867 ima-sig
-> sha256:856e0f083226f8b4fb7d1d71447fb841dae18ea9a50ea6d8505a206167288e1d
-> /usr/lib/modules/7.1.0-rc1+/modules.alias.bin 
->     28	10 6af2d661da470d7a1c9909ddbc074d3d265eb1d7 ima-sig
-> sha256:4853ca200598c52970c380fda99484068e7db4961a4f94faac6abcfbbd52d150
-> /usr/lib/modules/7.1.0-rc1+/modules.symbols.bin 
->     29	10 6f9cd405bd57d925baae6ae66c273c61c90b3bc8 ima-sig
-> sha256:193d1e1004848f7d391877507b69a7953e1f94ddbe70eb0e2cf6dc45fce7cd6a
-> /usr/lib/modules/7.1.0-rc1+/modules.builtin.alias.bin 
->     30	10 4e20b980bf3a825a866be0c46033ed654df4aeba ima-sig
-> sha256:3a0e3c56d51ba98258ff13f93f82c837de22f4b707d24678f82893babf4d77ea
-> /usr/lib/modules/7.1.0-rc1+/modules.builtin.bin 
->     31	10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
-> sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
-> boot_aggregate_late 
->     32	10 81830cd3d799e006698258dc1b11fe29a56eeef5 ima-sig
-> sha256:d1651dc50bb5b92c1badcab9aa4dbbca40cb704cdc707d1c536b41d7b1aa465e
-> /usr/lib/systemd/systemd 
+Will do in next version, thanks!
 
-Hmm... Theses measurements seems to happen while populating
-initramfs which triggers file_post_open as async
-(and I see the RAMFS seems not part of DONT_MEASURE in IMA).
+Best Regards
+Sherry
 
-If you don't mind, Could you check whether this measurements still
-happen with initramfs_async=0?
-
-If this measurements aren't generated with above option,
-there is a question whether let IMA measure initramfs which can be
-measured or not depending on boot option or timing (some file measurements
-could be lost all when do_populate_rootfs() executes concurrently while
-running late_initcall).
-
-
-[...]
-
--- 
-Sincerely,
-Yeoreum Yun
+>=20
+> Frank
+>=20
+> >  arch/arm64/boot/dts/freescale/Makefile         |  9 +++++++--
+> >  arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso | 15 +++++++++++++++
+> >  2 files changed, 22 insertions(+), 2 deletions(-)  create mode 100644
+> > arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso
+> >
+> > diff --git a/arch/arm64/boot/dts/freescale/Makefile
+> > b/arch/arm64/boot/dts/freescale/Makefile
+> > index 155213c45319..1f542324b4fc 100644
+> > --- a/arch/arm64/boot/dts/freescale/Makefile
+> > +++ b/arch/arm64/boot/dts/freescale/Makefile
+> > @@ -333,12 +333,14 @@ imx8mp-evk-lvds0-imx-lvds-hdmi-dtbs +=3D
+> > imx8mp-evk.dtb imx8mp-evk-lvds0-imx-lvds-
+> > imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0-dtbs +=3D imx8mp-evk.dtb
+> > imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtbo
+> >  imx8mp-evk-lvds1-imx-lvds-hdmi-dtbs +=3D imx8mp-evk.dtb
+> > imx8mp-evk-lvds1-imx-lvds-hdmi.dtbo
+> >  imx8mp-evk-mx8-dlvds-lcd1-dtbs +=3D imx8mp-evk.dtb
+> > imx8mp-evk-mx8-dlvds-lcd1.dtbo -imx8mp-evk-pcie-ep-dtbs +=3D
+> > imx8mp-evk.dtb imx-pcie0-ep.dtbo
+> > +imx8mp-evk-pcie-dtbs +=3D imx8mp-evk.dtb imx-m2-pcie.dtbo
+> > +imx8mp-evk-pcie-ep-dtbs +=3D imx8mp-evk-pcie.dtb imx-pcie0-ep.dtbo
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D
+> > imx8mp-evk-lvds0-imx-dlvds-hdmi-channel0.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-lvds0-imx-lvds-hdmi.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D
+> > imx8mp-evk-lvds1-imx-dlvds-hdmi-channel0.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-lvds1-imx-lvds-hdmi.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-mx8-dlvds-lcd1.dtb
+> > +dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-pcie.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx8mp-evk-pcie-ep.dtb
+> >
+> >  imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33-dtbs +=3D
+> > imx8mp-tqma8mpql-mba8mpxl.dtb
+> > imx8mp-tqma8mpql-mba8mpxl-lvds-tm070jvhg33.dtbo
+> > @@ -481,7 +483,10 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx95-19x19-evk-
+> sof.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-toradex-smarc-dev.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-tqma9596sa-mb-smarc-2.dtb
+> >
+> > -imx95-15x15-evk-pcie0-ep-dtbs =3D imx95-15x15-evk.dtb imx-pcie0-ep.dtb=
+o
+> > +imx95-15x15-evk-pcie-dtbs +=3D imx95-15x15-evk.dtb imx-m2-pcie.dtbo
+> > +dtb-$(CONFIG_ARCH_MXC) +=3D imx95-15x15-evk-pcie.dtb
+> > +
+> > +imx95-15x15-evk-pcie0-ep-dtbs =3D imx95-15x15-evk-pcie.dtb
+> > +imx-pcie0-ep.dtbo
+> >  dtb-$(CONFIG_ARCH_MXC) +=3D imx95-15x15-evk-pcie0-ep.dtb
+> > imx95-19x19-evk-pcie0-ep-dtbs +=3D imx95-19x19-evk.dtb imx-pcie0-ep.dtb=
+o
+> > imx95-19x19-evk-pcie1-ep-dtbs +=3D imx95-19x19-evk.dtb imx-pcie1-ep.dtb=
+o
+> > diff --git a/arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso
+> > b/arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso
+> > new file mode 100644
+> > index 000000000000..1930de058a08
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/freescale/imx-m2-pcie.dtso
+> > @@ -0,0 +1,15 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +/*
+> > + * Copyright 2026 NXP
+> > + */
+> > +
+> > +/dts-v1/;
+> > +/plugin/;
+> > +
+> > +&pcie0 {
+> > +	status =3D "okay";
+> > +};
+> > +
+> > +&m2_usdhc {
+> > +	status =3D "disabled";
+> > +};
+> > --
+> > 2.37.1
+> >
 
