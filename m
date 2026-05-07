@@ -4,100 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A10BACD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 21:36:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D5EECD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 May 2026 21:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aN/MoGo/0OBj5lX14oDE14F1c1D7CB1rzMZQxCCROZQ=; b=iM2cRTFN3ltWZy+Y7gHqm6tHVU
-	zIOrGdG8+7waEGsd+dXwA4gym2SFznObzFel9/fUKZ2zFMw1rAMc1FCdDAljMzlZ97Yfs+FqjL9jn
-	CGVAEDjbdVRHf7im59GC+FqrsyQoXRPGTx2EGPzypR6PD1B5cFDomE8GdBM8eDrSJSv9hJ3hfWWbQ
-	uh/l5+0w9NscuQ7CecOpYYLtE/TbQe7DV4U9ohTSMbnyjEhiI6MBNGih5473WiA2AeZ7AW+tW29v0
-	78tBgEp3asba4+ZPm0MUr6Kp79misUyTvWVOmLLVXkt+3pTb7J34MTfOAdMfm8XxX0TdM1XK4DH3y
-	YBHAkKng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KJM9TLn9BeKUTNdkhmF9S0zsfmt7CGWlFQsmNxoDr7E=; b=to7LC7aE77Xf+V11nVNKOM4K+r
+	LILeqfk1cE0sRLc0Ec0/A5rX9J8UZsYYzXzAFPWNImQS06n8UGxhNeZbWNF9j9ycwR6yQYbPHlKRY
+	BEiYwhp+WTpspF8nlDrEBgUZnoFgzVHU59luHQmsoTDgCnbXzCYIxpM0lj4+Y41c9hhDJTgfh7xEm
+	U+quLYdFwRM5tzrtaI0KbS+SlHCmsU/wLUBubYZsacWikxk8IRhMBNu8W352CtCo7/DNdf9tc8KwK
+	S9hoVtl3atCuCRoqrY4atvGjzMnYwJisuOqHWyiWB/UmIVicWR9bfE/cwn06B8na4h816nA4ZdUk6
+	QBeRBbCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL6OX-00000004xJi-07Az;
-	Thu, 07 May 2026 21:36:33 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	id 1wL6PE-00000004xXU-1Lgr;
+	Thu, 07 May 2026 21:37:16 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL6OT-00000004xHi-3nRw
+	id 1wL6PB-00000004xWB-2U4D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 May 2026 21:36:31 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4gBQYR6z4vz9vHM;
-	Thu,  7 May 2026 23:36:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1778189788;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aN/MoGo/0OBj5lX14oDE14F1c1D7CB1rzMZQxCCROZQ=;
-	b=hid+k1D5ogrx5G1lWd7pUQ9CoVlwl9a/2OZM8TPGYYY64ydMa9M+cAHol5Vq69qSY1wD+w
-	c3OAPMLqyGmMPyPaDWwjVQHxfyfrcof9UdlEiKt6pQzfnI7grBUM6NQO6VooYzKrHhMV96
-	zoHb/KRQ44q8MEKR9XMkWRyHcGJRqfuoWyxLIq2/bYM9VeOHNLkK7BzxqL0Zi3ATWfy90O
-	KH2bp7vOzWUHfEaE+caQun7dox5w3HvaVjaHVm31R4oP/LyBgg13gYNlkRuC405HG0/STE
-	U6v54wENsDBgOwzNkT4dAjaTFanls6nJ46k1Yp5ruhNpN9Y3VvUGcNO8aA/+dA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=DHVO4ux1;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-Message-ID: <fa28c6fe-484c-4133-824e-649c52ef2200@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1778189786;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aN/MoGo/0OBj5lX14oDE14F1c1D7CB1rzMZQxCCROZQ=;
-	b=DHVO4ux1H/KOBsyRCO1LJQTL1AsPUk6OH15mgKVB2SR719sbrwLhBqkf0pJwNw2F/u1RCY
-	Xh1DXe05bHIeDCthuo/tmzyeZJtI0jKnm+R5/Shf7GM1aYMEdaOVfuFuScpklPu/EERepj
-	WEeEsEZSS5pAUtOnT0ZsMV0HHcOMRPseJ0+gxoKKrlx/0cgy5HwKejkeo2dHciYNIzAMtL
-	cTPHYXxVywmd6sldoy8hVdioPDpoqEbYQwLRSTBb44R31vSLBkcInog6QLffxaDN1cK24L
-	LRq2M1TQQWvGGxiol6tiquQp8uS+EokFt+VaF15ueTD/H8i6t7cxAoubvrvsBQ==
-Date: Thu, 7 May 2026 23:36:17 +0200
+	Thu, 07 May 2026 21:37:15 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 647KMarc3638747;
+	Thu, 7 May 2026 21:36:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=KJM9TL
+	n9BeKUTNdkhmF9S0zsfmt7CGWlFQsmNxoDr7E=; b=TyM6Vc0lQLk3V+jtdoOMGY
+	HeRAevekcVjywfqNqcACF/0A2GVRWOHD6AF/b6CeH2CCi6FmH+hOUaHYkLEpt6FS
+	MqLLhFZ/+7WLZDQK35V2fd1K//UQaRBVnYuxnNOnWuRdm9Ba35a7N9/BbaiaLXef
+	ZPTpTVEFuSmZ1yTzLf/ZJ02ID4BitxHuUxZklHICWMCu5MrPdf66qkPYpI2krFOx
+	Tz89TQF/vrFBWCPivLlIOf1jgnirkpi3RDFZp7SXOpxB8+jg9ewefzrd0Ro87sRu
+	1hHWKLY5SxB0lIPrMWamynn+MVpOEuQfJhrgicIRNYSm7Q4n/oHkMj/TWbUxMMuA
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9xxysmx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 07 May 2026 21:36:56 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 647LOT0A008352;
+	Thu, 7 May 2026 21:36:55 GMT
+Received: from smtprelay07.wdc07v.mail.ibm.com ([172.16.1.74])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dwuywdqsd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 07 May 2026 21:36:55 +0000 (GMT)
+Received: from smtpav03.wdc07v.mail.ibm.com (smtpav03.wdc07v.mail.ibm.com [10.39.53.230])
+	by smtprelay07.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 647LataR15139384
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 7 May 2026 21:36:55 GMT
+Received: from smtpav03.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id EFD2358054;
+	Thu,  7 May 2026 21:36:54 +0000 (GMT)
+Received: from smtpav03.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C0F3A5805D;
+	Thu,  7 May 2026 21:36:52 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.31.96.173])
+	by smtpav03.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Thu,  7 May 2026 21:36:52 +0000 (GMT)
+Message-ID: <77ad49cca1acf707f4152ed3e2066b2f24c90c16.camel@linux.ibm.com>
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: David Safford <david.safford@gmail.com>,
+        Jonathan McDowell	
+ <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
+        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <afzwJn+5r15jFxrB@e129823.arm.com>
+References: <CAGWfHUW+AX0Hpuw5Vr5iTSaJKQJ+O_4nWWmU1UR8Z_3XFctHZg@mail.gmail.com>
+	 <202f90682fe47bb5fb9b08f8678ae00981b5290b.camel@linux.ibm.com>
+	 <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
+	 <afrXmRiq7XvSe6yN@e129823.arm.com>
+	 <9ff4853a8e9932b3a1424f2a6c3347f1723fb5f4.camel@linux.ibm.com>
+	 <aftIuPwNeuzc9nY1@e129823.arm.com>
+	 <9d1af933ef218b159762884357d127e3644dfe2c.camel@linux.ibm.com>
+	 <afwoDgaJxmKwOhXp@e129823.arm.com>
+	 <f19081f1eda19d6d1ae133d8ec93e779ab1a25e5.camel@linux.ibm.com>
+	 <afyIbW5cljh5ZvTL@e129823.arm.com> <afzwJn+5r15jFxrB@e129823.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 07 May 2026 17:36:52 -0400
 MIME-Version: 1.0
-Subject: Re: [PATCH/RFC 10/14] dt-bindings: power: Document Renesas R-Car X5H
- Module Controller
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
- Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>,
- Saravana Kannan <saravanak@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Ulf Hansson <ulfh@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <cover.1776793163.git.geert+renesas@glider.be>
- <053c312d07445517d8f9c84bfe3cc8fb72d4cd9a.1776793163.git.geert+renesas@glider.be>
- <bf83a028-3ef3-482a-9ce3-8aec16f6ebed@mailbox.org>
- <CAMuHMdWN2zaZrY2jKKXpNqrP8xSqc-uJTr-siTBgaA=-EY_4BQ@mail.gmail.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdWN2zaZrY2jKKXpNqrP8xSqc-uJTr-siTBgaA=-EY_4BQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: zpfhg6i8eyntcpfuwy38ym1zyrgr17gc
-X-MBO-RS-ID: 45b055b3220d0470145
-X-Rspamd-Queue-Id: 4gBQYR6z4vz9vHM
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA3MDIxOSBTYWx0ZWRfX7UAVzMXbx+Nk
+ nVh3FWtWuc6MCAxEiV1665w86JzzPEc8F120eX6LUl0F61duh2JqZEiBGWfHnGTBV3VW5zIL5gq
+ MXib4D4WCOhdu+SQJaOXsri1kLRaT/AFb35L91VEZPF6UaBuQ8RVIFcb1SDtpJyPcEWZv0P1pR2
+ oKQaKSmOZFBQgvuSN4lZPhC3+tnTgBX32q9iXljc/ksea6ZkyK/JRPK+nu8RxzyuTcuaAnUAvdN
+ t1RU9wVuEuNui8Tg6eX8wdqa0tJ1jgnFajL3AuYMvGGuLADEIP1O/hJacJhyrlMlsRGiR93zLeM
+ VM/ntbEeO3NqAvpe3Kql04KIVZiYk9LtMbQ8qAi9juNFgtkAWB8ZnIJNy+rTOSufG0LU/dQhD6g
+ cvoSjusLCDuiMWAJjQkQDjqhVPSLnf/K37mgjljO2oxRx90WI/anGrFdb0ta76RygfD3eZ9d5ah
+ Wx0kFvGJyieO5UdqOaw==
+X-Proofpoint-ORIG-GUID: xworJu3D8CL84380WFdO41WlLtGr9kbt
+X-Proofpoint-GUID: SMKawSpR4EXvZ0yXw5eFm2rKTqvybguf
+X-Authority-Analysis: v=2.4 cv=ctWrVV4i c=1 sm=1 tr=0 ts=69fd05f8 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=0JQgvdOVZOPKDJRDZfoA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-07_02,2026-05-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 adultscore=0 clxscore=1015
+ suspectscore=0 impostorscore=0 spamscore=0 malwarescore=0 phishscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2605070219
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_143630_099049_AD67CEF9 
-X-CRM114-Status: GOOD (  37.09  )
+X-CRM114-CacheID: sfid-20260507_143713_753237_60C2D145 
+X-CRM114-Status: GOOD (  33.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,212 +139,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/7/26 9:37 AM, Geert Uytterhoeven wrote:
+On Thu, 2026-05-07 at 21:03 +0100, Yeoreum Yun wrote:
+> Hi Mimi,
+>=20
+> >=20
+> > > On Thu, 2026-05-07 at 06:50 +0100, Yeoreum Yun wrote:
+> > > > Hi Mimi,
+> > > >=20
+> > > > > On Wed, 2026-05-06 at 14:57 +0100, Yeoreum Yun wrote:
+> > > > > > > > > On both Z and PowerVM, there are ~30 measurements between=
+ boot_aggregate and
+> > > > > > > > > boot_aggregate_late.  For example, on PowerVM:
+> > > > > > > > >=20
+> > > > > > > > > # grep -n boot_aggregate
+> > > > > > > > > /sys/kernel/security/integrity/ima/ascii_runtime_measurem=
+ents
+> > > > > > > > >=20
+> > > > > > > > > 1:10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
+> > > > > > > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead=
+8a1c0403f348d5
+> > > > > > > > > boot_aggregate=20
+> > > > > > > > > 31:10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
+> > > > > > > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead=
+8a1c0403f348d5
+> > > > > > > > > boot_aggregate_late
+> > > > > > > > >=20
+> > > > > > > > > It would be interesting to the results from a Raspberry P=
+i 5 as well,
+> > > > > > > > > with/without a TPM.
+> > > > > > > >=20
+> > > > > > > > Honestly, I find this result hard to accept.
+> > > > > > > >=20
+> > > > > > > > This effectively means that there is code invoking IMA meas=
+urement during late_initcall().
+> > > > > > > > It also implies that if, in the future, a late_initcall is =
+added that performs
+> > > > > > > > an IMA measurement before IMA initialization has occurred a=
+ccoding to order by linker,
+> > > > > > > > that measurement could be missed.
+> > > > > > >=20
+> > > > > > > Exactly.  The results are simply from booting with the builti=
+n "tcb" and
+> > > > > > > "critical_data" policies.
+> > > > > > >=20
+> > > > > > > $ sudo grubby --args=3D"ima_policy=3D\"tcb|critical_data\"" -=
+-update-kernel
+> > > > > > > /boot/vmlinuz-${SUFFIX}
+> > > > > >=20
+> > > > > > Thanks. but I still wonder what meaasurements there are between
+> > > > > > boot_aggregate and boot_aggregate_late.
+> > > > > > Might be there would be key measurements if it takes more than
+> > > > > > 5 mins before generating boot_aggregate_late but this seems rar=
+e.
+> > > > > >=20
+> > > > > > If you don't mind, would you share the contents of the log betw=
+een
+> > > > > > boot_aggregate and boot_aggregate_late?
+> > > > > > since I only get a kernel_version in my environment.
+> > > > >=20
+> > > > >      1	10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
+> > > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403=
+f348d5
+> > > > > boot_aggregate=20
+> > > > >      2	10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf
+> > > > > sha256:0c907aab3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e537=
+9f0af2
+> > > > > kernel_version 372e312e302d7263312b
+> > > > >      3	10 92c40bfd65512d5224cddb9fb64fef0d72e1c182 ima-sig
+> > > > > sha256:412bae0d0e85a99971d6eda198dd2fed3c2959715e8a17a4caddc7bc60=
+5bdeeb
+> > > > > /usr/bin/kmod=20
+> > > > >      4	10 a18f997e1e82d0ef416f93683966d7dda875d71c ima-sig
+> > > > > sha256:0050fcc672e03cfdc3a50c771ca9f5219478e5538980a26fd448462071=
+2d8163
+> > > > > /usr/lib64/ld64.so.2=20
+> > > > >      5	10 88f343618caeeed92ed8281d627f4565b0499d66 ima-sig
+> > > > > sha256:a0e83c084d8c227f1150a8cd94eece61f62bc1da30f98d1cf57ca7db24=
+1a9c45
+> > > > > /etc/ld.so.cache=20
+> > > > >      6	10 e047868f01908eb95aa180693291decab82bb6be ima-sig
+> > > > > sha256:42ebf9cc684419de4d8a1d624102716d88fbcf957f47e50a9a08e38b33=
+8023ac
+> > > > > /usr/lib64/libzstd.so.1.5.5=20
+> > > > >      7	10 da069bc6a44d454510a76c69d3a54c3b238ae27e ima-sig
+> > > > > sha256:9b7c788e75c16c8827062016cf15826e43661c4b5b56813ea07ff2635b=
+ea2710
+> > > > > /usr/lib64/liblzma.so.5.6.2=20
+> > > > >      8	10 7ade414e736e7b449cda5ec5e0277b99548e89c6 ima-sig
+> > > > > sha256:d899452e8e6369e436ba1a565833d6dcf0d09c35e40ffc0979cf4de2bd=
+b8f421
+> > > > > /usr/lib64/libz.so.1.3.1.zlib-ng=20
+> > > > >      9	10 9a9da8326f36237a47d6ed21bdffd0e1ff855e2a ima-sig
+> > > > > sha256:a848f396db7ad135f851b5e9aeb32f4a3ef1439c7913b9b95ab1cda692=
+51f6ad
+> > > > > /usr/lib64/libcrypto.so.3.5.1=20
+> > > > >     10	10 3201d27cd4028f02fc9088ec33e2d0ceb72d2c5b ima-sig
+> > > > > sha256:e52dcd1850555c08d60fefe56694c1179b4eaa5796db0907606552ece8=
+e1bab1
+> > > > > /usr/lib64/libgcc_s-14-20250617.so.1=20
+> > > > >     11	10 3b4c6f13e52ca060b290709f737b1ff66564226f ima-sig
+> > > > > sha256:f2a900a5b980b289dc028dd3caab16b1b0ad037f2e875546bb3197d23f=
+f241f0
+> > > > > /usr/lib64/glibc-hwcaps/power10/libc.so.6=20
+> > > > >     12	10 b23b616cbd3c9dc4c5743d121c1c5a702b461a9c ima-sig
+> > > > > sha256:5a682022beeea9ee7f36a70f0465942bf32e9675d3f45355088e148787=
+e02175
+> > > > > /usr/lib/modprobe.d/dist-alsa.conf=20
+> > > > >     13	10 aec07fad18697f295d7e06796fc8dfd3b472f9c3 ima-sig
+> > > > > sha256:067d949bab3bb085d0936031881ff73b2ab39f34b9a90cbd01396d1987=
+ff6658
+> > > > > /usr/lib/modprobe.d/dist-blacklist.conf=20
+> > > > >     14	10 c402c56b66e65914148efd6e3cf0b1d616daabe6 ima-sig
+> > > > > sha256:120a02e9b88ba74949224eca7385825e39880f5687f739ade07d94ee22=
+ffe325
+> > > > > /etc/modprobe.d/firewalld-sysctls.conf=20
+> > > > >     15	10 e358ca12bd58e1ce4845e299e1aea8b81edf86f9 ima-sig
+> > > > > sha256:fa27abcd357a16ee1254ba38d1225b7f0724036c07ce3d0e83b29eb72d=
+97c419
+> > > > > /etc/modprobe.d/l2tp_eth-blacklist.conf=20
+> > > > >     16	10 4b036d41435d7df3a72b38880f5fe231904b7b66 ima-sig
+> > > > > sha256:ecf5f948bfbfb726879a910b3174d139c8af6b1745c88dcc1e4a1cf532=
+c02299
+> > > > > /etc/modprobe.d/l2tp_ip-blacklist.conf=20
+> > > > >     17	10 9c53a7a48c1b5218417c4f25c4a34c09a9f39830 ima-sig
+> > > > > sha256:f76c4ac232d5e96c57961a9f10194703b4df6d119530046f0b23eee70b=
+fcb089
+> > > > > /etc/modprobe.d/l2tp_ip6-blacklist.conf=20
+> > > > >     18	10 6c41d7b7d251c400b7e0ba76f7b386a746e8f4ec ima-sig
+> > > > > sha256:5cbc958f893a599ef19437014696dd7b112cf9af6a4348830177f8a8f7=
+8aa1b3
+> > > > > /etc/modprobe.d/l2tp_netlink-blacklist.conf=20
+> > > > >     19	10 f37ef48faef5bc51e29d47531726af0bd0654655 ima-sig
+> > > > > sha256:7a3d63acb49e4a69b482f26624761b5778fbd6b77be8a3f36926b379b5=
+f965ed
+> > > > > /etc/modprobe.d/l2tp_ppp-blacklist.conf=20
+> > > > >     20	10 82ef59779acdfd6e9b35521bfa09e6ba86fd6174 ima-sig
+> > > > > sha256:6a8f2009d87deba7a2de46e3d0c46b114fe388d188b00b9a382fc2156a=
+abb676
+> > > > > /usr/lib/modules/7.1.0-rc1+/modules.softdep=20
+> > > > >     21	10 6ae994e33a6313ab4535da90f5cb6c3beaec7b86 ima-sig
+> > > > > sha256:268695dbf23bd0170ec9a95b10e8d596205fd7436617d10101907171bf=
+004b7c
+> > > > > /etc/modprobe.d/sctp-blacklist.conf=20
+> > > > >     22	10 b2c238ae66b03f56191d9955a5ad0f3110bb7e2b ima-sig
+> > > > > sha256:64a8ebb0a1fd712a9aeb7aa0f0ad0b72d3277034c8bfa3b66ab063e201=
+d6527e
+> > > > > /etc/modprobe.d/sctp_diag-blacklist.conf=20
+> > > > >     23	10 c0443f2d3c078959ae86276df23abe172234a55d ima-sig
+> > > > > sha256:e5a3958cbd3684b63f3cada6604469cc56f727b106d5524daf5aefa693=
+5a48ce
+> > > > > /usr/lib/modprobe.d/systemd.conf=20
+> > > > >     24	10 5c46e012bc7fffc3256b166282a7eaa4bea5fa33 ima-sig
+> > > > > sha256:6560abcdd2cdb41e1d0fe73052298d612920d5bccb4a3a7c82bc738951=
+28e760
+> > > > > /etc/modprobe.d/tipc_diag-blacklist.conf=20
+> > > > >     25	10 d5fb1836364732fbc4f87aa7d2c984cf30bdbfd3 ima-sig
+> > > > > sha256:358703c09ac2d2c653e11bbc7c65d378c8496e87ca47307f86c36b0b29=
+640598
+> > > > > /etc/modprobe.d/tuned.conf=20
+> > > > >     26	10 a85107163729f696f316d46c0bf3f65f713ba972 ima-sig
+> > > > > sha256:7410bb4cec56892e8b0010c5c8b72be532784ccf0240aa0677c5be085a=
+530f65
+> > > > > /usr/lib/modules/7.1.0-rc1+/modules.dep.bin=20
+> > > > >     27	10 80eb261ffb2cc3528d90c33b1c624f657a045867 ima-sig
+> > > > > sha256:856e0f083226f8b4fb7d1d71447fb841dae18ea9a50ea6d8505a206167=
+288e1d
+> > > > > /usr/lib/modules/7.1.0-rc1+/modules.alias.bin=20
+> > > > >     28	10 6af2d661da470d7a1c9909ddbc074d3d265eb1d7 ima-sig
+> > > > > sha256:4853ca200598c52970c380fda99484068e7db4961a4f94faac6abcfbbd=
+52d150
+> > > > > /usr/lib/modules/7.1.0-rc1+/modules.symbols.bin=20
+> > > > >     29	10 6f9cd405bd57d925baae6ae66c273c61c90b3bc8 ima-sig
+> > > > > sha256:193d1e1004848f7d391877507b69a7953e1f94ddbe70eb0e2cf6dc45fc=
+e7cd6a
+> > > > > /usr/lib/modules/7.1.0-rc1+/modules.builtin.alias.bin=20
+> > > > >     30	10 4e20b980bf3a825a866be0c46033ed654df4aeba ima-sig
+> > > > > sha256:3a0e3c56d51ba98258ff13f93f82c837de22f4b707d24678f82893babf=
+4d77ea
+> > > > > /usr/lib/modules/7.1.0-rc1+/modules.builtin.bin=20
+> > > > >     31	10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
+> > > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403=
+f348d5
+> > > > > boot_aggregate_late=20
+> > > > >     32	10 81830cd3d799e006698258dc1b11fe29a56eeef5 ima-sig
+> > > > > sha256:d1651dc50bb5b92c1badcab9aa4dbbca40cb704cdc707d1c536b41d7b1=
+aa465e
+> > > > > /usr/lib/systemd/systemd=20
+> > > >=20
+> > > > Hmm... Theses measurements seems to happen while populating
+> > > > initramfs which triggers file_post_open as async
+> > > > (and I see the RAMFS seems not part of DONT_MEASURE in IMA).
+> > > >=20
+> > > > If you don't mind, Could you check whether this measurements still
+> > > > happen with initramfs_async=3D0?
+> > > >=20
+> > > > If this measurements aren't generated with above option,
+> > > > there is a question whether let IMA measure initramfs which can be
+> > > > measured or not depending on boot option or timing (some file measu=
+rements
+> > > > could be lost all when do_populate_rootfs() executes concurrently w=
+hile
+> > > > running late_initcall).
+> > >=20
+> > > There's no difference when adding the "initramfs_async=3D0" boot comm=
+and line
+> > > argument. The measurement list between boot_aggregate and boot_aggreg=
+ate_late is
+> > > exactly the same.
+> > >=20
+> >=20
+> > That's quite interesting. This means there're some file operation
+> > between late_initcall and late_initcall_sync
+> > even before run_init_process() except initramfs population.
+> >=20
+> > Since initramfs population flush all fputs() it generates and
+> > boot_aggregate_late is generated before init process is loaded,
+> > I honestly have no idea who triggers above file operations.
+> >=20
+> > And it seems a little bit weird that it opens the /usr/bin/kmod
+> > and its configuration from kernel not by init_process or other user
+> > process...
+> >=20
+>=20
+> If you don't mind, Could i get some stacktrace for one of file measuremen=
+t log
+> between boot_aggregate and boot_aggreate_late?
+>=20
+> Though I try to produce like you, I've gotten failure to reproduce.
+> Sorry to bother you. but it would be helpful to understand where they
+> came from.
 
-Hello Geert,
+The kernel selftests caused the measurements between late_initcall and
+late_initcall_sync.  After disabling all of the kernel selftests, there wer=
+en't
+any measurements. Re-enabling the FIPS selftests on PowerVM LPAR resulted i=
+n
+measurements.  (I didn't try re-enabling any of the other selftests.)
 
-> On Thu, 7 May 2026 at 00:58, Marek Vasut <marek.vasut@mailbox.org> wrote:
->> On 4/21/26 8:11 PM, Geert Uytterhoeven wrote:
->>> +  '#power-domain-cells':
->>> +    description: |
->>> +      - The first power domain specifier cell must be either the Module
->>> +        Power Domain Gating (MPDG) register index (0x00-0x3f) from the
->>> +        datasheet,
->>
->> I agree with this part.
->>
->>> or a Power Domain number, as defined in
->>> +        <dt-bindings/power/renesas,r8a78000-mdlc.h>,
->>
->> I do not understand this part, please see end of this email ...
->>
->>> +      - The second power domain specifier cell must be the module number
->>> +        (0x00-0xff), composed of the Module System Reset (MSRES) register index
->>> +        in the high nibble, and the Module Reset Destination bitfield index in
->>> +        the low nibble.
->>> +    const: 2
->>
->> I am unsure about this part.
->>
->> There are multiple MDLC blocks, AON, SCP, HSCN, and so on. Each MDLC
->> block contains multiple Module Power Domain Gating registers (MPDGn) and
->> multiple Module System RESet register (MSRES) .
->>
->> I do understand and agree that the first power-domains-cells cell must
->> be the identifier of power domain within the MDLC block.
->>
->> However, I do not understand the second cell. The MDLC bindings already
->> contain reset-cells, which should be used to refer to a reset within the
->> MDLC block. Resets within the MDLC block are operated using the MSRES
->> registers. Why are resets conflated into power-domain-cells ?
-> 
-> The Module Reset Destination bitfields in the MSRES registers are
-> 2-bit wide, and control both Reset and Module Standby.  Hence the
-> same register bitfields are referred to in the power-domains and
-> resets properties, through the module number.
-> 
-> Module Standby controls the clock(s) going into the module,
-> and is modelled as an SCMI clock (SCP_CLOCK_ID_MDLC_*) by the SCP
-> firmware. This is very similar to how MSTP (Module Stop) clocks are
-> handled on earlier R-Car SoCs (except that the SCP_CLOCK_ID_MDLC_*
-> clocks have a zero rate :-(.
-> 
-> Summarized, the first cell is the power domain part, and the second
-> cell is the clock domain part.
+CONFIG_FIPS_SIGNATURE_SELFTEST=3Dy
+CONFIG_FIPS_SIGNATURE_SELFTEST_RSA=3Dy
+CONFIG_FIPS_SIGNATURE_SELFTEST_ECDSA=3Dy
 
-Thank you for the clarification.
-
-Since there are up to 32 MPDG registers, and 256 resets, can we encode 
-both into a single cell ?
-
-(mpdg_register_offset << 16) | (reset_bit_offset << 0)
-
-I cannot tell whether this is much better, but it at least ties the PD 
-components (power domain and clock domain) into a single value, which 
-matches reality a bit better. The current split power domain and clock 
-domain description in two cells gives me the illusion that it is 
-possible to mix and match power domains and clock domains in DT 
-description, but in fact the two cells are strongly tied together.
-
-If we cannot encode the two into a single cell, maybe we can at least 
-have some sort of macro for this, e.g. this (0xff as no MPDG register 
-bits for this block):
-#define R8A78000_MDLC_PD_HSCIF0 (0xff << 16) ((0x5 << 4) | (0x3 << 0))
-
-What do you think ?
-
-> So perhaps I will clarify like this:
-> 
->        - The first power domain specifier cell is the power domain part, and
->          must be either the Module Power Domain Gating (MPDG) register index
-
-... for power domains which are backed by MDPG bits, and which can be 
-controlled in that manner ...
-
->          (0x00-0x3f) from the datasheet, or a Power Domain number, as defined in
->          <dt-bindings/power/renesas,r8a78000-mdlc.h>,
-
-... for power domains which are always on, and for which there are no 
-MPDG bits which can be used to control them ...
-
->        - The second power domain specifier cell is the clock domain part, and
->          must be the module number (0x00-0xff), composed of the Module System
->          Reset (MSRES) register index in the high nibble, and the Module Reset
->          Destination bitfield index in the low nibble.
-
-I can understand this.
-
->>> +  '#reset-cells':
->>> +    description:
->>> +      The single reset specifier cell must be the module number (0x00-0xff).
->>> +    const: 1
->>
->> [...]
->>
->>> +#ifndef __DT_BINDINGS_POWER_RENESAS_R8A78000_MDLC_H__
->>> +#define __DT_BINDINGS_POWER_RENESAS_R8A78000_MDLC_H__
->>> +
->>> +/* R-Car X5H MDLC Power Domains */
->>> +
->>> +#define R8A78000_MDLC_PD_AON                 0x40
->>> +#define R8A78000_MDLC_PD_SCP                 0x41
->>> +#define R8A78000_MDLC_PD_APL                 0x42
->>> +#define R8A78000_MDLC_PD_CMN                 0x43
->>> +#define R8A78000_MDLC_PD_ACL                 0x44
->> ... what do these numbers represent ? Shouldn't those be register
->> offsets from MDLC MPDG00 according to power-domain-cells ?
-> 
-> These are Power Domains that are not backed by any of the 64 Module
-> Power Domain Gating (MPDG) registers in MDLC blocks.
-
-I suspect that might not be entirely correct for all of them, please 
-read on and see CMN below.
-
-> It is not clear to me if they can be controlled manually, probably
-> they are just always sequenced automatically on power-up.  As the
-> documentation does treat them as separate domains (see e.g. Table 14.1
-> Power Supply Voltage Monitor Functions), I figured they would better be
-> exposed as separate domains, instead of as a single always-on domain,
-> like on earlier R-Car SoCs (cfr. R8A779*_PD_ALWAYS_ON domains number
-> 32 or 64).
-> 
-> See also the X5H_Power_domain_structure.xlsx attachment in the R-Car
-> X5H documentation.
-
-This is indeed helpful piece of documentation, together with X5H_MS, but 
-I think the later is still being updated.
-
-Let's take PD_AC00 , AP core 0 , as a domain of interest. My 
-understanding is, that the domain structure for PD_AC00 looks as follows:
-
-PD_AON {
-   PD_SCP { };
-   PD_APL {
-     hierarchy is SYSSS
-     always-power-on
-     PD_CMN {
-       hierarchy is CMNN
-       power-gating-bit is MDLC_CMNN 20
-       PD_APU0 {
-         hierarchy is SYSSS
-         power-gating is done by APMU
-         PD_ACL0 {
-           hierarchy is CMNN
-           power-gating-bit is MDLC_CMNN 16
-           PD_AC00 {
-             hierarchy is CMNN
-             power-gating-bit is MDLC_CMNN 0
-           };
-           ...
-         };
-         ...
-       };
-       ...
-     };
-     ...
-     PD_HSCIF0 {
-       hierarchy is PERW
-       power-gating-bit is MDLC_PERW 23
-     };
-   };
-   ...
-};
-
-With this in mind, I think CPU 0 DT node should refer to the PD_AC00 
-power domain this way:
-
-cpu@0 {
-   ...
-   power-domains = <&mdlc_cmnn R8A78000_MDLC_PD_AC00>;
-   ...
-};
-
-The MDLC driver would pass the PD_AC00 domain ID to matching SCMI power 
-domain management protocol call, or, for bare-metal MDLC driver, would 
-have to internally encode PD hierarchy, walk it, and apply PD operations 
-in each step.
-
-I think even for SCIF/HSCIF, the power domain reference should be 
-something along the lines of the following description. The MDLC driver 
-should internally encode that R8A78000_MLDC_PD_HSCIF0 is a sub-domain of 
-R8A78000_MDLC_PD_APL .
-
-serial@c0710000 {
-   ...
-   power-domains = <&mdlc_perw R8A78000_MDLC_PD_HSCIF0>;
-   ...
-};
-
->> If those are power domain IDs, then I am unsure why e.g. for SCIF the
->> domain ID is R8A78000_MDLC_PD_APL in [PATCH/RFC 13/14] arm64: dts:
->> renesas: r8a78000: Add CPG/MDLC nodes . Could you please expand on that ?
-> 
-> See the "Module Standby" attachment X5H_MS.xlsx in the R-Car X5H
-> documentation. The "PERW" tab shows that all PERW devices are located
-> in the PD_APL power domain, which is always-on.
-> This is different from e.g. the UFS controllers: they are located in
-> their own PD_UFS0 and PD_UFS1 power domains, which are controlled
-> through the Module Power Domain Gating registers (MPDGn) (cfr. the
-> "PERE" tab).
-Thank you for this clarification !
+Mimi
 
