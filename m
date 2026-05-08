@@ -4,93 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B3ECD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D42CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jV748N849RYQi6RggjQ0XmU2FvPCrHd7ojXmcuhGvG8=; b=KYE6KXug9XYoNG4RUFI0MgOyAS
-	JEn7CnJEC49BGcEdxjZaZfne2bfh0tAe280Z8M2SIQ5HPlMAEHDxu5rYUp73IoH9SgOlWI6rWlSyJ
-	DqUr/xNrJ7fI6OKFQgE1lwc+hNuQbbi4LQQcNYudKrawuejpblGw0wsV6eBfXsUnZxrVR5iTkcHrj
-	W7pGvY9/XSUrZlFI6V4A4cRMqeiJ3j34JdYl0QmmhOPiQG/PgY+BWUDBSa2McgUUKvDDtFKcQ/1nJ
-	Zkjlj0GLLD5381QdxZblGS3amDRVl93d0oDSG3Lusl4VDb++K3M8DPwfVKRndVIj2jhb/Lz24XDBQ
-	8Sc81/Sg==;
+	bh=KiIIvdKEwsS5o42ZqxLlOkKV/UZ2PsHSoIZ9DrLtxAQ=; b=x0pxXTvjy8CNHztDqLHauW+vCq
+	QBS0gxTeMcbcfhGJvWsL4Nd+lgbboQu7vS3B2SeIcQogZxHT8JoPBQf0eBwmvOgIY4yzTmcpd8rLG
+	3p28XnZ8Gha9tD1vZbZ8Fh4OnZ02WKKam9Lvn0qWsJxAooiBfWC9adQt1AOovUR1xyM6h7xiQXYjT
+	rm/v47VjhDvQSdb/wRg6mZBpOLlhq33mw7hHzBfbrr1oQd32Q0P8WoGqFT9419+Iqpihpxuqox7bG
+	vtRtHtuTcPpZHwt9bNQb7jX5fC5y9W6R9Hvo9FtVwGZwAmfBY+uCzIHcN+vISCEPx9oBtnqqzqfJV
+	3lXzPeFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLLoC-00000006d2c-2zbt;
-	Fri, 08 May 2026 14:04:04 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wLLzH-00000006e6p-2s2J;
+	Fri, 08 May 2026 14:15:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLLoA-00000006d1p-0CzN
+	id 1wLLzD-00000006e6D-3nlY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 14:04:03 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ba180a022dso88395ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 07:04:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778249041; x=1778853841; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jV748N849RYQi6RggjQ0XmU2FvPCrHd7ojXmcuhGvG8=;
-        b=GrMXVzWxE9QuNLMnLAiq1oqw4axdAmlgbmw7LBR13VxQhbmI+1byOCuWdGh6Qp2VWn
-         hU3Op4ssa1uZHWzfzzWRiquDheQ47lodmvbo0iUzZ9ETD1pBKdJ8pswnElkIVrRmLARv
-         G7TE9XnPE7T8k0D7VvlJAou3eZtJ4SqZajYCKeLH2NqaxNkOU5LhFGp/WFD2ltUGrZwt
-         NqLJcAmfb8pKg9DRrev4J/3HdmGV+ZybusYtdXG9DYxucnwVABFAR6tbrKAos352rshV
-         fRW4L6006ZsdjjA834DlhMvtqY/PsnlxJXCFchb3vqeRL0s5DjaCfqcTUNs5dRMWf41i
-         IRbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778249041; x=1778853841;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jV748N849RYQi6RggjQ0XmU2FvPCrHd7ojXmcuhGvG8=;
-        b=DefJt2Efqguh0QwUQVXLgU20/ZCm8+Rz6c3+fPkQCChPhzRgsFbpQyIBR33D4B9eWE
-         TMyy9JsFxdTvdcjQOIC6gaInO2wudBO+kH3J28eACyIEWxsJ8Ok+izHN7jlqK51nHH4k
-         PYgYGA7562lUM2rrEGj5OMBJCEQGYf/TO84+i88azBhmvnZDs0sx8EZtFEcumjHvunee
-         Z8QmffyX3V8vD7CoFvq2vai6w0uWZfST1ZXE7VMFRVGmH7Uok0Hl/gSTMXQE5Xj1zN7b
-         NwUMxiOh2WzzT4GVk85KWqRjv7fht7xieIitHSPH3JpdC91dw6hshR50KKLHltayjgsU
-         8mgw==
-X-Forwarded-Encrypted: i=1; AFNElJ+2Pt0mOkgt+yGqr5V/NsCdqKw2e+WZF1d8H8SDxq1MIMgkc86zyKQoWi3WaqOZPW/X1KIbet1oPcH/DI8c1B8z@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvNf00DhOcUTqEpkQwlP96v2vwfwJuwfMt0AJ0xlJSzeqH3vyC
-	oDE5uNRIsg5QYv4mCWL249PKDxmInrVNb82vdgPdgzRWlEuCESY75Nt77sy3di7TAQ==
-X-Gm-Gg: Acq92OHCxenZvUmC3xYTUjF/b7tPqrUrVaXqIoPBBUqn39Md5SatutDWPof75hMd+H4
-	bDx0OkjnPXa7z34J5Ue7WuA1NYQGG1LxdiwsY/seFNFTgit+4yG0WolhZwVJleR2aq3+XyOd5mL
-	UzBbHkTvr2HyFlB8Nr/sTBj9UezxORYF4be22zY5V+hoQhAWJWfBquwwWJ3XDYMxqK77hzF0Ea+
-	vCVZle6Nltw2xirrJ4c9Tv6FMseecne6Iur5e2QIatmOGwWEm4Kd8kXRdKJKBdyey27iOlETg8w
-	Opq6aWz8MolsMw5qOJ1jfZsYGxZxuW52qk6scaK9Bs2+RxxTyQtWpSTJMZM0cg96BKk1TJ5VXEd
-	xAztXW+JqxJq0FkGeIAk+UvrXjAIJA9M/594kjb5BcOQr9EHgap4m9hsDLdPeJQdq+alCb+U3Cb
-	tNoTNw5bGI6D3FN11drTZwEo2skVJXRsyEttyG9psU5WifUGDRLWYrg/o4UItD9BtWa9B/
-X-Received: by 2002:a17:903:1b66:b0:2a7:6c4e:5914 with SMTP id d9443c01a7336-2bae9ab0221mr3993415ad.6.1778249040522;
-        Fri, 08 May 2026 07:04:00 -0700 (PDT)
-Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367bed0ad05sm18255a91.12.2026.05.08.07.03.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 07:03:59 -0700 (PDT)
-Date: Fri, 8 May 2026 14:03:52 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 0/9] Remove SMMUv3 struct arm_smmu_cmdq_ent
-Message-ID: <af3tSOYMS-X43B4N@google.com>
-References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+	Fri, 08 May 2026 14:15:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D04D741A66;
+	Fri,  8 May 2026 14:15:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0A58C2BCB0;
+	Fri,  8 May 2026 14:15:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778249726;
+	bh=CREVdtNhaxbusuRm1+ZihtO0voX7GFpdje5lcx7aLDE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OcUc2XoycrQTQdgp42eDDaKK7hXCGxj976qeAYGV+goYs/Q5XDmSnPoVFmFXEmD8V
+	 yg3KuKgthWslbdnBj+I57bzSz3jE4S9zHT3Axj13rhLfu6GqYdRK62Ig9TwKBDK7nU
+	 k4bLckDbP7BtuAuFxwKTdRb/85oo3l9erPnl2TT/rLJFlQdi06dUvHBgCinOQzQ9at
+	 w3z1YzPjU+CzBog68uo/z4aXL36HV5pNEiB26QQHXd40I/sy0R7q5ugnVjtrM5xXs5
+	 Y9rcKRI2QikZ73DcRn09TFAIVamOqHcamjjJnL1urx4sFl9lw0mCtWYdYzsrzhvdVG
+	 GQiPUcKzFxOMg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wLLz9-00000000MRz-40c0;
+	Fri, 08 May 2026 14:15:24 +0000
+Date: Fri, 08 May 2026 15:15:23 +0100
+Message-ID: <86jytexa10.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,	Hanjun Guo
+ <guohanjun@huawei.com>,	Sudeep Holla <sudeep.holla@kernel.org>,	Catalin
+ Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,	Mark Rutland
+ <mark.rutland@arm.com>,	Daniel Lezcano <daniel.lezcano@kernel.org>,	Thomas
+ Gleixner <tglx@kernel.org>,	Rob Herring <robh@kernel.org>,	Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,	Conor Dooley <conor+dt@kernel.org>,	Chen-Yu
+ Tsai <wens@kernel.org>,	Jernej Skrabec <jernej.skrabec@gmail.com>,	Samuel
+ Holland <samuel@sholland.org>,	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,	Ge Gordon
+ <gordon.ge@bst.ai>,	BST Linux Kernel Upstream Group
+ <bst-upstream@bstai.top>,	Jesper Nilsson <jesper.nilsson@axis.com>,	Lars
+ Persson <lars.persson@axis.com>,	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,	Pengutronix Kernel Team
+ <kernel@pengutronix.de>,	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen
+ <dinguyen@kernel.org>,	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@kernel.org>,	Jonathan Hunter
+ <jonathanh@nvidia.com>,	Bjorn Andersson <andersson@kernel.org>,	Konrad
+ Dybcio <konradybcio@kernel.org>,	Andreas =?UTF-8?B?RsOkcmJlcg==?=
+ <afaerber@suse.de>,	Heiko Stuebner <heiko@sntech.de>,	Shawn Lin
+ <shawn.lin@rock-chips.com>,	Orson Zhai <orsonzhai@gmail.com>,	Baolin Wang
+ <baolin.wang@linux.alibaba.com>,	Michal Simek <michal.simek@amd.com>
+Subject: Re: [PATCH 02/16] clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE
+In-Reply-To: <20260507125544.2903406-3-maz@kernel.org>
+References: <20260507125544.2903406-1-maz@kernel.org>
+	<20260507125544.2903406-3-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
+ heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_070402_093242_B16AF5CC 
-X-CRM114-Status: GOOD (  25.76  )
+X-CRM114-CacheID: sfid-20260508_071527_981333_36832B8D 
+X-CRM114-Status: GOOD (  26.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,73 +111,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 01, 2026 at 11:29:09AM -0300, Jason Gunthorpe wrote:
-> [ This is part of the patch pile to move SMMUv3 over to the generic page
-> table:
-> 1) Introduction of new gather items and RISCV usage
->   https://patch.msgid.link/r/0-v1-54e7264d71b4+17cc3-iommu_riscv_inv_jgg@nvidia.com
-> 2) Remove SMMUv3 struct arm_smmu_cmdq_ent
-> 3) Organize the SMMUv3 invalidation flow so iommupt can use it
-> 4) Use the generic iommu page table for SMMUv3
+On Thu, 07 May 2026 13:55:30 +0100,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> The whole branch is here:
->    https://github.com/jgunthorpe/linux/commits/iommu_pt_arm64/
-> ]
+> When running with at EL2 with VHE enabled, the architecture provides
+> two EL2 timer/counters, dubbed physical and virtual. Apart from their
+> names, they are strictly identical.
 > 
-> The invalidation logic has this multi-step process where it first
-> writes the command into a 32 byte struct arm_smmu_cmdq_ent, then it
-> calls a function which converts it into a 16 byte HW struct, and
-> sometimes it then edits the HW struct a little bit before passing it
-> off to the batch or submission functions.
+> However, they don't get virtualised the same way, specially when
+> it comes to adding arbitrary offsets to the timers. When running as
+> a guest, the host CNTVOFF_EL2 does apply to the guest's view of
+> CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
+> the architecture is broken past the first level of virtualisation
+> (it lacks some essential mechanisms to be usable, despite what
+> the ARM ARM pretends).
 > 
-> Instead just generate the HW struct directly by moving the FIELD_PREP
-> blocks out of the big case statement and into helper functions. Call the
-> right function in all the places that were building arm_smmu_cmdq_ent.
+> This means that when running as a L2 guest hypervisor, using the
+> physical timer results in traps to L0, which are then forwarded to
+> L1 in order to emulate the offset, leading to even worse performance
+> due to massive trap amplification (the combination of register and
+> ERET trapping is absolutely lethal).
 > 
-> Add a type for the CMDQ entry similar to the STE/CD types that wraps the
-> two u64s for clarity and use it everywhere.
-> 
-> This is intended to have no functional change. It makes the following
-> patches work better and removes a bunch of LOC. I've run several AI tools
-> with instruction to look for functional changes, which did find one subtle
-> mistake in PRI response.
-> 
-> The removal of arm_smmu_cmdq_build_cmd() also achieves what Mostafa is
-> doing in the pkvm series by making the command formation entirely header
-> based with the arm_smmu_make_cmd_*() mini inlines.
-> 
-> This series has no dependencies. Several people have already tested this
-> on various ARM systems along with the full iommupt conversion.
-> 
-> Jason Gunthorpe (9):
->   iommu/arm-smmu-v3: Add struct arm_smmu_cmd to represent the HW format
->     command
->   iommu/arm-smmu-v3: Use the HW arm_smmu_cmd in cmdq selection functions
->   iommu/arm-smmu-v3: Use the HW arm_smmu_cmd in cmdq submission
->     functions
->   iommu/arm-smmu-v3: Convert arm_smmu_cmdq_batch cmds to struct
->     arm_smmu_cmd
->   iommu/arm-smmu-v3: Remove CMDQ_OP_CFGI_CD_ALL from
->     arm_smmu_cmdq_build_cmd()
->   iommu/arm-smmu-v3: Directly encode simple commands
->   iommu/arm-smmu-v3: Directly encode CMDQ_OP_ATC_INV
->   iommu/arm-smmu-v3: Directly encode CMDQ_OP_SYNC
->   iommu/arm-smmu-v3: Directly encode TLBI commands
-> 
->  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     |  24 +-
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 475 +++++++-----------
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   | 248 +++++----
->  .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    |  16 +-
->  4 files changed, 350 insertions(+), 413 deletions(-)
-> 
+> Switch the arch timer code to using the virtual timer when running
+> in VHE by default, only using the physical timer if the interrupt
+> is not correctly described in the firmware tables (which seems
+> to be an unfortunately common case). This comes as no impact on
+> bare-metal, and slightly improves the situation in the virtualised
+> case.
 
-I was able to test this with 7.1-rc3 on an Arm server with the 
-iova_stress test [1]. For the series:
+One thing I missed in this patch is that although we now use the EL2
+virtual timer, we are still using the EL2 physical counter. They both
+report the same thing, but this is missing a reasonable optimisation
+in the NV case, which is the whole purpose of this patch.
 
-Tested-by: Pranjal Shrivastava <praan@google.com>
+I'll fix that for v2.
 
 Thanks,
-Praan
 
-[1] https://github.com/soleen/iova_stress
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
