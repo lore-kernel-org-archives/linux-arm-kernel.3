@@ -4,127 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622B6CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 12:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC43CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 13:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
-	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CNT8qK90tO4DRCBa6Q1VeOcJ+2/2PVh6nuYm8vkCehA=; b=pCTuKX9Dgh9YGKcuCyqVJVAjjt
-	/y7UjR+UA9ka8LDhhj6atH8em36vcnfeKlopT+i61FtDj3BJG4CidCxNquBPEgHodiL7n183LnxrU
-	DU0AtE8Zpsap2syxEdV06U1eaacMZCxnpmhdTdWMoFYXGggCO7q8WDcGIDS5uO6zN6gY/wvjKDyp/
-	YqgZSvtVlYmtdAOZzr03nqRvOKIZ8h/gjZjAOK5hcPmx5u2ITadKB64nIkNg0rP4AwDjIENzvrQAX
-	c2m6UgtFrc1OAdFlIqqk06KSVc/lwZbcl4lfNkRajbdzXFpWIGhZ0s7o/366SpSmbVY/1hacmHiAf
-	moJvBGKw==;
+	bh=RfHi7123Slj2oc7EjLwdj+vUC8W76ZS+ntDpkIRxN+U=; b=cY8fkZSGjlXnEA4egfZfG7frNv
+	fnc1kL1uPEuXATuuixU5XBHudhpAnNNnFhd+K0WNe87QBxmqSMK4UDMWILCqBhwPI1y14/4aigXqG
+	QByJOWRzQU38sw96zNBVG+BFRSBG9UNcvG0BfxaVUPo/Qjw1ZX4mPjgA7ae9GLz/pCzi9D6jPfac3
+	sgyr67Ge7S/HOfnCIJh6RBCNZr7IcBSM4Uq9dF9zakz+6hx/4WdDykZLpcHxRmgFnz59sg1s5fjEG
+	v3rVZBd5WM0w0Zqnpca1dkxzJVn7C90pr+0g17ToAYjaY5V7bXo5TuwaLZXRg/mDWK/DztK5n60rM
+	ggIR537w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLKkd-00000006VQu-2zsg;
-	Fri, 08 May 2026 12:56:19 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wLKsg-00000006Vtj-2DXj;
+	Fri, 08 May 2026 13:04:38 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLKkb-00000006VQ9-2J2z
+	id 1wLKse-00000006Vt8-1i9y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 12:56:18 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 647MdOX82752196;
-	Fri, 8 May 2026 12:55:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=CNT8qK
-	90tO4DRCBa6Q1VeOcJ+2/2PVh6nuYm8vkCehA=; b=qAlkhycXw4gtpTG5+LJ5po
-	PDVZo4vzWxnyxrQaoUzBiIsXIsMNix5CIEDobA/ATdlrcmXwMhD1qYTatiIBpqAv
-	lqb3/Awy6xerfM7kQbzUJmxlW+IxdOXOCD+of1TSgBLYmlJbf3lybKkxlOiuhevS
-	MQkvG8iuM4eZUHuU18k7SBJrGO5JX1DZ8oca16zVvCqo8jZIiWAmfWByFXh5CcrK
-	jhYt0L0yUSpCAM0ryVCcTyX1L6iHKZJJXgYkCPOkO05O6SwA4RNRKQgTyyXRrPz3
-	czD15LJUqzUQFWBNLYBJfNiTQafMKDk7mTHJm4616FXcWJWpYOAmk5UX6XrgBOvg
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9x53rqn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 08 May 2026 12:55:45 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 648CdfU6020024;
-	Fri, 8 May 2026 12:55:43 GMT
-Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dwuywga2y-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 08 May 2026 12:55:43 +0000 (GMT)
-Received: from smtpav01.wdc07v.mail.ibm.com (smtpav01.wdc07v.mail.ibm.com [10.39.53.228])
-	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 648CthT133358464
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 8 May 2026 12:55:43 GMT
-Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7A3C65806B;
-	Fri,  8 May 2026 12:55:43 +0000 (GMT)
-Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 25CE15806F;
-	Fri,  8 May 2026 12:55:41 +0000 (GMT)
-Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.52.128])
-	by smtpav01.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Fri,  8 May 2026 12:55:41 +0000 (GMT)
-Message-ID: <2b3782398cc17ce9d355490a0c42ebce9120a9ae.camel@linux.ibm.com>
-Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: David Safford <david.safford@gmail.com>,
-        Jonathan McDowell	
- <noodles@earth.li>,
-        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
-        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
-        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
-        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
-        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
-        sebastianene@google.com
-In-Reply-To: <af2nhZyyNaP7LM3w@e129823.arm.com>
-References: <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
-	 <afrXmRiq7XvSe6yN@e129823.arm.com>
-	 <9ff4853a8e9932b3a1424f2a6c3347f1723fb5f4.camel@linux.ibm.com>
-	 <aftIuPwNeuzc9nY1@e129823.arm.com>
-	 <9d1af933ef218b159762884357d127e3644dfe2c.camel@linux.ibm.com>
-	 <afwoDgaJxmKwOhXp@e129823.arm.com>
-	 <f19081f1eda19d6d1ae133d8ec93e779ab1a25e5.camel@linux.ibm.com>
-	 <afyIbW5cljh5ZvTL@e129823.arm.com> <afzwJn+5r15jFxrB@e129823.arm.com>
-	 <77ad49cca1acf707f4152ed3e2066b2f24c90c16.camel@linux.ibm.com>
-	 <af2nhZyyNaP7LM3w@e129823.arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 08 May 2026 08:55:40 -0400
+	Fri, 08 May 2026 13:04:37 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4891ca4ce02so91385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 06:04:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778245474; x=1778850274; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=RfHi7123Slj2oc7EjLwdj+vUC8W76ZS+ntDpkIRxN+U=;
+        b=cdJSEYnUIEkjCPq5uCZqTmkVw4iwNs/+djN/tGEKePA4cps4lr34CNqeqkwzhwH5w7
+         6YE1EGZkNVg9nsqPhuEGjYQ5+OkYR6bqptP86Ocj46aTeB5CcfLaTuBcJyKiO7nPOlll
+         LB3p/uyx9hlBan/u2eKxdvfZDIWIxsCeGJUfiHv/w+YHZ0PGxesqB+gwLKdUU6aCJnCL
+         jhwxfnrNPxxQIqTLcvByZnUkLmWhIacFFFUah1DyUHVpVXtSCFNqzyYvaVj8//8vOdXS
+         jVERp9K/u5N2igv4m1hSOPd1NU4hNSgJ0+pB1DCwgZ5i+4fIfYqzt8SqYc219qlg4enH
+         tCLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778245474; x=1778850274;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=RfHi7123Slj2oc7EjLwdj+vUC8W76ZS+ntDpkIRxN+U=;
+        b=jGoWXJEhqS0CjUS2DmDodNqO2raiFTznj73W6iwDfuIOOSWdLKjWCXedRaywNlpdaD
+         MUlAu+Ye0vnWOqE/NWc+utO/vTXVebYQcgWvlhYEOGKk/UnuiKIeSGWbIcjJgCM2mdVq
+         x5mYpXlo+jH8aTNKjyQn5BKVrTG4qF/dhsgZs85fUTaDY+dhNnlB/PZmEvXouW/xtS6j
+         c1NbyZYJS5vNtxP8IaCV/ur7hRXiuq8L2wnHbFUwIlOAh8wYskw+dqMUm7LZy9nfcX53
+         ywL9suTtety4uw6cWeqV91LZmy5bDX0t0Iqn4GlhdHsELsG50qaPLOsm2VJFTQ6Bwp5+
+         JKeA==
+X-Forwarded-Encrypted: i=1; AFNElJ9HrAOJlYL+nn8F3GjCX1bOCFAKMb5vjtci4QdHE+NVMN8oLnKgYZvJtdaFMvjD1oD3TmONfmsTIcsk22ds1X7t@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuJ3hBrSG/3hCWMmiG0CV62IbH38cc9Ey/L1KRwZYDJ0ly/cmD
+	qjYhNPjdh91hmiAgEuMW/230Zq/EblJc9wKpbcKWUx4LmfflU81m/TWRdaCChoX9dw==
+X-Gm-Gg: AeBDietnFb1/OSJdFxtyM+2NJPfXDcTUw1zPhLDJLm6oDRliXqg+YUwtxxM8bBWhhQE
+	h8T1EYuPhtqUARy8cxNP+MWEA9weufMfVj+S9oVPANsKXScOiVHHUBbv1C0AnIpNf5HTewNomel
+	o/vjlGiSdvojQW48KIWhdeC0lrlgB2o1qO+cYv3aVfStSbqKYsuJsO4TO1tXuT6nSGueC08ncGW
+	rIZ73W1Gx5Ons3zycxnYus6x0JYwZVB3z+RnMDaxqx4PMi+S4rHdzaNm/JTnddGL4XIk5Copz0X
+	N2NBdaX84Pp1UHhd8YOh6s6VLiu+5rJffrDZmKiP0pB9cxHu79d+va8JuJgNDNUPwLGIr0pUiHl
+	vIpIEPDwsJdRwvMf8cK/SY6D23t8PJPZh7OL8x5iftkUnCdqzT3Qek0gT6fa1qYftd/PqN17Uhn
+	1rrN7du5MRyeRl+pYZO8miXXk2hUv12iKRZ+YvS9KaDFypmLKkD+RWjeXbpchpgGJd9xL7poqQY
+	G8ywTN+
+X-Received: by 2002:a05:600c:4314:b0:489:1bbb:3356 with SMTP id 5b1f17b1804b1-48e64b05fbfmr681905e9.2.1778245473828;
+        Fri, 08 May 2026 06:04:33 -0700 (PDT)
+Received: from google.com (117.15.199.104.bc.googleusercontent.com. [104.199.15.117])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e65a0fb25sm28858385e9.6.2026.05.08.06.04.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 May 2026 06:04:33 -0700 (PDT)
+Date: Fri, 8 May 2026 13:04:27 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: catalin.marinas@arm.com, oupton@kernel.org, will@kernel.org,
+	joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	android-kvm@google.com, mrigendra.chaubey@gmail.com,
+	perlarsen@google.com, suzuki.poulose@arm.com, vdonnefort@google.com,
+	yuzenghui@huawei.com, Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: Forward FFA_NOTIFICATION* calls to TrustZone
+Message-ID: <af3fW468-f1KXCrC@google.com>
+References: <20260501114447.2389222-2-sebastianene@google.com>
+ <86wlxgy00t.wl-maz@kernel.org>
+ <afxuDpecPCVA56cL@google.com>
+ <86se83xrwx.wl-maz@kernel.org>
+ <afyd8u85L5XIl6dh@google.com>
+ <86qznnxptx.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA4MDEzMSBTYWx0ZWRfX0GEHvismOr/n
- yL3KnjqVPl3k3o5t4By0xsuVICtLo4mcf2LhMsMA7D8UtFoAk/kD6YiWYgHyq+wz4p//8yQGRF/
- yrLxJ1RBz3LvkUtlsB5sSapQ4lEMuatN7zIFALpVLfaChy+BYG53J8xK815TxzQ+wPwdIhTMyiT
- FtdSxlz+hckgfS1c2tJd/ggZh4KhYZZaHAjIstlJ6A3prqSlczq+T3vYhPcT7qr727p3hBdAEH+
- 0UTiFJc3eEkAtS5jf7NXNekOdHwmJ7LeJBm7Kd8/t4bmC/6W9lskHXHaeCMmJsnUK2FnzGr+zcW
- JAgFEuWYdLedfhuE1LAkLJSFuH+IXt+3QeL1/YgfPF+AlYFK7UsfP0gvxmOfyanJ++T8hEzBnFC
- ucT8TXRTykJLWhKbRum9ZwKl+7qj9pq9V9YxF/IOiTuf/wup7a8D8A2wlab9vD/fHnuTb5laOxo
- MSW9S0ZC/gxY3rAVbXw==
-X-Proofpoint-ORIG-GUID: 2l_3ko0Exadu_5ZF5KPsMugHlnC-OGcV
-X-Proofpoint-GUID: kB6MJOa0lJ5Hl5Uuk4_weLGs3pN_k0Vo
-X-Authority-Analysis: v=2.4 cv=W7UIkxWk c=1 sm=1 tr=0 ts=69fddd51 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=jeveBUE32ww0wtG-KO0A:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-07_02,2026-05-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 lowpriorityscore=0 malwarescore=0
- suspectscore=0 spamscore=0 clxscore=1015 phishscore=0 bulkscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2605080131
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86qznnxptx.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_055617_596820_E71EBE36 
-X-CRM114-Status: GOOD (  24.77  )
+X-CRM114-CacheID: sfid-20260508_060436_496195_F52824FF 
+X-CRM114-Status: GOOD (  53.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,91 +107,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2026-05-08 at 10:06 +0100, Yeoreum Yun wrote:
+On Thu, May 07, 2026 at 03:21:46PM +0100, Marc Zyngier wrote:
+> On Thu, 07 May 2026 15:13:06 +0100,
+> Sebastian Ene <sebastianene@google.com> wrote:
+> > 
+> > On Thu, May 07, 2026 at 02:36:46PM +0100, Marc Zyngier wrote:
+> > > On Thu, 07 May 2026 11:48:46 +0100,
+> > > Sebastian Ene <sebastianene@google.com> wrote:
+> > > > 
+> > > > On Wed, May 06, 2026 at 05:29:22PM +0100, Marc Zyngier wrote:
+> > > > 
+> > > > Hello Marc,
+> > > > 
+> > > > > [+ Sudeep]
+> > > > > 
+> > > > > On Fri, 01 May 2026 12:44:48 +0100,
+> > > > > Sebastian Ene <sebastianene@google.com> wrote:
+> > > > > > 
+> > > > > > Remove the FFA_NOTIFICATION* calls from the blocklist used by the pKVM
+> > > > > > FF-A proxy. This restriction was preventing the use of asynchronous
+> > > > > > signaling mechanisms defined by the Arm FF-A specification to
+> > > > > > communicate with the secure services.
+> > > > > > While these calls are markes as optional, there is no reason why the
+> > > > > > hypervisor proxy would block them because:
+> > > > > > 
+> > > > > > 1. Host is the Sole Non-Secure Endpoint: The Host operates as the
+> > > > > >    only Non-Secure VM ID (VM ID 0) recognized by the Secure World.
+> > > > > 
+> > > > > Where is this enforced?
+> > > > > 
+> > > > 
+> > > > There is no enforcement in place in the hypervisor since we don't proxy
+> > > > FF-A from guest VMs, there is only one non-secure user of this which is the host.
+> > > 
+> > > And again: what makes that VM ID 0? Why can't the host pick VM ID 32
+> > > and use that?
+> > > 
+> > 
+> > The host discovers its id through the FFA_ID_GET and TZ returns 0 in
+> 
+> Does it? How do you verify this?
+> 
+ 
+It is written in the spec under 13.10 FFA_ID_GET ("ID value 0 must be
+returned at the Non-secure physical FF-A instance"). If this contract is
+broken and TZ in not spec compliant I am afraid there is not too much
+that we can do.
 
-> > The kernel selftests caused the measurements between late_initcall and
-> > late_initcall_sync.  After disabling all of the kernel selftests, there=
- weren't
-> > any measurements. Re-enabling the FIPS selftests on PowerVM LPAR result=
-ed in
-> > measurements.  (I didn't try re-enabling any of the other selftests.)
-> >=20
-> > CONFIG_FIPS_SIGNATURE_SELFTEST=3Dy
-> > CONFIG_FIPS_SIGNATURE_SELFTEST_RSA=3Dy
-> > CONFIG_FIPS_SIGNATURE_SELFTEST_ECDSA=3Dy
->=20
-> Thanks for shraring this ;)
->=20
-> I found the reason for those mesaurements. Those come from the
-> request_module() and usermode-thread generates them while handling module
-> loading request for crypto-x962(ecdsa-nist-p256).
-> Since it's not a real kernel module,
-> I confirmed file measurements between late_initcall and
-> late_initcall_sync are gone for modeprobe with below change:
->=20
-> @@ -1246,9 +1250,14 @@ EXPORT_SYMBOL_GPL(ima_measure_critical_data);
->   */
->  static int ima_kernel_module_request(char *kmod_name)
->  {
->         if (strncmp(kmod_name, "crypto-pkcs1(rsa,", 17) =3D=3D 0)
->                 return -EINVAL;
->=20
-> +       if (IS_BUILTIN(CONFIG_CRYPTO_ECDSA) &&
-> +           (strncmp(kmod_name, "crypto-x962(ecdsa", 17) =3D=3D 0))
-> +               return -EINVAL;
-> +
->         return 0;
->  }
->=20
->  Though this is the only request_module() call between
->  late_initcall and late_initcall_sync, but I also confirmed there're
->  request_modules() call before ima initalisation before "late_initcall":
->=20
-> /*
->  * NOTE: kmod_name is printed on ima_kernel_module_request()
->  */
->=20
-> // This is called from module_init(stm_core_init) -> device_initcall()
-> // which is in driver/hwtracing/stm/core.c (built-in)
-> [    1.421986] ima: kmod_name: stm_p_basic
-> ...
-> [    1.444900] ima: kmod_name: crypto-pkcs1(rsa,sha512)
-> [    1.444903] ima: kmod_name: crypto-pkcs1(rsa,sha512)-all
-> ...
-> [    1.452029] ima: kmod_name: crypto-cbc(aes)
-> [    1.465321] ima: kmod_name: crypto-cbc(aes)-all
-> ...
-> [    1.467845] Key type encrypted registered
-> [    1.467848] AppArmor: AppArmor sha256 policy hashing enabled
->=20
->  // IMA is initailised at late_initcall level.
-> [    1.467850] ima: [init_ima_late:1336]
->=20
-> If IMA should care request_module() from kernel before IMA init,
-> I think there is no way to solve except queuing those events
-> (kernel_load_data/kernel_load_post_data and open for module binary etc.)
-> though it breaks "measure before use" principle since IMA couldn't
-> measure at that time.
->=20
-> But if you don't care about those things -- some events happend before
-> IMA init, I think your suggestion -- controlling the init time of ima_ini=
-t()
-> via a Kconfig option is good and ignoring some usermodehelper request
-> including request_module() before IMA initialisation upto user by that op=
-tion.
+> > this case. However if it wants to use VM ID 32 in any other call it
+> > absolutely can but what would it be the attack here, what is your
+> > concern ?
+> 
+> Let's be clear: I don't give a damn about a potential attack vector.
+> The moment you add Secure to the mix, security is gone (funny, isn't
+> it?). I care about being strict about the spec, and not letting
+> through things that will eventually break.
+>
 
-Thank you for the complete analysis.  The early measurements before the TPM=
- is
-initialized is a problem that needs to be addressed.  As to whether the sol=
-ution
-will require queueing is yet to be determined. (Roberto has some thoughts o=
-n
-addressing it.) This discussion makes it clear that simply delaying IMA
-initialization by moving it from late_initcall to late_initcall_sync could =
-miss
-measurements.  That said, exposing it as an opt-in Kconfig for those who ac=
-cept
-the risk is a sensible pragmatic compromise.
+Understood. 
 
-Mimi
+> > 
+> > > > > >    Because all forwarded notifications are inherently attributed to
+> > > > > >    the Host by the SPMC, there is no risk of VM ID spoofing
+> > > > > >    originating from the Normal World.
+> > > > > 
+> > > > > I don't understand: either the host is always using VM ID 0, and we
+> > > > > have ways to check and enforce this (how?), or the simple fact that
+> > > > > the request comes from NS is a guarantee that the SPMC will treat the
+> > > > > VM ID as 0.
+> > > > > 
+> > > > > Which one is it?
+> > > > 
+> > > > My understanding is that when the hypervisor doesn't handle the allocation of
+> > > > the non-secure IDs (through FFA_ID_GET), everything that comes from non-secure
+> > > > is treated as having the VM ID 0 by the SPMC.
+> > > 
+> > > This looks terribly fragile. I'd rather you *enforce* these things
+> > > rather than allowing any random stuff from the host and relying on
+> > > the EL3 firmware to get it right (odds are that it won't).
+> > > 
+> > 
+> > I can verify the vmid is 0 for the notification calls that I enable.
+> 
+> Yes, please.
+>
+
+Ack.
+
+> > 
+> > > This also ties into this:
+> > > 
+> > > > > > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > > > > index 1af722771178..a82d0cd22a17 100644
+> > > > > > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > > > > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > > > > > @@ -675,14 +675,6 @@ static bool ffa_call_supported(u64 func_id)
+> > > > > >  	case FFA_RXTX_MAP:
+> > > > > >  	case FFA_MEM_DONATE:
+> > > > > >  	case FFA_MEM_RETRIEVE_REQ:
+> > > > > > -       /* Optional notification interfaces added in FF-A 1.1 */
+> > > > > > -	case FFA_NOTIFICATION_BITMAP_CREATE:
+> > > > > > -	case FFA_NOTIFICATION_BITMAP_DESTROY:
+> > > > > > -	case FFA_NOTIFICATION_BIND:
+> > > > > > -	case FFA_NOTIFICATION_UNBIND:
+> > > > > > -	case FFA_NOTIFICATION_SET:
+> > > > > > -	case FFA_NOTIFICATION_GET:
+> > > > > > -	case FFA_NOTIFICATION_INFO_GET:
+> > > > > >  	/* Optional interfaces added in FF-A 1.2 */
+> > > > > >  	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
+> > > > > >  	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
+> > > > > 
+> > > > > Shouldn't these be sanitised in a way? A bunch of registers are SBZ in
+> > > > > the spec, and I'd expect this to be enforced.
+> > > 
+> > > which still remains unanswered.
+> > 
+> > Missed this sorry. We can reject them in the hyp proxy if the caller
+> > uses non zero values in those registers.
+> 
+> I think we need that indeed.
+
+
+While at it I discovered that none of the FF-A calls in the proxy
+currently check for these SBZ registers. Would you be ok with a diff that
+fixes this before the patch with the notifications ?
+
+
+Refactor the handling logic in pKVM FF-A proxy to support checking for
+SBZ/MBZ values. While at it, drop the do_ffa_mem_xfer macro and replace
+it with two functions that make it clear that we re-write the
+function-id with a 64-bit variant, to keep the same behavior as before.
+Keep each handler in an array of structures together with a mask that
+corresponds to the SBZ registers the spec expects.
+
+
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index a82d0cd22a17..35443a894172 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -561,13 +561,6 @@ static void __do_ffa_mem_xfer(const u64 func_id,
+ 	goto out_unlock;
+ }
+ 
+-#define do_ffa_mem_xfer(fid, res, ctxt)				\
+-	do {							\
+-		BUILD_BUG_ON((fid) != FFA_FN64_MEM_SHARE &&	\
+-			     (fid) != FFA_FN64_MEM_LEND);	\
+-		__do_ffa_mem_xfer((fid), (res), (ctxt));	\
+-	} while (0);
+-
+ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 			       struct kvm_cpu_context *ctxt)
+ {
+@@ -854,9 +847,60 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+ 	hyp_spin_unlock(&host_buffers.lock);
+ }
+ 
++static void do_ffa_mem_share(struct arm_smccc_1_2_regs *res, struct kvm_cpu_context *ctxt)
++{
++	__do_ffa_mem_xfer(FFA_FN64_MEM_SHARE, res, ctxt);
++}
++
++static void do_ffa_mem_lend(struct arm_smccc_1_2_regs *res, struct kvm_cpu_context *ctxt)
++{
++	__do_ffa_mem_xfer(FFA_FN64_MEM_LEND, res, ctxt);
++}
++
++struct ffa_handler {
++	u32 func_id;
++	void (* do_ffa_handle)(struct arm_smccc_1_2_regs *res, struct kvm_cpu_context *ctxt);
++	u32 sbz_mask;
++};
++
++#define REG_RANGE_SBZ	GENMASK
++#define FFA_HANDLER(fid, cb, sbz) {	\
++	.func_id = (fid),	\
++	.do_ffa_handle = (cb),	\
++	.sbz_mask = (sbz),	\
++}
++
++static const struct ffa_handler host_handlers[] = {
++	FFA_HANDLER(FFA_FN64_RXTX_MAP,	do_ffa_rxtx_map,	REG_RANGE_SBZ(17, 4)),
++	FFA_HANDLER(FFA_RXTX_UNMAP,	do_ffa_rxtx_unmap,	REG_RANGE_SBZ(17, 2)),
++	FFA_HANDLER(FFA_MEM_SHARE,	do_ffa_mem_share,	REG_RANGE_SBZ(17, 5)),
++	FFA_HANDLER(FFA_FN64_MEM_SHARE, do_ffa_mem_share,	REG_RANGE_SBZ(17, 5)),
++	FFA_HANDLER(FFA_MEM_RECLAIM,	do_ffa_mem_reclaim,	REG_RANGE_SBZ(17, 4)),
++	FFA_HANDLER(FFA_MEM_LEND,	do_ffa_mem_lend,	REG_RANGE_SBZ(17, 5)),
++	FFA_HANDLER(FFA_FN64_MEM_LEND,	do_ffa_mem_lend,	REG_RANGE_SBZ(17, 5)),
++	FFA_HANDLER(FFA_MEM_FRAG_TX,	do_ffa_mem_frag_tx,	REG_RANGE_SBZ(17, 5)),
++	FFA_HANDLER(FFA_VERSION,	do_ffa_version,		REG_RANGE_SBZ(17, 2)),
++	FFA_HANDLER(FFA_PARTITION_INFO_GET,	do_ffa_part_get,	REG_RANGE_SBZ(17, 6)),
++};
++
++static bool is_sbz_error(const struct ffa_handler *cb, struct kvm_cpu_context *ctxt)
++{
++	int reg_idx, reg_end = fls(cb->sbz_mask);
++
++	if (!ARM_SMCCC_IS_64(cb->func_id) && reg_end > 7)
++		reg_end = 7;
++
++	for (reg_idx = 0; reg_idx <= reg_end; reg_idx++)
++		if (((BIT(reg_idx) & cb->sbz_mask)) && cpu_reg(ctxt, reg_idx))
++			return true;
++
++	return false;
++}
++
+ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ {
+ 	struct arm_smccc_1_2_regs res;
++	const struct ffa_handler *cb;
+ 
+ 	/*
+ 	 * There's no way we can tell what a non-standard SMC call might
+@@ -880,37 +924,22 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+ 		goto out_handled;
+ 	}
+ 
+-	switch (func_id) {
+-	case FFA_FEATURES:
++	if (func_id == FFA_FEATURES) {
+ 		if (!do_ffa_features(&res, host_ctxt))
+ 			return false;
+ 		goto out_handled;
+-	/* Memory management */
+-	case FFA_FN64_RXTX_MAP:
+-		do_ffa_rxtx_map(&res, host_ctxt);
+-		goto out_handled;
+-	case FFA_RXTX_UNMAP:
+-		do_ffa_rxtx_unmap(&res, host_ctxt);
+-		goto out_handled;
+-	case FFA_MEM_SHARE:
+-	case FFA_FN64_MEM_SHARE:
+-		do_ffa_mem_xfer(FFA_FN64_MEM_SHARE, &res, host_ctxt);
+-		goto out_handled;
+-	case FFA_MEM_RECLAIM:
+-		do_ffa_mem_reclaim(&res, host_ctxt);
+-		goto out_handled;
+-	case FFA_MEM_LEND:
+-	case FFA_FN64_MEM_LEND:
+-		do_ffa_mem_xfer(FFA_FN64_MEM_LEND, &res, host_ctxt);
+-		goto out_handled;
+-	case FFA_MEM_FRAG_TX:
+-		do_ffa_mem_frag_tx(&res, host_ctxt);
+-		goto out_handled;
+-	case FFA_VERSION:
+-		do_ffa_version(&res, host_ctxt);
+-		goto out_handled;
+-	case FFA_PARTITION_INFO_GET:
+-		do_ffa_part_get(&res, host_ctxt);
++	}
++
++	for (cb = host_handlers; cb < host_handlers + ARRAY_SIZE(host_handlers); cb++) {
++		if (cb->func_id != func_id)
++			continue;
++
++		if (is_sbz_error(cb, host_ctxt)) {
++			ffa_to_smccc_error(&res, FFA_RET_INVALID_PARAMETERS);
++			goto out_handled;
++		}
++
++		cb->do_ffa_handle(&res, host_ctxt);
+ 		goto out_handled;
+ 	}
+ 
+-- 
+2.54.0.563.g4f69b47b94-goog
+
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
+
+Thanks,
+Sebastian
 
