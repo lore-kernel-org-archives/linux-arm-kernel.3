@@ -4,137 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB8F0CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 03:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB588CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 03:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fLZSBMMRGW1Fp45yvmeMIZBNKK0bzr1EIL9mug0MwcE=; b=CVSwO31j/ZSNfSE91SMzikRDrH
-	wjQOiMLoljc+CO1GCmct+tE9na5KbbVaysnBLsEeuo8bMDnP12Y3y4Z1E5FetcKtalLFa7xbxnUbu
-	sFvxiFrPvtv1wRmh4xgDiJ+OLQCNzxMh6WmoVUKjI0ni+F0k/TrReUAq7DUmdwAR8xjtGUrWOOT3U
-	tTlEoVjJiYAIy8AToJ6jpoushAqFK2pxNlgs7ZyIImMmEiUQpzBS+4J7iGBvv9bQqXDXaEHAJHTRm
-	tsWqSLZQFxitucztxTbg1sxHJo8D/GftK0uB27exNmVyJKfUe0GbGWkOumMK7YMfXniNl92p+D9uZ
-	HVSZAlGQ==;
+	bh=reRkRqjYAqOrfzwvULLnluxWm4AO8m1gbsvG2J8HOkQ=; b=HXnNqQSSRRLt+TChjeasFQuJUC
+	GMG6xR1nMfa/Qy7QVO9ahV0FxV0xu415UJ7MQUg/Qw3iRX+8jJgn2TaXQ/dhazqnEUr93dnH2Bpb0
+	21O3gO1zAJb8Sfr3EYidju0D6T6MFdeXyK+Yw/brZ10SDXEJWjmmGj5S+QPqM14gca0FJ6osiNhK6
+	grQc67/Rr3+aXhYrW5M1qTCIiZiytbJ6e+3K2QHi9Wku6mdFPqWKNdQLL2O2mAKtp4SvXTCLd2dzG
+	WB/NyJl0jqM383h8QWmH3oNjGdVPGNLEoN+N8ID3Gokquqd1BIOqhOh1SlRGvWgT28fNjoQDslVrV
+	z6m4MlmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLBgf-00000005Plc-3PhN;
-	Fri, 08 May 2026 03:15:37 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wLBhK-00000005Pvg-44ms;
+	Fri, 08 May 2026 03:16:18 +0000
+Received: from inva020.nxp.com ([92.121.34.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLBgc-00000005Pjz-3qpL
+	id 1wLBhH-00000005Pu1-3Y1W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 03:15:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OnNczUpqZkxPt1YnAf7gVRCr+pG0KUbHd7wped0MX7ZmlCGwt8lUh/7pMgEzSK2hZQZrHjefn1gV+VhYufoeHLKbZWLDUXmhM7EXUDJ7OWh28kuBfhaxNAckMAohBbYYFUOjTIa98liTXIttgG+5KOstqagS1diia26Kq1aKms/y6ygiU0eTGyoRohAvduQnL6J3XmGBAlSU8KwzQaif6AOtwSElqeJBCtViSpvESmiOpvVXlrjAm5IBI6o1fp/2v1ZSbUtLEvwgGrL12oJNAcQTWjv89VtRf+Vri7F/4QllJBhIaXRvoae9GfLF5frVoBtlYNESZ4cuT639o1NqFQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fLZSBMMRGW1Fp45yvmeMIZBNKK0bzr1EIL9mug0MwcE=;
- b=r1IMaHtnexq8tw40ur78hWOIQtCnd870pKHMr2WPF8uOfLfsxMTMuJPraYlZnppuCzdSSjekCDZodU5+xwEw4xYc9fhlLVju5Fy1I3w3fIdpzuxDBMltRpChByEfBzF7c17r1avO1sMPRj9gYjSSKLTiwlhtWT8te0RPol4Mu3i8tx+FMxrRWSGn3fuSBMo/LgXxaRYqfUSaEtiVtVciORMWINUf16uIQTVP0Epl6D/hpXeIb8KY39EFvygV1fCFSa6sYZd1/hUC/Nf5OOKQIo1gHXABNkGcrtpwzze5WGQ1nQ9vKFZJX0NG0QE25TLtb6yjiWCUo94e78xJUN2fzA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fLZSBMMRGW1Fp45yvmeMIZBNKK0bzr1EIL9mug0MwcE=;
- b=i9rEZfKITSPc2uyMucyGo+juOEx7GoEYtavTXKmpyy0XDakdRclJHUmS5NBjBgHZ2u6vOciwAQ82O9c4L+vTLpCoFC/uzzKoOlyIC7RfN+sw+uNr+f58SSvZZIqkYRaoeyT/eTIeNyMNGPNbxqSyM7/gD57bcHYM6dYZwzbhrITnqjmy3w9f5arS2oYv494sy72KqRvd8Lit7PIdUZy3MHhOUKmC8tASGdsrqIwPYZQuX3ecrdEcLw11G2Iavphx1QJzM7GoC1hmIyR/bWKvcxErBPFIod5ZEr6hbq9Nhgsjb0hRzJriD7eOvy/5Ovwc/LEdjCKhdNosdF0EquHD+Q==
-Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
- (2603:10a6:150:30c::14) by GVXPR04MB12159.eurprd04.prod.outlook.com
- (2603:10a6:150:312::11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.17; Fri, 8 May
- 2026 03:15:30 +0000
-Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
- ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
- ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.20.9891.008; Fri, 8 May 2026
- 03:15:30 +0000
-From: Hongxing Zhu <hongxing.zhu@nxp.com>
-To: Sherry Sun <sherry.sun@nxp.com>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>, "bhelgaas@google.com"
-	<bhelgaas@google.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>
-CC: "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH V14 03/12] PCI: imx6: Assert PERST# before enabling
- regulators
-Thread-Topic: [PATCH V14 03/12] PCI: imx6: Assert PERST# before enabling
- regulators
-Thread-Index: AQHc0js3bM4lCNbwaEa3e/8C/uPFM7YDhZfw
-Date: Fri, 8 May 2026 03:15:30 +0000
-Message-ID: <GV2PR04MB12019D9313DBF77F8265147948C3D2@GV2PR04MB12019.eurprd04.prod.outlook.com>
-References: <20260422093549.407022-1-sherry.sun@nxp.com>
- <20260422093549.407022-4-sherry.sun@nxp.com>
-In-Reply-To: <20260422093549.407022-4-sherry.sun@nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: GV2PR04MB12019:EE_|GVXPR04MB12159:EE_
-x-ms-office365-filtering-correlation-id: 25b7ced0-56cd-4604-7fb0-08deacb00f70
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|366016|1800799024|38070700021|921020|56012099003|18002099003|22082099003;
-x-microsoft-antispam-message-info: jYeVCxnKSomcUtN5ccyLNUlBf8ZCHeaGrZdZwuStZcDoKXtx7CdBpNVpwCzQSnBKs5nJZ3rsvEkNTNNPvjCULw+aoDWMHx5lrn0cMgwMdQ/+oL6PH+BdfkE1EnPO1VsMVBhAZ5gcOBcoZTXoMgbM73DX6JSpkEc0RT9P30pzUW+a+nHIDTr+4g8qPHYuQIFBr1Nwqrmi3dZqvm1/Lm5bYpRUkzUoEAIgF0T92wYJqRZWtBKr48AmbEeZ7fz4514gSIl0G0xxwbEudEieopQBaYqdJXE54zt2UGL9My/SGrWiL/KXX4cpzEl4mGrPbEzQPnOG+X+YDHJeJtvyuul8zytSuI6I7ZIp3KAfiOPjgPYIOjnw7PQRlsXZoUaKmQJKUNgdo6d8z4bII7+52YARtUjWHTwt9inTSHYYMDqRVyRpOmI07RfPmHb86ER18rB8Z/chsL9JxowNIXZA86RA2z9+19ZBI5gyEVkvjvpcV67CEh3mqMpWHqB5OnQAXZbwGW/RGmybI019isytypLxZGu8E47oTMWrDo2KFJmkNAL0V6OYmdafrJz7KCJWwBR18aQHWJRIIrsNRY5SthdaSvvLpdqZhQ/yv4DO4L3D78u6gt5kmB7iqJ7Jgx2Kx8CwQpNLse1Fz9GmJssKmS7LnlyZOnFwKMdZOHC90f/dt5MUmYPwRAkrMsrIM+TA7vo8PFwnclzGMOojdJj70v46baiMDb0GQO//2YBdzszN1RXHeJMiEhoOWfSmCVoLPuDcEF1H748INWzMXpuicWCkDg==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(366016)(1800799024)(38070700021)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?5Q5uFlDuYZbaGKqX0XjOaIeOQxtXo+APBdDTKnbuhVI6TaOfyF+ZtLjVAnns?=
- =?us-ascii?Q?xQnXpsymVsDORRXmAT3NR7LkamB7NsQOla362BCCY1R+efBBxL4fCg9sn1nE?=
- =?us-ascii?Q?rkvI4oxwuXrLLDtgB+3RZTwacwvDNc/gVhnm1mQcUT4rWVOGUU20yQ774/yd?=
- =?us-ascii?Q?kCxXyvZxVbCQgHpzaOptOtlbcAtXZuTrKDcWYrghgDHIea+cEm2WGPFTnirm?=
- =?us-ascii?Q?Ip2O2Ep5wwKNymiGDhRwodU2CcnrbzfXsZKusdvtmZVkTdC11IGcIz+0rytW?=
- =?us-ascii?Q?DuEUDgLnnKmgvKpGD5p5wo9L9pERIyNH1tCn0dyjOBS79EwuGqo4lrNEuKwq?=
- =?us-ascii?Q?2bhTatH0PvirxhD2/hQpUJcOJmm2dJdF+92giZLat6RULBPKaTmqlqIcjbPO?=
- =?us-ascii?Q?31C4jE+HHc1KcCdq0rZP0AqEuDGG+UVYJNWjBh0QZxgccRDgIi9bNIoHek3A?=
- =?us-ascii?Q?XxmsdvzvkvEcl2FFS5da/muDYYZSfXH41Umy1fMgSGL7ESxYo/LteM6hPl+5?=
- =?us-ascii?Q?2gHpnhzUXeDh36O6QQD1hjYxt5sYHfxpnudWNME0oNqTKu3ZvGNKM3HkDiHB?=
- =?us-ascii?Q?q0x94Xmi53NO6GiK+ODwSuHe04rOS5JNj/dA1ENrYDIMYi/wYoPRYoFfzJPp?=
- =?us-ascii?Q?zP98Sd2RG/3Q8EJTo+nU9H6e1vqsMXqnTJBtA398oDcMFzQQI+AgtcEc5b2s?=
- =?us-ascii?Q?1NrXTTvlJ3sa9myUm75exJigkT57PhyeZ1YRQElQwJhhb4nP/RZk1j9xa0Y7?=
- =?us-ascii?Q?6jNHmid26SMsmRguzyfXPKlpKLjeUAbgHnQDtIBi3WKcIa7VWjjs/fvMdrv3?=
- =?us-ascii?Q?jhM4q7QzZKo4Yxnmj8xJandcPXVx+psDPuVuc5L1IsG7H4n3EPgPLncNTe2T?=
- =?us-ascii?Q?UAIve3TDFzXEJRCRP7twc9KSCdsPU846P3FFUgkbxuJu74RTZnt1x4chsUV0?=
- =?us-ascii?Q?W0n+8P3IZT34ItdoS1aWHjs+UpX65Xx2hhi0ZjjuorPUsKpF6ejXFVFoR1JL?=
- =?us-ascii?Q?DuFO+eWc2miRty4jz3KH4wPQdnW4icxAC1whQRPXlkeWgm0k98BUpSzLUfMX?=
- =?us-ascii?Q?2Ey4q+BrvVkX51jU8pryC3/9Gtb761Pk1uolQFTfbVCtAuYTwgwIUYCNOSHJ?=
- =?us-ascii?Q?6DNlGDw0/fBIWrZA6LJV9kcQLkPAMdMNNU/AosP5iIBWhPnXy2zxly84/0AA?=
- =?us-ascii?Q?uVMyvQD2kz21rq7+4XqhxkmKISC2aZTESbUctGy9Zk1+X67H2TMS+kYwUN18?=
- =?us-ascii?Q?4YVDCg49MVTQopKggvaJ2FeVIcmdhGDjRSKKNzIRi/NKH3RPTlbThOccV3ra?=
- =?us-ascii?Q?zEbkxA0uWIKzd9yKfZyuMHToM1peyYtQuTcvLMonPn3QZbzxc6AWpEbTTb6G?=
- =?us-ascii?Q?8W0/tU+50oX5+uoo6NoiUEEtIbU06LzgiW2UCK9uXO5NmCxjg2XBA9eNR3Nm?=
- =?us-ascii?Q?rBG0hRYi7gOOE+R1k2K3y7wZAdoz3HsNoF7kjW+qEKvihR9+v5tX76WJzr6L?=
- =?us-ascii?Q?Tf9K8ILK8evjTcxjJ4+YCO3QXWgjv9DXOl96TDqNJBIox/bjXmBdI98uNZn2?=
- =?us-ascii?Q?tJRGQ64+hHkwmWXU8j28pVkW6Kjbwk82nM0GcXqisaO2CJ/WMfCQ92LD/1so?=
- =?us-ascii?Q?e7GA0+B+E0sZ+5OTdcaIQDPkoS9htwb/+aOJklVqCMrZlbDnmA1zMIG1+j5r?=
- =?us-ascii?Q?p+DvGbjvI3nFZ/3HTC3qXIPvvS6pHcQYYTAqySNXzRfVlGY1?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 25b7ced0-56cd-4604-7fb0-08deacb00f70
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 May 2026 03:15:30.6221
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: prs72QqNFUyG72O7NI1VvFCFuPTFd1I1w5L1+QH0dztkri1IYUvuCtIGokWmsCVg7NHizXfRA/+KT9JkSWSpRA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12159
+	Fri, 08 May 2026 03:16:17 +0000
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 2ADFB1A1292;
+	Fri,  8 May 2026 05:16:12 +0200 (CEST)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id E5BE91A11A8;
+	Fri,  8 May 2026 05:16:11 +0200 (CEST)
+Received: from localhost.localdomain (mega.ap.freescale.net [10.192.208.232])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id BD79B1800093;
+	Fri,  8 May 2026 11:16:09 +0800 (+08)
+From: Jiafei Pan <Jiafei.Pan@nxp.com>
+To: daniel.baluta@oss.nxp.com
+Cc: Frank.Li@nxp.com,
+	Jiafei.Pan@nxp.com,
+	andersson@kernel.org,
+	daniel.baluta@nxp.com,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	kernel@pengutronix.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	mathieu.poirier@linaro.org,
+	peng.fan@nxp.com,
+	s.hauer@pengutronix.de
+Subject: [PATCH v2] remoteproc: imx_rproc: Use device node name as processor name
+Date: Fri,  8 May 2026 11:18:32 +0800
+Message-Id: <20260508031832.27451-1-Jiafei.Pan@nxp.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <830f0c65-faca-4843-a6c9-693db7562037@oss.nxp.com>
+References: <830f0c65-faca-4843-a6c9-693db7562037@oss.nxp.com>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_201534_964713_60535586 
-X-CRM114-Status: GOOD (  27.51  )
+X-CRM114-CacheID: sfid-20260507_201616_018667_B17A8917 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,173 +76,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> -----Original Message-----
-> From: Sherry Sun <sherry.sun@nxp.com>
-> Sent: Wednesday, April 22, 2026 5:36 PM
-> To: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org; Frank Li
-> <frank.li@nxp.com>; s.hauer@pengutronix.de; kernel@pengutronix.de;
-> festevam@gmail.com; lpieralisi@kernel.org; kwilczynski@kernel.org;
-> mani@kernel.org; bhelgaas@google.com; Hongxing Zhu
-> <hongxing.zhu@nxp.com>; l.stach@pengutronix.de
-> Cc: imx@lists.linux.dev; linux-pci@vger.kernel.org; linux-arm-
-> kernel@lists.infradead.org; devicetree@vger.kernel.org; linux-
-> kernel@vger.kernel.org
-> Subject: [PATCH V14 03/12] PCI: imx6: Assert PERST# before enabling regul=
-ators
->=20
-> The PCIe endpoint may start responding or driving signals as soon as its =
-supply is
-> enabled, even before the reference clock is stable.
-> Asserting PERST# before enabling the regulator ensures that the endpoint =
-remains
-> in reset throughout the entire power-up sequence, until both power and re=
-fclk
-> are known to be stable and link initialization can safely begin.
->=20
-> Currently, the driver enables the vpcie3v3aux regulator in
-> imx_pcie_probe() before PERST# is asserted in imx_pcie_host_init(), which=
- may
-> cause PCIe endpoint undefined behavior during early power-up. However, th=
-ere is
-> no issue so far because PERST# is requested as GPIOD_OUT_HIGH in
-> imx_pcie_probe(), which guarantees that PERST# is asserted before enablin=
-g the
-> vpcie3v3aux regulator.
->=20
-> This is prepare for the upcoming changes that will parse the reset proper=
-ty using
-> the new Root Port binding, which will use GPIOD_ASIS when requesting the =
-reset
-> GPIO. With GPIOD_ASIS, the GPIO state is not guaranteed, so explicit sequ=
-encing
-> is required.
->=20
-> Fix the power sequencing by:
-> 1. Moving vpcie3v3aux regulator enable from probe to
->    imx_pcie_host_init(), where it can be properly sequenced with PERST#.
-> 2. Moving imx_pcie_assert_perst() before regulator and clock enable to
->    ensure correct ordering.
->=20
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
+As currently there are maybe multiple remote processors, so change from
+using fixed name to using device node name as remote processor name in
+order to make them can be distinguished by through of name in sys
+filesystem.
 
-Best Regards
-Richard Zhu
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 49 +++++++++++++++++++++------
->  1 file changed, 39 insertions(+), 10 deletions(-)
->=20
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c
-> b/drivers/pci/controller/dwc/pci-imx6.c
-> index e35044cc5218..735127ed1455 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -168,6 +168,8 @@ struct imx_pcie {
->  	u32			tx_swing_full;
->  	u32			tx_swing_low;
->  	struct regulator	*vpcie;
-> +	struct regulator	*vpcie_aux;
-> +	bool			vpcie_aux_enabled;
->  	struct regulator	*vph;
->  	void __iomem		*phy_base;
->=20
-> @@ -1222,6 +1224,13 @@ static void imx_pcie_disable_device(struct
-> pci_host_bridge *bridge,
->  	imx_pcie_remove_lut(imx_pcie, pci_dev_id(pdev));  }
->=20
-> +static void imx_pcie_vpcie_aux_disable(void *data) {
-> +	struct regulator *vpcie_aux =3D data;
-> +
-> +	regulator_disable(vpcie_aux);
-> +}
-> +
->  static void imx_pcie_assert_perst(struct imx_pcie *imx_pcie, bool assert=
-)  {
->  	if (assert) {
-> @@ -1242,6 +1251,24 @@ static int imx_pcie_host_init(struct dw_pcie_rp *p=
-p)
->  	struct imx_pcie *imx_pcie =3D to_imx_pcie(pci);
->  	int ret;
->=20
-> +	imx_pcie_assert_perst(imx_pcie, true);
-> +
-> +	/* Keep 3.3Vaux supply enabled for the entire PCIe controller lifecycle=
- */
-> +	if (imx_pcie->vpcie_aux && !imx_pcie->vpcie_aux_enabled) {
-> +		ret =3D regulator_enable(imx_pcie->vpcie_aux);
-> +		if (ret) {
-> +			dev_err(dev, "failed to enable vpcie_aux
-> regulator: %d\n",
-> +				ret);
-> +			return ret;
-> +		}
-> +		imx_pcie->vpcie_aux_enabled =3D true;
-> +
-> +		ret =3D devm_add_action_or_reset(dev,
-> imx_pcie_vpcie_aux_disable,
-> +					       imx_pcie->vpcie_aux);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->  	if (imx_pcie->vpcie) {
->  		ret =3D regulator_enable(imx_pcie->vpcie);
->  		if (ret) {
-> @@ -1251,25 +1278,24 @@ static int imx_pcie_host_init(struct dw_pcie_rp *=
-pp)
->  		}
->  	}
->=20
-> +	ret =3D imx_pcie_clk_enable(imx_pcie);
-> +	if (ret) {
-> +		dev_err(dev, "unable to enable pcie clocks: %d\n", ret);
-> +		goto err_reg_disable;
-> +	}
-> +
->  	if (pp->bridge && imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT))
-> {
->  		pp->bridge->enable_device =3D imx_pcie_enable_device;
->  		pp->bridge->disable_device =3D imx_pcie_disable_device;
->  	}
->=20
->  	imx_pcie_assert_core_reset(imx_pcie);
-> -	imx_pcie_assert_perst(imx_pcie, true);
->=20
->  	if (imx_pcie->drvdata->init_phy)
->  		imx_pcie->drvdata->init_phy(imx_pcie);
->=20
->  	imx_pcie_configure_type(imx_pcie);
->=20
-> -	ret =3D imx_pcie_clk_enable(imx_pcie);
-> -	if (ret) {
-> -		dev_err(dev, "unable to enable pcie clocks: %d\n", ret);
-> -		goto err_reg_disable;
-> -	}
-> -
->  	if (imx_pcie->phy) {
->  		ret =3D phy_init(imx_pcie->phy);
->  		if (ret) {
-> @@ -1782,9 +1808,12 @@ static int imx_pcie_probe(struct platform_device
-> *pdev)
->  	of_property_read_u32(node, "fsl,max-link-speed", &pci-
-> >max_link_speed);
->  	imx_pcie->supports_clkreq =3D of_property_read_bool(node, "supports-
-> clkreq");
->=20
-> -	ret =3D devm_regulator_get_enable_optional(&pdev->dev, "vpcie3v3aux");
-> -	if (ret < 0 && ret !=3D -ENODEV)
-> -		return dev_err_probe(dev, ret, "failed to enable Vaux supply\n");
-> +	imx_pcie->vpcie_aux =3D devm_regulator_get_optional(&pdev->dev,
-> "vpcie3v3aux");
-> +	if (IS_ERR(imx_pcie->vpcie_aux)) {
-> +		if (PTR_ERR(imx_pcie->vpcie_aux) !=3D -ENODEV)
-> +			return PTR_ERR(imx_pcie->vpcie_aux);
-> +		imx_pcie->vpcie_aux =3D NULL;
-> +	}
->=20
->  	imx_pcie->vpcie =3D devm_regulator_get_optional(&pdev->dev, "vpcie");
->  	if (IS_ERR(imx_pcie->vpcie)) {
-> --
-> 2.37.1
+Signed-off-by: Jiafei Pan <Jiafei.Pan@nxp.com>
+---
+Fixes sine v1:
+* Update patch subject to aligin prefix name with existing patches
+
+ drivers/remoteproc/imx_rproc.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index e8d239bef5c9..38713f6f1c50 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -1356,8 +1356,7 @@ static int imx_rproc_probe(struct platform_device *pdev)
+ 	unsigned long cpus_bits;
+ 	int ret;
+ 
+-	/* set some other name then imx */
+-	rproc = devm_rproc_alloc(dev, "imx-rproc", &imx_rproc_ops,
++	rproc = devm_rproc_alloc(dev, np->name, &imx_rproc_ops,
+ 				 NULL, sizeof(*priv));
+ 	if (!rproc)
+ 		return -ENOMEM;
+-- 
+2.43.0
 
 
