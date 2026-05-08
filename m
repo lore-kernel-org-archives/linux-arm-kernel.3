@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4561CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 10:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C42FCD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 10:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6e0z9Fq3rKswkTRf1vtuOywIXadBc/5Ah9+zbapMCU=; b=RZ5jQOMuCZy7andaVK54I8v1wE
-	lWs6X2QubPs3ciyIbw6ADYNSESg/MTR5YBYjV/CXtc49V4THMfjmI7CwMN5c3P7xB9FTHb1J7EnN0
-	eu65OFhJI2bv/xrH+UonGd20fdTNBRGsv4BNhlzeGTi5LrBI3TZuHVeGcGlpHOTd/5+m29TWU+STz
-	oYi2W+ORmgvCFWVbou6aly3scaUFP5P/dSLuIRCXpWz7iWf39Bj9mMnmXjoZN3HV0EI4U17oQ74/0
-	wIl7pkgVtPs76wxK9g8uWo+QkfVl3aBmLfIsTX0IG30hndfkSVX8ow8t82mOsEk9sw4ZO0sgbnfBb
-	VzgdReeA==;
+	bh=bGCNZTRUUlSeOZp5sbtZwNSynudYYhptUeAoD/tjqmw=; b=q+JY1e8Qr8qQmD7YNIGuP54iuO
+	l4HOfHnSKb9ajblBsqWlrfJSbfhGX79xrZUVn3Gcze9nhEW44jTyU7CupsnoSVp57CnNo3pa49iGS
+	wb8Q//OS5XuqeGoaJsGrA9n0ECSAfXa88kcWsBBz1fWUsXUYLcU8V0cIUd5Akf0gftcf7bM+HCRyX
+	sXQXwBQLW8EsJTxveZHGxydKuy5zRUH41GVBCtHlpiVxYpWr+MMM26lZw+ZB2VpyYPb7TKf2u2zER
+	PIS90kHaPR0bnHmC3/Qulk6H89VQG4fRDMwqyQRvDTCvs97fRPBRl2qdlkQ1Av3ECVXZPm8uCjhBx
+	j4IirA8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLIEL-00000006Ca0-0rNC;
-	Fri, 08 May 2026 10:14:49 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLIEH-00000006CYJ-0DJq
+	id 1wLIKn-00000006DKj-1pzI;
+	Fri, 08 May 2026 10:21:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLIKk-00000006DJv-3YUZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 10:14:47 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=C6e0z9Fq3rKswkTRf1vtuOywIXadBc/5Ah9+zbapMCU=;
-	b=mlqfXGjDyOprcq5nmRLPit/wOEgenglgNVHFK3NOu17/nwWnZiDNUx22T348cGpphJOGrhFtJ
-	fOXes6jBxahks92vMwElvTaXKUtqsf1DyvCSQAujVp07gVGv/lCVqNXsrlqWstuD5XYvAIQaeJd
-	93Z8DMg6k1x+Djr5CWzOO6E=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gBlCL2jyGzLlSC;
-	Fri,  8 May 2026 18:06:54 +0800 (CST)
-Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
-	by mail.maildlp.com (Postfix) with ESMTPS id F031D40572;
-	Fri,  8 May 2026 18:14:27 +0800 (CST)
-Received: from [10.67.120.222] (10.67.120.222) by
- kwepemk500005.china.huawei.com (7.202.194.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 8 May 2026 18:14:27 +0800
-Message-ID: <86683f18-2d11-4e20-a3b3-736da89e8cf1@huawei.com>
-Date: Fri, 8 May 2026 18:14:26 +0800
+	Fri, 08 May 2026 10:21:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9341A1BCA;
+	Fri,  8 May 2026 03:21:18 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 418F33F763;
+	Fri,  8 May 2026 03:21:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778235683; bh=oPupvqWJ0GwO+YvPgf2njzvz2yfMTQZ//f9TQ35sTbA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YcRoMlN79/DrdWDeyLFfoAkfFsj1WHMMbEWwzocwegPHBw9FyPKM32HFo6+gelmoO
+	 76O60oA8qy7ANB5qf53lmolVVelSPwCChegFwYpiKWA9em36eaqXzTgPy7wo5Ek08J
+	 ya5YkCQzl4t9z26+WDqymc3oKqqib0FnB5HGv4O0=
+Message-ID: <f12b8d73-7c8e-43e7-b9ce-d80a7c3f10c8@arm.com>
+Date: Fri, 8 May 2026 11:21:20 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/6] selftests/resctrl: Introduced linked list
- management for IMC counters
-To: Reinette Chatre <reinette.chatre@intel.com>, <tony.luck@intel.com>,
-	<Dave.Martin@arm.com>, <james.morse@arm.com>, <babu.moger@amd.com>,
-	<shuah@kernel.org>, <tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>,
-	<ben.horgan@arm.com>, <jonathan.cameron@huawei.com>, <zengheng4@huawei.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kselftest@vger.kernel.org>, <linuxarm@huawei.com>
-CC: <xiaqinxin@huawei.com>, <prime.zeng@hisilicon.com>,
-	<wangyushan12@huawei.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
-	<wangzhou1@hisilicon.com>
-References: <20260410093352.3988125-1-wuyifan50@huawei.com>
- <20260410093352.3988125-2-wuyifan50@huawei.com>
- <b1d3a653-79a5-44db-8d57-c052ae537823@intel.com>
- <e4a2b49a-0efe-4942-9683-9c9a5af1b12a@huawei.com>
- <4d600e39-686d-4f0f-8a74-6d55bffac70a@intel.com>
-From: wuyifan <wuyifan50@huawei.com>
-In-Reply-To: <4d600e39-686d-4f0f-8a74-6d55bffac70a@intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH 1/5] arm_mpam: Parse the rest of the ACPI table
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260429141339.3171205-1-andre.przywara@arm.com>
+ <20260429141339.3171205-2-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260429141339.3171205-2-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.222]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemk500005.china.huawei.com (7.202.194.90)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_031445_736160_ED0057D8 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20260508_032126_974186_AC5E8039 
+X-CRM114-Status: GOOD (  28.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +77,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Reinette
+Hi Andre,
 
-On 5/8/2026 12:13 AM, Reinette Chatre wrote:
->> Calling cleanup_read_mem_bw_imc() in the error exit path may be intended
->> to prevent resource leaks. However, this results in the function being called
->> repeatedly in both the error exit branch and test_cleanup().
-> You are correct and calling it repeatedly is ok. When cleanup_read_mem_bw_imc() is
-> called from test_cleanup() after a failure in parse_imc_read_bw_events() then it
-> will find that the list is empty and just be a no-op. This is safe.
->
->> Is there any specific intention behind calling it in parse_imc_read_bw_events()?
-> The motivation behind calling it in parse_imc_read_bw_events() is to not leave this
-> memory allocated when this function fails. A function having a single responsibility
-> is easier to use and maintain since a caller does not need to take into account that
-> when the function fails it also needs to have additional responsibility to clean up
-> the state left behind by it.
->
-> There may be some patterns where caller needs to clean up after a failure but that is
-> usually done in an obvious way where the caller_immediately_ does the cleanup on failure
-> but here this dependency is well hidden in this implementation with test_cleanup() being
-> called so far from parse_imc_read_bw_events(). This hidden dependency makes this code
-> difficult to use and maintain.
->
->> Or should the cleanup be uniformly handled in test_cleanup()?
-> Handling it only in test_cleanup() may work in current execution flow but if the code is
-> ever re-factored this would result in a memory leak. It is not custom that callers need
-> to clean up state when a function fails and since this allocation is buried deep within the
-> execution flow I see this as a latent bug just waiting to be triggered.
+On 4/29/26 15:13, Andre Przywara wrote:
+> From: James Morse <james.morse@arm.com>
+> 
+> The MPAM ACPI table lists the MPAM MSCs and indicates which resources
+> in the system they control. Not everything this table can describe is
+> supported by resctrl, e.g. memory-side-caches.
+> 
+> Add the additional table parsing to avoid reporting these as 'unknown'
+> to the MPAM driver. This allows class+component hierarchys to be built.
+> 
+> Until resctrl has support for any of these resources, users would be
+> in-kernel managers of a resource/PARTID or perf to query bandwidth
+> counters on a resource resctrl is unaware of.
 
-Thank you for the detailed explanation. I understand the rationale now.
+Does this patch give us anything needed for MPAM-Fb? It seems to just add
+parsing for things we don't support in the MPAM driver.
 
-I will explicitly add cleanup calls in the error exit path in the next 
-version.
+Thanks,
 
-Best regards,
+Ben
 
-Yifan
-
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  drivers/acpi/arm64/mpam.c | 91 +++++++++++++++++++++++++++++++++++++--
+>  1 file changed, 88 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+> index 84963a20c3e7..99c2bdbb3314 100644
+> --- a/drivers/acpi/arm64/mpam.c
+> +++ b/drivers/acpi/arm64/mpam.c
+> @@ -95,17 +95,51 @@ static void acpi_mpam_parse_irqs(struct platform_device *pdev,
+>  		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
+>  }
+>  
+> -static int acpi_mpam_parse_resource(struct mpam_msc *msc,
+> +#define UUID_MPAM_INTERCONNECT_TABLE		"fe2bd645-033b-49e6-9479-2e0b8b21d1cd"
+> +
+> +struct acpi_mpam_interconnect_descriptor_table {
+> +	u8	type_uuid[16];
+> +	u32	num_descriptors;
+> +};
+> +
+> +struct acpi_mpam_interconnect_descriptor {
+> +	u32	source_id;
+> +	u32	destination_id;
+> +	u8	link_type;
+> +	u8	reserved[3];
+> +};
+> +
+> +static int acpi_mpam_parse_resource(struct acpi_mpam_msc_node *tbl_msc,
+> +				    struct mpam_msc *msc,
+>  				    struct acpi_mpam_resource_node *res)
+>  {
+> +	struct acpi_mpam_interconnect_descriptor_table *tbl_int_tbl;
+> +	struct acpi_mpam_interconnect_descriptor *tbl_int;
+> +	guid_t int_tbl_uuid, spec_uuid;
+>  	int level, nid;
+>  	u32 cache_id;
+> +	off_t offset;
+>  
+> +	/*
+> +	 * Class IDs are somewhat arbitrary, but need to be co-ordinated.
+> +	 * 0-N are caches,
+> +	 * 64, 65: Interconnect, but ideally these would appear between the
+> +	 *     classes the controls are adjacent to.
+> +	 * 128: SMMU,
+> +	 * 192-192+level: Memory Side Caches, nothing checks that N is a
+> +	 *                small number.
+> +	 * 255: Memory Controllers
+> +	 *
+> +	 * ACPI devices would need a class id allocated based on the _HID.
+> +	 *
+> +	 * Classes that the mpam driver can't currently plumb into resctrl
+> +	 * are registered as UNKNOWN.
+> +	 */
+>  	switch (res->locator_type) {
+>  	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
+>  		cache_id = res->locator.cache_locator.cache_reference;
+>  		level = find_acpi_cache_level_from_id(cache_id);
+> -		if (level <= 0) {
+> +		if (level <= 0 || level >= 64) {
+>  			pr_err_once("Bad level (%d) for cache with id %u\n", level, cache_id);
+>  			return -EINVAL;
+>  		}
+> @@ -120,6 +154,57 @@ static int acpi_mpam_parse_resource(struct mpam_msc *msc,
+>  		}
+>  		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
+>  				       MPAM_CLASS_ID_DEFAULT, nid);
+> +	case ACPI_MPAM_LOCATION_TYPE_SMMU:
+> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_UNKNOWN,
+> +				       128, res->locator.smmu_locator.smmu_interface);
+> +	case ACPI_MPAM_LOCATION_TYPE_MEMORY_CACHE:
+> +		cache_id = res->locator.mem_cache_locator.reference;
+> +		level = res->locator.mem_cache_locator.level;
+> +		if (192 + level >= 255) {
+> +			pr_err_once("Bad level for memory side cache with reference %u\n",
+> +				    cache_id);
+> +			return -EINVAL;
+> +		}
+> +
+> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
+> +				       192 + level, cache_id);
+> +
+> +	case ACPI_MPAM_LOCATION_TYPE_INTERCONNECT:
+> +		/* Find the descriptor table, and check it lands in the parent msc */
+> +		offset = res->locator.interconnect_ifc_locator.inter_connect_desc_tbl_off;
+> +		if (offset >= tbl_msc->length) {
+> +			pr_err_once("Bad offset for interconnect descriptor on msc %u\n",
+> +				    tbl_msc->identifier);
+> +			return -EINVAL;
+> +		}
+> +		tbl_int_tbl = ACPI_ADD_PTR(struct acpi_mpam_interconnect_descriptor_table,
+> +					   tbl_msc, offset);
+> +		guid_parse(UUID_MPAM_INTERCONNECT_TABLE, &spec_uuid);
+> +		import_guid(&int_tbl_uuid, tbl_int_tbl->type_uuid);
+> +		if (guid_equal(&spec_uuid, &int_tbl_uuid)) {
+> +			pr_err_once("Bad UUID for interconnect descriptor on msc %u\n",
+> +				    tbl_msc->identifier);
+> +			return -EINVAL;
+> +		}
+> +
+> +		offset += sizeof(*tbl_int_tbl);
+> +		offset += tbl_int_tbl->num_descriptors * sizeof(*tbl_int);
+> +		if (offset >= tbl_msc->length) {
+> +			pr_err_once("Bad num_descriptors for interconnect descriptor on msc %u\n",
+> +				    tbl_msc->identifier);
+> +			return -EINVAL;
+> +		}
+> +
+> +		tbl_int = ACPI_ADD_PTR(struct acpi_mpam_interconnect_descriptor,
+> +				       tbl_int_tbl, sizeof(*tbl_int_tbl));
+> +		cache_id = tbl_int->source_id;
+> +
+> +		/* Unknown link type? */
+> +		if (tbl_int->link_type != 0 && tbl_int->link_type == 1)
+> +			return 0;
+> +
+> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_UNKNOWN,
+> +				       64 + tbl_int->link_type, cache_id);
+>  	default:
+>  		/* These get discovered later and are treated as unknown */
+>  		return 0;
+> @@ -150,7 +235,7 @@ int acpi_mpam_parse_resources(struct mpam_msc *msc,
+>  			return -EINVAL;
+>  		}
+>  
+> -		err = acpi_mpam_parse_resource(msc, resource);
+> +		err = acpi_mpam_parse_resource(tbl_msc, msc, resource);
+>  		if (err)
+>  			return err;
+>  
 
 
