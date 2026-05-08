@@ -4,93 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0189FCD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819AFCD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vAyKAjmkX6PvmXkxrw5YnaLQ/4sPrlWKfDdfdwHLY1Y=; b=1v3d8qekI355LGty1Ga1j2nVgK
-	MZbqIOL+JisPkfljjuYX9cWQwmhjxl7eoXwUW7bMpo8p9/1XJhtRZh7HBk02owAoFTgcvIp/5nyi2
-	6/8+7W6uqKzkBGGy+nR4dIcgfNS1e3AVfuCaEs6wq1n2ADZMxyNKzBTDXfG0W+jZYVzuYrn4Wxe5P
-	2A31Lvyvhxv1n9UotYX97S5vEm4LEhHhv3c4rhhNxoh4uMeoGxTPiIOeIpw8ivQTMNj0Z+nDRP8nS
-	oWkHIm1yjBDylsgUUJ/f4Sp9tMFYpK3f1h66ZjJ9mbwYC2nU0crU21ApFc2l8ZTl1eZ+Ly+sI7ICS
-	D+w8m1wA==;
+	bh=TFQkQXyKv84NgZJKUYb0Iy0idhOUNRSndREaqQZIkRk=; b=Tf+z/v/Dg3gZ0Am7QBCREE6T40
+	2LNV1Y2I3TpWFwoHhHQOZQxIuBeE2ndU/VWUv8Uu3yzDwlqdyhefWWlawAhsWR9jw2OF/v2hP8AX/
+	/95lr02wBSfpfgmr64D68dD/6nCmW0AiuIew2pY4Fii24KFyK2P/vmnmo6eFtt0YwFCB9Ty+5Ad95
+	Zcc2n2HcpV+kPYVASvUdP/ahLm31DbCTglFW8FeDR2MaGmMs3Ylwv+2C5TTXqLFaxsxP/U0Pe10h5
+	PpD4lRvAYHtb7htvJbQsBdQwhRDvFsHA8gRDqigAirGgTq4W+YlcfjC8SYoznEwylBO7fNigKggU6
+	ybeSrP+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOv5-000000077kN-3HGC;
-	Fri, 08 May 2026 17:23:23 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1wLOvA-000000077nD-0IQ7;
+	Fri, 08 May 2026 17:23:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOv3-000000077ir-1njn
+	id 1wLOv8-000000077lK-1eAY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 17:23:22 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2babfd18435so12200215ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 10:23:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778261000; x=1778865800; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vAyKAjmkX6PvmXkxrw5YnaLQ/4sPrlWKfDdfdwHLY1Y=;
-        b=nAGkErDGRT5pbO1HKFghIMhlM4EtHBAHCfdCpJn1ymQpywRSU85RsSLnz2WWtp4xgB
-         9QOMLRC2dvkM6TKeIK/vooOal9iLGfwI5cmYLYwJPP7HtZy9amG5UIsKx+J1KtOMnG5/
-         UQPt8EI+jd769xk2d/Rd6GFLDNh7tcnkXeFwPltDrKnD492OMMVkS1/g5qgRN6G+tgQy
-         rq9azCkU/TS6Eg6ESMkbXAg4yeeoRZVujag3tBJO+FPCh6mO3xqRQC2UTUkn9K1JNqes
-         1h7IrOy0MoP9xRLyzu4NzhWBu/S2bVEk3IRHLQlOJnso8oohiyyUlhZzZQsmGYMZyR1x
-         j2jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778261000; x=1778865800;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=vAyKAjmkX6PvmXkxrw5YnaLQ/4sPrlWKfDdfdwHLY1Y=;
-        b=QneFsZsjXWqX7XgS56CfPk3/X3B0kdsH4z6IZJS3yiHUc/DvacoB3w5eIhou15usip
-         amsys1IHoyTa5jXeS3wD/L8t+KIFcCUUluRh0u83cJkr+dmwc3DNb6P1MFw2l3xolmKi
-         yTY9J5Me2ZKXZm7o3CmgS8vkXESnz7/Ju8skbXpBfxbJLk9OI0Ehu/BsPsoR5Zcde2dS
-         ASzxpxO3M4XQRO/1Pyt/sR7t4PXC2vG/EonK18Lk/uvosUdlo3pbvD0ndGIbMFMnK4FJ
-         k0e2mcksl3tSi3efECiGV9zS1uxTmrCsRQGSv49VmuseeQ7lhw2Osqc3ClAw9tXgRdlM
-         xZKg==
-X-Forwarded-Encrypted: i=1; AFNElJ9txp28j9VT6mBby4DBlMlyGtyVOF/w6e0VqYnAPJ4jY9n+jw0ywvhqtCqIdGEh1QuXRfS/OJEBIeWr5ctWE8/C@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlAqPfbwVGpMbtOfW9kdJm4SHTf4tEpDQU10Rybm2sNzl6mIuE
-	xkGr60twCb0mehycz1II1l37PrVNPPvPhhnp/rfLOCRJ2VUBWC+h7Ryb
-X-Gm-Gg: Acq92OFdu0mVqCSk6TM4q1GgvITWeX9H6aBt/ODXfjXZ6WmrtoHxA9SS1HC1kqCD1M3
-	7x1mzDmsTkShox+1SSXF4pYumCeBc514Uafsu46qTZ3EYSiLhRW4cIYLgnLP7wVoHIVaaHQr9/j
-	0KclfNYobx98tUJG6p2U/ibGAiN11lnHInb+emwhNmGKEuU+DIStNp+xmx8dsTdY4zYpcyBKeAF
-	GL589BWN8kip0bKCl87eyE8pOZYS0NVXVXgXIZmhPYvG5RmHo76j8ia6YsZl5ECLfWo+ALnbETf
-	cnCnrV8RCmW9el3MrVLmj9ZzsmwMuaqvO+HXYOLdG97JMePFxDklEEkbVWoU2ENqZnNnWNbNjxV
-	bp40TuZpGNw96gZXLn2adU1UFZDq5sZ48DW+xGaHFakt1YnLmBC/QJdrrQ9K6bvF4oDP8IMEPp5
-	C/WAZGDY3McM5l4yaYM7rvfergEPrn2Y8KwApV+6vPSF+I
-X-Received: by 2002:a17:903:181:b0:2b0:61c2:8e83 with SMTP id d9443c01a7336-2ba79287515mr137856355ad.20.1778261000634;
-        Fri, 08 May 2026 10:23:20 -0700 (PDT)
-Received: from Black-Pearl.localdomain ([60.243.224.75])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2baf1e35487sm24907985ad.46.2026.05.08.10.23.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 10:23:20 -0700 (PDT)
-From: Charan Pedumuru <charan.pedumuru@gmail.com>
-Date: Fri, 08 May 2026 17:23:06 +0000
-Subject: [PATCH v3 1/2] arm: dts: st: align node patterns with established
- convention
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260508-st-mmc-v3-1-81c329ed28e8@gmail.com>
-References: <20260508-st-mmc-v3-0-81c329ed28e8@gmail.com>
-In-Reply-To: <20260508-st-mmc-v3-0-81c329ed28e8@gmail.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Charan Pedumuru <charan.pedumuru@gmail.com>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_102321_487423_F05D1081 
-X-CRM114-Status: GOOD (  11.81  )
+	Fri, 08 May 2026 17:23:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 62DDB60583;
+	Fri,  8 May 2026 17:23:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA012C2BCF4;
+	Fri,  8 May 2026 17:23:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778261005;
+	bh=TFQkQXyKv84NgZJKUYb0Iy0idhOUNRSndREaqQZIkRk=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To:From;
+	b=GCgdHjfGZXy8jGGE+xmSpJfA7e104Hd0MQ1+eazHw13oTcfTUS0g7Bx/0Ojk07LkA
+	 wKSUSITlY3ljYTdo6nJgzELgkJ/3XBdoD1tg37Rz9ca6zSkrHhulQRmHY5cwZ+jq2/
+	 B2hiqx1b0gpcrWqNHO+ka4O0Yt6V1zPmu7KvJfwRQjaPi8nVt0BCRoLQwEH3YFGvcP
+	 QEhTmPHqW45DA8FwVgJuFjhARA/tbdtXFqZGka47L+BZhmoiyxDV+CKwTRHvvYHS73
+	 1r5Eyn/0NDE1FZ0DOlZYBUgOXgeM0aXq9KHKmaa4cDlRyRtqVgLsMgnVY0vD1Gz3EP
+	 jC5xmtMdHSHxg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 08 May 2026 19:23:18 +0200
+Message-Id: <DIDGWX6SA86X.29W19V2YX54GX@kernel.org>
+Subject: Re: [PATCH v3 01/13] Revert "driver core: move dev_has_sync_state()
+ to drivers/base/base.h"
+Cc: "Saravana Kannan" <saravanak@kernel.org>, "Rafael J . Wysocki"
+ <rafael@kernel.org>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ <driver-core@lists.linux.dev>, <linux-pm@vger.kernel.org>, "Sudeep Holla"
+ <sudeep.holla@kernel.org>, "Cristian Marussi" <cristian.marussi@arm.com>,
+ "Kevin Hilman" <khilman@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>,
+ "Marek Szyprowski" <m.szyprowski@samsung.com>, "Bjorn Andersson"
+ <andersson@kernel.org>, "Abel Vesa" <abel.vesa@oss.qualcomm.com>, "Peng
+ Fan" <peng.fan@oss.nxp.com>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Maulik Shah"
+ <maulik.shah@oss.qualcomm.com>, "Konrad Dybcio" <konradybcio@kernel.org>,
+ "Thierry Reding" <thierry.reding@gmail.com>, "Jonathan Hunter"
+ <jonathanh@nvidia.com>, "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+To: "Ulf Hansson" <ulf.hansson@linaro.org>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20260508123910.114273-1-ulf.hansson@linaro.org>
+ <20260508123910.114273-2-ulf.hansson@linaro.org>
+In-Reply-To: <20260508123910.114273-2-ulf.hansson@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update ST MMC DTS node patterns to match established convention.
+On Fri May 8, 2026 at 2:38 PM CEST, Ulf Hansson wrote:
+> It turns out that the dev_has_sync_state() is needed outside the driver
+> core. A subsequent change to the pmdomain subsystem starts making use of
+> it.
+>
+> Fixes: 9db268212e0d ("driver core: move dev_has_sync_state() to drivers/b=
+ase/base.h")
 
-Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
----
- arch/arm/boot/dts/st/stih407-family.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Hm...the commit was correct, it's just that you now want to use it outside =
+of
+the driver-core code, so I'd drop this tag.
 
-diff --git a/arch/arm/boot/dts/st/stih407-family.dtsi b/arch/arm/boot/dts/st/stih407-family.dtsi
-index 3e6a0542e3ae..08acba209c56 100644
---- a/arch/arm/boot/dts/st/stih407-family.dtsi
-+++ b/arch/arm/boot/dts/st/stih407-family.dtsi
-@@ -596,7 +596,7 @@ spi@9542000 {
- 			status = "disabled";
- 		};
- 
--		mmc0: sdhci@9060000 {
-+		mmc0: mmc@9060000 {
- 			compatible = "st,sdhci-stih407", "st,sdhci";
- 			status = "disabled";
- 			reg = <0x09060000 0x7ff>, <0x9061008 0x20>;
-@@ -611,7 +611,7 @@ mmc0: sdhci@9060000 {
- 			bus-width = <8>;
- 		};
- 
--		mmc1: sdhci@9080000 {
-+		mmc1: mmc@9080000 {
- 			compatible = "st,sdhci-stih407", "st,sdhci";
- 			status = "disabled";
- 			reg = <0x09080000 0x7ff>;
-
--- 
-2.54.0
-
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 
