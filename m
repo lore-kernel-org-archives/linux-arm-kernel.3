@@ -4,102 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B609FCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 09:25:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB20CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 09:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z4We7SrItGd+ZSas9uy8fwe7alNqIyXX/BQaVKQZ8ww=; b=BO4jg6aHD5L2AVae5KgjGZ9Umz
-	1bYi9s3Uyscu7fW2XkyqC4pUfb2qMzeL+59xOaZAfGxcTVeLAug/TqhoSWVe2jdKsJKADW80GL340
-	fp2RGkw4KKuWuTi/hgcjQCEShMtAlO5nRpL+Cm4VmDB2aANljweY9EAMSvAlbpoYnC32nourV6bM/
-	C3eVEA6eOVbrq9DrFBvFyqAVbw1hZqzHzZyDIFbG71mIfWe91LfoOHPA31f/4odxt0BMRlcVrum5N
-	Y5jDq3h6OHUCOvRPoxztCw/krRabiK8r+WEJbZS1vhWI5FhmAUYM3QKMUt1MfMRCzq+2ER5wGLQZE
-	b5h5dK7g==;
+	bh=0Z6CQ3IeyoNCQzM4n8QUnxz+E0eb5nkL31cz1hZskRQ=; b=4SJtTNJhFjBfAmAQdSUdjsh8jk
+	xQbs5v8mTwp9AgII9xwm3LVksMnwpqUBpYbz9NIwDhNvlGdxlP6gDXQ/HXeMrhUEITYqt6/4CgxIu
+	wGlbPUvKW8ryGTMJH2FYsNevio1rfhmtzpF3JSLVw+aS5QEGmg2x+vOFu4yaFXntQLdYUqz3NZUyF
+	ZLDsOmhuGK/yR6U5XK3Oj0ogQ9R1d8bXn/dR4AN+KkNJ6MKe8OnL64bkbE2giKHZMWiyTutvPBqdz
+	3gN/MYtCZ/M12kk/V6hcoDWpUpJ0PPtUCcU+WA3yBzPAfAGlwssulhhC43ZQzodAhZJ4efjM3fvwS
+	1wDivWNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLHSm-000000066Sd-1h2s;
-	Fri, 08 May 2026 09:25:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wLHTS-000000066dD-3bzD;
+	Fri, 08 May 2026 09:26:22 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLHSj-000000066S4-0UDu;
-	Fri, 08 May 2026 09:25:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 178F243E2D;
-	Fri,  8 May 2026 09:25:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E59F7C2BCB0;
-	Fri,  8 May 2026 09:25:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778232336;
-	bh=eXP0oMTZAYd//JjTRl4w7nF1MEv2B4XDSDUlXIvROs8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ogWfq3ZcnhE2rqKxT1vCgd4yENO8ZYiD5dns210a3Vrra4P5WBxPcSD6//cB9jijc
-	 hzQme7ttEn9uwpAmEEHcfKDLBRvUSk/TA1LWcGJybqiWgRm+Ea19wgnpZhBTTe8Bi/
-	 BbbKH1nC4pKpduK2HnleCXarp6HKwrsamC7TDZOms8JYHxOJoY9aGDDRulc46LErEJ
-	 0QS9PLUKncr4AHWMVAcBTNuyCHfOHIAgNkNthUirODdYQ4FMQ+IzA2fnsH1n4pBHee
-	 0XN7ETfCS+ur3akfTuS/lx09FAfm7SxzS8qe6VkzjVU6DfuchNzUVVWcCu6PSruZih
-	 v1JULYOzLHELQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wLHSf-00000000H25-175L;
-	Fri, 08 May 2026 09:25:33 +0000
-Date: Fri, 08 May 2026 10:25:32 +0100
-Message-ID: <86mryaxng3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Naman Jain <namjain@linux.microsoft.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	"K . Y . Srinivasan" <kys@microsoft.com>,
-	Haiyang Zhang <haiyangz@microsoft.com>,
-	Wei Liu <wei.liu@kernel.org>,
-	Dexuan Cui <decui@microsoft.com>,
-	Long Li <longli@microsoft.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Michael Kelley <mhklinux@outlook.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	linux-hyperv@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	vdso@mailbox.org,
-	ssengar@linux.microsoft.com
-Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for mshv_vtl_return_call
-In-Reply-To: <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
-References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
-	<20260423124206.2410879-8-namjain@linux.microsoft.com>
-	<aeolHwXHFH4AnX_n@J2N7QTR9R3.cambridge.arm.com>
-	<f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: namjain@linux.microsoft.com, mark.rutland@arm.com, kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com, will@kernel.org, tglx@kernel.org, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, arnd@arndb.de, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, mhklinux@outlook.com, timothy.hayes@arm.com, lpieralisi@kernel.org, sascha.bischoff@arm.com, mrigendra.chaubey@gmail.com, linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org, vdso@mailbox.org, ssengar@linux.microsoft.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wLHTQ-000000066cO-1aRi
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 May 2026 09:26:21 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2ba3b9bcf69so65225ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 02:26:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778232379; x=1778837179; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0Z6CQ3IeyoNCQzM4n8QUnxz+E0eb5nkL31cz1hZskRQ=;
+        b=Qj0kQkoARPrWZrnxPOldKMA7Bev3rTmbnZ1Rmb/nexVtSZZjbc75AYcZC4dyqAPXfN
+         cZA80TGsaihq+aEaazryrc6WYKWevJ5LEzz4h4io2KMbiCB7+WlgOqEMR44h4UM/UJjw
+         l0PiSQ/b3un6mDYkVghlNhyznSLRJKsfUfryBHENGLRB+Y9v+MyAgPjcaW28jFwYKeor
+         F7HSJfohg8i26tqTeLj88AG+IQIIEHQPQvCVCJhlWr6v6TmBq8SVne0fKS9HsfNML9F8
+         k4NHnf6uC6ZkLlxPTeBMW9zX1LEvM70zgbGD4XV50G+YvJS0cQnkhVM2LF49OCo3C+it
+         XeEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778232379; x=1778837179;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0Z6CQ3IeyoNCQzM4n8QUnxz+E0eb5nkL31cz1hZskRQ=;
+        b=lwLc70BtUPFJnsuHYoYMV73945XYgA0PT36iODRAFH3gfUAaH7M+6KWh5cr4jbkP7Q
+         wUfHLpV0CJNXUf0yND5HKUQL9CgvXeIVzFTYms+9Vl3nba68SMOfim35vgP1hdSMmRLZ
+         jttXkZ7Hnmd07NHwNblip3z7GGISivlGRcwAqDsfMiS09mQQuK0giRqBNJRTfMJHIwwB
+         YxPDbA7nQVY2Pu5EYp2zgegpRzpVE9E6nh7e0rw6K0U9iEc0sJVl/uWOmcvlxIpfK/FA
+         bq4tUjRuqizR3u/VX/U2q5aLz61EC+pRBmBVoheByX59VIPG1t5R9FkhhT5MJngqHF4w
+         8KVA==
+X-Forwarded-Encrypted: i=1; AFNElJ983XOdaoEh2l9zD0fA7LwAf4IZ57RQnhUstqnLVcbhAnKE1eWPAEOeonaGyvOLw2/3rgelLupZevEqrUdKa3Ng@lists.infradead.org
+X-Gm-Message-State: AOJu0YyguRYXEjwXTWHbwNp6D3aLRJjzXl5wuQLdPJFz5ed8l4j8zLM1
+	3RQnO1v3OID2TwCAC3kHjtV+ieyB6TgDDCkljL2lGYPIJlWNUQrbijAPvQy2NTEoRY8u9TFK8r1
+	sZWZdRQ==
+X-Gm-Gg: Acq92OHXV7Oq67dljrOr2iLKL5v+8WLCP2HO+wyaZwXu6iiHl5DbFClNVDzW3gFzkGz
+	5eUraBNM8j/PRoX9XABj4KflDF8F9ZSsHZESISfOQtMNKfF48CiIgSf6NvDbPxJ6hCPkIkhv7iC
+	x/d8hAaNORKwUlDWX9hDEZFG0C2g31T0kxwlO8ZR9HG6UIezEWf/AnLCeKPp1gOOTTEgB08erER
+	MRQjqH2l0dW8uRy9fg5M68/rSton6iKOypJ28JV2SZAHGaf/erEQ7bYD6An96Zmva8/aEyBvOPi
+	h5SYlsydKPSV0dIh5sgWSIR5QHAQMzSz63mkf1R5lIeP8Nj50YJqI02CwB/7qOFloKj5fDoa1Or
+	o0uN5vIGGJE8zUryhbHwHrAFhXLHz5KstDfGGCzX98z7vTbId027lknnbZEY/UVeO9Jj+DOLbk2
+	LNlUaG0ki5k8EyNnQQNQgwYyGFD8hSMVfFuUF6rz1dKlWmQNfSz+Jj+o414FJLSU8hQmFe
+X-Received: by 2002:a17:903:22ce:b0:2b4:641a:6b7c with SMTP id d9443c01a7336-2baee828aaemr2177755ad.13.1778232378829;
+        Fri, 08 May 2026 02:26:18 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1ead90asm14866545ad.72.2026.05.08.02.26.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 May 2026 02:26:18 -0700 (PDT)
+Date: Fri, 8 May 2026 09:26:11 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH 4/9] iommu/arm-smmu-v3: Convert arm_smmu_cmdq_batch cmds
+ to struct arm_smmu_cmd
+Message-ID: <af2sM-NtNvzCpvyg@google.com>
+References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <4-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_022537_242048_E5A51A94 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20260508_022620_467070_A4214EBE 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,53 +109,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Apr 2026 10:56:11 +0100,
-Naman Jain <namjain@linux.microsoft.com> wrote:
+On Fri, May 01, 2026 at 11:29:13AM -0300, Jason Gunthorpe wrote:
+> Convert the batch's type to also get the remaining helper functions to
+> use the new type and complete replacing naked u64s with the new struct.
 > 
-
-[...]
-
-> Merging threads for addressing comments from Mark Rutland and Marc
-> Zyngier on this patch.
+> The low-level queue_write()/queue_read()/queue_remove_raw() functions
+> remain u64-based since they are shared by event and PRI queues which
+> have different entry sizes.
 > 
-> Thanks for reviewing the changes. Please allow me to briefly explain
-> the use case here and then address your comments.
-> 
-> Hyper-V's Virtual Trust Levels (VTLs) provide hardware-enforced
-> isolation within a single VM, analogous to ARM TrustZone. The kernel
-> runs in VTL2 (higher privilege) as a "paravisor", a security monitor
-> that handles intercepts for the primary OS in VTL0 (lower
-> privilege). The VTL switch (mshv_vtl_return_call) is functionally
-> equivalent to KVM's guest enter/exit. It saves VTL2 state, loads
-> VTL0's GPRs other registers from a shared context structure, issues
-> hvc #3 to let VTL0 run, and on return saves VTL0's updated state back.
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
-No, this is fundamentally different. KVM is purely architectural,
-doesn't try to "sanitise" anything, and context switches *all* of the
-guest state. No ifs, no buts, no "reserved registers".
+Reviewed-by: Pranjal Shrivastava <praan@google.com
 
-[...]
-
-> Regarding Non-SMCCC "hvc #3" call, I have a limitation here owing to
-> the ABI that is defined by the Hyper-V hypervisor. Fixing this
-> requires a hypervisor-side change to support SMCCC-style dispatch for
-> VTL return. Until then, hvc #3 is the only working interface. Moreover
-> there would be backward compatibility issues with this new ABI
-> interface, if at all it is added.
-
-Left hand, please talk to right hand. This is not the first time we
-push back on this, and we already had this annoying discussion back
-when arm64 as a Hyper-V guest was first proposed (6, 7 years ago?).
-
-What has changed since? Absolutely nothing.
-
-If the Hyper-V folks decide to ignore the standard and go their own
-way, that's fine. They only get to keep the pieces.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Thanks
 
