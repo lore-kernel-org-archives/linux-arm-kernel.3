@@ -4,81 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B79BCD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5614CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dKIj7vjKy9Y9Vae3A4dMKPMfxiFmPnyG5vDmw/Z5sss=; b=jwPCDROGV9BDkGIhrnxNqhmtuq
-	S6CS5ikq5Gpof1WMK5rwNi+AJc+H9fJYWAL0AKWdFVm7WavFrDEN5jPOMqQ9P3wtz7YMYtDliY63l
-	xSNfjrA9t2etHU+RKaj2GvdEpRxi7eQZwpfYwC7WQ5KgazdQcxSWzMeB0IipJNze35LG7lmiM/vFp
-	UhEh5yZii2T7+sbm/nfZfw1pQhhw5oQCoM7zalDYVJxnr/WdmQmSVQCSSd4QD1dG1CG3Q+Y+nJ+nG
-	G3x0W+/lBFj7oB74M9g532w94Hk+lrODImesMUt3mhuDyf/kfp+sebY0Y8nCVhrwEj2S5Ivpf8lwD
-	iT3idxyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L7c94zjHt1bNKMcE6C2ppqxs3cIZ/nVdUVOcHMFeI7c=; b=W9TvysZNkVtZLFPgsAzef4Aase
+	8jfRnfOg8w7FVRhO4mad3KqqHhP35cufNjR+Nte9mVLawsqU4eyQyyWMN6XidHf27dD/Mob6zkWKj
+	dUVwbSI1yB+vjfZRg06xa0ST9yoklp56Ok1l5TlGbZa6U+LG13Bp5DNRxBJ6iOz6+Og1hlyJd7h5M
+	q+dZLWyjg9QS4ldY0YVhTbhGcWH1ix6AcfQfPJwEXL1NwFk8iJ0TevNimHjICQsM4NlwkgZiy+ERz
+	4hlIRstdDBAJhkN5tcAykKusiAY6H1Ek5uEKBS6+2aRnZyXwCkJhOuaTqDvWm0fAALrUvaZNqbV9P
+	fEsiSmsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMQ0-00000006hGu-0fvv;
-	Fri, 08 May 2026 14:43:08 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wLMUh-00000006iFb-1m1D;
+	Fri, 08 May 2026 14:47:59 +0000
+Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMPp-00000006h6i-0FF6;
-	Fri, 08 May 2026 14:42:58 +0000
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1778251372;
+	id 1wLMUe-00000006iEj-33Ks
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 May 2026 14:47:58 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1778251673;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dKIj7vjKy9Y9Vae3A4dMKPMfxiFmPnyG5vDmw/Z5sss=;
-	b=CHSB4s5aYDs7S4QMCOXnymg7ULPR08n77kPrYl+rsyga2SQhoLt6+G8ang6TfCWAXlUURk
-	4KIhUhrNMEYYg8ukdH7FLvMTto85iAereEMV9t3Nb6xs7DCGRHQyNdLwROHVtzzUrQr0EZ
-	TOCKb8zVFOFqXP/DKHGCA0PVXaeGZZAxJnKKd8xwxjpooMXmKM6yIzVNesUskGeNZM9hcM
-	j3CwN5pSVSIpGaEkrF+/ZHCUcO2Q8cJ+Hwdmbbs5qkahsullsXOlnBRMJxdsXz3nvMdiUI
-	M/d6oU8roGTn2tQCrkv6Y5fcdBrkEQSIiwprt32tdbXdSTyjROssNrobnirHmg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1778251372;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dKIj7vjKy9Y9Vae3A4dMKPMfxiFmPnyG5vDmw/Z5sss=;
-	b=niIffQua2d/AOucZGbFiN67+AiliRCE5LWjHdcmrq444/SZ7Cy1/SOd1CVHws80K/FwYRs
-	BxY1nWHmhLtJgdDg==
-Date: Fri, 08 May 2026 16:42:48 +0200
-Subject: [PATCH v4 5/5] dt-bindings: raspberrypi,bcm2835-firmware: Drop
- unnecessary select
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=L7c94zjHt1bNKMcE6C2ppqxs3cIZ/nVdUVOcHMFeI7c=;
+	b=lAHo75R+QoYZI82YbQMcMGb15hVNWXgWNf4azy2zUL/JDFYN+CjLPtPeRuztsVaaW3YyXy
+	scWI2fLEQMMQNCy1abPGVa8fESoJcHuYotameeWV5sVtdZUHffxl8HjO4ae6Ckbi3uER1e
+	asU6KfQafUFiRPR6+iUlfGVpSOECw/E=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RESEND] stm class: remove unnecessary local variable in stm_write
+Date: Fri,  8 May 2026 16:47:06 +0200
+Message-ID: <20260508144705.3940-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260508-rpi-otp-driver-v4-5-cf8d725d8821@linutronix.de>
-References: <20260508-rpi-otp-driver-v4-0-cf8d725d8821@linutronix.de>
-In-Reply-To: <20260508-rpi-otp-driver-v4-0-cf8d725d8821@linutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
- Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>, 
- "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-hardening@vger.kernel.org, 
- Gregor Herburger <gregor.herburger@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778251369; l=1100;
- i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
- bh=DABsoMXDk2P+S/P+yyf588Zuvkfjmm33Pz1/j6lJE/4=;
- b=gPPKOgDjiowGSTTjFyrQ567SKtkM82Nof41P9IAw2e6PGA7Hc+THk5vpI8G6BT21JUkoEUzRG
- 1z16YPnGfaTCWUAVsYhlgIuHDvZLNqsttQ7yM9NZMsjWlOD8v/JzsHO
-X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
- pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1036; i=thorsten.blum@linux.dev; h=from:subject; bh=DprM5VsbFWom/d4IuDl2ijqlm6zvA0JIDercFKGcau4=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJl/v2d6q29SOBoVUOAZKRvNqntv49/Vy63urny5M1zz7 FM3N4UZHaUsDGJcDLJiiiwPZv2Y4VtaU7nJJGInzBxWJpAhDFycAjAR5e+MDJszmnNPBVwKe8IT ETlN21VFnev69SunZrL7FZ3R2LbkHAcjw475XPUH9TUPfgzLDyi/sifC9M5llsx5Sjtu5ajpLIj /zA4A
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_074257_260959_934548EA 
-X-CRM114-Status: UNSURE (   6.54  )
+X-CRM114-CacheID: sfid-20260508_074756_975545_0C596A8B 
+X-CRM114-Status: UNSURE (   8.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,38 +71,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The select schema is not necessary because the
-raspberrypi,bcm2835-firmware compatible is already matched by the
-compatible string values. The documentation says "Most bindings should
-not need select", so remove it.
+The local error variable and the corresponding if check in stm_write()
+are unnecessary. Remove them.
 
-Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 ---
- .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml           | 9 ---------
- 1 file changed, 9 deletions(-)
+ drivers/hwtracing/stm/core.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-index a3a5243b9170..7cf9a6fa1e5b 100644
---- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-+++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
-@@ -10,15 +10,6 @@ maintainers:
-   - Eric Anholt <eric@anholt.net>
-   - Stefan Wahren <wahrenst@gmx.net>
+diff --git a/drivers/hwtracing/stm/core.c b/drivers/hwtracing/stm/core.c
+index f48c6a8a0654..edf3d69a84a9 100644
+--- a/drivers/hwtracing/stm/core.c
++++ b/drivers/hwtracing/stm/core.c
+@@ -602,17 +602,11 @@ static ssize_t notrace
+ stm_write(struct stm_device *stm, struct stm_output *output,
+ 	  unsigned int chan, const char *buf, size_t count, struct stm_source_data *source)
+ {
+-	int err;
+-
+ 	/* stm->pdrv is serialized against policy_mutex */
+ 	if (!stm->pdrv)
+ 		return -ENODEV;
  
--select:
--  properties:
--    compatible:
--      contains:
--        const: raspberrypi,bcm2835-firmware
+-	err = stm->pdrv->write(stm->data, output, chan, buf, count, source);
+-	if (err < 0)
+-		return err;
 -
--  required:
--    - compatible
--
- properties:
-   compatible:
-     oneOf:
-
--- 
-2.47.3
-
+-	return err;
++	return stm->pdrv->write(stm->data, output, chan, buf, count, source);
+ }
+ 
+ static ssize_t stm_char_write(struct file *file, const char __user *buf,
 
