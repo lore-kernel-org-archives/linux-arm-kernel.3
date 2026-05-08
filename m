@@ -4,108 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C542FCD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:22:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58122CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4TwIRY2nZA1VjJMy/1brhO0GpNrd8SUOXjsMr4w1IXQ=; b=Rs3/oHfg65CUjvafl/kmMXhEu/
-	x6bif2hJzxCwB9W7CjPBMXtuJxBTzcsQDdWiayTRSydluWo5hStCeCOqaq98hoBNmIvIbNA0HrrAp
-	NjXPkDFRlbYCjmHNR+vZ9cfj2lc1ekJSORPmKpYu3bGH+vjFYIoWeJdlH+A2a3J9EzaqrbacQqRxJ
-	LmsRptcPMrvdhWBOA++SBkGP165oJVc7sLV9GcJ7CZo5QprsONcVL/GDIGSYMIib+yrv4qCIby0fE
-	TauGZv6FqQSHsN3BEafGeWHnVfiQF7H37YZApSU4d1KuEQRwnyE+SJ0x8rq7IscWWHiFXekBmP6Ya
-	Bl92CfIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YXUQyFk3/gkaOHXxMJL4LSnKxu/TPQvEZNmcErPubxM=; b=nFZqLHFlmKhGuK
+	bLQBWx8Irg8mw0SU6ot3z1OrMhTKXh1K1pb8fa+vC/YoG5lmhX56yRYVxgZogOQgLwXjCw7JGRX6U
+	dEqGOQWxa2cxHfkmjfYqdZz7ud3OOg2ekbc1wzZYhDJt3LAUxOg8YJ18CEQu9luA+V3zXeI5OnBM5
+	Oy+yJ9pc29tHInmlZarDn6BOpxVv9coHI1MxWuPhLwm7gUTAivPjEiGzkfCt1fv9cDSDHZlsKF+vA
+	TeHZvbb+xMyAPDWrCaGqOnSIUjn5GU19y1Xz1moWbSz3Mi3aGLnKiYX9iRnIUxFc6O1BFPm+jGm28
+	BbJqBIx5TuKbX+etYzbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOuH-000000077W9-23oZ;
-	Fri, 08 May 2026 17:22:33 +0000
-Received: from mail-yx1-xb132.google.com ([2607:f8b0:4864:20::b132])
+	id 1wLOv1-000000077iI-2lSZ;
+	Fri, 08 May 2026 17:23:19 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOuF-000000077VJ-46US
+	id 1wLOuz-000000077h8-0lgS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 17:22:33 +0000
-Received: by mail-yx1-xb132.google.com with SMTP id 956f58d0204a3-651bc8f864fso1550437d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 10:22:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778260950; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ZSwQ/il9E6H5p67d5Zz4PCfLPGYSndn4wy/fBlofRvorJBJ4U/3BloPCWVtdhpdN/x
-         iXrNwwGOeW5TVEoH2CxQUgBLOoDpEFa/a8rpBwlbTj9eGNiRVA+utlIosibx6+4OwWBl
-         ZQ80jfl/1HjH98KqmpzwIKwlnWKGX3dXa1OtX/teEBiYu0H9NaVMLo0l7URwfIfpFnB1
-         A2Wh/gRso6bNbTTN+l23lw1e+X2YjA/jVdKpqQDJwyjduS2VywG3cAm0xRFZR/cUsiPC
-         Vu78Von8uYBugPuhxlbgKwrkshddIjHSJwZtidBKyCsIFaeObO+nfGZKN/WqhzPhhpEb
-         JD5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=4TwIRY2nZA1VjJMy/1brhO0GpNrd8SUOXjsMr4w1IXQ=;
-        fh=K1ZNCMKX1wTkgcjX2i5p1ZhUOPXQy81+mAZlEe+LM/I=;
-        b=OZmMklWQ6QDTzKUmsU4uKp/fPPLm4Nd2LOpN7q0V5FvtSeGbdYDoZrx4EKGCP4eRY9
-         CgmqQlCzvMf+rYXERzidNCX2xyLuqSEUgE7aJMDUS8KqIEqvI8NTsXhjCS4UO2HB/5Ae
-         +J0QzPXD6AyWkFRoK9xgsm/BXsNsGqfFdr3w43qdHuImvDhEutOVgo0zgMGubsZ1RI0r
-         fGQT90JiMxBeMIpgbmPh+PcAST/oN5KvyUe9dmO6fJu16vLdlUc+JBiPfDYIgYrcksHM
-         qme4RwvRgtBJJ0c8sjktHDBR6dGGB2EJKG3NA5KMCZlZmy/clozJhwicQScWKcFrSqJ0
-         Ur+Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 08 May 2026 17:23:18 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-365d8e43759so1350740a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 10:23:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778260950; x=1778865750; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4TwIRY2nZA1VjJMy/1brhO0GpNrd8SUOXjsMr4w1IXQ=;
-        b=y8vlBjjcKiRhcsmwdyExndaibeWXn5FzgmpsqLqhC8x4dhqu3pubQLH0DkVCxXHHRF
-         2hVl5yjDJpcRWoQqCEAM+EQ9QvFNQsJl2Nt7ytUzhnQsl/MJdS2jQ0I8fJl+H0k0wTPq
-         IeexuXMAW8TuyGzX3hwbSv0Z5c2IdmedqzQpylPmyGIr5lpY3DhVnk2pzzRSbfRSSEvv
-         t+RgHI171bC+T2c+GKH626vNYBJdiuHj/4K+HAI62uHAb5EKwf2KFxQudUsyINf8mwyO
-         fp2G55rtfZMW9IZZtttfYZo77dPHZZbUFyMgXupO/T12EXrm0DGnc12ndo+FWR6Lq+cx
-         wMbg==
+        d=gmail.com; s=20251104; t=1778260995; x=1778865795; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=YXUQyFk3/gkaOHXxMJL4LSnKxu/TPQvEZNmcErPubxM=;
+        b=QbFCYHx1x5tDXBm2F+TL3tK6LmkqHjBXxGLln25+6q0gJ/jX7ffuBheSha8+Kz9m3m
+         TAEHssOD4u2bRAGCmJywp9Z+JIcXkTrQlKTcCyL8CUZgD94+fP5OJ1Em9yH8b5kl26By
+         R2HZXqfhXSRhWcsai0owaZc/uTvyUlg9S6/knzZRRx/pY7hdcSaTRrMPZrH0dI2R3XnR
+         KWxmFWL81bWlFLG/vbb/gREeN9+zG5XsP5moIOC2v4j9e2BnEWCNfEgC8fxlcqsKgZlI
+         fJITnarwFg+j0HVVDtMdwkPSJwhZyKEPE4BEmp8jS6iX2EKH6f8gCicuUxchdHRyPqMq
+         p61w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778260950; x=1778865750;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=4TwIRY2nZA1VjJMy/1brhO0GpNrd8SUOXjsMr4w1IXQ=;
-        b=ZioLzsRTD6A6hQ9vjhpugtWs594AliIrlgu+d6+WCN60Amy+tY1NC+wAg+3qbPMMht
-         cwQvEOzxtWObkpz372UnHPcFb3giz/HIBoSVgyoUvXyiH4LxHMp0pJY1AMae8LTLz+Kw
-         XnMnK4lUY1zwAM5LGCEHuMGG/fLBscJ2+vQ2FAldS9DW9BfyA7a6uozb2F6pPAT6DC2W
-         lxmb5WqTD139Nak3mkeXeJggpduJtUkR9vDy77R69DEpxKdVRTNmAQhLRNf7YiZkuDns
-         jqyIvArE7oNRWXrHPZA9RUYnb6Milux7IZSbBDKfbX1Lzrd9dFculXOMH37tTU3fHo97
-         52eg==
-X-Forwarded-Encrypted: i=1; AFNElJ/dqxk8TCZrykiU/bYKmPxFjCK9/09cPRPS2OtZBf/XlrDiyupujF4VuosiAS3mNlUiLyh7KmmHSw2vsPLRmjBo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrtPgDXBsBporfsGnNo2uDTH7vwTw91r19fZAv/svk18VWBALH
-	tjT9fFT62sqTM2+YAiU0odRTbq05jWtfyL13TrkIEOgLhT4Baqx9F8sp8qis6XjqOi5hYHQ7+jH
-	b8d90kpVBTmJI3u9hQ8NOAHRDaeLbIynbR3S3kmbhgw==
-X-Gm-Gg: Acq92OExFbqc4iBX8jlZHY4XE1yUSeZMLnrR6paxtxEgqwTe4amQ2McGlgbYYrK7op3
-	vR0OVyi2HP2aLor9yCa1JtvTq4HIAvfAOnJuL5/M6C7NglI2DXvpHXK4D4oXQDSrjZboptYWhXX
-	cGO8DyvWea5WTNKb7P3DgwNggFc25DJUdTCH6aGjyFtWOqnoXXJG++2olTgfKv0C7beAYNvXz7a
-	q/JhS3nx7+Ben+B293hS4bVkoWY5yoU2pPSCIEok2KAQ24tvKxOk4Gs1yc3ag0u7kEXwE7vKfMq
-	NEqjM+KTm2OOdZGEGlUtziD2FlHgcX9uIX9267kuhA==
-X-Received: by 2002:a05:690e:400f:b0:651:bcb6:888f with SMTP id
- 956f58d0204a3-65d94b499damr3535814d50.15.1778260949925; Fri, 08 May 2026
- 10:22:29 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778260995; x=1778865795;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YXUQyFk3/gkaOHXxMJL4LSnKxu/TPQvEZNmcErPubxM=;
+        b=iNMbkD7bbVySXfp4gt59G6/bcMImTF0BDxyWA6IkyY0yO7JkjI7O3r1nQG698FCVEF
+         xUNsn8JUC6qbd7l2xuBKnnDVduilODCTadzyIX59FTK7Kd/SgbL7NAXvDsf9PAY0dguW
+         nvyCYyPDNZaTsRjjqtx20uvl+W0YQB5z2HYFBOQExnu35d8h5vC7MsuYnLsymVJHwtSc
+         SNcg/tgTFWBYWk9TpBuYzaVCrTpxmkXL8zj0vvGLOa8wnLu+8xQyn3z2+2tUAoeUJ33o
+         wDmiKpKJEvbZ9wuMEsH7FdfyHDGpyMsT6zuciPYmlOgFq5+ezRgRnYuUXIL7vwgF/TLs
+         Zqjw==
+X-Forwarded-Encrypted: i=1; AFNElJ8paZCJqfgqpPa3f/sEyg9WCUmj9Mu6ZtTVv2BKvlOJWFoMCv1gQrT6foI34JLWtwNQKE0/qm9oa5lrJtd0S7De@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOKevojzjzg53LdXjrAGxVJaOCQHYgP179vRQLMHFKR+mNk6cu
+	Rolg7q9LmzMnKp110GPQ4xTggrhJHXHy9rSGS73e8Sxgzm+XIihLPSOb
+X-Gm-Gg: Acq92OH/+IDp7kjlGOTRyvSGSJEtFsYn29FaoDg4BpQvtT1IIGCpBexVDSHYGSsJGG0
+	LttmR/jpARCOLwu4nl/3SeXxF6D+snBFKInpuuLtCYD3cK2xmUGqWnV29JY0K1Q3mncem9tXBKA
+	xqUY9iqP78Wo3FjiiCFJ4taBhBYIqa3WudFtX4VBVPS51+liaqR/NAHDEo35nXAyY5/XWXSdDk8
+	yQ7h6UpkIGX/0/ZIQSP0c+O4JMaa/HXKMqfoFKdO33ert/u6A/i55HUUi1tE+SD7zEnnSsCTCx1
+	x5WVn9abNJt0b5MNKvPpOK85fTlk+s4SG8CveXtBi1yEs02Tg88tWUDm8/7qRdQt+aGBYbHsFfk
+	s26otabOZgh/SW3z+nsrbGz46K8xK4UaUHVJy8FyLGbnA7ystOMDKe4M8MRIbZN2j3SFWAB9n0E
+	k5/h52cqwLTX4z1dAr1mPFt8usE1PMt3EDNRiySUJilTczLr5+PuXPsnE=
+X-Received: by 2002:a17:902:8492:b0:2b4:68c9:302a with SMTP id d9443c01a7336-2babd4a48dcmr51407625ad.17.1778260995443;
+        Fri, 08 May 2026 10:23:15 -0700 (PDT)
+Received: from Black-Pearl.localdomain ([60.243.224.75])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2baf1e35487sm24907985ad.46.2026.05.08.10.23.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 May 2026 10:23:14 -0700 (PDT)
+From: Charan Pedumuru <charan.pedumuru@gmail.com>
+Subject: [PATCH v3 0/2] dt-bindings: mmc: st,sdhci: convert
+ STMicroelectronics SDHCI-ST MMC/SD Controller controller binding to YAML
+Date: Fri, 08 May 2026 17:23:05 +0000
+Message-Id: <20260508-st-mmc-v3-0-81c329ed28e8@gmail.com>
 MIME-Version: 1.0
-References: <20260430-exynos850-i3c-criticalclocks-v1-1-6e1fd8dfa21b@linaro.org>
-In-Reply-To: <20260430-exynos850-i3c-criticalclocks-v1-1-6e1fd8dfa21b@linaro.org>
-From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Fri, 8 May 2026 12:22:21 -0500
-X-Gm-Features: AVHnY4I2OawrzI6xYvjWNwRGdaLspFjoHiDADtZnKv7uMu1NzvUcqwurZTLYMoM
-Message-ID: <CAPLW+4kLyzUv-tstDezbqJetOLuPkzQ_Kt8EGBPy9U861q=7uQ@mail.gmail.com>
-Subject: Re: [PATCH] clk: samsung: exynos850: mark APM I3C clocks as critical
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Brian Masney <bmasney@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPkb/mkC/02Myw6CMBBFf4XM2jFth6K48j+Mi6YM0MSCaUmjI
+ fy7BeNjeW7uOTNEDo4jnIoZAicX3ThkoF0BtjdDx+iazKCEqgSpA8YJvbdoa1GZptZteyTI53v
+ g1j220OWauXdxGsNz6ya5ru9EKepPIkmUWFpdkpKWNOlz54277e3oYU0k9dO0oK+mUKCUhrNWN
+ cryv7YsywtaZuRZ0wAAAA==
+X-Change-ID: 20260327-st-mmc-c906ad95ff83
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Charan Pedumuru <charan.pedumuru@gmail.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_102232_037832_18C6E57F 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20260508_102317_233497_9D2BF8BB 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,62 +107,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 6:53=E2=80=AFAM Alexey Klimov <alexey.klimov@linaro=
-.org> wrote:
->
-> The Exynos850 APM co-processor relies on the I3C bus to communicate with
-> the PMIC. Currently, there is no dedicated PMIC consumer driver managing
-> these clocks, so the clock subsystem automatically gates them during the
-> initialisation. Once gated, any subsequent ACPM communication with APM
-> results in timeouts.
->
-> As a temporary workaround (and let's hope it doesn't become permanent),
-> mark both `gout_i3c_pclk` and `gout_i3c_sclk` as CLK_IS_CRITICAL ones to
-> prevent the clock subsystem from disabling them. This makes the ACPM
-> communication functional. This workaround should be reverted once a
-> proper ACPM PMIC driver is implemented to manage these clocks.
->
-> Cc: Sam Protsenko <semen.protsenko@linaro.org>
-> Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
-> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
-> ---
+This patch series converts the legacy text-based Device Tree binding for
+STMicroelectronics SDHCI-ST MMC/SD controller to DT schema (YAML) format.
 
-Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+Note:
+The patch "dt-bindings: mmc: st,sdhci: convert to DT schema"
+depends on the patch "arm: dts: st: align node patterns with established
+convention". If the DT schema patch is applied before the DTS
+cleanup patch, `dtbs_check` will fail due to the presence of the removed
+properties in the existing DTS.
 
->  drivers/clk/samsung/clk-exynos850.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/clk/samsung/clk-exynos850.c b/drivers/clk/samsung/cl=
-k-exynos850.c
-> index eb9c80b60225efa33d85f5f3c284eb8a63a48015..b143a42293f5a154f53a86d4e=
-97e17a3e61164f3 100644
-> --- a/drivers/clk/samsung/clk-exynos850.c
-> +++ b/drivers/clk/samsung/clk-exynos850.c
-> @@ -686,10 +686,11 @@ static const struct samsung_gate_clock apm_gate_clk=
-s[] __initconst =3D {
->              CLK_CON_GAT_GOUT_APM_APBIF_RTC_PCLK, 21, 0, 0),
->         GATE(CLK_GOUT_TOP_RTC_PCLK, "gout_top_rtc_pclk", "dout_apm_bus",
->              CLK_CON_GAT_GOUT_APM_APBIF_TOP_RTC_PCLK, 21, 0, 0),
-> +       /* TODO: Should be dealt with or enabled in PMIC ACPM driver */
->         GATE(CLK_GOUT_I3C_PCLK, "gout_i3c_pclk", "dout_apm_bus",
-> -            CLK_CON_GAT_GOUT_APM_I3C_APM_PMIC_I_PCLK, 21, 0, 0),
-> +            CLK_CON_GAT_GOUT_APM_I3C_APM_PMIC_I_PCLK, 21, CLK_IS_CRITICA=
-L, 0),
->         GATE(CLK_GOUT_I3C_SCLK, "gout_i3c_sclk", "mout_apm_i3c",
-> -            CLK_CON_GAT_GOUT_APM_I3C_APM_PMIC_I_SCLK, 21, 0, 0),
-> +            CLK_CON_GAT_GOUT_APM_I3C_APM_PMIC_I_SCLK, 21, CLK_IS_CRITICA=
-L, 0),
->         GATE(CLK_GOUT_SPEEDY_PCLK, "gout_speedy_pclk", "dout_apm_bus",
->              CLK_CON_GAT_GOUT_APM_SPEEDY_APM_PCLK, 21, 0, 0),
->         /* TODO: Should be enabled in GPIO driver (or made CLK_IS_CRITICA=
-L) */
->
-> ---
-> base-commit: 0787c45ea08a13b5482e701fabc741877cf681f6
-> change-id: 20260430-exynos850-i3c-criticalclocks-dcabb78bf154
->
-> Best regards,
-> --
-> Alexey Klimov <alexey.klimov@linaro.org>
->
+Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
+---
+Changes in v3:
+- st,sdhci: Edit description of reg property. Modify reg-names. Add
+  "minItems" for clocks and clock-names properties.
+- Modify the commit message to match with the updated changes.
+- Link to v2: https://patch.msgid.link/20260503-st-mmc-v2-0-11ae3216d2ce@gmail.com
+
+Changes in v2:
+- Fix node name in DTS for the MMC to match with the estableshed convention.
+- st,sdhci: drop unnecessary properties, modify "reg", "reg-names" and
+  "clock-names" properties, include an allOf with $ref to mmc-controller.
+- Link to v1: https://patch.msgid.link/20260409-st-mmc-v1-1-4c54321c3535@gmail.com
+
+---
+Charan Pedumuru (2):
+      arm: dts: st: align node patterns with established convention
+      dt-bindings: mmc: st,sdhci: convert to DT schema
+
+ Documentation/devicetree/bindings/mmc/sdhci-st.txt | 110 ---------------------
+ .../devicetree/bindings/mmc/st,sdhci.yaml          |  91 +++++++++++++++++
+ arch/arm/boot/dts/st/stih407-family.dtsi           |   4 +-
+ 3 files changed, 93 insertions(+), 112 deletions(-)
+---
+base-commit: cf2cd8efd046c561191b8541d32a8bfe845bf06b
+change-id: 20260327-st-mmc-c906ad95ff83
+
+Best regards,
+--  
+Charan Pedumuru <charan.pedumuru@gmail.com>
+
 
