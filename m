@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC0DCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA2E9CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PzX8VShm7Y8xnVc0WgzNhGSv8RV1da2S89R864bQGYM=; b=Ld82ZhxnLgbUDR1ALs7GiRNtVA
-	KqP3RK9SCds7wZV11l8nbw2YE7JtzYek/Un/FZ+zXlQ+NfQ68odaWFuOGT/3EKGR08/KqynTfeSss
-	0LSPn8hXeQLdtkwD0sDZAMl9cAMcVM6BIBrUCZ2Npa21zqvyKjUv5Wto/LzFUjrG7O78eCkG5C0WA
-	8tjyXopIhpEPM5/33VeXB7Z6cdZoUapUsaztHJCnQjPSk9UIyaQh4t+I3zRo3Fd5cwi3UbtEmb5tU
-	HGfdDum/NAimJoJucjcXszlX/OFWJqfqGewRQ7d7sIu3scLC+ncbFvbNO1rbmenLAmohnGc51joYn
-	MObhAPNg==;
+	bh=ZQFNt+9a4A5dfeMowDT9WSpy81hGD3mNS+Yhz4JhQsc=; b=lN9+IMHaoOTYSbd8o6uKPoAH55
+	oFvZrpL/C9F2qMXqSxCi5KVeT6QXj9bjw8fCOBT2YH7T3xRc6wwKUT+CdutzQ1y6IR57fPIPD2zDd
+	FUeUFfFUPGd+ME9fdrsGX2cMiEPi8GW4rKko4o0v6pndDg3SrTSxUnlIzJSJXAJVaUujx+FC2RKSc
+	vRy0D4JF4yFWGRFkqehUMXX4IpC74IBh+l8RqrDr/niFTM+lgCXDZC5/20VeoBVLoxxLVak7zWP0B
+	JrGRiVp3UC0UZlN/CPik/6cpDP8NA9VuN6qDzxzdwwMXYlpZdPvfvdtxF54d9d3BIhQjGXJAmGZLj
+	KgxW680g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLM89-00000006fQE-1XTK;
-	Fri, 08 May 2026 14:24:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLM85-00000006fOK-0n5J
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 14:24:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C4BB1D34;
-	Fri,  8 May 2026 07:24:31 -0700 (PDT)
-Received: from [10.57.63.248] (unknown [10.57.63.248])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B91A3F763;
-	Fri,  8 May 2026 07:24:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778250276; bh=xMvJ+UVy1nv17H8gSqpdUgkqt12klZ7Sjrndd72fwpM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NWqT6D2I8isFd1iJKghNU08CGFVObRfeRm9RWUDGT0ZFWuAsTNbvH4ALuSJ7+bbTK
-	 FTBsBfIZJlIxALAou5RL20rWliymFvJ5bIL95K7D103amzpp+gDTjrhhyu3/pBOEHW
-	 uQJZrRXKzhIBjFaksIMjfo7zCVgwst40iTpQCDyw=
-Message-ID: <4e129891-2f52-4bac-8e33-1fdde42fd29a@arm.com>
-Date: Fri, 8 May 2026 15:24:32 +0100
+	id 1wLMPp-00000006h7K-0bPX;
+	Fri, 08 May 2026 14:42:57 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLMPm-00000006h4k-19XX;
+	Fri, 08 May 2026 14:42:55 +0000
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1778251370;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZQFNt+9a4A5dfeMowDT9WSpy81hGD3mNS+Yhz4JhQsc=;
+	b=Hq7fIZZpmdqb/0DbT5BBcTSNGjtFgSTBhapTssZ7MaUZC35grTfpkmLjNWc8S2wr2j2ZLu
+	b3ud3HyomsKJ8pO6VoPikbRrxntV8P2jfYaYk7v0jnr1GW76Ay3S3Hlht0lXaUCzHFaHgT
+	PVyCU3aZncDC+GbKKi+7wASTgcdBNB9Gd98ZaqnzEYhiFA8+ZWqMy0GqJC8F7Ob2Dz88Wm
+	Kigs3xtw5LzNqCa9OfTLcRxN8Na9RAHC2t5saL3jLUG13/IvemAVFsFNlFuPslQZyl9ext
+	5vj6l4rIl4hHCoxp/3knf9Fvq1MJtWz8Cmr0nu18asRuzn3xTzLRDmnd6Rg+XQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1778251370;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZQFNt+9a4A5dfeMowDT9WSpy81hGD3mNS+Yhz4JhQsc=;
+	b=T4JTklaJWumJ4Zp9TUC52vo/VxxPnfwanI+f+aw79NywQc0k6ARI/r5eU/En80tqA2zxL7
+	GFOarnerbeMtcYDQ==
+Date: Fri, 08 May 2026 16:42:44 +0200
+Subject: [PATCH v4 1/5] dt-bindings: raspberrypi,bcm2835-firmware: Add
+ bcm2712-firmware compatible
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-v3-sva: Enable Hardware Access and
- Hardware Dirty bits
-To: Pranjal Shrivastava <praan@google.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, Nicolin Chen <nicolinc@nvidia.com>,
- Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
- Jean-Philippe Brucker <jpb@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260503135413.1108138-1-nicolinc@nvidia.com>
- <af0SdkjQOZxnnaQb@google.com> <20260508123550.GB9254@nvidia.com>
- <af3hWGp3etGOIdEn@google.com> <f31043cc-45dd-457f-8031-0cef51c9470e@arm.com>
- <af3ryl7G58D2GeWr@google.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <af3ryl7G58D2GeWr@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260508-rpi-otp-driver-v4-1-cf8d725d8821@linutronix.de>
+References: <20260508-rpi-otp-driver-v4-0-cf8d725d8821@linutronix.de>
+In-Reply-To: <20260508-rpi-otp-driver-v4-0-cf8d725d8821@linutronix.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
+ Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-hardening@vger.kernel.org, 
+ Gregor Herburger <gregor.herburger@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778251369; l=1195;
+ i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
+ bh=+kkWUzDTio/ByhdKzh2wtj7KRg3wTOQXzmfdrn64Jf8=;
+ b=Wd7sEwtQi7ou5NUNCMPp2Z0xVIUb98/tB4VL5L+NVc3h29Sho7Ys9p6ou3E5srJeBtKO6KK8V
+ ME/ebRQiq7BAytj+Ac4LWlRVnZgqnaSHBbIEqfZVgtFxScXCyO4G/E6
+X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
+ pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_072437_306990_00608556 
-X-CRM114-Status: GOOD (  24.16  )
+X-CRM114-CacheID: sfid-20260508_074254_458517_404E190D 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,81 +94,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-08 2:57 pm, Pranjal Shrivastava wrote:
-> On Fri, May 08, 2026 at 02:31:11PM +0100, Robin Murphy wrote:
->> On 2026-05-08 2:12 pm, Pranjal Shrivastava wrote:
->>> On Fri, May 08, 2026 at 09:35:50AM -0300, Jason Gunthorpe wrote:
->>>> On Thu, May 07, 2026 at 10:30:14PM +0000, Pranjal Shrivastava wrote:
->>>>>> @@ -92,6 +92,16 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
->>>>>>    		target->data[1] = cpu_to_le64(virt_to_phys(mm->pgd) &
->>>>>>    					      CTXDESC_CD_1_TTB0_MASK);
->>>>>> +
->>>>>> +		/*
->>>>>> +		 * Enable Hardware Access and Dirty updates (DBM) if supported.
->>>>>> +		 * This is safe to enable by default, as PTE_WRITE and PTE_DBM
->>>>>> +		 * share the same bit.
->>>>>> +		 */
->>>>>> +		if (master->smmu->features & ARM_SMMU_FEAT_HA)
->>>>>> +			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
->>>>>> +		if (master->smmu->features & ARM_SMMU_FEAT_HD)
->>>>>> +			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
->>>>>
->>>>> IIUC, we should be setting these if IO_PGTABLE_QUIRK_ARM_HD is present?
->>>>
->>>> SVA does not use IO_PGTABLE at all, and it directly constructs its own
->>>> CD.
->>>>
->>>> No relation between those two flows.
->>>
->>> I understand that but I mean we need to know if the system supports
->>> HTTU ? Like for SMMU we use the IO_PGTABLE_QUIRK, shouldn't we be
->>> checking if the CPU's tables support HTTU?
->>>
->>> Are we assuming that if the SMMU IDR presents HTTU capability the MMU
->>> would also have it? I think an unconditional enablement is risky as we
->>> may not have system-wide HTTU support.
->>>
->>> If we look at arm_smmu_master_sva_supported, the driver already
->>> maintains a strict agreement between the CPU and SMMU for SVA.
->>> It checks sanitized CPU ID registers for things like PARANGE & ASIDBITS,
->>> and it uses system_supports_bbml2_noabort() to decide whether to enable
->>> FEAT_BBML2.
->>>
->>> Shouldn't we follow this exact same pattern for HTTU ?
->>> We should probably be checking cpu_has_hw_af() (from asm/cpufeature.h)
->>> in the SVA support check or here if we wanna enable HTTU.
->>
->> It might make sense to depend on CONFIG_ARM64_HW_AFDBM - when that is
->> enabled, then IIRC we already expect to cope with some CPUs not supporting
->> hardware updates, so it should still be fine for an SMMU to make them even
->> if no CPU does. However, if it's disabled then I'm not sure if missing
->> access flag faults (if SMMU HA silently sets them) might be an issue - for
->> dirty, we'd just never put down the Writeable-Clean permission so enabling
->> SMMU HD wouldn't do anything anyway.
-> 
-> I see, so IIUC, you mean if IS_ENABLED(CONFIG_ARM64_HW_AFDBM) but CPU
-> doesn't enable HTTU, it is perfectly safe to let the SMMU do HTT updates,
-> Since the fault handlers are already expecting HW-triggered updates?
-> 
-> Which means our check would be something like:
-> 
->     if (IS_ENABLED(CONFIG_ARM64_HW_AFDBM) {
->     	if (smmu->features & FEAT_HA)
-> 	 ...
->     }
-> 
-> instead of cpu_has_hw_af()?
+Add a compatible string for the bcm2712 firmware. The bcm2712-firmware
+is compatible with the bcm2835-firmware so allow the bcm2835-firmware as
+fallback.
 
-Hmm, looking closer, cpu_has_hw_af() is the thing which actually 
-influences mm behaviour (via arch_has_hw_pte_young and 
-arch_wants_old_prefaulted_pte), and that can still be false at runtime 
-if ARM64_HW_AFDBM is enabled but any CPU doesn't support HAFDBS, so 
-perhaps you were right the first time :)
+Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+---
+ .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml        | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-Although AFAICS from __cpu_setup(), ARM64_HW_AFDBM will still 
-unconditionally enable TCR_EL1.HA on CPUs which do support it, so maybe 
-it is OK anyway?
+diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+index 983ea80eaec9..a3a5243b9170 100644
+--- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+@@ -21,9 +21,14 @@ select:
+ 
+ properties:
+   compatible:
+-    items:
+-      - const: raspberrypi,bcm2835-firmware
+-      - const: simple-mfd
++    oneOf:
++      - items:
++          - const: raspberrypi,bcm2835-firmware
++          - const: simple-mfd
++      - items:
++          - const: raspberrypi,bcm2712-firmware
++          - const: raspberrypi,bcm2835-firmware
++          - const: simple-mfd
+ 
+   mboxes:
+     maxItems: 1
 
-Cheers,
-Robin.
+-- 
+2.47.3
+
 
