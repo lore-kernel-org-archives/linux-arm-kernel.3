@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73342CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 11:32:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90891CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 11:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LVbWJ7YEFqXP/wDP8I/Rz74VaCJkb26ggR3PK+98aHY=; b=nnbM1TXpNXqtK96jMwP4GYtN4w
-	sFYjZr6v3PIYEWgI2pUsL9FOlggTL8Xp/YZLPjcrffKDHBanwwuWgncL143bJTN7dv8elRQ279V6n
-	UopRxfmboX04wpqWawuhCqVCFE6I8sFQSPBEh0qe9/YerOQzNJ6YTtDZY8wy0io1Lv/ZHYVNiszGq
-	kQRL2+StkjfFUm/ogjH1nTmPXqLat2W6LPxMrfeAOdyA6YPBcxd3RKEh2RkyY3skCaynV0mcEfeR6
-	U1+QDhnnL1j1LkwsPXE6vc62qBwhGSa58Fxva+6viNFxcEWlmOo2gYCfVVkD+wRQtyMT3MoPd2fVi
-	WEjhcKew==;
+	bh=3HLt/hxOkl7aSPqpAf1bFw2IFuOfV/t7jCK+Ije+pMc=; b=bwnryKtHN/z2EE+eL+tiJfS7sz
+	yMjKVuZIokjZLntexQO2TZ8lblf6P8n4i+IJWnU8MRxyWTwYoMvUaLvVuFx/6JykhH2Dmiz+5SDiZ
+	ACKbkf2wFxztQ35ieW+oF5OI9vY091C27dB3zt29GZeK5aqY5VcE+yyIwVv+BOsj/mRqn7F+UrEbn
+	i+zuaQBDynGyso+UoO+5xDczC7wG8/aYRgaFRF5Jxltcnyhy3ZdzW5fHiDJbNkToqwv5JwM7RWGlP
+	JlZoNDSnCaQWTQtDqccBWRQJw23mryGb9M3HVc12111emDF/SvcSrQ30M4G9PuCYA/JdPgI9hNaMT
+	E+2wB0hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLJDa-00000006JvG-1Oti;
-	Fri, 08 May 2026 11:18:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wLJSh-00000006M2s-0g6H;
+	Fri, 08 May 2026 11:33:43 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLJDQ-00000006Jlx-3y3O;
-	Fri, 08 May 2026 11:17:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=LVbWJ7YEFqXP/wDP8I/Rz74VaCJkb26ggR3PK+98aHY=; b=PiGXX6WemP7a4z+nxZKngtsJrg
-	kT1xvGSQZiE6vnQR8GtMbz87F2p7zzfkJiIx49uP23hdWHDAuvfW4xpJatAaF/Uw67D1lV1+D3OY5
-	Gkt844irHGlUkaavPlbJpLrDXypCw/lOASDaZcc5LeBkv0HgfyBZTlKpEiT4nuHLVdjXpLzLdf3xc
-	93lAoLyl1kcDjDfr5wo3E+zE0Vx421FNmvmpTm6YcbHh4fmsNsLBKLYA7JgTo+D5CEmNjSDds07H4
-	cQZZy3s9DnGsnB7RSPu8hndawWlRs3hojYV2T4yp8ctQrxIK1b7k0JNBdSeXWnRFKSNT0Zobj6Eun
-	kf2fD60w==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLJDK-000000062XT-0xop;
-	Fri, 08 May 2026 11:17:55 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 648BGgTrA3763939, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1778239002; bh=LVbWJ7YEFqXP/wDP8I/Rz74VaCJkb26ggR3PK+98aHY=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=XZ/8PYWITbCRCncsUJobgcNRMdWmFBNzOUHYRBnLkIsmaL7q7+nUhCw9QHE6E4lHr
-	 tpS7IeqDc7O5h8Uw6YAcL+agnb1taG+uU/2I7oY1hMYEmmeTu5c1TPKdxz77oSuOXT
-	 CVZXKNLJ6VSKIr9Wd+W/ee0PIimnrv0vUCkwA3SvTxL7Sscuqh4Q57nNnIKrt0mmzn
-	 eCfsxIVdOioRJURYmKh27RtFR3I3X4k1b4oSVFIC54R+O0UdjxBTK9WnRWZaL32Gii
-	 iE3uAJKQytaGvVD3ZNczxkJyCiKWlPc5hQGFCNLvL1rcnngFSNMEeFCRcgv7sXs+AH
-	 iJcxFwRfQpVNQ==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 648BGgTrA3763939
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 8 May 2026 19:16:42 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Fri, 8 May 2026 19:16:42 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Fri, 8 May 2026 19:16:42 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
- (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Fri, 8 May 2026 19:16:42 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
-        <cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>
-CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
-        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-        <eleanor.lin@realtek.com>, <bmasney@redhat.com>
-Subject: [PATCH v7 02/10] reset: Add Realtek basic reset support
-Date: Fri, 8 May 2026 19:16:33 +0800
-Message-ID: <20260508111641.3192177-3-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260508111641.3192177-1-eleanor.lin@realtek.com>
-References: <20260508111641.3192177-1-eleanor.lin@realtek.com>
+	id 1wLJSf-00000006M2P-1Z15
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 May 2026 11:33:42 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2b2e8b95bdbso74125ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 04:33:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778240020; x=1778844820; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3HLt/hxOkl7aSPqpAf1bFw2IFuOfV/t7jCK+Ije+pMc=;
+        b=l9ZnhQFX7N32tOvNkk02ivZ9Nqglw+303D8w2VqBlCaUiwb1RGearF1nPyoraWQXdJ
+         8exEOcB87muEUkMstHXruNMQxYZ9o2IpOsYMWLaI9/F2mhdZ7hFgdLhpI7YN+9g7OfVl
+         d4fXQPrXOQr++I27c8zTPYSa+PRzVUnSRaB6fjfdWhvbkM/+A81vsFzxWbL1kK9g3/1P
+         n5vFhLCWAw8rdoHtOBd+iqCiJXcgk5MWHA6y8fxSKPjtY5yCvSS+vm9y9XaPxrt0OS5y
+         odATMO+WJTLYLCmsc4Ss/ev/5fOwkK5tVo97JHv2Gjz9cMBFFPGQjG6ulWGQbdnWwiGG
+         Yv+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778240020; x=1778844820;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3HLt/hxOkl7aSPqpAf1bFw2IFuOfV/t7jCK+Ije+pMc=;
+        b=QQmZZrLgLGCjIh7z3VdZDTapZmZyX1jFG8sjP4L22LZ0Wujds2tLNhPTgkYxHnueR8
+         mY8WHPNQGwFQ4gYutfARXjtePNzw39W2n9a6GPVGqH1BWq9NfsV3Q4zGSRhxY8vhEPvA
+         3BUqbU6R2ZyCtWtObEgS91kpZimIQr8PEVE59VU+r6Bjrq8cCNwioI5ATGkIHS+Ny8wn
+         OGUFbA7cS7VagQf2kxPmoAlTVj+Ac6DGjkz/ZtZudILK9KiVrbnG9HxauKhjkKEKQ1aI
+         4z+QYwMym73VaMwpn3fe/h5l7qiz1aEcZYd7s595LCT/VbptG5jCUP93ZueXzanNq5CM
+         hldQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/4WhXPSk2Y6UhGwARKKcbDirMlGZRWJrBn4QEsNZ5skUvpszeTKz64KmudHqWOvn8RY5ERjIS0OVGIMlhQrmUV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxhxhe3qTZE7KbHim8SgTrWHhCidhkdBahiYWgJSYZUp+tkpcXI
+	nvpE9PCCnhIGjBT8ijKG1XgkLzFzuYeibDB1FexHiSXFFgazZQ5JH8XrazG7aVQnXg==
+X-Gm-Gg: Acq92OEHAMSkAJ43SJ++xbO8EX4EGVz/okeh/Zc/l56glh5J0Q63r+tTIva3dw8fd/E
+	iP/Imo1oGfJT4KhEuV/CI5Bt+SCAWv1GMmiNUEAkHqh+di3rTD7j+pkZnlIbno9K+f9i0cSQtQI
+	scFyAxakOajt04AAtssg9b9tEQAmRUg/e9oPQJM1JWsJs+lnrH882SffAfJfsQ3mrjqRsVTNvEb
+	bp4iSr2yf9UKK65Wmh6GtjAE9Qb3C3ZsNxUJNLD2azxH/ualAKSwuG0JxQLaU6bt4YkOtTG8KYE
+	OChZOcSl52QmBKuC3K3v043VTzTLswcCWeYFASQYxxU2sdM56LklzhnuqXiAnQdpNToO6coY933
+	SVxrfbMGKw3mX+DwByJ0fUuY6fjwM52Jj9SzAlKnZCL4qAaRRyf3Z4EniAVI9KCf+bY3UPZt66d
+	8uN+CLe0bYNGxPSRoEiHiU7K8rTUeCCac8SAGwNU2oB9WXF85L6h0HGuaRUqgi2mxqyg9F
+X-Received: by 2002:a17:903:2c9:b0:2ba:30f:33e0 with SMTP id d9443c01a7336-2bae9e99284mr2894105ad.20.1778240019615;
+        Fri, 08 May 2026 04:33:39 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83965d36c10sm14982546b3a.25.2026.05.08.04.33.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 May 2026 04:33:39 -0700 (PDT)
+Date: Fri, 8 May 2026 11:33:32 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH 6/9] iommu/arm-smmu-v3: Directly encode simple commands
+Message-ID: <af3KDBt8vhClSKEF@google.com>
+References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <6-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_121751_295638_4B84B2BC 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20260508_043341_468785_1241DE3D 
+X-CRM114-Status: GOOD (  27.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,224 +106,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cheng-Yu Lee <cylee12@realtek.com>
+On Fri, May 01, 2026 at 11:29:15AM -0300, Jason Gunthorpe wrote:
+> Add make functions to build commands for
+> 
+>  CMDQ_OP_TLBI_EL2_ALL
+>  CMDQ_OP_TLBI_NSNH_ALL
+>  CMDQ_OP_CFGI_ALL
+>  CMDQ_OP_PREFETCH_CFG
+>  CMDQ_OP_CFGI_STE
+>  CMDQ_OP_CFGI_CD
+>  CMDQ_OP_RESUME
+>  CMDQ_OP_PRI_RESP
+> 
+> Convert all of these call sites to use the make function instead of
+> going through arm_smmu_cmdq_build_cmd(). Use a #define so the general
+> pattern is always:
+> 
+>    arm_smmu_cmdq_issue_cmd(smmu, arm_smmu_make_cmd_XX(..));
+> 
+> Add arm_smmu_cmdq_batch_add_cmd() which takes struct arm_smmu_cmd
+> directly to match the new flow.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 213 +++++++-------------
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 109 +++++++---
+>  2 files changed, 151 insertions(+), 171 deletions(-)
+>
 
-Define the reset operations backed by a regmap-based register interface
-and prepare the reset controller to be registered through the reset
-framework.
+[----- >8 ------]
 
-Since the reset controllers on Realtek SoCs often share the same register
-space with the clock controllers, this common framework is designed to
-extract the regmap and device tree node from the parent device
-(e.g., an auxiliary device parent).
+>  
+> -static int __arm_smmu_cmdq_issue_cmd(struct arm_smmu_device *smmu,
+> -				     struct arm_smmu_cmd *cmd,
+> -				     bool sync)
+> +static int arm_smmu_cmdq_issue_cmd_p(struct arm_smmu_device *smmu,
+> +				     struct arm_smmu_cmd *cmd, bool sync)
 
-Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
----
- MAINTAINERS                    |  1 +
- drivers/reset/Kconfig          |  1 +
- drivers/reset/Makefile         |  1 +
- drivers/reset/realtek/Kconfig  |  8 +++
- drivers/reset/realtek/Makefile |  2 +
- drivers/reset/realtek/common.c | 90 ++++++++++++++++++++++++++++++++++
- drivers/reset/realtek/common.h | 29 +++++++++++
- 7 files changed, 132 insertions(+)
- create mode 100644 drivers/reset/realtek/Kconfig
- create mode 100644 drivers/reset/realtek/Makefile
- create mode 100644 drivers/reset/realtek/common.c
- create mode 100644 drivers/reset/realtek/common.h
+Nit: I'm not sure why we need to rename this? We can still define the 
+rest of the helpers like:
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 4af7515664f8..ff0347f6556d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22434,6 +22434,7 @@ L:	devicetree@vger.kernel.org
- L:	linux-clk@vger.kernel.org
- S:	Supported
- F:	Documentation/devicetree/bindings/clock/realtek*
-+F:	drivers/reset/realtek/*
- F:	include/dt-bindings/clock/realtek*
- F:	include/dt-bindings/reset/realtek*
- 
-diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-index d009eb0849a3..45a4227b5f44 100644
---- a/drivers/reset/Kconfig
-+++ b/drivers/reset/Kconfig
-@@ -418,6 +418,7 @@ config RESET_ZYNQMP
- 
- source "drivers/reset/amlogic/Kconfig"
- source "drivers/reset/hisilicon/Kconfig"
-+source "drivers/reset/realtek/Kconfig"
- source "drivers/reset/spacemit/Kconfig"
- source "drivers/reset/starfive/Kconfig"
- source "drivers/reset/sti/Kconfig"
-diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-index 3e52569bd276..7330fee91365 100644
---- a/drivers/reset/Makefile
-+++ b/drivers/reset/Makefile
-@@ -2,6 +2,7 @@
- obj-y += core.o
- obj-y += amlogic/
- obj-y += hisilicon/
-+obj-y += realtek/
- obj-y += spacemit/
- obj-y += starfive/
- obj-y += sti/
-diff --git a/drivers/reset/realtek/Kconfig b/drivers/reset/realtek/Kconfig
-new file mode 100644
-index 000000000000..bb6dd856a64a
---- /dev/null
-+++ b/drivers/reset/realtek/Kconfig
-@@ -0,0 +1,8 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+config RESET_RTK_COMMON
-+	tristate "Realtek common reset driver" if COMPILE_TEST
-+	help
-+	  This option enables the common reset controller library for
-+	  Realtek SoCs. It provides shared reset control operations
-+	  (assert, deassert, status) and a registration helper function
-+	  that other Realtek-specific reset drivers can use.
-diff --git a/drivers/reset/realtek/Makefile b/drivers/reset/realtek/Makefile
-new file mode 100644
-index 000000000000..b59a3f7f2453
---- /dev/null
-+++ b/drivers/reset/realtek/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_RESET_RTK_COMMON) += common.o
-diff --git a/drivers/reset/realtek/common.c b/drivers/reset/realtek/common.c
-new file mode 100644
-index 000000000000..2ce20c25377b
---- /dev/null
-+++ b/drivers/reset/realtek/common.c
-@@ -0,0 +1,90 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2019-2026 Realtek Semiconductor Corporation
-+ */
-+
-+#include <linux/device.h>
-+#include <linux/export.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/regmap.h>
-+#include "common.h"
-+
-+static inline struct rtk_reset_data *to_rtk_reset_controller(struct reset_controller_dev *r)
-+{
-+	return container_of(r, struct rtk_reset_data, rcdev);
-+}
-+
-+static inline const struct rtk_reset_desc *rtk_reset_get_desc(struct rtk_reset_data *data,
-+							      unsigned long idx)
-+{
-+	return &data->descs[idx];
-+}
-+
-+static int rtk_reset_assert(struct reset_controller_dev *rcdev,
-+			    unsigned long idx)
-+{
-+	struct rtk_reset_data *data = to_rtk_reset_controller(rcdev);
-+	const struct rtk_reset_desc *desc;
-+	u32 mask, val;
-+
-+	desc = rtk_reset_get_desc(data, idx);
-+	mask = desc->write_en ? (0x3U << desc->bit) : BIT(desc->bit);
-+	val  = desc->write_en ? (0x2U << desc->bit) : 0;
-+
-+	return regmap_update_bits(data->regmap, desc->ofs, mask, val);
-+}
-+
-+static int rtk_reset_deassert(struct reset_controller_dev *rcdev,
-+			      unsigned long idx)
-+{
-+	struct rtk_reset_data *data = to_rtk_reset_controller(rcdev);
-+	const struct rtk_reset_desc *desc;
-+	u32 mask, val;
-+
-+	desc = rtk_reset_get_desc(data, idx);
-+	mask = desc->write_en ? (0x3U << desc->bit) : BIT(desc->bit);
-+	val = mask;
-+
-+	return regmap_update_bits(data->regmap, desc->ofs, mask, val);
-+}
-+
-+static int rtk_reset_status(struct reset_controller_dev *rcdev,
-+			    unsigned long idx)
-+{
-+	struct rtk_reset_data *data = to_rtk_reset_controller(rcdev);
-+	const struct rtk_reset_desc *desc;
-+	u32 val;
-+	int ret;
-+
-+	desc = rtk_reset_get_desc(data, idx);
-+	ret = regmap_read(data->regmap, desc->ofs, &val);
-+	if (ret)
-+		return ret;
-+
-+	return !((val >> desc->bit) & 1);
-+}
-+
-+static const struct reset_control_ops rtk_reset_ops = {
-+	.assert   = rtk_reset_assert,
-+	.deassert = rtk_reset_deassert,
-+	.status   = rtk_reset_status,
-+};
-+
-+/* The caller must initialize data->descs, data->rcdev.nr_resets and
-+ * data->rcdev.owner before calling rtk_reset_controller_add().
-+ */
-+int rtk_reset_controller_add(struct device *dev,
-+			     struct rtk_reset_data *data)
-+{
-+	data->regmap          = dev_get_platdata(dev);
-+	data->rcdev.ops       = &rtk_reset_ops;
-+	data->rcdev.dev       = dev;
-+	data->rcdev.of_node   = dev->parent->of_node;
-+
-+	return devm_reset_controller_register(dev, &data->rcdev);
-+}
-+EXPORT_SYMBOL_NS_GPL(rtk_reset_controller_add, "REALTEK_RESET");
-+
-+MODULE_DESCRIPTION("realtek reset infrastructure");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/reset/realtek/common.h b/drivers/reset/realtek/common.h
-new file mode 100644
-index 000000000000..42eb41eae2ec
---- /dev/null
-+++ b/drivers/reset/realtek/common.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 Realtek Semiconductor Corporation
-+ * Author: Yu-Chun Lin <eleanor.lin@realtek.com>
-+ */
-+
-+#ifndef __RESET_REALTEK_COMMON_H
-+#define __RESET_REALTEK_COMMON_H
-+
-+#include <linux/reset-controller.h>
-+
-+struct regmap;
-+
-+struct rtk_reset_desc {
-+	u32 ofs;
-+	u32 bit;
-+	bool write_en;
-+};
-+
-+struct rtk_reset_data {
-+	struct reset_controller_dev rcdev;
-+	const struct rtk_reset_desc *descs;
-+	struct regmap *regmap;
-+};
-+
-+int rtk_reset_controller_add(struct device *dev,
-+			     struct rtk_reset_data *initdata);
-+
-+#endif /* __RESET_REALTEK_COMMON_H */
--- 
-2.34.1
+#define arm_smmu_cmdq_issue_cmd(smmu, cmd)                      \
+	({                                                      \
+		struct arm_smmu_cmd __cmd = cmd;                \
+		__arm_smmu_cmdq_issue_cmd(smmu, &__cmd, false); \
+	})
 
+>  {
+>  	return arm_smmu_cmdq_issue_cmdlist(
+>  		smmu, arm_smmu_get_cmdq(smmu, cmd), cmd, 1, sync);
+>  }
+>  
+> -static int arm_smmu_cmdq_issue_cmd(struct arm_smmu_device *smmu,
+> -				   struct arm_smmu_cmd *cmd)
+> -{
+> -	return __arm_smmu_cmdq_issue_cmd(smmu, cmd, false);
+> -}
+> +#define arm_smmu_cmdq_issue_cmd(smmu, cmd)                      \
+> +	({                                                      \
+> +		struct arm_smmu_cmd __cmd = cmd;                \
+> +		arm_smmu_cmdq_issue_cmd_p(smmu, &__cmd, false); \
+> +	})
+> 
+> -static int arm_smmu_cmdq_issue_cmd_with_sync(struct arm_smmu_device *smmu,
+> -					     struct arm_smmu_cmd *cmd)
+> -{
+> -	return __arm_smmu_cmdq_issue_cmd(smmu, cmd, true);
+> -}
+> +#define arm_smmu_cmdq_issue_cmd_with_sync(smmu, cmd)           \
+> +	({                                                     \
+> +		struct arm_smmu_cmd __cmd = cmd;               \
+> +		arm_smmu_cmdq_issue_cmd_p(smmu, &__cmd, true); \
+> +	})
+>  
+>  static void arm_smmu_cmdq_batch_init_cmd(struct arm_smmu_device *smmu,
+>  					 struct arm_smmu_cmdq_batch *cmds,
+> @@ -962,14 +924,41 @@ static void arm_smmu_cmdq_batch_init(struct arm_smmu_device *smmu,
+>  	arm_smmu_cmdq_batch_init_cmd(smmu, cmds, &cmd);
+>  }
+>  
+> +static void arm_smmu_cmdq_batch_add_cmd_p(struct arm_smmu_device *smmu,
+> +					  struct arm_smmu_cmdq_batch *cmds,
+> +					  struct arm_smmu_cmd *cmd)
+
+Nit: Same here, why not  __arm_smmu_cmdq_batch_add_cmd? I understand
+that _p just means we'll aceept ptr.. but the name's kinda wonky.
+
+> +{
+> +	bool force_sync = (cmds->num == CMDQ_BATCH_ENTRIES - 1) &&
+> +			  (smmu->options & ARM_SMMU_OPT_CMDQ_FORCE_SYNC);
+> +	bool unsupported_cmd;
+> +
+> +	unsupported_cmd = !arm_smmu_cmdq_supports_cmd(cmds->cmdq, cmd);
+> +	if (force_sync || unsupported_cmd) {
+> +		arm_smmu_cmdq_issue_cmdlist(smmu, cmds->cmdq, cmds->cmds,
+> +					    cmds->num, true);
+> +		arm_smmu_cmdq_batch_init_cmd(smmu, cmds, cmd);
+> +	}
+> +
+> +	if (cmds->num == CMDQ_BATCH_ENTRIES) {
+> +		arm_smmu_cmdq_issue_cmdlist(smmu, cmds->cmdq, cmds->cmds,
+> +					    cmds->num, false);
+> +		arm_smmu_cmdq_batch_init_cmd(smmu, cmds, cmd);
+> +	}
+> +
+> +	cmds->cmds[cmds->num++] = *cmd;
+> +}
+> +
+> +#define arm_smmu_cmdq_batch_add_cmd(smmu, cmds, cmd)               \
+> +	({                                                         \
+> +		struct arm_smmu_cmd __cmd = cmd;                   \
+> +		arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, &__cmd); \
+> +	})
+> +
+>
+
+[----- >8 -----]
+
+>  
+>  static irqreturn_t arm_smmu_priq_thread(int irq, void *dev)
+> @@ -3464,7 +3405,7 @@ static void arm_smmu_inv_flush_iotlb_tag(struct arm_smmu_inv *inv)
+>  
+>  	cmd.opcode = inv->nsize_opcode;
+>  	arm_smmu_cmdq_build_cmd(&hw_cmd, &cmd);
+> -	arm_smmu_cmdq_issue_cmd_with_sync(inv->smmu, &hw_cmd);
+> +	arm_smmu_cmdq_issue_cmd_with_sync(inv->smmu, hw_cmd);
+
+Nit: are we passing it by value here? This would be a 16-byte stack
+copy? As with the macro expansion this looks like:
+
+{
+	struct arm_smmu_cmd __cmd = hw_cmd; // <-- Redundant 16-byte copy
+	arm_smmu_cmdq_issue_cmd_p(inv->smmu, &__cmd, true);
+}
+
+Why not use arm_smmu_cmdq_issue_cmd_p(inv->smmu, &hw_cmd, true) ?
+Although, I see this is eventually cleaned up in Patch 9.
+
+>  }
+>  
+>  /* Should be installed after arm_smmu_install_ste_for_dev() */
+> @@ -4827,8 +4768,6 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+>  {
+>  	int ret;
+>  	u32 reg, enables;
+> -	struct arm_smmu_cmdq_ent ent;
+
+Ah, we remove this unitialized thing here. I guess we should still init
+it in the previous patch for consistency.
+
+[---- >8 ----]
+
+>  #define CMDQ_RESUME_0_RESP_TERM		0UL
+>  #define CMDQ_RESUME_0_RESP_RETRY	1UL
+>  #define CMDQ_RESUME_0_RESP_ABORT	2UL
+> @@ -475,6 +481,77 @@ enum arm_smmu_cmdq_opcode {
+>  	CMDQ_OP_CMD_SYNC = 0x46,
+>  };
+>  
+> +static inline struct arm_smmu_cmd
+> +arm_smmu_make_cmd_op(enum arm_smmu_cmdq_opcode op)
+> +{
+> +	struct arm_smmu_cmd cmd = {};
+> +
+> +	cmd.data[0] = FIELD_PREP(CMDQ_0_OP, op);
+> +	return cmd;
+> +}
+> +
+> +static inline struct arm_smmu_cmd arm_smmu_make_cmd_cfgi_all(void)
+> +{
+> +	struct arm_smmu_cmd cmd = arm_smmu_make_cmd_op(CMDQ_OP_CFGI_ALL);
+> +
+> +	cmd.data[1] |= FIELD_PREP(CMDQ_CFGI_1_RANGE, 31);
+
+Maybe this is a good opportunity to define "31"? We already have a 
+similar definition for TLBI: #define CMDQ_TLBI_RANGE_NUM_MAX 31
+
+Perhaps we could have: #define CMDQ_CFGI_RANGE_ALL 31
+
+With the above nits:
+
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+
+Thanks,
+Praan
 
