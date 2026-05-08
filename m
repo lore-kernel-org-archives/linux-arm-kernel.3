@@ -4,125 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A3F0CD37AD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 16:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CACCD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:00:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+yFyZr2+sBfK/Gih/91ZF5j7L4ncEmrCv3w61SdtFVE=; b=yf8JzPuHW+DFQw+4ByYcdKH3gZ
-	sA4FDz12NnBOBmYG7i4vQxVDZ+93UagAuuthQZMYN85N6q9//9PzDHLkPKlH3qBHjOWZqLAwgU/T7
-	cVUVUcGT5S9CVnPIrv3eztj/g0ICz3XK23NzQc7a6NgEMk2INbLfj/wvLDXt6lkiC3BIFGJ89OvGt
-	6woBMOhofqWH2rbTV3BcyBhQ60QZBNCsfs3THiZrBMF8Pnm27sbnQU8aLRRsbS3O6d4XYKqlMinPu
-	aiv7HSjTVX2X7i/k9nskG1Lbl/eFEpsINeO/UnCHMP1fvYxfCTAROingYLrWONFkFnY+qEhyg/skG
-	p4dCbWRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KSX0WcNOlkvsZCAblteUbbAr85dTr3acCULxV7BG/80=; b=A32FgynRJ8hVMFT3aFS8zfGtZE
+	u/vHGvU672DaPhnmTT5s3bsSZr7ckFdlCTkXgJsG9nBH5nZH4FmJ71rCNZUx6pbmdy6JjKGjjt0r9
+	L4CtL6qEtm8mNr1ot7Tjm9AB+Z8fpFly+xQ5ZMcK/E+pbaIDPlBPRgwzfRZ5Bdk7h6JmAqqsGCQ6c
+	vmPg9wPWp7z9hV4Nd5G5RWgipNpBXeauEqc61/oTXbnYM3AHgKNPeHvJLL49yqLOlSh7usID+K/5t
+	rDFOexJITBlfKvhaFJ4tC+7mCHX8ApY9NaFK1m/AYK4I2LR81/SuFuSqWRd4QhTWMMbipwLeXaJCw
+	U9B7YstA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOXr-000000073dL-3n59;
-	Fri, 08 May 2026 16:59:23 +0000
-Received: from mail-westus3azon11010038.outbound.protection.outlook.com ([52.101.201.38] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wLOZB-000000073q7-0jBZ;
+	Fri, 08 May 2026 17:00:46 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOXo-000000073cU-2VvR
+	id 1wLOZ8-000000073pW-2EX8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 16:59:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kkpcSzgSwUGKm8YUVO2Rs+niNWANIm7vbMd1oxtCUM2TvubF61cHV/uYj2WoUjnY+IWTXQ1fm/TmBoPibkH4kQG4jdGSsVFgKL75fmhbD+PbsvqyM8kGZ8+IM4tTcRXc2FhhtKEVXqK2ycrZ+C5kln9hUZ+BpYsFwWd3cfQl9g0bgG67N4MFpOCFzT5eN/9XvDdDAVwP7yR39lQAUrtlqHa2VNP4FukA4FYGxi3d3taitAwDauueCsIx5p/ELyJxlNpKXhxg3C8l0XVT7BLmw2XNnibtL1EanZVf6xijuTP95Kcw5qM+iDIZfhnJT8NfbRDjTsZTjm4UaNq7cqUltw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+yFyZr2+sBfK/Gih/91ZF5j7L4ncEmrCv3w61SdtFVE=;
- b=EJ5l2wONltMv/UW2ExNoFkBOht5ZczkT7wKh5ewfveijK+wTVqpdJ1i1Um5MX+M0nb4T86ubj77pCagHii8y9ogRGEXp/3wv8HV7WvBsofZs2zUO8hvuVVkyyyHwcfoN5ZqOLR5K8LHBqmv4oG4RoC5bYbRTL9mR0b1AlOMnjn/S7+UpCrs8Mnc3+QFUlGowB6fJjw/IO6dWOFGE1ByKIKgJkvdU6QbWWmiwWaDQnSb1GXT9uKR/VScWXbln6zmqF5c14oS3OSC2tg1ERZCVUF8y0YlVmpP6qWi3UV+0fZUa+RHv9r1A1uuCKZRkMEpvAnQ9yIKePp4MRic1m4j6zQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=208suo.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+yFyZr2+sBfK/Gih/91ZF5j7L4ncEmrCv3w61SdtFVE=;
- b=IL0PRxKrtKreuPOQY9qeqYE+m/x0AQTLeKDMQ3qp9Vm8Qt0hBnS+clRF6gf4Bbc3zWblTqv/h6Gu7NvaZktepMeZ6QwQkYx9V0GizaWHYgBFbRvkIVDoj3u0HlnxRzg275Bbzy5yvZueKIPUUP0Rxj+XmkwBqDlqJRBCOWUINSc=
-Received: from BN9PR03CA0773.namprd03.prod.outlook.com (2603:10b6:408:13a::28)
- by SJ0PR10MB5720.namprd10.prod.outlook.com (2603:10b6:a03:3ef::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Fri, 8 May
- 2026 16:59:14 +0000
-Received: from BN2PEPF00004FC1.namprd04.prod.outlook.com
- (2603:10b6:408:13a:cafe::11) by BN9PR03CA0773.outlook.office365.com
- (2603:10b6:408:13a::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.19 via Frontend Transport; Fri,
- 8 May 2026 16:59:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- BN2PEPF00004FC1.mail.protection.outlook.com (10.167.243.187) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.9 via Frontend Transport; Fri, 8 May 2026 16:59:12 +0000
-Received: from DLEE211.ent.ti.com (157.170.170.113) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 8 May
- 2026 11:59:12 -0500
-Received: from DLEE208.ent.ti.com (157.170.170.97) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 8 May
- 2026 11:59:12 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE208.ent.ti.com
- (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 8 May 2026 11:59:12 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 648GxBuJ1785509;
-	Fri, 8 May 2026 11:59:11 -0500
-Message-ID: <003e3057-971b-4b6b-8645-787d76de2387@ti.com>
-Date: Fri, 8 May 2026 11:59:11 -0500
+	Fri, 08 May 2026 17:00:43 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2ba180a022dso114755ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 10:00:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778259641; x=1778864441; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KSX0WcNOlkvsZCAblteUbbAr85dTr3acCULxV7BG/80=;
+        b=NGp6NT5SD7Gqog8v/ZgrHFPbwdbfRaIIZfLpsH62U/t+MWdY+3C+rklTaMxWREI08E
+         rleg2JmSJ+ZZUwTMapXtW0KsSjLGRAXGcIdE6WfpOrksJl/oz53lc5pYCVsI8VxLtV+L
+         JjYeLnfn5wHR9nQ5qsO19eqs2KVTsy4yhbZmSrn58EB3ez5wEpTNwymFnyY4FL+tg54d
+         xZWa1krt1TnJenZp/Qk8E4ISLrO5gCpFQFtlDQJv2Gs1N33kJEra292bguhzLe1uQ23+
+         pwE7hbKRNl/VEID+q5Gd88o7NHlGPLnRqhkRFwsySb5nBW6OluxUzhV+WzOKVAVujN6l
+         wA6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778259641; x=1778864441;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KSX0WcNOlkvsZCAblteUbbAr85dTr3acCULxV7BG/80=;
+        b=qeSmqnEKNE9JeqlYCNC3VQNK5Co7jw6A97ygUYnnJ2Nwf5TpK8b57K3pRBSBHVVJ3B
+         wvyPz57fwVJsJJcHxAxKlp8D9qAd++v/LzinEB7o58NkDzpT14lI1MS9QgbuR0UUzHr3
+         riuuQKYgX3MRM3LTPuqOoVayWGjc2O7LWMptnhN+wBfBVPg22z3C37QdrS0Dnpx63Vyf
+         BPDxp7z8LiKT3ImhLR/kbATDrllL7i3WPskXMlGgNIKy0PAys/ZSOPK1zQnJxWjjiWHk
+         +XUJXGETX+KWc0EzBA/L3lX//bpSuB6ju4WE7qHIsvQdvRC4/cXB89iXw3OZiTc16Sqe
+         xv5A==
+X-Forwarded-Encrypted: i=1; AFNElJ8ObvvrVgvwA/01SYcIyRLvF/mAxyjKzw3KUu4raiX2G5SeO06JPaq1z/nT9z5V2drTmmUrOjqBnZg8/j8G3tqC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgyT1MygWryFa4ZtMm4kAihM/R1mHgHo8dxBOCYsbgmSkpCbU7
+	v0c55kdDJHtBHQsTp2+QmvVwwP0I+yU6/hO01uK7Yxz7PIe6cjKOaZ1UMUqIxQJ3qw==
+X-Gm-Gg: Acq92OEd1PMNmknxefRMduh8HgBYfH/eYQMafrFGaQC6Z18DSeSdgZeBW5+idHcdjxI
+	1o0QffJ87Yc9ym4GEs/gn2KLPSScRzlRB+cXgSCmU8GJ1b0aHDXCbdpxoaGYV6XIRDCPAbOdD4D
+	py2PuYh2Dg3JvKgpNgEAMQfwiHa/BPhyhBhhU2dEmbWo6eQrBfDOUpWDKPBDIIHA2jiPAgQC81B
+	2P4rUYB2HMBf5D+tpgLS4ZH+l111w8YIQTlJ8kGTvQib/YkZe4tb4gVpi8wYbl/PLqG/ClJpdDa
+	nt1XzU/e7etmNdd57w8vdzLYQFipY761REzh4nCquXboXotV2gsrLobwHmExEmbJA3vbaiE3aLy
+	Ekd/Ii8aSchOD7msXNYpLb/X3Pma+rvXF3f0a2blbGmvHLWpBzpR9AcfSH5Hk1lzQrGWcHhFIhA
+	ge7ScdxZgs5CkD9hJCR7MdbUfNUDzdJvop9wo8o/CeS+lLvGnRIOyeBtgAaQlpGNXn46PR
+X-Received: by 2002:a17:902:da87:b0:2ba:f71:57a8 with SMTP id d9443c01a7336-2bae9e663eamr4007225ad.10.1778259640757;
+        Fri, 08 May 2026 10:00:40 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1d26944sm25742125ad.10.2026.05.08.10.00.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 May 2026 10:00:39 -0700 (PDT)
+Date: Fri, 8 May 2026 17:00:32 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH 3/9] iommu/arm-smmu-v3: Use the HW arm_smmu_cmd in cmdq
+ submission functions
+Message-ID: <af4WsCVOlOFBzy_Z@google.com>
+References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <3-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <af2ebtfgOPzJMXFK@google.com>
+ <20260508160041.GF9254@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: keystone: sci-clk: fix application of sizeof to
- pointer
-To: Nishanth Menon <nm@ti.com>, Brian Masney <bmasney@redhat.com>, "Stephen
- Boyd" <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
-	"Santosh Shilimkar" <ssantosh@kernel.org>, Tero Kristo <kristo@kernel.org>
-CC: <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Jing Yangyang
-	<jing.yangyang@zte.com.cn>, Zeal Robot <zealci@zte.com.cn>, kernel test robot
-	<lkp@intel.com>, Julia Lawall <julia.lawall@inria.fr>, David Yang
-	<davidcomponentone@gmail.com>, Jing Yangyang <cgel.zte@gmail.com>, Ran Sun
-	<sunran001@208suo.com>
-References: <20260508152321.3683799-1-nm@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20260508152321.3683799-1-nm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF00004FC1:EE_|SJ0PR10MB5720:EE_
-X-MS-Office365-Filtering-Correlation-Id: e54e38c9-3c0b-4951-9736-08dead232178
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|7416014|1800799024|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: T0hYxj8eaCpvAxBdmtKtp4HbDkGqywA/Fx1dG+ybdDQPZjh7oP5ZZ322sn5wQra+EMwbVFOzaq9ZRbhWNtUFMCJF6XUcCs6KVIfHeg4NFTvTuFInDyQZkCGmklwN/d1QofFzvT/3md5yl1mqAXpKTgeybOWH6Scw7VmsOkPqlZ1g/QhTovaWMV9GEh/hN0dt00yRRzyorPOFIqdYi5lg540TKswnl5tF4B18D0Sb5ZnN9WJv/iJDMEKxKbTTSZaefTt7sBfmX0HOWoJ9OAstq1bLQ8t9LL+R7nnQSisP3DVoa7y7BpR6I2I0Vh6hUfE0XTm+ictBf6BRgc8UIgnZDSdINCoXWexMOkri/g4sKOiPjxaz+NFHQXyF1Hx4bZR9W8LohyGirXuzDy1zyxuzscDoAL2Mxd9v8U2jyvE8zDRsbzh40i9cNmk+o/zPqlHfs25c4xvegQc88hDNc879mtdP2rMThGBza12+ri467ekDka5nOSfvOvDim28erMkgQj7QB/EnIXgcv+7Y+zbF8AvwSj8vp6Rd5lYI8K0i2XblZOTD3ndEuDHDs2ILV3MsuPvssPezAEaeFdoNaA/D7jHYVEs5nQxxgP+F48YFmYv+J7jHcX3FtvunhLPDxsaZvyGotQF5aRJ095V8SNQsBWZkxi3sKo9zFqUlR3euaRBZ8HlXHo4sviRcqCTG7dJT
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(7416014)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: C1kWvby/wOvZqCUC2DWH5jSC4LA0pPemcxCec6j6xLwb385AWg0wmWoj+NZnu8OP7z4SSCFLhDUQx9sZLoFCpvF7djPah1QcNPtAbiChEnk+QKKPvCiPmUrSFz2N8HnoqCmGqOfWv7MgMlK2r2kUpXKPEctuEhnDLdg/LRoMLhlVJBMgpIQQrOb98O7d1bQsUU70dI28kdRIbIakchxmHv3IzxyVmeWYlpMA4FyD65zywOi5fQhAoda3TJeQMfG2L5jAk2M5anIQEGQH1lrUD6pIrOJ91RkOI4T66OtNcye5XDU4DCioNm9gd+XOHUuKb42PpYfv1zYmbF8Bph86e6iBDvFyQE9PUjdX0NamYrA0fhd0L3vwxERT8XANI8zHrhDLAUtFP1xUInurbtcsDy+ZPHjeVn5huycFpC8NXmF+ynPgNi11c4nZ20GYBi+/
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 16:59:12.8935
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e54e38c9-3c0b-4951-9736-08dead232178
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FC1.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5720
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260508160041.GF9254@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_095920_703497_056AEC4A 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20260508_100042_587564_6AFDF41E 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,67 +109,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/8/26 10:23 AM, Nishanth Menon wrote:
-> From: Jing Yangyang <jing.yangyang@zte.com.cn>
+On Fri, May 08, 2026 at 01:00:41PM -0300, Jason Gunthorpe wrote:
+> On Fri, May 08, 2026 at 08:27:26AM +0000, Pranjal Shrivastava wrote:
+> > >  /* Should be installed after arm_smmu_install_ste_for_dev() */
+> > > @@ -4823,7 +4826,8 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+> > >  {
+> > >  	int ret;
+> > >  	u32 reg, enables;
+> > > -	struct arm_smmu_cmdq_ent cmd;
+> > > +	struct arm_smmu_cmdq_ent ent;
+> > 
+> > This shouldn't be uninitialized, we only seem to be setting ent.opcode
+> > later in the function. 
 > 
-> Coccinelle (scripts/coccinelle/misc/noderef.cocci) reports:
+> Yes, that's how the existing code is.
 > 
->    drivers/clk/keystone/sci-clk.c:391:8-14: ERROR: application of
->    sizeof to pointer
+>         struct arm_smmu_cmdq_ent cmd;
 > 
-> provider->clocks is an array of struct sci_clk *, so bsearch()
-> expects the size of each element (struct sci_clk *). However,
-> sizeof(clk) evaluates to the size of a pointer-to-pointer.
+>         cmd.opcode = CMDQ_OP_CFGI_ALL;
+>         arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
 > 
-> Use sizeof(*clk) to pass the correct element size.
+>                 cmd.opcode = CMDQ_OP_TLBI_EL2_ALL;
+>                 arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
 > 
-> Reported-by: Zeal Robot <zealci@zte.com.cn>
-> Closes: https://lore.kernel.org/all/84a6ba16686347099a3dab2e5161a930e792eb6e.1629198281.git.jing.yangyang@zte.com.cn/
-> Reported-by: kernel test robot <lkp@intel.com>
-> Reported-by: Julia Lawall <julia.lawall@inria.fr>
-> Closes: https://lore.kernel.org/all/202512040525.zrHSDl5h-lkp@intel.com/
-> Link: https://lore.kernel.org/linux-clk/20211012021931.176727-1-davidcomponentone@gmail.com/
-> Signed-off-by: Jing Yangyang <jing.yangyang@zte.com.cn>
-> Signed-off-by: David Yang <davidcomponentone@gmail.com>
-> [nm@ti.com: Improved commit message]
-> Signed-off-by: Nishanth Menon <nm@ti.com>
-> ---
-> Cc: Jing Yangyang <cgel.zte@gmail.com>
-> Cc: Ran Sun <sunran001@208suo.com>
+>         cmd.opcode = CMDQ_OP_TLBI_NSNH_ALL;
+>         arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
 > 
->   - Functionality: No impact (on Linux architectures), thus no Fixes/Stable tag.
+> > Since arm_smmu_cmdq_build_cmd reads other fields
+> > of ent to build the cmd, we are potentially sending stack garbage in ent
+> 
+> Ah, it is tricky, it doesn't:
+> 
+> static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
+> {
+>         memset(cmd, 0, 1 << CMDQ_ENT_SZ_SHIFT);
+>         cmd[0] |= FIELD_PREP(CMDQ_0_OP, ent->opcode);
+> 
+>         switch (ent->opcode) {
 
-Not sure what "on Linux architectures" means here, this should be true for any
-sane system, right? You are going from the sizeof(pointer-to-pointer) to the
-sizeof(pointer), both should be equal. This is just to be more technically
-correct and silence a Coccinelle warning. Anyway,
+Right!
 
-Reviewed-by: Andrew Davis <afd@ti.com>
-
->   - History: This patch has long-standing history; I have attributed it to the
->    earliest valid author found during a recent scrub.
->   - Reports: Retained chronological attribution even where public reports (Zeal
->    Robot) are unavailable.
->   - Checkpatch: Acknowledging minor warning regarding tag ordering (Reported-by
->    / Closes sequence); chosen to maintain link integrity for automated tools.
->   - Testing: Verified on available K3 SoCs against 2026-05-07:
->    https://gist.github.com/nmenon/afa9ac915e189334f048c177f16fe54f
+>         case CMDQ_OP_TLBI_EL2_ALL:
+>         case CMDQ_OP_TLBI_NSNH_ALL:
+>                 break;
+> [..]
+>         case CMDQ_OP_CFGI_ALL:
+>                 /* Cover the entire SID range */
+>                 cmd[1] |= FIELD_PREP(CMDQ_CFGI_1_RANGE, 31);
+>                 break;
 > 
->   drivers/clk/keystone/sci-clk.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+> Only opcode is used, so it's "fine"
 > 
-> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
-> index 9d5071223f4c..2fc1f050779b 100644
-> --- a/drivers/clk/keystone/sci-clk.c
-> +++ b/drivers/clk/keystone/sci-clk.c
-> @@ -388,7 +388,7 @@ static struct clk_hw *sci_clk_get(struct of_phandle_args *clkspec, void *data)
->   	key.clk_id = clkspec->args[1];
->   
->   	clk = bsearch(&key, provider->clocks, provider->num_clocks,
-> -		      sizeof(clk), _cmp_sci_clk);
-> +		      sizeof(*clk), _cmp_sci_clk);
->   
->   	if (!clk)
->   		return ERR_PTR(-ENODEV);
+> Later patches remove ent and this trickyness so let's just leave it:
 
+Ack. Sure. No strong feelings here. 
+
+Praan
 
