@@ -4,129 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0FACD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 15:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E70CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 15:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Vi9WO9OYlDTNZv0FNV+4yA3yU3GnZtfb7SbVGPsYmM=; b=QnPpFBzRv/HzcKyi7cXX0U1MWY
-	mfXo6FMb1Va9vJj988fYKX1MiK/x3i2zrB9ZTlbBDbhBZP6nCPQC9k9BVHENGC0RY40Hkp9cNkMZv
-	6dWtXaVizIBvCyyYuQ7xAb59ZL9YFy7le3XfTQN60pX3m0ejKYLXhYbrq8DTxIP4WdTp8DtiWLP/n
-	xbwCh5kqY4H4Gz+tvDKu3ilTDmXhGAnWxOeY9gfot4WjuO0Lv1vhllk08vRY1159OjkwKhg8Gy8k6
-	G22D+wwDonyME+z+eNHMBdgdFz2Kvdv7V2KWpv30Il2VmG+eIVPYJ86QcPp8184SryvtLVjtSVWmI
-	s0fUiSTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4/FXxNBlcy6MyENjphPv4yZv0wf4FTxJAlKRsqsvH+c=; b=xxXzEPHdS819sM7xZB5QAj5XcA
+	usWuwsf19pDLiZSTX+hw8l8P9oUwAM51tha/Zb5OKraWtUaa35TiEOCWnMWA1ViIXTI42wWRR23K2
+	zjqys7z7qGpVYVFo8NatYEYrke6rUx5WCRL65ZFsgFJFptSUaiHmceS7rREf6DhuwZuTNMQm1/bfI
+	BsMjJEmwJfJqoVeb+KfqE5nO0lZ9je/MqnYLCz0MhF1B1rbnzWTFY2vlDwk/Nta0yfQzDxxZlLNEI
+	HYiOX2TypW5TgbW+OSufkLxV5ednqwnBFITXScWB3UdAgCfyV/5DEaa2nstZn6J1EyJUqg8FpvFSN
+	CTvmRWAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLNP9-00000006tmt-2u4T;
-	Fri, 08 May 2026 15:46:19 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLNP6-00000006tm0-0gJb
+	id 1wLND6-00000006rEj-3sbc;
+	Fri, 08 May 2026 15:33:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLNCy-00000006r6z-2qQr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 15:46:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Axm7S+xqWV4bypFz5hQGHlpPADqXogXnF9VkvQ+zBjT0wielYkx+AJkwZ0RcDDsqk41igeukzQLwkKRgAsbleuPZAwIKXIPgznCuTTBplgmaMzQ6kO9nGMsKoIDT2wUpBBsR1IxsMLdxU4N/HEUL28iJwpDMdGegDUUnAwDP/sAowlUlTafFj+JzQchMAbpEqkM552dTxF4LlWUTmwnE6IiRvUK+y6pP2+KZAbDpZ217DSOlEbiQl6lLJwkN1sHwt4zm79XTkmhJBrCzrGRjLe7rdbr13z0G0TS3INesvGUTgCZ82JhEE2yjc0HZxhETr5wzCLXLXzyWd7usOaJ/ow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4Vi9WO9OYlDTNZv0FNV+4yA3yU3GnZtfb7SbVGPsYmM=;
- b=txCkSTFsxSMdrVstxivDXOG+EdRIC3gBvT1l2oMacFBnJQ24Hp3WTjRpD7XMs2Vk6X1H0yOWGnhWT1UQbRjlg9Gd8+WJLBn35jEG2IzbzVZHiJUhmyoPko1OQje3el8xDi6VNEARgXFIbJF7/6VlLOwvFHqkqdT6PVnIiUIuYS4JY7KoP/yTfBZnjy3A0lbRonbiD8YB4muPlJnae6Gm/KPgSDq/n8Gk6oKLg8iwOLOkFZsoigXMrLXBFQ8smhsuMgX32txE8An8RjGR2gh4+vHSul21FITmcfVQXgpwf1PbP8cfAk+eaTNZ3Bawzd7s2heiAB/tiGgQCQn0JzZsNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4Vi9WO9OYlDTNZv0FNV+4yA3yU3GnZtfb7SbVGPsYmM=;
- b=YJUup+ScGnyAjqB2iJs6crWoL3pbzS5kunQfHCsy4T0odp14+ryy1bUCa/rpkuEuh8LtyiWYygMHVicKoEU6WZdoMDYAddp1W1SLu2BDoEnV2EnIdSmIBg8VaDelgeSbw0y4t6NHw3uLPR6LhRGSGj9MiWAfVwbGRQqyqypVdSOiviBAQgpPL5/Z09VMuTRN7omxPHO5DBMKfCDA0cIfnPeZ9DiC38Q7Iz8ZN2auDdS76ke+A/V9BpouRKXmduh2Frpw2I5A9eJJM7PnosMFMWaMmTgUsUKmdlYgfpglWekpGzmjpTL+95P+kyyZ0i4AxRV2CyU5CzPEIyEm4gwcnQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by PAWPR04MB10032.eurprd04.prod.outlook.com (2603:10a6:102:38d::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.19; Fri, 8 May
- 2026 15:46:09 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9891.019; Fri, 8 May 2026
- 15:46:09 +0000
-Date: Fri, 8 May 2026 11:46:03 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/6] arm64: dts: imx8mm: imx8mp: Add LVDS DTOs for
- Data Modul i.MX8M Mini and Plus eDM SBC
-Message-ID: <af4FO5vOx3ruwWBE@lizhi-Precision-Tower-5810>
-References: <20260407211850.79881-1-marex@nabladev.com>
- <65342735-44b3-4a2b-90ab-6093e0fd91c9@nabladev.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <65342735-44b3-4a2b-90ab-6093e0fd91c9@nabladev.com>
-X-ClientProxiedBy: SA0PR11CA0172.namprd11.prod.outlook.com
- (2603:10b6:806:1bb::27) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Fri, 08 May 2026 15:33:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BCDB735A3;
+	Fri,  8 May 2026 08:33:35 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 242DF3F836;
+	Fri,  8 May 2026 08:33:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778254421; bh=3PpAaUWJz5Jjai21GNJJLV+2UFa/r2ZvY9KI4xPqbu0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=AzLZ6be2pedvCNNJIDR6AwOv60RWZOuITtb8rydrMEo/l289OmIF9Jlg1k+v54X7w
+	 PTOGR+GOg+VElvaOTPRwmhWmZD1sZf+brA+tP5tDyT3mZym5PGm1Kzh8WLcRw3UdsK
+	 AYdrmSTLKMPMScBV2J8q8gZjCqfB3khJldMUfgYU=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Cc: sudeep.holla@arm.com,
+	philip.radford@arm.com,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@foss.st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	geert+renesas@glider.be,
+	kuninori.morimoto.gx@renesas.com,
+	marek.vasut+renesas@gmail.com,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v4 04/15] firmware: arm_scmi: Simplify clock rates exposed interface
+Date: Fri,  8 May 2026 16:32:49 +0100
+Message-ID: <20260508153300.2224715-5-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260508153300.2224715-1-cristian.marussi@arm.com>
+References: <20260508153300.2224715-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAWPR04MB10032:EE_
-X-MS-Office365-Filtering-Correlation-Id: 670129b5-4ba3-4bca-5ae6-08dead18ec83
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|19092799006|56012099003|22082099003|18002099003|38350700014;
-X-Microsoft-Antispam-Message-Info: EU/XZZJsfLYiGfC0ZtHZx3RZ/gBBXc50B3fu/lCOS58IRwILFY/ZNFKZtWO8P3aCvFfcazVk/IsdMoeonalM/BQlu5xont/i9SfiZ2xN6jEfzfxij6oPHowmPXKa3OxSrk5bgInC5OJRfUMrop4Eb0L+i5RDqTjMohFr70WKReI+ic84Ul4JWQIzblVEmZdiiLXBfCijn/PXbaO6GhdHM6wM/nYHuIOu50BeW87iOt4uk6FQOMvrOFHvPbh9+o/dTYNAxwYnG0GD9ZobDY+yNby525mhc2kV9VT+iDeR2vtZVzrpzDc0es3Vywn446FdsOP5egoJhdZw7t2/ghXAZfxft0iAEm3Djcn0uXOnInPjFl6FSQsiZuJHvmPTMrbmLed0XeTPX34mfYUbk7Z0rlSWlSPLUWMOrm4EBdfW0+/HKXMJSWF/CNiAFXYVYvDQfBOl8zSK+3ZV/gBQg+9z92j0ur7g9alW2dX9LM/9TmKVbfhcD+yx1eEFQjRjT0K3eHO6kCesw8808zb24pJP+w1BGbTlMbfymPfBvTLU6mMEtG3zrsdEGmaFVwVpwv8YNiDDSoLeqWBx7NfrsMVL/9hXIyrt4RDpZxdaNV2xaQ4B0U9t/zVAeR4YysKSQSmJlUWNAA1K4vXPpLHkb9XBRyQ8L6jaM6u7Ak24RlzKOdMHVJiwioTNx8Qe4zX6jX/rSJZ59mk3qIpC56ZbACZfLXIRfV82gtlIAbuG/5bzOi79J5SVOdsNe57KIKRGEmrl
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(19092799006)(56012099003)(22082099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t1BHk6f+2AXDzmiYnSiMNwzPHYXM9MsY/f/q3/4baw56kvBcWxx9/8kDudu5?=
- =?us-ascii?Q?Ntwf5fMeNP0zIBHCJNer165jULx1dT5Ni3kCin8nRbVxxmxXDNxMXmXOfbFO?=
- =?us-ascii?Q?tgpR/xobV0tNtO0omakuX4MuEjL832jR/wFUZI47x3+g31v0ZYYDiTDu8nIJ?=
- =?us-ascii?Q?ftznB7oFJr5cAP+5nM01TN4YNUkrP7uayFB0iolY9Bthentmxz//p09nE16z?=
- =?us-ascii?Q?haSyjmbWS3dWNcmlfxwEIIddaHyordjhJMt8WWeT6HJ27Fe+gZLhDy67fXlE?=
- =?us-ascii?Q?tUaiuiT6rLMOIV2sjCFLhgnIKPJGsh5FNvb0oUoqPChiX1Ibf0TRykXnNpRo?=
- =?us-ascii?Q?TjWlfACelah9VuIoQxF90MKc4nvgdJUt0GBrJQ6Pd0HDw8s5I9BQIqrHdMHC?=
- =?us-ascii?Q?RuwbK0aFycKQSk6DWEJom379MDS4BMaYeMWwMjLQGt3Ft1NEsrVW62apHw1C?=
- =?us-ascii?Q?G7+9Jc0WWzGtItKfLvW1QS4vg8TUklqSHRLrFowJqCPd2O5gzMRzxfXTZxA2?=
- =?us-ascii?Q?MqBkFgRPXjDdib9tFdIi+8m3+7A1fddtzRH8Gav86ecdUFlCqANfQiulfzFn?=
- =?us-ascii?Q?sJqk1KEuArCn3h1cy1rAmashE9Nv2A+T3I8mQziWI7sOy7d2W0yLvSVkZfTF?=
- =?us-ascii?Q?A9Td9TINBzNx+KTY12Lt91oEMa4/+RtVrMGEuTzZKNl5ANkg4cpFRvNS/Dct?=
- =?us-ascii?Q?s6Ytt31pSPy6wDz3zaZvsBvoFvdhTkTxjiLw/grH8fvf2Drqz0vtne+vR1YB?=
- =?us-ascii?Q?rMyRBUPyesN25t+gvaohVQOmKTn+814cJ6cys+NoV1nZx08YaT/jdNkeDOrq?=
- =?us-ascii?Q?miwBLB7aZQfOim4Vs3W+nYYHnzUSe23NpzKujiwVrczQ0MziLPgL1z3b+yC7?=
- =?us-ascii?Q?uJakrQoNKkexSi4MuHm2C4DlKMfZjxvQfbjokeM1CdCJl6UR0g00EjajqTn6?=
- =?us-ascii?Q?azcKJUDJS8vaaRdLUk0VzxxELx4segsZmlMdQQfxbMFoSa6kbCPG7DQjZ/d7?=
- =?us-ascii?Q?OiRdGQL3AumGqSNNWhuKYwuzm6yEYtccYze7kyvpbkGFIRe5FHYk2OZxKEEH?=
- =?us-ascii?Q?zXCKDftn+s8rORO57QyLeevlGRtfLb+g0aZRFraSeHhuetKbzcz/Gm88Mj4r?=
- =?us-ascii?Q?NHC07HjJ+hB9H/nzXqyXeelYSBVYWUadKWbMmERTnW3pj2oMxH5ofC6M+OBd?=
- =?us-ascii?Q?tQf7ONdCbDsW1El+3utnRQmxBu1/M2ddCenhjzRUk0XMrBOaiz/asDpTGT6q?=
- =?us-ascii?Q?ed9bZGV+/z5iNwjT4TxMSGgmVEO/zfDB3Z9X3sieGFdgjMaCJatODjCeumPA?=
- =?us-ascii?Q?lk20tWm+fj7ilqHDEOVyhrtu4h65tJSUpYd/OL47Dx+TlIEzCC4QMvsL8ZCe?=
- =?us-ascii?Q?Fg0Fa9am8ZkCl3VCQ0Uy6e61VtFgiVK6bNuKf13nV28B/92N631C6GqIIyDo?=
- =?us-ascii?Q?5CVBsG2vT/GqZbtGyboI3olAd8DGwrcLyKGYdkrDnH5/t6O7iSWeINOFl+wl?=
- =?us-ascii?Q?MjRhih/1qzmApzfYDbb+3by1A/RoHs8DdxxpHKVndNz1wDKGXTzdfrpXrjMQ?=
- =?us-ascii?Q?CTtQTmupfXHfJme/8qgxyAutZwA09JXWE16sOoiZqlmdok9raEr60fx3V16I?=
- =?us-ascii?Q?srbOk4mRLoIENWVAQA9wWKc/9pZhqpnCPp3GGlqV8C/2Op2cV1uJ7sp/kCLP?=
- =?us-ascii?Q?7RrJSEy4jt66qkq+R8xjDTtDxxE4q4ZbI7lvlTc+80ctznZw?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 670129b5-4ba3-4bca-5ae6-08dead18ec83
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 15:46:09.4252
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qesOSwJmtyiDUp+yiFqSFyAuJn99y1DqCz+UPnTVEFdIeVHH28YRggpO3//PCn6DjU39+WJ/GfRAMKf1e+cdTw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB10032
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_084616_205322_E5D56F59 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20260508_083345_420930_F30530D5 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,43 +83,371 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 01:21:43PM +0200, Marek Vasut wrote:
-> On 4/7/26 11:17 PM, Marek Vasut wrote:
-> > Add DT overlay for the DSI-to-LVDS adapter eDM-MOD-iMX8Mm-LVDS populated
-> > with Lontium LT9211 bridge. This adapter can be optionally populated onto
-> > the eDM SBC. This adapter can be extended with multiple panels, currently
-> > supported are the following:
-> >
-> > - AUO G215HVN011
-> > - Innolux G070Y2-L01
-> > - Innolux G101ICE-L01
-> > - Innolux G121XCE-L01
-> > - Innolux G156HCE-L01
-> > - Multi-Inno Technology MI0700A2T-30
-> > - Multi-Inno Technology MI1010Z1T-1CP11
-> >
-> > Note that in case of the i.MX8M Plus eDM SBC, the adapter name containing
-> > iMX8Mm is not a typo, this is the adapter model string. The adapter was
-> > originally developed for the iMX8Mm eDM SBC.
->
-> Hello Frank,
->
-> this patchset is now split. How can we proceed ?
+Introduce a new internal struct scmi_clock_desc so as to be able to hide,
+in the future, some of the needlessly public fields currently kept inside
+scmi_clock_info, while keeping exposed only the two new min_rate and
+max_rate fields for each clock.
 
-I am thinking about it. I found an old thread
-https://lore.kernel.org/linux-devicetree/20250902105710.00512c6d@booty/
+No functional change.
 
-The current code base already supportted partitial of it, such as gpio and
-irq map for connector.
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+v1 --> v2
+ - removed useless parenthesis
+ - reworded comit message
+---
+ drivers/firmware/arm_scmi/clock.c | 145 +++++++++++++++---------------
+ include/linux/scmi_protocol.h     |   2 +
+ 2 files changed, 74 insertions(+), 73 deletions(-)
 
-Internal chancel liu have prepared version by use nexus mapping for audio
-boards, which almost done to send out to review.
+diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
+index 54b55517b759..467b13a3a18f 100644
+--- a/drivers/firmware/arm_scmi/clock.c
++++ b/drivers/firmware/arm_scmi/clock.c
+@@ -157,13 +157,27 @@ struct scmi_clock_rate_notify_payld {
+ 	__le32 rate_high;
+ };
+ 
++struct scmi_clock_desc {
++	u32 id;
++	bool rate_discrete;
++	unsigned int num_rates;
++	u64 rates[SCMI_MAX_NUM_RATES];
++#define	RATE_MIN	0
++#define	RATE_MAX	1
++#define	RATE_STEP	2
++	struct scmi_clock_info info;
++};
++
++#define to_desc(p)	(container_of(p, struct scmi_clock_desc, info))
++
+ struct clock_info {
+ 	int num_clocks;
+ 	int max_async_req;
+ 	bool notify_rate_changed_cmd;
+ 	bool notify_rate_change_requested_cmd;
+ 	atomic_t cur_async_req;
+-	struct scmi_clock_info *clk;
++	struct scmi_clock_desc *clkds;
++#define CLOCK_INFO(c, i)	(&(((c)->clkds + (i))->info))
+ 	int (*clock_config_set)(const struct scmi_protocol_handle *ph,
+ 				u32 clk_id, enum clk_state state,
+ 				enum scmi_clock_oem_config oem_type,
+@@ -185,7 +199,7 @@ scmi_clock_domain_lookup(struct clock_info *ci, u32 clk_id)
+ 	if (clk_id >= ci->num_clocks)
+ 		return ERR_PTR(-EINVAL);
+ 
+-	return ci->clk + clk_id;
++	return CLOCK_INFO(ci, clk_id);
+ }
+ 
+ static int
+@@ -226,8 +240,7 @@ scmi_clock_protocol_attributes_get(const struct scmi_protocol_handle *ph,
+ 
+ struct scmi_clk_ipriv {
+ 	struct device *dev;
+-	u32 clk_id;
+-	struct scmi_clock_info *clk;
++	struct scmi_clock_desc *clkd;
+ };
+ 
+ static void iter_clk_possible_parents_prepare_message(void *message, unsigned int desc_index,
+@@ -236,7 +249,7 @@ static void iter_clk_possible_parents_prepare_message(void *message, unsigned in
+ 	struct scmi_msg_clock_possible_parents *msg = message;
+ 	const struct scmi_clk_ipriv *p = priv;
+ 
+-	msg->id = cpu_to_le32(p->clk_id);
++	msg->id = cpu_to_le32(p->clkd->id);
+ 	/* Set the number of OPPs to be skipped/already read */
+ 	msg->skip_parents = cpu_to_le32(desc_index);
+ }
+@@ -246,7 +259,6 @@ static int iter_clk_possible_parents_update_state(struct scmi_iterator_state *st
+ {
+ 	const struct scmi_msg_resp_clock_possible_parents *r = response;
+ 	struct scmi_clk_ipriv *p = priv;
+-	struct device *dev = ((struct scmi_clk_ipriv *)p)->dev;
+ 	u32 flags;
+ 
+ 	flags = le32_to_cpu(r->num_parent_flags);
+@@ -258,12 +270,13 @@ static int iter_clk_possible_parents_update_state(struct scmi_iterator_state *st
+ 	 * assume it's returned+remaining on first call.
+ 	 */
+ 	if (!st->max_resources) {
+-		p->clk->num_parents = st->num_returned + st->num_remaining;
+-		p->clk->parents = devm_kcalloc(dev, p->clk->num_parents,
+-					       sizeof(*p->clk->parents),
+-					       GFP_KERNEL);
+-		if (!p->clk->parents) {
+-			p->clk->num_parents = 0;
++		p->clkd->info.num_parents = st->num_returned + st->num_remaining;
++		p->clkd->info.parents = devm_kcalloc(p->dev,
++						     p->clkd->info.num_parents,
++						     sizeof(*p->clkd->info.parents),
++						     GFP_KERNEL);
++		if (!p->clkd->info.parents) {
++			p->clkd->info.num_parents = 0;
+ 			return -ENOMEM;
+ 		}
+ 		st->max_resources = st->num_returned + st->num_remaining;
+@@ -280,29 +293,27 @@ static int iter_clk_possible_parents_process_response(const struct scmi_protocol
+ 	const struct scmi_msg_resp_clock_possible_parents *r = response;
+ 	struct scmi_clk_ipriv *p = priv;
+ 
+-	u32 *parent = &p->clk->parents[st->desc_index + st->loop_idx];
++	u32 *parent = &p->clkd->info.parents[st->desc_index + st->loop_idx];
+ 
+ 	*parent = le32_to_cpu(r->possible_parents[st->loop_idx]);
+ 
+ 	return 0;
+ }
+ 
+-static int scmi_clock_possible_parents(const struct scmi_protocol_handle *ph, u32 clk_id,
+-				       struct scmi_clock_info *clk)
++static int scmi_clock_possible_parents(const struct scmi_protocol_handle *ph,
++				       u32 clk_id, struct clock_info *cinfo)
+ {
+ 	struct scmi_iterator_ops ops = {
+ 		.prepare_message = iter_clk_possible_parents_prepare_message,
+ 		.update_state = iter_clk_possible_parents_update_state,
+ 		.process_response = iter_clk_possible_parents_process_response,
+ 	};
+-
++	struct scmi_clock_desc *clkd = &cinfo->clkds[clk_id];
+ 	struct scmi_clk_ipriv ppriv = {
+-		.clk_id = clk_id,
+-		.clk = clk,
++		.clkd = clkd,
+ 		.dev = ph->dev,
+ 	};
+ 	void *iter;
+-	int ret;
+ 
+ 	iter = ph->hops->iter_response_init(ph, &ops, 0,
+ 					    CLOCK_POSSIBLE_PARENTS_GET,
+@@ -311,9 +322,7 @@ static int scmi_clock_possible_parents(const struct scmi_protocol_handle *ph, u3
+ 	if (IS_ERR(iter))
+ 		return PTR_ERR(iter);
+ 
+-	ret = ph->hops->iter_response_run(iter);
+-
+-	return ret;
++	return ph->hops->iter_response_run(iter);
+ }
+ 
+ static int
+@@ -352,7 +361,7 @@ static int scmi_clock_attributes_get(const struct scmi_protocol_handle *ph,
+ 	u32 attributes;
+ 	struct scmi_xfer *t;
+ 	struct scmi_msg_resp_clock_attributes *attr;
+-	struct scmi_clock_info *clk = cinfo->clk + clk_id;
++	struct scmi_clock_info *clk = CLOCK_INFO(cinfo, clk_id);
+ 
+ 	ret = ph->xops->xfer_get_init(ph, CLOCK_ATTRIBUTES,
+ 				      sizeof(clk_id), sizeof(*attr), &t);
+@@ -394,7 +403,7 @@ static int scmi_clock_attributes_get(const struct scmi_protocol_handle *ph,
+ 			clk->rate_change_requested_notifications = true;
+ 		if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
+ 			if (SUPPORTS_PARENT_CLOCK(attributes))
+-				scmi_clock_possible_parents(ph, clk_id, clk);
++				scmi_clock_possible_parents(ph, clk_id, cinfo);
+ 			if (SUPPORTS_GET_PERMISSIONS(attributes))
+ 				scmi_clock_get_permissions(ph, clk_id, clk);
+ 			if (SUPPORTS_EXTENDED_CONFIG(attributes))
+@@ -424,7 +433,7 @@ static void iter_clk_describe_prepare_message(void *message,
+ 	struct scmi_msg_clock_describe_rates *msg = message;
+ 	const struct scmi_clk_ipriv *p = priv;
+ 
+-	msg->id = cpu_to_le32(p->clk_id);
++	msg->id = cpu_to_le32(p->clkd->id);
+ 	/* Set the number of rates to be skipped/already read */
+ 	msg->rate_index = cpu_to_le32(desc_index);
+ }
+@@ -457,14 +466,14 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
+ 	flags = le32_to_cpu(r->num_rates_flags);
+ 	st->num_remaining = NUM_REMAINING(flags);
+ 	st->num_returned = NUM_RETURNED(flags);
+-	p->clk->rate_discrete = RATE_DISCRETE(flags);
++	p->clkd->rate_discrete = RATE_DISCRETE(flags);
+ 
+ 	/* Warn about out of spec replies ... */
+-	if (!p->clk->rate_discrete &&
++	if (!p->clkd->rate_discrete &&
+ 	    (st->num_returned != 3 || st->num_remaining != 0)) {
+ 		dev_warn(p->dev,
+ 			 "Out-of-spec CLOCK_DESCRIBE_RATES reply for %s - returned:%d remaining:%d rx_len:%zd\n",
+-			 p->clk->name, st->num_returned, st->num_remaining,
++			 p->clkd->info.name, st->num_returned, st->num_remaining,
+ 			 st->rx_len);
+ 
+ 		SCMI_QUIRK(clock_rates_triplet_out_of_spec,
+@@ -479,38 +488,19 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
+ 				   const void *response,
+ 				   struct scmi_iterator_state *st, void *priv)
+ {
+-	int ret = 0;
+ 	struct scmi_clk_ipriv *p = priv;
+ 	const struct scmi_msg_resp_clock_describe_rates *r = response;
+ 
+-	if (!p->clk->rate_discrete) {
+-		switch (st->desc_index + st->loop_idx) {
+-		case 0:
+-			p->clk->range.min_rate = RATE_TO_U64(r->rate[0]);
+-			break;
+-		case 1:
+-			p->clk->range.max_rate = RATE_TO_U64(r->rate[1]);
+-			break;
+-		case 2:
+-			p->clk->range.step_size = RATE_TO_U64(r->rate[2]);
+-			break;
+-		default:
+-			ret = -EINVAL;
+-			break;
+-		}
+-	} else {
+-		u64 *rate = &p->clk->list.rates[st->desc_index + st->loop_idx];
++	p->clkd->rates[st->desc_index + st->loop_idx] =
++		RATE_TO_U64(r->rate[st->loop_idx]);
++	p->clkd->num_rates++;
+ 
+-		*rate = RATE_TO_U64(r->rate[st->loop_idx]);
+-		p->clk->list.num_rates++;
+-	}
+-
+-	return ret;
++	return 0;
+ }
+ 
+ static int
+ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id,
+-			      struct scmi_clock_info *clk)
++			      struct clock_info *cinfo)
+ {
+ 	int ret;
+ 	void *iter;
+@@ -519,9 +509,9 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id,
+ 		.update_state = iter_clk_describe_update_state,
+ 		.process_response = iter_clk_describe_process_response,
+ 	};
++	struct scmi_clock_desc *clkd = &cinfo->clkds[clk_id];
+ 	struct scmi_clk_ipriv cpriv = {
+-		.clk_id = clk_id,
+-		.clk = clk,
++		.clkd = clkd,
+ 		.dev = ph->dev,
+ 	};
+ 
+@@ -536,16 +526,23 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id,
+ 	if (ret)
+ 		return ret;
+ 
+-	if (!clk->rate_discrete) {
++	/* empty set ? */
++	if (!clkd->num_rates)
++		return 0;
++
++	if (!clkd->rate_discrete) {
++		clkd->info.max_rate = clkd->rates[RATE_MAX];
+ 		dev_dbg(ph->dev, "Min %llu Max %llu Step %llu Hz\n",
+-			clk->range.min_rate, clk->range.max_rate,
+-			clk->range.step_size);
+-	} else if (clk->list.num_rates) {
+-		sort(clk->list.rates, clk->list.num_rates,
+-		     sizeof(clk->list.rates[0]), rate_cmp_func, NULL);
++			clkd->rates[RATE_MIN], clkd->rates[RATE_MAX],
++			clkd->rates[RATE_STEP]);
++	} else {
++		sort(clkd->rates, clkd->num_rates,
++		     sizeof(clkd->rates[0]), rate_cmp_func, NULL);
++		clkd->info.max_rate = clkd->rates[clkd->num_rates - 1];
+ 	}
++	clkd->info.min_rate = clkd->rates[RATE_MIN];
+ 
+-	return ret;
++	return 0;
+ }
+ 
+ static int
+@@ -630,6 +627,7 @@ static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
+ {
+ 	u64 fmin, fmax, ftmp;
+ 	struct scmi_clock_info *clk;
++	struct scmi_clock_desc *clkd;
+ 	struct clock_info *ci = ph->get_priv(ph);
+ 
+ 	if (!rate)
+@@ -639,15 +637,17 @@ static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
+ 	if (IS_ERR(clk))
+ 		return PTR_ERR(clk);
+ 
++	clkd = to_desc(clk);
++
+ 	/*
+ 	 * If we can't figure out what rate it will be, so just return the
+ 	 * rate back to the caller.
+ 	 */
+-	if (clk->rate_discrete)
++	if (clkd->rate_discrete)
+ 		return 0;
+ 
+-	fmin = clk->range.min_rate;
+-	fmax = clk->range.max_rate;
++	fmin = clk->min_rate;
++	fmax = clk->max_rate;
+ 	if (*rate <= fmin) {
+ 		*rate = fmin;
+ 		return 0;
+@@ -657,10 +657,10 @@ static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
+ 	}
+ 
+ 	ftmp = *rate - fmin;
+-	ftmp += clk->range.step_size - 1; /* to round up */
+-	ftmp = div64_ul(ftmp, clk->range.step_size);
++	ftmp += clkd->rates[RATE_STEP] - 1; /* to round up */
++	ftmp = div64_ul(ftmp, clkd->rates[RATE_STEP]);
+ 
+-	*rate = ftmp * clk->range.step_size + fmin;
++	*rate = ftmp * clkd->rates[RATE_STEP] + fmin;
+ 
+ 	return 0;
+ }
+@@ -1122,17 +1122,16 @@ static int scmi_clock_protocol_init(const struct scmi_protocol_handle *ph)
+ 	if (ret)
+ 		return ret;
+ 
+-	cinfo->clk = devm_kcalloc(ph->dev, cinfo->num_clocks,
+-				  sizeof(*cinfo->clk), GFP_KERNEL);
+-	if (!cinfo->clk)
++	cinfo->clkds = devm_kcalloc(ph->dev, cinfo->num_clocks,
++				    sizeof(*cinfo->clkds), GFP_KERNEL);
++	if (!cinfo->clkds)
+ 		return -ENOMEM;
+ 
+ 	for (clkid = 0; clkid < cinfo->num_clocks; clkid++) {
+-		struct scmi_clock_info *clk = cinfo->clk + clkid;
+-
++		cinfo->clkds[clkid].id = clkid;
+ 		ret = scmi_clock_attributes_get(ph, clkid, cinfo);
+ 		if (!ret)
+-			scmi_clock_describe_rates_get(ph, clkid, clk);
++			scmi_clock_describe_rates_get(ph, clkid, cinfo);
+ 	}
+ 
+ 	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 28579c145045..7283302b0c85 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -51,6 +51,8 @@ struct scmi_clock_info {
+ 	bool rate_ctrl_forbidden;
+ 	bool parent_ctrl_forbidden;
+ 	bool extended_config;
++	u64 min_rate;
++	u64 max_rate;
+ 	union {
+ 		struct {
+ 			int num_rates;
+-- 
+2.53.0
 
-I want to wait for a little bit well to resolve or partitial resolve N x M
-problem.
-
-Frank
-
->
-> Thank you for your help!
 
