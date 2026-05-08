@@ -4,75 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8721ECD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 15:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7613CD37A7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 15:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/8eBbS97pv7OakhYA95PJoS3eajNOoVvJdDYdhJ840k=; b=kvSafDSuwTeRyZ8TtoVvDDU5+r
-	tXSHX5acmWWVzuW9qfX5x6eE9bxHIAOvpsPZpnoirFEmTWBzf2COTDl68KLf9/XRUMF9jCPPTGmLK
-	0Nkg0PVAdYXUm+L5hZJaDoOwp3dy2e4Q++poE1CchKfW7JbWpR28xN6tIQNNgyXKE8W7SuwRrvovn
-	bxJH/Z0ssmvjBqC99661r4xKx3bjbcNMm8jrtGWOAuBpCF5wo7leK0VcHcLzXnwgFGATBz/fmTUfj
-	ZxiH0xyItNKoKFqxnm+bWf6NyWuf3P4E73apBQBlhk1IdmUl1HAYFkrELfcD4FWKEoTzJ9gE7xarg
-	XsuYGs4Q==;
+	bh=MCoBY7Vg2ebbF/UP1l9bOG5TinWbL0YiTiEm14Rm55o=; b=CDAB2h+SkRA1d9mbh4WdGQ8We/
+	pxFbwShumQPQUhdghrN744HqqLMrf7mN1KLBByoY5GcqP5mpkNq3CyNoTDyC6IxEQHXa0s+040LDY
+	39UaLSQ47OOsQ3Y6RCx17AxnriZA6FK6gvlIW287avYRBO3reft/Q7y7wIpXn6jGROC0zQ2wFDit2
+	jOKIoa0UPZ5c8wpgRYPCqhe7eVvYO7joIkda+OQbnGGl86nHGfR+Kktcu/VlYkBDbF8VPd3em7wYS
+	AB79zRQpnWdQgw/JJR1htl6mLMtAP9vQEEnP2x46wdGMAw8hITgW1+RblzAiF65l6AE5hWPAuCGCK
+	4gJwyaUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLN7H-00000006paV-2sJA;
-	Fri, 08 May 2026 15:27:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wLNBi-00000006q77-0o0s;
+	Fri, 08 May 2026 15:32:26 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLN7G-00000006pZh-2H41
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 08 May 2026 15:27:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/8eBbS97pv7OakhYA95PJoS3eajNOoVvJdDYdhJ840k=; b=ldxym+gUguqAWTo5Y4O5ubif7y
-	JrdPAWk4tXvb0dPpjat0GKpCpoMTcu52OBXZxnpcob9d+vmYWM7MOjeEOiIvM4/LSLTlVHgm2LDoj
-	1B5nJ1JnsOFSR2lGOB54lfEoSxG187wE7g3bLs6CJXDbSb1JO5GBlosGeyubwMvyokO5fgNr3pBGU
-	pmMVL0sQUcO4QwRyJpxc1zHiA9Y5MWhbq2NkG3dhT+gCcDS5sw2SwEy6C0xBytFpiMCWhef1K9LLC
-	UdBPuCh8Tqy5KyP0JS7rOil2DlxAjrngvx0lnIwvMpLkA1F6ArwGnsEW65bqDIOTiUuOEfUwJjBSf
-	MMgboRkg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLN7D-00000006hNv-1quY
+	id 1wLNBf-00000006q66-1qKf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 15:27:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D49BA3595;
-	Fri,  8 May 2026 08:27:39 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C78343F836;
-	Fri,  8 May 2026 08:27:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778254065; bh=fA9luiM0hxDLT0kv5HtcUycaXbjAO4oEDYzCee4bUcs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dv5caBrgjyIubJ/j5OmhQq1Gvro3YCti6XPY6zkK0iA3hkhnHpjFHFuXXZCQC/rLz
-	 rL/gS3JFe0CvkxVGzKzXCI8msOV0FPU5nwf0oL5fbiYioBJO0zppvwhfWj4XwGdDXZ
-	 kWoHqqLfw0LhiNFvVcFwltOzkmTlQrTreKceg5l4=
-Date: Fri, 8 May 2026 16:27:42 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v6 04/13] coresight: etm4x: exclude ss_status from
- drvdata->config
-Message-ID: <20260508152742.GI3778514@e132581.arm.com>
-References: <20260422132203.977549-1-yeoreum.yun@arm.com>
- <20260422132203.977549-5-yeoreum.yun@arm.com>
+	Fri, 08 May 2026 15:32:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=l/Ucp/LhufeCy1aF+V5cuRPlgne9EDiA74PyJ8KDg7AGTzFrofcGFS/oBY4/HRfv7iwbH6Vs6PRT95t0Cdgxwu63c4JK7qO8YGmE8YuiXyAUz0Q29FkQ2j5f/4OQP5CL6enOMZuU139aas6/o5o45+a0ydxlAJXVe4FdqfNulArR4Jri2pegrtRhI84HaGvA3A6Mhe0btX+yfMeQlUqePiLUF89LtqOJbep98qd/KYtTGNfXMlQKaKiOG2vQKb3MmiIa81spzV6E2yp8rRvUFjg8OkNGg6sjCL0qdNTZsrdbkUZb9SK+MXpLiDfCYmcE9BNrccoEHWvkOucs1b2KLQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MCoBY7Vg2ebbF/UP1l9bOG5TinWbL0YiTiEm14Rm55o=;
+ b=IeTvwpVFpUncmgwhel82IEqQdh0Bgs8VY+rnx77NwFON5vV+/ux9DKW6Szbv3uFeHyZzQoDCgVEBr+LbJWjPCSP5w5u5tszT2fndLPNQQOp8yiK0Aq8trAsdf+VDCWAslXcJE7PIWwTn4/NHAwZ1j0UXb2MdIvhfsX46QuFRViwEVR/XmcigqbPeBOgrRXZM3VHLUM+wIH+A6WkUUOeg25zEs9gR6OrvBppdPio2gcvm3JdlieQViO6HkqPru6rhZzbbkaYc34a/8PRhMaSFR0EqSTClcomFhHADhW1jkQoN/hODXnqsmG3v7ReLLu4TaXnKYKkU58bsH7Iadb53ZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MCoBY7Vg2ebbF/UP1l9bOG5TinWbL0YiTiEm14Rm55o=;
+ b=ZVEhDsHbQcqkVCOpb8OiSso51pDb0xldr/WN1/OsmdaIHMjMSy8QGOYVXPXdB9qHqfC7XycjUWdIp7Y7tbjtkAWBQI95FKuN9hNi1mjSDuxIwVsTozv05hgXpTB+Fla97uzqsbQ7VZguFrmmIAS2+u0hLJ+mzQTHy/p12mada6Y=
+Received: from PH0PR07CA0115.namprd07.prod.outlook.com (2603:10b6:510:4::30)
+ by SA2PR10MB4458.namprd10.prod.outlook.com (2603:10b6:806:f8::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.20; Fri, 8 May
+ 2026 15:32:17 +0000
+Received: from MW1PEPF00016159.namprd21.prod.outlook.com
+ (2603:10b6:510:4:cafe::d8) by PH0PR07CA0115.outlook.office365.com
+ (2603:10b6:510:4::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.18 via Frontend Transport; Fri,
+ 8 May 2026 15:32:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ MW1PEPF00016159.mail.protection.outlook.com (10.167.249.84) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.1 via Frontend Transport; Fri, 8 May 2026 15:32:17 +0000
+Received: from DLEE210.ent.ti.com (157.170.170.112) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 8 May
+ 2026 10:32:14 -0500
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 8 May
+ 2026 10:32:14 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Fri, 8 May 2026 10:32:14 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 648FWEMD1961978;
+	Fri, 8 May 2026 10:32:14 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Justin Stitt <justinstitt@google.com>, Bill Wendling <morbo@google.com>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nathan Chancellor
+	<nathan@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, Nishanth Menon
+	<nm@ti.com>
+CC: <llvm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH 03/11] soc: ti: knav_qmss: Inline lockdep condition in for_each_handle_rcu
+Date: Fri, 8 May 2026 10:32:03 -0500
+Message-ID: <20260508153211.3688277-4-nm@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20260508153211.3688277-1-nm@ti.com>
+References: <20260508153211.3688277-1-nm@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260422132203.977549-5-yeoreum.yun@arm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MW1PEPF00016159:EE_|SA2PR10MB4458:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1bcd8c55-cd6a-433a-786b-08dead16fcaa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700016|82310400026|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: OosTUbnJ8Vdo3nL8hXTBZdbuffAXz7YuUg7px9YkWgWGC13Xu9c4dCS5Bi2Ll52ptOEAjaWYOl8/2xLErStmchWtEsLOowSOSvKIT0alV5jB8p/bdJiGMDDB7+d5FAftfZpAJNVlN62kjX1n/JR6JAdIfgyQyq705rnmlIGByq7usiIRhMf68dIcHqVJVUlqWfN0I4ZBHzoNbJOx/nhjPHF9TT2NP2BEWcCqTladY0BxCLX1N9KPIeaI6Ki1qCWIRmRkBQL9kayOxR+ip250zxjgkpYeJaU0kiL17RDcigkDPVeAZJw1t7+MjgmIuCz0AjFBrNPp7UGy1U9jyRvyxgUWDBKKveomadbUS0QdXL+fat5Rxd50AEgv+D5cGw4U0ZWj0RZKMdW71rd1Hd/qMcG0HQoG+86jhrwRQgxble1bw4OqDSOEeESrGxNZoJRJP/Jrr2ZPS7AfxGCmJS6gfWU+25Pq5ckCwDI/Be+cj761COaJr7np2VK4ox+MqcCOfcDI/9cIzxnZVOjsasW5euOGWJ7wNrDzUzKxfkTKBRlcAgUPUoGVsLqRdGQwRLQUOHEN1rm2Umi/6kPzTTw2FdfLxM02fybMgGbA5X2rf7sczaXJwqWzgoOpMzmjkwsj2IXy3hx9/HFa9p4dOVTO3xTYCD/a7wsyp1RV2uWv50H/ro/pKFXgZP7oNTYVxBdSJraVeW24Hjp7nMwXhYOJ1if/GHCA/7F3xQfChslb2LI=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700016)(82310400026)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 1C6RXErMyBFnuDwdL+6twbd9fzVHKzfDVVyd+5nVEr7IA+5vuBZwR8BSMcEuZqtbtdZ5TMy5Jk2KZy6kTL83WW85WRcYK8DhkQTIXKOF8177blIMRklIPIlAFEE/LXZ0ISUrI6EJ1on8gpot9bwRQFIKwT0b4A4JSzBS0GsIRWw6hxTD6tVn/lm3eZIiO7SLmUVNJ/BzOxsQqykBK2yXg8DEpH/rYlicmjI8HcA4IOXipJwhdUY0qnU2GVxwT9rXE6PX6BRSr9bbzjXJWkt43UEVaNhaH9ZdgG4ZMpL6w+BCyRMIurGqW5jbsnV+s91JKRDrl6lDA+RS1pVly48a2ZYDNdrOJJ32P/wtGJ+2FebZ64DZfzb8yf4uc7/1VqM7kEMGroWoNFV7n2hQJVotziPyzrpnfNWiAQR5Nm7MmIqpXuDEDK26DbRuiV2K5rs4
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 15:32:17.1750
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1bcd8c55-cd6a-433a-786b-08dead16fcaa
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MW1PEPF00016159.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4458
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_162748_013663_ACE70E7C 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20260508_083223_482010_CCBA75AE 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,48 +132,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 02:21:54PM +0100, Yeoreum Yun wrote:
+knav_dev_lock_held() is a single-use wrapper around
+lockdep_is_held(&knav_dev_lock), used only as the lockdep condition
+in for_each_handle_rcu. When CONFIG_LOCKDEP is disabled,
+list_for_each_entry_rcu() elides the condition argument entirely,
+causing clang to report the macro as unused with W=2:
 
-[...]
+  knav_qmss_queue.c:30:9: warning: macro is not used [-Wunused-macros]
+  30 | #define knav_dev_lock_held() \
 
-> @@ -573,11 +573,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->  		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
->  
->  	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> -		/* always clear status bit on restart if using single-shot */
-> -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
-> -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
->  		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
-> -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
-> +		/* always clear status and pending bits on restart if using single-shot */
-> +		etm4x_relaxed_write32(csa, 0x0, TRCSSCSRn(i));
+Remove the intermediate macro and open-code lockdep_is_held() directly
+in the for_each_handle_rcu definition.
 
-After confirmed with hardware team, we should preserve status bits
-(including STATUS and PENDING bits) during a session. So here we should
-set drvdata->ss_status to TRCSSCSRn.
+Signed-off-by: Nishanth Menon <nm@ti.com>
+---
+ drivers/soc/ti/knav_qmss_queue.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-> @@ -1503,8 +1501,9 @@ static void etm4_init_arch_data(void *info)
->  	 */
->  	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
->  	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> -		drvdata->config.ss_status[i] =
-> -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> +		drvdata->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> +		drvdata->ss_status[i] &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
-> +					  TRCSSCSRn_DA | TRCSSCSRn_INST);
+diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
+index 2c103bb6edef..f65658014b05 100644
+--- a/drivers/soc/ti/knav_qmss_queue.c
++++ b/drivers/soc/ti/knav_qmss_queue.c
+@@ -27,9 +27,6 @@
+ 
+ static struct knav_device *knav_qdev;
+ static DEFINE_MUTEX(knav_dev_lock);
+-#define knav_dev_lock_held() \
+-	lockdep_is_held(&knav_dev_lock)
+-
+ /* Queue manager register indices in DTS */
+ #define KNAV_QUEUE_PEEK_REG_INDEX	0
+ #define KNAV_QUEUE_STATUS_REG_INDEX	1
+@@ -58,7 +55,7 @@ static DEFINE_MUTEX(knav_dev_lock);
+ 
+ #define for_each_handle_rcu(qh, inst)				\
+ 	list_for_each_entry_rcu(qh, &inst->handles, list,	\
+-				knav_dev_lock_held())
++				lockdep_is_held(&knav_dev_lock))
+ 
+ #define for_each_instance(idx, inst, kdev)		\
+ 	for (idx = 0, inst = kdev->instances;		\
+-- 
+2.47.0
 
-It is fine for read these capacity bits when probe, but we need to clear
-status when a session is starting to avoid the stale value left from
-previous session:
-
-  drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
-
-We can do this in etm4_parse_event_config() for perf mode, and might
-create a new function (say etm4_parse_sysfs_config()) for preparing
-config for sysfs mode?
-
-The rest looks good to me.
-
-Thanks,
-Leo
 
