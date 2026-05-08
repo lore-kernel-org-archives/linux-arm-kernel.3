@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119CECD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 18:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C00CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 18:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A5ufMvWo8efcJx/WLTwd6QzfshHSTnMmD5mG1ATfK6c=; b=r5L1NgpUK9+Aum/VktUq8Y4Ild
-	BEYI9iml5tg0sklKunCzY1yhyuqYCGakaQ4JG/bF0FXZjyJ7QF8KsAACwFVyuLAWZA/idI9mkJbVu
-	mE6Hon5m1hnEA/IbCaU4eI/49hTKybV3udyP7sEC+pUiKwdkB32LQOXUG531SakxAvc4cgdMzJcUp
-	O4FTF8wJ+ImeitV5INX4WJPp7addA6mh+1fuQqD7wAs47o7RKDbUxvomVTiRc6a/AtVF5YlPuBwLT
-	QfOZ5kno1SVvgkeme0iXBG3mBPJeKrOnT6VxzwCsPhqUgHsn4z2tCg7B3fQqFxTfCF1KpTTXSdXfs
-	7fBKfarA==;
+	bh=qBaqPKCN+VATxn9iGcUpM1W4c3oonUl5Ou/ltMwIKAs=; b=TRkdaYdowFaVdl6m6O04dsPi10
+	SeGmX0vMVovX6s1rCN5mnQP+Q/zdOlHr5kwCrteCj37A2gXwloncghVaIJMJmBnJv2uLtd7O2/ugi
+	oEXfAX9n7cStIdflEUEW1OtDxQjN7A7udM8xu4/CwU+l8hVTpU8AC9DwFjW2wpyPwv4J7CbtsWXcR
+	LgNFpg88jvenJESQiJ1YzdM6Q4DsF5Pc6VleAD7WCAhZmHHQsZdxRAJFlfxeQ4hwI+zM1KJGuMfUZ
+	cvb7s4sgol+lckx85D93ou6f/WGEjCHS/Oy4SwP/BhUjvflYnFaILzvsHlzd5bmY1Rf/fWM+lx9dx
+	GjowSdNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLQ8i-00000007HMU-3BZX;
-	Fri, 08 May 2026 18:41:32 +0000
+	id 1wLQ9R-00000007HWq-1Kxn;
+	Fri, 08 May 2026 18:42:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLQ8g-00000007HLs-0xYm
+	id 1wLQ9P-00000007HW5-0fTT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 18:41:32 +0000
+	Fri, 08 May 2026 18:42:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 422F535C8;
-	Fri,  8 May 2026 11:41:22 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 253951682;
+	Fri,  8 May 2026 11:42:08 -0700 (PDT)
 Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94FC43F763;
-	Fri,  8 May 2026 11:41:26 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 423B93F763;
+	Fri,  8 May 2026 11:42:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778265687; bh=XINvWQU6IfXvVeoD9TNizFxqoQoUcr+yFMhFtPgaEBA=;
+	t=1778265733; bh=2R0fPqfrjruSXC8XwdopLbeaSYMX4IVp2H58vn6VBkc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cpYKBeK+DS0RckzMNtF9Lqq1DjRKQfJqWbJLtkY6jssxDukuQ937nkw5Ya1RnKs8z
-	 MKc7FZXAtK7FBjQZQDWeuXhHpAZK/WwDkcFkGRd0DsxtqErOIWEL3FVpnxnOyGEwn2
-	 V0i55eSmnbfMUvaCUFfSKmydISiQtVEnE8t1QN6Y=
-Date: Fri, 8 May 2026 19:41:24 +0100
+	b=ljqHJYSwdfOAM9rsQ3vQWOk0Wfhf5MM+bUcBFdFcJy6Q1x3r87sztE2yx/X9kQUC9
+	 HX0JUX7MXxXpnL6rx2HVsMpRrbFBHtZj7EOMvygfG+UtEr0VozxhWkA7iGbCPg+j3r
+	 cBTr5HIPEBgl/ANtHs2AGesYPhri1sRhgzoWcWHA=
+Date: Fri, 8 May 2026 19:42:09 +0100
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: Sudeep Holla <sudeep.holla@kernel.org>
 Cc: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-integrity@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH 2/4] firmware: arm_ffa: Register core as a platform driver
-Message-ID: <af4uVBqhJW+4vug6@e129823.arm.com>
+Subject: Re: [PATCH 3/4] firmware: arm_ffa: Set the core device as FF-A
+ device parent
+Message-ID: <af4ugdkfaO3m2Ile@e129823.arm.com>
 References: <20260508-b4-ffa_plat_dev-v1-0-c5a30f8cf7b8@kernel.org>
- <20260508-b4-ffa_plat_dev-v1-2-c5a30f8cf7b8@kernel.org>
+ <20260508-b4-ffa_plat_dev-v1-3-c5a30f8cf7b8@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260508-b4-ffa_plat_dev-v1-2-c5a30f8cf7b8@kernel.org>
+In-Reply-To: <20260508-b4-ffa_plat_dev-v1-3-c5a30f8cf7b8@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_114130_457326_CC164ED8 
-X-CRM114-Status: GOOD (  27.65  )
+X-CRM114-CacheID: sfid-20260508_114215_282642_472BF8EE 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,167 +75,87 @@ LGTM.
 
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 
-On Fri, May 08, 2026 at 06:54:16PM +0100, Sudeep Holla wrote:
-> Move the FF-A core bring-up and teardown paths into platform driver
-> probe and remove callbacks, and register a synthetic arm-ffa platform
-> device to bind the driver.
+> Pass a parent device into ffa_device_register() and use the synthetic
+> arm-ffa platform device as the parent for each registered FF-A device.
 > 
-> This makes the FF-A core lifetime follow the driver model while keeping
-> the device creation internal to the FF-A core. Use normal platform driver
-> registration so the probe path has standard driver-core semantics.
+> This keeps the enumerated FF-A partition devices anchored below the FF-A
+> core device in the driver model, matching the platform-driver conversion
+> of the core transport.
 > 
-> The synthetic platform device is a temporary bridge until ACPI and
-> devicetree describe the FF-A core device or object. Once those firmware
-> description paths are defined, the internal platform device creation can
-> be dropped and the driver can bind to the firmware-described device
-> directly.
-> 
-> Since the transport selection now happens from the platform probe path,
-> drop the __init annotation from ffa_transport_init().
-> 
+> Suggested-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 > ---
->  drivers/firmware/arm_ffa/common.h |  4 +--
->  drivers/firmware/arm_ffa/driver.c | 53 ++++++++++++++++++++++++++++++++++-----
->  drivers/firmware/arm_ffa/smccc.c  |  2 +-
->  3 files changed, 50 insertions(+), 9 deletions(-)
+>  drivers/firmware/arm_ffa/bus.c    | 3 ++-
+>  drivers/firmware/arm_ffa/driver.c | 5 +++--
+>  include/linux/arm_ffa.h           | 4 ++--
+>  3 files changed, 7 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/firmware/arm_ffa/common.h b/drivers/firmware/arm_ffa/common.h
-> index 9c6425a81d0d..5cdf4bd222c6 100644
-> --- a/drivers/firmware/arm_ffa/common.h
-> +++ b/drivers/firmware/arm_ffa/common.h
-> @@ -18,9 +18,9 @@ bool ffa_device_is_valid(struct ffa_device *ffa_dev);
->  void ffa_device_match_uuid(struct ffa_device *ffa_dev, const uuid_t *uuid);
+> diff --git a/drivers/firmware/arm_ffa/bus.c b/drivers/firmware/arm_ffa/bus.c
+> index 9576862d89c4..e05fe0b6049c 100644
+> --- a/drivers/firmware/arm_ffa/bus.c
+> +++ b/drivers/firmware/arm_ffa/bus.c
+> @@ -190,7 +190,7 @@ bool ffa_device_is_valid(struct ffa_device *ffa_dev)
 >  
->  #ifdef CONFIG_ARM_FFA_SMCCC
-> -int __init ffa_transport_init(ffa_fn **invoke_ffa_fn);
-> +int ffa_transport_init(ffa_fn **invoke_ffa_fn);
->  #else
-> -static inline int __init ffa_transport_init(ffa_fn **invoke_ffa_fn)
-> +static inline int ffa_transport_init(ffa_fn **invoke_ffa_fn)
+>  struct ffa_device *
+>  ffa_device_register(const struct ffa_partition_info *part_info,
+> -		    const struct ffa_ops *ops)
+> +		    const struct ffa_ops *ops, struct device *parent)
 >  {
->  	return -EOPNOTSUPP;
->  }
+>  	int id, ret;
+>  	struct device *dev;
+> @@ -210,6 +210,7 @@ ffa_device_register(const struct ffa_partition_info *part_info,
+>  	}
+>  
+>  	dev = &ffa_dev->dev;
+> +	dev->parent = parent;
+>  	dev->bus = &ffa_bus_type;
+>  	dev->release = ffa_release_device;
+>  	dev->dma_mask = &dev->coherent_dma_mask;
 > diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-> index 6efb85787e6e..97ecdb5dac09 100644
+> index 97ecdb5dac09..e9d7dc71c06d 100644
 > --- a/drivers/firmware/arm_ffa/driver.c
 > +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -36,6 +36,7 @@
->  #include <linux/mm.h>
->  #include <linux/mutex.h>
->  #include <linux/of_irq.h>
-> +#include <linux/platform_device.h>
->  #include <linux/scatterlist.h>
->  #include <linux/slab.h>
->  #include <linux/smp.h>
-> @@ -46,6 +47,7 @@
->  
->  #define FFA_DRIVER_VERSION	FFA_VERSION_1_2
->  #define FFA_MIN_VERSION		FFA_VERSION_1_0
-> +#define FFA_PLATFORM_NAME	"arm-ffa"
->  
->  #define SENDER_ID_MASK		GENMASK(31, 16)
->  #define RECEIVER_ID_MASK	GENMASK(15, 0)
-> @@ -114,6 +116,7 @@ struct ffa_drv_info {
->  };
->  
->  static struct ffa_drv_info *drv_info;
-> +static struct platform_device *ffa_pdev;
->  
->  /*
->   * The driver must be able to support all the versions from the earliest
-> @@ -2029,7 +2032,7 @@ static void ffa_notifications_setup(void)
->  	ffa_notifications_cleanup();
->  }
->  
-> -static int __init ffa_init(void)
-> +static int ffa_probe(struct platform_device *pdev)
->  {
+> @@ -1688,7 +1688,7 @@ static int ffa_setup_host_partition(int vm_id)
 >  	int ret;
->  	u32 buf_sz;
-> @@ -2042,6 +2045,7 @@ static int __init ffa_init(void)
->  	drv_info = kzalloc_obj(*drv_info);
->  	if (!drv_info)
->  		return -ENOMEM;
-> +	platform_set_drvdata(pdev, drv_info);
 >  
->  	ret = ffa_version_check(&drv_info->version);
->  	if (ret)
-> @@ -2103,19 +2107,56 @@ static int __init ffa_init(void)
->  		free_pages_exact(drv_info->tx_buffer, rxtx_bufsz);
->  	free_pages_exact(drv_info->rx_buffer, rxtx_bufsz);
->  free_drv_info:
-> +	platform_set_drvdata(pdev, NULL);
->  	kfree(drv_info);
-> +	drv_info = NULL;
->  	return ret;
->  }
-> -module_init(ffa_init);
->  
-> -static void __exit ffa_exit(void)
-> +static void ffa_remove(struct platform_device *pdev)
+>  	buf.id = vm_id;
+> -	ffa_dev = ffa_device_register(&buf, &ffa_drv_ops);
+> +	ffa_dev = ffa_device_register(&buf, &ffa_drv_ops, &ffa_pdev->dev);
+>  	if (!ffa_dev) {
+>  		pr_err("%s: failed to register host partition ID 0x%x\n",
+>  		       __func__, vm_id);
+> @@ -1758,7 +1758,8 @@ static int ffa_setup_partitions(void)
+>  		 * provides UUID here for each partition as part of the
+>  		 * discovery API and the same is passed.
+>  		 */
+> -		ffa_dev = ffa_device_register(tpbuf, &ffa_drv_ops);
+> +		ffa_dev = ffa_device_register(tpbuf, &ffa_drv_ops,
+> +					      &ffa_pdev->dev);
+>  		if (!ffa_dev) {
+>  			pr_err("%s: failed to register partition ID 0x%x\n",
+>  			       __func__, tpbuf->id);
+> diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
+> index 81e603839c4a..17eca3dfc59e 100644
+> --- a/include/linux/arm_ffa.h
+> +++ b/include/linux/arm_ffa.h
+> @@ -173,7 +173,7 @@ struct ffa_partition_info;
+>  #if IS_REACHABLE(CONFIG_ARM_FFA_TRANSPORT)
+>  struct ffa_device *
+>  ffa_device_register(const struct ffa_partition_info *part_info,
+> -		    const struct ffa_ops *ops);
+> +		    const struct ffa_ops *ops, struct device *parent);
+>  void ffa_device_unregister(struct ffa_device *ffa_dev);
+>  int ffa_driver_register(struct ffa_driver *driver, struct module *owner,
+>  			const char *mod_name);
+> @@ -184,7 +184,7 @@ bool ffa_device_is_valid(struct ffa_device *ffa_dev);
+>  #else
+>  static inline struct ffa_device *
+>  ffa_device_register(const struct ffa_partition_info *part_info,
+> -		    const struct ffa_ops *ops)
+> +		    const struct ffa_ops *ops, struct device *parent)
 >  {
-> +	struct ffa_drv_info *info = platform_get_drvdata(pdev);
-> +
->  	ffa_notifications_cleanup();
->  	ffa_partitions_cleanup();
->  	ffa_rxtx_unmap();
-> -	free_pages_exact(drv_info->tx_buffer, drv_info->rxtx_bufsz);
-> -	free_pages_exact(drv_info->rx_buffer, drv_info->rxtx_bufsz);
-> -	kfree(drv_info);
-> +	free_pages_exact(info->tx_buffer, info->rxtx_bufsz);
-> +	free_pages_exact(info->rx_buffer, info->rxtx_bufsz);
-> +	kfree(info);
-> +	platform_set_drvdata(pdev, NULL);
-> +	drv_info = NULL;
-> +}
-> +
-> +static struct platform_driver ffa_driver = {
-> +	.probe = ffa_probe,
-> +	.remove = ffa_remove,
-> +	.driver = {
-> +		.name = FFA_PLATFORM_NAME,
-> +	},
-> +};
-> +
-> +static int __init ffa_init(void)
-> +{
-> +	int ret;
-> +
-> +	ffa_pdev = platform_device_register_simple(FFA_PLATFORM_NAME,
-> +						   PLATFORM_DEVID_NONE,
-> +						   NULL, 0);
-> +	if (IS_ERR(ffa_pdev))
-> +		return PTR_ERR(ffa_pdev);
-> +
-> +	ret = platform_driver_register(&ffa_driver);
-> +	if (ret)
-> +		platform_device_unregister(ffa_pdev);
-> +
-> +	return ret;
-> +}
-> +module_init(ffa_init);
-> +
-> +static void __exit ffa_exit(void)
-> +{
-> +	platform_device_unregister(ffa_pdev);
-> +	platform_driver_unregister(&ffa_driver);
+>  	return NULL;
 >  }
->  module_exit(ffa_exit);
->  
-> diff --git a/drivers/firmware/arm_ffa/smccc.c b/drivers/firmware/arm_ffa/smccc.c
-> index 4d85bfff0a4e..e6125dd9f58f 100644
-> --- a/drivers/firmware/arm_ffa/smccc.c
-> +++ b/drivers/firmware/arm_ffa/smccc.c
-> @@ -17,7 +17,7 @@ static void __arm_ffa_fn_hvc(ffa_value_t args, ffa_value_t *res)
->  	arm_smccc_1_2_hvc(&args, res);
->  }
->  
-> -int __init ffa_transport_init(ffa_fn **invoke_ffa_fn)
-> +int ffa_transport_init(ffa_fn **invoke_ffa_fn)
->  {
->  	enum arm_smccc_conduit conduit;
->  
 > 
 > -- 
 > 2.43.0
