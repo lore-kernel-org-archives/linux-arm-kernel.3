@@ -4,67 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90731CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C542FCD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s8FrX2hmOlVQ5C5PaQtgWU6a7JBMWQKmFs4RW3KDCcg=; b=bhaqk+ZNbjMBGG9SH9mfTjDmfw
-	RxhPU1xchCysO2Im7I9kDByHZP/Xt+p8GBL1dir1OxaUe7HFM7pxbSix1w60jUbwrp/XAXfg2bkdl
-	2Em9NfMkv7xkjbito1hdSiJ4DndGamxlAFDvkfkSF2/FBy1NTdvndQvMl9UywENfQIK/z+tIbJoXw
-	ZhdAO3U9idKCLoSOEcIjyP2vcbH0EHzOOrk2w5WL536ggGFLWgxlLBZxmGWtJDqjeLYia8RxF6E+5
-	DOUq+EO3DQonhNRwhk2pGqxSaGkIu688toQXxqJHBa4ECDFFRNUqqGdsiJNlfRicD/Gl4q20TWRx5
-	SdvgEUeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4TwIRY2nZA1VjJMy/1brhO0GpNrd8SUOXjsMr4w1IXQ=; b=Rs3/oHfg65CUjvafl/kmMXhEu/
+	x6bif2hJzxCwB9W7CjPBMXtuJxBTzcsQDdWiayTRSydluWo5hStCeCOqaq98hoBNmIvIbNA0HrrAp
+	NjXPkDFRlbYCjmHNR+vZ9cfj2lc1ekJSORPmKpYu3bGH+vjFYIoWeJdlH+A2a3J9EzaqrbacQqRxJ
+	LmsRptcPMrvdhWBOA++SBkGP165oJVc7sLV9GcJ7CZo5QprsONcVL/GDIGSYMIib+yrv4qCIby0fE
+	TauGZv6FqQSHsN3BEafGeWHnVfiQF7H37YZApSU4d1KuEQRwnyE+SJ0x8rq7IscWWHiFXekBmP6Ya
+	Bl92CfIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOsU-0000000778C-1Ap6;
-	Fri, 08 May 2026 17:20:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOsP-0000000775p-3jPW
+	id 1wLOuH-000000077W9-23oZ;
+	Fri, 08 May 2026 17:22:33 +0000
+Received: from mail-yx1-xb132.google.com ([2607:f8b0:4864:20::b132])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLOuF-000000077VJ-46US
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 17:20:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F3DC22D7;
-	Fri,  8 May 2026 10:20:30 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A1A783F836;
-	Fri,  8 May 2026 10:20:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778260835; bh=VIpaIdq08wjRpBWfnPXJEwTJDQEICZVJcS3hyR9NLpo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oZlzpBvM3kB4R3YSBeQz6gKgJmqfggBligCcpTqgEZXTpNWvuOS6tcb8YSZFF1+Fp
-	 kWnWUogxR1+d6Lsf9g9rsdrHZqLJNTKjJ1N1dWhsJRabhzYObA4PglPOeM69C9nq/z
-	 qCOQcg0gdCUWunQoEjjmnB+fLCkzhxF+ZBpNE7M4=
-Date: Fri, 8 May 2026 18:20:27 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v10 15/30] KVM: arm64: Support SME control registers
-Message-ID: <af4bWxiOogfPz_dp@J2N7QTR9R3>
-References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
- <20260306-kvm-arm64-sme-v10-15-43f7683a0fb7@kernel.org>
+	Fri, 08 May 2026 17:22:33 +0000
+Received: by mail-yx1-xb132.google.com with SMTP id 956f58d0204a3-651bc8f864fso1550437d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 10:22:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778260950; cv=none;
+        d=google.com; s=arc-20240605;
+        b=ZSwQ/il9E6H5p67d5Zz4PCfLPGYSndn4wy/fBlofRvorJBJ4U/3BloPCWVtdhpdN/x
+         iXrNwwGOeW5TVEoH2CxQUgBLOoDpEFa/a8rpBwlbTj9eGNiRVA+utlIosibx6+4OwWBl
+         ZQ80jfl/1HjH98KqmpzwIKwlnWKGX3dXa1OtX/teEBiYu0H9NaVMLo0l7URwfIfpFnB1
+         A2Wh/gRso6bNbTTN+l23lw1e+X2YjA/jVdKpqQDJwyjduS2VywG3cAm0xRFZR/cUsiPC
+         Vu78Von8uYBugPuhxlbgKwrkshddIjHSJwZtidBKyCsIFaeObO+nfGZKN/WqhzPhhpEb
+         JD5g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=4TwIRY2nZA1VjJMy/1brhO0GpNrd8SUOXjsMr4w1IXQ=;
+        fh=K1ZNCMKX1wTkgcjX2i5p1ZhUOPXQy81+mAZlEe+LM/I=;
+        b=OZmMklWQ6QDTzKUmsU4uKp/fPPLm4Nd2LOpN7q0V5FvtSeGbdYDoZrx4EKGCP4eRY9
+         CgmqQlCzvMf+rYXERzidNCX2xyLuqSEUgE7aJMDUS8KqIEqvI8NTsXhjCS4UO2HB/5Ae
+         +J0QzPXD6AyWkFRoK9xgsm/BXsNsGqfFdr3w43qdHuImvDhEutOVgo0zgMGubsZ1RI0r
+         fGQT90JiMxBeMIpgbmPh+PcAST/oN5KvyUe9dmO6fJu16vLdlUc+JBiPfDYIgYrcksHM
+         qme4RwvRgtBJJ0c8sjktHDBR6dGGB2EJKG3NA5KMCZlZmy/clozJhwicQScWKcFrSqJ0
+         Ur+Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1778260950; x=1778865750; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4TwIRY2nZA1VjJMy/1brhO0GpNrd8SUOXjsMr4w1IXQ=;
+        b=y8vlBjjcKiRhcsmwdyExndaibeWXn5FzgmpsqLqhC8x4dhqu3pubQLH0DkVCxXHHRF
+         2hVl5yjDJpcRWoQqCEAM+EQ9QvFNQsJl2Nt7ytUzhnQsl/MJdS2jQ0I8fJl+H0k0wTPq
+         IeexuXMAW8TuyGzX3hwbSv0Z5c2IdmedqzQpylPmyGIr5lpY3DhVnk2pzzRSbfRSSEvv
+         t+RgHI171bC+T2c+GKH626vNYBJdiuHj/4K+HAI62uHAb5EKwf2KFxQudUsyINf8mwyO
+         fp2G55rtfZMW9IZZtttfYZo77dPHZZbUFyMgXupO/T12EXrm0DGnc12ndo+FWR6Lq+cx
+         wMbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778260950; x=1778865750;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=4TwIRY2nZA1VjJMy/1brhO0GpNrd8SUOXjsMr4w1IXQ=;
+        b=ZioLzsRTD6A6hQ9vjhpugtWs594AliIrlgu+d6+WCN60Amy+tY1NC+wAg+3qbPMMht
+         cwQvEOzxtWObkpz372UnHPcFb3giz/HIBoSVgyoUvXyiH4LxHMp0pJY1AMae8LTLz+Kw
+         XnMnK4lUY1zwAM5LGCEHuMGG/fLBscJ2+vQ2FAldS9DW9BfyA7a6uozb2F6pPAT6DC2W
+         lxmb5WqTD139Nak3mkeXeJggpduJtUkR9vDy77R69DEpxKdVRTNmAQhLRNf7YiZkuDns
+         jqyIvArE7oNRWXrHPZA9RUYnb6Milux7IZSbBDKfbX1Lzrd9dFculXOMH37tTU3fHo97
+         52eg==
+X-Forwarded-Encrypted: i=1; AFNElJ/dqxk8TCZrykiU/bYKmPxFjCK9/09cPRPS2OtZBf/XlrDiyupujF4VuosiAS3mNlUiLyh7KmmHSw2vsPLRmjBo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrtPgDXBsBporfsGnNo2uDTH7vwTw91r19fZAv/svk18VWBALH
+	tjT9fFT62sqTM2+YAiU0odRTbq05jWtfyL13TrkIEOgLhT4Baqx9F8sp8qis6XjqOi5hYHQ7+jH
+	b8d90kpVBTmJI3u9hQ8NOAHRDaeLbIynbR3S3kmbhgw==
+X-Gm-Gg: Acq92OExFbqc4iBX8jlZHY4XE1yUSeZMLnrR6paxtxEgqwTe4amQ2McGlgbYYrK7op3
+	vR0OVyi2HP2aLor9yCa1JtvTq4HIAvfAOnJuL5/M6C7NglI2DXvpHXK4D4oXQDSrjZboptYWhXX
+	cGO8DyvWea5WTNKb7P3DgwNggFc25DJUdTCH6aGjyFtWOqnoXXJG++2olTgfKv0C7beAYNvXz7a
+	q/JhS3nx7+Ben+B293hS4bVkoWY5yoU2pPSCIEok2KAQ24tvKxOk4Gs1yc3ag0u7kEXwE7vKfMq
+	NEqjM+KTm2OOdZGEGlUtziD2FlHgcX9uIX9267kuhA==
+X-Received: by 2002:a05:690e:400f:b0:651:bcb6:888f with SMTP id
+ 956f58d0204a3-65d94b499damr3535814d50.15.1778260949925; Fri, 08 May 2026
+ 10:22:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260306-kvm-arm64-sme-v10-15-43f7683a0fb7@kernel.org>
+References: <20260430-exynos850-i3c-criticalclocks-v1-1-6e1fd8dfa21b@linaro.org>
+In-Reply-To: <20260430-exynos850-i3c-criticalclocks-v1-1-6e1fd8dfa21b@linaro.org>
+From: Sam Protsenko <semen.protsenko@linaro.org>
+Date: Fri, 8 May 2026 12:22:21 -0500
+X-Gm-Features: AVHnY4I2OawrzI6xYvjWNwRGdaLspFjoHiDADtZnKv7uMu1NzvUcqwurZTLYMoM
+Message-ID: <CAPLW+4kLyzUv-tstDezbqJetOLuPkzQ_Kt8EGBPy9U861q=7uQ@mail.gmail.com>
+Subject: Re: [PATCH] clk: samsung: exynos850: mark APM I3C clocks as critical
+To: Alexey Klimov <alexey.klimov@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Brian Masney <bmasney@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_102038_655591_0BEB3E6F 
-X-CRM114-Status: GOOD (  26.40  )
+X-CRM114-CacheID: sfid-20260508_102232_037832_18C6E57F 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,103 +120,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 06, 2026 at 05:01:07PM +0000, Mark Brown wrote:
-> SME is configured by the system registers SMCR_EL1 and SMCR_EL2, add
-> definitions and userspace access for them.  These control the SME vector
-> length in a manner similar to that for SVE and also have feature enable
-> bits for SME2 and FA64.  A subsequent patch will add management of them
-> for guests as part of the general floating point context switch, as is
-> done for the equivalent SVE registers.
-> 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+On Thu, Apr 30, 2026 at 6:53=E2=80=AFAM Alexey Klimov <alexey.klimov@linaro=
+.org> wrote:
+>
+> The Exynos850 APM co-processor relies on the I3C bus to communicate with
+> the PMIC. Currently, there is no dedicated PMIC consumer driver managing
+> these clocks, so the clock subsystem automatically gates them during the
+> initialisation. Once gated, any subsequent ACPM communication with APM
+> results in timeouts.
+>
+> As a temporary workaround (and let's hope it doesn't become permanent),
+> mark both `gout_i3c_pclk` and `gout_i3c_sclk` as CLK_IS_CRITICAL ones to
+> prevent the clock subsystem from disabling them. This makes the ACPM
+> communication functional. This workaround should be reverted once a
+> proper ACPM PMIC driver is implemented to manage these clocks.
+>
+> Cc: Sam Protsenko <semen.protsenko@linaro.org>
+> Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
 > ---
->  arch/arm64/include/asm/kvm_emulate.h  | 14 ++++++++++++
->  arch/arm64/include/asm/kvm_host.h     |  2 ++
->  arch/arm64/include/asm/vncr_mapping.h |  1 +
->  arch/arm64/kvm/sys_regs.c             | 42 ++++++++++++++++++++++++++++++++++-
->  4 files changed, 58 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index 5bf3d7e1d92c..7a11dd7d554c 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -89,6 +89,14 @@ static inline void kvm_inject_nested_sve_trap(struct kvm_vcpu *vcpu)
->  	kvm_inject_nested_sync(vcpu, esr);
->  }
->  
-> +static inline void kvm_inject_nested_sme_trap(struct kvm_vcpu *vcpu)
-> +{
-> +	u64 esr = FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_SME) |
-> +		  ESR_ELx_IL;
-> +
-> +	kvm_inject_nested_sync(vcpu, esr);
-> +}
 
-This implicilty has the SMTC field as 0b000, which is correct for traps
-of SMCR_EL{1,2} due to SMEN, but wouldn't be right for other traps (e.g.
-traps of ZT0).
+Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
 
-If we only use this for traps of SMCR_EL{1,2}, that's ok, but I think
-it's worth a comment, and possibly a more specific name. Perhaps
-kvm_inject_nested_sme_smen_trap() for now.
-
-[...]
-
-> +static bool access_smcr_el2(struct kvm_vcpu *vcpu,
-> +			    struct sys_reg_params *p,
-> +			    const struct sys_reg_desc *r)
-> +{
-> +	unsigned int vq;
-> +	u64 smcr;
-> +
-> +	if (guest_hyp_sme_traps_enabled(vcpu)) {
-> +		kvm_inject_nested_sme_trap(vcpu);
-> +		return false;
-> +	}
-> +
-> +	if (!p->is_write) {
-> +		p->regval = __vcpu_sys_reg(vcpu, SMCR_EL2);
-> +		return true;
-> +	}
-> +
-> +	smcr = p->regval & ~SMCR_ELx_RES0;
-> +	if (!vcpu_has_fa64(vcpu))
-> +		smcr &= ~SMCR_ELx_FA64;
-> +	if (!vcpu_has_sme2(vcpu))
-> +		smcr &= ~SMCR_ELx_EZT0;
-> +
-> +	vq = SYS_FIELD_GET(SMCR_ELx, LEN, smcr) + 1;
-> +	vq = min(vq, vcpu_sme_max_vq(vcpu));
-> +	smcr &= ~SMCR_ELx_LEN_MASK;
-> +	smcr |= SYS_FIELD_PREP(SMCR_ELx, LEN, vq - 1);
-
-I'm not sure this sanitization is correct or necessary, and the same
-concern applies to ZCR_ELx.LEN.
-
-AFAICT, none of the values for the SMCR_ELx.LEN and ZCR_ELx.LEN fields
-are reserved or unallocated. Thus all the bits of those fields should be
-stateful, and a read should observe the last value written, regardless
-of the effective value of the field.
-
-That means that the following at EL2 or vEL2 shouldn't produce a
-warning:
-		
-	int len_write, len_read;
-
-	for (len_write = 0; len_write < 16; len_write++) {
-		write_sysreg_s(len_write, SYS_SMCR_EL2);
-
-		len_read = read_sysreg_s(SYS_SMCR_EL2) & SMCR_ELx_LEN_MASK;
-		WARN_ON(len_read != len_write);
-	}
-
-Either what we're doing is wrong, or the architcture requires a
-clarification to say that values corresponding to unimplmented vector
-lengths are reserved.
-
-If those bit are always stateful, the the logic to sanitize the LEN
-field shouldn't live here, and that will need to happen when consuming
-the effective value.
-
-Mark.
+>  drivers/clk/samsung/clk-exynos850.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/clk/samsung/clk-exynos850.c b/drivers/clk/samsung/cl=
+k-exynos850.c
+> index eb9c80b60225efa33d85f5f3c284eb8a63a48015..b143a42293f5a154f53a86d4e=
+97e17a3e61164f3 100644
+> --- a/drivers/clk/samsung/clk-exynos850.c
+> +++ b/drivers/clk/samsung/clk-exynos850.c
+> @@ -686,10 +686,11 @@ static const struct samsung_gate_clock apm_gate_clk=
+s[] __initconst =3D {
+>              CLK_CON_GAT_GOUT_APM_APBIF_RTC_PCLK, 21, 0, 0),
+>         GATE(CLK_GOUT_TOP_RTC_PCLK, "gout_top_rtc_pclk", "dout_apm_bus",
+>              CLK_CON_GAT_GOUT_APM_APBIF_TOP_RTC_PCLK, 21, 0, 0),
+> +       /* TODO: Should be dealt with or enabled in PMIC ACPM driver */
+>         GATE(CLK_GOUT_I3C_PCLK, "gout_i3c_pclk", "dout_apm_bus",
+> -            CLK_CON_GAT_GOUT_APM_I3C_APM_PMIC_I_PCLK, 21, 0, 0),
+> +            CLK_CON_GAT_GOUT_APM_I3C_APM_PMIC_I_PCLK, 21, CLK_IS_CRITICA=
+L, 0),
+>         GATE(CLK_GOUT_I3C_SCLK, "gout_i3c_sclk", "mout_apm_i3c",
+> -            CLK_CON_GAT_GOUT_APM_I3C_APM_PMIC_I_SCLK, 21, 0, 0),
+> +            CLK_CON_GAT_GOUT_APM_I3C_APM_PMIC_I_SCLK, 21, CLK_IS_CRITICA=
+L, 0),
+>         GATE(CLK_GOUT_SPEEDY_PCLK, "gout_speedy_pclk", "dout_apm_bus",
+>              CLK_CON_GAT_GOUT_APM_SPEEDY_APM_PCLK, 21, 0, 0),
+>         /* TODO: Should be enabled in GPIO driver (or made CLK_IS_CRITICA=
+L) */
+>
+> ---
+> base-commit: 0787c45ea08a13b5482e701fabc741877cf681f6
+> change-id: 20260430-exynos850-i3c-criticalclocks-dcabb78bf154
+>
+> Best regards,
+> --
+> Alexey Klimov <alexey.klimov@linaro.org>
+>
 
