@@ -4,86 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 309A3CD37A7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 15:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0FACD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 15:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aLp1crPo2bKhPf8iCALYncLigcUPMsmde8DRNt7VxH4=; b=J5eyXteZ1jCF9X4rbbdbB7lvNW
-	/H0s/8eKMZZz3u3TnY/KvHDhS5uIb1DkWgFW0ZwHUTsAlN6fQYcITSUhQyTdksjDQvaqCAyvjuhJ5
-	7dNG7xIsb602ZM3OTzoU4tskYD64iXvDRJR8I/EJyGAY7q0UR+9gkD2a3NrqmVCHZV+od1q2F858t
-	WbQCkcPrYbGAaS3dB41VfYn/ZvS0kK5gNVBEqZ/Gc7XIxsJh2BdLMJHjKxNPBNWKYi2WfjmPFN/qK
-	+AKm+WU645sWZG4p89OSAoco0LBZF7OKw6OuOr5qldQRMn6Ukt5kV+6eL6mDi6TYGqzpnQcbTpL7w
-	vKs2loWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Vi9WO9OYlDTNZv0FNV+4yA3yU3GnZtfb7SbVGPsYmM=; b=QnPpFBzRv/HzcKyi7cXX0U1MWY
+	mfXo6FMb1Va9vJj988fYKX1MiK/x3i2zrB9ZTlbBDbhBZP6nCPQC9k9BVHENGC0RY40Hkp9cNkMZv
+	6dWtXaVizIBvCyyYuQ7xAb59ZL9YFy7le3XfTQN60pX3m0ejKYLXhYbrq8DTxIP4WdTp8DtiWLP/n
+	xbwCh5kqY4H4Gz+tvDKu3ilTDmXhGAnWxOeY9gfot4WjuO0Lv1vhllk08vRY1159OjkwKhg8Gy8k6
+	G22D+wwDonyME+z+eNHMBdgdFz2Kvdv7V2KWpv30Il2VmG+eIVPYJ86QcPp8184SryvtLVjtSVWmI
+	s0fUiSTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLNDZ-00000006rkq-3KDU;
-	Fri, 08 May 2026 15:34:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wLNP9-00000006tmt-2u4T;
+	Fri, 08 May 2026 15:46:19 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLNDV-00000006rea-0zrV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 08 May 2026 15:34:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=aLp1crPo2bKhPf8iCALYncLigcUPMsmde8DRNt7VxH4=; b=h0cCsl1l6lne57Md18UcLW4Otq
-	FUnwL0bWOLWjffbApufKxBdrlLjT7O8IR+XSu80AZIxoNYRwaZyR/gesfIcJg5W2SWa2UOzBVluhG
-	wAEUR7Gm10S1Aa0DqFf0koMXu7ddnjaoxTvU9NSN9gVP4vwmv03bBUAYPOSBkJYqo4QWY7i4dAzNe
-	Zy9SWdI8C85QKzYGANPZgu1aFraDkTrOYBecYA5ahoSrxVP2ug9Slxg3WT3M12F8g/4uihwAVjL3K
-	rSsBKKm075XbA6VrRuujFa57mbZuKVNvAaQ6jger/XhUvE+Zy4Lcac1UslEV0qSKffhHNuL5Rwz4f
-	gErfLMsA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLNDS-00000006iTD-04su
+	id 1wLNP6-00000006tm0-0gJb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 15:34:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F6F835A1;
-	Fri,  8 May 2026 08:34:08 -0700 (PDT)
-Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 907A33F836;
-	Fri,  8 May 2026 08:34:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778254453; bh=8o1RLPLqw7Q/fiIqOUH5PijDgRryHXsQuxEcHlAGU5A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AFSfxaAX39J5vqLEKC1A/Tce8RVNIk8zeEfaapI9thtFMVHGnfnggawT/ADjsk2eY
-	 tq6RGVgX4hKzqs8TLNbaAo3q2pRT60j4pU+bEsQmne5ew9uHRg6tg4Oxs22LSTiamo
-	 PlQ9fYlify6cAQfdyYVnGj9meL1AxvM+4ptwY4/k=
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	philip.radford@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	geert+renesas@glider.be,
-	kuninori.morimoto.gx@renesas.com,
-	marek.vasut+renesas@gmail.com,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v4 15/15] firmware: arm_scmi: Introduce all_rates_get clock operation
-Date: Fri,  8 May 2026 16:33:00 +0100
-Message-ID: <20260508153300.2224715-16-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260508153300.2224715-1-cristian.marussi@arm.com>
-References: <20260508153300.2224715-1-cristian.marussi@arm.com>
+	Fri, 08 May 2026 15:46:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Axm7S+xqWV4bypFz5hQGHlpPADqXogXnF9VkvQ+zBjT0wielYkx+AJkwZ0RcDDsqk41igeukzQLwkKRgAsbleuPZAwIKXIPgznCuTTBplgmaMzQ6kO9nGMsKoIDT2wUpBBsR1IxsMLdxU4N/HEUL28iJwpDMdGegDUUnAwDP/sAowlUlTafFj+JzQchMAbpEqkM552dTxF4LlWUTmwnE6IiRvUK+y6pP2+KZAbDpZ217DSOlEbiQl6lLJwkN1sHwt4zm79XTkmhJBrCzrGRjLe7rdbr13z0G0TS3INesvGUTgCZ82JhEE2yjc0HZxhETr5wzCLXLXzyWd7usOaJ/ow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4Vi9WO9OYlDTNZv0FNV+4yA3yU3GnZtfb7SbVGPsYmM=;
+ b=txCkSTFsxSMdrVstxivDXOG+EdRIC3gBvT1l2oMacFBnJQ24Hp3WTjRpD7XMs2Vk6X1H0yOWGnhWT1UQbRjlg9Gd8+WJLBn35jEG2IzbzVZHiJUhmyoPko1OQje3el8xDi6VNEARgXFIbJF7/6VlLOwvFHqkqdT6PVnIiUIuYS4JY7KoP/yTfBZnjy3A0lbRonbiD8YB4muPlJnae6Gm/KPgSDq/n8Gk6oKLg8iwOLOkFZsoigXMrLXBFQ8smhsuMgX32txE8An8RjGR2gh4+vHSul21FITmcfVQXgpwf1PbP8cfAk+eaTNZ3Bawzd7s2heiAB/tiGgQCQn0JzZsNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4Vi9WO9OYlDTNZv0FNV+4yA3yU3GnZtfb7SbVGPsYmM=;
+ b=YJUup+ScGnyAjqB2iJs6crWoL3pbzS5kunQfHCsy4T0odp14+ryy1bUCa/rpkuEuh8LtyiWYygMHVicKoEU6WZdoMDYAddp1W1SLu2BDoEnV2EnIdSmIBg8VaDelgeSbw0y4t6NHw3uLPR6LhRGSGj9MiWAfVwbGRQqyqypVdSOiviBAQgpPL5/Z09VMuTRN7omxPHO5DBMKfCDA0cIfnPeZ9DiC38Q7Iz8ZN2auDdS76ke+A/V9BpouRKXmduh2Frpw2I5A9eJJM7PnosMFMWaMmTgUsUKmdlYgfpglWekpGzmjpTL+95P+kyyZ0i4AxRV2CyU5CzPEIyEm4gwcnQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PAWPR04MB10032.eurprd04.prod.outlook.com (2603:10a6:102:38d::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.19; Fri, 8 May
+ 2026 15:46:09 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9891.019; Fri, 8 May 2026
+ 15:46:09 +0000
+Date: Fri, 8 May 2026 11:46:03 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Marek Vasut <marex@nabladev.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/6] arm64: dts: imx8mm: imx8mp: Add LVDS DTOs for
+ Data Modul i.MX8M Mini and Plus eDM SBC
+Message-ID: <af4FO5vOx3ruwWBE@lizhi-Precision-Tower-5810>
+References: <20260407211850.79881-1-marex@nabladev.com>
+ <65342735-44b3-4a2b-90ab-6093e0fd91c9@nabladev.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <65342735-44b3-4a2b-90ab-6093e0fd91c9@nabladev.com>
+X-ClientProxiedBy: SA0PR11CA0172.namprd11.prod.outlook.com
+ (2603:10b6:806:1bb::27) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAWPR04MB10032:EE_
+X-MS-Office365-Filtering-Correlation-Id: 670129b5-4ba3-4bca-5ae6-08dead18ec83
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|19092799006|56012099003|22082099003|18002099003|38350700014;
+X-Microsoft-Antispam-Message-Info: EU/XZZJsfLYiGfC0ZtHZx3RZ/gBBXc50B3fu/lCOS58IRwILFY/ZNFKZtWO8P3aCvFfcazVk/IsdMoeonalM/BQlu5xont/i9SfiZ2xN6jEfzfxij6oPHowmPXKa3OxSrk5bgInC5OJRfUMrop4Eb0L+i5RDqTjMohFr70WKReI+ic84Ul4JWQIzblVEmZdiiLXBfCijn/PXbaO6GhdHM6wM/nYHuIOu50BeW87iOt4uk6FQOMvrOFHvPbh9+o/dTYNAxwYnG0GD9ZobDY+yNby525mhc2kV9VT+iDeR2vtZVzrpzDc0es3Vywn446FdsOP5egoJhdZw7t2/ghXAZfxft0iAEm3Djcn0uXOnInPjFl6FSQsiZuJHvmPTMrbmLed0XeTPX34mfYUbk7Z0rlSWlSPLUWMOrm4EBdfW0+/HKXMJSWF/CNiAFXYVYvDQfBOl8zSK+3ZV/gBQg+9z92j0ur7g9alW2dX9LM/9TmKVbfhcD+yx1eEFQjRjT0K3eHO6kCesw8808zb24pJP+w1BGbTlMbfymPfBvTLU6mMEtG3zrsdEGmaFVwVpwv8YNiDDSoLeqWBx7NfrsMVL/9hXIyrt4RDpZxdaNV2xaQ4B0U9t/zVAeR4YysKSQSmJlUWNAA1K4vXPpLHkb9XBRyQ8L6jaM6u7Ak24RlzKOdMHVJiwioTNx8Qe4zX6jX/rSJZ59mk3qIpC56ZbACZfLXIRfV82gtlIAbuG/5bzOi79J5SVOdsNe57KIKRGEmrl
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(19092799006)(56012099003)(22082099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?t1BHk6f+2AXDzmiYnSiMNwzPHYXM9MsY/f/q3/4baw56kvBcWxx9/8kDudu5?=
+ =?us-ascii?Q?Ntwf5fMeNP0zIBHCJNer165jULx1dT5Ni3kCin8nRbVxxmxXDNxMXmXOfbFO?=
+ =?us-ascii?Q?tgpR/xobV0tNtO0omakuX4MuEjL832jR/wFUZI47x3+g31v0ZYYDiTDu8nIJ?=
+ =?us-ascii?Q?ftznB7oFJr5cAP+5nM01TN4YNUkrP7uayFB0iolY9Bthentmxz//p09nE16z?=
+ =?us-ascii?Q?haSyjmbWS3dWNcmlfxwEIIddaHyordjhJMt8WWeT6HJ27Fe+gZLhDy67fXlE?=
+ =?us-ascii?Q?tUaiuiT6rLMOIV2sjCFLhgnIKPJGsh5FNvb0oUoqPChiX1Ibf0TRykXnNpRo?=
+ =?us-ascii?Q?TjWlfACelah9VuIoQxF90MKc4nvgdJUt0GBrJQ6Pd0HDw8s5I9BQIqrHdMHC?=
+ =?us-ascii?Q?RuwbK0aFycKQSk6DWEJom379MDS4BMaYeMWwMjLQGt3Ft1NEsrVW62apHw1C?=
+ =?us-ascii?Q?G7+9Jc0WWzGtItKfLvW1QS4vg8TUklqSHRLrFowJqCPd2O5gzMRzxfXTZxA2?=
+ =?us-ascii?Q?MqBkFgRPXjDdib9tFdIi+8m3+7A1fddtzRH8Gav86ecdUFlCqANfQiulfzFn?=
+ =?us-ascii?Q?sJqk1KEuArCn3h1cy1rAmashE9Nv2A+T3I8mQziWI7sOy7d2W0yLvSVkZfTF?=
+ =?us-ascii?Q?A9Td9TINBzNx+KTY12Lt91oEMa4/+RtVrMGEuTzZKNl5ANkg4cpFRvNS/Dct?=
+ =?us-ascii?Q?s6Ytt31pSPy6wDz3zaZvsBvoFvdhTkTxjiLw/grH8fvf2Drqz0vtne+vR1YB?=
+ =?us-ascii?Q?rMyRBUPyesN25t+gvaohVQOmKTn+814cJ6cys+NoV1nZx08YaT/jdNkeDOrq?=
+ =?us-ascii?Q?miwBLB7aZQfOim4Vs3W+nYYHnzUSe23NpzKujiwVrczQ0MziLPgL1z3b+yC7?=
+ =?us-ascii?Q?uJakrQoNKkexSi4MuHm2C4DlKMfZjxvQfbjokeM1CdCJl6UR0g00EjajqTn6?=
+ =?us-ascii?Q?azcKJUDJS8vaaRdLUk0VzxxELx4segsZmlMdQQfxbMFoSa6kbCPG7DQjZ/d7?=
+ =?us-ascii?Q?OiRdGQL3AumGqSNNWhuKYwuzm6yEYtccYze7kyvpbkGFIRe5FHYk2OZxKEEH?=
+ =?us-ascii?Q?zXCKDftn+s8rORO57QyLeevlGRtfLb+g0aZRFraSeHhuetKbzcz/Gm88Mj4r?=
+ =?us-ascii?Q?NHC07HjJ+hB9H/nzXqyXeelYSBVYWUadKWbMmERTnW3pj2oMxH5ofC6M+OBd?=
+ =?us-ascii?Q?tQf7ONdCbDsW1El+3utnRQmxBu1/M2ddCenhjzRUk0XMrBOaiz/asDpTGT6q?=
+ =?us-ascii?Q?ed9bZGV+/z5iNwjT4TxMSGgmVEO/zfDB3Z9X3sieGFdgjMaCJatODjCeumPA?=
+ =?us-ascii?Q?lk20tWm+fj7ilqHDEOVyhrtu4h65tJSUpYd/OL47Dx+TlIEzCC4QMvsL8ZCe?=
+ =?us-ascii?Q?Fg0Fa9am8ZkCl3VCQ0Uy6e61VtFgiVK6bNuKf13nV28B/92N631C6GqIIyDo?=
+ =?us-ascii?Q?5CVBsG2vT/GqZbtGyboI3olAd8DGwrcLyKGYdkrDnH5/t6O7iSWeINOFl+wl?=
+ =?us-ascii?Q?MjRhih/1qzmApzfYDbb+3by1A/RoHs8DdxxpHKVndNz1wDKGXTzdfrpXrjMQ?=
+ =?us-ascii?Q?CTtQTmupfXHfJme/8qgxyAutZwA09JXWE16sOoiZqlmdok9raEr60fx3V16I?=
+ =?us-ascii?Q?srbOk4mRLoIENWVAQA9wWKc/9pZhqpnCPp3GGlqV8C/2Op2cV1uJ7sp/kCLP?=
+ =?us-ascii?Q?7RrJSEy4jt66qkq+R8xjDTtDxxE4q4ZbI7lvlTc+80ctznZw?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 670129b5-4ba3-4bca-5ae6-08dead18ec83
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 15:46:09.4252
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qesOSwJmtyiDUp+yiFqSFyAuJn99y1DqCz+UPnTVEFdIeVHH28YRggpO3//PCn6DjU39+WJ/GfRAMKf1e+cdTw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB10032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_163414_692129_58D46660 
-X-CRM114-Status: GOOD (  23.43  )
+X-CRM114-CacheID: sfid-20260508_084616_205322_E5D56F59 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,234 +141,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a clock operation to get the whole set of rates available to a specific
-clock: when needed this request could transparently trigger a full rate
-discovery enumeration if this specific clock-rates were previously only
-lazily enumerated.
+On Fri, May 08, 2026 at 01:21:43PM +0200, Marek Vasut wrote:
+> On 4/7/26 11:17 PM, Marek Vasut wrote:
+> > Add DT overlay for the DSI-to-LVDS adapter eDM-MOD-iMX8Mm-LVDS populated
+> > with Lontium LT9211 bridge. This adapter can be optionally populated onto
+> > the eDM SBC. This adapter can be extended with multiple panels, currently
+> > supported are the following:
+> >
+> > - AUO G215HVN011
+> > - Innolux G070Y2-L01
+> > - Innolux G101ICE-L01
+> > - Innolux G121XCE-L01
+> > - Innolux G156HCE-L01
+> > - Multi-Inno Technology MI0700A2T-30
+> > - Multi-Inno Technology MI1010Z1T-1CP11
+> >
+> > Note that in case of the i.MX8M Plus eDM SBC, the adapter name containing
+> > iMX8Mm is not a typo, this is the adapter model string. The adapter was
+> > originally developed for the iMX8Mm eDM SBC.
+>
+> Hello Frank,
+>
+> this patchset is now split. How can we proceed ?
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
-v2 --> v3
- - collected Reviewed tags
----
- drivers/firmware/arm_scmi/clock.c | 83 +++++++++++++++++++++----------
- include/linux/scmi_protocol.h     |  9 ++++
- 2 files changed, 66 insertions(+), 26 deletions(-)
+I am thinking about it. I found an old thread
+https://lore.kernel.org/linux-devicetree/20250902105710.00512c6d@booty/
 
-diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-index ab8c65ed785a..42e666a628c7 100644
---- a/drivers/firmware/arm_scmi/clock.c
-+++ b/drivers/firmware/arm_scmi/clock.c
-@@ -159,10 +159,8 @@ struct scmi_clock_rate_notify_payld {
- 
- struct scmi_clock_desc {
- 	u32 id;
--	bool rate_discrete;
- 	unsigned int tot_rates;
--	unsigned int num_rates;
--	u64 *rates;
-+	struct scmi_clock_rates r;
- #define	RATE_MIN	0
- #define	RATE_MAX	1
- #define	RATE_STEP	2
-@@ -469,10 +467,10 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
- 	flags = le32_to_cpu(r->num_rates_flags);
- 	st->num_remaining = NUM_REMAINING(flags);
- 	st->num_returned = NUM_RETURNED(flags);
--	p->clkd->rate_discrete = RATE_DISCRETE(flags);
-+	p->clkd->r.rate_discrete = RATE_DISCRETE(flags);
- 
- 	/* Warn about out of spec replies ... */
--	if (!p->clkd->rate_discrete &&
-+	if (!p->clkd->r.rate_discrete &&
- 	    (st->num_returned != 3 || st->num_remaining != 0)) {
- 		dev_warn(p->dev,
- 			 "Out-of-spec CLOCK_DESCRIBE_RATES reply for %s - returned:%d remaining:%d rx_len:%zd\n",
-@@ -486,9 +484,9 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
- 	if (!st->max_resources) {
- 		unsigned int tot_rates = st->num_returned + st->num_remaining;
- 
--		p->clkd->rates = devm_kcalloc(p->dev, tot_rates,
--					      sizeof(*p->clkd->rates), GFP_KERNEL);
--		if (!p->clkd->rates)
-+		p->clkd->r.rates = devm_kcalloc(p->dev, tot_rates,
-+						sizeof(*p->clkd->r.rates), GFP_KERNEL);
-+		if (!p->clkd->r.rates)
- 			return -ENOMEM;
- 
- 		/* max_resources is used by the iterators to control bounds */
-@@ -507,10 +505,10 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
- 	struct scmi_clk_ipriv *p = priv;
- 	const struct scmi_msg_resp_clock_describe_rates *r = response;
- 
--	p->clkd->rates[p->clkd->num_rates] = RATE_TO_U64(r->rate[st->loop_idx]);
-+	p->clkd->r.rates[p->clkd->r.num_rates] = RATE_TO_U64(r->rate[st->loop_idx]);
- 
- 	/* Count only effectively discovered rates */
--	p->clkd->num_rates++;
-+	p->clkd->r.num_rates++;
- 
- 	return 0;
- }
-@@ -531,7 +529,13 @@ scmi_clock_describe_rates_get_full(const struct scmi_protocol_handle *ph,
- 		.dev = ph->dev,
- 	};
- 
--	iter = ph->hops->iter_response_init(ph, &ops, 0, CLOCK_DESCRIBE_RATES,
-+	/*
-+	 * Using tot_rates as max_resources parameter here so as to trigger
-+	 * the dynamic allocation only when strictly needed: when trying a
-+	 * full enumeration after a lazy one tot_rates will be non-zero.
-+	 */
-+	iter = ph->hops->iter_response_init(ph, &ops, clkd->tot_rates,
-+					    CLOCK_DESCRIBE_RATES,
- 					    sizeof(struct scmi_msg_clock_describe_rates),
- 					    &cpriv);
- 	if (IS_ERR(iter))
-@@ -542,12 +546,12 @@ scmi_clock_describe_rates_get_full(const struct scmi_protocol_handle *ph,
- 		return ret;
- 
- 	/* empty set ? */
--	if (!clkd->num_rates)
-+	if (!clkd->r.num_rates)
- 		return 0;
- 
--	if (clkd->rate_discrete)
--		sort(clkd->rates, clkd->num_rates,
--		     sizeof(clkd->rates[0]), rate_cmp_func, NULL);
-+	if (clkd->r.rate_discrete && PROTOCOL_REV_MAJOR(ph->version) == 0x1)
-+		sort(clkd->r.rates, clkd->r.num_rates,
-+		     sizeof(clkd->r.rates[0]), rate_cmp_func, NULL);
- 
- 	return 0;
- }
-@@ -586,7 +590,7 @@ scmi_clock_describe_rates_get_lazy(const struct scmi_protocol_handle *ph,
- 	 * If discrete and we don't already have it, grab the last value, which
- 	 * should be the max
- 	 */
--	if (clkd->rate_discrete && clkd->tot_rates > clkd->num_rates) {
-+	if (clkd->r.rate_discrete && clkd->tot_rates > clkd->r.num_rates) {
- 		first = clkd->tot_rates - 1;
- 		last = clkd->tot_rates - 1;
- 		ret = ph->hops->iter_response_run_bound(iter, &first, &last);
-@@ -618,14 +622,14 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph,
- 	if (ret)
- 		return ret;
- 
--	clkd->info.min_rate = clkd->rates[RATE_MIN];
--	if (!clkd->rate_discrete) {
--		clkd->info.max_rate = clkd->rates[RATE_MAX];
-+	clkd->info.min_rate = clkd->r.rates[RATE_MIN];
-+	if (!clkd->r.rate_discrete) {
-+		clkd->info.max_rate = clkd->r.rates[RATE_MAX];
- 		dev_dbg(ph->dev, "Min %llu Max %llu Step %llu Hz\n",
--			clkd->rates[RATE_MIN], clkd->rates[RATE_MAX],
--			clkd->rates[RATE_STEP]);
-+			clkd->r.rates[RATE_MIN], clkd->r.rates[RATE_MAX],
-+			clkd->r.rates[RATE_STEP]);
- 	} else {
--		clkd->info.max_rate = clkd->rates[clkd->num_rates - 1];
-+		clkd->info.max_rate = clkd->r.rates[clkd->r.num_rates - 1];
- 		dev_dbg(ph->dev, "Clock:%s Num_Rates:%u -> Min %llu Max %llu\n",
- 			clkd->info.name, clkd->tot_rates,
- 			clkd->info.min_rate, clkd->info.max_rate);
-@@ -732,7 +736,7 @@ static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
- 	 * If we can't figure out what rate it will be, so just return the
- 	 * rate back to the caller.
- 	 */
--	if (clkd->rate_discrete)
-+	if (clkd->r.rate_discrete)
- 		return 0;
- 
- 	fmin = clk->min_rate;
-@@ -746,14 +750,40 @@ static int scmi_clock_determine_rate(const struct scmi_protocol_handle *ph,
- 	}
- 
- 	ftmp = *rate - fmin;
--	ftmp += clkd->rates[RATE_STEP] - 1; /* to round up */
--	ftmp = div64_ul(ftmp, clkd->rates[RATE_STEP]);
-+	ftmp += clkd->r.rates[RATE_STEP] - 1; /* to round up */
-+	ftmp = div64_ul(ftmp, clkd->r.rates[RATE_STEP]);
- 
--	*rate = ftmp * clkd->rates[RATE_STEP] + fmin;
-+	*rate = ftmp * clkd->r.rates[RATE_STEP] + fmin;
- 
- 	return 0;
- }
- 
-+static const struct scmi_clock_rates *
-+scmi_clock_all_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id)
-+{
-+	struct clock_info *ci = ph->get_priv(ph);
-+	struct scmi_clock_desc *clkd;
-+	struct scmi_clock_info *clk;
-+
-+	clk = scmi_clock_domain_lookup(ci, clk_id);
-+	if (IS_ERR(clk) || !clk->name[0])
-+		return NULL;
-+
-+	clkd = to_desc(clk);
-+	/* Needs full enumeration ? */
-+	if (clkd->r.rate_discrete && clkd->tot_rates != clkd->r.num_rates) {
-+		int ret;
-+
-+		/* rates[] is already allocated BUT we need to re-enumerate */
-+		clkd->r.num_rates = 0;
-+		ret = scmi_clock_describe_rates_get_full(ph, clkd);
-+		if (ret)
-+			return NULL;
-+	}
-+
-+	return &clkd->r;
-+}
-+
- static int
- scmi_clock_config_set(const struct scmi_protocol_handle *ph, u32 clk_id,
- 		      enum clk_state state,
-@@ -1067,6 +1097,7 @@ static const struct scmi_clk_proto_ops clk_proto_ops = {
- 	.rate_get = scmi_clock_rate_get,
- 	.rate_set = scmi_clock_rate_set,
- 	.determine_rate = scmi_clock_determine_rate,
-+	.all_rates_get = scmi_clock_all_rates_get,
- 	.enable = scmi_clock_enable,
- 	.disable = scmi_clock_disable,
- 	.state_get = scmi_clock_state_get,
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 0824a7dc4aae..8046d086a225 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -40,6 +40,12 @@ struct scmi_revision_info {
- 	char sub_vendor_id[SCMI_SHORT_NAME_MAX_SIZE];
- };
- 
-+struct scmi_clock_rates {
-+	bool rate_discrete;
-+	unsigned int num_rates;
-+	u64 *rates;
-+};
-+
- struct scmi_clock_info {
- 	char name[SCMI_MAX_STR_SIZE];
- 	unsigned int enable_latency;
-@@ -84,6 +90,7 @@ enum scmi_clock_oem_config {
-  *		    clock calculating the closest allowed rate.
-  *		    Note that @rate is an input/output parameter used both to
-  *		    describe the requested rate and report the closest match
-+ * @all_rates_get: get the list of all available rates for the specified clock.
-  * @enable: enables the specified clock
-  * @disable: disables the specified clock
-  * @state_get: get the status of the specified clock
-@@ -103,6 +110,8 @@ struct scmi_clk_proto_ops {
- 			u64 rate);
- 	int (*determine_rate)(const struct scmi_protocol_handle *ph, u32 clk_id,
- 			      unsigned long *rate);
-+	const struct scmi_clock_rates __must_check *(*all_rates_get)
-+		(const struct scmi_protocol_handle *ph, u32 clk_id);
- 	int (*enable)(const struct scmi_protocol_handle *ph, u32 clk_id,
- 		      bool atomic);
- 	int (*disable)(const struct scmi_protocol_handle *ph, u32 clk_id,
--- 
-2.53.0
+The current code base already supportted partitial of it, such as gpio and
+irq map for connector.
 
+Internal chancel liu have prepared version by use nexus mapping for audio
+boards, which almost done to send out to review.
+
+I want to wait for a little bit well to resolve or partitial resolve N x M
+problem.
+
+Frank
+
+>
+> Thank you for your help!
 
