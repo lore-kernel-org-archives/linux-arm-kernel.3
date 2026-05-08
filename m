@@ -4,139 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2745ACD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 09:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D1FDCD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 09:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=91DnOEsESl9n56x9D1JdIK8tPvACUPqjGkRz4xX4jI8=; b=ofU/T7jkWrSdua9qvuUF8FJtaH
-	+mhfwStqtN+bg7DeRbfejad9zDFICDinN3f4fx+zp/8ycgsZ5OXovSpsZ7x+gg8tO9PjlxRiqeJiH
-	TsU4zMsGYYTUOOdAujWw5dVebx3kyXDeCN1inYebG75Yv37aJBlvha9Ls3V9T9M+gw+DuEJU+8SxZ
-	1FPBI68aGdm+S3v11g01yjMJCNB9rigQxo5BI9/zzkRfE/59CAmiR+Z3oQJ2gt6/KurnIeX4+GfPC
-	aYm8QlDKx1N/eImRG1EXTqY2XS+qohXvJmoM7+9+TvZfUcVSOujg5B61E9/RQOEbXajCo1YRW+Cib
-	LPsrPEtA==;
+	bh=sZaV0inHdXPKPd3KBqu1aRjM/p0oskukv+yjnsR827A=; b=WIRLJ7R/lTpxTyUkbWBq3T1JMm
+	yKEuSYghGK9QvQil6M1DrXrcWd6r8xVD48ugr29OZAvtWXdNJ4mB3AX7B4GRhsdHV7QaNFlAdcoQo
+	CjLxae+0s/fGw5hwdjQQmZ1rdP+Gim6HNuD02Cv7TbUU5bMfLjuuiesRjlZwFh06a5s4EP/SmzImw
+	IPoNP7O0hm2yb5Elc6AXs6GWMRLFZjSQwrroOYretVax7mtr9fBIXEo+xuzBvc7CJzxzhAM1gI3qT
+	tscFVRHTY3ERKz8ibiZn0M/brDtuiG0se0EeoPR83Dpx0Lly8NDDgd6fkt0Tj9cakLFkONJ9OreNT
+	h4m2ABAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLH84-0000000645Z-4AyN;
-	Fri, 08 May 2026 09:04:17 +0000
-Received: from mail-australiaeastazon11022096.outbound.protection.outlook.com ([40.107.40.96] helo=SY5PR01CU010.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLH81-0000000644v-03Tk;
-	Fri, 08 May 2026 09:04:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=R4Hj/zcTN+AM/VdiOc8MlaWLWy6ebKAQLKrnNmDAWQg8FTynxSDaYmv3ebfbKD0scHxceygKucpWfKgyv+VaVaoLFWqAEo5f6cHilH7mzqGHuQIEzeFxQJYCqf2WLCn7IbyYG3csP6MOBere5Z0XRjKiOHMRgaV1+LGxDgt6D241hNWlNgbizTjZLlB0QOTFk4z/ma3aJKnhwL81+RXr3U0OSZ12ZMSphFWhByCSRi/Q+JAj37glDqjGDFUKilBU2hhbzIJDxHixhz3VoolF0xSG0/2H58vo4h6+GPizK3GDQouW7Zmpf5VK5gfrEvcLH9UZVjLnDdthl6IAHyN2sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=91DnOEsESl9n56x9D1JdIK8tPvACUPqjGkRz4xX4jI8=;
- b=aa8KthnDZTE84ea80PZ9pIgsxxoP8aqbvqA9vtkllzG1ejOBlPkUsAJ4sFH0qt2k1wRx1IxmHXQSfcPKcHbPkubJRqmOJ/D5+F5vBxBSQZsToKds3wP14iA9VOuw18qKppS+J/z0DmiN2IClyPsYnk2csUbHM3xew4gBJdhUlIuPmdmTdGteKATDIhw7ejbEWeQxInG/0UxzCGmpjhgaeYkFXmhiteG1oGC2FxAJVeycJ1ZWV2h0UScFHbJlTykE+6Tso/zpbVpgJiuDd8GgL21KiDdzpm7cTMMJjt+hy0wJmkuFjZBKBYKlX23f6ra+yN5IMdb9p1uBfCRGjihumQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=symple.nz; dmarc=pass action=none header.from=symple.nz;
- dkim=pass header.d=symple.nz; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=symple.nz;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=91DnOEsESl9n56x9D1JdIK8tPvACUPqjGkRz4xX4jI8=;
- b=E8Rj3/fPCDTG0ZdZmI4YqeU5pRkOhg1o7rRyCAgvO8ze7vEWnPgodTglrYeXZsGUMdsl8X2IM1+WTpY8z1x8/ES4KrVlfXvnoXbKMln3q5XSpftj9eIfIseGGstbrpIlbQB32+Ptc9mwBvfcOi+qce12cGnMIt7Zg9lRA5Vv62GCedOz/2pXMiJ/fEYwdjSCd206AaVpgdS2L4dLH4JV+E4Z4k9hee46rtzFmiU3WEW+Dil2qwf/WEspJnWZpObMR1hP9DAy0igOgbh8sGaIAq8Ny+e5B3zHrUde+we4y/hDWzn2tfpYmw3icbZrPwKrMve0wWDhSyY83eUEO/Rx9Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=symple.nz;
-Received: from ME3P282MB2196.AUSP282.PROD.OUTLOOK.COM (2603:10c6:220:b2::11)
- by ME3P282MB1090.AUSP282.PROD.OUTLOOK.COM (2603:10c6:220:8f::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.19; Fri, 8 May
- 2026 09:03:45 +0000
-Received: from ME3P282MB2196.AUSP282.PROD.OUTLOOK.COM
- ([fe80::4619:bdb0:3293:3834]) by ME3P282MB2196.AUSP282.PROD.OUTLOOK.COM
- ([fe80::4619:bdb0:3293:3834%5]) with mapi id 15.20.9891.019; Fri, 8 May 2026
- 09:03:43 +0000
-Message-ID: <dadd5c46-3486-43ea-be89-c7fe92e21d85@symple.nz>
-Date: Fri, 8 May 2026 21:03:29 +1200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] phy: rockchip: samsung-hdptx: Clock fixes and API
- transition cleanups
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>,
- Dmitry Baryshkov <lumag@kernel.org>
-Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
-Content-Language: en-US
-From: Simon Wright <simon@symple.nz>
-In-Reply-To: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DSSP221CA0008.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:8:3d5::14) To ME3P282MB2196.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:220:b2::11)
+	id 1wLHA9-000000064Pc-46AN;
+	Fri, 08 May 2026 09:06:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLHA5-000000064Oy-0BAU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 May 2026 09:06:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B38D31AC1;
+	Fri,  8 May 2026 02:06:13 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 864FE3F7B4;
+	Fri,  8 May 2026 02:06:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778231179; bh=7TeyY/XFl6w4fF53sCBwKjsG2f9tovmG6z+pDdSlxag=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DIHvkqqM8kjclwHlm+X0tt2Q8wKO6tEL8uuGng4T7nMUWSNGJ5My7vzltR3QkFhRf
+	 tPdimMwQAW67VdUXSRHEryHN6VaMGfOqs3CTWNiXmZYawu3sMxU3B53HIggD2qYBGZ
+	 7+xQOap3QIyAb9rGVjX7KVbkWy9hWl6HccOZjnak=
+Date: Fri, 8 May 2026 10:06:13 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Mimi Zohar <zohar@linux.ibm.com>
+Cc: David Safford <david.safford@gmail.com>,
+	Jonathan McDowell <noodles@earth.li>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+Message-ID: <af2nhZyyNaP7LM3w@e129823.arm.com>
+References: <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
+ <afrXmRiq7XvSe6yN@e129823.arm.com>
+ <9ff4853a8e9932b3a1424f2a6c3347f1723fb5f4.camel@linux.ibm.com>
+ <aftIuPwNeuzc9nY1@e129823.arm.com>
+ <9d1af933ef218b159762884357d127e3644dfe2c.camel@linux.ibm.com>
+ <afwoDgaJxmKwOhXp@e129823.arm.com>
+ <f19081f1eda19d6d1ae133d8ec93e779ab1a25e5.camel@linux.ibm.com>
+ <afyIbW5cljh5ZvTL@e129823.arm.com>
+ <afzwJn+5r15jFxrB@e129823.arm.com>
+ <77ad49cca1acf707f4152ed3e2066b2f24c90c16.camel@linux.ibm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ME3P282MB2196:EE_|ME3P282MB1090:EE_
-X-MS-Office365-Filtering-Correlation-Id: a0186295-9a19-4c37-7159-08deace0b23e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|4022899009|366016|376014|7416014|1800799024|13003099007|4133799003|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: gGfDyeUtn3xmuUv0mlJVyt2SMbaN8WGyxn5HpBLuKW/TbMQr8sn6+pHwdYGtSwHqFOcWYqCmdttFqKWIcPKjI0iYIZNOeWZrVrf/y/qd4UPndEPI+iv8oTkmI3AQMC/O6Nw+/lY26OSPq38OqVD0ZWfrW+IFNjHyBNb19mRlnQM5kNM+CEjFrWdKxWtPfRF6LZhZPgm456y19ylTKvdww8YuJhoz/rUCenT90ctf631JTyI83+L3ALEaTJpE1mI6uv2qJ7I0LGVR1LnEXDQ7utCg32xxCa7iqAlxqxEPxBuyH0w60dY3x3ZmD28OWXfFkZnBcBmy5ENCnKkgolldNrE2siPwF/MwwKZdNu/xMWv91XtOifB24GoJoEWNAKEP3EwgtIqr6wACm8sk0Wzjt0tD9pMdfxYHW5eYFtNURk87Em9dMhRiHblDnoa6wBFp3BKLzdz9LsiSCn2Zml8JwRXtpyHJzD4fYKf1CPMy55699H4Vt7MUxW2E3IzEViegd3pjTCLLsRn5HuIytQoe8RhXBxMFnEnTHyRWQ1f8N+ffnLlCgMoWvTxl7C0Y1NCXBngalxW/jl7eTs8Y566OvXHtACw3w/N3fjdQ303AtUv/31vsbNF+hMSMJh6I1PCO/qHG+pQZpaNax8kb0mSm+Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ME3P282MB2196.AUSP282.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(4022899009)(366016)(376014)(7416014)(1800799024)(13003099007)(4133799003)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bFBvbHUxTnFhTGw0cU9HbkRvTFpFbnpocm9aWGQ1a21xVnVFUjd6S0JpdkJL?=
- =?utf-8?B?cGFhdjd2TUU2QzE1QlJ0QUlFUFVwQktLR1VzWHJoL3FaMFliVkZpQ3BpNEtx?=
- =?utf-8?B?YnErajZpVnhMK1YwNVh1NS9aWFdvWTNKMm02Q1MySlJCL3ltdEl6TG9Db1dN?=
- =?utf-8?B?TE5samZKbUJacFpiclVvcytoUGhTcHovbHFKMnd0dTdGd2cvUW5qZ2d5MlZP?=
- =?utf-8?B?cUMvTldTS0NYUFpMdWQ0UW5EdllXQjR0ZVhKeDBEMEl2Q2dxTlJ5YTBCS28x?=
- =?utf-8?B?R2pweVNKUnBSY1ZaVllETDMwWHdQTkFqYnJwVllQSllXTzNiUTJ4VHhKS2E0?=
- =?utf-8?B?TlBkYUxTcUZSQjJXa3N4SmMwQkVQSkNQbExmS0Q1UjkvR1ExNHI0ZXhQSE4z?=
- =?utf-8?B?WFpIR3NXWHovbWdBRXEwQjE1WGlnWVBBcjh0VFFvQmJ1bmN5VUgwZTZ1N3dh?=
- =?utf-8?B?ZXR3WXhVS1BZZ01OaWJWMGNqNFhNRjh1NkpBL1B3UG5abkxpZmlIdGxpTWdr?=
- =?utf-8?B?Qy9xLzNlR2dXM3ZLODJWdDNHaWVUN2hPYlQ3SzRKYkRGMXkxMlErQ3FxYm9k?=
- =?utf-8?B?c3I2SlRhV1RSeUVSaSt0anZpWkRoRzNXYjVhSXo0Mjg3WTJqTHYxZE1QQVA4?=
- =?utf-8?B?eFpzcUc0Q2I3cld0RENRcnB0N1FzMzZVdzluM3UxMEZucUNiTE5SMlJGMnpj?=
- =?utf-8?B?bndxRXJhTU9vZGI4bDZJbGNMVWs1c0VITDdPdFlSanU4dXlmYkIxWlZhUjRm?=
- =?utf-8?B?b1luWW1Zc2FVRUxMU2lMUC9ueUduWU5CR05QYyt6aFNqOWhoSlBwelI3VS9S?=
- =?utf-8?B?ams5VGxIUEdqVGlxOFpSQTYrVHRYUmIyMUIvOG5tMkcwL1VlQkJTR3hoczRZ?=
- =?utf-8?B?U0p5ZVNadTcxaDdTN0RVS3drVmsvOEdMby9oSVFpT1ExbFFNdERHUGR2ZThN?=
- =?utf-8?B?Q0FpbW1mNVdiRHRWS3FxeHpBUEUyTlJZcG1PVXUwQUxQdHFBTy9RWmV3ZlMx?=
- =?utf-8?B?U0QzK0YrZzl2Vi9rNS9nNEVEaHNaRm1JQ2p4eitRWkthK2FJNFEzbDBaYS9C?=
- =?utf-8?B?MDhmU25KK0VndjZNNU9CZjgxMnQ3SUNudHRROFpXVEJ5ZzdZa1RQRFZYZnlu?=
- =?utf-8?B?S1NjMGR6YitWanN5RFljOGhrRXhhd3ZWbStoYS9XS29WZElkZGNPY3hNM1dy?=
- =?utf-8?B?Z1V6VThob2lZSTdsZFVTZEI5U2RQSWhzMGcrZ0U4ZGZMaTJ2eUdiUm9jb0Z1?=
- =?utf-8?B?Tit3U1ozMkMxcFJ3dUZ5SkJybVpvazhka3Ryd0xpeE9OUVVRL3c4RVZQRHdL?=
- =?utf-8?B?QVFPdCttaTBEZ0VGUGRjOXJLMVpUYUNWVEJMU2xrN0hIcWt3bUpRTStGU0RN?=
- =?utf-8?B?ci9vc3ZQOUdpSUhISWxYaDhvdTVrSVI5ekdjY3hDYkw0TWZDWlFUUWkzY3ov?=
- =?utf-8?B?TmZCS3RZMjZvUFhrbVQ5YlByeldNcUVhUkZaZmJEQlhmYW5hTzRDa3pEVTNj?=
- =?utf-8?B?UlJ5a3BTRUNaSEtvc0RObnROTnZiY3ErOTd2Z3pSVms2MklMNENvQWUvUktz?=
- =?utf-8?B?Tm0yUmszNzkvd1RGS1Rsd1NOUGU2ellISEpXM1VPblhKS2NITFdzWFpGVEZw?=
- =?utf-8?B?VGl6MkYvVkZacUdybmFwbEdoS2JFRFBnZzRsa1ZtLzRyTHd6cUpUeGdBcnBv?=
- =?utf-8?B?UGtZZlg3TGFPRWhBQ080dmVjQ0J5MnoxNzJtZDRob0RES2VTdUJWM3RVSXRs?=
- =?utf-8?B?QXh4cHBmL3FWMXNjYkdVaTM5c2dadCtKZkFtV1ZmY0J4bUNXZzJWNFJnb2R6?=
- =?utf-8?B?S2QrSE1kQ3JxS0ZWOXMxdGgrdEpIOFdFSUtlMXZjakJHQ2F0dmlTY1ZvNUFn?=
- =?utf-8?B?d1g4UGVWRU5BMXh3dDk0MkRiRUsyM0ZTYklzdnNZR1V6K1lETUkzUEpER0FL?=
- =?utf-8?B?cFZaTSs4Q2lpYytndlFaUU16R3ByUVp4L3V2eVIzNEsrRGhhcU1ldUVvZEdh?=
- =?utf-8?B?anB4OThUeEV6VW9sTzMxQlB0cmR2alVKV2NhRklGWkpacVlWQ0x0cU5nc2JV?=
- =?utf-8?B?RXFnemZPem5PcHVhNzQ0YmFHd1MwUTJlTEZpOVc5M21kT3BXY2ZaUFJiUkli?=
- =?utf-8?B?R2N5cGFOaXFvOG83ZkNsODFja1dLekZLTGw5RUg2dmZmY1RCY29SZDhFaXZp?=
- =?utf-8?B?OVk0ZUFXQUZ4SDBNLzNZTVpOaGdXemtpT3pMbjJzNXpDanZObUxnaDB2cFMr?=
- =?utf-8?B?a1RTcVhFQnJRTXdBQkQzRUg2SUtiUGVrTzZ2TkxHN3dPV1JubEMzaTc1ZWdG?=
- =?utf-8?Q?6gRj/YP100EbFgs1Nd?=
-X-OriginatorOrg: symple.nz
-X-MS-Exchange-CrossTenant-Network-Message-Id: a0186295-9a19-4c37-7159-08deace0b23e
-X-MS-Exchange-CrossTenant-AuthSource: ME3P282MB2196.AUSP282.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 09:03:43.4876
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 9531f271-068a-4210-b471-bd8da91491c5
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6lbYmswGYhO17NxiJuHgHKxS4NL/ha/FLrfm5LbNl5gsbjZ9TH7C2yCyzjLmgGp4
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ME3P282MB1090
-ln: failed to create hard link 'reaver_cache/prob_good/20260227_124856_768935_57D7D58A': File exists
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <77ad49cca1acf707f4152ed3e2066b2f24c90c16.camel@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260227_124856_768935_57D7D58A 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20260508_020623_808057_A90EE69C 
+X-CRM114-Status: GOOD (  42.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,296 +87,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tested on R76S (RK3576) + LG G3 OLED at 1920x1080@60 bpc=10
-(tmds_char_rate = 185625000): phy_configure / phy_power_on /
-atomic_enable consistent end-to-end, no rate recalculation drift.
-Matches the cover letter behaviour.
+Hi Mimi,
 
-Heiko, Vinod -- any chance the series can be applied?
+> On Thu, 2026-05-07 at 21:03 +0100, Yeoreum Yun wrote:
+> > Hi Mimi,
+> > 
+> > > 
+> > > > On Thu, 2026-05-07 at 06:50 +0100, Yeoreum Yun wrote:
+> > > > > Hi Mimi,
+> > > > > 
+> > > > > > On Wed, 2026-05-06 at 14:57 +0100, Yeoreum Yun wrote:
+> > > > > > > > > > On both Z and PowerVM, there are ~30 measurements between boot_aggregate and
+> > > > > > > > > > boot_aggregate_late.  For example, on PowerVM:
+> > > > > > > > > > 
+> > > > > > > > > > # grep -n boot_aggregate
+> > > > > > > > > > /sys/kernel/security/integrity/ima/ascii_runtime_measurements
+> > > > > > > > > > 
+> > > > > > > > > > 1:10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
+> > > > > > > > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
+> > > > > > > > > > boot_aggregate 
+> > > > > > > > > > 31:10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
+> > > > > > > > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
+> > > > > > > > > > boot_aggregate_late
+> > > > > > > > > > 
+> > > > > > > > > > It would be interesting to the results from a Raspberry Pi 5 as well,
+> > > > > > > > > > with/without a TPM.
+> > > > > > > > > 
+> > > > > > > > > Honestly, I find this result hard to accept.
+> > > > > > > > > 
+> > > > > > > > > This effectively means that there is code invoking IMA measurement during late_initcall().
+> > > > > > > > > It also implies that if, in the future, a late_initcall is added that performs
+> > > > > > > > > an IMA measurement before IMA initialization has occurred accoding to order by linker,
+> > > > > > > > > that measurement could be missed.
+> > > > > > > > 
+> > > > > > > > Exactly.  The results are simply from booting with the builtin "tcb" and
+> > > > > > > > "critical_data" policies.
+> > > > > > > > 
+> > > > > > > > $ sudo grubby --args="ima_policy=\"tcb|critical_data\"" --update-kernel
+> > > > > > > > /boot/vmlinuz-${SUFFIX}
+> > > > > > > 
+> > > > > > > Thanks. but I still wonder what meaasurements there are between
+> > > > > > > boot_aggregate and boot_aggregate_late.
+> > > > > > > Might be there would be key measurements if it takes more than
+> > > > > > > 5 mins before generating boot_aggregate_late but this seems rare.
+> > > > > > > 
+> > > > > > > If you don't mind, would you share the contents of the log between
+> > > > > > > boot_aggregate and boot_aggregate_late?
+> > > > > > > since I only get a kernel_version in my environment.
+> > > > > > 
+> > > > > >      1	10 f60a05d7354fb34aabc02965216abd3428ea52bb ima-sig
+> > > > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
+> > > > > > boot_aggregate 
+> > > > > >      2	10 49ab61dd97ea2f759edcb6c6a3387ac67f0aa576 ima-buf
+> > > > > > sha256:0c907aab3261194f16b0c2a422a82f145bc9b9ecb8fdb633fa43e3e5379f0af2
+> > > > > > kernel_version 372e312e302d7263312b
+> > > > > >      3	10 92c40bfd65512d5224cddb9fb64fef0d72e1c182 ima-sig
+> > > > > > sha256:412bae0d0e85a99971d6eda198dd2fed3c2959715e8a17a4caddc7bc605bdeeb
+> > > > > > /usr/bin/kmod 
+> > > > > >      4	10 a18f997e1e82d0ef416f93683966d7dda875d71c ima-sig
+> > > > > > sha256:0050fcc672e03cfdc3a50c771ca9f5219478e5538980a26fd4484620712d8163
+> > > > > > /usr/lib64/ld64.so.2 
+> > > > > >      5	10 88f343618caeeed92ed8281d627f4565b0499d66 ima-sig
+> > > > > > sha256:a0e83c084d8c227f1150a8cd94eece61f62bc1da30f98d1cf57ca7db241a9c45
+> > > > > > /etc/ld.so.cache 
+> > > > > >      6	10 e047868f01908eb95aa180693291decab82bb6be ima-sig
+> > > > > > sha256:42ebf9cc684419de4d8a1d624102716d88fbcf957f47e50a9a08e38b338023ac
+> > > > > > /usr/lib64/libzstd.so.1.5.5 
+> > > > > >      7	10 da069bc6a44d454510a76c69d3a54c3b238ae27e ima-sig
+> > > > > > sha256:9b7c788e75c16c8827062016cf15826e43661c4b5b56813ea07ff2635bea2710
+> > > > > > /usr/lib64/liblzma.so.5.6.2 
+> > > > > >      8	10 7ade414e736e7b449cda5ec5e0277b99548e89c6 ima-sig
+> > > > > > sha256:d899452e8e6369e436ba1a565833d6dcf0d09c35e40ffc0979cf4de2bdb8f421
+> > > > > > /usr/lib64/libz.so.1.3.1.zlib-ng 
+> > > > > >      9	10 9a9da8326f36237a47d6ed21bdffd0e1ff855e2a ima-sig
+> > > > > > sha256:a848f396db7ad135f851b5e9aeb32f4a3ef1439c7913b9b95ab1cda69251f6ad
+> > > > > > /usr/lib64/libcrypto.so.3.5.1 
+> > > > > >     10	10 3201d27cd4028f02fc9088ec33e2d0ceb72d2c5b ima-sig
+> > > > > > sha256:e52dcd1850555c08d60fefe56694c1179b4eaa5796db0907606552ece8e1bab1
+> > > > > > /usr/lib64/libgcc_s-14-20250617.so.1 
+> > > > > >     11	10 3b4c6f13e52ca060b290709f737b1ff66564226f ima-sig
+> > > > > > sha256:f2a900a5b980b289dc028dd3caab16b1b0ad037f2e875546bb3197d23ff241f0
+> > > > > > /usr/lib64/glibc-hwcaps/power10/libc.so.6 
+> > > > > >     12	10 b23b616cbd3c9dc4c5743d121c1c5a702b461a9c ima-sig
+> > > > > > sha256:5a682022beeea9ee7f36a70f0465942bf32e9675d3f45355088e148787e02175
+> > > > > > /usr/lib/modprobe.d/dist-alsa.conf 
+> > > > > >     13	10 aec07fad18697f295d7e06796fc8dfd3b472f9c3 ima-sig
+> > > > > > sha256:067d949bab3bb085d0936031881ff73b2ab39f34b9a90cbd01396d1987ff6658
+> > > > > > /usr/lib/modprobe.d/dist-blacklist.conf 
+> > > > > >     14	10 c402c56b66e65914148efd6e3cf0b1d616daabe6 ima-sig
+> > > > > > sha256:120a02e9b88ba74949224eca7385825e39880f5687f739ade07d94ee22ffe325
+> > > > > > /etc/modprobe.d/firewalld-sysctls.conf 
+> > > > > >     15	10 e358ca12bd58e1ce4845e299e1aea8b81edf86f9 ima-sig
+> > > > > > sha256:fa27abcd357a16ee1254ba38d1225b7f0724036c07ce3d0e83b29eb72d97c419
+> > > > > > /etc/modprobe.d/l2tp_eth-blacklist.conf 
+> > > > > >     16	10 4b036d41435d7df3a72b38880f5fe231904b7b66 ima-sig
+> > > > > > sha256:ecf5f948bfbfb726879a910b3174d139c8af6b1745c88dcc1e4a1cf532c02299
+> > > > > > /etc/modprobe.d/l2tp_ip-blacklist.conf 
+> > > > > >     17	10 9c53a7a48c1b5218417c4f25c4a34c09a9f39830 ima-sig
+> > > > > > sha256:f76c4ac232d5e96c57961a9f10194703b4df6d119530046f0b23eee70bfcb089
+> > > > > > /etc/modprobe.d/l2tp_ip6-blacklist.conf 
+> > > > > >     18	10 6c41d7b7d251c400b7e0ba76f7b386a746e8f4ec ima-sig
+> > > > > > sha256:5cbc958f893a599ef19437014696dd7b112cf9af6a4348830177f8a8f78aa1b3
+> > > > > > /etc/modprobe.d/l2tp_netlink-blacklist.conf 
+> > > > > >     19	10 f37ef48faef5bc51e29d47531726af0bd0654655 ima-sig
+> > > > > > sha256:7a3d63acb49e4a69b482f26624761b5778fbd6b77be8a3f36926b379b5f965ed
+> > > > > > /etc/modprobe.d/l2tp_ppp-blacklist.conf 
+> > > > > >     20	10 82ef59779acdfd6e9b35521bfa09e6ba86fd6174 ima-sig
+> > > > > > sha256:6a8f2009d87deba7a2de46e3d0c46b114fe388d188b00b9a382fc2156aabb676
+> > > > > > /usr/lib/modules/7.1.0-rc1+/modules.softdep 
+> > > > > >     21	10 6ae994e33a6313ab4535da90f5cb6c3beaec7b86 ima-sig
+> > > > > > sha256:268695dbf23bd0170ec9a95b10e8d596205fd7436617d10101907171bf004b7c
+> > > > > > /etc/modprobe.d/sctp-blacklist.conf 
+> > > > > >     22	10 b2c238ae66b03f56191d9955a5ad0f3110bb7e2b ima-sig
+> > > > > > sha256:64a8ebb0a1fd712a9aeb7aa0f0ad0b72d3277034c8bfa3b66ab063e201d6527e
+> > > > > > /etc/modprobe.d/sctp_diag-blacklist.conf 
+> > > > > >     23	10 c0443f2d3c078959ae86276df23abe172234a55d ima-sig
+> > > > > > sha256:e5a3958cbd3684b63f3cada6604469cc56f727b106d5524daf5aefa6935a48ce
+> > > > > > /usr/lib/modprobe.d/systemd.conf 
+> > > > > >     24	10 5c46e012bc7fffc3256b166282a7eaa4bea5fa33 ima-sig
+> > > > > > sha256:6560abcdd2cdb41e1d0fe73052298d612920d5bccb4a3a7c82bc73895128e760
+> > > > > > /etc/modprobe.d/tipc_diag-blacklist.conf 
+> > > > > >     25	10 d5fb1836364732fbc4f87aa7d2c984cf30bdbfd3 ima-sig
+> > > > > > sha256:358703c09ac2d2c653e11bbc7c65d378c8496e87ca47307f86c36b0b29640598
+> > > > > > /etc/modprobe.d/tuned.conf 
+> > > > > >     26	10 a85107163729f696f316d46c0bf3f65f713ba972 ima-sig
+> > > > > > sha256:7410bb4cec56892e8b0010c5c8b72be532784ccf0240aa0677c5be085a530f65
+> > > > > > /usr/lib/modules/7.1.0-rc1+/modules.dep.bin 
+> > > > > >     27	10 80eb261ffb2cc3528d90c33b1c624f657a045867 ima-sig
+> > > > > > sha256:856e0f083226f8b4fb7d1d71447fb841dae18ea9a50ea6d8505a206167288e1d
+> > > > > > /usr/lib/modules/7.1.0-rc1+/modules.alias.bin 
+> > > > > >     28	10 6af2d661da470d7a1c9909ddbc074d3d265eb1d7 ima-sig
+> > > > > > sha256:4853ca200598c52970c380fda99484068e7db4961a4f94faac6abcfbbd52d150
+> > > > > > /usr/lib/modules/7.1.0-rc1+/modules.symbols.bin 
+> > > > > >     29	10 6f9cd405bd57d925baae6ae66c273c61c90b3bc8 ima-sig
+> > > > > > sha256:193d1e1004848f7d391877507b69a7953e1f94ddbe70eb0e2cf6dc45fce7cd6a
+> > > > > > /usr/lib/modules/7.1.0-rc1+/modules.builtin.alias.bin 
+> > > > > >     30	10 4e20b980bf3a825a866be0c46033ed654df4aeba ima-sig
+> > > > > > sha256:3a0e3c56d51ba98258ff13f93f82c837de22f4b707d24678f82893babf4d77ea
+> > > > > > /usr/lib/modules/7.1.0-rc1+/modules.builtin.bin 
+> > > > > >     31	10 e2592b0d61da6300d3db447b143897a9792231ea ima-sig
+> > > > > > sha256:9887dd089ee19a6517bca10580b02c1bb9aa6cd86c157b6ead8a1c0403f348d5
+> > > > > > boot_aggregate_late 
+> > > > > >     32	10 81830cd3d799e006698258dc1b11fe29a56eeef5 ima-sig
+> > > > > > sha256:d1651dc50bb5b92c1badcab9aa4dbbca40cb704cdc707d1c536b41d7b1aa465e
+> > > > > > /usr/lib/systemd/systemd 
+> > > > > 
+> > > > > Hmm... Theses measurements seems to happen while populating
+> > > > > initramfs which triggers file_post_open as async
+> > > > > (and I see the RAMFS seems not part of DONT_MEASURE in IMA).
+> > > > > 
+> > > > > If you don't mind, Could you check whether this measurements still
+> > > > > happen with initramfs_async=0?
+> > > > > 
+> > > > > If this measurements aren't generated with above option,
+> > > > > there is a question whether let IMA measure initramfs which can be
+> > > > > measured or not depending on boot option or timing (some file measurements
+> > > > > could be lost all when do_populate_rootfs() executes concurrently while
+> > > > > running late_initcall).
+> > > > 
+> > > > There's no difference when adding the "initramfs_async=0" boot command line
+> > > > argument. The measurement list between boot_aggregate and boot_aggregate_late is
+> > > > exactly the same.
+> > > > 
+> > > 
+> > > That's quite interesting. This means there're some file operation
+> > > between late_initcall and late_initcall_sync
+> > > even before run_init_process() except initramfs population.
+> > > 
+> > > Since initramfs population flush all fputs() it generates and
+> > > boot_aggregate_late is generated before init process is loaded,
+> > > I honestly have no idea who triggers above file operations.
+> > > 
+> > > And it seems a little bit weird that it opens the /usr/bin/kmod
+> > > and its configuration from kernel not by init_process or other user
+> > > process...
+> > > 
+> > 
+> > If you don't mind, Could i get some stacktrace for one of file measurement log
+> > between boot_aggregate and boot_aggreate_late?
+> > 
+> > Though I try to produce like you, I've gotten failure to reproduce.
+> > Sorry to bother you. but it would be helpful to understand where they
+> > came from.
+> 
+> The kernel selftests caused the measurements between late_initcall and
+> late_initcall_sync.  After disabling all of the kernel selftests, there weren't
+> any measurements. Re-enabling the FIPS selftests on PowerVM LPAR resulted in
+> measurements.  (I didn't try re-enabling any of the other selftests.)
+> 
+> CONFIG_FIPS_SIGNATURE_SELFTEST=y
+> CONFIG_FIPS_SIGNATURE_SELFTEST_RSA=y
+> CONFIG_FIPS_SIGNATURE_SELFTEST_ECDSA=y
 
-Tested-by: Simon Wright <simon@symple.nz>
+Thanks for shraring this ;)
 
-Regards,
-Simon
-Symple Solutions, Dunedin, New Zealand
+I found the reason for those mesaurements. Those come from the
+request_module() and usermode-thread generates them while handling module
+loading request for crypto-x962(ecdsa-nist-p256).
+Since it's not a real kernel module,
+I confirmed file measurements between late_initcall and
+late_initcall_sync are gone for modeprobe with below change:
 
-On 28/02/2026 9:48 am, Cristian Ciocaltea wrote:
-> This series provides a set of bug fixes and cleanups for the Rockchip
-> Samsung HDPTX PHY driver.
->
-> The first part of the series (i.e. PATCH 1 & 2) addresses clock rate
-> calculation and synchronization issues.  Specifically, it fixes edge
-> cases where the PHY PLL is pre-programmed by an external component (like
-> a bootloader) or when changing the color depth (bpc) while keeping the
-> modeline constant.  Because the Common Clock Framework .set_rate()
-> callback might not be invoked if the pixel clock remains unchanged, this
-> previously led to out-of-sync states between CCF and the actual HDMI PHY
-> configuration.
->
-> The second part focuses on code cleanups and modernizing the register
-> access.  Now that dw_hdmi_qp driver has fully switched to using
-> phy_configure(), we can drop the deprecated TMDS rate setup workarounds
-> and the restrict_rate_change flag logic.  Finally, it refactors the
-> driver to consistently use standard bitfield macros.
->
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
-> Cristian Ciocaltea (6):
->        phy: rockchip: samsung-hdptx: Fix rate recalculation for high bpc
->        phy: rockchip: samsung-hdptx: Handle uncommitted PHY config changes
->        phy: rockchip: samsung-hdptx: Drop TMDS rate setup workaround
->        phy: rockchip: samsung-hdptx: Drop restrict_rate_change handling
->        phy: rockchip: samsung-hdptx: Simplify GRF access with FIELD_PREP_WM16()
->        phy: rockchip: samsung-hdptx: Consistently use bitfield macros
->
->   drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 215 +++++++++-------------
->   1 file changed, 92 insertions(+), 123 deletions(-)
-> ---
-> base-commit: 7d6661873f6b54c75195780a40d66bad3d482d8f
-> change-id: 20260227-hdptx-clk-fixes-47426632f862
->
->
->  From mboxrd@z Thu Jan  1 00:00:00 1970
-> Return-Path: <linux-rockchip-bounces+linux-rockchip=archiver.kernel.org@lists.infradead.org>
-> X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-> 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
-> Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-> 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-> 	(No client certificate requested)
-> 	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFFEFEFB51
-> 	for <linux-rockchip@archiver.kernel.org>; Fri, 27 Feb 2026 20:49:16 +0000 (UTC)
-> DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-> 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-> 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-> 	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-> 	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-> 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-> 	List-Owner; bh=Ywd4nVTaesoZ9f/oRKu2xquW31o52EzvH6PggS2DIuY=; b=j/lxIwygT6ELX9
-> 	QE4bInNEKLy6Q4slo+6T/r/kAeI+wNaYkSzqgLXJEscAMQtrus+adIdPOaL7GZ2IkbAd8RcVdU4j9
-> 	uX5XMp7/ITC/8tA/4fbQMpj+0DiQJuSOe4mfEMQx3v7hnsb1kiFYgQWCOdy6U/zr6RtAlrrVa5WtH
-> 	xu9XxBU9eqvpRmEAFS+fCZgIeb2lMqXHZ4NA4/pQLDEGN43Z4/owzoVcuqgbGjCvC9c4VfUrqUrSA
-> 	tj/YDJr0SNYK4ZOKt1sVO78NRvcFhkl8ChuuV/iO5wrS0w565H6YGiFuJh1kQAYaFkwG7+Zn8DNF5
-> 	fFppXc21VbuPRSwYyI+A==;
-> Received: from localhost ([::1] helo=bombadil.infradead.org)
-> 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-> 	id 1vw4lg-000000098cW-05gk;
-> 	Fri, 27 Feb 2026 20:49:00 +0000
-> Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-> 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-> 	id 1vw4lc-000000098ZS-2DwJ;
-> 	Fri, 27 Feb 2026 20:48:57 +0000
-> DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-> 	s=mail; t=1772225331;
-> 	bh=bUeULh1bnVKovxRmlxehE6KS7aqNBCqPFyvaWOEsoaE=;
-> 	h=From:Subject:Date:To:Cc:From;
-> 	b=ekEaWw1uHuEz0iWpTlf7zG60N1dzqsUimUI0n7bx/xvqftKi5TS1D3FCMNmggdH15
-> 	 nip240uzI3bC+sOV8/OHY8BKzO+U3KESiaX+LJuDTU5hdz/nyF19JOtVbOpEUwy2H2
-> 	 nFG6mRz4JB6hSMOKVCGAxx27/gF8KCMaI21JIexzBmepPZApw6kf+9mFzcd2NqJPpe
-> 	 kLTjON2UczI2jLr009ZWvx9fb2AVXa6s6axkOohMwRy+ggic0yZzQ7Pxjjdm6IZqcQ
-> 	 ZtkEM8UHO29BkkEAX61miqbj6HTB7BAWlet6Q1SF2oqLc452ZSEViEuj67tw8dzuBz
-> 	 E7iPV6xRgfL3g==
-> Received: from localhost (unknown [86.123.23.225])
-> 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-> 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-> 	(No client certificate requested)
-> 	(Authenticated sender: cristicc)
-> 	by bali.collaboradmins.com (Postfix) with ESMTPSA id AF4D717E0E67;
-> 	Fri, 27 Feb 2026 21:48:51 +0100 (CET)
-> From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> Subject: [PATCH 0/6] phy: rockchip: samsung-hdptx: Clock fixes and API
->   transition cleanups
-> Date: Fri, 27 Feb 2026 22:48:44 +0200
-> Message-Id: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
-> MIME-Version: 1.0
-> X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3LQQqAIBBA0avErBuoSTS6SrSIGmsoTDRCCO+et
->   Hx8/guRg3CEoXoh8CNRLlfQ1hUs++w2RlmLgRrSDZHBffV3wuU80EriiMoo0roj22uCcvnAfyj
->   TOOX8AXle+u9hAAAA
-> X-Change-ID: 20260227-hdptx-clk-fixes-47426632f862
-> To: Vinod Koul <vkoul@kernel.org>,
->   Neil Armstrong <neil.armstrong@linaro.org>,
->   Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>,
->   Dmitry Baryshkov <lumag@kernel.org>
-> Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
->   linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
->   linux-kernel@vger.kernel.org
-> X-Mailer: b4 0.14.3
-> X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3
-> X-CRM114-CacheID: sfid-20260227_124856_768935_57D7D58A
-> X-CRM114-Status: UNSURE (   7.77  )
-> X-CRM114-Notice: Please train this message.
-> X-BeenThere: linux-rockchip@lists.infradead.org
-> X-Mailman-Version: 2.1.34
-> Precedence: list
-> List-Id: Upstream kernel work for Rockchip platforms <linux-rockchip.lists.infradead.org>
-> List-Unsubscribe: <http://lists.infradead.org/mailman/options/linux-rockchip>,
->   <mailto:linux-rockchip-request@lists.infradead.org?subject=unsubscribe>
-> List-Archive: <http://lists.infradead.org/pipermail/linux-rockchip/>
-> List-Post: <mailto:linux-rockchip@lists.infradead.org>
-> List-Help: <mailto:linux-rockchip-request@lists.infradead.org?subject=help>
-> List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rockchip>,
->   <mailto:linux-rockchip-request@lists.infradead.org?subject=subscribe>
-> Content-Type: text/plain; charset="us-ascii"
-> Content-Transfer-Encoding: 7bit
-> Sender: "Linux-rockchip" <linux-rockchip-bounces@lists.infradead.org>
-> Errors-To: linux-rockchip-bounces+linux-rockchip=archiver.kernel.org@lists.infradead.org
->
-> This series provides a set of bug fixes and cleanups for the Rockchip
-> Samsung HDPTX PHY driver.
->
-> The first part of the series (i.e. PATCH 1 & 2) addresses clock rate
-> calculation and synchronization issues.  Specifically, it fixes edge
-> cases where the PHY PLL is pre-programmed by an external component (like
-> a bootloader) or when changing the color depth (bpc) while keeping the
-> modeline constant.  Because the Common Clock Framework .set_rate()
-> callback might not be invoked if the pixel clock remains unchanged, this
-> previously led to out-of-sync states between CCF and the actual HDMI PHY
-> configuration.
->
-> The second part focuses on code cleanups and modernizing the register
-> access.  Now that dw_hdmi_qp driver has fully switched to using
-> phy_configure(), we can drop the deprecated TMDS rate setup workarounds
-> and the restrict_rate_change flag logic.  Finally, it refactors the
-> driver to consistently use standard bitfield macros.
->
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
-> Cristian Ciocaltea (6):
->        phy: rockchip: samsung-hdptx: Fix rate recalculation for high bpc
->        phy: rockchip: samsung-hdptx: Handle uncommitted PHY config changes
->        phy: rockchip: samsung-hdptx: Drop TMDS rate setup workaround
->        phy: rockchip: samsung-hdptx: Drop restrict_rate_change handling
->        phy: rockchip: samsung-hdptx: Simplify GRF access with FIELD_PREP_WM16()
->        phy: rockchip: samsung-hdptx: Consistently use bitfield macros
->
->   drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 215 +++++++++-------------
->   1 file changed, 92 insertions(+), 123 deletions(-)
-> ---
-> base-commit: 7d6661873f6b54c75195780a40d66bad3d482d8f
-> change-id: 20260227-hdptx-clk-fixes-47426632f862
->
->
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
->
->  From mboxrd@z Thu Jan  1 00:00:00 1970
-> Return-Path: <linux-phy-bounces+linux-phy=archiver.kernel.org@lists.infradead.org>
-> X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-> 	aws-us-west-2-korg-lkml-1.web.codeaurora.org
-> Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-> 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-> 	(No client certificate requested)
-> 	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB9D410398AD
-> 	for <linux-phy@archiver.kernel.org>; Fri, 27 Feb 2026 20:48:59 +0000 (UTC)
-> DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-> 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-> 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-> 	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-> 	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-> 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-> 	List-Owner; bh=c324XN03PoA1rraJ+VV9Yfc0lnX3AkSpF9xHmfHI2Uc=; b=aTzKex1omAyuFL
-> 	6ssxrkQBX8aNauOphSMRtLUHi7gaYYX8hBEmLsN3BQpo2//ODwY72uHzTo0s682gBT+6OQK42ltgf
-> 	7rkCcxaIcVIuYIOMyD0cwGdVTVB4zXapp6g9uTVDlwKBJmJeTRWJFJFTPr0X4L5E2tzoZ+3H3yNzR
-> 	kJqpmj9lVVE5UDflVckhQhImOTJdXGyqxptH+Yz2qZijDxp554oddwvnOAii/xKkAQv4nwS23h/5R
-> 	CrPiaPT3d0/Z2mtZbkl7rqYarf3D+Qg+Pei5yOAuVw3DTlocsu9nEpM3+biDUT7yO2T0N5c4Lq8yy
-> 	BNVFkTqRDzWU+QPFJM6A==;
-> Received: from localhost ([::1] helo=bombadil.infradead.org)
-> 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-> 	id 1vw4lf-000000098bn-1y20;
-> 	Fri, 27 Feb 2026 20:48:59 +0000
-> Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-> 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-> 	id 1vw4lc-000000098ZS-2DwJ;
-> 	Fri, 27 Feb 2026 20:48:57 +0000
-> DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-> 	s=mail; t=1772225331;
-> 	bh=bUeULh1bnVKovxRmlxehE6KS7aqNBCqPFyvaWOEsoaE=;
-> 	h=From:Subject:Date:To:Cc:From;
-> 	b=ekEaWw1uHuEz0iWpTlf7zG60N1dzqsUimUI0n7bx/xvqftKi5TS1D3FCMNmggdH15
-> 	 nip240uzI3bC+sOV8/OHY8BKzO+U3KESiaX+LJuDTU5hdz/nyF19JOtVbOpEUwy2H2
-> 	 nFG6mRz4JB6hSMOKVCGAxx27/gF8KCMaI21JIexzBmepPZApw6kf+9mFzcd2NqJPpe
-> 	 kLTjON2UczI2jLr009ZWvx9fb2AVXa6s6axkOohMwRy+ggic0yZzQ7Pxjjdm6IZqcQ
-> 	 ZtkEM8UHO29BkkEAX61miqbj6HTB7BAWlet6Q1SF2oqLc452ZSEViEuj67tw8dzuBz
-> 	 E7iPV6xRgfL3g==
-> Received: from localhost (unknown [86.123.23.225])
-> 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-> 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-> 	(No client certificate requested)
-> 	(Authenticated sender: cristicc)
-> 	by bali.collaboradmins.com (Postfix) with ESMTPSA id AF4D717E0E67;
-> 	Fri, 27 Feb 2026 21:48:51 +0100 (CET)
-> From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> Subject: [PATCH 0/6] phy: rockchip: samsung-hdptx: Clock fixes and API
->   transition cleanups
-> Date: Fri, 27 Feb 2026 22:48:44 +0200
-> Message-Id: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
-> MIME-Version: 1.0
-> X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3LQQqAIBBA0avErBuoSTS6SrSIGmsoTDRCCO+et
->   Hx8/guRg3CEoXoh8CNRLlfQ1hUs++w2RlmLgRrSDZHBffV3wuU80EriiMoo0roj22uCcvnAfyj
->   TOOX8AXle+u9hAAAA
-> X-Change-ID: 20260227-hdptx-clk-fixes-47426632f862
-> To: Vinod Koul <vkoul@kernel.org>,
->   Neil Armstrong <neil.armstrong@linaro.org>,
->   Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>,
->   Dmitry Baryshkov <lumag@kernel.org>
-> Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
->   linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
->   linux-kernel@vger.kernel.org
-> X-Mailer: b4 0.14.3
-> X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3
-> X-CRM114-CacheID: sfid-20260227_124856_768935_57D7D58A
-> X-CRM114-Status: UNSURE (   7.77  )
-> X-CRM114-Notice: Please train this message.
-> X-BeenThere: linux-phy@lists.infradead.org
-> X-Mailman-Version: 2.1.34
-> Precedence: list
-> List-Id: Linux Phy Mailing list <linux-phy.lists.infradead.org>
-> List-Unsubscribe: <https://lists.infradead.org/mailman/options/linux-phy>,
->   <mailto:linux-phy-request@lists.infradead.org?subject=unsubscribe>
-> List-Archive: <http://lists.infradead.org/pipermail/linux-phy/>
-> List-Post: <mailto:linux-phy@lists.infradead.org>
-> List-Help: <mailto:linux-phy-request@lists.infradead.org?subject=help>
-> List-Subscribe: <https://lists.infradead.org/mailman/listinfo/linux-phy>,
->   <mailto:linux-phy-request@lists.infradead.org?subject=subscribe>
-> Content-Type: text/plain; charset="us-ascii"
-> Content-Transfer-Encoding: 7bit
-> Sender: "linux-phy" <linux-phy-bounces@lists.infradead.org>
-> Errors-To: linux-phy-bounces+linux-phy=archiver.kernel.org@lists.infradead.org
->
-> This series provides a set of bug fixes and cleanups for the Rockchip
-> Samsung HDPTX PHY driver.
->
-> The first part of the series (i.e. PATCH 1 & 2) addresses clock rate
-> calculation and synchronization issues.  Specifically, it fixes edge
-> cases where the PHY PLL is pre-programmed by an external component (like
-> a bootloader) or when changing the color depth (bpc) while keeping the
-> modeline constant.  Because the Common Clock Framework .set_rate()
-> callback might not be invoked if the pixel clock remains unchanged, this
-> previously led to out-of-sync states between CCF and the actual HDMI PHY
-> configuration.
->
-> The second part focuses on code cleanups and modernizing the register
-> access.  Now that dw_hdmi_qp driver has fully switched to using
-> phy_configure(), we can drop the deprecated TMDS rate setup workarounds
-> and the restrict_rate_change flag logic.  Finally, it refactors the
-> driver to consistently use standard bitfield macros.
->
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
-> Cristian Ciocaltea (6):
->        phy: rockchip: samsung-hdptx: Fix rate recalculation for high bpc
->        phy: rockchip: samsung-hdptx: Handle uncommitted PHY config changes
->        phy: rockchip: samsung-hdptx: Drop TMDS rate setup workaround
->        phy: rockchip: samsung-hdptx: Drop restrict_rate_change handling
->        phy: rockchip: samsung-hdptx: Simplify GRF access with FIELD_PREP_WM16()
->        phy: rockchip: samsung-hdptx: Consistently use bitfield macros
->
->   drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 215 +++++++++-------------
->   1 file changed, 92 insertions(+), 123 deletions(-)
-> ---
-> base-commit: 7d6661873f6b54c75195780a40d66bad3d482d8f
-> change-id: 20260227-hdptx-clk-fixes-47426632f862
->
->
+@@ -1246,9 +1250,14 @@ EXPORT_SYMBOL_GPL(ima_measure_critical_data);
+  */
+ static int ima_kernel_module_request(char *kmod_name)
+ {
+        if (strncmp(kmod_name, "crypto-pkcs1(rsa,", 17) == 0)
+                return -EINVAL;
+
++       if (IS_BUILTIN(CONFIG_CRYPTO_ECDSA) &&
++           (strncmp(kmod_name, "crypto-x962(ecdsa", 17) == 0))
++               return -EINVAL;
++
+        return 0;
+ }
+
+ Though this is the only request_module() call between
+ late_initcall and late_initcall_sync, but I also confirmed there're
+ request_modules() call before ima initalisation before "late_initcall":
+
+/*
+ * NOTE: kmod_name is printed on ima_kernel_module_request()
+ */
+
+// This is called from module_init(stm_core_init) -> device_initcall()
+// which is in driver/hwtracing/stm/core.c (built-in)
+[    1.421986] ima: kmod_name: stm_p_basic
+...
+[    1.444900] ima: kmod_name: crypto-pkcs1(rsa,sha512)
+[    1.444903] ima: kmod_name: crypto-pkcs1(rsa,sha512)-all
+...
+[    1.452029] ima: kmod_name: crypto-cbc(aes)
+[    1.465321] ima: kmod_name: crypto-cbc(aes)-all
+...
+[    1.467845] Key type encrypted registered
+[    1.467848] AppArmor: AppArmor sha256 policy hashing enabled
+
+ // IMA is initailised at late_initcall level.
+[    1.467850] ima: [init_ima_late:1336]
+
+If IMA should care request_module() from kernel before IMA init,
+I think there is no way to solve except queuing those events
+(kernel_load_data/kernel_load_post_data and open for module binary etc.)
+though it breaks "measure before use" principle since IMA couldn't
+measure at that time.
+
+But if you don't care about those things -- some events happend before
+IMA init, I think your suggestion -- controlling the init time of ima_init()
+via a Kconfig option is good and ignoring some usermodehelper request
+including request_module() before IMA initialisation upto user by that option.
+
+-- 
+Sincerely,
+Yeoreum Yun
 
