@@ -4,84 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D86ACD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 07:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6DD4CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 07:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HRT2n3cz0qKvrVWVKQJHUhkbp6wv3wSFOGnbkHHYBUY=; b=ELV9Jc/yi5SHFNHwagaSmDLtBG
-	9OT7GvcUqbNx8JB7Y+k4KgluByDeQNaLKSfW9SpmiPuNKsERHrYrmHWZhJgEXHDKc0FLPFA5IacIr
-	nWaMHRip0DH06HYOwK+etHeShzUqm50Z2MxfgXholVqb4FDSrU5mBd36MAwLmCXKJNMUS8exA5N9l
-	1LUVHk8khFr+nEG7KRsqrYsCgcTHvEWwcyrjdB0MXTPhnZOQUAU0fUtDMHuASaUHKzUjkUOmcFe79
-	x3T5X2RNLGuXrd9f5uZwqkaMBdiH1TUf1s9loHVkiZVLsv78xTUzNsNI+yHzmRqqSTK+rBuFmfn3N
-	AVqS/caQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gtzgOVlx3+XiZk8bPWEWW2C41hmZeWg0/ZKf/2wFHh8=; b=hiBonslxyp1WQ+asa/dNGOO29h
+	OFvSyo70ptNgiaMYdS1mYKo+Jl5l2OpuMb6GfM4d6Rd94byydyme2Y6VKhzfNqi3OSohgTNMv+yoY
+	ItoVKqQwceSqnLEAyPMVZBXrWnmVe1e1qmGpdKbp13dKyyWvS+pF8q6BTKLffN5anvPq5v213RKGm
+	ZIRYmWoxvJIR6lWk8Iv8I8KRMYrl7x1YyvoDCLa8B7lRu43P61gQp1Oe7E7IUoqbjDS5+XWMmF9EN
+	Wy36dEpGATAAOnA6rUwt1aNmvMsr3Jaod9Zu4j1HY7WzIpJ6OvaLMRU3h3o19g+Bzx+ThNZNIDpKK
+	OKdXf3tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLFZf-00000005pTy-0XFl;
-	Fri, 08 May 2026 07:24:39 +0000
-Received: from mail.loongson.cn ([114.242.206.163])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLFZY-00000005pSj-2fMX
+	id 1wLFeh-00000005qHo-0JcH;
+	Fri, 08 May 2026 07:29:51 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLFee-00000005qHB-2DyD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 07:24:37 +0000
-Received: from loongson.cn (unknown [10.20.42.62])
-	by gateway (Coremail) with SMTP id _____8CxRXipj_1ph84HAA--.393S3;
-	Fri, 08 May 2026 15:24:25 +0800 (CST)
-Received: from [10.20.42.62] (unknown [10.20.42.62])
-	by front1 (Coremail) with SMTP id qMiowJDxTMKoj_1pUcZ8AA--.38271S3;
-	Fri, 08 May 2026 15:24:24 +0800 (CST)
-Subject: Re: [PATCH 2/5] KVM: loongarch: Grab MMU lock in
- kvm_arch_flush_shadow_all()
-To: James Houghton <jthoughton@google.com>,
- Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Sean Christopherson <seanjc@google.com>,
- Gavin Shan <gshan@redhat.com>, Shaoqin Huang <shahuang@redhat.com>,
- Ricardo Koller <ricarkol@google.com>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- James Hogan <jhogan@kernel.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, kvm@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20260504224213.1049426-1-jthoughton@google.com>
- <20260504224213.1049426-3-jthoughton@google.com>
-From: Bibo Mao <maobibo@loongson.cn>
-Message-ID: <f47ec704-813e-e6a2-687b-7076be465a1b@loongson.cn>
-Date: Fri, 8 May 2026 15:21:28 +0800
-User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
+	Fri, 08 May 2026 07:29:49 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ba3b9bcf69so54125ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 00:29:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778225387; x=1778830187; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gtzgOVlx3+XiZk8bPWEWW2C41hmZeWg0/ZKf/2wFHh8=;
+        b=pX358BGLsKce6HaWq/6UCF0gXm+lh1EBRKLAc3squ+elR7iQTrxYezVZImawIasZEa
+         Yvv4eaaBOEvyg7FOB/S4qa7kxweOGc3IZZ6yJnF4vBW1JtRuJqddxsTjLihSnpWts18B
+         mMDv16IZs0aNBHSqum65qnhVJqy/EPS7iSmgurb6tRSU9+joWP4NtMRw6TSdMkAUZddt
+         ymYSmU9LZ9K3ptgehP2oAeex0L9SKg4zbVVQUuuSFgRoX9WsCmYkd74D4itLZT7WwTQP
+         p7t1SIFrOH5GO/CK4+72AA0SEAwVHj31TsZ8ioH9tWlxMbIybcIfk3nIGSjqLSGnZbY3
+         51aA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778225387; x=1778830187;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gtzgOVlx3+XiZk8bPWEWW2C41hmZeWg0/ZKf/2wFHh8=;
+        b=n6LypIOPBIqtF9Ax9PRNlNEktcKF4ShtZ6zsRSB0G63uA0DO0Y2GbnxXotuQxf6LPn
+         oJeXft53lv5JEHinSwzPbGsJ4sveHDLguXVnGJLyWsfMJ0wtAdYB+g2hk8MSZ3lvgrfs
+         c3M3h2OAXghiTgGP7x5Grz7viiXl5BYjalZfjkkPdC/P40L++i8DgNIPCe6occNLAu2o
+         Oh/g+8odr/rIMI/e14fhld0GE6AhNh0UNeiWTrBVIjEIdFB16lCF5VmkBKziLw0hsV/v
+         FoLQFj4JIOeCTuLNXijmKCdJ0mpj8FnTavfjRtGefVohFIUuNloH1ow8pt4i8M1xNMf9
+         VDOQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/iVFV6mhk6GZULciEmQ08SzHCaYgkQLLO9ObCGTsoo7S7dgKHCBvpPKg76/q43wgO5VbaIns4+YS0+33d6v1T4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEg6dkEmUYXeUlfNBO6uk1fSsMSqAqqLrmmUBEGDaTPWRhNJG4
+	4wVwz5KDLWOyldX+3Z5541BqNP565Z3T9URJfIP47VTfJwTmQo0kFFFo2GnJOzlzTw==
+X-Gm-Gg: Acq92OHpoGJCA2uN2/QLf18BFL7+eUV8pwm1r7tGMKkSeyu9uDJq99KLsxc1kO2vR7k
+	2FFeeCv3i9Zm2X8AUEBrhuNPn8Xa+PIkMYXg9VANcqmQNV9yvappvfRrZn/+zMnyTbE6BB+PZlV
+	qAYjARIplnSswlRyuyNR5ed6jyF4DB7uNoK2gsjX7b8H+jLYBFLggCHBNxhCAHu/rXEihNmLLbV
+	CAq/vZU48yBWPuew9WVM/40aDeZcwAc4ryV82BBVaJZR0HiRcKQTkA7aE/JNQiQya3eNslJ7szL
+	vPcQIoKTtaJSUE15Eun9Dp1SB55hWYqvUcnTtTktu+JBhB/TEwciiA+PU9OaeHUblE/qiFLaLBp
+	mWMeOQcVxgSVo+/m2wmxgfaH2XY4anYo+far3vyu8z79/guJ7tIPz3/S27Pq9ioVdluFKQe/4Ij
+	uq3C3Yf4GmYdGlEzuJuDyQAavRZqHLbNvWisYM5SeuOIFlBZQUr9tVh7Ohvt/mvoAzGAXR
+X-Received: by 2002:a17:903:3c6d:b0:2b2:70ba:305c with SMTP id d9443c01a7336-2bae9a8bf41mr2914125ad.8.1778225386989;
+        Fri, 08 May 2026 00:29:46 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1e9fd64sm10355055ad.69.2026.05.08.00.29.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 May 2026 00:29:46 -0700 (PDT)
+Date: Fri, 8 May 2026 07:29:39 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH 1/9] iommu/arm-smmu-v3: Add struct arm_smmu_cmd to
+ represent the HW format command
+Message-ID: <af2Q47MaAECnRzvY@google.com>
+References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <1-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
 MIME-Version: 1.0
-In-Reply-To: <20260504224213.1049426-3-jthoughton@google.com>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qMiowJDxTMKoj_1pUcZ8AA--.38271S3
-X-CM-SenderInfo: xpdruxter6z05rqj20fqof0/
-X-Coremail-Antispam: 1Uk129KBj9xXoW7XFWrCw1UZrW7Kw4rAr13Awc_yoWkCrc_AF
-	12yw10grWxJa93X3Wkt3W3tF9Iyw1rCFsavrn7Xr97J3s8t3sakr4jgan3Cr90grWxWFW3
-	ArWDZrZ5Zr4avosvyTuYvTs0mTUanT9S1TB71UUUUUJqnTZGkaVYY2UrUUUUj1kv1TuYvT
-	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
-	cSsGvfJTRUUUbqkYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E6xAIw20EY4v20x
-	vaj40_Wr0E3s1l1IIY67AEw4v_Jrv_JF1l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWUJVWUCwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	WUJVW8JwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6r4UJVWxJr1ln4kS14v26r1Y6r17M2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12
-	xvs2x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y
-	6r17McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr4
-	1lc7I2V7IY0VAS07AlzVAYIcxG8wCY1x0262kKe7AKxVWUAVWUtwCF04k20xvY0x0EwIxG
-	rwCFx2IqxVCFs4IE7xkEbVWUJVW8JwCFI7km07C267AKxVWUXVWUAwC20s026c02F40E14
-	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkG
-	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r4j6F4U
-	MIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07j7189UUU
-	UU=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_002433_026966_03445BBB 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20260508_002948_634174_191E731B 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,36 +107,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 01, 2026 at 11:29:10AM -0300, Jason Gunthorpe wrote:
+> Like STE/CD, add a wrapper struct around the u64 array to represent the
+> already FIELD_PREP'd command data. Unlike the STE/CD this is a u64
+> because the command submission path will have the swap to le64.
+> 
+> This makes the API clearer when a u64 is referring to a formatted
+> command and makes the following changes easier to follow.
+> 
+> Move the command constants out of the struct and into an enum alongside
+> the rest of the constants defining the HW format so the entire HW format
+> is self contained and independent of struct arm_smmu_cmdq_ent.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-On 2026/5/5 上午6:42, James Houghton wrote:
-> kvm_arch_flush_shadow_all() may be called concurrently on the same
-> `kvm`. This could at least result in accounting mistakes (e.g.
-> underflows on `kvm->stat.*pages`).
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 752e2cd7b4fb ("LoongArch: KVM: Implement kvm mmu operations")
-> Signed-off-by: James Houghton <jthoughton@google.com>
-> ---
-> Note: This is compile-tested only!
-> 
->   arch/loongarch/kvm/mmu.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/loongarch/kvm/mmu.c b/arch/loongarch/kvm/mmu.c
-> index a7fa458e3360..5dbce9b18e1c 100644
-> --- a/arch/loongarch/kvm/mmu.c
-> +++ b/arch/loongarch/kvm/mmu.c
-> @@ -486,7 +486,7 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
->   
->   void kvm_arch_flush_shadow_all(struct kvm *kvm)
->   {
-> -	kvm_flush_range(kvm, 0, kvm->arch.gpa_size >> PAGE_SHIFT, 0);
-> +	kvm_flush_range(kvm, 0, kvm->arch.gpa_size >> PAGE_SHIFT, 1);
->   }
->   
->   void kvm_arch_flush_shadow_memslot(struct kvm *kvm, struct kvm_memory_slot *slot)
-> 
-Reviewed-by: Bibo Mao <maobibo@loongson.cn>
-
+Thanks,
+Praan
 
