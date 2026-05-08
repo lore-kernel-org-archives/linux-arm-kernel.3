@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 700B6CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F202CCD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6ps0NliofsEK4SZFJvUJrTW12RWpDlCohR9OArI9gQ=; b=oYInoEhFJbPPMe48vweJf3RZ5y
-	Gk2m33f/I32GDp476vv5LD8O7LxapRNLKGPXetdH1xPbPwaUtlpC/xys+pJQESxU+W6Ufjk2FHDyz
-	Yrz2cIdJmQ8Yga1/EVPwbLTUViWS4Id7U8HVx4wzxedeYOS1tHgxvdaN86iLwCyFEPJkUxIxf4wQF
-	J7iSRxcli1gkb9e2XyPWSVOtveYPL+zTNiOeC1wZyPK1IyeVi7GFoE6J1+zMosFqgi2l5+B+GJWrn
-	d7AbZQBkebvgG5mzS4WHbu4K/xNrSkuyLHEoAZtGiCr52u6KAW6U3KH6G6QbyjdxVapMDgQkBVMmf
-	TPIbW0gw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=f05RuqgwM8w2o2bR5ej3FFBA72EEJql8rM897l5z5ng=; b=Kxor67KrbZKDRdqVSiX4HJ1HYj
+	4hMq/i4BNS5887AkFua5ulbeERLPekXNgll1PBoKmr8mZFeUmHssxVQdWpBTcQ6SAIF2jY/sQfhkG
+	ceCaL55Rb/oU9CdHAthIbRpKxpNsiZz8HQPT1cixOpNeyGK4+lC1mGPCTmWp2NlzEY7lXnzmTUI72
+	SZlbGg+/p5hC+GpHPSGNalt1ieetedribrRzs37jnb0GlG/VLiYlTxbtFWzGhO4pD2/qhV7qW0mwy
+	GknoRS4zpJLHJPDMC4k9pVyjqavNz7bvlzUTSJ3QrYYTAjcoPrh8JmxqgKFDxjk9EZnTqaKEwgutQ
+	yyNOQqFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLM0C-00000006eGn-3whD;
-	Fri, 08 May 2026 14:16:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLM0A-00000006eFL-2xqr
+	id 1wLM4A-00000006ejr-1huE;
+	Fri, 08 May 2026 14:20:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLM47-00000006ej8-0X4S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 14:16:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 88C1A42A4D;
-	Fri,  8 May 2026 14:16:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82131C2BCB8;
-	Fri,  8 May 2026 14:16:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778249785;
-	bh=dtZoaePTk4X8dipva16HFTgNbUNAXrez3GknSW8itDc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=f1ZtSnRSiowqAE+O3E8ZQp9fJPzaFZmF4OqdodHXnftciKYF1E0THQh6GFuBaYG1q
-	 QROrVfJ7DVcWm5HCz9kRH4mf7pt9APcAYdH4rWfheCggjzokmo5OAlLF+itx4oTFjy
-	 bpPTQysVN12SmSbpNbtM4Y5zYQgxzxlXt9qJ+nABjOPDtQK1yH3e/stG6YgYC3dMSm
-	 GTOVsLDmhwmUJr70a67F4UMZsn8PGPm6ET7Li12/Z94F46jfWCtTh8+k2yWPPcpwVV
-	 o46Z3BtuTSFgzfEXXK2SxakbrwJHGrLGwQV6iWWivxAqWdTTnq4Q+AM/+q0v2tGmAh
-	 azRLc1gg+H8iw==
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Michal Piekos <michal.piekos@mmpsystems.pl>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-In-Reply-To: <20260506-t113-mangopi-reboot-hang-v3-1-fa15a360a520@mmpsystems.pl>
-References: <20260506-t113-mangopi-reboot-hang-v3-1-fa15a360a520@mmpsystems.pl>
-Subject: Re: [PATCH v3] arm: dts: allwinner: t113s: enable watchdog for
- reboot
-Message-Id: <177824978321.59995.2431541196860204454.b4-ty@kernel.org>
-Date: Fri, 08 May 2026 22:16:23 +0800
+	Fri, 08 May 2026 14:20:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8BA7A1D34;
+	Fri,  8 May 2026 07:20:24 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1CEF13F763;
+	Fri,  8 May 2026 07:20:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778250029; bh=NJaOtDqSNUH/TvmBRW6LoW2lfDhXMmlGpgNYClF5oWI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=dVN2NDzpp+lQu4tt17eChPmiGoRbRAIp84979zKXwBENhL6Pz5De9MnQol74T7gPK
+	 hBUcAy6ygODZ9o8gb0GujDt80k6yu+NlbS15+p6gzHizVjMdy2pO0FASWAe9Tb+Y7U
+	 D3HDI9OtvpJy7z827Ix0IavFP11IX42GdNMuSA+o=
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Will Deacon <will@kernel.org>
+Cc: ckennelly@google.com,
+	dvyukov@google.com,
+	linux-kernel@vger.kernel.org,
+	mark.rutland@arm.com,
+	mathias@mongodb.com,
+	mathieu.desnoyers@efficios.com,
+	ruanjinjie@huawei.com
+Subject: [PATCHv2] arm64/entry: Fix arm64-specific rseq brokenness
+Date: Fri,  8 May 2026 15:20:23 +0100
+Message-Id: <20260508142023.3268622-1-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_071626_768924_9D1C0573 
-X-CRM114-Status: UNSURE (   8.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260508_072031_244021_61B0DFBD 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,23 +75,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 May 2026 12:14:31 +0200, Michal Piekos wrote:
-> Reboot hangs on T113s boards because no restart handler is
-> available.
-> 
-> Enable the SoC watchdog whose driver registers a restart handler.
-> 
-> Tested on LCPI-PC-T113/F113.
-> 
-> [...]
+Hi,
 
-Applied to sunxi/dt-for-7.2 in local tree, thanks!
+In all the confusion with the rseq fixes, it looks like the arm64 patch
+didn't get picked up into the tip tree. That was queued up in Thomas's
+devel/core/rseq branch, but it didn't get reposted and picked up into
+tip.
 
-[1/1] arm: dts: allwinner: t113s: enable watchdog for reboot
-      commit: c6895beaf5eab889ebdaffeb6210ad1111f3e72e
+Thomas, Peter, are you happy to pick the below into the tip sched/urgent
+branch? It's the same as what what in Thomas's devel/core/rseq branch:
 
-Best regards,
+  https://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git/commit/?h=core/rseq&id=04db289d5633dad546a0778537f0f0e52ebfc88b
+
+... which was taken from my arm64/rseq branch:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?h=arm64/rseq&id=05bce437d4f2fd14a7be4706c684a618e2fcc82f
+
+It applies cleanly and passes all tests.
+
+Catalin, Will, you both mentioned off-list that you were happy for this
+to go via tip with the rest of the rseq fixes. Can either of you please
+confirm with an ack?
+
+Mark.
+
+---->8----
+Mathias Stearn reports that since v6.19, there are two big issues
+affecting rseq:
+
+(1) On arm64 specifically, rseq critical sections aren't aborted when
+    they should be.
+
+(2) The 'cpu_id_start' field is no longer written by the kernel in all
+    cases it used to be, including some cases where TCMalloc depends on
+    the kernel clobbering the field.
+
+This patch fixes issue #1. This patch DOES NOT fix issue #2, which will
+need to be addressed by other patches.
+
+The arm64-specific brokenness is a result of commits:
+
+  2fc0e4b4126c ("rseq: Record interrupt from user space")
+  39a167560a61 ("rseq: Optimize event setting")
+
+The first commit failed to add a call to rseq_note_user_irq_entry() on
+arm64. Thus arm64 never sets rseq_event::user_irq to record that it may
+be necessary to abort an active rseq critical section upon return to
+userspace. On its own, this commit had no functional impact as the value
+of rseq_event::user_irq was not consumed.
+
+The second commit relied upon rseq_event::user_irq to determine whether
+or not to bother to perform rseq work when returning to userspace. As
+rseq_event::user_irq wasn't set on arm64, this work would be skipped,
+and consequently an active rseq critical section would not be aborted.
+
+Fix this by giving arm64 syscall-specific entry/exit paths, and
+performing the relevant logic in syscall and non-syscall paths,
+including calling rseq_note_user_irq_entry() for non-syscall entry.
+
+Currently arm64 cannot use syscall_enter_from_user_mode(),
+syscall_exit_to_user_mode(), and irqentry_exit_to_user_mode(), due to
+ordering constraints with exception masking, and risk of ABI breakage
+for syscall tracing/audit/etc. For the moment the entry/exit logic is
+left as arm64-specific, directly using enter_from_user_mode() and
+exit_to_user_mode(), but mirroring the generic code.
+
+I intend to follow up with refactoring/cleanup, as we did for kernel
+mode entry paths in commit:
+
+  041aa7a85390 ("entry: Split preemption from irqentry_exit_to_kernel_mode()")
+
+... which will allow arm64 to use the GENERIC_IRQ_ENTRY functions directly.
+
+Fixes: 39a167560a61 ("rseq: Optimize event setting")
+Reported-by: Mathias Stearn <mathias@mongodb.com>
+Link: https://lore.kernel.org/regressions/CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com/
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Chris Kennelly <ckennelly@google.com>
+Cc: Dmitry Vyukov <dvyukov@google.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/kernel/entry-common.c | 31 ++++++++++++++++++++++++-------
+ include/linux/irq-entry-common.h |  8 --------
+ include/linux/rseq_entry.h       | 19 -------------------
+ 3 files changed, 24 insertions(+), 34 deletions(-)
+
+Since v1 [1]:
+* Restore sme_{enter_from,exit_to}_user_mode()
+* Describe use of enter_from_user_mode() in commit message
+
+[1] https://lore.kernel.org/linux-arm-kernel/aeueE1I1OuVkOcEZ@J2N7QTR9R3/
+
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index cb54335465f66..c7a23f7c22122 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -62,6 +62,13 @@ static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+ 	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
+ }
+ 
++static __always_inline void arm64_syscall_enter_from_user_mode(struct pt_regs *regs)
++{
++	enter_from_user_mode(regs);
++	mte_disable_tco_entry(current);
++	sme_enter_from_user_mode();
++}
++
+ /*
+  * Handle IRQ/context state management when entering from user mode.
+  * Before this function is called it is not safe to call regular kernel code,
+@@ -70,20 +77,30 @@ static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+ static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
+ {
+ 	enter_from_user_mode(regs);
++	rseq_note_user_irq_entry();
+ 	mte_disable_tco_entry(current);
+ 	sme_enter_from_user_mode();
+ }
+ 
++static __always_inline void arm64_syscall_exit_to_user_mode(struct pt_regs *regs)
++{
++	local_irq_disable();
++	syscall_exit_to_user_mode_prepare(regs);
++	local_daif_mask();
++	sme_exit_to_user_mode();
++	mte_check_tfsr_exit();
++	exit_to_user_mode();
++}
++
+ /*
+  * Handle IRQ/context state management when exiting to user mode.
+  * After this function returns it is not safe to call regular kernel code,
+  * instrumentable code, or any code which may trigger an exception.
+  */
+-
+ static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
+ {
+ 	local_irq_disable();
+-	exit_to_user_mode_prepare_legacy(regs);
++	irqentry_exit_to_user_mode_prepare(regs);
+ 	local_daif_mask();
+ 	sme_exit_to_user_mode();
+ 	mte_check_tfsr_exit();
+@@ -92,7 +109,7 @@ static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
+ 
+ asmlinkage void noinstr asm_exit_to_user_mode(struct pt_regs *regs)
+ {
+-	arm64_exit_to_user_mode(regs);
++	arm64_syscall_exit_to_user_mode(regs);
+ }
+ 
+ /*
+@@ -716,12 +733,12 @@ static void noinstr el0_brk64(struct pt_regs *regs, unsigned long esr)
+ 
+ static void noinstr el0_svc(struct pt_regs *regs)
+ {
+-	arm64_enter_from_user_mode(regs);
++	arm64_syscall_enter_from_user_mode(regs);
+ 	cortex_a76_erratum_1463225_svc_handler();
+ 	fpsimd_syscall_enter();
+ 	local_daif_restore(DAIF_PROCCTX);
+ 	do_el0_svc(regs);
+-	arm64_exit_to_user_mode(regs);
++	arm64_syscall_exit_to_user_mode(regs);
+ 	fpsimd_syscall_exit();
+ }
+ 
+@@ -868,11 +885,11 @@ static void noinstr el0_cp15(struct pt_regs *regs, unsigned long esr)
+ 
+ static void noinstr el0_svc_compat(struct pt_regs *regs)
+ {
+-	arm64_enter_from_user_mode(regs);
++	arm64_syscall_enter_from_user_mode(regs);
+ 	cortex_a76_erratum_1463225_svc_handler();
+ 	local_daif_restore(DAIF_PROCCTX);
+ 	do_el0_svc_compat(regs);
+-	arm64_exit_to_user_mode(regs);
++	arm64_syscall_exit_to_user_mode(regs);
+ }
+ 
+ static void noinstr el0_bkpt32(struct pt_regs *regs, unsigned long esr)
+diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
+index 167fba7dbf043..1fabf0f5ea8e7 100644
+--- a/include/linux/irq-entry-common.h
++++ b/include/linux/irq-entry-common.h
+@@ -218,14 +218,6 @@ static __always_inline void __exit_to_user_mode_validate(void)
+ 	lockdep_sys_exit();
+ }
+ 
+-/* Temporary workaround to keep ARM64 alive */
+-static __always_inline void exit_to_user_mode_prepare_legacy(struct pt_regs *regs)
+-{
+-	__exit_to_user_mode_prepare(regs, EXIT_TO_USER_MODE_WORK);
+-	rseq_exit_to_user_mode_legacy();
+-	__exit_to_user_mode_validate();
+-}
+-
+ /**
+  * syscall_exit_to_user_mode_prepare - call exit_to_user_mode_loop() if required
+  * @regs:	Pointer to pt_regs on entry stack
+diff --git a/include/linux/rseq_entry.h b/include/linux/rseq_entry.h
+index 2d0295df5107c..63bc72086e75b 100644
+--- a/include/linux/rseq_entry.h
++++ b/include/linux/rseq_entry.h
+@@ -749,24 +749,6 @@ static __always_inline void rseq_irqentry_exit_to_user_mode(void)
+ 	ev->events = 0;
+ }
+ 
+-/* Required to keep ARM64 working */
+-static __always_inline void rseq_exit_to_user_mode_legacy(void)
+-{
+-	struct rseq_event *ev = &current->rseq.event;
+-
+-	rseq_stat_inc(rseq_stats.exit);
+-
+-	if (static_branch_unlikely(&rseq_debug_enabled))
+-		WARN_ON_ONCE(ev->sched_switch);
+-
+-	/*
+-	 * Ensure that event (especially user_irq) is cleared when the
+-	 * interrupt did not result in a schedule and therefore the
+-	 * rseq processing did not clear it.
+-	 */
+-	ev->events = 0;
+-}
+-
+ void __rseq_debug_syscall_return(struct pt_regs *regs);
+ 
+ static __always_inline void rseq_debug_syscall_return(struct pt_regs *regs)
+@@ -782,7 +764,6 @@ static inline bool rseq_exit_to_user_mode_restart(struct pt_regs *regs, unsigned
+ }
+ static inline void rseq_syscall_exit_to_user_mode(void) { }
+ static inline void rseq_irqentry_exit_to_user_mode(void) { }
+-static inline void rseq_exit_to_user_mode_legacy(void) { }
+ static inline void rseq_debug_syscall_return(struct pt_regs *regs) { }
+ static inline bool rseq_grant_slice_extension(unsigned long ti_work, unsigned long mask) { return false; }
+ #endif /* !CONFIG_RSEQ */
 -- 
-Chen-Yu Tsai <wens@kernel.org>
+2.30.2
 
 
