@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D4BBCD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 13:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED6BCD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 13:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uQ5bx454+AlaQ01a5y1scMSehnDcv/4PtRpLfFlKr4Q=; b=SzaF70lDPDqHKIbLvfjpoUYCx+
-	fvYiJhN+wanRi97mNzBTV0P2gYvA9EdQs3oZHAaiD4ezDtKhAH0fM8gEbBi/99B5FX8MAe7/l4Qfi
-	VzR7AvZBiqedNgl0+jSkKi1sALZ23Xl17fLeMxyPcQo9gJAtITflr+CCpwGCKkvaFvLTF8mmNgoEP
-	YTzV0NHg/gWkX/G+CGnc0Fm1efppUS6W985DnQOnVfUm8z1yuz/2rgPyZKNBZMdGU4Hx/H93IT0WB
-	NdE8xds55KjTMzt8gfDUflQ1PC6PYG+aI1y/PC/q86Nhke9fRr4LiF4iwOVZn2QghuDe4OFYBU6Sh
-	NnlrHIkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jomyiXrHM1pVvDL8AVHEZ6+6QEXco7gHPx8AsYRHgUw=; b=M0Q0t2/4pvQ6mctIIpPNEQBCt6
+	c21FXxqIKn+CvYmJyVI7HYztu5qHVvhjbfZb9ooYX/pz8jP+4AGqgLqoRDildIVkfAS+KBrXFB3Sj
+	AYQ/iirAE8GvRUpgTDqOoWP6NOkuO/v6dZXy/5N7uj0xkJAgns9p0ea9PPyLhPe+YpLQMHyofvj+D
+	WubafTkXBV+70q7l27fScd7Kwt+MkJgS9WVGyH5NgwMHiZvjegg3ooeEVLuvzgXe5tb8xaNZwIfBx
+	xWghFp0uTDK3er02Wla1a/gxLtH6mrO+ytgFiA5FcRqop6ZgrbmuZ6i+3F0mU7RXPkQN21lHSSnts
+	mqBLl+fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLLVT-00000006aUj-2MBe;
-	Fri, 08 May 2026 13:44:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLLVQ-00000006aUH-3GgW
+	id 1wLLcm-00000006bJU-1Oe3;
+	Fri, 08 May 2026 13:52:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLLci-00000006bIp-2a24
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 13:44:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E980326BC;
-	Fri,  8 May 2026 06:44:33 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D20293F836;
-	Fri,  8 May 2026 06:44:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778247879; bh=sKvxQrZlnxkP3PVGyMsRfHU0bXPzYb1BLgQ8VEd5a3A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iR0Ru+s2ENCD6wmO1QZZpd6dvtbHiaMhYuoLZ2OO+GUuhPfgZreucfHp1vDI5TEKC
-	 dpvYmQProh3aspY/KAXE7orRxnHENq4Iu4h0LGh+lJ2N9YPQ4n8pxyaQIfByoyavMC
-	 62AOEV6mnqa+0oM/bXn1eocs/0D06jktdDDIc8cM=
-Date: Fri, 8 May 2026 14:44:37 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] coresight: fix missing error code when trace ID is
- invalid
-Message-ID: <20260508134437.GH3778514@e132581.arm.com>
-References: <20260508-fix-trace-id-error-v1-1-5f11a5456fdf@oss.qualcomm.com>
+	Fri, 08 May 2026 13:52:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1778248330;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=jomyiXrHM1pVvDL8AVHEZ6+6QEXco7gHPx8AsYRHgUw=;
+	b=EFlJGqPzOHa1xqyZNxfrDS0SJ3NsWW9KErjCx4UPctVC1258jzM75dtWFeEZgqFEJUEBVI
+	rnuD/G+rYdVlkgqUpIckkReqMGQ8F9xU8N6SSsAJwdrYakpyTLSqkp+nAOkVhhqPxeYA6L
+	w8Ja+Pi4G5/Rgf+EfFLeW5RuyospMXg=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-111-f5SQX8qUPwajXLFuy0P5IQ-1; Fri,
+ 08 May 2026 09:52:06 -0400
+X-MC-Unique: f5SQX8qUPwajXLFuy0P5IQ-1
+X-Mimecast-MFC-AGG-ID: f5SQX8qUPwajXLFuy0P5IQ_1778248325
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 84DA2195609E;
+	Fri,  8 May 2026 13:52:05 +0000 (UTC)
+Received: from [172.20.1.62] (unknown [10.30.45.70])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id F387519560A3;
+	Fri,  8 May 2026 13:52:04 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS (MISSED 51 of 56): Test report for for-kernelci
+ (7.1.0-rc1, upstream-arm-next, 5cbb61bf)
+Date: Fri, 08 May 2026 13:52:04 -0000
+To: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+ will@kernel.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260508-fix-trace-id-error-v1-1-5f11a5456fdf@oss.qualcomm.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Message-Id: <56263.126050809520600677@us-mta-111.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: mm4c63jNjlOBY1AhoYp0dksRVFP7w_slxYNbCqMDwjY_1778248325
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_064440_856232_5490FE15 
-X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-CacheID: sfid-20260508_065212_728657_A1F8E6CC 
+X-CRM114-Status: UNSURE (   6.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,24 +84,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 01:45:35PM +0800, Jie Gan wrote:
+Hi, we tested your kernel and here are the results:
 
-[...]
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
->  	coresight_path_assign_trace_id(path, CS_MODE_SYSFS);
-> -	if (!IS_VALID_CS_TRACE_ID(path->trace_id))
-> +	if (!IS_VALID_CS_TRACE_ID(path->trace_id)) {
-> +		ret = -EINVAL;
->  		goto err_path;
-> +	}
+Tested-by: CKI Project <cki-project@redhat.com>
 
-On the top of this patch, could we do a further improvement?
+Kernel information:
+    Commit message: arm64/fpsimd: ptrace: zero target's fpsimd_state, not t=
+he tracer's
 
-Move IS_VALID_CS_TRACE_ID() into coresight_path_assign_trace_id() and
-return 0 for success and < 0 for failures. As result, callers only
-need to check the returned value.
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2504428765
 
-For this patch:
+Tests that were not ran because of internal issues:
+    /distribution/check-install [aarch64]
+    /distribution/command [aarch64]
+    /test/misc/machineinfo [aarch64]
+    Boot test [aarch64]
+    CKI/restraint [aarch64]
+    Hardware - Firmware test suite [aarch64]
+    Reboot test [aarch64]
+    SELinux Custom Module Setup [aarch64]
+    selinux-policy: serge-testsuite [aarch64]
+    Storage - blktests - throtl [aarch64]
+    Storage - blktests - ublk [aarch64]
+    stress: stress-ng - cpu-cache [aarch64]
+    stress: stress-ng - memory [aarch64]
+    xfstests - btrfs [aarch64]
+    xfstests - ext4 [aarch64]
+    xfstests - xfs [aarch64]
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
