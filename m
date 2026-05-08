@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D185CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 12:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F4ACD37A7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 12:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9n9228Bd6H5JKp1KPGvBUKX9yk7WrbeWnXK2gI0yqVU=; b=YLjXVvwJVOUg6xDAPGNKd8soT0
-	3hZpPXezn2cUQEUaZhYV9OETIIUTyHXzpu4HOj5iucS1LFW/hMWBjXeO3dTPlHwBcYSdlyM/Se9Il
-	EHRGBQyUhYP3GrUNXKwAv5Q9wyodnEJIgzqVIREOGF1pAWN6pasmhPxn0G/9QxHsB+KG7p1GcLc5S
-	SnnkdAmbyhYHYRobg6WWxNT9KclMxCjOLIjCAPOTBwljRyD4hCm7jIMwnZb20yacRaLxiTglUgC4k
-	SDwBWyNALybF6hYMazQaD6vy8WSJJsLeF837jHBz97wZI/5KMHzNK8dvxCmBLdI18sDpwLseup6Wa
-	Ypd531AA==;
+	bh=OSIE7E4h7lWy1SBxFs356ugBkbZI4NVO2rqkoC6AUWs=; b=ebZ5Y58qsVTvoGrAJp8ovBlGXE
+	TF6NAXyAxJgio/+2GcTcYYbVLqUZMjXt1v4JdqxwUhxVEsqT3ke9muPrwjsgXkWnyWCTN6B38R/ib
+	uGdtPbyypxfUiuvQDihVze7Hfg9ajFLt8oe/fqlJtBPXdEfEUDA09bwN0jKdgYyYcdHvRFE2zD2AH
+	CqYzLaQlEKcBQLXstql+UsizImO8fvO1VgWyNrru4s1e+sZSEBGTtAGcJMj8FKj54ddIZ3tqnKece
+	if5MWivilYMOb64TB9NXLEWFFR0pAfsgW1xQz3NS+WQibdodIGDhMv87QvkgUw1/SuJYR1CDVH9Iw
+	tOXPEysg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLKUN-00000006T4m-3Two;
-	Fri, 08 May 2026 12:39:31 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1wLKUV-00000006TEX-3B7w;
+	Fri, 08 May 2026 12:39:39 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLKUI-00000006SyO-036D
+	id 1wLKUO-00000006T3z-3xax
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 12:39:27 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5a85b30dd54so2092581e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 05:39:25 -0700 (PDT)
+	Fri, 08 May 2026 12:39:34 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5a858881ad2so1987192e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 05:39:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778243964; x=1778848764; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1778243971; x=1778848771; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9n9228Bd6H5JKp1KPGvBUKX9yk7WrbeWnXK2gI0yqVU=;
-        b=vnuLR2EuZf0PNg4QKIyMKq7lRRwp/bfOB07q5H0pVgInaWNvB9NDJ0Xs/qW1+6+Onv
-         kiNSpL4ngFmZL/7kU0Op9ISB/HYvqqDMUTCYZObdyyf0wPg90DPK4hCL4mAdX8/RWkph
-         w8BpKhw584M/UZ5fMjgyR3rv2PSd+iXQUmvILHK0z8wocgXez0x8HxlnYvOyFWEB5zVG
-         ZzO7C2vGwdm9e49tBZWw9EjlGoLTfyQS9y5vWi1ij4n1Nd5AH6NtPe0f2n4AbgRHayEG
-         sSL4Zt/G/TjrXlQ4G0My0S7qVxwxye5dljtI+JE9FlCNhaWK42YKyMwUVfBJC2XU+nMz
-         AdHg==
+        bh=OSIE7E4h7lWy1SBxFs356ugBkbZI4NVO2rqkoC6AUWs=;
+        b=KeLDmB3jDx7bbQJz8PGGbG52LtuOY+B1FHGPECRUq/dC7TUNF7q6+pBBY40BXkFmFk
+         nPLXIkfHs1d9a8Zk+h5tI79m6JDHEkapxytrD2kgv20qrJcr/XmaVMPtJR4DdgGVHIRe
+         uzo0FbzzCXfvP7Of0UKfbyqXXoFTkyMcKRXixCyQ6PEeZ5JLrgYEZyMw3fxtLFSaljCF
+         0EqKMWz5IMJPBcUD0U49OeRAwr/ocdnqcQj0lvUsfsAshZPu3AAw74a6Syt+pnoMtxRw
+         r4XSZ5xX5b2LlQIMPwOItM84fu+PmvKnT/iz3nFfSEfiBOW0L7ka0SntCEmrZKr+NYCL
+         bWEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778243964; x=1778848764;
+        d=1e100.net; s=20251104; t=1778243971; x=1778848771;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=9n9228Bd6H5JKp1KPGvBUKX9yk7WrbeWnXK2gI0yqVU=;
-        b=HiSIt+eKGIPZ8lVikVSEpWg3p+FJe4AQbC3/kxVBIjCG+XKnLO+eKFqJh0ZFHotJNg
-         G/7KLJN1IdtCfIu9wxU1feoJ5tBzXUvZP2ocXlOTXemK4DpLjtLh0LfmVeoWKNtW8g0O
-         J4HcWRNYlK+tKQNFA9UEiXkXdPqqSBlT0/0VfV08WJ9Ubj4sjB38fBeHBm/7rbmvPHz4
-         nYDgIUHfOs31JumxLCPmgCZSNvUUY5Feo3dBL3UzOQ17yasQzyYTy3Kxv6UcUWM0pcqr
-         Yzuf4w2Vx+Lvpenl4oKpYdl3jdY24fZT8wJuq8jpKVJK2F4ac2Jhwf2doxihTyJQcCXe
-         OGgQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+rSREJS61BT6tRi7Y+7rULAhM7h0bY63ZykqPzcd5jAJGoaRyc03UdKysW6H6wHzxZZVOqHCo4CByu6yZ+W7ZT@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiibQcqBtv5dTiFVB46Wn0m+A6QdQ0LVWbH9i2Txa5J5fB6C78
-	BpGq8S0xcSmsiZO9s242iIgA4uGuwHMrZ8Zs5mZc9LFrvbU2WvJT4obRJ9xk06JlYqI=
-X-Gm-Gg: Acq92OEowjUps8CujattnvitNp2haDEqUs5FcsBtgUJNNX/1IgX4AxztI+W6sQL4HjM
-	wjfZeedKK0F6BYSc8+0Q46lDG7W9Cf7PdLC6Ov31FGCDQWFZFiI2B5HgMdV9KnTpkSwqeVJWfi9
-	79N34qkEY9lY8/HpNxe7uH8WCcdegIJYrh0PvB2/GRzuK+kPa0oHpTRc41zq0rI/BwmJjasQKKm
-	yfj9l1GEoO9/cN7kO8xrSguvqCFO/dbKGkT9qZW9Td5ZM2qVkPpk+ePHLmCh15OsBU/Hi+TqRnd
-	fGa6Z/MU5e+LGfIexrNuV0szzOgQyviWYneASSmwhvhrgPVi4zMxfYQSHCjn0itaJsz5RkHEr+K
-	ZTMz/3lImS1HK/ioNriNjW8Q7XXX6NrFl1NuyRrNnINEmoTwkMYyJAPlncekRf5h3MbXu7dKQH0
-	xOR9EGKHVLUQivEFWsxTuIQUEX31CdVSz644MNwvW1xIsxOw5ULl10w25CPJgSJ+8Jmf6cAnM00
-	5fPGG4Vvjo=
-X-Received: by 2002:a05:6512:15a3:b0:5a8:837b:3d80 with SMTP id 2adb3069b0e04-5a887cde91fmr4509411e87.22.1778243963646;
-        Fri, 08 May 2026 05:39:23 -0700 (PDT)
+        bh=OSIE7E4h7lWy1SBxFs356ugBkbZI4NVO2rqkoC6AUWs=;
+        b=ke8yFtFsi6hvz5MR9OjSYLRERxM1uxPwb15ZgU7FJUyt/X0aVRGRn86/xEqmSgUSpX
+         w1T6qhRoUSA1nrn7z647W84u5FzyewHVOMBKqlB4m+y+hQC7cz1i3FE91kmjEMEfDZBc
+         EODDC04MZr5LboIYmrLPi569LrHmQez9tLAr3EgdyV2Lghx2+jZhsL5lrc/DsvI7HtnH
+         YrrlvQng+f9snfCc20u5enrXWNbsaE4iIAPlOyIQN1GoGFRGFdpiqCHhFLThV5g1A/6U
+         uuSlym33FUQi73DJKZ/KgIY6g5HCsGv6ZagflHqWJXiR8K30eMaechdjVfngAjZp3bds
+         q6yQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+j85wT1jKx2DYV3px4hpGuoVo3UR8S4tkCNVidz0L6KadRNYQoE+YCfjDMm7TybMk/ffdGG0Z6wpVrSeEX5g9O@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkqoR2hz9aZK/ahoEK4F5AdorjXXTzYIMo7Kk+CElrN3k6Z+LR
+	5fRCs7D3lU1HfMfHW6C4i0SO1SDvxe3+uKtI/Q7k7UlGMzb+HhbQyJZK8umTs1dkc08=
+X-Gm-Gg: Acq92OEtJYMyEeCcIjzooUAWP/tdjHZXvpivkpHbd+7RX0Djk3lKm8G4hCDOEcdPekk
+	jxcYE5D4JdwNILBGWWTMSoQiCC/ZRXI9N/JWUFXxHlPNRXDDxnssyPeaOoMTt+ylTLGBeG/he2F
+	JutM8nG8F8AFZSmhiuRMvdw3JYhrPoY1AnVxQS55QJowFzKgQAegi2If5Pl5Qqr339fnm94GmKP
+	pbV7+336tXGbUAxQx32d70clqJt70TGxBh7lI6MwYulHjyw1inOAzNRs0PaZLE4OfPjAs16xg6v
+	0Qw0/zBCWVf/ZI4AjOO7iXp2KWNQx1h8d9gsdy6X/bSb3o+P5+n82Gq11OkEqc23nS/mirfdy5b
+	FAw6iVWwtwYqSQXf7id7w+Ju7AA2/83z8tW8V2KPRgVimJKYk9k/8Qhq5sO+G0NkwJVrolzvPpu
+	Q5qOzlI689AivAC08hO22cc0emOKoQB1RrlwIc4m7TQWS1AqquyrmFgHscsNIdPOAHh6RhY/bZ
+X-Received: by 2002:a05:6512:3d03:b0:5a8:99bd:12dd with SMTP id 2adb3069b0e04-5a899bd13aamr2719864e87.31.1778243970587;
+        Fri, 08 May 2026 05:39:30 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-393f5f5fcc7sm4569621fa.18.2026.05.08.05.39.22
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-393f5f5fcc7sm4569621fa.18.2026.05.08.05.39.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 05:39:23 -0700 (PDT)
+        Fri, 08 May 2026 05:39:30 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Danilo Krummrich <dakr@kernel.org>,
 	Saravana Kannan <saravanak@kernel.org>,
@@ -96,17 +95,17 @@ Cc: Sudeep Holla <sudeep.holla@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH v3 05/13] pmdomain: core: Move genpd_get_from_provider()
-Date: Fri,  8 May 2026 14:38:54 +0200
-Message-ID: <20260508123910.114273-6-ulf.hansson@linaro.org>
+Subject: [PATCH v3 10/13] pmdomain: renesas: rcar-sysc: Drop GENPD_FLAG_NO_STAY_ON
+Date: Fri,  8 May 2026 14:38:59 +0200
+Message-ID: <20260508123910.114273-11-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260508123910.114273-1-ulf.hansson@linaro.org>
 References: <20260508123910.114273-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_053926_113231_1D93FD6A 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20260508_053933_003992_E1183CFF 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,109 +120,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To prepare for subsequent changes and to avoid an unnecessary function
-declaration, let's move genpd_get_from_provider() a bit earlier in the
-code.
+Due to the new fine grained sync_state support for onecell genpd provider
+drivers, we should no longer need use the legacy behaviour. Therefore,
+let's drop GENPD_FLAG_NO_STAY_ON.
 
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
 
 Changes in v3:
-	- No change.
+	- No changes.
 
 ---
- drivers/pmdomain/core.c | 70 ++++++++++++++++++++---------------------
- 1 file changed, 35 insertions(+), 35 deletions(-)
+ drivers/pmdomain/renesas/rcar-sysc.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 4d32fc676aaf..ad57846f02a3 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -2664,6 +2664,41 @@ static bool genpd_present(const struct generic_pm_domain *genpd)
- 	return ret;
- }
+diff --git a/drivers/pmdomain/renesas/rcar-sysc.c b/drivers/pmdomain/renesas/rcar-sysc.c
+index bd7bb9cbd9da..e4608c657629 100644
+--- a/drivers/pmdomain/renesas/rcar-sysc.c
++++ b/drivers/pmdomain/renesas/rcar-sysc.c
+@@ -241,7 +241,6 @@ static int __init rcar_sysc_pd_setup(struct rcar_sysc_pd *pd)
+ 		}
+ 	}
  
-+/**
-+ * genpd_get_from_provider() - Look-up PM domain
-+ * @genpdspec: OF phandle args to use for look-up
-+ *
-+ * Looks for a PM domain provider under the node specified by @genpdspec and if
-+ * found, uses xlate function of the provider to map phandle args to a PM
-+ * domain.
-+ *
-+ * Returns a valid pointer to struct generic_pm_domain on success or ERR_PTR()
-+ * on failure.
-+ */
-+static struct generic_pm_domain *genpd_get_from_provider(
-+					const struct of_phandle_args *genpdspec)
-+{
-+	struct generic_pm_domain *genpd = ERR_PTR(-ENOENT);
-+	struct of_genpd_provider *provider;
-+
-+	if (!genpdspec)
-+		return ERR_PTR(-EINVAL);
-+
-+	mutex_lock(&of_genpd_mutex);
-+
-+	/* Check if we have such a provider in our array */
-+	list_for_each_entry(provider, &of_genpd_providers, link) {
-+		if (provider->node == genpdspec->np)
-+			genpd = provider->xlate(genpdspec, provider->data);
-+		if (!IS_ERR(genpd))
-+			break;
-+	}
-+
-+	mutex_unlock(&of_genpd_mutex);
-+
-+	return genpd;
-+}
-+
- static void genpd_sync_state(struct device *dev)
- {
- 	return of_genpd_sync_state(dev->of_node);
-@@ -2889,41 +2924,6 @@ void of_genpd_del_provider(struct device_node *np)
- }
- EXPORT_SYMBOL_GPL(of_genpd_del_provider);
+-	genpd->flags |= GENPD_FLAG_NO_STAY_ON;
+ 	genpd->power_off = rcar_sysc_pd_power_off;
+ 	genpd->power_on = rcar_sysc_pd_power_on;
  
--/**
-- * genpd_get_from_provider() - Look-up PM domain
-- * @genpdspec: OF phandle args to use for look-up
-- *
-- * Looks for a PM domain provider under the node specified by @genpdspec and if
-- * found, uses xlate function of the provider to map phandle args to a PM
-- * domain.
-- *
-- * Returns a valid pointer to struct generic_pm_domain on success or ERR_PTR()
-- * on failure.
-- */
--static struct generic_pm_domain *genpd_get_from_provider(
--					const struct of_phandle_args *genpdspec)
--{
--	struct generic_pm_domain *genpd = ERR_PTR(-ENOENT);
--	struct of_genpd_provider *provider;
--
--	if (!genpdspec)
--		return ERR_PTR(-EINVAL);
--
--	mutex_lock(&of_genpd_mutex);
--
--	/* Check if we have such a provider in our array */
--	list_for_each_entry(provider, &of_genpd_providers, link) {
--		if (provider->node == genpdspec->np)
--			genpd = provider->xlate(genpdspec, provider->data);
--		if (!IS_ERR(genpd))
--			break;
--	}
--
--	mutex_unlock(&of_genpd_mutex);
--
--	return genpd;
--}
--
- /**
-  * of_genpd_add_device() - Add a device to an I/O PM domain
-  * @genpdspec: OF phandle args to use for look-up PM domain
 -- 
 2.43.0
 
