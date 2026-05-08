@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F45ECD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 13:41:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04198CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 13:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kn3HnEGpfsinsQczYQb+6skEifl1bNdoE4T6rMB6rKk=; b=atGckRrXvpB9EccZ3CEJ3x1Wk6
-	OL8cuBt2ly4UioJRbnOcJeJGsVMZ5Yk24JX8JR4SINc4iZx9P0aYDgdYlS2syg5omK2YwiNMe3pxl
-	YRUj4N9p8UW6ruxeto0ioAY65zzGqZpYlg/ROmeNF/EGA9avo2GDSiNztCgS2mIuanwLdPVqu8Zfa
-	nht58T61ysi1g5JZbjf1xEaITfgrxBMxYmWyNC9qYzw2ApSRbOWT/Z3AJ1lpBTD1Evsi+WAzdW0HP
-	hDcALCbJlpsPxmKXEX5EcJjTHFRuh+Z9E/c3/bH99zP4fICYKh3oNGCdxusXIOiWEZi5xm1HHFL3J
-	JWTVq7mw==;
+	bh=h4sw1iE8KN76l1QK41GrlFKdgsNt/B2uiso7gWXdfOw=; b=VgVM1wz8zsYN+DdQ7NJzVwRmo3
+	LRhqY3NXDCHNKsDln7s6VuPYhC6z1ygXg1cCr+CtVHN9wrWEfMKZBt37YIMe+Ie5KFCclUUWTB3YO
+	cLlmV0tjLeALTARlyqdLhiGgHOou3uV1fP+E/UXS5LDDRINH6WxcwTdh3mgluKqAA3KryxNSozfFV
+	QwK4U4u9XDTMkNOeynWQN+tXjBskXOZy8daw93oXJyWKM6PWUsgEhkCADPyiOxOJqdduq8UGH5Mm+
+	ZXgf4IJ6qZczdHaZ66TMkzuz3ea8OSIUGXzqdyzyn/sZtIpTR5r4kyHC8KSL2bYOzbk0XCTLa+LcL
+	qIrHxKlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLLSU-00000006a35-3vBw;
-	Fri, 08 May 2026 13:41:38 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLLSR-00000006a2S-2vIq
+	id 1wLLSj-00000006a5v-07dB;
+	Fri, 08 May 2026 13:41:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLLSf-00000006a52-1uSy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 13:41:37 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2b2e8b95bdbso85625ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 06:41:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778247695; x=1778852495; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kn3HnEGpfsinsQczYQb+6skEifl1bNdoE4T6rMB6rKk=;
-        b=ZQLj86RxKFQX9IuZEPedwWb8nKBK5Y13eO16IAXHVqnvtbCaMQOHRfQhXIhyypjTqr
-         LjRI8RNSF8QlxYLLt+c+SrzsR+wTDuT/ROaNIddp1RZ2xRw9l7m5Q0JLkpginfXvChR0
-         eKaPwORDoBpQkiiSgGGnIyifZma+x2tKSuXrIuKg/hAkn+WxwhhS27eveCdZ0pdO6Cf5
-         dbEI+kW138TPuXQq02D22PZJ1M7UCpUU9tjLjRGu1FZPn+PriP7fX5Q4nZc3qejUE3V3
-         FWscFF9KkypK/1Ehx4lIDthf2oAiBU4v26SaoxJQiJFCCbslzuk4PTHAJabDF6mZjKaP
-         W1Fg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778247695; x=1778852495;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kn3HnEGpfsinsQczYQb+6skEifl1bNdoE4T6rMB6rKk=;
-        b=VbUsrM3so171ftOmDYc7YVeYb/xDs/5LfqkECjHJlquxri+3nGuLelzJFe09CfLJ+y
-         NAwMjAVQhCBWHtVu1EYkOUgNDU1qQFlOjkfueRS73irEV4/I4H/CrEFTpOoXe0wCnOQO
-         kO8vVZmGtySEsiy2dn+G5Y38F6k0AqSGPZmxkYx8DJ17apgSZbIePbDzFcN8RZ5zbe4H
-         S4wHGtO3/UQ3EshafeiVbNsHlSpuJiAhUDpbXOmPd8X5YJVuwh2cCwqNrW34f0VEq/Rg
-         e/xtiorRwWVyoPpzdtSii7dpiJ7aAjQKjHIqkHtLjNL0VChMHrnbSH/20Y2GenWqXe+A
-         QHxg==
-X-Forwarded-Encrypted: i=1; AFNElJ+d68Axo/MOam+vtPRIHAvGENYWrXsvzv02HYYkNReOQGIFT1XSkgKIpK6qcLMZRKhWp/3zzEVRJ6Nh5YQEB2CC@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZJkdVq2P0BPouZi0UHH0zmcIEKRNCL2hVgyhgaUc0tSIBoN47
-	8TtVVwsmyTGdaaXMdEvQV+uLxY34yP+LhMFJwS0ZA+JnxVa8f8mC2rSDjQRqT7TEEA==
-X-Gm-Gg: Acq92OGugdOqgt6go6/DdxP4I3PUaj0Zmq6shILbnw2TuwkWnZgeGjE+JWM8Z7hYbMM
-	3R3Hf8IpKSb7EAP0nf9IRtzRHI1gzdjfNd+3eX736qD4viovts4w29D8MXjcxrRgbj/MjRwYMki
-	xJg1xz7luVs+7/rwUlD965Pj3lM9SK0WgdOTo9hSUKVxzOS3wC51zNKsXDil1Jkp3qlkUGiqAqU
-	04INrQsdBJFsgu3YI6WlClFeI47hr+BjLxAsboUwk1Tsv6x1YtaDjZ+5MiPNmM3evH0MVFuyTRR
-	y53TJ8sYp09VhFNgTTSw51q8HbO0plRgsIytYAC9UdXjHoPno8Bl0r8N/r3k3KzrfF51SSbvGF1
-	5I0KJ0eUXez877oO0Zd0Hj8pVw7oLANlr5H5FBR4ZhyWBls3To+UiVlTEbJLw3dXCbEk/VYTQ58
-	X/rzYVHK533Y7HWzNW2A7tlY4qgYibtaa09nPpUVkk0GzcRfm8yxruMMSh42d/8ekVWd2B
-X-Received: by 2002:a17:903:198b:b0:2b4:6529:7bae with SMTP id d9443c01a7336-2baee842030mr2436805ad.17.1778247694198;
-        Fri, 08 May 2026 06:41:34 -0700 (PDT)
-Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3664da1f5d6sm2479705a91.3.2026.05.08.06.41.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 06:41:33 -0700 (PDT)
-Date: Fri, 8 May 2026 13:41:27 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 8/9] iommu/arm-smmu-v3: Directly encode CMDQ_OP_SYNC
-Message-ID: <af3oB0efZjr7HZi9@google.com>
-References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
- <8-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+	Fri, 08 May 2026 13:41:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 268E326BC;
+	Fri,  8 May 2026 06:41:42 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC9193F836;
+	Fri,  8 May 2026 06:41:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778247707; bh=QmNsu1x3udImOIG51/QbUgV1i4PuYkqOa/OqRyu9jYE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YtuBmpKr0TZuvK4M6mGLVWsPHJyGPvari/WZL9N7a5iN6M6C+22Wv5070OxoiTENO
+	 rqLOSz8K4YTk/Lw8UQnNbvLfijqmt6BezYbkduh1KFqGpIRr0BvfM5GB4Zbef6OXiP
+	 DBig3E/RZyG5BLnpb9HHb9UZJ7vvP/6jpGmNMLTs=
+Date: Fri, 8 May 2026 14:41:41 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Mimi Zohar <zohar@linux.ibm.com>
+Cc: David Safford <david.safford@gmail.com>,
+	Jonathan McDowell <noodles@earth.li>,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
+	roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+	eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+	sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+	sebastianene@google.com
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+Message-ID: <af3oFfdSMUglZVHa@e129823.arm.com>
+References: <9ff4853a8e9932b3a1424f2a6c3347f1723fb5f4.camel@linux.ibm.com>
+ <aftIuPwNeuzc9nY1@e129823.arm.com>
+ <9d1af933ef218b159762884357d127e3644dfe2c.camel@linux.ibm.com>
+ <afwoDgaJxmKwOhXp@e129823.arm.com>
+ <f19081f1eda19d6d1ae133d8ec93e779ab1a25e5.camel@linux.ibm.com>
+ <afyIbW5cljh5ZvTL@e129823.arm.com>
+ <afzwJn+5r15jFxrB@e129823.arm.com>
+ <77ad49cca1acf707f4152ed3e2066b2f24c90c16.camel@linux.ibm.com>
+ <af2nhZyyNaP7LM3w@e129823.arm.com>
+ <2b3782398cc17ce9d355490a0c42ebce9120a9ae.camel@linux.ibm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <8-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+In-Reply-To: <2b3782398cc17ce9d355490a0c42ebce9120a9ae.camel@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_064135_734086_62FE9658 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260508_064149_583348_6775BB1E 
+X-CRM114-Status: GOOD (  32.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,15 +87,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 01, 2026 at 11:29:17AM -0300, Jason Gunthorpe wrote:
-> Change the flow so the caller controls the CS field and remove the
-> weird u64p_replace_bits() thing to override it.
+> On Fri, 2026-05-08 at 10:06 +0100, Yeoreum Yun wrote:
 > 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
+> > > The kernel selftests caused the measurements between late_initcall and
+> > > late_initcall_sync.  After disabling all of the kernel selftests, there weren't
+> > > any measurements. Re-enabling the FIPS selftests on PowerVM LPAR resulted in
+> > > measurements.  (I didn't try re-enabling any of the other selftests.)
+> > > 
+> > > CONFIG_FIPS_SIGNATURE_SELFTEST=y
+> > > CONFIG_FIPS_SIGNATURE_SELFTEST_RSA=y
+> > > CONFIG_FIPS_SIGNATURE_SELFTEST_ECDSA=y
+> > 
+> > Thanks for shraring this ;)
+> > 
+> > I found the reason for those mesaurements. Those come from the
+> > request_module() and usermode-thread generates them while handling module
+> > loading request for crypto-x962(ecdsa-nist-p256).
+> > Since it's not a real kernel module,
+> > I confirmed file measurements between late_initcall and
+> > late_initcall_sync are gone for modeprobe with below change:
+> > 
+> > @@ -1246,9 +1250,14 @@ EXPORT_SYMBOL_GPL(ima_measure_critical_data);
+> >   */
+> >  static int ima_kernel_module_request(char *kmod_name)
+> >  {
+> >         if (strncmp(kmod_name, "crypto-pkcs1(rsa,", 17) == 0)
+> >                 return -EINVAL;
+> > 
+> > +       if (IS_BUILTIN(CONFIG_CRYPTO_ECDSA) &&
+> > +           (strncmp(kmod_name, "crypto-x962(ecdsa", 17) == 0))
+> > +               return -EINVAL;
+> > +
+> >         return 0;
+> >  }
+> > 
+> >  Though this is the only request_module() call between
+> >  late_initcall and late_initcall_sync, but I also confirmed there're
+> >  request_modules() call before ima initalisation before "late_initcall":
+> > 
+> > /*
+> >  * NOTE: kmod_name is printed on ima_kernel_module_request()
+> >  */
+> > 
+> > // This is called from module_init(stm_core_init) -> device_initcall()
+> > // which is in driver/hwtracing/stm/core.c (built-in)
+> > [    1.421986] ima: kmod_name: stm_p_basic
+> > ...
+> > [    1.444900] ima: kmod_name: crypto-pkcs1(rsa,sha512)
+> > [    1.444903] ima: kmod_name: crypto-pkcs1(rsa,sha512)-all
+> > ...
+> > [    1.452029] ima: kmod_name: crypto-cbc(aes)
+> > [    1.465321] ima: kmod_name: crypto-cbc(aes)-all
+> > ...
+> > [    1.467845] Key type encrypted registered
+> > [    1.467848] AppArmor: AppArmor sha256 policy hashing enabled
+> > 
+> >  // IMA is initailised at late_initcall level.
+> > [    1.467850] ima: [init_ima_late:1336]
+> > 
+> > If IMA should care request_module() from kernel before IMA init,
+> > I think there is no way to solve except queuing those events
+> > (kernel_load_data/kernel_load_post_data and open for module binary etc.)
+> > though it breaks "measure before use" principle since IMA couldn't
+> > measure at that time.
+> > 
+> > But if you don't care about those things -- some events happend before
+> > IMA init, I think your suggestion -- controlling the init time of ima_init()
+> > via a Kconfig option is good and ignoring some usermodehelper request
+> > including request_module() before IMA initialisation upto user by that option.
+> 
+> Thank you for the complete analysis.  The early measurements before the TPM is
+> initialized is a problem that needs to be addressed.  As to whether the solution
+> will require queueing is yet to be determined. (Roberto has some thoughts on
+> addressing it.) This discussion makes it clear that simply delaying IMA
+> initialization by moving it from late_initcall to late_initcall_sync could miss
+> measurements.  That said, exposing it as an opt-in Kconfig for those who accept
+> the risk is a sensible pragmatic compromise.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+I think once we address ealry measurements before intialising TPM,
+It doesn't matter when IMA is initialissed since they're considered as
+ealry measurements anyway.
 
-Thanks,
-Praan
+BTW, I'm not sure whether we should take pragmatic compromise first to
+support deferred TPM initialisation or solving it together via solution
+of ealry measurements (whatever it is) in now.
+
+-- 
+Sincerely,
+Yeoreum Yun
 
