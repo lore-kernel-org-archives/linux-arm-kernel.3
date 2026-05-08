@@ -4,66 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C975ACD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 23:22:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EAF8CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 23:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nsHUzVE7LKo+uYJSAzkXrH6EmjBVP7SXVUH1IGFltWU=; b=lc3Z78FwFfEDGtrRLmFVNVN55D
-	ewvnyA0HTcm8kKJhbzbCEveNhK6YL1ZpecppUDn8v/wEj9jqa/WQoDMszuCUkW09ZA3eNOj9r+DB4
-	B6aCY1eIzqrHSVAKWJgDX4rjAMEI1PhP/Ybj/NnNBC+H8MyvOy0e6Ll8hC63LFLxanTMaym6wJLml
-	z3vMle3wY23CtfeMQf55VGRilASjbkHxny6Na0kWKIQKEXYV+5BAUDnB7vvWL4CJwer2vrFolq0Zj
-	Q9pDZMJvDLIbdPBKGNSfM4z7h6wj4KWkggGKkACeVSzeVYf8qY3I0na/hONSQvZjChK/+opxwjxKt
-	JCum5msQ==;
+	bh=k4FmgNUHzvHjavHMv9IGSfUd+TDYHDwTNYC7b15IgLk=; b=m/ESHZoUA38Kgv8YOMYrb4fMYy
+	Ks0nHkFPTf8HdxVhZhC/lpKq9IS95EQnVwGfIcCrBFFnpWMwzJdNNPwgjWxiSBhIl50hd/yit+l+s
+	GhIsEgBwq7nqrn9gJkhO0vIDM5mKToow5YwM+TWYy7qIQ9Q0nPl99Plh+OV1a1u7Ybp5jwahiS7nB
+	XYaJmyTAe/zo0Kv5e437itfzNSJZg/AY+9sYk7Tu95TGfvJz8F0qBjd8k8fbNdwx4rS8kUCvqKXub
+	o75nOTxgzH414ur0qTWan94m6/SFG4fErXr1iSHHPoGOxs2wNRnUOHNxoCed8k7LjWc02ehSPJEWY
+	jREDnyjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLUWX-00000007jlF-0nuF;
-	Fri, 08 May 2026 23:22:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wLUkL-00000007lYr-0PU2;
+	Fri, 08 May 2026 23:36:41 +0000
+Received: from mail-westus3azon11012052.outbound.protection.outlook.com ([40.107.209.52] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLUWR-00000007jjd-29wC
+	id 1wLUkI-00000007lYK-2Rnv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 23:22:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 852CF4435E;
-	Fri,  8 May 2026 23:22:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 658F5C2BCB0;
-	Fri,  8 May 2026 23:22:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778282538;
-	bh=weaL0rAj9bwqCMnAdaO3ctxYFzkcCy5IKKseK6tr2VU=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=t4KUmVL6HesIy9KkSHpJU5RKoYEVLPcVkdt0MnVBM7A1feyRfzfcrDr9Vw4IFjlQa
-	 UpVa6eKDZg7ZJpfeLN7M341H1LJcwv4vi9gqyeKWR52Ew/Vh9NTeX7DMHxNclW1iCm
-	 8XiZCNT/5Zovjx7QoPmAR7NhxT7MAIXTAdGCUWh6hkStjMHP5KhH7+3zqYNxFdnOK4
-	 7TBeiPfdyngtfcD7/3aYEdcOnhDTcPcO7fNmdIZGKRbbHGWcd0+XVF8FPK/24TxLvl
-	 7jFQ4OzgdCngFYSPXHn+VJSVrD8HjBHT0K+4jYyJjdaCq1Ti0TcD0YQabB2J5iTDrF
-	 4VjXOuLysVKTQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02EE138119DB;
-	Fri,  8 May 2026 23:21:28 +0000 (UTC)
-Subject: Re: [GIT PULL] arm64 fixes for 7.1-rc3
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <af5rqOZ-l_Jj2EkQ@arm.com>
-References: <af5rqOZ-l_Jj2EkQ@arm.com>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <af5rqOZ-l_Jj2EkQ@arm.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
-X-PR-Tracked-Commit-Id: 5cbb61bf4168859d97c068d88d364f4f1f440325
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 27a26ccfd528da725a999ea1e3102503c61eb655
-Message-Id: <177828248667.892019.15789613256296910351.pr-tracker-bot@kernel.org>
-Date: Fri, 08 May 2026 23:21:26 +0000
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	Fri, 08 May 2026 23:36:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b+mdTrNaOXrzW3j6dcouwiaYLTNqiqbwPSWkcRgcKavxSULrMqPfOrWy9Kt83HoKl7qZdn+fDNy/ooy08I69MonBrl58bbVvo3VCaBQnCdyVYIMavZHi6eW2sPTNvRX1ogzAeAWeeBwgBU1wpMRyDIzkC0PfN/Y+t5ETEpF3dA3ytz8J43nn7sgKOOucYeZ3cPYSRcNEbXn9WoqhZUdH+6f9kQgzWPkuA3XSs+DtkFvn/BSKPGL8+sdsgiyBmDAzlpsCGzew6aaKupL1vthz9+KvSEnVM01HPMdsDt/53HySrKpUhh+mvaQhlZ1BP4rUBHdVOQdpf0ODlG5K6Pdh3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k4FmgNUHzvHjavHMv9IGSfUd+TDYHDwTNYC7b15IgLk=;
+ b=QylyNNHeAunLKO0IXHBlX+F2Qz+jkdbTZyVuPorinnKJ/2DAP8+bTXe/iw9dqRQLZ8GOgCyIkwPpf+m3ApOEwE80p7r5hkxT3+1afnQi5BMW9AMS5sP/gWmk3pVusnxZV/0WYNXjNB0dDIL2PQAeYHEnthC+RAuyY2FE66Gd8EFiGWfEBjTp/FETAcZ2VDKUc6eA4/aHFnTPDD34OCtOXg4P9JRySWhXO2W52/ZZ4vFk4BSOL8OLqCNip6N+TK9IqwwShwg2ryDyRMrnvOaDcmih/FY03oM3XHSg4WvauYoyaxYjj66ehHuVCoF588vkkAyOyYERKSLzN77FkJejUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k4FmgNUHzvHjavHMv9IGSfUd+TDYHDwTNYC7b15IgLk=;
+ b=uikDvi5xHxFZScwRMZER4Z6uSuZ7gXRnbYjUPCogGCNjXOXqtllo4McgrvLTmwF0kpHuGF4pBdFL1U6z8q69jzJqpJ4PVl6POLNeKcAMlDF/2PRsFJbvTslyXAXsPzQJCILrIch4XEkE8m7jqT17y2AFiUD6T9jQhzd7nm4FlC81YTdMYdh2cr5VZ6Y7/MUa6HgPJISiwYzpLhQXw2f6UDe2SKe+xdRv3gUwzjDVssOJqOGoGgHvgXCQ1oQ93pFGx8EGKh7PtTcQAppO+AhLJtjZBNmOgDPNxZ30TG3YKLJPNRiJFUpZnIx6VsXBzRPbi8BMHCQOh1RHRX5GLvzTGw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DM4PR12MB7622.namprd12.prod.outlook.com (2603:10b6:8:109::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Fri, 8 May
+ 2026 23:36:30 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9891.017; Fri, 8 May 2026
+ 23:36:30 +0000
+Date: Fri, 8 May 2026 20:36:29 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH 6/9] iommu/arm-smmu-v3: Directly encode simple commands
+Message-ID: <20260508233629.GI9254@nvidia.com>
+References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <6-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <af3KDBt8vhClSKEF@google.com>
+ <20260508173736.GH9254@nvidia.com>
+ <af5C_ax1a3LbtL1Q@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <af5C_ax1a3LbtL1Q@google.com>
+X-ClientProxiedBy: MN0P220CA0029.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:208:52e::9) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM4PR12MB7622:EE_
+X-MS-Office365-Filtering-Correlation-Id: 07663a37-f064-4ec6-769f-08dead5aa187
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: EQl9O5mpbMzLX37dtle+DFxWL9m/Bf1T4jKKq9NsbTUo2L/B641gMT1la3MDC9akkn05N2tTaboKyO4LBVFyEmNUBsSjiZ+m7RGHz+tnThMEWyA0p3v0afNANNe8eYZdOqkKFIxO/3QxTC3g1guighOZywVe+uU3bvG3hBYQ3fcy0aMcNaBRwl+H0LGjSRe1Jo5nFKUg+HpZzenO2uYvbpvfAjIYthwSCjdZAzAqywWV8aMF5MwTOeqUZd8JzFAuG0hjj+zXtQZiiImPrQT1pofZtysFpk5hxsHA4CLfTxKFZHzoGNufIXXhU1OxODvLtZGXlF4Etrvgs80958U8YHAuloNbGWuSRLSeYg4psY4m9VLT2CTsCwWtf1lwyLGXturc4LFDLuBV1TWZcAHGtfm4W0zrdnDgXIHkkzlpgrDtdhoHRPbgwbDuuOk9pwOaejS0Z+tJkZ3ER3DVqMwAX52ckuIgksv2u1dHXngcWAJTeO/qZ3Qu0k1kKFE6AmPrtAa/9vgGVJ9K7lnA4Q3wd+QB2LBs6mz2D0f1IlBYoPquDyWPnuRfqM3lD18Cf8atsIgWMHl8zqy7QF5g4oWIHZGbsCMGTiqNKnqh5tfCwvk1nr2j+HEYD7rdnQ3+wLJ3XzwtwtKQNp5XZtj92LnPdf8ltCajc1G3IYkR4x9aQLdeEXIac6943VKxXCFMDqg/
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?juQahdxJuXA1JXbbG3P+jbsUg/qyrp4Q5MlwNbE/SKiOtxr6DRCTD+RzqH5D?=
+ =?us-ascii?Q?N7jA6A8rVQk74u7nahs9UZijJjfu9RD/aCZLmZSgwepf7apQrWviTBefVaLp?=
+ =?us-ascii?Q?LVLCoYJdZKHQqfPdCxb+U9A+HY3VpqhLOMxKsZ6J+WiDPGfdHAjArlIchWkK?=
+ =?us-ascii?Q?mtygCtMOhmbJ1v5e2MSm2w3ask+llZLwLu9fVqOg+RPEHXIKx94eF/q14r/0?=
+ =?us-ascii?Q?DopK8YqBoM1OVRHdwwmddFD/Xsc0aoD4MGSB56FbdNlmNAYr0jT5wEHXvNdF?=
+ =?us-ascii?Q?msaKVAbR3M+CsZ3LWqx59hlZcVlyhD1dsVS5KeGOvolPOxBUVMPkmJVvA2by?=
+ =?us-ascii?Q?BmUdheKUAm/0jW67PV1diWZTQ/povpNv9z5BKUl/OATW0BLlu/lw19xluNyC?=
+ =?us-ascii?Q?soYkbAEcB+c3rFUq2zEjpUKy1Lvq06YNYLiKp1PFM52hBCXCV7vFZRLGjemr?=
+ =?us-ascii?Q?NrqKxJZgX4ulYlcTc0jKLtct3HYXqkRP+qk2SJj7x15ogIgZeEwv9+KcYjVc?=
+ =?us-ascii?Q?w4yNB9F1ey+RYaUS/E+LTI4o7ZQo0aOAEXorEDl2faYvmHBg5Yd/Vt+P8+4L?=
+ =?us-ascii?Q?64uVnZpSGCGb699Ve17+dRBjr+2bQQm3wkoEjUBbxO04/FLFqCpDe6Q9i1QM?=
+ =?us-ascii?Q?UAYqGHzc5RnIfR08RGLE+Nza9HiEYUQpN6aUHGAms5e+2C9Asi0dxbiG4kAw?=
+ =?us-ascii?Q?TtcOyYOUYPWo4704tHzBKNiN3ODGQFEibrKFAm3Xq8nXfhcAaOG0NW2y5xUK?=
+ =?us-ascii?Q?1IPIUd5St80ZpQzsdJLmadmenGFi3fRuXFIMyuzjA1bQVqCyGFjxvFevZRnn?=
+ =?us-ascii?Q?lIjTd9pDtSyrX9yj0CESZse6JwJJPLFU0TbiSc1SJ9/Is1jPtebMM/9jGS10?=
+ =?us-ascii?Q?CRM8HkYvkY9TBjZRF10gx7wQ7/kcWON6Dx/0npBNzna47L19DvVlL55zPZj1?=
+ =?us-ascii?Q?2EBj07wYD+9veHq6MGNW5eeqRQpfSDy0tAXPuuUnLxsOh0sNApZKvE3n7roO?=
+ =?us-ascii?Q?ybYfR63FVguMfoi73aQAoJZ3xFhfDEPYL3l6ZCsMEWYtcMmBmnInCU3RrcDe?=
+ =?us-ascii?Q?o2PCDPxB5QcTNKRqqQX/kkIlduGq9r9/md4TNSvfs93hDbzUhKZ48G3BF7pV?=
+ =?us-ascii?Q?96D0nGPQFkyEpWo87gNF9jZthovYeYRapAqZqEyezjOEIYYtnLFWuFFv3tsz?=
+ =?us-ascii?Q?9PmEgKYg34b9uS0ZYAKQNzjIr5fNBdSAa0jf6xihqXUirao8egz0WyR5RiyH?=
+ =?us-ascii?Q?Ti/aOjXEPeCqDgqf1F9+45vwYJDlpWiw9d5OXHAj1O19OprfT2PFi52PRI/P?=
+ =?us-ascii?Q?7TqGvJqJ8iLA7y64AjBGWhZEGI1sVOJs0RkEITzWeB/ihubK1LMyaUcm7g+C?=
+ =?us-ascii?Q?Rj/vbpR+rF0MQuVOACWtFDtBjFAkpiiZw2rPWSdmdimxfh+GTZ6QSsGX5pjn?=
+ =?us-ascii?Q?XQV3gO7PRW2MXAv88TZFZO3nAsrk3atrLgrrd77OaoWEPJOYfHQGxUICvZwz?=
+ =?us-ascii?Q?2wkWevfLb173uT5ufPBZJhe6HjUWKiutHdr+ATHrLcvY/83ikdlinvhMTuFi?=
+ =?us-ascii?Q?RiRLCHDAGlsBchP/81BPYeykCRJz6MAenBp+h+N+DcXp6mW9w9rfTwbHmBIx?=
+ =?us-ascii?Q?Ei9s0EEA4TrVXZhuueyH6FM/CmtsCVDEgto0bo4uZjFvZ+py87Ejcsg/xtqV?=
+ =?us-ascii?Q?X3aUFUxlRyxkefxLVuk6tfqEd6qZO3FipEyjeRZOTs02tkiU?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 07663a37-f064-4ec6-769f-08dead5aa187
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 23:36:30.4907
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IAEY4N+yI5rPcA+IriKKiTanWz26qQS4ttqcIPhxAJSE6vP/E8N/1cWCiP1QxHtV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7622
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_162219_610600_7518A68A 
-X-CRM114-Status: UNSURE (   4.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260508_163638_630349_22558BEE 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +146,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sat, 9 May 2026 00:03:04 +0100:
+On Fri, May 08, 2026 at 08:09:33PM +0000, Pranjal Shrivastava wrote:
+> > > > +static void arm_smmu_cmdq_batch_add_cmd_p(struct arm_smmu_device *smmu,
+> > > > +					  struct arm_smmu_cmdq_batch *cmds,
+> > > > +					  struct arm_smmu_cmd *cmd)
+> > > 
+> > > Nit: Same here, why not  __arm_smmu_cmdq_batch_add_cmd? I understand
+> > > that _p just means we'll aceept ptr.. but the name's kinda wonky.
+> > 
+> > Which becomes a fairly widly used public entry point, so I didn't want
+> > to have the __
+> > 
+> > Though there is no external user of arm_smmu_cmdq_issue_cmd_p()
+> > 
+> 
+> It's just that we're calling "arm_smmu_cmdq_batch_add_cmd_p" at one
+> place and using `arm_smmu_make_cmd_<cmd_name>` at the other. It makes
+> one think what's "_p" in issue_cmd, only to realize "_p: pointer variant
+> 
+> I guess I didn't like the new _p ones but I guess it's fine. Happy to
+> leave it at your discretion.
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+I don't much care for the _p (and yes it means pointer variation) but
+do like it better than __ and failed to come up with another idea :)
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/27a26ccfd528da725a999ea1e3102503c61eb655
-
-Thank you!
-
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Thanks,
+Jason
 
