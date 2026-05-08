@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C553CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 22:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF82CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 22:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KGhV4tJhhFITtip7RIJj1HklpJJ78N/H5BhAF01FN7c=; b=kvLo8A0PC5Rt85SdAtd3QtaOoC
-	RXrQsk7r1e3hOR1975qcSpujNKCOv2wubhEDjKKtJcB3a2vnvNS/Sd485OIOtQCmIMW4e11o/fJkJ
-	5talYBl5aV7WzJDdoi1GeGauA0WD98JYsoMYNBiSX7UxtF1z2kjZvQLcYYserzaHGm4R+oA119oPE
-	xFh5BBL71PlFHivDO5eWH+758C1rkisjliTYnsMDExJ+NQBhAxGftrgw1FxPdfJzRfk4wsjV8uS/S
-	uKA/2NFi7sXp/mxTkBC5VTDt+CDjNU7e3oEgtWtkwX7QrvnheT7i46mwU2X89DvdQy80+iu+d0Tq4
-	F84KMWFg==;
+	bh=iJPqzXi9kgp6gTh6d/fj8QRr4f1e5oBYY10/a7jgYV0=; b=wYMC057C+rp1ytoIh+ru+3p9Jk
+	aS9KP3USMHpEsUGW/AlEWuulyHspMuuUZheJGYc0aQWX2RK1K5pY8WdgTVHRVHicYf/Ok64Meyt6n
+	5tJWgfGSWy8VdT1GVb6WMe5V54EzN+vECzAyl+eOfrmuYEY9But7NRsLupg1WjxF6Ofrw6Ii+r+Nh
+	jXVm0uT+66zAMydBuj1Z1bLPyMwMedXweNNbVn39lRwmjnKPFhfbgJIxE65qtReUkq+MaDpSrUutN
+	NVV9ZTh5YMLQJnTec5NAhnEs2S/i36lT9ztpy2lkgE6YlwrkQsN618i96t0lY9Q/pjesboJUr9zSa
+	tDCdoM2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLTog-00000007ejV-3Pw7;
-	Fri, 08 May 2026 22:37:07 +0000
+	id 1wLTsV-00000007f9Z-1dHC;
+	Fri, 08 May 2026 22:41:03 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLTof-00000007ejA-0zX0;
-	Fri, 08 May 2026 22:37:05 +0000
+	id 1wLTsT-00000007f9N-2QED
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 May 2026 22:41:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 510256024D;
-	Fri,  8 May 2026 22:37:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58AB5C2BCB0;
-	Fri,  8 May 2026 22:37:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E520B60582;
+	Fri,  8 May 2026 22:41:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97949C2BCB0;
+	Fri,  8 May 2026 22:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778279824;
-	bh=doWXpAV8i1KIsPVSpwySS7aiXUQtAtR9+ap1JLqiNmY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nXG85BpPsxRXtTy9vRquN4aUado99x7u/EAuFTgMICFe+wwITf2rfcVrYZgAwlYya
-	 Mxy4a2RZCeIctfJAwSRe8W2bhDgn79oPsVSdbGG+Pygl/yXbYVRJ8gHhO6TaHl/4no
-	 B9PgioG6LhM1bT4qyMVEUCU8FkaCHv9N959BnZLI903mRcw/uhTnM2YoGPrP7XYK4l
-	 5dLH4A9DVNHAze0vKfR6FttTjSVFm/cfddtjE9p85vol/yodgVTNfqw2p6xNHX0btk
-	 APfG6Y8z/NZzpVCZ5S1qtUXva0YGZUcXb1gix9GmLarkB/L6SFNKFx5+vFD1rCDKIl
-	 fI643HKC3DtaQ==
-Date: Fri, 8 May 2026 15:37:02 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Russell King <linux@armlinux.org.uk>, Frank Wunderlich
- <frank-w@public-files.de>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Mason Chang
- <mason-cw.chang@mediatek.com>, Daniel Golle <daniel@makrotopia.org>
-Subject: Re: [net-next v7 3/3] net: ethernet: mtk_eth_soc: Add LRO support
-Message-ID: <20260508153702.69b89021@kernel.org>
-In-Reply-To: <20260506192806.143725-4-linux@fw-web.de>
-References: <20260506192806.143725-1-linux@fw-web.de>
-	<20260506192806.143725-4-linux@fw-web.de>
+	s=k20201202; t=1778280060;
+	bh=FYU/15qOeVBqPbvSjXhyZXA3TJXjTjc4EpIfifg/PwU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=Oe6pVYeox2+qqYgcZWf+Q4AN+uhEr35Fs7Q433jPfVEqRe+zwzCWEraBsWad58/Y0
+	 BLRjt7e4ACn9T5otwG8i2OLqqksLfrY60HwWQX1NqSihzMiRl6QdvDO2JgIBIqL+GC
+	 fcy7BUtFsJ3AGwQw3/nsJo+iaOO6nQApRwrZzJYokn4AHrmQ5Boua4IScDLZT6uDZI
+	 daN+Qc7rTOW677wYCzC8kZsm1kulQUR8DBPWtIXIwADqnM9qxHVSqkPB9PKGuHtVLR
+	 cN7fkPeupD9gZh/Ud27b5jM3aOfjRTB1iuh9b0kZ3GcIjzU9UdYh27u0T1AMUN7J0c
+	 AnWsa2ks9LGzQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3FDCC38119D3;
+	Fri,  8 May 2026 22:40:10 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] MAINTAINERS: change maintainers for macb Ethernet driver
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177828000904.878212.12911947829161473740.git-patchwork-notify@kernel.org>
+Date: Fri, 08 May 2026 22:40:09 +0000
+References: <20260507120444.9733-1-nicolas.ferre@microchip.com>
+In-Reply-To: <20260507120444.9733-1-nicolas.ferre@microchip.com>
+To: Nicolas Ferre <nicolas.ferre@microchip.com>
+Cc: theo.lebrun@bootlin.com, conor.dooley@microchip.com,
+ claudiu.beznea@tuxon.dev, netdev@vger.kernel.org,
+ alexandre.belloni@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,14 +74,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed,  6 May 2026 21:28:03 +0200 Frank Wunderlich wrote:
-> - fix u32 vs. be32 reported by patchwork check
+Hello:
 
-Have you tested this? I still see an extra sparse warning
-(install sparse and build with make C=1)
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-It'd probably be good to fix the pre-exisiting warnings as the first
-patch in the series while at it.
+On Thu, 7 May 2026 14:04:44 +0200 you wrote:
+> From: Nicolas Ferre <nicolas.ferre@microchip.com>
+> 
+> I would like to hand over the macb maintenance to Théo, as I'm unable to
+> keep up with the recent flow of patches for this driver. After speaking
+> with Claudiu, he indicated that he is in the same position as me.
+> To help with this work, Conor has agreed to act as a reviewer.
+> 
+> [...]
+
+Here is the summary with links:
+  - MAINTAINERS: change maintainers for macb Ethernet driver
+    https://git.kernel.org/netdev/net/c/0a549298f452
+
+You are awesome, thank you!
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
