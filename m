@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84D4BCD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 23:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C975ACD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 23:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BXhmwOV3O8Q6o4UYPr9w+mru4KH2RsvYZ0kT2vDaaU0=; b=mTYV9nWekGM2Y/e3NMMV3jqmT0
-	+RIZt/prAC6qbJ3cu8Gn9UBwWywV12PY/XtEvogUpqA8RY4GBDV1oA0J2dfwnvnmEx2tFTg3O+ksw
-	U8MkcHRUX6fpujapC/EP+E/IiuD2LjYzg3WGyTiY+mrffY6uytJsQsQtUoZ6q28nY51KLMzrrGR0/
-	6FxoakhLFOdipHF4VLW8p3Rsp+r6w8mGgAkYDxREFm8C2j38toqlRGBgS7XxRmH87by/45IrwKEEZ
-	/C9GmGGkj8tWhiZtO5FmmgeyYWAgWBs9cdU8w5CAn2E7TE5+pbXKjdPXr6xqA29bxVt4TiTGLbQxB
-	EH7ssdlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nsHUzVE7LKo+uYJSAzkXrH6EmjBVP7SXVUH1IGFltWU=; b=lc3Z78FwFfEDGtrRLmFVNVN55D
+	ewvnyA0HTcm8kKJhbzbCEveNhK6YL1ZpecppUDn8v/wEj9jqa/WQoDMszuCUkW09ZA3eNOj9r+DB4
+	B6aCY1eIzqrHSVAKWJgDX4rjAMEI1PhP/Ybj/NnNBC+H8MyvOy0e6Ll8hC63LFLxanTMaym6wJLml
+	z3vMle3wY23CtfeMQf55VGRilASjbkHxny6Na0kWKIQKEXYV+5BAUDnB7vvWL4CJwer2vrFolq0Zj
+	Q9pDZMJvDLIbdPBKGNSfM4z7h6wj4KWkggGKkACeVSzeVYf8qY3I0na/hONSQvZjChK/+opxwjxKt
+	JCum5msQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLUWR-00000007jji-0Fj1;
-	Fri, 08 May 2026 23:22:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wLUWX-00000007jlF-0nuF;
+	Fri, 08 May 2026 23:22:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLUWO-00000007jjF-3k7t
+	id 1wLUWR-00000007jjd-29wC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 23:22:17 +0000
+	Fri, 08 May 2026 23:22:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 34EF54435E;
-	Fri,  8 May 2026 23:22:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DAAAC2BCB0;
-	Fri,  8 May 2026 23:22:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 852CF4435E;
+	Fri,  8 May 2026 23:22:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 658F5C2BCB0;
+	Fri,  8 May 2026 23:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778282535;
-	bh=2AevTr3shap19RUwMMlENTSD4YYHTePzbIvM0R5o1lo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=U006x1Qi5eQV8i9yrksMub0wobOaVX5RjUJq+keDQ64c+l16x5WSvWiE4KFcC/+vJ
-	 roHBlJI3OkPAJJA39d2ejeHLi0IISw5fbcqZccAwDh7PRzjRDwWyeENAZvGeaMsclr
-	 RPDbwOtvr6Wv2cyXplNKOlJw1UdcYSp88opgx/WQ+rpBrJ9uJSiXthYLwMtnqzR3RU
-	 OCBYCis4bgVvbE1Pufq5fptFH6tEj1GmoT2/x/dMCB0lwB94aDGGR/mwMnWbWO0Ddb
-	 vKU6yPeBieS4Y1flyyZjEQ8dztxlSJwdSabxUL/iJqKYO6aic98zhe8C4Kdb7VGmsM
-	 J/SLZDHVmTz6w==
-Date: Fri, 8 May 2026 16:22:13 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Steen Hegelund <Steen.Hegelund@microchip.com>,
- <UNGLinuxDriver@microchip.com>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, "Steven
- Rostedt" <rostedt@goodmis.org>, Bjarni Jonasson
- <bjarni.jonasson@microchip.com>, Lars Povlsen <lars.povlsen@microchip.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, <kees@kernel.org>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-rt-devel@lists.linux.dev>
-Subject: Re: [PATCH net v2 1/4] net: sparx5: defer VCAP debugfs creation
- until after netdev registration
-Message-ID: <20260508162213.6b755d8c@kernel.org>
-In-Reply-To: <20260507184714.joyobsh6ydjzrkc4@DEN-DL-M70577.microsemi.net>
-References: <20260506-misc-fixes-sparx5-lan969x-v2-0-fb236aa96908@microchip.com>
-	<20260506-misc-fixes-sparx5-lan969x-v2-1-fb236aa96908@microchip.com>
-	<20260507090810.53e66ef6@kernel.org>
-	<20260507184714.joyobsh6ydjzrkc4@DEN-DL-M70577.microsemi.net>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1778282538;
+	bh=weaL0rAj9bwqCMnAdaO3ctxYFzkcCy5IKKseK6tr2VU=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=t4KUmVL6HesIy9KkSHpJU5RKoYEVLPcVkdt0MnVBM7A1feyRfzfcrDr9Vw4IFjlQa
+	 UpVa6eKDZg7ZJpfeLN7M341H1LJcwv4vi9gqyeKWR52Ew/Vh9NTeX7DMHxNclW1iCm
+	 8XiZCNT/5Zovjx7QoPmAR7NhxT7MAIXTAdGCUWh6hkStjMHP5KhH7+3zqYNxFdnOK4
+	 7TBeiPfdyngtfcD7/3aYEdcOnhDTcPcO7fNmdIZGKRbbHGWcd0+XVF8FPK/24TxLvl
+	 7jFQ4OzgdCngFYSPXHn+VJSVrD8HjBHT0K+4jYyJjdaCq1Ti0TcD0YQabB2J5iTDrF
+	 4VjXOuLysVKTQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02EE138119DB;
+	Fri,  8 May 2026 23:21:28 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 fixes for 7.1-rc3
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <af5rqOZ-l_Jj2EkQ@arm.com>
+References: <af5rqOZ-l_Jj2EkQ@arm.com>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <af5rqOZ-l_Jj2EkQ@arm.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+X-PR-Tracked-Commit-Id: 5cbb61bf4168859d97c068d88d364f4f1f440325
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 27a26ccfd528da725a999ea1e3102503c61eb655
+Message-Id: <177828248667.892019.15789613256296910351.pr-tracker-bot@kernel.org>
+Date: Fri, 08 May 2026 23:21:26 +0000
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_162216_954153_803EB2E4 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20260508_162219_610600_7518A68A 
+X-CRM114-Status: UNSURE (   4.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,29 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 7 May 2026 20:47:14 +0200 Daniel Machon wrote:
-> > On Wed, 6 May 2026 09:25:36 +0200 Daniel Machon wrote:  
-> > > Move the debugfs setup into a new sparx5_debugfs() helper in
-> > > sparx5_debugfs.c, invoked after sparx5_register_notifier_blocks()
-> > > succeeds so the netdev names are finalized. sparx5_vcap_init() now
-> > > only deals with VCAP state. The sparx5/ debugfs root is created in
-> > > the new helper as well.  
-> > 
-> > netdev names are never final :( User can change them at any time.
-> > The best practice is to name the debugfs file by some stable hw-related
-> > property, bus, port number etc.  
-> 
-> Right, but they are finalized in the sense that we have a name we can use for the
-> debugfs files (which we dont pre-patch).
-> 
-> Hmm. I think this patch fixes an actual issue, where you cannot query the
-> debugfs files, because a previous patch broke the ordering. I agree that the
-> names chosen (netdev_name()) for the files were poor, but is that really a fix
-> for this series? Should that not be adressed in a future patch for net-next (it
-> involves changing an VCAP API function that is not only used by Sparx5/lan969x,
-> but also lan966x.).
+The pull request you sent on Sat, 9 May 2026 00:03:04 +0100:
 
-Dunno, if we are aiming to switch to a different naming scheme we can
-just do it now, I reckon. It will not make the fix much longer.
-And presumably it will alleviate the need to reshuffle the ordering.
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/27a26ccfd528da725a999ea1e3102503c61eb655
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
