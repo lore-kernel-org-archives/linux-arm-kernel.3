@@ -4,56 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB340CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 15:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B604CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 15:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oDpUFVubUhLjiPJb1eA9mXwL9cKm4D7iCqVyZ/+IIRQ=; b=jXV4ELObndc82ewWJW4K358ARI
-	PNQn8djMKwH29ICB+FXycFjWY0gDKTWkZ6/gpeXm+uKquFukpiVFGqXBJFNQEiMMRPT+Ia1kHdyyu
-	vt4c/td+co+0DzxuF+YmZZ3yYgbCaia/JGEEY58EL+/SluauWb/O7ckpjg5+f7NoHAvJEtKH64EXF
-	HoMHbdTfLJaowKUmm73czqUA2anDN5ifMY3J7ABBjmziEuepWE3E3gw3EqKg6lvZGoqQooUWl30QY
-	KJZWsCk9o2xiyev2N+l7nmfROmLYPbsf7PmSucVtkiqL/8aojIP2TkLAYPOt9+2b6sD6GuVqgIg5Y
-	6x21HeAQ==;
+	bh=t2oV2koMfpIC4K+PJeHOSY50TcXkzLHkhL+QFnGLi9M=; b=ORYWYsicWphgEFKW50maEwPi7t
+	6qIeY3LgpSR773uR/O26aAHSH/ne9Q9kuxOSxsTYCxez6lousTWC025Ir8nPNpz8ohpzCl9/2RMEp
+	A+IIJlbsLN9T4Y75fAg8etDXB6KRfXLT7Qi5BRp1uErYf4YB3NoP44AY9guv1ZJ/7wVjolXpGRAyj
+	E1r2u/j5MgUR5gbAQkrfWgAjxUVoM/18JF20ndtQwERRsE/mHOVtETJnSIsrIUa2kGovhpTWCCC9s
+	F9dlzkdfFYHLs89n50NqVraV1v0ThX9shyynv5pLyXkniycF8VA6g3fm9rdFZkoceYv9oJoQRgLD4
+	P4FiPCUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLND1-00000006rAq-2XUq;
-	Fri, 08 May 2026 15:33:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLNCv-00000006r6k-2bhF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 08 May 2026 15:33:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=oDpUFVubUhLjiPJb1eA9mXwL9cKm4D7iCqVyZ/+IIRQ=; b=kW6wtzSAH3nRw6imtj3gE5lZMf
-	GoamJ6p1yMrtbvNbCWF8Au7otNGB1kyJjUNGMTfANTI6S6gQ24k1dVZRU4rJ2Ue6blGxnyWjoiu6H
-	9fjE1UGM/IrLuzDtIXpm1wEoMGUB7lLtkkZmi3lLPXuOvxvVBsASwmdAr2Ymtju3ElYTVVOohlby+
-	aYwkYw4d6T37PqVd2RbB6U3/crsrBervEkEmyClrbbdqql25hNFb2Uihx+PCgrVXI1tSZNaldFSOP
-	qhGCq4j+ZTjeOyCXCRZPCRXyNxgdKNgOQ7dvE7dM7e0486BcfMSeahkVjRvmP9RQvLsr+fCBW3Me1
-	y9lbwvuw==;
+	id 1wLND7-00000006rEq-05PG;
+	Fri, 08 May 2026 15:33:53 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLNCs-00000006iI2-1Wwv
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLNCz-00000006r8o-2n9f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 15:33:40 +0000
+	Fri, 08 May 2026 15:33:48 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E27B359E;
-	Fri,  8 May 2026 08:33:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D975335A1;
+	Fri,  8 May 2026 08:33:38 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 77E8F3F836;
-	Fri,  8 May 2026 08:33:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A0303F836;
+	Fri,  8 May 2026 08:33:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778254417; bh=rgpT6JeYUUTF8dPGQi0+aswaXnBqWOyh+njR4c8YQ2g=;
+	t=1778254424; bh=AxDBdwk/l4DP4oCMpuyPHG7biswl244Z7Wb0hlRCNKM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kIw2Ap/61KRo21Tkwh1A2uyf3Iz/VBqQM0L6YOm3EwB38E0lgrOuMb0ZD2KvNURrT
-	 gs1rG6dhWjwp7kDVtli+ZKb2Dw9XRC0rmc1bSz96jbOta+TFeNFN3kkeVRhaWPN7Iv
-	 9YjMSo1mlJr5Kv0Y1Tv0YaDmj7pyv1C1SHwzIA+4=
+	b=NcmY0dKovz8e70ZeF/T913vLKpW75cT/hlc79E4C8Q7GquaaXcXhY8NZB/0W5WHUt
+	 ixXfTstzv/RfRPzP5zp9M3MD3ZWngMxWBsM59t+1pJNDIms12ghNlSTCuIAHVjTy5F
+	 OpyoJL1ALFGmXDpWSvULZungsBFQvNl18snw6Iaw=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -72,20 +57,20 @@ Cc: sudeep.holla@arm.com,
 	kuninori.morimoto.gx@renesas.com,
 	marek.vasut+renesas@gmail.com,
 	Cristian Marussi <cristian.marussi@arm.com>,
-	Brian Masney <bmasney@redhat.com>,
 	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Subject: [PATCH v4 03/15] clk: scmi: Use new determine_rate clock operation
-Date: Fri,  8 May 2026 16:32:48 +0100
-Message-ID: <20260508153300.2224715-4-cristian.marussi@arm.com>
+	Stephen Boyd <sboyd@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v4 05/15] clk: scmi: Use new simplified per-clock rate properties
+Date: Fri,  8 May 2026 16:32:50 +0100
+Message-ID: <20260508153300.2224715-6-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260508153300.2224715-1-cristian.marussi@arm.com>
 References: <20260508153300.2224715-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_163339_026073_E76437D4 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20260508_083345_742093_47934961 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,78 +85,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the Clock protocol layer determine_rate logic to calculate the closest
-rate that can be supported by a specific clock.
+Use the new min_rate and max_rate unified properties that provide the
+proper values without having to consider the clock type.
 
-No functional change.
-
-Cc: Brian Masney <bmasney@redhat.com>
 Cc: Michael Turquette <mturquette@baylibre.com>
 Cc: Stephen Boyd <sboyd@kernel.org>
 Cc: linux-clk@vger.kernel.org
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-@brian: I'd modify further this clk-scmi driver, with a patch on top of
-this series, to properly use your new CLK_ROUNDING_NOOP flag once your
-series AND another (already reviewed) series on clk-scmi from Peng are in.
+v1 --> v2
+ - Collected Peng Reviewed-by tag
 ---
- drivers/clk/clk-scmi.c | 31 ++++++-------------------------
- 1 file changed, 6 insertions(+), 25 deletions(-)
+ drivers/clk/clk-scmi.c | 17 ++---------------
+ 1 file changed, 2 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index b6a12f3bc123..c223e4ef1dd1 100644
+index c223e4ef1dd1..7c562559ad8b 100644
 --- a/drivers/clk/clk-scmi.c
 +++ b/drivers/clk/clk-scmi.c
-@@ -10,7 +10,6 @@
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/of.h>
--#include <linux/math64.h>
- #include <linux/module.h>
- #include <linux/scmi_protocol.h>
- 
-@@ -57,35 +56,17 @@ static unsigned long scmi_clk_recalc_rate(struct clk_hw *hw,
- static int scmi_clk_determine_rate(struct clk_hw *hw,
- 				   struct clk_rate_request *req)
+@@ -202,7 +202,6 @@ static int scmi_clk_ops_init(struct device *dev, struct scmi_clk *sclk,
+ 			     const struct clk_ops *scmi_ops)
  {
--	u64 fmin, fmax, ftmp;
-+	int ret;
- 	struct scmi_clk *clk = to_scmi_clk(hw);
+ 	int ret;
+-	unsigned long min_rate, max_rate;
  
- 	/*
--	 * We can't figure out what rate it will be, so just return the
--	 * rate back to the caller. scmi_clk_recalc_rate() will be called
--	 * after the rate is set and we'll know what rate the clock is
-+	 * If we could not get a better rate scmi_clk_recalc_rate() will be
-+	 * called after the rate is set and we'll know what rate the clock is
- 	 * running at then.
- 	 */
--	if (clk->info->rate_discrete)
--		return 0;
+ 	struct clk_init_data init = {
+ 		.flags = CLK_GET_RATE_NOCACHE,
+@@ -217,20 +216,8 @@ static int scmi_clk_ops_init(struct device *dev, struct scmi_clk *sclk,
+ 	if (ret)
+ 		return ret;
+ 
+-	if (sclk->info->rate_discrete) {
+-		int num_rates = sclk->info->list.num_rates;
 -
--	fmin = clk->info->range.min_rate;
--	fmax = clk->info->range.max_rate;
--	if (req->rate <= fmin) {
--		req->rate = fmin;
+-		if (num_rates <= 0)
+-			return -EINVAL;
 -
--		return 0;
--	} else if (req->rate >= fmax) {
--		req->rate = fmax;
--
--		return 0;
+-		min_rate = sclk->info->list.rates[0];
+-		max_rate = sclk->info->list.rates[num_rates - 1];
+-	} else {
+-		min_rate = sclk->info->range.min_rate;
+-		max_rate = sclk->info->range.max_rate;
 -	}
 -
--	ftmp = req->rate - fmin;
--	ftmp += clk->info->range.step_size - 1; /* to round up */
--	ftmp = div64_ul(ftmp, clk->info->range.step_size);
--
--	req->rate = ftmp * clk->info->range.step_size + fmin;
-+	ret = scmi_proto_clk_ops->determine_rate(clk->ph, clk->id, &req->rate);
-+	if (ret)
-+		return ret;
- 
- 	return 0;
+-	clk_hw_set_rate_range(&sclk->hw, min_rate, max_rate);
++	clk_hw_set_rate_range(&sclk->hw, sclk->info->min_rate,
++			      sclk->info->max_rate);
+ 	return ret;
  }
+ 
 -- 
 2.53.0
 
