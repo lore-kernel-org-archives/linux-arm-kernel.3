@@ -4,103 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A465CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F18BCD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:24:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+iFvo8qHSuKHpqwOV+1SAexauNVOA61i8ZsTqWG1p1E=; b=m55HhjunhBaXIF/tH/8IqWrSna
-	fUxHVKEkgDgxL1uwdHloeZLjsi2NG8meTca+9CV5OwkibtSDu9foNDniYLwEhWAGFQaxcu5lWnR+Q
-	9V7dCtuHw8iin32F35orHWgJvODRGN2fMm/bd+labJ76YYdkRR8qmGB2knxpA2zWRMMiwKmMTSnsa
-	J8H3o8pjuH2xIeeZkihRUpiuEpH2a9rmktnhxWWP+05gZ4OHxikfMhY7NrkshRNmj2BgzE/QZ/APH
-	AYdDpP/smqCynVnPYU6pla8JOGoeq0cLO0JNsOM8Y7iLxPUjQrHE06KvxGvHedHAr0fw6mK5QwAAp
-	P9qTDgdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lFSeEfGGNV+FW5uJAJBdqgcV9A/JyEddbEDCQvEiO6g=; b=q5Z3TTBowzBHbkzh+m49WZd0U8
+	ox+5NI0z0K6AXbfmdeIbCnuegND4+EonTRemweggXRAFRHJY0pYRJi9WImCvVJQSsnTbhJftDwmQT
+	J9rhbMQ1Yc+a/VOxGWwkHp53ClH1Dx4PSWE1T7Vknf5NbSN1QagGwUJfWrYQeigzwQ7o8gXON3ddO
+	8rkt7K1S2TG6YaHCOL5ewOO1bXYLK+6SkS3UkVh1V3bWepJhSJGai1FJAJLFRVk+sz7OSfDKZW5qG
+	TjcbdXtdqwbOGVSHAOhoc/7CrFwUkRzdfHQEMv7kj7V6Qs/urTkUVX02oaBojxv1VnNFdwkSiMvdD
+	yM93Tkng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLM6o-00000006f9O-0SiX;
-	Fri, 08 May 2026 14:23:18 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLM6m-00000006f8n-0Wyz
+	id 1wLM7f-00000006fHj-14Vc;
+	Fri, 08 May 2026 14:24:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLM7c-00000006fGo-45R2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 14:23:17 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-baa8c78ac7fso311451666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 07:23:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778250193; x=1778854993; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+iFvo8qHSuKHpqwOV+1SAexauNVOA61i8ZsTqWG1p1E=;
-        b=KZpumPZ9mjdLDWVS9cbII8XCSqmObWMB/R1k+7FQSOQfeiQfUGOuxg4SNiUg64boZi
-         ogth77hpmLQ//pDXr/8HDVmECptYBsYUG6EaHTriU+mVuMZkw7b9Dc1JtCMZ1f9YZR5+
-         MlxchBeMn7MKnwCwjVmsSTzDvI2gYumMC8uRj4NIIs2DOnUk9nno7o5OeY6LyoKJsCwB
-         BDHuG6jQ6seAN3e3GxsKXUFqwQ4gyEmc3n3INiypLFbBmb1WAIpBgQ/5zUtzrAtR3Uza
-         +jkCNXpy5OWLLrDdM5L9rBVLpF7MigcTrUQNZD0G6rpr8eQgPjBxNF3UsPco8xLGi8UF
-         dcPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778250193; x=1778854993;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+iFvo8qHSuKHpqwOV+1SAexauNVOA61i8ZsTqWG1p1E=;
-        b=bO4Anxh99EyqO4/iLOCnOc0/gLUywifW8xAdtEn3a1QfSP4pKLZc7zI33X+Q+mNqkH
-         g5TAEslBk+tADpfnWt7Qe64Mz7VGJEJALrXhV9qi32XxA2PKNflddbDX+LZJkSMsbfRQ
-         S9lHFoyFSFw1Lq6nAOjU0pMP7RiX7K2q0bgIuq1nuUtgqGsY0I7DCZJyjzTbLGr03cS/
-         OlK58r/w7yl132bw39t+C0WDJWK/5R+YbNJm55c2sme1LXbwsTrzudTsGaYcRcJrGjrU
-         vZx50aVstHtJ2rYaNKRBzB1ubF6xAM05yapyfLVH1MD4ByyeF5bmOneltoVC7/b+p4DP
-         qrzQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+KiC3z4qQIRZ9synJgKKYpMMNVXrwM14jNKbkXtEWLY9eTb7dKWEsPY/pSM6SAkOsn1wltJE0lKLPjh5r8xk93@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDJab9hYu44GkQwUo2R4AmWRbj/wRUWIHwPiBcQ+84iwMNaiQR
-	jNK9AMgrmhcWPc4JHapxKqdWMCpvT0cqCKyKDOQLlkUC+x2i9YMIN9K2dCR/Fsinj98=
-X-Gm-Gg: AeBDievN8ueOQC2J6Ad1ToUBLN9zUba/dPZjtHVhkAX3hqHqkP93E09xKLHvSFJ1HX/
-	o9+JRZL0UlMWSbaWgL7GOd2dbHhN7tuv29WJQuriSKlHwGtdCnbOqK8PI2Csqd4pXnz/Lf0d33h
-	1oEgLxTJOF27QdcfJC1H70rPul2ekXtUk/2PA5yDpwHMr2XSaXe2nrpVW1xO8xxKtn7WGKL0uwe
-	a/YftGeNeYDPx5qgCFSpVkJDGqXlY4L39t7piXgJZgS1+5wgh3DWYBMP1CC3sEMCkZHbRfHqgy0
-	8a8JL8mlnEK6dRJA79w3vV35zyWEosjmJ2zCWeoeEYF2X5huii/MtwNHfLEb9ftns2kdpL1JmQ0
-	qZ1bUbFL6mZs3iwqi0WMRDMTF2E4S6U35jWgu0dvD0idrzC3MBSGZu8aAIEnQR8EvduRwfaO0cy
-	7DBBEuY5zHB/H6N3Tmy/O0VDFwGiGUt9uCiHM=
-X-Received: by 2002:a17:907:807:b0:ba5:2f0a:2f40 with SMTP id a640c23a62f3a-bc56aa45eafmr738018166b.4.1778250193349;
-        Fri, 08 May 2026 07:23:13 -0700 (PDT)
-Received: from [192.168.0.167] ([109.76.20.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-67ef0b6a648sm703741a12.7.2026.05.08.07.23.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 May 2026 07:23:12 -0700 (PDT)
-Message-ID: <328860b4-1d4b-4a90-9d10-cb70207aaa5c@linaro.org>
-Date: Fri, 8 May 2026 15:23:11 +0100
+	Fri, 08 May 2026 14:24:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9AF261D34;
+	Fri,  8 May 2026 07:23:59 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81B0F3F763;
+	Fri,  8 May 2026 07:24:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778250244; bh=ey7j9mUyY/5BkGE3ioQIxIOGQe6vQUDgNT0wSP5HSn8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f//jqe4qjaix8EYoHr4nh8K0vmc4rWVJGmfLkqhRiuebd+7CkHcs6C+F+6HZ/DCMp
+	 pDGLbbTUg61TmkBZW38vt1j5M0HcOXhMtiA9CnF790CtCAcwxA0wjVgpMKHEeBMZ7g
+	 Sw+4jWoLAH+pQ9aRBO8wLrkRLWD4B3WQtFAV7/p4=
+Date: Fri, 8 May 2026 15:24:01 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Peter Zijlstra <peterz@infradead.org>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	ckennelly@google.com, dvyukov@google.com,
+	linux-kernel@vger.kernel.org, mathias@mongodb.com,
+	mathieu.desnoyers@efficios.com, ruanjinjie@huawei.com
+Subject: Re: [PATCHv2] arm64/entry: Fix arm64-specific rseq brokenness
+Message-ID: <af3yAVRI1M686cbu@arm.com>
+References: <20260508142023.3268622-1-mark.rutland@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/7] Add dtsi to describe the xe180100 CAMSS block
-To: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
- Bryan O'Donoghue <bod@kernel.org>, Robert Foss <rfoss@kernel.org>,
- Todor Tomov <todor.too@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20260508-hamoa_evk-v2-0-3ebdca3e4ae2@oss.qualcomm.com>
- <20260508-hamoa_evk-v2-4-3ebdca3e4ae2@oss.qualcomm.com>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-US
-In-Reply-To: <20260508-hamoa_evk-v2-4-3ebdca3e4ae2@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260508142023.3268622-1-mark.rutland@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_072316_177395_AC199803 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260508_072409_099845_37B572F2 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,21 +72,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/05/2026 12:40, Wenmeng Liu wrote:
-> From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+On Fri, May 08, 2026 at 03:20:23PM +0100, Mark Rutland wrote:
+> Mathias Stearn reports that since v6.19, there are two big issues
+> affecting rseq:
 > 
-> 4 x CSIPHY
-> 2 x CSID
-> 2 x CSID Lite
-> 2 x IFE
-> 2 x IFE Lite
+> (1) On arm64 specifically, rseq critical sections aren't aborted when
+>     they should be.
 > 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Signed-off-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
-I'll repost my working version with the PHY stuff so I'd kind of 
-appreciate you not posting an old version here, just wait for it to land.
+> (2) The 'cpu_id_start' field is no longer written by the kernel in all
+>     cases it used to be, including some cases where TCMalloc depends on
+>     the kernel clobbering the field.
+> 
+> This patch fixes issue #1. This patch DOES NOT fix issue #2, which will
+> need to be addressed by other patches.
+> 
+> The arm64-specific brokenness is a result of commits:
+> 
+>   2fc0e4b4126c ("rseq: Record interrupt from user space")
+>   39a167560a61 ("rseq: Optimize event setting")
+> 
+> The first commit failed to add a call to rseq_note_user_irq_entry() on
+> arm64. Thus arm64 never sets rseq_event::user_irq to record that it may
+> be necessary to abort an active rseq critical section upon return to
+> userspace. On its own, this commit had no functional impact as the value
+> of rseq_event::user_irq was not consumed.
+> 
+> The second commit relied upon rseq_event::user_irq to determine whether
+> or not to bother to perform rseq work when returning to userspace. As
+> rseq_event::user_irq wasn't set on arm64, this work would be skipped,
+> and consequently an active rseq critical section would not be aborted.
+> 
+> Fix this by giving arm64 syscall-specific entry/exit paths, and
+> performing the relevant logic in syscall and non-syscall paths,
+> including calling rseq_note_user_irq_entry() for non-syscall entry.
+> 
+> Currently arm64 cannot use syscall_enter_from_user_mode(),
+> syscall_exit_to_user_mode(), and irqentry_exit_to_user_mode(), due to
+> ordering constraints with exception masking, and risk of ABI breakage
+> for syscall tracing/audit/etc. For the moment the entry/exit logic is
+> left as arm64-specific, directly using enter_from_user_mode() and
+> exit_to_user_mode(), but mirroring the generic code.
+> 
+> I intend to follow up with refactoring/cleanup, as we did for kernel
+> mode entry paths in commit:
+> 
+>   041aa7a85390 ("entry: Split preemption from irqentry_exit_to_kernel_mode()")
+> 
+> ... which will allow arm64 to use the GENERIC_IRQ_ENTRY functions directly.
+> 
+> Fixes: 39a167560a61 ("rseq: Optimize event setting")
+> Reported-by: Mathias Stearn <mathias@mongodb.com>
+> Link: https://lore.kernel.org/regressions/CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com/
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Chris Kennelly <ckennelly@google.com>
+> Cc: Dmitry Vyukov <dvyukov@google.com>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Will Deacon <will@kernel.org>
 
----
-bod
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
