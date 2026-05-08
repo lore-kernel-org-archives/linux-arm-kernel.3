@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F18BCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FC0DCD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lFSeEfGGNV+FW5uJAJBdqgcV9A/JyEddbEDCQvEiO6g=; b=q5Z3TTBowzBHbkzh+m49WZd0U8
-	ox+5NI0z0K6AXbfmdeIbCnuegND4+EonTRemweggXRAFRHJY0pYRJi9WImCvVJQSsnTbhJftDwmQT
-	J9rhbMQ1Yc+a/VOxGWwkHp53ClH1Dx4PSWE1T7Vknf5NbSN1QagGwUJfWrYQeigzwQ7o8gXON3ddO
-	8rkt7K1S2TG6YaHCOL5ewOO1bXYLK+6SkS3UkVh1V3bWepJhSJGai1FJAJLFRVk+sz7OSfDKZW5qG
-	TjcbdXtdqwbOGVSHAOhoc/7CrFwUkRzdfHQEMv7kj7V6Qs/urTkUVX02oaBojxv1VnNFdwkSiMvdD
-	yM93Tkng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PzX8VShm7Y8xnVc0WgzNhGSv8RV1da2S89R864bQGYM=; b=Ld82ZhxnLgbUDR1ALs7GiRNtVA
+	KqP3RK9SCds7wZV11l8nbw2YE7JtzYek/Un/FZ+zXlQ+NfQ68odaWFuOGT/3EKGR08/KqynTfeSss
+	0LSPn8hXeQLdtkwD0sDZAMl9cAMcVM6BIBrUCZ2Npa21zqvyKjUv5Wto/LzFUjrG7O78eCkG5C0WA
+	8tjyXopIhpEPM5/33VeXB7Z6cdZoUapUsaztHJCnQjPSk9UIyaQh4t+I3zRo3Fd5cwi3UbtEmb5tU
+	HGfdDum/NAimJoJucjcXszlX/OFWJqfqGewRQ7d7sIu3scLC+ncbFvbNO1rbmenLAmohnGc51joYn
+	MObhAPNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLM7f-00000006fHj-14Vc;
-	Fri, 08 May 2026 14:24:11 +0000
+	id 1wLM89-00000006fQE-1XTK;
+	Fri, 08 May 2026 14:24:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLM7c-00000006fGo-45R2
+	id 1wLM85-00000006fOK-0n5J
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 14:24:10 +0000
+	Fri, 08 May 2026 14:24:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9AF261D34;
-	Fri,  8 May 2026 07:23:59 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 81B0F3F763;
-	Fri,  8 May 2026 07:24:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C4BB1D34;
+	Fri,  8 May 2026 07:24:31 -0700 (PDT)
+Received: from [10.57.63.248] (unknown [10.57.63.248])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B91A3F763;
+	Fri,  8 May 2026 07:24:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778250244; bh=ey7j9mUyY/5BkGE3ioQIxIOGQe6vQUDgNT0wSP5HSn8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f//jqe4qjaix8EYoHr4nh8K0vmc4rWVJGmfLkqhRiuebd+7CkHcs6C+F+6HZ/DCMp
-	 pDGLbbTUg61TmkBZW38vt1j5M0HcOXhMtiA9CnF790CtCAcwxA0wjVgpMKHEeBMZ7g
-	 Sw+4jWoLAH+pQ9aRBO8wLrkRLWD4B3WQtFAV7/p4=
-Date: Fri, 8 May 2026 15:24:01 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
-	ckennelly@google.com, dvyukov@google.com,
-	linux-kernel@vger.kernel.org, mathias@mongodb.com,
-	mathieu.desnoyers@efficios.com, ruanjinjie@huawei.com
-Subject: Re: [PATCHv2] arm64/entry: Fix arm64-specific rseq brokenness
-Message-ID: <af3yAVRI1M686cbu@arm.com>
-References: <20260508142023.3268622-1-mark.rutland@arm.com>
+	t=1778250276; bh=xMvJ+UVy1nv17H8gSqpdUgkqt12klZ7Sjrndd72fwpM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NWqT6D2I8isFd1iJKghNU08CGFVObRfeRm9RWUDGT0ZFWuAsTNbvH4ALuSJ7+bbTK
+	 FTBsBfIZJlIxALAou5RL20rWliymFvJ5bIL95K7D103amzpp+gDTjrhhyu3/pBOEHW
+	 uQJZrRXKzhIBjFaksIMjfo7zCVgwst40iTpQCDyw=
+Message-ID: <4e129891-2f52-4bac-8e33-1fdde42fd29a@arm.com>
+Date: Fri, 8 May 2026 15:24:32 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260508142023.3268622-1-mark.rutland@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/arm-smmu-v3-sva: Enable Hardware Access and
+ Hardware Dirty bits
+To: Pranjal Shrivastava <praan@google.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, Nicolin Chen <nicolinc@nvidia.com>,
+ Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
+ Jean-Philippe Brucker <jpb@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260503135413.1108138-1-nicolinc@nvidia.com>
+ <af0SdkjQOZxnnaQb@google.com> <20260508123550.GB9254@nvidia.com>
+ <af3hWGp3etGOIdEn@google.com> <f31043cc-45dd-457f-8031-0cef51c9470e@arm.com>
+ <af3ryl7G58D2GeWr@google.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <af3ryl7G58D2GeWr@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_072409_099845_37B572F2 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20260508_072437_306990_00608556 
+X-CRM114-Status: GOOD (  24.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,66 +79,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 03:20:23PM +0100, Mark Rutland wrote:
-> Mathias Stearn reports that since v6.19, there are two big issues
-> affecting rseq:
+On 2026-05-08 2:57 pm, Pranjal Shrivastava wrote:
+> On Fri, May 08, 2026 at 02:31:11PM +0100, Robin Murphy wrote:
+>> On 2026-05-08 2:12 pm, Pranjal Shrivastava wrote:
+>>> On Fri, May 08, 2026 at 09:35:50AM -0300, Jason Gunthorpe wrote:
+>>>> On Thu, May 07, 2026 at 10:30:14PM +0000, Pranjal Shrivastava wrote:
+>>>>>> @@ -92,6 +92,16 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
+>>>>>>    		target->data[1] = cpu_to_le64(virt_to_phys(mm->pgd) &
+>>>>>>    					      CTXDESC_CD_1_TTB0_MASK);
+>>>>>> +
+>>>>>> +		/*
+>>>>>> +		 * Enable Hardware Access and Dirty updates (DBM) if supported.
+>>>>>> +		 * This is safe to enable by default, as PTE_WRITE and PTE_DBM
+>>>>>> +		 * share the same bit.
+>>>>>> +		 */
+>>>>>> +		if (master->smmu->features & ARM_SMMU_FEAT_HA)
+>>>>>> +			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
+>>>>>> +		if (master->smmu->features & ARM_SMMU_FEAT_HD)
+>>>>>> +			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
+>>>>>
+>>>>> IIUC, we should be setting these if IO_PGTABLE_QUIRK_ARM_HD is present?
+>>>>
+>>>> SVA does not use IO_PGTABLE at all, and it directly constructs its own
+>>>> CD.
+>>>>
+>>>> No relation between those two flows.
+>>>
+>>> I understand that but I mean we need to know if the system supports
+>>> HTTU ? Like for SMMU we use the IO_PGTABLE_QUIRK, shouldn't we be
+>>> checking if the CPU's tables support HTTU?
+>>>
+>>> Are we assuming that if the SMMU IDR presents HTTU capability the MMU
+>>> would also have it? I think an unconditional enablement is risky as we
+>>> may not have system-wide HTTU support.
+>>>
+>>> If we look at arm_smmu_master_sva_supported, the driver already
+>>> maintains a strict agreement between the CPU and SMMU for SVA.
+>>> It checks sanitized CPU ID registers for things like PARANGE & ASIDBITS,
+>>> and it uses system_supports_bbml2_noabort() to decide whether to enable
+>>> FEAT_BBML2.
+>>>
+>>> Shouldn't we follow this exact same pattern for HTTU ?
+>>> We should probably be checking cpu_has_hw_af() (from asm/cpufeature.h)
+>>> in the SVA support check or here if we wanna enable HTTU.
+>>
+>> It might make sense to depend on CONFIG_ARM64_HW_AFDBM - when that is
+>> enabled, then IIRC we already expect to cope with some CPUs not supporting
+>> hardware updates, so it should still be fine for an SMMU to make them even
+>> if no CPU does. However, if it's disabled then I'm not sure if missing
+>> access flag faults (if SMMU HA silently sets them) might be an issue - for
+>> dirty, we'd just never put down the Writeable-Clean permission so enabling
+>> SMMU HD wouldn't do anything anyway.
 > 
-> (1) On arm64 specifically, rseq critical sections aren't aborted when
->     they should be.
+> I see, so IIUC, you mean if IS_ENABLED(CONFIG_ARM64_HW_AFDBM) but CPU
+> doesn't enable HTTU, it is perfectly safe to let the SMMU do HTT updates,
+> Since the fault handlers are already expecting HW-triggered updates?
 > 
-> (2) The 'cpu_id_start' field is no longer written by the kernel in all
->     cases it used to be, including some cases where TCMalloc depends on
->     the kernel clobbering the field.
+> Which means our check would be something like:
 > 
-> This patch fixes issue #1. This patch DOES NOT fix issue #2, which will
-> need to be addressed by other patches.
+>     if (IS_ENABLED(CONFIG_ARM64_HW_AFDBM) {
+>     	if (smmu->features & FEAT_HA)
+> 	 ...
+>     }
 > 
-> The arm64-specific brokenness is a result of commits:
-> 
->   2fc0e4b4126c ("rseq: Record interrupt from user space")
->   39a167560a61 ("rseq: Optimize event setting")
-> 
-> The first commit failed to add a call to rseq_note_user_irq_entry() on
-> arm64. Thus arm64 never sets rseq_event::user_irq to record that it may
-> be necessary to abort an active rseq critical section upon return to
-> userspace. On its own, this commit had no functional impact as the value
-> of rseq_event::user_irq was not consumed.
-> 
-> The second commit relied upon rseq_event::user_irq to determine whether
-> or not to bother to perform rseq work when returning to userspace. As
-> rseq_event::user_irq wasn't set on arm64, this work would be skipped,
-> and consequently an active rseq critical section would not be aborted.
-> 
-> Fix this by giving arm64 syscall-specific entry/exit paths, and
-> performing the relevant logic in syscall and non-syscall paths,
-> including calling rseq_note_user_irq_entry() for non-syscall entry.
-> 
-> Currently arm64 cannot use syscall_enter_from_user_mode(),
-> syscall_exit_to_user_mode(), and irqentry_exit_to_user_mode(), due to
-> ordering constraints with exception masking, and risk of ABI breakage
-> for syscall tracing/audit/etc. For the moment the entry/exit logic is
-> left as arm64-specific, directly using enter_from_user_mode() and
-> exit_to_user_mode(), but mirroring the generic code.
-> 
-> I intend to follow up with refactoring/cleanup, as we did for kernel
-> mode entry paths in commit:
-> 
->   041aa7a85390 ("entry: Split preemption from irqentry_exit_to_kernel_mode()")
-> 
-> ... which will allow arm64 to use the GENERIC_IRQ_ENTRY functions directly.
-> 
-> Fixes: 39a167560a61 ("rseq: Optimize event setting")
-> Reported-by: Mathias Stearn <mathias@mongodb.com>
-> Link: https://lore.kernel.org/regressions/CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com/
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Chris Kennelly <ckennelly@google.com>
-> Cc: Dmitry Vyukov <dvyukov@google.com>
-> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-> Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Will Deacon <will@kernel.org>
+> instead of cpu_has_hw_af()?
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Hmm, looking closer, cpu_has_hw_af() is the thing which actually 
+influences mm behaviour (via arch_has_hw_pte_young and 
+arch_wants_old_prefaulted_pte), and that can still be false at runtime 
+if ARM64_HW_AFDBM is enabled but any CPU doesn't support HAFDBS, so 
+perhaps you were right the first time :)
+
+Although AFAICS from __cpu_setup(), ARM64_HW_AFDBM will still 
+unconditionally enable TCR_EL1.HA on CPUs which do support it, so maybe 
+it is OK anyway?
+
+Cheers,
+Robin.
 
