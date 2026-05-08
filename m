@@ -4,67 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98AFBCD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D59CCD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 18:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fK/Onl2/FR7oKRPW6JslxqlXqWvXkxaD4pvcDzkqZu0=; b=PQLm18V3/a3vjmXijeKouy0EsN
-	zDF+DV2Wb+dECN5NKLCeJaSoE0+oZZiNMb4tczdffzhEHGVkfMp8la7CgrWRgPnwtNPtLX0CSVwFG
-	b7swKjtDySXBN5BlBau+hL7aMGHBw0HORk2tkb6DomrWoYRBz6qnERNmfXavNmPA9GkcIqvxzh1GK
-	HCfIpT0jFnSPFWQ2a6sK6IEV7VM00FfDoamO+n4x32dIDSn7sdOKufmYd3hOZPKxI40pMLieIB8iw
-	KMf0/4nrerb+08ff6ZsE/JSvSunkZGCX5JMvej+8T+0b7bR9hqL5//Wr4o0V6Ry2lkQN/MOg7aWQK
-	2vpd9nPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cQZNmvowIFlL59gjPKwq3S8Lubw9QFautuveU52+dKw=; b=jWIjOIxo2wcqRNh70P8DlLRJQ6
+	MtOdAoXKnQrT4Heb/FP9tueXx9CrSBr0cCuv1PzIIHzGLgcLYzygnhsmoWvghK+IkAlqFqDc5pIY7
+	g5LeLnYQoCZm58rPUs1YF2lwcAmFwGelN4poSUjWQkqaJqdOg2WPKEgvyKQG/5k4KIMhCkxkXaLAc
+	GOb7mydqHqsj9l/5LUPIFXGjSffXufBOvcIEBFzEKvahDPpe1Ihc6TBRPFqGGWQuxbuQYb7qUUl//
+	0RlPaS0dTYff68WFHmX7yjNjrNV4YPUceUHT7LuIFAy8sLeap7BeneUSZEsgNlo/F56or62rQrBDE
+	Bm4NearA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLPUD-00000007DOi-1ZvB;
-	Fri, 08 May 2026 17:59:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLPUA-00000007DNl-241a
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 17:59:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 155DD4057E;
-	Fri,  8 May 2026 17:59:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58D32C2BCB0;
-	Fri,  8 May 2026 17:59:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778263178;
-	bh=f+C6+Is1XDoPUTJlfzjwfJtrygH27kCkd9+va+Q5+wQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JWAWPDvGtq97KDoBUrMNVn9jGLtr0S6yU0SmNcoAoyE2s2EAXBMnXtXMka60FpLeN
-	 TOFqpirW5UGbw7mPrCRrkHf7mSHljwAahNBB4PpxRGUlk0zsQ3JGvXACFJ5JagLcJa
-	 4aKx4OzboqGUMVOH29tprYlLnrAKRc9M0h6jp8Xu8JsIc4Uaf4/vQHPH4DD7ofsEMj
-	 jZdY4bHynb3dvCv3fYpWYT3cG0WJTIIb1kWp1Cv5pqgdvE3ayQNdJh6xbZnAynDj73
-	 8QhrF5OUcnvkDluYPJUNvNH+/1hLDYGVcoY+ThxaAG4VaOG/iLDTGcoig4HtjCMQZY
-	 tIoUF86YTBl3A==
-Date: Fri, 8 May 2026 18:59:32 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: linux-integrity@vger.kernel.org, keyrings@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	jarkko@kernel.org, zohar@linux.ibm.com, roberto.sassu@huawei.com,
-	dmitry.kasatkin@gmail.com, eric.snowberg@oracle.com,
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org
-Subject: Re: [RFC PATCH 0/3] initalise ff-a after finalising pKVM
-Message-ID: <20260508-ubiquitous-sexy-robin-b1ca51@sudeepholla>
-References: <20260505095409.1948371-1-yeoreum.yun@arm.com>
+	id 1wLPXE-00000007Djr-38jG;
+	Fri, 08 May 2026 18:02:48 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLPXD-00000007DjV-18d1;
+	Fri, 08 May 2026 18:02:47 +0000
+Message-ID: <6f5a4345-abc6-4439-801f-f3b98e2701b3@infradead.org>
+Date: Fri, 8 May 2026 11:02:46 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260505095409.1948371-1-yeoreum.yun@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_105938_563803_409727D3 
-X-CRM114-Status: GOOD (  17.57  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 07/11] soc: ti: knav_qmss_acc: Fix kernel-doc Return: tag
+To: Nishanth Menon <nm@ti.com>, Justin Stitt <justinstitt@google.com>,
+ Bill Wendling <morbo@google.com>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Santosh Shilimkar <ssantosh@kernel.org>
+Cc: llvm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260508153211.3688277-1-nm@ti.com>
+ <20260508153211.3688277-8-nm@ti.com>
+Content-Language: en-US
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20260508153211.3688277-8-nm@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +59,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 10:54:06AM +0100, Yeoreum Yun wrote:
-> This patch is split out from the patchset [0] --
-> fix FF-A call failure with pKVM when the FF-A driver is built-in,
-> specifically the IMA-related part.
-> 
-> When pKVM is enabled, the FF-A driver must be initialised after pKVM.
-> Otherwise, pKVM cannot negotiate the FF-A version or obtain the RX/TX
-> buffer information, leading to failures in FF-A calls.
-> 
-> Currently, pKVM initialisation completes at device_initcall_sync,
-> while ffa_init() runs at the device_initcall level.
-> 
-> So far, linker deployes kvm_arm_init() before ffa_init(), and SMCs can
-> still be trapped even before finalise_pkvm() is invoked.
-> As a result, this issue has not been observed.
-> 
-> However, relying on above stuff is fragile.
-> Therefore, when pKVM is enabled, the FF-A infrastructure should be
-> initialised only after pKVM initialisation has been fully finalised.
-> 
-> To achieve this, introduce an ffa_root_dev ("arm-ffa") and
-> a corresponding driver to defer initialisation of the FF-A infrastructure
-> until pKVM initialisation is complete, and to defer probing of all FF-A devices until then
-> when pKVM is enabled.
->
 
-I have posted an alternative based on all the discussion in this thread
-@[1]. I have not cc-ed all the people as the changes are contained in
-FF-A driver and not sure if all the cc-ed here are much interested.
-All the lists are included I assume and one can always provide feedback
-referring to the link.
+
+On 5/8/26 8:32 AM, Nishanth Menon wrote:
+> Fix knav_init_acc_range() use of 'Return ...' instead of 'Return:'
+> kernel-doc comment, which produces a warning with W=2:
+> 
+>   knav_qmss_acc.c:473: No description found for return value of
+>   'knav_init_acc_range'
+> 
+> Signed-off-by: Nishanth Menon <nm@ti.com>
+
+Acked-by: Randy Dunlap <rdunlap@infradead.org>
+Tested-by: Randy Dunlap <rdunlap@infradead.org>
+
+Thanks.
+
+> ---
+> Cc: Randy Dunlap <rdunlap@infradead.org>
+> 
+>  drivers/soc/ti/knav_qmss_acc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/soc/ti/knav_qmss_acc.c b/drivers/soc/ti/knav_qmss_acc.c
+> index 269b4e75ae40..1f8b5acdd462 100644
+> --- a/drivers/soc/ti/knav_qmss_acc.c
+> +++ b/drivers/soc/ti/knav_qmss_acc.c
+> @@ -466,7 +466,7 @@ static const struct knav_range_ops knav_acc_range_ops = {
+>   * @node:		device node
+>   * @range:		qmms range information
+>   *
+> - * Return 0 on success or error
+> + * Return: 0 on success, errno otherwise.
+>   */
+>  int knav_init_acc_range(struct knav_device *kdev,
+>  			struct device_node *node,
 
 -- 
-Regards,
-Sudeep
-
-[1] https://lore.kernel.org/all/20260508-b4-ffa_plat_dev-v1-0-c5a30f8cf7b8@kernel.org/
+~Randy
 
