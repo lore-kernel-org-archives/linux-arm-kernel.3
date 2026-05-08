@@ -4,158 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EF2CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 07:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAEF3CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 08:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xQyPmDMam7UHZoT0de7LtgeG+B6kk2T77DSa3D9Lh6M=; b=HKrt0NQPkDDkTS+Gq/EDoj+8xf
-	YMfy83N75eTX7eXzuP4wPPK6cPLOgNDSy2DK147cCzQ0HUvgntNhZ149pwN7WUuw54Dn6aWvVud/V
-	f8Tk5D7idgOXvzzzFX64yf51+W762PjhBvYtEvzV8s/cqMrSfNZuD7RqkonAT+72WRiz/hnI9jPr3
-	5gGXfdVe8V27LAk0BpXypMCA1TSQk3/PrDrbSalE/8g+ROBioP9GU9YixjQD6VKTOiM+5ztuy5qlk
-	mGlcRQRASvXE96MXVGuAzK2zG87foDJa5FBF/6N3kn39ADrrGuO539R1sW0j2bu6CLW4B0Zoy/kDE
-	53ZejeMg==;
+	bh=8mEWLTXv2KUk2tbgLc402QPvDnHN1hNEtq6wzUIochk=; b=ODxiALdK6rEknfOjEcnB7ipexM
+	DcAcCfcD0DO4ON+7vdZpfiZbp2hjW2uoIkFQ8rqYeO1Lv3mJRKEml+bStHq7fDpytVya1SKxMQAGQ
+	+jHYP08NV5qry2L2TavxDisiiBXmeh32eig0uxb2Htz6xPRItdZLelvTWTBOSZ9kCBPWZ4zejYovT
+	uAlVKujkB2tWnVcWzTX06t/PWvFUHjDnMMXq/5yiPAywv6b8UGA0iPOdYpDJmEvZGEI21V8VUngrp
+	SZRGkpTr8Q8up78cGMl7hssOg8gbBI4a/PINmGjBA6kfT7La59X8x7tyMB9LeW7O3a6xz3upMSYN+
+	A8yNpZBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLG66-00000005vhL-1eeJ;
-	Fri, 08 May 2026 07:58:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wLGGq-00000005x6f-49Ge;
+	Fri, 08 May 2026 08:09:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLG65-00000005vh2-0e5K
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 08 May 2026 07:58:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xQyPmDMam7UHZoT0de7LtgeG+B6kk2T77DSa3D9Lh6M=; b=qwmVBtyxO8lX8qjJ8IHeg2SFw0
-	WCx1tBOzAu3wkBLh1W7tojJdMuWcmqf2bA/4ciVUQK45lUPZyM3RvXR7yt8hmTJxm60mUtu1jcgGo
-	bdExIhZ3nULw/3UENy0yQIQRiVioJo+Nw/zPxQ3kZytZ0XmAggD1rMk/Nx01PLsKgQK+qGHoHGZfX
-	oRsylTW5/VL1DZqIuVjgvMUUh8auSUUK9scG+lXzAA4E1wdDmEnDqfou9uedJpiaD5oG3LCQdC5TB
-	ZWQltHuZBjPpB5U2eSOHewqwQg71LYS4+4XuA3y6wYWTPPbOYcyxmOyUbPkO2pRZbjDr/BjQYGUyX
-	vcCaffWg==;
-Received: from mail-northcentralusazon11020124.outbound.protection.outlook.com ([52.101.193.124] helo=CH1PR05CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLG5s-00000005egy-1J5Q
+	id 1wLGGo-00000005x6D-3RYP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 07:58:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TErgyUTQZonhThWeFTUr9qs3WfOy6J6jfYyZdti+klIteMcBrcxe8pgap315mwYWQn/CF2xuzAeRwy1XacxlbNUgfCNnzBYahU1imb52W4Bti6q+/TyTtvCruqh1olTxkM+lxLBQ7ssBW5McDf0UWmIa7Pd65ka34v2ZGbpP7UUrJgpk8Bow5DLICaNRbYCsoJh/hBbDCjxzqkYCY0mroT7OF3fwCFqX+9RQ+v/j4K8vlzVQzpYCJwHsj2mm4jCbaiOaiukVpyiJb3pUaCQqfBxk7Vi+IcvK4Ba457KA3zcxvMvL/ge57mMZkfXo9LvsoV7y8hWRAJuPWCNmly5CBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xQyPmDMam7UHZoT0de7LtgeG+B6kk2T77DSa3D9Lh6M=;
- b=i+BT3VGyY+O8s7hO+yKiMMl9lhZQMZTS3UYZcnP7XqvyDJ4XpzK3wfmFCcmkGpoV8vw++n5a4/6eijgmMwnp4e4ahYARxtCROiJfyc304uZQMH2xanDcN+SdAgSCzgndsTsOy3PDA3hc5FwOSprtiNtIcmknoP46yXeHZVB/Wa0PupzJZ4QXzlE1KTfonA3DGGjpVB4SCMX+lIo0wm43LbwTn7xwC4nIBAjbmJTwi5+T4Q2hhPUrlhuWeKG3qkAOlcGEToeJvGh/KBGuCDvprbck4nDd07Bq/X5LbuxuRbCI3AGZyS16mb/EX8Xh99lQMzNbuZxTJUgKQ+wShjUUaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xQyPmDMam7UHZoT0de7LtgeG+B6kk2T77DSa3D9Lh6M=;
- b=aq4YcE2/iESFrn5/HmOheGJP+bOdGWORWil1UxBFJvrHVmXhuizXdsh2OkHCKsrpWFUsJ7a0g0Ux5Ly9oOYVAKnq05WqSwKIhP9l9oTQKESZebB/HzFQQIXoATtBkERsNTfNqvbjeCnfemlrwgXN64DVZZL1OBDPJKqu/4YKjNRUc3CNccVtNgdg6BcHBfuO4U6ZI+lw2wS8sr59Z2BxSvgufi0jXacNfjPv8mxeBmZRKvg3oMV4pHf7NRJ5yDE6oXKvsMhV4uRawhbG2AUn/0LGyqpO4ttmEb2nci6u7zZWM9H+8YpqA3Lu9VUWMOPsevZgJPdW9D68UL7rkRbong==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from DM4PR18MB4144.namprd18.prod.outlook.com (2603:10b6:5:38b::8) by
- DM8PR18MB4440.namprd18.prod.outlook.com (2603:10b6:8:32::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.16; Fri, 8 May 2026 07:57:49 +0000
-Received: from DM4PR18MB4144.namprd18.prod.outlook.com
- ([fe80::cb97:ca8a:e55a:b11]) by DM4PR18MB4144.namprd18.prod.outlook.com
- ([fe80::cb97:ca8a:e55a:b11%6]) with mapi id 15.20.9891.019; Fri, 8 May 2026
- 07:57:49 +0000
-Message-ID: <fd2ee102-db52-4a37-b96e-c16211e3d8e3@axiado.com>
-Date: Fri, 8 May 2026 09:57:42 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: gpio: add Axiado SGPIO controller
-Content-Language: en-GB
-To: Linus Walleij <linusw@kernel.org>
-Cc: Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>,
- Prasad Bolisetty <pbolisetty@axiado.com>,
- Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
- SriNavmani A <srinavmani@axiado.com>, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260414-axiado-ax3000-sgpio-controller-v1-0-b5c7e4c2e69b@axiado.com>
- <20260414-axiado-ax3000-sgpio-controller-v1-1-b5c7e4c2e69b@axiado.com>
- <CAD++jL=yc4rmNELLKUpreUqRbQ1Krg95C-o1xSrnD9Aicm4wgw@mail.gmail.com>
- <106b7b64-ed6e-499f-b5ac-60c1277f2f03@axiado.com>
- <CAD++jLn4R9ubqHsek-56s1sF9YhxYt4-C2TPdYGcYjy2MC6q_Q@mail.gmail.com>
-From: Petar Stepanovic <pstepanovic@axiado.com>
-In-Reply-To: <CAD++jLn4R9ubqHsek-56s1sF9YhxYt4-C2TPdYGcYjy2MC6q_Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P191CA0028.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d9::20) To DM4PR18MB4144.namprd18.prod.outlook.com
- (2603:10b6:5:38b::8)
+	Fri, 08 May 2026 08:09:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ED75E600AE;
+	Fri,  8 May 2026 08:09:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEECDC2BCB0;
+	Fri,  8 May 2026 08:09:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778227753;
+	bh=eB0+wWthSB1aSm57ux1yD5ULZTyAnqFK/PWKFYrDSuU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dRPyQYC4G+WPwW+Fbw5jRWtcHFU5IoVKgowh+Hy/kkpFFfF+Le0+JoFDjKspoc88p
+	 u9V2n0lbeR5u01c8CA5fVHfDP8PoDiQrCl9wolNLY48Sy2hAv292nHY9fgatumkszy
+	 dlqdDY0fNb3+HzagzTn8gkBBu/TBBa5FcBtutX2CMOL0uROcj9z5Ase1x1bSI3a9+c
+	 36mwNM91HI85KlY/iyhUidgrDjPz1AegG4coEaCbU+ODWGa8/ay5ztBwWfwIFq5SnP
+	 FxEizECVnB+Lf3cax4gEwYI94QmtKfMDyspVumcOpNMumhv0PNXNBMUJ3r/KRXqvkv
+	 sMmdwv10OLXtA==
+Date: Fri, 8 May 2026 10:09:08 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org,
+	mark.rutland@arm.com, steven.price@arm.com, aneesh.kumar@kernel.org,
+	sudeep.holla@arm.com, robh@kernel.org, maz@kernel.org
+Subject: Re: [RFC PATCH 0/4] arm64: realm: Support for probing RSI earlier
+Message-ID: <af2aJKSbWIONhrMK@lpieralisi>
+References: <20260429103535.266728-1-suzuki.poulose@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR18MB4144:EE_|DM8PR18MB4440:EE_
-X-MS-Office365-Filtering-Correlation-Id: 450edb3e-7db7-4fff-f256-08deacd77f45
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|3023799003|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: b+p/3DuNq1k3qUswH78gmGLRe/SjI0l0smfxgCv9FhNOA+a2g/GqDhRI2vuiSRpPJO6ZX4cn1C6g8M7OKjUyj7nIj5gnxUoIQTGleEE/Gf11s88rtO/SGLzG/e/dLtu2cjXJJh7VFogdePyfKbdrnNvz5DXDUckYTtj3m9b5LCLhU14kgBoKGhY7+e/8VniE08H4mH3iAxFExQJ8EN2ReqKw4/KmnQ91BFwcQ1gngA5FbUEppm/9mH0s8k4uLCqqmZIz39xRC88k86gTHg0twoG7AUXM9tEa7ahCLsw0Y/BUfsgTJF8eHzCaEu7HamKP6uOiMpte4UK4cQtQ6EIn5rbihyMqRggzjJzUUVZ/K2af7QiXs49cDqxQXE9hH9XdiHBGTyuLJt06sPfD+gpaGsWJq5p7/M2ylE1m/gRl3frTq2xcLvK2dndVorRqp5KHESfqm3xl1wamjUke6tzmHAStPTSjyaDQl8mfCrDirQae/6hff3J4GS6yjGWVvmdddd0upMB9rkGNnAsoNYXfITERUhDSo9DkCt90c8BXwvf5HeCOJ7FT5sqGK33WFV+QKs3AoaE6Tbv7iwQXC9No3E0Papjxgs+bScOdm+5jmznAn2oLvrJuxkrfuySP/Cx/D9ArlczsGdHOGZ2VNDr3GcB8GXSlsyVpIHLwS7ezabzyOLMXTSTZrAb/Cvvx72Dl
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR18MB4144.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(3023799003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bGVXdkNaVWx0ejBWNC8xclE4dE5RRVBpSEVhS2QyQ3RLaDcxWWNpREcyRVFy?=
- =?utf-8?B?UE04RUhndDNRZEhsNlR3SEc0TFo4b1FhYjd5Ni9ZSGR2V2p5M0dWQW9wWGdz?=
- =?utf-8?B?R2NQRkp5Q2c2M1IyZ2VRa1pvSHRQYVhQSlR5RSs0RkxJeXFtTlorU3Q1eFdj?=
- =?utf-8?B?Y0MyRURkdmgxSFM0UWQ0eWtaMU51VzlhUzBUUEl0TTVaekIwWHdVSXJCSjJz?=
- =?utf-8?B?SUtCRlZFUlBpaUV6OUVyR2JFTWp0dXBaM016SWI1U2tQYXNxWTdCU0o2eWgy?=
- =?utf-8?B?OGZSWFhXMFhjR3B5SlRnS3RHb2s3dmVmeWhVQ0xRN1BuWEJIZ0JDaTZnRitO?=
- =?utf-8?B?UW52RDJOV1gvck5LeWVnQmZrbDF0SlFWY21jU3RTSUpCWlVhMHRoeHFPRWgv?=
- =?utf-8?B?WDRQd0xvN0RPSUw5YWpWRWN0WHdNYlBhYjE2TUE5bHlEL0dJeENpcFdVU2dX?=
- =?utf-8?B?VHZBZyt4WldNNHpCSHkxZ2V2TzA1c1pEN2NsU1hRZXc2WVRvOFNvSmo2SGta?=
- =?utf-8?B?bnB4RnJYeW1ITnI5SFJHaXNhUmxEUVh4eGJGNG5WbnVHRUVzNWh0elVBc3gr?=
- =?utf-8?B?VEd2Rld5dEhnN2VBbzl5VmFNNHpkenExLzllYU9JL0lqNm1aUmJhL3ZiOTFF?=
- =?utf-8?B?eDdZR09HZ3dvUS9pNVIxTzFnT2hmK1ZrOXJLRXZCcXllZFRwcGU1K1c2ZzRB?=
- =?utf-8?B?K2pyT1FCMXdsRlNuSzhuKzd6Si9sbVVwYkFaRnV4cWNmZFJlSHZQbVl4OWVv?=
- =?utf-8?B?R3ZYM1RPcDNPUEI2dHhUMzQ3Vi8rdlVqUllUaHdPTnFrQkdVOVd6MlEvS3Rq?=
- =?utf-8?B?U3RLWStuVDZnQ3BwQjVvUERwMDlMVlQzRmtBSzNnbW1TMFdBbnVtcHBsZWli?=
- =?utf-8?B?ZENLRnhMWGJ2cU5QTU1Ram9ObmQ1ZzJvaXcxazQ1QzZmWTJ4eHZrZHdnNG5O?=
- =?utf-8?B?ajlmdmd5WFBJdTFzbktPK05GR1BTUVFtUHRnUWRKUk5JY1R1S09SNE5pWWwy?=
- =?utf-8?B?TkNYNEVwaVBYM3JOeTgwdlh1bGJvMFRySUw4OGpFdENZVmc4OEhQVTFPaXRI?=
- =?utf-8?B?SjNodDB0bWpVWCsxS2FBb1F2NG9SNVlvR0RHT0p4bjJ6RHhKZXhvMjNzN0hD?=
- =?utf-8?B?U3liNk5sVGN5bUlFazVDcWYzMkc5akppWmprQlllc0xFbDZDU2Q3ZjhXTG5u?=
- =?utf-8?B?Wm9SUnBEbDYwWFpzNmsxT3lXSE9qUXRlOXBZajFoWkM4V09aZEpLeHdqeG40?=
- =?utf-8?B?Y213TXZvLzRPaXVrUWVXWlh1RXM0cHJwT0tMRXBiSWpnbHV3ZTh1ZExVUzFr?=
- =?utf-8?B?UExiS3V1SXlwU0RpbnZUUWFZYUVoMmhEUmsyc1hBK0ExRnRyUGhkNm52QzZm?=
- =?utf-8?B?Q1ZyU0tlK2xrYkpMRGcvdXdRb01pOUpTdFREa05Hbk41d3hOaHdxTUFBOHZw?=
- =?utf-8?B?TnQxMWExVjR0YU4vRGFleFEyeVRYcE02T3RqNFZNcWxzSm54RFZJT1crbWVz?=
- =?utf-8?B?NFJmTzlPZGZhK1BKeW9Rc0x0UTc2UnRDeUlKTjBXcC84SWVzQ1I2VVJ2c0Nx?=
- =?utf-8?B?Z0RudHpZN1NBZm1OT1BXWFRWeVpCT1A1d0JJQ0p1TzRRM3hqQ3drMk96MU9s?=
- =?utf-8?B?SWMzSS9sc01oLzNWSVEzNGFURnVJRTY5K1g4b254cHV4ODRGUlhkakcwdkls?=
- =?utf-8?B?K2ZKOUxNYXI5V01EL0g1UTV3clVqSFg3VmhOUC9hbGtRaDBLTUZjU2RYQU8z?=
- =?utf-8?B?UUZwbFJNT0NVZktCK1FyUDRrb3h4M3Q2SmlxZ3pLcW5VWExDQUo2dXlRQTlE?=
- =?utf-8?B?QW5NYUF0NXdVSlJQSzFTWVZXMUxRbmpNM0VLN1lTYTFvVzVBVS8xR3lFcDVt?=
- =?utf-8?B?MVM3cHEwSTJMVzF2bFkrU1pHcmE2YXhRRDdIdzZKREVlWEFNeFU5Rng3WktZ?=
- =?utf-8?B?aFBBV0pZNkVnQ0RGSDJpYktnK1B6SzBRR2pkOSthNS80SStMdkxqOFZlVmVL?=
- =?utf-8?B?WlBuaWkzdStuYk1hLzhhZlBDTXJLSUVGUStrYWxtY1FqSTExdno1eGlubW5w?=
- =?utf-8?B?NTl3NGIrdFY0dGx4TGkwU3J1RkY3bmJsZWpjVHlQblNBSHRubGdIU2o3VjJl?=
- =?utf-8?B?NnZQSWY4dUprMmhEWUVyME1UVGdERVdUN0NwNmVOWDJaZm16bkJmeXFtQUtW?=
- =?utf-8?B?RDhFMjZSSUZjTUk2V1B3WDMvM3RFMGFpNXpXL0JUc1FLOGdBanVGQXJjL3g2?=
- =?utf-8?B?MWV1UkRER2xCekdJVkdWYXp4WWEwUEFHTytCcTRodFcyRVhjTVVnNzRwdDM5?=
- =?utf-8?B?UXhDSWpBcjJHY2VGMllEU3JyektZcnJvdUFGaU9UL2traVp5eDhSQT09?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 450edb3e-7db7-4fff-f256-08deacd77f45
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR18MB4144.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 07:57:48.9147
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FFOdgle4yPuCY9Trokz3MrK0QbpEeEAK7BkRFca1KdZJLnunFiWEuAZArrfP14V1cJe1boIjAGbJFQYlVF+OdQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM8PR18MB4440
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_085803_070091_3E9C24FB 
-X-CRM114-Status: GOOD (  32.42  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260429103535.266728-1-suzuki.poulose@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,117 +70,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
-Thanks for the feedback.
+On Wed, Apr 29, 2026 at 11:35:31AM +0100, Suzuki K Poulose wrote:
+> The Realm Guest linux support is broken without rodata=full (fortunately default
+> for arm64), as we detect the RSI support after we have created the Linear map
+> with Block/Contiguous mappings. If the boot CPU doesn't support BBML2_NOABORT
+> (there are CPUs out there with FEAT_RME and no - useable - BBML2_NOABORT)
+> we are then not able to split the page tables down to PTE level if the system
+> as such doesn't support BBML2.
+> 
+> See the following link for the discussion.
+> 
+> https://lore.kernel.org/all/20260330161705.3349825-2-ryan.roberts@arm.com/
+> 
+> The available options are :
+>  1. Start with PTE level mappings at paging_init() and then "FOLD" the page tables
+>     to Block/Cont mappings after we have the full picture available. Looking at the
+>     future (with BBML3), this might mean "additional work" for most of the systems
+>     at boot. But not bad as splitting them ?
+>  2. Hold the secondary CPUs in busy loop with MMU disabled and split the mappings
+>     by the boot CPU with MMU off (if Boot CPU can't support BBML2). This is tricky
+>     with the page allocations required to add the page-tables.
+>  3. Move the detection of Realm support earlier to make a better decision for
+>     paging_init(), with an added bonus of earlycon support for Realms without
+>     the user having to work out the "top bit" for the Realm.
+> 
+> This series is an attempt to implement (3) (without the earlycon support). We try
+> to probe the PSCI conduit early from the DT/ACPI. DT is not flattened at this time.
 
-On 5/7/2026 11:44 AM, Linus Walleij wrote:
-> CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
->
->
-> Hi Petar,
->
-> On Thu, May 7, 2026 at 10:06 AM Petar Stepanovic <pstepanovic@axiado.com> wrote:
->
->>>> +  '#gpio-cells':
->>>> +    const: 2
->>> Are you sure you don't want to use 3 here instead and split the 128
->>> GPIOs into 4 "banks" second cell being the bank number?
->>> <&gpio 2 4>; ?
->>>
->>> Maybe this also solves the 512 GPIO by grouping the GPIOs into
->>> 8 banks...?
->> Thank you for the suggestion. We would prefer to keep #gpio-cells = <2>
->> to stay aligned with existing SGPIO drivers and current DTS usage.
->> A single linear offset is sufficient to identify each GPIO, so introducing a
->> bank cell would add additional complexity without a clear benefit.
->> Any internal bank handling can remain within the driver if needed.
-> If each bank also has its own associated IRQ line, for instance, then
-> this also reflects the hardware in a better way. But it seems this
-> controller has just one single IRQ line for all GPIOs, so maybe
-> this is better.
->
->>>> +  ngpios:
->>>> +    description: The number of gpios this controller has.
->>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>> Same here, certainly the 128 variant has 128 gpios and
->>> the 512 has 512 GPIOs? Just use the compatible string
->>> to infer this.
->> This seems to be platform-specific rather than strictly hardware-dependent.
->> We were considering keeping it as a separate property (possibly renamed to |axiado,sgpio-ngpios|).
->> Would you prefer that, or deriving it from the compatible string?
-> In this case it is fine to use ngpios.
->
-> ngpios is used when the hardware can actually do more
-> GPIO lines, but they are not routed out on the package of
-> the silicon, for example.
->
->>>> +  dout-init:
->>>> +    description: Initial values for the dout registers.
->>>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
->>>> +    minItems: 4
->>>> +    maxItems: 4
->>> In:
->>> Documentation/devicetree/bindings/gpio/nxp,pcf8575.yaml
->>>
->>> you find:
->>>
->>>   lines-initial-states:
->>>     $ref: /schemas/types.yaml#/definitions/uint32
->>>     description:
->>>       Bitmask that specifies the initial state of each line.
->>>       When a bit is set to zero, the corresponding line will be initialized to
->>>       the input (pulled-up) state.
->>>       When the  bit is set to one, the line will be initialized to the
->>>       low-level output state.
->>>       If the property is not specified all lines will be initialized to the
->>>       input state.
->>>
->>> If this is what you want, use this standard binding instead.
->> In our case, the hardware provides dedicated DOUT registers where
->> each bit directly controls the output level (0 = low, 1 = high).
->>
->> The lines-initial-states property also encodes input state semantics,
->> so it does not map directly to this hardware.
->>
->> Would you prefer adapting to lines-initial-states despite this,
->> or using a separate property for output initialization?
-> Please use lines-initial-states, support also input mode setting
-> and write more than one register if necessary.
->
-> Setting up the dout-states for lines which are supposed to be used
-> as inputs just doesn't make sense does it?
->
-> It is better if the device tree has this deeper semantic which
-> provides useful information for the developer and makes the
-> author of the device tree be more careful and detail-oriented
-> around the actual usecase.
+Nit: you mean unflattened here.
 
-For example, when SGPIO is configured for 128 lines, the hardware provides
-128 input bits (DIN) and 128 output bits (DOUT). If modeled directly, this
-corresponds to 256 GPIOs in Linux, since the input and output signals are
-independent and are not bidirectional.
+> ACPI table is not mapped in full, so we have to map one table at a time and walk
+> from the Root of the table (RSDP) through to XSDT and find the FADT table from
+> the array of table pointers there. Minimal verification is performed on the 
+> tables (e.g., revision checks, standard FADT sanity checks). Checksum is not
+> verified, but should be possible to do for the parts we consume.
 
-Similar to the gpio-aspeed-sgpio.c driver, the input and output paths are
-fixed by hardware and cannot be configured dynamically per line. These are
-not interchangeable directions of the same GPIO line; they are separate input
-and output signals. Because of that, combining them into a single logical GPIO
-abstraction would not accurately represent the hardware model.
+I went back to tracing acpi_boot_table_init() (joy :)) and it does what you
+describe here above (it has been a while since I touched that code) relying on
+early_memremap() mappings (as you re-do in this series) before acpi_permanent_mmap
+is set in acpi_early_init() (that happens later in the boot process).
 
-Because the direction is fixed by hardware, the standard
-lines-initial-states property, which encodes both direction and initial state,
-does not map cleanly to this design.
+I am sure there are caveats in moving acpi_boot_table_init() before
+paging_init() but I thought I'd mention it in case (3) is what we are
+pursuing (I am most definitely in favour of alternatives if there are
+any).
 
-For the output lines (DOUT), should their initial values be described in the
-device tree, or should they be configured by userspace, with the driver only
-providing default initialization?
+> With arm64, during the normal boot, we could fallback to using DT if the ACPI
+> tables are not useable. So, during the early probe, we try to follow the similar
+> logic and probe the conduit from both DT and ACPI where available. If both of
+> them contain a conduit, we only proceed if they match. Otherwise, we skip the
+> early probe and do things the normal way. (Any sane system shouldn't have such
+> a mismatch, but..)
+> 
+> Once we probe the PSCI conduit, PSCI is probed, along with the presence of SMCCC.
+> With that in place, we try to probe the RSI support after the early probe and
+> advertise the Realm World. If the early probe wasn't successful, we fall back
+> to the late mode, where we could end up with (on a possibly rare broken firmware).
+> 
+> NOTE: This is an early RFC attempt to moving the PSCI detection earlier. The other
+> option(s) that may be worth exploring are:
+> 
+> 1. On systems with EFI, parse this from EFI Stub and pass the data back in the
+>    DT Stub, under chosen node. e.g., "linux,uefi-arm-psci-conduit".
+>    Challenge: EFI stub doesn't seem to be ACPI aware. We could make that change,
+>    we only need a few table walks.
 
->
-> Yours,
-> Linus Walleij
+What would we gain compared to (3) above ?
 
-Thanks again for the guidance.
+Thanks,
+Lorenzo
 
-Best regards,
-Petar Stepanovic
-
+> 2. Have EFI firmware provide this information (with my limited knowledge on the
+>    area, this looks like too much work, and bending the standards)
+> 3. Append arm64 boot protocol to have this information passed to the kernel.
+>    (Firmware provided) - (Steven's idea)
+> 4. Any other options ?
+> 
+> 
+> This series is also available here :
+> 
+> git@git.gitlab.arm.com:linux-arm/linux-cca.git	cca-guest/early-rsi-detection/rfc-v1
+> 
+> Thoughts ?
+> 
+> Suzuki
+> 
+> 
+> Suzuki K Poulose (4):
+>   arm64: acpi: Refactor FADT table verification
+>   psci: Add support for Early detection and init
+>   arm64: psci: Move detection and SMCCC probe earlier
+>   arm64: realm: Move RSI detection earlier
+> 
+>  arch/arm64/include/asm/acpi.h |   1 +
+>  arch/arm64/include/asm/rsi.h  |   1 +
+>  arch/arm64/kernel/acpi.c      | 136 +++++++++++++++++++++++++++-------
+>  arch/arm64/kernel/rsi.c       |  23 +++++-
+>  arch/arm64/kernel/setup.c     |  69 +++++++++++++++++
+>  drivers/firmware/psci/psci.c  |  49 +++++++++++-
+>  include/linux/psci.h          |   2 +
+>  7 files changed, 252 insertions(+), 29 deletions(-)
+> 
+> -- 
+> 2.43.0
+> 
 
