@@ -4,108 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA0BCD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 18:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C7FCD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 19:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwKbiyHlwGwbovjlmx3b/YRsCDUYzrm+ibkGPEQXGFE=; b=yyD5tMwFcdPZIs6l8VdNu97zt2
-	YqT03HQdipVyhyb1V57VKJAAKx2/8nOO/CeXLKyCRYAl1sI3BqMp1wElBmW6f5V3XE3U5I391bkfw
-	ZHsLhRqnScBHunsrPa7C4zwSoUlSySdgP0GfxL/y3FUvuS8T+23L0RKGnjPu3aoSnPGQ4KtAGubmo
-	8liO6wJl/DtaVxs8+izss6jCcC5kiOcpy1xfUzmDf6Bu71pu+jWbhk8lPYt+ieBw2B8eB8G9MkpQ/
-	bLV2EVteV9ws/yTEvbeU7szbVJRUtDSzSjEbTBOMnuB5fxabSzzt8WnL8x8oJDhlpp6pFVeffiPF9
-	/xJmuCFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G5+NNyyxPxYROTl5/sBNxEkLDQhLS7g8md3d9cMY7P0=; b=tBYeiMpXFPnFEgXohy7Y+POIJL
+	fUoXkNBx4h2ooCG7Y8PhBnO7uxVJ2Y0mxbT/l6IUmaGj93P2UJewCXwOvOaIesK4oT9CxxB4d59TO
+	iFtljV6581+b6PyLoh1jfR8bN+/H5/eR52FDXvi77Iuar8P/iRf403dYriSmNHh0Nyj/HNq5EYXdr
+	5Rj65exRTZ0Nf3rMrvpxud2XZnBNep0ATAfRL33viV0R46NggsVLPzrOSa88RaQHgzvvZwIhT6aOg
+	MKpatK1+uu98ZFyzx/Dxeml62lnsrUZqykKcB973zc6+H97JEc2WrXpH1YdTH91olBfdX9nQAkHfb
+	rRVXggTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLQKF-00000007Igk-0d3n;
-	Fri, 08 May 2026 18:53:27 +0000
-Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
+	id 1wLQcR-00000007KSH-1FRC;
+	Fri, 08 May 2026 19:12:15 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLQKC-00000007Ig3-2AjP
+	id 1wLQcN-00000007KRn-2M23
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 18:53:25 +0000
-Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-65c6a2158d3so1685755d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 11:53:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778266403; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Vu7v2xhPC+TVgl1QADsOwGCNwvlQVCRW2XAkhM2LdNQavrZxGETqiegcaX8noM7OBD
-         MbN/7g9Mo6MppTGMZSKlXQPFvWsVnQ9D/rJGhIbyJy6MbHzsnySzohPdcPDcXDd+bStJ
-         m8R2CaVLN00PaU9q9thoQX/vRQu+RKmgsJaKPU1A1iO+1amyEHZnjzLFx2oV087wI/uE
-         o0xfuSI5Tb6l8P1LrMAUeMiAmN6sImV1HRbPwQUBbRg6oDvClMLIrxBdZdsqQdhvfN3S
-         dV2hZbuTpc122Nt84Ku0HKaPHyt7UuBsrNwrQ7GhV2E8NCCGhX0Qzi4CbHuD7Cl6+ruN
-         9YAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=vwKbiyHlwGwbovjlmx3b/YRsCDUYzrm+ibkGPEQXGFE=;
-        fh=bK2rNTr8VoFE+P9C4PGkSwSZzZr0u2s4Qmin6Y5loa8=;
-        b=d2Sb9tbjHm7iKNTTXUcG7RWDTOo4pW/isn5MBTAhVT5bpJNCna8vcypxyNDwMcFDw1
-         BnyJkG/1gH76YBO7vOqp313ClkGUDk4x6S3boUzuNdcFUihYGBes44L9QEzpI96WmoB4
-         2R0v+izWySftoQhKMF5hjDZUweX7T5w5PY+Z6rKFsL6gitwOUp1GbkX6r9eGSljtm2MD
-         jNyTLx+WJHhZUMYou7Ijcwn/25kuRqnQvJ/9PguEOi1ZMbbDOWRuTq/Xm/1ridm1kuaZ
-         huQsCxikG5XQkIwBDKVUESuzu8OYxlLC6mXWFtBle5/6tG2+YA50FRF3H4L4r0GGKxxD
-         2wsA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 08 May 2026 19:12:13 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-366089e42eeso1644954a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 12:12:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778266403; x=1778871203; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vwKbiyHlwGwbovjlmx3b/YRsCDUYzrm+ibkGPEQXGFE=;
-        b=pVDjhAOK5EppshNQe13A2lhNCzID5Qypvv8CkqU0y++yjlOe1P237ZNxqjoF8nlujE
-         lX6lo9swfU9TMavD1aigqJTTTVnUhYYyUiSAexLlYeM5AAlQwUbnjM8F5kQxsYrqm9HZ
-         eKUmbJVPp2tWLjBsCun3UhTm7QhQ/7X1Lo6g84ZOzmgMTt+7hQbMKizyadORHGUegkrE
-         WBzN6XKP5TFYucrCBO+Y4et9qF4vQI1PUhiohBqThFETGNaWNs8c94X/2b36ALg6DVm3
-         4ZJSZ66JbqnoT7DVR1v8s7AY5/FSUFq8l7d8OOWs/PY24Z9CHLfIKJ3a6rx9DmtBSrY6
-         BsmA==
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778267530; x=1778872330; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=G5+NNyyxPxYROTl5/sBNxEkLDQhLS7g8md3d9cMY7P0=;
+        b=VYftUTIYx8oiwYnlk3OSnzQQuzPmXH+qWvQ0+rU4T73Shz7aMHJQV4BnmLehKZsva6
+         Oqmqo5uYOYTA3dQlyJwFD4fgLwMlkMXc25uqqdazM/otWk3kMx760010U2hSh9FG/b7b
+         T8lKUmE24MW2rIPlSfdbHuGaEFtEoNPL923CbZyYEmZF1Fx7+/pgeqoijRsGxSFSys3e
+         SRnND9wPdDtXV6gAekvfUK09h4Muwb7xXcrfeGdVR0LEf1l7Hm6ioAZDqU39DqR0tGv3
+         vUnxc3rLxVzh/UaoJDk/iTGxRfv9CoyM3NkVVzTTcQZiwb0cavzdem3hbePyg+GnEsaH
+         0Tqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778266403; x=1778871203;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=vwKbiyHlwGwbovjlmx3b/YRsCDUYzrm+ibkGPEQXGFE=;
-        b=NRAa7O9kau9hvlTxOgKzmV/IMOjLvxJ3eo/IjsBCYylNabY1KHPWlucoGtMX3VQ6SS
-         dr+i+T9k825BLAfeFtp+Fw6M5Ruc0f2BgcJcLbQ9dt0hyKAsCS2i3YQ43njq3WH/WCvY
-         wcw3NM1Aaf8a+NKa5BoqC2U58SWF543ur701A2w3gZLsJjdLOokx2IOaIs5VXcxHPREf
-         U5QX9kPX8EoUPASq4qU4c/ckYhNLuy2TX2QzF/tVdhQ+qDEG76Rd26cBfekcwG9AuNcb
-         gXW972PTkMcT+XAkliKkBdjc6aXiO7lPjWAae5fyjtLF9xaVoo24dBFXaJjQXmoYw95v
-         mtbg==
-X-Forwarded-Encrypted: i=1; AFNElJ988dsoLS0x2SHHhmii2eO8/7cYmmqbAo5IO81EPE5DWbgu50D0KcnWXikOIP71eGwxOTTqKKLDxs31wnysd3oE@lists.infradead.org
-X-Gm-Message-State: AOJu0YypfDaK2ZRlLqeyeO5VBjL9BM08BonOnUkO7vCUj01Xdpn+1tnr
-	t30NimZWD+RmSMTyD/fIFkW+IPO8yo0pYL4R9n+XXxzP35Xwz3mXhCt9LnnUzV5mDiwTmoachet
-	c3Jb/KC4hHDOIbnJrhNPIMHj35llvtDE=
-X-Gm-Gg: Acq92OEMTnZIIVdlN+l3AVMGZvvg7Tl72Yuc1GJWFA1+QXOIpkTtYNgsysc9ucJIvYG
-	dajyZGlIPL3qnRonRNFUok18/+n/z9QKsLtQ+pI/78ekT6+3hrkmxrV0UtwrdpaaDcageb816nR
-	VdRzZukAwl3Ty1uTtdnAhDi2PilV19EttmBTSKMD2FMU/tQ3/sFnx4WoyhY9B5e0IMwzCb9QzAX
-	LtIvyqd9T0obTXMOs/EerHNcbLZdWQlWPmfnAJO24Nnx8Fmh+Ntq7P+p14ebtnv2eqv+MNwp3PP
-	grD+hGPXhw==
-X-Received: by 2002:a53:c7cc:0:b0:65c:6897:26e4 with SMTP id
- 956f58d0204a3-65c799defd8mr10248971d50.56.1778266403159; Fri, 08 May 2026
- 11:53:23 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778267530; x=1778872330;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=G5+NNyyxPxYROTl5/sBNxEkLDQhLS7g8md3d9cMY7P0=;
+        b=dJhWs2YrVP94ILLWX79hmMNSsvltE5sQBfOZ9hS3d5+zx+iMhXBwEhSYyTn2Iv0QPj
+         UjF7D/iawGJjCeqJrNOY1pZOA97aM24d9uPqZ2lpfBnaAj0IotOyiUOKDRZn51ybkRNR
+         JU48ZMNZdI+N9pWhojX0Ky7+Thfg8zV4R2m58QzRHONavw9oPjuBOFEczz44oOsSJ8mD
+         ME7GofsEOdZ3nnYKCmQnysky/eBFKbxwQX1YNtEVTYNheA7U78wP/ODWNSOZlIBRZKS8
+         nTJE8xt5kduN0BGRbPAx3y5Mxdv66LiWbeTgFaJ7Be84eo8N/y8uIIIojUkudAN4HHsp
+         ZWGQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8/iv0Jk8zul/VyELOQ8DG+xWOzJsDtlKzcatYXKFN/tXhIiR42Oak+bxhPwfcWglIbXnzshbEE78kFFg9jeRDV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxm/gZIZ5Wve6JJS8OvgyWGMj/MZ+PFMHFV3vIPtudv2S6Fp/mk
+	qTRIzpTLLcIAS1sxbuLnUwASBayEhx4Q1PNH8A6CElshX+tZ38zNrK/VC5YAQG5CoZs=
+X-Gm-Gg: Acq92OGig7tgZOnlAyIYIcdZrQ5jr5P/xrCpwZxO3osctpguuRFu/V1qaKc/QvlBi96
+	4XVuvDRBlVQy8AGvDbOTZEQmyoyZB714e+oD29jBmFrgFUhhDhViuTCuPrei8pAS8fzS8jCWj09
+	lVNKrATKd195bF0hkeB2P1qsPnHM17eafYHHSwSDkPoJYsjYpOleFoP9zJieXjjxGkZvAnrGzfQ
+	gHAKgO/Fi7SktsgCHBJneXP44mJGIgDqJeFoIv0VmiafoMnYQNNivar6LXtZsFKS1ZiTbagvo8Z
+	g8/xAc/sxy67HuuOS1mH6PNLsZEVeTrT7iqjKw+FTlhs62vbmMAAskC46HNEK6Gv+n30rJPVoLt
+	TsGv238RCv0ZwfKrOwxrJYzjqDe/LzHDg7hN/Dff928i+nNa+BcqPV1ND0c7zUoQTBH4PCJsIIm
+	GEYGaFilIwiZvDAa5+Ce8=
+X-Received: by 2002:a17:90a:38c5:b0:367:c442:3f24 with SMTP id 98e67ed59e1d1-367c442412fmr468771a91.19.1778267529688;
+        Fri, 08 May 2026 12:12:09 -0700 (PDT)
+Received: from localhost ([97.126.187.42])
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-367c2ca4f04sm528093a91.10.2026.05.08.12.12.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 May 2026 12:12:09 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Rosen Penev <rosenp@gmail.com>, linux-omap@vger.kernel.org
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade
+ <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, Tony Lindgren
+ <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, Kees Cook
+ <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ "moderated list:ARM SUB-ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>, open list
+ <linux-kernel@vger.kernel.org>, "open list:KERNEL HARDENING (not covered
+ by other areas):Keyword:b__counted_by(_le|_be)?b"
+ <linux-hardening@vger.kernel.org>
+Subject: Re: [PATCHv3] ARM: omap2: simplify allocation for omap_device
+In-Reply-To: <20260330213528.18187-1-rosenp@gmail.com>
+References: <20260330213528.18187-1-rosenp@gmail.com>
+Date: Fri, 08 May 2026 12:12:08 -0700
+Message-ID: <7hv7cx90mv.fsf@baylibre.com>
 MIME-Version: 1.0
-References: <20260508124513.17752-1-m32285159@gmail.com> <F98D1BE6-7B28-4A36-A372-2431EA151E1E@gmail.com>
-In-Reply-To: <F98D1BE6-7B28-4A36-A372-2431EA151E1E@gmail.com>
-From: Maxwell Doose <m32285159@gmail.com>
-Date: Fri, 8 May 2026 13:53:11 -0500
-X-Gm-Features: AVHnY4I1DIa3PLbL-302Uohv4QH5c75pDs0f5bfSZhMVGMyA6hyHYjDxMjEv8J0
-Message-ID: <CAKqfh0Hmchpq5zvK6Fd=VCqWXN+1FKyWxNyF1O=3zsVEM7HJUw@mail.gmail.com>
-Subject: Re: [PATCH v2] iio: adc: xilinx-ams: Replace spin_lock() and unlock()
- calls with guard(spinlock*)()
-To: Sanjay Chitroda <sanjayembeddedse@gmail.com>
-Cc: salih.erim@amd.com, conall.ogriofa@amd.com, jic23@kernel.org, 
-	michal.simek@amd.com, David Lechner <dlechner@baylibre.com>, 
-	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_115324_563886_FBE5B46A 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20260508_121211_860035_CBB976C4 
+X-CRM114-Status: GOOD (  21.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,31 +103,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 8, 2026 at 1:50=E2=80=AFPM Sanjay Chitroda
-<sanjayembeddedse@gmail.com> wrote:
+Rosen Penev <rosenp@gmail.com> writes:
+
+> Use a flexible array member (FAM) to combine hwmods array allocation
+> with the omap_device structure. This reduces the number of allocations
+> from two separate calls (one for the device, one for the array) to a
+> single allocation, improving efficiency and reducing memory fragmentation.
 >
-> Hi Maxwell,
+> The FAM approach also enables bounds checking through __counted_by(),
+> which provides runtime verification that array accesses stay within
+> the allocated size. This improves security and helps catch bugs during
+> development.
 >
-> Thanks for the resource cleanup change.
+> Simplify error handling by removing the unnecessary multi-label goto
+> pattern. The new code is more straightforward: allocate, verify, copy
+> data, and either return success or error immediately.
 >
-> Overall looks good.
+> Also removes the now-redundant kfree(od->hwmods) in omap_device_delete()
+> since the hwmods array is now embedded in the structure rather than
+> separately allocated.
 >
-> Also, there is opportunity for guard(mutex)().
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+
+Thanks for this cleanup.
+
+> ---
+>  v3: add a verbose description explaining why. Powered by Claude Sonnet
+>  4.5.
+>  v2: remove kfree and fix compilation.
+>  arch/arm/mach-omap2/omap_device.c | 29 ++++++++++-------------------
+>  arch/arm/mach-omap2/omap_device.h |  4 ++--
+>  2 files changed, 12 insertions(+), 21 deletions(-)
+>
+> diff --git a/arch/arm/mach-omap2/omap_device.c b/arch/arm/mach-omap2/omap_device.c
+> index 79db4c49ffc9..77a75b0b9ae6 100644
+> --- a/arch/arm/mach-omap2/omap_device.c
+> +++ b/arch/arm/mach-omap2/omap_device.c
+> @@ -307,35 +307,27 @@ static struct omap_device *omap_device_alloc(struct platform_device *pdev,
+>  	int ret = -ENOMEM;
+>  	struct omap_device *od;
+>  	int i;
+> -	struct omap_hwmod **hwmods;
+> +	struct omap_hwmod *hwmod;
+>
+> -	od = kzalloc_obj(struct omap_device);
+> -	if (!od)
+> -		goto oda_exit1;
+> +	od = kzalloc_flex(*od, hwmods, oh_cnt);
+> +	if (!od) {
+> +		dev_err(&pdev->dev, "omap_device: build failed (%d)\n", ret);
+> +		return ERR_PTR(ret);
+> +	}
+>
+>  	od->hwmods_cnt = oh_cnt;
+
+minor nit: isn't this assignment redundant now, as kalloc_flex() should
+assign the count?
+
+> +	memcpy(od->hwmods, ohs, oh_cnt * sizeof(*od->hwmods));
 >
 
-Thanks, of course I'd also be happy to do the transition to
-guard(mutex)() but it seems like something for tomorrow evening since
-I've already submitted a lot to the mailing list.
-
-best regards,
-max
-
-
-
-
+> -	hwmods = kmemdup_array(ohs, oh_cnt, sizeof(*hwmods), GFP_KERNEL);
+> -	if (!hwmods)
+> -		goto oda_exit2;
+> -
+> -	od->hwmods = hwmods;
+>  	od->pdev = pdev;
+>  	pdev->archdata.od = od;
 >
-> Thanks,
-> Sanjay Chitroda
+>  	for (i = 0; i < oh_cnt; i++) {
+> -		hwmods[i]->od = od;
+> -		_add_hwmod_clocks_clkdev(od, hwmods[i]);
+> +		hwmod = od->hwmods[i];
+> +		hwmod->od = od;
+> +		_add_hwmod_clocks_clkdev(od, hwmod);
+>  	}
 >
->
+>  	return od;
+> -
+> -oda_exit2:
+> -	kfree(od);
+> -oda_exit1:
+> -	dev_err(&pdev->dev, "omap_device: build failed (%d)\n", ret);
+> -
+> -	return ERR_PTR(ret);
+>  }
+
+Kevin
 
