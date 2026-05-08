@@ -4,122 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15BDCD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A79F9CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/fEPIPapwiWmQTP+hFwhjhmvdlYv9/glLLK7fn8olog=; b=vp4R+6li2QRNNI2QgPkrUWgW9S
-	/BMplXSvnOVpVblW5AYBru3ye5MmibcslWftZp86XicyIRiJVNyl/89kAwVk3BqctCi6jYqu7yl6q
-	XDDQslZAmXThrXuqfYx1JEe6KptqmVt9MZvO55XnEM7qAsgHbdhbdfGtvTbWgyWEnCiddiORSf6Li
-	3dmSq7U2faEY6eu9c+GxY1/0NXeOEfg6YFhU/vG6g4MTBCPPcoIZHo/rkzclbfwPIfUGiV1xfiKeb
-	vb/ZI2/BNlUbB1P+VOnXzm540y24zjz7hfWRIlrGv7iYVQrb1OmXJmQxq6EE1rLJ+OZL9nOTfT/EC
-	nxN12oUw==;
+	bh=TI7X52J6aApGzF9MwcE5Wp5s+0QmxzGTZI8IYa2JNaY=; b=4UORGQ8s2BCT/DR7k7UIritYnA
+	+ChtwK1/2NyNdM0h8nZOWTD4sp3bpqxqnlkf4/rmk/hG02bFXHBQRAmTrNf98cCL1GkmsMOnrHurp
+	1TXwWFVcn01bOr6GJ84ccijyLd2GuKkUeWXlu1kckKn5dbKymcdPdfz6UQPmT0u+DyD/882JxUU37
+	56Qc6nu/aGzAbpru7WpxZ+s7TDfhsmeStaw/mBVdLyfJ8AUUAgn16VTVfY5Uh72ysRmdu/6//8GtY
+	qoUi2x2xHnoRfUIo1VKlZP0fg7f/eukGBfZV0rpW458TQBJHvncbfbZFAGA0l79QqnBdLoon/mHoN
+	DcNBO3PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOnJ-000000076Ok-2JwF;
-	Fri, 08 May 2026 17:15:21 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wLOpK-000000076dO-3O4k;
+	Fri, 08 May 2026 17:17:26 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOnF-000000076OD-2wgo
+	id 1wLOpI-000000076cr-1Fk5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 17:15:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KSpYjSMb/ERPu8+JBfpuJWvJryHpBfYQNa/hd9eIQjK4w1bRsOwuBZOqp0cJVHutF/f4kXocHNCxsag62rGcJp60Eq2iMjCXMbrkel9H9mXKo1zj3hDT6lGBfhTEFQECp3Q0IHVaaLtRfDTSl1donZRRiouc88MjlCH7T7Seb88lXKsi9R+rKWsIg8nytkKNSm89Cqgjggz90DMpxI/pdOn/wW8NWjWF7x9cfRL8y/K3d5/zKDwqCpb7W1wAKPVGhiumm0MEHge1oeoMauoxs7Qphy8cVCVZcYEB+g3p2w5gcz8lrEE57TVdSo5NX2JvQmMBURU5iAEG2klyoIYJ9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/fEPIPapwiWmQTP+hFwhjhmvdlYv9/glLLK7fn8olog=;
- b=I7k/b+roKhJT+QGAPL4cT0uENIBEiLoO8ehvrNmyoET5E+BtpBvmbZy4VNqZBS2UOr30j7rqL0X7bYaGPVnm8T2zvkt8kyBMqaSq59Hw/a9t1SvXo5vFjZP85FsTbIY8PYxnxtyh9MsO6ENeUtv7s3CwTp1WmGmrmoEGf2n6dArA3V9DB9feMMDsrgZks9vjqz8ohkLcFhtGBvueKysi8p04j+FXV9pG8LtHSgp9sAH2yO1pwZR6N8XeB0XlNSUWOod7MXG4+Ws5G8vSsRCyGdFOWY0/ipvrDTGJbCrD/wfhihiAqUidrKiHmPxZqat5yOBZ7WHRV4v25oXkAz2z2w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/fEPIPapwiWmQTP+hFwhjhmvdlYv9/glLLK7fn8olog=;
- b=TUa5dDyX7EWf2MM/PSJ616Rt+NsSIeAdxY+JR5LW9gNjrkTjm2Pmbe9a72n7kwbsK0hn3sL9cvLTX90DONfd9DmIfKHdt0KZB64IDrsSkXvd6RXFaOnZV3O3m3QJJOWKu96aAl93zcbzVMyBFWBWg/+60TQSWPlgzvs35Hu579M=
-Received: from CH2PR14CA0054.namprd14.prod.outlook.com (2603:10b6:610:56::34)
- by BY5PR10MB4161.namprd10.prod.outlook.com (2603:10b6:a03:213::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.20; Fri, 8 May
- 2026 17:15:11 +0000
-Received: from CH3PEPF00000009.namprd04.prod.outlook.com
- (2603:10b6:610:56:cafe::6d) by CH2PR14CA0054.outlook.office365.com
- (2603:10b6:610:56::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.19 via Frontend Transport; Fri,
- 8 May 2026 17:15:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CH3PEPF00000009.mail.protection.outlook.com (10.167.244.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9913.8 via Frontend Transport; Fri, 8 May 2026 17:15:11 +0000
-Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 8 May
- 2026 12:15:06 -0500
-Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 8 May
- 2026 12:15:06 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 8 May 2026 12:15:06 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 648HF65l1822239;
-	Fri, 8 May 2026 12:15:06 -0500
-Date: Fri, 8 May 2026 12:15:06 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Andrew Davis <afd@ti.com>
-CC: Justin Stitt <justinstitt@google.com>, Bill Wendling <morbo@google.com>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nathan Chancellor
-	<nathan@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
-	<llvm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 03/11] soc: ti: knav_qmss: Inline lockdep condition in
- for_each_handle_rcu
-Message-ID: <20260508171506.7m7ejuyrp2r5zphn@little>
-References: <20260508153211.3688277-1-nm@ti.com>
- <20260508153211.3688277-4-nm@ti.com>
- <a994a69d-2482-4e96-8d18-70a09146ce36@ti.com>
+	Fri, 08 May 2026 17:17:25 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ba3b9bcf69so305ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 10:17:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778260642; x=1778865442; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TI7X52J6aApGzF9MwcE5Wp5s+0QmxzGTZI8IYa2JNaY=;
+        b=VinEjzy3F3LznS+LEoiyWvMwHugAZ7jgMHIEHT3Da6XNM0CuG5c95EOHo/tL/ShHsB
+         iqg2W50oTIrtI1lrlCglIi/+vZsT8GRN4/H71fuMBZKzCwIOUjN/smFwhmkmi1XBCw7d
+         VZTB3KHKtbfTcQsxdICDLiMf8nK/A/FMQSE6i4Gmc8SLKBdxejcmnBugfxEdtJWI9cxn
+         fvJre2PvcQnCllqQmq6hf6iSDXRJsrywjFA+0jlXzpM+94/LRtKhE2GWn/VM35lBqRI8
+         PFZYOqTe171D/iB4BfxtP+QqMmsgX3+S6CW7zjrz+Lkrhbvb7z94l9aCSoNBxVd/JIRK
+         vaKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778260642; x=1778865442;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TI7X52J6aApGzF9MwcE5Wp5s+0QmxzGTZI8IYa2JNaY=;
+        b=kY76ecGsZVQwbcMv+kTmr13QSjyjKsVz79BaHsiaP+pGudciVAPqf2W5tix80GyRy4
+         Oc0VM3XrXWIrntiYtOmHX0rbXle53f/7Pkgt/dZZhf/hy1pX+yJaQkNLfejlsngkGHFh
+         1+aVpfB/a+JSW2exotQheSzw0Fl4HTWUq3brT5xwRVLixQz4Len1FfcxqlrMKKwk5K1v
+         qBIPcRrEAxmCAcIezP5gHNsGtcCAppbmxvSlJzQ/0olLahv2m3eivDI7V5CfYoPHeQY8
+         EzeTj6IVLJf6YabT7UTv4H5bncKXCeqhV2ipQTVihCdFyxf2Gpt4JeaNqliyg6UGNaHU
+         fYnQ==
+X-Forwarded-Encrypted: i=1; AFNElJ//gZl3nmMGmEYB4KC7Yb0JV2mSgxSvE1WLaA4y+6Fa3NYRKfmU7s8x/YBaflbOAL25SyGRXeB1dRCkyOGTP7zC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqUrgH0N9OXbAiE6j8dYjJ1m2sL800Hmuz/fQ/mlPGiAKi4Vms
+	xL+TJvxmaPP4JpE/kLaTDtyqRg7nHrG5Nsl9QoGCgqXDX1HktWsze7MnRebv/3l0mA==
+X-Gm-Gg: Acq92OHSts7LSRZ1+IkuYNP98jMZz4uECBq394JAF1H/yGfmwIaGilpv+fbzec9Roj9
+	vml6BzTaq9syxAKvSkmEbkcAToy59JFfsSZGjkJ6LiIylAgwmEVsMqhcGe4YcZwmKKcLYDYkKir
+	2dq88gQuuccMhMfQdWHT6ikpBNDTbc5yttrp688o9jyQYVtZRI2ei2D39FTZ2rPbGS5h4GtKEVG
+	W+Hp1Nv72HmMpQYc7ep8Y6H4awYX8KNc4hmabUVLpRxKDcpkyaaQ5OjOH3bW8Tx7QlAOqXwKmgp
+	oTkG8V0h7M0IBQ54san/UoCNKOLl8wUIY8SfvRZ4PdFODy3BXF4rW7qNJVnCOma/VKvmG2eCEfU
+	CtzR/8Y3JXdUSWmifbolbnRDCVRadNpP9XePOWybf8nIgWWrG3wI+IWVmEugR+8nYsDJWrhDJ0a
+	5evF5Kfo2che/jhPXZLcVZtGJN4VIKzfNy8LzxlxFQUBBB2FPyoPW2xkPhrlnOfqpSG8w2
+X-Received: by 2002:a17:902:cecd:b0:2ae:45cc:aeb6 with SMTP id d9443c01a7336-2bc74753517mr64435ad.6.1778260641297;
+        Fri, 08 May 2026 10:17:21 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367c2ccfbeasm311186a91.13.2026.05.08.10.17.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 May 2026 10:17:20 -0700 (PDT)
+Date: Fri, 8 May 2026 17:17:14 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH 5/9] iommu/arm-smmu-v3: Remove CMDQ_OP_CFGI_CD_ALL from
+ arm_smmu_cmdq_build_cmd()
+Message-ID: <af4amt7Pzmq-xpLf@google.com>
+References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <5-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <af2w01YI01Av0Wg5@google.com>
+ <20260508160236.GG9254@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a994a69d-2482-4e96-8d18-70a09146ce36@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00000009:EE_|BY5PR10MB4161:EE_
-X-MS-Office365-Filtering-Correlation-Id: 126df4aa-c8ff-4a74-2cbc-08dead255c90
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: IO7B0xJYdoyvKn13aUZL92aXxFkbmjXyOO6aSsQmkzZa5eCC7Rk6VCYRXpWMan5rt3ZDvOjOnboj50nz5VHq/s8z1L/x/Xkj04/MNqWyiNU7Lcp1Xp1w7KcNMEsp0xQEgZmlgW0BDVnoJEzBbWKoN2fHf9KNCLKfRQVA+xZjJ8w1ETbYTTYz7vuUbLyIF5RIUwABmPrm93ptOg/YoTj49QEMRs8WmPGb0hZhSK1VbQ40A3znjsAgHVQ8Jp6mjZT7FKV3ux9CRkoXRdqYg2a0ZfMMvwJsvuQ0afQHLL/n3frDcnzzkcD/bjI8zROS4j3jDTxgHT/tyGMt5cqlOhjTNoVUIClmVB9VrUNxbR139MOC5EsDymfMht5wwRGC/dcNL3RzaJB3ii9OZIergOmDBfEM3AY8+HBAFJKzkt0oEJDx6zLLLgPp6Wor7GQXl7RkrUpz6IVSDITmj4yu22KxuA8wBNbLc7zXPSytNYEUIS5ZrGqo1srhJkPIncaHWZ10VW1RBcde2NzQyLVQr69HpLPp3gyQpquRo5AZFjOzgLWNY0hQ5NPBc+40Rl5rSR5CsHkncZOjsnu7Asr5tzHbQewTGzg3UVGe6JPKB0W2fpU7Vy+j2AakPg2iLL74MwQaN1a/EG8aB5cjzDmuw+u0PxlTCKLziZcesx+/JfhroMQ3ggTzGdN4lkBU2zVW/UMLK+f2tGTnMW6ixSVJ7v5bkKnrtdlsD8tENny8fTRnM/o=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: VfKytgGlX3MIiQ8I2tK5qmcrZhLV6VNUw7zhMyiQz5HKDVjFsYQrEweBTv5mvKf8wim+OYaRyD9A6csirMKaPPRfCfqRvWHyq9plUEslugFkPoRhzpqmz7EXDQHiYUhw1F9qMnlusdyuL6/e9FexisinyuMBMDwmoX6lZoOtfk79Pzg3apGSL0cYYcBZofBSu3VTP/9UO7WBe4+XXc8imv2yKihxrE/dhq5Y3eWkZZjr8FJRwlLpLLkc/kE9+XOR5vo/XT+mW0AS0JinvZodnogxrKvD2Uu1FBOKsTu07Pl6CY73GejokJluxbiG6Lj2swMxGgufG3vgJP06BVyoLjXWLzXpn/KXVu3BKnV1ZhHXIPxBtd8UXTCUmr61SEtz0KLe4RsyzxT1xcp0WiT1BJaYPGndjWc6jCE5NDCyZo4yUt16qnh/lWXgN7RMlxxe
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 17:15:11.0506
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 126df4aa-c8ff-4a74-2cbc-08dead255c90
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000009.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR10MB4161
+In-Reply-To: <20260508160236.GG9254@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_101517_747031_20F306F3 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260508_101724_348389_28F05B9C 
+X-CRM114-Status: GOOD (  25.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,24 +109,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12:05-20260508, Andrew Davis wrote:
-> On 5/8/26 10:32 AM, Nishanth Menon wrote:
-> > knav_dev_lock_held() is a single-use wrapper around
-> > lockdep_is_held(&knav_dev_lock), used only as the lockdep condition
-> > in for_each_handle_rcu. When CONFIG_LOCKDEP is disabled,
+On Fri, May 08, 2026 at 01:02:36PM -0300, Jason Gunthorpe wrote:
+> On Fri, May 08, 2026 at 09:45:55AM +0000, Pranjal Shrivastava wrote:
+> > On Fri, May 01, 2026 at 11:29:14AM -0300, Jason Gunthorpe wrote:
+> > > Nothing uses this, just dead code.
+> > > 
+> > > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> > > ---
+> > >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 3 ---
+> > >  1 file changed, 3 deletions(-)
+> > > 
+> > > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > > index b3ef001ce80d23..ef0907b1a2204f 100644
+> > > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > > @@ -290,9 +290,6 @@ static int arm_smmu_cmdq_build_cmd(struct arm_smmu_cmd *cmd_out,
+> > >  		cmd[0] |= FIELD_PREP(CMDQ_CFGI_0_SID, ent->cfgi.sid);
+> > >  		cmd[1] |= FIELD_PREP(CMDQ_CFGI_1_LEAF, ent->cfgi.leaf);
+> > >  		break;
+> > > -	case CMDQ_OP_CFGI_CD_ALL:
+> > > -		cmd[0] |= FIELD_PREP(CMDQ_CFGI_0_SID, ent->cfgi.sid);
+> > > -		break;
+> > >  	case CMDQ_OP_CFGI_ALL:
+> > >  		/* Cover the entire SID range */
+> > >  		cmd[1] |= FIELD_PREP(CMDQ_CFGI_1_RANGE, 31);
+> > 
+> > CMDQ_OP_CFGI_CD_ALL is also present in arm-smmu-v3-iommufd.c
+> > I'm wondering if we should remove this from the iommufd.c file too?
 > 
-> Is it when CONFIG_LOCKDEP is disabled, or is it when CONFIG_PROVE_RCU_LIST
-> is disabled the condition argument is ignored?
+> > This op code seems to be unused since 5.15, if a guest is running the
+> > same Linux driver, it will never generate this command anyway.
+> 
+> Yes
+>  
+> > Unless we care about Guest VMs running non-Linux OSes, 
+> 
+> We certainly do :)
+> 
+> And who knows, Linux might start using it someday!
+> 
+> Guest emulation has to cover all the commands a guest is allowed to
+> execute, and that is what the iommufd code is doing.
 
-Gaah, you are right.. CONFIG_PROVE_RCU_LIST..  will respin with the fix
-once all other patches have had a chance to cook in the list.
+Alright, it makes sense to keep it in iommufd fir diverse guests.
+No further concerns.
 
-Thanks for catching, I miss took things there.
-
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Thanks,
+Praan
 
