@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58122CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0189FCD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:23:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YXUQyFk3/gkaOHXxMJL4LSnKxu/TPQvEZNmcErPubxM=; b=nFZqLHFlmKhGuK
-	bLQBWx8Irg8mw0SU6ot3z1OrMhTKXh1K1pb8fa+vC/YoG5lmhX56yRYVxgZogOQgLwXjCw7JGRX6U
-	dEqGOQWxa2cxHfkmjfYqdZz7ud3OOg2ekbc1wzZYhDJt3LAUxOg8YJ18CEQu9luA+V3zXeI5OnBM5
-	Oy+yJ9pc29tHInmlZarDn6BOpxVv9coHI1MxWuPhLwm7gUTAivPjEiGzkfCt1fv9cDSDHZlsKF+vA
-	TeHZvbb+xMyAPDWrCaGqOnSIUjn5GU19y1Xz1moWbSz3Mi3aGLnKiYX9iRnIUxFc6O1BFPm+jGm28
-	BbJqBIx5TuKbX+etYzbw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vAyKAjmkX6PvmXkxrw5YnaLQ/4sPrlWKfDdfdwHLY1Y=; b=1v3d8qekI355LGty1Ga1j2nVgK
+	MZbqIOL+JisPkfljjuYX9cWQwmhjxl7eoXwUW7bMpo8p9/1XJhtRZh7HBk02owAoFTgcvIp/5nyi2
+	6/8+7W6uqKzkBGGy+nR4dIcgfNS1e3AVfuCaEs6wq1n2ADZMxyNKzBTDXfG0W+jZYVzuYrn4Wxe5P
+	2A31Lvyvhxv1n9UotYX97S5vEm4LEhHhv3c4rhhNxoh4uMeoGxTPiIOeIpw8ivQTMNj0Z+nDRP8nS
+	oWkHIm1yjBDylsgUUJ/f4Sp9tMFYpK3f1h66ZjJ9mbwYC2nU0crU21ApFc2l8ZTl1eZ+Ly+sI7ICS
+	D+w8m1wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOv1-000000077iI-2lSZ;
-	Fri, 08 May 2026 17:23:19 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1wLOv5-000000077kN-3HGC;
+	Fri, 08 May 2026 17:23:23 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLOuz-000000077h8-0lgS
+	id 1wLOv3-000000077ir-1njn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 17:23:18 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-365d8e43759so1350740a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 10:23:16 -0700 (PDT)
+	Fri, 08 May 2026 17:23:22 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2babfd18435so12200215ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 10:23:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778260995; x=1778865795; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YXUQyFk3/gkaOHXxMJL4LSnKxu/TPQvEZNmcErPubxM=;
-        b=QbFCYHx1x5tDXBm2F+TL3tK6LmkqHjBXxGLln25+6q0gJ/jX7ffuBheSha8+Kz9m3m
-         TAEHssOD4u2bRAGCmJywp9Z+JIcXkTrQlKTcCyL8CUZgD94+fP5OJ1Em9yH8b5kl26By
-         R2HZXqfhXSRhWcsai0owaZc/uTvyUlg9S6/knzZRRx/pY7hdcSaTRrMPZrH0dI2R3XnR
-         KWxmFWL81bWlFLG/vbb/gREeN9+zG5XsP5moIOC2v4j9e2BnEWCNfEgC8fxlcqsKgZlI
-         fJITnarwFg+j0HVVDtMdwkPSJwhZyKEPE4BEmp8jS6iX2EKH6f8gCicuUxchdHRyPqMq
-         p61w==
+        d=gmail.com; s=20251104; t=1778261000; x=1778865800; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vAyKAjmkX6PvmXkxrw5YnaLQ/4sPrlWKfDdfdwHLY1Y=;
+        b=nAGkErDGRT5pbO1HKFghIMhlM4EtHBAHCfdCpJn1ymQpywRSU85RsSLnz2WWtp4xgB
+         9QOMLRC2dvkM6TKeIK/vooOal9iLGfwI5cmYLYwJPP7HtZy9amG5UIsKx+J1KtOMnG5/
+         UQPt8EI+jd769xk2d/Rd6GFLDNh7tcnkXeFwPltDrKnD492OMMVkS1/g5qgRN6G+tgQy
+         rq9azCkU/TS6Eg6ESMkbXAg4yeeoRZVujag3tBJO+FPCh6mO3xqRQC2UTUkn9K1JNqes
+         1h7IrOy0MoP9xRLyzu4NzhWBu/S2bVEk3IRHLQlOJnso8oohiyyUlhZzZQsmGYMZyR1x
+         j2jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778260995; x=1778865795;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YXUQyFk3/gkaOHXxMJL4LSnKxu/TPQvEZNmcErPubxM=;
-        b=iNMbkD7bbVySXfp4gt59G6/bcMImTF0BDxyWA6IkyY0yO7JkjI7O3r1nQG698FCVEF
-         xUNsn8JUC6qbd7l2xuBKnnDVduilODCTadzyIX59FTK7Kd/SgbL7NAXvDsf9PAY0dguW
-         nvyCYyPDNZaTsRjjqtx20uvl+W0YQB5z2HYFBOQExnu35d8h5vC7MsuYnLsymVJHwtSc
-         SNcg/tgTFWBYWk9TpBuYzaVCrTpxmkXL8zj0vvGLOa8wnLu+8xQyn3z2+2tUAoeUJ33o
-         wDmiKpKJEvbZ9wuMEsH7FdfyHDGpyMsT6zuciPYmlOgFq5+ezRgRnYuUXIL7vwgF/TLs
-         Zqjw==
-X-Forwarded-Encrypted: i=1; AFNElJ8paZCJqfgqpPa3f/sEyg9WCUmj9Mu6ZtTVv2BKvlOJWFoMCv1gQrT6foI34JLWtwNQKE0/qm9oa5lrJtd0S7De@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOKevojzjzg53LdXjrAGxVJaOCQHYgP179vRQLMHFKR+mNk6cu
-	Rolg7q9LmzMnKp110GPQ4xTggrhJHXHy9rSGS73e8Sxgzm+XIihLPSOb
-X-Gm-Gg: Acq92OH/+IDp7kjlGOTRyvSGSJEtFsYn29FaoDg4BpQvtT1IIGCpBexVDSHYGSsJGG0
-	LttmR/jpARCOLwu4nl/3SeXxF6D+snBFKInpuuLtCYD3cK2xmUGqWnV29JY0K1Q3mncem9tXBKA
-	xqUY9iqP78Wo3FjiiCFJ4taBhBYIqa3WudFtX4VBVPS51+liaqR/NAHDEo35nXAyY5/XWXSdDk8
-	yQ7h6UpkIGX/0/ZIQSP0c+O4JMaa/HXKMqfoFKdO33ert/u6A/i55HUUi1tE+SD7zEnnSsCTCx1
-	x5WVn9abNJt0b5MNKvPpOK85fTlk+s4SG8CveXtBi1yEs02Tg88tWUDm8/7qRdQt+aGBYbHsFfk
-	s26otabOZgh/SW3z+nsrbGz46K8xK4UaUHVJy8FyLGbnA7ystOMDKe4M8MRIbZN2j3SFWAB9n0E
-	k5/h52cqwLTX4z1dAr1mPFt8usE1PMt3EDNRiySUJilTczLr5+PuXPsnE=
-X-Received: by 2002:a17:902:8492:b0:2b4:68c9:302a with SMTP id d9443c01a7336-2babd4a48dcmr51407625ad.17.1778260995443;
-        Fri, 08 May 2026 10:23:15 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778261000; x=1778865800;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vAyKAjmkX6PvmXkxrw5YnaLQ/4sPrlWKfDdfdwHLY1Y=;
+        b=QneFsZsjXWqX7XgS56CfPk3/X3B0kdsH4z6IZJS3yiHUc/DvacoB3w5eIhou15usip
+         amsys1IHoyTa5jXeS3wD/L8t+KIFcCUUluRh0u83cJkr+dmwc3DNb6P1MFw2l3xolmKi
+         yTY9J5Me2ZKXZm7o3CmgS8vkXESnz7/Ju8skbXpBfxbJLk9OI0Ehu/BsPsoR5Zcde2dS
+         ASzxpxO3M4XQRO/1Pyt/sR7t4PXC2vG/EonK18Lk/uvosUdlo3pbvD0ndGIbMFMnK4FJ
+         k0e2mcksl3tSi3efECiGV9zS1uxTmrCsRQGSv49VmuseeQ7lhw2Osqc3ClAw9tXgRdlM
+         xZKg==
+X-Forwarded-Encrypted: i=1; AFNElJ9txp28j9VT6mBby4DBlMlyGtyVOF/w6e0VqYnAPJ4jY9n+jw0ywvhqtCqIdGEh1QuXRfS/OJEBIeWr5ctWE8/C@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlAqPfbwVGpMbtOfW9kdJm4SHTf4tEpDQU10Rybm2sNzl6mIuE
+	xkGr60twCb0mehycz1II1l37PrVNPPvPhhnp/rfLOCRJ2VUBWC+h7Ryb
+X-Gm-Gg: Acq92OFdu0mVqCSk6TM4q1GgvITWeX9H6aBt/ODXfjXZ6WmrtoHxA9SS1HC1kqCD1M3
+	7x1mzDmsTkShox+1SSXF4pYumCeBc514Uafsu46qTZ3EYSiLhRW4cIYLgnLP7wVoHIVaaHQr9/j
+	0KclfNYobx98tUJG6p2U/ibGAiN11lnHInb+emwhNmGKEuU+DIStNp+xmx8dsTdY4zYpcyBKeAF
+	GL589BWN8kip0bKCl87eyE8pOZYS0NVXVXgXIZmhPYvG5RmHo76j8ia6YsZl5ECLfWo+ALnbETf
+	cnCnrV8RCmW9el3MrVLmj9ZzsmwMuaqvO+HXYOLdG97JMePFxDklEEkbVWoU2ENqZnNnWNbNjxV
+	bp40TuZpGNw96gZXLn2adU1UFZDq5sZ48DW+xGaHFakt1YnLmBC/QJdrrQ9K6bvF4oDP8IMEPp5
+	C/WAZGDY3McM5l4yaYM7rvfergEPrn2Y8KwApV+6vPSF+I
+X-Received: by 2002:a17:903:181:b0:2b0:61c2:8e83 with SMTP id d9443c01a7336-2ba79287515mr137856355ad.20.1778261000634;
+        Fri, 08 May 2026 10:23:20 -0700 (PDT)
 Received: from Black-Pearl.localdomain ([60.243.224.75])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2baf1e35487sm24907985ad.46.2026.05.08.10.23.11
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2baf1e35487sm24907985ad.46.2026.05.08.10.23.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 10:23:14 -0700 (PDT)
+        Fri, 08 May 2026 10:23:20 -0700 (PDT)
 From: Charan Pedumuru <charan.pedumuru@gmail.com>
-Subject: [PATCH v3 0/2] dt-bindings: mmc: st,sdhci: convert
- STMicroelectronics SDHCI-ST MMC/SD Controller controller binding to YAML
-Date: Fri, 08 May 2026 17:23:05 +0000
-Message-Id: <20260508-st-mmc-v3-0-81c329ed28e8@gmail.com>
+Date: Fri, 08 May 2026 17:23:06 +0000
+Subject: [PATCH v3 1/2] arm: dts: st: align node patterns with established
+ convention
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPkb/mkC/02Myw6CMBBFf4XM2jFth6K48j+Mi6YM0MSCaUmjI
- fy7BeNjeW7uOTNEDo4jnIoZAicX3ThkoF0BtjdDx+iazKCEqgSpA8YJvbdoa1GZptZteyTI53v
- g1j220OWauXdxGsNz6ya5ru9EKepPIkmUWFpdkpKWNOlz54277e3oYU0k9dO0oK+mUKCUhrNWN
- cryv7YsywtaZuRZ0wAAAA==
-X-Change-ID: 20260327-st-mmc-c906ad95ff83
+Message-Id: <20260508-st-mmc-v3-1-81c329ed28e8@gmail.com>
+References: <20260508-st-mmc-v3-0-81c329ed28e8@gmail.com>
+In-Reply-To: <20260508-st-mmc-v3-0-81c329ed28e8@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -91,8 +89,8 @@ Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
  Charan Pedumuru <charan.pedumuru@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_102317_233497_9D2BF8BB 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20260508_102321_487423_F05D1081 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,45 +105,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series converts the legacy text-based Device Tree binding for
-STMicroelectronics SDHCI-ST MMC/SD controller to DT schema (YAML) format.
-
-Note:
-The patch "dt-bindings: mmc: st,sdhci: convert to DT schema"
-depends on the patch "arm: dts: st: align node patterns with established
-convention". If the DT schema patch is applied before the DTS
-cleanup patch, `dtbs_check` will fail due to the presence of the removed
-properties in the existing DTS.
+Update ST MMC DTS node patterns to match established convention.
 
 Signed-off-by: Charan Pedumuru <charan.pedumuru@gmail.com>
 ---
-Changes in v3:
-- st,sdhci: Edit description of reg property. Modify reg-names. Add
-  "minItems" for clocks and clock-names properties.
-- Modify the commit message to match with the updated changes.
-- Link to v2: https://patch.msgid.link/20260503-st-mmc-v2-0-11ae3216d2ce@gmail.com
+ arch/arm/boot/dts/st/stih407-family.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Changes in v2:
-- Fix node name in DTS for the MMC to match with the estableshed convention.
-- st,sdhci: drop unnecessary properties, modify "reg", "reg-names" and
-  "clock-names" properties, include an allOf with $ref to mmc-controller.
-- Link to v1: https://patch.msgid.link/20260409-st-mmc-v1-1-4c54321c3535@gmail.com
+diff --git a/arch/arm/boot/dts/st/stih407-family.dtsi b/arch/arm/boot/dts/st/stih407-family.dtsi
+index 3e6a0542e3ae..08acba209c56 100644
+--- a/arch/arm/boot/dts/st/stih407-family.dtsi
++++ b/arch/arm/boot/dts/st/stih407-family.dtsi
+@@ -596,7 +596,7 @@ spi@9542000 {
+ 			status = "disabled";
+ 		};
+ 
+-		mmc0: sdhci@9060000 {
++		mmc0: mmc@9060000 {
+ 			compatible = "st,sdhci-stih407", "st,sdhci";
+ 			status = "disabled";
+ 			reg = <0x09060000 0x7ff>, <0x9061008 0x20>;
+@@ -611,7 +611,7 @@ mmc0: sdhci@9060000 {
+ 			bus-width = <8>;
+ 		};
+ 
+-		mmc1: sdhci@9080000 {
++		mmc1: mmc@9080000 {
+ 			compatible = "st,sdhci-stih407", "st,sdhci";
+ 			status = "disabled";
+ 			reg = <0x09080000 0x7ff>;
 
----
-Charan Pedumuru (2):
-      arm: dts: st: align node patterns with established convention
-      dt-bindings: mmc: st,sdhci: convert to DT schema
-
- Documentation/devicetree/bindings/mmc/sdhci-st.txt | 110 ---------------------
- .../devicetree/bindings/mmc/st,sdhci.yaml          |  91 +++++++++++++++++
- arch/arm/boot/dts/st/stih407-family.dtsi           |   4 +-
- 3 files changed, 93 insertions(+), 112 deletions(-)
----
-base-commit: cf2cd8efd046c561191b8541d32a8bfe845bf06b
-change-id: 20260327-st-mmc-c906ad95ff83
-
-Best regards,
---  
-Charan Pedumuru <charan.pedumuru@gmail.com>
+-- 
+2.54.0
 
 
