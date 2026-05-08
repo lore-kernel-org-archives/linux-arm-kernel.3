@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 592C3CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 16:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA02CD37AD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 16:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bDPLWhf2Swx5+TpPMoElnS74C6BcZSaXrBoYo8J5R/k=; b=T6rgFKM08T8XrqyFJL09zdRh21
-	QnVkBZEiMVF6P5ipQJ9kb/dD8HRjdeLC9v6wTT++dIEivB78V5jad6VXWDrrT6hogRAjhhF834INu
-	r8ONpokVkV2TLypKzYk6ib3o5Bnz+bbwNWmr9oQfSAxabRhD9IZ03bWMdp5KxjQBup/shy/CheGbG
-	wurHmStwWQLgtOjgreTssg1srXhxlQaLS7pW/EqodZ+H4DpS09YdHMTdCb5/eBEh2mLmLSEu0bO7Y
-	EpGYsDt2BsyU95ArqQAnM3huwrDdKepv8lC5/mjBeehqSNZ2tv2Hwdu+U7PkHPc2HyOhvWA7GcDPC
-	D2ve40cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nkKHxW/SBVbumOTwJXulHhlHinurGU2Dn9uARbGcgps=; b=Wpp+zlklXWbHpmbln9aRO3zhAm
+	AzUz4s4b1thh+Wn/SG3wU+88nmzdo+dcWX7RF6XGiQdLxSRQcL4vM30O919NZotZiLVf26+LmuJzC
+	Nv7UI2CyJHGZ68VJ1KNvEUijCxVeH4iET95ln/2ZtnoB8thxR+1WN8b9dJ/GifSjG2OgFdIF7VeXd
+	gS9aF5sjuTjg+HovuDj1PsAV0fviwET+fzM+a+0MVL4x//8ufrkB7Xcw4VAG8W6Z00MHGtXhmFRss
+	X8WKLEHZ8pm4IEsHTlQf0GLeKJM8v3dUx4M3pfG5WWxaPyoBmox35RLBogMPgwkaAXhnKFlbvgSJ+
+	FbKkSVoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLORM-000000072c3-1lUR;
-	Fri, 08 May 2026 16:52:40 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wLOW8-000000073G5-0mhq;
+	Fri, 08 May 2026 16:57:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLORK-000000072bR-0s7F
+	id 1wLOW5-000000073F7-0W7v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 16:52:39 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-48e56c1bf5dso14019445e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 09:52:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778259156; x=1778863956; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bDPLWhf2Swx5+TpPMoElnS74C6BcZSaXrBoYo8J5R/k=;
-        b=KyE3hnMjIdcsM24TgRfbFdpgJottu1G9V+SJTDB+pm4GVOS6xEZeRdfcXg43iuEH+c
-         oW4codgcf1NpCDHAPYfSClP2UkMGSEoZtjpf8gRnMoWtna+cBigVx8x3C7teDVgC4Nwf
-         pXBj1Gtv9uMPwWFZXBZqZwNmmZGKiWZQzdANtGHg0ysoLCTa4nSMfN2VHXlbcLKpznoe
-         eT11Ewo7eNP38q8ATTZg5rGPTQWrLzEm/eNYLPxyIgm7z7+oMWTnbKYUrcnOkPHl3MJu
-         /ySCnGxLUSjKvCi+uEoQzkppftjqEx6xaZ6GC07mVN446mNSHrd82HHKshvR1yvABc5g
-         hg6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778259156; x=1778863956;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bDPLWhf2Swx5+TpPMoElnS74C6BcZSaXrBoYo8J5R/k=;
-        b=MMUj2Ng+t/y/VthRLNdDFSqLlmSLuCQRCc/9ySHv5Evh5gZPffHmED2dStGfuSJoJH
-         Lfdob/23bD+6K6b0vWC4ym77F0oR6UzAPg5C02qR4E5NRIMMbuaMasHK1tC/MsCAUesc
-         rIcJzGmBrhF5YufcIutUUa5Lj+aSoA8203u2KIE4mxaaX2DKuo/D8A+ObRDhVn3m0QLW
-         0JrR6rEGZtpTYurlLnsUoPk7jvfuTTXaWEe+x5OS/IzKALMyKmSOYv1HSdafP57VfW9A
-         vWODJOX+BhS8nRqVwsSY0wxuemHCRj+FQTQMcDDAcq0pvh6+TU3LY4HRRsELFKWmgvdo
-         uFQA==
-X-Forwarded-Encrypted: i=1; AFNElJ/DYLwgFMzsamvm24VKgjtVXuaFNDcPtnIjEMcjtGvO4Ehwnd61WNQpx3P/MGQGpsyBB1/BM+5tMMoxIwYWMmGr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx03DQF4kE3ghhS/tqTePZpSZlUwsDpTz3bF6t4/RipjSLSUAFQ
-	AcjVylcFSnZ0Au99GryYwFmEdwkK4iZ4gQoERtdrFegPmVSdZjLPOM4T
-X-Gm-Gg: AeBDievGsnoNYIkAe0jIXuhmROfOQVOMILRIQ8b+rj2brOuMib3hLYJtQmM/oHzz0PM
-	oTj1S357xFHyTwFuM8g+i4km8Fnqp8XpWs9A8HSl5LO8o5vd87gBA2nArhx+ZgeUN/TspOsK6Yw
-	o3QU6YZUXfrJD2y6W9tpUSN5p9os7tt/UKpIO5/uEbZ6c2W14eUb6JnqWoSn7C4+YVnY/7acBiU
-	kwKPQD5jwLg/V4juVnmj4cfw7FhZ22eq5DN7FtX800BDcgfzhaGZRCJ1U1oraYGxu4X2sMEQuDd
-	n7rjvjk6s/+9+hhdwKqTEb2dLSxYtahOj19ErFoOHY7YgduUX9nJS8t9sMxb0ttB2JfPDMP4W7k
-	AsOMlaAQtL/lfOLW3q5DjnHl+Q38im9o5Bohlv8HrIgRR/3lwF7NnDyVstxiC9q3rVt4qU48w7d
-	lR/xfrXc+sRPLS09R1rb2Nhg==
-X-Received: by 2002:a05:600c:354b:b0:48a:554d:b9a2 with SMTP id 5b1f17b1804b1-48e51e0c7c9mr202325015e9.6.1778259155336;
-        Fri, 08 May 2026 09:52:35 -0700 (PDT)
-Received: from localhost ([87.254.0.141])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e6dd35abcsm6637015e9.7.2026.05.08.09.52.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 09:52:34 -0700 (PDT)
-From: Colin Ian King <colin.i.king@gmail.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pankaj Gupta <pankaj.gupta@nxp.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH][next] firmware: imx: Fix spelling mistake "mismatced" -> "mismatched"
-Date: Fri,  8 May 2026 17:51:09 +0100
-Message-ID: <20260508165110.73435-1-colin.i.king@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Fri, 08 May 2026 16:57:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A2334018F;
+	Fri,  8 May 2026 16:57:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23C7DC2BCC7;
+	Fri,  8 May 2026 16:57:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778259452;
+	bh=HhzF7Y4usesMvKmsaK0V1Ngy3fy45+8vuFUEdZrFH90=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jFO0Hsj6gAmt8pTNQyaG+4aj9mEqQKEUiAk3HY3KaciG5/Y+uGR1sqgGnETAwDxo6
+	 Ps0YuwWur6gRsO0dmxVtgzoAhfNSoYnL9Ot9mf71wSQV7Uac0DkpjBr59AJXXxcYci
+	 tMBNi8MsZL6w9Qt8GswG6+Wk0Dl9bU+E24l6CA8TyABZqeosdUwzegPQuiJhsPwDdS
+	 jSORFznJjVQI5ce/ILfZXGOToBq0y/pEGO7jLyBt63vTS2SevvynGsgKAZKexMBCpO
+	 Pv037UE2AXpzOvL9sCCvsS2i0e/G58k8PBBzmt5GWIt4/efdeMbR4VtazTziKgJTL3
+	 v8twujL/UVGdA==
+Date: Fri, 8 May 2026 17:57:26 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, catalin.marinas@arm.com,
+	oupton@kernel.org, will@kernel.org, joey.gouly@arm.com,
+	Sudeep Holla <sudeep.holla@kernel.org>, korneld@google.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, android-kvm@google.com,
+	mrigendra.chaubey@gmail.com, perlarsen@google.com,
+	suzuki.poulose@arm.com, vdonnefort@google.com, yuzenghui@huawei.com
+Subject: Re: [PATCH] KVM: arm64: Forward FFA_NOTIFICATION* calls to TrustZone
+Message-ID: <20260508-spicy-alligator-of-reading-7678bb@sudeepholla>
+References: <20260501114447.2389222-2-sebastianene@google.com>
+ <86wlxgy00t.wl-maz@kernel.org>
+ <afxuDpecPCVA56cL@google.com>
+ <86se83xrwx.wl-maz@kernel.org>
+ <afyd8u85L5XIl6dh@google.com>
+ <86qznnxptx.wl-maz@kernel.org>
+ <af3fW468-f1KXCrC@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <af3fW468-f1KXCrC@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_095238_256247_941757EC 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20260508_095733_206043_F0EFB7F1 
+X-CRM114-Status: GOOD (  23.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,27 +82,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is a spelling mistake in a dev_err message. Fix it.
+On Fri, May 08, 2026 at 01:04:27PM +0000, Sebastian Ene wrote:
+> On Thu, May 07, 2026 at 03:21:46PM +0100, Marc Zyngier wrote:
+> > On Thu, 07 May 2026 15:13:06 +0100,
+> > Sebastian Ene <sebastianene@google.com> wrote:
+> > > 
+> > > On Thu, May 07, 2026 at 02:36:46PM +0100, Marc Zyngier wrote:
+> > > > On Thu, 07 May 2026 11:48:46 +0100,
+> > > > Sebastian Ene <sebastianene@google.com> wrote:
+> > > > > 
+> > > > > On Wed, May 06, 2026 at 05:29:22PM +0100, Marc Zyngier wrote:
+> > > > > 
+> > > > > Hello Marc,
+> > > > > 
+> > > > > > [+ Sudeep]
+> > > > > > 
+> > > > > > On Fri, 01 May 2026 12:44:48 +0100,
+> > > > > > Sebastian Ene <sebastianene@google.com> wrote:
+> > > > > > > 
+> > > > > > > Remove the FFA_NOTIFICATION* calls from the blocklist used by the pKVM
+> > > > > > > FF-A proxy. This restriction was preventing the use of asynchronous
+> > > > > > > signaling mechanisms defined by the Arm FF-A specification to
+> > > > > > > communicate with the secure services.
+> > > > > > > While these calls are markes as optional, there is no reason why the
+> > > > > > > hypervisor proxy would block them because:
+> > > > > > > 
+> > > > > > > 1. Host is the Sole Non-Secure Endpoint: The Host operates as the
+> > > > > > >    only Non-Secure VM ID (VM ID 0) recognized by the Secure World.
+> > > > > > 
+> > > > > > Where is this enforced?
+> > > > > > 
+> > > > > 
+> > > > > There is no enforcement in place in the hypervisor since we don't proxy
+> > > > > FF-A from guest VMs, there is only one non-secure user of this which is the host.
+> > > > 
+> > > > And again: what makes that VM ID 0? Why can't the host pick VM ID 32
+> > > > and use that?
+> > > > 
+> > > 
+> > > The host discovers its id through the FFA_ID_GET and TZ returns 0 in
+> > 
+> > Does it? How do you verify this?
+> > 
+>  
+> It is written in the spec under 13.10 FFA_ID_GET ("ID value 0 must be
+> returned at the Non-secure physical FF-A instance").
 
-Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
----
- drivers/firmware/imx/ele_common.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Sorry for chiming in late on this thread. Yes the spec states the above.
+However, I am not sure how the host FF-A driver instance with pKVM FF-A
+proxy needs to be categorised. I assume it plays a role of Non-secure physical
+FF-A instance.
 
-diff --git a/drivers/firmware/imx/ele_common.c b/drivers/firmware/imx/ele_common.c
-index 78440f62bf92..e5117a1f1995 100644
---- a/drivers/firmware/imx/ele_common.c
-+++ b/drivers/firmware/imx/ele_common.c
-@@ -110,7 +110,7 @@ int ele_msg_send(struct se_if_device_ctx *dev_ctx,
- 	 */
- 	if (header->size << 2 != tx_msg_sz) {
- 		dev_err(dev_ctx->priv->dev,
--			"%s: User buf hdr: 0x%x, sz mismatced with input-sz (%d != %d).",
-+			"%s: User buf hdr: 0x%x, sz mismatched with input-sz (%d != %d).",
- 			dev_ctx->devname, *(u32 *)header, header->size << 2, tx_msg_sz);
- 		return -EINVAL;
- 	}
 -- 
-2.53.0
-
+Regards,
+Sudeep
 
