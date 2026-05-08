@@ -4,128 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E5FBCD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 10:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3C0CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 11:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SjWJnreqtFTxNsZq0wk4jLyvdTxmmVD0C4te3RVc+zs=; b=jkzZsxEPQXCS9uNk4QlTdU0amm
-	dNZHZGFVFFh5lin56Qxpwrytc4NRwkWU/P8Ow2BNRGJx/6oHc0/3WkHdZqyBGDOY7Ks3YlTDD5X/Y
-	4j6fQ5kti6FVO1GXUAT2Ex0BmudJsuOMpN4bjFNIXIEPgHntLCKOJ307s1eYW9dDfStWvwWNcPojz
-	r5wctaLEDeTiDM8l1gA/7d16XDnwFc/jwjcY9DiS+/6BAwHSqS81AR+0shm+qS1xCBDZsvf3QxTYy
-	qsdxFDKRPSISh9wa+WugJv97hDUsPBDauYwcrkKQd/zpBEu7km+fJHcU7H7onNZPuubWpRPdlz9J/
-	j92kvtvA==;
+	bh=+P5MrIPzXt2zxpI37rKzqvP10hRxLQIkphaDNRko/1M=; b=dEue4IiQy5wqdhTn/9ARA6xqWF
+	yifK74G6ePVOfU63q8vtCH+drQceKfg1K004vHVrVCnyT22rSaboNRGXVDFIvxwFRutibz2/vO2eG
+	Kxof4o6BrMVQEZ+C8mSow7/Qlc5t6RS2Qbvm7veiOG+tP3UXqG0fZ1gYo5xW8eQbnPlni5osie/Sj
+	FQOiFKGyobVfBFt4fDpGymjFCgGLBoyUL31vmLPmz7FBD28Xg3OFG23auyRgSqwwn2y2dNvG6Jf8L
+	kOhIIR8jzYN+DRVKQ8NwIGfO2CUTWdVVBW9YY6Qu6G3/4qul/ldYoOfEkUiYAH8W2t+WlXGqleAZE
+	0Fadi+HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLIru-00000006HVa-2y24;
-	Fri, 08 May 2026 10:55:42 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wLJ1k-00000006IcS-2Rn1;
+	Fri, 08 May 2026 11:05:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLIrs-00000006HUX-18uh
+	id 1wLJ1j-00000006IcL-1UG9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 10:55:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LmjbK+UjI8otx4r2v9jglwo9Sp7Xax4WXKm4x9qM2N9qyHytYLcb7PZ/dK2+7Tuz3D6CAn7LcjZ40Yfrga8sSy8lOFCRBxO+Hh7PBeA4KkaJw2n6ICxE/jWTZ3cr3uzzR4EKzkO35ttcDeMAIRv0Rf7AZkLRRXcvyStBOmcAWnpx6brm0ftVNsm1nUVXViyCMGoJPWXAPzIY5qwQwW0OmLtndQamtj++83HVqH91Yv3aY/TjFlu7NOqiGUQSxY2sq3+nsg+UBuU68pEEP1QfUPVE1mvxjB3H8dl11mf/isHiiDkw/CGLd9LouglE3mwrK4hYWOn3XfvGMU8bn/y+qQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SjWJnreqtFTxNsZq0wk4jLyvdTxmmVD0C4te3RVc+zs=;
- b=BOx88kM0V1Qe35TK7llw0Pv2w7gC8uwaba8HKfAsF0hqvs7H3l8NBVaxZWc52E07s+tn/SRfbG8obbe9KpYRVzbvebJcIEJKeDEPd6yvk3XZd/sQ1CqSZmyqRSTGg26vMqnSYLuWpfOl6RX4aTCaqB8CUC9mm0NC1kAfDpl/jmhsHoa0UH4AQKtFTYDsvY2U6E3PAMdTBodgqq6mqwdbVqQ7Fj/50bdxVQsPX+/dqgxuoGjvvVyYrTLGk6lSdw8l5aZzBvJvqoAJfv/xlGHmf7kcLLtW91VzqFeXGLLketO21Z/CBYDlmA6dD9lwWIjPYq7qFa2WTrqxlwvMUCx7mQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SjWJnreqtFTxNsZq0wk4jLyvdTxmmVD0C4te3RVc+zs=;
- b=c57m5I1ojZnqgkklb19HfxIea9d6tj5entUML+dKkpWLN/xGQic9HiF+LpAa0K8jrpX8njgOHo+0d7YKuk1MS0LjDq+DNoTptgjgVsSVb3ck8uBChscxS3FXIrRSKBJKBealTWPJ1P8lhsJIg6EFfDyX9tdrfAvkkUzHWaFPMhJpya97R/ReGjL+wAUP8Cp3Vq2ymjtwi9m69CS13wYCtaDSDqQqzLn825obB2tSm5CVezzehkCULxN6KXTnppSLZ4vCoSM1zxyy9ZUYJj1/6YIjuMBkJiUZ9g8TDXoEAMBo8ED/oO4F+MB3CnFxOTH4ssUiY7Oux2z4TLexkVCZ8Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by GV2PR04MB11349.eurprd04.prod.outlook.com (2603:10a6:150:29f::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.19; Fri, 8 May
- 2026 10:55:32 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9891.008; Fri, 8 May 2026
- 10:55:32 +0000
-Date: Fri, 8 May 2026 18:54:40 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Franz Schnyder <fra.schnyder@gmail.com>
-Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jun.li@nxp.com, 
-	Francesco Dolcini <francesco@dolcini.it>
-Subject: Re: [PATCH v3 3/3] usb: dwc3: imx8mp: disable auto suspend for host
- role
-Message-ID: <jjwlrgusucoacaye75uqfuh76a4jhdv3ivzjuemgusw3trwseb@mymuy62cptxp>
-References: <20260108081433.2119328-1-xu.yang_2@nxp.com>
- <20260108081433.2119328-3-xu.yang_2@nxp.com>
- <k2sxmwhrv3tivustfnpz54ehuufkcrcruu2uuukuyugqtqljzl@5roxndm5fn5u>
+	Fri, 08 May 2026 11:05:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C194600AE;
+	Fri,  8 May 2026 11:05:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44204C2BCB0;
+	Fri,  8 May 2026 11:05:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778238350;
+	bh=qk0h+dc5b/ylXAdj3yRPBli4YcYqMaO80z06Nhfc3cg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Xq/g8RNUkswdmv8/QxA5FWtER3jymUUUINsZ8HQCuI+WiSSicwxC8q3HeiZAhfAwB
+	 OBEvYvX9JPtCusZPnYoMx80z2MAbtqT2KrOt2rfb9LvjU5hqcLGo0BxD4h6+0WYPm4
+	 v+OoHvJjUXuhJzH6IvwIn7uz0hDTL7UzhYylDMQMApwmFZ1Sfd9orHCEM93dVHJU/K
+	 fkd3Fqhf4/zh5NdxeabUnOlHMZ9XQGBnRDDZ1u1K1sSO4YqYbH5bWvGxvjYZzmOvyN
+	 SfLbrNP0Xffl+/bAFcmkJ8NXS5Z2SYESNpGEYIMR6u2wsFD6c4O4CCdmit9PxtiDne
+	 mlh+txZECPy4A==
+Date: Fri, 8 May 2026 13:05:44 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org,
+	mark.rutland@arm.com, steven.price@arm.com, aneesh.kumar@kernel.org,
+	sudeep.holla@arm.com, robh@kernel.org, maz@kernel.org
+Subject: Re: [RFC PATCH 0/4] arm64: realm: Support for probing RSI earlier
+Message-ID: <af3DiIibnKvu+Tpt@lpieralisi>
+References: <20260429103535.266728-1-suzuki.poulose@arm.com>
+ <af2aJKSbWIONhrMK@lpieralisi>
+ <ea10bfcd-0890-4dab-836b-ff3bda946a39@arm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <k2sxmwhrv3tivustfnpz54ehuufkcrcruu2uuukuyugqtqljzl@5roxndm5fn5u>
-X-ClientProxiedBy: FR4P281CA0009.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:c8::11) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|GV2PR04MB11349:EE_
-X-MS-Office365-Filtering-Correlation-Id: b9adceb6-83d8-4ed3-f3b2-08deacf05315
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|19092799006|376014|366016|38350700014|22082099003|3023799003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: wuCNAmGJ4v7QMzulnF+e7iTF8omkXg2X1P/4zfqIZHFNXuANDsh9OnlSP6kjFu+7UItu3p9UCMNHFn1/9vOS9WNRtIeZK+bff3ZvWY46S9Q3dYpNYvMoQGfjgeEkrtdHaVHmRKJRuINQxTh9eggTj31KUNhEnkcsGXELn2xKOPv5VvNbaUb4WpjKd4M/7AavDs6z26QLuxyTUIiZHDsrF5qRJtWchzOguuWEm6Get1sfa7uQe8y+yT/ikHC+0eLIMPht7vCHzyNgXmHcg0n3/ZmoOpWSHhM08kp/wwfSboRyJ7kei9dNPaaAONzvlX2XxyQOODJ1fXHcfxTBjLRUtczeGt2yj2j4d28TpX7av5Wt8k3Jnu0SAsC2l8WTIpxuJtwWNw9Ye1yMhr4pPaPpII9c2EcMzV2iFi1ZaKswSNw6UcALeiuNh1YHmR0TPy87sJOJvAGFumor6FdTCAY5l8d51jTJKPSmzuFu4g/DtkJbsgWKZ/wE4tPKb7L7qm+j4CFG09p+ogwGAZEEiZA7qtVUFDU9NGHLjEqHGffLynS45DiDjW9+SrMcfHUsBPdXM2veFzmDdbbBVzoch2WjeOssQaPgvrwcHiF6tbnfq8eToojy8OP7r3zkuElOrh6pmQiJL44dtRFqrtL/OSYDf6ubqN5sF7C1BI7Ny0N/XzGnba7HoiZZ+nhB2MYZyec8UgpUYL49D4Dp4O6oeBDJTW1SX/2anJnwfEh8rfz8DIrTCBB1TkmazDVAmskgVhBz
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(19092799006)(376014)(366016)(38350700014)(22082099003)(3023799003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?H6zkeSItdZI3yQyv3guCywfAkS6oMGer/5PNUIHSe3i/QXdo9hstZ2hMamEz?=
- =?us-ascii?Q?k8GOUlI4hoeET3nqcWq8BrhktM1qeKBoCS5wtjyVi6xliVwwfttpO70l/hNE?=
- =?us-ascii?Q?OfIhNiHujPJd2TwuUJR33gkJQLyOiHvitSsvTY0Vh8Z+29M4D4cvkmqZmcf9?=
- =?us-ascii?Q?kTm6mJFsGIbeiHQqSWJXp7hZvxUtt2DoEyV1SF122OP3IHodzDUlUhvYwvcL?=
- =?us-ascii?Q?KzCUl3HvDhBItSAXAzUWM0CNprbTM3N/RCzKJ54/hCdIDDK5TUO6j5VXkOn2?=
- =?us-ascii?Q?d0JfY70RJS9F6eJ5h2HMLWJ5FcMwL8hYFnZLeTA2rMN8tusWjkkOSbHo4D5+?=
- =?us-ascii?Q?by9SaowCoFS+biGPYbJiORWZ4ZCipSTqSm+zUu8hDBF7UKB9RTCX1VpV3J+F?=
- =?us-ascii?Q?wt+elKFjNqBl/6xk7n0vKRUioqHH3jr663Q+grcEQ1d7pthWLTS8d6SGqll4?=
- =?us-ascii?Q?92/UuWMOvADHQ80QhExCl8kmPQO/LsrnWGWdxisbeC0vAhvoc6sWjI59aCkm?=
- =?us-ascii?Q?S4tmRiZaBybJdCmzyaP3lOLnmFyadMdlbNjjfnfmY3f8Hk6X+mXeyFc4ujTf?=
- =?us-ascii?Q?Ns2mmUudfiiu6C4pKAUd0Rk4uHG4ILoCl5pUiDSHdVZgdnTVPAD5PIB2Ofc6?=
- =?us-ascii?Q?/m4x5G0xHhdAQbxzZARKpJzc6sDry5ik7coFFYpt64nuMlMEYDDUeMXn9bis?=
- =?us-ascii?Q?wgMG/rz4eTMioZKq4TFVO8/Eh8047c89HCduxFdzjsZ5PIJFqWUL4zbeammR?=
- =?us-ascii?Q?dDAroj6IkC4cohHabxKjcuG+42dywgl4lho6mjYxUbPSVR1qjmBxZE//F4pt?=
- =?us-ascii?Q?i844a3jnWBMvfWovfW9n8fO2NYF6bI11f3NOLAWSeTEnwfG0gSmvTTMhoaw4?=
- =?us-ascii?Q?mpA25U0Ay9F/t/cT6IGl5CVB1a/2OJReyK17DnFtPioxdRX5e379fuQVxe0v?=
- =?us-ascii?Q?d9mAVC2nyQ+KTVpRxo96G/yoiu+Jg3OcLkLGoQtoY1Mk09YDscT0ZONv0nrF?=
- =?us-ascii?Q?3GrRKphO2+io/UrBaccbgZKUOIVULJvJlybPCGRsAh4MIZTJGowJwIedWcv8?=
- =?us-ascii?Q?p4sBCwt1AGSQOxez8UBhpKtWF2i9C3bXV6by7R6xOno9hsbC6xAfDOqglPzg?=
- =?us-ascii?Q?Qykr0rDxVwksjt5HJUBCq49UFQGLZ3qe6XTqplYZRA1BxTIzL/oeJmW+YaAK?=
- =?us-ascii?Q?UXTkIE8CU9VHfur77+7UGY+lzbq0Z+1rALD/RXsdxuah1WhXwM5EfMPJIXyJ?=
- =?us-ascii?Q?WHoYhFXQiJCffQNViHg/12xAZglWF2czysoBxrEYzS32x+QS52LzSghnsdFh?=
- =?us-ascii?Q?OdfctogFwjo3NY+95YQUD2WMULD57pMQ9OwqVMZO0zBfY8sx6GXFCFcQoOl0?=
- =?us-ascii?Q?n3JUecS80MFqUSMSbyurDKPnibNAmbhLddhg9giDU0GqPxfCVzVWCafbkEPS?=
- =?us-ascii?Q?hg//dEv+jNDejjo7QqZuohz2iMa++nDFoI8iWdhxLqTjlKcpGVNsntmNenvp?=
- =?us-ascii?Q?NGytmX3727mY9J+4drdnjykQHdUc/+uXYtERuI8djADZ1lKy78lbB4UeGOhQ?=
- =?us-ascii?Q?XkzzWeHkpedUSwaaYa2qJRhAl9PvZDEhzIifOfRGJ45iHkGGCDxeIt2DGiSE?=
- =?us-ascii?Q?kyl5os4v/VgJAyvqXj2Z/NECs4jyg6eoTSvhElgxqeoWefBwMWcIuyUTOpKl?=
- =?us-ascii?Q?4nL5TfM6991dgqeKVKAVx20twV53EjXoCH5N41R78rH+jt7fdpniI7JEt/7w?=
- =?us-ascii?Q?gWZoxnH3tA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9adceb6-83d8-4ed3-f3b2-08deacf05315
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 10:55:32.2184
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uPmlIqDqO2G1IVmD0c5EinaJGzZZMz5XG2vIMfh3yKHtmFJNCFTDo7Ip1v0+xYGHbNLAv8oKWx5MniPTwu9V1g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11349
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_035540_339509_72BE1BE5 
-X-CRM114-Status: GOOD (  28.57  )
+In-Reply-To: <ea10bfcd-0890-4dab-836b-ff3bda946a39@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,58 +72,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Franz,
-
-On Thu, May 07, 2026 at 12:46:08PM +0200, Franz Schnyder wrote:
-> On Thu, Jan 08, 2026 at 04:14:33PM +0800, Xu Yang wrote:
-> > Do dwc3 core auto suspend enable for device and disable for host
-> > , this can make sure dwc3 core device auto suspend setting is
-> > correct all the time, the background of disable dwc3 core device
-> > auto suspend is to make its parent device suspend immediately
-> > (so wakeup enable can be enabled) after xhci-plat device suspended,
-> > for device mode, we keep the dwc3 core device auto suspend is to
-> > give some wait for gadget to be enumerated.
+On Fri, May 08, 2026 at 09:28:32AM +0100, Suzuki K Poulose wrote:
+> Hi Lorenzo,
+> 
+> 
+> On 08/05/2026 09:09, Lorenzo Pieralisi wrote:
+> > On Wed, Apr 29, 2026 at 11:35:31AM +0100, Suzuki K Poulose wrote:
+> > > The Realm Guest linux support is broken without rodata=full (fortunately default
+> > > for arm64), as we detect the RSI support after we have created the Linear map
+> > > with Block/Contiguous mappings. If the boot CPU doesn't support BBML2_NOABORT
+> > > (there are CPUs out there with FEAT_RME and no - useable - BBML2_NOABORT)
+> > > we are then not able to split the page tables down to PTE level if the system
+> > > as such doesn't support BBML2.
+> > > 
+> > > See the following link for the discussion.
+> > > 
+> > > https://lore.kernel.org/all/20260330161705.3349825-2-ryan.roberts@arm.com/
+> > > 
+> > > The available options are :
+> > >   1. Start with PTE level mappings at paging_init() and then "FOLD" the page tables
+> > >      to Block/Cont mappings after we have the full picture available. Looking at the
+> > >      future (with BBML3), this might mean "additional work" for most of the systems
+> > >      at boot. But not bad as splitting them ?
+> > >   2. Hold the secondary CPUs in busy loop with MMU disabled and split the mappings
+> > >      by the boot CPU with MMU off (if Boot CPU can't support BBML2). This is tricky
+> > >      with the page allocations required to add the page-tables.
+> > >   3. Move the detection of Realm support earlier to make a better decision for
+> > >      paging_init(), with an added bonus of earlycon support for Realms without
+> > >      the user having to work out the "top bit" for the Realm.
+> > > 
+> > > This series is an attempt to implement (3) (without the earlycon support). We try
+> > > to probe the PSCI conduit early from the DT/ACPI. DT is not flattened at this time.
 > > 
-> > Note: It's a temporary solution until we switch to using the new
-> >       flatten model.
+> > Nit: you mean unflattened here.
+> 
+> Yep, thats right.
+> 
 > > 
-> > Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> > > ACPI table is not mapped in full, so we have to map one table at a time and walk
+> > > from the Root of the table (RSDP) through to XSDT and find the FADT table from
+> > > the array of table pointers there. Minimal verification is performed on the
+> > > tables (e.g., revision checks, standard FADT sanity checks). Checksum is not
+> > > verified, but should be possible to do for the parts we consume.
+> > 
+> > I went back to tracing acpi_boot_table_init() (joy :)) and it does what you
 > 
-> Hi Xu,
+> Welcome back ;-)
 > 
-> We have a kernel issue introduced by this patch on an iMX95, where we 
-> use the dwc3 usb as otg. This appears to be due to a race condition that
-> occurs during probe, when the parent attempts to access the driver data
-> from the dwc3 child. I saw your work on the new flattened model driver 
-> for the iMX SoCs and that it will soon be applied to the iMX95 as well. 
-> Does this mean that the issue shown below should no longer appear, as 
-> there will be no parent/child dependency?
+> > describe here above (it has been a while since I touched that code) relying on
+> > early_memremap() mappings (as you re-do in this series) before acpi_permanent_mmap
+> > is set in acpi_early_init() (that happens later in the boot process).
+> > 
+> > I am sure there are caveats in moving acpi_boot_table_init() before
+> > paging_init() but I thought I'd mention it in case (3) is what we are
+> > pursuing (I am most definitely in favour of alternatives if there are
+> > any).
 > 
-> Do you think there are any actions needed on this patch?
+> I believe we might have issues with acpi_table_upgrade(), which would
+> need access to initramfs for any tables. We may not have the initramfs
+> mapped by then ? Anyways, FADT cannot be upgraded from the initramfs,
 
-Thanks for the report.
+I think it can:
 
-It's strange that link->status is not DL_STATE_DORMANT or DL_STATE_NONE at
-the time which means the device core may not properly unbind consumer devices
-or handle something. The patch does a simple thing so the issue may not come
-from the patch itself.
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/acpi/tables.c?h=v7.1-rc2#n407
 
-1639:	list_for_each_entry_safe_reverse(link, ln, &dev->links.consumers, s_node) {
-1640:		WARN_ON(link->status != DL_STATE_DORMANT &&
-1641:			link->status != DL_STATE_NONE);
-1642:		__device_link_del(&link->kref);
-1643:	}
+Obviously this is a debugging/bootstrapping tool but hey, here we go.
 
-Which kernel and dtb are you using? If it's a downstream repo, how do the USB
-controller and related DTS nodes look like?
+> so if we can work out a way to do the necessary may be something
+> worth checking.
 
-Does the issue easily happen? Does dwc3_imx8mp_probe() eventually succeed?
+I don't think we can init the tables before enabling the upgrade (which
+requires reading from initrd).
 
-Could you add "#define DEBUG" in the head of drivers/base/core.c, rerun and share the log?
+I will try to think a bit more to see whether we can reuse some code
+(again - if that's what we eventually want to do).
 
-Yes, if you use the new driver, I think this issue won't happen at all.
+Lorenzo
 
-Thanks,
-Xu Yang
+> > 
+> > > With arm64, during the normal boot, we could fallback to using DT if the ACPI
+> > > tables are not useable. So, during the early probe, we try to follow the similar
+> > > logic and probe the conduit from both DT and ACPI where available. If both of
+> > > them contain a conduit, we only proceed if they match. Otherwise, we skip the
+> > > early probe and do things the normal way. (Any sane system shouldn't have such
+> > > a mismatch, but..)
+> > > 
+> > > Once we probe the PSCI conduit, PSCI is probed, along with the presence of SMCCC.
+> > > With that in place, we try to probe the RSI support after the early probe and
+> > > advertise the Realm World. If the early probe wasn't successful, we fall back
+> > > to the late mode, where we could end up with (on a possibly rare broken firmware).
+> > > 
+> > > NOTE: This is an early RFC attempt to moving the PSCI detection earlier. The other
+> > > option(s) that may be worth exploring are:
+> > > 
+> > > 1. On systems with EFI, parse this from EFI Stub and pass the data back in the
+> > >     DT Stub, under chosen node. e.g., "linux,uefi-arm-psci-conduit".
+> > >     Challenge: EFI stub doesn't seem to be ACPI aware. We could make that change,
+> > >     we only need a few table walks.
+> > 
+> > What would we gain compared to (3) above ?
+> 
+> EFI stub has 1x1 map for the areas and we don't have to do the map/unmap
+> dancein the kernel and potentially end up crashing ourselves.
+> 
+> Suzuki
+> 
+> > 
+> > Thanks,
+> > Lorenzo
+> > 
+> > > 2. Have EFI firmware provide this information (with my limited knowledge on the
+> > >     area, this looks like too much work, and bending the standards)
+> > > 3. Append arm64 boot protocol to have this information passed to the kernel.
+> > >     (Firmware provided) - (Steven's idea)
+> > > 4. Any other options ?
+> > > 
+> > > 
+> > > This series is also available here :
+> > > 
+> > > git@git.gitlab.arm.com:linux-arm/linux-cca.git	cca-guest/early-rsi-detection/rfc-v1
+> > > 
+> > > Thoughts ?
+> > > 
+> > > Suzuki
+> > > 
+> > > 
+> > > Suzuki K Poulose (4):
+> > >    arm64: acpi: Refactor FADT table verification
+> > >    psci: Add support for Early detection and init
+> > >    arm64: psci: Move detection and SMCCC probe earlier
+> > >    arm64: realm: Move RSI detection earlier
+> > > 
+> > >   arch/arm64/include/asm/acpi.h |   1 +
+> > >   arch/arm64/include/asm/rsi.h  |   1 +
+> > >   arch/arm64/kernel/acpi.c      | 136 +++++++++++++++++++++++++++-------
+> > >   arch/arm64/kernel/rsi.c       |  23 +++++-
+> > >   arch/arm64/kernel/setup.c     |  69 +++++++++++++++++
+> > >   drivers/firmware/psci/psci.c  |  49 +++++++++++-
+> > >   include/linux/psci.h          |   2 +
+> > >   7 files changed, 252 insertions(+), 29 deletions(-)
+> > > 
+> > > -- 
+> > > 2.43.0
+> > > 
+> 
 
