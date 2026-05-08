@@ -4,91 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C7FCD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 19:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB0F3CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 19:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5+NNyyxPxYROTl5/sBNxEkLDQhLS7g8md3d9cMY7P0=; b=tBYeiMpXFPnFEgXohy7Y+POIJL
-	fUoXkNBx4h2ooCG7Y8PhBnO7uxVJ2Y0mxbT/l6IUmaGj93P2UJewCXwOvOaIesK4oT9CxxB4d59TO
-	iFtljV6581+b6PyLoh1jfR8bN+/H5/eR52FDXvi77Iuar8P/iRf403dYriSmNHh0Nyj/HNq5EYXdr
-	5Rj65exRTZ0Nf3rMrvpxud2XZnBNep0ATAfRL33viV0R46NggsVLPzrOSa88RaQHgzvvZwIhT6aOg
-	MKpatK1+uu98ZFyzx/Dxeml62lnsrUZqykKcB973zc6+H97JEc2WrXpH1YdTH91olBfdX9nQAkHfb
-	rRVXggTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TL0Ao6XQVPXJsnoYZXzcDG7cGaOWJMdi9mDgF7Hdq6E=; b=ej7YCj7x7nuVr2wpy/lV3lIyMB
+	MpiV40RH8AEQCk9fFzKqPTad3aeITDjKAnZ67x/CfYM1kqhk3skMjYzxvJpLvMR7taTbjKPoGuj2R
+	qJ37UkHw3kKtX5Tzs+5XDIYfZcPFlwQ4HqAtUwPpeUC607G5uC2jtxv6d49m/6atqOhAWY3/fs9Bd
+	PuIy7t5sDS2d9PilK4qWMmzopn8H+PMkYwvBC4xYmp/78ZUAFA2rd3V3G0wMJJIoGGNAkBYDgucbh
+	CvS/RngvP/Pd5jwfgK6QDMH6/KN2RDs6Lko8KQ95MsD9Tx6GVh3LV/Ni6sD6p4mLl1kvW/7udLIr1
+	mkt4wuBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLQcR-00000007KSH-1FRC;
-	Fri, 08 May 2026 19:12:15 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1wLQtt-00000007Luu-499a;
+	Fri, 08 May 2026 19:30:17 +0000
+Received: from mail-westus3azon11012067.outbound.protection.outlook.com ([40.107.209.67] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLQcN-00000007KRn-2M23
+	id 1wLQto-00000007LuF-3qSf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 19:12:13 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-366089e42eeso1644954a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 12:12:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778267530; x=1778872330; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=G5+NNyyxPxYROTl5/sBNxEkLDQhLS7g8md3d9cMY7P0=;
-        b=VYftUTIYx8oiwYnlk3OSnzQQuzPmXH+qWvQ0+rU4T73Shz7aMHJQV4BnmLehKZsva6
-         Oqmqo5uYOYTA3dQlyJwFD4fgLwMlkMXc25uqqdazM/otWk3kMx760010U2hSh9FG/b7b
-         T8lKUmE24MW2rIPlSfdbHuGaEFtEoNPL923CbZyYEmZF1Fx7+/pgeqoijRsGxSFSys3e
-         SRnND9wPdDtXV6gAekvfUK09h4Muwb7xXcrfeGdVR0LEf1l7Hm6ioAZDqU39DqR0tGv3
-         vUnxc3rLxVzh/UaoJDk/iTGxRfv9CoyM3NkVVzTTcQZiwb0cavzdem3hbePyg+GnEsaH
-         0Tqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778267530; x=1778872330;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=G5+NNyyxPxYROTl5/sBNxEkLDQhLS7g8md3d9cMY7P0=;
-        b=dJhWs2YrVP94ILLWX79hmMNSsvltE5sQBfOZ9hS3d5+zx+iMhXBwEhSYyTn2Iv0QPj
-         UjF7D/iawGJjCeqJrNOY1pZOA97aM24d9uPqZ2lpfBnaAj0IotOyiUOKDRZn51ybkRNR
-         JU48ZMNZdI+N9pWhojX0Ky7+Thfg8zV4R2m58QzRHONavw9oPjuBOFEczz44oOsSJ8mD
-         ME7GofsEOdZ3nnYKCmQnysky/eBFKbxwQX1YNtEVTYNheA7U78wP/ODWNSOZlIBRZKS8
-         nTJE8xt5kduN0BGRbPAx3y5Mxdv66LiWbeTgFaJ7Be84eo8N/y8uIIIojUkudAN4HHsp
-         ZWGQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8/iv0Jk8zul/VyELOQ8DG+xWOzJsDtlKzcatYXKFN/tXhIiR42Oak+bxhPwfcWglIbXnzshbEE78kFFg9jeRDV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxm/gZIZ5Wve6JJS8OvgyWGMj/MZ+PFMHFV3vIPtudv2S6Fp/mk
-	qTRIzpTLLcIAS1sxbuLnUwASBayEhx4Q1PNH8A6CElshX+tZ38zNrK/VC5YAQG5CoZs=
-X-Gm-Gg: Acq92OGig7tgZOnlAyIYIcdZrQ5jr5P/xrCpwZxO3osctpguuRFu/V1qaKc/QvlBi96
-	4XVuvDRBlVQy8AGvDbOTZEQmyoyZB714e+oD29jBmFrgFUhhDhViuTCuPrei8pAS8fzS8jCWj09
-	lVNKrATKd195bF0hkeB2P1qsPnHM17eafYHHSwSDkPoJYsjYpOleFoP9zJieXjjxGkZvAnrGzfQ
-	gHAKgO/Fi7SktsgCHBJneXP44mJGIgDqJeFoIv0VmiafoMnYQNNivar6LXtZsFKS1ZiTbagvo8Z
-	g8/xAc/sxy67HuuOS1mH6PNLsZEVeTrT7iqjKw+FTlhs62vbmMAAskC46HNEK6Gv+n30rJPVoLt
-	TsGv238RCv0ZwfKrOwxrJYzjqDe/LzHDg7hN/Dff928i+nNa+BcqPV1ND0c7zUoQTBH4PCJsIIm
-	GEYGaFilIwiZvDAa5+Ce8=
-X-Received: by 2002:a17:90a:38c5:b0:367:c442:3f24 with SMTP id 98e67ed59e1d1-367c442412fmr468771a91.19.1778267529688;
-        Fri, 08 May 2026 12:12:09 -0700 (PDT)
-Received: from localhost ([97.126.187.42])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-367c2ca4f04sm528093a91.10.2026.05.08.12.12.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 12:12:09 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Rosen Penev <rosenp@gmail.com>, linux-omap@vger.kernel.org
-Cc: Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade
- <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, Tony Lindgren
- <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, Kees Cook
- <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- "moderated list:ARM SUB-ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>, open list
- <linux-kernel@vger.kernel.org>, "open list:KERNEL HARDENING (not covered
- by other areas):Keyword:b__counted_by(_le|_be)?b"
- <linux-hardening@vger.kernel.org>
-Subject: Re: [PATCHv3] ARM: omap2: simplify allocation for omap_device
-In-Reply-To: <20260330213528.18187-1-rosenp@gmail.com>
-References: <20260330213528.18187-1-rosenp@gmail.com>
-Date: Fri, 08 May 2026 12:12:08 -0700
-Message-ID: <7hv7cx90mv.fsf@baylibre.com>
+	Fri, 08 May 2026 19:30:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c42uy6Iu+GhMoTlqPZawuZndtv0Bncwpd117PCcxtnQtGoltnlHwQ6z0I6NR4QwYxj9avP6ZW0xuWbPNdNo2Jpo7hfViQIdFG6zJcYIIuiEevXCqyCSf67lELAgSBShM6XcNsiOhZhRj/8KJaiSNKwg6qC3Huo+BDkhiiwfpydAcx+z3ysoi/9U3yrYdXjJ2bLJnLuBvyzOHhh2AGZ7ak+n0jv4mOT6Ew4xB3rlDhH1qsGpGlD9noUViVXlWo4WUxuemNcU8CYz7tf3CjqoLYDfGfnRf76L5wYiACuhv1uWrtTe0ra06cw8g2Jwb23Eerq6cdyd3FEYpeFHcOQmyqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TL0Ao6XQVPXJsnoYZXzcDG7cGaOWJMdi9mDgF7Hdq6E=;
+ b=MHxi8GV7o0BF25F3QKm/aRhq45n1phgxRCJJ85GDHnElX5wKEVhPgxRyVWepIogDQeMsE7cSerFGdwdfNMuM27J7CP5gQQ24KkUbyRWJVr3Nnkl+FgHbGFRk7anr67rJ2yrVFrihXoMEBU3ZJ9rYHfhe2AJ9202LasUZQQTgAQCZbZ5JNf8hXUPptBluLKU3Z+YLHiSTcoqWZDtJDVB5vAZ06Ai73Jvl0LvmeslFS281V/dN4RO85s6blXfGD47jrX8POiNaotiTYfopbGp03M9Hx0ISatDk1f0B0geNHX2Jb+ef1TmLd8RLEAmZS4eIh4jNZ8JI2zlGQ/1RJ1OATw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TL0Ao6XQVPXJsnoYZXzcDG7cGaOWJMdi9mDgF7Hdq6E=;
+ b=QCVSFlhE8v9rXIuZery4JcgJVAe6pS66o8lJ/XwQ7BHD7I/vRSZRC2emMTgrvnf52yoHmT7w4ov5TLaH9zr35yw+Ri1Qbkft96s/YQ1cZTw5Mn3yR9KSKe050xsDZ8R/SDfRDGp2cilAe/NrCMoAJv5/9ul9KfqEuhFDDPHHdnw=
+Received: from PH0PR07CA0103.namprd07.prod.outlook.com (2603:10b6:510:4::18)
+ by PH7PR10MB6988.namprd10.prod.outlook.com (2603:10b6:510:27d::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.19; Fri, 8 May
+ 2026 19:30:07 +0000
+Received: from CY4PEPF0000FCBF.namprd03.prod.outlook.com
+ (2603:10b6:510:4:cafe::e8) by PH0PR07CA0103.outlook.office365.com
+ (2603:10b6:510:4::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.18 via Frontend Transport; Fri,
+ 8 May 2026 19:30:07 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CY4PEPF0000FCBF.mail.protection.outlook.com (10.167.242.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9913.8 via Frontend Transport; Fri, 8 May 2026 19:30:06 +0000
+Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 8 May
+ 2026 14:30:04 -0500
+Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 8 May
+ 2026 14:30:04 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Fri, 8 May 2026 14:30:04 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 648JU3D22104762;
+	Fri, 8 May 2026 14:30:03 -0500
+Message-ID: <87a5bda8-9586-46db-bc3d-6161e517b180@ti.com>
+Date: Fri, 8 May 2026 14:30:03 -0500
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/11] soc: ti: knav_qmss: Fix __iomem annotations and
+ __be32 type
+To: Nishanth Menon <nm@ti.com>
+CC: Justin Stitt <justinstitt@google.com>, Bill Wendling <morbo@google.com>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nathan Chancellor
+	<nathan@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+	<llvm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260508153211.3688277-1-nm@ti.com>
+ <20260508153211.3688277-7-nm@ti.com>
+ <d22c52dd-7bb0-46e1-8014-b470ec4f0c2f@ti.com>
+ <20260508173643.fwtulzz3fkvplsjl@gusty>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20260508173643.fwtulzz3fkvplsjl@gusty>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCBF:EE_|PH7PR10MB6988:EE_
+X-MS-Office365-Filtering-Correlation-Id: f5479554-fea5-4499-b33f-08dead38360a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|1800799024|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 66+y0YAmy9A01Qcovyc3LIMeE+SO0ASuOilwUyEvkGpq/9PhXCWmolmTgzthwsc6PjqcclyiDiUbouhrcNjUOpFIH0VVrM+H7y5sj0tMSb4aueG53nRdQaiSLNzJRXxUmxYMrSkC95EIWI/FaWPeIta0jBBaZna5maA+8wZcJPUGeP+hSa/V1Nd7S75gCc7/C0xrlCFtXn9EZu7FW5i8Ys5JLsJYqGp+vvDsvaE2u2CcDexVY0KGpREG1wbOy+yO4MncmV2U3Wvo2WvJ6Vf+Ic69c6KWlUAsuoP94fmm/wSBJNbDYJxSHHkAO1ethmTPH/mLNr0/ZMCq04bIDeaaLb+zPdRik6PuNCqRkL7ZL/NyNz90yTUG6GzlYzQFNkF0wybbU+WRuAG6kGCZxRtVNJ7arNFjE2pdpoun+oBGl5zkopudvvn9Iay+DXAbW3X1X3sKhlBWzgbLIm/sOwO8vZ8mK86CgLc4ujRLyWh45CU2NRKQT+iBrbCEmPpDTAXOscj8RbQtbneIngqrGSgtCp1ooa2KSX7azxQWfOkKK8yqweCu8n2bceAlIpC5DEBG+zqdQQm6pMzTcLqM0a+ppYaHV6qYM82T2B41NLYSgqIqRQfuX+UvI5BSbrhL6mAvKEQ0WHgT0m3YdnwUQ2pjA3xH2By5kwddK3NFUzmqM3svobcFldR2TDilpuug2prBvbyqKEf35sMtOS/lmTM5nzM9UWsSOp1dIV0x8KGuYsA=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(1800799024)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: xhxSzQkHKUkPR9cNf7Qn0Gx2B0/18dEMO31WZWyoidgJ6BLRD/3HZS690ON/jsYBbXqdiHkdT2Wj7glt3rHMj4ofKBgKzrT4d4YFVzAZbL/uccbu0wHBQKNJV2RVVKE5ClpjzjnPpU54ux1gFRb9EWGbtOKLpxwLel3vBuWI4JFmvzDGb0+4cTI3dA3Db8zGkrzWhcpTKEDIrKGJOKG6duen4vCv0XBv7040GIKz3sJu0KRS7iUDqi/C2nwReW0LgzeyzFNrZ6HDFO4bXQngJ8ORxmy+ry7QAB6pYWG8SsjuAcOdPvwrv9dWmjE1sKvraSZxjHwgr52egrEu7t87sD3hBBa/g5dF6dwjb1RP1qgnjRD7IoQnTm29SlP/zNu+rsermIFnkbUQuVnbt4Q7ZscxA2DNVSLjDzKLJKqPYPbpWMSi5ibTr2p9s+W8kvyK
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 19:30:06.8795
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f5479554-fea5-4499-b33f-08dead38360a
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCBF.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6988
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_121211_860035_CBB976C4 
-X-CRM114-Status: GOOD (  21.81  )
+X-CRM114-CacheID: sfid-20260508_123014_045325_B321459C 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,91 +137,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rosen Penev <rosenp@gmail.com> writes:
+On 5/8/26 12:36 PM, Nishanth Menon wrote:
+> On 12:14-20260508, Andrew Davis wrote:
+> [...]
+>>>    	writel_relaxed(val, &pdsp->regs->control);
+>>>    	/* wait for command register to clear */
+>>> -	ret = knav_queue_pdsp_wait(pdsp->command, timeout, 0);
+>>> +	ret = knav_queue_pdsp_wait((u32 __iomem *)pdsp->command, timeout, 0);
+>>
+>> Why not make `command`'s type `u32 __iomem *` instead of casting it when used?
+> 
+> pdsp->command is __iomem *, from what I see, from
 
-> Use a flexible array member (FAM) to combine hwmods array allocation
-> with the omap_device structure. This reduces the number of allocations
-> from two separate calls (one for the device, one for the array) to a
-> single allocation, improving efficiency and reducing memory fragmentation.
->
-> The FAM approach also enables bounds checking through __counted_by(),
-> which provides runtime verification that array accesses stay within
-> the allocated size. This improves security and helps catch bugs during
-> development.
->
-> Simplify error handling by removing the unnecessary multi-label goto
-> pattern. The new code is more straightforward: allocate, verify, copy
-> data, and either return success or error immediately.
->
-> Also removes the now-redundant kfree(od->hwmods) in omap_device_delete()
-> since the hwmods array is now embedded in the structure rather than
-> separately allocated.
->
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+It is a "void", should be "u32", that is why you are having to cast here,
+not the iomem part.
 
-Thanks for this cleanup.
+Andrew
 
-> ---
->  v3: add a verbose description explaining why. Powered by Claude Sonnet
->  4.5.
->  v2: remove kfree and fix compilation.
->  arch/arm/mach-omap2/omap_device.c | 29 ++++++++++-------------------
->  arch/arm/mach-omap2/omap_device.h |  4 ++--
->  2 files changed, 12 insertions(+), 21 deletions(-)
->
-> diff --git a/arch/arm/mach-omap2/omap_device.c b/arch/arm/mach-omap2/omap_device.c
-> index 79db4c49ffc9..77a75b0b9ae6 100644
-> --- a/arch/arm/mach-omap2/omap_device.c
-> +++ b/arch/arm/mach-omap2/omap_device.c
-> @@ -307,35 +307,27 @@ static struct omap_device *omap_device_alloc(struct platform_device *pdev,
->  	int ret = -ENOMEM;
->  	struct omap_device *od;
->  	int i;
-> -	struct omap_hwmod **hwmods;
-> +	struct omap_hwmod *hwmod;
->
-> -	od = kzalloc_obj(struct omap_device);
-> -	if (!od)
-> -		goto oda_exit1;
-> +	od = kzalloc_flex(*od, hwmods, oh_cnt);
-> +	if (!od) {
-> +		dev_err(&pdev->dev, "omap_device: build failed (%d)\n", ret);
-> +		return ERR_PTR(ret);
-> +	}
->
->  	od->hwmods_cnt = oh_cnt;
+> devm_io_remap_resource(), writel/readl_relaxed and other usage where
+> void __iomem* is used with command, and arithmetic used across the code,
+> __iomem * is intentional, except for this case. i did think of making
+> knav_queue_pdsp_wait take iomem, but that'd weaken what the strict
+> checking of a single u32 reg access it does.. this approach looked the
+> better of the alternatives.
+> 
 
-minor nit: isn't this assignment redundant now, as kalloc_flex() should
-assign the count?
-
-> +	memcpy(od->hwmods, ohs, oh_cnt * sizeof(*od->hwmods));
->
-
-> -	hwmods = kmemdup_array(ohs, oh_cnt, sizeof(*hwmods), GFP_KERNEL);
-> -	if (!hwmods)
-> -		goto oda_exit2;
-> -
-> -	od->hwmods = hwmods;
->  	od->pdev = pdev;
->  	pdev->archdata.od = od;
->
->  	for (i = 0; i < oh_cnt; i++) {
-> -		hwmods[i]->od = od;
-> -		_add_hwmod_clocks_clkdev(od, hwmods[i]);
-> +		hwmod = od->hwmods[i];
-> +		hwmod->od = od;
-> +		_add_hwmod_clocks_clkdev(od, hwmod);
->  	}
->
->  	return od;
-> -
-> -oda_exit2:
-> -	kfree(od);
-> -oda_exit1:
-> -	dev_err(&pdev->dev, "omap_device: build failed (%d)\n", ret);
-> -
-> -	return ERR_PTR(ret);
->  }
-
-Kevin
 
