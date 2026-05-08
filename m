@@ -4,92 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB7F3CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB56CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XktoxOSdy+7UpPmhAwTtEdQpOxHTuyByFDWP5fxlwiA=; b=S/Ivd6OikWewOAU5OiPxFp/Hbe
-	u9q7doAmhZXc7x9fqFbg5u1HWiilCf255BIZNDLb8UhR+Qek2gfhwBp+hLXqpNksE9yOcvROtNXYG
-	OBKnN5etiaAzDqXGU56W5EdQ2aQM6vO48sY3k9HZ1tLUu7yQ/vSoS0EBOAEZYNDFDcz3+vTMnfrek
-	ss9o+WQ6UHJrxnMhCA3yEs7dOtKCswsDYhuvqIs9zqcCbD68IgK4twOt78fs0l0P7LmS2v0AYgR0N
-	69W9C+wAFes+vzbi9RODcQF8C7RYrMW80/5Y9KPBlU3CKNRrjWyTria4J3RVt9Muoy1l030y6RtSf
-	gg1BwISg==;
+	bh=Wgl2u+JUESu5JK+W9RlHgHrVNZGN7An5cbDqqnGetQg=; b=PEgOkjIbCLKzbB+pgQT9oiTlFU
+	1PkHpOmufHHn5fFiDWEm9XuvHbngx4e48Na/AaKbrAb4Yf1IeLH/6N3TllgoOPAMpZmY7K/EZhqQX
+	tg+ky4pHHuPY8BiodH939qrA9hNyPYHfhp7/W6XovJWvnneIy2Rel9tggspPjKyYa0PwBte7OZ4qG
+	Eyp/o6JbD/WuTn1pkQA3h0v9WTGiKqXS3cmhubiX5rd35eBQSEHFQo+PeRKXYHyuusXfZiAXdkfLI
+	6lloHewqLGsGP5qEM6KvncK3SCs1U2NdBVXL9NqabGbenkBG6XuWm4nT9Z2o8ooW06Gq6B1r1BlDc
+	/Bj+qsFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMZp-00000006izx-1MqV;
-	Fri, 08 May 2026 14:53:17 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wLMcG-00000006jzY-2x9w;
+	Fri, 08 May 2026 14:55:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMZn-00000006izN-0i8d
+	id 1wLMcF-00000006jzI-0qJ2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 14:53:16 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2b2e8b95bdbso94655ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 07:53:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778251994; x=1778856794; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XktoxOSdy+7UpPmhAwTtEdQpOxHTuyByFDWP5fxlwiA=;
-        b=thKFylDLJTXoo6RNk5vHUuvScBGiAH6Qh6ivBgrhTMNI7PPxsOSUWTrx4vFefl/UQN
-         b8oLproaYmmQ9/QhjQyVWjRijw40xNu/QVsXGPet8YWH7GMp9Hn18hDcbTkoaWHw2SJT
-         qPc4lbU99cZTzkyy8ns775yyMXrE7x5AWYfVKwVMdhedsta+WMpqZybDQxSd2W3k7ZTY
-         qgdVYrASRkvUkt+iteTHGZBNRLikttb6PkPzby20Ko6M7xN/AwikFivRWi+5InKBHQ05
-         1xBMSm1rfV5bm5QVsI7VBM+hEwJ2+WZFUsCdfe3peyyL6+7fbtuF6qZJshAIACRD5nm9
-         1WSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778251994; x=1778856794;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XktoxOSdy+7UpPmhAwTtEdQpOxHTuyByFDWP5fxlwiA=;
-        b=ojACqVjiV32GTTQlR1eXShl0/3eSgSf/D3XvzmizQ8pijeWekkBm0wCd6a1n5e62ar
-         Tb2zGXZ13Xe8sU0qAbxJn8E9YaBBf3s7ZJiL/TasI74B5QTxLViFCA5yPRC8VR6RN4FG
-         9za9XUHAD6sp/A1CFRPgFhkkEZEgwdt/+/eNZQORvNrx5ePyJ9aMs1y8U4ZGT08EGAho
-         dY2PeFNQWyq0+kdOMWdfHbDymYO8dkvnaJ2EuKv5O2XiOEtRtspzTGoGz+F2vwu5gy2R
-         h6ox4QYy7mQfahen8D+O4xqRMwzYkkCf6ZdOgvqN7DCf38KR0MhRPcwgNeUliWgkaZKb
-         waBg==
-X-Forwarded-Encrypted: i=1; AFNElJ9vi8PBPjUo7ksEfHVqc9mbiu1K5aOrJoiCI6ngRUk8gprHHfor/qKsw6P3tqyxwRckn/XivmMzAAuRhApeAdJn@lists.infradead.org
-X-Gm-Message-State: AOJu0YyC9F56xZPE05KcyG8oUH08haiNlZbr/zR1aoLYmTV9Pi7sCHGq
-	RLdlq8Viig3GsyhwtNcTerJ7VX6vkg2lmaaWrb57ElXDOg9t8sJf5OryM3S3mkt3pv9dz8sTzwr
-	Myj+mHw==
-X-Gm-Gg: Acq92OEd/QYusmLNomkFy0tDrJ7nFW8ZXDQdsjdmOhiPgp4IkqwoiBIwgMxNPeXKcfn
-	DNw09rkezir1IMWxm3prTfInTbF+mOlh6CZh9Ju/lCljcdo7sT8u6vGHOuHSc97B5n/PiMOWpWZ
-	88G3+Cw9KqvkvI/sOQ2B43IVDRhlkuA/+9t9U054reIhkr3lyIG/tOTN4O2mbkuYfReHIDuZo8f
-	+LGqgVD4G/QenKJJUzmN52I7old7zfu4+zKF6Tu2TH9UGNLxN4IU8NcEyjqOLy97OOUzoEkrd3+
-	EXqBi6s6XHm55ZTJV8YCybq6OEcvzV5GwGWlaqX0MAbL/o7T5aMl/t6GOQ+GFdZTpf2l9wWlAke
-	TQGQGhM1uJOSYkEtC5WTJnwbE3JJVkmlPc3ytO7EntpZ0kzkGjutgzDf8eJ8zANOsqriRqfSDU7
-	kTtGLFDWNC6uJui8fouUMEjcduX/rQyADHCnEZVQO+QzZoTOAALc8YbMADA77RgRbi9cqboLprk
-	eDRPl4=
-X-Received: by 2002:a17:903:247:b0:2b0:7a9b:82f3 with SMTP id d9443c01a7336-2bae9ab01fcmr3296545ad.8.1778251993701;
-        Fri, 08 May 2026 07:53:13 -0700 (PDT)
-Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367c2ccfbeasm8405a91.13.2026.05.08.07.53.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 07:53:13 -0700 (PDT)
-Date: Fri, 8 May 2026 14:53:06 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Leo Jiang <leo.jiang1224@foxmail.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	joro@8bytes.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Stop queue allocation retry at
- PAGE_SIZE
-Message-ID: <af340uhd40FLTaEO@google.com>
-References: <tencent_F6E384A40D990A279B460A0CDE1927FDF509@qq.com>
- <0fdf4b1f-90f2-4f69-9d2b-dc5f608e9c1c@arm.com>
- <aeeoEHHNKPo32H9R@willie-the-truck>
- <tencent_DA99B62735469A0CD219E9FC73E234A47309@qq.com>
+	Fri, 08 May 2026 14:55:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A392F60052;
+	Fri,  8 May 2026 14:55:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AEFAC2BCB0;
+	Fri,  8 May 2026 14:55:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778252146;
+	bh=N869R35gS1hmPx22qrwaifKiqn02BVaqbn9SBybbSpU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rjLnu2D10PWshoFmra/WqT2x/oIazuGIRH8ewIGoBqLvCb8aB9EYk8O+CkpUcagTh
+	 296wobZZiAHV25FyTCp5M3vABi828lVuMnB8U/NAzbSpyD68jS/FZcQVWXjLjyQ70g
+	 uriBMCHtOGT+YTrfC+K9Squ9DQR5y8LcBOGY/NqpOIC+KFYmztke+3TBg/pChX2mlE
+	 sc2R87QeTXzp7dJXNJmrANH6ufElnyNlJ+mqfNI2mbpK2RC6Xmo04EWZ9nXy5a7W6X
+	 0teea2lGgLpGHYqIdSOKndHAo78EixdezGqcPVOtMKhgmYZ1UiDE4tmXDFlIfnsnKQ
+	 +FvNwNzPFsiXA==
+Date: Fri, 8 May 2026 15:55:40 +0100
+From: Conor Dooley <conor@kernel.org>
+To: =?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
+Subject: Re: Re: [PATCH net v1 1/2] dt-bindings: ethernet: eswin: refine
+ delay model and HSP register description
+Message-ID: <20260508-detention-frisk-84cff00cb228@spud>
+References: <20260507083037.152-1-lizhi2@eswincomputing.com>
+ <20260507083136.175-1-lizhi2@eswincomputing.com>
+ <20260507-mural-moocher-ad6e07ef8ae0@spud>
+ <22d09a07.7cfd.19e061cacea.Coremail.lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="z+PhFZ7j1pI5I6B9"
 Content-Disposition: inline
-In-Reply-To: <tencent_DA99B62735469A0CD219E9FC73E234A47309@qq.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_075315_240606_98F39370 
-X-CRM114-Status: GOOD (  14.86  )
+In-Reply-To: <22d09a07.7cfd.19e061cacea.Coremail.lizhi2@eswincomputing.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +81,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 22, 2026 at 05:13:08PM +0800, Leo Jiang wrote:
-> Hi Will, Robin,
-> 
-> Thank you both for the detailed feedback.
-> 
-> Robin, you are absolutely correct. After a deeper look into the source code,
-> I see that allocations smaller than a page are indeed possible in certain
-> cases. My previous assumption about the DMA API's granularity was wrong,
-> and I appreciate the correction.
-> 
-> However, as Will noted that the current logic deviates from the original
-> intent, I have prepared a v2 to limit the queue allocation retry boundary
-> to PAGE_SIZE.
-> 
-> In v2, I have:
->  - Updated my identity to Leo Jiang.
->  - Removed the code comments as suggested.
-> 
-> I will send the v2 as a follow-up shortly.
 
-Hi Leo,
+--z+PhFZ7j1pI5I6B9
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The general guidance is to send the v2 as a fresh email so that it
-doesn't drop off the commmunity's radar.
+On Fri, May 08, 2026 at 01:43:23PM +0800, =E6=9D=8E=E5=BF=97 wrote:
+>=20
+>=20
+>=20
+> > -----=E5=8E=9F=E5=A7=8B=E9=82=AE=E4=BB=B6-----
+> > =E5=8F=91=E4=BB=B6=E4=BA=BA: "Conor Dooley" <conor@kernel.org>
+> > =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4:2026-05-08 01:24:02 (=E6=98=9F=E6=
+=9C=9F=E4=BA=94)
+> > =E6=94=B6=E4=BB=B6=E4=BA=BA: lizhi2@eswincomputing.com
+> > =E6=8A=84=E9=80=81: andrew+netdev@lunn.ch, davem@davemloft.net, edumaze=
+t@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@=
+kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org, devicetree@vger.ke=
+rnel.org, linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com, alexandr=
+e.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin=
+=2Ecom, linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.in=
+fradead.org, ningyu@eswincomputing.com, linmin@eswincomputing.com, pinkesh.=
+vaghela@einfochips.com, pritesh.patel@einfochips.com, weishangjuan@eswincom=
+puting.com
+> > =E4=B8=BB=E9=A2=98: Re: [PATCH net v1 1/2] dt-bindings: ethernet: eswin=
+: refine delay model and HSP register description
+> >=20
+> > On Thu, May 07, 2026 at 04:31:36PM +0800, lizhi2@eswincomputing.com wro=
+te:
+> > > From: Zhi Li <lizhi2@eswincomputing.com>
+> > >=20
+> > > Refine the EIC7700 Ethernet dt-binding based on observed hardware beh=
+avior
+> > > and clarify the original delay model for eth0.
+> > >=20
+> > > The previous binding used an enum-based definition for
+> > > rx-internal-delay-ps and tx-internal-delay-ps. Replace it with a
+> > > range-based model using:
+> > >=20
+> > >   - minimum: 0
+> > >   - maximum: 2540
+> > >   - multipleOf: 20
+> > >=20
+> > > This better reflects the actual hardware implementation, which
+> > > supports 20ps granularity delay steps in the MAC RGMII interface.
+> > >=20
+> > > The tx/rx internal delay values are clarified as MAC-side programmable
+> > > delay components applied on the RGMII clock/data path, representing
+> > > the effective delay seen at the MAC interface.
+> > >=20
+> > > This does not change the intended hardware semantics, but aligns the
+> > > binding with the actual hardware implementation.
+> > >=20
+> > > These properties are optional and only required when MAC-side fine
+> > > tuning is needed; otherwise delay alignment is provided by PHY or
+> > > board design.
+> > >=20
+> > > Depending on the selected RGMII timing mode, delay alignment may be
+> > > provided by the PHY (e.g. rgmii-id) or by board/MAC-side configuratio=
+n.
+> > > When PHY or board design already provides the required delay, these
+> > > MAC-side properties may be omitted. When MAC-side fine tuning is
+> > > required, they should be provided to describe the internal RGMII
+> > > timing adjustment.
+> > >=20
+> > > Additionally, extend the description of the HSP subsystem register
+> > > layout used by the MAC glue logic. This includes explicit TXD and RXD
+> > > delay control registers to ensure deterministic initialization and
+> > > to override any residual configuration potentially left by bootloader=
+s.
+> > >=20
+> > > Add reference to the EIC7700X SoC Technical Reference Manual,
+> > > Chapter 10 ("High-Speed Interface"), Part 4 for background of the
+> > > HSP CSR block:
+> > > https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Ma=
+nual/releases
+> > >=20
+> > > There are no in-tree users of this binding, so no ABI impact is
+> > > expected.
+> > >=20
+> > > Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7=
+700 SoC")
+> > > Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+> > > ---
+> >=20
+> > While this is v1, it's really v8 and there should therefore be a
+> > changelog that explains where my ack and the new compatible went.
+> >=20
+>=20
+> Thanks for the review.
+>=20
+> Based on Jakub's feedback on the previous v7 series, I plan to split the
+> changes into two separate series:
+>=20
+> - a smaller fix series intended for net,
+> - and a separate eth1 feature series intended for net-next.
+>=20
+> After the split, the scope and target trees of the two series will differ
+> from the original combined series, so I plan to restart the revision
+> numbering from v1 for both series.
+>=20
+> The additional compatible string and the eth1-specific DT binding
+> extensions will be moved into the separate feature series, and I will
+> reflect this in the v2 cover letter.
+>=20
+> The DT binding changes in this fix series v1 are simply extracted from the
+> previous v7 series as part of the split.
+>=20
+> Since the series has been restructured, I will drop the previous
+> Acked-by tags.
+>=20
+> I will also document the reason for doing so and the impact of the split
+> in the v2 cover letter.
 
-Thanks,
-Praan
+This isn't what I am looking for. I just want/wanted an explanation for
+why the new compatible has been removed from the patch.
 
+>=20
+> If you think the binding changes are still effectively unchanged and the
+> previous Acked-by can still apply, I am happy to retain them or re-apply
+> them as appropriate. Otherwise I will assume a fresh review is preferred.
+
+If the removed compatible is the one for eth1, then
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+Cheers,
+Conor.
+
+>=20
+> Please let me know your preference.
+>=20
+> Thanks,
+> Zhi
+
+--z+PhFZ7j1pI5I6B9
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaf35awAKCRB4tDGHoIJi
+0gmJAQDr6xhvwtTAQnqP7MMHtuQzQnKum+qSUdWXb8zOKVsrRwD/X6Xp21HqiPK6
+cDQ6QwfRf7AfLBtSYxseFDv4lV/jMQw=
+=T72E
+-----END PGP SIGNATURE-----
+
+--z+PhFZ7j1pI5I6B9--
 
