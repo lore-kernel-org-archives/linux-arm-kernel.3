@@ -4,61 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E72CACD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB7F3CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V/MorCIJowgGq0kdfl5dKhCBp2QF4Bdp3UjUYaZe3uY=; b=nuwqX7JiW99kmBAdaQ+D5WyVzx
-	8om2m+BJhhGDo3aS7wcdcU6ZPmdE9HFzLAqR7Miu6buwx+CUUH45bTf0x82la24z1D/HMc3Ap/n9M
-	cK87OPgyVaMq9S8yurZqf4+qZ4maESujrp+1Xq0p20EnQGkWQUacOWVY9HWEHU0GQC7qlTF132Kfv
-	Aiinq1sd5ZcsHL60LJKRch2JcJRy3pEIR7XniTQtMSrhDdKpoY3x2ekZwUmomb8hRoZKUnNq3ozW+
-	oJoVaLYoSkq8fD7N6o8t1gj0bR+eqTBDfiXuBkkTTyuoIndoHgzJNRM/ovXCDUO9cIWy3M0QFdVGs
-	JFJKuo2A==;
+	bh=XktoxOSdy+7UpPmhAwTtEdQpOxHTuyByFDWP5fxlwiA=; b=S/Ivd6OikWewOAU5OiPxFp/Hbe
+	u9q7doAmhZXc7x9fqFbg5u1HWiilCf255BIZNDLb8UhR+Qek2gfhwBp+hLXqpNksE9yOcvROtNXYG
+	OBKnN5etiaAzDqXGU56W5EdQ2aQM6vO48sY3k9HZ1tLUu7yQ/vSoS0EBOAEZYNDFDcz3+vTMnfrek
+	ss9o+WQ6UHJrxnMhCA3yEs7dOtKCswsDYhuvqIs9zqcCbD68IgK4twOt78fs0l0P7LmS2v0AYgR0N
+	69W9C+wAFes+vzbi9RODcQF8C7RYrMW80/5Y9KPBlU3CKNRrjWyTria4J3RVt9Muoy1l030y6RtSf
+	gg1BwISg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMXa-00000006ij9-03nq;
-	Fri, 08 May 2026 14:50:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wLMZp-00000006izx-1MqV;
+	Fri, 08 May 2026 14:53:17 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLMXX-00000006iiu-3xv2
+	id 1wLMZn-00000006izN-0i8d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 14:50:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2A4E860052;
-	Fri,  8 May 2026 14:50:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67AD3C2BCB0;
-	Fri,  8 May 2026 14:50:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778251854;
-	bh=V/MorCIJowgGq0kdfl5dKhCBp2QF4Bdp3UjUYaZe3uY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=msPO46FUpVbvsrtjvkWka4NOagz5lQTdyqrJ7etMn2isie18YNrfpUJihMmxeAjWt
-	 uuw161Sawj0+Sc/t9PduioxD/009T6Z7ot/iRf3rlQ/xK1SUt05Ys+bcydhmoidNs7
-	 sOyFN54qJLzxPWx3q9UtFSG752W7NlaRk+4rxVN8Vq147NvedYN3SMECnFQ1WWQYIT
-	 mNt1imDlM5d6HEzPeBf2JcXR+Wv0y7rbg02vjR6UpHCYPJEVkt6j5njJ4+DkDcO1LO
-	 EHPvlfSlRmgm7R/Z4u0Q6iaHSW1YKsbwZjMjRrIjWHsbpwntmvcd0GfZLvMSG/cJTb
-	 3vY7e9c7mNPAA==
-Date: Fri, 8 May 2026 15:50:50 +0100
-From: Conor Dooley <conor@kernel.org>
-To: nicolas.ferre@microchip.com
-Cc: theo.lebrun@bootlin.com, conor.dooley@microchip.com,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>, netdev@vger.kernel.org,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] MAINTAINERS: change maintainers for macb Ethernet driver
-Message-ID: <20260508-destiny-rebuild-696b3cc5351e@spud>
-References: <20260507120444.9733-1-nicolas.ferre@microchip.com>
+	Fri, 08 May 2026 14:53:16 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2b2e8b95bdbso94655ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 07:53:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778251994; x=1778856794; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=XktoxOSdy+7UpPmhAwTtEdQpOxHTuyByFDWP5fxlwiA=;
+        b=thKFylDLJTXoo6RNk5vHUuvScBGiAH6Qh6ivBgrhTMNI7PPxsOSUWTrx4vFefl/UQN
+         b8oLproaYmmQ9/QhjQyVWjRijw40xNu/QVsXGPet8YWH7GMp9Hn18hDcbTkoaWHw2SJT
+         qPc4lbU99cZTzkyy8ns775yyMXrE7x5AWYfVKwVMdhedsta+WMpqZybDQxSd2W3k7ZTY
+         qgdVYrASRkvUkt+iteTHGZBNRLikttb6PkPzby20Ko6M7xN/AwikFivRWi+5InKBHQ05
+         1xBMSm1rfV5bm5QVsI7VBM+hEwJ2+WZFUsCdfe3peyyL6+7fbtuF6qZJshAIACRD5nm9
+         1WSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778251994; x=1778856794;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XktoxOSdy+7UpPmhAwTtEdQpOxHTuyByFDWP5fxlwiA=;
+        b=ojACqVjiV32GTTQlR1eXShl0/3eSgSf/D3XvzmizQ8pijeWekkBm0wCd6a1n5e62ar
+         Tb2zGXZ13Xe8sU0qAbxJn8E9YaBBf3s7ZJiL/TasI74B5QTxLViFCA5yPRC8VR6RN4FG
+         9za9XUHAD6sp/A1CFRPgFhkkEZEgwdt/+/eNZQORvNrx5ePyJ9aMs1y8U4ZGT08EGAho
+         dY2PeFNQWyq0+kdOMWdfHbDymYO8dkvnaJ2EuKv5O2XiOEtRtspzTGoGz+F2vwu5gy2R
+         h6ox4QYy7mQfahen8D+O4xqRMwzYkkCf6ZdOgvqN7DCf38KR0MhRPcwgNeUliWgkaZKb
+         waBg==
+X-Forwarded-Encrypted: i=1; AFNElJ9vi8PBPjUo7ksEfHVqc9mbiu1K5aOrJoiCI6ngRUk8gprHHfor/qKsw6P3tqyxwRckn/XivmMzAAuRhApeAdJn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyC9F56xZPE05KcyG8oUH08haiNlZbr/zR1aoLYmTV9Pi7sCHGq
+	RLdlq8Viig3GsyhwtNcTerJ7VX6vkg2lmaaWrb57ElXDOg9t8sJf5OryM3S3mkt3pv9dz8sTzwr
+	Myj+mHw==
+X-Gm-Gg: Acq92OEd/QYusmLNomkFy0tDrJ7nFW8ZXDQdsjdmOhiPgp4IkqwoiBIwgMxNPeXKcfn
+	DNw09rkezir1IMWxm3prTfInTbF+mOlh6CZh9Ju/lCljcdo7sT8u6vGHOuHSc97B5n/PiMOWpWZ
+	88G3+Cw9KqvkvI/sOQ2B43IVDRhlkuA/+9t9U054reIhkr3lyIG/tOTN4O2mbkuYfReHIDuZo8f
+	+LGqgVD4G/QenKJJUzmN52I7old7zfu4+zKF6Tu2TH9UGNLxN4IU8NcEyjqOLy97OOUzoEkrd3+
+	EXqBi6s6XHm55ZTJV8YCybq6OEcvzV5GwGWlaqX0MAbL/o7T5aMl/t6GOQ+GFdZTpf2l9wWlAke
+	TQGQGhM1uJOSYkEtC5WTJnwbE3JJVkmlPc3ytO7EntpZ0kzkGjutgzDf8eJ8zANOsqriRqfSDU7
+	kTtGLFDWNC6uJui8fouUMEjcduX/rQyADHCnEZVQO+QzZoTOAALc8YbMADA77RgRbi9cqboLprk
+	eDRPl4=
+X-Received: by 2002:a17:903:247:b0:2b0:7a9b:82f3 with SMTP id d9443c01a7336-2bae9ab01fcmr3296545ad.8.1778251993701;
+        Fri, 08 May 2026 07:53:13 -0700 (PDT)
+Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367c2ccfbeasm8405a91.13.2026.05.08.07.53.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 May 2026 07:53:13 -0700 (PDT)
+Date: Fri, 8 May 2026 14:53:06 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Leo Jiang <leo.jiang1224@foxmail.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	joro@8bytes.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Stop queue allocation retry at
+ PAGE_SIZE
+Message-ID: <af340uhd40FLTaEO@google.com>
+References: <tencent_F6E384A40D990A279B460A0CDE1927FDF509@qq.com>
+ <0fdf4b1f-90f2-4f69-9d2b-dc5f608e9c1c@arm.com>
+ <aeeoEHHNKPo32H9R@willie-the-truck>
+ <tencent_DA99B62735469A0CD219E9FC73E234A47309@qq.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="YuRWKIYUnF3dShEU"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260507120444.9733-1-nicolas.ferre@microchip.com>
+In-Reply-To: <tencent_DA99B62735469A0CD219E9FC73E234A47309@qq.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260508_075315_240606_98F39370 
+X-CRM114-Status: GOOD (  14.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,32 +104,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 22, 2026 at 05:13:08PM +0800, Leo Jiang wrote:
+> Hi Will, Robin,
+> 
+> Thank you both for the detailed feedback.
+> 
+> Robin, you are absolutely correct. After a deeper look into the source code,
+> I see that allocations smaller than a page are indeed possible in certain
+> cases. My previous assumption about the DMA API's granularity was wrong,
+> and I appreciate the correction.
+> 
+> However, as Will noted that the current logic deviates from the original
+> intent, I have prepared a v2 to limit the queue allocation retry boundary
+> to PAGE_SIZE.
+> 
+> In v2, I have:
+>  - Updated my identity to Leo Jiang.
+>  - Removed the code comments as suggested.
+> 
+> I will send the v2 as a follow-up shortly.
 
---YuRWKIYUnF3dShEU
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Leo,
 
-On Thu, May 07, 2026 at 02:04:44PM +0200, nicolas.ferre@microchip.com wrote:
-> From: Nicolas Ferre <nicolas.ferre@microchip.com>
->=20
-> I would like to hand over the macb maintenance to Th=E9o, as I'm unable to
-> keep up with the recent flow of patches for this driver. After speaking
-> with Claudiu, he indicated that he is in the same position as me.
-> To help with this work, Conor has agreed to act as a reviewer.
+The general guidance is to send the v2 as a fresh email so that it
+doesn't drop off the commmunity's radar.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Thanks,
+Praan
 
---YuRWKIYUnF3dShEU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaf34OAAKCRB4tDGHoIJi
-0t5MAQCuHQM95qauXKbkc5Lh0Wl6BX2vRWdNx4y0VYRFbMYA0AEA11GH9Tu6qf9y
-Gx40wZdDmOZCExgih0FSom6VfGxGKAE=
-=krFu
------END PGP SIGNATURE-----
-
---YuRWKIYUnF3dShEU--
 
