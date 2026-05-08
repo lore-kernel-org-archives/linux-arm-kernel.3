@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028CFCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 00:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD5D5CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 00:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=V7Jdj8lclIW7/vqvsi4esQ5YJcV1EWSfDiIMDkGwcTY=; b=10ghjgMMT3kZ2CLBTHEvuxlSup
-	+RFMs5AOidRD+8xny/T0bUjANTBYEhQDcuWkdaVR6wNF0QB1gYkmbgASOb2XEX4L16b/b+0eYMkCc
-	Tho9DAk6PN9Kf7mlXfynv3vexxA5O1kHxHStwE2Mgy4LTpMC0OkwPofbB/JEqCw2mSp1I26mCxesg
-	F2/n930UcHgwH9fXJvIU9SJXmwdycGJLfRBKJ2P1zEVETLy5icSnUaptLnX8ocJthAtoFd3LKY/X5
-	SXn7appkcdptuGm24tepteAqZau9fH5bQz+2EFOG9h4RGeMsyYfhvxvAjpkzGtuQLrQvxo2uprMpf
-	Ul2hG1QA==;
+	bh=7c+aFZR6chdvXzKzboVhwebOXtFbn7XyAAzIvOtZ3rg=; b=AtVR9iHCLvNT9sKLBpDsv0Rm61
+	tlU+15oufCmUeTejX/4AqeNHNPOT2wtEh3IZX7PjpqIEb30NEUE0E4RbV5ioE0za8hgF43nfZjnIF
+	/QVqCsyoEhQ6xPeFe6hw7U0ywJrPQ78mH8vSoTKBMKJ6o8jkxBJ9XLiH5jUmIaBEW7Ubgfu9QQ6g4
+	cIjMyqp4A+d3Cw1WHWUbyQLG2JCuIHs9/4Q8OjnBC09ZkdBl/R8wCjPPOfAKNbSE+944t+xs6m2ha
+	9MWBJppsYcv/zeDkP5ap7PR5zmWDMqlNa/QnSUVL883tmyWCp48oTKSMxVJf/w+JN6Vdom04UFnVM
+	F9O+WM+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL9G3-00000005ELb-2D1N;
-	Fri, 08 May 2026 00:39:59 +0000
+	id 1wL9G7-00000005ENB-2zRp;
+	Fri, 08 May 2026 00:40:03 +0000
 Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wL9G0-00000005EKb-4AnE
+	id 1wL9G2-00000005EKb-2KWE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 00:39:58 +0000
+	Fri, 08 May 2026 00:39:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1778200797; x=1809736797;
+  t=1778200798; x=1809736798;
   h=date:from:to:cc:subject:message-id;
-  bh=j2MXSxKg/ZSu96iDWiyueLrcNMcv4EVTBhOaldvxxAU=;
-  b=YI1wHrbuymcfl2U9xNs4oRxAV6SVlpQZo0WhWDTo0QzqcdN/44GT4Qkd
-   jjanvmRb0WvRpBLhZeeL6aPI/i6hnSe339e6arZQvyHjbkWfY3svtfkLi
-   vJGmtticUQLz4rwG3PM+BaImVYK0QshLUh6VStVnGSpqsn81JBeJYeZ9L
-   DS1uYQn8J4rBr4sN7Idc+TrB+1bOw0Tz29CXUhfoZL8QJf6gVdSFUMzvT
-   ryc/J7uq4x8U8o5OeG0HKT1yjpRLmXkCAGEyg1rQ7QYSptoNayph1rJ4l
-   pLEyIrRaHkscB0n3byusEYbbW69Q3u+jV7AZr0qlk+jlqeWUNqvMiJsN6
-   g==;
-X-CSE-ConnectionGUID: qT43Ok6UQ1GnIwIyW8KJ7A==
-X-CSE-MsgGUID: 2grjE4UzQP2nNkqnHEfOCg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11779"; a="79208238"
+  bh=WUbkVdpLCGWy4xEXgbeBJDSz6HeirITK2MVbFsTmtus=;
+  b=e+mjFlisfJgWcox+QmFg4kvi9FkwJPkt+ASy582mBAnYqG6kOCj2cbIL
+   CUlA5qukKKUDr/rIkQR/Qri4O9MDQr1xZGu+ufSb4zt/fLI6WDhi/259y
+   mqbJu4vi9Im5mMKZuknFvmYvtc268hIzGUVYYM/KlM6KlcdMQhKDqouhw
+   PzBAHOrxmXvcU/NfU7EJ19d7gCjKbatWl2bCw648Kiw0WDjsxaZT2aFxZ
+   NbfP2Ice8yC4e3N/wMAaBpK7YAOigD/kK6ysxAXb51Kte2/m2SlBKM8Dv
+   mgafSGRf4kO9m3MfAGTDvBfDEnwDe+0Q6LA+IFaN3remnVosj0iF7Soah
+   Q==;
+X-CSE-ConnectionGUID: iVw4Ww9vT02wv6WNMwKqZg==
+X-CSE-MsgGUID: 3rL5mq6KTqavtGowsUDfKA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11779"; a="79208235"
 X-IronPort-AV: E=Sophos;i="6.23,222,1770624000"; 
-   d="scan'208";a="79208238"
+   d="scan'208";a="79208235"
 Received: from fmviesa007.fm.intel.com ([10.60.135.147])
   by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 May 2026 17:39:55 -0700
-X-CSE-ConnectionGUID: N/0anUZfTqO7O4M06fIUfQ==
-X-CSE-MsgGUID: BOYJ4BOWRvmurUxEBVUcfQ==
+X-CSE-ConnectionGUID: FAImXFqBR5SkyVUjQRFfAQ==
+X-CSE-MsgGUID: 6PiBbM5JQ2uaBfr8PVa/8g==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.23,222,1770624000"; 
-   d="scan'208";a="233565013"
+   d="scan'208";a="233565015"
 Received: from lkp-server01.sh.intel.com (HELO d6e19f2f5857) ([10.239.97.150])
   by fmviesa007.fm.intel.com with ESMTP; 07 May 2026 17:39:54 -0700
 Received: from kbuild by d6e19f2f5857 with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1wL9Fv-000000000eb-153h;
+	id 1wL9Fv-000000000eX-0uKC;
 	Fri, 08 May 2026 00:39:51 +0000
-Date: Fri, 08 May 2026 08:39:39 +0800
+Date: Fri, 08 May 2026 08:39:29 +0800
 From: kernel test robot <lkp@intel.com>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- d2ab44b9ecf4ff4be22025c5f6f5cf4723403a66
-Message-ID: <202605080832.RqjU35IN-lkp@intel.com>
+Subject: [soc:soc/arm] BUILD SUCCESS
+ 518949e986e2b5d0f39b640dd27a19b6fc8740ea
+Message-ID: <202605080822.HdFvj7cL-lkp@intel.com>
 User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_173957_079780_4F3B919A 
-X-CRM114-Status: UNSURE (   5.72  )
+X-CRM114-CacheID: sfid-20260507_173958_611419_29850FCD 
+X-CRM114-Status: UNSURE (   5.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,13 +83,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: d2ab44b9ecf4ff4be22025c5f6f5cf4723403a66  ARM: dts: ixp4xx: use phandle-based GPIOs in mi424wr
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/arm
+branch HEAD: 518949e986e2b5d0f39b640dd27a19b6fc8740ea  ARM: select legacy gpiolib interfaces where used
 
 elapsed time: 721m
 
-configs tested: 156
-configs skipped: 149
+configs tested: 154
+configs skipped: 165
 
 The following configs have been built successfully.
 More configs may be tested in the coming days.
@@ -104,9 +104,7 @@ arm                               allnoconfig    clang-23
 arm                              allyesconfig    clang-16
 arm                              allyesconfig    gcc-15.2.0
 arm                                 defconfig    gcc-15.2.0
-arm64                            allmodconfig    clang-19
 arm64                            allmodconfig    clang-23
-arm64                             allnoconfig    gcc-15.2.0
 arm64                               defconfig    gcc-15.2.0
 arm64                 randconfig-001-20260508    gcc-14.3.0
 arm64                 randconfig-002-20260508    gcc-14.3.0
