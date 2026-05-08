@@ -4,60 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A3C0CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 11:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 121E9CD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 11:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+P5MrIPzXt2zxpI37rKzqvP10hRxLQIkphaDNRko/1M=; b=dEue4IiQy5wqdhTn/9ARA6xqWF
-	yifK74G6ePVOfU63q8vtCH+drQceKfg1K004vHVrVCnyT22rSaboNRGXVDFIvxwFRutibz2/vO2eG
-	Kxof4o6BrMVQEZ+C8mSow7/Qlc5t6RS2Qbvm7veiOG+tP3UXqG0fZ1gYo5xW8eQbnPlni5osie/Sj
-	FQOiFKGyobVfBFt4fDpGymjFCgGLBoyUL31vmLPmz7FBD28Xg3OFG23auyRgSqwwn2y2dNvG6Jf8L
-	kOhIIR8jzYN+DRVKQ8NwIGfO2CUTWdVVBW9YY6Qu6G3/4qul/ldYoOfEkUiYAH8W2t+WlXGqleAZE
-	0Fadi+HQ==;
+	bh=Sxrnk2VELMjRjObldWAdnNMiWnBK7Bkw4XQqQYXjQy8=; b=gpswKhyEXhrJne51C19Wc9LBNN
+	axe/Cg25oQ64PLDNdgLVJ/j4tB1M+YuovFFmpzpToZCnhtru2jaGQuTU2wHRAoIvi9wJuNYLJvUsa
+	TmUNjCp2exEWXHg8sGjdh9b2NPyof0/CreNLUsWLHQ0VjNE/4XPvVT8kbOgaGEDgD92imckkK9iSa
+	hWM+Jou+joPEigxlwvrudAn1ahwjQ8DVJoVKU8f3DjuHzChlNq0yKaAwL8fjku8ZFwLdiLiQf4fzG
+	T+PksiYKG5pYUzrhSvCsBbd1k9DuIJJN+ZaJhJo+WPzUNjR8sUqfSEbDJ+TaTMvgnRoUsIXxf7HQK
+	nwTFlTOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLJ1k-00000006IcS-2Rn1;
-	Fri, 08 May 2026 11:05:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wLJDQ-00000006JmG-2r6s;
+	Fri, 08 May 2026 11:17:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLJ1j-00000006IcL-1UG9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 11:05:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C194600AE;
-	Fri,  8 May 2026 11:05:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44204C2BCB0;
-	Fri,  8 May 2026 11:05:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778238350;
-	bh=qk0h+dc5b/ylXAdj3yRPBli4YcYqMaO80z06Nhfc3cg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xq/g8RNUkswdmv8/QxA5FWtER3jymUUUINsZ8HQCuI+WiSSicwxC8q3HeiZAhfAwB
-	 OBEvYvX9JPtCusZPnYoMx80z2MAbtqT2KrOt2rfb9LvjU5hqcLGo0BxD4h6+0WYPm4
-	 v+OoHvJjUXuhJzH6IvwIn7uz0hDTL7UzhYylDMQMApwmFZ1Sfd9orHCEM93dVHJU/K
-	 fkd3Fqhf4/zh5NdxeabUnOlHMZ9XQGBnRDDZ1u1K1sSO4YqYbH5bWvGxvjYZzmOvyN
-	 SfLbrNP0Xffl+/bAFcmkJ8NXS5Z2SYESNpGEYIMR6u2wsFD6c4O4CCdmit9PxtiDne
-	 mlh+txZECPy4A==
-Date: Fri, 8 May 2026 13:05:44 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org,
-	mark.rutland@arm.com, steven.price@arm.com, aneesh.kumar@kernel.org,
-	sudeep.holla@arm.com, robh@kernel.org, maz@kernel.org
-Subject: Re: [RFC PATCH 0/4] arm64: realm: Support for probing RSI earlier
-Message-ID: <af3DiIibnKvu+Tpt@lpieralisi>
-References: <20260429103535.266728-1-suzuki.poulose@arm.com>
- <af2aJKSbWIONhrMK@lpieralisi>
- <ea10bfcd-0890-4dab-836b-ff3bda946a39@arm.com>
+	id 1wLJDP-00000006Jlf-3luD;
+	Fri, 08 May 2026 11:17:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Sxrnk2VELMjRjObldWAdnNMiWnBK7Bkw4XQqQYXjQy8=; b=BIinnfrVDItF+wz4XfT6hz6uEC
+	UAM+o7E8LQ1F6K9Oi9m8tZ8lKCYSDWur/FwVjNlZClkzVnUd32yKqGp6fJOVDmwqZXOIrsfrKlzCb
+	xNK7fFYpx1Ml9EyCE0ACT08IR/6UI+1MEcYMcQtOmZ2mNJTpPM5ckV/0GWNCY6zk24QuARtX2q5vk
+	cxh76j+GZV2m/7dK0+fOlWsjfZsrX3qlVl+RuwcnIxvwAVchADSOM9KvK94w9Iac5MkFw5YfZTwEO
+	kZKw4bQ2blj3xvuTYtRytBYQAm5iUnY/AunD3/sLB1DnY/dzVRTT78zvthaFw6qRYOrArj017CU2N
+	2rFAC4UQ==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLJDK-000000062XQ-0y9Y;
+	Fri, 08 May 2026 11:17:53 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 648BGgqG63763945, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1778239002; bh=Sxrnk2VELMjRjObldWAdnNMiWnBK7Bkw4XQqQYXjQy8=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=kLwWbQepE3sWsOxJjMXYorrmwRXd1VESRIvcL3i1zvjGkp04HFbRZznOH/FhIFB+E
+	 w0G1HEBKnAV4naDMBBCDOafjGwJKbEb+1rvkNKyBDI6f+QxH8j/+rHqNi6Gl3raIbv
+	 +VsHQONxOxzGYuUYZao/6S9W2M6Mj4+J3EmvdZ2GiXFWBT8ekCcgcRykqkxjsRo0hG
+	 wn2wd0fBMzppB27aD2JmqidvZ9O3lxfD3oAUHeaG65lo4XdAPZ6UPWPnoPt8J29HoQ
+	 Hsi+ud2pwqa829EfU4hcJBZP2GZcaslohG/i25NukNUayJhW2qR5AWyAnaZJ0z9ihA
+	 7LQA9VsxCpstg==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 648BGgqG63763945
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 8 May 2026 19:16:42 +0800
+Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Fri, 8 May 2026 19:16:42 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Fri, 8 May 2026 19:16:42 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS06.realtek.com.tw
+ (10.21.1.56) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Fri, 8 May 2026 19:16:42 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
+        <cylee12@realtek.com>, <afaerber@suse.com>, <jyanchou@realtek.com>
+CC: <devicetree@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-realtek-soc@lists.infradead.org>, <james.tai@realtek.com>,
+        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+        <eleanor.lin@realtek.com>, <bmasney@redhat.com>
+Subject: [PATCH v7 03/10] clk: realtek: Introduce a common probe()
+Date: Fri, 8 May 2026 19:16:34 +0800
+Message-ID: <20260508111641.3192177-4-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260508111641.3192177-1-eleanor.lin@realtek.com>
+References: <20260508111641.3192177-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ea10bfcd-0890-4dab-836b-ff3bda946a39@arm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260508_121751_266895_E828A5D6 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,148 +101,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 09:28:32AM +0100, Suzuki K Poulose wrote:
-> Hi Lorenzo,
-> 
-> 
-> On 08/05/2026 09:09, Lorenzo Pieralisi wrote:
-> > On Wed, Apr 29, 2026 at 11:35:31AM +0100, Suzuki K Poulose wrote:
-> > > The Realm Guest linux support is broken without rodata=full (fortunately default
-> > > for arm64), as we detect the RSI support after we have created the Linear map
-> > > with Block/Contiguous mappings. If the boot CPU doesn't support BBML2_NOABORT
-> > > (there are CPUs out there with FEAT_RME and no - useable - BBML2_NOABORT)
-> > > we are then not able to split the page tables down to PTE level if the system
-> > > as such doesn't support BBML2.
-> > > 
-> > > See the following link for the discussion.
-> > > 
-> > > https://lore.kernel.org/all/20260330161705.3349825-2-ryan.roberts@arm.com/
-> > > 
-> > > The available options are :
-> > >   1. Start with PTE level mappings at paging_init() and then "FOLD" the page tables
-> > >      to Block/Cont mappings after we have the full picture available. Looking at the
-> > >      future (with BBML3), this might mean "additional work" for most of the systems
-> > >      at boot. But not bad as splitting them ?
-> > >   2. Hold the secondary CPUs in busy loop with MMU disabled and split the mappings
-> > >      by the boot CPU with MMU off (if Boot CPU can't support BBML2). This is tricky
-> > >      with the page allocations required to add the page-tables.
-> > >   3. Move the detection of Realm support earlier to make a better decision for
-> > >      paging_init(), with an added bonus of earlycon support for Realms without
-> > >      the user having to work out the "top bit" for the Realm.
-> > > 
-> > > This series is an attempt to implement (3) (without the earlycon support). We try
-> > > to probe the PSCI conduit early from the DT/ACPI. DT is not flattened at this time.
-> > 
-> > Nit: you mean unflattened here.
-> 
-> Yep, thats right.
-> 
-> > 
-> > > ACPI table is not mapped in full, so we have to map one table at a time and walk
-> > > from the Root of the table (RSDP) through to XSDT and find the FADT table from
-> > > the array of table pointers there. Minimal verification is performed on the
-> > > tables (e.g., revision checks, standard FADT sanity checks). Checksum is not
-> > > verified, but should be possible to do for the parts we consume.
-> > 
-> > I went back to tracing acpi_boot_table_init() (joy :)) and it does what you
-> 
-> Welcome back ;-)
-> 
-> > describe here above (it has been a while since I touched that code) relying on
-> > early_memremap() mappings (as you re-do in this series) before acpi_permanent_mmap
-> > is set in acpi_early_init() (that happens later in the boot process).
-> > 
-> > I am sure there are caveats in moving acpi_boot_table_init() before
-> > paging_init() but I thought I'd mention it in case (3) is what we are
-> > pursuing (I am most definitely in favour of alternatives if there are
-> > any).
-> 
-> I believe we might have issues with acpi_table_upgrade(), which would
-> need access to initramfs for any tables. We may not have the initramfs
-> mapped by then ? Anyways, FADT cannot be upgraded from the initramfs,
+From: Cheng-Yu Lee <cylee12@realtek.com>
 
-I think it can:
+Add rtk_clk_probe() to set up the shared regmap, register clock hardware,
+and add the clock provider.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/acpi/tables.c?h=v7.1-rc2#n407
+Additionally, if the "#reset-cells" property is present in the device tree,
+it creates and registers an auxiliary device using the provided aux_name.
+This allows the dedicated reset driver to bind to this device, enabling
+both clock and reset drivers to share the same regmap.
 
-Obviously this is a debugging/bootstrapping tool but hey, here we go.
+Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+ MAINTAINERS                  |  1 +
+ drivers/clk/Kconfig          |  1 +
+ drivers/clk/Makefile         |  1 +
+ drivers/clk/realtek/Kconfig  | 28 +++++++++++++++
+ drivers/clk/realtek/Makefile |  4 +++
+ drivers/clk/realtek/common.c | 66 ++++++++++++++++++++++++++++++++++++
+ drivers/clk/realtek/common.h | 37 ++++++++++++++++++++
+ 7 files changed, 138 insertions(+)
+ create mode 100644 drivers/clk/realtek/Kconfig
+ create mode 100644 drivers/clk/realtek/Makefile
+ create mode 100644 drivers/clk/realtek/common.c
+ create mode 100644 drivers/clk/realtek/common.h
 
-> so if we can work out a way to do the necessary may be something
-> worth checking.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ff0347f6556d..b16d2c62ea3d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22434,6 +22434,7 @@ L:	devicetree@vger.kernel.org
+ L:	linux-clk@vger.kernel.org
+ S:	Supported
+ F:	Documentation/devicetree/bindings/clock/realtek*
++F:	drivers/clk/realtek/*
+ F:	drivers/reset/realtek/*
+ F:	include/dt-bindings/clock/realtek*
+ F:	include/dt-bindings/reset/realtek*
+diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+index b2efbe9f6acb..8bf262dd23a9 100644
+--- a/drivers/clk/Kconfig
++++ b/drivers/clk/Kconfig
+@@ -519,6 +519,7 @@ source "drivers/clk/nuvoton/Kconfig"
+ source "drivers/clk/pistachio/Kconfig"
+ source "drivers/clk/qcom/Kconfig"
+ source "drivers/clk/ralink/Kconfig"
++source "drivers/clk/realtek/Kconfig"
+ source "drivers/clk/renesas/Kconfig"
+ source "drivers/clk/rockchip/Kconfig"
+ source "drivers/clk/samsung/Kconfig"
+diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+index a3e2862ebd7e..e226bee2d039 100644
+--- a/drivers/clk/Makefile
++++ b/drivers/clk/Makefile
+@@ -140,6 +140,7 @@ obj-$(CONFIG_COMMON_CLK_PISTACHIO)	+= pistachio/
+ obj-$(CONFIG_COMMON_CLK_PXA)		+= pxa/
+ obj-$(CONFIG_COMMON_CLK_QCOM)		+= qcom/
+ obj-y					+= ralink/
++obj-$(CONFIG_COMMON_CLK_REALTEK)	+= realtek/
+ obj-y					+= renesas/
+ obj-$(CONFIG_ARCH_ROCKCHIP)		+= rockchip/
+ obj-$(CONFIG_COMMON_CLK_SAMSUNG)	+= samsung/
+diff --git a/drivers/clk/realtek/Kconfig b/drivers/clk/realtek/Kconfig
+new file mode 100644
+index 000000000000..4e042e41f30d
+--- /dev/null
++++ b/drivers/clk/realtek/Kconfig
+@@ -0,0 +1,28 @@
++# SPDX-License-Identifier: GPL-2.0-only
++config COMMON_CLK_REALTEK
++	tristate "Clock driver for Realtek SoCs"
++	depends on ARCH_REALTEK || COMPILE_TEST
++	default ARCH_REALTEK
++	help
++	  Enable the common clock framework infrastructure for Realtek
++	  system-on-chip platforms.
++
++	  This provides the base support required by individual Realtek
++	  clock controller drivers to expose clocks to peripheral devices.
++
++	  If you have a Realtek-based platform, say Y.
++
++if COMMON_CLK_REALTEK
++
++config RTK_CLK_COMMON
++	tristate "Realtek Clock Common"
++	select RESET_RTK_COMMON
++	select AUXILIARY_BUS
++	help
++	  Common helper code shared by Realtek clock controller drivers.
++
++	  This provides utility functions and data structures used by
++	  multiple Realtek clock implementations, and include integration
++	  with reset controllers where required.
++
++endif
+diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+new file mode 100644
+index 000000000000..377ec776ee47
+--- /dev/null
++++ b/drivers/clk/realtek/Makefile
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
++
++clk-rtk-y += common.o
+diff --git a/drivers/clk/realtek/common.c b/drivers/clk/realtek/common.c
+new file mode 100644
+index 000000000000..56f6ba1af6ef
+--- /dev/null
++++ b/drivers/clk/realtek/common.c
+@@ -0,0 +1,66 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2019-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#include <linux/auxiliary_bus.h>
++#include <linux/device.h>
++#include <linux/export.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include "common.h"
++
++static int rtk_reset_controller_register(struct device *dev, const char *aux_name,
++					 struct regmap *map)
++{
++	struct auxiliary_device *adev;
++
++	if (!of_property_present(dev->of_node, "#reset-cells"))
++		return 0;
++
++	adev = devm_auxiliary_device_create(dev, aux_name, (void *)map);
++
++	if (IS_ERR(adev))
++		return PTR_ERR(adev);
++
++	return 0;
++}
++
++int rtk_clk_probe(struct platform_device *pdev, const struct rtk_clk_desc *desc,
++		  const char *aux_name)
++{
++	struct device *dev = &pdev->dev;
++	struct regmap *regmap;
++	int i, ret;
++
++	regmap = device_node_to_regmap(dev->of_node);
++	if (IS_ERR(regmap))
++		return dev_err_probe(dev, PTR_ERR(regmap), "failed to get regmap\n");
++
++	for (i = 0; i < desc->num_clks; i++)
++		desc->clks[i]->regmap = regmap;
++
++	for (i = 0; i < desc->clk_data->num; i++) {
++		struct clk_hw *hw = desc->clk_data->hws[i];
++
++		if (!hw)
++			continue;
++
++		ret = devm_clk_hw_register(dev, hw);
++		if (ret)
++			return dev_err_probe(dev, ret, "failed to register hw of clk%d\n", i);
++	}
++
++	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get,
++					  desc->clk_data);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to add clock provider\n");
++
++	return rtk_reset_controller_register(dev, aux_name, regmap);
++}
++EXPORT_SYMBOL_NS_GPL(rtk_clk_probe, "REALTEK_CLK");
++
++MODULE_DESCRIPTION("Realtek clock infrastructure");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/clk/realtek/common.h b/drivers/clk/realtek/common.h
+new file mode 100644
+index 000000000000..c52fcdbff5ee
+--- /dev/null
++++ b/drivers/clk/realtek/common.h
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2016-2026 Realtek Semiconductor Corporation
++ * Author: Cheng-Yu Lee <cylee12@realtek.com>
++ */
++
++#ifndef __CLK_REALTEK_COMMON_H
++#define __CLK_REALTEK_COMMON_H
++
++#include <linux/clk-provider.h>
++
++#define __clk_regmap_hw(_p) ((_p)->hw)
++
++struct device;
++struct platform_device;
++struct regmap;
++
++struct clk_regmap {
++	struct clk_hw hw;
++	struct regmap *regmap;
++};
++
++struct rtk_clk_desc {
++	struct clk_hw_onecell_data *clk_data;
++	struct clk_regmap * const *clks;
++	size_t num_clks;
++};
++
++static inline struct clk_regmap *to_clk_regmap(struct clk_hw *hw)
++{
++	return container_of(hw, struct clk_regmap, hw);
++}
++
++int rtk_clk_probe(struct platform_device *pdev, const struct rtk_clk_desc *desc,
++		  const char *aux_name);
++
++#endif /* __CLK_REALTEK_COMMON_H */
+-- 
+2.34.1
 
-I don't think we can init the tables before enabling the upgrade (which
-requires reading from initrd).
-
-I will try to think a bit more to see whether we can reuse some code
-(again - if that's what we eventually want to do).
-
-Lorenzo
-
-> > 
-> > > With arm64, during the normal boot, we could fallback to using DT if the ACPI
-> > > tables are not useable. So, during the early probe, we try to follow the similar
-> > > logic and probe the conduit from both DT and ACPI where available. If both of
-> > > them contain a conduit, we only proceed if they match. Otherwise, we skip the
-> > > early probe and do things the normal way. (Any sane system shouldn't have such
-> > > a mismatch, but..)
-> > > 
-> > > Once we probe the PSCI conduit, PSCI is probed, along with the presence of SMCCC.
-> > > With that in place, we try to probe the RSI support after the early probe and
-> > > advertise the Realm World. If the early probe wasn't successful, we fall back
-> > > to the late mode, where we could end up with (on a possibly rare broken firmware).
-> > > 
-> > > NOTE: This is an early RFC attempt to moving the PSCI detection earlier. The other
-> > > option(s) that may be worth exploring are:
-> > > 
-> > > 1. On systems with EFI, parse this from EFI Stub and pass the data back in the
-> > >     DT Stub, under chosen node. e.g., "linux,uefi-arm-psci-conduit".
-> > >     Challenge: EFI stub doesn't seem to be ACPI aware. We could make that change,
-> > >     we only need a few table walks.
-> > 
-> > What would we gain compared to (3) above ?
-> 
-> EFI stub has 1x1 map for the areas and we don't have to do the map/unmap
-> dancein the kernel and potentially end up crashing ourselves.
-> 
-> Suzuki
-> 
-> > 
-> > Thanks,
-> > Lorenzo
-> > 
-> > > 2. Have EFI firmware provide this information (with my limited knowledge on the
-> > >     area, this looks like too much work, and bending the standards)
-> > > 3. Append arm64 boot protocol to have this information passed to the kernel.
-> > >     (Firmware provided) - (Steven's idea)
-> > > 4. Any other options ?
-> > > 
-> > > 
-> > > This series is also available here :
-> > > 
-> > > git@git.gitlab.arm.com:linux-arm/linux-cca.git	cca-guest/early-rsi-detection/rfc-v1
-> > > 
-> > > Thoughts ?
-> > > 
-> > > Suzuki
-> > > 
-> > > 
-> > > Suzuki K Poulose (4):
-> > >    arm64: acpi: Refactor FADT table verification
-> > >    psci: Add support for Early detection and init
-> > >    arm64: psci: Move detection and SMCCC probe earlier
-> > >    arm64: realm: Move RSI detection earlier
-> > > 
-> > >   arch/arm64/include/asm/acpi.h |   1 +
-> > >   arch/arm64/include/asm/rsi.h  |   1 +
-> > >   arch/arm64/kernel/acpi.c      | 136 +++++++++++++++++++++++++++-------
-> > >   arch/arm64/kernel/rsi.c       |  23 +++++-
-> > >   arch/arm64/kernel/setup.c     |  69 +++++++++++++++++
-> > >   drivers/firmware/psci/psci.c  |  49 +++++++++++-
-> > >   include/linux/psci.h          |   2 +
-> > >   7 files changed, 252 insertions(+), 29 deletions(-)
-> > > 
-> > > -- 
-> > > 2.43.0
-> > > 
-> 
 
