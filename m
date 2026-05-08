@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9BDCD37AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 09:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85361CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 09:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vsrl/Bkp06Fy7Npl8UJC5GdCSS/Cbymvr4nzR7m3JRo=; b=2YL7Et9loZXbcsqqslHPrafoTy
-	9cadaI/s8scL1VoARkKnbNKnLniQIics+02XJ4KUEiYMCy6xwcL/Wek1kILMa1K+nboP+ppFwxEmP
-	zIcskyC9oTdDTyXAeknD68+AQdthIUfu5FLC7EgF4mSt0ZtuTN9V9Uo0AsoP1CAvCv4t1/aoqPjCH
-	jHan42VJI3Basphfw5Ivx4Svbl8/38lr5SSAgm/KXYecPMKx/ECl2QsMCW6WN6AHEFZbdgW1+myWS
-	FRypCreANK/lEccco902pR/7lh0MvQDYHv0AmsC5AF6w4jA+I4pss2v7dLFNxdVedg+WfrLMrX3OY
-	voabYq/Q==;
+	bh=N285Zr47KM3W59OSFBIWUWlbBHdfVUgOzq2vLCImGUc=; b=DpGPelT2IszcKHZHSP+jnWW6oK
+	lXmEoA5qXSubU8ZneNOTQMar7pQJJvMDm9Avvl0loHdS/zOPJlYu7uvBhjqLVFu2+cpAh1f2x4p/R
+	baExy2EcG+Jj18rNkJxlOj9Vz4u7p1wOtlTjoquxx4HiqeZuWd9FJkDOjw7BimohftD3Utl7++0Q3
+	kVr8Gq6GRSdcGmaeJuC+PTbLHdSJsY5cg4fVrIkaekLauKYnnI2USkIUHPMtouMzvmdwRJ5fzKNNG
+	yk2v1uAjusRc6vXLkl5rGHQBXBH9jOOA+Gx0Lrdu++z3r0OKt8gtubIXhMQZBGVn9/HtogMlPOzHI
+	BCAktvYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLHiw-000000068w1-1W5w;
+	id 1wLHiw-000000068vi-15I0;
 	Fri, 08 May 2026 09:42:22 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLHiv-000000068uW-1aPl
+	id 1wLHiv-000000068uQ-1F44
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 08 May 2026 09:42:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=Vsrl/Bkp06Fy7Npl8UJC5GdCSS/Cbymvr4nzR7m3JRo=; b=R0Z56M/OKEN4UQF2kyN//hmWYV
-	6MTrhB4LCCNv0pzsKQrIqExhIwr8Y1OIDbHELpSQeh7X2qcUshowRe5gonJ4NUbFxU0OdpJJV8S/U
-	fdujgxUUfHngMeEMNMAgphTESLtXRCAS3GLs2hhnTqI6h7jnEd0IjYI4cRScUdxpCqhmla9KBHwfU
-	HT6a4ujpj5aPsWavZRqYEvxTmst2fUMuwB+EP0F1hyXXyYPHLwnKFiKsocdYo4zEqM9Os3fUR2m5H
-	j8xlsm+G0y9ad6Qu0xaXjSqzhPvbUlGqUDGs8q46PAWj+JAK9vnFz4iG5gJ275ut6SxFdZn2bXoqs
-	Vd+7zqFg==;
+	bh=N285Zr47KM3W59OSFBIWUWlbBHdfVUgOzq2vLCImGUc=; b=peVlbHnSNoDJ6iTHV7daA2LTQS
+	UWqqbTsF9o1pPMeaotrzlVFG2HfgejFTu37DZ6os3qpk2TVyWnVi+x8LgsaOwNodSzT0wtwtEcenf
+	NGLgmTblYAl/CIu8+rf6ABNXHJ9kA7WxHDB7Z85dzDrqQLt+DMVz1qhGpbwzNStCGdbJuHgRLeADP
+	MYbPWfWM0rlBnz1mEKCFDOQEElzq/hnbzplUnC3wlHVe3mKnCtrxoA+haiLE73OhVu+chYKeOUG7L
+	oJCgyourxgOXkoX8q9ARpvQj9tBJdCvpzE/yVpRXGzJYsXCR/J+JgndtdBsctqyjnl7D2nyU9HZqI
+	vqSRoA6w==;
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLHim-00000005qTE-2MHa
+	id 1wLHim-00000005qTA-0fdP
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 08 May 2026 09:42:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B11D444E1;
-	Fri,  8 May 2026 09:42:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B62DC2BCB8;
-	Fri,  8 May 2026 09:42:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DB3084151A;
+	Fri,  8 May 2026 09:42:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D2EC2BCC7;
+	Fri,  8 May 2026 09:42:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778233331;
-	bh=gZfp7AFUDRuKyFzNq7gSRxIUj7Mf0Qt8SSGk362fa3U=;
+	s=k20201202; t=1778233330;
+	bh=GPhoEjDGFx9BVoj9SRTvn0iSRPYFTMcD7bFsJRUCGDU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pY9kvXnGRso1B/12FM9wMLIIKOCuq1HszrTPq8bf6Mhfbmv8FSqm5Z2susf9fDC5z
-	 WDa8Og42BNii1l9w1zeF++GNWEg4BV/1UIoXC6Q6YTsVzE2nQEXlv1qvDO4EV4/Zww
-	 xDWJdkD6pkv56mHOn79/Qw8mmUGgtTxGhzMPdu/8q67Qz/tCGZ0wGGvzDCiOY1gkzA
-	 oDwTHvrAamg0zw150QYLRdJGgDO1AQsZB/XY3kcAvQVXE/0XhAHS3oQwcr1fHOSHkc
-	 Sx/Ox6BW0Q5jkkjIegShPFWs0YXs7QEWU8Kk77S97wMACk+hFQ5XWE4sXHiQL8u423
-	 lekvwz9rJkBdA==
+	b=HGBShA2IUsCHC7V0xZ++hE7s8ZD6nOMXqgEvW8isg937ULi8Q9+1PtKVknw4ZL3WD
+	 lEfswV4JzbamRuk/uriNBrLWh3QCPr67JYCojfbik5GwCk+RRlRIveLwbeqWVilTI1
+	 UG4g4fQpGMy77W5v/6VFz6jNTDF6FbYo+DnKHwHXqRgEDfK4dztPpWDCZrQNAv+uHy
+	 fBpY7lursarny30NUCvEG9b3BD51j/zDfWyq6xhNbh0usSoPGIN5lAuOpX1ctBVeOR
+	 sTbBuz8lBsTlxX5TT/85cgWV8CTkoZhBsQsUECYdiUdT2BThjV+y2EdIw1Me0N3vCD
+	 4ghid/PY9B/XA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wLHij-00000000HJz-29OQ;
-	Fri, 08 May 2026 09:42:09 +0000
+	id 1wLHii-00000000HJz-37k0;
+	Fri, 08 May 2026 09:42:08 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
@@ -72,9 +72,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>
-Subject: [PATCH v2 5/5] arm64: Convert __delay_cycles() to arch_timer_read_vcounter()
-Date: Fri,  8 May 2026 10:42:03 +0100
-Message-ID: <20260508094203.2913880-6-maz@kernel.org>
+Subject: [PATCH v2 1/5] clocksource/drivers/arm_arch_timer: Add a static key indicating the need for a runtime workaround
+Date: Fri,  8 May 2026 10:41:59 +0100
+Message-ID: <20260508094203.2913880-2-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260508094203.2913880-1-maz@kernel.org>
 References: <20260508094203.2913880-1-maz@kernel.org>
@@ -85,8 +85,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kerne
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_104216_729681_16D21B77 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20260508_104216_618964_939F7DC2 
+X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +101,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Relax the need for disabling preemption in __delay_cycles() by
-using arch_timer_read_vcounter(), which will disable preemption
-only when this is actually required.
+In order to decide whether we can read the architected counter without
+disabling preemption to look up a workaround, introduce a static key
+that denotes whether a workaround is required at all.
+
+The behaviour of this new static key is a bit unusual:
+
+- it starts as 'true', indicating that workarounds are required
+
+- each time a new CPU boots, it is added to a cpumask
+
+- when all possible CPUs have booted at least once, and that it
+  has been established that none of them require a workaround,
+  the key flips to 'false'
+
+Of course, as long as not all the CPUs have booted once, you
+may end-up with slow accessors, but that's what you get for not
+sharing your toys.
+
+Things are made a bit complicated because static keys cannot be
+flipped from a CPUHP callback. Instead, schedule a deferred work
+from there. Yes, this is fun.
+
+Nothing is making use of this stuff yet, but watch this space.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/lib/delay.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/clocksource/arm_arch_timer.c | 33 ++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
-index e278e060e78a9..a667df920697d 100644
---- a/arch/arm64/lib/delay.c
-+++ b/arch/arm64/lib/delay.c
-@@ -32,10 +32,9 @@ static inline unsigned long xloops_to_cycles(unsigned long xloops)
-  * Note that userspace cannot change the offset behind our back either,
-  * as the vcpu mutex is held as long as KVM_RUN is in progress.
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index 90aeff44a2764..c5b42001c9282 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -90,6 +90,8 @@ static int arch_counter_get_width(void)
+ /*
+  * Architected system timer support.
   */
--static cycles_t notrace __delay_cycles(void)
-+static cycles_t __delay_cycles(void)
++static inline bool arch_counter_broken_accessors(void);
++
+ static noinstr u64 raw_counter_get_cntpct_stable(void)
  {
--	guard(preempt_notrace)();
--	return __arch_counter_get_cntvct_stable();
-+	return arch_timer_read_vcounter();
+ 	return __arch_counter_get_cntpct_stable();
+@@ -555,10 +557,40 @@ static bool arch_timer_counter_has_wa(void)
+ {
+ 	return atomic_read(&timer_unstable_counter_workaround_in_use);
  }
++
++static DEFINE_STATIC_KEY_TRUE(broken_cnt_accessors);
++
++static inline bool arch_counter_broken_accessors(void)
++{
++	return static_branch_unlikely(&broken_cnt_accessors);
++}
++
++static void enable_direct_accessors(struct work_struct *wk)
++{
++	pr_info("Enabling direct accessors\n");
++	static_branch_disable(&broken_cnt_accessors);
++}
++
++static int arch_timer_set_direct_accessors(unsigned int cpu)
++{
++	static DECLARE_WORK(enable_accessors_wk, enable_direct_accessors);
++	static cpumask_t seen_cpus;
++
++	cpumask_set_cpu(cpu, &seen_cpus);
++
++	if (arch_counter_broken_accessors()	&&
++	    !arch_timer_counter_has_wa()	&&
++	    cpumask_equal(&seen_cpus, cpu_possible_mask))
++		schedule_work(&enable_accessors_wk);
++
++	return 0;
++}
+ #else
+ #define arch_timer_check_ool_workaround(t,a)		do { } while(0)
+ #define arch_timer_this_cpu_has_cntvct_wa()		({false;})
+ #define arch_timer_counter_has_wa()			({false;})
++static inline bool arch_counter_broken_accessors(void)	{ return false ; }
++#define arch_timer_set_direct_accessors(c)		do { } while(0)
+ #endif /* CONFIG_ARM_ARCH_TIMER_OOL_WORKAROUND */
  
- void __delay(unsigned long cycles)
+ static __always_inline irqreturn_t timer_handler(const int access,
+@@ -840,6 +872,7 @@ static int arch_timer_starting_cpu(unsigned int cpu)
+ 	}
+ 
+ 	arch_counter_set_user_access();
++	arch_timer_set_direct_accessors(cpu);
+ 
+ 	return 0;
+ }
 -- 
 2.47.3
 
