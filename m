@@ -4,85 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972CDCD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 20:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC70CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 20:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KgGXFHQlusKac+ZqTiaEU7cZC8bLhHd57PmHFjnj0Zs=; b=fdFktacWvwdYTKX1vSLjXv628S
-	DtFy0UJDezus/2nnQtbwPZhPLgL39cAczSrq16ZSCNf6kLxV0bPI5qBK0go/Cfym+CLmwIbivToHf
-	+ApYIif8kh1evP4/eiG4OCx1fwLSA/Q5R+zX7uCFNqYTZvGBgfCk0orGAqMQmiJNUn+GQTPsV3JDU
-	EFsSdZqIZ1EepCJwxIXFsC6D3w9ErZNJHCGK5Prte5nw5b26ClGv7QZroFxvhQY9m55d2Q1LKEJkH
-	0/AZnBCiCvT2T/FpikT+hhOUNO43wZj/wnyvWW8oVrsXzPvGBR4MgsS4VGRCUAgCoVxUSRhHNSY4v
-	m0y395bg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zh/wQFPQhzkWv9+w9rGw8P4xXokXo+IJUUz/nVEgQFQ=; b=QT4LFlUORKFx5fJ1e8JwwEivMx
+	Qi5xJ2RAMV9xexRixvcHhjVzjYRM4oJ6udexCrufPmy1spGLmW555oe1HyDCQd76a7PsIeG9pdx2G
+	Wo0ON414oYm0GBIWFBPWY2C7omlWvomwyQ+cufajpSEubVsud/OBNA1hDHAMOCielZDLIiCjLvkM3
+	6QC17y0lPJvyftHHhGqGnm4dB7CSAKfi3vwcy6wXAn1LZgFiOoRVT61D/oSLrvGrw2JYJ5bxAQddW
+	mj642P0gRQfurX6alca76Op1IfPpEgCF78QYx81RJwwIi2hAfXuiLbMO3Y1MF/+MTfBzSkXZraHw6
+	NeRFk4Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLQvj-00000007MIX-0Odh;
-	Fri, 08 May 2026 19:32:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wLS99-00000007UeE-0H7V;
+	Fri, 08 May 2026 20:50:07 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLQva-00000007M7l-0PIq;
-	Fri, 08 May 2026 19:32:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 966FC4418A;
-	Fri,  8 May 2026 19:31:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6F0BEC2BCC9;
-	Fri,  8 May 2026 19:31:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778268718;
-	bh=xqstT+tlRHEtyGEXYmO+4LeTddNMwJiokiAD7V7J5UA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=Tv7Mf0v6SwwKBfESBQ3aNSSO7Tp0hdrJhKOA4R8FIuH23IX3jGh9n7yjzUfrGvu+V
-	 ixo9iXulyTR6K1F+qnF/qEHOhYa0UJtx7MHf0TXw7Ia9jdzH5PRmKnZF9KinPVV7Y9
-	 xqVcZkmbd4NT/H8cQVZvUA6cMpcleWQaV3ZR/gz7bjrG96t4uyxjtA4mLIQTdPsIaW
-	 nMXw1sFiYclQIBIQYvdDeLWZuSpTxavb1G7iCNBY7MMDVQdYAP+uwixjfpEIlhRWEu
-	 9mGEWzP36ikjLwYMXchS85aUIS4cZEMfW1vJWAX1dLpALbjkjXo0P7ljgiD6AmIT3t
-	 lcirTo7vvHJLQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5E3CDCD342F;
-	Fri,  8 May 2026 19:31:58 +0000 (UTC)
-From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Fri, 08 May 2026 21:31:44 +0200
-Subject: [PATCH v4 1/8] Documentation: admin-guide: media: add rk3588 vicap
+	id 1wLS94-00000007UdR-2Uo4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 May 2026 20:50:05 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-67c9616b4feso3605989a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 13:50:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778273400; cv=none;
+        d=google.com; s=arc-20240605;
+        b=XrhFMVL5tSV0syq1qLJCu5qFhB2w4Azimni+CgaVYxUSNCR8KkLqXaSpvKNjKGcRdX
+         vwZtpY6TDSc9WjfVUltfroDfs1AxP2N4yXa14IyVoYmfM1QtFBELq+By3fohmYkoiVoJ
+         OeyO3QUSG2Tbk1C1nTirwNZ+EmAW14SR0Kev+/AF4Yl/EnMsg8jK1Lcb3iISc/SXQqFy
+         D5/oJMGDkuWF0D7vsz9sw141lLi4PLSlUIvIevS1g0T8P81gY8YjzkYmFbDGgE0/dEfu
+         2RLeXUBcpJc28nwssNovjf8QOzBGoxJ3lFpk1dD/5CW8QMuGmAqzQFOM4kDq1+7A3F2m
+         KXpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=zh/wQFPQhzkWv9+w9rGw8P4xXokXo+IJUUz/nVEgQFQ=;
+        fh=jESzJzRDlNxQKNIrzXN1LYO1CSF8E0mVk3juX7EpSs8=;
+        b=fy8yhGXk91uOvL39pmNhoiQkjGW6sFOeuRYGDguqk5oQllItcq2K7nvh1pzLWWh4rM
+         LmH2WoFmz7gO/2I4HqI++78oRCPXRBlxyxxGSXNb36amZcuEo4DKnybFmyS1PRtrqXkH
+         vpaf++G6d2E64W9trv7L2DqPQaQyjQtcjs5W/LkTnMGJmKSNF02QK/azzFc3Jo3ZzMo/
+         dHshbfLzEjpURHCcW648oFMojrw8RpkNf7CnTiQcBXF1qKET4NksdMI20SYU2i52ozmN
+         mSBN93QK+hFbJ+TiqPEJfMs2WGRPVAVosG+uMg38Y9ppCF3u3lPWS1JOqDMeEet78EFk
+         D9Vg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1778273400; x=1778878200; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=zh/wQFPQhzkWv9+w9rGw8P4xXokXo+IJUUz/nVEgQFQ=;
+        b=bGZYDNZ5sJHu57Pds76iea27DOrLugRpQKKOKFcdPZlagae2lpTMWhgtcs3NMvqkF0
+         S+5j/lozRoN6rM1afnymlWvMFlfjaDjLj9SoFVrWuS1neuG/aRrL5mGFO2avA59SuRWj
+         Sy2BKi+v+4y4S6pIq7uhTB5Yl8ro3ugVj/CLvEl7DnT1tRSkf1MEnNMzIt4jOoRwH4EQ
+         vtEzxQZvDSncKs6inKgk5QRVnLSKu14+nzwo17GO7YcvsgrbyrZ8+O561ITTOUTMynMV
+         rZYw8j/U8X/3zlm+O4WxHI+fk0pQRIqq7B9POuIFUvefbwB12gKbqIBGIm2zCdW42N25
+         jU7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778273400; x=1778878200;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zh/wQFPQhzkWv9+w9rGw8P4xXokXo+IJUUz/nVEgQFQ=;
+        b=KGPEbiw/orarFyA2vCZHEhWT0dBt43kmsSUIPepeG7I/cjOrK6989jGxz8KzAnd7n7
+         MwSPZ3giHaqK3EDz8bno2QxvHU5DjrC4GcnWUXQoljv2Rn+6TkdcNprok9QgqUwaqpAn
+         qcilZRpBwtRmUmf3aXl0uAuCw1hbIGzgmnShUyOIQRA0akJbD8M0Mdy6Z07a5NfojVx1
+         7N/O98RwUH3bKzPT/yjfHHkCkar0abMkh6FVZ2mwFtZUx8EtTa2bRDPZSEpno5w3AgDz
+         vz9om58UJLGIv3tYdLQPIxUXSI4K9PtXfNcAQZyXC/uMMq5T2yFRnNCFGGR0J3B/PowQ
+         1zOA==
+X-Forwarded-Encrypted: i=1; AFNElJ/SUV8BLytKeLV2ZN4VRIocRIyuevWFSNfq6jQzI6O7cln6SOOPkoOVZ9TisMcOojVQctGBAwCAxAPKFOtFJjyc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQwhxOkI5uhZfL1WIWWFOaPis3ELqu1mo4hyQSCDVZ8vbWrF2E
+	Ql0G3DB0/n7W6qYZp/nB7SVelNKCTfhVTUTLpjjxD08LqSSU8xOlHqIoIv9LWwm6CUIlFb0gKNj
+	dQ/uDV/+2bLFnnIVRVF1vyHxUV2tSLQxuoMed76DZnw==
+X-Gm-Gg: Acq92OHp9hzC9/scD4lHUpDtRnkFyD2Sh8eOQ0en39W/Jq7ZMHnHns12FKuVpfR8gCy
+	o4yin97Wv7yyzr0N3hUMbpwONB5L6mWwI+nprGB1EgT0ApEluTcwUxcTBDPGe2mCxEz+2XvCuzt
+	gh6XHEdGQdrAijh05W3W/K0SRRiK/db4gQg+RAkhNpNsWATp3+mIf1eNkt9+NPDDTSjhHY2IKxU
+	xwRP8LPraKbMmRLjRTlx+eUr6wFeH01CWBQDB49oJj/xynHA0qIv54b3HzzXXqUN1wHJA7IFpKs
+	3H0dXmvBsukdXYF6oUaQ8t3cnNsdERPMjzl6G9W8sw==
+X-Received: by 2002:aa7:dacd:0:b0:678:960d:cb34 with SMTP id
+ 4fb4d7f45d1cf-67d63d85428mr5050590a12.6.1778273400285; Fri, 08 May 2026
+ 13:50:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260508-rk3588-vicap-v4-1-6a6cd6f7c90b@collabora.com>
-References: <20260508-rk3588-vicap-v4-0-6a6cd6f7c90b@collabora.com>
-In-Reply-To: <20260508-rk3588-vicap-v4-0-6a6cd6f7c90b@collabora.com>
-To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, 
- =?utf-8?q?=D0=9A=D1=83=D0=B7=D0=BD=D0=B5=D1=86=D0=BE=D0=B2_=D0=9C=D0=B8=D1=85=D0=B0=D0=B8=D0=BB?= <mai.kuznetsov.misha@gmail.com>, 
- Charalampos Mitrodimas <charmitro@posteo.net>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Collabora Kernel Team <kernel@collabora.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778268716; l=4871;
- i=michael.riesch@collabora.com; s=20260428; h=from:subject:message-id;
- bh=eS5mY4EZ7XDsw0jrDI/5w4/ofpel/2YcT5yOuU60IhQ=;
- b=eo5zgOtrqWV7F7L14CC47Z6U10rVZx6uBh4oDQ4DnhvcLQywH22RMvguVCbnkKeh8g+UFIWbG
- DMeDrld3/x7ANP7ooKwyNqz+Be9GhnIADR6R28ui9mrzKfQCVSc3Y9i
-X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
- pk=tAbmpPTE1MELYweXqqDU40fa18uCO6s32GJL/RzyW2Y=
-X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20260428
- with auth_id=759
-X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+References: <20260430-exynos850-cpuhotplug-v3-0-fd6251d02a17@linaro.org> <20260430-exynos850-cpuhotplug-v3-2-fd6251d02a17@linaro.org>
+In-Reply-To: <20260430-exynos850-cpuhotplug-v3-2-fd6251d02a17@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 8 May 2026 21:49:48 +0100
+X-Gm-Features: AVHnY4IaFcTZPm9giV6Jc_QJYDLmEM1tYy3GvJxgbZ4vj91rTyPTj-YVRCvMm3o
+Message-ID: <CADrjBPoSiZU_BzXxQiU8unJNSqE8EFR1YPQe25rN7fhfLP2DqA@mail.gmail.com>
+Subject: Re: [PATCH v3 2/6] dt-bindings: soc: samsung: exynos-pmu: Require
+ pmu-intr-gen-syscon for Exynos850
+To: Alexey Klimov <alexey.klimov@linaro.org>
+Cc: Sam Protsenko <semen.protsenko@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_123202_584370_288AA0B8 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20260508_135002_660247_D89CBBFA 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,99 +116,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Riesch <michael.riesch@collabora.com>
+On Thu, 30 Apr 2026 at 02:56, Alexey Klimov <alexey.klimov@linaro.org> wrote:
+>
+> Update the Exynos PMU schema to mandate the 'google,pmu-intr-gen-syscon'
+> property for the 'samsung,exynos850-pmu' compatible so the driver can
+> obtain the necessary syscon regmap.
+>
+> The Exynos850 PMU relies on a separate system controller block to handle
+> interrupts generation, similar to the hardware design of the GS101
+> SoC. To ensure the hardware is correctly described, this syscon phandle
+> must be explicitly provided.
+>
+> Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+> ---
 
-Add a section that describes the Rockchip RK3588 VICAP.
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
-Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
-Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
----
- .../admin-guide/media/rkcif-rk3588-vicap.dot       | 29 ++++++++++++++++++++
- Documentation/admin-guide/media/rkcif.rst          | 32 ++++++++++++++++++++++
- 2 files changed, 61 insertions(+)
-
-diff --git a/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot b/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot
-new file mode 100644
-index 0000000000000000000000000000000000000000..f6d3404920b544f921987d3240f89987b340e138
---- /dev/null
-+++ b/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot
-@@ -0,0 +1,29 @@
-+digraph board {
-+        rankdir=TB
-+        n00000007 [label="{{<port0> 0} | rkcif-mipi2\n/dev/v4l-subdev0 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000007:port1 -> n0000000a
-+        n00000007:port1 -> n00000010 [style=dashed]
-+        n00000007:port1 -> n00000016 [style=dashed]
-+        n00000007:port1 -> n0000001c [style=dashed]
-+        n0000000a [label="rkcif-mipi2-id0\n/dev/video0", shape=box, style=filled, fillcolor=yellow]
-+        n00000010 [label="rkcif-mipi2-id1\n/dev/video1", shape=box, style=filled, fillcolor=yellow]
-+        n00000016 [label="rkcif-mipi2-id2\n/dev/video2", shape=box, style=filled, fillcolor=yellow]
-+        n0000001c [label="rkcif-mipi2-id3\n/dev/video3", shape=box, style=filled, fillcolor=yellow]
-+        n00000025 [label="{{<port0> 0} | rkcif-mipi4\n/dev/v4l-subdev1 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000025:port1 -> n00000028
-+        n00000025:port1 -> n0000002e [style=dashed]
-+        n00000025:port1 -> n00000034 [style=dashed]
-+        n00000025:port1 -> n0000003a [style=dashed]
-+        n00000028 [label="rkcif-mipi4-id0\n/dev/video4", shape=box, style=filled, fillcolor=yellow]
-+        n0000002e [label="rkcif-mipi4-id1\n/dev/video5", shape=box, style=filled, fillcolor=yellow]
-+        n00000034 [label="rkcif-mipi4-id2\n/dev/video6", shape=box, style=filled, fillcolor=yellow]
-+        n0000003a [label="rkcif-mipi4-id3\n/dev/video7", shape=box, style=filled, fillcolor=yellow]
-+        n00000043 [label="{{<port0> 0} | dw-mipi-csi2rx fdd30000.csi\n/dev/v4l-subdev2 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000043:port1 -> n00000007:port0
-+        n00000048 [label="{{<port0> 0} | dw-mipi-csi2rx fdd50000.csi\n/dev/v4l-subdev3 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000048:port1 -> n00000025:port0
-+        n0000004d [label="{{} | imx415 3-001a\n/dev/v4l-subdev4 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n0000004d:port0 -> n00000043:port0
-+        n00000051 [label="{{} | imx415 4-001a\n/dev/v4l-subdev5 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
-+        n00000051:port0 -> n00000048:port0
-+}
-diff --git a/Documentation/admin-guide/media/rkcif.rst b/Documentation/admin-guide/media/rkcif.rst
-index 2558c121abc466393b4a132e0d9abd2d37f2d25b..313a0ea45d16fe9bbb79d0798e8f8b1dbe1cb83f 100644
---- a/Documentation/admin-guide/media/rkcif.rst
-+++ b/Documentation/admin-guide/media/rkcif.rst
-@@ -77,3 +77,35 @@ and the following video devices:
- .. kernel-figure:: rkcif-rk3568-vicap.dot
-     :alt:   Topology of the RK3568 Video Capture (VICAP) unit
-     :align: center
-+
-+Rockchip RK3588 Video Capture (VICAP)
-+-------------------------------------
-+
-+The RK3588 Video Capture (VICAP) unit features a digital video port and six
-+MIPI CSI-2 capture interfaces that can receive video data independently.
-+The DVP accepts parallel video data, BT.656 and BT.1120.
-+Since the BT.1120 protocol may feature more than one stream, the RK3588 VICAP
-+DVP features four DMA engines that can capture different streams.
-+Similarly, the RK3588 VICAP MIPI CSI-2 receivers feature four DMA engines each
-+to handle different Virtual Channels (VCs).
-+
-+The rkcif driver represents this hardware variant by exposing the following
-+V4L2 subdevices:
-+
-+* dw-mipi-csi2rx fdd30000.csi: MIPI CSI-2 receiver connected to MIPI DPHY0
-+* dw-mipi-csi2rx fdd50000.csi: MIPI CSI-2 receiver connected to MIPI DPHY1
-+* rkcif-mipi2: INTERFACE/CROP block for the MIPI CSI-2 receiver connected to
-+  MIPI DPHY0
-+* rkcif-mipi4: INTERFACE/CROP block for the MIPI CSI-2 receiver connected to
-+  MIPI DPHY1
-+
-+and the following video devices:
-+
-+* rkcif-mipi2-id{0,1,2,3}: The DMA engines connected to the rkcif-mipi2
-+  INTERFACE/CROP block.
-+* rkcif-mipi4-id{0,1,2,3}: The DMA engines connected to the rkcif-mipi4
-+  INTERFACE/CROP block.
-+
-+.. kernel-figure:: rkcif-rk3588-vicap.dot
-+    :alt:   Topology of the RK3588 Video Capture (VICAP) unit
-+    :align: center
-
--- 
-2.47.3
-
-
+>  Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+> index 76ce7e98c10f..6550c3736a3b 100644
+> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-pmu.yaml
+> @@ -182,6 +182,7 @@ allOf:
+>            contains:
+>              enum:
+>                - google,gs101-pmu
+> +              - samsung,exynos850-pmu
+>      then:
+>        required:
+>          - google,pmu-intr-gen-syscon
+>
+> --
+> 2.51.0
+>
 
