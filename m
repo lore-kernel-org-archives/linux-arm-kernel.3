@@ -4,109 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A199CD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53835CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1qBZJCatbKW31QndpUrt3FNHubTaN2agrmTU0pE10pw=; b=d9b6AcQQOGl0h3d2b2ijX2yxe9
-	gJnzbDyvHXbeYUqgJt0dvtbL2jMTSoPgbT1sdhrrvyIwpY+RIMthmYqaD8Va+DzTmjCzZVZVmWpqJ
-	RxoWKk4INSTPbz9DrUwXvZyH4RSUUj16nmr5MGZTYotlYEA/Sejh1CtF955RVu5mKsnjCXdaBi/ZS
-	2Mhm+xe2GWG1dTmWPU+P8x/VsTWJIwH0RIZaUizw05APbGuotkr00YM5NiARbg+YqO0L3pCbc2Yde
-	nFFpP8HzS35DAdTI9AXI9ndcakxtELUOCjyIHzZo3b6ZJDK6pd3uX3josJA/H5zBr6wvVV8yu6j1F
-	u/ut2tRw==;
+	bh=ZDlV4NWCiR4kbBA8K7jTos5DT+Ggq8KUEZufI5IYJmc=; b=aySd1VsV32VrLRJUZW5MniK2m1
+	Gwnacz+8rci8+kucc3NYy2jU1s1cUe9jVjIecj0BOXMMrUVzQrAeCd3gPK1SkJGubwlrW/t+oV6Cq
+	E+BNRdpkauIu7y0hYUa+MUibyiBjR0Mx8pJ9hZQ7x+w/Yquy8ZKd6X3LdOrpL1vsjxq9ySwDAa0uM
+	daqNMTcChyZljF+6bbLEtqLDxIpjpUu0BbQ026wBjr/hAmx9UzxzhysmuV+dqJ6MVCYBTfST31aEI
+	X9upexQgefTLV6UVjGhpntKYTL23MYFiW8pT22Wp2x5SAJBraKQrsl/etdVbasX8lQtEB/k3DNmBY
+	pAk8luMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLObv-000000074DM-0aIp;
-	Fri, 08 May 2026 17:03:35 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1wLOeJ-000000074Yw-1eMo;
+	Fri, 08 May 2026 17:06:03 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLObs-000000074CM-199c
+	id 1wLOeH-000000074Ya-1Nnb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 17:03:33 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-67bf769704eso210a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 10:03:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778259809; cv=none;
-        d=google.com; s=arc-20240605;
-        b=LU/QgSyVLSMTWEl0Y+TubDUsm63n5hpTveDrJB3pftO1iAZAxP8WcuJ10h0b7w/0un
-         SjeQWrTC9C5tPIyuFNawWapgfGncY7vtbRsu+g9tX5lTIrZpRbfqzBHEjg/bET3SluuQ
-         tYYmz8XmjSqyocKAf3MVeNxq3s5lF0V7S1ji3TxNZ/uJUNJj8bs2YA5IBWYAjWhBtZ1h
-         Ny3NGBjR+S0EqAGwBN9BDvqYQCdv5gC6PsodVR+OifCTvLYr5ivDqyGsdSLe03shf455
-         Y7M3FjMOuTs0lk3I49KPSghlg8e6jpEQKhXR/CP1taUDY/+eikzSKTFa80w/7EdVrD2U
-         HZzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=1qBZJCatbKW31QndpUrt3FNHubTaN2agrmTU0pE10pw=;
-        fh=Di2MDiG010PKBLg+66sPePufzY072Jj+hH7ugPKpVX4=;
-        b=fEgNeapJSUH+pn0fFdB4aB2+jeVr+zCvD30MjVJVj/oN2GiaUIlKIzUZY3I+mEYy0z
-         O3NvyUkNLnHpimMQJc39Tn/2+UliS+oO4c2QToWKp3VsRZfnWgOdB+BKGtNsvoj6HAZA
-         wKdqq3sY2474n1Z0ysQCOot2d0jnDOIDOx4Y4vwuQ2IuAHIOnmpn9tvck7KuLEDUAj4U
-         MIMLIu1yfI/cY4LCGTJypYX3IKKHvntYBtZuetQ8TMXxiMcakAfJ9QMvv/vrVPl5jNz+
-         tRK+r4kf/owAb26lPB9+Fu06PXsEMyRZjw/TyjNFq78W6X+AHLTZEuBL9WYWDSbVKwb4
-         U93g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778259809; x=1778864609; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1qBZJCatbKW31QndpUrt3FNHubTaN2agrmTU0pE10pw=;
-        b=ROud40IX7bT0f99Mp6tu+gk5dJGxhi2F3uDpQh37wqLG4rfHHeVQkeTRkSfXglBGt0
-         USMCbNzYnOrH/uX202kRjiVrBIGb3nmLK1w1sWqKfBnwprE4CI17kMQDBcteQRmq63B8
-         HX/dTiEKGhfhXImDxqs/E6gwNT+ZAO9Hz9RXggHv30bk2q+Ksvam458EZekERflLSOMi
-         WHIFBkfTXAqMWcqzTaFf5sNa02P0tKq3RIyQGBFuNHbPj59P59xmQCkDWsZGAPdGpabd
-         FvNfaWpB2IOvcBuPoTqpyKkmwBPLuzvkUivi732naq9yLhR+D3NNDbDUk35KHS9ZQ/gc
-         d1ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778259809; x=1778864609;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1qBZJCatbKW31QndpUrt3FNHubTaN2agrmTU0pE10pw=;
-        b=FJabMiQMQEUfCoYwJayVYfvrA2BppEKGPX7/L2AuJP5Yl7FL6NbX5sUeDQ2P6rGJR1
-         GHbGr139gze3XH0cQMAUTADQ24VYG3UnDqvFqYhzDYLa7a/huCk0PuBHrbdwGhsPXcR1
-         7/RzCW4DbNjykjxjcIwsqmVaOFAioAT2zGQKQGfoDReTR7qSmyblmdXzhQ+vS459GVSK
-         gb0TD7UuKpj8yZDWGue/O7pjEekDZUqcFSI+N/2J6eB07afTbDMnb/sOepUOa3L5fGsj
-         NKxKGbmVZTUvOsI1julX06qYjl/4b/18Kt2JxGK2S9kWRpnhIFoAkZMfKrjcG+QNtip4
-         IMUw==
-X-Gm-Message-State: AOJu0Yy8SrPWl0udSBG07soB/MbuLdX95kyerRXIxgstfmZVumvlTwir
-	YbPsGnO23lK/1vD99VKWympGpnP6AajfwIvL8WWGo0HyDIzDPA/siKLoLVwgxnjlmrvA11buAig
-	6eX8eZyg2IrJtypC0SdD/0ZI9d9KPaqqJyUSNRVWq
-X-Gm-Gg: Acq92OH2TH48E+2PVP/q1aSZuIPLkGkMupo3hD2xUwYZOrLCYBOYoX7/Xblnzx8Q/Ux
-	oXZSAsgDQgci8YqK2gZ8pg3dRFh2i230JgfzdwSTAjnPUGVJTWkHH9/UyRjAseevrxaSEGXvWKh
-	50y79mLnxYKZhcb2gbjlmSA0pOEsXOmEIn7/zfAXJuu3C+OlQ2NVMfkXnDT7D0syihTDSha+83R
-	zhv1M3ZvGDspQ0b5YAaqEyFXHO8pa0RMqnCxbjOfKlkUS0I7aQNOE3uZfXJ5xDetkd/rOxHiz7a
-	rbIJjzsmyOj9o+71sePFJpiw3756maXaizt/lveqHWuBD3Zk
-X-Received: by 2002:a05:6402:2b9b:b0:678:93b4:1fd3 with SMTP id
- 4fb4d7f45d1cf-67ec504bd96mr99834a12.6.1778259808513; Fri, 08 May 2026
- 10:03:28 -0700 (PDT)
+	Fri, 08 May 2026 17:06:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wXoBV6bpVsyruAv7qF5egHQ1WpPSkZH+MJYuUSBj1dzQw5cYUEi+NOREfO/iDMaFEpQaJBMWZUnRwrUPDaImaESPtruTzhe+w26/doWbV+PMsAHiMnvpbAJYDFzkeiFCJsk1ZTivnY23dEV2PfXje2uRheYI2dcjh62KeBF5yIcbseDUof+aJBZvSquSQYB3mCO1neCMZxLrzgUEa7aX5Lg4H84bVi+r1XKF+sxnps/nwg/xQ1p027pLIMLSzSS3TfMFtaqn8PaYNq2UAtgv4qbmkUDs2CDF3jFnVsYkgSY+aAtWHenEJH2mDej1W2ekfvw0vrdi2eYEb1EfDx9+vg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZDlV4NWCiR4kbBA8K7jTos5DT+Ggq8KUEZufI5IYJmc=;
+ b=QVoveNuG9eBcIsVMTDpe4kakA0TSTkhxAYvTOYRJbHx9QDpoxFczvWc/YRbVgGGxd19WCdveVNyDvU0qoX9GaaV86dYQ1WT38z1/Fbk4HkIYsOYMzoJxd8zysa8ZhbKOHNY36s4He1h7DbUCWFaW+lxyUCZX6HEvX4UOpEE2DV23IrRA+1r/rBfKtFEVywtzjtXM1aUphx473yeYyscdRKXWh5ArC/AJHIrEMxwWF1Cjc9HbRtArO4EnwgBxocLK+vfkB1MJtbwuuaGXtI4OEBMMYIRBKaOedZz+49B5XJ4nJ+PmrkIGxV83RPTAgmiPgWMTrLf9S4d8xWMjH8Ejjw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZDlV4NWCiR4kbBA8K7jTos5DT+Ggq8KUEZufI5IYJmc=;
+ b=X5IfblKY8qrSCk4IYC866Hat8eOAO5miCGDnVZ5MGCrLBOT+1kVIc9LUGBxeblYzPunKGmFZNSQSjLtRQqMyjsoyv7aDWs3pUHbU+thZCSDpJD3o2P8NLw5Nsu4R2Wxh/qiCl6ELy59sFSba2fufQPlDDvDWtGi8nmgNooLe9kQ=
+Received: from CH2PR02CA0018.namprd02.prod.outlook.com (2603:10b6:610:4e::28)
+ by LV3PR10MB8202.namprd10.prod.outlook.com (2603:10b6:408:28c::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.18; Fri, 8 May
+ 2026 17:05:55 +0000
+Received: from CH3PEPF00000016.namprd21.prod.outlook.com
+ (2603:10b6:610:4e:cafe::3e) by CH2PR02CA0018.outlook.office365.com
+ (2603:10b6:610:4e::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.20 via Frontend Transport; Fri,
+ 8 May 2026 17:05:53 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CH3PEPF00000016.mail.protection.outlook.com (10.167.244.121) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.1 via Frontend Transport; Fri, 8 May 2026 17:05:53 +0000
+Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 8 May
+ 2026 12:05:51 -0500
+Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 8 May
+ 2026 12:05:51 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Fri, 8 May 2026 12:05:51 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 648H5oF81803757;
+	Fri, 8 May 2026 12:05:51 -0500
+Message-ID: <a994a69d-2482-4e96-8d18-70a09146ce36@ti.com>
+Date: Fri, 8 May 2026 12:05:50 -0500
 MIME-Version: 1.0
-References: <20260427153416.2103979-17-ardb+git@google.com> <20260427153416.2103979-19-ardb+git@google.com>
-In-Reply-To: <20260427153416.2103979-19-ardb+git@google.com>
-From: Jann Horn <jannh@google.com>
-Date: Fri, 8 May 2026 19:02:51 +0200
-X-Gm-Features: AVHnY4LQJXE4H1yzg2s_XNJ6vUI7RiUknwjEFltvEk-tdRdSsPKhVQM2Qli3gQk
-Message-ID: <CAG48ez1DJ88a0pBCE-Q0VXyDuJgng8zdunb38g4b4JPU88exww@mail.gmail.com>
-Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, 
-	Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Liz Prucka <lizprucka@google.com>, 
-	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
-	linux-hardening@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/11] soc: ti: knav_qmss: Inline lockdep condition in
+ for_each_handle_rcu
+To: Nishanth Menon <nm@ti.com>, Justin Stitt <justinstitt@google.com>, "Bill
+ Wendling" <morbo@google.com>, Nick Desaulniers
+	<nick.desaulniers+lkml@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>
+CC: <llvm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260508153211.3688277-1-nm@ti.com>
+ <20260508153211.3688277-4-nm@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20260508153211.3688277-4-nm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000016:EE_|LV3PR10MB8202:EE_
+X-MS-Office365-Filtering-Correlation-Id: fad5b9d4-0199-42a2-e7db-08dead240fef
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 38Hx39yLlb4w747KTMFUFWU6g/sk2yKeWX1qIjfIR17Hh3fY8fVTEhvrVQeXB/xyiQTFyzIv2bzLbENT5i095oVnbAPz/ZNiFF2e+oEO8CCj6itIAHXKEN5VqLYS0nou9XIIGLt7222p/ScPi7OJSyvwn2fkr7vnU4JGSxwzzzEE8//gUCcH6u0FWwjVAa7/9kTAswovb2/hs7yQMXAl3fFuxd9DHE2ptQOYO1x9L5jHutg8ZJIiw5fHAkiPF90dN4FE1iYIIgJuF1cUe44bAdALznsWKsBEdWBWZbrTJ0qaZZMUPrdtWyWDn13+mN2/1BfKOFnqe4xZaf03COY63CpOFcNhxwTjuHQvstPiM8S3e5Fb4WtVfyeslb1zvKdXQIv/3OOFQ+qD1CkAHpHVkqrpvw9a9qqzJga4a5iKbsgqxTMSEF8yGTSWBy2NubT3fph6h4Zw7ScGrQK4GXYa7J6D4ZdymeE5pUHVStyrkZtjYfczmT9TqzkscWJGQHW9AyfbHNxIazD4hxtJCjWwFuDWVWJ4MQV4KdMQbzaK65z5jgG8OZrkwIm2uYlHdqMhyaL17isyvE/2HZSAHeWKKCk8qs/DNbXS5ZGbLx6do/jNU0UyU1hC5joAt8BLIO/6wgfAa9vAFUZZy34nOOCJ9tj0oHSOUxRNyRuF8uAP+fL6qdGrTNk4fkXnG3eju6fUZWQzJGi0i7TSmMCFkXwmAZsiQTMetpFAaduCaYYRBvQ=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: S36an4qp2NrZQ6n4ytx+bZxAPE9sp/AZzZac4nRQDlnzfnVZaX0TuuBziBgsFtwJEaJ2mcbh9f+WMaER0BmO8pIzD/iq3/kGpImQ0XoVgzm/pXRkm9s3rfc42D43QWPOIsIfjsK8BZBQsD5l7NI51V0fK45SB6XwMaLHFg0o3XAy8xcYCpZuREt3nLVbboQtAMQbkYKsSpsTpztvMaib7QVZ+G/7ji7SGt9ePMujG6kE3O+lS9wD5RWL2wYHFJKfE2h3bKXyHnP6KJJJ2UehE6X3EEjsgjlIvUzrLMvRqxQ30xIGD1MawGWLA3tmDn/K3aI7Zb7UlqG8isyC7WdKxEeDK9ZIHc17q8gtrL2PJtXHIz4vYgylXImrt0sJSopwXyeOhwN3qJx4j8npoyoThS2gPaszSSO3lJLB8n/SEeZXvKjWyw2RKi5JXgLrjerZ
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 17:05:53.0004
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fad5b9d4-0199-42a2-e7db-08dead240fef
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000016.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR10MB8202
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_100332_342015_150DD4C2 
-X-CRM114-Status: GOOD (  24.43  )
+X-CRM114-CacheID: sfid-20260508_100601_382550_21DE7DA4 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,71 +135,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 5:44=E2=80=AFPM Ard Biesheuvel <ardb+git@google.com=
-> wrote:
-> The empty zero page is used to back any kernel or user space mapping
-> that is supposed to remain cleared, and so the page itself is never
-> supposed to be modified.
->
-> So make it __ro_after_init rather than __page_aligned_bss: on most
-> architectures, this ensures that both the kernel's mapping of it and any
-> aliases that are accessible via the kernel direct (linear) map are
-> mapped read-only, and cannot be used (inadvertently or maliciously) to
-> corrupt the contents of the zero page.
->
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+On 5/8/26 10:32 AM, Nishanth Menon wrote:
+> knav_dev_lock_held() is a single-use wrapper around
+> lockdep_is_held(&knav_dev_lock), used only as the lockdep condition
+> in for_each_handle_rcu. When CONFIG_LOCKDEP is disabled,
 
-Reviewed-by: Jann Horn <jannh@google.com>
+Is it when CONFIG_LOCKDEP is disabled, or is it when CONFIG_PROVE_RCU_LIST
+is disabled the condition argument is ignored?
 
-Sorry, I should have looked at this properly earlier instead of ending
-up duplicating this patch with
-<https://lore.kernel.org/all/20260508-ro-zeropage-v1-1-9808abc20b49@google.=
-com/>.
+Anyway, good to zap this single-use macro, so
 
+Reviewed-by: Andrew Davis <afd@ti.com>
+
+> list_for_each_entry_rcu() elides the condition argument entirely,
+> causing clang to report the macro as unused with W=2:
+> 
+>    knav_qmss_queue.c:30:9: warning: macro is not used [-Wunused-macros]
+>    30 | #define knav_dev_lock_held() \
+> 
+> Remove the intermediate macro and open-code lockdep_is_held() directly
+> in the for_each_handle_rcu definition.
+> 
+> Signed-off-by: Nishanth Menon <nm@ti.com>
 > ---
->  mm/mm_init.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/mm/mm_init.c b/mm/mm_init.c
-> index f9f8e1af921c..6ca01ed2a5a4 100644
-> --- a/mm/mm_init.c
-> +++ b/mm/mm_init.c
-> @@ -57,7 +57,7 @@ unsigned long zero_page_pfn __ro_after_init;
->  EXPORT_SYMBOL(zero_page_pfn);
->
->  #ifndef __HAVE_COLOR_ZERO_PAGE
-> -uint8_t empty_zero_page[PAGE_SIZE] __page_aligned_bss;
-> +uint8_t empty_zero_page[PAGE_SIZE] __ro_after_init __aligned(PAGE_SIZE);
+>   drivers/soc/ti/knav_qmss_queue.c | 5 +----
+>   1 file changed, 1 insertion(+), 4 deletions(-)
+> 
+> diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
+> index 2c103bb6edef..f65658014b05 100644
+> --- a/drivers/soc/ti/knav_qmss_queue.c
+> +++ b/drivers/soc/ti/knav_qmss_queue.c
+> @@ -27,9 +27,6 @@
+>   
+>   static struct knav_device *knav_qdev;
+>   static DEFINE_MUTEX(knav_dev_lock);
+> -#define knav_dev_lock_held() \
+> -	lockdep_is_held(&knav_dev_lock)
+> -
+>   /* Queue manager register indices in DTS */
+>   #define KNAV_QUEUE_PEEK_REG_INDEX	0
+>   #define KNAV_QUEUE_STATUS_REG_INDEX	1
+> @@ -58,7 +55,7 @@ static DEFINE_MUTEX(knav_dev_lock);
+>   
+>   #define for_each_handle_rcu(qh, inst)				\
+>   	list_for_each_entry_rcu(qh, &inst->handles, list,	\
+> -				knav_dev_lock_held())
+> +				lockdep_is_held(&knav_dev_lock))
+>   
+>   #define for_each_instance(idx, inst, kdev)		\
+>   	for (idx = 0, inst = kdev->instances;		\
 
-I think this is fine as-is; but FWIW:
-"__ro_after_init __aligned(PAGE_SIZE)" means that this will land
-in the middle of the .data..ro_after_init section, with padding in
-front of it to create 4K alignment. So this probably wastes some
-RAM on padding.
-
-Looking at "nm ../linux-out/vmlinux | sort" with this patch applied
-(from a build without any LTO or such), I see this:
-```
-[...]
-ffffffff8473d378 d shmem_inode_cachep
-ffffffff8473d380 d user_buckets
-ffffffff8473e000 D zero_page_pfn
-ffffffff8473f000 D empty_zero_page
-ffffffff84740000 D __zero_page
-ffffffff84740008 D pcpu_reserved_chunk
-[...]
-```
-So I think there are almost 4K of padding between zero_page_pfn and
-empty_zero_page for alignment; and I think when the linker linked
-mm-init.o with the rest of the kernel, it also had to align the
-compilation unit's entire .data..ro_after_init section to 4K, which is
-why I also got ~3K of padding before zero_page_pfn, resulting in a
-total of ~7K of padding.
-
-If you want to change this:
-I searched through the arch-specific linker scripts, and I think they
-all rely on the generic RO_DATA() macro for emitting the rodata
-section; so creating an analogous page-aligned rodata section should
-be as simple as adding "*(.rodata..page_aligned)" directly after
-"__start_rodata =3D .;", as I did in my duplicate patch.
 
