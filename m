@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B90DCD342F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 08:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F7BCD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 08:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hrfOFVYtqSA4RPeMk5t0kgZgaYsp66JgGoi+frkDnGY=; b=jJl4nJWOcA/q2qnvX4U4HcZOss
-	HYYKunWjgw543VElQQQVteZo8vnglE7Ue4RwVIPWdFeWqGqsGRyfUCRocrLf72GQoz54wJrJYDlM+
-	vJLVqu0KfXrCzS+pamlro+8kp9QJL/B63vyXLGTXrcAeFyu4FNGuwAztUVkOwT5Eig9wWjjm/NTvf
-	LsallGPjW6GUUa/e+8OPbndPDkZe//eYp6lO9jlCqVyDXE4Ph47AdAi789xBqa5+hIvwwE6xu1Fnz
-	ZhqQQQXdEkXXPen2OWV1t5IexJcqyltiSsp4KhDITwOq/fb3CD12mHfnmjL8WD/X4v2dZ+nQyVFJ4
-	xlhYV+pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vUNwtFp7LXv7nOLjMf/BlzJYT09wzG6WamyTo0Ov/no=; b=RV0IREx2DN/nd3pfIfDjOtaesG
+	iTVrLU+tyocKu87uTeMCiuxpz1tf4H2KLUCltPqZNn7Gq+SUqFaTRWFbZFbboCfpjQh+iSeXCnvHh
+	Fr/9jyXL3Dq8mATWuQFVlzFRMah2a6I70G+bSR3bmvdwJlh5SzAp/4K7Boa+70ZsmPN4RFlL+ndUy
+	f2ELtQdY1XtGAi3rMlHFPkWX+5NoTJJiqcZjSthkMMxvx6gtdQcq+jvH/jotGUrUfDdvNQ2IFs84S
+	NlBFqdv9akbsAIT1SGdnnON+BqlaB/GxfYvkYIkCSuEoEQ/Za4bLT2zIMtJQn49atcWoxzYxmN1he
+	cGXowZKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLFlP-00000005rPG-2Ytn;
-	Fri, 08 May 2026 07:36:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wLGXU-00000005zcc-3J6S;
+	Fri, 08 May 2026 08:26:28 +0000
+Received: from mail-vk1-f182.google.com ([209.85.221.182])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLFlG-00000005rJA-0wlI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 08 May 2026 07:36:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=hrfOFVYtqSA4RPeMk5t0kgZgaYsp66JgGoi+frkDnGY=; b=RwsYFJZpmWOJO08bhRsoCUTCwY
-	agd5yDAUzX29hAFiNZx0OLRCO67ZKPBDBUjyPcr19N7rj/n9zuDh5Sbp+y3uCG5OdrJGjM/HIOgnS
-	7DFoD1g62p7l4FOL730Uh3OJO+lD5m+6Sc9bMTu3R2NbHxmn29dzTvZQ/iJyEsXQZkaWzYkHsAby/
-	sZQkaynK3v3vIuwS13EU5ehoHzJ+5IC+Jyor+xubj5ugaJoUMTiuD5vKhtvgJAR9vuSxrJ2OW32X/
-	nMrOSD6HkaZT3wLeFC/m98L8NujOzBXfeXZ77so1Uu4ioF2mT5HxeyVRzFZUQrbJOUrNH29taxZWV
-	2UPQ9cFQ==;
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLFl7-00000005bE9-20qL
+	id 1wLGXR-00000005zbz-3gcL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 07:36:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1778225789; x=1809761789;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=pLLUnpsQHk0XLLoB+wBplrU8A7WIjOzUca/wCfOw6mw=;
-  b=MxHSzq/Cy/7MVBrFAlfkLxq8uHmgR32gBJCzIBuFq2s/R9FBBPte3zHH
-   y9a9COyWCGNyJnsBRW4vGZnT0kywD3V0zuSugTDg3fYunkv3e2FeQZO1K
-   TFwBLDGHv5SJvkXuDvniLcxa61GyNMrTAY3a8ftqHOijrRJ2USp4hDw/w
-   uO2Gz9RQRqA8rcWqX8yYem/yTmuCEsiAAhFqPtqcq/m0E3ahpTjmOtsAu
-   rgTzhxGn0Rwi1N5092Bx6YHCE6nSXe0zZxpVGdikNzL97Bh+jtCJvdDG8
-   diqbXXKk5EiAJ9cXT85ay5p6jSUw5JNq/N6cBLT2DwnwPLeawtomOCDAg
-   A==;
-X-CSE-ConnectionGUID: tREAqjtrRMmv2W0hgA17uQ==
-X-CSE-MsgGUID: hdL4aii1Sl6Jp/iE7AGrxA==
-X-IronPort-AV: E=Sophos;i="6.23,223,1770620400"; 
-   d="scan'208";a="224455790"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 08 May 2026 00:36:28 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 8 May 2026 00:36:27 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 8 May 2026 00:36:24 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Fri, 8 May 2026 09:35:36 +0200
-Subject: [PATCH net-next v4 12/13] misc: lan966x-pci: dts: extend cpu reg
- to cover PCIE DBI space
+	Fri, 08 May 2026 08:26:27 +0000
+Received: by mail-vk1-f182.google.com with SMTP id 71dfb90a1353d-575124e716fso656135e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 01:26:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778228784; x=1778833584;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vUNwtFp7LXv7nOLjMf/BlzJYT09wzG6WamyTo0Ov/no=;
+        b=feBgu1UMTn6vzjRsAjEEKR+Kw2uqWH3PFMzbOUZazJ4r/Iwn5CG7pDk76oxttSO4wS
+         1BYO464EDk22HdVIft1FnT2nO4gGslZhTcb2LAvFwdWZsE247YjiUDY+b/3z7EKv5/pq
+         A4NZIiFxkZee4KXgGS5ginWXj5Sh3e0NiuJdHGzKN8S1sTd9Pq6gAZzFDgmeaK5PSXGd
+         VjKSS8wTfFmd3MHyFMoLgcLbuU4ykWTKiYiOPGXlhcyhJlweEzedcFAkasOUlTG6p+du
+         74LCKAGQUoLWJ1R9E2s2wq+PJKoMlkiebobFSfmq6+KFA7IflStzaH3fuhSaDvTNLfgr
+         Ldkg==
+X-Forwarded-Encrypted: i=1; AFNElJ9xqcv8zzaL2M3pdpi0qR+/7/1qtTY8CQdwtbmgypk2oetHk/E67y6Zk4Ep72V6F6eCRouClDya6F6AnpscNGGQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzywV/6t+j5HQZ7jNElX+HV3KqI/aVnbre3q68MoVKmgCDpebAk
+	1HXHl+jswmQdyJfqSNWSf0cPFYS6i+kC7siMg5s4Z6nvXxL6Iv9XZSauMNcN/rberYg=
+X-Gm-Gg: Acq92OE65b+J0Q0rcUPesJHUmSU0jd0zMa46IhfiGNOtbcWYzX4hwyU8HYJIxdNMOWe
+	+4dDEsltErKjVXCbXXV5PBbl26ZYbwRtOtMWk5SFBG7TtDebo+6/BAN9z7oQpEKDf+TXeBH42LZ
+	ihx2eRk7LDk/jE7a6N9yR0itdzBXLW3tBzB22i418p8bJttWTajapyAm4XKKP5kvk3QzIk78gun
+	yerCMrpptbo0h+l5Xed3ufwJ+tlmueEwjZfpNoJceB7eKm58H0efljNpZ7LcS4mptouMG2nf+VZ
+	b3ciP88HznLooP/ZvCnzEERxwXpLpGutYoXP6z9BUGhYwZbh/bV2qsTVXw+W4zEEk1wP4roG94J
+	0mTD3oz3muh+7zaISTu0TBH3lG2mB24eLSxn500kMoWOyTQ4+hs6+QTZXUsfo5ML9pZks+GxRtg
+	+XDI2jQT7dr/VRE5wWnOpHe3R4AfTY20fsAYtcI65tnbXG+dcTsNwIx5S/CkzRfJd03TQVWTk=
+X-Received: by 2002:a05:6122:1822:b0:56e:f876:5626 with SMTP id 71dfb90a1353d-5755952cc68mr5953558e0c.5.1778228783849;
+        Fri, 08 May 2026 01:26:23 -0700 (PDT)
+Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-574a6ef15e0sm13509065e0c.17.2026.05.08.01.26.22
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 08 May 2026 01:26:22 -0700 (PDT)
+Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-956995b5bb6so553808241.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 01:26:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/bTE62Z/pzBjfa9KDiHH8NrnTmWYvdCoc1Hxu+x0nu1WfjCwY1I/U2jvbXbAJoYFNhJjV5b/gA8A1t3Iukdm9E@lists.infradead.org
+X-Received: by 2002:a67:e709:0:b0:604:ec90:ba14 with SMTP id
+ ada2fe7eead31-630f8ee2fa0mr5929351137.11.1778228781677; Fri, 08 May 2026
+ 01:26:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260508-lan966x-pci-fdma-v4-12-14e0c89d8d63@microchip.com>
-References: <20260508-lan966x-pci-fdma-v4-0-14e0c89d8d63@microchip.com>
-In-Reply-To: <20260508-lan966x-pci-fdma-v4-0-14e0c89d8d63@microchip.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Horatiu Vultur
-	<horatiu.vultur@microchip.com>, Steen Hegelund
-	<steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Alexei
- Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
-	"Jesper Dangaard Brouer" <hawk@kernel.org>, John Fastabend
-	<john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, Herve
- Codina <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Mohsin Bashir
-	<mohsin.bashr@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-X-Mailer: b4 0.14.3
+References: <cover.1776793163.git.geert+renesas@glider.be> <053c312d07445517d8f9c84bfe3cc8fb72d4cd9a.1776793163.git.geert+renesas@glider.be>
+ <bf83a028-3ef3-482a-9ce3-8aec16f6ebed@mailbox.org> <CAMuHMdWN2zaZrY2jKKXpNqrP8xSqc-uJTr-siTBgaA=-EY_4BQ@mail.gmail.com>
+ <fa28c6fe-484c-4133-824e-649c52ef2200@mailbox.org>
+In-Reply-To: <fa28c6fe-484c-4133-824e-649c52ef2200@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 8 May 2026 10:26:09 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUU=RohST4LDDD27W5dj=HwJFApMcDpsXATQ1MaMH-tUA@mail.gmail.com>
+X-Gm-Features: AVHnY4JJUxMOqvyoeb-hr7ynluUAgTja2N2yaP-Ep1K9EfNyRckxSh-cxJzmeNw
+Message-ID: <CAMuHMdUU=RohST4LDDD27W5dj=HwJFApMcDpsXATQ1MaMH-tUA@mail.gmail.com>
+Subject: Re: [PATCH/RFC 10/14] dt-bindings: power: Document Renesas R-Car X5H
+ Module Controller
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Saravana Kannan <saravanak@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Ulf Hansson <ulfh@kernel.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_083632_685583_F6E89472 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260508_012625_941085_6F2432F0 
+X-CRM114-Status: GOOD (  56.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,32 +108,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ATU outbound windows used by the FDMA engine are programmed through
-registers at offset 0x400000+, which falls outside the current cpu reg
-mapping. Extend the cpu reg size from 0x100000 (1MB) to 0x800000 (8MB)
-to cover the full PCIE DBI and iATU register space.
+Hi Marek,
 
-Tested-by: Herve Codina <herve.codina@bootlin.com>
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
----
- drivers/misc/lan966x_pci.dtso | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Thu, 7 May 2026 at 23:36, Marek Vasut <marek.vasut@mailbox.org> wrote:
+> On 5/7/26 9:37 AM, Geert Uytterhoeven wrote:
+> > On Thu, 7 May 2026 at 00:58, Marek Vasut <marek.vasut@mailbox.org> wrote:
+> >> On 4/21/26 8:11 PM, Geert Uytterhoeven wrote:
+> >>> +  '#power-domain-cells':
+> >>> +    description: |
+> >>> +      - The first power domain specifier cell must be either the Module
+> >>> +        Power Domain Gating (MPDG) register index (0x00-0x3f) from the
+> >>> +        datasheet,
+> >>
+> >> I agree with this part.
+> >>
+> >>> or a Power Domain number, as defined in
+> >>> +        <dt-bindings/power/renesas,r8a78000-mdlc.h>,
+> >>
+> >> I do not understand this part, please see end of this email ...
+> >>
+> >>> +      - The second power domain specifier cell must be the module number
+> >>> +        (0x00-0xff), composed of the Module System Reset (MSRES) register index
+> >>> +        in the high nibble, and the Module Reset Destination bitfield index in
+> >>> +        the low nibble.
+> >>> +    const: 2
+> >>
+> >> I am unsure about this part.
+> >>
+> >> There are multiple MDLC blocks, AON, SCP, HSCN, and so on. Each MDLC
+> >> block contains multiple Module Power Domain Gating registers (MPDGn) and
+> >> multiple Module System RESet register (MSRES) .
+> >>
+> >> I do understand and agree that the first power-domains-cells cell must
+> >> be the identifier of power domain within the MDLC block.
+> >>
+> >> However, I do not understand the second cell. The MDLC bindings already
+> >> contain reset-cells, which should be used to refer to a reset within the
+> >> MDLC block. Resets within the MDLC block are operated using the MSRES
+> >> registers. Why are resets conflated into power-domain-cells ?
+> >
+> > The Module Reset Destination bitfields in the MSRES registers are
+> > 2-bit wide, and control both Reset and Module Standby.  Hence the
+> > same register bitfields are referred to in the power-domains and
+> > resets properties, through the module number.
+> >
+> > Module Standby controls the clock(s) going into the module,
+> > and is modelled as an SCMI clock (SCP_CLOCK_ID_MDLC_*) by the SCP
+> > firmware. This is very similar to how MSTP (Module Stop) clocks are
+> > handled on earlier R-Car SoCs (except that the SCP_CLOCK_ID_MDLC_*
+> > clocks have a zero rate :-(.
+> >
+> > Summarized, the first cell is the power domain part, and the second
+> > cell is the clock domain part.
+>
+> Thank you for the clarification.
+>
+> Since there are up to 32 MPDG registers, and 256 resets, can we encode
+> both into a single cell ?
+>
+> (mpdg_register_offset << 16) | (reset_bit_offset << 0)
 
-diff --git a/drivers/misc/lan966x_pci.dtso b/drivers/misc/lan966x_pci.dtso
-index 7b196b0a0eb6..7bb726550caf 100644
---- a/drivers/misc/lan966x_pci.dtso
-+++ b/drivers/misc/lan966x_pci.dtso
-@@ -135,7 +135,7 @@ lan966x_phy1: ethernet-lan966x_phy@2 {
- 
- 				switch: switch@e0000000 {
- 					compatible = "microchip,lan966x-switch";
--					reg = <0xe0000000 0x0100000>,
-+					reg = <0xe0000000 0x0800000>,
- 					      <0xe2000000 0x0800000>;
- 					reg-names = "cpu", "gcb";
- 
+We could.  I did consider it (with a shift of 8 cfr. 256 modules),
+but see below...
 
--- 
-2.34.1
+> I cannot tell whether this is much better, but it at least ties the PD
+> components (power domain and clock domain) into a single value, which
+> matches reality a bit better. The current split power domain and clock
+> domain description in two cells gives me the illusion that it is
+> possible to mix and match power domains and clock domains in DT
+> description, but in fact the two cells are strongly tied together.
 
+They are only tied together in the sense that a module (hardware block)
+is part of a power domain, and has module standby (clock) control.
+Some power domains are backed by MDLC hardware registers,
+others are not, hence the need for the additional definitions in
+<dt-bindings/power/renesas,r8a78000-mdlc.h>.
+I am not aware (yet) of modules that are part of a power domain,
+but do not have module standby control. If these exist, we
+need an additional definition (R8A78000_MDLC_MODULE_NONE?) in
+<dt-bindings/power/renesas,r8a78000-mdlc.h>.
+
+Due to this separation, and due to a possible future need for expansion
+(R8A78000_MDLC_MODULE_NONE, MDLCs with more than 256 modules, ...),
+I went for two cells.
+
+> If we cannot encode the two into a single cell, maybe we can at least
+> have some sort of macro for this, e.g. this (0xff as no MPDG register
+> bits for this block):
+> #define R8A78000_MDLC_PD_HSCIF0 (0xff << 16) ((0x5 << 4) | (0x3 << 0))
+>
+> What do you think ?
+
+I (and I believe the DT maintainers) are not so fond of defines for
+numbers that can be (more or less) just read from the documentation.
+(and 0xff should be R8A78000_MDLC_PD_APL?)
+
+> > So perhaps I will clarify like this:
+> >
+> >        - The first power domain specifier cell is the power domain part, and
+> >          must be either the Module Power Domain Gating (MPDG) register index
+>
+> ... for power domains which are backed by MDPG bits, and which can be
+> controlled in that manner ...
+
+OK.
+
+> >          (0x00-0x3f) from the datasheet, or a Power Domain number, as defined in
+> >          <dt-bindings/power/renesas,r8a78000-mdlc.h>,
+>
+> ... for power domains which are always on, and for which there are no
+> MPDG bits which can be used to control them ...
+
+OK,
+
+>
+> >        - The second power domain specifier cell is the clock domain part, and
+
+Upon second thought: s/clock domain/module standby/
+
+> >          must be the module number (0x00-0xff), composed of the Module System
+> >          Reset (MSRES) register index in the high nibble, and the Module Reset
+> >          Destination bitfield index in the low nibble.
+>
+> I can understand this.
+>
+> >>> +  '#reset-cells':
+> >>> +    description:
+> >>> +      The single reset specifier cell must be the module number (0x00-0xff).
+> >>> +    const: 1
+> >>
+> >> [...]
+> >>
+> >>> +#ifndef __DT_BINDINGS_POWER_RENESAS_R8A78000_MDLC_H__
+> >>> +#define __DT_BINDINGS_POWER_RENESAS_R8A78000_MDLC_H__
+> >>> +
+> >>> +/* R-Car X5H MDLC Power Domains */
+> >>> +
+> >>> +#define R8A78000_MDLC_PD_AON                 0x40
+> >>> +#define R8A78000_MDLC_PD_SCP                 0x41
+> >>> +#define R8A78000_MDLC_PD_APL                 0x42
+> >>> +#define R8A78000_MDLC_PD_CMN                 0x43
+> >>> +#define R8A78000_MDLC_PD_ACL                 0x44
+> >> ... what do these numbers represent ? Shouldn't those be register
+> >> offsets from MDLC MPDG00 according to power-domain-cells ?
+> >
+> > These are Power Domains that are not backed by any of the 64 Module
+> > Power Domain Gating (MPDG) registers in MDLC blocks.
+>
+> I suspect that might not be entirely correct for all of them, please
+> read on and see CMN below.
+
+Thanks, looks like R8A78000_MDLC_PD_CMN should be dropped.
+
+> Let's take PD_AC00 , AP core 0 , as a domain of interest. My
+> understanding is, that the domain structure for PD_AC00 looks as follows:
+>
+> PD_AON {
+>    PD_SCP { };
+>    PD_APL {
+>      hierarchy is SYSSS
+>      always-power-on
+>      PD_CMN {
+>        hierarchy is CMNN
+>        power-gating-bit is MDLC_CMNN 20
+>        PD_APU0 {
+>          hierarchy is SYSSS
+>          power-gating is done by APMU
+>          PD_ACL0 {
+>            hierarchy is CMNN
+>            power-gating-bit is MDLC_CMNN 16
+>            PD_AC00 {
+>              hierarchy is CMNN
+>              power-gating-bit is MDLC_CMNN 0
+>            };
+>            ...
+>          };
+>          ...
+>        };
+>        ...
+>      };
+>      ...
+>      PD_HSCIF0 {
+>        hierarchy is PERW
+>        power-gating-bit is MDLC_PERW 23
+>      };
+>    };
+>    ...
+> };
+>
+> With this in mind, I think CPU 0 DT node should refer to the PD_AC00
+> power domain this way:
+>
+> cpu@0 {
+>    ...
+>    power-domains = <&mdlc_cmnn R8A78000_MDLC_PD_AC00>;
+>    ...
+> };
+
+So we do have a few modules (I found a few more) that are part of
+power domains, but do no support module standby.  One more reason to
+decouple them in power-domains.
+
+However, CPU cores are controlled through PSCI (the slightly less evil
+brother of SCMI? ;-), so
+Documentation/devicetree/bindings/arm/psci.yaml applies, too?
+
+>
+> The MDLC driver would pass the PD_AC00 domain ID to matching SCMI power
+> domain management protocol call, or, for bare-metal MDLC driver, would
+> have to internally encode PD hierarchy, walk it, and apply PD operations
+> in each step.
+>
+> I think even for SCIF/HSCIF, the power domain reference should be
+> something along the lines of the following description. The MDLC driver
+> should internally encode that R8A78000_MLDC_PD_HSCIF0 is a sub-domain of
+> R8A78000_MDLC_PD_APL .
+>
+> serial@c0710000 {
+>    ...
+>    power-domains = <&mdlc_perw R8A78000_MDLC_PD_HSCIF0>;
+>    ...
+> };
+
+R8A78000_MLDC_PD_HSCIF0 is a not a full sub-domain, but merely standby
+(clock) control inside the PD_APL clock domain?
+
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
