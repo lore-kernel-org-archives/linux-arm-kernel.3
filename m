@@ -4,94 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16CC6CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 11:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3029CD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 11:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yk+VF2UUzCSCg/RvIE6fW76wSTl5BC3qMVjRSFknw3M=; b=XG9KY0uByUSkbjYGnH/4HnrwxQ
-	Vq/3taXygBrgulRqV2Z2bPaA4xJGagDYE6RxhLqoQYMvXXi5UzLkAOVbJAoX3IBSiPv4BnNyeba5h
-	jIcUXsgjNCg9D6rH8bW92gH6PHM11+ATiCcWjAJjIbHsDOpB1aEN7K7RqYnHN1XcwLxfYqyWa+Zsa
-	xxyliraV3y0T5V8SWxydQWORn+G9n08SM2qDeRlLvITFhA6lnYiWrkR4ckSA8zpGmuwZYyY1RpHc3
-	nC2uhpv6lUsd3kCKz5klLVqzbezGF+JNc6rZvlk4K9eCFRq0PJ0DUxbhkIHddhv6EM0hVosetIw+h
-	7GAummfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xwMAiJr6rLTnqtrgyITSok37EhglhZRyua+A57fW1fo=; b=M1gahbkfUkNNEYPb/XuVit1nGX
+	qI5boZxyJSQIrRUVBmDAieLUp8A2ml31vjHo/8XOGXqdiYZtf7Xs4kxjte0WF6Esu8ucPVvkPBRRz
+	4jiS26FeEfaMpJCl2+gy4R9YM+B4seKnO+8RDw918y3hg/tGIo7vnDwtKqvbQ5MGOQiT9EfyQurje
+	chupzCUTBAu7OmxL6MkOCqr6ocRj3gj8G5W7XtWWbpyoh127QC91hdRDVGfDQFbATF8RqB++4Ivj7
+	0hHtRabRjyrLdNrgtSN9he2P7EwkQYYpszA/AbkdeP35GVy/x5jVp3YON0+fm92MtHoWJIi2z9Cxp
+	3uOZLOAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLJfO-00000006OLW-30Rr;
-	Fri, 08 May 2026 11:46:50 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1wLJj1-00000006Oqb-0PAk;
+	Fri, 08 May 2026 11:50:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLJfM-00000006OKa-0a55
+	id 1wLJiz-00000006Op7-0sec
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 08 May 2026 11:50:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=xwMAiJr6rLTnqtrgyITSok37EhglhZRyua+A57fW1fo=; b=WxJqZlL3rFWmv9E9l0gNxFlAW6
+	niYeM3T/KgYkLu3b+zzR//HuRhmuoBy9FUC9VYky+k4/2o6oqNh8iAffEJEHSIm9b9AuJu8ONBNBc
+	JRenZzoG/JME3ErdOyT2ssGr5f1uOgEBOsZ6HQOJVDg3aZj/+rlXKEgiAA1lSsZjA0qvwuOrz8zsr
+	4sWqu5atJhdNe8qOJRN8m48cIUweOccFc0QB6qLCDAq9xbgcsQs2InsWG+J47p23HchCf/D6wxazL
+	pdER+BvOpbrL+FoamjeAU+0KjRSQH3KqUFCK7hGOzaGyW2kGvpms8DufdlRTQe+cyU3Gem3jgHH7n
+	GY8jXJhQ==;
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLJLu-000000063sd-25M3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 11:46:49 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2ba180a022dso74485ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 04:46:47 -0700 (PDT)
+	Fri, 08 May 2026 11:26:44 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-48a563e4ef7so17562645e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 04:26:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778240807; x=1778845607; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Yk+VF2UUzCSCg/RvIE6fW76wSTl5BC3qMVjRSFknw3M=;
-        b=ZMXVmrCmlbYdfsU0jVTAb0q0XTywayv9gIKclqk7dc0GS5YY11cc5b5UN+6+GZ7mbo
-         6LdeMGkvXLMRquiK7WULMvqFJJgYCIsdpNWrzfrb1anIrxdQaR97sbAMqubWNEu4Y18O
-         vm1PSnCyNXIT9iaDl99SH+C0YG+SafsyuUN+zWdM+dHlC5x+qo3x7/+w798wxXuB1/L8
-         IrpeSyjzb7R900VkMK+p7M3MloGH9jxhzjKE2eOcnBMYV3AsIv1DJZNynBURwyRWZ4kL
-         xXMwqF4cPoPd0ncKQmklkOg6q2cKwtWWSwfIecS1Hl/sez82Ky82zKYzaUFldeA8hj7G
-         JkaQ==
+        d=gmail.com; s=20251104; t=1778239601; x=1778844401; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xwMAiJr6rLTnqtrgyITSok37EhglhZRyua+A57fW1fo=;
+        b=io6uzBXc1BKbHVSnCSmYkTdbWi0S9/BVyQJsXg39LVrZLNhR+W/Fg9Lroij3sRhLJ0
+         DwetpzHuBovheDV/SVv644eY9jUGiTy8BxprIc4AezyyMH8WTeGLhBu6UIn4Qwx/R8Mg
+         DqiAktSYItjM+Oowwe/WPib4H9tRhE2qni/vqdXdZxy+h3x8povFeQo9EXslrq+1m1TU
+         rN89xAFcA4Ifwjk2wkr19100zx04RhBYeqmrghvqBpZQDm0VpEZUkkDYusMyy3Rjd18w
+         N5FLwUgzex+E1JJ9hnEG8q+BdHnGO4EDjqBtclwsvOJTxifi3SWoxylD6iB+YbsN8CyP
+         s42w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778240807; x=1778845607;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Yk+VF2UUzCSCg/RvIE6fW76wSTl5BC3qMVjRSFknw3M=;
-        b=nER7NYfanMk4Zk+rkQ366Thca/0/9sUUpJbbc6s0dQiJ0nz2oe8Jt+EJ6rBESuERTQ
-         rtHhFJ2xpNWwCHdwck35SIQCDIeJAETbX8vAlTHziRF9o/uMU9uJxI89iCzeFFkcjzQ1
-         aymmPYGfBCNy9ieCEvL2u6TiBId2dfbe649e14oq+CEOqq9EFTOL7FrPUcwVgM9dw05b
-         +IZDRzKypfE0AjtzJjIcQ1MgfLwJK+F3AT7TXY5sRBVysSCo5LNtGL52s8EEb7uLVNMz
-         0MdG/+mt8hKwuuiyzrCG0ZUDMkwtyZUVWb8phO7v3MY0+KZtTkMGiDxELNsLAWgTmoo7
-         rOCQ==
-X-Forwarded-Encrypted: i=1; AFNElJ94Stcw5DtlhYMBBuEqT9U8oFF9w+NyMsSyvMf4KTx/SzPTSOKl0Rqjfe0z+RJ2xJ/Yt0oVpf2dd9VB8t7rFy2t@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy72HUZcLLcQcWBaFzjw9NCtJqb5+ViKuv+6AmJOLFCDBbLUMNb
-	y7ESPGuakLXfrjeP1gse9SX0gNNq28tSuUM+sLZNaJClFxNK+qoPDz1iO5ZznntcYQ==
-X-Gm-Gg: Acq92OGs1M+56pzo49dQ9viXrzrA0MUjwkpFCafKudpU0gSLPEEUA1a2dreJFHjUWwz
-	ITMCxzeDGc3HH5vU/5P76baUcTyVuLiiQKVvF5HSIKspBBVFkO8FyoBUERmEkZh50OtB4mnk0MX
-	pHk99SDvGYCsmySsV+zynHqlxMEJxA4A/0x5vsdsB1owoCb0xnwm7/QEuOMp4X1Y4hJijjDizrD
-	m946T8Wa7dUwgQo58fX3hwKPaKJWlD5A9ON3nI53fNt7bYTWikkF60GLxp61BbcH6bbCkVAHNvT
-	08ws8wY9zpsyPfjAbifGagp/s2JQe+hi9hNQ8CRttmng2M9YNxbPkREHqrCu7x8HuUrKWfFPLzJ
-	/aWukFVPMasTxTjWHd8iSqQmfKA25JfGJWU43mGfG+IRQ2k/rkTYVjP6V9mGN8CKUR4crYZfU1y
-	CiPl2QFreeV7h8645QEMJsmYTeJuWM1m9eGLV3vyHyJJQx3vLOk6psjDvDFQufRVHq6cf7
-X-Received: by 2002:a17:903:1210:b0:2a7:87c2:fcde with SMTP id d9443c01a7336-2baee8320bbmr2253775ad.15.1778240806820;
-        Fri, 08 May 2026 04:46:46 -0700 (PDT)
-Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83965d36c10sm15031850b3a.25.2026.05.08.04.46.43
+        d=1e100.net; s=20251104; t=1778239601; x=1778844401;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xwMAiJr6rLTnqtrgyITSok37EhglhZRyua+A57fW1fo=;
+        b=gBaqI1W75KjlPl0a+RyhNd5r/nv2m6OJhuWMNlPrOKStwb7Z+9Fb6XDoENbqgwHlzD
+         ywBphDf25oVx5vmy3N+8OT7IG4dGP79xZCeIX/4J1ytXs1VaLBQAdccHIxbxgB+c9gAN
+         6P/t1xHAVNZVv0NUdhDKB06caYUPIhy6H4nE7+YRcepNdvDYHBMYl7l578OLdaj7/3OE
+         i0ZLEv0zHXToARKYKCTHH6zfwnBTXoI3s7YbfFNJa5nQzYlh/MBVKPYlRPu2wcZnz/AP
+         vKkhV7a5jw1vbwrJnpptInXFOs1GxbYfA5pcsn/fNZOYI/KnGScmGforJ6d7t5C2zG4D
+         XgrQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+VAW2WKLDtaVSM673pqcXKsrNOIidLC96EQ1lZpEthSmAgtNidGdNgp2Ej5YynlPK38sg7kc6/tW4IMRKGDyMv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyd+J2e/BaYwAo9BSB8A+clX9bDV5Yz+PtJ2zU4MIBG+IdhQ+e9
+	//VQnuUacTtc5yVlkJU5aBqqPjZSAbJD5sp4WIuuT4eIT8wB0EEiheTR
+X-Gm-Gg: AeBDieslJayabwpoHpZa0FS2pqaJrVzpdZs5IkeTjGiThNGVsmXS8p0ps4kffOBu9Gx
+	Tmxwcgy6UBmU6/bPuApupgEsRmu1PvbZz06bggwBVB0SBqi6mB7ZsOkKe3tTf5+D9qadCZeBUZF
+	sMaLz8nMx7WTCsyl5MLjUtfTDoBkNp6U3riQ0rIoRIoJ/F5FskG9QCjSbZPY+s6i0x+3fc+FERz
+	kugfgWnz/ogkbeIDmknt1o0ukOoQLC7wjq/01+MzkkbXbviHjc0+K+1anQw9adAygO9f8iI2yZa
+	4oxFCLX9Ezj1NrX3ccq51elMaAhQ7TR5FpmnW9F/7rBaXP+1ZeZIqT5wRGnKswszguxa4gT88WT
+	hXEH+YGLS1m2fdxiRiK1kDHNwYo/cuzFbOXlEwUfsMmczRspK482EHmriuiEFwCpAyyWwOWMHRM
+	Rhk8uIu/y54WcDrqDK+TXbG015VhQavoeDE+ztHRUtmCHgwu7Q2i+kSU0LS/++9t8TCHP+SyjkJ
+	x3Wb1PfE9HpEEFZ+t9OKdbGBgaW2vUpGZAFLpYjfAygHeRv/Hc=
+X-Received: by 2002:a05:600c:3548:b0:488:c40b:c8a4 with SMTP id 5b1f17b1804b1-48e51e097a2mr188764295e9.1.1778239600520;
+        Fri, 08 May 2026 04:26:40 -0700 (PDT)
+Received: from [10.0.1.145] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e68edca90sm58547205e9.5.2026.05.08.04.26.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 04:46:46 -0700 (PDT)
-Date: Fri, 8 May 2026 11:46:39 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 7/9] iommu/arm-smmu-v3: Directly encode CMDQ_OP_ATC_INV
-Message-ID: <af3NH0cihPUQ8PST@google.com>
-References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
- <7-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+        Fri, 08 May 2026 04:26:39 -0700 (PDT)
+From: Antoine Gouby <antoine.gouby@gmail.com>
+Date: Fri, 08 May 2026 13:26:36 +0200
+Subject: [PATCH] arm64: dts: freescale: imx95-toradex-smarc: replace
+ deprecated gpio property
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260508-replace-gpio-property-v1-1-ec67cc64e576@toradex.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqDQAxG4atI1gbSEUV6ldKFHX81UJyQKaKId
+ +/g8lu8d1KGKzI9q5Mcm2ZNa8GjriguwzqDdSymIKGTVnp22HeI4Nk0sXky+O/gsQufRgRxaoR
+ Ka45J9/v7el/XH5R0UcFnAAAA
+X-Change-ID: 20260508-replace-gpio-property-d62b300ecf30
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Francesco Dolcini <francesco.dolcini@toradex.com>, 
+ Antoine Gouby <antoine.gouby@toradex.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1099;
+ i=antoine.gouby@toradex.com; h=from:subject:message-id;
+ bh=AB5PPdLVkqMs1sCS4RHSNfyDkv2JV7ytgY+zBknYgik=;
+ b=owGbwMvMwCWm0rPo7MxLN2YynlZLYsj8eyI/eeLEqoz2PwW+K+TerhSMbTm52LC6oSnAW2BCx
+ PSwshPVHaUsDGJcDLJiiiwZT1QF+RRCZD04mpNh5rAygQxh4OIUgInY5zMyzNbV9tFsTAvgXb5S
+ lXdmpsGr09s4RT9JxixdvnOuAEtXNcN/X1GXxEDZZWkn7l6RO+hUlKvxrLl9h+5jTvnUd8HSBdf
+ YAQ==
+X-Developer-Key: i=antoine.gouby@toradex.com; a=openpgp;
+ fpr=68E425110E20541D48088363248CA2CD99D2D899
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_044648_243150_108EB76C 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20260508_122642_876768_6D0D8FEC 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,21 +132,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 01, 2026 at 11:29:16AM -0300, Jason Gunthorpe wrote:
-> Add a new command make function and convert all the places using
-> ATC_INV.
-> 
-> Split out full invalidation to directly make the cmd instead of
-> overloading size=0 to mean full invalidation.
-> 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
+From: Antoine Gouby <antoine.gouby@toradex.com>
 
-Nit: I guess it's worth mentioning that we remove CMDQ_ATC_0_GLOBAL as
-we don't set ent->atc.global = true anywhere in the driver anymore.
+Replace deprecated "gpio" property with "gpios" in
+regulator-vmmc-usdhc2 fixed regulator node.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Signed-off-by: Antoine Gouby <antoine.gouby@toradex.com>
+---
+ arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Thanks,
-Praan
+diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+index 8eef26eb0f87..7d760470201f 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
+@@ -113,7 +113,7 @@ reg_usdhc2_vmmc: regulator-vmmc-usdhc2 {
+ 		compatible = "regulator-fixed";
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_usdhc2_pwr_en>;
+-		gpio = <&gpio3 7 GPIO_ACTIVE_HIGH>;
++		gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+ 		enable-active-high;
+ 		off-on-delay-us = <100000>;
+ 		regulator-max-microvolt = <3300000>;
+
+---
+base-commit: d570a0d019a3d84832bfc6867647d3581b0052f3
+change-id: 20260508-replace-gpio-property-d62b300ecf30
+
+Best regards,
+-- 
+Antoine Gouby <antoine.gouby@toradex.com>
+
 
