@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D42CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE720CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:16:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KiIIvdKEwsS5o42ZqxLlOkKV/UZ2PsHSoIZ9DrLtxAQ=; b=x0pxXTvjy8CNHztDqLHauW+vCq
-	QBS0gxTeMcbcfhGJvWsL4Nd+lgbboQu7vS3B2SeIcQogZxHT8JoPBQf0eBwmvOgIY4yzTmcpd8rLG
-	3p28XnZ8Gha9tD1vZbZ8Fh4OnZ02WKKam9Lvn0qWsJxAooiBfWC9adQt1AOovUR1xyM6h7xiQXYjT
-	rm/v47VjhDvQSdb/wRg6mZBpOLlhq33mw7hHzBfbrr1oQd32Q0P8WoGqFT9419+Iqpihpxuqox7bG
-	vtRtHtuTcPpZHwt9bNQb7jX5fC5y9W6R9Hvo9FtVwGZwAmfBY+uCzIHcN+vISCEPx9oBtnqqzqfJV
-	3lXzPeFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+mS0vWEZVIqHMvdYHxtl/gPz72taL4dArTwSs3iG1N4=; b=A+sNn11l+gTK/xgtB97qmx+D4m
+	H0dhj6FxWIPayxip/v0CVpxMtw4/xCbL3KhJbFqghrk1ec5ZEhS70HVVEfRMSOFC13SEHwnB6lJs/
+	NQvsKHh6EnXRFBQYCw5gZadiK+EotrQ+6N3t7wnQeLIAwWneIWZjNNDspYoEafUTBPehJX6sGhhnY
+	yzrOFxy/C7ohWqdaa/5RhaZ1YRqDnPODFtQPrpITFcrDnkhmpbT5sloHU33PdwWbVrbVKuq3bOx8n
+	eQPwyl2tn3RakMxpavpFBCgo5nlH1083BEtyq6teQ3zWFcqu+Wukj6Wqgcvp0Ck2w3hJ0ynkJ3KlG
+	5y6tSSzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLLzH-00000006e6p-2s2J;
-	Fri, 08 May 2026 14:15:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wLM09-00000006eFH-3Wzv;
+	Fri, 08 May 2026 14:16:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLLzD-00000006e6D-3nlY
+	id 1wLM08-00000006eEi-1FY8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 14:15:30 +0000
+	Fri, 08 May 2026 14:16:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D04D741A66;
-	Fri,  8 May 2026 14:15:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0A58C2BCB0;
-	Fri,  8 May 2026 14:15:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 61F52600AE;
+	Fri,  8 May 2026 14:16:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4531FC2BCB0;
+	Fri,  8 May 2026 14:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778249726;
-	bh=CREVdtNhaxbusuRm1+ZihtO0voX7GFpdje5lcx7aLDE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=OcUc2XoycrQTQdgp42eDDaKK7hXCGxj976qeAYGV+goYs/Q5XDmSnPoVFmFXEmD8V
-	 yg3KuKgthWslbdnBj+I57bzSz3jE4S9zHT3Axj13rhLfu6GqYdRK62Ig9TwKBDK7nU
-	 k4bLckDbP7BtuAuFxwKTdRb/85oo3l9erPnl2TT/rLJFlQdi06dUvHBgCinOQzQ9at
-	 w3z1YzPjU+CzBog68uo/z4aXL36HV5pNEiB26QQHXd40I/sy0R7q5ugnVjtrM5xXs5
-	 Y9rcKRI2QikZ73DcRn09TFAIVamOqHcamjjJnL1urx4sFl9lw0mCtWYdYzsrzhvdVG
-	 GQiPUcKzFxOMg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wLLz9-00000000MRz-40c0;
-	Fri, 08 May 2026 14:15:24 +0000
-Date: Fri, 08 May 2026 15:15:23 +0100
-Message-ID: <86jytexa10.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,	Hanjun Guo
- <guohanjun@huawei.com>,	Sudeep Holla <sudeep.holla@kernel.org>,	Catalin
- Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,	Mark Rutland
- <mark.rutland@arm.com>,	Daniel Lezcano <daniel.lezcano@kernel.org>,	Thomas
- Gleixner <tglx@kernel.org>,	Rob Herring <robh@kernel.org>,	Krzysztof
- Kozlowski <krzk+dt@kernel.org>,	Conor Dooley <conor+dt@kernel.org>,	Chen-Yu
- Tsai <wens@kernel.org>,	Jernej Skrabec <jernej.skrabec@gmail.com>,	Samuel
- Holland <samuel@sholland.org>,	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,	Ge Gordon
- <gordon.ge@bst.ai>,	BST Linux Kernel Upstream Group
- <bst-upstream@bstai.top>,	Jesper Nilsson <jesper.nilsson@axis.com>,	Lars
- Persson <lars.persson@axis.com>,	Alim Akhtar <alim.akhtar@samsung.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,	Pengutronix Kernel Team
- <kernel@pengutronix.de>,	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen
- <dinguyen@kernel.org>,	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thierry Reding <thierry.reding@kernel.org>,	Jonathan Hunter
- <jonathanh@nvidia.com>,	Bjorn Andersson <andersson@kernel.org>,	Konrad
- Dybcio <konradybcio@kernel.org>,	Andreas =?UTF-8?B?RsOkcmJlcg==?=
- <afaerber@suse.de>,	Heiko Stuebner <heiko@sntech.de>,	Shawn Lin
- <shawn.lin@rock-chips.com>,	Orson Zhai <orsonzhai@gmail.com>,	Baolin Wang
- <baolin.wang@linux.alibaba.com>,	Michal Simek <michal.simek@amd.com>
-Subject: Re: [PATCH 02/16] clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE
-In-Reply-To: <20260507125544.2903406-3-maz@kernel.org>
-References: <20260507125544.2903406-1-maz@kernel.org>
-	<20260507125544.2903406-3-maz@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
- heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_071527_981333_36832B8D 
-X-CRM114-Status: GOOD (  26.26  )
+	s=k20201202; t=1778249783;
+	bh=0mPM2x5yjFYiozh6QP24TiAE+7o6BbL/98CcdObaOsA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=uL5EkSyBEoLZMXFNWFH2h4PDeQC1iVaVfb48l4K6Pw+TWcnf5BTphG597YLBXsxx0
+	 90KJX39EdMvIHgf66iNrnxupkrWQpKkVlYAUC+qdRL77BoXzh6kEcV5nJRUyH0MOVx
+	 oEO6gUnjwojCEzqPagFywsPdPfS9YROlIMCcYE1tHgZrHOgkbQXIlr1liITnnMo6WN
+	 ineRCvsa+vRdcy4lFpqLRq144y8Sw/cAUvG8g5zIaEP4kTRgZrGYMUVhu9f+GAie1s
+	 t4I70GamTY+Xsuy6BGwaxPBKPqk1h7R+aO16qIGNi8bj8dW4mT1NlW0ZcMHxy1tGht
+	 5yHq5iD+uPcew==
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Andre Przywara <andre.przywara@arm.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20260506-h616-t113s-hstimer-v4-0-591d425863d6@mmpsystems.pl>
+References: <20260506-h616-t113s-hstimer-v4-0-591d425863d6@mmpsystems.pl>
+Subject: Re: (subset) [PATCH v4 0/4] Add hstimer support for H616 and
+ T113-S3
+Message-Id: <177824977994.59995.8659881692173986596.b4-ty@kernel.org>
+Date: Fri, 08 May 2026 22:16:19 +0800
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,45 +78,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 07 May 2026 13:55:30 +0100,
-Marc Zyngier <maz@kernel.org> wrote:
+On Wed, 06 May 2026 17:10:25 +0200, Michal Piekos wrote:
+> Add support for Allwinner D1 high speed timer in sun5i hstimer driver
+> and describe corresponding nodes in dts for H616 and T113-S3 SoC's.
 > 
-> When running with at EL2 with VHE enabled, the architecture provides
-> two EL2 timer/counters, dubbed physical and virtual. Apart from their
-> names, they are strictly identical.
+> D1 and H616 uses same model as existing driver except register shift
+> compared to older variants.
 > 
-> However, they don't get virtualised the same way, specially when
-> it comes to adding arbitrary offsets to the timers. When running as
-> a guest, the host CNTVOFF_EL2 does apply to the guest's view of
-> CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
-> the architecture is broken past the first level of virtualisation
-> (it lacks some essential mechanisms to be usable, despite what
-> the ARM ARM pretends).
+> Added register layout abstraction in the driver, extended the binding
+> with new compatibles and wired up dts nodes for T113-S3 and H616 which
+> uses D1 as fallback compatible.
 > 
-> This means that when running as a L2 guest hypervisor, using the
-> physical timer results in traps to L0, which are then forwarded to
-> L1 in order to emulate the offset, leading to even worse performance
-> due to massive trap amplification (the combination of register and
-> ERET trapping is absolutely lethal).
-> 
-> Switch the arch timer code to using the virtual timer when running
-> in VHE by default, only using the physical timer if the interrupt
-> is not correctly described in the firmware tables (which seems
-> to be an unfortunately common case). This comes as no impact on
-> bare-metal, and slightly improves the situation in the virtualised
-> case.
+> [...]
 
-One thing I missed in this patch is that although we now use the EL2
-virtual timer, we are still using the EL2 physical counter. They both
-report the same thing, but this is missing a reasonable optimisation
-in the NV case, which is the whole purpose of this patch.
+Applied to sunxi/dt-for-7.2 in local tree, thanks!
 
-I'll fix that for v2.
+[3/4] arm: dts: allwinner: d1s-t113: add hstimer node
+      commit: 7c86694a7b8c9a0b2e29b312b21fcaf61d54b474
+[4/4] arm64: dts: allwinner: h616: add hstimer node
+      commit: fee10a33d08ae73c87a87d464f29198b6de687d0
 
-Thanks,
-
-	M.
-
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+Chen-Yu Tsai <wens@kernel.org>
+
 
