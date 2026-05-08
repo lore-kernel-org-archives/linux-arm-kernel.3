@@ -4,130 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E9FCD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 12:54:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622B6CD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 12:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:From:
+	Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sr914e8M5frO41Ll8HgmM3TR9EyIF1fwKLF1sY71UWM=; b=pfvrqC9Wzxv3xhwpDMMdo30gAr
-	cT+jYRb4FGabv79CGn8nMaYyrXy66favTLtwd53KsjfcnP9sJi+2wZWz+7/NfwGqxPHaPRmYjwLrF
-	94wwg1L1sK0gmS1adB5OFNmSFiGl8m8fqZ/IVP4R4zRPICcPchiORo5E/8+DEFlTClroYUjKUDBFL
-	TaDV4KUN+8yxKo/vvy6yFTmjxeGemLqVxvGmvpcIe4OskhmlUuC36Hyi3JUSpN1Dnc+EcRYlpZocS
-	IruDs9gBkJaCaL7YVodar2c8CNVmcBkh3uIuH+JQi6YTXp/GqndS5pFaRChBQTikuiCn8gHouBJ42
-	fEX6fJpg==;
+	bh=CNT8qK90tO4DRCBa6Q1VeOcJ+2/2PVh6nuYm8vkCehA=; b=pCTuKX9Dgh9YGKcuCyqVJVAjjt
+	/y7UjR+UA9ka8LDhhj6atH8em36vcnfeKlopT+i61FtDj3BJG4CidCxNquBPEgHodiL7n183LnxrU
+	DU0AtE8Zpsap2syxEdV06U1eaacMZCxnpmhdTdWMoFYXGggCO7q8WDcGIDS5uO6zN6gY/wvjKDyp/
+	YqgZSvtVlYmtdAOZzr03nqRvOKIZ8h/gjZjAOK5hcPmx5u2ITadKB64nIkNg0rP4AwDjIENzvrQAX
+	c2m6UgtFrc1OAdFlIqqk06KSVc/lwZbcl4lfNkRajbdzXFpWIGhZ0s7o/366SpSmbVY/1hacmHiAf
+	moJvBGKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLKQz-00000006Smz-3Geo;
-	Fri, 08 May 2026 12:36:01 +0000
-Received: from mail-westus2azon11012061.outbound.protection.outlook.com ([52.101.48.61] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wLKkd-00000006VQu-2zsg;
+	Fri, 08 May 2026 12:56:19 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLKQw-00000006SmY-3mWr
+	id 1wLKkb-00000006VQ9-2J2z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 12:36:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kI0Trk2t/3EgfZB/+TZLnNEGwix46U4fL7NExdr8fT6j8FHk0YrUsscm7iCuttUOEQP8INW7bUvE7yw30Cy2j/7vsD7sMF4SFFK1pNW7A+zeQbgqF9cfrd+3w9u4lZaDyAK0bacfyajhvQZWj/oHjHZQMXnFd8vi9EM6M42RWzSdp2PMsGEH/c3D5qa3YpGTRayH1bPalDd6CJfAJ7rKuSYuNhbC031YO1sLLXV6nWNZ2n90idLvDB8D/FwpgcmoMKfWQLMLANZIVhRxSjps782FVWkuDtW5mnXaZ5rrPdgpz5KuCfQnIwno88jocXD5fVd+hSznulqI92mXEjT0ZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sr914e8M5frO41Ll8HgmM3TR9EyIF1fwKLF1sY71UWM=;
- b=Rseh/6n3k94+KKuuTFyq4U1tPZDuBgf1e7EpWACAfZabzkmNI54hdxCqfoeMrojp3PtmNSUIkZd+pPjLwys+oBXn8Uv2LoRpb/BEyiCPSGl2gtDHfV2qEimZ8IP6Yubz/YKRI87mWW+pNxYi9+1YBkjhTVhI2VAVeIYvzG8Rja5PK0LrgUQPQCuKnIFj6haE+bTWW/snVxY2mZUmY1QMTiszBYF5xY6cqIf2WvpXT9QXj0x3wt3Q+vFxhP1EMN+NwMZ+Lea3ZHlW/2/ZH2XxuRcDrtFevK6aI2rLwiKlvLO4v5ddhdXvegletfIxcM6zDhVTMjkqkHc3D+NzxZKHVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sr914e8M5frO41Ll8HgmM3TR9EyIF1fwKLF1sY71UWM=;
- b=tDJV9McRUwbaEssJnmyUijx195Ika8p45ZLI2yZSrNyJNU3Lsha93KIWrz1H4dNrI0onRlmMiNJGzFKOicFf65o5jCmbx/WiXfzWww4jiQiaeTaXxbmlyM286dJ8Fah7qgFVGpFEdxBNu9cVBrMk1+iiMr+aCIvPvOFeaDGtujg8o1+ZTRX65NQoXpYKINlo+aIygv+qpKmsmE8b+3JwC+7HDdb/wtPoTuqRCOTYMrkZSHBc0iVp4EwqZvZXOffGl1IxEHdqzj857ikB/vNZXe0AQlNQ+1uwoU94z1sS8iXvWt53pFV1ioXrNiF6f4g+Je3eW0r+tdlQ6Ms8V0JUag==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DS2PR12MB9797.namprd12.prod.outlook.com (2603:10b6:8:2ba::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.19; Fri, 8 May
- 2026 12:35:51 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9891.017; Fri, 8 May 2026
- 12:35:51 +0000
-Date: Fri, 8 May 2026 09:35:50 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3-sva: Enable Hardware Access and
- Hardware Dirty bits
-Message-ID: <20260508123550.GB9254@nvidia.com>
-References: <20260503135413.1108138-1-nicolinc@nvidia.com>
- <af0SdkjQOZxnnaQb@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <af0SdkjQOZxnnaQb@google.com>
-X-ClientProxiedBy: BLAP220CA0030.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:208:32c::35) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 08 May 2026 12:56:18 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 647MdOX82752196;
+	Fri, 8 May 2026 12:55:46 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=CNT8qK
+	90tO4DRCBa6Q1VeOcJ+2/2PVh6nuYm8vkCehA=; b=qAlkhycXw4gtpTG5+LJ5po
+	PDVZo4vzWxnyxrQaoUzBiIsXIsMNix5CIEDobA/ATdlrcmXwMhD1qYTatiIBpqAv
+	lqb3/Awy6xerfM7kQbzUJmxlW+IxdOXOCD+of1TSgBLYmlJbf3lybKkxlOiuhevS
+	MQkvG8iuM4eZUHuU18k7SBJrGO5JX1DZ8oca16zVvCqo8jZIiWAmfWByFXh5CcrK
+	jhYt0L0yUSpCAM0ryVCcTyX1L6iHKZJJXgYkCPOkO05O6SwA4RNRKQgTyyXRrPz3
+	czD15LJUqzUQFWBNLYBJfNiTQafMKDk7mTHJm4616FXcWJWpYOAmk5UX6XrgBOvg
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4dw9x53rqn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 08 May 2026 12:55:45 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 648CdfU6020024;
+	Fri, 8 May 2026 12:55:43 GMT
+Received: from smtprelay05.wdc07v.mail.ibm.com ([172.16.1.72])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4dwuywga2y-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 08 May 2026 12:55:43 +0000 (GMT)
+Received: from smtpav01.wdc07v.mail.ibm.com (smtpav01.wdc07v.mail.ibm.com [10.39.53.228])
+	by smtprelay05.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 648CthT133358464
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 8 May 2026 12:55:43 GMT
+Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7A3C65806B;
+	Fri,  8 May 2026 12:55:43 +0000 (GMT)
+Received: from smtpav01.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 25CE15806F;
+	Fri,  8 May 2026 12:55:41 +0000 (GMT)
+Received: from li-43857255-d5e6-4659-90f1-fc5cee4750ad.ibm.com (unknown [9.61.52.128])
+	by smtpav01.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Fri,  8 May 2026 12:55:41 +0000 (GMT)
+Message-ID: <2b3782398cc17ce9d355490a0c42ebce9120a9ae.camel@linux.ibm.com>
+Subject: Re: [PATCH] ima: debugging late_initcall_sync measurements
+From: Mimi Zohar <zohar@linux.ibm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: David Safford <david.safford@gmail.com>,
+        Jonathan McDowell	
+ <noodles@earth.li>,
+        linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, paul@paul-moore.com, jmorris@namei.org,
+        serge@hallyn.com, roberto.sassu@huawei.com, dmitry.kasatkin@gmail.com,
+        eric.snowberg@oracle.com, jarkko@kernel.org, jgg@ziepe.ca,
+        sudeep.holla@kernel.org, maz@kernel.org, oupton@kernel.org,
+        joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+        catalin.marinas@arm.com, will@kernel.org, noodles@meta.com,
+        sebastianene@google.com
+In-Reply-To: <af2nhZyyNaP7LM3w@e129823.arm.com>
+References: <201b9172ac47c6766443c1f2343cab3548f33c29.camel@linux.ibm.com>
+	 <afrXmRiq7XvSe6yN@e129823.arm.com>
+	 <9ff4853a8e9932b3a1424f2a6c3347f1723fb5f4.camel@linux.ibm.com>
+	 <aftIuPwNeuzc9nY1@e129823.arm.com>
+	 <9d1af933ef218b159762884357d127e3644dfe2c.camel@linux.ibm.com>
+	 <afwoDgaJxmKwOhXp@e129823.arm.com>
+	 <f19081f1eda19d6d1ae133d8ec93e779ab1a25e5.camel@linux.ibm.com>
+	 <afyIbW5cljh5ZvTL@e129823.arm.com> <afzwJn+5r15jFxrB@e129823.arm.com>
+	 <77ad49cca1acf707f4152ed3e2066b2f24c90c16.camel@linux.ibm.com>
+	 <af2nhZyyNaP7LM3w@e129823.arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 08 May 2026 08:55:40 -0400
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS2PR12MB9797:EE_
-X-MS-Office365-Filtering-Correlation-Id: c2e80086-396a-4738-1ca0-08deacfe56f3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: JG4c2tMzURrnl6+rM2haWg1BpM7tgSh/4Zu6euaRDIoM5HFlPwUIBnYS0gzcQfA1r9JjUT7g7RTu/KRx9TBbKsOwJW9/avAIkD0ZjbYN2ujo/F/oNxXG3a/y4KVrMwxsLToBoAybOtDyyB2oVR4mlZ3YwqN2ythKcZR11C+DKEZrcURO2rlLM2dZvQLhD4YEwxu+dxK5SVrB09FdFEb3tNtuPB4rBU2LPZ8Mw2KHV92sAhmlYjtAWDwwRGSZI50HO1FpWS8WQ05UhspLLlbM4b54UC9dNvMe/20p80BVBrkdmNMJdRcv6JTQ/oBvZ9x2ydIi96hdOCVVQsC2MHpq24qjvzt9EqDqoeDrS7dVHP+YSQOaMUrCtzoLvY8lBa4wHOrzcvXJfraN/B67x3O42+/onT6DEOBNmZ5gudJv3iQrIr5cUm4AvkcX0dkwBXDjoEjK/nQbm966B4BW9ZAApsHkg6fW3+QGaZFxMQq5wv+LKgAPr7hEjbzRfimuLjbLwfORcrYHFhdrWcXNO5AriycD8sGve4fPhXrf3qjAuXzsanadQTirl57+cJ/oe3NKXRq5rx5C5MFQhDdLGLePUJBAZkGTWqiTeu2v0Uk8Vm9b8uUbiVC95RyOkKXp8k/Bxzkf3PC5njjtWeNV4OHYeeIbnOOazsZVnb93XEBuILOA0lR3d9VB+5fPqIbJA06a
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6Eshh0fDezhBEAOufiqQzLU8yJ1969EeNtD7OYQ1pn+4asPRfL9xn+TFpIvL?=
- =?us-ascii?Q?tajnWUe0VSlJVBZDXpLaQbB5eyncd9AaYEKxQMPfMBdxRvFYpTxsVRTZkiep?=
- =?us-ascii?Q?udD3nUC/L/GdNihsXeLmeEaeAqRUSumuu4JAPLdrfJQjCoF6cfBzBQ7VMH9/?=
- =?us-ascii?Q?jTKLCqqKf89XdCqAleTmCrwG+NvFfiiLNnaCXFvTZQsxOE2b+X4QW7fgOud8?=
- =?us-ascii?Q?MMwHHtiKDIwZ8VmYEYND0dNTi6kbFb6y+hSm1xOyWR8qIfAG5xWqqHgV9k1Z?=
- =?us-ascii?Q?VHAXNlf8ByBApyBjy5KQjvFHdAVyFPAifq36dpwV0KfhkYYU1LGPcUkhNM9I?=
- =?us-ascii?Q?UklJb/ymrahNYSs6MeL9r07lq5GJEHhdwehmE0Pfy725JvlqelhK8JYtHnuo?=
- =?us-ascii?Q?otYVx9otn2OVW/aME1MSt+3d0P+1a+qluxaXaSlK4daVbBmfpq5wAbqGYRdf?=
- =?us-ascii?Q?yERu6RXoFtfol3SCRRLLqJTtn9eUoSF7I5V+VI6tiJ9jziEb3IGD1iFIS1bj?=
- =?us-ascii?Q?7TsR/BgMXC+1Bk9yM7qkBudGYCVyv19z/wyrS3i9Bb+SFAfDYi03J0eZz9Pz?=
- =?us-ascii?Q?R9Pw+HURBHr956yym5eb3JBxmlJ5CEy9BFoXFSlTMkYfC/Ig28m30k1RgSCM?=
- =?us-ascii?Q?rbydx5FpxIMiqVarUZSQ4F1O0A/SZQOCeeQxbesPSS2Nf0hfIXlm2Z95P/LI?=
- =?us-ascii?Q?JVivBvEN44RL8RLjxWj/3051LV0VbQ5zZudeQWj8wAk44g+i9azHa8hD5q/3?=
- =?us-ascii?Q?0+9V85DIu8PELIg7d7mtn6cfb+N4+Antshn1QRoXC3TAfm9ynlMeGFLbaYAB?=
- =?us-ascii?Q?N6lA7teLJY7TVjFdokfMM1V5XTMK2rc1iD4+mVp489i3SCdkB1k3W6OXpAN/?=
- =?us-ascii?Q?Z/YwIplr9c96FKbhiaLqCTC4ZEcAmT+vNpPWUuvdjGZu/uVo3Gxq3hCz4xCu?=
- =?us-ascii?Q?wbGwWfQWBoqtUndIRpNERnlBFz9DwRg5RNRgZWqMiPRQJPz+/dTsfGyL4HYF?=
- =?us-ascii?Q?ljdlk/aCh0RBjCtkUGrdx1cGYxgL97ikOYT0vo1hm+LW0NmHIv62AYr+a/Hh?=
- =?us-ascii?Q?MhmgUu/1jwzEXfZcCHMSJ78lOrVxlpQsU8+EjS8kmeMo5jUyszDLlYCjQhM7?=
- =?us-ascii?Q?o8BC3cqF3ouMuNmOuYg6oyLlRu9QFgng5lrdPbecgHX/LJmVI93TysfamhIF?=
- =?us-ascii?Q?4UFS2vMUJnk/Hm7c4bpbjsPx3gBfRXKQT+v/3DdiTBaOJVM+eSrUslpFAqE4?=
- =?us-ascii?Q?yb8a7O3BjP3dWgxq9yDcEHG4NhN4rzY0BWVzXM0g7zwpof9xZQR8gGShWpYT?=
- =?us-ascii?Q?pGDUBUmwE7GdqlH3o99YMZGZOHeBHufym2lNaC+llwKJWL0cCZP7ALLCL+H0?=
- =?us-ascii?Q?TOjgJt04uL1PjMSNfZtU3DGGyB5lKm+P8oa5Ot5srGw1NOKUd6dhnfd4dwpB?=
- =?us-ascii?Q?FdC2uETDWoOGv81kpSdUPb9aR26FHBv4W9ZleAJJTAsmuiiHRGqQH2wQ/7Eu?=
- =?us-ascii?Q?t91EjWpZe4fLX/1oWssybNWhwmQcSKjOqr8gZLvxgR89QrkFqSG3gDbLHQVi?=
- =?us-ascii?Q?fptasAdcS54zHH1B7LyJt8Swh/69hBZMnyJFvTIruKdZx6Tsk2CRa1GwOimw?=
- =?us-ascii?Q?a+DZZ0iJRvLE1HEsd6CMktRUbfT66/VL3xEgTIPts2sazDqA85CEr/lRnb9Y?=
- =?us-ascii?Q?pOuvfib1ersxemFqLI9REgIcDXMqj3VZvIl/AgUwwNBgCbB/?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c2e80086-396a-4738-1ca0-08deacfe56f3
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 12:35:51.5748
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: w2nr9WZ0ih4OVBJeqjVMQthOecmBujbgOriA/pTZENbH3rzu9rkpolh+epxjhAZW
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9797
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA4MDEzMSBTYWx0ZWRfX0GEHvismOr/n
+ yL3KnjqVPl3k3o5t4By0xsuVICtLo4mcf2LhMsMA7D8UtFoAk/kD6YiWYgHyq+wz4p//8yQGRF/
+ yrLxJ1RBz3LvkUtlsB5sSapQ4lEMuatN7zIFALpVLfaChy+BYG53J8xK815TxzQ+wPwdIhTMyiT
+ FtdSxlz+hckgfS1c2tJd/ggZh4KhYZZaHAjIstlJ6A3prqSlczq+T3vYhPcT7qr727p3hBdAEH+
+ 0UTiFJc3eEkAtS5jf7NXNekOdHwmJ7LeJBm7Kd8/t4bmC/6W9lskHXHaeCMmJsnUK2FnzGr+zcW
+ JAgFEuWYdLedfhuE1LAkLJSFuH+IXt+3QeL1/YgfPF+AlYFK7UsfP0gvxmOfyanJ++T8hEzBnFC
+ ucT8TXRTykJLWhKbRum9ZwKl+7qj9pq9V9YxF/IOiTuf/wup7a8D8A2wlab9vD/fHnuTb5laOxo
+ MSW9S0ZC/gxY3rAVbXw==
+X-Proofpoint-ORIG-GUID: 2l_3ko0Exadu_5ZF5KPsMugHlnC-OGcV
+X-Proofpoint-GUID: kB6MJOa0lJ5Hl5Uuk4_weLGs3pN_k0Vo
+X-Authority-Analysis: v=2.4 cv=W7UIkxWk c=1 sm=1 tr=0 ts=69fddd51 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=jeveBUE32ww0wtG-KO0A:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-07_02,2026-05-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 adultscore=0 lowpriorityscore=0 malwarescore=0
+ suspectscore=0 spamscore=0 clxscore=1015 phishscore=0 bulkscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
+ definitions=main-2605080131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_053558_941181_D12D37F7 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20260508_055617_596820_E71EBE36 
+X-CRM114-Status: GOOD (  24.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,28 +139,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 10:30:14PM +0000, Pranjal Shrivastava wrote:
-> > @@ -92,6 +92,16 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
-> >  
-> >  		target->data[1] = cpu_to_le64(virt_to_phys(mm->pgd) &
-> >  					      CTXDESC_CD_1_TTB0_MASK);
-> > +
-> > +		/*
-> > +		 * Enable Hardware Access and Dirty updates (DBM) if supported.
-> > +		 * This is safe to enable by default, as PTE_WRITE and PTE_DBM
-> > +		 * share the same bit.
-> > +		 */
-> > +		if (master->smmu->features & ARM_SMMU_FEAT_HA)
-> > +			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
-> > +		if (master->smmu->features & ARM_SMMU_FEAT_HD)
-> > +			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
-> 
-> IIUC, we should be setting these if IO_PGTABLE_QUIRK_ARM_HD is present?
+On Fri, 2026-05-08 at 10:06 +0100, Yeoreum Yun wrote:
 
-SVA does not use IO_PGTABLE at all, and it directly constructs its own
-CD.
+> > The kernel selftests caused the measurements between late_initcall and
+> > late_initcall_sync.  After disabling all of the kernel selftests, there=
+ weren't
+> > any measurements. Re-enabling the FIPS selftests on PowerVM LPAR result=
+ed in
+> > measurements.  (I didn't try re-enabling any of the other selftests.)
+> >=20
+> > CONFIG_FIPS_SIGNATURE_SELFTEST=3Dy
+> > CONFIG_FIPS_SIGNATURE_SELFTEST_RSA=3Dy
+> > CONFIG_FIPS_SIGNATURE_SELFTEST_ECDSA=3Dy
+>=20
+> Thanks for shraring this ;)
+>=20
+> I found the reason for those mesaurements. Those come from the
+> request_module() and usermode-thread generates them while handling module
+> loading request for crypto-x962(ecdsa-nist-p256).
+> Since it's not a real kernel module,
+> I confirmed file measurements between late_initcall and
+> late_initcall_sync are gone for modeprobe with below change:
+>=20
+> @@ -1246,9 +1250,14 @@ EXPORT_SYMBOL_GPL(ima_measure_critical_data);
+>   */
+>  static int ima_kernel_module_request(char *kmod_name)
+>  {
+>         if (strncmp(kmod_name, "crypto-pkcs1(rsa,", 17) =3D=3D 0)
+>                 return -EINVAL;
+>=20
+> +       if (IS_BUILTIN(CONFIG_CRYPTO_ECDSA) &&
+> +           (strncmp(kmod_name, "crypto-x962(ecdsa", 17) =3D=3D 0))
+> +               return -EINVAL;
+> +
+>         return 0;
+>  }
+>=20
+>  Though this is the only request_module() call between
+>  late_initcall and late_initcall_sync, but I also confirmed there're
+>  request_modules() call before ima initalisation before "late_initcall":
+>=20
+> /*
+>  * NOTE: kmod_name is printed on ima_kernel_module_request()
+>  */
+>=20
+> // This is called from module_init(stm_core_init) -> device_initcall()
+> // which is in driver/hwtracing/stm/core.c (built-in)
+> [    1.421986] ima: kmod_name: stm_p_basic
+> ...
+> [    1.444900] ima: kmod_name: crypto-pkcs1(rsa,sha512)
+> [    1.444903] ima: kmod_name: crypto-pkcs1(rsa,sha512)-all
+> ...
+> [    1.452029] ima: kmod_name: crypto-cbc(aes)
+> [    1.465321] ima: kmod_name: crypto-cbc(aes)-all
+> ...
+> [    1.467845] Key type encrypted registered
+> [    1.467848] AppArmor: AppArmor sha256 policy hashing enabled
+>=20
+>  // IMA is initailised at late_initcall level.
+> [    1.467850] ima: [init_ima_late:1336]
+>=20
+> If IMA should care request_module() from kernel before IMA init,
+> I think there is no way to solve except queuing those events
+> (kernel_load_data/kernel_load_post_data and open for module binary etc.)
+> though it breaks "measure before use" principle since IMA couldn't
+> measure at that time.
+>=20
+> But if you don't care about those things -- some events happend before
+> IMA init, I think your suggestion -- controlling the init time of ima_ini=
+t()
+> via a Kconfig option is good and ignoring some usermodehelper request
+> including request_module() before IMA initialisation upto user by that op=
+tion.
 
-No relation between those two flows.
+Thank you for the complete analysis.  The early measurements before the TPM=
+ is
+initialized is a problem that needs to be addressed.  As to whether the sol=
+ution
+will require queueing is yet to be determined. (Roberto has some thoughts o=
+n
+addressing it.) This discussion makes it clear that simply delaying IMA
+initialization by moving it from late_initcall to late_initcall_sync could =
+miss
+measurements.  That said, exposing it as an opt-in Kconfig for those who ac=
+cept
+the risk is a sensible pragmatic compromise.
 
-Jason
+Mimi
 
