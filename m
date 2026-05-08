@@ -4,63 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F202CCD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A465CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 14:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=f05RuqgwM8w2o2bR5ej3FFBA72EEJql8rM897l5z5ng=; b=Kxor67KrbZKDRdqVSiX4HJ1HYj
-	4hMq/i4BNS5887AkFua5ulbeERLPekXNgll1PBoKmr8mZFeUmHssxVQdWpBTcQ6SAIF2jY/sQfhkG
-	ceCaL55Rb/oU9CdHAthIbRpKxpNsiZz8HQPT1cixOpNeyGK4+lC1mGPCTmWp2NlzEY7lXnzmTUI72
-	SZlbGg+/p5hC+GpHPSGNalt1ieetedribrRzs37jnb0GlG/VLiYlTxbtFWzGhO4pD2/qhV7qW0mwy
-	GknoRS4zpJLHJPDMC4k9pVyjqavNz7bvlzUTSJ3QrYYTAjcoPrh8JmxqgKFDxjk9EZnTqaKEwgutQ
-	yyNOQqFQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+iFvo8qHSuKHpqwOV+1SAexauNVOA61i8ZsTqWG1p1E=; b=m55HhjunhBaXIF/tH/8IqWrSna
+	fUxHVKEkgDgxL1uwdHloeZLjsi2NG8meTca+9CV5OwkibtSDu9foNDniYLwEhWAGFQaxcu5lWnR+Q
+	9V7dCtuHw8iin32F35orHWgJvODRGN2fMm/bd+labJ76YYdkRR8qmGB2knxpA2zWRMMiwKmMTSnsa
+	J8H3o8pjuH2xIeeZkihRUpiuEpH2a9rmktnhxWWP+05gZ4OHxikfMhY7NrkshRNmj2BgzE/QZ/APH
+	AYdDpP/smqCynVnPYU6pla8JOGoeq0cLO0JNsOM8Y7iLxPUjQrHE06KvxGvHedHAr0fw6mK5QwAAp
+	P9qTDgdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLM4A-00000006ejr-1huE;
-	Fri, 08 May 2026 14:20:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLM47-00000006ej8-0X4S
+	id 1wLM6o-00000006f9O-0SiX;
+	Fri, 08 May 2026 14:23:18 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLM6m-00000006f8n-0Wyz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 14:20:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8BA7A1D34;
-	Fri,  8 May 2026 07:20:24 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1CEF13F763;
-	Fri,  8 May 2026 07:20:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778250029; bh=NJaOtDqSNUH/TvmBRW6LoW2lfDhXMmlGpgNYClF5oWI=;
-	h=From:To:Cc:Subject:Date:From;
-	b=dVN2NDzpp+lQu4tt17eChPmiGoRbRAIp84979zKXwBENhL6Pz5De9MnQol74T7gPK
-	 hBUcAy6ygODZ9o8gb0GujDt80k6yu+NlbS15+p6gzHizVjMdy2pO0FASWAe9Tb+Y7U
-	 D3HDI9OtvpJy7z827Ix0IavFP11IX42GdNMuSA+o=
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Will Deacon <will@kernel.org>
-Cc: ckennelly@google.com,
-	dvyukov@google.com,
-	linux-kernel@vger.kernel.org,
-	mark.rutland@arm.com,
-	mathias@mongodb.com,
-	mathieu.desnoyers@efficios.com,
-	ruanjinjie@huawei.com
-Subject: [PATCHv2] arm64/entry: Fix arm64-specific rseq brokenness
-Date: Fri,  8 May 2026 15:20:23 +0100
-Message-Id: <20260508142023.3268622-1-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
+	Fri, 08 May 2026 14:23:17 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-baa8c78ac7fso311451666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 07:23:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1778250193; x=1778854993; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+iFvo8qHSuKHpqwOV+1SAexauNVOA61i8ZsTqWG1p1E=;
+        b=KZpumPZ9mjdLDWVS9cbII8XCSqmObWMB/R1k+7FQSOQfeiQfUGOuxg4SNiUg64boZi
+         ogth77hpmLQ//pDXr/8HDVmECptYBsYUG6EaHTriU+mVuMZkw7b9Dc1JtCMZ1f9YZR5+
+         MlxchBeMn7MKnwCwjVmsSTzDvI2gYumMC8uRj4NIIs2DOnUk9nno7o5OeY6LyoKJsCwB
+         BDHuG6jQ6seAN3e3GxsKXUFqwQ4gyEmc3n3INiypLFbBmb1WAIpBgQ/5zUtzrAtR3Uza
+         +jkCNXpy5OWLLrDdM5L9rBVLpF7MigcTrUQNZD0G6rpr8eQgPjBxNF3UsPco8xLGi8UF
+         dcPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778250193; x=1778854993;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+iFvo8qHSuKHpqwOV+1SAexauNVOA61i8ZsTqWG1p1E=;
+        b=bO4Anxh99EyqO4/iLOCnOc0/gLUywifW8xAdtEn3a1QfSP4pKLZc7zI33X+Q+mNqkH
+         g5TAEslBk+tADpfnWt7Qe64Mz7VGJEJALrXhV9qi32XxA2PKNflddbDX+LZJkSMsbfRQ
+         S9lHFoyFSFw1Lq6nAOjU0pMP7RiX7K2q0bgIuq1nuUtgqGsY0I7DCZJyjzTbLGr03cS/
+         OlK58r/w7yl132bw39t+C0WDJWK/5R+YbNJm55c2sme1LXbwsTrzudTsGaYcRcJrGjrU
+         vZx50aVstHtJ2rYaNKRBzB1ubF6xAM05yapyfLVH1MD4ByyeF5bmOneltoVC7/b+p4DP
+         qrzQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+KiC3z4qQIRZ9synJgKKYpMMNVXrwM14jNKbkXtEWLY9eTb7dKWEsPY/pSM6SAkOsn1wltJE0lKLPjh5r8xk93@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDJab9hYu44GkQwUo2R4AmWRbj/wRUWIHwPiBcQ+84iwMNaiQR
+	jNK9AMgrmhcWPc4JHapxKqdWMCpvT0cqCKyKDOQLlkUC+x2i9YMIN9K2dCR/Fsinj98=
+X-Gm-Gg: AeBDievN8ueOQC2J6Ad1ToUBLN9zUba/dPZjtHVhkAX3hqHqkP93E09xKLHvSFJ1HX/
+	o9+JRZL0UlMWSbaWgL7GOd2dbHhN7tuv29WJQuriSKlHwGtdCnbOqK8PI2Csqd4pXnz/Lf0d33h
+	1oEgLxTJOF27QdcfJC1H70rPul2ekXtUk/2PA5yDpwHMr2XSaXe2nrpVW1xO8xxKtn7WGKL0uwe
+	a/YftGeNeYDPx5qgCFSpVkJDGqXlY4L39t7piXgJZgS1+5wgh3DWYBMP1CC3sEMCkZHbRfHqgy0
+	8a8JL8mlnEK6dRJA79w3vV35zyWEosjmJ2zCWeoeEYF2X5huii/MtwNHfLEb9ftns2kdpL1JmQ0
+	qZ1bUbFL6mZs3iwqi0WMRDMTF2E4S6U35jWgu0dvD0idrzC3MBSGZu8aAIEnQR8EvduRwfaO0cy
+	7DBBEuY5zHB/H6N3Tmy/O0VDFwGiGUt9uCiHM=
+X-Received: by 2002:a17:907:807:b0:ba5:2f0a:2f40 with SMTP id a640c23a62f3a-bc56aa45eafmr738018166b.4.1778250193349;
+        Fri, 08 May 2026 07:23:13 -0700 (PDT)
+Received: from [192.168.0.167] ([109.76.20.123])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-67ef0b6a648sm703741a12.7.2026.05.08.07.23.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 08 May 2026 07:23:12 -0700 (PDT)
+Message-ID: <328860b4-1d4b-4a90-9d10-cb70207aaa5c@linaro.org>
+Date: Fri, 8 May 2026 15:23:11 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/7] Add dtsi to describe the xe180100 CAMSS block
+To: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Bryan O'Donoghue <bod@kernel.org>, Robert Foss <rfoss@kernel.org>,
+ Todor Tomov <todor.too@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20260508-hamoa_evk-v2-0-3ebdca3e4ae2@oss.qualcomm.com>
+ <20260508-hamoa_evk-v2-4-3ebdca3e4ae2@oss.qualcomm.com>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Content-Language: en-US
+In-Reply-To: <20260508-hamoa_evk-v2-4-3ebdca3e4ae2@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_072031_244021_61B0DFBD 
-X-CRM114-Status: GOOD (  22.85  )
+X-CRM114-CacheID: sfid-20260508_072316_177395_AC199803 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,248 +115,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 08/05/2026 12:40, Wenmeng Liu wrote:
+> From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> 
+> 4 x CSIPHY
+> 2 x CSID
+> 2 x CSID Lite
+> 2 x IFE
+> 2 x IFE Lite
+> 
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Signed-off-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+I'll repost my working version with the PHY stuff so I'd kind of 
+appreciate you not posting an old version here, just wait for it to land.
 
-In all the confusion with the rseq fixes, it looks like the arm64 patch
-didn't get picked up into the tip tree. That was queued up in Thomas's
-devel/core/rseq branch, but it didn't get reposted and picked up into
-tip.
-
-Thomas, Peter, are you happy to pick the below into the tip sched/urgent
-branch? It's the same as what what in Thomas's devel/core/rseq branch:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git/commit/?h=core/rseq&id=04db289d5633dad546a0778537f0f0e52ebfc88b
-
-... which was taken from my arm64/rseq branch:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?h=arm64/rseq&id=05bce437d4f2fd14a7be4706c684a618e2fcc82f
-
-It applies cleanly and passes all tests.
-
-Catalin, Will, you both mentioned off-list that you were happy for this
-to go via tip with the rest of the rseq fixes. Can either of you please
-confirm with an ack?
-
-Mark.
-
----->8----
-Mathias Stearn reports that since v6.19, there are two big issues
-affecting rseq:
-
-(1) On arm64 specifically, rseq critical sections aren't aborted when
-    they should be.
-
-(2) The 'cpu_id_start' field is no longer written by the kernel in all
-    cases it used to be, including some cases where TCMalloc depends on
-    the kernel clobbering the field.
-
-This patch fixes issue #1. This patch DOES NOT fix issue #2, which will
-need to be addressed by other patches.
-
-The arm64-specific brokenness is a result of commits:
-
-  2fc0e4b4126c ("rseq: Record interrupt from user space")
-  39a167560a61 ("rseq: Optimize event setting")
-
-The first commit failed to add a call to rseq_note_user_irq_entry() on
-arm64. Thus arm64 never sets rseq_event::user_irq to record that it may
-be necessary to abort an active rseq critical section upon return to
-userspace. On its own, this commit had no functional impact as the value
-of rseq_event::user_irq was not consumed.
-
-The second commit relied upon rseq_event::user_irq to determine whether
-or not to bother to perform rseq work when returning to userspace. As
-rseq_event::user_irq wasn't set on arm64, this work would be skipped,
-and consequently an active rseq critical section would not be aborted.
-
-Fix this by giving arm64 syscall-specific entry/exit paths, and
-performing the relevant logic in syscall and non-syscall paths,
-including calling rseq_note_user_irq_entry() for non-syscall entry.
-
-Currently arm64 cannot use syscall_enter_from_user_mode(),
-syscall_exit_to_user_mode(), and irqentry_exit_to_user_mode(), due to
-ordering constraints with exception masking, and risk of ABI breakage
-for syscall tracing/audit/etc. For the moment the entry/exit logic is
-left as arm64-specific, directly using enter_from_user_mode() and
-exit_to_user_mode(), but mirroring the generic code.
-
-I intend to follow up with refactoring/cleanup, as we did for kernel
-mode entry paths in commit:
-
-  041aa7a85390 ("entry: Split preemption from irqentry_exit_to_kernel_mode()")
-
-... which will allow arm64 to use the GENERIC_IRQ_ENTRY functions directly.
-
-Fixes: 39a167560a61 ("rseq: Optimize event setting")
-Reported-by: Mathias Stearn <mathias@mongodb.com>
-Link: https://lore.kernel.org/regressions/CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com/
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Chris Kennelly <ckennelly@google.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kernel/entry-common.c | 31 ++++++++++++++++++++++++-------
- include/linux/irq-entry-common.h |  8 --------
- include/linux/rseq_entry.h       | 19 -------------------
- 3 files changed, 24 insertions(+), 34 deletions(-)
-
-Since v1 [1]:
-* Restore sme_{enter_from,exit_to}_user_mode()
-* Describe use of enter_from_user_mode() in commit message
-
-[1] https://lore.kernel.org/linux-arm-kernel/aeueE1I1OuVkOcEZ@J2N7QTR9R3/
-
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index cb54335465f66..c7a23f7c22122 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -62,6 +62,13 @@ static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
- 	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
- }
- 
-+static __always_inline void arm64_syscall_enter_from_user_mode(struct pt_regs *regs)
-+{
-+	enter_from_user_mode(regs);
-+	mte_disable_tco_entry(current);
-+	sme_enter_from_user_mode();
-+}
-+
- /*
-  * Handle IRQ/context state management when entering from user mode.
-  * Before this function is called it is not safe to call regular kernel code,
-@@ -70,20 +77,30 @@ static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
- static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
- {
- 	enter_from_user_mode(regs);
-+	rseq_note_user_irq_entry();
- 	mte_disable_tco_entry(current);
- 	sme_enter_from_user_mode();
- }
- 
-+static __always_inline void arm64_syscall_exit_to_user_mode(struct pt_regs *regs)
-+{
-+	local_irq_disable();
-+	syscall_exit_to_user_mode_prepare(regs);
-+	local_daif_mask();
-+	sme_exit_to_user_mode();
-+	mte_check_tfsr_exit();
-+	exit_to_user_mode();
-+}
-+
- /*
-  * Handle IRQ/context state management when exiting to user mode.
-  * After this function returns it is not safe to call regular kernel code,
-  * instrumentable code, or any code which may trigger an exception.
-  */
--
- static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
- {
- 	local_irq_disable();
--	exit_to_user_mode_prepare_legacy(regs);
-+	irqentry_exit_to_user_mode_prepare(regs);
- 	local_daif_mask();
- 	sme_exit_to_user_mode();
- 	mte_check_tfsr_exit();
-@@ -92,7 +109,7 @@ static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
- 
- asmlinkage void noinstr asm_exit_to_user_mode(struct pt_regs *regs)
- {
--	arm64_exit_to_user_mode(regs);
-+	arm64_syscall_exit_to_user_mode(regs);
- }
- 
- /*
-@@ -716,12 +733,12 @@ static void noinstr el0_brk64(struct pt_regs *regs, unsigned long esr)
- 
- static void noinstr el0_svc(struct pt_regs *regs)
- {
--	arm64_enter_from_user_mode(regs);
-+	arm64_syscall_enter_from_user_mode(regs);
- 	cortex_a76_erratum_1463225_svc_handler();
- 	fpsimd_syscall_enter();
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_svc(regs);
--	arm64_exit_to_user_mode(regs);
-+	arm64_syscall_exit_to_user_mode(regs);
- 	fpsimd_syscall_exit();
- }
- 
-@@ -868,11 +885,11 @@ static void noinstr el0_cp15(struct pt_regs *regs, unsigned long esr)
- 
- static void noinstr el0_svc_compat(struct pt_regs *regs)
- {
--	arm64_enter_from_user_mode(regs);
-+	arm64_syscall_enter_from_user_mode(regs);
- 	cortex_a76_erratum_1463225_svc_handler();
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_svc_compat(regs);
--	arm64_exit_to_user_mode(regs);
-+	arm64_syscall_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_bkpt32(struct pt_regs *regs, unsigned long esr)
-diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
-index 167fba7dbf043..1fabf0f5ea8e7 100644
---- a/include/linux/irq-entry-common.h
-+++ b/include/linux/irq-entry-common.h
-@@ -218,14 +218,6 @@ static __always_inline void __exit_to_user_mode_validate(void)
- 	lockdep_sys_exit();
- }
- 
--/* Temporary workaround to keep ARM64 alive */
--static __always_inline void exit_to_user_mode_prepare_legacy(struct pt_regs *regs)
--{
--	__exit_to_user_mode_prepare(regs, EXIT_TO_USER_MODE_WORK);
--	rseq_exit_to_user_mode_legacy();
--	__exit_to_user_mode_validate();
--}
--
- /**
-  * syscall_exit_to_user_mode_prepare - call exit_to_user_mode_loop() if required
-  * @regs:	Pointer to pt_regs on entry stack
-diff --git a/include/linux/rseq_entry.h b/include/linux/rseq_entry.h
-index 2d0295df5107c..63bc72086e75b 100644
---- a/include/linux/rseq_entry.h
-+++ b/include/linux/rseq_entry.h
-@@ -749,24 +749,6 @@ static __always_inline void rseq_irqentry_exit_to_user_mode(void)
- 	ev->events = 0;
- }
- 
--/* Required to keep ARM64 working */
--static __always_inline void rseq_exit_to_user_mode_legacy(void)
--{
--	struct rseq_event *ev = &current->rseq.event;
--
--	rseq_stat_inc(rseq_stats.exit);
--
--	if (static_branch_unlikely(&rseq_debug_enabled))
--		WARN_ON_ONCE(ev->sched_switch);
--
--	/*
--	 * Ensure that event (especially user_irq) is cleared when the
--	 * interrupt did not result in a schedule and therefore the
--	 * rseq processing did not clear it.
--	 */
--	ev->events = 0;
--}
--
- void __rseq_debug_syscall_return(struct pt_regs *regs);
- 
- static __always_inline void rseq_debug_syscall_return(struct pt_regs *regs)
-@@ -782,7 +764,6 @@ static inline bool rseq_exit_to_user_mode_restart(struct pt_regs *regs, unsigned
- }
- static inline void rseq_syscall_exit_to_user_mode(void) { }
- static inline void rseq_irqentry_exit_to_user_mode(void) { }
--static inline void rseq_exit_to_user_mode_legacy(void) { }
- static inline void rseq_debug_syscall_return(struct pt_regs *regs) { }
- static inline bool rseq_grant_slice_extension(unsigned long ti_work, unsigned long mask) { return false; }
- #endif /* !CONFIG_RSEQ */
--- 
-2.30.2
-
+bod
 
