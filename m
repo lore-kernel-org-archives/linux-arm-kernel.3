@@ -4,132 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA76CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B38FCCD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 17:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7vVtvJN65jzXaakphSoo/Ji8+WWz3GNy21ZBOF8LR9Y=; b=DfczPSw43UQTCcVcaG8UK1i91k
-	yxH6RHjRBrNhIxUkH+texdQl8FlWuP+P7LEzZA1RG731BZ8YDUfFpyJc1BPvpdJAFfIPqI65fx/uX
-	/+NKYkmbicC8KZAa3N/RR6pCVL2MH30cDdOCM3qHF32FceVgcUFEO64zHrgZBMB0WMamxgiL6oNxY
-	ZgRPIsVFLVF358ScO5zsekoTQR196VJ6tAulNpVialOfXXtZHMacXCVOVbSjDG++wLS2tlVcqHEav
-	SvMjiUr2avAXB8NdWH4z0i30GS31UCVBgsYeXhifzixmFV0gtQZVEaGpFLtV33q8dyAxddC85jm15
-	eBHLY29w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tys8rcvX2d8y7RMMvwYIUA+lGbFncl79G5WGXwb+O2U=; b=nZcb8ZWYlrxuFE
+	xBDkf7VJoEldMmPOhXm65ROWKncn4qLnb+W2+ORLc+lmul39HcLl3OGfxTQ0BVZXQ2ZT5fk/Q4dzS
+	eUYiVL7u81Dc2zi9qTM+FyJFfrI41vCEQI+YFmDnh00ftp73SFz0Ko114f9GeNLaEShMvldeSikBw
+	bQjuXFXsWLHcZUNUSAFDQu0pNX/IHBZ03IvOCpqx1tioFVLttX17itdJj/LyTx/DZqCU4sUj9Ojum
+	V6oZch9kwM1u9AcdJb3qv6vZUeOQjxIyvvAs7qhNteIvi1I8/PCZkPoXR2g66gAcETCCx6ttjKaht
+	CMNFnFwinTTrHj+nSLSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLP92-00000007A45-2WCB;
-	Fri, 08 May 2026 17:37:48 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wLPPY-00000007CYA-0OEE;
+	Fri, 08 May 2026 17:54:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLP8z-00000007A3F-2frz
+	id 1wLPPV-00000007CXL-3gZ8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 17:37:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sW56COGgIQyEoiX291OryDXohWhMWWiUSELzPOF2IWVdq82XMYr2vjg2mKbpEFKdZD1E7IVWs+iaYG3fEccj9+Ovk7DPzZk78ho/bM+nlWu3yTvPpRULtkCYeHsmFhEEI5dtJfwi6sVwI7vFp0wohQpRcra3n5jPrTy/U5FqPl6U+8Sk+w55+A590nnENg7t4XfGEI96xpHIx6BGi06aa3GF1LSRS8hjfe0boE/O843zh+lsWVCmU+7lszjrF1Vjnx5W4czkVb7BQtILlTROCWMyf5r+NxAJ+PGdakl+6WmbQJEfmjMzYD7RVtBBr4rDoDMyoNpSYcp8SCwMPxAHsg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7vVtvJN65jzXaakphSoo/Ji8+WWz3GNy21ZBOF8LR9Y=;
- b=rhN6SziyRUYIbjekh2+Mni55YQuYoGQbh1LGpJEORKntBTHeEIdxUWrqzhouDCn8dNg7Q+7jOOX0R9THR/cB3bz/1fengV+M/cijpwQr/lfSk3om8P8+okCU1gMzSPaAygZHHQapqytVHHgatrQz+mSppzM2+zng164m+uOJzZZc4J4XMlu4QBPuQegXkkwYri8ll4E26iAWMUKPXeqZzfL2P3KWgoePHzvgNmZL5mWSWDFY/CMYWO5sPHJ9Wpvlox2YBXMhmhkofJEcqGpz+xitQ/2nSBFFRsglabuCmIz/vYQTfB1YHA+1p9ia070mste56fwv0+QHjsqi3bSeSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7vVtvJN65jzXaakphSoo/Ji8+WWz3GNy21ZBOF8LR9Y=;
- b=A9uuobhPAqKeZuXV39seXS37sFa2hKy1V4ckHbZHf7DdS25TwKRc4dPZi7w28opYHA68s86uul1siXkpeN0z0aenuo0fV4BgiLmfoD7cTwWVC3ywKX2y/gI7S6OrrNxF7B0hPAiHQgKQPqj1CTBl1i7raHuYRLzD1c9b9ZJ4njlA3JbnTXnwqFrgQoP3Qq+hO66aOrWGeroJ+LJE0vn9VcBL9jzDwCaAU/Uyg17azNJOROiLVJTUJoidH/pAtoiZcU4kC0xdUsQs6F00dEfqdXDUZILpHoACVuvzYlzUVqm5colGx2NplKMW4S/CrQwk4UigzS30Y25InbhLwjAcsg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by IA1PR12MB8078.namprd12.prod.outlook.com (2603:10b6:208:3f1::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.16; Fri, 8 May
- 2026 17:37:38 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9891.017; Fri, 8 May 2026
- 17:37:38 +0000
-Date: Fri, 8 May 2026 14:37:36 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 6/9] iommu/arm-smmu-v3: Directly encode simple commands
-Message-ID: <20260508173736.GH9254@nvidia.com>
-References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
- <6-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
- <af3KDBt8vhClSKEF@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <af3KDBt8vhClSKEF@google.com>
-X-ClientProxiedBy: MN2PR03CA0027.namprd03.prod.outlook.com
- (2603:10b6:208:23a::32) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 08 May 2026 17:54:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C068401F6;
+	Fri,  8 May 2026 17:54:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2439C2BCB0;
+	Fri,  8 May 2026 17:54:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778262889;
+	bh=yRPbUiY7NO4VWGjDKq44pQG8J7mr3eoU1H3qLt4LCHM=;
+	h=From:Subject:Date:To:Cc:From;
+	b=kiixJSdom0hyuy67zNkWduKDEZF3BtrSepA4rkjOLjC8lGFI+iCBhXtdr2ynKv5Jl
+	 lMZsrtpEmbno0Qo9nS2GQQiJMB20JglbUcwl0QCC13bjI1TWHdbUzOrJXkg/UgcbYv
+	 D8P3qNGLjIndUKx/6+J8SJfVFdcbG6lofyUZeUoJ/Rs54JPLPgUm6H7wDxcxy47VQ5
+	 2V9jBexUhTX72LmYRed427S00G5zVut4YXnTqdmkq9QWY5PpTm4dg8DyYtgBeM5SXm
+	 wiJebNvo2KzsfIhMhsCbnWQh2SpJ4/fu2baP7dFdcz5Q8Lg0NoT/UJ+1wZBXbX9MnO
+	 0DvsQtF1vR3bA==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH 0/4] firmware: arm_ffa: Move core init to platform driver
+ probe
+Date: Fri, 08 May 2026 18:54:14 +0100
+Message-Id: <20260508-b4-ffa_plat_dev-v1-0-c5a30f8cf7b8@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA1PR12MB8078:EE_
-X-MS-Office365-Filtering-Correlation-Id: bfd83e7a-ffa3-4dd3-4122-08dead287f2f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: WDDcWUBv3UQnYdLgNzo6yOU1sCEf+YjOFGbcnUmqj9nun2dV8t3rHpCJSZE+II+263zpIfnjRJhCNPsehtKwOaS/jgN2sxzhkyie46e+kxrZoW5ZSwXeeooYxx2bFVLIonz3JP8IcWAHPP6x1sHl67OO9ad2+uXqcEGXA//slvFsjGfPSbfFOtrPEo+K71jxWrqGMRHT3zcm0760RtRrYK2fDmW8Wm26Ddl9u2nQLROHkAbFLWqEWQhnGTYWkL2Qx69XcjY5khPYn/xU4c59L8naaajp+5UDJscw234akjLluJD0lXcowIfkLCajUjlwhT8M+9hdmL0IP5lVQWROQJ6y8VzNLwKrjhxOD97e1HV8Anpw34qVL6Z73fOwBXGABzo27OsTbuZP8wm6nzWpv8YtJmFmspvB7Zr6i/4JPdoMfTAve4XNbk+KeNsnebzJCV3vUJGtw+1lIKUjIlVCD61H+dWpQ03PQaN7dXheG2Etmx2lo2hBiXd6dE56143qCtZVK1H0C6b/lNP/y3kAgjaPVaze3e48eEXpCZ5mBW6d6lqUUNEPW7YbdBr/E+KT9qDSwHDEKyksBg2Ed6IrWVssXkceDQLPK7VN6ssp1BsGPmaTZwmVcpIugmsT4zRrj93CZ5SfbKJnlr9iZzKAmV8OGP59qLcBcb7WZln+qjZONRbilb8+tdvQUhticCL3
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6+EymM48qMoi6AK6AuHPx1AC7VGhv9/XEcVd+GbOG3RhQFqkljVhuJzpYjRG?=
- =?us-ascii?Q?y9sYW+uHhsTORVnl6/Psz4Rn/YbJa3+FdR63hI/Ivrji3yzGrsqqJiVGTSDM?=
- =?us-ascii?Q?C8G8QITb8QT8zqS2SCvMaAY7Ubv0icGWtBxcihlqRQqElZ3kw+Vnf2Aj6ZpX?=
- =?us-ascii?Q?u5m3jYLgwsGeunwdkmVOLHNyK/bcQTtjRrRlXADFklH8N4FDkMpzzi4WZahl?=
- =?us-ascii?Q?fAXsBrjO3CFbu0Uij/pqywNFOXGTxEGzY+CyaasIvdKUSTwBaE56YM9y464P?=
- =?us-ascii?Q?ORogoO5OZWaqhRoLHFLsY/QMSL7UUF8dcihuSEpQpyz/csczv1Sust10cJTt?=
- =?us-ascii?Q?TpcYjU2JyqTNwnkWMnU4uYHrvldWiPbrPb6WSt44m9w+W35xIiPw5X/y5FyX?=
- =?us-ascii?Q?qhGfpWtqLrMPhBBSvT9D9yFoZhqzE7iK4giSIsVVkZirsT0DWCsi6k239Xoy?=
- =?us-ascii?Q?hP2udlnAti/HzBN3T6rA5tExD8vj9Il0V99utNfYwwTyv7rllLjRwengaDHQ?=
- =?us-ascii?Q?OZ2IGXsjuvKSdS9myMGniXz7HgD6sCK5F7PMY9FnPwBw2RbwdeKtpleAKaCn?=
- =?us-ascii?Q?dVlAKpVmS83XVA30GlB1SgxDpIPaWV/4LWo90RoOgfSr1hnnGb4zjsUhLDg0?=
- =?us-ascii?Q?3Phb4ODg5dmI8M3daZqliz+TghAIA51X2ML9TX+rSCbyo8eC6CTa2K3UqJ7z?=
- =?us-ascii?Q?FivJxeAY1SabDxPkgCi7puWs2ZqbXJRYB7lFnvQUA+X0mFuswCd+VxfTyD2y?=
- =?us-ascii?Q?rCI5JjowBsTvGMDFFbHguhEIb6vy7LRUDW01nOa5jwQ9OR4ZJrNAnnZnW8q6?=
- =?us-ascii?Q?RxIBgPLwQBdwhmTEq0gn8UT28n0ZLUv43XmjlvggCycV6vOs8xkZVsUuHppd?=
- =?us-ascii?Q?4IjdA4ps2MCDkXOsgxBFB8ZdFDoNaya8fkuwnwnzUz71EpBrsQ4u4hMHuWV8?=
- =?us-ascii?Q?XD077AbNEXtFpARYnIBzQ9c8EhwJ++73zNkO4ne3xkI0IC0/NqrfUnkfPGRd?=
- =?us-ascii?Q?w28ayEAR+HNM182kLXXTnriF2bDi/YclGr13rjubwkLYnhK2LrGelb3IMmTt?=
- =?us-ascii?Q?NubjOpouV5kDnGwXlDFEkZWDo/3HYldEK3h3Ua1cLEehBrShvX1H+Rb58a/6?=
- =?us-ascii?Q?etW6rgSWvqmr0mVYMyNskqs15/PPyMXaxmnLc38EamfW5tghDs8GHn1rr16y?=
- =?us-ascii?Q?PIKrHa+FGt4oqrTHbkNtqLc/EwTFP0qcMCCIIeB2Bmpgsf1zBvedaVI8TYEG?=
- =?us-ascii?Q?D/CM3rTSgw+iFEhZ/qy0riqrIBqIbVWr6CudhjIZ6x7fd6uQkXNU2TK2oF+4?=
- =?us-ascii?Q?S/WbZhQz5dhJb40c19rv0uxGoZjA+rQSke65miCAbitLhzlpxomcCzZclBr8?=
- =?us-ascii?Q?/Q0iw3BZWYRdp4NLoUbAY0f4Rx9ZOW5wDkPHOlvs22BvKGJCE6OaLacH5Alh?=
- =?us-ascii?Q?WIQqv/utQTx/DNIV3uGkiounPIqpocS/+sjSURs5F1W8vZ59XDnVc8iY6nh1?=
- =?us-ascii?Q?FQbvsK8zFB+uX57qxSbWQ+yyp6w4NzVl3JsdVT9w5Am3I4EhqozvKhdNEDsy?=
- =?us-ascii?Q?M/T2zLhiakoCyoKVb6/5U0WVzNDtLPPHccggXwnN13iOEnfZy4rVOgOn8meL?=
- =?us-ascii?Q?eNyLGQQEpjed37CL6p4FElAQT+FSy/algk9jzBxC/rDS/ZXnBjqDkx1pGCBE?=
- =?us-ascii?Q?H9Xmu3qWZgseKnObtD0GUfjAI+npLY652PwzDWQr4O4gnyIK?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bfd83e7a-ffa3-4dd3-4122-08dead287f2f
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 May 2026 17:37:38.2643
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gf0Sb29qr3eRaKRvHprksCXS4hk/M06TzsqGhDgF9JUnKk2xwhKPCAre/WDxQYA0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8078
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEgj/mkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDUwML3SQT3bS0xPiCnMSS+JTUMl1jyyRLi6Qkc8vEVEsloK6CotS0zAq
+ widGxEH5xaVJWanIJyBil2loARIIKgXMAAAA=
+X-Change-ID: 20260508-b4-ffa_plat_dev-39b98bb79ae9
+To: linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-integrity@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kvmarm@lists.linux.dev
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_103745_698638_1FFEA78D 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20260508_105449_952925_21D34E26 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,69 +77,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 11:33:32AM +0000, Pranjal Shrivastava wrote:
+This series moves the Arm FF-A core initialisation into the driver model by
+converting the core bring-up path to a platform driver probe/remove flow.
 
-> > -static int __arm_smmu_cmdq_issue_cmd(struct arm_smmu_device *smmu,
-> > -				     struct arm_smmu_cmd *cmd,
-> > -				     bool sync)
-> > +static int arm_smmu_cmdq_issue_cmd_p(struct arm_smmu_device *smmu,
-> > +				     struct arm_smmu_cmd *cmd, bool sync)
-> 
-> Nit: I'm not sure why we need to rename this? We can still define the 
-> rest of the helpers like:
+The first patch reverts the earlier rootfs_initcall change. That initcall
+ordering workaround is not a proper solution and potentially conflicts with
+pKVM FF-A proxy requirement.
 
-I made it have the same naming system as this:
+The FF-A core is then registered as a platform driver. For now, the driver
+creates a synthetic arm-ffa platform device internally to bind the driver.
+This is intended as a temporary bridge until ACPI and devicetree describe
+the FF-A core device or object directly, at which point the internal device
+creation can be dropped.
 
-> > +static void arm_smmu_cmdq_batch_add_cmd_p(struct arm_smmu_device *smmu,
-> > +					  struct arm_smmu_cmdq_batch *cmds,
-> > +					  struct arm_smmu_cmd *cmd)
-> 
-> Nit: Same here, why not  __arm_smmu_cmdq_batch_add_cmd? I understand
-> that _p just means we'll aceept ptr.. but the name's kinda wonky.
+The series also makes the synthetic core device the parent of enumerated
+FF-A partition devices, keeping the FF-A device hierarchy anchored under the
+core transport device.
 
-Which becomes a fairly widly used public entry point, so I didn't want
-to have the __
+Finally, when protected KVM is enabled, FF-A probing is deferred until pKVM
+has completed initialisation. The kernel pKVM FF-A proxy must perform its
+own FF-A version negotiation and setup before the normal FF-A driver starts
+using the transport, so the platform driver probe path now allows the driver
+core to retry once that dependency is ready.
 
-Though there is no external user of arm_smmu_cmdq_issue_cmd_p()
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+Sudeep Holla (3):
+      firmware: arm_ffa: Register core as a platform driver
+      firmware: arm_ffa: Set the core device as FF-A device parent
+      firmware: arm_ffa: Defer probe until pKVM is initialized
 
-> >  static irqreturn_t arm_smmu_priq_thread(int irq, void *dev)
-> > @@ -3464,7 +3405,7 @@ static void arm_smmu_inv_flush_iotlb_tag(struct arm_smmu_inv *inv)
-> >  
-> >  	cmd.opcode = inv->nsize_opcode;
-> >  	arm_smmu_cmdq_build_cmd(&hw_cmd, &cmd);
-> > -	arm_smmu_cmdq_issue_cmd_with_sync(inv->smmu, &hw_cmd);
-> > +	arm_smmu_cmdq_issue_cmd_with_sync(inv->smmu, hw_cmd);
-> 
-> Nit: are we passing it by value here? This would be a 16-byte stack
-> copy? As with the macro expansion this looks like:
-> 
-> {
-> 	struct arm_smmu_cmd __cmd = hw_cmd; // <-- Redundant 16-byte copy
-> 	arm_smmu_cmdq_issue_cmd_p(inv->smmu, &__cmd, true);
-> }
-> 
-> Why not use arm_smmu_cmdq_issue_cmd_p(inv->smmu, &hw_cmd, true) ?
-> Although, I see this is eventually cleaned up in Patch 9.
+Yeoreum Yun (1):
+      Revert "firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_initcall"
 
-Because it is eventually cleaned up in patch 9 :) The point was not to
-change this logic in this patch.
+ drivers/firmware/arm_ffa/bus.c    |  3 +-
+ drivers/firmware/arm_ffa/common.h |  4 +--
+ drivers/firmware/arm_ffa/driver.c | 64 ++++++++++++++++++++++++++++++++++-----
+ drivers/firmware/arm_ffa/smccc.c  |  2 +-
+ include/linux/arm_ffa.h           |  4 +--
+ 5 files changed, 63 insertions(+), 14 deletions(-)
+---
+base-commit: 917719c412c48687d4a176965d1fa35320ec457c
+change-id: 20260508-b4-ffa_plat_dev-39b98bb79ae9
 
-> > +static inline struct arm_smmu_cmd arm_smmu_make_cmd_cfgi_all(void)
-> > +{
-> > +	struct arm_smmu_cmd cmd = arm_smmu_make_cmd_op(CMDQ_OP_CFGI_ALL);
-> > +
-> > +	cmd.data[1] |= FIELD_PREP(CMDQ_CFGI_1_RANGE, 31);
-> 
-> Maybe this is a good opportunity to define "31"? We already have a 
-> similar definition for TLBI: #define CMDQ_TLBI_RANGE_NUM_MAX 31
 
-I went with how the spec was written. The CMD_CFGI_ALL has its own section
-with a direct encoding of 31 in that position, no field name.
+-- 
+Regards,
+Sudeep
 
-While CMD_CFGI_STE_RANGE has the same op code and names that spot
-"range" and it would be a NUM_MAX, we don't use STE_RANGE..
-
-I'm inclined to leave it for someone who adds STE_RANGE..
-
-Jason
 
