@@ -4,56 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85618CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 15:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4EC6CD37A7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 15:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ABTsrxKI7wvHYsDhlFaaebOEdb12GJNVTckm+uz0E1s=; b=24BDnJin0+h8lhqIQxDId3U+XS
-	cRVW6iB1TLM0p5vTCAgDmyw03S6TtPVzso8KK/vojFiu+ZA7lFka1NN/9AcdO2N9hUTBvzhEPcPw9
-	kdX2PDZ741Nn4oZ6VkvTX8V5LOmtZaP6juLy+jsJ+/SZoPiQmvpXYJZciqWkQdnTGiXc+sMoav86d
-	EGhCKnHULEXueedgpFrqy3q0Jr5aKGrzSr7Uv4PNhvzeRCKZg9afPV4WKz7SgHHhHmr50F8sQIDpq
-	g+SO6RFgBI5H4XSKjrWH3dSjJBeWyWCDo71HnX/zLmU05pFiuSMruikxtH/M6/R1V4qra9Mjs4G22
-	8nlcnmKw==;
+	bh=x36lI7d3PT/DreA1EEcbIhUEmGylcOw6H59O/JXWvwQ=; b=yI8mbySdHLSSyc4kHgN0+oFTaX
+	MR1vf/Alko40lFh1Ap4oWvv8p9exeogoy1eNBYlcquvuoY5uhumLXtpfjY4N5aJjFHgHMfWkUY1pC
+	oUg1Q/QhBw2MXymcdTssAObW5TXmB6xqzRI2pWiWztrJ/rcyUb9X9F7LaR8Z2hTpFv794+xiK/izI
+	+98mPoQZGfeKzTKzy5k+wtx7BUC7rjM0BVip9G2EsqtLfbZ6xYZLl6ww/ENpV5P8H2odsBRlnoir3
+	aX8vaaFOhbri2Yp6zEdE2/j6is1CDge+1OVibw5IzTbjSu87TZfCDw0hAQKoklXaCYN6s+OjteiX/
+	HAmix7LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLNDD-00000006rKq-0hbd;
-	Fri, 08 May 2026 15:34:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLND8-00000006rFn-2Coz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 08 May 2026 15:33:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=ABTsrxKI7wvHYsDhlFaaebOEdb12GJNVTckm+uz0E1s=; b=WO93PFiwQbCvnNeMdMqlhkVI0x
-	08/ICKQKE+xHorsTNUwnOIFaniux4jPcLM4gGXFFvsgqkkYM3oaUllCpGNXWKE3dEJyt5gJOWYWQz
-	ROYaWYRA/42XLB6zNfQtO2YRx4quT1cPSFrecsJSseX2AQPCP92u9JATdvUkBjArXBnazNPz2ZzB3
-	pMeqXRq6DlpR2lmU1creI17hJKtIEXoOQxVYL7hfa6M1FTmj0PJxFkq89KaAxmzbEDzs+aIRXb9ft
-	P74k7SNbNaSXCQqGBy8P70QVQtcF7jeh7yptiqFnGqv8xIMhF+07u8Ym9CljRh6KcSGOB/NPeFOjd
-	uGX3UmiQ==;
+	id 1wLNDL-00000006rTj-3Bq1;
+	Fri, 08 May 2026 15:34:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLND5-00000006iLU-1F5Z
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLNDD-00000006rL2-41Ms
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 15:33:53 +0000
+	Fri, 08 May 2026 15:34:02 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9981F35A1;
-	Fri,  8 May 2026 08:33:44 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E5E31359E;
+	Fri,  8 May 2026 08:33:53 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C70A3F836;
-	Fri,  8 May 2026 08:33:47 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EE113F836;
+	Fri,  8 May 2026 08:33:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778254430; bh=kM+U8v3f2McW8OM5ONalrhlXqiBSrlQSwzAp9yyXSgY=;
+	t=1778254439; bh=K7PZn6YSuIfgQkzQTbiCZFkzHkWlX1uWSHiLxI+Ap24=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fxsUPOFghTDuToJOqTOpKu4knl7XZGgMLInPrcTVOQcChZ64SAp5uO+NuHmz9yhuc
-	 dn8mHWAVYwVBGU9Wr4TlBt6ADjNRMDVBvpi/onU6pOvNGbpzAMMzBx4AabhsmoKfUb
-	 /iwszYNeKqYioM0MiuhtZVvJLNL3q6TbM/CvuWoU=
+	b=TkrMnpo5Sdj88m1sj7xx+mNNfiz9+DqtqpFvBWn78XncUY/jhfdAqwG0kC62M//Ij
+	 g5sjyqF/9mYjTTvltzXci4skoD0Z7+SSOmxM8wcag/07tcpOQhx3Vfz+lFb8QXFh33
+	 hwcmSKr9IoMbx0dP1lqVzcIbvaRxvGDYAqPEgxNo=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -71,19 +56,18 @@ Cc: sudeep.holla@arm.com,
 	geert+renesas@glider.be,
 	kuninori.morimoto.gx@renesas.com,
 	marek.vasut+renesas@gmail.com,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v4 07/15] firmware: arm_scmi: Make clock rates allocation dynamic
-Date: Fri,  8 May 2026 16:32:52 +0100
-Message-ID: <20260508153300.2224715-8-cristian.marussi@arm.com>
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v4 10/15] firmware: arm_scmi: Add bound iterators support
+Date: Fri,  8 May 2026 16:32:55 +0100
+Message-ID: <20260508153300.2224715-11-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260508153300.2224715-1-cristian.marussi@arm.com>
 References: <20260508153300.2224715-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_163351_993750_32824F73 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260508_083401_218351_3BB1D8F2 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,85 +82,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Leveraging SCMI Clock protocol dynamic discovery capabilities, move away
-from the static per-clock rates allocation model in favour of a dynamic
-runtime allocation based on effectively discovered resources.
+SCMI core stack provides some common helpers to handle in a unified way
+multipart message replies: such iterator-helpers, when run, currently
+process by default the whole set of discovered resources.
 
-No functional change.
+Introduce an alternative way to run the initialized iterator on a limited
+range of resources.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Note that the subset of resources that can be chosen is anyway limited by
+the SCMI protocol specification, since you are only allowed to choose the
+start-index on a multi-part enumeration NOT the end-index, so that the
+effective number of returned items by a bound iterators depends really
+on platform side decisions.
+
+Suggested-by: Etienne Carriere <etienne.carriere@foss.st.com>
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
 v2 --> v3
- - collected Review-by tags
+ - fixed typos in commit message
 ---
- drivers/firmware/arm_scmi/clock.c | 19 ++++++++++++++++---
- include/linux/scmi_protocol.h     |  1 -
- 2 files changed, 16 insertions(+), 4 deletions(-)
+ drivers/firmware/arm_scmi/clock.c     |  3 +-
+ drivers/firmware/arm_scmi/driver.c    | 58 +++++++++++++++++++--------
+ drivers/firmware/arm_scmi/protocols.h | 13 +++++-
+ 3 files changed, 55 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-index 467b13a3a18f..c9b62edce4fd 100644
+index d07cfef243fd..8ce889dfc87b 100644
 --- a/drivers/firmware/arm_scmi/clock.c
 +++ b/drivers/firmware/arm_scmi/clock.c
-@@ -161,7 +161,7 @@ struct scmi_clock_desc {
- 	u32 id;
- 	bool rate_discrete;
- 	unsigned int num_rates;
--	u64 rates[SCMI_MAX_NUM_RATES];
-+	u64 *rates;
- #define	RATE_MIN	0
- #define	RATE_MAX	1
- #define	RATE_STEP	2
-@@ -480,6 +480,18 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
- 			   QUIRK_OUT_OF_SPEC_TRIPLET);
- 	}
+@@ -505,8 +505,7 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
+ 	struct scmi_clk_ipriv *p = priv;
+ 	const struct scmi_msg_resp_clock_describe_rates *r = response;
  
-+	if (!st->max_resources) {
-+		int num_rates = st->num_returned + st->num_remaining;
-+
-+		p->clkd->rates = devm_kcalloc(p->dev, num_rates,
-+					      sizeof(*p->clkd->rates), GFP_KERNEL);
-+		if (!p->clkd->rates)
-+			return -ENOMEM;
-+
-+		/* max_resources is used by the iterators to control bounds */
-+		st->max_resources = st->num_returned + st->num_remaining;
-+	}
-+
- 	return 0;
+-	p->clkd->rates[st->desc_index + st->loop_idx] =
+-		RATE_TO_U64(r->rate[st->loop_idx]);
++	p->clkd->rates[p->clkd->num_rates] = RATE_TO_U64(r->rate[st->loop_idx]);
+ 
+ 	/* Count only effectively discovered rates */
+ 	p->clkd->num_rates++;
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 66cb64c8ed3d..cb4865fd8af2 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -1813,48 +1813,50 @@ static void *scmi_iterator_init(const struct scmi_protocol_handle *ph,
+ 	return no_free_ptr(i);
  }
  
-@@ -493,6 +505,8 @@ iter_clk_describe_process_response(const struct scmi_protocol_handle *ph,
+-static int scmi_iterator_run(void *iter)
++static int __scmi_iterator_run(void *iter, unsigned int *start, unsigned int *end)
+ {
+ 	int ret;
+ 	struct scmi_iterator_ops *iops;
+ 	const struct scmi_protocol_handle *ph;
+ 	struct scmi_iterator_state *st;
++	struct scmi_iterator *i;
  
- 	p->clkd->rates[st->desc_index + st->loop_idx] =
- 		RATE_TO_U64(r->rate[st->loop_idx]);
+ 	if (!iter)
+ 		return -EINVAL;
+ 
+-	/* Take ownership of the iterator */
+-	struct scmi_iterator *i __free(kfree) = iter;
+-
++	i = iter;
+ 	iops = i->ops;
+ 	ph = i->ph;
+ 	st = &i->state;
+ 
++	/* Reinitialize state for next run */
++	st->num_returned = 0;
++	st->num_remaining = 0;
++	st->desc_index = start ? *start : 0;
 +
-+	/* Count only effectively discovered rates */
- 	p->clkd->num_rates++;
+ 	do {
+ 		iops->prepare_message(i->msg, st->desc_index, i->priv);
+ 		ret = ph->xops->do_xfer(ph, i->t);
+ 		if (ret)
+-			break;
++			return ret;
  
- 	return 0;
-@@ -515,8 +529,7 @@ scmi_clock_describe_rates_get(const struct scmi_protocol_handle *ph, u32 clk_id,
- 		.dev = ph->dev,
- 	};
+ 		st->rx_len = i->t->rx.len;
+ 		ret = iops->update_state(st, i->resp, i->priv);
+ 		if (ret)
+-			break;
++			return ret;
  
--	iter = ph->hops->iter_response_init(ph, &ops, SCMI_MAX_NUM_RATES,
--					    CLOCK_DESCRIBE_RATES,
-+	iter = ph->hops->iter_response_init(ph, &ops, 0, CLOCK_DESCRIBE_RATES,
- 					    sizeof(struct scmi_msg_clock_describe_rates),
- 					    &cpriv);
- 	if (IS_ERR(iter))
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 19834f85f5d3..0824a7dc4aae 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -15,7 +15,6 @@
+ 		if (st->num_returned > st->max_resources - st->desc_index) {
+ 			dev_err(ph->dev,
+ 				"No. of resources can't exceed %d\n",
+ 				st->max_resources);
+-			ret = -EINVAL;
+-			break;
++			return -EINVAL;
+ 		}
  
- #define SCMI_MAX_STR_SIZE		64
- #define SCMI_SHORT_NAME_MAX_SIZE	16
--#define SCMI_MAX_NUM_RATES		16
+-		for (st->loop_idx = 0; !ret && st->loop_idx < st->num_returned;
+-		     st->loop_idx++)
++		for (st->loop_idx = 0; st->loop_idx < st->num_returned; st->loop_idx++) {
+ 			ret = iops->process_response(ph, i->resp, st, i->priv);
+-
+-		if (ret)
+-			break;
++			if (ret)
++				return ret;
++		}
  
- /**
-  * struct scmi_revision_info - version information structure
+ 		st->desc_index += st->num_returned;
+ 		ph->xops->reset_rx_to_maxsz(ph, i->t);
+@@ -1862,14 +1864,36 @@ static int scmi_iterator_run(void *iter)
+ 		 * check for both returned and remaining to avoid infinite
+ 		 * loop due to buggy firmware
+ 		 */
+-	} while (st->num_returned && st->num_remaining);
++	} while (st->num_returned && st->num_remaining &&
++		 (!end || (st->desc_index <= min(*end, st->max_resources - 1))));
+ 
+-	/* Finalize and destroy iterator */
+-	ph->xops->xfer_put(ph, i->t);
++	return 0;
++}
++
++static void scmi_iterator_cleanup(void *iter)
++{
++	struct scmi_iterator *i = iter;
++
++	i->ph->xops->xfer_put(i->ph, i->t);
++	kfree(i);
++}
++
++static int scmi_iterator_run(void *iter)
++{
++	int ret;
++
++	ret = __scmi_iterator_run(iter, NULL, NULL);
++	scmi_iterator_cleanup(iter);
+ 
+ 	return ret;
+ }
+ 
++static int scmi_iterator_run_bound(void *iter, unsigned int *start,
++				   unsigned int *end)
++{
++	return __scmi_iterator_run(iter, start, end);
++}
++
+ struct scmi_msg_get_fc_info {
+ 	__le32 domain;
+ 	__le32 message_id;
+@@ -2048,6 +2072,8 @@ static const struct scmi_proto_helpers_ops helpers_ops = {
+ 	.get_max_msg_size = scmi_common_get_max_msg_size,
+ 	.iter_response_init = scmi_iterator_init,
+ 	.iter_response_run = scmi_iterator_run,
++	.iter_response_run_bound = scmi_iterator_run_bound,
++	.iter_response_cleanup = scmi_iterator_cleanup,
+ 	.protocol_msg_check = scmi_protocol_msg_check,
+ 	.fastchannel_init = scmi_common_fastchannel_init,
+ 	.fastchannel_db_ring = scmi_common_fastchannel_db_ring,
+diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
+index f51245aca259..e2ef604c16ef 100644
+--- a/drivers/firmware/arm_scmi/protocols.h
++++ b/drivers/firmware/arm_scmi/protocols.h
+@@ -259,7 +259,15 @@ struct scmi_fc_info {
+  *			multi-part responses using the custom operations
+  *			provided in @ops.
+  * @iter_response_run: A common helper to trigger the run of a previously
+- *		       initialized iterator.
++ *		       initialized iterator. Note that unbound iterators are
++ *		       automatically cleaned up.
++ * @iter_response_run_bound: A common helper to trigger the run of a previously
++ *			     initialized iterator, but only within the
++ *			     specified, optional, @start and @end resource
++ *			     indexes. Note that these bound-iterators need
++ *			     explicit cleanup via @iter_response_bound_cleanup.
++ * @iter_response_bound_cleanup: A common helper to finally release the iterator
++ *				 for bound iterators.
+  * @protocol_msg_check: A common helper to check is a specific protocol message
+  *			is supported.
+  * @fastchannel_init: A common helper used to initialize FC descriptors by
+@@ -276,6 +284,9 @@ struct scmi_proto_helpers_ops {
+ 				    unsigned int max_resources, u8 msg_id,
+ 				    size_t tx_size, void *priv);
+ 	int (*iter_response_run)(void *iter);
++	int (*iter_response_run_bound)(void *iter,
++				       unsigned int *start, unsigned int *end);
++	void (*iter_response_cleanup)(void *iter);
+ 	int (*protocol_msg_check)(const struct scmi_protocol_handle *ph,
+ 				  u32 message_id, u32 *attributes);
+ 	void (*fastchannel_init)(const struct scmi_protocol_handle *ph,
 -- 
 2.53.0
 
