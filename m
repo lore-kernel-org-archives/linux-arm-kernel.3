@@ -4,80 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A851FCD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 10:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18AE6CD3436
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 10:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7JdWRHx/+mjb4lk/bEZQh+lQq/Mn7dxl20NhPE4u0a8=; b=AaWCmgKFYjMrugxZHhBKDZVddd
-	A7TQJkx43Ot91QwIV4W48mLb/lGlspj5m0DS5i6ZbrTFHzfQm2uLR2Mf+2CBHx5f3NCyb4vJgaV8O
-	K6vJpUwmUn3Wdpa7gorZ+NuT9r/CMCOv21zSKORYeJjnP3IsMokwMyrZDVUxUTaEcnoxa7TPK6Mb5
-	hZyVPvp6esL01Bhega7ClALClBU6+RPfU7s1gsrwZzxi8zjhVFkBPBa8Fm4f9ASyUnSXSUqCbK5W1
-	Ckhpm18TAzW8XYO0sMhRRsQfCMg9H09kpJ1fSF5VZXtKx3AeYR1KF0S+aX+hhp4AupUUKnkY5ujwr
-	Xd4I/ZQA==;
+	bh=nXxVR9ktw+abbKoY0TaVXtuKQhdeigQeA3fCn9vNJLQ=; b=meX825d0w6jt59Nn8rt1aXpbOk
+	kqZkQIW6VO1TrpHvCdNYjw+R3Cmsoudc67dz4xcSei5mUsj6wY0wNanXvbP25zlz5reMKglP2Kw1D
+	jhabZ64o9ZY4Q56MmCs96qrgz2hoPpeX+HHjy9z81o9swCIbgkoQs96M5e34r3dhcnRxahd1w6Gs7
+	9RKv1aqIU+RfQo2mYGUOrIs/1dOPXUUKhA6rd/Ts/nJU5j1Y8ll3Pf4XeUzapra1YweIrmHhxS+1V
+	anwrq2n2nS3w40SLZqEa0XFSR5Q9ssG0TkaM2GUk5jxL8sMZ86a2VGla2j0aBTdMInEI6Anmk92R0
+	h9pFIdew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLIXD-00000006EvJ-1jHK;
-	Fri, 08 May 2026 10:34:19 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wLIYF-00000006F6i-05AN;
+	Fri, 08 May 2026 10:35:23 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLIX9-00000006EuA-2J1l
+	id 1wLIYC-00000006F68-0CUp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 10:34:17 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=7JdWRHx/+mjb4lk/bEZQh+lQq/Mn7dxl20NhPE4u0a8=;
-	b=yL728+GjveI/7wInsJjt/gcfZQk2qXvQqxMjMWoY+uOU8Y9XpIuypecPeH6DdVnEsq9gXyEby
-	NuYxevfHDp+EciXq6PeegBkkJ6U8RFwG+M1u4miK2SlSOWAy44HFaSb9agtEv6AtCBVbURVLVba
-	LUwwnGgBUuTX3Ne5Lhvu5Iw=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gBlf04XNVzLlX9;
-	Fri,  8 May 2026 18:26:32 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3A53940562;
-	Fri,  8 May 2026 18:34:06 +0800 (CST)
-Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 8 May 2026 18:34:06 +0800
-Received: from [10.67.120.139] (10.67.120.139) by
- kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 8 May 2026 18:34:04 +0800
-Message-ID: <4d7b9ce3-15e4-414b-87cf-85a6338b69ab@huawei.com>
-Date: Fri, 8 May 2026 18:34:04 +0800
+	Fri, 08 May 2026 10:35:21 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4852b81c73aso16445265e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 03:35:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1778236518; x=1778841318; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=nXxVR9ktw+abbKoY0TaVXtuKQhdeigQeA3fCn9vNJLQ=;
+        b=jgZcfjJeZ8jWruKCUQh/iq/mtEbMKXqtFP15HBSW8hwCwsJ3/rapUtyk0ZzOemJYLg
+         ywCNz1VWriZgIvA7JrKdajee3iU6WbzOg4zX+gvnzQ9VB6eH7zvY6F49iWc5e/Ctrkea
+         sUNu4skz95MHe2TWiXValiNiOsV7zXu9ZacVL+tUHHk+S7+MSwNCmaq9gF1nYxAIq6ZA
+         EQ146orcrtA56HT2Vtt1jfChkdF434g21JEQBzToS88ZM0V/JvvwRHEhDoxke7P3Sq8/
+         yaJg2hADlo74j1Gcqrnp2YqQfgZ22TdQrwM+dVh+RUXTSOw4tv2C2sOi2HyL1CEpwyUn
+         x6oQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778236518; x=1778841318;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nXxVR9ktw+abbKoY0TaVXtuKQhdeigQeA3fCn9vNJLQ=;
+        b=TKvhbx4DgoiP8RRRWpWcjNKYhYeOQdCHMUxj6pN0sFolGLBvjrZ8wOaRvXRIYWOfCc
+         OPT60tApO7vA+pJ6XoRcYujUEtUENLsjte5w7rRhaWBaMGL78ylVS5FSMDQgOoZ7Jt3F
+         KD552fvEmdgBoSl/oUsW3l/48XQjdysTPDJ4JJy3PJFjVJq/nk4VL8YfSCWAOslkW3p9
+         4WChOOj1nbXT8KfneqxTianafHxgVMq0d96RqyOhRVSs2lPJ1FnfwyZy5NIuG3tcNSsW
+         bQWKD8vNmLPuxdlSiXDCzenJQ/iOX2H+7DGKGZpRCv8PYr/Ul9qE6QTj9NDGMmI8RhTf
+         89qg==
+X-Forwarded-Encrypted: i=1; AFNElJ+hH7F+CUddK/JZea7NBx3XZnX8qKluYumHELJ2ahacmgKtoVi0lwIQPhTSAKgHEACPlRd6MdbQA1nvvFEj0yb3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiGnGEtquLA+kinalrlV4murh+//chMjo16/j9t/xjpZevdqdy
+	eCEpqVxsKOO7HEL4YPetke1O9TLkQXqhf4pHRiRkWd3VmizgI30yUU/ibhhLSYQ8xtY=
+X-Gm-Gg: AeBDietnqmNNyuoPzDYY8GNW4mX6V9rRlb6T3Bb1mFZla44dleLsh2+5fAf4u7ZI7Ok
+	2X51zeIKCTL0rEaUDQhksTWurG8HSxwc/Rkf0NAunH2m/i96l2VMLUHE7XZaYbHGqkVHbtn//dt
+	hVhAZHJOzqk7s4iXlWh5833vSafYoGY/OEPHOc8KoSFMsdFQMCzcNHqx8cTb1wy5KX/5u/x8CQZ
+	lU+f0WecMqTkLKnboKYCdGclzhhdyrZrLvMt5bDPAGkoqidhan2EMqLWLECCgUQaM9g6zPacQpd
+	8SUzYlHEgb+i6HJadtSK1UivLSOfiT/t5/3wmFr8D4iCX6xZx/Gj4mAh+g/2pDMOflJQwMyXc0v
+	/JxS/a5mW4X7/PkF8tUrw257MAxBNs3qJerNmW96QYsRLDFJwgG6nJ06eg8V2ctBjkN8Ba8bc/K
+	OL50+nxXVdI0pdN2ePfcu0zl8ACGrb
+X-Received: by 2002:a05:600c:c4a3:b0:48a:6fd4:d3d4 with SMTP id 5b1f17b1804b1-48e51f46e38mr191476395e9.29.1778236518261;
+        Fri, 08 May 2026 03:35:18 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e68ed0f4csm51135635e9.3.2026.05.08.03.35.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 08 May 2026 03:35:17 -0700 (PDT)
+Message-ID: <7667abfd-aa06-43e7-b699-0fbf6606f64d@linaro.org>
+Date: Fri, 8 May 2026 11:35:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Yushan Wang <wangyushan12@huawei.com>
-Subject: Re: [RFT PATCH v2 3/7] perf-x86: iostat: Move iostat arch-specific
- implementation to util
+Subject: Re: [PATCH v1] perf record: Refactor ARM64 leaf caller setup out of
+ arch
 To: Ian Rogers <irogers@google.com>
-CC: <peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<adrian.hunter@intel.com>, <james.clark@arm.com>, <john.g.garry@oracle.com>,
-	<will@kernel.org>, <mike.leach@arm.com>, <linux-perf-users@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<jic23@kernel.org>, <leo.yan@linux.dev>, <robin.murphy@arm.com>,
-	<linuxarm@huawei.com>, <hejunhao3@huawei.com>, <prime.zeng@hisilicon.com>,
-	<fanghao11@huawei.com>, <wangzhou1@hisilicon.com>
-References: <20260507063737.3542950-1-wangyushan12@huawei.com>
- <20260507063737.3542950-4-wangyushan12@huawei.com>
- <CAP-5=fV5WiyB3mghvns1ZW6ewS0=CP4nx+f_ggLgECkqv7VWww@mail.gmail.com>
+References: <20260507170622.611933-1-irogers@google.com>
 Content-Language: en-US
-In-Reply-To: <CAP-5=fV5WiyB3mghvns1ZW6ewS0=CP4nx+f_ggLgECkqv7VWww@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.139]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemn100008.china.huawei.com (7.202.194.111)
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@linux.dev>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Dapeng Mi <dapeng1.mi@linux.intel.com>, Shimin Guo <shimin.guo@skydio.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260507170622.611933-1-irogers@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_033416_060927_89EEC855 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20260508_033520_208940_49B6769F 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,36 +110,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
- On 5/7/2026 11:35 PM, Ian Rogers wrote:
-> On Wed, May 6, 2026 at 11:37 PM Yushan Wang <wangyushan12@huawei.com> wrote:
->>
->> To support cross-platform iostat capabilities, like record/report on
->> different platforms, architecture-specific implementation of iostat
->> should be moved out of arch directory to get built. Build scripts are
->> changed accordingly.
->>
->> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
->> ---
->>  tools/perf/arch/x86/util/Build                           | 1 -
->>  tools/perf/util/Build                                    | 1 +
->>  tools/perf/{arch/x86/util/iostat.c => util/x86-iostat.c} | 0
->>  3 files changed, 1 insertion(+), 1 deletion(-)
->>  rename tools/perf/{arch/x86/util/iostat.c => util/x86-iostat.c} (100%)
->
-> To avoid cluttering up tools/perf/util, would it make sense to create
-> a "tools/perf/util/iostat-arch" directory similar to  annotate-arch,
-> dwarf-regs-arch, kvm-stat-arch and perf-regs-arch?
->
-> Thanks,
-> Ian
 
-Yes, I can do that in the next version.
 
-In fact, as what latter comments addressed, I think merging these iostat
-handlers into one source file to avoid redundancy may be better.
+On 07/05/2026 6:06 pm, Ian Rogers wrote:
+> Code in tools/perf/arch causes portability issues/opaqueness and LTO
+> issues due to the use of weak symbols. Move the adding of LR to the
+> sample_user_regs into arm64-frame-pointer-unwind-support.c conditional
+> on EM_HOST == EM_AARCH64 (false on all non-ARM64 builds). This also
+> better encapsulates the use of the sampled registers by
+> get_leaf_frame_caller_aarch64 and the set up by the new
+> add_leaf_frame_caller_opts_aarch64, exposing opportunities for
+> possibly sampling PC and SP to help the unwinder.
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>   tools/perf/arch/arm64/util/Build                     |  1 -
+>   tools/perf/arch/arm64/util/machine.c                 | 12 ------------
+>   tools/perf/builtin-record.c                          | 11 +++++------
+>   tools/perf/util/arm64-frame-pointer-unwind-support.c |  6 ++++++
+>   tools/perf/util/arm64-frame-pointer-unwind-support.h |  2 ++
+>   5 files changed, 13 insertions(+), 19 deletions(-)
+>   delete mode 100644 tools/perf/arch/arm64/util/machine.c
+> 
+> diff --git a/tools/perf/arch/arm64/util/Build b/tools/perf/arch/arm64/util/Build
+> index 4e06a08d281a..638aa6948ab5 100644
+> --- a/tools/perf/arch/arm64/util/Build
+> +++ b/tools/perf/arch/arm64/util/Build
+> @@ -5,7 +5,6 @@ perf-util-y += ../../arm/util/pmu.o
+>   perf-util-y += arm-spe.o
+>   perf-util-y += header.o
+>   perf-util-y += hisi-ptt.o
+> -perf-util-y += machine.o
+>   perf-util-y += mem-events.o
+>   perf-util-y += pmu.o
+>   perf-util-y += tsc.o
+> diff --git a/tools/perf/arch/arm64/util/machine.c b/tools/perf/arch/arm64/util/machine.c
+> deleted file mode 100644
+> index 80fb13c958d9..000000000000
+> --- a/tools/perf/arch/arm64/util/machine.c
+> +++ /dev/null
+> @@ -1,12 +0,0 @@
+> -// SPDX-License-Identifier: GPL-2.0
+> -
+> -#include "callchain.h" // prototype of arch__add_leaf_frame_record_opts
+> -#include "perf_regs.h"
+> -#include "record.h"
+> -
+> -#define SMPL_REG_MASK(b) (1ULL << (b))
+> -
+> -void arch__add_leaf_frame_record_opts(struct record_opts *opts)
+> -{
+> -	opts->sample_user_regs |= SMPL_REG_MASK(PERF_REG_ARM64_LR);
+> -}
+> diff --git a/tools/perf/builtin-record.c b/tools/perf/builtin-record.c
+> index 4a5eba498c02..272bba7f4b9e 100644
+> --- a/tools/perf/builtin-record.c
+> +++ b/tools/perf/builtin-record.c
+> @@ -14,6 +14,7 @@
+>   #include "util/parse-events.h"
+>   #include "util/config.h"
+>   
+> +#include "util/arm64-frame-pointer-unwind-support.h"
+>   #include "util/callchain.h"
+>   #include "util/cgroup.h"
+>   #include "util/header.h"
+> @@ -3230,10 +3231,6 @@ static int record__parse_off_cpu_thresh(const struct option *opt,
+>   	return 0;
+>   }
+>   
+> -void __weak arch__add_leaf_frame_record_opts(struct record_opts *opts __maybe_unused)
+> -{
+> -}
+> -
+>   static int parse_control_option(const struct option *opt,
+>   				const char *str,
+>   				int unset __maybe_unused)
+> @@ -4319,8 +4316,10 @@ int cmd_record(int argc, const char **argv)
+>   
+>   	evlist__warn_user_requested_cpus(rec->evlist, rec->opts.target.cpu_list);
+>   
+> -	if (callchain_param.enabled && callchain_param.record_mode == CALLCHAIN_FP)
+> -		arch__add_leaf_frame_record_opts(&rec->opts);
+> +	if (callchain_param.enabled && callchain_param.record_mode == CALLCHAIN_FP) {
+> +		if (EM_HOST == EM_AARCH64)
+> +			add_leaf_frame_caller_opts_aarch64(&rec->opts);
+> +	}
+>   
+>   	err = -ENOMEM;
+>   	if (evlist__create_maps(rec->evlist, &rec->opts.target) < 0) {
+> diff --git a/tools/perf/util/arm64-frame-pointer-unwind-support.c b/tools/perf/util/arm64-frame-pointer-unwind-support.c
+> index 858ce2b01812..3af8c7a466e0 100644
+> --- a/tools/perf/util/arm64-frame-pointer-unwind-support.c
+> +++ b/tools/perf/util/arm64-frame-pointer-unwind-support.c
+> @@ -2,6 +2,7 @@
+>   #include "arm64-frame-pointer-unwind-support.h"
+>   #include "callchain.h"
+>   #include "event.h"
+> +#include "record.h"
+>   #include "unwind.h"
+>   #include <string.h>
+>   
+> @@ -16,6 +17,11 @@ struct entries {
+>   
+>   #define SMPL_REG_MASK(b) (1ULL << (b))
+>   
+> +void add_leaf_frame_caller_opts_aarch64(struct record_opts *opts)
+> +{
+> +	opts->sample_user_regs |= SMPL_REG_MASK(PERF_REG_ARM64_LR);
+> +}
+> +
+>   static bool get_leaf_frame_caller_enabled(struct perf_sample *sample)
+>   {
+>   	struct regs_dump *regs;
+> diff --git a/tools/perf/util/arm64-frame-pointer-unwind-support.h b/tools/perf/util/arm64-frame-pointer-unwind-support.h
+> index 42d3a45490f5..ba35b295bfcd 100644
+> --- a/tools/perf/util/arm64-frame-pointer-unwind-support.h
+> +++ b/tools/perf/util/arm64-frame-pointer-unwind-support.h
+> @@ -5,8 +5,10 @@
+>   #include <linux/types.h>
+>   
+>   struct perf_sample;
+> +struct record_opts;
+>   struct thread;
+>   
+> +void add_leaf_frame_caller_opts_aarch64(struct record_opts *opts);
+>   u64 get_leaf_frame_caller_aarch64(struct perf_sample *sample, struct thread *thread, int user_idx);
+>   
+>   #endif /* __PERF_ARM_FRAME_POINTER_UNWIND_SUPPORT_H */
 
-Thanks,
-Yushan
+Reviewed-by: James Clark <james.clark@linaro.org>
 
->
 
