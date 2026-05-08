@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2F50CD3436
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 03:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64359CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 04:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dWDrmbH/nh19OGeB9tG1Hw5e09VKA/1IueRnzMbUVdY=; b=18oRgzK5rY2wyAudSrg/raNZhm
-	JouUSs9NZg5xOTVxWaFJj8bQnPKeMyP8sNR0vbu3qzpSJDAywvhbEpCbHhWiZ7lzheZIrmkEn5Nf0
-	22OVgH7h1UyhSMEP8vIZ8DT/1rTUTFUF4jUVltzHV5bzgApNBWoWf7N9iDFddfeishprHNVpP6EKL
-	dSJHRr/2wTbf/8MvPdAvuq18fRU5FvSbzaRfiHJwV/bY1w3sqCD+1N4g/+WIo+dFDDA/5yGe0RX4x
-	0nin4MVngK3ih/fzJvJqP1rD7ZpGJOs3X9vxQuQI4u8K3Obrm1+3PAAwjdW9o2yv6X7EbytYrLwOP
-	aifuzWrw==;
+	bh=fZqbznsyO6uH2km9lQYaNTISd52E1x5y5ydr8MxcDaw=; b=ww59Hm0D5wjNnmKw3CIYQiPZ7m
+	lLv9btUHqml9RtWV4T2TkIXsfldDW803jQUTL5Hf1ynT9Ck9ceLpbcHDj4bpygn+vMCFpQuDqck+T
+	dSeQqza9yXBoBitXStxuzYnSQuljIpWHF8/ThU/nGTl3YwXvkTvdJ/8U3VDCJ2cfE5hHx8v8qnr4G
+	gUIPjFYylWcpgLeoA+2VrxI3A6p8ogaaZCVh0ClO7JeQjsPHy9/0HyP8UzlYw1dPdS+astdUDN4LM
+	CXZaPoYyGI5ZJ7vlYWR/37JqdkTXfSh+NV/zjvemcvg8ApJLpUVyHIFJTW1q0vk+icI58mZnywcb1
+	qU6nYWKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLCBg-00000005TJc-2OFo;
-	Fri, 08 May 2026 03:47:40 +0000
-Received: from [113.46.200.219] (helo=canpmsgout04.his.huawei.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLCBc-00000005TI4-3ero
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 03:47:39 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=dWDrmbH/nh19OGeB9tG1Hw5e09VKA/1IueRnzMbUVdY=;
-	b=dvGJ0ZOI0N9DSIHNxe6TWK7gwCgGOOKOh3/7HUQDHJnVwvFaGC7Ao2zZDS8VUTJl0y9kZqzvI
-	JJKNBenjboI+jvU2J8M5yS5UkZ7oYowojHnfXBOFAeH/DDS0BSVvt1RK4VhsgRLHIZ1wOiv3qE5
-	8Kipn9AiShXWrA1OdYD/6RM=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gBZcS1zh5z1prkv;
-	Fri,  8 May 2026 11:39:36 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id AED394056E;
-	Fri,  8 May 2026 11:47:12 +0800 (CST)
-Received: from [10.174.179.37] (10.174.179.37) by
- kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Fri, 8 May 2026 11:47:08 +0800
-Message-ID: <cdddd32a-a485-0ef9-180b-edf29f4738bd@huawei.com>
-Date: Fri, 8 May 2026 11:47:08 +0800
+	id 1wLCnH-00000005Wbs-0Zuu;
+	Fri, 08 May 2026 04:26:31 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLCnE-00000005WbG-2ibg;
+	Fri, 08 May 2026 04:26:30 +0000
+Received: from [192.168.0.107] (unknown [49.205.253.198])
+	by linux.microsoft.com (Postfix) with ESMTPSA id DE52B20B7165;
+	Thu,  7 May 2026 21:26:12 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DE52B20B7165
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1778214383;
+	bh=fZqbznsyO6uH2km9lQYaNTISd52E1x5y5ydr8MxcDaw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=saKSNoO0PcppAv0QSZCXEm1JRqArYoL9lzAhr6mpjz1I5JmqqVCasbTbSgZaIVZiH
+	 sUX4ruWHuB2F+A8vGH2rkSjjbLdRPspCsm30BK8qa8CADHIXgVxA2yl9f4W+MudAuW
+	 D0jhJ0Rq+J/hcu+QRyXhYoOB0C9nqZfvlttbgl9w=
+Message-ID: <4c0a81b2-43b0-43c0-a836-f6f5d9c08d33@linux.microsoft.com>
+Date: Fri, 8 May 2026 09:56:11 +0530
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v2 2/2] arm_mpam: Update architecture version check for
- MPAM MSC
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/15] arm64: hyperv: Add support for
+ mshv_vtl_return_call
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, "K . Y . Srinivasan" <kys@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, Long Li <longli@microsoft.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H . Peter Anvin" <hpa@zytor.com>,
+ Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Michael Kelley <mhklinux@outlook.com>,
+ Timothy Hayes <timothy.hayes@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Sascha Bischoff <sascha.bischoff@arm.com>,
+ mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+ linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-riscv@lists.infradead.org, vdso@mailbox.org,
+ ssengar@linux.microsoft.com
+References: <20260423124206.2410879-1-namjain@linux.microsoft.com>
+ <20260423124206.2410879-8-namjain@linux.microsoft.com>
+ <aeolHwXHFH4AnX_n@J2N7QTR9R3.cambridge.arm.com>
+ <f4059f5d-a82b-40c2-942e-3e24cefab94f@linux.microsoft.com>
+ <afrzKl3ixCUUVL6C@J2N7QTR9R3>
 Content-Language: en-US
-From: Zeng Heng <zengheng4@huawei.com>
-To: James Morse <james.morse@arm.com>, <ben.horgan@arm.com>,
-	<xry111@xry111.site>, <catalin.marinas@arm.com>, <maz@kernel.org>,
-	<ardb@kernel.org>, <yang@os.amperecomputing.com>, <ryan.roberts@arm.com>,
-	<kevin.brodsky@arm.com>, <reinette.chatre@intel.com>,
-	<miko.lenczewski@arm.com>, <will@kernel.org>, <suzuki.poulose@arm.com>,
-	<thuth@redhat.com>, <james.clark@linaro.org>, <lpieralisi@kernel.org>,
-	<broonie@kernel.org>, <oupton@kernel.org>, <anshuman.khandual@arm.com>,
-	<yeoreum.yun@arm.com>, <leo.yan@arm.com>, <mrigendra.chaubey@gmail.com>,
-	<fenghuay@nvidia.com>, <ahmed.genidi@arm.com>, <mark.rutland@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<wangkefeng.wang@huawei.com>
-References: <20260203095406.6437-1-zengheng4@huawei.com>
- <20260203095406.6437-3-zengheng4@huawei.com>
- <b9900d7a-eaaf-4f1a-b79e-aa968a7b6e29@arm.com>
- <01ef61ca-7ba7-b282-7ec6-b1df5c301aa5@huawei.com>
-In-Reply-To: <01ef61ca-7ba7-b282-7ec6-b1df5c301aa5@huawei.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.179.37]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemf100008.china.huawei.com (7.202.181.222)
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <afrzKl3ixCUUVL6C@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260507_204737_552177_BED0723C 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20260507_212628_739370_76683B9B 
+X-CRM114-Status: GOOD (  49.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,66 +89,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On 2026/5/8 10:26, Zeng Heng wrote:
-
->> I think its simpler to rule out the unsupported combinations, 
->> something like:
->> | static bool mpam_msc_check_aidr(struct mpam_msc *msc)
->> | {
->> |     u32 rev;
->> |
->> |     rev = __mpam_read_reg(msc, MPAMF_AIDR) & MPAMF_AIDR_ARCH_REV;
->> |
->> |      /*
->> |      * v0.0 and >v2.x aren't supported, but anything else should be 
->> backward
->> |     * compatible to v0.1 or v1.0.
->> |     */
->> |     if (!rev)
->> |         return false;
->> |     if (rev & MPAMF_AIDR_ARCH_MAJOR_REV > MPAM_ARCHITECTURE_V1)
->> |         return false;
->> |
-
-Oops, after more complete version number testing, I found there's an
-operator precedence issue here. The correct fix is:
-
-	if ((rev & MPAMF_AIDR_ARCH_MAJOR_REV) > MPAM_ARCHITECTURE_V1)
-		return false;
-
-Note that '>' has higher precedence than '&'.
 
 
-With this fix included:
-Tested-by: Zeng Heng <zengheng4@huawei.com>
-
-
->> |     return true;
->> | }
->>
->>> +    if (!mpam_msc_check_aidr(msc)) {
->>> +        dev_err_once(dev, "MSC does not match MPAM architecture\n");
->>>           return -EIO;
->>>       }
->>
->> I'd like to keep the 'v1.x' in this message - this should help folk 
->> with old stable
->> kernels running on new hardware work out why the feature isn't available.
->> (assuming they have some documentation that says v2.0 in it!)
->>
->> I've rebased this with the above changes, which I'll post shortly for 
->> fixes.
->>
->>
+On 5/6/2026 1:22 PM, Mark Rutland wrote:
+> On Wed, Apr 29, 2026 at 03:26:11PM +0530, Naman Jain wrote:
+>> On 4/23/2026 7:26 PM, Mark Rutland wrote:
+>>> On Thu, Apr 23, 2026 at 12:41:57PM +0000, Naman Jain wrote:
 > 
-> Agreed. Keep the backward compatibility extension for versions
-> (compatible with v0.x(x>0) and 1.x), and remove the redundant
-> MPAM_ARCHITECTURE_Vx_x macro definitions.
+> [ non-SMMC hypercall code omitted for brevity ]
 > 
-> I've verified locally that everything works fine.
+>>> NAK to this.
+>>>
+>>> * This is a non-SMCCC hypercall, which we have NAK'd in general in the
+>>>     past for various reasons that I am not going to rehash here.
+>>>
+>>> * It's not clear how this is going to be extended with necessary
+>>>     architecture state in future (e.g. SVE, SME). This is not
+>>>     future-proof, and I don't believe this is maintainable.
+>>>
+>>> * This breaks general requirements for reliable stacktracing by
+>>>     clobbering state (e.g. x29) that we depend upon being valid AT ALL
+>>>     TIMES outside of entry code.
+>>>
+>>> * IMO, if this needs to be saved/restored, that should happen in
+>>>     whatever you are calling.
+>>>
+>>> Mark.
+>>
+>> Merging threads for addressing comments from Mark Rutland and Marc Zyngier
+>> on this patch.
+>>
+>> Thanks for reviewing the changes. Please allow me to briefly explain the use
+>> case here and then address your comments.
+>>
+>> Hyper-V's Virtual Trust Levels (VTLs) provide hardware-enforced isolation
+>> within a single VM, analogous to ARM TrustZone. The kernel runs in VTL2
+>> (higher privilege) as a "paravisor", a security monitor that handles
+>> intercepts for the primary OS in VTL0 (lower privilege). The VTL switch
+>> (mshv_vtl_return_call) is functionally equivalent to KVM's guest enter/exit.
 > 
+> It's worth noting that for KVM, the KVM hyp code is *tightly* coupled
+> with the host kernel (they are one single binary object), and the
+> calling convention between the two is an implementation detail that can
+> change at any time without any ABI concerns.
+> 
+> While I appreciate this might be trying to do the same thing from a
+> *functional* perspective, it's certainly different from a
+> maintainability perspective, and can't be treated in the same way.
+> 
+>> It saves VTL2 state, loads VTL0's GPRs other registers from a shared context
+>> structure, issues hvc #3 to let VTL0 run, and on return saves VTL0's updated
+>> state back.
+>>
+>> Coming to the problems with the code, I have identified a few ways to
+>> address them.
+>>
+>> I can put the assembly code in a separate .S file with
+>> SYM_FUNC_START/SYM_FUNC_END and marked as noinstr, to prevent ftrace/kprobes
+>> from instrumenting between the GPR load and the hvc, which could have
+>> corrupted VTL0 register state. This should solve x29 clobbering, stack
+>> tracing problems.
+> 
+> My point was that you must not clobber those registers.
+> 
+> Looking at the TLFS document you linked below, it says:
+> 
+> | Note: X29 (FP/frame pointer), X30 (LR/link register), and SP are private
+> | per-VTL
+> 
+> ... so clobbering those doesn't seem to be necessary anyway. Clearly
+> having an arbitrary calling convention is confusing for everyone.
+> 
+>> I should use kernel_neon_begin()/kernel_neon_end() to save/restore the full
+>> extended FP state of the current task in VTL2. VTL0's Q0-Q31 can be
+>> loaded/saved separately via fpsimd_load_state()/fpsimd_save_state(). This
+>> way, the assembly touches none of the SIMD registers. This is SVE/SME-safe
+>> for VTL2's task state. VTL0 still only carries Q0-Q31 in the context struct,
+>> and extending to SVE, SME is a future context struct change, which will need
+>> Hyper-V arm64 ABI support.
+>> This way, VTL2's callee-saved regs (x19-x28, x29, x30) are explicitly saved
+>> to the stack frame at the top and restored at the bottom of assembly code.
+>> The C caller (in hv_vtl.c) is a clean function call.
+> 
+> That doesn't really address my concerns here.
+> 
+> I do not think that Linux should have to save/restore anything here;
+> that should be the job of the real hypervisor. The arbitrary separation
+> of PE state into private and shared (with shred state being directly
+> exposed to Linux) is a problem for maintainability and forward
+> compatibility.
+> 
+> Looking at the TLFS document you linked below, I see:
+> 
+> | Note: SVE state (Z0-Z31, P0-P15, FFR) and SME state are VTL-private.
+> | The lower 128-bit portion (Q registers) is shared, but the upper bits
+> | of Z registers may be corrupted on VTL transitions. Software should
+> | not rely on Z register contents being preserved across VTL switches.
+> 
+> ... which is certainly going to be a pain to manage.
+> 
+> Note in particular "SME state" is not an architectural term. I don't
+> know which state in particular that is intended to cover (e.g. ZA, ZT0,
+> SVCR, all streaming mode state)?
+> 
+> There's no mention of SVCR, so I don't know how this is going to
+> interact with management of ZA state (ZA and ZT0, which are dependent
+> upon SVCR.ZA) or streaming mode (dependent upon SVCR.SM). That state has
+> been *incredibly* painful for us to manage generally. Regardless of the
+> SMCCC concerns, that needs to be specified better.
+> 
+>> Regarding Non-SMCCC "hvc #3" call, I have a limitation here owing to the ABI
+>> that is defined by the Hyper-V hypervisor. Fixing this requires a
+>> hypervisor-side change to support SMCCC-style dispatch for VTL return. Until
+>> then, hvc #3 is the only working interface. Moreover there would be backward
+>> compatibility issues with this new ABI interface, if at all it is added.
+> 
+> To be clear, that's Microsoft's problem, not the Linux kernel
+> community's problem. My NAK still stands.
+> 
+> Multiple years ago now, we made it clear that we would not accept a
+> non-SMCCC calling convention. Ignoring the substance of that feedback,
+> and inventing a new calling convention after that point is a
+> self-inflicted problem.
+> 
+> [...]
+> 
+>> Link to TLFS: https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/vsm#on-arm64-platforms-3
+> 
+> For shared state, aside fomr GPRs and FPSIMD/SVE/SME state, that says:
+> 
+> | * System Information Registers (read-only or non-security-critical):
+> |   * System identification and feature registers
+> |   * Cache and TLB type information
+> 
+> It's *implied* that some of those registers might be writable, but as
+> the specific set of registers is not described I cannot tell. Are there
+> any writable system registers which are shared?
+> 
+> I don't see how we can know which registers we might need to
+> save/restore without that being explicitly documented.
+> 
+> I also see:
+> 
+> | Note: SPE (Statistical Profiling Extension) state is shared across VTLs,
+> | except for PMBSR_EL1 which is VTL-private.
+> 
+> If "SPE state" includes PMBPTR or PMBLIMITR (which is the obvious
+> reading), this would be a security problem, as a lower-privileged VTL
+> could clobber those and cause SPE to write to arbitrary memory
+> immediately upon return to the higher-privileged VTL. Having PMBSR be
+> private on its own isn't sufficient to prevent that (e.g. since the
+> higher-privileged VTL could have its own active SPE profiling session).
+> 
+> I'm not keen on requiring hyper-v specific hooks in the SPE driver to
+> achieve that, and I'm also not keen on having hyper-v support code poke
+> SPE registers behind the SPE driver's back.
+> 
+> This does not give me confidence that any future PE state (e.g. things
+> like TRBE) will be managed in a safe way either.
+> 
+> Mark.
 
 
+Thanks for sharing this, I'll discuss it internally and come up with a plan.
+
+Regards,
+Naman
 
