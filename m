@@ -4,108 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F50CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 21:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73786CD342F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 May 2026 21:23:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NuDyd+pdDE/YN+9KZpt+S8gMDx02yjwA/CK1DnFyXwo=; b=TUkcKITCdfeDsNUIHdKeD6DLWn
-	fipTryhPvmLQvjpt/1LZwzynwjlkookDVW+gzlWROrGQg3fgd3ZJUcobVhcUiRxkY9uH8cW5ahLuu
-	GiFeXUP1UpcMNps5h1XwtnD0U8yoF0QPoQwuVNdzA0A4xHvA9cufRKOZuelz1lVSS896rFAapQqPF
-	XgimnisDG3YdtMLhG2Osc6zi+ZP7fyFQmxNyzmz2txSyhDoHDTMDeVQ3JwJZLrBC/BjDhldiI/vll
-	/zM1ogqUkm7y+PsCYBI8GgSMuP4FJfs4EEbVr+rJV0VpSdlcwij5zdPqBo0d6/Cqmnwai6LdF+Z6d
-	CLhAPkRw==;
+	bh=zIq9ZcUws2t7WWIjJD6g+oZhRW8RJPBQCH68MpVs7Xs=; b=tkg4BUfYO+txAjTPy2xnb97XdR
+	5Sj9xC6STmpPsi8RbKBVq1oyEtdJ1j9q5f9UkMMkpplgd5j7KH4dsE9TjP6iwpTDE/MVY+sXj07tj
+	nWInjGDu7ad4SpkPYHW+gcOeCTSUvS7+jSUETgHA2NpEgrbySuGA5eOJXILR71wAR2/eN3KDrUbaP
+	V0xFjLtq1EcjcLvlU5Nu0vEgki8KB6yOW5MdsghkXou7+7igdzu060T3hxRVpkneLjs0Xw8CQBn6i
+	7TRBQet0LFFmRW4P2a5FHZxMcVJsAvXlN7fEwtkCftrEmE4yLW2eI9ZROkbXlul8bgmtvKletAH/J
+	Yq2w75Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLSaz-00000007X7z-2sG9;
-	Fri, 08 May 2026 21:18:53 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1wLSfh-00000007Xyc-0ute;
+	Fri, 08 May 2026 21:23:45 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLSaw-00000007X6g-0Qom
+	id 1wLSfd-00000007Xxb-3JxG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 May 2026 21:18:51 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-50d876329bbso22315091cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 14:18:49 -0700 (PDT)
+	Fri, 08 May 2026 21:23:43 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-bcb5370bb0dso145345866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 14:23:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778275420; cv=none;
+        d=google.com; s=arc-20240605;
+        b=O164NbS2tdebjWnvTb3m56maYgX6moBn7ABBTtJT245vmQvXrHDlVHPDwlxhwEWJ50
+         ef1QZzOvNsVK1gU1RuvHr6jMhs4ggeUD4JCDQG+3IG3wrM/M4Wuz9KhB00TqVOKOIlE8
+         Upup3JyBiP6g6/VUoMUzUc2OhPD50dJu4B41Pv4pnhlaJ6AF15flJQG1Wgf0btuBMqwx
+         fwVp2ue5jfamdejGlv7XQfjbD+IZoGvNxctmvNuzY5PcIyrXGaWCJPTLMY4BXRbx9Nxz
+         /Io9RjRs6o/RUvEZd5Fy3t0ehbRNtsVvlBnY8cV7eq2U3qehhsQ+2S7ZTUpFdP1Llzb+
+         RNnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=zIq9ZcUws2t7WWIjJD6g+oZhRW8RJPBQCH68MpVs7Xs=;
+        fh=+PoiVUl+lNhLezeIY9Z6PI9jyhjm9qxMhoWbAkNcT1Y=;
+        b=JmxmxalSDtETKk4zPoVrWsligOp8hdSaK983C79Vf84NTwKmS3/4CoD8PDNirszZtO
+         41TpKFLPAjQQFGHPxk9lK3+9JZOeitbwUBHHstyJJtxA8ZHY4RaAa548tBpV7uSYwlvt
+         CTRxdWmhDBuSTlAAV38hwVai3n3QSGVAb/HUCykGqA8FZjxOp3J78e/uFA5oPn8TUK+s
+         Jb4j7PHfSyTdlcvE3LJXc9PRQtSjTgjI/MYjWus3nlVb2Gqo44MkM0DqleeG2cApJqha
+         xrKCAtZMcEPTAD2qCvthlPAndGeDZiXhsSjg6cxWy7ZQPB7fcYBYhcelyA9/tU+ceV6U
+         rBhg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1778275129; x=1778879929; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=NuDyd+pdDE/YN+9KZpt+S8gMDx02yjwA/CK1DnFyXwo=;
-        b=fbXEn+IZhvqJRgmzmmN3IAvQJgTL5j3QAu2JUkvDbwUjwHKeF/RByQxKT7yYkI2+Ng
-         JgBKEFZ70hx9w/RSHVccTxiU7ZPkWB4Mjb6bJUPA7z0Xh2aUD9Vswb9sBQKJt36x+lN3
-         ++wioAH/fdUGIFP3muXfelbfbzm8RMHaEqJFO7fx+oZxdR/3jc4EZbKFihrSH2LzvyMY
-         IiUpUZg2vV/1IRLuxnUh1A0P3m8w+9/rKCmEBGdvwMK0KtRc2FsP2pdEVPUzr+185W1u
-         xqAb2O2Zaod6eJKdPM7PUO76Hmpz/u5gghxnkyNoM5xF4OzJh19w6IhqcX5XRYWB0+Gu
-         8Ljg==
+        d=linaro.org; s=google; t=1778275420; x=1778880220; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=zIq9ZcUws2t7WWIjJD6g+oZhRW8RJPBQCH68MpVs7Xs=;
+        b=vwFhTHYFFg4Ls1AFxAz0Rpp19fEB7pVGse+q+HZI9VtALpezxf2EqzgDtnu1NbAtn2
+         JXR5amDC5Nk5HfCsx+emsU2oMA0xrOLIjAfqD1QrKmtC9FDmtforUNMEpwiU60aoeab+
+         uqPnoW1RWWpfHGsGhCUgXbxiQWnh7GN8TjJ0ONTPrLYv313EmZ+crWGPanDaEPlE5lA8
+         qwA9qCMA9JcUl1U4t/LHafg3osRW2TjHrXGk8UYCJMq/81oQFTcDLmVSdxyvMQBoxheU
+         W1kTRVj76lVSulyn6LjNdJLfWaroYDUrMFImmn+8CqDeREuTkMZ/4KGfufp90/4O5d/o
+         0O3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778275129; x=1778879929;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NuDyd+pdDE/YN+9KZpt+S8gMDx02yjwA/CK1DnFyXwo=;
-        b=BcQ4RpreuaYAF+cHeNItGVXKe5iMTWMc2YJEBzVpSGpKAIiLG58ZleqEbzxHCcMQy0
-         dG9CifurnCNbI0nEaLg5KX3x5GtRmQFpPhhftXV1ungFVKVSJFWbJyV22WHktFE9sP9Q
-         m2MofQagPF1pdYtcRuvxKQJ2xTDEThAzThOTzORHzbzPcGluc4tP7ZuryoDxYb8Gb1Ww
-         3CsxRRImksAAPT9flTIDDi5K/RbtS6fPXUvQWBRWvL4D3HCK34cAlPOL4JIk7iEvTVlc
-         ldFBMiO7POLvC2fBxh6bDnOvsibKrWUFvBEBU18p3VFKLFYgk3wsDY2Kiwr8lq8CVb7+
-         d83w==
-X-Forwarded-Encrypted: i=1; AFNElJ9L91VoewvgpFUSHsO+kcTNm3dMixuMlWXslUI5SdFo9ASPtn6/5Bi8xX7mdAKT4l4EMfhkj7q0yBJVkV7/EGM6@lists.infradead.org
-X-Gm-Message-State: AOJu0YytZhX9N0+PxDDa5MlRVah7xEn4DGxFZz83QHHSOy5fMtHdW6vM
-	ZRhnBW9IWxV6q8Qgp493lWDjRjLxFwYOvidZ3k/AxzmRUYPBPFtGoJsdv9iXNwR0hv8=
-X-Gm-Gg: AeBDieubma/lK2oF4590D9m7Sk8E1en3BYB3ON0y6vIV47vc8hAlKJmRl9wO7qjHArb
-	r5MiQFL1c0/aJ0Jv0K8XGHBdlxRjBf1Vnaiq946kNVypyIU5yMYsr0kB3WnVm3pNPcKO5h7QbBy
-	qqz5EeqXTcnvDGTFd8RBFWqJZFI2DRuFDH4AxDLCC6dU1Xou4jMGKzCklRCL7wiqiPlwp/IEWsB
-	MYWhqR23fgaZjxWZmlUPiiapQtc9KcNWXTr9s6NlZtetN/gh2KwAywHSwUS9S8w7gWqBJIsoh4Q
-	DMpuB9DEG6Hs80PkV7g94imyPGasvLTuz/RM6XHX9ffWHB6NnKr8ElbQHxSFJBN5KXBBODsRb+z
-	ea6mTjkEq6p8DDBZbyLNJej3kRyHFDqKiecz0sbdsTYjHREg6BtKdmCyQ+N6Cc32vpMg+bSTA44
-	lvFM3QKrMV15dRm1rw7ODIGsL17WvIO1+eV1qr7Ps=
-X-Received: by 2002:a05:622a:4d4e:b0:50b:5336:1d20 with SMTP id d75a77b69052e-514621d5127mr196554381cf.53.1778275128704;
-        Fri, 08 May 2026 14:18:48 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:15:e06b::c41? ([2606:6d00:15:e06b::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8bf3b0c7600sm28019116d6.1.2026.05.08.14.18.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 14:18:47 -0700 (PDT)
-Message-ID: <4f5e481c8883b358ee4cef64f26f3f00f0ac7304.camel@ndufresne.ca>
-Subject: Re: [PATCH v5 12/29] media: rockchip: rga: avoid odd frame sizes
- for YUV formats
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, kernel@pengutronix.de, 
-	sebastian.reichel@collabora.com
-Date: Fri, 08 May 2026 17:18:46 -0400
-In-Reply-To: <20260428-spu-rga3-v5-12-eb7f5d019d86@pengutronix.de>
-References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
-	 <20260428-spu-rga3-v5-12-eb7f5d019d86@pengutronix.de>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-qZ2RVVDen/K+BWJk4jzk"
-User-Agent: Evolution 3.60.1 (3.60.1-1.fc44) 
+        d=1e100.net; s=20251104; t=1778275420; x=1778880220;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zIq9ZcUws2t7WWIjJD6g+oZhRW8RJPBQCH68MpVs7Xs=;
+        b=GYFngyASy7TdUjUidAMXNOXVyPww+PyuGNHeNIb5w607ekcU8jpgUWYHbQK9ngR9V7
+         jUNvg+nSsBl28HEGQHnvKs5aRiApiE94QB1ERu6YVTOoojSfKTmGnLov3lEJRA9tLPyo
+         luZiroakY1Ir/LzLXZGj6udd2GhsJ04lz7GFIQbz24JCX+bqdXaVkyPVjsgQDSZtiWR4
+         DtcyUeBNugQ2t4sBIL3/XzpwaVRzEjg13ujifZFfONyy61TFddvdWLv8z4LpVrdDZXTX
+         uREgFuan+gkxfOOiIWk4HdRVMxIWQ7B8CkRX1ZmzKO6GFYIEM8a7KdKpicfhziDYY3nB
+         nUpQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9i3ib4OTiDip6cmZ2FtHD43vMb8HDfjJCbA4mdK2ip4bmMp/YJaIe2RnYb3+7DJMj4KlSl3ubm5EjyAhE7Kn/C@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1s3dlma8iCnjEUo+nxjt9rkdwL1U+g3U28hasOPfp6j0rrras
+	Urqq8y1nrPS0K0qtP4MbH/xY3TTLaNPFJGXnTtKmCqGXMNEIT519zOUhfBtY/MFkd+01zNA6pU1
+	AiUNSCRSC9Xp9umlYRXvbBOKG/4eXhoSja2bzhgDl/Q==
+X-Gm-Gg: Acq92OHN0nK0cpVpIQMfTO/ubRGsvk0iHF1jS6AEUylH386IO1PIWLX7QI4XhSgFtr6
+	PmAmPnePOFQ/lVNUbkPyOzFj5+i2e7C6Fjlv8Ah9iDuh312FqsBNdzfUS5pexU9qQU0Y2OlcBfQ
+	UfYQikeH6pE7oRoTCY2LOEl5R1fZfIPP76v/qDWqG4+nV5v7DENtvoahEekN6sJM8QtAsecB5C1
+	QXf5A1M2JqUd4j/M8e8lwncw/34R2g0guU80KXnqXwjNSxO614KqdB0S0YaRbuhYN0Jev450nsn
+	pEaOWMydf0drg1yeHqBl5FUy3P7KdcNxt8JGI7u3SA==
+X-Received: by 2002:a17:907:c06:b0:ba9:2611:31e6 with SMTP id
+ a640c23a62f3a-bc56be3f762mr934940566b.6.1778275419723; Fri, 08 May 2026
+ 14:23:39 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260506-acpm-tmu-helpers-v1-0-a9cd5daf8355@linaro.org> <20260506-acpm-tmu-helpers-v1-3-a9cd5daf8355@linaro.org>
+In-Reply-To: <20260506-acpm-tmu-helpers-v1-3-a9cd5daf8355@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Fri, 8 May 2026 22:23:27 +0100
+X-Gm-Features: AVHnY4LLKqUnG42bw1kGuZ5A8Ore_i8f_07LxVicEeYBN4fNYRTwN4DHlu-DLSI
+Message-ID: <CADrjBPqzKpcd9vuCmNUptCUPyPpPbHcc19-7kN-1c0RpW1e5DQ@mail.gmail.com>
+Subject: Re: [PATCH 3/6] firmware: samsung: acpm: Drop redundant _ops suffix
+ in acpm_ops members
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Lee Jones <lee@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	jyescas@google.com, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_141850_200556_53330D28 
-X-CRM114-Status: GOOD (  20.88  )
+X-CRM114-CacheID: sfid-20260508_142341_918890_EA4B757A 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,101 +120,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-qZ2RVVDen/K+BWJk4jzk
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Le mardi 28 avril 2026 =C3=A0 11:00 +0200, Sven P=C3=BCschel a =C3=A9crit=
-=C2=A0:
-> Avoid odd frame sizes for YUV formats, as they may cause undefined
-> behavior. This is done in preparation for the RGA3, which hangs when the
-> output format is set to 129x129 pixel YUV420 SP (NV12).
->=20
-> This requirement is documented explicitly for the RGA3 in=C2=A0 section 5=
-.6.3
-> of the RK3588 TRM Part 2. For the RGA2 the RK3588 TRM Part 2
-> (section 6.1.2) and RK3568 TRM Part 2 (section 14.2) only mentions the
-> x/y offsets and stride aligning requirements. But the vendor driver for
-> the RGA2 also contains checks for the width and height to be aligned to
-> 2 bytes.
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+On Wed, 6 May 2026 at 12:39, Tudor Ambarus <tudor.ambarus@linaro.org> wrote:
+>
+> Rename the `dvfs_ops` and `pmic_ops` members of `struct acpm_ops` to
+> `dvfs` and `pmic` respectively.
+>
+> Since these members are housed within the `acpm_ops` structure and
+> utilize the `acpm_*_ops` types, the `_ops` suffix on the variable names
+> creates unnecessary redundancy (e.g., `handle.ops.dvfs_ops`).
+>
+> This cleanup removes the stuttering, leading to cleaner consumer code.
+>
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 > ---
-> =C2=A0drivers/media/platform/rockchip/rga/rga.c | 19 ++++++++++++++-----
-> =C2=A01 file changed, 14 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
-atform/rockchip/rga/rga.c
-> index f599c992829dd..77b8c7ab74274 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -337,6 +337,19 @@ static int vidioc_try_fmt(struct file *file, void *p=
-riv, struct v4l2_format *f)
-> =C2=A0	struct rga_ctx *ctx =3D file_to_rga_ctx(file);
-> =C2=A0	const struct rga_hw *hw =3D ctx->rga->hw;
-> =C2=A0	struct rga_fmt *fmt;
-> +	struct v4l2_frmsize_stepwise frmsize =3D {
-> +		.min_width =3D hw->min_width,
-> +		.max_width =3D hw->max_width,
-> +		.min_height =3D hw->min_height,
-> +		.max_height =3D hw->max_height,
-> +		.step_width =3D 1,
-> +		.step_height =3D 1,
-> +	};
-> +
-> +	if (v4l2_is_format_yuv(v4l2_format_info(pix_fmt->pixelformat))) {
-> +		frmsize.step_width =3D 2;
-> +		frmsize.step_height =3D 2;
 
-I think its fine like this, so let's start with:
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
-But it does not feel like a hardware alignment to me. When we process in
-software these things, the minimum alignment is bound to the subsampling, s=
-ince
-there is no way to store half or quarter pixels, the padded width/height
-requires a step that follow the subsampling, something like:
-
-		frmsize.step_width =3D finfo->hdiv;
-		frmsize.step_height =3D finfo->vdiv;
-
-Nicolas
-
-
-> +	}
-> =C2=A0
-> =C2=A0	if (V4L2_TYPE_IS_CAPTURE(f->type)) {
-> =C2=A0		const struct rga_frame *frm;
-> @@ -358,11 +371,7 @@ static int vidioc_try_fmt(struct file *file, void *p=
-riv, struct v4l2_format *f)
-> =C2=A0	if (!fmt)
-> =C2=A0		fmt =3D &hw->formats[0];
-> =C2=A0
-> -	pix_fmt->width =3D clamp(pix_fmt->width,
-> -			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 hw->min_width, hw->max_width);
-> -	pix_fmt->height =3D clamp(pix_fmt->height,
-> -				hw->min_height, hw->max_height);
-> -
-> +	v4l2_apply_frmsize_constraints(&pix_fmt->width, &pix_fmt->height, &frms=
-ize);
-> =C2=A0	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt-=
->height);
-> =C2=A0	pix_fmt->field =3D V4L2_FIELD_NONE;
-> =C2=A0
-
---=-qZ2RVVDen/K+BWJk4jzk
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaf5TNgAKCRDZQZRRKWBy
-9K22AP9NA5svkOS4YL++qXSzMq8kynIFrKCnDRWKeJx++AbT9AD/dLvKF5HRQ8Cf
-i9PlqWBZXkzVLS+1T8+GiOLpb3UFXAQ=
-=85ga
------END PGP SIGNATURE-----
-
---=-qZ2RVVDen/K+BWJk4jzk--
+>  drivers/clk/samsung/clk-acpm.c                        | 8 ++++----
+>  drivers/firmware/samsung/exynos-acpm.c                | 4 ++--
+>  drivers/mfd/sec-acpm.c                                | 6 +++---
+>  include/linux/firmware/samsung/exynos-acpm-protocol.h | 4 ++--
+>  4 files changed, 11 insertions(+), 11 deletions(-)
+>
+> diff --git a/drivers/clk/samsung/clk-acpm.c b/drivers/clk/samsung/clk-acpm.c
+> index d8944160793a..93667777094c 100644
+> --- a/drivers/clk/samsung/clk-acpm.c
+> +++ b/drivers/clk/samsung/clk-acpm.c
+> @@ -68,8 +68,8 @@ static unsigned long acpm_clk_recalc_rate(struct clk_hw *hw,
+>  {
+>         struct acpm_clk *clk = to_acpm_clk(hw);
+>
+> -       return clk->handle->ops.dvfs_ops.get_rate(clk->handle,
+> -                                       clk->mbox_chan_id, clk->id);
+> +       return clk->handle->ops.dvfs.get_rate(clk->handle, clk->mbox_chan_id,
+> +                                             clk->id);
+>  }
+>
+>  static int acpm_clk_determine_rate(struct clk_hw *hw,
+> @@ -89,8 +89,8 @@ static int acpm_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+>  {
+>         struct acpm_clk *clk = to_acpm_clk(hw);
+>
+> -       return clk->handle->ops.dvfs_ops.set_rate(clk->handle,
+> -                                       clk->mbox_chan_id, clk->id, rate);
+> +       return clk->handle->ops.dvfs.set_rate(clk->handle, clk->mbox_chan_id,
+> +                                             clk->id, rate);
+>  }
+>
+>  static const struct clk_ops acpm_clk_ops = {
+> diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
+> index fac88c427d2a..da960d3e1145 100644
+> --- a/drivers/firmware/samsung/exynos-acpm.c
+> +++ b/drivers/firmware/samsung/exynos-acpm.c
+> @@ -676,8 +676,8 @@ static int acpm_channels_init(struct acpm_info *acpm)
+>   */
+>  static void acpm_setup_ops(struct acpm_info *acpm)
+>  {
+> -       struct acpm_dvfs_ops *dvfs_ops = &acpm->handle.ops.dvfs_ops;
+> -       struct acpm_pmic_ops *pmic_ops = &acpm->handle.ops.pmic_ops;
+> +       struct acpm_dvfs_ops *dvfs_ops = &acpm->handle.ops.dvfs;
+> +       struct acpm_pmic_ops *pmic_ops = &acpm->handle.ops.pmic;
+>
+>         dvfs_ops->set_rate = acpm_dvfs_set_rate;
+>         dvfs_ops->get_rate = acpm_dvfs_get_rate;
+> diff --git a/drivers/mfd/sec-acpm.c b/drivers/mfd/sec-acpm.c
+> index 0e23b9d9f7ee..9e15b260b8df 100644
+> --- a/drivers/mfd/sec-acpm.c
+> +++ b/drivers/mfd/sec-acpm.c
+> @@ -391,7 +391,7 @@ static int sec_pmic_acpm_bus_write(void *context, const void *data,
+>  {
+>         struct sec_pmic_acpm_bus_context *ctx = context;
+>         struct acpm_handle *acpm = ctx->shared->acpm;
+> -       const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic_ops;
+> +       const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic;
+>         size_t val_count = count - BITS_TO_BYTES(ACPM_ADDR_BITS);
+>         const u8 *d = data;
+>         const u8 *vals = &d[BITS_TO_BYTES(ACPM_ADDR_BITS)];
+> @@ -411,7 +411,7 @@ static int sec_pmic_acpm_bus_read(void *context, const void *reg_buf, size_t reg
+>  {
+>         struct sec_pmic_acpm_bus_context *ctx = context;
+>         struct acpm_handle *acpm = ctx->shared->acpm;
+> -       const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic_ops;
+> +       const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic;
+>         const u8 *r = reg_buf;
+>         u8 reg;
+>
+> @@ -430,7 +430,7 @@ static int sec_pmic_acpm_bus_reg_update_bits(void *context, unsigned int reg, un
+>  {
+>         struct sec_pmic_acpm_bus_context *ctx = context;
+>         struct acpm_handle *acpm = ctx->shared->acpm;
+> -       const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic_ops;
+> +       const struct acpm_pmic_ops *pmic_ops = &acpm->ops.pmic;
+>
+>         return pmic_ops->update_reg(acpm, ctx->shared->acpm_chan_id, ctx->type, reg & 0xff,
+>                                     ctx->shared->speedy_channel, val, mask);
+> diff --git a/include/linux/firmware/samsung/exynos-acpm-protocol.h b/include/linux/firmware/samsung/exynos-acpm-protocol.h
+> index d4db2796a6fb..b206efa62be6 100644
+> --- a/include/linux/firmware/samsung/exynos-acpm-protocol.h
+> +++ b/include/linux/firmware/samsung/exynos-acpm-protocol.h
+> @@ -36,8 +36,8 @@ struct acpm_pmic_ops {
+>  };
+>
+>  struct acpm_ops {
+> -       struct acpm_dvfs_ops dvfs_ops;
+> -       struct acpm_pmic_ops pmic_ops;
+> +       struct acpm_dvfs_ops dvfs;
+> +       struct acpm_pmic_ops pmic;
+>  };
+>
+>  /**
+>
+> --
+> 2.54.0.545.g6539524ca2-goog
+>
 
