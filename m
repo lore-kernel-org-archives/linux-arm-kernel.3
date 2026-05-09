@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13A0CD3445
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 17:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 815C4CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 17:57:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jIh60pxxvGKOUsnTbxcu3v39dVCI3FE1FnfA1fpg1iA=; b=pZ33ieLRh1r8VCCu2LS1WGZ22Q
-	IunWM4bY78779iQtBYw1Hemsf2RMlM0yURO7JN711Yzl+7Q4V5T9NEXLK5X6aRnwyoVwARZ49qQf4
-	QSwSIcieGBsD+yfk4SiK9XjWbPGITw8V4I5dX8KuqEYwyymitNhPK5ixbV3pZGDqxOjewOq53reEx
-	ILoOuZMesqWkTe9r7UMCRHw3Zi3HsjHAXpm+jLs2dUpAEICH2+DYMX7+RW+11RcAOOThfDNTtzWyI
-	7Z/OPO05JhHRAdQqAizw85QTe5lCYA7jdwYDBe31YPVfm/b41+dXy4b32gjqdMItfGdtj12H7XSlj
-	KA7K5prw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D9c/e0UprfAYWH5YVqbSxlPj2dPLuyeBp/W3tPUPZEs=; b=Gr7DzCISFiDCrkIQ/5LmFtQlQC
+	MAWv347lmz/J2jBM6y43sJ53egFVcWMJG7KdDnnwkS5U9nTZG1RXRN1mpU40IMeic+TtfXC8X69Z8
+	UT1/Hlx6ympHHpDszZT8cOW9aTt/JhdcQwjGrL662h4LXBPAzzGsGXiWl/M+bIxwpl2F+k+b+bkW6
+	T8v1qu0e3HayeYhs5L5RjvyZ0gz8wiSBONO4/BVp2bO/zDE9E9hLdz8KUBFTNzZArbKtxkv0EqqQP
+	w5lGf96ONMnNd0sShUvhl5agu2xZymM3A9w86oL3ytJmyfN0fZ4fD0FupjFl9VJIA33o6rttsNd3O
+	14/CfTeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLlv1-00000009NrE-0aI5;
-	Sat, 09 May 2026 17:56:51 +0000
-Received: from out-170.mta0.migadu.com ([91.218.175.170])
+	id 1wLlw0-00000009O2c-1rkM;
+	Sat, 09 May 2026 17:57:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLlux-00000009NqP-0JlR
+	id 1wLlvy-00000009O2H-0tAY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 17:56:49 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1778349401;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jIh60pxxvGKOUsnTbxcu3v39dVCI3FE1FnfA1fpg1iA=;
-	b=MPD2dCcmz3mdk8VygCqc9i2PHEr4TZNN9lNCBmKzcxGHZ+eWZ+AuNUgrvZXxXTlqHwdXS9
-	wx7CycvLytT3JhZ8axiRlRYLDxxuoBCb9qD6djOQe+86kK2bCeo2lkFLpN2ANV14xXjT5L
-	pccNsYyuvstsAo8Na6Faab8YRnpWDwwQpJt6sZrpMXFeH8uMctcmAa8SdnZSDwRZVDWHNz
-	5stVLgqHcGfEohu6HqOjmJCrk4NLHKgJgStX+NCXk7IrOF2T1yy3icRH7qmwwqQRarbgIc
-	+YLJyETMWPEFvHAQ0fNd05zlzs8yF8Jm+fQHZZkxI7FhRkPx32RcQfdOaOIw2A==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sat, 09 May 2026 19:56:37 +0200
-Message-Id: <DIEC8YT0XK4O.VAG6G4H31KJM@cknow-tech.com>
-Subject: Re: [PATCH v14 1/5] dt-bindings: vendor-prefixes: Add Verisilicon
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Benjamin Gaignard" <benjamin.gaignard@collabora.com>,
- <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
- <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <heiko@sntech.de>
-Cc: <iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <kernel@collabora.com>, "Conor
- Dooley" <conor.dooley@microchip.com>
-References: <20260415072349.44237-1-benjamin.gaignard@collabora.com>
- <20260415072349.44237-2-benjamin.gaignard@collabora.com>
-In-Reply-To: <20260415072349.44237-2-benjamin.gaignard@collabora.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_105647_641066_45854B69 
-X-CRM114-Status: GOOD (  11.54  )
+	Sat, 09 May 2026 17:57:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6FC7C60018;
+	Sat,  9 May 2026 17:57:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2396DC2BCB2;
+	Sat,  9 May 2026 17:57:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778349469;
+	bh=ldr5WfRlMWjOTsABD9uchw3tatKKyjryWW7U2mXNhiU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=vF4UGVy4gHfV1LGVSFR/aNZ8/DV1DXy9jYJRwFZaMxJP4MAsmX9c4/KuY2dmYHs3e
+	 GSFCnBfcqNOCinD/Ek8AjLvR45XLmqY1Xs8UgejN8PsD/Jtn8SQER5plvg8purWF0x
+	 hLK2eYNU7+FYkqswB55YIxuHqTKuAzxWZqq+yDts5LtyKFFuSxbSjGjTzm32nhos4y
+	 3CoYu7rgke9hKeTSInOyw47jPYjSD7jS44mDG9qz2As40bEnZGrqKiPr8aMpzhb1oo
+	 Y3ISIPaSKnmwsXPlSLfjpETdj9jCzp2zleAAFHn/rTcX4/3oDMJDRzA2oALY/MDEig
+	 WFWpjDyGUzB0Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wLlvu-00000000fG9-2hnR;
+	Sat, 09 May 2026 17:57:46 +0000
+Date: Sat, 09 May 2026 18:58:00 +0100
+Message-ID: <87wlxca2jb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sudeep Holla <sudeep.holla@kernel.org>, Jack Matthews <jack@jackmatthe.ws>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	regressions@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org
+Subject: Re: Regression in split ARM MMIO timer driver
+In-Reply-To: <20260509-ruddy-dragonfly-of-poetry-45e9f1@sudeepholla>
+References: <46A20F89-E208-4091-8B6E-B5C38BF82B42@jackmatthe.ws>
+	<20260509-ruddy-dragonfly-of-poetry-45e9f1@sudeepholla>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sudeep.holla@kernel.org, jack@jackmatthe.ws, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,35 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Apr 15, 2026 at 9:23 AM CEST, Benjamin Gaignard wrote:
-> Verisilicon Microelectronics is a company based in Shanghai, China,
-> developping hardware blocks for SoC.
->
-> https://verisilicon.com/
->
-> Add their name to the list of vendors.
->
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
-umentation/devicetree/bindings/vendor-prefixes.yaml
-> index ee7fd3cfe203..ebd9072300a8 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -1761,6 +1761,8 @@ patternProperties:
->      description: Variscite Ltd.
->    "^vdl,.*":
->      description: Van der Laan b.v.
-> +  "^verisilicon,.*":
-> +    description: VeriSilicon Microelectronics
->    "^vertexcom,.*":
->      description: Vertexcom Technologies, Inc.
->    "^via,.*":
+On Sat, 09 May 2026 13:19:56 +0100,
+Sudeep Holla <sudeep.holla@kernel.org> wrote:
+> 
+> On Fri, May 08, 2026 at 03:48:14PM -0400, Jack Matthews wrote:
+> > Hello,
+> >
+> > I am working on mainlining an old chip, Qualcomm's MDM9625 modem.
+> > I had previously booted 6.17-rc3 before putting this project to the side,
+> > but when I restarted work on 7.0 I was unable to boot. 
+> > I have bisected this to commit 0f67b56d84b4c49adfd61f19f81f84ec613ab51a
+> > (https://lore.kernel.org/all/20250814154622.10193-4-maz@kernel.org/) and
+> > reverting this commit makes the device boot successfully. Unfortunately I do
+> > not have access to low level debugging such as UART so I have not been able
+> > to pinpoint exactly what is missing.
+> > My changes for this chip are all available here in case it is an issue of my
+> > own doing: https://github.com/jackmthws/linux/commits/mdm9625-latest/.
+> 
+> Looking briefly into the DTS file, I couldn't find the sysreg based
+> arch timer node in the DT. It could be just an overlook unless there
+> is some issue with it that it's not added. After the above mentioned
+> commit, the MMIO timer gets initialised bit late in the boot and
+> could be the reason for boot failure. Unless you have intentionally
+> not added it, I would suggest to add it and try.
 
-FTR: Another version of this patch is already present in Linus' tree:
-c131d78840d7 ("dt-bindings: vendor-prefixes: add verisilicon")
+Ah, that's a good point. Not having per-CPU timers is not going to
+fly, I'm afraid. The MMIO timer will kick in very late, and we
+probably need to schedule threads way before that.
+
+This looks to be a single Cortex-A5 however, not an A5MP, meaning it
+does not have the TWD, and relies on a global timer, which is a
+terrible thing to have. Not to mention that MMIO accesses on the
+counter is going to be even worse.
+
+Anyway, if that's indeed the case, we'll have to get creative to
+support this sort of horror (not going to butcher the driver to make
+this work).
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
