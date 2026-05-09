@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A785CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 05:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8788CD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 05:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSXVZuQbVTBhNqf5XUUF1Kdmejk+jpH4iBZZY4c/Ed0=; b=yHYrkpFmZlFxBPxNjrHjVu+nM/
-	hM3HurhIih2ArqWTqwEuGTlGeM0RoegVQ/rCK4QV+GdXYpjsg52noObkqtzEfsY98GE1ITENW4wA4
-	3PoFk9bD4E/D+0ikMlsp7r2J1Mt0+q4a5W1YYnIxiCt8hJc65gj88axTLH7MklU6VcvzUrSm4EtWk
-	dDphdYyKDdYD5lH9TRRCVjz84pJl9r2YU+dKhFp+X7djiaYqoeDohBGyUdDQFC7QvmYF6jx06nFQ0
-	3ehbUVeQNxTHXi1lxvjkUrQhQ0mToCPcHGWyR8zygQJXKTytIgMXitChz6Gxe4LlES1fmdCxUry+X
-	0M9UQW0g==;
+	bh=g5bmiBt/UaAj8FYk6z1JEgvnehBBxvzIZjMWnqTHpn8=; b=ha+Uj3qk+9YPHpvKAk9QuxRyx0
+	KSxW5/s7SYDDFWfnyS9qZAlWkoD0Nu2B49d3QMlo+kjQqfe2USAiqbtb9OV4h8HRG7pIGW0LLsSkz
+	SbeXZsL17GVCxU9imAYA2cq/GE3OBvl0cRYMxRiI6+gZMDgsQm47ENr0INtX/lp79jRb+D9QF89xf
+	h2gnAO0rdCJOZTxUF0XtXY7ypVlbuLhxQdiG3+rIhMbFge7BJlUP3nClmnJwuluCjVs5IzfgZ1BOf
+	W3l2ynETix46X5OpWzSMxuaA74KAIlRzs+VdVO5AY9EmGzy64QzOHj0AQc5JPJcdnUEouzj/HVJZr
+	UKvLETBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLZwF-00000008Ghu-1rkP;
-	Sat, 09 May 2026 05:09:19 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wLZwK-00000008GkJ-2TUc;
+	Sat, 09 May 2026 05:09:24 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLZwC-00000008Gge-1VbS
+	id 1wLZwH-00000008GiT-1fWV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 05:09:17 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4526a8170ceso1457716f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 22:09:15 -0700 (PDT)
+	Sat, 09 May 2026 05:09:22 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4891f625344so26829435e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 22:09:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778303354; x=1778908154; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778303360; x=1778908160; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JSXVZuQbVTBhNqf5XUUF1Kdmejk+jpH4iBZZY4c/Ed0=;
-        b=h5C6W98gukMke2HalIGuMi2LPrjA8MOFFKTYHnFvPVfyLqE7aC6+OVTbuoXL9y+VXd
-         ED49VLolgJan88iQudfKletuA29iNNfECUMy2N5JV4+yyitR28S8Vif0o9qJtE3eo91O
-         JylH0hABpRiAzolTuOu0e8UX8D0HlgK2BEXliOVgiiUgAtIHinKGrfn1kKO0GF72sXT6
-         q5NRao07ux+BW6o0cvKEdxvNqHKikImeG/mhiltM3t15hVCC0s8WBH699mRKANvUhjWf
-         RwTH0M5keSKfjUQuGxr4SYQNElfM+Bl3I/qC01ZY+zdqU4fp59ci/Y7bw1ejH7SSw0nn
-         P5tA==
+        bh=g5bmiBt/UaAj8FYk6z1JEgvnehBBxvzIZjMWnqTHpn8=;
+        b=roAfUWm5TvYVSVjKs+R78E1aCntfHJ5VBxNqCJ7pyoCBUkjZqtuth4gj9om42Z6cOj
+         U7mX+aaqhXNnYlNrHmmgczZfmKf/KhCL3z1C/CrnpkazgEZlXlPe8aShABDSToQ+JnKm
+         PjO3nSSLApvXHz1fJVzZB1E32aBRmsaXjxGGJoyblpWsb5lEvD1QWBnlhk9GNGSjN3zW
+         ybhqL6INJOV59aDpaNTn+WL9ddUg/VU37gFUz7kCKsTr9KZJa3v/jwCN5XjobgezUhJN
+         DNMQXnZIFT/BmLxkF1IXoMFl+4eCLRHrFGhv070wDmBFuEE+3OPhNLhxb9I1EMmjMrWX
+         +akA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778303354; x=1778908154;
+        d=1e100.net; s=20251104; t=1778303360; x=1778908160;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=JSXVZuQbVTBhNqf5XUUF1Kdmejk+jpH4iBZZY4c/Ed0=;
-        b=Zsn+q7Udf8D9oZLivJjdv3yvi+VqQ7zD/TWDzQywYVfl+hm6kDGK2+iSSn3ImFJl6x
-         96QMSlftaeoYDQBFMTudUnKROudkMiYbStEVjh+NHWN5dwKH6klx/zOP/nDwumcOymOa
-         nqmrt13No1sBZ+5rbQKKlgAbClGVAA7qqQ5nKlkEXstPqh9jG1rNUvE2ajYr9VG6+M6l
-         1V0ZERKKWY4vJfK/9iEiAybOnP1SEtR4BQpMbgoI1Kad2oEZgm8oB6UUTOWgCPYc9RAC
-         hC7On0Cf2mllUOxVWuD3agIBC5vcXBPzNA8Y3lnJeiWTXzvY2O7kMP6w+9BAWWSw/ewn
-         xCBQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/SJbxzYjfCMmlA0xutvgVdCflN5GCGbEhsq7+tyd6O+cDZfcXQj7wfdhFirLBRWavIO+OGpPQmcYX+TnbvRxkr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYH+CMTg/Zb9E65xXcC9MbfSQJ6tW1mLfLdQwMPTUUplUkiJ79
-	4zsEngYZ8fyaomsaseb/iS4//RNwGDRzit7WhmwXdM2x55yW9HuX1L+v
-X-Gm-Gg: Acq92OFLIwgOgQ0yn9KEQgATx7aUiudbZO2L72kYtufiHPGhrg0HrD18gWjT7ghlRkb
-	3VC05lT6IepTpXNOobxdMkRoh3pwyNSnkHlHJ9RgpWMieMrGw8mC+pJg5CpXQcmNoPzjE1qVPu1
-	l2bkUGyuYzBxBMCMkGa1gdxAKbH8t2PVBfHgz7R/d7Mc7eqVcMElBWCOSnai0jecysqBP5hPAYL
-	FU2yhdvIqXOiuxy8KUFQw9qT3d+RM1ErOkEnHCD2QiE63bJttygqtWvHOniKMX0aqpGTFgKuKge
-	K7G83BzZIkUXSlc13fG6zyZ/G3jJO8DwDQfAf2flR6Fma2eBc+ctyQ7ZxPH3eQSx4uW8GrkkNSl
-	x1Wxmv3ea+2V6zVzV2JwG8cH1jaQgySf6nyLRJuZ6Mg5OB/wxiyvvyAngRvitp0wpKho5tALDNl
-	o2NtO43zLhFf1rgUK5plOtMsM7MNCc8GHM1xR44ds9t28X7ny8pV0rN+uAM/W498dTxYuEwuKiK
-	YGuqAkTcv5mHF+mwLUI
-X-Received: by 2002:a05:6000:4007:b0:44f:f454:8a4d with SMTP id ffacd0b85a97d-4568c19b209mr1557183f8f.23.1778303354571;
-        Fri, 08 May 2026 22:09:14 -0700 (PDT)
+        bh=g5bmiBt/UaAj8FYk6z1JEgvnehBBxvzIZjMWnqTHpn8=;
+        b=iHu8FkVBQzurzei1a5O58Tel5LVLp0Pppn00K0mPNru2nHwBGmk5zQoBDgePTLdwLc
+         B0rx1Gwyb/zI77/pGfgSRqj+kDy2ViBB4Ru/tBCeOGX8Tp6MhYLGWxdjbHdR1o24mVLR
+         s6nOBy0v+Dg3w0hndJOmCnuZ51qs03Y3qUoqJ3o0v1Zo+z/KzzLValvpTFcVXOjIRqBH
+         u/Kp6r/tdMseKOt0sCFGS+y7h5HvxWBItXmBQlB5O4GJgdU0QzNv0s8AtGp8YRvFdiJx
+         Y+RN6uHrX1JsU0l/CMD4JyBbXyO6xlCqNBYdc6bhhEf+2xCyNPfe+alq1TZ9tuSwtPfy
+         NNIA==
+X-Forwarded-Encrypted: i=1; AFNElJ9jpuoEScJIFWdmw41ozHL8rUlHxDQ2rEYwykOx8a9VqKrW8kcc+S0Mjc6qEMckHzB1Cyy7iRWwNhNFJgMskYNY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4y5q1AEfw+yMuvC7bz/ZS2sIiuO7XUT+/mRxTUklmGF2mH6nV
+	jvoVcK8LQiPZxjt2L9k+cRcoHceuswx4piB15H7wdWfRVsfhm5eLbHzt
+X-Gm-Gg: AeBDieuFNPw2W0FdAQ+p6eoE7Zllp9yD+d9T+VX6DgEtv73bfFlXGuC+d6LqkMpkB6a
+	UINBA8PxpJ7RUdAgdmpNGNmBzwhGwBwF2tHfj5WCWk/+zJgzjDlxMUQG8mDEzNrph3sNbDn7ski
+	BffcbZktwx+dwojhtjJHqLG6bJxgMCZLhwTJqw+MkBMrngZXCujjS70esleYg3uufbCpw2XaJvL
+	IyJ4bTAooVopmt17YemACncjDrmMl/YHfXe7M/HAfmAWWYIrzJi8Cm6M8ftmMspdpnITJZPgpnM
+	45rhPV7iWs1T4+F5d7jnKrE3SngZeSWwM2qutBNwiTHCY8bTjrf1e1AnoFjth5wMl5SM9wZOcUS
+	9kGXq4iypz/+kfnFlenAF0I0W42HU1YTBRVvzhzwiriuUgf3itUEN0ZqDvaPxXFR/hw1nL08aua
+	ORA1xWTkjPYnMSRUtTDbduiLzHBDRBQPJxbcjebVzb6YgiHeq48Vi7oEB96shA8T5ubzvaUoXWf
+	/dNJ+pXzCn2ZeSjWrRR
+X-Received: by 2002:a05:600c:c4a5:b0:489:1abb:5559 with SMTP id 5b1f17b1804b1-48e6cbd6c10mr61082785e9.5.1778303359626;
+        Fri, 08 May 2026 22:09:19 -0700 (PDT)
 Received: from thinkpad ([46.164.106.90])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4548e6a5b65sm9500871f8f.8.2026.05.08.22.09.13
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e702f407asm23776455e9.13.2026.05.08.22.09.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 22:09:14 -0700 (PDT)
+        Fri, 08 May 2026 22:09:19 -0700 (PDT)
 From: Arash Golgol <arash.golgol@gmail.com>
 To: linux-media@vger.kernel.org
 Cc: yong.deng@magewell.com,
@@ -83,17 +83,17 @@ Cc: yong.deng@magewell.com,
 	laurent.pinchart@ideasonboard.com,
 	sakari.ailus@linux.intel.com,
 	Arash Golgol <arash.golgol@gmail.com>
-Subject: [PATCH v3 2/3] media: sun6i-csi: capture: Implement vidioc_enum_framesizes
-Date: Sat,  9 May 2026 08:39:20 +0330
-Message-Id: <20260509050921.22158-3-arash.golgol@gmail.com>
+Subject: [PATCH v3 3/3] media: sun6i-csi: capture: Support MC-centric format enumeration
+Date: Sat,  9 May 2026 08:39:21 +0330
+Message-Id: <20260509050921.22158-4-arash.golgol@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260509050921.22158-1-arash.golgol@gmail.com>
 References: <20260509050921.22158-1-arash.golgol@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_220916_416422_78BAC158 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20260508_220921_457299_FFB67505 
+X-CRM114-Status: GOOD (  18.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,69 +108,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Report the stepwise frame size range supported by the CSI capture
-hardware for the pixel formats exposed by the driver.
-
-The hardware does not perform scaling and accepts any even width and
-height within the reported limits.
+Extend vidioc_enum_fmt to support MC-centric enumeration by filtering
+pixel formats based on the provided mbus code. Advertise MC I/O support
+on the video device to reflect its intended usage within a media graph.
 
 Signed-off-by: Arash Golgol <arash.golgol@gmail.com>
-Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
-Tested-by: Paul Kocialkowski <paulk@sys-base.io>
 Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 ---
 Changes in v3:
- - Fix Media CI robot warnings about open parenthesis
- - Link to report: https://linux-media.pages.freedesktop.org/-/users/patchwork/-/jobs/99380724/artifacts/report.htm
- - Link to v2: https://patchwork.kernel.org/project/linux-media/patch/20260508161721.94285-3-arash.golgol@gmail.com/
+ - No change
+ - Link to v2: https://patchwork.kernel.org/project/linux-media/patch/20260508161721.94285-4-arash.golgol@gmail.com/
 
 Changes in v2:
- - No change
- - Link to v1: https://patchwork.kernel.org/project/linux-media/patch/20260217064050.18388-3-arash.golgol@gmail.com/
+ - Return pixelformat directly instead of a pointer
+ - Link to v1: https://patchwork.kernel.org/project/linux-media/patch/20260217064050.18388-4-arash.golgol@gmail.com/
 
- .../sunxi/sun6i-csi/sun6i_csi_capture.c       | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ .../sunxi/sun6i-csi/sun6i_csi_capture.c       | 39 +++++++++++++++++--
+ 1 file changed, 36 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
-index d90abba21309..f788b4234673 100644
+index f788b4234673..5737ebaa7297 100644
 --- a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
 +++ b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
-@@ -738,6 +738,27 @@ static int sun6i_csi_capture_enum_fmt(struct file *file, void *priv,
- 	return 0;
+@@ -327,6 +327,22 @@ static bool sun6i_csi_capture_format_match(u32 pixelformat, u32 mbus_code)
+ 	return false;
  }
  
-+static int sun6i_csi_capture_enum_framesize(struct file *file, void *fh,
-+					    struct v4l2_frmsizeenum *fsize)
++static u32 sun6i_csi_capture_pixelformat_find(u32 mbus_code)
 +{
-+	if (fsize->index)
-+		return -EINVAL;
++	unsigned int i;
 +
-+	/* Only accept format in map table. */
-+	if (!sun6i_csi_capture_format_find(fsize->pixel_format))
-+		return -EINVAL;
++	for (i = 0; i < ARRAY_SIZE(sun6i_csi_capture_format_matches); i++) {
++		const struct sun6i_csi_capture_format_match *match =
++			&sun6i_csi_capture_format_matches[i];
 +
-+	fsize->type = V4L2_FRMSIZE_TYPE_STEPWISE;
-+	fsize->stepwise.min_width = SUN6I_CSI_CAPTURE_WIDTH_MIN;
-+	fsize->stepwise.max_width = SUN6I_CSI_CAPTURE_WIDTH_MAX;
-+	fsize->stepwise.min_height = SUN6I_CSI_CAPTURE_HEIGHT_MIN;
-+	fsize->stepwise.max_height = SUN6I_CSI_CAPTURE_HEIGHT_MAX;
-+	fsize->stepwise.step_width = 2;
-+	fsize->stepwise.step_height = 2;
++		if (match->mbus_code == mbus_code)
++			return match->pixelformat;
++	}
 +
++	/* Valid fourcc is non-zero. */
 +	return 0;
 +}
 +
- static int sun6i_csi_capture_g_fmt(struct file *file, void *priv,
- 				   struct v4l2_format *format)
- {
-@@ -805,6 +826,7 @@ static const struct v4l2_ioctl_ops sun6i_csi_capture_ioctl_ops = {
- 	.vidioc_querycap		= sun6i_csi_capture_querycap,
+ /* Capture */
  
- 	.vidioc_enum_fmt_vid_cap	= sun6i_csi_capture_enum_fmt,
-+	.vidioc_enum_framesizes		= sun6i_csi_capture_enum_framesize,
- 	.vidioc_g_fmt_vid_cap		= sun6i_csi_capture_g_fmt,
- 	.vidioc_s_fmt_vid_cap		= sun6i_csi_capture_s_fmt,
- 	.vidioc_try_fmt_vid_cap		= sun6i_csi_capture_try_fmt,
+ static void
+@@ -729,11 +745,27 @@ static int sun6i_csi_capture_enum_fmt(struct file *file, void *priv,
+ 				      struct v4l2_fmtdesc *fmtdesc)
+ {
+ 	u32 index = fmtdesc->index;
++	u32 mbus_code = fmtdesc->mbus_code;
++	u32 pixelformat;
++
++	/* MC-centric or Video-node-centric */
++	if (mbus_code) {
++		/* There is only one pixelformat for a mbus_code. */
++		if (index)
++			return -EINVAL;
++
++		pixelformat = sun6i_csi_capture_pixelformat_find(mbus_code);
++	} else {
++		if (index >= ARRAY_SIZE(sun6i_csi_capture_formats))
++			return -EINVAL;
++
++		pixelformat = sun6i_csi_capture_formats[index].pixelformat;
++	}
+ 
+-	if (index >= ARRAY_SIZE(sun6i_csi_capture_formats))
++	if (!pixelformat)
+ 		return -EINVAL;
+ 
+-	fmtdesc->pixelformat = sun6i_csi_capture_formats[index].pixelformat;
++	fmtdesc->pixelformat = pixelformat;
+ 
+ 	return 0;
+ }
+@@ -1065,7 +1097,8 @@ int sun6i_csi_capture_setup(struct sun6i_csi_device *csi_dev)
+ 
+ 	strscpy(video_dev->name, SUN6I_CSI_CAPTURE_NAME,
+ 		sizeof(video_dev->name));
+-	video_dev->device_caps = V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_STREAMING;
++	video_dev->device_caps = V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_STREAMING |
++				 V4L2_CAP_IO_MC;
+ 	video_dev->vfl_dir = VFL_DIR_RX;
+ 	video_dev->release = video_device_release_empty;
+ 	video_dev->fops = &sun6i_csi_capture_fops;
 -- 
 2.34.1
 
