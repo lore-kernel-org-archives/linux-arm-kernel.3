@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F518CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 08:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F3DCCD37B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 08:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=34cesB0P22WcI/oVO6Og7H3r+yfNQHtFVNEEqxhn6sk=; b=m/82gf/Ix7YGGHImCjXHEXOWm/
-	4aVDHy/FCtOV6KVV8SrIyYEfXTUhWz8/Xkcma2bua4rIoEAb0qyA2V794RNBnyI8SesV0K6ayzvq7
-	POR6ba/zj2zFth/GxaRfnZzSSVJ4jBe54Tqu2sXAgGjoEpFTRZiXaZpQPE6cfdqUesvRMaiIMJFlq
-	9WoTtL7deFcZlbw7KKYbJOcGsCkytL+LcPe4zBz+aP/aY28hvvnwkWyhjvRZMdWnvApSuHJPmrZ0q
-	xJR6Q4Qw4Hf60EIG6cf0+2FgyGIOPX1DPVUBXEOcDzayMtqiXBXXev5yjZDHdP8D7F6cv+54Jjt1T
-	waANmwGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:
+	To:From:Content-Transfer-Encoding:MIME-Version:Content-Type:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xYonZQ3TjP2OHTnx72eBR0nQTkpG0xtLicGzccWsuBU=; b=kBZ4f8O+rVUHtNs6/kIIIpbizb
+	wBxzMoNs79oCkVX0xtGuXwVi1Ic/Fl/9Win9rC9SFcg9K3qVCc4rnPnwKAfur2B/gNheN5MgsADPG
+	buajUdjs5xAUmxdJ+hpdr4zPne5tQsnjE/cQsI9PaWcB/3MJN4mCYNsj7V95J710SoYTT/8m042KK
+	fOh4j6Y53GhLvoKYD+IOmkS+sMDLIe2bmMX2DUirtT6ehhFcTLvwSaN9Azv6+TXDiaZR7DurOvWbv
+	k7wWYLv6Or2ifn0ZDG1pW650KcFVYxgAeXAWeNFy0vl0BQlMTt1VFHSGlnny3ZgesYs+qRPBXNxZK
+	SzLGy39A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLd0a-00000008ZXM-0GQe;
-	Sat, 09 May 2026 08:26:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wLd87-00000008aL1-1Gmg;
+	Sat, 09 May 2026 08:33:47 +0000
+Received: from m16.mail.163.com ([220.197.31.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLd0Z-00000008ZX1-0Mly;
-	Sat, 09 May 2026 08:25:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB3B26024D;
-	Sat,  9 May 2026 08:25:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 077A5C2BCB4;
-	Sat,  9 May 2026 08:25:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778315157;
-	bh=nczlNiIr/A9xdNyg6rE5uVSARRuTIZ7Uz1A5NFRANqE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eCVVtO4GspLXm5oU2Y+5HmrgHaQiFURcpPBaQjKOGDVaLDRBN27A8bkvOo394mwtJ
-	 a6liRN/2eMOSZd7Df3DCnUreka/54xDgLu7tAQgtk9B3j//rIFq6oyH9gspoGn2BdC
-	 MWSo54itWTgPWgCNMmXHNez2IsZKTgvMY2K7hvh83lhaXIPQYBu91IFSyluwh+luiD
-	 +ZPIxUoKXYry1c6j30Ut5bhLHkeOmIxbPdhf7cuJXv11GTHNAN6rza+tR2/rC5ABwB
-	 v3TZ0LerSeoUsT4CB9hSHcMcH8CghGTX/VJ1QsgxDqrat8iP7iKHoHUf0G+xw9/n3p
-	 kHIu7Om+b2lTg==
-Date: Sat, 9 May 2026 10:25:54 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ansuelsmth@gmail.com,
-	benjamin.larsson@genexis.eu, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, madhur.agrawal@airoha.com
-Subject: Re: [PATCH net-next v4 07/10] net: airoha: Support multiple
- net_devices for a single FE GDM port
-Message-ID: <af7vkpjEY5FhlEyc@lore-desk>
-References: <20260507-airoha-eth-multi-serdes-v4-7-af613b61ae02@kernel.org>
- <20260509014611.3558060-1-kuba@kernel.org>
+	id 1wLd83-00000008aJb-3RAg;
+	Sat, 09 May 2026 08:33:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Content-Type:MIME-Version:From:To:Subject:
+	Message-ID:Date; bh=xYonZQ3TjP2OHTnx72eBR0nQTkpG0xtLicGzccWsuBU=;
+	b=QkraBVrPum9joka+8K4Cuwo/J0XGRfSu18WJgZ9yucgIZXuFjeGx6M1b4abJR8
+	11tBtTubqj646VH6okrECndzmrw2l933Kn0VxDIGF9EuROigKJSs8CRdgV0zqyI9
+	4rAkUzm98eeToDR57UrZqHFKmMUDjsf7vsa7NCRX7VOnE=
+Received: from [127.0.1.1] (unknown [])
+	by gzga-smtp-mtada-g0-3 (Coremail) with SMTP id _____wD3fxdW8f5psT91AQ--.64046S2;
+	Sat, 09 May 2026 16:33:26 +0800 (CST)
+Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="YnCVD7Lr1XicTVN0"
-Content-Disposition: inline
-In-Reply-To: <20260509014611.3558060-1-kuba@kernel.org>
+Content-Transfer-Encoding: 7bit
+From: Jiaqi <shijiaqi_develop@163.com>
+To: dri-devel@lists.freedesktop.org
+Cc: Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>, David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, Philipp Zabel <p.zabel@pengutronix.de>, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/6] drm/rockchip: Fix error handling and resource leaks in Rockchip DRM drivers
+Message-ID: <177831560568.322716.7926332149561323511@163.com>
+Date: Sat, 09 May 2026 16:33:25 +0800
+X-CM-TRANSID: _____wD3fxdW8f5psT91AQ--.64046S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tr47uFyrtFW7JF48XF4ruFg_yoW8Zry3pF
+	W3W3sY9FWUGryF9Fs2yF4xAr109wsrZa42gF97Kr1fZFy5CrW7A34S9w1UuF1UCF93Ja1j
+	qrnxJr4Fvw4YvFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jjHqxUUUUU=
+X-Originating-IP: [42.63.126.112]
+X-CM-SenderInfo: xvklyxpdtlsvxhyhz0rs6rljoofrz/xtbC7xisAGn+8VhhEgAA3W
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260509_013344_243118_47D4A622 
+X-CRM114-Status: UNSURE (   8.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,182 +69,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is v3 of the patch series.
 
---YnCVD7Lr1XicTVN0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Changes in v3:
+  - Fixed Content-Transfer-Encoding from base64 to 7bit (was
+    incorrectly using Python MIMEText with charset=utf-8)
+  - Fixed Message-ID domain to use sender email domain
+  - Fixed patch subject format: [PATCH N/6 v2] to [PATCH v3 N/6]
 
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> ---
-> net: airoha: Support multiple net_devices for a single FE GDM port
->=20
-> This commit introduces support for multiple net_devices connected to the
-> same Frame Engine (FE) GDM port (GDM3 or GDM4) via an external hardware
-> arbiter on EN7581 or AN7583 SoCs, and adds a get_dev_from_sport callback
-> to differentiate between the net_devices attached to each port.
->=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index 786bc677af3c..0253919714e0 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
->=20
-> [ ... ]
->=20
-> > @@ -3188,14 +3257,23 @@ static int airoha_probe(struct platform_device =
-*pdev)
-> > =20
-> >  	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
-> >  		struct airoha_gdm_port *port =3D eth->ports[i];
-> > -		struct airoha_gdm_dev *dev;
-> > +		int j;
-> > =20
-> >  		if (!port)
-> >  			continue;
-> > =20
-> > -		dev =3D port->dev;
-> > -		if (dev && dev->dev->reg_state =3D=3D NETREG_REGISTERED)
-> > -			unregister_netdev(dev->dev);
-> > +		for (j =3D 0; j < ARRAY_SIZE(port->devs); j++) {
-> > +			struct airoha_gdm_dev *dev =3D port->devs[j];
-> > +			struct net_device *netdev;
-> > +
-> > +			if (!dev)
-> > +				continue;
-> > +
-> > +			netdev =3D dev->dev;
-> > +			of_node_put(netdev->dev.of_node);
-> > +			if (netdev->reg_state =3D=3D NETREG_REGISTERED)
-> > +				unregister_netdev(netdev);
-> > +		}
-> >  		airoha_metadata_dst_free(port);
-> >  	}
-> >  	airoha_hw_cleanup(eth);
->=20
-> [Medium]
-> Is the ordering of of_node_put() and unregister_netdev() here correct?
->=20
-> airoha_alloc_gdm_device() now does:
->=20
-> 	netdev->dev.of_node =3D of_node_get(np);
->=20
-> so the netdev holds its own reference to the of_node for its entire
-> registered lifetime. In this error unwind the of_node_put() runs before
-> unregister_netdev(), and netdev->dev.of_node is not cleared, so any
-> subsequent access to netdev->dev.of_node during unregistration (netdev
-> notifiers, sysfs, overlay-aware code) would be looking at a node whose
-> reference count has already been dropped.
->=20
-> Other drivers (e.g., drivers/net/ethernet/hisilicon/hns/hns_enet.c in
-> hns_nic_dev_remove()) put the node only after unregister_netdev().
->=20
-> Would swapping the order to call unregister_netdev() first, then
-> of_node_put(), be more appropriate here?
+Changes in v2:
+  - Patch 3/6: Removed incorrect devm_free_irq() call in error path.
+    The IRQ registered via devm_request_irq() is managed by devres
+    and must NOT be manually freed.
+  - Patch 5/6: Fixed trailing format issue that caused checkpatch ERROR.
 
-ack, I will fix it in v5.
+This patch series fixes 6 bugs in the Rockchip DRM driver subsystem,
+identified through static code analysis and confirmed by technical review.
 
->=20
-> > @@ -3216,14 +3294,22 @@ static void airoha_remove(struct platform_devic=
-e *pdev)
-> > =20
-> >  	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
-> >  		struct airoha_gdm_port *port =3D eth->ports[i];
-> > -		struct airoha_gdm_dev *dev;
-> > +		int j;
-> > =20
-> >  		if (!port)
-> >  			continue;
-> > =20
-> > -		dev =3D port->dev;
-> > -		if (dev)
-> > -			unregister_netdev(dev->dev);
-> > +		for (j =3D 0; j < ARRAY_SIZE(port->devs); j++) {
-> > +			struct airoha_gdm_dev *dev =3D port->devs[j];
-> > +			struct net_device *netdev;
-> > +
-> > +			if (!dev)
-> > +				continue;
-> > +
-> > +			netdev =3D dev->dev;
-> > +			of_node_put(netdev->dev.of_node);
-> > +			unregister_netdev(netdev);
-> > +		}
-> >  		airoha_metadata_dst_free(port);
-> >  	}
-> >  	airoha_hw_cleanup(eth);
->=20
-> [Medium]
-> Same question in airoha_remove(): the of_node_put() fires before
-> unregister_netdev(), while netdev->dev.of_node is still assigned. Would
-> this be safer with the unregister first and the put afterwards?
+Summary of fixes:
 
-ack, I will fix it in v5.
+  Patch 1/6 (Critical): Fix of_node reference leak in
+    rockchip_drm_encoder_set_crtc_endpoint_id(). Both success and error
+    paths leaked references acquired via of_graph helpers.
 
->=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/eth=
-ernet/airoha/airoha_eth.h
-> > index 3e93919a175c..207c75152fde 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
->=20
-> [ ... ]
->=20
-> > @@ -542,14 +543,15 @@ struct airoha_qdma {
-> >  struct airoha_gdm_dev {
-> >  	struct airoha_gdm_port *port;
-> >  	struct airoha_qdma *qdma;
-> > -	struct net_device *dev;
-> >  	struct airoha_eth *eth;
-> > +	struct net_device *dev;
-> > +
-> > +	int nbq;
-> >  };
-> > =20
-> >  struct airoha_gdm_port {
-> > -	struct airoha_gdm_dev *dev;
-> > +	struct airoha_gdm_dev *devs[AIROHA_MAX_NUM_GDM_DEVS];
-> >  	int id;
-> > -	int nbq;
-> > =20
-> >  	struct airoha_hw_stats stats;
->=20
-> [Medium]
-> With multiple airoha_gdm_dev instances now sharing a single
-> airoha_gdm_port, do the per-netdev statistics need to become per-netdev
-> rather than per-port?
->=20
-> airoha_dev_get_stats64(), airoha_ethtool_get_mac_stats() and
-> airoha_ethtool_get_rmon_stats() all read from dev->port->stats, and the
-> underlying hardware counters at REG_FE_GDM_*_CNT(port->id) are per-GDM
-> port rather than per-netdev. When two netdevs share a port (for example
-> PCIE0/PCIE1 on EN7581 GDM3, or ETH/USB on GDM4), both netdevs would
-> report identical port-wide counters via rtnl_link_stats64 (ip -s link
-> show) and via the get_eth_mac_stats/get_rmon_stats ethtool callbacks,
-> and summing across the two netdevs would double-count.
->=20
-> Would it make sense to maintain per-netdev software counters in the
-> xmit/RX paths for the multi-dev case so each netdev reports its own
-> traffic through the standard uAPI?
+  Patch 2/6 (Critical): Fix dangling crtc->state in vop2_crtc_reset().
+    kzalloc() failure left crtc->state as a use-after-free pointer.
 
-We have already a separated patch to address this issue that is not part of=
- the
-series. I will add it to the v5 in the next iteration.
+  Patch 3/6 (High): Fix vop2_create_crtcs() error path cleanup in
+    vop2_bind(). Failures returned directly without calling
+    vop2_destroy_crtcs(), leaking of_node references. (v2: fixed
+    double-free by removing manual devm_free_irq())
 
-Regards,
-Lorenzo
+  Patch 4/6 (High): Fix vmap address caching in
+    rockchip_gem_prime_vmap(). New vmap() results were not saved to
+    rk_obj->kvaddr, causing repeated mappings and potential leaks.
 
---YnCVD7Lr1XicTVN0
-Content-Type: application/pgp-signature; name=signature.asc
+  Patch 5/6 (High): Fix leaked vblank event in
+    vop_crtc_atomic_disable(). Pending vop->event was warned but never
+    sent, causing userspace hangs and vblank reference leaks. (v2:
+    fixed checkpatch format error)
 
------BEGIN PGP SIGNATURE-----
+  Patch 6/6 (Medium): Check return value of cdn_dp_grf_write() in
+    cdn_dp_enable_phy() error path. Ignored return value could leave
+    GRF registers in an inconsistent state.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaf7vkgAKCRA6cBh0uS2t
-rNx6AP4vp7fBv+mMgpov4j4sMb2X2lfK18z7Rdr86kjr3iuVkQEA2v2JFYUsriWf
-RBzOd9kloGcV9h2okyFY1MsyXDH1uAY=
-=LwTq
------END PGP SIGNATURE-----
+All patches have been verified against checkpatch.pl --strict.
 
---YnCVD7Lr1XicTVN0--
+Signed-off-by: Jiaqi <shijiaqi_develop@163.com>
+
 
