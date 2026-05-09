@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B9ACD37B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 23:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69055CD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 23:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sce070X88mUVBdz9b9Y4+DDwl2h8zEkLOKh5Apexnnk=; b=QXVpCvDfPBx47Tkn947FvfpaSE
-	40BMo8VrsVsEpCBn6fH+ShWJwSbwzoUzdGtCi7ksM7XiZJBjWiw5yM6AWCoIZTRtHb5O8cQ9GUEQY
-	ZqrztnFg7+DFNLMzVcVxKnlPQ3kDHhaVxRdF31+BfkVRZIUXrCEKaGkvI3GCj3wjSarzuhQnxaXRc
-	Ng1YTAGbX4hB7q00LCLSEgpFjiX81z4MZ21VEEbz/v/Z5Ra6Qh8jFKbmgy7qjvnRtWOrQ5bUd7TmM
-	Ag8UaSK/arJI12835RkPHqlEWBe+NOhLqVdBGO/DvIXBJgGM/vuJaunZefSA65WnYxqNAy88XDXn2
-	GOcpLybg==;
+	bh=t6tLt4US09DyLso/mhdji9Hp8lkbi3csRWs2bmEy9sU=; b=qStrpD0sxGV01c7FgO3HTRXVIS
+	9yx8Dm1E0uX5X8HPcP3V1H8ggqWRxZ6NPzEYlaSsEBLliIIHsuUIvI54OmCd+3gH5my9NRJ+HzWAl
+	Rb9rnOk15xRoVX9Bb9+z4a9LOJrEta8eNtm40yNdO7nA0hZXim4gtq0m7zV9mzPQMShFKfncM7uDA
+	2HdUEAmMOXNOHh63rPscVr0QZR84Xw0pCzMK/jaN5ugv7vhb1zqsnvT+skeH9no6ZvoKNEMnZ/1RH
+	e8bHJaSUKXZ+F4djgSd9Ey+PqoorQSWDmcuavh2M+VLo3jeWyiXBx3BItKeAMJmVZcFfmCl5QM88e
+	k2gsV0cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLr71-00000009okU-3qZn;
-	Sat, 09 May 2026 23:29:35 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1wLrC5-00000009pBF-3QNF;
+	Sat, 09 May 2026 23:34:49 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLr70-00000009ojx-0J8H
+	id 1wLrC3-00000009pAf-130J
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 23:29:35 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-8acb09ddbf6so49929886d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 16:29:33 -0700 (PDT)
+	Sat, 09 May 2026 23:34:48 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-50faf8ed9c5so16637361cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 16:34:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1778369373; x=1778974173; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1778369686; x=1778974486; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=sce070X88mUVBdz9b9Y4+DDwl2h8zEkLOKh5Apexnnk=;
-        b=P7bMZQydDdDmDXm3CLgCJ9UhanIG8Ev1KAtUHCjavtn5WEYoHD1Kb+iLffgXweRo3Y
-         EGvCErH/DJ/6qOkywElPv6Tkq0IQ5wrXX6TNV0U3IL8/ksBcVlhZsYkEBgNGP95fcWAh
-         AHu6irMNqwMWR1mWpM/mQ+9mvHgFDz/KQktwmBlp9sIlWygdOnWVI2ROH2/EGNHMCyOM
-         jBYghvtv+Ie396bmI58C5JokvNryTnvv5KCGAALL5C+j4Nd3EDDAZmSVPk4LPr+8vPND
-         wYvoQRXJmUrFQx7k2uzwjL/dSeTLTe405ELrg3dy8XamdkDhmj+0w+ZC2yBTR3q/CZ79
-         CNsw==
+        bh=t6tLt4US09DyLso/mhdji9Hp8lkbi3csRWs2bmEy9sU=;
+        b=PWEUVq3IVD2y1eBjDvVOcwhFPma8AdnDm4ybL/CIY/K0mprEHOaQMH+FZ13X2A7e6E
+         Zk6gAab9qngOSUK1dmoKEMuEpYlLdOX6hLXD/QNBezeiOUNw2KNLuvC3IuBZ8P6xAPJn
+         l+um1KUWVc3XHv9mG4Kooc1Qh6rYux7xOzyxqj+eLOneoS1PI+5qEYs5KI9aVSVXAcgt
+         PUe1oK+l9Y8ATGOJAa6p4GFdEHs7P6oJOmqgI7ic7AGeNv34hOOYooIteiPd2pbbIhvp
+         zOJ0CKUr5qxDwNc1CsyxNRIkuv+GkGHrNXAvHE/j/0+qgP6pqdbkQljV40n1A6pBokjo
+         YO9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778369373; x=1778974173;
+        d=1e100.net; s=20251104; t=1778369686; x=1778974486;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sce070X88mUVBdz9b9Y4+DDwl2h8zEkLOKh5Apexnnk=;
-        b=KZlJFNmtpeJQ/07XFa7fBsK5k6PZvQc1z+XDMYBcu/SJ0ItHpu7pWx3yBYuPcr9L8y
-         yKAz0XnD0E1AYeO5QIR3G2T9nbbJWIlOoDbFyFp9P0cZpFTsPqeZZ0Z7BEkhbiS1qVVV
-         W+8cythTIFJjGekFsgNTWWhiE65fgFE48kFTnCnnYUWNe5cpD2Qackpdm/NLq8+pqZAv
-         0W79fgZjq2JQJLexnnrswMHZPjdJzlYl/zldKWhdtIftIT3DY64fRuoC+9tr6Ao5GheQ
-         uTvG6Uy7vujyaMOSPku2YbUVgqX+DOJk8UoBxBT95f9k5ldPMtTysj9eKMm+80cwTvs/
-         Z6TQ==
-X-Gm-Message-State: AOJu0Ywa+wQKIcG/TH7ouEwrsz2L/DL1bH7nGBEl+DcvKj8/6CGhqQns
-	DfJeVOwg8bN25kzQrRcQ7gMCi31MLftMSuEcJrW3ZvvzZkqxHOulEYOz/+uzP6U7BV0=
-X-Gm-Gg: Acq92OHTcOZi47MEkc8xpq0QyG7IbfNrFwtRvmkEazAhleZtenl5ob28/yeXQpTpbxF
-	CC+XdEn8sZZXBn8ZAmprzzFa6UJPvAYVALiwJTaau50OHpiaM+fH5ORgHPpekmJBj9pR7Aoj4tY
-	yRcWIfwzDqLEvyfcFmaj5gCPuAvWxBkHazZWS05w52xlq0GJN8Sl0UFL2458UH7RmgtG2BkyEBm
-	5tmJH7rmCey8PQZtFgqHV6CNy3wJHojruvLgHXHDIWA3PE3ozeM8/uEZNSBi9taOOxNNDF07paG
-	NnAFvPQxDL3rcASGjAhsSdqj73St4FlmMVRXEeA+IfqCxLPT7FcBEHwhffiqdn8SdosgoOujyA7
-	fay+wGrHR98/eBljPDt5LGD4++vHs08KgTg/GCxL+72qdEdQvbGceYCQvnHLH9xN1qicTH7F4ue
-	nxeTcNDQTIlcNL59BZYx0bo85QV9/Hz1iPIWpnciLzlW33gCbQlAKNeqWVWMBKwrWX3UqK2RxnT
-	/3DZA==
-X-Received: by 2002:a05:6214:3a8a:b0:8bd:de6d:c33a with SMTP id 6a1803df08f44-8bdde6dc799mr202539986d6.21.1778369372915;
-        Sat, 09 May 2026 16:29:32 -0700 (PDT)
+        bh=t6tLt4US09DyLso/mhdji9Hp8lkbi3csRWs2bmEy9sU=;
+        b=SEzWl1JQCaWsmQAHj+jzCIsr+jIYHnPo9FivSY7aVLIUJvfEmouH732h3HQJrquiKH
+         fuUJbWuAl5j40GPFfRL00EnidlzAAxgYhx3HkOntS1i3peIMOWfh4Qc+9yMMMu1SxvM3
+         Com3dgL4blg1+Q9Cup5dy7yXBCnxLfiwV5tr9cc8VDNvH6SQyzakpQpbYBIHmrumJPHj
+         tEjxtkVHrkZFdZif9BmTIj6Y5fWwhZzO8y5+qhLJw5bV/qrKAe9g9PpABdYNHRriW/4N
+         If3jWzULXyIyyN2BJ10Fp6vcLZtYCFOxI+mSCHJTfvtqPzGX8DwtLEDp2AyDiwUOBAUq
+         xtvg==
+X-Gm-Message-State: AOJu0Yxwr9at1yQjKIAiAh42tTgw3psn5PPbqA7sf3mFPE3FLShlWKc8
+	7+jiCmSdw+NWIc7yCZSJVuBb/7ieaf36sTObL3uPUzctorI6vPRiihbOuM+76rlc828=
+X-Gm-Gg: Acq92OGYkiJCsOVxBRwcWZnY7l0VHzGs7azvMNbqbWzJF7OLbLEDUnEdAmrBEEosowk
+	c3HamRjCF4LXx23/2Gu7vyXPMwZZUhvD43jU4Y657ci9nNdvOUStPzRpYdr3GnkG+0xw/2K8HJl
+	q73ZXFnOFLjRvLu+kCUvUKYflLhMBE/U7UCUTG4Z/6XxTRvCEZzFJ8MW0+VKI0ioibbnU6Hs9yF
+	3O2lGSrRNK59PsTx0gI9Y5CzaMsB54eI+0q42Tj+0rLawaCS9kjFbiYBHi5blHe0B7nOhd9KSXi
+	PeyaoFnVk++00FrsAv3Kipxq/VOTMKrJxcIcK5kISLyvsIDR5TyiSsTV2HdoJ/FHBCk3Xr6OwEu
+	Q90xoHhxQDTUj/cj52jI41vBkU4INIErfIstVro8sEmhSGNaWuZONUl3uYozUJRp82FnKy4e41E
+	sAEo4fIe7wFfizd77v/DSjF7TK1Z9xsDvoekPCGgdbFd7z40SrpjsOdnn8PHxCI4/kKKV1uyhyR
+	m0sEg3HK+lJowV2
+X-Received: by 2002:a05:622a:5a9b:b0:50e:6139:492b with SMTP id d75a77b69052e-51461c3620dmr247096161cf.23.1778369685834;
+        Sat, 09 May 2026 16:34:45 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8bf3a33fab4sm53837756d6.23.2026.05.09.16.29.32
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5148e7e3d90sm51028881cf.20.2026.05.09.16.34.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 16:29:32 -0700 (PDT)
+        Sat, 09 May 2026 16:34:44 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wLr6x-00000002NrB-31tQ;
-	Sat, 09 May 2026 20:29:31 -0300
-Date: Sat, 9 May 2026 20:29:31 -0300
+	id 1wLrBz-00000002ONN-38VG;
+	Sat, 09 May 2026 20:34:43 -0300
+Date: Sat, 9 May 2026 20:34:43 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Mostafa Saleh <smostafa@google.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -83,26 +83,25 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
 	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
 	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 04/25] iommu/arm-smmu-v3: Move TLB range invalidation
- into common code
-Message-ID: <20260509232931.GJ9285@ziepe.ca>
+Subject: Re: [PATCH v6 05/25] iommu/arm-smmu-v3: Move IDR parsing to common
+ functions
+Message-ID: <20260509233443.GK9285@ziepe.ca>
 References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-5-smostafa@google.com>
- <20260501124143.GB6912@ziepe.ca>
- <afiN1UwS9q6F6A_v@google.com>
- <afoYBYIJOTClsdLS@ziepe.ca>
- <afoeIVIGE-JjYy22@google.com>
- <afsPfEzgGtAFrN5P@ziepe.ca>
- <afxd8Km40A5ulZvd@google.com>
+ <20260501111928.259252-6-smostafa@google.com>
+ <20260501124716.GD6912@ziepe.ca>
+ <afiODW2sVMeOj3Ag@google.com>
+ <afoagb/wVBJD1IX+@ziepe.ca>
+ <afofSPQbepd_fpom@google.com>
+ <afsQTwO3eW+Ks2fe@ziepe.ca>
+ <afxlufh3t3hRe4-G@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <afxd8Km40A5ulZvd@google.com>
+In-Reply-To: <afxlufh3t3hRe4-G@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_162934_139718_76AC35E5 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260509_163447_325945_E3DAF5E1 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,24 +116,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 09:40:00AM +0000, Mostafa Saleh wrote:
-> But that doesn’t solve the problem, which is: At some point, whether
-> eagerly from the page table code, through gather sync or a fancy
-> invalidation array, the driver will need to populate a range
-> invalidation command (tg, ttl, scale...) and this logic is better
-> shared with the main driver which is this patch does.
+On Thu, May 07, 2026 at 10:13:13AM +0000, Mostafa Saleh wrote:
+> > I was thinking more like
+> > 
+> > #define arm_smmu arm_pkvm_smmu
+> > 
+> > Before the pkvm compile of the shared code. 
+> 
+> Oh, so we rely on arm_pkvm_smmu and arm_smmu having the same field
+> names and types?
 
-My point is this patch doesn't share enough. If you do need to issue
-invalidations then share everything below the top level tlbi entry
-point and don't try to make a pkvm version of the entire logic just by
-ripping out the range logic.
+Just for the shared code, yes.
 
-There is no reason for pkvm to need a different algorithm
-here. Especially when you get to supporting ATS and multiple devices
-and smmus you may as well just use the whole thing.
+For instance this patch would require the features field be present in
+both, and then all you do is directly copy all the smmu->features
+logic into the shared file and that's it.
 
-Which is why I suggested to copy the entire call chain into a shared
-file
+> I don’t think that’s better for maintainability, I can look into it
+> if Robin and Will are OK with that.
+
+I think maintainability here means pkvm minimizes how much it changes
+the code of the main driver.
+
+Copying a bunch of functions into a shared .c file exactly as it is,
+then compiling the shared file with some #ifdef'ery at is going to be
+long term better than trying to mangle the whole thing to avoid using
+any of the core types and not directly share the code, IMHO.
+
+Like my tlbi point for instance, it is not a good idea to rip out a
+little bit of the invalidation logic then open code a pkvm
+version. Use the exact driver code. But to do this you need to pass an
+arm_smmu through to to the pkvm specific queue management functions.
+
+> > How does pkvm compilation work anyhow? Is it all rolled into a unique
+> > link, or do you have to worry about symbol conflicts with the main
+> > kernel?
+> 
+> All pkvm symbols are prefixed with __kvm_nvhe_ in the main kernel.
+
+So automatically with objcopy or something like that during the build?
 
 Jason
 
