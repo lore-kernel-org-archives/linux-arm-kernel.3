@@ -4,103 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D762ACD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 19:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC4FCD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 19:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F3EJ0517xJNtY9t4icYdcJ6JRwvMjYIpIptqEEIrShg=; b=J+AzKPePBIG3P8Uyi+nnNKNJNX
-	9fC1kl1hW8UShBDtMz20bdHQT+bvf4QPHpnvg5iyH52swb5s8QfVTENaprFdkZVI3zLwe8zLpAH0D
-	SNcdHRCCMh8Y8L46623aHM3lWA47pFPR2ETmcAT6/cGUTx3TOxtj07ObmjN2OZAigWoWtlgxlyYav
-	0qCWbwI3QSaBHgiESqaVK/5teAib34y6o6xNCToQ5H4Gskc6hKuazbxDY1v/vtfe9Ae1Ww6PF0y4q
-	PBq56fQu1S5TOlRVCvE/TdoHn2OkH2Qwu8CO9ttxTxz0mMOP4kHJrFbwOxxmSNxz3/oAGk1nKCBTn
-	HckIp2JA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=a5cMbOemj5qCKf6YMBNAikh7EtC1awKMtCwgmYlIPnw=; b=eRkgeY+YKbVMVeV9waKtWEmnnf
+	TM1M1Kw11pMzhPMvWqQQBcU9JazYnPmkCqTL72vO6jirP7tJ59DPRbsTKlWk40VeBduV8w9P63KGz
+	/4M46C2aqjUM1ZXxtYgftiU+G050GMzXwVQ4QCNyEP3zkjS20Nbq0j2lZWxINsf2NLLY32p3jPu1m
+	K5PNFkhDN9KFfsK1tpnVBTcmvpvMp35tFQJrd86RBGaqCTeZJY0UVDqi7TPKKEWMsAVjLvJE/NVU6
+	V7XLHbCXYC2sOvjHj7bfNbczwc2c6T9rR2dgydvvDGV8ZWju524P/vMeoYGnWEaZwUf0d0W+97sjx
+	lfwrMAhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLmua-00000009TEZ-1bdF;
-	Sat, 09 May 2026 19:00:28 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wLnWY-00000009YNG-0U4e;
+	Sat, 09 May 2026 19:39:42 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLmuV-00000009TAh-2l7p
+	id 1wLnWW-00000009YMZ-0WjB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 19:00:25 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4893940bb5eso18194545e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 12:00:23 -0700 (PDT)
+	Sat, 09 May 2026 19:39:41 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2ba928852a5so20524745ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 12:39:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778353222; x=1778958022; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F3EJ0517xJNtY9t4icYdcJ6JRwvMjYIpIptqEEIrShg=;
-        b=SPXUB6j5ugCITpz6Wi0xYrwyBN/ixmn8gUoMVDQm5axz3jnY8oo+29fVVz3IYC+QYe
-         Mz0L7Tz8sYhiX6q0cxk2MkEUjcu/FMsR1lnWy3AmsqDzHVEK2FRGr1B3/VQZFZpvWau/
-         HT9Tb4gAzZ72e/HUS3R+2/4xz+aDCAJtPqK+AIyY/+u5EjeD/KmZPlou8jFYVVC9tbkD
-         kj4Loxzx8pPdTcaMzK4SdISZOU7yaIdJk379QR2eC+3kxd8yzZxmGvtpytqP8J2ITmEF
-         1ZiyjFQB5UWovmQh/jZFTBvlMf7SEINWkunHBndMiUUmDEXVVbsmJQErKxYpY0jtk0Bc
-         dB8Q==
+        d=gmail.com; s=20251104; t=1778355579; x=1778960379; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=a5cMbOemj5qCKf6YMBNAikh7EtC1awKMtCwgmYlIPnw=;
+        b=X+pGATMcD7+Ng7r3wRp2BCfoIaWLrfhFFMLoLOi/5ggd8TehU0BC7zsArJgsZ+1vnC
+         /QK8DJuQ0EzzU2GX2DIl4JXEPqwNx3nEcF1eepWa/pvk+U6feD5WTx8KNQaf+EJfjIX8
+         NzxE5LtBmZFhtuI2ut3R/iqMFxNA7xB4gR/zA6cWRhDRTaPdglkgvnKl0UEzON7dAXhg
+         Vyq6cbb0fMjs9c0ELQbtvEJLG0Cssy3BgsFensRggZ+lEAPOzX1NIYXy+e9t0aLkemsD
+         +ycKXWuE2gun2CGrWzjPoZ3IhWM51AfZfCn0oRurxPTZbAmXarKke1S+rHljwiTAlZzo
+         iI7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778353222; x=1778958022;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=F3EJ0517xJNtY9t4icYdcJ6JRwvMjYIpIptqEEIrShg=;
-        b=nvPbdj096onHu61OZcaKV8y71nI7DEcFry8aTvYzfyKYZ/WH7WU8HcAeyCOWZEE/34
-         BdSe64bCsqSN0VZbGtTC9N6vOm8bMLBEZz21lA3y2fQh8VBKeruR3ruiMYYYjusQk0sn
-         zMy5m7rIMM3KduIth52lY9xSm/hc4+qrk2/+0/lprQo+1xqEQu3Xl2c2GrxdEPsRmVmT
-         imyvnB7fXSiIwmec/zDSSwrhOpQUkPpui7p1Z4kaQhX+UNtmVojfxC0gTZxWCQcnThwH
-         JJjihOx4XHXDarIEtbJssb48BNuskg+0QPWldJpGF5HKKLhgYCMuAFxZKCow8JZm4wDv
-         0ogQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+lWz3Nhma9WG6L8vbemVadQXBIFAx38EpsbjkiYnH2mlqGmxgkov06F4GeAo8rEfBfQdAMdPkn8BPX3k+wcxQE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2FJ15P/BgF2h/kFk1bnxCU8Di2UUyUILQ9z41EiV8spkSD6jU
-	EwfZc48O3yTo37XLqiQ79xOoFxBJCw6Jvp9doH92UGoWZ6hjbH/Q5EKz
-X-Gm-Gg: Acq92OEgrhgG7po+C885IGHUZUXMwBL3k4IwMDurwRPm78nK8+OFIAa9ffOk2G9nSCW
-	1EWOvUqViwguacy8vPrw559vGoWRqow6ZVp1v3+uvQ4cz2dYB/hnuljboylmvOIyr++ai9S1KnX
-	qp4IBUDN6tCu0MAaatYBDnfJnviiXvb7iYwLxpm/0OA/FZt+34yCNrm7/y27TnIZtS6Uy5E1Pkr
-	Gjzj5THeyhhAH5pQc05At7QZaurYHMcrvkvHORtQt5JUjKgAW/JQrQmBqwElMzUUZbYLur6BXdM
-	xDz8xLqXH3EMfSuVZ+P4ZL7GTbxymmYiawGZl569GXBGDl2/N8nyGgkz9YJ680FNZZvgFuK082d
-	Y/ZGTV/C6ydE8zsf9ReHRcQ85hRkwjuEvT2uL2TCWnw+r2S3dI7Eo7pfen+ZdzzyipUOVk7SDZC
-	PoW827U+6TwAM1HzNvQ9F7COJVJhikyj6cicEZ6epS72vUs+Uj8hj24ckwhPJYIIxeOlQ=
-X-Received: by 2002:a05:600c:1e0f:b0:48e:51f5:2764 with SMTP id 5b1f17b1804b1-48e676c0353mr137860975e9.27.1778353221568;
-        Sat, 09 May 2026 12:00:21 -0700 (PDT)
-Received: from jernej-laptop (46-150-62-216.dynamic.telemach.net. [46.150.62.216])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-454913049ecsm13254407f8f.19.2026.05.09.12.00.20
+        d=1e100.net; s=20251104; t=1778355579; x=1778960379;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=a5cMbOemj5qCKf6YMBNAikh7EtC1awKMtCwgmYlIPnw=;
+        b=Aur0Ddk9FXZPc9tGtpm8d47p+i/BOWB8yPCquRvH9IF93bszos1wUC34A3boQuqpfe
+         h6/R5zW8sWuvhGfIcCUkGp0ewcdt+qszoMhiNax7+Wrb4CWAaDgpWA+9XgOtIHwPFbUC
+         n8dYChisnYXUrLva+IhQP9hDixd1Q09Wj+6i8bEv8j7pBK4/bRNAGfTZdCae9EgXobZD
+         XC59xRq4gKA1uAecCVX/0FIbdmwT4q8bKE2DyRJGwN7XlwfXsFB4/f+j7ZOq+saRlTjq
+         FBPW69Kk8LebY5dJo/7FFlra19s+XIILcfPmW4SmqcWw21k3Lig2ZGloMjFqWNGl4uG4
+         xEQA==
+X-Forwarded-Encrypted: i=1; AFNElJ8l+L9gKgtQD9Kp19dJZSeYoqDpIjmtU7w01fUbhGNVj7FCx8mCq+q7f2XuHcBJB6QnGx+JfjA06GUQMO0Vjn15@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnTaSM507sDNO+qS4CaqGnUY3xmcOPPyjSsrxdESbhF1pWTuqQ
+	eX5iFQJn7J6VoavdijDVce/itiYfMA0ejweG/E0ZVxKwBzvzTHWIzoZi
+X-Gm-Gg: Acq92OG+iksEJyaEd95xa3KxYiQkiIu5wb23MKUUrUrePFsT09iAhVm85EHHNunFiro
+	8rEXoj/d3iRg41PSf9XQ06iw7GjPVjqQFmw+VNqDKxqmzlVA5GsPl7aQwGbzV8IY6cmy6k+xKZW
+	+Y5j6hORl+DfbWOP1MXursU+xO6mLSmYJw2lYrHEPHYqNztvysxo8wXBhnDzqwn33v4Q0PEvMRZ
+	0pSKerPAIf1Q5hKXORDJ1wKPt2lJG0L8Bre0VcSmTPhoRJEDVi93xD0jyLKxNE9UwZ8k902GGCl
+	dQB3cLi/gnc7i7uZxOrOs1buGKlQdEFjf3hRk8tj/0WeZHsFEZmBbA/tOqsFzpbY8C5YUkHveVm
+	vno0KKwleokbACzEXa4Wl5JS3XNqbOc4X8NXRCrKt9YARIe70/hL12i1TqJPyT3XYoz2OpGh1xC
+	tD8IQCvuFLgtioi1SmgFx5jBopAILQcvUQCh1+kC0WD4D5CHmJGS4VNkewMi1OBLRGmKIG/byP5
+	/O9
+X-Received: by 2002:a17:902:e750:b0:2b2:5258:a23d with SMTP id d9443c01a7336-2bc7a9ba9c0mr33335675ad.14.1778355578556;
+        Sat, 09 May 2026 12:39:38 -0700 (PDT)
+Received: from Ubuntu.. ([49.37.169.14])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1d3fed8sm59690265ad.27.2026.05.09.12.39.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 12:00:21 -0700 (PDT)
-From: Jernej Skrabec <jernej.skrabec@gmail.com>
-X-Google-Original-From: Jernej Skrabec <jernej.skrabec@siol.net>
-To: wens@csie.org,
-	samuel@sholland.org
-Cc: mripard@kernel.org,
-	maarten.lankhorst@linux.intel.com,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
+        Sat, 09 May 2026 12:39:37 -0700 (PDT)
+From: Manish Baing <manishbaing2789@gmail.com>
+To: lee@kernel.org,
+	ukleinek@kernel.org,
+	linusw@kernel.org,
 	robh@kernel.org,
 	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	dri-devel@lists.freedesktop.org,
+	conor+dt@kernel.org
+Cc: mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
 	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	jernej.skrabec@gmail.com
-Subject: [PATCH v2 1/8] clk: sunxi-ng: de2: Fix Display Engine 3.3 definitions
-Date: Sat,  9 May 2026 21:00:08 +0200
-Message-ID: <20260509190015.79086-2-jernej.skrabec@siol.net>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260509190015.79086-1-jernej.skrabec@siol.net>
-References: <20260509190015.79086-1-jernej.skrabec@siol.net>
+	linux-pwm@vger.kernel.org,
+	manishbaing2789@gmail.com
+Subject: [PATCH v3] dt-bindings: mfd: st,stmpe: fix PWM schema and drop legacy binding
+Date: Sat,  9 May 2026 19:39:28 +0000
+Message-ID: <20260509193928.19030-1-manishbaing2789@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_120023_726281_290D645E 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20260509_123940_165899_6D6F892E 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,109 +107,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jernej Skrabec <jernej.skrabec@gmail.com>
+The st,stmpe-pwm binding is already covered by the MFD schema in
+Documentation/devicetree/bindings/mfd/st,stmpe.yaml. However, the
+PWM subnode was missing a 'required' properties block. This allowed
+Device Tree nodes to pass validation even if the 'compatible'
+string was omitted. This omission could lead to probe failures
+at runtime.
 
-Positions of clocks and resets changed when version 3.3 was introduced.
-However, old positions still work, just by luck.
+Fix the schema by adding the missing 'required' block and
+remove the obsolete and redundant text binding file.
 
-Fix Display Engine 3.3 resets and clocks according vendor driver.
-
-Fixes: be0e9a372787 ("clk: sunxi-ng: ccu: add Display Engine 3.3 (DE33) support")
-Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Signed-off-by: Manish Baing <manishbaing2789@gmail.com>
 ---
-Changes from v1:
-- new patch
+Changes in v3:
+- Added 'required' properties to the pwm subnode in st,stmpe.yaml
+  to close a validation gap identified by the Sashiko.
+- Updated commit message and description to reflect MFD subsystem changes.
 
- drivers/clk/sunxi-ng/ccu-sun8i-de2.c | 39 +++++++++++++++++++++++++---
- 1 file changed, 36 insertions(+), 3 deletions(-)
+Changes in v2:
+ - Droppped the TXT file instead of converting to YAML, as the
+   functionality is already covered by st,stmpe.yaml.
+   
+ .../devicetree/bindings/mfd/st,stmpe.yaml      |  4 ++++
+ .../devicetree/bindings/pwm/st,stmpe-pwm.txt   | 18 ------------------
+ 2 files changed, 4 insertions(+), 18 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/pwm/st,stmpe-pwm.txt
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun8i-de2.c b/drivers/clk/sunxi-ng/ccu-sun8i-de2.c
-index a6cd0f988859..6ec6c0dc4c26 100644
---- a/drivers/clk/sunxi-ng/ccu-sun8i-de2.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun8i-de2.c
-@@ -36,6 +36,13 @@ static SUNXI_CCU_GATE(wb_clk,		"wb",		"wb-div",
- static SUNXI_CCU_GATE(rot_clk,		"rot",		"rot-div",
- 		      0x00, BIT(3), CLK_SET_RATE_PARENT);
+diff --git a/Documentation/devicetree/bindings/mfd/st,stmpe.yaml b/Documentation/devicetree/bindings/mfd/st,stmpe.yaml
+index df43878fbe18..4bb05d544901 100644
+--- a/Documentation/devicetree/bindings/mfd/st,stmpe.yaml
++++ b/Documentation/devicetree/bindings/mfd/st,stmpe.yaml
+@@ -127,6 +127,10 @@ properties:
+       "#pwm-cells":
+         const: 2
  
-+static SUNXI_CCU_GATE(mixer0_h616_clk,	"mixer0",	"de",
-+		      0x04, BIT(0), CLK_SET_RATE_PARENT);
-+static SUNXI_CCU_GATE(mixer1_h616_clk,	"mixer1",	"de",
-+		      0x04, BIT(1), CLK_SET_RATE_PARENT);
-+static SUNXI_CCU_GATE(wb_h616_clk,	"wb",		"de",
-+		      0x04, BIT(4), CLK_SET_RATE_PARENT);
++    required:
++      - compatible
++      - "#pwm-cells"
 +
- static SUNXI_CCU_M(mixer0_div_clk, "mixer0-div", "de", 0x0c, 0, 4,
- 		   CLK_SET_RATE_PARENT);
- static SUNXI_CCU_M(mixer1_div_clk, "mixer1-div", "de", 0x0c, 4, 4,
-@@ -54,6 +61,9 @@ static SUNXI_CCU_M(wb_div_a83_clk, "wb-div", "pll-de", 0x0c, 8, 4,
- static SUNXI_CCU_M(rot_div_a83_clk, "rot-div", "pll-de", 0x0c, 0x0c, 4,
- 		   CLK_SET_RATE_PARENT);
- 
-+static SUNXI_CCU_GATE(bus_mixer0_h616_clk, "bus-mixer0", "bus-de",
-+		      0x08, BIT(0), 0);
-+
- static struct ccu_common *sun8i_de2_ccu_clks[] = {
- 	&mixer0_clk.common,
- 	&mixer1_clk.common,
-@@ -74,6 +84,12 @@ static struct ccu_common *sun8i_de2_ccu_clks[] = {
- 	&mixer1_div_a83_clk.common,
- 	&wb_div_a83_clk.common,
- 	&rot_div_a83_clk.common,
-+
-+	&mixer0_h616_clk.common,
-+	&mixer1_h616_clk.common,
-+	&wb_h616_clk.common,
-+
-+	&bus_mixer0_h616_clk.common
- };
- 
- static struct clk_hw_onecell_data sun8i_a83t_de2_hw_clks = {
-@@ -147,6 +163,17 @@ static struct clk_hw_onecell_data sun50i_a64_de2_hw_clks = {
- 	.num	= CLK_NUMBER_WITH_ROT,
- };
- 
-+static struct clk_hw_onecell_data sun50i_h616_de33_hw_clks = {
-+	.hws	= {
-+		[CLK_MIXER0]		= &mixer0_h616_clk.common.hw,
-+		[CLK_MIXER1]		= &mixer1_h616_clk.common.hw,
-+		[CLK_WB]		= &wb_h616_clk.common.hw,
-+
-+		[CLK_BUS_MIXER0]	= &bus_mixer0_h616_clk.common.hw,
-+	},
-+	.num	= CLK_NUMBER_WITHOUT_ROT,
-+};
-+
- static const struct ccu_reset_map sun8i_a83t_de2_resets[] = {
- 	[RST_MIXER0]	= { 0x08, BIT(0) },
- 	/*
-@@ -180,6 +207,12 @@ static const struct ccu_reset_map sun50i_h5_de2_resets[] = {
- 	[RST_WB]	= { 0x08, BIT(2) },
- };
- 
-+static const struct ccu_reset_map sun50i_h616_de33_resets[] = {
-+	[RST_MIXER0]	= { 0x00, BIT(0) },
-+	[RST_MIXER1]	= { 0x00, BIT(1) },
-+	[RST_WB]	= { 0x00, BIT(4) },
-+};
-+
- static const struct sunxi_ccu_desc sun8i_a83t_de2_clk_desc = {
- 	.ccu_clks	= sun8i_de2_ccu_clks,
- 	.num_ccu_clks	= ARRAY_SIZE(sun8i_de2_ccu_clks),
-@@ -244,10 +277,10 @@ static const struct sunxi_ccu_desc sun50i_h616_de33_clk_desc = {
- 	.ccu_clks	= sun8i_de2_ccu_clks,
- 	.num_ccu_clks	= ARRAY_SIZE(sun8i_de2_ccu_clks),
- 
--	.hw_clks	= &sun8i_h3_de2_hw_clks,
-+	.hw_clks	= &sun50i_h616_de33_hw_clks,
- 
--	.resets		= sun50i_h5_de2_resets,
--	.num_resets	= ARRAY_SIZE(sun50i_h5_de2_resets),
-+	.resets		= sun50i_h616_de33_resets,
-+	.num_resets	= ARRAY_SIZE(sun50i_h616_de33_resets),
- };
- 
- static int sunxi_de2_clk_probe(struct platform_device *pdev)
+   touchscreen:
+     type: object
+     $ref: /schemas/input/touchscreen/touchscreen.yaml#
+diff --git a/Documentation/devicetree/bindings/pwm/st,stmpe-pwm.txt b/Documentation/devicetree/bindings/pwm/st,stmpe-pwm.txt
+deleted file mode 100644
+index f401316e0248..000000000000
+--- a/Documentation/devicetree/bindings/pwm/st,stmpe-pwm.txt
++++ /dev/null
+@@ -1,18 +0,0 @@
+-== ST STMPE PWM controller ==
+-
+-This is a PWM block embedded in the ST Microelectronics STMPE
+-(ST Multi-Purpose Expander) chips. The PWM is registered as a
+-subdevices of the STMPE MFD device.
+-
+-Required properties:
+-- compatible: should be:
+-  - "st,stmpe-pwm"
+-- #pwm-cells: should be 2. See pwm.yaml in this directory for a description of
+-  the cells format.
+-
+-Example:
+-
+-pwm0: pwm {
+-	compatible = "st,stmpe-pwm";
+-	#pwm-cells = <2>;
+-};
 -- 
-2.54.0
+2.43.0
 
 
