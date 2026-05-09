@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD00ECD37B6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 01:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE18DCD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 01:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fo11YcYeTlIcDfeAbCyqN2/HvEF4cFCuZQE18N85FEI=; b=C4b3Pe9Eku6karD+cc31yVp5Fs
-	YIKMfz55gerk4uQyUQf8b+6HSpOGxO0LK41QRQ4tFH89i4dkNUB65BUP+blyn5MwvdkNDCo5/Jw1D
-	3gIMcu+MBYSQkRL2q17tjZPEh3B1xqNBi9XVHV87+EO7rIHOhlTwM+rs7w+NsF14DM0Z/V0VkYY1U
-	FNHF+MvZJKIbHs2RnLtvRSzsVEBQUnpjOWbJh7+Kf9Ak7rqFeJfhQ/GWGgC+TJ+mPza+wM5XslLYw
-	XrYCLda2Bh0ruCMGOiVJpj95ramvS7B2zLBLc5edDii6RjCh9QMoaJFKuG1siq6LxbJJw4VoojDRe
-	jqu2FqAQ==;
+	bh=ltv3Gcow3wWtpBnI5bMRx45kEON0eL8yYVkAx0Q/Rcg=; b=s0F8CgbuL2JIqfaroY/L00by/v
+	CGLYxBWFfE9M1+KIxTNTd4DI/lFc+oQp0AHtyT83X/CDcTs4BiSXAsxddDCzWxWnFIxnIS/AkHY09
+	vvaEpih8sWYjo8tuJS/6YdktqTFIvKgMqu6Sf1sMR5gU+Gyaa3FVB2CwHpfimQZQ/1ydo0SsOjHd8
+	xsWc1ZyeaECT8kV/PCB/GW1VVJIvd4O7R/BK/UgeRRYBn+M0zT/dXddHoYQTm/j4XGJnOVgqR+3cG
+	7ti3Bu0xcQn1fNgXt7hfKd69ceupjwDTN3kh9jEDtSZbfvhRv7PdSM8QT9jrel6DB/dwCwS6hQJ5G
+	X0YxoHRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLWll-00000007vep-3hol;
-	Sat, 09 May 2026 01:46:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wLWlq-00000007viC-2ny6;
+	Sat, 09 May 2026 01:46:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLWlg-00000007vbg-0Tky;
-	Sat, 09 May 2026 01:46:13 +0000
+	id 1wLWll-00000007vdj-0Nfl;
+	Sat, 09 May 2026 01:46:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A05E44394;
-	Sat,  9 May 2026 01:46:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A69CDC2BCB4;
-	Sat,  9 May 2026 01:46:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A06D60582;
+	Sat,  9 May 2026 01:46:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92860C2BCB0;
+	Sat,  9 May 2026 01:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778291171;
-	bh=BdduitEx/Iq5i1rUs4QAgBh5C/BbY9EApB51NEx/vLw=;
+	s=k20201202; t=1778291175;
+	bh=nYr0hNgv18QNCyPqBuAJW/W6gk4EsbZrhqi6yKvcTvI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nYWCwI+94h+mct2TLbTJjnQFISjyiYFHyrKUtGozTDIzANAOJMaOtPVVkreUKD+K9
-	 8WNvMkHjLFyzYUEOC+LVPB9t5tj4hFQKh62vtCnS2z1yiPppl1K/C0jSziA0TkepPx
-	 lQgabOvDArnfoCig7Q1reL94Bh+L7djvwE43z6wULkjZr4UR7lF1n952ujk6sPA+Kv
-	 VlGwGNnGj/isiYeMo8U/LFFDPgdou8TAMc5UDaGfnUcldMWe3PBPScuapPQAgbKOpw
-	 MF1BFrrIZP0qfDeVmsNDUCoXEa+c8+uKJfc9V3OmSdE6LiC3CDu6MTl8otGFIsxEGf
-	 xzlGLy1Uo0zTg==
+	b=kFkk1ehLHN+3JVcpb2z/pdXYXYsT8jheE4V9U2T9NErQmAdNH4ebyOHJQsmVXQe7G
+	 dCeQHg0cMGUnvlr+rP1l8VzO7vYe4ZiYhTwNWSx8EFsq4ESTY2E3dA2/3BiJH5pShq
+	 iCptBudwxQbvHKbOFppgwGRdnu135eFRvQn0aZJ5aRBYSUBgIuAWHFq4caf1LL74Dx
+	 2a87xYCfpKA75HFI01uyg6VbxExI76RaWHxc8Nli1v5axNA/AgYVXBeIpGv3ysZX63
+	 R2MLXSCP2x8dTSvcqTsxpMrZFjftdbzAvGCDeeu7ar5xoVyRZKDltFsOPeq0JteTzo
+	 i6FomOKMIuEtQ==
 From: Jakub Kicinski <kuba@kernel.org>
 To: lorenzo@kernel.org
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -58,17 +58,14 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	madhur.agrawal@airoha.com
-Subject: Re: [PATCH net-next v4 05/10] net: airoha: Move qos_sq_bmap in airoha_qdma struct
-Date: Fri,  8 May 2026 18:46:09 -0700
-Message-ID: <20260509014609.3558041-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v4 08/10] net: airoha: Do not stop GDM port if it is shared
+Date: Fri,  8 May 2026 18:46:13 -0700
+Message-ID: <20260509014613.3558087-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260507-airoha-eth-multi-serdes-v4-5-af613b61ae02@kernel.org>
-References: <20260507-airoha-eth-multi-serdes-v4-5-af613b61ae02@kernel.org>
+In-Reply-To: <20260507-airoha-eth-multi-serdes-v4-8-af613b61ae02@kernel.org>
+References: <20260507-airoha-eth-multi-serdes-v4-8-af613b61ae02@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_184612_251825_15AD4A6E 
-X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,141 +83,142 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-    net: airoha: Move qos_sq_bmap in airoha_qdma struct
+net: airoha: Do not stop GDM port if it is shared
 
-The change moves the HTB-offload channel-allocation bitmap from the
-per-netdev airoha_gdm_port to the per-QDMA airoha_qdma, so sibling
-netdevs attached to different QDMA blocks no longer clobber each other's
-bitmap.
+This patch adds a per-port users refcount so the GDM forward configuration
+is only reset to FE_PSE_PORT_DROP when the last netdev attached to the
+shared GDM port stops, and it adjusts the MTU/length register updates to
+cope with the shared case.
 
 > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index 080705e2f58d..69a4c2e0d58b 100644
+> index 0253919714e0..1c4927c1aeb0 100644
 > --- a/drivers/net/ethernet/airoha/airoha_eth.c
 > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -2600,7 +2600,7 @@ static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
->  	u32 rate = div_u64(opt->rate, 1000) << 3; /* kbps */
->  	int err, num_tx_queues = netdev->real_num_tx_queues;
+> @@ -1714,8 +1714,8 @@ static int airoha_dev_open(struct net_device *netdev)
+>  	int err, len = ETH_HLEN + netdev->mtu + ETH_FCS_LEN;
 >  	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-> -	struct airoha_gdm_port *port = dev->port;
-> +	struct airoha_qdma *qdma = dev->qdma;
+>  	struct airoha_gdm_port *port = dev->port;
+> +	u32 cur_len, pse_port = FE_PSE_PORT_PPE1;
+>  	struct airoha_qdma *qdma = dev->qdma;
+> -	u32 pse_port = FE_PSE_PORT_PPE1;
 >  
->  	if (opt->parent_classid != TC_HTB_CLASSID_ROOT) {
->  		NL_SET_ERR_MSG_MOD(opt->extack, "invalid parent classid");
-> @@ -2627,7 +2627,7 @@ static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
->  		return err;
->  	}
+>  	netif_tx_start_all_queues(netdev);
+>  	err = airoha_set_vip_for_gdm_port(dev, true);
+> @@ -1729,10 +1729,14 @@ static int airoha_dev_open(struct net_device *netdev)
+>  		airoha_fe_clear(qdma->eth, REG_GDM_INGRESS_CFG(port->id),
+>  				GDM_STAG_EN_MASK);
 >  
-> -	set_bit(channel, port->qos_sq_bmap);
-> +	set_bit(channel, qdma->qos_sq_bmap);
->  	opt->qid = AIROHA_NUM_TX_RING + channel;
+> -	airoha_fe_rmw(qdma->eth, REG_GDM_LEN_CFG(port->id),
+> -		      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
+> -		      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
+> -		      FIELD_PREP(GDM_LONG_LEN_MASK, len));
+> +	cur_len = airoha_fe_get(qdma->eth, REG_GDM_LEN_CFG(port->id),
+> +				GDM_LONG_LEN_MASK);
+> +	if (!atomic_read(&port->users) || len > cur_len)
+> +		airoha_fe_rmw(qdma->eth, REG_GDM_LEN_CFG(port->id),
+> +			      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
+> +			      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
+> +			      FIELD_PREP(GDM_LONG_LEN_MASK, len));
+> +	atomic_inc(&port->users);
+
+[Medium]
+When a second netdev opens with a larger MTU, this unconditionally
+widens GDM_LONG_LEN_MASK for the already-running sibling that has a
+smaller MTU:
+
+	if (!atomic_read(&port->users) || len > cur_len)
+		airoha_fe_rmw(qdma->eth, REG_GDM_LEN_CFG(port->id),
+			      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
+			      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
+			      FIELD_PREP(GDM_LONG_LEN_MASK, len));
+
+Meanwhile airoha_dev_change_mtu() rejects shrinks (len < cur_len) with
+-EBUSY when the port is shared. Is this asymmetry intentional?
+
+With the new policy the hardware long-length ends up as the maximum of
+the two MTUs, so the smaller-MTU sibling silently accepts frames larger
+than its advertised MTU at the MAC level. Should opens that would
+increase the shared length also be gated (symmetric policy), or should
+the commit message and a comment document the chosen ceiling/floor
+behaviour?
+
 >  
->  	return 0;
+>  	airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
+>  			GLOBAL_CFG_TX_DMA_EN_MASK |
+> @@ -1762,8 +1766,12 @@ static int airoha_dev_stop(struct net_device *netdev)
+>  	for (i = 0; i < netdev->num_tx_queues; i++)
+>  		netdev_tx_reset_subqueue(netdev, i);
+>  
+> -	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
+> -				    FE_PSE_PORT_DROP);
+> +	if (atomic_dec_and_test(&port->users)) {
+> +		airoha_set_vip_for_gdm_port(dev, false);
+> +		airoha_set_gdm_port_fwd_cfg(qdma->eth,
+> +					    REG_GDM_FWD_CFG(port->id),
+> +					    FE_PSE_PORT_DROP);
+> +	}
 
-[High]
-Now that qos_sq_bmap is per-QDMA, can two sibling netdevs that share the
-same QDMA block collide on allocation?  On EN7581, GDM2/GDM3/GDM4 all
-select the same qdma pointer via:
+[Low]
+Is the airoha_set_vip_for_gdm_port(dev, false) call inside the
+atomic_dec_and_test() block intentional?
 
-    drivers/net/ethernet/airoha/airoha_eth.c:
-        /* QDMA0 is used for lan ports while QDMA1 is used for WAN ports */
-        dev->qdma = &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
+Looking at airoha_dev_stop() as a whole, the same call is already made
+unconditionally a few lines above:
 
-and airoha_is_lan_gdm_dev() returns true only for port->id == 1, so
-every non-LAN GDM netdev resolves to eth->qdma[1] and shares
-qdma->qos_sq_bmap.
+	netif_tx_disable(netdev);
+	airoha_set_vip_for_gdm_port(dev, false);
+	for (i = 0; i < netdev->num_tx_queues; i++)
+		netdev_tx_reset_subqueue(netdev, i);
 
-The allocation path does not test the bit before setting it:
+	if (atomic_dec_and_test(&port->users)) {
+		airoha_set_vip_for_gdm_port(dev, false);
+		...
+	}
 
-    channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
-    ...
-    set_bit(channel, qdma->qos_sq_bmap);
-    opt->qid = AIROHA_NUM_TX_RING + channel;
+Since get_vip_port() derives the bit mask per-(port, dev->nbq) and
+airoha_fe_clear() of already-cleared bits is a no-op, the second call
+looks like dead code today. The commit log only mentions the
+FE_PSE_PORT_DROP gating, not VIP handling. Should the duplicate be
+dropped in v2?
 
-If two sibling netdevs on the same QDMA pick classids whose TC_H_MIN
-maps to the same channel, both airoha_qdma_set_tx_rate_limit() calls
-program the same HW TRTCM egress slot, the later caller silently
-overwrites the earlier configuration, and both netdevs receive the same
-opt->qid.  Should this path use test_and_set_bit() (or similar owner
-tracking) to reject a channel already owned by a sibling netdev?
-
-> @@ -2811,11 +2811,11 @@ static int airoha_dev_setup_tc_block(struct net_device *dev,
->  static void airoha_tc_remove_htb_queue(struct net_device *netdev, int queue)
+>  
+>  	if (atomic_dec_and_test(&qdma->users)) {
+>  		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
+> @@ -1915,10 +1923,22 @@ static void airoha_dev_get_stats64(struct net_device *netdev,
+>  static int airoha_dev_change_mtu(struct net_device *netdev, int mtu)
 >  {
 >  	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-> -	struct airoha_gdm_port *port = dev->port;
-> +	struct airoha_qdma *qdma = dev->qdma;
+> +	u32 cur_len, len = ETH_HLEN + mtu + ETH_FCS_LEN;
+>  	struct airoha_gdm_port *port = dev->port;
+> -	u32 len = ETH_HLEN + mtu + ETH_FCS_LEN;
+>  	struct airoha_eth *eth = dev->eth;
 >  
->  	netif_set_real_num_tx_queues(netdev, netdev->real_num_tx_queues - 1);
->  	airoha_qdma_set_tx_rate_limit(netdev, queue + 1, 0, 0);
-> -	clear_bit(queue, port->qos_sq_bmap);
-> +	clear_bit(queue, qdma->qos_sq_bmap);
->  }
+> +	cur_len = airoha_fe_get(eth, REG_GDM_LEN_CFG(port->id),
+> +				GDM_LONG_LEN_MASK);
+> +	if (len < cur_len) {
+> +		u8 port_refcnt = atomic_read(&port->users);
+> +
+> +		/* We can decrease the device MTU just if the GDM port is
+> +		 * not shared or if the other device is not running.
+> +		 */
+> +		if (port_refcnt > 1 || (port_refcnt && !netif_running(netdev)))
+> +			return -EBUSY;
+> +	}
+> +
 
-[High]
-airoha_tc_remove_htb_queue() operates unconditionally on the caller's
-netdev but clears a bit that may be owned by a sibling netdev on the
-same QDMA.  The effects that follow look like cross-netdev interference:
+[Low]
+Why is port_refcnt typed as u8 here when atomic_read() returns int?
 
-  - netif_set_real_num_tx_queues(netdev, real_num_tx_queues - 1)
-    decrements the caller's tx-queue count for a queue it never
-    allocated, and its return value is discarded (eventually the txq<1
-    EINVAL guard in netif_set_real_num_tx_queues() will trip silently).
+	u8 port_refcnt = atomic_read(&port->users);
 
-  - airoha_qdma_set_tx_rate_limit(netdev, queue + 1, 0, 0) zeros the
-    egress TRTCM rate-limit registers for a channel that the sibling
-    netdev still considers active.
+With AIROHA_MAX_NUM_GDM_DEVS currently 2 this cannot overflow, but a
+future bump of AIROHA_MAX_NUM_GDM_DEVS, or a refcount leak, that pushed
+port->users to 256 would wrap to 0 and quietly bypass both the
+port_refcnt > 1 and port_refcnt && !netif_running(netdev) checks,
+permitting MTU shrinks that are meant to be rejected. Would using int
+here (the type atomic_read() returns) be preferable?
 
-  - clear_bit(queue, qdma->qos_sq_bmap) then hides the channel from the
-    legitimate owner's later test_bit() checks.
-
-> @@ -2838,10 +2838,10 @@ static int airoha_tc_htb_delete_leaf_queue(struct net_device *netdev,
->  static int airoha_tc_htb_destroy(struct net_device *netdev)
->  {
->  	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-> -	struct airoha_gdm_port *port = dev->port;
-> +	struct airoha_qdma *qdma = dev->qdma;
->  	int q;
->  
-> -	for_each_set_bit(q, port->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
-> +	for_each_set_bit(q, qdma->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
->  		airoha_tc_remove_htb_queue(netdev, q);
->  
->  	return 0;
->  }
-
-[High]
-Does airoha_tc_htb_destroy() now walk bits owned by sibling netdevs?
-The iteration no longer filters by owning netdev:
-
-    for_each_set_bit(q, qdma->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
-        airoha_tc_remove_htb_queue(netdev, q);
-
-Previously each netdev had a private bitmap, so destroy could only
-touch its own channels.  After this change, tearing down HTB on one
-GDM netdev appears to remove channels and clear rate-limit HW state
-belonging to every sibling GDM netdev on the same QDMA.  A subsequent
-tc-htb delete or get on the legitimate owner then hits:
-
-    if (!test_bit(channel, qdma->qos_sq_bmap)) {
-        NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
-        return -EINVAL;
-    }
-
-Should the bitmap track the owning netdev alongside the bit (for
-example a per-channel owner pointer, or a per-netdev sub-bitmap inside
-airoha_qdma), so that destroy/delete can only touch channels owned by
-the caller?
-
-> @@ -2852,9 +2852,9 @@ static int airoha_tc_get_htb_get_leaf_queue(struct net_device *netdev,
->  {
->  	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
->  	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-> -	struct airoha_gdm_port *port = dev->port;
-> +	struct airoha_qdma *qdma = dev->qdma;
->  
-> -	if (!test_bit(channel, port->qos_sq_bmap)) {
-> +	if (!test_bit(channel, qdma->qos_sq_bmap)) {
->  		NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
->  		return -EINVAL;
->  	}
+>  	airoha_fe_rmw(eth, REG_GDM_LEN_CFG(port->id),
+>  		      GDM_LONG_LEN_MASK,
+>  		      FIELD_PREP(GDM_LONG_LEN_MASK, len));
 
