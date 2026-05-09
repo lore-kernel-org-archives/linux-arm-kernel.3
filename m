@@ -4,58 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5DB9CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 08:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C6C0CD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 08:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Date:
-	Message-ID:Subject:Cc:To:From:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7nY8bbpnmeu2LuUe3UlRYz1YYTlxMg6MG2wDblyfVdk=; b=tzNPdaxMXsHX7rfPieUpVm2FLV
-	Tm6fevajHYTKY7kcOEI7nB73/Y4ZF3s0FUD7Ro+CcOJFpUHv1lqfWO6Im3AuzatypSvGary4NszGO
-	5RljVbd3HDjfQxM0iFZDitUAICYePRKRd3SNeDvCeWAr6aie4P+B1ZpZ4eM+rurzPoVtC/3TAPsr3
-	FxTN/ckJRBqjS4iXMtvPdfB6+pZHT9ynGblhIireYwKuQVtSw6ba4yn2EhR/5E4oyCeTVeetccvRM
-	ieeSlfBPgQW9l5ABy18ErI0JKDGgi0CwBMpC4xIpNntYZAGzYW+bnRRZYJSmaiQ6wq3uKl8rTXrfS
-	FE6hW8fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pdIwqFHJus8yHIv6hWPRnSYqUNCgGt6yNEiML7zUeM4=; b=JhXc8LIFQZR1ztWf4Cnl+WQ6pz
+	mL+HpQT44V5be9m0RSae1dNKbOjCbyyTshzSWa7cp4bKBE64wx/LGYifmHGy5xdr9fRMJoZx+AyrR
+	5NAGmPd0+xbuzWnr9f/QwwHzd0gDsKg/K0wTZY+p77elQzgke1/y8GCkUt0tvDT6avm5VzAyJDoDd
+	vYnXMcLFw8ZKwKPZ+i25tQ9MPuTc5Gs/KeF2yYGLTWfLcPR3u7AGOA9AJXR8RSNumllhZkbWWOeUB
+	+/D3LJ8bcCQOTi6ZwKgc4oDqHv4cu+N5W3YQZ5ztZC4RRhnYd8CmrLjDaj5989dkZTOScjAg0+MAa
+	jP9C648Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLd8g-00000008aoU-3yfj;
-	Sat, 09 May 2026 08:34:22 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1wLdJE-00000008c9s-0D4a;
+	Sat, 09 May 2026 08:45:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLd8b-00000008ai4-3cXR;
-	Sat, 09 May 2026 08:34:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Content-Type:MIME-Version:From:To:Subject:
-	Message-ID:Date; bh=7nY8bbpnmeu2LuUe3UlRYz1YYTlxMg6MG2wDblyfVdk=;
-	b=eo6iC6XZoS/6m/5V3TfBOQnc1CEVw29zSOqtekSAG7lfcV9/aJ3jzZfa90LWM7
-	lJqpEMs/Btmx+tsK6eJXIqJjfvyWmrt+V2dX/yBhvJ9oeaIN7vKJ1aMYu3cH2FZe
-	HIiOAQqyV19ubRXBwc7qg+lPQtw8psVmu8U2ZlxHtNW1c=
-Received: from [127.0.1.1] (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wBnHxd88f5pRVN0AQ--.35430S2;
-	Sat, 09 May 2026 16:34:05 +0800 (CST)
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-From: Jiaqi <shijiaqi_develop@163.com>
-To: dri-devel@lists.freedesktop.org
-Cc: Sandy Huang <hjc@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>, David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>, Philipp Zabel <p.zabel@pengutronix.de>, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v3 6/6] drm/rockchip: Check return value of cdn_dp_grf_write() in error path
-Message-ID: <177831564430.322716.2622130527771792842@163.com>
-Date: Sat, 09 May 2026 16:34:04 +0800
-In-Reply-To: <177831560568.322716.7926332149561323511@163.com>
-References: <177831560568.322716.7926332149561323511@163.com>
-X-CM-TRANSID: _____wBnHxd88f5pRVN0AQ--.35430S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7CF1kCFyDKFWDCw1UJw1UZFb_yoW8Gry3pw
-	4DJ34YvFZ29asrJayxKa48JrsYgayUZr4I9r97Cwn2v3W3Cr4ktr9IqF12qF4fXrs2yFyI
-	yF4kJryrJrs0vr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jUfHbUUUUU=
-X-Originating-IP: [42.63.126.112]
-X-CM-SenderInfo: xvklyxpdtlsvxhyhz0rs6rljoofrz/xtbCzR21CWn+8X0oggAA3d
+	id 1wLdJA-00000008c96-3hwn
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 09 May 2026 08:45:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D6E554166F;
+	Sat,  9 May 2026 08:45:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACEBEC2BCB2;
+	Sat,  9 May 2026 08:45:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778316311;
+	bh=VahACnmISsK/pJLBRfVnHq1AO2ulykOODkGw12kjbRk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XdL1m73MCKiC/RtCYGcwccNwIKKyrNlf9P7IXPe7Sr39A6ILsf48tUFwds0E6N09p
+	 r3grLf/rFS5pULDLweIkbhLKk6K3neT4nFJDCgPUWJUQzVGojOhngff3vh8FhGEfzi
+	 nHH/Bt4uNjcuWZ1Aw7URnWN88P5oN8bYDzoAiw9TRA+lFPrfvEtzAwuvppTjQKtrRg
+	 ThPYPJvrebtmFdYv0KzW+OPkyHYUrimlfPdvLeRWcyQVQHN/0W7+m8m/6wWqSfs2RO
+	 CpufGG+qSMROyp4sq7g9WVFX5/35ZtcqbV6INmWGUVJWsOzP4vVHFUyEdLlqJ/SjNl
+	 rSzn8blnERNig==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wLdJ7-00000000aIL-0ODj;
+	Sat, 09 May 2026 08:45:09 +0000
+Date: Sat, 09 May 2026 09:45:05 +0100
+Message-ID: <87y0ht9dke.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jack Matthews <jack@jackmatthe.ws>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	regressions@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org
+Subject: Re: Regression in split ARM MMIO timer driver
+In-Reply-To: <46A20F89-E208-4091-8B6E-B5C38BF82B42@jackmatthe.ws>
+References: <46A20F89-E208-4091-8B6E-B5C38BF82B42@jackmatthe.ws>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jack@jackmatthe.ws, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_013420_167841_FC38E837 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20260509_014513_013863_2A5485C4 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,42 +86,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In cdn_dp_enable_phy(), when an error occurs after the GRF register has
-been set to DPTX_HPD_SEL, the cleanup path at err_phy calls
-cdn_dp_grf_write() to restore DPTX_HPD_DEL, but the return value is
-ignored.
+On Fri, 08 May 2026 20:48:14 +0100,
+Jack Matthews <jack@jackmatthe.ws> wrote:
+> 
+> Hello,
+> 
+> I am working on mainlining an old chip, Qualcomm's MDM9625 modem.
+> I had previously booted 6.17-rc3 before putting this project to the
+> side, but when I restarted work on 7.0 I was unable to boot.
 
-If this restore write fails (e.g., due to a bus timeout or GRF power
-loss), the GRF register remains in the DPTX_HPD_SEL state. This leaves
-the DP PHY control in an inconsistent state, which can cause subsequent
-DP link initialization to fail or produce undefined behavior.
+> I have bisected this to commit
+> 0f67b56d84b4c49adfd61f19f81f84ec613ab51a
+> (https://lore.kernel.org/all/20250814154622.10193-4-maz@kernel.org/)
+> and reverting this commit makes the device boot
+> successfully. Unfortunately I do not have access to low level
+> debugging such as UART so I have not been able to pinpoint exactly
+> what is missing.
 
-Fix by checking the return value of cdn_dp_grf_write() in the error
-path and logging an error if it fails.
+> My changes for this chip are all available here in case it is an
+> issue of my own doing:
+> https://github.com/jackmthws/linux/commits/mdm9625-latest/ I
+> apologize if I this isn't the proper way to submit a regression
+> report, this is my first time doing so.
 
-Signed-off-by: Jiaqi <shijiaqi_develop@163.com>
----
- drivers/gpu/drm/rockchip/cdn-dp-core.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+Given that this is not a machine that is supported upstream, this
+really isn't a regression. Unless of course you can reproduce it on
+something that is currently supported, and in which case it would
+absolutely be a regression.
 
-diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-index 8afabe2118a9..1234567890ab 100644
---- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
-+++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-@@ -425,8 +425,9 @@ err_power_on:
- 		port->phy_enabled = false;
+I'm afraid that without a boot log, it is going to be difficult to
+pinpoint what is going wrong here. This is most likely a latent bug
+either in the MMIO timer driver, or something unexpected in the way
+the platform is described.
 
- err_phy:
--	cdn_dp_grf_write(dp, GRF_SOC_CON26,
--			 DPTX_HPD_SEL_MASK | DPTX_HPD_DEL);
-+	ret = cdn_dp_grf_write(dp, GRF_SOC_CON26,
-+			       DPTX_HPD_SEL_MASK | DPTX_HPD_DEL);
-+	if (ret)
-+		DRM_DEV_ERROR(dp->dev, "Failed to restore HPD_DEL: %d\n", ret);
- 	return ret;
- }
+Could you start by posting a kernel boot log of 7.0 with this commit
+reverted? I'm also interested in finding out what happens if you don't
+revert that commit, but instead comment out the entry in the Makefile
+for the MMIO driver.
 
---
-2.40.0
+Thanks,
 
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
