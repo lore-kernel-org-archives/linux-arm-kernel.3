@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64127CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 09:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 921C4CD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 09:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i6GQT7Ejkt7iBdRGPtp3Ii2iOHNhQCuXivgT3YxHTso=; b=mscn1UpsnTMbKzLQ1CVFwDq9Ya
-	HApXY8De1/dU+QnjmITdrBEvD8cw0pIVUtqFVy07v98QV+W3nVGAPm7w95tFrkX9/NPj7JMTbkTu+
-	HoZ/6hl7rrAktD8LuPKpKiljvRAFuEUPXbU1PsY72Dt+W12OzSkKWI4INeW3uI1Pd/RfgpBG/ioLX
-	NMbKC2DYIwwo53DE89I3Iv/SKOiDN18eCsMfpc1KUyHMXnEibQNIrStbNEZ5veNcDjKcSyTE8lQMx
-	Me9VilrLYI4fb85VImyJQgQYa9m7j7PrdKIgAcF2x9gULy6dgHfVGHAE6SLAEKk15eRXDIIv/oMeG
-	QZ8Bkjkg==;
+	bh=++TpRzL3fTcDfWTuiUcGrOd3LT5zsko8y1dyuS7e1f4=; b=cHuVlsjm90oeXqoB6+5jgX2WZf
+	Dp9eJlvEUSykZpyQOkr/ujeZu4+dPiSX0y30G6mUIn9DXEhezvX++n7LjN66YHImGfTm3CbIADkxP
+	NeCiKHzaIoahAdgx09hlPmsKXXp70TmfZ09DzGQIjyaJ6CjIGQAyoy1naNdPP8guQy/obZ9q1l1de
+	D3QMMHNsLbt+0fpP+MhIfxQSi8RCF+F5aP3ZUVCoyEJ9R/MCXEBoaQXqJH3IGWMiAwqySEQyd8xdt
+	VeMXSDzRVhaYafYR8pQ7Dbf1ifNjoy/vEnwQkBQug1QZM+Y5Lz/rLinxczrQC8Jjluj/35Vmx8GDJ
+	5g8E3gVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLdY4-00000008dZO-489N;
-	Sat, 09 May 2026 09:00:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wLeCF-00000008gyA-1cgD;
+	Sat, 09 May 2026 09:42:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLdY3-00000008dZ4-2TDk;
-	Sat, 09 May 2026 09:00:35 +0000
+	id 1wLeCC-00000008gxV-0pF1;
+	Sat, 09 May 2026 09:42:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 546F560008;
-	Sat,  9 May 2026 09:00:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87068C2BCB2;
-	Sat,  9 May 2026 09:00:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F76F44217;
+	Sat,  9 May 2026 09:42:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9F23C2BCB2;
+	Sat,  9 May 2026 09:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778317233;
-	bh=ZqLpz2CFj28iASBq5rq8tyYLR7o5ybdmwFhd94Td2m0=;
+	s=k20201202; t=1778319723;
+	bh=K7XW3fDrAi/SJUEYupM1iZBtmsSrwJ2WcBoDs0GiXxg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pP5r8Bhpm0NTMhVIzUfWOtGIwxDRr+p9wyNO5ZIeT0iScG9QjezvbYUzRJIH6hos/
-	 LV1CTwl0sCAFeVQudLmrYvT+gMk1zNxdf+dq12q0Kdw26VkxWuaru4xA0u65jLr4ps
-	 2rtxmqu1gQZpgHQ/zkgGJvGZOJ8O/zpJz1L3UeLs1H0wIPeKLe3V5v0kAigf+/D3V6
-	 S72mUlJbtwzA9rnCzqnkmcRT9AtoxXiwEjFX1M8Igj1wiPHkijfBahVrAfAL6pH3AQ
-	 nSZHmF1177Rk6g5rX9IFvJG3I2qbw7K6KUDSbV3fAABWfQWFhMoJ1uU0pCy2VBj2G2
-	 XJsSFDSNoBGYA==
-Date: Sat, 9 May 2026 11:00:30 +0200
+	b=Lk+pKtRgFMongdzhfKR4yRp3XwmtqK900PBJqUpGpyvNcTkt8ZYsevmTxvRsL3O2z
+	 o7lW7WOaYHmWG1Ya+c/32+njK33gfkUEpVz5aRhqZ9DldJwXvKXzes+L6vSOLitcnh
+	 JvDMNOenzFLp6IhorBIwVUlEzOheS4ILqATLz2B/WEqmThCKq7aTskkgoV/Y4Hjejl
+	 wBtjkZdAWTT+jFwGvt9d86cfq39OINSSfEejj/uO9y9Ahrf6gVZr1X0rEncKSA1CkH
+	 yMTDRkk13xaMIgZvflOLW01hRock4FvFRM3wbN1NyNBl/ZUy3IzrEkyno5l3zGgaY3
+	 2dB7F7C5Vq1Yg==
+Date: Sat, 9 May 2026 11:42:00 +0200
 From: Lorenzo Bianconi <lorenzo@kernel.org>
 To: Jakub Kicinski <kuba@kernel.org>
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
@@ -50,16 +50,18 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
 	benjamin.larsson@genexis.eu, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
 	devicetree@vger.kernel.org, madhur.agrawal@airoha.com
-Subject: Re: [PATCH net-next v4 08/10] net: airoha: Do not stop GDM port if
- it is shared
-Message-ID: <af73rqYK1xCL-XsK@lore-desk>
-References: <20260507-airoha-eth-multi-serdes-v4-8-af613b61ae02@kernel.org>
- <20260509014613.3558087-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v4 09/10] net: airoha: Introduce WAN device flag
+Message-ID: <af8BaMnL9oXttB1t@lore-desk>
+References: <20260507-airoha-eth-multi-serdes-v4-9-af613b61ae02@kernel.org>
+ <20260509014615.3558164-1-kuba@kernel.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Lk/TFdVeNBlgNVPK"
+	protocol="application/pgp-signature"; boundary="cVtlXQ1B6cbL+hCZ"
 Content-Disposition: inline
-In-Reply-To: <20260509014613.3558087-1-kuba@kernel.org>
+In-Reply-To: <20260509014615.3558164-1-kuba@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260509_024204_284435_0A270EFE 
+X-CRM114-Status: GOOD (  45.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,7 +77,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---Lk/TFdVeNBlgNVPK
+--cVtlXQ1B6cbL+hCZ
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
@@ -83,176 +85,276 @@ Content-Transfer-Encoding: quoted-printable
 > This is an AI-generated review of your patch. The human sending this
 > email has considered the AI review valid, or at least plausible.
 > ---
-> net: airoha: Do not stop GDM port if it is shared
+> net: airoha: Introduce WAN device flag
 >=20
-> This patch adds a per-port users refcount so the GDM forward configuration
-> is only reset to FE_PSE_PORT_DROP when the last netdev attached to the
-> shared GDM port stops, and it adjusts the MTU/length register updates to
-> cope with the shared case.
+> This commit replaces the port->id =3D=3D 1 LAN/WAN test with a per-dev
+> PRIV_FLAG_WAN bit that is set during airoha_dev_init() based on the
+> port id and the presence of other WAN devices. It also extracts the
+> QDMA selection/PPE cpu port programming into a new helper and reworks
+> the GDM2 loopback path to key off the new flag.
+>=20
+> A few questions about the new policy and error paths.
+>=20
+> [Medium]
+> The commit message says:
+>=20
+>     Introduce WAN flag to specify if a given device is used to
+>     transmit/receive WAN or LAN traffic. [...] Please note it is possible
+>     to specify multiple LAN devices but just a single WAN one.
+>=20
+> Under the old helper (port->id =3D=3D 1), GDM2/GDM3/GDM4 were all treated=
+ as
+> WAN. Under the new logic, when GDM2 (eth->ports[1]) is present, the
+> GDM3/GDM4 case breaks out of the switch without setting PRIV_FLAG_WAN, so
+> GDM3 and GDM4 are now classified as LAN. That flips the MAC register
+> (REG_FE_WAN_MAC_H -> REG_FE_LAN_MAC_H in airoha_set_macaddr()), the QDMA
+> binding (qdma[1] -> qdma[0] in airoha_dev_set_qdma()), and the PPE cpu
+> port (CDM2 -> CDM1). Is that role change intentional, and could the
+> commit message call it out so bisecting a board that relied on the old
+> GDM3/GDM4=3DWAN semantics is easier?
+
+This change is intentional and this is currently not visible to the user
+since airoha_eth driver currently supports just the internal phy available
+via the MT7530 DSA switch and there are no WAN interfaces officially
+supported since PCS/external phy is not merged mainline yet (it is posted j=
+ust
+as RFC in [0]). I will add this info in the commimit log in v5.
+
+[0] https://lore.kernel.org/netdev/20260505182713.27644-1-ansuelsmth@gmail.=
+com/
+
 >=20
 > > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
 ernet/airoha/airoha_eth.c
-> > index 0253919714e0..1c4927c1aeb0 100644
+> > index 1c4927c1aeb0..8617dd4f7932 100644
 > > --- a/drivers/net/ethernet/airoha/airoha_eth.c
 > > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -1714,8 +1714,8 @@ static int airoha_dev_open(struct net_device *net=
-dev)
-> >  	int err, len =3D ETH_HLEN + netdev->mtu + ETH_FCS_LEN;
-> >  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> >  	struct airoha_gdm_port *port =3D dev->port;
-> > +	u32 cur_len, pse_port =3D FE_PSE_PORT_PPE1;
-> >  	struct airoha_qdma *qdma =3D dev->qdma;
-> > -	u32 pse_port =3D FE_PSE_PORT_PPE1;
+> > @@ -1863,36 +1863,77 @@ static int airoha_set_gdm2_loopback(struct airo=
+ha_gdm_dev *dev)
+> >  	return 0;
+> >  }
 > > =20
-> >  	netif_tx_start_all_queues(netdev);
-> >  	err =3D airoha_set_vip_for_gdm_port(dev, true);
-> > @@ -1729,10 +1729,14 @@ static int airoha_dev_open(struct net_device *n=
-etdev)
-> >  		airoha_fe_clear(qdma->eth, REG_GDM_INGRESS_CFG(port->id),
-> >  				GDM_STAG_EN_MASK);
+> > -static int airoha_dev_init(struct net_device *netdev)
+> > +static struct airoha_gdm_dev *
+> > +airoha_get_wan_gdm_dev(struct airoha_eth *eth)
+> > +{
+> > +	int i;
+> > +
+> > +	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
+> > +		struct airoha_gdm_port *port =3D eth->ports[i];
+> > +		int j;
+> > +
+> > +		if (!port)
+> > +			continue;
+> > +
+> > +		for (j =3D 0; j < ARRAY_SIZE(port->devs); j++) {
+> > +			struct airoha_gdm_dev *dev =3D port->devs[j];
+> > +
+> > +			if (dev && !airoha_is_lan_gdm_dev(dev))
+> > +				return dev;
+> > +		}
+> > +	}
+> > +
+> > +	return NULL;
+> > +}
+>=20
+> [High]
+> airoha_register_gdm_devices() invokes airoha_dev_init() for each dev in
+> port->devs[] sequentially. On EN7581 GDM3 supports two devs (nbq 4/5 for
+> PCIE0/PCIE1 in airoha_alloc_gdm_device()). When both devs are registered,
+> devs[0] sets PRIV_FLAG_WAN and then devs[1] sees the first via
+> airoha_get_wan_gdm_dev() and falls through to LAN. Is that the intended
+> result for two devs on the same physical GDM3/GDM4 port?
+>=20
+> The two devs then diverge:
+>=20
+>   airoha_dev_set_qdma()
+>     dev->qdma =3D &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
+>=20
+> so devs[1] binds to qdma[0] while devs[0] is on qdma[1];
+>=20
+>   airoha_set_macaddr()
+>     reg =3D airoha_is_lan_gdm_dev(dev) ? REG_FE_LAN_MAC_H
+>                                      : REG_FE_WAN_MAC_H;
+>=20
+> so devs[1] writes into the LAN MAC range that belongs to GDM1; and in
+> airoha_ppe_foe_entry_prepare() pse_port becomes port->id instead of 2
+> (GDM2 loopback) only for devs[1]. Is there an assumption that sibling
+> devs on the same port must share the WAN/LAN classification?
+
+A subsequent patch in the series adds suppport for multiple net_device that
+share the same LAN/WAN mac address register space.
+Moreover, I will post subsequent patches (not in the series) to dynamically
+set/get net_device LAN/WAN configuration.
+
+>=20
+> > +
+> > +static void airoha_dev_set_qdma(struct airoha_gdm_dev *dev)
+> >  {
+> > -	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> > -	struct airoha_gdm_port *port =3D dev->port;
+> >  	struct airoha_eth *eth =3D dev->eth;
+> >  	int i;
 > > =20
-> > -	airoha_fe_rmw(qdma->eth, REG_GDM_LEN_CFG(port->id),
-> > -		      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
-> > -		      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
-> > -		      FIELD_PREP(GDM_LONG_LEN_MASK, len));
-> > +	cur_len =3D airoha_fe_get(qdma->eth, REG_GDM_LEN_CFG(port->id),
-> > +				GDM_LONG_LEN_MASK);
-> > +	if (!atomic_read(&port->users) || len > cur_len)
-> > +		airoha_fe_rmw(qdma->eth, REG_GDM_LEN_CFG(port->id),
-> > +			      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
-> > +			      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
-> > +			      FIELD_PREP(GDM_LONG_LEN_MASK, len));
-> > +	atomic_inc(&port->users);
+> >  	/* QDMA0 is used for lan ports while QDMA1 is used for WAN ports */
+> >  	dev->qdma =3D &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
+> >  	dev->dev->irq =3D dev->qdma->irq_banks[0].irq;
+> > -	airoha_set_macaddr(dev, netdev->dev_addr);
+> > +
+> > +	for (i =3D 0; i < eth->soc->num_ppe; i++)
+> > +		airoha_ppe_set_cpu_port(dev, i, airoha_get_fe_port(dev));
+> > +}
+> > +
+> > +static int airoha_dev_init(struct net_device *netdev)
+> > +{
+> > +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> > +	struct airoha_gdm_port *port =3D dev->port;
+> > =20
+> >  	switch (port->id) {
+> >  	case AIROHA_GDM3_IDX:
+> > -	case AIROHA_GDM4_IDX:
+> > -		/* If GDM2 is active we can't enable loopback */
+> > -		if (!eth->ports[1]) {
+> > -			int err;
+> > +	case AIROHA_GDM4_IDX: {
+> > +		struct airoha_eth *eth =3D dev->eth;
+> > =20
+> > -			err =3D airoha_set_gdm2_loopback(dev);
+> > -			if (err)
+> > -				return err;
+> > -		}
+> > +		if (eth->ports[1] || airoha_get_wan_gdm_dev(eth))
+> > +			break;
 >=20
 > [Medium]
-> When a second netdev opens with a larger MTU, this unconditionally
-> widens GDM_LONG_LEN_MASK for the already-running sibling that has a
-> smaller MTU:
->=20
-> 	if (!atomic_read(&port->users) || len > cur_len)
-> 		airoha_fe_rmw(qdma->eth, REG_GDM_LEN_CFG(port->id),
-> 			      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
-> 			      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
-> 			      FIELD_PREP(GDM_LONG_LEN_MASK, len));
->=20
-> Meanwhile airoha_dev_change_mtu() rejects shrinks (len < cur_len) with
-> -EBUSY when the port is shared. Is this asymmetry intentional?
+> Is the eth->ports[1] check equivalent to asking whether a GDM2 dev
+> actually exists? airoha_alloc_gdm_port() assigns eth->ports[p] before
+> iterating the "airoha,eth-port" child nodes, so with all GDM2 child nodes
+> marked status=3D"disabled" and GDM3 or GDM4 enabled, eth->ports[1] is
+> non-NULL but port->devs[] is empty. In that case this branch still breaks
+> out of the switch and the uplink GDM3/GDM4 dev ends up LAN. Would checking
+> for an actual dev under eth->ports[1] be safer than checking the port
+> pointer alone?
 
-This is done intentionally since we do not want to break traffic of already
-running net_device if we want to increase the MTU on a sibling net_device.
+ack, I will fix it in v5.
 
 >=20
-> With the new policy the hardware long-length ends up as the maximum of
-> the two MTUs, so the smaller-MTU sibling silently accepts frames larger
-> than its advertised MTU at the MAC level. Should opens that would
-> increase the shared length also be gated (symmetric policy), or should
-> the commit message and a comment document the chosen ceiling/floor
-> behaviour?
+> [Medium, Low]
+> The policy that "just a single WAN one" is allowed is enforced by silently
+> breaking here when airoha_get_wan_gdm_dev() returns non-NULL. Would a
+> netdev_warn() or -EINVAL help an administrator notice that a second WAN
+> candidate was demoted to LAN? Also, with both GDM3 and GDM4 enabled and
+> GDM2 absent, the winner of PRIV_FLAG_WAN depends on eth->ports[] iteration
+> order and the port/dev allocation order; is there a deterministic,
+> documented way to choose which dev becomes WAN (DT property, for example)?
 
-I will add a comment in the code in v5.
+We can't return -EINVAL here since we still need to run airoha_dev_set_qdma=
+()
+and airoha_set_macaddr(). Moreover, I will post subsequent patches (not in =
+the
+series) to dynamically set/get net_device LAN/WAN configuration.
 
 >=20
+> > +		fallthrough;
+> > +	}
+> > +	case AIROHA_GDM2_IDX:
+> > +		/* GDM2 is always used as wan */
+> > +		dev->flags |=3D PRIV_FLAG_WAN;
+> >  		break;
+> >  	default:
+> >  		break;
+> >  	}
 > > =20
-> >  	airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
-> >  			GLOBAL_CFG_TX_DMA_EN_MASK |
-> > @@ -1762,8 +1766,12 @@ static int airoha_dev_stop(struct net_device *ne=
-tdev)
-> >  	for (i =3D 0; i < netdev->num_tx_queues; i++)
-> >  		netdev_tx_reset_subqueue(netdev, i);
-> > =20
-> > -	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
-> > -				    FE_PSE_PORT_DROP);
-> > +	if (atomic_dec_and_test(&port->users)) {
-> > +		airoha_set_vip_for_gdm_port(dev, false);
-> > +		airoha_set_gdm_port_fwd_cfg(qdma->eth,
-> > +					    REG_GDM_FWD_CFG(port->id),
-> > +					    FE_PSE_PORT_DROP);
+> > -	for (i =3D 0; i < eth->soc->num_ppe; i++)
+> > -		airoha_ppe_set_cpu_port(dev, i, airoha_get_fe_port(dev));
+> > +	airoha_dev_set_qdma(dev);
+> > +	airoha_set_macaddr(dev, netdev->dev_addr);
+> > +
+> > +	if (!airoha_is_lan_gdm_dev(dev) &&
+> > +	    (port->id =3D=3D AIROHA_GDM3_IDX || port->id =3D=3D AIROHA_GDM4_I=
+DX)) {
+> > +		int err;
+> > +
+> > +		err =3D airoha_set_gdm2_loopback(dev);
+> > +		if (err) {
+> > +			dev->flags &=3D ~PRIV_FLAG_WAN;
+> > +			return err;
+> > +		}
 > > +	}
 >=20
-> [Low]
-> Is the airoha_set_vip_for_gdm_port(dev, false) call inside the
-> atomic_dec_and_test() block intentional?
+> [Medium]
+> On the error path, is clearing PRIV_FLAG_WAN sufficient? By the time
+> airoha_set_gdm2_loopback() returns a failure, airoha_dev_set_qdma() has
+> already pointed dev->qdma at &eth->qdma[1] and set dev->dev->irq to the
+> WAN IRQ, airoha_set_macaddr() has written into REG_FE_WAN_MAC_H,
+> airoha_ppe_set_cpu_port() has programmed CDM2 as the PPE cpu port, and
+> airoha_set_gdm2_loopback() itself may have already programmed
+> REG_GDM_FWD_CFG(GDM2), REG_GDM_TXCHN_EN/RXCHN_EN, REG_GDM_LPBK_CFG,
+> REG_GDM_LEN_CFG, REG_FE_VIP_PORT_EN and REG_FE_IFC_PORT_EN before the
+> get_sport() branch failed.
 >=20
-> Looking at airoha_dev_stop() as a whole, the same call is already made
-> unconditionally a few lines above:
->=20
-> 	netif_tx_disable(netdev);
-> 	airoha_set_vip_for_gdm_port(dev, false);
-> 	for (i =3D 0; i < netdev->num_tx_queues; i++)
-> 		netdev_tx_reset_subqueue(netdev, i);
->=20
-> 	if (atomic_dec_and_test(&port->users)) {
-> 		airoha_set_vip_for_gdm_port(dev, false);
-> 		...
-> 	}
->=20
-> Since get_vip_port() derives the bit mask per-(port, dev->nbq) and
-> airoha_fe_clear() of already-cleared bits is a no-op, the second call
-> looks like dead code today. The commit log only mentions the
-> FE_PSE_PORT_DROP gating, not VIP handling. Should the duplicate be
-> dropped in v2?
+> After clearing the flag airoha_is_lan_gdm_dev(dev) reports LAN but
+> dev->qdma and the hardware registers above still describe the WAN setup.
+> Would it be cleaner to either unwind those steps or drop the flag clear?
 
-ack, I will fix in v5.
+In this case net_device registration will fail and the pending hw configura=
+tion
+will not affect other running devices. I guess we can avoid to add unnecess=
+ary
+code complexity.
 
 >=20
 > > =20
-> >  	if (atomic_dec_and_test(&qdma->users)) {
-> >  		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
-> > @@ -1915,10 +1923,22 @@ static void airoha_dev_get_stats64(struct net_d=
-evice *netdev,
-> >  static int airoha_dev_change_mtu(struct net_device *netdev, int mtu)
-> >  {
-> >  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> > +	u32 cur_len, len =3D ETH_HLEN + mtu + ETH_FCS_LEN;
-> >  	struct airoha_gdm_port *port =3D dev->port;
-> > -	u32 len =3D ETH_HLEN + mtu + ETH_FCS_LEN;
-> >  	struct airoha_eth *eth =3D dev->eth;
+> >  	return 0;
+> >  }
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/eth=
+ernet/airoha/airoha_eth.h
+> > index 3a313ac439e7..5715b03e630b 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> > @@ -540,12 +540,17 @@ struct airoha_qdma {
+> >  	u64 fwd_tx_packets;
+> >  };
 > > =20
-> > +	cur_len =3D airoha_fe_get(eth, REG_GDM_LEN_CFG(port->id),
-> > +				GDM_LONG_LEN_MASK);
-> > +	if (len < cur_len) {
-> > +		u8 port_refcnt =3D atomic_read(&port->users);
-> > +
-> > +		/* We can decrease the device MTU just if the GDM port is
-> > +		 * not shared or if the other device is not running.
-> > +		 */
-> > +		if (port_refcnt > 1 || (port_refcnt && !netif_running(netdev)))
-> > +			return -EBUSY;
-> > +	}
-> > +
+> > +enum airoha_priv_flags {
+> > +	PRIV_FLAG_WAN =3D BIT(0),
+> > +};
 >=20
 > [Low]
-> Why is port_refcnt typed as u8 here when atomic_read() returns int?
->=20
-> 	u8 port_refcnt =3D atomic_read(&port->users);
->=20
-> With AIROHA_MAX_NUM_GDM_DEVS currently 2 this cannot overflow, but a
-> future bump of AIROHA_MAX_NUM_GDM_DEVS, or a refcount leak, that pushed
-> port->users to 256 would wrap to 0 and quietly bypass both the
-> port_refcnt > 1 and port_refcnt && !netif_running(netdev) checks,
-> permitting MTU shrinks that are meant to be rejected. Would using int
-> here (the type atomic_read() returns) be preferable?
+> This isn't a bug, but PRIV_FLAG_WAN and the u32 flags field below overlap
+> conceptually with struct net_device::priv_flags and the IFF_* namespace.
+> Would a driver-prefixed name such as AIROHA_DEV_F_WAN make the
+> driver-local scope obvious to future readers?
 
-ack, I will fix in v5.
+ack, I will fix it in v5.
 
 Regards,
 Lorenzo
 
 >=20
-> >  	airoha_fe_rmw(eth, REG_GDM_LEN_CFG(port->id),
-> >  		      GDM_LONG_LEN_MASK,
-> >  		      FIELD_PREP(GDM_LONG_LEN_MASK, len));
+> > +
+> >  struct airoha_gdm_dev {
+> >  	struct airoha_gdm_port *port;
+> >  	struct airoha_qdma *qdma;
+> >  	struct airoha_eth *eth;
+> >  	struct net_device *dev;
+> > =20
+> > +	u32 flags;
+> >  	int nbq;
+> >  };
+>=20
+> [ ... ]
 
---Lk/TFdVeNBlgNVPK
+--cVtlXQ1B6cbL+hCZ
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaf73rgAKCRA6cBh0uS2t
-rGHbAQCU4qZQKNGV5iqcff0D6MaDhyAsSLJmi/W5EouwYcqncAEAmNiuT5ZIzpcH
-4Mt+NqzHqJyEkeLUhvnoyxX86GhLUg8=
-=akYS
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaf8BaAAKCRA6cBh0uS2t
+rJSeAP0QBnXEgLvI07F2C7GkDzkU+BlJ80LyIyCiwOmzBYCIZAEAtQDBtjNFBFVg
+QO9/RuVlx3Ku7yx9L95neIwOm3mJDws=
+=k9t2
 -----END PGP SIGNATURE-----
 
---Lk/TFdVeNBlgNVPK--
+--cVtlXQ1B6cbL+hCZ--
 
