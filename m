@@ -4,55 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB79CD37B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 17:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0543ACD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 17:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yU6S/B5YSuFjUzOAk3D3lqxy8VkNJeKY4jp+sDjgGZI=; b=Wq7dcPdmalqxDz
-	vsu/kASaRz9tE6K77ByZA1pNPjEtkYVNxMsJ9xGSX47MAn9gkNnzx/Wb4hlc/MEgbn5i9EeP42WO7
-	EFTPaROHDDNqQSbfCZIKbax12AwtArcZV2qzPWJA3tOWK1KS+gguMwm2m4ByD+hpDW6QdYuRE4/Gj
-	FyjcGp7rGW8h08t0qK2vvQCmQAmYqF/n6Td7uEK5bvvJ07fJW5kpdDwHFe2HKmzk3vIxqnQH6emGk
-	cyCXDTXmu8wlPP5FxWVvE4KLAD2EquDVI3ql98rdGiHQm8xz2KEaEmf1s2UC4EsF2ZT+7srrjb33n
-	BtKqdrCInjynFUSFt2cg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fQQpJCMDr9w7xXFTuDjwlk5xl8lSePc+dwCEUbYFMS8=; b=pbcVcR64fjJ8y8/w/psr6jOPPl
+	w7CujTjkI4l8Jtl0GKqPKYFoUsnUGhUOrtaY0B+AzkBVnTzk5LPuEKoPbr+LiW4OlE4c4vfWL+lBt
+	zqLSlgRt5JT4ErSuV49b38f/G3ll2D0uwUbE8C2RSL2OCOMn/8Jzn0Ta8i4o0sqg4S6CgM+LyC/Px
+	yOdpgGWzw0QGrdGeeApHypiG0kBTruVs3UCAnzrYhKMRleUUKoXACFLTfYHmWBGRhCtpur1SbmEtl
+	GMAR+myQVHNRNdYQPZ20co7oKqsN3+t+CItq7R5p6jw9zSsakxnAJoqz3/tGZaTfvMzKpyCznaRyI
+	S5CIDA2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLldw-00000009MIi-47MD;
-	Sat, 09 May 2026 17:39:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wLldz-00000009MJu-0mT1;
+	Sat, 09 May 2026 17:39:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLldu-00000009MHs-2Zrg;
-	Sat, 09 May 2026 17:39:11 +0000
+	id 1wLldw-00000009MIV-362e;
+	Sat, 09 May 2026 17:39:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C6084170E;
-	Sat,  9 May 2026 17:39:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AA5CC2BCB2;
-	Sat,  9 May 2026 17:39:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2EE2D4170E;
+	Sat,  9 May 2026 17:39:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B20DEC2BCB2;
+	Sat,  9 May 2026 17:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778348349;
-	bh=k1wubvKawOKjkBHiGqFKqZ+JeyvmKczkhcAkSXnDDhE=;
-	h=From:Subject:Date:To:Cc:From;
-	b=gZetomavLvXNTNp2DSmcZ/mgvzjIdYJJx86n9OjYI6MicgIms7krOg9e2AsLNYEyI
-	 ZSDsqpj63zbrDjrSfx5SZU+ttuLMsa7GSpg/Y6vWQ/iKS0mu64FrLmwUKFceIqIU66
-	 fT7oxpE5e3n6935egAVv13gpWoQwp0jZuvxt0I1eYkxTxNXvTIIyBvelGh17kv/vmZ
-	 lzwBJEmuPBgsD0K7/VexIDvODN/PfMO66e/zQhc34gxfebJsI/Qq1qOGtQDtuEh0yI
-	 JtsvL18Imn6+Mm0khbCMYwR3G3WvNF3ipdw8JMBc56Uqaz/l72jvFaAzJby1LuB09e
-	 ti+HyRnnZpdnw==
+	s=k20201202; t=1778348352;
+	bh=fYXILq2sHTH4l65dF+0EzDOgcKBS45FOY4SjxnUwUWc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Jd7cmZ8bFnCR4HitL36qY0WFHy4m5djgWocQqGSR9MsXIsg3PqA6ERpgsj6LTuPYp
+	 odu/7qqgMQ+Z0fLWrQCZqaYml2tTb8bbazhE+VvN4bqGYNgE9x5GUXJFzcR8k8+VGX
+	 VlrazGhSsNr8IrEWYJtI3JP3vER34ypCDSQbbY/Vi0cTMBn/nSRJFO+POfEWGdv5J0
+	 OGuFN83PcjqSgJN/2Y418tuMF6y91Eexd9nws9USk+C0pBmGn48JzI2TpPo3xaHfLe
+	 0HaU+BkxIbivktGJMAHIaDQ4qnmFJObKO3IiPH+ZSpvxrlYdK4GUcImoQRIRiJylvR
+	 7AX4qFBxPEBHA==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH 0/2] Introduce Airoha AN7583 SoC and AN7583 Evaluation
- Board
-Date: Sat, 09 May 2026 19:38:45 +0200
-Message-Id: <20260509-airoha-7583-v1-0-e5ad085b258e@kernel.org>
+Date: Sat, 09 May 2026 19:38:46 +0200
+Subject: [PATCH 1/2] dt-bindings: arm64: dts: airoha: Add an7583 entry
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDUwNL3cTMovyMRF1zUwtjXUMTUyMTMwMLEwNDMyWgjoKi1LTMCrBp0bG
- 1tQD7NBcuXQAAAA==
-X-Change-ID: 20260509-airoha-7583-145246084016
+Message-Id: <20260509-airoha-7583-v1-1-e5ad085b258e@kernel.org>
+References: <20260509-airoha-7583-v1-0-e5ad085b258e@kernel.org>
+In-Reply-To: <20260509-airoha-7583-v1-0-e5ad085b258e@kernel.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Felix Fietkau <nbd@nbd.name>, 
  John Crispin <john@phrozen.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -61,8 +58,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_103910_679088_CB6CC72F 
-X-CRM114-Status: UNSURE (   7.12  )
+X-CRM114-CacheID: sfid-20260509_103912_799763_780C6818 
+X-CRM114-Status: UNSURE (   8.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,25 +75,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the Airoha AN7583 SoC's dtsi and the Airoha AN7583 Evaluation
-Board's dts file.
+Introduce Airoha AN7583 entry in Airoha dts binding.
 
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Lorenzo Bianconi (2):
-      dt-bindings: arm64: dts: airoha: Add an7583 entry
-      arm64: dts: Add Airoha AN7583 SoC and AN7583 Evaluation Board
+ Documentation/devicetree/bindings/arm/airoha.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
- Documentation/devicetree/bindings/arm/airoha.yaml |   4 +
- arch/arm64/boot/dts/airoha/Makefile               |   2 +-
- arch/arm64/boot/dts/airoha/an7583-evb.dts         |  23 ++++
- arch/arm64/boot/dts/airoha/an7583.dtsi            | 137 ++++++++++++++++++++++
- 4 files changed, 165 insertions(+), 1 deletion(-)
----
-base-commit: e6490a169f6d5f5bdea7a2e8a673890d43afadc0
-change-id: 20260509-airoha-7583-145246084016
+diff --git a/Documentation/devicetree/bindings/arm/airoha.yaml b/Documentation/devicetree/bindings/arm/airoha.yaml
+index 7c38c08dbf3f..6506c64af4f3 100644
+--- a/Documentation/devicetree/bindings/arm/airoha.yaml
++++ b/Documentation/devicetree/bindings/arm/airoha.yaml
+@@ -26,6 +26,10 @@ properties:
+           - enum:
+               - airoha,en7581-evb
+           - const: airoha,en7581
++      - items:
++          - enum:
++              - airoha,an7583-evb
++          - const: airoha,an7583
+ 
+ additionalProperties: true
+ 
 
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.54.0
 
 
