@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D3ACD37B2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4377CD37B6
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 19:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+CrDBvKu/hcgSB1anyD1GXBKe06ZzlWC9+3i2f9q0bQ=; b=2Y2Fcp/5CRXrVM+Da8eIEzCz+C
-	l11/QkWL/W9Eu2MZk7Eu48Xwkqw3ZRdVWgfJ4KanpDEHQ0Fdqhc/+2rPQsftIJEUxVyZTFgN7/nLz
-	JYk3bxhNxmTgEO8Cu3qZMmGF8KchY5fcaQzs81MgNn/CJlFkBBrDOV2H1td7XGRTDUmWmupAC38pi
-	va494c9OjtbaxPTs7/24myN5QCnbP3Synoj2Q1TZgJ49wfay5mSZB6FpbXRBr7eH6HoC3E2BrXmx6
-	rQtd/DNokgjy98h/Gc2SgU6aWovsmLQRykuHOX0hvRaeMJO8hl6GJPyel46OiokJ/zCa2t+Z3yB+X
-	uvpwDf2w==;
+	bh=VPkvMBVXyvicDPmrKpPPSuducOnxVL8vyxeJt4rQ8ag=; b=DYP/Dk2DYG60cdftPjoDezEPob
+	05xMKNDr2wKc860ISC6gvTcTUpK6ZhCvHGdkwmCsRiOdfB5/+4WKI4WwS0v2eNSZBsirF49pDfoAl
+	9Wr++Ch23Uk3pwESl+NgSiF3aZbloWQtBZXB5RTFifhPBBO1LiyA3euSjIzhWoxYqoDCJBlNpxRvV
+	aacsGPo3jtDTwWFUJ0CYHhGT1+XzfRVSHizuCeb00OBS4jJ+RjAYFfEeQR4WNwOFv4dA493ENE91z
+	zQRhtm/ugfzZu2+3GeD+W/ybuB3FfcPmrJEDed3gADt6NhTHyMqyfic3c1SvAn7mD4wm+SN2EDWUA
+	p5mrrFmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLmuf-00000009THX-0qqs;
-	Sat, 09 May 2026 19:00:33 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wLmum-00000009TNz-05St;
+	Sat, 09 May 2026 19:00:40 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLmuY-00000009TCY-296y
+	id 1wLmud-00000009TG7-3djA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 19:00:27 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-44a5174670eso1719241f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 12:00:26 -0700 (PDT)
+	Sat, 09 May 2026 19:00:33 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48d102471a4so29911285e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 12:00:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778353225; x=1778958025; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778353230; x=1778958030; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+CrDBvKu/hcgSB1anyD1GXBKe06ZzlWC9+3i2f9q0bQ=;
-        b=CBKVB44uKfGKl8Z+VuakWMQGURv7vn76Dw0h//wMmR7FpFhAp0vZZDWPGrSshPmBlm
-         JXlV3g/m6kptBBxp/BOdKZmidbmfTxh8EaoaeOXL7OfPwOXXkADvX2NP9D7pvGJ+aRNr
-         J5W9zoOV5G8cq3jwtwLdBpHe+F15/Q3MjC9i51vN57TTD0utiHF9e/nO/pOR9vESaG3T
-         M25sYxpUGYyN+AhxLy/xl9SzC4tWup0Dq448UMxXisKD/coCGA9dKgVw5oOlTstnTnck
-         u0Ulp1VgExNOYEhseaZA970fo3x8oZc1F02Yc742EAJ6fvQFjdTFYn/sPSTM45RkYJjP
-         tgKg==
+        bh=VPkvMBVXyvicDPmrKpPPSuducOnxVL8vyxeJt4rQ8ag=;
+        b=O5OrZJd538aBf2Kkoqwc2RjHV1CA0JxjfCo5UiEuQR+IrHLhl85gOnKpJD/+kbozXu
+         BxOBSi0G2Ff8W3oYjOartDT3PLQJxlK1NVu/7qe3b/iY23WdXp7vxS5DcyEHvJ+hssN4
+         Opz7aRo+gSuXM1cl2JS19wFwlaOEBKIljrfdokDE+axN7JmE90nMMDs9tDoOqIOUp1mE
+         q4efC+eYaWFaakYx+VuqAtc69x227/8YHt78S7Nvi7uQs4iGBDkV3vWLup/OW1utC944
+         fo5uvzUoJKPLfdFOfF98i+crvi7zixLO0Nh8keLWoJszSKx3wVLeZWKWOWIY2e/KZKZn
+         0xDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778353225; x=1778958025;
+        d=1e100.net; s=20251104; t=1778353230; x=1778958030;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=+CrDBvKu/hcgSB1anyD1GXBKe06ZzlWC9+3i2f9q0bQ=;
-        b=GTACYwIcK/uQNICIyBGvOlkNTxa09dQDyRYBwTzQZ8swwYQ3rAH4oKFkZDm/yNIUlV
-         SFbvhZBfnbFkcmagWnOuF1pQ9AvfnqglgKZpwNz861vPdz9AH5Cfc8IxudH/yUvHsjUm
-         vGScr4ArJno5v+WoNX9fhflT8EdAGz55xmWi6nMocHDJlAIPVNreCpW6Poyn4LrgVhko
-         00IUL/FavLW8cG28sHBMNI4KUl1XRmfNigH2wWJ0MqoHJf+mhRnmCiFCG6rgiUKBqydw
-         cO+tCGlTDQihgiDa3R55UxxO88CoHukA1lM8lIfSG0dafWcqXXQeSbCHXc25PwHVyku+
-         Fvsw==
-X-Forwarded-Encrypted: i=1; AFNElJ/YXP3FARjHVVhMBmI85Ifw/pOV2i8jeixAAfKFw0UG5Avo8yUFwbDhiLQDpatWDN1FJ3HeYXLyFxu3rsRE8FQf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDyTBXa++eNKz4bweMlIZ17Cr+cYbwRfBBkckCMv3m+VYpWEs0
-	njzboIxOAjYZWvTDSMl9V0B1X3U8dhOW0u8oYhygSkY3B6deY6VWO7QG
-X-Gm-Gg: Acq92OFR+PVRhM5fTKqc8IZ+LcathNBqxVFK1pPpS+KoBC5jqypn4uyXbH7E+O0mDha
-	q0Vk3OokQ1HTq36KVhondDbL/sF2ZaJKoracudmZB3PyLGf0zFEQ6eQ91PDW352HrwvvBmc9ELm
-	6bLZ7fGYbBjZ2AWMzW5fcvZiPmkne4WelapMdb1ipmHUMjUynp78HBiptc9NyVUGNqSiaECOotv
-	4TJLEYO14FQMFb8VrOm6JD4fbQgMesoZkA8hAzqlgh/vIOMGBrYN+4a6ubfOZtBCWiLARaZ6yMH
-	330+VjroOuOZjcSCD9EihtPQljjlqiBI7WqTQZRZxoWlTvJrklYfD0HBqKdXloIGdQoZnZaEVPo
-	ilSfB5S7vf7+H6FpHhUZMy90I2+8N9cXfZZhUQXyqU2wv8ai1cKhbgJ1o6LTQNY6hCbji0dBTrc
-	6x6A2STpRm1jWOL4jcxIfr3KmFSf9AapouO8VE6HA3bPIhsD7rr00pRiVLtAI6pTZ3xzY=
-X-Received: by 2002:a05:6000:2910:b0:44d:821:1a0b with SMTP id ffacd0b85a97d-4515d3dc326mr27958440f8f.29.1778353224452;
-        Sat, 09 May 2026 12:00:24 -0700 (PDT)
+        bh=VPkvMBVXyvicDPmrKpPPSuducOnxVL8vyxeJt4rQ8ag=;
+        b=G7hTp5AJ8Kpgs3q4NIQCWn8zcGFfm0u4dOhHopKSFc1PZIlO05rrINExanbHjK/Ed4
+         CCO5EAbtxqety/Rkn+tKRYOmuZbv1BveFO6LUjApPdL52+PAXH2kCLGPjQG1jPYc76hx
+         I1UVGXgR0kHZp8pY2mv52bn5SWUnr44hDU/gvwM+YU8Fs6g30lwS+7cfjLswtANR1NEr
+         cqlQ+WP5Lt67eKtU8j/uBl1UxxKTP58I77AyX0PMo8GPfIiHdqKtFLDIDoRIcfBzv4pJ
+         S64RMgunMNJezZR/PIaNfQ6Id/6ycTUVv/kuD9tD4E3DSrdvzMOsm7MrGFHyI7nCcuIX
+         4erQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/R66TyJ3bE/JMA+jJpSmEqUZjUsjovELHVflRRPGOGvg25yfwKZKH4naTYAxwKW2Ab/0lWiglTrQAr+PjkZxLa@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxf1ZojIfVaBUo71n6Vkf8mac4I8IKHn0LfP67ADgMF8ahgZG8l
+	VDAwqD8QgZFGWutTTU/5Qhwu/GU89jnhrXdKgfHT+dB1DGrdCKLit8v6
+X-Gm-Gg: Acq92OERQNTKySccQVMwUvSq2f31v7Kk+N20ywMjL8dJ/OMftco3/u/suIBjRPGReoy
+	K171l8Iw1dAGUNSEAVwqSD1K5CBPf8AtPEeTw1raLjvpMtmouSuKwQDAcAg7YUtIdUdezXCKNNB
+	6Hfii6d+Uyw9IPkgiO5r3ELQCCiJPd58qzma/4UmlihwQB6oL6Oj3m5pI4+4ALfVwUp2uiEsgtb
+	zoOZmyFeLq1zQpma5YwAxSonZcQ8m4ZGjhDSCjs4maphbSPC03iXnlLnQ+HKpuqo1y2HTZYu+LD
+	uBtcJ0+mEsKSW0Q3YtVgeGEGgNfeGESJMtzStYaeLrmnDRAlqeZ/fhOh3/Jyaqq4rPX0ew8Wkpp
+	v/pCQpO/fl0oKxDf8VCXjiMoxtNNA94uQ2QPxPYDmAOzkt6ao3rMWmldvl2M8Oec4aIAw1J2Awu
+	59O11Qa7+cgbl2Rd+7GYgQpL//fR53QpEWZIVsL5dDO2CbT+FwmIZboR/dUj6gn7nZ7JE=
+X-Received: by 2002:a05:600d:8:b0:48a:58ae:993b with SMTP id 5b1f17b1804b1-48e676a4e03mr117153245e9.16.1778353230046;
+        Sat, 09 May 2026 12:00:30 -0700 (PDT)
 Received: from jernej-laptop (46-150-62-216.dynamic.telemach.net. [46.150.62.216])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-454913049ecsm13254407f8f.19.2026.05.09.12.00.23
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-454913049ecsm13254407f8f.19.2026.05.09.12.00.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 12:00:24 -0700 (PDT)
+        Sat, 09 May 2026 12:00:29 -0700 (PDT)
 From: Jernej Skrabec <jernej.skrabec@gmail.com>
 X-Google-Original-From: Jernej Skrabec <jernej.skrabec@siol.net>
 To: wens@csie.org,
@@ -89,19 +89,18 @@ Cc: mripard@kernel.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org,
-	jernej.skrabec@gmail.com,
-	Chen-Yu Tsai <wens@kernel.org>
-Subject: [PATCH v2 3/8] drm/sun4i: Add support for DE33 CSC
-Date: Sat,  9 May 2026 21:00:10 +0200
-Message-ID: <20260509190015.79086-4-jernej.skrabec@siol.net>
+	jernej.skrabec@gmail.com
+Subject: [PATCH v2 7/8] dt-bindings: display: allwinner: Split H616 DE33 layer reg space
+Date: Sat,  9 May 2026 21:00:14 +0200
+Message-ID: <20260509190015.79086-8-jernej.skrabec@siol.net>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260509190015.79086-1-jernej.skrabec@siol.net>
 References: <20260509190015.79086-1-jernej.skrabec@siol.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_120026_580437_B64535C2 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20260509_120032_289844_060EE8B5 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,127 +117,75 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-DE33 has channel CSC units (for each plane separately) so pipeline can
-be configured to output in desired colorspace.
+As it turns out, current H616 DE33 binding was written based on
+incomplete understanding of DE33 design. Namely, planes are shared
+resource and not tied to specific mixer, which was the case for previous
+generations of Display Engine (DE3 and earlier).
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+This means that current DE33 binding doesn't properly reflect HW and
+using it would mean that second mixer (used for second display output)
+can't be supported.
+
+Remove layer register space, which will be represented with additional
+node, and replace it with phandle, which will point to that new, shared
+node. That way, all mixers can share same layers.
+
+There is no user of this binding yet, so changes can be made safely,
+without breaking any backward compatibility.
+
 Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
-Changes from v1:
-- collected tag
+Changes in v1:
+- update commit subject
+- reword commit message
 
- drivers/gpu/drm/sun4i/sun8i_csc.c | 71 +++++++++++++++++++++++++++++++
- drivers/gpu/drm/sun4i/sun8i_csc.h |  5 +++
- 2 files changed, 76 insertions(+)
+ .../display/allwinner,sun8i-a83t-de2-mixer.yaml  | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpu/drm/sun4i/sun8i_csc.c b/drivers/gpu/drm/sun4i/sun8i_csc.c
-index ce81c12f511d..70fc9b017d17 100644
---- a/drivers/gpu/drm/sun4i/sun8i_csc.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_csc.c
-@@ -205,6 +205,72 @@ static void sun8i_de3_ccsc_setup(struct regmap *map, int layer,
- 			   mask, val);
- }
+diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
+index cbd18fd83e52..064e4ca7e419 100644
+--- a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
++++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
+@@ -46,6 +46,10 @@ properties:
+   resets:
+     maxItems: 1
  
-+/* extract constant from high word and invert sign if necessary */
-+static u32 sun8i_de33_ccsc_get_constant(u32 value)
-+{
-+	value >>= 16;
++  allwinner,planes:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle of Display Engine 3.3 planes node
 +
-+	if (value & BIT(15))
-+		return 0x400 - (value & 0x3ff);
-+
-+	return value;
-+}
-+
-+static void sun8i_de33_convert_table(const u32 *src, u32 *dst)
-+{
-+	dst[0] = sun8i_de33_ccsc_get_constant(src[3]);
-+	dst[1] = sun8i_de33_ccsc_get_constant(src[7]);
-+	dst[2] = sun8i_de33_ccsc_get_constant(src[11]);
-+	memcpy(&dst[3], src, sizeof(u32) * 12);
-+	dst[6] &= 0xffff;
-+	dst[10] &= 0xffff;
-+	dst[14] &= 0xffff;
-+}
-+
-+static void sun8i_de33_ccsc_setup(struct regmap *map, int layer,
-+				  enum sun8i_csc_mode mode,
-+				  enum drm_color_encoding encoding,
-+				  enum drm_color_range range)
-+{
-+	u32 addr, val, base, csc[15];
-+	const u32 *table;
-+	int i;
-+
-+	table = yuv2rgb_de3[range][encoding];
-+	base = DE33_CCSC_BASE + layer * DE33_CH_SIZE;
-+
-+	switch (mode) {
-+	case SUN8I_CSC_MODE_OFF:
-+		val = 0;
-+		break;
-+	case SUN8I_CSC_MODE_YUV2RGB:
-+		val = SUN8I_CSC_CTRL_EN;
-+		sun8i_de33_convert_table(table, csc);
-+		regmap_bulk_write(map, SUN50I_CSC_COEFF(base, 0), csc, 15);
-+		break;
-+	case SUN8I_CSC_MODE_YVU2RGB:
-+		val = SUN8I_CSC_CTRL_EN;
-+		sun8i_de33_convert_table(table, csc);
-+		for (i = 0; i < 15; i++) {
-+			addr = SUN50I_CSC_COEFF(base, i);
-+			if (i > 3) {
-+				if (((i - 3) & 3) == 1)
-+					addr = SUN50I_CSC_COEFF(base, i + 1);
-+				else if (((i - 3) & 3) == 2)
-+					addr = SUN50I_CSC_COEFF(base, i - 1);
-+			}
-+			regmap_write(map, addr, csc[i]);
-+		}
-+		break;
-+	default:
-+		val = 0;
-+		DRM_WARN("Wrong CSC mode specified.\n");
-+		return;
-+	}
-+
-+	regmap_write(map, SUN8I_CSC_CTRL(base), val);
-+}
-+
- static u32 sun8i_csc_get_mode(struct drm_plane_state *state)
- {
- 	const struct drm_format_info *format;
-@@ -238,6 +304,11 @@ void sun8i_csc_config(struct sun8i_layer *layer,
- 				     mode, state->color_encoding,
- 				     state->color_range);
- 		return;
-+	} else if (layer->cfg->de_type == SUN8I_MIXER_DE33) {
-+		sun8i_de33_ccsc_setup(layer->regs, layer->channel,
-+				      mode, state->color_encoding,
-+				      state->color_range);
-+		return;
- 	}
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
  
- 	base = ccsc_base[layer->cfg->ccsc][layer->channel];
-diff --git a/drivers/gpu/drm/sun4i/sun8i_csc.h b/drivers/gpu/drm/sun4i/sun8i_csc.h
-index 2a4b79599610..d2ba5f8611aa 100644
---- a/drivers/gpu/drm/sun4i/sun8i_csc.h
-+++ b/drivers/gpu/drm/sun4i/sun8i_csc.h
-@@ -18,9 +18,14 @@ struct sun8i_layer;
- #define CCSC10_OFFSET 0xA0000
- #define CCSC11_OFFSET 0xF0000
+@@ -74,22 +78,22 @@ allOf:
+       properties:
+         reg:
+           description: |
+-            Registers for controlling individual layers of the display
+-            engine (layers), global control (top), and display blending
+-            control (display). Names are from Allwinner BSP kernel.
+-          maxItems: 3
++            Registers for display blending control (display) and global
++            control (top). Names are from Allwinner BSP kernel.
++          maxItems: 2
+         reg-names:
+           items:
+-            - const: layers
+-            - const: top
+             - const: display
++            - const: top
+       required:
+         - reg-names
++        - allwinner,planes
  
-+#define DE33_CCSC_BASE 0x800
-+
- #define SUN8I_CSC_CTRL(base)		((base) + 0x0)
- #define SUN8I_CSC_COEFF(base, i)	((base) + 0x10 + 4 * (i))
+     else:
+       properties:
+         reg:
+           maxItems: 1
++        allwinner,planes: false
  
-+#define SUN50I_CSC_COEFF(base, i)	((base) + 0x04 + 4 * (i))
-+#define SUN50I_CSC_ALPHA(base)		((base) + 0x40)
-+
- #define SUN8I_CSC_CTRL_EN		BIT(0)
- 
- void sun8i_csc_config(struct sun8i_layer *layer,
+ required:
+   - compatible
 -- 
 2.54.0
 
