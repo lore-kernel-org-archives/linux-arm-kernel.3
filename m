@@ -4,86 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14222CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 11:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E2A3CD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 11:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=77DfJN88weHORrd9+b76BmxRsQp2yt6hqDEbgfcyKxE=; b=AlBNZq5lbMkneYBFY8NeK90c+3
-	a7OUoF+T9iAJD+/jw/FxsQ6o6fJDEGVxPbylcoHl3IkFHjP08RpGYHi/K/suKHN1YsF59IUbaXm3c
-	NmVcJYjyBu4wSNV2d5AQAzpzCZoy0dVwV93FGhYPgexC9C3XDTrCatbzieDIt0XSVLz7MitUSZvgm
-	o6C7loPIFMIr7CE41USy4zVul3rdnkz0F/2dolHUVwnfk99jn44sd3jvA7Sxp+Aug1AYIVnzvKc6K
-	AReUTRgsVkG+pVZyiRKSHJ/MIh+PvsYbLz0AreVuOLXTzRVsILgow1hev8FoRC+wtOT/jhDXtPEb5
-	1/eQ8koQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6oOr15lhB2hYKh+9zKzPi4kv7JyYr4PGQI35DlaGm7s=; b=VIIuwu5C8KhDEM+0eImOx+wd7a
+	8dfSfUOunCokuKHgfZZzoupHvi97KdpJ4WpNAfomUOhD8Sq4k6K5lGkUnfMyJrSWkxM0F+nzMiVBI
+	iWubmqLdwBOp4lkKPWGufb/LOG1bqcc/z/P2CcxQerlJSR09CXijGgvR0IpX3F9c2E7lIdTTWVU3m
+	OshKqLwQEnue4gggseNB0t2m/do6vv0Itx57+XM26gWurEP4qGqVckcqYQpezqAI7AZ9fL9pIwiRk
+	36PEAAoe6HvF6ip8hkUNWEaANni9lLUAuNi+kU9olboi53wqCvTWVbfoYIBcD3+YrYVbofsnXB1Ez
+	2BzTzpNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLfUN-00000008od1-1z4U;
-	Sat, 09 May 2026 11:04:55 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wLfUW-00000008oeo-2Tm8;
+	Sat, 09 May 2026 11:05:04 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLfUK-00000008ocT-1Lgv
+	id 1wLfUT-00000008odf-2WVm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 11:04:53 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-453903ee4adso2208735f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 04:04:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778324689; x=1778929489; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=77DfJN88weHORrd9+b76BmxRsQp2yt6hqDEbgfcyKxE=;
-        b=XdP3/YM/nIQLcnIcHBhaVPL6t1s6wvNRQx56XfvxcVqrCdI684lYESXVgH/3qfSC9a
-         QPZ+Tur4Wa+3etgddL7vh0H56Zi/kiHd0GSBPzNDMCOw0shI4+96onANtm6owtSmFvIo
-         zx2sb61fuZWRGuDhdKA1NPHdhiatKVGV1GA61XUG30KPpvcbM4c0Zcf2xxLgTfgRcX9s
-         BgnEZ/NYolYZs9GOrEiiK+dBTf/nLx8hsrwgSs2vG0f2fvgQILe0bG1+5Hbz6cpPtOg8
-         HSsSraCjPpy9mH9iwGcB5PUISfJVR4M5TW3oluxpgUV5am2Dj4VtcTP6EmjVQXarK0yw
-         mwPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778324689; x=1778929489;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=77DfJN88weHORrd9+b76BmxRsQp2yt6hqDEbgfcyKxE=;
-        b=nhWu6WiDZZ+9uU6J2ky9h4nBfNy8yIuh89vsoUCwNqXqujBKMPLIJ25ivNIwNVuNRR
-         X8G7KfKGZ0wOiuYHohQ0EWRKKXuwtGm5TblExxqGSp5lyXYtL9AvXKB+yfXY5PRyYIFo
-         OmpdnqstlW5aFi/1kEcqPZnyc6+KH5gSMcALWDmM4hkZnZYWNxvfsSEmmc/L4Jy/LoBT
-         Fy6/AOyEdUckWwTdihu0JDtiYEhdxQGbSj130CvlCUk4LGuO5kfvBQOf/crRTsA2n9HO
-         MAYEGbsfDg1Sh+JPOMMi+fEB8kn77AnHf68mjkvwAZUIszQkz+AG+JyaeEnaXtOaPzAx
-         AIQg==
-X-Forwarded-Encrypted: i=1; AFNElJ/3shlcBt927jutqJx85R7O4LuKoEIcw9adSKU2bb2q1NCeKhBFA1/rkGZMKMzoZWNAwR4IyPJfEwWQKt+GIrCx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3gaH8UB5eqkH3rpZWRn2l2/KHdEljzaFYy5xyu/bB9Vd3b1Ia
-	Y2lFZWFXffWkJWvbB3gW8/CFP8ciVVCgLQHgWYJpgL83ePcME6zySJxidkpPA1jD
-X-Gm-Gg: Acq92OFEgNTnNG4Lmh4XCw/V/AHt8MzaMT2KCSAKo2HSRmmqiraj4cIi3UiY4yrEHmf
-	sN1ThjkAIiMr6/7J4rnJ197X9fnWaD2KMiJU/LYaA4cXIxFL92lj08+fJ7h2Ddb0MvOi7g395D6
-	O0+gH3YwRgYR7LsGGsfenPkd+j8HdIV9c2XgnHdHqmbTR2ZQHbh94d3mCX1q0H2xUgAQNyA3lYK
-	qvZjZukMOwXzpd9Mre27ZaOJ+Y20eSsU9M9ei9OVDzkQyxJFNSEjcM1nsL8P3MbjaisKu/rKQ8o
-	dVNnjl8cV0dAmFnSomsDzbfFxq6u7Eaq5K1KWPbSzmq2A8xsgI3Vdob+qJp7cQWljLLBz2OLEtd
-	h6Nv7irYnQjaYcOZHoHZVtkE78PsLpQSVjTKzCedqShCOS+S4kxIge5mo6+TUYNHg4dOEJDhePl
-	5cJz8hDGVy4dZ1ql8F52kps4GaRzp3gmOuaMPRMB+6S4DsJbfqfQckxW1cmTY7bMQij3LRq+mgs
-	rGkqbsw0CCaKCOODMDhT0k96r40ZCMsFfQ=
-X-Received: by 2002:a05:600c:698d:b0:48a:7676:30bc with SMTP id 5b1f17b1804b1-48e706f11dbmr34649275e9.14.1778324688824;
-        Sat, 09 May 2026 04:04:48 -0700 (PDT)
-Received: from radijator.localnet (93-143-243-205.adsl.net.t-com.hr. [93.143.243.205])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e6fffba52sm42242995e9.3.2026.05.09.04.04.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 04:04:48 -0700 (PDT)
-From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <dujemihanovic32@gmail.com>
-To: soc@lists.linux.dev
-Cc: Karel Balej <balejk@matfyz.cz>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <duje@dujemihanovic.xyz>
-Subject: [GIT PULL] PXA1908 DT changes for 7.2
-Date: Sat, 09 May 2026 13:04:46 +0200
-Message-ID: <KimLSS9zQ2O_qT5luvFs7Q@gmail.com>
+	Sat, 09 May 2026 11:05:03 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id A1D357A00BC;
+	Sat,  9 May 2026 07:04:56 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-03.internal (MEProxy); Sat, 09 May 2026 07:04:57 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1778324696; x=
+	1778411096; bh=6oOr15lhB2hYKh+9zKzPi4kv7JyYr4PGQI35DlaGm7s=; b=i
+	YHwp/XRv0gFo5lo0yIQ7J3BAhxjKzc3qK9tshRBnSUZQ7Mp9aH96+Wpnu1y3GWU3
+	UXBfnZHHE6GUePMKSrbBXQJuHtmVhe/9KdUqGG9+g4zhdo82l7Zcl1wNVDqlWfBm
+	0HyAlYwth+3lEoTET+zje/53ySJiy7rVG5PyRC/qflCORE5ANufiF3gyvsqWuejS
+	ZVvEM4pS0vD0A/QbxyDRXtHCw20oKudQDFFA2vBKGA/Scp+UFHsrubM4oYb3YfFc
+	0c7fd9TxoTejQVLLp8+rWmDTLqsAcWkkeCMi+qXc9w4jFWta2dg1XrRt9DqPoEyz
+	mI4Y4mK1w9pcw9kRHdNuA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1778324696; x=1778411096; bh=6oOr15lhB2hYKh+9zKzPi4kv7JyYr4PGQI3
+	5DlaGm7s=; b=WWrwA2q5wWAbrLhsibxkrHgSeKPAYsHWw5tDREWL+X9KWWCjoOm
+	Tj0iUCm3Rmp6aAVYyK0yk+R+NKby83yPn53wIwthTfHnJz78Oa+JTVE6rGNRep91
+	2Of0ERtNC5HHgqoOtjNNXOjXKmsdfZCqArYTECWPnOhPpkIjBdwdNRjI3iayuNW0
+	Ku4e941xohI8IdchY9oU3+dABYK1gmmjISegRnmXW+cjZopAT5nlGzrBtEgMXa3y
+	qCIx5172E05QgX+I87hfNYsFpD260mMQHZrZOJhi9LrA3VMcHTU3EerU5NK3G0iJ
+	4UA1Q7m4UdN+qOzIBTgOpGiEV+Tkcj6jVig==
+X-ME-Sender: <xms:1xT_acQi0EO7qMXtDm8A4xH3bnC6oCtAL9JeMPzrFxCVmjuR-8BfRA>
+    <xme:1xT_aWNmGsd7QfhleS57DWKqiyZWzDjMW8wMj61CqFebOs00fkcCo1J_GMYeQxRep
+    mzAKkJ7NWCjvQhaeV2Rr38xPLdnBsTdqskHhcNt4OXctLA0IyfBgD8>
+X-ME-Received: <xmr:1xT_aRHVXMYQDA8sKpZv8qc0jHN-p59Ib5Xi6t33yZoI8iHSHcCjEf_3clsKnA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdduudeftdeiucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomhepmfhirhihlhcu
+    ufhhuhhtshgvmhgruhcuoehkihhrihhllhesshhhuhhtvghmohhvrdhnrghmvgeqnecugg
+    ftrfgrthhtvghrnhepfeetheejudeujeeikeetudelvdevkeefuddtkedvtdehtdetieeu
+    ieetjeeugedtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
+    homhepkhhirhhilhhlsehshhhuthgvmhhovhdrnhgrmhgvpdhnsggprhgtphhtthhopeef
+    gedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepuggrvhhiugeskhgvrhhnvghlrd
+    horhhgpdhrtghpthhtoheprghruggsodhgihhtsehgohhoghhlvgdrtghomhdprhgtphht
+    thhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrug
+    drohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgv
+    lhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    eptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehmrghr
+    khdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopegrrhgusgeskhgvrhhnvg
+    hlrdhorhhgpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhmrdgtohhm
+X-ME-Proxy: <xmx:1xT_aWga9cOpYE_pyhIBjzdsgHr_rfOj1BkR1y3iWOZMCR7O-JxLzQ>
+    <xmx:1xT_aVwT2YD9zGiOAPeWGTEZQ_AWNb9NzZ_CYTvN5hhr7Mxo-WSoZQ>
+    <xmx:1xT_aSrdIdu-kum0CJwm9VQK2P8SdtM--gColK0Mkz7qx_7Oip9pCw>
+    <xmx:1xT_abXbuN040Cx3-DrAvxcS65Gg5Dm0uUpPzmm_pOfKKNSxKF2kYw>
+    <xmx:2BT_aavA9QRV2e0u10CUCCw742gCNFuNq8s1eS7dSWg3LPMBFYhS18xw>
+Feedback-ID: ie3994620:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 9 May 2026 07:04:54 -0400 (EDT)
+Date: Sat, 9 May 2026 12:04:47 +0100
+From: Kiryl Shutsemau <kirill@shutemov.name>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, will@kernel.org, 
+	catalin.marinas@arm.com, mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>, 
+	Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
+Message-ID: <af8UEuy-gfLj6DSV@thinkstation>
+References: <20260427153416.2103979-17-ardb+git@google.com>
+ <20260427153416.2103979-19-ardb+git@google.com>
+ <3d1a6b5c-f3bf-462f-879a-cdb5b60868ac@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3d1a6b5c-f3bf-462f-879a-cdb5b60868ac@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_040452_381204_25AE6AC8 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260509_040501_917204_7051816E 
+X-CRM114-Status: GOOD (  25.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,55 +119,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi SoC maintainers,
+On Tue, Apr 28, 2026 at 09:51:09PM +0200, David Hildenbrand (Arm) wrote:
+> On 4/27/26 17:34, Ard Biesheuvel wrote:
+> > From: Ard Biesheuvel <ardb@kernel.org>
+> > 
+> > The empty zero page is used to back any kernel or user space mapping
+> > that is supposed to remain cleared, and so the page itself is never
+> > supposed to be modified.
+> > 
+> > So make it __ro_after_init rather than __page_aligned_bss: on most
+> > architectures, this ensures that both the kernel's mapping of it and any
+> > aliases that are accessible via the kernel direct (linear) map are
+> > mapped read-only, and cannot be used (inadvertently or maliciously) to
+> > corrupt the contents of the zero page.
+> > 
+> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > ---
+> >  mm/mm_init.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/mm/mm_init.c b/mm/mm_init.c
+> > index f9f8e1af921c..6ca01ed2a5a4 100644
+> > --- a/mm/mm_init.c
+> > +++ b/mm/mm_init.c
+> > @@ -57,7 +57,7 @@ unsigned long zero_page_pfn __ro_after_init;
+> >  EXPORT_SYMBOL(zero_page_pfn);
+> >  
+> >  #ifndef __HAVE_COLOR_ZERO_PAGE
+> > -uint8_t empty_zero_page[PAGE_SIZE] __page_aligned_bss;
+> > +uint8_t empty_zero_page[PAGE_SIZE] __ro_after_init __aligned(PAGE_SIZE);
+> >  EXPORT_SYMBOL(empty_zero_page);
+> >  
+> >  struct page *__zero_page __ro_after_init;
+> 
+> I am no expert on BSS etc, but from what I understand, we'll still get zeroed
+> page-aligned memory. I don't know if there is any other impact on not having it
+> in bss.page_aligned. I assume no
 
-Here's a small set of DT changes for PXA1908.
+IIUC, unlike BSS, it will be part of the kernel image. So kernel image
+size will grow by PAGE_SIZE. But compressor will eat it as it is all
+zeros, so it should be okay.
 
-I must note that I've changed the repository and my PGP key since the last=
-=20
-pull request.
-
-Regards,
-Duje
-
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
-
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
-
-are available in the Git repository at:
-
-  https://codeberg.org/pxa1908-mainline/linux.git tags/pxa1908-dt-for-7.2
-
-for you to fetch changes up to 52c47f734f934fdd83659e1a7b096597cca14522:
-
-  arm64: dts: marvell: samsung-coreprimevelte: Add missing SDIO properties=
-=20
-(2026-05-05 16:51:26 +0200)
-
-=2D---------------------------------------------------------------
-PXA1908 DT changes for 7.2
-
-This set consists of a bug fix and three QoL fixes:
-
-* Fix touchscreen breakage in low ambient temperatures on coreprimevelte
-* Free up most of the framebuffer memory on coreprimevelte
-* Fill in some missing properties for pre-0.2 PSCI and coreprimevelte SDIO
-
-=2D---------------------------------------------------------------
-Duje Mihanovi=C4=87 (4):
-      arm64: dts: marvell: samsung-coreprimevelte: Increase touchscreen=20
-voltage
-      arm64: dts: marvell: samsung,coreprimevelte: Use memory-region for=20
-framebuffer
-      arm64: dts: marvell: pxa1908: Add PSCI function IDs
-      arm64: dts: marvell: samsung-coreprimevelte: Add missing SDIO propert=
-ies
-
- .../boot/dts/marvell/mmp/pxa1908-samsung-coreprimevelte.dts   | 11 ++++++
-+----
- arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi                  |  5 ++++-
- 2 files changed, 11 insertions(+), 5 deletions(-)
-
-
-
+-- 
+  Kiryl Shutsemau / Kirill A. Shutemov
 
