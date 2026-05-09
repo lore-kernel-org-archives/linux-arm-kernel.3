@@ -4,107 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E2A3CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 11:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B65CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 11:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6oOr15lhB2hYKh+9zKzPi4kv7JyYr4PGQI35DlaGm7s=; b=VIIuwu5C8KhDEM+0eImOx+wd7a
-	8dfSfUOunCokuKHgfZZzoupHvi97KdpJ4WpNAfomUOhD8Sq4k6K5lGkUnfMyJrSWkxM0F+nzMiVBI
-	iWubmqLdwBOp4lkKPWGufb/LOG1bqcc/z/P2CcxQerlJSR09CXijGgvR0IpX3F9c2E7lIdTTWVU3m
-	OshKqLwQEnue4gggseNB0t2m/do6vv0Itx57+XM26gWurEP4qGqVckcqYQpezqAI7AZ9fL9pIwiRk
-	36PEAAoe6HvF6ip8hkUNWEaANni9lLUAuNi+kU9olboi53wqCvTWVbfoYIBcD3+YrYVbofsnXB1Ez
-	2BzTzpNw==;
+	bh=u9gLtNICG7GXvdDj0CurlevSJS7RrSBqLBBlNByEBoE=; b=gFsbBkXgjIJwqh/0Auht6s9z5x
+	BRkLgn4KbZiYHJt76Bl+q566hW2eMaasDRDb7ybpD6CuaOYpmZV4TxIU+MGtJeRszqDFxlphvD6wl
+	Cgeztxzn3+O1CRTMvFZB96SxNDnqejaqvncw4VA2qW8ECnt/dK7aKpTa1E4LevqMu5GkVTbsGxKZg
+	VB+zU6lpW11FfQJ4u7kSiUpV27KTsbAsz8wyJIYZonu+J/iqqjBBlP3uMJMb0BLcmAQVmK3J9+e7P
+	PM6ymsYVHTcjvCrVZ1OUsgkGSqxx/Rej5TlpcTyaEkQaHkJSsyqptAH5TsywcQmu86ImuJKtN88wB
+	A8WJcNrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLfUW-00000008oeo-2Tm8;
-	Sat, 09 May 2026 11:05:04 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLfUT-00000008odf-2WVm
+	id 1wLgHK-00000008sb0-3AB5;
+	Sat, 09 May 2026 11:55:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wLgHH-00000008saK-2hoW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 11:05:03 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id A1D357A00BC;
-	Sat,  9 May 2026 07:04:56 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Sat, 09 May 2026 07:04:57 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
-	 h=cc:cc:content-type:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1778324696; x=
-	1778411096; bh=6oOr15lhB2hYKh+9zKzPi4kv7JyYr4PGQI35DlaGm7s=; b=i
-	YHwp/XRv0gFo5lo0yIQ7J3BAhxjKzc3qK9tshRBnSUZQ7Mp9aH96+Wpnu1y3GWU3
-	UXBfnZHHE6GUePMKSrbBXQJuHtmVhe/9KdUqGG9+g4zhdo82l7Zcl1wNVDqlWfBm
-	0HyAlYwth+3lEoTET+zje/53ySJiy7rVG5PyRC/qflCORE5ANufiF3gyvsqWuejS
-	ZVvEM4pS0vD0A/QbxyDRXtHCw20oKudQDFFA2vBKGA/Scp+UFHsrubM4oYb3YfFc
-	0c7fd9TxoTejQVLLp8+rWmDTLqsAcWkkeCMi+qXc9w4jFWta2dg1XrRt9DqPoEyz
-	mI4Y4mK1w9pcw9kRHdNuA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1778324696; x=1778411096; bh=6oOr15lhB2hYKh+9zKzPi4kv7JyYr4PGQI3
-	5DlaGm7s=; b=WWrwA2q5wWAbrLhsibxkrHgSeKPAYsHWw5tDREWL+X9KWWCjoOm
-	Tj0iUCm3Rmp6aAVYyK0yk+R+NKby83yPn53wIwthTfHnJz78Oa+JTVE6rGNRep91
-	2Of0ERtNC5HHgqoOtjNNXOjXKmsdfZCqArYTECWPnOhPpkIjBdwdNRjI3iayuNW0
-	Ku4e941xohI8IdchY9oU3+dABYK1gmmjISegRnmXW+cjZopAT5nlGzrBtEgMXa3y
-	qCIx5172E05QgX+I87hfNYsFpD260mMQHZrZOJhi9LrA3VMcHTU3EerU5NK3G0iJ
-	4UA1Q7m4UdN+qOzIBTgOpGiEV+Tkcj6jVig==
-X-ME-Sender: <xms:1xT_acQi0EO7qMXtDm8A4xH3bnC6oCtAL9JeMPzrFxCVmjuR-8BfRA>
-    <xme:1xT_aWNmGsd7QfhleS57DWKqiyZWzDjMW8wMj61CqFebOs00fkcCo1J_GMYeQxRep
-    mzAKkJ7NWCjvQhaeV2Rr38xPLdnBsTdqskHhcNt4OXctLA0IyfBgD8>
-X-ME-Received: <xmr:1xT_aRHVXMYQDA8sKpZv8qc0jHN-p59Ib5Xi6t33yZoI8iHSHcCjEf_3clsKnA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdduudeftdeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomhepmfhirhihlhcu
-    ufhhuhhtshgvmhgruhcuoehkihhrihhllhesshhhuhhtvghmohhvrdhnrghmvgeqnecugg
-    ftrfgrthhtvghrnhepfeetheejudeujeeikeetudelvdevkeefuddtkedvtdehtdetieeu
-    ieetjeeugedtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
-    homhepkhhirhhilhhlsehshhhuthgvmhhovhdrnhgrmhgvpdhnsggprhgtphhtthhopeef
-    gedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepuggrvhhiugeskhgvrhhnvghlrd
-    horhhgpdhrtghpthhtoheprghruggsodhgihhtsehgohhoghhlvgdrtghomhdprhgtphht
-    thhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrug
-    drohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgv
-    lhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
-    eptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehmrghr
-    khdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopegrrhgusgeskhgvrhhnvg
-    hlrdhorhhgpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhmrdgtohhm
-X-ME-Proxy: <xmx:1xT_aWga9cOpYE_pyhIBjzdsgHr_rfOj1BkR1y3iWOZMCR7O-JxLzQ>
-    <xmx:1xT_aVwT2YD9zGiOAPeWGTEZQ_AWNb9NzZ_CYTvN5hhr7Mxo-WSoZQ>
-    <xmx:1xT_aSrdIdu-kum0CJwm9VQK2P8SdtM--gColK0Mkz7qx_7Oip9pCw>
-    <xmx:1xT_abXbuN040Cx3-DrAvxcS65Gg5Dm0uUpPzmm_pOfKKNSxKF2kYw>
-    <xmx:2BT_aavA9QRV2e0u10CUCCw742gCNFuNq8s1eS7dSWg3LPMBFYhS18xw>
-Feedback-ID: ie3994620:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 9 May 2026 07:04:54 -0400 (EDT)
-Date: Sat, 9 May 2026 12:04:47 +0100
-From: Kiryl Shutsemau <kirill@shutemov.name>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, will@kernel.org, 
-	catalin.marinas@arm.com, mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>, 
-	Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
-Message-ID: <af8UEuy-gfLj6DSV@thinkstation>
-References: <20260427153416.2103979-17-ardb+git@google.com>
- <20260427153416.2103979-19-ardb+git@google.com>
- <3d1a6b5c-f3bf-462f-879a-cdb5b60868ac@kernel.org>
+	Sat, 09 May 2026 11:55:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 138C52454;
+	Sat,  9 May 2026 04:55:18 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E45B43F763;
+	Sat,  9 May 2026 04:55:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778327723; bh=JKDorVrqgPYt76T47+Dr9mhHeScyJUMoQtzohtWxRgk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FPFd+mrFRP4jVNf/a5pNTb1XKaHS0bbRi/TOMaBCm104UhyBCwXaIwFWbly7xv5JR
+	 CK589ANcjMbiPIGL9hxz9MB8PFHWQ6R7CT/51Qln5M7VlekA8/vr8lZuIStmIlmO03
+	 GOLiG7YaPimdJPyRG2Ucrae8QDpYQlWZ21TTrCgs=
+Date: Sat, 9 May 2026 12:55:19 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v6 04/13] coresight: etm4x: exclude ss_status from
+ drvdata->config
+Message-ID: <af8gp9rsY6zyo5r7@e129823.arm.com>
+References: <20260422132203.977549-1-yeoreum.yun@arm.com>
+ <20260422132203.977549-5-yeoreum.yun@arm.com>
+ <20260508152742.GI3778514@e132581.arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <3d1a6b5c-f3bf-462f-879a-cdb5b60868ac@kernel.org>
+In-Reply-To: <20260508152742.GI3778514@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_040501_917204_7051816E 
-X-CRM114-Status: GOOD (  25.43  )
+X-CRM114-CacheID: sfid-20260509_045527_961743_E31B0C41 
+X-CRM114-Status: GOOD (  20.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,47 +73,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 28, 2026 at 09:51:09PM +0200, David Hildenbrand (Arm) wrote:
-> On 4/27/26 17:34, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> > 
-> > The empty zero page is used to back any kernel or user space mapping
-> > that is supposed to remain cleared, and so the page itself is never
-> > supposed to be modified.
-> > 
-> > So make it __ro_after_init rather than __page_aligned_bss: on most
-> > architectures, this ensures that both the kernel's mapping of it and any
-> > aliases that are accessible via the kernel direct (linear) map are
-> > mapped read-only, and cannot be used (inadvertently or maliciously) to
-> > corrupt the contents of the zero page.
-> > 
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > ---
-> >  mm/mm_init.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/mm/mm_init.c b/mm/mm_init.c
-> > index f9f8e1af921c..6ca01ed2a5a4 100644
-> > --- a/mm/mm_init.c
-> > +++ b/mm/mm_init.c
-> > @@ -57,7 +57,7 @@ unsigned long zero_page_pfn __ro_after_init;
-> >  EXPORT_SYMBOL(zero_page_pfn);
-> >  
-> >  #ifndef __HAVE_COLOR_ZERO_PAGE
-> > -uint8_t empty_zero_page[PAGE_SIZE] __page_aligned_bss;
-> > +uint8_t empty_zero_page[PAGE_SIZE] __ro_after_init __aligned(PAGE_SIZE);
-> >  EXPORT_SYMBOL(empty_zero_page);
-> >  
-> >  struct page *__zero_page __ro_after_init;
-> 
-> I am no expert on BSS etc, but from what I understand, we'll still get zeroed
-> page-aligned memory. I don't know if there is any other impact on not having it
-> in bss.page_aligned. I assume no
+Hi Leo,
 
-IIUC, unlike BSS, it will be part of the kernel image. So kernel image
-size will grow by PAGE_SIZE. But compressor will eat it as it is all
-zeros, so it should be okay.
+> On Wed, Apr 22, 2026 at 02:21:54PM +0100, Yeoreum Yun wrote:
+> 
+> [...]
+> 
+> > @@ -573,11 +573,9 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+> >  		etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
+> >  
+> >  	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> > -		/* always clear status bit on restart if using single-shot */
+> > -		if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> > -			config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+> >  		etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
+> > -		etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
+> > +		/* always clear status and pending bits on restart if using single-shot */
+> > +		etm4x_relaxed_write32(csa, 0x0, TRCSSCSRn(i));
+> 
+> After confirmed with hardware team, we should preserve status bits
+> (including STATUS and PENDING bits) during a session. So here we should
+> set drvdata->ss_status to TRCSSCSRn.
+> 
+> > @@ -1503,8 +1501,9 @@ static void etm4_init_arch_data(void *info)
+> >  	 */
+> >  	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
+> >  	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> > -		drvdata->config.ss_status[i] =
+> > -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> > +		drvdata->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> > +		drvdata->ss_status[i] &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
+> > +					  TRCSSCSRn_DA | TRCSSCSRn_INST);
+> 
+> It is fine for read these capacity bits when probe, but we need to clear
+> status when a session is starting to avoid the stale value left from
+> previous session:
+> 
+>   drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
+> 
+> We can do this in etm4_parse_event_config() for perf mode, and might
+> create a new function (say etm4_parse_sysfs_config()) for preparing
+> config for sysfs mode?
+> 
+
+As we discussed in offline, those bits should be cleared at the begining
+of the session. so clearing drvdata->ss_status at start of session
+in each mode is fine for me and for future integration for cpu suspend/resume.
+
+But, I want to clarify that the perf is one of exceptional case
+since the "etm4_parse_event_config()" is called at the "resume" of session
+for per-thread mode event.
+
+TBH, We don't have some specific usage how STATUS or PENDING bit could
+be used with perf session and until now those bits are always cleared 
+at the time of "sched-in" though we need to keep those bits theoretically.
+
+Anyway as we discussed, since now there have been no issue
+relavant for those bits, let the clear drvdata->ss_status at the
+etm4_parse_event_config() or when setting a active config for start/resume
+in this patchset and let me fix this with another patchset.
 
 -- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+Sincerely,
+Yeoreum Yun
 
