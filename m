@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E8CCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 12:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BA4CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 12:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MsdXJp86K5ab4HHYw1xGTfHLEqKgPkpx6m1TS1FEEL8=; b=0kbfg3t3l+BedInKKNgDyU9QiG
-	y+Vc44omOED2x2y44XHJdm2JoY14cjUToA2GFydxxQmSrUxpci8/mX7pPn9QlmRcl57vbAnDPa5z2
-	mGe8EKCJ8Oe/E8JNw+HcYJnSd6McHgilTS0B2MeyZea0b0yMv/BUToYiW/IZz0DHM+ZCqwmsoh+q+
-	Qjzm2fnbfO8fAlpSX8+sO7+nFaScYMgfWMrzmcYGzbJxMPShHPH01ox0R2qBRpIeZwXqB3vVrFjsZ
-	T4IZOtFFnEMA4UHBnZSj0ML4j8lkCpPcAj+PXutZlM9K7/81q7a7wPMLKGF7FszDoq0ysZWnWsPiX
-	UoaLouwg==;
+	bh=vcZDAYqZuZvTd/H5R6a61erP18H6V558gIpcykPUuzU=; b=DVW7pODADFve8WIYQEEcd6vCwE
+	JsFzv925MtYPexyOKI6L7vKVjjuik4uoGZP8/t6vktipdw+DEVIVcFjvlUQ6MvT50i510iF3W/Qlm
+	vGt/BoEl4a70Nkf4jDOASKE2wqkTFoh64y9OohYggjNTwk4Gdcgm4uhSd0yqqi2EsN9uK5acc/jGz
+	LSpd2aJL5RbMaskuuRc1c8idpFOoLO5cINdNXwB+lC4Lo0qMfPQNIrGEBXUISGqyTcafADue0zzX1
+	fv8z9Ez5vZs9ZCwfKDbcigiE+qu3hdcSeL2QIDdnUktK7DSH2WcF+Qd1um5vy37buqa0GMRyVRDfY
+	0rkuHqUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLgf6-00000008uhf-2CTo;
-	Sat, 09 May 2026 12:20:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wLh56-00000008wtG-23qf;
+	Sat, 09 May 2026 12:46:56 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLgf5-00000008uhE-1pCl
+	id 1wLh52-00000008wry-1KxA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 12:20:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A76360120;
-	Sat,  9 May 2026 12:20:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AD15C2BCB2;
-	Sat,  9 May 2026 12:19:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778329201;
-	bh=Cq7/QM49XQIon1SXcxU39hmlYFljvekcg/7oaZVUPos=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XhcFoNnOLchiOyp+IpFy1WAwrUu4KBrpYvJztnKdW0Fn5ebQPp9EmbiZ4y1NxEsxT
-	 XG4bho/mW5xFbcUaMPIP/k2s7GadqLGLbR8/vaC9HDU6d5Ar13ATXwawARlLZHJ84k
-	 TwfB3jjeIp3g/FD7k2sk4mRvnzprCP8t3blehYM48Q5A9uqy1/eVf2AMgwiX2wA9dj
-	 VXk5IIUzNABErG86Ak8X6EjAWhg9vk2yhffE8xSS17c1O9BOZUVdlH4i9XqDQ7hzVg
-	 VEhuaSywM7P/1ln4541/Ucc97rcSGO2u4yAPdRdyH5ClLKijctKTxB/Umi1FhUSSrn
-	 hGDT+AgvS6NXw==
-Date: Sat, 9 May 2026 13:19:56 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Jack Matthews <jack@jackmatthe.ws>
-Cc: Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: Regression in split ARM MMIO timer driver
-Message-ID: <20260509-ruddy-dragonfly-of-poetry-45e9f1@sudeepholla>
-References: <46A20F89-E208-4091-8B6E-B5C38BF82B42@jackmatthe.ws>
+	Sat, 09 May 2026 12:46:55 +0000
+Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 4E62B1F963;
+	Sat,  9 May 2026 14:46:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1778330805;
+	bh=vcZDAYqZuZvTd/H5R6a61erP18H6V558gIpcykPUuzU=;
+	h=Received:Received:From:To:Subject;
+	b=einSO+OoEJhoKr6r94Hm64J+0cWCC0G6elT2VMo/9g7jVQ5YzFuiycxugg/uGTNq5
+	 7hNRXh98UZKOEr+aJ0jcApyVjnAHrZ2SOYhDVLvrzw0GUuEuLOzxTA0ISQEbaAlC97
+	 KQ80wimnI088XkcvUdisYVQ6oh0cTfxfiqysnjCeAVf8yLUMcQIOQgxlPo+o9ylvEQ
+	 KVQgb5EsSRn7QJKQm74pl50F3yrLLo0itdU+ouetM1Ev86EjCWBz9s38GwucCA/Yeo
+	 EUhtHjtZODdAnXQK2JiNK51jZSAT1I2H0FywgzPPeUSAtAZ7KKYqkTUnICKrrZy68O
+	 r+tcbIXRNdu3A==
+Received: from livingston (unknown [192.168.42.11])
+	by gaggiata.pivistrello.it (Postfix) with ESMTP id 046787F9D1;
+	Sat, 09 May 2026 14:46:45 +0200 (CEST)
+Received: from pivi by livingston with local (Exim 4.98.2)
+	(envelope-from <francesco@dolcini.it>)
+	id 1wLh4u-000000002l9-3poB;
+	Sat, 09 May 2026 14:46:44 +0200
+Date: Sat, 9 May 2026 14:46:44 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Franz Schnyder <fra.schnyder@gmail.com>, Xu Yang <xu.yang_2@nxp.com>
+Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, jun.li@nxp.com,
+	Francesco Dolcini <francesco@dolcini.it>
+Subject: Re: [PATCH v3 3/3] usb: dwc3: imx8mp: disable auto suspend for host
+ role
+Message-ID: <af8stIGhzVMfhyIQ@livingston.pivistrello.it>
+References: <20260108081433.2119328-1-xu.yang_2@nxp.com>
+ <20260108081433.2119328-3-xu.yang_2@nxp.com>
+ <k2sxmwhrv3tivustfnpz54ehuufkcrcruu2uuukuyugqtqljzl@5roxndm5fn5u>
+ <jjwlrgusucoacaye75uqfuh76a4jhdv3ivzjuemgusw3trwseb@mymuy62cptxp>
+ <hsyy2owzbt7tsljktlrz5g4bnrnecznvcyy6zxt7gfyxb4xvgi@ysko6xe6h2zm>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <46A20F89-E208-4091-8B6E-B5C38BF82B42@jackmatthe.ws>
+In-Reply-To: <hsyy2owzbt7tsljktlrz5g4bnrnecznvcyy6zxt7gfyxb4xvgi@ysko6xe6h2zm>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260509_054653_405299_17307807 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,28 +85,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 03:48:14PM -0400, Jack Matthews wrote:
-> Hello,
->
-> I am working on mainlining an old chip, Qualcomm's MDM9625 modem.
-> I had previously booted 6.17-rc3 before putting this project to the side,
-> but when I restarted work on 7.0 I was unable to boot. 
-> I have bisected this to commit 0f67b56d84b4c49adfd61f19f81f84ec613ab51a
-> (https://lore.kernel.org/all/20250814154622.10193-4-maz@kernel.org/) and
-> reverting this commit makes the device boot successfully. Unfortunately I do
-> not have access to low level debugging such as UART so I have not been able
-> to pinpoint exactly what is missing.
-> My changes for this chip are all available here in case it is an issue of my
-> own doing: https://github.com/jackmthws/linux/commits/mdm9625-latest/.
+On Fri, May 08, 2026 at 06:04:49PM +0200, Franz Schnyder wrote:
+> On Fri, May 08, 2026 at 06:54:40PM +0800, Xu Yang wrote:
+> > It's strange that link->status is not DL_STATE_DORMANT or DL_STATE_NONE at
+> > the time which means the device core may not properly unbind consumer devices
+> > or handle something. The patch does a simple thing so the issue may not come
+> > from the patch itself.
+> > 
+> > 1639:	list_for_each_entry_safe_reverse(link, ln, &dev->links.consumers, s_node) {
+> > 1640:		WARN_ON(link->status != DL_STATE_DORMANT &&
+> > 1641:			link->status != DL_STATE_NONE);
+> > 1642:		__device_link_del(&link->kref);
+> > 1643:	}
+> > 
+> > Which kernel and dtb are you using? If it's a downstream repo, how do the USB
+> > controller and related DTS nodes look like?
+> 
+> I was using kernel version 7.1-rc2 and noticed it while working on 
+> sending the Aquila iMX95 upstream.
+> https://lore.kernel.org/all/20260506-add-aquila-imx95-v1-2-69c8ee1c5413@toradex.com/
+> > 
+> > Does the issue easily happen? Does dwc3_imx8mp_probe() eventually succeed?
+> 
+> I did various boot attempts with the commit reverted and couldn't 
+> reproduce the issue. With the commit I ran into the issue in about one 
+> third of all boot attempts. So most of the time dwc3_imx8mp_prove 
+> actually succeeds.
 
-Looking briefly into the DTS file, I couldn't find the sysreg based arch
-timer node in the DT. It could be just an overlook unless there is some
-issue with it that it's not added. After the above mentioned commit, the
-MMIO timer gets initialised bit late in the boot and could be the reason
-for boot failure. Unless you have intentionally not added it, I would
-suggest to add it and try.
+...
 
--- 
-Regards,
-Sudeep
+> > Yes, if you use the new driver, I think this issue won't happen at all.
+> > 
+> So once your work is merged in the imx95.dtsi we should be fine.
+
+To me it looks like a regression that should be taken care of.
+
+Maybe not relevant for aquila imx95, where you did reproduce it (the reason is
+that aquila imx95 is not in mainline, yet), but from the USB point of view this
+board is very similar to other boards using the i.MX95 SoC that are therefore
+likely affected.
+
+Francesco
+
 
