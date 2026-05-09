@@ -4,101 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3B9CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 17:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13A0CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 17:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CllBL8xoJh4IglhZocsMiJYl6zMjGoSZL3uJ5PhEPoU=; b=msHkvORSQCI0LYD/DSwXPkmjtE
-	iQ7K7I2p+8bUROIi3MwbSKKiL7p7pIcmvAR9uLyYYitKK3l58jyi4Fk5zRlp3dJwKlDb6esi1P9wO
-	FQky7IR/HwBmIAfGCAUiL2cgUZtNnBXHdg0N1S47clihDWvMqRTZ0y0fa3ajN1RjKeNxa2x3cMXPY
-	2SMOZzys6qwfwSD7QsWgRlsBF5zhmVxnfC0vQv2F4Gxk3LRl7jUNk/wqMz6bYQ/ICgiRjyVhEWyaO
-	85H41XRrixqtonjxEaifTONu6j5t4q9N8wq3ZA32gCdGqGDJuuwp8FeDqank/wyWLrCHrmEdoQDm8
-	+ZmckEsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jIh60pxxvGKOUsnTbxcu3v39dVCI3FE1FnfA1fpg1iA=; b=pZ33ieLRh1r8VCCu2LS1WGZ22Q
+	IunWM4bY78779iQtBYw1Hemsf2RMlM0yURO7JN711Yzl+7Q4V5T9NEXLK5X6aRnwyoVwARZ49qQf4
+	QSwSIcieGBsD+yfk4SiK9XjWbPGITw8V4I5dX8KuqEYwyymitNhPK5ixbV3pZGDqxOjewOq53reEx
+	ILoOuZMesqWkTe9r7UMCRHw3Zi3HsjHAXpm+jLs2dUpAEICH2+DYMX7+RW+11RcAOOThfDNTtzWyI
+	7Z/OPO05JhHRAdQqAizw85QTe5lCYA7jdwYDBe31YPVfm/b41+dXy4b32gjqdMItfGdtj12H7XSlj
+	KA7K5prw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLlty-00000009Ngg-3jmW;
-	Sat, 09 May 2026 17:55:46 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1wLlv1-00000009NrE-0aI5;
+	Sat, 09 May 2026 17:56:51 +0000
+Received: from out-170.mta0.migadu.com ([91.218.175.170])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLltv-00000009Nfd-0cXV
+	id 1wLlux-00000009NqP-0JlR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 17:55:45 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-365eecc5885so2947960a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 10:55:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778349342; x=1778954142; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=CllBL8xoJh4IglhZocsMiJYl6zMjGoSZL3uJ5PhEPoU=;
-        b=J6A0pVaXEogiSS5qM1BYf3MjJD7vugIVnsBzJ06IX9g+uu0cCMMpzCnNv6d4ADFd0N
-         4G027IEW8sh6qBIjgJsKaOagxfOGV0mmanZBjb3+oGyKvzpOqRZiCNwFcrH4Ts8HQeop
-         vnMbJBPYEoIqRmn2d/l/lf9ajhbF8uqTrDS5YVE/lNYLZ+MrqtfqZWKkDeBhBKp/WNyY
-         nGnt02li7WG9368jVMrGJa1F67ddBy8bFgBpKh9rxAFE5Ks6PX4YxB2E/0TgIMKSZWn6
-         W4NAjqZWNEp9oChPKustgxY7dLDORIUY7PE8+GGwhYjunQdMwXYyttX/ULfw3S5YPZsq
-         fmHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778349342; x=1778954142;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CllBL8xoJh4IglhZocsMiJYl6zMjGoSZL3uJ5PhEPoU=;
-        b=CVtpPBfeNHASJr7JetsBl6zChP/VXAdQkNlYGHul++2RkUSXICdSuqcphCRjOhw5UJ
-         EqsFlNE92Hfr9P03akZsfLUm0QPsN9VepSUS8rAq3cGwS+jCMTIr2nPZInoUbwDNry4q
-         FRCCN3zf8/6LIMhlMqHNP3+bqZVNKpj6lZTJIRAio77CrLc1a0hSFdeAoE9HkXNwGGNr
-         XUFO2/k4dDSJ1qnqAXWH+c/RYp2hvUCYPvLAr+pDa50w5je+DExcenQKYyOahVTyLWB8
-         lAmkNX8LrsAPTBFe//KMqQoKjTVTmlHJpwcV3APsvg+2VCf7OvTZSpl9xG2YJ62ySMND
-         78vA==
-X-Forwarded-Encrypted: i=1; AFNElJ8i4UNg9cX3Xo5nKB/8zBdC/tZexWmXNkZf5jDv2h/j3Df+G7Bn0kE/ZjTAGEVICWZD8svuQW0agbVEKiQDpUvo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGUpr2h1QlgE3Fefll08i0iEAV4O2YoTVrUcx5E3wvAOUU66+F
-	m4ULo/UTZMU08CBg2TmzAQoeL6LnAZSwjSaQyXzHAAQ/UKzcVnkna024
-X-Gm-Gg: Acq92OFKumhyykZFelMX75g8pB0ELiMn9as5kgZA8Y997xMr7DiedDMqURIogGEFaJV
-	Xtt8FytGtTSHArAp6n6V6oDyJQCfKgBzzysj9dQaAoCDi+ywMx6Sf4OSINBLyIh/kkQzB6+ck9V
-	kP5CbAaK/K9CxawfVBpXwjE+eZZLSMX4QC6rzBhZfpm6wmoEa8015mqgGvvbVSGKVu0IZViLCcY
-	ezOCluEUAbE668HFj5NN6m6bkKYPVsB64D22ONlPubj3vCVZ2HpOohgeGbeWGQ40laujMrMyB4v
-	Squax3coeqtkFWMOipyQ5yE2MeE4scp2/eNReJc+RsFOS8+Lse3PxrJpEAaX9KENx7DWWJ7xAuD
-	LFqAUBgT5hqdOm+pEKYkdev4lEs3rGv8DQBgG4An8vZRRdn0qXKcUBIM7+97BoocCDBlTCWLdQT
-	Rsy6XNzCtj9EnEdPbhpugcirXdOgOMQXqebis5q4KJVhOMvEi96nSMgVdVbBc7Bw4aU0d2cRt6W
-	gua9IGWKd2o86Jgs/NR20kmsBNyhQ==
-X-Received: by 2002:a17:90b:54cb:b0:366:5c38:fd61 with SMTP id 98e67ed59e1d1-367d46cf57bmr3438337a91.12.1778349341817;
-        Sat, 09 May 2026 10:55:41 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.166.246.30])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367d627bc2bsm2657564a91.7.2026.05.09.10.55.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 10:55:41 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Sun, 10 May 2026 01:55:37 +0800
-Subject: [PATCH] spi: mtk-snfi: Fix resource leak in
- mtk_snand_read_page_cache()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260510-snfi-v1-1-bc375cf1af8e@gmail.com>
-X-B4-Tracking: v=1; b=H4sIABh1/2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDUwNL3eK8tEzdZIsUQ3MDU0NjSwtzJaDSgqLUtMwKsDHRsbW1AHZnNMF
- WAAAA
-X-Change-ID: 20260509-snfi-c8d170513987
-To: Mark Brown <broonie@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chuanhong Guo <gch981213@gmail.com>
-Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778349338; l=1056;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=lzDchxhHtPBQa1sKrWzU7ln4zgtB68T8z64OOY1Zf9A=;
- b=HbtX3JjNE9/jOKrWHby/HPxknGm2rdz0M2k5cyqeMlF6IqYdlnAEwyswtC2+TX2xR1+vNf7Yo
- wpuwsjCInqSCHzzwBS1Zt/2GOyefeCnYKyuDCkLjSjM0FwxSIRKaC6r
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+	Sat, 09 May 2026 17:56:49 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1778349401;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jIh60pxxvGKOUsnTbxcu3v39dVCI3FE1FnfA1fpg1iA=;
+	b=MPD2dCcmz3mdk8VygCqc9i2PHEr4TZNN9lNCBmKzcxGHZ+eWZ+AuNUgrvZXxXTlqHwdXS9
+	wx7CycvLytT3JhZ8axiRlRYLDxxuoBCb9qD6djOQe+86kK2bCeo2lkFLpN2ANV14xXjT5L
+	pccNsYyuvstsAo8Na6Faab8YRnpWDwwQpJt6sZrpMXFeH8uMctcmAa8SdnZSDwRZVDWHNz
+	5stVLgqHcGfEohu6HqOjmJCrk4NLHKgJgStX+NCXk7IrOF2T1yy3icRH7qmwwqQRarbgIc
+	+YLJyETMWPEFvHAQ0fNd05zlzs8yF8Jm+fQHZZkxI7FhRkPx32RcQfdOaOIw2A==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sat, 09 May 2026 19:56:37 +0200
+Message-Id: <DIEC8YT0XK4O.VAG6G4H31KJM@cknow-tech.com>
+Subject: Re: [PATCH v14 1/5] dt-bindings: vendor-prefixes: Add Verisilicon
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Benjamin Gaignard" <benjamin.gaignard@collabora.com>,
+ <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
+ <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <heiko@sntech.de>
+Cc: <iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <kernel@collabora.com>, "Conor
+ Dooley" <conor.dooley@microchip.com>
+References: <20260415072349.44237-1-benjamin.gaignard@collabora.com>
+ <20260415072349.44237-2-benjamin.gaignard@collabora.com>
+In-Reply-To: <20260415072349.44237-2-benjamin.gaignard@collabora.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_105543_193300_9A5A34D0 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20260509_105647_641066_45854B69 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,36 +75,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When DMA read times out in mtk_snand_read_page_cache(), the original code
-erroneously jumped to cleanup label which skips DMA unmapping and ECC
-disable, causing a resource leak.
+On Wed Apr 15, 2026 at 9:23 AM CEST, Benjamin Gaignard wrote:
+> Verisilicon Microelectronics is a company based in Shanghai, China,
+> developping hardware blocks for SoC.
+>
+> https://verisilicon.com/
+>
+> Add their name to the list of vendors.
+>
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
+umentation/devicetree/bindings/vendor-prefixes.yaml
+> index ee7fd3cfe203..ebd9072300a8 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -1761,6 +1761,8 @@ patternProperties:
+>      description: Variscite Ltd.
+>    "^vdl,.*":
+>      description: Van der Laan b.v.
+> +  "^verisilicon,.*":
+> +    description: VeriSilicon Microelectronics
+>    "^vertexcom,.*":
+>      description: Vertexcom Technologies, Inc.
+>    "^via,.*":
 
-Fixes: 764f1b748164 ("spi: add driver for MTK SPI NAND Flash Interface")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/spi/spi-mtk-snfi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/spi/spi-mtk-snfi.c b/drivers/spi/spi-mtk-snfi.c
-index e616e6800e92..6e96e50fedad 100644
---- a/drivers/spi/spi-mtk-snfi.c
-+++ b/drivers/spi/spi-mtk-snfi.c
-@@ -961,7 +961,7 @@ static int mtk_snand_read_page_cache(struct mtk_snand *snf,
- 		    &snf->op_done, usecs_to_jiffies(SNFI_POLL_INTERVAL))) {
- 		dev_err(snf->dev, "DMA timed out for reading from cache.\n");
- 		ret = -ETIMEDOUT;
--		goto cleanup;
-+		goto cleanup2;
- 	}
- 
- 	// Wait for BUS_SEC_CNTR returning expected value
-
----
-base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-change-id: 20260509-snfi-c8d170513987
-
-Best regards,
--- 
-Felix Gu <ustc.gu@gmail.com>
-
+FTR: Another version of this patch is already present in Linus' tree:
+c131d78840d7 ("dt-bindings: vendor-prefixes: add verisilicon")
 
