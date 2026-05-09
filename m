@@ -4,88 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AAA3CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 22:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F51CD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 23:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KaD8PMAL1fGcxVqGq3EhU94/gRz7M4CXPsJBOwicYdA=; b=s1zeieLMBdhgA9xEYrJ8vocyiI
-	HEzQdJ6rYVa4i4PjGmOW4P0TGenGXHZHcbJQAMBsuXxMGhXdvhC3OUkjnWdd+4p9n3IbsbycBXNII
-	1OvFllVrvJiFbiMv88xE/66zhQZ1hU7/Ov4ePGvVRdVnkniS/Tuc+JToMuS1wKQ0G+GE7rUnOazc6
-	aeHlULtd0aHCHIy6FuEyV/56zGyjp1OZ6FqMW9io1APmzjYVHMAJY6cNF2qOIMgOxs3FYDnGOD5vx
-	2cp8gSYwR7gfxMr149LuIBb7WRXUpg6aMaYT+FHM7UN8v/6KIruiI7hQLKbx+2VOfHTIq2ebrx7zL
-	Z5+WL/5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=335DhOmKigacyWrLMRbFPigANHuPSLtNVBCr6CAA1o8=; b=WtZxs7DdQtC0NSVGTnWI+DhO0k
+	XMhT/3tYJa2igS/EiUG6ivcSNSKm2zo+BE05hjc3vFldbfYmtTDNHL3u5FFsPvt6yl4aGDPSglfEr
+	WJN70/5R+MS5vL46PEzREywXG3HhgL7vQfLU9zJHTtAQqjQbLzNPgvX/ImESntXYRjcay4KUcxgOe
+	joCCETRw65M81n4b2AZopZ+jMELbUV/or9m9wSaEcMlPBtT/T5a8nsPSg7LiOd1vUV46+5uKmUJBU
+	w9h92AU5dRNB9xhFfd4RwdUp3Yud4Tx9IfX1wAmJRQum5clIpTR6u/lZNoo7WdtxJoIpoDmOzWO0H
+	a8JcG9jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLqJZ-00000009kqn-1VxC;
-	Sat, 09 May 2026 22:38:29 +0000
-Received: from mail-dl1-x1241.google.com ([2607:f8b0:4864:20::1241])
+	id 1wLqzg-00000009o1J-41FG;
+	Sat, 09 May 2026 23:22:00 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLqJW-00000009kqJ-2wX8
+	id 1wLqze-00000009o0Z-1CPf
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 22:38:28 +0000
-Received: by mail-dl1-x1241.google.com with SMTP id a92af1059eb24-12c8f9846c8so4485274c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 15:38:26 -0700 (PDT)
+	Sat, 09 May 2026 23:21:59 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-8b98482b253so43785466d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 16:21:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778366306; x=1778971106; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KaD8PMAL1fGcxVqGq3EhU94/gRz7M4CXPsJBOwicYdA=;
-        b=jvXnZ9VZf7n3Gjd404I6TP5RZn4H82v1NNigUXI422OhP1YbLzVKyTbwttrnB8g1rj
-         ebpa/mJsnd5lqtKRq8S9DBcPHp0F+BIqbtRTHl+FZeDMvE22uIpaKIaTJO+YtGfYFjab
-         n29uLWledi4oyj1qVxKs3u9hFa+Q+9Vxd0RZddsReuSipkoFOxAvxrc3NbL7jfpxHk+e
-         hhorpxNwP1mxXsBTY5wiGmZrXCArDzQV801r0ApoUfJqzP5QIt1OlX/ANIc+eMC/oZ8L
-         dz1H3O7dv9vPXcvQtBm1fwlSTRoJhcDnH0bShzQr3SsITRvvQ8o5nLkoIs0Deg+tIzGY
-         ppuA==
+        d=ziepe.ca; s=google; t=1778368917; x=1778973717; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=335DhOmKigacyWrLMRbFPigANHuPSLtNVBCr6CAA1o8=;
+        b=D0VfQq8GsTXFtF2hTVhk7KW1X+9jSczLBFVk1V7Ix/Qr/9E1/dccKMZ//jPTmasE4x
+         dSoMZZnxIs9MduuWdri8EvzD/Uoz9XmrtU+PlqfCmuFVA9WPx0Hg6d1cQAbnTh9m2jjj
+         NRH372Ja0ksfmUOXJtOu9VJl7ArSWN+ETT70zfhVu1+LZ6by9q7MCsqWXuvbXhHTfQmn
+         QhBsDN6a1RryXG4MAqohmQFw+04PkW5rjZx7ik6u9KecCNs+Xkmm5SI7oVxaytwxBfia
+         vQbjHb1jHEOgIODIiWEqtqph71J8ZJTMVSqRjOSphCr+ZEsPf7r16DP/C393r06Bmpc3
+         bdKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778366306; x=1778971106;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KaD8PMAL1fGcxVqGq3EhU94/gRz7M4CXPsJBOwicYdA=;
-        b=r+A7bT25nwDNz04UjmASIROAAE3EtZVIMFJXXOQYjiAPInORNwtB2ohl49DKmYLuEg
-         4uj4MhNhLkvoF97C/5+lgGLQSx6ysXyKMNkUIdxafYfuNAbmDTA3b+upSKAlJxy5mgxl
-         nxZd1gzyXIKdH8PMF4jxBOx2/w+1+M9mZ4cTq2WWwCVoCudDTXS4tKzBftBPR9qD4S7A
-         ziUhPhrORf58CBJcBkovn3qeRNK1t7sQ2wNPw5Ye6awVDa4hGmzf2Kw07is02qmVKsld
-         FIJaYpW4ZyIKg0eOaMzf40CPsATV5r983EpWfaL+cSRU9SAwHy92FXbx5NknSePgrPpz
-         XReA==
-X-Gm-Message-State: AOJu0YzcSibU511qCNryuw4gWgwCGy0INKvSAKNuwVmJSUDwnZSIMO4k
-	fte6VpJFppz1neqfS1edS0pDtbboPMuCcXZ6vpSzMVPmoUvs4cZWjSkF4nUbww4l5ys=
-X-Gm-Gg: Acq92OFcrC64NCxXB1vB2IoErx8aswEHLKc11HHNJR3USz6I+n4CjZNtY/7aTa2ZIHw
-	J+d3JUOXI0ux8iJ1f3C6qepDZT8mOacM8cocbMnhapSRI4UEouiHDNHF836mSe5z3HMSCsE7Qmh
-	Egn4mrIQ7tcQSYiP6OXtqOdJBGMlZK7chUtkhw2LHmBrI+P53cAW0HqoaipwCsnuKBWfqRaOlvq
-	F5yi4J0+9MDqyc7nFF6XpAOOInHJuqQO5ryG9EtbEVLuv9uQgbS3J8dk57dIUE+RKMqgRKZf3CK
-	nOsfVPbH1tQM3ewDV6WyYcjv5HPgpxgfyf/bPWCNUyFrv7w0g/Uq0Cb74PU6d6pxxr11vTyblK0
-	FjrJt8E7v0m8VwyRlPxbPsFc03yUuBaFx5R2+tsV2u2nTJzOryHWtnwHzpRBTDBpnqviuycNrZM
-	XH6Qb8h8q/zoarkKoWJKF0fd20xl0hF/2q1WUX1+ymCv3CAZ2vSC8y/10frWg4DRvYjxZOWh4iV
-	YiMnbHS6o8O6mhIRSpIcogqfSCG0/mdUaqZhKloXYNLoEWv7kiNrMCMB6WMzcFEjfE+wXbJ5bsH
-	9O98+lc9IBaVDYKa7A==
-X-Received: by 2002:a05:7022:238c:b0:12d:de3f:f3dc with SMTP id a92af1059eb24-1318ec5fa20mr8840329c88.38.1778366305800;
-        Sat, 09 May 2026 15:38:25 -0700 (PDT)
-Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13278210d40sm9887550c88.4.2026.05.09.15.38.25
+        d=1e100.net; s=20251104; t=1778368917; x=1778973717;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=335DhOmKigacyWrLMRbFPigANHuPSLtNVBCr6CAA1o8=;
+        b=nDec/dvlGo+rznNY3vZGEVH+52uU3OZ8Hqds+ws2NF6FDdYzHPiARoIpDEH5dEnw/p
+         95K8dEwBEu+F1kyFoXfDAWzkT59mrsFY2v0HrQfKRuvLK4LnJlYzczjIBtjL34h6/CEq
+         bhNwmp9s4JTRhy4QbgT3ZtWn9/kVhlP0j3zymxvbODMGHxlKHa9cYBKCDAUYJ7MP98Bp
+         KhTZgIbU2Igd3iltO/WHYKmxwDQUF/TXG8Nd965L+FCoX8IsaAWQhujubeWdhnaTrYmA
+         J+qHfC/F1lQs+ENMIRPNxUOGBPcUTJHt3nxvLdgUcjaqOabn/N/b+sgyglNJFH2sxM1c
+         zf9A==
+X-Gm-Message-State: AOJu0YwCrrc53LqO7jq15iE3bXntLerJSmIXjXSwuWR5scZpnrRJQ6Uh
+	dCIZGbRaE1zXskkLAoFmJsF9TdQlxY3gWKdlHsLgMwSYhbYx9Nq60PydXaH43k5Z4GU=
+X-Gm-Gg: Acq92OFys4G3CtnJPSWbefAHiUigfw5lAAd/zAZpjvdKH18+Wljl2+paC04D55hBT/z
+	j0JzDrKGyOFfKIYJGmC7JULrTKykHY+1ohpEl9XL6ofV+SQmFzD1h4W6LUL5+ZRqz5a5RMKPlV8
+	EVrj70y+ooe6QxqLeP08Zc7zvL4RWw+FdCirEMoNxvJmcdqYjx8/GNFonR0BUmlLuzdCg2qD6vM
+	Op1kVj8180AP66+J4z9LYiECWlnnri3Yu/1NqzhT9tD3fHruIaDnlk0+o79zzAASmqLReb2BzsT
+	BqNA7LlKHaU6dSOb+GIbuWs3tJWWzeNIQJHjR8J7fyWlIQgUtsVs+rpCZRrvYKspyIc+yPLrY08
+	XbfbXvJFOhnxl2hWk4BxV7VwMh+ciAPGcmoUW4yvumkpJzTo98zeNbwQMBIlQqX6AHb4vFyN61d
+	I8gmfk7I8cI0pyPIgdP4gI8LyjzMeeZ6XKnSlXnfDUlyviwq2HdWtwxmJGP4k108OX5gFYeOKnk
+	BBWF1l7l3lWGp1u
+X-Received: by 2002:a05:6214:258c:b0:8a4:c1ef:d727 with SMTP id 6a1803df08f44-8bc422a6815mr269722106d6.10.1778368916771;
+        Sat, 09 May 2026 16:21:56 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8bf3b0c84d4sm54348816d6.0.2026.05.09.16.21.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 15:38:25 -0700 (PDT)
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Russell King <linux@armlinux.org.uk>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Hartley Sweeten <hsweeten@visionengravers.com>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Nikita Shubin <nikita.shubin@maquefel.me>
-Subject: [PATCH] arm: boot: ep93xx: don't rely on machine_is_*() for removed board files
-Date: Sat,  9 May 2026 15:38:19 -0700
-Message-ID: <20260509223820.50347-1-enelsonmoore@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Sat, 09 May 2026 16:21:56 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wLqzb-00000002N2n-20cg;
+	Sat, 09 May 2026 20:21:55 -0300
+Date: Sat, 9 May 2026 20:21:55 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
+	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 06/25] iommu/io-pgtable-arm: Rework to use the
+ iommu-pages API
+Message-ID: <20260509232155.GH9285@ziepe.ca>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-7-smostafa@google.com>
+ <20260501122424.GA6912@ziepe.ca>
+ <afiO2WL4ILGfmUui@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <afiO2WL4ILGfmUui@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_153826_777409_6833E5C0 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260509_162158_536536_2AE43BDB 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,64 +112,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Code in misc-ep93xx.h relies on machine_is_*() macros for several
-boards that no longer have legacy board files. They were removed in
-commit e5ef574dda70 ("ARM: ep93xx: delete all boardfiles"). This
-prevents the removal of machine IDs no longer used by the kernel from
-mach-types. To resolve this issue, create local copies of these macros.
-(The checks themselves are still valid because the IDs are still passed
-in by the bootloader on these machines.) Also take the opportunity to
-remove three repeated checks for the same ID.
+On Mon, May 04, 2026 at 12:19:37PM +0000, Mostafa Saleh wrote:
+> > So.. I suggest you update it to use the iommu_pages API, #ifdef out
+> > the allocator so the pkvm pkvm doesn't need to deal with it. Then
+> > compile a special iommu-pages for the pkvm side presenting the same
+> > API.
+> 
+> I see, we still need to leave the DMA-API calls for the custom config,
+> as I am not sure if it can use pages not backed by the vmemmap, I
+> pushed that into a separate function so it’s easily compiled out.
 
-Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
----
- arch/arm/boot/compressed/misc-ep93xx.h | 20 ++++++++++++++++----
- 1 file changed, 16 insertions(+), 4 deletions(-)
+Yeah..
 
-diff --git a/arch/arm/boot/compressed/misc-ep93xx.h b/arch/arm/boot/compressed/misc-ep93xx.h
-index 65b4121d1490..b0a1b42aab31 100644
---- a/arch/arm/boot/compressed/misc-ep93xx.h
-+++ b/arch/arm/boot/compressed/misc-ep93xx.h
-@@ -3,7 +3,22 @@
-  * Copyright (C) 2006 Lennert Buytenhek <buytenh@wantstofly.org>
-  */
- 
--#include <asm/mach-types.h>
-+/*
-+ * These machine IDs are no longer used by the kernel since EP93xx was converted
-+ * to DT booting, but they are still passed in by bootloaders, so we use our own
-+ * local definitions of the relevant macros.
-+ */
-+#define machine_is_bk3()		(__machine_arch_type == 1880)
-+#define machine_is_edb9301()		(__machine_arch_type == 462)
-+#define machine_is_edb9302a()		(__machine_arch_type == 1127)
-+#define machine_is_edb9302()		(__machine_arch_type == 538)
-+#define machine_is_edb9307a()		(__machine_arch_type == 1128)
-+#define machine_is_edb9307()		(__machine_arch_type == 607)
-+#define machine_is_edb9312()		(__machine_arch_type == 451)
-+#define machine_is_edb9315a()		(__machine_arch_type == 772)
-+#define machine_is_edb9315()		(__machine_arch_type == 463)
-+#define machine_is_ts72xx()		(__machine_arch_type == 673)
-+#define machine_is_vision_ep9307()	(__machine_arch_type == 1578)
- 
- static inline unsigned int __raw_readl(unsigned int ptr)
- {
-@@ -60,14 +75,11 @@ static inline void ep93xx_decomp_setup(void)
- 	if (machine_is_edb9301() ||
- 	    machine_is_edb9302() ||
- 	    machine_is_edb9302a() ||
--	    machine_is_edb9302a() ||
- 	    machine_is_edb9307() ||
- 	    machine_is_edb9307a() ||
--	    machine_is_edb9307a() ||
- 	    machine_is_edb9312() ||
- 	    machine_is_edb9315() ||
- 	    machine_is_edb9315a() ||
--	    machine_is_edb9315a() ||
- 	    machine_is_ts72xx() ||
- 	    machine_is_bk3() ||
- 	    machine_is_vision_ep9307())
--- 
-2.43.0
+> Without this patch, now it looks like:
 
+Seems reasonable, and then i'd probably just put something like
+   #define dma_map(...)
+   #define dma_umap(...)
+
+To effectively take it out of the pkvm build
+
+Then have a pkvm compile of iommu-pages to provide the functions in a
+pkvm compatible way. I guess you can't actually fully do this, but
+can do enough to support this file at least.
+
+> > You should have a pkvm shim header that provides
+> > kmalloc/kfree/virt_to_phys in the normal way and just #include that in
+> > io-pgtable when doing a pkvm build instead of hacking up all the code.
+> 
+> Ok, I can do that in another change, but I believe it's better to
+> change the usage in this file to arm_lpae_*(virt_to_phys...) so it's
+> clear which parts are intended for that.
+
+IDK, why? virt_to_phys() is part of the iommu-pages API, I'd just
+leave it.. If you want to narrow it then #define it for pkvm when
+compiling this file..
+
+Jason
 
