@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D662CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 10:08:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E91C7CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 10:12:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pcrEFFZtHiDND5e3XdPaHmhFIbsJWL9ETVWAff1Ll7o=; b=qo6gxcYuL0NH/OqMkQrFpCuc4y
-	goNTxLKQAqBCO3YOcySoFmUy/F9iiZ89cSP2Z+C3tZMscwQhaUcnUkhfeJY6Y+UM0kf8tf9DH1chV
-	5ccDkI6ZTj5wknyXD3Ur5Fd8uDt6a1FEKoDFkBaXKWwaWgrHUQHkOOTjRmPJ+XQ3lkhEKIhmJtRvS
-	QrEGvk20ewZkwZZt/mu7I8vtkIGVMR0Vn3+JYkP77aVxLH1gcvEaYu83T44GsPFVjtw/LDqmcfA/K
-	QtPvCwWejvYIcepJzCEBEk3KfzZWuLg2dLTZ7N1nej2ztB542CvG6R6ilRHFYPPUkL+DSQSvZKarR
-	nULKsCAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=61oGxBAoiQU9iEBw4v4XAgABJgwFZGOsQf7ibrEj0qk=; b=HQ1SNM1p/ZPfTG1Tlo664/wPF1
+	UH4WvRdJvELFTCQudppSv6Baod4yyTcpDEWAJyQXIBi6csrz4VStPkK1th9S2M9t72W91dCpaDBYF
+	VMaEfuSrx16tt1ghgV6dJLAgw2oUKqUF5vchN+sW9MaMbJmPbWKkIQZJLQIqc5D/cwpZhRIAMGKYQ
+	2nRftRBHO3bKCyVoNAYfWC45d2Ub7FJvWqgUoQH/p5eOqCzAoV9LJsjufQj2b/o83cmGaeDsj8J2n
+	sp7GyzsPju2Dj+9bQi7HZBD9xo2flCd1UNi1DLFRJAGyYlfKX+moLxin0OvUzZH9rJkA6bLGlZDE6
+	+1vO0FBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLebM-00000008iys-42Sq;
-	Sat, 09 May 2026 10:08:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wLefb-00000008jNl-2tBk;
+	Sat, 09 May 2026 10:12:29 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLebK-00000008iyF-0Ezt;
-	Sat, 09 May 2026 10:08:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 586F8419B4;
-	Sat,  9 May 2026 10:08:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEB13C2BCB2;
-	Sat,  9 May 2026 10:08:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778321281;
-	bh=DrVObXvVSvJ6Qh3ggMiOeo7pce3nKF+OLq2GUfFw0YE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=leuQxIIGtL3ySmiM8r5mjMlZARE6dzdT/vnEblM99cn6q33QGI+M//l8mhH1tVRik
-	 qW44qun4uM4o9P/wQC8aR7XEPNxLiuxUZR+d1RuachQXa97iWgYAfgt5YHTbzpcX7c
-	 KCzR/czetJFcaiBkWeZjfaDLql0F4scJzYDwQxGUDDcLi2TwHrM+p4Utk2WSPdleY8
-	 jCl5i119bdw/3KvuZRhJxETpB3xUK+QDCSXShe32v65GNbScFKbxUSyJCP/3K3mIyQ
-	 DasZs8wAvGZ1hQLVr63crBdR95qNDS3JhiIBHWnu0iWTdFMcypVu6Zr4YPLG2Q7frZ
-	 8B1qWoWZEUpeA==
-Date: Sat, 9 May 2026 12:07:58 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ansuelsmth@gmail.com,
-	benjamin.larsson@genexis.eu, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, madhur.agrawal@airoha.com
-Subject: Re: [PATCH net-next v4 10/10] net: airoha: Support multiple LAN/WAN
- interfaces for hw MAC address configuration
-Message-ID: <af8HfuSZ1hkJGA2O@lore-desk>
-References: <20260507-airoha-eth-multi-serdes-v4-10-af613b61ae02@kernel.org>
- <20260509014617.3558185-1-kuba@kernel.org>
+	id 1wLefX-00000008jMf-0qAS
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 09 May 2026 10:12:25 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1778321538;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=61oGxBAoiQU9iEBw4v4XAgABJgwFZGOsQf7ibrEj0qk=;
+	b=LsvMYuDXbkPd11NP/xoDQaeJComKTLV7p7QVmj8mFazNwOvW3E5aUwWGHt9r8Kg7s9MVlS
+	GD0RBs1u94UJ2Yq8IXWfjfeRpxD+Zrg5/xwiEc3BvF9lqVAAdf+XgsMXbo2ZhZo5K62IA2
+	zFhLs3ZM2f5nro+v+WrgDhoWb+zUB4U=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Thorsten Blum <thorsten.blum@linux.dev>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] crypto: atmel-sha204a - drop __maybe_unused and of_match_ptr
+Date: Sat,  9 May 2026 12:11:55 +0200
+Message-ID: <20260509101155.2095-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lg/EUJE1MTlDMtub"
-Content-Disposition: inline
-In-Reply-To: <20260509014617.3558185-1-kuba@kernel.org>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1645; i=thorsten.blum@linux.dev; h=from:subject; bh=LIGm6IfeAOjLe+aNZQ+2T5UbI0Y/Q+X6zrfFX8yPCsg=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDJn/ObL7OxceiO3doJt77Eff27tlIbs3cL2e9illZfir4 2J+25yaOkpZGMS4GGTFFFkezPoxw7e0pnKTScROmDmsTCBDGLg4BWAixYcZ/ieei6+f+sWtf/Lh 0Fuvur5FTVp7KCO+XV5K+4bKqeebZasZ/goLGD41CMw+saZ/uprn+p0ZIkJN1bqSxxay+3YFSDx p4wUA
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_030802_146006_5849CF4B 
-X-CRM114-Status: GOOD (  37.88  )
+X-CRM114-CacheID: sfid-20260509_031224_349299_51710310 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,238 +72,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Since MODULE_DEVICE_TABLE() keeps atmel_sha204a_dt_ids referenced, drop
+the unnecessary __maybe_unused annotation. Also remove of_match_ptr()
+because OF matching is stubbed out when CONFIG_OF=n.
 
---lg/EUJE1MTlDMtub
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reformat atmel_sha204a_dt_ids to silence a checkpatch error and
+atmel_sha204a_id for consistency.
 
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> ---
-> net: airoha: Support multiple LAN/WAN interfaces for hw MAC address confi=
-guration
->=20
-> This patch extends airoha_set_macaddr() to derive REG_FE_MAC_LMIN and
-> REG_FE_MAC_LMAX by iterating over all sibling LAN/WAN net_devices, and
-> rejects addresses whose upper 3 bytes do not match the already-registered
-> peers. airoha_dev_set_macaddr() is also changed to split eth_mac_addr()
-> into eth_prepare_mac_addr_change() and eth_commit_mac_addr_change() around
-> the hardware programming step.
->=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index 8617dd4f7932..fbfefd0ec355 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -71,20 +71,67 @@ static void airoha_qdma_irq_disable(struct airoha_i=
-rq_bank *irq_bank,
-> >  	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
-> >  }
-> > =20
-> > -static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *a=
-ddr)
-> > +static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *ad=
-dr)
-> >  {
-> >  	struct airoha_eth *eth =3D dev->eth;
-> > -	u32 val, reg;
-> > +	u8 ref_addr[ETH_ALEN] =3D {};
-> > +	u32 reg, val, lmin, lmax;
-> > +	int i;
-> > +
-> > +	lmin =3D (addr[3] << 16) | (addr[4] << 8) | addr[5];
-> > +	lmax =3D lmin;
-> > +
-> > +	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
-> > +		struct airoha_gdm_port *port =3D eth->ports[i];
-> > +		int j;
-> > +
-> > +		if (!port)
-> > +			continue;
-> > +
-> > +		for (j =3D 0; j < ARRAY_SIZE(port->devs); j++) {
-> > +			struct airoha_gdm_dev *iter_dev;
-> > +			struct net_device *netdev;
-> > +
-> > +			iter_dev =3D port->devs[j];
-> > +			if (!iter_dev || iter_dev =3D=3D dev)
-> > +				continue;
-> > +
-> > +			if (airoha_is_lan_gdm_dev(iter_dev) !=3D
-> > +			    airoha_is_lan_gdm_dev(dev))
-> > +				continue;
-> > +
-> > +			netdev =3D iter_dev->dev;
-> > +			if (netdev->reg_state !=3D NETREG_REGISTERED)
-> > +				continue;
-> > +
-> > +			ether_addr_copy(ref_addr, netdev->dev_addr);
-> > +			val =3D (netdev->dev_addr[3] << 16) |
-> > +			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
-> > +			if (val < lmin)
-> > +				lmin =3D val;
-> > +			if (val > lmax)
-> > +				lmax =3D val;
-> > +		}
-> > +	}
-> > +
-> > +	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
-> > +		/* According to the HW design, hw mac address MS bits
-> > +		 * must be the same for each net_device with the same
-> > +		 * LAN/WAN configuration.
-> > +		 */
-> > +		return -EINVAL;
-> > +	}
->=20
-> [Medium]
-> The NETREG_REGISTERED filter here means the check only sees peers that
-> have already completed register_netdev(). airoha_dev_init() is invoked
-> as ndo_init from register_netdev() before dev->reg_state transitions
-> to NETREG_REGISTERED, so the constraint is only enforced across
-> already-registered siblings.
->=20
-> When the device tree does not supply a mac-address property,
-> airoha_alloc_gdm_device() falls back to eth_hw_addr_random() and each
-> sibling gets an independently generated random MAC. With two or more
-> LAN (or two or more WAN) net_devices going through this fallback, the
-> second and later siblings' upper 3 bytes will almost always differ
-> from the first, so airoha_set_macaddr() returns -EINVAL:
->=20
-> 	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3))
-> 		return -EINVAL;
->=20
-> airoha_dev_init() now propagates that error, which fails
-> register_netdev() and airoha_register_gdm_devices(), aborting probe.
->=20
-> Before this patch the same configuration still came up (with the single
-> REG_FE_{LAN,WAN}_MAC_H being last-writer-wins). Should the random
-> fallback path derive sibling MACs from a shared base, or should the
-> upper-3-bytes constraint only be enforced for user-triggered
-> ndo_set_mac_address rather than for init-time programming?
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/crypto/atmel-sha204a.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-Hw design requires that if two (or more) net_devices are configured as LAN
-(or theoretically as WAN), they need to share the mac address upper-3-bytes.
-If the user wants to use multiple devices with the same LAN/WAN configurati=
-on,
-he/she will need to properly store the net_device mac address int the device
-eeprom/nvme or in the dts.
-Please note this series is not introducing any regression since the user was
-not able to run this configuration before this series.
-
->=20
-> > =20
-> >  	reg =3D airoha_is_lan_gdm_dev(dev) ? REG_FE_LAN_MAC_H : REG_FE_WAN_MA=
-C_H;
-> >  	val =3D (addr[0] << 16) | (addr[1] << 8) | addr[2];
-> >  	airoha_fe_wr(eth, reg, val);
-> > =20
-> > -	val =3D (addr[3] << 16) | (addr[4] << 8) | addr[5];
-> > -	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), val);
-> > -	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), val);
-> > +	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), lmin);
-> > +	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), lmax);
-> > =20
-> >  	airoha_ppe_init_upd_mem(dev);
-> > +
-> > +	return 0;
-> >  }
-> > =20
-> >  static void airoha_set_gdm_port_fwd_cfg(struct airoha_eth *eth, u32 ad=
-dr,
-> > @@ -1792,13 +1839,18 @@ static int airoha_dev_stop(struct net_device *n=
-etdev)
-> >  static int airoha_dev_set_macaddr(struct net_device *netdev, void *p)
-> >  {
-> >  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> > +	struct sockaddr *addr =3D p;
-> >  	int err;
-> > =20
-> > -	err =3D eth_mac_addr(netdev, p);
-> > +	err =3D eth_prepare_mac_addr_change(netdev, p);
-> >  	if (err)
-> >  		return err;
-> > =20
-> > -	airoha_set_macaddr(dev, netdev->dev_addr);
-> > +	err =3D airoha_set_macaddr(dev, addr->sa_data);
-> > +	if (err)
-> > +		return err;
-> > +
-> > +	eth_commit_mac_addr_change(netdev, p);
-> > =20
-> >  	return 0;
-> >  }
->=20
-> [High]
-> After this reordering, does airoha_ppe_init_upd_mem() end up
-> programming the PPE update memory with the old MAC rather than the new
-> one?
->=20
-> eth_prepare_mac_addr_change() only validates the sockaddr and does not
-> touch netdev->dev_addr; the actual write to netdev->dev_addr happens in
-> eth_commit_mac_addr_change() via eth_hw_addr_set():
->=20
-> net/ethernet/eth.c:eth_prepare_mac_addr_change() {
-> 	if (!(dev->priv_flags & IFF_LIVE_ADDR_CHANGE) && netif_running(dev))
-> 		return -EBUSY;
-> 	if (!is_valid_ether_addr(addr->sa_data))
-> 		return -EADDRNOTAVAIL;
-> 	return 0;
-> }
->=20
-> net/ethernet/eth.c:eth_commit_mac_addr_change() {
-> 	eth_hw_addr_set(dev, addr->sa_data);
-> }
->=20
-> airoha_set_macaddr() is invoked between those two, so when it reaches
-> airoha_ppe_init_upd_mem(dev) the commit has not yet run. That helper
-> reads netdev->dev_addr directly rather than using the addr argument:
->=20
-> drivers/net/ethernet/airoha/airoha_ppe.c:airoha_ppe_init_upd_mem() {
-> 	const u8 *addr =3D netdev->dev_addr;
-> 	...
-> 	val =3D (addr[2] << 24) | (addr[3] << 16) | (addr[4] << 8) | addr[5];
-> 	airoha_fe_wr(eth, REG_UPDMEM_DATA(0), val);
-> 	...
-> 	val =3D (addr[0] << 8) | addr[1];
-> 	airoha_fe_wr(eth, REG_UPDMEM_DATA(0), val);
-> 	...
-> }
->=20
-> So the FE registers REG_FE_{LAN,WAN}_MAC_H / REG_FE_MAC_LMIN /
-> REG_FE_MAC_LMAX are written from the new addr parameter, but the PPE
-> REG_UPDMEM_DATA/REG_UPDMEM_CTRL entries are written from the still-old
-> netdev->dev_addr.
->=20
-> Previously eth_mac_addr() (prepare + commit combined) ran first, so
-> netdev->dev_addr was the new MAC by the time airoha_set_macaddr() and
-> airoha_ppe_init_upd_mem() ran, keeping the two blocks in sync.
->=20
-> Would it be cleaner to either pass addr through to
-> airoha_ppe_init_upd_mem(), or invoke eth_commit_mac_addr_change() before
-> airoha_set_macaddr() (with a rollback path if the hardware programming
-> fails)?
-
-ack, I will fix it in v5.
-
-Regards,
-Lorenzo
-
->=20
-> > @@ -1903,6 +1955,7 @@ static int airoha_dev_init(struct net_device *net=
-dev)
-> [ ... ]
-
---lg/EUJE1MTlDMtub
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaf8HfgAKCRA6cBh0uS2t
-rCrFAQC4cypXPyLYpkfCjZ+8fARSlLo1SxcqMz7kvKN7sd0RnAEAx5U4W8tYhksn
-GK2mSoplDd6MwDsxrrEmtIg5gaY9ogw=
-=61qR
------END PGP SIGNATURE-----
-
---lg/EUJE1MTlDMtub--
+diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
+index ed7d69bf6890..6e6ac4770416 100644
+--- a/drivers/crypto/atmel-sha204a.c
++++ b/drivers/crypto/atmel-sha204a.c
+@@ -207,17 +207,17 @@ static void atmel_sha204a_remove(struct i2c_client *client)
+ 	kfree((void *)i2c_priv->hwrng.priv);
+ }
+ 
+-static const struct of_device_id atmel_sha204a_dt_ids[] __maybe_unused = {
++static const struct of_device_id atmel_sha204a_dt_ids[] = {
+ 	{ .compatible = "atmel,atsha204", .data = &atsha204_quality },
+ 	{ .compatible = "atmel,atsha204a", },
+-	{ /* sentinel */ }
++	{ }
+ };
+ MODULE_DEVICE_TABLE(of, atmel_sha204a_dt_ids);
+ 
+ static const struct i2c_device_id atmel_sha204a_id[] = {
+ 	{ "atsha204", (kernel_ulong_t)&atsha204_quality },
+ 	{ "atsha204a" },
+-	{ /* sentinel */ }
++	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, atmel_sha204a_id);
+ 
+@@ -227,7 +227,7 @@ static struct i2c_driver atmel_sha204a_driver = {
+ 	.id_table		= atmel_sha204a_id,
+ 
+ 	.driver.name		= "atmel-sha204a",
+-	.driver.of_match_table	= of_match_ptr(atmel_sha204a_dt_ids),
++	.driver.of_match_table	= atmel_sha204a_dt_ids,
+ };
+ 
+ static int __init atmel_sha204a_init(void)
 
