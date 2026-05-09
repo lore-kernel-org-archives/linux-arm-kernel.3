@@ -4,70 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14392CD37AF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 16:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02135CD3445
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 16:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yolk7fPVSsosJ3+V1HG/g+3kb5mEYUGoiAatqyto7So=; b=Ho4v0PdwvxVZ4bGtrV3yAjFpER
-	uL4YlOk7fR+is3fEAQ8wz9Wh60Fc3KGRQFRBKW/u0TAcufjuMubE5dqKV1eTCHaM8G4TaAK5XHAFc
-	KPpXA+g4vTZyb5N2QFdbKykfw1/1bJoU+4FvTaPK/Mj8DTmifFUNfFnEfftJrG6OOXzXdF7w32paX
-	YHu1C33z0ahZhUmGxU/xaSU+EZcz1343zwnitlQKVDoV+9JkfMUKh8p/mAxrje3g7Af/QiE3zhwAH
-	4ilusVI8Kp7uGzh56vpXo8J3d+Vwv5myKuIVhdSRaO4qojGUr+pfG0sVP57Ia5JfcsgfnBSBBVDX8
-	Fhc6BlUg==;
+	bh=OjvQAKtsddCwvtPj5IUL1zdvC6FgIzquAG4/cEYySIc=; b=hH7OfKvPVvguMp9eQFiLEdraEU
+	hTTnm2gVAK/9cMWSCbMmblxwTHuTZcp9eRtLw1Ca9/+Ksz/nAtdKz9wIHu3EujfAXM1egmxNpJSp+
+	pL9/XWIwZHbjDQZcr4dzYgbV5cD3qVPvPC6Brk7ZR7yywfcuSXHWUxeX13W43RUEAiupWk6Uo6veB
+	/OeSAomWlqjhPZUWvr6nvdUYUbYMFkmth6LlsbFJ1k/9hhdSADGbZ549/xxFLEUdAHXerjsFkiVfb
+	RotJjinMYK+ZWOmGZ6P//SnGTLZ3VR5OHfnPs/VR5F0Av9jqAHrOuZUoIBT64sDKmPCfzzf5dQcrK
+	Jjs1OIAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLkVF-00000009G2q-2YhY;
-	Sat, 09 May 2026 16:26:09 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
+	id 1wLkhz-00000009H5Y-1EHX;
+	Sat, 09 May 2026 16:39:19 +0000
+Received: from mail-qv1-xf43.google.com ([2607:f8b0:4864:20::f43])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLkV9-00000009G1q-0VFU;
-	Sat, 09 May 2026 16:26:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=Yolk7fPVSsosJ3+V1HG/g+3kb5mEYUGoiAatqyto7So=;
-	b=QNwnNxprHHJUW4PbRByVgKv8H/imUdQGoJjvkX/EUA+Eo4EOgoN3fXXG/YFjUD
-	RCZw7p7hHvAFaD7xgsZA0twZgcRMC0emc+V0FzVJidZqk4Clo93Xmta7ExoLcWQ1
-	mMZ1Fx0EyXnaAa2I8HKBo3TN9DpBamsrne72PUdUBxsnk=
-Received: from [192.168.50.71] (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wBnQtTpX_9pIRSmAQ--.47405S2;
-	Sun, 10 May 2026 00:25:14 +0800 (CST)
-Message-ID: <4f063568-0f5c-42ad-acc5-2d6ca5b546ad@163.com>
-Date: Sun, 10 May 2026 00:25:13 +0800
+	id 1wLkhw-00000009H50-3BrH
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 09 May 2026 16:39:18 +0000
+Received: by mail-qv1-xf43.google.com with SMTP id 6a1803df08f44-8b8e98fd885so26643976d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 09:39:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778344755; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Ydaj+m5kXzPYUVxNPbGRLlBYaaUF5tz5swmDdBQhCzU+CMRCm9B3pHqdEwfiQnbcVM
+         DzWYTrxHQfLkepYUvYMU3s7iZ7hI/FLGloh0ZnyDCutJyLNWTFfdFJBiEMn3h68mdlvK
+         ZVqxZDkvBmCWwy5dEa2AaDcq1GxMghJcg+Mx0jFqRuUuaIZdsjFr7DmwInC4RFox5Lq6
+         VxgdRpdKMfum3EV7GZ47zIpRjFDlCg58sRfh+45U6FvM7zubFJRmtFp/0GE28SrOc1KJ
+         VaFfKZgYoQr9OTDo1R5ZfPop2zi//M0Pp+1fFhCFFK6khXYo0HTH8HCD5heBUJqKRUl+
+         Pk6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=OjvQAKtsddCwvtPj5IUL1zdvC6FgIzquAG4/cEYySIc=;
+        fh=a4Ul+YEKaX4MSbR/LoAfZxKbffSOuU0qEsmMg85WrPI=;
+        b=BOF43vabR4Ay2s03PseYhAu2wWD8UMwWsQLRoxkhIheI3jPDon9t9+lrQmG4Xhyci3
+         SqxFDhDWMKPAhXgAzgDaEi1VipiazI/XXKZ9pU0TYu5B7FhydhziPk8SIO9qaToK1dCk
+         1BGUH6nwXelwr1V7hsPMDvuV+VOHgJRGEfGPMtGI9OAoEdcoMFwtHJlKaDPydFIXIwOO
+         MRfaDqtpBnISU9H51Tz3pJhDM6+S0KkqEPhD43712EID/BkCkSH6vy4Ly3/z9G946zDu
+         CGIKMtdniQ45BHhaetiiRtwoiptFwxPPBBgcqYA2ZILsr3ge2idl69xG1JPHIsBadEPF
+         gCKg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778344755; x=1778949555; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OjvQAKtsddCwvtPj5IUL1zdvC6FgIzquAG4/cEYySIc=;
+        b=BuKXs/SZLet2wDIga21OKKVX2lOxUd6E/3SnsRPvNy7OSPALiq/fe0twejXJnb0Ezy
+         ux/pCCmBOvrvoG2fOKcsFRhy5RPg2lmeGThK4FuqCGON0z5TPW+OgL4eGg6iJf1Y/SQ8
+         6PFErd55xOtXgdk1YWLfJKGMz+6xwJpD4l/UU9M+rbmeu1I1ZnaZsqHQM3QUC9Y754cI
+         iz1+aZWS6hZOpr7pKZJak+UIIu1p2aUPpwhT/kbfrcy0y8MF/e3sOXAMhtNVjr9O/dhZ
+         dzQq+PQozbb/NtZqyMSMRuucqcNNp5qw7qEsbXPI0etwBdvjDcoiVGSekpuyWqcnV439
+         AHpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778344755; x=1778949555;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OjvQAKtsddCwvtPj5IUL1zdvC6FgIzquAG4/cEYySIc=;
+        b=EPVibtXzsElgZpjeO8/P+jKRb11nFelQJMWk/NEi+ZTbxedNQ/sJu9+r73N4b70xMT
+         qeeeEYVWy5HoAlBNa9jg2qbCBJoGawnt9eb4hbtjGRHLLXWGq9fUEL7VNOlc5EwtWdL6
+         0W+H5PA+VG9CWT8gHk/mpAESEYOOOK0YqP6PvZhLFEONulQBapiX9Ce77gvq+h8L2gs8
+         SrcK+JXLsmf3PF2d1pEocX9EhGy2vTzsC/SF/zMTCqCXQpoXMfVBNm+zJ9QzOJxd0gki
+         I8goXFswVkcW5HOJ04+jcfmmJwHywS3VIDylRx7mWsWQjY8uxraKBr3OPc9DufwM0vm3
+         6aOQ==
+X-Gm-Message-State: AOJu0Yx0c2lX5ljvk02VAd8YbgSTN9yWmuAjM1gMHLPdRvja4LmS5GEx
+	2W6FWaj7VOEjsvdbNLe23+McStOm33qtogHdczkRW/QWQMlebxH+U7mg1xKIsjI2UJuYrTLsVbi
+	IhElyWfCgHBloDAy2gKqVTCIrl7lJuJ0=
+X-Gm-Gg: Acq92OHSEgxcdE9XEJaGv4fXy3F3sJ6mFttp+zEKuoaJs1pM+Aivky24zutm8+hV7Nz
+	udkEX71lDnVZEIYmchI3dkBNZsV96nERUP28KPQrQvsDNDgejmlA7NGBfFR4cpj9WRpi+a770LI
+	gDMyr1xa702xvFLV7Cw5pDlPw11SK/jWZFesSvQPs5aa7PJqoVLJYQc9yjqXbPgX9nVMj1AqLSh
+	gDUObMKfFq+MdnkxsCM8kWFDzD8eevmWL8UyAMjB7zSwfk+mPnW2jILc5g3RTuH/mp7pKYBblEC
+	nRSS60OsepnIu+zeJU0yygkAMZ2OQ1noAYmdgJV8O/+6p3bV/iaL5uzEF7gP6Y4zsd+z951YNQP
+	ftUR0nzpRn+ANow==
+X-Received: by 2002:a05:6214:310c:b0:8bd:de6d:c344 with SMTP id
+ 6a1803df08f44-8bdde6dc669mr190711176d6.20.1778344755322; Sat, 09 May 2026
+ 09:39:15 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 8/8] PCI: rzg3s-host: Add 100 ms delay after link
- training
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, bhelgaas@google.com,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- vigneshr@ti.com, jingoohan1@gmail.com, thomas.petazzoni@bootlin.com,
- pali@kernel.org, ryder.lee@mediatek.com, jianjun.wang@mediatek.com,
- claudiu.beznea.uj@bp.renesas.com, mpillai@cadence.com
-Cc: robh@kernel.org, s-vadapalli@ti.com, linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260506152346.166056-1-18255117159@163.com>
- <20260506152346.166056-9-18255117159@163.com>
- <bd0f4589-b586-4f01-b12c-6ae5c19ec21b@tuxon.dev>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <bd0f4589-b586-4f01-b12c-6ae5c19ec21b@tuxon.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wBnQtTpX_9pIRSmAQ--.47405S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7AFWxAF13Cr4xKF48ArW8Zwb_yoW8Wry3pF
-	ZYv3WjyF1UXr4Y9a17X3Z8uFyYq3Z8A34UJ3s3Wa47ZwnxuFZrWF98uF4fJ3Z2grZ7XrW3
-	t3W5t3WUGa15AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UEPfQUUUUU=
-X-Originating-IP: [140.206.53.66]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7ApsEGn-X+qp5wAA33
+References: <20260509012247.14990-1-enelsonmoore@gmail.com> <21e1eeaf-5c8c-488e-89a5-123fc2cc7b1d@bitmer.com>
+In-Reply-To: <21e1eeaf-5c8c-488e-89a5-123fc2cc7b1d@bitmer.com>
+From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Date: Sat, 9 May 2026 09:39:03 -0700
+X-Gm-Features: AVHnY4KwbterUhlugcW_6pZ2ileRIcVWTQ4UTQB6XTT_Ceh7o1QHPSSaCQg7jZ0
+Message-ID: <CADkSEUiMKAQkRKek1fRpb=RtC99AzZm25emGbC75RzQYDct-1g@mail.gmail.com>
+Subject: Re: [PATCH] sound: soc: ti: rx51: remove stale reference to machine_is_nokia_rx51()
+To: Jarkko Nikula <jarkko.nikula@bitmer.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-omap@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_092603_526952_0C908907 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20260509_093916_840242_1DF9C92E 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,53 +118,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Jarkko,
 
+On Sat, May 9, 2026 at 6:07=E2=80=AFAM Jarkko Nikula <jarkko.nikula@bitmer.=
+com> wrote:
+> Not fully true since machine_is_nokia_rx51() still returns true on RX51
+> (N900) and driver loads successfully both before and after your patch.
 
-On 5/7/26 00:52, Claudiu Beznea wrote:
-> Hi, Hans,
-> 
-> On 5/6/26 18:23, Hans Zhang wrote:
->> The Renesas RZ/G3S PCIe host driver currently does not enforce the
->> mandatory 100 ms delay after link training completes for speeds > 5.0 
->> GT/s,
->> required by PCIe r6.0 sec 6.6.1.
->>
->> The driver already has a 'max_link_speed' field (derived from the device
->> tree). Add a call to pcie_wait_after_link_train() in
->> rzg3s_pcie_host_init() after reading the link status, ensuring that the
->> delay is applied before any Configuration Request is sent downstream.
->>
->> Signed-off-by: Hans Zhang <18255117159@163.com>
->> ---
->>   drivers/pci/controller/pcie-rzg3s-host.c | 2 ++
->>   1 file changed, 2 insertions(+)
->>
->> diff --git a/drivers/pci/controller/pcie-rzg3s-host.c b/drivers/pci/ 
->> controller/pcie-rzg3s-host.c
->> index d86e7516dcc2..6ab59c5464cf 100644
->> --- a/drivers/pci/controller/pcie-rzg3s-host.c
->> +++ b/drivers/pci/controller/pcie-rzg3s-host.c
->> @@ -1390,6 +1390,8 @@ static int rzg3s_pcie_host_init(struct 
->> rzg3s_pcie_host *host)
->>       val = readl_relaxed(host->axi + RZG3S_PCI_PCSTAT2);
->>       dev_info(host->dev, "PCIe link status [0x%x]\n", val);
->> +    pcie_wait_after_link_train(host->max_link_speed);
-> 
-> There is an msleep(PCIE_RESET_CONFIG_WAIT_MS) after 
-> rzg3s_pcie_set_max_link_speed() call. Shouldn't that msleep() call be 
-> replaced with your pcie_wait_after_link_train() ?
+Thank you for testing the patch and pointing this out. I didn't know
+the kernel still considered the machine ID passed by the bootloader
+when booting with FDT.
 
-Hi Claudiu,
+> But true you may remove this test so please update the commit log and
+> you may add my tested by tag:
+>
+> Tested-by: Jarkko Nikula <jarkko.nikula@bitmer.com>
 
-Sorry for the late reply. Thank you for pointing it out. It will be 
-replaced.
+Okay. I'll resend the patch with your tag and a fixed commit message
+after the 24-hour deadline.
 
-Best regards,
-Hans
-
-
-> 
-> Thank you,
-> Claudiu
-
+Ethan
 
