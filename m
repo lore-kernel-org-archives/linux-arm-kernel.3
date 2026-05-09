@@ -4,65 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A22DFCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 07:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24390CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 07:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=og6o7ZEgF06jekY5XOw6F9PY6d5VMFdiUNMLpvHn7Yk=; b=qdOM70wKnDTCPI+luoSd4XKD5b
-	OMuzOV75AMs8v9OvRhBIqdbRhf3DPbNO1Pnsp4hz3FGFzXkkG0sKZ9yv9+gQ+OQPW2ngZ3y5fz0LY
-	DVByzOofx/JozOWZKbh5MGmC7PxfDPwSfu4PK/t/EVNcuOJBJxyjfPj/Tsvk6r5NjQN6BMdm9F+VK
-	NcqQ8dCsHCP6I07N1EPLu30IC+dQTpdq7ynL08ycRHPeqtWeDPaN3hqWrDwynU8ygBXkbVucL0Uq6
-	0UqU7RTZKsnlJl6G1zi0xaOZhcrN84qmsqSSOTtWiCkBVQxqRic00oPZLmTL8EM74g9C07H4xHMn2
-	mf0dwmFg==;
+	bh=+lkOiepyYlP3TaQHcCBGEDX/5OsMKncJfTredvP7UUA=; b=mFBmfoKRLDEEkDPXPP0V099Gr/
+	QxMXAys8W+e/+/0kajEA+RAWbM0hriaJW7CdK0jSommMH2gpNuAfBrW34JqlHYiRF8ViTSRMmlepV
+	Z/bUCXEEbTwjjusof/qsw+3K4MWp1UBuNVXYZJ6to+G8WR6fuasP9zjGbzZC2N7w94qtThqliyTY+
+	s3XipJQapHDpnM69Caiggn+ckWLQeenwIJJ+bEOSZhhqLCIuOSkYaZ0rs90p6qFmEYbYFvnVZIaVt
+	iIcOIeaM6Nn5JidQLeEdWgYCTSQZlrzWDEUWyLc2UQ0BCbnQk9726IZ9UPyAySBIFZZe9pSeGIE7x
+	vjRBtiFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLcWJ-00000008X4p-2Mgw;
-	Sat, 09 May 2026 07:54:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wLcYn-00000008XPi-0OOz;
+	Sat, 09 May 2026 07:57:17 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLcWG-00000008X3r-3yWh;
-	Sat, 09 May 2026 07:54:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 28FF342E49;
-	Sat,  9 May 2026 07:54:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A89AC2BCB2;
-	Sat,  9 May 2026 07:54:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778313280;
-	bh=zxyz8FDN5UzWDUVCt3tWqjRCa0K5HokRsZajA9FWsek=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J0rzUBvTmVfwTVwe7CTcEVYs2+fRAl+LvX7Voh1dmP5UGx4KZ+7xkZLgR0KsHByP+
-	 2WsukQoAQ2WdzXCU4g9J/XIFmPr7qwiCjTok/Sm0ctfGdPq+cW7YULTR7VRzbycW4r
-	 mMur2I3fBXKo7hwVWOelVhqGnK4icBPDEVBpgzN6Yng39xHunQM7WlHBCGZ6zvoTRd
-	 FGI9eRAYM6GEMIkRLRv0Q8S7gGxf75se8CG0mHWF5Xc0fx7y4H9m/ep+Fsr7VPmwzU
-	 YgvczEoW8dyerxHy0ZQGJwNYCBF0Y48vrtYZFeMJbDe//5a9QQ7fSwBklvWfXZzy1O
-	 kfVIjRHxOzBcw==
-Date: Sat, 9 May 2026 09:54:37 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, ansuelsmth@gmail.com,
-	benjamin.larsson@genexis.eu, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, madhur.agrawal@airoha.com
-Subject: Re: [PATCH net-next v4 05/10] net: airoha: Move qos_sq_bmap in
- airoha_qdma struct
-Message-ID: <af7oPWp43eMDmolL@lore-desk>
-References: <20260507-airoha-eth-multi-serdes-v4-5-af613b61ae02@kernel.org>
- <20260509014609.3558041-1-kuba@kernel.org>
+	id 1wLcYk-00000008XP4-0J5y
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 09 May 2026 07:57:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eCVUZRrmmXVH3Meg2+xzxW4XAkGQiJtfcNeO4BBPWX2pEuI10cT94ELzlGBgAY1S5nLqvlSE6c3tLo7DSYZhapuwYaz42/8dEDipzBlwLwR4uBuRA/Ntz+KA503cXZm1kf5iYa++OO5YW0lyoQhUirdgg4rX/YuoZulEJoQG3T5w6SXghzgZDKcuEm8fqnEvbn9lryR2vYPM2qtvYukGkhVlS1jLoUkomwvB6/L8bMwtu/U21nZKEJCYgp/lpTHDBMBW4NbLjuNgVlmBL/vEKDCZmxG90zq4bzmgclQBMNuqs2eN3BMbX9GE/XhzlIb+piq0F4hr8uheJnRdGf3vMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+lkOiepyYlP3TaQHcCBGEDX/5OsMKncJfTredvP7UUA=;
+ b=cVH4CnpJZXaXKZ1Bt9VH8Q1vuQu2dnm3iUwVc+VdFa24HS91MoLmyhBZncMo5TCFZ6b5BQwtUBPzy41uVTuoEZEmuAYhJkT4ymvs+aLBHOae9UWcWw8Y3WX3jLEwTZILlZBKlQ9qayBp543we9yU6eTCRVtg2wv3kDTkkVXevKvk9MOBzQkpN/VO1V85TcJcNbUcwt0CFC54ruRW/n3wAnVUCa7aU1oIvW2Ff19C67s9br+3pKagUacx1uzqNB6uwGcwvXS4zIZc2O6dFvJmrWnbAk7cADZ6JiZVRWi9yLBRhEtIcvj0dAj981G5+Oj2fhE+zywNv6Vw0F5Rn9CdHQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+lkOiepyYlP3TaQHcCBGEDX/5OsMKncJfTredvP7UUA=;
+ b=lIFYhxLsbW05tp8nmNvLn333W1FwnwilEKnj0Ni8lxDjx8AKrUW4h/Tyo0KrDaGRdHd92V54gxEAO1+iHNg8c3XMmY9spnqa9kXL5gYbO39r4N9R3gZSX34TvxbHrg1l9JB5gDYwkgSv7kBpcNkeSgVpZYbK6cUArxtU0dwi4Fj/Q8KYZ6EQy+G1QffUXuXHuORQABDrFu1okRFcqRz0DfWcv7uzx31vvKxAyZXgJN8BnZBuJbdSQKb/qw9GWNMHbX8BfWPQ0HzqvQDkTPN2R4/Qi795g32dTQE0ND+qbi3YSMfg9TWHNtafrBrZq2uDRtbkrhNvXqGA+WvtWptEyA==
+Received: from SJ0PR05CA0190.namprd05.prod.outlook.com (2603:10b6:a03:330::15)
+ by MN2PR12MB4064.namprd12.prod.outlook.com (2603:10b6:208:1d3::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Sat, 9 May
+ 2026 07:57:04 +0000
+Received: from SJ5PEPF000001F1.namprd05.prod.outlook.com
+ (2603:10b6:a03:330:cafe::7f) by SJ0PR05CA0190.outlook.office365.com
+ (2603:10b6:a03:330::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.6 via Frontend Transport; Sat, 9
+ May 2026 07:57:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SJ5PEPF000001F1.mail.protection.outlook.com (10.167.242.69) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9913.8 via Frontend Transport; Sat, 9 May 2026 07:57:04 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 9 May
+ 2026 00:57:03 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Sat, 9 May 2026 00:57:03 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.182)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Sat, 9 May 2026 00:57:01 -0700
+Date: Sat, 9 May 2026 00:56:57 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+CC: Pranjal Shrivastava <praan@google.com>, Jason Gunthorpe <jgg@nvidia.com>,
+	Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>, "Jean-Philippe
+ Brucker" <jpb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] iommu/arm-smmu-v3-sva: Enable Hardware Access and
+ Hardware Dirty bits
+Message-ID: <af7oyeleKFXpcIKu@nvidia.com>
+References: <20260503135413.1108138-1-nicolinc@nvidia.com>
+ <af0SdkjQOZxnnaQb@google.com>
+ <20260508123550.GB9254@nvidia.com>
+ <af3hWGp3etGOIdEn@google.com>
+ <f31043cc-45dd-457f-8031-0cef51c9470e@arm.com>
+ <af3ryl7G58D2GeWr@google.com>
+ <4e129891-2f52-4bac-8e33-1fdde42fd29a@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Xd5dB8WzQ5hyc0ai"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260509014609.3558041-1-kuba@kernel.org>
+In-Reply-To: <4e129891-2f52-4bac-8e33-1fdde42fd29a@arm.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F1:EE_|MN2PR12MB4064:EE_
+X-MS-Office365-Filtering-Correlation-Id: 323196f9-3706-4de0-6b79-08deada08f2e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|82310400026|36860700016|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: rIJ2cpXbwRu77OwzwRp8LdaamKLfHiO7h9EZeFXiUwQiAkhzU052TCHTDmHwR0AvLAKEgjYWzlZWoDG02aDsgVH9VRVV3F0PcGW6vG/pvtc7dZjjgOkJQUxYmMf2ntw+cUg71ABdflyOWZusshurPGsm2aYbiVpefgri/Jfs5swyQLdPBBZaiO8rhOX4nDmiGDHrqOGOqO45fWFUMfJKYTqBJ455ncu68qu38F5QBYSdK8OokVsr+I+Mmo/t3MgUwvfy+2XnVgS/10PKBvQfoM9Yw5hRMVuXJZShMMxAwBRjGQ2DHj2LftzkmSDAf2BSVDFg1XRRHjmoJ3Yl+KnP42k01p3+2C+iKG2jBYO2a+VG+HCtm0prhdrZJWcugmjWx8x1p7KsXskxDwPFol9jGMYErxur/pLqQH2sOCSAeP4rVrOKWTjf8NgpUU/TwvPhx0XVf1uX/A79BGbgwwtIEngIW9S3f3p/5hbKC+jJM2d3NnTHBYAfNfVXDa28lQm+bZMk4+Kc5TWH/orTIQhQGMF0/NwlMLRWzu7/XNgkYQMp68pFoyCMtJwetxxKcX+MxERqUO0jYci00y0K5cAzJ/cehT8VnEm0Zx5hug/TcobBFD46Kow8q28mAhn9Mr9V5H9wCVm0p8GpllFjR+YT+9SclmoizXQh1WiAP1WXsPfhDNJcOCrAnveaKQovtP8KdOpqXqcUi0x5AbgwbFjvTRJZk7fTsPTw2KSjE3iudTw=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(82310400026)(36860700016)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Ic8fvssMyVnfYIulZp6ccENlBGL0HNFvRaGLxqA2PxlCPBhQdMa8RK82JKpQ2uizYGI9N+lBKxnpjw7sRlOaJ+9sjsHhPf8mStDiBhjq/w6fjn75S0BCmtEH556SOgxM9vGf8DQM7DefgU8JGpMsLfKvXkCb+rPcrBTt5oLYm+t5/6ec4C1BtMWKBEbn2L4BwJ1mnvno+qHAfEp+1mnNhyzWXCre4a4TsklGvZJ234hqQpHepblJ0puMdCw3FobzbH26Cj2JKX15jB08Le9FNuoSkUdF9ySG7m2PW9ydR36br2O0wDafKbsbJ6UDC5y2zbCmH0H4ogXiLu5Dy6RcSEg+XJtBwKqfXy3OCZlcCeQo+cepCHY4U8m4yHz2R8jznvWJ1EjvvTWXhWsU8sykaRoWlapVE4/ghQ6czsi09ZFQxNqBg+h83DvOxZzkCEmy
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 May 2026 07:57:04.1537
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 323196f9-3706-4de0-6b79-08deada08f2e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F1.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_005441_031520_22ED4BFE 
-X-CRM114-Status: GOOD (  28.74  )
+X-CRM114-CacheID: sfid-20260509_005714_116707_1E57171A 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,186 +137,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 08, 2026 at 03:24:32PM +0100, Robin Murphy wrote:
+> On 2026-05-08 2:57 pm, Pranjal Shrivastava wrote:
+> > I see, so IIUC, you mean if IS_ENABLED(CONFIG_ARM64_HW_AFDBM) but CPU
+> > doesn't enable HTTU, it is perfectly safe to let the SMMU do HTT updates,
+> > Since the fault handlers are already expecting HW-triggered updates?
+> > 
+> > Which means our check would be something like:
+> > 
+> >     if (IS_ENABLED(CONFIG_ARM64_HW_AFDBM) {
+> >     	if (smmu->features & FEAT_HA)
+> > 	 ...
+> >     }
+> > 
+> > instead of cpu_has_hw_af()?
+> 
+> Hmm, looking closer, cpu_has_hw_af() is the thing which actually influences
+> mm behaviour (via arch_has_hw_pte_young and arch_wants_old_prefaulted_pte),
+> and that can still be false at runtime if ARM64_HW_AFDBM is enabled but any
+> CPU doesn't support HAFDBS, so perhaps you were right the first time :)
 
---Xd5dB8WzQ5hyc0ai
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+IIUIC, v2 should be:
 
-On May 08, Jakub Kicinski wrote:
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> ---
->     net: airoha: Move qos_sq_bmap in airoha_qdma struct
->=20
-> The change moves the HTB-offload channel-allocation bitmap from the
-> per-netdev airoha_gdm_port to the per-QDMA airoha_qdma, so sibling
-> netdevs attached to different QDMA blocks no longer clobber each other's
-> bitmap.
->=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index 080705e2f58d..69a4c2e0d58b 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -2600,7 +2600,7 @@ static int airoha_tc_htb_alloc_leaf_queue(struct =
-net_device *netdev,
-> >  	u32 rate =3D div_u64(opt->rate, 1000) << 3; /* kbps */
-> >  	int err, num_tx_queues =3D netdev->real_num_tx_queues;
-> >  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> > -	struct airoha_gdm_port *port =3D dev->port;
-> > +	struct airoha_qdma *qdma =3D dev->qdma;
-> > =20
-> >  	if (opt->parent_classid !=3D TC_HTB_CLASSID_ROOT) {
-> >  		NL_SET_ERR_MSG_MOD(opt->extack, "invalid parent classid");
-> > @@ -2627,7 +2627,7 @@ static int airoha_tc_htb_alloc_leaf_queue(struct =
-net_device *netdev,
-> >  		return err;
-> >  	}
-> > =20
-> > -	set_bit(channel, port->qos_sq_bmap);
-> > +	set_bit(channel, qdma->qos_sq_bmap);
-> >  	opt->qid =3D AIROHA_NUM_TX_RING + channel;
-> > =20
-> >  	return 0;
->=20
-> [High]
-> Now that qos_sq_bmap is per-QDMA, can two sibling netdevs that share the
-> same QDMA block collide on allocation?  On EN7581, GDM2/GDM3/GDM4 all
-> select the same qdma pointer via:
->=20
->     drivers/net/ethernet/airoha/airoha_eth.c:
->         /* QDMA0 is used for lan ports while QDMA1 is used for WAN ports =
-*/
->         dev->qdma =3D &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
->=20
-> and airoha_is_lan_gdm_dev() returns true only for port->id =3D=3D 1, so
-> every non-LAN GDM netdev resolves to eth->qdma[1] and shares
-> qdma->qos_sq_bmap.
->=20
-> The allocation path does not test the bit before setting it:
->=20
->     channel =3D TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
->     ...
->     set_bit(channel, qdma->qos_sq_bmap);
->     opt->qid =3D AIROHA_NUM_TX_RING + channel;
->=20
-> If two sibling netdevs on the same QDMA pick classids whose TC_H_MIN
-> maps to the same channel, both airoha_qdma_set_tx_rate_limit() calls
-> program the same HW TRTCM egress slot, the later caller silently
-> overwrites the earlier configuration, and both netdevs receive the same
-> opt->qid.  Should this path use test_and_set_bit() (or similar owner
-> tracking) to reject a channel already owned by a sibling netdev?
++		/*
++		 * Enable Hardware Access and Dirty updates (DBM) if supported by
++		 * both the SMMU and the CPU. It is unsafe to enable SMMU's HTTU,
++		 * if the CPU does not support it as it bypasses mm page aging.
++		 */
++		if (cpu_has_hw_af()) {
++			if (master->smmu->features & ARM_SMMU_FEAT_HA)
++				target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
++			if (master->smmu->features & ARM_SMMU_FEAT_HD)
++				target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
++		}
 
-ack, I think we should move qos_sq_bmap in airoha_gdm_dev struct and track =
-if a
-shared qdma qos channel is already in use. I will fix it in v5.
-
->=20
-> > @@ -2811,11 +2811,11 @@ static int airoha_dev_setup_tc_block(struct net=
-_device *dev,
-> >  static void airoha_tc_remove_htb_queue(struct net_device *netdev, int =
-queue)
-> >  {
-> >  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> > -	struct airoha_gdm_port *port =3D dev->port;
-> > +	struct airoha_qdma *qdma =3D dev->qdma;
-> > =20
-> >  	netif_set_real_num_tx_queues(netdev, netdev->real_num_tx_queues - 1);
-> >  	airoha_qdma_set_tx_rate_limit(netdev, queue + 1, 0, 0);
-> > -	clear_bit(queue, port->qos_sq_bmap);
-> > +	clear_bit(queue, qdma->qos_sq_bmap);
-> >  }
->=20
-> [High]
-> airoha_tc_remove_htb_queue() operates unconditionally on the caller's
-> netdev but clears a bit that may be owned by a sibling netdev on the
-> same QDMA.  The effects that follow look like cross-netdev interference:
->=20
->   - netif_set_real_num_tx_queues(netdev, real_num_tx_queues - 1)
->     decrements the caller's tx-queue count for a queue it never
->     allocated, and its return value is discarded (eventually the txq<1
->     EINVAL guard in netif_set_real_num_tx_queues() will trip silently).
->=20
->   - airoha_qdma_set_tx_rate_limit(netdev, queue + 1, 0, 0) zeros the
->     egress TRTCM rate-limit registers for a channel that the sibling
->     netdev still considers active.
->=20
->   - clear_bit(queue, qdma->qos_sq_bmap) then hides the channel from the
->     legitimate owner's later test_bit() checks.
-
-This issue will be fixed by the change described above. I will fix it in v5.
-
->=20
-> > @@ -2838,10 +2838,10 @@ static int airoha_tc_htb_delete_leaf_queue(stru=
-ct net_device *netdev,
-> >  static int airoha_tc_htb_destroy(struct net_device *netdev)
-> >  {
-> >  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> > -	struct airoha_gdm_port *port =3D dev->port;
-> > +	struct airoha_qdma *qdma =3D dev->qdma;
-> >  	int q;
-> > =20
-> > -	for_each_set_bit(q, port->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
-> > +	for_each_set_bit(q, qdma->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
-> >  		airoha_tc_remove_htb_queue(netdev, q);
-> > =20
-> >  	return 0;
-> >  }
->=20
-> [High]
-> Does airoha_tc_htb_destroy() now walk bits owned by sibling netdevs?
-> The iteration no longer filters by owning netdev:
->=20
->     for_each_set_bit(q, qdma->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
->         airoha_tc_remove_htb_queue(netdev, q);
->=20
-> Previously each netdev had a private bitmap, so destroy could only
-> touch its own channels.  After this change, tearing down HTB on one
-> GDM netdev appears to remove channels and clear rate-limit HW state
-> belonging to every sibling GDM netdev on the same QDMA.  A subsequent
-> tc-htb delete or get on the legitimate owner then hits:
->=20
->     if (!test_bit(channel, qdma->qos_sq_bmap)) {
->         NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
->         return -EINVAL;
->     }
->=20
-> Should the bitmap track the owning netdev alongside the bit (for
-> example a per-channel owner pointer, or a per-netdev sub-bitmap inside
-> airoha_qdma), so that destroy/delete can only touch channels owned by
-> the caller?
-
-This issue will be fixed by the change described above. I will fix it in v5.
-
-Regards,
-Lorenzo
-
->=20
-> > @@ -2852,9 +2852,9 @@ static int airoha_tc_get_htb_get_leaf_queue(struc=
-t net_device *netdev,
-> >  {
-> >  	u32 channel =3D TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
-> >  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> > -	struct airoha_gdm_port *port =3D dev->port;
-> > +	struct airoha_qdma *qdma =3D dev->qdma;
-> > =20
-> > -	if (!test_bit(channel, port->qos_sq_bmap)) {
-> > +	if (!test_bit(channel, qdma->qos_sq_bmap)) {
-> >  		NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
-> >  		return -EINVAL;
-> >  	}
-
---Xd5dB8WzQ5hyc0ai
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaf7oPQAKCRA6cBh0uS2t
-rN3RAQCwaawlr2yErx3LmHhe0E+rMXHt3D2fiJwpOoWIsi7hiQEAi8DO4s7DF7IM
-P/IEb6FGOSDFfHmE1ucbwpvLwHIbngg=
-=tFrn
------END PGP SIGNATURE-----
-
---Xd5dB8WzQ5hyc0ai--
+Thanks
+Nicolin
 
