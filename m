@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB44DCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 01:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF252CD37B6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 01:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CuVbAyLZAEOmGbshQeNziA8N4YaVeGOgucBjBDGUMSo=; b=EULbYRFOX8cunUwqYfJI/IMSqN
-	QZEz3B/MsI9BsBA7Yb8UMdvHuL7FlZPmvQ2iKiempbsIR6udUb2Kssz9R6d3S8DRSzPAr9er3FCMW
-	e0ezo5YsUQDe5l+i5p8D4HPGYyVO1HvuPCA9v3Fbqx4E9QNkT0Ws0B4PcsaHY54XHvB4z1q+++Ruy
-	GSOAx+lX6nrUotixH/K3fktS1kZzAKyapxuIiV2tXTnICyNNOlom+WAbmL021YNKZKUkaZRWEMZzg
-	us7tpStvqenBThtUxrDhW8cdRLrVkuJj08kaQKpeQduLxoDyT+DzuNtw/+jaALD/cf36+orJISRww
-	IpXhfnvA==;
+	bh=37mB7mAELKH6aDS/h25uCFyXkAsc5Esnj1CnHf0NQYI=; b=JmOeqKRBFDyKiHIIYtP3eNEwfA
+	5dH7ofTktIdSszn0B0nJraWLzXvqYESyk4zwgTl5+XL304IOSJ2/4B7oU89i5JCJ57vSNDfsFC65z
+	djI4VqyefzUdWKzidmg6D38g2lBbJZ/wLZctmzxvZFiS7Rfe57IJnoGU909iNufXUdjiH5GpaWR0G
+	zN68LGs0fdcLEEF+I82JCtIhQkC8BRXfY09EQS1Be1wbMhlRVmxAoap7ZzDiv36IQIMS4quB1nAsX
+	b7hOo91dm3424j7naQV0JizHtYsq2hBWbTJdr2tMOQC+rxr8U3Drk9gJeHEFFlLE1d8/iAIMl0IRP
+	1LUN7xvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLWlo-00000007vgx-2mGy;
+	id 1wLWlq-00000007vix-41qH;
 	Sat, 09 May 2026 01:46:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLWlh-00000007vcW-2soT;
-	Sat, 09 May 2026 01:46:16 +0000
+	id 1wLWll-00000007veG-1xwZ;
+	Sat, 09 May 2026 01:46:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 65C7843B9E;
-	Sat,  9 May 2026 01:46:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E2AAC2BCB0;
-	Sat,  9 May 2026 01:46:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F1DA4439B;
+	Sat,  9 May 2026 01:46:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 675A2C2BCB0;
+	Sat,  9 May 2026 01:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778291173;
-	bh=mp2ZQVuKoI/GitBcxUoDpxVotzf5sy1ZjJulzPRcuwg=;
+	s=k20201202; t=1778291177;
+	bh=EVpS+D5l4uaBpd3aqAD7zLlOvMu0NW0P58tfE3k9TC8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BjVuPyO9ncYs0l6zVPbbKV/DTduE3RsKesmJDF6T7SV/bfhLjE00B+jQwNVp1otva
-	 i5sTt6KebQFf5Kr6vs5DDzlNic100P7oN9o/4JFT98h3lLD+JGdBupcKuK5x8i50vr
-	 +UEGTakwnKCvd9aYhTinzu9V6/nZ5R2u3J27AfRAehbFn8wjfLqrc+ksi2h7iRUuki
-	 lAWdYyFBbG/rmwHOjIta67gve1hcmuhEEk8G0oKn04vuJ26vQc/7Z/4O5dhkqobSne
-	 M2/ug2+nSKZlg4FdzbtU1i4jB00h7BxYdxDBV26+En8cAq/Dst9AhIV+6mRFbb+Vg3
-	 1OM7nrFNGldQw==
+	b=EJJgXfPJj55SCswGnSWPnjWDEr8+pn30ZDMP3Zxhd5XSiJTKaYib/X+RO8gHn2poL
+	 FYyIutfbLp9CqWG/OindW3AREvrTwqB5chULip5ialgic8e7TAZnrr5qLPnNDyu5XJ
+	 bEAn54yfHbPtEgwtipGig2WoW7KfbuKdtJseQgxCYIcXO7I5vQleG/b45kg1WCl5sj
+	 TWg+0NbxfTAh6MN2MI0VPKUFuHw5BiG8OYfavv3/f635iLkASAGSNAJPUHCnXLZWxk
+	 /L1bMdlR7KU9Wf50G7hG+d2wQt3UlcXwOPZeEJo3cSNxdPR3AD4GhGU+TjV6qqr6Rv
+	 CtqMSI5vTbArw==
 From: Jakub Kicinski <kuba@kernel.org>
 To: lorenzo@kernel.org
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -58,17 +58,17 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	netdev@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	madhur.agrawal@airoha.com
-Subject: Re: [PATCH net-next v4 07/10] net: airoha: Support multiple net_devices for a single FE GDM port
-Date: Fri,  8 May 2026 18:46:11 -0700
-Message-ID: <20260509014611.3558060-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v4 09/10] net: airoha: Introduce WAN device flag
+Date: Fri,  8 May 2026 18:46:15 -0700
+Message-ID: <20260509014615.3558164-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260507-airoha-eth-multi-serdes-v4-7-af613b61ae02@kernel.org>
-References: <20260507-airoha-eth-multi-serdes-v4-7-af613b61ae02@kernel.org>
+In-Reply-To: <20260507-airoha-eth-multi-serdes-v4-9-af613b61ae02@kernel.org>
+References: <20260507-airoha-eth-multi-serdes-v4-9-af613b61ae02@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_184613_866119_78C4F659 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20260508_184617_556956_686249BF 
+X-CRM114-Status: GOOD (  28.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,143 +86,218 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: airoha: Support multiple net_devices for a single FE GDM port
+net: airoha: Introduce WAN device flag
 
-This commit introduces support for multiple net_devices connected to the
-same Frame Engine (FE) GDM port (GDM3 or GDM4) via an external hardware
-arbiter on EN7581 or AN7583 SoCs, and adds a get_dev_from_sport callback
-to differentiate between the net_devices attached to each port.
+This commit replaces the port->id == 1 LAN/WAN test with a per-dev
+PRIV_FLAG_WAN bit that is set during airoha_dev_init() based on the
+port id and the presence of other WAN devices. It also extracts the
+QDMA selection/PPE cpu port programming into a new helper and reworks
+the GDM2 loopback path to key off the new flag.
+
+A few questions about the new policy and error paths.
+
+[Medium]
+The commit message says:
+
+    Introduce WAN flag to specify if a given device is used to
+    transmit/receive WAN or LAN traffic. [...] Please note it is possible
+    to specify multiple LAN devices but just a single WAN one.
+
+Under the old helper (port->id == 1), GDM2/GDM3/GDM4 were all treated as
+WAN. Under the new logic, when GDM2 (eth->ports[1]) is present, the
+GDM3/GDM4 case breaks out of the switch without setting PRIV_FLAG_WAN, so
+GDM3 and GDM4 are now classified as LAN. That flips the MAC register
+(REG_FE_WAN_MAC_H -> REG_FE_LAN_MAC_H in airoha_set_macaddr()), the QDMA
+binding (qdma[1] -> qdma[0] in airoha_dev_set_qdma()), and the PPE cpu
+port (CDM2 -> CDM1). Is that role change intentional, and could the
+commit message call it out so bisecting a board that relied on the old
+GDM3/GDM4=WAN semantics is easier?
 
 > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index 786bc677af3c..0253919714e0 100644
+> index 1c4927c1aeb0..8617dd4f7932 100644
 > --- a/drivers/net/ethernet/airoha/airoha_eth.c
 > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-
-[ ... ]
-
-> @@ -3188,14 +3257,23 @@ static int airoha_probe(struct platform_device *pdev)
+> @@ -1863,36 +1863,77 @@ static int airoha_set_gdm2_loopback(struct airoha_gdm_dev *dev)
+>  	return 0;
+>  }
 >  
->  	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
->  		struct airoha_gdm_port *port = eth->ports[i];
-> -		struct airoha_gdm_dev *dev;
+> -static int airoha_dev_init(struct net_device *netdev)
+> +static struct airoha_gdm_dev *
+> +airoha_get_wan_gdm_dev(struct airoha_eth *eth)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+> +		struct airoha_gdm_port *port = eth->ports[i];
 > +		int j;
->  
->  		if (!port)
->  			continue;
->  
-> -		dev = port->dev;
-> -		if (dev && dev->dev->reg_state == NETREG_REGISTERED)
-> -			unregister_netdev(dev->dev);
+> +
+> +		if (!port)
+> +			continue;
+> +
 > +		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
 > +			struct airoha_gdm_dev *dev = port->devs[j];
-> +			struct net_device *netdev;
 > +
-> +			if (!dev)
-> +				continue;
-> +
-> +			netdev = dev->dev;
-> +			of_node_put(netdev->dev.of_node);
-> +			if (netdev->reg_state == NETREG_REGISTERED)
-> +				unregister_netdev(netdev);
+> +			if (dev && !airoha_is_lan_gdm_dev(dev))
+> +				return dev;
 > +		}
->  		airoha_metadata_dst_free(port);
->  	}
->  	airoha_hw_cleanup(eth);
+> +	}
+> +
+> +	return NULL;
+> +}
+
+[High]
+airoha_register_gdm_devices() invokes airoha_dev_init() for each dev in
+port->devs[] sequentially. On EN7581 GDM3 supports two devs (nbq 4/5 for
+PCIE0/PCIE1 in airoha_alloc_gdm_device()). When both devs are registered,
+devs[0] sets PRIV_FLAG_WAN and then devs[1] sees the first via
+airoha_get_wan_gdm_dev() and falls through to LAN. Is that the intended
+result for two devs on the same physical GDM3/GDM4 port?
+
+The two devs then diverge:
+
+  airoha_dev_set_qdma()
+    dev->qdma = &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
+
+so devs[1] binds to qdma[0] while devs[0] is on qdma[1];
+
+  airoha_set_macaddr()
+    reg = airoha_is_lan_gdm_dev(dev) ? REG_FE_LAN_MAC_H
+                                     : REG_FE_WAN_MAC_H;
+
+so devs[1] writes into the LAN MAC range that belongs to GDM1; and in
+airoha_ppe_foe_entry_prepare() pse_port becomes port->id instead of 2
+(GDM2 loopback) only for devs[1]. Is there an assumption that sibling
+devs on the same port must share the WAN/LAN classification?
+
+> +
+> +static void airoha_dev_set_qdma(struct airoha_gdm_dev *dev)
+>  {
+> -	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+> -	struct airoha_gdm_port *port = dev->port;
+>  	struct airoha_eth *eth = dev->eth;
+>  	int i;
+>  
+>  	/* QDMA0 is used for lan ports while QDMA1 is used for WAN ports */
+>  	dev->qdma = &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
+>  	dev->dev->irq = dev->qdma->irq_banks[0].irq;
+> -	airoha_set_macaddr(dev, netdev->dev_addr);
+> +
+> +	for (i = 0; i < eth->soc->num_ppe; i++)
+> +		airoha_ppe_set_cpu_port(dev, i, airoha_get_fe_port(dev));
+> +}
+> +
+> +static int airoha_dev_init(struct net_device *netdev)
+> +{
+> +	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+> +	struct airoha_gdm_port *port = dev->port;
+>  
+>  	switch (port->id) {
+>  	case AIROHA_GDM3_IDX:
+> -	case AIROHA_GDM4_IDX:
+> -		/* If GDM2 is active we can't enable loopback */
+> -		if (!eth->ports[1]) {
+> -			int err;
+> +	case AIROHA_GDM4_IDX: {
+> +		struct airoha_eth *eth = dev->eth;
+>  
+> -			err = airoha_set_gdm2_loopback(dev);
+> -			if (err)
+> -				return err;
+> -		}
+> +		if (eth->ports[1] || airoha_get_wan_gdm_dev(eth))
+> +			break;
 
 [Medium]
-Is the ordering of of_node_put() and unregister_netdev() here correct?
+Is the eth->ports[1] check equivalent to asking whether a GDM2 dev
+actually exists? airoha_alloc_gdm_port() assigns eth->ports[p] before
+iterating the "airoha,eth-port" child nodes, so with all GDM2 child nodes
+marked status="disabled" and GDM3 or GDM4 enabled, eth->ports[1] is
+non-NULL but port->devs[] is empty. In that case this branch still breaks
+out of the switch and the uplink GDM3/GDM4 dev ends up LAN. Would checking
+for an actual dev under eth->ports[1] be safer than checking the port
+pointer alone?
 
-airoha_alloc_gdm_device() now does:
+[Medium, Low]
+The policy that "just a single WAN one" is allowed is enforced by silently
+breaking here when airoha_get_wan_gdm_dev() returns non-NULL. Would a
+netdev_warn() or -EINVAL help an administrator notice that a second WAN
+candidate was demoted to LAN? Also, with both GDM3 and GDM4 enabled and
+GDM2 absent, the winner of PRIV_FLAG_WAN depends on eth->ports[] iteration
+order and the port/dev allocation order; is there a deterministic,
+documented way to choose which dev becomes WAN (DT property, for example)?
 
-	netdev->dev.of_node = of_node_get(np);
-
-so the netdev holds its own reference to the of_node for its entire
-registered lifetime. In this error unwind the of_node_put() runs before
-unregister_netdev(), and netdev->dev.of_node is not cleared, so any
-subsequent access to netdev->dev.of_node during unregistration (netdev
-notifiers, sysfs, overlay-aware code) would be looking at a node whose
-reference count has already been dropped.
-
-Other drivers (e.g., drivers/net/ethernet/hisilicon/hns/hns_enet.c in
-hns_nic_dev_remove()) put the node only after unregister_netdev().
-
-Would swapping the order to call unregister_netdev() first, then
-of_node_put(), be more appropriate here?
-
-> @@ -3216,14 +3294,22 @@ static void airoha_remove(struct platform_device *pdev)
->  
->  	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
->  		struct airoha_gdm_port *port = eth->ports[i];
-> -		struct airoha_gdm_dev *dev;
-> +		int j;
->  
->  		if (!port)
->  			continue;
->  
-> -		dev = port->dev;
-> -		if (dev)
-> -			unregister_netdev(dev->dev);
-> +		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
-> +			struct airoha_gdm_dev *dev = port->devs[j];
-> +			struct net_device *netdev;
-> +
-> +			if (!dev)
-> +				continue;
-> +
-> +			netdev = dev->dev;
-> +			of_node_put(netdev->dev.of_node);
-> +			unregister_netdev(netdev);
-> +		}
->  		airoha_metadata_dst_free(port);
+> +		fallthrough;
+> +	}
+> +	case AIROHA_GDM2_IDX:
+> +		/* GDM2 is always used as wan */
+> +		dev->flags |= PRIV_FLAG_WAN;
+>  		break;
+>  	default:
+>  		break;
 >  	}
->  	airoha_hw_cleanup(eth);
+>  
+> -	for (i = 0; i < eth->soc->num_ppe; i++)
+> -		airoha_ppe_set_cpu_port(dev, i, airoha_get_fe_port(dev));
+> +	airoha_dev_set_qdma(dev);
+> +	airoha_set_macaddr(dev, netdev->dev_addr);
+> +
+> +	if (!airoha_is_lan_gdm_dev(dev) &&
+> +	    (port->id == AIROHA_GDM3_IDX || port->id == AIROHA_GDM4_IDX)) {
+> +		int err;
+> +
+> +		err = airoha_set_gdm2_loopback(dev);
+> +		if (err) {
+> +			dev->flags &= ~PRIV_FLAG_WAN;
+> +			return err;
+> +		}
+> +	}
 
 [Medium]
-Same question in airoha_remove(): the of_node_put() fires before
-unregister_netdev(), while netdev->dev.of_node is still assigned. Would
-this be safer with the unregister first and the put afterwards?
+On the error path, is clearing PRIV_FLAG_WAN sufficient? By the time
+airoha_set_gdm2_loopback() returns a failure, airoha_dev_set_qdma() has
+already pointed dev->qdma at &eth->qdma[1] and set dev->dev->irq to the
+WAN IRQ, airoha_set_macaddr() has written into REG_FE_WAN_MAC_H,
+airoha_ppe_set_cpu_port() has programmed CDM2 as the PPE cpu port, and
+airoha_set_gdm2_loopback() itself may have already programmed
+REG_GDM_FWD_CFG(GDM2), REG_GDM_TXCHN_EN/RXCHN_EN, REG_GDM_LPBK_CFG,
+REG_GDM_LEN_CFG, REG_FE_VIP_PORT_EN and REG_FE_IFC_PORT_EN before the
+get_sport() branch failed.
 
+After clearing the flag airoha_is_lan_gdm_dev(dev) reports LAN but
+dev->qdma and the hardware registers above still describe the WAN setup.
+Would it be cleaner to either unwind those steps or drop the flag clear?
+
+>  
+>  	return 0;
+>  }
 > diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-> index 3e93919a175c..207c75152fde 100644
+> index 3a313ac439e7..5715b03e630b 100644
 > --- a/drivers/net/ethernet/airoha/airoha_eth.h
 > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -540,12 +540,17 @@ struct airoha_qdma {
+>  	u64 fwd_tx_packets;
+>  };
+>  
+> +enum airoha_priv_flags {
+> +	PRIV_FLAG_WAN = BIT(0),
+> +};
 
-[ ... ]
+[Low]
+This isn't a bug, but PRIV_FLAG_WAN and the u32 flags field below overlap
+conceptually with struct net_device::priv_flags and the IFF_* namespace.
+Would a driver-prefixed name such as AIROHA_DEV_F_WAN make the
+driver-local scope obvious to future readers?
 
-> @@ -542,14 +543,15 @@ struct airoha_qdma {
+> +
 >  struct airoha_gdm_dev {
 >  	struct airoha_gdm_port *port;
 >  	struct airoha_qdma *qdma;
-> -	struct net_device *dev;
 >  	struct airoha_eth *eth;
-> +	struct net_device *dev;
-> +
-> +	int nbq;
+>  	struct net_device *dev;
+>  
+> +	u32 flags;
+>  	int nbq;
 >  };
->  
->  struct airoha_gdm_port {
-> -	struct airoha_gdm_dev *dev;
-> +	struct airoha_gdm_dev *devs[AIROHA_MAX_NUM_GDM_DEVS];
->  	int id;
-> -	int nbq;
->  
->  	struct airoha_hw_stats stats;
 
-[Medium]
-With multiple airoha_gdm_dev instances now sharing a single
-airoha_gdm_port, do the per-netdev statistics need to become per-netdev
-rather than per-port?
-
-airoha_dev_get_stats64(), airoha_ethtool_get_mac_stats() and
-airoha_ethtool_get_rmon_stats() all read from dev->port->stats, and the
-underlying hardware counters at REG_FE_GDM_*_CNT(port->id) are per-GDM
-port rather than per-netdev. When two netdevs share a port (for example
-PCIE0/PCIE1 on EN7581 GDM3, or ETH/USB on GDM4), both netdevs would
-report identical port-wide counters via rtnl_link_stats64 (ip -s link
-show) and via the get_eth_mac_stats/get_rmon_stats ethtool callbacks,
-and summing across the two netdevs would double-count.
-
-Would it make sense to maintain per-netdev software counters in the
-xmit/RX paths for the multi-dev case so each netdev reports its own
-traffic through the standard uAPI?
+[ ... ]
 
