@@ -4,85 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B47CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 01:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5553CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 01:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TXXt6IPoG7zkad4DUA+McXh2fJcYiyph1jCtx0enA5U=; b=ZNhqa2TVaoI1Tq401aNIRW4VKe
-	a56+9JdCej61xpGwawnle4qAk52WZVmv7M0+ybZfxjN8QFGsIV0wk8gRLGmJ8U8CiaLzUVfWQfuvl
-	JXnDx+tZapB0jvlMQjsSD/+mywGQA3fJ0KCxfxd7YBTMooAT4Fd11+0xZIz3CKBtKdYYwIsrUQkqk
-	3cfhOh6G+4JFyNVofFlBr0rkYgUto5qsmbIAqPcxsPHN5jNyauoqjJ8KEth4Mac1eXbrzZHr7e6Sh
-	HdxYb+yur9l+wML9gAOJJJ9Zo4MgMg6mWnwxkbpf96xfbG6JR7QwVoiv5fbLQiLMP85egXryLtUZl
-	MjOSKRNw==;
+	bh=G0cHu/AZOFkLjDuxm2JV8SwCnwjEcedfmgM9JUvSLnc=; b=dxC8IVcynPIcQrKpZLxURidLoK
+	w616MD+4NYKpUk7DniWTnTrDFsozG8Uk2holwFVDFvFjoskzAsvxSp+L0y5xXaQBqhDh47LOejoiv
+	lyejdoauP7J7Jbv7eXjnv/WRGwRL1rl00AwcfFlqzmBlLoG4QZwiRG6aWX+yEL01rFnbo5wAcHvjn
+	iqP0wW9Bh5BEJkrQSKOWGqbvGq1MSJ9ArMb1QNAxb1sR0/F3snGv0Y1TZVEwxIfVP83tvD1tpD6+w
+	b9sYP0KxxopYaqpMcWHfisp+GlXp2eEqSULWgct8s5wOh5tNrQWzmsYq0d/T7D9jryaY7xaZYYOnF
+	FmGkaCqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLWGP-00000007t2Z-0DHC;
-	Sat, 09 May 2026 01:13:53 +0000
-Received: from mail-dl1-x1242.google.com ([2607:f8b0:4864:20::1242])
+	id 1wLWPE-00000007tjn-0SZj;
+	Sat, 09 May 2026 01:23:00 +0000
+Received: from mail-dy1-x1342.google.com ([2607:f8b0:4864:20::1342])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLWGM-00000007t1y-1s5Z
+	id 1wLWPA-00000007tj9-3iae
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 01:13:51 +0000
-Received: by mail-dl1-x1242.google.com with SMTP id a92af1059eb24-130b2295ed0so7558128c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 18:13:49 -0700 (PDT)
+	Sat, 09 May 2026 01:22:58 +0000
+Received: by mail-dy1-x1342.google.com with SMTP id 5a478bee46e88-2f0ad52830cso4033368eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 May 2026 18:22:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778289229; x=1778894029; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778289775; x=1778894575; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TXXt6IPoG7zkad4DUA+McXh2fJcYiyph1jCtx0enA5U=;
-        b=V4D1t1m53JU+vurb+kt9B8bemIKmbl8jIunF7U3xD+xxYIC/OJ70QDmSzlzWS3jaKN
-         58HH+jo0hMxJMAhldlwSBMzOe1hLfnHValfBGRxPjD7PzToMYz2+aJJG4Vzzk+Jejo7V
-         MaWRvHjl2GpRWzwHhpM97YZZLS4kDSSQir2rFAqxAPA+j/kzWuBR2dZgbTJanBLYbMZT
-         1mbqqwxRf3v/miVttLsH5Rc32sH2W2GDZowy+FiWS7ZYXsOfqaw1ecQQ4LRvH+58nKl/
-         KAODw4IXAPe6PIz4z83tXbzuh9tiQ9DOmWdD8OcFWK6JNDoG0f/71qpn7DMPKXrALGiR
-         J+Dw==
+        bh=G0cHu/AZOFkLjDuxm2JV8SwCnwjEcedfmgM9JUvSLnc=;
+        b=XDNSowTegRCDqiUnRF5BBPySgww34HVbkjfB5aG3p1q+UsqbTzz0vobePL78pI2+xK
+         LtbtdopgW2Zs35R5rwH30wd1YiXV+o1hyb5Pxw5qf44r9gqUYg2y8shG56QWE5F3IuV5
+         OXET450qKccAM4MIeaQ/euvcsTUGZ8CqTcUeoWdNMuonNG+gDEIPbgzFPAdG28KBXxpy
+         8Cwh6J07YUU1wsYciCrePpcqT++Z2hoXuAsqAtZWp1bnBu++3mZr18wAXZXrqcOisNjl
+         KW7DekTkpxvcFurQG0MNhHX6PX9HXc/DZ5kgcea7NL96GKxvi8k+8m60rQefB2oy0JFd
+         5dUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778289229; x=1778894029;
+        d=1e100.net; s=20251104; t=1778289775; x=1778894575;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TXXt6IPoG7zkad4DUA+McXh2fJcYiyph1jCtx0enA5U=;
-        b=fIF5e43i8UO0gtWXxVT9HZra0h0HuiZ/YIn2zDdVezDi/Ko9dc3RW/Ghuyv+ZfeZHk
-         JvLahDcO11tuT0RWtCgEKqU1Xg5LxtNt0x8/KK6nhO5iMLrxhU8TnxyQPX5cB3WeL22s
-         bgFSDTpY5lf13An8IQuKXxv/MmC2pFQFJnjpSYZfvR7K3kXrBUDXRbE8DQqJte7XuWdy
-         aSQf0bw4j5lSpLVuGV30RqT+EiPjXIPqNav1NqPeI6iTAr3WuYutwiU1+5shLKh1MyLc
-         SHYeM/Mn+y22Wo7USa1JTmnnVYoCCqVZLLE1w8/qQ+N1OGKR+4oZLMtlxi5hAaL8qMO1
-         O/PQ==
-X-Gm-Message-State: AOJu0YySL4uAhzvhFzRRf+/mj6g1RpP1u7r1asMp+8SHWo9/bgn/UJEi
-	8DY7AYfekN7C2qRbaEdSIWXzvuqDwqECnkCfpTuepNPUEPpvA8fKpJQk7pN5yUv+2aU=
-X-Gm-Gg: AeBDietN/kMQzS7VKQGVeH5HQXurcbca3XWN8EwB2alZhcdn/XJv/mtk47eoExBmIqR
-	4ri5Zu2OttqYJthZ3+x43pnmStWGGYEqZ7esB8eOkuKQ2j8aB1JkMk5ObKDOYv3f2urLJwruk0k
-	vszY5Hy0PpuxmsOVg0Bz6IyPauWb/m+7D32Xh4FgR5bzb3GCiMCTwUTb6msWVVYBBUKhL+SKtyZ
-	raj05Iw8V7N0ZlDN9YGGt/C7ZBk+k/14KgYjf+wZM9tOlXJuhGwBCgRNAn+OFzU4yh2xG0mWTCH
-	0j+xybGkn5BBgo0NnfYEkvSZhJAJf7JyMooHMhUq8lr2SXzzMO7L6oa2Tv79BmqjWt6EEhJi94z
-	kXrNf9ej/h/nuZI/ijWb3uOF7vq94zgzd/ATNTP7Bmc4t8NCrtpkCpAhRAMiz2mRU9YqUXKJFB2
-	jud1NZG6MV6JSR3a9o6Icg5iKbFmXcAC2xlAO3kQ8CZMBNTliuIE6fzxkrKu22iqmhwOvedLd9L
-	QYUJqiJQiGJUFYWmak1WoWqW0+ri8aTWf64NgH+rBwCGMUNbbQSKGe2mDMHR/KBZ0E6W5xe5nAC
-	xOM8Wda/ed0aPlcmdw==
-X-Received: by 2002:a05:7022:e98d:b0:12d:de3e:cbfd with SMTP id a92af1059eb24-1318eb56aa8mr7426643c88.36.1778289228724;
-        Fri, 08 May 2026 18:13:48 -0700 (PDT)
+        bh=G0cHu/AZOFkLjDuxm2JV8SwCnwjEcedfmgM9JUvSLnc=;
+        b=IHvV+hirzwAx07tLQE5ptsW4+o6p99FhZ6NLW5BjlJTtJGEpcKO54Ncoo3MVJ+lOag
+         aL0I/gMLqAPkcZdvkW469YMybqQbpnPZxEnBzs2l7QsmA30CXpIvep0MrjCsD4cWt9ac
+         AXG4zsbX3NvOZvY48yGHmtx7R2N1pvLR/F6tNNMAjrWwSngEdthiKs+qhHkv8EdbwTy6
+         nZJ5TZ+1qsJY7HGuYiFAuCn8lnHeRtPMVw5tdJ+s7S77zj4110zCM1mPKSA/jXAtSR/S
+         8hdNXsE1d7HRhQfQA2aM8QM4COFe8ZNAbn/DqBTmb3Nn5sp8iW9HI5U+51DeaFCdXr6R
+         j0Ng==
+X-Gm-Message-State: AOJu0YwCDorKIdwKZ4K4UJC9S9IvVBPD7ciwI4YkA1RaWvlKbSNz05Ux
+	D7pegO9UB5SyDhlDp4bx7UVGTYtWeBMluBgzcxo/vR5N5DVpMp7cXNwyku3pavqwAsY=
+X-Gm-Gg: Acq92OFDpEkw5hj3vIAMoJ+xVFZloOg2b7O423djxpH8hmrE5f+U1fQcJHcBTRj1rew
+	cXCyW4HLYLqjbMYEsiFWIgeOyQlFOMXvPpf5vOXBd3tsxQR7Iq0vBg8bFlOBF1BhjDJG7qJVZn4
+	5Ne+91eEpigcPGE0FyDdI7XxaoGgrOhFy5I3+qP8Kut+d3S4cit4kSJD0FuIa4jTEPVPeJGR8Ag
+	AvW+gSrLfqxOisjbHmccPPuWhBpN1rVE7nuPGT+QeqETtoUujLpCnhBTlh5AZoKg/RYmrLbabyB
+	sqOnUTonhdfo/ffYIktKJROpmrhDgLRLHWccLmTk0wn/s0Xex95FOBlBgm9xCGJXD/HtgSA4Vfb
+	EduSc6NrN9xI2jXnGDeX3CGlS27RnBp4hNxAdNUP6jjEZnPsnVqsXg5grdecG4MNtjZ0Sb1jEo8
+	z4u8AoH4g08BvtxraoVA9m5qNVYhSKAL/zL5/2XScOS9dmZ7yuSG0IAxpIjSZWkj45aVpUzOr7i
+	sDK9BbJ8G20+85uAMAPeqPX9OcPYiTS/NS8X7E3HhhTTo5CNNqiwew4GgphMtKupOqWlU+kbbV9
+	bZpWUyPjL3iBAzAVPQ==
+X-Received: by 2002:a05:7300:a508:b0:2d0:239a:23cb with SMTP id 5a478bee46e88-2fb4d68f9f1mr209442eec.16.1778289774801;
+        Fri, 08 May 2026 18:22:54 -0700 (PDT)
 Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-132787673ffsm5716709c88.15.2026.05.08.18.13.48
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f88914523csm4457310eec.29.2026.05.08.18.22.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 May 2026 18:13:48 -0700 (PDT)
+        Fri, 08 May 2026 18:22:54 -0700 (PDT)
 From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
 To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Russell King <linux@armlinux.org.uk>
-Subject: [PATCH] arm: boot: head-sharpsl.S: don't rely on MACH_TYPE_* of removed boards
-Date: Fri,  8 May 2026 18:13:20 -0700
-Message-ID: <20260509011322.13013-1-enelsonmoore@gmail.com>
+	linux-sound@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Cc: Russell King <linux@armlinux.org.uk>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+	Jarkko Nikula <jarkko.nikula@bitmer.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
+Subject: [PATCH] sound: soc: ti: rx51: remove stale reference to machine_is_nokia_rx51()
+Date: Fri,  8 May 2026 18:22:46 -0700
+Message-ID: <20260509012247.14990-1-enelsonmoore@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_181350_579306_41BC107E 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20260508_182256_935881_FA51456E 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,52 +104,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Code in head-sharpsl.S relies on the MACH_TYPE_* constants for five
-boards that are no longer supported by the kernel. They were removed in
-commit d6df7df7ae5a ("ARM: pxa: remove unused board files"). This
-prevents the removal of boards no longer present in the kernel from
-mach-types. Replace the MACH_TYPE_* references with hardcoded values.
-(If the IDs were simply removed, these boards would be detected as
-other supported machines, causing incorrect behavior. The kernel will
-abort on detecting an unsupported machine ID.)
+The rx51 driver relies on the machine_is_nokia_rx51() macro, which is
+always false since commit 9b7141d01a76 ("ARM: OMAP2+: Drop legacy board
+file for n900"). Its presence prevents the removal of boards no longer
+present in the kernel from arch/arm/tools/mach-types, because the
+machine_is_*() macros are generated from mach-types. Drop this unused
+code.
 
 Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
 ---
- arch/arm/boot/compressed/head-sharpsl.S | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+ sound/soc/ti/rx51.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/arch/arm/boot/compressed/head-sharpsl.S b/arch/arm/boot/compressed/head-sharpsl.S
-index 992e784500fa..da05e01903e2 100644
---- a/arch/arm/boot/compressed/head-sharpsl.S
-+++ b/arch/arm/boot/compressed/head-sharpsl.S
-@@ -103,16 +103,22 @@ __SharpSL_start:
- 	.word 	0x08010000		@ w100 Chip ID Reg Address
- .SCOOP2ADDR:
- 	.word	0x08800040
-+/*
-+ * These five machines are no longer supported by the kernel, but if checks for
-+ * them were removed, they would be detected as other supported machines,
-+ * causing incorrect behavior. The kernel will abort on detecting an unsupported
-+ * machine ID.
-+ */
- .POODLEID:
--	.word	MACH_TYPE_POODLE
-+	.word	424			@ MACH_TYPE_POODLE
- .CORGIID:
--	.word	MACH_TYPE_CORGI
-+	.word	423			@ MACH_TYPE_CORGI
- .SHEPHERDID:
--	.word	MACH_TYPE_SHEPHERD
-+	.word	545			@ MACH_TYPE_SHEPHERD
- .HUSKYID:
--	.word	MACH_TYPE_HUSKY
-+	.word	543			@ MACH_TYPE_HUSKY
- .TOSAID:
--	.word	MACH_TYPE_TOSA
-+	.word	520			@ MACH_TYPE_TOSA
- .SPITZID:
- 	.word	MACH_TYPE_SPITZ
- .AKITAID:
+diff --git a/sound/soc/ti/rx51.c b/sound/soc/ti/rx51.c
+index 7eeb12e5066c..cfc23e0838c2 100644
+--- a/sound/soc/ti/rx51.c
++++ b/sound/soc/ti/rx51.c
+@@ -19,8 +19,6 @@
+ #include <sound/soc.h>
+ #include <linux/platform_data/asoc-ti-mcbsp.h>
+ 
+-#include <asm/mach-types.h>
+-
+ #include "omap-mcbsp.h"
+ 
+ enum {
+@@ -364,7 +362,7 @@ static int rx51_soc_probe(struct platform_device *pdev)
+ 	struct snd_soc_card *card = &rx51_sound_card;
+ 	int err;
+ 
+-	if (!machine_is_nokia_rx51() && !of_machine_is_compatible("nokia,omap3-n900"))
++	if (!of_machine_is_compatible("nokia,omap3-n900"))
+ 		return -ENODEV;
+ 
+ 	card->dev = &pdev->dev;
 -- 
 2.43.0
 
