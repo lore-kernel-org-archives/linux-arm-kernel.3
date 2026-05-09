@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36889CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 06:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD6A9CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 06:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7inpwn0HtKtqYpktRAtU9KUks5rNpZST1fRF96g/GZs=; b=EUiblYr+fwY6FJ
-	fCl9s3IQbLqxFkM5+b24oeAcd6tB6TZqUqqKqI3lfv86Nf2O8ZeI4QnAcAWGHASMe3AGWwCtIKGcM
-	Ai2s0Z/msXmHsOOTVuCiiUep2Y10cUwqHyJvnzrvZ7HkJJcP4PyZzdO8sAzv+E9k3KI1WYOXwdD84
-	khLH+Eg/RbnFxombVX1k37qeIgA/kRM/5p4yV1bY/NuVT/FDBDuHUZw1pCvD8YI2ISEFbJdDg8hmU
-	BrZCsCpdwdBmgDlHqjJlQjdZ4KSrY2cGuR+maA7i5G9qaUEozi6YquVtlg7/El2cl1YQtCxaEQrGn
-	HR8hogK1K4y+6use2LLw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lh+Rf+S9Y1oV0j5jnSZk/rlpg3XQLtQo9q16FEDk7A4=; b=XTmu7Fg3XSduOrhlq2rQ5xndXK
+	qb+uQY9GmGXo5/i4oOZ6kJW+TwieqYJ7urM00ptK76Se/WLrMILHaJzPW/dM/M0X+wLR/KAkZ7RWq
+	U9CdcCJMo7zH0MNngNx8NyeWETEksJ0zrGzVEUzlCDhzJos3J+GrSK1bortmYqzgApN5yQQACo6d8
+	xMHDMpGbxX//KgwtRTkj6ctg/zfHUa5IG4FWYXAW2NJwfpVyxHhCgg1xSi9hvDIo7IfLKms/mh0St
+	xOpxn/LqOPHzr/fG11a/DLIPtA6QlI1Agh/m89quTF6XA/bPBPel1/5t7GHJu/+Zwx0LetmdfApnT
+	ANwlC3rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLasG-00000008MkW-3MLB;
-	Sat, 09 May 2026 06:09:16 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1wLatx-00000008N16-1gjJ;
+	Sat, 09 May 2026 06:11:01 +0000
+Received: from out162-62-57-87.mail.qq.com ([162.62.57.87])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLasD-00000008Mjk-1qvB;
-	Sat, 09 May 2026 06:09:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1778306926; x=1778911726; i=frank-w@public-files.de;
-	bh=7inpwn0HtKtqYpktRAtU9KUks5rNpZST1fRF96g/GZs=;
-	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=lEQy6HL0oNWn1EB1BQHCtIXOrjFU0w9kg4Hms6OvXhyNILbltLlm+SIsNFc4qF84
-	 Ve3kspb9Itjk+NBgCqGnKUSLqE98im4IzBbs2Q5L1RTp6AQqE3SfGB38IY5m7E2hm
-	 SoG9Azc5uHeTUXRa32Zcgmag0Ph+EFugZRsMNVwkHRRna7U6X7MB/Mv3Dt6viMaMz
-	 fs8k+6PeBN5srYynKl9NVSRYcdx0UVZdSRTGKOYeLB+ZWpM7y9XkD5mCzLtdP67Di
-	 9Q9bd1KJ/cSkuOS5vchSqIRcguD6NjGXtV1NsY4Gam6NzkI75EUOCyjSjewIy2iBU
-	 4V+gOhK6B6yezBHdog==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1N3siA-1vLpGQ0oL2-00sLA3; Sat, 09
- May 2026 08:08:46 +0200
-Date: Sat, 09 May 2026 08:08:32 +0200
-From: Frank Wunderlich <frank-w@public-files.de>
-To: Jakub Kicinski <kuba@kernel.org>, Frank Wunderlich <linux@fw-web.de>
-CC: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org,
- Mason Chang <mason-cw.chang@mediatek.com>,
- Daniel Golle <daniel@makrotopia.org>
-Subject: Re: [net-next v7 3/3] net: ethernet: mtk_eth_soc: Add LRO support
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20260508153702.69b89021@kernel.org>
-References: <20260506192806.143725-1-linux@fw-web.de> <20260506192806.143725-4-linux@fw-web.de> <20260508153702.69b89021@kernel.org>
-Message-ID: <F846A09C-2976-45BA-82E1-43A72C61F06F@public-files.de>
+	id 1wLatu-00000008N0P-2FCW
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 09 May 2026 06:11:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
+	s=s201512; t=1778307047;
+	bh=lh+Rf+S9Y1oV0j5jnSZk/rlpg3XQLtQo9q16FEDk7A4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=yZOHDRFnwU+rUgUNkW/H74Jd8D0ZAcpIR4OFxk+7Okpi2q8uce6i4OTcIxnEde3Xk
+	 zfOE++1Ieoeauxf5L1mZ9so+8jKisKqR/eO1PGSsyRqFRqt2ZHLrheMcmTdogDY9bA
+	 c3b3pHoiJb4RmhG0w0s7xW2uUCOd1jfH0PnI42DI=
+Received: from localhost ([61.169.175.90])
+	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
+	id 2AD878A5; Sat, 09 May 2026 14:10:45 +0800
+X-QQ-mid: xmsmtpt1778307045t6d36uikg
+Message-ID: <tencent_07DC93F42D53F6A4C20886013823A83F6C06@qq.com>
+X-QQ-XMAILINFO: M2SvzgchpLqfYZz+3Zuh5EItW+RffQKBvaDfLY9K8+69X/3AG7l27NptDT7PL4
+	 cxownEE9lNB3RRvL0opEYrgVVTAwXFvq3CcAbsKMvko7OnnLJSUr8KjgvHC38Dw6t3X7+4xzLb6N
+	 Ny1cAB66V7/G91OQaidOXldWlSpBjdCdX20kKDBrHiUEnXppdGVsk5c0nErGitw/tgRHw4sIAZQk
+	 BcbBV/cfN/wLLrvRCk44LQMHaYFDN6SCI04a0Sn7kogW5Mxd3wb4ySwM/PhP/3FV9eQFEMZj6Sdd
+	 Si6a8Dcvac0lMcf3xwSW02fKLNgfCgZKmquoGGS5j5YS2l+P5j+LvsDKl8PkYrVHpGqW4mMtDLlH
+	 acPEdjt/kL58PGHbo34j1PYos4rzmd2qcZzUA9CBbHS1mZssaDiUG1PeEwoUaHQn8sfz6vVlI4eb
+	 nO8Psw3xkhGENk5fR4ce5ilnZ8Dus5Bfkg47arRvQpUZT/JoNQR5WZBAacoi624kIijRPEEkZDPu
+	 +tb0G3H2DPVtS8RnGyFb2YoDzaCm6xBlVLWx0ApTdXEnSfJhnKJDvwYox64ndLcYozy4UFHbihBn
+	 m6jfh3O2CtI7hcg8SyVjTvB/ewClW7vYGyrdKQn3LhAy/MIT93TfLrNbor1cm1zOxIBqSsyCD3u3
+	 NsJqeZDyKAmrLP6aUrEUa4PqygBpqX5gVe272G/x7VkH92R9sxy/WsSK0PVVqzq9QOBpEBH0H0Ba
+	 6hayH1FS1pLer10vrlXZyizEQPZnGIuFMRLCKe9nYsrU1tEZo16FMz/nbkax8XQz85JVwUUCjOdX
+	 JaE+06VY0OeEXK35QTRW8nPlP6Q+/2Iguhxid36jmwjdm/1xmwCqJV9UAJd1Jsi4Zsfp+KW37pUN
+	 Q8vArVxOudIWOSG4QCJ6vyh6Ef96iPgsrSs48G9P/ksqK85qBCuxQ2uHasH3KqYnF73lYpW932/v
+	 8+7IL399MPqoxShtLo0ToobQxLUDiiOkSjdik3gfg+WZ7lD3NKgrvzh1sVIf34Klzz1MrZCdY5RF
+	 HpW7A15vKZMIgodMOuXWf+PT5hBk5tpHyIKJQqAo7Pk36/7TYZ
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+Date: Sat, 9 May 2026 14:10:46 +0800
+From: Leo Jiang <leo.jiang1224@foxmail.com>
+To: Pranjal Shrivastava <praan@google.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	joro@8bytes.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Stop queue allocation retry at
+ PAGE_SIZE
+X-OQ-MSGID: <20260509061046.tdau6n6p4564k7sf@LAPTOP-LEO.localdomain>
+References: <tencent_F6E384A40D990A279B460A0CDE1927FDF509@qq.com>
+ <0fdf4b1f-90f2-4f69-9d2b-dc5f608e9c1c@arm.com>
+ <aeeoEHHNKPo32H9R@willie-the-truck>
+ <tencent_DA99B62735469A0CD219E9FC73E234A47309@qq.com>
+ <af340uhd40FLTaEO@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:9Fw+uGzBVIce8BVQJfSzFIjv0sVC0ga0ESLDoMetxLliCW4iTv6
- PMiDXJCRv8sx9oe98AiRrerjaW83pSBefZdVD1YnJuYQ0rYGYAUH1wmAWHIHPTFB81T1dnI
- hYjGV51B/9gOJ3J90tCpDdoOMWR3l6L8zdeAXbgAuV0JAi2bMB2n4dO2DWbOPXAvRe0GCfx
- G1dz000Mv33jnogCDmfwA==
-UI-OutboundReport: notjunk:1;M01:P0:yfrTgDzM90A=;mVGM7PZe/mCFeoOmxSTbdZVM8eV 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 NDtoGp8jTmrA3Jg==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <af340uhd40FLTaEO@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260508_230913_858116_A330727B 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260508_231059_535307_2E805A88 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +87,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 9=2E Mai 2026 00:37:02 MESZ schrieb Jakub Kicinski <kuba@kernel=2Eorg>:
->On Wed,  6 May 2026 21:28:03 +0200 Frank Wunderlich wrote:
->> - fix u32 vs=2E be32 reported by patchwork check
+On Fri, May 08, 2026 at 02:53:06PM +0000, Pranjal Shrivastava wrote:
 
->Have you tested this? I still see an extra sparse warning
->(install sparse and build with make C=3D1)
+> On Wed, Apr 22, 2026 at 05:13:08PM +0800, Leo Jiang wrote:
+> > Hi Will, Robin,
+> > 
+> > Thank you both for the detailed feedback.
+> > 
+> > Robin, you are absolutely correct. After a deeper look into the source code,
+> > I see that allocations smaller than a page are indeed possible in certain
+> > cases. My previous assumption about the DMA API's granularity was wrong,
+> > and I appreciate the correction.
+> > 
+> > However, as Will noted that the current logic deviates from the original
+> > intent, I have prepared a v2 to limit the queue allocation retry boundary
+> > to PAGE_SIZE.
+> > 
+> > In v2, I have:
+> >  - Updated my identity to Leo Jiang.
+> >  - Removed the code comments as suggested.
+> > 
+> > I will send the v2 as a follow-up shortly.
+> 
+> Hi Leo,
+> 
+> The general guidance is to send the v2 as a fresh email so that it
+> doesn't drop off the commmunity's radar.
+> 
+> Thanks,
+> Praan
 
-I only tested functionality as i had not figured
- out how to reproduce
-these errors till v7 but already noticed that there are still some open=2E
-I had to self compile sparse and call like you mention=2E
-But I already prepare v8 where these are really fixed=2E
-I just testing 16bit versions of ntoh/hton vs beX_to_cpu=2E
+Thanks for the guidance, Praan. I'll send v2 as a fresh thread shortly.
 
-Sorry for extra version here=2E
+Best regards,
+Leo Jiang
 
->It'd probably be good to fix the pre-exisiting warnings as the first
->patch in the series while at it=2E
-
-I send out v8 today=2E But good to know that no other parts
-need to be changed :)
-
-regards Frank
 
