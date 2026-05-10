@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA22CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 12:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684CACD37B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 12:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CcDit2766yGx3WiHTpW3nOgNzjxcblP26K4FyWST/hI=; b=eB1q/+F4TwMLDECNkVWZI4RTm3
-	WgntP+IXn8SnBNzExOH4yQDxI6BQLVEwl6onF5h6Pzyj4CGEHn5+h/pGrqwI2O5doe9gZfvUeAaPw
-	wcH8cYENOqnqFgJg1CdbKxM1VhIsr7/glND03Iz9+9avfUBNHFOPLZ+7ZmTRybDmUVX3eT+dvAZkE
-	XxePwLEKRMKVXB7NTUL7V2WxfGNVcFfztAV57NB0+I7TNVk+gIsO1W/AhtAoRfoR4yLPl6XQwLUuT
-	9a/H9n8NmIHhSkKLnIAzUDH8ptmgcaLy2GriARvNDkN+Qm2sXauyfF7yagfENovJR5WC4NNFYqK/9
-	UCMRyw/A==;
+	bh=Ud7L2P4X5Rr0hOtHbI867aqBSbwFY2XRAYk+zs4pPjM=; b=uYT+NWoeB4Z2QkUn5zGL/aHQuZ
+	jb7FqH3FicJBYXtHlWLHru1IXNfU3qz6bfaeQvLhPBRQTgZEG9Wg8Tn7YhAeWKZiirBzfizUM8qsd
+	2cdPN3gUqv8SOeatrX7lXwvoEje/3Mp2G08k7p2WwbpmWht0d05wDZLxfRjftNi3Cy1amYcw5ITf+
+	mZoeqIfPXMp2o+9UY3JtWTN/rD1bL43yc4HXExishMLhzQONDoGPwG6zP2g1RBFEq/n2VunuKRQLH
+	SDB70q63m2FJrQyPr2hWfQ7m137f6Y2V9RkFKrWBF4jYrMGsrie6ImDU1wmJ7Y01uXn81L1Fw7uHL
+	1qA//U3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM3Jy-0000000AiQ2-2GZt;
-	Sun, 10 May 2026 12:31:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wM3Kc-0000000AifJ-0EkR;
+	Sun, 10 May 2026 12:32:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM3Jx-0000000AiPY-279L;
-	Sun, 10 May 2026 12:31:45 +0000
+	id 1wM3KZ-0000000Aieb-3JrV;
+	Sun, 10 May 2026 12:32:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F033E6001A;
-	Sun, 10 May 2026 12:31:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E04CBC2BCB8;
-	Sun, 10 May 2026 12:31:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E7FB4445D;
+	Sun, 10 May 2026 12:32:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53031C2BCB8;
+	Sun, 10 May 2026 12:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778416304;
-	bh=4sTIU6geCY/ofxbF1Nh9piJovvy17EjyERLoBxmWfXU=;
+	s=k20201202; t=1778416343;
+	bh=PfAtiR22BeLI1xNkWhQObSwYDHOrQpp5c0BjbJTPJhI=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=iwN6jy38FZsJGhyHrd3rGfDNTGiQp/9tOIrvIHRK8/NOPNZLFYqnKAYMudEYwFesC
-	 WqKhjTBM9MsbBOIkj7SQX2vWr4lBjnIlpETIUB65A1Vn8NXeiAYrg2inrHscyzQSMA
-	 fb+PM0HqQitNTnq5uPzNakka+yA5SvHzBOShXVpRW8VhnA1eGnexRF1hqFw4oNoFtG
-	 4/K3BOJhjE4VsfLy122sCWfYm+t37sbw0R0d+F3MtzZEBfZsTjqnIzC0fuAQRpLNAS
-	 8t152qSjsT9S1hw3PtLncacqzc6jfUdyyykxejokl1/hagWZQEbr3JeeUEMCIi6pgf
-	 6H7JbMmt55auQ==
+	b=pzzHPD46ljrfTpClixgvb4yANKVJ3v32sIl13C8+ea2jLszSd0oPgFXSSbP5Duv9f
+	 QgfbscxCIdx2reDe4iTULpGdBFZ2AouPjzwdjbXqaLJ9JpJLD5DcEXQd+ISSb9GqV+
+	 kZrGaFjVM2IPkBzH0ScNm1Nq60jYspEAwOPGW6BSrMC5BBaqxRmJwzAVkGHuvkHTtP
+	 BlM0ij6KRT8uDlbAYyyb5hd2ckkXy/Zd61r3Ap9luWAxpWFWDF3QS2yyBEK4kzkZa3
+	 PC28WofTtsac7virgk4Bc0WZOsBesX4ghbjyP0C1+Y6JEUQYIKO5BzsfjKoGfMnPP8
+	 sgJqPMOxl+77w==
 From: Vinod Koul <vkoul@kernel.org>
-To: SriNavmani A <srinavmani@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Tzu-Hao Wei <twei@axiado.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- openbmc@lists.ozlabs.org
-In-Reply-To: <20260504-axiado-ax3000-add-emmc-phy-driver-support-v3-0-3ab7eb45b0c5@axiado.com>
-References: <20260504-axiado-ax3000-add-emmc-phy-driver-support-v3-0-3ab7eb45b0c5@axiado.com>
-Subject: Re: (subset) [PATCH RESEND v3 0/4] Add eMMC PHY support for Axiado
- AX3000 SoC
-Message-Id: <177841630053.434434.9292071839258247877.b4-ty@kernel.org>
-Date: Sun, 10 May 2026 18:01:40 +0530
+To: linux-phy@lists.infradead.org, Rosen Penev <rosenp@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org
+In-Reply-To: <20260306222457.8400-1-rosenp@gmail.com>
+References: <20260306222457.8400-1-rosenp@gmail.com>
+Subject: Re: [PATCHv2 0/2] phy: miphy28lp: build and simplify allocation
+Message-Id: <177841633994.434434.11599287536410953289.b4-ty@kernel.org>
+Date: Sun, 10 May 2026 18:02:19 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260510_053223_856232_A91DF4C1 
+X-CRM114-Status: UNSURE (   4.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,26 +75,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 04 May 2026 09:38:31 +0800, Tzu-Hao Wei wrote:
-> Axiado AX3000 SoC contains Arasan PHY which provides the interface to the
-> HS200 eMMC controller.
+On Fri, 06 Mar 2026 14:24:55 -0800, Rosen Penev wrote:
+> First patch allows compilation on at least x86.
 > 
-> This series includes:
-> 1. Add bindings for Axiado AX3000 eMMC PHY
-> 2. Add Axiado AX3000 eMMC phy driver
-> 3. Update MAINTAINERS for the new driver
-> 4. Update Axiado AX3000 device tree
+> Second uses a flexible array member to simplify allocation.
+> 
+> v2: add first patch and fix second.
+> 
+> Rosen Penev (2):
+>   phy: miphy28lp: add COMPILE_TEST
+>   phy: miphy28lp: kzalloc + kcalloc to single kzalloc
 > 
 > [...]
 
 Applied, thanks!
 
-[1/4] dt-bindings: phy: axiado,ax3000-emmc-phy: add Axiado eMMC PHY
-      commit: 1a75ecefa4fbedefc1600e43445de4e1e7f03b55
-[2/4] phy: axiado: add Axiado eMMC PHY driver
-      commit: 9e7dfa4bcd4e2c3541c4ee954ea5e66edab94d3f
-[3/4] MAINTAINERS: Add Axiado AX3000 eMMC PHY driver
-      commit: 13ee293a904b7b7b0507aaa8c71f7be7e683800e
+[1/2] phy: miphy28lp: add COMPILE_TEST
+      commit: cc68a1728abfcbde12d36015f244046ae74ddd44
+[2/2] phy: miphy28lp: kzalloc + kcalloc to single kzalloc
+      commit: f3508a61c892c592e4e893a3681e568a5c671027
 
 Best regards,
 -- 
