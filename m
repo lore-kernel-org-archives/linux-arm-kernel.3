@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030A5CD3427
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5E3CD37B5
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 21:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,71 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6Q2LdCcfc0b7tOZw82gElqK7SvqjvWQpF13mGE0gJs=; b=RRBhygdSzyN5zQL64AA5lBA+Xr
-	B6yenB2dwi51IeqiWvwFVu7eV1Mmpy8H2I/PMsR2tUcsIRKYHZPLLLzc9lC+yx8F/rRrwp3RD7iTK
-	0wHVBBB2s7m8x0fX2WJ/s21vWirUHDaqfnlOtT22ukivJ/nl1jP8wP6ZYhUWlzgeooWQgxOzDd77v
-	VJvA0tvAAOn7lt3lUK6BcL88qM5aRsI8YijW57+aibqa+4Sz5Wc4/svT83VGGRheiYAhZhkG/8d2l
-	X1SwCtDRu5GcGgPlEdcKy7nlhhdaebQVaVvQ7R9U/SM9Vy7E7n8V9d2KJ8dVFc5W5Y19oUcF1iEWJ
-	EbHAiSvw==;
+	bh=LRkOYhMC8sbVplv828DowOEo6OjLCAbHbvcg1bLlquU=; b=1TycuvmX3i4+wW5I0xbCBqb51k
+	QXNN1AkkSIi6bywL0u2dt0Pi0NfCMkcNURTUXc7qyxeBu70byb/f2iSLx61ej9rNruLe3x0w89teL
+	jbeJzWil+zbtGtL0hw+AjVNseYYp/19KDj0SsWFYeQx/g66hEx/q7Gs76gjJreS4ohwG9JVwtS6e/
+	fgbQY8e7+fzHx/T/lYd4T7XRVyXdSAyBrBnf0RcM+dAW4wK1hk5aZn+mU0uizSBkibCN0uesGprZ9
+	aAPLJEWRFoe/XQxrfN6RresSIIeIWrMRG2MqZuEjXtYHLftLBajf5nPPBPFups/xEbmElGydlh6er
+	woNyGHFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMC2g-0000000BhBn-36k9;
-	Sun, 10 May 2026 21:50:30 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1wMC2d-0000000Bh95-1LFr;
+	Sun, 10 May 2026 21:50:27 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMC2e-0000000Bh8q-0mvX
+	id 1wMC2a-0000000Bh72-3y2C
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 21:50:29 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-44b330c5cc6so2652928f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 14:50:27 -0700 (PDT)
+	Sun, 10 May 2026 21:50:26 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-43eb05b1875so2121676f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 14:50:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778449826; x=1779054626; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778449823; x=1779054623; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=F6Q2LdCcfc0b7tOZw82gElqK7SvqjvWQpF13mGE0gJs=;
-        b=Ic0THxxSBQKGCCfRZg/xY9j5BbOKn9rt2Algj99sAPSQpVW8t2uufSxlvbSzuRhzAK
-         cN7a3H50KWHyLrCARnnnQvPopRq2k2l53NfnAwgkUdnGDsLL40HV0GeT1SPSNM2rEzeH
-         NOwl5ejwbdMaurm33odeQacgJZU4+6sicBtkj+jokpUulRIkeoiwGRly0xtL4ZwiiVSk
-         6AdmyphcmbPkztHUEi75Asga9VfWmKN6FLyeOiW3rJrR0jpUga+akbCPbYwIjlc/+goX
-         ZxG0b+UuIITmZ7tU8Nl2OdXvccxfOsPSAnxlQCO+G57NWPf3WH8f87qM5kzUGRK0u42I
-         34xw==
+        bh=LRkOYhMC8sbVplv828DowOEo6OjLCAbHbvcg1bLlquU=;
+        b=WqQaQCm++OH0DShTFZb2sYfc6fCbjQyzNDuIGvOgOkNFngx9PSw+KSkcBi7E9fAasm
+         qR7zF8JpxQYppBmDlO9WyOiCzsZ9PyLSKZLNKO0sNgNl4pUIQDCCs/5JyfTx9UUwUxAb
+         hTsbukShpUzsgY22z9FyXE7grYit7pDJdF0c/BLrMlYJHY9T0Vkv+VbEnC3DvANvqTpS
+         cw50vIUJsRmeD3cVP7n9aXtrrPM8/+GCP1xpN+hFXbOIeLtze4npRBSs2Vx/vRCF2nQh
+         WUJ3wq2UG1B2MFnSpuhIzc28jYac9GTbErxOdfPOVlpas0Rc5RrnPjks6E1dFbjNwicp
+         3yrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778449826; x=1779054626;
+        d=1e100.net; s=20251104; t=1778449823; x=1779054623;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=F6Q2LdCcfc0b7tOZw82gElqK7SvqjvWQpF13mGE0gJs=;
-        b=I6iUCrnt/1w9YMzPhpzPH5rZKTqhwhgSI6nlAfhgXZaM7c+NtcHZhu3+f1YQun70dU
-         l6JMIruf91rRUsPxqw9XHBr4dVUpaarzt0xWprkiRdc95R3NgFHiT+/7e8iCULdrsY5Q
-         QrXqZERCuXftTMDa2lK2W5UEM4+6q9hR73PS87jJddV2lC06j61im6HJgg+a2vO9DtGQ
-         //Ax9/yDK3+17k8kKj5Msms5t6bnNg9dZEfCqQWSkUsPcM6mCO0t5n0LK41F5+RxTVkY
-         Ix9DcaZ/sc0kDuFKXysLhlvh+gFJ4cKU34vGn+R9td13gf/nHnItTWyjr/PgjBfm+k7l
-         Idpg==
-X-Forwarded-Encrypted: i=1; AFNElJ98CiR2kelBKldfp9jbafOr4KdXFitOvU3MUuDXo2Hxlz5xH1pvpb754Jh+NC3aTZ3vcT80QknIlpPnBwXDIpRn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY7osi05CbEi5UY5UbPzucNDE/Biq4mbq61J1ptF69KBox9SaA
-	n6X3WNKfvOn+19zPLF1N/0ZYlyLUVyzLymRBbRVnNg9wiuTff6fqkCTk
-X-Gm-Gg: Acq92OHi6y/XZfYI8Eab9HZ2lah289ESSWehU2n6P9zGVdMWEEYXhpHryU24PZMGsag
-	7kQZZCtYYLlGjOOSBCfO2cw0T3WvJrEwI4DjWRmTOQZgEud00bdxzkSi+AQhWRE2b5OS43+FY2a
-	6ej6GuTwtkV0k4HsPZcQONyHnbgfkXq5n+x2ip6soY01577a+YJhmniSFPxlDOf2hCNLDeK5xxe
-	BeHOX7NzO853pgmOcVr5guWh2nfngfxtQvGOdPJQTQdWnJDIFreXx/ka1SNVFfzllr0GFxNNJhm
-	nNajjBPenCsPKCaIsQmuMX0rTt5pKdNW1/pGIMB8qGIv72uZdzAoX9qkBxetPvB0gbR1Ux4F7dU
-	owfnFRaEAX0ofaSW2+eDY9kC+aYpM5iYwK9wfwVrJTMVkm599Rmal0B1PyC2GZ5F7LueQKd9pd3
-	gBynFtdBroNwAUzXcYscqqx2NU4Xxlnb8=
-X-Received: by 2002:a05:6000:2311:b0:44d:261:54c5 with SMTP id ffacd0b85a97d-4515d3dc1f3mr33259120f8f.30.1778449825998;
-        Sun, 10 May 2026 14:50:25 -0700 (PDT)
+        bh=LRkOYhMC8sbVplv828DowOEo6OjLCAbHbvcg1bLlquU=;
+        b=AIFvZ+GHGOQdwQ2jTPgn4jtvWRvpsvyOz0nA2AzH17lbx6XHLdKYvWG/xz/CAMisEb
+         xOy1OHfzz7qjXQBkeEzQLG6E9/ohk8kZcWCcK7VWky0qDhK0Zi7B2e+tzTNz57C66WYL
+         TKGka+ioaVTYpgSy68uokEM+GOsf/GPFIuv6tjlbaVmvXvcjIkohcFnP/SJGGRRzUO23
+         +99C5h+HlsmTnmTjxUyCWqXW/wxSb34xpxciQgKvH4ASCRwGRuGn+Igf0DDziYTfIWjd
+         BB9/Y2BxR/liyugMYHyPLXUvrtGp+ywxPrnOr8GF7LiOqJ2V72dd/P/H3MKQrXafl6/I
+         HmZQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8HKi6sou6R8DX+pmtGTUS20VBo9XeF4czAHBGBE8Z04Z5/Os4sDYPLR1Vm5lr5d2CQgd2S/l/fcmZ522fc5SGb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzj8rc7MEocKHDf74hMG8m/9uL5QSUffWNQKZE4O2oi687rwUdE
+	hFJhJeL2VclQnaZv/d3DhONOh4hLGp2wonvp7WmEjQMbZ8Z3552HF3/N
+X-Gm-Gg: Acq92OFyphRU9oK8+2sowJRNgd+VNniKfx5RyLEhs1o//imUjp1R1F1Ze61BSUCLeUD
+	bUqlNpLRPFQgaI9MP/bDHom1iSiD029A5moDttlZTU7R4eFp7+IWYME2jTPaeM6cWuF87USb4FK
+	c4Iyrxz0aTGLYZU9GAh8M2TptzuSJFQOtwozrUM4s04dZTYZQOD/j74ZQWlGcBNZPwhT/aGamFx
+	ppJhcxlXtaimghQb9SNQb0bw8b7MAQExnOipbk5LGtiKnte2Ou2UYBDVCX0Nf/Gll+bs8HYkHzX
+	lFUeCsbs9qR6E9JbKkreyY3/CU1qWBl9nhWAFnVOWcWltfWyp7OLIpJZQDNRDMVPPJVvf2t4cHE
+	gc8D8cknLZt+b5DIX2kBzNfF8I302Eu5b2gcPmhG90CIGTKB9sUfhQEfP00mmJAT1pbgDqDM53M
+	avpUq1GIDo4C1TZi3M128equ0nzM6NWME=
+X-Received: by 2002:a05:6000:144b:b0:43c:f7e5:817b with SMTP id ffacd0b85a97d-4568ae17224mr10528380f8f.19.1778449822930;
+        Sun, 10 May 2026 14:50:22 -0700 (PDT)
 Received: from [192.168.0.2] ([197.250.51.203])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4548e6a68ebsm19207317f8f.1.2026.05.10.14.50.23
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4548e6a68ebsm19207317f8f.1.2026.05.10.14.50.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 May 2026 14:50:25 -0700 (PDT)
+        Sun, 10 May 2026 14:50:22 -0700 (PDT)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Mon, 11 May 2026 00:49:53 +0300
-Subject: [PATCH RFC v2 4/4] clk: zte: Introduce a driver for zx297520v3 LSP
- clocks and resets.
+Date: Mon, 11 May 2026 00:49:52 +0300
+Subject: [PATCH RFC v2 3/4] clk: zte: Introduce a driver for zx297520v3
+ matrix clocks and resets.
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260511-zx29clk-v2-4-29f0edc300f5@gmail.com>
+Message-Id: <20260511-zx29clk-v2-3-29f0edc300f5@gmail.com>
 References: <20260511-zx29clk-v2-0-29f0edc300f5@gmail.com>
 In-Reply-To: <20260511-zx29clk-v2-0-29f0edc300f5@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -87,26 +87,26 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7174;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10145;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=BPZww5hE1dLIIGa/RUA+R8wjr/jhPw5RMGELLQxayFk=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqAP2S2Rkd/NDg1wBapyhyI91AEC44X3F8pcuNa
- BHP6T5bWZ+JAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCagD9khsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiIF0Q/+JU7tsyNxlCC3kfGboXXsID8jVZxTuVO
- IuWVRDtADsv8/RSwhKAWmzj2KEbZBsZ2w4Y98RIzyBfxWSmlMcE+uvjMNIHDoCXgRyLjYsFy+XK
- 7/J5UzoX0ycpmSTO6SpxH6t4rc/dpVAUQRvCJSwpukl0yMlYnROVidbi7wTLMLoeNd+S59bHkpP
- YdPqtY39I594m+bDnW6Tuv4MnVcx4uAdakJXJttRvJ+tEqgTl0QXvn/m5aF/Cp9nH9icbVIZRDX
- c80JE5wcwc0wJ/9R9Dw36TjRKbZ8nRoC2LLHb0xNP5yYJARrca9eoddPk1pXoA05ka3osnf+aGF
- ZtW+UeinLpyrhj3CDtiUZWRuSkUFFTCgXNpuWCMjBT6zx/Flukm+57wWcYCXw1t/x0CHqleX3rc
- gdgDDzXfvj3X1EPqDlKyF8oWj43sxcsWFqo9XhXCNmnm0USOSAtldU1G4TcUi85j2POixQFINmZ
- htKGndEmgdXAimweY+benZXcgVjwBxS7ta1LtsVa/LPBerr5UJWvagjhs8qRFNqpTZmaXncsrdH
- YFIvRb1fyU38Em9hkJ8SPLd8rp86SVZm+7DHVw7q7xglivlrZP7QlnJcVQg/N1vd9HcQnrTnTqj
- B9X0CxWdOiaU+F5tjtV1anVYv+LA+ikG2wVnVTsxg5RSp0SoDLJ0=
+ bh=pxOX5J9a6t3qJy8x/9h97yQyy0Kh8VtqmvNPfJ6QVj8=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqAP2SDir1CuTCLtPRJH1i7/B8EcaSN1veBsq4X
+ UO+zqKSJeGJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCagD9khsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiIIqBAAg+3hXvr7t48dhJ6fUgn5AKr7wTfesco
+ Lv9d17gQZxbkRN8lX6n+4RVPUW5HoDZx9IBIbwPvTNiXIZDtWI2c8TzjtWyV4A6fjjLkNLdnDjR
+ kIYGa78euQsytsHWWRIP+zBci07ISJSb/TLsETo5z+A7PPhV/lytHMkR1X//8FxzdGQmSweAqA+
+ kFI/uovpnMngGKlgsesWQ0Tx+y/pkGAFQlDB1SNa4/T15TgPpEBhZJOV0DknC+jC3hZU3kvvEuy
+ ECJopaG56alUsUKwMsz3mVQl81jPTg+vztbYQVASuj2uNOUhRaMJznu10X1w2OOAan7+/sbosSO
+ o+mOoVePqPnQDqWboMS5KmB6AbbnGrUSrLfXwMmfSCahhXgf5EXdjlldXhtoMfLix9tzw0psThZ
+ s/39PLck//DbZAWLhDsm0mZ4OhzulAaI6KV+nzVw4UKGI3dqL475eHWAblyhgNKB7R93IexYJgt
+ v9zbnTOEtJpc8V9oeQfOnQh7dpV/CH5vsOlQD1bm4X84v6atTijVSnI9PwICQgioxG+6+Bu6HOS
+ sxu3m4NOdS2AmjphcLlfmc01SloV21iQIAt/wrkCYDRHxlMiSP9zXTZbISWOPif5i7QvXhIeLLN
+ ccoCDBqu+scetD06BvMeugw/05Acnd4o59y3pdqSuLUqSGLt/aGI=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_145028_271288_2C34D48B 
-X-CRM114-Status: GOOD (  25.86  )
+X-CRM114-CacheID: sfid-20260510_145025_090584_5B590B4B 
+X-CRM114-Status: GOOD (  38.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,209 +121,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"LSP" is ZTE's term for this part of the SoC, I suspect it stands for
-"low speed peripherals". The main UART is here, together with the flash
-controller and more surplus proprietary timers.
-
-It also has two more I2C controllers that supposedly connect to a
-battery charger, SPI for displays and I2S for analog telephones. The
-boards I have don't have any of these components though.
+This controls the CPU, DSP, DDR RAM, ethernet, SDIO controllers and a
+few more devices. It also contains a number of clock gates to pass
+clock signals down to the next controller.
 
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
 ---
- drivers/clk/zte/clk-zx297520v3.c | 183 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 183 insertions(+)
+ drivers/clk/zte/clk-zx297520v3.c | 215 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 214 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/clk/zte/clk-zx297520v3.c b/drivers/clk/zte/clk-zx297520v3.c
-index d4b683cb6354..05b02c8f266b 100644
+index aa304dd34b7b..d4b683cb6354 100644
 --- a/drivers/clk/zte/clk-zx297520v3.c
 +++ b/drivers/clk/zte/clk-zx297520v3.c
-@@ -791,6 +791,189 @@ static struct platform_driver clk_zx297520v3_matrixclk = {
- };
- module_platform_driver(clk_zx297520v3_matrixclk);
+@@ -266,7 +266,7 @@ static int zx297520v3_pll(struct device *dev, void __iomem *base, const char *na
+ 	/* These are the fractionals of the PLLs I have seen. There should be a better way to
+ 	 * generate them than hardcode the list.
+ 	 */
+-	static const unsigned int pll_fract[] = {2, 3, 4, 5, 6, 8, 12, 26};
++	static const unsigned int pll_fract[] = {2, 3, 4, 5, 6, 8, 12, 16, 26};
  
-+/* LSP clock entries have a common pattern: Bit 0 for PCLK, Bit 1 for WCLK. Bit 4 (and sometimes
-+ * more) for WCLK mux.
-+ *
-+ * Bit 8 and 9 are reset bits. I don't know the difference between the two, but they both
-+ * need to be set to deassert the reset.
-+ *
-+ * Bits 12-16 can be a divisor, but not all clocks have it. Some clocks have a divisor in 16-20.
-+ *
-+ * The ID given in this table is the first register in the device's MMIO space. ZTE's drivers
-+ * usually call this a version register, but it looks more like a device identifier.
-+ *
-+ * It looks like the registers map to devices like this:
-+ *
-+ * Timer reg	function	div	dev offset(lsp + xxxx)	ID
-+ * 0x0: Read-only, probably device identifier			0x00752100
-+ * 0x4:		timer_l1	Y	0x1000			0x02020000
-+ * 0x8:		watchdog_l2	Y	0x2000			0x02020000
-+ * 0xc:		watchdog_l3	Y	0x3000			0x02020000
-+ * 0x10:	i2c1		N	0x4000			0x01020000
-+ * 0x14:	i2s0		Yh	0x5000			0x01030000
-+ * 0x18:	always 0	N	-
-+ * 0x1c:	i2s1		Yh	0x6000			0x01030000
-+ * 0x20:	always 0	N	-
-+ * 0x24:	qspi		N	0x7000			0x01040000
-+ * 0x28:	uart1		N	0x8000			0x01060000
-+ * 0x2c:	i2c2		N	0x9000			0x01020000
-+ * 0x30:	spi0		Y	0xa000			0x01040000
-+ * 0x34:	timer_lb	Y	0xb000			0x02020000
-+ * 0x38:	timer_lc	Y	0xc000			0x02020000
-+ * 0x3c:	uart2		N	0xd000			0x01060000
-+ * 0x40:	watchdog_le	Y	0xe000			0x02020000
-+ * 0x44:	timer_lf	Y	0xf000			0x02020000
-+ * 0x48:	spi1		Y	0x10000			0x01040000
-+ * 0x4c:	timer_l11	Y	0x11000			0x02020000
-+ * 0x50:	tdm		Y	0x12000			0x01040000
-+ *
-+ * Registers 0x58, 0x5c, 0x60, 0x64, 0x68 seem to contain more controls for i2s and tdm.
-+ */
-+
-+static const char * const timer_lsp_sel[] = {
-+	"lsp_osc32k",
-+	"lsp_osc26m",
+ 	unsigned long ref, refdiv, fbdiv, vco, postdiv1, postdiv2, freq;
+ 	struct clk_hw *hw;
+@@ -578,6 +578,219 @@ static struct platform_driver clk_zx297520v3_topclk = {
+ };
+ module_platform_driver(clk_zx297520v3_topclk);
+ 
++static const char * const cpu_sel[] = {
++	"osc26m",
++	"mpll",		/* 624 MHz */
++	"mpll_d2",	/* 312 MHz */
++	"mpll_d4",	/* 156 MHz */
 +};
 +
-+static const char * const uart_lsp_sel[] = {
-+	"lsp_osc26m",
-+	"lsp_mpll_d6",
++static const char * const sd0_sel[] = {
++	"osc26m",
++	"mpll_d4",	/* 156 MHz */
++	"gpll_d2",	/* 100 MHz */
++	"mpll_d8",	/* 78 MHz */
++	"gpll_d4",	/* 50 MHz */
++	"gpll_d8",	/* 25 MHz */
 +};
 +
-+static const char * const i2s_lsp_sel[] = {
-+	"lsp_osc26m",
-+	"lsp_dpll_d4",
-+	"lsp_mpll_d6",
-+	/* Unknown */
++static const char * const sd1_sel[] = {
++	"osc26m",
++	"gpll_d2",	/* 100 MHz */
++	"mpll_d8",	/* 78 MHz */
++	"gpll_d4",	/* 50 MHz */
++	"mpll_d16",	/* 39 MHz */
++	"gpll_d8",	/* 25 MHz */
 +};
 +
-+static const char * const tdm_lsp_sel[] = {
-+	"lsp_tdm_wclk",
++static const char * const nand_sel[] = {
++	"mpll_d4",	/* 156 MHz */
++	"osc26m",
 +};
 +
-+static const char * const spi_lsp_sel[] = {
-+	"lsp_osc26m",
-+	"lsp_mpll_d4",
-+	"lsp_mpll_d6",
-+	/* Unknown */
++static const char * const edcp_sel[] = {
++	"osc26m",
++	"mpll_d4",	/* 156 MHz */
++	"mpll_d5",	/* 124.8 MHz */
++	"mpll_d6",	/* 104 MHz */
 +};
 +
-+static const char * const qspi_lsp_sel[] = {
-+	"lsp_osc26m",
-+	"lsp_mpll_d4",
-+	"lsp_mpll_d5",
-+	"lsp_mpll_d6",
-+	"lsp_mpll_d8",
-+	"lsp_mpll_d12",
-+	"lsp_osc26m",
-+	"lsp_osc26m",
++static const char * const tdm_sel[] = {
++	"osc26m",
++	"dpll_d4",	/* 122.88 MHz */
++	"mpll_d6",	/* 104 MHz */
 +};
 +
-+#define LSP_CLOCK(offset, name, mux, div_shift, div_size) {\
-+		ZX297520V3_##name##_RESET, ZX297520V3_##name##_WCLK, ZX297520V3_##name##_PCLK,\
-+		#name, offset, 8, offset, 0, 1, "lsp_pclk", offset, 4, 4, mux, ARRAY_SIZE(mux),\
-+		offset, div_shift, div_size, 0}
-+
-+static const struct zx297520v3_composite lsp_clocks[] =  {
-+	LSP_CLOCK(0x4,	TIMER_L1,	timer_lsp_sel,	0,	0),
-+	LSP_CLOCK(0x8,	WDT_L2,		timer_lsp_sel,	0,	0),
-+	LSP_CLOCK(0xc,	WDT_L3,		timer_lsp_sel,	0,	0),
-+	LSP_CLOCK(0x10,	I2C1,		uart_lsp_sel,	0,	0),
-+	LSP_CLOCK(0x14,	I2S0,		i2s_lsp_sel,	16,	4),
-+	LSP_CLOCK(0x1c,	I2S1,		i2s_lsp_sel,	16,	4),
-+	LSP_CLOCK(0x24,	QSPI,		qspi_lsp_sel,	0,	0),
-+	LSP_CLOCK(0x28,	UART1,		uart_lsp_sel,	0,	0),
-+	LSP_CLOCK(0x2C,	I2C2,		uart_lsp_sel,	0,	0),
-+	LSP_CLOCK(0x30,	SPI0,		spi_lsp_sel,	12,	4),
-+	LSP_CLOCK(0x34,	TIMER_LB,	timer_lsp_sel,	12,	4),
-+	LSP_CLOCK(0x38,	TIMER_LC,	timer_lsp_sel,	12,	4),
-+	LSP_CLOCK(0x3c,	UART2,		uart_lsp_sel,	0,	0),
-+	LSP_CLOCK(0x40,	WDT_LE,		timer_lsp_sel,	12,	4),
-+	LSP_CLOCK(0x44,	TIMER_LF,	timer_lsp_sel,	12,	4),
-+	LSP_CLOCK(0x48,	SPI1,		spi_lsp_sel,	12,	4),
-+	LSP_CLOCK(0x4c,	TIMER_L11,	timer_lsp_sel,	12,	4),
-+	LSP_CLOCK(0x50,	TDM,		tdm_lsp_sel,	16,	4),
++static const struct zx297520v3_composite matrix_clocks[] = {
++	/* Both 0x24 and 0x28 bits 1 and 2 stop the CPU. There is also a bit in topclk+0x138, which
++	 * ZTE's uboot calls "A53 reset", which also stops the CPU. I can't really tell the
++	 * difference between matrix+28 and top+138. The clock can be disabled and enabled from the
++	 * Cortex M0 and it will nicely stop and restart the A53, retaining all state.
++	 *
++	 * 0x50, bits 0-3 have the DDR clock. A lot of DDR gates and resets are in 0x100.
++	 */
++	ZX_CLK_CRIT(CPU,    0x28,  1,  0x24,  1,  2, 0x20,  0, 2, cpu_sel,     0,     0, 0),
++	/* TODO: 0x54 bit 14 and 0x54 bit 6 are supposed to be card detection clocks. */
++	ZX_CLK(SD0,         0x58,  1,  0x54, 12, 13, 0x50,  4, 3, sd0_sel,     0,     0, 0),
++	ZX_CLK(SD1,         0x58,  0,  0x54,  4,  5, 0x50,  8, 3, sd1_sel,     0,     0, 0),
++	/* This is some "denali" NAND, not the qspi connected one. */
++	ZX_CLK(NAND,        0x58,  4,  0x54, 20, 21, 0x50, 12, 2, nand_sel,    0,     0, 0),
++	ZX_CLK(SSC,         0x94, 24,  0x84,  1,  2, 0,     0, 0, clk_unknown, 0,     0, 0),
++	ZX_CLK(EDCP,        0x68,  0,  0x64,  2,  1, 0x50, 16, 2, edcp_sel,    0,     0, 0),
++	/* PDCFG. Like PMM, either clock bit will allow the device to function. */
++	ZX_CLK_CRIT(PDCFG,  0x94, 20,  0x88,  0,  1, 0x50, 16, 2, clk_unknown, 0,     0, 0),
++	/* There are a lot more VOU related controls in these registers, but turning off the main
++	 * clock seems to shut off the entire VOU MMIO range.
++	 */
++	ZX_CLK(VOU,        0x16c,  0, 0x168,  0,  1, 0,     0, 0, clk_main,       0,     0, 0),
 +};
 +
-+#undef LSP_CLOCK
++static const struct zx297520v3_gate matrix_gates[] = {
++	/* ZTE's driver has a statemt to the effect of *(matrix->base+0x11C) = 5, with a comment
++	 * suggesting that this sets a 50 mhz clock. The clock code itself lists the parents of
++	 * these clock as 50mhz pll output, but the GMAC driver never enables the clocks.
++	 *
++	 * The clocks below are enabled by the boot loader though, so they are on. And it turns
++	 * out that they are necessary for proper operation of the ethernet hardware. As far as
++	 * I can see trough experimentation, bit 1 affects the PHY whereas 0 and 2 affect the
++	 * MAC chip itself.
++	 *
++	 * Chain the wclk and rmii clk together for now. I haven't found a way to make either
++	 * the mdio node or the phy node enable a clock. According to ethernet-phy.yaml it is
++	 * supposed to be possible, but I can't find code to that effect in of_mdio.c.
++	 */
++	{ZX297520V3_GMAC_PCLK,	"gmac_pclk",		"gpll_d4",	0x110,	  0},
++	{ZX297520V3_GMAC_RMII,	"gmac_rmii",		"gpll_d4",	0x110,	  1},
++	{ZX297520V3_GMAC_RMII,	"gmac_wclk",		"gmac_rmii",	0x110,	  2},
 +
-+static int zx297520_lspclk_probe(struct platform_device *pdev)
++	/* ZSP aka LTE DSP clock. I think there is a mux at matrix+0x30, but I have no idea
++	 * about the frequencies it selects. Gate is at matrix+0x3c.
++	 */
++	{ZX297520V3_ZSP_WCLK,	"zsp_wclk",		"osc26m",	0x3c,	  0},
++
++	/* Mailbox. I haven't found a reset for this. It seems to have a PCLK only - turning it off
++	 * makes the MMIO area read 0x0. It looks like it does not need a WCLK. It generates IRQs
++	 * fine with just bit 2 set. Bits 1 and 3 are 0 by default in this register.
++	 */
++	{ZX297520V3_MBOX_PCLK,	"mbox_pclk",		"osc26m",	0x88,	  2},
++
++	/* DMA Controller. It has a reset and PCLK, but no WCLK. */
++	{ZX297520V3_DMA_PCLK,	"dma_pclk",		"osc26m",	0x94,	  3},
++
++	/* There is another clock controlling some "GSM" IP at 0xF3000000 in 0x88, bit 8. It appears
++	 * to be a PCLK, but I have not found a matching WCLK or reset yet.
++	 */
++
++	/* LSP uplink clocks. The PCLK is fairly obvious (disabling it shuts off the entire LSP
++	 * register area). The WCLK speeds were deduced by setting timers and qspi muxes to a
++	 * specific speed and seeing which bit in matrix+0x7c needs to be enabled for the device
++	 * to work.
++	 *
++	 * Due to the timers I am certain about the 26mhz and 32khz clocks. I cannot directly
++	 * observe the qspi mux frequency, so the clock rates depend on ZTE's qspi mux selection
++	 * being correct.
++	 *
++	 * Two additional bits are specific to sound components - the mux for the LSP's TDM IP is
++	 * in matrixclk and gets passed down. I2S has a mux in LSP, which can select the dpll_d4
++	 * clock.
++	 *
++	 * This code is commented out until the next patch because disabling unused clocks without
++	 * an LSP consumer breaks the UART.
++	 */
++#if 0
++	{ZX297520V3_LSP_MPLL_D5_WCLK,	"lsp_mpll_d5",	"mpll_d5",	0x7c,	  0},
++	{ZX297520V3_LSP_MPLL_D4_WCLK,	"lsp_mpll_d4",	"mpll_d4",	0x7c,	  1},
++	{ZX297520V3_LSP_MPLL_D6_WCLK,	"lsp_mpll_d6",	"mpll_d6",	0x7c,	  2},
++	{ZX297520V3_LSP_MPLL_D8_WCLK,	"lsp_mpll_d8",	"mpll_d8",	0x7c,	  3},
++	{ZX297520V3_LSP_MPLL_D12_WCLK,	"lsp_mpll_d12",	"mpll_d12",	0x7c,	  4},
++	{ZX297520V3_LSP_OSC26M_WCLK,	"lsp_osc26m",	"osc26m",	0x7c,	  5},
++	{ZX297520V3_LSP_OSC32K_WCLK,	"lsp_osc32k",	"osc32k",	0x7c,	  6},
++	{ZX297520V3_LSP_PCLK,		"lsp_pclk",	"osc26m",	0x7c,	  7},
++	{ZX297520V3_LSP_TDM_WCLK,	"lsp_tdm_wclk",	"tdm_mux",	0x7c,	  8},
++	{ZX297520V3_LSP_DPLL_D4_WCLK,	"lsp_dpll_d4",	"dpll_d4",	0x7c,	  9},
++#endif
++};
++
++static int zx297520_matrixclk_probe(struct platform_device *pdev)
 +{
-+	static const char * const parent_names[] = { "mpll_d5", "mpll_d4", "mpll_d6", "mpll_d8",
-+						     "mpll_d12", "osc26m", "osc32k", "pclk" };
-+
-+	struct zx29_clk_controller *lsp;
++	struct zx29_clk_controller *matrix;
 +	struct device *dev = &pdev->dev;
-+	struct clk *parent;
++	struct clk_hw *hw;
 +	unsigned int i;
 +	int res;
 +
-+	dev_info(dev, "Registering zx297520v3 LSP clocks and resets\n");
++	dev_info(dev, "Registering zx297520v3 matrix clocks\n");
 +
-+	lsp = devm_kzalloc(dev, offsetof(struct zx29_clk_controller,
-+					 resets[ZX297520V3_LSPRST_END]), GFP_KERNEL);
-+	if (!lsp)
++	matrix = devm_kzalloc(dev, offsetof(struct zx29_clk_controller,
++					    resets[ZX297520V3_MATRIXRST_END]), GFP_KERNEL);
++	if (!matrix)
 +		return -ENOMEM;
 +
-+	lsp->clocks = devm_kzalloc(dev, struct_size(lsp->clocks, hws,
-+				   ZX297520V3_LSPCLK_END), GFP_KERNEL);
-+	if (!lsp->clocks)
++	matrix->clocks = devm_kzalloc(dev, struct_size(matrix->clocks, hws,
++				   ZX297520V3_MATRIXCLK_END), GFP_KERNEL);
++	if (!matrix->clocks)
 +		return -ENOMEM;
-+	lsp->clocks->num = ZX297520V3_LSPCLK_END;
++	matrix->clocks->num = ZX297520V3_MATRIXCLK_END;
 +
-+	lsp->base = devm_platform_ioremap_resource(pdev, 0);
-+	WARN_ON(!lsp->base);
++	matrix->base = devm_platform_ioremap_resource(pdev, 0);
++	WARN_ON(!matrix->base);
 +
-+	/* TODO: Technically we can disable the pclk if all LSP devices are shut down, but that
-+	 * needs custom clk ops to tiptoe around a disabled LSP pclk before attempting to access
-+	 * the actual clock. In normal operation it is unlikely that all LSP devices are shut down
-+	 * simultaneously though as UART and NAND are located here.
++	/* One stray mux: The TDM mux is in matrixclk and it is passed to the LSP controller. In a
++	 * way the link gate (LSP_TDM_WCLK) could be considered a matching gate, but there is no
++	 * reset and no pclk.
 +	 */
-+	parent = devm_clk_get_enabled(dev, "pclk");
-+	if (IS_ERR(parent)) {
-+		dev_err(dev, "failed to find lsp pclk\n");
-+		return PTR_ERR(parent);
-+	}
++	hw = devm_clk_hw_register_mux(dev, "tdm_mux", tdm_sel, ARRAY_SIZE(tdm_sel), 0,
++				      matrix->base + 0x50, 24, 2, 0, &reg_lock);
 +
-+	for (i = 0; i < ARRAY_SIZE(parent_names); ++i) {
-+		parent = devm_clk_get(dev, parent_names[i]);
-+		if (IS_ERR(parent)) {
-+			dev_err(dev, "failed to find lsp %s clock\n", parent_names[i]);
-+			return PTR_ERR(parent);
++	res = zx297520v3_composite(dev, matrix->base, matrix->clocks, matrix->resets,
++				   matrix_clocks, ARRAY_SIZE(matrix_clocks));
++	if (res)
++		return res;
++
++	res = zx297520v3_gate(dev, matrix->base, matrix->clocks,
++			      matrix_gates, ARRAY_SIZE(matrix_gates));
++	if (res)
++		return res;
++
++	for (i = 0; i < ZX297520V3_MATRIXCLK_END; i++) {
++		if (IS_ERR(matrix->clocks->hws[i])) {
++			pr_err("zx297520 clk %d: register failed with %ld\n",
++				i, PTR_ERR(matrix->clocks->hws[i]));
++			return -ENODEV;
 +		}
 +	}
 +
-+	res = zx297520v3_composite(dev, lsp->base, lsp->clocks, lsp->resets,
-+				 lsp_clocks, ARRAY_SIZE(lsp_clocks));
++	res = of_clk_add_hw_provider(dev->of_node, of_clk_hw_onecell_get, matrix->clocks);
 +	if (res)
 +		return res;
 +
-+	res = of_clk_add_hw_provider(dev->of_node, of_clk_hw_onecell_get, lsp->clocks);
-+	if (res)
-+		return res;
++	matrix->resets[ZX297520V3_DMA_RESET].reg = matrix->base + 0x70;
++	matrix->resets[ZX297520V3_DMA_RESET].mask = BIT(0) | BIT(1);
++	matrix->resets[ZX297520V3_GMAC_RESET].reg = matrix->base + 0x114;
++	matrix->resets[ZX297520V3_GMAC_RESET].mask = BIT(0) | BIT(1);
 +
-+	lsp->rcdev.owner = THIS_MODULE;
-+	lsp->rcdev.nr_resets = ZX297520V3_LSPRST_END;
-+	lsp->rcdev.ops = &zx297520v3_rst_ops;
-+	lsp->rcdev.of_node = dev->of_node;
-+	return devm_reset_controller_register(dev, &lsp->rcdev);
++	matrix->rcdev.owner = THIS_MODULE;
++	matrix->rcdev.nr_resets = ZX297520V3_MATRIXRST_END;
++	matrix->rcdev.ops = &zx297520v3_rst_ops;
++	matrix->rcdev.of_node = dev->of_node;
++	return devm_reset_controller_register(dev, &matrix->rcdev);
 +}
 +
-+static const struct of_device_id of_match_zx297520v3_lspclk[] = {
-+	{ .compatible = "zte,zx297520v3-lspclk"},
++static const struct of_device_id of_match_zx297520v3_matrixclk[] = {
++	{ .compatible = "zte,zx297520v3-matrixclk"},
 +	{ }
 +};
-+MODULE_DEVICE_TABLE(of, of_match_zx297520v3_lspclk);
++MODULE_DEVICE_TABLE(of, of_match_zx297520v3_matrixclk);
 +
-+static struct platform_driver zx297520v3_lspclk = {
-+	.probe = zx297520_lspclk_probe,
++static struct platform_driver clk_zx297520v3_matrixclk = {
++	.probe = zx297520_matrixclk_probe,
 +	.driver = {
-+		.name = "clk-zx297520v3-lspclk",
-+		.of_match_table = of_match_zx297520v3_lspclk,
++		.name = "clk-zx297520v3-matrixclk",
++		.of_match_table = of_match_zx297520v3_matrixclk,
 +	},
 +};
-+module_platform_driver(zx297520v3_lspclk);
++module_platform_driver(clk_zx297520v3_matrixclk);
 +
  MODULE_AUTHOR("Stefan Dösinger <stefandoesinger@gmail.com>");
  MODULE_DESCRIPTION("ZTE zx297520v3 clock driver");
