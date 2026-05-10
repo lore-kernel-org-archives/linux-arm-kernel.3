@@ -4,104 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69055CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 May 2026 23:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F60CD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 01:22:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t6tLt4US09DyLso/mhdji9Hp8lkbi3csRWs2bmEy9sU=; b=qStrpD0sxGV01c7FgO3HTRXVIS
-	9yx8Dm1E0uX5X8HPcP3V1H8ggqWRxZ6NPzEYlaSsEBLliIIHsuUIvI54OmCd+3gH5my9NRJ+HzWAl
-	Rb9rnOk15xRoVX9Bb9+z4a9LOJrEta8eNtm40yNdO7nA0hZXim4gtq0m7zV9mzPQMShFKfncM7uDA
-	2HdUEAmMOXNOHh63rPscVr0QZR84Xw0pCzMK/jaN5ugv7vhb1zqsnvT+skeH9no6ZvoKNEMnZ/1RH
-	e8bHJaSUKXZ+F4djgSd9Ey+PqoorQSWDmcuavh2M+VLo3jeWyiXBx3BItKeAMJmVZcFfmCl5QM88e
-	k2gsV0cw==;
+	bh=5yiWmD6uwkd0Zp5KqmRCJpP+WsbkEivGVu0xC8Lode4=; b=T81Diw3SwFWex1S9YVKg7cmd5F
+	iO78Kn/XlXODBwDmzyAo50kXX7EHKdTVBHJBWFbxGd5rJFYVOXk0WKR+59MMArctBNV/1WlWUYshd
+	fDvsO/sk+aN5sONyc0bKrLuDeFrvqZzGEGP9YluXpKCepXxm2Onyc70B/CTxJYZOixFsV//sSbwAW
+	+gjv4B8MQZj2RKOHaeJeW2thrS0wVH8ep/3HS/EHx09EvM2y3p3SMVpFF59UifZOMwe5wV2CKlQmv
+	enshUgYZi5U16+lQPwKmVVe3V1PfC5PWD21Sv0qmI7Z+P1mCLJfmA6u7KNUu3bF08QmreZMm15dF2
+	tnzKWP8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLrC5-00000009pBF-3QNF;
-	Sat, 09 May 2026 23:34:49 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1wLssM-00000009wVU-3S0f;
+	Sun, 10 May 2026 01:22:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLrC3-00000009pAf-130J
+	id 1wLssK-00000009wUs-2jOR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 May 2026 23:34:48 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-50faf8ed9c5so16637361cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 16:34:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1778369686; x=1778974486; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=t6tLt4US09DyLso/mhdji9Hp8lkbi3csRWs2bmEy9sU=;
-        b=PWEUVq3IVD2y1eBjDvVOcwhFPma8AdnDm4ybL/CIY/K0mprEHOaQMH+FZ13X2A7e6E
-         Zk6gAab9qngOSUK1dmoKEMuEpYlLdOX6hLXD/QNBezeiOUNw2KNLuvC3IuBZ8P6xAPJn
-         l+um1KUWVc3XHv9mG4Kooc1Qh6rYux7xOzyxqj+eLOneoS1PI+5qEYs5KI9aVSVXAcgt
-         PUe1oK+l9Y8ATGOJAa6p4GFdEHs7P6oJOmqgI7ic7AGeNv34hOOYooIteiPd2pbbIhvp
-         zOJ0CKUr5qxDwNc1CsyxNRIkuv+GkGHrNXAvHE/j/0+qgP6pqdbkQljV40n1A6pBokjo
-         YO9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778369686; x=1778974486;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=t6tLt4US09DyLso/mhdji9Hp8lkbi3csRWs2bmEy9sU=;
-        b=SEzWl1JQCaWsmQAHj+jzCIsr+jIYHnPo9FivSY7aVLIUJvfEmouH732h3HQJrquiKH
-         fuUJbWuAl5j40GPFfRL00EnidlzAAxgYhx3HkOntS1i3peIMOWfh4Qc+9yMMMu1SxvM3
-         Com3dgL4blg1+Q9Cup5dy7yXBCnxLfiwV5tr9cc8VDNvH6SQyzakpQpbYBIHmrumJPHj
-         tEjxtkVHrkZFdZif9BmTIj6Y5fWwhZzO8y5+qhLJw5bV/qrKAe9g9PpABdYNHRriW/4N
-         If3jWzULXyIyyN2BJ10Fp6vcLZtYCFOxI+mSCHJTfvtqPzGX8DwtLEDp2AyDiwUOBAUq
-         xtvg==
-X-Gm-Message-State: AOJu0Yxwr9at1yQjKIAiAh42tTgw3psn5PPbqA7sf3mFPE3FLShlWKc8
-	7+jiCmSdw+NWIc7yCZSJVuBb/7ieaf36sTObL3uPUzctorI6vPRiihbOuM+76rlc828=
-X-Gm-Gg: Acq92OGYkiJCsOVxBRwcWZnY7l0VHzGs7azvMNbqbWzJF7OLbLEDUnEdAmrBEEosowk
-	c3HamRjCF4LXx23/2Gu7vyXPMwZZUhvD43jU4Y657ci9nNdvOUStPzRpYdr3GnkG+0xw/2K8HJl
-	q73ZXFnOFLjRvLu+kCUvUKYflLhMBE/U7UCUTG4Z/6XxTRvCEZzFJ8MW0+VKI0ioibbnU6Hs9yF
-	3O2lGSrRNK59PsTx0gI9Y5CzaMsB54eI+0q42Tj+0rLawaCS9kjFbiYBHi5blHe0B7nOhd9KSXi
-	PeyaoFnVk++00FrsAv3Kipxq/VOTMKrJxcIcK5kISLyvsIDR5TyiSsTV2HdoJ/FHBCk3Xr6OwEu
-	Q90xoHhxQDTUj/cj52jI41vBkU4INIErfIstVro8sEmhSGNaWuZONUl3uYozUJRp82FnKy4e41E
-	sAEo4fIe7wFfizd77v/DSjF7TK1Z9xsDvoekPCGgdbFd7z40SrpjsOdnn8PHxCI4/kKKV1uyhyR
-	m0sEg3HK+lJowV2
-X-Received: by 2002:a05:622a:5a9b:b0:50e:6139:492b with SMTP id d75a77b69052e-51461c3620dmr247096161cf.23.1778369685834;
-        Sat, 09 May 2026 16:34:45 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5148e7e3d90sm51028881cf.20.2026.05.09.16.34.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 16:34:44 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wLrBz-00000002ONN-38VG;
-	Sat, 09 May 2026 20:34:43 -0300
-Date: Sat, 9 May 2026 20:34:43 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 05/25] iommu/arm-smmu-v3: Move IDR parsing to common
- functions
-Message-ID: <20260509233443.GK9285@ziepe.ca>
-References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-6-smostafa@google.com>
- <20260501124716.GD6912@ziepe.ca>
- <afiODW2sVMeOj3Ag@google.com>
- <afoagb/wVBJD1IX+@ziepe.ca>
- <afofSPQbepd_fpom@google.com>
- <afsQTwO3eW+Ks2fe@ziepe.ca>
- <afxlufh3t3hRe4-G@google.com>
+	Sun, 10 May 2026 01:22:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 92D0640418;
+	Sun, 10 May 2026 01:22:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A433C2BCB2;
+	Sun, 10 May 2026 01:22:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778376148;
+	bh=5yiWmD6uwkd0Zp5KqmRCJpP+WsbkEivGVu0xC8Lode4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dyiAvKa+3clyz2dycK1F19O6idhR9DqpV1QSK3ArqnfpG1Ed1l5joUZ9QOpaajv/8
+	 Ehf/AgeRHm0JPXnSjfl1q/6scQHAW7UxAcMRSQ6hbSb8t0LpPhPzwgDaXqyn7oIiVO
+	 NeQBS+G+wisgmGtbKntRobGOseYQy/IaQ8RF4FFepYqGfFjhI9qqRIXKkdrvNIqvp/
+	 YXB+PEMZ6HGFmQl78+06WhoZsXly01O+JFJw7tfRov1MnNrYenSeMkJNX1ccyAiKrX
+	 PN7UG7KkqMm2Nx4/fOUlA5pGNPGkuxO5h4ywOtCENFDE5ALIrdw/cBJKSq/urUgBTH
+	 tpXtAY2+V4VCA==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 36C481AC5896; Sun, 10 May 2026 02:22:26 +0100 (BST)
+Date: Sun, 10 May 2026 10:22:26 +0900
+From: Mark Brown <broonie@kernel.org>
+To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
+	linux-omap@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+	Peter Ujfalusi <peter.ujfalusi@gmail.com>,
+	Jarkko Nikula <jarkko.nikula@bitmer.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Subject: Re: [PATCH] sound: soc: ti: rx51: remove stale reference to
+ machine_is_nokia_rx51()
+Message-ID: <af_d0qItJAkYCZIb@sirena.co.uk>
+References: <20260509012247.14990-1-enelsonmoore@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2sx2LxkdBo0wNpht"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <afxlufh3t3hRe4-G@google.com>
+In-Reply-To: <20260509012247.14990-1-enelsonmoore@gmail.com>
+X-Cookie: Truckers welcome.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_163447_325945_E3DAF5E1 
-X-CRM114-Status: GOOD (  22.13  )
+X-CRM114-CacheID: sfid-20260509_182232_714985_402F3674 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,45 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 10:13:13AM +0000, Mostafa Saleh wrote:
-> > I was thinking more like
-> > 
-> > #define arm_smmu arm_pkvm_smmu
-> > 
-> > Before the pkvm compile of the shared code. 
-> 
-> Oh, so we rely on arm_pkvm_smmu and arm_smmu having the same field
-> names and types?
 
-Just for the shared code, yes.
+--2sx2LxkdBo0wNpht
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-For instance this patch would require the features field be present in
-both, and then all you do is directly copy all the smmu->features
-logic into the shared file and that's it.
+On Fri, May 08, 2026 at 06:22:46PM -0700, Ethan Nelson-Moore wrote:
+> The rx51 driver relies on the machine_is_nokia_rx51() macro, which is
+> always false since commit 9b7141d01a76 ("ARM: OMAP2+: Drop legacy board
+> file for n900"). Its presence prevents the removal of boards no longer
+> present in the kernel from arch/arm/tools/mach-types, because the
+> machine_is_*() macros are generated from mach-types. Drop this unused
+> code.
 
-> I don’t think that’s better for maintainability, I can look into it
-> if Robin and Will are OK with that.
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
 
-I think maintainability here means pkvm minimizes how much it changes
-the code of the main driver.
+--2sx2LxkdBo0wNpht
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Copying a bunch of functions into a shared .c file exactly as it is,
-then compiling the shared file with some #ifdef'ery at is going to be
-long term better than trying to mangle the whole thing to avoid using
-any of the core types and not directly share the code, IMHO.
+-----BEGIN PGP SIGNATURE-----
 
-Like my tlbi point for instance, it is not a good idea to rip out a
-little bit of the invalidation logic then open code a pkvm
-version. Use the exact driver code. But to do this you need to pass an
-arm_smmu through to to the pkvm specific queue management functions.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmn/3b8ACgkQJNaLcl1U
+h9BAEQf+Igsk51i9EKXmUO6uebIWPChe+g8zimHsx5tF/PsngLjE4TY+G8VDxyjW
+JEKZBMih4TBb8NHiAO0AOhWxxKm7YW8Hw7FJgI8tdGr4AW1Ccl5qETyj7dehSlNs
+vYpdYqn8VViOxobs6kqXzLg0t/IdWTezZ1vnqG+ImD3FQ7LgM7qi2AWaQMASH2pt
+UDZs725pKvL3ybWSJru9KhUIT7nkeCpIDBcTxzB57lDHT43F4aOq3RrYOJWtpc4a
+jf4js/Ew5Huqb0dTw+n4OizjKC6BrjYmatpRfwiCLqhb/qZfDXQlS2KMMlYkuWVE
++5pPz/pbPbe9hvg7C+w8JHFzJV4Srg==
+=lTn/
+-----END PGP SIGNATURE-----
 
-> > How does pkvm compilation work anyhow? Is it all rolled into a unique
-> > link, or do you have to worry about symbol conflicts with the main
-> > kernel?
-> 
-> All pkvm symbols are prefixed with __kvm_nvhe_ in the main kernel.
-
-So automatically with objcopy or something like that during the build?
-
-Jason
+--2sx2LxkdBo0wNpht--
 
