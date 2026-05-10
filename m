@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22D22CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 18:31:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8232DCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 18:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z436gSSBTFhLoL9d5wdN6j/AQR4iFFTGFYZWVF5au/s=; b=J0oe35PHQu4ilsCYc3V3hZDzon
-	uQTG4dofYwSQMgeQgNwYUDBMlhvoDP4h9lJABZ5vPqmga5mnn1S0qNEuRaQEBGwJR6hWE8RvSiYk5
-	UapyNTh8n5UTEk+o8abhzS7rayBhasAxb7G8K7wKrAlnHR5EqTVSm5yc7bSMdmTRrv9T3J1jj9TV4
-	N6FTMX6bW4lB8GBWwRnJwXILp8YZ9m6+g4C9QAbG7KSCkfSkjrI99hOP6GqL4OjYJr/3+Vk410mY1
-	dWbQnY1f+W7brgZXmojjzdkD1iuU7ajbA9qypUu9hY65OqG8HAoIjelg8OpYR+Rrt3yd/bwKN+wtO
-	wbifY/6w==;
+	bh=4GhoY1fOJO8LWPdJh9qNDaVbnqnWOq2pyB0m4w0Zjdo=; b=HUg4Os0z9DuNCq7NWggHgbkDml
+	djiPe+7OfuopnzhXv44dfPtZt7olcZb1AD2lal9t4jlgTrDV25a3o5G86kgsnp6cvzRyufOwMlFQI
+	Zl2pLaDRRL7KxDjBaY5IkAt7P/9osOIfylMJImLeJE9TrdbAkfrq82luHBVthbXUbsUt9GD+CW/We
+	VGZkKbUahxiW8OIPFf4fctQR3E6Q1xJD5yyMMQgEuUdMKUVSfaUYRtfGC5MMj2pTD33ZEqGonhjwE
+	JdAMbTHdWXb2BZostmP4CLNJ6o6xxdtSzjKKMEJ5OYWc/jIM/ybFpehsNYGeCEb4Pfc4nkPJd7Yjq
+	SGnU0DCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM8wL-0000000BMHJ-2ClW;
-	Sun, 10 May 2026 18:31:45 +0000
+	id 1wM8wX-0000000BMLR-1gvX;
+	Sun, 10 May 2026 18:31:57 +0000
 Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM8wG-0000000BMG5-1ByS
+	id 1wM8wV-0000000BMJ7-1Eej
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 18:31:42 +0000
+	Sun, 10 May 2026 18:31:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1778437899; bh=z436gSSBTFhLoL9d5wdN6j/AQR4iFFTGFYZWVF5au/s=;
- b=QYMpxOtbEJEzR/n/OPe8GfHuylel9xiIlKJc28CiSTxjWNI302dMD7KVfJQQsjdhIqht7j7x0
- 1IRCHIzD5NzGJyMFvWAZN0jit72t6fUBgUhEDPeUJUfElq2ueO+WPB5J+5a/jifW+0bIL81D02C
- 6VWXuHQB77H6DdaHZA+d0Tp7mXDrX/0PzVrvp9VqN79k5Wc6NLSaZHcVhFWueRhEjA33kbNQLmW
- 1DeF+vXeUn5UrC6FpqV1yxmqvacrQywiSg1FCWVulYCfiI9bqV3mYtDBUtMyodkU+xrIoamU4Ny
- agV+632tE1NqeyWBcGzfzjw9NksJPzXpWbmGwfA4BTZA==
-X-Forward-Email-ID: 6a00cefc61db3ab145b0f226
+ t=1778437905; bh=4GhoY1fOJO8LWPdJh9qNDaVbnqnWOq2pyB0m4w0Zjdo=;
+ b=zJpIhBGWMydjTRFiBfGOBmqjvNHcsKrXqwkUbbRgwoEinae8BW6y97yhokkY7g5eF7KsVCCgn
+ B+MVkpaKoJjviDihlWvf0xPVCTN96IlVVvJRSq/u4icYw0xgJOfa+dDfMIToP3Aa5iiExpXR4ZR
+ NmqGYeZSfT1StGBkQuPIbBCZPDP+HsCKVvLqfkMsMMt7tORNKUYt4SkgyluI8wKVbyzjwPyyGt2
+ 3kQWnO9wXI45ItzTvdzwPryjwX/aYjpQGfoJQe/Xd1Yya7sBz9ZjujaLxTckZ/lZ2l+6fty7Eee
+ 9Kfy/JhGXpZBEXhhmq4AIyJ9VMRQ8/hvh8g8unI6Ymsw==
+X-Forward-Email-ID: 6a00cf0b61db3ab145b0f292
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  121.127.44.73
 X-Forward-Email-Version: 2.8.0
@@ -58,17 +58,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 01/10] drm/rockchip: dw_hdmi: Use of_device_get_match_data() to get match data
-Date: Sun, 10 May 2026 18:31:02 +0000
-Message-ID: <20260510183114.1248840-2-jonas@kwiboo.se>
+Subject: [PATCH 05/10] drm/rockchip: dw_hdmi: Hold a reference to the dw-hdmi bridge
+Date: Sun, 10 May 2026 18:31:06 +0000
+Message-ID: <20260510183114.1248840-6-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260510183114.1248840-1-jonas@kwiboo.se>
 References: <20260510183114.1248840-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_113140_833176_61E3C4B7 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260510_113155_435089_58A49A92 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +83,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change to use of_device_get_match_data() to get match data prior to
-allocating private data. All current entries in the of_device_id match
-table provide match data, so no functional change is intended.
+Take a reference on the dw-hdmi bridge during bind and drop it again
+from unbind to ensure the bridge is kept alive for the lifetime of the
+encoder component.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-index 8c0e433fbda2..34a2248f6b4b 100644
+index c5cdf2d1f04b..c7933f3eb64f 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-@@ -536,8 +536,8 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
- {
- 	struct platform_device *pdev = to_platform_device(dev);
- 	struct device_node *np = dev_of_node(dev);
-+	const struct dw_hdmi_plat_data *drv_data;
- 	struct dw_hdmi_plat_data *plat_data;
--	const struct of_device_id *match;
- 	struct drm_device *drm = data;
- 	struct drm_encoder *encoder;
- 	struct rockchip_hdmi *hdmi;
-@@ -546,13 +546,16 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
- 	if (!np)
- 		return -ENODEV;
+@@ -79,6 +79,7 @@ struct rockchip_hdmi {
+ 	struct clk *hdmiphy_clk;
+ 	struct clk *ref_clk;
+ 	struct clk *grf_clk;
++	struct drm_bridge *bridge;
+ 	struct dw_hdmi *hdmi;
+ 	struct phy *phy;
+ };
+@@ -609,6 +610,13 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 		return dev_err_probe(dev, PTR_ERR(hdmi->hdmi),
+ 				     "failed to bind encoder\n");
  
-+	drv_data = of_device_get_match_data(dev);
-+	if (!drv_data)
-+		return -ENODEV;
++	hdmi->bridge = of_drm_find_and_get_bridge(np);
++	if (!hdmi->bridge) {
++		dw_hdmi_remove(hdmi->hdmi);
++		return dev_err_probe(dev, -ENODEV,
++				     "failed to find bridge\n");
++	}
 +
- 	hdmi = devm_kzalloc(&pdev->dev, sizeof(*hdmi), GFP_KERNEL);
- 	if (!hdmi)
- 		return -ENOMEM;
+ 	return 0;
+ }
  
--	match = of_match_node(dw_hdmi_rockchip_dt_ids, np);
--	plat_data = devm_kmemdup(&pdev->dev, match->data,
--					     sizeof(*plat_data), GFP_KERNEL);
-+	plat_data = devm_kmemdup(&pdev->dev, drv_data,
-+				 sizeof(*drv_data), GFP_KERNEL);
- 	if (!plat_data)
- 		return -ENOMEM;
+@@ -617,6 +625,7 @@ static void dw_hdmi_rockchip_unbind(struct device *dev, struct device *master,
+ {
+ 	struct rockchip_hdmi *hdmi = dev_get_drvdata(dev);
+ 
++	drm_bridge_put(hdmi->bridge);
+ 	dw_hdmi_unbind(hdmi->hdmi);
+ }
  
 -- 
 2.54.0
