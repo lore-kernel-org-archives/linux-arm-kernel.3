@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE628CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 01:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A30CD37AF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 02:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+fSTWzSgvZHZRTkQMtfK8BXd/rdqxNY7xJPVCHohYaA=; b=mjJIApkW/MgQ1GE+q+4VP7mrms
-	RwdnDmc2EQxtsILhA90B5LXXy5qqGyMWzPqWE9vDrdgQssgckx04AIZQiFlP8AhQlCMmnL8CLOC/o
-	14riASqsuS3Bx3JQ7NwmF/uX2BIaZc65rkxMDiNnb0IyEZBLIJKxH2K/PMXQI0jraWLztR6LkSQXo
-	lfiXP0Flhxu6s8tMGd0wzYP9lHABRMm+WC51HRMZPqR4WKeQ1PZhqqPu9B5T/gHauxiRx/YF4Lwzh
-	Kgl5xz/ORU6kXa7nai1LMorzYFK1ni3VpRZvokwlQtvLvk92SjC8w8rjPcylzZcVxVtJcp5Ym12Kd
-	O0RHhJUQ==;
+	bh=IvSvVizBECfyNz4maTI4yNBUrzMgeG5Zirbva3PFmmE=; b=LCsrT9FVKz8yKbIKOaRWw9e+Xi
+	0UCNChr1IUhHd7WmbhOAykRSWgrpXEo0ApwKzNSml7YgIAoer+ML6GryiRhJNgKmqElmbpZSoiNI+
+	iVCwSdjv42gQzzaPYXKgVokg2IDzXifoZqHipI8xRFSCzUQtrsvyeqgTfRkGtxAb83oqW/52k2YVG
+	LVng8CkS88GHuSbhqc0e/Yj8Fyy14Q+nnvg5/1YDjPr9Uv+/+DkyqJAnqSMjZHAtTRxGcEDxm9KJp
+	EMQgEnqNEGxKGfaIx9kPKxwBQ3nSoUuhei09XCzwi/ss6RVvOvuYp3vyRcam7IWj3nZ1F8RGBxXIs
+	CIpcAL+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLsvA-00000009wow-1B6t;
-	Sun, 10 May 2026 01:25:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wLtrF-0000000A0b5-29bR;
+	Sun, 10 May 2026 02:25:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLsv8-00000009woi-2cxH
+	id 1wLtrD-0000000A0ai-3RsF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 01:25:26 +0000
+	Sun, 10 May 2026 02:25:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9FD6C6001A;
-	Sun, 10 May 2026 01:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BD42C2BCB2;
-	Sun, 10 May 2026 01:25:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A825141ABE;
+	Sun, 10 May 2026 02:25:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DAE5C2BCC7;
+	Sun, 10 May 2026 02:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778376324;
-	bh=+fSTWzSgvZHZRTkQMtfK8BXd/rdqxNY7xJPVCHohYaA=;
+	s=k20201202; t=1778379924;
+	bh=DuPHI1LqOFfQCPwSGvE4XxVWrva8Uk84ODEwZHi72xU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NVHtxyvZZN/lPxtzS89qAvrTwsrWkagV0UXsIHOWpQLcdIUya6YyCss6wRwSSgRH4
-	 CBkcYf2MWg2ej+QBnMseCQH2ctpB4Vw01WpjOeMiHiaSPMeMEt4LLdounV5Y/MOKtS
-	 2AAvJMxHw69r3+uq58ISBONcnUdctz4z5cbH8R0LtuxOc8ru6g8JraNg+q8PlD3IKp
-	 HzZZY89u2dB6BmcqZOJZ44ecvtdsB7in2IqbekC2Z4aeqF8j5Ykd8ElF+j9cagOHRq
-	 YZ8EENDGJ/oqEWY6Fazl3h5cKE3W9+ktM8XUJDo8d6TTj9Wrt2xqL/pnhyDDxrtqm/
-	 LI84R6/1Ti+/w==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 375C81AC5897; Sun, 10 May 2026 02:25:22 +0100 (BST)
-Date: Sun, 10 May 2026 10:25:22 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Subject: Re: [PATCH] sound: soc: fsl: eukrea-tlv320: update board checks to
- use the DT
-Message-ID: <af_egt2d3xwOJg8G@sirena.co.uk>
-References: <20260509214622.38319-1-enelsonmoore@gmail.com>
+	b=e79y6hL/mgDvOZD8UHrjx/yvvGE14Vi42uRup1vVa+BwGGuz0tI3FboKrX6KCcHYW
+	 RzREP9nAcxXgbOLsICt59PEujBZfc43refGEy/MqJqsWO96s+Q3AgEvXjdaDOJlAAS
+	 iXt5onlnEIiRTPA221E7iqjKkNnVa/ou5prZT51yvrxvmamwRnnTONClO46LkwR6wZ
+	 t2IFlN52kGo0lvKsca1tHoXbtX8d3ZNYB/HRYPyRw5jkTtawLddwbKxR+1rJEj3vIi
+	 eoZSgqm4WxQI4AKYACjQH26b7yHJFcZfpkAvmuGCkgkL1k/4LZuGB+A3395nol8DbQ
+	 i0nDH3HyM9r4g==
+Date: Sat, 9 May 2026 21:25:16 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Alex Elder <elder@riscstar.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com, 
+	rmk+kernel@armlinux.org.uk, konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org, arnd@arndb.de, 
+	gregkh@linuxfoundation.org, Daniel Thompson <daniel@riscstar.com>, 
+	mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com, alexandre.torgue@foss.st.com, 
+	ast@kernel.org, boon.khai.ng@altera.com, chenchuangyu@xiaomi.com, 
+	chenhuacai@kernel.org, daniel@iogearbox.net, hawk@kernel.org, hkallweit1@gmail.com, 
+	inochiama@gmail.com, john.fastabend@gmail.com, julianbraha@gmail.com, 
+	livelycarpet87@gmail.com, matthew.gerlach@altera.com, mcoquelin.stm32@gmail.com, 
+	me@ziyao.cc, prabhakar.mahadev-lad.rj@bp.renesas.com, 
+	richardcochran@gmail.com, rohan.g.thomas@altera.com, sdf@fomichev.me, 
+	siyanteng@cqsoftware.com.cn, weishangjuan@eswincomputing.com, wens@kernel.org, 
+	netdev@vger.kernel.org, bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 08/12] dt-bindings: net: toshiba,tc965x-dwmac:
+ add TC956x Ethernet bridge
+Message-ID: <af_sarCs9E5M7NLE@baldur>
+References: <20260501155421.3329862-1-elder@riscstar.com>
+ <20260501155421.3329862-9-elder@riscstar.com>
+ <afycOwz5TpkegkZd@baldur>
+ <3c78f48c-6478-46d0-87c2-581bb58637dd@riscstar.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wQR79ERn67QPs7uj"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260509214622.38319-1-enelsonmoore@gmail.com>
-X-Cookie: Truckers welcome.
+In-Reply-To: <3c78f48c-6478-46d0-87c2-581bb58637dd@riscstar.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260509_192527_936846_1FBBF375 
+X-CRM114-Status: GOOD (  25.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +90,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, May 07, 2026 at 01:37:09PM -0500, Alex Elder wrote:
+> On 5/7/26 9:12 AM, Bjorn Andersson wrote:
+> > On Fri, May 01, 2026 at 10:54:16AM -0500, Alex Elder wrote:
+> > > diff --git a/Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml b/Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
+> > [..]
+> > > +
+> > > +  gpio-controller: true
+> > 
+> > I don't have any concern with the use of a proper gpio driver to model
+> > the implementation, but if I understand correctly this relationship
+> > between gpio controller and gpio consumer is strictly internal to "the
+> > PCI device".
+> 
+> (I think you're already cool with this but I still wanted to respond.)
+> 
 
---wQR79ERn67QPs7uj
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Thank you for the further clarifications, and added details, Alex. This
+does look reasonable to me.
 
-On Sat, May 09, 2026 at 02:46:19PM -0700, Ethan Nelson-Moore wrote:
-> The eukrea-tlv320 driver contains checks for ARM machine IDs via
-> machine_is_*() macros. The boards concerned now support only FDT
-> booting, which does not use machine IDs, and therefore the code should
-> be updated to check the DT compatible property instead.
+Regards,
+Bjorn
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-
---wQR79ERn67QPs7uj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmn/3oEACgkQJNaLcl1U
-h9C6Ngf/VgpL6/dY6oe9kbIkiwzw7zZb5+n21tUveYgzPidX0a4toLehfaAR+hTS
-4FJcIwVvXbleEDcEIkLVZQCUQV1FvUCz7HVW5wubSRGSRtd7UsQ5WANT95sjdBwe
-xrrXCQuF4HEcQnVuyEI2Rt1CSqfwqPvMVje+aMVwm0I2F9/4rzMwSYbyNrC1i0Oa
-ODWObnHyeFqscnD4awYCTj1LpwwMZ6Cu2NwbO5Ub4W9nAijkDJYQ9cHDw5t0SZYE
-sXsDdxCz47BiTeLIFvgwmQZ3WFy5kce54ceig/KpYkFDaFDyYltxO5DNaLn+PvSy
-am3YpHjAz2qx0CGRSWdpXdoHmLNp4g==
-=c9YV
------END PGP SIGNATURE-----
-
---wQR79ERn67QPs7uj--
+> That is not correct.  These GPIO lines are used two ways for the
+> RB3gen2:
+> - drivers/pci/pwrctrl/pci-pwrctrl-tc9563.c uses GPIOs 2 and 3 to
+>   assert/deassert the reset lines associated with the two exposed
+>   downstream PCIe ports on the PCIe switch within the TC956x.
+> 
+> - Each of the Ethernet PHYs has a reset GPIO.  On the RB3gen2, the
+>   GPIOs used for the purpose come from the GPIO controller embedded
+>   in the TC9564 (00 and 01).
+> 
+> These are therefore "exposed" (they are *not* strictly internal).
+> 
+> > Is this connection variable or is the link merely expressed in
+> > DeviceTree to mitigate the fact that you choose to implement the
+> > responsibilities of the two parts split into two device drivers?
+> 
+> It is variable.  These resets might be implemented by other GPIO
+> controllers on other platforms.
+> 
+> > Are there other consumers of these TC956x gpios which would result in a
+> > board designer (and hence dts author) to ever reference this
+> > gpio-controller in a different way?
+> 
+> They could.  Nine of these GPIOs are exposed by the TC956x pins
+> (GPIO00-06, GPIO12, GPIO35 and GPIO36).  The RB3gen2 uses 00-03
+> (and possibly 04 but that's for a PHY we haven't tested yet).
+> 
+> 					-Alex
+> 
+> > Regards,
+> > Bjorn
+> 
 
