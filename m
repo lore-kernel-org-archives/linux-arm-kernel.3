@@ -4,105 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A660ECD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 21:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD56BCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 22:09:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qBXfcO0sCVR4C2syEAAYIryOuaMB2+89uN4LXuaBG0U=; b=GgbK3be2T1q19TkgW5Loq0fITy
-	SsCzyyN4O071sIMZrYc/MQq3hWuDIvkblVN3/zs8o0mdVSbrgnzEbgOfWDaZOvG6JKiyzsY5wqekU
-	5NtGGeYgBr98DLElj3IV1QLrzhE+/8AEAXppCKZiUXS+vmC997PyP9JvMsJAaAvyduKf14dJIOTIt
-	7/P82cyVs6q90h+97gKB7DIt7Zkm2Ch4a0prz/s949mN6NbsxAyQVLHeDO9rvlJ3BPEYJrAdEJyC9
-	/4AJzkyAE2kl03FkrmXIUqrNcUx7G4NlEiMfSoyFVMPAQzdqdh15ccHVp3iC4ykFSPAUZAvt30xaL
-	jGUdGN5g==;
+	bh=1yrTTVXylGFrsJYsMh8CkWGl03wOBlEHIHNMw+NBNFo=; b=yf9UdS9vhUBnezCMIEu9qCe4U9
+	KMxkv6FASg5cSHIUjLpJQNxA0qE9glrDhCQ9C8sicNn6acxJvGd+eO2LdOicy+pfiecBMN61nZXqH
+	ahXGE+NgUxxx+pjBSIopK1Q9YdcgbXW82igyNzB3wIQjfSTdEboLN3yLltRmdkqklandAhpVRFRed
+	xMXu1N3i/dgES/5h47ZE7vzF4eArc6NNfQ+gvEPrTj3woWn7adCEmEOG9txrM6419I0Jaag7IoRGF
+	wYuYeFDH3JhgafCFKULb3pr3rA5vz52SIcyA2Lv6Nk/CcN6DRBhU9opL/X3OWIt7SZZ/Ydx9Nw9wf
+	d7xMjpKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMC69-0000000Bhng-1agu;
-	Sun, 10 May 2026 21:54:05 +0000
-Received: from mail-qv1-xf44.google.com ([2607:f8b0:4864:20::f44])
+	id 1wMCKf-0000000BixK-0iJN;
+	Sun, 10 May 2026 22:09:05 +0000
+Received: from mail-qv1-xf43.google.com ([2607:f8b0:4864:20::f43])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMC67-0000000BhnJ-1Kgn
+	id 1wMCKc-0000000Biwk-11s5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 21:54:04 +0000
-Received: by mail-qv1-xf44.google.com with SMTP id 6a1803df08f44-8b7ec7bedcbso16653246d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 14:54:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778450042; cv=none;
+	Sun, 10 May 2026 22:09:03 +0000
+Received: by mail-qv1-xf43.google.com with SMTP id 6a1803df08f44-8b8e98fd885so32462806d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 15:09:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778450941; cv=none;
         d=google.com; s=arc-20240605;
-        b=HiooqfmF7HbntlPwk9FGTUreuvAnkESO4irysfYdIy4ICk3/vAqKns1vvGLFTZrT1E
-         2+M8PQhbg5C/5AF2PpTYL+Ew/TzCdnp/q2BpnWU/T81T9doG4rF9zS44C1xhKgFKeJ9R
-         SXvlrDsyXj3OarFtBhbVqyCeh9+jKDZQajs96yKKVdIka0cjNCAdtlAcE9adgAHKRQ/I
-         jE7tXklMUSvONPbYISxtrPNQ6Ctt2FT1wjNmsTDUNhM7/6STzRKg3eNXQ7uVcJF6Y2mg
-         dk6gKR3AAjPOzG2mNH5XWsSlaj0do6iwLTTYq0DjSdLHDmd8wOoJJFUXVWjnSUfRQi1q
-         UwuQ==
+        b=brFbhwKuaxRe4cCFY/DmEeKEN6+XCn5xHLEo8j5VbQ9VngiR7w2XezgAo1xXU0D2Nk
+         23G1JUYZxCqF8etXuOiiyxS9alf8pD7vfhSL1EPGsstuadXsD3IyiDIFAV7NgtqElp1b
+         J1nTppa3+J3Sgbdq0FL2/LhWxRaQF/THgf+3+gEW2tfSRvnSvmGiZiOinKpfODcI2ghy
+         PJpAtFWbQinPGWgfaiN/sB2EG5fviGQ7LgWtjJ3lQSdYR8S8lOh09Qfsj2yg+HBjUVpO
+         XgFOTDohincy7rFKK6F+CFVytdjinyW5LXow6QOlq21i+PmPJNJKwcmUgvaBhzpkqLcn
+         xY1g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=qBXfcO0sCVR4C2syEAAYIryOuaMB2+89uN4LXuaBG0U=;
-        fh=AYqw3GhSqqckTkvnpJ2TnLQ1QD207l52m5yYekcDVBc=;
-        b=iGbb6QvfzhJ3CmROaf7Lm6fkjE936By9ihNC3Y5iwkEYBIBj4fIHqNV4ywrWmOrDDH
-         c39XZOwet56FpEOCtEX4OnOwnHPN6tmfO75zxQDI8tSO4YiFlfO5ShK3580wJd5gZ1ND
-         saiEZOog9xx1/VZrV7pGtGPh2S+e9j/ObYadzi5PBVo5UQiGjW/UFUL8Ju46mx2u0O8/
-         mZpDPKw+eIAYazSS1J48DZ6Y02K2i5UdjAkjz6/KSYlXSiYDoMa7LhAoRZUnoSlIA6ZO
-         IacCYJA9OMi0Fcwa/7Rysj5XAODOLzJxJStp+1ytIyHfzgpFKzc/p/g7KgdgIskA1F8I
-         ObRw==;
+        bh=1yrTTVXylGFrsJYsMh8CkWGl03wOBlEHIHNMw+NBNFo=;
+        fh=eN4VkAy+b0T7P+RqqnmFD6x/zqRv92pSYN0KFrOQB3s=;
+        b=MG9ho4KzQjLeocQ2SZXxIJ7yWTLpX4T9cpv56k8FsNNMsnK9hYcB/qzo8y6GF/PK+X
+         bUS2SSXOF7KE2jASx9G7qw6+kPKkbDYJplU1S08D9yWMXlPTDOyIlhPOopKIlmNXQCNE
+         EGpqtw0F0wSSiy1h/oPw6SqzgNfhxhZfDyzrdb41BaBKwBqKFUlURzlv03qv4zwjmxff
+         OKvdhrnF0qAvkn7k9SFMlabKa924ydqXgU3sWSCF12aggCEZ34XOV2lgPqQhUwYe0ksj
+         C0nsZjStoIwq1z+X10Uaz5HFC8GNGEp7DFDuJEuqgZjoaB7UbsPDmFwhRNWtZxY/2+Zd
+         cS8Q==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778450042; x=1779054842; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778450941; x=1779055741; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qBXfcO0sCVR4C2syEAAYIryOuaMB2+89uN4LXuaBG0U=;
-        b=ar84/8IvubVnzGHplPgHEMUPxVsG2cxojSARPOl6Gd1/FwtLIYTsyTS6mVAQTvtMq5
-         v9HDOcXzas5eXkU9dnwffN+KLJVO9hZ8hQh3sCazCaQ+Jf2lQ5pwwgJ3gouf5BrFW1wa
-         6NbbSfXLAdXMZVkGBqKVjtGyHmP6BVqUiYYG8RtrEP1UPT1gQ23mlRkX0tXtyLTpkuTm
-         JLmv97kQ/Z3/2/yje4RI8p2ItYhvDbUAhSXD5GhxCn1gub3QIZpvRFvSe/oA/GLD00UL
-         E0IUPm9UQb7aonae2uKtTu4brjJLSmZOzLGD/X4iJwmjYw6NVGRClUsSAX0kftqVI06e
-         JvDA==
+        bh=1yrTTVXylGFrsJYsMh8CkWGl03wOBlEHIHNMw+NBNFo=;
+        b=hwhxaEfftlBKSnw2DcVUbFdKpIr65o6HNjWt1gcs97q9cEU6ZsVNrWxiRmFePus3ma
+         KReiRtdBp/68YiqiPHV2ZIchgiLWbDDcigOIUXtE7ORELjs99z8TSVSZjZTzx4wFpATg
+         TQ7zejLfUo0cWy3LgYl9K7k0HNq9P9btEwbwE6nUuSZ1QBLn5jmrUkrhu5+90YqzLaiG
+         wghm0y5kif7USHfnOSC/ZiGz59qWtO8mSeTzR054/Su1CoEaH2tUrJfPyXOltCftoPYl
+         RBYtrlitDxkf0n1C0bsRmMcMnDyHkOdswUMsYPB/5IVjhKGg+H8PqLLy8kIIPT7/btUI
+         LlxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778450042; x=1779054842;
+        d=1e100.net; s=20251104; t=1778450941; x=1779055741;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=qBXfcO0sCVR4C2syEAAYIryOuaMB2+89uN4LXuaBG0U=;
-        b=MLADHy+hilGYf5F+T6elWQ3N6MUkmh2jeasIFdY+eDfkZ7VL+MB0euG/0UjHFJjcPl
-         kh9vnzOwkqF2RMmHHTouXcjmtOnDZzyNe1HReGzVZjqFeTZ62El9PXNd8z1LVd0yDdfv
-         CxVnEVrYL0FRAqOLLwOAaEMfEY+5MVUw2+soOUko+PsXRx8gIRP4XzXNr1fEhAsVd4os
-         TKjoUhJDZgFuTjW/gzr9CpKo/lYYg2hRGQhm69rSuFTXgXhvFbfK+ArivEgdyUIYedN8
-         zSxH2Fg/GfN+xsZ3QlhLll6w+IrCuveKB6bOaO0pRHNW85JvltFzrBYrJhdkdH09bMeG
-         q66Q==
-X-Gm-Message-State: AOJu0YytUUI9YCT2Ylh49tUxtBFoGqVYIymZbM4R42UfaK1ux7MTlw33
-	3JQHAc7NMRIyi1MJmNrNzRkuOQRtlIcA798n4unRX2GZF02VTnIDaW9fizI9VFr+yhP7R5CZHbo
-	0Ai/EdRLdGd1GDBwjWyOV4tUEhUMWPD0=
-X-Gm-Gg: Acq92OH/4QJdmNkMrs0qjLxDCGtXmguGOsOo3/keu8Vqqx4P/wEOhl8X64eNq9Y6TNN
-	VQXd8pfAzbsx1dAmJ0A3BHu6UqJN2GdOFtOZJ4YdasSAx5WIntbIPmsRUDTLm0OsIikfYqJMXey
-	ShlNGK2QqciTf5svRjV2cyV67jB8z6mSUeMAF8jYh8cWTYWQhWzw8Zn/rzUpIr9OK8TQriDAQwt
-	oho8Rpr2cdy0M569m8VdKavhf4RJbECHjTQKW/boxZQk5Rx6GGV7/Z0co8cN1+/X8JzjlFVsS2K
-	a2Dke2kSg+sY+c8wHjQ4z9vWWgb7+1vQf4dIpTjjbEtv7w+iH8BLU+QI8HS1hSClCOxq
-X-Received: by 2002:a05:6214:767:b0:8ac:a6f7:8a72 with SMTP id
- 6a1803df08f44-8bc4600fee2mr331519686d6.43.1778450042086; Sun, 10 May 2026
- 14:54:02 -0700 (PDT)
+        bh=1yrTTVXylGFrsJYsMh8CkWGl03wOBlEHIHNMw+NBNFo=;
+        b=X7Bus3HsBwgnGAZfOQ2d0wC19Spo1Yp1Opcvs6rLUXqukXUm0E+83rCumXC7f2LlfB
+         fhNeDly07YqFvRw/SOuyqyCZh8v7l/0VspWg3V4UMy5mLpM56HJQQm+K/pAJ8FY702qd
+         fyx4SU88E1tG9npFTjF+PBSAd11whXB84O/vqO4HcFMpgrAJldY3SfuBSohwg9Se79IF
+         Q1any53SUIPyZm65i6QmklAM4lAu2f0x4e2LrmoMNcANuw1uGW6leDI4SZpPpeUjNpRB
+         wmr2xN+4QKlRgrTcIU/hL0qcD+fIVFU615DrOOoLGoFLvf8R7sKQDL86IEukpjNkVlm3
+         b4CA==
+X-Gm-Message-State: AOJu0YwXb2a4z5iiWKR/hp2LQ+bmtQnJR3GzGuz4LUDPZmaPzh6cyDmZ
+	fM3e8pY1GRurJQkFuWPV/VGOaxa2KLx1v+g8q2/b1utuddt1pnHQ0z1u2zhGuNIOtWCjdQfNvH3
+	PGfq+vCq6RU5/O4GkVF4PigMRl1/MRkA=
+X-Gm-Gg: Acq92OGU5LExQiyS/4rhE18gXVWSSR9GrSx49VpNX8UfyaRg8iMiCKJnFbKrz1Rq+lJ
+	fqzJiLfRvCGWoj7bN7ZmN9B8ZtTeIgOIXNOar6n3H9AUu9cKRxGZ2Equ8e5AKN0RiBn12/1HobQ
+	psq+jkasaGEPyhDvDJvZw5w6SGnT5C05GoOBYwb5u3QEF5VjzXJKgn/mjofCJ9DzIJ4VvFF/YtG
+	44tX3jrpcCVMSXQqyKfJenG1YZ9iLsiiPVHCV7hAoCQvsKoAoVtyyNzAnjIsJE55JRPR1pvoG32
+	VT85BQRSRl18hUo7bZFEX1z+Im04s2PqAgo9ZV9/aKkHkUhtaq2pVpqcwD70UQIKxTtKmwgj2Sv
+	f2Us=
+X-Received: by 2002:a05:6214:3490:b0:8ac:ab13:8f0a with SMTP id
+ 6a1803df08f44-8bc42f53191mr314809106d6.11.1778450941019; Sun, 10 May 2026
+ 15:09:01 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260509223820.50347-1-enelsonmoore@gmail.com> <26be9a11b5f2a7d196904d9a97306d2aafb9bf1c.camel@gmail.com>
-In-Reply-To: <26be9a11b5f2a7d196904d9a97306d2aafb9bf1c.camel@gmail.com>
+References: <20260509214622.38319-1-enelsonmoore@gmail.com> <agCApXl_RwG3r2iu@sirena.co.uk>
+In-Reply-To: <agCApXl_RwG3r2iu@sirena.co.uk>
 From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Date: Sun, 10 May 2026 14:53:50 -0700
-X-Gm-Features: AVHnY4I_WgUrd-i9XjFdmdhF1r2cY5vqp8rcAwMEqvF8VlPJnZnEsMn9y1_K_dM
-Message-ID: <CADkSEUiELMh-Rc2t8kYxhLr+a3Y9H_NEMnOrfh5qXvtjffFGNA@mail.gmail.com>
-Subject: Re: [PATCH] arm: boot: ep93xx: don't rely on machine_is_*() for
- removed board files
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Russell King <linux@armlinux.org.uk>, Hartley Sweeten <hsweeten@visionengravers.com>, 
-	Nikita Shubin <nikita.shubin@maquefel.me>
+Date: Sun, 10 May 2026 15:08:50 -0700
+X-Gm-Features: AVHnY4JDFuVI4-B-XahTUiCLtqmXV0RUBZ4Lk39M_7mYtLJwiBRvGg4tyN_TPIM
+Message-ID: <CADkSEUh99OCLYp3T4NUomQeTAQRe3ZzKTewD0SpNzD7a1LttEw@mail.gmail.com>
+Subject: Re: [PATCH] sound: soc: fsl: eukrea-tlv320: update board checks to
+ use the DT
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	Russell King <linux@armlinux.org.uk>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_145403_362427_CAD87B00 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260510_150902_338535_BC00C609 
+X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,20 +119,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 10, 2026 at 10:40=E2=80=AFAM Alexander Sverdlin
-<alexander.sverdlin@gmail.com> wrote:
-> I most probably miss something, but what is the reason for removing
-> the machine IDs from the mach-types, especially if they are still used
-> by the kernel (though only in its decompressor code)?
+Hi, Mark,
 
-Hi, Alexander,
+On Sun, May 10, 2026 at 5:57=E2=80=AFAM Mark Brown <broonie@kernel.org> wro=
+te:
+> This renders the inclusion of asm/mach-types.h redundant.
 
-My plan after all my related patches are merged is to remove all
-entries for legacy board files that are not used by the kernel (i.e.:
-boards that were removed, never in mainline, or converted to DT
-booting). This would reduce mach-types from 579 to 28 entries and
-would allow it to be used as a list of non-DT boards remaining in the
-kernel. The last time mach-types was similarly filtered was in 2016.
+Good point. I removed it in other drivers but missed it here, I'll
+resend the patch with this fixed.
 
 Ethan
 
