@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 377A1CD37B2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E641CD37B9
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 16:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hkp7o/1pAM8WkFyykEuAzGBFnLQC+wvXXVE9S0cIzOg=; b=rgE6sfW449ce/iBm9Vahwl8nkt
-	fFtpdZ+V0gYUvOwM4TnlS1XhUfYK6r/QG/RzMrblc/+wUdEyC7EkU9SpilrIFJaWGSKEXesq49INl
-	TWwBeQpXAJZGy1EHy/Ni4xmB+RzOZVRL1Ub6M3O59cJ4Q06xQmneQVjrP6yb88ry16hz/R5Z46wJi
-	dxmo7Q5DSgV1scLqlF752o+QOc9ztt8pBduFtSBUAhl5Zvue9VjiTe5zk4uOTGjraxL+8FlQv33hP
-	Cuz3jJJsJRHU0O37QMjtlT17ODwq9Qj73bD0bpMCj3dir/V66L6eGnBYdWsNbAvezXh8rJ1nxD1Le
-	CdlLPPSQ==;
+	bh=26aJsmg0dcLFvlEBKL7cU1+eSu7KvJyN0hObqWs5yNk=; b=3DuPc6OqC3vhCvlcNqOu5k4Dfv
+	ZBsxXWwCUn95UjbIfuVKK9fc+QdrSV+N/8e6vZbGFbZVpVkBnPKR8m/5PR3z0aLWfsehbvkFAxBFJ
+	GJWooWuCDr32mxzRNqJXqAxapc4rtikX5RT9EAZ4br4t/NW/ZWrRQE1AKZUYcD/gYT4RZDoatvuBO
+	cVPIMo5jtK8ZGcS0NcK8fYe3R+av9ab03tvPs3KYASJloseiTC5e1hIxarTsibgWQRDWbv4xDw+Sq
+	GW/gOLLov0OPDq+uuih8FmTOQELs7WMjeE07GHEDImwlUQFTLweChfH29gvNIZrZchF0JPxak1z0O
+	wKY+2o2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM6fS-0000000B79c-2PF3;
-	Sun, 10 May 2026 16:06:10 +0000
+	id 1wM6fU-0000000B7AW-3Sco;
+	Sun, 10 May 2026 16:06:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM6fO-0000000B77k-1euO
+	id 1wM6fR-0000000B78w-1jHr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 16:06:07 +0000
+	Sun, 10 May 2026 16:06:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9AEB726AC;
-	Sun, 10 May 2026 09:06:00 -0700 (PDT)
-Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3781C3F836;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89BE827B5;
 	Sun, 10 May 2026 09:06:03 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 446173F836;
+	Sun, 10 May 2026 09:06:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778429165; bh=VoP9MzxO+x8ngK9bt91ncy4odq1+TRH2nb39mF9mq/0=;
+	t=1778429168; bh=Yvl5e0/bXtH3DqoJuR+H+WomG2HEBPx9dK1/VFX327c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Hb5UTIhMZsjtKox+UHqLPnIoZwkaNAdFcP3Ja8Qyt8DMTOYlgEq0wzQgA0SvT+DRP
-	 KZmsLPcnWBg0QSr/DxZH7XuIDEPnYfPno1dSAJRpTRp3c85M/FEm84EyWmWgMnusny
-	 w0PomRABGEXfrPhzdNL5/s/Cw2bsS/gR2eco70W0=
+	b=cmII/EMT+K0ivX+5X1kyLo0EW7NzboZzHQfElWwz9ap5aR17PpmAlfSIzVPQlvDAm
+	 4qtayWkWca51phdrVavqtMi7DejboyMIyRh7ZhbmvcvbfdmUcmetZcl5HCrEjVf2z3
+	 qYG13l6rVzb3c/Rb0nWST/k4jiB/HOPUXXz2De/Y=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -55,17 +55,17 @@ Cc: sudeep.holla@kernel.org,
 	u.kleine-koenig@baylibre.com,
 	dakr@kernel.org,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v2 3/4] firmware: arm_scmi: virtio: Rework transport probe sequence
-Date: Sun, 10 May 2026 17:05:26 +0100
-Message-ID: <20260510160527.3537474-4-cristian.marussi@arm.com>
+Subject: [PATCH v2 4/4] firmware: arm_scmi: optee: Rework transport probe sequence
+Date: Sun, 10 May 2026 17:05:27 +0100
+Message-ID: <20260510160527.3537474-5-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260510160527.3537474-1-cristian.marussi@arm.com>
 References: <20260510160527.3537474-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_090606_517658_5B651362 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20260510_090609_532020_ED371BBE 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,157 +94,107 @@ v1 -> v2
  - fixed __MUTEX_INITILIAZER() usage
  - use common generic supplier definitions
  - get rid of init/cleanup wrappers
- - fixed possible race between supplier made available and scmi_dev
-   made visible
- - restored initial virtio_device_ready() logic, taking care to reset
-   device on failure too
+ - use proper barrier on scmi_optee_agent
 ---
- drivers/firmware/arm_scmi/transports/virtio.c | 52 +++++++++++++++----
- 1 file changed, 43 insertions(+), 9 deletions(-)
+ drivers/firmware/arm_scmi/transports/optee.c | 46 +++++++++++++++-----
+ 1 file changed, 36 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
-index 326c4a93e44b..3282d8271839 100644
---- a/drivers/firmware/arm_scmi/transports/virtio.c
-+++ b/drivers/firmware/arm_scmi/transports/virtio.c
-@@ -4,7 +4,7 @@
-  * (SCMI).
-  *
-  * Copyright (C) 2020-2022 OpenSynergy.
-- * Copyright (C) 2021-2024 ARM Ltd.
-+ * Copyright (C) 2021-2026 ARM Ltd.
-  */
+diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
+index 07ae18d5279d..dbe32e141748 100644
+--- a/drivers/firmware/arm_scmi/transports/optee.c
++++ b/drivers/firmware/arm_scmi/transports/optee.c
+@@ -154,6 +154,8 @@ static struct scmi_transport_core_operations *core;
+ /* There can be only 1 SCMI service in OP-TEE we connect to */
+ static struct scmi_optee_agent *scmi_optee_private;
  
- /**
-@@ -116,6 +116,8 @@ static struct scmi_transport_core_operations *core;
- /* Only one SCMI VirtIO device can possibly exist */
- static struct virtio_device *scmi_vdev;
- 
-+static DEFINE_SCMI_TRANSPORT_SUPPLIER(scmi_virtio_supplier);
++static DEFINE_SCMI_TRANSPORT_SUPPLIER(scmi_optee_supplier);
 +
- static void scmi_vio_channel_ready(struct scmi_vio_channel *vioch,
- 				   struct scmi_chan_info *cinfo)
+ /* Open a session toward SCMI OP-TEE service with REE_KERNEL identity */
+ static int open_session(struct scmi_optee_agent *agent, u32 *tee_session)
  {
-@@ -394,6 +396,10 @@ static bool virtio_chan_available(struct device_node *of_node, int idx)
- 		return false;
- 	}
- 
-+	dev_dbg(&scmi_vdev->dev, "%s Channel %sAVAILABLE on SCMI Virtio device.\n",
-+		idx == VIRTIO_SCMI_VQ_TX ? "TX" : "RX",
-+		(vioch && !vioch->cinfo) ? "" : "NOT ");
-+
- 	return vioch && !vioch->cinfo;
- }
- 
-@@ -410,7 +416,7 @@ static int virtio_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
- 	int i;
- 
- 	if (!scmi_vdev)
--		return -EPROBE_DEFER;
-+		return -EINVAL;
- 
- 	vioch = &((struct scmi_vio_channel *)scmi_vdev->priv)[index];
- 
-@@ -460,6 +466,9 @@ static int virtio_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
- 
- 	scmi_vio_channel_ready(vioch, cinfo);
- 
-+	dev_dbg(&scmi_vdev->dev, "%s Channel SETUP on SCMI Virtio device.\n",
-+		tx ? "TX" : "RX");
-+
- 	return 0;
- }
- 
-@@ -801,7 +810,7 @@ static struct scmi_desc scmi_virtio_desc = {
+@@ -522,7 +524,7 @@ static struct scmi_desc scmi_optee_desc = {
  };
  
  static const struct of_device_id scmi_of_match[] = {
--	{ .compatible = "arm,scmi-virtio" },
-+	{ .compatible = "arm,scmi-virtio", .data = &scmi_virtio_supplier.th},
+-	{ .compatible = "linaro,scmi-optee" },
++	{ .compatible = "linaro,scmi-optee", .data = &scmi_optee_supplier.th},
  	{ /* Sentinel */ },
  };
  
-@@ -864,33 +873,33 @@ static int scmi_vio_probe(struct virtio_device *vdev)
- 			sz = MSG_TOKEN_MAX;
- 		}
- 		channels[i].max_msg = sz;
-+		dev_dbg(dev, "VQ%d initialized with max_msg: %d\n", i, sz);
- 	}
+@@ -561,18 +563,20 @@ static int scmi_optee_service_probe(struct tee_client_device *scmi_pta)
+ 	if (ret)
+ 		goto err;
  
- 	vdev->priv = channels;
--
- 	/* Ensure initialized scmi_vdev is visible */
- 	smp_store_mb(scmi_vdev, vdev);
+-	/* Ensure agent resources are all visible before scmi_optee_private is */
++	/* Ensure initialized scmi_optee_private is visible */
+ 	smp_mb();
+ 	scmi_optee_private = agent;
  
- 	/* Set device ready */
- 	virtio_device_ready(vdev);
+-	ret = platform_driver_register(&scmi_optee_driver);
+-	if (ret) {
+-		scmi_optee_private = NULL;
+-		goto err;
+-	}
++	ret = scmi_transport_supplier_put(&scmi_optee_supplier.th, agent->dev);
++	if (ret)
++		goto err_put;
  
--	ret = platform_driver_register(&scmi_virtio_driver);
-+	ret = scmi_transport_supplier_put(&scmi_virtio_supplier.th, &vdev->dev);
- 	if (ret) {
-+		virtio_reset_device(vdev);
- 		vdev->priv = NULL;
- 		vdev->config->del_vqs(vdev);
- 		/* Ensure NULLified scmi_vdev is visible */
- 		smp_store_mb(scmi_vdev, NULL);
--
- 		return ret;
- 	}
- 
-+	dev_dbg(dev, "Probed and initialized SCMI Virtio device.\n");
-+
  	return 0;
- }
  
- static void scmi_vio_remove(struct virtio_device *vdev)
- {
--	platform_driver_unregister(&scmi_virtio_driver);
--
- 	/*
- 	 * Once we get here, virtio_chan_free() will have already been called by
- 	 * the SCMI core for any existing channel and, as a consequence, all the
-@@ -900,8 +909,10 @@ static void scmi_vio_remove(struct virtio_device *vdev)
- 	 */
- 	virtio_reset_device(vdev);
- 	vdev->config->del_vqs(vdev);
++err_put:
++	/* Ensure cleared reference is visible before resources are released */
++	smp_store_mb(scmi_optee_private, NULL);
 +
- 	/* Ensure scmi_vdev is visible as NULL */
- 	smp_store_mb(scmi_vdev, NULL);
-+	scmi_transport_supplier_put(&scmi_virtio_supplier.th, &vdev->dev);
- }
+ err:
+ 	tee_client_close_context(tee_ctx);
  
- static int scmi_vio_validate(struct virtio_device *vdev)
-@@ -936,7 +947,30 @@ static struct virtio_driver virtio_scmi_driver = {
- 	.validate = scmi_vio_validate,
+@@ -586,13 +590,12 @@ static void scmi_optee_service_remove(struct tee_client_device *scmi_pta)
+ 	if (!scmi_optee_private)
+ 		return;
+ 
+-	platform_driver_unregister(&scmi_optee_driver);
+-
+ 	if (!list_empty(&scmi_optee_private->channel_list))
+ 		return;
+ 
+ 	/* Ensure cleared reference is visible before resources are released */
+ 	smp_store_mb(scmi_optee_private, NULL);
++	scmi_transport_supplier_put(&scmi_optee_supplier.th, agent->dev);
+ 
+ 	tee_client_close_context(agent->tee_ctx);
+ }
+@@ -616,7 +619,30 @@ static struct tee_client_driver scmi_optee_service_driver = {
+ 	},
  };
  
--module_virtio_driver(virtio_scmi_driver);
-+static int __init scmi_transport_virtio_init(void)
+-module_tee_client_driver(scmi_optee_service_driver);
++static int __init scmi_transport_optee_init(void)
 +{
 +	int ret;
 +
-+	ret = register_virtio_driver(&virtio_scmi_driver);
++	ret = tee_client_driver_register(&scmi_optee_service_driver);
 +	if (ret)
 +		return ret;
 +
-+	ret = platform_driver_register(&scmi_virtio_driver);
++	ret = platform_driver_register(&scmi_optee_driver);
 +	if (ret) {
-+		unregister_virtio_driver(&virtio_scmi_driver);
++		tee_client_driver_unregister(&scmi_optee_service_driver);
 +		return ret;
 +	}
 +
 +	return ret;
 +}
-+module_init(scmi_transport_virtio_init);
++module_init(scmi_transport_optee_init);
 +
-+static void __exit scmi_transport_virtio_exit(void)
++static void __exit scmi_transport_optee_exit(void)
 +{
-+	platform_driver_unregister(&scmi_virtio_driver);
-+	unregister_virtio_driver(&virtio_scmi_driver);
++	platform_driver_unregister(&scmi_optee_driver);
++	tee_client_driver_unregister(&scmi_optee_service_driver);
 +}
-+module_exit(scmi_transport_virtio_exit);
++module_exit(scmi_transport_optee_exit);
  
- MODULE_AUTHOR("Igor Skalkin <igor.skalkin@opensynergy.com>");
- MODULE_AUTHOR("Peter Hilber <peter.hilber@opensynergy.com>");
+ MODULE_AUTHOR("Etienne Carriere <etienne.carriere@foss.st.com>");
+ MODULE_DESCRIPTION("SCMI OPTEE Transport driver");
 -- 
 2.53.0
 
