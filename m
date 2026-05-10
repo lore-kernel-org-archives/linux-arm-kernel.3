@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51B8ECD37AF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 09:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23BBBCD37AF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 09:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZGGb0k48YTdF5AnbwzcwUbU+FoBJX5pgV6kfpvQq5w=; b=FCVg0RMDYp9gIO1hZoQaclTWs7
-	xRb0jB+uBw8tiF56rxvlwNOXpykl4R3jzNg0W85boxLyRT3Hkbl043iwU/YTQR7V1yClazkCkW6fY
-	3uD6aqqOf1L9iltOJi26o8FuEPHx66aFftCcwiLRvf7OC0t/SUDudE2Dta5oRZ5nFHdeLd73DXnNZ
-	7iz6CnQADZ5qhZfPCJ1t6fEqElYNxqiKnnPkoh5HudK2Vzi6NAgp938DIQMw0THsFmUuwpElFuZ3Z
-	r7pSRTO0KTf+2699tpcfC1ruxCVP4k09OP1kUCKr9cJ+FW8nFndD/AIb1C1qvIV8oyfnn5TotNEPS
-	Sn9pEI/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gBg9IbjI1s7Ri+maU9NqovsWHKtYNoIlGJYS+T9ktpM=; b=LsJQ9hxOCKO/AZbLgKv1cLfYGQ
+	xDyFb/ao63S69nxH0OyQrWfKNYKY9UZyvjRG9N5/jDsnA/BpjlVsgBgjmkN1CYycxsYnH4+4W+Co9
+	xjlcMVH8G12ajeSjW2wcEMPrqF/3oxz5S13mCzLdndlzb1T/9ocpqaHg+GFko63KmjvCAnd8poQun
+	rsPYEIhq9UIhKyJszGEr9UEW0iVFTcfs5ZlFbvYxAEV6aK8DN6+QLi6sP6fGk0BnqPjhjb60DzEdl
+	V/uM+UdXGnAFNKqTlKJMllqnT3I4okUqdWmwXl+p1wkv0LDpNomElBkGw1p+jQV1ojZsHk1IHw1E8
+	G+k6Hziw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM0h8-0000000AVKr-2L5r;
-	Sun, 10 May 2026 09:43:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wM0v4-0000000AWJM-3DwD;
+	Sun, 10 May 2026 09:57:54 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM0h6-0000000AVKG-0BEG
+	id 1wM0v1-0000000AWHZ-2b5a
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 09:43:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6CD284323B;
-	Sun, 10 May 2026 09:43:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10737C2BCB8;
-	Sun, 10 May 2026 09:43:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778406206;
-	bh=6T9RsFee+35Fv3yUGgy8bpfXlTZX9qPRAI1Cl6GHMRY=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=RksC4Wy4vawWBsBaSUB+WX9R5ImpO4RiREThlI1AArrJ+mjLTDmH7c6OgHs/t2fu5
-	 1+uJTuhUnvpy2P0CNTSNrb2Hbz6quVKmPzXrRvHDJu7IBEnka38ruQiEf6fgBRTZmf
-	 wFTazFwgJbly/IJywhqoTVhChZPHiTUYBqJWxX8bJ9Ei0U7DZo3NXe5Aix/khXKdrH
-	 2Ll+Ic2gF1NJdIMj9FtIQ5/FOadRYNfGKukgkReQ9CfkHTmOe/r+s8EVOjvkPEKEql
-	 8DkYOxkdO9EXVfePyutFgpl4SFCCYaj6FYEuxgeQqGhrw+Vm553quOrN2gESXDNulK
-	 lGbLmgC4vdrpw==
-Date: Sun, 10 May 2026 04:43:24 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Sun, 10 May 2026 09:57:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1778407069;
+ bh=gBg9IbjI1s7Ri+maU9NqovsWHKtYNoIlGJYS+T9ktpM=;
+ b=OTfCRV12xTUqNtYFk1o19OSEgoWoXYVlqgiGK63xaES6mneQgB0vehlLI04DyyjMJrGdyX28l
+ kxZnddoLlZnWzO8BrYKoTt36AD/vud98wacsljSAufg60kUCRvlk5pvF9AiBsuC8ZCsOkTmt0Es
+ GoSBW11iMccyEa1YYa0Hh2JuqWxpB9VxrdfKOXlEAXFTfcv0SWOJwG96hwpvVLfaLIspXRR1hrH
+ 9qRJZx/dyG9hRsQ7dI5fcGPC1hFXextrGpy4LG5RGimehjq8yQA4VJauFRedgS0iUQ7KzMW4SzC
+ B4N8lSziARNakcIzkNPjvIengRFyBCWLVduamarls6yg==
+X-Forward-Email-ID: 6a00569049521910acdb9424
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.8.0
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: linux-phy@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v2 0/2] phy: rockchip: inno-hdmi: Change TMDS rate handling to configure() ops
+Date: Sun, 10 May 2026 09:57:28 +0000
+Message-ID: <20260510095731.1222705-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, jic23@kernel.org, 
- linux-kernel@vger.kernel.org, David Lechner <dlechner@baylibre.com>, 
- Michal Simek <michal.simek@amd.com>, Andy Shevchenko <andy@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
- devicetree@vger.kernel.org, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- linux-iio@vger.kernel.org
-To: Pramod Maurya <pramod.nexgen@gmail.com>
-In-Reply-To: <20260510083219.70224-1-pramod.nexgen@gmail.com>
-References: <20260510083219.70224-1-pramod.nexgen@gmail.com>
-Message-Id: <177840620410.2231152.2719293513543946236.robh@kernel.org>
-Subject: Re: [PATCH v3] dt-bindings: iio: adc: Convert xilinx-xadc bindings
- to YAML schema
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_024328_159867_5412B453 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20260510_025752_058431_302A83C0 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,64 +77,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds support for using phy_validate() and phy_configure()
+with this HDMI PHY as an alternative to current in-tree unused way of
+using PHY bus width to configure the TMDS character rate.
 
-On Sun, 10 May 2026 04:32:13 -0400, Pramod Maurya wrote:
-> Convert the Xilinx XADC and UltraScale System Monitor device tree binding
-> from the legacy plain-text format to a YAML schema, enabling automated
-> validation with dt-schema.
-> 
-> The new binding covers the same hardware and compatible strings:
->   - xlnx,zynq-xadc-1.00.a (ZYNQ hardmacro)
->   - xlnx,axi-xadc-1.00.a  (AXI softmacro)
->   - xlnx,system-management-wiz-1.3 (UltraScale System Management Wizard)
-> 
-> Signed-off-by: Pramod Maurya <pramod.nexgen@gmail.com>
-> ---
-> Changes in v3:
-> - Move xlnx,channels from properties: to patternProperties: to satisfy
->   vendor-props.yaml meta-schema, which requires vendor-prefixed entries
->   in properties: to be type: boolean; xlnx,channels is a subnode (object)
->   so it belongs in patternProperties:
-> 
-> Changes in v2:
-> - Fix patternProperties regex to use lowercase hex unit addresses
->   (channel@a through channel@f) instead of decimal; correct range
->   is now "^channel@([0-9a-f]|10)$"
-> - Add allOf/if/then conditional to enforce xlnx,external-mux-channel
->   is required when xlnx,external-mux is "single" or "dual"
-> 
->  .../bindings/iio/adc/xilinx-xadc.txt          | 141 ------------
->  .../bindings/iio/adc/xlnx,xadc.yaml           | 205 ++++++++++++++++++
->  MAINTAINERS                                   |   7 +
->  3 files changed, 212 insertions(+), 141 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/iio/adc/xilinx-xadc.txt
->  create mode 100644 Documentation/devicetree/bindings/iio/adc/xlnx,xadc.yaml
-> 
+The only known users that calls phy_set_bus_width() on this PHY are my
+out-of-tree HDMI 2.0 patches for Rockchip RK3228/RK3328, i.e. those
+originating from LibreELEC (also carried by other distros), the
+downstream vendor kernel uses a different implementation that also calls
+phy_set_bus_width() on this PHY.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Patches that calls phy_validate() and phy_configure() on this PHY should
+land on mailing lists any day now.
 
-yamllint warnings/errors:
+This series is part of a larger multi series effort to:
+- phy: rockchip: inno-hdmi: Change TMDS rate handling to configure() ops
+- drm/rockchip: dw_hdmi: Misc cleanup and propagate bus format
+- drm: bridge: dw_hdmi: Misc enable/disable, CEC and EDID cleanup
+- drm/bridge: dw-hdmi: Improve input/output bus format handling
+- drm/bridge: dw-hdmi: Convert to a HDMI bridge and use of bridge connector
+- drm/bridge: dw-hdmi: Add and use tmds_char_rate_valid() plat data ops
+- drm/meson: hdmi: Misc cleanup and use CEC notifier helpers
+- drm/rockchip: dw_hdmi: Enable YCbCr and Deep Color modes
+Link to snapshot: https://github.com/Kwiboo/linux-rockchip/commits/next-20260508-rk-hdmi-v3/
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/iio/adc/xlnx,xadc.yaml: patternProperties: '^xlnx,channels$' should not be valid under {'pattern': '^\\^[a-zA-Z0-9,\\-._#@]+\\$$'}
-	hint: Fixed strings belong in 'properties', not 'patternProperties'
-	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
+Changes in v2:
+- Split into two patches, one that adds new ops and a second that remove
+  the old and unused workaround
+- Add validate() ops to validate that the TMDS rate is supported
+Link to v1: https://lore.kernel.org/linux-phy/20260503172936.194003-1-jonas@kwiboo.se/
 
-doc reference errors (make refcheckdocs):
+Jonas Karlman (2):
+  phy: rockchip: inno-hdmi: Add configure() and validate() ops
+  phy: rockchip: inno-hdmi: Remove deprecated way to configure TMDS rate
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260510083219.70224-1-pramod.nexgen@gmail.com
+ drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 58 ++++++++++++++-----
+ 1 file changed, 44 insertions(+), 14 deletions(-)
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+-- 
+2.54.0
 
 
