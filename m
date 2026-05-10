@@ -4,74 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3CE4CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 19:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F04CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 19:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8NtVp+XegjZHVec+TG++C7hqL/jdKwHQkADv6jK3v0Y=; b=29grbjb8Sc0ZAEiPMNqpRmTHl+
-	CUhJhTA2kwc+FfA8nytPmRzxg+nW/t2u7GpvSDztC/LbrFhNiofs2F27BM9eRRwP/1p9dC84fOm80
-	cDcKtVAW9dW25nx10xkc14XaAwMGup19tZnGEK5DUPEiXl1BiotxLvqP4KU6ZZ6jaFfOZp6TTJAsN
-	Oxdik4AGqEPYm0P3KA8GuJtqoXDFXg2H/S7Pi4MjyMQigX8cQevz8kPiXF4lY/sJFf3ztiXOdZmKK
-	n93Ysrkc7cMMfoeK2SFrVHqGl1oqCZCVOZ1YJMfzN9eW4yqzlnyOJ/qGsZDsGZ57MIiKY+GsXHsG7
-	A9H8Drug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=us7YZwfeL54L7NHWNrpZhRJPUQQv0/hJAz/QtqFzTn4=; b=hufTHuoS05mD4DluEUxvG7mvR3
+	wDhttO3L66JW1Wb/r+SxcZHZ8myi3oxE//vNzwNlOjZsYf0+x+TyWUCkq7Eg66HGrJevHGsGhS0l2
+	LE3L4ZuQhJ2UFyl4R8zvoki19ViJiqYIjDDQshEG4r1BGMpj8k3UYAGYLVeKQkOqi9lEKuHvpIuLI
+	k1IO4mCjYkfefEvRfygkxyx2IWSpSzl3VnQI+XBkqLbbL/SMq3poSJCXhbKHiJkRcdLlarw2RMKKQ
+	pByOmw0uL7qICy0DViLe5g6dW3+kr+HcMLl/jHzhuu+hbhEEe7eu4ahzqmycdGVnsPdNmPzYDMy+A
+	Vl32qRMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM9ab-0000000BSnV-43eX;
-	Sun, 10 May 2026 19:13:22 +0000
-Received: from smtp.forwardemail.net ([121.127.44.66])
+	id 1wM9kd-0000000BTxH-1TPi;
+	Sun, 10 May 2026 19:23:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM9aZ-0000000BSmP-1A2N
+	id 1wM9kc-0000000BTx1-3qoS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 19:13:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1778440388;
- bh=8NtVp+XegjZHVec+TG++C7hqL/jdKwHQkADv6jK3v0Y=;
- b=gQucZzt3wvGaZTTC+r9JlsPRrttGYGHcogvVMqwaww+48Dbt7yi/bDRAqM1r6978vLGCYrIsr
- Uxz3nK2h0CKJRnOkB0U+fsQw2wAGP9YQE5A74zPsU5ibW/Boe9POqJisvzwxYcwMZrv6hBNxjFe
- 4geqIcKsNKzQGprG0Li/rZtBXZdhNd9vjkrGDju6K58leGrlSrhUrwnDimShoghBw95zjd0cmSj
- gR1ZcYBv3v4J8P8dz6MayU9lNQeahedXvB36d0yPAyj573UJMrYQxuwbKygxMV9z0z4+1KbT2SU
- djQ+ERW1sIrTPfIKWYHAN08u/CLOdeFT54ckpLsIXPvw==
-X-Forward-Email-ID: 6a00d88e8983a631c215f734
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.66
-X-Forward-Email-Version: 2.8.0
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <53e09f70-c449-49bb-b2a0-636d5d4bd395@kwiboo.se>
-Date: Sun, 10 May 2026 21:12:08 +0200
+	Sun, 10 May 2026 19:23:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 084A9600CB;
+	Sun, 10 May 2026 19:23:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B507C2BCB8;
+	Sun, 10 May 2026 19:23:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778441021;
+	bh=VtKlCWi/WZCp9eF70ML2HPisQEkB7bfjW/9MYJQ6q9w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cKSfM7WNNhAXCJYptyUa1uL9pzlwb+HjyhNFI0Yvfe+p+oNuZedvLCdtySeR5AFie
+	 tiZMFWCVgbIt0nFyNZU98gEfgpBtbtiBKXkYF6XUTV+S9kNYzO+8zWGQpcFh0/raNv
+	 DZ1DDxMwpKooQS9220xFKHn8fks85dZ+8e6fQWwesNM+tJE9KF2azWM6711Hadt25b
+	 +xuIZlL9UGTYBBLsrbOWunfSozeIkFYM8M2d6SqKLyuD3JwP/nlx78aQQRzsJYmFk7
+	 mRcS10Q/sc1Gk+80nle1p8GKvk/5EelyMXsewXHVu2NWX0wbUQ/DQemcicpH7vGYoY
+	 iAcISIv5dCTNA==
+Date: Sun, 10 May 2026 20:23:37 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Jack Matthews <jack@jackmatthe.ws>, Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: Regression in split ARM MMIO timer driver
+Message-ID: <20260510-augmented-kakapo-of-wholeness-748b38@sudeepholla>
+References: <46A20F89-E208-4091-8B6E-B5C38BF82B42@jackmatthe.ws>
+ <20260509-ruddy-dragonfly-of-poetry-45e9f1@sudeepholla>
+ <87wlxca2jb.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/4] drm/rockchip: dw_hdmi: Apply
- DRM_BRIDGE_ATTACH_NO_CONNECTOR and the bridge-connector
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, hjc@rock-chips.com, heiko@sntech.de,
- andy.yan@rock-chips.com, wens@kernel.org, samuel@sholland.org,
- luca.ceresoli@bootlin.com, Laurent.pinchart@ideasonboard.com,
- jernej.skrabec@gmail.com, victor.liu@nxp.com,
- dmitry.baryshkov@oss.qualcomm.com, shengjiu.wang@nxp.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <20260403070032.447102-1-damon.ding@rock-chips.com>
- <20260403070032.447102-4-damon.ding@rock-chips.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260403070032.447102-4-damon.ding@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_121319_480374_F962717C 
-X-CRM114-Status: GOOD (  21.16  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87wlxca2jb.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,110 +72,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
-
-On 4/3/2026 9:00 AM, Damon Ding wrote:
-> Convert this driver to DRM_BRIDGE_ATTACH_NO_CONNECTOR and to the
-> drm_bridge_connector framework which is the current DRM bridge best
-> practice.
-
-Changing to use the bridge connector at this stage will cause the
-Rockchip platform to drop features the dw-hdmi connector currently only
-can provide, e.g. a CEC notifier, some connector properties and more.
-
-I am also currently working on a multi series effort to:
-- phy: rockchip: inno-hdmi: Change TMDS rate handling to configure() ops [v2]
-- drm/rockchip: dw_hdmi: Misc cleanup and propagate bus format [v1]
-- drm: bridge: dw_hdmi: Misc enable/disable, CEC and EDID cleanup [v5]
-- drm/bridge: dw-hdmi: Improve input/output bus format handling
-- drm/bridge: dw-hdmi: Convert to a HDMI bridge and use of bridge connector
-- drm/bridge: dw-hdmi: Add and use tmds_char_rate_valid() plat data ops
-- drm/meson: hdmi: Misc cleanup and use CEC notifier helpers
-- drm/rockchip: dw_hdmi: Enable YCbCr and Deep Color modes
-Link to snapshot: https://github.com/Kwiboo/linux-rockchip/commits/next-20260508-rk-hdmi-v3/
-
-Part of that effort include to fully convert the dw-hdmi bridge into a
-HDMI bridge, something that is required to fully be able to replace all
-features currently provided by the use of the dw-hdmi connector.
-
-In that effort I have also taken a different approach and instead
-replace the dw-hdmi connector with the bridge connector directly from
-inside the dw-hdmi bridge driver.
-
-Regards,
-Jonas
-
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> ---
->  drivers/gpu/drm/rockchip/Kconfig            |  1 +
->  drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 19 +++++++++++++++----
->  2 files changed, 16 insertions(+), 4 deletions(-)
+On Sat, May 09, 2026 at 06:58:00PM +0100, Marc Zyngier wrote:
+> On Sat, 09 May 2026 13:19:56 +0100,
+> Sudeep Holla <sudeep.holla@kernel.org> wrote:
+> > 
+> > On Fri, May 08, 2026 at 03:48:14PM -0400, Jack Matthews wrote:
+> > > Hello,
+> > >
+> > > I am working on mainlining an old chip, Qualcomm's MDM9625 modem.
+> > > I had previously booted 6.17-rc3 before putting this project to the side,
+> > > but when I restarted work on 7.0 I was unable to boot. 
+> > > I have bisected this to commit 0f67b56d84b4c49adfd61f19f81f84ec613ab51a
+> > > (https://lore.kernel.org/all/20250814154622.10193-4-maz@kernel.org/) and
+> > > reverting this commit makes the device boot successfully. Unfortunately I do
+> > > not have access to low level debugging such as UART so I have not been able
+> > > to pinpoint exactly what is missing.
+> > > My changes for this chip are all available here in case it is an issue of my
+> > > own doing: https://github.com/jackmthws/linux/commits/mdm9625-latest/.
+> > 
+> > Looking briefly into the DTS file, I couldn't find the sysreg based
+> > arch timer node in the DT. It could be just an overlook unless there
+> > is some issue with it that it's not added. After the above mentioned
+> > commit, the MMIO timer gets initialised bit late in the boot and
+> > could be the reason for boot failure. Unless you have intentionally
+> > not added it, I would suggest to add it and try.
 > 
-> diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
-> index e7f49fe845ea..69b832d0c8c4 100644
-> --- a/drivers/gpu/drm/rockchip/Kconfig
-> +++ b/drivers/gpu/drm/rockchip/Kconfig
-> @@ -76,6 +76,7 @@ config ROCKCHIP_DW_DP
->  
->  config ROCKCHIP_DW_HDMI
->  	bool "Rockchip specific extensions for Synopsys DW HDMI"
-> +	select DRM_BRIDGE_CONNECTOR
->  	help
->  	  This selects support for Rockchip SoC specific extensions
->  	  for the Synopsys DesignWare HDMI driver. If you want to
-> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-> index 21b141b7cb9c..b5cfcb936078 100644
-> --- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-> @@ -13,6 +13,7 @@
->  #include <linux/regulator/consumer.h>
->  
->  #include <drm/bridge/dw_hdmi.h>
-> +#include <drm/drm_bridge_connector.h>
->  #include <drm/drm_edid.h>
->  #include <drm/drm_of.h>
->  #include <drm/drm_probe_helper.h>
-> @@ -542,6 +543,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
->  	struct drm_device *drm = data;
->  	struct drm_encoder *encoder;
->  	struct rockchip_hdmi *hdmi;
-> +	struct drm_connector *connector;
->  	int ret;
->  
->  	if (!pdev->dev.of_node)
-> @@ -608,7 +610,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
->  
->  	platform_set_drvdata(pdev, hdmi);
->  
-> -	hdmi->hdmi = dw_hdmi_bind(pdev, encoder, plat_data, 0);
-> +	hdmi->hdmi = dw_hdmi_bind(pdev, encoder, plat_data, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
->  
->  	/*
->  	 * If dw_hdmi_bind() fails we'll never call dw_hdmi_unbind(),
-> @@ -616,12 +618,21 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
->  	 */
->  	if (IS_ERR(hdmi->hdmi)) {
->  		ret = PTR_ERR(hdmi->hdmi);
-> -		goto err_bind;
-> +		goto err_cleanup_encoder;
->  	}
->  
-> -	return 0;
-> +	connector = drm_bridge_connector_init(drm, encoder);
-> +	if (IS_ERR(connector)) {
-> +		ret = PTR_ERR(connector);
-> +		dev_err(hdmi->dev, "Failed to initialize bridge_connector\n");
-> +		goto err_unbind_bridge;
-> +	}
->  
-> -err_bind:
-> +	return drm_connector_attach_encoder(connector, encoder);
-> +
-> +err_unbind_bridge:
-> +	dw_hdmi_unbind(hdmi->hdmi);
-> +err_cleanup_encoder:
->  	drm_encoder_cleanup(encoder);
->  
->  	return ret;
+> Ah, that's a good point. Not having per-CPU timers is not going to
+> fly, I'm afraid. The MMIO timer will kick in very late, and we
+> probably need to schedule threads way before that.
+> 
+> This looks to be a single Cortex-A5 however, not an A5MP, meaning it
+> does not have the TWD, and relies on a global timer, which is a
+> terrible thing to have. Not to mention that MMIO accesses on the
+> counter is going to be even worse.
+> 
 
+Ah, my bad I misread it as Cortex-A15 and not Cortex-A5, so assumed
+missing sysreg based per-cpu arch timers.
+
+-- 
+Regards,
+Sudeep
 
