@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527CCCD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 18:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08915CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 18:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Bb2d7ztUbMfwQrlOvAngrNnijawNk2qKWlgV+cKiBU=; b=bfdLNXSd4xxSIk0GyeYP8DHG40
-	6cvjsoKs8xTWX3Zpcn2QNk7Nwdrek273RF1eKdZn6HAFTlKNabCWgy1atWgncGVZz28hiJ5Ba4ztv
-	7b/4Nz7zbgScll6B19hxImC/mPFkjdYdabc3JU9krBTrxRJsYAyeDrsOr8clkOtoWiMc0C6X5g5ix
-	LQYu+cNhU5LYUiNAEae0ozg+nLOPd34svcMW3PnGgm5bfpzTsQQUGLKZ3NR9Tsr5pqFY7/M6DikMR
-	YDrIE/pchyqfAfZuvmOrzdXrcCmvEaGAKfDowhtSxTndcYKIiB8HtwviKsumLKkErZONvk8BuwurH
-	vdqTKqDw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=13jSlO/Bke3l/ttAN8PKkd7+UKw2pFrdG+76r30guJ8=; b=D6/RwAhqJTta4m
+	gKqRqylVfaFrzpyfqxckv9ggYTTZmqHWXdvTcWXGbPvjnP8MTx46P+ZHW/oJbL4yyUsfGtJEFw9ij
+	dTutuhz7sUX3aQZ+9rWLaTi82C3TMMNgbqgPbjQB+NlsCOsQrfVNZtR3916qn/hQahVGWmaSc2Cb/
+	avABPlBjFjmXII8EU5MNOfJfD9wEGIp2OtuLyNRLjLuq8CSTd99i0JG1WFvYimCdpJCEivfLGymjH
+	o+UWwMTWnnJC2NFQaeQR81V740NOcjX0x8ke1gl7+a0KYOZNBIlwx92BkXKFflASFNTcePP2oYXC+
+	d40EA5nK9Z7jjxQTsXUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM8xu-0000000BNUb-14Xy;
-	Sun, 10 May 2026 18:33:22 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1wM8z8-0000000BNuG-345F;
+	Sun, 10 May 2026 18:34:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM8xp-0000000BNRB-3hYF
+	id 1wM8z5-0000000BNtR-1xPe
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 18:33:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1778437994; bh=3Bb2d7ztUbMfwQrlOvAngrNnijawNk2qKWlgV+cKiBU=;
- b=XQr6v8JdHn5ur+7edOxwHHEjdO8F0EuPkMxoTQb6M/Ip6LUCJXV0JY+obmIQ0hjTP+XXrL+T+
- pWZYhAcbDp/JbVv+veFtGvVdk6gUsDiSef1R7ejDZzPljg8cKVfrF9FkXFHF77ipFe7zjyRmB0v
- h2OtEpbHw1tO1StKdRTDGPYqXjXw/lzcaiL0FKXJbqZsyhCS6iuQiSxEf9Vl5RcBMeEEEWTih/1
- L8pJRILKxY6HCG52MiMYmYywB2ohf7fM7LFIsdgdl7l+bbyl/bCRv2ftKAPDnYNvlXe2SzsdFQP
- K9Qdx5wTHs/+LqDHoOhF7TiksHYVe4xMRS5C/piNb8dA==
-X-Forward-Email-ID: 6a00cf1761db3ab145b0f2e3
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.8.0
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: =?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 08/10] drm/rockchip: dw_hdmi: Set output_port for RK3568/RK3566
-Date: Sun, 10 May 2026 18:31:09 +0000
-Message-ID: <20260510183114.1248840-9-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260510183114.1248840-1-jonas@kwiboo.se>
-References: <20260510183114.1248840-1-jonas@kwiboo.se>
+	Sun, 10 May 2026 18:34:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F91E444EF
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 18:34:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53031C2BCC7
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 18:34:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778438074;
+	bh=rCvvuIRJS+zFWu0wK8pstHfaQ1AMphYIDSQl2Y+byqE=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=s4lpHipVlmcEzZSCYYGHdus6oKBjZlz13HekGY9aVDqJ7LAMeEDcfAuwwPHdAWGFq
+	 jNFHg/OwBZNrITo8ruAaz7f4Kwd33A19ifMDJytC11YRCZGzgueM31RwWoW01VRMJ7
+	 LnxHPM0A+InaVfuPTmhUe19cjZYxszuxMXbNbyq3CppwEmrePzL789ll2kSZ1jcR/d
+	 67rxMQxKTOS1QVfE/jcYzQtRyhp3Aqgvzoa/CaiAGJXkN0chM3yWJMX0p9CmnMEESd
+	 ybqA3zFYUSQc524Us2prndplbV/4FqMI0QH19DSBwlToKtEqAtrkCHN9kftuJ4LGWh
+	 dqM73k2p9nn5Q==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3938cc204a7so29097761fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 11:34:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9lWmQKoSeW+g6DW85sAHPUxxc7bOIdvZBIY9vXJSqCJq+G7L/3DO8pqjBnR0NzRa2zzFR8YTe8BmVO2NFygL/Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoR/Mmcjaz7vZ7yg2Q2LKzG0DsffGYrZfkrjgBz6oplJv8ldu7
+	xa58CfeAFxql5vsUV5QY/kVkj3KZcg6ASW/V+7t9JvryS2PIazNEsJpO25tqJnuh7nQSYO+y72l
+	/tsGFhkAnlCxm7QrZCmvMZDPO+OCJp4A=
+X-Received: by 2002:a2e:a273:0:b0:38c:de21:3e14 with SMTP id
+ 38308e7fff4ca-393c41c97demr52554991fa.19.1778438072557; Sun, 10 May 2026
+ 11:34:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260510-sunxi-a523-gpadc-v1-0-4f6b0f4000fb@mmpsystems.pl> <20260510-sunxi-a523-gpadc-v1-3-4f6b0f4000fb@mmpsystems.pl>
+In-Reply-To: <20260510-sunxi-a523-gpadc-v1-3-4f6b0f4000fb@mmpsystems.pl>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Mon, 11 May 2026 02:34:19 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64k2SvoGjNGsB=mQdc5U75mPJUJMZASqiF=DDN5QCNt8A@mail.gmail.com>
+X-Gm-Features: AVHnY4KOBMpyIY8koIw1JHFB7GLvF9QtogbHPVXZ-IY03YwC_1iRGcw45u_wThM
+Message-ID: <CAGb2v64k2SvoGjNGsB=mQdc5U75mPJUJMZASqiF=DDN5QCNt8A@mail.gmail.com>
+Subject: Re: [PATCH 3/3] arm64: dts: allwinner: a523: add gpadc node
+To: Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maksim Kiselev <bigunclemax@gmail.com>, linux-iio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_113317_912930_B2BB62C1 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260510_113435_579337_8510430D 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +85,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All in-tree RK3568/RK3566 device trees using HDMI also include the
-required hdmi-connector node at port@1 since their introduction.
+On Sun, May 10, 2026 at 9:02=E2=80=AFPM Michal Piekos
+<michal.piekos@mmpsystems.pl> wrote:
+>
+> Describe high speed timer block on Allwinner D1S-T113.
+>
+> Tested on Radxa Cubie A5E:
+> - 2 connected channels are showing voltages in agreement with
+>   schematics.
+>         BOOT-SEL-ADC ~500mV
+>         BOM-ADC ~1800mV
+> - 3rd channel exposed on 40pin header is showing correct voltages when
+>   connected to known voltage source.
+>
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> ---
+>  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/=
+boot/dts/allwinner/sun55i-a523.dtsi
+> index 5afa8d92acbf..f6c5cae5b23a 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> @@ -340,6 +340,18 @@ ledc: led-controller@2008000 {
+>                         status =3D "disabled";
+>                 };
+>
+> +               gpadc: adc@2009000 {
+> +                       compatible =3D "allwinner,sun55i-a523-gpadc",
+> +                                    "allwinner,sun20i-d1-gpadc";
+> +                       reg =3D <0x2009000 0x400>;
+> +                       clocks =3D <&ccu CLK_BUS_GPADC0>, <&ccu CLK_GPADC=
+0>;
+> +                       clock-names =3D "bus", "mod";
+> +                       resets =3D <&ccu RST_BUS_GPADC0>;
+> +                       interrupts =3D <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
+> +                       status =3D "disabled";
+> +                       #io-channel-cells =3D <1>;
 
-Define the output_port for RK3568 so that dw-hdmi bridge driver can pick
-up the display-connector bridge once the dw-hdmi connector is replaced
-with a bridge connector in a future change.
+status should always be the last property.
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
- drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-index a55a89040590..9d3bb6cd5670 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-@@ -459,6 +459,7 @@ static const struct dw_hdmi_plat_data rk3568_hdmi_drv_data = {
- 	.phy_config = rockchip_phy_config,
- 	.phy_data = &rk3568_chip_data,
- 	.use_drm_infoframe = true,
-+	.output_port = 1,
- };
- 
- static const struct of_device_id dw_hdmi_rockchip_dt_ids[] = {
--- 
-2.54.0
-
+> +               };
+> +
+>                 wdt: watchdog@2050000 {
+>                         compatible =3D "allwinner,sun55i-a523-wdt";
+>                         reg =3D <0x2050000 0x20>;
+>
+> --
+> 2.43.0
+>
+>
 
