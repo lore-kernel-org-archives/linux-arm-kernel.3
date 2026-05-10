@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184D9CD37B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 20:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA4B5CD37B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 20:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fq32aLdkExAfMs+unlg+8+LEiZMP7TzFWNTFG3w+X6U=; b=Pc1RSpQnFD+WsQ0HKgksZ0phXM
-	AbCWNu2/6kZg+CSksWID/b/Jl1eVai5PRRoVKUiSc60av2Gn7mB7W1Io5jkg2DktuHenDEkNANBst
-	GbJ3KABBaxObJEi+joNt5K73pEFpr3U+28akzyzzGyreCJwu2cO1+uB1ML8ZxirjhpPC/+ZbYiAOU
-	oWJL69adEgkq6K4ilweyXeri2CGI0e5f4RPeuvRx0LbHgKJJWWUHnklwlGmc/K08TN19gq77RpwDg
-	q+Ags5R2owqNEcLdGjQ6kyk6gcOhu4Yf6bwpLoePbigYhMukur0ar+p6WRVaI9MTOeN80mBQ0odkj
-	mPwlY+iQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8ZroQC62pHVMggAwIg6iHVKyZU+nfKercSdcNoeuJTA=; b=l42Csv6p0EE9wPVmFkd/3VO0HO
+	4/rBwryBM14fgA8f2rNJvIlrqYwh+E0hKQEQwCrgazeMUaaaFsnq+hat8tuPx3ORJRKaxmwH7Escz
+	Il5B9SXeGOOvQjs9iOx3rt1vq+Yi5WSgCKhFErQM6XjqjAG9bvfvm7C21mJnOZ0QTMTMw4gvkSgwo
+	5h7pE6iwPEKHzfPf6P3ZjKaHYmuTXSoY1esEBFVcyrt4Z2yiuEt9TD43UXjaCLOPPzoFUYDf4tAw5
+	kMhJJPvzPkvEmXCMiZkdQgt6gwgC7NGJUIA3R8zQNJoG1JsN0obMHmWbTC2tD0vsx7YS1h/LJQlu8
+	FTQGMbng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMAhS-0000000BZHc-0Mge;
-	Sun, 10 May 2026 20:24:30 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wMAok-0000000Ba4u-3wF7;
+	Sun, 10 May 2026 20:32:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMAhN-0000000BZGf-2g2E
+	id 1wMAoh-0000000Ba47-3pgX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 20:24:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1778444665; x=1809980665;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Bfc/WB8MtSNuuBFsXsab/2ISoT0JMcdHR58RLdjA2M4=;
-  b=2HQfKeTFCFWmVJRc8eUyqfD7DKnRv86ob3qogZo/D3KQmO2jtYM/ZHGz
-   Ys3cVqljOxA9CR0zvl/Jm+thHS1ZdLyKTo4No+aqQujJZg4y7ht+Zv5+b
-   kFgt6trAQcsCT/T6O+dpuGmaQdYNM/bbrhQowRfHsseD/sjz5IEoywuuT
-   x4YlOUp3zjCjmqR5m+ZAXXSCF3dIS1Yu9oWbznO0IN5Zd41l2cClV10CN
-   xpOX1MvlEA5Jks31hYgYOZtim4LQu7038QCS/IQWVqBGBjazJpp5ZOhKk
-   XEhDfX4heb8xeR/W16AXxYyJJacuNSCXVPQuxMKkvBU+naiSOWEy170XR
-   Q==;
-X-CSE-ConnectionGUID: VbcRMQGTQ6+eWcqm1CbgYQ==
-X-CSE-MsgGUID: KIoiOUpwQPeOQIJgCqsT8A==
-X-IronPort-AV: E=Sophos;i="6.23,227,1770620400"; 
-   d="scan'208";a="57698493"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 May 2026 13:24:22 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Sun, 10 May 2026 13:24:22 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Sun, 10 May 2026 13:24:19 -0700
-Date: Sun, 10 May 2026 22:24:19 +0200
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
-	<pabeni@redhat.com>, Steen Hegelund <Steen.Hegelund@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, Sebastian Andrzej Siewior
-	<bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, "Steven
- Rostedt" <rostedt@goodmis.org>, Bjarni Jonasson
-	<bjarni.jonasson@microchip.com>, Lars Povlsen <lars.povlsen@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>, <kees@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-rt-devel@lists.linux.dev>
-Subject: Re: [PATCH net v2 1/4] net: sparx5: defer VCAP debugfs creation
- until after netdev registration
-Message-ID: <20260510202419.zlh3nej2ohx237by@DEN-DL-M70577.microsemi.net>
-References: <20260506-misc-fixes-sparx5-lan969x-v2-0-fb236aa96908@microchip.com>
- <20260506-misc-fixes-sparx5-lan969x-v2-1-fb236aa96908@microchip.com>
- <20260507090810.53e66ef6@kernel.org>
- <20260507184714.joyobsh6ydjzrkc4@DEN-DL-M70577.microsemi.net>
- <20260508162213.6b755d8c@kernel.org>
+	Sun, 10 May 2026 20:32:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E470143D19;
+	Sun, 10 May 2026 20:31:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 238C6C2BCB8;
+	Sun, 10 May 2026 20:31:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778445117;
+	bh=5+omLs6aw5YAFKvXf4wxEHdVkViLr1pexGF10vcNR6I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NT4ZQTd0bA4lGgJmRczinaL05ertC9FB/x6ABepIKLRyWfmA4AUE6sT2zIdKZXMFg
+	 pE9UE6V5ktsoFmlFge10/xyy1Hy977VTGITHjqA1uE8xgzy9Hl1EbMrTxL6D6nH/aD
+	 07KU493LlBm4UimKfmTkIX39IwR0qmKWP8zxJ+diUgCajhf9CGQqURlY3ygKDlIBEt
+	 LXQVwRV0boBNnhaTRdUyyku55wexo1R0BDDH/CQrVnYksyBHV8GeEpFGaK5dBljZy+
+	 MGvoHDJ/weJa8uB8hOLLCEK7VWoEUVoA89esthp+Kkn0uFzafJya6hrJ+Ao1W6j7L9
+	 WRo7hMAUAilmA==
+Message-ID: <59ce1037-b6fb-4af7-a213-d605ba5c9a3d@kernel.org>
+Date: Sun, 10 May 2026 15:31:56 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260508162213.6b755d8c@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drivers: altera_edac: Fix OCRAM ECC init for warm reset
+Content-Language: en-US
+To: muhammad.nazim.amirul.nazle.asmade@altera.com, bp@alien8.de,
+ tony.luck@intel.com
+Cc: linux-edac@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260509143803.7500-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <20260509143803.7500-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_132425_753646_324F5787 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20260510_133159_983246_D2CBCE83 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +74,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Thu, 7 May 2026 20:47:14 +0200 Daniel Machon wrote:
-> > > On Wed, 6 May 2026 09:25:36 +0200 Daniel Machon wrote:
-> > > > Move the debugfs setup into a new sparx5_debugfs() helper in
-> > > > sparx5_debugfs.c, invoked after sparx5_register_notifier_blocks()
-> > > > succeeds so the netdev names are finalized. sparx5_vcap_init() now
-> > > > only deals with VCAP state. The sparx5/ debugfs root is created in
-> > > > the new helper as well.
-> > >
-> > > netdev names are never final :( User can change them at any time.
-> > > The best practice is to name the debugfs file by some stable hw-related
-> > > property, bus, port number etc.
-> >
-> > Right, but they are finalized in the sense that we have a name we can use for the
-> > debugfs files (which we dont pre-patch).
-> >
-> > Hmm. I think this patch fixes an actual issue, where you cannot query the
-> > debugfs files, because a previous patch broke the ordering. I agree that the
-> > names chosen (netdev_name()) for the files were poor, but is that really a fix
-> > for this series? Should that not be adressed in a future patch for net-next (it
-> > involves changing an VCAP API function that is not only used by Sparx5/lan969x,
-> > but also lan966x.).
+
+
+On 5/9/26 09:38, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
+> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 > 
-> Dunno, if we are aiming to switch to a different naming scheme we can
-> just do it now, I reckon. It will not make the fix much longer.
-> And presumably it will alleviate the need to reshuffle the ordering.
+> The OCRAM ECC is always enabled either by the BootROM or by the
+> Secure Device Manager (SDM) during a power-on reset on SoCFPGA.
+> 
+> However, during a warm reset, the OCRAM content is retained to
+> preserve data, while the control and status registers are reset to
+> their default values. As a result, ECC must be explicitly re-enabled
+> after a warm reset.
+> 
+> Signed-off-by: Niravkumar L Rabara <nirav.rabara@altera.com>
+> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+> ---
+>   drivers/edac/altera_edac.c | 10 ++++++++--
+>   1 file changed, 8 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/edac/altera_edac.c b/drivers/edac/altera_edac.c
+> index 103b2c2eba2a..9e6a9786a881 100644
+> --- a/drivers/edac/altera_edac.c
+> +++ b/drivers/edac/altera_edac.c
+> @@ -1186,8 +1186,14 @@ altr_check_ocram_deps_init(struct altr_edac_device_dev *device)
+>   
+>   	/* Verify OCRAM has been initialized */
+>   	if (!ecc_test_bits(ALTR_A10_ECC_INITCOMPLETEA,
+> -			   (base + ALTR_A10_ECC_INITSTAT_OFST)))
+> -		return -ENODEV;
+> +			   (base + ALTR_A10_ECC_INITSTAT_OFST))) {
+> +		if (!ecc_test_bits(ALTR_A10_ECC_EN,
+> +				   (base + ALTR_A10_ECC_CTRL_OFST)))
+> +			ecc_set_bits(ALTR_A10_ECC_EN,
+> +				     (base + ALTR_A10_ECC_CTRL_OFST));
+> +		else
+> +			return -ENODEV;
+> +	}
+>   
+>   	/* Enable IRQ on Single Bit Error */
+>   	writel(ALTR_A10_ECC_SERRINTEN, (base + ALTR_A10_ECC_ERRINTENS_OFST));
 
-OK, sounds good to me. I will make the changes for v3. Thanks!
+This patch fails to apply to both v7.1-rc1 and linux-next. Please base 
+your patch to the latest and resend.
 
-/Daniel
+Thanks,
+Dinh
+
 
