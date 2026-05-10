@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E641CD37B9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 16:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3803FCD37B9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 17:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26aJsmg0dcLFvlEBKL7cU1+eSu7KvJyN0hObqWs5yNk=; b=3DuPc6OqC3vhCvlcNqOu5k4Dfv
-	ZBsxXWwCUn95UjbIfuVKK9fc+QdrSV+N/8e6vZbGFbZVpVkBnPKR8m/5PR3z0aLWfsehbvkFAxBFJ
-	GJWooWuCDr32mxzRNqJXqAxapc4rtikX5RT9EAZ4br4t/NW/ZWrRQE1AKZUYcD/gYT4RZDoatvuBO
-	cVPIMo5jtK8ZGcS0NcK8fYe3R+av9ab03tvPs3KYASJloseiTC5e1hIxarTsibgWQRDWbv4xDw+Sq
-	GW/gOLLov0OPDq+uuih8FmTOQELs7WMjeE07GHEDImwlUQFTLweChfH29gvNIZrZchF0JPxak1z0O
-	wKY+2o2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zv/ru0QR6grpm7KNdBiLatfgWhf7D3FKLR22CUG+sp4=; b=3oc+WX7lPpL8qXhT5/EsqLlRer
+	Ql4q9IH1+QkmpYs0xbk+o8KBrEBwwM/l7YijAuMCnwJsCrbT//JNMuJZpt5dUObCDoMlXxDPzvuwJ
+	/iQaei9D4AuWXLxmJ/X0CKBvjkqKdcPgCzheMwdfQN9DKGthxp7g4Lj0SeJQfVnUA9Lv5N3bHhsx9
+	1rQio6LWyvzkkIFQCbGs14eWt3+2FUHXjybotw1dG5coE8r8gykJb78AY7d0DkBVpSI2hj2OKZ+TO
+	TPfZ4cFgdDznNb/CsjpTdmwEAsNJow+JIdkBQJjf5YxGbgDFnuFC+uV0o8bMFoszCUvF3eb3q07YN
+	/Gn3oeTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM6fU-0000000B7AW-3Sco;
-	Sun, 10 May 2026 16:06:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM6fR-0000000B78w-1jHr
+	id 1wM89D-0000000BHTz-1Ghi;
+	Sun, 10 May 2026 17:40:59 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wM89B-0000000BHT3-09Ze
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 16:06:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89BE827B5;
-	Sun, 10 May 2026 09:06:03 -0700 (PDT)
-Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 446173F836;
-	Sun, 10 May 2026 09:06:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778429168; bh=Yvl5e0/bXtH3DqoJuR+H+WomG2HEBPx9dK1/VFX327c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cmII/EMT+K0ivX+5X1kyLo0EW7NzboZzHQfElWwz9ap5aR17PpmAlfSIzVPQlvDAm
-	 4qtayWkWca51phdrVavqtMi7DejboyMIyRh7ZhbmvcvbfdmUcmetZcl5HCrEjVf2z3
-	 qYG13l6rVzb3c/Rb0nWST/k4jiB/HOPUXXz2De/Y=
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: sudeep.holla@kernel.org,
-	philip.radford@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	gatien.chevallier@foss.st.com,
-	u.kleine-koenig@baylibre.com,
-	dakr@kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v2 4/4] firmware: arm_scmi: optee: Rework transport probe sequence
-Date: Sun, 10 May 2026 17:05:27 +0100
-Message-ID: <20260510160527.3537474-5-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260510160527.3537474-1-cristian.marussi@arm.com>
-References: <20260510160527.3537474-1-cristian.marussi@arm.com>
+	Sun, 10 May 2026 17:40:58 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-43d76dd4ee8so3219804f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 10:40:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778434854; x=1779039654; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Zv/ru0QR6grpm7KNdBiLatfgWhf7D3FKLR22CUG+sp4=;
+        b=mp1LnfT9jQQW7rPlj8tD+RxQhUAkYpspCAtJIdHpjXznnncgnj/yYEzmC7+X9RJ60K
+         g+dgn1oRpS3ZLFKZ5z5ghXiJaj2K02y/7xV1jmTwaA0i/aCk0PhlDK9ErrQD72i2B3ju
+         CFs4lHSx9j3d8KSB2WhkKt94GnUKJ7eOQ4l2ZSyAB9O/sbJOaSJjS3nsuhnHahUquMqu
+         XIubpTM7MMf6Dz/itsJAmvafNJzyA0/i4FTwM9q4086Crf9RuXHMwlgX8UiJuHCfRL+c
+         53H4+P5/uYcY1qmdWZbprfFgZT3M4PFPupKuC+F822dl7LCokeK53mDK/7rOPkj0cRRi
+         JvcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778434854; x=1779039654;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Zv/ru0QR6grpm7KNdBiLatfgWhf7D3FKLR22CUG+sp4=;
+        b=epdGqGF+n40yrNZB5wdrIKam+9WinT7WeWCK09ZetMGUUqQ1yn1DgSsgJLadY/EXV7
+         aZcROt7m+IViiRFYG+tdA1x04rj2LrGsGhG0qXGW0ny13wNv4WVLeCF31WYHWQdz4ntq
+         babE2jt2lKhMIoizS16uKmoiEt43pICbt4/6qpQFfcA/Rij3g+xkcA1ZhUd6j6KWVKpH
+         BhiB5EDt7h32ahShE75XmzLlEhci3gVZEOzj7QiLmG5LuM5wpTkgI8Dx9ce19OeVAQYo
+         5ZQNBXg2dyins3ESpgwPNNXdFphLBQClBCtIEjyfdUyGNsh6RF7FbYiSvQQdHFCKFYNb
+         83IA==
+X-Forwarded-Encrypted: i=1; AFNElJ/VhO5Of+GqbY80AMOi8MYytI9qhrbDlj4KdZS1B2u+KSRUupyWAoEVCjUGR0eiGFReU3SQ6jTugnb3M3D/TpIw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrAWPXL9P9Tg1ZoYEtomphd0UC1zodL8d4j6iPkQXsguriO5TD
+	nAlvjhAye35Im3vAt3RKYzRN1ZmbORbUpCt67HaTDDPfuXLmqRoBKpoy
+X-Gm-Gg: Acq92OG9EmGG4tBNDgUl1XCxBYt3B9cJX7j7KxgFMfNLcyJ5RvAla9ErcH+sAA0kC5D
+	4/14t3wL41Y3lX1PWdsnmqS+Xopie/41VIB50paozFou/jMsMBqEoRyOnQcHhNt46w9qEUyn/Oi
+	mO60OGecC3QhvQKHg+ocvLkKllEoim6ByVszp9oNpsEPNf4ulSYnAe8buPoNuiPrT0WqVJLPO5u
+	GQmPtSw9QfxDjAcO6aQRl5I38A9n80BOpgqNANPcHNjuyK/fCZKC8aNb1zQk2Ka6gjiV+20JLA4
+	3kCYYFYqbv9yjS+unw4/chn66Ob2+wrFZDDu86ewdiI0MPGErQJ6AAJUIYhiLxTp8fzeOCAxeRx
+	hcIiG4LPdjxGvZP79GV1uqLyAKCysBlywxOFPVmAlAUySLGs9KlZvFifoewU3EkvbuMx6di7GH6
+	55l+kJX/hVYhH9rgRLDz7T0pT83chBIMBAbXJvjSibWO9rUog86/zhI9cBxgMuxi2nfN2eEFMd3
+	+0iFec=
+X-Received: by 2002:a05:6000:61e:b0:44f:f2d5:a401 with SMTP id ffacd0b85a97d-456a4ac9619mr9575531f8f.37.1778434854250;
+        Sun, 10 May 2026 10:40:54 -0700 (PDT)
+Received: from 0.1.2.1.2.0.a.2.dynamic.cust.swisscom.net ([2a02:1210:8642:2b00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4548ec6c221sm20183334f8f.13.2026.05.10.10.40.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 10 May 2026 10:40:52 -0700 (PDT)
+Message-ID: <26be9a11b5f2a7d196904d9a97306d2aafb9bf1c.camel@gmail.com>
+Subject: Re: [PATCH] arm: boot: ep93xx: don't rely on machine_is_*() for
+ removed board files
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: Ethan Nelson-Moore <enelsonmoore@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Russell King <linux@armlinux.org.uk>, Hartley Sweeten
+	 <hsweeten@visionengravers.com>, Nikita Shubin <nikita.shubin@maquefel.me>
+Date: Sun, 10 May 2026 19:40:54 +0200
+In-Reply-To: <20260509223820.50347-1-enelsonmoore@gmail.com>
+References: <20260509223820.50347-1-enelsonmoore@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_090609_532020_ED371BBE 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20260510_104057_104108_ED5E9FCE 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,122 +102,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new per-instance transport handles helpers to synchronize and
-optionally defer the core SCMI driver probe up until the transport driver
-has completely been initialized and it is fully operational as a supplier.
+Hi Ethan,
 
-Introduce proper module init/exit routines while removing the ugly trick of
-registering a driver from within the probe sequence of another one, just to
-avoid to have to deal with probe deferrals.
+On Sat, 2026-05-09 at 15:38 -0700, Ethan Nelson-Moore wrote:
+> Code in misc-ep93xx.h relies on machine_is_*() macros for several
+> boards that no longer have legacy board files. They were removed in
+> commit e5ef574dda70 ("ARM: ep93xx: delete all boardfiles"). This
+> prevents the removal of machine IDs no longer used by the kernel from
+> mach-types. To resolve this issue, create local copies of these macros.
+> (The checks themselves are still valid because the IDs are still passed
+> in by the bootloader on these machines.) Also take the opportunity to
+> remove three repeated checks for the same ID.
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
-v1 -> v2
- - fixed __MUTEX_INITILIAZER() usage
- - use common generic supplier definitions
- - get rid of init/cleanup wrappers
- - use proper barrier on scmi_optee_agent
----
- drivers/firmware/arm_scmi/transports/optee.c | 46 +++++++++++++++-----
- 1 file changed, 36 insertions(+), 10 deletions(-)
+I most probably miss something, but what is the reason for removing
+the machine IDs from the mach-types, especially if they are still used
+by the kernel (though only in its decompressor code)?
 
-diff --git a/drivers/firmware/arm_scmi/transports/optee.c b/drivers/firmware/arm_scmi/transports/optee.c
-index 07ae18d5279d..dbe32e141748 100644
---- a/drivers/firmware/arm_scmi/transports/optee.c
-+++ b/drivers/firmware/arm_scmi/transports/optee.c
-@@ -154,6 +154,8 @@ static struct scmi_transport_core_operations *core;
- /* There can be only 1 SCMI service in OP-TEE we connect to */
- static struct scmi_optee_agent *scmi_optee_private;
- 
-+static DEFINE_SCMI_TRANSPORT_SUPPLIER(scmi_optee_supplier);
-+
- /* Open a session toward SCMI OP-TEE service with REE_KERNEL identity */
- static int open_session(struct scmi_optee_agent *agent, u32 *tee_session)
- {
-@@ -522,7 +524,7 @@ static struct scmi_desc scmi_optee_desc = {
- };
- 
- static const struct of_device_id scmi_of_match[] = {
--	{ .compatible = "linaro,scmi-optee" },
-+	{ .compatible = "linaro,scmi-optee", .data = &scmi_optee_supplier.th},
- 	{ /* Sentinel */ },
- };
- 
-@@ -561,18 +563,20 @@ static int scmi_optee_service_probe(struct tee_client_device *scmi_pta)
- 	if (ret)
- 		goto err;
- 
--	/* Ensure agent resources are all visible before scmi_optee_private is */
-+	/* Ensure initialized scmi_optee_private is visible */
- 	smp_mb();
- 	scmi_optee_private = agent;
- 
--	ret = platform_driver_register(&scmi_optee_driver);
--	if (ret) {
--		scmi_optee_private = NULL;
--		goto err;
--	}
-+	ret = scmi_transport_supplier_put(&scmi_optee_supplier.th, agent->dev);
-+	if (ret)
-+		goto err_put;
- 
- 	return 0;
- 
-+err_put:
-+	/* Ensure cleared reference is visible before resources are released */
-+	smp_store_mb(scmi_optee_private, NULL);
-+
- err:
- 	tee_client_close_context(tee_ctx);
- 
-@@ -586,13 +590,12 @@ static void scmi_optee_service_remove(struct tee_client_device *scmi_pta)
- 	if (!scmi_optee_private)
- 		return;
- 
--	platform_driver_unregister(&scmi_optee_driver);
--
- 	if (!list_empty(&scmi_optee_private->channel_list))
- 		return;
- 
- 	/* Ensure cleared reference is visible before resources are released */
- 	smp_store_mb(scmi_optee_private, NULL);
-+	scmi_transport_supplier_put(&scmi_optee_supplier.th, agent->dev);
- 
- 	tee_client_close_context(agent->tee_ctx);
- }
-@@ -616,7 +619,30 @@ static struct tee_client_driver scmi_optee_service_driver = {
- 	},
- };
- 
--module_tee_client_driver(scmi_optee_service_driver);
-+static int __init scmi_transport_optee_init(void)
-+{
-+	int ret;
-+
-+	ret = tee_client_driver_register(&scmi_optee_service_driver);
-+	if (ret)
-+		return ret;
-+
-+	ret = platform_driver_register(&scmi_optee_driver);
-+	if (ret) {
-+		tee_client_driver_unregister(&scmi_optee_service_driver);
-+		return ret;
-+	}
-+
-+	return ret;
-+}
-+module_init(scmi_transport_optee_init);
-+
-+static void __exit scmi_transport_optee_exit(void)
-+{
-+	platform_driver_unregister(&scmi_optee_driver);
-+	tee_client_driver_unregister(&scmi_optee_service_driver);
-+}
-+module_exit(scmi_transport_optee_exit);
- 
- MODULE_AUTHOR("Etienne Carriere <etienne.carriere@foss.st.com>");
- MODULE_DESCRIPTION("SCMI OPTEE Transport driver");
--- 
-2.53.0
+> Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+> ---
+> =C2=A0arch/arm/boot/compressed/misc-ep93xx.h | 20 ++++++++++++++++----
+> =C2=A01 file changed, 16 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/arch/arm/boot/compressed/misc-ep93xx.h b/arch/arm/boot/compr=
+essed/misc-ep93xx.h
+> index 65b4121d1490..b0a1b42aab31 100644
+> --- a/arch/arm/boot/compressed/misc-ep93xx.h
+> +++ b/arch/arm/boot/compressed/misc-ep93xx.h
+> @@ -3,7 +3,22 @@
+> =C2=A0 * Copyright (C) 2006 Lennert Buytenhek <buytenh@wantstofly.org>
+> =C2=A0 */
+> =C2=A0
+> -#include <asm/mach-types.h>
+> +/*
+> + * These machine IDs are no longer used by the kernel since EP93xx was c=
+onverted
+> + * to DT booting, but they are still passed in by bootloaders, so we use=
+ our own
+> + * local definitions of the relevant macros.
+> + */
+> +#define machine_is_bk3()		(__machine_arch_type =3D=3D 1880)
+> +#define machine_is_edb9301()		(__machine_arch_type =3D=3D 462)
+> +#define machine_is_edb9302a()		(__machine_arch_type =3D=3D 1127)
+> +#define machine_is_edb9302()		(__machine_arch_type =3D=3D 538)
+> +#define machine_is_edb9307a()		(__machine_arch_type =3D=3D 1128)
+> +#define machine_is_edb9307()		(__machine_arch_type =3D=3D 607)
+> +#define machine_is_edb9312()		(__machine_arch_type =3D=3D 451)
+> +#define machine_is_edb9315a()		(__machine_arch_type =3D=3D 772)
+> +#define machine_is_edb9315()		(__machine_arch_type =3D=3D 463)
+> +#define machine_is_ts72xx()		(__machine_arch_type =3D=3D 673)
+> +#define machine_is_vision_ep9307()	(__machine_arch_type =3D=3D 1578)
+> =C2=A0
+> =C2=A0static inline unsigned int __raw_readl(unsigned int ptr)
+> =C2=A0{
+> @@ -60,14 +75,11 @@ static inline void ep93xx_decomp_setup(void)
+> =C2=A0	if (machine_is_edb9301() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9302() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9302a() ||
+> -	=C2=A0=C2=A0=C2=A0 machine_is_edb9302a() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9307() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9307a() ||
+> -	=C2=A0=C2=A0=C2=A0 machine_is_edb9307a() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9312() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9315() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9315a() ||
+> -	=C2=A0=C2=A0=C2=A0 machine_is_edb9315a() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_ts72xx() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_bk3() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_vision_ep9307())
 
+--=20
+Alexander Sverdlin.
 
