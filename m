@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B74F0CD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 21:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E38CD37B7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 21:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oCacEnv3jFgTu+llFs1ktz1QQR/9JDZVdeP3XUil9go=; b=R7KX1EDgGllZlR0jzXTc9gHtvm
-	H4EBIhGdQICbTXdMwG5aW2hCCJkLXdb/xi6SII7Vn+dRGcl58CEH8AKm/pFnts5j8dQaMtPtzMRxi
-	+G5J1mNpsyMAiUvb7kOp9eBPzjamwqxPv0k4Vl89nMapYV1nrhzSsIYlPvrLgBvMi/YBtZbx3hU7T
-	2Mi7utJQh0r0rBsO6k7In29pSknkTlCTMJ4MH4PwwOvhLB6HC/IeNxms0oVWLY7baTNu1hPJRxNs1
-	bKqQZQCl/XtDLYPBvjna5grHlbz88DHs21bOE/r2Utgpduy7A9McsIcSV6Om0x5QQFk4370Qco7lt
-	f9ryNhsw==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vtAOu0eFA23o05V5CRmaq8PrJpQx9XPRwAfVORuS8Yo=; b=YEnBCG/1TiBu1vBsl4UP8Xzqjc
+	O9X0w4t1AcxZncDbagmtgwg95CGxSE0r3hihKvkDUBWxZxFwrQTFF0aH7FpDh59LlHK6SFD4sTKW3
+	uTceYvg/Hr2azbGjClODDO5xXEugJFlxE/LA3yvQORPcLM+lSZUQfi52AAqQWiLWrTCAdr+lg3KQZ
+	rCS7c066o/IHCYUq7pc5jf4dzPZM0wzaooB/ghTEfZL2M7dbUcwZrrxfT9OrT39lGtls44Nl3XmUg
+	6aZadciNGGEQJVe0lIaBMXyFZlhbyBY/gErIUF4z6UnOXYSqVKItgpUq7VE7snmc2MtiKboh38DKN
+	LUlRhBMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMBcf-0000000BdyQ-3dcU;
-	Sun, 10 May 2026 21:23:37 +0000
-Received: from mail-centralusazon11011031.outbound.protection.outlook.com ([52.101.62.31] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wMBcg-0000000Bdyz-0uXE;
+	Sun, 10 May 2026 21:23:38 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMBca-0000000BdvO-3wpL
+	id 1wMBca-0000000Bduu-2BYt
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 10 May 2026 21:23:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jkmxhvqSjpjEM1Ry5YXSRFFMZfnSqgFgbjXsnXgvCbhKT5zwBwXSS29YHzHtOiKgjFCjD281W2/HWlxZx+wkDo/Zw6TnsbazMJRoD1LVu4iltiBceYW0UgKICBh0MyAedmB6/c6+Zo5/UTIsRF5ZQi/EvIUNvWlpb3YBVnfcDMGp/+K3jxUej/jWZcuY9B53FYu+3fhZMSzzDK1eD9fznMd3e7WWFr7xskmy1sHolA16rGvWpF1qjQW9P0AO8DzmuW7PquT9E7J+/dOrBLFYfcmGVAEzY4kIGZwnpxPIXFGIBKjGT0pb6aPxhUurfA/ir2C2d83yepAozImG2vcXiQ==
+ b=AtuQHHIakmDO85zTqmf9LQZvXboY4ClpNyculcXFLcUPBQa79AjBuocaDEoabCwnIAzmHbU4lVPM713A83a7bHyTUbUaoPRy5vI1CYVXkAL9bVLghyq7+EHhi1yKB4Op3RjbavB/fkE7UD/f/wqCnedLsnAkphf4v8BzyhI9z9BP3ug68mKpKaXx+98ujimrfUgI98/EgCCRHg4HOQ8YRg94h2TlkbrnSSNXCiyFmPuXelQHOdjvcVsnoMVlkI8ABrD0PpVu+sNXEIrKhW64Ycf4qmcFQPgmIxtJRjbQJLLntCIiNDZRpjQGurkcOGmibuVrtpldsYB+PQrZdLsQdg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oCacEnv3jFgTu+llFs1ktz1QQR/9JDZVdeP3XUil9go=;
- b=Vc0aM9azAw9/WRfGUNdgDiPs5RM0aHJp6tmquo2Lngs6bymz70/WHvArxfjiEGR5jKynvA6eAhBk7vySNBKWz/vMAD/VBiD6c1chMvsSUNYGhBhpE3CR3BeBG8MatYmFiiEeGwJk5L7MeuagEa6OOFjLi23DJK/ouBabzFQQlzsK7OsImlIOO/cc1P7xdfI8GhbD+fFwNic4qFwRwmhUnhs2FaGTg2yvwXZSAD/K8fRlyz/7HKOmsRCC7CQknssq6WTp+kO6lOawyRQfpn7r7bVb9GS10vk+Td7UNwqL68rWDS+81KqJBE7eQ0b15qwW8R3WU5OJhnJAGDFmsCs1/w==
+ bh=vtAOu0eFA23o05V5CRmaq8PrJpQx9XPRwAfVORuS8Yo=;
+ b=ORsrQ9hVy8Z+xM84CDY5HVBPFwu5l+hZiQwVv0djRmZZ9exVPFqzTN1QlCb31D088Fy9CNUYJ0or0Ho4guIjbLHXj+uDYXigJ6WpavvHH00wsJkzvYNg5wT8KH5NihU8QtTvTN3lUZBIURbheuLuRiIAFTX7L07x9UGLlawaiWnkNYgRXjqVmuvR27jTWnVLfy/6bQFlvpbyRXBOCuNaqCufrFDgFvcxbqxcZS7jnXp2ALCfix41SdcGjN2TWjN57uLRZw/XjMnmDfcrBZBoKnUqB+JQcyXbuzsTRBdy2zaHyry61hFB74L+dltXYNSCQ0dnYUKnSZZObBv1ZDskiA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oCacEnv3jFgTu+llFs1ktz1QQR/9JDZVdeP3XUil9go=;
- b=Uh25NjGk9tEzGkoYeJRW6BS5e4Rkbo2Yd9UfyPFyDamfrNoBbNGdq7k96LZYqME8USyVkfp3MLUkzpr2IuYOBhZ13HKwYnFRFHKD0fTgMlnDMxqjvKp/rSdOyW+hsP5SeH4TWw4z+gnz3X1e4GAXyjh39/6IYVSt343gxsAWBefp17D8TMSvvcyj7sm/D0LMqtpTLzoQzTUTC9ozwu924A2B4KRZBQuhQqrpWTnVE9ZGYAU6ZOTYjyWi/fyss5SGVzbhYCcw3d9EcuMP8PQuI6CG0fBXRpYCkIKj972fnEfB0N/VG9sg+Lro4D2a3RxTOqSqhAWJlbhxvhVgoNUMsQ==
-Received: from BYAPR02CA0062.namprd02.prod.outlook.com (2603:10b6:a03:54::39)
- by LV8PR12MB9617.namprd12.prod.outlook.com (2603:10b6:408:2a0::6) with
+ bh=vtAOu0eFA23o05V5CRmaq8PrJpQx9XPRwAfVORuS8Yo=;
+ b=lw5AgOD2B0wfcoWJIJ01fNUnbBnzI6YdCeVYIKkiQxvUOrJEYm/Z+61qiX/csjl0EESX9wfhx6ZzVJ0LedZLONn0zxWxFG7QUP1e+q0Yb9u4LEvh0YRqpDFb8inK0vs0Z7d3fga6n+Fo5Ts05IpRZko8QTx3Ykdo8ebLc8nf6ya0dXuLVTO/2raZTpLzLyGhqQANHGpRMlwCynM/lRwjJoSnNev9p8lMo+sS0OCRq78yizm3MMRDuaJsqZ5cTeX75gIlruz0BjrczbpcgCRZUkF1StvDICMhSsJsmjWcjpeRcS9ncQQK6hEm0TWkvbjHG3IaF75uQp+bROmI+fR9Hw==
+Received: from MW4PR04CA0337.namprd04.prod.outlook.com (2603:10b6:303:8a::12)
+ by DM3PR12MB9286.namprd12.prod.outlook.com (2603:10b6:8:1ae::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.22; Sun, 10 May
- 2026 21:23:26 +0000
-Received: from CO1PEPF00012E60.namprd05.prod.outlook.com
- (2603:10b6:a03:54:cafe::5a) by BYAPR02CA0062.outlook.office365.com
- (2603:10b6:a03:54::39) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 21:23:23 +0000
+Received: from CO1PEPF00012E61.namprd05.prod.outlook.com
+ (2603:10b6:303:8a:cafe::52) by MW4PR04CA0337.outlook.office365.com
+ (2603:10b6:303:8a::12) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.22 via Frontend Transport; Sun,
- 10 May 2026 21:23:26 +0000
+ 10 May 2026 21:23:23 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,20 +60,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.118.232 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.118.232) by
- CO1PEPF00012E60.mail.protection.outlook.com (10.167.249.69) with Microsoft
+ CO1PEPF00012E61.mail.protection.outlook.com (10.167.249.70) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Sun, 10 May 2026 21:23:26 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ 15.21.25.13 via Frontend Transport; Sun, 10 May 2026 21:23:23 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
  (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 10 May
- 2026 14:23:15 -0700
+ 2026 14:23:11 -0700
 Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Sun, 10 May 2026 14:23:15 -0700
+ 15.2.2562.20; Sun, 10 May 2026 14:23:11 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
  (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Sun, 10 May 2026 14:23:14 -0700
+ Transport; Sun, 10 May 2026 14:23:10 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
 	<kevin.tian@intel.com>
@@ -81,40 +81,38 @@ CC: <joro@8bytes.org>, <praan@google.com>, <kees@kernel.org>,
 	<baolu.lu@linux.intel.com>, <miko.lenczewski@arm.com>, <smostafa@google.com>,
 	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
 	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>, <jamien@nvidia.com>
-Subject: [PATCH v5 4/6] iommu/arm-smmu-v3: Skip EVTQ/PRIQ setup in kdump kernel
-Date: Sun, 10 May 2026 14:23:03 -0700
-Message-ID: <8de5639630e5723d6f371093cef93733f0ca534d.1778416609.git.nicolinc@nvidia.com>
+Subject: [PATCH v5 0/6] iommu/arm-smmu-v3: Fix device crash on kdump kernel
+Date: Sun, 10 May 2026 14:22:59 -0700
+Message-ID: <cover.1778416609.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1778416609.git.nicolinc@nvidia.com>
-References: <cover.1778416609.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E60:EE_|LV8PR12MB9617:EE_
-X-MS-Office365-Filtering-Correlation-Id: 27c9f1f1-bd69-4567-01a7-08deaeda5f82
+X-MS-TrafficTypeDiagnostic: CO1PEPF00012E61:EE_|DM3PR12MB9286:EE_
+X-MS-Office365-Filtering-Correlation-Id: 98ca889c-3c3d-420b-5193-08deaeda5df5
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700016|82310400026|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: bTEc642wjMn05CM4a748muOUGFxuYR/dP85welu+3RhzmuDetiYtM83Vgd4DwMHOKbpTQ3Y49qjBMJZB1yuwE+WIpMKVjYDr2aQTvnNXq/7SXfujf1srB8vnMAPUo7VPvzABzWqrT9RZ5dF07SPGhj105dXXGbfXSPqHwFg6SCuO9qKQCfU3whK0ZufB51yWUMLHrLot1qAPiNjVthURiqFw/iYYuDySzfsAXEDzb9j8J9oVLHXp0uvkqIdXHy3veZZ4htXcEM3eEvK1PWyQjfHhl28iMbQ67ae6vBNF7PbHvd21HPx9h2pkfG4zLAf1PovzelCyfNVTIIiufi8awFeGmxltX55HlI4F0wPnu1t6KJrLUrZAX3bv626M/RIvGN+ibf5/Dm6nneLeFJQcYCy5qKkdVUjdyR53hHRfslGJMZ2Z8CJc1eSnC2o2+ITnUKr+LaVpWFhVgMN1UWoOi3tiF7QEZ8IymcIq0xLDDRLK6HrB8E5imo75YfQBJtlSJUK3EDHCNzAKZ1jAzxktWLOCBnZFMjmIhG7kszy97knuXc3fvGn64UQ/WeaKTBfZdIsROcoYXeTwFrp6aTwxjjp08g6RftXewjuw2TIpVqjxPLalHt3oxrWumLygH3eaR3UvbENPqMpTSWnKpgtrOJ5JfWqZJWqKmkridl/mkjLEgTq6BYM2q3ZllSY/rJgJzz+Ju+ZCIO4UPMTx5zHctiT58Slg86b902Z6LjEdaAc=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700016)(82310400026)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|18002099003|56012099003|13003099007;
+X-Microsoft-Antispam-Message-Info: ZnEctmjsMOzQIOntJUTQEQVxRQHt3Q4f4u3gvxxy5Urrb59BDbfyuZU8JVEIJaXxJxJ0Ltrs6988YrFwT5tr4obWZxcJcD9+BzMg0C6K5q/4ozxudmJiZpd5nWT65KmPKA31QipXcoq7aIxo2Ega615O4vnXkYwlQIEvpQwONqFk9Laqpyhg6rZ7UrskPaCvqyncsR7xzDUomvWMxtX8k8QBPv6h5/WO6ptvC416m7CA7eSxte7HvlsI6Y6JeVJb0lRDvprQ4ZHO8rip96fPToTd2wqnJCcshgDIl7e6VW2m1fchwFWfEf8JApGqBU9mOSzOyOkI2jDYj8u9KAKAP/k4JCm+PVazLOCLpEoOzmxNiHKgw6Xc/1XHzt4f1OCQWMFbwyQ7yN5TQOCRpm03fff8OpQh+5Kd5uHjgvPlTPpIuCir2YgygNd5GkXs+QPXbisAV8n+y94p+XZ8qkXDRwvx5htKlh4Gwnj9ReyjY9M9PO/3fkdb91wLeDgmf1R0aOGagnhZOc4Epya3LhbOyxGD2iY5g52IMs/91V0t4ulQqvf0kYfHCixcmlhJ5TOm9K2wzIqSfdcpgYedXaxXYb2cj/usYuowwyq2VYOvlFisYlD3oiKNrUl+Uts6TVACuBt29XpuLQvNNZ0Ssiy4bRfj12EZiwGiZUF/px+R3D6v1xNS0QeN3+EqWRpHbzwo0LuPwzB0lK8f/mIKGxIdR9e12aEGe62yx5MRXmvAuTg3WoZH7RGXkWnRJnXbgmEG
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(18002099003)(56012099003)(13003099007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Bt0berCGqy9QKPtNqHbM/O1PM5xrhjV6Kk0trO5gRb50SY18rqBg4D9d87kUrCQtQcHod1E4oVRE5nHL/uiqHTCbdYdqbMTxmMADWV9W8lI0/SNZBV9hKuueJ3qcrMethjq9A8TA23M9eIIUfKu+ZbP36tEDiLYbb4B8kYuC/CULyWpeNRXMrQUXonCkPrreUY+Oz/T6IH+eTKyfTeRWCny7fiDQlO7Az4DDPXCPT3koM01byaDn1NvnpUasir0GOACXSCJhR/T7uL/CfWMrbJkcIFzTnFebeb+yjm5XfKR9yitpC7B1oGCgkcYsfXHR8kJ1BuRoTtDxsB4DO4CnCUcEyLjkNrsahQJB1kJK5f5KKDx4EsBTBBKiMMzihHzCerBru31HGbgFLUINmhqe2jvmTdPvR19fKwC/KC2ydTZT2ljg+8gy1GYhmsDWoeOg
+X-MS-Exchange-AntiSpam-MessageData-0: aNM+SX3RjGd8UHlEXufyi988XssveuMwO/uV1yYw4qW5x1W9XTYf/6OxgTdxkro/TDK91UlrtWl3SB7WcPgUdd9A3Qtr1c4nDtGY262KuLsrrnOBbg7iHWAg/3aFD/L/YUqwXiARP2DchcQ8m1n9p9UtT3GdmJ1ExZAtGwnnImF/KzTutDDdRAkQMITJAOYlZOEoqBEeakJvoV73cgcLQjyCcmJw3Gb902oMzVNHmwWp+yLpCfs9z3CSm5BDNaXnGCpjfHd5O2/RrOAQ2C3S/A/wqAuawU5uzddNWUWODvu1zBOJk/xRVkAmqvb1houlrEX2ZsgPYxEnVQm4NVxRGbgCz8b6u/RavI4Bna+N/lTt6VF7zRN9+YtN4Ep/YClrLhEdrsb3hwCG37JyVCHwwaz1mRPU4TiELb7sTFBNGm0xeHG8gx/Q5lwfUshh3Na0
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 May 2026 21:23:26.0581
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 May 2026 21:23:23.4618
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27c9f1f1-bd69-4567-01a7-08deaeda5f82
+X-MS-Exchange-CrossTenant-Network-Message-Id: 98ca889c-3c3d-420b-5193-08deaeda5df5
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E60.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E61.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9617
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9286
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_142332_980664_0DCE63FD 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20260510_142332_559956_553F949A 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,85 +127,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In kdump cases, the crashed kernel's CDs and page tables can be corrupted,
-which could trigger event spamming. Also, we cannot serve page requests.
+When transitioning to a kdump kernel, the primary kernel might have crashed
+while endpoint devices were actively bus-mastering DMA. Currently, the SMMU
+driver aggressively resets the hardware during probe by clearing CR0_SMMUEN
+and setting the Global Bypass Attribute (GBPA) to ABORT.
 
-Skip the EVTQ/PRIQ setup entirely rather than enabling then disabling them.
+In a kdump scenario, this aggressive reset is highly destructive:
+a) If GBPA is set to ABORT, in-flight DMA will be aborted, generating fatal
+   PCIe AER or SErrors that may panic the kdump kernel
+b) If GBPA is set to BYPASS, in-flight DMA targeting some IOVAs will bypass
+   the SMMU and corrupt the physical memory at those 1:1 mapped IOVAs.
 
-Also add some inline comments explaining that.
+To safely absorb in-flight DMA, the kdump kernel must leave SMMUEN=1 intact
+and avoid modifying STRTAB_BASE. This allows HW to continue translating in-
+flight DMA using the crashed kernel's page tables until the endpoint device
+drivers probe and quiesce their respective hardware.
 
-Fixes: b63b3439b856 ("iommu/arm-smmu-v3: Abort all transactions if SMMU is enabled in kdump kernel")
-Cc: stable@vger.kernel.org # v6.12+
-Suggested-by: Kevin Tian <kevin.tian@intel.com>
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 43 +++++++++++++--------
- 1 file changed, 27 insertions(+), 16 deletions(-)
+However, the ARM SMMUv3 architecture specification states that updating the
+SMMU_STRTAB_BASE register while SMMUEN == 1 is UNPREDICTABLE or ignored.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index ebb0826d74541..b7298218bac9a 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -5211,21 +5211,35 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 	cmd.opcode = CMDQ_OP_TLBI_NSNH_ALL;
- 	arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
- 
--	/* Event queue */
--	writeq_relaxed(smmu->evtq.q.q_base, smmu->base + ARM_SMMU_EVTQ_BASE);
--	writel_relaxed(smmu->evtq.q.llq.prod, smmu->page1 + ARM_SMMU_EVTQ_PROD);
--	writel_relaxed(smmu->evtq.q.llq.cons, smmu->page1 + ARM_SMMU_EVTQ_CONS);
--
--	enables |= CR0_EVTQEN;
--	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
--				      ARM_SMMU_CR0ACK);
--	if (ret) {
--		dev_err(smmu->dev, "failed to enable event queue\n");
--		return ret;
-+	/*
-+	 * Event queue
-+	 *
-+	 * Do not enable in a kdump case, as the crashed kernel's CDs and page
-+	 * tables might be corrupted, triggering event spamming.
-+	 */
-+	if (!is_kdump_kernel()) {
-+		writeq_relaxed(smmu->evtq.q.q_base,
-+			       smmu->base + ARM_SMMU_EVTQ_BASE);
-+		writel_relaxed(smmu->evtq.q.llq.prod,
-+			       smmu->page1 + ARM_SMMU_EVTQ_PROD);
-+		writel_relaxed(smmu->evtq.q.llq.cons,
-+			       smmu->page1 + ARM_SMMU_EVTQ_CONS);
-+
-+		enables |= CR0_EVTQEN;
-+		ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
-+					      ARM_SMMU_CR0ACK);
-+		if (ret) {
-+			dev_err(smmu->dev, "failed to enable event queue\n");
-+			return ret;
-+		}
- 	}
- 
--	/* PRI queue */
--	if (smmu->features & ARM_SMMU_FEAT_PRI) {
-+	/*
-+	 * PRI queue
-+	 *
-+	 * Do not enable in a kdump case, as we cannot serve page requests.
-+	 */
-+	if (!is_kdump_kernel() && (smmu->features & ARM_SMMU_FEAT_PRI)) {
- 		writeq_relaxed(smmu->priq.q.q_base,
- 			       smmu->base + ARM_SMMU_PRIQ_BASE);
- 		writel_relaxed(smmu->priq.q.llq.prod,
-@@ -5258,9 +5272,6 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 		return ret;
- 	}
- 
--	if (is_kdump_kernel())
--		enables &= ~(CR0_EVTQEN | CR0_PRIQEN);
--
- 	/* Enable the SMMU interface */
- 	enables |= CR0_SMMUEN;
- 	ret = arm_smmu_write_reg_sync(smmu, enables, ARM_SMMU_CR0,
+This leaves a kdump kernel no choice but to adopt the stream table from the
+crashed kernel.
+
+In this series:
+ - Introduce an ARM_SMMU_OPT_KDUMP_ADOPT
+ - Skip SMMUEN and STRTAB_BASE resets in arm_smmu_device_reset()
+ - Skip EVENTQ and PRIQ setups including interrupts and their handlers
+ - Memremap the crashed kernel's stream tables into the kdump kernel [*]
+ - Defer any default domain attachment to retain STEs until device drivers
+   explicitly request it.
+
+[*] For verification reason, this series only fixes coherent SMMUs.
+
+For non-ARM_SMMU_OPT_KDUMP_ADOPT cases, keep a status quo since the commit
+3f54c447df34f ("iommu/arm-smmu-v3: Don't disable SMMU in kdump kernel"):
+full reset followed by driver-initiated reattach, potentially rejecting any
+in-flight DMA.
+
+Note that the series requires Jason's work that was merged in v6.12: commit
+85196f54743d ("iommu/arm-smmu-v3: Reorganize struct arm_smmu_strtab_cfg").
+I have a backported version that is verified with a v6.8 kernel. I can send
+if we see a strong need after this version is accepted.
+
+This is on Github:
+https://github.com/nicolinc/iommufd/commits/smmuv3_kdump-v5
+
+Changelog
+v5
+ * Add Reviewed-by from Kevin
+ * Drop READ_ONCE on lazy-attach L1 read
+ * Split "Skip EVTQ/PRIQ setup" into two patches
+ * Tighten kdump probe comment and dev_warn message
+ * Use MEM + BUSY in arm_smmu_kdump_phys_is_corrupted
+v4
+ https://lore.kernel.org/all/cover.1777446969.git.nicolinc@nvidia.com/
+ * Rebase v7.1-rc1
+ * s/arm_smmu_adopt/arm_smmu_kdump_adopt
+ * Revert alloc/memremap/fmt on fallback
+ * Reorder patches to avoid bisect regression
+ * Use IRQ_NONE for spurious evtq/priq entries
+ * Cap linear log2size by kdump's allocation bound
+ * Defer clearing FEAT_2_LVL_STRTAB on linear adopt
+ * Add arm_smmu_kdump_phys_is_corrupted() validation
+ * Defer l2 stream table memremap till master inserts
+ * Re-validate L1 desc on master insert with READ_ONCE
+v3
+ https://lore.kernel.org/all/cover.1777150307.git.nicolinc@nvidia.com/
+ * s/OPT_KDUMP/OPT_KDUMP_ADOPT
+ * Do not adopt if GERROR_SFM_ERR
+ * Retain CR0_ATSCHK beside CR0_SMMUEN
+ * Clear latched GERROR bits (e.g. CMDQ_ERR)
+ * Assert ARM_SMMU_FEAT_COHERENCY in adopt functions
+ * Add STE.Cfg check in arm_smmu_is_attach_deferred()
+ * Fix validations on return codes from devm_memremap()
+ * Sanitize crashed kernel register values in adopt functions
+ * Drop unnecessary l2ptrs guard in arm_smmu_is_attach_deferred()
+ * Don't enable PRIQ/EVTQ irqs and guard the irq functions for combined
+   irq cases
+v2
+ https://lore.kernel.org/all/cover.1776286352.git.nicolinc@nvidia.com/
+ * Add warning in non-coherent SMMU cases
+ * Keep eventq/priq disabled v.s. enabling-and-disabling-later
+ * Check KDUMP option in the beginning of arm_smmu_device_reset()
+ * Validate STRTAB format matches HW capability instead of forcing flags
+v1:
+ https://lore.kernel.org/all/cover.1775763475.git.nicolinc@nvidia.com/
+
+Nicolin Chen (6):
+  iommu/arm-smmu-v3: Add arm_smmu_kdump_adopt_strtab() for kdump
+  iommu/arm-smmu-v3: Implement is_attach_deferred() for kdump
+  iommu/arm-smmu-v3: Suppress EVTQ/PRIQ events in kdump kernel
+  iommu/arm-smmu-v3: Skip EVTQ/PRIQ setup in kdump kernel
+  iommu/arm-smmu-v3: Retain CR0_SMMUEN during kdump device reset
+  iommu/arm-smmu-v3: Detect ARM_SMMU_OPT_KDUMP_ADOPT in probe()
+
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |   1 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 473 +++++++++++++++++++-
+ 2 files changed, 450 insertions(+), 24 deletions(-)
+
 -- 
 2.43.0
 
