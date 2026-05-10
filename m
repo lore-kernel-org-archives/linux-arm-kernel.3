@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E6FFCD37AF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 02:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F6E9CD37AF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 03:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Uiw4dfVso5LxmsbsjDCVaXWxJMKOvjbT0biZwMj2I3A=; b=c3QCLvMUKfNhwQvH2PewADUvpX
-	TfoP/LyxNhHcNybik1G4IIobQMfXoGuVtHXs7io4VjVkidwnOfn0qSi+CTLTF2njtg7drcj+stLNK
-	5Ux4vpuJRsDluiL+tE0GC7DclNrXw8YbhNgbNXDOnoHqObnlenDG5bwYxJT3h6l3yw45LLY6Mm3Oq
-	xEG+BfVqbehLZ8y//ob0DsVTZI8jyGd9M0LVKsyemzT4LYkrhX+SygUCgbSxIOoMgDvo778HutDko
-	3qOSXEM0swbP3sZSxHVCqPBQwBhB0a/wSTuT0JE+3dNQ0W8bE67nCI40dzfpt6W3U7Sm5jJ5RjaYU
-	mSjMZ/vg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9AG2mPgAOtJ8Me87PpVSnI+nay5U0EzVOgMVFYD/YiE=; b=SxYxlGgON4GsDyQtIVoNRJZv7v
+	k03QvhcBGAhc1gNkS1GqKBMno/F9Y7kD3kxcp+YgbaKkPSG2q2zGm8l/vXn4jtUfTiyGC81zReKFY
+	uPaIHqP47LrC9YVWMGQd7diNN2OZxKTkuQ5Q9TEmSB51YpeKPPk1NfQC0pd7wUO51qFxfaFMsIhIs
+	03UuXrp8rr3C1Q1vtozswDnk8tiH5m/15HQ/2mqEjhanPSU2Zgp8XjC/amOAl9LxCftKrzFs/7HiY
+	j84SBTp8j1sV35KnQpGc10F2gBnaZxUgq8xIZ9n5Ls0Q9MG/FJOwQ24PhVbJ/bTjLVnPGxDG/YbF3
+	YBtwBtyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLuL8-0000000A2iQ-35Aj;
-	Sun, 10 May 2026 02:56:22 +0000
-Received: from mail-dy1-x1344.google.com ([2607:f8b0:4864:20::1344])
+	id 1wLuRS-0000000A3CN-2DXG;
+	Sun, 10 May 2026 03:02:54 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLuL5-0000000A2hr-2MF0
+	id 1wLuRP-0000000A3Bi-3U7d
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 02:56:21 +0000
-Received: by mail-dy1-x1344.google.com with SMTP id 5a478bee46e88-2ef2a1cc06dso3835920eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 19:56:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778381778; x=1778986578; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Uiw4dfVso5LxmsbsjDCVaXWxJMKOvjbT0biZwMj2I3A=;
-        b=Jt35pGu0/uW96pWytaR5Gc2IAf8ZBeKUos1OoI7X16IQ4WNUtgcUOiwqMSiXWuf6YT
-         xnzdXb/VnNQY5bWblxlp5062STwpjQpZRseR5mFqAX2WwaGY7ntkSH8d+7rE+0foo2K6
-         Al7Qg4fmXVmdKZI/mm8uqXmpzsEqxoGNkEbk6/NyW2KAueYYj0JrfF8/MWgS2uxqAAPP
-         LlPbtkno29of2Vmxm/rh2E0CQIFS1UDaTXWykrWzWE0R0cO7tOCexzDsIS73XPpFfxk0
-         TxsxsaBv6bknn3pYIUA9x4HLskxhkwsiHQZwgIHo0pP9LUsia0EjWwlzb/3MzL+NJrf9
-         rmwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778381778; x=1778986578;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Uiw4dfVso5LxmsbsjDCVaXWxJMKOvjbT0biZwMj2I3A=;
-        b=dNX9lF33Q3S5qYvc8ljlD8uNirNiyDB6u/uaYrexwEIRQJpPzPZAb2KLno9si6CImS
-         wbrD/dRsrzWtJGaKEUxA1VaDDXsnurVNGf10iY7+TxMekuLJPzwpTF4NqUB/LhRXlxeQ
-         AbW1G8ifLPf+QF1ko1Bkk0MuiAW8z/j27ii5+QfeIVUt9+N0PDLzCePlUDYzyPGAL0PF
-         aC/YNn/xmun/7EmLy8jEDRa64H7+uYl4nFMGJ2wSlxX8XhLDaMZ+Tu8AqE0r5dFx2Zua
-         aGgMF8cL728bimooSIV35p1RNdp/Mch4zgCS4G1QrM9zSSBxZrvsdQ7/vzzG5qrdoTUc
-         jLPw==
-X-Gm-Message-State: AOJu0YzlZfY36VetxrXUfSFULGEqj0SV096NQVK4gZcBDVXifmeJKhPs
-	+OdQL4ZfAyZ5T+SJ6KObTDp1M9XOjFWW4xC619qGw4jJJ43+F8WoOMLHBYgn/Z94oMM=
-X-Gm-Gg: Acq92OGI5BBHKCxoU2EYlM8dvTKL0A2wS6OtWKSNMzTkCIyaQLyZbR3lz/KHCgRh6JP
-	8w/E37hWwMXDqn3zEtuQx09ZnxIVTlAD6w4OFpdBBADKNXAuT4mVCFVioQFciVmxw2zYP2MmGyn
-	nx93/SK1KYsSHMiKg2B0EKpfznHj62dLBMmsKsi1lXxUv8KSiDRHlluJGlxZSGyBKdh4My6uBsj
-	yv+aTnIayCE8q3Y11zgfEfnanqAWkSaOx26i3mpTj2zsPftnhAybqlMAn7CoeCif7Sr2ownYB5K
-	ONe33GgB140gibTodaNX5WM+9lzlo/cX+eH53YiI7cYEveRY48MTgaj8F1vuTEDNxxhxL2vMBHG
-	R2fP+ClLcJAuyH4UIwnF6XaaJi5dnA7PMBsiHU4CUkT4mCUwsixAzZhDJTj7YTwiL5WJ9SFq5RQ
-	mzVmWk/VRopyf6TaH9/rENZ/l15hB/VrNGZ6nzfs2H6AxEQZwBAdmCXD0FxNQstJYo2nnlOKnuf
-	ouzrx15pgJ8HWBmFBVe3Z9mQc//rE/OZ8sEJji1+OSp2/O4gQniPCFq3xpw+tN+SHg60XmI2ic1
-	ycGL+wY6CdVu6BE2yg==
-X-Received: by 2002:a05:7301:4b15:b0:2dd:5641:ef2 with SMTP id 5a478bee46e88-2fb4bdffa2fmr1772510eec.25.1778381778302;
-        Sat, 09 May 2026 19:56:18 -0700 (PDT)
-Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f8862d3047sm9796267eec.10.2026.05.09.19.56.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 19:56:17 -0700 (PDT)
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org
-Cc: Russell King <linux@armlinux.org.uk>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Andi Shyti <andi.shyti@kernel.org>
-Subject: [PATCH] ARM: riscpc: use iomd.h everywhere and remove redundant ioc.h header
-Date: Sat,  9 May 2026 19:56:01 -0700
-Message-ID: <20260510025610.216819-1-enelsonmoore@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sun, 10 May 2026 03:02:53 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4gCnj12XFbz9ttT;
+	Sun, 10 May 2026 05:02:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1778382165;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9AG2mPgAOtJ8Me87PpVSnI+nay5U0EzVOgMVFYD/YiE=;
+	b=fdAObIBPln9zwt+xeHEPvt1bMvDO8JRvcTJPTX2mTY2J0WgZUFLZhsPyzpYNf06biWicyw
+	ptoiNBpq/YGPmw1Te1qySZ+QpzwTzoWX6WAcJfZF/deAobppogx1TrpBppUv0JhuC0I5U1
+	AZFbl4R/fbiQuDK6fnkU4+SbAAWEIxh6sCPRAEokqV/28NMezlffi68DwEFhXMpBtMDiDP
+	lNGhHwvkI53wWbFW8DKVlymF8MIfOIG3lJ2+SUyNSjZifsTKZ+0xa+1zg9eNGYD42AJA0u
+	Bq5BTd3155LGgq6ZCnFa5fg8gBF1Hba6Ayng2cj2WBLIrXcpiwY8A/cafFQBQw==
+Message-ID: <73602f40-45f0-4e4e-86cb-4a2c025f0491@mailbox.org>
+Date: Sun, 10 May 2026 05:02:39 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH/RFC 10/14] dt-bindings: power: Document Renesas R-Car X5H
+ Module Controller
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+ Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>,
+ Saravana Kannan <saravanak@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Ulf Hansson <ulfh@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1776793163.git.geert+renesas@glider.be>
+ <053c312d07445517d8f9c84bfe3cc8fb72d4cd9a.1776793163.git.geert+renesas@glider.be>
+ <bf83a028-3ef3-482a-9ce3-8aec16f6ebed@mailbox.org>
+ <CAMuHMdWN2zaZrY2jKKXpNqrP8xSqc-uJTr-siTBgaA=-EY_4BQ@mail.gmail.com>
+ <fa28c6fe-484c-4133-824e-649c52ef2200@mailbox.org>
+ <CAMuHMdUU=RohST4LDDD27W5dj=HwJFApMcDpsXATQ1MaMH-tUA@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdUU=RohST4LDDD27W5dj=HwJFApMcDpsXATQ1MaMH-tUA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: fbwz36b893qz5jidenhstwmckkgabocb
+X-MBO-RS-ID: 685120301b26aeb58c6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_195619_636544_AC511A21 
-X-CRM114-Status: GOOD (  24.55  )
+X-CRM114-CacheID: sfid-20260509_200252_086153_F1F97A32 
+X-CRM114-Status: GOOD (  35.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,301 +97,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The <asm/hardware/ioc.h> header contains a subset of the definitions of
-the <asm/hardware/iomd.h> header, just with different names. This is
-because the IOC chip (used in 26-bit Acorn computers) contains a subset
-of the functionality of the later IOMD chip used in the Risc PC. Linux
-formerly supported 26-bit Acorn computers, but that support was removed
-in commit 99eb8a550dbc ("Remove the arm26 port") because it had
-bitrotted to the extent that it did not even compile.
+On 5/8/26 10:26 AM, Geert Uytterhoeven wrote:
 
-Adjust all references to ioc.h to use iomd.h and its constants and
-remove the redundant ioc.h header. Also correct formatting on
-affected lines and remove the now-unused IOC_BASE constant.
+Hello Geert,
 
-Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
----
- MAINTAINERS                               |  1 -
- arch/arm/include/asm/hardware/ioc.h       | 69 -----------------------
- arch/arm/include/asm/hardware/iomd.h      |  2 +-
- arch/arm/mach-rpc/fiq.S                   |  4 +-
- arch/arm/mach-rpc/include/mach/hardware.h |  1 -
- arch/arm/mach-rpc/irq.c                   |  6 +-
- arch/arm/mach-rpc/time.c                  | 18 +++---
- drivers/i2c/busses/i2c-acorn.c            | 18 +++---
- 8 files changed, 24 insertions(+), 95 deletions(-)
- delete mode 100644 arch/arm/include/asm/hardware/ioc.h
+>> Since there are up to 32 MPDG registers, and 256 resets, can we encode
+>> both into a single cell ?
+>>
+>> (mpdg_register_offset << 16) | (reset_bit_offset << 0)
+> 
+> We could.  I did consider it (with a shift of 8 cfr. 256 modules),
+> but see below...
+> 
+>> I cannot tell whether this is much better, but it at least ties the PD
+>> components (power domain and clock domain) into a single value, which
+>> matches reality a bit better. The current split power domain and clock
+>> domain description in two cells gives me the illusion that it is
+>> possible to mix and match power domains and clock domains in DT
+>> description, but in fact the two cells are strongly tied together.
+> 
+> They are only tied together in the sense that a module (hardware block)
+> is part of a power domain, and has module standby (clock) control.
+> Some power domains are backed by MDLC hardware registers,
+> others are not, hence the need for the additional definitions in
+> <dt-bindings/power/renesas,r8a78000-mdlc.h>.
+> I am not aware (yet) of modules that are part of a power domain,
+> but do not have module standby control. If these exist, we
+> need an additional definition (R8A78000_MDLC_MODULE_NONE?) in
+> <dt-bindings/power/renesas,r8a78000-mdlc.h>.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b865ad67fda3..211cc683e25b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3398,7 +3398,6 @@ M:	Russell King <linux@armlinux.org.uk>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- W:	http://www.armlinux.org.uk/
--F:	arch/arm/include/asm/hardware/ioc.h
- F:	arch/arm/include/asm/hardware/iomd.h
- F:	arch/arm/mach-rpc/
- F:	drivers/net/ethernet/8390/etherh.c
-diff --git a/arch/arm/include/asm/hardware/ioc.h b/arch/arm/include/asm/hardware/ioc.h
-deleted file mode 100644
-index 6edd27fcd048..000000000000
---- a/arch/arm/include/asm/hardware/ioc.h
-+++ /dev/null
-@@ -1,69 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
--/*
-- *  arch/arm/include/asm/hardware/ioc.h
-- *
-- *  Copyright (C) Russell King
-- *
-- *  Use these macros to read/write the IOC.  All it does is perform the actual
-- *  read/write.
-- */
--#ifndef __ASMARM_HARDWARE_IOC_H
--#define __ASMARM_HARDWARE_IOC_H
--
--#ifndef __ASSEMBLY__
--
--/*
-- * We use __raw_base variants here so that we give the compiler the
-- * chance to keep IOC_BASE in a register.
-- */
--#define ioc_readb(off)		__raw_readb(IOC_BASE + (off))
--#define ioc_writeb(val,off)	__raw_writeb(val, IOC_BASE + (off))
--
--#endif
--
--#define IOC_CONTROL	(0x00)
--#define IOC_KARTTX	(0x04)
--#define IOC_KARTRX	(0x04)
--
--#define IOC_IRQSTATA	(0x10)
--#define IOC_IRQREQA	(0x14)
--#define IOC_IRQCLRA	(0x14)
--#define IOC_IRQMASKA	(0x18)
--
--#define IOC_IRQSTATB	(0x20)
--#define IOC_IRQREQB	(0x24)
--#define IOC_IRQMASKB	(0x28)
--
--#define IOC_FIQSTAT	(0x30)
--#define IOC_FIQREQ	(0x34)
--#define IOC_FIQMASK	(0x38)
--
--#define IOC_T0CNTL	(0x40)
--#define IOC_T0LTCHL	(0x40)
--#define IOC_T0CNTH	(0x44)
--#define IOC_T0LTCHH	(0x44)
--#define IOC_T0GO	(0x48)
--#define IOC_T0LATCH	(0x4c)
--
--#define IOC_T1CNTL	(0x50)
--#define IOC_T1LTCHL	(0x50)
--#define IOC_T1CNTH	(0x54)
--#define IOC_T1LTCHH	(0x54)
--#define IOC_T1GO	(0x58)
--#define IOC_T1LATCH	(0x5c)
--
--#define IOC_T2CNTL	(0x60)
--#define IOC_T2LTCHL	(0x60)
--#define IOC_T2CNTH	(0x64)
--#define IOC_T2LTCHH	(0x64)
--#define IOC_T2GO	(0x68)
--#define IOC_T2LATCH	(0x6c)
--
--#define IOC_T3CNTL	(0x70)
--#define IOC_T3LTCHL	(0x70)
--#define IOC_T3CNTH	(0x74)
--#define IOC_T3LTCHH	(0x74)
--#define IOC_T3GO	(0x78)
--#define IOC_T3LATCH	(0x7c)
--
--#endif
-diff --git a/arch/arm/include/asm/hardware/iomd.h b/arch/arm/include/asm/hardware/iomd.h
-index 53006ba5350f..e3f130345ebc 100644
---- a/arch/arm/include/asm/hardware/iomd.h
-+++ b/arch/arm/include/asm/hardware/iomd.h
-@@ -15,7 +15,7 @@
- 
- /*
-  * We use __raw_base variants here so that we give the compiler the
-- * chance to keep IOC_BASE in a register.
-+ * chance to keep IOMD_BASE in a register.
-  */
- #define iomd_readb(off)		__raw_readb(IOMD_BASE + (off))
- #define iomd_readl(off)		__raw_readl(IOMD_BASE + (off))
-diff --git a/arch/arm/mach-rpc/fiq.S b/arch/arm/mach-rpc/fiq.S
-index 087bdf4bc093..a600761c3dfd 100644
---- a/arch/arm/mach-rpc/fiq.S
-+++ b/arch/arm/mach-rpc/fiq.S
-@@ -3,8 +3,8 @@
- #include <asm/assembler.h>
- #include <mach/hardware.h>
- 
--	.equ	ioc_base_high, IOC_BASE & 0xff000000
--	.equ	ioc_base_low, IOC_BASE & 0x00ff0000
-+	.equ	ioc_base_high, IOMD_BASE & 0xff000000
-+	.equ	ioc_base_low, IOMD_BASE & 0x00ff0000
- 
- 	.text
- 	.global	rpc_default_fiq_end
-diff --git a/arch/arm/mach-rpc/include/mach/hardware.h b/arch/arm/mach-rpc/include/mach/hardware.h
-index 6f197706f979..22d62a198559 100644
---- a/arch/arm/mach-rpc/include/mach/hardware.h
-+++ b/arch/arm/mach-rpc/include/mach/hardware.h
-@@ -48,7 +48,6 @@
- #define ECARD_IOC4_BASE		(IO_BASE + 0x00270000)
- #define ECARD_IOC_BASE		(IO_BASE + 0x00240000)
- #define IOMD_BASE		(IO_BASE + 0x00200000)
--#define IOC_BASE		(IO_BASE + 0x00200000)
- #define ECARD_MEMC8_BASE	(IO_BASE + 0x0002b000)
- #define FLOPPYDMA_BASE		(IO_BASE + 0x0002a000)
- #define PCIO_BASE		(IO_BASE + 0x00010000)
-diff --git a/arch/arm/mach-rpc/irq.c b/arch/arm/mach-rpc/irq.c
-index dc29384b6ef8..e924c9b813ab 100644
---- a/arch/arm/mach-rpc/irq.c
-+++ b/arch/arm/mach-rpc/irq.c
-@@ -77,19 +77,19 @@ static int iomd_get_irq_nr(void)
- 	u8 reg;
- 
- 	/* get highest priority first */
--	reg = readb(IOC_BASE + IOMD_IRQREQB);
-+	reg = readb(IOMD_BASE + IOMD_IRQREQB);
- 	irq = irq_prio_h[reg];
- 	if (irq)
- 		return irq;
- 
- 	/* get DMA  */
--	reg = readb(IOC_BASE + IOMD_DMAREQ);
-+	reg = readb(IOMD_BASE + IOMD_DMAREQ);
- 	irq = irq_prio_d[reg];
- 	if (irq)
- 		return irq;
- 
- 	/* get low priority */
--	reg = readb(IOC_BASE + IOMD_IRQREQA);
-+	reg = readb(IOMD_BASE + IOMD_IRQREQA);
- 	irq = irq_prio_l[reg];
- 	if (irq)
- 		return irq;
-diff --git a/arch/arm/mach-rpc/time.c b/arch/arm/mach-rpc/time.c
-index 9f8edcfe9357..ad93c4dfafcd 100644
---- a/arch/arm/mach-rpc/time.c
-+++ b/arch/arm/mach-rpc/time.c
-@@ -17,7 +17,7 @@
- #include <linux/io.h>
- 
- #include <mach/hardware.h>
--#include <asm/hardware/ioc.h>
-+#include <asm/hardware/iomd.h>
- 
- #include <asm/mach/time.h>
- 
-@@ -33,15 +33,15 @@ static u64 ioc_timer_read(struct clocksource *cs)
- 	u32 ticks;
- 
- 	local_irq_save(flags);
--	ioc_writeb (0, IOC_T0LATCH);
-+	iomd_writeb(0, IOMD_T0LATCH);
- 	barrier ();
--	count1 = ioc_readb(IOC_T0CNTL) | (ioc_readb(IOC_T0CNTH) << 8);
-+	count1 = iomd_readb(IOMD_T0CNTL) | (iomd_readb(IOMD_T0CNTH) << 8);
- 	barrier ();
--	status = ioc_readb(IOC_IRQREQA);
-+	status = iomd_readb(IOMD_IRQREQA);
- 	barrier ();
--	ioc_writeb (0, IOC_T0LATCH);
-+	iomd_writeb(0, IOMD_T0LATCH);
- 	barrier ();
--	count2 = ioc_readb(IOC_T0CNTL) | (ioc_readb(IOC_T0CNTH) << 8);
-+	count2 = iomd_readb(IOMD_T0CNTL) | (iomd_readb(IOMD_T0CNTH) << 8);
- 	ticks = ioc_time + RPC_LATCH - count2;
- 	local_irq_restore(flags);
- 
-@@ -72,9 +72,9 @@ static struct clocksource ioctime_clocksource = {
- 
- void __init ioctime_init(void)
- {
--	ioc_writeb(RPC_LATCH & 255, IOC_T0LTCHL);
--	ioc_writeb(RPC_LATCH >> 8, IOC_T0LTCHH);
--	ioc_writeb(0, IOC_T0GO);
-+	iomd_writeb(RPC_LATCH & 255, IOMD_T0LTCHL);
-+	iomd_writeb(RPC_LATCH >> 8, IOMD_T0LTCHH);
-+	iomd_writeb(0, IOMD_T0GO);
- }
- 
- static irqreturn_t
-diff --git a/drivers/i2c/busses/i2c-acorn.c b/drivers/i2c/busses/i2c-acorn.c
-index 34bbbb8c52f6..99b6b1c3fd9e 100644
---- a/drivers/i2c/busses/i2c-acorn.c
-+++ b/drivers/i2c/busses/i2c-acorn.c
-@@ -13,23 +13,23 @@
- #include <linux/io.h>
- 
- #include <mach/hardware.h>
--#include <asm/hardware/ioc.h>
-+#include <asm/hardware/iomd.h>
- 
- #define FORCE_ONES	0xdc
- #define SCL		0x02
- #define SDA		0x01
- 
- /*
-- * We must preserve all non-i2c output bits in IOC_CONTROL.
-+ * We must preserve all non-i2c output bits in IOMD_CONTROL.
-  * Note also that we need to preserve the value of SCL and
-  * SDA outputs as well (which may be different from the
-- * values read back from IOC_CONTROL).
-+ * values read back from IOMD_CONTROL).
-  */
- static u_int force_ones;
- 
- static void ioc_setscl(void *data, int state)
- {
--	u_int ioc_control = ioc_readb(IOC_CONTROL) & ~(SCL | SDA);
-+	u_int iomd_control = iomd_readb(IOMD_CONTROL) & ~(SCL | SDA);
- 	u_int ones = force_ones;
- 
- 	if (state)
-@@ -39,12 +39,12 @@ static void ioc_setscl(void *data, int state)
- 
- 	force_ones = ones;
- 
-- 	ioc_writeb(ioc_control | ones, IOC_CONTROL);
-+	iomd_writeb(iomd_control | ones, IOMD_CONTROL);
- }
- 
- static void ioc_setsda(void *data, int state)
- {
--	u_int ioc_control = ioc_readb(IOC_CONTROL) & ~(SCL | SDA);
-+	u_int iomd_control = iomd_readb(IOMD_CONTROL) & ~(SCL | SDA);
- 	u_int ones = force_ones;
- 
- 	if (state)
-@@ -54,17 +54,17 @@ static void ioc_setsda(void *data, int state)
- 
- 	force_ones = ones;
- 
-- 	ioc_writeb(ioc_control | ones, IOC_CONTROL);
-+	iomd_writeb(iomd_control | ones, IOMD_CONTROL);
- }
- 
- static int ioc_getscl(void *data)
- {
--	return (ioc_readb(IOC_CONTROL) & SCL) != 0;
-+	return (iomd_readb(IOMD_CONTROL) & SCL) != 0;
- }
- 
- static int ioc_getsda(void *data)
- {
--	return (ioc_readb(IOC_CONTROL) & SDA) != 0;
-+	return (iomd_readb(IOMD_CONTROL) & SDA) != 0;
- }
- 
- static struct i2c_algo_bit_data ioc_data = {
--- 
-2.43.0
+Maybe TAUJ3 in AON domain? I think HSCN also has abundance of examples.
 
+> Due to this separation, and due to a possible future need for expansion
+> (R8A78000_MDLC_MODULE_NONE, MDLCs with more than 256 modules, ...),
+> I went for two cells.
+
+I think I won't push for a single cell either, two cells are OK with me too.
+
+>> If we cannot encode the two into a single cell, maybe we can at least
+>> have some sort of macro for this, e.g. this (0xff as no MPDG register
+>> bits for this block):
+>> #define R8A78000_MDLC_PD_HSCIF0 (0xff << 16) ((0x5 << 4) | (0x3 << 0))
+>>
+>> What do you think ?
+> 
+> I (and I believe the DT maintainers) are not so fond of defines for
+> numbers that can be (more or less) just read from the documentation.
+
+OK
+
+> (and 0xff should be R8A78000_MDLC_PD_APL?)
+
+I think AON would have to be 0xff , since it is superdomain of APL ?
+
+>>> So perhaps I will clarify like this:
+>>>
+>>>         - The first power domain specifier cell is the power domain part, and
+>>>           must be either the Module Power Domain Gating (MPDG) register index
+>>
+>> ... for power domains which are backed by MDPG bits, and which can be
+>> controlled in that manner ...
+> 
+> OK.
+> 
+>>>           (0x00-0x3f) from the datasheet, or a Power Domain number, as defined in
+>>>           <dt-bindings/power/renesas,r8a78000-mdlc.h>,
+>>
+>> ... for power domains which are always on, and for which there are no
+>> MPDG bits which can be used to control them ...
+> 
+> OK,
+> 
+>>
+>>>         - The second power domain specifier cell is the clock domain part, and
+> 
+> Upon second thought: s/clock domain/module standby/
+
+If you could even mention that this refers to "Module STOP" column bit, 
+that would even clearer.
+
+>>>           must be the module number (0x00-0xff), composed of the Module System
+>>>           Reset (MSRES) register index in the high nibble, and the Module Reset
+>>>           Destination bitfield index in the low nibble.
+>>
+>> I can understand this.
+>>
+>>>>> +  '#reset-cells':
+>>>>> +    description:
+>>>>> +      The single reset specifier cell must be the module number (0x00-0xff).
+>>>>> +    const: 1
+>>>>
+>>>> [...]
+>>>>
+>>>>> +#ifndef __DT_BINDINGS_POWER_RENESAS_R8A78000_MDLC_H__
+>>>>> +#define __DT_BINDINGS_POWER_RENESAS_R8A78000_MDLC_H__
+>>>>> +
+>>>>> +/* R-Car X5H MDLC Power Domains */
+>>>>> +
+>>>>> +#define R8A78000_MDLC_PD_AON                 0x40
+>>>>> +#define R8A78000_MDLC_PD_SCP                 0x41
+>>>>> +#define R8A78000_MDLC_PD_APL                 0x42
+>>>>> +#define R8A78000_MDLC_PD_CMN                 0x43
+>>>>> +#define R8A78000_MDLC_PD_ACL                 0x44
+>>>> ... what do these numbers represent ? Shouldn't those be register
+>>>> offsets from MDLC MPDG00 according to power-domain-cells ?
+>>>
+>>> These are Power Domains that are not backed by any of the 64 Module
+>>> Power Domain Gating (MPDG) registers in MDLC blocks.
+>>
+>> I suspect that might not be entirely correct for all of them, please
+>> read on and see CMN below.
+> 
+> Thanks, looks like R8A78000_MDLC_PD_CMN should be dropped.
+> 
+>> Let's take PD_AC00 , AP core 0 , as a domain of interest. My
+>> understanding is, that the domain structure for PD_AC00 looks as follows:
+>>
+>> PD_AON {
+>>     PD_SCP { };
+>>     PD_APL {
+>>       hierarchy is SYSSS
+>>       always-power-on
+>>       PD_CMN {
+>>         hierarchy is CMNN
+>>         power-gating-bit is MDLC_CMNN 20
+>>         PD_APU0 {
+>>           hierarchy is SYSSS
+>>           power-gating is done by APMU
+>>           PD_ACL0 {
+>>             hierarchy is CMNN
+>>             power-gating-bit is MDLC_CMNN 16
+>>             PD_AC00 {
+>>               hierarchy is CMNN
+>>               power-gating-bit is MDLC_CMNN 0
+>>             };
+>>             ...
+>>           };
+>>           ...
+>>         };
+>>         ...
+>>       };
+>>       ...
+>>       PD_HSCIF0 {
+>>         hierarchy is PERW
+>>         power-gating-bit is MDLC_PERW 23
+>>       };
+>>     };
+>>     ...
+>> };
+>>
+>> With this in mind, I think CPU 0 DT node should refer to the PD_AC00
+>> power domain this way:
+>>
+>> cpu@0 {
+>>     ...
+>>     power-domains = <&mdlc_cmnn R8A78000_MDLC_PD_AC00>;
+>>     ...
+>> };
+> 
+> So we do have a few modules (I found a few more) that are part of
+> power domains, but do no support module standby.  One more reason to
+> decouple them in power-domains.
+
+I think HSCN is a really good example ?
+
+> However, CPU cores are controlled through PSCI (the slightly less evil
+> brother of SCMI? ;-), so
+> Documentation/devicetree/bindings/arm/psci.yaml applies, too?
+
+We can indeed control cores purely via PSCI , yes.
+
+(Upstream TFA needs one more platform patch to make this operable)
+
+>> The MDLC driver would pass the PD_AC00 domain ID to matching SCMI power
+>> domain management protocol call, or, for bare-metal MDLC driver, would
+>> have to internally encode PD hierarchy, walk it, and apply PD operations
+>> in each step.
+>>
+>> I think even for SCIF/HSCIF, the power domain reference should be
+>> something along the lines of the following description. The MDLC driver
+>> should internally encode that R8A78000_MLDC_PD_HSCIF0 is a sub-domain of
+>> R8A78000_MDLC_PD_APL .
+>>
+>> serial@c0710000 {
+>>     ...
+>>     power-domains = <&mdlc_perw R8A78000_MDLC_PD_HSCIF0>;
+>>     ...
+>> };
+> 
+> R8A78000_MLDC_PD_HSCIF0 is a not a full sub-domain, but merely standby
+> (clock) control inside the PD_APL clock domain?
+Do you consider R8A78000_MDLC_PD_AC00 a full sub-domain ? Because that 
+one looks very similar to R8A78000_MDLC_PD_HSCIF0 , except the former 
+controls a core, the later an UART IP.
 
