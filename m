@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD8F4CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 18:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED039CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 18:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cSNygVci7uW74A56kLRdHApA4Xmxrhd0ABje42jimFM=; b=quoL9WS0opG6KPCTyaa+5Mq0Mf
-	b1Wg3nuKQPlNI6vzPGqBYgJyYtwwqvqzeyFrMFi+7onUBB4YakHNxlZbA0bFZbfAjvOuthNdFRV+g
-	CHsRWiLQQaXnLVnnArutJakV2N2Uf7qHyig/cEBlWBsEHy7DZA2RBfyxZCfinFcHTuVDfRHMScSXo
-	fWCGj0CM+oODg/rPAlPqj2bmqDdojl/wDLgzzFkOlzlys5nlB55x25aX3sFgfjKmu8xNCCnysB6i3
-	3CLObChyn8kBw+Fn+IMCX7zK3E1znXz0vLIEtyhIszRcy+1y0hckTJLNGy/LgCY1/YoYClVFVp228
-	KyQbyn/g==;
+	bh=zXfZDjohjcuqqa3l+apN8rP0uDgPRGjuDvE54ZzEqGY=; b=CWcXfC5Ua2BgVbOZA3DSmrPGJg
+	KJAQ+kS/QUPvag6j9ax1fmQjENjqWNoJTMqLExAdwFecGoyLspaIqcHsTEZVi78sgBqPiJoJDivfD
+	LAkYLjSv8bkw1kJl/6iTV7FYtlDdI1S3Muj21+MnXnN5iYBZQcq8f7/ariU5NtOw/JWgWoD+xOh8z
+	AOGtaw+KmxsJvsa3K7wO0JzA0ySPfGNz8U39ezfnvM6tS1pgsnQLy6j/EDkazUMLr85apGXLUfv2+
+	XsDilV1FCvNOi7iFIjfKWSgneJ+8Df+4m2ZwuIZtkTxoPSf/Ifuy1L9ivErKtjzuO+m5g8vbk5zIg
+	+snyWLHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM98k-0000000BP7h-1An5;
-	Sun, 10 May 2026 18:44:34 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1wM9G4-0000000BPw1-2LbE;
+	Sun, 10 May 2026 18:52:08 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM98h-0000000BP67-0pJR
+	id 1wM9G1-0000000BPv6-1gVP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 18:44:32 +0000
+	Sun, 10 May 2026 18:52:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
  Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1778438661;
- bh=cSNygVci7uW74A56kLRdHApA4Xmxrhd0ABje42jimFM=;
- b=E1C189JZR3Kru7TrVvklzRK74yIVVobhIbeoq6JLnRCkal+ol5eNIpDOcqUOWmNgQ1JX5dpga
- Ag2WOmCDhTEOVyiFgUL1fHqPQOlQ535MkCa00VKN5+J+g+rxYqkohLnRUQuR0SV59cEv8d9ASvq
- jsBP0Ibej8yz6IjBox55FSeLStS9X/E/+PuPuT0VcvDJUbjnFl/F22sOrWBix3jdu6xLn3Tq6c+
- Ke8ajI9+olJRpf9aUhwdhmQfdkFm1W3nFZq5Rz0eSC+Qia7cCn26dvHHRlhoCTI8UTw+iQJK2Pj
- 1+r4sWcbuYmk6c7J2u3chiqJSQCfgd0scZ42DxtOjdWw==
-X-Forward-Email-ID: 6a00d1eff33ebd7c603e808b
+ s=fe-e1b5cab7be; t=1778439116;
+ bh=zXfZDjohjcuqqa3l+apN8rP0uDgPRGjuDvE54ZzEqGY=;
+ b=mJ7Y4Q8v4CQJz/x/adeJOcqn0h1dmYpJBeWuScvMR/opPO+hsGbqLXLxp2FVu6xMKza0g9GeL
+ wugfRgEujK1x6pwPeoTiVPNVIOcv+0ZC8lx7gG9qb8Bwl1+T8DzN5kpCZsuLgCO3jik/JSBC2Nt
+ wmCch4gjL4Dah1AIP5Lu1lPBda7Ul13/GSNzniA5+uPWI+AwA5mDcdvtNnVzvwJm/2dmx+YDK4X
+ JGxRxz/f93mscq2QVfAmmy3XlaSbTEG0moxVD5eJw3es7/dOWOF472d+RNVJa9tT0pMg0olsi/y
+ jOUm7yV/YVUe1zwiaNRmA1e5f9c5skt/9jgaErEe60yA==
+X-Forward-Email-ID: 6a00d34a0f7977181662816c
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
+ 149.28.215.223
 X-Forward-Email-Version: 2.8.0
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
 X-Report-Abuse: abuse@forwardemail.net
 X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <567b1d87-a56e-4a68-bfab-c68a164ed665@kwiboo.se>
-Date: Sun, 10 May 2026 20:43:56 +0200
+Message-ID: <ba52fb4e-72a1-4a92-a094-52e305e37c37@kwiboo.se>
+Date: Sun, 10 May 2026 20:49:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] phy: rockchip: inno-hdmi: Add configure() and
- validate() ops
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-phy@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260510095731.1222705-1-jonas@kwiboo.se>
- <20260510095731.1222705-2-jonas@kwiboo.se>
+Subject: Re: [PATCH v1 1/4] drm/bridge: dw-hdmi: Pass bridge attach flags for
+ dw_hdmi_bind()
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, hjc@rock-chips.com, heiko@sntech.de,
+ andy.yan@rock-chips.com, wens@kernel.org, samuel@sholland.org,
+ luca.ceresoli@bootlin.com, Laurent.pinchart@ideasonboard.com,
+ jernej.skrabec@gmail.com, victor.liu@nxp.com,
+ dmitry.baryshkov@oss.qualcomm.com, shengjiu.wang@nxp.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+References: <20260403070032.447102-1-damon.ding@rock-chips.com>
+ <20260403070032.447102-2-damon.ding@rock-chips.com>
 Content-Language: en-US
 From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20260510095731.1222705-2-jonas@kwiboo.se>
+In-Reply-To: <20260403070032.447102-2-damon.ding@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_114431_340022_D8ED48EB 
-X-CRM114-Status: GOOD (  27.06  )
+X-CRM114-CacheID: sfid-20260510_115205_543141_AAE38951 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,123 +86,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/10/2026 11:57 AM, Jonas Karlman wrote:
-> The commit 10ed34d6eaaf ("phy: Add HDMI configuration options")
-> introduced a way for HDMI PHYs to be configured through the generic
-> phy_configure() function.
-> 
-> This driver derives the TMDS character rate from the pixel clock and the
-> PHY bus width setting. However, no in-tree consumer of this PHY has ever
-> called phy_set_bus_width() to change the TMDS character rate as only
-> 8-bit RGB output is supported by the HDMI display driver.
-> 
-> Add configure() and validate() ops to allow consumers to configure the
-> TMDS character rate using phy_configure(). Fallback to the deprecated
-> way of using the PHY bus width to configure the TMDS character rate.
+Hi Damon,
 
-I have now posted a patch "drm/rockchip: dw_hdmi: Configure HDMI PHY
-in atomic_mode_set()" [1] that adds phy_validate() and phy_configure()
-calls for this HDMI PHY.
+On 4/3/2026 9:00 AM, Damon Ding wrote:
+> For Rockchip and Allwinner platforms, the HDMI encoder attaches the
+> dw-hdmi bridge via dw_hdmi_bind(). This additional bridge attach flag
+> serves as preparation for the Rockchip dw-hdmi driver to support the
+> bridge-connector framework.
 
-[1] https://lore.kernel.org/dri-devel/20260510183114.1248840-10-jonas@kwiboo.se/
+We should not extend the dw_hdmi_bind() function with a new flag.
+
+Each driver can instead call dw_hdmi_probe() and drm_bridge_attach() on
+their own, similar as the other dw-hdmi drivers that currently use the
+bridge connector.
 
 Regards,
 Jonas
 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> ---
-> Changes in v2:
-> - Add validate() ops to validate that the TMDS rate is supported
-> - Split out parts that remove the old workaround into a separate patch
-> ---
->  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 47 ++++++++++++++++++-
->  1 file changed, 46 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-> index 1483907413fa..9cfe956fefe7 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-inno-hdmi.c
-> @@ -245,6 +245,7 @@ struct inno_hdmi_phy {
->  	struct clk *phyclk;
->  	unsigned long pixclock;
->  	unsigned long tmdsclock;
-> +	struct phy_configure_opts_hdmi hdmi_cfg;
->  };
->  
->  struct pre_pll_config {
-> @@ -554,7 +555,12 @@ static inline void inno_update_bits(struct inno_hdmi_phy *inno, u8 reg,
->  static unsigned long inno_hdmi_phy_get_tmdsclk(struct inno_hdmi_phy *inno,
->  					       unsigned long rate)
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> ---
+>  drivers/gpu/drm/bridge/synopsys/dw-hdmi.c   | 5 +++--
+>  drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 2 +-
+>  drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c       | 2 +-
+>  include/drm/bridge/dw_hdmi.h                | 4 +++-
+>  4 files changed, 8 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+> index ada45e8b3e2c..dd50dda3a4f5 100644
+> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+> @@ -3619,7 +3619,8 @@ EXPORT_SYMBOL_GPL(dw_hdmi_remove);
+>   */
+>  struct dw_hdmi *dw_hdmi_bind(struct platform_device *pdev,
+>  			     struct drm_encoder *encoder,
+> -			     const struct dw_hdmi_plat_data *plat_data)
+> +			     const struct dw_hdmi_plat_data *plat_data,
+> +			     enum drm_bridge_attach_flags flags)
 >  {
-> -	int bus_width = phy_get_bus_width(inno->phy);
-> +	int bus_width;
-> +
-> +	if (inno->hdmi_cfg.tmds_char_rate)
-> +		return inno->hdmi_cfg.tmds_char_rate;
-> +
-> +	bus_width = phy_get_bus_width(inno->phy);
+>  	struct dw_hdmi *hdmi;
+>  	int ret;
+> @@ -3628,7 +3629,7 @@ struct dw_hdmi *dw_hdmi_bind(struct platform_device *pdev,
+>  	if (IS_ERR(hdmi))
+>  		return hdmi;
 >  
->  	switch (bus_width) {
->  	case 4:
-> @@ -602,6 +608,42 @@ static irqreturn_t inno_hdmi_phy_rk3328_irq(int irq, void *dev_id)
->  	return IRQ_HANDLED;
->  }
+> -	ret = drm_bridge_attach(encoder, &hdmi->bridge, NULL, 0);
+> +	ret = drm_bridge_attach(encoder, &hdmi->bridge, NULL, flags);
+>  	if (ret) {
+>  		dw_hdmi_remove(hdmi);
+>  		return ERR_PTR(ret);
+> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> index 0dc1eb5d2ae3..21b141b7cb9c 100644
+> --- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+> @@ -608,7 +608,7 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
 >  
-> +static int inno_hdmi_phy_validate(struct phy *phy, enum phy_mode mode,
-> +				  int submode, union phy_configure_opts *opts)
-> +{
-> +	const struct pre_pll_config *cfg = pre_pll_cfg_table;
-> +	unsigned long tmdsclock;
-> +
-> +	if (!(mode == PHY_MODE_HDMI && submode == PHY_HDMI_MODE_TMDS))
-> +		return -EINVAL;
-> +
-> +	if (!opts->hdmi.tmds_char_rate || opts->hdmi.tmds_char_rate > 594000000)
-> +		return -EINVAL;
-> +
-> +	tmdsclock = opts->hdmi.tmds_char_rate;
-> +	for (; cfg->pixclock != 0; cfg++)
-> +		if (cfg->pixclock == tmdsclock && cfg->tmdsclock == tmdsclock)
-> +			return 0;
-> +
-> +	return -EINVAL;
-> +}
-> +
-> +static int inno_hdmi_phy_configure(struct phy *phy,
-> +				   union phy_configure_opts *opts)
-> +{
-> +	struct inno_hdmi_phy *inno = phy_get_drvdata(phy);
-> +	int ret;
-> +
-> +	ret = inno_hdmi_phy_validate(phy, phy_get_mode(phy),
-> +				     PHY_HDMI_MODE_TMDS, opts);
-> +	if (ret)
-> +		return ret;
-> +
-> +	inno->hdmi_cfg = opts->hdmi;
-> +
-> +	return 0;
-> +}
-> +
->  static int inno_hdmi_phy_power_on(struct phy *phy)
->  {
->  	struct inno_hdmi_phy *inno = phy_get_drvdata(phy);
-> @@ -670,6 +712,8 @@ static const struct phy_ops inno_hdmi_phy_ops = {
->  	.owner = THIS_MODULE,
->  	.power_on = inno_hdmi_phy_power_on,
->  	.power_off = inno_hdmi_phy_power_off,
-> +	.configure = inno_hdmi_phy_configure,
-> +	.validate = inno_hdmi_phy_validate,
->  };
+>  	platform_set_drvdata(pdev, hdmi);
 >  
->  static const
-> @@ -1392,6 +1436,7 @@ static int inno_hdmi_phy_probe(struct platform_device *pdev)
->  	}
+> -	hdmi->hdmi = dw_hdmi_bind(pdev, encoder, plat_data);
+> +	hdmi->hdmi = dw_hdmi_bind(pdev, encoder, plat_data, 0);
 >  
->  	phy_set_drvdata(inno->phy, inno);
-> +	phy_set_mode_ext(inno->phy, PHY_MODE_HDMI, PHY_HDMI_MODE_TMDS);
->  	phy_set_bus_width(inno->phy, 8);
+>  	/*
+>  	 * If dw_hdmi_bind() fails we'll never call dw_hdmi_unbind(),
+> diff --git a/drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c b/drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c
+> index 96532709c2a7..04173335f7e7 100644
+> --- a/drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c
+> +++ b/drivers/gpu/drm/sun4i/sun8i_dw_hdmi.c
+> @@ -188,7 +188,7 @@ static int sun8i_dw_hdmi_bind(struct device *dev, struct device *master,
 >  
->  	if (inno->plat_data->ops->init) {
+>  	platform_set_drvdata(pdev, hdmi);
+>  
+> -	hdmi->hdmi = dw_hdmi_bind(pdev, encoder, plat_data);
+> +	hdmi->hdmi = dw_hdmi_bind(pdev, encoder, plat_data, 0);
+>  
+>  	/*
+>  	 * If dw_hdmi_bind() fails we'll never call dw_hdmi_unbind(),
+> diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.h
+> index 8500dd4f99d8..e789fb451ef2 100644
+> --- a/include/drm/bridge/dw_hdmi.h
+> +++ b/include/drm/bridge/dw_hdmi.h
+> @@ -6,6 +6,7 @@
+>  #ifndef __DW_HDMI__
+>  #define __DW_HDMI__
+>  
+> +#include <drm/drm_bridge.h>
+>  #include <sound/hdmi-codec.h>
+>  
+>  struct drm_display_info;
+> @@ -182,7 +183,8 @@ void dw_hdmi_remove(struct dw_hdmi *hdmi);
+>  void dw_hdmi_unbind(struct dw_hdmi *hdmi);
+>  struct dw_hdmi *dw_hdmi_bind(struct platform_device *pdev,
+>  			     struct drm_encoder *encoder,
+> -			     const struct dw_hdmi_plat_data *plat_data);
+> +			     const struct dw_hdmi_plat_data *plat_data,
+> +			     enum drm_bridge_attach_flags flags);
+>  
+>  void dw_hdmi_resume(struct dw_hdmi *hdmi);
+>  
 
 
