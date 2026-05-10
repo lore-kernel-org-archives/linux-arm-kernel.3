@@ -4,64 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 937C1CD3447
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 14:54:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7FBCD3447
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 15:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=27dWFJD0ztfCe7uOSu3AFsRgwzwG1y5+VuIGDLhiBmg=; b=rIZ1qhunLRkcRw+qIek/bD48HB
-	HkWvqWvus5oqg9LDto2qTQN+/1RZa0gGzw0W+4A/1pZbaXGu6QB0jgS21RpFVgta/9xlgeEktCeX2
-	50TRoIN7dVEyxAo1n81UB45RQQx5BwXwmJ6ydANqwf9Uy7MjCv6de6Sy6qUvcU1mRnkuBNH2jsML0
-	LCpw4og06m+GhRHU4KkQr614lHV2x5yIQRmLqNtYiUlvQecDCGMmWDLSfypNG9f56NBZfvqjwasrF
-	EueHiPUhGLuC505amkv3GG+CxZNIl1QNIzaOmj6G3St7fen4R53TQWMSohaelepMeNxeJ6ld8p026
-	EI3MHvUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WzbB3HKgpnqEJZluNF5w3i7ehpfzdioc60+c5iInIT8=; b=guBhEL/nfWJd0UZ2hoN5NnHgDG
+	iWVjSAzYQ6ToGBthFYZLPOtGK3I6YefW7pVXk7u27KjAPQ//mYear/k6XiPjjdXwJb5feLDMwIzhI
+	o8QVQy3X8V2mPn8mwc+D9ZaZM0C0H0Sl+IOeBUDjxIdVuv9b+TXR49VyunzCQF+VoBsJQMV5fZQYB
+	kWmIFzA4V9pcF1o/OkpIsAOq8DgyPONK/xpxuyw/z8+C02OnvLDZES27tNh9ek1h/qsoPvbUd3ps3
+	AWntVrxNcfubApEtSLcPfBj+xRDUfSGtJkxAxa+6/BxVopeYj6IQXKEP9sF7mn/JFcrCyxy3kh8by
+	pmhfou+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM5Y9-0000000Ayyb-2Wt5;
-	Sun, 10 May 2026 14:54:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM5Y1-0000000AytC-1Mg3
+	id 1wM5pY-0000000B1Bu-3Wne;
+	Sun, 10 May 2026 15:12:32 +0000
+Received: from mail-northeuropeazon11021127.outbound.protection.outlook.com ([52.101.65.127] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wM5pV-0000000B18Y-1FMP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 14:54:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6AC15293F;
-	Sun, 10 May 2026 07:54:18 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3FD0B3F836;
-	Sun, 10 May 2026 07:54:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778424863; bh=9fm0S8CwEDchTPXPyF4feAMGPKEjd0k5sn0tF2wpAv8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=S+1BdtcHphWSuGmGikwmK3uKHitEkieD6gB1ej5+6DjUKPMO4AdW69jO61hwYe2tn
-	 4YUPztVVIhwKjnDyNMXPUGOhILcSMLFV6Wg5iPOTog3RG1ksn7ytAdi0hXQIDkrJn1
-	 HUGTStmW9Tt3sDabDQd15ZRy+Z5tOWhnYpCIv5Qg=
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 5/5] KVM: arm64: nv: Create nested IPA direct map to speed up reverse map removal
-Date: Sun, 10 May 2026 15:53:38 +0100
-Message-ID: <20260510145338.322962-6-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260510145338.322962-1-weilin.chang@arm.com>
-References: <20260510145338.322962-1-weilin.chang@arm.com>
+	Sun, 10 May 2026 15:12:30 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=QKKVIwHU2WkX7DirJD4W387/u1Wt95a9+1aNAKRMi9rJ5hgZkb/0cdbO0wRJ24X2wghcGa8Eq86qsoUwhUfpmnQ5muwX/AU5tCayqYfoSLzwiung0He4etO9zGLIntTJUhA/LNobyMDURq/m6Oiab3xDyk0O/fQtWYBCFgNu+WsxKe4DCZ5Wz9X6ZYS4f2GT4nEzB5Tw7ByYEnD2b7Eehjya4vYEx0+H30YIsr7TNO0J1s9oPZ+JCT76ebBktj2RYQbpfRtgoxQFC2xA4HdMFrf+OZviH7uTykkHEPKWjfziXWURjUSI+LzpvMZvTuV4r8d7sYUXEKfyfKx9XBUeOg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WzbB3HKgpnqEJZluNF5w3i7ehpfzdioc60+c5iInIT8=;
+ b=lYo58V5zHTp+vB0s8GJtlcBCRhS+tjuIiV+8Exkq6y6K0VuwYf1cyT2Jt6fOeVRgoYZR2Smeds6fFVruE7KEZNsIgq0QdV8IevjgiiXUSsgYDO0/E0l5pdPbbEaLMYjXq8jdvbmlUrE7Vzl/QVbEFTN7/E7u9StUPAlb0XcRZmoKTuyLjLvtSk9O8b2V3UeJ8bUcyjiLiBfPfAy7WDmCO+VLYcimoTqSbDgH5pFhiDZVWSJhv8Uz0ZemYLUPWq/+PV01hQ2sR5CyIWJi6++8qimkL5BOPtEWUhC/UR/WoNX4LzUDRA3wqt4KNOxwpECk+AT6IdedOslBWPutjr/0Qw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.17.62.50) smtp.rcpttodomain=gmail.com smtp.mailfrom=solid-run.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=solid-run.com; dkim=pass (signature was verified)
+ header.d=solid-run.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=solid-run.com] dkim=[1,1,header.d=solid-run.com]
+ dmarc=[1,1,header.from=solid-run.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WzbB3HKgpnqEJZluNF5w3i7ehpfzdioc60+c5iInIT8=;
+ b=myap2DjyvlKKj5KpPOcbgAe9oXcWETb1ZR/SKDPGkyAMzJuxbyRy1r/EQafmv7qkYAgyWEXyzp1Ezscgn/XNsoqZpIpLGZViePMACBTPL9/04aiVO6nnXCR3i3Ue2f2JK3TrodJo9HUFI1h45Srx4cxh8SatKCdJvTAgiJS7mceXwIzCVQ4RV1lG1nQ9UBI8BWzIyI/kzu9P+NTd7gb6swLsr0MnTUhJ8acJfP+Vf4hipBOp6D60Hq2vOZ3m/d/1xzWEiZZcm2ZdX9omEwYz/JnCjP0g+8ooSarJ5FuNkoo6fQ25OOAg7UIlKX7/gKvuKpN/uI1fmUIrvv4x09yvAA==
+Received: from CWLP265CA0475.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:18a::19)
+ by DB8PR04MB6907.eurprd04.prod.outlook.com (2603:10a6:10:119::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.22; Sun, 10 May
+ 2026 15:12:20 +0000
+Received: from AMS0EPF000001B4.eurprd05.prod.outlook.com
+ (2603:10a6:400:18a:cafe::3b) by CWLP265CA0475.outlook.office365.com
+ (2603:10a6:400:18a::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.22 via Frontend Transport; Sun,
+ 10 May 2026 15:12:20 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
+ smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
+ header.d=solid-run.com;dmarc=pass action=none header.from=solid-run.com;
+Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
+ designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
+Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
+ AMS0EPF000001B4.mail.protection.outlook.com (10.167.16.168) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.13
+ via Frontend Transport; Sun, 10 May 2026 15:12:20 +0000
+Received: from emails-6537907-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-6-143.eu-west-1.compute.internal [10.20.6.143])
+	by mta-outgoing-dlp-305-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id 4E41B805BC;
+	Sun, 10 May 2026 15:12:20 +0000 (UTC)
+X-Mailbox-Line: From b'josua@solid-run.com' Sun May 10 15:12:11 2026
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WZ5klUBITVHGEHX7YKr8qgDwy4SJFaSkJk7qBHIJX1ys8F6Lc28vc/wLvvtLqy3VawhLKnuKKtcBFFhLnSJ/e13ClwuhuzBbS57QODFiQx74O8FBnVeX0m9+mZJ4lrxxj9wDVdsqC2l7Rtkzx1G6GpnxSz5uV09z+eBKX3OlVBwOt6N7coSZpAscITjN2e81eGN3ePVHpOQ8+pbIxs2R1oc/Z6AFvzI/wSwaEMfjJ4Q7191A/0aelEGWAUReGcMFzttFYlsdSaBv06d4tjObsIExGPeE5pe8w6m+r8OWoJ0WM7/gxzVn0mFJSG+qb82KoADMgwKIHmTtlOdp6zXXig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WzbB3HKgpnqEJZluNF5w3i7ehpfzdioc60+c5iInIT8=;
+ b=MqNoMfVUH6aWiotIIhtITI2TmBK344Rn840ncOOf30eYuOuuT78WAxmfG3phTf9nLdMwy4iJFTddXn+ZXJ3g2tfuJKp8CRcSPqeuQxI7MyHwfxsg50fSyph2CSI09KmBE25VCJ7qBH+YrcLkyCj1X0JUQLmOGF3M0AWXk1+V2chX5Uv2ee8K1t/HBY1IYE/kIgagF2Jgoa+8B429YfbKOqWSZMP4YJ8c1bqdGradCWnIv/3BEYz1fsJZMzx6H6IQngq+5KmQ+YUTkMMl9WOs5NpV/qDcBamhtTrCbxOhFLJA8rFPtjr8waOng/S1GDr64YPyC5FzpCJPl9OK85P6kQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WzbB3HKgpnqEJZluNF5w3i7ehpfzdioc60+c5iInIT8=;
+ b=myap2DjyvlKKj5KpPOcbgAe9oXcWETb1ZR/SKDPGkyAMzJuxbyRy1r/EQafmv7qkYAgyWEXyzp1Ezscgn/XNsoqZpIpLGZViePMACBTPL9/04aiVO6nnXCR3i3Ue2f2JK3TrodJo9HUFI1h45Srx4cxh8SatKCdJvTAgiJS7mceXwIzCVQ4RV1lG1nQ9UBI8BWzIyI/kzu9P+NTd7gb6swLsr0MnTUhJ8acJfP+Vf4hipBOp6D60Hq2vOZ3m/d/1xzWEiZZcm2ZdX9omEwYz/JnCjP0g+8ooSarJ5FuNkoo6fQ25OOAg7UIlKX7/gKvuKpN/uI1fmUIrvv4x09yvAA==
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+Received: from GVXPR04MB12057.eurprd04.prod.outlook.com
+ (2603:10a6:150:313::24) by DU4PR04MB11055.eurprd04.prod.outlook.com
+ (2603:10a6:10:58f::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.22; Sun, 10 May
+ 2026 15:12:08 +0000
+Received: from GVXPR04MB12057.eurprd04.prod.outlook.com
+ ([fe80::14f1:a127:2988:de5b]) by GVXPR04MB12057.eurprd04.prod.outlook.com
+ ([fe80::14f1:a127:2988:de5b%7]) with mapi id 15.20.9891.020; Sun, 10 May 2026
+ 15:12:07 +0000
+From: Josua Mayer <josua@solid-run.com>
+Subject: [PATCH v5 00/10] arm64: dts: lx2160a: cleanups, add new board,
+ large pci bars
+Date: Sun, 10 May 2026 17:12:02 +0200
+Message-Id: <20260510-lx2160-pci-v5-0-540b83852227@solid-run.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEKgAGoC/23OPU8DMQwG4L9SZSbIdnLOpROIhZGBDTE0H0cjl
+ bsqgVNRdf+dEKmCEx1t63n9nkWJOcUitpuzyHFOJU1jHbqbjfD73fgWZQp1FgSkAbGXhxMhgzz
+ 6JLULDi3Hrh+UqOCY45BOLexFPN0/PzyK17rep/Ix5a/2YsZ2bGmK8G/ajBKlYqMM9IOJju/Kd
+ EhB5s/x1k/vLWqmX67JrjhVjs7qznBgYnWNqwvvwIJZcVW5c8zea3T9YK9xfeEMCmjF9U952Ck
+ IXpvo/5VfluUbBYcEVmwBAAA=
+X-Change-ID: 20240118-lx2160-pci-4bdb196e58f3
+To: Shawn Guo <shawnguo@kernel.org>, Li Yang <leoyang.li@nxp.com>, 
+ Rob Herring <robh+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Yazan Shhady <yazan.shhady@solid-run.com>, 
+ Jon Nettleton <jon@solid-run.com>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, Josua Mayer <josua@solid-run.com>
+X-Mailer: b4 0.14.3
+X-ClientProxiedBy: FR4P281CA0111.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:bb::12) To GVXPR04MB12057.eurprd04.prod.outlook.com
+ (2603:10a6:150:313::24)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12057:EE_|DU4PR04MB11055:EE_|AMS0EPF000001B4:EE_|DB8PR04MB6907:EE_
+X-MS-Office365-Filtering-Correlation-Id: 250e7bb0-9dd5-4889-d2a5-08deaea68838
+X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|921020|38350700014|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info-Original: Mv4Qvh2YGl2qXX5apI+UutF/ANswZaA+UVMXJlDgAiF/3PMj5AbG9XNK71Kj68+pZ2dlSHjwRjufppnfO9qFKgZ3WsphGgp0teTvPWa3LstQUwtc/mFaYbUV+nh6/HpNZLQKmlyt8Jdivkw0xwm8oU0hLjmw7xDOxDP3UNaJ0b4EDZbY1T3OCU99qghl4Qy3oaikjLNxl9h5iU5W/+o87kDeVMzI8rtdUzs0YWglIhxVYb/Fzi8G8nPsHcSqQjNgfxU0nb3v8mMRlKRHQ2GFgPoiEapZtDD3fFRnhkBIhZotS87DHCBxLbkYx+TbAZl4UTtixw7+q09rNvM5bMVsHKIEK67Z3v8bTWeBLRMd5nbx2sH3VpzcKEk3/fbLoAAm0u4TwVo279wook4Bj1SxrCccfG4jgfkOKe5Lx5mmfqFZM6xxtVowz3FzwCjsawvFNnmw2LXnfuw1NdA/sT7wHZbsBoAlSpwPpt39sOdKO9jqG4nxke2AdxuiiYQiZdJ6JbU/qqcaqQT2XZXUKBQuEgbJVTIjpFFpI4BPZo2ld4Sk5ylrMj/qxoRaaFnGbIhsHiOD5rTjteEAKUd9LJbeEyw2hSl9mjih3vyaHenHiaMU7TNNKcFPf+3lUyS0emADJZycoYCaas2CpH/k325UAX+O8klw6LNmnDZxv2hrtQZAoTe3rwCkCCNaigur8oCa4J7puU7ajHoH0QAmtT6S8JyTwxNJBuraIEyZQUf+L7uWppyYwITzFRxDEcBUJeAPswKDU8HXmdpTusSTziG51A==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12057.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(921020)(38350700014)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-Exchange-RoutingPolicyChecked: Ch+13w3yHZMuZDmK8fUJy7/aAt5b7fPohNpoyKyf5+QwKAe2IwttRQaUvC+s+04A20k6Tn4xBKyTk2WkT2Vp/EMfa556I068mimllmGEJku6iy+rduQM/xbeN34hmoyPNzSPqdm0KE9sq5iyTjBrvH3IQtBIArhKB8WvvgefvH89xdSDsRyjzrZcF0zeFJRrOp6C5cGAcp3eAUCXN+VZ3P6KnXNCWnn471S71t4OLlZfiq9XvUW9+aSXcrJiNm2Q1gVoDNglxe8c6yHBFri2IzmTwS1HbhGc0NdNn4gMWOOR+t8+n/6LSEnqH5Zx43oXw9EBMU9wpgK237vCRbiulQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11055
+X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2-7.checkpointcloudsec.com>
+X-CLOUD-SEC-AV-UUID: 0025c91afb2f48488502966738e054d8:solidrun,office365_emails,sent,inline:63c53062841a7830110b76fd4aab159a
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001B4.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 11f17e7a-f2d3-4210-a808-08deaea68044
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700016|1800799024|14060799003|35042699022|18002099003|921020|56012099003;
+X-Microsoft-Antispam-Message-Info: XuZATfDB9IlcN5qLjsWOftsreZAsM8EzJjtEZGmD9AgN7Q7qqWIWIDMLpfuliRGNTql7dBj48mi/LAs/ChVbYTP8wk/8pEcYvrKeJVfcIt0f8mRJL3/2dj721x9dIVPQYWGJgD7zS9oOiR/9Un8oR037zrSQwm6NCGmAXI6oyjq3FW0erH6jAcR8tHfzznhzl152mvZ9n+OerVext/J6pdOlJfBv2E6pdrwUZCiWVJGOAUp/OAOC4paYukr9xN4tttDD8wkOwrUPowAku5w5i+8QK/dLuDJSCpdugm+0R1s6O7AlIgn/1ZyMJv5Y8iXUk3358cELHP/2XpWV3TD3Uk4X8AJoksVfG7FmMhbLkofIuNI6lQtXz2wl3s+gYfe8l3bFNMFcAQ68FRwAl6AW8lOxq4CQxh8g4ybzcpNWRCpilurumF7vRqgrhiKQa0lzrS+x/wpCpjz6UHI5sEYEE5b/BYiNIMVLjBvQ44PJDy5ydUToITM9udQ4FvLPPj7CA6jWqK8fGYEyOY27fg84vcGkEJhk3rUnm9zCM68Mv1cAM2wTjqdwoUVgtFaGRBKPecpmd0Vh/te0bpYmQPAWAc0q/L5Am9yKrpMXJ5i6XzonCe4Lkjq9vDsK+zF+WqAi1N8HuSoLcghSoiMv5mhlwQkM2es03AIPOl2Llx4RFCSGKluMw1YoUVSo5KHJpK6hotn369z+W0LiINcM39dyLkAJvLNVdXtGSsr/dFyzivpmCQNizXlSys0nD9Xfzbtr+WGPagpQQuWl2t6h5dzFkPyR4NLSRhT2OwCvC/cSF0k=
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700016)(1800799024)(14060799003)(35042699022)(18002099003)(921020)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: XqFn3WLx0PHZUMaYlTBfREamnOMsEpKZ4QQt3rv0kWqe+gSq7Qesrl+Cjix8hBdr4a1yNM6eRS536YtiHS8TO+h+O4w0t92oui8SwRnFvY3xVyo5OU6cObUEaQnRkSTsKYB6I/rkQP5FF39F5L1Xwxjz3gnoZFoOJSJ+Yr1eoBS7oR9e2lS8SQ5Y9BY3ij33VUUh1r7nVDGL2TtwTAAU5nqBJ3dhvPk/sOmV9lhj6Tox/JW5fYdZHpzR1/IounYio8x/HqXYLm3glblX0SrP4M3q4wThU0G8tGMPFGjxBfZVlVbDl01KKlA+J8dI2aGHNtxQbPJiGs3qoYveXQnT7QAHCZ8iCeC3P7bC6KLYVx4wTnIS6ndZB0893DP5cRl9PJsR/bOriGm0hIxlewS1WRqxrTHc/NU0G0zkaHPUJhb60IAeRrOv/or83o8Ex863
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 May 2026 15:12:20.5612
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 250e7bb0-9dd5-4889-d2a5-08deaea68838
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B4.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6907
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_075425_558151_398AB058 
-X-CRM114-Status: GOOD (  26.35  )
+X-CRM114-CacheID: sfid-20260510_081229_526522_211A91F8 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,264 +174,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Iterating through the whole reverse map to find which entries to remove
-when handling guest hypervisor TLBIs is not efficient. Create a direct
-map that goes from nested IPA to canonical IPA so that the canonical
-IPA range affected by the TLBI can be quickly determined, then remove
-the entries in the reverse map accordingly.
+This patch-set is made of 3 parts:
 
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+1. Extend lx2160 pci node ranges to support 16-bit, and large 64-bit
+   bars. LX2160A SoC has always supported this, and SolidRun carried it
+   in vendor fork for several years now.
+
+2. Cleanup some status properties in LX2162A Clearfog dts.
+
+3. Add description for solidrun twins baord with single LX2160A CEX-7
+   module.
+
+There are no inter-dependencies between the parts and they may apply
+individually if necessary.
+
+Signed-off-by: Josua Mayer <josua@solid-run.com>
 ---
- arch/arm64/include/asm/kvm_host.h |   5 ++
- arch/arm64/kvm/mmu.c              |   9 ++-
- arch/arm64/kvm/nested.c           | 124 ++++++++++++++++++++++--------
- 3 files changed, 104 insertions(+), 34 deletions(-)
+Changes in v5:
+- add new board
+- add cleanups to existing solidrun boards
+- pci: extend to lx2160a-rev2 dtsi
+- pci: remove non-standard flags to pass dtbs_check
+- Link to v4: https://lore.kernel.org/r/20260302-lx2160-pci-v4-1-30a30dc47ec6@solid-run.com
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index dc4c0bce1bbb..f9e95a023ec4 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -226,6 +226,11 @@ struct kvm_s2_mmu {
- 	bool	nested_revmap_broken;
- 	/* canonical IPA to nested IPA range lookup */
- 	struct maple_tree nested_revmap_mt;
-+	/*
-+	 * Nested IPA to canonical IPA range lookup, essentially a cache of
-+	 * the guest's stage-2.
-+	 */
-+	struct maple_tree nested_direct_mt;
- 
- #ifdef CONFIG_PTDUMP_STAGE2_DEBUGFS
- 	struct dentry *shadow_pt_debugfs_dentry;
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index ce0bd88cd3c1..77146431be6d 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1101,6 +1101,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
- 	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
- 	struct kvm_pgtable *pgt = NULL;
- 	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-+	struct maple_tree *direct_mt = &mmu->nested_direct_mt;
- 
- 	write_lock(&kvm->mmu_lock);
- 	pgt = mmu->pgt;
-@@ -1111,8 +1112,12 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
- 	}
- 
- 	if (kvm_is_nested_s2_mmu(kvm, mmu)) {
--		if (!mtree_empty(revmap_mt))
--			mtree_destroy(revmap_mt);
-+		if (!mtree_empty(revmap_mt) || !mtree_empty(direct_mt)) {
-+			mtree_lock(revmap_mt);
-+			__mt_destroy(revmap_mt);
-+			__mt_destroy(direct_mt);
-+			mtree_unlock(revmap_mt);
-+		}
- 		kvm_init_nested_s2_mmu(mmu);
- 	}
- 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 96b88d9c0c2a..fcb6a88047e1 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -45,14 +45,14 @@ struct vncr_tlb {
- #define S2_MMU_PER_VCPU		2
- 
- /*
-- * Per shadow S2 reverse map (IPA -> nested IPA range) maple tree payload
-- * layout:
-+ * Per shadow S2 reverse & direct map maple tree payload layout:
-  *
-- * bit  62:     valid, prevents the case where the nested IPA is 0 and turning
-+ * bit  62:     valid, prevents the case where the address is 0 and turning
-  *              the whole value to 0
-- * bits 55-12:  nested IPA bits 55-12
-+ * bits 55-12:  {nested, canonical} IPA bits 55-12
-  * bit  0:      UNKNOWN_IPA bit, 1 indicates we give up on tracking what nested
-- *              IPA maps to this canonical IPA in the shadow stage-2
-+ *              IPA maps to this canonical IPA in the shadow stage-2, only used
-+ *              in reverse map
-  */
- #define VALID_ENTRY		BIT(62)
- #define ADDR_MASK		GENMASK_ULL(55, 12)
-@@ -787,37 +787,67 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
- void kvm_remove_nested_revmap(struct kvm_s2_mmu *mmu, u64 nested_ipa, size_t size)
- {
- 	/*
--	 * Iterate through the mt of this mmu, remove all canonical ipa ranges
--	 * with !UNKNOWN_IPA that maps to ranges that are strictly within
--	 * [addr, addr + size).
-+	 * For all ranges in direct_mt that are completely covered by the range
-+	 * we are TLBIing [gpa, gpa + size), remove the reverse map and its
-+	 * corresponding direct map together, when these conditions are met:
-+	 *
-+	 * 1. The reverse map is not UNKNOWN_IPA.
-+	 * 2. The reverse map is completely covered by the TLBI range.
-+	 * 3. The reverse map and the direct map are symmetric i.e. they map to
-+	 *    each other, with the same size.
-+	 *
-+	 * Symmetry must be checked because there are three places where the
-+	 * direct map could become inconsistent:
-+	 *
-+	 * 1. Direct map removal failure during an mmu notifier in
-+	 *    unmap_mmu_ipa_range().
-+	 * 2. Direct map insertion failure during an s2 fault in
-+	 *    kvm_record_nested_revmap().
-+	 * 3. Direct map removal failure during a previous call of this very
-+	 *    function.
- 	 */
- 	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
--	void *entry;
--	u64 entry_val, nested_ipa_end = nested_ipa + size;
--	u64 this_nested_ipa, this_nested_ipa_end;
--	size_t revmap_size;
--
--	MA_STATE(mas_rev, revmap_mt, 0, ULONG_MAX);
--
-+	struct maple_tree *direct_mt = &mmu->nested_direct_mt;
-+	gpa_t nested_ipa_end = nested_ipa + size - 1;
-+	u64 entry_dir;
-+	struct mapping {
-+		u64 from;
-+		u64 to;
-+		size_t size;
-+	};
-+
-+	MA_STATE(mas_dir, direct_mt, nested_ipa, nested_ipa_end);
- 	mtree_lock(revmap_mt);
--	mas_for_each(&mas_rev, entry, ULONG_MAX) {
--		entry_val = xa_to_value(entry);
--		if (entry_val & UNKNOWN_IPA)
--			continue;
--
--		revmap_size = mas_rev.last - mas_rev.index + 1;
--		this_nested_ipa = entry_val & ADDR_MASK;
--		this_nested_ipa_end = this_nested_ipa + revmap_size;
--
--		if (this_nested_ipa >= nested_ipa &&
--		    this_nested_ipa_end <= nested_ipa_end) {
--			/*
--			 * As the shadow stage-2 is about to be unmapped
--			 * after this function, it doesn't matter whether the
--			 * removal of the reverse map failed or not.
--			 */
-+	entry_dir = xa_to_value(mas_find_range(&mas_dir, nested_ipa_end));
-+
-+	while (entry_dir && mas_dir.index <= nested_ipa_end) {
-+		struct mapping dir, rev;
-+		u64 entry_rev;
-+
-+		dir.from = mas_dir.index;
-+		dir.to   = entry_dir & ADDR_MASK;
-+		dir.size = mas_dir.last - mas_dir.index + 1;
-+
-+		/* Use ipa range to find the corresponding entry in revmap. */
-+		MA_STATE(mas_rev, revmap_mt, dir.to, dir.to + dir.size - 1);
-+		entry_rev = xa_to_value(mas_find_range(&mas_rev,
-+						       dir.to + dir.size - 1));
-+
-+		rev.from = mas_rev.index;
-+		rev.to   = entry_rev & ADDR_MASK;
-+		rev.size = mas_rev.last - mas_rev.index + 1;
-+
-+		/* The three conditions outlined above. */
-+		if (entry_rev && !(entry_rev & UNKNOWN_IPA) &&
-+		    dir.from >= nested_ipa &&
-+		    dir.from + dir.size - 1 <= nested_ipa_end &&
-+		    dir.from == rev.to &&
-+		    rev.from == dir.to &&
-+		    dir.size == rev.size) {
-+			mas_store_gfp(&mas_dir, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
- 			mas_store_gfp(&mas_rev, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
- 		}
-+		entry_dir = xa_to_value(mas_find_range(&mas_dir, nested_ipa_end));
- 	}
- 	mtree_unlock(revmap_mt);
- }
-@@ -826,9 +856,12 @@ void kvm_record_nested_revmap(gpa_t ipa, struct kvm_s2_mmu *mmu,
- 			      gpa_t fault_ipa, size_t map_size)
- {
- 	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-+	struct maple_tree *direct_mt = &mmu->nested_direct_mt;
- 	gpa_t ipa_end = ipa + map_size - 1;
-+	gpa_t fault_ipa_end = fault_ipa + map_size - 1;
- 	u64 entry, new_entry = 0;
- 	MA_STATE(mas_rev, revmap_mt, ipa, ipa_end);
-+	MA_STATE(mas_dir, direct_mt, fault_ipa, fault_ipa_end);
- 
- 	if (mmu->nested_revmap_broken)
- 		return;
-@@ -861,6 +894,15 @@ void kvm_record_nested_revmap(gpa_t ipa, struct kvm_s2_mmu *mmu,
- 	if (mas_store_gfp(&mas_rev, xa_mk_value(new_entry),
- 			  GFP_NOWAIT | __GFP_ACCOUNT))
- 		mmu->nested_revmap_broken = true;
-+
-+	/*
-+	 * Add direct map but ignore the result, missing a direct map does not
-+	 * affect correctness.
-+	 */
-+	if (new_entry & VALID_ENTRY && !mmu->nested_revmap_broken)
-+		mas_store_gfp(&mas_dir, xa_mk_value(ipa | VALID_ENTRY),
-+			      GFP_NOWAIT | __GFP_ACCOUNT);
-+
- unlock:
- 	mtree_unlock(revmap_mt);
- }
-@@ -872,6 +914,8 @@ void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
- 	mmu->nested_stage2_enabled = false;
- 	atomic_set(&mmu->refcnt, 0);
- 	mt_init(&mmu->nested_revmap_mt);
-+	mt_init_flags(&mmu->nested_direct_mt, MT_FLAGS_LOCK_EXTERN);
-+	mt_set_external_lock(&mmu->nested_direct_mt, &mmu->nested_revmap_mt.ma_lock);
- 	mmu->nested_revmap_broken = false;
- }
- 
-@@ -1250,7 +1294,10 @@ void kvm_nested_s2_wp(struct kvm *kvm)
- 
- static void reset_revmap_and_unmap(struct kvm_s2_mmu *mmu, bool may_block)
- {
--	mtree_destroy(&mmu->nested_revmap_mt);
-+	mtree_lock(&mmu->nested_revmap_mt);
-+	__mt_destroy(&mmu->nested_revmap_mt);
-+	__mt_destroy(&mmu->nested_direct_mt);
-+	mtree_unlock(&mmu->nested_revmap_mt);
- 	mmu->nested_revmap_broken = false;
- 	kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
- }
-@@ -1259,11 +1306,14 @@ static void unmap_mmu_ipa_range(struct kvm_s2_mmu *mmu, gpa_t gpa,
- 				  size_t unmap_size, bool may_block)
- {
- 	struct maple_tree *revmap_mt = &mmu->nested_revmap_mt;
-+	struct maple_tree *direct_mt = &mmu->nested_direct_mt;
- 	gpa_t ipa = gpa;
- 	gpa_t ipa_end = gpa + unmap_size - 1;
-+	gpa_t nested_ipa, nested_ipa_end;
- 	u64 entry;
- 	size_t entry_size;
- 	MA_STATE(mas_rev, revmap_mt, gpa, ipa_end);
-+	MA_STATE(mas_dir, direct_mt, 0, ULONG_MAX);
- 
- 	if (mmu->nested_revmap_broken) {
- 		reset_revmap_and_unmap(mmu, may_block);
-@@ -1292,6 +1342,16 @@ static void unmap_mmu_ipa_range(struct kvm_s2_mmu *mmu, gpa_t gpa,
- 		 */
- 		mas_store_gfp(&mas_rev, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
- 
-+		/*
-+		 * Try to also remove the direct map, it is okay if this fails,
-+		 * as we check for direct map consistency in
-+		 * kvm_remove_nested_revmap().
-+		 */
-+		nested_ipa = entry & ADDR_MASK;
-+		nested_ipa_end = nested_ipa + entry_size - 1;
-+		mas_set_range(&mas_dir, nested_ipa, nested_ipa_end);
-+		mas_store_gfp(&mas_dir, NULL, GFP_NOWAIT | __GFP_ACCOUNT);
-+
- 		mtree_unlock(revmap_mt);
- 		kvm_stage2_unmap_range(mmu, entry & ADDR_MASK, entry_size,
- 				       may_block);
+Changes in v4
+- dropped accidentally added empty line at top of file:
+- actually drop RFC prefix
+- rebased on v7.0-rc1 and re-tested on v7.0-rc2
+- Link to v3: https://lore.kernel.org/r/20250907-lx2160-pci-v3-1-bb66cc41b8f9@solid-run.com
+
+Changes in v3:
+- dropped rfc label
+- adjusted flags
+- split 16GB area into 4x4GB sections.
+- enhance commit description with details explanation
+- Link to v2: https://lore.kernel.org/r/20240429-lx2160-pci-v2-1-1b94576d6263@solid-run.com
+
+Changes in v2:
+- adjusted flags to fix several errors during probe and bar allocation
+- explicitly tested with 2 pci cards on Debian (Linux 6.1)
+- still rfc because a limitation in designware pci driver
+- Link to v1: https://lore.kernel.org/r/20240321-lx2160-pci-v1-1-3673708f7eb6@solid-run.com
+
+---
+Josua Mayer (10):
+      arm64: dts: lx2160a: extend 32-bit, and add 64-bit pci regions
+      arm64: dts: lx2162a-clearfog: use rev2 SoC dtsi
+      arm64: dts: lx2162a-clearfog: cleanup superfluous status properties
+      arm64: dts: lx2162a-clearfog: specify sfp ports led colour and function
+      dt-bindings: arm: fsl: Add solidrun lx2160a twins board
+      arm64: dts: lx2160a-clearfog-itx: remove redundant dts version tag
+      arm64: dts: lx2160a-clearfog-itx: move shared includes to dts
+      arm64: dts: lx2160a: add labels to thermal trip-point nodes
+      arm64: dts: lx2160a-cex7: add labels to i2c buses behind mux
+      arm64: dts: Add support for LX2160 Twins board in single configuration
+
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
+ arch/arm64/boot/dts/freescale/Makefile             |   2 +
+ .../arm64/boot/dts/freescale/fsl-lx2160a-cex7.dtsi |  12 +-
+ .../boot/dts/freescale/fsl-lx2160a-clearfog-cx.dts |   2 +
+ .../dts/freescale/fsl-lx2160a-clearfog-itx.dtsi    |   3 -
+ .../boot/dts/freescale/fsl-lx2160a-half-twins.dts  | 822 +++++++++++++++++++++
+ .../boot/dts/freescale/fsl-lx2160a-honeycomb.dts   |   2 +
+ .../arm64/boot/dts/freescale/fsl-lx2160a-rev2.dtsi |  30 +-
+ arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi     |  61 +-
+ .../boot/dts/freescale/fsl-lx2162a-clearfog.dts    |  37 +-
+ 10 files changed, 909 insertions(+), 63 deletions(-)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20240118-lx2160-pci-4bdb196e58f3
+
+Best regards,
 -- 
-2.43.0
+Josua Mayer <josua@solid-run.com>
 
 
