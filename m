@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A30CD37AF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 02:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64028CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 02:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IvSvVizBECfyNz4maTI4yNBUrzMgeG5Zirbva3PFmmE=; b=LCsrT9FVKz8yKbIKOaRWw9e+Xi
-	0UCNChr1IUhHd7WmbhOAykRSWgrpXEo0ApwKzNSml7YgIAoer+ML6GryiRhJNgKmqElmbpZSoiNI+
-	iVCwSdjv42gQzzaPYXKgVokg2IDzXifoZqHipI8xRFSCzUQtrsvyeqgTfRkGtxAb83oqW/52k2YVG
-	LVng8CkS88GHuSbhqc0e/Yj8Fyy14Q+nnvg5/1YDjPr9Uv+/+DkyqJAnqSMjZHAtTRxGcEDxm9KJp
-	EMQgEnqNEGxKGfaIx9kPKxwBQ3nSoUuhei09XCzwi/ss6RVvOvuYp3vyRcam7IWj3nZ1F8RGBxXIs
-	CIpcAL+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PcSo8RFa+0/2ySKkmfJmXSREIu83Q6JJsPeDJVxe7g4=; b=GqFPKEBtja8I0jfjbUur7gMaUj
+	QBlR3+eRr0TYRn87OQs0Gv7HDkWX1/Fv8B7X70VUCiZBMy0BYT5RBpmPImPqUvOVSmozeQ8dNkfc0
+	WVbhG4D144Br9owyov7MTtyKZEcQiKSjfqQb74yV919UQRG+fDy5XIbdDXNZcIhT/mb2eiLQAvjot
+	Dk8Dwo1zRBskafuSTzKJvTqdwraml9K4ZHxDj+92bXY582EYoqjuG12JO4GzwDgudGMtniKmxeF7S
+	l8Pc80KVBRGf6NfPcYsChq/t84Balk2ryKLwJJz1eHlvFoMmvBk2nN1M8SfBmv8aSLPFppp3aazA7
+	fH501ocw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLtrF-0000000A0b5-29bR;
-	Sun, 10 May 2026 02:25:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wLu5x-0000000A1VL-3IcV;
+	Sun, 10 May 2026 02:40:41 +0000
+Received: from mail-dy1-x1342.google.com ([2607:f8b0:4864:20::1342])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLtrD-0000000A0ai-3RsF
+	id 1wLu5v-0000000A1Uq-1w2K
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 02:25:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A825141ABE;
-	Sun, 10 May 2026 02:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DAE5C2BCC7;
-	Sun, 10 May 2026 02:25:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778379924;
-	bh=DuPHI1LqOFfQCPwSGvE4XxVWrva8Uk84ODEwZHi72xU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=e79y6hL/mgDvOZD8UHrjx/yvvGE14Vi42uRup1vVa+BwGGuz0tI3FboKrX6KCcHYW
-	 RzREP9nAcxXgbOLsICt59PEujBZfc43refGEy/MqJqsWO96s+Q3AgEvXjdaDOJlAAS
-	 iXt5onlnEIiRTPA221E7iqjKkNnVa/ou5prZT51yvrxvmamwRnnTONClO46LkwR6wZ
-	 t2IFlN52kGo0lvKsca1tHoXbtX8d3ZNYB/HRYPyRw5jkTtawLddwbKxR+1rJEj3vIi
-	 eoZSgqm4WxQI4AKYACjQH26b7yHJFcZfpkAvmuGCkgkL1k/4LZuGB+A3395nol8DbQ
-	 i0nDH3HyM9r4g==
-Date: Sat, 9 May 2026 21:25:16 -0500
-From: Bjorn Andersson <andersson@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, maxime.chevallier@bootlin.com, 
-	rmk+kernel@armlinux.org.uk, konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, linusw@kernel.org, brgl@kernel.org, arnd@arndb.de, 
-	gregkh@linuxfoundation.org, Daniel Thompson <daniel@riscstar.com>, 
-	mohd.anwar@oss.qualcomm.com, a0987203069@gmail.com, alexandre.torgue@foss.st.com, 
-	ast@kernel.org, boon.khai.ng@altera.com, chenchuangyu@xiaomi.com, 
-	chenhuacai@kernel.org, daniel@iogearbox.net, hawk@kernel.org, hkallweit1@gmail.com, 
-	inochiama@gmail.com, john.fastabend@gmail.com, julianbraha@gmail.com, 
-	livelycarpet87@gmail.com, matthew.gerlach@altera.com, mcoquelin.stm32@gmail.com, 
-	me@ziyao.cc, prabhakar.mahadev-lad.rj@bp.renesas.com, 
-	richardcochran@gmail.com, rohan.g.thomas@altera.com, sdf@fomichev.me, 
-	siyanteng@cqsoftware.com.cn, weishangjuan@eswincomputing.com, wens@kernel.org, 
-	netdev@vger.kernel.org, bpf@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 08/12] dt-bindings: net: toshiba,tc965x-dwmac:
- add TC956x Ethernet bridge
-Message-ID: <af_sarCs9E5M7NLE@baldur>
-References: <20260501155421.3329862-1-elder@riscstar.com>
- <20260501155421.3329862-9-elder@riscstar.com>
- <afycOwz5TpkegkZd@baldur>
- <3c78f48c-6478-46d0-87c2-581bb58637dd@riscstar.com>
+	Sun, 10 May 2026 02:40:40 +0000
+Received: by mail-dy1-x1342.google.com with SMTP id 5a478bee46e88-2ef38cf04f0so4508643eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 19:40:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778380838; x=1778985638; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PcSo8RFa+0/2ySKkmfJmXSREIu83Q6JJsPeDJVxe7g4=;
+        b=hP4fsjV/FGVX0/lfHpB4CEVjvsPdSrz3CLqWh95T0UTUe0QFiGvDstINltewmj82Pm
+         ll4atiX13pqoRoxOklnuS+5AojBQYcFCIfV/lVHfdB+NV8wvyXY8otbSoJaoqaEWk3Qv
+         Qh8ifOY6rC1vhviJX6/yZFXE31P2NQlksbmd6WOVVKVXS9ROzpC6sc9BpceKv8vyWHil
+         1TWUvf9RRYSPG3nDWuOe+qXUrYmv5GUgij59Jyx+nUZJ54gxkp6qQkwMvFUjCCyB31JC
+         QJaIH4nZu5vfaP01uiY6gj8/tMrAHq07cy3mOiweBxfa9d12Tx3jsQeugpq6LZmcuZDE
+         uCCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778380838; x=1778985638;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PcSo8RFa+0/2ySKkmfJmXSREIu83Q6JJsPeDJVxe7g4=;
+        b=GgWzBWc9bYRK2RVJILPi8cylbQNZdYj5ANLPzX4IyFaPXTersHqmd7tWiRT2D670An
+         /Lsf7c78WGwWQHlujhcY1WmOPblsIkLoypFTwNp8WTD+n8UKz6Ia1TBvMtXDVG/kKqU5
+         TK0oW0Kd6GeKoyHktKJ0e7KzRxOxjiws/LePaRAtOhhOZDeLx29P755A5p7n+qLxW49I
+         c2WQ1x335hZlmu1r84gSZ1PWiShjNbPVhD1ZclR4em5xJmaYpAva9a6Q0mq5nKDLrVCh
+         GMqMGYQAh6/tsnv3yQufvckGg5q19obp2bBqKv+084kVK+Xrqc5FvrmaoUczO7Nm6AXQ
+         iZ8g==
+X-Gm-Message-State: AOJu0Yw61NvGn83xhA+b1EVwPfGjJLzeiUS1NlikCMJSfcx9tmQX8Ksf
+	dnfkRDqYTMY2CBHF60u/091IHQNhKf8DdDuLmXodeAxFiA2OKz4fYswOiRrBVDKjW7Q=
+X-Gm-Gg: Acq92OGOqVeLdqcYKjxfDskkMV8S5C38zMs0wNr1HHpnbMKVDNNgtOd40Ux6gsJRhPh
+	P7w8L8H6c8mJ/4kyWNhmkqsfHtRGKKxMDIlJG+kFJZoaFFHXWkk5Yu0pE7OxubDzAZ3goSx3jv8
+	NpATwK1HKglEy8Gg3e0Xj3D2QUKbEKq3pg9DWcq9mPXhQd/PRmNCR3DNed6o6+/TwGDQg2f707w
+	gNQuXyxSF+tdMr7IniI4YWS1o+AQDB8XPJ8uIkOANZtz1ZKfx0i/gkQgcHQMuC/0kU4YNIwfkbN
+	69J/ZpeFpMM+SZRrHJXUpcIk8tuyypJQMW3FHkLjRSe+XiLyzNc8Fw+0wJ1kWLH316D3yKfvzsW
+	hWynh8iGezhubuCSdUL0bCHGaY+qiZqpdi2VHboyyHvlgXj/Y0dkDPHmTXqJAnFsU++MSxA1Exq
+	GBJke8k/U2W2i3mnc4yr1f1vI6+2HngVW4iOp70l34VgxzBXu7O5JCkLwZ/Cw24zEy8jTtR8y6W
+	2CutbfCGtqLXfjqPQrsD58nSyvg/Hlh3u1YZZto+CWbx6J/g3p7ucmtLUcMwyZM1QBmPqPNszqS
+	0Lq8qKAiBvrqLfqDofxfU9B0tbOe
+X-Received: by 2002:a05:7301:4b15:b0:2dd:5641:ef2 with SMTP id 5a478bee46e88-2fb4bdffa2fmr1757235eec.25.1778380837843;
+        Sat, 09 May 2026 19:40:37 -0700 (PDT)
+Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f88885b87dsm10003795eec.21.2026.05.09.19.40.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 09 May 2026 19:40:37 -0700 (PDT)
+From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-fbdev@vger.kernel.org
+Cc: Russell King <linux@armlinux.org.uk>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Helge Deller <deller@gmx.de>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Kees Cook <kees@kernel.org>
+Subject: [PATCH] ARM: mach-rpc: fix zImage build after recent font-related changes
+Date: Sat,  9 May 2026 19:39:38 -0700
+Message-ID: <20260510023941.190396-1-enelsonmoore@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3c78f48c-6478-46d0-87c2-581bb58637dd@riscstar.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_192527_936846_1FBBF375 
-X-CRM114-Status: GOOD (  25.50  )
+X-CRM114-CacheID: sfid-20260509_194039_532205_5AA906D2 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,58 +100,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 01:37:09PM -0500, Alex Elder wrote:
-> On 5/7/26 9:12 AM, Bjorn Andersson wrote:
-> > On Fri, May 01, 2026 at 10:54:16AM -0500, Alex Elder wrote:
-> > > diff --git a/Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml b/Documentation/devicetree/bindings/net/toshiba,tc956x-dwmac.yaml
-> > [..]
-> > > +
-> > > +  gpio-controller: true
-> > 
-> > I don't have any concern with the use of a proper gpio driver to model
-> > the implementation, but if I understand correctly this relationship
-> > between gpio controller and gpio consumer is strictly internal to "the
-> > PCI device".
-> 
-> (I think you're already cool with this but I still wanted to respond.)
-> 
+The text display code used in the Risc PC kernel image decompression
+code uses arch/arm/boot/compressed/font.c, which includes
+lib/fonts/font_acorn_8x8.c, which further includes <linux/font.h>.
 
-Thank you for the further clarifications, and added details, Alex. This
-does look reasonable to me.
+Since commit 97df8960240a ("lib/fonts: Provide helpers for calculating
+glyph pitch and size") <linux/font.h> contains inline functions that
+require __do_div64, which is not linked into the ARM kernel
+decompressor. This makes Risc PC zImages fail to build.
 
-Regards,
-Bjorn
+Resolve this issue in the least intrusive way possible by preventing
+the inclusion of <linux/font.h> (and the definition of a struct that
+relies on it) when the decompressor is being built.
 
-> That is not correct.  These GPIO lines are used two ways for the
-> RB3gen2:
-> - drivers/pci/pwrctrl/pci-pwrctrl-tc9563.c uses GPIOs 2 and 3 to
->   assert/deassert the reset lines associated with the two exposed
->   downstream PCIe ports on the PCIe switch within the TC956x.
-> 
-> - Each of the Ethernet PHYs has a reset GPIO.  On the RB3gen2, the
->   GPIOs used for the purpose come from the GPIO controller embedded
->   in the TC9564 (00 and 01).
-> 
-> These are therefore "exposed" (they are *not* strictly internal).
-> 
-> > Is this connection variable or is the link merely expressed in
-> > DeviceTree to mitigate the fact that you choose to implement the
-> > responsibilities of the two parts split into two device drivers?
-> 
-> It is variable.  These resets might be implemented by other GPIO
-> controllers on other platforms.
-> 
-> > Are there other consumers of these TC956x gpios which would result in a
-> > board designer (and hence dts author) to ever reference this
-> > gpio-controller in a different way?
-> 
-> They could.  Nine of these GPIOs are exposed by the TC956x pins
-> (GPIO00-06, GPIO12, GPIO35 and GPIO36).  The RB3gen2 uses 00-03
-> (and possibly 04 but that's for a PHY we haven't tested yet).
-> 
-> 					-Alex
-> 
-> > Regards,
-> > Bjorn
-> 
+Fixes: 97df8960240a ("lib/fonts: Provide helpers for calculating glyph pitch and size")
+Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+---
+ arch/arm/boot/compressed/Makefile | 6 +++++-
+ lib/fonts/font_acorn_8x8.c        | 2 ++
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
+index a159120d1e42..0e198a6ce447 100644
+--- a/arch/arm/boot/compressed/Makefile
++++ b/arch/arm/boot/compressed/Makefile
+@@ -157,4 +157,8 @@ $(obj)/piggy_data: $(obj)/../Image FORCE
+ 
+ $(obj)/piggy.o: $(obj)/piggy_data
+ 
+-CFLAGS_font.o := -Dstatic=
++# Defining _VIDEO_FONT_H prevents including <linux/font.h>, which contains
++# inline functions that require __do_div64, which is not linked into the
++# decompressor. OMIT_FONT_DESC is used in lib/fonts/font_acorn_8x8.c to omit the
++# definition of the font's font_desc structure, which requires <linux/font.h>.
++CFLAGS_font.o := -Dstatic= -D_VIDEO_FONT_H -DOMIT_FONT_DESC
+diff --git a/lib/fonts/font_acorn_8x8.c b/lib/fonts/font_acorn_8x8.c
+index 36c51016769d..6b5291c23fc8 100644
+--- a/lib/fonts/font_acorn_8x8.c
++++ b/lib/fonts/font_acorn_8x8.c
+@@ -265,6 +265,7 @@ static const struct font_data acorndata_8x8 = {
+ /* FF */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+ } };
+ 
++#ifndef OMIT_FONT_DESC /* Used by arch/arm/boot/compressed/Makefile */
+ const struct font_desc font_acorn_8x8 = {
+ 	.idx	= ACORN8x8_IDX,
+ 	.name	= "Acorn8x8",
+@@ -278,3 +279,4 @@ const struct font_desc font_acorn_8x8 = {
+ 	.pref	= 0,
+ #endif
+ };
++#endif /* OMIT_FONT_DESC */
+-- 
+2.43.0
+
 
