@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA99CD37B6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 12:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB923CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 12:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D00p/ZLIR/RsP8OkApuHeaaH+BRWS3xl1t7256kK+zQ=; b=dx5wdoICBGGaxrBnZb4SgB96dQ
-	be7nUWy33/ovDJ6uaDM2DwFZXGRV7Tvhwrsx0ufFf2v+AEA8lXyUmDlBS0hcLIXUl4TUMX4cs8aGg
-	rEwzgfJx9TlftV3rrY+VLsBYnOify0cfE/4r79OpJyMeNs6wgKnnBfKvMMYNRtQYhBDX6XTsO5hx6
-	zZWvQewwSjjkQzemuu5pkt0JgZ07d5u8TMmeRzeb87qmcPnRsM5YlWBIdoDM2A8lIRaHqAqiFSevX
-	cwM/gKO+TFQtMqWOM97w+85N94hc0aWlU919HC2hIPb2UMDvpq61HqCKuBRyqIgCmDesOogAwZinF
-	8XOo/sdw==;
+	bh=mW+6YCnMMcG+N3STMPBDPuy5FUn5TKVoLDPBk6Mi4t0=; b=xjMVMSVDwY3pUmlN16KCO0PjaT
+	P7m5JeidE7WZ97IUvnBaabEQysjof8I9E/4bvnnSvDTYMSLsjFeJWr57QX6fueJKUtlwjxGPX7Dsv
+	FA7z4qPN8WjUVhFtzaFtqidkDEf0wV3hVD2RChXRJureLzJ0gNm+Hl/iPb1+L0rfS6iaa4weExp1b
+	n9aSTLCY8g7K3Jrk0FUmerKmuvSGd8mLAgVqp6wWhKHIyEe4GDfuPq+NM9yFUEyqYRFwIMin/8EGZ
+	P5tDLNyBk3dhGpCA6mHX9fEoRBGx6gDtSAcRMqUhqGGGkWwVPJ/Ai8jwhJOhFhhTsoHZho9Si4ByW
+	kJRdPyUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM3id-0000000AnuV-1ES6;
-	Sun, 10 May 2026 12:57:15 +0000
+	id 1wM3l5-0000000Ao9U-33nr;
+	Sun, 10 May 2026 12:59:47 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM3ib-0000000Anu5-0l6N
+	id 1wM3l3-0000000Ao90-0Bge
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 12:57:14 +0000
+	Sun, 10 May 2026 12:59:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7FD4540AB2;
-	Sun, 10 May 2026 12:57:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48A9FC2BCB8;
-	Sun, 10 May 2026 12:57:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2537343ACA;
+	Sun, 10 May 2026 12:59:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3A71C2BCF6;
+	Sun, 10 May 2026 12:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778417832;
-	bh=+NS+mXELE481716R2xNZldzsT5uuYWBaGG4XaPtkZB4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X35Jy1xxwjZiXNL2+9B0ZW8989OIFO/yghiQR4xC/S83dLejud6EqKzTkvhnt6562
-	 U37bcycl+TgDrMaDcjA2JYEkgT7lEvZZBrr1Vv/6RrvHPx0dWqVbHw7oCj0VMOqG4A
-	 AyxP8ybpUyKxZpj+1vxN/13O8irYjkClKU29gcrFSrlQurtLJJcRIarkzkpmfTpKOW
-	 O5mHBRPNthwy1CTZFiL224RdpbG1s2eSiIlT2gUcGunf8BpP+HwQtnS+QILuXs5o7U
-	 j5Tb2nGAStnXgNaZgFZxceRHqneDy2yOtoaTrUMwXFvxkvShZhuYvsDzYZFP+2gEsx
-	 zukpylrY8x7pA==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 0F0A61AC5898; Sun, 10 May 2026 13:57:10 +0100 (BST)
-Date: Sun, 10 May 2026 21:57:09 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Subject: Re: [PATCH] sound: soc: fsl: eukrea-tlv320: update board checks to
- use the DT
-Message-ID: <agCApXl_RwG3r2iu@sirena.co.uk>
-References: <20260509214622.38319-1-enelsonmoore@gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="moTdlZ1qRYHiIRf6"
-Content-Disposition: inline
-In-Reply-To: <20260509214622.38319-1-enelsonmoore@gmail.com>
-X-Cookie: Truckers welcome.
+	s=k20201202; t=1778417984;
+	bh=kUmsgLX1nU1TZOEe6JDVbQeCrALlJrbC2ra/r/oY25c=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=WI+9yRs2J5WWa5MlZzLnbKbbQKRwTPVdMNy7FbUFlgw5jtJ3rFdHo9of+XmGy1qt+
+	 +VCILRTY4nEyScWX06/9OMmdG37+AcYPKJSWKHxnfjFPbO0By7rIbzdKJAvGHqCVGz
+	 Rrz69qJ27bh7o+TVLN4i+GtpPyZ+QAbqKr9TU02hqWY9MjfqxBQgr0mg3/sfcqud/7
+	 HExhd8JW9h3IRPpxi2byMbodAMtKwAEzqZ4yadrVykH6OwY69cnkRae3NXTOtzaw7V
+	 7SEB7SBzfalwBKwBHYVTBPV4eb3mgg4VtQq1Nu/8DbtQ+8I9k37+QIh8a/6FTfRyna
+	 ykHvUQcZEBSsw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wM3kz-00000000nwK-2uPj;
+	Sun, 10 May 2026 12:59:41 +0000
+Date: Sun, 10 May 2026 14:00:15 +0100
+Message-ID: <87v7cva080.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH v2 0/6] fsl-mc: Move over to device MSI infrastructure
+In-Reply-To: <177209938125.547814.7154250802402503122.b4-ty@kernel.org>
+References: <20260224100936.3752303-1-maz@kernel.org>
+	<177209938125.547814.7154250802402503122.b4-ty@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: chleroy@kernel.org, ioana.ciornei@nxp.com, tglx@kernel.org, sascha.bischoff@arm.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_055713_262107_8F149188 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260510_055945_103748_E9FBE296 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,41 +88,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 26 Feb 2026 09:50:43 +0000,
+"Christophe Leroy (CS GROUP)" <chleroy@kernel.org> wrote:
+> 
+> 
+> On Tue, 24 Feb 2026 10:09:30 +0000, Marc Zyngier wrote:
+> > This is the second drop of this cleanup series for the fsl-mc MSI
+> > infrastructure, initially posted at [1].
+> > 
+> > * From v1 [1]:
+> > 
+> >   - Drop the now unused DOMAIN_BUS_FSL_MC_MSI bus token
+> > 
+> > [...]
+> 
+> Applied, thanks!
+> 
+> [1/6] fsl-mc: Remove MSI domain propagation to sub-devices
+>       commit: 1fb7392ee3408494d4d62c09a8c3e5f5934caba7
+> [2/6] fsl-mc: Add minimal infrastructure to use platform MSI
+>       commit: 0c9f522f2d41c7e055a602a0d2c41dc7af01010b
+> [3/6] irqchip/gic-v3-its: Add fsl_mc device plumbing to the msi-parent handling
+>       commit: cf3179b4e53f527aba9f0c6c3b921619c8adf761
+> [4/6] fsl-mc: Switch over to per-device platform MSI
+>       commit: 4a958e47c246fa3fb8954f4303e0da15ab3d026d
+> [5/6] fsl-mc: Remove legacy MSI implementation
+>       commit: 14b1cbcc6cec0b02298f4adf717646cd943b7ef6
+> [6/6] platform-msi: Remove stale comment
+>       commit: f0a2eac6a597268034fd40d92c1469182438b53d
 
---moTdlZ1qRYHiIRf6
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Is there any particular reason why this didn't make it into 7.1?
 
-On Sat, May 09, 2026 at 02:46:19PM -0700, Ethan Nelson-Moore wrote:
+I was really looking forward to some additional cleanups in the GICv3
+ITS code, and this gets in the way.
 
-> index 6be074ea0b3f..2e6abd620571 100644
-> --- a/sound/soc/fsl/eukrea-tlv320.c
-> +++ b/sound/soc/fsl/eukrea-tlv320.c
-> @@ -142,7 +142,7 @@ static int eukrea_tlv320_probe(struct platform_device=
- *pdev)
->  		eukrea_tlv320.name =3D "cpuimx-audio";
->  	}
-> =20
-> -	if (machine_is_eukrea_cpuimx27() ||
-> +	if (of_machine_is_compatible("eukrea,cpuimx27") ||
+Do I need to respin it?
 
-This renders the inclusion of asm/mach-types.h redundant.
+Thanks,
 
---moTdlZ1qRYHiIRf6
-Content-Type: application/pgp-signature; name="signature.asc"
+	M.
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoAgKUACgkQJNaLcl1U
-h9Ax4AgAgv6+tIbDDD8stQVUf7j6gAchwIieJhA6JxS0eCb4ecn1MK83Uf1bfuVn
-7sqL965uvAq/aC1lxo3VG7m/gAWRlVaDv+7OioA9JUxssJ6IERpte+/TKNNDYhrH
-3MBFObS+EuAwYX0VZFT9jJ08x8TJp3PFjBflqDhLj0aRGZxymNa9o1KQH3IVeyMe
-FydtycOaC+WnXh5Nnb7DpAZF2NiKsmvtJwgMKXLtjP60hHA14Sv6xyzZhbltaPh5
-BatDdFzgOBY+0EmOG0O0e8vnfv483HCZyfx6ddv7RHpTYSA1mtPpsqVpCtSJ0Far
-F3oXuc1b+nDm5G2SL5WXYxFkOVM6Ig==
-=l4qE
------END PGP SIGNATURE-----
-
---moTdlZ1qRYHiIRf6--
+-- 
+Jazz isn't dead. It just smells funny.
 
