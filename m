@@ -4,98 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2DACD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 19:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266FDCD37B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 19:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bMsfc8Zbf8JIkTQeMv/NJIxXAe3vZVoXdywLBqyZ2Qs=; b=2oU/UMldc8VdUo/S0emPow5Pjm
-	f3NEvqdPVSS454T9clxCAijyXBvvXfKK+JW89Vk+sjESOeMKYnyjVzHflTH+XuSNadtcWN+b+bHo4
-	dzTkVbaIPQoLJ7iK4kTPT4QUYz6xQdnAjh+9J7fBNE2ZlUXdesYFm357gleX0PZhjt3v9tRRag5i5
-	vsFeE++8MKgZBS95O666hBJJWU0YwF3AgGHktMkf67EOikhP9AlMtSji9XbLkjJr83wQNSl1EQlXm
-	bT9H310STZZo5s9P+tRDQ5GVLiUM6hvSDj/VKY0fvLjrhAkvpAhWG5993OisxhhGaDIPkhNpSKqV2
-	rzt8fapA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1BVTiXVZ5+SQnfIHWp/DmlViAPIxX5n2kT347/Og8OE=; b=g/AgDXWOvlkrb4
+	gWKzAqbQ+5Ddnw8OrXlOI8wdfLka5IXJH5Nxi7TrOLEd8yDiU8hqASoyRfH/fxEKsRx13ZKLM7cFL
+	sfnBwC03XScTH5KuF1GJiI0gNthIMktZ1iHnrh0kVEF04V1HWyBwGxLgjT92L18aQeT1eYQcj5vv1
+	Uj+nvGZ6bewEzjPZyRswgW+kV5uYZh4TWgnMCpOSfp/TYwUaaRKZpla9y+3559GMywcJcFFnvy7Y7
+	95TUPLPdouHri6GqmV83TH910Fm5pFkC5txhYDalQUQHxfA5ORBfbw525zJ0hTCyRsikE+WwB9jVW
+	Vsifx8JqTMjoVv5JYoSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM9No-0000000BQux-2QxA;
-	Sun, 10 May 2026 19:00:08 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wM9P0-0000000BRFm-3ACP;
+	Sun, 10 May 2026 19:01:22 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM9Nm-0000000BQsV-47EE
+	id 1wM9Oy-0000000BREN-20QT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 19:00:08 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2b46da8c48eso375ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 12:00:05 -0700 (PDT)
+	Sun, 10 May 2026 19:01:21 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4891e86fabeso42734565e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 12:01:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778439605; x=1779044405; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bMsfc8Zbf8JIkTQeMv/NJIxXAe3vZVoXdywLBqyZ2Qs=;
-        b=r5Jd9GgRiwZQWLmut17hjVHvmeN6ueCf0vfrTVSAsMo8AGG/PfB2axFbU6lkOsjkI5
-         K4ozEedTaqOfuXMxNGoES16nQxuGBwMI1EkQcI8Llplmvnu7S/sRINmNcqVXAnVl9hvL
-         MJ97YCQ7UJZjpibLSJoyV/kg4yMDdDpxWMJNsitHPMRx5vHAQr3Z+RoBbCDSq4485jZY
-         aY0XInqrPvlYFVDQiNxhHEpJqeTY3LQytbunY/1Nv/GTUG3hsk45hg2TY9f1GV9pvvUu
-         TDW/SiDmrjkKWNiYKH35KC1HRsfrUmyO8Y8JU9dfCpEswVlSOtxCPUXvfgFaDhMPhAtj
-         mfEg==
+        d=gmail.com; s=20251104; t=1778439678; x=1779044478; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1BVTiXVZ5+SQnfIHWp/DmlViAPIxX5n2kT347/Og8OE=;
+        b=kcEKnxcytVSoQiFbft8D8EFn5Ns0mZrisfrXGRW4vS1PJD9N5wBx+UHehnjFt9SjOC
+         f4hqyhxGvXLI/tTqgHGyeaivCDazEhOTqmTHTGehHW4o6LY7uqFX0IZ7Pr4D9iGnNuhE
+         zsCzqkhyY9TYn6eMauEPpUyb2sVLuTuu85ajEwR4Lq4ccA2Ohalm1r0PghfuOY8cHRh2
+         NPdA08bGwJsrUCqYUmyr8QZqRoZWiULDN+KoPOv31YOa732KEKAAK83/wQZDK8/Fszke
+         aBaqzoMISzN3QwWGadavYYDe+JUE5CziT+Ss5LjVL0eGobqP9VjFVPhwEG4iBfQS1it+
+         glmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778439605; x=1779044405;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bMsfc8Zbf8JIkTQeMv/NJIxXAe3vZVoXdywLBqyZ2Qs=;
-        b=jEVfZkHDY9JFY7gnG2A7xcP12Z6pBFa572hMSSBW6xdYI65uiRI3cM73wiA2Oh/RrF
-         SoWPKv8AU8jtKJvYfPfLUe5nNIZpBRGg06z+pz9HwmxPuTLLcOs4oZ67kuhCxHvkOUsN
-         3yVJyCIN37uh1F5a0IPgt0zfJLW3F3NWMRW7a6ZPk8DAmV1bx6MvH+rWUZbvIdKwcs2x
-         4+bbxqp0wpKJvpmL4IvYEnoBJ8bsVG+F/Yn0OGPxRj4yu/Yeb8qC0f3ORqacNuLXfSTs
-         yeg6HnR4XAd8Kbm3fCigffRGlYQ6hbs/g1lwRhuwAd9wX8YxMeU91H5DhXcPAGzhF6Tz
-         eZyQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/CXw8giNI2MkX87jkqmTkwcGglCXgbcWKXFmxbGR0NtNXb3iEZF8oAKTNRA4BzVIpvOr//uJDeIJBX09o7JGJK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9/eIOx3yeSEH62wNcFdRxtd2lF7+P0WmDzG9J/pHpV6exxrCO
-	/oIqcsqrG1gcWkq5d2Nt2fXE3tpjIdxk/stLHk4WtxieL6vTWbz5eGFRmKP+5c34Pw==
-X-Gm-Gg: Acq92OF4Kh+9XXJRL6XJqFGKnzJwSReWCpX/3cpmKecCbv33F+EZAz4iqcVKe/zlf+l
-	aJ1evHGOyZIOP4BTy58Lv8jeVAGOVigKsjzCuYlSQoRulR5XrDWhP4h0gXisnxowpUr4M1thHKZ
-	gZ0EWzJSDZQt2+xnbaTmMXfYYkRwEBZ7kjmoXL+ijnsJD4Am8Y9ilqekldj1M1mMjFxBQjNiNQE
-	XhSUjv19wSNf7bwBtEafkr8eKHkw0Daz1drvE9yJa2p1WKZNDAYxMhZnuk/yzCvNSnvDgYOAor0
-	8DGcVD1RKa/CmvZKmfJBfYPPS1o27sET9LzV454YuYZBohG5u5cwIE3V5kZvnhiH+j6w5XTyfFL
-	MFb9hYJCNZRCAInIEEewQ0ZG6dRJGqx9O7VVcKHNBCynTHago+hK5sL7GvTE657U0Ue+JJzeOFM
-	G7IOknOXNIEMZNHQh1tmBURkx7lQ1nUrzgso/MaBrbPH4zcmbRk85Wqfc1EUq0apwr/Nq7
-X-Received: by 2002:a17:903:8ce:b0:2b4:641a:6b7c with SMTP id d9443c01a7336-2bc7868490cmr2499495ad.13.1778439604484;
-        Sun, 10 May 2026 12:00:04 -0700 (PDT)
-Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839685a8125sm18060689b3a.61.2026.05.10.12.00.01
+        d=1e100.net; s=20251104; t=1778439678; x=1779044478;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1BVTiXVZ5+SQnfIHWp/DmlViAPIxX5n2kT347/Og8OE=;
+        b=iHnSCmKTX+uhakTUUtxuGGxna3uI6qNWR9+MdqZm3CoYTqQRKSmEdm7yofd0rvOcWN
+         avctMvFPhuTsEo8sh69ojbkNZRjsvPppCyn0qGako75pxcEUg+KwxP7ylQogIXL2L4k3
+         bGGFbv7BSpsnLm+Oe9MHaBn6POLhRKpnUH9YbeAg1KePS1aNrTUeYq7kzzANjfmMTHki
+         EA3/EjDkrhb5pejapxOUgQf6YxiNvcEOCPSVO87pE1+EW1Yvw+tuE9hQZK538jYzA38Q
+         Zx5NYBjcNNQbK2XIDBKSSm1JUIxQymGmJTRoKqhZz4HhduQ403Ah24fMQeufQxhUdh59
+         l9fQ==
+X-Forwarded-Encrypted: i=1; AFNElJ86TMER8RYTc0u5X36QxigJzzxROzMyJ5MsFjIsqjBlqOrTHVEl3S057tHiFyFTBtFp94+FYPkiTOinUZGh9NGo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9rW1+I6AVawKF4z+5gN1cERh71huqR2lXQr0/gpp4Klo+NHYO
+	LWC0/fL48TNmG6MMyu+57+UkinGJ8ZjIFI4n/qnyT51eRsl/0o4Vq94s
+X-Gm-Gg: Acq92OES9UV1LRdfeLmxqM3+vs+5WAjYd37iZkW+n0x+LpuvIZNh3Ysby2OPlEgof/P
+	tGNN6kCiowkrAri3f8+71Qlr03CroJgLbD8cLVeUYxpYzpWM08Z0RTL2SSYF22FuO6zyXXQdsFv
+	C2SCwac84Pt0WsLS2hLfzRQY+rxTL/qPOt10/rb6VvntAUXozxfrUx0RgrF5OyZZwo3q+9rGFwI
+	t/T/6EOZWuJTDvnBLRARVIkd8F87fy7MnBgdddytNJ7CTQ1qAaIngzgOekVwE8ZZeENaewRaExo
+	HA/bn29BpbwKWyqCUbb1CCI0nW9g/p5GUiNmdCuQNyCnM6DsPQLqZ46u6nw95j3DXoePi6zNRse
+	yhQVLjNJ20lnwdDGEbBlsxdPnquvTv/SCso9l9yaXvRXILVJ0WuyMHqZruzl1JCrYUajksJAQ3l
+	8hDFW4JNWO+GcCmHMjcMdpUo5toZdHkL+ZvBpgBXPtuiu6
+X-Received: by 2002:a05:600c:c0c1:b0:48a:56de:d62a with SMTP id 5b1f17b1804b1-48e51e1ddb2mr251916185e9.11.1778439678005;
+        Sun, 10 May 2026 12:01:18 -0700 (PDT)
+Received: from [192.168.0.2] ([197.250.51.203])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e701e9585sm132877475e9.5.2026.05.10.12.01.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 May 2026 12:00:03 -0700 (PDT)
-Date: Sun, 10 May 2026 18:59:57 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 6/9] iommu/arm-smmu-v3: Directly encode simple commands
-Message-ID: <agDVrTUTAIt1DpZ6@google.com>
-References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
- <6-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
- <af3KDBt8vhClSKEF@google.com>
- <20260508173736.GH9254@nvidia.com>
- <af5C_ax1a3LbtL1Q@google.com>
- <20260508233629.GI9254@nvidia.com>
+        Sun, 10 May 2026 12:01:17 -0700 (PDT)
+From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+Subject: [PATCH RFC 0/4] ZTE zx297520v3 clock bindings and driver
+Date: Sun, 10 May 2026 22:00:59 +0300
+Message-Id: <20260510-zx29clk-v1-0-e1bacfffe967@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260508233629.GI9254@nvidia.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAOvVAGoC/02OwQ6CMBBEf4Xs2SbtUkqXq4kf4NVwwLJoo4BSJ
+ ETCv9ugB49vZjIzCwQePAcokgUGnnzwfRdB7RJw16q7sPB1ZECJRmZKiveM5O43gazrlDhVaB3
+ E9GPgxs9b0wmOhz2UX3Hg5yu2jj/nXAUWrm9bPxaJRMsNOTJMRlEeJ6zNnWwkoUZtckKyVcUW/
+ t8UyfZFKyMCd7XInLQsKePMUTFZKNf1AyLqqGzWAAAA
+X-Change-ID: 20260510-zx29clk-2e4d39e3128c
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6050;
+ i=stefandoesinger@gmail.com; h=from:subject:message-id;
+ bh=kT6u3aN0CxM1ye+M92QBMG9z2Lg5tOb/LLbLIToLikA=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqANX0P2Cl0r21M/q2o+jb2oqnhUr26Ym8VJ0PX
+ vomztuGrO2JAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCagDV9BsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiL7Nw//U1IzbqmoeXjG9hGU9ky9SmjDA9FA1Ek
+ NFpZOnGJFuhqkYiAGk4LTw4t7AYjuoZxrbC0C0qAF1naNE3TP8/VVXXtxYi694vx4E00K42X1OL
+ 8ejx/e478Noh6K1a+axlesPesRDDQKUriJ9p5Ot7SV5sXBOatJQaALfxLOe7yzFCN3tWZLNjGni
+ 8l4EIFO2/gle9ftAPISUBcFjafQ+Of31dcbC5H4ivhZNwCp/ihrf5OdVzbzokH1uQQf36Pk28Qb
+ yRtbHKLWjnE8eDahjoNhd1gL3hZPtA0zuux4/XuDuzbZkyNS4D0j286YII6kjhCRg6d260Soo9C
+ M4UaZY60DylOO+GDysDWdKtiodxfS2trIxrHi0h3Ucdxac0/Vmu90FGRAumZgOCcIseuz/ThP2l
+ qwGwA4EQ2nhUlelGz5W5AuvIuj+/11JdHKlO512ZFhvzuj7H8Ku+2/0yHZfa14T0rOY/928uzma
+ /AxzuQpPuRkWpHnrMkOCXd9hZGIheq9zR1Eua0adKGWEXxztiTxUwRi0u5walRsUOuZ6YJanqxN
+ +Wd4Mzygm3ucPYA0+vh7Dlwnbk1wqOYY9PyOzXbd0zF0ipd7s95k2KHZLsODFa8c4DNcTuhBjLz
+ Ty2sTHqPoDnbSPoTq0dLcfwPH9I6iRkRvlN0NrxJy15uJDxUazng=
+X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
+ fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_120007_059283_A7508A48 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20260510_120120_563381_1D3D4A86 
+X-CRM114-Status: GOOD (  32.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,38 +122,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 08:36:29PM -0300, Jason Gunthorpe wrote:
-> On Fri, May 08, 2026 at 08:09:33PM +0000, Pranjal Shrivastava wrote:
-> > > > > +static void arm_smmu_cmdq_batch_add_cmd_p(struct arm_smmu_device *smmu,
-> > > > > +					  struct arm_smmu_cmdq_batch *cmds,
-> > > > > +					  struct arm_smmu_cmd *cmd)
-> > > > 
-> > > > Nit: Same here, why not  __arm_smmu_cmdq_batch_add_cmd? I understand
-> > > > that _p just means we'll aceept ptr.. but the name's kinda wonky.
-> > > 
-> > > Which becomes a fairly widly used public entry point, so I didn't want
-> > > to have the __
-> > > 
-> > > Though there is no external user of arm_smmu_cmdq_issue_cmd_p()
-> > > 
-> > 
-> > It's just that we're calling "arm_smmu_cmdq_batch_add_cmd_p" at one
-> > place and using `arm_smmu_make_cmd_<cmd_name>` at the other. It makes
-> > one think what's "_p" in issue_cmd, only to realize "_p: pointer variant
-> > 
-> > I guess I didn't like the new _p ones but I guess it's fine. Happy to
-> > leave it at your discretion.
-> 
-> I don't much care for the _p (and yes it means pointer variation) but
-> do like it better than __ and failed to come up with another idea :)
-> 
+Hi,
 
-Yea, I can't come up with much either (without __ or _p), maybe we could
-leave this as is..
+I am sending my clk driver for zx297520v3 boards for comment. The patch
+series sits on top of my previously sent patches for very basic support
+for this board [0]. The first caveat is that b4 dependencies don't seem
+to do what I expected, so I have backed out the MAINTAINERS and DTSI
+changes from this RFC submission. It should still be good enough to
+review the actual clock driver and bindings.
 
-The only alternatives in my mind are arm_smmu_cmdq_issue_cmd_ptr() which
-is similar.
+I have pretty good understanding of the clock hardware, but a number of 
+questions about the prefered way of implementing such a driver. Either 
+the clock framework and its documentation are constantly evolving or I 
+am just bad at discovering things:
 
-Thanks,
-Praan
+1) The clock controls on this board consist of 3 controllers that I 
+called - following ZTE's nomenclature - top, matrix and LSP. The top 
+controller is fed by two oscillators and generates other frequencies 
+with PLLs. I have expressed this in the device tree: The clk driver 
+binding requires these two clocks.
+
+The matrix controller feeds 10 clocks to the LSP controller and can turn 
+them on and off on a per-clock bases. The DT bindings express this as 
+well - the LSP binding expects those 10 clock handles.
+
+There are no explicit HW controls for the top->matrix link, but the 
+muxes and gates in the matrix controller use the PLL outputs as parents. 
+I have not expressed that in the binding as it would require 25 or so 
+clock handles. Instead, the matrix driver quietly expects the right 
+parent clock names to be registered by the top driver. (OTOH having 60 
+or so clock parameters didn't stop st,stm32mp21-rcc)
+
+The entire LSP part (I guess the name stands for low speed peripherals) 
+looks like it might be reused on different baords. The top and matrix 
+part are very interdependent.
+
+2) The clk-reset interaction: Both clocks and resets are in the same IO 
+space, sometimes in the same registers. I see a number of clk drivers 
+that register a reset control. I noticed Yu-Chun Lin's RTD1625 clock 
+submission added an aux device and placed the reset code in 
+drivers/reset instead. Is there a preference for either way or any 
+guideline of which way to use in which circumstances?
+
+3) Unused clocks: I looked at recently introduced clk drivers 
+(mediatek,mt8196-clock.h, sun55i-a523-mcu-ccu.h) and they do add all a 
+lot of clocks that do not have an active consumer - which in a way means 
+unused ABI. Please let me know if you prefer to add clocks one by one as 
+their consumers are added.
+
+That said, there are a lot of clocks that I want to define for the sole 
+purpose of shutting them off. The boot loader leaves pretty much every 
+device enabled, including proprietary timers that I don't even plan to 
+write a driver for. Registering their clocks in the kernel will allow 
+the kernel to shut them off, so they aren't entirely unused.
+
+4) I took some naming from the old zx2967 code. In particular, each 
+device has two clocks: "WCLK" for the device operation and "PCLK" for 
+register access. Are there more standard names for them? Likewise I took 
+some device names from ZTE's downstream sources and I am open to better 
+suggestions.
+
+5) I took care to test unbinding and rebinding my clock driver to the 
+hardware. It works at least as no clock consumers are defined. It seems 
+mutually exclusive though with declaring static initialization data as 
+__initdata, as it will be gone after the first time the driver is bound. 
+I also don't see how unbinding and rebinding will be tested later on 
+when core peripherals are clock consumers.
+
+6) Clock name string matching vs passing pointers: A presentation by
+Chen-Yu Tsai from 2024 [1] gave me the impression that the kernel is
+trying to move away from building the clock tree with string matching. I 
+see APIs for passing a struct clk_hw * as parent instead of strings, but 
+that makes it more difficult to build static initialization tables. I 
+think the static tables make the code a lot easier to read and I prefer 
+that over boot time performance.
+
+I think the list of clocks in my driver is fairly complete; It is 
+certainly a lot better than what the downstream ZTE drivers have. I 
+deduced a lot of it by trial and error. I am sure there are some clocks 
+missing that will need to be added to the binding later. Afaiu adding 
+clocks is not an issue, but removing or reordering them is an ABI break.
+
+0: https://lore.kernel.org/linux-arm-kernel/20260506-send-v8-0-f1bdf3243b34@gmail.com/
+1: https://www.youtube.com/watch?v=d1VIAnVb3hI
+
+Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
+---
+Stefan Dösinger (4):
+      dt-bindings: clk: zte: Add zx297520v3 clock and reset bindings.
+      clk: zte: Introduce a driver for zx297520v3 top clocks and resets.
+      clk: zte: Introduce a driver for zx297520v3 matrix clocks and resets.
+      clk: zte: Introduce a driver for zx297520v3 LSP clocks and resets.
+
+ .../bindings/clock/zte,zx297520v3-clk.yaml         | 173 ++++
+ drivers/clk/Kconfig                                |   1 +
+ drivers/clk/Makefile                               |   1 +
+ drivers/clk/zte/Kconfig                            |  18 +
+ drivers/clk/zte/Makefile                           |   2 +
+ drivers/clk/zte/clk-zx297520v3.c                   | 980 +++++++++++++++++++++
+ include/dt-bindings/clock/zte,zx297520v3-clk.h     | 179 ++++
+ 7 files changed, 1354 insertions(+)
+---
+base-commit: 028ef9c96e96197026887c0f092424679298aae8
+change-id: 20260510-zx29clk-2e4d39e3128c
+prerequisite-change-id: 20260416-send-5c08e095e5c9:v8
+prerequisite-patch-id: 94a9b9f889829e5c1899cb1be89b7ee9899b2626
+prerequisite-patch-id: 8a849ffe79ba35ef560250fb38587487cc5009fb
+prerequisite-patch-id: ef282d0a261dc1097f05057cd43e9e75ae52d92b
+prerequisite-patch-id: 5d615c9f855fca6da461168f45a5670a3c3cde81
+prerequisite-patch-id: 980a7e66a1031cdcc244a5e461220d68c72309a5
+prerequisite-patch-id: 45b6fc60cee81a793cd69e704bf098f1a68769a9
+
+Best regards,
+-- 
+Stefan Dösinger <stefandoesinger@gmail.com>
+
 
