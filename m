@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A0FCD37AF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 09:30:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70413CD37AF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 09:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3OUgryxBv/IofxM7RjR0BpQfLW6haYqHqpI0t+hcCAc=; b=lN2LJuXxFHfe2DakH1LjyQn2vi
-	DMmo80yzlm2CTgYDRHu5oVxe+lF2OHOM6MAUtEeclCHb5aPuYYt7MKdGazaGi25VOmZWP6OXEZtQq
-	cg7hu689jDbeIgs11iCgZCjqympekLeqXxFC6FL+wAgqAYpOHErC6qdtCrrov0OA/Lx5xsFstpA1A
-	K6wpE4XO32hYBCGrerLe+2vUXz+OqxUkkcDZ7CA3KAFIi7pV3YiP5DJe7F1x/NswmV5DLbjUI0PjC
-	CYFPtQBy158ogExy5IxaHcD8t/2QY5gvGbQJ8TlKHuV58H0CYqDqNR+jRaqq72680m+GmxUcvhkug
-	dG5A5eHw==;
+	bh=TuO2mEzbBLrDhDv58shKHfHDA9xL4c7UBmg/suQT5k0=; b=ueGNl9ceawbxEso555qu43ynfc
+	VbdzL4zNb+yHp3to5HLvP/uDxLc0ZM8cfInaHDBpgFRbQRe/9II5UJXiakBOmN3p/T9dS7AhZzD5r
+	q580imxrb6sPosxqVbEmr3KbiyH75A+3WaiZrab/VnBQE1LirvNfyGxzBjLP5p/OgTKPVyyuxoDYT
+	rHVGJw7npcN9t7XN0Ow+79Hkl7711rCNC5RCql1RAwuix5K3zBIpt2RBl61JcAKvMn49VxM7mZdNX
+	PuICpQ1AJoG2wQgZth+lMzT1waC5PZNWwjcVv+Ink2vNjYirurhbb26gsrwBVgnNIriCS/5JrqFTm
+	RZv1aaCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM0UD-0000000AUKN-42sa;
-	Sun, 10 May 2026 09:30:09 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1wM0bt-0000000AUuY-3Ils;
+	Sun, 10 May 2026 09:38:05 +0000
+Received: from mout.gmx.net ([212.227.15.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM0UA-0000000AUJY-1EZc;
-	Sun, 10 May 2026 09:30:07 +0000
+	id 1wM0bq-0000000AUtt-1Wsd;
+	Sun, 10 May 2026 09:38:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1778405380; x=1779010180; i=wahrenst@gmx.net;
-	bh=3OUgryxBv/IofxM7RjR0BpQfLW6haYqHqpI0t+hcCAc=;
+	s=s31663417; t=1778405867; x=1779010667; i=wahrenst@gmx.net;
+	bh=TuO2mEzbBLrDhDv58shKHfHDA9xL4c7UBmg/suQT5k0=;
 	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
 	 References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding:cc:content-transfer-encoding:
 	 content-type:date:from:message-id:mime-version:reply-to:subject:
 	 to;
-	b=Rco1cOnvwGByKqEMpoBQe7Wkm1tpUdkS+vzS1aWlNkAoMPSnSB3w+KCPE5DPhEgy
-	 RsPRnmenXymeMnQUL7H/k12RwrFdHqMJXI5OvnIC42UIkWtdYlNpD+ch0qyVhqSEA
-	 A6ogPL5ACYRV5nq5C3kunD/vKp2ipUJ8gQ3mGkPzQtNdr3F/a2IKSsoctLAimwRMF
-	 cQO6RcqBATKbIEchAyYTqtypqyZjioM0FwkJQq0CFCXBiecsN8wuPLFqa7PF+M9jg
-	 oNEfTpTj3WxesOIvA44dyLoREHDmGUhFBHf75H0GYKybk7O9qUKJD/cOHyDQYLjpx
-	 hX8b+s7eKPTi0EPK3g==
+	b=aE7MlG2/Bogt89oiYN/shgoUxANjVc4dpNrrycasWQK5t6UhPxswHnZeV4brcfHs
+	 K1GE65ErqLMWkwB9i+K+3z/NU61ZJ5Axo0698y7Ja/Vdx0a1PNCNl+VtDLUhT1Bmg
+	 8+k48Ig480i2kOyDHzMND5EaKvb96t86ARUmQKz4Pu1IBEv1BINBR+E8BPSze5nVj
+	 /ZTvyMvOTGrOZtQEp6Ci903ieQ/SVPckk3R2XFQHLdKxCG6Md+qhKzD+UKfLBrcaX
+	 oiLkwnL1/6/N+K6aA1RbXFVzg13A74Syrg1kJtLq8WDDgfkjKNlsD7Fhz/ctqZpmT
+	 DDQhWs6xCoEahagu7A==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MTRMs-1wpgSG1Lo4-00LA8J; Sun, 10
- May 2026 11:29:40 +0200
-Message-ID: <4c54c010-fc54-4d56-bac4-8489e0db82db@gmx.net>
-Date: Sun, 10 May 2026 11:29:39 +0200
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MDywo-1wVwkx0xsa-000SVc; Sun, 10
+ May 2026 11:37:47 +0200
+Message-ID: <f0d0c779-3ead-4b87-bcd7-27ba222c6581@gmx.net>
+Date: Sun, 10 May 2026 11:37:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/5] arm64: dts: broadcom: bcm2712: add
- raspberrypi,bcm2712-firmware compatible
+Subject: Re: [PATCH v4 2/5] nvmem: Add the Raspberry Pi OTP driver
 To: Gregor Herburger <gregor.herburger@linutronix.de>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -63,7 +62,7 @@ Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-hardening@vger.kernel.org
 References: <20260508-rpi-otp-driver-v4-0-cf8d725d8821@linutronix.de>
- <20260508-rpi-otp-driver-v4-4-cf8d725d8821@linutronix.de>
+ <20260508-rpi-otp-driver-v4-2-cf8d725d8821@linutronix.de>
 Content-Language: en-US
 From: Stefan Wahren <wahrenst@gmx.net>
 Autocrypt: addr=wahrenst@gmx.net; keydata=
@@ -75,18 +74,19 @@ Autocrypt: addr=wahrenst@gmx.net; keydata=
  f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
  V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
  aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
-In-Reply-To: <20260508-rpi-otp-driver-v4-4-cf8d725d8821@linutronix.de>
+In-Reply-To: <20260508-rpi-otp-driver-v4-2-cf8d725d8821@linutronix.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:VXwmDxXv1IMyXZuF8tcpoT9e/fgk1b4+y/cmN3JMXJFfOTaHWc1
- o5VFjtIHHs4mdp1s/KUHnOm9vQhzvBxKzUHgZZ6b56KTPxW70O9RXI6tD/l1hKR7yqXiX2k
- WcIz+kl5KlG+lOcCSFrvVxsqhdn1OGgwR09RHQciOoBFafrdAAGJOvGJuzr9a2APqa84EGC
- xjgNSM0HmqwMmzFlrYsbw==
-UI-OutboundReport: notjunk:1;M01:P0:JxVKJv7Doq8=;B90uW/qHBUT387swqFgXwzuQ4q0 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 m1c1JVmWtx8IT1Q==
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:zrb3EdsripSU3R3bOU3d0kk5ke0wbv+8nTY4QkrV7iWRwltUz/R
+ 1mHvUJ6xjPHM1J50oaLQ+2SmjYTRmrgi0q94lUfvb96j8mNSuWN2FqvJDb5aNrTGynOcU83
+ sWh3yM7gJgxJMamc5McWq2a5vlRDo5xRHcvzzfyxGrY0X71CtIwyibKvTSFr/1vUfUqFgyx
+ qGTqH4fktCyJx6StHebmw==
+UI-OutboundReport: notjunk:1;M01:P0:z5174HW0Bhc=;fpXK2vOM/k5rroQ+4wpjS0hQVr8 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_023006_628754_75410FEC 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20260510_023802_713087_1251C777 
+X-CRM114-Status: UNSURE (   6.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,36 +102,9 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Am 08.05.26 um 16:42 schrieb Gregor Herburger:
-> The Raspberry Pi 5 (BCM2712) firmware exposes additional features such
-> as the additional OTP register region called 'private OTP'.
->
-> Add the raspberrypi,bcm2712-firmware compatible to allow drivers to
-> distinguish this hardware variant while keeping
-> raspberrypi,bcm2835-firmware as a fallback for backward compatibility
-> with existing drivers.
+> Raspberry Pis have OTP registers which can be accessed through the
+> videocore firmware. Add a nvmem driver to support these OTP registers.
 >
 > Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
 Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-> ---
->   arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi | 4 +++-
->   1 file changed, 3 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/ar=
-ch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-> index b7a6bc34ae1a..4aa8ec7601b8 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-> @@ -46,7 +46,9 @@ power_button: power-button {
->  =20
->   	firmware {
->   		firmware: rpi-firmware {
-> -			compatible =3D "raspberrypi,bcm2835-firmware", "simple-mfd";
-> +			compatible =3D "raspberrypi,bcm2712-firmware",
-> +				     "raspberrypi,bcm2835-firmware",
-> +				     "simple-mfd";
->  =20
->   			mboxes =3D <&mailbox>;
->  =20
->
-
 
