@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 396D4CD37B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 12:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA22CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 12:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JhYpQMxe7/IUt3NcTSjan1u/smbkqRPAzD/GARLhqj0=; b=JRZK6ZBBZ7DjRCvibQJehB+nA/
-	73IrDEqRN8HqlFEFVOUx88UUqzQKgCHBbT1eVAQt015oAszXAVDXGYHT+tT40gbh6PSvsbO6vQXDl
-	LzctQ14fxAGk9PgSitLNShF0zn97g/Pc+KA0LzJf8UKrqKqofUbQs9v6EX05OnWfsrmG/Z+yrk2jK
-	pXFOMpCCaOW0cR0BFVky47ScDlradBq4XSxIXSkdd8SC7ErlqgQnaT6NKylaU/wVJ/sw2IHrLlO4p
-	I7G0ykzhfQgqHj+ZAdG0T0aD/4wFjejCvjQOCbh+tq6gaMQmxeHDdbNlYw8xcBxzpVP8JVndey9vB
-	4IzZKPTw==;
+	bh=CcDit2766yGx3WiHTpW3nOgNzjxcblP26K4FyWST/hI=; b=eB1q/+F4TwMLDECNkVWZI4RTm3
+	WgntP+IXn8SnBNzExOH4yQDxI6BQLVEwl6onF5h6Pzyj4CGEHn5+h/pGrqwI2O5doe9gZfvUeAaPw
+	wcH8cYENOqnqFgJg1CdbKxM1VhIsr7/glND03Iz9+9avfUBNHFOPLZ+7ZmTRybDmUVX3eT+dvAZkE
+	XxePwLEKRMKVXB7NTUL7V2WxfGNVcFfztAV57NB0+I7TNVk+gIsO1W/AhtAoRfoR4yLPl6XQwLUuT
+	9a/H9n8NmIHhSkKLnIAzUDH8ptmgcaLy2GriARvNDkN+Qm2sXauyfF7yagfENovJR5WC4NNFYqK/9
+	UCMRyw/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM3Jd-0000000AiGP-0D8z;
-	Sun, 10 May 2026 12:31:25 +0000
+	id 1wM3Jy-0000000AiQ2-2GZt;
+	Sun, 10 May 2026 12:31:46 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM3Jb-0000000AiGC-3Mc2;
-	Sun, 10 May 2026 12:31:23 +0000
+	id 1wM3Jx-0000000AiPY-279L;
+	Sun, 10 May 2026 12:31:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0DD896001A;
-	Sun, 10 May 2026 12:31:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51955C2BCB8;
-	Sun, 10 May 2026 12:31:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F033E6001A;
+	Sun, 10 May 2026 12:31:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E04CBC2BCB8;
+	Sun, 10 May 2026 12:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778416282;
-	bh=3JqIN/a5xnDrsf7uQ/t04AQRZOGabyoAFAk9x9agD58=;
+	s=k20201202; t=1778416304;
+	bh=4sTIU6geCY/ofxbF1Nh9piJovvy17EjyERLoBxmWfXU=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=MnZsboA0jQmaijqnX2BD+hvMlrJcDvxnQQDS/r9gbtq9L0V6otNe32bZ6WXiAjBl3
-	 aKhZSAZglSQAFSPZRmNTI/7CsKpNa/vW0GUwQZSSxgX5zNqKwthOcghfNnZGDyvFfs
-	 pcqtjUOYAD3a3JBSRBc0WzaejDDpIBU2DgafD/VPQsPUgKnuaFhpyjnSV88PTNZVy1
-	 BqVaYN47khWtmCpyaH43ZRIK/rfWHRQCScbn0wHvzO4YXLpYwz5mjuenpxA7ukRS/I
-	 aRTznzwF4TgpHbyDD/T4T9c/LeNSzAQGWUJDOgbfOJFRwbfcVRV097cqwM05W0vHAr
-	 R7W6HiWOe6XCw==
+	b=iwN6jy38FZsJGhyHrd3rGfDNTGiQp/9tOIrvIHRK8/NOPNZLFYqnKAYMudEYwFesC
+	 WqKhjTBM9MsbBOIkj7SQX2vWr4lBjnIlpETIUB65A1Vn8NXeiAYrg2inrHscyzQSMA
+	 fb+PM0HqQitNTnq5uPzNakka+yA5SvHzBOShXVpRW8VhnA1eGnexRF1hqFw4oNoFtG
+	 4/K3BOJhjE4VsfLy122sCWfYm+t37sbw0R0d+F3MtzZEBfZsTjqnIzC0fuAQRpLNAS
+	 8t152qSjsT9S1hw3PtLncacqzc6jfUdyyykxejokl1/hagWZQEbr3JeeUEMCIi6pgf
+	 6H7JbMmt55auQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tero Kristo <kristo@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Siddharth Vadapalli <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux@ew.tq-group.com
-In-Reply-To: <cover.1775559102.git.nora.schiffer@ew.tq-group.com>
-References: <cover.1775559102.git.nora.schiffer@ew.tq-group.com>
-Subject: Re: (subset) [PATCH v4 0/5] J722S SGMII support
-Message-Id: <177841627590.434434.3111204439748668574.b4-ty@kernel.org>
-Date: Sun, 10 May 2026 18:01:15 +0530
+To: SriNavmani A <srinavmani@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Tzu-Hao Wei <twei@axiado.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ openbmc@lists.ozlabs.org
+In-Reply-To: <20260504-axiado-ax3000-add-emmc-phy-driver-support-v3-0-3ab7eb45b0c5@axiado.com>
+References: <20260504-axiado-ax3000-add-emmc-phy-driver-support-v3-0-3ab7eb45b0c5@axiado.com>
+Subject: Re: (subset) [PATCH RESEND v3 0/4] Add eMMC PHY support for Axiado
+ AX3000 SoC
+Message-Id: <177841630053.434434.9292071839258247877.b4-ty@kernel.org>
+Date: Sun, 10 May 2026 18:01:40 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -78,27 +75,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 07 Apr 2026 13:42:32 +0200, Nora Schiffer wrote:
-> The J722S CPSW and SERDES are very similar to the variants found on the
-> AM64, but they additionally support SGMII. Introduce new compatible
-> strings for the J722S to add this support to the drivers.
+On Mon, 04 May 2026 09:38:31 +0800, Tzu-Hao Wei wrote:
+> Axiado AX3000 SoC contains Arasan PHY which provides the interface to the
+> HS200 eMMC controller.
 > 
-> This is a prerequisite for the Single-Pair Ethernet interface of the
-> TQ-Systems MBa67xx baseboard for the TQMa67xx SoM, which will be
-> submitted separately.
+> This series includes:
+> 1. Add bindings for Axiado AX3000 eMMC PHY
+> 2. Add Axiado AX3000 eMMC phy driver
+> 3. Update MAINTAINERS for the new driver
+> 4. Update Axiado AX3000 device tree
 > 
 > [...]
 
 Applied, thanks!
 
-[1/5] dt-bindings: phy: ti: phy-j721e-wiz: Add ti,j722s-wiz-10g compatible
-      commit: 059f1a4c9e3aa44d888c0e7cf4559403eece0438
-[2/5] dt-bindings: phy: ti: phy-gmii-sel: Add ti,j722s-phy-gmii-sel compatible
-      commit: 567b3c62a7eb51db4cb562b416ec220132d524c9
-[3/5] phy: ti: phy-j721e-wiz: add support for J722S SoC family
-      commit: 61849b7afb579630fc45dbeaf5449b42b33cc70e
-[4/5] phy: ti: gmii-sel: add support for J722S SoC family
-      commit: d39cf00e7daea64889dda9abb0b7e6da04a69d04
+[1/4] dt-bindings: phy: axiado,ax3000-emmc-phy: add Axiado eMMC PHY
+      commit: 1a75ecefa4fbedefc1600e43445de4e1e7f03b55
+[2/4] phy: axiado: add Axiado eMMC PHY driver
+      commit: 9e7dfa4bcd4e2c3541c4ee954ea5e66edab94d3f
+[3/4] MAINTAINERS: Add Axiado AX3000 eMMC PHY driver
+      commit: 13ee293a904b7b7b0507aaa8c71f7be7e683800e
 
 Best regards,
 -- 
