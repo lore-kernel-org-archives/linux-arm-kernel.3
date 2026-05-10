@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98661CD37B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 12:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB510CD37B9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 12:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YPElDtV9eg2ObFwq32yfRisczcjIwpWrEjsNQBlqzi0=; b=Q/Hpq62zBg9NqCSpRTO96RVGO5
-	MJVJFZLnj51BFV2nNUqlS60a9PpJuUDM5fsBDQK3wdVnOsdxHBD4hnPvg5DEcxY1DQjt+2Dl9NUj9
-	x9sR92mmI3HWYX7OrggR040sYAhaPh2WADJ4pud+yYbEl0AAibSqkf4ZFPDPM9Uzg9em284/58pAH
-	t70v/+4uWRHTV8TzJlToUf+KgpZqCpcsmtPJPy4Pemazw7EqPgwLtZkrYTNDaMpwTk4G2OZX0Nx+/
-	0Yk/o9fZ+GM/KfhGccIdLTpU2eDccYvoMkyyRhVrUY07BRCI9nPQTajpr1X5B4w7IHTOF/rsw017t
-	PGgH5r5Q==;
+	bh=PnDcLXlbaPre88s1ZNqSGlXUJXg3TERiDNCZdw2MtJ4=; b=ovCkPBIhMwqSzvbLXGI9n4c4B3
+	rA/Dj6JdPcTETMnhOhy+rj1jlX+H8sN00qqwegrlEpCxtEb9zdrh4gDF5ChZaVYXhcXmX/Zrvr/Uj
+	VIBO7sduhF9U5sqEBvxpUBJAtyJtxt9rqQ80r9iUkwB7KLC2BAkq5jSffWchXYBxPDWHf4ts448Ka
+	spxyb4sgcW3oQp8d2SXWy0HFvb4q5vGYWgr67bb1A1G64z+2VWHMjj+ALquGQExGXVzWn8BiKudlr
+	rarrn0OeVzBgt6tkCFMYH7aMOuMNl5pwP7SHtB1C1v+Yw2sQwVFVTvgIRIIrIa+vEU3kdu6Cc+ySg
+	BGyvGnAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM3U1-0000000Ajal-3KJS;
-	Sun, 10 May 2026 12:42:09 +0000
+	id 1wM3U4-0000000Aje7-1XkV;
+	Sun, 10 May 2026 12:42:12 +0000
 Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM3Ty-0000000AjWa-1iGt
+	id 1wM3Tz-0000000AjX3-3T2f
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 12:42:08 +0000
+	Sun, 10 May 2026 12:42:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1778416912; bh=YPElDtV9eg2ObFwq32yfRisczcjIwpWrEjsNQBlqzi0=;
- b=Bd7wwGfnRt2BrSyclITgvIZeGT/nwIUQbL/bxzv2zf8hIUHuux6skQj0D3OCah5ZOLCV6B1dh
- a/oRKY/a7QYlfFSijrtcENofUc/O570tKeQIaQrTneOFhpUVZuw7v+69/Mw1lI0LJiBxx8+WSRY
- aRbtW6KGuNvLgcAnehpM9Ny3jybvj/w4rVp4sb2zTX2ohtHa6uAbK07I45B8wYkHscX/Qs5NEJM
- 4SfFWbI+W2zD2f7ikJ3TSDWqTm15zffRmGo/GqY5eYuwE/obtWC523yRPYLwxMRXrqVBtGDSOGX
- PK4+LFXS4EN5iCs0iuOdX7Wrob91/Y1jRiZCwkwHgZew==
-X-Forward-Email-ID: 6a007cf30d91f03a31a0bb02
+ t=1778416912; bh=PnDcLXlbaPre88s1ZNqSGlXUJXg3TERiDNCZdw2MtJ4=;
+ b=R4ZF45VQbAoc8/Lql/IQhbqKit4T76yJw9VA5yKfsNhfmeoHrjwIL136hECVvH+xA0OKr3TYn
+ 5fkiDG6hrEUWSHsxKYi43k27x9MxzQKXNOqv6sqcimlEGAdvXtd4fNjLH7XEH//TERbFEjBcpIx
+ i6n3TvndqyVQnlwKXdJSr5ZHca8/0KviBUPmmbpxVOqdIQuO5zLxI2d2XSWkW/HuhzNOa5gTv4q
+ lbD44fhgGePiqJhlLLjgnr3jHXJ9+ZL9gZSwynMI46+7zMYW0Vs1/ma4UXTO60NhKD8QU8HbSye
+ JKzU2oJrAIPR+PM/nZ3DSnMbHzSFDcGi1nwv8yJyBrZQ==
+X-Forward-Email-ID: 6a007cf70d91f03a31a0bb1d
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  121.127.44.73
 X-Forward-Email-Version: 2.8.0
@@ -57,7 +57,8 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
 	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
+	Simona Vetter <simona@ffwll.ch>,
+	Lucas Stach <l.stach@pengutronix.de>
 Cc: Liu Ying <victor.liu@nxp.com>,
 	Sandy Huang <hjc@rock-chips.com>,
 	Andy Yan <andy.yan@rock-chips.com>,
@@ -72,19 +73,18 @@ Cc: Liu Ying <victor.liu@nxp.com>,
 	linux-amlogic@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Christopher Obbard <chris.obbard@collabora.com>
-Subject: [PATCH v5 01/21] drm: bridge: dw_hdmi: Disable scrambler feature when not supported
-Date: Sun, 10 May 2026 12:40:45 +0000
-Message-ID: <20260510124111.1226584-2-jonas@kwiboo.se>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 02/21] drm: bridge: dw_hdmi: Only notify connected status on HPD interrupt
+Date: Sun, 10 May 2026 12:40:46 +0000
+Message-ID: <20260510124111.1226584-3-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260510124111.1226584-1-jonas@kwiboo.se>
 References: <20260510124111.1226584-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_054207_690108_5B40728B 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260510_054208_321025_151817B8 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,42 +99,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The scrambler feature can be left enabled when hotplugging from a sink
-and mode that require scrambling to a sink that does not support SCDC or
-scrambling.
+drm_helper_hpd_irq_event() and drm_bridge_hpd_notify() may incorrectly
+be called with a connected status when HPD is high and RX sense is
+changed. This typically happens when the HDMI cable is unplugged,
+shortly before the HPD is changed to low.
 
-Typically a blank screen or 'no signal' message can be observed after
-using a HDMI 2.0 4K@60Hz mode and then hotplugging to a sink that only
-support HDMI 1.4.
+The original intent of commit da09daf88108 ("drm: bridge: dw_hdmi: only
+trigger hotplug event on link change") was to signal hotplug event at
+correct interrupt states.
 
-Fix this by disabling the scrambler feature when SCDC is not supported.
+Based on the commit message the intent was to trigger hotplug event:
+- when HPD goes high (plugin)
+- when both HPD and RX sense has gone low (plugout)
 
-Fixes: 264fce6cc2c1 ("drm/bridge: dw-hdmi: Add SCDC and TMDS Scrambling support")
-Reported-by: Christopher Obbard <chris.obbard@collabora.com>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+However, following interrupt state changes can typically be observed
+when the HDMI cable is unplugged:
+- RX interrupt:  HPD=high RX=low  -> triggers a connected event
+- HPD interrupt: HPD=low  RX=low  -> triggers a disconnected event
+
+Fix this by only notify connected status on the HPD interrupt when HPD
+is going high, not on the RX sense interrupt when RX sense is changed.
+
+After this a connected event should be triggered when HPD=high at HPD
+interrupt, and a disconnected event should be triggered when both
+HPD=low and RX=low at either HPD or RX interrupt.
+
+Fixes: da09daf88108 ("drm: bridge: dw_hdmi: only trigger hotplug event on link change")
+Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
 v5: No change
-v4: No change
-v3: Collect r-b tag
+v4: Collect r-b tag
+v3: Update commit message
 v2: New patch
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-index 41b3a9cfa2f5..d3e6a6562870 100644
+index d3e6a6562870..b7bfc0e9a6b2 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-@@ -2135,6 +2135,8 @@ static void hdmi_av_composer(struct dw_hdmi *hdmi,
- 				    HDMI_MC_SWRSTZ);
- 			drm_scdc_set_scrambling(hdmi->curr_conn, 0);
+@@ -3157,7 +3157,8 @@ static irqreturn_t dw_hdmi_irq(int irq, void *dev_id)
+ 			mutex_unlock(&hdmi->cec_notifier_mutex);
  		}
-+	} else if (hdmi->version >= 0x200a) {
-+		hdmi_writeb(hdmi, 0, HDMI_FC_SCRAMBLER_CTRL);
- 	}
  
- 	/* Set up horizontal active pixel width */
+-		if (phy_stat & HDMI_PHY_HPD)
++		if ((intr_stat & HDMI_IH_PHY_STAT0_HPD) &&
++		    (phy_stat & HDMI_PHY_HPD))
+ 			status = connector_status_connected;
+ 
+ 		if (!(phy_stat & (HDMI_PHY_HPD | HDMI_PHY_RX_SENSE)))
 -- 
 2.54.0
 
