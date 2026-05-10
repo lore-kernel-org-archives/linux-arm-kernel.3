@@ -4,98 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A644CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 05:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E157CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 05:26:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ByD/C9lLdqNb5sEC4Ll4SpfSx43c4fiEK3gBugZ/0MQ=; b=nVVYVcmB447gBIr+1GRaS3pM72
-	F6/qdCYh3xhhst1rhOHsHZEnpsHudKMKz4xUdWlyVPaIbpMGoTmpsfPQU6qOtib+SPTi1/vGXHBqN
-	tf70nJ3uiOjRLmm8smWBm1bkLUEA1EjoaHlB/RoFVVVBFev6sQWSsdVDmqxRG6gj99yaB5pLRtMZ2
-	vEyokdxeI2tH0DcEPlsOg0+ugg5F0K3zSeq6M0DXQtYa6sSXotZ727ahpD/phfE0fQzcX0Yw+4B5T
-	C4oQ0mOkgrgUtGBR2X+zKvT4LaD69ZFO+u3oWgVkUzUX6SsfzQZBRFfhF85ME0QXNkCCu48cld6oV
-	1XDarEOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lkretJLhfB7+l1td9MLSNDIffxT6UR6I0FN9wkg9x/k=; b=IG60aFnoQMBIgUHAwrknD86qY+
+	aTzexw/tCRKIzAwozm2ZonmZN34hQqRXCzro7cp4XqlqueDVTgXujlPA0TPHG8jOFOmLUEJJD3Fra
+	7yTZSY8497jG/30yDuHPZpF3hIyMYk21L0k3t/+WQW9et6DAvsw5xxfpEcpQCs3sJ1hBrcDvgwwcK
+	ibisPmvbfZrcb3WyeU0KKY8kLwpERaoEOueaWKg61G54LN7VpW1LCihmpeXFnd1r/DIEKb+VdAuG9
+	Ho3Rl9e6+5/BMVGdIDi+2mIMMEilorI1Rj4YFUKLBThtiuQvQo9GliNn3EmePCu/xGi/X/hS+Gzxf
+	FHPZ+AKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLwbm-0000000ACmc-3Q3W;
-	Sun, 10 May 2026 05:21:42 +0000
-Received: from mail-dy1-x1343.google.com ([2607:f8b0:4864:20::1343])
+	id 1wLwg1-0000000AD73-2NcS;
+	Sun, 10 May 2026 05:26:07 +0000
+Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wLwbk-0000000ACm9-0QDC
+	id 1wLwfy-0000000AD6Z-2O3L
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 05:21:41 +0000
-Received: by mail-dy1-x1343.google.com with SMTP id 5a478bee46e88-2f3c623322bso5396606eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 22:21:39 -0700 (PDT)
+	Sun, 10 May 2026 05:26:04 +0000
+Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-8eea23d01f7so445338785a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 May 2026 22:26:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778390499; x=1778995299; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ByD/C9lLdqNb5sEC4Ll4SpfSx43c4fiEK3gBugZ/0MQ=;
-        b=aGPAHuR4pvq/Co0/0yr2WdFmupii75hatJ6w79raBXxlbnvjRhVgsAI4Q2FoSX9MGK
-         bqUfdV20hiVTKb50NeKZ4L/D8b6/3sp0SPf5cIB6yMnQRzoDJa4WYFsBD1Gsorojv2nI
-         fvBUDGPlI8zgGDPJ3My6x73f+j225ZojG8ZgXEV0z+grJ22psGX2YUQJsuPpF6s8BBq/
-         vohb7e1XCREaAxf1UsIe+1Ueb549CiozRE+Baj7wftsQiGCbyngoShsW+3+Wfjc03vkN
-         KdVq/hrdis9UF12OtF1PrmXGMgMyMz5EXTM2340GWihZoWt04UvbuJbdOBlIUGJDKbti
-         9SmQ==
+        d=gmail.com; s=20251104; t=1778390760; x=1778995560; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lkretJLhfB7+l1td9MLSNDIffxT6UR6I0FN9wkg9x/k=;
+        b=lLa6OB0b20KeHFCkqIHbBAu5ZG7FArtayKqsT4DcOf2LbENsAc9OtrJNVFJMP2iuyU
+         l5LCdnlqgp0J9OTcpsckedbUwrztyj6xHZl5gE03mUa9jy8DqI/P6KGrnM2KKS4FLxSG
+         tmJ/EcoDeFFvZ2Isu3tXBtnX1QYAKti95LKjPvKEM56ZU9wvsSnoPzPXi9bvTGeBcK/M
+         tR8LrL//dkjTgFkPO7Vp+9yiZ663U8zFVand9r0z9KRdfNOgy4o3EqoTdYknu1L9Zcma
+         hnSU178drlyNGsielm7Ob+bdQMHr7v3q9NIr4gFDctsPnTn3o6Lhp/b5ljIPToV0OP4S
+         vAUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778390499; x=1778995299;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1778390760; x=1778995560;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ByD/C9lLdqNb5sEC4Ll4SpfSx43c4fiEK3gBugZ/0MQ=;
-        b=OVF1WrFqYQqaluzSwvVZasfyAQ5pyHpeTp2qaWXRPVRo6Bl/1TYdjbip4tMI+2nqE8
-         yolvfgHpXJ+djL2uCxwMXmeVZ77WIUxtBQ5PmqivCNXj09y5Arc4YfXr6ZySNeHOe3Wu
-         BMWez5fGnpTa6sP2b1GqOsEf+aiamiFhe1gmOJHcce3mxXWwpnzFGAt3840zMRDW63gL
-         ayg/RyycqQJPSxmj1CkUqAmbFEEHLOLqsdQ2IMpXxZptjBTOmnaCUdkMi2Inb8o60m5J
-         ejpa4X5RR0OkQY1tn9bHh6dsowDI1rYpRl61aKHdIt4ZudNiYlCftcZNONH19Cb9CCvE
-         Fm7A==
-X-Gm-Message-State: AOJu0Yzd0XhQvzrf21B4tmWIfv7X2+v+4K27jvtILfTQzL3mwQssKppZ
-	WCy2uyORDwDLBozYg+3v7jbwjoehRu8gsc0I+gnIqBM5+PzCPv7xWO33UGbGpx/xxn0=
-X-Gm-Gg: Acq92OHU7qR0CaHO7qp+fCTNZGUYGqLJXFDFCTlCsViyQccHQRjxlWEkyyvfgreyJjP
-	3R3JVo96RMiz80cwTSeAKjkOuvENIAAF+dT5ANJd0D1TZQU0+0Zf5VJGJOrc52Mt15Gclm5Rh3D
-	CFPtUj53kHbIV6jI4WEzzM15AmlumA3NlaQSP3iGqz+JH8bayCiFgi4dv4ew6oafcixygmMQZ//
-	AdzV6DnM6Ie/IUKzzqREM0uyNCr/j3zKuFDfa6tkHIcoao+95jaqh2ln9vk56Wjd4WIde6uYh19
-	r6jLf0WVv/CkFC+Pd6jSxtMOVEY6SrFdqmu13HB71oPhqYkUcYsO6fiBrJV+gLZulE3U7fjItAe
-	RM2/7ikM8Z06bCLu0oat+5iXuS0Vuo4rJfdHb4Lv1sBCYhtHtDxZy/sFIoqIVc+VHv9vvpBFGMw
-	ZYk85YfLBM45dKlXK5PvYvHpgdmeOu6RF3wQzCCpH1fZiVZ3yP+nZSrJowVbF08e/YAUzfQd/j+
-	kw71SEHO8I6KucCmvRoHIMlWUPCSsvYNrKCy8jpmz2b6Zdj5sHl0ZeX/Ss7X0xx7K5owBl5Ofhf
-	Q8Xny/hvz2w+/ctcGA==
-X-Received: by 2002:a05:7301:7c12:b0:2d8:df01:d9f7 with SMTP id 5a478bee46e88-2f54b891fd0mr10659278eec.15.1778390498897;
-        Sat, 09 May 2026 22:21:38 -0700 (PDT)
-Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f888c469b6sm8749587eec.24.2026.05.09.22.21.37
+        bh=lkretJLhfB7+l1td9MLSNDIffxT6UR6I0FN9wkg9x/k=;
+        b=tTCfR5VTWoA1NAFTyWjMWyr33qocZD5ZCxYtB1+Ebs1SGxv4zEHoXsaC6krfUpDDIi
+         G44byaiwbq6A50ryNUDBotRXvs5Ih51Up1QkLl9rr5PK94q0kzN/Tk1W6ZSlIA2qz4KF
+         qQC2R+1AY0wsNlRAhcLEyOMFxlpSB/t3WhdFN1JH/pwihZ4Ei1r+JJ5tOjl+RbXrLfo6
+         XwCcfqxkUaSw5aKxYWxpHP80d6ihplgdtqQZvk5cQ/JAAPJ48ism8s8kBf0Szr0bsFHg
+         tO7cctrPF/MMDNdoP9683wnRjk6xRZcc30R3M0xuRaM/BFj5mLCqdf6gmyUDjrvCijG8
+         DHzw==
+X-Forwarded-Encrypted: i=1; AFNElJ8Wudoy8BcSuu8Ge2NoG/PsRLGDWbyLBrzO+brVUHZxQDV5EwvuJjGlKOl0wUk0w0UJlvkaEdE5cr1stiz2JHmW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxF4mr4YsZ4n3RfRSMt3fPXO1k6qYK+A0tnUL32pJklmPz5Toky
+	1JXzdHbwpEu7618zj4qiEFV/AGhrqGgHEJhSFMhsyfwsf4zQQtCc1LJ5
+X-Gm-Gg: Acq92OFRFzqrisLYyTEZMvjcqr+g/9FMQOjVE7AhslNMkIe2/Kl0AmTWwbk84Xz5MKN
+	41sZd5elxndYTBrNJzsp7xgQGYp1F4q5O4hhSPdp1zarBJ57sf2Z2BtXWr6WxqtOdiDmyDyX3UW
+	8Q7Cas95cTDcjxmhHYqeR3NNrCs1S+jr3bOfVzs3uHetGOzHHQnwi8AqmnQImkpa/xtMjZln3VN
+	WHqAL9gaV8pd2mz+1WNVL1NlnCYpEvxRaH5MnAqxYxinEnjwf3GvxgbxpfP6YSlm2zIY6onXlr1
+	qqphw2/DLo7KfZTeox661JBEf8mFX3GYLoocGu8RV+1sxlPlsaKH33PT/VPM3GueedS1bGOF1jI
+	S2fLaZgOrvHA605gpzWAwHxqzstciLyPiX3BxtnZe+xxzffHPMde2Er0GkA4bIDctIi62EB2WS6
+	nlT35VLZM5R1FVafMaxDYgHHzNbK8=
+X-Received: by 2002:a05:620a:28d3:b0:8f0:b0cb:190f with SMTP id af79cd13be357-904d60f695amr2567465085a.39.1778390760497;
+        Sat, 09 May 2026 22:26:00 -0700 (PDT)
+Received: from [172.17.0.2] ([134.128.219.200])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-907b9286f22sm689689085a.13.2026.05.09.22.25.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 May 2026 22:21:38 -0700 (PDT)
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-input@vger.kernel.org,
-	linux-serial@vger.kernel.org
-Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Linus Walleij <linusw@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Weissschuh <thomas.weissschuh@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>
-Subject: [PATCH] ARM: footbridge: convert to sparse IRQs
-Date: Sat,  9 May 2026 22:20:49 -0700
-Message-ID: <20260510052107.555825-1-enelsonmoore@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Sat, 09 May 2026 22:26:00 -0700 (PDT)
+From: Yuanshen Cao <alex.caoys@gmail.com>
+Date: Sun, 10 May 2026 05:25:35 +0000
+Subject: [PATCH] pmdomain: sunxi: support power domain flags for pck600
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260510-pck600-a733-gpu-v1-1-d6393646d714@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MMQqAMAxA0auUzAZiRaVeRRw0Rg2ClhZFKN7d4
+ viG/xNECSoROpMgyK1RzyOjLAzwNh6roM7ZYMk2VJeEnveGCMe2qnD1F848LUzcsjgHufJBFn3
+ +Yz+87wdJjmRzYQAAAA==
+X-Change-ID: 20260510-pck600-a733-gpu-dcbfc0c7ce99
+To: Ulf Hansson <ulfh@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>
+Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Icenowy Zheng <uwu@icenowy.me>, Mikhail Kalashnikov <iuncuim@gmail.com>, 
+ Yuanshen Cao <alex.caoys@gmail.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260509_222140_168090_FB4E1D17 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20260509_222602_715125_DA98533D 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,270 +104,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To improve future maintainability, change the interrupt handling for
-mach-footbridge to use sparse IRQs.
+Hi everyone,
 
-Since the number of possible interrupts is already fixed and relatively
-small, just make it use all legacy interrupts preallocated using the
-.nr_irqs field in the machine descriptor, rather than actually
-allocating domains on the fly.
+This patch refactors the sunxi pck600 power domain implementation to
+support individual power domain flags.
 
-Many files had to be adjusted to include <mach/irqs.h>
-explicitly because it is no longer implicitly included with sparse
-IRQs.
+While bringing up the PowerVR GPU on the A733 (Radxa Cubie A7Z), we
+found that one of the GPU power domains must be configured as "always
+on." While the Radxa BSP device tree leaves the GPU power domain nodes
+commented out, the GPU driver code contains traces indicating an "always
+on" requirement [1].
 
-Description adapted from commit c78a41fc04f0 ("ARM: s3c24xx: convert
-to sparse-irq").
+Currently, sunxi_pck600_desc only supports specifying pd_names. This
+patch introduces sunxi_pck600_pd_desc, which stores both the name and
+its associated flags. This also (more or less) aligns the implementation
+with the existing sun50i PPU handling of always-on domains.
 
-Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+With this change, individual power domains can now be configured more
+granularly. In particular, the GPU_CORE domain in sun60i_a733_pck600_pds
+can now be explicitly marked with GENPD_FLAG_ALWAYS_ON.
+
+The patch was tested on the Radxa Cubie A7Z, where the GPU now functions
+as expected.
+
+Thanks to Icenowy for her support and expertise on sunxi and PowerVR,
+and thanks to Mikhail for identifying this exact cause of the GPU
+bring-up issue.
+
+[1] https://github.com/radxa/allwinner-bsp/blob/cubie-aiot-v1.4.6/modules/gpu/img-bxm/linux/rogue_km/services/system/rogue/rgx_sunxi/sunxi_platform.c#L62
+
+Signed-off-by: Yuanshen Cao <alex.caoys@gmail.com>
 ---
-This commit depends on my previous submission "ARM: <asm/floppy.h>: fix
-build with sparse IRQs".
+ drivers/pmdomain/sunxi/sun55i-pck600.c | 31 ++++++++++++++++++++-----------
+ 1 file changed, 20 insertions(+), 11 deletions(-)
 
- arch/arm/Kconfig                             | 2 +-
- arch/arm/include/asm/irq.h                   | 4 +++-
- arch/arm/mach-footbridge/dc21285-timer.c     | 2 +-
- arch/arm/mach-footbridge/dc21285.c           | 2 +-
- arch/arm/mach-footbridge/ebsa285-pci.c       | 2 +-
- arch/arm/mach-footbridge/ebsa285.c           | 2 ++
- arch/arm/mach-footbridge/include/mach/irqs.h | 4 +---
- arch/arm/mach-footbridge/isa-irq.c           | 2 +-
- arch/arm/mach-footbridge/isa-timer.c         | 2 +-
- arch/arm/mach-footbridge/isa.c               | 2 +-
- arch/arm/mach-footbridge/netwinder-hw.c      | 2 ++
- arch/arm/mach-footbridge/netwinder-pci.c     | 2 +-
- drivers/char/nwbutton.c                      | 2 +-
- drivers/input/serio/i8042-io.h               | 6 +++---
- drivers/tty/serial/21285.c                   | 2 +-
- 15 files changed, 21 insertions(+), 17 deletions(-)
+diff --git a/drivers/pmdomain/sunxi/sun55i-pck600.c b/drivers/pmdomain/sunxi/sun55i-pck600.c
+index 1d47bbd35ced..8a37d11b65a2 100644
+--- a/drivers/pmdomain/sunxi/sun55i-pck600.c
++++ b/drivers/pmdomain/sunxi/sun55i-pck600.c
+@@ -41,8 +41,13 @@
+ 
+ #define PPU_REG_SIZE	0x1000
+ 
++struct sunxi_pck600_pd_desc {
++	const char *name;
++	unsigned int flags;
++};
++
+ struct sunxi_pck600_desc {
+-	const char * const *pd_names;
++	const struct sunxi_pck600_pd_desc *pd_descs;
+ 	unsigned int num_domains;
+ 	u32 logic_power_switch0_delay_offset;
+ 	u32 logic_power_switch1_delay_offset;
+@@ -164,10 +169,12 @@ static int sunxi_pck600_probe(struct platform_device *pdev)
+ 
+ 	for (i = 0; i < desc->num_domains; i++) {
+ 		struct sunxi_pck600_pd *pd = &pck->pds[i];
++		const struct sunxi_pck600_pd_desc *pd_desc = &desc->pd_descs[i];
+ 
+-		pd->genpd.name = desc->pd_names[i];
++		pd->genpd.name = pd_desc->name;
+ 		pd->genpd.power_off = sunxi_pck600_power_off;
+ 		pd->genpd.power_on = sunxi_pck600_power_on;
++		pd->genpd.flags = pd_desc->flags;
+ 		pd->base = base + PPU_REG_SIZE * i;
+ 
+ 		sunxi_pck600_pd_setup(pd, desc);
+@@ -195,13 +202,14 @@ static int sunxi_pck600_probe(struct platform_device *pdev)
+ 	return ret;
+ }
+ 
+-static const char * const sun55i_a523_pck600_pd_names[] = {
+-	"VE", "GPU", "VI", "VO0", "VO1", "DE", "NAND", "PCIE"
++static const struct sunxi_pck600_pd_desc sun55i_a523_pck600_pds[] = {
++	{ "VE", }, { "GPU", }, { "VI", }, { "VO0", }, { "VO1", },
++	{ "DE", }, { "NAND", }, { "PCIE", },
+ };
+ 
+ static const struct sunxi_pck600_desc sun55i_a523_pck600_desc = {
+-	.pd_names = sun55i_a523_pck600_pd_names,
+-	.num_domains = ARRAY_SIZE(sun55i_a523_pck600_pd_names),
++	.pd_descs = sun55i_a523_pck600_pds,
++	.num_domains = ARRAY_SIZE(sun55i_a523_pck600_pds),
+ 	.logic_power_switch0_delay_offset = 0xc00,
+ 	.logic_power_switch1_delay_offset = 0xc04,
+ 	.off2on_delay_offset = 0xc10,
+@@ -213,14 +221,15 @@ static const struct sunxi_pck600_desc sun55i_a523_pck600_desc = {
+ 	.has_rst_clk = true,
+ };
+ 
+-static const char * const sun60i_a733_pck600_pd_names[] = {
+-	"VI", "DE_SYS", "VE_DEC", "VE_ENC", "NPU",
+-	"GPU_TOP", "GPU_CORE", "PCIE", "USB2", "VO", "VO1"
++static const struct sunxi_pck600_pd_desc sun60i_a733_pck600_pds[] = {
++	{ "VI", }, { "DE_SYS", }, { "VE_DEC", }, { "VE_ENC", }, { "NPU", },
++	{ "GPU_TOP", }, { "GPU_CORE", GENPD_FLAG_ALWAYS_ON },
++	{ "PCIE", }, { "USB2", }, { "VO", }, { "VO1", },
+ };
+ 
+ static const struct sunxi_pck600_desc sun60i_a733_pck600_desc = {
+-	.pd_names = sun60i_a733_pck600_pd_names,
+-	.num_domains = ARRAY_SIZE(sun60i_a733_pck600_pd_names),
++	.pd_descs = sun60i_a733_pck600_pds,
++	.num_domains = ARRAY_SIZE(sun60i_a733_pck600_pds),
+ 	.logic_power_switch0_delay_offset = 0xc00,
+ 	.logic_power_switch1_delay_offset = 0xc04,
+ 	.off2on_delay_offset = 0xc10,
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 09b2767fee0f..1155c78bb6aa 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -153,7 +153,7 @@ config ARM
- 	select PCI_SYSCALL if PCI
- 	select PERF_USE_VMALLOC
- 	select RTC_LIB
--	select SPARSE_IRQ if !ARCH_FOOTBRIDGE
-+	select SPARSE_IRQ
- 	select SYS_SUPPORTS_APM_EMULATION
- 	select THREAD_INFO_IN_TASK
- 	select TIMER_OF if OF
-diff --git a/arch/arm/include/asm/irq.h b/arch/arm/include/asm/irq.h
-index 26c1d2ced4ce..08589b88c3b9 100644
---- a/arch/arm/include/asm/irq.h
-+++ b/arch/arm/include/asm/irq.h
-@@ -10,7 +10,9 @@
- #define NR_IRQS NR_IRQS_LEGACY
- #endif
- 
--#ifndef irq_canonicalize
-+#ifdef CONFIG_ARCH_FOOTBRIDGE
-+#define irq_canonicalize(i)	(((i) == 2) ? 9 : i)
-+#else
- #define irq_canonicalize(i)	(i)
- #endif
- 
-diff --git a/arch/arm/mach-footbridge/dc21285-timer.c b/arch/arm/mach-footbridge/dc21285-timer.c
-index 2908c9ef3c9b..7d7ad1c1ef3f 100644
---- a/arch/arm/mach-footbridge/dc21285-timer.c
-+++ b/arch/arm/mach-footbridge/dc21285-timer.c
-@@ -12,7 +12,7 @@
- #include <linux/irq.h>
- #include <linux/sched_clock.h>
- 
--#include <asm/irq.h>
-+#include <mach/irqs.h>
- 
- #include <asm/hardware/dec21285.h>
- #include <asm/mach/time.h>
-diff --git a/arch/arm/mach-footbridge/dc21285.c b/arch/arm/mach-footbridge/dc21285.c
-index e1b336624883..ffdecfadc9e2 100644
---- a/arch/arm/mach-footbridge/dc21285.c
-+++ b/arch/arm/mach-footbridge/dc21285.c
-@@ -17,7 +17,7 @@
- #include <linux/io.h>
- #include <linux/spinlock.h>
- 
--#include <asm/irq.h>
-+#include <mach/irqs.h>
- #include <asm/mach/pci.h>
- #include <asm/hardware/dec21285.h>
- 
-diff --git a/arch/arm/mach-footbridge/ebsa285-pci.c b/arch/arm/mach-footbridge/ebsa285-pci.c
-index c3f280d08fa7..d2168660dd01 100644
---- a/arch/arm/mach-footbridge/ebsa285-pci.c
-+++ b/arch/arm/mach-footbridge/ebsa285-pci.c
-@@ -10,7 +10,7 @@
- #include <linux/pci.h>
- #include <linux/init.h>
- 
--#include <asm/irq.h>
-+#include <mach/irqs.h>
- #include <asm/mach/pci.h>
- #include <asm/mach-types.h>
- 
-diff --git a/arch/arm/mach-footbridge/ebsa285.c b/arch/arm/mach-footbridge/ebsa285.c
-index 1cb7d674bc81..a820f7467468 100644
---- a/arch/arm/mach-footbridge/ebsa285.c
-+++ b/arch/arm/mach-footbridge/ebsa285.c
-@@ -10,6 +10,7 @@
- #include <linux/slab.h>
- #include <linux/leds.h>
- 
-+#include <mach/irqs.h>
- #include <asm/hardware/dec21285.h>
- #include <asm/mach-types.h>
- 
-@@ -117,6 +118,7 @@ MACHINE_START(EBSA285, "EBSA285")
- 	.video_end	= 0x000bffff,
- 	.map_io		= footbridge_map_io,
- 	.init_early	= footbridge_sched_clock,
-+	.nr_irqs	= FOOTBRIDGE_NR_IRQS,
- 	.init_irq	= footbridge_init_irq,
- 	.init_time	= footbridge_timer_init,
- 	.restart	= footbridge_restart,
-diff --git a/arch/arm/mach-footbridge/include/mach/irqs.h b/arch/arm/mach-footbridge/include/mach/irqs.h
-index a5f41846ab9c..10f1fbc24012 100644
---- a/arch/arm/mach-footbridge/include/mach/irqs.h
-+++ b/arch/arm/mach-footbridge/include/mach/irqs.h
-@@ -11,7 +11,7 @@
-  */
- #include <asm/mach-types.h>
- 
--#define NR_IRQS			36
-+#define FOOTBRIDGE_NR_IRQS	36
- #define NR_DC21285_IRQS		16
- 
- #define _ISA_IRQ(x)		(0 + (x))
-@@ -93,5 +93,3 @@
- #define I8042_KBD_IRQ	IRQ_ISA_KEYBOARD
- #define I8042_AUX_IRQ	(machine_is_netwinder() ? IRQ_NETWINDER_PS2MOUSE : IRQ_ISA_PS2MOUSE)
- #define IRQ_FLOPPYDISK	IRQ_ISA_FLOPPY
--
--#define irq_canonicalize(_i)	(((_i) == IRQ_ISA_CASCADE) ? IRQ_ISA_2 : _i)
-diff --git a/arch/arm/mach-footbridge/isa-irq.c b/arch/arm/mach-footbridge/isa-irq.c
-index 842ddb4121ef..e4e71bdf1dc7 100644
---- a/arch/arm/mach-footbridge/isa-irq.c
-+++ b/arch/arm/mach-footbridge/isa-irq.c
-@@ -21,8 +21,8 @@
- #include <asm/mach/irq.h>
- 
- #include <mach/hardware.h>
-+#include <mach/irqs.h>
- #include <asm/hardware/dec21285.h>
--#include <asm/irq.h>
- #include <asm/mach-types.h>
- 
- #include "common.h"
-diff --git a/arch/arm/mach-footbridge/isa-timer.c b/arch/arm/mach-footbridge/isa-timer.c
-index 723e3eae995d..07dee61b0b03 100644
---- a/arch/arm/mach-footbridge/isa-timer.c
-+++ b/arch/arm/mach-footbridge/isa-timer.c
-@@ -13,7 +13,7 @@
- #include <linux/spinlock.h>
- #include <linux/timex.h>
- 
--#include <asm/irq.h>
-+#include <mach/irqs.h>
- #include <asm/mach/time.h>
- 
- #include "common.h"
-diff --git a/arch/arm/mach-footbridge/isa.c b/arch/arm/mach-footbridge/isa.c
-index 84caccddce44..1e7b0f5fb111 100644
---- a/arch/arm/mach-footbridge/isa.c
-+++ b/arch/arm/mach-footbridge/isa.c
-@@ -7,7 +7,7 @@
- #include <linux/init.h>
- #include <linux/serial_8250.h>
- 
--#include <asm/irq.h>
-+#include <mach/irqs.h>
- #include <asm/hardware/dec21285.h>
- 
- #include "common.h"
-diff --git a/arch/arm/mach-footbridge/netwinder-hw.c b/arch/arm/mach-footbridge/netwinder-hw.c
-index c024eefd4978..ab17ba916d47 100644
---- a/arch/arm/mach-footbridge/netwinder-hw.c
-+++ b/arch/arm/mach-footbridge/netwinder-hw.c
-@@ -16,6 +16,7 @@
- #include <linux/slab.h>
- #include <linux/leds.h>
- 
-+#include <mach/irqs.h>
- #include <asm/hardware/dec21285.h>
- #include <asm/mach-types.h>
- #include <asm/setup.h>
-@@ -766,6 +767,7 @@ MACHINE_START(NETWINDER, "Rebel-NetWinder")
- 	.reserve_lp2	= 1,
- 	.fixup		= fixup_netwinder,
- 	.map_io		= footbridge_map_io,
-+	.nr_irqs	= FOOTBRIDGE_NR_IRQS,
- 	.init_irq	= footbridge_init_irq,
- 	.init_time	= isa_timer_init,
- 	.restart	= netwinder_restart,
-diff --git a/arch/arm/mach-footbridge/netwinder-pci.c b/arch/arm/mach-footbridge/netwinder-pci.c
-index e8304392074b..bfd5c0606c71 100644
---- a/arch/arm/mach-footbridge/netwinder-pci.c
-+++ b/arch/arm/mach-footbridge/netwinder-pci.c
-@@ -10,7 +10,7 @@
- #include <linux/pci.h>
- #include <linux/init.h>
- 
--#include <asm/irq.h>
-+#include <mach/irqs.h>
- #include <asm/mach/pci.h>
- #include <asm/mach-types.h>
- 
-diff --git a/drivers/char/nwbutton.c b/drivers/char/nwbutton.c
-index 92cee5717237..99819b184aac 100644
---- a/drivers/char/nwbutton.c
-+++ b/drivers/char/nwbutton.c
-@@ -18,7 +18,7 @@
- #include <linux/init.h>
- 
- #include <linux/uaccess.h>
--#include <asm/irq.h>
-+#include <mach/irqs.h>
- #include <asm/mach-types.h>
- 
- #define __NWBUTTON_C		/* Tell the header file who we are */
-diff --git a/drivers/input/serio/i8042-io.h b/drivers/input/serio/i8042-io.h
-index a8f4b2d70e59..cea72bd888af 100644
---- a/drivers/input/serio/i8042-io.h
-+++ b/drivers/input/serio/i8042-io.h
-@@ -15,9 +15,9 @@
-  * IRQs.
-  */
- 
--#if defined(__arm__)
--/* defined in include/asm-arm/arch-xxx/irqs.h */
--#include <asm/irq.h>
-+#ifdef CONFIG_ARCH_FOOTBRIDGE
-+/* defined in arch/arm/mach-footbridge/include/mach/irqs.h */
-+#include <mach/irqs.h>
- #elif defined(CONFIG_PPC)
- extern int of_i8042_kbd_irq;
- extern int of_i8042_aux_irq;
-diff --git a/drivers/tty/serial/21285.c b/drivers/tty/serial/21285.c
-index 4de0c975ebdc..f0c63875912e 100644
---- a/drivers/tty/serial/21285.c
-+++ b/drivers/tty/serial/21285.c
-@@ -15,11 +15,11 @@
- #include <linux/serial.h>
- #include <linux/io.h>
- 
--#include <asm/irq.h>
- #include <asm/mach-types.h>
- #include <asm/system_info.h>
- #include <asm/hardware/dec21285.h>
- #include <mach/hardware.h>
-+#include <mach/irqs.h>
- 
- #define BAUD_BASE		(mem_fclk_21285/64)
- 
+---
+base-commit: 1bfaee9d3351b9b32a99766bbfb1f5baed60ddef
+change-id: 20260510-pck600-a733-gpu-dcbfc0c7ce99
+
+Best regards,
 -- 
-2.43.0
+Yuanshen Cao <alex.caoys@gmail.com>
 
 
