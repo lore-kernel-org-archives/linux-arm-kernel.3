@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5040CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 18:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA130CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 18:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tWZ1i/q7CLgAfivuQtexjnsHVV4DZ1Xla4Z36a9NDCo=; b=hBT7QCsgQygXjfRrXA8Rkxe9qw
-	NMfpWSzzSlNpZrn87hlKwMAGUXMB3yPvLZbMAXczkL/I1bJly957FS3yrCn+C/M8VX3Dg86yP/iU6
-	e5pkGxj9s10jsL3iMmi1rqyUUJkh9r7j69hkwHD7mnoGpQrHO53vND2VPMrj57ugLOBwvazZ1UJGC
-	0YcjculEe6IhFhOpsQ2tLtY9fj2MIUbAmnX3BfsXM77bpiW0262tKBvV2nEHXStIjFGph+iVdplH8
-	XArRET4ZXxrge0X5I35E/8TRKnysZQ3/AuV/+bD5RG5vaKQe5LRQ+Za+x3gzxRgKZeLUGT2rMUkXg
-	7S90zglg==;
+	bh=dNPaQCnAPaiK+mPtt3ofIMa62zudp1cWsYh8OqqpZUE=; b=tikMscqgrhygf39C12Vp4uWSYp
+	uH+Oad1YtPycBahxUtnmMZnaiFQzA0NvVaii209TBT/ljYINBGpukDAaIz9VQ9nNuUqmfk9t7j1QU
+	xFiJ7FUL7xl4t2mpIX1uGi7Ni7qqO3U6oJJ2oXMs7ou6cf6Tkcrw7HHpY926uDksowDa5ugf0kMft
+	Bno3lkCpK315Bz5X0Lp0DVrNwFhhwG+YtXOTh/9tojPGEtptRhIi3HkRiKVprpHaBX4PksJg1ZM4o
+	Whiidka/wXZfRC1up1KUfTiRo7bCwQhoiakhL+XvW2CB4OB1UIKAlFVGXNQrg6NWKhN+Wj3Z/ufE4
+	WvaGvm0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM8x1-0000000BMrp-0eL8;
-	Sun, 10 May 2026 18:32:27 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1wM8xr-0000000BNSC-3Qs5;
+	Sun, 10 May 2026 18:33:19 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM8wx-0000000BMhR-3MX1
+	id 1wM8xp-0000000BNQV-1rrj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 18:32:25 +0000
+	Sun, 10 May 2026 18:33:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1778437926; bh=tWZ1i/q7CLgAfivuQtexjnsHVV4DZ1Xla4Z36a9NDCo=;
- b=d85J8gg65p0VN8cfnJvnhuktmcI1HlYmh4RC9pw8ikHhcunMiYnIgwfi3jJbJ6PvKPtZgoFHD
- nkgZmVvDmWzSp0AGMe8osTUPmJ9aWqf4YcXs+9JvlZ38dPGU19UATiuHpI0309rLGkws3fhYm+V
- nVwwpyUEpSB9L0Xd4f4LOCX+MkEKeaRusEqV+orYvVdf4ZRdHmJ4ErfhPS3QEM+2UAxm1hA8h6F
- pA3wh2HIa3bityJ97+ggHFB1cUrBh5B9kBafAMNxXMsgZ9KNhLzPk0qWJ62qXgEPVooTJ/7tEQv
- 5OzK9f48OItpEUepAqv770tN6bcICf4A2XBasaKfE7/w==
-X-Forward-Email-ID: 6a00cf1b61db3ab145b0f2fe
+ t=1778437996; bh=dNPaQCnAPaiK+mPtt3ofIMa62zudp1cWsYh8OqqpZUE=;
+ b=dvA4VqNRwVXy9/oTyNfquHsi3B8ZjRkor3ZyN/DcVnOdtpz8zNKkc27iiWUnhl5jN0yEjbUBo
+ HJkI8crn2Mr89VPlrcys8GsiNJTV4s7wuVjbvq4SPYam5GOQnwIPevDDz+4zxgnZMWMTFcmdSJj
+ pk3aGpGWXnwhq0zYJmAkYBTFj43pGiwtdWlgdch8cohg2pCjO5c0pwz7PSE6xNl4tcHFS+mAckF
+ EnuY6CdqN0/H3U/49zW+dTbMwq3GAbvPI/CRdUuvnlRnwSbTJ443CzY45x15IB9scIoy8C3CS50
+ TCfPsE5dNo0adwMjGIRoo3OMq+DM7+UODH3CJ5tDbyzA==
+X-Forward-Email-ID: 6a00cf1361db3ab145b0f2c8
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
+ 149.28.215.223
 X-Forward-Email-Version: 2.8.0
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -58,17 +58,18 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 09/10] drm/rockchip: dw_hdmi: Configure HDMI PHY in atomic_mode_set()
-Date: Sun, 10 May 2026 18:31:10 +0000
-Message-ID: <20260510183114.1248840-10-jonas@kwiboo.se>
+Subject: [PATCH 07/10] drm/rockchip: dw_hdmi: Clean up whitespace
+Date: Sun, 10 May 2026 18:31:08 +0000
+Message-ID: <20260510183114.1248840-8-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260510183114.1248840-1-jonas@kwiboo.se>
 References: <20260510183114.1248840-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_113224_246429_9B8FE216 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20260510_113317_489359_BA3D8B7F 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,75 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HDMI helpers negotiated TMDS character rate and output bpc are
-available from the connector state. Change the encoder helper from
-mode_set() to atomic_mode_set() so these values can be used to configure
-the HDMI PHY using phy_configure().
-
-This has no impact until the dw-hdmi bridge is fully converted into a
-HDMI bridge and HDMI helpers are used to assign hdmi.tmds_char_rate.
+Move the blank line before the RK3328 definitions for readability and
+make the phy_config table spacing consistent with other tables.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 29 +++++++++++++++++----
- 1 file changed, 24 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-index 9d3bb6cd5670..94a30579a736 100644
+index 6aefdba0f1f9..a55a89040590 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-@@ -226,11 +226,22 @@ dw_hdmi_rockchip_mode_valid(struct dw_hdmi *dw_hdmi, void *data,
- 	return MODE_OK;
- }
+@@ -31,8 +31,8 @@
  
--static void dw_hdmi_rockchip_encoder_mode_set(struct drm_encoder *encoder,
--					      struct drm_display_mode *mode,
--					      struct drm_display_mode *adj_mode)
-+static void
-+dw_hdmi_rockchip_encoder_atomic_mode_set(struct drm_encoder *encoder,
-+					 struct drm_crtc_state *crtc_state,
-+					 struct drm_connector_state *conn_state)
- {
- 	struct rockchip_hdmi *hdmi = to_rockchip_hdmi(encoder);
-+	struct drm_display_mode *adj_mode = &crtc_state->adjusted_mode;
-+
-+	if (hdmi->phy && conn_state->hdmi.tmds_char_rate) {
-+		union phy_configure_opts opts = {};
-+
-+		opts.hdmi.bpc = conn_state->hdmi.output_bpc;
-+		opts.hdmi.tmds_char_rate = conn_state->hdmi.tmds_char_rate;
-+
-+		phy_configure(hdmi->phy, &opts);
-+	}
+ #define RK3288_GRF_SOC_CON6		0x025C
+ #define RK3288_HDMI_LCDC_SEL		BIT(4)
+-#define RK3328_GRF_SOC_CON2		0x0408
  
- 	clk_set_rate(hdmi->ref_clk, adj_mode->clock * 1000);
- }
-@@ -270,15 +281,23 @@ dw_hdmi_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
- 				      struct drm_connector_state *conn_state)
- {
- 	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
-+	struct rockchip_hdmi *hdmi = to_rockchip_hdmi(encoder);
-+	union phy_configure_opts opts = {};
++#define RK3328_GRF_SOC_CON2		0x0408
+ #define RK3328_HDMI_SDAIN_MSK		BIT(11)
+ #define RK3328_HDMI_SCLIN_MSK		BIT(10)
+ #define RK3328_HDMI_HPD_IOE		BIT(2)
+@@ -190,11 +190,11 @@ static const struct dw_hdmi_curr_ctrl rockchip_cur_ctr[] = {
  
- 	s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
- 	s->output_type = DRM_MODE_CONNECTOR_HDMIA;
- 
--	return 0;
-+	if (!hdmi->phy || !conn_state->hdmi.tmds_char_rate)
-+		return 0;
-+
-+	opts.hdmi.bpc = conn_state->hdmi.output_bpc;
-+	opts.hdmi.tmds_char_rate = conn_state->hdmi.tmds_char_rate;
-+
-+	return phy_validate(hdmi->phy, PHY_MODE_HDMI, PHY_HDMI_MODE_TMDS, &opts);
- }
- 
- static const struct drm_encoder_helper_funcs dw_hdmi_rockchip_encoder_helper_funcs = {
--	.mode_set = dw_hdmi_rockchip_encoder_mode_set,
-+	.atomic_mode_set = dw_hdmi_rockchip_encoder_atomic_mode_set,
- 	.enable = dw_hdmi_rockchip_encoder_enable,
- 	.atomic_check = dw_hdmi_rockchip_encoder_atomic_check,
+ static const struct dw_hdmi_phy_config rockchip_phy_config[] = {
+ 	/*pixelclk   symbol   term   vlev*/
+-	{ 74250000,  0x8009, 0x0004, 0x0272},
+-	{ 165000000, 0x802b, 0x0004, 0x0209},
+-	{ 297000000, 0x8039, 0x0005, 0x028d},
+-	{ 594000000, 0x8039, 0x0000, 0x019d},
+-	{ ~0UL,	     0x0000, 0x0000, 0x0000}
++	{ 74250000,  0x8009, 0x0004, 0x0272 },
++	{ 165000000, 0x802b, 0x0004, 0x0209 },
++	{ 297000000, 0x8039, 0x0005, 0x028d },
++	{ 594000000, 0x8039, 0x0000, 0x019d },
++	{ ~0UL,	     0x0000, 0x0000, 0x0000 },
  };
+ 
+ static enum drm_mode_status
 -- 
 2.54.0
 
