@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F04CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 19:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878B6CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 19:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=us7YZwfeL54L7NHWNrpZhRJPUQQv0/hJAz/QtqFzTn4=; b=hufTHuoS05mD4DluEUxvG7mvR3
-	wDhttO3L66JW1Wb/r+SxcZHZ8myi3oxE//vNzwNlOjZsYf0+x+TyWUCkq7Eg66HGrJevHGsGhS0l2
-	LE3L4ZuQhJ2UFyl4R8zvoki19ViJiqYIjDDQshEG4r1BGMpj8k3UYAGYLVeKQkOqi9lEKuHvpIuLI
-	k1IO4mCjYkfefEvRfygkxyx2IWSpSzl3VnQI+XBkqLbbL/SMq3poSJCXhbKHiJkRcdLlarw2RMKKQ
-	pByOmw0uL7qICy0DViLe5g6dW3+kr+HcMLl/jHzhuu+hbhEEe7eu4ahzqmycdGVnsPdNmPzYDMy+A
-	Vl32qRMA==;
+	bh=xEQaWJh+9RNjFjr+WddCWW9fRUv90ZcJVBqGUtK51X8=; b=WM3WBpuJHHt3SJvg5tNbyeIWRe
+	qdHC9a9avbLYr5YQT41ImyMzA4N4dAwPEJp90uWeVTC5KAvIwd284pxCU7DHEEWY3Q/j/dzyinaxn
+	q4nrY0QTjV5Jrrb+te8BzyhsAMjZxPSIrbGhyPfH4UCiaAQBUQwXqiCGkUZXyK1AnHddAK/d3RrCD
+	v+N95hGZ7bjyFlOPr2Z+mKAyVlRoPNc26OhLbivdDp53OU57J75FFrtivO+6o337vwDw3e6UFY8uk
+	SzBB4vbP6tAI52RBp2JGGfrbA7smXoSuvoeXN/nko8M2BHPdcojTA593eunwkf5vSKBQEbheL5Ki9
+	NaNBmXWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM9kd-0000000BTxH-1TPi;
-	Sun, 10 May 2026 19:23:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wM9sl-0000000BV06-0YJJ;
+	Sun, 10 May 2026 19:32:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM9kc-0000000BTx1-3qoS
+	id 1wM9sj-0000000BUzq-43uW
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 May 2026 19:23:42 +0000
+	Sun, 10 May 2026 19:32:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 084A9600CB;
-	Sun, 10 May 2026 19:23:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B507C2BCB8;
-	Sun, 10 May 2026 19:23:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 85B6C6001A;
+	Sun, 10 May 2026 19:32:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E672C2BCB8;
+	Sun, 10 May 2026 19:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778441021;
-	bh=VtKlCWi/WZCp9eF70ML2HPisQEkB7bfjW/9MYJQ6q9w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cKSfM7WNNhAXCJYptyUa1uL9pzlwb+HjyhNFI0Yvfe+p+oNuZedvLCdtySeR5AFie
-	 tiZMFWCVgbIt0nFyNZU98gEfgpBtbtiBKXkYF6XUTV+S9kNYzO+8zWGQpcFh0/raNv
-	 DZ1DDxMwpKooQS9220xFKHn8fks85dZ+8e6fQWwesNM+tJE9KF2azWM6711Hadt25b
-	 +xuIZlL9UGTYBBLsrbOWunfSozeIkFYM8M2d6SqKLyuD3JwP/nlx78aQQRzsJYmFk7
-	 mRcS10Q/sc1Gk+80nle1p8GKvk/5EelyMXsewXHVu2NWX0wbUQ/DQemcicpH7vGYoY
-	 iAcISIv5dCTNA==
-Date: Sun, 10 May 2026 20:23:37 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Jack Matthews <jack@jackmatthe.ws>, Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: Regression in split ARM MMIO timer driver
-Message-ID: <20260510-augmented-kakapo-of-wholeness-748b38@sudeepholla>
-References: <46A20F89-E208-4091-8B6E-B5C38BF82B42@jackmatthe.ws>
- <20260509-ruddy-dragonfly-of-poetry-45e9f1@sudeepholla>
- <87wlxca2jb.wl-maz@kernel.org>
+	s=k20201202; t=1778441524;
+	bh=oosQGewjKOseq/Zf5kpRlYqAjqUau3hSHYi43sFgkAA=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=JyADTMisvVNX5qwlsV0UQO/IiW9peVSs44lX9szf4Nkxsa6mNgJqBu2InpqVUUWhu
+	 nqJYbyzOlwlSYlqs6SmxsJdsNVaO9vZpzb44YMH5RV8UXIB0cCpd1EeMsvue1KLoIV
+	 b7O2/4EQSSJCvAHEX3k6kj+tUXoTMsCpB94Mko8Gs6E1+xC9rsbiJWewU6zAqpywFy
+	 gJ7zuRiwaLPPe+iCtoE8UJsllLPSrpXvMLOqJi+XDO1fJySNyjdbCNW8S1+O6WPcxL
+	 6IpObWWpKyHqZ399vvy+59K3d/NxrxQia8vhz/3TUbCD5To2e+T5ixm7gE1tjl8Buo
+	 HIfAELBrUFThQ==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>, Will Deacon <will@kernel.org>, Robin
+ Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, Andrew
+ Morton <akpm@linux-foundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, Sebastian
+ Andrzej Siewior <bigeasy@linutronix.de>
+Subject: Re: [PATCH 1/2] [RFC] debugobjects: avoid gcc-16.0.1 section mismatch
+In-Reply-To: <20260203162406.2215716-1-arnd@kernel.org>
+References: <20260203162406.2215716-1-arnd@kernel.org>
+Date: Sun, 10 May 2026 21:31:59 +0200
+Message-ID: <874ikf9i34.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87wlxca2jb.wl-maz@kernel.org>
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,45 +70,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 09, 2026 at 06:58:00PM +0100, Marc Zyngier wrote:
-> On Sat, 09 May 2026 13:19:56 +0100,
-> Sudeep Holla <sudeep.holla@kernel.org> wrote:
-> > 
-> > On Fri, May 08, 2026 at 03:48:14PM -0400, Jack Matthews wrote:
-> > > Hello,
-> > >
-> > > I am working on mainlining an old chip, Qualcomm's MDM9625 modem.
-> > > I had previously booted 6.17-rc3 before putting this project to the side,
-> > > but when I restarted work on 7.0 I was unable to boot. 
-> > > I have bisected this to commit 0f67b56d84b4c49adfd61f19f81f84ec613ab51a
-> > > (https://lore.kernel.org/all/20250814154622.10193-4-maz@kernel.org/) and
-> > > reverting this commit makes the device boot successfully. Unfortunately I do
-> > > not have access to low level debugging such as UART so I have not been able
-> > > to pinpoint exactly what is missing.
-> > > My changes for this chip are all available here in case it is an issue of my
-> > > own doing: https://github.com/jackmthws/linux/commits/mdm9625-latest/.
-> > 
-> > Looking briefly into the DTS file, I couldn't find the sysreg based
-> > arch timer node in the DT. It could be just an overlook unless there
-> > is some issue with it that it's not added. After the above mentioned
-> > commit, the MMIO timer gets initialised bit late in the boot and
-> > could be the reason for boot failure. Unless you have intentionally
-> > not added it, I would suggest to add it and try.
-> 
-> Ah, that's a good point. Not having per-CPU timers is not going to
-> fly, I'm afraid. The MMIO timer will kick in very late, and we
-> probably need to schedule threads way before that.
-> 
-> This looks to be a single Cortex-A5 however, not an A5MP, meaning it
-> does not have the TWD, and relies on a global timer, which is a
-> terrible thing to have. Not to mention that MMIO accesses on the
-> counter is going to be even worse.
-> 
+On Tue, Feb 03 2026 at 17:23, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> gcc-16 has gained some more advanced inlining techniques that enable
+> it to inline the is_static_object() function pointer into a specialized
+> version of lookup_object_or_alloc:
+>
+> WARNING: modpost: vmlinux: section mismatch in reference: lookup_object_or_alloc.part.0+0x1ac (section: .text) -> is_static_object (section: .init.text)
+>
+> From what I can tell, the transformation is correct, as this
+> is only called when lookup_object_or_alloc() is called from
+> debug_objects_selftest(), which is also __init.
 
-Ah, my bad I misread it as Cortex-A15 and not Cortex-A5, so assumed
-missing sysreg based per-cpu arch timers.
+So clearly the compiler is buggy. It creates an __init specific copy of
+lookup_object_or_alloc() and then fails to attribute it correctly.
 
--- 
-Regards,
-Sudeep
+> I have not come up with a good workaround, so this simply marks
+> is_static_object() as not __init. Since there are currently only two
+> files where this happens, that may be an easy way out.
+
+That's a horrible hack and while it's only two files today, this sounds
+like the start of a whack a mole game.
+
+Aside of that five weeks down the road some clever AI bot creates a
+patch which marks the function __init again (rightfully so).
+
+> If anyone has a better idea for how to deal with that, let me know!
+
+Mark the compiler broken and wait until GCC people get their act
+together.
+
+Thanks,
+
+        tglx
 
