@@ -4,62 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF16CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 22:11:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 366DFCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 22:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Date:To:From:Subject:Message-ID:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=77Zg783VrPv87K9sXBqm8YiYCgmGnFlFS5aCfEu+93k=; b=tzOaJdAag3SixqnAYvaKEX1jU4
-	mbKETA/CNt9iB7RLIM/MiPJCLyZi40cXWhfe/C+/+BpeebovSy3msM43CNWS2DkzbUxnWNdGSzoJi
-	hw7sqLy2YngjgnE1UpXF+GQKB3m381idzdssyzF87ro71JgzkM5DrRpNMGZpOblkuNrlaAXZhK1KD
-	idz04ygFujd4qxV3iGNywlBSm01EL75w8Ht3c3RObrKT2LGBdwywA/bM314dU7t2c8jdYYvJg6UWg
-	SnVD0AzntOGm3xbA4oecLAoDelLXdvV48ZgYm5uFCh7LnlwKi++3M5pCzfgOgPiN4bYolxPJQdNRr
-	+auauZfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ORkzaNhzQYND0OJ7hwNxMTACXc6PhBBMRkbKhdMyyXc=; b=qBcyqBW8ytnrXRB2ktGW0uavaD
+	IldH+OYpGKaFKLZB5od31jBTeaKHpwLy4umtJ9Fu7w2v1f63H3M2FgvtqT7eh0tEKCCC6LYZQp76c
+	0pWGxEtA6o5VxI3g/cB0J3ZQ4KVKdIwc1vudiXpFsI/qW+YyZLUvujp1XJb5SQ4o8uKQALY97ftju
+	hDtbKRiVF/itcGXjLN5azgU4KZnbuASqMp32tyl1Zg6WYFrNCfkf32yWejoo9C5vrzvkij8RqA3k9
+	P7J76FbDc5Fu+u+VdSCFM4QkTF27S+LKFh0cOTmDQTZAxvVMRuyJcLNsks56o5ldrulnrlRY75GiS
+	RzEqND+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMCNK-0000000BjST-08qw;
-	Sun, 10 May 2026 22:11:50 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wMCtN-0000000BmW3-2wOf;
+	Sun, 10 May 2026 22:44:57 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMCNI-0000000BjSH-1tu4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 10 May 2026 22:11:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:Date:To:From:
-	Subject:Message-ID:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=77Zg783VrPv87K9sXBqm8YiYCgmGnFlFS5aCfEu+93k=; b=aFL9uz7TmFvha+HSwKHFofi3GS
-	0kFjeVSc4UE3MqaEqC4ykQiLtwA7BWXxCGxMU9nbKqsh5nAvLXyl6K4BL5fSu2ZwJQb4lkHomcZMk
-	FJXXMqbstGNQHUhoAqhLtG8O/vcdjdD6Z3VmjW43UYsBIf81wh+jDF4VzftpRsrMm5AfXbCyhzV9j
-	hiFkIorSHZDLKkB040Svr4xp5sa0f0FGNxByJ6fmZ2EhKnaSL4CPGnXmKvQUDrcsw2BLxSsMbEpgn
-	LUwvo2Zhsk6hAtHaeuup86QM681mLxCcE81xXMIcPyYPGRRSFHaJYHeRNVf6865DOoBU+ctSyH8VE
-	udeZaQww==;
-Received: from 54-240-197-234.amazon.com ([54.240.197.234] helo=u09cd745991455d.ant.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMCNE-00000007Jnj-2e0u;
-	Sun, 10 May 2026 22:11:45 +0000
-Message-ID: <6564c8b967948e30a8d3f35b6ef5de79dd5feeb7.camel@infradead.org>
-Subject: [RFC PATCH] KVM: arm64: vgic: Skip vCPU trylock for pre-init
- register access
-From: David Woodhouse <dwmw2@infradead.org>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey
- Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Sascha Bischoff
- <Sascha.Bischoff@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, Jonathan
- Cameron <jic23@kernel.org>, Eric Auger <eric.auger@redhat.com>, Raghavendra
- Rao Ananta <rananta@google.com>, David Woodhouse <dwmw@amazon.co.uk>, Maxim
- Levitsky <mlevitsk@redhat.com>,  linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev,  kvm@vger.kernel.org
-Date: Sun, 10 May 2026 23:11:43 +0100
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-Ro5SzoKkXs6S8pUv+ypN"
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1wMCtL-0000000BmVY-0SXo
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 10 May 2026 22:44:56 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-441209fb77eso2146267f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 15:44:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778453093; x=1779057893; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ORkzaNhzQYND0OJ7hwNxMTACXc6PhBBMRkbKhdMyyXc=;
+        b=U2u7PwhfqsI2q/e9hpcUybmwyJTvy1gyDKliznPOWfXt0m39LIPZ5Bbhe5nmhT2WZT
+         LHZtw5r6vLRzEvsVal9RZwVp/X71QmDSJm3F/mZo4r3hQBxW2WFJaArCVc/RdfNqFvon
+         xP+p/u4EouckNbLjw3qbY720/eXZBI9IgJfzhQ5tWI9JuDNrpGsugJAvvPv1oHm4OLwm
+         DVwGB9/1Mp0fzcojninoI6tSSEuoxr3YRWow2omOUT2bx9GBwZ+ME7I5vS3Q4Er5deCi
+         OduoLXTmtMu6B9wmu+YObXPtBTz7TK7R7O4/3w6ck8FRcWf2XFOTL01r+pUBLQfVOnnv
+         CNuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778453093; x=1779057893;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ORkzaNhzQYND0OJ7hwNxMTACXc6PhBBMRkbKhdMyyXc=;
+        b=hLspeJ3LtnIdMebRspYmtIp1BZWBOYdvS14D9UmpEHZt8kjCgi9FP73rCb8izIlus8
+         b1n3Z/FkMotdWVx4ZiYkR2fks8aPtX+12NeiKjOT30m95R3FO7pEKdsVeVnh5DxNc3So
+         6QwlzuxDX7toFqsRHh3/9cP+ajUMc6mcAWLTvm82gldg7TAa5c+F4jlb+EFxx+gfz84g
+         HCB0IgC8JUSaz4omq4Dzu8UT6FTJd/kqnrBda6BaKFTPUJcu3AhKwnAoT98IxaXpA+Do
+         VeePP7xzqvS5oyfl0R6PPD5pwshgcpNyDPQeoDfsNDrJP7Q3FiIX5lGM8Ne5AjIYGvgy
+         K1zw==
+X-Forwarded-Encrypted: i=1; AFNElJ9rbtjwiiayAPu5dXStaArwDRIelW8vkVkxShJkXZ61Jp0N10K1qNatHVO/Xm1kLhLbu4BvSmPMcto6YROsf9JS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBrzgOfbKLlBgWOFEaS2//09xN4ke3yLpPXWQkVig+ILEtya2J
+	S16xggXqzg8wEh0/y+4QjXuY4hB60RzjPyiUKGm/braQTvd1SsPn8IqW
+X-Gm-Gg: Acq92OHWMn8tk3Ojid/Yw+LLflA1RZ8a74TkEB9ZACkXL4ndmPZJXMOlpNjSI1+KXR8
+	xCZias5htZrYJG8HGPo4kwWPMhKmLh2VsceoAHq6UD2a53nO9mbmAR0FgpRvtm9WIFMoD4/D9WZ
+	qLl1WDQYtJM2egK7hmFItvTsqqTK6CJjTa0dHZa0jXXF7y+q62gvzGRf+H7YW4ap5TUC32Ly0p8
+	v6GSgVnVPshtvFnOwH7Oi01/p1JsijQjTCyq3l1DBxzvY+b5Hjq5opfqkNPEHcg/qKcKspVxis4
+	2HBN68k6ttAWcp3hJusIoHBOJ7SkPnFzcDuprMrNCwE6kHBK4KfjL9tedMhrtJbXSYl5EXt+yh/
+	EpTndQFRBMEGFA90nxuvk/OsFTkHiya+L3gilmCEID29Y+OfGmVQbaKU2i9+ijSe5KQWR2W6Bjh
+	LmPfXviHJ6dITFGUmJEzwMfE+8oNzrzvv5lZtY51fzP2irsJvtGgF8e0jYYzrLCQsy0x9VQk6S9
+	eMRftt4+mix/JlUdoUgS5pNBKoO
+X-Received: by 2002:a5d:4573:0:b0:456:3af2:853d with SMTP id ffacd0b85a97d-4563af2887bmr7559734f8f.7.1778453092929;
+        Sun, 10 May 2026 15:44:52 -0700 (PDT)
+Received: from 0.1.2.1.2.0.a.2.dynamic.cust.swisscom.net ([2a02:1210:8642:2b00:82ee:73ff:feb8:99e3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4548e6a68ebsm19461175f8f.1.2026.05.10.15.44.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 10 May 2026 15:44:52 -0700 (PDT)
+Message-ID: <f024e4d2bcde5f5fc45dfbbc7fee171e6aed8e71.camel@gmail.com>
+Subject: Re: [PATCH] arm: boot: ep93xx: don't rely on machine_is_*() for
+ removed board files
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: Ethan Nelson-Moore <enelsonmoore@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Russell King <linux@armlinux.org.uk>, Hartley Sweeten
+	 <hsweeten@visionengravers.com>, Nikita Shubin <nikita.shubin@maquefel.me>
+Date: Mon, 11 May 2026 00:45:04 +0200
+In-Reply-To: <20260509223820.50347-1-enelsonmoore@gmail.com>
+References: <20260509223820.50347-1-enelsonmoore@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.1 
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260510_154455_209752_CE18EE92 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,219 +102,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ethan,
 
---=-Ro5SzoKkXs6S8pUv+ypN
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Sat, 2026-05-09 at 15:38 -0700, Ethan Nelson-Moore wrote:
+> Code in misc-ep93xx.h relies on machine_is_*() macros for several
+> boards that no longer have legacy board files. They were removed in
+> commit e5ef574dda70 ("ARM: ep93xx: delete all boardfiles"). This
+> prevents the removal of machine IDs no longer used by the kernel from
+> mach-types. To resolve this issue, create local copies of these macros.
+> (The checks themselves are still valid because the IDs are still passed
+> in by the bootloader on these machines.) Also take the opportunity to
+> remove three repeated checks for the same ID.
+>=20
+> Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
 
-From: David Woodhouse <dwmw@amazon.co.uk>
+Acked-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 
-When creating a VM, userspace sets pre-init distributor registers such
-as GICD_IIDR before the VGIC is initialized.
+I'll pick the patch and send it to Arnd if there will be no objection
+during this week.
 
-Strictly speaking there's no reason this couldn't be done at VM creation
-time before any vCPUs exist at all, but the design of the userspace API
-does require vCPU0 to have been created, as the system-wide registers
-are effectively accessed via vCPU0.
+> ---
+> =C2=A0arch/arm/boot/compressed/misc-ep93xx.h | 20 ++++++++++++++++----
+> =C2=A01 file changed, 16 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/arch/arm/boot/compressed/misc-ep93xx.h b/arch/arm/boot/compr=
+essed/misc-ep93xx.h
+> index 65b4121d1490..b0a1b42aab31 100644
+> --- a/arch/arm/boot/compressed/misc-ep93xx.h
+> +++ b/arch/arm/boot/compressed/misc-ep93xx.h
+> @@ -3,7 +3,22 @@
+> =C2=A0 * Copyright (C) 2006 Lennert Buytenhek <buytenh@wantstofly.org>
+> =C2=A0 */
+> =C2=A0
+> -#include <asm/mach-types.h>
+> +/*
+> + * These machine IDs are no longer used by the kernel since EP93xx was c=
+onverted
+> + * to DT booting, but they are still passed in by bootloaders, so we use=
+ our own
+> + * local definitions of the relevant macros.
+> + */
+> +#define machine_is_bk3()		(__machine_arch_type =3D=3D 1880)
+> +#define machine_is_edb9301()		(__machine_arch_type =3D=3D 462)
+> +#define machine_is_edb9302a()		(__machine_arch_type =3D=3D 1127)
+> +#define machine_is_edb9302()		(__machine_arch_type =3D=3D 538)
+> +#define machine_is_edb9307a()		(__machine_arch_type =3D=3D 1128)
+> +#define machine_is_edb9307()		(__machine_arch_type =3D=3D 607)
+> +#define machine_is_edb9312()		(__machine_arch_type =3D=3D 451)
+> +#define machine_is_edb9315a()		(__machine_arch_type =3D=3D 772)
+> +#define machine_is_edb9315()		(__machine_arch_type =3D=3D 463)
+> +#define machine_is_ts72xx()		(__machine_arch_type =3D=3D 673)
+> +#define machine_is_vision_ep9307()	(__machine_arch_type =3D=3D 1578)
+> =C2=A0
+> =C2=A0static inline unsigned int __raw_readl(unsigned int ptr)
+> =C2=A0{
+> @@ -60,14 +75,11 @@ static inline void ep93xx_decomp_setup(void)
+> =C2=A0	if (machine_is_edb9301() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9302() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9302a() ||
+> -	=C2=A0=C2=A0=C2=A0 machine_is_edb9302a() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9307() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9307a() ||
+> -	=C2=A0=C2=A0=C2=A0 machine_is_edb9307a() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9312() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9315() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_edb9315a() ||
+> -	=C2=A0=C2=A0=C2=A0 machine_is_edb9315a() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_ts72xx() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_bk3() ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 machine_is_vision_ep9307())
 
-So a VMM can't just set the IIDR at startup before spawning vCPU threads;
-it has to be done once the vCPUs are being created.
-
-However, kvm_trylock_all_vcpus() makes it unreliable by causing spurious
--EBUSY failures if any vCPU cannot be locked. So userspace is forced to
-create the vCPUs (well, at least vCPU0), and is then forced to have a
-full synchronization point and quiesce them all in order to reliably set
-the IIDR.
-
-To slightly reduce the pain of all this, skip the trylock when the VGIC
-is not yet initialized. There is no need to lock the vCPUs if they can't
-be accessing it anyway.
-
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
----
-Other options would include making it possible to set the IIDR before
-creating any vCPUs, either by creating a new device-level attribute or
-special-casing it not to require vCPU0 for DIST_REGS that aren't really
-associated to a vCPU.
-
-Deprecating kvm_trylock_all_vcpus() and killing every user of it with
-fire would also be a good option, perhaps... :)
-
- arch/arm64/kvm/vgic/vgic-kvm-device.c | 38 ++++++++++++++++++++-------
- 1 file changed, 29 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vg=
-ic-kvm-device.c
-index a96c77dccf35..e17ea9f07f5f 100644
---- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
-+++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
-@@ -540,7 +540,7 @@ static int vgic_v3_attr_regs_access(struct kvm_device *=
-dev,
- 	struct vgic_reg_attr reg_attr;
- 	gpa_t addr;
- 	struct kvm_vcpu *vcpu;
--	bool uaccess;
-+	bool uaccess, vcpus_locked =3D false;
- 	u32 val;
- 	int ret;
-=20
-@@ -566,18 +566,37 @@ static int vgic_v3_attr_regs_access(struct kvm_device=
- *dev,
- 			return -EFAULT;
- 	}
-=20
-+	if (!vgic_initialized(dev->kvm) && !reg_allowed_pre_init(attr))
-+		return -EBUSY;
-+
- 	mutex_lock(&dev->kvm->lock);
-=20
--	if (kvm_trylock_all_vcpus(dev->kvm)) {
--		mutex_unlock(&dev->kvm->lock);
--		return -EBUSY;
-+	/*
-+	 * Pre-init registers (e.g. GICD_IIDR) don't need vCPU quiescence
-+	 * since the VGIC isn't live yet.  Skip the trylock to avoid spurious
-+	 * -EBUSY when vCPU threads happen to be running.
-+	 */
-+	if (vgic_initialized(dev->kvm)) {
-+		if (kvm_trylock_all_vcpus(dev->kvm)) {
-+			mutex_unlock(&dev->kvm->lock);
-+			return -EBUSY;
-+		}
-+		vcpus_locked =3D true;
- 	}
--
- 	mutex_lock(&dev->kvm->arch.config_lock);
-=20
--	if (!(vgic_initialized(dev->kvm) || reg_allowed_pre_init(attr))) {
--		ret =3D -EBUSY;
--		goto out;
-+	/*
-+	 * If the VGIC becomes initialized between the above check and taking
-+	 * config_lock, drop config_lock to lock the VCPUS.
-+	 */
-+	if (vgic_initialized(dev->kvm) && !vcpus_locked) {
-+		mutex_unlock(&dev->kvm->arch.config_lock);
-+		if (kvm_trylock_all_vcpus(dev->kvm)) {
-+			mutex_unlock(&dev->kvm->lock);
-+			return -EBUSY;
-+		}
-+		mutex_lock(&dev->kvm->arch.config_lock);
-+		vcpus_locked =3D true;
- 	}
-=20
- 	switch (attr->group) {
-@@ -612,7 +631,8 @@ static int vgic_v3_attr_regs_access(struct kvm_device *=
-dev,
-=20
- out:
- 	mutex_unlock(&dev->kvm->arch.config_lock);
--	kvm_unlock_all_vcpus(dev->kvm);
-+	if (vcpus_locked)
-+		kvm_unlock_all_vcpus(dev->kvm);
- 	mutex_unlock(&dev->kvm->lock);
-=20
- 	if (!ret && uaccess && !is_write) {
 --=20
-2.43.0
-
-
-
---=-Ro5SzoKkXs6S8pUv+ypN
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDUxMDIyMTE0
-M1owLwYJKoZIhvcNAQkEMSIEINGYAlu4AoCOHhMHPbsf0T6+z3VaEmdPWqBwVQo7sUaIMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAAgVBe6YoEsgQ
-mkvTLR03IkRxyt7Fj/hgzyM0BoHZScSxtylhrOgL3MG7SxyW/NbP7OKRatNif5ga3GjbWBUyHxjF
-z+NI7v8hSmXY8O1cdO8Ugw1kvGJdpdOWO/e85F9FYuWwtTvkO89vAG2LzvLhH1Skgp3J/lrzYSJD
-8k95QyQEBt7bgJ1iTRSPAnybqNway0SjHn5tU0ns9WwObKo7xUE7V3YEqHyHj6M44hatmmt0aQgi
-bivM4JUasmGylM1jFOTUmeJlcOUv1O2oY7Z8XmPYG2h1Ia6w/nPvTLeavZynT+zybk0GowdzO7El
-HFbO+T7bgjFTDudacKHhEUOjJLIsx9zoiuhXwgVRWS4rai4NBGtVexBTx4ykDWmP70EBRg08+uWU
-GVZnsasvQoMhvp/A1eceQDGYZUPgkgD8oZoPNZmBfxZsIDuDULxzELEO1xpBZw4E7hTuHZyCXkMp
-zbnJgBjpXcRLDp2vMKzDsiXVxFdRqymFqArp/4fFZXFogz4z6y5YjvEUex0PGjTEc/PlG0WE3IVM
-AVZmqQ5XJ8990sl42hePEi9Sc/xmjMmPZfI4hK37JSMy+Tu7YQIRqpE0hG2Xh922RcWfKce2zKVV
-d+y5CtOvbSLfpCKxnyZSvLAYnb7Jxjwexibp57ke60APGpx3KhPsoBVdNpRt0akAAAAAAAA=
-
-
---=-Ro5SzoKkXs6S8pUv+ypN--
+Alexander Sverdlin.
 
