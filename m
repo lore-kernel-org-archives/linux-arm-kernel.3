@@ -4,64 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A454BCD37AF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 11:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA12CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 May 2026 12:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7lfPAlcuUiZwREX72w1AsmII9P9fRz7cXXMZqiRiphw=; b=bKRwt7yQPSYTMa72IK1/OfSdvB
-	JYOdUJ1i41cUj+8HvoD4czzGByj7WaQLyNEYoEyix121AwKiXN6UYURLcFrdm+YOJaC7TWkLkgfjs
-	2GHnmiCWLZw2wD1FTMMWlDUz6u2fLh+DQnnkDgFGv6K8NMlCBNjMdUZfRgoRCmF+dn3NMD3ut0uOq
-	3AlL63j+CG4vxfhV9SBH3jcaOuc4hkRBDvo7IuBZnwKZIxky4tWfkWmMF1oRojOMAy+kZtgHKX+w1
-	MsKprlpfIzMeRW54dKHW01fQMnEROFUB2sXDO4RRE4u7wJI9Ie7SMxWvdTop4+AbLhfMp+50tGjkg
-	POtUJhwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Uwl7uTUFZPbM8ps4vki7wqlVfVEhcSD+BeosCTjucic=; b=3du/7eYBRlCyvE7iTkGss8ntHr
+	z9t42C6Z8dh7On8CkLL/RtyF+RATTFGZbC1Q+fybeawYgvVRcFMUYoO3zQAqgp97iCGXNBBXNUG0z
+	8LPxzaZQyKXRvvWOaSNe6w+Cp94hlPx9H2UpOYgMny0elI8IQuxWgZlmeMDjzTwinPEpDkJInZrKY
+	dC81Hjw71D8FYUMrOZd5U/+thsK+zmLpAxsTnY2G0rmgXKL1S3KnMwCBce3W3FY3Lw42pu/ck4d8U
+	h01vVkHH7GCt2BLnnKbH7mIzcCmAdYbDQmFxph8nREnM3zisrg7Gr4mZnuGvJavwNAxNFgmsxA0nf
+	/qrqbVPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM2fo-0000000AfKI-0pF2;
-	Sun, 10 May 2026 11:50:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wM2rN-0000000Ag9V-1aGI;
+	Sun, 10 May 2026 12:02:13 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wM2fm-0000000AfJy-422q;
-	Sun, 10 May 2026 11:50:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EEADB6001A;
-	Sun, 10 May 2026 11:50:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5BE4C2BCC9;
-	Sun, 10 May 2026 11:50:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778413813;
-	bh=NFtd+mTJBVH7K+laWInbZslx5+0S5y6GE1FbKK8hc9g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ub60GZ+yc4YZUqsJiukrPgWWJJZdA71lPC0rOeaODli+Y1/pA3S6/QA+n/lQjSlcB
-	 ysM+RtCWOhnMFI+ax6CQ0SnU9qKWxtuh7EOO1r/YeE8uq8YfGGO5r8n66LLZz/MmP6
-	 GXxWZLp5fagv2iy9d7DkP3mEyThfbRyd2Kw2fulkyWrthaRtkgSkHjxO17TQ0mxt0d
-	 mkKO0t23By5V/bvAqcdf7+Sw0jo4Lxc2LzAAKkKgpZPonGGUXQNYOdGo/SasAcSAMk
-	 3bTCWzxgnxvIDuZbPR/EGecyBluk2Zedrfyn6tTG/NdOHu9IVVBpbZrvGZbwzCVgO9
-	 YL4UK+04mwTtg==
-Date: Sun, 10 May 2026 17:20:09 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
+	id 1wM2rK-0000000Ag8t-0MLw
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 10 May 2026 12:02:11 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c827313dac0so368285a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 05:02:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778414529; x=1779019329; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Uwl7uTUFZPbM8ps4vki7wqlVfVEhcSD+BeosCTjucic=;
+        b=MmD9sdH4SHhhlLO07mt7s4Ss8bj+Kt0V/yEd+NoziBGOcXehDDCJLxTVI0R06rj7Sn
+         zOr6G0nggXCpkda5axivp4YyRIE2F6qrKnqL155DMnyjMF7uz42+UlWFPj0oa2XDQOc0
+         Oek5T7lla/4AadMrHx6lBjik3yown1ulDU3lzQGwleFRuVIA3L5j/c7fyzbk28grgKWx
+         q1ODjgjfhDgcgTzCo0Xm+shzLw2JJ1bp9tNlIiM4D3jVmUQown+zG+QOTUUJZ855knjx
+         bHhny5zSEiIAlojxvQjCmejZW1o6ZvNzohAyHf4dpQDhp0W/6fx+WuYbP/M97fOKIgvS
+         ontg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778414529; x=1779019329;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Uwl7uTUFZPbM8ps4vki7wqlVfVEhcSD+BeosCTjucic=;
+        b=NbC/aQE7cwQ6WYYcAkPiF8v5Q7hyA07v7eh33mGyCtsdvlOyIBy9j6751WsoPnLBuy
+         /bH94hJwmECISBeMNDhND3p2d0zuf59yDjds2c1WvVfiwesLZJxgtd6LNu5UkPUeQbbl
+         mJppz9TgP3plDrS1YXTu2QLVjR7awrmYEia4Umbf2TnxClrymaa4LPyv5NYD2o2jfyIV
+         g8ba57gm/Ds8u7OYeao7nC08j/IALWDWjHsd6LWiAjocl/HDxKQnyqQLULLE+59nx7oO
+         I+LGx87M1Ua+nejRpNLsQQy5zk2kc/FXP1APFuhLspXPToYfmLT0TwTzAtRgYkiVXITn
+         BzJw==
+X-Forwarded-Encrypted: i=1; AFNElJ8VTeZ+WHRpiP/w4PhcvbKvc/f15iEKmzz3jzlFWFW34ozRT46b2ICbebRhALoSchULLpVKRoknkRFizqOGb1wT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuVnx4d9mwmMzEwUdluTf4hUbzPziOaPzAt2BAuc2qL8Zp9GEA
+	h4rXkmCEpSAD0/zsclSl5upuiKXAohQz5SI0hss6sxxjpjRK8Tbv/IhY
+X-Gm-Gg: Acq92OFFE6k0D4y6UGWd5bNZMBQW7rQQIhGBwHRHQO5FVAzBciy2N8SgG5R4fe+sOHI
+	xj6KkOUyF1WQzuSV3TIEfzX8UORr9gGhl5fgBNOv12EUr2svC3fduOQUinAG0jyIedQaZo7/Y2E
+	LYUFchyOQKUq5jznEAx2kdM6uyIk+LFuYG9dzT4FBvY3/k3QTVTP8qXS80ZIqMks1fOd8xmhabn
+	teIBbO9xqdUWXL3400oXMSjkRxjDW75xvigRAXpnUbzVo/5OD1qsAGUtmHmBLkiLJ8u6esute4j
+	BxAllbQ20nLpJ2l5cQdNyz4Z0KKwEOgFoqzdG3e2JZ982wLZxzG3wmVC7n8+uNnteweKQz0brJR
+	CCkjki1QbwFTUsw+usARIYfkio4IqSBewA3Ns8aKa8ln50/aFu203ad28lo7OuLRppmf+DOKX4b
+	T0ca1FIXNytESA4XlzUoJcCek4OBLvZE+MgAF4+3SL
+X-Received: by 2002:a17:902:eb0a:b0:2bc:8e7d:3dce with SMTP id d9443c01a7336-2bc8e7d4c19mr26865395ad.27.1778414528692;
+        Sun, 10 May 2026 05:02:08 -0700 (PDT)
+Received: from localhost.localdomain ([2405:201:d008:80b:a00:27ff:feb6:42dd])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1d269fcsm76902715ad.15.2026.05.10.05.02.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 10 May 2026 05:02:08 -0700 (PDT)
+From: Pramod Maurya <pramod.nexgen@gmail.com>
+To: jic23@kernel.org
+Cc: pramod.nexgen@gmail.com,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2 RESEND 2/2] phy: mediatek: xsphy: add support to set
- disconnect threshold
-Message-ID: <agBw8aDJDSHUGe3S@vaman>
-References: <20260413122836.4848-1-chunfeng.yun@mediatek.com>
- <20260413122836.4848-2-chunfeng.yun@mediatek.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] dt-bindings: iio: adc: Convert xilinx-xadc bindings to YAML schema
+Date: Sun, 10 May 2026 08:01:36 -0400
+Message-ID: <20260510120141.118057-1-pramod.nexgen@gmail.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20260510083219.70224-1-pramod.nexgen@gmail.com>
+References: <20260510083219.70224-1-pramod.nexgen@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260413122836.4848-2-chunfeng.yun@mediatek.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260510_050210_159674_0079D04D 
+X-CRM114-Status: GOOD (  35.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,70 +109,414 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13-04-26, 20:28, Chunfeng Yun wrote:
-> Add a property to tune usb2 phy's disconnect threshold.
-> 
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
-> ---
-> v2: change property name
-> ---
->  drivers/phy/mediatek/phy-mtk-xsphy.c | 12 ++++++++++--
->  1 file changed, 10 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/phy/mediatek/phy-mtk-xsphy.c b/drivers/phy/mediatek/phy-mtk-xsphy.c
-> index c0ddb9273cc3..46345e4f4189 100644
-> --- a/drivers/phy/mediatek/phy-mtk-xsphy.c
-> +++ b/drivers/phy/mediatek/phy-mtk-xsphy.c
-> @@ -61,6 +61,7 @@
->  #define XSP_USBPHYACR6		((SSUSB_SIFSLV_U2PHY_COM) + 0x018)
->  #define P2A6_RG_BC11_SW_EN	BIT(23)
->  #define P2A6_RG_OTG_VBUSCMP_EN	BIT(20)
-> +#define PA6_RG_U2_DISCTH	GENMASK(7, 4)
->  
->  #define XSP_U2PHYDTM1		((SSUSB_SIFSLV_U2PHY_COM) + 0x06C)
->  #define P2D_FORCE_IDDIG		BIT(9)
-> @@ -107,6 +108,7 @@ struct xsphy_instance {
->  	int eye_src;
->  	int eye_vrt;
->  	int eye_term;
-> +	int discth;
+Convert the Xilinx XADC and UltraScale System Monitor device tree binding
+from the legacy plain-text format to a YAML schema, enabling automated
+validation with dt-schema.
 
-Please see 
+The new binding covers the same hardware and compatible strings:
+  - xlnx,zynq-xadc-1.00.a (ZYNQ hardmacro)
+  - xlnx,axi-xadc-1.00.a  (AXI softmacro)
+  - xlnx,system-management-wiz-1.3 (UltraScale System Management Wizard)
 
-https://sashiko.dev/#/patchset/20260413122836.4848-1-chunfeng.yun%40mediatek.com
+Signed-off-by: Pramod Maurya <pramod.nexgen@gmail.com>
+---
+Changes in v3:
+- Move xlnx,channels from properties: to patternProperties: to satisfy
+  vendor-props.yaml meta-schema, which requires vendor-prefixed entries
+  in properties: to be type: boolean; xlnx,channels is a subnode (object)
+  so it belongs in patternProperties:
 
->  };
->  
->  struct mtk_xsphy {
-> @@ -256,9 +258,12 @@ static void phy_parse_property(struct mtk_xsphy *xsphy,
->  					 &inst->eye_vrt);
->  		device_property_read_u32(dev, "mediatek,eye-term",
->  					 &inst->eye_term);
-> -		dev_dbg(dev, "intr:%d, src:%d, vrt:%d, term:%d\n",
-> +		device_property_read_u32(dev, "mediatek,discth",
-> +					 &inst->discth);
-> +		dev_dbg(dev, "intr:%d, src:%d, vrt:%d, term:%d, discth:%d\n",
->  			inst->efuse_intr, inst->eye_src,
-> -			inst->eye_vrt, inst->eye_term);
-> +			inst->eye_vrt, inst->eye_term,
-> +			inst->discth);
->  		break;
->  	case PHY_TYPE_USB3:
->  		device_property_read_u32(dev, "mediatek,efuse-intr",
-> @@ -301,6 +306,9 @@ static void u2_phy_props_set(struct mtk_xsphy *xsphy,
->  	if (inst->eye_term)
->  		mtk_phy_update_field(pbase + XSP_USBPHYACR1, P2A1_RG_TERM_SEL,
->  				     inst->eye_term);
-> +	if (inst->discth)
-> +		mtk_phy_update_field(pbase + XSP_USBPHYACR6, PA6_RG_U2_DISCTH,
-> +				     inst->discth);
->  }
->  
->  static void u3_phy_props_set(struct mtk_xsphy *xsphy,
-> -- 
-> 2.45.2
+Changes in v2:
+- Fix patternProperties regex to use lowercase hex unit addresses
+  (channel@a through channel@f) instead of decimal; correct range
+  is now "^channel@([0-9a-f]|10)$"
+- Add allOf/if/then conditional to enforce xlnx,external-mux-channel
+  is required when xlnx,external-mux is "single" or "dual"
 
+ .../bindings/iio/adc/xilinx-xadc.txt          | 141 ------------
+ .../bindings/iio/adc/xlnx,xadc.yaml           | 205 ++++++++++++++++++
+ MAINTAINERS                                   |   7 +
+ 3 files changed, 212 insertions(+), 141 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/iio/adc/xilinx-xadc.txt
+ create mode 100644 Documentation/devicetree/bindings/iio/adc/xlnx,xadc.yaml
+
+diff --git a/Documentation/devicetree/bindings/iio/adc/xilinx-xadc.txt b/Documentation/devicetree/bindings/iio/adc/xilinx-xadc.txt
+deleted file mode 100644
+index f42e18078376..000000000000
+--- a/Documentation/devicetree/bindings/iio/adc/xilinx-xadc.txt
++++ /dev/null
+@@ -1,141 +0,0 @@
+-Xilinx XADC device driver
+-
+-This binding document describes the bindings for the Xilinx 7 Series XADC as well
+-as the UltraScale/UltraScale+ System Monitor.
+-
+-The Xilinx XADC is an ADC that can be found in the Series 7 FPGAs from Xilinx.
+-The XADC has a DRP interface for communication. Currently two different
+-frontends for the DRP interface exist. One that is only available on the ZYNQ
+-family as a hardmacro in the SoC portion of the ZYNQ. The other one is available
+-on all series 7 platforms and is a softmacro with a AXI interface. This binding
+-document describes the bindings for both of them since the bindings are very
+-similar.
+-
+-The Xilinx System Monitor is an ADC that is found in the UltraScale and
+-UltraScale+ FPGAs from Xilinx. The System Monitor provides a DRP interface for
+-communication. Xilinx provides a standard IP core that can be used to access the
+-System Monitor through an AXI interface in the FPGA fabric. This IP core is
+-called the Xilinx System Management Wizard. This document describes the bindings
+-for this IP.
+-
+-Required properties:
+-	- compatible: Should be one of
+-		* "xlnx,zynq-xadc-1.00.a": When using the ZYNQ device
+-		  configuration interface to interface to the XADC hardmacro.
+-		* "xlnx,axi-xadc-1.00.a": When using the axi-xadc pcore to
+-		  interface to the XADC hardmacro.
+-		* "xlnx,system-management-wiz-1.3": When using the
+-		  Xilinx System Management Wizard fabric IP core to access the
+-		  UltraScale and UltraScale+ System Monitor.
+-	- reg: Address and length of the register set for the device
+-	- interrupts: Interrupt for the XADC control interface.
+-	- clocks: When using the ZYNQ this must be the ZYNQ PCAP clock,
+-	  when using the axi-xadc or the axi-system-management-wizard this must be
+-	  the clock that provides the clock to the AXI bus interface of the core.
+-
+-Optional properties:
+-	- xlnx,external-mux:
+-		* "none": No external multiplexer is used, this is the default
+-		  if the property is omitted.
+-		* "single": External multiplexer mode is used with one
+-		   multiplexer.
+-		* "dual": External multiplexer mode is used with two
+-		  multiplexers for simultaneous sampling.
+-	- xlnx,external-mux-channel: Configures which pair of pins is used to
+-	  sample data in external mux mode.
+-	  Valid values for single external multiplexer mode are:
+-		0: VP/VN
+-		1: VAUXP[0]/VAUXN[0]
+-		2: VAUXP[1]/VAUXN[1]
+-		...
+-		16: VAUXP[15]/VAUXN[15]
+-	  Valid values for dual external multiplexer mode are:
+-		1: VAUXP[0]/VAUXN[0] - VAUXP[8]/VAUXN[8]
+-		2: VAUXP[1]/VAUXN[1] - VAUXP[9]/VAUXN[9]
+-		...
+-		8: VAUXP[7]/VAUXN[7] - VAUXP[15]/VAUXN[15]
+-
+-	  This property needs to be present if the device is configured for
+-	  external multiplexer mode (either single or dual). If the device is
+-	  not using external multiplexer mode the property is ignored.
+-	- xnlx,channels: List of external channels that are connected to the ADC
+-	  Required properties:
+-		* #address-cells: Should be 1.
+-		* #size-cells: Should be 0.
+-
+-	  The child nodes of this node represent the external channels which are
+-	  connected to the ADC. If the property is no present no external
+-	  channels will be assumed to be connected.
+-
+-	  Each child node represents one channel and has the following
+-	  properties:
+-		Required properties:
+-			* reg: Pair of pins the channel is connected to.
+-				0: VP/VN
+-				1: VAUXP[0]/VAUXN[0]
+-				2: VAUXP[1]/VAUXN[1]
+-				...
+-				16: VAUXP[15]/VAUXN[15]
+-			  Note each channel number should only be used at most
+-			  once.
+-		Optional properties:
+-			* xlnx,bipolar: If set the channel is used in bipolar
+-			  mode.
+-
+-
+-Examples:
+-	xadc@f8007100 {
+-		compatible = "xlnx,zynq-xadc-1.00.a";
+-		reg = <0xf8007100 0x20>;
+-		interrupts = <0 7 4>;
+-		interrupt-parent = <&gic>;
+-		clocks = <&pcap_clk>;
+-
+-		xlnx,channels {
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-			channel@0 {
+-				reg = <0>;
+-			};
+-			channel@1 {
+-				reg = <1>;
+-			};
+-			channel@8 {
+-				reg = <8>;
+-			};
+-		};
+-	};
+-
+-	xadc@43200000 {
+-		compatible = "xlnx,axi-xadc-1.00.a";
+-		reg = <0x43200000 0x1000>;
+-		interrupts = <0 53 4>;
+-		interrupt-parent = <&gic>;
+-		clocks = <&fpga1_clk>;
+-
+-		xlnx,channels {
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-			channel@0 {
+-				reg = <0>;
+-				xlnx,bipolar;
+-			};
+-		};
+-	};
+-
+-	adc@80000000 {
+-		compatible = "xlnx,system-management-wiz-1.3";
+-		reg = <0x80000000 0x1000>;
+-		interrupts = <0 81 4>;
+-		interrupt-parent = <&gic>;
+-		clocks = <&fpga1_clk>;
+-
+-		xlnx,channels {
+-			#address-cells = <1>;
+-			#size-cells = <0>;
+-			channel@0 {
+-				reg = <0>;
+-				xlnx,bipolar;
+-			};
+-		};
+-	};
+diff --git a/Documentation/devicetree/bindings/iio/adc/xlnx,xadc.yaml b/Documentation/devicetree/bindings/iio/adc/xlnx,xadc.yaml
+new file mode 100644
+index 000000000000..ab6f16109aeb
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iio/adc/xlnx,xadc.yaml
+@@ -0,0 +1,205 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iio/adc/xlnx,xadc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Xilinx XADC and UltraScale System Monitor
++
++maintainers:
++  - Lars-Peter Clausen <lars@metafoo.de>
++
++description: |
++  The Xilinx XADC is an ADC found in the Series 7 FPGAs. It has a DRP
++  (Dynamic Reconfiguration Port) interface for communication. Two different
++  frontends for the DRP interface are supported:
++
++    - ZYNQ hardmacro: available only on the ZYNQ family as a hardmacro in
++      the SoC portion of the ZYNQ device.
++    - AXI softmacro: available on all Series 7 platforms as a softmacro
++      with an AXI interface (PG019).
++
++  The Xilinx System Monitor is an ADC found in UltraScale and UltraScale+
++  FPGAs. It is accessed through the Xilinx System Management Wizard IP core
++  via an AXI interface in the FPGA fabric.
++
++properties:
++  compatible:
++    enum:
++      - xlnx,zynq-xadc-1.00.a
++      - xlnx,axi-xadc-1.00.a
++      - xlnx,system-management-wiz-1.3
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    description: |
++      When using the ZYNQ this must be the ZYNQ PCAP clock.
++      When using the axi-xadc or system-management-wiz this must be
++      the clock that provides the clock to the AXI bus interface.
++    maxItems: 1
++
++  xlnx,external-mux:
++    $ref: /schemas/types.yaml#/definitions/string
++    description: |
++      Selects the external multiplexer mode.
++    enum:
++      - none
++      - single
++      - dual
++
++  xlnx,external-mux-channel:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: |
++      Configures which pair of pins is used to sample data in external
++      multiplexer mode. This property is required when the device is
++      configured for external multiplexer mode.
++
++      Valid values for single external multiplexer mode:
++        0: VP/VN
++        1-16: VAUXP[0]/VAUXN[0] through VAUXP[15]/VAUXN[15]
++
++      Valid values for dual external multiplexer mode:
++        1: VAUXP[0]/VAUXN[0] - VAUXP[8]/VAUXN[8]
++        2: VAUXP[1]/VAUXN[1] - VAUXP[9]/VAUXN[9]
++        ...
++        8: VAUXP[7]/VAUXN[7] - VAUXP[15]/VAUXN[15]
++    minimum: 0
++    maximum: 16
++
++patternProperties:
++  "^xlnx,channels$":
++    type: object
++    description:
++      List of external channels connected to the ADC. If this property is
++      absent, no external channels are assumed to be connected.
++
++    properties:
++      '#address-cells':
++        const: 1
++
++      '#size-cells':
++        const: 0
++
++    patternProperties:
++      "^channel@([0-9a-f]|10)$":
++        type: object
++        description:
++          Represents an external channel connected to the ADC.
++
++        properties:
++          reg:
++            description: |
++              Pair of pins the channel is connected to.
++                0: VP/VN
++                1: VAUXP[0]/VAUXN[0]
++                2: VAUXP[1]/VAUXN[1]
++                ...
++                16: VAUXP[15]/VAUXN[15]
++            minimum: 0
++            maximum: 16
++
++          xlnx,bipolar:
++            $ref: /schemas/types.yaml#/definitions/flag
++            type: boolean
++            description:
++              If set, the channel is used in bipolar mode.
++
++        required:
++          - reg
++
++        additionalProperties: false
++
++    required:
++      - '#address-cells'
++      - '#size-cells'
++
++    additionalProperties: false
++
++allOf:
++  - if:
++      properties:
++        xlnx,external-mux:
++          enum:
++            - single
++            - dual
++      required:
++        - xlnx,external-mux
++    then:
++      required:
++        - xlnx,external-mux-channel
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++
++additionalProperties: false
++
++examples:
++  - |
++    /* ZYNQ hardmacro example */
++    adc@f8007100 {
++        compatible = "xlnx,zynq-xadc-1.00.a";
++        reg = <0xf8007100 0x20>;
++        interrupts = <0 7 4>;
++        interrupt-parent = <&gic>;
++        clocks = <&pcap_clk>;
++
++        xlnx,channels {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            channel@0 {
++                reg = <0>;
++            };
++            channel@1 {
++                reg = <1>;
++            };
++            channel@8 {
++                reg = <8>;
++            };
++        };
++    };
++
++  - |
++    /* AXI softmacro example */
++    adc@43200000 {
++        compatible = "xlnx,axi-xadc-1.00.a";
++        reg = <0x43200000 0x1000>;
++        interrupts = <0 53 4>;
++        interrupt-parent = <&gic>;
++        clocks = <&fpga1_clk>;
++
++        xlnx,channels {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            channel@0 {
++                reg = <0>;
++                xlnx,bipolar;
++            };
++        };
++    };
++
++  - |
++    /* UltraScale System Management Wizard example */
++    adc@80000000 {
++        compatible = "xlnx,system-management-wiz-1.3";
++        reg = <0x80000000 0x1000>;
++        interrupts = <0 81 4>;
++        interrupt-parent = <&gic>;
++        clocks = <&fpga1_clk>;
++
++        xlnx,channels {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            channel@0 {
++                reg = <0>;
++                xlnx,bipolar;
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2fb1c75afd16..9b107057ad8c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -29226,6 +29226,13 @@ F:	Documentation/devicetree/bindings/watchdog/xlnx,xps-timebase-wdt.yaml
+ F:	drivers/watchdog/of_xilinx_wdt.c
+ F:	drivers/watchdog/xilinx_wwdt.c
+ 
++XILINX XADC DRIVER
++M:	Lars-Peter Clausen <lars@metafoo.de>
++L:	linux-iio@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/iio/adc/xlnx,xadc.yaml
++F:	drivers/iio/adc/xilinx-xadc*
++
+ XILINX XDMA DRIVER
+ M:	Lizhi Hou <lizhi.hou@amd.com>
+ M:	Brian Xu <brian.xu@amd.com>
 -- 
-~Vinod
+2.52.0
+
 
