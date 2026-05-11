@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17243CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 20:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA475CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 20:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SidA+dUAZZZvheU90fCA8wbYd1elVlbPIUNjX+RGP3w=; b=AcWZKG0Y0O5wphFx3693AychZv
-	+UHA71fKTC5xIzQYIqbGkXz6AeOswACzUwYUXh5buIUlsvuC6XVUWvRMGFGrWy+NMgwmlW8A3C4Nl
-	/MHpL9WMenzj1JdEQgkV0K6YOgOfKUdi5X/x84ZbNooen4ytPTUGsTwmr15czAaZTiyzTPEu5fxH0
-	CKGgPPoXvP6q3S7Kwagff1Pf8IU7j0NlhIH+oLP6kXhN4wJJi/jCUNh2dkm8hT3buSC2G550d87FV
-	Xxz/V910bdWkHU52efVu/llmxhyO0IoJKuKSudPyG1t7pKhtOSDSBq5Ouf+21lM9IVimKn/2v8Yxr
-	DhiGTrpg==;
+	bh=afMhjAzIKP5bcnZSy3KWIznLuKc6kIGzKnWy48IwObo=; b=pcvNHCbWnH+f8m5HBI1dXCNclE
+	e6RJHMIdY1IszA0vBEu0DaSszo6k09vED4NCj/u8qcEXRnK0YdEkf67XEublIEjx9LL1v1ZmjTATU
+	kiz2HkSUDfWS9BDc4CRo7m/kI9wqXYuyTQDaQq2D9v2DyZXyv4rLtGFWZMVw31dQ2cQCXQz2Y7+Pw
+	7yQz3Ls2EjXoBivLh3WNMjVycC+5cAK3y0GKYfqglOT1/cY9mFqlj1aVuBf7IIiTxB9H4DrK05Vqj
+	3GrkXs2/BQNGFOeWHk/Ur+ny3n2oUeXEJKVq9MPXN4BvpVKXTN3XaU5P1MYE8HTuk22jLhh654W1s
+	MgFLl9Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMWod-0000000EeqD-2eX6;
-	Mon, 11 May 2026 20:01:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wMWom-0000000Eet7-3HEI;
+	Mon, 11 May 2026 20:01:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMWoc-0000000EepE-0hZU
+	id 1wMWol-0000000EesX-2KTd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 20:01:22 +0000
+	Mon, 11 May 2026 20:01:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4B57D60120
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:01:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B3EC4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:01:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BA1BC600CB
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:01:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6895AC2BCF6
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:01:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778529681;
-	bh=SidA+dUAZZZvheU90fCA8wbYd1elVlbPIUNjX+RGP3w=;
+	s=k20201202; t=1778529660;
+	bh=afMhjAzIKP5bcnZSy3KWIznLuKc6kIGzKnWy48IwObo=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=lFfnP2XZwjdBo4BTtgU8O72MJ2clLfMZEmrgu4EPtnG9wmNecb3uP3lL1p0qjlg/s
-	 CRKMRlAcaVuJTRGosEXCfpKdoxLL2hInuLQRKbudZUW59x0Q+h0lv/O+/Ch1TowO5Q
-	 C7Z1o6/ws/Bz/2C+AR/s2fDux1u+3Fn1p/l4dPz2Cfqu0nLbA2UqVSpr0AxwAowRHd
-	 ozhfrqhlatOaTkxDHUvBUtmDFLMxF6o7h6UW40LropWMLQZszYnJc3ktkI2AXo3P2e
-	 xt0XwPPYunL9X5OAZQQ1xPY3lqgAPOLfOQbSfAKJb4V5QFTT5p+q6GLy/EakVTxuTM
-	 Qpt2sm3uqMlEw==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5a86bfa2a4eso5354085e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:01:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8csklB718Sn437NC4kFb1u7Pp7kjRAqKJS5YVk2pj/P/su8axm8wbA1ODz0df3WI6gHIYBG96+Z51GggOpXiKd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhjMTQlRzG+nwuSfc/A3m2Q28CIAtCsfqJVkyu4kD8eGJHAGGE
-	NDAO6ex0TJjKjH3D/gzE4FGVlFto9e6rp7zAx2otIMX0z2RS1kXQKhkEFyinrhJnswB3YcIDT5r
-	v8UpnbvCbJZADVct48jcioy/DihEaXHY=
-X-Received: by 2002:a05:6512:3186:b0:5a8:691e:abe with SMTP id
- 2adb3069b0e04-5a8e31ec72bmr5414e87.30.1778529679763; Mon, 11 May 2026
- 13:01:19 -0700 (PDT)
+	b=ZjSMW4AVnQL/NQhwz+ZpLjM8Hk9JMOKws3Spz8ouELIc+Bu9KqBJDlfrPHMktFTim
+	 Vb4ZH+2KCTkTF/lb22lBG9p+eKe6tHw1UTPhNHH62QHGjDClYKvn1OwUMmNRFG+SST
+	 jQPwXzj2U79XuxIVNtekGd9FnWj9Hc4Cl7WgZ5/uzY8JTgW/z3Rh3S6nKpwg6862V3
+	 dUeuMr9pQe76NrilzH41A/u5OKYW/W/Cax5E1OAqHVUj1+9M/SOkwPmPhT7NupiyV4
+	 HfuGfmHXERRdoxl1UoTJY+PwrKgnU/uBhivXGHpwYdtY5IE7kKYpaWBef0HoPAURMo
+	 p9Lotrc22yfZQ==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5a8d1f43432so1848161e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:01:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9k7dbeqfEXc4lW+RHhv7CnQW/E2BlJtJViWV9iONDyn2Yg+9o9IMmUaPF4ll7H9Teljck2sPWsKhunAnZSIsY3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzL+qXDEDKW40ZFIl5NDQsScLfkyJa2aN4LtqOxXenPW+bmG4Ie
+	4SXaQuy+ohXCokQFsFNZBDDGenaBOQarFkcxdIRrkyQcT8kSFkgveLOLoo5JYWMC0JFTYKCM7Bj
+	8/COI2J8oJnnrmkii3mF2wXsLgnzWNgQ=
+X-Received: by 2002:a05:6512:3b86:b0:5a4:d9:88a5 with SMTP id
+ 2adb3069b0e04-5a887cde895mr8789758e87.24.1778529658964; Mon, 11 May 2026
+ 13:00:58 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260505104056.1812343-1-wenst@chromium.org>
-In-Reply-To: <20260505104056.1812343-1-wenst@chromium.org>
+References: <20260505104003.1811841-1-wenst@chromium.org>
+In-Reply-To: <20260505104003.1811841-1-wenst@chromium.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 11 May 2026 22:01:06 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkoiJN_gxv0y4ARBMG7bTc07OjvDR1d8DykkNp7g1LOUQ@mail.gmail.com>
-X-Gm-Features: AVHnY4K7pYfonqtNSNtLkl02aFuSTA7FYZ67VUeH1tI-OzuQASo_yecrO3Z2b_c
-Message-ID: <CAD++jLkoiJN_gxv0y4ARBMG7bTc07OjvDR1d8DykkNp7g1LOUQ@mail.gmail.com>
-Subject: Re: [PATCH v2] pinctrl: mediatek: common-v1: bypass pinctrl GPIO
- layer in set GPIO direction
+Date: Mon, 11 May 2026 22:00:46 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnpsmV=yqjrFZiqqRxHVM-7pG3SZ15DKakj_3ODnP4wkg@mail.gmail.com>
+X-Gm-Features: AVHnY4KLb5dofKxjtoMouq5Gr8Qpwowhm7jBE9YnqDOByoiTwxk2QEGRigVxcuI
+Message-ID: <CAD++jLnpsmV=yqjrFZiqqRxHVM-7pG3SZ15DKakj_3ODnP4wkg@mail.gmail.com>
+Subject: Re: [PATCH v2] pinctrl: mediatek: paris: bypass pinctrl GPIO layer in
+ set GPIO direction
 To: Chen-Yu Tsai <wenst@chromium.org>
 Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
@@ -82,7 +82,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 5, 2026 at 12:41=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
+On Tue, May 5, 2026 at 12:40=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
 rote:
 
 > pinctrl_gpio_direction_input() / pinctrl_gpio_direction_output() take
@@ -93,22 +93,21 @@ rote:
 > up taking a spinlock, then calls pinctrl_gpio_direction_output(), which
 > takes a mutex. This causes a huge warning.
 >
-> Since the Mediatek hardware has separate clear/set registers, there is
-> no risk of clobbering other bits like with a read-modify-write pattern.
-> Also, once the GPIO function is selected / muxed in, further GPIO
-> operations do not involve pinctrl operations or state. The GPIO direction
-> and level values do not require toggling the pinmux or any other pin conf=
-ig
-> options.
+> While this class of Mediatek hardware does not have separate clear/set
+> registers, the pinctrl context has a spinlock that is taken whenever
+> a register read-modify-write is done. Also, once the GPIO function is
+> selected / muxed in, further GPIO operations do not involve pinctrl
+> operations or state. The GPIO direction and level values do not require
+> toggling the pinmux or any other pin config options.
 >
-> Switch to directly calling mtk_pmx_gpio_set_direction() in the GPIO set
-> direction callbacks to avoid taking the pinctrl mutex. Drop the
-> .gpio_set_direction field in mtk_pmx_ops to signal we are no longer using
+> Switch to directly calling mtk_pinmux_gpio_set_direction() in the GPIO
+> set direction callbacks to avoid taking the pinctrl mutex. Drop the
+> .gpio_set_direction field in mtk_pmxops to signal we are no longer using
 > the pinctrl GPIO layer for setting the direction.
 >
 > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-Patch applied.
+Patch applied, thanks for your perseverance Chen-Yu!
 
 Yours,
 Linus Walleij
