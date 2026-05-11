@@ -4,83 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43923CD37B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74158CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=//uIbg50YuW84UwhRnJ8lducMYqmOge+fitLLKxnYqs=; b=q1uUT4y2t7UV2BA2B8DigzkPNg
-	uLxn1+FOvX1ZkVV4B3h0C+4JRa635UlKEJUx6XKNeBOBqcExqmhegpN1w6jxvH4LQs/uDUqvmW5YR
-	FWp/mv2ehqT9OKvhDdjKQxNYmQ9QNs5rX6wjLuiIIcbldXjAKFHnu/XIOa1jt3T/Nag7JVBsgFTkd
-	iYesNJ+79kye2ynjxigA+yTuIWGhjrb6oNuZXHyS/P++U8iAYhPm9bAId9/+lyPXSxR5ImUvv7hG5
-	TKQr+UaVl0LziidKTzi9NrALMxFq+CCMki5E1svhBU7UHLFUU3CMK6nbaO2gm1FdIrOwcGNlX+arU
-	AE6jSf4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZjFXQLbS6kZHb3LLBkBkfGA1ASvZSnrHkXGdGRThNL8=; b=fiGWUz2sOPbp58egEyW+hnnO5q
+	9fl6/kPTbKKrOR0IJpy+ROmGI2j0xN85sXLomgn9pJi96Vw9On1f/6skeW5HsdBYL+mC1p2sWFLsp
+	reXGKaoFr8nq+2Npxwfx6DZJjmbHaLL5pQBSMoPbZrhFeDunYoS8uV4qi64X8YproAeum7y2bA8d4
+	BcQZFSgll50gDREI2vzdOYi6NnxjQRYpdSTE1QrK8JPKYjw42anDDdwNLJWZ2Chysc3tR5t9Lprw3
+	PbjB79WMLtMxDbLlRRlgWDJJqHI92GG8awLFxPMOfoSGlcsU6qmv1KiDYSNzChhjBHct+JLGjuxd5
+	x5FrjtUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOvn-0000000DLbs-3T2r;
-	Mon, 11 May 2026 11:36:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOvc-0000000DLUg-3Lg7
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 11 May 2026 11:36:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Sender:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=//uIbg50YuW84UwhRnJ8lducMYqmOge+fitLLKxnYqs=; b=CSmbvxedeenxBEGyhxliFxBYuc
-	jMuL4/lkyddFHdhxQZjKiUnPV+MbpI5TuAw+xdwEgxDBUcL3rlkoDjcLRPxZBYE9z0xVwHiwqWlLL
-	8t1O9C8fZD7pqt54iD8J4a3CroA+YwKtQa5aexSBG2kO/W46xwaLoQWdza12YfgPK2fgQ5We5KpAA
-	s+m2Qyhxj6ZQRYQE13Yoa4VxyYcpuztFKMPXKSHZf5dlf55O+zuSxu6rIdHKIOmUVZfMuv3cqC0v4
-	xkJLg8XjVHknxRABoP7VQYi1mhhQmzXdD1IIeora/Q28zGNCzvNkj58DOw8pkGcqpUrRPp7v4m27z
-	DnJ0Jhog==;
-Received: from [2001:8b0:10b:1::425] (helo=i7.infradead.org)
-	by desiato.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOvZ-0000000BUT8-2872;
-	Mon, 11 May 2026 11:36:02 +0000
-Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1wMOvY-0000000Dx0R-0E3o;
-	Mon, 11 May 2026 12:36:00 +0100
-From: David Woodhouse <dwmw2@infradead.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	Kees Cook <kees@kernel.org>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	qemu-arm@nongnu.org,
-	qemu-devel@nongnu.org
-Subject: [PATCH v3 0/4] KVM: arm64: vgic: Fix IGROUPR writability and IIDR revision control
-Date: Mon, 11 May 2026 12:30:42 +0100
-Message-ID: <20260511113558.3325004-1-dwmw2@infradead.org>
-X-Mailer: git-send-email 2.51.0
+	id 1wMOY9-0000000DFSp-0tx2;
+	Mon, 11 May 2026 11:11:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMOY0-0000000DFFc-0rLH
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 11:11:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E87EA22C8;
+	Mon, 11 May 2026 04:11:33 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D1B043F85F;
+	Mon, 11 May 2026 04:11:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778497899; bh=kihX/ty1j9272h5l+H5pHt2IGG7EUSk4TJN56sJjaYs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=djwVpaVOdCsgq0MiS+lLnjTBMhxy2d8HstdyCpIVCsdeC8OHvbzsoL1bqwTld8ABO
+	 4tqzCuKOndO7WfzzB8t6yz6ERZybJeXoIOI2PEOWgbbhFttroUFHNACoLxulsJ7LMT
+	 Xttwq3nrk4defx22iNxLNFf6pCJtvLpxRHs4vNuc=
+From: Leo Yan <leo.yan@arm.com>
+Date: Mon, 11 May 2026 12:10:56 +0100
+Subject: [PATCH v12 12/28] coresight: etm4x: Hook CPU PM callbacks
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260511-arm_coresight_path_power_management_improvement-v12-12-1c9dcb1de8c9@arm.com>
+References: <20260511-arm_coresight_path_power_management_improvement-v12-0-1c9dcb1de8c9@arm.com>
+In-Reply-To: <20260511-arm_coresight_path_power_management_improvement-v12-0-1c9dcb1de8c9@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+ Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>, 
+ Keita Morisaki <keyz@google.com>, Jie Gan <jie.gan@oss.qualcomm.com>, 
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778497860; l=5182;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=kihX/ty1j9272h5l+H5pHt2IGG7EUSk4TJN56sJjaYs=;
+ b=6huoKqwnqX6vXpZaxklv/TIzNJsGJXPT6ZQeui8Vn0KKhXSrwspDSwpPJgjPW/Vp72mCrvYt5
+ 51rqboy7wmWArjWKA3CIfyHx5fB+At0W3ILPh9rfQ8nzTBj5UFWXoX6
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260511_041140_465753_EAE881A4 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,52 +85,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maintaining precise guest compatibility across host kernel upgrades — 
-and even downgrades, since rollback is sometimes necessary — is not 
-optional. That *shouldn't* need saying, but maybe it does:
-https://lore.kernel.org/all/6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org/
+Add a helper etm4_pm_save_needed() to detect if need save context for
+self-hosted PM mode and hook pm_save_disable() and pm_restore_enable()
+callbacks through etm4_cs_pm_ops structure.  With this, ETMv4 PM
+save/restore is integrated into the core layer's CPU PM.
 
-This series fixes the GICv2/v3 IGROUPR writability model to be
-consistently controlled by the GICD_IIDR implementation revision,
-replacing the ad-hoc v2_groups_user_writable flag.
-  
-Before commit d53c2c29ae0d ("KVM: arm/arm64: vgic: Allow configuration
-of interrupt groups"), IGROUPR was read-only on both GICv2 and GICv3.
-That commit made it unconditionally guest-writable, but provided no
-mechanism for userspace to restore the previous behaviour for guests
-that were launched on older kernels (which which might need to be
-migrated back to older kernels).
+Organize etm4_cs_ops and etm4_cs_pm_ops together for more readable.
 
-The v2_groups_user_writable flag (added by 32f8777ed92d) attempted to
-gate GICv2 userspace IGROUPR writes until userspace wrote the IIDR,
-but the guest write path was never gated, creating an inconsistency
-where the guest could modify groups that userspace couldn't save or
-restore.  QEMU never writes GICD_IIDR, so its GICv2 IGROUPR
-save/restore (QEMU commit eb8b9530b0c) appears to be silently broken.
-  
-This series:
- - Allows userspace to set IIDR revision 1, to restore the original
-   read-only IGROUPR behaviour for both GICv2 and GICv3 (patch 1)
- - Removes v2_groups_user_writable and makes both guest and userspace
-   writability follow the IIDR revision directly (patch 3)
- - Adds selftests covering IIDR revision semantics and a QEMU-style
-   save/restore scenario (patches 2, 4)
-  
-Tested on EC2 c7g.metal (GICv3 native) and under QEMU-TCG (GICv2).
+The CPU PM notifier in the ETMv4 driver is no longer needed, remove it
+along with its registration and unregistration code.
 
-David Woodhouse (4):
-      KVM: arm64: vgic: Allow userspace to set IIDR revision 1
-      KVM: arm64: selftests: Add vgic IIDR revision test
-      KVM: arm64: vgic: Remove v2_groups_user_writable and use IIDR revision directly
-      KVM: arm64: selftests: Add GICv2 IGROUPR writability test
+Reviewed-by: James Clark <james.clark@linaro.org>
+Tested-by: James Clark <james.clark@linaro.org>
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 73 +++++++---------------
+ 1 file changed, 23 insertions(+), 50 deletions(-)
 
- arch/arm64/kvm/vgic/vgic-mmio-v2.c                 |  15 +-
- arch/arm64/kvm/vgic/vgic-mmio-v3.c                 |   4 +
- arch/arm64/kvm/vgic/vgic-mmio.c                    |   4 +
- include/kvm/arm_vgic.h                             |   4 +-
- tools/testing/selftests/kvm/Makefile.kvm           |   2 +
- .../testing/selftests/kvm/arm64/vgic_group_iidr.c  | 118 +++++++++++
- tools/testing/selftests/kvm/arm64/vgic_group_v2.c  | 226 +++++++++++++++++++++
- 7 files changed, 361 insertions(+), 12 deletions(-)
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 7011a20d20042cfbeaac51797cd8592275bbf1ca..5cd70f0f3710a5ec6406a89c034d30230f782b13 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -1195,11 +1195,6 @@ static const struct coresight_ops_source etm4_source_ops = {
+ 	.pause_perf	= etm4_pause_perf,
+ };
+ 
+-static const struct coresight_ops etm4_cs_ops = {
+-	.trace_id	= coresight_etm_get_trace_id,
+-	.source_ops	= &etm4_source_ops,
+-};
+-
+ static bool cpu_supports_sysreg_trace(void)
+ {
+ 	u64 dfr0 = read_sysreg_s(SYS_ID_AA64DFR0_EL1);
+@@ -1853,6 +1848,11 @@ static int etm4_dying_cpu(unsigned int cpu)
+ 	return 0;
+ }
+ 
++static inline bool etm4_pm_save_needed(struct etmv4_drvdata *drvdata)
++{
++	return !!drvdata->save_state;
++}
++
+ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+ {
+ 	int i, ret = 0;
+@@ -1995,11 +1995,12 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+ 	return ret;
+ }
+ 
+-static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
++static int etm4_cpu_save(struct coresight_device *csdev)
+ {
++	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	int ret = 0;
+ 
+-	if (!drvdata->save_state)
++	if (!etm4_pm_save_needed(drvdata))
+ 		return 0;
+ 
+ 	/*
+@@ -2112,47 +2113,27 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+ 	etm4_cs_lock(drvdata, csa);
+ }
+ 
+-static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
++static void etm4_cpu_restore(struct coresight_device *csdev)
+ {
+-	if (!drvdata->save_state)
++	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
++
++	if (!etm4_pm_save_needed(drvdata))
+ 		return;
+ 
+ 	if (coresight_get_mode(drvdata->csdev))
+ 		__etm4_cpu_restore(drvdata);
+ }
+ 
+-static int etm4_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
+-			      void *v)
+-{
+-	struct etmv4_drvdata *drvdata;
+-	unsigned int cpu = smp_processor_id();
+-
+-	if (!etmdrvdata[cpu])
+-		return NOTIFY_OK;
+-
+-	drvdata = etmdrvdata[cpu];
+-
+-	if (WARN_ON_ONCE(drvdata->cpu != cpu))
+-		return NOTIFY_BAD;
+-
+-	switch (cmd) {
+-	case CPU_PM_ENTER:
+-		if (etm4_cpu_save(drvdata))
+-			return NOTIFY_BAD;
+-		break;
+-	case CPU_PM_EXIT:
+-	case CPU_PM_ENTER_FAILED:
+-		etm4_cpu_restore(drvdata);
+-		break;
+-	default:
+-		return NOTIFY_DONE;
+-	}
+-
+-	return NOTIFY_OK;
+-}
++static const struct coresight_ops etm4_cs_ops = {
++	.trace_id	= coresight_etm_get_trace_id,
++	.source_ops	= &etm4_source_ops,
++};
+ 
+-static struct notifier_block etm4_cpu_pm_nb = {
+-	.notifier_call = etm4_cpu_pm_notify,
++static const struct coresight_ops etm4_cs_pm_ops = {
++	.trace_id		= coresight_etm_get_trace_id,
++	.source_ops		= &etm4_source_ops,
++	.pm_save_disable	= etm4_cpu_save,
++	.pm_restore_enable	= etm4_cpu_restore,
+ };
+ 
+ /* Setup PM. Deals with error conditions and counts */
+@@ -2160,16 +2141,12 @@ static int __init etm4_pm_setup(void)
+ {
+ 	int ret;
+ 
+-	ret = cpu_pm_register_notifier(&etm4_cpu_pm_nb);
+-	if (ret)
+-		return ret;
+-
+ 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
+ 					"arm/coresight4:starting",
+ 					etm4_starting_cpu, etm4_dying_cpu);
+ 
+ 	if (ret)
+-		goto unregister_notifier;
++		return ret;
+ 
+ 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+ 					"arm/coresight4:online",
+@@ -2183,15 +2160,11 @@ static int __init etm4_pm_setup(void)
+ 
+ 	/* failed dyn state - remove others */
+ 	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+-
+-unregister_notifier:
+-	cpu_pm_unregister_notifier(&etm4_cpu_pm_nb);
+ 	return ret;
+ }
+ 
+ static void etm4_pm_clear(void)
+ {
+-	cpu_pm_unregister_notifier(&etm4_cpu_pm_nb);
+ 	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
+ 	if (hp_online) {
+ 		cpuhp_remove_state_nocalls(hp_online);
+@@ -2270,7 +2243,7 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
+ 
+ 	desc.type = CORESIGHT_DEV_TYPE_SOURCE;
+ 	desc.subtype.source_subtype = CORESIGHT_DEV_SUBTYPE_SOURCE_PROC;
+-	desc.ops = &etm4_cs_ops;
++	desc.ops = etm4_pm_save_needed(drvdata) ? &etm4_cs_pm_ops : &etm4_cs_ops;
+ 	desc.pdata = pdata;
+ 	desc.dev = dev;
+ 	desc.groups = coresight_etmv4_groups;
+
+-- 
+2.34.1
 
 
