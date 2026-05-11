@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC5FBCD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F12AFCD4840
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:52:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sDOXYBEUZnUtmSTyT3uL3mtKxvhVKKfeSDiOOL5ymVk=; b=aUGo9N0Zg55/K07V4jlXLYXyKF
-	XxvKx0wFze7j4NZuCmBPEta5kDGtXH2CurVdRtRcmkFUbth1/UPqxjIKbD7DxBNNWU87c72gE440+
-	MV+0vrkrgN1W+doziW4kF38uiPfvFEUF89x4eBH8CvsuVHzdtAk0H/R7v46KFpr0Dhi68tApw0EQk
-	qwSVC+kozMo4GBsVFFrATdRwTGEM+5vONEsnR8vr8JRkKCEfSfevPEOes/JJJ1V/1gI9err0dXoKz
-	FEhl0lBTqnN9P3p9v5c0PDyuYJ/dfRZplnar1bRHjqjA4OMF5QdNI1hWjCv239RK56a6P0XOjtjNc
-	KwpQgvPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UCCfdV5epOfYo3BsJom2sySg0/nC1lFfsXrTGiNtRwc=; b=qCEVUAVxXpevnFFlJHGIntc654
+	DXb2pMf5/KUXM4OnwguwLNRZBEVhn4QgyZFAHUGZL7PKg8o4gHGBS+1K6AnhT4ffpdxWI9mMcCqQ8
+	A3t1HHqhv+JxExBWRgYf96Du5ARlH3NDrXN+1iE7FAigsIFbrHimAEs6wFRAGJu7De+LekTXwrcC8
+	pm8+jaJosGMiuPvcL7PzYsImPwImdxjsqFx6vARum9/nZBLpMx9w9d4D4MR8lZue2yFFna7CQRrkf
+	By+/sRDk0hCw+XjqxJ5wX9tKLJNfynQ4H1CsZTLmuf8ZhD1Z57LBGz6xCyRaZ5kNNWp4rrRYYWsP1
+	yj0qiKAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTqx-0000000EH53-2jPU;
-	Mon, 11 May 2026 16:51:35 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wMTrK-0000000EHAv-3hUY;
+	Mon, 11 May 2026 16:51:58 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTqv-0000000EH4L-2l41
+	id 1wMTrH-0000000EH9h-15Hm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 16:51:34 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-488ff90d6c7so41406385e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 09:51:32 -0700 (PDT)
+	Mon, 11 May 2026 16:51:57 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-367d88b9940so1518666a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 09:51:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778518291; x=1779123091; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=sDOXYBEUZnUtmSTyT3uL3mtKxvhVKKfeSDiOOL5ymVk=;
-        b=dY77o9O4hEmPQHjPssegiXOd+MtgZln76/3OvST4tmeiMLKD9KVt0mMDM5Ahk7wtU2
-         3kF2eRoDnZOzi93CQK7DO/1OnXuJge8PuX6LugjmX2uI80ofSJbCOP0KXtb3hm5AEbk6
-         /ieZR2H9NzE6aGyFHIIFTuyIcUa+JJjCR0pn7Sd6Z5SJHT9AWQXXn9GZQteRoAOFWUNt
-         tvFNJsxxyrV6B7VGGLNIF/pVfUCvkipk32+r1eg0XOR4r+UdTtciYzvAnHGkCood66K1
-         mA1ISnlZyQhtmijwLXgJ7OoWx5PiWV4FiEiPcYM0n1MEMCbaerEsNxSqKopY0jKCw+D1
-         4lWQ==
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778518314; x=1779123114; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UCCfdV5epOfYo3BsJom2sySg0/nC1lFfsXrTGiNtRwc=;
+        b=uQKwN8nWeLU/zIlpWu6mkMK0aghmPl9Cs9Cka4JqunyVj/8LWInhl8WsWwZ+85ToY0
+         TiTjvU3ymAO5YImt2z/Ol5Os+wZXSSFlYecc0F8HoSb+U33YSaTwHOdtiBtF+T0iSVbt
+         qwt2MxiiafocTFJK7LjfIqQWrtuBGStfxIfFwzRiLruwz/+8TldSDKvcq7MNviqeVggJ
+         91S29JWP7u5WAtPYwfI95NGkwLfYlxz+2zS1/FC4zoy6b9wwSsxSGH/YfqnSssdukQGz
+         mH4nh+FZnKad/zpw9SGnn02k2Xqdn18q3n0MQ2ZCtI6YCAGqOHXI5N2XBOOTN0CRnjjc
+         PEoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778518291; x=1779123091;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sDOXYBEUZnUtmSTyT3uL3mtKxvhVKKfeSDiOOL5ymVk=;
-        b=MkM6oAw7NCKRgDa3yIUJ+sY1VaoEPtUebHKMjVUFEdO7UepfWIR5Voy9TlOW12NRHz
-         O13ZKk8UiWhVxv7j6EVJ34Ou0GZU1lyFGPswzkIHDCczQbQRTGQsH+dpwFnW7SE37WDT
-         nLhkvKueZlCQSgzJseus2BefoOyrwiWJiQLjxjE04Vjq5U8owrA79EDpnE1OPs8oWmqv
-         8PRF9B8jdzpE3FcnAGpDOp3WnLyoTBSaZ9EORvtEmEoisKqYdmf+Nzgc2RM9oY4knPVT
-         ZvymOD2HHWqMMQNL1zpX/PiSKwzfr+JAToZpCdIRWEs8cg/0QGEXnjWoZguy3c07rRq+
-         2kvw==
-X-Gm-Message-State: AOJu0Yymp85Oxus+4FVUOJjjv9MG3N0ZF+AF+JhReGH1X4K/uLoClyjL
-	Zr2VF6kjeUYZNtX+fDlera9DcTbsLQDHtn4pQdc1eKLJPw6FGCRAFnws
-X-Gm-Gg: Acq92OEYIljtXnZakFb8GajhigX4DONExBO4WdR8tbKQMBEEQvU4ddmyswXtj4ymh8/
-	1YVtbjkHedWTqV6HoaaGEkczk1zScod9FaekQkDyVnkZcXTE4fvNqmc92YX1uBR7I5arECKnwtT
-	MqtioRq0AqOq9jY23kdYKoUTy/ffjA5PGkBCLM92cXWQbdZpafHx+hxvRS+t0Qzfbc7HQ5hsfk2
-	iBT9tGSZ1s+LGy1gEcGh8taU27HL+p+pEyYWvz8tdiKUuLckjvHByYEB2ufPwVlAkEz3ORnA3Rb
-	/BnypJTcHuysgzN5hn7r7+Qg9mkOian+H75L0zFBL7O/2YAYzh2N5gPOIQyTiWIAE/9GFzuz7np
-	M27cmqU4qKUwFXBcaaQLTZ0mpqVUH74JnK770V9WJkSf1G7QpzwLauVTbs+FKPK/AwGg8CLvocN
-	pWsC1ledCsNNR2nHSgayHhgcuOwOD67xY3c0+Z99blIu6Fr3lsnkdTEDuXIXE=
-X-Received: by 2002:a05:600c:a08b:b0:489:1ba8:5bf0 with SMTP id 5b1f17b1804b1-48e51f4119bmr388918855e9.21.1778518291069;
-        Mon, 11 May 2026 09:51:31 -0700 (PDT)
-Received: from vitor-nb.Home (dsl-113-208.bl27.telepac.pt. [176.79.113.208])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e8e62a2desm452865e9.9.2026.05.11.09.51.29
+        d=1e100.net; s=20251104; t=1778518314; x=1779123114;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=UCCfdV5epOfYo3BsJom2sySg0/nC1lFfsXrTGiNtRwc=;
+        b=JT/J6Hj4t1NGBblaRahBSH2sYrPWrlV6Mw3rfzjU3O1sFlcog/dTR936VmmqauxZqZ
+         E5oZJUJ3nvEksOOfO3oES3ns2rqZmWH+XoMjQ3rkOLhh2UV6oV7G6dyRnxGS7LE597xM
+         cPjHl0fLWk0s6VLoDTdN1owFuCX9Q0JwL5lCd+Tx2yLvzQbWIdSYC2oYrHV5+deDTS+k
+         DhS2DPfDPelHwgrMz4diDgc7frs1a0NY68cCC2UbW+dEAMxLFgqLUKxG0RL7cQLV4Az8
+         65gLwn7n8xUOieNb+XpX1b6a6o3O8yfaKGPWg9V1WvfYTqoRX5brCnPdeXhOHsdKfbUB
+         qPTw==
+X-Forwarded-Encrypted: i=1; AFNElJ+1tRnYs6+QLU1K9G0iHXL+oX2xudd4u781SRLumsmR+IWAbRPozK8Fwr83iOR/73rV7QInd3ReccbX3T2U+1rY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0g+F/6tQPSOIV8leqv2pvbBgFg/CiKtRzjCOs2VfeiZmxt1LC
+	ma8/YBFUJGoTu2H2NUpAX2YGrF36sE5tdqwM68G7ynoQBtlE7H4tXIHlfe3cM7ckCMw=
+X-Gm-Gg: Acq92OFVlwgSNGY+DcXzQ6qsTMgnAF2dihZ+sON2Y06ZxfXwAQUqWur4kNgBai4YwxP
+	T6ufMFJXBhdFC7EpxMYI9sp/Z466FZzxLFtUUoWjtEThw2bLAt8nl/NHy0OUhImabotiX7ZgCM1
+	4/ZZQC5CW8EGLBgpq66BTt+k8SdSdz4aHBfPJF3e3UVRtMxLVxEJaG4PhZo/FLjqnt20hwRWdlV
+	vnSCnd8oxBLddg1VU7Z5JTUXByE0bjFCYZwQ9BKBqRWtKn0KAXy8KMIIcxOAavEFJznB/dyeSE9
+	EJFRpNsYOmZ948n+4omv9yIE/xJLOyX/GRV7/iiWJOCkA+8ovmneEdcJr7mEFHX3XRf8y142+F1
+	OxrrlDTtWDprIr8ieQn503XYHMdBXx+Cu6gruNBsn7uGS/mFbHpbtNYxnDMYARyGs/Efg0uxf5I
+	GHwTJnvcqnwZmtetSFU2Ot1zO1MDma4Q==
+X-Received: by 2002:a17:902:f70b:b0:2ba:5e44:ce8f with SMTP id d9443c01a7336-2baf0bd5421mr154830895ad.0.1778518314037;
+        Mon, 11 May 2026 09:51:54 -0700 (PDT)
+Received: from localhost ([97.126.187.42])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2baf1d40a65sm109201975ad.20.2026.05.11.09.51.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 09:51:30 -0700 (PDT)
-Message-ID: <becb54adc0bea88578c8fe4c7c1b7b68bf5cc6d4.camel@gmail.com>
-Subject: Re: [PATCH] pmdomain: ti_sci: add wakeup constraint to parent
- devices of wakeup source
-From: Vitor Soares <ivitro@gmail.com>
-To: Kendall Willis <k-willis@ti.com>, Nishanth Menon <nm@ti.com>, Tero
- Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, Ulf
- Hansson <ulfh@kernel.org>, Kevin Hilman <khilman@baylibre.com>, Dhruva Gole
- <d-gole@ti.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	tomi.valkeinen@ideasonboard.com, sebin.francis@ti.com, devarsht@ti.com, 
-	vigneshr@ti.com, vishalm@ti.com, vitor.soares@toradex.com
-Date: Mon, 11 May 2026 17:51:29 +0100
-In-Reply-To: <20260506-wkup-constraint-v1-1-0a4bce791b29@ti.com>
-References: <20260506-wkup-constraint-v1-1-0a4bce791b29@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.44.4-0ubuntu2.1 
+        Mon, 11 May 2026 09:51:53 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: linux-omap@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>, 
+ Andreas Kemnade <andreas@kemnade.info>, Roger Quadros <rogerq@kernel.org>, 
+ Tony Lindgren <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, 
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-hardening@vger.kernel.org
+In-Reply-To: <20260330213528.18187-1-rosenp@gmail.com>
+References: <20260330213528.18187-1-rosenp@gmail.com>
+Subject: Re: [PATCHv3] ARM: omap2: simplify allocation for omap_device
+Message-Id: <177851831304.45285.1551367657338168278.b4-ty@b4>
+Date: Mon, 11 May 2026 09:51:53 -0700
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_095133_727882_609D1805 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20260511_095155_299507_BFCCC510 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,29 +104,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kendall,
 
-On Wed, 2026-05-06 at 22:16 -0500, Kendall Willis wrote:
-> Set wakeup constraint for any device in a wakeup path. All parent devices
-> of a wakeup device should not be turned off during suspend. This ensures
-> the wakeup device is kept on while the system is suspended.
->=20
+On Mon, 30 Mar 2026 14:35:28 -0700, Rosen Penev wrote:
+> Use a flexible array member (FAM) to combine hwmods array allocation
+> with the omap_device structure. This reduces the number of allocations
+> from two separate calls (one for the device, one for the array) to a
+> single allocation, improving efficiency and reducing memory fragmentation.
+> 
+> The FAM approach also enables bounds checking through __counted_by(),
+> which provides runtime verification that array accesses stay within
+> the allocated size. This improves security and helps catch bugs during
+> development.
+> 
+> [...]
 
-Thanks for the patch.
+Applied, thanks!
 
-I tested it on our Verdin AM62P. As expected, suspend now fails cleanly wit=
-h "-
-19" when an SDIO WiFi module is registered as a wakeup source, instead of
-crashing on resume:
-
-ti-sci 44043000.system-controller: PM: failed to suspend: error -19
-
-I did not test the IO daisy chain wakeup path, since that is out of scope f=
-or
-this patch.
+[1/1] ARM: omap2: simplify allocation for omap_device
+      commit: 2a7a9e20b9e8b5dc4fdef777e67d390dcb3a8ea4
 
 Best regards,
-Vitor Soares
-
+-- 
+Kevin Hilman (TI) <khilman@baylibre.com>
 
 
