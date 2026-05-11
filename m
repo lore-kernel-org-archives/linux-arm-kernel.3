@@ -4,101 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8380DCD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 14:36:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11EC2CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 14:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TRmZZoSXD3Wj4LMAwAdt4eJuVkT2JvoyntYmnjZ3hZo=; b=T+T9yG5TCsah0cZk/5jHuxw583
-	G6SqQbqH40ZhWAh0vXhyZCsm4EX+6kF2dwMXLg/Ly9Ai4KjucG8gPFXwC3Dkje5Bge3q30FmhK/3G
-	E2WN/d44KgSB00CWKWBRc0r/b2qN99TMOIzP62KC3rUDX8A6o3Dm1D9/feyUx8pGMa+Ag8Zr//MuM
-	jgMBGsU9ZbvG8+QMcsVmREKthC8pQl0XTW3atXPCPsBoeL/vkN8HdCGliKIstfU1gfG7aGub38HBW
-	2t/trUffTL5boOL6LUp2KYGPn5sEnQs4Ku9YIme9QrGP3EPHRiT1dJyHj9iWje+VrPwMSwJtL9KkL
-	DxP8dM9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z170Amak81rqK1Z7ArZ4RiigKBxs4M8ehBqJt+giuPU=; b=GtCtnTFhHBaIBCgqjq4xHFOHvA
+	60HNlYPdWlRFWtXUylR9Jy7QFA3XZz5JrM1Ng++3g+A0wlDqYWovA4wHliZqNNLXkx5J5fiNkd3Tf
+	WwkjsSs7pmOh1Fk7K1RklGBdwEhlKcyXCW+j25UFLQA9ywNcG8WWOM+jEe7OkIPMCmY+zh1jfDJLf
+	IiUpJbpw2eh+ZsIa8j8V5B9rU/WZ07ImHFgG6H5LsacnCzhIGFN3yGPxsQREtMSpE4MGckhRy1C7M
+	KnCpYAaop6dtkMnKFXA7fHhvOLAtNmt3qPr9BsTxFAmOBqodJEmIf8a6muQ6v4+SL5rLyiIObOwvD
+	BpkKHfaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMRkH-0000000DvS1-2pOQ;
-	Mon, 11 May 2026 14:36:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wMRpC-0000000DvwL-12He;
+	Mon, 11 May 2026 14:41:38 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMRkC-0000000DvPu-0mPq
+	id 1wMRp8-0000000DvvZ-2mQU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 14:36:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1778510183;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TRmZZoSXD3Wj4LMAwAdt4eJuVkT2JvoyntYmnjZ3hZo=;
-	b=A3kzHdNyLKB3kjAOS1R/3JL96EwLaQmSTGI0sp3+s8XyhMb5mep5IbiU3J3VZRSTxDN96U
-	2qhjbGsLWSK4T7HzSh60lHoSYestJPPT2VmqNgPO4LWn+tLpUPRo16Kh4hYZbvf7VP40KJ
-	xzwcbAWevfPmy3cRLRZXcgk4o1UR9oM=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-118-IGs8hL1HNk6pd1LBD38f6w-1; Mon, 11 May 2026 10:36:22 -0400
-X-MC-Unique: IGs8hL1HNk6pd1LBD38f6w-1
-X-Mimecast-MFC-AGG-ID: IGs8hL1HNk6pd1LBD38f6w_1778510181
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8ee1a909037so814483185a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 07:36:21 -0700 (PDT)
+	Mon, 11 May 2026 14:41:35 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-671588ab0cfso315a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 07:41:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778510491; cv=none;
+        d=google.com; s=arc-20240605;
+        b=enDtGx51g/DHjFauToQ6/lFgBDop5LjPO6tKuwOQEK/V+w9JsZlaETV7P/2epfB38E
+         K/4Fg20bp+gmMHRGlFppNCD2EtG/5465f0oQuIuahjkWqbubV1zuuMx93fCE5ElPcX3o
+         Bx9pah6z12KGHYtehActqAwr+B0GCXeH+b7b8rtEMOcFnLbzFetMZSPmZsyO5kBD4ju1
+         c4nXQ3GsQ4XaLscy15Yb+vmjOeoSze5PeevoUXbpcESnHMzbIO6KqDvh4MHcCYw6MGfG
+         WNq1vvxP3XL/pKtnnGToJK+H8bynD9WBd2IRHAdU9jvnRyh0uaVfuLMJbBuYvArZGz1c
+         vgbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Z170Amak81rqK1Z7ArZ4RiigKBxs4M8ehBqJt+giuPU=;
+        fh=rV0ajtWdujtinJxD6HdmqL7+/ocLXZ6j+maPLIDyjA0=;
+        b=k5KIGVGliaH+VG27sW54E0SWrfyxAeBE5ty331fxzx5U9Oh2Fb7jHCaqb8+vNvRvTx
+         Us2uF7GnsLm7TOBLKb8i+8+pHr1p+yhklh12ftqMeXGgiWI8MfMpeHQAiRz58RCGvrq9
+         RAZONk6aXEnR6C0XJUCjQailBXVIUH2+kRVH3ARCJEyMOMZOhyi8U2lzhIFqf5Srvowd
+         YIJIsBi5zYkvj7oopLGV21B20xHJZvjxCwECiiBov7xQoHvfQMYbNGkSb18FmM8bvIYA
+         78hsxBni/v8YAFqtNyCUh2u7lwIDDZ8GGvADU7jjPn8l742bXT9j2zqEzid38HhcJhM3
+         1prQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778510491; x=1779115291; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Z170Amak81rqK1Z7ArZ4RiigKBxs4M8ehBqJt+giuPU=;
+        b=IapQeh3G9kjvF2reOp0oFEZFacpRcN3yPgbF3ICKX6mq3Fp0dLeP9Vb8Z9TOg8ExyD
+         AhwJYAzviHUGzr9w8IYcdjh2C3B+nlGKpc1ijXivpt/MJlioB09Mf5CjYaG0ErdDXhkD
+         +Mwf1TzaIvv3PKplts9IP7VzuHCWk9MI2Jem8c5/TOdvM4WuMauFdTEWWQtIWhKpc8pD
+         PGVmyPTX8tY0fPb5//1qEHzIl9TbynLCt12h9hy6AZSasJwNn/rwUilAgIVIzW3TgbtC
+         sI8RlVBVUu+e8UaAI1A4/RsAck3kTGPaA01Tt4lHWLfOT0ydhcHO6KAPAcsV0S04CyHr
+         ZG9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778510181; x=1779114981;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20251104; t=1778510491; x=1779115291;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=TRmZZoSXD3Wj4LMAwAdt4eJuVkT2JvoyntYmnjZ3hZo=;
-        b=KIwdQM3wwB3bhOWT15/E0N8OtiC8oxMcdtqOBHdnAG9MRQK1dJkJGZSLXe8JXZ6hIJ
-         AwLZH2P4kc0kcx0GK7bPM+GpGTy9yyxgntq8sZKZcZmBcBPS3/kCE5YvcEnAnK/qOCmQ
-         Uqze8UCf0TOIcgzQUw7e3lsK71NQ7EDFT4/jVNRmSviJK9C4+V9zI0cydPqO0rv0zuht
-         ehRX0Iqyoitqv7rEeNRzl9Pw2vUQzaXA1nKCC1LS8268ivVcmqGOp9JUK1rU4LZsAocK
-         KjAIprJvsBJf57u1twDv3b/a4fzdkKvXAdaJGSgX6E2KqMxE43y78s3YzUBwIJ5aEnB6
-         W8vg==
-X-Forwarded-Encrypted: i=1; AFNElJ/5Qd/KyPVZVecUhIyMO1CRFSwzf7IN+TPGfZOfCEruotxf/gH1215UqIUob7p2FvXpKtqZK9uefaV8dCRtnHaT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzb//Q+Q7PkCROrsk5B1KZp73ZVMkwDJ2tpT41K5K7/sF/ivE+H
-	5kw95htj8TlfBS/S5FZFSp8cV8l/r4uKw3DL8Se2gulc7PNGonWmaDp9/GO6PwldGNXBWCmoLO7
-	MFPSixR5iWRp1u3/KFN9yYJkGGrV+G5DSdaEXiExKYrmDtcEEgxFdSKtaQLSmBXpDhVsV6puBlu
-	tG
-X-Gm-Gg: Acq92OF0mSy8Lo0m89dQL0FQkcbJ2P0Q78ZSejl1qHRMLHeqfGlRF84BceHt12eeTKx
-	tozkwNdENlRBSxU8p4IQnuHbVc4xNCOxh7nOow/bDWsy3N87+8xiPmI6pz1fy3sYZLUtbH/a+jJ
-	/nnOInd6cUPlzNJJyndhVHvXxc4AcOSjHancUiWpF/Zi0kbeNw0oPgOE0UwMqZePJLnsYx82y7A
-	Lmo2VM4lwJfiVVcixwK3Nzg96/kiqzUrouD5CyoSnWSkuSPUgyJJiw1qfOP7GzFxQKiL+m1aOGf
-	d0o/BcqQZv5x0T5gZqunUB2z7U96fggGftw73ZKMLYUBf6x0PpkPtB82vCwzNi4jmbxNm413xrS
-	yj/q/vlQtbVNiwHyfepZSXyui72kYPhwdRls9hNdzSa2POkJAMWbdzupa
-X-Received: by 2002:a05:620a:298f:b0:8cf:ed8d:20a3 with SMTP id af79cd13be357-907bb3e1b6fmr2203931685a.42.1778510180770;
-        Mon, 11 May 2026 07:36:20 -0700 (PDT)
-X-Received: by 2002:a05:620a:298f:b0:8cf:ed8d:20a3 with SMTP id af79cd13be357-907bb3e1b6fmr2203927285a.42.1778510180315;
-        Mon, 11 May 2026 07:36:20 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8fc2cd04c68sm3128259285a.46.2026.05.11.07.36.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 07:36:19 -0700 (PDT)
-Date: Mon, 11 May 2026 10:36:18 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: a-christidis@ti.com
-Cc: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, Michael Walle <mwalle@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>, Randolph Sapp <rs@ti.com>
-Subject: Re: [PATCH v2] clk: keystone: don't cache clock rate
-Message-ID: <agHpYnkCgGfZp2-E@redhat.com>
-References: <20260507-clk-sci-v2-1-38f59b48777a@ti.com>
+        bh=Z170Amak81rqK1Z7ArZ4RiigKBxs4M8ehBqJt+giuPU=;
+        b=LZlX9n3UNJcX7A8X9ft2hdLs4JstTPxDmiBwCs4dhuWeZrRZuesezS4uAIzkIdpv6U
+         SFmPImccEpB08lYLoLmdNcpimNx8CYX/d03aj8CaJFK6NxU80KDsuvsHmNVC3PCXKZS8
+         eTTAMkPOIneYCG+VnieRogNQBBplnr/61JWUkuUciEFEgutjCrBE1shPdL2iDHRsxU0+
+         nIVZd8rHpa4nsk+kW9ctyg7YeXUI0ITxOb0RyMFHe/yZV4ULiBv9i2ps4OaeCWqwhZjL
+         03oMywV/iBEyxiqbUjX4JR8kjE8L1jgd/hLMTMJGxg1mhKaY2hYgx9/ipQXDCqTVE6Et
+         r+XA==
+X-Forwarded-Encrypted: i=1; AFNElJ/lh0wrHeJmO9uvUZl6HguAwajscjuvtPjI25Jz1wUdEsVOYcZy4vf8v1A+nosH/tjZu5MnNIMrKxxxtpXOUMyR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSlS4H5CsPTMnFdXcVZ4omOf1hPjDEEox09zb7meZo/AfCg30B
+	yn4v0O7McOlHUU3qgAKXDsc5E5nOtJ/Limhk5l6AW9tU3oY80twwi3mzPazO+SmQkaUL3wFYANA
+	RtxGkolMeBQCxSs7y4Fi/dizB/Oy/I5qx32m8f39b
+X-Gm-Gg: Acq92OGyEuUbXq1FHCzpujk4ro5GiFUoy/gaBYC65h4r8SzQAF2xSaSDhkInYtP31ME
+	yxKaRG17IZSjPgzQ9ZZDFQsJu7EA5eKbZhiYLW+cyLqsUj7x47aLW2fc6cNCw2nuIEwDa+E14xL
+	N06nh/lm6OPhrxC5ZQC3LuTCkG4sVCsqmciFuZtgHDyULUvDgzQ5I1RX18El+GifUg+vOmvYl0K
+	UMN9IJkxW82R+muXbz7iBeVg+io66Mr5WJsH68YStB1meVZab7ovtfRvzZmbJ/bGF0O6gMZYUfM
+	cpEElLwEBPOAbWR2wniIODZq2MW/y7NYDsNvEFayr6JpJ32n
+X-Received: by 2002:aa7:d702:0:b0:678:a5c3:4d12 with SMTP id
+ 4fb4d7f45d1cf-67f67ef588bmr85386a12.3.1778510490891; Mon, 11 May 2026
+ 07:41:30 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20260507-clk-sci-v2-1-38f59b48777a@ti.com>
-User-Agent: Mutt/2.3.1 (2026-03-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: i1__5PA6uHQX5ebKU7tSh92trBKrajuQ6uDLXwSdp9o_1778510181
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+References: <20260427153416.2103979-17-ardb+git@google.com>
+ <20260427153416.2103979-19-ardb+git@google.com> <CAG48ez1DJ88a0pBCE-Q0VXyDuJgng8zdunb38g4b4JPU88exww@mail.gmail.com>
+ <31252c1d-a98d-4635-ab61-ce5b649e256f@app.fastmail.com>
+In-Reply-To: <31252c1d-a98d-4635-ab61-ce5b649e256f@app.fastmail.com>
+From: Jann Horn <jannh@google.com>
+Date: Mon, 11 May 2026 16:40:54 +0200
+X-Gm-Features: AVHnY4LoyjasIFmS74GQZueVkF8l7m5tKta7HqO6wHGgS7XuvrG5_IpYer7LdIM
+Message-ID: <CAG48ez2xJwJDgxSH0u2G==9dOQJQxQ7WsQfU14O1H5hEWic1eA@mail.gmail.com>
+Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Liz Prucka <lizprucka@google.com>, Seth Jenkins <sethjenkins@google.com>, 
+	Kees Cook <kees@kernel.org>, Mike Rapoport <rppt@kernel.org>, David Hildenbrand <david@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
+	linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_073628_293810_C3CB1E81 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20260511_074134_764307_EB35D9D4 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,24 +124,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 11:09:34AM -0500, a-christidis@ti.com wrote:
-> From: Michael Walle <mwalle@kernel.org>
-> 
-> The TISCI firmware will return 0 if the clock or consumer is not
-> enabled although there is a stored value in the firmware. IOW a call to
-> set rate will work but at get rate will always return 0 if the clock is
-> disabled.
-> The clk framework will try to cache the clock rate when it's requested
-> by a consumer. If the clock or consumer is not enabled at that point,
-> the cached value is 0, which is wrong. Thus, disable the cache
-> altogether.
-> 
-> Signed-off-by: Michael Walle <mwalle@kernel.org>
-> Reviewed-by: Kevin Hilman <khilman@baylibre.com>
-> Reviewed-by: Randolph Sapp <rs@ti.com>
-> Reviewed-by: Nishanth Menon <nm@ti.com>
-> Signed-off-by: Antonios Christidis <a-christidis@ti.com>
+On Mon, May 11, 2026 at 10:59=E2=80=AFAM Ard Biesheuvel <ardb@kernel.org> w=
+rote:
+> I think we should simply do something along the lines of the below,
+> considering that the size of a data object tends to correlate with
+> its minimum alignment.
+>
+> I do find it rather puzzling that the compiler emits empty_zero_page
+> *after* zero_page_pfn - ideally, we'd combine the below with
+> -fdata-sections so that the linker sees all individual objects, but
+> I suspect that would create some problems elsewhere.
+>
+>
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -452,7 +452,7 @@
+>  #define RO_AFTER_INIT_DATA                                   \
+>         . =3D ALIGN(8);                                         \
+>         __start_ro_after_init =3D .;                            \
+> -       *(.data..ro_after_init)                               \
+> +       *(SORT_BY_ALIGNMENT(.data..ro_after_init))            \
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
-
+Oh, neat, I didn't realize that's possible. That seems like a nicer
+approach... (Assuming that it doesn't cause cache efficiency issues
+somehow, I imagine it could be possible that source-code-adjacent
+objects should also be located next to each other for cache/TLB
+efficiency... but I have no concrete reason to think that, just a
+thought.)
 
