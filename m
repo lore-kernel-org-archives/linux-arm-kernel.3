@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F98ACD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C95BBCD4843
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6NwF4h5ugze0LK451cuV63TaMRlw7jDwkWsGONnDQ90=; b=z5SqSmmzKjuNWxAlHDMC+wt4cQ
-	29RL8nd6ozKgR16li+vnnZsKF0xo1RUO5xWLtnj3uN8CLIu/Lj3Q9RGvOSeMW5LlJ4tc/ZVDWINe5
-	sHg8h4BF4i2yIEyCFt2GpQcsiKPlEUe5//bmsGhg8N2GfJRIb/cmb5FrjhKIkYPYPeCabxUkFtWp8
-	BUSPiT8qG+sG3hG8AdLrzwS8AixVFQg51QsYiK53BRfeOZgz4TmeAISrNZazSVVJBgfaN78s3CYTe
-	/AejDLb6CZXe6LVnjTvtq7aWdue9bDexxmFbF4tndN+CqXEIg6U/3nq+iqIGjTBnUx2QQi04tKvcD
-	mHlwLPLg==;
+	bh=zaKi0MmerX1f5HQeZQbOYU3/+wE5OCl7Eepo6pcuo/U=; b=0u5TtfRaw2DwlN9IkaAv4zZ/OQ
+	BAgcy448K2Eb4qae18jDUNhqO5unhIVqyDZsspUwsxS/qLqXPaadBZH4fInyce2ajTsNm4dXV1B3X
+	6NNYJ/ya2NJF3CuogdVUGI9Rq7bV+dkGQW4kcdM8tnUuXAyVT14xgaUX4SpAGSMpkNZNhm/mWLr7O
+	Pwf7y0jNaHMgavQSwwuviT807UcVwBMIUB8P1l5digwCqdyzWh6RdVZ7pkVntnk9DB5aEunHV1HRC
+	lP9aWuoeTqgO8fIXnDtwUuUKCvUHhpv+m8pT06q66m6Tq/nbFOElFEoCnHTOTOTAUqc1wBX9ZZ27H
+	tpgEzY6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNeN-0000000D4b0-3kn9;
-	Mon, 11 May 2026 10:14:11 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wMNeS-0000000D4eu-2Sdu;
+	Mon, 11 May 2026 10:14:16 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNeJ-0000000D4Yt-01ch;
-	Mon, 11 May 2026 10:14:10 +0000
+	id 1wMNeK-0000000D4ZR-3MPg;
+	Mon, 11 May 2026 10:14:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1778494445;
-	bh=oy677+AficecGZ1tgZGCOtIHFtbKfj3yjUYCiUBNLdc=;
+	s=mail; t=1778494446;
+	bh=W4ksUwvjxfcN9eQn8pG2jiv9bkWQfyqT6AEYKNiCh1M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SJBJ2bsd2llmHR+MBotDbFsoxzNz7wOjl3JI1IAQhy8yTztC1F9qBY25PV/gYzkXV
-	 aNR8xptvKAvXuZPQfxte6E70x/mxe7XmbrbBh5wnzAMXneRJI9RSp/7OnpjpV4czEf
-	 wakJohqLVWYD6/mUQKnMmqZDhRUVg5bMMGFAsZgF5ILl5QzkY3XsVjJMazqcSvibNy
-	 Q6YdSAaJ02MUIGRQsFwTtMMFOZsL046CcZ0KLDAkC+A9d4mrIqt3T2XFgnty/czY3W
-	 7i4RNJjAzerKX3UI+XRQ1H6CIUHRrrS7BK3hiTmBzQZC2ORHzNRdQf8slWPtEleeoi
-	 AC9f+VPHuoiTQ==
+	b=hAoNcQ9ssOsFwRuzWPaTWSHjHdrJgsueDYQO0lJnOK9eN6SmlwC7JpQdgRMC3IZg9
+	 qrcO96P7gxlWjXAzDmj3FMToIsFgEkSt62ZsFpB1OAekOF9OEjqFH2alAARXP8RusX
+	 SH2ygyap06NEpZmOhl26yfG3Dwcr9DMn5bzVE9FPm3sPoH30He5zgpgrd3nrJ2vlPZ
+	 TD9CHgrxD+fleFBcUBiQw6r7gZghUJQqhaq1yZ2lgtHYoG25iod0bama1C20nqeDUt
+	 uTJgJdrO1NqT8jpk9uD6DRgYwpHElN64zN2hZdiWbJAaE3bK/4dldpC/WTGzgMZb22
+	 1ieGi/PWmYAqw==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B078217E138B;
-	Mon, 11 May 2026 12:14:04 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3827D17E13D3;
+	Mon, 11 May 2026 12:14:06 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: lee@kernel.org,
@@ -58,17 +58,18 @@ Cc: lee@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	wenst@chromium.org
-Subject: [PATCH v12 1/5] dt-bindings: regulator: Document MediaTek MT6373 PMIC Regulators
-Date: Mon, 11 May 2026 12:13:51 +0200
-Message-ID: <20260511101355.122478-2-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v12 3/5] dt-bindings: iio: adc: mt6359: Allow reg for SPMI PMICs AuxADC
+Date: Mon, 11 May 2026 12:13:53 +0200
+Message-ID: <20260511101355.122478-4-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260511101355.122478-1-angelogioacchino.delregno@collabora.com>
 References: <20260511101355.122478-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_031407_188130_0BEE0DAA 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20260511_031409_005025_209B5572 
+X-CRM114-Status: UNSURE (   7.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,161 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add bindings for the regulators found in the MediaTek MT6363 PMIC,
-usually found in board designs using the MT6991 Dimensity 9400 and
-on MT8196 Kompanio SoC for Chromebooks, along with the MT6316 and
-MT6363 PMICs.
+When one or multiple Auxiliary ADC IPs are embedded in a SPMI PMIC
+it is reachable at a specific address.
+
+Allow specifying the `reg` property and make it a required one for
+MediaTek MT6363/6373 PMICs as those communicate over SPMI and also
+disallow it for the others (as it wouldn't be applicable).
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../regulator/mediatek,mt6373-regulator.yaml  | 137 ++++++++++++++++++
- 1 file changed, 137 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
+ .../iio/adc/mediatek,mt6359-auxadc.yaml         | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
-new file mode 100644
-index 000000000000..4562f291fc0a
---- /dev/null
-+++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
-@@ -0,0 +1,137 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/regulator/mediatek,mt6373-regulator.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek MT6373 PMIC Regulators
-+
-+maintainers:
-+  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+
-+description:
-+  The MT6373 SPMI PMIC provides 10 BUCK and 23 LDO (Low DropOut) regulators
-+  and can optionally provide overcurrent warnings with one ocp interrupt
-+  for each voltage regulator.
-+
-+properties:
-+  compatible:
-+    const: mediatek,mt6373-regulator
-+
+diff --git a/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
+index 5d4ab701f51a..e685e5ee224a 100644
+--- a/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
++++ b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
+@@ -25,6 +25,9 @@ properties:
+       - mediatek,mt6363-auxadc
+       - mediatek,mt6373-auxadc
+ 
 +  reg:
 +    maxItems: 1
 +
-+  vsys-vbuck0-supply:
-+    description: Input supply for vbuck0
+   "#io-channel-cells":
+     const: 1
+ 
+@@ -33,3 +36,17 @@ required:
+   - "#io-channel-cells"
+ 
+ additionalProperties: false
 +
-+  vsys-vbuck1-supply:
-+    description: Input supply for vbuck1
-+
-+  vsys-vbuck2-supply:
-+    description: Input supply for vbuck2
-+
-+  vsys-vbuck3-supply:
-+    description: Input supply for vbuck3
-+
-+  vsys-vbuck4-supply:
-+    description: Input supply for vbuck4
-+
-+  vsys-vbuck5-supply:
-+    description: Input supply for vbuck5
-+
-+  vsys-vbuck6-supply:
-+    description: Input supply for vbuck6
-+
-+  vsys-vbuck7-supply:
-+    description: Input supply for vbuck7
-+
-+  vsys-vbuck8-supply:
-+    description: Input supply for vbuck8
-+
-+  vsys-vbuck9-supply:
-+    description: Input supply for vbuck9
-+
-+  vs1-ldo1-supply:
-+    description: Input supply for vant18, vaud18, vcn18io
-+
-+  vs2-ldo1-supply:
-+    description: Input supply for vrf12-aif, vrf13-aif
-+
-+  vs3-ldo1-supply:
-+    description: Input supply for vrf09-aif, vsram-digrf-aif
-+
-+  vsys-ldo1-supply:
-+    description: Input supply for vcn33-1, vcn33-2, vmc
-+
-+  vsys-ldo2-supply:
-+    description:
-+      Input supply for vaux18, vcn33-3, vefuse, vfp, vibr, vio28, vtp, vusb
-+
-+  vsys-ldo3-supply:
-+    description: Input supply for vmch, vmch-eint-high/low
-+
-+patternProperties:
-+  "^v(ant|aud|aux)18$":
-+    $ref: "#/$defs/ldo-common"
-+
-+  "^vbuck[0-9]$":
-+    type: object
-+    $ref: regulator.yaml#
-+    properties:
-+      regulator-allowed-modes:
-+        description: |
-+          Allowed Buck regulator operating modes allowed. Valid values below.
-+            0 - Normal mode with automatic power saving, reducing the switching
-+                frequency when light load conditions are detected
-+            1 - Forced Continuous Conduction mode (FCCM) for improved voltage
-+                regulation accuracy with constant switching frequency but lower
-+                regulator efficiency
-+            2 - Forced Low Power mode for improved regulator efficiency, used
-+                when no heavy load is expected, does not limit the maximum out
-+                current but unless only a light load is applied, there will be
-+                regulation accuracy and efficiency losses.
-+            3 - Forced Ultra Low Power mode for ultra low load, this greatly
-+                reduces the maximum output power, makes the regulator to be
-+                efficient only for ultra light load, and greatly reduces the
-+                quiescent current (Iq) of the buck.
-+        maxItems: 3
-+        items:
-+          enum: [ 0, 1, 2, 3 ]
-+    unevaluatedProperties: false
-+
-+  "^v(cn18io|cn33-[123]|efuse|fp|tp|ibr|io28|sram-digrf-aif|usb)$":
-+    $ref: "#/$defs/ldo-common"
-+
-+  "^vmc(h)?$":
-+    $ref: "#/$defs/ldo-common"
-+
-+  "^vmch-eint-(low|high)$":
-+    $ref: "#/$defs/ldo-common"
-+
-+  "^vrf(09|12|13|18|io18)-aif$":
-+    $ref: "#/$defs/ldo-common"
-+
-+$defs:
-+  ldo-common:
-+    type: object
-+    $ref: regulator.yaml#
-+    unevaluatedProperties: false
-+    properties:
-+      regulator-allowed-modes:
-+        description: |
-+          Allowed LDO regulator operating modes allowed. Valid values below.
-+            0 - Normal mode with automatic power saving, reducing the switching
-+                frequency when light load conditions are detected
-+            2 - Forced Low Power mode for improved regulator efficiency, used
-+                when no heavy load is expected, does not limit the maximum out
-+                current but unless only a light load is applied, there will be
-+                regulation accuracy and efficiency losses.
-+        maxItems: 2
-+        items:
-+          enum: [ 0, 2 ]
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
++if:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - mediatek,mt6363-auxadc
++          - mediatek,mt6373-auxadc
++then:
++  required:
++    - reg
++else:
++  properties:
++    reg: false
 -- 
 2.53.0
 
