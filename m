@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4827CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 20:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C35CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 20:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p0T1y41gsuJUzACGoRDlevBaHaCBq9uhq73rg/Jmuv0=; b=fdT2fuhqnakLj61h8zc6jfGrcM
-	KfjdoDuo9oOZyb8PQFOA+ZciYxqwnDDQUQJ1fDm0c8E8cQKmkGQnod6YN8xpiRqH7+URayCivqepk
-	YrUSMcPN0WXePLtgfLh3IJCfMTIO2S+Wc8FoLypMJOPdPNpdBgTiB4UTBanHz9VNRzG48uU6FsQ/c
-	DpnhsmDOy+mEqgzVj5h9NskpEKWZeuZCz2viJT9Jmy0kAtHcAN+mrkokwxItnYB+5Ka3izHSsaM+i
-	PuL92Gn89HqLjahn3/veOaKb7oBRYzjIeot9burIK/gEGGPjiTT+d8sdtqsD64ffZq6A1NeL/4A62
-	+YgdjRNg==;
+	bh=pfDxlUWWZJepOCZjfdEmEkPzN7o0zQAK0IZPSz7H81M=; b=TYDRngaGw4MvxU1PTW9d2HwmR2
+	5KCXfmjzQqx7GoZiyaJdxlxm4aToym6TwMJH/KOLHdO2nkiUpQpVZ5nUNAVWa4lqIdxs2C8qendLz
+	LwAv1iN5H21k45MxFiM9MYrM0Bjr9pcG4DI9a3HusBRYYgbwo/JeZxz58n7/b4xVsHz8GIEwegzjq
+	I+8BYK4hSdUKKH3Do+I25ikKjwzaf9oR71Cld7BlmgUqZ7mVe4nBsi+H3yqBm55fJTEQlnzmGdXbI
+	KqEKnE0HIsUBrmBB8lIWM+cSXuzWdiyTTXRyLKQYnvSGwVpB/AFvWqx7LJN99V2UiXptw6/J0jEs9
+	82SDDiUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMXCx-0000000EhxU-0PUM;
-	Mon, 11 May 2026 20:26:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMXL1-0000000EjAK-3xAO;
+	Mon, 11 May 2026 20:34:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMXCu-0000000Ehwe-3JY1
+	id 1wMXKz-0000000Ej9u-0O4F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 20:26:29 +0000
+	Mon, 11 May 2026 20:34:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 279D142B21
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:26:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A92BC2BCFC
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:26:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F90A442CE
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:34:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20D43C2BCF5
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778531188;
-	bh=p0T1y41gsuJUzACGoRDlevBaHaCBq9uhq73rg/Jmuv0=;
+	s=k20201202; t=1778531688;
+	bh=pfDxlUWWZJepOCZjfdEmEkPzN7o0zQAK0IZPSz7H81M=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LldN6Z98cIgedoQ1TaLfLMP/zwRW1yu3s8fnf+NqB5fpUaJErnQj/LdGUHUIbsrw7
-	 fQJSFVSA3VbmVbWbuzpebSy3C2ayRDTjSSVskDWEdZcE5oZNLVgN3hKYpMpiwAndkm
-	 njYHMEK3UlEaazRrFCPyKJGvCOsbaMUNRoAX2hc8n3Pud/3BuKD40vr4gzZqcZMnp9
-	 nXDo8nlYrOMj8wD5YeGWzIox+ALVpNi8mr6c50USXyVzOVrO98I7GC9UraE9JcZaSp
-	 DGGVXsYe8iMsscqoWnr798QNy375S5qz2GKMaz5KybayrdoWwTHEcEQMtNv3JA6cyA
-	 JEnFk+dVB0gig==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5a8d1f43432so1879628e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:26:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8P1Sa6F8qcKIs3vk5egDqtyN60IHCjY/Fe6i7L2z3E2FBpg6CeNMBjTBYF7yEImpA3IzwiYkYm9dItL68SJ7nH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBJeKtO4h96jM12FZYTeBTdXuR+FiRXMeL3Ie9/D4+qIeUr3zj
-	lhqb5iA0748/oLKRpmtw5JffFyo1Dh32kfKiS446Ith0N8pxZ3664wf7oeqb+Pmap+nEmLlYVE9
-	6ucObkvG1pI2t5I/TQ6vd7Rvg9k+xLQg=
-X-Received: by 2002:a05:6512:3c9f:b0:5a7:46e6:74c4 with SMTP id
- 2adb3069b0e04-5a887adfc92mr8322271e87.9.1778531186735; Mon, 11 May 2026
- 13:26:26 -0700 (PDT)
+	b=l5IWnmnszX4yIlsBRwcZauDRDjLsshju3WeQ8Mfnk7HKw8C4aOvGcekN56lNTA761
+	 zHnwpsT5guPRrb372CdGuH1XRzjJsWAjX+CFc0yqjuRfFNnH0QsHrXN6FDD062YsLz
+	 MDOlqoL+JtTt20cTc/YgGBnUqZQGJSEJjgkN919VgdSU90p2W9QEBoMBs5j9JMfzHO
+	 tzPRoORvk2B2zcajxNqtRcoYPM6xGw2LT7MN1RNJWH93+D2S6o0LB1A1gU0L9Sd93A
+	 hgnASXHjDNKPcCvIsZ7a/5+xHRa81a5udY/K9yiH+Z7IYLTraMnVDyfEtZFfQhJmcb
+	 rbdVbcfSHZBCg==
+Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5a8d1f43432so1889836e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:34:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8oE4lFnVkqbc4HCPF8FN08HTbckrZrTDg1wd7o1+2c2DqVkoc51XJwM6m5Ncdi159+nZdtS/ZT4kgpK6+Jal4K@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLpMIZe9N95FVDt5lWDwYTPRoiVaqlG7PUew372rx7CDtsCDSj
+	Atpx0oZIjVxw3ifqIomg+7z4M0jDR64UZuGoZ6PpaZvRdPYS5gA8EsBBDMeLE0X90YwwqWGAIwC
+	k80JI9YZfP2WQJSrE2X916FBFZLbXGDc=
+X-Received: by 2002:a05:6512:3ca1:b0:5a8:7be1:24c8 with SMTP id
+ 2adb3069b0e04-5a887ceaa65mr9872399e87.37.1778531686850; Mon, 11 May 2026
+ 13:34:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260507-a9-pinctrl-v2-0-49774feff2ef@amlogic.com>
-In-Reply-To: <20260507-a9-pinctrl-v2-0-49774feff2ef@amlogic.com>
+References: <20260504-pinctrl-mux-v6-0-8ea858ba3a5b@nxp.com>
+ <CAD++jLmXvnf6sSWsGe+++u37ONJpFFvxFMUkLdvvxiiaWuf9gQ@mail.gmail.com> <agIwOYrKXlnKbpII@lizhi-Precision-Tower-5810>
+In-Reply-To: <agIwOYrKXlnKbpII@lizhi-Precision-Tower-5810>
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 11 May 2026 22:26:13 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmGr_UOja2yHjCHv7xRcGqit_TxKk7A5YzSoviicJrJUA@mail.gmail.com>
-X-Gm-Features: AVHnY4LSYvXrv4DsxJcvRd4oAMpQx2wvvbKBiUjGdIh3JcrN5btqHfX-VZZ23tw
-Message-ID: <CAD++jLmGr_UOja2yHjCHv7xRcGqit_TxKk7A5YzSoviicJrJUA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] pinctrl: add support amlogic a9
-To: xianwei.zhao@amlogic.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-amlogic@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Mon, 11 May 2026 22:34:35 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=eqEaTcG7P=++Md7fqosmrGbRRPDb90+=Q4q8oQ=xqRA@mail.gmail.com>
+X-Gm-Features: AVHnY4ISeOUwTMvzSWT7CmqN0mVa50nOH_KekHRgu0RCcEYz-W900TVY-Ai2s7k
+Message-ID: <CAD++jL=eqEaTcG7P=++Md7fqosmrGbRRPDb90+=Q4q8oQ=xqRA@mail.gmail.com>
+Subject: Re: [PATCH v6 0/7] pinctrl: Add generic pinctrl for board-level mux chips
+To: Frank Li <Frank.li@nxp.com>
+Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_132628_846129_2A19A7C1 
-X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-CacheID: sfid-20260511_133449_156330_DA009C3B 
+X-CRM114-Status: UNSURE (   9.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,14 +90,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 7, 2026 at 10:21=E2=80=AFAM Xianwei Zhao via B4 Relay
-<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
+On Mon, May 11, 2026 at 9:38=E2=80=AFPM Frank Li <Frank.li@nxp.com> wrote:
 
-> Add pinctrl bindings and driver about for amlogic a9.
+> I fixed a build warning by missing doc 'np',
+> https://lore.kernel.org/imx/20260507152117.240612-1-Frank.Li@nxp.com/
 >
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> Anything need me to do futher?
 
-Patches applied!
+Sorry was busy!
+
+Applied this fixup on top of the branch and merged it into my
+devel branch for v7.2!
 
 Yours,
 Linus Walleij
