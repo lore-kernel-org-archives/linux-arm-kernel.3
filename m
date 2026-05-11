@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E92CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 19:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABD6CD484E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 19:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AkyUvnDjUVwu0ehRW6YmoRYu0TitM06XZpADJOqlSXU=; b=1m0oeqKuty3wE/X0e0dPJG/K14
-	k9paRXOu9lN80Yvw1AhyNU/PBLmUdFFty6WcsNygN3VvbD2gm4yBYDcfkxHvYNCyUYC5LO5lw7BfS
-	MpYmPkmhHylvx1zideojRnR+hzfmQeLVfEyB1Zl4ceFwqrh2UFcJ+ZluVTi7qexwRC2c0chlT8yIy
-	EEpTK/1fOnUpJSj1s0iON8lnNkeKJWSIUPko3II1f1Bj41glpPwYzedV/GCj+cuYec68StZH6V8aZ
-	xioAqJx6HiKGDhwqakId5webNB5loN57Q0lXPTOg+v35APgOA+BIG75secY76+06x1Qq8eUE0S58u
-	z371LTqg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=36Y76l+8L/1TfCN9D9kVNldinwW1l3CEh723aHYy5Vk=; b=G5GWZCBPnmhvFa
+	8Y9ImXuLSXdWP7HGK7niQvQBDUCHsMfnGln48plSn03kexX7xBnqWo/GsmoBx5MsqQeMfLFdcyGSF
+	yOr1dplSKFZu2+seJONBegW41WlmZwLV7oKIsCwEi18e2UNs+aUivfLIFouCfk57bBkHMrTCISzV+
+	IO4LgjoORwtVs/qtCS3PaJUtcxAm3T7/GTOJtHJ/bdzlt8ihGZ/40okXZiOdMlTXcQGH3gUOmoIso
+	4+ODvO0N36WzFWU0soKb64Ql29D3SmcRE6qV98XJ4vC8OpaBAeHSFTc4MOZIa2RUpvFLZunEAAYQO
+	x4ZevzLfvSppMYkPEhvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMWhE-0000000Ee5p-2iFR;
-	Mon, 11 May 2026 19:53:44 +0000
+	id 1wMWjz-0000000EeLX-48hl;
+	Mon, 11 May 2026 19:56:35 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMWhD-0000000Ee5g-0esx
+	id 1wMWjz-0000000EeLL-0F1r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 19:53:43 +0000
+	Mon, 11 May 2026 19:56:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4BAD4600CB
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 19:53:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 035F4C2BCF5
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 19:53:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 71C9D6001A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 19:56:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28B5BC2BCB0
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 19:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778529222;
-	bh=AkyUvnDjUVwu0ehRW6YmoRYu0TitM06XZpADJOqlSXU=;
+	s=k20201202; t=1778529394;
+	bh=36Y76l+8L/1TfCN9D9kVNldinwW1l3CEh723aHYy5Vk=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ebK0SbdoeyfR8i+AKZ1orwOpeeUa/0ktlqwZuyn0JIKckqxY3tHcBPUayt7y/ERgj
-	 Os/+OeUctXXEinBjq8JU5XI/1+lXlERdSWl1yY6mFVXLWosajJlxrCbpq8/MUQkxc1
-	 hcb1hAWy4EsD1FvpGHKGhL4LfxCYbRGAGpqdCIUTXbfpq2BFYbuAD8u/RH1e9NzUqs
-	 bzzmbQgy68ogiQHQ5HthzAtvYIxXyH7gkEKLTW+AKQ5uo1qmjKfs0RG/JHzn5Uvety
-	 lF7+aQ+77naX4458yYO1vrHSi61QKgqV0Tv+qhgNekXRBpGuQLMZkLlRdtF8Kx9BcE
-	 g33mbGgyBQUmw==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-393da8f389bso47347591fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 12:53:41 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+P6KLr141msHrIFzpvUsUydHL/rGlGcsrtiy4mnun8/8P7UKkobqNECXvG7U+PqZwDorvZ4kA6niYs9RBS1l0Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpeelIR2Ggew0GQ8EwqmKBoG+GhHR1VKRJAT2pMZZJ5gmoOtBL
-	wT17gYVo7cXcpZb8Xu4MpvhmMXzsAH776Ssj3JDzfyglYZv1Y45G/zZE2JjxnHa53aFtKUKlKR8
-	b+uWJTbdnW/56rEvIZtmZM3zDFYkd9Vo=
-X-Received: by 2002:a05:6512:3b0a:b0:5a8:7426:d2da with SMTP id
- 2adb3069b0e04-5a8b6c9d811mr2796256e87.7.1778529220732; Mon, 11 May 2026
- 12:53:40 -0700 (PDT)
+	b=eldR591fT7Hwm3wg3SqMducQlfxaAEHxkYFLr5Ef3J7xYD7RoGnrXJYcpIjwkbtlI
+	 6RSGX8VenN+l3okSDgTObaQdzW3nKaDtkQVQyz8HbpeUcAiD4w8JYhNVzMHW0NJuai
+	 Fm9F+Yn5JPhIKa5Ik/qO4zY6JsAApRuhtp2FRBfQe+euX7te7fPrt360tBOQLnIEiP
+	 8HDCu0DSrtyY5qYRTuX2fTByWiwkbgJBvri7Gjjl8axF6vpgQqJ8Ng5v5fCoIKq5ko
+	 I/7xfZLtRUW+fmv8qOK9KeMzhDU2X9Xbg8rMH4QBz8jAhhqftXszgIap+OhcVhV4gp
+	 AG3w6MEIHtqhg==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-38e97e73234so43511161fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 12:56:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+AfCpJ/pU/mdlw1qulc6nWbkwLtdIj6UvPoA+sxXt2URZvICfZik2msOfjolGB1t35AD8Rv8lY7fRZms5LIKUY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcJruzF47kWwyJ8HwUtBl59ND+qHXiVVTcmhuIc2QbpbuKohvk
+	LXiotHZQ34l11ngds4H5Ci7zizsaZ67EsUioWvpFBl3nLyu0/PDbcUEV/SlGDxO5MhYTC/vU0jy
+	qagX4ssz57hri2W0pzznVpRlUYlKWe6k=
+X-Received: by 2002:a05:6512:3d19:b0:5a8:99c8:94bc with SMTP id
+ 2adb3069b0e04-5a899c89686mr7561830e87.28.1778529392892; Mon, 11 May 2026
+ 12:56:32 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260430-pxa-gpio-swnodes-v3-0-5142e95f0eca@oss.qualcomm.com> <CAMRc=Md7EdfvNV+6NRZK0UkNXcYp3uR4N4buKH6NeKKg_rnt-w@mail.gmail.com>
-In-Reply-To: <CAMRc=Md7EdfvNV+6NRZK0UkNXcYp3uR4N4buKH6NeKKg_rnt-w@mail.gmail.com>
+References: <20260505160902.1425532-1-Frank.Li@nxp.com>
+In-Reply-To: <20260505160902.1425532-1-Frank.Li@nxp.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 11 May 2026 21:53:28 +0200
-X-Gmail-Original-Message-ID: <CAD++jLm7isu5+u_8cmqT1=5SMgvsKkRBfAdZ+hFs8Pdm2WPEiw@mail.gmail.com>
-X-Gm-Features: AVHnY4LW8hc_unMh3VlBSde9ZhxvMHSUjSnWnKej4EvTdQ41plIOD2OZGQsN3tA
-Message-ID: <CAD++jLm7isu5+u_8cmqT1=5SMgvsKkRBfAdZ+hFs8Pdm2WPEiw@mail.gmail.com>
-Subject: Re: [PATCH v3 0/4] ARM: pxa: attach software nodes to the GPIO controllers
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Daniel Mack <daniel@zonque.org>, 
-	Haojian Zhuang <haojian.zhuang@gmail.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Arnd Bergmann <arnd@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Mon, 11 May 2026 21:56:20 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=BhoYCvTLvzCQyktRUiKsRrVyadUxOjCvLL7wxwBcR=Q@mail.gmail.com>
+X-Gm-Features: AVHnY4I-LNT372-vzpWf6Qi-_cAA5hInJN5Jx7npmbBI4rxSPCplPzmHk8NUQv4
+Message-ID: <CAD++jL=BhoYCvTLvzCQyktRUiKsRrVyadUxOjCvLL7wxwBcR=Q@mail.gmail.com>
+Subject: Re: [PATCH v2 1/1] pinctrl: imx1: Allow parsing DT without function nodes
+To: Frank Li <Frank.Li@nxp.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -79,38 +74,30 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, NXP S32 Linux Team <s32@nxp.com>, Jacky Bai <ping.bai@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, open list <linux-kernel@vger.kernel.org>, "open list:PIN CONTROLLER - FREESCALE" <linux-gpio@vger.kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 3:35=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
-g> wrote:
-> On Thu, Apr 30, 2026 at 2:57=E2=80=AFPM Bartosz Golaszewski
-> <bartosz.golaszewski@oss.qualcomm.com> wrote:
-> >
-> > Convert GPIO controllers and their consumers on the PXA platform to usi=
-ng
-> > "attached" software nodes. Since everything happens in a bord-file, it'=
-s
-> > quite straightforward. We technically now have a way of passing an
-> > unregistered software node to platform_device_register_full() but that
-> > requires using struct platform_device_info and since the existing
-> > platform devices are either referenced from other places or defined in =
-a
-> > different compilation unit, I wanted to reduce the impact of the change=
-s
-> > I can't test and went with the older method.
-> >
-> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
-m>
-> > ---
+On Tue, May 5, 2026 at 6:09=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
+
+> The old format to define pinctrl settings for imx in DT has two hierarchy
+> levels. The first level are function device nodes. The second level are
+> pingroups which contain a property fsl,pins. The original ntention was to
+> define all pin functions in a single dtsi file and just reference the
+> correct ones in the board files.
 >
-> If there are no other comments, can this be queued for v7.2?
+> The commit ("5fcdf6a7ed95e pinctrl: imx: Allow parsing DT without functio=
+n
+> nodes") already make moden i.MX chip support flatten layout.
+>
+> Make legacy chipes (more than 15 years) support this flatten layout also.
+>
+> Fixes: e948cbdc41d6f ("ARM: dts: imx: remove redundant intermediate node =
+in pinmux hierarchy")
+> Tested-by: S=C3=A9bastien Szymanski <sebastien.szymanski@armadeus.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Are you planning to queue it in the GPIO tree? (I would.)
-
-Otherwise just send a pull request to the SoC tree, I would not
-expect the PXA maintainers to be very active and stacking patches
-and sending pull requests. But they might surprise me!
+No reaction from other i.MX maintainers but OK, patch applied for fixes!
 
 Yours,
 Linus Walleij
