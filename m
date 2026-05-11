@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB27CD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 17:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408B4CD4840
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 17:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=H/v/BO2s+C/N+KeMLepP9unKc4wiBqpI25gDLTzhr3g=; b=YLi+TBuCK1Iuo/aandeGmGVvBG
-	90f18+EBDJL45c48UaHVB1V6vs0oKc39qnm/7I/ZXGKbnaZBXrh/vSUrfO8e5w9A97tTt89J5L8IT
-	DhRNwD3euxgjOaIgIw9g/xODhdo7ZWkSyOdV0tk6YJVEMjeKu4N+jf1mPkzQyEa0wLvnC0O7FfqoY
-	uJZAdATrm0yDoQwG+188s2sTjodxvrU7u+S/b3qIQm3FJ9/xEa0ypMOibVtVNk76vf3368sGq0XJU
-	Y6MZcJVY0dKrTMzMamv6thYd4i3SZ+DEmc7PVDe9qI4TZFyLMuV+lK0vogYS1CIffjshuFmd8ETY3
-	WcbNbmlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bEerhIEewmfT/YDQQReJK1JTsyW1j7y6PqxaMsqRbsk=; b=qEVPq13GK3BB0ayGuambkR5qHA
+	6l3uVRH9obEmhwhR6nw6gAwcKAB1Gyi8wMgN9OqDW/5+g81MJugxIN9WflNxcfHyI6A41V43qxctS
+	6Q+Ea6pkCtfn0uiUuMr2uUwUyMB0H8pMMWd4bfV38NpayL+tL+3ch15EBA/VmNA6hidkNN50O5EV9
+	KQr8uAJMnQ6A4Het4nE3LWDffVxkdycDHoIYX+FFyXrJ3HSmVK6vWlDM0jug7kiZMo7tAf0CM1CW5
+	zlpQjr+NmNQX4jgxgO8RBgsmN2LYLk1QJ2pX2e/v9w19pIGDEI5xq9PH1rB1aJe5vpngmOle2k6JV
+	1SiYgSyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMUey-0000000EOg3-1HsY;
-	Mon, 11 May 2026 17:43:16 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1wMUoa-0000000EQB8-1ucN;
+	Mon, 11 May 2026 17:53:12 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMUeu-0000000EOf4-3aM7
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 17:43:15 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-83538fbd0b2so1843633b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 10:43:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778521392; x=1779126192; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=H/v/BO2s+C/N+KeMLepP9unKc4wiBqpI25gDLTzhr3g=;
-        b=NV+XuDutsVdqC8RMSIFMqlR0M3Rix/lnCrhV9whMtb86kvTtBJ/j1CRXoYidfl5Soc
-         raVDxcSAGAdQY6E5lmSUfoecu4XgX0RgkSZyU5rlte+WQmgAfPjoz66CQrk2PHKIZbFN
-         hnWr9jcBD20c/8igcu2PsbMpqm0UE2PlYVSFywRhH9qk3KPgocm67g2qe2ezFxJYnF61
-         ZGCWRkARNHvJ+LQP+WFP4kn0KI0O0oSOn1oR4Qz5LjGxBsJQYd5IcFD1XCeA9FKPQTfn
-         jFvDeHDHkbiXxzgcn4a3NGKqmKnW1aGH3g7fM5Mmr1zeiva+KFFVGSPJSn4QDDEao4Rq
-         Tobw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778521392; x=1779126192;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=H/v/BO2s+C/N+KeMLepP9unKc4wiBqpI25gDLTzhr3g=;
-        b=GHwG8KMjGhyu8upJQQcDLB+GCYkqfXYNLCiHvL7nr5krvgZwCwZra2/UMffcwrJfKZ
-         SgcGusdnYU7URWXeKaN+AGEMJJ67A+9fN6o09Q2H+AybVBwfFCziREox5xUNEJzM9vGZ
-         JniYvEXWS0LJcMGe+pG7TQzCCRb/6qCv/n+6x6TrjkoSlR69uwiZK0BcBeK7AfJkjQsP
-         wb/nP96899vbTFA3GlLptybNZsFbNT5Y/IKPr+f4R0GKdnfJXmtIxDuvr6puk7ZKRCyg
-         Y0wU6pI05fgKeXj1/ARBIFMeu6LcIkCwi8KuWB1YuLlWy+ykxlJyobaRFuOFKqrDdjil
-         LtIw==
-X-Forwarded-Encrypted: i=1; AFNElJ8s4EetgEegSgtV0TDun+HYmnjsqdn7wsMGfcbB3ZpWpKSyBtHyHlaMBttE7FCCozNYK+VrqeWMaumUMvGFuucF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzXL+or9PbWaWk1S2lrkCtk0Qmku+mpoOkF2hCJ64fhSU5Sioz
-	DxivXBdStt8sVNXe5t6pypV4Vqfaj5Jp78M7uHjnrcgWW4YDVQjwGGqB
-X-Gm-Gg: Acq92OFSU9UJVYRvbebqNjubmrjDUJPFdaAItkxVMIie9Q/82cCf8CF9kTj6UT6qaB/
-	Y2lOuVH/CgGr37Gjsm3x0owGJtyy2Yhc/nYgdB6iS+RZXxvCzopv+WKOb0o+tnMu/Ar1MybXQJz
-	AVVW8ZvhxELfgxzNYK7Zn+3OC4eHGFNhmAaMU4P6HOC/pUQp++r2XUiSTs1o0x4G7g2jOE7lIPo
-	1UM248iqV7icD9SJDAAfOcFuJc87abcaoY5YXQDlZvqAxY5Z6iuZ0n/GK4r6CkP2Qg4vicFdluS
-	70nU/Yue/KR2MzlbZwPj/8VK0zopV80qmc4ivLp8P21ZeTgIwduWQ6kwQqB3qLUcyVDIYyYbUqt
-	i2MpSlen0Un57GovsX/eqeG6T0gCOagAieqGa/9YWWFUDigqeY/RqolK9243rKf0YouYZcwSRwn
-	4I/lsYGBWw2FrovpTT+mBluiH81DfFeDFu7/ll
-X-Received: by 2002:a05:6a00:4b12:b0:82c:6f07:299f with SMTP id d2e1a72fcca58-83e39c37b69mr9964792b3a.14.1778521391621;
-        Mon, 11 May 2026 10:43:11 -0700 (PDT)
-Received: from Strong10mede.domain.name ([122.161.50.8])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83965d34872sm21398367b3a.22.2026.05.11.10.43.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 10:43:11 -0700 (PDT)
-From: Mayur Kumar <kmayur809@gmail.com>
-To: rafael@kernel.org,
-	daniel.lezcano@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	rui.zhang@intel.com,
-	lukasz.luba@arm.com,
-	festevam@gmail.com
-Cc: linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel@pengutronix.de,
-	Mayur Kumar <kmayur809@gmail.com>
-Subject: [PATCH] thermal: imx: do not split quoted string across lines
-Date: Mon, 11 May 2026 23:12:55 +0530
-Message-Id: <20260511174255.215207-1-kmayur809@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1wMUoZ-0000000EQAi-0Zj0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 11 May 2026 17:53:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=bEerhIEewmfT/YDQQReJK1JTsyW1j7y6PqxaMsqRbsk=; b=UIIZ9gg9UVcpKnhAA2NPSRwT8t
+	HELpMdpiEur3G0zUlIi8SbMec4UcZ78FqZqN/5aBiT36Djyj7Jpia0GCRo/oAwZQpbeYhlcfZ8O0M
+	2+jXSO2gHjawMEKrw/PFyVvgPY0G2Z57MUtVPNjPHDVg0JNWRZVsCNpSCP6c0LWNDsIhSoRog7i+K
+	PzpgNC4WHY5zJadr/WUYHd918d2EVDJkETSx4SGQYnaKST5XEqiUZa0rdIQ1GQPGbjDrFE9l8vyaD
+	MID0WWQODjz+0HvWee0uHjDo0s5tkC43X2eCddDN/ZLO82cqHyJJ/HTGRpvaNXljEBbLT8GPJBIPt
+	sVmd68lQ==;
+Received: from 54-240-197-239.amazon.com ([54.240.197.239] helo=edge-cache-179.e-lhr50.amazon.com)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMUoV-00000008ZPr-3uOF;
+	Mon, 11 May 2026 17:53:08 +0000
+Message-ID: <d15070666d0fd52af420494cc18a65acaec7a766.camel@infradead.org>
+Subject: Re: [PATCH] Documentation: KVM: Document guest-visible
+ compatibility expectations
+From: David Woodhouse <dwmw2@infradead.org>
+To: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, kvm@vger.kernel.org,
+ linux-doc@vger.kernel.org,  linux-kernel@vger.kernel.org, Sean
+ Christopherson <seanjc@google.com>, Jim Mattson <jmattson@google.com>, Marc
+ Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Raghavendra Rao Ananta <rananta@google.com>, Eric
+ Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>,  Arnd Bergmann
+ <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kselftest@vger.kernel.org
+Date: Mon, 11 May 2026 18:53:06 +0100
+In-Reply-To: <baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com>
+References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
+	 <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
+	 <57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
+	 <baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-enZD6RcTNRAVwt9lhRh7"
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_104312_891605_6C5FB549 
-X-CRM114-Status: GOOD (  12.02  )
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,31 +83,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The checkpatch tool warns against splitting quoted strings across
-multiple lines. Join the dev_info message into a single line to
-improve the ability to grep for the message in the source.
 
-Signed-off-by: Mayur Kumar <kmayur809@gmail.com>
----
- drivers/thermal/imx_thermal.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+--=-enZD6RcTNRAVwt9lhRh7
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
-index 38c993d1bcb..5aaacbc5347 100644
---- a/drivers/thermal/imx_thermal.c
-+++ b/drivers/thermal/imx_thermal.c
-@@ -693,8 +693,8 @@ static int imx_thermal_probe(struct platform_device *pdev)
- 		goto clk_disable;
- 	}
- 
--	dev_info(dev, "%s CPU temperature grade - max:%dC"
--		 " critical:%dC passive:%dC\n", data->temp_grade,
-+	dev_info(dev, "%s CPU temperature grade - max:%dC critical:%dC passive:%dC\n",
-+			 data->temp_grade,
- 		 data->temp_max / 1000, trips[IMX_TRIP_CRITICAL].temperature / 1000,
- 		 trips[IMX_TRIP_PASSIVE].temperature / 1000);
- 
--- 
-2.34.1
+On Mon, 2026-05-11 at 18:56 +0200, Paolo Bonzini wrote:
+> On 5/11/26 18:38, David Woodhouse wrote:
+> > Not *everything* is in CPUID; one recent exception that comes to mind
+> > is the SUPPRESS_EOI_BROADCAST quirk. But on x86 we preserve the
+> > existing behaviour of older kernels =E2=80=94 even when that behaviour =
+doesn't
+> > make much sense, as with SUPPRESS_EOI_BROADCAST where older KVM would
+> > *advertise* the feature, but not actually *implement* it. Nevertheless,
+> > that remains the default behaviour of future kernels unless userspace
+> > explicitly opts in to fully enable (or disable) the feature.
+> >=20
+> > But this documentation update isn't even asking for that compatible-by-
+> > default behaviour, even though that is the right thing to do. It's only
+> > asking that it be *possible* to reinstate the old behaviour, for
+> > userspace that *knows* about the change and explicitly wants to go back
+> > to the old way to remain compatible.
+>=20
+> Yep, these are the "quirks"---if it's too early for Arm to commit to=20
+> that, I guess it's fine.
+>=20
+> However, independent of this patch which I (obviously) believe is a good=
+=20
+> idea, I'd like to understand how far it is, assuming 1) no quirks 2)=20
+> same CPU host.
 
+It generally works out on arm64, although it's obviously a lot more
+work than x86 which makes an effort to get this stuff right.
+
+When we upgrade the kernel we do a lot of in-guest testing to find the
+stuff that=C2=A0"broke", like cache reporting:
+https://lore.kernel.org/all/254ca48a67779ccf9b9f60e2bb5796a305c03f95.camel@=
+infradead.org/
+... and the GICD_IIDR thing which I reposted today:
+https://lore.kernel.org/all/20260511113558.3325004-2-dwmw2@infradead.org/
+
+Those are the ones I came up against recently because someone had just
+*reverted* the offending commits local in a previous kernel upgrade,
+and I'm trying to fix it *properly* this time around and not carry the
+reverts forward for ever.
+
+And fix the expectations too, of course. Being told that we shouldn't
+*expect* to be able to upgrade and roll back the kernel while remaining
+compatible is... not OK.
+
+> By the way, you didn't Cc Marc...
+
+Ah crap, I meant to. Thanks for spotting that!
+
+I must have screwed up when I combined and dedeuplicated the
+get_maintainer.pl output with the recipients of the IIDR patch series.
+
+--=-enZD6RcTNRAVwt9lhRh7
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDUxMTE3NTMw
+NlowLwYJKoZIhvcNAQkEMSIEIJMe9GYdUzEi5dEOAm3h+hfzNUKwIQ2OMiUsfgIHeuTKMGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIALVBFxJIgubRD
+KIsMfoTQvQHJw9A2tGXpVBN2bCm857lsXZMaR5aVkPHQBBtBZ719Bp9SFoyYeZ9FvKYMZPfw8JVy
+DZ57pI8Gw6m/0i0ePJb6OEVTpId+zqaxTGu8kFN93TYpoH55OfvYboFnU6GqlwYXr9V++/ENERW3
+tMR1U+1yjV+HuTUeX1wsb6Tz47meW1eXrNXi8+TUVZea+GS39ySqtCva2MLFESlWlU59+fn/h+MS
+6ZOGjJXVpYhYitKXw3HZDkzxE/VvRzsNx7QJyJlCy+VbjUdxs2rH3V3ADr6Wt6VdveNdy68DyPrG
+I6MLlQuEhMExzprYn4MvxXZiNZXFmQnf3I5ZjuFW6xxRAOBaxmsa8OoNwfOHPq5kkD1iC7eETFs1
+5qi/c4lljiG2Xev6qMHZv9Zw8Fp2XlqDrYygTMoeLOSKE8sIeNQZQaS3sZ4Nd6e7j4lzqGWkfdIz
+sfCLQFV/VMZJlTnJff0neCSS2obi/NEBdtIdhHLOYL1JMl6WcyRX5t9whPHHpkLTFyyHwLt+acOn
+YfQSMqzcH/HUhZ+S2i4pOstr/u9pRPxts05ATne5yV4ejW8rCzMXO0Rjx+mzQo0MO1w4feq7v0IB
+Tccn1Ds6GBqZh0q5U/PDLol2vMof7wPalomBCzoVc6JK6vun2z9p3n1Vohm8xxQAAAAAAAA=
+
+
+--=-enZD6RcTNRAVwt9lhRh7--
 
