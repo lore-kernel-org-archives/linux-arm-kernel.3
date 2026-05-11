@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42EDBCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88CFCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqfIJWhfpQINNVwmdgP9tbjnCKPgaaqu67uO9dQrqdM=; b=NK3/4b58UUwXli+3IjCWm5++4w
-	D3yXDdAwbFV3rXFXHvhXUnJPAp8TWzv2ikfINRRVYCdgM/Ci9eo3nE2u1VXP61ouwlfOI69fxD+f3
-	xV4w4EJcokMvhUjjp7ITFfzEF+iwK1S9SsQUj+Hkg3CTaTTm0q8ec1ZLV7RdoNRXA4VzkQ5h1LT8h
-	2sz8uM/cUpFBcxES8dEqj0JwDilhm12BdCPCxeKr/JijWqaPqsYxDtLBWKoUnhAPhLzfF6Xwh9lmj
-	NF8LcWk2rK4l5uyn1oe09psId2UGVmuew9AU1FaoFn+omoumqcj7a/NVeZwtUFSCijHsP00yi2/AE
-	hrGHdmYA==;
+	bh=4EVdxV8Se2LiyuEjyoag3giBCPKNVKgEYji5bgopuUQ=; b=QFNm5H0TwvoEW/wUmxIRxsqt4n
+	fTKhsmX3lifWhKei5CzUERr3tyj6gSYQA4nB5FmB1ws2r9N/TFkqasZzp4ULyrYlD1IzL9HiPnVCc
+	X23Sn/JxgrIH8eLnfXpMZ4csIXFHLuGObTNjiyoZwq4S4jbm0uO6AajZKbypJGbdLEaz8xlhzvQdS
+	Ql4ywD/uHLEunL31RXdtbG8TC97PdNHwHDdsnLSjuidZmQThkpWHcJsUMXm4Rb4qGkUKBC2nWL2D/
+	BKlfqhQXzeKG0s4v+Qs0B21XzVtfLKo9KTM/DYsQUgHuLsfla9xS5EKb57k324mjimr5ppf5OYjwa
+	SnpSH3ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMO6q-0000000D8nk-1Gjx;
-	Mon, 11 May 2026 10:43:36 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1wMO75-0000000D8ut-1hRH;
+	Mon, 11 May 2026 10:43:51 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMO6o-0000000D8mI-153i
+	id 1wMO73-0000000D8tN-2x5z
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 11 May 2026 10:43:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=4EVdxV8Se2LiyuEjyoag3giBCPKNVKgEYji5bgopuUQ=; b=RWrpbenTJcEPVfpXmz4RShZf/k
+	/OeV3awtsHvpiyXhuXG4zBWwM1N/wtUvYmdx0oYZ1cF7r+CVYfHqybDWEjJWefFQUFfCbNGv6N5Cu
+	0XitSg0sza1V0XOTFIBEV4WyhlYq3AOsW4NwHfN+0rchUcqt9QSipGaHHnpzVAhrrZxWLcoHPtZTh
+	oi8Ljqn4hsc5JAEPzKy9J0QryVAYiMoqeASuQTSDvwKje20gusose2ah/siv5+2i5FLF1MlKPql1o
+	j1jV9HLUdDGvT60EBvvVw5/4aZAkQ84Md1OvwiSebE9t1TUO9M2/Nc4yHserr/vQzohT+YRv7SxpR
+	Z4UBUTqw==;
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMO70-000000080q1-3e4L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 10:43:35 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-36627a0ea23so1556346a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 03:43:34 -0700 (PDT)
+	Mon, 11 May 2026 10:43:48 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-362e30526f8so1956162a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 03:43:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778496213; x=1779101013; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778496224; x=1779101024; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DqfIJWhfpQINNVwmdgP9tbjnCKPgaaqu67uO9dQrqdM=;
-        b=OnYhHRP7W7LYycZ+ihqbTDTyRhQcpaHnzNHoFKQ6vaHmkBm9WcqYIR1xZ9o1OCd3Ip
-         fVRNNCoy6/BV21gORxH2VfjYc4QVcdEZMmKq3iWSYYFTdqz1UOS2VY6cfHQHajSZMacX
-         Ki4Mfbsm2lzzQ67ZW4J4QpjHzxWkAu4qPzUA+R7xsfoabaZN0OZuDpaxc9N6f9SZGUq6
-         RlLhdR8w5U/by5FVKf81Et1to1xrLZY4jN8HiKh2xMnMwzis/w4jDi4Gpkt1kD1uQ/Zu
-         tTuss1c6JdBe2C85ASzrfQ0KMky94PahZU2p0oEnDjP3FN3PuN/siMFehy8bNSlzirPr
-         Mw/A==
+        bh=4EVdxV8Se2LiyuEjyoag3giBCPKNVKgEYji5bgopuUQ=;
+        b=me88JnVGDmFE0WdJrDW88F95cIX9GsYpE+526padhkEtsrtwcbelGzqATfArhsYWFb
+         KHW8xXuF26Pb96qPvMGLFqOhAJSprcCTsSLj9X14wJLesfbj8Cwzbk1WD5grCCIw+T1a
+         VcDZsV/iWe1pD1TnXdMtpshkNoCuAwLnqU7YjVUITfejc5j8vSAJHokKHZ+eWS+WRCQ8
+         2FTCt+oiRnUepFlh5nyk9a4b0OF/Gyx3h6r0jHXro1TE+n3h7Ybrwv+NQ7QGgFu3v8XQ
+         RhAUv29KqNK7QHtw2rYezNshfiv93r/tw9tAFbrtvrIKKoyvpcwfquc/3SJpDCe3eBhy
+         Brxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778496213; x=1779101013;
+        d=1e100.net; s=20251104; t=1778496224; x=1779101024;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=DqfIJWhfpQINNVwmdgP9tbjnCKPgaaqu67uO9dQrqdM=;
-        b=DnXp7em0hiE1uVyq5o8YhKoNx/ZrOIqMkMZq5pktLP/keqfkdJKugqaqFoN+TetPKa
-         uvvWqzqjEixK8xerwssL0/jrOsr9Tg9+DSEHbO6SiO/2OiPnbaKKNzgbALS++HlQvGdD
-         6GU82KLcr5ORY7WLJ7VtLmVzHhaR0JkWm/WoY9NWXB7RKrKrm4Udc68JAp41eDhWVZcC
-         fy3x8a5K+fTNwzURkjyuXclumoakes539Vvn5sy4qI6KOo5ukP0cjP2vp+bwQTwjZT43
-         eaNZKT0BP5PkJQu5jOCh7DgP7UP/j7fIbr9+dlhVU5hXoEpea7z31Jo6H2hVFkhlwqfB
-         hsUA==
-X-Forwarded-Encrypted: i=1; AFNElJ+OnEr9yhc1NBSpJAMi3AFVH9Xq3bd7COxMmISBNHO5ln0noVG6+Lbn6zoyB5+ObXhSgE1NnrkCHlBVAToHnDIU@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZ+9UtK3a56aYTNh1Pd480V36yXPxGDp0Oil014wfCHM8OZcOv
-	1GmbfdiiCY7VjL4IQkTWQcnjbEMtBsBBjWzlY1mlE9lMUWgm34hvSnNV
-X-Gm-Gg: Acq92OFZxuvEvPaG4PXnSGHY2hMTQG6JBQGmdJmonWX+eZFf0EwLBA4i4rX1Rg5267U
-	Tsyd4O1IeCckGh6EKBctyR465MOeBJHd1HRn03cdHskw3j132W6Rbcab6CGaIn8q3EN92AFKqtk
-	bhN8pLD6rs5dXTOHx4PYp79fSEtymkqjhWwppDthcOYc8T7Y6cPHP1uBTggrr/JSK0VlwLbwlMy
-	C+Dgo0f3FNA+PvVER9UcA71XA5rqptMdnAswhh/si04X7DRTib9hY2V7au+frw1H+Cm38+UFLtV
-	L31K1BkbIQiu91jEqal1B/vkKXiIv3rEiXOayjbOkt/0qqsL7KC1730U5+xW/X2Y+kefdQvrmWp
-	y/KV7pd1nEN091lrpDYnhCJ3nJ6wWqrvU+LbNChXtsm7RrAjiyvnNvgpUErrIqiPDTfvpLlPbHO
-	OBNovBH1pTDWd+YPFxPH49LqlH4goj
-X-Received: by 2002:a17:90b:1347:b0:366:10f2:8eae with SMTP id 98e67ed59e1d1-3664cd2492cmr13967723a91.23.1778496213228;
-        Mon, 11 May 2026 03:43:33 -0700 (PDT)
+        bh=4EVdxV8Se2LiyuEjyoag3giBCPKNVKgEYji5bgopuUQ=;
+        b=B8elW+NaAeKJ+RCRfPNN2e2srzE6R02VPGtuDOSPxcSt+swKH5WQ6X3nDeTWorxKNA
+         tCSEyZAzrQsJ/0ut/y1JN+VarMn024WZhswnfvz37c48Ecs/M/HTv3jfeEVpwx7damf+
+         zCxzd5fjzRfuc32pBwf1vrEpA7rhoW4qa7rVdWGiY0fOQ6s+OwtGU9Eo2Io5+n5kUGrO
+         WBUnsl8+55ZqPE5o+cLV2ATG8Pe3g1wLsOC4f8HFS1dUeMnGDI01HmrRtCa7Y4a6EIK4
+         7Q3bhBm8iWEWNMcdqEv09DZU5sF1NbbTwS9RxclW3q+j6VlhVR/2RfNt42+NRfMP0ZFk
+         g72w==
+X-Forwarded-Encrypted: i=1; AFNElJ/XmkAsq5lwZHfyWUsokK8QlZqstT3vpSxFk593M/INKh63YAjpED4EbNYa4fNEZNBGxiehnq3k3JoS0RnfPpUU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwofDHRXu17kKIy80eZtwTB0RyiSH+E7d+UvefBB1qnQ44kEmym
+	XUen/A/ZHsVCShul39rZSNc3PUpfseZs2e1CyFeS3Kr0ArUBBLT9+Prg
+X-Gm-Gg: Acq92OGeZ585SNQ3hWl4avHglmfruAMYuTtLu42MGCMW8CDI8c2Fc6RihgDLnLHSPD/
+	NkpdtezSXt+NFMG7NqpWZhKb9F9EGggbmHSxUYsdIBK5kx0WsZlkTt06H1bIFFDEYTwol7vNdMf
+	Q+0nWDMgkqYZuXBRscoDsXzqYcL8xv88V6D0bu1tfVstbMrfbwyhgMVTM7/0Jc8dHi1hfnJvKU4
+	uTr9URLXXKYx/gnK64gkCjJFbifH0v0TqReHtFkQdEpSOUw5L8Bm9AKZRn9/6x5oYG3h/+QimOn
+	VwJkGa9Qw90s/nseFJZRWXumlSLlH4iEzgv8dSUlDx/3UNCHfktFc+2Lj6jkLZy67eexOCKTEvZ
+	xDurr5Fa2QUNGQJryGMZW7EE2+MrW+DLTM54cCt2ZpyS/NE29ft97tp+6lHj+7bpeghFeif48VE
+	lrIBkSH45upGnyKKjoOXg5KyF90dTP9pLY8uwBHgY=
+X-Received: by 2002:a17:90b:57e5:b0:367:b9ed:665f with SMTP id 98e67ed59e1d1-367b9ed8035mr11528030a91.13.1778496224312;
+        Mon, 11 May 2026 03:43:44 -0700 (PDT)
 Received: from nuvole ([144.202.86.13])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367d684009esm7533423a91.11.2026.05.11.03.43.21
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367d684009esm7533423a91.11.2026.05.11.03.43.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 03:43:32 -0700 (PDT)
+        Mon, 11 May 2026 03:43:43 -0700 (PDT)
 From: Pengyu Luo <mitltlatltl@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -88,17 +103,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org,
 	Pengyu Luo <mitltlatltl@gmail.com>
-Subject: [PATCH v4 4/5] media: hi846: Add 6MP and 8MP modes support
-Date: Mon, 11 May 2026 18:39:26 +0800
-Message-ID: <20260511103927.279550-5-mitltlatltl@gmail.com>
+Subject: [PATCH v4 5/5] arm64: dts: imx8mq-librem5: Correct link frequency list
+Date: Mon, 11 May 2026 18:39:27 +0800
+Message-ID: <20260511103927.279550-6-mitltlatltl@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260511103927.279550-1-mitltlatltl@gmail.com>
 References: <20260511103927.279550-1-mitltlatltl@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_034334_306506_D7C72A2D 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20260511_114346_975327_AA40076A 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,193 +128,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi846 is an 8MP sensor, but the upstream driver has only supported 2MP
-mode for years. This patch adds 6MP and 8MP modes to maximize sensor
-utilization.
+According to the hi846 datasheet and the register lists, they are
 
-Note that these modes require 4-lane MIPI CSI-2, as the downstream
-driver only exposes 2MP, 6MP, and 8MP configurations in 4-lane
-operation on the target device. The register sequences are extracted
-from the downstream Windows driver.
+mclk / prediv * multiplier / post_div1 / post_div2 =
+25Mhz / 3 * 90 / 1 / {1,2} = 187.5Mhz, 375Mhz
 
 Signed-off-by: Pengyu Luo <mitltlatltl@gmail.com>
 ---
- drivers/media/i2c/hi846.c | 154 +++++++++++++++++++++++++++++++++++++-
- 1 file changed, 152 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/media/i2c/hi846.c b/drivers/media/i2c/hi846.c
-index c77b34a5e166..12df1dc96163 100644
---- a/drivers/media/i2c/hi846.c
-+++ b/drivers/media/i2c/hi846.c
-@@ -1028,6 +1028,106 @@ static const struct hi846_reg mode_1632x1224_mipi_4lane[] = {
- 	{HI846_REG_TG_ENABLE,			0x0100},
- };
- 
-+static const struct hi846_reg mode_3264x1836_config[] = {
-+	{HI846_REG_MODE_SELECT,			0x0000},
-+	{HI846_REG_Y_ODD_INC_FOBP,		0x1111},
-+	{HI846_REG_Y_ODD_INC_VACT,		0x1111},
-+	{HI846_REG_Y_ADDR_START_VACT_H,		0x0172},
-+	{HI846_REG_Y_ADDR_END_VACT_H,		0x089d},
-+	{HI846_REG_UNKNOWN_005C,		0x2101},
-+	{HI846_REG_FLL,				0x09de},
-+	{HI846_REG_LLP,				0x0ed8},
-+	{HI846_REG_BINNING_MODE,		0x0022},
-+	{HI846_REG_HBIN_MODE,			0x0000},
-+	{HI846_REG_UNKNOWN_0A24,		0x0000},
-+	{HI846_REG_X_START_H,			0x0000},
-+	{HI846_REG_X_OUTPUT_SIZE_H,		0x0cc0},
-+	{HI846_REG_Y_OUTPUT_SIZE_H,		0x072c},
-+	{HI846_REG_EXPOSURE,			0x09d8},
-+
-+	/* For OTP */
-+	{HI846_REG_UNKNOWN_021C,		0x0001},
-+	{HI846_REG_UNKNOWN_021E,		0x0235},
-+
-+	{HI846_REG_ISP_EN_H,			0x014a},
-+	{HI846_REG_UNKNOWN_0418,		0x023e},
-+	{HI846_REG_UNKNOWN_0B02,		0xe04d},
-+	{HI846_REG_UNKNOWN_0B10,		0x6821},
-+	{HI846_REG_UNKNOWN_0B12,		0x0120},
-+	{HI846_REG_UNKNOWN_0B14,		0x0001},
-+	{HI846_REG_UNKNOWN_2008,		0x38fd},
-+	{HI846_REG_UNKNOWN_326E,		0x0000},
-+};
-+
-+static const struct hi846_reg mode_3264x1836_mipi_4lane[] = {
-+	{HI846_REG_UNKNOWN_0900,		0x0300},
-+	{HI846_REG_MIPI_TX_OP_MODE,		0xc319},
-+	{HI846_REG_UNKNOWN_0914,		0xc109},
-+	{HI846_REG_TCLK_PREPARE,		0x061a},
-+	{HI846_REG_UNKNOWN_0918,		0x0407},
-+	{HI846_REG_THS_ZERO,			0x0a0b},
-+	{HI846_REG_TCLK_POST,			0x0e08},
-+	{HI846_REG_UNKNOWN_091E,		0x0a00},
-+	{HI846_REG_UNKNOWN_090C,		0x0427},
-+	{HI846_REG_UNKNOWN_090E,		0x0059},
-+	{HI846_REG_UNKNOWN_0954,		0x0089},
-+	{HI846_REG_UNKNOWN_0956,		0x0000},
-+	{HI846_REG_UNKNOWN_0958,		0xca80},
-+	{HI846_REG_UNKNOWN_095A,		0x9240},
-+	{HI846_REG_PLL_CFG_MIPI2_H,		0x4124},
-+	{HI846_REG_TG_ENABLE,			0x0100},
-+};
-+
-+static const struct hi846_reg mode_3264x2448_config[] = {
-+	{HI846_REG_MODE_SELECT,			0x0000},
-+	{HI846_REG_Y_ODD_INC_FOBP,		0x1111},
-+	{HI846_REG_Y_ODD_INC_VACT,		0x1111},
-+	{HI846_REG_Y_ADDR_START_VACT_H,		0x0040},
-+	{HI846_REG_Y_ADDR_END_VACT_H,		0x09cf},
-+	{HI846_REG_UNKNOWN_005C,		0x2101},
-+	{HI846_REG_FLL,				0x09de},
-+	{HI846_REG_LLP,				0x0ed8},
-+	{HI846_REG_BINNING_MODE,		0x0022},
-+	{HI846_REG_HBIN_MODE,			0x0000},
-+	{HI846_REG_UNKNOWN_0A24,		0x0000},
-+	{HI846_REG_X_START_H,			0x0000},
-+	{HI846_REG_X_OUTPUT_SIZE_H,		0x0cc0},
-+	{HI846_REG_Y_OUTPUT_SIZE_H,		0x0990},
-+	{HI846_REG_EXPOSURE,			0x09d8},
-+
-+	/* For OTP */
-+	{HI846_REG_UNKNOWN_021C,		0x0001},
-+	{HI846_REG_UNKNOWN_021E,		0x0235},
-+
-+	{HI846_REG_ISP_EN_H,			0x014a},
-+	{HI846_REG_UNKNOWN_0418,		0x0000},
-+	{HI846_REG_UNKNOWN_0B02,		0xe04d},
-+	{HI846_REG_UNKNOWN_0B10,		0x6821},
-+	{HI846_REG_UNKNOWN_0B12,		0x0120},
-+	{HI846_REG_UNKNOWN_0B14,		0x0001},
-+	{HI846_REG_UNKNOWN_2008,		0x38fd},
-+	{HI846_REG_UNKNOWN_326E,		0x0000},
-+};
-+
-+static const struct hi846_reg mode_3264x2448_mipi_4lane[] = {
-+	{HI846_REG_UNKNOWN_0900,		0x0300},
-+	{HI846_REG_MIPI_TX_OP_MODE,		0xc319},
-+	{HI846_REG_UNKNOWN_0914,		0xc109},
-+	{HI846_REG_TCLK_PREPARE,		0x061a},
-+	{HI846_REG_UNKNOWN_0918,		0x0407},
-+	{HI846_REG_THS_ZERO,			0x0a0b},
-+	{HI846_REG_TCLK_POST,			0x0e08},
-+	{HI846_REG_UNKNOWN_091E,		0x0a00},
-+	{HI846_REG_UNKNOWN_090C,		0x0427},
-+	{HI846_REG_UNKNOWN_090E,		0x0059},
-+	{HI846_REG_UNKNOWN_0954,		0x0089},
-+	{HI846_REG_UNKNOWN_0956,		0x0000},
-+	{HI846_REG_UNKNOWN_0958,		0xca80},
-+	{HI846_REG_UNKNOWN_095A,		0x9240},
-+	{HI846_REG_PLL_CFG_MIPI2_H,		0x4124},
-+	{HI846_REG_TG_ENABLE,			0x0100},
-+};
-+
- static const char * const hi846_test_pattern_menu[] = {
- 	"Disabled",
- 	"Solid Colour",
-@@ -1128,9 +1228,59 @@ static const struct hi846_mode supported_modes[] = {
- 			.width = 1632 * 2,
- 			.height = 1224 * 2,
- 		},
--	}
-+	},
-+	{
-+		.width = 3264,
-+		.height = 1836,
-+		.pll_cfg_4lane = 0x4124, /* HI846_REG_PLL_CFG_MIPI2_H */
-+		.fps = 30,
-+		.frame_len = 2526,
-+		.llp = HI846_LINE_LENGTH,
-+		.reg_list_config = {
-+			.num_of_regs = ARRAY_SIZE(mode_3264x1836_config),
-+			.regs = mode_3264x1836_config,
-+		},
-+		.reg_list_2lane = {
-+			.num_of_regs = 0,
-+		},
-+		.reg_list_4lane = {
-+			.num_of_regs = ARRAY_SIZE(mode_3264x1836_mipi_4lane),
-+			.regs = mode_3264x1836_mipi_4lane,
-+		},
-+		.crop = {
-+			.left = 0x46,
-+			.top = 0x172,
-+			.width = 3264,
-+			.height = 1836,
-+		},
-+	},
-+	{
-+		.width = 3264,
-+		.height = 2448,
-+		.pll_cfg_4lane = 0x4124, /* HI846_REG_PLL_CFG_MIPI2_H */
-+		.fps = 30,
-+		.frame_len = 2526,
-+		.llp = HI846_LINE_LENGTH,
-+		.reg_list_config = {
-+			.num_of_regs = ARRAY_SIZE(mode_3264x2448_config),
-+			.regs = mode_3264x2448_config,
-+		},
-+		.reg_list_2lane = {
-+			.num_of_regs = 0,
-+		},
-+		.reg_list_4lane = {
-+			.num_of_regs = ARRAY_SIZE(mode_3264x2448_mipi_4lane),
-+			.regs = mode_3264x2448_mipi_4lane,
-+		},
-+		.crop = {
-+			.left = 0x46,
-+			.top = 0x40,
-+			.width = 3264,
-+			.height = 2448,
-+		},
-+	},
- };
--#define NUM_MODES_2LANE		ARRAY_SIZE(supported_modes)
-+#define NUM_MODES_2LANE		(ARRAY_SIZE(supported_modes) - 2)
- #define NUM_MODES_4LANE		(ARRAY_SIZE(supported_modes) - 1)
- 
- struct hi846_datafmt {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
+index f5d529c5baf3..cc5604172192 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
+@@ -1122,7 +1122,7 @@ port {
+ 			camera1_ep: endpoint {
+ 				data-lanes = <1 2>;
+ 				link-frequencies = /bits/ 64
+-					<80000000 200000000 300000000>;
++					<187500000 375000000>;
+ 				remote-endpoint = <&mipi1_sensor_ep>;
+ 			};
+ 		};
 -- 
 2.54.0
 
