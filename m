@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A38A7CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 05:09:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C25F1CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 06:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Rhi7Su3VQ2OrElys2e5yoIgZ9Vv616Q5RrHbY8k7V8=; b=BGowSA4lPFF3LHPxkktCUi4kUi
-	t/HEY7nZfdcWRBz8QrqehP1TMgNLevSiaHIEe4zElYeO0w4yiUm9hXDwzM16qNKlikO8XxwJr5gON
-	C41a7peOR3VxPPrNsRPPBUeFqNsoMMc1uHqfeXM5x+5XNYlK5Yg1S0HWpj2UAoKTt/lQE7ndM5Jea
-	DZDJNNU7ty1RHdlBP7Dvc+u4Lzve0vresBCQcsxMUSLtODSTgbqqKkonALZOS15Rx5m8N8R4ilRrX
-	ywRzk1lNHisMgnygmf8elq/YmhqX5IG+r+zFg0GzxyFY3PM6SxkDySVq7MH8P8EaRc44jKeoUZo72
-	gqzhQmHw==;
+	bh=cftsOZtxX29kXCinzIdqB457AE+U27lG7aeLpYLPKCg=; b=fSlhtKliBM/V8fyLCmJQEQdLWP
+	JgK6jYLmMXimtFPCDnRcHrObNgkk+arQnZIY/AImBr8qpo/SkbrIztzO914A+VCiORnbSPiQM10w9
+	oJECD1MRzcVrN5fLpddxn6zvD0ycq/Dh6l70ytvWFpmsMqULJHRIyvtBFVVKByoxVEmDEv7uJ7045
+	/6kO0xtrU5ILFSTYvZFoS76tAsVii3SkYNVg7okFwFwbmxMy1JmjzssU8kwIzlC6lDP3DzghjRMuU
+	LOjwmZepP51jhFaDMMzBZxhsoRSNfHP0YC9z/vTgHhUW/Dx+Mw0AOlf5ztCn1ds7zd7SzFDskrkmh
+	Rcm9qh4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMItV-0000000CKpO-2y3X;
-	Mon, 11 May 2026 05:09:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wMJgf-0000000CQbR-2K6S;
+	Mon, 11 May 2026 06:00:17 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMItQ-0000000CKoK-1xLc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 11 May 2026 05:09:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=6Rhi7Su3VQ2OrElys2e5yoIgZ9Vv616Q5RrHbY8k7V8=; b=aH7tLjhLRNIwaVm/AfYWz8QQ0v
-	CxhcB6IE+c/mOpu8EZmNsAMg9Z2m7E2xLYER2Wz5Hp+StXB4Ec35pegiFSEZJyYlXTPFA67QL08YH
-	HYBpZ9IwvKpmW4xfE75p4U8+XhgUry3IsjsR9Yrds1oNmdjp7t8FSuz+hgun/yKBezYbMx6EuZKTY
-	zMIeT5Xv3JL1ZUCxy98yMRyCTBNK99ZbYKzKXw7/N8dgsi9bO2TaylhRulMtJHgUJW6axwd2hTDDV
-	qs63rNTBgmQOzJ3VKszdSbomK8G6ih8fScP2pNOIgu16b6URCOaV7lMdXynVxSlEdy2VnYNEEX9rh
-	xm9PRRRA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMItM-0000000Ados-3A5O
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 05:09:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0DE2944537
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 05:09:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 983E4C4AF10
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 05:09:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778476155;
-	bh=v9n6ZxHo9EI7jUy6DgYTWEGFxkQN/a1zqND0vfE8zgM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=iC8RAPVOZcjS6bhScxO6LC8p9fyey4YvPONMBsgmNiGHSgPZS586L4amn30qpP7nO
-	 ByzwEJ3Js/IpEdgtqVXM/+azeWDmR5UjrLmGK2ilPfDXp9XhLT3yHqT7DfUN8qOI8+
-	 hvLoT4THAurqtDkDODXvLdtBROzfd8tIy3MVILpbb4oKdMZHnU08DBj0IjKwUZR8BY
-	 joq4nmFyySyJzwWUHFaLwOhahnKjNIbwFObwW01M1P6ZJyN2j6PiNM7oP5e2+XiIEa
-	 vLNV4eg0uH0UdZnpm+izl7VLrcnA+oTChEfWT2r0uyoGMNiWKcDKnoraybZhYdW/Rq
-	 ZSemTcXiE1J7g==
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-67929ff6dbfso5873686a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 22:09:15 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8d2PGzF5Iq+nqzEViPDApxKtT24dl5risKt9O9sUthhtJjKDU49m7wKyBhoOSiQaLCi3RAXZHNPaTGekuUlexg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6QY+WNMgyg9Tjm0qPSe5XPgUH3WL1St3welftv+W1P1nKc+Hh
-	eWtWzJz6zG+P1wbFSMeEtAMINcf95IqpmUlrvb4M4OyGcXgqcGayG1XXRWnVv9Dd7u1aWW0d3PM
-	aioM8FeaE2Rh0UnhMCHdPrCxjllRGyXg=
-X-Received: by 2002:a17:907:3d10:b0:bcd:53e5:c8f1 with SMTP id
- a640c23a62f3a-bcd53e5deb7mr303817166b.13.1778476154357; Sun, 10 May 2026
- 22:09:14 -0700 (PDT)
+	id 1wMJgb-0000000CQZW-3xM6;
+	Mon, 11 May 2026 06:00:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=cf
+	tsOZtxX29kXCinzIdqB457AE+U27lG7aeLpYLPKCg=; b=AOGpWrBklUKzXiHe2e
+	RmH+uBtaO+tn+gDtsITdEf3uD00xsvLlIzYTWEKKYgjPmqae3s74XytRXwTM7MSm
+	GfmPj4SYpIVWELdmhCsmrNnyG2z6I35CmztiTlg6+1AB2Ogdr9s4kQ9Lec2m4NBb
+	lU+4ubeQT0WG3InU0r7WRV538=
+Received: from Precision-7960.. (unknown [])
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wDn9yk8cAFqPHQVAw--.46705S3;
+	Mon, 11 May 2026 13:59:27 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: bhelgaas@google.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	vigneshr@ti.com,
+	jingoohan1@gmail.com,
+	thomas.petazzoni@bootlin.com,
+	pali@kernel.org,
+	ryder.lee@mediatek.com,
+	claudiu.beznea.uj@bp.renesas.com,
+	mpillai@cadence.com
+Cc: robh@kernel.org,
+	s-vadapalli@ti.com,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	claudiu.beznea@tuxon.dev,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Hans Zhang <18255117159@163.com>
+Subject: [PATCH v3 1/7] PCI: Add pci_host_common_link_train_delay() helper
+Date: Mon, 11 May 2026 13:59:17 +0800
+Message-Id: <20260511055923.37117-2-18255117159@163.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260511055923.37117-1-18255117159@163.com>
+References: <20260511055923.37117-1-18255117159@163.com>
 MIME-Version: 1.0
-References: <20260508123910.114273-1-ulf.hansson@linaro.org> <20260508123910.114273-7-ulf.hansson@linaro.org>
-In-Reply-To: <20260508123910.114273-7-ulf.hansson@linaro.org>
-From: Saravana Kannan <saravanak@kernel.org>
-Date: Sun, 10 May 2026 22:09:03 -0700
-X-Gmail-Original-Message-ID: <CACRMN=cowCsGb3x=tPOWLYdittwLCsSb2N2SXVPyxBRHThGAVg@mail.gmail.com>
-X-Gm-Features: AVHnY4LdEQ7p0ZMNChLV4ocQ5AW7kw67_dLw0n8cyZRtXPtwXXlKUiWHHIvLrUk
-Message-ID: <CACRMN=cowCsGb3x=tPOWLYdittwLCsSb2N2SXVPyxBRHThGAVg@mail.gmail.com>
-Subject: Re: [PATCH v3 06/13] pmdomain: core: Add initial fine grained
- sync_state support
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Danilo Krummrich <dakr@kernel.org>, Saravana Kannan <saravanak@kernel.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wDn9yk8cAFqPHQVAw--.46705S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Cr15uw48KryxGryDtF4fZrb_yoW8CFyrpa
+	98AF13CF40grW3uwsxAa4DWryYq3Z5t3yUK397G3sayr9rtrsavFWv93yIqF1rJFZ8Zr17
+	A3W5K3Z7Cr4xtF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piGNtfUUUUU=
+X-Originating-IP: [140.206.53.66]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwwAHqmoBcEDaRwAA3o
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_060921_756649_DA03A7E8 
-X-CRM114-Status: GOOD (  41.06  )
+X-CRM114-CacheID: sfid-20260510_230014_876086_70B474B1 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,255 +90,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 8, 2026 at 5:39=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.org>=
- wrote:
->
-> A onecell (#power-domain-cells =3D <1 or 2>; in DT) power domain provider
-> typically provides multiple independent power domains, each with their ow=
-n
-> corresponding consumers. In these cases we have to wait for all consumers
-> for all the provided power domains before the ->sync_state() callback get=
-s
-> called for the supplier.
->
-> In a first step to improve this, let's implement support for fine grained
-> sync_state support a per genpd basis by using the ->queue_sync_state()
-> callback. To take step by step, let's initially limit the improvement to
-> the internal genpd provider driver and to its corresponding genpd devices
-> for onecell providers.
->
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> ---
->
-> Changes in v3:
->         - Addressed some cosmetic comments from Geert.
->
-> ---
->  drivers/pmdomain/core.c   | 124 ++++++++++++++++++++++++++++++++++++++
->  include/linux/pm_domain.h |   1 +
->  2 files changed, 125 insertions(+)
->
-> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> index ad57846f02a3..c01a9a96e5c2 100644
-> --- a/drivers/pmdomain/core.c
-> +++ b/drivers/pmdomain/core.c
-> @@ -2699,6 +2699,119 @@ static struct generic_pm_domain *genpd_get_from_p=
-rovider(
->         return genpd;
->  }
->
-> +static bool genpd_should_wait_for_consumer(struct device_node *np)
-> +{
-> +       struct generic_pm_domain *genpd;
-> +       bool should_wait =3D false;
-> +
-> +       mutex_lock(&gpd_list_lock);
-> +       list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
-> +               if (genpd->provider =3D=3D of_fwnode_handle(np)) {
-> +                       genpd_lock(genpd);
-> +
-> +                       /* Clear the previous state before reevaluating. =
-*/
-> +                       genpd->wait_for_consumer =3D false;
-> +
-> +                       /*
-> +                        * Unless there is at least one genpd for the pro=
-vider
-> +                        * that is being kept powered-on, we don't have t=
-o care
-> +                        * about waiting for consumers.
-> +                        */
-> +                       if (genpd->stay_on)
-> +                               should_wait =3D true;
-> +
-> +                       genpd_unlock(genpd);
-> +               }
-> +       }
-> +       mutex_unlock(&gpd_list_lock);
+PCIe r6.0, sec 6.6.1 (Conventional Reset) requires that for a Downstream
+Port supporting Link speeds greater than 5.0 GT/s, software must wait a
+minimum of 100 ms after Link training completes before sending any
+Configuration Request.
 
-I think I understand the intent of this function, but haven't dug into
-genpd code enough to comment on this yet. I'll come back to this
-later.
+Introduce a static inline helper pci_host_common_link_train_delay() that
+checks the given max_link_speed (2 = 5.0 GT/s, 3 = 8.0 GT/s, etc.) and
+calls msleep(100) only when the speed is greater than 5.0 GT/s.
 
-> +
-> +       return should_wait;
-> +}
-> +
-> +static void genpd_parse_for_consumer(struct device_node *sup,
-> +                                    struct device_node *con)
-> +{
-> +       struct generic_pm_domain *genpd;
-> +
-> +       for (unsigned int i =3D 0; ; i++) {
-> +               struct of_phandle_args pd_args;
-> +
-> +               if (of_parse_phandle_with_args(con, "power-domains",
-> +                                              "#power-domain-cells",
-> +                                              i, &pd_args))
-> +                       break;
+This allows multiple host controller drivers to share the same mandatory
+delay without duplicating the logic.
 
-Why not use a while or a do while() instead of this infinite for loop
-with a break?
+Signed-off-by: Hans Zhang <18255117159@163.com>
+---
+ drivers/pci/controller/pci-host-common.h | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-> +
-> +               /*
-> +                * The phandle must correspond to the supplier's genpd pr=
-ovider
-> +                * to be relevant else let's move to the next index.
-> +                */
-> +               if (sup !=3D pd_args.np) {
-> +                       of_node_put(pd_args.np);
-> +                       continue;
-> +               }
-> +
-> +               mutex_lock(&gpd_list_lock);
-> +               genpd =3D genpd_get_from_provider(&pd_args);
-> +               if (!IS_ERR(genpd)) {
-> +                       genpd_lock(genpd);
-> +                       genpd->wait_for_consumer =3D true;
-> +                       genpd_unlock(genpd);
-> +               }
-> +               mutex_unlock(&gpd_list_lock);
-> +
-> +               of_node_put(pd_args.np);
-> +       }
-> +}
-> +
-> +static void _genpd_queue_sync_state(struct device_node *np)
-> +{
-> +       struct generic_pm_domain *genpd;
-> +
-> +       mutex_lock(&gpd_list_lock);
-> +       list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
-> +               if (genpd->provider =3D=3D of_fwnode_handle(np)) {
-> +                       genpd_lock(genpd);
-> +                       if (genpd->stay_on && !genpd->wait_for_consumer) =
-{
-> +                               genpd->stay_on =3D false;
-> +                               genpd_queue_power_off_work(genpd);
-> +                       }
-> +                       genpd_unlock(genpd);
-> +               }
-> +       }
-> +       mutex_unlock(&gpd_list_lock);
-> +}
-> +
-> +static void genpd_queue_sync_state(struct device *dev)
-> +{
-> +       struct device_node *np =3D dev->of_node;
-> +       struct device_link *link;
-> +
-> +       if (!genpd_should_wait_for_consumer(np))
-> +               return;
-> +
-> +       list_for_each_entry(link, &dev->links.consumers, s_node) {
+diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
+index b5075d4bd7eb..d709f7e3e11a 100644
+--- a/drivers/pci/controller/pci-host-common.h
++++ b/drivers/pci/controller/pci-host-common.h
+@@ -10,6 +10,9 @@
+ #ifndef _PCI_HOST_COMMON_H
+ #define _PCI_HOST_COMMON_H
+ 
++#include <linux/delay.h>
++#include "../pci.h"
++
+ struct pci_ecam_ops;
+ 
+ int pci_host_common_probe(struct platform_device *pdev);
+@@ -20,4 +23,18 @@ void pci_host_common_remove(struct platform_device *pdev);
+ 
+ struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
+ 	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
++
++/**
++ * pci_host_common_link_train_delay - Wait 100 ms if link speed > 5 GT/s
++ * @max_link_speed: the maximum link speed (2 = 5.0 GT/s, 3 = 8.0 GT/s, ...)
++ *
++ * Must be called after Link training completes and before the first
++ * Configuration Request is sent.
++ */
++static inline void pci_host_common_link_train_delay(int max_link_speed)
++{
++	if (max_link_speed > 2)
++		msleep(PCIE_RESET_CONFIG_WAIT_MS);
++}
++
+ #endif
+-- 
+2.34.1
 
-Couple of issues:
-1. I don't want the frameworks to be so deeply aware of driver core
-internals. I want the driver core maintainers to be able to change the
-devlink implementation without having to worry about going and fixing
-all the frameworks. So, please add a for_each_consumer_dev(supplier,
-callback) and for_each_supplier_dev(consumer, callback) helper
-functions.
-
-2. This doesn't ignore "SYNC_STATE_ONLY" links and that's going to
-confuse the consumer count/check you might do or at the least waste
-parsing those.
-
-3. **Device** links are not the complete list of consumers because
-they can only link consumer **devices** once the consumer **device**
-is created.
-
-4. What you really need is a for_each_consumer_fwnode(supplier,
-callback) that first loops through all the consumer device links and
-calls the callback() on their fwnode and then the same function needs
-to loop through all the fwnode links and then pass those consumer
-fwnodes to the callback. And inside that callback you can do whatever
-you want.
-
-5. You might want to add a for_each_inactive_consumer(supplier,
-callback) too to simplify your need for checking if a fwnode has a
-device and then checking if it's probed.
-
-Thanks,
-Saravana
-
-
-> +               struct device *consumer =3D link->consumer;
-> +
-> +               if (!device_link_test(link, DL_FLAG_MANAGED))
-> +                       continue;
-> +
-> +               if (link->status =3D=3D DL_STATE_ACTIVE)
-> +                       continue;
-> +
-> +               if (!consumer->of_node)
-> +                       continue;
-> +
-> +               /*
-> +                * A consumer device has not been probed yet. Let's parse=
- its
-> +                * device node for the power-domains property, to find ou=
-t the
-> +                * genpds it may belong to and then prevent sync state fo=
-r them.
-> +                */
-> +               genpd_parse_for_consumer(np, consumer->of_node);
-> +       }
-> +
-> +       _genpd_queue_sync_state(np);
-> +}
-> +
->  static void genpd_sync_state(struct device *dev)
->  {
->         return of_genpd_sync_state(dev->of_node);
-> @@ -3531,6 +3644,16 @@ static int genpd_provider_probe(struct device *dev=
-)
->         return 0;
->  }
->
-> +static void genpd_provider_queue_sync_state(struct device *dev)
-> +{
-> +       struct generic_pm_domain *genpd =3D container_of(dev, struct gene=
-ric_pm_domain, dev);
-> +
-> +       if (genpd->sync_state !=3D GENPD_SYNC_STATE_ONECELL)
-> +               return;
-> +
-> +       genpd_queue_sync_state(dev);
-> +}
-> +
->  static void genpd_provider_sync_state(struct device *dev)
->  {
->         struct generic_pm_domain *genpd =3D container_of(dev, struct gene=
-ric_pm_domain, dev);
-> @@ -3559,6 +3682,7 @@ static struct device_driver genpd_provider_drv =3D =
-{
->         .name =3D "genpd_provider",
->         .bus =3D &genpd_provider_bus_type,
->         .probe =3D genpd_provider_probe,
-> +       .queue_sync_state =3D genpd_provider_queue_sync_state,
->         .sync_state =3D genpd_provider_sync_state,
->         .suppress_bind_attrs =3D true,
->  };
-> diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
-> index b299dc0128d6..7aa49721cde5 100644
-> --- a/include/linux/pm_domain.h
-> +++ b/include/linux/pm_domain.h
-> @@ -215,6 +215,7 @@ struct generic_pm_domain {
->         cpumask_var_t cpus;             /* A cpumask of the attached CPUs=
- */
->         bool synced_poweroff;           /* A consumer needs a synced powe=
-roff */
->         bool stay_on;                   /* Stay powered-on during boot. *=
-/
-> +       bool wait_for_consumer;         /* Consumers awaits to be probed.=
- */
->         enum genpd_sync_state sync_state; /* How sync_state is managed. *=
-/
->         int (*power_off)(struct generic_pm_domain *domain);
->         int (*power_on)(struct generic_pm_domain *domain);
-> --
-> 2.43.0
->
 
