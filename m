@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88CFCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 847E2CD37B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4EVdxV8Se2LiyuEjyoag3giBCPKNVKgEYji5bgopuUQ=; b=QFNm5H0TwvoEW/wUmxIRxsqt4n
-	fTKhsmX3lifWhKei5CzUERr3tyj6gSYQA4nB5FmB1ws2r9N/TFkqasZzp4ULyrYlD1IzL9HiPnVCc
-	X23Sn/JxgrIH8eLnfXpMZ4csIXFHLuGObTNjiyoZwq4S4jbm0uO6AajZKbypJGbdLEaz8xlhzvQdS
-	Ql4ywD/uHLEunL31RXdtbG8TC97PdNHwHDdsnLSjuidZmQThkpWHcJsUMXm4Rb4qGkUKBC2nWL2D/
-	BKlfqhQXzeKG0s4v+Qs0B21XzVtfLKo9KTM/DYsQUgHuLsfla9xS5EKb57k324mjimr5ppf5OYjwa
-	SnpSH3ZA==;
+	bh=DRXDOC53itDbvSH3E3HyxAV1yZ2/7SesuEGqqAx3Huo=; b=TciStvfH8AL8CKbTV9g3rrmMTv
+	nk9hQxD/oDu4aLDnXnMuF+5Pv8+VZVUd4ND5n6kXEJByY7kCoooFfzx5ZYqNW8zoK/uoyQ9F55Tfx
+	35ltq/3hPbKn6aK9RAMM02Q5N/ya3GWrsWFRJ+4FX6njRF1DhrJz7XiSArWWKYzeoyG3syjEyvWPi
+	JDdfst9PO4TLPJjg3nNZ24aJ9S0B7sIDu8RhrszNiLsvIGtwHD3gemT9blZVp5uN7EKyZG2PHEzHn
+	9IHoITXRXmXb5jDk1IIHl+68f4HYOoPWNlj7y2lfj9tOkBHQRMXJjT6YjlGpgtIbRqNI417cnItyw
+	Y99/poBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMO75-0000000D8ut-1hRH;
-	Mon, 11 May 2026 10:43:51 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wMO7i-0000000D965-2H24;
+	Mon, 11 May 2026 10:44:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMO73-0000000D8tN-2x5z
+	id 1wMO7h-0000000D95C-0V7Q
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 11 May 2026 10:43:50 +0000
+	Mon, 11 May 2026 10:44:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=4EVdxV8Se2LiyuEjyoag3giBCPKNVKgEYji5bgopuUQ=; b=RWrpbenTJcEPVfpXmz4RShZf/k
-	/OeV3awtsHvpiyXhuXG4zBWwM1N/wtUvYmdx0oYZ1cF7r+CVYfHqybDWEjJWefFQUFfCbNGv6N5Cu
-	0XitSg0sza1V0XOTFIBEV4WyhlYq3AOsW4NwHfN+0rchUcqt9QSipGaHHnpzVAhrrZxWLcoHPtZTh
-	oi8Ljqn4hsc5JAEPzKy9J0QryVAYiMoqeASuQTSDvwKje20gusose2ah/siv5+2i5FLF1MlKPql1o
-	j1jV9HLUdDGvT60EBvvVw5/4aZAkQ84Md1OvwiSebE9t1TUO9M2/Nc4yHserr/vQzohT+YRv7SxpR
-	Z4UBUTqw==;
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMO70-000000080q1-3e4L
+	bh=DRXDOC53itDbvSH3E3HyxAV1yZ2/7SesuEGqqAx3Huo=; b=Hz5frJ0mOCj6YeA+ujg8mmnev7
+	6E2evjMW6FSNvM57vLZdK9S65/okNIzhVXuTlW6qcPdqmHaMLeLadUcSLzjwiFmioPi/5T7jCV0SG
+	HudxJ3kwfhboG51E4Vks3uaNMoBUHrflqNSqgMSV5XYCZkhk7Y7PIs+AItykg7n2lEcSjgUOlrT7q
+	VcObvSFS+ME8zYVoKBRedZUOuy678NcqRKND6yFYhWkmx3wAa9wJD/++cKHpwzrbx8KunmXGYlnzx
+	yPIftXgCef47xG1gLkbZOTik0VdvhzKwiRfd5uiiBGxZUlNv1DT46fD5pmnqLNXvIg6/rMojXH/7e
+	LplFqMdw==;
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMO6c-0000000BMXN-0thi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 10:43:48 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-362e30526f8so1956162a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 03:43:46 -0700 (PDT)
+	Mon, 11 May 2026 10:44:25 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-366087480d8so3717307a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 03:43:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778496224; x=1779101024; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778496200; x=1779101000; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4EVdxV8Se2LiyuEjyoag3giBCPKNVKgEYji5bgopuUQ=;
-        b=me88JnVGDmFE0WdJrDW88F95cIX9GsYpE+526padhkEtsrtwcbelGzqATfArhsYWFb
-         KHW8xXuF26Pb96qPvMGLFqOhAJSprcCTsSLj9X14wJLesfbj8Cwzbk1WD5grCCIw+T1a
-         VcDZsV/iWe1pD1TnXdMtpshkNoCuAwLnqU7YjVUITfejc5j8vSAJHokKHZ+eWS+WRCQ8
-         2FTCt+oiRnUepFlh5nyk9a4b0OF/Gyx3h6r0jHXro1TE+n3h7Ybrwv+NQ7QGgFu3v8XQ
-         RhAUv29KqNK7QHtw2rYezNshfiv93r/tw9tAFbrtvrIKKoyvpcwfquc/3SJpDCe3eBhy
-         Brxw==
+        bh=DRXDOC53itDbvSH3E3HyxAV1yZ2/7SesuEGqqAx3Huo=;
+        b=pa2bZh3ZkAHwrDgXwjlLax4SckOgxVpAYm0npVGXI10JZH/yk7wDWbLgboein3h/Zq
+         q1hMjeAHTU21UwNye6/IS72X/b6rN+wqJxQm538vLgWDP6Gxr7Nsx229gfUeA1RTTRzl
+         hlIKQ+whm6tYrm+eQ9Do+p5t4Re2LnS+c/GUuHA2ZqYoK62lqEijHx4VjUVJzaY7SPWW
+         JHxX/h5PJDnMxfY5Oc6cZ/IoLbmELdtk4I1WrsmVrLBPvkbmEC3+kHGEm0eREIoGe5pe
+         H8z1Tt9S0UKJ3j0EEn5DzfHM2FKF8477XlI1sSpaXh66GjTOUOPRZDlYGSfrkeDeZ9xo
+         ezeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778496224; x=1779101024;
+        d=1e100.net; s=20251104; t=1778496200; x=1779101000;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=4EVdxV8Se2LiyuEjyoag3giBCPKNVKgEYji5bgopuUQ=;
-        b=B8elW+NaAeKJ+RCRfPNN2e2srzE6R02VPGtuDOSPxcSt+swKH5WQ6X3nDeTWorxKNA
-         tCSEyZAzrQsJ/0ut/y1JN+VarMn024WZhswnfvz37c48Ecs/M/HTv3jfeEVpwx7damf+
-         zCxzd5fjzRfuc32pBwf1vrEpA7rhoW4qa7rVdWGiY0fOQ6s+OwtGU9Eo2Io5+n5kUGrO
-         WBUnsl8+55ZqPE5o+cLV2ATG8Pe3g1wLsOC4f8HFS1dUeMnGDI01HmrRtCa7Y4a6EIK4
-         7Q3bhBm8iWEWNMcdqEv09DZU5sF1NbbTwS9RxclW3q+j6VlhVR/2RfNt42+NRfMP0ZFk
-         g72w==
-X-Forwarded-Encrypted: i=1; AFNElJ/XmkAsq5lwZHfyWUsokK8QlZqstT3vpSxFk593M/INKh63YAjpED4EbNYa4fNEZNBGxiehnq3k3JoS0RnfPpUU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwofDHRXu17kKIy80eZtwTB0RyiSH+E7d+UvefBB1qnQ44kEmym
-	XUen/A/ZHsVCShul39rZSNc3PUpfseZs2e1CyFeS3Kr0ArUBBLT9+Prg
-X-Gm-Gg: Acq92OGeZ585SNQ3hWl4avHglmfruAMYuTtLu42MGCMW8CDI8c2Fc6RihgDLnLHSPD/
-	NkpdtezSXt+NFMG7NqpWZhKb9F9EGggbmHSxUYsdIBK5kx0WsZlkTt06H1bIFFDEYTwol7vNdMf
-	Q+0nWDMgkqYZuXBRscoDsXzqYcL8xv88V6D0bu1tfVstbMrfbwyhgMVTM7/0Jc8dHi1hfnJvKU4
-	uTr9URLXXKYx/gnK64gkCjJFbifH0v0TqReHtFkQdEpSOUw5L8Bm9AKZRn9/6x5oYG3h/+QimOn
-	VwJkGa9Qw90s/nseFJZRWXumlSLlH4iEzgv8dSUlDx/3UNCHfktFc+2Lj6jkLZy67eexOCKTEvZ
-	xDurr5Fa2QUNGQJryGMZW7EE2+MrW+DLTM54cCt2ZpyS/NE29ft97tp+6lHj+7bpeghFeif48VE
-	lrIBkSH45upGnyKKjoOXg5KyF90dTP9pLY8uwBHgY=
-X-Received: by 2002:a17:90b:57e5:b0:367:b9ed:665f with SMTP id 98e67ed59e1d1-367b9ed8035mr11528030a91.13.1778496224312;
-        Mon, 11 May 2026 03:43:44 -0700 (PDT)
+        bh=DRXDOC53itDbvSH3E3HyxAV1yZ2/7SesuEGqqAx3Huo=;
+        b=EWyUhUJgAuZ3RsK5EVDPNEYvN1wrQpC1r7ikbroaXRfDsEcP0QjIYA9CYpPwWSGk7w
+         mLjPh3rQW9yF0JYsG64fgizojMDhAz/dLpAtDEgOj3JOeqpgEpb4pjUPeizRTRLMVtkq
+         R5eLkns8ik0ssNoedkGU/Ab06P2Pa1mzHN/j6iN0RizDI5yRocg7t1bxyCTNu6nia1V+
+         s/K2tSBaNyGqV2sJlXMnhjduWUVbh/yJoRYfMO5KSLrvL60VI4ZdrbOvlDFsEIRMl1F6
+         Dj+om32y79vDBKv1qr6sxhcBzN8y/jLPk8gaz2AMIoD7SOofX4pkDwe2u1O8+or/oKgv
+         5VNw==
+X-Forwarded-Encrypted: i=1; AFNElJ+hRB++MxiDzMw6ZW2dfrtEmy20ukFwQvOflnwbNUOwld+TmIfAnLpMEwuhr6ea6kd6q3MvdEpy2KiiXl2+lAQQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsKUJjJ/G8v8U+A7pD2Dez9EUUYMPG1KtuNQZIKfv6pJVEjIRI
+	FAfQTqXbJwFTFC+DweFxg/wQHGL5PjaRhs1VSMNeWPtALwu7SLilqv9o
+X-Gm-Gg: Acq92OGp7rEDh35QJIf5CfZVOkYcdawK+kN+Car5gaAxGw3f6xjwO2DxtvYq6FapJ+1
+	MX3Ck9DpxHfFHXvKFM6E1H5n/Z/Tx+3xd1FuLuV4VV+g1H7tzk9PfIKyZu/qLN+WETSeAdAZhoL
+	xACBZZw7l3aVxNnJkfg6B/jH/0z5wM80nRyUK26XM2rZ8xkKZs3s4HisGp0vGgY/2fhEIJeuozm
+	TPz+PzmIguhpkgFd0Q392u/zir1e/TomO/flf6dign6lIjJJFJrkgVAt4TCuuZTk0cKuAv6+TbS
+	RSXbDhcisGyWvZ4EpZT5Vn+/CV8Dcx1XTnvYiPVbGm49OwZ+mUoO3aT9PQN0jo07BkYHbxCx+I1
+	tZepLnRk7RvhotreiMExUX54y9lRtyEsnH/vNnNpvXpOijHfXCUd7aivgiVfF6fd9cE3Gx6xs56
+	ZbFIrDLeMea8V8j6Ezt28LNDtHyXqk
+X-Received: by 2002:a17:90b:3903:b0:367:f9f1:af78 with SMTP id 98e67ed59e1d1-367f9f1b66amr8598826a91.7.1778496200549;
+        Mon, 11 May 2026 03:43:20 -0700 (PDT)
 Received: from nuvole ([144.202.86.13])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367d684009esm7533423a91.11.2026.05.11.03.43.33
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367d684009esm7533423a91.11.2026.05.11.03.43.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 03:43:43 -0700 (PDT)
+        Mon, 11 May 2026 03:43:20 -0700 (PDT)
 From: Pengyu Luo <mitltlatltl@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -103,17 +103,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org,
 	Pengyu Luo <mitltlatltl@gmail.com>
-Subject: [PATCH v4 5/5] arm64: dts: imx8mq-librem5: Correct link frequency list
-Date: Mon, 11 May 2026 18:39:27 +0800
-Message-ID: <20260511103927.279550-6-mitltlatltl@gmail.com>
+Subject: [PATCH v4 3/5] media: hi846: fix modes handling for different lane cases
+Date: Mon, 11 May 2026 18:39:25 +0800
+Message-ID: <20260511103927.279550-4-mitltlatltl@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260511103927.279550-1-mitltlatltl@gmail.com>
 References: <20260511103927.279550-1-mitltlatltl@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_114346_975327_AA40076A 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20260511_114330_581041_B3C236E9 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,29 +128,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the hi846 datasheet and the register lists, they are
+When using 4-lane, v4l2_find_nearest_size may return an unsupported
+mode, 640x480 mode, and it is set to the default mode.
 
-mclk / prediv * multiplier / post_div1 / post_div2 =
-25Mhz / 3 * 90 / 1 / {1,2} = 187.5Mhz, 375Mhz
+To fix it, specifying the supported modes for different lane cases,
+once the lane count is determined.
 
+Reported-by: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+Closes: https://lore.kernel.org/linux-media/OmTXoHZJTSGePymL9I-1Cw@puri.sm/
+Fixes: e8c0882685f9 ("media: i2c: add driver for the SK Hynix Hi-846 8M pixel camera")
 Signed-off-by: Pengyu Luo <mitltlatltl@gmail.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/media/i2c/hi846.c | 26 ++++++++++++++++++++------
+ 1 file changed, 20 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-index f5d529c5baf3..cc5604172192 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-@@ -1122,7 +1122,7 @@ port {
- 			camera1_ep: endpoint {
- 				data-lanes = <1 2>;
- 				link-frequencies = /bits/ 64
--					<80000000 200000000 300000000>;
-+					<187500000 375000000>;
- 				remote-endpoint = <&mipi1_sensor_ep>;
- 			};
- 		};
+diff --git a/drivers/media/i2c/hi846.c b/drivers/media/i2c/hi846.c
+index 61297ef66a0e..c77b34a5e166 100644
+--- a/drivers/media/i2c/hi846.c
++++ b/drivers/media/i2c/hi846.c
+@@ -1130,6 +1130,8 @@ static const struct hi846_mode supported_modes[] = {
+ 		},
+ 	}
+ };
++#define NUM_MODES_2LANE		ARRAY_SIZE(supported_modes)
++#define NUM_MODES_4LANE		(ARRAY_SIZE(supported_modes) - 1)
+ 
+ struct hi846_datafmt {
+ 	u32 code;
+@@ -1162,6 +1164,8 @@ struct hi846 {
+ 
+ 	struct mutex mutex; /* protect cur_mode, streaming and chip access */
+ 	const struct hi846_mode *cur_mode;
++	const struct hi846_mode *supported_modes;
++	int num_modes;
+ 	bool streaming;
+ };
+ 
+@@ -1736,8 +1740,8 @@ static int hi846_set_format(struct v4l2_subdev *sd,
+ 	hi846->fmt = fmt;
+ 
+ 	hi846->cur_mode =
+-		v4l2_find_nearest_size(supported_modes,
+-				       ARRAY_SIZE(supported_modes),
++		v4l2_find_nearest_size(hi846->supported_modes,
++				       hi846->num_modes,
+ 				       width, height, mf->width, mf->height);
+ 	dev_dbg(&client->dev, "%s: found mode: %dx%d\n", __func__,
+ 		hi846->cur_mode->width, hi846->cur_mode->height);
+@@ -1821,8 +1825,11 @@ static int hi846_enum_frame_size(struct v4l2_subdev *sd,
+ 				 struct v4l2_subdev_frame_size_enum *fse)
+ {
+ 	struct i2c_client *client = v4l2_get_subdevdata(sd);
++	struct hi846 *hi846 = to_hi846(sd);
++	const struct hi846_mode *supported_modes = hi846->supported_modes;
++
+ 
+-	if (fse->pad || fse->index >= ARRAY_SIZE(supported_modes))
++	if (fse->pad || fse->index >= hi846->num_modes)
+ 		return -EINVAL;
+ 
+ 	if (fse->code != HI846_MEDIA_BUS_FORMAT) {
+@@ -1950,12 +1957,12 @@ static int hi846_identify_module(struct hi846 *hi846)
+ static s64 hi846_check_link_freqs(struct hi846 *hi846,
+ 				  struct v4l2_fwnode_endpoint *ep)
+ {
+-	int freqs_count = ARRAY_SIZE(supported_modes);
++	int freqs_count = hi846->num_modes;
+ 	u64 link_freq;
+ 	int i, j;
+ 
+ 	for (i = 0; i < freqs_count; i++) {
+-		link_freq = hi846_get_link_freq(hi846, &supported_modes[i]);
++		link_freq = hi846_get_link_freq(hi846, &hi846->supported_modes[i]);
+ 		for (j = 0; j < ep->nr_of_link_frequencies; j++)
+ 			if (link_freq == ep->link_frequencies[j])
+ 				break;
+@@ -1999,6 +2006,13 @@ static int hi846_parse_dt(struct hi846 *hi846, struct device *dev)
+ 
+ 	hi846->nr_lanes = bus_cfg.bus.mipi_csi2.num_data_lanes;
+ 
++	hi846->supported_modes = supported_modes;
++	hi846->num_modes = NUM_MODES_2LANE;
++	if (hi846->nr_lanes == 4) {
++		hi846->supported_modes = supported_modes + 1;
++		hi846->num_modes = NUM_MODES_4LANE;
++	}
++
+ 	if (!bus_cfg.nr_of_link_frequencies) {
+ 		dev_err(dev, "link-frequency property not found in DT\n");
+ 		ret = -EINVAL;
+@@ -2088,7 +2102,7 @@ static int hi846_probe(struct i2c_client *client)
+ 	if (ret)
+ 		goto err_power_off;
+ 
+-	hi846->cur_mode = &supported_modes[0];
++	hi846->cur_mode = &hi846->supported_modes[0];
+ 
+ 	ret = hi846_init_controls(hi846);
+ 	if (ret) {
 -- 
 2.54.0
 
