@@ -4,107 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF1C6CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 15:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383AACD484A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 15:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3JWMhWSTBa1St/FT9EYONC8eNpWkZ18pjlnscArsjYQ=; b=zHAthjpIXLt7Gs84haS+nygg8k
-	XraRbF4keCGMJ3Q7eN2HNE+Nr5AJ41K9zxetMizj2u1wPNFGq+/hWoOSR22xtB8Ihjmlk9RSdcGoq
-	ECCYoei/difWmh+rRSWiacFI+gYsCF3HWEn6C38lnsIl7eZsFOE4eM6X6Qy81RWhxcA78VURL4mtM
-	6ABgxpmsNPzVzQY/V4PtihjN8BnEEfpN4eL3MRawl6Nx1xUG+OsadK+wrA424Did5lk5uYl5UH6bu
-	JRC+j0jBlCGVetpIWXBcn0VcUekNPb934B6WaoXE+802xnU55GmwptqRstLOkP+az7GQWn0K4dVsv
-	eMQHVtYQ==;
+	bh=vmwb7DAwmyvjAf1IkP/b/C+gnygE+nYIl1lFsfQt/Ug=; b=AYG0Wji6voO4L+CuNS25Cu2V6D
+	NHZvkC3KnBQVNa5iX0s0ipBpeFjLdzk1xC0j/L7sqpFEmWGq2OX7+mNyOUskRXCRcQ81d7KIxphVo
+	PBAbqHffCOcvy86w/IndzjtF+VinOYH9ucvAfGxkpA186FSL+FaPauxdhUpNMRjEAze4WTFN4kZ6u
+	mr7GPu/EUwad1/4WCvzHrev8AHCnmRgQ1DiH3KycvFsthH0tfOGDzjkwdNZnulwfILbT6XCG7FOBX
+	KENkbrlWGqnR1Wh4uAG8VSW76TonneG/1I8cxaliOnUuf10OuImZeGv5g/hL6o3QrPPYHuvDwNWnZ
+	773o9Y/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMSkY-0000000E4gL-1M1H;
+	id 1wMSkY-0000000E4gy-2dTp;
 	Mon, 11 May 2026 15:40:54 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMSkR-0000000E4cg-1q7H
+	id 1wMSkW-0000000E4fH-0XQV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 15:40:48 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-393d6025f99so38759081fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 08:40:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778514045; cv=none;
+	Mon, 11 May 2026 15:40:53 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5a88db610ccso5179355e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 08:40:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778514050; cv=none;
         d=google.com; s=arc-20240605;
-        b=RiseiTJat1YdJ1jwB/9VAGa2GduWTBQ6/9KN015FM9+DFRtMJ+qa3kVnQLbDFT6KeQ
-         al6OSuMntmcJD45t0bucwXHS8BEphf/nnsJvpSVTQkm1IFAbwDl+MvS/MWxw9cIDvwxE
-         mTeiC/Nr+WrNwJHE0znVLVhN4paofLsB7qoUBx0oxhjTcked5iNyMOyC3z0vKMXba3+5
-         bS4egsDmq/Ll9CPLhU0z5O/ZqwCaOaQK2d74SmDdbI8fDdzBodzK8fkzlhIhLyxd/MpA
-         CeQhCOqgoZu4WUrzcrQoDnk9ferC94v9ZCKujE0VuDUao7UcCUkGeJwGjrY3dGTysFFu
-         4rCA==
+        b=QNatGu4BqhaIT7o/BxgR1fjdVK/iQ36x/iA7bH7I4u7CWcDifa5MoQdbGUUqrCYpcc
+         lFoq3wobhVaui1qNTmcHMA6UGSknTaM3+TWpDQdxSj2aF55NOkxRUn3szQl4imXL5kw+
+         jWKPjzOdjswbkLbreqfGavD2sIxRfOn+ZLPZ73QfHjfvT8SMtOXyN8LKz8Vhoo8em0+t
+         tPxXdozGhhmkSPbnDziUBIH+9c0PR4HAb34oYKv7BOc3crkzaYcdz1xhXPEH9DEj42Ig
+         ac2r8vN5QDl42z3Ai8e16UDfuNSwbXZQ/yoX+zDe8IXKBQmt9xhilAU7GgjT+883Jksw
+         qnCw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=3JWMhWSTBa1St/FT9EYONC8eNpWkZ18pjlnscArsjYQ=;
-        fh=CcVIFMthLY/hxPGKl8x4JY4dn+XNluPajOg4Ql8KRmg=;
-        b=FXCCWiLaEB7KBwCBw+cqq38LLoFU6PYfShDuqKbH9kn8qw6CERM0HnoyOvbjXVbexf
-         8+PxFwyJYneUSGPv8rlhpnkPnLT9jIzxTjCS/8AG8acdeuT4TYiPXgiMblCAm8qjjbx1
-         R2cT7Xb1vxheVKLlLN4Wh4jD+CvCY40Ix+CCNGc8vd3N2brzTcyFc9D3ntmTx2onnrkf
-         pnGV1U1ZdhcO8zO4ud7NsLm6VixdnLGSmh1krdIGozfZcbqpfRMf5nPUwYk5/aXrioh0
-         shq4HVqous03iuUk7161/HlTGox6I+FlLaUG7RIMEzWick2ER7bOK6ga1A46q0/DWIy7
-         1avA==;
+        bh=vmwb7DAwmyvjAf1IkP/b/C+gnygE+nYIl1lFsfQt/Ug=;
+        fh=84XH+3YZMXXNhMGnCivIusPsAkhK7OkU+R8+3PzB2CA=;
+        b=JR7zXqbrZvD3Z/qW+OfkfN5Fd656ImDl/b/1SLV8PmO8v2c5FW9U20Siesmj6FxklB
+         uKBdJyqvGewbGOOyAcX5cO9kWPJAsSU/1TxmaLNBJG9zm4Jt3Nq1fvBfy+IE13DbXVxf
+         SHbK4VHetLJcZGdOvhiwfjyq1tvqY84/H0W5T1SxnSIId6+pPxZPlJQiTFW9pKr2z9Ij
+         /E2YY5eLYYUmdownfuEtOPooc74MNcUPjuQ3F/GPSvqQPM2ObuP+WpyFrD/PcJEVzHSA
+         ijeE/2UN5lyiOYs8nqB74+mx0HY7X4GLmWEjCYDzHKfZ4sgKIIiYBQB3s5CFTgvXFXbE
+         b0LA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778514045; x=1779118845; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1778514050; x=1779118850; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3JWMhWSTBa1St/FT9EYONC8eNpWkZ18pjlnscArsjYQ=;
-        b=w+gpfI967mpWVsBjrJc5eMreAQIaBgbyBEvzvHRKOhLxwg4cJTZJi6kLTUcgSSsi5R
-         X/nVazLdhNoJ4ZvOvSy8pOTf3ec7PiziOW0UOBH6q7ZrTV/gfaVzLGkCTR1g3LLaauml
-         wEoido2AOfwGwrh1JosW59njBUF2aZroDTARx4/5vF+oTLIG9pUlXT2w5wg9l56lM5Zq
-         qbJDVWBSQ99PhVihHdbyu/1e599+5NyncHMK4EEWjhIAN6UfEhQ8W3RbhKAe+8L1IRHP
-         Xep7ZI2kkyQdcZ+Pxtgh/qMzKaBDHVeS/YJmqdqP7GtOrSqQhMgcsBUIRD13K6lip8cQ
-         fDOw==
+        bh=vmwb7DAwmyvjAf1IkP/b/C+gnygE+nYIl1lFsfQt/Ug=;
+        b=WHBB1EL3bNMdSc1hUySC01Z7PlkIx/aeHYDIRccwRUvnXT1v4MYzvKz/FLktk+rLWw
+         +SKqXNJmMyflwBEjShwPTKGrolqY79rt/2lU3N8Lb3Hol7cWSl9nk8mifus/4XaHiftB
+         Xj1AL3f4lmSwxqSgGpJ+GqwU90MdNFjJhPpBKi/lahECaf+BAz7U6cYhRj/0P0RF6JlP
+         UBHBTh1PSvC4w4OWaPc0hQbJsaQl5SbGeele70ciVWdzgCw4tPl7og0agzThTVDf3Z8r
+         PY4DNCWgx9HxrZaFXl2aR6dp/iyzO4gRkBx1afXhPAMs2uy06141z2eHGGGS3e2/NxCr
+         yzIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778514045; x=1779118845;
+        d=1e100.net; s=20251104; t=1778514050; x=1779118850;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3JWMhWSTBa1St/FT9EYONC8eNpWkZ18pjlnscArsjYQ=;
-        b=s3tawXb8UUbuTMjg82F5FgbSKHvMAg/kG0wwu5+krIKTASmpxycYhmGvnU/4CSZg/T
-         OA64qJLPaIUIvxj524L3MB527aOLYdGoFuOEZB8W6KGocrtum3R6D5u+eo5fTnKpBYYn
-         1CwuKJ+LHm6SJLKmSTmPpxc2Ge72ktuIR2Er6QnIKRxVMnTLPP7JtKb0IRIvcLFnxQi+
-         9E9qyt6cU637ji6w3JVE8VdDdUd3SxAx6cijgZ8Xg4egqV1gRCCPqkg9QU9WU3Ga4jUV
-         uWCVm78JIl2fwd3v0smTc6PyAsmLePgefwRFBoxyMvSe+lzaqhvATyWmetGijnFTGrcG
-         9REQ==
-X-Gm-Message-State: AOJu0YwUpQkXHKbdzb6NBNx8XkQehJ7ATNFWLb/5WfM2Q5Na6+szcQJb
-	7/2gv1lIHGU3NqBL95OMfsc3Duuc0RcyaLFr5mOBhoBwNs6Wx/iuFVxFOiOvsiGBVNwUFVBFNnl
-	ai9HCxDQO8ALB04pOhGsHe6OvSgxWlKpb1sK6JH7JOw==
-X-Gm-Gg: Acq92OHRfDEO/drO0UVmViA6SlXTvG2L+KY9ZDwNj8xl4MgiJ98r0NSXlL+iXX1hMMP
-	hK4qbc0zx6PH5YuHlxoA/6ea3Fim3PwQXlnsI+X8PNLC2hg1vj1biWiOvfPJqPYqsYOBqo+mB9D
-	yFlvV7YiG2ikUJZ1hoXVgUgSDZDyCQaUx9yvPPqQYdToGXeQd6/S0RplqkbFB8E30lWEdFzUivC
-	4jH7aJPy4l3+9+nsTKjIPIQYlZX6hdV9NrEeyXhZn/1VkL6vBek6ecr5mRqJ+R16AM87UXXKxT1
-	BIgc+fo/
-X-Received: by 2002:a05:6512:1081:b0:5a7:4912:1a50 with SMTP id
- 2adb3069b0e04-5a8e0f2ec60mr10052e87.20.1778514045188; Mon, 11 May 2026
- 08:40:45 -0700 (PDT)
+        bh=vmwb7DAwmyvjAf1IkP/b/C+gnygE+nYIl1lFsfQt/Ug=;
+        b=jbvPEU7QBRZTzD4hKQGvqPOq9gflxne/m8XmmFHjxanWErIk0PyzxQECXUMMuXahc7
+         q49K6iQKGlU78GhmundsMuzThZEbCOgd0tHUrBJ+YmjbZi987LiAaiR5pWt9R7Zo5My1
+         3h5ZBVQnMBvGNDX5xzi8qYNsNHF6UKbCCK1KEFSDhWODZJgLUaYcylb/9PDumdHEOPl6
+         xOeO84+iwbipt9a7HTnkv+0qYIAxSfMg8sX48CswtnrE3oYU18cPPRWFw749+8zL126U
+         1F4tOMBkNDMDqYybJSCemmhkSx6QgA+8rCBhek/xaa2aWZxSR/JZdhNhgiHaihGuAahn
+         ZoPw==
+X-Forwarded-Encrypted: i=1; AFNElJ89v0aW+RJcnrHSdENrptQBTfY4adXI6TZYUOU2VCnohazgldQ1Zp6q1FhhdwWDttArQBJZ7/nEIun799JnOhh/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFCfEaIXd8LlbuKj3SNETehVaskpV3gG3t8DL2yKX/+EgNsgFA
+	CMzaCtkZL/vr2WvTxbq49jWtlQoT7gRzshsXwyUfdCpLXWuWaEJ2HDh9T2b8nTPgATV5giiyPfS
+	OlNL8rmGBZUjmLtptNvGLMKzSr6GQIw5In+4yelAtAA==
+X-Gm-Gg: Acq92OFKo0KxD+u5hapoJAGP99+szZW/qILR++MVUZTYOIvXvYkLbSHCTb7Eh73g6+2
+	CAYje9OYSw34tU4FxyGDCJnBCqffB3t0SkrB6VnCMA2ZRsfNCYBKMHYjUOGOQfc7dEm4CHk4c9e
+	W0nowjqGOJaCluy1tah66FCbsnX4Dl9wNxGkif38de0DEXZItGuRb2/4TC41xdjAESE1Drg9zhl
+	xLsP2vMUqacqYYkpZMOQWCTVuOfYWFOFv6kklaOdb3Mf2NqBNvsHpB4aabOFgN7p9dMP8ncExbm
+	C7QvRf9CIjkWf0z9gfQ=
+X-Received: by 2002:a05:6512:3d8a:b0:5a8:a558:63b3 with SMTP id
+ 2adb3069b0e04-5a8b709b088mr2920906e87.30.1778514050154; Mon, 11 May 2026
+ 08:40:50 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org> <20260504144534.43745-3-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260504144534.43745-3-marek.vasut+renesas@mailbox.org>
+References: <20260506190538.596-1-sozdayvek@gmail.com>
+In-Reply-To: <20260506190538.596-1-sozdayvek@gmail.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 11 May 2026 17:39:53 +0200
-X-Gm-Features: AVHnY4LEtYRDfcFkDKKMsfq944FdAC52H0vJFxs1kLbNHgSvbuAlOvG-QOqCQEs
-Message-ID: <CAPDyKFpO5RyaSGRZibAsygRcfs_En-TohTOrO6a7dUdVdzcuxA@mail.gmail.com>
-Subject: Re: [PATCH v2 2/7] mmc: renesas_sdhi: add R-Car M3Le compatibility string
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Brian Masney <bmasney@redhat.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Date: Mon, 11 May 2026 17:40:02 +0200
+X-Gm-Features: AVHnY4IfIknd1YNlE1aq0DnMQUiNiMoH11k9pjuFU-tNvWZguuBa9VK8yUFjorc
+Message-ID: <CAPDyKFp6YvmTF+OL5WqTfaZ_=+csitJoHiK39An0gM=NPLpU1g@mail.gmail.com>
+Subject: Re: [PATCH] mmc: davinci: avoid NULL deref of host->data in IRQ handler
+To: Stepan Ionichev <sozdayvek@gmail.com>
+Cc: ulfh@kernel.org, brgl@kernel.org, linux-mmc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_084047_497562_B392E2A3 
-X-CRM114-Status: GOOD (  17.83  )
+X-CRM114-CacheID: sfid-20260511_084052_248992_A516B458 
+X-CRM114-Status: GOOD (  24.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,14 +114,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 4 May 2026 at 16:46, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
+On Wed, 6 May 2026 at 21:05, Stepan Ionichev <sozdayvek@gmail.com> wrote:
 >
-> Add support for the SD Card/MMC Interface in the Renesas R-Car M3Le
-> (R8A779MD) SoC. R19UH0260EJ0100 Rev.1.00 , Dec 25, 2025 Notes 7.70.
-> indicates that HS400 mode is not supported.
+> mmc_davinci_irq() returns early only when both host->cmd and
+> host->data are NULL:
 >
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+>   if (host->cmd == NULL && host->data == NULL) {
+>           ...
+>           return IRQ_NONE;
+>   }
+>
+> So we may legitimately reach the rest of the handler with
+> host->data == NULL (and therefore data == NULL). The DATDNE branch
+> already guards against this with an explicit "if (data != NULL)"
+> check, but the subsequent TOUTRD ("read data timeout") and
+> CRCWR/CRCRD ("data CRC error") branches dereference data
+> unconditionally:
+>
+>   if (qstatus & MMCST0_TOUTRD) {
+>           data->error = -ETIMEDOUT;        <-- NULL deref
+>           ...
+>           davinci_abort_data(host, data);
+>   }
+>
+>   if (qstatus & (MMCST0_CRCWR | MMCST0_CRCRD)) {
+>           data->error = -EILSEQ;           <-- NULL deref
+>           ...
+>   }
+>
+> If either bit is set in qstatus while host->data is NULL, the kernel
+> will crash inside the IRQ handler. smatch flags this:
+>
+>   drivers/mmc/host/davinci_mmc.c:933 mmc_davinci_irq() error: we
+>     previously assumed 'data' could be null (see line 914)
+>
+> Gate both branches on a non-NULL data, matching the existing pattern
+> used by the DATDNE branch.
+>
+> No functional change for callers where data is non-NULL, which is
+> the only case in which these branches did meaningful work before
+> this change.
+>
+> Signed-off-by: Stepan Ionichev <sozdayvek@gmail.com>
 
 Applied for next, thanks!
 
@@ -135,41 +164,32 @@ Uffe
 
 
 > ---
-> Cc: Brian Masney <bmasney@redhat.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-> Cc: Magnus Damm <magnus.damm@gmail.com>
-> Cc: Michael Turquette <mturquette@baylibre.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Stephen Boyd <sboyd@kernel.org>
-> Cc: Ulf Hansson <ulfh@kernel.org>
-> Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-clk@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-mmc@vger.kernel.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
-> V2: - New patch
-> ---
->  drivers/mmc/host/renesas_sdhi_internal_dmac.c | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/mmc/host/davinci_mmc.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> diff --git a/drivers/mmc/host/renesas_sdhi_internal_dmac.c b/drivers/mmc/host/renesas_sdhi_internal_dmac.c
-> index f6ebb7bc7ede1..b716a518f2650 100644
-> --- a/drivers/mmc/host/renesas_sdhi_internal_dmac.c
-> +++ b/drivers/mmc/host/renesas_sdhi_internal_dmac.c
-> @@ -285,6 +285,7 @@ static const struct of_device_id renesas_sdhi_internal_dmac_of_match[] = {
->         { .compatible = "renesas,sdhi-r8a77970", .data = &of_r8a77970_compatible, },
->         { .compatible = "renesas,sdhi-r8a77990", .data = &of_r8a77990_compatible, },
->         { .compatible = "renesas,sdhi-r8a77995", .data = &of_rcar_gen3_nohs400_compatible, },
-> +       { .compatible = "renesas,sdhi-r8a779md", .data = &of_rcar_gen3_nohs400_compatible, },
->         { .compatible = "renesas,sdhi-r9a09g011", .data = &of_rzg2l_compatible, },
->         { .compatible = "renesas,sdhi-r9a09g057", .data = &of_rzg2l_compatible, },
->         { .compatible = "renesas,rzg2l-sdhi", .data = &of_rzg2l_compatible, },
+> diff --git a/drivers/mmc/host/davinci_mmc.c b/drivers/mmc/host/davinci_mmc.c
+> index 42b0118a4..42ad87aa4 100644
+> --- a/drivers/mmc/host/davinci_mmc.c
+> +++ b/drivers/mmc/host/davinci_mmc.c
+> @@ -928,7 +928,7 @@ static irqreturn_t mmc_davinci_irq(int irq, void *dev_id)
+>                 }
+>         }
+>
+> -       if (qstatus & MMCST0_TOUTRD) {
+> +       if (data && (qstatus & MMCST0_TOUTRD)) {
+>                 /* Read data timeout */
+>                 data->error = -ETIMEDOUT;
+>                 end_transfer = 1;
+> @@ -940,7 +940,7 @@ static irqreturn_t mmc_davinci_irq(int irq, void *dev_id)
+>                 davinci_abort_data(host, data);
+>         }
+>
+> -       if (qstatus & (MMCST0_CRCWR | MMCST0_CRCRD)) {
+> +       if (data && (qstatus & (MMCST0_CRCWR | MMCST0_CRCRD))) {
+>                 /* Data CRC error */
+>                 data->error = -EILSEQ;
+>                 end_transfer = 1;
 > --
-> 2.53.0
+> 2.43.0
 >
 
