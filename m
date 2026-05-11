@@ -4,151 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FCB6CD37B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 02:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B12CCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 02:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NDiSg768CXBvGt79GGg+qABUaCPAYEyC3WguiTuB1ec=; b=l4pnuAJcuUOhLX+Yxb4zQyeR6A
-	7fS37uM8PROD+Coyt8bxgdEi8LP0/w8fG/sJDQteBFtoO/0tINznfz7J8A0Wt0o7PZ7iTB4eqZWv5
-	T0tFKnNNDcVFrTcD1l0yCIhg4pxqx9sQUkMsCZWaMElJq/bx3JIzKjVQg353b1zE3qpOPL/ODGmYB
-	Mbm4Cmac+nq0QUy0m+P8tFmjCE2yvrxLyAupGcjkI3npbJFiKjCzJ9LUuMuDEuCxGFcc4FUBNw6zt
-	beim/NxUPhytQKjRMKhaki0VixC2+eHbi16AHu15uVfwZhgng2fUPlLVdQh44/3+gREDnjU12l9eC
-	a4RhiAXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gTBmpvUtnOLcZqHGkabZtIRYEOZ0e8kUDigRX6YvFp4=; b=zX6FMlO75+JruZtl9sg/KbJoDW
+	5HvXXsDo5OQcaENxrC81Z75bfIT/6vXIFaTpqAgmfyNMdjflaJ2dqEyTFWuhsyBl1pzPt+nWno5RG
+	+Z4HFqwFPX7CRPUlMs0DZqi5FD9wr/90Smwk1I8ni3h0qdKMy/zPrrqblSz6+6lPT/duL5vCHouaJ
+	0tGgXfvpOlBGwDqxBKzj26FopY1rkHad9j+HryXAHrhJH5cNE84sD1QDOpfZCrVTRoZy8OdWXJGJZ
+	McKBcATgk/n4bbiJaa08u6L4JoLd8ZwTGZ3wJCkfDDVoxGWNDYA918lEPpZZzqrhvXnrJJT9pz1Tu
+	r5kaThVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGKA-0000000C1wW-0BCV;
-	Mon, 11 May 2026 02:24:50 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wMGN8-0000000C2Ag-2ZEz;
+	Mon, 11 May 2026 02:27:54 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGK6-0000000C1vj-4BkD
+	id 1wMGN5-0000000C2A5-1DZn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 02:24:48 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64ALFPfq2046727
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 02:24:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	NDiSg768CXBvGt79GGg+qABUaCPAYEyC3WguiTuB1ec=; b=VXA8KIRdowG6Ps/f
-	8zv0HVMzFMIYzuxxUOkhukFSFNHVQn9Y+kXeWGGtumsMTHHwFO8xGMF2Z0vQRGfh
-	Nw0OhfDZWAe/F/N3/a0auPLxWPJq0yy6pFojTg52SXyttklbyZNwOx35VvYw42zk
-	atPXPg9O1GbNJt1diMqlv/cCIhkMbNBbIgg4yxaXus7cdAtsu8YIx0aZW7FaW1mL
-	zznfWgwuJZ7BoIOr1vhRkb+6unfTHtDSb7zWeDSBnlfiDirQsxeQQEQ+m2iSfKrW
-	rCVmnKVmDTPWU20Zafee8J758wnULpxJCUELtLCBiouS3tO3RcvP6uz7IgJORWWX
-	IEQHxw==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e1ux6v5w4-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 02:24:45 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8bcb482b185so59053306d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 19:24:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778466284; x=1779071084; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NDiSg768CXBvGt79GGg+qABUaCPAYEyC3WguiTuB1ec=;
-        b=ISZ6T53acvRhF1UL7zl7m+kvgIqloS6s/luMXwqhZYsPN6HBbCjljcBOl1vyrs7eG2
-         ADusZjVm+GkLgIib1eyW2cr+wQl6eURyaFYwLGI3YPZrZgIImfonogZmqq2iohJAHTar
-         3o/1phZhSA5Xn82PeXSmEcGXqLLkA9FEPmxa9PO8H3pPWMRtSXUprilU6vrPOmVjgyNP
-         bIVCX0xKd4TnQKtThdSAPRivJ1PB/p2BqKT/GOzc8WbhaLY3OR4lYHt2PPHik952llc8
-         savH75CZ+XV/Nqi7HdcwgCj/jcQp7bQvI57j/2Nv41hqqzxsnejfTHpEot5syPH/rKyB
-         UbUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778466284; x=1779071084;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NDiSg768CXBvGt79GGg+qABUaCPAYEyC3WguiTuB1ec=;
-        b=CPRG4/ZijR49BNjCDdOtfDxlMU04JnIX5MpG61poCg5n4izPEXO9ARHLrTcdTf6HCW
-         hYC9owPf+8YZxXUNTqWy6tFzebP68JRL2BjZla69zYG8Zkc5TdujPMjzsb6G2naF7eer
-         HtETibLTrNES0rDhbFgOefaMxcaOcJoui7m5mvJE8ZgDAfrKwpT3dOM671kUGKIyzurS
-         wysYr3X+IycDyhRftkuPb7JSnTwJkLpH/iGTX0XSIv0nHDb703G9Cu0Qe+f2ZOdRTGFU
-         PJFW+MaV0DccZA4uYEYOM1m+d0AL5oYtrk9JW7niDXr5igYQQWhZ2h5ua7DwBvszY1YM
-         Pmjg==
-X-Forwarded-Encrypted: i=1; AFNElJ8ykyK38MXwlKl7lRxmYb44VVwxaQIYW8cgBFlxHqejKNC+6R6TBjMDDXt1xmEc3afPHOv+5YTFPxyTw8DE4diN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzq1BJTkJFAOlIq/gb/xu9/87SVASTxufsZPeRKuv3WpznXDBD9
-	MIfEQhnXWULN135fTEz91vA6xRqULGEs1NvrPSHfM6kt2y/nWCj/ggGB1aqWwsEFe0RyrgSyXRe
-	Jwo6f8iZrHdOaVST6jPJ0y9DNItaZ1CAshwzjmy8RxNHmEYK+XIiNq8kWcnIbYQPQ3DH9M+il2d
-	d0Ug==
-X-Gm-Gg: Acq92OHKgLC78x1wAAdpnDRDY+8NzOAgy3lDShivx8HD9xNmSyzhEsbp4NdFjuYYZH/
-	sKTZ7r5mcwwshGy0yPbEsdtLoxjkLbcse4xWIfxKZpXN7Zce6PsocdcOlBcQoQWNlHe2Nert3+J
-	idKLcs1TMVKMVWQA6P+tzVqAA8pFRSDNSa6BMxKtUndCUpxcgxpM2ut8DXOgNuPpN106G6w3CVj
-	3zli6z2fYXpVqg6cr6V1p8zgpxJeUyDkvokmvOIuc1CsC31yUJLGVvasW55fyZlpHZb+qHFtH9B
-	vceei6DkdDVXsTeyrwoS3Oa+hAHEPPEF5RIRuGE9HsoI527tjJ4y2nBl/RBtP+EiRptAdVzbEXD
-	qJ58/xL1bHFn6SIl6FsYtWbcmv/h+CYh68XMNaLYjLsvIpE6Ols/x8UMUrPORSlEQe2Px8n6BFE
-	yHNU3kyEM=
-X-Received: by 2002:a05:6214:469b:b0:89e:a170:6af2 with SMTP id 6a1803df08f44-8c1afabc2c5mr138776926d6.41.1778466284614;
-        Sun, 10 May 2026 19:24:44 -0700 (PDT)
-X-Received: by 2002:a05:6214:469b:b0:89e:a170:6af2 with SMTP id 6a1803df08f44-8c1afabc2c5mr138776556d6.41.1778466284094;
-        Sun, 10 May 2026 19:24:44 -0700 (PDT)
-Received: from [10.38.243.40] (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b53ce7e73dsm300484716d6.42.2026.05.10.19.24.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 10 May 2026 19:24:43 -0700 (PDT)
-Message-ID: <1d6b4182-7cef-4c00-a655-095c0388a038@oss.qualcomm.com>
-Date: Mon, 11 May 2026 10:24:34 +0800
+	Mon, 11 May 2026 02:27:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PsaWfBB9kmSK2wHX27wwzF/fk6eJS7KytQfvc318XpTbLXTcDr0R7vYQB1pDvkaCPl/8iYJhkFDRP0ujN8CZMyG/fkvIY3HePlyt1z4RmL38VJ3X5w07gJc5KT0oQOPtC1fQjX8TKGiNf2J3PvLpkgXknwchuRLasU6N6qj6MsGLvLyKM1F1U0NwDnlTXRmWdPqxnYywYQviQj4Q/oElzsIRxDtlXO7hOsBK7KHB6IH0A+KirZLcYsDuhTpS70txtJzlgL+fwc7OAzAA3JqUKJYJ/CS/DjDEPMYtkchjM2ofbuoiCPZaali2u3oimhHwFREtDdeAB67Z7Mg383Ks1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gTBmpvUtnOLcZqHGkabZtIRYEOZ0e8kUDigRX6YvFp4=;
+ b=OcymDRGYmGt8ybbkQPSGy3E4x1PwtlHLcN4hj0yQklPCrIEj+gZNgWpIw1x1aQKTPH7ntDgoPGf77BdG6ccQv+f2Vo0qemdFetdrzPj871rQl1eJKKCJlGavxSXLjU5GeEgGxS3St+DiFejv1+f22r5lWhI/2/Eg6TCPCnY7463imvKUspitrv1XKeOK7tj5xZujrSY3uvHzMo7hZZxaYDUHugRcWM+1WF60q41IX0NTVx82yO84zMVHzk0+ETNE8Vxf/2JeC5KF1nbSY+bO0prpBQL9CsBjxFti96Otd3AhdA9Tc2sVxzg1L2O360leChHQDf1oYFDvqD3zZL9C/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from TY4PR01CA0001.jpnprd01.prod.outlook.com (2603:1096:405:26e::6)
+ by OSNPR06MB9003.apcprd06.prod.outlook.com (2603:1096:604:49f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.22; Mon, 11 May
+ 2026 02:27:37 +0000
+Received: from TY2PEPF0000AB88.apcprd03.prod.outlook.com
+ (2603:1096:405:26e:cafe::b4) by TY4PR01CA0001.outlook.office365.com
+ (2603:1096:405:26e::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.22 via Frontend Transport; Mon,
+ 11 May 2026 02:27:37 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ TY2PEPF0000AB88.mail.protection.outlook.com (10.167.253.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Mon, 11 May 2026 02:27:37 +0000
+Received: from nchen-desktop (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 4BC0B40A5A01;
+	Mon, 11 May 2026 10:27:36 +0800 (CST)
+Date: Mon, 11 May 2026 10:27:35 +0800
+From: Peter Chen <peter.chen@cixtech.com>
+To: soc@kernel.org, arm@kernel.org, soc@lists.linux.dev
+Cc: fugang.duan@cixtech.com, linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com
+Subject: [GIT PULL] CIX arm64 defconfig changes for v7.2-rc1
+Message-ID: <agE+l8yT5a48G4XT@nchen-desktop>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/7] Add dtsi to describe the xe180100 CAMSS block
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Bryan O'Donoghue <bod@kernel.org>, Robert Foss <rfoss@kernel.org>,
-        Todor Tomov <todor.too@gmail.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20260508-hamoa_evk-v2-0-3ebdca3e4ae2@oss.qualcomm.com>
- <20260508-hamoa_evk-v2-4-3ebdca3e4ae2@oss.qualcomm.com>
- <328860b4-1d4b-4a90-9d10-cb70207aaa5c@linaro.org>
-Content-Language: en-US
-From: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
-In-Reply-To: <328860b4-1d4b-4a90-9d10-cb70207aaa5c@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTExMDAyMSBTYWx0ZWRfX1GpK0z2gqQdC
- OeXTxCpv4aMSmY/165iblMCSIp9tnx1sLJ6jd4tMksxdrkryXA3bqWaNj/tf9wXbI1gqqVBE+St
- XGPWw37CW5uomCFWy6PZW/NFMjFaSHlBmQXo+SCONUBYznpsGcfr5IePvNpuwpJs9xmd8xsJIli
- eW84g69JMuKSvASFbAE8yz6Z7wfEksJ6Zv2Z0XVKun82dte8uYpWf/8F/8hSfNFN2m59+Fh1wiT
- 8U+pXtqVvuP9IxuZuyIakZnL/Hyw1rv96QWp4dex7g+UErIkTx1KbRpwZtG1GeQ6ujTY4oT2yGh
- l5Z/OSpy3stDFJdY2yK3VASfDlhW4KKXfC1r05mHZdFT64eoLxuuC5YQBnqXeiGGVC8ke/dsrsJ
- INQPwUDJ5LfdyaAzQgqHPuxAatu8ZvJbjxuYG7dwSntpcosa+u+mJ3xaJbLN1P/7qhfZnW9J1k8
- uzNohOhNvduw66Ng+UQ==
-X-Authority-Analysis: v=2.4 cv=QJZYgALL c=1 sm=1 tr=0 ts=6a013ded cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=SmDLwImcmQvp-VwJOJ8A:9 a=QEXdDO2ut3YA:10
- a=pJ04lnu7RYOZP9TFuWaZ:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: sRES99gdQV6SelSSAoBFeIB3jvs6rvF2
-X-Proofpoint-GUID: sRES99gdQV6SelSSAoBFeIB3jvs6rvF2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-11_01,2026-05-08_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 clxscore=1015 suspectscore=0 spamscore=0
- lowpriorityscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2604200000
- definitions=main-2605110021
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB88:EE_|OSNPR06MB9003:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8743d5c7-7028-4a46-d276-08deaf04de19
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|82310400026|1800799024|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: NsGBBfoAtpgMiQnMVwz4/rOVXsaxpcKwo1ftZai9h9+5RVU11J6sXYyt6+PmzyNf5oV468QhKQBJOCB7CLxWG9c2FU7SBwvNbnvK8PHCJJvIspbx97FbWfjy/6K5GS2HdlbealER/+RHfi/nHJXpoVVDpK/I12lQ2q03yCgjIpuNEUSdJfIU3nkEN7zIaQrBgZsUIPYtK0h9PsXcXzip11VjuI+rZ6jlDCPRvBGpCLJBpgKf9jQD0qthpozMrHhNymai7YAsefVEg7EPt3S1/6ftjaMKZtXV0h2HOacRA1T+iBUP/D7GFDVcqKBjDTSwftoo6doh10SATWNfZkHGBhrlNWXEmo5ic4SjDRNeJBViDduNwu9XqXsi7a7dOYNAabv17QDmxn4pCuO4GXrHhvpVI2ufz2PT2eRGfBTzCrKH2bp/OmWo6KnD4VlF37WDF07Zw1nxBbpWPBnzWop6XQm88IkDwPezGHWjMKkji1glDiVtIdMyFNgTx6i+Y4LQtPCtU1KH4Rong8M7i5E73rb2ZSv+qWAJt27H+FdfPL8nmd0aYwyBIH3ILDhp1qQF0dyPiE49mlv/71w4pELYqjJgkFzrfh0t6/0LUtAmteZQ2/tyPv7RXCJ7mAo6cgfACS2XyRCqZ9hpNnu8MlARa5EFl+sbOqNMkxBrJOmL/5wbkjcFP8F44WONT2JZC4yWIVstgq3N7Ckm/4m46GIun5/VG8RwhVSYmnf3d4ZAQ/s=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(82310400026)(1800799024)(56012099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: BE3E0+roQR4+h9sNKPD8OgJ/er/oTvByUh5hul19bo5kDgxxacLkfPWzZVEuNItKzb3q/fQesjd2UxrK39jS0YwsSqibPDDJvG0SalJexBttpiMiXjjBg/R4ILoBDAieDIvhq9IpjtdeuMiu5oEHQDXbZpNHKMBaf4rZFISKXwiVh0cpnQKso3RX12jOHWwzYJhyiV/Kzby55icjdHSG04bO8Cc+KCaPM1S8lLQy2hnxu2lz8fW3L1ZG+5Ecp8o2qqb+z8wjRkya3Hmc3PdWR6TiHH2CShmWtEcSIevC0UFovfsAmv9Ve4kptobkYLpyFFKepZSNMBlNhWq+lugIWvv6Hp4utOiW/sQb99IhFD8o4/1HjBObQvvH4lOFW+YcB9A3pPsrIfSWDqPtFOJI1oVrEeikF9l2lYZFtweKMlls50+zrg7+wTNP3J4+2WQB
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 02:27:37.1762
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8743d5c7-7028-4a46-d276-08deaf04de19
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB88.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNPR06MB9003
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_192447_212035_0E919CA3 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20260510_192751_344191_4E335ACA 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,31 +110,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Arnd,
+
+Please note: it may get merge conflict with soc/defconfig branch
+since I got below merge conflict message from Thierry Reding at
+May 8th.
+
+	Today's linux-next merge of the cix tree got a conflict in:
+
+	  arch/arm64/configs/defconfig
+
+	between commit:
+
+	  f54f7979ff88 ("arm64: defconfig: Move entries to match savedefconfig")
+
+	from the arm-soc trees and commit:
+
+	  f4f1e3bdb5f9 ("arm64: defconfig: Enable CIX Sky1 pinctrl, PCIe host, and Cadence GPIO")
+
+	from the cix tree.
 
 
-On 5/8/2026 10:23 PM, Bryan O'Donoghue wrote:
-> On 08/05/2026 12:40, Wenmeng Liu wrote:
->> From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
->>
->> 4 x CSIPHY
->> 2 x CSID
->> 2 x CSID Lite
->> 2 x IFE
->> 2 x IFE Lite
->>
->> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
->> Signed-off-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
->> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
-> I'll repost my working version with the PHY stuff so I'd kind of 
-> appreciate you not posting an old version here, just wait for it to land.
-> 
-> ---
-> bod
+The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
-If we are able to designate the old version as a candidate, and should 
-the new version continue to encounter substantial resistance, we can 
-provide a functional version.
+  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
 
-Thanks,
-Wenmeng
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix.git/ tags/cix-defconfig-v7.2-rc1
+
+for you to fetch changes up to 246e37739f24b00a5559535dc814a315e7774639:
+
+  arm64: defconfig: Enable CIX Sky1 pinctrl, PCIe host, and Cadence GPIO (2026-05-09 18:15:49 +0800)
+
+----------------------------------------------------------------
+- Enable CIX Sky1 pinctrl, PCIe host, and Cadence GPIO for CIX platform
+
+----------------------------------------------------------------
+Peter Chen (1):
+      arm64: defconfig: Enable CIX Sky1 pinctrl, PCIe host, and Cadence GPIO
+
+ arch/arm64/configs/defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
+
+-- 
+
+Best regards,
+Peter
 
