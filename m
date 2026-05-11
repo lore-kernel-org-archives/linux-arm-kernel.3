@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5783FCD37B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 263B2CD4843
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7wg2zHGB5zztBBw+YwC6xPEqCyuBrIzgcAowaUGYZRs=; b=42r//nxLvfSC1d3WQ+7F1Hj/Hk
-	B4vH+Ik45Ug25ozbM4RCCtKSzHDjt3wZPsYrDB9xm6oXlNDDBFlq0r3ZTWpYkHy3uDFPICVyl2ZcL
-	UmeCC8AyFHqDiRex8fZLMLUaRYRNjZ9DVvCMovkKVRLmLXsnB57xIBvwJ74EhiJRZAgBJ8GczABTg
-	xhblunkMdDd+VY211WoPt5TM2B/qYxG2F9+8LTj+fVQxw/TUKB1yHlnggw8XkMRwN3Au+2IOFtM3k
-	yLZRcGoqLLIG7s/sbxNspkv5ClWz2mR9jtlrbX+HlSZEhrln6gJ5LLjXVJIw9sbxqHEknE14aMWAo
-	7O95hRGQ==;
+	bh=Om32yXhs+QvBym8qN0KqHr18ySF4002j+nxRXTzSuLo=; b=2MZD5jQ4E58fIAKvBczVDZDyX1
+	696S8OwX0o6BDibNhyO8JQY82TZ+LkjhqCz9ZAbAxLoKn2SA93H4IU8pkltiH7eNIChHbGmnHLgxW
+	hS58gwFepUaYOrIRNCLwShHUogB8iuQdAtaVRkW1zDgoLvdb369bJXJYoCj/eIZP8KN5+XFQeampc
+	JQPxvfO0t3XQZEuJWBslHCWqoCOEPJ19QIRAhZuERj+/JKZEq95J7zNlUcekJCr2JYn1qhjtVafMk
+	mXoeVrSunK0FmKXtyyuzIgY2c3cp+PuTOx6fxEU8ZAbn0oxfBCcwLJXthm2arPiyvVQTvSiXuUgBN
+	fvcTrMig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOYM-0000000DFjH-2FbQ;
-	Mon, 11 May 2026 11:12:02 +0000
+	id 1wMOYO-0000000DFm6-0G0h;
+	Mon, 11 May 2026 11:12:04 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOY3-0000000DFLR-4C6j
+	id 1wMOY9-0000000DFRm-2XyY
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 11 May 2026 11:11:46 +0000
+	Mon, 11 May 2026 11:11:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=7wg2zHGB5zztBBw+YwC6xPEqCyuBrIzgcAowaUGYZRs=; b=glb/Zm3uKdjO+yxk/b3CwC/3V5
-	8vkDn7XPjHBuhKQet+grdK7WP8HTusmqnANJHmUSGK/DBKEUZUDJy2XQFeBbZHqAu2PHCEzcGaGAI
-	hRuDpXXLO8BgPt3SyXey4pWQBSNatzjvXi7wIfAS/qRkJbrPAWVtmJ9//iykrMk0Rmq6O/YRnv6zc
-	gmg0Oo9QbfSVMkbpw6A14nnVLG1LQOor+COmGsrgnq3kysAJ/CPEk8PlOMSbl4jy5uMudiVyubP0s
-	fA4R9LFYu2+LIL4wu5fq32RnCSMBTrkpjnQzdF/meTMRUnUIzptNSPwpw30OBP02UwO0qfzU8HtbZ
-	vUNZ4F3g==;
+	bh=Om32yXhs+QvBym8qN0KqHr18ySF4002j+nxRXTzSuLo=; b=jvHi5VWyY7E8f1toQCQAFTRLEU
+	DiBK3OCSwdPbb3Fa4fvy1StxvHr0oH+nN3wgHUV2liO6b3iRWs6+LdwR712UH5auVV55S3lM/0D47
+	BbJz7oL3tEk1Z4j/QyiDKo+2E9jRxGZ114gVBsZq3PZ7OggIIajZ3ksZ++PrYcE1kSr/uSSiwxCPy
+	76t1VRNkjQ7ZRfHERuiB1OMP86Sh/q7IrPp/9JLvpLqz9VZzt4ZP+C8PwMnzRQDxm8YS0OXT+kexb
+	y4VANrIxRFkfk9643tLU4+Bu96Cc9LgWXH3jtwN4w7wjZyUKK9qCULmzQpkVxDSu32pjoz+DWR9am
+	5nKIlg7A==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOXu-0000000BQiw-3XhW
+	id 1wMOY3-0000000BQiw-0WoY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 11:11:38 +0000
+	Mon, 11 May 2026 11:11:47 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C6521713;
-	Mon, 11 May 2026 04:11:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 986521756;
+	Mon, 11 May 2026 04:11:36 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4FD373F85F;
-	Mon, 11 May 2026 04:11:31 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C6DE3F85F;
+	Mon, 11 May 2026 04:11:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778497893; bh=xRQYUNYKQ+7/fKvgqSDeqcRoxwhT/EIr/3uPsa7gG3g=;
+	t=1778497901; bh=qmXnyAfd8XzEF5licnSwSdyXddUMt9j3gcpVUu/ZpmA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Axfj3bGfbqsf93dpHiZMT4NovHHmBaeqXW1RW+qWfPiuZ/Tu3wnBm8RvCprbsfKda
-	 HKa2a95wFBT3elH9JDxDUCdxrbGnEOQCpBD8DW3fApger2tR4LXp6kfJH7Upxnv00s
-	 XUWH5yxZZKh+hotaxnwkvg1OLzK6w2431t82mts8=
+	b=Yqcop1eGr2Duvj7yVsZ1X6s0NneP6ItjLiuRG3D5ybb4x4eD/LZj1PTFxegYc579Z
+	 0mjEUNfht6o7sD0hRAyPRyLGWMSdWRGjfflI8MhS8BLyILEqVVZqN0psTss2THVa90
+	 O0QCqfBNECMJvrr5AtRPqeGqWTjgFTrNpfAKQLQc=
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 11 May 2026 12:10:54 +0100
-Subject: [PATCH v12 10/28] coresight: Take per-CPU source reference during
- AUX setup
+Date: Mon, 11 May 2026 12:10:57 +0100
+Subject: [PATCH v12 13/28] coresight: etm4x: Remove redundant checks in PM
+ save and restore
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260511-arm_coresight_path_power_management_improvement-v12-10-1c9dcb1de8c9@arm.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260511-arm_coresight_path_power_management_improvement-v12-13-1c9dcb1de8c9@arm.com>
 References: <20260511-arm_coresight_path_power_management_improvement-v12-0-1c9dcb1de8c9@arm.com>
 In-Reply-To: <20260511-arm_coresight_path_power_management_improvement-v12-0-1c9dcb1de8c9@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -75,18 +75,18 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
  Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>, 
  Peter Zijlstra <peterz@infradead.org>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
+ Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778497860; l=10743;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778497860; l=3181;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=xRQYUNYKQ+7/fKvgqSDeqcRoxwhT/EIr/3uPsa7gG3g=;
- b=ypLk7ieGjIHOhZP3r4kV5+qHBp6WabfbNXqPEMTYujCWvW/OrBCeC7OQwFaBtqYjxcOxjbpXb
- ietTzGuQMa+BwsSZZjcJHpFuLp8PJd2QLD+RDwZPt2bo6whlTsjwhPj
+ bh=qmXnyAfd8XzEF5licnSwSdyXddUMt9j3gcpVUu/ZpmA=;
+ b=45Ml5alJRarSvjqjMg95ZPDxmLLZu8JIMmn/TU/7YVE7iYnRP8z+bU50c6AMeFZFMFZFlN71B
+ vK+4i58TQ+gAaLMw8VoAnYJuoZtoPIapM4TCFfNnWD/IFrrAwa4O7a7
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_121137_138813_E4156DCF 
-X-CRM114-Status: GOOD (  34.63  )
+X-CRM114-CacheID: sfid-20260511_121146_079165_4DB67E90 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,292 +101,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-etm_setup_aux() fetches the per-CPU source pointer while preparing perf
-AUX trace paths. This can race with CoreSight device unregistration, the
-ETM device may has been released while the AUX setup still use it,
-leading to use-after-free.
+ETMv4 driver save/restore callbacks still re-check conditions that are
+already validated by the core layer before the callbacks are invoked.
 
-Move per-CPU path construction into etm_event_build_path() and use
-the coresight_{get|put}_percpu_source_ref() pairs to take and drop
-the device references, this ensures the device is safe to access during
-path construction.
+Remove the duplicated checks and fold the two-level functions into
+direct callback implementations.  The obsolete WARN_ON() checks are
+removed as well.
 
-Update comments accordingly. Document a PREEMPT_RT corner case: the
-put_device() may release resources while coresight_dev_lock (a raw
-spinlock) is held, and the release may attempt to acquire a spinlock
-that becomes sleepable under PREEMPT_RT. This will be fixed in the
-future.
-
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Tested-by: James Clark <james.clark@linaro.org>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Reviewed-by: James Clark <james.clark@linaro.org>
-Tested-by: James Clark <james.clark@linaro.org>
 Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c     |  38 +++++-
- drivers/hwtracing/coresight/coresight-etm-perf.c | 157 +++++++++++++----------
- drivers/hwtracing/coresight/coresight-priv.h     |   3 +-
- 3 files changed, 129 insertions(+), 69 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 41 +++-------------------
+ 1 file changed, 4 insertions(+), 37 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index c2a290903cbf416651e7ec7057a1ee0b36bb6a8b..b8d9a457458018a776c716341966824eb5080143 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -109,13 +109,47 @@ static void coresight_clear_percpu_source(struct coresight_device *csdev)
- 	per_cpu(csdev_source, csdev->cpu) = NULL;
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 5cd70f0f3710a5ec6406a89c034d30230f782b13..fef1270439e9d770fc0459e9ab8cab7cb40827ee 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -1853,17 +1853,14 @@ static inline bool etm4_pm_save_needed(struct etmv4_drvdata *drvdata)
+ 	return !!drvdata->save_state;
  }
  
--struct coresight_device *coresight_get_percpu_source(int cpu)
-+struct coresight_device *coresight_get_percpu_source_ref(int cpu)
+-static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
++static int etm4_cpu_save(struct coresight_device *csdev)
  {
-+	struct coresight_device *csdev;
-+
- 	if (WARN_ON(cpu < 0))
- 		return NULL;
+ 	int i, ret = 0;
++	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct etmv4_save_state *state;
+-	struct coresight_device *csdev = drvdata->csdev;
+ 	struct csdev_access *csa;
+ 	struct device *etm_dev;
  
- 	guard(raw_spinlock_irqsave)(&coresight_dev_lock);
--	return per_cpu(csdev_source, cpu);
-+
-+	csdev = per_cpu(csdev_source, cpu);
-+	if (!csdev)
-+		return NULL;
-+
-+	/*
-+	 * Holding a reference to the csdev->dev ensures that the
-+	 * coresight_device is live for the caller. The path building
-+	 * logic can safely either build a path to the sink or fail
-+	 * if the device is being unregistered (if there was a race).
-+	 * The caller can skip the "source" device, if no path could
-+	 * be built.
-+	 */
-+	get_device(&csdev->dev);
-+
-+	return csdev;
-+}
-+
-+void coresight_put_percpu_source_ref(struct coresight_device *csdev)
-+{
-+	if (!csdev || !coresight_is_percpu_source(csdev))
-+		return;
-+
-+	guard(raw_spinlock_irqsave)(&coresight_dev_lock);
-+
-+	/*
-+	 * TODO: coresight_device_release() is invoked to release resources when
-+	 * the device's refcount reaches zero. It then calls free_percpu(),
-+	 * which acquires pcpu_lock — a sleepable lock when PREEMPT_RT is
-+	 * enabled. Since the raw spinlock coresight_dev_lock is held, this can
-+	 * lead to a potential "scheduling while atomic" issue.
-+	 */
-+	put_device(&csdev->dev);
+-	if (WARN_ON(!csdev))
+-		return -ENODEV;
+-
+ 	etm_dev = &csdev->dev;
+ 	csa = &csdev->access;
+ 
+@@ -1995,32 +1992,13 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+ 	return ret;
  }
  
- struct coresight_device *coresight_get_source(struct coresight_path *path)
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index b9891c8ac078d99fc2180c858dc56b1e7dbec2d9..e416d2717a99aa3b573f8e53adec19518851d635 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -343,6 +343,85 @@ static struct coresight_path *etm_event_get_ctxt_path(struct etm_ctxt *ctxt)
- 	return path;
- }
- 
-+static struct coresight_path *
-+etm_event_build_path(struct perf_event *event, int cpu,
-+		     struct coresight_device *user_sink,
-+		     struct coresight_device *match_sink)
-+{
-+	struct coresight_path *path = NULL;
-+	struct coresight_device *source, *sink;
-+
-+	source = coresight_get_percpu_source_ref(cpu);
-+
-+	/*
-+	 * If there is no ETM associated with this CPU or ever we try to trace
-+	 * on this CPU, we handle it accordingly.
-+	 */
-+	if (!source)
-+		return NULL;
-+
-+	/*
-+	 * If AUX pause feature is enabled but the ETM driver does not
-+	 * support the operations, skip for this source.
-+	 */
-+	if (event->attr.aux_start_paused &&
-+	    (!source_ops(source)->pause_perf ||
-+	     !source_ops(source)->resume_perf)) {
-+		dev_err_once(&source->dev, "AUX pause is not supported.\n");
-+		goto out;
-+	}
-+
-+	/* If sink has been specified by user, directly use it */
-+	if (user_sink) {
-+		sink = user_sink;
-+	} else {
-+		/*
-+		 * No sink provided - look for a default sink for all the ETMs,
-+		 * where this event can be scheduled.
-+		 *
-+		 * We allocate the sink specific buffers only once for this
-+		 * event. If the ETMs have different default sink devices, we
-+		 * can only use a single "type" of sink as the event can carry
-+		 * only one sink specific buffer. Thus we have to make sure
-+		 * that the sinks are of the same type and driven by the same
-+		 * driver, as the one we allocate the buffer for. We don't
-+		 * trace on a CPU if the sink is not compatible.
-+		 */
-+
-+		/* Find the default sink for this ETM */
-+		sink = coresight_find_default_sink(source);
-+		if (!sink)
-+			goto out;
-+
-+		/* Check if this sink compatible with the last sink */
-+		if (match_sink && !sinks_compatible(match_sink, sink))
-+			goto out;
-+	}
-+
-+	/*
-+	 * Building a path doesn't enable it, it simply builds a
-+	 * list of devices from source to sink that can be
-+	 * referenced later when the path is actually needed.
-+	 */
-+	path = coresight_build_path(source, sink);
-+	if (IS_ERR(path))
-+		goto out;
-+
-+	/* ensure we can allocate a trace ID for this CPU */
-+	coresight_path_assign_trace_id(path, CS_MODE_PERF);
-+	if (!IS_VALID_CS_TRACE_ID(path->trace_id)) {
-+		coresight_release_path(path);
-+		path = NULL;
-+		goto out;
-+	}
-+
-+	coresight_trace_id_perf_start(&sink->perf_sink_id_map);
-+
-+out:
-+	coresight_put_percpu_source_ref(source);
-+	return IS_ERR_OR_NULL(path) ? NULL : path;
-+}
-+
- static void *etm_setup_aux(struct perf_event *event, void **pages,
- 			   int nr_pages, bool overwrite)
+-static int etm4_cpu_save(struct coresight_device *csdev)
+-{
+-	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-	int ret = 0;
+-
+-	if (!etm4_pm_save_needed(drvdata))
+-		return 0;
+-
+-	/*
+-	 * Save and restore the ETM Trace registers only if
+-	 * the ETM is active.
+-	 */
+-	if (coresight_get_mode(drvdata->csdev))
+-		ret = __etm4_cpu_save(drvdata);
+-	return ret;
+-}
+-
+-static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
++static void etm4_cpu_restore(struct coresight_device *csdev)
  {
-@@ -350,7 +429,7 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
- 	int cpu = event->cpu;
- 	cpumask_t *mask;
- 	struct coresight_device *sink = NULL;
--	struct coresight_device *user_sink = NULL, *last_sink = NULL;
-+	struct coresight_device *user_sink = NULL;
- 	struct etm_event_data *event_data = NULL;
+ 	int i;
++	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	struct etmv4_save_state *state = drvdata->save_state;
+ 	struct csdev_access *csa = &drvdata->csdev->access;
  
- 	event_data = alloc_event_data(cpu);
-@@ -382,80 +461,26 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
- 	 */
- 	for_each_cpu(cpu, mask) {
- 		struct coresight_path *path;
--		struct coresight_device *csdev;
- 
--		csdev = coresight_get_percpu_source(cpu);
--		/*
--		 * If there is no ETM associated with this CPU clear it from
--		 * the mask and continue with the rest. If ever we try to trace
--		 * on this CPU, we handle it accordingly.
--		 */
--		if (!csdev) {
-+		path = etm_event_build_path(event, cpu, user_sink, sink);
-+		if (!path) {
-+			/*
-+			 * Failed to create a path for the CPU, clear it from
-+			 * the mask and continue to next one.
-+			 */
- 			cpumask_clear_cpu(cpu, mask);
- 			continue;
- 		}
- 
--		/*
--		 * If AUX pause feature is enabled but the ETM driver does not
--		 * support the operations, clear this CPU from the mask and
--		 * continue to next one.
--		 */
--		if (event->attr.aux_start_paused &&
--		    (!source_ops(csdev)->pause_perf || !source_ops(csdev)->resume_perf)) {
--			dev_err_once(&csdev->dev, "AUX pause is not supported.\n");
--			cpumask_clear_cpu(cpu, mask);
--			continue;
--		}
- 
- 		/*
--		 * No sink provided - look for a default sink for all the ETMs,
--		 * where this event can be scheduled.
--		 * We allocate the sink specific buffers only once for this
--		 * event. If the ETMs have different default sink devices, we
--		 * can only use a single "type" of sink as the event can carry
--		 * only one sink specific buffer. Thus we have to make sure
--		 * that the sinks are of the same type and driven by the same
--		 * driver, as the one we allocate the buffer for. As such
--		 * we choose the first sink and check if the remaining ETMs
--		 * have a compatible default sink. We don't trace on a CPU
--		 * if the sink is not compatible.
--		 */
--		if (!user_sink) {
--			/* Find the default sink for this ETM */
--			sink = coresight_find_default_sink(csdev);
--			if (!sink) {
--				cpumask_clear_cpu(cpu, mask);
--				continue;
--			}
+-	if (WARN_ON(!drvdata->csdev))
+-		return;
 -
--			/* Check if this sink compatible with the last sink */
--			if (last_sink && !sinks_compatible(last_sink, sink)) {
--				cpumask_clear_cpu(cpu, mask);
--				continue;
--			}
--			last_sink = sink;
--		}
--
--		/*
--		 * Building a path doesn't enable it, it simply builds a
--		 * list of devices from source to sink that can be
--		 * referenced later when the path is actually needed.
-+		 * The first found sink is saved here and passed to
-+		 * etm_event_build_path() to check whether the remaining ETMs
-+		 * have a compatible default sink.
- 		 */
--		path = coresight_build_path(csdev, sink);
--		if (IS_ERR(path)) {
--			cpumask_clear_cpu(cpu, mask);
--			continue;
--		}
--
--		/* ensure we can allocate a trace ID for this CPU */
--		coresight_path_assign_trace_id(path, CS_MODE_PERF);
--		if (!IS_VALID_CS_TRACE_ID(path->trace_id)) {
--			cpumask_clear_cpu(cpu, mask);
--			coresight_release_path(path);
--			continue;
--		}
-+		if (!user_sink && !sink)
-+			sink = coresight_get_sink(path);
+ 	etm4_cs_unlock(drvdata, csa);
+ 	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
  
--		coresight_trace_id_perf_start(&sink->perf_sink_id_map);
- 		*etm_event_cpu_path_ptr(event_data, cpu) = path;
- 	}
+@@ -2113,17 +2091,6 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+ 	etm4_cs_lock(drvdata, csa);
+ }
  
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 7ce79fa36232bb1b0af768423777bab27cacee95..a1aab67e23db7fdea5139100312b3eb7cd31df51 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -249,7 +249,8 @@ void coresight_add_helper(struct coresight_device *csdev,
- void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
- struct coresight_device *coresight_get_percpu_sink(int cpu);
- struct coresight_device *coresight_get_source(struct coresight_path *path);
--struct coresight_device *coresight_get_percpu_source(int cpu);
-+struct coresight_device *coresight_get_percpu_source_ref(int cpu);
-+void coresight_put_percpu_source_ref(struct coresight_device *csdev);
- void coresight_disable_source(struct coresight_device *csdev, void *data);
- void coresight_pause_source(struct coresight_device *csdev);
- int coresight_resume_source(struct coresight_device *csdev);
+-static void etm4_cpu_restore(struct coresight_device *csdev)
+-{
+-	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-
+-	if (!etm4_pm_save_needed(drvdata))
+-		return;
+-
+-	if (coresight_get_mode(drvdata->csdev))
+-		__etm4_cpu_restore(drvdata);
+-}
+-
+ static const struct coresight_ops etm4_cs_ops = {
+ 	.trace_id	= coresight_etm_get_trace_id,
+ 	.source_ops	= &etm4_source_ops,
 
 -- 
 2.34.1
