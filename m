@@ -4,99 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9BC3CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 13:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51C8CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 13:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VpBr89JbDstdIUMvCB+UAEmSrotPv1wv1lCMdlQElUc=; b=gLWJzkDCSlvTlbufuXZSaLJwLL
-	dl0OTn1OGKGdAuKmd3ibog7fENwTNzlSpnvrtJILcEWQSMM0OUzL9leKtgHhTB/ov4zBuSa88j3Gd
-	mWE2j5cU+0fhDenqdMSesjSqH6sVBTSm9Woe4BAVm6vIikZRqRw7/xyXPkkdwLt+MdEcglLmc61Cb
-	rF1vj2H5I7nXCiQm2DZ+4iY9Lv7nwkS7ajN39SWyTIG9RH4AoZfNGpf0Y9laLSgdtRKFGzQ90XMwq
-	oqNlNi9EySg0shyY4FrW76JnBmFQMuLVKXw0Ma3gKioHz+rAXrQaM6ZXWVr9xp6JqcQiaoKUv6A+P
-	f+23oUQw==;
+	bh=kFHOapMXE1tv6EvDC3lnrF2hf1ig3o7NeTU/uB47Cig=; b=mFkJ0XgQemEaRaFsoWTVKI8UWl
+	ridlQwK0Da+UZ68r+kfB1vYTEYMZQaAl0FvTdmo9pGtgaKs32SJT4398fXL0mNOsWAJDtiDzlglZS
+	xAeuL3l+Ec6Ydh8OEkK7N3ixwtNeQqweB9sjanwEPKYaOyHT4NBBnLWxeA4D4lA3hg+L861p1+nf7
+	R7ZHp7lW11HaEEdRR5VTJ/O2l59oihvjkz6vmbuhqzIuQPxSzq9F4VM6EIv8qEI5ZBjCOrNvbeu48
+	/uHO2mDg8XKrIWGqg4Mpb2v659UHow8Gzy/YsG3Ve2muwJnSwFh9Rs7+8xDN5TUTsZeBvOQ5ptRA2
+	xg+Z+sdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMQWG-0000000DhUz-1uWU;
-	Mon, 11 May 2026 13:18:00 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wMQYR-0000000Di4B-30CH;
+	Mon, 11 May 2026 13:20:15 +0000
+Received: from mail-southcentralusazon11012066.outbound.protection.outlook.com ([40.93.195.66] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMQWA-0000000DhRj-435U
+	id 1wMQYN-0000000Di3E-0TCx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 13:17:58 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-44ce78ab5feso3794651f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 06:17:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778505473; x=1779110273; darn=lists.infradead.org;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VpBr89JbDstdIUMvCB+UAEmSrotPv1wv1lCMdlQElUc=;
-        b=j8yT8IFd0hJcLTlm/W+sWlR5F8FNIH9AA+Gzha16af8XuJKJYw1/u+eugCRUSv2ywc
-         7wDM6y0VfHzPgM1mCCTixStZ27u/5bWRqI76KRxvjUw1teEmltUCzBfgAk+1Wj47KD59
-         kToCJf10AoT7TOaai4a0CkfZdBIegf06CjqVH0H11IPSpm/CHdep2aOaNnkI5owFSAXo
-         xqp+cnseEj4AbKtd7Qiwa3g6nSVIK8cMlG3VwrdiuJ6dohKGXG/kFCShnvsbMd/h4+RN
-         dMArk6/2M8N2Iw4X5tuaF41xKaPcN3sv4o3aaKsKe10pJJN2L9Fuisu5Bk7RZNi0W0VI
-         FZRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778505473; x=1779110273;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=VpBr89JbDstdIUMvCB+UAEmSrotPv1wv1lCMdlQElUc=;
-        b=A/JQhGgJqyYsk83nIGqsnGYDzMZtrfqhOjc3WZpdNEY3+Mx/dYNujfv1RZt2mx3dSz
-         pw3mYJSat16Im+CFiDREXyWmrbLEdjzU6vB8ZTPr3syTMZSxd/8O7SaLqvXXKPvAmWqu
-         sWfnJR5kI9DVcjqq4uVdbXwdGt1liK9gwvTN78tInNofu1IVTysqqrOvTlRsY/gJIxrA
-         OypOA+eW5u4pTW7RQsVAvco/rlCKgRRJ6I5dMC4NzNkOzY8UyyS4TQpOE7bdaWsDddX7
-         E0/s2pEhhbzTh/thxNKZ09urUtXDCn/oRb4kHHCV0utiRHkW3d4rmHXvCpNQ2LPmu5cP
-         7yZg==
-X-Forwarded-Encrypted: i=1; AFNElJ8pY6k8iUtcjQdp6lxZv7/xlrmXHAdBX6XMLVJFD6ZHKboM9EQflCM651FGPiNWO8iB2WPifFQA+/6CdrihjiEg@lists.infradead.org
-X-Gm-Message-State: AOJu0YynTE3HKxMiDWbt8XmGk0dIOSd/28EBkPlMPhCfLg/eRqZIfYlp
-	qEIbkqpmwX6JPDgpVPiYEj/JKHm+79uHcKPWK0zQ3jCRVodaAUPXKnDkJ7qdWkaLzBs=
-X-Gm-Gg: Acq92OHwMJgEeyiAdZlsv15g5SDy1bmFEJRR6PD5SxaeJtOrIdGKlJqJ5j6WbOPUKto
-	eAC8TEmF5DylnOxO8wkE6Xk5NbeLCL/Fc7yTEEV3EDZOt6UAdlglpoMZAR+ppYW6z24ZSRX9aGp
-	+wg26OH3r1fWHwfqVhuHEkyBzGH3bCfu5BpYRHoh7N+ss9Bptm6eDEk94Hob9p//NDPO27euMiq
-	GFmzZ5ebXKWVYo7hqkRZI8zL29wqWw4rvV3gfBpJQ0jm1KHfMjbmjgj2LY25jVL4tpNGkWQBVxR
-	ZBMfuXDm386u8yn2jBOCXLR6QD2YX/m8WLzdkiySLSNHGcKEI2ZqJSnKSAuQGzm6cEslmORsElu
-	r9y2OYtmmxdp2k6GZs5dI5LQvYhxsA3tw1ADR2yduOTeXpYA1s6ynrJHnI6BWM/tm5138IzoKHV
-	NwVdBI/mi10jmK93DEmRsjbbJTYyoPsdRZAB4QdY6VtoDC05aVFqPXKc9z1OCV8Nw1BaUyvNRyS
-	+iSefyFB3dqRxAIdw==
-X-Received: by 2002:a5d:5d0b:0:b0:43d:c2bc:21b4 with SMTP id ffacd0b85a97d-4515b525d65mr37422228f8f.16.1778505472478;
-        Mon, 11 May 2026 06:17:52 -0700 (PDT)
-Received: from localhost ([2a00:2381:fd67:101:5acc:6281:995e:547f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4549120f1f9sm25688565f8f.24.2026.05.11.06.17.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 May 2026 06:17:52 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 11 May 2026 14:17:51 +0100
-Message-Id: <DIFVKM72KZDI.14EVGUMQ0NV9S@linaro.org>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>
-Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Lee Jones"
- <lee@kernel.org>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Sylwester
- Nawrocki" <s.nawrocki@samsung.com>, "Chanwoo Choi" <cw00.choi@samsung.com>,
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- <linux-kernel@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
- <peter.griffin@linaro.org>, <jyescas@google.com>,
- <kernel-team@android.com>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH 5/6] firmware: samsung: acpm: Add TMU protocol support
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-X-Mailer: aerc 0.20.0
-References: <20260506-acpm-tmu-helpers-v1-0-a9cd5daf8355@linaro.org>
- <20260506-acpm-tmu-helpers-v1-5-a9cd5daf8355@linaro.org>
- <DIBOWQYHOPOU.3PCLCL8030WRL@linaro.org>
- <806da86b-45b7-43cc-b364-97bade8f4041@linaro.org>
-In-Reply-To: <806da86b-45b7-43cc-b364-97bade8f4041@linaro.org>
+	Mon, 11 May 2026 13:20:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g0hk0sn0d1VEMXgd18K9pP6DQWHeZE4WTppbOI8gtojWN+5jxNKnw8Q0Nqh8BnWgl/jn/ZfG/ymjr3UjBlNMfe8dmAAJAF3hu7PhwQk1Wa0nDt2VjGjYLrRAcdzHZTFd/evCs86KZ9Q453EanHcLuqbA+TU/4qiKGjr4BzgG53SvParALr2fJgqyfsFiIdJWoU35yP+p0f4cwUDvninhNsZsCFEV6O6zqEmfsAyLtghUV0I93yVUWx5m0yYAPqIYCC39iE6Q4s5CNOEdn3jSbflyhnj+mFQdRTfU9fZOPkZkpFF2IH8rydrLNnRaOv+nT8W1FA7petiN2LRbGCuZqg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kFHOapMXE1tv6EvDC3lnrF2hf1ig3o7NeTU/uB47Cig=;
+ b=s18ZKCoMKDhHTBWg89hFuXvUsNmRJij9auXOeMkeJc4Ym/gM/eafwQ+U/EItC3IqOxhCVQrgzS4qZXO21y1KWM2ih0AGcq68sFVN9Uax0Ri7rFd+1nsZhaOG0R7u4MUEu2bRXQgeyw8y7G7QlApi0e3KCf/2umKsWdcc5gMSANjcQ0uXObIz+jof4ACmugaiYy9APAkuJe0j+uOaL2e+EdpgAuREf0FPolfcSrklKsR5FWD2o7LFXyDkHg4D6+BSwAfb+jll+6oL4P5hIpjIeBapvY/3+JWGLy+g0oe2+lRXLPLeRmTb55ewLFvVO485mW6aNDSa9E51OM2amA/tNA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kFHOapMXE1tv6EvDC3lnrF2hf1ig3o7NeTU/uB47Cig=;
+ b=pWxuly+59ePsUUT932pPAf3uuj6C58DzIS71/2yF/raJXA8TpZocwDfFhbSGZq6WoHFtzkiox24oBTe6fDPaM4yE+VlqYAeZ1QJjIbkqvFs0GQ3c5f4y4BImQ+Us8Kzhh8qGaGyGA66DgU+YagNDkTkASzA7OP7BzRJU8UUCSGY=
+Received: from PH8PR07CA0032.namprd07.prod.outlook.com (2603:10b6:510:2cf::6)
+ by CY8PR10MB6730.namprd10.prod.outlook.com (2603:10b6:930:95::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Mon, 11 May
+ 2026 13:20:04 +0000
+Received: from SN1PEPF00036F3E.namprd05.prod.outlook.com
+ (2603:10b6:510:2cf:cafe::37) by PH8PR07CA0032.outlook.office365.com
+ (2603:10b6:510:2cf::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.23 via Frontend Transport; Mon,
+ 11 May 2026 13:20:04 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SN1PEPF00036F3E.mail.protection.outlook.com (10.167.248.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Mon, 11 May 2026 13:20:02 +0000
+Received: from DFLE208.ent.ti.com (10.64.6.66) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 11 May
+ 2026 08:20:02 -0500
+Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 11 May
+ 2026 08:19:59 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Mon, 11 May 2026 08:19:59 -0500
+Received: from [10.249.132.118] ([10.249.132.118])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64BDJrNl3786243;
+	Mon, 11 May 2026 08:19:53 -0500
+Message-ID: <53985724-09bd-494b-9093-3e7efb6a6ce0@ti.com>
+Date: Mon, 11 May 2026 18:49:52 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/15] drm/tidss: Add BeagleY-AI display support (and some
+ more)
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lee
+ Jones <lee@kernel.org>, Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth
+ Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Devarsh Thakkar
+	<devarsht@ti.com>, Louis Chauvet <louis.chauvet@bootlin.com>
+CC: <devicetree@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Jayesh Choudhary <j-choudhary@ti.com>, Aradhya Bhatia <a-bhatia1@ti.com>,
+	Andrew Davis <afd@ti.com>
+References: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
+Content-Language: en-US
+From: Swamil Jain <s-jain1@ti.com>
+In-Reply-To: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3E:EE_|CY8PR10MB6730:EE_
+X-MS-Office365-Filtering-Correlation-Id: 64c525c1-5ab9-4dec-c55c-08deaf600281
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700016|18002099003|22082099003|921020|56012099003|3023799003;
+X-Microsoft-Antispam-Message-Info: rFgdfCfnMOZ7s53CS/LkRGCAWlx9tXZOdnU0++JCWmBHdqfCXERBQSziLJsNga+0YT2pJgu9jipV4Wn0bQlDKPmTWuhFSIy4O0QrwtFXxpcwpOt11/wMsQtrLXmMz55mJf4wN5cTv8OeY9KeowZhJOY9LQHzvEw7hDZeBRP2iOo+Tugveeap+wqE1HdAtSK3/j4JFDnCuixx0BgiWsOhek59izk5OdBkB7GE/dcFYg/USvYnAWZH3Mw48qXMo+YSlZ1fSr3tNmP33jmpunkLEW6JgUPZEdEauksbfWiLecSqjHBSR558T0uDO9o3UUD+e3/nMiTmnioELD9JAF85znvbCzWg4UaCyTHpxzrzKJE6KlApCfdBOagFh69WUFqThiVNS/yF46DWPb/8iqWxWBccyOObURV9eILs9MFahYyyQ7iW1OaEvh6bdKRmN9EJqJHU0YZtq7X9wibZmxUAsw4AtYY6DTT+ZDV6lmpOwl82KeXoeHiKo/g2f8iJxS6oe+zLjyAizionrwvjHLpidn8voPDbStKQolVH2NzTCKFArCfwSnm/JVAqUX1F6J/jr2WbNmofgEbhwOzU7ch2qOhULl5eIjx0aGw11JcfCGSfb+g8nbcqn9TeGO46uDHXCJmTwCh9znwkVphd2nSK55i4mbVYgEX+tf+t/LCzmt/P1XxTpb5sw1Dlrd/ox/tO28km6he1UMcW91X/x2J0/fcEk9FvQX0oLDQYZwD1LWo=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700016)(18002099003)(22082099003)(921020)(56012099003)(3023799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: vu8TneXfty4r3ZbfiQ8CfomC01oy7+zJHyFoy3OGd2q3mMeWeclANNynaFmBmQhtFhEsm5TEUzmmMYqJzkqE9vu6Rx4FLaMTJ5perKk6cpWVOF1NmmGWKSdQGBfROpYz+3od6t3JeEWvb0A8Lws+dIAP6vT2MvV4nRtN50j0rPXdOiw0tjnHzrP/h8tBiX7NFgTeLz6ELxFcNYiAM/o4HQjY+9wZC8jCJ2l1Z0sVSuXNPcoXZgR8EzLq3U5w9dxQtQlR4laKKPSM5eG13kg8JTGwOVgYyknOw6TZqAt7+ni0SirWGEW6XbQpH1Hy47Y4yV9bXIDKIf6kbzmvh8RProEu0XpwwUCG0qBXJR/zp88dbUFwbwh4oXVzom+SUIrBddVYj8x4eSVClT2lHl/ru2OYDAyuqvzToTGzL8/Tic07kfOkSRlIBOYQK9m0ClPR
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 13:20:02.6510
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 64c525c1-5ab9-4dec-c55c-08deaf600281
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3E.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB6730
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_061755_074239_37C77039 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20260511_062011_257880_4B7557AA 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,71 +140,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu May 7, 2026 at 9:31 AM BST, Tudor Ambarus wrote:
-> On 5/6/26 6:13 PM, Alexey Klimov wrote:
->> On Wed May 6, 2026 at 12:39 PM BST, Tudor Ambarus wrote:
 
-[..]
 
->>> new file mode 100644
->>> index 000000000000..c68d60b4c0b3
->>> --- /dev/null
->>> +++ b/drivers/firmware/samsung/exynos-acpm-tmu.c
->>=20
->> [..]
->>=20
->>> +static int acpm_tmu_to_linux_err(s8 fw_err)
->>> +{
->>> +	/*
->>> +	 * ACPM_TMU_INIT uses BIT(0) and BIT(1) of msg.rx.ret to flag APM
->>> +	 * capabilities. Treat zero and all positive values as success.
->>=20
->> ACPM_TMU_INIT returns capabilities inside designated error field?
->
-> yes
+On 20-04-2026 18:24, Tomi Valkeinen wrote:
+> This series aims to add display support for all display interfaces on
+> BeagleY-AI board. More generally, it adds display support for TI AM62P,
+> J722S, and related SoCs, and, as a bit extra, improves AM62L's DPI
+> handling.
+> 
+> The main topics to highlight:
+> 
+> - The ti,am625-dss-dpi0-clk-ctrl feels a bit like a hack.
+>    But it is a single quirk register, among other registers that belong
+>    to either the firmware or other drivers. So what other options are
+>    there? This has already been discussed e.g. in
+>    https://lore.kernel.org/all/20250730-fix-edge-handling-v1-0-1bdfb3fe7922%40bootlin.com/
+>    without proper conclusion.
+> 
+> - The tidss OLDI support will now use auxiliary device/driver. This seems
+>    to solve quite neatly the requirement to have a power-domain for each
+>    OLDI. The main issue that remains is that on AM62P (and similar) we
+>    will have three OLDI TX DT nodes, even if there are only two in the
+>    hardware.
+> 
+> With this series one can use the HDMI output on BeagleY-AI. I have also
+> tested the DSI output with Raspberry Pi's 7" DSI display, and OLDI
+> output with an oscilloscope (I don't have a suitable OLDI panel).
+> 
+>   Tomi
+> 
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> ---
 
-Heh. Okay.
+The series is tested on TI's AM62P[1] SoC and tested HDMI display and
+audio output with BeagleY-AI(AM67A SoC[2]).
 
->> What about other messages/commands? They just return error code there?
->
-> all the other commands either return -1 for errors, regardless of the err=
-or
-> type, or 0 for success.
->>=20
->>> +	 */
->>> +	if (fw_err >=3D 0)
->>> +		return 0;
->>> +
->>> +	if (fw_err =3D=3D -1)
->>> +		return -EACCES;
->>> +
->>> +	return -EIO;
->>> +}
->>=20
->> Could we map these return values with better granularity instead of
->> returning -EIO for everything else that is not minus one?
->
-> I think we're good as we are now. The firmware returns either -1 for erro=
-rs,
-> zero for success, or BIT(0) and BIT(1) for TMU_INIT to flag some capabili=
-ties.
-> I can't tell if there are other commands that return capabilities as well=
-,
-> or if there are other capabilities for TMU_INIT, I don't have access to t=
-he
-> firmware code.
+Display panels used:
+--------------------
 
-On Exynos850 I see more than just one returned error codes. I definitely
-see 0xfe and 0xfd at least. I don't have any data to confirm that ff
-maps to -1 and fd-s, fe-s to -2,-3 though and what they mean. From my
-experiments I suspect that 0xfe means that call/msg type is not
-implemented or not accessible and 0xfd means that passed parameter is
-wrong or incorrect or not found.
+DSI Panel: https://www.raspberrypi.com/products/raspberry-pi-touch-display/
+OLDI Panel: https://www.ti.com/tool/SK-LCD1
+HDMI Panel: https://www.viewsonic.com/in/products/lcd/VA1655-3
 
-I am also not sure that I saw 0xff-s but, well, maybe that needs more
-experimenting.
+Test branch: 
+https://github.com/jainswamil/linux-next/tree/AM62P_J722S_BEAGLEY_AI_DSS_V1_TEST
 
-Thanks,
-Alexey
+Got some DT check warnings with the above test branch[3].
+
+Links
+[1]: https://www.ti.com/product/AM62P
+[2]: https://www.ti.com/product/AM67A
+[3]: https://gist.github.com/jainswamil/945a9859c0f75b41ef21abeede405b2e
+
+Tested-by: Swamil Jain <s-jain1@ti.com>
+
+> Andrew Davis (1):
+>        arm64: dts: ti: beagley-ai: Enable HDMI display and audio
+> 
+> Jayesh Choudhary (1):
+>        arm64: dts: ti: k3-am62p-j722s-common-main: Add support for DSS
+> 
+> Swamil Jain (1):
+>        drm/tidss: Add support for AM62P display subsystem
+> 
+> Tomi Valkeinen (12):
+>        dt-bindings: display: ti: Move ti,am62l-dss binding to a new binding file
+>        dt-bindings: display: ti,am65x-dss: Simplify binding
+>        dt-bindings: mfd: syscon: Add ti,am625-dss-dpi0-clk-ctrl compatible
+>        dt-bindings: display: ti,am625-oldi: Add optional power-domain for OLDI
+>        dt-bindings: display: ti,am65x-dss: Add AM62P DSS
+>        drm/tidss: Remove extra pm_runtime_mark_last_busy
+>        drm/tidss: oldi: Remove define for unused register OLDI_LB_CTRL
+>        drm/tidss: Add mechanism to detect DPI output
+>        drm/tidss: Add external data and sync signal edge configuration
+>        drm/tidss: Add support for DPIENABLE bit
+>        drm/tidss: oldi: Fix OLDI signal polarities
+>        drm/tidss: oldi: Convert OLDI to an aux driver
+> 
+>   .../bindings/display/ti/ti,am625-oldi.yaml         |   4 +
+>   .../bindings/display/ti/ti,am62l-dss.yaml          | 136 ++++++
+>   .../bindings/display/ti/ti,am65x-dss.yaml          | 176 +++----
+>   Documentation/devicetree/bindings/mfd/syscon.yaml  |   2 +
+>   MAINTAINERS                                        |   1 +
+>   .../boot/dts/ti/k3-am62p-j722s-common-main.dtsi    | 112 +++++
+>   arch/arm64/boot/dts/ti/k3-am62p.dtsi               |  16 +
+>   arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts     | 197 ++++++++
+>   arch/arm64/boot/dts/ti/k3-j722s.dtsi               |  16 +
+>   drivers/gpu/drm/tidss/tidss_crtc.c                 |  10 +-
+>   drivers/gpu/drm/tidss/tidss_crtc.h                 |   4 +-
+>   drivers/gpu/drm/tidss/tidss_dispc.c                |  46 +-
+>   drivers/gpu/drm/tidss/tidss_dispc.h                |   5 +-
+>   drivers/gpu/drm/tidss/tidss_dispc_regs.h           |   5 +
+>   drivers/gpu/drm/tidss/tidss_drv.c                  |  54 ++-
+>   drivers/gpu/drm/tidss/tidss_drv.h                  |   5 +-
+>   drivers/gpu/drm/tidss/tidss_kms.c                  |  55 ++-
+>   drivers/gpu/drm/tidss/tidss_oldi.c                 | 531 +++++++++++++++------
+>   drivers/gpu/drm/tidss/tidss_oldi.h                 |   8 +-
+>   19 files changed, 1095 insertions(+), 288 deletions(-)
+> ---
+> base-commit: 3131ff5a117498bb4b9db3a238bb311cbf8383ce
+> change-id: 20260420-beagley-ai-display-d7f634cde5f4
+> prerequisite-message-id: <20260415110409.2577633-1-s-jain1@ti.com>
+> prerequisite-patch-id: 654d90f9cddec8b41e6fb1b3776a632606fef88c
+> 
+> Best regards,
 
 
