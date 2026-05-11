@@ -4,128 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51C8CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 13:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA6FBCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 13:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kFHOapMXE1tv6EvDC3lnrF2hf1ig3o7NeTU/uB47Cig=; b=mFkJ0XgQemEaRaFsoWTVKI8UWl
-	ridlQwK0Da+UZ68r+kfB1vYTEYMZQaAl0FvTdmo9pGtgaKs32SJT4398fXL0mNOsWAJDtiDzlglZS
-	xAeuL3l+Ec6Ydh8OEkK7N3ixwtNeQqweB9sjanwEPKYaOyHT4NBBnLWxeA4D4lA3hg+L861p1+nf7
-	R7ZHp7lW11HaEEdRR5VTJ/O2l59oihvjkz6vmbuhqzIuQPxSzq9F4VM6EIv8qEI5ZBjCOrNvbeu48
-	/uHO2mDg8XKrIWGqg4Mpb2v659UHow8Gzy/YsG3Ve2muwJnSwFh9Rs7+8xDN5TUTsZeBvOQ5ptRA2
-	xg+Z+sdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=caLXAvpdnitODcaZa23G/qyjfJ3yi/42EdivUQYgIvU=; b=P72OluHMO0cQQrBfCIfohhdxII
+	v6w7jD9UkSQXKAKPZtzS4dWqjGv/lSqgc/dSjKtvCJiE1I4AnbAbJ548+Y83qRwNl35zziQLWh7Hm
+	t0Zyo07IatFKLBC7pWo/HcMZlCWczyJwXg3/f8/9XkjRF9kyXpuGWi5u3IIIV7av9iKhFPMrHqqcS
+	4ecvWMfmLMZexHu0uGQYGNj2cNkUfcr+I3D1VpG3AIoR1M2dFGd+FRdXClKcqAAm8buRDG70yYrRB
+	mYynY4nCAb/otWXcUhyLw7CNIbbS+644aIn02gSpGqK0rK4UOjkdfOv70bQyD4HMrut1u4hVS690T
+	Sd+L/z2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMQYR-0000000Di4B-30CH;
-	Mon, 11 May 2026 13:20:15 +0000
-Received: from mail-southcentralusazon11012066.outbound.protection.outlook.com ([40.93.195.66] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wMQZl-0000000DiRB-0CZl;
+	Mon, 11 May 2026 13:21:37 +0000
+Received: from mail-qk1-f174.google.com ([209.85.222.174])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMQYN-0000000Di3E-0TCx
+	id 1wMQZg-0000000DiPF-1HBu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 13:20:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g0hk0sn0d1VEMXgd18K9pP6DQWHeZE4WTppbOI8gtojWN+5jxNKnw8Q0Nqh8BnWgl/jn/ZfG/ymjr3UjBlNMfe8dmAAJAF3hu7PhwQk1Wa0nDt2VjGjYLrRAcdzHZTFd/evCs86KZ9Q453EanHcLuqbA+TU/4qiKGjr4BzgG53SvParALr2fJgqyfsFiIdJWoU35yP+p0f4cwUDvninhNsZsCFEV6O6zqEmfsAyLtghUV0I93yVUWx5m0yYAPqIYCC39iE6Q4s5CNOEdn3jSbflyhnj+mFQdRTfU9fZOPkZkpFF2IH8rydrLNnRaOv+nT8W1FA7petiN2LRbGCuZqg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kFHOapMXE1tv6EvDC3lnrF2hf1ig3o7NeTU/uB47Cig=;
- b=s18ZKCoMKDhHTBWg89hFuXvUsNmRJij9auXOeMkeJc4Ym/gM/eafwQ+U/EItC3IqOxhCVQrgzS4qZXO21y1KWM2ih0AGcq68sFVN9Uax0Ri7rFd+1nsZhaOG0R7u4MUEu2bRXQgeyw8y7G7QlApi0e3KCf/2umKsWdcc5gMSANjcQ0uXObIz+jof4ACmugaiYy9APAkuJe0j+uOaL2e+EdpgAuREf0FPolfcSrklKsR5FWD2o7LFXyDkHg4D6+BSwAfb+jll+6oL4P5hIpjIeBapvY/3+JWGLy+g0oe2+lRXLPLeRmTb55ewLFvVO485mW6aNDSa9E51OM2amA/tNA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kFHOapMXE1tv6EvDC3lnrF2hf1ig3o7NeTU/uB47Cig=;
- b=pWxuly+59ePsUUT932pPAf3uuj6C58DzIS71/2yF/raJXA8TpZocwDfFhbSGZq6WoHFtzkiox24oBTe6fDPaM4yE+VlqYAeZ1QJjIbkqvFs0GQ3c5f4y4BImQ+Us8Kzhh8qGaGyGA66DgU+YagNDkTkASzA7OP7BzRJU8UUCSGY=
-Received: from PH8PR07CA0032.namprd07.prod.outlook.com (2603:10b6:510:2cf::6)
- by CY8PR10MB6730.namprd10.prod.outlook.com (2603:10b6:930:95::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Mon, 11 May
- 2026 13:20:04 +0000
-Received: from SN1PEPF00036F3E.namprd05.prod.outlook.com
- (2603:10b6:510:2cf:cafe::37) by PH8PR07CA0032.outlook.office365.com
- (2603:10b6:510:2cf::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.23 via Frontend Transport; Mon,
- 11 May 2026 13:20:04 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SN1PEPF00036F3E.mail.protection.outlook.com (10.167.248.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Mon, 11 May 2026 13:20:02 +0000
-Received: from DFLE208.ent.ti.com (10.64.6.66) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 11 May
- 2026 08:20:02 -0500
-Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE208.ent.ti.com
- (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 11 May
- 2026 08:19:59 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Mon, 11 May 2026 08:19:59 -0500
-Received: from [10.249.132.118] ([10.249.132.118])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64BDJrNl3786243;
-	Mon, 11 May 2026 08:19:53 -0500
-Message-ID: <53985724-09bd-494b-9093-3e7efb6a6ce0@ti.com>
-Date: Mon, 11 May 2026 18:49:52 +0530
+	Mon, 11 May 2026 13:21:35 +0000
+Received: by mail-qk1-f174.google.com with SMTP id af79cd13be357-90b2fcf90a0so120367785a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 06:21:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1778505690; x=1779110490; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=caLXAvpdnitODcaZa23G/qyjfJ3yi/42EdivUQYgIvU=;
+        b=EuvCwD440ZvDLZXkvfLj5xMI0GRf2shNWGPpCQvg6gPEkKdMqfZ1Ytd7CDbzDifRd2
+         MWPlskNyeY/4L6yllXjmO1oZTh7PQn9o04qdsasXSMax5gFg2KOWWXlvj9ljaYm5ik0/
+         zI7LwY/p6FcCZd4/iYSv11TiGC2lj3zG7eSwjIZWNc4jAPdwDuba9xtKFA2PVUl1p6bg
+         5QGdCxhVSxVYBopx3Fcc2r/pDhsMu1G0l24Zivymemyc++utKyq4x1jtU2G0DnDU+KVt
+         g8stLVxvpFIgdm/vmE/SH8agL6ygE3qUbmMi4xdguC8+17F++i89VVc6/12XefYKsvp7
+         tvFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778505690; x=1779110490;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=caLXAvpdnitODcaZa23G/qyjfJ3yi/42EdivUQYgIvU=;
+        b=JY4rT3e4IrLfn4evW4EFFytgfNfy1WdIR1WBdmcHOsX0Aw3Gp3rCYcqafv49k6fnqB
+         nzECgL7Hr9gR5kTJFGo1QmNSR6Ys0ZAVUZbvwUOnAI7O2W5CUWiTlMaDFKJsSKwfy33u
+         y7m7VuKUEfPNqV0vgSTly3UCRTvuRu0EStnrV+LO6uWJ7PwMELG+F5Ef3fTLIdyUb0Pn
+         iYZy+Xr5zfJNC6DBdLQ4j3A42nBn9KKYsAcqdrrS1E9CJ4khpDDfmLxyCu5oWyhiVpxL
+         GLNJGZijnBOtsxRFEo44JSWO9VHhdFi8ncQyhnfwyhxOJkqG2IKXFmyLKbxLUCaKac+V
+         Xj7Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/j4G24xtMIvdaNG1rjzBh6hr8i9iAVNKRF1j6yd25frV+Bjfq87VH0KEPyOMopMZICKTRT/+qGoXrJMzqwRtAx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8D4Ypql2SR+LQ4dDxGnhVusnQDKCK01mH+38Ms9FW5RWIuwM2
+	XpLiYcSankgds4zgJl2iEq3HvCRmWbzvpcIit3LSMFKqCKcIX3jygzvtHedpxhstpTc=
+X-Gm-Gg: Acq92OEzC7s4NRobxzIFTLqc1GWevoc0B75/h7zIo8ccIxLXlKK2RVOaD2/+EkJU9nw
+	7EDYZMw6ZFNoUXFSwlnpUqCZPKYhb5puTfgVbxwDSL3mOLEcikfZIppe4pCn/MltAf/lzCeVQRS
+	1icofrrrFr0FqH5dcMQ503P06MVn0qYo1vBrihjQuWc8qs9P5wqFnLEgEfSxIbYB4/oCYHhZN9d
+	rePDFslk9j9aZVhudmZhgHDCt7GRtNE6u10/LcIQ0PUBF+0kNisOvFAHYFH/m3lGKhxkrr4Pb4J
+	D+FCKhFcE1EzzkM92oe5Tq1BGoETGzmp5v51yN69fhERKbXkKwo8UMqa1H/pasJtaNVvHN8jrtB
+	Sv8vbHvyU7vUKUMdnUczdHVimTMq3/Tsdln019O5zwXRxRokURcTDUpkq7ztxyRzA0WbuKIenHr
+	yyYBlk2QISkShTwkbjLKELz8zoDFaXFkUjFc/8zUfV9EbsMkER8hZ+QT6O81XGM2C2ceixjhGe9
+	TfSIg==
+X-Received: by 2002:a05:620a:4494:b0:8d8:ed00:5a91 with SMTP id af79cd13be357-90653151c6emr2455764285a.22.1778505689836;
+        Mon, 11 May 2026 06:21:29 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-907b8e9b24asm1066226385a.18.2026.05.11.06.21.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 May 2026 06:21:29 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wMQZc-00000004njt-1WnC;
+	Mon, 11 May 2026 10:21:28 -0300
+Date: Mon, 11 May 2026 10:21:28 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Joonwon Kang <joonwonkang@google.com>, Alexander.Grest@microsoft.com,
+	amhetre@nvidia.com, baolu.lu@linux.intel.com, iommu@lists.linux.dev,
+	joro@8bytes.org, jpb@kernel.org, kees@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	nicolinc@nvidia.com, praan@google.com, smostafa@google.com,
+	will@kernel.org, jacob.jun.pan@linux.intel.com,
+	easwar.hariharan@linux.microsoft.com, kevin.tian@intel.com
+Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
+Message-ID: <20260511132128.GM9285@ziepe.ca>
+References: <20260424133953.GY3611611@ziepe.ca>
+ <20260507095851.3220765-1-joonwonkang@google.com>
+ <20260509171013.GF9285@ziepe.ca>
+ <30eefd04-1d0f-45d8-b55d-e3e8d41a57ef@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/15] drm/tidss: Add BeagleY-AI display support (and some
- more)
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lee
- Jones <lee@kernel.org>, Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth
- Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, Devarsh Thakkar
-	<devarsht@ti.com>, Louis Chauvet <louis.chauvet@bootlin.com>
-CC: <devicetree@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Jayesh Choudhary <j-choudhary@ti.com>, Aradhya Bhatia <a-bhatia1@ti.com>,
-	Andrew Davis <afd@ti.com>
-References: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
-Content-Language: en-US
-From: Swamil Jain <s-jain1@ti.com>
-In-Reply-To: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3E:EE_|CY8PR10MB6730:EE_
-X-MS-Office365-Filtering-Correlation-Id: 64c525c1-5ab9-4dec-c55c-08deaf600281
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700016|18002099003|22082099003|921020|56012099003|3023799003;
-X-Microsoft-Antispam-Message-Info: rFgdfCfnMOZ7s53CS/LkRGCAWlx9tXZOdnU0++JCWmBHdqfCXERBQSziLJsNga+0YT2pJgu9jipV4Wn0bQlDKPmTWuhFSIy4O0QrwtFXxpcwpOt11/wMsQtrLXmMz55mJf4wN5cTv8OeY9KeowZhJOY9LQHzvEw7hDZeBRP2iOo+Tugveeap+wqE1HdAtSK3/j4JFDnCuixx0BgiWsOhek59izk5OdBkB7GE/dcFYg/USvYnAWZH3Mw48qXMo+YSlZ1fSr3tNmP33jmpunkLEW6JgUPZEdEauksbfWiLecSqjHBSR558T0uDO9o3UUD+e3/nMiTmnioELD9JAF85znvbCzWg4UaCyTHpxzrzKJE6KlApCfdBOagFh69WUFqThiVNS/yF46DWPb/8iqWxWBccyOObURV9eILs9MFahYyyQ7iW1OaEvh6bdKRmN9EJqJHU0YZtq7X9wibZmxUAsw4AtYY6DTT+ZDV6lmpOwl82KeXoeHiKo/g2f8iJxS6oe+zLjyAizionrwvjHLpidn8voPDbStKQolVH2NzTCKFArCfwSnm/JVAqUX1F6J/jr2WbNmofgEbhwOzU7ch2qOhULl5eIjx0aGw11JcfCGSfb+g8nbcqn9TeGO46uDHXCJmTwCh9znwkVphd2nSK55i4mbVYgEX+tf+t/LCzmt/P1XxTpb5sw1Dlrd/ox/tO28km6he1UMcW91X/x2J0/fcEk9FvQX0oLDQYZwD1LWo=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700016)(18002099003)(22082099003)(921020)(56012099003)(3023799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: vu8TneXfty4r3ZbfiQ8CfomC01oy7+zJHyFoy3OGd2q3mMeWeclANNynaFmBmQhtFhEsm5TEUzmmMYqJzkqE9vu6Rx4FLaMTJ5perKk6cpWVOF1NmmGWKSdQGBfROpYz+3od6t3JeEWvb0A8Lws+dIAP6vT2MvV4nRtN50j0rPXdOiw0tjnHzrP/h8tBiX7NFgTeLz6ELxFcNYiAM/o4HQjY+9wZC8jCJ2l1Z0sVSuXNPcoXZgR8EzLq3U5w9dxQtQlR4laKKPSM5eG13kg8JTGwOVgYyknOw6TZqAt7+ni0SirWGEW6XbQpH1Hy47Y4yV9bXIDKIf6kbzmvh8RProEu0XpwwUCG0qBXJR/zp88dbUFwbwh4oXVzom+SUIrBddVYj8x4eSVClT2lHl/ru2OYDAyuqvzToTGzL8/Tic07kfOkSRlIBOYQK9m0ClPR
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 13:20:02.6510
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 64c525c1-5ab9-4dec-c55c-08deaf600281
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3E.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB6730
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <30eefd04-1d0f-45d8-b55d-e3e8d41a57ef@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_062011_257880_4B7557AA 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20260511_062132_690980_9EC8C759 
+X-CRM114-Status: GOOD (  32.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,109 +110,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 20-04-2026 18:24, Tomi Valkeinen wrote:
-> This series aims to add display support for all display interfaces on
-> BeagleY-AI board. More generally, it adds display support for TI AM62P,
-> J722S, and related SoCs, and, as a bit extra, improves AM62L's DPI
-> handling.
+On Mon, May 11, 2026 at 01:39:06PM +0100, Robin Murphy wrote:
+> On 2026-05-09 6:10 pm, Jason Gunthorpe wrote:
+> > On Thu, May 07, 2026 at 09:58:51AM +0000, Joonwon Kang wrote:
+> > 
+> > > By "similar instruction" on ARM, I guess you mean ST64BV0, which fetches
+> > > the bottom 32 bits data from ACCDATA_EL1. Please let me know if you meant
+> > > others as it will matter. If ST64BV0 is supported on ARM, however, it
+> > > would mean that ST64B and ST64BV are also supported already according to
+> > > the ID_AA64ISAR1_EL1's LS64 field. The latter 2 instructions are just to
+> > > atomically store whatever user wants to a memory location without
+> > > referring to ACCDATA_EL1 and all the 3 instructions can be run at EL0. So,
+> > > the userspace driver would have enough capability to designate arbitrary
+> > > PASID as it wants via the latter 2 instructions when communicating with
+> > > multiple devices.
+> > 
+> > IDK exactly what ARM did. IIRC on Intel ENQCMD forms a special
+> > non-posted write TLP and the device can tell the TLP came from ENQCMD
+> > and so it trusts the encoded PASID. ARM has to have done the same
+> > thing - allowing anyone to forge the PASID by using a different
+> > instruction misses the point of the Intel design.
 > 
-> The main topics to highlight:
-> 
-> - The ti,am625-dss-dpi0-clk-ctrl feels a bit like a hack.
->    But it is a single quirk register, among other registers that belong
->    to either the firmware or other drivers. So what other options are
->    there? This has already been discussed e.g. in
->    https://lore.kernel.org/all/20250730-fix-edge-handling-v1-0-1bdfb3fe7922%40bootlin.com/
->    without proper conclusion.
-> 
-> - The tidss OLDI support will now use auxiliary device/driver. This seems
->    to solve quite neatly the requirement to have a power-domain for each
->    OLDI. The main issue that remains is that on AM62P (and similar) we
->    will have three OLDI TX DT nodes, even if there are only two in the
->    hardware.
-> 
-> With this series one can use the HDMI output on BeagleY-AI. I have also
-> tested the DSI output with Raspberry Pi's 7" DSI display, and OLDI
-> output with an oscilloscope (I don't have a suitable OLDI panel).
-> 
->   Tomi
-> 
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
+> Yes, ACCDATA_EL1 is a privileged register neither writeable nor readable by
+> userspace[1], so it should be functionally equivalent from an SVA point of
+> view.
 
-The series is tested on TI's AM62P[1] SoC and tested HDMI display and
-audio output with BeagleY-AI(AM67A SoC[2]).
+There is a bit more going on though, I think that is what Joonwon is
+mentioning by asking about ST64B and ST64BV. I *think* the answer is:
 
-Display panels used:
---------------------
+- ST64B uses a posted write
+- ST64BV can be restricted so EL0 cannot execute it, it uses a
+  non-posted write (AI tells me via EnASR)
+- ST64BV0 can be used by EL0, always uses a non-posted write, and always
+  uses ACCDATA_EL1
 
-DSI Panel: https://www.raspberrypi.com/products/raspberry-pi-touch-display/
-OLDI Panel: https://www.ti.com/tool/SK-LCD1
-HDMI Panel: https://www.viewsonic.com/in/products/lcd/VA1655-3
+Which is similar to Intel. The device only processes the PASID from a
+non-posted write, and the CPU prevents userspace from forming
+non-posted writes except through ST64BV0
 
-Test branch: 
-https://github.com/jainswamil/linux-next/tree/AM62P_J722S_BEAGLEY_AI_DSS_V1_TEST
-
-Got some DT check warnings with the above test branch[3].
-
-Links
-[1]: https://www.ti.com/product/AM62P
-[2]: https://www.ti.com/product/AM67A
-[3]: https://gist.github.com/jainswamil/945a9859c0f75b41ef21abeede405b2e
-
-Tested-by: Swamil Jain <s-jain1@ti.com>
-
-> Andrew Davis (1):
->        arm64: dts: ti: beagley-ai: Enable HDMI display and audio
+> > Honestly, I'm not sure why they even implemented it. SMMUv3 can't do
+> > the translation scheme required to use ENQCMD from a VM anyhow, so it
+> > is pretty useless.
 > 
-> Jayesh Choudhary (1):
->        arm64: dts: ti: k3-am62p-j722s-common-main: Add support for DSS
-> 
-> Swamil Jain (1):
->        drm/tidss: Add support for AM62P display subsystem
-> 
-> Tomi Valkeinen (12):
->        dt-bindings: display: ti: Move ti,am62l-dss binding to a new binding file
->        dt-bindings: display: ti,am65x-dss: Simplify binding
->        dt-bindings: mfd: syscon: Add ti,am625-dss-dpi0-clk-ctrl compatible
->        dt-bindings: display: ti,am625-oldi: Add optional power-domain for OLDI
->        dt-bindings: display: ti,am65x-dss: Add AM62P DSS
->        drm/tidss: Remove extra pm_runtime_mark_last_busy
->        drm/tidss: oldi: Remove define for unused register OLDI_LB_CTRL
->        drm/tidss: Add mechanism to detect DPI output
->        drm/tidss: Add external data and sync signal edge configuration
->        drm/tidss: Add support for DPIENABLE bit
->        drm/tidss: oldi: Fix OLDI signal polarities
->        drm/tidss: oldi: Convert OLDI to an aux driver
-> 
->   .../bindings/display/ti/ti,am625-oldi.yaml         |   4 +
->   .../bindings/display/ti/ti,am62l-dss.yaml          | 136 ++++++
->   .../bindings/display/ti/ti,am65x-dss.yaml          | 176 +++----
->   Documentation/devicetree/bindings/mfd/syscon.yaml  |   2 +
->   MAINTAINERS                                        |   1 +
->   .../boot/dts/ti/k3-am62p-j722s-common-main.dtsi    | 112 +++++
->   arch/arm64/boot/dts/ti/k3-am62p.dtsi               |  16 +
->   arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts     | 197 ++++++++
->   arch/arm64/boot/dts/ti/k3-j722s.dtsi               |  16 +
->   drivers/gpu/drm/tidss/tidss_crtc.c                 |  10 +-
->   drivers/gpu/drm/tidss/tidss_crtc.h                 |   4 +-
->   drivers/gpu/drm/tidss/tidss_dispc.c                |  46 +-
->   drivers/gpu/drm/tidss/tidss_dispc.h                |   5 +-
->   drivers/gpu/drm/tidss/tidss_dispc_regs.h           |   5 +
->   drivers/gpu/drm/tidss/tidss_drv.c                  |  54 ++-
->   drivers/gpu/drm/tidss/tidss_drv.h                  |   5 +-
->   drivers/gpu/drm/tidss/tidss_kms.c                  |  55 ++-
->   drivers/gpu/drm/tidss/tidss_oldi.c                 | 531 +++++++++++++++------
->   drivers/gpu/drm/tidss/tidss_oldi.h                 |   8 +-
->   19 files changed, 1095 insertions(+), 288 deletions(-)
-> ---
-> base-commit: 3131ff5a117498bb4b9db3a238bb311cbf8383ce
-> change-id: 20260420-beagley-ai-display-d7f634cde5f4
-> prerequisite-message-id: <20260415110409.2577633-1-s-jain1@ti.com>
-> prerequisite-patch-id: 654d90f9cddec8b41e6fb1b3776a632606fef88c
-> 
-> Best regards,
+> Not sure what you mean there - indeed you can't do the SIOV thing of
+> assigning individual ADIs to _different_ VMs, but there's still no reason
+> you couldn't give the whole accelerator device to one VM, and run the "full"
+> kernel driver in that VM to hand out ADIs to processes, same as for
+> non-virtualised ST64BV0/ENQCMD usage. It's entirely usable, just not so
+> "scalable".
 
+Well yes, technically, but I'm not sure this is attractive in
+practice.
+
+The value of ENQCMD on Intel was it can eliminate any HW side
+per-context state for simple HW like DMA engines, including for
+virtualization.
+
+You pay for that value with some performance loss, but it can be
+attractive because of the universal scalability.
+
+However complex devices don't seem to want to use it, once you have to
+have per-context state for any other reason the performance downsides
+of ENQCMD make it unappealing.
+
+So, IDK, maybe some embedded on-chip device will find a way to make
+good use of it, but also I'm not aware of any adoption on x86..
+
+Jason
 
