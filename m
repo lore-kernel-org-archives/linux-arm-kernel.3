@@ -4,143 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE408CD37B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 09:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A9BCD37B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 09:07:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CjaVJjBu7KFUWLsssWAqdg/1GILppArgSj3Gd6utzJg=; b=EbmTtIkxghtnjYDexptB/QbwV0
-	MfUQoigpBmi/GqJ7e8DGvunLzYtyTH8iKHcopohB3dAwoxF9KTvwWD1C0dS5LdtECojBv3NmDAH8a
-	R3J85puutqttZf2OJzhpdCW4czPjajxU2QNFZfuIQKsur+5RYNEsWV86xuwol0KsLoOT4z9AFo2A4
-	rMhonIcrD5A4G33RcQ1yon5WtzKrG6Oly1Dn8S/rtasuB/rGhO4oRZouk83OPXQtXu5F8h96OSwnM
-	a1pQ43jmf5eLVrlUA9QYR85MqhihGOOTFLNZSreQUz+ieYpZgBwX49/dW0yB45KPcumZIBiO6GX0a
-	Pq/1YIyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fDHouvSKIaohVa9IYx7jzYabikw6L93PsWX5S9TsOgU=; b=fHpok6swA1QHZrQH1RQzaTmQTk
+	NUMJ8uVmm4opvXujcpm2DROIa2Ns6lpHNR74oWz06NZIsXg4X7QKTJaB++5FvDbng/BqorupNZgKQ
+	wO23auBUqNaFx10nNOfxCo5sWm+NWeu+9s/iMEQpHXF7/+QziQLlo1Bc027FvnCRnukPsC2d0O/i8
+	u+zckMOfgcTOLO3Gt/pInCEEMwQWe7lPJyy+W/YZcZ6oHumDzQDDFRxQnykXKUzSu358549e+nq1b
+	W/TckYJX4gL5ABQblyhKnkIHddT8GX2qPHktssFbALU8J0qYx/ESpcypC6rlebKuU2go+cw1r+NsZ
+	WkzagvCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMMZS-0000000CqCi-0FZ4;
-	Mon, 11 May 2026 09:05:02 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wMMbQ-0000000CqTv-2hXH;
+	Mon, 11 May 2026 09:07:04 +0000
+Received: from mail-dl1-x1235.google.com ([2607:f8b0:4864:20::1235])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMMZP-0000000CqBj-1EQj
+	id 1wMMbM-0000000CqSj-2dxF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 09:05:00 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64B8ME2p1352882
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 09:04:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=CjaVJjBu7KFUWLsssWAqdg
-	/1GILppArgSj3Gd6utzJg=; b=D/DkiYd7i3qPwsm1GhdsUGexLWW1x7RK1S/aQ1
-	GkTb7KNlaL6R3/Zp5U6JXacWAryVHChB8gdHxtZdWaP3YQRseJj+5hgEW5ikdinw
-	Y7izW3dV40oAEXKQUgu6Tkw36e2enBf6qQYBga268ZLKDny+aMGk4QvJqjrp4O3K
-	dBd4wSpP7ym4aT/Ro1RXnZ9kENwvwFquev2g5zvXQ+Yzngb/VwL97fPzfPgp6ocL
-	IFijFb866KzZ4AtrEdv9WO1fdiIrFz7MYV7WnD8mfufeRgBmKS+vcepF+2ulg8UA
-	tQWx08PplBq0af3kQ13YTyvGUTnz4Rxern/MB+q3NIgn9wWw==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e240h4g5h-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 09:04:58 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-82fa366fb79so4342525b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 02:04:58 -0700 (PDT)
+	Mon, 11 May 2026 09:07:03 +0000
+Received: by mail-dl1-x1235.google.com with SMTP id a92af1059eb24-132c338a537so810846c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 02:06:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778490419; cv=none;
+        d=google.com; s=arc-20240605;
+        b=DKgQxPj2AJKnUL8CR+nGt+/ZHla77ez9PYXrL+ESUIB/LNqN7CGNx4+iCakZJZPG+4
+         rADDwmhdpY52m6mazZSiRsB1XNz/RmBnVkluQqNs6tgQ5vwLh5TUXEGPNR7yuLaDfbIN
+         JxliJQMS4eOawPu2rwzuaF/N7dH1yBNiw0Fb04gthFYlzv7CcysFecTbPmIEh0WPopei
+         53oHyoTGb84uJhrXjGP3k0qGGMPlmU7z3wqXeAM0amzTXH92grdYw7pV8MFf1SpT65Ar
+         1f0llqDvj/Quns93rpJ0b7rymOyA+1tIkSeoBlLK5wMzak57Jwu/WMGWRU6jUj5LEHB6
+         +wxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=fDHouvSKIaohVa9IYx7jzYabikw6L93PsWX5S9TsOgU=;
+        fh=taw8lHqVfMUDOjEDrJNVMumEktcEQQtvK9dm8SXbyxI=;
+        b=F3AGpJyhggIEAyTU4bHjvvU6H70uEAK7upaRaYZcHJ/hlQBLGmz95TAQHWCKMrgqjK
+         8Vcv/mi6MUp8q7f0my56HuU7a6U6H6T8IpiwHM5j7VXQ4kZmxcDKFLQXvHrcVC7ffr2O
+         VtUg65SZl9KMuSQn3j26vgao39B9ZYbZq8nbUYzUuL9XZFi5fAsDo5Fp+0FymHEZ2twH
+         uSA0QxamsJAUmWA777naZirk4EVOhrfWLdturrj2ozG3oRDyEezEDeD46NfjWVyo/pYc
+         91u6BD3U4oe6w9nln4+RfD27bV4T6oUXW0xhO/OY0wFka3uNyVZQFPqPDZKq/U4zGzp6
+         Pqzg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778490297; x=1779095097; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=CjaVJjBu7KFUWLsssWAqdg/1GILppArgSj3Gd6utzJg=;
-        b=BrbT7vlRotvFkbYBlZjtJDbiUi/OL2yNkxfTJNYoTFc2LvPQDpjfc6pJStpVj4Nw4p
-         6RMpZAlNBUUIFJapU6tmsXx2F8u8Z62vaY9tcJFhUZimJHlRXl8xZ3MlAWO16W9W+M+Q
-         1o5krrZ4qTmWcDZdlnXiLdjBoOfdUmZ8mjWTt+V3hleYGsR4GOdYW52GnVp4YGHfJa13
-         CjlrIXDhNPH/pzxE03MBY0QtSNu2rsfRVkIgyKG1iCp/bnNhTmBfRiqbYRNHhe+XbwKK
-         tO5mrFaVuta5CL4UBad/EJJ2wJ53laJiYX2kWKcZAFfGkuyB93JFZeQhT+EyRcUTplA3
-         dbgw==
+        d=thingy.jp; s=google; t=1778490419; x=1779095219; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=fDHouvSKIaohVa9IYx7jzYabikw6L93PsWX5S9TsOgU=;
+        b=EzT0zLgtigL4KWpXVCPNUKz3BKDhumxmlfFWNuQXGj+dmsgPV7mk8MRvis+p4chk5/
+         VSAWnpZ3iTSv/Vx9ruBlxI4v69XSESyrLe5sjleaMDvU5560/dWkd4HOmC1H5k13waT7
+         C9XYH8jBcqLZIj7d62oCrdb7uKh1LueUaOEnY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778490297; x=1779095097;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1778490419; x=1779095219;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CjaVJjBu7KFUWLsssWAqdg/1GILppArgSj3Gd6utzJg=;
-        b=pr40kx6wfXzXlhCR2oR3xmJ0cXfofPL07DolDgokgJYobpV2bGOnKnLKae4r0hQVyC
-         YEebZjDlCaPhp02cdrlhKy7E1mk06XoVmioN9duuCIelT1pUvzwkpSmtrO05qpXy6sWx
-         p6t5oaoGyeMYzdk6lJZfsKwvew0sYecY1AcdDT1lb7O+hIa9do3SIy4EfH3bz8A+TPUz
-         z3RGarM1Oah0Y532YpLLNYwum8rR4H5ogpQfinn95u5NZO/NMJtfGtdLv/jZtXAiSXzo
-         Cp6iD+erkq3VcaYYx9JbQ6bHXdjBUsVCG+pUh3Ee9jIAWL/IgMkjS6saIhJjzMJXzhhH
-         HoPA==
-X-Forwarded-Encrypted: i=1; AFNElJ+2YMXXKyYB29IpRkm40miia23f2hPCrN1GtvzJ2e2Nw46kYSig0dDa/3VDjzgTM8qWvMr2rayDKN8u8B1VSiRQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMqoVyNj/raQzjgJFxqoCLU1M3VXHTnzh5fbEf+N7rd3+hwjYd
-	v5EXZiLSBalecd19au36OGNrJ8lwU9kCpU79hKC/EpylkepCmxD4NtgcY0bD7gxuVx86yTN22FH
-	lM0ejnzTNcy3rmEiGV0FWjduFtcwfrlZxXhkfe30qG4dAsudEOQJsXycmgHwpuz5UC0MuH32Skw
-	1Log==
-X-Gm-Gg: Acq92OE1S3+9eqOdELOgHalVWMjX5yw10kuHiDTjBkK0D+awXrLYIS1A0NXwvBW50z0
-	ebfkemG0XWH1LhC9J1+fqWl2XeNdWuO+vT5nZDcgbCyxQUi6ehcFd+qDDjzruBrhgzQMvXp8rvU
-	G7svoKEtx6HwDjdXiiSeh4jVFcVJatAYvRYOr4Ywmgf1kSMLh22nd/Vko/dO7V7Nf1uyZArqwQP
-	HN/VIiJlqdKEMnep1kGO3tnQ1Y5xuNLxcdrHDMi7kvdwpFHwsNNIMdL1D3/dDKuY6abEuBfslII
-	GADcjP57SeFfRfNyLZQKYXqXzJffeJoGfMiaSrKZTuWddlYJafOxiUcc27vgCMJRyELOEB4iHn6
-	suHu2iaT3uGgR2+EX2TxYEVuiZWdy+tdgY1f5nz0x3jQdQt0vnRj7GxnxB+dGM5IOaMhHaG9fMI
-	F5blLWtcH3
-X-Received: by 2002:a05:6a00:1891:b0:837:e9cc:d458 with SMTP id d2e1a72fcca58-83e39150f1amr8719928b3a.10.1778490297198;
-        Mon, 11 May 2026 02:04:57 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1891:b0:837:e9cc:d458 with SMTP id d2e1a72fcca58-83e39150f1amr8719883b3a.10.1778490296627;
-        Mon, 11 May 2026 02:04:56 -0700 (PDT)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839682aba01sm19667198b3a.55.2026.05.11.02.04.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 02:04:56 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Mon, 11 May 2026 17:04:44 +0800
-Subject: [PATCH] coresight: fix source not disabled on idr_alloc_u32
- failure
+        bh=fDHouvSKIaohVa9IYx7jzYabikw6L93PsWX5S9TsOgU=;
+        b=dxvoIE1QblNvoCwjtf+YoP9+0jNu4QbToycmx42qvOUiXOS1JIW8zUKUG/gUi+HU8G
+         G2tBN1PIg3eQEq8zBWjjUfkRmNCUGfJ7GTIfOf/Nx+r1oVntUUKGhpj2yaMu7v9ygjtw
+         qXnoFsmgFjeotdn/TvlDUx0T3iW5QzXHU4gKoUiVgl0rd9y9wftP2D7vcF4zJf1khUVG
+         epqINIYgN6mYg/jBke8k+uQz50tQOP2rEuy94MCYHskAL4YqV0/FieD1dhbdP/2QYYQh
+         70L0Eu4U/P+mrlX9CrPVbD315D3TUiEonLLaAwXd3G+ezcgjevElGHvBq6eawwA2jMIW
+         BMQA==
+X-Forwarded-Encrypted: i=1; AFNElJ+GuQX2Auoa+mQM3bEqoChEzymnEvwSi9CLX+jWehLqvuz0fAeQFrfin34H5pX/cUtS+Bm0aW91hBhrk4230/jo@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywr5HSuxEdlaaDzkYDSy7UnP2jgC++m5PQlpNu/1FbF8UUXsdNG
+	fduoTIr67beAmZnIyuB9BTmMAKMd9EQs3KewP27A7mLpgCRlYsft1se8CR+YD6Q3UInDIKClSat
+	3+WfSBq8c/SPB7P+2LSEwFh/lI7B+ZT0dplx1DyewcA==
+X-Gm-Gg: Acq92OEq706zwObkALXiZaecfDpZ8XOwmMnS3MF/flxv7bNpAk/QPcCUUbT16oix92r
+	t6usyoJIPBMgnIOH+JhBmYIKV12etITwsmeZxIDYAOHvjguoPxrQomtIhDA1Wts/P4+CUT/nloY
+	PLJKvLOl8d0+1lei+FoNzyh07Af2pNXeTXzNWnbxt8kIJTH2vTEx7e7evBaGbdHSfB2lBFOWTjY
+	Hdwbnh18Gevt10KtxOMChPZo+a9BwkHTca7sS6A3Blhiswznku2EqOXWuJckmnCH6Sp9ST+zbS6
+	s5l1yI82HqS13qCvS1kBnXlXW2JuQmr6o7FyWXoFyCRqGGTKSl4=
+X-Received: by 2002:a05:7022:4588:b0:12a:6abf:ab1c with SMTP id
+ a92af1059eb24-1323ae990d7mr7795416c88.11.1778490419302; Mon, 11 May 2026
+ 02:06:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260511-fix-coresight-sysfs-enable-issue-v1-1-1b3829748171@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAKybAWoC/x2N0QqDMBAEf0XuuQcmoqC/Uvpg7EUPJJZsK0rw3
- z36OLCzUwiSVUBDVSjLrtAtGbhHRdMypllY38bka9/VrXMc9eBpywKdly/jRARLGsNqS+An3Lu
- 2aaLvYh8C2c0nizn/xPN1XTcxDOmocgAAAA==
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
-        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Jie Gan <quic_jiegan@quicinc.com>,
-        Jie Gan <jie.gan@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778490293; l=1687;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=s5CHPCOeaIw4uL7SeiGJembHNoKvcPqiUkoddyuNeIk=;
- b=a1ONIgl7O1deFEf05FCRd0MCnROVutvKZRhBz2/3uwA2jAOxPFKog96WOhHNr8qQRX/RJffkI
- cn6Tt9B2vPBAu4yA/HbBDC/p6pFfU4eq84dScJget/QKM2DxB0diWFa
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTExMDA5OSBTYWx0ZWRfXy67bTa7ZZSJn
- L49duxF72gKjSCYhuMB+sufI48RBuoiToSFKUNpiuLEpCNfkDuYCB9QHucLgZws8/3zZN8DvAJm
- gt32Jz36/6Aki3vKdzsRkJnJ2jZBHSbqIfUJSK0zg5dQx9fYRJGvC6T6RxIRFxtsVL2XnTZHxYh
- u8o3s60bfwBy8FfaLXHMfadl0zboaT6B8vCFSVi00sJdK+hrkOp4MnLTTgFmLwDmKBRXTiPqIwz
- MOy5VruSHa7FoL5eYVVI4mxYiGAoqPtHMZSxf/Bf+AHKnda1BavgvjDLOTId2+c7XIecnKLFsCx
- JZR+hBfjFwvYYFbooLB+BvL56qdqZ/3cGaKxLuIFgQhzKiNT1Pgs12ent5JG0f9OymHvfFHFrX8
- N7ta9PUkM0K3/fuW/jjOHjoAnovMUt7Ax11ird7aQVkx3Ti6TZr6o5wsey3K2kaZm9eGPDBMuHL
- m8KLaDuPVB/R+bTgJrw==
-X-Proofpoint-GUID: ESxqnUBQ-ky47rLU5XYqK_GTxASxmDan
-X-Authority-Analysis: v=2.4 cv=X5Bi7mTe c=1 sm=1 tr=0 ts=6a019bba cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=OBlOg_wwQlZU_9RpgcIA:9 a=QEXdDO2ut3YA:10
- a=zc0IvFSfCIW2DFIPzwfm:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: ESxqnUBQ-ky47rLU5XYqK_GTxASxmDan
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-11_02,2026-05-08_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 priorityscore=1501 impostorscore=0 clxscore=1015
- malwarescore=0 bulkscore=0 phishscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605110099
+References: <20260509104255.15479-1-sozdayvek@gmail.com>
+In-Reply-To: <20260509104255.15479-1-sozdayvek@gmail.com>
+From: Daniel Palmer <daniel@thingy.jp>
+Date: Mon, 11 May 2026 18:06:45 +0900
+X-Gm-Features: AVHnY4Ls_cfTwlTD5iPSIxoH1794TMIvrwk8_DVkW9CFVke0q-JxeAZGgVQz9Qo
+Message-ID: <CAFr9PX=f7iJ1cHKX_VG9CoNXQCGEXGXVSoLa26tw8CpcvgQj7Q@mail.gmail.com>
+Subject: Re: [PATCH] clk: mstar: msc313-mpll: fix one-element shadow array overrun
+To: Stepan Ionichev <sozdayvek@gmail.com>
+Cc: romain.perier@gmail.com, mturquette@baylibre.com, sboyd@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_020459_550231_A1F9CEC7 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20260511_020701_781513_2D9DA1D7 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,48 +112,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In coresight_enable_sysfs(), for non-CPU sources (SOFTWARE, TPDM,
-OTHERS), the source device is enabled via coresight_enable_source_sysfs()
-before idr_alloc_u32() maps the path. If idr_alloc_u32() fails, the
-original code jumped directly to err_source, which only calls
-coresight_disable_path() and coresight_release_path(). The source device
-was left enabled with an incremented refcnt but no path tracked for it,
-leaving the device in an inconsistent state.
+Hi Stepan,
 
-Disable the source before jumping to err_source so the enable and path
-operations are fully unwound.
+On Sun, 10 May 2026 at 02:58, Stepan Ionichev <sozdayvek@gmail.com> wrote:
+>         mpll->clk_data = devm_kzalloc(dev, struct_size(mpll->clk_data, hws,
+> -                       ARRAY_SIZE(output_dividers)), GFP_KERNEL);
+> +                       NUMOUTPUTS), GFP_KERNEL);
+>         if (!mpll->clk_data)
+>                 return -ENOMEM;
 
-Fixes: 1f5149c7751c ("coresight: Move all sysfs code to sysfs file")
-Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
----
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- drivers/hwtracing/coresight/coresight-sysfs.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+It's been a long time since I wrote that stuff but what you have found
+looks correct. I think initially the driver only exposed the "output
+dividers" outputs and then was adjusted to expose the undivided pll
+output and that allocation didn't get updated.
 
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index d2a6ed8bcc74..a5c08fab97a1 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -244,8 +244,10 @@ int coresight_enable_sysfs(struct coresight_device *csdev)
- 		 */
- 		hash = hashlen_hash(hashlen_string(NULL, dev_name(&csdev->dev)));
- 		ret = idr_alloc_u32(&path_idr, path, &hash, hash, GFP_KERNEL);
--		if (ret)
-+		if (ret) {
-+			coresight_disable_source_sysfs(csdev, NULL);
- 			goto err_source;
-+		}
- 		break;
- 	default:
- 		/* We can't be here */
+Since the report and the change look correct:
 
----
-base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-change-id: 20260511-fix-coresight-sysfs-enable-issue-91533f26f9bb
+Acked-by: Daniel Palmer <daniel@thingy.jp>
 
-Best regards,
--- 
-Jie Gan <jie.gan@oss.qualcomm.com>
+Cheers,
 
+Daniel
 
