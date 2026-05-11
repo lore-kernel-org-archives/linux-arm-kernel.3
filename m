@@ -4,97 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84B44CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4478CCD37B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+1RmAL1G6V7aOO8kOtNRCIE/n9eFhH+hpo5Ze/Bw3SM=; b=CZNrNkS6L8lQYNlsn6h+KO50Hg
-	z3P06N+vt82ZKDQi+8ojHW5vdkLlFBjvvneZFEeJ2NuJMUyCQ2IrV6iz4IguP8mGR88fc6lajlRmP
-	Q6Ct9A9AimrW2eJTZOwrSjDVIa2vvIHD38sphdwvP/7gcIpdypSkBgw4kosrUehVwzbBnD9CzigAE
-	YcsoWTj+SeANOXUFWYHc/CCusVdaWFqhNq26FrV2dGOTSRsnsJk6LnUuf6iUWBkSBJb3EF+qJ2f9A
-	/mXllA+w0YtwC3/bXYGrrDQervHFXgHR0qD4uPsCfx+FEzs6HTe17DRqzTU9J2tui8CFpEy2nOj5w
-	470ySoRA==;
+	bh=IHWHch/qko4wao+fS50y7d50pedNNAlWeE+oNJVyWiY=; b=Hy1KBm6gMU9LWZ/cIn68UlwBaN
+	ObR3erq2w3mZzR1wQhQ79SIbgCUw5Zwkm/R6bletdK6ATBDQ9bVqWwby2q/EiUDy2kCHotqUcrqgi
+	JIT5o18M2AzaDfKFLP3HMEgH9U9svn5ef5oqgiGebVcRoxyQXgey/LoiBdprJ87j5oewUoaEo5pCn
+	1vkRD80s0IoAly1GsgVFtbbA8VgMIRH/Mn0bxd9bmS+ajljMwMuayWaYkzhHiwwRfHHJpBS528xwM
+	4oYVBg4dgtPPdHqt0mfB/wmpR7SAorFY9xwKvN8dZ0FZ1l0gr7KQog8jofI5F9yJ/2/kQNq19ny3X
+	xA6m1ZJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNxs-0000000D7JG-0y4h;
-	Mon, 11 May 2026 10:34:20 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNxq-0000000D7IS-03lb
+	id 1wMO3Z-0000000D86z-12oW;
+	Mon, 11 May 2026 10:40:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMO3W-0000000D86E-1HBK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 10:34:19 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2b2e8b95bdbso495ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 03:34:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778495657; x=1779100457; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+1RmAL1G6V7aOO8kOtNRCIE/n9eFhH+hpo5Ze/Bw3SM=;
-        b=T3sBjOV7Rw/DED0XknIkxWeWzjvOm0O3AIjMEp+Zara+mUyzvGl4ib42+fYxdOsSAb
-         f7yPuzmuZRLWq+4jf1bCfZzL805J2/7vwIM7NMrL42ihvGhENxCo1OBDbxt3yEiiRXIM
-         +ynf4LY7ZTx2GrNS0HsXUtaPVER/k5JBe9mq5GGKlcTdZyZWzJ+0vJYR8aZQIiuMyWJ5
-         N1FA5Xkh5+ipawJfGbaLwMUVOoHAp6Mj41Iw/HOqyM/dIYoNBZphY05DMZa+HvStf7Q1
-         UaPLOyx28q2Nw+j8sNY4yPruLxkHzDmOVLeHkWuNi4z0YDfaS1IIc1ia6cUYQ30mzPru
-         4wfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778495657; x=1779100457;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+1RmAL1G6V7aOO8kOtNRCIE/n9eFhH+hpo5Ze/Bw3SM=;
-        b=gpFI9XvjBsoYYL98BljvCGVOJBtwLbcWq8TOTa7Bn3aKfNKwdTYxxQykilu5jtOJMr
-         c6yScafyF1fyQDoRUC9BJTcdCYNPb+P1FPP+CprOMeraUvdWvbiaaCophXZOhzsXUhFG
-         n+G7ah2vC5Mos9VB6gunaGZx5yMhMUDmDdtVXcexoxSOq6gazSzIoznxj4Y3XMtDjnrE
-         tKHy16SgB/xwb/U0e12BNNVnjIbtlCbOXZFKcrZNjRrbKs3czs4jqxeurdXe18uXP9iy
-         4Uvj+tQzoj2hwboBXTiTEA3HNwptG08lLbUOr02UtFrWCtekVZK4P8Pm52T3ooPswkSM
-         1nbw==
-X-Forwarded-Encrypted: i=1; AFNElJ8xaNnS8NNYUEVh0mbMbV1VZlk4xfY3EobX6UOFnbwos6/32hcEsQv9dPbWhBgiQsnweSEjVRjBaIVcILkyNdJV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyc5WocD+nHkERLIv1aB9IAfdPkdcnOIsEYbVYYGhIIhijR5FlY
-	cyQFuIq1CzHHWDniOayZU3paCD3jx444+igS7hV9Mv4OrpU7P0V11HFn07GT8vlrTGD6u53EpFZ
-	DBZ08gw==
-X-Gm-Gg: Acq92OHElr0IdiZ0hsQ5xvs6REF/uHRRaodFwhvvChyaKPLMmTOqETcgqssUKbFVe3j
-	UPb0+JdFNQPDQSfjFAtKK22dSODum9HqXWnwiFfCJ0K0aBaOZxrd8rUkQC+gk7AK6ZHTw62koBj
-	/CexlkwOMKacVgw26B1Lzjr0mmQ085BvhPMawg81BzRfhJNEqLIZbyutL0TZgYzfrRZzxchwbVw
-	wux/uZKw6xVrcZ+jrHJ12BQ6SMbn584lQJVzQ4xNURSgwS55zybCFtAhlUrHIQGKrx69xxULgvi
-	Gtqwnbu7Kr6CzSmykbKMCdTetkvTXix8T5+ELvsQqXSKYYpzPmfxP7m3xQ3Pg8WKZju7mzuQAsm
-	MB5PzOCiOA2uk1wlt8SkRjEdhbPEEraSsMDs+soD/VsvCGDWvNiHAXJ85HmAMVfmpy2v29XUVkc
-	CA870gmPYkWILNhWajd8ACC7JcrlNYONfrtdwqyX32WNY/gyjKPQs7/TLzAbx+P0Zy9eWg
-X-Received: by 2002:a17:903:1c3:b0:2a7:6c4e:5914 with SMTP id d9443c01a7336-2bc746fc88cmr4737145ad.6.1778495656102;
-        Mon, 11 May 2026 03:34:16 -0700 (PDT)
-Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367d63e03f6sm7798313a91.12.2026.05.11.03.34.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 03:34:15 -0700 (PDT)
-Date: Mon, 11 May 2026 10:34:09 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH 7/9] iommu/arm-smmu-v3: Directly encode CMDQ_OP_ATC_INV
-Message-ID: <agGwoYJD3s2T00fX@google.com>
-References: <0-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
- <7-v1-b7dc0a0d4aa0+3723d-smmu_no_cmdq_ent_jgg@nvidia.com>
- <af3NH0cihPUQ8PST@google.com>
- <20260509165401.GL9254@nvidia.com>
+	Mon, 11 May 2026 10:40:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75A2E16F2;
+	Mon, 11 May 2026 03:40:03 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F384E3F836;
+	Mon, 11 May 2026 03:40:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778496008; bh=qIBIaoZMw/edt0QBmUc5C+O+459IgUULanpiPn179Hg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AZqdSIPcNDUt2vsK0aBBMNGq9ftbYQkLtJzZEzpQyfsNIjrAIFSQvILVMNzfskFEI
+	 3FSQiqKU+OjtNIqZZdvzkW0W9FwO3XyBsK96xa0zZ+jH7MmqlpmVwr9Vzdo88s+c3e
+	 Y04PU7WiXTlkgUqc0fJH/a8rXBHvUWHvl79a6z4o=
+Date: Mon, 11 May 2026 11:40:02 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v10 01/30] arm64/sysreg: Update SMIDR_EL1 to DDI0601
+ 2025-06
+Message-ID: <agGyAvutI1GOCQkI@J2N7QTR9R3.cambridge.arm.com>
+References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
+ <20260306-kvm-arm64-sme-v10-1-43f7683a0fb7@kernel.org>
+ <af4ZYVFsbYlEfdOu@J2N7QTR9R3>
+ <af6DH_j7pyEm4HyI@sirena.co.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260509165401.GL9254@nvidia.com>
+In-Reply-To: <af6DH_j7pyEm4HyI@sirena.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_033418_055827_99150A0C 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20260511_034010_434332_E227AAB2 
+X-CRM114-Status: GOOD (  21.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,42 +82,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 09, 2026 at 01:54:01PM -0300, Jason Gunthorpe wrote:
-> On Fri, May 08, 2026 at 11:46:39AM +0000, Pranjal Shrivastava wrote:
-> > On Fri, May 01, 2026 at 11:29:16AM -0300, Jason Gunthorpe wrote:
-> > > Add a new command make function and convert all the places using
-> > > ATC_INV.
-> > > 
-> > > Split out full invalidation to directly make the cmd instead of
-> > > overloading size=0 to mean full invalidation.
-> > > 
-> > > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> > > ---
-> > 
-> > Nit: I guess it's worth mentioning that we remove CMDQ_ATC_0_GLOBAL as
-> > we don't set ent->atc.global = true anywhere in the driver anymore.
+On Sat, May 09, 2026 at 09:43:11AM +0900, Mark Brown wrote:
+> On Fri, May 08, 2026 at 06:12:01PM +0100, Mark Rutland wrote:
+> > On Fri, Mar 06, 2026 at 05:00:53PM +0000, Mark Brown wrote:
 > 
-> I added this:
+> > > Update the definition of SMIDR_EL1 in the sysreg definition to reflect the
+> > > information in DD0601 2025-06. This includes somewhat more generic ways of
+> > > describing the sharing of SMCUs, more information on supported priorities
+> > > and provides additional resolution for describing affinity groups.
 > 
-> In section "3.9.1 ATS Interface" of F.b the specification says:
+> > FWIW, these are all in ARM DDI 0487 M.b:
 > 
->   When the SMMU returns an ATS Translation Completion for a request that
->   had a PASID, the Global bit of the Translation Completion Data Entry
->   must be zero.
+> >   https://developer.arm.com/documentation/ddi0487/mb/
 > 
-> Even though it faithfully forwards the G bit through to the ATS
-> invalidation command there is no way to create G mappings so there is
-> never any need to send a G invalidation. Thus don't expose global in the
-> new helpers and leave CMDQ_ATC_0_GLOBAL unused.
+> > Is anything later in the series going to depend on these fields, or
+> > would everything behave correctly with the existing RES0 field
+> > definitions?
+> 
+> We're exposing the affinity fields so there's a build time issue.
 
-Ack. Sounds good. Should also add that the only other place we might need
-G=1 is for a full ATC wipe. However, we don't since the PCIe Spec 10.3.8,
-mentions issuing an invalidation without a PASID prefix (SSV=0) already
-forces the device to invalidate all ATC entries for any PASID at all 
-addresses, e.g. arm_smmu_atc_inv_master(master, IOMMU_NO_PASID).
+What I'm asking is what is the rationale for updating these definitions?
+e.g.
 
-Although the comment in arm_smmu_enable_ats should suffice too.
+* Are we planning to use any of the fields in a specific way in the
+  *host*?
 
-Thanks,
-Praan
+* Are we planning to use any of the fields in a specific way in the
+  *guest*?
+
+* Is this updated just out of habit?
+
+Knowing the rationale would help with review, even if that rationale is
+just "it seemed nice to use the latest".
+
+> > > +Field	55:52	HIP
+> 
+> > Reading the ARM ARM, HIP is arguably a backwards-incompatible change.
+> 
+> Yes, I belive people are aware.
+
+Ok. Is that considered a problem, or accepted?
+
+Which people are aware?
+
+> > Do we expect to expose that to VMs, or just hide priorities entirely? I
+> > suspect we probably want to require that the guest sees
+> > SMIDR_EL1.SMPS==0, and not care about any of that.
+> 
+> Currently we're not exposing priority support to guests so we don't need
+> to worry about it yet.
+
+Do we plan to in future?
+
+Mark.
 
