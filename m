@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 661E5CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 21:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13243CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 21:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gmBNcFXL4SEZ0SStYLpRW1m4H7oxUGUfa1bhU/oNHVk=; b=3/VX6bGJP8wrTZzrq4JVUn5P6K
-	RmwlA3JwneddB61AdOcuaLZvvunNQXbhINLOv58AWly1Jj96urejot+Gp8DwfHsikstEv8auK+odl
-	Udg/NRV5CjEc9PLZqSOKySWRcTNNz8DH+2Tv430J+BBXSbA4Ru2xTLMlWIVMjQn5SA4AmHLqrr17w
-	uczkMdWdPM8VN9GrlD5NWDbmQ5ElqcQiATd3yUjmT836UUKh9AWQ+ZEhrzXEO3eFskkz6wvwiTW6c
-	cMkoZNA5BWF3zluwpH3y3QxPtozeBd56HSt35Q/udMcanTiwnsQ/qURhrOfG7UCdpCKNuAN2YvEBW
-	i1buuRPA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TZEkpYaV8znQ3xP6RcqHMvzTHuEHWppo4gEe37Xawpw=; b=05uc0tOBtXVuxtDiLeL9T7appz
+	9kGOpYqmBMVqEqRiMsbn/0MkEPThyRXuv5k3P4pf64NPhwsfamtgtBZXSQPQyBWrOxBGQHZcZY3Mw
+	4QOuCeR985PaSFTlP+VnFrp1czMZTx7CNA6UFJmezKQUUu0C4Vk8XDkcgpvZTLdWS/JLe6S/tcA1T
+	7DcMll1sw+0RvyoEiueZBEI4L0ZZfwuaLsmXxhKhDw77+zTyQ4o2OR8N1o4pnqp9jUv+OTzyLDoaN
+	wLAbtqmWAfq2ZLkuNXr7Mi4lGkzvvbG4PJ9Ba0WlsjL4vaS0AodhfMmKHy7BFWCyBNJiKCsAI8jmj
+	xJ7HhhQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMXsS-0000000EmJU-3FUx;
-	Mon, 11 May 2026 21:09:24 +0000
-Received: from pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.245.243.92])
+	id 1wMXsw-0000000EmR9-473s;
+	Mon, 11 May 2026 21:09:54 +0000
+Received: from pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com ([35.162.73.231])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMXsQ-0000000EmIw-2YyU
+	id 1wMXsv-0000000EmQT-1OHF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 21:09:23 +0000
+	Mon, 11 May 2026 21:09:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1778533762; x=1810069762;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=gmBNcFXL4SEZ0SStYLpRW1m4H7oxUGUfa1bhU/oNHVk=;
-  b=O4fZ4EtrZBqK6OLQDBDJjnknriBuUgcCD1XL+hqRLWyaeApRM0f8vISQ
-   x4WfPE24B4R8k7KOdJT4bNtMwlOUbi4eDm2m69MAdg7W6f4dUszCNS81D
-   zNAw6RJZ2PolOYTpK5yLlkPrz9Gqt8/luvp5dccHtkggP7IaXMNGXR97K
-   qJhwNkn+0eQLKmfYMdLTUioFZo9XjiD/IpNCX7x/kOMx+/rPkHdaOWq8C
-   Cxmi86oKjj2Q10mH1gY2EIMsnFb3vd5r/Hm6/VvbmFccNimH8EuF1wlnO
-   S1g0dGIKscNT9OXOgly6pLPh7ttsvISP3FtACJ7V11WTWcnmJzhMm7eGM
-   w==;
-X-CSE-ConnectionGUID: 0zVo/EuXTmWAseOu5UCThQ==
-X-CSE-MsgGUID: 8gfJTadJQ9OgyYyQ9whUCw==
+  t=1778533793; x=1810069793;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=TZEkpYaV8znQ3xP6RcqHMvzTHuEHWppo4gEe37Xawpw=;
+  b=ZwbjM7kzvLZOWk+cfd1KttErh9aXS1oTN4uBX10RLA/ml425q5oJZmGU
+   JKtFzQhhQuTbkU96V1RT2Rkrn7NI9M+l55LgoXpQnaruK813NbLCgMUoK
+   mG0e+cGNhriqAKXKd6ff0c8cLycC2N8Kpc4xHVWlYa+XVNSiFaGaDnODX
+   VKGgDDDnvLicHEVD+nnVj7wp/c+zvz+ZhWXM8Zb5Yzy4rZ3GTofmehXz9
+   VMd5bYMD3W4slvj868gcI6snIyuxYAD3/xOmZsbkgQZWS65VZ0Rk8k19e
+   TgvT521mskb+2dxyICrP73FtbX9gnnMmHLYgigJNaSb1uCEVcW+hCOCRc
+   A==;
+X-CSE-ConnectionGUID: /cVL3ocdQ+eex6TpEqtjuA==
+X-CSE-MsgGUID: 04R2l2iSQj+ycRlsaE6V1w==
 X-IronPort-AV: E=Sophos;i="6.23,229,1770595200"; 
-   d="scan'208";a="18904877"
-Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
-  by internal-pdx-out-001.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 May 2026 21:09:19 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:19334]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.52.175:2525] with esmtp (Farcaster)
- id 57478e7e-fe0b-4b36-a475-490afc8c63da; Mon, 11 May 2026 21:09:19 +0000 (UTC)
-X-Farcaster-Flow-ID: 57478e7e-fe0b-4b36-a475-490afc8c63da
+   d="scan'208";a="19192945"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-012.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 May 2026 21:09:46 +0000
+Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.51:26317]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.31.38:2525] with esmtp (Farcaster)
+ id 615b8aea-6f92-4272-a246-4731c55e68e5; Mon, 11 May 2026 21:09:46 +0000 (UTC)
+X-Farcaster-Flow-ID: 615b8aea-6f92-4272-a246-4731c55e68e5
 Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Mon, 11 May 2026 21:09:19 +0000
+ Mon, 11 May 2026 21:09:46 +0000
 Received: from dev-dsk-sauravsc-1a-8777b848.eu-west-1.amazon.com
  (172.19.118.34) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37; Mon, 11 May 2026
- 21:09:17 +0000
+ 21:09:44 +0000
 From: Saurav Sachidanand <sauravsc@amazon.com>
 To: Will Deacon <will@kernel.org>
 CC: Mark Rutland <mark.rutland@arm.com>, Besar Wicaksono
@@ -67,19 +67,21 @@ CC: Mark Rutland <mark.rutland@arm.com>, Besar Wicaksono
 	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <aghayev@amazon.com>, <juew@amazon.com>,
 	Saurav Sachidanand <sauravsc@amazon.com>
-Subject: [PATCH 2/3] perf/arm_cspmu: nvidia: handle empty resource list in PCIE-TGT init
-Date: Mon, 11 May 2026 21:09:04 +0000
-Message-ID: <20260511210905.91917-1-sauravsc@amazon.com>
+Subject: [PATCH 3/3] perf/arm_cspmu: nvidia: fix BDF calculation examples in PCIE PMU docs
+Date: Mon, 11 May 2026 21:09:05 +0000
+Message-ID: <20260511210905.91917-2-sauravsc@amazon.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260511210905.91917-1-sauravsc@amazon.com>
+References: <20260511210905.91917-1-sauravsc@amazon.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-Originating-IP: [172.19.118.34]
-X-ClientProxiedBy: EX19D043UWC004.ant.amazon.com (10.13.139.206) To
+X-ClientProxiedBy: EX19D043UWC001.ant.amazon.com (10.13.139.202) To
  EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_140922_696727_0FCAB463 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20260511_140953_417831_DAD4A767 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,45 +96,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When acpi_dev_get_memory_resources() returns success but the resource
-list is empty (rentry is NULL), addr_filter_reg remains NULL from
-devm_kzalloc. Since IS_ERR(NULL) is false, the function proceeds
-without error and later dereferences the NULL pointer in
-pcie_tgt_pmu_config_addr_filter().
+The BDF hex values in the documentation examples are inconsistent with
+the stated formula (bus << 8) + (device << 3) + (function):
 
-Set addr_filter_reg to ERR_PTR(-ENODEV) when the resource list is
-empty so the existing IS_ERR check catches it.
+  - BDF 27:01.1: documented as 0x2781, correct value is 0x2709
+    (0x27 << 8) + (0x01 << 3) + 0x1 = 0x2709
+  - BDF 01:01.0: documented as 0x0180, correct value is 0x0108
+    (0x01 << 8) + (0x01 << 3) + 0x0 = 0x0108
 
-Fixes: 3dd73022306b ("perf/arm_cspmu: nvidia: Add Tegra410 PCIE-TGT PMU")
+It appears (device << 7) was used instead of (device << 3) when
+computing the example values.
+
+Fixes: bf585ba14726 ("perf/arm_cspmu: nvidia: Add Tegra410 PCIE PMU")
 Signed-off-by: Saurav Sachidanand <sauravsc@amazon.com>
 ---
- drivers/perf/arm_cspmu/nvidia_cspmu.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-index bac83e424d6dc..bae722e263e91 100644
---- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
-+++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-@@ -555,14 +555,16 @@ static int pcie_tgt_init_data(struct arm_cspmu *cspmu)
+diff --git a/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst b/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
+index 0656223b61d47..24f0e801d7b80 100644
+--- a/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
++++ b/Documentation/admin-guide/perf/nvidia-tegra410-pmu.rst
+@@ -170,7 +170,7 @@ The list of event filters:
+     devices in root port 0 to 3.
+   * src_bdf: the BDF that will be monitored. This is a 16-bit value that
+     follows formula: (bus << 8) + (device << 3) + (function). For example, the
+-    value of BDF 27:01.1 is 0x2781.
++    value of BDF 27:01.1 is 0x2709.
+   * src_bdf_en: enable the BDF filter. If this is set, the BDF filter value in
+     "src_bdf" is used to filter the traffic.
  
- 	rentry = list_first_entry_or_null(
- 		&resource_list, struct resource_entry, node);
--	if (rentry) {
-+	if (rentry)
- 		data->addr_filter_reg = devm_ioremap_resource(dev, rentry->res);
--		ret = 0;
--	}
-+	else
-+		data->addr_filter_reg = ERR_PTR(-ENODEV);
+@@ -215,7 +215,7 @@ Example usage:
+ * Count event id 0x4 from BDF 01:01.0 of PCIE RC-4 on socket 0 targeting all
+   destinations::
  
- 	if (IS_ERR(data->addr_filter_reg)) {
- 		dev_err(dev, "failed to get address filter resource\n");
- 		ret = PTR_ERR(data->addr_filter_reg);
-+	} else {
-+		ret = 0;
- 	}
+-    perf stat -a -e nvidia_pcie_pmu_0_rc_4/event=0x4,src_bdf=0x0180,src_bdf_en=0x1/
++    perf stat -a -e nvidia_pcie_pmu_0_rc_4/event=0x4,src_bdf=0x0108,src_bdf_en=0x1/
  
- 	acpi_dev_free_resource_list(&resource_list);
+ .. _NVIDIA_T410_PCIE_PMU_RC_Mapping_Section:
+ 
 -- 
 2.47.3
 
