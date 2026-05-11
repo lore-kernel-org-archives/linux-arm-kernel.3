@@ -4,115 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57278CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 013ABCD37B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QffmlXKfGIQMvoSpoqBH5tpd14K+nt5m82a+AK1qlTw=; b=DyjpL2WJxZK8PPzdRhONO337b5
-	Y8YkXHgSD6mk9qKnKWY4Vh27/KpjQ1Z6553AaQqNUPbDIo8/PoxJSbRO/WLXjWbDsAoONio2IdWjq
-	jGXHEzI/z8VuWPNJ/X2/1krk6sqYCydzht1W5Z7ynJYmPlFCeDSvS9MKj9P/YwSF7pSKotlB0iKsY
-	/ZwMNsNmxz1GGhNMXe7ETeL5XiI53YG4koDWydj0692T8jrEo+5Hk3ZJ5pqnGsPhdk/Ksuhoe4bxo
-	dNprHfb/biaydi6+ItjV5xOR0D6Go1HDBgv4pIcfVK2UYZ9eNlA8S/fOGLtM6m2RreL7HhJLqSEVs
-	VMxY5KaA==;
+	bh=IWi+yz4E82NY4JNL7fGRgTtCTunFFqwxlmF4+tPOo+U=; b=y2KjjoYYvqylEz4l+28jwME/0v
+	N0zlDg8BfJEpsVFQVv8QVf9MLVn0J3zObEehSCIzNTtCe+h6NEp7kXh3FhWCkRWL/GfMi4ib0qV8n
+	euWIAWZeHvqrY48rJc4ZMXonWRSFrR+7S3dYsQ3Sl+EtFeUPG7LiBNhDC+GXdHG84aZ0g2LTB+KNo
+	luqBU0fi672JLUGQFMArQQHQrJxPsQcia9zTmAcVFV6LXHgz4ng1Egpb6fa0B7gTCYoWKaMCVzhJg
+	PYejcy1ykuuYsbrpqheVvKp5Prrjax4/w0/Lq+6obds1tl8n9KQWm7b4GhRnDPUBPsMl+TEdH/y6W
+	dgDGFsUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMP5O-0000000DNoW-1dFX;
-	Mon, 11 May 2026 11:46:10 +0000
+	id 1wMP5T-0000000DNpo-0Yuj;
+	Mon, 11 May 2026 11:46:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMP5M-0000000DNnz-2tF2
+	id 1wMP5Q-0000000DNoi-0ErV
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 11 May 2026 11:46:08 +0000
+	Mon, 11 May 2026 11:46:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QffmlXKfGIQMvoSpoqBH5tpd14K+nt5m82a+AK1qlTw=; b=SqClYjJLDMrm40fb3yzr5mY1D8
-	U1MHWZSEKUfadyggiCkoUvaxRaMRuh06L5bmcDxt/cD/0sVqlmnCtvzhamFY4pf3yv5IXSksw/Iiu
-	s9t/oLzECr5/yOgPDPN5/esLb2t4O0gGKSNERPd4i9zQkgVZaPi8EImuzamTdVGXlDX+lKJBREnIf
-	n/6Ob40crYG5prNxDrhQRAjbpzcpKZXSMshYcz5dyNRKbjDY6m4HNiSq/ZhIBTr7ghziODjslQc8u
-	u4sx8SOPb4rbuvbF6JZrAXBahPo+a3hF6c+QLTxncOaQkPpAlJmp/9RS9W4m/ccBMibtqHrLytLqi
-	dnJ8AdZw==;
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=IWi+yz4E82NY4JNL7fGRgTtCTunFFqwxlmF4+tPOo+U=; b=YWn56TZOCD4IVLrSvnqzm9/R/G
+	X8jT6q7I8zBNBSa9dleCiU3xbQf9NzPhD0BscWf9pqAtqHitv3T0DCwNPoD6vbMmSUEQWw0xA9bGl
+	MbFr4y5PtBmObNsYslmKlfTK6HYD0SB31jGlsPrcDlDEs1tqtwcMSanTeh0cdHkVOjuE6KbT8yIRX
+	Hz2KBuje1tgZH+e6BXJY8at1/fNMO0EH7TH0DOxhzliyUw6f+YotCDotumA6pMf2qGfnUeeKmsTu0
+	JQDYDD/p9oh621N9PLXZ8wWhZdTKYU4aBwWIjsQIw/9eDxlGZFcRSAu7bRS48rtaVD/x/K2BI4/M7
+	9rU84qqw==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMP5D-0000000BWEU-1u7A
+	id 1wMP5G-0000000BWF8-334F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 11:46:07 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4891ca4ce02so865e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 04:45:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778499956; x=1779104756; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=QffmlXKfGIQMvoSpoqBH5tpd14K+nt5m82a+AK1qlTw=;
-        b=W+ehbU2WigmcZ+UTX2GKj5+UfmYCus/c/pWQsbo8gLsXInJATVENS1DoJDsg89WJrB
-         ynY7l7wy9qhb0Acv+/RuJAojI2sVgOaHIxVUvm6xWEiBWjIKscVFbX3Jif4E5b4GSJXo
-         0tynB4+dIMgNB4MUc1CMoyxVK4aLSL97EPYvncJqCWbSWdGkAAZoEfRIAHeR9f+5hdGE
-         d5ZZY2vDXaeV0nzYuV6kOxah/ehV9qgH3DLtCIsU9jNPfOEsXk4eY7Byqp3L0kGZrn0+
-         MPGl/jq3xZFRrngTBAMJ0PbxJDA6fWC9g3yKoFxdW/9nAcLiEzy2VklzLlYiIDdsNqCc
-         srhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778499956; x=1779104756;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QffmlXKfGIQMvoSpoqBH5tpd14K+nt5m82a+AK1qlTw=;
-        b=Xv76ELBLrrMAjf9GG5hRQWMuKnRY6Y8LC10Jh98DyWlcpa4bokN1m1s9PxYGBcnpwP
-         5qwOwSm/3iLxwaxvU/qGNag+mXxmVdsVqxw4YrL5YAwzwSOffk2gnnmhjyVGUqlXZKjK
-         ujE66HTD/RLpBKb3Eg+/3ggoZYv0DQ2fn91SKqE1wI4wbucksOoZUlJwcOX96y6V+fsR
-         EjbbHM/PTBcJ2+c2XsQJAfN7u3LDH/WgEckm8Fs04jdUYmpemM81UdklEjszXHpnwpoE
-         tppPYp69TsxAljsJZ+z3U31M8jWD7/jafYXgttaBJUjbmydweL8PbKf88ie+Vu8zEH9P
-         TLew==
-X-Gm-Message-State: AOJu0YxZmR3cqYAnNCvN0vsnyk0gInEa61D6kWqDMzUa8p/sxoUdbiv3
-	KGL9cy6uw9CYp8SIVuNV9ja1u/VzgT8S7auNEctLXTkr12xtkxLKzn5ZAHDU9gJnxQ==
-X-Gm-Gg: Acq92OErRbqdJU8PoOSNiGBrPxI4FikcIRt8e0a9coBDpKuYxPHHtUjVg/EPb9in3xy
-	jF1kRQxvxxlH/aZeSaXHlcx9lBlgk3V+lcYsC79qgpX30hWnCxY5I409VJLy+yAV/+NaTFdQpjD
-	2on+QeAIEPFrZil54QcPyNf1LPdh2dFN7IkYu9j/mmlNstgpIFP8EGHRWEVefRiKkEAR9SFcpo5
-	b88IKEWu0MOHBwJ6XTpgH/2nzWt05M2HhxvaW2dAYmmOPvIVSGSwFrHN8QclVuQknbfTnXb21qd
-	QgbGOn6J1NHrTfl/HEo+SItHpW2ic+QmclE2/hFAnSl8BzmBUzYPNXfQEgCIw4+yDMIL05KMYwG
-	S25hXbPGVBAmfaJgZYoQX4ebCgyEhpIcvrU4dXEg9eTpj7Sw895yO8f8Vmn6cYRHIdqSPlG78BE
-	SM3I7I4Q/rQxg4Tk2d6GZszGTTCqzSRB3wc6+uUXI9765QqkIlRAiZ4npj9M4cKWhLBoQ=
-X-Received: by 2002:a05:600c:348f:b0:48a:5618:b4d4 with SMTP id 5b1f17b1804b1-48e6f4f6da0mr2636305e9.1.1778499955998;
-        Mon, 11 May 2026 04:45:55 -0700 (PDT)
-Received: from google.com (8.181.38.34.bc.googleusercontent.com. [34.38.181.8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-454917d57aesm25552833f8f.26.2026.05.11.04.45.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 04:45:55 -0700 (PDT)
-Date: Mon, 11 May 2026 11:45:51 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 04/25] iommu/arm-smmu-v3: Move TLB range invalidation
- into common code
-Message-ID: <agHBby1qBvR6cmJY@google.com>
-References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-5-smostafa@google.com>
- <20260501124143.GB6912@ziepe.ca>
- <afiN1UwS9q6F6A_v@google.com>
- <afoYBYIJOTClsdLS@ziepe.ca>
- <afoeIVIGE-JjYy22@google.com>
- <afsPfEzgGtAFrN5P@ziepe.ca>
- <afxd8Km40A5ulZvd@google.com>
- <20260509232931.GJ9285@ziepe.ca>
+	Mon, 11 May 2026 11:46:09 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wMP4s-0000sp-0i; Mon, 11 May 2026 13:45:38 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wMP4q-000FMB-0p;
+	Mon, 11 May 2026 13:45:37 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wMP4q-0000000FFNo-3bOa;
+	Mon, 11 May 2026 13:45:36 +0200
+Date: Mon, 11 May 2026 13:45:36 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Frank Li <frank.li@nxp.com>, imx@lists.linux.dev, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-media@vger.kernel.org
+Subject: Re: [PATCH v6 1/2] media: dt-bindings: Add CSI Pixel Formatter DT
+ bindings
+Message-ID: <yez4p77eclr4hfhb5ytyr64ponp4plpefxhfszqfvdinpvamuv@jod7fsgilowq>
+References: <20260511-csi_formatter-v6-0-01028e312e2b@oss.nxp.com>
+ <20260511-csi_formatter-v6-1-01028e312e2b@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260509232931.GJ9285@ziepe.ca>
+In-Reply-To: <20260511-csi_formatter-v6-1-01028e312e2b@oss.nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_124604_152440_446F4CAA 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20260511_124604_180218_EAB75A72 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,51 +99,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 09, 2026 at 08:29:31PM -0300, Jason Gunthorpe wrote:
-> On Thu, May 07, 2026 at 09:40:00AM +0000, Mostafa Saleh wrote:
-> > But that doesn’t solve the problem, which is: At some point, whether
-> > eagerly from the page table code, through gather sync or a fancy
-> > invalidation array, the driver will need to populate a range
-> > invalidation command (tg, ttl, scale...) and this logic is better
-> > shared with the main driver which is this patch does.
+On 26-05-11, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
 > 
-> My point is this patch doesn't share enough. If you do need to issue
-> invalidations then share everything below the top level tlbi entry
-> point and don't try to make a pkvm version of the entire logic just by
-> ripping out the range logic.
+> The i.MX9 CSI pixel formatting module uses packet info, pixel and
+> non-pixel data from the CSI-2 host controller and reformat them to
+> match Pixel Link(PL) definition.
+
+Sorry for chiming in very late, but can you please provide on which
+i.MX9 devices this formatting module is present? I've checked the i.MX93
+reference manual and found no info instead I found a CAMERA_MUX register
+which does something similiar but is not the same. Please provide a more
+specific compatible if this IP is only be present on i.MX95 devices.
+
+Regards,
+  Marco
+
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+>  .../bindings/media/fsl,imx9-csi-formatter.yaml     | 87 ++++++++++++++++++++++
+>  1 file changed, 87 insertions(+)
 > 
-> There is no reason for pkvm to need a different algorithm
-> here. Especially when you get to supporting ATS and multiple devices
-> and smmus you may as well just use the whole thing.
+> diff --git a/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml b/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml
+> new file mode 100644
+> index 000000000000..774d37d2b987
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml
+> @@ -0,0 +1,87 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/fsl,imx9-csi-formatter.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: i.MX9 CSI Pixel Formatter
+> +
+> +maintainers:
+> +  - Guoniu Zhou <guoniu.zhou@nxp.com>
+> +
+> +description:
+> +  The CSI pixel formatting module uses packet info, pixel and non-pixel
+> +  data from the CSI-2 host controller and reformat them to match Pixel
+> +  Link(PL) definition.
+> +
+> +properties:
+> +  compatible:
+> +    const: fsl,imx9-csi-formatter
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description: MIPI CSI-2 RX IDI interface
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Pixel Link Interface
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - power-domains
+> +  - ports
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
+> +
+> +    formatter@20 {
+> +        compatible = "fsl,imx9-csi-formatter";
+> +        reg = <0x20 0x100>;
+> +        clocks = <&cameramix_csr IMX95_CLK_CAMBLK_CSI2_FOR0>;
+> +        power-domains = <&scmi_devpd 3>;
+> +
+> +        ports {
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +
+> +            port@0 {
+> +                reg = <0>;
+> +
+> +                endpoint {
+> +                    remote-endpoint = <&mipi_csi_0_out>;
+> +                };
+> +            };
+> +
+> +            port@1 {
+> +                reg = <1>;
+> +
+> +                endpoint {
+> +                    remote-endpoint = <&isi_in_2>;
+> +                };
+> +            };
+> +        };
+> +    };
 > 
-> Which is why I suggested to copy the entire call chain into a shared
-> file
-
-Agh, actually this seires doesn't deal with ATS, which I think is
-wrong, propably we have to issue CMDQ_OP_ATC_INV for the whole
-space on every S2 invalidation which has to be done per-SID and
-as it can't be done by VMID :/ or just hide ATS support from host for
-now, I will look into more for v7.
-
-But anyway, we don’t have to share any logic, the kernel driver
-is quite complicated as it is designed for a different use-case.
-Doing that makes the hypervisor unnecessary complicated and
-oversharing this logic makes the kernel driver less maintainable IMO.
-
-The hypervisor only needs to share the architecture spec of
-populating commands.
-
-If that’s a problem. I am happy to re-write the RIL part in the
-hypervisor. It's not that complicated, but I thought it makes sense
-to share as it is a HW contract.
-Otherwise, we can break this part into some macros that are called
-by this function and the hypervisor but that's maybe over-engineered.
-
-Thanks,
-Mostafa
-
-
-
+> -- 
+> 2.34.1
 > 
-> Jason
+> 
+> 
+
+-- 
+#gernperDu 
+#CallMeByMyFirstName
+
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
