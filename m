@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583BDCD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE977CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CHWvvtbTIu1mQKjnKa9yFklrVhAdisq4naBElgvnqpA=; b=ym0QWSD4lIbedJ/eOMsuq6HSxE
-	Ykuv/pakYc/VgMTBPmMGJpo4ocbRnu5bR87HqKK7Ph+5A+kwdi89RH9Z4gRZomNICvAE7I1mwnfal
-	x/bcz1dXwyD1eKgjwMcGb3keDT5D5/VFVbYTwQNb+yYQh6R8c1Hx7XgckrOVFDYOK78XVEMKRIftY
-	cAvfDmKZP/zNgTVOa67w+KCOM300ClBQ+JPy0uYAjZeQtI4TqmAfiDR4ne94WaDEhqYNUaZvjgTm8
-	DZ918RC1W2RZzRcCwAY4chItJda8ysoqX8Ik6anWIdE7EbDOa+uVmpL184+sfI8afbQ6ZrCRR25/D
-	gGhqFWmQ==;
+	bh=NskC6dmigOoRB1jTRDCnQm+BI1ydTrbvAWPVyxSNjRQ=; b=MTtl3rf7V/WLvH82FBXBDMJd0a
+	F1LF+ANrZO4pHeeaW3UVD1Pr192Q66FSuBmBen+BuN0XVUe5OLZ9Qek0BqaLH0lZ+pVRr6Z9M1/Xb
+	NBebviDx8cgmwP39R34R5fS2ivij5eEm6AMB79ydSp2j7qG46kZ6HQZSuLfOXnyGt/SafDOzQGFt1
+	Pr7Tt/1vsp1XsE19PEFSq5rjj5hfvbq6q8UOpN6O252WOc7V2GAwKYHKQx6ifpCLBbkA81c6iMtev
+	LpRYS43hA4ePdfn2m93HB+9aU/M7YoFh3VxFKe3ll9Bw3wkXOtRqZcRU1E+lB6akFsGrQjpeVostP
+	6SdgKnKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTLM-0000000EBD7-24Lz;
-	Mon, 11 May 2026 16:18:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wMTM8-0000000EBVN-1Q3H;
+	Mon, 11 May 2026 16:19:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTLL-0000000EBCa-2ggQ;
-	Mon, 11 May 2026 16:18:55 +0000
+	id 1wMTM7-0000000EBUq-2YRW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 16:19:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C86B600CB;
-	Mon, 11 May 2026 16:18:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F270C2BCB0;
-	Mon, 11 May 2026 16:18:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C81B460126;
+	Mon, 11 May 2026 16:19:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0D67C2BCB0;
+	Mon, 11 May 2026 16:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778516334;
-	bh=U42E3LWzv0TbWP6oMpvlSaV2MRzXzGekhXV6lEcRbbw=;
+	s=k20201202; t=1778516382;
+	bh=NskC6dmigOoRB1jTRDCnQm+BI1ydTrbvAWPVyxSNjRQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bp5IggbtfeBSdhgblUSlx5B9HKMPMNBePGqseTxadNe/RW825h2Z3OeVKgEDn3tcd
-	 xR3p4DuwGz3q9YXyxWYPblbXKoiI/tl6KzE3P2pfCLBgMHVySY/JLfAe77NL7aVBJZ
-	 Gp6TKLJ0a/MSOsI9UmCKZJxU020GgO6lwRQs3sLdLbdgfXGNyewkbUCc91qq4YOKDu
-	 xvMiYzOipBjq2iJvWHbxoWmxAFedqQd4iXjrt6KNElYEJ2qH5z+Bk0UQHqR4IxMIrx
-	 9MQmVrHtTuLRxBojQCIvevJ6espW6NozkWG+87beE1gvTi9gls3oCzx98M5NWzqzuz
-	 t/g6f7FJAkwVg==
-Date: Mon, 11 May 2026 21:48:51 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Algea Cao <algea.cao@rock-chips.com>,
-	Dmitry Baryshkov <lumag@kernel.org>, kernel@collabora.com,
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/6] phy: rockchip: samsung-hdptx: Clock fixes and API
- transition cleanups
-Message-ID: <agIBa7qxIGgqCYZ1@vaman>
-References: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
- <agA1dFpheTaBfyUt@vaman>
- <c76d7020-2b3b-4f30-ab40-a8442c953966@collabora.com>
+	b=XmZOypqqo6QnvKsLUdTwqp6pILghve+sC7s8KM6pR81WAgISwe1xyUGKA8njgOMA9
+	 9IE3QLVW2K0lw0PDXZEmeVZfv4iZsWXQ3gGSYRJeX7zqceAY+00Zg8G8DVQlJPyCCP
+	 l5p1lpqKSYg2vFkUlqP+wS+m5NmjkAVTqJ1IEoBQUCLvwVQGeWIvhZfiXp8KkHJDHQ
+	 RYemROhI5U68K6udVikO7mfgoHZ7kJx2m9RDtviJZp+I1MqVdxsIXUMsM0hyrzjIsM
+	 6Ljfe42+IBIkEG6BaZUrZGQJiSpf3Iwqhim7jPyojQaD0g2SXtfNlgq8lZOcYzvVpr
+	 3oAtCdKXPtUqQ==
+Date: Mon, 11 May 2026 17:19:37 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Manish Baing <manishbaing2789@gmail.com>
+Cc: lee@kernel.org, ukleinek@kernel.org, linusw@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org
+Subject: Re: [PATCH v3] dt-bindings: mfd: st,stmpe: fix PWM schema and drop
+ legacy binding
+Message-ID: <20260511-frisbee-boss-00653c53fd47@spud>
+References: <20260509193928.19030-1-manishbaing2789@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="KXR1VqJkuf+OgG2z"
 Content-Disposition: inline
-In-Reply-To: <c76d7020-2b3b-4f30-ab40-a8442c953966@collabora.com>
+In-Reply-To: <20260509193928.19030-1-manishbaing2789@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +74,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10-05-26, 11:55, Cristian Ciocaltea wrote:
-> Hi Vinod,
-> 
-> On 5/10/26 10:36 AM, Vinod Koul wrote:
-> > On 27-02-26, 22:48, Cristian Ciocaltea wrote:
-> >> This series provides a set of bug fixes and cleanups for the Rockchip
-> >> Samsung HDPTX PHY driver.
-> >>
-> >> The first part of the series (i.e. PATCH 1 & 2) addresses clock rate
-> >> calculation and synchronization issues.  Specifically, it fixes edge
-> >> cases where the PHY PLL is pre-programmed by an external component (like
-> >> a bootloader) or when changing the color depth (bpc) while keeping the
-> >> modeline constant.  Because the Common Clock Framework .set_rate()
-> >> callback might not be invoked if the pixel clock remains unchanged, this
-> >> previously led to out-of-sync states between CCF and the actual HDMI PHY
-> >> configuration.
-> >>
-> >> The second part focuses on code cleanups and modernizing the register
-> >> access.  Now that dw_hdmi_qp driver has fully switched to using
-> >> phy_configure(), we can drop the deprecated TMDS rate setup workarounds
-> >> and the restrict_rate_change flag logic.  Finally, it refactors the
-> >> driver to consistently use standard bitfield macros.
-> > 
-> > Sorry looks like I have missed to review this one.
-> > Can you please rebase on phy/fixes and send...
-> 
-> I've just verified and it applies cleanly on top of phy/fixes.
-> Do you still need a resend?
 
-Yes please, it didnt apply for me
+--KXR1VqJkuf+OgG2z
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
--- 
-~Vinod
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+--KXR1VqJkuf+OgG2z
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagIBmQAKCRB4tDGHoIJi
+0qCMAQDhDpruGAoFgO2RUtQlivn9XcuSUa9Y8R0GXhaqpERu3gEAvM7LyeQiv/2u
+fF9MGycLBRVQ89lLxkL9Ow/EIPU1Pgs=
+=vIpv
+-----END PGP SIGNATURE-----
+
+--KXR1VqJkuf+OgG2z--
 
