@@ -4,78 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028C7CD37B7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 06:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 332D9CD37B7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 06:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpTh2sXANIfpdVqv2Gr/e9DfeCO6TQqHfjZ6e0H2hT0=; b=IaA2aMJs0uyhCSF0bB/9ZtNvRS
-	t2mPt6a4h9SsJ2p6EonCkSMa2uXHsXKVIN7zUKlCfsoblak2+HnT0MlvsXAfCztMaaYednreBkfMv
-	zRea3vgrrsiekqXaQK21m7logQ0FW1cIuX351c9X0nLviRwbgzvHXhj+NMBpSOJjH5Gxp02srfVPL
-	MuSrAuQs6lrXQr6hqtc34p0YjeKU9Gm6ELobUZpBINRSpViFoH35WZegOIdBcDiUZ6Go0b6clqGwv
-	T5G57NVszBU4S4wKhmcF1y2hCJvPdgWxQDA3Se/vNWF0szD8RVU3UyKT3Z/Huku5IFHnqZTxrBY7f
-	/kVbYRog==;
+	bh=KmPiNvYodwvAgla7BPtVHRd3nfpBWvtXV9w4ndZPxTU=; b=GjBEL/7LZOzWsI+UL2jAou0q47
+	12jvap9ZkX8BQhqE3Kq9pIBq7KV9zDBeXbAPjUI5MlRo2tT6jsHI+K2mReqj8tzaHvxgTvOoIVPQh
+	U4CiZV/b2T0Pxny/B79+yC08jyYXJUriRExCy4n8nRg0eu1RYRSPJBhXbPj3KWGaHDX5mjtbuamwG
+	lctHbJpICks8OgPOBW6z863OQmqDsH9B8KEITnlfiVHtDPaFjQmthizbYCj+gm6HIfoK/JKYVKRaj
+	z+s7IOSVihKAQfTu15XH8cuvSv7f8Mhih+NUYogCg8QRizysZssizqaEG88gOPUKF1z0iYEKsbFOg
+	4ZIYNvgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMJkU-0000000CRTF-2NSU;
-	Mon, 11 May 2026 06:04:14 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1wMJyQ-0000000CT81-3rhE;
+	Mon, 11 May 2026 06:18:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMJkQ-0000000CROl-0PJr;
-	Mon, 11 May 2026 06:04:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=gp
-	Th2sXANIfpdVqv2Gr/e9DfeCO6TQqHfjZ6e0H2hT0=; b=C/CkCLCW9LZ+dw6HvA
-	f+1uZgkftp911eDNvIcvsyxg2Hu9tQRKRfw8uN8BaErFVGXtnwHczQ7TO3wETDpZ
-	qzCTfEuQhqnTGQb/Pbz9/A7xN85k6wjC50GfbJpCLYPUadx0SCxhWHldNRulZF9O
-	cVzvb04Ushvf/0d6q6t5vFTk8=
-Received: from Precision-7960.. (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wDn9yk8cAFqPHQVAw--.46705S6;
-	Mon, 11 May 2026 13:59:30 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: bhelgaas@google.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	vigneshr@ti.com,
-	jingoohan1@gmail.com,
-	thomas.petazzoni@bootlin.com,
-	pali@kernel.org,
-	ryder.lee@mediatek.com,
-	claudiu.beznea.uj@bp.renesas.com,
-	mpillai@cadence.com
-Cc: robh@kernel.org,
-	s-vadapalli@ti.com,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	claudiu.beznea@tuxon.dev,
-	linux-mediatek@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v3 4/7] PCI: dwc: Use common pci_host_common_link_train_delay() helper
-Date: Mon, 11 May 2026 13:59:20 +0800
-Message-Id: <20260511055923.37117-5-18255117159@163.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260511055923.37117-1-18255117159@163.com>
-References: <20260511055923.37117-1-18255117159@163.com>
+	id 1wMJyP-0000000CT7k-0Wx6
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 11 May 2026 06:18:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=KmPiNvYodwvAgla7BPtVHRd3nfpBWvtXV9w4ndZPxTU=; b=fa31hUlNssf3FZ3hxhU+6gf9i4
+	209Uao7KiZTtsNXV8scDFGqR/ioFAwbQTPaG3F9ALU6z4kgj3eOhBNMILVFQXvVDEmqH9w8Fh5oYe
+	UXO2SNQJGCLyQZEuKrlaUjH+ab2Z+t5kSFDOk3Klhi2PZpYvTjWTjxjuZimVguIYSIvBjtqRZ/QAY
+	yh6oDhcV2sPrruNiriAqMZf93aFp6QUo2QzhidjuXEq7EMHgoLKV7eNU/pxqKu3vXf400uQjEav25
+	6KbzxEcN8fHdJhYqDSli6C3Gf+S+pvDsU4JK7haqoY7Z+Y+/liwojvpbtwuHUZ1m+ClWii7B0ONe2
+	kGz2o73g==;
+Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMJy2-0000000AjbT-3soU
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 06:18:35 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id C49641D000A9;
+	Mon, 11 May 2026 02:18:04 -0400 (EDT)
+Received: from phl-imap-12 ([10.202.2.86])
+  by phl-compute-04.internal (MEProxy); Mon, 11 May 2026 02:18:05 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1778480284;
+	 x=1778566684; bh=KmPiNvYodwvAgla7BPtVHRd3nfpBWvtXV9w4ndZPxTU=; b=
+	uXFP2pLlOevVE1Czc3D036PQ0TwM9Wt0eNP5yrnf/g+KYDGakLaBFEWzKs7NOUjE
+	cwUbxwtd9UUBaG9821AFYXcYxYCez1Ai/p6YUzH6aAwQTjdWNiZ4tKran/ee2Y3v
+	vJBoEcHzTz4LsgCw9YakjPT1xl9JrjjrbmFvqkVzHfcncnvTuScUmUKH743ZcEfM
+	uRJecjNvpsBz5/4r84oy+hyHmBUhemp5sKAmEt8ef4X5DhxmMuQsfIOkfFMys9HC
+	qbA1dyvD/tLQlGldg+ScPEXDql6qnQ8rPktSXPOhe9SaAlBW5vJBqRPyZ18z0yVL
+	6tB5F5bzSUdnt3aM8GSUcw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1778480284; x=
+	1778566684; bh=KmPiNvYodwvAgla7BPtVHRd3nfpBWvtXV9w4ndZPxTU=; b=p
+	0EVz+XTAVgky9EdPZ4Uu3d8hd6y+DXAquqzD7JANgHh58AntQEQIIvP4+ybRE3eQ
+	4rrlOxxKVtOQFw6Oc0JkLzvaxsATBfIOeMcH78qtYMx6uAYoaFIIjo7i67oSeKOp
+	yZWCiKnhZRzJ7I8Yk3KqGk4nizqhWmD3EjVWBEFkQn64rLTFB/0SZkK02y6UzknL
+	THe1KQvca4HrVtIrDi00WlkgTdJAp02CShHp9/q+W9II2nYNKyv3veFL14SIrmYz
+	JFc1NlGcTHYjTOkfFI1LetYzlbH53uol6W3ntKeBYEyBhvIPIwyzovlF190VJAxG
+	yNiwGxPR4F13TAbaNrAWg==
+X-ME-Sender: <xms:nHQBajkJI9f3dFR1oJiYqT-ZzkMGeUPsvgNoroB80xTlRTT_ct5dzg>
+    <xme:nHQBahr3Tt6ftyHc-T1kU-ENcZr7XwHCdqluFL5Svump7JW23rNMpCcHmJSK0qFxo
+    Ca5kO1mBzvzxaC87KGq--eQlmJThafDf5WiTCTfsjbB66ZBl8aTg-bI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdduudekvdegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopehjohhroheskegshihtvghsrdhorhhgpdhrtghpthhtoheprhhosg
+    hinhdrmhhurhhphhihsegrrhhmrdgtohhmpdhrtghpthhtoheprghrnhgusehkvghrnhgv
+    lhdrohhrghdprhgtphhtthhopehtghhlgieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    epfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegsihhgvggrshihsehlihhn
+    uhhtrhhonhhigidruggvpdhrtghpthhtoheprghkphhmsehlihhnuhigqdhfohhunhgurg
+    htihhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhi
+    shhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehiohhmmhhusehlihhsth
+    hsrdhlihhnuhigrdguvghv
+X-ME-Proxy: <xmx:nHQBagL1K4BV80vBidQsid_aebAhwZbGvNlvcWCTDYjveg0-ecHjlQ>
+    <xmx:nHQBaoUuIW329Pxzwgr5P59YRnx3qR1LQzrPzMX6ODXKeuDUNnAI5Q>
+    <xmx:nHQBasQOAwmo1FJmzo0k64Gw6J4H6oaHB8cU6tEWbSsEfMvPWuDREg>
+    <xmx:nHQBaoDnuYxaLASb3LDsTe5WSyqVh0xWey4mnSWkkzm-VheQgnr31g>
+    <xmx:nHQBao923uMwYMT2LW2tfgYZi_91azd-oDyBZH5S7QJrewX7cGnwZIjy>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 05C841060065; Mon, 11 May 2026 02:18:04 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDn9yk8cAFqPHQVAw--.46705S6
-X-Coremail-Antispam: 1Uf129KBjvJXoW7tw1rAFW5Cry3Wr45ArWxXrb_yoW8Xw15pa
-	98AFyFyFWrJF43uanrCasxZry5X3Z8Cay7GFZaga4fZ347ArZFqw10g34SqFyxJrZFvr1a
-	9r17tFnrGw4xAF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piQVy7UUUUU=
-X-Originating-IP: [140.206.53.66]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxAMHqmoBcEPnAAAA3V
+X-ThreadId: AVHaR-kDAB-J
+Date: Mon, 11 May 2026 08:17:43 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Thomas Gleixner" <tglx@kernel.org>, "Arnd Bergmann" <arnd@kernel.org>,
+ "Will Deacon" <will@kernel.org>, "Robin Murphy" <robin.murphy@arm.com>,
+ "Joerg Roedel" <joro@8bytes.org>, "Andrew Morton" <akpm@linux-foundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org,
+ "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>
+Message-Id: <d52dcd45-959a-4ff4-9e82-0bae133785f1@app.fastmail.com>
+In-Reply-To: <874ikf9i34.ffs@tglx>
+References: <20260203162406.2215716-1-arnd@kernel.org> <874ikf9i34.ffs@tglx>
+Subject: Re: [PATCH 1/2] [RFC] debugobjects: avoid gcc-16.0.1 section mismatch
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_230410_562992_C480D1FE 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260511_071831_901778_8A4DE7E4 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,46 +132,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DWC driver already implements the 100 ms delay required by PCIe
-r6.0 sec 6.6.1 by checking pci->max_link_speed and calling msleep(100).
+On Sun, May 10, 2026, at 21:31, Thomas Gleixner wrote:
+> On Tue, Feb 03 2026 at 17:23, Arnd Bergmann wrote:
+>> From: Arnd Bergmann <arnd@arndb.de>
+>>
+>> gcc-16 has gained some more advanced inlining techniques that enable
+>> it to inline the is_static_object() function pointer into a specialized
+>> version of lookup_object_or_alloc:
+>>
+>> WARNING: modpost: vmlinux: section mismatch in reference: lookup_object_or_alloc.part.0+0x1ac (section: .text) -> is_static_object (section: .init.text)
+>>
+>> From what I can tell, the transformation is correct, as this
+>> is only called when lookup_object_or_alloc() is called from
+>> debug_objects_selftest(), which is also __init.
+>
+> So clearly the compiler is buggy. It creates an __init specific copy of
+> lookup_object_or_alloc() and then fails to attribute it correctly.
 
-Replace the open-coded msleep() with the new common helper
-pci_host_common_link_train_delay() to reduce code duplication and
-improve maintainability. No functional change intended.
+I don't see what else the compiler is supposed to do, it has no idea what
+__init means in the kernel, or what the rules are for calling between
+that and normal functions. Putting a non-inlined lookup_object_or_alloc()
+into a special section without an explicit attribute would clearly
+be a bug.
 
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
- drivers/pci/controller/dwc/pcie-designware.c | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
+>> I have not come up with a good workaround, so this simply marks
+>> is_static_object() as not __init. Since there are currently only two
+>> files where this happens, that may be an easy way out.
+>
+> That's a horrible hack and while it's only two files today, this sounds
+> like the start of a whack a mole game.
 
-diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
-index c11cf61b8319..7021d21bb601 100644
---- a/drivers/pci/controller/dwc/pcie-designware.c
-+++ b/drivers/pci/controller/dwc/pcie-designware.c
-@@ -22,6 +22,7 @@
- #include <linux/sizes.h>
- #include <linux/types.h>
- 
-+#include "../pci-host-common.h"
- #include "../../pci.h"
- #include "pcie-designware.h"
- 
-@@ -799,13 +800,7 @@ int dw_pcie_wait_for_link(struct dw_pcie *pci)
- 		return -ETIMEDOUT;
- 	}
- 
--	/*
--	 * As per PCIe r6.0, sec 6.6.1, a Downstream Port that supports Link
--	 * speeds greater than 5.0 GT/s, software must wait a minimum of 100 ms
--	 * after Link training completes before sending a Configuration Request.
--	 */
--	if (pci->max_link_speed > 2)
--		msleep(PCIE_RESET_CONFIG_WAIT_MS);
-+	pci_host_common_link_train_delay(pci->max_link_speed);
- 
- 	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
- 	val = dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKSTA);
--- 
-2.34.1
+After thousands of randconfig builds, I found exactly the two
+instances from this series.
 
+Since this only happens in a very specific case where a file
+uses function pointers to local functions and gcc is able
+to turn these into direct calls, I wouldn't expect this to
+become a widespread problem. It's normal for new compiler
+versions to run into some corner cases like this when inlining
+decisions change.
+
+>> If anyone has a better idea for how to deal with that, let me know!
+>
+> Mark the compiler broken and wait until GCC people get their act
+> together.
+
+I'll have to retest with the actual release compiler, maybe they
+changed something again that makes it go away already, otherwise
+there is probably a flag to tell gcc to skip that optimization pass.
+
+       Arnd
 
