@@ -4,97 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F29CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 17:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB27CD4840
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 17:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XXM2X9SYlLYRYWRNkHE0+qWGORsziRNo0N1tA+ZPIE0=; b=XX4StfC9hlVIw6c9kgjZPojAxL
-	HMYbd8juweNRiUCjIkxS38nWRg3uIAF9G8mU3ObxTxaY0lO9XAy64aBOwb/ptXFxEcghxsK970yoo
-	x3iXYWocxKeB82OK6LnuyWTl/JfgbN8j4XhmNuWK6hAojlLc+VyLI2vrgWnMnntIkxExXt8sRUmYf
-	1JII7UwREqolQhZ7djsAce9VB0Q3PEoVmmFeuKBpELcK/5/LbNkuttIWB6dtXMZMsbZ9OgTdPbKoT
-	wRyBFAHWEJjsuSTaX0MVOYBlMSKmQsE8wXjFiT+/R2LG6xqfDItP2CC5mK2QO4zwTay4Hn7cqcaZf
-	hIYVUPTA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=H/v/BO2s+C/N+KeMLepP9unKc4wiBqpI25gDLTzhr3g=; b=YLi+TBuCK1Iuo/aandeGmGVvBG
+	90f18+EBDJL45c48UaHVB1V6vs0oKc39qnm/7I/ZXGKbnaZBXrh/vSUrfO8e5w9A97tTt89J5L8IT
+	DhRNwD3euxgjOaIgIw9g/xODhdo7ZWkSyOdV0tk6YJVEMjeKu4N+jf1mPkzQyEa0wLvnC0O7FfqoY
+	uJZAdATrm0yDoQwG+188s2sTjodxvrU7u+S/b3qIQm3FJ9/xEa0ypMOibVtVNk76vf3368sGq0XJU
+	Y6MZcJVY0dKrTMzMamv6thYd4i3SZ+DEmc7PVDe9qI4TZFyLMuV+lK0vogYS1CIffjshuFmd8ETY3
+	WcbNbmlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMT1p-0000000E7pH-2kRr;
-	Mon, 11 May 2026 15:58:45 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wMUey-0000000EOg3-1HsY;
+	Mon, 11 May 2026 17:43:16 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMT1m-0000000E7o9-2g4s
+	id 1wMUeu-0000000EOf4-3aM7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 15:58:44 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 2AD631A1DD5;
-	Mon, 11 May 2026 15:58:40 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E7B5760646;
-	Mon, 11 May 2026 15:58:39 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9997811AF8659;
-	Mon, 11 May 2026 17:58:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1778515117; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=XXM2X9SYlLYRYWRNkHE0+qWGORsziRNo0N1tA+ZPIE0=;
-	b=ryA7jOa58GYC8dfsSB56xWrrBfwsW+Io5eZlHlum0Up9EmYRjLexcQZ4hnw7jsE0+Bk+XH
-	YEGvU76WIQswhHyZSSBl0sAn/EZ7aZbtYP3/hQhKeW3lH6h1XRgeaNw3ib/owpP7l+WjyV
-	yPd32HnkR1PhUauvg2GV526tgziwANj8g/D+cP7C9108skNY79D04h57NmqRI4OTMcOQuf
-	fN/7sgxt2uMxjX3qgxYKUc4CAxvxWWQ+dhuHveSUG7yi4numWgpVq4Dr7nF+HDIG0qkKFC
-	oYRYcf0Ow4WA8oGn/1URnqI9RGaI0UfJP8BGHYGpgCrirEj9bJWYvKZbK5Fmzg==
-From: Herve Codina <herve.codina@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Kalle Niemi <kaleposti@gmail.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Mark Brown <broonie@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Len Brown <lenb@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Wolfram Sang <wsa@kernel.org>,
-	driver-core@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
+	Mon, 11 May 2026 17:43:15 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-83538fbd0b2so1843633b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 10:43:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778521392; x=1779126192; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=H/v/BO2s+C/N+KeMLepP9unKc4wiBqpI25gDLTzhr3g=;
+        b=NV+XuDutsVdqC8RMSIFMqlR0M3Rix/lnCrhV9whMtb86kvTtBJ/j1CRXoYidfl5Soc
+         raVDxcSAGAdQY6E5lmSUfoecu4XgX0RgkSZyU5rlte+WQmgAfPjoz66CQrk2PHKIZbFN
+         hnWr9jcBD20c/8igcu2PsbMpqm0UE2PlYVSFywRhH9qk3KPgocm67g2qe2ezFxJYnF61
+         ZGCWRkARNHvJ+LQP+WFP4kn0KI0O0oSOn1oR4Qz5LjGxBsJQYd5IcFD1XCeA9FKPQTfn
+         jFvDeHDHkbiXxzgcn4a3NGKqmKnW1aGH3g7fM5Mmr1zeiva+KFFVGSPJSn4QDDEao4Rq
+         Tobw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778521392; x=1779126192;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H/v/BO2s+C/N+KeMLepP9unKc4wiBqpI25gDLTzhr3g=;
+        b=GHwG8KMjGhyu8upJQQcDLB+GCYkqfXYNLCiHvL7nr5krvgZwCwZra2/UMffcwrJfKZ
+         SgcGusdnYU7URWXeKaN+AGEMJJ67A+9fN6o09Q2H+AybVBwfFCziREox5xUNEJzM9vGZ
+         JniYvEXWS0LJcMGe+pG7TQzCCRb/6qCv/n+6x6TrjkoSlR69uwiZK0BcBeK7AfJkjQsP
+         wb/nP96899vbTFA3GlLptybNZsFbNT5Y/IKPr+f4R0GKdnfJXmtIxDuvr6puk7ZKRCyg
+         Y0wU6pI05fgKeXj1/ARBIFMeu6LcIkCwi8KuWB1YuLlWy+ykxlJyobaRFuOFKqrDdjil
+         LtIw==
+X-Forwarded-Encrypted: i=1; AFNElJ8s4EetgEegSgtV0TDun+HYmnjsqdn7wsMGfcbB3ZpWpKSyBtHyHlaMBttE7FCCozNYK+VrqeWMaumUMvGFuucF@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzXL+or9PbWaWk1S2lrkCtk0Qmku+mpoOkF2hCJ64fhSU5Sioz
+	DxivXBdStt8sVNXe5t6pypV4Vqfaj5Jp78M7uHjnrcgWW4YDVQjwGGqB
+X-Gm-Gg: Acq92OFSU9UJVYRvbebqNjubmrjDUJPFdaAItkxVMIie9Q/82cCf8CF9kTj6UT6qaB/
+	Y2lOuVH/CgGr37Gjsm3x0owGJtyy2Yhc/nYgdB6iS+RZXxvCzopv+WKOb0o+tnMu/Ar1MybXQJz
+	AVVW8ZvhxELfgxzNYK7Zn+3OC4eHGFNhmAaMU4P6HOC/pUQp++r2XUiSTs1o0x4G7g2jOE7lIPo
+	1UM248iqV7icD9SJDAAfOcFuJc87abcaoY5YXQDlZvqAxY5Z6iuZ0n/GK4r6CkP2Qg4vicFdluS
+	70nU/Yue/KR2MzlbZwPj/8VK0zopV80qmc4ivLp8P21ZeTgIwduWQ6kwQqB3qLUcyVDIYyYbUqt
+	i2MpSlen0Un57GovsX/eqeG6T0gCOagAieqGa/9YWWFUDigqeY/RqolK9243rKf0YouYZcwSRwn
+	4I/lsYGBWw2FrovpTT+mBluiH81DfFeDFu7/ll
+X-Received: by 2002:a05:6a00:4b12:b0:82c:6f07:299f with SMTP id d2e1a72fcca58-83e39c37b69mr9964792b3a.14.1778521391621;
+        Mon, 11 May 2026 10:43:11 -0700 (PDT)
+Received: from Strong10mede.domain.name ([122.161.50.8])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83965d34872sm21398367b3a.22.2026.05.11.10.43.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 May 2026 10:43:11 -0700 (PDT)
+From: Mayur Kumar <kmayur809@gmail.com>
+To: rafael@kernel.org,
+	daniel.lezcano@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	rui.zhang@intel.com,
+	lukasz.luba@arm.com,
+	festevam@gmail.com
+Cc: linux-pm@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Saravana Kannan <saravanak@google.com>,
-	Herve Codina <herve.codina@bootlin.com>
-Subject: [PATCH v7 1/3] Revert "treewide: Fix probing of devices in DT overlays"
-Date: Mon, 11 May 2026 17:57:48 +0200
-Message-ID: <20260511155755.34428-2-herve.codina@bootlin.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260511155755.34428-1-herve.codina@bootlin.com>
-References: <20260511155755.34428-1-herve.codina@bootlin.com>
+	linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de,
+	Mayur Kumar <kmayur809@gmail.com>
+Subject: [PATCH] thermal: imx: do not split quoted string across lines
+Date: Mon, 11 May 2026 23:12:55 +0530
+Message-Id: <20260511174255.215207-1-kmayur809@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_085842_814862_F87CAA87 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260511_104312_891605_6C5FB549 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,114 +105,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Saravana Kannan <saravanak@google.com>
+The checkpatch tool warns against splitting quoted strings across
+multiple lines. Join the dev_info message into a single line to
+improve the ability to grep for the message in the source.
 
-This reverts commit 1a50d9403fb90cbe4dea0ec9fd0351d2ecbd8924.
-
-While the commit fixed fw_devlink overlay handling for one case, it
-broke it for another case. So revert it and redo the fix in a separate
-patch.
-
-Fixes: 1a50d9403fb9 ("treewide: Fix probing of devices in DT overlays")
-Reported-by: Herve Codina <herve.codina@bootlin.com>
-Closes: https://lore.kernel.org/lkml/CAMuHMdXEnSD4rRJ-o90x4OprUacN_rJgyo8x6=9F9rZ+-KzjOg@mail.gmail.com/
-Closes: https://lore.kernel.org/all/20240221095137.616d2aaa@bootlin.com/
-Closes: https://lore.kernel.org/lkml/20240312151835.29ef62a0@bootlin.com/
-Signed-off-by: Saravana Kannan <saravanak@google.com>
-Link: https://lore.kernel.org/lkml/20240411235623.1260061-2-saravanak@google.com/
-
-[Herve: Fix conflicts due to f72e77c33e4b ("device property: Make
-modifications of fwnode "flags" thread safe")]
-
-Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-Acked-by: Mark Brown <broonie@kernel.org>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Mayur Kumar <kmayur809@gmail.com>
 ---
- drivers/bus/imx-weim.c    | 6 ------
- drivers/i2c/i2c-core-of.c | 5 -----
- drivers/of/dynamic.c      | 1 -
- drivers/of/platform.c     | 5 -----
- drivers/spi/spi.c         | 5 -----
- 5 files changed, 22 deletions(-)
+ drivers/thermal/imx_thermal.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/bus/imx-weim.c b/drivers/bus/imx-weim.c
-index f735e0462c55..87070155b057 100644
---- a/drivers/bus/imx-weim.c
-+++ b/drivers/bus/imx-weim.c
-@@ -327,12 +327,6 @@ static int of_weim_notify(struct notifier_block *nb, unsigned long action,
- 				 "Failed to setup timing for '%pOF'\n", rd->dn);
+diff --git a/drivers/thermal/imx_thermal.c b/drivers/thermal/imx_thermal.c
+index 38c993d1bcb..5aaacbc5347 100644
+--- a/drivers/thermal/imx_thermal.c
++++ b/drivers/thermal/imx_thermal.c
+@@ -693,8 +693,8 @@ static int imx_thermal_probe(struct platform_device *pdev)
+ 		goto clk_disable;
+ 	}
  
- 		if (!of_node_check_flag(rd->dn, OF_POPULATED)) {
--			/*
--			 * Clear the flag before adding the device so that
--			 * fw_devlink doesn't skip adding consumers to this
--			 * device.
--			 */
--			fwnode_clear_flag(&rd->dn->fwnode, FWNODE_FLAG_NOT_DEVICE);
- 			if (!of_platform_device_create(rd->dn, NULL, &pdev->dev)) {
- 				dev_err(&pdev->dev,
- 					"Failed to create child device '%pOF'\n",
-diff --git a/drivers/i2c/i2c-core-of.c b/drivers/i2c/i2c-core-of.c
-index 354a88d0599e..30b48a428c0b 100644
---- a/drivers/i2c/i2c-core-of.c
-+++ b/drivers/i2c/i2c-core-of.c
-@@ -176,11 +176,6 @@ static int of_i2c_notify(struct notifier_block *nb, unsigned long action,
- 			return NOTIFY_OK;
- 		}
- 
--		/*
--		 * Clear the flag before adding the device so that fw_devlink
--		 * doesn't skip adding consumers to this device.
--		 */
--		fwnode_clear_flag(&rd->dn->fwnode, FWNODE_FLAG_NOT_DEVICE);
- 		client = of_i2c_register_device(adap, rd->dn);
- 		if (IS_ERR(client)) {
- 			dev_err(&adap->dev, "failed to create client for '%pOF'\n",
-diff --git a/drivers/of/dynamic.c b/drivers/of/dynamic.c
-index ade288372101..aa450425ec1e 100644
---- a/drivers/of/dynamic.c
-+++ b/drivers/of/dynamic.c
-@@ -225,7 +225,6 @@ static void __of_attach_node(struct device_node *np)
- 	np->sibling = np->parent->child;
- 	np->parent->child = np;
- 	of_node_clear_flag(np, OF_DETACHED);
--	fwnode_set_flag(&np->fwnode, FWNODE_FLAG_NOT_DEVICE);
- 
- 	raw_spin_unlock_irqrestore(&devtree_lock, flags);
- 
-diff --git a/drivers/of/platform.c b/drivers/of/platform.c
-index a42224f9d1a8..53bca8c6f781 100644
---- a/drivers/of/platform.c
-+++ b/drivers/of/platform.c
-@@ -744,11 +744,6 @@ static int of_platform_notify(struct notifier_block *nb,
- 		if (of_node_check_flag(rd->dn, OF_POPULATED))
- 			return NOTIFY_OK;
- 
--		/*
--		 * Clear the flag before adding the device so that fw_devlink
--		 * doesn't skip adding consumers to this device.
--		 */
--		fwnode_clear_flag(&rd->dn->fwnode, FWNODE_FLAG_NOT_DEVICE);
- 		/* pdev_parent may be NULL when no bus platform device */
- 		pdev_parent = of_find_device_by_node(parent);
- 		pdev = of_platform_device_create(rd->dn, NULL,
-diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
-index 104279858f56..889e1eecc757 100644
---- a/drivers/spi/spi.c
-+++ b/drivers/spi/spi.c
-@@ -5003,11 +5003,6 @@ static int of_spi_notify(struct notifier_block *nb, unsigned long action,
- 			return NOTIFY_OK;
- 		}
- 
--		/*
--		 * Clear the flag before adding the device so that fw_devlink
--		 * doesn't skip adding consumers to this device.
--		 */
--		fwnode_clear_flag(&rd->dn->fwnode, FWNODE_FLAG_NOT_DEVICE);
- 		spi = of_register_spi_device(ctlr, rd->dn);
- 		put_device(&ctlr->dev);
+-	dev_info(dev, "%s CPU temperature grade - max:%dC"
+-		 " critical:%dC passive:%dC\n", data->temp_grade,
++	dev_info(dev, "%s CPU temperature grade - max:%dC critical:%dC passive:%dC\n",
++			 data->temp_grade,
+ 		 data->temp_max / 1000, trips[IMX_TRIP_CRITICAL].temperature / 1000,
+ 		 trips[IMX_TRIP_PASSIVE].temperature / 1000);
  
 -- 
-2.54.0
+2.34.1
 
 
