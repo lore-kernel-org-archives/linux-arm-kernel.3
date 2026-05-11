@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DCCFCD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 18:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356C6CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 18:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S08ARNK4JyjFSmUJ+5xcB6ex0c/0uNFUV+SgRIJsO5s=; b=JsmdBx9DmRAaIS1TqbK5ZFGLAQ
-	qO0Bd4vcMPllEJXfw0LVkIZgIdWTDQx3RDWhlkTrHLaiLvy4UUwbLRTJI0i5enCG3DNRwBRGOr45t
-	QBrLkH3ZcVA1hJ3581c9u1sXecPVOTHbeXMcyS9ZrxhyLxgd88DtFFKFBPR+vehowh9YHw1k6SqNc
-	+n9w2UiIuuK0mvHWRk1whzz7VFu5cRP4Y7S5aW/ipm5oKh7fD2c9BwrZkUIn8QxgC6+wMb3SOXMJ3
-	cqUdbp4OC2Drz8jblw94anIPupbY47Uhsq6mMwRd2raOa28U9fwZdwNyCR3a4gAaeG2WieC7oSieo
-	O3d9mdTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UzghNUT8txexFJCdbHTb6EbJJDc5OYiK3uW8TFQuhMM=; b=JsJIKWU35gupx/QvU0u6sqbkyd
+	TZYAv9eSdNX5SzgeB19uI7AmPo3Erd+Tf6/okCw8vrip2+NLHBoASA8iPGiWfoGvsCdedr0Vb7gLc
+	tmSU6YnmPlQMu9+N287DIkExQV8r/2RwLqhCzASn2X8amw6oQkdj6AhV7gw2dCeYRGbcafUB5hh86
+	k+/ZFoddPHAkUbtIZqTq+4O5lmM9I5TWWxp/31NXEQ9cCbdTnxsHacyeQG0HmfP1P5XSU0TdOPMLM
+	fQg+v5kT9TAiH+Exg5N9hbo58cpMTKY0LEP6uNZaE4j1UevS4nbeqsBGaatBagOfy6XkJMo9+2Lxl
+	/vAtIB0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMV8k-0000000ESrE-3ulO;
-	Mon, 11 May 2026 18:14:02 +0000
-Received: from mail.hugovil.com ([162.243.120.170])
+	id 1wMVDN-0000000ETWo-26um;
+	Mon, 11 May 2026 18:18:49 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMV8f-0000000ESpj-1pVI
+	id 1wMVDJ-0000000ETVi-46EP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 18:14:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
-	To:From:Date:subject:date:message-id:reply-to;
-	bh=S08ARNK4JyjFSmUJ+5xcB6ex0c/0uNFUV+SgRIJsO5s=; b=k/nqdyIA4uz/7q7lLSmEW3s1Lh
-	mpcsX4NwWiCr/zGvf1NN8TyRDt9KBqs/gYg/5h0m9Jshi34R5p19KCtp6w2+dv8f1pxclfwKjm4zR
-	iIZIFJDLiPQ8cni40gI+YrmvclJtLmWcE1+6gh46GICm359dhW4KeN80P8nsR81p1cuk=;
-Received: from modemcable061.19-161-184.mc.videotron.ca ([184.161.19.61] helo=debian-lenovo)
-	by mail.hugovil.com with esmtpa (Exim 4.98.2)
-	(envelope-from <hugo@hugovil.com>)
-	id 1wMSng-000000004IO-1xyo;
-	Mon, 11 May 2026 11:44:08 -0400
-Date: Mon, 11 May 2026 11:44:06 -0400
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Hugo Villeneuve <hugo@hugovil.com>
-Cc: krzk@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, Frank.Li@nxp.com, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, shawnguo@kernel.org,
- laurent.pinchart+renesas@ideasonboard.com, antonin.godard@bootlin.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Hugo Villeneuve
- <hvilleneuve@dimonoff.com>, Krzysztof Kozlowski
- <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v2 14/15] dt-bindings: display/lvds-codec: add
- ti,sn65lvds93
-Message-Id: <20260511114406.24673c770d112b2ca4aba2eb@hugovil.com>
-In-Reply-To: <20260305180651.1827087-15-hugo@hugovil.com>
-References: <20260305180651.1827087-1-hugo@hugovil.com>
-	<20260305180651.1827087-15-hugo@hugovil.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Spam_score: -2.0
-X-Spam_bar: --
+	Mon, 11 May 2026 18:18:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=UzghNUT8txexFJCdbHTb6EbJJDc5OYiK3uW8TFQuhMM=; b=Svt1i7E7y0/08/Z+DzdyOhPsu3
+	cjCGgikyfsBuQ78H8BQsgU6RWNsRiDoyUHNMSa7aqhb2LyfNOcsinu+3i/qoj43i6bx8XBo64xfEf
+	MCj3PsNwnWHh5s1uZcp+s04ZWd82kZSLNO5s/bs9SsI8xPE5tHHQdySpiQU1zJx4IT2Q=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wMVD2-002QBE-6n; Mon, 11 May 2026 20:18:28 +0200
+Date: Mon, 11 May 2026 20:18:28 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: tanmay.shah@amd.com, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	Beleswar Prasad Padhi <b-padhi@ti.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+Message-ID: <4ae35920-2539-4b12-8dea-efd407b8aaeb@lunn.ch>
+References: <472f85bd-42c2-40c6-abfd-b76924797069@ti.com>
+ <CANLsYkzt9xUczxSU28u-TfZAAjr0ufZKXAj8Eqfq=45gufXW3w@mail.gmail.com>
+ <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com>
+ <21de8440-adf7-454b-acfc-06e50882e075@ti.com>
+ <4c526816-b127-43e7-86e9-eee4dc1152bc@foss.st.com>
+ <c6f68ab5-271a-41ed-b285-75b739f1edd6@amd.com>
+ <87850f70-5275-4393-941f-d01146a9cffc@foss.st.com>
+ <da3b79b7-9dad-48cb-b552-cf6df445899f@amd.com>
+ <08c815f5-ccbe-404a-95a1-a549aac8a55d@amd.com>
+ <CANLsYkz8HpM_8eS7DjN_jmYs4T7P9xY0jYmdiAx5WO=_1zvFpQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CANLsYkz8HpM_8eS7DjN_jmYs4T7P9xY0jYmdiAx5WO=_1zvFpQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_111357_477658_18CEB4C9 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20260511_111846_020832_2EA8A453 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +97,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+> Arnaud, Beleswar, Andrew and I are all advocating for one endpoint per
+> GPIO controller.  The remaining issue it about the best way to work
+> out source and destination addresses between Linux and the remote
+> processor.  I'm running out of time for today but I'll return to this
+> thread with a final analysis by the end of the week.
 
-On Thu,  5 Mar 2026 13:06:29 -0500
-Hugo Villeneuve <hugo@hugovil.com> wrote:
+How many of the participants here will be in Minneapolis next week for
+the Embedded Linux Conference? There is even a talk about this:
 
-> From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> 
-> Add compatible string for TI SN65LVDS93. Similar to
-> SN65LVDS83 but with an industrial temperature range.
-> 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
+https://osselcna2026.sched.com/event/2JQpx/building-virtual-drivers-with-rpmsg-key-design-principles-challenges-trade-offs-beleswar-prasad-padhi-texas-instruments?iframe=yes&w=100%&sidebar=yes&bg=no
 
-Now that this series landed in linux-next/master, except for this
-patch, we now have an error since it is required:
+Maybe we can get together and decide on the final design after the
+session.
 
-https://lore.kernel.org/oe-kbuild-all/202605071909.lXKPelNA-lkp@intel.com/
-
-Hugo.
-
-
-> ---
->  Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml b/Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml
-> index 4f52e35d02537..f2cb74b86cc05 100644
-> --- a/Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml
-> +++ b/Documentation/devicetree/bindings/display/bridge/lvds-codec.yaml
-> @@ -37,6 +37,7 @@ properties:
->                - ti,ds90c185   # For the TI DS90C185 FPD-Link Serializer
->                - ti,ds90c187   # For the TI DS90C187 FPD-Link Serializer
->                - ti,sn75lvds83 # For the TI SN75LVDS83 FlatLink transmitter
-> +              - ti,sn75lvds93 # For the TI SN75LVDS93 FlatLink transmitter
->            - const: lvds-encoder # Generic LVDS encoder compatible fallback
->        - items:
->            - enum:
-> -- 
-> 2.47.3
-> 
-> 
-
-
-Hugo Villeneuve <hugo@hugovil.com>
+	Andrew
 
