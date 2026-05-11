@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3428BCD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583BDCD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=einb+LGW29zvKkRAbk+nPhb1KojYNvAwOrPEsK42Qx8=; b=HzT+9CtyC/I6+6MLSOSKzPxxr1
-	r17m4vRR9gl+VB+DcF1rhGD1Rz9qE3K3+oNbXPor8U0OSHlcGY59dHIQYQaxqdJHBTbwa3sxVjvb4
-	ZzU7Vu0//Vgnx/dnyn69ILvbFP4pyBV0y0djMdMQdbs5UikePnKujCYSlAC6/5Uy2FLjDpF17gUXO
-	WFfd6XFnvS5n7dev1k4VIvndrMEOPgft1Ti5aN1+dKkLldomJaRCK5Czv+UzXZNW4vjWuv9lrlpVL
-	h0/84JZrV0l77nRcH6jWFAJj8dYZfuXyqynnKMzfU7lOTQ86Oq/fpyevqdhCszrzbAEivZQdscJSV
-	mIuK4X3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CHWvvtbTIu1mQKjnKa9yFklrVhAdisq4naBElgvnqpA=; b=ym0QWSD4lIbedJ/eOMsuq6HSxE
+	Ykuv/pakYc/VgMTBPmMGJpo4ocbRnu5bR87HqKK7Ph+5A+kwdi89RH9Z4gRZomNICvAE7I1mwnfal
+	x/bcz1dXwyD1eKgjwMcGb3keDT5D5/VFVbYTwQNb+yYQh6R8c1Hx7XgckrOVFDYOK78XVEMKRIftY
+	cAvfDmKZP/zNgTVOa67w+KCOM300ClBQ+JPy0uYAjZeQtI4TqmAfiDR4ne94WaDEhqYNUaZvjgTm8
+	DZ918RC1W2RZzRcCwAY4chItJda8ysoqX8Ik6anWIdE7EbDOa+uVmpL184+sfI8afbQ6ZrCRR25/D
+	gGhqFWmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTKj-0000000EB3t-1BLx;
-	Mon, 11 May 2026 16:18:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMTLM-0000000EBD7-24Lz;
+	Mon, 11 May 2026 16:18:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTKc-0000000EB2k-2khv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 16:18:15 +0000
+	id 1wMTLL-0000000EBCa-2ggQ;
+	Mon, 11 May 2026 16:18:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3575B43E56;
-	Mon, 11 May 2026 16:18:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36D5CC2BCB0;
-	Mon, 11 May 2026 16:18:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1C86B600CB;
+	Mon, 11 May 2026 16:18:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F270C2BCB0;
+	Mon, 11 May 2026 16:18:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778516290;
-	bh=YxvORiIZBfulrMnrmjoNFiu0qMUXNTX2BFKfPnRUsNc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=AJR4Hyjsk4FhXdj2HAqhzZ+l93E+n6xFXon4ZLKmdNtt+WHm72+lo2v7QAb83evev
-	 4RJLqH2QIofV0dZ9x/zFWr0iEDCB3IiFXX+zJJU4o+6B0uKziqmnqAXyvkXGIfsuvf
-	 YTgA9wjg4hVFnSDZ7tO/pTxWIUQVv8tFAF2tkF5ekXyz8/S+LWJyPLpceFy6jYJ5ru
-	 UJMBFl44AEM9RF96zUf5qjCQSd82zBi2KbOo5wrspD5vukEwpJRHgqJ7GnSDyPjjAk
-	 OX7Fs1HsIhBAy735SxPKnV+suhmGaml/Q8kL1jlg/SIepZ/ZwikGFq2Ccp//4+uvTj
-	 0Fcg7cB5f2A3g==
-Date: Mon, 11 May 2026 17:17:59 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Pramod Maurya <pramod.nexgen@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>, Lars-Peter
- Clausen <lars@metafoo.de>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] dt-bindings: iio: adc: Convert xilinx-xadc bindings
- to YAML schema
-Message-ID: <20260511171759.46a95f8d@jic23-huawei>
-In-Reply-To: <20260510120141.118057-1-pramod.nexgen@gmail.com>
-References: <20260510083219.70224-1-pramod.nexgen@gmail.com>
-	<20260510120141.118057-1-pramod.nexgen@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20201202; t=1778516334;
+	bh=U42E3LWzv0TbWP6oMpvlSaV2MRzXzGekhXV6lEcRbbw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bp5IggbtfeBSdhgblUSlx5B9HKMPMNBePGqseTxadNe/RW825h2Z3OeVKgEDn3tcd
+	 xR3p4DuwGz3q9YXyxWYPblbXKoiI/tl6KzE3P2pfCLBgMHVySY/JLfAe77NL7aVBJZ
+	 Gp6TKLJ0a/MSOsI9UmCKZJxU020GgO6lwRQs3sLdLbdgfXGNyewkbUCc91qq4YOKDu
+	 xvMiYzOipBjq2iJvWHbxoWmxAFedqQd4iXjrt6KNElYEJ2qH5z+Bk0UQHqR4IxMIrx
+	 9MQmVrHtTuLRxBojQCIvevJ6espW6NozkWG+87beE1gvTi9gls3oCzx98M5NWzqzuz
+	 t/g6f7FJAkwVg==
+Date: Mon, 11 May 2026 21:48:51 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Algea Cao <algea.cao@rock-chips.com>,
+	Dmitry Baryshkov <lumag@kernel.org>, kernel@collabora.com,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/6] phy: rockchip: samsung-hdptx: Clock fixes and API
+ transition cleanups
+Message-ID: <agIBa7qxIGgqCYZ1@vaman>
+References: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
+ <agA1dFpheTaBfyUt@vaman>
+ <c76d7020-2b3b-4f30-ab40-a8442c953966@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_091810_761601_68B40123 
-X-CRM114-Status: GOOD (  11.36  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c76d7020-2b3b-4f30-ab40-a8442c953966@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,27 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 10 May 2026 08:01:36 -0400
-Pramod Maurya <pramod.nexgen@gmail.com> wrote:
-
-> Convert the Xilinx XADC and UltraScale System Monitor device tree binding
-> from the legacy plain-text format to a YAML schema, enabling automated
-> validation with dt-schema.
+On 10-05-26, 11:55, Cristian Ciocaltea wrote:
+> Hi Vinod,
 > 
-> The new binding covers the same hardware and compatible strings:
->   - xlnx,zynq-xadc-1.00.a (ZYNQ hardmacro)
->   - xlnx,axi-xadc-1.00.a  (AXI softmacro)
->   - xlnx,system-management-wiz-1.3 (UltraScale System Management Wizard)
+> On 5/10/26 10:36 AM, Vinod Koul wrote:
+> > On 27-02-26, 22:48, Cristian Ciocaltea wrote:
+> >> This series provides a set of bug fixes and cleanups for the Rockchip
+> >> Samsung HDPTX PHY driver.
+> >>
+> >> The first part of the series (i.e. PATCH 1 & 2) addresses clock rate
+> >> calculation and synchronization issues.  Specifically, it fixes edge
+> >> cases where the PHY PLL is pre-programmed by an external component (like
+> >> a bootloader) or when changing the color depth (bpc) while keeping the
+> >> modeline constant.  Because the Common Clock Framework .set_rate()
+> >> callback might not be invoked if the pixel clock remains unchanged, this
+> >> previously led to out-of-sync states between CCF and the actual HDMI PHY
+> >> configuration.
+> >>
+> >> The second part focuses on code cleanups and modernizing the register
+> >> access.  Now that dw_hdmi_qp driver has fully switched to using
+> >> phy_configure(), we can drop the deprecated TMDS rate setup workarounds
+> >> and the restrict_rate_change flag logic.  Finally, it refactors the
+> >> driver to consistently use standard bitfield macros.
+> > 
+> > Sorry looks like I have missed to review this one.
+> > Can you please rebase on phy/fixes and send...
 > 
-> Signed-off-by: Pramod Maurya <pramod.nexgen@gmail.com>
-On another note - please slow down.  I now see that v1-3 all came in less
-than 2 days.   Typically wait around a week for a significant patch like
-this - that gives time for multiple reviewers to take a look.
+> I've just verified and it applies cleanly on top of phy/fixes.
+> Do you still need a resend?
 
-Maybe we can relax that given the v3 many versions confusion - but I would
-still wait a day or so before sending a v4
+Yes please, it didnt apply for me
 
-Thanks,
-
-Jonathan
+-- 
+~Vinod
 
