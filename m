@@ -4,128 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15A5CD37B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:27:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715CACD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nqzoWKkrt5+c9FGYZMvWgmfyorU4cLeLEBcnPFydhV8=; b=BTWGz6rKDLxOSBiltih+VTF2EO
-	L7mygjjsQyQm654xqYSlnjsw55RVaLUD0EKAXD5iC2X4A5dzE/xMqEu2+mcu4hCOs0i3DdLkLfIzn
-	0gRGCDxkZvBXOx5jTVzouTiFt2Z7rjp0N5aEad2dWsPi4sRjgA3eE2j8ZYtWIapuXjTEhopZSTD+6
-	l1VY+vzlsShopqgDdJli1TyodBqjGc9UywyNg+DiNqvISulls3PKERfkuZ2F0ZN8g2RzpBdxHroCi
-	r0CQpur3Zon4FYUqIhTebfrEby9QKO5lgLMz9zTHg+nzX+MDVS95cbC7gH4mKN8Hlm/ta28yzeEIc
-	ax6Z/Xag==;
+	bh=OztclyyLczK/hh6BT3LtFiwzggdQIkucJi754c1MwFo=; b=tl1lNy7PXpEKUBvtJQiCkrX/ls
+	UA8NYdBaJRoIhgFwfNwLupIBfxSHY9WqiCrgD5Lb8efD1CH0sn4AiWVNilU8otwTeukB97usZUl4K
+	LV5YHa2v5goCzO05ngqb4JIh2+NTnkNy5H7SwILkKSwAllUOIjT9LMKrklWTICCOKtInfZ3pDc1dk
+	HqJfMv5CS0bezNto+jVsiyecPvoDE0oCkudpJLNHszMOohb8ftPTY20GlT3Od0Z80UsNPrGHX0uh9
+	F1qOdsHrFH8LH2P6newR0QL6BpHFE53MGe2X2gy6HWLIUHcnssCYO1CwGEsLcUn6mkX8iJB/a9trj
+	yt24qwYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNqv-0000000D6Qx-1Slf;
-	Mon, 11 May 2026 10:27:09 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNqs-0000000D6QG-0H1A
+	id 1wMNwo-0000000D77w-0Jn1;
+	Mon, 11 May 2026 10:33:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMNwl-0000000D778-28sp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 10:27:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c5zTmM8AbiGu5f90O9tPO6TaAOlIzD0uMRAlzLNtHNg0fmMwY4e09oBlQLHOvWc1tgsgfG5ZrQz01ZhDa5Ll03xHqwMWOg2qXw5BVcTQEbPUQ+Pj1bVSQ+sVnSP0NBgw3q/qd2gX8IDJEPoBZVInitjYOuSum0oVz9z8yVQ9jxyMtnL6lrXzVxwtJHCG6sow7Er7l6eqtkagyd9Z5BVdtdk9YpdrnFY7hZMr2ODKIdusIURlchIeMmGlor3TnsSsr1V8v/3KfGsmmXBAnuzFmAm51g2LGpqRz7HzTCoiqJq7+fV3OsSYFXa61cXnVeJGp5jIBGy5vjP3HgM+C1W9hw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nqzoWKkrt5+c9FGYZMvWgmfyorU4cLeLEBcnPFydhV8=;
- b=yu9tfRzd5C0v5Rbm5tbmxfPHrN65/X75+60CYBPFPIvWkm7k5F5YMrsvTSc49MXcqKLTtPsLTuB1yz6tE78yJl8vHZ7K/ldV6inxmI3UnV/P0WAMLvKZU00VU9NNDkYIOHh9D/qcZMEF1nUxoAc+1HheGHfirF0ylBE6iw4F8dkyYAcXkQfb2tJCz5W4gsnjuSUCDWlo5Rikalv98cj7qct8pmTh2n7pInBIyUF1yQN4YVMv1BJMW6DNSMulsjxKhE+RfH+B8EyXx3wAFmjMTAfe+iKpG4UUPN+eNjKPb4jy/5mP8QDtz8wn/Zqov+cSjBeU8NSzTK39cHHtWfv8dw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nqzoWKkrt5+c9FGYZMvWgmfyorU4cLeLEBcnPFydhV8=;
- b=kTrLS6EQxWfSyiFTmwQ6n2yZLTpvfpbNPGMS3TnqkSRHosegBzzQw0FqJnJ7KDn6LjS3sdXGZbfIAxjd1455GImq0ZjlgmPxQlApfYpWOSAtyL6ic6qdq+iQZfTAUIMlnxpQr9l/PWkrqvZSiJR+BEIerYrh4LTD0POuupw9fe1a3Jo3YjjCI7itre6l+VtpJuD3iEOy2FrmwApjPRU7/M/vSMK18ugmAMhuhE6LctDj22T2W4c5xwZ/PjiUv+ChgWzgFbuMAYjOzFbBDN1QJH8irAO6zf8uvzKtwPVV0iUQFclTeGAk4+gyhIjShCpHpOK3BPMFB+v4QGitz5b8eA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL0PR12MB2370.namprd12.prod.outlook.com (2603:10b6:207:47::27)
- by CH8PR12MB999206.namprd12.prod.outlook.com (2603:10b6:610:35a::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 11 May
- 2026 10:26:58 +0000
-Received: from BL0PR12MB2370.namprd12.prod.outlook.com
- ([fe80::86cf:c3ec:2cf5:74c8]) by BL0PR12MB2370.namprd12.prod.outlook.com
- ([fe80::86cf:c3ec:2cf5:74c8%5]) with mapi id 15.20.9891.021; Mon, 11 May 2026
- 10:26:58 +0000
-Date: Mon, 11 May 2026 18:26:54 +0800
-From: Richard Cheng <icheng@nvidia.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] coresight: fix missing error code when trace ID is
- invalid
-Message-ID: <agGtIfD0W74ls2c8@MWDK4CY14F>
-References: <20260511-fix-trace-id-error-v3-1-ac4c8356efff@oss.qualcomm.com>
- <agGd1AB19yz0U2s1@MWDK4CY14F>
- <146d34e9-caa3-4119-a3f3-79515b3f2c46@oss.qualcomm.com>
+	Mon, 11 May 2026 10:33:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD44816F2;
+	Mon, 11 May 2026 03:33:02 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F6913F7B4;
+	Mon, 11 May 2026 03:33:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778495588; bh=1zz4iLlSqYaMCJbIXCtz3FcQ975CxkzT/YCCW/dIHjk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O7ITqkFurFuZ39Lwji9sC3GZKl/uLGBGRadYsCOz6TCBeQ6JyE4TxYQl3HPrOy1Ok
+	 tmz2tGrWARYyWqYgV/BXEhy6202SV/JSuCbRjSPq4XXYhqqVi6OmRZKIWlmmJoXqwH
+	 cLsH18Zz4yGDg1Kaj/BYZPQRnSB5j7UOpJCVAAeo=
+Date: Mon, 11 May 2026 11:32:56 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v10 04/30] arm64/fpsimd: Determine maximum virtualisable
+ SME vector length
+Message-ID: <agGwWE2hcj9O4EGu@J2N7QTR9R3.cambridge.arm.com>
+References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
+ <20260306-kvm-arm64-sme-v10-4-43f7683a0fb7@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <146d34e9-caa3-4119-a3f3-79515b3f2c46@oss.qualcomm.com>
-X-ClientProxiedBy: TPYP295CA0029.TWNP295.PROD.OUTLOOK.COM (2603:1096:7d0:a::6)
- To BL0PR12MB2370.namprd12.prod.outlook.com (2603:10b6:207:47::27)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL0PR12MB2370:EE_|CH8PR12MB999206:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ae676c7-dd10-4567-ec25-08deaf47d4f8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: GDgDGEKdC/idlNPwllEAsDCjdOGYPOT5MvEWRh2lcGMbTq30gGNI5nTZqIz000MwaYytX6LFTd9apBWRU330TcU/vFKQA4/qTj/N5tpE1OWXJPK5fYwvbABmb16DD3i60qPK7h+VCgya3AaUeqhaaIGnUFvITJg93fGfb52rNHDg8nwqH7595iU61xnFwANROfmegrvJzQfYTBmfqeKisKI5tdJ61XuCKPF6dfIy6BKERibuEObgB3zTP6POlMxwZVeCMyzVEizyiJartHh8ATPUMpQNmDoh3RNVPPGnHhNHHTWTZJ7/p5bO0GS0JDjL7ehPsEHcZHBEQqKMK6JzO0mHbYnnAkjJIMV1v+8OfCMDCCFvk0+oZEgX+2bdREwjngAYkPK6Tz3mQISB0TIdaU8p989brHW91mAaxjJzEEzKjHQB0XDk4wrbv24KXSfC/Yc/Dz1NjInZ4auRbODuNeP6Zht4yi9nC7jerEGwPCEbs/TIUHGz6I04NqIQZlj/ARla57tMKmdR8qPTe+tE4cqf6XNg++DATH/cisUMVPXzSI7JCl5sYFMw3P3p03ENRxf6kf78N0tGvfV44Kp1m6SPP6692NnQEFJDlSavvFpsHu4KPOXTftf+/uKm7NsLQVQP/v2IJzlV7ZWcxtdixTXlH/nEdDwwEMP2TYsqmVAqb4lNPRx4mPmPK0Ce+/Jdw0CwtaCqMQStdPt/bwnpXA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR12MB2370.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8Fol79zWm8ffzUerTo36wVfdQ0KpfVBKJsDw3MCcYPBaAFfeexL6Ubidbzqg?=
- =?us-ascii?Q?4730sg/sRUsbYMlw85zuJ8ogDFYeScQ/qEnmoKWZ3rjqOXk/NRpypjB63sY4?=
- =?us-ascii?Q?0MvDSfMlo03YlX7xRbbhUnd0sYQMJK5SqJ4SjLEIDPnnpln4QuAPNprrrjvR?=
- =?us-ascii?Q?xN1CXZ2aFKog206lbIp4BmPlTSwEx0CYnGGc4ZldnYwzN/dTlk7WO1eDK+yY?=
- =?us-ascii?Q?b4kEphLB+bjbB1vdyvIl+e9g41uV7KtR/A1kDqGbhS+lJ8QW0wOP8FLAWRui?=
- =?us-ascii?Q?7gXoY0yBVz06EZwQ9FBFhVs1IcejtEQtqLOPGqmMLgsyF+DEhUZSjYLu8Oes?=
- =?us-ascii?Q?uxLsm03iF7ThAlrNB8nw+289Elo3ly3Dx+8GxZFhUAJllc6I09bVf616QWct?=
- =?us-ascii?Q?sb2FDzjW4s2hAaASHoRuZbWVmdb2YiudD2oaScKBriyyGtv1/QqLQbkJPQFX?=
- =?us-ascii?Q?CYda9DG7YbJkLailBs0nVAH5imTVGJ5nafjP4Dfh1ehCayD8bntS3GYIBkYT?=
- =?us-ascii?Q?Fyc2YkwibEPyGgHwRdzmArsa9QnrprXj4K5lw2vj9A7Ve/z/iYETP9kSxYHd?=
- =?us-ascii?Q?u5Cyqa/NiAzV/9mu+kBLsggNFK+tPDWQtKp7UNPCeWC0Qo3Z4wipHcrmsCUG?=
- =?us-ascii?Q?ttu1+ADtazYf3WXiFOHW7U+nPE4noIa2Ggd+8f1+rse5bJkdlUFckpIPzZs6?=
- =?us-ascii?Q?T1a4WtwBrDZenWz6oa47iyxilynH/UcBccPDvEOBTPkmR/MgcObZruN1NIWn?=
- =?us-ascii?Q?PpxNu6eN56a4N904IlWaoqch4xGytaf+taN68mBIJHUSju8IqeTjDPvG9uvP?=
- =?us-ascii?Q?wtiPFbc8RUlppLWoqpf2nFGxnLYxpNWiUfH9wyA1oHTjyZeS4wylaaK1QRou?=
- =?us-ascii?Q?L1jrST6i16M/UP/56TVeW4Qpeg5/rTqNFQnQ4kWUAkygECf8StbRcZ7KMBeT?=
- =?us-ascii?Q?cQG2gn17p3hRo3MCxFGVUOyZ/d4FpkVjUSBwY0YmazTq3FnoSGRDjoXbI6wo?=
- =?us-ascii?Q?ybJhqcgEH3Ni6U+TyAr4JJFDun7mb6UYPG6XFx4A/bYz/yDdCHCW8B1NqjXq?=
- =?us-ascii?Q?25WA/SMqbC1ryCzl1foY1TYXi0b1/sgsYgCk6GOQZUip7wquvIMfHJutDPV5?=
- =?us-ascii?Q?A1MStu8jLvjrfRrU8xwpHNrzk16OhJSeW54aCVwjp4Ur9xkxlk3GLepPVZKD?=
- =?us-ascii?Q?PulLSvH/beaBo37E/H4O1tSouEC0v5XB8/e3yXtAcdbBn03wAlI8vrPMQoQ7?=
- =?us-ascii?Q?PR93XutS0t/zdRkFlsNiDolakIqWG/zwX9U6RFe0/X1EQb+5gmfSEwvaHK3q?=
- =?us-ascii?Q?eD41yGhkdrzjPV4MurUsU54C2rqIjMvhstHMqwyLo38dFPInn8SnJ30rPeMQ?=
- =?us-ascii?Q?v9KYstmGQBGCKi+7KG8MO5rVGkkW5uMcCKOqjn6x/1gZF0II3VEkgCiGnToR?=
- =?us-ascii?Q?fGqHUTX5F2dGoLmlqLkEd5zGZn4CCCWuvjq7kg8LkKR++zDOnhO3q0cLiieq?=
- =?us-ascii?Q?xv4/IsQRmZw2CyhTOt2OjhuML7XbwBzDMqrjSHVN0dglA+ZKHLNlq9nRIShY?=
- =?us-ascii?Q?tY4WQ856hwNRRG4QN+YJJomX6AlEw+Io3QycfzHkJUOQsCEtl6CgvsXzkLGC?=
- =?us-ascii?Q?BdaixSeMtacifSzkpV43OIGH7R/f9sq//OQgeDEHrhf0GHE0+/CZhpMheOmI?=
- =?us-ascii?Q?KwZf7+dNJ67j7sfiUUUbuWEg71bj1JnAe8zFjrsGwwR5e7ENMMpm09+/rHuD?=
- =?us-ascii?Q?rsU2noXIJA=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ae676c7-dd10-4567-ec25-08deaf47d4f8
-X-MS-Exchange-CrossTenant-AuthSource: BL0PR12MB2370.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 10:26:58.7035
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OmudLtc0/O6GpOHHyXXesOjHYvqehm16FD0awkxB5aQ0TXDtBf/j2UJyqNHMqPAJTmo5pg6oZaWYkxlOI7oO0w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB999206
+In-Reply-To: <20260306-kvm-arm64-sme-v10-4-43f7683a0fb7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_032706_210993_B6A3FC51 
-X-CRM114-Status: GOOD (  37.63  )
+X-CRM114-CacheID: sfid-20260511_033311_852773_6D0B7E66 
+X-CRM114-Status: GOOD (  32.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,144 +80,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 05:27:10PM +0800, Jie Gan wrote:
-> 
-> 
-> On 5/11/2026 5:19 PM, Richard Cheng wrote:
-> > On Mon, May 11, 2026 at 04:36:18PM +0800, Jie Gan wrote:
-> > > When coresight_path_assign_trace_id() cannot assign a valid trace ID,
-> > > coresight_enable_sysfs() takes the err_path goto with ret still 0,
-> > > returning success to the caller despite no trace session being started.
-> > > 
-> > > Fix this by changing coresight_path_assign_trace_id() to return int.
-> > > Move the IS_VALID_CS_TRACE_ID() check inside the function so it returns
-> > > -EINVAL on failure and 0 on success. Update coresight_enable_sysfs() to
-> > > check the return value directly instead of inspecting path->trace_id
-> > > after the call.
-> > > 
-> > > The other caller in coresight-etm-perf.c discards the return value and
-> > > continues to check path->trace_id via IS_VALID_CS_TRACE_ID() directly.
-> > > This is unaffected: on failure path->trace_id is no longer written, so
-> > > it remains 0, which IS_VALID_CS_TRACE_ID() rejects the same as before.
-> > > 
-> > > Fixes: d87d76d823d1 ("Coresight: Allocate trace ID after building the path")
-> > > Reviewed-by: James Clark <james.clark@linaro.org>
-> > > Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> > > ---
-> > > Changes in v3:
-> > > - directly return the value for clear expression.
-> > > - Link to v2: https://lore.kernel.org/r/20260509-fix-trace-id-error-v2-1-c900bcbab3e9@oss.qualcomm.com
-> > > 
-> > > Changes in v2:
-> > > - Refactor the coresight_path_assign_trace_id function.
-> > > - Link to v1: https://lore.kernel.org/r/20260508-fix-trace-id-error-v1-1-5f11a5456fdf@oss.qualcomm.com
-> > > ---
-> > >   drivers/hwtracing/coresight/coresight-core.c  | 14 ++++++++++----
-> > >   drivers/hwtracing/coresight/coresight-priv.h  |  2 +-
-> > >   drivers/hwtracing/coresight/coresight-sysfs.c |  4 ++--
-> > >   3 files changed, 13 insertions(+), 7 deletions(-)
-> > > 
-> > > diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> > > index 46f247f73cf6..254db91a8ac9 100644
-> > > --- a/drivers/hwtracing/coresight/coresight-core.c
-> > > +++ b/drivers/hwtracing/coresight/coresight-core.c
-> > > @@ -739,8 +739,8 @@ static int coresight_get_trace_id(struct coresight_device *csdev,
-> > >    * Call this after creating the path and before enabling it. This leaves
-> > >    * the trace ID set on the path, or it remains 0 if it couldn't be assigned.
-> > >    */
-> > > -void coresight_path_assign_trace_id(struct coresight_path *path,
-> > > -				    enum cs_mode mode)
-> > > +int coresight_path_assign_trace_id(struct coresight_path *path,
-> > > +				   enum cs_mode mode)
-> > >   {
-> > >   	struct coresight_device *sink = coresight_get_sink(path);
-> > >   	struct coresight_node *nd;
-> > > @@ -755,10 +755,16 @@ void coresight_path_assign_trace_id(struct coresight_path *path,
-> > >   		 * Non 0 is either success or fail.
-> > >   		 */
-> > >   		if (trace_id != 0) {
-> > > -			path->trace_id = trace_id;
-> > > -			return;
-> > > +			if (IS_VALID_CS_TRACE_ID(trace_id)) {
-> > > +				path->trace_id = trace_id;
-> > > +				return 0;
-> > > +			}
-> > > +
-> > > +			return -EINVAL;
-> > >   		}
-> > >   	}
-> > > +
-> > > +	return -EINVAL;
-> > >   }
-> > >   /**
-> > > diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-> > > index 1ea882dffd70..34c7e792adbd 100644
-> > > --- a/drivers/hwtracing/coresight/coresight-priv.h
-> > > +++ b/drivers/hwtracing/coresight/coresight-priv.h
-> > > @@ -153,7 +153,7 @@ int coresight_make_links(struct coresight_device *orig,
-> > >   void coresight_remove_links(struct coresight_device *orig,
-> > >   			    struct coresight_connection *conn);
-> > >   u32 coresight_get_sink_id(struct coresight_device *csdev);
-> > > -void coresight_path_assign_trace_id(struct coresight_path *path,
-> > > +int coresight_path_assign_trace_id(struct coresight_path *path,
-> > >   				   enum cs_mode mode);
-> > 
-> > Hi Jie,
-> > 
-> > Thanks for your patch,
-> > 
-> > I'm thinking will "__must_check" should be added so in the future the next caller won't accidently
-> > introduce this class of bug ?
-> > 
-> 
-> Hi Richard,
-> 
-> The return value has been ignored in perf mode. It will introduce noisy by
-> adding __must_check. So I think its better without __must_check?
-> 
-> Thanks,
-> Jie
->
+On Fri, Mar 06, 2026 at 05:00:56PM +0000, Mark Brown wrote:
+> As with SVE we can only virtualise SME vector lengths that are supported by
+> all CPUs in the system, implement similar checks to those for SVE. 
 
-Hi Jie,
+So far so good.
 
-Ahh thanks for the head up, my intention was adding a compile-time check there
-to be safe, no need for __must_check here then.
+> Since unlike SVE there are no specific vector lengths that are
+> architecturally required the handling is subtly different, we report a
+> system where this happens with a maximum vector length of
+> SME_VQ_INVALID.
 
-If any new callers were to appear in the future we'll see how it goes.
-Thanks.
+I think something went wrong during copyediting here.
 
-Reviewed-by: Richard Cheng <icheng@nvidia.com>
+A system where *what* happens?
 
-Best regards,
-Richard Cheng.
- 
-> > Best regards,
-> > Richard Cheng.
-> > 
-> > >   #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
-> > > diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-> > > index d2a6ed8bcc74..b6a870399e83 100644
-> > > --- a/drivers/hwtracing/coresight/coresight-sysfs.c
-> > > +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-> > > @@ -211,8 +211,8 @@ int coresight_enable_sysfs(struct coresight_device *csdev)
-> > >   		goto out;
-> > >   	}
-> > > -	coresight_path_assign_trace_id(path, CS_MODE_SYSFS);
-> > > -	if (!IS_VALID_CS_TRACE_ID(path->trace_id))
-> > > +	ret = coresight_path_assign_trace_id(path, CS_MODE_SYSFS);
-> > > +	if (ret)
-> > >   		goto err_path;
-> > >   	ret = coresight_enable_path(path, CS_MODE_SYSFS);
-> > > 
-> > > ---
-> > > base-commit: 17c7841d09ee7d33557fd075562d9289b6018c90
-> > > change-id: 20260508-fix-trace-id-error-dbfdd4d8f2d1
-> > > 
-> > > Best regards,
-> > > -- 
-> > > Jie Gan <jie.gan@oss.qualcomm.com>
-> > > 
-> > > 
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> ---
+>  arch/arm64/include/asm/fpsimd.h |  2 ++
+>  arch/arm64/kernel/fpsimd.c      | 21 ++++++++++++++++++++-
+>  2 files changed, 22 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
+> index e97729aa3b2f..0cd8a866e844 100644
+> --- a/arch/arm64/include/asm/fpsimd.h
+> +++ b/arch/arm64/include/asm/fpsimd.h
+> @@ -69,6 +69,8 @@ static inline void cpacr_restore(unsigned long cpacr)
+>  #define ARCH_SVE_VQ_MAX ((ZCR_ELx_LEN_MASK >> ZCR_ELx_LEN_SHIFT) + 1)
+>  #define SME_VQ_MAX	((SMCR_ELx_LEN_MASK >> SMCR_ELx_LEN_SHIFT) + 1)
+>  
+> +#define SME_VQ_INVALID	(SME_VQ_MAX + 1)
+
+Does using (SME_VQ_MAX + 1) for this make something easier than if we
+used 0?
+
+My thinking is that 0 will be easier/clearer overall, since we can write
+checks of the form:
+
+	if (!info->max_virtualisable_vl) {
+		/* SME is not virtualisable */
+	}
+
+... or:
+
+	if (some_vl <= max_virtualisable_vl) {
+		/* Check properties of a virtualisable VL */
+	}
+
+... and there's less scope for error.
+
+> +
+>  struct task_struct;
+>  
+>  extern void fpsimd_save_state(struct user_fpsimd_state *state);
+> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> index 2af0e0c5b9f4..49c050ef6db9 100644
+> --- a/arch/arm64/kernel/fpsimd.c
+> +++ b/arch/arm64/kernel/fpsimd.c
+> @@ -1218,7 +1218,8 @@ void cpu_enable_sme(const struct arm64_cpu_capabilities *__always_unused p)
+>  void __init sme_setup(void)
+>  {
+>  	struct vl_info *info = &vl_info[ARM64_VEC_SME];
+> -	int min_bit, max_bit;
+> +	DECLARE_BITMAP(tmp_map, SVE_VQ_MAX);
+> +	int min_bit, max_bit, b;
+>  
+>  	if (!system_supports_sme())
+>  		return;
+> @@ -1249,12 +1250,30 @@ void __init sme_setup(void)
+>  	 */
+>  	set_sme_default_vl(find_supported_vector_length(ARM64_VEC_SME, 32));
+>  
+> +	bitmap_andnot(tmp_map, info->vq_partial_map, info->vq_map,
+> +		      SVE_VQ_MAX);
+> +
+> +	b = find_last_bit(tmp_map, SVE_VQ_MAX);
+> +	if (b >= SVE_VQ_MAX)
+> +		/* All VLs virtualisable */
+> +		info->max_virtualisable_vl = sve_vl_from_vq(ARCH_SVE_VQ_MAX);
+
+I don't think this is right.
+
+This test tells us that all VLs implemented by boot CPUs are
+virtualisable. That set of VLs doesn't necessarily include the
+architectural maximum VL.
+
+IIUC that's not a problem for KVM, since KVM enforces that a guest's
+maximum VL is an implemented VL. However, this is a problem for
+vec_verify_vq_map().
+
+Consider the case where all boot CPUs support only 128-bit, but later we
+try to online a CPU that supports 128-bit and 256-bit. That CPU will be
+rejected by vec_verify_vq_map().
+
+Note that this isn't broken for SVE today as sve_setup() follows this up
+with:
+
+	if (info->max_virtualisable_vl > info->max_vl)
+		info->max_virtualisable_vl = info->max_vl;
+
+... but that won't be sufficient for streaming mode VLs given there's no
+guarantee that smaller streaming VLs are implemented.
+
+> +	else if (b == SVE_VQ_MAX - 1)
+> +		/* No virtualisable VLs */
+> +		info->max_virtualisable_vl = sve_vl_from_vq(SME_VQ_INVALID);
+
+Similarly, I think this is broken for vec_verify_vq_map(). Consider a
+case with two boot CPUs, where one boot CPU only supports 128-bit, and
+the other boot cpu only supports 256-bit. If either CPU is hotplugged
+out and then back in, it will be rejected by vec_verify_vq_map().
+
+We don't have a similar problem for SVE since that's not architecturally
+possible.
+
+> +	else
+> +		info->max_virtualisable_vl = sve_vl_from_vq(__bit_to_vq(b +  1));
+
+This looks suspicious.
+
+At this point we know that 'b' represents the smallest VL which is
+partially supported. The next bit is almost never a power of two, is not
+guaranteed to be an implemented VL, and is not guaranteed to be larger
+than an implemented VL.
+
+Imagine you have two CPUs:
+
+* CPU x supports 128-bit.
+* CPU y supports 128-bit and 512-bit.
+
+The algorithm above will find 512-bit as the smallest partically
+supported VL. For that, VQ==4 and b==12.
+
+If max_virtualisable_vl is chosen as b+1, then that's b==13 and VQ==3,
+which corresponds to a (not architecturally supported) 384-bit VL, which
+is bigger than the architecturally-valid 256 bit VL that neither CPU
+supports.
+
+As with the other cases above, that's broken for vec_verify_vq_map(),
+but I think KVM will gracefully handle this.
+
+To solve all of the above, I think what we actually want to do is find
+the largest uniformly implemented VL which is smaller than the smallest
+partially implemented VL.
+
+>  	pr_info("SME: minimum available vector length %u bytes per vector\n",
+>  		info->min_vl);
+>  	pr_info("SME: maximum available vector length %u bytes per vector\n",
+>  		info->max_vl);
+>  	pr_info("SME: default vector length %u bytes per vector\n",
+>  		get_sme_default_vl());
+> +
+> +	/* KVM decides whether to support mismatched systems. Just warn here: */
+> +	if (info->max_virtualisable_vl < info->max_vl ||
+> +	    info->max_virtualisable_vl == sve_vl_from_vq(SME_VQ_INVALID))
+> +		pr_warn("SME: unvirtualisable vector lengths present\n");
+
+If we used 0 instead of (SME_VQ_MAX + 1), this would just be:
+
+	if (info->max_virtualisable_vl < info->max_vl)
+		pr_warn(...);
+
+As above, I think using 0 would be preferable.
+
+Mark.
+
+>  }
+>  
+>  void sme_suspend_exit(void)
+> 
+> -- 
+> 2.47.3
 > 
 
