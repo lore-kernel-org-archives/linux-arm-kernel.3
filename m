@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1B8CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 12:42:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559D9CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 12:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZuid1y2W7Sn7+5T+vH7bsCPfMv82SwuIePo76Mbw5w=; b=22Pdp0ma/2S1A50pS4A+N6qgU1
-	Ln0w/p6+dIjVtX64s/UaqkJryp4HsqW0/JpQ6AeIirp3ylD21SRCgIhV9rqiDIYHmgxhCgQGn3nO+
-	LyzGnO9HqiRfx9FeFjbgMbIB0wH3f8eefrMYfzJEFT+24L7YvYrHNjL8sXQxfPJ6wYktJz88BPq3o
-	PZW6U9xYnohrFZP5q1Aoo+Fc0ucBZ+njeVjnGYw8hek4wvzfenpMH50I+UoduFhZbsXLCyV8Qzs+w
-	Iamxu+L3ABKhX6Nz9v6RnkWTEHr1tp2ctEKYS9d32aMBrOMTlCiaOCF4XWwMuKSklDwF7TywH/rH5
-	gCL+U10Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wciHqxID2f9ocInbNjAKsE1H+gqOMdJiwMVWt3Lds9U=; b=wXKujW/Lh+1Cp/gOyBGepJxgNq
+	HcapDIrxABqYmpUvsIMjP+WC9XV84JtZ/rrFbLAHah9jN/C9ZiivpwmxLtj16B4Clzx3AYmBwuRyK
+	9/xXyQiLbdy1uNgPKDZR76pji5K69Go4ZzXW87ATUo/r1TSxQM78Hzg2Fg4T6daydN61Y5WPwJ/rP
+	LD2Z4aKzJNO33dO+jDowjg3cAMPLYymDHn4Gf9czyAra9/8xUp/kNkdZ/x5+L8Vy4yuXJ87LqJBcT
+	FSwDdrw1X6CNTPdR0/oX2Y66e7grB/is7NAKWSZThzBdFvbUkg7VCxM2QgS9zJmK+4OOFwB7IWwvJ
+	YM/x+cKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMPy6-0000000Da2k-32zP;
-	Mon, 11 May 2026 12:42:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMQ2u-0000000Db5T-0ohx;
+	Mon, 11 May 2026 12:47:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMPy4-0000000Da1g-1Oy2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 12:42:41 +0000
+	id 1wMQ2s-0000000Db3V-1F3m;
+	Mon, 11 May 2026 12:47:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 53C9740493;
-	Mon, 11 May 2026 12:42:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16463C2BCB0;
-	Mon, 11 May 2026 12:42:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9194B6001A;
+	Mon, 11 May 2026 12:47:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3C5C3C2BCB0;
+	Mon, 11 May 2026 12:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778503359;
-	bh=pYD09DsDxe/u4ilOmhS2skYVkR2myP8qJ3xnhphSpY8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HMzeD+F0LmEMwTQFrhGfdrsCKn7booeRX+vlAVri2V2f1V76IeHzz7BG5DWjlKuZ0
-	 eSjJkgMpPpwmwAMME13LOZwUH6jrKtJPa+UcsUh5muV7bnkRdiOA7SzHRjM6p+6BvR
-	 M9AnGxDOZIpUs5Vq+n8Tvozcad7h5hkJKqCWufFSdA9qoLdhy/OeFJ5T05eHTwDqLm
-	 3aTaWWQqIMZX7dlXuRsdLYoZDGO1nzl9JT8V1/PKw3uAWx5b2OXAE+g64TuOysxHa0
-	 chlfaziVpuZGn4QmcVFFCiRbVOS04PpKxosmBJAO6qkAZLHmQwB/qePt9ltyN9lF+M
-	 3cEJb51enKcuA==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id EA5DB1AC58A9; Mon, 11 May 2026 13:42:36 +0100 (BST)
-Date: Mon, 11 May 2026 21:42:36 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
-	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v10 04/30] arm64/fpsimd: Determine maximum virtualisable
- SME vector length
-Message-ID: <agHOvFiI1e3y_ur4@sirena.co.uk>
-References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
- <20260306-kvm-arm64-sme-v10-4-43f7683a0fb7@kernel.org>
- <agGwWE2hcj9O4EGu@J2N7QTR9R3.cambridge.arm.com>
+	s=k20201202; t=1778503657;
+	bh=d/bn89pQhI2eZfLETFYCMIW9bPsVZbUfOMIG98dS5ow=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=Qw9WdMUNgGqK8AfboWuXU5o59I10StRQMnuTXn91d9s0/qNjfQ+4DFK/jW2yEdESZ
+	 mu/hCKvve91312R5G6r/315BmFpsD3LuYQ5z8A2MWkOeZm56kzWov2WG2t13TxFYOG
+	 VfuzMIG0gi2oMA+Z7uXmSA2GgKrkvK9cMdCO/U8nfwJIbbSmks3DHjwg20bfOvUy5+
+	 kGLnoGUUBpfjkkR1kUluMUwTLeZAqxGgk/tyLArUHJ47ImJl8NXoYI9g7WDnsCFzHy
+	 6MrK4PU10sIFlmBphz2bCrjl/MmLXhF/nZV6OWNFPaAt8lYlvtouyOa1F0MJDT0JS1
+	 E1NW9NTpxEBcw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 25A8DCD4840;
+	Mon, 11 May 2026 12:47:37 +0000 (UTC)
+From: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
+Subject: [PATCH 00/10] Add support for A9 family clock controller
+Date: Mon, 11 May 2026 20:47:22 +0800
+Message-Id: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8I5lQUED2RQSZNsg"
-Content-Disposition: inline
-In-Reply-To: <agGwWE2hcj9O4EGu@J2N7QTR9R3.cambridge.arm.com>
-X-Cookie: Truckers welcome.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_054240_414610_EBAAC611 
-X-CRM114-Status: GOOD (  13.74  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANvPAWoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDU0ND3SQT3UTL+OScbF0zczNTo2TDxFRTs1QloPqCotS0zAqwWdGxtbU
+ AQ6L9iVsAAAA=
+X-Change-ID: 20260511-b4-a9_clk-67652c1ae56e
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, Jian Hu <jian.hu@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778503655; l=3503;
+ i=jian.hu@amlogic.com; s=20260415; h=from:subject:message-id;
+ bh=d/bn89pQhI2eZfLETFYCMIW9bPsVZbUfOMIG98dS5ow=;
+ b=LlCL2gW0AbGiMXgURqP5wwCamriSIUD5Er+NKhm9/SMSQrpiAR/13zXTQ2VlPl/eICNq37nPq
+ 5A9qDf5T7EmBFn5HX3ZqZb76Rgaz5RkDb4nFutBsWItSUe9zONYQfk9
+X-Developer-Key: i=jian.hu@amlogic.com; a=ed25519;
+ pk=zHUE+rNtH9z+Sb8au1/elWknjFQmy5QDVkBoxleuOIA=
+X-Endpoint-Received: by B4 Relay for jian.hu@amlogic.com/20260415 with
+ auth_id=735
+X-Original-From: Jian Hu <jian.hu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,46 +89,86 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jian.hu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+There are 4 clock controllers in A9 SoC:
+- SCMI clock controller: these clocks are managed by the
+  Trusted Firmware-A(TF-A) and handled through SCMI.
+- PLL clock controller.
+- peripheral clock controller.
+- AO clock controller.
 
---8I5lQUED2RQSZNsg
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+There are reserved register regions placed between individual PLLs, so a
+separate driver is implemented for each PLL, similar to T7.
 
-On Mon, May 11, 2026 at 11:32:56AM +0100, Mark Rutland wrote:
-> On Fri, Mar 06, 2026 at 05:00:56PM +0000, Mark Brown wrote:
+Compared to previous SoCs PLLs, the A9 PLL controller introduces 4 new features:
+1.PLL l_detect signal supports active-high configuration.
+  Previous A7 and T7 l_detect signals are active-low.
+2.PLL reset signal supports active-low configuration.
+  Previous reset signals are active-high.
+3.Support POWER_OF_TWO for the PLL pre-divider N;
+  the N pre-divider follows the same calculation rule as OD.
+4.The PLL input path includes an inherent divide-by-2 divider.
 
-> > +#define SME_VQ_INVALID	(SME_VQ_MAX + 1)
+Implement the first three features in clk-pll.c (verified on A9 and T7),
+with no impact to PLL logic on existing SoCs. Add a fixed divide-by-2 to
+A9 PLL driver for the fourth feature.
+ 
+A9 PLL is composed as follows:
+ 
+                       PLL
+          +---------------------------------+
+          |                                 |
+          |             +--+                |
+   in/2 >>---[ /2^N ]-->|  |      +-----+   |
+          |             |  |------| DCO |----->> out
+          |  +--------->|  |      +--v--+   |
+          |  |          +--+         |      |
+          |  |                       |      |
+          |  +--[ *(M + (F/Fmax) ]<--+      |
+          |                                 |
+          +---------------------------------+
+ 
+  out = in / 2  * (m + frac / frac_max) / 2^n
 
-> Does using (SME_VQ_MAX + 1) for this make something easier than if we
-> used 0?
+Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+---
+Jian Hu (10):
+      dt-bindings: clock: Add Amlogic A9 SCMI clock controller
+      dt-bindings: clock: Add Amlogic A9 PLL clock controller
+      dt-bindings: clock: Add Amlogic A9 peripherals clock controller
+      dt-bindings: clock: Add Amlogic A9 AO clock controller
+      clk: amlogic: PLL l_detect signal supports active-high configuration
+      clk: amlogic: PLL reset signal supports active-low configuration
+      clk: amlogic: Support POWER_OF_TWO for PLL pre-divider
+      clk: amlogic: Add A9 PLL clock controller driver
+      clk: amlogic: Add A9 peripherals clock controller driver
+      clk: amlogic: Add A9 AO clock controller driver
 
-There were checks for VLs less than $THING which were causing annoyance
-IIRC but it should be workable since we shouldn't offer SME to guests if
-the invalid VL comes up.  I'll look again when I'm back from holiday.
+ .../bindings/clock/amlogic,a9-aoclkc.yaml          |   76 +
+ .../clock/amlogic,a9-peripherals-clkc.yaml         |  150 ++
+ .../bindings/clock/amlogic,a9-pll-clkc.yaml        |  110 +
+ drivers/clk/meson/Kconfig                          |   28 +
+ drivers/clk/meson/Makefile                         |    2 +
+ drivers/clk/meson/a9-aoclk.c                       |  494 +++++
+ drivers/clk/meson/a9-peripherals.c                 | 2317 ++++++++++++++++++++
+ drivers/clk/meson/a9-pll.c                         |  831 +++++++
+ drivers/clk/meson/clk-pll.c                        |   79 +-
+ drivers/clk/meson/clk-pll.h                        |    6 +
+ include/dt-bindings/clock/amlogic,a9-aoclkc.h      |   76 +
+ .../clock/amlogic,a9-peripherals-clkc.h            |  352 +++
+ include/dt-bindings/clock/amlogic,a9-pll-clkc.h    |   55 +
+ include/dt-bindings/clock/amlogic,a9-scmi-clkc.h   |   51 +
+ 14 files changed, 4609 insertions(+), 18 deletions(-)
+---
+base-commit: ca89c88bcf69daca829044c638a8163d5ce47af0
+change-id: 20260511-b4-a9_clk-67652c1ae56e
 
-> To solve all of the above, I think what we actually want to do is find
-> the largest uniformly implemented VL which is smaller than the smallest
-> partially implemented VL.
+Best regards,
+-- 
+Jian Hu <jian.hu@amlogic.com>
 
-Yes, that's what we're going for.
 
---8I5lQUED2RQSZNsg
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoBzrwACgkQJNaLcl1U
-h9BD+Af+InI7f6CgI/Kl7rjYPDy/01C1QRQjXjxrG9nJHf2fp57ZuQPJO32v1e+8
-54g+pxbwOJMMyR87wxnj8tTcQbJQqtIAiInLxPlIs06Wxs4/hV20mhOD9fDIPDq+
-0DK2xWI2URuTWI8xvkWN7v8Nzi9uWmJ9AIuunvFYrz9GPUZIICEiu7+/sm4bD8fd
-9RjnDI1/gmn6NjVlFh81aWDaBFFqomK1WGMwa1NVnpDTj6sv++fyeh0/0AdgpJMv
-haYVOScpgtqOh/V0+Ryxf+zlYjFf37AIOTPvweJ7zWYtcHPqXmQLgXe7VUseb2Xe
-IpiAILfnTKYKlw8vN0jO1Wcdzjwt4w==
-=5P29
------END PGP SIGNATURE-----
-
---8I5lQUED2RQSZNsg--
 
