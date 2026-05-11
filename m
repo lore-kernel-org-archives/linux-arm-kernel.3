@@ -4,73 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 234C4CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A309CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:36:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HZhZ3Dn8Hjn1yShSjxAy8e7rayklVe5DOWqVxStSviw=; b=W9izLdEPyOMsxvNstoDtcql/sa
-	2XOByqi2fDlzD3R1AstzTPJqCF7wvMVbND4hrSleg7Kp2VWg+ZG3SpXBqGzT4XMnTbPFj6PZ7Q+RV
-	IFmhMbQHnfCuuScrsNrKUp0zRsqRIhOUbyo986AmI01DgHrjvad7BP458iCA7MR5UYiixDbeBSfpm
-	VAgaxJY1osIXitgBHVB2FYKb/VI+E+m7iuRq/2lvPTCfDMvvMLpWDbYtBtfcj82EP/L34uMIAFBUB
-	9Sz2dx6Kzq4MSf8NfRPDRXEtIUajg+qYOvAApDofspq6qjmuPljVL+mLnaJ1yazuTrt6mzDkjBJ/9
-	Qc34MUQw==;
+	bh=cNnAeMZ88hnaK7C3Z3PFUiVty5ocHdzHNWe9HEpa28s=; b=1BKeZUhlUIbo56K59PjfSX1S+c
+	JDOd8b8vknG9dGz28qUFVRSh10LuO5xB0csdXM/A/LmoO8BWPrsHMbtC/HeTbUAxqitQHlWW+c/em
+	GZ9Pk6ZW9n5AdY14a/QT+0vOYl38xADAj8xdKA3QdfmYEsm8AO0zKGMUUItKGWkUsSi50nlab2/3R
+	H053K5L1Ixe2OB5EVQrMmlGR8K4S4MZ+RZxDKSQIoPJzjHT27dPO8UnsgcFRv32a6rjwFeUinzORm
+	FdG3gWDAG2+dXdsMBSiAoXXt02/FVfUU+2iRk2Yo3vSXuUm2fuYzD3ILHuDp+kCPRrfn6Pcq345H3
+	zyhX6xZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNeX-0000000D4l0-1G7q;
-	Mon, 11 May 2026 10:14:21 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wMOvd-0000000DLVL-1itK;
+	Mon, 11 May 2026 11:36:05 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNeO-0000000D4ao-2E2T;
-	Mon, 11 May 2026 10:14:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1778494448;
-	bh=Ka4dGUPSiWiA2gI/Zba/IjSRCGZtVR76vftDo8dTNeU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=M0gsj0G2d1dcgztmhjfjUacBamKzcih1KUktT+aWgADdXbFm8dR+OVvUQSuWEuyLT
-	 oh0K79T+7Gw3fL5He2Ju1SfzsrwsutJ4KXXGNmMc0lnQXf/o1hj/2gqRDYGS+BkPHK
-	 GpEZLECPG9NGxuRuBEfXiYrPq5TPYq5dgx/GAbsCIg9ni/Lw9ir3rVMB/aYNLahFbB
-	 QJkdze2cQiLhxjqI1zcuCQjgR3YqOElkU2MHN/pgLi2fQ5u09EjwXLGGX4P02RSY03
-	 IbRU5QZ0hD6M7DN6Ko32UeCHCb7BgvAxAriNLZEQRFDdaRNls1WSPKyVgq+T880/aw
-	 gg5fFM8LOUPpA==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BA3BF17E05FC;
-	Mon, 11 May 2026 12:14:07 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-mediatek@lists.infradead.org
-Cc: lee@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	devicetree@vger.kernel.org,
+	id 1wMOvb-0000000DLU5-29fH
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 11 May 2026 11:36:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Sender:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description;
+	bh=cNnAeMZ88hnaK7C3Z3PFUiVty5ocHdzHNWe9HEpa28s=; b=hbQtBPhsZntnThgsYYdL0xrLen
+	vju5LUmavfaplo0j/zEoZ+SGkX/bUsBLlUuGUqCXGkBuLLPtmkQEzIhNo7+bQbFEl/ZbyAb1Q7pCP
+	w+qVXFun5OOTEWY4FXsoWe7MkCPZ/Pw52VJi3plUv34lcyxc9dX0UVgOdFPhYQiJxZlqLl7hJsvGT
+	xHXmYHm34qKsy6YCYeC99qikD76dcGxiZ4XS5ndbSmRJ8vwYJ6vyia2S/7BalXLxf1/hnKY07Yg6g
+	ybX2+qohIDUm4pcl92ANKpSABUjNqabVtXsn3/ywNGSyTH+IlWzP3Nin5SuVadnHiJiMcFNJ1rN00
+	ISBzYh7Q==;
+Received: from [2001:8b0:10b:1::425] (helo=i7.infradead.org)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMOvY-000000084dK-1iwz;
+	Mon, 11 May 2026 11:36:00 +0000
+Received: from dwoodhou by i7.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1wMOvY-0000000Dx0U-0ZVa;
+	Mon, 11 May 2026 12:36:00 +0100
+From: David Woodhouse <dwmw2@infradead.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Maxim Levitsky <mlevitsk@redhat.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Kees Cook <kees@kernel.org>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	wenst@chromium.org,
-	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>
-Subject: [PATCH v12 5/5] mfd: Add support for MediaTek SPMI PMICs and MT6363/73
-Date: Mon, 11 May 2026 12:13:55 +0200
-Message-ID: <20260511101355.122478-6-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260511101355.122478-1-angelogioacchino.delregno@collabora.com>
-References: <20260511101355.122478-1-angelogioacchino.delregno@collabora.com>
+	kvmarm@lists.linux.dev,
+	linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	qemu-arm@nongnu.org,
+	qemu-devel@nongnu.org
+Subject: [PATCH v3 1/4] KVM: arm64: vgic: Allow userspace to set IIDR revision 1
+Date: Mon, 11 May 2026 12:30:43 +0100
+Message-ID: <20260511113558.3325004-2-dwmw2@infradead.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20260511113558.3325004-1-dwmw2@infradead.org>
+References: <20260511113558.3325004-1-dwmw2@infradead.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_031412_912956_DD34E4D2 
-X-CRM114-Status: GOOD (  37.87  )
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,555 +97,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This driver adds support for the MediaTek SPMI PMICs and their
-interrupt controller (which is present in 95% of the cases).
+From: David Woodhouse <dwmw@amazon.co.uk>
 
-Other than probing all of the sub-devices of a SPMI PMIC, this
-sets up a regmap from the relevant SPMI bus and initializes an
-interrupt controller with its irq domain and irqchip to handle
-chained interrupts, with the SPMI bus itself being its parent
-irq controller, and the PMIC being the outmost device.
+In order to preserve guest compatibility across kernel upgrades, allow
+userspace to select GICD_IIDR revision 1. This allows compatibility with
+the original behaviour from before commit d53c2c29ae0d ("KVM: arm/arm64:
+vgic: Allow configuration of interrupt groups") where interrupt groups
+are not guest-configurable.
 
-This driver hence holds all of the information about a specific
-PMIC's interrupts and will properly handle them, calling the
-ISR for any subdevice that requested an interrupt.
+When revision 1 is selected:
+ - GICv2: IGROUPR reads as zero (group 0), writes are ignored
+ - GICv3: IGROUPR reads as all-ones (group 1), writes are ignored
+ - v2_groups_user_writable is not set
 
-As for the interrupt spec, this driver wants either three or
-two interrupt cells, but in the case 3 were given it ignores
-the first one: this is because of how this first revision of
-of the MediaTek SPMI 2.0 Controller works, which doesn't hold
-hold irq number information in its register, but delegates
-that to the SPMI device - it's possible that this will change
-in the future with a newer revision of the controller IP, and
-this is the main reason for that.
+This is implemented by checking the implementation revision in
+vgic_mmio_write_group() and suppressing writes when the revision is
+below 2. The read side needs no change since the per-IRQ group reset
+values already match the expected behaviour.
 
-To make use of this implementation, this driver also adds the
-required bits to support MediaTek MT6363 and MT6373 SPMI PMICs.
+For GICv2, commit 32f8777ed92d7 ("KVM: arm/arm64: vgic: Let userspace
+opt-in to writable v2 IGROUPR") introduced a confusing model where
+IGROUPR registers were not writable from userspace by default until the
+IIDR was written — even if it was written to the *same* as its default
+value (which, in fact, was the only thing that userspace *could* set it
+to before commit a0e6ae45af17 fixed the IIDR write path). Furthermore,
+even when the v2_groups_user_writable flag wasn't set, the *guest*
+could still actually write to the registers... but userspace couldn't
+save/restore them. That default behaviour for GICv2 remains unchanged;
+it can be fixed in a future commit.
 
-Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Fixes: d53c2c29ae0d ("KVM: arm/arm64: vgic: Allow configuration of interrupt groups")
+Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 ---
- drivers/mfd/Kconfig                       |  16 +
- drivers/mfd/Makefile                      |   1 +
- drivers/mfd/mtk-spmi-pmic.c               | 427 ++++++++++++++++++++++
- include/linux/mfd/mt63x3_spmi/registers.h |  34 ++
- 4 files changed, 478 insertions(+)
- create mode 100644 drivers/mfd/mtk-spmi-pmic.c
- create mode 100644 include/linux/mfd/mt63x3_spmi/registers.h
+ arch/arm64/kvm/vgic/vgic-mmio-v2.c | 3 +++
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c | 4 ++++
+ arch/arm64/kvm/vgic/vgic-mmio.c    | 4 ++++
+ include/kvm/arm_vgic.h             | 1 +
+ 4 files changed, 12 insertions(+)
 
-diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index 7192c9d1d268..3e9acdf648b7 100644
---- a/drivers/mfd/Kconfig
-+++ b/drivers/mfd/Kconfig
-@@ -1148,6 +1148,22 @@ config MFD_MT6397
- 	  accessing the device; additional drivers must be enabled in order
- 	  to use the functionality of the device.
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v2.c b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+index 0643e333db35..e5714f7fd2ec 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+@@ -20,6 +20,7 @@
+  * Revision 1: Report GICv2 interrupts as group 0 instead of group 1
+  * Revision 2: Interrupt groups are guest-configurable and signaled using
+  * 	       their configured groups.
++ * Revision 3: GICv2 behaviour is unchanged from revision 2.
+  */
  
-+config MFD_MTK_SPMI_PMIC
-+	tristate "MediaTek SPMI PMICs"
-+	depends on ARCH_MEDIATEK || COMPILE_TEST
-+	depends on OF
-+	depends on SPMI
-+	select REGMAP_SPMI
-+	help
-+	  Say yes here to enable support for MediaTek's SPMI PMICs.
-+	  These PMICs made their first appearance in board designs using the
-+	  MediaTek Dimensity 9400 series of SoCs.
-+	  Note that this will only be useful when paired with descriptions
-+	  of the independent functions as child nodes in the device tree.
-+
-+	  Say M here if you want to include support for the MediaTek SPMI
-+	  PMICs as a module. The module will be called "mtk-spmi-pmic".
-+
- config MFD_MENF21BMC
- 	tristate "MEN 14F021P00 Board Management Controller Support"
- 	depends on I2C
-diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-index e75e8045c28a..e00d283450c6 100644
---- a/drivers/mfd/Makefile
-+++ b/drivers/mfd/Makefile
-@@ -190,6 +190,7 @@ obj-$(CONFIG_MFD_MT6360)	+= mt6360-core.o
- obj-$(CONFIG_MFD_MT6370)	+= mt6370.o
- mt6397-objs			:= mt6397-core.o mt6397-irq.o mt6358-irq.o
- obj-$(CONFIG_MFD_MT6397)	+= mt6397.o
-+obj-$(CONFIG_MFD_MTK_SPMI_PMIC)	+= mtk-spmi-pmic.o
+ static unsigned long vgic_mmio_read_v2_misc(struct kvm_vcpu *vcpu,
+@@ -96,6 +97,8 @@ static int vgic_mmio_uaccess_write_v2_misc(struct kvm_vcpu *vcpu,
+ 		case KVM_VGIC_IMP_REV_2:
+ 		case KVM_VGIC_IMP_REV_3:
+ 			vcpu->kvm->arch.vgic.v2_groups_user_writable = true;
++			fallthrough;
++		case KVM_VGIC_IMP_REV_1:
+ 			dist->implementation_rev = reg;
+ 			return 0;
+ 		default:
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index 5913a20d8301..0130db71cfc9 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -74,8 +74,11 @@ bool vgic_supports_direct_sgis(struct kvm *kvm)
+ /*
+  * The Revision field in the IIDR have the following meanings:
+  *
++ * Revision 1: Interrupt groups are not guest-configurable.
++ * 	       IGROUPR reads as all-ones (group 1), writes ignored.
+  * Revision 2: Interrupt groups are guest-configurable and signaled using
+  * 	       their configured groups.
++ * Revision 3: GICR_CTLR.{IR,CES} are advertised.
+  */
  
- obj-$(CONFIG_RZ_MTU3)		+= rz-mtu3.o
- obj-$(CONFIG_ABX500_CORE)	+= abx500-core.o
-diff --git a/drivers/mfd/mtk-spmi-pmic.c b/drivers/mfd/mtk-spmi-pmic.c
-new file mode 100644
-index 000000000000..d1fc8156e696
---- /dev/null
-+++ b/drivers/mfd/mtk-spmi-pmic.c
-@@ -0,0 +1,427 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * MediaTek SPMI PMICs Driver
-+ *
-+ * Copyright (c) 2024 MediaTek Inc.
-+ * Copyright (c) 2025 Collabora Ltd
-+ *
-+ * Authors:
-+ * AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ */
-+
-+#include <linux/device.h>
-+#include <linux/errno.h>
-+#include <linux/gfp.h>
-+#include <linux/irq.h>
-+#include <linux/irqchip/chained_irq.h>
-+#include <linux/irqdomain.h>
-+#include <linux/kernel.h>
-+#include <linux/mfd/mt63x3_spmi/registers.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/of_irq.h>
-+#include <linux/of_platform.h>
-+#include <linux/regmap.h>
-+#include <linux/spmi.h>
-+#include <linux/types.h>
-+
-+#define MTK_SPMI_PMIC_VAL_BITS		8
-+#define MTK_SPMI_PMIC_REG_CHIP_ID	0xb
-+#define MTK_SPMI_PMIC_RCS_IRQ_DONE	0x41b
-+
-+/**
-+ * struct mtk_spmi_pmic_irq_group - Group of interrupts in SPMI PMIC
-+ * @num_int_regs: Number of registers for this group of interrupts
-+ * @con_reg:      PMIC Interrupt Group Control 0 register
-+ * @sta_reg:      PMIC Interrupt Group Status 0 register
-+ * @group_num:    PMIC Interrupt Group number - also corresponds to the
-+ *                status bit in the global IRQ Control register
-+ */
-+struct mtk_spmi_pmic_irq_grp {
-+	u8 hwirq_base;
-+	u8 num_int_regs;
-+	u16 con_reg;
-+	u16 sta_reg;
-+	u8 group_num;
-+};
-+
-+/**
-+ * struct mtk_spmi_pmic_variant - SPMI PMIC variant-specific data
-+ * @pmic_irq:    Group of interrupts in SPMI PMIC
-+ * @num_groups:  Number of groups of interrupts
-+ * @con_reg_len: Length in bytes of Control registers, depends on
-+ *               existence of SET and CLR registers in the layout
-+ * @irq_grp_reg: Global interrupt status register, explains which
-+ *               group needs attention because of a group IRQ;
-+ *               if this is zero, it means that there is only one
-+ *               group and the device has no irqgroup register
-+ * @chip_id_reg: Chip ID Register
-+ */
-+struct mtk_spmi_pmic_variant {
-+	const struct mtk_spmi_pmic_irq_grp *pmic_irq;
-+	u8 num_groups;
-+	u8 con_reg_len;
-+	u8 irq_grp_reg;
-+	u8 chip_id_reg;
-+};
-+
-+/**
-+ * struct mtk_spmi_pmic - Main driver structure
-+ * @variant:  SPMI PMIC variant-specific data
-+ * @dev:      Handle to SPMI Device
-+ * @dom:      IRQ Domain of the PMIC's interrupt controller
-+ * @regmap:   Handle to PMIC regmap
-+ * @irq:      PMIC chained interrupt
-+ */
-+struct mtk_spmi_pmic {
-+	const struct mtk_spmi_pmic_variant *variant;
-+	struct device *dev;
-+	struct irq_domain *dom;
-+	struct regmap *regmap;
-+	int irq;
-+};
-+
-+static void mtk_spmi_pmic_irq_set_unmasking(struct irq_data *d, bool unmask)
-+{
-+	struct mtk_spmi_pmic *pmic = irq_data_get_irq_chip_data(d);
-+	const struct mtk_spmi_pmic_variant *variant = pmic->variant;
-+	struct regmap *regmap = pmic->regmap;
-+	irq_hw_number_t hwirq = irqd_to_hwirq(d);
-+	unsigned short i;
-+
-+	for (i = 0; i < variant->num_groups; i++) {
-+		const struct mtk_spmi_pmic_irq_grp *irq_grp = &variant->pmic_irq[i];
-+		u32 con_reg;
-+		u8 irq_en_bit;
-+
-+		if (hwirq < irq_grp->hwirq_base)
-+			continue;
-+
-+		con_reg = irq_grp->con_reg + (variant->con_reg_len * i);
-+		irq_en_bit = hwirq - irq_grp->hwirq_base;
-+		regmap_assign_bits(regmap, con_reg, BIT(irq_en_bit), unmask);
-+
-+		break;
-+	}
-+}
-+
-+static void mtk_spmi_pmic_irq_mask(struct irq_data *d)
-+{
-+	mtk_spmi_pmic_irq_set_unmasking(d, false);
-+}
-+
-+static void mtk_spmi_pmic_irq_unmask(struct irq_data *d)
-+{
-+	mtk_spmi_pmic_irq_set_unmasking(d, true);
-+}
-+
-+static struct irq_chip mtk_spmi_pmic_irq_chip = {
-+	.name = "mtk-spmi-pmic",
-+	.irq_mask = mtk_spmi_pmic_irq_mask,
-+	.irq_unmask = mtk_spmi_pmic_irq_unmask,
-+	.flags = IRQCHIP_SKIP_SET_WAKE,
-+};
-+
-+static struct lock_class_key mtk_spmi_pmic_irq_lock_class, mtk_spmi_pmic_irq_request_class;
-+
-+static int mtk_spmi_pmic_irq_translate(struct irq_domain *d, struct irq_fwspec *fwspec,
-+				       unsigned long *out_hwirq, unsigned int *out_type)
-+{
-+	struct mtk_spmi_pmic *pmic = d->host_data;
-+	u32 intsize = fwspec->param_count;
-+	u32 *intspec = fwspec->param;
-+	unsigned int irq_type_index;
-+	unsigned int irq_num_index;
-+
-+	/*
-+	 * Interrupt cell index - For interrupt size 3:
-+	 * [0] - SID Interrupt number
-+	 * [1] - SPMI PMIC (Sub-)Device Interrupt number
-+	 * [2] - Interrupt Type mask
-+	 *
-+	 * When only two cells are specified the SID Interrupt is not present.
-+	 */
-+	if (intsize != 2 && intsize != 3) {
-+		dev_err(pmic->dev, "Expected IRQ specifier of size 2 or 3, got %u\n", intsize);
-+		return -EINVAL;
-+	}
-+
-+	/* irq_num_index refers to the SPMI (Sub-)Device Interrupt number */
-+	irq_num_index = intsize - 2;
-+	irq_type_index = irq_num_index + 1;
-+
-+	/*
-+	 * For 3 cells, the IRQ number in intspec[0] is ignored on purpose here!
-+	 *
-+	 * This is because of how at least the first revision of the SPMI 2.0
-+	 * controller works in MediaTek SoCs: the controller will raise an
-+	 * interrupt for each SID (but doesn't know the details), and the
-+	 * specific IRQ number that got raised must be read from the PMIC or
-+	 * its sub-device driver.
-+	 * It's possible that this will change in the future with a newer
-+	 * revision of the SPMI controller, and this is why the device tree
-+	 * holds the full interrupt specifier.
-+	 *
-+	 * out_hwirq: SPMI PMIC (Sub-)Device Interrupt number
-+	 * out_type:  Interrupt type sense mask
-+	 */
-+	*out_hwirq = intspec[irq_num_index];
-+	*out_type = intspec[irq_type_index] & IRQ_TYPE_SENSE_MASK;
-+
-+	return 0;
-+}
-+
-+static int mtk_spmi_pmic_irq_alloc(struct irq_domain *d, unsigned int virq,
-+				   unsigned int nr_irqs, void *data)
-+{
-+	struct mtk_spmi_pmic *pmic = d->host_data;
-+	struct irq_fwspec *fwspec = data;
-+	irq_hw_number_t hwirq;
-+	unsigned int irqtype;
-+	int i, ret;
-+
-+	ret = mtk_spmi_pmic_irq_translate(d, fwspec, &hwirq, &irqtype);
-+	if (ret)
-+		return ret;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		irq_set_lockdep_class(virq, &mtk_spmi_pmic_irq_lock_class,
-+				      &mtk_spmi_pmic_irq_request_class);
-+		irq_domain_set_info(d, virq, hwirq, &mtk_spmi_pmic_irq_chip,
-+				    pmic, handle_level_irq, NULL, NULL);
-+	}
-+
-+	return 0;
-+}
-+
-+
-+static const struct irq_domain_ops mtk_spmi_pmic_irq_domain_ops = {
-+	.alloc = mtk_spmi_pmic_irq_alloc,
-+	.free = irq_domain_free_irqs_common,
-+	.translate = mtk_spmi_pmic_irq_translate,
-+};
-+
-+static int mtk_spmi_pmic_handle_group_irq(struct mtk_spmi_pmic *pmic, int group)
-+{
-+	const struct mtk_spmi_pmic_irq_grp *irq_grp = &pmic->variant->pmic_irq[group];
-+	struct regmap *regmap = pmic->regmap;
-+	struct device *dev = pmic->dev;
-+	int i, ret;
-+
-+	for (i = 0; i < irq_grp->num_int_regs; i++) {
-+		u32 status, saved_status;
-+
-+		ret = regmap_read(regmap, irq_grp->sta_reg + i, &status);
-+		if (ret) {
-+			dev_err(dev, "Could not read IRQ status register: %d", ret);
-+			return ret;
-+		}
-+
-+		if (status == 0)
-+			continue;
-+
-+		saved_status = status;
-+		do {
-+			irq_hw_number_t hwirq;
-+			u8 bit = __ffs(status);
-+
-+			/* Each register has 8 bits: this is the first IRQ of this group */
-+			hwirq = MTK_SPMI_PMIC_VAL_BITS * i;
-+
-+			/* Offset by this group's start interrupt */
-+			hwirq += irq_grp->hwirq_base;
-+
-+			/* Finally, offset by the fired IRQ's bit number */
-+			hwirq += bit;
-+
-+			status &= ~BIT(bit);
-+
-+			generic_handle_domain_irq_safe(pmic->dom, hwirq);
-+		} while (status);
-+
-+		/* Clear the interrupts by writing the previous status */
-+		regmap_write(regmap, irq_grp->sta_reg + i, saved_status);
-+	}
-+
-+	return 0;
-+}
-+
-+static void mtk_spmi_pmic_handle_chained_irq(struct irq_desc *desc)
-+{
-+	struct mtk_spmi_pmic *pmic = irq_desc_get_handler_data(desc);
-+	const struct mtk_spmi_pmic_variant *variant = pmic->variant;
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	struct regmap *regmap = pmic->regmap;
-+	bool irq_handled = false;
-+	int i, ret;
-+	u32 val;
-+
-+	chained_irq_enter(chip, desc);
-+
-+	/* If irq_grp_reg is present there are multiple IRQ groups */
-+	if (variant->irq_grp_reg > 0) {
-+		ret = regmap_read(regmap, variant->irq_grp_reg, &val);
-+		if (ret)
-+			handle_bad_irq(desc);
-+
-+		/* This is very unlikely to happen */
-+		if (val == 0) {
-+			chained_irq_exit(chip, desc);
-+			return;
-+		}
-+	} else {
-+		val = BIT(0);
-+	}
-+
-+	for (i = 0; i < variant->num_groups; i++) {
-+		const struct mtk_spmi_pmic_irq_grp *irq_grp = &variant->pmic_irq[i];
-+		u8 group_bit = BIT(irq_grp[i].group_num);
-+
-+		if (val & group_bit) {
-+			ret = mtk_spmi_pmic_handle_group_irq(pmic, i);
-+			if (ret == 0)
-+				irq_handled = true;
-+		}
-+	}
-+
-+	/* The RCS flag has to be cleared even if the IRQ was not handled. */
-+	ret = regmap_write(regmap, MTK_SPMI_PMIC_RCS_IRQ_DONE, 1);
-+	if (ret)
-+		dev_warn(pmic->dev, "Could not clear RCS flag!\n");
-+
-+	if (!irq_handled)
-+		handle_bad_irq(desc);
-+
-+	chained_irq_exit(chip, desc);
-+}
-+
-+static void mtk_spmi_pmic_irq_remove(void *data)
-+{
-+	struct mtk_spmi_pmic *pmic = (struct mtk_spmi_pmic *)data;
-+
-+	irq_set_chained_handler_and_data(pmic->irq, NULL, NULL);
-+	irq_domain_remove(pmic->dom);
-+}
-+
-+static int mtk_spmi_pmic_irq_init(struct device *dev, struct regmap *regmap,
-+				  const struct mtk_spmi_pmic_variant *variant)
-+{
-+	struct fwnode_handle *fwnode = of_fwnode_handle(dev->of_node);
-+	struct mtk_spmi_pmic *pmic;
-+	int ret;
-+
-+	pmic = devm_kzalloc(dev, sizeof(*pmic), GFP_KERNEL);
-+	if (!pmic)
-+		return -ENOMEM;
-+
-+	pmic->irq = of_irq_get(dev->of_node, 0);
-+	if (pmic->irq < 0)
-+		return dev_err_probe(dev, pmic->irq, "Cannot get IRQ\n");
-+
-+	pmic->dev = dev;
-+	pmic->regmap = regmap;
-+	pmic->variant = variant;
-+
-+	pmic->dom = irq_domain_create_tree(fwnode, &mtk_spmi_pmic_irq_domain_ops, pmic);
-+	if (!pmic->dom)
-+		return dev_err_probe(dev, -ENOMEM, "Cannot create IRQ domain\n");
-+
-+	ret = devm_add_action_or_reset(dev, mtk_spmi_pmic_irq_remove, pmic);
-+	if (ret) {
-+		irq_domain_remove(pmic->dom);
-+		return ret;
-+	}
-+
-+	irq_set_chained_handler_and_data(pmic->irq, mtk_spmi_pmic_handle_chained_irq, pmic);
-+
-+	return 0;
-+}
-+
-+#define MTK_SPMI_PMIC_IRQ_GROUP(pmic, group_name, group_index, first_irq, last_irq)	\
-+{											\
-+	.hwirq_base = first_irq,							\
-+	.num_int_regs = ((last_irq - first_irq) / MTK_SPMI_PMIC_VAL_BITS) + 1,		\
-+	.con_reg = pmic##_REG_##group_name##_TOP_INT_CON0,				\
-+	.sta_reg = pmic##_REG_##group_name##_TOP_INT_STATUS0,				\
-+	.group_num = group_index,							\
-+}
-+
-+static const struct mtk_spmi_pmic_irq_grp mt6363_irq_groups[] = {
-+	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, BUCK,	0,  0,   9),
-+	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, LDO,	1, 16,  40),
-+	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, PSC,	2, 48,  57),
-+	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, MISC,	3, 64,  79),
-+	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, HK,	4, 80,  87),
-+	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, BM,	6, 88, 107)
-+};
-+
-+static const struct mtk_spmi_pmic_irq_grp mt6373_irq_groups[] = {
-+	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, BUCK,	0,  0,  9),
-+	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, LDO,	1, 16, 39),
-+	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, MISC,	3, 56, 71),
-+};
-+
-+static const struct mtk_spmi_pmic_variant mt6363_variant = {
-+	.pmic_irq = mt6363_irq_groups,
-+	.num_groups = ARRAY_SIZE(mt6363_irq_groups),
-+	.con_reg_len = 3,
-+	.irq_grp_reg = MT6363_REG_TOP_INT_STATUS1,
-+	.chip_id_reg = MTK_SPMI_PMIC_REG_CHIP_ID,
-+};
-+
-+static const struct mtk_spmi_pmic_variant mt6373_variant = {
-+	.pmic_irq = mt6373_irq_groups,
-+	.num_groups = ARRAY_SIZE(mt6373_irq_groups),
-+	.con_reg_len = 3,
-+	.irq_grp_reg = MT6373_REG_TOP_INT_STATUS1,
-+	.chip_id_reg = MTK_SPMI_PMIC_REG_CHIP_ID,
-+};
-+
-+static const struct regmap_config mtk_spmi_regmap_config = {
-+	.reg_bits	= 16,
-+	.val_bits	= MTK_SPMI_PMIC_VAL_BITS,
-+	.max_register	= 0xffff,
-+	.fast_io	= true,
-+};
-+
-+static int mtk_spmi_pmic_probe(struct spmi_device *sdev)
-+{
-+	const struct mtk_spmi_pmic_variant *variant;
-+	struct device *dev = &sdev->dev;
-+	struct regmap *regmap;
-+	int ret;
-+
-+	regmap = devm_regmap_init_spmi_ext(sdev, &mtk_spmi_regmap_config);
-+	if (IS_ERR(regmap))
-+		return PTR_ERR(regmap);
-+
-+	variant = (const struct mtk_spmi_pmic_variant *)device_get_match_data(dev);
-+	if (variant && variant->num_groups) {
-+		ret = mtk_spmi_pmic_irq_init(dev, regmap, variant);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return devm_of_platform_populate(dev);
-+}
-+
-+static const struct of_device_id mtk_pmic_spmi_id_table[] = {
-+	{ .compatible = "mediatek,mt6363", .data = &mt6363_variant },
-+	{ .compatible = "mediatek,mt6373", .data = &mt6373_variant },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, mtk_pmic_spmi_id_table);
-+
-+static struct spmi_driver mtk_spmi_pmic_driver = {
-+	.probe = mtk_spmi_pmic_probe,
-+	.driver = {
-+		.name = "mtk-spmi-pmic",
-+		.of_match_table = mtk_pmic_spmi_id_table,
-+	},
-+};
-+module_spmi_driver(mtk_spmi_pmic_driver);
-+
-+MODULE_AUTHOR("AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>");
-+MODULE_DESCRIPTION("MediaTek SPMI PMIC driver");
-+MODULE_LICENSE("GPL");
-diff --git a/include/linux/mfd/mt63x3_spmi/registers.h b/include/linux/mfd/mt63x3_spmi/registers.h
-new file mode 100644
-index 000000000000..808927280b40
---- /dev/null
-+++ b/include/linux/mfd/mt63x3_spmi/registers.h
-@@ -0,0 +1,34 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (c) 2021 MediaTek Inc.
-+ * Copyright (c) 2025 Collabora Ltd
-+ */
-+
-+#ifndef __MFD_MT63X3_SPMI_REGISTERS_H__
-+#define __MFD_MT63X3_SPMI_REGISTERS_H__
-+
-+/* MT6363 PMIC Registers */
-+#define MT6363_REG_MISC_TOP_INT_CON0		0x37
-+#define MT6363_REG_MISC_TOP_INT_STATUS0		0x43
-+#define MT6363_REG_TOP_INT_STATUS1		0x4e
-+#define MT6363_REG_PSC_TOP_INT_CON0		0x90f
-+#define MT6363_REG_PSC_TOP_INT_STATUS0		0x91b
-+#define MT6363_REG_BM_TOP_INT_CON0		0xc24
-+#define MT6363_REG_BM_TOP_INT_STATUS0		0xc36
-+#define MT6363_REG_HK_TOP_INT_CON0		0xf92
-+#define MT6363_REG_HK_TOP_INT_STATUS0		0xf9e
-+#define MT6363_REG_BUCK_TOP_INT_CON0		0x1411
-+#define MT6363_REG_BUCK_TOP_INT_STATUS0		0x141d
-+#define MT6363_REG_LDO_TOP_INT_CON0		0x1b11
-+#define MT6363_REG_LDO_TOP_INT_STATUS0		0x1b29
-+
-+/* MT6373 PMIC Registers */
-+#define MT6373_REG_MISC_TOP_INT_CON0		0x3c
-+#define MT6373_REG_MISC_TOP_INT_STATUS0		0x48
-+#define MT6373_REG_TOP_INT_STATUS1		0x53
-+#define MT6373_REG_BUCK_TOP_INT_CON0		0x1411
-+#define MT6373_REG_BUCK_TOP_INT_STATUS0		0x141d
-+#define MT6373_REG_LDO_TOP_INT_CON0		0x1b10
-+#define MT6373_REG_LDO_TOP_INT_STATUS0		0x1b22
-+
-+#endif /* __MFD_MT63X3_SPMI_REGISTERS_H__ */
+ static unsigned long vgic_mmio_read_v3_misc(struct kvm_vcpu *vcpu,
+@@ -196,6 +199,7 @@ static int vgic_mmio_uaccess_write_v3_misc(struct kvm_vcpu *vcpu,
+ 
+ 		reg = FIELD_GET(GICD_IIDR_REVISION_MASK, val);
+ 		switch (reg) {
++		case KVM_VGIC_IMP_REV_1:
+ 		case KVM_VGIC_IMP_REV_2:
+ 		case KVM_VGIC_IMP_REV_3:
+ 			dist->implementation_rev = reg;
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio.c b/arch/arm64/kvm/vgic/vgic-mmio.c
+index 74d76dec9730..1b662744ec5b 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio.c
+@@ -73,6 +73,10 @@ void vgic_mmio_write_group(struct kvm_vcpu *vcpu, gpa_t addr,
+ 	int i;
+ 	unsigned long flags;
+ 
++	/* Revision 1 and below: groups are not guest-configurable. */
++	if (vgic_get_implementation_rev(vcpu) < KVM_VGIC_IMP_REV_2)
++		return;
++
+ 	for (i = 0; i < len * 8; i++) {
+ 		struct vgic_irq *irq = vgic_get_vcpu_irq(vcpu, intid + i);
+ 
+diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+index 1388dc6028a9..16811ec03d54 100644
+--- a/include/kvm/arm_vgic.h
++++ b/include/kvm/arm_vgic.h
+@@ -372,6 +372,7 @@ struct vgic_dist {
+ 
+ 	/* Implementation revision as reported in the GICD_IIDR */
+ 	u32			implementation_rev;
++#define KVM_VGIC_IMP_REV_1	1 /* GICv2 interrupts as group 0 */
+ #define KVM_VGIC_IMP_REV_2	2 /* GICv2 restorable groups */
+ #define KVM_VGIC_IMP_REV_3	3 /* GICv3 GICR_CTLR.{IW,CES,RWP} */
+ #define KVM_VGIC_IMP_REV_LATEST	KVM_VGIC_IMP_REV_3
 -- 
-2.53.0
+2.51.0
 
 
