@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356C6CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 18:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA27CD484C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 18:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UzghNUT8txexFJCdbHTb6EbJJDc5OYiK3uW8TFQuhMM=; b=JsJIKWU35gupx/QvU0u6sqbkyd
-	TZYAv9eSdNX5SzgeB19uI7AmPo3Erd+Tf6/okCw8vrip2+NLHBoASA8iPGiWfoGvsCdedr0Vb7gLc
-	tmSU6YnmPlQMu9+N287DIkExQV8r/2RwLqhCzASn2X8amw6oQkdj6AhV7gw2dCeYRGbcafUB5hh86
-	k+/ZFoddPHAkUbtIZqTq+4O5lmM9I5TWWxp/31NXEQ9cCbdTnxsHacyeQG0HmfP1P5XSU0TdOPMLM
-	fQg+v5kT9TAiH+Exg5N9hbo58cpMTKY0LEP6uNZaE4j1UevS4nbeqsBGaatBagOfy6XkJMo9+2Lxl
-	/vAtIB0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7zqX3hKsVPtuZdUyEW+EbAZt6pvzGDkeGkwitfI5Gy0=; b=2Jy2geeUdtIlENMArawk1YWC8M
+	SfUtXUc8fMsa5c4Ju2LPsGkdicq0QmQ2PKtuHyxtFwbRVZLp/EyFgcl4wIHD0VVnbScKK6Xbi6umG
+	qPUbYrXLsyhDfLv5b7RaPVPtN5Fqp5ReTZevaT6aG2g8ZKPa68aHAy0ZkYEnuMOB4dl3g8DYe2s+G
+	ayfZH/LBx1308khrOIjhpAa2xw17+5hS5/lRykgeM9LReJHVe3M96WqMMeXQO2lEf4Di4NaGrFxxs
+	tt0G9R82JipG/0MCH/76oXKjZ7gnUmhf2umr0o5LO38DsrCwOqEIBK38gfudweZWMtlyRWVd+bRP9
+	StgxghDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMVDN-0000000ETWo-26um;
-	Mon, 11 May 2026 18:18:49 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wMVFw-0000000ETts-3Ube;
+	Mon, 11 May 2026 18:21:28 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMVDJ-0000000ETVi-46EP
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 18:18:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=UzghNUT8txexFJCdbHTb6EbJJDc5OYiK3uW8TFQuhMM=; b=Svt1i7E7y0/08/Z+DzdyOhPsu3
-	cjCGgikyfsBuQ78H8BQsgU6RWNsRiDoyUHNMSa7aqhb2LyfNOcsinu+3i/qoj43i6bx8XBo64xfEf
-	MCj3PsNwnWHh5s1uZcp+s04ZWd82kZSLNO5s/bs9SsI8xPE5tHHQdySpiQU1zJx4IT2Q=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wMVD2-002QBE-6n; Mon, 11 May 2026 20:18:28 +0200
-Date: Mon, 11 May 2026 20:18:28 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: tanmay.shah@amd.com, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
-	Beleswar Prasad Padhi <b-padhi@ti.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Message-ID: <4ae35920-2539-4b12-8dea-efd407b8aaeb@lunn.ch>
-References: <472f85bd-42c2-40c6-abfd-b76924797069@ti.com>
- <CANLsYkzt9xUczxSU28u-TfZAAjr0ufZKXAj8Eqfq=45gufXW3w@mail.gmail.com>
- <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com>
- <21de8440-adf7-454b-acfc-06e50882e075@ti.com>
- <4c526816-b127-43e7-86e9-eee4dc1152bc@foss.st.com>
- <c6f68ab5-271a-41ed-b285-75b739f1edd6@amd.com>
- <87850f70-5275-4393-941f-d01146a9cffc@foss.st.com>
- <da3b79b7-9dad-48cb-b552-cf6df445899f@amd.com>
- <08c815f5-ccbe-404a-95a1-a549aac8a55d@amd.com>
- <CANLsYkz8HpM_8eS7DjN_jmYs4T7P9xY0jYmdiAx5WO=_1zvFpQ@mail.gmail.com>
+	id 1wMVFt-0000000ETqt-1OsE;
+	Mon, 11 May 2026 18:21:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1778523681;
+	bh=5f1KMBpJaQ47rd9eDJHLEhSqYhE7uD9TiYEKDFAFjQg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=fWyL51MeCllhmasiS0mJNFWv6FGadoNdB7fi24NeNif1mLfjw5m9LStwxcvEILYwO
+	 /6RZFL8Xtxxn8VJGUkqU0/PXpvoaNTK6acbY7y3AWPR/4P+Db6HqC6iUYotS74/wAc
+	 z8IcmQSaE+xUZ2juI2Q4vpzIfEBU2XcmtNmIR4c/ii/sYnDFnGJjBZJ+BIzGW6Bgv6
+	 xWC+wFg9ao/r0vJzSZyfE077c3k9PPcWm3LdvYYi5dUjM1msy6kDR0NHEw+TGrVpkN
+	 jrbzEKFAB/2RRZrGV0v+794otbJysHwbcGpnwPNGMsvvrf/AZZLAaYj7+a+NyXbXuv
+	 ojEZMgbr7BpFw==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 68B7B17E12AA;
+	Mon, 11 May 2026 20:21:21 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Mon, 11 May 2026 21:21:15 +0300
+Subject: [PATCH v2 1/6] phy: rockchip: samsung-hdptx: Fix rate
+ recalculation for high bpc
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CANLsYkz8HpM_8eS7DjN_jmYs4T7P9xY0jYmdiAx5WO=_1zvFpQ@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260511-hdptx-clk-fixes-v2-1-664e41379cab@collabora.com>
+References: <20260511-hdptx-clk-fixes-v2-0-664e41379cab@collabora.com>
+In-Reply-To: <20260511-hdptx-clk-fixes-v2-0-664e41379cab@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Thomas_Niederpr=C3=BCm?= <dubito@online.de>, 
+ Simon Wright <simon@symple.nz>
+X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_111846_020832_2EA8A453 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260511_112125_514730_CCB525F9 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,19 +80,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Arnaud, Beleswar, Andrew and I are all advocating for one endpoint per
-> GPIO controller.  The remaining issue it about the best way to work
-> out source and destination addresses between Linux and the remote
-> processor.  I'm running out of time for today but I'll return to this
-> thread with a final analysis by the end of the week.
+The PHY PLL can be programmed by an external component, e.g. the
+bootloader, just before the recalc_rate() callback is invoked during
+devm_clk_hw_register() in the probe path.
 
-How many of the participants here will be in Minneapolis next week for
-the Embedded Linux Conference? There is even a talk about this:
+Therefore rk_hdptx_phy_clk_recalc_rate() finds the PLL enabled and
+attempts to compute the clock rate, while making use of the bpc value
+from the HDMI PHY configuration, which always defaults to 8 because
+phy_configure() was not run at that point.  As a consequence, the
+(re)calculated rate is incorrect when the actual bpc was higher than 8.
 
-https://osselcna2026.sched.com/event/2JQpx/building-virtual-drivers-with-rpmsg-key-design-principles-challenges-trade-offs-beleswar-prasad-padhi-texas-instruments?iframe=yes&w=100%&sidebar=yes&bg=no
+Do not rely on any of the hdmi_cfg members when computing the clock rate
+and, instead, read the required input data (i.e. bpc), directly from the
+hardware registers.
 
-Maybe we can get together and decide on the final design after the
-session.
+Fixes: 3481fc04d969 ("phy: rockchip: samsung-hdptx: Compute clk rate from PLL config")
+Tested-by: Thomas Niederprüm <dubito@online.de>
+Tested-by: Simon Wright <simon@symple.nz>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
 
-	Andrew
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index 2d973bc37f07..7fb1c22318bb 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -2168,7 +2168,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ 	struct lcpll_config lcpll_hw;
+ 	struct ropll_config ropll_hw;
+ 	u64 fout, sdm;
+-	u32 mode, val;
++	u32 mode, bpc, val;
+ 	int ret, i;
+ 
+ 	ret = regmap_read(hdptx->regmap, CMN_REG(0008), &mode);
+@@ -2266,6 +2266,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ 	if (ret)
+ 		return 0;
+ 	ropll_hw.pms_sdiv = ((val & PLL_PCG_POSTDIV_SEL_MASK) >> 4) + 1;
++	bpc = (FIELD_GET(PLL_PCG_CLK_SEL_MASK, val) << 1) + 8;
+ 
+ 	fout = PLL_REF_CLK * ropll_hw.pms_mdiv;
+ 	if (ropll_hw.sdm_en) {
+@@ -2280,7 +2281,7 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ 			fout = fout + sdm;
+ 	}
+ 
+-	return div_u64(fout * 2, ropll_hw.pms_sdiv * 10);
++	return div_u64(fout * 2 * 8, ropll_hw.pms_sdiv * 10 * bpc);
+ }
+ 
+ static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
+@@ -2288,19 +2289,13 @@ static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
+ {
+ 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
+ 	u32 status;
+-	u64 rate;
+ 	int ret;
+ 
+ 	ret = regmap_read(hdptx->grf, GRF_HDPTX_CON0, &status);
+ 	if (ret || !(status & HDPTX_I_PLL_EN))
+ 		return 0;
+ 
+-	rate = rk_hdptx_phy_clk_calc_rate_from_pll_cfg(hdptx);
+-
+-	if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL)
+-		return rate;
+-
+-	return DIV_ROUND_CLOSEST_ULL(rate * 8, hdptx->hdmi_cfg.bpc);
++	return rk_hdptx_phy_clk_calc_rate_from_pll_cfg(hdptx);
+ }
+ 
+ static int rk_hdptx_phy_clk_determine_rate(struct clk_hw *hw,
+
+-- 
+2.53.0
+
 
