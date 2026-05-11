@@ -4,64 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBFCCD37B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 09:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68639CD37B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 09:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W1MHBgc/HftMNnpo3aSTC/H7e4PTrJtd0zERmMQdpuE=; b=xgqVA5ivZQyO0oIZQ1VbxzRQ/s
-	SBQMhOR2Fa4XD/M6udD8unxuVhzMT7Athf7PrAtdEnm/0LYW8/5cD+bFG5Lpyo/WbTRaJzO2cpIjq
-	b5vI/KbzrZhcWBXNPvWuyZIAbVS7VrSbD0tdTyU2IHxBPn3pJxihQ+QpIWGjrOFKZyBc7d0mQOoIo
-	QaUwQwthkyIBFBxP5FjiEuFVTLbfMqXV9vixOTTic+slvOj3jPENryw+2ERH9xkRrxfE40F+asTVS
-	SXQxATFLWWLkuWO0SGx1aHQPd9aXwOAFpCKWUQmO6eJ59plAOoU4YBz/biDnG6vkFvTxNGrgfxU0C
-	ETiMnY1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NazEYXccUFCHvpSIyTZHrI5rk+RUyMTp7OfDOD6gUuM=; b=hdIKZwD9WX2x/BAJ20X3chPwVn
+	aXsB3EBOERuQI9hMb1LjhfwAYwwuLSPcVRM8k/28DXbOusqwv0Iqp80Fvr6KNbey1r48tfAvl/SKq
+	hiKlFFfhe6SD8z3oMUVNYUTeTE+nluRkE2Qg3H3BFAhcIGNcW4TRuPl/fREHqQZuAdRiU3lsHq6wV
+	Ia2KAlz9FAi7FNk7GUnTLsISi8vpaYqt15TrU+3dCdOE+sZ69H/3jMIbfwdRRfKGGMqkrjA5zYAfy
+	wtA5r63fL6DRdWAdF49k9zRpeA//Yjkh2oCqoPx1WUGNG+mrK+2NUX4O3F8iRBkiOZODSzo4LiVME
+	zeBn+0Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMN7a-0000000CyBr-44JB;
-	Mon, 11 May 2026 09:40:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMN7X-0000000CyAI-3eJ1
+	id 1wMN8T-0000000CyLy-1SD7;
+	Mon, 11 May 2026 09:41:13 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMN8R-0000000CyKS-0GSB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 09:40:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06B211477;
-	Mon, 11 May 2026 02:40:07 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C57DA3F85F;
-	Mon, 11 May 2026 02:40:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778492412; bh=Ot2eN4Rwr0wT4qQBvc2wpwtb/0xmY45GYo+XcTU/Kv0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KgAHDhmDzkrEYH0oU60KumIz3pBVMD04jJMgUhwTIt1NjUP1hS1/xWYR46Toxxtpm
-	 nuTXzSF/UyzLA65hANMUiJ7TqcL/VfAeooDfIGLlfA6FMmwt6BbMjD5kImxHSkc/BP
-	 tcn18giVR+s0uhwNCg2fP5N5MEpYpIqN/PKJ67CQ=
-Date: Mon, 11 May 2026 10:40:09 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Jie Gan <quic_jiegan@quicinc.com>
-Subject: Re: [PATCH] coresight: fix source not disabled on idr_alloc_u32
- failure
-Message-ID: <20260511094009.GK3778514@e132581.arm.com>
-References: <20260511-fix-coresight-sysfs-enable-issue-v1-1-1b3829748171@oss.qualcomm.com>
- <20260511092446.GJ3778514@e132581.arm.com>
- <eefdc953-a127-41b9-afba-a07cf5d5734a@oss.qualcomm.com>
+	Mon, 11 May 2026 09:41:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SK/86/ePG9j8BwNkfEDaZtolzwLuRqlzW1NVjIwLgFrEE+lWWFECVYE4RWb6nxdN+IQ2k9XKpBLCUVbd7bJrrhj+Sgo2wxQ/uuVpM8gRMxGIcEPlE6dHybkkoA9M8c6HSbmuIrKwCHoPSr2/LifiH3Ttyyb9yaAxb5yqGnIXJct6mH7Hh8IG7WfHvDajw1HiCkvDsx/2siwDuUJVhxriQ0F8XuR9d3J716ok9p38lY15G2m5LOG0qsohOa2sGPJHwkvat9uFNR74LG9bIKMvg76zC6s/suJDgt5XEZrPG+QKTsmebrTUInUj56a4CMBxLPvzCDWBC9X431SdG0db6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=NazEYXccUFCHvpSIyTZHrI5rk+RUyMTp7OfDOD6gUuM=;
+ b=D4K46CC8/p1flYLQQ3OC48V85IkdgktnfP6BYD0d38VNNGsxad5aWOAJCSwBHR2IF3KCggqTwJtIBdepDgRe1xNUZ19LTmkKpxJxFW0hTxTSW+5TdMZoLe2Yp2f0GIgVqC3cIAvUPyuR2HXvf2NWhgJbP67TNwEs9BxYKYEA3Wwah4puPLyEBCZcvpzS69f9HTxknGg32icElN80NoRv2fOlBIuBPv82fMrDIl5dPT1CEj/x5/02N5EV96U+Jj+V9JhdVEsXeT5TGAySzfwktHQK7NDwkDHaBhQbLNZgL9RTGhFAttUvi76/E04wVG5OV8ezmY1LxXz6mPiqsjJfQA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=NazEYXccUFCHvpSIyTZHrI5rk+RUyMTp7OfDOD6gUuM=;
+ b=pRMguwLEoOQtkeqXYS/2iZBzGmqkhCBaUkVYV+AgSIUAzUTkHhpO50/Fj4lwwgYfW9yd8QiraHKwQCWSsys6UxVYoCKAhx3iBnqECqJWd2wSg+9C4Rt7W0zI+B0UNqEqqa8clj7sRFSPTFWuuI3f0hfQGE8hNWNSiasGnzXWRUwDGDPlPD3q0vM2GrW6Cgmux77eIN9WtRWDtPBmXFJWIoSfv3GVTSTwSw1SIQTn4+KaTHLtyFxTOibfDM8eBI+6XtR5RhvbXp+xjV0+8elCr+873l1jgfAKClmJinCQwqLL2G45MranqJYiIDZMN3479ZV74AfXvrxoAcfLFXvk/g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by PAWPR04MB10030.eurprd04.prod.outlook.com (2603:10a6:102:387::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.22; Mon, 11 May
+ 2026 09:41:01 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9891.021; Mon, 11 May 2026
+ 09:41:00 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: [PATCH v6 0/2] media: nxp: Add CSI Pixel Formatter support
+Date: Mon, 11 May 2026 17:43:40 +0800
+Message-Id: <20260511-csi_formatter-v6-0-01028e312e2b@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMykAWoC/2XPwWrEIBDG8VdZPNfijHFieup7lFKMjl0Pmywaw
+ pYl716zpTRJj5/w+w/eReGcuIiX011knlNJ41AHPZ2EP7vhk2UKdQtUaADQSF/SRxzzxU0TZ8k
+ UsNNAwTOJaq6ZY7o9em/vdZ9Tmcb89cjPsL7+lFDpQ2kGqST3HQM0bd90/Drcrs9+vIi1M+PGQ
+ nu0WC0hkHXRKgS1t3pru6PV1VqyKlCwrepgb5tfSwoQj7ZZ70aK3gXwWru9NVv777+m2mB6q3S
+ 01Pbxzy7L8g0jMotzmAEAAA==
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Frank Li <frank.li@nxp.com>
+Cc: imx@lists.linux.dev, linux-media@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>, 
+ Frank Li <Frank.Li@nxp.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778492631; l=7382;
+ i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
+ bh=h698g+3Kz0+gGkzCpT8PcJunh3yOsg6qmlDH2XsxPwk=;
+ b=p+ohVLWYvd8d5zpGx8xGbaUj5HdA7uYOwsjonz0b5V65IeBKvJhvEPsPp9CpgPc1YJm+r7ltH
+ DHwAtgnzUR3DoRGLt2xWZlgnbhQOUDmzi6eoXohvoSLsGswbOh8W7mB
+X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SI2PR01CA0004.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::22) To AS8PR04MB9080.eurprd04.prod.outlook.com
+ (2603:10a6:20b:447::16)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <eefdc953-a127-41b9-afba-a07cf5d5734a@oss.qualcomm.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|PAWPR04MB10030:EE_
+X-MS-Office365-Filtering-Correlation-Id: 243794f6-ceee-45e1-a149-08deaf41694c
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|19092799006|1800799024|18002099003|3023799003|7136999003|921020|38350700014|56012099003;
+X-Microsoft-Antispam-Message-Info: yPDS9U0/LpX3ML8Us5xKz8ehoo4vUyK3Q49wcqEaXjXu1W5VUZA7Olf4dB+BIlRo6kK2Tm0D6+fockNNgdNihYKTsB8upNFwitUT66ju05zgwQO8+/ALPJmAgmOJhTkMEkhpluI4J4TC3wyKdjSVhR+ZdZpoG1/8oHCoL2uSkCpuElPFcC62CblzmvsL6amWYbkOWmfl898g8oumV+MWCHiMw1CdNWFY4WBwMR9GD1PCe5KtKd/fehnRktjSC7z3aTAhRieRAeCEp3nJFZThCqOcqWdfYF5AEDbbcyFAdWHApvnzRY59nk7ONvtEwQKHkBK6HMbGNPgZosnQ8vduQ9o4n2GDGLWRCJIdweBuIlFT76YI+R16fjK0U+p4dtAazn6G8o+N1K5Ta7xvkxYq+XOJ7vO/kyXJ+Yx59kv/qCvbfBfcmk3Ksazzj3y6UIe3xcSD8OFDOTLz1050GzKqwW9nZ8Ul7VP4jLifiaJ7e9x4o56BY2lqM8b0U6hmY1EszeGrdTulqehNYhGoeF0oDGFuIPAlYiipwVVvatsbglB70SS1a0Z6TflmMnowIRNAwRifxc87o4j1CKcf47q7qwHShDzl/8oYqPPCa4oOXbAU96Ol71kKPQiL1M4Cz5pDwT5MAVZTWrQj423Bj1Ll+YbUEPI+WsgeXZ5SHB4trCxhcmRjOlhe3KvnqwI3kbUbRAVJ3bh0tu+RlctQUmw29mhp2A8/EffdX2TUOdiEEuwOOpk+OiPoJACbUgj1Qp4PTkYsqPuvB6OlJGapcpXUDA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(19092799006)(1800799024)(18002099003)(3023799003)(7136999003)(921020)(38350700014)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bEQ3bGM4OVFVYmZGb3Uwc0M3NUY1M1BUOS9LcG13Y1pXdjZYRXA0bFBqQSs3?=
+ =?utf-8?B?VmlkbkV1WEJEZWh0SDY0K1d1d01BNVBsOTBQZWV3MklNZk1qaW9Mai84ZHN6?=
+ =?utf-8?B?U3VNd2l1c2h3Y1lPNDdtQ3pUMzlKQUJDdDNqQ3FMSFRGbmVrcnlBUEsxa1hW?=
+ =?utf-8?B?V0xNSmRtWFljRldES0xkdHdyMWw5RExjaEE1UWc4aml5QnkxWmVoRitmS1NQ?=
+ =?utf-8?B?TzdmaVBPN21Udk9abTRnRlRpMDExaTNiUFM1L2hwT3dTVld6eFZyUmJzZlJo?=
+ =?utf-8?B?cTR5RDJjUWpidlpPQTc5RlpqMEZpSFJrQnhaOWFZdkRLc2tPdFNrU2IrRGxN?=
+ =?utf-8?B?T0hDQVlRMkZTUnY5amZiL0hMWXUxYWZ1QTR4UFhxWGkrMi9wN0pXdy85U2hx?=
+ =?utf-8?B?dTFva1VTY1dWZEt2Ny8vZ1Z4bU81Nko0emdSeW5GdDVlY1lLUHZtWWlIbGMx?=
+ =?utf-8?B?d3hTRG5PK0JaNEVIakZQWlU2ZEhLdUlSMXdZR2RZLzFlV3pvTlB6K1Y4NDhs?=
+ =?utf-8?B?ZGJUQjhoTVF5S2Q4VWo4M3RWOC9Hdi8rcHZncFZ1UHpDcW1NNjc5VEllRCt6?=
+ =?utf-8?B?dXpxbE1RSTVuSEVNa28wZmVZYzJ5SkwxdWFWVGhNT09pRUlqdHZ6eHZnaFZi?=
+ =?utf-8?B?S1J0aUlQaENBSFJoT1JGc0hUVzRWNlEwRDl0U1NMbm15VnhvdXVVVFFnZVlj?=
+ =?utf-8?B?Z0w3Tk9BaXlRdXZ2bkFDa3phQi9heWFGdk4zTThOMHRVWU1RdlNlTExiRUVC?=
+ =?utf-8?B?U0NOdEYzUm1xS1RjWU9mbEsyWHB4Z3EyZk00aDNRTzgrYXkxc0VidlQxWGdq?=
+ =?utf-8?B?cFUveGtuZjdJT2pRM25aYUtINGpwQ3BWczFtcjgrU1FkQ1hYUjU5SksyQTZj?=
+ =?utf-8?B?UlBlY0R3RnBSMzlrNzBhR3NsUjAxZUtjOXFJZW5VbEdTcnFOa2NyamNiRVpE?=
+ =?utf-8?B?SStnTGlSSnd0VDlydUt4RWlncEtSSzJXek9TS0FZM0xkTmptbHk1VUZBYlJn?=
+ =?utf-8?B?bThpT1ptOUkwR2V0NS9BR0wvZFhiUUg0VE5vUUFCaDlIQ09TNU9zNEh1a1hr?=
+ =?utf-8?B?dEdDMTFCUGNTYWlzQ2NMU0hIVlFhZElaWkl4SG5ycHErTDl4MVhZMHhsV0Zo?=
+ =?utf-8?B?R1Zka0liTnVWdHk3OWtMaWo5b1NEaGhoRURMRzVEQW53K3NrN2tPelJWVUl4?=
+ =?utf-8?B?NjZCUGNxYUUrT2pZeGlMMkdaK05Db0JpQWdLMjVpaVBCL045SHZTOURmY3ZT?=
+ =?utf-8?B?ZVNYMnR4SUpzemlOQ0NENzFQM2M3TTMwMXliUmc0QUoyQnI5Q1lKVFBoaTFQ?=
+ =?utf-8?B?bitmUzN1bHp4NFhUaEpjbGxLN3NQampYTnczaERqUmIveDZIcWVHMUd0dmFu?=
+ =?utf-8?B?NGxKbFVKV0xmdkNnT1dWQlRFQlBBRUFhcWg3SVNGTzB2c3B2ZVg2S2NFSzhZ?=
+ =?utf-8?B?M1pYbWlra2JVQjlUTDYxRFpKa1NZUFZwVjJoZStwczhNMWRET0t2REVTUXNR?=
+ =?utf-8?B?N0R4bDNwdy9pbVBVd3dkM1Rlb1hPUXo1a3MvK01SQy9jc2pBYkFhYW5UV1h6?=
+ =?utf-8?B?Z1JkSTFQR3VJS3NoNjZYMDdXRng2MkNHMCtpOEM1cnFhRXFZRVo1aGR1NWlQ?=
+ =?utf-8?B?OURHU09Dc2FMTnF4MjhkVmhnbXVqM0tjSjIra0dTbzFFZko5OTdVeCtiSlNS?=
+ =?utf-8?B?alJuTElianRIRUtsV1p5RHdRQjZNS1dEdk5GMDlDT1ZWSWV5aGpYTUVKai9R?=
+ =?utf-8?B?MWdqWmI2OUk5RVg2R3FBVGhYbnMvWk5SZVIrZ1Z1L3lpSkcwVzhqenIxZDBj?=
+ =?utf-8?B?ZTBkMDVxbng3VGRXdnpjYjcyakF6L2Ywd2YwR1hYNHMwMEs4VW1sd0xMWHJn?=
+ =?utf-8?B?S2tmbkphUkFuQ2I3SGlUTWZXZjg3WmlqSmFzSFZIb2pUMWVzVGsrRS9iSjRz?=
+ =?utf-8?B?SUNkc0xlZWVVQzJseloxY1VQS1JVUmo5R29zdlFjSGF2d0QveXVXekt0b0lP?=
+ =?utf-8?B?SWRmYkVVMXlMTU5nbVVBZk8yaVZwRmYvR3JzY0c4ck5NYk85YnhOcm5DL0hJ?=
+ =?utf-8?B?YXRFN2l4TS9xSmQ5cVhTUVAwWFlRNWlZT2FjclYyOHlTMjdtWUNRWml3Vzd1?=
+ =?utf-8?B?eHFkemJ4ZmVDMFRqRG56Z2RSZytkZ0ZPSXZXOWlHQzNSbUlHTkJrUjAzTDdr?=
+ =?utf-8?B?cExtbGcxeXlhS1djSk1yS1FUaFNaOFVXRy9QZ29rN2lxVWRoNVJqVllraE9R?=
+ =?utf-8?B?NkFjUmpWcW9GUGlJZmVkVlRxNkFKM3VudG5GWTZJR1JET3ZPWDdwSVJibGtk?=
+ =?utf-8?B?clN5WHlCV1FTZTVQTlJqOWQzeFE2VGlqSFZYNW1tc1VSZSs1YzhHdz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 243794f6-ceee-45e1-a149-08deaf41694c
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 09:41:00.9189
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /S0UqB8m8FHioT0HOEQ0CcgZDC3C4vgvSDFW6mafvt5/39QShO+AHP1gFnzkEkAXfyyaRTWzZanFKtG2niDM6g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB10030
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_024015_982930_57E0CDFB 
-X-CRM114-Status: GOOD (  21.86  )
+X-CRM114-CacheID: sfid-20260511_024111_273288_E184E5F4 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,41 +168,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 05:28:37PM +0800, Jie Gan wrote:
-> Hi Leo,
-> 
-> On 5/11/2026 5:24 PM, Leo Yan wrote:
-> > On Mon, May 11, 2026 at 05:04:44PM +0800, Jie Gan wrote:
-> > > In coresight_enable_sysfs(), for non-CPU sources (SOFTWARE, TPDM,
-> > > OTHERS), the source device is enabled via coresight_enable_source_sysfs()
-> > > before idr_alloc_u32() maps the path. If idr_alloc_u32() fails, the
-> > > original code jumped directly to err_source, which only calls
-> > > coresight_disable_path() and coresight_release_path(). The source device
-> > > was left enabled with an incremented refcnt but no path tracked for it,
-> > > leaving the device in an inconsistent state.
-> > > 
-> > > Disable the source before jumping to err_source so the enable and path
-> > > operations are fully unwound.
-> > > 
-> > > Fixes: 1f5149c7751c ("coresight: Move all sysfs code to sysfs file")
-> > > Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
-> > 
-> > Actually I have noticed this. Since my PM series will remove IDR things,
-> > and I don't think anyone really hit idr alloc error, this is why I
-> > didn't send fix for this.
-> > 
-> > Anyway, this is a reasonable fix. I will send out my PM series later
-> > in today, I will pick this patch into my series and rebase on it, hope
-> > this is easier for all of us.
-> 
-> Well noted. Please feel free to pick it into your series.
+CSI Pixel Formatter is a module found on i.MX95. It could unpack the
+pixels received by the formatter and reformat them to meet the pixel
+link format requirement.
 
-Thanks! Just note, I updated the Fixes tag as:
+This patch series adds a new V4L2 driver for CSI Pixel Formatter.
 
-  Fixes: 5c0016d7b343 ("coresight: core: Use IDR for non-cpu bound sources' paths.")
+v4l2-compliance 1.28.1-5233, 64 bits, 64-bit time_t
+v4l2-compliance SHA: fc15e229d9d3 2024-07-23 19:22:15
 
-Which is the original patch for the issue.
+Compliance test for device /dev/v4l-subdev9:
 
-Thanks,
-Leo
+Driver Info:
+	Driver version   : 7.1.0
+	Capabilities     : 0x00000002
+		Streams Support
+	Client Capabilities: 0x0000000000000003
+streams interval-uses-which
+Required ioctls:
+	test VIDIOC_SUDBEV_QUERYCAP: OK
+	test invalid ioctls: OK
+
+Allow for multiple opens:
+	test second /dev/v4l-subdev9 open: OK
+	test VIDIOC_SUBDEV_QUERYCAP: OK
+	test for unlimited opens: OK
+
+Debug ioctls:
+	test VIDIOC_LOG_STATUS: OK (Not Supported)
+
+Input ioctls:
+	test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+	test VIDIOC_ENUMAUDIO: OK (Not Supported)
+	test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDIO: OK (Not Supported)
+	Inputs: 0 Audio Inputs: 0 Tuners: 0
+
+Output ioctls:
+	test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+	test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+	Outputs: 0 Audio Outputs: 0 Modulators: 0
+
+Input/Output configuration ioctls:
+	test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+	test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+	test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+	test VIDIOC_G/S_EDID: OK (Not Supported)
+
+Sub-Device routing ioctls:
+	test Try VIDIOC_SUBDEV_G_ROUTING/VIDIOC_SUBDEV_S_ROUTING: OK
+	test Active VIDIOC_SUBDEV_G_ROUTING/VIDIOC_SUBDEV_S_ROUTING: OK
+
+Control ioctls:
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+	test VIDIOC_QUERYCTRL: OK (Not Supported)
+	test VIDIOC_G/S_CTRL: OK (Not Supported)
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 0 Private Controls: 0
+
+Format ioctls:
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK (Not Supported)
+	test VIDIOC_G/S_PARM: OK (Not Supported)
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK (Not Supported)
+	test VIDIOC_TRY_FMT: OK (Not Supported)
+	test VIDIOC_S_FMT: OK (Not Supported)
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls:
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls:
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK (Not Supported)
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+
+Total for device /dev/v4l-subdev9: 47, Succeeded: 47, Failed: 0, Warnings: 0
+
+Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+---
+Changes in v6:
+- Rebase to latest media/next
+- Update v4l2-compliace test
+- Remove unused header includes
+- Unify macro naming: VCx/VCX -> VC and parameter x -> vc
+- Remove unused format field from csi_formatter struct
+- Use compact initialization for formats array
+- Make find_csi_format() return NULL instead of default format
+- Use unsigned int for array index in find_csi_format()
+- Add err_ prefix to error handling labels
+- Add v4l2_subdev_cleanup() and reorder cleanup sequence
+- Update enable_streams debug output format
+- Rename VC_MAX to VC_NUM and fix boundary check
+- Update CSI formatter Kconfig description
+- Use v4l2_subdev_get_frame_desc_passthrough() helper
+- Fix error paths in async registration and probe
+- Add mutex to protect enabled_streams
+- Switch to devm_pm_runtime_enable()
+- Remove redundant num_routes check in set_routing
+- Optimize get_index_by_dt() and add warning for unsupported type
+- csi_formatter_start/stop_stream: Process all streams in mask
+- Link to v5: https://lore.kernel.org/r/20260123-csi_formatter-v5-0-d5b803f867bf@nxp.com
+
+Changes in v5:
+- Remove CSI_FORMATTER_DRV_NAME macro since only use once.
+- Remove sd->owner = THIS_MODULE;
+- Simplify code by using DEFINE_RUNTIME_DEV_PM_OPS macro.
+- Link to v4: https://lore.kernel.org/r/20260122-csi_formatter-v4-0-6f6fcad1c33a@nxp.com
+
+Changes in v4:
+- Rebase to latest media/next.
+- Add comments to describe the index field in formatter_dt_to_index_map array.
+- Link to v3: https://lore.kernel.org/r/20251219-csi_formatter-v3-0-8680d6d87091@nxp.com
+
+Changes in v3:
+- Rename nxp,imx9-csi-formatter.yaml to fsl,imx9-csi-formatter.yaml.
+- Drop clock-names property.
+- Drop macro IMX95_PD_CAMERA definition and use a constant directly.
+  [PATCH 1/2] media: dt-bindings: Add CSI Pixel Formatter DT bindings
+- Remove the assignment driver.owner = THIS_MODULE.
+- Assign struct fwnode_handle *ep __free(fwnode_handle) when definition.
+- Update yaml file name for csi formatter in MAINTAINERS.
+  [PATCH 2/2] media: nxp: Add i.MX9 CSI pixel formatter v4l2 driver
+- Link to v2: https://lore.kernel.org/r/20251217-csi_formatter-v2-0-62168af80210@nxp.com
+
+Changes in v2:
+- Delete "|" for description key. 
+- Add empty line between child node and property.
+- Delete labels for endpoint of child nodes.
+  [PATCH 1/2] media: dt-bindings: Add CSI Pixel Formatter DT bindings
+
+- Update commit message.
+- Use the value defined by bellow macros directly since they are used only once.
+  #define CSI_FORMATTER_DEF_MBUS_CODE	MEDIA_BUS_FMT_UYVY8_1X16
+  #define CSI_FORMATTER_DEF_PIX_WIDTH	1920U
+  #define CSI_FORMATTER_DEF_PIX_HEIGHT	1080U
+  #define CSI_FORMATTER_MAX_PIX_WIDTH	0xffff
+  #define CSI_FORMATTER_MAX_PIX_HEIGHT	0xffff
+- Use macro pm_ptr() to fix build warning when CONFIG_PM is disabled. 
+- Finish route loop by break statement, instead of goto.
+- Return dev_err_probe() when meet errors in probe() function instead of dev_err().
+- Remove MODULE_ALIAS().
+- Refine .enable(.dsable)_stream callback implementation, include bellow changes:
+  Add stream checking.
+  Fix potential pm runtime count unbalance issue.
+  Add stop stream error handling when enabling remote subdev stream.
+- Use __free(fwnode_handle) to drop reference to a device node automatically.
+  [PATCH 2/2] media: nxp: Add i.MX9 CSI pixel formatter v4l2 driver
+
+- Link to v1: https://lore.kernel.org/r/20251203-csi_formatter-v1-0-eb9e1147b49e@nxp.com
+
+---
+Guoniu Zhou (2):
+      media: dt-bindings: Add CSI Pixel Formatter DT bindings
+      media: nxp: Add i.MX9 CSI pixel formatter v4l2 driver
+
+ .../bindings/media/fsl,imx9-csi-formatter.yaml     |  87 +++
+ MAINTAINERS                                        |   8 +
+ drivers/media/platform/nxp/Kconfig                 |  14 +
+ drivers/media/platform/nxp/Makefile                |   1 +
+ drivers/media/platform/nxp/imx9-csi-formatter.c    | 776 +++++++++++++++++++++
+ 5 files changed, 886 insertions(+)
+---
+base-commit: bc1ba628e37c93cf2abeb2c79716f49087f8a024
+change-id: 20251125-csi_formatter-e6d29316dce6
+
+Best regards,
+-- 
+Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+
 
