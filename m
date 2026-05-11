@@ -4,102 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15658CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 17:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DBDFCD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 17:21:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxqdxYVfNyLoxNKHswDJZT0z/g1AEcUqUWKcspgGBc8=; b=o0sMi1QV2oFrlyTvFzboUFqqmw
-	Y1al5b0UkAMUHB1ooc1Z58uOnwvZfNfmoP1vB/OyvyTjbEfoDrWRseQ3nMxWZRCLGTLXJ3VJ0VLn8
-	B7bqf8LKPa0svNoAO6WDuIR+J0yh3fMQUnVO+O4riwypMYsKbaiuUbOui10GyovY1A4glevEdbRva
-	ch17kD1p+EVIJWTdNvtWpfiSdI4uRMNHOUuhzHPUNaC83MhY6qEnHi2wBjSFeTwfAMlIBaDKT1ZDn
-	EsPQjNL5Cedvnv1b2OiO/b08lBmYXmY4VRdodfkA3X9Qii6I00lv2Qj/PLhhLNZyTc+0D2fplGeQK
-	6PQWtFDw==;
+	bh=aD6rQz3VOJfmhMMBY5zODZr66WINb02FrK259Yv8dcs=; b=aP6eRFaslvttr0eGmR0uzF2qST
+	QANb4wc/Q9uaHkLS4DNGF6YqeWccSAaTwNXZWLnDnfRboOKSw0q/1Qm3ZeJd1yRGkVmiQ0oOsgLYo
+	vDPz1Sfs3BNaxmm0IGA0fMuAjbVgJBHao4HJDVVnXMGLQAYx2/wwsQtYLn5iJsRu4BESw+4Pn//Tq
+	sfUXf4vUsMtNJK+4sX5QjzS3CfMUdixGLgODFy8OhBlL1CcvHUkLIl6u2Mzb5/FOnaNYwsTGZA1QF
+	Ynm1laj/OO8h12/MQuBmRDK1sAZRHCZqSO1sWAZzyZXNpHK9yJzplZnMeyFjcLKX3tKKPgOYjFPN2
+	eKSythjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMUBD-0000000EK1S-2Mb4;
-	Mon, 11 May 2026 17:12:31 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1wMUJf-0000000ELQ7-0HpH;
+	Mon, 11 May 2026 17:21:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMUB8-0000000EJwb-2awl
+	id 1wMUJc-0000000ELOp-0TZ4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 17:12:27 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5a8c6fc5fd3so1465013e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 10:12:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778519544; x=1779124344; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fxqdxYVfNyLoxNKHswDJZT0z/g1AEcUqUWKcspgGBc8=;
-        b=nxqKFT1j3D9lN0Ky7GF8vPr4ncV4ob8rnPoJLfJ+PRGs6bsbEtTbnzhMEgHmjxrswr
-         b+8Yc/gNHepvgmo10K4rp+v2pmhDecim9zkWYrY/F5EMXg4prOOiNvpDdMsTZSSM9j7s
-         TEBQO9buPaHHCJgmKOmAZrMSjvJFoSJOaYLNdI1tykyXD0K+SNVxCabtKhW724q5bNqd
-         TNGj9Zzsy5Ej/1latQtFwnCGiZcGcqALTBoTS3Zjvd5xsfm9a1dEtnpbj4hgF4uuU8sA
-         Jg8xSkU2ceg0/3+QKJIK80mF/wUXe/j2K0E+pQMSpLMDIX8j8TfK2aOtW3vTReQVtii9
-         ujwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778519544; x=1779124344;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=fxqdxYVfNyLoxNKHswDJZT0z/g1AEcUqUWKcspgGBc8=;
-        b=Lq7yrwmjrpujmIJaqWebD4R65sQERzJuoyVldrgYtcAN27nQjqPp57oKN7dMzHVL42
-         O7LouIdYsmcbZQ4vrG0FVU1qs5rRTSOP/34tAF4PIlqHuRPHso/3hqbYNnDjD9vW0vk1
-         ZtzXogHTAP80bYqy6RXLeOvTdc1Ot51YnTsCNTNUnvVZz3t8+NRpVVGWOMB1Ad2ruYbW
-         a17MGCkEhqTUgB05jDt5EU+VQQIdrdf+YMBMWbItou2oHBoZJpYcL2Ks/S187fEn845t
-         i3geETMQSOPzHzvAtbhasUm0AkFUDsRj1D6Qidq38Yu3ycxqWdArrxmgghiewCZDUxY/
-         0Jxw==
-X-Forwarded-Encrypted: i=1; AFNElJ8FeXdUofxYM/RdR6ArwK+NWqDkXbipKXqxOiQuz5luPNq+aGncubwTiPTgAp0IKptAbDKvEHDtm6zJSxZ4hUSz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjpZl3jpD2zvQTf7nc6pcG3KL85657znu57iyaDYR41C9vuL5U
-	/3od4NL689u1P4dzGtal474CE0Db2dY78VnUAIeoSsqzcG/ugDPgd2GX
-X-Gm-Gg: Acq92OHXHjJfEU17IMYNDU1YBxPM5NYgNhb+0WdElQSQ7YIpJw9PqOp2chHwGSF/TfJ
-	EEaUwzPXSLYCn70JP4roEPs4OdzMApQai1ak2M17wU5x+r0q55AZlmyX2lLavuwB6OfeWvJ3EKN
-	UaLhlz1XDo8AAUf0bYe4HcVPBLjlSROmapYfR9QpPe0Vws2YsNhXTigEszfhSx4d+wbsSnqQ++g
-	TmvSO9gdaxgR1kUvuzODnVZ1ZNblxj4YXbW92whEWkQCrj9M/L2bv5d3X+vyCs5OgkkdHsPGTgK
-	N4isnXUcVEhUQeaxtniuUy9hLNTZHS5XksfKDFOlaRXu1JK0VZdpZe1XVqpvsU+FJVvoQFjKCch
-	5EQPKEaey6mzF9qT+jWriI16ieQQgbG5qZl9x+01bcuaz0wwf/TP0gkAyQy/kyAM0uRHLmTSXR8
-	22ukAX59yUHV2HBdF1neGuF83kBYLEFdg1f8v317asOw2OOx6gm58v/IZ5Vdd1
-X-Received: by 2002:a05:6512:2309:b0:5a2:b86b:56c2 with SMTP id 2adb3069b0e04-5a8e0f35137mr91615e87.21.1778519544242;
-        Mon, 11 May 2026 10:12:24 -0700 (PDT)
-Received: from va-HP-Pavilion-Desktop-595-p0xxx.mshome.net ([193.0.150.248])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a8a95660b6sm2765488e87.62.2026.05.11.10.12.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 10:12:23 -0700 (PDT)
-From: Valery Borovsky <vebohr@gmail.com>
-To: linux-media@vger.kernel.org
-Cc: mchehab@kernel.org,
-	hverkuil@kernel.org,
-	hansg@kernel.org,
-	hugues.fruchet@foss.st.com,
-	alain.volmat@foss.st.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	sakari.ailus@linux.intel.com,
-	mripard@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Valery Borovsky <vebohr@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 5/6] media: stm32-dcmipp: Return queued buffers on start_streaming() failure
-Date: Mon, 11 May 2026 20:12:10 +0300
-Message-ID: <3b7c3d1be61bcf092484016e25e7b8add98bbe0d.1778518085.git.vebohr@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <cover.1778518085.git.vebohr@gmail.com>
-References: <cover.1778518085.git.vebohr@gmail.com>
+	Mon, 11 May 2026 17:21:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F41F4047A;
+	Mon, 11 May 2026 17:21:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB324C2BCB0;
+	Mon, 11 May 2026 17:21:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778520071;
+	bh=eqp4K//W8NdnJQWNnhieEj19AwFeTei9C6+KiP1FPtw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=UAuBHJWrCuOhZcfe3xzZotvbVkH1DE+hD0KvkKNqWnulK/7C5sFxEkZuIwv/AAp/O
+	 zDRGCmUFXQ4Xq7fGVhctwI5chAEUcXeVEWdT/EPhOrWlR6uEitFSSdRPCGhKz1g60W
+	 FYgIHoQsBZ3IS4uDgeH5I5wHH1/0Nu6x7CuhCPqJzNEhDpTSvIcAuzOiDREBqXMOam
+	 NdynMBAPAeffpzgGZ8Dijr/2kV8POOjzZEaAEciyfFKblARGYyXQuyFNPLd8Tv56PY
+	 1E4lJ6dXiDvAhzAQgnBbxz/PKSQ7EZD9ypKKjxg1BMpduS3MDHsexT1VBK7T+aqqLf
+	 68niCP+AfqOWw==
+Date: Mon, 11 May 2026 18:21:01 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Maxwell Doose <m32285159@gmail.com>
+Cc: Sanjay Chitroda <sanjayembeddedse@gmail.com>, salih.erim@amd.com,
+ conall.ogriofa@amd.com, michal.simek@amd.com, David Lechner
+ <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] iio: adc: xilinx-ams: Replace spin_lock() and
+ unlock() calls with guard(spinlock*)()
+Message-ID: <20260511182101.705a5c1c@jic23-huawei>
+In-Reply-To: <CAKqfh0Hmchpq5zvK6Fd=VCqWXN+1FKyWxNyF1O=3zsVEM7HJUw@mail.gmail.com>
+References: <20260508124513.17752-1-m32285159@gmail.com>
+	<F98D1BE6-7B28-4A36-A372-2431EA151E1E@gmail.com>
+	<CAKqfh0Hmchpq5zvK6Fd=VCqWXN+1FKyWxNyF1O=3zsVEM7HJUw@mail.gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_101226_672187_5CB980EF 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20260511_102113_399068_43947824 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,49 +78,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vb2 framework hands buffers to the driver via buf_queue() before
-calling start_streaming().  If start_streaming() returns an error
-without first returning those buffers via vb2_buffer_done(),
-vb2_start_streaming() fires WARN_ON(owned_by_drv_count) and the queued
-buffers leak.
+On Fri, 8 May 2026 13:53:11 -0500
+Maxwell Doose <m32285159@gmail.com> wrote:
 
-dcmipp_bytecap_start_streaming() returned -EINVAL when the source
-subdevice could not be resolved from the media graph, before
-pm_runtime_resume_and_get() and media_pipeline_start() had been called.
-The remaining error paths already converge on the err_buffer_done
-label, which calls dcmipp_bytecap_all_buffers_done(...,
-VB2_BUF_STATE_QUEUED).  Jump to that label directly: the intermediate
-err_pm_put / err_media_pipeline_stop labels are skipped, which is
-correct because nothing they would undo has happened yet.
+> On Fri, May 8, 2026 at 1:50=E2=80=AFPM Sanjay Chitroda
+> <sanjayembeddedse@gmail.com> wrote:
+> >
+> > Hi Maxwell,
+> >
+> > Thanks for the resource cleanup change.
+> >
+> > Overall looks good.
+> >
+> > Also, there is opportunity for guard(mutex)().
+> > =20
+>=20
+> Thanks, of course I'd also be happy to do the transition to
+> guard(mutex)() but it seems like something for tomorrow evening since
+> I've already submitted a lot to the mailing list.
 
-This mirrors the uvcvideo fix in commit 4cf3b6fd54eb ("media: uvcvideo:
-Return queued buffers on start_streaming() failure").
+Nice patch  and well noted by Sanjay - I'd have just applied this
+without checking for that :)  I think sensible to do one patch that
+deals with guard() for both mutex and spinlock.
 
-Fixes: 28e0f3772296 ("media: stm32-dcmipp: STM32 DCMIPP camera interface driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Valery Borovsky <vebohr@gmail.com>
----
- .../media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c   | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+Sometimes the Xilinx folk do review so I'll leave this a while longer
+anyway in the hope they have time to take a look.
+It's a safe change set but none the less nice to give time!
 
-diff --git a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-index a42f43d19f9e..f0e809458489 100644
---- a/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-+++ b/drivers/media/platform/st/stm32/stm32-dcmipp/dcmipp-bytecap.c
-@@ -401,8 +401,10 @@ static int dcmipp_bytecap_start_streaming(struct vb2_queue *vq,
- 	 */
- 	if (!vcap->s_subdev) {
- 		pad = media_pad_remote_pad_first(&vcap->vdev.entity.pads[0]);
--		if (!pad || !is_media_entity_v4l2_subdev(pad->entity))
--			return -EINVAL;
-+		if (!pad || !is_media_entity_v4l2_subdev(pad->entity)) {
-+			ret = -EINVAL;
-+			goto err_buffer_done;
-+		}
- 		vcap->s_subdev = media_entity_to_v4l2_subdev(pad->entity);
- 		vcap->s_subdev_pad_nb = pad->index;
- 	}
--- 
-2.51.0
+Thanks,
+
+Jonathan
+
+>=20
+> best regards,
+> max
+>=20
+>=20
+>=20
+>=20
+> >
+> > Thanks,
+> > Sanjay Chitroda
+> >
+> > =20
 
 
