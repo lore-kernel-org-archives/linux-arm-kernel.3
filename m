@@ -4,67 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841B4CD37B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F330CD37B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JfFjrNyr/CpA09b5boNae6Ajp7KSF8ePBWKWKTghPOs=; b=jBVaSPpfZDZbU9NpO/dScuv7f/
-	sleW+XxtYu2OP3jys4szLERuNtcSRJZPpCfw71+g3Jqgl6B6eexRBYgpWoByBMBYxgYf/UhiLdQhg
-	Uy75re174fxYCg6k4djklK4MJSpO5X6LjYeijZ+etvRV0cyskwMi0exYE2gBe4oX3A1c5FM2cR481
-	bk+yeLD4AgIn8FCY+HfVVWvSZhAgnDywYt19MqSIArclXb5xMz8QfsbWclGZY3MNF+D9XzdH1bsyU
-	yA+5hnwftzQPM8ocr4o53uti5xQ7a06zuJz87WQBL7gzt715vXgsvf69TIppvb21pZAR8zjh8it+5
-	fiJHJTpw==;
+	bh=1x/mOaa1dJhywLuUhoro4xsZpsIwTtvbqXZ9jlO2CSA=; b=GfFu4kC5VNr7tc2koVNJ3+Lt/L
+	l0/wJNLK05Zo+6L90JhQZO4oL8sYE77CVXj0i5qpVmIWSSkeKEyzukiamSd5lfW59+OQS8XKAwORt
+	0sbPiV7T51mhhppwi1DbzSql94edeZACgTFfmiCbXtM3bJa/YJVlcyq3awKS4lmbd/95pd9Pyhqj2
+	h986llCSj0pk+f+zwxaa237M8K+sbQ9QCFhQ8jwlDxl13ZdoBydvDb/BumuL5ueml78rc6zL0qlsz
+	U/BGWo/xGP0JVJGMB1tWEmFd73V81Ls6gqEFL/zQIhVsaSOgt3So/pkevb+iK9Uzbu1x1USYM/uWp
+	pQlW2yOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMT5Q-0000000E8UI-17GM;
-	Mon, 11 May 2026 16:02:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMT5M-0000000E8TD-3SeX
+	id 1wMT5U-0000000E8W4-1ZAW;
+	Mon, 11 May 2026 16:02:32 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMT5S-0000000E8Ud-03lL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 16:02:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AD43B16F3;
-	Mon, 11 May 2026 09:02:15 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 67AD03F836;
-	Mon, 11 May 2026 09:02:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778515341; bh=d8WItIwthuDEpX/UiQlfKMc9royYtzyV+pGcQrzVbPU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GvQN5vbEqBrW0wVLOoCaZCwYaB+zRsucAkYwhhEFXPQKUICM7t7svrPEDy5uaj+ns
-	 koT6QL4ySkLHNb8hlT0lW7CUe/p8+ozsHkVDoem0J+IMLPLrb8zunUwkoguvPjtPiQ
-	 LU6mDfZgyMRgjD6pA5Fr64Sd6Zr6hbl/BrrcWKu4=
-Message-ID: <e7269822-afc4-4a80-8408-297f9dbd6791@arm.com>
-Date: Mon, 11 May 2026 18:02:16 +0200
+	Mon, 11 May 2026 16:02:31 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ad9a9be502so27532345ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 09:02:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778515348; x=1779120148; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1x/mOaa1dJhywLuUhoro4xsZpsIwTtvbqXZ9jlO2CSA=;
+        b=kuUBpMEHEfQoqq8nbMHZ5MOp3Uw6L+tYpy1CDK2OGOs3wbheWc/SqJhmBIjkAljtkI
+         Zk8hRny1ShNYlYwOHpHGcphJnutXtVkrXIW+uiNo+BXs6BTJvf5/c2/bFuu4BoPEgzft
+         c8nE9i7rmjr3q7kFP48GzEjL5o8Fg3ANa8VOkJb5XN5zSXYWepOVkWZLahejX9Qyt0MB
+         Nrmnt9nSVhf1SFz+7UfBrlpIAryumb+GvN1JhhKAlqfAew5DiCt7QVMpJ7Qmb0BbFK8j
+         4FlyKGEj7dvsy8fshIadDlOw/DpQyHcBqm8owASCCUOYQqmtgpvD0GPQYUS+8ZdMWiU7
+         FGRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778515348; x=1779120148;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=1x/mOaa1dJhywLuUhoro4xsZpsIwTtvbqXZ9jlO2CSA=;
+        b=q660AN/rUr3A0KqZUrqZuqpKs4eQAMDDkrLr78ldWchoN9fSvq2LamwYQv4UzJJxDE
+         es3+1DYTbR8jfyKxdhlMXXKqScGV247Y3j8ct72uVIYy/dF3E5c6vQSNLIhfDbhP2DOk
+         OyYLc6rOKp1+iu5jGtz4w48z2wUmYXaMScdE88TxM+VBW8uD5fq7FX1pZPDcqUiZXu6M
+         /Yru176D9jsJuuQZdaegqjMhXK//fZD4uuTLN9f8ggGjt1ybM3UELTG7OXNHVU7LFokO
+         SXc2ahULx+x0/jvKTTlbjRzrk5D8CFgbSO5ObEWQPSaJjj5uupkJRIlsUZZKQnj+LpBx
+         FeNg==
+X-Forwarded-Encrypted: i=1; AFNElJ/MH8HUYYamp/tMs7ZLq0gwADF1j8k+feY/cpWEJsQXR0YStSUgTMhH5cs5udJolUty/zhsZE5ZbBTmi/yfcyqM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0vOAiGv5jH3WBJSBTQbij3ufZhhbQ1uKE2LQdGEgYJQiu3z4d
+	ajCegAnniT2OVkJVv9gAQj5GE0YVqul+r1gWo0JK5xDqeHm4mSyIxQ9k
+X-Gm-Gg: Acq92OH6m11EgsIqqeD4cf9v3WTWrrRsZEoCmNfG0u39onyvy+UWeY3hE9d+ygeg9J3
+	xukhnSJ+mrnVCNpjFYfZF2ab/OmzBe7lYUZF8J37JHbkruA6nk5L3CDD3Z+i+xZ1iTfVmkt7/tc
+	GGMylnVsWi+KFQ7ELDyUnCgt9kXZ60tChZCUNNwKOx8nFKFAgM62HPAwGE9SsyyFFfBVC43seKD
+	yoOxYmoZhNhBjY88biB17Ofleg/aesHHFIBGp/eTKPXe3WHR1/W6n98d5JQ7tKPmrVdxUOBiKpN
+	E3+BQFG4yOTzOmo7KdMldh9UTjsHPYN3yI9Fc/Pkui5c7faoyZI+SD51DnRFgXaB9WBXfVYe+C0
+	U25B70KSwc81O3TU0CndArh4yYiQQBVl9C/K4VOEgok3JhSu/9lCPPShKHpsLHWa40sjuTaFskM
+	w6bQESvgQkwWJox9x9+Tf8MucYsw1OeA==
+X-Received: by 2002:a17:903:2904:b0:2ba:85:5827 with SMTP id d9443c01a7336-2ba798d3e99mr180279745ad.26.1778515348035;
+        Mon, 11 May 2026 09:02:28 -0700 (PDT)
+Received: from penguin.. ([2401:4900:cbde:8ff:92b4:bf0c:6a0f:7ccb])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1d40a65sm108036435ad.20.2026.05.11.09.02.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 May 2026 09:02:27 -0700 (PDT)
+From: Rakesh Alasyam <alasyamrakesh77@gmail.com>
+To: gregkh@linuxfoundation.org
+Cc: richard.genoud@gmail.com,
+	jirislaby@kernel.org,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Rakesh Alasyam <alasyamrakesh77@gmail.com>
+Subject: [PATCH] tty: serial: atmel: Ignore chars when CREAD is cleared
+Date: Mon, 11 May 2026 21:26:55 +0530
+Message-ID: <20260511155655.26435-1-alasyamrakesh77@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <2026051106-obliged-dismount-d85f@gregkh>
+References: <2026051106-obliged-dismount-d85f@gregkh>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: Add GPADC for Allwinner A523
-To: Michal Piekos <michal.piekos@mmpsystems.pl>,
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
- =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Maksim Kiselev <bigunclemax@gmail.com>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260510-sunxi-a523-gpadc-v1-0-4f6b0f4000fb@mmpsystems.pl>
- <20260510-sunxi-a523-gpadc-v1-1-4f6b0f4000fb@mmpsystems.pl>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260510-sunxi-a523-gpadc-v1-1-4f6b0f4000fb@mmpsystems.pl>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_090225_217794_B7642005 
-X-CRM114-Status: GOOD (  22.00  )
+X-CRM114-CacheID: sfid-20260511_090230_083700_BF9379D8 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,118 +105,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michal,
+Ignore received characters when CREAD is cleared by adding RXRDY
+to ignore_status_mask.
 
-thanks for adding this!
+This replaces an existing TODO in the driver.
 
-On 5/10/26 14:57, Michal Piekos wrote:
-> Add support for the GPADC for the Allwinner A523. It differs from the
-> D1/T113s/R329/T507 by having two clocks.
-> 
-> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> ---
->   .../iio/adc/allwinner,sun20i-d1-gpadc.yaml         | 37 +++++++++++++++++++++-
->   1 file changed, 36 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-> index da605a051b94..89da96cd705f 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-> @@ -17,6 +17,7 @@ properties:
->         - items:
->             - enum:
->                 - allwinner,sun50i-h616-gpadc
-> +              - allwinner,sun55i-a523-gpadc
->             - const: allwinner,sun20i-d1-gpadc
+Tested on hardware.
 
-As Jernej already mentioned, the A523 GPADC is not fully compatible, 
-since it adds another clock. The question to ask is: Can a driver only 
-knowing about the fallback device handle this new device? For which the 
-answer here is: No, it misses a clock.
-So add just a single entry for the A523 (plus adding it to the driver).
+Signed-off-by: Rakesh Alasyam <alasyamrakesh77@gmail.com>
 
-So looking at this I wonder if we should add some property to describe 
-the number of supported channels, since they are slightly different 
-between the SoCs:
-- The D1 manual mentions 2 channels.
-- The T113s manual (same die as the D1?) describes 1 channel only.
-- The T507 manual (same die as the H616) reports 4 channels.
-- The A733 has 6 channels.
-- The A133 has 1 channel, but it's channel 1, not 0.
+---
 
-So all of this is somewhat covered as channels are described as child 
-nodes, and have a reg property. Ideally non-existing channels just 
-wouldn't be listed, but I don't know if we want to rely on that.
+v2:
+- Add blank line before comment
+- Tested on hardware
+---
+ drivers/tty/serial/atmel_serial.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-So I am wondering if we should introduce a limit, or rather a mask (to 
-cover the A133 oddity)?
-Either a DT property (channel-mask, as a single sell representing the 
-bit mask), or derived in the driver from the compatible string.
-The former would avoid introducing different compatible strings just 
-because of that, though I think this type of property is somewhat 
-discouraged?
-
-Any thoughts?
-
->   
->     "#io-channel-cells":
-> @@ -29,7 +30,12 @@ properties:
->       const: 0
->   
->     clocks:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  clock-names:
-> +    minItems: 1
-> +    maxItems: 2
->   
->     interrupts:
->       maxItems: 1
-> @@ -40,6 +46,35 @@ properties:
->     resets:
->       maxItems: 1
->   
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          items:
-> +            - const: allwinner,sun55i-a523-gpadc
-> +            - const: allwinner,sun20i-d1-gpadc
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 2
-> +          maxItems: 2
-> +          items:
-> +            - description: Bus clock
-> +            - description: Module clock
-
-I am not a YAML expert, but I think you can drop the min and max 
-properties, if you just enumerate the cases. Same for the names.
-
-Cheers,
-Andre
-
-> +        clock-names:
-> +          minItems: 2
-> +          maxItems: 2
-> +          items:
-> +            - const: bus
-> +            - const: mod
-> +      required:
-> +        - clock-names
-> +    else:
-> +      properties:
-> +        clocks:
-> +          maxItems: 1
-> +        clock-names: false
-> +
->   patternProperties:
->     "^channel@[0-9a-f]+$":
->       $ref: adc.yaml
-> 
+diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
+index 5d8c1cfc1c60..5c756dc904b0 100644
+--- a/drivers/tty/serial/atmel_serial.c
++++ b/drivers/tty/serial/atmel_serial.c
+@@ -2184,7 +2184,8 @@ static void atmel_set_termios(struct uart_port *port,
+ 		if (termios->c_iflag & IGNPAR)
+ 			port->ignore_status_mask |= ATMEL_US_OVRE;
+ 	}
+-	/* TODO: Ignore all characters if CREAD is set.*/
++	if (!(termios->c_cflag & CREAD))
++		port->ignore_status_mask |= ATMEL_US_RXRDY;
+ 
+ 	/* update the per-port timeout */
+ 	uart_update_timeout(port, termios->c_cflag, baud);
+-- 
+2.43.0
 
 
