@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE43CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 13:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E291BCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 13:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/lBwJjKIl2g6UF0VMhS59pfFS4rpMrtKUF/lmDHhe/0=; b=SwJaxPCALnp/BISKA3N0a4o4qj
-	a/7Q3H9X4f7ClELfCf4DmiSlQTrFxpFcTEhDYbnfvj7AWxOvHc7nYSyVUpzs4pMqxnto15/nULY5v
-	NN9v+qpaX5E0XKG86WSZJhnXAdR0YfZtVLu6LEOCx6v8M/dkIITxrBUcXoJ0gBBqQK9yFtsh08UHe
-	0mzSWliU6Sm8bUnaGfd6YtVwnjBI+XCtEKT8UW7oAsQDBdtwzNtEwjTKxk49z4kpfkAHHJN6eJm3d
-	iCvNw38jzzCi8aIHOw3jgMHeTQXup6rqLQZDjh6uAjiUC+K6da+0H/EMnKnDayXasPCSkoTJCPE38
-	flqCcbYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+6OPa//XjNhs5kTx851nOkxuR/tf4V8SuBMLakuZqOc=; b=lbRc6QCnWBWWw691D+ukanbGCS
+	UAr+atkgTE03NkM3g7Z/59UrtfWGlaZE7kiT7WkLcCm0gc88GhsPsVJaK9PsK0d+po4eQosW7pyFs
+	e2A/N1fq0J4uC6KCmcVd6vedVi6MWCLv+XMtGPM76KILzMVFLk91dAX41SDqKYREZJ6oruBHdqHCi
+	zFY+FVLAQ9xRcv+sbHidMMecsF+GT52bl+5zrXZn3cRSok1JJH+2IcUvcEVb89JGuni/4qJ5ZZ26t
+	fozEF8DCnN69nNpZ1+ZbHb3qI9w8q6wz3jzMpSC4rroQRJpWK3azsxjraU6f+6kFC/EEKqweoBOBR
+	gzO0PZcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMQnH-0000000DlLz-3MGK;
-	Mon, 11 May 2026 13:35:35 +0000
+	id 1wMQwW-0000000DnlW-3651;
+	Mon, 11 May 2026 13:45:08 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMQnF-0000000DlLF-2FRT
+	id 1wMQwV-0000000Dnl5-0vOA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 13:35:33 +0000
+	Mon, 11 May 2026 13:45:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A48DC6001A
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:35:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E191C4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:35:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5781A60123;
+	Mon, 11 May 2026 13:45:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C6E9C2BCB0;
+	Mon, 11 May 2026 13:45:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778506532;
-	bh=/lBwJjKIl2g6UF0VMhS59pfFS4rpMrtKUF/lmDHhe/0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=FypKc4F0AdJbhKfUPhAN/OTZKDVXKaSRqUkZs9Fn7aVx3nxTYJi3iyZ+c6xXI5Dro
-	 VTIRso8DloSd4az8g2MdlqJPLmWl9lCMxiMvDDft60htW8agWjVKQEbE6mlFSktyLw
-	 l6hGVY/ikLYz3ZpMySXVg9ObVrcOaJTqyGqpfvSQyeOOBwX2Bn7sbEPe4KDDMJSNDM
-	 2wORACkObXO5uySV4iD0IqTIl+oFnUlBVFJ6cTtj8w3vaDN37OiCt0fL007EJnvCoZ
-	 Tbu3mvz6s6arN1RVSN8P1A2jqyJCum5loWyapag1Q8SzrGvEvL/zJm6JMHOcwECXMp
-	 saBICzU13xJFw==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-392445f11c5so42756121fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 06:35:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/KsQsRuyU68sPzp3fhUoPWc/fmtjNYOYkujA+zjFYDuep2ZRzk8Mv/yldNjW9TEfDwCB8lhg3BnNRpPbTW4jVo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsROtD3W+KWNdI18jAOF+tVgrRwW3sUY7kK29eRdUUnVumVFMi
-	kENalhQsqgeiY3YCekgDOEvXJX6eq8udo83uooMYO7F8f/JGPY5HTNAySs4JwkfcmD6BozYLhMQ
-	RS7FYDE82h8IzyzmMeQTgeQVi3RoVXlLhbdo1wKVLUg==
-X-Received: by 2002:a05:651c:25c9:10b0:393:aa48:8243 with SMTP id
- 38308e7fff4ca-393db0aa0a0mr39373091fa.18.1778506531112; Mon, 11 May 2026
- 06:35:31 -0700 (PDT)
+	s=k20201202; t=1778507106;
+	bh=YB5foC83rUXpsRNNlHJNUbPJ0U/jUjSki9mIQyMMzck=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Bx/vz2AxXZ/UO+SjlqXp2kuGwcATxAeJIGBHJcm5lekYYK24YZZsizVOSKvwkos74
+	 UYH+Qam0jt6Vll15oU2Z+ymMek3jiWBIbOZ1Qp5RBJ37xunip+9P0Hw0HkuINxLNHY
+	 rmNWAkSzt40AMnjbGwI+0qkFOHxx8+sW7v7f7iaSlYnbvKq25d5VWFWqF1IH9dSZ28
+	 gLk4qXeWNJvR3eftJxML3f9tuMkyepjd1j9ByRPIemP5bkc+3uqgNppswak7MKXSuk
+	 VyoaRtQAA9uWqW/g4kxuQxGKca/MB2/brDq6Hqh78CzpWFPXY8sXSwsj1IHm1+WpGb
+	 Midbg1eFigYeg==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Rosen Penev <rosenp@gmail.com>, linux-kernel@vger.kernel.org
+Cc: Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+ <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, Nathan Chancellor <nathan@kernel.org>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling
+ <morbo@google.com>, Justin Stitt <justinstitt@google.com>, "moderated
+ list:ARM/Marvell Kirkwood and
+ Armada 370, 375, 38x,..." <linux-arm-kernel@lists.infradead.org>, "open
+ list:CLANG/LLVM BUILD
+ SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
+Subject: Re: [PATCH] irqchip/mvebu: Allow EBU irqchips to be compile-tested
+In-Reply-To: <20260510195047.10143-1-rosenp@gmail.com>
+References: <20260510195047.10143-1-rosenp@gmail.com>
+Date: Mon, 11 May 2026 15:45:02 +0200
+Message-ID: <87qzni83hd.ffs@tglx>
 MIME-Version: 1.0
-References: <20260430-pxa-gpio-swnodes-v3-0-5142e95f0eca@oss.qualcomm.com>
-In-Reply-To: <20260430-pxa-gpio-swnodes-v3-0-5142e95f0eca@oss.qualcomm.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Mon, 11 May 2026 15:35:18 +0200
-X-Gmail-Original-Message-ID: <CAMRc=Md7EdfvNV+6NRZK0UkNXcYp3uR4N4buKH6NeKKg_rnt-w@mail.gmail.com>
-X-Gm-Features: AVHnY4KVYQLNTX-bwgopKPbxO_uksCzXvDF2gr-UH6aomroXQBQsEy6ffPhZrLU
-Message-ID: <CAMRc=Md7EdfvNV+6NRZK0UkNXcYp3uR4N4buKH6NeKKg_rnt-w@mail.gmail.com>
-Subject: Re: [PATCH v3 0/4] ARM: pxa: attach software nodes to the GPIO controllers
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
-	Robert Jarzmik <robert.jarzmik@free.fr>, Russell King <linux@armlinux.org.uk>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +74,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 2:57=E2=80=AFPM Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> wrote:
->
-> Convert GPIO controllers and their consumers on the PXA platform to using
-> "attached" software nodes. Since everything happens in a bord-file, it's
-> quite straightforward. We technically now have a way of passing an
-> unregistered software node to platform_device_register_full() but that
-> requires using struct platform_device_info and since the existing
-> platform devices are either referenced from other places or defined in a
-> different compilation unit, I wanted to reduce the impact of the changes
-> I can't test and went with the older method.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
+On Sun, May 10 2026 at 12:50, Rosen Penev wrote:
 
-If there are no other comments, can this be queued for v7.2?
+> The Marvell EBU interrupt controller Kconfig symbols are hidden and
+> selected only by platform code. This prevents build coverage for the
+> drivers on other architectures even though the code only needs OF and
+> MMIO support.
+>
+> Add COMPILE_TEST prompts and the required dependencies for the GICP,
+> ICU, ODMI, PIC and SEI irqchips. While touching PIC for this coverage,
+> use GENMASK() and BIT() for its masks so that 32-bit platforms can
+> compile this safely without running into issues.
+
+While touching PIC? That's related, but you want to prepare the PIC code
+first in order to enable the compile test and not burry that change
+within a gazillion lines of Kconfig muck.
+
+>  config MVEBU_GICP
+> +	bool "Marvell EBU GICP interrupt controller" if COMPILE_TEST
+> +	depends on OF
+> +	depends on HAS_IOMEM
+
+  depends on OF && HAS_IOMEM
+
+>  	select IRQ_MSI_LIB
+> -	bool
+> +	help
+> +	  Support the Marvell EBU GICP interrupt controller.
+>  
+>  config MVEBU_ICU
+> -	bool
+> +	bool "Marvell EBU ICU interrupt controller" if COMPILE_TEST
+> +	depends on OF
+> +	depends on HAS_IOMEM
+> +	select GENERIC_MSI_IRQ
+> +	help
+> +	  Support the Marvell EBU ICU interrupt controller.
+>  
+>  config MVEBU_ODMI
+> -	bool
+> +	bool "Marvell EBU ODMI interrupt controller" if COMPILE_TEST
+> +	depends on OF
+> +	depends on HAS_IOMEM
+>  	select IRQ_MSI_LIB
+>  	select GENERIC_MSI_IRQ
+
+So while at it you can mop up this too. IRQ_MSI_LIB already selects
+GENERIC_MSI_IRQ
+
+> +	help
+> +	  Support the Marvell EBU ODMI interrupt controller.
+>  
+>  config MVEBU_PIC
+> -	bool
+> +	bool "Marvell EBU PIC interrupt controller" if COMPILE_TEST
+> +	depends on OF
+> +	depends on HAS_IOMEM
+> +	help
+> +	  Support the Marvell EBU PIC interrupt controller.
+>  
+>  config MVEBU_SEI
+> -        bool
+> +	bool "Marvell EBU SEI interrupt controller" if COMPILE_TEST
+> +	depends on OF
+> +	depends on HAS_IOMEM
+> +	help
+> +	  Support the Marvell EBU SEI interrupt controller.
+
+What ensures that IRQ_MSI_LIB is selected, when MVEBU_SEI is selected?
+
+>  config LS_EXTIRQ
+>  	bool "Freescale Layerscape external IRQ support" if COMPILE_TEST
+> diff --git a/drivers/irqchip/irq-mvebu-pic.c b/drivers/irqchip/irq-mvebu-pic.c
+> index 10b85128183a..95090d8efc06 100644
+> --- a/drivers/irqchip/irq-mvebu-pic.c
+> +++ b/drivers/irqchip/irq-mvebu-pic.c
+> @@ -24,7 +24,7 @@
+>  #define PIC_MASK	       0x4
+>  
+>  #define PIC_MAX_IRQS		32
+> -#define PIC_MAX_IRQ_MASK	((1UL << PIC_MAX_IRQS) - 1)
+> +#define PIC_MAX_IRQ_MASK	GENMASK(PIC_MAX_IRQS - 1, 0)
+
+What guarantees that 'linux/bits.h' is included under all circumstances?
+
+I'm really not impressed by this AI assisted slop at all.
 
 Thanks,
-Bartosz
+
+        tglx
 
