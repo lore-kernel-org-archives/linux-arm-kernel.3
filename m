@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A19CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 03:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB162CD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 03:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r50PqKJoKaaNFRmzL3ofuL4iNNvPI0f5MymWTfP7HgA=; b=Pj3ZQGPZbjupAZTJD+6eW8cOZQ
-	hdxOWHTYbfcfI3jUO0BRCm1RjVk7clNZ1HApLZLogseslMva5wv14vETy66mstvoXEKVsJtjFGifv
-	OnzHfkxdkB16KwXa/G81nmkmMSRultwQU8dB7gmBv6ilJvE+JC1OMeY7bfRoigSsfKlk68ppAg0GK
-	sdfihlzI/s0I7qSgV3B/EwBvTXzXRZ3g0kn7pfHToTZGIJMYTd7zrNsTBtGn4RYr8PimXdt81aR39
-	MP6zVVavFO7fZ86CyUHMTEdpzEi2zNuhh/d+9qsQA/arZvOsyVKgaqdMZSYP0NeigDNnN+ZgzyB8E
-	UPYVMQ9g==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XCvSTEjCOYEmY0eytTTIRnXZbs/A9bXSVn9+vYOCfiM=; b=SbfZx65eB6o35LXBP15K0X4muh
+	DVrkwDCxdN+JnYX4j8dgVwKbUQo7hlOkNPf69mjmZdvcwifqFTpTA1EJTYdBUESOavQ1c3k81xcBZ
+	kUjvRQ7SSJK6X5orsoEs5duBwOdwVEI+C7TjSGVy2ZPpocWG65aHsrBD0n43iHE6bOUGVaNmkg98p
+	XzwUMUOFeMtGdbc6/ZVv3DoplBHR/ukPvMshYOrG4F8MezxP72yC6+vRxbYqjjyoRS22At6Roc9D3
+	6bFmZYFRowD9B4ClwJLnMgSPYwu3RPSXQXCa/sCD7N2TjbgLkK/2+opgRv89WVmQRWjIJa5mvadAx
+	n6mXWt5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMH9a-0000000C9Q9-2ti7;
-	Mon, 11 May 2026 03:17:58 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wMHAH-0000000C9fZ-2t63;
+	Mon, 11 May 2026 03:18:41 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMH9W-0000000C9PJ-16EP
+	id 1wMHAE-0000000C9df-1KOV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 03:17:56 +0000
+	Mon, 11 May 2026 03:18:40 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=r50PqKJoKaaNFRmzL3ofuL4iNNvPI0f5MymWTfP7HgA=;
-	b=RXZJBGnQD/ZXyhWhOP7BVZYpqs3bEH/O6qwzmxqrOhJXAeqk642tgItdEMqhGEc0nV3CCz3/8
-	c8XVMQxybMgrkM3vlZZxHoiD2RM2O0UxZbOAatgHD2GcSSotnWfz6KpYga+5ZA79PAXRKc4d3i4
-	tbmbX20aU234F1J97IIhADk=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gDPqf1JfDz12LGd;
-	Mon, 11 May 2026 11:10:38 +0800 (CST)
+	bh=XCvSTEjCOYEmY0eytTTIRnXZbs/A9bXSVn9+vYOCfiM=;
+	b=OD3Pg+lveGRtHLEsb8h+RiK9poIiBwxtrSBg3CeRa2T3mhjkdWiVgqEEpfkPcxJJ5//1KbwYD
+	DtPusXqr3365LHD7UmIuUEuFGCMvE8FB1ZBgy49Pr2WdzVeQ9IA2wYoNTxaArfhNL3lvCo973sj
+	P96qW5N3W7rX5JxLSwtOiPg=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4gDPqx5L5gz1prxP;
+	Mon, 11 May 2026 11:10:53 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id ABDFF40576;
-	Mon, 11 May 2026 11:17:44 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 0627A40537;
+	Mon, 11 May 2026 11:18:32 +0800 (CST)
 Received: from [10.67.109.254] (10.67.109.254) by
  dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 11 May 2026 11:17:43 +0800
-Message-ID: <54093ddf-e237-4cc0-9fe1-2989916c1f72@huawei.com>
-Date: Mon, 11 May 2026 11:17:43 +0800
+ 15.2.1544.11; Mon, 11 May 2026 11:18:31 +0800
+Message-ID: <54ffcf73-dfc5-417c-b9d5-6dee551f8d39@huawei.com>
+Date: Mon, 11 May 2026 11:18:31 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] cpu/hotplug: Fix NULL kobject warning in
- cpuhp_smt_enable()
-To: <catalin.marinas@arm.com>, <will@kernel.org>,
-	<punit.agrawal@oss.qualcomm.com>, <rafael.j.wysocki@intel.com>,
-	<fengchengwen@huawei.com>, <chenl311@chinatelecom.cn>,
-	<suzuki.poulose@arm.com>, <maz@kernel.org>, <timothy.hayes@arm.com>,
-	<lpieralisi@kernel.org>, <mrigendra.chaubey@gmail.com>, <arnd@arndb.de>,
-	<sudeep.holla@kernel.org>, <yangyicong@hisilicon.com>, <jic23@kernel.org>,
-	<pierre.gondois@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <james.morse@arm.com>
-References: <20260427023507.1247418-1-ruanjinjie@huawei.com>
+Subject: Re: [PATCHv2] arm64/entry: Fix arm64-specific rseq brokenness
+To: Mark Rutland <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, Peter Zijlstra <peterz@infradead.org>, Thomas
+ Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>
+CC: <ckennelly@google.com>, <dvyukov@google.com>,
+	<linux-kernel@vger.kernel.org>, <mathias@mongodb.com>,
+	<mathieu.desnoyers@efficios.com>
+References: <20260508142023.3268622-1-mark.rutland@arm.com>
 From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260427023507.1247418-1-ruanjinjie@huawei.com>
+In-Reply-To: <20260508142023.3268622-1-mark.rutland@arm.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.67.109.254]
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_201754_939889_4AC289DE 
-X-CRM114-Status: GOOD (  28.38  )
+X-CRM114-CacheID: sfid-20260510_201838_674105_B7DD22B7 
+X-CRM114-Status: GOOD (  40.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,171 +83,250 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 4/27/2026 10:35 AM, Jinjie Ruan wrote:
-> On arm64, when booting with `maxcpus` greater than the number of present
-> CPUs (e.g., QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present'
-> but have not yet been registered via register_cpu(). Consequently,
-> the per-cpu device objects for these CPUs are not yet initialized.
+On 5/8/2026 10:20 PM, Mark Rutland wrote:
+> Hi,
 > 
-> In cpuhp_smt_enable(), the code iterates over all present CPUs. Calling
-> _cpu_up() for these unregistered CPUs eventually leads to
-> sysfs_create_group() being called with a NULL kobject (or a kobject
-> without a directory), triggering the following warning in
-> fs/sysfs/group.c:
+> In all the confusion with the rseq fixes, it looks like the arm64 patch
+> didn't get picked up into the tip tree. That was queued up in Thomas's
+> devel/core/rseq branch, but it didn't get reposted and picked up into
+> tip.
 > 
-> 	if (WARN_ON(!kobj || (!update && !kobj->sd)))
-> 		return -EINVAL;
+> Thomas, Peter, are you happy to pick the below into the tip sched/urgent
+> branch? It's the same as what what in Thomas's devel/core/rseq branch:
 > 
-> When booting with ACPI, arm64 smp_prepare_cpus() currently sets all
-> enumerated CPUs as "present" regardless of their status in the MADT. This
-> causes issues with SMT hotplug control. For instance, with QEMU's
-> "-smp 4,maxcpus=8" configuration, the MADT GICC entries are populated as
-> follows: the first four CPUs are marked Enabled while the remaining four
-> are marked Online Capable to support potential hot-plugging.
+>   https://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git/commit/?h=core/rseq&id=04db289d5633dad546a0778537f0f0e52ebfc88b
 > 
-> Fix this by:
+> ... which was taken from my arm64/rseq branch:
 > 
-> 1. When booting with ACPI, checking the ACPI_MADT_ENABLED flag in the GICC
->    entry before calling set_cpu_present() during SMP initialization.
+>   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?h=arm64/rseq&id=05bce437d4f2fd14a7be4706c684a618e2fcc82f
 > 
-> 2. Properly managing the present mask in acpi_map_cpu() and
->    acpi_unmap_cpu() to support actual CPU hotplug events, This aligns with
->    other architectures like x86 and LoongArch.
+> It applies cleanly and passes all tests.
 > 
-> This ensures that only physically available or explicitly enabled CPUs
-> are in the present mask, keeping the SMT control logic consistent with
-> the actual hardware state.
+> Catalin, Will, you both mentioned off-list that you were happy for this
+> to go via tip with the rest of the rseq fixes. Can either of you please
+> confirm with an ack?
 > 
-> How to reproduce:
+> Mark.
 > 
-> 	1. echo off > /sys/devices/system/cpu/smt/control
-> 		psci: CPU1 killed (polled 0 ms)
-> 		psci: CPU3 killed (polled 0 ms)
+> ---->8----
+> Mathias Stearn reports that since v6.19, there are two big issues
+> affecting rseq:
 > 
-> 	2. echo 2 > /sys/devices/system/cpu/smt/control
+> (1) On arm64 specifically, rseq critical sections aren't aborted when
+>     they should be.
 > 
-> 	Detected PIPT I-cache on CPU1
-> 	GICv3: CPU1: found redistributor 1 region 0:0x00000000080c0000
-> 	CPU1: Booted secondary processor 0x0000000001 [0x410fd082]
-> 	Detected PIPT I-cache on CPU3
-> 	GICv3: CPU3: found redistributor 3 region 0:0x0000000008100000
-> 	CPU3: Booted secondary processor 0x0000000003 [0x410fd082]
-> 	------------[ cut here ]------------
-> 	WARNING: fs/sysfs/group.c:137 at internal_create_group+0x41c/0x4bc, CPU#2: sh/181
-> 	Modules linked in:
-> 	CPU: 2 UID: 0 PID: 181 Comm: sh Not tainted 7.0.0-rc1-00010-g8d13386c7624 #142 PREEMPT
-> 	Hardware name: QEMU KVM Virtual Machine, BIOS 0.0.0 02/06/2015
-> 	pstate: 20000005 (nzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> 	pc : internal_create_group+0x41c/0x4bc
-> 	lr : sysfs_create_group+0x18/0x24
-> 	sp : ffff80008078ba40
-> 	x29: ffff80008078ba40 x28: ffff296c980ad000 x27: ffff00007fb94128
-> 	x26: 0000000000000054 x25: ffffd693e845f3f0 x24: 0000000000000001
-> 	x23: 0000000000000001 x22: 0000000000000004 x21: 0000000000000000
-> 	x20: ffffd693e845fc10 x19: 0000000000000004 x18: 00000000ffffffff
-> 	x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-> 	x14: 0000000000000358 x13: 0000000000000007 x12: 0000000000000350
-> 	x11: 0000000000000008 x10: 0000000000000407 x9 : 0000000000000400
-> 	x8 : ffff00007fbf3b60 x7 : 0000000000000000 x6 : ffffd693e845f3f0
-> 	x5 : ffff00007fb94128 x4 : 0000000000000000 x3 : ffff000000f4eac0
-> 	x2 : ffffd693e7095a08 x1 : 0000000000000000 x0 : 0000000000000000
-> 	Call trace:
-> 	 internal_create_group+0x41c/0x4bc (P)
-> 	 sysfs_create_group+0x18/0x24
-> 	 topology_add_dev+0x1c/0x28
-> 	 cpuhp_invoke_callback+0x104/0x20c
-> 	 __cpuhp_invoke_callback_range+0x94/0x11c
-> 	 _cpu_up+0x200/0x37c
-> 	 cpuhp_smt_enable+0xbc/0x114
-> 	 control_store+0xe8/0x1d4
-> 	 dev_attr_store+0x18/0x2c
-> 	 sysfs_kf_write+0x7c/0x94
-> 	 kernfs_fop_write_iter+0x128/0x1b8
-> 	 vfs_write+0x2b0/0x354
-> 	 ksys_write+0x68/0xfc
-> 	 __arm64_sys_write+0x1c/0x28
-> 	 invoke_syscall+0x48/0x10c
-> 	 el0_svc_common.constprop.0+0x40/0xe8
-> 	 do_el0_svc+0x20/0x2c
-> 	 el0_svc+0x34/0x124
-> 	 el0t_64_sync_handler+0xa0/0xe4
-> 	 el0t_64_sync+0x198/0x19c
-> 	---[ end trace 0000000000000000 ]---
-
-Hi, just a gentle ping on this v2 patch. It’s been about two weeks, and
-I was wondering if there are any further comments or if there's anything
-else I should address? Thanks!
-
+> (2) The 'cpu_id_start' field is no longer written by the kernel in all
+>     cases it used to be, including some cases where TCMalloc depends on
+>     the kernel clobbering the field.
 > 
+> This patch fixes issue #1. This patch DOES NOT fix issue #2, which will
+> need to be addressed by other patches.
+> 
+> The arm64-specific brokenness is a result of commits:
+> 
+>   2fc0e4b4126c ("rseq: Record interrupt from user space")
+>   39a167560a61 ("rseq: Optimize event setting")
+> 
+> The first commit failed to add a call to rseq_note_user_irq_entry() on
+> arm64. Thus arm64 never sets rseq_event::user_irq to record that it may
+> be necessary to abort an active rseq critical section upon return to
+> userspace. On its own, this commit had no functional impact as the value
+> of rseq_event::user_irq was not consumed.
+> 
+> The second commit relied upon rseq_event::user_irq to determine whether
+> or not to bother to perform rseq work when returning to userspace. As
+> rseq_event::user_irq wasn't set on arm64, this work would be skipped,
+> and consequently an active rseq critical section would not be aborted.
+> 
+> Fix this by giving arm64 syscall-specific entry/exit paths, and
+> performing the relevant logic in syscall and non-syscall paths,
+> including calling rseq_note_user_irq_entry() for non-syscall entry.
+> 
+> Currently arm64 cannot use syscall_enter_from_user_mode(),
+> syscall_exit_to_user_mode(), and irqentry_exit_to_user_mode(), due to
+> ordering constraints with exception masking, and risk of ABI breakage
+> for syscall tracing/audit/etc. For the moment the entry/exit logic is
+> left as arm64-specific, directly using enter_from_user_mode() and
+> exit_to_user_mode(), but mirroring the generic code.
+> 
+> I intend to follow up with refactoring/cleanup, as we did for kernel
+> mode entry paths in commit:
+> 
+>   041aa7a85390 ("entry: Split preemption from irqentry_exit_to_kernel_mode()")
+> 
+> ... which will allow arm64 to use the GENERIC_IRQ_ENTRY functions directly.
+> 
+> Fixes: 39a167560a61 ("rseq: Optimize event setting")
+> Reported-by: Mathias Stearn <mathias@mongodb.com>
+> Link: https://lore.kernel.org/regressions/CAHnCjA25b+nO2n5CeifknSKHssJpPrjnf+dtr7UgzRw4Zgu=oA@mail.gmail.com/
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Jonathan Cameron <jic23@kernel.org>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Yicong Yang <yangyicong@hisilicon.com>
-> Cc: stable@vger.kernel.org
-> Link: https://uefi.org/specs/ACPI/6.5/05_ACPI_Software_Programming_Model.html#gic-cpu-interface-gicc-structure
-> Fixes: eed4583bcf9a6 ("arm64: Kconfig: Enable HOTPLUG_SMT")
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Chris Kennelly <ckennelly@google.com>
+> Cc: Dmitry Vyukov <dvyukov@google.com>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Will Deacon <will@kernel.org>
 > ---
->  arch/arm64/kernel/acpi.c |  2 ++
->  arch/arm64/kernel/smp.c  | 12 +++++++++++-
->  2 files changed, 13 insertions(+), 1 deletion(-)
+>  arch/arm64/kernel/entry-common.c | 31 ++++++++++++++++++++++++-------
+>  include/linux/irq-entry-common.h |  8 --------
+>  include/linux/rseq_entry.h       | 19 -------------------
+>  3 files changed, 24 insertions(+), 34 deletions(-)
 > 
-> diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-> index 5891f92c2035..681aa2bbc399 100644
-> --- a/arch/arm64/kernel/acpi.c
-> +++ b/arch/arm64/kernel/acpi.c
-> @@ -448,12 +448,14 @@ int acpi_map_cpu(acpi_handle handle, phys_cpuid_t physid, u32 apci_id,
->  		return *pcpu;
->  	}
->  
-> +	set_cpu_present(*pcpu, true);
->  	return 0;
+> Since v1 [1]:
+> * Restore sme_{enter_from,exit_to}_user_mode()
+> * Describe use of enter_from_user_mode() in commit message
+
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/aeueE1I1OuVkOcEZ@J2N7QTR9R3/
+> 
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index cb54335465f66..c7a23f7c22122 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -62,6 +62,13 @@ static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+>  	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
 >  }
->  EXPORT_SYMBOL(acpi_map_cpu);
 >  
->  int acpi_unmap_cpu(int cpu)
->  {
-> +	set_cpu_present(cpu, false);
->  	return 0;
->  }
->  EXPORT_SYMBOL(acpi_unmap_cpu);
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 1aa324104afb..5932e5b30b71 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -566,6 +566,11 @@ struct acpi_madt_generic_interrupt *acpi_cpu_get_madt_gicc(int cpu)
->  }
->  EXPORT_SYMBOL_GPL(acpi_cpu_get_madt_gicc);
->  
-> +static bool acpi_cpu_is_present(int cpu)
+> +static __always_inline void arm64_syscall_enter_from_user_mode(struct pt_regs *regs)
 > +{
-> +	return acpi_cpu_get_madt_gicc(cpu)->flags & ACPI_MADT_ENABLED;
+> +	enter_from_user_mode(regs);
+> +	mte_disable_tco_entry(current);
+> +	sme_enter_from_user_mode();
 > +}
 > +
 >  /*
->   * acpi_map_gic_cpu_interface - parse processor MADT entry
->   *
-> @@ -670,6 +675,10 @@ static void __init acpi_parse_and_init_cpus(void)
->  		early_map_cpu_to_node(i, acpi_numa_get_nid(i));
+>   * Handle IRQ/context state management when entering from user mode.
+>   * Before this function is called it is not safe to call regular kernel code,
+> @@ -70,20 +77,30 @@ static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+>  static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
+>  {
+>  	enter_from_user_mode(regs);
+> +	rseq_note_user_irq_entry();
+>  	mte_disable_tco_entry(current);
+>  	sme_enter_from_user_mode();
 >  }
->  #else
-> +static bool acpi_cpu_is_present(int cpu)
+>  
+> +static __always_inline void arm64_syscall_exit_to_user_mode(struct pt_regs *regs)
 > +{
-> +	return false;
+> +	local_irq_disable();
+> +	syscall_exit_to_user_mode_prepare(regs);
+> +	local_daif_mask();
+> +	sme_exit_to_user_mode();
+> +	mte_check_tfsr_exit();
+> +	exit_to_user_mode();
 > +}
->  #define acpi_parse_and_init_cpus(...)	do { } while (0)
->  #endif
+> +
+>  /*
+>   * Handle IRQ/context state management when exiting to user mode.
+>   * After this function returns it is not safe to call regular kernel code,
+>   * instrumentable code, or any code which may trigger an exception.
+>   */
+> -
+>  static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
+>  {
+>  	local_irq_disable();
+> -	exit_to_user_mode_prepare_legacy(regs);
+> +	irqentry_exit_to_user_mode_prepare(regs);
+>  	local_daif_mask();
+>  	sme_exit_to_user_mode();
+>  	mte_check_tfsr_exit();
+> @@ -92,7 +109,7 @@ static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
 >  
-> @@ -808,7 +817,8 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
->  		if (err)
->  			continue;
->  
-> -		set_cpu_present(cpu, true);
-> +		if (acpi_disabled || acpi_cpu_is_present(cpu))
-> +			set_cpu_present(cpu, true);
->  		numa_store_cpu_info(cpu);
->  	}
+>  asmlinkage void noinstr asm_exit_to_user_mode(struct pt_regs *regs)
+>  {
+> -	arm64_exit_to_user_mode(regs);
+> +	arm64_syscall_exit_to_user_mode(regs);
 >  }
+>  
+>  /*
+> @@ -716,12 +733,12 @@ static void noinstr el0_brk64(struct pt_regs *regs, unsigned long esr)
+>  
+>  static void noinstr el0_svc(struct pt_regs *regs)
+>  {
+> -	arm64_enter_from_user_mode(regs);
+> +	arm64_syscall_enter_from_user_mode(regs);
+>  	cortex_a76_erratum_1463225_svc_handler();
+>  	fpsimd_syscall_enter();
+>  	local_daif_restore(DAIF_PROCCTX);
+>  	do_el0_svc(regs);
+> -	arm64_exit_to_user_mode(regs);
+> +	arm64_syscall_exit_to_user_mode(regs);
+>  	fpsimd_syscall_exit();
+>  }
+>  
+> @@ -868,11 +885,11 @@ static void noinstr el0_cp15(struct pt_regs *regs, unsigned long esr)
+>  
+>  static void noinstr el0_svc_compat(struct pt_regs *regs)
+>  {
+> -	arm64_enter_from_user_mode(regs);
+> +	arm64_syscall_enter_from_user_mode(regs);
+>  	cortex_a76_erratum_1463225_svc_handler();
+>  	local_daif_restore(DAIF_PROCCTX);
+>  	do_el0_svc_compat(regs);
+> -	arm64_exit_to_user_mode(regs);
+> +	arm64_syscall_exit_to_user_mode(regs);
+>  }
+>  
+>  static void noinstr el0_bkpt32(struct pt_regs *regs, unsigned long esr)
+> diff --git a/include/linux/irq-entry-common.h b/include/linux/irq-entry-common.h
+> index 167fba7dbf043..1fabf0f5ea8e7 100644
+> --- a/include/linux/irq-entry-common.h
+> +++ b/include/linux/irq-entry-common.h
+> @@ -218,14 +218,6 @@ static __always_inline void __exit_to_user_mode_validate(void)
+>  	lockdep_sys_exit();
+>  }
+>  
+> -/* Temporary workaround to keep ARM64 alive */
+> -static __always_inline void exit_to_user_mode_prepare_legacy(struct pt_regs *regs)
+> -{
+> -	__exit_to_user_mode_prepare(regs, EXIT_TO_USER_MODE_WORK);
+> -	rseq_exit_to_user_mode_legacy();
+> -	__exit_to_user_mode_validate();
+> -}
+> -
+>  /**
+>   * syscall_exit_to_user_mode_prepare - call exit_to_user_mode_loop() if required
+>   * @regs:	Pointer to pt_regs on entry stack
+> diff --git a/include/linux/rseq_entry.h b/include/linux/rseq_entry.h
+> index 2d0295df5107c..63bc72086e75b 100644
+> --- a/include/linux/rseq_entry.h
+> +++ b/include/linux/rseq_entry.h
+> @@ -749,24 +749,6 @@ static __always_inline void rseq_irqentry_exit_to_user_mode(void)
+>  	ev->events = 0;
+>  }
+>  
+> -/* Required to keep ARM64 working */
+> -static __always_inline void rseq_exit_to_user_mode_legacy(void)
+> -{
+> -	struct rseq_event *ev = &current->rseq.event;
+> -
+> -	rseq_stat_inc(rseq_stats.exit);
+> -
+> -	if (static_branch_unlikely(&rseq_debug_enabled))
+> -		WARN_ON_ONCE(ev->sched_switch);
+> -
+> -	/*
+> -	 * Ensure that event (especially user_irq) is cleared when the
+> -	 * interrupt did not result in a schedule and therefore the
+> -	 * rseq processing did not clear it.
+> -	 */
+> -	ev->events = 0;
+> -}
+> -
+>  void __rseq_debug_syscall_return(struct pt_regs *regs);
+>  
+>  static __always_inline void rseq_debug_syscall_return(struct pt_regs *regs)
+> @@ -782,7 +764,6 @@ static inline bool rseq_exit_to_user_mode_restart(struct pt_regs *regs, unsigned
+>  }
+>  static inline void rseq_syscall_exit_to_user_mode(void) { }
+>  static inline void rseq_irqentry_exit_to_user_mode(void) { }
+> -static inline void rseq_exit_to_user_mode_legacy(void) { }
+>  static inline void rseq_debug_syscall_return(struct pt_regs *regs) { }
+>  static inline bool rseq_grant_slice_extension(unsigned long ti_work, unsigned long mask) { return false; }
+>  #endif /* !CONFIG_RSEQ */
 
 
