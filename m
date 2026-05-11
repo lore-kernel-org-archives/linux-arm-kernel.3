@@ -4,144 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB38CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 03:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7006DCD3427
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 03:38:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2lnlDKJn2CPMuIg5m6pFgFsw8EEQBkI+XMAdgX0S0ew=; b=vClYNTdnfnBkkPMSND1fcCUnNR
-	8jQ1dtKH28h9f/+U9kL6uKS2gRgjqJQo+99dvqkXDLBOG3FnekpDela5n+nUfQbgviK2kzAYfgnNd
-	Teezs49n/xL5PdartLG4jbG/Fdh3ywH9BBGAHu48BY9toLqq8Zw1Tse7LL2jVINVxM25fw4Z0RyAj
-	9jUQESJ2S2PB+VYD9cj3p4DNe3Xq6VeGkSPbmOhAFGn2T3W1LFDOC3KRe98CxtanXBU3vb4GKu8Qw
-	5OGFXWWVlAuIssHVSxZMkidF3iJpWguekArHGz4qDrbQCRD+0ZGXrHDSZo2V8HPEN+1kePDYVeFUG
-	1aHEojLQ==;
+	bh=AUoIFe1Cwh3yihmoV880xesqHwuRHBuIwwUq7zEeAE8=; b=sRDxM5BrQC/SOn1UuwdR1GxlT+
+	ei2NPqMNG7xhmfxo5+Cki2mxX21JubciUEdwleSMtqi80Q4lzPaebAMyIeieUzAkmDahCZUBinzFi
+	TXoas7ZDXdEBePmzsybeWiy2cDicn1oFYekm721lIR3OhaoqkR7fRtr9lAeH7qnN2crwM/EOcalve
+	Bb0MwrJr0G6oINnAT3DozfsLwwDSLllysS4L+U4tSq+cb4b7gLTTJxozgQQow79MtNfex+RF2f8vz
+	J0IKx4/iucjVnA0R2MEOBKR8FJPiSYZpK+9JEJoNLZ4EmhPEyWehi0w8U8bjO3CuTdxYUrHVsn0kc
+	WgXSPfGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMHRU-0000000CBXc-0fr5;
-	Mon, 11 May 2026 03:36:29 +0000
-Received: from mail-southcentralusazon11013027.outbound.protection.outlook.com ([40.93.196.27] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wMHTT-0000000CBnO-2vyC;
+	Mon, 11 May 2026 03:38:31 +0000
+Received: from mail-japanwestazon11022103.outbound.protection.outlook.com ([40.107.75.103] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMHRR-0000000CBX6-2aKd
+	id 1wMHTP-0000000CBma-0mJF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 03:36:26 +0000
+	Mon, 11 May 2026 03:38:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FGIw+xc1CthUuIzK2CKeQXKJkhwSBQqcFtcoropZZgXhJ/7tnrzCYHLcj5cKJiU6kMMvST09QKSi8L6z5oWCdFIof5Laj4Joh/DEv7o1lZLGWwspqCKqp8oa6wP6WqTpKznqgiRezk6rgMLipUF5qGfgAT5Vmm1quzG2gwGTIiiuLAM82zv/V9YV4Iam4Lqnc9Iz6ve+aJCUyuclo1YSv2v1LmVyVCN72HZ2LhKjh/tOsRjs/r88vXwI6hp17fHOw68owIUBSuuQqk4KYnXoV9k1U7AA3UecEs4L+Z+ySr70aEK8GlTg1BLevMYqAbA0++b5/mlD2/S28BNnudhG3A==
+ b=ruLcRJGQ4LmrfhMWszYa1oG2KC0X46aMGwGCNfVw32EG72X83N8hxOey3SPGTX41edHSJCNlXxad8sMYEGO9t3CJZoVdZYmnRTVFCCGvyOWxTKx2XML/ghbGa1NB2sdqWGq/XLOhdFKYMCeWrKWY0+hKBxkQ9whAmak6Em2z6wO6BwFxTjJpZ798Bbi7SYtpRypg8ZJSB4FWRdeqMTumpT1Y9dAvw12vrFI90bpqPJIxbSLdOxwWn7FgZ3Ub14qc480iYKt2nDjAfY4g8/WG7GRHDv5+oTDhwUr481673qwuj19K4GMktOCHRoCXhxBhJ2fX8MGKzskxkKbdlfI+zg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2lnlDKJn2CPMuIg5m6pFgFsw8EEQBkI+XMAdgX0S0ew=;
- b=SdTUuNniXqkGRQoj86oMjtpQExkNURmeUES81zGSFbdhQwsOzbPbmAVzODSt+CwEGKVHfrChLGfgUeTsu3HnFZxyeeAFAS4BLintJwZyJvnirfkELzy24dVQilHKNenPm/xH7BzGlRtKVU8bsT3GYKQVz3GlxvTABEZ+1nXZLvaz4J+/HDe8RF6a7HsXFd7Q2f2uG15d0EhuInVgdKyjvOdNKrdq0Djq+B8B9amQAyp74IIvjrL1mBYU91VOu8h9qaRZzsyjbW5H7ofZtHDT2WonMmjnzOeun0dKiPwy150Y2hCdkADLjmImj4CFKGWpRngFd9izq9hZdDmdO44K4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2lnlDKJn2CPMuIg5m6pFgFsw8EEQBkI+XMAdgX0S0ew=;
- b=gZhGzDVMhAEVqgvsZKvI/GGTWQ4srqWTHxLCIgKYrR3jOBD55p0mhTpz1Scgv7gtkeTs7s7xfkyvejQbic/dLaBI5stSG7s1wLVR6+dsRZnNkkzX4AYbiigaFH4tau1fp6ptCGnYVelWL6tI+9KlGv5L6ju1Jp2RTg9Qzt2A2ZiYDZ84OL+Vq7oeuFsbl0lIZTT13pY2QwgP29itPtLjO3YVd4FWTJrDILoZnyKv7d2VqPve/za20u1BFlUlC14DqLfu38xNfWWf9XunOq7spFqc3R7Tup0UXNIlAYbFemzIzwZvECy+t6wviZcZl+1TKTP61/iJMCA7+YkKzSIyLA==
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
- by BN9PR03MB5980.namprd03.prod.outlook.com (2603:10b6:408:135::12) with
+ bh=AUoIFe1Cwh3yihmoV880xesqHwuRHBuIwwUq7zEeAE8=;
+ b=Ve9QLrV358sYUwTaofVZGw6zH8jYobKBT+ZKsfG96LZCBvbzOO0aALW8duFIrT1K/+sSeilFAt1BNNk8z7emqYDp9A6Y+uXSjik5NEWMVywS0kYfrCtPnbqcGSQi7ux+sYMX3nz2I7pjrom2x4zHFTXjnYMgnHs5yq0Fz3GwFquagbrf5SAi01Eo6LxTDmk7yh1KCJgmNdbBsE7qTlZ780iyeZnLwOWrRlEbtDDQXej0Mj0zkyAz0ITR4HScqlRX89PtwDGN9GWxPPSNCg8PaiYgvdeEQgTF1jR4QgaCCnN/6bhkQg5ORbt9JRt5P3Xx4x4cnVwdU/Ii3jnSD8uavg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI1PR02CA0052.apcprd02.prod.outlook.com (2603:1096:4:1f5::20)
+ by SI6PR06MB7168.apcprd06.prod.outlook.com (2603:1096:4:250::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 11 May
- 2026 03:36:18 +0000
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775%6]) with mapi id 15.20.9891.021; Mon, 11 May 2026
- 03:36:18 +0000
-From: "Nazle Asmade, Muhammad Nazim Amirul"
-	<muhammad.nazim.amirul.nazle.asmade@altera.com>
-To: Dinh Nguyen <dinguyen@kernel.org>, "bp@alien8.de" <bp@alien8.de>,
-	"tony.luck@intel.com" <tony.luck@intel.com>
-CC: "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] drivers: altera_edac: Fix OCRAM ECC init for warm reset
-Thread-Topic: [PATCH] drivers: altera_edac: Fix OCRAM ECC init for warm reset
-Thread-Index: AQHc38FyQHp+xrS7x0CAlHo4uiADHLYHuJMAgAB2kIA=
-Date: Mon, 11 May 2026 03:36:18 +0000
-Message-ID: <3f3302fc-3708-4879-b594-0d001a128bac@altera.com>
-References: <20260509143803.7500-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <59ce1037-b6fb-4af7-a213-d605ba5c9a3d@kernel.org>
-In-Reply-To: <59ce1037-b6fb-4af7-a213-d605ba5c9a3d@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SJ0PR03MB6964:EE_|BN9PR03MB5980:EE_
-x-ms-office365-filtering-correlation-id: 29990141-20ec-402d-a818-08deaf0e7667
-x-ms-exchange-atpmessageproperties: SA
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|22082099003|18002099003|56012099003|55112099003|38070700021;
-x-microsoft-antispam-message-info: D5P95CO/t6opaes5baaVltuBx9LlZxrm/W+zkqQyK5HA6gQdcFOM+wrz8WKKerLoZ6Txa4kqw9UZO/EeTHv1kpaHqJpXov+i9LWs6NrYRtvlTw//QO5B3XZQ7yzt4aGRpkFghVz2jVJhBlpjsoYdMZ9lBvdpi69KAlDR4uBwzy3RfHvwKWF1/Q7/1DgwYYyLsG27oRnf0/bu6w9bU38WbEhiZ9rjxYi8rgxW0TRNUs0iB86cfRxlZhT3oHyetT2ieAcx9e03oPbek8nHtyhWfIuZdDIRgm8TXc/COQpBWrpe6O6X4SzDOMyJ993c9KwI5O0D2pA1Sinr/REGndd392sksB7czupexFrxosBGI8R9haU/dm1/mRN2eTXuRIKI7AQDqlHZhfpeI3THKbTtxcN3JA9swjieJaD5/j7cG6NvNrOdjeehtY4PmvIxG/Oqr4ZvVc1Ee80wS3S3hWgkR9OE7dj5YBGKRUChCEpZkbwBP2vYR/Zask5YU9hirwFV5gTeGBQgmHui3GuanrVq7Iv+7SO2PHmSESwkKopLZNBzQ9lUemy4X6JODpt11/0JnSwCmntCfvcBa1OiR2bcq+AGMdEw5J+rJoWgZsCrdWevcnbSuII8IoXe03k7m/M0NXrNjuXoxryvQAlAdPjWyB6iVnqFDZ8yWnB6W7wwykb5hBiLwzPajhohv7a5zEdR1MiK8KdzOKa7O7h0AYJgCeQd+TnqlATIfTpTHj00dXDxRu3gPJsbSv3dL8RF2eBf
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(22082099003)(18002099003)(56012099003)(55112099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 2
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Vi9rdk1RTjQ4Uk5LN2NZT0hiNG55ZlBZK2ZNc2NuSW1ZQ2Y5MCt2Zm84VThJ?=
- =?utf-8?B?YVcvSjRIblk2UVRrQ0dCZGlZRnVzTkY3K3QyQ0RuS3g2Zm5kaDRiaml5dlVN?=
- =?utf-8?B?dnpSbmU0TlFTcUVVUlJzZlo5RnR4RGVPOXQvZU40MTVLL3FkUlE1NU9CMVFw?=
- =?utf-8?B?aWxLZERVSlNMVlRlN0RNRHpGYytrdU8zampDeHJ3UFlCQUxqUVBtYWRMbXho?=
- =?utf-8?B?cXZZYzlPQzhSczcyRWN3WWVhK1Fwa2xXWmxIN3B4WVlScjduOVlDL2ZnWE5l?=
- =?utf-8?B?QWU2c3lORk1TL1k1YWN4QzFlbGwyZi83dmlaT3cvSXBkdnQwcmdMc1JESklO?=
- =?utf-8?B?ejNwN1RLa3Z6bUxyVUVpMndETGE2MlBzYmZqSStQSXpzck9HUEV6aWZwQkZh?=
- =?utf-8?B?ek1EQk51YVk1WjlqZnB5YVdQNk40eElCVzJWVFd3a201Slh4bXFIeEJtbER0?=
- =?utf-8?B?TVgzUjc0WG5uSGR2T2dLcktFaHN0a1hWcmszdmo5ekE3cE1HVkFLTXl3bmdn?=
- =?utf-8?B?T3JCalY1aVlGYkl0WGp1eHhiVlVMcndTc25qazR6WWtBTVdIcERIQU80NGs5?=
- =?utf-8?B?UUF6R0xxSTVtemtvQmtYNndjQmFvNlZVM0RJWVFxUVcvRVpOM29JaXNlWnl3?=
- =?utf-8?B?d015azY2aExuaXhESUs1ZklmMElnMVRaMGpFeXIrQVU5N3ZsN0tZdSsxWU9I?=
- =?utf-8?B?RmNGRm0yVXl5Z0FCcTFzNkpDZVZlN3psNTI0bHFhaHZiaXdlUEJHdW5xK2V3?=
- =?utf-8?B?TE14bDJFYjJxd0RueEJkVVlnSHhNeTNNYXJ0c0xyWHhBMGMzSE8zRytpQkUr?=
- =?utf-8?B?SlR3ZTVnV0h4WXNBQ1RNVitJSVoxRFhNaXhRZHUxSG56Y1Y4WG03d0F3K3FL?=
- =?utf-8?B?Q3BCdkdURGt1RmFVVXdxZFNhR1dLMmlLMWFoWmFNVklDYW0zWlh2OUVraVBL?=
- =?utf-8?B?ajd6ZzJ6NklLK0NKU3VWaVk5RTNlTGREV2dVYnNYekNCdmJCRjAyeVlhNHRW?=
- =?utf-8?B?ZFJZN2VyN0Y4cWYrcjRMK3VrZHlJR3FDQ0d4TWZRMUFwSkVYNG1nTDB3YmZH?=
- =?utf-8?B?dVJnTDZkM1pmYTNCQy8vR2t5S3RPMUVXSzFSNXJhN0FWUFhTdCs4aUJYR3R1?=
- =?utf-8?B?aHNCWG1FeDkvN2pscjhSeUpidGc4dVVzY0Jid3kxYkhuaDJEWVpRR1JCMWxY?=
- =?utf-8?B?YUtmWmpLVU5wV2w5ajdrQ1REd2xVY2FPYndVTXRGSEJPbXQwcFZ4ekJnUkIz?=
- =?utf-8?B?cFcyQnNsYkRQSDJYdFgzdkNuWExZMmxMVU44aWxVOXFxcStLYmNGVExOUVJq?=
- =?utf-8?B?eVJlK1lkR1FPZVZRV2h4UmF3Lys4cWNsYzRESWQ2ZnVQM1RSZVpPcS9UT2xh?=
- =?utf-8?B?RDVVN1I5MHY3NVVSbVFlVEhaN2lhOXZ1RXNjZmNLOXEvZzYwT0ovclJMaHQ1?=
- =?utf-8?B?V2Qvc3VnelJUWVJKR3RUUkFFaUFDenR6OU1sT3pUd01zUFFGWGdJZ2xjSnZN?=
- =?utf-8?B?aGdBN3FncE4zTm9TM0tRUnJBT3pNWHNlL2EwQXg4djFCbVJmODhiQnlFQnVN?=
- =?utf-8?B?dmtOWEhxMkJxNlZkSmx2RlJCaW9ZSW9MdmoxUUptVDFiZW0rbWJBaEJsMXU0?=
- =?utf-8?B?VVhSMmZhM0ZIbGJkM1JEa3dGeVViZG5vRWd6TGNyTGRhcXUrYjZaS1RaSldE?=
- =?utf-8?B?QkJGUWF5LzNRQzN6ZGw3cW1Hb1NiNTZSa1JvVXpIdnJHZUt4bXNidzNDT29Z?=
- =?utf-8?B?eUZhZHFCclpxcTNjNE5mTkZaZGNjb0EvNHZURjJqbGtTZWlvN1A3UHRXOHVt?=
- =?utf-8?B?R0x2cm5NNE5UNUplTFk5U09GZ01RL3dlTjNOWWxrTWVwQlZQNm11ZXRHK3pT?=
- =?utf-8?B?ay8wWmNZaS9CSjArSU95ZmZBSWwwUWZ3WFlkSmluN2hxaytOeWZoelVhZlcz?=
- =?utf-8?B?T0pqQUNDZzVvVEtlYStOMm1xN1ZHRXFhdm8vb0YrZnphVTZuMnFVUlBiTXZj?=
- =?utf-8?B?bHV5Q0xINU5MMHk1aVMrckU5SjMvOW5SemFsaG9YQTR4MDdVMFlHTzQxdXdX?=
- =?utf-8?B?YUdXWkdNRm5iOG8vOTh5Uk9GYW83ZFJFZE41NENvdHVSUEtXMldSazdTdlFK?=
- =?utf-8?B?a0hPOU1hK2FXVkhwVVFxUXQ1S1NaOFVadWp5NnpwRU5pZkoxNjVEdUNNMDhX?=
- =?utf-8?B?SVRCQ1FCSXVTMlZwTi8wNGEzeVBoaTVGZUZ6dDMybVQ4aE1ULzdhMkp6YzZs?=
- =?utf-8?B?NmVHV0ppTkp5cVpoTDNuQ1Q5OGg2MEtBSGtVMTNURjN6bldpWnJSUTgyZDdN?=
- =?utf-8?B?NStsM2pXeTgvTzFuSWdxZnBBcmluTVpVeW5mY1crdWVNWmx2WVZDOU9LSlRz?=
- =?utf-8?Q?1BQgAFwJeJhDbyoubwLmqxi/y6Sf1Sn5iOhN4TXR4uPHn?=
-x-ms-exchange-antispam-messagedata-1: puXanZuxNWsZXw==
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <4042135E4E16E0438F86D5CE2521C08D@namprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.22; Mon, 11 May
+ 2026 03:38:08 +0000
+Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
+ (2603:1096:4:1f5:cafe::f4) by SI1PR02CA0052.outlook.office365.com
+ (2603:1096:4:1f5::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.23 via Frontend Transport; Mon,
+ 11 May 2026 03:38:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Mon, 11 May 2026 03:38:07 +0000
+Received: from nchen-desktop (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id D298D4115DE1;
+	Mon, 11 May 2026 11:38:06 +0800 (CST)
+Date: Mon, 11 May 2026 11:38:05 +0800
+From: Peter Chen <peter.chen@cixtech.com>
+To: Devin Li <Devin.Li@cixtech.com>
+Cc: fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, cix-kernel-upstream@cixtech.com,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, guoyin.chen@cixtech.com,
+	robin.wang@cixtech.com, hong.guo@cixtech.com
+Subject: Re: [PATCH v2] arm64: dts: cix: Add SCMI performance domains for
+ CPUFreq on Sky1
+Message-ID: <agFPHR+qh15A1RqQ@nchen-desktop>
+References: <20260506025254.3602623-1-Devin.Li@cixtech.com>
 MIME-Version: 1.0
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 29990141-20ec-402d-a818-08deaf0e7667
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 May 2026 03:36:18.3975
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260506025254.3602623-1-Devin.Li@cixtech.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|SI6PR06MB7168:EE_
+X-MS-Office365-Filtering-Correlation-Id: bb717df2-4016-4784-6b84-08deaf0eb781
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|1800799024|82310400026|18002099003|22082099003|3023799003|56012099003;
+X-Microsoft-Antispam-Message-Info: mGlxLAJ2aRTR83hUNS/QLw9eV+3cCijjfFr67YpiDijflz7b1jUGclLLA8k6SqtusVKr1EqfkuQNNobj09y+QnaRSFZLvpNCqUO/NRq7zwfRcJYElipWKlU2ldxMvrWIXqDjE+QTcGd5a9jU30LNSkXbeF0Sy9XEcYvTQBWgcgBYuN5eabMPo/PSEc4bnKSaXKSDKyiegeYXxY7gc7XQj4MP54FhcEVaDryo7W6Oz/1kT/8uH8mE85pEKXOoYC5o8geo0i0LvfTn9bzCFLa4Sca0Olx5jVoIN0gSteRLSRvmN7bgTlgS7qgSwzUZZC9sZYl0YnPQqfiVxFvRii/Ccplasy5Ir7RJ5V9m8WaPX0GYnk8rkENWV/GSnNBUCYbsVj70JAw15s7pUBjX4Lkd8z4rmgx9XNQSzTUZNYtJBrogm3Aol4QOq+y2eUHcUCfELc4ZANdHHLgTBZvVwVKAG7bfuRmk1q7FGHs+rzb2h9x609ITm98/mEi+z98piEQ55C4QqXeQBs42K5aTnSz4awS7Kc7Ejy8URsBasaMZMqZuSnWWleTm1kqRbC2kU5tjwdhgFo3AlZkD5THJItfKaUfHFibchSWq/4HLanEVOyjc+mDEy1lCFT21bRnuzCrCRlVxHqQCe4TlwStR/JUKqjD/o2CdeQfCHbd69D4Rr1bZyDHBNzv4wrCb8ZNGDi+hburt/g5CCyX06IItud6FqEjzLew4YW8d40zTclKhH/k=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(82310400026)(18002099003)(22082099003)(3023799003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: GWh3oUQQKRisbNEOFe6fJDL/2xOzzTy0TNguS6OWdHkaTexoqid8ohQwrh3HnjZryuro52SLoAzIMAx9LZeuzb4YrLzDNMQm69k9nmqKARZwr7GsxW8kuXYcQvAcxsZT9eNBfkkdrsIY94xpOpAOaFNvgfl3a9ILHCVLTfLMTedg3FAE4C2JJVMm8b7nj5T/ss25rWoO+jQTeb3fyDdjCDblZuhU+VfTWOu9pucioK92RPM1fEGks+HVSDXVuXltLCi6cJ7v2WlXRq6sS/0CMBIIErXGkxGHYK6j2RBkfO2huwbYiNnqYTCKsdOMazmTOrACqjSOkSXfaz/9V5IkCLef+fZbdHZej1OuOpn8S4ELNekQVCidf/rIeKGsz+rR+NucxvnuPXiJbXX16Bz18E0ZBI3D9VDHd/uBAR/PrpYNNyjsvS7XpglYgdzZYxFB
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 03:38:07.4043
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: fw1xJGFNEs1bKD5jiqY46rrjnV+OB5C3jIdTzB8JsM8p2sQgT4YQpYVE/65+9RRp7jIRcTArHle3lizf9D8dT+Qq3wP+yIXvDZF8rZHCJf790z/yrJ71abzonrSXASbMlZGEkCqCY5nYvka5BXDBQw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN9PR03MB5980
+X-MS-Exchange-CrossTenant-Network-Message-Id: bb717df2-4016-4784-6b84-08deaf0eb781
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI6PR06MB7168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_203625_747703_E7399DB0 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20260510_203827_235488_872DEC88 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,42 +115,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gMTEvNS8yMDI2IDQ6MzEgYW0sIERpbmggTmd1eWVuIHdyb3RlOg0KPiANCj4gDQo+IE9uIDUv
-OS8yNiAwOTozOCwgbXVoYW1tYWQubmF6aW0uYW1pcnVsLm5hemxlLmFzbWFkZUBhbHRlcmEuY29t
-IHdyb3RlOg0KPj4gRnJvbTogTmF6aW0gQW1pcnVsIDxtdWhhbW1hZC5uYXppbS5hbWlydWwubmF6
-bGUuYXNtYWRlQGFsdGVyYS5jb20+DQo+Pg0KPj4gVGhlIE9DUkFNIEVDQyBpcyBhbHdheXMgZW5h
-YmxlZCBlaXRoZXIgYnkgdGhlIEJvb3RST00gb3IgYnkgdGhlDQo+PiBTZWN1cmUgRGV2aWNlIE1h
-bmFnZXIgKFNETSkgZHVyaW5nIGEgcG93ZXItb24gcmVzZXQgb24gU29DRlBHQS4NCj4+DQo+PiBI
-b3dldmVyLCBkdXJpbmcgYSB3YXJtIHJlc2V0LCB0aGUgT0NSQU0gY29udGVudCBpcyByZXRhaW5l
-ZCB0bw0KPj4gcHJlc2VydmUgZGF0YSwgd2hpbGUgdGhlIGNvbnRyb2wgYW5kIHN0YXR1cyByZWdp
-c3RlcnMgYXJlIHJlc2V0IHRvDQo+PiB0aGVpciBkZWZhdWx0IHZhbHVlcy4gQXMgYSByZXN1bHQs
-IEVDQyBtdXN0IGJlIGV4cGxpY2l0bHkgcmUtZW5hYmxlZA0KPj4gYWZ0ZXIgYSB3YXJtIHJlc2V0
-Lg0KPj4NCj4+IFNpZ25lZC1vZmYtYnk6IE5pcmF2a3VtYXIgTCBSYWJhcmEgPG5pcmF2LnJhYmFy
-YUBhbHRlcmEuY29tPg0KPj4gU2lnbmVkLW9mZi1ieTogTmF6aW0gQW1pcnVsIA0KPj4gPG11aGFt
-bWFkLm5hemltLmFtaXJ1bC5uYXpsZS5hc21hZGVAYWx0ZXJhLmNvbT4NCj4+IC0tLQ0KPj4gwqAg
-ZHJpdmVycy9lZGFjL2FsdGVyYV9lZGFjLmMgfCAxMCArKysrKysrKy0tDQo+PiDCoCAxIGZpbGUg
-Y2hhbmdlZCwgOCBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQ0KPj4NCj4+IGRpZmYgLS1n
-aXQgYS9kcml2ZXJzL2VkYWMvYWx0ZXJhX2VkYWMuYyBiL2RyaXZlcnMvZWRhYy9hbHRlcmFfZWRh
-Yy5jDQo+PiBpbmRleCAxMDNiMmMyZWJhMmEuLjllNmE5Nzg2YTg4MSAxMDA2NDQNCj4+IC0tLSBh
-L2RyaXZlcnMvZWRhYy9hbHRlcmFfZWRhYy5jDQo+PiArKysgYi9kcml2ZXJzL2VkYWMvYWx0ZXJh
-X2VkYWMuYw0KPj4gQEAgLTExODYsOCArMTE4NiwxNCBAQCBhbHRyX2NoZWNrX29jcmFtX2RlcHNf
-aW5pdChzdHJ1Y3QgDQo+PiBhbHRyX2VkYWNfZGV2aWNlX2RldiAqZGV2aWNlKQ0KPj4gwqDCoMKg
-wqDCoCAvKiBWZXJpZnkgT0NSQU0gaGFzIGJlZW4gaW5pdGlhbGl6ZWQgKi8NCj4+IMKgwqDCoMKg
-wqAgaWYgKCFlY2NfdGVzdF9iaXRzKEFMVFJfQTEwX0VDQ19JTklUQ09NUExFVEVBLA0KPj4gLcKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgKGJhc2UgKyBBTFRSX0ExMF9FQ0NfSU5JVFNUQVRf
-T0ZTVCkpKQ0KPj4gLcKgwqDCoMKgwqDCoMKgIHJldHVybiAtRU5PREVWOw0KPj4gK8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgKGJhc2UgKyBBTFRSX0ExMF9FQ0NfSU5JVFNUQVRfT0ZTVCkp
-KSB7DQo+PiArwqDCoMKgwqDCoMKgwqAgaWYgKCFlY2NfdGVzdF9iaXRzKEFMVFJfQTEwX0VDQ19F
-TiwNCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgKGJhc2UgKyBBTFRS
-X0ExMF9FQ0NfQ1RSTF9PRlNUKSkpDQo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBlY2Nfc2V0
-X2JpdHMoQUxUUl9BMTBfRUNDX0VOLA0KPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgKGJhc2UgKyBBTFRSX0ExMF9FQ0NfQ1RSTF9PRlNUKSk7DQo+PiArwqDCoMKg
-wqDCoMKgwqAgZWxzZQ0KPj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmV0dXJuIC1FTk9ERVY7
-DQo+PiArwqDCoMKgIH0NCj4+IMKgwqDCoMKgwqAgLyogRW5hYmxlIElSUSBvbiBTaW5nbGUgQml0
-IEVycm9yICovDQo+PiDCoMKgwqDCoMKgIHdyaXRlbChBTFRSX0ExMF9FQ0NfU0VSUklOVEVOLCAo
-YmFzZSArIA0KPj4gQUxUUl9BMTBfRUNDX0VSUklOVEVOU19PRlNUKSk7DQo+IA0KPiBUaGlzIHBh
-dGNoIGZhaWxzIHRvIGFwcGx5IHRvIGJvdGggdjcuMS1yYzEgYW5kIGxpbnV4LW5leHQuIFBsZWFz
-ZSBiYXNlIA0KPiB5b3VyIHBhdGNoIHRvIHRoZSBsYXRlc3QgYW5kIHJlc2VuZC4NCj4gDQo+IFRo
-YW5rcywNCj4gRGluaA0KPiANCnNvcnJ5IGZvciB0aGlzIGNvbmZ1c2lvbiwgZHJvcHBpbmcgdGhp
-cyBwYXRjaCBhcyBhbHJlYWR5IGF2YWlsYWJsZSBpbiANCnVwc3RyZWFtDQo=
+On 26-05-06 10:52:54, Devin Li wrote:
+> Add SCMI Protocol 13 (Performance) node under ap_to_pm_scmi with
+> domains.
+> 
+> Define SKY1_PERF_* macros in sky1-power.h for all performance domain
+> IDs (CPU L/B0/B1/M0/M1, GPU, DSU, NPU, VPU, CI700, NI700), and
+> wire each CPU node to its corresponding performance domain using
+> power-domains and power-domain-names properties.
+> 
+> Signed-off-by: Devin Li <Devin.Li@cixtech.com>
+
+Applied, thanks.
+
+Peter
+> ---
+> 
+> Notes:
+>     Change for v2:
+>     - Use real name format "Devin Li"
+> 
+>  arch/arm64/boot/dts/cix/sky1-power.h | 13 +++++++++++++
+>  arch/arm64/boot/dts/cix/sky1.dtsi    | 29 ++++++++++++++++++++++++++++
+>  2 files changed, 42 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/cix/sky1-power.h b/arch/arm64/boot/dts/cix/sky1-power.h
+> index 53f4a3af36b3..144567579b71 100644
+> --- a/arch/arm64/boot/dts/cix/sky1-power.h
+> +++ b/arch/arm64/boot/dts/cix/sky1-power.h
+> @@ -30,4 +30,17 @@
+>  #define SKY1_PD_ISP0		20
+>  #define SKY1_PD_GPU		21
+>  
+> +#define SKY1_PERF_GPU_CORE	0
+> +#define SKY1_PERF_GPU_TOP	1
+> +#define SKY1_PERF_CPU_L     2
+> +#define SKY1_PERF_CPU_B0	3
+> +#define SKY1_PERF_CPU_B1	4
+> +#define SKY1_PERF_CPU_M0	5
+> +#define SKY1_PERF_CPU_M1	6
+> +#define SKY1_PERF_DSU	    7
+> +#define SKY1_PERF_NPU	    8
+> +#define SKY1_PERF_VPU	    9
+> +#define SKY1_PERF_CI700	    10
+> +#define SKY1_PERF_NI700	    11
+> +
+>  #endif
+> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+> index 0611098b5f05..a77c52296ebd 100644
+> --- a/arch/arm64/boot/dts/cix/sky1.dtsi
+> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+> @@ -22,6 +22,8 @@ cpu0: cpu@0 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0x0>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_L>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <403>;
+>  			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -31,6 +33,8 @@ cpu1: cpu@100 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0x100>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_L>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <403>;
+>  			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -40,6 +44,8 @@ cpu2: cpu@200 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0x200>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_L>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <403>;
+>  			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -49,6 +55,8 @@ cpu3: cpu@300 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0x300>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_L>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <403>;
+>  			cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -58,6 +66,8 @@ cpu4: cpu@400 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0x400>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_M0>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <1024>;
+>  			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -67,6 +77,8 @@ cpu5: cpu@500 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0x500>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_M0>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <1024>;
+>  			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -76,6 +88,8 @@ cpu6: cpu@600 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0x600>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_M1>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <1024>;
+>  			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -85,6 +99,8 @@ cpu7: cpu@700 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0x700>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_M1>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <1024>;
+>  			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -94,6 +110,8 @@ cpu8: cpu@800 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0x800>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_B0>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <1024>;
+>  			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -103,6 +121,8 @@ cpu9: cpu@900 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0x900>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_B0>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <1024>;
+>  			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -112,6 +132,8 @@ cpu10: cpu@a00 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0xa00>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_B1>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <1024>;
+>  			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -121,6 +143,8 @@ cpu11: cpu@b00 {
+>  			enable-method = "psci";
+>  			reg = <0x0 0xb00>;
+>  			device_type = "cpu";
+> +			power-domains = <&scmi_dvfs SKY1_PERF_CPU_B1>;
+> +			power-domain-names = "perf";
+>  			capacity-dmips-mhz = <1024>;
+>  			cpu-idle-states = <&CPU_SLEEP_1 &CLUSTER_SLEEP_0>;
+>  		};
+> @@ -205,6 +229,11 @@ ap_to_pm_scmi: scmi {
+>  			#address-cells = <1>;
+>  			#size-cells = <0>;
+>  
+> +			scmi_dvfs: protocol@13 {
+> +				reg = <0x13>;
+> +				#power-domain-cells = <1>;
+> +			};
+> +
+>  			scmi_clk: protocol@14 {
+>  				reg = <0x14>;
+>  				#clock-cells = <1>;
+> -- 
+> 2.49.0
+> 
+
+-- 
+
+Best regards,
+Peter
 
