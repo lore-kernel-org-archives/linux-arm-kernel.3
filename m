@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D39CCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 14:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD944CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 14:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RbzBamjzxXiVtpHrqv9CMUVENI1ThdjIF2HinA6vwbs=; b=3GUONrlBC7lpLxRt+kGN8P5cXw
-	OlVFy6xH1gb3gc/IDTcMDMCEHwvXAYhL4pxmk8NVlAR23SyvgwI1XQ8frEQdQ3azMm7/rJdC8668I
-	4nC5/mNA03Wb+T5cX2Vl5XCN+Q1j28U/bY8bi2xRYqbG2reStHLKUfgLUpqgpNeEV4TmLD7jokKkq
-	CpeVGNu83AQQfNO3uSQ7oZSgqhWas1Y3m+JNeBZif79HjkeDzMB7iESm8ANaCoTmuy6Gvg5v46uuD
-	x/bz+rTwdAC8jsn+Gbvd7Gj8xt8DI+k+lF7eifugMhlcHanroRSyjsExzsnHp75fDVDXErenEq06K
-	1BQ1EC7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pf1uxo0CUBnSq1NdiWoCfAlKNRzem6yqCsKx1qFILMM=; b=wi18tAQL/qGLWd6A0hijKdtGwR
+	UOGRdPAuPeu+ghTk+dVKrWec597GL+esDkr6TzdSUe5L72pmBnAuRur45yAsOp1cp5DUdoKKLeBev
+	/D2YcXriNfBK4pQAkSUUDPebiGhcjJ3o9bXYuUG+6EiAVBSBA/vNeRYwseM0I3niVA/mstGaO2C8r
+	fO+CLuHtINsKGKn4zmwrWuMDLcycvG6vomvCOhL3oYDuD93TZHGGCHmqTROjuX2Eqq54B1zFaLeLl
+	AOwOXnnIScd+FsjLxDKM1IoWNxXZPZ5kZrDfMSFiW58uV55eGjt5CEitNEVrlurWpIOXOg+aHBfI1
+	DntVUFtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMRR7-0000000DspV-3nzy;
-	Mon, 11 May 2026 14:16:45 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1wMRSE-0000000Dsyo-0R2f;
+	Mon, 11 May 2026 14:17:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMRR0-0000000DsZe-3fQX
+	id 1wMRSD-0000000DsyQ-14Kj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 14:16:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1778508999; x=1810044999;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=/xqH7NH5OnIsXIFChpqYZdEouHpjFOVq5k8bHoem5oY=;
-  b=gl1BcOh9PjcHd5rU0pMiIQO5I+yQNwdw5HtHCjjGX09BROkIide7BEFE
-   0NBHws09XSXTRgOJWWtz3oIypPU/8eDmPcjqYnW7eWb4QmqpvmAkYcIkQ
-   iP5UZRQdJkhRLuvN1kLFJk9kPjWa4pspji1p8umDckg2+IsedlcwqInst
-   9RLtNPdFg6EF2X2/ljVCTi6nVqGeeALn8WQlPU3/vNdcMHj+FXc4P5NL7
-   sed8ilY76823ACZM7D5JMVUxZ7LiTla93wC5LlQfdbM99m2TvOFD5OBal
-   3VgSR0j2cdin56bDMX2A30z18Z9RhqPK4XIqYRrWiylSy2wyhO88bL/qW
-   A==;
-X-CSE-ConnectionGUID: Jkh3Lhc+QlWLEQReiGct6w==
-X-CSE-MsgGUID: Es4DDp2MSw6HizwfNdvneQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11783"; a="79577330"
-X-IronPort-AV: E=Sophos;i="6.23,229,1770624000"; 
-   d="scan'208";a="79577330"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 May 2026 07:14:37 -0700
-X-CSE-ConnectionGUID: IGMkto1nQuq+i2PCwp8hSg==
-X-CSE-MsgGUID: joc20km3Sn+zISkQ0Tcj4A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,229,1770624000"; 
-   d="scan'208";a="232986212"
-Received: from dawidgla-mobl.ger.corp.intel.com (HELO [10.94.250.159]) ([10.94.250.159])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 May 2026 07:14:34 -0700
-Message-ID: <15956b70-c6c2-4e3d-8f15-471a274d6e2d@linux.intel.com>
-Date: Mon, 11 May 2026 16:14:25 +0200
+	Mon, 11 May 2026 14:17:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CFC0F6001A;
+	Mon, 11 May 2026 14:17:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A694C2BCB0;
+	Mon, 11 May 2026 14:17:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778509071;
+	bh=PoPH1hLv2jxdj4u9FglKmzcibTYxjvZi2FCP3Jj0JyI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LgCm463B1qty6DCjJAOJs85JT4vLLtvrDpRPW1sSuWDjZEyg7Ri9VM8Jk01nX7fhD
+	 Usx66rHpvka2awfNbISJaY1bU8ynX6Q4kApa2H6SEkAzi7B23Gjb/rI2td98JaTdWj
+	 9DFjwzCt4RrO+Uwd7dk5Z5jZSbvfJsRhn0kxCguNimqnHtyTkXoje7a08zQ39Oa4qA
+	 vEoDOOGgOwd9WE3Xq3tWF6KNWlXNDpXBYJjFsIyXWan2CqpubqvUtkDu+7pv9PyMZR
+	 5xC7MnuTldIsP0F91VO/XyyZrSDjhX8jbzQueQsk+JiEAk7Xz9fbP3mDYLLWOAE43s
+	 n7Au8uXjO0ruw==
+Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
+	id 3F5471AC58A9; Mon, 11 May 2026 15:17:49 +0100 (BST)
+Date: Mon, 11 May 2026 23:17:49 +0900
+From: Mark Brown <broonie@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>, Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v10 15/30] KVM: arm64: Support SME control registers
+Message-ID: <agHlDeXRNjutoTV7@sirena.co.uk>
+References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
+ <20260306-kvm-arm64-sme-v10-15-43f7683a0fb7@kernel.org>
+ <af4bWxiOogfPz_dp@J2N7QTR9R3>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/3] ARM: dts: aspeed-g6: add AST2600 I3C nodes and
- bindings
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, linux-aspeed@lists.ozlabs.org
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, maciej.lawniczak@intel.com
-References: <cover.1777058942.git.dawid.glazik@linux.intel.com>
-Content-Language: en-US
-From: Dawid Glazik <dawid.glazik@linux.intel.com>
-Organization: Intel Technology Poland sp. z o.o. - ul. Slowackiego 173, 80-298
- Gdansk - KRS 101882 - NIP 957-07-52-316
-In-Reply-To: <cover.1777058942.git.dawid.glazik@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_071638_956861_1B0AD2B8 
-X-CRM114-Status: GOOD (  13.83  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="n8F9ND23WpqrUELD"
+Content-Disposition: inline
+In-Reply-To: <af4bWxiOogfPz_dp@J2N7QTR9R3>
+X-Cookie: Truckers welcome.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +84,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/24/2026 10:20 PM, Dawid Glazik wrote:
-> This series reworks and resubmits AST2600 I3C DTS updates that were
-> originally posted in 2024, but stalled without further upstream
-> progress.[1] The series was rebased onto the current tree and merge
-> conflicts were resolved.
-> 
-> The patches first move I2C controller nodes under the APB simple-bus
-> for layout consistency, then document aspeed,ast2600-i3c-global in
-> the syscon binding, and finally add AST2600 I3C controller nodes in
-> aspeed-g6.dtsi.
-> 
-> Jeremy agreed in a separate email thread that I can continue this
-> series under my authorship.
-> 
-> Link: https://lore.kernel.org/all/9d8c03d742fa9767f30e23d75ddf0baf4296c88e.1714647917.git.jk@codeconstruct.com.au/
-> 
-> Dawid Glazik (3):
->    ARM: dts: aspeed-g6: move i2c controllers directly into apb node
->    dt-bindings: mfd: syscon: add aspeed,ast2600-i3c-global compatible
->    ARM: dts: aspeed-g6: Add nodes for i3c controllers
-> 
->   .../devicetree/bindings/mfd/syscon.yaml       |   2 +
->   arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       | 543 ++++++++++--------
->   2 files changed, 318 insertions(+), 227 deletions(-)
-> 
-> 
-> base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
 
-Hi all,
+--n8F9ND23WpqrUELD
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Gentle ping for this series:
-https://lore.kernel.org/all/cover.1777058942.git.dawid.glazik@linux.intel.com/#t
+On Fri, May 08, 2026 at 06:20:27PM +0100, Mark Rutland wrote:
 
-I received Reviewed-by from Krzysztof Kozlowski (thank you).
-Could I please get feedback/ack from maintainers on the remaining parts,
-especially ASPEED DTS?
+> > +static bool access_smcr_el2(struct kvm_vcpu *vcpu,
+> > +			    struct sys_reg_params *p,
+> > +			    const struct sys_reg_desc *r)
+> > +{
 
-If preferred, I can respin/rebase the series.
+> > +	vq =3D SYS_FIELD_GET(SMCR_ELx, LEN, smcr) + 1;
+> > +	vq =3D min(vq, vcpu_sme_max_vq(vcpu));
+> > +	smcr &=3D ~SMCR_ELx_LEN_MASK;
+> > +	smcr |=3D SYS_FIELD_PREP(SMCR_ELx, LEN, vq - 1);
 
-Thanks,
-Dawid Glazik
+> I'm not sure this sanitization is correct or necessary, and the same
+> concern applies to ZCR_ELx.LEN.
+
+> AFAICT, none of the values for the SMCR_ELx.LEN and ZCR_ELx.LEN fields
+> are reserved or unallocated. Thus all the bits of those fields should be
+> stateful, and a read should observe the last value written, regardless
+> of the effective value of the field.
+
+=2E..
+
+> Either what we're doing is wrong, or the architcture requires a
+> clarification to say that values corresponding to unimplmented vector
+> lengths are reserved.
+
+> If those bit are always stateful, the the logic to sanitize the LEN
+> field shouldn't live here, and that will need to happen when consuming
+> the effective value.
+
+Your understanding of how these fields work matches mine, and writing
+unimplemented values is part of the documented procedure for enumerating
+the set of supported vector lengths.
+
+As you note this is duplicated from the handling of ZCR_ELx, it's not
+clear to me why the code does this but I figured there must be some good
+reason for doing things this way that I just wasn't seeing and that it
+was safer to fit in with the existing code.  The handling for vector
+lengths in general and especially with NV was quite unclear,
+particularly prior to your fixes in 59419f10045b (KVM: arm64: Eagerly
+switch ZCR_EL{1,2}).
+
+The changelog for b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps")
+which introduced this for ZCR_ELx has a mention of mapping the requested
+VL but it's not entirely clear to me what it means by that.  It does
+mean that we can just load guest ZCR_EL2 and get the correct behaviour
+for guest EL1 and EL0 when loading the guest state so perhaps that might
+be all there is to it.
+
+My expectation would have been to restrict the guest EL1/0 VL when we
+load state into the registers as you allude to, something more like the
+below (off the top of my head and completely untested, I'll pull this
+into a proper patch later):
+
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/i=
+nclude/hyp/switch.h
+index 98b2976837b1..ddf8c2246139 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -501,11 +501,11 @@ static inline void fpsimd_lazy_switch_to_guest(struct=
+ kvm_vcpu *vcpu)
+ 		return;
+=20
+ 	if (vcpu_has_sve(vcpu)) {
++		zcr_el2 =3D vcpu_sve_max_vq(vcpu) - 1;
++
+ 		/* A guest hypervisor may restrict the effective max VL. */
+-		if (is_nested_ctxt(vcpu))
+-			zcr_el2 =3D __vcpu_sys_reg(vcpu, ZCR_EL2);
+-		else
+-			zcr_el2 =3D vcpu_sve_max_vq(vcpu) - 1;
++		if (is_nested_ctxt(vcpu) && !is_hyp_ctxt(vcpu))
++			zcr_el2 =3D min(zcr_el2, __vcpu_sys_reg(vcpu, ZCR_EL2));
+=20
+ 		write_sysreg_el2(zcr_el2, SYS_ZCR);
+=20
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 148fc3400ea8..b48f41acff82 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2874,9 +2874,7 @@ static bool access_zcr_el2(struct kvm_vcpu *vcpu,
+ 		return true;
+ 	}
+=20
+-	vq =3D SYS_FIELD_GET(ZCR_ELx, LEN, p->regval) + 1;
+-	vq =3D min(vq, vcpu_sve_max_vq(vcpu));
+-	__vcpu_assign_sys_reg(vcpu, ZCR_EL2, vq - 1);
++	__vcpu_assign_sys_reg(vcpu, ZCR_EL2, p->regval);
+ 	return true;
+ }
+=20
+
+--n8F9ND23WpqrUELD
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoB5QwACgkQJNaLcl1U
+h9C9fQf9EqPdViWDz4IqJr6p68k3C3Z9Tjk45s2BXBpgqwuYzVNxhjJ2wpZtNfoV
+wRug/tY+UgfK/E8k3S+qgR6o9mni0kBYMtlZ/7C3i7OcmzX/5UouYWRwsDSC351L
+ajfvCDNbXL83nGeIqewq5MZ9RomdG/iGuyZg32KDA1UpdqUgCasVQbCzcfJ79SVW
+5t5e6jJPONe7OpWNCrfkNmuo1Fxp4klcuEes5RLuo9d/BL6vgaeyhPth4c1LRgSJ
+oOZ2M2oEoUFrypqwaRBh9bZFuLGl/eYoa6fPVPAHDQs/jEkHRDyhq4S3HcmJjAsz
+Z+OUomQf7zJidan7Czxc4ASuGKSu6Q==
+=zHz8
+-----END PGP SIGNATURE-----
+
+--n8F9ND23WpqrUELD--
 
