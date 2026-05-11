@@ -4,103 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A0ACD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 08:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 883FCCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 09:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BQE3wpLqYzkqVVGo5IykdkJujhJiTkAzNCjRXn40AUE=; b=X26e+FUnuUnpXDNpZiOgv6JEPu
-	wlQYN9fH1FZtAXAPU6DgP8HhfmfdZgAhyG4Ir/U/gLDrCiu3EMuJ5Cn1N4KAGBBaW1kIO2klCkNsj
-	/C63qUf03raJFgjneYQ/K/O9YeQgfBtkk2MNZ7ivSy+eSlM9ZWD89/HQkoSjvWXPYunwM5uJGtrNX
-	EUpNwi1hTAB+8Hzn8XXR12NVxa2wRqg6RjA26L8tu5+8X73+ma7XT1Wo1cpnBL8TxzTWQSTSijFWB
-	P3pw4EzpFoS1m/ULJuHMRR8fX53riEObhiJgNRbsCiDHK4QtNfv6+B8/PZF5rN/7AaFrVhbJYt6PX
-	o84mUJXw==;
+	bh=CFVno9Nsq/hvsU0eZZtsglitWo5gwSvgnKfW0LBnyoY=; b=LFJH9XTURQXEpQGzl1VPyESARd
+	kWXEZXK5ulG+Bn4azoyjAmtkzqBSrfqjDkyqfVh3duDzGyzZTGfAcgLvaONPPJUgN3cTBtAU0tKtU
+	5vysUzOybSRz1DkoLIL1Je4XscATTxA2pJMytYRbSIPNc/yca34k8yTt+ytx/iykczrFJmSEEbcVO
+	WWxpbQPfZCW+v8gnD9Jd7wHQYIOAimSKkls1CD6AcSYYaL7oMp32dcxR7sdbmbhYketXJ9f7gDg80
+	xXJHs5dO3GpxNwBFgnQDmWVqI6M7YBkb/IrchGWAHEkEaqdr1SUKu1Ha6Fi4GbuzGqEGxzE894iHj
+	SN5F/VaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMMUK-0000000CpFE-0t1g;
-	Mon, 11 May 2026 08:59:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMMV0-0000000CpPr-20os;
+	Mon, 11 May 2026 09:00:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMMUH-0000000CpET-2DJ4
+	id 1wMMUz-0000000CpPA-0jdN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 08:59:42 +0000
+	Mon, 11 May 2026 09:00:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 703B343410;
-	Mon, 11 May 2026 08:59:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3D15C4AF09;
-	Mon, 11 May 2026 08:59:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6357D600CB
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 09:00:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AFC6C2BCB0
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 09:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778489980;
-	bh=pvy6NTMFmdxYmqrWBMSd1MjoiQi19wsMVW3eEKzhiNY=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=uC278g/6wcZXS/TECokjs2CKqBLAAIxUQXBQ4W6K/LvV2cTgxi3+2zo1RK1wLtotT
-	 Qn6V56vnf5O4Z0ewruwmAxAlOlB5flBpO1rMunySxoPCyWmDW4zQVwUnIVoNZgd8rw
-	 34xPqEQcU9tQ/jbYe3ELDh+VWdv6+1i1sK5qfRrOM8w1usBGEp+xYAJMs1ez3ge5pw
-	 yG2mdBwYO7zGlnv8W8LAhZdPlNCRL62lqPK8T9aZQYfEi0ZnZCqXK1hwpeZYNP+YhJ
-	 Nt6Sou/dVX74pLH9EoHCJAfc8sXz8WzyM4beQ4NWBlKrjLPLH9PqghlqB6sKYUDHtD
-	 bU7jmckMb7LWA==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id D79BAF40085;
-	Mon, 11 May 2026 04:59:38 -0400 (EDT)
-Received: from phl-imap-14 ([10.202.2.87])
-  by phl-compute-01.internal (MEProxy); Mon, 11 May 2026 04:59:38 -0400
-X-ME-Sender: <xms:epoBauLUKWQQFlZDizE4OuZE6nJAHfoxTRN4JweXZ0D331C0Gx9k2w>
-    <xme:epoBag-E-VKCrhgu6pw8Omzhcj6zCZiOwRk3M7qAOAuWkSHFeksC-b68pGQn6zV2B
-    utsXaz8NMFa0DCSHbDGj34WYVjf2jkvaYQNfX7MXBNbmfao4rY71IXY>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdduudekheefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrugcu
-    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
-    htthgvrhhnpeefhefgtefgkefhgfdvffdukeejheeuvedthfdtiefhleejhfefjeffieeu
-    jeefteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomheprghrugdomhgvshhmthhprghuthhhphgv
-    rhhsohhnrghlihhthidqudeijedthedttdejledqfeefvdduieegudehqdgrrhgusgeppe
-    hkvghrnhgvlhdrohhrghesfihorhhkohhfrghrugdrtghomhdpnhgspghrtghpthhtohep
-    udejpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhhshhhumhgrnhdrkhhhrg
-    hnughurghlsegrrhhmrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgr
-    shesrghrmhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtg
-    homhdprhgtphhtthhopehrhigrnhdrrhhosggvrhhtshesrghrmhdrtghomhdprhgtphht
-    thhopegrrhgusgdoghhithesghhoohhglhgvrdgtohhmpdhrtghpthhtohepjhgrnhhnhh
-    esghhoohhglhgvrdgtohhmpdhrtghpthhtoheplhhiiihprhhutghkrgesghhoohhglhgv
-    rdgtohhmpdhrtghpthhtohepshgvthhhjhgvnhhkihhnshesghhoohhglhgvrdgtohhmpd
-    hrtghpthhtohepuggrvhhiugeskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:epoBaoK2PXNYJrbD9UF4L2Rfa83SRHRE4Tx3RlxLmwBWbX8OHFdGYw>
-    <xmx:epoBakdLmSzav7YxfV8QIgIsf4qOoKU27Ca4E2o7m-mLwVLuB7rQDQ>
-    <xmx:epoBaqV5UGjTnEjdVxMC3Vd39E4_WOaS7hl6JmkVEkAAyxPW_yFdxg>
-    <xmx:epoBaijI7jp1hWClAtSGGNjLOjDz0kfcPsFqs9xn0feG0Uj96kj0pA>
-    <xmx:epoBakjFQJe8ZqPXns0Mett1u_CYVhCbwTSLmPbB_izBow8_pPo9ccGW>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id AE438C4006E; Mon, 11 May 2026 04:59:38 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20201202; t=1778490024;
+	bh=CFVno9Nsq/hvsU0eZZtsglitWo5gwSvgnKfW0LBnyoY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=adBQELrjXkDuujWs40KxsrFPAbdty+DWYgu39WdyuJG4GC7oVoivxsJh6+6T9uyUG
+	 sMHKYx9RR0GTBuqVzz4QiFCR2/pIYTQI1ojDAZ/ayjTiE7y2JgPqN5QFcqpUfWNMx5
+	 pKEtGRvH5xmgYxaNRiPVnM0bp2Z8obBpkSbCOMdZ+/j+Z9uromqBoJGYIg1SyD4dB5
+	 3FXoxyeXanWVmIFvQdBROjRPHuPJGETkDaOLBiyDqnIqtps98BPJLMRaoi2DnZ6f9y
+	 Vg68VW5w5KR7GO3O3fGMT17IQqIuwg2ZA9lxTq3b4KxjD/PfWzMUzSUg6Y01++2rIV
+	 r+nW/BO136GNQ==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-38ea6a5a0b3so33276731fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 02:00:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/0n1FOxhsNixMAVGE/xWF7p7QInXK8I0yk4cs/MKN04uipHY4LV1wAuIL0N8bWmtA0QRlKJOC5CnP0jORfJjxU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1CeMsZ1vw2hyk/gt9M+dEoY2t8NFK/vQVC5HtIg3P1k5Uq1cM
+	9GL6K4PqzUUcO7O8E7Ho3D4n5inys/lSRPF3t5Ntzo8Uc6YS5g35A10HyMNbucu/g6E+7WHt0Iw
+	s2ECjwni6WDvYgKpeFN6AS49UGjjVvPY=
+X-Received: by 2002:a05:6512:6181:b0:5a8:d1f3:4f8 with SMTP id
+ 2adb3069b0e04-5a8d1f30770mr777984e87.26.1778490022755; Mon, 11 May 2026
+ 02:00:22 -0700 (PDT)
 MIME-Version: 1.0
-Date: Mon, 11 May 2026 10:59:18 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Jann Horn" <jannh@google.com>, "Ard Biesheuvel" <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Will Deacon" <will@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Rutland" <mark.rutland@arm.com>, "Ryan Roberts" <ryan.roberts@arm.com>,
- "Anshuman Khandual" <anshuman.khandual@arm.com>,
- "Liz Prucka" <lizprucka@google.com>, "Seth Jenkins" <sethjenkins@google.com>,
- "Kees Cook" <kees@kernel.org>, "Mike Rapoport" <rppt@kernel.org>,
- "David Hildenbrand" <david@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>, linux-mm@kvack.org,
- linux-hardening@vger.kernel.org
-Message-Id: <31252c1d-a98d-4635-ab61-ce5b649e256f@app.fastmail.com>
-In-Reply-To: <CAG48ez1DJ88a0pBCE-Q0VXyDuJgng8zdunb38g4b4JPU88exww@mail.gmail.com>
-References: <20260427153416.2103979-17-ardb+git@google.com>
- <20260427153416.2103979-19-ardb+git@google.com>
- <CAG48ez1DJ88a0pBCE-Q0VXyDuJgng8zdunb38g4b4JPU88exww@mail.gmail.com>
-Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
-Content-Type: text/plain; charset=utf-8
+References: <20260429-send-v7-0-b432e00d2db8@gmail.com> <5379905.31r3eYUQgx@strix>
+ <CAD++jLk02QnkXYwJ0b6x=qw9stR4nPrjD3sYPOvWAQz8t9OsUA@mail.gmail.com> <23095518.EfDdHjke4D@silicon.doe.home>
+In-Reply-To: <23095518.EfDdHjke4D@silicon.doe.home>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 11 May 2026 11:00:10 +0200
+X-Gmail-Original-Message-ID: <CAD++jLniQfWXGe3dK=StOGv62mi_3fEHVdipUavsFGSrNm6cLw@mail.gmail.com>
+X-Gm-Features: AVHnY4KhmRCq90-NzUXRaDHZYtk0xNB10BVaq7CG7fH-NLC_5K23qELlHwCuUpk
+Message-ID: <CAD++jLniQfWXGe3dK=StOGv62mi_3fEHVdipUavsFGSrNm6cLw@mail.gmail.com>
+Subject: Re: [PATCH v7 6/6] ARM: zte: defconfig: Add a zx29 defconfig file
+To: =?UTF-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Drew Fustini <fustini@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-serial@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_015941_615431_50E41C4C 
-X-CRM114-Status: GOOD (  32.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,105 +86,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 8, 2026 at 12:09=E2=80=AFAM Stefan D=C3=B6singer
+<stefandoesinger@gmail.com> wrote:
 
-On Fri, 8 May 2026, at 19:02, Jann Horn wrote:
-> On Mon, Apr 27, 2026 at 5:44=E2=80=AFPM Ard Biesheuvel <ardb+git@googl=
-e.com> wrote:
->> The empty zero page is used to back any kernel or user space mapping
->> that is supposed to remain cleared, and so the page itself is never
->> supposed to be modified.
->>
->> So make it __ro_after_init rather than __page_aligned_bss: on most
->> architectures, this ensures that both the kernel's mapping of it and =
-any
->> aliases that are accessible via the kernel direct (linear) map are
->> mapped read-only, and cannot be used (inadvertently or maliciously) to
->> corrupt the contents of the zero page.
->>
->> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> So I read https://docs.kernel.org/process/maintainer-soc.html a few times=
+. If
+> I understand it correctly at this point "pull request" still means emails=
+ sent
+> with p4, correct?
+
+No it's the contents of an
+git request-pull v7.1-rc1 git://..... tags/my-soc
+
+put into a regular email and sent to soc@kernel.org.
+
+I'm sorry if the terminology isn't always clear on what a pull request
+actually is in the kernel world (as opposed to e.g. github). It's just
+an email with request-pull contents and some cover letter.
+
+> Or does someone create a git repository on git.kernel.org
+> for me that I can use to send actual pull requests?
+
+We can pull from wherever as long as you can sign your tag
+with a GPG key that we can (in best cases) trust. We can also
+just inspect the result of a pull request from a branch (no tag)
+if we wanna, it just involves more inspection and trust.
+
+> As I understand it, my 6 patches then go to the 4 corners of the kernel:
 >
-> Reviewed-by: Jann Horn <jannh@google.com>
->
+> Patch 1 (dt binding) to devicetree@vger.kernel.org
 
-Thanks
+Nah as long as the DT maintianers ACK it (i.e. Reviewed-by) we
+can merge that to the SoC tree.
 
-> Sorry, I should have looked at this properly earlier instead of ending
-> up duplicating this patch with
-> <https://lore.kernel.org/all/20260508-ro-zeropage-v1-1-9808abc20b49@go=
-ogle.com/>.
->
+> Patches 2 (platform), 5 (DTS) and 6 (defconfig) to soc@kernel.org, but no=
+t in
+> one series but 3 independent ones
 
-No worries. I might borrow some of that rationale btw
+In an ideal world.
 
->> ---
->>  mm/mm_init.c | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/mm/mm_init.c b/mm/mm_init.c
->> index f9f8e1af921c..6ca01ed2a5a4 100644
->> --- a/mm/mm_init.c
->> +++ b/mm/mm_init.c
->> @@ -57,7 +57,7 @@ unsigned long zero_page_pfn __ro_after_init;
->>  EXPORT_SYMBOL(zero_page_pfn);
->>
->>  #ifndef __HAVE_COLOR_ZERO_PAGE
->> -uint8_t empty_zero_page[PAGE_SIZE] __page_aligned_bss;
->> +uint8_t empty_zero_page[PAGE_SIZE] __ro_after_init __aligned(PAGE_SI=
-ZE);
->
-> I think this is fine as-is; but FWIW:
-> "__ro_after_init __aligned(PAGE_SIZE)" means that this will land
-> in the middle of the .data..ro_after_init section, with padding in
-> front of it to create 4K alignment. So this probably wastes some
-> RAM on padding.
->
-> Looking at "nm ../linux-out/vmlinux | sort" with this patch applied
-> (from a build without any LTO or such), I see this:
-> ```
-> [...]
-> ffffffff8473d378 d shmem_inode_cachep
-> ffffffff8473d380 d user_buckets
-> ffffffff8473e000 D zero_page_pfn
-> ffffffff8473f000 D empty_zero_page
-> ffffffff84740000 D __zero_page
-> ffffffff84740008 D pcpu_reserved_chunk
-> [...]
-> ```
-> So I think there are almost 4K of padding between zero_page_pfn and
-> empty_zero_page for alignment; and I think when the linker linked
-> mm-init.o with the rest of the kernel, it also had to align the
-> compilation unit's entire .data..ro_after_init section to 4K, which is
-> why I also got ~3K of padding before zero_page_pfn, resulting in a
-> total of ~7K of padding.
->
-> If you want to change this:
-> I searched through the arch-specific linker scripts, and I think they
-> all rely on the generic RO_DATA() macro for emitting the rodata
-> section; so creating an analogous page-aligned rodata section should
-> be as simple as adding "*(.rodata..page_aligned)" directly after
-> "__start_rodata =3D .;", as I did in my duplicate patch.
+> Patches 3 and 4 (UART) to linux-serial@vger.kernel.org. I think this can =
+and
+> should be a series of both patches belonging together
 
-I think we should simply do something along the lines of the below,
-considering that the size of a data object tends to correlate with
-its minimum alignment.
+Yups. Greg merges those.
 
-I do find it rather puzzling that the compiler emits empty_zero_page
-*after* zero_page_pfn - ideally, we'd combine the below with
--fdata-sections so that the linker sees all individual objects, but
-I suspect that would create some problems elsewhere.
-
-
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -452,7 +452,7 @@
- #define RO_AFTER_INIT_DATA                                   \
-        . =3D ALIGN(8);                                         \
-        __start_ro_after_init =3D .;                            \
--       *(.data..ro_after_init)                               \
-+       *(SORT_BY_ALIGNMENT(.data..ro_after_init))            \
-        JUMP_TABLE_DATA                                       \
-        STATIC_CALL_DATA                                      \
-        __end_ro_after_init =3D .;
-
-
+Yours,
+Linus Walleij
 
