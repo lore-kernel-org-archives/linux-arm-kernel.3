@@ -4,111 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93DF4CD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 19:02:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C914CD4840
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 19:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UasgaygcEAyRMWmEw6L6LjHmbIj1q8wLQQcU0N5zRcE=; b=LeoJtPwm/4y+m+fzncCiDyOAh2
-	hJuc7WfyStlyqe3qr0vD3aZuMjYYb1de3aTjKapGWwL1dJzJRZzvUGpg9FWRxvSnFaLtFWZa+Pe+R
-	4DM4oqnliK9tNe0C8yHC1y7pFHDaOcBneaDdCt5J9fYvfpEzaRqDM/wpmXX3qiE6hYAwjlXtx+tGJ
-	Nz3TTNQEsbJbNur/g5dc0bnGGmx2l1CFDI9AcqXpAaT7LpCqeILo4KgOgqxCvXe9f0TM4F5YJ1DDB
-	EIgBvxTrzfMyzZBC05ElUJo0Ruir/c9I6xclhTtjrw5L/DPAlCg/IblSpf2Oq8sLEmmCsXU6TfWzR
-	xKp/D9Ew==;
+	bh=rOTjIaa1U5hMq9uBW5pbtBS83bE1arv/7hzssbbHaGU=; b=kndIHUwabO7fYqPztqJJPHKadk
+	edsY/gu03okbWzGTvrYjzdY1qc528T/zRbHICh6xz8WIP8S0kMSlCyewEzB33Q+26nvR7CrlgXPSP
+	+W7XYo7vsClCZn1dAX+wTSbAY06lxlJb66no65mRq6kQhIVUKwVxIpYXp3tB2zrjtQspRyUhFwjpE
+	GQEkMcz+hGl/HYYen7hipESpawWUXaHIfU74Q5U5gpjeYMlRBgQq3qxg+tr8mGNDAV6h8oSC9G9kk
+	fL9VDHdYSQl543pAVF6Zn2Y9qVlp1wo8kOjk0c0rW7t5wcHwrUHf0gfkm3veGXQQ5qmINzNARlax1
+	4RZQEn9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMVt6-0000000EZ0v-1Dm8;
-	Mon, 11 May 2026 19:01:56 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1wMW0A-0000000EZlu-0Qe2;
+	Mon, 11 May 2026 19:09:14 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMVt3-0000000EYzZ-27Z1
+	id 1wMW06-0000000EZkk-2Ph5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 19:01:54 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-671588ab0cfso1028a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 12:01:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778526111; cv=none;
+	Mon, 11 May 2026 19:09:12 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-67e2498f3a7so7758027a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 12:09:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778526548; cv=none;
         d=google.com; s=arc-20240605;
-        b=dxYfy0k6KwTAbSubI7qx6r9nHUGy6w7BTv4RVheK0nJYdo8IqG6QEQDR4ypffK6tHG
-         s2eCLyKVXbNHsmXFahZohi7la4AD5wfLQhwSbjWS6pYGCj8tVWob+VKpZqP/M9RhoBwq
-         SU5Zsr4proScaQw9W6RRQqJazvXsqonFNa0SQTOMsAldeXH03i50Q5x3Mafjb3sM9N0c
-         C2yFXtUWLyKcmqiK1p4m5aio/K477JOCyAYw2sh9aRDUaFWTmf5Nax7NGkYM+8LzbT2g
-         7tEp2J9rZKb/USZe8RK1XwhGuGiK2qenzaS5EZJ1wBqvf9sgPNNPmrcMnGGo5tMfk5f+
-         b5VQ==
+        b=frVlOGrUd0DwEKHi6GaOLatQPyRnhb2ejz3EfJBFHUJHR0MZqqJ3esj6W/ecYKsyoy
+         eMru9AUtwKxv4axbLYp8dS8T35yVC+5RoWeDZVpnQPPLTtRGEIIBj5Wn9Cp64Ca0tspw
+         Nk4lGTesHJ7IkYOxv3oKoeM9aWbI1eQWEA/LTLTrK4NRTarOIt0hGPltTPFaq9HAoDtA
+         jK1g5ssp0H/KJgX/0hsmMcsREDuccyKxpc42oHw3NootCqMHjjAkmRjLwpTq+G+amWua
+         AnPzxBZZy9qYy3j1J5XYi2wQYUWvXCpo+T4iGuVfcl7up15u6kQGfugJp5Zkdod6RheT
+         63rg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=UasgaygcEAyRMWmEw6L6LjHmbIj1q8wLQQcU0N5zRcE=;
-        fh=WpBbF/K/Nqmm6HpvDIbJAwMAXxvzgmnY0JIC7aR+PCc=;
-        b=lL5Ey1zSibWv0njEys+5f3TF2/cblKO14vVY83hWqtUjQ3GSwuiOOK4AQ1NGJeHKc1
-         Z1f+XHoVAe8LZQP8zloW6J+7Uc2aKDjN8qDTKcSOL0ipknF3lEW+bf24kV9VJpvWFgli
-         OebQgRvhNLicQrNd/ABqyA4h91sTitvzTY7V6qSu6f89QdMiVhCb/YpIJrB4KjwZMD71
-         Sw9U1KsBVCzQydckANv9YBCxbsj5hWGSKJ0NNmnDiSsdJTHjTEe+EDKtLPetBHlYZobx
-         ZxoK7CVUYmn3Pac/OEsp9SbS6csKg4zb/2eJKtr9q28VuCk9MRSC+3jhI2UaSf5pENuq
-         2WAQ==;
+        bh=rOTjIaa1U5hMq9uBW5pbtBS83bE1arv/7hzssbbHaGU=;
+        fh=0k4hw1etHCTN06r5wPdhmKsvBVZgfgE98Mev9R/cV88=;
+        b=Z55kyV31SLfa0oogHdkdlH91dw1bpXx1P17fEzSKD5gfJ1V8P0yy7q3tqbSzTGbWFs
+         O7rrk1DpGd5lcIcHw5vDRqufXJ5v5NGRzUQ+7VXq0ZbIjH++ybLJ9N92GV7j9ShqzdlO
+         7S8o4SWq+EZcA7FRZDypvDFexwKpfJflvbet+XCD8gEqjsdb+yOc0Zz7U9qyau5yuigU
+         6F+ipfDg4FUF+qUD8RkpHt7AcetyZ+oIUOsbHNkT1065YpN9qqXOf5LJjuA5Q2Mjmfqb
+         OFqR4XwDSi53Fd692ST9Yybs0GJxeXy3mL7VadRBprw0acjQueCO3VRH/5FRRDyIRSqb
+         BLSg==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778526111; x=1779130911; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778526548; x=1779131348; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UasgaygcEAyRMWmEw6L6LjHmbIj1q8wLQQcU0N5zRcE=;
-        b=njI0WWU1KlZoaLwMYYNNmHEw9RIRlX60LI1fpcZQxFkMxZxRcsfqh9wKTjJ3hDqiQl
-         YbWCYGEiprdFdSPSxxuJMI9hrSzzE7uhhHgU+o7phBWe/Y5arX2cXlkqK3MXvRdsOmuW
-         TK6RuwNHyGOOC3kfKv+tvpfZRFId0/dNcNz1Nos8u8JU/MJtzzF/jexfcKpBtcfIcJCx
-         x4tViHCciH3Aad6/A0Ia3tj+9WOUQ5OyOPa7rHaN7zXWEmjS1LFO34wwqO5P8h29DL0k
-         +vS9TJeWvr2nAYFN32w4mWI7ow6uUoAFMVYAKOUg0ITv6eLuIrj6N9DHFltrQobaKc7i
-         pnfA==
+        bh=rOTjIaa1U5hMq9uBW5pbtBS83bE1arv/7hzssbbHaGU=;
+        b=VHI/qNWQUQSZbL+WKkjUV2KtVUoq3QmQFRgqtyweF7R/oaxeV6PZNAIRaozLJCqc4F
+         AcS3Ek+qFg054a2bR9cPGLMWtLPXFSTDBf0DXx/+ORHK6oPEnaC2NNYVz6vT071K5cij
+         rNVw7BHdQ4VQmAn+p2/WeGgPHbSaK3cYk6tD58b6uR2Bbld+kPxfx3ZjCMInvhCg1W69
+         4N5nWkU9pvep62kFJ3En1nNGCw9Q/VJTAD7IL0QvvdrNBNXZ2L/NuUjE62SZPuuEMPrg
+         wgDMlfnU1823w9HuLzbb0mjXfRKWb4T/SKoIBaIODPWyRA6F1GOxJnvge0l3m/HKzxwX
+         Gj2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778526111; x=1779130911;
+        d=1e100.net; s=20251104; t=1778526548; x=1779131348;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=UasgaygcEAyRMWmEw6L6LjHmbIj1q8wLQQcU0N5zRcE=;
-        b=bP19XS86ea44OH7Ihah5+HbscAJqtw61TtKLmz45mKt42YFXpAmYU70svkmdTi3FQf
-         kzyq/7IazylaFS//uIuf3e1TQvAwalHGEvLUnfhhqEgew/X4SwlBZBHcmu2yNYqR9fLQ
-         zgFS/Jo2qWP5UcOWBM+o54kwy0azKzzC/eRUDwzdI3QP5EQkMUQ9Jz1aSE/IUCBHzap6
-         KiZ1nJyTUGKJiTeJGw9bniP57POyRl/F5wIJIsJKA3Dot3Xh8MpRETsR0UiFbOL740a5
-         pP3Ny3OfNagFPC1bbZZVLIVpEGWfpMEYIl2jzSlT3dQM/kDScs5ryndjgJRANLlmwWOh
-         fcUQ==
-X-Forwarded-Encrypted: i=1; AFNElJ81XNUx93j1PBXl7ziKCBbcnngNmSamR68RrvUXhU1Skt/yNKyhfHRthPMEOGqfmOHEVborwigph2/K9ZrTAQO+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwntDCz+oIXDqzhcSqNN532QFmhmhOPcZsri3Ff5RLw1oOlPbI
-	Ko0FFZ8mjv+SGqRftoaI8wBXJ4HjRmEL0NCGQLXzuuSuU7HKFRfvFNNPXGtxD0YEKgnEmd0Ok6R
-	8Pd4n57eYIDYj6A+uY4ODxvPo2W7sZy+3Bi96dU5N
-X-Gm-Gg: Acq92OFC1unFmDhsDlO+lzsiwa8ML5ppDCQPv+0bXLzHjRawVKkFe1mAkeY6DpChrZs
-	KA6EhjbPUXa8QnrZx2IXFQyrjoWRg8iiHzOs9eXfz+avEMq22/snbk7WCp6nnEQ4ao+ee0M2/+r
-	hiwCI81rr4yz/2hTWROfa2gcBRpAEwIMTrRaEh6ztlKFp0Eo/DiWCdX5LtiJ6SGtZQI9Aa+YC4T
-	A/eR6Ybet1sd9N61oRnIkfz4YQf4HjdXx0q+7zhFzG1+oHisROpopXQrRsqgLG59FDOQOByDjBa
-	lp1DGMxBd/kxHWwIXZDQo6jJFxeIMPV8xHDfCGiS0as1Ew+J
-X-Received: by 2002:aa7:c399:0:b0:668:c2b6:9fa2 with SMTP id
- 4fb4d7f45d1cf-680b4539f8bmr5944a12.7.1778526111017; Mon, 11 May 2026 12:01:51
- -0700 (PDT)
+        bh=rOTjIaa1U5hMq9uBW5pbtBS83bE1arv/7hzssbbHaGU=;
+        b=T+QxAm+303s7oP0x5evIqM5RIOGOuoQJJv/nV5vPI0ZsoZT8g0owtRHIzbFInUQ2nN
+         kwprnyP527uBXhoe/TIobXbpgbs16n9SiwuL63I4sn6AW0HktW+PM+cGaoXdl6PWC/07
+         C+RyBaJkYMcZw5CR/L1EhWcwXMQsH0OHSjrR29rZRypmmtCnmUde6f35ieNQt5yxoyig
+         VnWBDdN+V3ySlVNJI1IVMSgbbqihQIV21VC8XADzh5iNoYTrjUfzaRRwlmYOv9bl35yh
+         qo02TGDjGyFvFSD0wF1A68qqlAkKiuPyOFSWONgHac3MZjCUwpH5U76st6QlU6+x0LdT
+         v65Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/D6McAePO65kQpZcsR54HmsiYMwyzF0KaOIIbIsz0IVr5khKBWPQ5sqaABMDgJqiDT+zf8sHw0iLFc5YBIrSFI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqypoYD1VamlsdBOfkBch3VgFqj+p2se8ZN46/QFXcXCivB9cI
+	MtxfLm5hbrsnFmLAjtwHzDGfM5xZ99E4DJol46sgdAS3vRobo3zXGYfHrYDtZUIEufONZNYHKeB
+	GI6nSPQafEhlkUCY2L7uKVffGCZivksY=
+X-Gm-Gg: Acq92OGR268fQdv67rMahF4d1gr51OjHyy3wnhcEyCkowO4A6wL5THrX1KkInkpO6B6
+	4QXwBw139jXdk5j+v9Tu+/qxArca5VX2CjbiO0v2FMDeQdAmLqYNCeskGWOepGPGw/HBORAc66t
+	/0LeSUXOOzMA0yE2VxpGQOLd9Ik4XZ6bKw/M/7X4H6HMDB2uP+ln7BV3TblLxoMm/IIl6FIILiJ
+	XhhIT+SZ88JmRE6V3tzA7di87toVFPYvg3MXv6raKCUuC1kSYDiJryP7eBg9yNmVu1snzhWqk/P
+	igupp/1J4HJotNCq2kpiPXl1O80XbucnJ9PaWum2bGccwnW097MXxckhjYNwVQfrs4Pv5Bklwyh
+	hX5DX5SYBD7+DZoAuuiAaCFveTjybeuz2viBJT7zAM0XjyHvaWb3Bd7hf3CxKjgNXIIYq
+X-Received: by 2002:a05:6402:34ca:b0:67b:7d11:758e with SMTP id
+ 4fb4d7f45d1cf-67f709eda8emr5625760a12.11.1778526548340; Mon, 11 May 2026
+ 12:09:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260427153416.2103979-17-ardb+git@google.com>
- <20260427153416.2103979-19-ardb+git@google.com> <CAG48ez1DJ88a0pBCE-Q0VXyDuJgng8zdunb38g4b4JPU88exww@mail.gmail.com>
- <202605111144.349EF737E@keescook>
-In-Reply-To: <202605111144.349EF737E@keescook>
-From: Jann Horn <jannh@google.com>
-Date: Mon, 11 May 2026 21:01:14 +0200
-X-Gm-Features: AVHnY4J61JG6Vq5BHLoEJWjDPI-cUqKQQzYAmbcRiKqmBdXYMvgpf6b8RTG6Wkg
-Message-ID: <CAG48ez3q2kW9GD-KVDQ_T=C=ADXmSqY2UyfXq_EMJeEsQ6KgRA@mail.gmail.com>
-Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
-To: Kees Cook <kees@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
-	mark.rutland@arm.com, Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Liz Prucka <lizprucka@google.com>, 
-	Seth Jenkins <sethjenkins@google.com>, Mike Rapoport <rppt@kernel.org>, 
-	David Hildenbrand <david@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
-	linux-hardening@vger.kernel.org
+References: <20260511032252.361906-1-rosenp@gmail.com> <agH-ivEdw12_3OJz@redhat.com>
+In-Reply-To: <agH-ivEdw12_3OJz@redhat.com>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Mon, 11 May 2026 12:08:56 -0700
+X-Gm-Features: AVHnY4KyFKhYps1EIl-0Wn5HhtmX4f1BubILShxhOA0VtEaA21RrQRgVM-Ihf6o
+Message-ID: <CAKxU2N-nEx-=KFh9djQRGZVTR_HJTSrJYzAa8NR+4QcNvbkxqw@mail.gmail.com>
+Subject: Re: [PATCH] clk: rockchip: Use flexible array for clock table
+To: Brian Masney <bmasney@redhat.com>
+Cc: linux-clk@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_120153_590344_541783CC 
-X-CRM114-Status: GOOD (  25.05  )
+X-CRM114-CacheID: sfid-20260511_120910_646178_EB89036A 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,39 +120,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 8:45=E2=80=AFPM Kees Cook <kees@kernel.org> wrote:
-> On Fri, May 08, 2026 at 07:02:51PM +0200, Jann Horn wrote:
-> > On Mon, Apr 27, 2026 at 5:44=E2=80=AFPM Ard Biesheuvel <ardb+git@google=
-.com> wrote:
-> > > The empty zero page is used to back any kernel or user space mapping
-> > > that is supposed to remain cleared, and so the page itself is never
-> > > supposed to be modified.
-> > >
-> > > So make it __ro_after_init rather than __page_aligned_bss: on most
-> > > architectures, this ensures that both the kernel's mapping of it and =
-any
-> > > aliases that are accessible via the kernel direct (linear) map are
-> > > mapped read-only, and cannot be used (inadvertently or maliciously) t=
-o
-> > > corrupt the contents of the zero page.
-> > >
-> > > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > Reviewed-by: Jann Horn <jannh@google.com>
-> >
-> > Sorry, I should have looked at this properly earlier instead of ending
-> > up duplicating this patch with
-> > <https://lore.kernel.org/all/20260508-ro-zeropage-v1-1-9808abc20b49@goo=
-gle.com/>.
+On Mon, May 11, 2026 at 9:06=E2=80=AFAM Brian Masney <bmasney@redhat.com> w=
+rote:
 >
-> As you mention in your testing of the patch, could we add an LKDTM test
-> that does the same to catch any regressions?
-
-Shouldn't be too hard - LKDTM crashtypes don't accept arguments, so we
-couldn't easily pass in a userspace pointer, I think, but we could
-make a crashtype that allocates anon memory with do_mmap() (under
-mmap_lock), then GUP on the allocated userspace address, then writes
-into the obtained address with something like atomic_add(0, <pointer
-from kmap(page)>) to trigger a write access without actually changing
-memory contents...
+> Hi Rosen,
+>
+> On Sun, May 10, 2026 at 08:22:52PM -0700, Rosen Penev wrote:
+> > Store the clock lookup table in the Rockchip clock provider
+> > allocation instead of allocating it separately.
+> >
+> > This ties the table lifetime directly to the provider and removes a
+> > separate allocation failure path while preserving the clk_onecell_data
+> > lookup interface.
+> >
+> > Assisted-by: Codex:GPT-5.5
+> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> > ---
+> >  drivers/clk/rockchip/clk.c | 17 ++++-------------
+> >  drivers/clk/rockchip/clk.h |  2 ++
+> >  2 files changed, 6 insertions(+), 13 deletions(-)
+> >
+> > diff --git a/drivers/clk/rockchip/clk.c b/drivers/clk/rockchip/clk.c
+> > index ee8c79b938d3..dbb4b6f33abb 100644
+> > --- a/drivers/clk/rockchip/clk.c
+> > +++ b/drivers/clk/rockchip/clk.c
+> > @@ -359,26 +359,21 @@ static struct rockchip_clk_provider *rockchip_clk=
+_init_base(
+> >               unsigned long nr_clks, bool has_late_clocks)
+> >  {
+> >       struct rockchip_clk_provider *ctx;
+> > -     struct clk **clk_table;
+> >       struct clk *default_clk_val;
+> >       int i;
+> >
+> >       default_clk_val =3D ERR_PTR(has_late_clocks ? -EPROBE_DEFER : -EN=
+OENT);
+> >
+> > -     ctx =3D kzalloc_obj(struct rockchip_clk_provider);
+> > +     ctx =3D kzalloc_flex(*ctx, clk_table, nr_clks);
+> >       if (!ctx)
+> >               return ERR_PTR(-ENOMEM);
+> >
+> > -     clk_table =3D kzalloc_objs(struct clk *, nr_clks);
+> > -     if (!clk_table)
+> > -             goto err_free;
+> > -
+> >       for (i =3D 0; i < nr_clks; ++i)
+> > -             clk_table[i] =3D default_clk_val;
+> > +             ctx->clk_table[i] =3D default_clk_val;
+> >
+> > -     ctx->reg_base =3D base;
+> > -     ctx->clk_data.clks =3D clk_table;
+> >       ctx->clk_data.clk_num =3D nr_clks;
+> > +     ctx->clk_data.clks =3D ctx->clk_table;
+>
+> Where's the __counted_by? Also struct clk_onecell_data is embedded
+> inside struct rockchip_clk_provider, and I'm not sure offhand how
+> that'll work.
+Not present. __counted_by does not work with embedded struct members.
+No need to add one IMO.
+>
+> Brian
+>
+>
+> > +     ctx->reg_base =3D base;
+> >       ctx->cru_node =3D np;
+> >       spin_lock_init(&ctx->lock);
+> >
+> > @@ -388,10 +383,6 @@ static struct rockchip_clk_provider *rockchip_clk_=
+init_base(
+> >                                                  "rockchip,grf");
+> >
+> >       return ctx;
+> > -
+> > -err_free:
+> > -     kfree(ctx);
+> > -     return ERR_PTR(-ENOMEM);
+> >  }
+> >
+> >  struct rockchip_clk_provider *rockchip_clk_init(struct device_node *np=
+,
+> > diff --git a/drivers/clk/rockchip/clk.h b/drivers/clk/rockchip/clk.h
+> > index 9e3503e2ffc2..d4033bf750f5 100644
+> > --- a/drivers/clk/rockchip/clk.h
+> > +++ b/drivers/clk/rockchip/clk.h
+> > @@ -604,6 +604,7 @@ struct rockchip_aux_grf {
+> >   * @grf: regmap of the general-register-files syscon
+> >   * @aux_grf_table: hashtable of auxiliary GRF regmaps, indexed by grf_=
+type
+> >   * @lock: maintains exclusion between callbacks for a given clock-prov=
+ider.
+> > + * @clk_table: clock lookup table.
+> >   */
+> >  struct rockchip_clk_provider {
+> >       void __iomem *reg_base;
+> > @@ -612,6 +613,7 @@ struct rockchip_clk_provider {
+> >       struct regmap *grf;
+> >       DECLARE_HASHTABLE(aux_grf_table, GRF_HASH_ORDER);
+> >       spinlock_t lock;
+> > +     struct clk *clk_table[];
+> >  };
+> >
+> >  struct rockchip_pll_rate_table {
+> > --
+> > 2.54.0
+> >
+>
 
