@@ -4,115 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3087ACD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15A5CD37B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26pw5p2O4LfysMDPKO5lKRzkgvnLvc1tiwrtVXQtYAc=; b=0BuyMANtUsnyoP3DxtVzIagKqO
-	B1Nwrsad7drOxBxbqb9ayxDlITF03wl2LcN6IeJWh/IkRSAAEsaGphVfoa7qmOfhodXyIQTTsZc1I
-	i6GoEn7BigXWKkucNKtn5AU/rRHPnfPeQ/Ssm7dW7ZlmMIjy7nzFduRCHkWCIoBpgnS9AmSRRuwl0
-	gz4yrMvF4I8heYVfMzVDDIMiH27XE6tFONBebXRiVTOeCGmOyBNhGamVh40ivRbgKXe/ewEruq8nF
-	Hf85GgavenP+udxqha7BVqlpgrZFcSBuf2c2LbRqs4NNH1zCBLhZi+xilYFoy63pg74SCTS3XcmFL
-	vrAoUgqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nqzoWKkrt5+c9FGYZMvWgmfyorU4cLeLEBcnPFydhV8=; b=BTWGz6rKDLxOSBiltih+VTF2EO
+	L7mygjjsQyQm654xqYSlnjsw55RVaLUD0EKAXD5iC2X4A5dzE/xMqEu2+mcu4hCOs0i3DdLkLfIzn
+	0gRGCDxkZvBXOx5jTVzouTiFt2Z7rjp0N5aEad2dWsPi4sRjgA3eE2j8ZYtWIapuXjTEhopZSTD+6
+	l1VY+vzlsShopqgDdJli1TyodBqjGc9UywyNg+DiNqvISulls3PKERfkuZ2F0ZN8g2RzpBdxHroCi
+	r0CQpur3Zon4FYUqIhTebfrEby9QKO5lgLMz9zTHg+nzX+MDVS95cbC7gH4mKN8Hlm/ta28yzeEIc
+	ax6Z/Xag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNpQ-0000000D6HL-0hAH;
-	Mon, 11 May 2026 10:25:36 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1wMNqv-0000000D6Qx-1Slf;
+	Mon, 11 May 2026 10:27:09 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNpM-0000000D6Gi-2VVg
+	id 1wMNqs-0000000D6QG-0H1A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 10:25:34 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-59e5aa4ca41so3901416e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 03:25:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778495130; cv=none;
-        d=google.com; s=arc-20240605;
-        b=hCM4/mkSK44QffJXmaThwFdiALONczP6N1sBwevv14Y8xVwXCtMz4QcffoxZVa/tmN
-         wPvxMVjnut5EKJhJYVDUGSBoVVO0Ggb85FN5/PFKTEX+NMVqQMROO/QQihzGqAi3QGqg
-         X+hi1XR3Y+h/kCJ3cxzxNs5U5JA4UDVhZFBGG+FUAuKIHWAW19n3/c7LPfy55niPycSa
-         KDuySh3cGQkvtRTiAo3/CAGlj9sgch1Q/TbpW+EPaycQ+hHMH1aPNbzJZMjheDQ6GCvo
-         aGPreLZYjzH0P4DSPO+Y0o9zmpPq9XOlNwf88lbUOwRpE7SLHbNdDRXrWRv0OuSCqqAw
-         zDnw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=26pw5p2O4LfysMDPKO5lKRzkgvnLvc1tiwrtVXQtYAc=;
-        fh=q0x4JADWQPWfUJZFUCmMwiDb+LKR46xGfGPIp9Scum0=;
-        b=MFVPZcky8veM1v+PbizxZsWux8qgfGRGlU/J8bRMDvn3uYAh1rEzAu06kmiKikbvq/
-         QoBmbpsTbf4hTT2iQhZa35E116+KOYlsnHWbzNlH7DkF6AVLblRc+r9pre/9JprTHDwa
-         cGanJxbLiAoALfvqHiSuwlyTG3WOo9uAtj1qJZ9/5Yo9mkDhyAWi9DXZU4mhGFBl1cD8
-         2z80UYkrJEG4QzlD4yesrbCkPivYCSqxHUJC5SijNNnNHzIxQ/Wpjo34CJlVaL1/7Vae
-         JrnkS5quKkuu97Te7Y93x6IX9jisLDe3xaOpMmBUW6sGUnAMVvMcU6fk2XfXA7a68Ydg
-         MSzg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778495130; x=1779099930; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=26pw5p2O4LfysMDPKO5lKRzkgvnLvc1tiwrtVXQtYAc=;
-        b=XdAD6uMHNqtrpoEJgbZ5JS+TexY0V9njkCOrT5RcoOMh1rrSL/4fe/or8nvuCTp62M
-         eagxa83aQUQS5RYCaV1NQc5czyDqtVreXEzGKe7kKkndvG5XH5Mz9gfh4Gyf3ooE5FZu
-         jmuWrJ5hanlHLmtrFnQsLeBZDbF1lbzJulGxH5tz1j3a6J4m8UgbP8l4kIgGrUsooPc+
-         QCkb3oKF0moCTLAvqtCaA3lSk5HgTgozQ2kpjTcDDaVEnKun+CQ2edRt8WHuFvSKnCAb
-         iCta20PxsrrJjtL/5tg3U8TVPrQiWjEQGGBLPSSxb689Glc78zgWaHnRnAuNv86EoT5n
-         3Ojg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778495130; x=1779099930;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=26pw5p2O4LfysMDPKO5lKRzkgvnLvc1tiwrtVXQtYAc=;
-        b=p0SVLhAr0CIJUOZS6zfhZ/KSNTtvmMtlESV4jd0GwnGoIVh80QS4QbZLZZ1yl8z5a3
-         ZRaBrYFsmLHp9xyY/l1SLSBUxPdNwxB6+iuSYO4DrxBLrZ2Av1xvcr9UUv2M0936EwsT
-         qkdOtsGABn61iHguvNOVWgBfuG9J9r44flJ50+wauXxewQEWAG5l+XpEm69uhciSYNWj
-         hNPJbZeBdoq+yZJNMLJwg1l4UgplKin1uXDM41U1ncZqwWnzXhJZjPlUCNjOPu+uxh98
-         vWTUK79rgAD4AD00uahCQkMKtgAX7jrgd3iDeS1xgDGVgaiudbh6En5xaw5GFJzCHFdr
-         T9oQ==
-X-Forwarded-Encrypted: i=1; AFNElJ99Xgxa12iVjdAdWW7sFShKGmDZ5BkrhyKPUu9GEECEqZJy/C0WUt+/vM7CPL3kjLVa3COyjO1vIsDUkhGB2aRR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yywo38qIyZE2LgnY91Xs4+skry/PVckGynXWfdwm0GdPJi9rLSc
-	yVn4jof12w/uCYOtwDbFe3BIHTfuyTjegapAJ3I+zsnN7clQA18hOVp46ZI596p33kGtUQMbpGI
-	9QSPggfQmvvM039O86ZkUrYr7zH6QSC+JyNwyBfXH2g==
-X-Gm-Gg: Acq92OEFHTVNoFS8T3JPk+FFt9k1T3TeKT2SXmh7VKmPbJhUdsykp7/0ebTdLEy3B/r
-	h2KpmagG71XyqO0F7f8X9WCtBpxsVJoUUnfjWRfCEGs/00ukTtJOBf+S3f8YqI4wYqmg+Uosltd
-	jOcmm/2ha9wDBkZvflQgZtrq+hGUjNQghwQ8mTfW5urRDYTrKSdKd83zxb7/gP7DgtDwTHa3kkF
-	xTfBc5v3B3s1IGGh2i6WRcUTyj/ZbJBs63CZ25vUSPjGlhh1Ozs3NTcTgOleHJuzblyFWGz2+fw
-	+VBOXE0B
-X-Received: by 2002:a05:6512:3c97:b0:5a8:750c:2f79 with SMTP id
- 2adb3069b0e04-5a8b6c9d7f4mr2454726e87.3.1778495130112; Mon, 11 May 2026
- 03:25:30 -0700 (PDT)
+	Mon, 11 May 2026 10:27:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c5zTmM8AbiGu5f90O9tPO6TaAOlIzD0uMRAlzLNtHNg0fmMwY4e09oBlQLHOvWc1tgsgfG5ZrQz01ZhDa5Ll03xHqwMWOg2qXw5BVcTQEbPUQ+Pj1bVSQ+sVnSP0NBgw3q/qd2gX8IDJEPoBZVInitjYOuSum0oVz9z8yVQ9jxyMtnL6lrXzVxwtJHCG6sow7Er7l6eqtkagyd9Z5BVdtdk9YpdrnFY7hZMr2ODKIdusIURlchIeMmGlor3TnsSsr1V8v/3KfGsmmXBAnuzFmAm51g2LGpqRz7HzTCoiqJq7+fV3OsSYFXa61cXnVeJGp5jIBGy5vjP3HgM+C1W9hw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nqzoWKkrt5+c9FGYZMvWgmfyorU4cLeLEBcnPFydhV8=;
+ b=yu9tfRzd5C0v5Rbm5tbmxfPHrN65/X75+60CYBPFPIvWkm7k5F5YMrsvTSc49MXcqKLTtPsLTuB1yz6tE78yJl8vHZ7K/ldV6inxmI3UnV/P0WAMLvKZU00VU9NNDkYIOHh9D/qcZMEF1nUxoAc+1HheGHfirF0ylBE6iw4F8dkyYAcXkQfb2tJCz5W4gsnjuSUCDWlo5Rikalv98cj7qct8pmTh2n7pInBIyUF1yQN4YVMv1BJMW6DNSMulsjxKhE+RfH+B8EyXx3wAFmjMTAfe+iKpG4UUPN+eNjKPb4jy/5mP8QDtz8wn/Zqov+cSjBeU8NSzTK39cHHtWfv8dw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nqzoWKkrt5+c9FGYZMvWgmfyorU4cLeLEBcnPFydhV8=;
+ b=kTrLS6EQxWfSyiFTmwQ6n2yZLTpvfpbNPGMS3TnqkSRHosegBzzQw0FqJnJ7KDn6LjS3sdXGZbfIAxjd1455GImq0ZjlgmPxQlApfYpWOSAtyL6ic6qdq+iQZfTAUIMlnxpQr9l/PWkrqvZSiJR+BEIerYrh4LTD0POuupw9fe1a3Jo3YjjCI7itre6l+VtpJuD3iEOy2FrmwApjPRU7/M/vSMK18ugmAMhuhE6LctDj22T2W4c5xwZ/PjiUv+ChgWzgFbuMAYjOzFbBDN1QJH8irAO6zf8uvzKtwPVV0iUQFclTeGAk4+gyhIjShCpHpOK3BPMFB+v4QGitz5b8eA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL0PR12MB2370.namprd12.prod.outlook.com (2603:10b6:207:47::27)
+ by CH8PR12MB999206.namprd12.prod.outlook.com (2603:10b6:610:35a::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Mon, 11 May
+ 2026 10:26:58 +0000
+Received: from BL0PR12MB2370.namprd12.prod.outlook.com
+ ([fe80::86cf:c3ec:2cf5:74c8]) by BL0PR12MB2370.namprd12.prod.outlook.com
+ ([fe80::86cf:c3ec:2cf5:74c8%5]) with mapi id 15.20.9891.021; Mon, 11 May 2026
+ 10:26:58 +0000
+Date: Mon, 11 May 2026 18:26:54 +0800
+From: Richard Cheng <icheng@nvidia.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] coresight: fix missing error code when trace ID is
+ invalid
+Message-ID: <agGtIfD0W74ls2c8@MWDK4CY14F>
+References: <20260511-fix-trace-id-error-v3-1-ac4c8356efff@oss.qualcomm.com>
+ <agGd1AB19yz0U2s1@MWDK4CY14F>
+ <146d34e9-caa3-4119-a3f3-79515b3f2c46@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <146d34e9-caa3-4119-a3f3-79515b3f2c46@oss.qualcomm.com>
+X-ClientProxiedBy: TPYP295CA0029.TWNP295.PROD.OUTLOOK.COM (2603:1096:7d0:a::6)
+ To BL0PR12MB2370.namprd12.prod.outlook.com (2603:10b6:207:47::27)
 MIME-Version: 1.0
-References: <20260508123910.114273-1-ulf.hansson@linaro.org>
- <20260508123910.114273-7-ulf.hansson@linaro.org> <CACRMN=cowCsGb3x=tPOWLYdittwLCsSb2N2SXVPyxBRHThGAVg@mail.gmail.com>
-In-Reply-To: <CACRMN=cowCsGb3x=tPOWLYdittwLCsSb2N2SXVPyxBRHThGAVg@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 11 May 2026 12:24:52 +0200
-X-Gm-Features: AVHnY4KccwKVfW4opInH2wvv6H4LV9YYk-FND-WFVqnl0G_Vxtf7tdTrxriZmx0
-Message-ID: <CAPDyKFoxJ8AOyqzbEQc8x-e5fRf0p3faE23PRNcbA4aPSY_cdg@mail.gmail.com>
-Subject: Re: [PATCH v3 06/13] pmdomain: core: Add initial fine grained
- sync_state support
-To: Saravana Kannan <saravanak@kernel.org>
-Cc: Danilo Krummrich <dakr@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, driver-core@lists.linux.dev, 
-	linux-pm@vger.kernel.org, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abel.vesa@oss.qualcomm.com>, 
-	Peng Fan <peng.fan@oss.nxp.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL0PR12MB2370:EE_|CH8PR12MB999206:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ae676c7-dd10-4567-ec25-08deaf47d4f8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: GDgDGEKdC/idlNPwllEAsDCjdOGYPOT5MvEWRh2lcGMbTq30gGNI5nTZqIz000MwaYytX6LFTd9apBWRU330TcU/vFKQA4/qTj/N5tpE1OWXJPK5fYwvbABmb16DD3i60qPK7h+VCgya3AaUeqhaaIGnUFvITJg93fGfb52rNHDg8nwqH7595iU61xnFwANROfmegrvJzQfYTBmfqeKisKI5tdJ61XuCKPF6dfIy6BKERibuEObgB3zTP6POlMxwZVeCMyzVEizyiJartHh8ATPUMpQNmDoh3RNVPPGnHhNHHTWTZJ7/p5bO0GS0JDjL7ehPsEHcZHBEQqKMK6JzO0mHbYnnAkjJIMV1v+8OfCMDCCFvk0+oZEgX+2bdREwjngAYkPK6Tz3mQISB0TIdaU8p989brHW91mAaxjJzEEzKjHQB0XDk4wrbv24KXSfC/Yc/Dz1NjInZ4auRbODuNeP6Zht4yi9nC7jerEGwPCEbs/TIUHGz6I04NqIQZlj/ARla57tMKmdR8qPTe+tE4cqf6XNg++DATH/cisUMVPXzSI7JCl5sYFMw3P3p03ENRxf6kf78N0tGvfV44Kp1m6SPP6692NnQEFJDlSavvFpsHu4KPOXTftf+/uKm7NsLQVQP/v2IJzlV7ZWcxtdixTXlH/nEdDwwEMP2TYsqmVAqb4lNPRx4mPmPK0Ce+/Jdw0CwtaCqMQStdPt/bwnpXA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR12MB2370.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8Fol79zWm8ffzUerTo36wVfdQ0KpfVBKJsDw3MCcYPBaAFfeexL6Ubidbzqg?=
+ =?us-ascii?Q?4730sg/sRUsbYMlw85zuJ8ogDFYeScQ/qEnmoKWZ3rjqOXk/NRpypjB63sY4?=
+ =?us-ascii?Q?0MvDSfMlo03YlX7xRbbhUnd0sYQMJK5SqJ4SjLEIDPnnpln4QuAPNprrrjvR?=
+ =?us-ascii?Q?xN1CXZ2aFKog206lbIp4BmPlTSwEx0CYnGGc4ZldnYwzN/dTlk7WO1eDK+yY?=
+ =?us-ascii?Q?b4kEphLB+bjbB1vdyvIl+e9g41uV7KtR/A1kDqGbhS+lJ8QW0wOP8FLAWRui?=
+ =?us-ascii?Q?7gXoY0yBVz06EZwQ9FBFhVs1IcejtEQtqLOPGqmMLgsyF+DEhUZSjYLu8Oes?=
+ =?us-ascii?Q?uxLsm03iF7ThAlrNB8nw+289Elo3ly3Dx+8GxZFhUAJllc6I09bVf616QWct?=
+ =?us-ascii?Q?sb2FDzjW4s2hAaASHoRuZbWVmdb2YiudD2oaScKBriyyGtv1/QqLQbkJPQFX?=
+ =?us-ascii?Q?CYda9DG7YbJkLailBs0nVAH5imTVGJ5nafjP4Dfh1ehCayD8bntS3GYIBkYT?=
+ =?us-ascii?Q?Fyc2YkwibEPyGgHwRdzmArsa9QnrprXj4K5lw2vj9A7Ve/z/iYETP9kSxYHd?=
+ =?us-ascii?Q?u5Cyqa/NiAzV/9mu+kBLsggNFK+tPDWQtKp7UNPCeWC0Qo3Z4wipHcrmsCUG?=
+ =?us-ascii?Q?ttu1+ADtazYf3WXiFOHW7U+nPE4noIa2Ggd+8f1+rse5bJkdlUFckpIPzZs6?=
+ =?us-ascii?Q?T1a4WtwBrDZenWz6oa47iyxilynH/UcBccPDvEOBTPkmR/MgcObZruN1NIWn?=
+ =?us-ascii?Q?PpxNu6eN56a4N904IlWaoqch4xGytaf+taN68mBIJHUSju8IqeTjDPvG9uvP?=
+ =?us-ascii?Q?wtiPFbc8RUlppLWoqpf2nFGxnLYxpNWiUfH9wyA1oHTjyZeS4wylaaK1QRou?=
+ =?us-ascii?Q?L1jrST6i16M/UP/56TVeW4Qpeg5/rTqNFQnQ4kWUAkygECf8StbRcZ7KMBeT?=
+ =?us-ascii?Q?cQG2gn17p3hRo3MCxFGVUOyZ/d4FpkVjUSBwY0YmazTq3FnoSGRDjoXbI6wo?=
+ =?us-ascii?Q?ybJhqcgEH3Ni6U+TyAr4JJFDun7mb6UYPG6XFx4A/bYz/yDdCHCW8B1NqjXq?=
+ =?us-ascii?Q?25WA/SMqbC1ryCzl1foY1TYXi0b1/sgsYgCk6GOQZUip7wquvIMfHJutDPV5?=
+ =?us-ascii?Q?A1MStu8jLvjrfRrU8xwpHNrzk16OhJSeW54aCVwjp4Ur9xkxlk3GLepPVZKD?=
+ =?us-ascii?Q?PulLSvH/beaBo37E/H4O1tSouEC0v5XB8/e3yXtAcdbBn03wAlI8vrPMQoQ7?=
+ =?us-ascii?Q?PR93XutS0t/zdRkFlsNiDolakIqWG/zwX9U6RFe0/X1EQb+5gmfSEwvaHK3q?=
+ =?us-ascii?Q?eD41yGhkdrzjPV4MurUsU54C2rqIjMvhstHMqwyLo38dFPInn8SnJ30rPeMQ?=
+ =?us-ascii?Q?v9KYstmGQBGCKi+7KG8MO5rVGkkW5uMcCKOqjn6x/1gZF0II3VEkgCiGnToR?=
+ =?us-ascii?Q?fGqHUTX5F2dGoLmlqLkEd5zGZn4CCCWuvjq7kg8LkKR++zDOnhO3q0cLiieq?=
+ =?us-ascii?Q?xv4/IsQRmZw2CyhTOt2OjhuML7XbwBzDMqrjSHVN0dglA+ZKHLNlq9nRIShY?=
+ =?us-ascii?Q?tY4WQ856hwNRRG4QN+YJJomX6AlEw+Io3QycfzHkJUOQsCEtl6CgvsXzkLGC?=
+ =?us-ascii?Q?BdaixSeMtacifSzkpV43OIGH7R/f9sq//OQgeDEHrhf0GHE0+/CZhpMheOmI?=
+ =?us-ascii?Q?KwZf7+dNJ67j7sfiUUUbuWEg71bj1JnAe8zFjrsGwwR5e7ENMMpm09+/rHuD?=
+ =?us-ascii?Q?rsU2noXIJA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ae676c7-dd10-4567-ec25-08deaf47d4f8
+X-MS-Exchange-CrossTenant-AuthSource: BL0PR12MB2370.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 10:26:58.7035
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OmudLtc0/O6GpOHHyXXesOjHYvqehm16FD0awkxB5aQ0TXDtBf/j2UJyqNHMqPAJTmo5pg6oZaWYkxlOI7oO0w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB999206
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_032533_704498_0B48B738 
-X-CRM114-Status: GOOD (  50.45  )
+X-CRM114-CacheID: sfid-20260511_032706_210993_B6A3FC51 
+X-CRM114-Status: GOOD (  37.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,244 +140,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 May 2026 at 07:09, Saravana Kannan <saravanak@kernel.org> wrote:
->
-> On Fri, May 8, 2026 at 5:39=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.or=
-g> wrote:
-> >
-> > A onecell (#power-domain-cells =3D <1 or 2>; in DT) power domain provid=
-er
-> > typically provides multiple independent power domains, each with their =
-own
-> > corresponding consumers. In these cases we have to wait for all consume=
-rs
-> > for all the provided power domains before the ->sync_state() callback g=
-ets
-> > called for the supplier.
-> >
-> > In a first step to improve this, let's implement support for fine grain=
-ed
-> > sync_state support a per genpd basis by using the ->queue_sync_state()
-> > callback. To take step by step, let's initially limit the improvement t=
-o
-> > the internal genpd provider driver and to its corresponding genpd devic=
-es
-> > for onecell providers.
-> >
-> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > ---
-> >
-> > Changes in v3:
-> >         - Addressed some cosmetic comments from Geert.
-> >
-> > ---
-> >  drivers/pmdomain/core.c   | 124 ++++++++++++++++++++++++++++++++++++++
-> >  include/linux/pm_domain.h |   1 +
-> >  2 files changed, 125 insertions(+)
-> >
-> > diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> > index ad57846f02a3..c01a9a96e5c2 100644
-> > --- a/drivers/pmdomain/core.c
-> > +++ b/drivers/pmdomain/core.c
-> > @@ -2699,6 +2699,119 @@ static struct generic_pm_domain *genpd_get_from=
-_provider(
-> >         return genpd;
-> >  }
-> >
-> > +static bool genpd_should_wait_for_consumer(struct device_node *np)
-> > +{
-> > +       struct generic_pm_domain *genpd;
-> > +       bool should_wait =3D false;
-> > +
-> > +       mutex_lock(&gpd_list_lock);
-> > +       list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
-> > +               if (genpd->provider =3D=3D of_fwnode_handle(np)) {
-> > +                       genpd_lock(genpd);
-> > +
-> > +                       /* Clear the previous state before reevaluating=
-. */
-> > +                       genpd->wait_for_consumer =3D false;
-> > +
-> > +                       /*
-> > +                        * Unless there is at least one genpd for the p=
-rovider
-> > +                        * that is being kept powered-on, we don't have=
- to care
-> > +                        * about waiting for consumers.
-> > +                        */
-> > +                       if (genpd->stay_on)
-> > +                               should_wait =3D true;
-> > +
-> > +                       genpd_unlock(genpd);
-> > +               }
-> > +       }
-> > +       mutex_unlock(&gpd_list_lock);
->
-> I think I understand the intent of this function, but haven't dug into
-> genpd code enough to comment on this yet. I'll come back to this
-> later.
->
-> > +
-> > +       return should_wait;
-> > +}
-> > +
-> > +static void genpd_parse_for_consumer(struct device_node *sup,
-> > +                                    struct device_node *con)
-> > +{
-> > +       struct generic_pm_domain *genpd;
-> > +
-> > +       for (unsigned int i =3D 0; ; i++) {
-> > +               struct of_phandle_args pd_args;
-> > +
-> > +               if (of_parse_phandle_with_args(con, "power-domains",
-> > +                                              "#power-domain-cells",
-> > +                                              i, &pd_args))
-> > +                       break;
->
-> Why not use a while or a do while() instead of this infinite for loop
-> with a break?
-
-I guess it's a matter of personal preference. I'm not sure the code
-gets any nicer with a do/while, but if you really insist I can change
-it.
-
->
-> > +
-> > +               /*
-> > +                * The phandle must correspond to the supplier's genpd =
-provider
-> > +                * to be relevant else let's move to the next index.
-> > +                */
-> > +               if (sup !=3D pd_args.np) {
-> > +                       of_node_put(pd_args.np);
-> > +                       continue;
-> > +               }
-> > +
-> > +               mutex_lock(&gpd_list_lock);
-> > +               genpd =3D genpd_get_from_provider(&pd_args);
-> > +               if (!IS_ERR(genpd)) {
-> > +                       genpd_lock(genpd);
-> > +                       genpd->wait_for_consumer =3D true;
-> > +                       genpd_unlock(genpd);
-> > +               }
-> > +               mutex_unlock(&gpd_list_lock);
-> > +
-> > +               of_node_put(pd_args.np);
-> > +       }
-> > +}
-> > +
-> > +static void _genpd_queue_sync_state(struct device_node *np)
-> > +{
-> > +       struct generic_pm_domain *genpd;
-> > +
-> > +       mutex_lock(&gpd_list_lock);
-> > +       list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
-> > +               if (genpd->provider =3D=3D of_fwnode_handle(np)) {
-> > +                       genpd_lock(genpd);
-> > +                       if (genpd->stay_on && !genpd->wait_for_consumer=
-) {
-> > +                               genpd->stay_on =3D false;
-> > +                               genpd_queue_power_off_work(genpd);
-> > +                       }
-> > +                       genpd_unlock(genpd);
-> > +               }
-> > +       }
-> > +       mutex_unlock(&gpd_list_lock);
-> > +}
-> > +
-> > +static void genpd_queue_sync_state(struct device *dev)
-> > +{
-> > +       struct device_node *np =3D dev->of_node;
-> > +       struct device_link *link;
-> > +
-> > +       if (!genpd_should_wait_for_consumer(np))
-> > +               return;
-> > +
-> > +       list_for_each_entry(link, &dev->links.consumers, s_node) {
->
-> Couple of issues:
-> 1. I don't want the frameworks to be so deeply aware of driver core
-> internals. I want the driver core maintainers to be able to change the
-> devlink implementation without having to worry about going and fixing
-> all the frameworks. So, please add a for_each_consumer_dev(supplier,
-> callback) and for_each_supplier_dev(consumer, callback) helper
-> functions.
-
-I understand your concern and I like the idea. However, maybe it's
-better to get this landed (the series is complicated as is) first and
-then can continue to improve the code on top, with helper functions
-etc.
-
->
-> 2. This doesn't ignore "SYNC_STATE_ONLY" links and that's going to
-> confuse the consumer count/check you might do or at the least waste
-> parsing those.
-
-I am not sure I understand how I should take SYNC_STATE_ONLY links
-into account here.
-
-At each call to the genpd_queue_sync_state(), we walk through all the
-provided genpds for the provider. No previous state is cached to track
-consumer counts.
-
->
-> 3. **Device** links are not the complete list of consumers because
-> they can only link consumer **devices** once the consumer **device**
-> is created.
->
-> 4. What you really need is a for_each_consumer_fwnode(supplier,
-> callback) that first loops through all the consumer device links and
-> calls the callback() on their fwnode and then the same function needs
-> to loop through all the fwnode links and then pass those consumer
-> fwnodes to the callback. And inside that callback you can do whatever
-> you want.
-
-The ->queue_sync_state() callback is invoked *after*
-__device_links_queue_sync_state() has been called for the device,
-which is also when the conditions for calling ->sync_state() is
-checked.
-
-If there are problems with not yet registered consumer device links,
-why isn't that as problem for regular ->sync_state() in
-__device_links_queue_sync_state()?
-
->
-> 5. You might want to add a for_each_inactive_consumer(supplier,
-> callback) too to simplify your need for checking if a fwnode has a
-> device and then checking if it's probed.
->
+On Mon, May 11, 2026 at 05:27:10PM +0800, Jie Gan wrote:
+> 
+> 
+> On 5/11/2026 5:19 PM, Richard Cheng wrote:
+> > On Mon, May 11, 2026 at 04:36:18PM +0800, Jie Gan wrote:
+> > > When coresight_path_assign_trace_id() cannot assign a valid trace ID,
+> > > coresight_enable_sysfs() takes the err_path goto with ret still 0,
+> > > returning success to the caller despite no trace session being started.
+> > > 
+> > > Fix this by changing coresight_path_assign_trace_id() to return int.
+> > > Move the IS_VALID_CS_TRACE_ID() check inside the function so it returns
+> > > -EINVAL on failure and 0 on success. Update coresight_enable_sysfs() to
+> > > check the return value directly instead of inspecting path->trace_id
+> > > after the call.
+> > > 
+> > > The other caller in coresight-etm-perf.c discards the return value and
+> > > continues to check path->trace_id via IS_VALID_CS_TRACE_ID() directly.
+> > > This is unaffected: on failure path->trace_id is no longer written, so
+> > > it remains 0, which IS_VALID_CS_TRACE_ID() rejects the same as before.
+> > > 
+> > > Fixes: d87d76d823d1 ("Coresight: Allocate trace ID after building the path")
+> > > Reviewed-by: James Clark <james.clark@linaro.org>
+> > > Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> > > ---
+> > > Changes in v3:
+> > > - directly return the value for clear expression.
+> > > - Link to v2: https://lore.kernel.org/r/20260509-fix-trace-id-error-v2-1-c900bcbab3e9@oss.qualcomm.com
+> > > 
+> > > Changes in v2:
+> > > - Refactor the coresight_path_assign_trace_id function.
+> > > - Link to v1: https://lore.kernel.org/r/20260508-fix-trace-id-error-v1-1-5f11a5456fdf@oss.qualcomm.com
+> > > ---
+> > >   drivers/hwtracing/coresight/coresight-core.c  | 14 ++++++++++----
+> > >   drivers/hwtracing/coresight/coresight-priv.h  |  2 +-
+> > >   drivers/hwtracing/coresight/coresight-sysfs.c |  4 ++--
+> > >   3 files changed, 13 insertions(+), 7 deletions(-)
+> > > 
+> > > diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> > > index 46f247f73cf6..254db91a8ac9 100644
+> > > --- a/drivers/hwtracing/coresight/coresight-core.c
+> > > +++ b/drivers/hwtracing/coresight/coresight-core.c
+> > > @@ -739,8 +739,8 @@ static int coresight_get_trace_id(struct coresight_device *csdev,
+> > >    * Call this after creating the path and before enabling it. This leaves
+> > >    * the trace ID set on the path, or it remains 0 if it couldn't be assigned.
+> > >    */
+> > > -void coresight_path_assign_trace_id(struct coresight_path *path,
+> > > -				    enum cs_mode mode)
+> > > +int coresight_path_assign_trace_id(struct coresight_path *path,
+> > > +				   enum cs_mode mode)
+> > >   {
+> > >   	struct coresight_device *sink = coresight_get_sink(path);
+> > >   	struct coresight_node *nd;
+> > > @@ -755,10 +755,16 @@ void coresight_path_assign_trace_id(struct coresight_path *path,
+> > >   		 * Non 0 is either success or fail.
+> > >   		 */
+> > >   		if (trace_id != 0) {
+> > > -			path->trace_id = trace_id;
+> > > -			return;
+> > > +			if (IS_VALID_CS_TRACE_ID(trace_id)) {
+> > > +				path->trace_id = trace_id;
+> > > +				return 0;
+> > > +			}
+> > > +
+> > > +			return -EINVAL;
+> > >   		}
+> > >   	}
+> > > +
+> > > +	return -EINVAL;
+> > >   }
+> > >   /**
+> > > diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+> > > index 1ea882dffd70..34c7e792adbd 100644
+> > > --- a/drivers/hwtracing/coresight/coresight-priv.h
+> > > +++ b/drivers/hwtracing/coresight/coresight-priv.h
+> > > @@ -153,7 +153,7 @@ int coresight_make_links(struct coresight_device *orig,
+> > >   void coresight_remove_links(struct coresight_device *orig,
+> > >   			    struct coresight_connection *conn);
+> > >   u32 coresight_get_sink_id(struct coresight_device *csdev);
+> > > -void coresight_path_assign_trace_id(struct coresight_path *path,
+> > > +int coresight_path_assign_trace_id(struct coresight_path *path,
+> > >   				   enum cs_mode mode);
+> > 
+> > Hi Jie,
+> > 
+> > Thanks for your patch,
+> > 
+> > I'm thinking will "__must_check" should be added so in the future the next caller won't accidently
+> > introduce this class of bug ?
+> > 
+> 
+> Hi Richard,
+> 
+> The return value has been ignored in perf mode. It will introduce noisy by
+> adding __must_check. So I think its better without __must_check?
+> 
 > Thanks,
-> Saravana
+> Jie
 >
->
-> > +               struct device *consumer =3D link->consumer;
-> > +
-> > +               if (!device_link_test(link, DL_FLAG_MANAGED))
-> > +                       continue;
-> > +
-> > +               if (link->status =3D=3D DL_STATE_ACTIVE)
-> > +                       continue;
-> > +
-> > +               if (!consumer->of_node)
-> > +                       continue;
-> > +
-> > +               /*
-> > +                * A consumer device has not been probed yet. Let's par=
-se its
-> > +                * device node for the power-domains property, to find =
-out the
-> > +                * genpds it may belong to and then prevent sync state =
-for them.
-> > +                */
-> > +               genpd_parse_for_consumer(np, consumer->of_node);
-> > +       }
-> > +
-> > +       _genpd_queue_sync_state(np);
-> > +}
-> > +
 
-[...]
+Hi Jie,
 
-Kind regards
-Uffe
+Ahh thanks for the head up, my intention was adding a compile-time check there
+to be safe, no need for __must_check here then.
+
+If any new callers were to appear in the future we'll see how it goes.
+Thanks.
+
+Reviewed-by: Richard Cheng <icheng@nvidia.com>
+
+Best regards,
+Richard Cheng.
+ 
+> > Best regards,
+> > Richard Cheng.
+> > 
+> > >   #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
+> > > diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+> > > index d2a6ed8bcc74..b6a870399e83 100644
+> > > --- a/drivers/hwtracing/coresight/coresight-sysfs.c
+> > > +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+> > > @@ -211,8 +211,8 @@ int coresight_enable_sysfs(struct coresight_device *csdev)
+> > >   		goto out;
+> > >   	}
+> > > -	coresight_path_assign_trace_id(path, CS_MODE_SYSFS);
+> > > -	if (!IS_VALID_CS_TRACE_ID(path->trace_id))
+> > > +	ret = coresight_path_assign_trace_id(path, CS_MODE_SYSFS);
+> > > +	if (ret)
+> > >   		goto err_path;
+> > >   	ret = coresight_enable_path(path, CS_MODE_SYSFS);
+> > > 
+> > > ---
+> > > base-commit: 17c7841d09ee7d33557fd075562d9289b6018c90
+> > > change-id: 20260508-fix-trace-id-error-dbfdd4d8f2d1
+> > > 
+> > > Best regards,
+> > > -- 
+> > > Jie Gan <jie.gan@oss.qualcomm.com>
+> > > 
+> > > 
+> 
 
