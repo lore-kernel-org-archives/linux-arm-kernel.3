@@ -4,132 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C05A2CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 07:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5BBFCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 07:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TLY2VCjl8g6bhxiEibkpJCM0BlQlq6ryQ2kEFOn+kbg=; b=kxQPAmJlfdjMBDVN37yCXUBuwI
-	+Ds5VunNNPrvA+s6zC0POaxMT20xnqvgTeFPUeJH4nfURn4gxUZK473hf2Ep5GOGspbL9qNFkkbec
-	eIYnQxNFpEaqUINNindTceCUsoTtrqxaGnkPmp2kXZE4Ojba8kK4UMuT6AxSmZJLbiq8eSGMKQW4q
-	VtejvVBCtyDqAHgv9bsHLQCSGrsBTZRMBI0WzYdvhkGWFyQOoYOWcauPTgVj+4ipXobqfyx7dtj7y
-	wzbsZgqbVQcYYpLNACK5oB4aNSMkpAns59URDpwLV3HMlAiG2e165xr577Tcsw9mTtlsRxms5w4cA
-	TdH9bsTg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=szh0gEqVtBDu4oNWbMcoeQnUXD/BzppdqX8suYZ3udw=; b=MwSBhG9EYXDBUSD/HiSs8C9Juf
+	ijExGeGmE8GScVG5VwIZIYwgk1yNUbiE9J8dbJuMe1Ca9HpFgujzL6+bdYJ0TVVIWSLCVyv5o24Zp
+	ZJDlKg/GfNguuO1wHOmBoZWyFqGSB3+qbzCbdUcTOFwCO0Wy/6imktQ7LItgZqJ0HSU+Yj3r/poWv
+	euOegDnUX8i2NFZvvNs41168QK/otXBcX37ya7vyALILmgYGOBIpfvVZ3czrE5Gaw8hum3gy/XHdX
+	1KdRDvGy7StYE4x6jD/pS8d09HPfcxL4Iz/4m7/msep3NvHxcuJL7l5BqsbpgQtIOQwYAqOiI/1wQ
+	+tEcOERw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMLS2-0000000CfN3-4BzX;
-	Mon, 11 May 2026 07:53:19 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wMLV9-0000000Cfn7-32vj;
+	Mon, 11 May 2026 07:56:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMLRz-0000000CfL7-0Fcm
+	id 1wMLV7-0000000Cfms-3cxw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 07:53:16 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64B7FJrL3332677
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 07:53:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	TLY2VCjl8g6bhxiEibkpJCM0BlQlq6ryQ2kEFOn+kbg=; b=JifEBrIzkipipDVM
-	vOdwPd+19TTH/aPFCB/TmNf3idgFu/+QlJTBbS7agfLKl5VAFBheqKW41VxLxANM
-	ALKs2jsDK32H8AKLEvNpWIwKw3UdopATmlVasOb44fqiVdFTmH2rpCPuxjD899FA
-	zBWbSkeuO1plmSxi9hMWUzGAscpudUZpkloXMf9PcbxGH821H85Br3rpF3VGDZ8I
-	J+p4MQFsd8rK1H9y2eJLERcDV2rbfCe3fAvJ4SdLsLEd6DoTKqDRDhbuChQWkg2z
-	qsF8VP/+2p9hu3D/x3M9ZpJmr7Z/ZMMdCkqvXqDj/E1fjEhOY9c2Nk6SH9aamQBw
-	OTMTOg==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e3ajgr4q5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 07:53:12 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50da529ff48so98187711cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 00:53:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778485992; x=1779090792; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TLY2VCjl8g6bhxiEibkpJCM0BlQlq6ryQ2kEFOn+kbg=;
-        b=cXYpOyzAVJ39RU/3PBZPlL7ALDLXNKMhNxuBhga3kZNKQHfIHX/V5mDujbiuGquPzI
-         vUhz51DKyHsNmYqorSJ3B6eDPKiP3pyBp7/9ZbAe+ofzEV+0L+2we5ps+b5OzdZ/KWYq
-         woiCmW+AlPn/Un28K5UAZR0seblUiKlAGiEpLQ9h2xggwhz0E7yUtyGf9WNDuWzFrm8T
-         9lTn0h4TQNfTSjCD9Q7C9SpveXFcNU2ggxxO4Dyy5ECqywAneu8e5OYyl337xTzLWQjJ
-         rkEdoasbN7HCaLzSmcIDXFHLENukmUPkJeVxUZ/H/9beTwkoy02D8X8t0+izX1cm6A5G
-         IDgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778485992; x=1779090792;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=TLY2VCjl8g6bhxiEibkpJCM0BlQlq6ryQ2kEFOn+kbg=;
-        b=fVydw4axcBtl7U9xZI/MQ223ZZlHFn2YflLO4aHR76IlNvOKzIeJXUlAhldP0f6TJD
-         fQVZ3zM18YPRDcfRV12nriMIHfxiUKoztY4aHtLac1xWTCOKxcDODH9H5gd/JtcOCOfG
-         luatkksdunSp0Fqpk6xBNpmarZ44FuKMDP+FYk82n1cFrszmpRQD1PY7xjdBocgsM33I
-         bewjh6urke6w59mydu7jxf1ZoX7Hts1R3PQ/03PmfBs/UjnE2D1YO7Vnh7iIDn6lay5v
-         BDfGCHSHs8fPiTRYNON3ZS1HuPTRq3P36azWXjVK9QBBhwFaDsFmrxWUuTHM+9GCipFg
-         u8Mw==
-X-Forwarded-Encrypted: i=1; AFNElJ+zymDA18jijGIuHF38WP47S6nf5SnkJ5PitL17kbVc8iBYK+0MYaM8P/udtKdo3alH67sVl5vN3XyeTD9H4be4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPc6X9LJurIcd2usL6ICjifWHknPn+DY6AhQPTyjWO25SWHJUz
-	3GgOvEAHcCpuBnCsanobLuu9teqZE6Rt3yc79qGWIkIQUNCCyiObmobKCupk1VsQIBQES9ZkZ0u
-	ViGWe6aY5SgwRUSvqtgmJ+GSojquY6J7u7qo03y791uNaT4cPwNAh6Y9trOoOOeQ4oxmJg/hbIH
-	wmRA==
-X-Gm-Gg: Acq92OHCJmCiYyyG888kPWxDFoDju7QS3AQy3gOdb4n1AL3GN+PjnmlfnfLHoJ77EqL
-	L4SMG9OlicxEgKwVdg4P5iTSrYQuJXr4O0J36Rd638tjKtRQDt0o7r7XWtZLSfELC5VFOtKxZMF
-	olHjRCc9HyQITik5vLpp0cYYdWdUzohusbd0J1ajKuR5rVsEITPZDOiHQe9FBp4XUAaB42rdGNS
-	RdUe8hiHwVdZAXjUyYaSxlBXYkkP9J+TxBVzUjwXHWgUeqcfFN22EMc92W0INmQUEQl9wBiMV6v
-	ECSmdTN6E5AVMbgL7pPAx+DsH+5U7XR4y1dYYmvAazjs/CdJ8yw5JUSyCFO3ORO4irAJEE4U5m6
-	A9Skhq4f54BslnMeoUDBJgcSzu3NK0pFLO/OSUJvdRSTeQt0o0w==
-X-Received: by 2002:a05:622a:24e:b0:50e:a1ab:67e4 with SMTP id d75a77b69052e-514a0b6daf5mr125359791cf.40.1778485992203;
-        Mon, 11 May 2026 00:53:12 -0700 (PDT)
-X-Received: by 2002:a05:622a:24e:b0:50e:a1ab:67e4 with SMTP id d75a77b69052e-514a0b6daf5mr125359541cf.40.1778485991680;
-        Mon, 11 May 2026 00:53:11 -0700 (PDT)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:63bd:c2f9:cedb:aa32])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e6db01122sm78830735e9.6.2026.05.11.00.53.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 00:53:10 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Bartosz Golaszewski <brgl@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] power: sequencing: print power sequencing device parent in debugfs
-Date: Mon, 11 May 2026 09:53:08 +0200
-Message-ID: <177848598595.10009.16977098777521143132.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260507052943.3133349-1-wenst@chromium.org>
-References: <20260507052943.3133349-1-wenst@chromium.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=GfgnWwXL c=1 sm=1 tr=0 ts=6a018ae8 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=v-dYCw11OgI39_w18cIA:9 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-GUID: UyaI0qdI1LxWep-iVFktGwFX_4GY-FvN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTExMDA4NSBTYWx0ZWRfX5ncecUIaX5Xl
- b82prAmniO+WOKDOV91TZFuvPWiK5c2q+D3yjHGAEg07NhkjqqL+7YjYagN/b9EPT2hIiDbrJ5L
- FFypBpHf5PL74JYqTX2/kzlbeHC5X7dwyxwfSi4fYjLwqVl0r8aAvqMG+xr8fI4TNKkrRUqe15P
- CAaQuO2w1t+iQwahrdyyui8J5HmpfQ0zi+BCfCpGZHvhHrWP2hfxj4bsmVZT3Td6Hki28hcpKlk
- ApH53ujQ6rXh2wDugMU/UV5gqED7KWKnnh1E3JLAnJl7w8Ow9KeXFd2kNYMbiehfiNGX1CPRy0Z
- P6/IEtHt5usSnI17gf34gDHLPXqTIWj5Q3APh02KWuGax6wZX9H9aHsQEYAVHbtQPvCootVagwm
- ePfyyoDmxGl/XMDIInndSnYr94BYrbvL/Hvb8XGW1xr1qstT9V9Ru8Vgs7bH11qY3s+ezt67klF
- FuS36e8yDvlMCHfCS6A==
-X-Proofpoint-ORIG-GUID: UyaI0qdI1LxWep-iVFktGwFX_4GY-FvN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-11_02,2026-05-08_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 impostorscore=0 phishscore=0 spamscore=0
- lowpriorityscore=0 priorityscore=1501 adultscore=0 bulkscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605110085
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_005315_221309_5E962412 
-X-CRM114-Status: GOOD (  13.56  )
+	Mon, 11 May 2026 07:56:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E8F2C6001A;
+	Mon, 11 May 2026 07:56:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CBB1C2BCB0;
+	Mon, 11 May 2026 07:56:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778486188;
+	bh=QMHKoXETT7g06zajK518cc22bHdzyrX5waNPKMUdKn8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NLNYc2biY2meoXUGwOxLGT4Q+CZ60AeUK49W7/7n70oto3SwdCsBlASjbdY4Nw25H
+	 pKLltqHSz9cDBVU85+8QyYg9JkaRxC8DAX2fndv7IaNZaTJoRbpRBCiO2GKykXOqDQ
+	 AjCDbSwYoEQxF/Ei4Fn722yyTnKlmzGqj2OBJx5BcfzH/4h9ULvagnc9uwcUfOFHpW
+	 qGQLqSsYHhSscH4m6QoDYtM0YYCkMxG7Vy6kiMALnskBmiO4ViBaJkMX++M/jGfCDM
+	 ws5L+JigLECRvmc4q864DgY58BNvvP3cuItLYwHNhp5xGj/otrV2oapRw9AEI6GWYJ
+	 9pIMrs/9cV0CA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wMLV4-00000000zbK-1B8r;
+	Mon, 11 May 2026 07:56:26 +0000
+Date: Mon, 11 May 2026 08:56:25 +0100
+Message-ID: <86ik8uxtue.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey
+ Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas
+ <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini
+ <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Raghavendra Rao
+ Ananta <rananta@google.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Kees Cook
+ <kees@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nathan Chancellor
+ <nathan@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: (subset) [PATCH 1/3] KVM: arm64: vgic: Fix IIDR revision field extracted from wrong value
+In-Reply-To: <f17a2d66e47fd15fc738d9f4ad89123a31d86eb3.camel@infradead.org>
+References: <20260407210949.2076251-1-dwmw2@infradead.org>
+	<20260407210949.2076251-2-dwmw2@infradead.org>
+	<177702878141.537738.13460155220731277452.b4-ty@kernel.org>
+	<106addd3f78918a9a584c43c181a9609aef1ceca.camel@infradead.org>
+	<f17a2d66e47fd15fc738d9f4ad89123a31d86eb3.camel@infradead.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: dwmw2@infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, rananta@google.com, eric.auger@redhat.com, kees@kernel.org, arnd@arndb.de, nathan@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,24 +107,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, 10 May 2026 22:28:50 +0100,
+David Woodhouse <dwmw2@infradead.org> wrote:
+>=20
+> [1  <text/plain; UTF-8 (quoted-printable)>]
+> On Fri, 2026-04-24 at 13:24 +0100, David Woodhouse wrote:
+> > On Fri, 2026-04-24 at 12:07 +0100, Marc Zyngier wrote:
+> > > On Tue, 07 Apr 2026 21:27:02 +0100, David Woodhouse wrote:
+> > > > The uaccess write handlers for GICD_IIDR in both GICv2 and GICv3
+> > > > extract the revision field from 'reg' (the current IIDR value read =
+back
+> > > > from the emulated distributor) instead of 'val' (the value userspac=
+e is
+> > > > trying to write). This means userspace can never actually change the
+> > > > implementation revision =E2=80=94 the extracted value is always the=
+ current one.
+> > > >=20
+> > > > Fix the FIELD_GET to use 'val' so that userspace can select a diffe=
+rent
+> > > > revision for migration compatibility.
+> > > >=20
+> > > > [...]
+> > >=20
+> > > Applied to fixes, thanks!
+> > >=20
+> > > [1/3] KVM: arm64: vgic: Fix IIDR revision field extracted from wrong =
+value
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 commit: a0e6ae45af17e8b27958830595799c=
+702ffbab8d
+> >=20
+> > There was a v2 of this series which also cleaned up the weird
+> > inconsistency of the IIDR value with the actual behaviour, and which
+> > fixed the fact that it's currently not possible to maintain guest
+> > compatibility when upgrading from a pre-d53c2c29ae0d kernel to a new
+> > one =E2=80=94 despite the fact that that kind of compatibility is *prec=
+isely*
+> > what the revision field in the IIDR is designed for.
+> >=20
+> > https://lore.kernel.org/all/20260408113256.2095505-1-dwmw2@infradead.or=
+g/
+>=20
+> Is there a reason the rest of these fixes didn't make 7.1?
 
-On Thu, 07 May 2026 13:29:41 +0800, Chen-Yu Tsai wrote:
-> The debugfs summary currently shows the power sequencing device's name.
-> This is not really helpful since the device name is always "pwrseq.N".
-> 
-> Also print the parent device's name. This would likely be the device
-> node name from the device tree, something like "nvme-connector". This
-> would make it much easier for the developer to associate the summary
-> with a certain device.
-> 
-> [...]
+I already explained why these changes are neither necessary (a guest
+that used to run still runs) nor desirable (reintroducing bugs we have
+fixed is a bad idea).
 
-Applied, thanks!
+I have therefore only taken the fix for the bug affecting userspace,
+as that was definitely something worth fixing.
 
-[1/1] power: sequencing: print power sequencing device parent in debugfs
-      https://git.kernel.org/brgl/c/513f49c33e91e58975ada7967b44512179f0e703
+	M.
 
-Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+--=20
+Without deviation from the norm, progress is not possible.
 
