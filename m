@@ -4,71 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7BCACD484E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 22:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2025ECD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 22:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t9GJjxz7MXEZbqV6+5d9dAOL2Akoh9f4mOaXvcGs6WQ=; b=IBRpBJOa84lFIQhhXESVb4ks+M
-	dNWMGXjJztelVt6KHw6GrYxa/B2bhuzoiqHpbt+ouhwQsBGLXeAmd0NiudOoO1lcNcA+NksOVf7BF
-	nPXAdb5iLbCBwgt3QEU/ZfmAXUprNwKvb9TESfPHZm03QANk+0craHHPCcGZZRsjypVzp+wEGP1O8
-	L+dA5qBJ5Uwi9rjfYzC0zoT7rSFNulgrX/poF+mMRdysYE+1AqQNoTGV+2VwtEAGIwA8DhQgdiLKG
-	WGKyGwhcAVOCuog/36jBuz3mkWbqGJ0rh0ytipOgIKxM9OS0K/YOPb8PHiWyPSCwM2uO6A3EQWAeg
-	MOEoEz4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vmbVJwi4WaTGTVT0i5299uLCIqKpaUV1SdNvk7Z+siM=; b=fXR82S/DBzMXAf
+	ZqJkDrFKh0sENq5E8E/614ilvO21FboqgmAwwgVkUuFVdKzvGnLwj/BcAgxPuI9dRFGQr/6KLFpRi
+	FQXKmHFgf+6yBPNnZU8yqcwvDbOPQcuHwc339p3sRXSIhAbyZtSdKGM1jaxYcojyUgR4uGNmjgIYv
+	BUBb1Ud0Y3RJtZULQQx2yigB9pdJMn+Rzq9efJfi3LSnBFAkwtzTYlHmRHzBMmNdGst645bDHoQnE
+	mlySy/3m00WQ7EimC/YDBC7jn0SzU/UyZbJVG9Qmkm2aBltQVz67imuwLL7Zwh4luSyzIJa2OhVEl
+	plXzBHHp5MKqHaclBspA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMYys-0000000EtrJ-1cVP;
-	Mon, 11 May 2026 22:20:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMZ2J-0000000EuNr-3ct8;
+	Mon, 11 May 2026 22:23:39 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMYyp-0000000EtqP-2v6Q
+	id 1wMZ2H-0000000EuN3-0T2m
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 22:20:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5556243FFC;
-	Mon, 11 May 2026 22:20:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1869BC2BCF5;
-	Mon, 11 May 2026 22:20:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778538003;
-	bh=1Oxyfd1/v7O27frv8bMTIM++jJRA0r8gE2wj5UKC5ek=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IvCYSscAn8WdA/IX8qh23AmPZJXNkD0GVm76HSc7v8H2JLhXWyn5I28EMXQfOZGNV
-	 KXGjR2bGWv9gsF5cjOdRGM2Bl042d4z/WDShDJsrCTk+jbdSDD9QYB5yneBY8/i03H
-	 G1PgMSW2PrpvG+cfQE3hQnC/4LYzxXH8yaI8PkiC5Pd6saKJLmnxjdgdbYeWriaxsJ
-	 Opd2kHhTxb1/GOqop7ARjA7yTLo0ABt933gWsesDkxkpRVaBp4kjh3EMrgyZkhoYE0
-	 qO62RIu1WrYCG6B9oCzytR3+WPvVZiIWu+J0bloJjtvDikeihP5ylo/f1qd/y54cnw
-	 RuabEskLr1m5w==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Helge Deller <deller@gmx.de>,
-	Sasha Levin <sashal@kernel.org>,
-	shawnguo@kernel.org,
-	linux-fbdev@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 7.0-5.10] fbdev: ipu-v3: clean up kernel-doc warnings
-Date: Mon, 11 May 2026 18:19:20 -0400
-Message-ID: <20260511221931.2370053-21-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260511221931.2370053-1-sashal@kernel.org>
-References: <20260511221931.2370053-1-sashal@kernel.org>
+	Mon, 11 May 2026 22:23:38 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64BK6WC62994871
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 22:23:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=vmbVJwi4WaTGTVT0i5299u
+	LCIqKpaUV1SdNvk7Z+siM=; b=evefXYKDR58EE9T3OunshXF5Ag+pvmQjvcM4kQ
+	/C2aQdBk4x4t4yp0Y9EvNxSWgefhejdByw0vrsLyZHHW31twNC1yTVo2FNmJI+3T
+	1n0zWuAhS0srW0llm+bufiJpv3YLW+NZJtyUl5lc+Y4GOm/4zPTTfe25RtmJCLyg
+	Oie6jsmKMjWuCLoiZ2GhbDJE7sU83vxxDb9YM+q/2aBCkpFIDAyZEc1Ei2m5SamM
+	S6yHKLWU0r+KVpWWOFYwZoAvCbe1jbpJ+60mdXuIXcIS/GpzVcGBYuFc8hrUnZ/c
+	eWFnkEyDH5hbBE1fnwcI8LWMTqEKXbUZq/Ty24gV5U/JUUSg==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e3nv0rfx0-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 22:23:35 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-82fa5ecd760so2469545b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 15:23:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1778538215; x=1779143015; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vmbVJwi4WaTGTVT0i5299uLCIqKpaUV1SdNvk7Z+siM=;
+        b=TvvS0Q8vjvveFiR6VN75wSagBxLf7gclOMtkIXq/LrfC6xN2xca9StEKw8pzNzGnnO
+         prWMqQRRvmUYJteh/MR962LxbLUeDeZdJEES6U5Qtncre7/XwY7kukCIdUJY1Q8J4WKX
+         klQg796hjDBoLqarBdKpnj5sGNSWX5mMfbjCKOsIqrMhms7QezxGqUEJwONQGRhTGzT7
+         BjjBvIm9LyPU0hnu40qoI15r7HMfN4rTYSeKjUUH13/BNuOAnrO6R+XyfiL5rg0U38Vl
+         hPXNAGnTFkCXPSmuLjCFRQ+Iuqm1O84Heiin5hLwClXvFSTW1ct6O8nSRtxfbi8GxhnY
+         ebZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778538215; x=1779143015;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vmbVJwi4WaTGTVT0i5299uLCIqKpaUV1SdNvk7Z+siM=;
+        b=FJFoLIWn2HNeUv8ZOt+m0gTbIUd6pQYEWGwuuoZq6gX+apmjhjc6YPmpbSkn4gbvhW
+         XTV/6ADBWqo29t/otn0qTDEg8UC8BUwZu5Tgqowb/cTVQeKqfBaR0XcJRV5+dGVQ3qLo
+         DRz58tWpvrS8RrfF6hy1/3KfQjC3ytHpr2TPc+w1p0PgOFJzs6G1qGv0+uyJ36+NqEkc
+         lj60d6g2hDhyLTHDa1GN/JiMCRYtR3IrskcVPbwT5f+0entasHXwdNUY+TQ6aFbbB4rf
+         AWQc9LzmuhfEhT4X1Dui2QYDwUtEDTXGTzwnwcdhneMsCXhspayU2fedB6wcvB9QxDbM
+         Lc8g==
+X-Forwarded-Encrypted: i=1; AFNElJ/KAcYrDys6hMPHk34ARRszXGB9ykhKeZa+q7bIq/VZKcjGAgxTJS4r/k6MAtrmfEXBKz5XMVnKe7ZJHmGgjv5p@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgA1kmim8g43MivmhYp+EysJymG7PDI7usDA72JGATktODd15X
+	O/KHk6q6buUxLYBBrqhRyFZOEYkR+ez0kKU+oJjZOZXbTKSqY80X7meEFonKXocmMQJqG9xuEkA
+	GaMakHiU1Unq0aBsNs5X1BJH05pVwo7jwwqm60rw5ci+ySkTpiWszMuMXFC9y6JwAO4pWsyRZFn
+	Zpcw==
+X-Gm-Gg: Acq92OFtl1p04gzrDqxJ2OFzQIy3WzqGw6u3hL1Vjn7FlXb4tqNL2WtFemlolOFd9om
+	ksZ8HgMzEWcKQK4SJlNujv6jcmcVqqIOB8nhAVtfVcvaWby0kxGB7PPAIwyvQso5L/3w4Kitdhx
+	Uf6JRf5OMkdsqguuy1Pqa1aCvzUjJ90HKmNECr4vqCQ7qotd89wXTv13x8YQRuOhWuBYfZ/yU1+
+	3Yj6n+Yql1xdrGYWvzD4WmdwA3nCheYXULR8MWn2kfDk4QH5JlI+BzB4RNVjkupTk/GLIRfMqYB
+	0o2LFwGi3qFEzeNiN4fJ6+vPiru3JjmOPS296+92mVztzD1gws6jxkfZW2hLjWBLY7+O/qFC0LR
+	brBuvPId+DAtyK0ntKuLUsMVi+mEYN6bPACo5QS3A6naZXw==
+X-Received: by 2002:a05:6a00:4f96:b0:834:efcb:12b4 with SMTP id d2e1a72fcca58-83eebc25edcmr287611b3a.28.1778538214775;
+        Mon, 11 May 2026 15:23:34 -0700 (PDT)
+X-Received: by 2002:a05:6a00:4f96:b0:834:efcb:12b4 with SMTP id d2e1a72fcca58-83eebc25edcmr287547b3a.28.1778538213840;
+        Mon, 11 May 2026 15:23:33 -0700 (PDT)
+Received: from hu-akhilpo-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83965946543sm27028110b3a.16.2026.05.11.15.23.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 May 2026 15:23:33 -0700 (PDT)
+From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Subject: [PATCH 0/8] arm64: dts: qcom: Devicetree support for Kaanapali GPU
+Date: Tue, 12 May 2026 03:53:14 +0530
+Message-Id: <20260512-kaana-gpu-dt-v1-0-13e1c07c2050@oss.qualcomm.com>
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 7.0.6
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANJWAmoC/22OywrCMBBFf6Vk7ZRkkj4sIv6HuIjpWIN9mbSlU
+ vx3Y4s7NwNn4J57F+bJWfKsiBbmaLLedm0AsYuYueu2IrBlYIYcU64EwkPrVkPVj1AOsE9znXE
+ hlUFkIdI7utl51Z0vGzt6jsE6bE921Z7AdE1jhyJqaR5gNSc8/+Yb8l6vnUV02Coxg+o2g6kfs
+ KphQuCQ7TNK1FWWKlWnzvv4Oer6q43DOf5XJWF9Vb+a0f3mTxIE5AollgaF4fKP6vJ+fwDNRLh
+ fJQEAAA==
+X-Change-ID: 20260412-kaana-gpu-dt-968a70134c22
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: Sean Paul <sean@poorly.run>, linux-arm-kernel@lists.infradead.org,
+        iommu@lists.linux.dev, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+        Qingqing Zhou <quic_qqzhou@quicinc.com>,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+        Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778538205; l=2499;
+ i=akhilpo@oss.qualcomm.com; s=20240726; h=from:subject:message-id;
+ bh=oZ+yt/RXidFRbw7KkVC6QwWQB7cStOb9OIQ+8ARPiNA=;
+ b=z4wkKaTXNXkeDYdY4GxGX/+MroUPOcH6t63HZ1+4kb1hAZt+BGI/ky1jTgoA18Fcdd3BMaoDx
+ M+k9TYb3CyQCVJ+t9jflHnoB2osAaht0heuWefIRDO4XXuijct4UNzY
+X-Developer-Key: i=akhilpo@oss.qualcomm.com; a=ed25519;
+ pk=lmVtttSHmAUYFnJsQHX80IIRmYmXA4+CzpGcWOOsfKA=
+X-Authority-Analysis: v=2.4 cv=PN0/P/qC c=1 sm=1 tr=0 ts=6a0256e7 cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=RSuC8zd2ZDaJPqFJxW4A:9 a=QEXdDO2ut3YA:10
+ a=zc0IvFSfCIW2DFIPzwfm:22
+X-Proofpoint-GUID: TCN87-Jub4r8Jxepb0A8qA1t_nB7ssGL
+X-Proofpoint-ORIG-GUID: TCN87-Jub4r8Jxepb0A8qA1t_nB7ssGL
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTExMDIzNiBTYWx0ZWRfXy5IiH0g0HQ3Z
+ frQeVz8bNwTbNPjxrx2OjxqFtAo6aLHKaNkyt6mLCPiNRK0YqpulAWX4pX36R+nBOoACAnPggRQ
+ OrlK19S8qVWFh4mZBEpSC7ZNluE6dsUrN+1WSCNWmuBr6xEV7SLkTLTC5KO21Avbbh79KILVLPU
+ CZrzzm8oduhXR3UwkY7uHjJRmax1hMmCAlt8K/XNoUwnJ2rVYmw7sPwyYG+GmBmbZefIuGlVajj
+ 6ST5JPYDFuLXY2kNRDtQuClPG117YhYGK+gNYyfwbOeZzvDiDERSVZFSaWio0w+bCfKtMcHV0dQ
+ Al5/KU9Pno0SlYIX3CQnESdasVoS4ORxBa5ys1CqXyYwKmfVWqs0GMmrp8zFIpL9GqsWpSbLRmJ
+ LTGBUkwS0g+dqK+ZgGeWlA6n2y3xDjE9mdwIISKYNFUcXjAElqUcR2XWNfKQP91CKssSI3wTJ3+
+ XrIJuNK8n9gFprymbPg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-11_05,2026-05-08_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 suspectscore=0 adultscore=0 clxscore=1011 spamscore=0
+ impostorscore=0 phishscore=0 bulkscore=0 malwarescore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605110236
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_152003_787741_908A23CB 
-X-CRM114-Status: GOOD (  25.60  )
+X-CRM114-CacheID: sfid-20260511_152337_284305_900FC09E 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,331 +172,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Randy Dunlap <rdunlap@infradead.org>
+This series adds the necessary Device Tree bits to enable GPU support
+on the Kaanapali-based devices. The Adreno 840 GPU present in Kaanapali
+chipsets is based on the new Adreno A8x family of GPUs. It features a
+new slice architecture with 3 slices, raytracing support and other
+improvements.
 
-[ Upstream commit f1fb23a0a0fcbdb66672da51d7d63a259f6396ca ]
+This series includes patches that updates DT schema, add GPU SMMU,
+GPU/GMU support, GPU cooling, and enables the GPU on Kaanapali MTP and
+QRD platforms.
 
-Correct all kernel-doc warnings:
-- fix a typedef kernel-doc comment
-- mark a list_head as private
-- use Returns: for function return values
-
-Warning: include/video/imx-ipu-image-convert.h:31 struct member 'list' not
- described in 'ipu_image_convert_run'
-Warning: include/video/imx-ipu-image-convert.h:40 function parameter
- 'ipu_image_convert_cb_t' not described in 'void'
-Warning: include/video/imx-ipu-image-convert.h:40 expecting prototype for
- ipu_image_convert_cb_t(). Prototype was for void() instead
-Warning: include/video/imx-ipu-image-convert.h:66 No description found for
- return value of 'ipu_image_convert_verify'
-Warning: include/video/imx-ipu-image-convert.h:90 No description found for
- return value of 'ipu_image_convert_prepare'
-Warning: include/video/imx-ipu-image-convert.h:125 No description found for
- return value of 'ipu_image_convert_queue'
-Warning: include/video/imx-ipu-image-convert.h:163 No description found for
- return value of 'ipu_image_convert'
-
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-Signed-off-by: Helge Deller <deller@gmx.de>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 ---
+Akhil P Oommen (5):
+      dt-bindings: arm-smmu: Update the description for Kaanapali GPU SMMU
+      dt-bindings: display/msm: gpu: Document Adreno 840
+      arm64: dts: qcom: Add GPU support for Kaanapali
+      arm64: dts: qcom: kaanapali-mtp: Enable GPU
+      arm64: dts: qcom: kaanapali-qrd: Enable GPU
 
-LLM Generated explanations, may be completely bogus:
+Gaurav Kohli (1):
+      arm64: dts: qcom: kaanapali: Add GPU cooling
 
-## Phase 1: Commit Message Forensics
-Step 1.1 Record: subsystem `fbdev: ipu-v3`; action verb `clean up`;
-intent is to correct kernel-doc warnings in `include/video/imx-ipu-
-image-convert.h`.
+Jingyi Wang (1):
+      arm64: dts: qcom: kaanapali: Add qfprom node
 
-Step 1.2 Record: tags in committed message are `Signed-off-by: Randy
-Dunlap <rdunlap@infradead.org>`, `Reviewed-by: Philipp Zabel
-<p.zabel@pengutronix.de>`, and `Signed-off-by: Helge Deller
-<deller@gmx.de>`. No `Fixes:`, `Reported-by:`, `Tested-by:`, `Acked-
-by:`, `Link:`, or `Cc: stable@vger.kernel.org` tag is present in the
-committed message.
+Qingqing Zhou (1):
+      arm64: dts: qcom: kaanapali: add the GPU SMMU node
 
-Step 1.3 Record: the described problem is seven kernel-doc warnings: one
-undocumented/private list member, malformed typedef documentation, and
-missing `Returns:` sections. The visible symptom is documentation
-tooling warnings, not a runtime crash, hang, data corruption, or
-security issue. No affected kernel version is stated. Root cause is
-incorrect kernel-doc comment syntax.
+ .../devicetree/bindings/display/msm/gpu.yaml       |   5 +-
+ .../devicetree/bindings/iommu/arm,smmu.yaml        |   1 +
+ arch/arm64/boot/dts/qcom/kaanapali-mtp.dts         |   8 +
+ arch/arm64/boot/dts/qcom/kaanapali-qrd.dts         |   8 +
+ arch/arm64/boot/dts/qcom/kaanapali.dtsi            | 450 +++++++++++++++++++--
+ 5 files changed, 441 insertions(+), 31 deletions(-)
+---
+base-commit: b462608de92a7cac450781f9d8d4c7cf3ccf82db
+change-id: 20260412-kaana-gpu-dt-968a70134c22
+prerequisite-message-id: <20260427-gfx-clk-fixes-v2-0-797e54b3d464@oss.qualcomm.com>
+prerequisite-patch-id: 82e142b3d904e746db0e288fb7ea6812661c3537
+prerequisite-patch-id: d141a83ef741d26b03d931cf120b8b541ec51b9c
+prerequisite-patch-id: 5bdaf78fd75be779d4aa73b85a185a10d8458366
+prerequisite-patch-id: 0263b47f4e1aeb61fc96c6dbd9f7168ffe0eb04e
+prerequisite-patch-id: bed1e449dca0167ed99e8c4f1e544ed60ae17014
+prerequisite-patch-id: feda87721f22e443f38165787b2b28fe1a40aa18
+prerequisite-message-id: <20260512-glymur-gpu-dt-v3-1-84232dc21c03@oss.qualcomm.com>
+prerequisite-patch-id: 9175e9ae77ac032c2f0502e2c63bb7b7d1ae4ead
+prerequisite-patch-id: a29ab9cea24f74a76a69f144f76f9860e014ad19
+prerequisite-patch-id: 6243ab821a3d9cd641a8dca8cdab167fe9da8735
+prerequisite-patch-id: 36f4bb7740fd65d808fa6685bce4b03798a547ff
+prerequisite-patch-id: 054631082c45d3ab3117f541f0d4d90b660dac73
 
-Step 1.4 Record: this is not a hidden runtime bug fix. The body and diff
-both show a documentation/comment-only cleanup.
-
-## Phase 2: Diff Analysis
-Step 2.1 Record: one file changed: `include/video/imx-ipu-image-
-convert.h`, 11 insertions and 5 deletions. Modified documentation covers
-`struct ipu_image_convert_run`, `ipu_image_convert_cb_t`,
-`ipu_image_convert_verify()`, `ipu_image_convert_prepare()`,
-`ipu_image_convert_queue()`, and `ipu_image_convert()`. Scope is single-
-file, header-only, surgical.
-
-Step 2.2 Record: hunk behavior:
-- `struct ipu_image_convert_run`: before, `list` was documented neither
-  as a member nor private; after, `/* private: */` tells kernel-doc to
-  ignore it as an API member.
-- `ipu_image_convert_cb_t`: before, kernel-doc treated the typedef
-  comment as a function prototype mismatch; after, it is marked as a
-  typedef comment.
-- Return docs: before, several returns were plain prose or missing;
-  after, they use kernel-doc `Returns:` syntax.
-- `ipu_image_convert_prepare()`: before, the V4L2 usage note followed
-  the return prose; after, the return section is last and formatted for
-  kernel-doc.
-
-Step 2.3 Record: bug category is documentation/kernel-doc warning
-cleanup. No error-path, synchronization, refcount, memory-safety,
-initialization, type, logic, or hardware workaround change exists.
-
-Step 2.4 Record: fix quality is high for the stated documentation issue:
-small, obviously correct kernel-doc syntax changes. Runtime regression
-risk is effectively zero because no C declarations, types, function
-bodies, data layout, or APIs are changed. Documentation rendering risk
-is very low.
-
-## Phase 3: Git History Investigation
-Step 3.1 Record: `git blame` shows the affected header comments and
-declarations came from `cd98e85a6b786d` by Steve Longerbeam, dated
-2016-09-17. `git describe --contains cd98e85a6b786d` reports it as
-present by `v4.9-rc1~41^2~24^2`.
-
-Step 3.2 Record: no `Fixes:` tag is present, so there is no tagged
-introducing commit to follow. Blame identifies `cd98e85a6b786d` as the
-source of the documented preimage; `git show` confirms that commit added
-queued IPU image conversion support and the API documentation.
-
-Step 3.3 Record: recent local history for the file shows `96e9d754b35e8`
-removing unused `ipu_image_convert_*` functions, `c942fddf8793b` adding
-SPDX boilerplate conversion, and `cd98e85a6b786d` adding the header/API.
-No prerequisite commit is needed for this documentation-only patch.
-
-Step 3.4 Record: `git log --author='Randy Dunlap'` under fbdev/include
-areas shows Randy has related cleanup/documentation work such as `fbdev:
-hgafb: fix kernel-doc comments` and `fbdev: fbmon: fix function name in
-kernel-doc`. The patch was reviewed by Philipp Zabel and committed by
-Helge Deller, verified from the commit and lore thread.
-
-Step 3.5 Record: no dependencies found. The diff changes only comments
-and applies locally with `git apply --check`.
-
-## Phase 4: Mailing List And External Research
-Step 4.1 Record: `b4 dig -c f1fb23a0a0fcbdb66672da51d7d63a259f6396ca`
-failed to find a lore match by patch-id, author/subject, or in-body
-From. External fetch found the v3 discussion at
-`https://yhbt.net/lore/dri-
-devel/20260427183236.656902-1-rdunlap@infradead.org/T/`. The v3 thread
-has Helge Deller replying “applied to fbdev git tree.” Web search/fetch
-also found v2 and a v2 ping. No NAKs or objections were found.
-
-Step 4.2 Record: `b4 dig -w` also failed for the same reason. The v3
-lore mirror shows recipients included `dri-devel`, Philipp Zabel, DRM
-maintainers, `imx`, `linux-arm-kernel`, Helge Deller, and `linux-fbdev`.
-
-Step 4.3 Record: no `Reported-by:` or bug-report `Link:` tags exist. No
-external crash/security bug report applies.
-
-Step 4.4 Record: this is a standalone one-patch documentation cleanup.
-v2 added the reviewed-by and updated Cc list; v3 rebased and resent.
-
-Step 4.5 Record: direct `lore.kernel.org/stable` fetch was blocked by
-Anubis. Web search for the exact subject plus `stable` found patch-
-thread results but no stable-specific discussion or stable nomination.
-
-## Phase 5: Code Semantic Analysis
-Step 5.1 Record: modified documented symbols are
-`ipu_image_convert_run`, `ipu_image_convert_cb_t`,
-`ipu_image_convert_verify()`, `ipu_image_convert_prepare()`,
-`ipu_image_convert_queue()`, and `ipu_image_convert()`.
-
-Step 5.2 Record: `rg` found callers in `drivers/staging/media/imx/imx-
-media-csc-scaler.c` for `ipu_image_convert_abort()`,
-`ipu_image_convert_queue()`, `ipu_image_convert_adjust()`,
-`ipu_image_convert_unprepare()`, and `ipu_image_convert_prepare()`.
-Runtime callers are unaffected because only comments changed.
-
-Step 5.3 Record: reading `drivers/gpu/ipu-v3/ipu-image-convert.c`
-confirms the documented functions perform image format
-adjustment/verification, context allocation, queueing, abort/unprepare,
-and single conversion setup. None of those function bodies are touched.
-
-Step 5.4 Record: runtime path is reachable through IPU image conversion
-users, but the patch changes no runtime path. The affected path for the
-fix is kernel-doc/documentation generation.
-
-Step 5.5 Record: no related same-header kernel-doc fix was found by `git
-log --grep='kernel-doc' -- include/video/imx-ipu-image-convert.h`.
-
-## Phase 6: Stable Tree Analysis
-Step 6.1 Record: version tags `v5.10`, `v5.15`, `v6.1`, `v6.6`, `v6.12`,
-`v6.15`, `v6.16`, and `v6.17` all contain `include/video/imx-ipu-image-
-convert.h` with the old kernel-doc text. The API was introduced before
-`v4.9-rc1`, so active stable trees checked contain the documentation
-issue.
-
-Step 6.2 Record: expected backport difficulty is clean or minor. `git
-apply --check` succeeds against the current local tree, and the checked
-stable tags contain representative preimage lines. Full per-stable
-worktree application was not run.
-
-Step 6.3 Record: no related stable fix for this header was found in
-local `git log --grep` searches.
-
-## Phase 7: Subsystem Context
-Step 7.1 Record: subsystem is fbdev/gpu IPU-v3 image conversion
-documentation in an include header. Runtime criticality is
-peripheral/driver-specific; documentation-build criticality is low.
-
-Step 7.2 Record: local subsystem history shows ongoing cleanup/removal
-activity in `drivers/gpu/ipu-v3` and the header, including unused-
-function removals and treewide cleanup. This patch is not part of a
-required functional series.
-
-## Phase 8: Impact And Risk
-Step 8.1 Record: affected population is kernel documentation builders,
-maintainers, and users consuming generated kernel-doc. Runtime users of
-IPU-v3 are not affected by behavior.
-
-Step 8.2 Record: trigger is running kernel-doc/documentation tooling
-over this header. It is not triggered by boot, device probe, syscalls,
-or ordinary runtime use. Unprivileged runtime trigger does not apply.
-
-Step 8.3 Record: failure mode is documentation warnings only. Severity
-is LOW. I did not verify any configuration where these warnings are
-fatal, so that does not drive the decision.
-
-Step 8.4 Record: benefit is low but real under the documentation-fix
-exception: it makes stable documentation builds cleaner. Risk is
-extremely low because only comments change. Risk/benefit is favorable if
-stable accepts documentation corrections.
-
-## Phase 9: Final Synthesis
-Step 9.1 Record: evidence for backporting: pure documentation
-correction, explicitly fixes listed kernel-doc warnings, tiny single-
-file patch, reviewed by Philipp Zabel, applied by Helge Deller, old text
-exists in active stable tags checked, and documentation/comment fixes
-are an allowed stable exception. Evidence against: no runtime bug, no
-crash/security/data-corruption impact, no stable nomination found, and
-b4 could not match the thread. Unresolved: direct stable-lore search was
-blocked; full apply checks on every stable branch were not run.
-
-Step 9.2 Record:
-1. Obviously correct and tested? Mostly yes for documentation syntax;
-   reviewed and applied, but no `Tested-by`.
-2. Fixes a real bug that affects users? Yes, a real kernel-doc warning
-   issue; not a runtime bug.
-3. Important issue? No runtime severity; LOW documentation-build
-   severity.
-4. Small and contained? Yes, 11 additions and 5 deletions in one header.
-5. No new features or APIs? Yes, comments only.
-6. Can apply to stable trees? Likely yes; local apply check passed and
-   stable tags checked contain the preimage.
-
-Step 9.3 Record: exception category applies: documentation/comment fix.
-This is the main reason to accept despite lack of runtime impact.
-
-Step 9.4 Decision: backporting is appropriate under the stable
-documentation-fix exception. It is not a stability/security fix, but it
-is a correct, reviewed, zero-runtime-risk cleanup of real kernel-doc
-warnings in code present across active stable trees.
-
-## Verification
-- Phase 1: fetched and inspected committed metadata for
-  `f1fb23a0a0fcbdb66672da51d7d63a259f6396ca`; confirmed tags and
-  message.
-- Phase 2: `git show --stat --patch` confirmed one header, 11
-  insertions, 5 deletions, comments only.
-- Phase 3: `git blame` confirmed changed comment preimage from
-  `cd98e85a6b786d`; `git describe --contains` placed it before
-  `v4.9-rc1`; `git show cd98e85a6b786d` confirmed original API addition.
-- Phase 3: `git log` on the header/subsystem found no prerequisite
-  functional series.
-- Phase 4: `b4 dig`, `b4 dig -a`, and `b4 dig -w` all failed to match;
-  recorded as a tool limitation/failure.
-- Phase 4: WebFetch of the v3 lore mirror confirmed the patch thread and
-  Helge Deller’s applied reply; Spinics fetch confirmed v2 and a later
-  ping.
-- Phase 5: `rg` found runtime users; `ReadFile` of implementation
-  confirmed function bodies exist but are not changed.
-- Phase 6: tag checks confirmed the header and old doc text in `v5.10`,
-  `v5.15`, `v6.1`, `v6.6`, `v6.12`, `v6.15`, `v6.16`, and `v6.17`; `git
-  apply --check` succeeded locally.
-- Phase 8: severity/risk assessment is derived from the verified
-  comments-only diff.
-- UNVERIFIED: direct `lore.kernel.org/stable` search content was blocked
-  by Anubis; no actual `make htmldocs` run was performed; full patch
-  application against every individual stable branch was not performed.
-
-**YES**
-
- include/video/imx-ipu-image-convert.h | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
-
-diff --git a/include/video/imx-ipu-image-convert.h b/include/video/imx-ipu-image-convert.h
-index 003b3927ede5c..6b77968a6a150 100644
---- a/include/video/imx-ipu-image-convert.h
-+++ b/include/video/imx-ipu-image-convert.h
-@@ -27,12 +27,13 @@ struct ipu_image_convert_run {
- 
- 	int status;
- 
-+	/* private: */
- 	/* internal to image converter, callers don't touch */
- 	struct list_head list;
- };
- 
- /**
-- * ipu_image_convert_cb_t - conversion callback function prototype
-+ * typedef ipu_image_convert_cb_t - conversion callback function prototype
-  *
-  * @run:	the completed conversion run pointer
-  * @ctx:	a private context pointer for the callback
-@@ -60,7 +61,7 @@ void ipu_image_convert_adjust(struct ipu_image *in, struct ipu_image *out,
-  * @out:	output image format
-  * @rot_mode:	rotation mode
-  *
-- * Returns 0 if the formats and rotation mode meet IPU restrictions,
-+ * Returns: 0 if the formats and rotation mode meet IPU restrictions,
-  * -EINVAL otherwise.
-  */
- int ipu_image_convert_verify(struct ipu_image *in, struct ipu_image *out,
-@@ -77,11 +78,11 @@ int ipu_image_convert_verify(struct ipu_image *in, struct ipu_image *out,
-  * @complete:	run completion callback
-  * @complete_context:	a context pointer for the completion callback
-  *
-- * Returns an opaque conversion context pointer on success, error pointer
-+ * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
-+ *
-+ * Returns: an opaque conversion context pointer on success, error pointer
-  * on failure. The input/output formats and rotation mode must already meet
-  * IPU retrictions.
-- *
-- * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
-  */
- struct ipu_image_convert_ctx *
- ipu_image_convert_prepare(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
-@@ -122,6 +123,8 @@ void ipu_image_convert_unprepare(struct ipu_image_convert_ctx *ctx);
-  * In V4L2, drivers should call ipu_image_convert_queue() while
-  * streaming to queue the conversion of a received input buffer.
-  * For example mem2mem devices this would be called in .device_run.
-+ *
-+ * Returns: 0 on success or -errno on error.
-  */
- int ipu_image_convert_queue(struct ipu_image_convert_run *run);
- 
-@@ -155,6 +158,9 @@ void ipu_image_convert_abort(struct ipu_image_convert_ctx *ctx);
-  * On successful return the caller can queue more run requests if needed, using
-  * the prepared context in run->ctx. The caller is responsible for unpreparing
-  * the context when no more conversion requests are needed.
-+ *
-+ * Returns: pointer to the created &struct ipu_image_convert_run that has
-+ * been queued on success; an ERR_PTR(errno) on error.
-  */
- struct ipu_image_convert_run *
- ipu_image_convert(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
+Best regards,
 -- 
-2.53.0
+Akhil P Oommen <akhilpo@oss.qualcomm.com>
 
 
