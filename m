@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E76CD4850
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 18:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAB9CD4840
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 18:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IUoaZOo0WM1phWbd6ZULg4KFX56eFleG4ODNAvRZuJI=; b=IrOkTBn/AbOmTXB5v8DhumF73y
-	UV62NAhfgs25KiyyywMI166EaFK4i5e+h1pYUBhTkHOOC670cTdmanTdhqa/hSnxGVvSEGgdL9nHQ
-	AHPgD3PA/qEGU7+ZYJ9EHCAfguXuQYIwxUU8CrDw3cQMoY9soaHFB3QhHTW8w4yMQcyn/Rced5Gug
-	0enqk1BPKKmN4WjApbMmykxSt3BD2JCmVYZBgvLCPNV1QiYA/W19zVwFIb5b0qEiBbR0QVDqEfkRG
-	PfxgDSlKGuI8A99mNGQ8RtFMJFzSBUlNnQmW7lCjjK3nXE3vgLrpd3D2Aeko5/TyU5egeCJTqlFaj
-	RMyhhr2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OY+ypXJEiq1cE5wHUAR3o/Pxpxd3IRXNAos4tZp/uec=; b=A3w7KsI5SQFxwlU3F6wc1zTp4G
+	4tvK5+bkYR7Cp8z9KmC97Zsi6ELN7+cd+xzzwHDHiisUI0iYtPWsiReMKOIsFOhsMf+WWs0WUjSfR
+	cIAvV2BxCQuRbBj/kfC3bL+ElzsQ1Eg62lVJCUT4NVRkeUKoLEmjyaodRk5lg0vSmYV/hioEtNgAa
+	29y6FsupI9vnNfrPFOvPYndXZnWpLH6zWrnREU6dfZqvQq0dm5S+gxhclgiQmgQNhn00iynUf53Tv
+	V5WL28wgn7ZhCzIk71Qs2VVyeO4y3SsDHwkiGvVIQlBKzK5bWndKEPxeRyKcuSfrYxBS7DEfVk8Qn
+	MjWGih7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMVLU-0000000EVZO-2QOQ;
-	Mon, 11 May 2026 18:27:12 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wMVOQ-0000000EVtr-3rY2;
+	Mon, 11 May 2026 18:30:14 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMVLQ-0000000EVY5-285D
+	id 1wMVOP-0000000EVtB-0T3h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 18:27:10 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 98DA2C5E154;
-	Mon, 11 May 2026 18:27:53 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D72EF60646;
-	Mon, 11 May 2026 18:27:03 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E6BB011AF9FDC;
-	Mon, 11 May 2026 20:26:56 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1778524022; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=IUoaZOo0WM1phWbd6ZULg4KFX56eFleG4ODNAvRZuJI=;
-	b=DNzc3FTWsu/erUDEMD3zjc6DVqSrkywFMWL9JUCx4soSB/FI19tVVgKFZDZ+sdM4qPInFl
-	+j+YkNveDEyLZb3hdarEsvProAaw0pOD/vWeLYd0IZ43vnN6s8pvk+Vi3o2tRkT6eG9Rsu
-	9pOYb8Dp/DTvq0aYo8wkTjHlgNpvbwM8sr9YAaMZg5Sx/GzhPtTizqi9a51VrkqlqA/SRo
-	3PWvyFNkfr22/3QFoc5xWVzVvXtirElmW63x8Ta16VvPyCbBAZaCQsFWLcnLYuGUncK3Zl
-	v8O5jfSi5BYhbJctjk20RXSRPCgoNhTW5u8RQt1LFg9PSJk8RBY5JDV26GneYA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 11 May 2026 20:26:56 +0200
-Message-Id: <DIG259UJOARG.2WFLZLCSR41AJ@bootlin.com>
-Subject: Re: [PATCH] MAINTAINERS: change maintainers for macb Ethernet
- driver
-Cc: <conor.dooley@microchip.com>, <claudiu.beznea@tuxon.dev>,
- <netdev@vger.kernel.org>, <alexandre.belloni@bootlin.com>,
- <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
- <kuba@kernel.org>, <pabeni@redhat.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-To: <patchwork-bot+netdevbpf@kernel.org>, "Nicolas Ferre"
- <nicolas.ferre@microchip.com>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260507120444.9733-1-nicolas.ferre@microchip.com>
- <177828000904.878212.12911947829161473740.git-patchwork-notify@kernel.org>
-In-Reply-To: <177828000904.878212.12911947829161473740.git-patchwork-notify@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
+	Mon, 11 May 2026 18:30:14 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-c80148ae949so1986005a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 11:30:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778524212; x=1779129012; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OY+ypXJEiq1cE5wHUAR3o/Pxpxd3IRXNAos4tZp/uec=;
+        b=LoKwWbbelE25KFC4toTrAU4MXDmuOVN7PGOOV3SWbe/eG5IigsG0ikhwTyBF8np9Me
+         673gTc1Fg2Zu7QZV6MnPIStuqMXzYu+XoxOuoO1KhEhl2Tr7rqvCaIhQ0Lxz+dRKTg2N
+         AsNIP0kMthL4Wzi2fKKP0bWzWjhYwl9AvXaaayoIueyX5QytvtnyFqvT2BBx6Kk1rttF
+         RETWMoQZE5kyFLKRWWpi1UTf5tBPN0xd1UmKPMOEauXeM+5Xx6XmEI2hsT/uLmY9Gkwb
+         6ax7pUOMe1svUXYDzZQk47DLssMDMxVcRlJbd7DWgu0EuLsGl8hPbK8rt5Cz3yDCD0PZ
+         0piw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778524212; x=1779129012;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OY+ypXJEiq1cE5wHUAR3o/Pxpxd3IRXNAos4tZp/uec=;
+        b=B6aZ7r8KxgMSG8wi50QQjNCLJDocCxn7Y+b3gTgfX6xZ+T5sKLAgWZ0m/1waE/5jG/
+         spPagK56HXbnGuraZlQ78llywU07FRXHU72ogu0IPBKU4EOdtVSfM66yC7WBk1r6/DwI
+         2nnHhtUJyRd2HJog/J+sBXfYVlijPcp2cpojn+/FFEbuHIxPM9DS18QBSUvLd/FzGhMa
+         4RNe8j912nR2D6wSyLW024YdwZwRM6RziUkJpeFo56D07NVst+/kY6lFF6xtxgryCpbL
+         /l/JCVm93350uRvB3dfWcwdUsGbIpbRTCX/By1FZdPdos1EZMfgXZ7w1yqUq5PmmJV23
+         XAPg==
+X-Forwarded-Encrypted: i=1; AFNElJ8SdpqfBN1ZTDeH1hfVVb5gDaZj55x9EpkLJTjlEXFucptrPfcia+dUwBb/FsJS3B1fyaD53rwAFCac23SEO2Wl@lists.infradead.org
+X-Gm-Message-State: AOJu0YycLzmqyYtmmV9nVG+UAEzgz2+lxgMb/49amJ818nieUltr4TUz
+	IDrlUQulolEEYTUNhtwynvKm6eC7Algg31f6PvTsDCEjkBxQiTtTJqo9
+X-Gm-Gg: Acq92OFMLWWO96fIYIAX58Usj8Bi1f3i8Okb1vdFeeVOc77kfTgy1Yxax/pP/2XyRZu
+	NrSNmtaoNbrb+x298QDKLNIyqFkLHTA5xW/2kiPvEfwxgUfIWIjKRIClqWtFn8A50KKix3vUxSt
+	dkE6Op4i8oDxcrk8d2q+AsRaNPdG/gYvyTggLA//mpOM6iINJDoWltRQZETw5m0328KUe+Pw3rL
+	6WiMDqk6V/a3Fmk8ARXogeW1wyX5KHejlZ8ZVx6S+woTvuwXYHXQMZYdJZLhV9w4x4l/ASODYrn
+	VzL3DpHy5I6KwmI/jhVzly5cAacaJemmfufAe2+Ysui3A9dRDEMf9kNArNMcWuvMqhacFR0a54e
+	kSrWEqjhJ+ySyIwFN1uOHH5CjtoBwPC6+spNrWJXQcA0wD05inHxeUxsXZ5mQUB9eQCXtKA3JLn
+	jrAOud0GW5wEcJM1u2KzagdBF2xP1VAJ/gjnaJL5Sa6HKCSpw=
+X-Received: by 2002:a05:6a20:e212:b0:398:7ca0:43a9 with SMTP id adf61e73a8af0-3aa5abe73dcmr27159496637.36.1778524212149;
+        Mon, 11 May 2026 11:30:12 -0700 (PDT)
+Received: from Strong10mede.domain.name ([122.161.50.8])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c8267697d5asm9476220a12.14.2026.05.11.11.30.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 May 2026 11:30:11 -0700 (PDT)
+From: Mayur Kumar <kmayur809@gmail.com>
+To: linusw@kernel.org,
+	afaerber@suse.de,
+	mani@kernel.org
+Cc: linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-actions@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mayur Kumar <kmayur809@gmail.com>
+Subject: [PATCH 2/3] pinctrl: actions: fix SPDX comment style in header
+Date: Tue, 12 May 2026 00:00:02 +0530
+Message-Id: <20260511183002.228520-1-kmayur809@gmail.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_112708_702175_7CEDF16A 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260511_113013_156610_E146550F 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,37 +100,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat May 9, 2026 at 12:40 AM CEST,  wrote:
-> This patch was applied to netdev/net.git (main)
-> by Jakub Kicinski <kuba@kernel.org>:
->
-> On Thu, 7 May 2026 14:04:44 +0200 you wrote:
->> From: Nicolas Ferre <nicolas.ferre@microchip.com>
->>=20
->> I would like to hand over the macb maintenance to Th=C3=A9o, as I'm unab=
-le to
->> keep up with the recent flow of patches for this driver. After speaking
->> with Claudiu, he indicated that he is in the same position as me.
->> To help with this work, Conor has agreed to act as a reviewer.
->>=20
->> [...]
->
-> Here is the summary with links:
->   - MAINTAINERS: change maintainers for macb Ethernet driver
->     https://git.kernel.org/netdev/net/c/0a549298f452
->
-> You are awesome, thank you!
+Header files should use the C-style '/*' block comment for SPDX
+license identifiers. Correct the style in pinctrl-owl.h
+to satisfy checkpatch requirements.
 
-Acked-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
+Signed-off-by: Mayur Kumar <kmayur809@gmail.com>
+---
+ drivers/pinctrl/actions/pinctrl-owl.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Oh wait, I am too late.
-
-Thanks for you work during all those years to both of you,
-and thanks for the kind words Nicolas.
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+diff --git a/drivers/pinctrl/actions/pinctrl-owl.h b/drivers/pinctrl/actions/pinctrl-owl.h
+index dae2e8363fd..feee7ad7e27 100644
+--- a/drivers/pinctrl/actions/pinctrl-owl.h
++++ b/drivers/pinctrl/actions/pinctrl-owl.h
+@@ -1,4 +1,4 @@
+-// SPDX-License-Identifier: GPL-2.0+
++/* SPDX-License-Identifier: GPL-2.0+ */
+ /*
+  * OWL SoC's Pinctrl definitions
+  *
+-- 
+2.34.1
 
 
