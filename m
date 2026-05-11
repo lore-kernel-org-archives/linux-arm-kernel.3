@@ -4,84 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06DFACD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:22:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F13CD4840
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e19MX8CU+PB58q/Ph/E5Ue6KATJv/lo98521aDrCffw=; b=Xq3qjXrHiBVlSOUZGNsI3Gynsm
-	0hsmb9P/ysMzbtfPtPzsdUPEr+hLWDkG4R2fYt6NV9GnxiRibdlp14+2o7wTrIr3lJQZbn4o0ZRQF
-	R3ehuCT0/BvVldIXQda8iDBQFFZR0GZMRPPhtkLSj8jtE26hRBzcAVU9JOXKK0m+7eEPWJFPN+gZJ
-	iENO3XTsWpWOUed1jiP6+8rVQQC+pJxofG0Pb5knTGp+0GOqPHZUQb+PzpG5ojK8v8p/7UQvTo9bn
-	Qz1XbOtybqYBN7e5ICRjM5c/dAgFipsKGOpqm5ZK8kiqmdGs2oyC6wEDcpm24ad4vxe45YkFEJNhm
-	hf0Rq0Vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KRJlnjgoFe7mDl6//dS8Gjps/w53SHPBrqnYZwHQd9U=; b=eESPgPsaDE/hdtCrsTT7azNnkF
+	J9Gh5bkcdOE5RlgwcT2WZkDQs79CIjgwOWWPFDFZLQdNh1bfz49SU5fXhWsM2blpV89LyBw21+tPw
+	vsFU2VimtQsRJQbLuCwACWtPZsfnoNkpkTKSmTwac9q5ceKfNoC0VYB+nSZqjIrkMUWoiSiiAN9fm
+	qoQzSsUga5HmCcaQkSnF48lilmlbxcWgXaWpSwOQFp/qii2I85s0UEna4XuN6AZ3nHeISRgv/VAG2
+	YlouECGhTYsHnN2P3SO2hoEei5e8IdTs9PDOFqTD4RGAqxPi2r+bgiAtw/z+wiN2H2XRpm6PysJbI
+	CPyMPcKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTOg-0000000EBuR-2vyD;
-	Mon, 11 May 2026 16:22:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wMTQU-0000000ECDZ-0xFv;
+	Mon, 11 May 2026 16:24:14 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTOe-0000000EBtx-46C3;
-	Mon, 11 May 2026 16:22:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=e19MX8CU+PB58q/Ph/E5Ue6KATJv/lo98521aDrCffw=; b=MbDZGJJA2zJE49ZweDpsYq5zv7
-	ogcwH0fkFPL14yerWhMPsz8uBalhpCEyWwNS67rjL0TJ7zjyhkuAZGji2y/cSK36XwYNsOGc8C4mc
-	X/oekTvcwC7i7R9MxxeoKu34tVIL0i56KO05xOgkEq7nLk/QP5yqU7pcIufU6klb6rX8vnnOMNg1x
-	H+4e5GYh22QajRFBn5JiCfQ2pQK1YnUMa6pawf7R1NZZ4WRxbVMzj/Q0zrWHddYFx8vYmVA/gkYiX
-	TSpFbUTrnSSgePAYZc8Q+V+zdVeGQ2/kl8/JVsySCFM8/85i0vpE8YNNuRmLINI0XT5/i29n5ON9y
-	cQA3qEUw==;
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTOS-0000000CIik-186B;
-	Mon, 11 May 2026 16:22:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1778516507; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=nQA6Y6JO4vlyV7DDVuzOlG2yGYi5kGtKuIxJfJ9vZW3RaQZ5TZFs3DyVe5doq9QFkadyJ2ahPO27f7Koef+GBoQVlbAmeDB8QXSPFpqxgFpbRPVCC+xaaL+stI5G0Yu/LufPP307oFStV/kWRuSxycNftkCyTN2X5sDq0ItjVGY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1778516507; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=e19MX8CU+PB58q/Ph/E5Ue6KATJv/lo98521aDrCffw=; 
-	b=e62aMLyUokucuOkHduLUqEuFNl3s7rGu+zDhLmM1m/Dq0CPDgyDCzKT9VPciaL9Ug73wcSbzxnKzxe1K0zw+tixBfydWhHN3CWvq/dFxgyqUVol4q03G6RfqTE+jmVRSGLPgwIy+mp9FiTMfVacjZF4Dk1SeQ1/YTM/UZBNz0BU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1778516507;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=e19MX8CU+PB58q/Ph/E5Ue6KATJv/lo98521aDrCffw=;
-	b=aVA5ALESMkFpnXqD29o2M8OghNp+RcroIizOSQCjgentZBrUVJiZmL9Vn5lOeaxg
-	MlriF7P3GeiNYQRhUmrsAjwLNn8j+hJ6+QPvLWWEgPK/LHV3LRiG31DbX4mzeCg0J3X
-	RdMSvQM6vC6BeT8Z5tjqNuzKmPqy0zzm3tu+Quho=
-Received: by mx.zohomail.com with SMTPS id 17785165060441003.195712507633;
-	Mon, 11 May 2026 09:21:46 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Heiko Stuebner <heiko@sntech.de>
-Cc: kernel@collabora.com, linux-input@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: Re: [PATCH v3 0/4] ROCK 4D audio enablement
-Date: Mon, 11 May 2026 18:21:40 +0200
-Message-ID: <wE1x9P2vQlC8kihOSm9uOA@collabora.com>
-In-Reply-To: <20260408-rock4d-audio-v3-0-49e43c3c2a68@collabora.com>
-References: <20260408-rock4d-audio-v3-0-49e43c3c2a68@collabora.com>
+	id 1wMTQQ-0000000ECCt-3sWr
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 16:24:13 +0000
+Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-479d37e7d7fso1484332b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 09:24:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778516649; x=1779121449; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KRJlnjgoFe7mDl6//dS8Gjps/w53SHPBrqnYZwHQd9U=;
+        b=RcY27gcIlbLXMFJ9q137JQAiSqjWZ5NdOIqkSPboxXY10DEsovDxnz3aTM3eUIiyqZ
+         m1rt7tskA+sOjmHrWkt3JARM4wQuhAwAiQMuabH0K0TApWZC8Ta6QM6UNUCZZg3fYZLq
+         D+NheJRg9bJPXvKSQAbANVbip2wftkCBkSGdkQdZ+0DZX+eHDixIr7/+xCMvb9h+frFI
+         nhjD3uzbx/9BUgx/ct/t6FFRzSOyG3AsgxRb4naC7qXEHHJpecVosMWh/IIB9sVfD3PO
+         KUMnq41Hn7+9u6WeIl9jyW8bZ8J3XpqS/0IH6RFZbPoFYX5cg9+bdKw3m2SM1zE544Mo
+         IkZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778516649; x=1779121449;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KRJlnjgoFe7mDl6//dS8Gjps/w53SHPBrqnYZwHQd9U=;
+        b=E43En74SiWKwa8Ol2NY9TvnDwyrpQtnKt72TO/wejdkv8CuQfyGQnmm0vP2jkJ2VBo
+         Wzsl7ttfACHKf/yPeuZgRTDjri/4e7ES4GocceLUPgzrswm557joey1ESHsBKAQEEa28
+         34oYejhh7IHj5sx1DiCyyPtP7Vqn0tkmkYpJMFfx8DedokNHb8Becba68g4s3DogOD8n
+         LMByvrcS+WLX0GTkLK/SpUKx2xg7dXIzeQ7PcvHLpsYYZwKGE3BlEg8ytXPunSN01Kl/
+         hno5Vng1IBvDIvWzvlhTNTfI91PHZ0MJAoCqMlhRMv86FL030Tga2IVvFgE0wXshmFiw
+         k1oA==
+X-Forwarded-Encrypted: i=1; AFNElJ+9aaUF5VJgmOR5nCribzQX8qOMu9wuVqNV9zyF3mRP9yxiOzqMPI1Lir1Q6z6v+2hWGMgldJUKGH3qmUVRlYM5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJNSCP3/5vpKlB7STGFivpPvGekB92j69I57FFV7kbI+rX8Y4k
+	yb3rIc89+tXbWrtWDPonPIAuaf88qpAr7FyCiJdq0x4S1+nmnxjeMNJzN0m7iGZbT18=
+X-Gm-Gg: Acq92OFBgFE/LzX92iFFarNOJMP1UZhZL4vOw4sBFQErk+eDMY6885xxh7cg+pGXBfH
+	lwY41tfk4redGamtq2YayqmBFD8drZBtZK+dKwYAMNelxmAz1UQhI2mzj7jtFBvHVTG//FuKKdp
+	3+aSZsW/0UtxE56fwAoOkRfJIA8EHrZ7nPKqRfxZItShlUYhIx8CHbCzj2OLAhSurbltrhSbV2Y
+	oejIBOTNYm+GTyb2pdPn7N6ktlaOjAzEV1F30o/NorEkdsY+oQ6ty3HsQ7BvYk/QDqDW3i3yt7L
+	0ZWvfOQyV6EQzEvOArbDnFCXQxB8bMEfZ5L4UBDhdQz8ei3S5MAjkmaf5oZe9YKLeOkaSemghR3
+	kSjhfwcEoI6pBMcHrwWh8+XWczIaHIS5fJuDcLIJHNmK10yJGB8gMgQHKXo+b9dQpEG1uB9nfsm
+	VcNgcQWZsU+o+AN1KKPKZu6vQQKD9Gk5saDunor6jaRBIOvo4qRUntP9IawmZ+oc5rKd8Y7/w=
+X-Received: by 2002:a05:6808:e656:b0:467:2a6e:adad with SMTP id 5614622812f47-4804220b8b9mr10538869b6e.11.1778516648981;
+        Mon, 11 May 2026 09:24:08 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:500:591:4577:3439:3a1e? ([2600:8803:e7e4:500:591:4577:3439:3a1e])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e367c04e66sm7104662a34.8.2026.05.11.09.24.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 May 2026 09:24:08 -0700 (PDT)
+Message-ID: <7baf9ca5-50ff-4131-995b-70ee094ed247@baylibre.com>
+Date: Mon, 11 May 2026 11:24:07 -0500
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] dt-bindings: iio: adc: Convert xilinx-xadc bindings to
+ YAML schema
+To: Jonathan Cameron <jic23@kernel.org>,
+ Pramod Maurya <pramod.nexgen@gmail.com>
+Cc: =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260510083219.70224-1-pramod.nexgen@gmail.com>
+ <20260510120141.118057-1-pramod.nexgen@gmail.com>
+ <20260511171554.6541042b@jic23-huawei>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <20260511171554.6541042b@jic23-huawei>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_172209_551109_F8A6B164 
-X-CRM114-Status: GOOD (  25.98  )
+X-CRM114-CacheID: sfid-20260511_092411_003373_C16E88E9 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,78 +110,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre, and other maintainers,
+On 5/11/26 11:15 AM, Jonathan Cameron wrote:
+> On Sun, 10 May 2026 08:01:36 -0400
+> Pramod Maurya <pramod.nexgen@gmail.com> wrote:
+> 
+>> Convert the Xilinx XADC and UltraScale System Monitor device tree binding
+>> from the legacy plain-text format to a YAML schema, enabling automated
+>> validation with dt-schema.
+>>
+>> The new binding covers the same hardware and compatible strings:
+>>   - xlnx,zynq-xadc-1.00.a (ZYNQ hardmacro)
+>>   - xlnx,axi-xadc-1.00.a  (AXI softmacro)
+>>   - xlnx,system-management-wiz-1.3 (UltraScale System Management Wizard)
+>>
+>> Signed-off-by: Pramod Maurya <pramod.nexgen@gmail.com>
+> Hi Pramod,
+> 
+> Something went wrong with your sending of v3. I have two versions sent
+> half a day apart and no idea how they are related.
+> 
+> Anyhow one of them got feedback from Rob's bot so I'll assume we are
+> getting a v4 and wait for that.
+> 
+> Jonathan
 
-On Wednesday, 8 April 2026 19:49:38 Central European Summer Time Nicolas Frattaroli wrote:
-> The ROCK 4D uses an ADC input to distinguish between a headphone (i.e.,
-> no mic) and a headset (i.e., with mic). After some searching, it appears
-> that the closest we can get to modelling this is by sending a particular
-> switch input event.
-> 
-> So this series modifies the adc-keys bindings, extends the adc-keys
-> driver to allow sending other input types as well, and then adds the
-> analog audio nodes to ROCK 4D's device tree.
-> 
-> It should be noted that analog capture from the TRRS jack currently
-> results in completely digitally silent audio for me, i.e. no data other
-> than 0xFF. There's a few reasons why this could happen, chief among them
-> that my SAI driver is broken or that the ES8328 codec driver is once
-> again broken. The DAPM routes when graphed out look fine though. So the
-> DTS part is correct, and I can fix the broken capture in a separate
-> follow-up patch that doesn't have to include DT people.
-> 
-> Another possibility is that my phone headset, despite being 4 rings and
-> having a little pin hole at the back of the volume doodad, does not
-> actually have a microphone, but in that case I'd still expect some noise
-> in the PCM. Maybe it's just shy.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
-> Changes in v3:
-> - bindings: use unevaluatedProperties instead of explicitly mentioning
->   linux,input-type.
-> - Link to v2: https://lore.kernel.org/r/20251215-rock4d-audio-v2-0-82a61de39b4c@collabora.com
-> 
-> Changes in v2:
-> - Drop HDMI audio patch, as it was already merged.
-> - adc-keys: rename "keycode" to "code".
-> - adc-keys: make the keycode (now "code") local a u32 instead of an int
-> - adc-keys: only allow EV_KEY and EV_SW for now. Rename patch
->   accordingly.
-> - adc-keys: Add another patch to rework probe function error logging.
-> - Link to v1: https://lore.kernel.org/r/20250630-rock4d-audio-v1-0-0b3c8e8fda9c@collabora.com
-> 
-> ---
-> Nicolas Frattaroli (4):
->       dt-bindings: input: adc-keys: allow all input properties
->       Input: adc-keys - support EV_SW as well, not just EV_KEY.
->       Input: adc-keys - Use dev_err_probe in probe function
->       arm64: dts: rockchip: add analog audio to ROCK 4D
-> 
->  .../devicetree/bindings/input/adc-keys.yaml        | 17 ++--
->  arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts    | 90 ++++++++++++++++++++++
->  drivers/input/keyboard/adc-keys.c                  | 88 ++++++++++-----------
->  3 files changed, 147 insertions(+), 48 deletions(-)
-> ---
-> base-commit: 8de395f35e79d9168a78504fed495578ec7bac52
-> change-id: 20250627-rock4d-audio-cfc07f168a08
-> 
-> Best regards,
-> --  
-> Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> 
-> 
+I think Rob will have to fix the bot to make an exception for the
+legacy bindings. This should have been called out in the commit message
+as requested in a previous revision.
 
-What's the path forward here? All the patches are reviewed, but it
-has been almost a month without them being applied now.
-
-Which tree(s) would this be applied to, and who should I poke?
-
-Thanks :)
-
-Kind regards,
-Nicolas Frattaroli
-
-
+https://lore.kernel.org/linux-iio/20260220053941.611415-6-sai.krishna.potthuri@amd.com/
 
 
