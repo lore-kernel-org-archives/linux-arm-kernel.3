@@ -4,64 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C2E5CD37B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 12:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181BCCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 12:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8NLZsOmOBqpKCp2TTXmLY4kwNPLhR6E91EsWy8eZFtU=; b=b/IcyIB79eIz+P9NWrg6zcRWNe
-	MSWE+SoEn1Y5oCcfQ7vwsIOHf9QArVQMGCIezy1S+5OhwqvfzmhwpuMiURK/Qukq6FtoI7QeL+K5J
-	Mh28TN35X+vK27KPIQCUgcHd/tCP5Io+pPk3uU1RdZtA+bWxnOU4U67u9we0R+Vj7JKdALM9jSCko
-	e9HJftrbH5VvPRyh2GasFZ2bO2kXDUa5C3VcYFsPzE+I+blsYXk7LTv44fHRDcjlWBKAayfUJQYt/
-	BMuU6zxLDtvGSju6aWofco9+AF/8b5SSqaPPQcbnlCuaOXrmrreolX58MM2hca5avHpiqVeBprXkz
-	5S91+NmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wxp2NTpjEGAl1WZuVMHNm69/goC1fsF9Ilh4ewlLsms=; b=duR6ZnBBexj1DCshJMORlbxXVp
+	oCBSqZtzQth63TMN/siN7v3h+9WXphmyukv1knmtN4R6e2GbVWfApZ3IR/XkQAHJmWa+71z5ElqUP
+	+YMnQqo1c8pyjNO0zYF9iosChoeM5T3tz0Aq2qMsvygqBI2zaqyBNmoLm+PJ5fzYK6V2y5aXOeJNH
+	kzrPy+NidiWL8y3ghZLE8MwaWVcv7v7Z/gDKG7xgMym7wRGU71U7Z4svtoBAUhVHXgM1z1QTtvVpn
+	Eo7xhszCiByOOgzs2lRicDBW3fVv9qaczbbYRRHX6KqjvNHpDN7UujNoU3Cl1pVys4NxPKzgNcicV
+	LQRt7L4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMMr1-0000000Ctx5-0ooI;
-	Mon, 11 May 2026 09:23:11 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wMPSw-0000000DTjT-3ii0;
+	Mon, 11 May 2026 12:10:31 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMMqz-0000000Ctso-0p1b;
-	Mon, 11 May 2026 09:23:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1778491385;
-	bh=VA9PFNMqRLTjBC/kJnfP4N38+4lPlbQDcu/XsZekJgQ=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=h8Ht5IV2ie2MR+vUkMrb7E90m+nW7kYE91fZsWsVFITWFmRfPYGC6GGZWTZqVOpn9
-	 9VP9pPQbsVACT4EBrDsCKb6bpwYoQGrrUdL5VWts7h8OzIwAYWbdDlx/0tQxoowLkd
-	 GeE4aZ4Mf+lRI9piKDJf620n8OYjnLWHCkLT/UHXYXUrwJ02vMvAMH3jD4anmvlPzF
-	 rSLpXL+7BtXl+b4XVw0S8VGXUhVuMkEtNUVpoL6O74qNDkSJ99iT4/mULPrQMw55K8
-	 A+U1N+vQtd3z0DUeoArofefcuJ30PVEb+ljXeX8CUlYnQA+7Y6C3KpXvwT6xE2mplK
-	 DsSRd0jGGt2DA==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F22F417E0CA9;
-	Mon, 11 May 2026 11:23:04 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-mediatek@lists.infradead.org, 
- Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
- Fabien Parent <fparent@baylibre.com>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260505211345.318647-1-l.scorcia@gmail.com>
-References: <20260505211345.318647-1-l.scorcia@gmail.com>
-Subject: Re: [RESEND v2] soc: mediatek: mtk-mmsys: Restore MT8167 routing
- masks lost during merge
-Message-Id: <177849138493.112419.7545938404904806724.b4-ty@collabora.com>
-Date: Mon, 11 May 2026 11:23:04 +0200
+	id 1wMPSs-0000000DTgp-3ITL;
+	Mon, 11 May 2026 12:10:28 +0000
+X-UUID: 5f70d70e4d3211f1bf888deae2ea5f9b-20260511
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=wxp2NTpjEGAl1WZuVMHNm69/goC1fsF9Ilh4ewlLsms=;
+	b=Phz4EIASYeia2G6fqxZ1qVAGtzKmeuilHB2xNvodI1N8hrUnnUuP77LIK70CgrpFifGjisbedQGa4hZamGENHQIJtrmC0eq7nQ08Wc1tgtQZVZqmAzIuf739XSGoqNIfm+7siAZXcY+YqwzCJXZf1OGvs+kbdAe2zE804IHovdg=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:331e15b1-8290-48e4-be37-6a396dc84cfb,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:c4cb6d45-8360-4d24-8500-9b9380fa4b0d,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|865|888|898,TC:-5,Cont
+	ent:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0
+	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 5f70d70e4d3211f1bf888deae2ea5f9b-20260511
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <arnab.layek@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1557240932; Mon, 11 May 2026 05:10:17 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 11 May 2026 20:10:14 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 11 May 2026 20:10:14 +0800
+From: Arnab Layek <arnab.layek@mediatek.com>
+To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Arnab Layek
+	<arnab.layek@mediatek.com>
+Subject: [PATCH v2 0/1] dt-bindings: remoteproc: mtk,scp: Allow multiple memory regions for MT8188
+Date: Mon, 11 May 2026 20:10:03 +0800
+Message-ID: <20260511121004.2984149-1-arnab.layek@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20260506133157.3283204-1-arnab.layek@mediatek.com>
+References: <20260506133157.3283204-1-arnab.layek@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_022309_430634_B21DB17D 
-X-CRM114-Status: UNSURE (   5.26  )
+X-CRM114-CacheID: sfid-20260511_051026_833641_70A41C4F 
+X-CRM114-Status: UNSURE (   8.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,20 +93,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 05 May 2026 22:13:16 +0100, Luca Leonardo Scorcia wrote:
-> The original patch that was sent to the mailing lists included the values
-> for the route masks, but they got lost during merge: add back the full
-> register masks where missing.
-> 
-> 
+This patch updates the MediaTek SCP device tree binding to support
+multiple memory regions for MT8188 SoCs, addressing review feedback
+from v1.
 
-Applied to v7.1-next/soc, thanks!
+The MT8188 SCP requires two memory regions (SRAM + L1TCM) while other
+MediaTek SoCs use only one. This patch follows the proper pattern of
+using conditional schemas with explicit descriptions.
 
-[1/1] soc: mediatek: mtk-mmsys: Restore MT8167 routing masks lost during merge
-      commit: 7d462de9f65b002b439b1b168bf3b5579b0de48b
+Changes in v2:
+- Use conditional schema (if/then in allOf) to restrict multiple
+  memory regions only to MT8188 variants, keeping maxItems: 1 as
+  default for other SoCs (addresses Krzysztof's review)
+- Add explicit item descriptions for each memory region (Main SRAM
+  and optional L1TCM) instead of just setting minItems/maxItems
+- Apply to both top-level and patternProperties
 
-Cheers,
-Angelo
+Based on linux-next, tag: next-20260505
 
+Arnab Layek (1):
+  dt-bindings: remoteproc: mtk,scp: Allow multiple memory regions for
+    MT8188
+
+ .../bindings/remoteproc/mtk,scp.yaml          | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+-- 
+2.45.2
 
 
