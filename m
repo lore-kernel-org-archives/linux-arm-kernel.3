@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E44CD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C51CD484C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yk5tQrKgGzZrvF5G1Yd6pdLqkkKezaJ+GkE5z2uIwsg=; b=3mVV+ajEweApPbbgOkEx7guAs9
-	aOJpYxoK9Q/bh2KhZ4hMw1aCsooI9QiLrmMkti+9djLoq+X7CHo7RbBFJP7V5l+MZEC7qkQzJfMlQ
-	BiWhHkchksAs1Z3GNkVZGxnvO2n/zBfaDQRJAlPuv/m7/d/WVdVpx1TUXJnNItN83r/lBxxvy5Czw
-	4m2GgUaPo+x1TjI5jUuMP35ETOp2KCAzmHVlmdpaIkBXVkcSwOU9QumFI+pb7UMpDl23JDvQoqU03
-	5XOzNkjmTk0k6JdXycrQDMlSxVqwHFxqWkqHERpXGs+1caPZgm6ocxl/0x6/46Uu+CGmB6Xm9wLdu
-	Epg3MCUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=58INz79bQ8VewatGOMRDf2JQ9ssQ32yAiWDpAQl1j6k=; b=nKmA/Ln8pdSj5O
+	fq/o/Adkh+Mx8oKPn9OrHOX6SwHGcah5gTf+DyNAzCNRY/VxLJonkuIK/lEE17xKsRlulOvtEfZzi
+	ys6qWgBL0QjZIGhPZpRwJ/76kL0/loSabm8yXz5U7NruqybLMTIswr0HtKNIh6psmtB6SX1nbEu7c
+	ilIZTLqu0oVXu1xkRqzLH9Nx5gOnEP71iGATfJMAgD7nbGvU6FaE/u5CAqyD5JnMudlsQI3L8Hdlh
+	wCmMWB3f/tQYsvGh5jVOhDuN9gc0H5pCvlGH1XGfhqmkVuBWNx4LX9qT2/XmcdZyLfAwCFyHYzUg1
+	4RH/7HjmKYCxhMKf3xXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTef-0000000EEjQ-2fSA;
-	Mon, 11 May 2026 16:38:53 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wMTgK-0000000EF05-4BrJ;
+	Mon, 11 May 2026 16:40:37 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTee-0000000EEjE-3Bqo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 11 May 2026 16:38:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Yk5tQrKgGzZrvF5G1Yd6pdLqkkKezaJ+GkE5z2uIwsg=; b=fBbrn49osagTXz3cANaylidQm6
-	r9hLqXxV8eYeQq4T7kSpLJPeikFNP4XyyCjtIaSjayLHHmmnZ+o0UQg8dmvlD/WwAvdtmB4X13Zdj
-	Y2elbzkz5ETG6z0hgzq1teoqOHUg4qklaBboVszzO7Z52KbkpATgjNclO1Tv7vCPVBcnKwYBB4aHO
-	U9VJ/Bg7sHCzl4m3xqodWLGHy3UWa9qguqzeJDfnqEBn3TcyElHTDbHUgNsZmwkYMDbD3e/SeEqKW
-	wEqNUozYh9+TT8YCyNEWqEXf29g0faLsoMrf3T+obOmumGAYQ0m3CgLMp5mC7CAzm5U1ymwT6vEnD
-	qQLFMkyw==;
-Received: from 54-240-197-239.amazon.com ([54.240.197.239] helo=edge-cache-179.e-lhr50.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTeb-00000008SIG-3nVc;
-	Mon, 11 May 2026 16:38:50 +0000
-Message-ID: <57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
-Subject: Re: [PATCH] Documentation: KVM: Document guest-visible
- compatibility expectations
-From: David Woodhouse <dwmw2@infradead.org>
-To: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, kvm@vger.kernel.org,
- linux-doc@vger.kernel.org,  linux-kernel@vger.kernel.org, Sean
- Christopherson <seanjc@google.com>, Jim Mattson <jmattson@google.com>
-Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Raghavendra Rao Ananta <rananta@google.com>, Eric
- Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>,  Arnd Bergmann
- <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kselftest@vger.kernel.org
-Date: Mon, 11 May 2026 17:38:48 +0100
-In-Reply-To: <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
-References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
-	 <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-OaKzrBSuo4HYF0RQeXcN"
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1wMTgH-0000000EEy6-3Cah
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 16:40:35 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id A1642C5E150;
+	Mon, 11 May 2026 16:41:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0383060646;
+	Mon, 11 May 2026 16:40:30 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EF8DB11AF9F70;
+	Mon, 11 May 2026 18:40:17 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1778517628; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=58INz79bQ8VewatGOMRDf2JQ9ssQ32yAiWDpAQl1j6k=;
+	b=16EJVQdWMK0IfMwBbRlS3dRFXi/xxt3XgVDZD5LlEpMvrSs6tmj94PMl2L1pxD5BYdCblo
+	H9A8otN/olkHXdXEoqhwyQXHNQzJC2/D96akWuMjwjaa0thQTuMW5zzrjxBON5ZBN2p10d
+	XwBfcVzUafyB8EMB0RM/7ppcXSLE73yC6T/gM1LfTnleyhwKppR3n1S6qEzdbVCRymQLEs
+	m7cPpFUhZhoJviDzd/OAJgRSVgziV2HvCxsFvNlUpbh/646jJpEkwK9oeWO4lG/vzC3Cfv
+	0cCfRk7MTWC9gPG9kjdScxCRp4u6Di/t0cGGP7DR/vululNBvPjlJpIVJ1uCdQ==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH v6 00/11] drm/bridge: handle refcounting for bridge-only
+ callers of drm_of_find_panel_or_bridge()
+Date: Mon, 11 May 2026 18:40:04 +0200
+Message-Id: <20260511-drm-bridge-alloc-getput-panel_or_bridge-v6-0-f61c9e498b3f@bootlin.com>
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAGUGAmoC/53Qy07DMBAF0F+pvMZo/IpTVvwHQtX4kdYojSM7j
+ UBV/h27gKjIJmJ5NaNzR3Ml2afgM3naXUnyc8ghDiU0DztiTzgcPQ2uZMKBNyAZUJfO1KTgygT
+ 7Plp69NN4meiIg+8PMR2+h5IrYEa0HtGRoo3Jd+H91vTy+pXzxbx5O1W+bpxCnmL6uJ0ys7r30
+ yo2t86MAkXrgFmn98i6ZxPj1Ifh0cYzqb0zv5N5u13mRZYCQEuJzEq9lsU/ZVFvVkIbpRqNzq1
+ l+SsrkNtlWWSjdGuFQ+wYrGV1L+vtsqrf0NzsmTDKmj/fWJblE/4ALP9aAgAA
+X-Change-ID: 20260410-drm-bridge-alloc-getput-panel_or_bridge-42501b38eaad
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
+ Marijn Suijten <marijn.suijten@somainline.org>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, John Stultz <jstultz@google.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Michal Simek <michal.simek@amd.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Biju Das <biju.das.jz@bp.renesas.com>
+X-Mailer: b4 0.15.2
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260511_094033_946260_AEC83904 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,162 +101,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series converts all the bridge-only callers of the deprecated
+drm_of_find_panel_or_bridge() API to a new, simpler API that handles bridge
+refcounting.
 
---=-OaKzrBSuo4HYF0RQeXcN
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+All patches acked/reviewed except patches 3 and 4.
 
-On Mon, 2026-05-11 at 17:14 +0200, Paolo Bonzini wrote:
-> On 5/11/26 10:57, David Woodhouse wrote:
-> > From: David Woodhouse <dwmw@amazon.co.uk>
-> >=20
-> > Document the expectation that KVM maintains guest-visible compatibility
-> > across host kernel upgrades and rollbacks.=C2=A0 Specifically:
-> >=20
-> > =C2=A0 - State saved/restored via KVM ioctls must be sufficient for liv=
-e
-> > =C2=A0=C2=A0=C2=A0 migration (and live update) between kernel versions.
-> >=20
-> > =C2=A0 - Where a new kernel introduces a guest-visible change, it provi=
-des a
-> > =C2=A0=C2=A0=C2=A0 mechanism for userspace to select the previous behav=
-iour.
-> >=20
-> > =C2=A0 - This allows both forward migration (upgrade) and backward migr=
-ation
-> > =C2=A0=C2=A0=C2=A0 (rollback) of guests.
-> >=20
-> > These expectations have been implicitly required on x86 but were not
-> > explicitly documented. Harmonise the expectations across all of KVM.
->=20
-> One big part of achieving this on x86 is the handling of CPUID.=C2=A0 Des=
-pite=20
-> all the mess that KVM_SET_CPUID2 is (and sometimes the underlying=20
-> architecture too, as Jim Mattson would certainly agree), KVM is=20
-> generally able to provide a consistent view of its configuration to the=
-=20
-> guest.=C2=A0 This doesn't quite extend to compatibility across vendors, b=
-ut=20
-> it does work across processor generations from either Intel or AMD.
+== Series description
 
-Right. For x86 this is largely covered by CPUID. If you launch a guest
-on a new kernel, using the same CPUID bits as an older kernel, then
-your guest will mostly not see anything new. And will be migratable to
-that older kernel without issue.
+ * Patch 1 (new in v2) makes drm_bridge_put() ignore ERR_PTR pointers,
+   not only NULL pointers
+ * Patch 2 introduces of_drm_get_bridge_by_endpoint() as a replacement for
+   bridge-only calls to drm_of_find_panel_or_bridge(); the new function
+   refcounts the bridge and is simpler
+ * The following patches convert all bridge-only users to the new API
+ * The last patch forbids new bridge-only calls to
+   drm_of_find_panel_or_bridge()
 
-Not *everything* is in CPUID; one recent exception that comes to mind
-is the SUPPRESS_EOI_BROADCAST quirk. But on x86 we preserve the
-existing behaviour of older kernels =E2=80=94 even when that behaviour does=
-n't
-make much sense, as with SUPPRESS_EOI_BROADCAST where older KVM would
-*advertise* the feature, but not actually *implement* it. Nevertheless,
-that remains the default behaviour of future kernels unless userspace
-explicitly opts in to fully enable (or disable) the feature.
+== Grand plan
 
-But this documentation update isn't even asking for that compatible-by-
-default behaviour, even though that is the right thing to do. It's only
-asking that it be *possible* to reinstate the old behaviour, for
-userspace that *knows* about the change and explicitly wants to go back
-to the old way to remain compatible.
+This is part of the work to support hotplug of DRM bridges. The grand plan
+was discussed in [0].
 
-And sadly, KVM/arm64 doesn't even meet *that* low bar.
+Here's the work breakdown (➜ marks the current series):
 
+ 1. ➜ add refcounting to DRM bridges struct drm_bridge,
+      based on devm_drm_bridge_alloc()
+    A. ✔ add new alloc API and refcounting (v6.16)
+    B. ✔ convert all bridge drivers to new API (v6.17)
+    C. ✔ kunit tests (v6.17)
+    D. ✔ add get/put to drm_bridge_add/remove() + attach/detach()
+         and warn on old allocation pattern (v6.17)
+    E. ➜ add get/put on drm_bridge accessors
+       1. ✔ drm_bridge_chain_get_first_bridge(), add cleanup action (v6.18)
+       2. ✔ drm_bridge_get_prev_bridge() (v6.18)
+       3. ✔ drm_bridge_get_next_bridge() (v6.19)
+       4. ✔ drm_for_each_bridge_in_chain() (v6.19)
+       5. ✔ drm_bridge_connector_init (v6.19)
+       6. ✔ protect encoder bridge chain with a mutex (v7.2)
+       7. ➜ of_drm_find_bridge
+          a. ✔ add of_drm_get_bridge() (v7.0),
+               convert basic direct users (v7.0-v7.1)
+          b. ✔ convert direct of_drm_get_bridge() users, part 2 (v7.0)
+          c. ✔ convert direct of_drm_get_bridge() users, part 3 (v7.0)
+          d. ✔ convert direct of_drm_get_bridge() users, part 4 (v7.1-v7.2)
+          e. ➜ convert bridge-only drm_of_find_panel_or_bridge() users
+       8. drm_of_find_panel_or_bridge, *_of_get_bridge
+       9. ✔ enforce drm_bridge_add before drm_bridge_attach (v6.19)
+    F. ✔ debugfs improvements
+       1. ✔ add top-level 'bridges' file (v6.16)
+       2. ✔ show refcount and list lingering bridges (v6.19)
+ 2. … handle gracefully atomic updates during bridge removal
+    A. ✔ Add drm_bridge_enter/exit() to protect device resources (v7.0)
+    B. … protect private_obj removal from list
+    C. ✔ Add drm_bridge_clear_and_put() (v7.1)
+ 3. … DSI host-device driver interaction
+ 4. ✔ removing the need for the "always-disconnected" connector
+ 5. ✔ Migrate i.MX LCDIF driver to bridge-connector (v7.2)
+ 6. … DRM bridge hotplug
+    A. … Bridge hotplug management in the DRM core
+       1. ✔ bridge-connector: attach encoder to the connector (v7.2)
+    B.   Device tree description
 
---=-OaKzrBSuo4HYF0RQeXcN
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
+[0] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com/#t
 
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDUxMTE2Mzg0
-OFowLwYJKoZIhvcNAQkEMSIEIBK7qLbBiC9jHBaEjEOA09/dPU51WtquAt1nFSVxPriYMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAH3alJdBXz9sl
-Ah5W2aAIr1VQgMAOfW7umevzYY9J3915qLWJGH47TglTCUkacoCae0kdlZf8iQQNfzCDo/Ro4lXe
-FBQbr+OwRQ1y9uagIb7xJ1VKVzNurdsx8oYdEO9XpzWh1e1KDZGlBUnLulWBxwJxjJJ2wdFgPb6S
-VuZP9prSScUXG+9iNspz7808BA0LhcqbSEfiaFNUXc7HDxLieeuVDp0+VnHk+v5WQbrXtck05zeg
-Z2+jAbBoSlsQdoVsq8+t82nZmCD9PV+eveidD1wwgDcab7EF8hrid++VtaAZPghmsEZDcm3HJOQ9
-16+EYusuP9EgL3Wd2hwai3bNAmmRUH3TZOTGFj+Pmuq4WIgUDlO629DKsKNxIQ9xr1GPCistM0bz
-K4z8bXg2kCpIcA5LUHuPPuGo9aGCmdVmgPlGY+4h4XKo7Afl9X3eaLQ0jAxHu7kvgVAKZTXhC/+7
-QrGEzdcL7NGbFmGoLswqH/LBxWLcbS3xVl9CZ1lUyDdoAzQHoWdKZRHoZ4PTHMJyNFwCYZ9+SZ3o
-FiEd8zeG1+PxhrYlsHA/yYR37HIfX44c+jhwOutG7RtJFx88HWAqNxpNUjbe2qxc2NWR3+isZWaY
-9YpKU8U9tSuIlVk9LL/Gioups8Dcw7Pusyis1tI/twHDLqDvIuvQrHVMSx4ICi8AAAAAAAA=
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+Changes in v6:
+- Patch 2: fix warning in the no-OF case 
+- Patch 3: fix too-late next_bridge assignment
+- Link to v5: https://patch.msgid.link/20260507-drm-bridge-alloc-getput-panel_or_bridge-v5-0-472b913b5cb7@bootlin.com
 
+Changes in v5:
+- Patch 1: change drm_bridge_put() only
+- Patches 3,10: simplify error management code flow
+- Link to v4: https://patch.msgid.link/20260504-drm-bridge-alloc-getput-panel_or_bridge-v4-0-b578c3daaf10@bootlin.com
 
---=-OaKzrBSuo4HYF0RQeXcN--
+Changes in v4:
+- Fixed patches 3 and 10
+- Minor fixes to patches 1 and 2
+- Removed bouncing addresses yongqin.liu@linaro.org and
+  xinliang.liu@linaro.org from Cc
+- Link to v3: https://patch.msgid.link/20260428-drm-bridge-alloc-getput-panel_or_bridge-v3-0-a537b5567add@bootlin.com
+
+Changes in v3:
+- patch 3, 8, 10: fixed ERR_PTR deref in the -ENODEV case, and removed
+  Dmitry's R-by from those patches as they are changed
+- Added review trailers to the other patches
+- Link to v2: https://patch.msgid.link/20260428-drm-bridge-alloc-getput-panel_or_bridge-v2-0-4300744a1c47@bootlin.com
+
+Changes in v2:
+- Added patch to ignore ERR_PTR values in drm_bridge_get/put()
+- Changed API to return the bridge (or a ERR_PTR) in the return value,
+  not as a double-pointer output parameter
+- Adapted all patches to the new API, dropped Dmitry's review tags as the
+  patches are all modified
+- Removed bouncing addresses from Cc list
+- Link to v1: https://patch.msgid.link/20260413-drm-bridge-alloc-getput-panel_or_bridge-v1-0-acd01cd79a1f@bootlin.com
+
+---
+Luca Ceresoli (11):
+      drm/bridge: drm_bridge_put(): ignore ERR_PTR
+      drm/bridge: add of_drm_get_bridge_by_endpoint()
+      drm/msm/hdmi: switch to of_drm_get_bridge_by_endpoint()
+      drm/hisilicon/kirin: switch to of_drm_get_bridge_by_endpoint()
+      drm/bridge: chrontel-ch7033: switch to of_drm_get_bridge_by_endpoint()
+      drm/bridge: lontium-lt9611uxc: switch to of_drm_get_bridge_by_endpoint()
+      drm/bridge: lt9611: switch to of_drm_get_bridge_by_endpoint()
+      drm/bridge: adv7511: switch to of_drm_get_bridge_by_endpoint()
+      drm/bridge: lt8713sx: switch to of_drm_get_bridge_by_endpoint()
+      drm: zynqmp_dp: switch to of_drm_get_bridge_by_endpoint()
+      drm: of: forbid bridge-only calls to drm_of_find_panel_or_bridge()
+
+ drivers/gpu/drm/bridge/adv7511/adv7511.h     |  1 -
+ drivers/gpu/drm/bridge/adv7511/adv7511_drv.c | 15 +++---
+ drivers/gpu/drm/bridge/chrontel-ch7033.c     | 28 ++++++-----
+ drivers/gpu/drm/bridge/lontium-lt8713sx.c    | 10 ++--
+ drivers/gpu/drm/bridge/lontium-lt9611.c      |  9 ++--
+ drivers/gpu/drm/bridge/lontium-lt9611uxc.c   |  9 ++--
+ drivers/gpu/drm/drm_bridge.c                 | 45 +++++++++++++++++-
+ drivers/gpu/drm/drm_of.c                     | 26 +++++------
+ drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c |  9 ++--
+ drivers/gpu/drm/msm/hdmi/hdmi.c              | 70 +++++++++++++++++++---------
+ drivers/gpu/drm/xlnx/zynqmp_dp.c             | 19 ++++----
+ include/drm/drm_bridge.h                     |  7 +++
+ 12 files changed, 162 insertions(+), 86 deletions(-)
+---
+base-commit: 7af78cfbe2b47cd9ecb61480fb74d64b584d8a94
+change-id: 20260410-drm-bridge-alloc-getput-panel_or_bridge-42501b38eaad
+
+Best regards,
+--  
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
