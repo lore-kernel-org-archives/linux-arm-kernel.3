@@ -4,64 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1AC8CD4843
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C6C3CD37B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ofVHf3w5WiARz71ER/KTmOnBX0xntcTsrAAXz1jyIEw=; b=eARSw4glN0q9czJQ5c6SMwpgTp
-	zusFUyHqaLlyKzlThB8OaFGSZDZ+nZeFCaT3cpEZcoRyKRBqjjkzemi9UVwTaRcVP3stEUs7SUVdM
-	bvScvocrgjrdaUXZj/rOkFT0+xHt6gtOu9vEirKp4IYx+imqWHjciIRnfMsmBISQcenezvtlet/Oe
-	pHgpuTDBoYbB38i6+Eb849F2MrWYeN/AMN+H6aS5Et12uZyvl2Tm2/SU7RB5iteNWg8VdAPwgmzlE
-	p+4snknMkpse0/Ccq0zk4WoW3FuQyx0sXFs8R/wMzQEiYOiovn81QYXUZWoKYtPSwy6sKKUJcoJBW
-	vfaHGnUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UNgY87VaqJb6Z7Z0eDu16xO5cNHcZbmgVwEFK0s2B6M=; b=y3sp7n+nahWtG63cBipZj8od7J
+	PXO0X6dv/PgdM2TNZtyo4ThgoRdblckTMt5/mZINa50WretElSGy2JCKpSeAYQR2Umd0lQdtmEgjr
+	mFloUt42deZxnGZfTP1rvvrLfN80UmFsJe1bf9UHDNPucFPEW+mzskxSGNd+bKf43ho3fiMswieXE
+	ePaxWiGwOR7a9Kneh4kZCbh76gcQQqs2ZX4SSbcTc+KG4mk5giJ0BDiomLf/lWc45yDeMUp4pwsqU
+	p6YySWA2efxaF4y3VYCiHqX/FFvGQ5lSyBB/68ahyBNcB5XYpZcl45UKLElKcmp53OWeO2o+NvrLF
+	3JWlcwBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMODi-0000000DAvY-0gky;
-	Mon, 11 May 2026 10:50:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wMOK1-0000000DCXA-1FDP;
+	Mon, 11 May 2026 10:57:13 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMODN-0000000DAUy-0Hoq;
-	Mon, 11 May 2026 10:50:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 851C160125;
-	Mon, 11 May 2026 10:50:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDC8CC2BCF7;
-	Mon, 11 May 2026 10:50:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778496620;
-	bh=LneUkvBrGbRKC72ASKcRFgsgkPCqnU8Bc0rYM8gw6Pc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gtLzGkixqCYoAhNCyYS/lM60UVkJQP3RoMtNN4j693gPmMXdri0oTG0rAFERvRTv7
-	 NxCjVQXsyFli4zvWWHBsn7Ln5tZJvlC/yWDRAolLGr9FP34fEJ2bYa0kU5OLk2+kTq
-	 8oWm44RHUoOGmIvrRI76cnXSEGdahm1kSLoMJUYFkVKEbTfSXwu+kVRwWPEzNinRs5
-	 T7u+ljhjjcj4rGe227QH5nWdVc0+5jwbAePa7L36lXR8rYrl6nCtaSE9kx/9f4QmfA
-	 gM5r91SXiTXotrtjoEyslBSeotpNVgHddumtMgeuZfcJON6lkk4kKWSwhOsxiQELI1
-	 OFccOGp+uvCiw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 11 May 2026 12:49:37 +0200
-Subject: [PATCH net-next v6 11/12] net: airoha: Support multiple LAN/WAN
- interfaces for hw MAC address configuration
+	id 1wMOJx-0000000DCWL-3Ad0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 10:57:11 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5a62f43b76aso3549302e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 03:57:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778497027; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NYaB1HgsdaHFbFB4esXKeAD68KWvBW6vAmI5Ks18x66hx1n8q/tAPkcPrATz9uaDwK
+         GhknTGEYp4T3lIoh6XWBzLPfwRKwVD8diwaOY2JS01M2fwk4CzJfvqm/uLSmmFMrDELP
+         oQnxNOQsXevYPNK2YwssruY4UjTi/0R4CAf3KfKqSmspxCTCgXrMc8naURsguV7UK/vs
+         nu6z5h0PBIj93QW/uoCDVcsmNOESK+3d1jBpy8OxfVlaY8k/sdnpxf9102Bg3wuWbzdO
+         aT1HCZtZdfURzMJsdXa+ajwZzMuDP0zW8uT6LaDZqH3RcxVoVG0XZBvgv9KAb7M/Op53
+         748w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=UNgY87VaqJb6Z7Z0eDu16xO5cNHcZbmgVwEFK0s2B6M=;
+        fh=bZRUQz01DD/AhqtZmky5ZeBcFjYsdaLeF6Yveifo28g=;
+        b=hffFiSiLzb3PHOq7jpBhev1W438HUT5TQKy4fZgqCTqlqsl+rsZV/1gx0OMCnpUl/Y
+         KX1o4WzhyL5OnZaml52BtL9K80mf7+SPsR9pSi5vPq+zBS5WS31bntWWUM69l03ay/na
+         RowoBfWIMvgoUCkzO08gRyfJok1k8sKKBVP2zEGCLh+2WkQmKAhi8j5ZMsQ9sGIw/S16
+         5lzNg/JjsQ0VJcDSFkBUyiZkOSaeE1YFz1K+7w3irqFqWwkMTu7j7z12yuTai5Vi65md
+         Jki1yKzl/tZYB44dB2zS956xSwO8SzLB9+V/nMLnUQjglebZ/HwBQPTxvghRQXaGP2tl
+         Sq3Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1778497027; x=1779101827; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=UNgY87VaqJb6Z7Z0eDu16xO5cNHcZbmgVwEFK0s2B6M=;
+        b=g0MVkOjcQj8WTOIKovtn4JbtR46Nckrnct0d2W0vlqCwwhfGreb7Tt4ilcNvFlv9op
+         agXRREyFuOJlJ6OHPyI0y2HPVqhfSP4Q/9XI5bkPmx6jufi+nPgXVWpdwPqltbLOqmM6
+         l1Chpz45clxuxQrQWxrFKV83fA09vcUe/Sv3Epszbc9P+RjeM5H4UkDCixdegN+OiZ9x
+         2SbBcSDY0gE/zorzthaEj0cOiZZRi2D7Db5C9wZHchRXEiPQ9DgRw//3m5FDuG4g5By2
+         KUiwXGlXj3+BSAdmZiaF0j0cntYY2ZuFBBaVQnBLHSenHjbfxU/ZFTZMrn9h5ZqE6xMN
+         4fTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778497027; x=1779101827;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UNgY87VaqJb6Z7Z0eDu16xO5cNHcZbmgVwEFK0s2B6M=;
+        b=VWWpfy0jeEqjhfJ6o7mKz3a4Rc5bPXOgyhdIWE5tV01rc2jnVDjhHlvHsFTDfO3x2h
+         brEFct2wjn06QbUJzH81GOh4abZ2pt3bLNpnlvQ1htbv9nbzX5qENc6X+QunizlVQ/cH
+         GQ1IAZ0Oimax30ZGVijjXrgbRR7sqFKpE7oCOtUPt+ga7Ab0a0NP1zDb+7K1NbROJKs8
+         XpN6CHa8HX8Qo8L6T/5k9Z08lu/1LUbu7s5lwvErNAEOXU9WDOlkIu8+L2W9MyOhUMj5
+         yj8zODA6OAG+addaDHYWEVLVXisxRPZcuXtI12K0hxWRtMCw6FVQJgwlzVZPLF5bw0eX
+         c92A==
+X-Forwarded-Encrypted: i=1; AFNElJ8RMTkI8amWldfp9IUFlgImUQ96uLO5hHeE0cSpZjeOQ3hT4Ie31GV4+Muwm4ZXlFefV8Zh1zOQZVtL7oEqrqbH@lists.infradead.org
+X-Gm-Message-State: AOJu0YygCKgIswzp4DiROUo12gyM/fhl4GXA0SFWq1EkuAkrXGja3K+G
+	Pjujl2g7BeUAv2qT/1P5Bpcg2XL0yAw6iI0AyN1k2FEAMhXWqiExkC2wEzKbsG7yDaPJaJmccrK
+	XT1D65wCeoofi2+nwUI7+LnjqN3yAvwOuqO60xfaVQg==
+X-Gm-Gg: Acq92OFBJbYKcnnSStX9RKTxlJG+NgxsHauRRfLMOeQPST5SS3e0GztNHY27LdUV5Yg
+	dr9zl+k8VT92U8YE51UN7E2I+wQCZmfvsvxM/b2AcqwGc0fFVZrfSS2/DMQB2h4shkdUb7m46Ni
+	qRWlfTFeoW27a0I1jhXLQnOBcg+Xt196fDVZZEBZgynJGcfajQWY8r94qwd3RJbGqwXLlgYoRl3
+	noPCcPhrJqU68XJSWaIuBLpzjEMuFvxWpGRSCiPv/8mXV6KxUFh08SxCUzX2VXE3X+YTgyCQE8u
+	gtlXkhiUdTMy43UEV1H00IEaZNUHig==
+X-Received: by 2002:a05:6512:3b97:b0:5a8:837b:3d62 with SMTP id
+ 2adb3069b0e04-5a887ae201amr7135423e87.9.1778497027226; Mon, 11 May 2026
+ 03:57:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260511-airoha-eth-multi-serdes-v6-11-c899462c4f75@kernel.org>
-References: <20260511-airoha-eth-multi-serdes-v6-0-c899462c4f75@kernel.org>
-In-Reply-To: <20260511-airoha-eth-multi-serdes-v6-0-c899462c4f75@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>, 
- Benjamin Larsson <benjamin.larsson@genexis.eu>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- Madhur Agrawal <madhur.agrawal@airoha.com>
-X-Mailer: b4 0.14.3
+References: <20260420-topic-lpm-pmdomain-child-ids-v3-0-c2c40bef238c@baylibre.com>
+In-Reply-To: <20260420-topic-lpm-pmdomain-child-ids-v3-0-c2c40bef238c@baylibre.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 11 May 2026 12:56:30 +0200
+X-Gm-Features: AVHnY4K5Fa8XIOuKEc9fwP0nNsU7-2i8Jr2vSBdRJyGo1uaG2J7xzeVbIFlyyOo
+Message-ID: <CAPDyKFr4TdLP825VrpC+gELKOnHHFK=oZ7x8HWQaKFox8Ur0Tg@mail.gmail.com>
+Subject: Re: [PATCH v3 0/3] pmdomain: core: add support for domain hierarchies
+ in DT
+To: "Kevin Hilman (TI)" <khilman@baylibre.com>
+Cc: Rob Herring <robh@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260511_035709_922530_4E0F4ADF 
+X-CRM114-Status: GOOD (  25.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,183 +116,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EN7581 and AN7583 SoCs provide registers to configure hardware LAN/WAN
-MAC addresses, used to determine whether received traffic is destined for
-this host or should be forwarded to another device.
-The SoC hardware design assumes all interfaces configured as LAN (or WAN)
-share a common upper MAC address, which is programmed into the
-REG_FE_{LAN,WAN}_MAC_H register. The lower bytes of 'local' addresses can
-be expressed as a range via the REG_FE_MAC_LMIN and REG_FE_MAC_LMAX
-registers.
-Previously, only a single interface was considered when programming these
-registers. Extend the logic to derive the correct minimum and maximum
-values for REG_FE_MAC_LMIN/REG_FE_MAC_LMAX when two or more interfaces are
-configured as LAN or WAN.
+On Tue, 21 Apr 2026 at 01:51, Kevin Hilman (TI) <khilman@baylibre.com> wrote:
+>
+> Currently, PM domains can only support hierarchy for simple
+> providers (e.g. ones with #power-domain-cells = 0).
+>
+> Add support for oncell providers as well by adding a new property
+> `power-domains-child-ids` to describe the parent/child relationship.
+>
+> Also adds the first user of the new API: the Arm SCMI PM domain driver.
+>
+> Signed-off-by: Kevin Hilman (TI) <khilman@baylibre.com>
+> ---
+> Changes in v3:
+> - cleanup return codes for add_child_ids()
+>   - < 0: error
+>   - zero means no child domains present
+>   - > 0: number of child domains added
+> - arm_scmi: adopt to new return codes (only <0 is an error)
+> - Link to v2: https://patch.msgid.link/20260410-topic-lpm-pmdomain-child-ids-v2-0-83396e4b5f8b@baylibre.com
 
-Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 75 +++++++++++++++++++++++++++-----
- drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
- drivers/net/ethernet/airoha/airoha_ppe.c |  4 +-
- 3 files changed, 66 insertions(+), 15 deletions(-)
+The v3 series applied for next, thanks!
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 16c0ff9999da..533ffe20f833 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -71,20 +71,67 @@ static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
- 	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
- }
- 
--static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
-+static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
- {
- 	struct airoha_eth *eth = dev->eth;
--	u32 val, reg;
-+	u8 ref_addr[ETH_ALEN] = {};
-+	u32 reg, val, lmin, lmax;
-+	int i;
-+
-+	lmin = (addr[3] << 16) | (addr[4] << 8) | addr[5];
-+	lmax = lmin;
-+
-+	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+		struct airoha_gdm_port *port = eth->ports[i];
-+		int j;
-+
-+		if (!port)
-+			continue;
-+
-+		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
-+			struct airoha_gdm_dev *iter_dev;
-+			struct net_device *netdev;
-+
-+			iter_dev = port->devs[j];
-+			if (!iter_dev || iter_dev == dev)
-+				continue;
-+
-+			if (airoha_is_lan_gdm_dev(iter_dev) !=
-+			    airoha_is_lan_gdm_dev(dev))
-+				continue;
-+
-+			netdev = iter_dev->dev;
-+			if (netdev->reg_state != NETREG_REGISTERED)
-+				continue;
-+
-+			ether_addr_copy(ref_addr, netdev->dev_addr);
-+			val = (netdev->dev_addr[3] << 16) |
-+			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
-+			if (val < lmin)
-+				lmin = val;
-+			if (val > lmax)
-+				lmax = val;
-+		}
-+	}
-+
-+	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
-+		/* According to the HW design, hw mac address MS bits
-+		 * must be the same for each net_device with the same
-+		 * LAN/WAN configuration.
-+		 */
-+		return -EINVAL;
-+	}
- 
- 	reg = airoha_is_lan_gdm_dev(dev) ? REG_FE_LAN_MAC_H : REG_FE_WAN_MAC_H;
- 	val = (addr[0] << 16) | (addr[1] << 8) | addr[2];
- 	airoha_fe_wr(eth, reg, val);
- 
--	val = (addr[3] << 16) | (addr[4] << 8) | addr[5];
--	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), val);
--	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), val);
-+	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), lmin);
-+	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), lmax);
- 
--	airoha_ppe_init_upd_mem(dev);
-+	airoha_ppe_init_upd_mem(dev, addr);
-+
-+	return 0;
- }
- 
- static void airoha_set_gdm_port_fwd_cfg(struct airoha_eth *eth, u32 addr,
-@@ -1814,13 +1861,18 @@ static int airoha_dev_stop(struct net_device *netdev)
- static int airoha_dev_set_macaddr(struct net_device *netdev, void *p)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+	struct sockaddr *addr = p;
- 	int err;
- 
--	err = eth_mac_addr(netdev, p);
-+	err = eth_prepare_mac_addr_change(netdev, p);
- 	if (err)
- 		return err;
- 
--	airoha_set_macaddr(dev, netdev->dev_addr);
-+	err = airoha_set_macaddr(dev, addr->sa_data);
-+	if (err)
-+		return err;
-+
-+	eth_commit_mac_addr_change(netdev, p);
- 
- 	return 0;
- }
-@@ -1925,6 +1977,7 @@ static int airoha_dev_init(struct net_device *netdev)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
- 	struct airoha_gdm_port *port = dev->port;
-+	int err;
- 
- 	switch (port->id) {
- 	case AIROHA_GDM3_IDX:
-@@ -1949,12 +2002,12 @@ static int airoha_dev_init(struct net_device *netdev)
- 	}
- 
- 	airoha_dev_set_qdma(dev);
--	airoha_set_macaddr(dev, netdev->dev_addr);
-+	err = airoha_set_macaddr(dev, netdev->dev_addr);
-+	if (err)
-+		return err;
- 
- 	if (!airoha_is_lan_gdm_dev(dev) &&
- 	    (port->id == AIROHA_GDM3_IDX || port->id == AIROHA_GDM4_IDX)) {
--		int err;
--
- 		err = airoha_set_gdm2_loopback(dev);
- 		if (err) {
- 			dev->flags &= ~AIROHA_PRIV_F_WAN;
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index a2241520f2e2..364ca76eb3a6 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -684,7 +684,7 @@ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
- int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_data);
- int airoha_ppe_init(struct airoha_eth *eth);
- void airoha_ppe_deinit(struct airoha_eth *eth);
--void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev);
-+void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8 *addr);
- u32 airoha_ppe_get_total_num_entries(struct airoha_ppe *ppe);
- struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
- 						  u32 hash);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 194cd50b2c74..531ce33528b9 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -1482,12 +1482,10 @@ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
- 	airoha_ppe_foe_insert_entry(ppe, skb, hash, rx_wlan);
- }
- 
--void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev)
-+void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8 *addr)
- {
- 	struct airoha_gdm_port *port = dev->port;
--	struct net_device *netdev = dev->dev;
- 	struct airoha_eth *eth = dev->eth;
--	const u8 *addr = netdev->dev_addr;
- 	u32 val;
- 
- 	val = (addr[2] << 24) | (addr[3] << 16) | (addr[4] << 8) | addr[5];
+Kind regards
+Uffe
 
--- 
-2.54.0
-
+>
+> Changes compared to initial RFC[2]
+> - dropped RFC
+> - rewrote the parse/add function to use iterators/helpers from of.h
+> - add a remove function for cleanup
+> - use child domain language instead of subdomain
+>
+> This idea was previously discussed on the arm-scmi mailing list[1]
+> where this approach was proposed by Ulf, and then an initial RFC[2]
+> implementation was made.  From there, it was suggested by Rob[3] to
+> use a nexus node map instead, which led to several more versions
+> attempting to implement that, culminating in v5[4], where Rob and
+> Geert then had second thoughts about the power-domain-map approach.
+>
+> Therefore, I've gone back to the approach in the initial RFC[2] to use
+> the child-ids approach.
+>
+> [1] https://lore.kernel.org/arm-scmi/CAPDyKFo_P129sVirHHYjOQT+QUmpymcRJme9obzKJeRgO7B-1A@mail.gmail.com/
+> [2] https://lore.kernel.org/all/20250528-pmdomain-hierarchy-onecell-v1-1-851780700c68@baylibre.com/
+> [3] https://lore.kernel.org/all/20250528203532.GA704342-robh@kernel.org/
+> [4] https://lore.kernel.org/r/20260122-pmdomain-hierarchy-onecell-v5-0-76855ec856bd@baylibre.com
+>
+> Changes in v2:
+> - dt-bindings: fix warinings from make dt_binding_check
+> - scmi_pm_domain: switch to dev_err()
+> - pmdomain: core: fix locking around add/remove domains
+> - pmdomain: error unwind if any children fail to be added
+> - pmdomain: fix node reference leak
+> - pmdomain: ensure power-domains and child-ids properties are same
+>   length before iterating
+> - Link to v1: https://patch.msgid.link/20260310-topic-lpm-pmdomain-child-ids-v1-0-5361687a18ff@baylibre.com
+>
+> ---
+> Kevin Hilman (TI) (3):
+>       dt-bindings: power: Add power-domains-child-ids property
+>       pmdomain: core: add support for power-domains-child-ids
+>       pmdomain: arm_scmi: add support for domain hierarchies
+>
+>  Documentation/devicetree/bindings/power/power-domain.yaml |  34 ++++++++++++++++++++++++++++++++++
+>  drivers/pmdomain/arm/scmi_pm_domain.c                     |  14 +++++++++++++-
+>  drivers/pmdomain/core.c                                   | 167 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/pm_domain.h                                 |  16 ++++++++++++++++
+>  4 files changed, 230 insertions(+), 1 deletion(-)
+> ---
+> base-commit: f7b88edb52c8dd01b7e576390d658ae6eef0e134
+> change-id: 20260310-topic-lpm-pmdomain-child-ids-e3d57ae57040
+>
+> Best regards,
+> --
+> Kevin Hilman (TI) <khilman@baylibre.com>
+>
 
