@@ -4,102 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383AACD484A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 15:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DFF3CD37B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 15:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vmwb7DAwmyvjAf1IkP/b/C+gnygE+nYIl1lFsfQt/Ug=; b=AYG0Wji6voO4L+CuNS25Cu2V6D
-	NHZvkC3KnBQVNa5iX0s0ipBpeFjLdzk1xC0j/L7sqpFEmWGq2OX7+mNyOUskRXCRcQ81d7KIxphVo
-	PBAbqHffCOcvy86w/IndzjtF+VinOYH9ucvAfGxkpA186FSL+FaPauxdhUpNMRjEAze4WTFN4kZ6u
-	mr7GPu/EUwad1/4WCvzHrev8AHCnmRgQ1DiH3KycvFsthH0tfOGDzjkwdNZnulwfILbT6XCG7FOBX
-	KENkbrlWGqnR1Wh4uAG8VSW76TonneG/1I8cxaliOnUuf10OuImZeGv5g/hL6o3QrPPYHuvDwNWnZ
-	773o9Y/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZyNVSOySI1gHk/c4KPMZ7BfG0sSOsQCTLlCMWlIPC8k=; b=Rhu00VETObkQOmgkbVLvtZ6kvv
+	eVICymCfZZ5qWWQsJfPeHjZ1bcdvTSRUsUfpa1AreIwQoKQDNnbPFhIKR4Ff3prtVLWaG1Ys9Y+XF
+	SXTW6q0m1q3gTnNvzt5EqNAdHoAFhDRSK5HJXrZUC+hAqR32kloRglULTn34XUdXNxq6tLsmStusN
+	Q7WsoipM+pbRGHrXSdeVUEqIMBPqdL6ybCwtGXnl2mRcCIOOlSCIPF7sxzkcIVYGhdeyMHyWH+jzk
+	B+FkGtPAGZ3bMK9YM7B0vnjSLoZlhNYU3Xc6+UGM6iftvzHa9GZlnZffk7DrDv6Xbll/j/NWVrV4D
+	YU6vY9Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMSkY-0000000E4gy-2dTp;
-	Mon, 11 May 2026 15:40:54 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMSkW-0000000E4fH-0XQV
+	id 1wMSlf-0000000E57R-1nRu;
+	Mon, 11 May 2026 15:42:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMSlc-0000000E56I-1D6Y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 15:40:53 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5a88db610ccso5179355e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 08:40:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778514050; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QNatGu4BqhaIT7o/BxgR1fjdVK/iQ36x/iA7bH7I4u7CWcDifa5MoQdbGUUqrCYpcc
-         lFoq3wobhVaui1qNTmcHMA6UGSknTaM3+TWpDQdxSj2aF55NOkxRUn3szQl4imXL5kw+
-         jWKPjzOdjswbkLbreqfGavD2sIxRfOn+ZLPZ73QfHjfvT8SMtOXyN8LKz8Vhoo8em0+t
-         tPxXdozGhhmkSPbnDziUBIH+9c0PR4HAb34oYKv7BOc3crkzaYcdz1xhXPEH9DEj42Ig
-         ac2r8vN5QDl42z3Ai8e16UDfuNSwbXZQ/yoX+zDe8IXKBQmt9xhilAU7GgjT+883Jksw
-         qnCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=vmwb7DAwmyvjAf1IkP/b/C+gnygE+nYIl1lFsfQt/Ug=;
-        fh=84XH+3YZMXXNhMGnCivIusPsAkhK7OkU+R8+3PzB2CA=;
-        b=JR7zXqbrZvD3Z/qW+OfkfN5Fd656ImDl/b/1SLV8PmO8v2c5FW9U20Siesmj6FxklB
-         uKBdJyqvGewbGOOyAcX5cO9kWPJAsSU/1TxmaLNBJG9zm4Jt3Nq1fvBfy+IE13DbXVxf
-         SHbK4VHetLJcZGdOvhiwfjyq1tvqY84/H0W5T1SxnSIId6+pPxZPlJQiTFW9pKr2z9Ij
-         /E2YY5eLYYUmdownfuEtOPooc74MNcUPjuQ3F/GPSvqQPM2ObuP+WpyFrD/PcJEVzHSA
-         ijeE/2UN5lyiOYs8nqB74+mx0HY7X4GLmWEjCYDzHKfZ4sgKIIiYBQB3s5CFTgvXFXbE
-         b0LA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778514050; x=1779118850; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vmwb7DAwmyvjAf1IkP/b/C+gnygE+nYIl1lFsfQt/Ug=;
-        b=WHBB1EL3bNMdSc1hUySC01Z7PlkIx/aeHYDIRccwRUvnXT1v4MYzvKz/FLktk+rLWw
-         +SKqXNJmMyflwBEjShwPTKGrolqY79rt/2lU3N8Lb3Hol7cWSl9nk8mifus/4XaHiftB
-         Xj1AL3f4lmSwxqSgGpJ+GqwU90MdNFjJhPpBKi/lahECaf+BAz7U6cYhRj/0P0RF6JlP
-         UBHBTh1PSvC4w4OWaPc0hQbJsaQl5SbGeele70ciVWdzgCw4tPl7og0agzThTVDf3Z8r
-         PY4DNCWgx9HxrZaFXl2aR6dp/iyzO4gRkBx1afXhPAMs2uy06141z2eHGGGS3e2/NxCr
-         yzIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778514050; x=1779118850;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vmwb7DAwmyvjAf1IkP/b/C+gnygE+nYIl1lFsfQt/Ug=;
-        b=jbvPEU7QBRZTzD4hKQGvqPOq9gflxne/m8XmmFHjxanWErIk0PyzxQECXUMMuXahc7
-         q49K6iQKGlU78GhmundsMuzThZEbCOgd0tHUrBJ+YmjbZi987LiAaiR5pWt9R7Zo5My1
-         3h5ZBVQnMBvGNDX5xzi8qYNsNHF6UKbCCK1KEFSDhWODZJgLUaYcylb/9PDumdHEOPl6
-         xOeO84+iwbipt9a7HTnkv+0qYIAxSfMg8sX48CswtnrE3oYU18cPPRWFw749+8zL126U
-         1F4tOMBkNDMDqYybJSCemmhkSx6QgA+8rCBhek/xaa2aWZxSR/JZdhNhgiHaihGuAahn
-         ZoPw==
-X-Forwarded-Encrypted: i=1; AFNElJ89v0aW+RJcnrHSdENrptQBTfY4adXI6TZYUOU2VCnohazgldQ1Zp6q1FhhdwWDttArQBJZ7/nEIun799JnOhh/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFCfEaIXd8LlbuKj3SNETehVaskpV3gG3t8DL2yKX/+EgNsgFA
-	CMzaCtkZL/vr2WvTxbq49jWtlQoT7gRzshsXwyUfdCpLXWuWaEJ2HDh9T2b8nTPgATV5giiyPfS
-	OlNL8rmGBZUjmLtptNvGLMKzSr6GQIw5In+4yelAtAA==
-X-Gm-Gg: Acq92OFKo0KxD+u5hapoJAGP99+szZW/qILR++MVUZTYOIvXvYkLbSHCTb7Eh73g6+2
-	CAYje9OYSw34tU4FxyGDCJnBCqffB3t0SkrB6VnCMA2ZRsfNCYBKMHYjUOGOQfc7dEm4CHk4c9e
-	W0nowjqGOJaCluy1tah66FCbsnX4Dl9wNxGkif38de0DEXZItGuRb2/4TC41xdjAESE1Drg9zhl
-	xLsP2vMUqacqYYkpZMOQWCTVuOfYWFOFv6kklaOdb3Mf2NqBNvsHpB4aabOFgN7p9dMP8ncExbm
-	C7QvRf9CIjkWf0z9gfQ=
-X-Received: by 2002:a05:6512:3d8a:b0:5a8:a558:63b3 with SMTP id
- 2adb3069b0e04-5a8b709b088mr2920906e87.30.1778514050154; Mon, 11 May 2026
- 08:40:50 -0700 (PDT)
+	Mon, 11 May 2026 15:42:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2421F2BC3;
+	Mon, 11 May 2026 08:41:53 -0700 (PDT)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4E05B3F836;
+	Mon, 11 May 2026 08:41:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778514118; bh=01Py6kniqEDmy2AGjySPUP6siF53kjqGVEBh9dl5R08=;
+	h=From:To:Cc:Subject:Date:From;
+	b=EHFfYEIqahMR4Pr7LUZdZuNfpY4PK0wHbiQA8hx0VrebE4ciRHSlwGTrBCTFwNEfW
+	 /5auBtv4S6YeK+S4Jvqewz0xfETNb8RaMi0JIR9yQnN6ufYExMzwLzwcYkp4nIeIlW
+	 T32AG+GCI9viUTjR16CjNkq85AOr/FUNVJR9T08Q=
+From: Ben Horgan <ben.horgan@arm.com>
+To: ben.horgan@arm.com
+Cc: amitsinght@marvell.com,
+	baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com,
+	carl@os.amperecomputing.com,
+	dave.martin@arm.com,
+	david@kernel.org,
+	dfustini@baylibre.com,
+	fenghuay@nvidia.com,
+	gshan@redhat.com,
+	james.morse@arm.com,
+	jonathan.cameron@huawei.com,
+	kobak@nvidia.com,
+	lcherian@marvell.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	peternewman@google.com,
+	punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com,
+	reinette.chatre@intel.com,
+	rohit.mathew@arm.com,
+	scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com,
+	zengheng4@huawei.com,
+	x86@kernel.org
+Subject: [PATCH v3 0/5] arm_mpam: resctrl: Counter Assignment (ABMC)
+Date: Mon, 11 May 2026 16:41:42 +0100
+Message-ID: <20260511154147.557481-1-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260506190538.596-1-sozdayvek@gmail.com>
-In-Reply-To: <20260506190538.596-1-sozdayvek@gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 11 May 2026 17:40:02 +0200
-X-Gm-Features: AVHnY4IfIknd1YNlE1aq0DnMQUiNiMoH11k9pjuFU-tNvWZguuBa9VK8yUFjorc
-Message-ID: <CAPDyKFp6YvmTF+OL5WqTfaZ_=+csitJoHiK39An0gM=NPLpU1g@mail.gmail.com>
-Subject: Re: [PATCH] mmc: davinci: avoid NULL deref of host->data in IRQ handler
-To: Stepan Ionichev <sozdayvek@gmail.com>
-Cc: ulfh@kernel.org, brgl@kernel.org, linux-mmc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_084052_248992_A516B458 
-X-CRM114-Status: GOOD (  24.17  )
+X-CRM114-CacheID: sfid-20260511_084200_371807_95FF01C7 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,82 +91,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 6 May 2026 at 21:05, Stepan Ionichev <sozdayvek@gmail.com> wrote:
->
-> mmc_davinci_irq() returns early only when both host->cmd and
-> host->data are NULL:
->
->   if (host->cmd == NULL && host->data == NULL) {
->           ...
->           return IRQ_NONE;
->   }
->
-> So we may legitimately reach the rest of the handler with
-> host->data == NULL (and therefore data == NULL). The DATDNE branch
-> already guards against this with an explicit "if (data != NULL)"
-> check, but the subsequent TOUTRD ("read data timeout") and
-> CRCWR/CRCRD ("data CRC error") branches dereference data
-> unconditionally:
->
->   if (qstatus & MMCST0_TOUTRD) {
->           data->error = -ETIMEDOUT;        <-- NULL deref
->           ...
->           davinci_abort_data(host, data);
->   }
->
->   if (qstatus & (MMCST0_CRCWR | MMCST0_CRCRD)) {
->           data->error = -EILSEQ;           <-- NULL deref
->           ...
->   }
->
-> If either bit is set in qstatus while host->data is NULL, the kernel
-> will crash inside the IRQ handler. smatch flags this:
->
->   drivers/mmc/host/davinci_mmc.c:933 mmc_davinci_irq() error: we
->     previously assumed 'data' could be null (see line 914)
->
-> Gate both branches on a non-NULL data, matching the existing pattern
-> used by the DATDNE branch.
->
-> No functional change for callers where data is non-NULL, which is
-> the only case in which these branches did meaningful work before
-> this change.
->
-> Signed-off-by: Stepan Ionichev <sozdayvek@gmail.com>
+Removing the rfc tag as the resctrl precursors [1] have been queued in tip
+x86/cache. Due to that dependency, it would be good for this to also go through
+x86/cache.
 
-Applied for next, thanks!
+This series adds support for memory bandwidth monitoring.
 
-Kind regards
-Uffe
+Please review and test.
 
+Changelogs in patches.
 
-> ---
->  drivers/mmc/host/davinci_mmc.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/mmc/host/davinci_mmc.c b/drivers/mmc/host/davinci_mmc.c
-> index 42b0118a4..42ad87aa4 100644
-> --- a/drivers/mmc/host/davinci_mmc.c
-> +++ b/drivers/mmc/host/davinci_mmc.c
-> @@ -928,7 +928,7 @@ static irqreturn_t mmc_davinci_irq(int irq, void *dev_id)
->                 }
->         }
->
-> -       if (qstatus & MMCST0_TOUTRD) {
-> +       if (data && (qstatus & MMCST0_TOUTRD)) {
->                 /* Read data timeout */
->                 data->error = -ETIMEDOUT;
->                 end_transfer = 1;
-> @@ -940,7 +940,7 @@ static irqreturn_t mmc_davinci_irq(int irq, void *dev_id)
->                 davinci_abort_data(host, data);
->         }
->
-> -       if (qstatus & (MMCST0_CRCWR | MMCST0_CRCRD)) {
-> +       if (data && (qstatus & (MMCST0_CRCWR | MMCST0_CRCRD))) {
->                 /* Data CRC error */
->                 data->error = -EILSEQ;
->                 end_transfer = 1;
-> --
-> 2.43.0
->
+[1] https://lore.kernel.org/all/20260506082855.3694761-1-ben.horgan@arm.com/
+
+Description from the initial cover letter:
+
+The MPAM counter assignment (ABMC emulation) changes that were dropped from
+the resctrl glue series due to some missing precursors in resctrl. Counter
+assignment enables bandwidth monitoring in systems that have fewer
+monitors than resctrl monitor groups.
+
+rfc v1: https://lore.kernel.org/lkml/20260225205436.3571756-1-ben.horgan@arm.com/
+rfc v2: https://lore.kernel.org/lkml/20260319165540.381410-1-ben.horgan@arm.com/
+
+Ben Horgan (2):
+  arm_mpam: resctrl: Pre-allocate assignable monitors
+  arm64: mpam: Add memory bandwidth usage (MBWU) documentation
+
+James Morse (3):
+  arm_mpam: resctrl: Pick classes for use as mbm counters
+  arm_mpam: resctrl: Add resctrl_arch_config_cntr() for ABMC use
+  arm_mpam: resctrl: Add resctrl_arch_cntr_read() &
+    resctrl_arch_reset_cntr()
+
+ Documentation/arch/arm64/mpam.rst |  17 ++
+ drivers/resctrl/mpam_internal.h   |   6 +-
+ drivers/resctrl/mpam_resctrl.c    | 306 +++++++++++++++++++++++++++---
+ 3 files changed, 306 insertions(+), 23 deletions(-)
+
+-- 
+2.43.0
+
 
