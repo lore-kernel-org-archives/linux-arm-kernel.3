@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593EDCD37B2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF1C6CD37BE
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 15:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,95 +12,99 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pWVMeqj0xlUh1jkgFkzLBpyzkrq/g1Uwz9H+NMuWTPs=; b=SWEXHcYQzvyUDWHMDqDzrpdb/O
-	5JwJjpA/eo/Q7i3v/NJ+aGEeGyFOeVfZSe4Vi4jL0etqBcVojpI1oDy3DeNxnBnntulsI8dY9/aPe
-	fl0iyBmUHUfvkyh6mMYBQvwjQSoYnXa+WISxqbTHr4GZSZqgMrcMemHvvYZnvvVbMHtHdoVHvRYGH
-	bv217mN1JXFcpRaGkwGdq/jQ1O4bROi8jPoQoTtGGhinQq/1zsbLAWYBQ2z9oiUj8A8TDoLelEemM
-	zyZhAhkRYR6OTlGXPh2K5QAmCjt+Ign8Wpz5cdFkAb9ZWSSJQExnmQ9XfwAjkSxK6dUt02hZ8MHu1
-	olxZydjg==;
+	bh=3JWMhWSTBa1St/FT9EYONC8eNpWkZ18pjlnscArsjYQ=; b=zHAthjpIXLt7Gs84haS+nygg8k
+	XraRbF4keCGMJ3Q7eN2HNE+Nr5AJ41K9zxetMizj2u1wPNFGq+/hWoOSR22xtB8Ihjmlk9RSdcGoq
+	ECCYoei/difWmh+rRSWiacFI+gYsCF3HWEn6C38lnsIl7eZsFOE4eM6X6Qy81RWhxcA78VURL4mtM
+	6ABgxpmsNPzVzQY/V4PtihjN8BnEEfpN4eL3MRawl6Nx1xUG+OsadK+wrA424Did5lk5uYl5UH6bu
+	JRC+j0jBlCGVetpIWXBcn0VcUekNPb934B6WaoXE+802xnU55GmwptqRstLOkP+az7GQWn0K4dVsv
+	eMQHVtYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMSkY-0000000E4gb-1tul;
+	id 1wMSkY-0000000E4gL-1M1H;
 	Mon, 11 May 2026 15:40:54 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMSkS-0000000E4cs-10T6
+	id 1wMSkR-0000000E4cg-1q7H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 15:40:49 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5a742b8b72eso4440567e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 08:40:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778514046; cv=none;
+	Mon, 11 May 2026 15:40:48 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-393d6025f99so38759081fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 08:40:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778514045; cv=none;
         d=google.com; s=arc-20240605;
-        b=iiDmCkT/TPiHieIODqEQVXkVt/sNIRRmox+/Tv7Btz+u3CyY85GMyL72crLNgypThj
-         9IZ+r/v1daS7JuhYJwHra6zusVdO5S73n8O4/J33BIQx7SidCRKQUSZANkmYccm3JUiz
-         V58YzuIWpHgS2eyVuN1dtjJnOsIBgu0eHHTxdnzlPNL1Qqs3/pZU3NrNGmOV+nV7o2Ms
-         +uk6Z9RFfhgAHEG9EeUN8FTfpaYzTDdJlbxDlsWRgQmQ7Yv4/67CfTbBQTeQQdxt1dd+
-         Rn5wK4AvSdeoAoV8ofUQwguIIRuMOEZXWBrnynZlvBxybP3Zdsxv1jGQwYsLIkRK8Hsg
-         34WA==
+        b=RiseiTJat1YdJ1jwB/9VAGa2GduWTBQ6/9KN015FM9+DFRtMJ+qa3kVnQLbDFT6KeQ
+         al6OSuMntmcJD45t0bucwXHS8BEphf/nnsJvpSVTQkm1IFAbwDl+MvS/MWxw9cIDvwxE
+         mTeiC/Nr+WrNwJHE0znVLVhN4paofLsB7qoUBx0oxhjTcked5iNyMOyC3z0vKMXba3+5
+         bS4egsDmq/Ll9CPLhU0z5O/ZqwCaOaQK2d74SmDdbI8fDdzBodzK8fkzlhIhLyxd/MpA
+         CeQhCOqgoZu4WUrzcrQoDnk9ferC94v9ZCKujE0VuDUao7UcCUkGeJwGjrY3dGTysFFu
+         4rCA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=pWVMeqj0xlUh1jkgFkzLBpyzkrq/g1Uwz9H+NMuWTPs=;
-        fh=ssE2xwkXKWXhWJR3d2hTlb6Saj1j+Jevdjm0RlQbwZ8=;
-        b=DTLo3uiFH/YwlaJdu9I8t0hdnfBvuXdC2hxcb1q/A1uyVeeZ7xgOKW3RFTtXBQWTzo
-         OEleLRtAp4iRBKnnL42yZqHwu2IvwLNvAdkt7z98JW9LP+08YJxXBqgsXi2nvEwd9bmi
-         osDBUMBGO2GsCSvXEvdYxjaW0+9OGq4GlG2pRQOa+lCbuDSMDuAJx/VGdoSG7mGCmfuU
-         gTMTMaBkcJ61iTlMLXhDrqfbLh0aM8RdQ1PNMBs1BWiMXap7mxhyR3DGjl90gZuK5Zh+
-         ntXTKaBRnWEkg5Mnc1EbvC5LrX+G3rOu+Q8Kk/sU/jdzHHHXtqhjpDu8hRnWF2G4QqnC
-         +gyw==;
+        bh=3JWMhWSTBa1St/FT9EYONC8eNpWkZ18pjlnscArsjYQ=;
+        fh=CcVIFMthLY/hxPGKl8x4JY4dn+XNluPajOg4Ql8KRmg=;
+        b=FXCCWiLaEB7KBwCBw+cqq38LLoFU6PYfShDuqKbH9kn8qw6CERM0HnoyOvbjXVbexf
+         8+PxFwyJYneUSGPv8rlhpnkPnLT9jIzxTjCS/8AG8acdeuT4TYiPXgiMblCAm8qjjbx1
+         R2cT7Xb1vxheVKLlLN4Wh4jD+CvCY40Ix+CCNGc8vd3N2brzTcyFc9D3ntmTx2onnrkf
+         pnGV1U1ZdhcO8zO4ud7NsLm6VixdnLGSmh1krdIGozfZcbqpfRMf5nPUwYk5/aXrioh0
+         shq4HVqous03iuUk7161/HlTGox6I+FlLaUG7RIMEzWick2ER7bOK6ga1A46q0/DWIy7
+         1avA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778514046; x=1779118846; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1778514045; x=1779118845; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=pWVMeqj0xlUh1jkgFkzLBpyzkrq/g1Uwz9H+NMuWTPs=;
-        b=Q9Wv6U93kwOjSyQ/i9ClORuFit4OI8n35aV5kIOMBv3Zy4HSCq/9aXVuwPWIsUxFqx
-         yvQ3EXKyyoIiZxgdqTjDGgxYnKUVO6bMyO4v0rxugjdIN7jivum1/Vxt/nNWYIfxbk5s
-         0pUwYQpPUWHxHeimH+9GVXvF/2oZltMb1C2ao/E02Lr7INmeaFC6e1K6UwebpXo82eAy
-         AqlZujDGoLtygOKu2w2GBnjo+nv3YuYUKhOE9PsUp4Dlsca987v8+IIs5c3J0oWmPUJ7
-         nvRCs9LEPFkN9Mj0heiZicmJb1Ij3M6hoRCPijqrzMH6ol29+7M3D+ANR89njl3ssDCT
-         Ua6g==
+        bh=3JWMhWSTBa1St/FT9EYONC8eNpWkZ18pjlnscArsjYQ=;
+        b=w+gpfI967mpWVsBjrJc5eMreAQIaBgbyBEvzvHRKOhLxwg4cJTZJi6kLTUcgSSsi5R
+         X/nVazLdhNoJ4ZvOvSy8pOTf3ec7PiziOW0UOBH6q7ZrTV/gfaVzLGkCTR1g3LLaauml
+         wEoido2AOfwGwrh1JosW59njBUF2aZroDTARx4/5vF+oTLIG9pUlXT2w5wg9l56lM5Zq
+         qbJDVWBSQ99PhVihHdbyu/1e599+5NyncHMK4EEWjhIAN6UfEhQ8W3RbhKAe+8L1IRHP
+         Xep7ZI2kkyQdcZ+Pxtgh/qMzKaBDHVeS/YJmqdqP7GtOrSqQhMgcsBUIRD13K6lip8cQ
+         fDOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778514046; x=1779118846;
+        d=1e100.net; s=20251104; t=1778514045; x=1779118845;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pWVMeqj0xlUh1jkgFkzLBpyzkrq/g1Uwz9H+NMuWTPs=;
-        b=Vhnpo60gH/wGYwwqDDv0C5Nkon7UoTYfmaGCwY+hrtzfGclx2CCyYOTke2ePrfgdMw
-         xEqqo1lFkdCMiHo5JPKuHPsDj8vJ62XRBKZYTOmft22VVD3EbVJha6mzb5Ldn8OsKQMi
-         3Dqqib+Ew3LTuw8BzJw75mWC8MP1iK6uOBVSZHasD+SOFzVBQhqTuxxOKta9PqtpQkUy
-         ZPyc+vnR15QX8qgC15+37VaolxcOetR4Axd+JQATLi14SQHY+c0bSWc2zskmiGUOgyXt
-         8DxIFfhTyLLzpODmBskb6f9Ofkov5DIR2CuI1DZ+zma0YUGqhK++nPf0xe6mbrU3DDn3
-         WaYA==
-X-Forwarded-Encrypted: i=1; AFNElJ+RvNmzobrvJGkHVzpawY9ny3Vw7ugD+CK7zTwpsFHRZEetKkd/QAu8ZJgD/wQGNYzi8uIHggRHogCXFFGP1gGj@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcDAyK65X6pGNf/l3DsBJGHctyc2LVCxuTvXc1KL1Uokr7sE8v
-	T7lyRADdahSE7pRhYz6kvwx/lx7/cxN5fDSLb5aXwX4zZ/nPf0HwDxCcpvNeQ7GXa34lrcQXesO
-	ufnbMm83uznddfVmXjLE79aEUkpp+n5EOfhkADXPnbQ==
-X-Gm-Gg: Acq92OH9HaRzlRBB5gvBJeZjHtLj40blv8vu6SqhKDvicPSbwS4bjOhYf0XMXfXirVz
-	g3Xc3GYWE4aFruyoBvIPiM2/lD8Lr4gh3Yn6u5DRdHrMMIiwLJO/qdAm5TSQU6t5uQjzuEZV9ra
-	PmpMfevnu8PXHzY/wvGOjh2q486ZAjRsSnC7Qo6t3Gq6Gu5RWhS9HccipKSCMoil7xfoDHNvbKA
-	80JH1qi1XY+N1dhrVPkTK70k9+/26+6rWya3qygN8aPZNdldnzS/94yqSJR0hevH9S6QeTmNKlR
-	JAAKft9E
-X-Received: by 2002:a05:6512:3e24:b0:5a8:5288:28f with SMTP id
- 2adb3069b0e04-5a8b709d3e7mr2541098e87.28.1778514045977; Mon, 11 May 2026
+        bh=3JWMhWSTBa1St/FT9EYONC8eNpWkZ18pjlnscArsjYQ=;
+        b=s3tawXb8UUbuTMjg82F5FgbSKHvMAg/kG0wwu5+krIKTASmpxycYhmGvnU/4CSZg/T
+         OA64qJLPaIUIvxj524L3MB527aOLYdGoFuOEZB8W6KGocrtum3R6D5u+eo5fTnKpBYYn
+         1CwuKJ+LHm6SJLKmSTmPpxc2Ge72ktuIR2Er6QnIKRxVMnTLPP7JtKb0IRIvcLFnxQi+
+         9E9qyt6cU637ji6w3JVE8VdDdUd3SxAx6cijgZ8Xg4egqV1gRCCPqkg9QU9WU3Ga4jUV
+         uWCVm78JIl2fwd3v0smTc6PyAsmLePgefwRFBoxyMvSe+lzaqhvATyWmetGijnFTGrcG
+         9REQ==
+X-Gm-Message-State: AOJu0YwUpQkXHKbdzb6NBNx8XkQehJ7ATNFWLb/5WfM2Q5Na6+szcQJb
+	7/2gv1lIHGU3NqBL95OMfsc3Duuc0RcyaLFr5mOBhoBwNs6Wx/iuFVxFOiOvsiGBVNwUFVBFNnl
+	ai9HCxDQO8ALB04pOhGsHe6OvSgxWlKpb1sK6JH7JOw==
+X-Gm-Gg: Acq92OHRfDEO/drO0UVmViA6SlXTvG2L+KY9ZDwNj8xl4MgiJ98r0NSXlL+iXX1hMMP
+	hK4qbc0zx6PH5YuHlxoA/6ea3Fim3PwQXlnsI+X8PNLC2hg1vj1biWiOvfPJqPYqsYOBqo+mB9D
+	yFlvV7YiG2ikUJZ1hoXVgUgSDZDyCQaUx9yvPPqQYdToGXeQd6/S0RplqkbFB8E30lWEdFzUivC
+	4jH7aJPy4l3+9+nsTKjIPIQYlZX6hdV9NrEeyXhZn/1VkL6vBek6ecr5mRqJ+R16AM87UXXKxT1
+	BIgc+fo/
+X-Received: by 2002:a05:6512:1081:b0:5a7:4912:1a50 with SMTP id
+ 2adb3069b0e04-5a8e0f2ec60mr10052e87.20.1778514045188; Mon, 11 May 2026
  08:40:45 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260505103323.207010-2-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260505103323.207010-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org> <20260504144534.43745-3-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260504144534.43745-3-marek.vasut+renesas@mailbox.org>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 11 May 2026 17:39:56 +0200
-X-Gm-Features: AVHnY4JFcrbyZo66snzwgXck_jRaBZR7P8sWj1lGBUqeDdEUbyk9AptCesJjbto
-Message-ID: <CAPDyKFq2tiDDvn=3tCz40HeOpaBD37ELBb5XqoMV1xb7yA154A@mail.gmail.com>
-Subject: Re: [PATCH] mmc: host: Move MODULE_DEVICE_TABLE next to the table itself
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Robert Richter <rric@kernel.org>, Ulf Hansson <ulfh@kernel.org>, Alex Dubov <oakad@yahoo.com>, 
-	Alexey Charkov <alchark@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, linux-mmc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Mon, 11 May 2026 17:39:53 +0200
+X-Gm-Features: AVHnY4LEtYRDfcFkDKKMsfq944FdAC52H0vJFxs1kLbNHgSvbuAlOvG-QOqCQEs
+Message-ID: <CAPDyKFpO5RyaSGRZibAsygRcfs_En-TohTOrO6a7dUdVdzcuxA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/7] mmc: renesas_sdhi: add R-Car M3Le compatibility string
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Brian Masney <bmasney@redhat.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mmc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_084048_314196_BAB1C439 
-X-CRM114-Status: GOOD (  23.15  )
+X-CRM114-CacheID: sfid-20260511_084047_497562_B392E2A3 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,17 +119,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 May 2026 at 12:33, Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+On Mon, 4 May 2026 at 16:46, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
 >
-> By convention MODULE_DEVICE_TABLE() immediately follows the ID table it
-> exports, because this is easier to read and verify.  It also makes more
-> sense since #ifdef for ACPI or OF could hide both of them.
+> Add support for the SD Card/MMC Interface in the Renesas R-Car M3Le
+> (R8A779MD) SoC. R19UH0260EJ0100 Rev.1.00 , Dec 25, 2025 Notes 7.70.
+> indicates that HS400 mode is not supported.
 >
-> Most of the privers already have this correctly placed, so adjust
-> the missing ones.  No functional impact.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
 Applied for next, thanks!
 
@@ -134,66 +135,41 @@ Uffe
 
 
 > ---
->  drivers/mmc/host/cavium-thunderx.c | 2 +-
->  drivers/mmc/host/tifm_sd.c         | 2 +-
->  drivers/mmc/host/wmt-sdmmc.c       | 2 +-
->  3 files changed, 3 insertions(+), 3 deletions(-)
+> Cc: Brian Masney <bmasney@redhat.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+> Cc: Magnus Damm <magnus.damm@gmail.com>
+> Cc: Michael Turquette <mturquette@baylibre.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Stephen Boyd <sboyd@kernel.org>
+> Cc: Ulf Hansson <ulfh@kernel.org>
+> Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-clk@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-mmc@vger.kernel.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+> V2: - New patch
+> ---
+>  drivers/mmc/host/renesas_sdhi_internal_dmac.c | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> diff --git a/drivers/mmc/host/cavium-thunderx.c b/drivers/mmc/host/cavium-thunderx.c
-> index 1373deb3f531..84ff6d82ae3c 100644
-> --- a/drivers/mmc/host/cavium-thunderx.c
-> +++ b/drivers/mmc/host/cavium-thunderx.c
-> @@ -188,6 +188,7 @@ static const struct pci_device_id thunder_mmc_id_table[] = {
->         { PCI_DEVICE(PCI_VENDOR_ID_CAVIUM, 0xa010) },
->         { 0, }  /* end of table */
->  };
-> +MODULE_DEVICE_TABLE(pci, thunder_mmc_id_table);
->
->  static struct pci_driver thunder_mmc_driver = {
->         .name = KBUILD_MODNAME,
-> @@ -201,4 +202,3 @@ module_pci_driver(thunder_mmc_driver);
->  MODULE_AUTHOR("Cavium Inc.");
->  MODULE_DESCRIPTION("Cavium ThunderX eMMC Driver");
->  MODULE_LICENSE("GPL");
-> -MODULE_DEVICE_TABLE(pci, thunder_mmc_id_table);
-> diff --git a/drivers/mmc/host/tifm_sd.c b/drivers/mmc/host/tifm_sd.c
-> index c1f7d5b37911..aebffd3ebf60 100644
-> --- a/drivers/mmc/host/tifm_sd.c
-> +++ b/drivers/mmc/host/tifm_sd.c
-> @@ -1044,6 +1044,7 @@ static int tifm_sd_resume(struct tifm_dev *sock)
->  static struct tifm_device_id tifm_sd_id_tbl[] = {
->         { TIFM_TYPE_SD }, { }
->  };
-> +MODULE_DEVICE_TABLE(tifm, tifm_sd_id_tbl);
->
->  static struct tifm_driver tifm_sd_driver = {
->         .driver = {
-> @@ -1070,7 +1071,6 @@ static void __exit tifm_sd_exit(void)
->  MODULE_AUTHOR("Alex Dubov");
->  MODULE_DESCRIPTION("TI FlashMedia SD driver");
->  MODULE_LICENSE("GPL");
-> -MODULE_DEVICE_TABLE(tifm, tifm_sd_id_tbl);
->  MODULE_VERSION(DRIVER_VERSION);
->
->  module_init(tifm_sd_init);
-> diff --git a/drivers/mmc/host/wmt-sdmmc.c b/drivers/mmc/host/wmt-sdmmc.c
-> index 1b1d691e19fc..489daee4f4fc 100644
-> --- a/drivers/mmc/host/wmt-sdmmc.c
-> +++ b/drivers/mmc/host/wmt-sdmmc.c
-> @@ -744,6 +744,7 @@ static const struct of_device_id wmt_mci_dt_ids[] = {
->         { .compatible = "wm,wm8505-sdhc", .data = &wm8505_caps },
->         { /* Sentinel */ },
->  };
-> +MODULE_DEVICE_TABLE(of, wmt_mci_dt_ids);
->
->  static int wmt_mci_probe(struct platform_device *pdev)
->  {
-> @@ -980,4 +981,3 @@ module_platform_driver(wmt_mci_driver);
->  MODULE_DESCRIPTION("Wondermedia MMC/SD Driver");
->  MODULE_AUTHOR("Tony Prisk");
->  MODULE_LICENSE("GPL v2");
-> -MODULE_DEVICE_TABLE(of, wmt_mci_dt_ids);
+> diff --git a/drivers/mmc/host/renesas_sdhi_internal_dmac.c b/drivers/mmc/host/renesas_sdhi_internal_dmac.c
+> index f6ebb7bc7ede1..b716a518f2650 100644
+> --- a/drivers/mmc/host/renesas_sdhi_internal_dmac.c
+> +++ b/drivers/mmc/host/renesas_sdhi_internal_dmac.c
+> @@ -285,6 +285,7 @@ static const struct of_device_id renesas_sdhi_internal_dmac_of_match[] = {
+>         { .compatible = "renesas,sdhi-r8a77970", .data = &of_r8a77970_compatible, },
+>         { .compatible = "renesas,sdhi-r8a77990", .data = &of_r8a77990_compatible, },
+>         { .compatible = "renesas,sdhi-r8a77995", .data = &of_rcar_gen3_nohs400_compatible, },
+> +       { .compatible = "renesas,sdhi-r8a779md", .data = &of_rcar_gen3_nohs400_compatible, },
+>         { .compatible = "renesas,sdhi-r9a09g011", .data = &of_rzg2l_compatible, },
+>         { .compatible = "renesas,sdhi-r9a09g057", .data = &of_rzg2l_compatible, },
+>         { .compatible = "renesas,rzg2l-sdhi", .data = &of_rzg2l_compatible, },
 > --
-> 2.51.0
+> 2.53.0
 >
 
