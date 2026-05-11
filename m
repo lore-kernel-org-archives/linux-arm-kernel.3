@@ -4,95 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5BBFCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 07:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F262CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 07:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szh0gEqVtBDu4oNWbMcoeQnUXD/BzppdqX8suYZ3udw=; b=MwSBhG9EYXDBUSD/HiSs8C9Juf
-	ijExGeGmE8GScVG5VwIZIYwgk1yNUbiE9J8dbJuMe1Ca9HpFgujzL6+bdYJ0TVVIWSLCVyv5o24Zp
-	ZJDlKg/GfNguuO1wHOmBoZWyFqGSB3+qbzCbdUcTOFwCO0Wy/6imktQ7LItgZqJ0HSU+Yj3r/poWv
-	euOegDnUX8i2NFZvvNs41168QK/otXBcX37ya7vyALILmgYGOBIpfvVZ3czrE5Gaw8hum3gy/XHdX
-	1KdRDvGy7StYE4x6jD/pS8d09HPfcxL4Iz/4m7/msep3NvHxcuJL7l5BqsbpgQtIOQwYAqOiI/1wQ
-	+tEcOERw==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yhf7Va2qE03OdWSTRymUrEKa4aA07ZjN+UxCUbh/ouo=; b=3A0j3Jood543nm0dE8oJ6SiC2r
+	7HX+m8T8jL2DKLkPFpF1iPuRkkNAvxkKR2cGeiGNDY9/lfUN2IjgRyOwlCchw0JjmoZRXpNxUYYyc
+	Qoun8N0YR52EcTIyG6GcuGm3VrTtrtwRf23AK1vs4axU2/D2U1LNMHBVWNbX5q6ACGO3B8o4V6a3e
+	3EX/rEMbxwy1LgCPFPZ293gppVg+f07ZuD4suoWCOLbLX2T8uirKMabV+CydROEWJ4/6gE8uQ+06u
+	3RUygZESYq66QgRFb2L0Cem1KwkudZr4Mm+7l2ahjQqmBB5ltGMryOSl2dNRkwSVdRhs58wO/RxS2
+	qeBTJP+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMLV9-0000000Cfn7-32vj;
-	Mon, 11 May 2026 07:56:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wMLXx-0000000CgAj-3vx9;
+	Mon, 11 May 2026 07:59:25 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMLV7-0000000Cfms-3cxw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 07:56:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E8F2C6001A;
-	Mon, 11 May 2026 07:56:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CBB1C2BCB0;
-	Mon, 11 May 2026 07:56:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778486188;
-	bh=QMHKoXETT7g06zajK518cc22bHdzyrX5waNPKMUdKn8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=NLNYc2biY2meoXUGwOxLGT4Q+CZ60AeUK49W7/7n70oto3SwdCsBlASjbdY4Nw25H
-	 pKLltqHSz9cDBVU85+8QyYg9JkaRxC8DAX2fndv7IaNZaTJoRbpRBCiO2GKykXOqDQ
-	 AjCDbSwYoEQxF/Ei4Fn722yyTnKlmzGqj2OBJx5BcfzH/4h9ULvagnc9uwcUfOFHpW
-	 qGQLqSsYHhSscH4m6QoDYtM0YYCkMxG7Vy6kiMALnskBmiO4ViBaJkMX++M/jGfCDM
-	 ws5L+JigLECRvmc4q864DgY58BNvvP3cuItLYwHNhp5xGj/otrV2oapRw9AEI6GWYJ
-	 9pIMrs/9cV0CA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wMLV4-00000000zbK-1B8r;
-	Mon, 11 May 2026 07:56:26 +0000
-Date: Mon, 11 May 2026 08:56:25 +0100
-Message-ID: <86ik8uxtue.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey
- Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas
- <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini
- <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Raghavendra Rao
- Ananta <rananta@google.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Kees Cook
- <kees@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor
- <nathan@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: (subset) [PATCH 1/3] KVM: arm64: vgic: Fix IIDR revision field extracted from wrong value
-In-Reply-To: <f17a2d66e47fd15fc738d9f4ad89123a31d86eb3.camel@infradead.org>
-References: <20260407210949.2076251-1-dwmw2@infradead.org>
-	<20260407210949.2076251-2-dwmw2@infradead.org>
-	<177702878141.537738.13460155220731277452.b4-ty@kernel.org>
-	<106addd3f78918a9a584c43c181a9609aef1ceca.camel@infradead.org>
-	<f17a2d66e47fd15fc738d9f4ad89123a31d86eb3.camel@infradead.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: dwmw2@infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, rananta@google.com, eric.auger@redhat.com, kees@kernel.org, arnd@arndb.de, nathan@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wMLXu-0000000Cg9c-42eU;
+	Mon, 11 May 2026 07:59:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VN0e09G4B7xOoK9PmIUnQAekjY6fmNDk/8dmOmBkkVFYF4Iovrju2zDd/QGYWrpazhYI+X8OC9i5z4IAHTzbo4stv0vCJpQbnvp2W+8hsSjRLJKKPTXXw6UAOdMngOzLtaHwSBUgeu7cXlov0jG5g+ozU8wOKe+SNoMc7gfhFRSYyoPkn+exGJIERSkZFZMpXili1bKuEsyT3Md74I7KO05UBEJz0ozZXvic2eLC+TFybcQXaQt7bwbtkvhByddazGL3NqcLLLcbJ/2C0eeMKC3QntIgSmBoX1siDOA7XnBkWU74ON9lN8X6XJNO3eHXt6tpH6Hm9Ubt4OUxFi0UzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yhf7Va2qE03OdWSTRymUrEKa4aA07ZjN+UxCUbh/ouo=;
+ b=eJw7HbWNVe0Rqhh6KvxDXntDX0om0N5rnVg2pE0PkunlORbIz8C+HfDs1/iGyctbo46oAk2mUVrNwv4zYDMttabTcd6MzVkeNqJtsN2+kAAfrLCTeOkQSGLb8JJdcTor4SgdY8it2+To22iMMD6ZK9gUp32nHUw3pX10CVLp3gBpmyuaMrJAjNgtIOO5d0DeWYWTw5lr4iXaVtfiMWPV/2VIn+afKXgnpi+NbHFjoBLkX57BE0aKVFdFrY6BEL0+sq4/Rmt4yC80pP4VQfqsyepJ7GWuRJIlzK9XJW+a/BP2SfmEDQySuKzCZEfJH26zhELX1a8CDdt8mLrVEGCqOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=163.com smtp.mailfrom=foss.st.com; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yhf7Va2qE03OdWSTRymUrEKa4aA07ZjN+UxCUbh/ouo=;
+ b=f5WiGPBzfxG7HhljsWhHTDdWLaQdjDl9BLNqmowtU3+NMA5t7TwORnfuB9pDWO+plY9ERZKDI+s+K6+eDfIuvd6Hcdu7MUwKbYljbalY0nkwrZrGu+zp0RdUvLUDwLQXxyLsI3gojI+fuPXwVuaKqO7oTog4HegKmj5AJWCevZ8SFSc6LjYioTYPBEIYXEerNbY2H7vxqjBGAmZT3yT99Xxw56sMxPMAaEAJ8DwMfFVWvVQN16Tu5XM7G06lBWBlxSvh8N5NWZDZlD50IVcqNP1ztuNdt55vf0PNLnv8tjlgqVH36JELH6weFGeUCCYjur6+oax99g2M45Td1YTRNg==
+Received: from AS4P195CA0054.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:65a::14)
+ by PAXPR10MB5759.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:249::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.19; Mon, 11 May
+ 2026 07:59:14 +0000
+Received: from AMS1EPF00000043.eurprd04.prod.outlook.com
+ (2603:10a6:20b:65a:cafe::5c) by AS4P195CA0054.outlook.office365.com
+ (2603:10a6:20b:65a::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.23 via Frontend Transport; Mon,
+ 11 May 2026 07:59:13 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AMS1EPF00000043.mail.protection.outlook.com (10.167.16.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Mon, 11 May 2026 07:59:13 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Mon, 11 May
+ 2026 10:02:55 +0200
+Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Mon, 11 May
+ 2026 09:59:06 +0200
+Message-ID: <283c1eb1-670f-45f3-bd33-dc8f9b0776ed@foss.st.com>
+Date: Mon, 11 May 2026 09:59:06 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 08/10] spi: stm32-qspi: Use FIELD_MODIFY()
+To: Hans Zhang <18255117159@163.com>, <broonie@kernel.org>,
+	<sunny.luo@amlogic.com>, <xianwei.zhao@amlogic.com>,
+	<neil.armstrong@linaro.org>, <khilman@baylibre.com>, <han.xu@nxp.com>,
+	<haibo.chen@nxp.com>, <mcoquelin.stm32@gmail.com>,
+	<alexandre.torgue@foss.st.com>, <lhjeff911@gmail.com>,
+	<hayashi.kunihiko@socionext.com>, <mhiramat@kernel.org>,
+	<jbrunet@baylibre.com>, <martin.blumenstingl@googlemail.com>
+CC: <linux-spi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-amlogic@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<imx@lists.linux.dev>, <linux-stm32@st-md-mailman.stormreply.com>
+References: <20260430155456.36998-1-18255117159@163.com>
+ <20260430155456.36998-9-18255117159@163.com>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20260430155456.36998-9-18255117159@163.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS1EPF00000043:EE_|PAXPR10MB5759:EE_
+X-MS-Office365-Filtering-Correlation-Id: d4230464-567f-4e52-4786-08deaf333156
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|7416014|1800799024|22082099003|18002099003|56012099003|921020;
+X-Microsoft-Antispam-Message-Info: QHePOoj2iWA/aL0ExawxzWdh/fbJ15lFYwGI9d4DTWAvLfhf64BGGg0AoW9Py5tKdZeMg6ayykY8NA/ZJxQDTjhzvR4Ci2bvxNzgKUBRalNhi2yxgUbAYr5G9kXL2ohzQqzJYTSw3e0rt/3L+Nsplm+oBYvhO81G0Rc5L2cUcXT2DXEv5a4SoC6FDCvZ99YiHtvlJ3CnykHQ52GQOZif0EooQijjjoxXRnHSJ9tBGegFwga3w4Ulggm5AJBz8EcX5qKFi6415HkKv7STlDqEFPwzDUkG05QOoT09SMNHWcXhBo63ZvPJtWD6IWskhk5w9aKtULUgCJ6y1T6G6ZDKk3jk/WOFWtquXEPVUl5BQUfDaSfVt13XuqR9u2JfwOl3Ki/SudF0gtJ8wp3GFJ14B7KngWE34lgwWa+TtZ/Ix774wZg5ZvWFMbUCEGfmM+qgfp7goC6DbWQ9MNjdV1HPQ9uhpjBFi/MC4cloApoZg/oexEY9sndxIFJtMAN35TUD9vWN+8X6tkub0WJX+tRSRzZu5L03UEp7cniIAe9TvWWU1LJ/6O/udMVlqMfxZzNGtmWhutR5iZRg4jyjDlQihK0lLHEbaJ5/iXtyDZsskMnGzSRIPx/gQlbjGOMDtj3/xjdjcJik5AQy34mQW8OVUilypEqx4daSgF9FfjK+EVDXPVimVjOuQ55OrS5vdxcBMr29+cdf1EvXC4nFC7OgKIcKY1L6yZqV3frMuHm/xeaSpyKc70BLiEwRWKIr6mTbVchI06pOujBrsn58glN1LQ==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(7416014)(1800799024)(22082099003)(18002099003)(56012099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: H8dHFFV1T5EiTXwr2V3NJuxotUURbZpgQqzjf4ph0BGBy5Wcy/Yt6Mlu4n+QpnSwgjDD72LW65WIr54eV0SaLkZUvejWcZzsdKUc/rcxUJTroWqUiFjBN2jy2XIMq6xU92zkCvUzt10BZ0Ky+Mt5Qfe8fCfifRf/m1VOgSs5c6vJdZROZvsp/Gm6FaHLhezvCbLOp2Y2HBnsOROrreARUmfKu49s0zBWdmMCwVcWrhRSoTz6huC54urtaQ/hxxcdU1sdwkka1d1qKhZjevzULXq6ixGqHEZE4lmaCc3uCwQLlFfU2/VbHBPnPjlANLMpn/Tv3AI2idlAaYs08k6XcUBfT0d3RTMDXqH65mG63XOoILsc3yaykYIO8EbtW8HZOWf7UTkNM8PzXKDZf/q861bJJXBNT44nltom7NCnf0uNfZddLLxHKHcjDMI0+bSf
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 07:59:13.8191
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d4230464-567f-4e52-4786-08deaf333156
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000043.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR10MB5759
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260511_005923_147890_4F4689C3 
+X-CRM114-Status: UNSURE (   9.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,57 +134,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 10 May 2026 22:28:50 +0100,
-David Woodhouse <dwmw2@infradead.org> wrote:
->=20
-> [1  <text/plain; UTF-8 (quoted-printable)>]
-> On Fri, 2026-04-24 at 13:24 +0100, David Woodhouse wrote:
-> > On Fri, 2026-04-24 at 12:07 +0100, Marc Zyngier wrote:
-> > > On Tue, 07 Apr 2026 21:27:02 +0100, David Woodhouse wrote:
-> > > > The uaccess write handlers for GICD_IIDR in both GICv2 and GICv3
-> > > > extract the revision field from 'reg' (the current IIDR value read =
-back
-> > > > from the emulated distributor) instead of 'val' (the value userspac=
-e is
-> > > > trying to write). This means userspace can never actually change the
-> > > > implementation revision =E2=80=94 the extracted value is always the=
- current one.
-> > > >=20
-> > > > Fix the FIELD_GET to use 'val' so that userspace can select a diffe=
-rent
-> > > > revision for migration compatibility.
-> > > >=20
-> > > > [...]
-> > >=20
-> > > Applied to fixes, thanks!
-> > >=20
-> > > [1/3] KVM: arm64: vgic: Fix IIDR revision field extracted from wrong =
-value
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 commit: a0e6ae45af17e8b27958830595799c=
-702ffbab8d
-> >=20
-> > There was a v2 of this series which also cleaned up the weird
-> > inconsistency of the IIDR value with the actual behaviour, and which
-> > fixed the fact that it's currently not possible to maintain guest
-> > compatibility when upgrading from a pre-d53c2c29ae0d kernel to a new
-> > one =E2=80=94 despite the fact that that kind of compatibility is *prec=
-isely*
-> > what the revision field in the IIDR is designed for.
-> >=20
-> > https://lore.kernel.org/all/20260408113256.2095505-1-dwmw2@infradead.or=
-g/
->=20
-> Is there a reason the rest of these fixes didn't make 7.1?
 
-I already explained why these changes are neither necessary (a guest
-that used to run still runs) nor desirable (reintroducing bugs we have
-fixed is a bad idea).
 
-I have therefore only taken the fix for the bug affecting userspace,
-as that was definitely something worth fixing.
+On 4/30/26 17:54, Hans Zhang wrote:
+> Use FIELD_MODIFY() to remove open-coded bit manipulation.
+> No functional change intended.
+> 
+> Signed-off-by: Hans Zhang <18255117159@163.com>
+> ---
+>  drivers/spi/spi-stm32-qspi.c | 5 ++---
+>  1 file changed, 2 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/spi/spi-stm32-qspi.c b/drivers/spi/spi-stm32-qspi.c
+> index df1bbacec90a..ea69fe25686f 100644
+> --- a/drivers/spi/spi-stm32-qspi.c
+> +++ b/drivers/spi/spi-stm32-qspi.c
+> @@ -374,9 +374,8 @@ static int stm32_qspi_send(struct spi_device *spi, const struct spi_mem_op *op)
+>  	int timeout, err = 0, err_poll_status = 0;
+>  
+>  	cr = readl_relaxed(qspi->io_base + QSPI_CR);
+> -	cr &= ~CR_PRESC_MASK & ~CR_FSEL;
+> -	cr |= FIELD_PREP(CR_PRESC_MASK, flash->presc);
+> -	cr |= FIELD_PREP(CR_FSEL, flash->cs);
+> +	FIELD_MODIFY(CR_PRESC_MASK, &cr, flash->presc);
+> +	FIELD_MODIFY(CR_FSEL, &cr, flash->cs);
+>  	writel_relaxed(cr, qspi->io_base + QSPI_CR);
+>  
+>  	if (op->data.nbytes)
 
-	M.
+Hi Hans
 
---=20
-Without deviation from the norm, progress is not possible.
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+
+Thanks
+Patrice
 
