@@ -4,76 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0695FCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 14:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4E7CD484A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 14:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jkQyUrfkqfz8XQIv/dWok02t1PybehRH8tb5fDYY/+I=; b=1vfYJhtXyYsQyQclKmcAzZ+vy4
-	UseT+1ntnXrzBBgPHdRz7NgGzA1hxvMYUMDC2+phna40YWi6SntHGV3OjO9ni+ulxuYPAngv31CEL
-	5iKopXPK+yufrTg4meJNLCEvslHJXIRu0PlkNKDZOwR7O528cUHCHFYH/Qm1gPcx3WSCeY/vFSf6P
-	WB54tEUC0dcIlcYjyj3LrzKpqP2xUVQsT+8pJHjALwMJoPX1iTwiFkOKPDen5QgsdolQtD+wonBe+
-	xOHByvmYUMPcgfN23T8u8pjKQhZmnTt4N3g/nIOPBb1sARqIegQAgMoJI/1u8/pO4wUa7PqCp1HHJ
-	5YUKzDiA==;
+	bh=1t4Q3YbgMx/6e1k8a1sHgBJ6iv/rwR+3bFc9xbIXC10=; b=tpSRCkJjvZI4oL3ta95eLEntGy
+	MFoM6BfYdlEu4B37+nl76BUdVoCKZOdIrlEPfVD9lkpAwQKdIOibh/2bhXVGsQBNkKdrkz9SVRfJ3
+	2GBOoiQr2FNCU9XKjWM/U3vw0E0W6cXYrKL4W8ueofItGJJmig2N3ZlDbdcAIug58XnKkOKQCyT+6
+	AGIIZihNSKxGeknCJ4oj0fy+DOdId+8Xt8ABMLWvcLdGWNjHdSOjvE4SjG9EsNTNHcVk9D2xmwwi/
+	c/SXOOwzv7Wv5YQwS5PtmPKb8MHaiSRFgORiCYtSbe5t7ggPUK1Hx+waJFoXoY7p4Q9ydFrH4rET2
+	RCWGoBQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMRYb-0000000Du66-23NQ;
-	Mon, 11 May 2026 14:24:29 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1wMRew-0000000DuoM-1QLx;
+	Mon, 11 May 2026 14:31:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMRYZ-0000000Du5S-1xdk
+	id 1wMReu-0000000DunV-1ASv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 11 May 2026 14:31:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=1t4Q3YbgMx/6e1k8a1sHgBJ6iv/rwR+3bFc9xbIXC10=; b=moXKbWcCbKKlv3xZ1YwdKsrfnK
+	rggu4NWSpkEFBpP5cOqHie5ehwxvO7YW7wQ6POT3sGWisFTABKf7wwbrN7+0sx0KXXEqmAXtNRiqI
+	RRHRRKOv3U/X7bZyhPtafaY26Yia4BkP1r9cz3aYFI8tZ48SR2QG51/jirHmJGSbksuEM8cCG+9cU
+	US80l6pXRXkHYCrvqYtbF/+2FXcHT2XnUpGCuh0tglywL1MTF6DDk8m2gO0R7jYV+6Ybno2GOOjgq
+	BAdQJST2QKVQd7nIs7RXoj/V8p3A61PKL4RQ0n6bJS+a+wVOj+ZY8ZNCtZzMwE0Su6qxOxPrmffLS
+	8kWCNHQw==;
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMRep-0000000Bz2k-3NYt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 14:24:28 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8cb5c9ba82bso641511385a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 07:24:27 -0700 (PDT)
+	Mon, 11 May 2026 14:30:58 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-514ae601e01so15857321cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 07:30:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1778509466; x=1779114266; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=jkQyUrfkqfz8XQIv/dWok02t1PybehRH8tb5fDYY/+I=;
-        b=kHoH2EARNNbSUPvT0YKcmRlQnJOFEABp7VeKTLvuLuSXHtxGKHhDJghu7CtWMFdksZ
-         23ds+KBKuXd3WeI2P4VRRL/COmUkKiQqPFjmhKKuVYluqIpaQl1iioWN1qCgwx+93L/6
-         Hry31YCxYV8QSuQeRQBmR6G4m3wCpyVEHxrPs/Chrs4JBdJO3VCLrTzPR6vm/e5PWxHA
-         JmGg4OojMPukFriHaHnKI8roThEZ3C5/nbEmkWpiuOZ23Tl5HN5htCRop8YThFA1pGuP
-         Ew52Of6bJc0zO+G7PhZ4xev724eWFJNRm+S3gbGSsWbzFESdPeb0XiCy7Rn0uMkvER5Q
-         VKDg==
+        d=ziepe.ca; s=google; t=1778509853; x=1779114653; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1t4Q3YbgMx/6e1k8a1sHgBJ6iv/rwR+3bFc9xbIXC10=;
+        b=dva7V75Ux166O+FgwtyguypidXZNEkDgbgs2QucvZLJRAVoocTPahUZ1lFUpIO41lf
+         z9VwRw572vdZ1PWIh0swXGOznITwDrefCsXbShUAfccXEbM+6dc04UyHRRtqBWRTNZge
+         6WOEMouJ1e/9tY6ijy+KbxtetPAkdO0+0i4mQ29/osLl9/v3r9rtxU2OCmNyPu4aFG1j
+         4yprN89MndpB8GvghmTsD8ZwcfWk5OfhaVkWJ1CMU7Zk+o0Qup7hEI92uT/2dqGpX3Ce
+         hMyKGaBZb4bbR8GpGhC35ewELi/iuXoy/n7NRXUd3YJ5HhqVOxHnqDPKOhAGge97l6Vf
+         u3ZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778509466; x=1779114266;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jkQyUrfkqfz8XQIv/dWok02t1PybehRH8tb5fDYY/+I=;
-        b=DLsb3KkI6OEyVSzpwk73sEp0/K+IOsTMp+PEoZYVEefqFNW/O0NWSYZuKc2/cepsJr
-         jFIcuXRMoJ/j5ArbpFgjslODxYq5j6vamB0gDIHRzKw1k8N7hogjeS8O9wPj5vUp+OYG
-         DmqodPmoKSO8EVj8BK2hPwiQeniw1cHzeGDtmsJEhGcgrQwA4+fa0J8CC/TvAbbOiqsT
-         ZHdmYZPVVDgOXKGcqXpKjhJslgM2gTu1c+OpipHRK5sMg6YD8bMwk1aCioOogXxjU/l9
-         fYQdfe3t7Kvh9VDOQqR9NFfFzQDEYbzX41yP+/CcDYcxb8FGWx4MJaNIHXdn3kBnMlFh
-         /Sag==
-X-Gm-Message-State: AOJu0YzclVd1cT+7VY/zreIw8uso1knSeSFWZJi/hr8giQzcffHBSQQX
-	CPcsXwGATOXlJF/2nKuTW46B0WJZL4Ij5BvYdlh+/uqDBmMcJXvW2rIOcVUwIFIuntg=
-X-Gm-Gg: Acq92OGQEvlTgnPz9lekq3TfilfmzxgMTzoK3x4xDf82LmFPh8E8UUh1XQTFmXkCXTJ
-	o55Tqw+BNGlvsyZ10Emq8yUDBYPXGpkr01+siOY/eMf/e+sH2pfFCPtZHUlrbXQdZGc1HbQeK0f
-	ysRuQzz/Wu9i7Jk00qKVrLo62FuByN5Kwb70TR9568LX0ngShWo50afr260H8DWeDjbgeNi94Zf
-	OdELY85oVFYQTZ7YTXWltiQ7hmxmF6Axq7fHyWyo5j//nUMio8WqP4H39x9/G1SrfINjqY6kNp2
-	PlJ0OYI8v1IGksUsl7m0Z7iHGKgOtC4G25zzPPD9vkp53G+RXBcgDNkCik8h2QyON5a6gwgUiqJ
-	D489C03crMCVdMZvuj1job02QrnTznxfriRDGZhvg4IclDw4+j3MZQtLC1lAx6wzAVykgO2FrU6
-	IbupVciB8FXPRK1VlvuAcKIrygwk17E+zESg+EqHbrY2MXvCkS8mK09PkMgvnlIBjXdSA9gpjti
-	4fgAw==
-X-Received: by 2002:a05:620a:19a0:b0:8ef:6b87:5c5b with SMTP id af79cd13be357-904d3eafa08mr3652391585a.9.1778509466038;
-        Mon, 11 May 2026 07:24:26 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778509853; x=1779114653;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1t4Q3YbgMx/6e1k8a1sHgBJ6iv/rwR+3bFc9xbIXC10=;
+        b=hZ6w3QwKliArhPQxJok9+Cqs7ZnJ9+5VDOYMirlXV7S818Vl+5NfI8Fg7LRxJe/q64
+         aiAT40LX9QxBVr04TOsupSR8xyRM3JuOLGdYxdBoqaiPbDDPBXjTagmN5Qb0WkBJ+ai9
+         roUZDo/Os/00yfwnxgkp/d/GUy2BnGx2I85tzZnyGeLngwAxuhHr17Rc+JYuwYnvm6xA
+         LkarUnKTCFPvdI3d3WqZqDApq8l55PWfZK4N3aQWfixDfQnLbBI+GyXTjTLapK0y2xJh
+         6K20lf5aE89T4+7y69FCy34/HJYDT5qANamVk5gdiSkuWH5A6G38ZaNOaipTaQdPA6JY
+         MUWQ==
+X-Gm-Message-State: AOJu0YzwfDnn1sCJZ79Q8PZ5pf/xHJG0DSPmYPZsDAGX42JyyQSsSiJf
+	Gsf6Mex3BlU6BW0sVAwwGYsuRJvV7m3mm9svmRQFUHaRAnmtXmLWBPzYQl1CHZOvpIc=
+X-Gm-Gg: Acq92OFhpuKREz6XNfXFTKbYFe3Io8QaNjGU0YiDN5F90bDfsmp8tZ2bJlN4AMUsPDa
+	nUGj8YOLIhf1o1hrxSfETvPUweniswJPdp9yyhHUBD69yh/Du1+Bm0OroejVzef/lNdau8+/jVa
+	vWchkD/nWuoNw5DeLwqvxO/y5t/ODcizvZX+tjgFX/fSXo4v1CIxyu5ru4vXIOEomwv/52okrUc
+	NjI28x8c5UHZ0ElyKbOG4b6AIbDsO6HjlXRGStJyV2nQE+SwxK+h8emMir5Ub/+/4esBdcwDVBm
+	IreJtpXfgdRQcFKcWbLnF9uetzM/LJHuffOgw0v3xGxpuj1gKNFnFQyAIDPZjXYEk8lRCcLpCjQ
+	gU0QwN8ocHle6O+Fi8kW35W4eXbUUctoY6nqa7xwMpJCFPRbkjiE6v0pQO0U/cCyd+Y9HPb4FME
+	LshsXPPhjPD5NUY7UVS5e8of7sV2Aa4XcNTjIifdXtx6hPPo/Wyr/wFLbwduuBjO0t7QGAF9B1V
+	mFrCw==
+X-Received: by 2002:a05:622a:d5:b0:50d:2a76:43c5 with SMTP id d75a77b69052e-514619de7e5mr335362441cf.2.1778509850538;
+        Mon, 11 May 2026 07:30:50 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8fc2c91cd89sm3166863085a.35.2026.05.11.07.24.25
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5148e83aa2bsm90525421cf.28.2026.05.11.07.30.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 07:24:25 -0700 (PDT)
+        Mon, 11 May 2026 07:30:49 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wMRYX-00000004oFc-0DRM;
-	Mon, 11 May 2026 11:24:25 -0300
-Date: Mon, 11 May 2026 11:24:25 -0300
+	id 1wMRej-00000004oIk-12xC;
+	Mon, 11 May 2026 11:30:49 -0300
+Date: Mon, 11 May 2026 11:30:49 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Mostafa Saleh <smostafa@google.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -83,27 +97,26 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
 	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
 	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 04/25] iommu/arm-smmu-v3: Move TLB range invalidation
- into common code
-Message-ID: <20260511142425.GQ9285@ziepe.ca>
+Subject: Re: [PATCH v6 05/25] iommu/arm-smmu-v3: Move IDR parsing to common
+ functions
+Message-ID: <20260511143049.GR9285@ziepe.ca>
 References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-5-smostafa@google.com>
- <20260501124143.GB6912@ziepe.ca>
- <afiN1UwS9q6F6A_v@google.com>
- <afoYBYIJOTClsdLS@ziepe.ca>
- <afoeIVIGE-JjYy22@google.com>
- <afsPfEzgGtAFrN5P@ziepe.ca>
- <afxd8Km40A5ulZvd@google.com>
- <20260509232931.GJ9285@ziepe.ca>
- <agHBby1qBvR6cmJY@google.com>
+ <20260501111928.259252-6-smostafa@google.com>
+ <20260501124716.GD6912@ziepe.ca>
+ <afiODW2sVMeOj3Ag@google.com>
+ <afoagb/wVBJD1IX+@ziepe.ca>
+ <afofSPQbepd_fpom@google.com>
+ <afsQTwO3eW+Ks2fe@ziepe.ca>
+ <afxlufh3t3hRe4-G@google.com>
+ <20260509233443.GK9285@ziepe.ca>
+ <CAFgf54rJqq_bJONpx85p+uB68i1oVAGZW40aZA1ufid_5fqwQw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <agHBby1qBvR6cmJY@google.com>
+In-Reply-To: <CAFgf54rJqq_bJONpx85p+uB68i1oVAGZW40aZA1ufid_5fqwQw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_072427_518216_9A9FE363 
-X-CRM114-Status: GOOD (  23.72  )
+X-CRM114-CacheID: sfid-20260511_153056_709044_4EE3DF1C 
+X-CRM114-Status: GOOD (  21.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,43 +131,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 11:45:51AM +0000, Mostafa Saleh wrote:
-> On Sat, May 09, 2026 at 08:29:31PM -0300, Jason Gunthorpe wrote:
-> > On Thu, May 07, 2026 at 09:40:00AM +0000, Mostafa Saleh wrote:
-> > > But that doesn’t solve the problem, which is: At some point, whether
-> > > eagerly from the page table code, through gather sync or a fancy
-> > > invalidation array, the driver will need to populate a range
-> > > invalidation command (tg, ttl, scale...) and this logic is better
-> > > shared with the main driver which is this patch does.
-> > 
-> > My point is this patch doesn't share enough. If you do need to issue
-> > invalidations then share everything below the top level tlbi entry
-> > point and don't try to make a pkvm version of the entire logic just by
-> > ripping out the range logic.
-> > 
-> > There is no reason for pkvm to need a different algorithm
-> > here. Especially when you get to supporting ATS and multiple devices
-> > and smmus you may as well just use the whole thing.
-> > 
-> > Which is why I suggested to copy the entire call chain into a shared
-> > file
+> > Copying a bunch of functions into a shared .c file exactly as it is,
+> > then compiling the shared file with some #ifdef'ery at is going to be
+> > long term better than trying to mangle the whole thing to avoid using
+> > any of the core types and not directly share the code, IMHO.
+> >
 > 
-> Agh, actually this seires doesn't deal with ATS, which I think is
-> wrong, propably we have to issue CMDQ_OP_ATC_INV for the whole
-> space on every S2 invalidation which has to be done per-SID and
-> as it can't be done by VMID :/ or just hide ATS support from host for
-> now, I will look into more for v7.
+> There isn't #ifdef'ery at the moment, that's what I was trying to
+> avoid by introducing shared code.
 
-Hiding from the host is a fine solution to start with.
+Yeah, I think that may be a bad direction. Ultimately it feels like it
+will be more burden to maintain this careful split, while some small
+list of carefully selected #defines will let you reuse alot more with
+no code changes and I think that is ultimately going to be better.
 
-> But anyway, we don’t have to share any logic, the kernel driver
-> is quite complicated as it is designed for a different use-case.
-> Doing that makes the hypervisor unnecessary complicated and
-> oversharing this logic makes the kernel driver less maintainable IMO.
+> What concerns me is how fragile that is, any change in the main struct
+> can easily break the hypervisor, unlike if we have a clear shared code
+> and defined API that is used by 2 entities.
+> I will think more about this before v7 and see how intrusive it is.
 
-invalidation is complicated, you should not try to open code your own
-version. You really cannot make it any simpler than what is in the
-driver, just use the code it is already decently modular.
+IMHO so long as it is easy to include pkvm in the compilation I see no
+issue with build testing the pkvm driver when working on smmuv3
+driver. So I'm not worried about this, any breaks will be compile
+breaks and can be delt with.
+
+What I'd like is to minimize logic changes and maximimize re-use so
+you don't have to make bad re-implementations. Like pkvm shouldn't be
+building a weaker tlbi, it shouldn't have different logic for errata
+and FEAT, it shouldn't be doing STE changes without the
+hitless logic, etc, etc. All these things are easier to solve with
+greater direct code re-use..
+
+Thus I feel the trade of off 'use the code with no changed via
+#define' is better than 'try to carefully cut away and avoid #define'
 
 Jason
 
