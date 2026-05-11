@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0C1CD4843
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:50:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 044FCCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R0ZXBUh4v0MOZgJ6oiygjG51KWiP1nCTQaXWQ52gm9w=; b=jGjS1jt9qCQ9c7Buotjpud31oe
-	xDnigJZgU0Bi6YH0WyZUQXvTlJ7b1QGhWd54a+sK7vxo97HzJ/HBNC7Q9vrghV8CrwkxXkGiOhTKl
-	wspW1HDivGT89urlwePs298b3jOf5V+GxTy1h7ZyHzgT7rIyy11gXrlNnSMHwNLpxKo/fC20ugSx0
-	JxwBgZfIXpajsCLXUSpNMD8cuZ4SQGMSvZxmrhwq+MClXZhX97FxNPKr+g0Ob40Q6YS9qau5tXSGF
-	rm+0eImykJOEcO9XYm5Km1kAM5Yvb68b4tMKXP6EDQBSSe1nMegTeg7OWgcxrs8V7amL5QhIqP8vc
-	Ph6B1/AA==;
+	bh=YPDebUvWIGXYRyNciDlDige25UhL3B17eP/62B09SH4=; b=x6cRQX+8jbNNyYWGX6TOB4kMqv
+	tNR+zzSetdX421E1xdfmuD51iIPM4P83UQFK4mj0GzTtxtu6g+KW3rC1hGg2fY2oOCzfl3O8tpRwc
+	YEqnppHDfTeqverVfUilDm/V1AjOFhpTvPGeok6eyficOoadAZoQZ13l0whPMJtYzAUaGK+Ear84O
+	Z4b7ooPYVWqRzEyfJtjKOZnXkC9ZIvV3/L453gefbZthj4PD1tA9huzLWvjstxbrikp+YCXhJTIL7
+	s9FCFxqMX9rTTzbm2XnzlLgp2r6Ruyje4hazUfHo8A+ChRaLLnJO90f3G+gDB8KeYyufsiyHTSCFz
+	TWD0saLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMODB-0000000DAEx-3AzP;
-	Mon, 11 May 2026 10:50:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wMODD-0000000DAHu-1Y9K;
+	Mon, 11 May 2026 10:50:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOD7-0000000DABb-3gmL;
-	Mon, 11 May 2026 10:50:06 +0000
+	id 1wMOD9-0000000DACs-2Vb3;
+	Mon, 11 May 2026 10:50:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ED58D60120;
-	Mon, 11 May 2026 10:50:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D89DC2BCFA;
-	Mon, 11 May 2026 10:50:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3AA7042A51;
+	Mon, 11 May 2026 10:50:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCCFBC2BCB0;
+	Mon, 11 May 2026 10:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778496604;
-	bh=zmwlVeCuGb8e15Nr4SuNdxRdi8GRQGQTNCXUJdFwJgE=;
+	s=k20201202; t=1778496607;
+	bh=gQAijkyvFyuKeFFfMXRtm4L3+i0vgZ9Uor/DHg9cFHQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=csz8MnzoUHz1HcdjmeDqMF2QUZh9s4mFhLZo5P6x/QfDq0qpP71JsxPxVh4BFq2vd
-	 DBornmdg+SxLo+JAFcRwnxmydO+I82OhhjGSgwOCG1ySCR4Y7lIRkTf/eNaAKe8GqG
-	 aDSt63HBjkKClREr7nse9mvmAi0V+ZSp7SgMsbDafA85Vrmk10W/+rUZA4nO8o4s/U
-	 nMVIO/ZM/shqza4BqYefgAgzFI/UdenKyApnGyLb9WS5Kk9T3MH8BSR3Y4s3YR8bGW
-	 9fp0hVeKWhEi5a3aL7PFmMNBW4zklxdILNDYYb/X3bpF++pkO6cN411v6ChC9pv8jE
-	 5vQNY6FUewG4w==
+	b=nlSs0taml6pzPgCvishlqNGRNNuxATBy0mPccrxm9xKyEenFZkftrpMXCuHcXbSyk
+	 s0QwjbsXKkqINFelZDYJ7xH7css9o+4BtnRTQqt1sNhZg0L37B8I9CtbbjuD4lt1bP
+	 Jl1SJ0EsHA5IZysdCYTe/JjoNfQacM1lNYVm8Br47cB3V3E0BtC+FpfW3jD6Ogg+DU
+	 84zqVH6U31J40pFi4lCxrHsiwXY8d2FPWgar1gobuksTeKFc6Fl/XN9LC/aGawvfMt
+	 Rkwqn61sTa27Y7vMh5CcDo9aSN8umDVtILFv4Ugg4245sG8NiwubKjJXFDL/jrtqVG
+	 hnrwrZPg2J2Dg==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 11 May 2026 12:49:31 +0200
-Subject: [PATCH net-next v6 05/12] net: airoha: Rely on airoha_gdm_dev
- pointer in airhoa_is_lan_gdm_port()
+Date: Mon, 11 May 2026 12:49:32 +0200
+Subject: [PATCH net-next v6 06/12] net: airoha: Move qos_sq_bmap in
+ airoha_gdm_dev struct
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260511-airoha-eth-multi-serdes-v6-5-c899462c4f75@kernel.org>
+Message-Id: <20260511-airoha-eth-multi-serdes-v6-6-c899462c4f75@kernel.org>
 References: <20260511-airoha-eth-multi-serdes-v6-0-c899462c4f75@kernel.org>
 In-Reply-To: <20260511-airoha-eth-multi-serdes-v6-0-c899462c4f75@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -59,9 +59,11 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: Christian Marangi <ansuelsmth@gmail.com>, 
  Benjamin Larsson <benjamin.larsson@genexis.eu>, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- Xuegang Lu <xuegang.lu@airoha.com>
+ netdev@vger.kernel.org, devicetree@vger.kernel.org
 X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260511_035009_012620_8D95A8AB 
+X-CRM114-Status: GOOD (  16.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,76 +78,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename airhoa_is_lan_gdm_port in airhoa_is_lan_gdm_dev. Moreover, rely
-on airoha_gdm_dev pointer in airhoa_is_lan_gdm_dev() instead of
-airoha_gdm_port one.
-This is a preliminary patch to support multiple net_devices connected to
-the same GDM{3,4} port via an external hw arbiter.
+Since now multiple net_devices connected to different QDMA blocks can
+share the same GDM port, qos_sq_bmap field can be overwritten with the
+configuration obtained from a net_device connected to a different QDMA
+block. In order to fix the issue move qos_sq_bmap field from
+airoha_gdm_port struct to airoha_gdm_dev one.
+Add qos_channel_map bitmap in airoha_qdma struct to track if a shared
+QDMA channel is already in use by another net_device.
 
-Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 6 ++----
- drivers/net/ethernet/airoha/airoha_eth.h | 4 +++-
- drivers/net/ethernet/airoha/airoha_ppe.c | 2 +-
- 3 files changed, 6 insertions(+), 6 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 59 ++++++++++++++++++++------------
+ drivers/net/ethernet/airoha/airoha_eth.h |  6 ++--
+ 2 files changed, 42 insertions(+), 23 deletions(-)
 
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index e0cd401bbf67..3510b088ad15 100644
+index 3510b088ad15..033541df2f83 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.c
 +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -73,12 +73,10 @@ static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
- 
- static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
- {
--	struct airoha_gdm_port *port = dev->port;
- 	struct airoha_eth *eth = dev->eth;
- 	u32 val, reg;
- 
--	reg = airoha_is_lan_gdm_port(port) ? REG_FE_LAN_MAC_H
--					   : REG_FE_WAN_MAC_H;
-+	reg = airoha_is_lan_gdm_dev(dev) ? REG_FE_LAN_MAC_H : REG_FE_WAN_MAC_H;
- 	val = (addr[0] << 16) | (addr[1] << 8) | addr[2];
- 	airoha_fe_wr(eth, reg, val);
- 
-@@ -1865,7 +1863,7 @@ static int airoha_dev_init(struct net_device *netdev)
- 	int i;
- 
- 	/* QDMA0 is used for lan ports while QDMA1 is used for WAN ports */
--	dev->qdma = &eth->qdma[!airoha_is_lan_gdm_port(port)];
-+	dev->qdma = &eth->qdma[!airoha_is_lan_gdm_dev(dev)];
- 	dev->dev->irq = dev->qdma->irq_banks[0].irq;
- 	airoha_set_macaddr(dev, netdev->dev_addr);
- 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index f1eea492217c..f6f59d25abd9 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -647,8 +647,10 @@ static inline u16 airoha_qdma_get_txq(struct airoha_qdma *qdma, u16 qid)
- 	return qid % ARRAY_SIZE(qdma->q_tx);
+@@ -2599,44 +2599,61 @@ static int airoha_qdma_set_tx_rate_limit(struct net_device *netdev,
+ 	return 0;
  }
  
--static inline bool airoha_is_lan_gdm_port(struct airoha_gdm_port *port)
-+static inline bool airoha_is_lan_gdm_dev(struct airoha_gdm_dev *dev)
+-static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
+-					  struct tc_htb_qopt_offload *opt)
++static int airoha_tc_htb_modify_queue(struct net_device *dev,
++				      struct tc_htb_qopt_offload *opt)
  {
-+	struct airoha_gdm_port *port = dev->port;
+ 	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
+ 	u32 rate = div_u64(opt->rate, 1000) << 3; /* kbps */
+-	int err, num_tx_queues = netdev->real_num_tx_queues;
+-	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+-	struct airoha_gdm_port *port = dev->port;
+ 
+ 	if (opt->parent_classid != TC_HTB_CLASSID_ROOT) {
+ 		NL_SET_ERR_MSG_MOD(opt->extack, "invalid parent classid");
+ 		return -EINVAL;
+ 	}
+ 
+-	err = airoha_qdma_set_tx_rate_limit(netdev, channel, rate,
+-					    opt->quantum);
++	return airoha_qdma_set_tx_rate_limit(dev, channel, rate, opt->quantum);
++}
 +
- 	/* GDM1 port on EN7581 SoC is connected to the lan dsa switch.
- 	 * GDM{2,3,4} can be used as wan port connected to an external
- 	 * phy module.
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 22f5f1bae730..047141b2d6d8 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -362,7 +362,7 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
- 			/* For downlink traffic consume SRAM memory for hw
- 			 * forwarding descriptors queue.
- 			 */
--			if (airoha_is_lan_gdm_port(port))
-+			if (airoha_is_lan_gdm_dev(dev))
- 				val |= AIROHA_FOE_IB2_FAST_PATH;
- 			if (dsa_port >= 0)
- 				val |= FIELD_PREP(AIROHA_FOE_IB2_NBQ,
++static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
++					  struct tc_htb_qopt_offload *opt)
++{
++	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
++	int err, num_tx_queues = netdev->real_num_tx_queues;
++	struct airoha_gdm_dev *dev = netdev_priv(netdev);
++	struct airoha_qdma *qdma = dev->qdma;
++
++	/* Here we need to check the requested QDMA channel is not already
++	 * in use by another net_device running on the same QDMA block.
++	 */
++	if (test_and_set_bit(channel, qdma->qos_channel_map)) {
++		NL_SET_ERR_MSG_MOD(opt->extack,
++				   "qdma qos channel already in use");
++		return -EBUSY;
++	}
++
++	err = airoha_tc_htb_modify_queue(netdev, opt);
+ 	if (err) {
+ 		NL_SET_ERR_MSG_MOD(opt->extack,
+ 				   "failed configuring htb offload");
+-		return err;
++		goto error;
+ 	}
+ 
+-	if (opt->command == TC_HTB_NODE_MODIFY)
+-		return 0;
+-
+ 	err = netif_set_real_num_tx_queues(netdev, num_tx_queues + 1);
+ 	if (err) {
+ 		airoha_qdma_set_tx_rate_limit(netdev, channel, 0,
+ 					      opt->quantum);
+ 		NL_SET_ERR_MSG_MOD(opt->extack,
+ 				   "failed setting real_num_tx_queues");
+-		return err;
++		goto error;
+ 	}
+ 
+-	set_bit(channel, port->qos_sq_bmap);
++	set_bit(channel, dev->qos_sq_bmap);
+ 	opt->qid = AIROHA_NUM_TX_RING + channel;
+ 
+ 	return 0;
++error:
++	clear_bit(channel, qdma->qos_channel_map);
++
++	return err;
+ }
+ 
+ static int airoha_qdma_set_rx_meter(struct airoha_gdm_dev *dev,
+@@ -2817,11 +2834,13 @@ static int airoha_dev_setup_tc_block(struct net_device *dev,
+ static void airoha_tc_remove_htb_queue(struct net_device *netdev, int queue)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+-	struct airoha_gdm_port *port = dev->port;
++	struct airoha_qdma *qdma = dev->qdma;
+ 
+ 	netif_set_real_num_tx_queues(netdev, netdev->real_num_tx_queues - 1);
+ 	airoha_qdma_set_tx_rate_limit(netdev, queue + 1, 0, 0);
+-	clear_bit(queue, port->qos_sq_bmap);
++
++	clear_bit(queue, qdma->qos_channel_map);
++	clear_bit(queue, dev->qos_sq_bmap);
+ }
+ 
+ static int airoha_tc_htb_delete_leaf_queue(struct net_device *netdev,
+@@ -2829,9 +2848,8 @@ static int airoha_tc_htb_delete_leaf_queue(struct net_device *netdev,
+ {
+ 	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+-	struct airoha_gdm_port *port = dev->port;
+ 
+-	if (!test_bit(channel, port->qos_sq_bmap)) {
++	if (!test_bit(channel, dev->qos_sq_bmap)) {
+ 		NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
+ 		return -EINVAL;
+ 	}
+@@ -2844,10 +2862,9 @@ static int airoha_tc_htb_delete_leaf_queue(struct net_device *netdev,
+ static int airoha_tc_htb_destroy(struct net_device *netdev)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+-	struct airoha_gdm_port *port = dev->port;
+ 	int q;
+ 
+-	for_each_set_bit(q, port->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
++	for_each_set_bit(q, dev->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
+ 		airoha_tc_remove_htb_queue(netdev, q);
+ 
+ 	return 0;
+@@ -2858,9 +2875,8 @@ static int airoha_tc_get_htb_get_leaf_queue(struct net_device *netdev,
+ {
+ 	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+-	struct airoha_gdm_port *port = dev->port;
+ 
+-	if (!test_bit(channel, port->qos_sq_bmap)) {
++	if (!test_bit(channel, dev->qos_sq_bmap)) {
+ 		NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
+ 		return -EINVAL;
+ 	}
+@@ -2879,6 +2895,7 @@ static int airoha_tc_setup_qdisc_htb(struct net_device *dev,
+ 	case TC_HTB_DESTROY:
+ 		return airoha_tc_htb_destroy(dev);
+ 	case TC_HTB_NODE_MODIFY:
++		return airoha_tc_htb_modify_queue(dev, opt);
+ 	case TC_HTB_LEAF_ALLOC_QUEUE:
+ 		return airoha_tc_htb_alloc_leaf_queue(dev, opt);
+ 	case TC_HTB_LEAF_DEL:
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index f6f59d25abd9..a308a770116b 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -533,6 +533,8 @@ struct airoha_qdma {
+ 
+ 	struct airoha_queue q_tx[AIROHA_NUM_TX_RING];
+ 	struct airoha_queue q_rx[AIROHA_NUM_RX_RING];
++
++	DECLARE_BITMAP(qos_channel_map, AIROHA_NUM_QOS_CHANNELS);
+ };
+ 
+ struct airoha_gdm_dev {
+@@ -540,6 +542,8 @@ struct airoha_gdm_dev {
+ 	struct airoha_qdma *qdma;
+ 	struct net_device *dev;
+ 	struct airoha_eth *eth;
++
++	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+ };
+ 
+ struct airoha_gdm_port {
+@@ -549,8 +553,6 @@ struct airoha_gdm_port {
+ 
+ 	struct airoha_hw_stats stats;
+ 
+-	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+-
+ 	/* qos stats counters */
+ 	u64 cpu_tx_packets;
+ 	u64 fwd_tx_packets;
 
 -- 
 2.54.0
