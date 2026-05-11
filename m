@@ -4,99 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6E2CD3427
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 02:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AD7ACD37B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 02:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hI3It/TBwNAH4is3Y19ZdHuT8VgKHisEZqEHUOa55pA=; b=AvJ1deqLfK/ka+FSF1qlW2S/KZ
-	A74inuJpItaf3wEZXq8KVjsP0udbqMLv+vixTqipMvXmChxLW1+rLs1Kp2viq60GFOa4GrmqzUEDu
-	NYuqJtnvhr190ApP/BSFbD+9bUDIzbU1luLu4gf75Dvb2mh+xC8GxXQsfgorw7e2evZd8GqKkHk5l
-	gATqMUGpZVWcwyiFOB6f3RGK3jTrNNqRt+/xb/mF8Opkoq2f8qN+r7GZrKXCeTvvo7m2ehvIKNlu3
-	jC3E75lAmK7Z/sXkCZPtZHiTPKAxped3OJarAHqmPt0ZOHWYReQLYORVn59yxlXc6QouD8wzLzqZk
-	zgEL8FVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0upIL/r5PlHA2QmAdZKfeZ5Wg4iPfn0PljTHC25lCFM=; b=fqhLjGuk+LxAElCWcVvedjHSz/
+	2drGkwKgc7E/qYVNxKPTtThx8ZTf6ThbyQNVFohWoZ3W9wylvwDt3DatAxiDBQ5zvh0vP9/7ft6pl
+	naw4oQjVboIAYoAYKSANEPqBTp4VLaNkAzCo/TUCGtmjJpmDrIBbdYgHO3tAgue2tmbsoxBwzwRqm
+	PgGzSBJzPBchlfk9/wKMJxoecxZflTylLzI8m48c7kQDbw5yc89cKh7BGlHf9q1PaQYoUlgrRVAKx
+	fF0V1W+SimRw00S72YEgY4sX+CbSEixysuoVZ1LsXMbN7RhrN5YZesDObaWd0mFlqsJ7DOGxxQ2J3
+	z0MxgQrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGmS-0000000C4w1-2fAL;
-	Mon, 11 May 2026 02:54:04 +0000
-Received: from mail-vk1-xa61.google.com ([2607:f8b0:4864:20::a61])
+	id 1wMGoR-0000000C5dF-2nnZ;
+	Mon, 11 May 2026 02:56:07 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGmN-0000000C4sZ-47Nq
+	id 1wMGoO-0000000C5c6-0XUD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 02:54:01 +0000
-Received: by mail-vk1-xa61.google.com with SMTP id 71dfb90a1353d-5637886c92aso1761730e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 19:53:59 -0700 (PDT)
+	Mon, 11 May 2026 02:56:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ausil.us; s=google; t=1778468039; x=1779072839; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hI3It/TBwNAH4is3Y19ZdHuT8VgKHisEZqEHUOa55pA=;
-        b=PsQyFLEsWgacGGFHyioZxNx+8ZD7BoyoqDANfLQf3ajUT+qZL9IdShiZM2sv+7vvHI
-         pv+xFySucMT66s3/gBP+jJglS+5IYKO/QdqEow64yWV9NXcb/Noht5MvrL3u4RpEJbqE
-         GPwbd89oFW4/aF403CFNQdYmV/kkSK8cTbCpbljtvsE2WBMOkh3Nde7VWmtVNLWKe7Xg
-         WdQs18P4vVbKMbdinpPHyr833q+1lB01ihXgFdHoZ6iBbYFH6vY4x6xtKFnOV/Wu6rpB
-         0jMq/sAWkn110+8u7XdU/yk00dFuNiul4TCbQWwiu6kh+T1Bs1HqY5CD7cY+jRaZ3Bdu
-         y7lQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778468039; x=1779072839;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hI3It/TBwNAH4is3Y19ZdHuT8VgKHisEZqEHUOa55pA=;
-        b=YYWiOMryx++27/K0AdlXlgDawLEloFtq6fvNystYd9Xw+xblPWtxreqK8+tkHinIVj
-         Py3r7/49kM6pAqsRcNbv2TTcU1weU7IB0AmJ+eC2Fox+nm+lGbSPrZF/Vt4AjjeMTGvk
-         JgGVBhRtvViQeKDjhMnuFyfrput/6wl2Ubm8mFqqa5281bLEMVl6UBcCXAoXORqp4u7B
-         7HLzy8IeSY9GSfRQjNp+/UpVPHlnSFZbnPjuBWxXFmlLN2Q56PKUJp4xypuoLLE2rgzf
-         EC2kt1MDLkSrEsIdSxTDGaC/+9opj7AngeDzmlybvcmphx+ePDWTVNDKRwMrtu0UEv35
-         gd4w==
-X-Forwarded-Encrypted: i=1; AFNElJ90mHUBz7MizdTMZ3fCelY4JUk2KO3EjcaACZ4Ir5bC5DW86LRfv96Q06j33LALeuIYhPE5d9AvQioTpntdSn+R@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKkuGre4O1sb7Z9WQBXCV9Z+mWWfuRA1wi0zRCNSMwM6lExG8v
-	jfH6fvB8H+udXsjF+PrZXXOyATm78YtuYkDfrSctt5u16GCjkKuChU02jFFvpJINIVaqm4g+pri
-	GPg1K2Ldh88KpRGMAR/CuGHDbgZMe9r1CjN7/
-X-Gm-Gg: Acq92OGti0VR3DBLC6lj5CqhDGu7SXZEJ91lCX/+Lg6tL2lz1HzlVj3+kofSZptquCL
-	8p5fP0QtEjVCg1ic2UFP0bJe8y2o6wsHAe15p8O9876zX8rBlEyQ7P4RVC42KS3T/axBwKjU7Ul
-	B1F7yov2pnwzH3f/fy7qXfBb5jqEAgs4OgQBVoKFYWII1FAEY7/kqRZ7bsDR0GSqz4nBFmKVYF8
-	3P7QaK4zVcGaJwVhFKhsIyhreFogVqKKvrEnuS+nKsi/dQemNduMUnPkJi1jtWd24gsOWiDxgKs
-	nD7kxOD3PEGecd+iMXsJE8QKu0/3JVtfAeM++usp4MFZ0J3QYDCDus7OBLvO9qGWMqekVPFfsIU
-	rYnDdmI09igX9gzKssZbK9+8sgtnxek8m8Eu5Zo0POS1o
-X-Received: by 2002:a05:6102:8551:10b0:631:26f6:701c with SMTP id ada2fe7eead31-63126f6ad99mr5986189137.31.1778468038687;
-        Sun, 10 May 2026 19:53:58 -0700 (PDT)
-Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
-        by smtp-relay.gmail.com with ESMTPS id ada2fe7eead31-6313ff6c191sm698744137.1.2026.05.10.19.53.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 May 2026 19:53:58 -0700 (PDT)
-X-Relaying-Domain: ausil.us
-From: Dennis Gilmore <dennis@ausil.us>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Alexey Charkov <alchark@gmail.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Dennis Gilmore <dennis@ausil.us>
-Subject: [PATCH v10 2/4] arm64: dts: rockchip: rk3588s-orangepi-5: rename PLDO regulator labels to match schematic
-Date: Sun, 10 May 2026 21:53:48 -0500
-Message-ID: <20260511025352.106126-3-dennis@ausil.us>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260511025352.106126-1-dennis@ausil.us>
-References: <20260511025352.106126-1-dennis@ausil.us>
+	d=linux.alibaba.com; s=default;
+	t=1778468157; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=0upIL/r5PlHA2QmAdZKfeZ5Wg4iPfn0PljTHC25lCFM=;
+	b=t0MOwfl31OQ/IlqZiv4c5V9u9NoiCsjgMgF1Apo2avjRr7EtVdC20NNHJCVsFpXofgNNCHlpOFBkv2TKiFcQygCTMx0Tyc87Zc10o8fxq7FJUh4deWgSeLu1V7HLj0hOsECtVV7tyzoyzmwPrWUdksp4xQKuO8CPxDGux9M6wVw=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=feng.tang@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0X2dsRpW_1778468153;
+Received: from localhost(mailfrom:feng.tang@linux.alibaba.com fp:SMTPD_---0X2dsRpW_1778468153 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 11 May 2026 10:55:54 +0800
+Date: Mon, 11 May 2026 10:55:53 +0800
+From: Feng Tang <feng.tang@linux.alibaba.com>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Liz Prucka <lizprucka@google.com>,
+	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
+Message-ID: <agFFOZvRHMWCtPHm@U-2FWC9VHC-2323.local>
+References: <20260427153416.2103979-17-ardb+git@google.com>
+ <20260427153416.2103979-19-ardb+git@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260427153416.2103979-19-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_195400_024413_ADA2C198 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260510_195604_791397_E7D5FB82 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,96 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Orange Pi 5, 5B and 5 Pro schematics label the RK806 PLDO outputs
-using the pattern VCC_*_S0 / VCCA_*_S0 / VDDA_*_S0. Rename the base
-dtsi regulator labels (and the es8388 supply references) to match:
+On Mon, Apr 27, 2026 at 05:34:19PM +0200, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> The empty zero page is used to back any kernel or user space mapping
+> that is supposed to remain cleared, and so the page itself is never
+> supposed to be modified.
+> 
+> So make it __ro_after_init rather than __page_aligned_bss: on most
+> architectures, this ensures that both the kernel's mapping of it and any
+> aliases that are accessible via the kernel direct (linear) map are
+> mapped read-only, and cannot be used (inadvertently or maliciously) to
+> corrupt the contents of the zero page.
 
-  pldo-reg1: avcc_1v8_s0 -> vcc_1v8_s0
-  pldo-reg2: vcc_1v8_s0  -> vcca_1v8_s0
-  pldo-reg3: avdd_1v2_s0 -> vdda_1v2_s0
-  pldo-reg4: vcc_3v3_s0  -> vcca_3v3_s0
+Reviewed-by: Feng Tang <feng.tang@linux.alibaba.com>
 
-Also update the saradc vref-supply reference to track the pldo-reg1
-rename. No functional change.
+We did hit the issue that zero page got corrupted due to non-kernel
+reason earlier this year, and it took us weeks to track it down to
+zero page corruption and the final root cause, as it randomly happened
+to different user space tasks. Thanks for the patch!
 
-Signed-off-by: Dennis Gilmore <dennis@ausil.us>
----
- .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 26 +++++++++----------
- 1 file changed, 13 insertions(+), 13 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-index dafad29f9854..fd5c6a025cd1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
-@@ -274,10 +274,10 @@ es8388: audio-codec@10 {
- 		compatible = "everest,es8388", "everest,es8328";
- 		reg = <0x10>;
- 		clocks = <&cru I2S1_8CH_MCLKOUT>;
--		AVDD-supply = <&vcc_3v3_s0>;
--		DVDD-supply = <&vcc_1v8_s0>;
--		HPVDD-supply = <&vcc_3v3_s0>;
--		PVDD-supply = <&vcc_3v3_s0>;
-+		AVDD-supply = <&vcca_3v3_s0>;
-+		DVDD-supply = <&vcca_1v8_s0>;
-+		HPVDD-supply = <&vcca_3v3_s0>;
-+		PVDD-supply = <&vcca_3v3_s0>;
- 		assigned-clocks = <&cru I2S1_8CH_MCLKOUT>;
- 		assigned-clock-rates = <12288000>;
- 		#sound-dai-cells = <0>;
-@@ -441,7 +441,7 @@ &rknn_mmu_2 {
- };
- 
- &saradc {
--	vref-supply = <&avcc_1v8_s0>;
-+	vref-supply = <&vcc_1v8_s0>;
- 	status = "okay";
- };
- 
-@@ -666,8 +666,8 @@ regulator-state-mem {
- 				};
- 			};
- 
--			avcc_1v8_s0: pldo-reg1 {
--				regulator-name = "avcc_1v8_s0";
-+			vcc_1v8_s0: pldo-reg1 {
-+				regulator-name = "vcc_1v8_s0";
- 				regulator-always-on;
- 				regulator-boot-on;
- 				regulator-min-microvolt = <1800000>;
-@@ -678,8 +678,8 @@ regulator-state-mem {
- 				};
- 			};
- 
--			vcc_1v8_s0: pldo-reg2 {
--				regulator-name = "vcc_1v8_s0";
-+			vcca_1v8_s0: pldo-reg2 {
-+				regulator-name = "vcca_1v8_s0";
- 				regulator-always-on;
- 				regulator-boot-on;
- 				regulator-min-microvolt = <1800000>;
-@@ -691,8 +691,8 @@ regulator-state-mem {
- 				};
- 			};
- 
--			avdd_1v2_s0: pldo-reg3 {
--				regulator-name = "avdd_1v2_s0";
-+			vdda_1v2_s0: pldo-reg3 {
-+				regulator-name = "vdda_1v2_s0";
- 				regulator-always-on;
- 				regulator-boot-on;
- 				regulator-min-microvolt = <1200000>;
-@@ -703,8 +703,8 @@ regulator-state-mem {
- 				};
- 			};
- 
--			vcc_3v3_s0: pldo-reg4 {
--				regulator-name = "vcc_3v3_s0";
-+			vcca_3v3_s0: pldo-reg4 {
-+				regulator-name = "vcca_3v3_s0";
- 				regulator-always-on;
- 				regulator-boot-on;
- 				regulator-min-microvolt = <3300000>;
--- 
-2.54.0
-
+> 
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  mm/mm_init.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/mm/mm_init.c b/mm/mm_init.c
+> index f9f8e1af921c..6ca01ed2a5a4 100644
+> --- a/mm/mm_init.c
+> +++ b/mm/mm_init.c
+> @@ -57,7 +57,7 @@ unsigned long zero_page_pfn __ro_after_init;
+>  EXPORT_SYMBOL(zero_page_pfn);
+>  
+>  #ifndef __HAVE_COLOR_ZERO_PAGE
+> -uint8_t empty_zero_page[PAGE_SIZE] __page_aligned_bss;
+> +uint8_t empty_zero_page[PAGE_SIZE] __ro_after_init __aligned(PAGE_SIZE);
+>  EXPORT_SYMBOL(empty_zero_page);
+>  
+>  struct page *__zero_page __ro_after_init;
+> -- 
+> 2.54.0.rc2.544.gc7ae2d5bb8-goog
+> 
 
