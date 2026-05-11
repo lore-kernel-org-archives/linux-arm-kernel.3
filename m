@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA472CD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C3AFCD4840
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V7Lmlbu+YmCAxc8rc0XIoRafkz4YiUG7iD7DFMOHVi0=; b=r9Y0MkzmxCX2uJLGwH8rfNQ5rj
-	prDOOjNIR33w/QDsCFSeQjT9ttx9xx+usgJFz+lTIYrmhDFajwSx7+nYNItSIWaYYVSGZWooUxEVL
-	bVLtVr8DEOGKteBCQh0ECrn2Mn0heXJ5n5hXaXP3Pu/vqNAcN+InBmsRhJTDQFRDBVrdXMnijPPna
-	PZ/rLNht6ydR+gRgP4bAMSviTNZpmtc7uyj+5dA0ytTNwgIeiPKgk8Gpmll+L/V8vUzw/ted0lhRO
-	qPfdV3XycwrvPrD//JAy1Y0MMvuZhMrccd/5DaCaufGpy9zg57dkkMjp02Qh6e4F36TySlvixliDK
-	u55qdjrg==;
+	bh=CABNKAmPtFLSQ1IP5qwO/hTftEIR8AHWbuY7esmAI9Y=; b=fr6+NvWP9WzPpyFaGLuDDw9X/o
+	2E9+FFvhb4dfMPTHi1pFPNcXFA0ACy+0d3b5eQDILRXHhbMIXJP4VLovvTEHbdDEj1ChYM6VBqlIp
+	KmkYZuM3trRmBteZnSIg3s8Dz0dwzUTzmQ0aFS8JxAGzP+QDWXMxzF3TKAKHeApcZ+o3+38QzO34d
+	Pa4WdBq496IDbnB5usCkeVTkVVnF+9zvjFuwJMi3DWQerxeyLIJf3F5Jl1c2SLicGpqXTh4kQELZ6
+	i+w1uUv213TmEWldhaC8VMF5tt3bfYkailTU1Z73QyCRYsgjHHNQCMWj+zveavDRrgGqqcYWFPVka
+	HFZ+owQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTH9-0000000EARD-48g0;
-	Mon, 11 May 2026 16:14:35 +0000
+	id 1wMTIi-0000000EAeU-0plH;
+	Mon, 11 May 2026 16:16:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTH2-0000000EAQK-3zkB
+	id 1wMTIc-0000000EAdK-0Glu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 16:14:34 +0000
+	Mon, 11 May 2026 16:16:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F26040936;
-	Mon, 11 May 2026 16:14:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0977C2BCB0;
-	Mon, 11 May 2026 16:14:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EFA32438BA;
+	Mon, 11 May 2026 16:16:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4BBDC2BCB0;
+	Mon, 11 May 2026 16:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778516066;
-	bh=loApl5z4gNMlxHcs5ARDnO2c3Zo1516aXOntv1kkSOI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AEeA/6RZ7YTpM/mMfohIkUuAPJCtp2QiDJuGU1bgB1m4w8DDqNIsJvjjEdg1yis6w
-	 WRBNHSyhHo6FBHW1PFoyBgzmhB543o/db/XweILflbtXmveiTQFmmBR7Y7eIK4qNsq
-	 jIjY90qth83Pt21QXi90Ffm3xgQYlnrBz6htplTsPUb94t5K3gJtlyZWyaQpMY/W8D
-	 nPq5l4OHunZThPbuUnqwORsQZJMmx2n/MsXXPnhNPcLne9U8Lk2JIMxsdG/l1oOhfw
-	 JNLxfqx/ld2gvmmvouQNRubK0Lk+HGJktszx3mEqeMMByX/R3I+vI/xJQqI7ninEbm
-	 uL/GzsKtc0pag==
-From: Simon Horman <horms@kernel.org>
-To: arnd@kernel.org
-Cc: 'Simon Horman' <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	arnd@arndb.de,
-	aaro.koskinen@iki.fi,
-	andreas@kemnade.info,
-	brgl@kernel.org,
-	bcousson@baylibre.com,
-	davem@davemloft.net,
-	dmitry.torokhov@gmail.com,
-	edumazet@google.com,
-	balbi@kernel.org,
-	kuba@kernel.org,
-	johannes@sipsolutions.net,
-	khilman@baylibre.com,
-	krzk+dt@kernel.org,
-	linusw@kernel.org,
-	pabeni@redhat.com,
-	robh+dt@kernel.org,
-	rogerq@kernel.org,
-	tony@atomide.com,
-	linux-wireless@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	krzk@kernel.org
-Subject: Re: [PATCH 2/3] [v5 net-next] p54spi: convert to devicetree
-Date: Mon, 11 May 2026 17:12:45 +0100
-Message-ID: <20260511161243.49098-3-horms@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260507212451.3333185-3-arnd@kernel.org>
-References: <20260507212451.3333185-3-arnd@kernel.org>
+	s=k20201202; t=1778516164;
+	bh=Tkh+jKJ/HyweWFm1kgLTPcevVPY1FTld3W69DkR2W2Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Tjopzip28MhLehp4hRjx8JUwAh0/SjqSTki7LJO54v/RDR/zr+Eaoc4MfPhed7fTb
+	 toGS4r/1B6F8q6TYuVhUX8O00py1jeUNL4P5J1SnoU9qM6R6JaNnaqnz915YRs0L2V
+	 2PsKi0vPkWB6R8XL22wod7E3nZG/Z+/YFpJy+ZnIVBKlu5edcYe6KRz10GUUw/62sO
+	 qnp3qpaw9jIULRLilyB8Y3S1aVvy6Hic+gv+nOfyHC6Eq1POmaJO21R+SobBtUB3tz
+	 W20wx10pOfViwgw538xxLRGWPAJ/+ScZwOFxTIySBipX6R6eo43xqE6zKdKHF3ooUJ
+	 euUacNRwuQ6tQ==
+Date: Mon, 11 May 2026 17:15:54 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Pramod Maurya <pramod.nexgen@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>, Lars-Peter
+ Clausen <lars@metafoo.de>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] dt-bindings: iio: adc: Convert xilinx-xadc bindings
+ to YAML schema
+Message-ID: <20260511171554.6541042b@jic23-huawei>
+In-Reply-To: <20260510120141.118057-1-pramod.nexgen@gmail.com>
+References: <20260510083219.70224-1-pramod.nexgen@gmail.com>
+	<20260510120141.118057-1-pramod.nexgen@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_091429_149634_328442DB 
-X-CRM114-Status: GOOD (  21.85  )
+X-CRM114-CacheID: sfid-20260511_091606_151589_4BC41EFA 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,108 +80,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: 'Simon Horman' <horms@kernel.org>
+On Sun, 10 May 2026 08:01:36 -0400
+Pramod Maurya <pramod.nexgen@gmail.com> wrote:
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
-Full review at: https://sashiko.dev
----
-p54spi: convert to devicetree
+> Convert the Xilinx XADC and UltraScale System Monitor device tree binding
+> from the legacy plain-text format to a YAML schema, enabling automated
+> validation with dt-schema.
+> 
+> The new binding covers the same hardware and compatible strings:
+>   - xlnx,zynq-xadc-1.00.a (ZYNQ hardmacro)
+>   - xlnx,axi-xadc-1.00.a  (AXI softmacro)
+>   - xlnx,system-management-wiz-1.3 (UltraScale System Management Wizard)
+> 
+> Signed-off-by: Pramod Maurya <pramod.nexgen@gmail.com>
+Hi Pramod,
 
-This commit converts the Prism54 SPI driver from using hardcoded GPIO
-module parameters to using the GPIO descriptor interface and device tree
-probing.
+Something went wrong with your sending of v3. I have two versions sent
+half a day apart and no idea how they are related.
 
-> diff --git a/drivers/net/wireless/intersil/p54/p54spi.c b/drivers/net/wireless/intersil/p54/p54spi.c
-> index 9d66dcae54e02..d18be25450285 100644
-> --- a/drivers/net/wireless/intersil/p54/p54spi.c
-> +++ b/drivers/net/wireless/intersil/p54/p54spi.c
+Anyhow one of them got feedback from Rob's bot so I'll assume we are
+getting a v4 and wait for that.
 
-[ ... ]
-
-> @@ -30,19 +31,6 @@
->  MODULE_FIRMWARE("3826.arm");
->  MODULE_FIRMWARE("3826.eeprom");
->  
-> -/* gpios should be handled in board files and provided via platform data,
-> - * but because it's currently impossible for p54spi to have a header file
-> - * in include/linux, let's use module parameters for now
-> - */
-> -
-> -static int p54spi_gpio_power = 97;
-> -module_param(p54spi_gpio_power, int, 0444);
-> -MODULE_PARM_DESC(p54spi_gpio_power, "gpio number for power line");
-> -
-> -static int p54spi_gpio_irq = 87;
-> -module_param(p54spi_gpio_irq, int, 0444);
-> -MODULE_PARM_DESC(p54spi_gpio_irq, "gpio number for irq line");
-> -
->  static void p54spi_spi_read(struct p54s_priv *priv, u8 address,
->  			      void *buf, size_t len)
->  {
-
-Simon says: As a pre-existing issue I don't think we need to be concerned
-            about this in the scope of this patch-set. But it may
-	    be a potential for follow-up.
-
-This problem wasn't introduced by this patch, but I noticed a pre-existing
-issue in the context here. Does the p54spi_spi_read() function perform an SPI
-transfer using a stack-allocated buffer?
-
-Looking at p54spi_spi_read(), the addr variable is allocated on the stack and
-passed as a transfer buffer to spi_sync(). The SPI framework maps transfer
-buffers for DMA. Passing a stack-allocated buffer is illegal, particularly with
-CONFIG_VMAP_STACK enabled, because stack memory resides in vmalloc space and
-cannot be safely DMA-mapped.
-
-Could this cause memory corruption or a kernel panic during the transfer?
-
-[ ... ]
-
-> @@ -608,31 +596,20 @@ static int p54spi_probe(struct spi_device *spi)
->  		goto err_free;
->  	}
->  
-> -	ret = gpio_request(p54spi_gpio_power, "p54spi power");
-> -	if (ret < 0) {
-> -		dev_err(&priv->spi->dev, "power GPIO request failed: %d", ret);
-> +	priv->gpio_powerdown = gpiod_get_optional(&spi->dev, "powerdown", GPIOD_OUT_HIGH);
-> +	if (IS_ERR(priv->gpio_powerdown)) {
-> +		ret = dev_err_probe(&priv->spi->dev, PTR_ERR(priv->gpio_powerdown),
-> +				    "powerdown GPIO request failed\n");
->  		goto err_free;
->  	}
->  
-> -	ret = gpio_request(p54spi_gpio_irq, "p54spi irq");
-> -	if (ret < 0) {
-> -		dev_err(&priv->spi->dev, "irq GPIO request failed: %d", ret);
-> -		goto err_free_gpio_power;
-> -	}
-> -
-> -	gpio_direction_output(p54spi_gpio_power, 0);
-> -	gpio_direction_input(p54spi_gpio_irq);
-> -
-> -	ret = request_irq(gpio_to_irq(p54spi_gpio_irq),
-> -			  p54spi_interrupt, IRQF_NO_AUTOEN, "p54spi",
-> -			  priv->spi);
-> +	ret = request_irq(spi->irq, p54spi_interrupt, IRQF_NO_AUTOEN, "p54spi", priv->spi);
-
-Simon says: This one seems more concerning in the context of this patch-set.
-
-Is there missing validation for spi->irq before calling request_irq()?
-
-If the device tree node lacks an interrupts property, the SPI core may set
-spi->irq to 0 or a negative error code.
-
-Passing this directly to request_irq() without validation can successfully
-hijack a core system interrupt like the system timer on some architectures,
-leading to system instability or deadlocks.
-
-Should there be a check like if (spi->irq <= 0) to fail the probe gracefully?
-
->  	if (ret < 0) {
->  		dev_err(&priv->spi->dev, "request_irq() failed");
-> -		goto err_free_gpio_irq;
-> +		goto err_free_gpio_power;
->  	}
+Jonathan
 
