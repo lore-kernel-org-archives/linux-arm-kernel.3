@@ -4,99 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6772DCD37B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B866ECD37B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WwCAGmH0U4Nhy4j6grH3+nSMTDhiVfCng6CUAeJVa7Q=; b=mpisHWboBCyveFPOjQrCH8crDd
-	OmupPeMGvmzDmVGlKZbcb5nQwjh41QplgP72onwRr1+BIFUG3UsfaYg+p5QRT2zUetm/griWgAOzQ
-	PVOJcjFS7h9ej6gVNMqRds3oXxLzIDPcpd2FLDMCVGi2PlbEand3MzMzoobPY5MviadgFxA/l7j7S
-	sqYScyhuGkR2RECUIl8wLJxl5VPKbvIV7C4w/cCr4+UCSZO3x3wdRZDcYWW0NX/isUKGacWc9cOoE
-	v/hhsOiq7gyO4g1Y5UrlFejL2ca1OB02AYecgekGEUZ7F596ijb/ciWjniqRWB+7EtiavLPVKuTyB
-	D6HdHHzw==;
+	bh=d144Vag1vrwryOSMTcgTCuFjK8AXtOSI+wCjFi34Jgw=; b=MI4wcYGG+P5R2ooAU4tgdIB+Po
+	3MIcmJCYnrbqooskS7fHjSZDym0bK7qasiD3zFm+btlrTxmKzsOnhCquMFk5Q9G9eSnAhIzNI9b+f
+	EqKaKgqRdQoDsNjb6DW0Eb7QchXa6Hwj9+tTD+EVWy8jlrHBKiU+VNaH9S89T01HxLXf2drhh2og1
+	RGidmI5vGBhgBRjAs2LBLw0fYBZN8KpOXCloUX+OnNdzTRx+tOj4CrfYYm1s9GhO3Fa1GaZaz6u0K
+	GlOU/mCG/Gr2yeOJBkGOrGrtUQO7XPdW0MOpweJyo4sck5AAPzHD4QMUN3BCwHkoZEVPFMW6xaqRb
+	pS8vfcoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMT9b-0000000E9Ew-1K4V;
-	Mon, 11 May 2026 16:06:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wMTAH-0000000E9M2-2EKB;
+	Mon, 11 May 2026 16:07:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMT9U-0000000E9DX-1ysL
+	id 1wMTA9-0000000E9KX-3whE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 16:06:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1778515599;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WwCAGmH0U4Nhy4j6grH3+nSMTDhiVfCng6CUAeJVa7Q=;
-	b=F0+1//NOn5BqXDVeiWvW0k/oynQBeRtkhTEUu9ZRT5RtqqXSqHJUSQfThsYejU2w2mGT/3
-	zl+qfQ8/DZpdu3z7FnM5gQFNWKG1XiwhXLX20Lzi6M/F13xbtnMZJR0SdHEFlChcAWqVnH
-	TCxDeqYqu4wUTM9k3z1aRCtAWA8ke3I=
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
- [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-592-xGjCZIleNbOxshkbvCv2hA-1; Mon, 11 May 2026 12:06:37 -0400
-X-MC-Unique: xGjCZIleNbOxshkbvCv2hA-1
-X-Mimecast-MFC-AGG-ID: xGjCZIleNbOxshkbvCv2hA_1778515597
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8bc140520c7so78906196d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 09:06:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778515597; x=1779120397;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WwCAGmH0U4Nhy4j6grH3+nSMTDhiVfCng6CUAeJVa7Q=;
-        b=pXnD5CzAm4Z3UTtBT8YIez84q1LQQEc4rBjtTw3f9niGHOAntk8N06ez62KlUOE8ik
-         ETiKPqKzt0NoavqzZZANl7r4QWxU/evk6jtkA0NdJ4j3g3k1fa00jtAZzhMvT7rr12gc
-         5nDdn+bfZlHhae2Qn1GYI2mMjkidNXwniz9/kT/d/vrnCb7nzYgo/pH8J2k3ZBgAwHIg
-         Cz+PNxQUG59aXwuf0RPM7undtVjA2DuZnYVgGzrz8A2Sln3Bqa+uwghrXwJO4jVtS+PE
-         i53P82MTnwa02goEX58BlOIzmr+rw1Nu7vH37YFEL4AiOKkDk8PX0+Xr8FrF36gWVzgZ
-         dcvg==
-X-Forwarded-Encrypted: i=1; AFNElJ+aCKjMLryWAfhryJ/MIoi39SB6VDUdoTUimH5xfWz6SD0VehBe3HHMZPHvdWHSj0G3FaherVjdB+NGAAMgHOeO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1BRGsJHSGG6X/p7kpKIuOhcplzFgbiZd0iJzaQN8ejcq4Q7WB
-	SBn1TcOi04NJYRH5vvdFiwCYYv6brKX5v0ysl6OOWYDG8SJdUD/bogK8gNsCZwpnVoBXjWcMrBI
-	jYKSuk+kxHbWBcwKXjzpbIOlHRWdcQwshHbH4GGdNqRWCBpkIdMKSAO/ig6EkhKaL+z1Md2eGl1
-	9+
-X-Gm-Gg: Acq92OHDruKfqqkvj7BJ+BhYuswdHPxiGCCH1u7r+Xg/Icc+hMW9u+mLsSxKZSKl+vi
-	c+EdI5OAzPerH4ucO23Q7i7aLwX0W4SgiQ3O5JM4cIdz3KTUHS68fF/q+uy5YXcIRJC7JpH2FDj
-	94CBO79+EzyaQcNFsbRp4baJOE9k9D+Vnx9lbCWYomAeTwXxq1jbCn6SiuXIclqahcNObp28gSp
-	eu674b7v+H/GeZ6KuyPSpqU/77xZQLoL6QwZTZK/Gq26ho9MoeJqfYsfItIjEyno5ZJ6fOOZ1Wt
-	tsYZ+8ko8p4k2LqOK+y+Yy/bki4bgCJOj47vP9pBAyvrxWEx0qyVWiYCNBbXFlFKs47A7O17G30
-	FFRfVn2/77S12rdpTlzwI0MwR9bYxwb4MPLk63502x3nT6PCsGKuMY2E5
-X-Received: by 2002:a05:6214:468f:b0:8ae:6d63:3066 with SMTP id 6a1803df08f44-8c1af2eec23mr162718396d6.38.1778515597132;
-        Mon, 11 May 2026 09:06:37 -0700 (PDT)
-X-Received: by 2002:a05:6214:468f:b0:8ae:6d63:3066 with SMTP id 6a1803df08f44-8c1af2eec23mr162717886d6.38.1778515596574;
-        Mon, 11 May 2026 09:06:36 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8bf88247a3csm93252456d6.11.2026.05.11.09.06.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 May 2026 09:06:35 -0700 (PDT)
-Date: Mon, 11 May 2026 12:06:34 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-clk@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] clk: rockchip: Use flexible array for clock table
-Message-ID: <agH-ivEdw12_3OJz@redhat.com>
-References: <20260511032252.361906-1-rosenp@gmail.com>
+	Mon, 11 May 2026 16:07:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4EB4842AD5;
+	Mon, 11 May 2026 16:07:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0AADC2BCB0;
+	Mon, 11 May 2026 16:07:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778515641;
+	bh=71uUKlvMw4F1TTJJY30wApPoOfQZt+0qMe5dKUS6mRg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FzPlNBlFSnRf4iP9eodhrcYxBDnbPq8wF8DpFFOgNMFQU5m6iIn8FcPW7XKEJkg0M
+	 HIIxOix1ENvOn2POhSWR0v+uXxw8Jr+DQVNi6vsoG4dEfnDqfJauBRr7CxkSgtUUpY
+	 ZrQX2F3/j4hsoLy2TubHOWscMFdDDrqB7857YB3mVzpgIjDAxDZ5zzstMlLeRsgVnC
+	 9vmobpcClHvyDas7+C6s6181rZyr6efxXrbOkql5J04toXqexzKoUuraNDxnu5fc62
+	 9G89L7NXO7m0mscUOeS18LglSG7adXGNXTN/lwBynKaZ4u+seKFNCmyRtR8D9TddBa
+	 bkYVSxvkF74Iw==
+Date: Mon, 11 May 2026 17:07:14 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Stefan =?iso-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC v2 1/4] dt-bindings: clk: zte: Add zx297520v3 clock
+ and reset bindings.
+Message-ID: <20260511-backstage-crewman-e44947ab6cfc@spud>
+References: <20260511-zx29clk-v2-0-29f0edc300f5@gmail.com>
+ <20260511-zx29clk-v2-1-29f0edc300f5@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20260511032252.361906-1-rosenp@gmail.com>
-User-Agent: Mutt/2.3.1 (2026-03-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5yVP3E3B5YcZLkmZT_5JgTCy55WM4bKEXP6HYKaa4vw_1778515597
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="X42tWiqzEfN/q3j3"
 Content-Disposition: inline
+In-Reply-To: <20260511-zx29clk-v2-1-29f0edc300f5@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_090640_619510_0E7637CF 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20260511_090723_106694_C4D4AD39 
+X-CRM114-Status: GOOD (  46.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,99 +79,478 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rosen,
 
-On Sun, May 10, 2026 at 08:22:52PM -0700, Rosen Penev wrote:
-> Store the clock lookup table in the Rockchip clock provider
-> allocation instead of allocating it separately.
-> 
-> This ties the table lifetime directly to the provider and removes a
-> separate allocation failure path while preserving the clk_onecell_data
-> lookup interface.
-> 
-> Assisted-by: Codex:GPT-5.5
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+--X42tWiqzEfN/q3j3
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, May 11, 2026 at 12:49:50AM +0300, Stefan D=F6singer wrote:
+> These SoCs have 3 clock and reset controllers. The "top" controller -
+> all names follow ZTE's naming - controls core devices like the AHB bus,
+> most timers and the Cortex M0 that brings up the board. The register
+> layout is fairly chaotic. Some patterns can be found, but nothing that
+> holds true for all devices it controls.
+>=20
+> Generally every device has two clocks (one work clock, and one that
+> connects it to the bus, I call it PCLK), two reset bits (I don't know
+> what the difference is - sometimes asserting one is enough to reset the
+> device, sometimes both need to be asserted) and one mux. Some devices,
+> like the GPIO controller, only have reset bits and no clocks.
+>=20
+> The top clock controller is fed by a 26mhz external oscillator and has 4
+> PLLs to generate other clock rates. ZTE's kernel does not manipulate the
+> PLLs at all and relies on BROM and the boot loader to set them up. The
+> bitfields in the control registers are somewhat documented in a
+> Lauterback TRACE32 debug file in the kernel sources though. At the
+> moment, my driver extracts clock rates from the PLLs, but cannot change
+> them. A proper PLL clk is on my TODO list before I remove the [RFC] tag
+> from the submission. It will be necessary for the LTE hardware with
+> replacement boot loaders because BROM does not set up the LTE-related
+> PLL.
+>=20
+> The "matrix" controller controls the main Cortex A53 CPU, the LTE ZSP,
+> SDIO and a few others. It is even more chaotic than the "top"
+> controller.
+>=20
+> The "LSP" controller - I suspect it stands for "low speed peripherals" -
+> is very regular. One 32 bit register for 2 clock gates, two resets, one
+> mux (1-3 bit) and in some cases a 4 bit divider.
+>=20
+> Not all clocks will have an explicit user in the end. I am defining a
+> lot of them simply to shut them off. The boot loader sets up a few of
+> the proprietary timers, which will send regular IRQs (although the
+> kernel of course doesn't need to listen to them). I don't plan to add a
+> driver for the proprietary timer as I see no use for them - the ARM arch
+> timer works just fine. I will add a driver for the very similar
+> proprietary watchdog though.
+>=20
+> The top and matrix list is not exhaustive. There are other bits
+> that are enabled, but I couldn't deduce what they are controlling by
+> trial and error. Some of them seem to do nothing. Others cause an
+> instant hang of the board when disabled. I isolated a few (SRAM PCLK,
+> arm arch timer clock) where I don't see a reason to manipulate them. It
+> is quite likely that a handful more clocks will be added in the future,
+> but not a large number.
+>=20
+> Signed-off-by: Stefan D=F6singer <stefandoesinger@gmail.com>
 > ---
->  drivers/clk/rockchip/clk.c | 17 ++++-------------
->  drivers/clk/rockchip/clk.h |  2 ++
->  2 files changed, 6 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/clk/rockchip/clk.c b/drivers/clk/rockchip/clk.c
-> index ee8c79b938d3..dbb4b6f33abb 100644
-> --- a/drivers/clk/rockchip/clk.c
-> +++ b/drivers/clk/rockchip/clk.c
-> @@ -359,26 +359,21 @@ static struct rockchip_clk_provider *rockchip_clk_init_base(
->  		unsigned long nr_clks, bool has_late_clocks)
->  {
->  	struct rockchip_clk_provider *ctx;
-> -	struct clk **clk_table;
->  	struct clk *default_clk_val;
->  	int i;
->  
->  	default_clk_val = ERR_PTR(has_late_clocks ? -EPROBE_DEFER : -ENOENT);
->  
-> -	ctx = kzalloc_obj(struct rockchip_clk_provider);
-> +	ctx = kzalloc_flex(*ctx, clk_table, nr_clks);
->  	if (!ctx)
->  		return ERR_PTR(-ENOMEM);
->  
-> -	clk_table = kzalloc_objs(struct clk *, nr_clks);
-> -	if (!clk_table)
-> -		goto err_free;
-> -
->  	for (i = 0; i < nr_clks; ++i)
-> -		clk_table[i] = default_clk_val;
-> +		ctx->clk_table[i] = default_clk_val;
->  
-> -	ctx->reg_base = base;
-> -	ctx->clk_data.clks = clk_table;
->  	ctx->clk_data.clk_num = nr_clks;
-> +	ctx->clk_data.clks = ctx->clk_table;
+>  .../bindings/clock/zte,zx297520v3-clk.yaml         | 173 +++++++++++++++=
++++++
+>  include/dt-bindings/clock/zte,zx297520v3-clk.h     | 179 +++++++++++++++=
+++++++
+>  2 files changed, 352 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/clock/zte,zx297520v3-clk.y=
+aml b/Documentation/devicetree/bindings/clock/zte,zx297520v3-clk.yaml
+> new file mode 100644
+> index 000000000000..3b7084a18a97
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/zte,zx297520v3-clk.yaml
+> @@ -0,0 +1,173 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/zte,zx297520v3-clk.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ZTE zx297520v3 SoC clock and reset controller
+> +
+> +maintainers:
+> +  - Stefan D=F6singer <stefandoesinger@gmail.com>
+> +
+> +description: |
+> +  The zx297520v3's clock controller consists of 3 controllers, which gen=
+erate
+> +  clocks for internal SoC devices. In addition to clocks it also has res=
+et
+> +  controls for most, but not all, devices.
+> +
+> +  While there is a certain hierarchy among the controllers ("top" contro=
+lls core
+> +  parts like the boot-up Cortex M0, "matrix" controls the main CPU and L=
+TE DSP,
+> +  "lsp" controls peripherals"), in practise all 3 are required to reason=
+ably
+> +  operate the SoC.
+> +
+> +  The top controller has two inputs: a 26 MHz and a 32 KHz external osci=
+llator.
+> +  They need to be provided as input clocks. The matrix controller contro=
+lls 10
+> +  clock lines that get fed into the LSP controller. The LSP device node =
+needs
+> +  to list these input clocks.
+> +
+> +  The matrix controller consumes clocks generated by PLLs in the top
+> +  controller, but there are no controls in the top controller to sever t=
+his
+> +  link. The interface between these controllers is not expressed in the =
+device
+> +  tree, but the matrix controller cannot work without the clock handles
+> +  registered by the top controller.
+> +
+> +  All available clocks are defined as preprocessor macros in
+> +  'dt-bindings/clock/zte,zx297520v3-clk.h' header.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - zte,zx297520v3-topclk
+> +      - zte,zx297520v3-matrixclk
 
-Where's the __counted_by? Also struct clk_onecell_data is embedded
-inside struct rockchip_clk_provider, and I'm not sure offhand how
-that'll work.
+How come the "matrixclk" has no constraints on clock properties?
 
-Brian
+> +      - zte,zx297520v3-lspclk
+> +
+> +  clocks:
+> +    minItems: 2
+> +    maxItems: 10
+> +
+> +  clock-names:
+> +    minItems: 2
+> +    maxItems: 10
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: zte,zx297520v3-topclk
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: External reference clock (26 MHz)
+> +            - description: External reference clock (32 KHz)
+> +        clock-names:
+> +          items:
+> +            - const: osc26m
+> +            - const: osc32k
+> +      required:
+> +        - clocks
+> +        - clock-names
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: zte,zx297520v3-lspclk
 
+Although, these two devices seem too different to be in the same
+dt-binding. Do they have anyhting in common other than the SoC they are
+part of?
 
-> +	ctx->reg_base = base;
->  	ctx->cru_node = np;
->  	spin_lock_init(&ctx->lock);
->  
-> @@ -388,10 +383,6 @@ static struct rockchip_clk_provider *rockchip_clk_init_base(
->  						   "rockchip,grf");
->  
->  	return ctx;
-> -
-> -err_free:
-> -	kfree(ctx);
-> -	return ERR_PTR(-ENOMEM);
->  }
->  
->  struct rockchip_clk_provider *rockchip_clk_init(struct device_node *np,
-> diff --git a/drivers/clk/rockchip/clk.h b/drivers/clk/rockchip/clk.h
-> index 9e3503e2ffc2..d4033bf750f5 100644
-> --- a/drivers/clk/rockchip/clk.h
-> +++ b/drivers/clk/rockchip/clk.h
-> @@ -604,6 +604,7 @@ struct rockchip_aux_grf {
->   * @grf: regmap of the general-register-files syscon
->   * @aux_grf_table: hashtable of auxiliary GRF regmaps, indexed by grf_type
->   * @lock: maintains exclusion between callbacks for a given clock-provider.
-> + * @clk_table: clock lookup table.
->   */
->  struct rockchip_clk_provider {
->  	void __iomem *reg_base;
-> @@ -612,6 +613,7 @@ struct rockchip_clk_provider {
->  	struct regmap *grf;
->  	DECLARE_HASHTABLE(aux_grf_table, GRF_HASH_ORDER);
->  	spinlock_t lock;
-> +	struct clk *clk_table[];
->  };
->  
->  struct rockchip_pll_rate_table {
-> -- 
-> 2.54.0
-> 
+Cheers,
+Conor.
 
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: Main PLL divided by 5 output from matrixclk (=
+124.8 MHz)
+> +            - description: Main PLL divided by 4 output from matrixclk (=
+156 MHz)
+> +            - description: Main PLL divided by 6 output from matrixclk (=
+104 MHz)
+> +            - description: Main PLL divided by 8 output from matrixclk (=
+78 MHz)
+> +            - description: Main PLL divided by 12 output from matrixclk =
+(52 MHz)
+> +            - description: Main oscillator output from matrixclk (26 MHz)
+> +            - description: Timer oscillator output from matrixclk (32 KH=
+z)
+> +            - description: LSP pclk output from matrixclk (26 MHz)
+> +            - description: TDM wclk mux output from matrixclk
+> +            - description: DPLL divided by 4 output from matrixclk (122.=
+88 MHz)
+> +        clock-names:
+> +          items:
+> +            - const: mpll_d5
+> +            - const: mpll_d4
+> +            - const: mpll_d6
+> +            - const: mpll_d8
+> +            - const: mpll_d12
+> +            - const: osc26m
+> +            - const: osc32k
+> +            - const: pclk
+> +            - const: tdm_wclk
+> +            - const: dpll_d4
+> +      required:
+> +        - clocks
+> +        - clock-names
+> +
+> +additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - '#clock-cells'
+> +  - reg
+> +  - '#reset-cells'
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/zte,zx297520v3-clk.h>
+> +
+> +    osc26m: osc26m {
+> +      compatible =3D "fixed-clock";
+> +      clock-output-names =3D "osc26m";
+> +      #clock-cells =3D <0>;
+> +    };
+> +
+> +    osc32k: osc32k {
+> +      compatible =3D "fixed-clock";
+> +      clock-output-names =3D "osc32k";
+> +      #clock-cells =3D <0>;
+> +    };
+> +
+> +    topclk: topclk@13b000 {
+> +        compatible =3D "zte,zx297520v3-topclk";
+> +        reg =3D <0x0013b000 0x400>;
+> +        #clock-cells =3D <1>;
+> +        #reset-cells =3D <1>;
+> +        clocks =3D <&osc26m>, <&osc32k>;
+> +        clock-names =3D "osc26m", "osc32k";
+> +    };
+> +
+> +    matrixclk: matrixclk@1306000 {
+> +        compatible =3D "zte,zx297520v3-matrixclk";
+> +        reg =3D <0x01306000 0x400>;
+> +        #clock-cells =3D <1>;
+> +        #reset-cells =3D <1>;
+> +    };
+> +
+> +    lspclk: lspclk@1400000 {
+> +        compatible =3D "zte,zx297520v3-lspclk";
+> +        reg =3D <0x01400000 0x100>;
+> +        #clock-cells =3D <1>;
+> +        #reset-cells =3D <1>;
+> +
+> +        clocks =3D <&matrixclk ZX297520V3_LSP_MPLL_D5_WCLK>,
+> +                 <&matrixclk ZX297520V3_LSP_MPLL_D4_WCLK>,
+> +                 <&matrixclk ZX297520V3_LSP_MPLL_D6_WCLK>,
+> +                 <&matrixclk ZX297520V3_LSP_MPLL_D8_WCLK>,
+> +                 <&matrixclk ZX297520V3_LSP_MPLL_D12_WCLK>,
+> +                 <&matrixclk ZX297520V3_LSP_OSC26M_WCLK>,
+> +                 <&matrixclk ZX297520V3_LSP_OSC32K_WCLK>,
+> +                 <&matrixclk ZX297520V3_LSP_PCLK>,
+> +                 <&matrixclk ZX297520V3_LSP_TDM_WCLK>,
+> +                 <&matrixclk ZX297520V3_LSP_DPLL_D4_WCLK>;
+> +        clock-names =3D "mpll_d5", "mpll_d4", "mpll_d6", "mpll_d8", "mpl=
+l_d12",
+> +                      "osc26m", "osc32k", "pclk", "tdm_wclk", "dpll_d4";
+> +    };
+> diff --git a/include/dt-bindings/clock/zte,zx297520v3-clk.h b/include/dt-=
+bindings/clock/zte,zx297520v3-clk.h
+> new file mode 100644
+> index 000000000000..322b53be8b12
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/zte,zx297520v3-clk.h
+> @@ -0,0 +1,179 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (C) Stefan D=F6singer.
+> + */
+> +
+> +#ifndef __DT_BINDINGS_CLOCK_ZX297520V3_H
+> +#define __DT_BINDINGS_CLOCK_ZX297520V3_H
+> +
+> +#define ZX297520V3_AHB_WCLK			0
+> +#define ZX297520V3_AHB_PCLK			1
+> +#define ZX297520V3_PMM_WCLK			2
+> +#define ZX297520V3_PMM_PCLK			3
+> +#define ZX297520V3_USB_24M			4
+> +#define ZX297520V3_USB_AHB			5
+> +#define ZX297520V3_TIMER_T08_WCLK		6
+> +#define ZX297520V3_TIMER_T08_PCLK		7
+> +#define ZX297520V3_TIMER_T09_WCLK		8
+> +#define ZX297520V3_TIMER_T09_PCLK		9
+> +#define ZX297520V3_TIMER_T12_WCLK		10
+> +#define ZX297520V3_TIMER_T12_PCLK		11
+> +#define ZX297520V3_TIMER_T13_WCLK		12
+> +#define ZX297520V3_TIMER_T13_PCLK		13
+> +#define ZX297520V3_TIMER_T14_WCLK		14
+> +#define ZX297520V3_TIMER_T14_PCLK		15
+> +#define ZX297520V3_TIMER_T15_WCLK		16
+> +#define ZX297520V3_TIMER_T15_PCLK		17
+> +#define ZX297520V3_TIMER_T16_WCLK		18
+> +#define ZX297520V3_TIMER_T16_PCLK		19
+> +#define ZX297520V3_TIMER_T17_WCLK		20
+> +#define ZX297520V3_TIMER_T17_PCLK		21
+> +#define ZX297520V3_WDT_T18_WCLK			22
+> +#define ZX297520V3_WDT_T18_PCLK			23
+> +#define ZX297520V3_UART0_WCLK			24
+> +#define ZX297520V3_UART0_PCLK			25
+> +#define ZX297520V3_I2C0_WCLK			26
+> +#define ZX297520V3_I2C0_PCLK			27
+> +#define ZX297520V3_RTC_WCLK			28
+> +#define ZX297520V3_RTC_PCLK			29
+> +#define ZX297520V3_LPM_GSM_WCLK			30
+> +#define ZX297520V3_LPM_GSM_PCLK			31
+> +#define ZX297520V3_LPM_LTE_WCLK			32
+> +#define ZX297520V3_LPM_LTE_PCLK			33
+> +#define ZX297520V3_LPM_TD_WCLK			34
+> +#define ZX297520V3_LPM_TD_PCLK			35
+> +#define ZX297520V3_LPM_W_WCLK			36
+> +#define ZX297520V3_LPM_W_PCLK			37
+> +#define ZX297520V3_USIM1_WCLK			38
+> +#define ZX297520V3_USIM1_PCLK			39
+> +#define ZX297520V3_M0_WCLK			40
+> +#define ZX297520V3_TOPCLK_END			41
+> +
+> +#define ZX297520V3_AHB_RESET			0
+> +#define ZX297520V3_TIMER_T08_RESET		1
+> +#define ZX297520V3_TIMER_T09_RESET		2
+> +#define ZX297520V3_TIMER_T12_RESET		3
+> +#define ZX297520V3_TIMER_T13_RESET		4
+> +#define ZX297520V3_TIMER_T14_RESET		5
+> +#define ZX297520V3_TIMER_T15_RESET		6
+> +#define ZX297520V3_TIMER_T16_RESET		7
+> +#define ZX297520V3_TIMER_T17_RESET		8
+> +#define ZX297520V3_WDT_T18_RESET		9
+> +#define ZX297520V3_UART0_RESET			10
+> +#define ZX297520V3_I2C0_RESET			11
+> +#define ZX297520V3_RTC_RESET			12
+> +#define ZX297520V3_USIM1_RESET			13
+> +#define ZX297520V3_PMM_RESET			14
+> +#define ZX297520V3_GPIO8_RESET			15
+> +#define ZX297520V3_GPIO_RESET			16
+> +#define ZX297520V3_ZSP_RESET			17
+> +#define ZX297520V3_USB_RESET			18
+> +#define ZX297520V3_TOPRST_END			19
+> +
+> +#define ZX297520V3_CPU_WCLK			0
+> +#define ZX297520V3_CPU_PCLK			1
+> +#define ZX297520V3_SD0_WCLK			2
+> +#define ZX297520V3_SD0_PCLK			3
+> +#define ZX297520V3_SD1_WCLK			4
+> +#define ZX297520V3_SD1_PCLK			5
+> +#define ZX297520V3_SD1_CDET			6
+> +#define ZX297520V3_NAND_WCLK			7
+> +#define ZX297520V3_NAND_PCLK			8
+> +#define ZX297520V3_SSC_WCLK			9
+> +#define ZX297520V3_SSC_PCLK			10
+> +#define ZX297520V3_EDCP_WCLK			11
+> +#define ZX297520V3_EDCP_PCLK			12
+> +#define ZX297520V3_EDCP_SYNCAXI			13
+> +#define ZX297520V3_VOU_WCLK			14
+> +#define ZX297520V3_VOU_PCLK			15
+> +#define ZX297520V3_PDCFG_WCLK			16
+> +#define ZX297520V3_PDCFG_PCLK			17
+> +#define ZX297520V3_GMAC_WCLK			18
+> +#define ZX297520V3_GMAC_RMII			19
+> +#define ZX297520V3_GMAC_PCLK			20
+> +#define ZX297520V3_ZSP_WCLK			21
+> +#define ZX297520V3_MBOX_PCLK			22
+> +#define ZX297520V3_DMA_PCLK			23
+> +#define ZX297520V3_LSP_MPLL_D5_WCLK		24
+> +#define ZX297520V3_LSP_MPLL_D4_WCLK		25
+> +#define ZX297520V3_LSP_MPLL_D6_WCLK		26
+> +#define ZX297520V3_LSP_MPLL_D8_WCLK		27
+> +#define ZX297520V3_LSP_MPLL_D12_WCLK		28
+> +#define ZX297520V3_LSP_OSC26M_WCLK		29
+> +#define ZX297520V3_LSP_OSC32K_WCLK		30
+> +#define ZX297520V3_LSP_PCLK			31
+> +#define ZX297520V3_LSP_TDM_WCLK			32
+> +#define ZX297520V3_LSP_DPLL_D4_WCLK		33
+> +#define ZX297520V3_MATRIXCLK_END		34
+> +
+> +#define ZX297520V3_CPU_RESET			0
+> +#define ZX297520V3_SD0_RESET			1
+> +#define ZX297520V3_SD1_RESET			2
+> +#define ZX297520V3_NAND_RESET			3
+> +#define ZX297520V3_SSC_RESET			4
+> +#define ZX297520V3_EDCP_RESET			5
+> +#define ZX297520V3_VOU_RESET			6
+> +#define ZX297520V3_PDCFG_RESET			7
+> +#define ZX297520V3_GMAC_RESET			8
+> +#define ZX297520V3_DMA_RESET			9
+> +#define ZX297520V3_MATRIXRST_END		10
+> +
+> +#define ZX297520V3_TIMER_L1_WCLK		0
+> +#define ZX297520V3_TIMER_L1_PCLK		1
+> +#define ZX297520V3_WDT_L2_WCLK			2
+> +#define ZX297520V3_WDT_L2_PCLK			3
+> +#define ZX297520V3_WDT_L3_WCLK			4
+> +#define ZX297520V3_WDT_L3_PCLK			5
+> +#define ZX297520V3_I2C1_WCLK			6
+> +#define ZX297520V3_I2C1_PCLK			7
+> +#define ZX297520V3_I2S0_WCLK			8
+> +#define ZX297520V3_I2S0_PCLK			9
+> +#define ZX297520V3_I2S1_WCLK			10
+> +#define ZX297520V3_I2S1_PCLK			11
+> +#define ZX297520V3_QSPI_WCLK			12
+> +#define ZX297520V3_QSPI_PCLK			13
+> +#define ZX297520V3_UART1_WCLK			14
+> +#define ZX297520V3_UART1_PCLK			15
+> +#define ZX297520V3_I2C2_WCLK			16
+> +#define ZX297520V3_I2C2_PCLK			17
+> +#define ZX297520V3_SPI0_WCLK			18
+> +#define ZX297520V3_SPI0_PCLK			19
+> +#define ZX297520V3_TIMER_LB_WCLK		20
+> +#define ZX297520V3_TIMER_LB_PCLK		21
+> +#define ZX297520V3_TIMER_LC_WCLK		22
+> +#define ZX297520V3_TIMER_LC_PCLK		23
+> +#define ZX297520V3_UART2_WCLK			24
+> +#define ZX297520V3_UART2_PCLK			25
+> +#define ZX297520V3_WDT_LE_WCLK			26
+> +#define ZX297520V3_WDT_LE_PCLK			27
+> +#define ZX297520V3_TIMER_LF_WCLK		28
+> +#define ZX297520V3_TIMER_LF_PCLK		29
+> +#define ZX297520V3_SPI1_WCLK			30
+> +#define ZX297520V3_SPI1_PCLK			31
+> +#define ZX297520V3_TIMER_L11_WCLK		32
+> +#define ZX297520V3_TIMER_L11_PCLK		33
+> +#define ZX297520V3_TDM_WCLK			34
+> +#define ZX297520V3_TDM_PCLK			35
+> +#define ZX297520V3_LSPCLK_END			36
+> +
+> +#define ZX297520V3_TIMER_L1_RESET		0
+> +#define ZX297520V3_WDT_L2_RESET			1
+> +#define ZX297520V3_WDT_L3_RESET			2
+> +#define ZX297520V3_I2C1_RESET			3
+> +#define ZX297520V3_I2S0_RESET			4
+> +#define ZX297520V3_I2S1_RESET			5
+> +#define ZX297520V3_QSPI_RESET			6
+> +#define ZX297520V3_UART1_RESET			7
+> +#define ZX297520V3_I2C2_RESET			8
+> +#define ZX297520V3_SPI0_RESET			9
+> +#define ZX297520V3_TIMER_LB_RESET		10
+> +#define ZX297520V3_TIMER_LC_RESET		11
+> +#define ZX297520V3_UART2_RESET			12
+> +#define ZX297520V3_WDT_LE_RESET			13
+> +#define ZX297520V3_TIMER_LF_RESET		14
+> +#define ZX297520V3_SPI1_RESET			15
+> +#define ZX297520V3_TIMER_L11_RESET		16
+> +#define ZX297520V3_TDM_RESET			17
+> +#define ZX297520V3_LSPRST_END			18
+> +
+> +#endif /* __DT_BINDINGS_CLOCK_ZX297520V3_H */
+>=20
+> --=20
+> 2.53.0
+>=20
+
+--X42tWiqzEfN/q3j3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagH+sgAKCRB4tDGHoIJi
+0nysAQCYP4MmDyGBfpWnihc+5SLf5oFhw+0gSEOLOM0FdPvxQwEApjhCT6IBo5gz
+FDJ3z5iIAZnaiMt9hAEXMpv/OfV9ZAw=
+=QEGH
+-----END PGP SIGNATURE-----
+
+--X42tWiqzEfN/q3j3--
 
