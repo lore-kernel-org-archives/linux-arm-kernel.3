@@ -4,106 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C07DCD37B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 15:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B72CD37B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 15:40:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PAa827a6Or7i38QsE/PyyngNqVpUBROEfK8gwXTbCIU=; b=xQeU/Q5FZzu3LEvgl01vN1CJv/
-	YMXwdab+ds3juJvi5Iu+MwroWwZCnM3DEjpHeTO4i6LGPjFUaRE9QP09R76oPVzSZ3I39pJG80Udf
-	AU5XUuUgbVYmAyNSqp5XEWCL1D6r6AXioncixbKvwlIrKwmCE/y6UFpCgwf+Yn9r9PQLRClHhvvNs
-	LOPmq+fywW28qKT/3ifIlAZkTRTSaKYk6ofP9ffFpb9rXXNsGQ5HTL0FWLfLz67A2L/+LANLJP/lJ
-	91EF6eaXBzudwrDE1jRcwN4Trjx/NR1KN1q1JwDKTBECC4jdsZqhcXlrwBrgdT69S2YjL7wgvuTXg
-	5+aUKR7Q==;
+	bh=KjChFc16W6YK3fibnourBR78yR1fv1+j9VkzA0wOe20=; b=GtGUO1oJ+eY6V0mrJ7ann/tvaU
+	WwaCfOSE/kPgTl9TyqNqdJb+frRyhJ/mHwE+hv1Nj5ACVCfhJ2eul8F4z+5IVVPegtSqAKW+M3YA4
+	uGKxF/G1GGZrI3NYy8dznEoyVqOo1ukqYl+S70nppvXGhpXAlj906OruqUv/Yf0nMeTX5YFgp0jW0
+	8p3B0GOOMcZLzXBH3OCPT8qAWvuS257Beu6aCJq0qNikM4mtxXQV0jKSMxt4sQLi+XtjyEbeknzF7
+	2UPsbQmmlD7GuJrPV7lUBA+/bQLR64ZYbxK6i3n3Ss+u7Zi7EN3LF0wfF9mzEeX2jLjF+2RiHI4Fm
+	50zeByAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMSk8-0000000E4Z1-0Lxj;
-	Mon, 11 May 2026 15:40:28 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1wMSkR-0000000E4cx-0toP;
+	Mon, 11 May 2026 15:40:47 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMSk5-0000000E4YG-1j1c
+	id 1wMSkO-0000000E4c7-2zIC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 15:40:27 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5a8891f0c88so2597604e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 08:40:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778514023; cv=none;
+	Mon, 11 May 2026 15:40:46 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5a8891f0c88so2597891e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 08:40:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778514043; cv=none;
         d=google.com; s=arc-20240605;
-        b=OQsAhseCWc8KsCi3QWn7v+/WJ5AFEhUnkiUBgbgN9aljg6GY5sY7b/QRWAAl8RXMe9
-         qcDRgX61jhcm2ncJEguTwq55wHads68QGX9SJvamVFBm8xOdE0lSzpgo23kGkUmRW8W+
-         JDZxU7tqKlYOBpx+Ddo5UWKAS9DLlApwwtM/gTWKYUB5LEhJpB9pAz3/SgOjbZqMWMD0
-         /VvyFlZ7vNyNrYS+eXvkFtkiRkvdHbTSbdd1Go3PLCLKP1BjYhLVedeip4lFqgomYT/B
-         V3Q+8b10oePHWNGiGFU2NrHbIcHIt20RCuyZBT2ZqGp2tBjbrOffqtAF3mdzaBpFquls
-         dEpA==
+        b=VzFlaEFdvwk1orU7kPM/OeEmzDb2KfbScaOj9jSoUPY7ZU7zP2ggS/eY/bgZAGMpIf
+         mr7KM2FPemck0hBN9NUq1HYsspObsoE9kzQElZ2/aJcriYXM1WoPHIFm16TvxGc72LyR
+         SmFSnqHya/B9ijg3/a+gDnVWzMmD+e6KFZL15Qf+K5jdklw8ND8CeLR6iCBii9vfhDr8
+         f8JMDbs47ozckwCcms8i3EGjJIGhacEPYx+Z17/pZN19xQ9xuma5IJqSYSVOS1sofw2+
+         3UayvKVMYovTpubOgKP1O4XOzfJQb6pfdpPz+8tR4GuR6OeqgWZdlfHMnM3HezMNV11q
+         AR3A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=PAa827a6Or7i38QsE/PyyngNqVpUBROEfK8gwXTbCIU=;
-        fh=rVtHMbDE0aHEkz65hwT80NCSGvc+2QVV62q4k3PaOZ0=;
-        b=Q336tf5NRuzFpo3qygWiR1s3zs6KyeNLwtj4A5BnpCgt1Cek63lDMs/bKspmA121lU
-         BfJrT08b8vIes7cE1XibYtEqPDpf2pnjTp19oS4Mm6PGH1M+xopmLC0Cs4PW8P+FxS5q
-         0bxuxM2g1GtBaE52Jkc4Ns4e9Dj4Y2oCkJAxD+u7sawfWA+ai4eWAuBugq5KqckkOLoB
-         Z8TrsMCcSWXr0TX5108RaipLVWW7XyoR0vO0o1NrQn7IGEITeIxqgu6C5Y0oUgN83043
-         dq+poj5cD4Zr7Lkjjkce7nMcL46Tjynu6pXWQsp9Hr7FQsvivCslj21uDxUT33z8h58s
-         C44A==;
+        bh=KjChFc16W6YK3fibnourBR78yR1fv1+j9VkzA0wOe20=;
+        fh=CcVIFMthLY/hxPGKl8x4JY4dn+XNluPajOg4Ql8KRmg=;
+        b=SlLxVe9+j0hGk8uH91ivQ0rJ0qWMUpI2H3LDL6Au2OaPH06hNqRe12hm3EbYurkdoz
+         vF2zRZ2NPdaL/VP26et6HvN2sIZlz7JjvrNUu36ADU5xEw1dbNXMzlkHPKXgj3nYagYq
+         02HW4RfB8lx8toh0OIAI+NRHt4cVqD76Tlx5+IyvrwZcqlEYPNqz4I0zoCVVkOgp3s/v
+         H6pDilhOxtZdEWIQ7qTt9f0Mxnm2Cka1CDgWnZiVywj/OI5Pw2zFLZZ9qezJTnKvm8Tm
+         2w5KE/IpKdpBAvg3e+XHikNBtTjfpFG6ViWWpaaSUl9SXj4ZfiTcsM/pt62zQwGEc52r
+         ZW3A==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778514023; x=1779118823; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1778514043; x=1779118843; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=PAa827a6Or7i38QsE/PyyngNqVpUBROEfK8gwXTbCIU=;
-        b=hZZvYvCgCl3TR7ePKebk/kDvqpvTy/DFCNNNYxFiWDVF70hvj2qhviLhoguACz8KWV
-         jAYePGwJ2MEx/qiEwNJOCRQYrSD2VHzSad5AeqqVgA4bDca53f4/zrDzm57PeM54QZ7G
-         MEexBkRQ2g94A9qi/pSJXR2+CwkD0902xTkVUnwed90OPyXU2po6yg1gsU4UMhZrSmeX
-         WZERpIS918hjBwgR5nhojNptJ5UYXwnMH/krt67P6QslE35lzGkFMag7+gwwzrP11MA+
-         YE7H0raJs5s0I5OkXkjQCO7zVnCv7RKxMYbROvx2PH5RmmElXd0Yot49tY0JvUAN8CDH
-         hU4g==
+        bh=KjChFc16W6YK3fibnourBR78yR1fv1+j9VkzA0wOe20=;
+        b=LYdwXD8GNV9wA27DuzBw730NvbI0HeDWzMdUoXXH2a4kjjOTxtxb4A4Ec20g3pRaCn
+         641srRPEJahsBIWe1xE3guSXxZCRDcow9ADrO8Z726po+Pj0GjiD74KgE6TCTIQNewWN
+         vTzRmLDlJxr3jCuMLI3YTQ3ZEFK/xalsmPTHMK8bnOySb3E2Laax+rverp9ZcdNOeMR6
+         iY8ZKMUQQzdQvzKgS7/+YKuZOTOhSwlLD6L90H8z/QFgTjkneoPk1j0ytxaFFXg3lL2q
+         uLBSqDabFNilS2oakgRi1P4XX/RmkrlLIA4+ky2sNayxnenwd3KDYWPUAdylIhSRBUQK
+         hClA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778514023; x=1779118823;
+        d=1e100.net; s=20251104; t=1778514043; x=1779118843;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PAa827a6Or7i38QsE/PyyngNqVpUBROEfK8gwXTbCIU=;
-        b=kFKPY73F0SaPpG6E2NiO9Tk8hEv9j2UGQrU+d+IKpF7X79BElEvVTPVoWh0IY5SpG2
-         ukzmWGTK4hOptr0yqYJDShJRYn1KGMJJCxch+xR+epNsmdb7Z2UEfxVhrumvS1ECiLU+
-         3klhFAfpNJV6wqq66+BafqDOnTbh+zmIUSkpHfuQp/k7Z1zIC8qO5MYchtz5GCLCx96b
-         dO3KIQXcDk6ti255VIbM0P+PRdA6GGxBXmN49ManO9DhbNJaQShyynX3+yBcyPFm/WU/
-         m5r035zwGH1TqTA8ySVIg+l0RnrG/9BMlH9tYpCXpPiqwzOepxCxr6SXFXHEYhPKy79M
-         cPiA==
-X-Forwarded-Encrypted: i=1; AFNElJ8uuCu0VGMR4I2U/pRLw7pf1iQWqnslkjCbL5q2qP7BmCoCRtvx4apLA09JitVcFgITEcdCJMs7PqLI2cJMs8Oo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHloovkFBj2CInz4BPF97owyhwHLnpgHVOmqleijWVPcNllTbz
-	WHSWCc75bTK9R71Ir/e7Re4OHpWSoyEfbZbDhg1zhwSoNvaxQ6th9J6pjhZIM4udxQZM+EYlvGz
-	8NUQhocVsI3x1Ism2/iUQil1qPIpT2V0DOc4sS66tdA==
-X-Gm-Gg: Acq92OGQmcdU2eay9iCkrHcSgCEqmyDiF2CKJQyp4qybiOo85M7nq9+Yl9M/vEhAleZ
-	jzfGpf5YamsSKQbLpwrPRJO3B3AMh31IA08MTqVDyeJpqvknvEIv5sPlL2ps+AoLT8Fd9ptDpCW
-	2407YfkCpTUJ08HKVsu5uBV8LYEnpcqgwVCoVOnDfbDKxnpjlJbWuflofzGymvFunUhs0I0uUlj
-	2d78Pf1OWjrlTXIx0BhVl9gkohOktuf+FEbtfQ+FeSrdS/rHlknbwf8bZ37yMsZa88VLP1qjhae
-	2zijhG+0
-X-Received: by 2002:a05:6512:128d:b0:5a8:6b81:6694 with SMTP id
- 2adb3069b0e04-5a887ce5e99mr7616406e87.30.1778514023164; Mon, 11 May 2026
- 08:40:23 -0700 (PDT)
+        bh=KjChFc16W6YK3fibnourBR78yR1fv1+j9VkzA0wOe20=;
+        b=AGEpBQoSyYwHOehLdfMygwjdizfImisRlZKwrXyiqlzlGDYdbnecpB00R7Oh0pHCxI
+         yo8SLL4oFZZlH2gYlwXfRYbO94T1Q2j3V/Ri7dbcL1LVOhnd3UGqb7mhUcVtH8lO77//
+         35Y7UpNL7W8BYmypCrp36gmG7KHxA9JV8WQNHT1ZJV+ktsmxIVgVgM9Q51lPNEV+Mmk3
+         y55dMpwbXm7J3/eVj7pPXhPm6t2DfG5ypnsxEM3lDdwKBLaj1Sby+/d/THv4+po3mvp8
+         O2Qpk1zGyY2aTVq0QDNKKoIgiOBd7I+VNIpfYWQoxAzUonYH71wyRmUglvV/Oa6fiOKA
+         zEXw==
+X-Gm-Message-State: AOJu0Yxy2L6pqXZOftWuVMc0MpGorhtkRKo0ohRkXQHQlMsTB0Q+Ab9f
+	plbyw+4LOvu0Llfx+lm/mXKlaoM4WTVzKOuIGg8jDdRj9fXtbaygfa/GmLHfJJYkjqCnH4duyYK
+	havrsZCEWuJfD/cXt9IQ1SXFltsQl0hgAdWzkuCth5Q==
+X-Gm-Gg: Acq92OFHQId88ftcxTzeK7GeMZrTKEXLl1A/nm4Lmzqa/UwLjlFTX7DcaajpU0A8JVm
+	ZuxzwOLGZsH4HAy7KjCACSjP1fu6trFSTGz4L9HIBUPjQM57snjujrp2mBo76qeBBTMtZgoz5eD
+	y9esiSL74KhqSZs7NV58T890uXpAzDIxNoSbbYezOIcCzYkpaXijj/9fH8VaEB72gByFjzrltAT
+	bIWlgMqQkneQPu75WKEPRc+MV+BXb0fLTPOdUhRPhGSwrJBFTPIXswSK60IwL6WDoSP5irg61Pu
+	sWhVXeUu
+X-Received: by 2002:a05:6512:3a83:b0:5a8:6e64:e88b with SMTP id
+ 2adb3069b0e04-5a887add6d3mr7544636e87.4.1778514042559; Mon, 11 May 2026
+ 08:40:42 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260415-dwmmc-dma-thr-v3-0-31014d36b6ee@disroot.org>
-In-Reply-To: <20260415-dwmmc-dma-thr-v3-0-31014d36b6ee@disroot.org>
+References: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org> <20260504144534.43745-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260504144534.43745-2-marek.vasut+renesas@mailbox.org>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 11 May 2026 17:39:43 +0200
-X-Gm-Features: AVHnY4LuNFcZPtz7Q0DEjkMyUey5MSZn1HyvgA05S9j4k4K79dMxvsAAv2GCHYk
-Message-ID: <CAPDyKFrKd9PouecmpLBy3NEas8dpzyVAk9qD6=pFvwbHNyg2NQ@mail.gmail.com>
-Subject: Re: [PATCH v3 0/2] Configuring DMA threshold value for DW-MMC controllers
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jaehoon Chung <jh80.chung@samsung.com>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, linux-mmc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Date: Mon, 11 May 2026 17:39:49 +0200
+X-Gm-Features: AVHnY4LAe4jSY9ZIU0Jqqg3bAkBng0JF_5D_OZzU-aQcORXNKnNE7TuCtsiJ2MY
+Message-ID: <CAPDyKFrDzA-dYF58_N05JCTqdgvPUMvXF+FKeyCFivLyhw5_6Q@mail.gmail.com>
+Subject: Re: [PATCH v2 1/7] dt-bindings: mmc: renesas,sdhi: Document R-Car
+ M3Le support
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Brian Masney <bmasney@redhat.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mmc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_084025_501012_CDFDA99F 
-X-CRM114-Status: GOOD (  21.87  )
+X-CRM114-CacheID: sfid-20260511_084044_774378_CC221E5F 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,60 +120,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Apr 2026 at 17:03, Kaustabh Chakraborty
-<kauschluss@disroot.org> wrote:
+On Mon, 4 May 2026 at 16:46, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
 >
-> In Samsung Exynos 7870 devices with Broadcom Wi-Fi, it has been observed
-> that small sized DMA transfers are unreliable and are not written
-> properly, which renders the cache incoherent.
+> Document support for the SD Card/MMC Interface in the Renesas R-Car M3Le
+> (R8A779MD) SoC.
 >
-> Experimental observations say that DMA transfer sizes of somewhere
-> around 64 to 512 are intolerable. We must thus implement a mechanism to
-> fall back to PIO transfer in this case. One such approach, which this
-> series implements is allowing the DMA transfer threshold, which is
-> already defined in the driver, to be configurable.
->
-> Note that this patch is likely to be labelled as a workaround. These
-> smaller transfers seem to be successful from downstream kernels,
-> however efforts to figure out how so went in vain. It is also very
-> possible that the downstream Broadcom Wi-Fi SDIO driver uses PIO
-> transfers as well.
->
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> ---
-> Changes in v3:
-> - Move host->dma_threshold default to dw_mci_alloc_host() (Shawn Lin)
-> - Move comment to document struct dw_mci::dma_threshold (Shawn Lin)
-> - Link to v2: https://lore.kernel.org/r/20260414-dwmmc-dma-thr-v2-0-4058078f5361@disroot.org
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-The v3 series applied for next, thanks!
+Applied for next, thanks!
 
 Kind regards
 Uffe
 
 
->
-> Changes in v2:
-> - Remove dt-binding to set DMA threshold (Krzysztof Kozlowski)
-> - Add comment to describe struct dw_mci::dma_threshold (Shawn Lin)
-> - Set DMA threshold in Exynos 7870 DW-MMC driver (Krzysztof Kozlowski)
-> - Link to v1: https://lore.kernel.org/r/20260412-dwmmc-dma-thr-v1-0-75a2f658eee3@disroot.org
->
 > ---
-> Kaustabh Chakraborty (2):
->       mmc: dw_mmc: implement option for configuring DMA threshold
->       mmc: dw_mmc: exynos: increase DMA threshold value for exynos7870
->
->  drivers/mmc/host/dw_mmc-exynos.c | 1 +
->  drivers/mmc/host/dw_mmc.c        | 4 ++--
->  drivers/mmc/host/dw_mmc.h        | 2 ++
->  3 files changed, 5 insertions(+), 2 deletions(-)
+> Cc: Brian Masney <bmasney@redhat.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+> Cc: Magnus Damm <magnus.damm@gmail.com>
+> Cc: Michael Turquette <mturquette@baylibre.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Stephen Boyd <sboyd@kernel.org>
+> Cc: Ulf Hansson <ulfh@kernel.org>
+> Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-clk@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-mmc@vger.kernel.org
+> Cc: linux-renesas-soc@vger.kernel.org
 > ---
-> base-commit: 1c7cc4904160c6fc6377564140062d68a3dc93a0
-> change-id: 20260412-dwmmc-dma-thr-1090d8285ea7
+> V2: - New patch
+> ---
+>  Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> Best regards,
+> diff --git a/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml b/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml
+> index 64fac0d11329a..4d66966ce2900 100644
+> --- a/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml
+> @@ -52,6 +52,7 @@ properties:
+>                - renesas,sdhi-r8a77980  # R-Car V3H
+>                - renesas,sdhi-r8a77990  # R-Car E3
+>                - renesas,sdhi-r8a77995  # R-Car D3
+> +              - renesas,sdhi-r8a779md  # R-Car M3Le
+>            - const: renesas,rcar-gen3-sdhi # R-Car Gen3 or RZ/G2
+>        - items:
+>            - enum:
 > --
-> Kaustabh Chakraborty <kauschluss@disroot.org>
+> 2.53.0
 >
 
