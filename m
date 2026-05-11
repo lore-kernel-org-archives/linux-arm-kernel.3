@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D891CD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:28:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C92D8CD4840
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VUhpsjQrH/mckZs2t7/2owZF+Xb+aJbtam5fG6bKFfw=; b=wmnbBIrri8iC2xXeXvVPdKHRBQ
-	U+W4D2O3u32/jQNTjaDzh2AmiNa+ZbHRTnRfcqbTWWJYOw9EovSK8iEJpZEymYjNBp/8rP2e3cr+S
-	D5WaxutC25BopHUA2TYcLow7YyUh5nY4FFjkbE09vul5L/VYQna8rUC+2q6qHCkrcbM4Wfy/VUREh
-	jZ8k68vNjRx3DC7HF7c5zF3wCpPKK88WkI6rt7bTwM+uKcSWhZT0bwolRglE/4d6nhhOO+KGAA7CK
-	MV4gN7RSRsz03mjKXSc8qSJdQa1LnD10xnEfeR400BcR7SwoBVQ3FIOsa1hvbH0wP4tKo5zWYRPE7
-	uAAHGrcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jCWmJzpIjJjluTw5IwaZ5xcVi0SJM48LsJhoxYzTBTY=; b=fCIOfyKTKGVBdHG4nWs0p2/rve
+	XijK4oUkhJWXNsPRkoBUwNK4LpN97hovpuVerYDvtXoEtDRjdCCHK6V4alhZSgA6raQt27oJ2oASD
+	1365o1th/1dX4A5xHrYHII8vebN7rAzVzeG2Wmaggyqd8u33DwZjn3KRZMqvvVJRwIKoWSEx/5ARL
+	1wCoh4tZom6EN2PwXetPo3Z9rqXAhlVlYZQpyFK6r9O/2G2+tkILd7yS4Iqi+LiAnWm9/Hop7ne75
+	i+NPiJe7bOMtY8j7C3DIkUrq8xvbJtG9FN+sFrypV4VcC/A6rObYZ1/cYITwlFalyHYi5kNzP4uxW
+	GPodpLdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTU3-0000000ECfE-1xro;
-	Mon, 11 May 2026 16:27:55 +0000
+	id 1wMTVs-0000000ECyw-1gvf;
+	Mon, 11 May 2026 16:29:48 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMTU2-0000000ECem-1k6v;
-	Mon, 11 May 2026 16:27:54 +0000
+	id 1wMTVr-0000000ECyX-0EiY
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 16:29:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9AB860120;
-	Mon, 11 May 2026 16:27:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05BBCC2BCB0;
-	Mon, 11 May 2026 16:27:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7091F60121;
+	Mon, 11 May 2026 16:29:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48FB3C2BCC9;
+	Mon, 11 May 2026 16:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778516873;
-	bh=V0wLh5KRspfOQ3ibRR/1QYF8R6kmly0cfDdqmRIJqvQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gcmyAxHAKFs6NB3meRHb14KoC6R9ksltSt15rHaXzZGZv3SOCwBupe3Q67oel5/qb
-	 hMr4Q0I75R456Sean1nvn2ql0Nv/q/NKL/jC1Hsco3Td8/+uB0HIRTYeq1wy0KrVHJ
-	 3/xT33SBXpz13eLPMF9CcEKP3UbhDX0t0qEsmzSwishRclNtw88eAZH0nIxnaQR+ZU
-	 zcWleaZH9FTxJde+jDXQPhnFBFqhtk2GlcNAMgH2dy86LrHK8hQoXO7MctjL4zMFAs
-	 nGFoSEGnTTLKfHtSopIXrClD54+3IG/wR+B8JApKw0cuRc2f1RMh0qrGp9PxIaBOal
-	 zRUinbWJtU2Qg==
-Date: Mon, 11 May 2026 17:27:48 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Arnab Layek <arnab.layek@mediatek.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH v2 1/1] dt-bindings: remoteproc: mtk,scp: Allow multiple
- memory regions for MT8188
-Message-ID: <20260511-uncouth-pandemic-080dccd30f4b@spud>
-References: <20260506133157.3283204-1-arnab.layek@mediatek.com>
- <20260511121004.2984149-1-arnab.layek@mediatek.com>
- <20260511121004.2984149-2-arnab.layek@mediatek.com>
+	s=k20201202; t=1778516986;
+	bh=c63a4JxePfIgjpgQ4bMho60Nz7+hTPym2Qpet2uaDk8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XYYpvVFOF00vdXabkI5V87vD7BFVLIXY+qFT2ClunVZKi+tPI0A/8qTXulLEY0DeY
+	 qqTTvho0mSwUsjNJmWHHt6a2oIXHQ7gWau/W3GBodDGBrrCrwwzAPgzTyOBbTojYam
+	 3hwFGn6hN8g4UvabpRwzolIBi/k5DjAoTHC7foRroFwNEwScLAA5gcYiPmxbzWkpxt
+	 /1s8jwlVN1Mx7zwpG0PeyVk/MLDHjSg871CdLooSg27sJ0LsUt1lbuWmc6ZBL+lzxT
+	 jSdhQSMc7FFsWMF//ZopDDSrTnhyoosExOzX5FNBFlEwfKrA+3pdTz1xoZPoXHnDhb
+	 NwMTBxpC7XaXQ==
+Date: Mon, 11 May 2026 12:29:43 -0400
+From: Steven Rostedt <rostedt@kernel.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
+ Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v19 0/7] ring-buffer: Making persistent ring buffers
+ robust
+Message-ID: <20260511122943.41e204bc@gandalf.local.home>
+In-Reply-To: <20260507131416.35bc304d89f974ae3b33d20b@kernel.org>
+References: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
+	<20260502152304.560a5954@robin>
+	<20260502181619.7f5003dc@robin>
+	<20260507131416.35bc304d89f974ae3b33d20b@kernel.org>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Cth8D7RmP7y3OUje"
-Content-Disposition: inline
-In-Reply-To: <20260511121004.2984149-2-arnab.layek@mediatek.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,85 +75,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 7 May 2026 13:14:16 +0900
+Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
 
---Cth8D7RmP7y3OUje
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> > I'll test this some more, and make a proper patch.  
+> 
+> Ah, indeed. Thanks for fixing!
+> 
+> BTW, shouldn't we unify common logic of those functions?
 
-On Mon, May 11, 2026 at 08:10:04PM +0800, Arnab Layek wrote:
-> The MT8188 SCP requires two reserved memory regions:
-> 1. Main SCP SRAM memory region (required)
-> 2. SCP L1TCM memory region (optional, for additional memory)
->=20
-> Some other MediaTek SoCs only use a single memory region. This patch adds
-> a conditional schema using if/then to allow 1-2 memory regions
-> specifically for mediatek,mt8188-scp and mediatek,mt8188-scp-dual
-> compatibles, while keeping the default maxItems: 1 for other
-> SoCs.
->=20
-> Each memory region is documented with descriptions to
-> clarify their purpose, following the pattern used in other bindings.
->=20
-> Signed-off-by: Arnab Layek <arnab.layek@mediatek.com>
-> ---
->  .../bindings/remoteproc/mtk,scp.yaml          | 21 +++++++++++++++++++
->  1 file changed, 21 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/=
-Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> index bdbb12118da4..df13be2026a6 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
-> @@ -205,6 +205,27 @@ allOf:
->            items:
->              - const: cfg
->              - const: l1tcm
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - mediatek,mt8188-scp
-> +            - mediatek,mt8188-scp-dual
-> +    then:
-> +      properties:
-> +        memory-region:
-> +          minItems: 1
-> +          items:
-> +            - description: Main SCP SRAM memory region
-> +            - description: Optional SCP L1TCM memory region
-> +      patternProperties:
-> +        "^scp@[a-f0-9]+$":
-> +          properties:
-> +            memory-region:
-> +              minItems: 1
-> +              items:
-> +                - description: Main SCP SRAM memory region
-> +                - description: Optional SCP L1TCM memory region
+Hmm, there's not much common between the two. One is a consuming read and
+the other is a non-consuming read that needs to test for a bunch of race
+conditions.
 
-Does this even work, given that memory-region has maxItems: 1 outside
-the conditional section?
+If you see something that can be shared, I'm all for it.
 
-Cheers,
-Conor.
-
-> =20
->  additionalProperties: false
-> =20
-> --=20
-> 2.45.2
->=20
-
---Cth8D7RmP7y3OUje
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagIDhAAKCRB4tDGHoIJi
-0l1KAP4ogMR4hY4vl2iFHrcWq1THHYzittMIqmeoOyXVWNsTAAEAuFti4lcrCBUc
-+MZz9rCNT0pG273MQ05Xxrr/JE7IJgc=
-=tkTv
------END PGP SIGNATURE-----
-
---Cth8D7RmP7y3OUje--
+-- Steve
 
