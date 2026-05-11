@@ -4,82 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3290DCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 13:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9BC3CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 13:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMcLzN8jGeGFcljCHqkrqOTWA8FFmwRKIYN5JpPbXvY=; b=X1Wlpk+aGvkSl5QzMWZekaouAn
-	EdhCI69p1iKG6A0zM75vn1XTpYY7EqeuDILK6YTNFh/9OXZjx0x+sWR9HYwSVHfo+gNIsFIJHbZ87
-	RryWz8EDRKzYaI6hCF79e2Pg/BqTlQaIoVq08uvNvwdYLqohcA43XPLnnhqnjiECTphL02Hv0pOjQ
-	jm1r3sjL9+PDDT5AGypw4IHg0oLxT7wFqQNaSuBcFumapF8bnVMG5NtRrYGt6OTKWHXtsfkCKHdnn
-	dFMEKwIa0I98Wus6Nq+l7yVMTotJYfPZpMBr7ZzEGfTJd2ie1wNxQrF66jt1/4mSMI4RxbG7eW80C
-	Jv4c612A==;
+	bh=VpBr89JbDstdIUMvCB+UAEmSrotPv1wv1lCMdlQElUc=; b=gLWJzkDCSlvTlbufuXZSaLJwLL
+	dl0OTn1OGKGdAuKmd3ibog7fENwTNzlSpnvrtJILcEWQSMM0OUzL9leKtgHhTB/ov4zBuSa88j3Gd
+	mWE2j5cU+0fhDenqdMSesjSqH6sVBTSm9Woe4BAVm6vIikZRqRw7/xyXPkkdwLt+MdEcglLmc61Cb
+	rF1vj2H5I7nXCiQm2DZ+4iY9Lv7nwkS7ajN39SWyTIG9RH4AoZfNGpf0Y9laLSgdtRKFGzQ90XMwq
+	oqNlNi9EySg0shyY4FrW76JnBmFQMuLVKXw0Ma3gKioHz+rAXrQaM6ZXWVr9xp6JqcQiaoKUv6A+P
+	f+23oUQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMQ30-0000000DbCh-3JNr;
-	Mon, 11 May 2026 12:47:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMQWG-0000000DhUz-1uWU;
+	Mon, 11 May 2026 13:18:00 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMQ2t-0000000Db3e-0wBG;
-	Mon, 11 May 2026 12:47:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8173B443B6;
-	Mon, 11 May 2026 12:47:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5B052C2BCC9;
-	Mon, 11 May 2026 12:47:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778503657;
-	bh=SQlj6jkwDCbT3jRiT47QIwFmoJqrzaaVVRfy35hEhdA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=VmNim4TfIyilMKSqPJwvRlVIZ4JGwR9/13L4Mut3K4JCFFvK/fBxkR2zjlRSDXBmy
-	 3Bp+AOTWc2t5BI6ydvNxq+mOxRBJdbr4ice/X22KnAm4yTI11pnNZKqtajJwAxj58G
-	 odBzSijo6Oh+uqyP9+5HWU75qIziCzunqX86+U7JJebfMpcSBUhcODh10wx2lCZvbg
-	 /ozU5pSRA96c6b5s8KmvKqPwF/nyMy0oKoAtrvMqm+G+0pEBN0p8OnvRUBlJ/7lzr5
-	 J4co1KUZ3nkwbfEYWNZcZrVTp2ArOiSzOMXHdcKt3+r7m+n0tCb56OS+g+RD1XjazI
-	 6H+VYkBN+moSg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4B057CD37AC;
-	Mon, 11 May 2026 12:47:37 +0000 (UTC)
-From: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
-Date: Mon, 11 May 2026 20:47:24 +0800
-Subject: [PATCH 02/10] dt-bindings: clock: Add Amlogic A9 PLL clock
- controller
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260511-b4-a9_clk-v1-2-41cb4071b7c9@amlogic.com>
-References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
-In-Reply-To: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, Jian Hu <jian.hu@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778503655; l=4908;
- i=jian.hu@amlogic.com; s=20260415; h=from:subject:message-id;
- bh=Dw8+4rmGWhvklI0IY1bbxEsDvxGe4eMGmJlQnz5m84Y=;
- b=ogxseIgSy3HtgVEp/52GBBk8CaS6blwg0OHeB60EnMhfT8H4FyIVBPtYGOCeE9i5zc3QM/Ial
- GukT4dDtT98C7/VQHgf+rAJoxoEiCh5jXrc+cR6SC3fMfn69d6baAVM
-X-Developer-Key: i=jian.hu@amlogic.com; a=ed25519;
- pk=zHUE+rNtH9z+Sb8au1/elWknjFQmy5QDVkBoxleuOIA=
-X-Endpoint-Received: by B4 Relay for jian.hu@amlogic.com/20260415 with
- auth_id=735
-X-Original-From: Jian Hu <jian.hu@amlogic.com>
+	id 1wMQWA-0000000DhRj-435U
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 13:17:58 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-44ce78ab5feso3794651f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 06:17:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1778505473; x=1779110273; darn=lists.infradead.org;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VpBr89JbDstdIUMvCB+UAEmSrotPv1wv1lCMdlQElUc=;
+        b=j8yT8IFd0hJcLTlm/W+sWlR5F8FNIH9AA+Gzha16af8XuJKJYw1/u+eugCRUSv2ywc
+         7wDM6y0VfHzPgM1mCCTixStZ27u/5bWRqI76KRxvjUw1teEmltUCzBfgAk+1Wj47KD59
+         kToCJf10AoT7TOaai4a0CkfZdBIegf06CjqVH0H11IPSpm/CHdep2aOaNnkI5owFSAXo
+         xqp+cnseEj4AbKtd7Qiwa3g6nSVIK8cMlG3VwrdiuJ6dohKGXG/kFCShnvsbMd/h4+RN
+         dMArk6/2M8N2Iw4X5tuaF41xKaPcN3sv4o3aaKsKe10pJJN2L9Fuisu5Bk7RZNi0W0VI
+         FZRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778505473; x=1779110273;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VpBr89JbDstdIUMvCB+UAEmSrotPv1wv1lCMdlQElUc=;
+        b=A/JQhGgJqyYsk83nIGqsnGYDzMZtrfqhOjc3WZpdNEY3+Mx/dYNujfv1RZt2mx3dSz
+         pw3mYJSat16Im+CFiDREXyWmrbLEdjzU6vB8ZTPr3syTMZSxd/8O7SaLqvXXKPvAmWqu
+         sWfnJR5kI9DVcjqq4uVdbXwdGt1liK9gwvTN78tInNofu1IVTysqqrOvTlRsY/gJIxrA
+         OypOA+eW5u4pTW7RQsVAvco/rlCKgRRJ6I5dMC4NzNkOzY8UyyS4TQpOE7bdaWsDddX7
+         E0/s2pEhhbzTh/thxNKZ09urUtXDCn/oRb4kHHCV0utiRHkW3d4rmHXvCpNQ2LPmu5cP
+         7yZg==
+X-Forwarded-Encrypted: i=1; AFNElJ8pY6k8iUtcjQdp6lxZv7/xlrmXHAdBX6XMLVJFD6ZHKboM9EQflCM651FGPiNWO8iB2WPifFQA+/6CdrihjiEg@lists.infradead.org
+X-Gm-Message-State: AOJu0YynTE3HKxMiDWbt8XmGk0dIOSd/28EBkPlMPhCfLg/eRqZIfYlp
+	qEIbkqpmwX6JPDgpVPiYEj/JKHm+79uHcKPWK0zQ3jCRVodaAUPXKnDkJ7qdWkaLzBs=
+X-Gm-Gg: Acq92OHwMJgEeyiAdZlsv15g5SDy1bmFEJRR6PD5SxaeJtOrIdGKlJqJ5j6WbOPUKto
+	eAC8TEmF5DylnOxO8wkE6Xk5NbeLCL/Fc7yTEEV3EDZOt6UAdlglpoMZAR+ppYW6z24ZSRX9aGp
+	+wg26OH3r1fWHwfqVhuHEkyBzGH3bCfu5BpYRHoh7N+ss9Bptm6eDEk94Hob9p//NDPO27euMiq
+	GFmzZ5ebXKWVYo7hqkRZI8zL29wqWw4rvV3gfBpJQ0jm1KHfMjbmjgj2LY25jVL4tpNGkWQBVxR
+	ZBMfuXDm386u8yn2jBOCXLR6QD2YX/m8WLzdkiySLSNHGcKEI2ZqJSnKSAuQGzm6cEslmORsElu
+	r9y2OYtmmxdp2k6GZs5dI5LQvYhxsA3tw1ADR2yduOTeXpYA1s6ynrJHnI6BWM/tm5138IzoKHV
+	NwVdBI/mi10jmK93DEmRsjbbJTYyoPsdRZAB4QdY6VtoDC05aVFqPXKc9z1OCV8Nw1BaUyvNRyS
+	+iSefyFB3dqRxAIdw==
+X-Received: by 2002:a5d:5d0b:0:b0:43d:c2bc:21b4 with SMTP id ffacd0b85a97d-4515b525d65mr37422228f8f.16.1778505472478;
+        Mon, 11 May 2026 06:17:52 -0700 (PDT)
+Received: from localhost ([2a00:2381:fd67:101:5acc:6281:995e:547f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4549120f1f9sm25688565f8f.24.2026.05.11.06.17.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 May 2026 06:17:52 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 11 May 2026 14:17:51 +0100
+Message-Id: <DIFVKM72KZDI.14EVGUMQ0NV9S@linaro.org>
+To: "Tudor Ambarus" <tudor.ambarus@linaro.org>
+Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Michael Turquette"
+ <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Lee Jones"
+ <lee@kernel.org>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Sylwester
+ Nawrocki" <s.nawrocki@samsung.com>, "Chanwoo Choi" <cw00.choi@samsung.com>,
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ <linux-kernel@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
+ <peter.griffin@linaro.org>, <jyescas@google.com>,
+ <kernel-team@android.com>, "Krzysztof Kozlowski"
+ <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH 5/6] firmware: samsung: acpm: Add TMU protocol support
+From: "Alexey Klimov" <alexey.klimov@linaro.org>
+X-Mailer: aerc 0.20.0
+References: <20260506-acpm-tmu-helpers-v1-0-a9cd5daf8355@linaro.org>
+ <20260506-acpm-tmu-helpers-v1-5-a9cd5daf8355@linaro.org>
+ <DIBOWQYHOPOU.3PCLCL8030WRL@linaro.org>
+ <806da86b-45b7-43cc-b364-97bade8f4041@linaro.org>
+In-Reply-To: <806da86b-45b7-43cc-b364-97bade8f4041@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_054739_322993_C9FAEA7F 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20260511_061755_074239_37C77039 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,200 +108,74 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jian.hu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jian Hu <jian.hu@amlogic.com>
+On Thu May 7, 2026 at 9:31 AM BST, Tudor Ambarus wrote:
+> On 5/6/26 6:13 PM, Alexey Klimov wrote:
+>> On Wed May 6, 2026 at 12:39 PM BST, Tudor Ambarus wrote:
 
-Add the PLL clock controller dt-bindings for the Amlogic A9 SoC family.
+[..]
 
-Signed-off-by: Jian Hu <jian.hu@amlogic.com>
----
- .../bindings/clock/amlogic,a9-pll-clkc.yaml        | 110 +++++++++++++++++++++
- include/dt-bindings/clock/amlogic,a9-pll-clkc.h    |  55 +++++++++++
- 2 files changed, 165 insertions(+)
+>>> new file mode 100644
+>>> index 000000000000..c68d60b4c0b3
+>>> --- /dev/null
+>>> +++ b/drivers/firmware/samsung/exynos-acpm-tmu.c
+>>=20
+>> [..]
+>>=20
+>>> +static int acpm_tmu_to_linux_err(s8 fw_err)
+>>> +{
+>>> +	/*
+>>> +	 * ACPM_TMU_INIT uses BIT(0) and BIT(1) of msg.rx.ret to flag APM
+>>> +	 * capabilities. Treat zero and all positive values as success.
+>>=20
+>> ACPM_TMU_INIT returns capabilities inside designated error field?
+>
+> yes
 
-diff --git a/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml
-new file mode 100644
-index 000000000000..4ee6013ba1a1
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml
-@@ -0,0 +1,110 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright (C) 2026 Amlogic, Inc. All rights reserved
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/amlogic,a9-pll-clkc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Amlogic A9 Series PLL Clock Controller
-+
-+maintainers:
-+  - Neil Armstrong <neil.armstrong@linaro.org>
-+  - Jerome Brunet <jbrunet@baylibre.com>
-+  - Jian Hu <jian.hu@amlogic.com>
-+  - Xianwei Zhao <xianwei.zhao@amlogic.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - amlogic,a9-gp0-pll
-+      - amlogic,a9-hifi0-pll
-+      - amlogic,a9-hifi1-pll
-+      - amlogic,a9-mclk0-pll
-+      - amlogic,a9-mclk1-pll
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#clock-cells':
-+    const: 1
-+
-+  clocks:
-+    items:
-+      - description: pll input oscillator gate
-+      - description: fixed input clock source for mclk_sel_0
-+      - description: u3p2pll input clock source for mclk_sel_0 (optional)
-+    minItems: 1
-+
-+  clock-names:
-+    items:
-+      - const: in0
-+      - const: in1
-+      - const: in2
-+    minItems: 1
-+
-+required:
-+  - compatible
-+  - '#clock-cells'
-+  - reg
-+  - clocks
-+  - clock-names
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - amlogic,a9-mclk0-pll
-+              - amlogic,a9-mclk1-pll
-+
-+    then:
-+      properties:
-+        clocks:
-+          maxItems: 3
-+
-+        clock-names:
-+          maxItems: 3
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - amlogic,a9-gp0-pll
-+              - amlogic,a9-hifi0-pll
-+              - amlogic,a9-hifi1-pll
-+
-+    then:
-+      properties:
-+        clocks:
-+          maxItems: 1
-+
-+        clock-names:
-+          maxItems: 1
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    apb4 {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        clock-controller@8200 {
-+            compatible = "amlogic,a9-gp0-pll";
-+            reg = <0x0 0x8200 0x0 0x20>;
-+            #clock-cells = <1>;
-+            clocks = <&scmi_clk 0>;
-+            clock-names = "in0";
-+        };
-+
-+        clock-controller@8330 {
-+            compatible = "amlogic,a9-mclk0-pll";
-+            reg = <0x0 0x8330 0x0 0x14>;
-+            #clock-cells = <1>;
-+            clocks = <&scmi_clk 4>,
-+                     <&scmi_clk 8>;
-+            clock-names = "in0", "in1";
-+        };
-+    };
-diff --git a/include/dt-bindings/clock/amlogic,a9-pll-clkc.h b/include/dt-bindings/clock/amlogic,a9-pll-clkc.h
-new file mode 100644
-index 000000000000..31edb0bc95e7
---- /dev/null
-+++ b/include/dt-bindings/clock/amlogic,a9-pll-clkc.h
-@@ -0,0 +1,55 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) 2026 Amlogic, Inc. All rights reserved.
-+ */
-+
-+#ifndef __AMLOGIC_A9_PLL_CLKC_H
-+#define __AMLOGIC_A9_PLL_CLKC_H
-+
-+/* GP0 */
-+#define CLKID_GP0_IN_DIV2_DIV		0
-+#define CLKID_GP0_IN_DIV2		1
-+#define CLKID_GP0_PLL_DCO		2
-+#define CLKID_GP0_PLL			3
-+
-+/* HIFI0 */
-+#define CLKID_HIFI0_IN_DIV2_DIV		0
-+#define CLKID_HIFI0_IN_DIV2		1
-+#define CLKID_HIFI0_PLL_DCO		2
-+#define CLKID_HIFI0_PLL			3
-+
-+/* HIFI1 */
-+#define CLKID_HIFI1_IN_DIV2_DIV		0
-+#define CLKID_HIFI1_IN_DIV2		1
-+#define CLKID_HIFI1_PLL_DCO		2
-+#define CLKID_HIFI1_PLL			3
-+
-+/* MCLK0 */
-+#define CLKID_MCLK0_IN_DIV2		0
-+#define CLKID_MCLK0_PLL_DCO		1
-+#define CLKID_MCLK0_0_PLL		2
-+#define CLKID_MCLK0_0_PRE		3
-+#define CLKID_MCLK0_0_SEL		4
-+#define CLKID_MCLK0_0_DIV		5
-+#define CLKID_MCLK0_0			6
-+#define CLKID_MCLK0_1_PLL		7
-+#define CLKID_MCLK0_1_PRE		8
-+#define CLKID_MCLK0_1_SEL		9
-+#define CLKID_MCLK0_1_DIV		10
-+#define CLKID_MCLK0_1			11
-+
-+/* MCLK1 */
-+#define CLKID_MCLK1_IN_DIV2		0
-+#define CLKID_MCLK1_PLL_DCO		1
-+#define CLKID_MCLK1_0_PLL		2
-+#define CLKID_MCLK1_0_PRE		3
-+#define CLKID_MCLK1_0_SEL		4
-+#define CLKID_MCLK1_0_DIV		5
-+#define CLKID_MCLK1_0			6
-+#define CLKID_MCLK1_1_PLL		7
-+#define CLKID_MCLK1_1_PRE		8
-+#define CLKID_MCLK1_1_SEL		9
-+#define CLKID_MCLK1_1_DIV		10
-+#define CLKID_MCLK1_1			11
-+
-+#endif  /* __AMLOGIC_A9_PLL_CLKC_H */
+Heh. Okay.
 
--- 
-2.47.1
+>> What about other messages/commands? They just return error code there?
+>
+> all the other commands either return -1 for errors, regardless of the err=
+or
+> type, or 0 for success.
+>>=20
+>>> +	 */
+>>> +	if (fw_err >=3D 0)
+>>> +		return 0;
+>>> +
+>>> +	if (fw_err =3D=3D -1)
+>>> +		return -EACCES;
+>>> +
+>>> +	return -EIO;
+>>> +}
+>>=20
+>> Could we map these return values with better granularity instead of
+>> returning -EIO for everything else that is not minus one?
+>
+> I think we're good as we are now. The firmware returns either -1 for erro=
+rs,
+> zero for success, or BIT(0) and BIT(1) for TMU_INIT to flag some capabili=
+ties.
+> I can't tell if there are other commands that return capabilities as well=
+,
+> or if there are other capabilities for TMU_INIT, I don't have access to t=
+he
+> firmware code.
 
+On Exynos850 I see more than just one returned error codes. I definitely
+see 0xfe and 0xfd at least. I don't have any data to confirm that ff
+maps to -1 and fd-s, fe-s to -2,-3 though and what they mean. From my
+experiments I suspect that 0xfe means that call/msg type is not
+implemented or not accessible and 0xfd means that passed parameter is
+wrong or incorrect or not found.
+
+I am also not sure that I saw 0xff-s but, well, maybe that needs more
+experimenting.
+
+Thanks,
+Alexey
 
 
