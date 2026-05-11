@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8943BCD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 18:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C71FCD4840
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 18:45:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3vHhZIVTzvgvCRzJ0uCOBL0Xwoamb427dFFS9Exx7c=; b=wnJyWCeuMBIyGzvrU27IGesn8I
-	gTd5o04k/QkC7J4n427ZzehppUpdRnjamYkVOp0+Vwdd3mEkozmzKhDf5ga1V/ZXilC0RrFugMkJE
-	vdE405GDBIENYnAEy26FALZ0CSJtZgnFQXpymeOK2m5VKcWgiWdqwkwb3S/NbKzHoyOMZU7nNMT8w
-	T/gxWA9ScUQp7lRc7EQxpsgCWZ21Iz/7aEVwhFSsikDRNQJIwMwmE4hWnFo9YjXR4u4AlPoJjgyRy
-	GIHrS2bXXUK/bH/H0o1mzRzqx6SUD95arGUFLva8lZyae3P6+JbE0F9cgMu0hk7HcCklg4NW4WMgm
-	ogCCeKLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aQ/lKYyflvZSNBqlP/dvjAr1/tprgH6SH+5pfzheVMA=; b=lEgoGlUCTeBbMQgiEcq4DU/sdv
+	5wMVq6lf7lJZSEGsCLFxray52AWAetQdh7P8m+/WQ2REv/6PIkk1oUqYqgavYbtetaI7C6QwUWeqT
+	Hb2ceF0Madir5GPXYW90hCsEy9xOK0JjMR2stNXmLs6FFtgBpou33kZtn6WAXe1iZ3c8VHSqzY/lT
+	rAEzMTQvpNF4rW8VAiWnWUlqOgPz8y0nasI7u6ps+i2H/Zx3+0TOrjVrhuKeHmEyo2sPNR/dXZGPm
+	wmHoQ1iz3GM7M4i0cEWd7ZxiBYz+WCYxHIaWoapCNX9GCeRkHie6skq/epOQvSfsykUT32362eYLt
+	SY3jZZ1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMVPo-0000000EWBn-1AGw;
-	Mon, 11 May 2026 18:31:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wMVdO-0000000EXGX-2YWV;
+	Mon, 11 May 2026 18:45:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMVPl-0000000EWBA-3x6q;
-	Mon, 11 May 2026 18:31:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1778524295;
-	bh=yAroUwZ0Px8ARskG4DqFPBVU8jY00U9EJFO3vig1K9Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GutqXGYO3JhKA3FnsetFtIbZHyWyyqJkjRYkQEkGaQhIIfwrA757hUQ5q8tn2932k
-	 xcpBsfXSaijdhk/XjmUJyOKH/6t5xqVdzv+7G9k6ZiZNsIsD6d333AulhcoTVVXAn3
-	 SdlpoML5KJrnLWxPvM0XxNTjmrTpdNNUBDB0yivI1UZNn0s2X482X4/IcRT3PvK7FD
-	 Iacp5x96JzOqR+zydNO6YOS8h26nFHNW9tZHisCS+phOwR9U0BYrSO5O+DeUgxFnZu
-	 Laz0qQfL9EL6Ox9BwEDg3I/YU/dJVvq5EUrZStlUAkkh0+AHQpJb/daZPWMlBABYxB
-	 DqGluskkQ0Siw==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1F6CF17E12AA;
-	Mon, 11 May 2026 20:31:35 +0200 (CEST)
-Message-ID: <466dd8c9-c80b-467a-ab99-e58a308079c9@collabora.com>
-Date: Mon, 11 May 2026 21:31:34 +0300
+	id 1wMVdN-0000000EXGI-0BME
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 18:45:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3F028600CB;
+	Mon, 11 May 2026 18:45:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEFBEC2BCB0;
+	Mon, 11 May 2026 18:45:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778525140;
+	bh=TwOfOoVHvAk5+BCmHU/0l16HBggiVxIlTk/wO3uefzU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gD5uFrrlE+wG2vwML+Aua/biLzAAyLJ+t6tbI+rhZSnVTjogUz6PrsXYzBDuv04SE
+	 5UossI/jUrt1BWF56+0ts/0MbUWbyhisN9TyfCmJ1yDkACDU33yNP81cnVfETNey5h
+	 0P68FO0RXg4OZxf2Pt+hfo0cdCjBMwJbrdOEd3Pdl3PRLkTmcYaqHGBxXGM1vY4PSS
+	 2qvPgHjG3FGAWF/6ZLxS2SoQBF9+nqr4cWLDQUhYH6dRDjnMxv/hnqfMec5S8pNKfa
+	 4cWUtMHZ2B4dAzEHpMKQC27h9YzXrLWXzskKQEkFDNph7Ozt4lOUU0MxDlojcCKrDp
+	 FduI08HJYAMQg==
+Date: Mon, 11 May 2026 11:45:39 -0700
+From: Kees Cook <kees@kernel.org>
+To: Jann Horn <jannh@google.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Liz Prucka <lizprucka@google.com>,
+	Seth Jenkins <sethjenkins@google.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
+Message-ID: <202605111144.349EF737E@keescook>
+References: <20260427153416.2103979-17-ardb+git@google.com>
+ <20260427153416.2103979-19-ardb+git@google.com>
+ <CAG48ez1DJ88a0pBCE-Q0VXyDuJgng8zdunb38g4b4JPU88exww@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] phy: rockchip: samsung-hdptx: Clock fixes and API
- transition cleanups
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>,
- Dmitry Baryshkov <lumag@kernel.org>, kernel@collabora.com,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com>
- <agA1dFpheTaBfyUt@vaman> <c76d7020-2b3b-4f30-ab40-a8442c953966@collabora.com>
- <agIBa7qxIGgqCYZ1@vaman>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <agIBa7qxIGgqCYZ1@vaman>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_113138_126333_B5609B99 
-X-CRM114-Status: GOOD (  12.54  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAG48ez1DJ88a0pBCE-Q0VXyDuJgng8zdunb38g4b4JPU88exww@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/11/26 7:18 PM, Vinod Koul wrote:
-> On 10-05-26, 11:55, Cristian Ciocaltea wrote:
->> Hi Vinod,
->>
->> On 5/10/26 10:36 AM, Vinod Koul wrote:
->>> On 27-02-26, 22:48, Cristian Ciocaltea wrote:
->>>> This series provides a set of bug fixes and cleanups for the Rockchip
->>>> Samsung HDPTX PHY driver.
->>>>
->>>> The first part of the series (i.e. PATCH 1 & 2) addresses clock rate
->>>> calculation and synchronization issues.  Specifically, it fixes edge
->>>> cases where the PHY PLL is pre-programmed by an external component (like
->>>> a bootloader) or when changing the color depth (bpc) while keeping the
->>>> modeline constant.  Because the Common Clock Framework .set_rate()
->>>> callback might not be invoked if the pixel clock remains unchanged, this
->>>> previously led to out-of-sync states between CCF and the actual HDMI PHY
->>>> configuration.
->>>>
->>>> The second part focuses on code cleanups and modernizing the register
->>>> access.  Now that dw_hdmi_qp driver has fully switched to using
->>>> phy_configure(), we can drop the deprecated TMDS rate setup workarounds
->>>> and the restrict_rate_change flag logic.  Finally, it refactors the
->>>> driver to consistently use standard bitfield macros.
->>>
->>> Sorry looks like I have missed to review this one.
->>> Can you please rebase on phy/fixes and send...
->>
->> I've just verified and it applies cleanly on top of phy/fixes.
->> Do you still need a resend?
+On Fri, May 08, 2026 at 07:02:51PM +0200, Jann Horn wrote:
+> On Mon, Apr 27, 2026 at 5:44 PM Ard Biesheuvel <ardb+git@google.com> wrote:
+> > The empty zero page is used to back any kernel or user space mapping
+> > that is supposed to remain cleared, and so the page itself is never
+> > supposed to be modified.
+> >
+> > So make it __ro_after_init rather than __page_aligned_bss: on most
+> > architectures, this ensures that both the kernel's mapping of it and any
+> > aliases that are accessible via the kernel direct (linear) map are
+> > mapped read-only, and cannot be used (inadvertently or maliciously) to
+> > corrupt the contents of the zero page.
+> >
+> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 > 
-> Yes please, it didnt apply for me
+> Reviewed-by: Jann Horn <jannh@google.com>
+> 
+> Sorry, I should have looked at this properly earlier instead of ending
+> up duplicating this patch with
+> <https://lore.kernel.org/all/20260508-ro-zeropage-v1-1-9808abc20b49@google.com/>.
 
-Oh, I used the following branch, hopefully it's the right one:
+As you mention in your testing of the patch, could we add an LKDTM test
+that does the same to catch any regressions?
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/log/?h=fixes
-
-Regardless, I submitted v2, rebased on the above, while providing a few minor
-changes:
-
-  https://lore.kernel.org/all/20260511-hdptx-clk-fixes-v2-0-664e41379cab@collabora.com/
-
-Thanks,
-Cristian
+-- 
+Kees Cook
 
