@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB44CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 13:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DE43CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 13:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1NwL7C4TUXiy0IqMMrn3WpIg+m5YuGpDASE8HR118U=; b=qPHE+I0SojgM6JExHMYaN5MfGY
-	NROQRIAbzB1Q3+L6fxHycK4/Msx+Ii0kDNTktX0DCANXP3wkxCcpICh4q0u1B520I9BiIrSkyNHLn
-	r12OL7KKrniwlGdTsRKZzohTgZO4YgHrUcaXQJ/sDkHkiOCHN0EBUOMhA8oRKZw9ZV043ULq6H52O
-	KwDnSmSNa0lFxrE5IQ+1nc1sEwRbsOT3oYAIS7Z7JCjD4TnfRdyS8gWG9LgWPOa1YgNKhgNBzX6lI
-	prnOftqfzVYUZGDiIVY0iCViqLgqa0JKaHoTZ1KK8mXHZzh+C2DXBUao764sShY7PcYIBP6eVq8D7
-	wIQ7/gNQ==;
+	bh=/lBwJjKIl2g6UF0VMhS59pfFS4rpMrtKUF/lmDHhe/0=; b=SwJaxPCALnp/BISKA3N0a4o4qj
+	a/7Q3H9X4f7ClELfCf4DmiSlQTrFxpFcTEhDYbnfvj7AWxOvHc7nYSyVUpzs4pMqxnto15/nULY5v
+	NN9v+qpaX5E0XKG86WSZJhnXAdR0YfZtVLu6LEOCx6v8M/dkIITxrBUcXoJ0gBBqQK9yFtsh08UHe
+	0mzSWliU6Sm8bUnaGfd6YtVwnjBI+XCtEKT8UW7oAsQDBdtwzNtEwjTKxk49z4kpfkAHHJN6eJm3d
+	iCvNw38jzzCi8aIHOw3jgMHeTQXup6rqLQZDjh6uAjiUC+K6da+0H/EMnKnDayXasPCSkoTJCPE38
+	flqCcbYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMQmd-0000000Dl8t-2Gh1;
-	Mon, 11 May 2026 13:34:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMQnH-0000000DlLz-3MGK;
+	Mon, 11 May 2026 13:35:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMQmb-0000000Dl8D-1qsd
+	id 1wMQnF-0000000DlLF-2FRT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 13:34:54 +0000
+	Mon, 11 May 2026 13:35:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC5084445C
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:34:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C960C4AF0D
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:34:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A48DC6001A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:35:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E191C4AF0B
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778506492;
-	bh=r1NwL7C4TUXiy0IqMMrn3WpIg+m5YuGpDASE8HR118U=;
+	s=k20201202; t=1778506532;
+	bh=/lBwJjKIl2g6UF0VMhS59pfFS4rpMrtKUF/lmDHhe/0=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=CY1zmRAv/Ku8mbJt4v6JYur71VvXUxbPvCoe1xXRVF9B3F6gu+fmOley5laUHiwCG
-	 extjOR7/YS2xIQD8BEzYdA9lyWONIr6U0M0ZbPVoKwDFQd1T7bHwkrYorKd4qG+i0d
-	 0NyDNQ1y55OaK0E1yIBilPr71rkX7HVuDO1vRRlLqbWWavLej0icZOI+0xODaf6B01
-	 uEqdaqo4t0yPUT96/tEylp0NISrg6t0XIJli4QK6f0z7LYVqCxziIU89lJriPvoFo2
-	 ev1Rt9JCtlWduoD5wsvx8DH2xebwPrTbIZZSRaFXRz5HRCvRHYnzmF6nib5sSGRS8b
-	 EEAeIkqXYcEuQ==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-3939d2bd7ecso34650851fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 06:34:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+5VRzs6y0GRiRzSvwKw5AZ4i/nbTGFYerLpJzL+p8OvaqDHhpVhabZ+qLDONhJciFTfmMhklG+yaac1J9PYSy/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA+kQYVKgosehgHc/e2ptqp/teeuYDNG1X7RWZSHwKCAP3gCop
-	UWACq2nVEQhzMQuv4qGWHThq+i9bvecCuQruH2Bp4CbWitJTiPo5Btf+HSqDKnESvcBh+n0TVQi
-	cBeXwsOnjIXnCCeJxJUWHGaYdW+/+nzSTzT5TYobYpw==
-X-Received: by 2002:a05:651c:2229:b0:38e:15d9:d60d with SMTP id
- 38308e7fff4ca-393dad5f88bmr64043021fa.3.1778506491219; Mon, 11 May 2026
- 06:34:51 -0700 (PDT)
+	b=FypKc4F0AdJbhKfUPhAN/OTZKDVXKaSRqUkZs9Fn7aVx3nxTYJi3iyZ+c6xXI5Dro
+	 VTIRso8DloSd4az8g2MdlqJPLmWl9lCMxiMvDDft60htW8agWjVKQEbE6mlFSktyLw
+	 l6hGVY/ikLYz3ZpMySXVg9ObVrcOaJTqyGqpfvSQyeOOBwX2Bn7sbEPe4KDDMJSNDM
+	 2wORACkObXO5uySV4iD0IqTIl+oFnUlBVFJ6cTtj8w3vaDN37OiCt0fL007EJnvCoZ
+	 Tbu3mvz6s6arN1RVSN8P1A2jqyJCum5loWyapag1Q8SzrGvEvL/zJm6JMHOcwECXMp
+	 saBICzU13xJFw==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-392445f11c5so42756121fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 06:35:32 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/KsQsRuyU68sPzp3fhUoPWc/fmtjNYOYkujA+zjFYDuep2ZRzk8Mv/yldNjW9TEfDwCB8lhg3BnNRpPbTW4jVo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsROtD3W+KWNdI18jAOF+tVgrRwW3sUY7kK29eRdUUnVumVFMi
+	kENalhQsqgeiY3YCekgDOEvXJX6eq8udo83uooMYO7F8f/JGPY5HTNAySs4JwkfcmD6BozYLhMQ
+	RS7FYDE82h8IzyzmMeQTgeQVi3RoVXlLhbdo1wKVLUg==
+X-Received: by 2002:a05:651c:25c9:10b0:393:aa48:8243 with SMTP id
+ 38308e7fff4ca-393db0aa0a0mr39373091fa.18.1778506531112; Mon, 11 May 2026
+ 06:35:31 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260430-nokia770-gpio-swnodes-v7-0-c88f74c90dd6@oss.qualcomm.com>
-In-Reply-To: <20260430-nokia770-gpio-swnodes-v7-0-c88f74c90dd6@oss.qualcomm.com>
+References: <20260430-pxa-gpio-swnodes-v3-0-5142e95f0eca@oss.qualcomm.com>
+In-Reply-To: <20260430-pxa-gpio-swnodes-v3-0-5142e95f0eca@oss.qualcomm.com>
 From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Mon, 11 May 2026 15:34:39 +0200
-X-Gmail-Original-Message-ID: <CAMRc=MdN9EpQVW=1Sb-9hRdt56Y5NNbskujjq2RiXhu90t0QyA@mail.gmail.com>
-X-Gm-Features: AVHnY4LqUFEpLtkv3mOskgVKC1lucSnvu3DKdQtMuet6VRvxpZSBsuokLGXn78E
-Message-ID: <CAMRc=MdN9EpQVW=1Sb-9hRdt56Y5NNbskujjq2RiXhu90t0QyA@mail.gmail.com>
-Subject: Re: [PATCH v7 0/3] ARM: omap1: use real firmware node lookup for
- GPIOs on Nokia 770
+Date: Mon, 11 May 2026 15:35:18 +0200
+X-Gmail-Original-Message-ID: <CAMRc=Md7EdfvNV+6NRZK0UkNXcYp3uR4N4buKH6NeKKg_rnt-w@mail.gmail.com>
+X-Gm-Features: AVHnY4KVYQLNTX-bwgopKPbxO_uksCzXvDF2gr-UH6aomroXQBQsEy6ffPhZrLU
+Message-ID: <CAMRc=Md7EdfvNV+6NRZK0UkNXcYp3uR4N4buKH6NeKKg_rnt-w@mail.gmail.com>
+Subject: Re: [PATCH v3 0/4] ARM: pxa: attach software nodes to the GPIO controllers
 To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Daniel Scally <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, 
-	Russell King <linux@armlinux.org.uk>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, driver-core@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
+Cc: Daniel Mack <daniel@zonque.org>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
+	Robert Jarzmik <robert.jarzmik@free.fr>, Russell King <linux@armlinux.org.uk>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Arnd Bergmann <arnd@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_063453_500293_9F94882A 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,20 +82,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 9:31=E2=80=AFAM Bartosz Golaszewski
+On Thu, Apr 30, 2026 at 2:57=E2=80=AFPM Bartosz Golaszewski
 <bartosz.golaszewski@oss.qualcomm.com> wrote:
 >
-> This converts Nokia 770 to using real firmware node lookup for GPIOs by
-> attaching the software nodes describing GPIO controllers to their target
-> devices.
+> Convert GPIO controllers and their consumers on the PXA platform to using
+> "attached" software nodes. Since everything happens in a bord-file, it's
+> quite straightforward. We technically now have a way of passing an
+> unregistered software node to platform_device_register_full() but that
+> requires using struct platform_device_info and since the existing
+> platform devices are either referenced from other places or defined in a
+> different compilation unit, I wanted to reduce the impact of the changes
+> I can't test and went with the older method.
 >
 > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 > ---
 
-Hi!
-
-Gentle ping, can this be queued now for v7.2?
+If there are no other comments, can this be queued for v7.2?
 
 Thanks,
-Bart
+Bartosz
 
