@@ -4,109 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76453CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 02:43:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0114CD4844
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 02:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nEONwdvWSOZVDiRJQfYjimFlhGZB4X1lXbjgFUt0viA=; b=MAExL0EPtXCvWwxBTetKQtilg3
-	NwhbCW4Zzd3uOYb6RYVbkj6pFp0o3hwo1HRve+hNtWghr5AAVZdqArPiHKNqYdWzU46kHPDtasXTy
-	+Ye7XBnQEFie3ZXFaJ5zPoZm1K2+BJSYEou9mMfhsk2gTq8J+PX0yAMJRBtMXp9FP8rSTPq+t5MLD
-	yzbIED+p+ku+gAtRMrUt1Hvcox7oHd7OZvvoIzoEhR7Y3YotyB7TdAHiOWP+fZij4wdcUeisWRj+c
-	332UqJxMkHw9/q5Gg/MXhWA8X2qXHdVwITR9+9tUsBGK7bDBf6d3tsOi+an8xqNIP20PwYhch8oeS
-	veNmF2XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wBzxrwb3u6aAy65Ew28k5XS4vquizRynMypljlvuLRY=; b=SKluSy53nuDPGNC9yf44NcL5j5
+	xurAeTx2J0iZmQjSu6qyQnSPWGkDXoh6xAZZtR092HU0aNEjL2bcxC8Zc64tmQcA+/EUmzrRbdOrC
+	La6MyFhN809eCdt/cBCzWLeytqaV2d6R3ccobpStzVwELWYNozlNQjOXuQ5E6XfD4LMNhtxIxQ7hj
+	V/vytAEuFuVpAi6QXi8rBNT4dsrDSpdSbsPJlOLL5wWU3pYD0FRxpYohNVZMImOmy+09xP5/YWP+a
+	/IOANkmTl8luZQsyaBYpkXZi+g1oGbvid+pPvvgFDCj+sLPHIIP3NBpLsMQtfsFtyhvrnV6I3kbv2
+	CcK+pzBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGbq-0000000C3mP-3tXk;
-	Mon, 11 May 2026 02:43:06 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wMGmS-0000000C4vn-20Rs;
+	Mon, 11 May 2026 02:54:04 +0000
+Received: from mail-vs1-xe64.google.com ([2607:f8b0:4864:20::e64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMGbn-0000000C3jK-0xwa
+	id 1wMGmM-0000000C4rh-3lba
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 02:43:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZomEZJab37TQKlxirplH5mkEmVz4WDeTwXJns+zdFNRhkhq6SYvjlLwJfcVjLPUAO5OlfLo3x5r6Wv0qUdUmz/1KacIM84ZTb07GY4AfVeT7g4eoSNng9UYyD/SNC6H1YICTmVmdH/bxAux+0QDhJB/vU8NedwbUQce6QjwtPKiJ6FLyM2cOkdo50iPG5hJjXne/czGYKP3/R1pzC0gw/prlR1a+wm8AJbLtf8ZTQPhP84Cl4P03VtWsmaZXVh/C94BYR8a3FKzhPLSwJbybikQ+gA/Q/rVwoF7iCfSYmkQeDkAx1KnzOdhzLjc8t5NBE1MdlQDkW65XWQ5s6218lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nEONwdvWSOZVDiRJQfYjimFlhGZB4X1lXbjgFUt0viA=;
- b=dMOW7qBx+/9UP3axuwPgd5qS942jpwagjCVD/A5M/HdqNF/iOKxp03ojL2bb1VGm/ZlYpQpcMa+IJgzu4DJ/mH/j3h2xhcbiPyl/8nEsvUYYo6ir9t3NWKAHpgF7q3jnODWAS4GMtg/XC9q1bmKPkPU6WQ2GxsGDyb7qnwakQjaOshGtKuhSZIGZ8EXVXbEYn9rwRC4C/to6LF1tHdSAytXUKECH2dTsTpFFblEr1zcgwjDq4BQwV2PsYLemNI0jFxAJ0dGdQjUSmksNvUTmMFHi0hxl/cmzo5OM7Hhxl75mlaHXSK6OkKQLbFJ9OrCvWcrBUUrCas6HyGPggZXN7Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arndb.de smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SG2P153CA0037.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::6) by
- KL1PR06MB5895.apcprd06.prod.outlook.com (2603:1096:820:c9::16) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9891.22; Mon, 11 May 2026 02:42:47 +0000
-Received: from OSA0EPF000000CC.apcprd02.prod.outlook.com
- (2603:1096:4:c6:cafe::13) by SG2P153CA0037.outlook.office365.com
- (2603:1096:4:c6::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.4 via Frontend Transport; Mon, 11
- May 2026 02:42:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000CC.mail.protection.outlook.com (10.167.240.58) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Mon, 11 May 2026 02:42:46 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 369754126F93;
-	Mon, 11 May 2026 10:42:45 +0800 (CST)
-From: Peter Chen <peter.chen@cixtech.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	gregkh@linuxfoundation.org,
-	pawell@cadence.com,
-	rogerq@kernel.org
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	cix-kernel-upstream@cixtech.com,
+	Mon, 11 May 2026 02:54:01 +0000
+Received: by mail-vs1-xe64.google.com with SMTP id ada2fe7eead31-631a7868228so1095011137.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 19:53:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ausil.us; s=google; t=1778468037; x=1779072837; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wBzxrwb3u6aAy65Ew28k5XS4vquizRynMypljlvuLRY=;
+        b=OGxipXXYSXvz9UZBt+0p8E0h+u++KpD33T+h7u8WfJ3fCvkLvyZSerubJpg6XBrz7q
+         7Um05FdiTFDB5drV0YODEvfacQjZLgnXN5+X0OqyJJoxQhDRoJ0cs6fNTDTCIP0mBs4t
+         2SEzbw2pJ6QjhtJnPpWKrOxTqrco5KhkVM6EvomHg9ztDItpg03NLT8j0UGa8PbRgusl
+         uKUV6ZWh/W3fqKHt1asUlPOWENCWUKjCq6wWqFcDJE/L5rd9elgHH/BvtouWhgYVxh6A
+         2xGcvZeHrCVvGW2DZeQn9NFtGAMlmQGAdSQ2URwhg7NVFz762UFI1HZiyNggBEbeLGMd
+         WbVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778468037; x=1779072837;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=wBzxrwb3u6aAy65Ew28k5XS4vquizRynMypljlvuLRY=;
+        b=Z9VtKEvxYpaWjB/ikZ30IcqqcEQGAFn3/atHvnf/4Bg56NJBfYYw5We9pM+go60lol
+         Cp6SRrl8epk6XkDdN19U9czweK7RxRns118CYRZc8VX/GGmXCdo6UHXavtH3Bn+luw1x
+         L7H0e1WMPzT/Foc64Z4YkWcUFTnXnneA5XbIoXGnuT27uBSknsfMLcan3dzCv1v/szL0
+         +ha8hv+CSAtRvQJTouepXkqWhXl45E8dpUKWnU9yJYO4KI6yy3noS8iL6fziozFmNhb+
+         Gb2J0JPwWs54rdSMgvyGRxZiVNYzuzPLKAre9N9WWX7P4rSx6tvWqZEiDsJ8d6ZPvUou
+         BjoA==
+X-Forwarded-Encrypted: i=1; AFNElJ9GqAxhTVGVLc/e65DmfkSXt3yiguC6WJiv26hvCUFdvhuGlii5+BC+lzpdlhuczZLzZE3ubri5XS9xJHm2y0/S@lists.infradead.org
+X-Gm-Message-State: AOJu0YxktHlM5igoPKe4JPgMpvH+8cagxObsx5aGAvQLkcudEEpjZiIc
+	WDS1dlSEAHAW04YGn8wQJr6FX6Fqi8RrldxUMY8yiSwSEJjrm+pc974O0iKAY3wZQT7eyfe33zw
+	waDFdaji6U4tRejTBWtJBv5FVvxeV/RlkxBzF
+X-Gm-Gg: Acq92OHsXKvc7zWjulVBi5ph4GekTXP1jRvGM3Erv+UmHFXIyN8+Dv0A6646Gk4zc4O
+	rgSSoD6kHiGkmU5aT7GLXqyurrth8zcD50BiptQ/2ACLU2SzRFkL0bGBfF+WTAJHdVW6qcQImWo
+	3NcoYmXbU6KW633wKNQu5/mGKegSsLVXNXjsGT4XhjJBBHOErUUAttyfbysX+yLa84eNLUVgNCv
+	r7jJKEvkTIDlpsfbT3GYtyZbwGNt+6EVzAPaDzlOuljVqOli1jPoB7yx/edHuUM/XAvxS6GdYxO
+	uq6nP3UduCNG5Uei3ObEg6g7Y4QkIPsr9Kz9VxLzWyKFpQjBS6SBeO32f0lHXNj3Q99WZ4ha3Ah
+	3myYbLIeBC8V1LhwyFGEgTSb/mKFPSntEbujBl4OgEXK5
+X-Received: by 2002:a05:6102:5698:b0:631:ec2d:12b2 with SMTP id ada2fe7eead31-631ec2d1a1dmr2814871137.1.1778468037614;
+        Sun, 10 May 2026 19:53:57 -0700 (PDT)
+Received: from ryac.ausil.us (207-179-239-100.mtco.net. [207.179.239.100])
+        by smtp-relay.gmail.com with ESMTPS id ada2fe7eead31-6313ff6c191sm698744137.1.2026.05.10.19.53.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 10 May 2026 19:53:57 -0700 (PDT)
+X-Relaying-Domain: ausil.us
+From: Dennis Gilmore <dennis@ausil.us>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Alexey Charkov <alchark@gmail.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	arnd@arndb.de,
-	Peter Chen <peter.chen@cixtech.com>
-Subject: [PATCH 2/4] usb: cdns3: sky1: Add cdnsp-sky1 glue driver
-Date: Mon, 11 May 2026 10:42:42 +0800
-Message-ID: <20260511024244.981941-3-peter.chen@cixtech.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260511024244.981941-1-peter.chen@cixtech.com>
-References: <20260511024244.981941-1-peter.chen@cixtech.com>
+	linux-kernel@vger.kernel.org,
+	Dennis Gilmore <dennis@ausil.us>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v10 1/4] dt-bindings: arm: rockchip: Add Orange Pi 5 Pro
+Date: Sun, 10 May 2026 21:53:47 -0500
+Message-ID: <20260511025352.106126-2-dennis@ausil.us>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260511025352.106126-1-dennis@ausil.us>
+References: <20260511025352.106126-1-dennis@ausil.us>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000CC:EE_|KL1PR06MB5895:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 8e41cdc2-d62e-4a58-71f9-08deaf06fc03
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: wsbJa23UKvMc5Hz3IzJfSv7MocZNm7MBMyGIyuusJnpnKYjKQflI0S5EtDfq9G9iYQ0+xMrEw6vxviRQj2zGNwQdf825fHZHm26fQT45OgX2TnCUh+ru85r85u+qN/dVRluW3vmp2xUCjqWZ0rCFU7ot9WxTSd1nbtMCokzkp4/EVvZ2V6SpYqywiktP1FcZd1zavN81KF5c0oICNijBaNL6YvlvnfNtxt1tLJbf7JLRHiyB4D2xKK/oD/DavjXd7VpsBgsnCtIekHGUCbDg5c+SyonzemPoEf1j6HLgDqCuA2TPXk84fmD8ihz9jrHjdeYAhcXCo5erLsscGnupfC0l/nNWzeZBLClK367KF6lxbttFmd9mxHBNzevL0D96W0S/cYQ8egNebYbJCFxF8PcAUb7rNHRKfpUrYJYXLRHB2iaXRuweUIxMRAaaCVpVVXqIFlDe8WNJ7IBOyL4s1YdCuB8mFbb5iLvp+dhWfWrV1IaNDTliKiDB0Nv/F73G9dFOVryCvjEQ/SxzHO+R/h1Oo7zrNdCmOXnDKf0lT8LpE7uLDNSPgMnM1RC30YdZAIURiy3ReX9TU2WDTU/KUkPIIKoCcqAIOOMf5FwMQV2eO2ENIVftY+HBznXltni30JkRniRCzDRq91xGDzHYkvQazgzrmXklHP3iDWteozHeNK1qxF1Mxi2sz7JTm+snunWDUTSb1KJIYkcT8iR4RYUrtJnGH/1pcu1K3Fxnlac=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: V1HNuG7OD43eGXvTytpH3S1vIrXiDau36xthE5W8k7jJC7C0h7/D6rHgJkka7Pg/kGpgqfwclK4YdQfNY7ZhT8erzxcfDx7vGFrI67zjgQyGdVW73R2NLW0wjo+rzTtzHa8YkXRJIPWqqGLSWbE6Fw4Cz04SSDTA/Jz3umpHB6uzKB+H21sfCYdKw7tJ+TBBOUzObH7Pims5jpGevv/0EZ0fiMYlHZCVIEEXEbgMLIHylhPRSySlHPLWLaevt2Fn+hKBOVJq+FOrI4gwGFlsuiHipIvJWyPWaJHOwZhr5j+8CfJvBFL/M7ZIiqGirpim2pRGY++yeeDBeFKd8XJwOuF16T/ICbj1SJzQqlGLf6nf3rewOMDNStNRDdR7vG8YTs/EUL6H8L6KuTydGRYfzb9iaKxTUC7n+aFObLURNX2us6QrL4PS4a37imC87Gcs
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 02:42:46.3674
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8e41cdc2-d62e-4a58-71f9-08deaf06fc03
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CC.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB5895
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_194303_392891_56D6B38A 
-X-CRM114-Status: GOOD (  25.37  )
+X-CRM114-CacheID: sfid-20260510_195358_965686_E8D90201 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,310 +112,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a CIX sky1 platform glue driver with Kconfig and Makefile entry.
-It calls APIs exported from cdns3-plat.c for probe/remote/suspend/resume
-routines.
+Add compatible string for the Orange Pi 5 Pro.
 
-Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Dennis Gilmore <dennis@ausil.us>
 ---
- drivers/usb/cdns3/Kconfig      |  13 ++
- drivers/usb/cdns3/Makefile     |   1 +
- drivers/usb/cdns3/cdnsp-sky1.c | 252 +++++++++++++++++++++++++++++++++
- 3 files changed, 266 insertions(+)
- create mode 100644 drivers/usb/cdns3/cdnsp-sky1.c
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/usb/cdns3/Kconfig b/drivers/usb/cdns3/Kconfig
-index 39ad23d1ada8..7d7c322ea865 100644
---- a/drivers/usb/cdns3/Kconfig
-+++ b/drivers/usb/cdns3/Kconfig
-@@ -110,6 +110,19 @@ config USB_CDNS3_STARFIVE
- 	  If you choose to build this driver as module it will
- 	  be dynamically linked and module will be called cdns3-starfive.ko
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 1a9dde18626d..ec1303140600 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -1338,6 +1338,7 @@ properties:
+         items:
+           - enum:
+               - xunlong,orangepi-5
++              - xunlong,orangepi-5-pro
+               - xunlong,orangepi-5b
+           - const: rockchip,rk3588s
  
-+config USB_CDNSP_SKY1
-+	tristate "Cadence USB3 support on CIX Sky1 SoC platforms"
-+	depends on USB_CDNS3
-+	depends on ARCH_CIX || COMPILE_TEST
-+	default USB_CDNS3
-+	help
-+	  Glue driver for the Cadence USB dual-role controllers on CIX Sky1
-+	  (device tree compatible cix,sky1-usb3). It enables clocks and resets
-+	  from the SoC, then uses the shared cdns3 platform core (cdns.ko).
-+
-+	  If built as a module, the module is named cdnsp-sky1.ko and must be
-+	  loaded after the cdns core module when both are loadable modules.
-+
- endif # USB_CDNS3
- 
- endif # USB_CDNS_SUPPORT
-diff --git a/drivers/usb/cdns3/Makefile b/drivers/usb/cdns3/Makefile
-index b2e4ba6a49a3..ab813aaf9940 100644
---- a/drivers/usb/cdns3/Makefile
-+++ b/drivers/usb/cdns3/Makefile
-@@ -28,3 +28,4 @@ obj-$(CONFIG_USB_CDNSP_PCI)			+= cdnsp-pci.o
- obj-$(CONFIG_USB_CDNS3_TI)			+= cdns3-ti.o
- obj-$(CONFIG_USB_CDNS3_IMX)			+= cdns3-imx.o
- obj-$(CONFIG_USB_CDNS3_STARFIVE)		+= cdns3-starfive.o
-+obj-$(CONFIG_USB_CDNSP_SKY1)			+= cdnsp-sky1.o
-diff --git a/drivers/usb/cdns3/cdnsp-sky1.c b/drivers/usb/cdns3/cdnsp-sky1.c
-new file mode 100644
-index 000000000000..049044e3d09b
---- /dev/null
-+++ b/drivers/usb/cdns3/cdnsp-sky1.c
-@@ -0,0 +1,252 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * cdnsp-sky1.c - CIX Sky1 glue for Cadence USBSSP DRD controller
-+ *
-+ * Copyright (C) 2026 CIX Technology Group Co., Ltd.
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm.h>
-+#include <linux/regmap.h>
-+#include <linux/reset.h>
-+
-+#include "glue.h"
-+
-+#define AXI_SETTING_OFFSET		0x0
-+/* Normal Non-cacheable Bufferable */
-+#define SKY1_USB_AXI_WR_CACHE_VALUE	0x33
-+
-+/* USB mode strap in S5 syscon */
-+#define USB_MODE_STRAP_S5_DOMAIN	0x424
-+#define MODE_STRAP_OTG			0
-+
-+#define U3_TYPEC_DRD_ID			0
-+#define U3_TYPEC_HOST0_ID		1
-+#define U3_TYPEC_HOST1_ID		2
-+#define U3_TYPEC_HOST2_ID		3
-+#define U3_TYPEA_CTRL0_ID		4
-+#define U3_TYPEA_CTRL1_ID		5
-+#define U2_HOST0_ID			6
-+#define U2_HOST1_ID			7
-+#define U2_HOST2_ID			8
-+#define U2_HOST3_ID			9
-+#define SKY1_USB_S5_NUM			10
-+
-+#define U3_TYPEC_DRD_MODE_STRAP_BIT		12
-+#define U3_TYPEC_HOST0_MODE_STRAP_BIT		14
-+#define U3_TYPEC_HOST1_MODE_STRAP_BIT		16
-+#define U3_TYPEC_HOST2_MODE_STRAP_BIT		18
-+#define U3_TYPEA_CTRL0_MODE_STRAP_BIT		8
-+#define U3_TYPEA_CTRL1_MODE_STRAP_BIT		10
-+#define U2_HOST0_MODE_STRAP_BIT			0
-+#define U2_HOST1_MODE_STRAP_BIT			2
-+#define U2_HOST2_MODE_STRAP_BIT			4
-+#define U2_HOST3_MODE_STRAP_BIT			6
-+
-+struct cdnsp_sky1_strap_signal {
-+	unsigned int offset, bit;
-+};
-+
-+static const struct cdnsp_sky1_strap_signal strap_signals[SKY1_USB_S5_NUM] = {
-+	[U3_TYPEC_DRD_ID]	= { USB_MODE_STRAP_S5_DOMAIN, U3_TYPEC_DRD_MODE_STRAP_BIT },
-+	[U3_TYPEC_HOST0_ID]	= { USB_MODE_STRAP_S5_DOMAIN, U3_TYPEC_HOST0_MODE_STRAP_BIT },
-+	[U3_TYPEC_HOST1_ID]	= { USB_MODE_STRAP_S5_DOMAIN, U3_TYPEC_HOST1_MODE_STRAP_BIT },
-+	[U3_TYPEC_HOST2_ID]	= { USB_MODE_STRAP_S5_DOMAIN, U3_TYPEC_HOST2_MODE_STRAP_BIT },
-+	[U3_TYPEA_CTRL0_ID]	= { USB_MODE_STRAP_S5_DOMAIN, U3_TYPEA_CTRL0_MODE_STRAP_BIT },
-+	[U3_TYPEA_CTRL1_ID]	= { USB_MODE_STRAP_S5_DOMAIN, U3_TYPEA_CTRL1_MODE_STRAP_BIT },
-+	[U2_HOST0_ID]		= { USB_MODE_STRAP_S5_DOMAIN, U2_HOST0_MODE_STRAP_BIT },
-+	[U2_HOST1_ID]		= { USB_MODE_STRAP_S5_DOMAIN, U2_HOST1_MODE_STRAP_BIT },
-+	[U2_HOST2_ID]		= { USB_MODE_STRAP_S5_DOMAIN, U2_HOST2_MODE_STRAP_BIT },
-+	[U2_HOST3_ID]		= { USB_MODE_STRAP_S5_DOMAIN, U2_HOST3_MODE_STRAP_BIT },
-+};
-+
-+struct cdnsp_sky1 {
-+	struct device *dev;
-+	struct cdns cdns;
-+	struct regmap *usb_syscon;
-+	void __iomem *glue_base;
-+	struct clk_bulk_data *clks;
-+	int num_clks;
-+};
-+
-+/**
-+ * sky1_set_mode_by_id - program one USB controller mode strap
-+ * @syscon: regmap for S5 syscon (from DT property cix,syscon-usb)
-+ * @id: controller slot ID (U3_TYPEC_DRD_ID .. U2_HOST3_ID)
-+ * @mode: MODE_STRAP_OTG, MODE_STRAP_HOST, or MODE_STRAP_DEVICE
-+ */
-+static int cdnsp_sky1_set_mode_by_id(struct regmap *syscon, int id, int mode)
-+{
-+	if (id < 0 || id >= SKY1_USB_S5_NUM)
-+		return -EINVAL;
-+
-+	return regmap_update_bits(syscon,
-+				  strap_signals[id].offset,
-+				  GENMASK(strap_signals[id].bit + 1,
-+					  strap_signals[id].bit),
-+				  (unsigned int)mode << strap_signals[id].bit);
-+}
-+
-+static int cdnsp_sky1_set_all_controllers_otg(struct regmap *syscon)
-+{
-+	int id, ret;
-+
-+	for (id = 0; id < SKY1_USB_S5_NUM; id++) {
-+		ret = cdnsp_sky1_set_mode_by_id(syscon, id, MODE_STRAP_OTG);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct clk_bulk_data cdnsp_sky1_cdns_core_clks[] = {
-+	{ .id = "sof" },
-+	{ .id = "aclk" },
-+	{ .id = "lpm" },
-+	{ .id = "pclk" },
-+};
-+
-+static int cdnsp_sky1_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct cdnsp_sky1 *priv;
-+	struct cdns *cdns;
-+	struct cdns3_probe_data probe_data;
-+	struct resource *res;
-+	int ret;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->dev = dev;
-+	priv->num_clks = ARRAY_SIZE(cdnsp_sky1_cdns_core_clks);
-+	priv->clks = devm_kmemdup(dev, cdnsp_sky1_cdns_core_clks,
-+				   sizeof(cdnsp_sky1_cdns_core_clks), GFP_KERNEL);
-+	if (!priv->clks)
-+		return -ENOMEM;
-+
-+	ret = devm_clk_bulk_get(dev, priv->num_clks, priv->clks);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to get clocks\n");
-+
-+	ret = clk_bulk_prepare_enable(priv->num_clks, priv->clks);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to enable clocks\n");
-+
-+	priv->usb_syscon = syscon_regmap_lookup_by_phandle(dev->of_node,
-+							   "cix,syscon-usb");
-+	if (IS_ERR(priv->usb_syscon))
-+		return dev_err_probe(dev, PTR_ERR(priv->usb_syscon),
-+				     "failed to get cix,syscon-usb regmap\n");
-+
-+	ret = cdnsp_sky1_set_all_controllers_otg(priv->usb_syscon);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "failed to set USB controllers to OTG strap\n");
-+
-+	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "glue");
-+	if (!res)
-+		goto err_clk;
-+
-+	priv->glue_base = devm_ioremap_resource(dev, res);
-+	if (IS_ERR(priv->glue_base)) {
-+		ret = PTR_ERR(priv->glue_base);
-+		goto err_clk;
-+	}
-+
-+	/* Set ARCACHE and AWCACHE */
-+	writel(SKY1_USB_AXI_WR_CACHE_VALUE, priv->glue_base + AXI_SETTING_OFFSET);
-+
-+	cdns = &priv->cdns;
-+	cdns->dev = dev;
-+
-+	probe_data.cdns = cdns;
-+	probe_data.pdev = pdev;
-+
-+	ret = cdns3_core_probe(&probe_data);
-+	if (ret)
-+		goto err_clk;
-+
-+	return 0;
-+
-+err_clk:
-+	clk_bulk_disable_unprepare(priv->num_clks, priv->clks);
-+
-+	return ret;
-+}
-+
-+static void cdnsp_sky1_remove(struct platform_device *pdev)
-+{
-+	struct cdns *cdns = platform_get_drvdata(pdev);
-+	struct cdnsp_sky1 *priv;
-+
-+	if (!cdns)
-+		return;
-+
-+	cdns3_core_remove(cdns);
-+	priv = container_of(cdns, struct cdnsp_sky1, cdns);
-+	clk_bulk_disable_unprepare(priv->num_clks, priv->clks);
-+}
-+
-+#ifdef CONFIG_PM
-+static int cdnsp_sky1_runtime_suspend(struct device *dev)
-+{
-+	return cdns3_runtime_suspend(dev_get_drvdata(dev));
-+}
-+
-+static int cdnsp_sky1_runtime_resume(struct device *dev)
-+{
-+	return cdns3_runtime_resume(dev_get_drvdata(dev));
-+}
-+
-+#ifdef CONFIG_PM_SLEEP
-+static int cdnsp_sky1_suspend(struct device *dev)
-+{
-+	return cdns3_pm_suspend(dev_get_drvdata(dev));
-+}
-+
-+static int cdnsp_sky1_resume(struct device *dev)
-+{
-+	return cdns3_pm_resume(dev_get_drvdata(dev));
-+}
-+#endif /* CONFIG_PM_SLEEP */
-+#endif /* CONFIG_PM */
-+
-+static const struct dev_pm_ops cdnsp_sky1_pm_ops = {
-+	SET_SYSTEM_SLEEP_PM_OPS(cdnsp_sky1_suspend, cdnsp_sky1_resume)
-+	SET_RUNTIME_PM_OPS(cdnsp_sky1_runtime_suspend,
-+			   cdnsp_sky1_runtime_resume, NULL)
-+};
-+
-+static const struct of_device_id cdnsp_sky1_of_match[] = {
-+	{ .compatible = "cix,sky1-usb3" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, cdnsp_sky1_of_match);
-+
-+static struct platform_driver cdnsp_sky1_driver = {
-+	.probe		= cdnsp_sky1_probe,
-+	.remove		= cdnsp_sky1_remove,
-+	.driver		= {
-+		.name		= "cdnsp-sky1",
-+		.of_match_table	= of_match_ptr(cdnsp_sky1_of_match),
-+		.pm		= &cdnsp_sky1_pm_ops,
-+	},
-+};
-+
-+module_platform_driver(cdnsp_sky1_driver);
-+
-+MODULE_SOFTDEP("pre: cdns");
-+MODULE_ALIAS("platform:cdnsp-sky1");
-+MODULE_DESCRIPTION("CIX Sky1 Cadence USBSSP DRD glue driver");
-+MODULE_AUTHOR("Peter Chen <peter.chen@cixtech.com>");
-+MODULE_LICENSE("GPL");
 -- 
-2.50.1
+2.54.0
 
 
