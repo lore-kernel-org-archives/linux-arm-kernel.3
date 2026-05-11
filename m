@@ -4,97 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BC1CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 15:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841B4CD37B2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 16:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BMcCo2NEq+3I/LKffthF0Fo2WFktMRZxIo2NvB919j0=; b=rq3psmAdnNd2gJUamORuksu0LX
-	apy//t45V1Xg5cj7gi2VAkFFuSbko4ZCIpFGJe3cNYWlnLfQJV+hJ02vyHd00eFjTtRtwxJAQ5dYb
-	MgDqtDXoSD+e2262WFe2yRalMwcK4acqngu/RwoF4n3zjQpbg8eAKkaU6t+jo4YVyfr83fpYCCVQJ
-	7y9H9HRhxKpDjXlf2U8jbDu/fhjjxgwis9RtRzIeWlfpmns7su2D6kO/iPBgD6XjofXkZFb9UA995
-	URDr7ooeNbuZy+F7+Uc3HmvmDGSCHN9t5eu5QHopaBxA8gdv6Y1pGElPyAAxWWoi//6YouiUO0FSc
-	Yoxsz7Tw==;
+	bh=JfFjrNyr/CpA09b5boNae6Ajp7KSF8ePBWKWKTghPOs=; b=jBVaSPpfZDZbU9NpO/dScuv7f/
+	sleW+XxtYu2OP3jys4szLERuNtcSRJZPpCfw71+g3Jqgl6B6eexRBYgpWoByBMBYxgYf/UhiLdQhg
+	Uy75re174fxYCg6k4djklK4MJSpO5X6LjYeijZ+etvRV0cyskwMi0exYE2gBe4oX3A1c5FM2cR481
+	bk+yeLD4AgIn8FCY+HfVVWvSZhAgnDywYt19MqSIArclXb5xMz8QfsbWclGZY3MNF+D9XzdH1bsyU
+	yA+5hnwftzQPM8ocr4o53uti5xQ7a06zuJz87WQBL7gzt715vXgsvf69TIppvb21pZAR8zjh8it+5
+	fiJHJTpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMT23-0000000E7vr-0q98;
-	Mon, 11 May 2026 15:58:59 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMT20-0000000E7u5-1eo5
+	id 1wMT5Q-0000000E8UI-17GM;
+	Mon, 11 May 2026 16:02:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMT5M-0000000E8TD-3SeX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 15:58:57 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id E488C4E42BF3;
-	Mon, 11 May 2026 15:58:54 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B6D6460646;
-	Mon, 11 May 2026 15:58:54 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 422DE11AF9E9C;
-	Mon, 11 May 2026 17:58:46 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1778515132; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=BMcCo2NEq+3I/LKffthF0Fo2WFktMRZxIo2NvB919j0=;
-	b=b3nhhjXtBGwh0KCqjI0N6xnELkPNge8O/OCyx6o8I6TZazi8Aao/V2j6PhT2g3dxRk1fcE
-	MSuINpl8YXqd6Gfu15PqKhOW6j4yzUKNNJOGx4UZOV4GQv85HD2+QIkWIAu+WfLcuYSNig
-	DjnIjJB9uuzJ5uYrX7VsUcPHijM5oofXF3iZBT+IsvjCZC3RiuxuttOGXQ+ZTqBGaUGX35
-	PUNyEjOKXm0FrMI03TeBLMjsOz3wYBdl83Zndmeg5HYX1xk4TH97ScUNE4BTj2HREzItR6
-	2zfoiHKPCa/CGCLp18EwuM0E7B1RApLLHQfT+O2Y1HY/fSWBwPe9gXpBvcmstw==
-From: Herve Codina <herve.codina@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Kalle Niemi <kaleposti@gmail.com>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Mark Brown <broonie@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Len Brown <lenb@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Wolfram Sang <wsa@kernel.org>,
-	driver-core@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-spi@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
-	Allan Nielsen <allan.nielsen@microchip.com>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	Steen Hegelund <steen.hegelund@microchip.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Saravana Kannan <saravanak@google.com>
-Subject: [PATCH v7 3/3] driver core: Avoid warning when removing a device while its supplier is unbinding
-Date: Mon, 11 May 2026 17:57:50 +0200
-Message-ID: <20260511155755.34428-4-herve.codina@bootlin.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260511155755.34428-1-herve.codina@bootlin.com>
-References: <20260511155755.34428-1-herve.codina@bootlin.com>
+	Mon, 11 May 2026 16:02:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AD43B16F3;
+	Mon, 11 May 2026 09:02:15 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 67AD03F836;
+	Mon, 11 May 2026 09:02:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778515341; bh=d8WItIwthuDEpX/UiQlfKMc9royYtzyV+pGcQrzVbPU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GvQN5vbEqBrW0wVLOoCaZCwYaB+zRsucAkYwhhEFXPQKUICM7t7svrPEDy5uaj+ns
+	 koT6QL4ySkLHNb8hlT0lW7CUe/p8+ozsHkVDoem0J+IMLPLrb8zunUwkoguvPjtPiQ
+	 LU6mDfZgyMRgjD6pA5Fr64Sd6Zr6hbl/BrrcWKu4=
+Message-ID: <e7269822-afc4-4a80-8408-297f9dbd6791@arm.com>
+Date: Mon, 11 May 2026 18:02:16 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: Add GPADC for Allwinner A523
+To: Michal Piekos <michal.piekos@mmpsystems.pl>,
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
+ =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Maksim Kiselev <bigunclemax@gmail.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260510-sunxi-a523-gpadc-v1-0-4f6b0f4000fb@mmpsystems.pl>
+ <20260510-sunxi-a523-gpadc-v1-1-4f6b0f4000fb@mmpsystems.pl>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260510-sunxi-a523-gpadc-v1-1-4f6b0f4000fb@mmpsystems.pl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_085856_568989_3B09E1BE 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20260511_090225_217794_B7642005 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,103 +79,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During driver removal, the following warning can appear:
-   WARNING: CPU: 1 PID: 139 at drivers/base/core.c:1497 __device_links_no_driver+0xcc/0xfc
-   ...
-   Call trace:
-     __device_links_no_driver+0xcc/0xfc (P)
-     device_links_driver_cleanup+0xa8/0xf0
-     device_release_driver_internal+0x208/0x23c
-     device_links_unbind_consumers+0xe0/0x108
-     device_release_driver_internal+0xec/0x23c
-     device_links_unbind_consumers+0xe0/0x108
-     device_release_driver_internal+0xec/0x23c
-     device_links_unbind_consumers+0xe0/0x108
-     device_release_driver_internal+0xec/0x23c
-     driver_detach+0xa0/0x12c
-     bus_remove_driver+0x6c/0xbc
-     driver_unregister+0x30/0x60
-     pci_unregister_driver+0x20/0x9c
-     lan966x_pci_driver_exit+0x18/0xa90 [lan966x_pci]
+Hi Michal,
 
-This warning is triggered when a consumer is removed because the links
-status of its supplier is not DL_DEV_DRIVER_BOUND and the link flag
-DL_FLAG_SYNC_STATE_ONLY is not set.
+thanks for adding this!
 
-The topology in terms of consumers/suppliers used was the following
-(consumer ---> supplier):
+On 5/10/26 14:57, Michal Piekos wrote:
+> Add support for the GPADC for the Allwinner A523. It differs from the
+> D1/T113s/R329/T507 by having two clocks.
+> 
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> ---
+>   .../iio/adc/allwinner,sun20i-d1-gpadc.yaml         | 37 +++++++++++++++++++++-
+>   1 file changed, 36 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
+> index da605a051b94..89da96cd705f 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
+> @@ -17,6 +17,7 @@ properties:
+>         - items:
+>             - enum:
+>                 - allwinner,sun50i-h616-gpadc
+> +              - allwinner,sun55i-a523-gpadc
+>             - const: allwinner,sun20i-d1-gpadc
 
-      i2c -----------> OIC ----> PCI device
-       |                ^
-       |                |
-       +---> pinctrl ---+
+As Jernej already mentioned, the A523 GPADC is not fully compatible, 
+since it adds another clock. The question to ask is: Can a driver only 
+knowing about the fallback device handle this new device? For which the 
+answer here is: No, it misses a clock.
+So add just a single entry for the A523 (plus adding it to the driver).
 
-When the PCI device is removed, the OIC (interrupt controller) has to be
-removed. In order to remove the OIC, pinctrl and i2c need to be removed
-and to remove pinctrl, i2c need to be removed. The removal order is:
-  1) i2c
-  2) pinctrl
-  3) OIC
-  4) PCI device
+So looking at this I wonder if we should add some property to describe 
+the number of supported channels, since they are slightly different 
+between the SoCs:
+- The D1 manual mentions 2 channels.
+- The T113s manual (same die as the D1?) describes 1 channel only.
+- The T507 manual (same die as the H616) reports 4 channels.
+- The A733 has 6 channels.
+- The A133 has 1 channel, but it's channel 1, not 0.
 
-In details, the removal sequence is the following (with 0000:01:00.0 the
-PCI device):
-  driver_detach: call device_release_driver_internal(0000:01:00.0)...
-    device_links_busy(0000:01:00.0):
-      links->status = DL_DEV_UNBINDING
-    device_links_unbind_consumers(0000:01:00.0):
-      0000:01:00.0--oic link->status = DL_STATE_SUPPLIER_UNBIND
-      call device_release_driver_internal(oic)...
-        device_links_busy(oic):
-          links->status = DL_DEV_UNBINDING
-        device_links_unbind_consumers(oic):
-          oic--pinctrl link->status = DL_STATE_SUPPLIER_UNBIND
-          call device_release_driver_internal(pinctrl)...
-            device_links_busy(pinctrl):
-              links->status = DL_DEV_UNBINDING
-            device_links_unbind_consumers(pinctrl):
-              pinctrl--i2c link->status = DL_STATE_SUPPLIER_UNBIND
-              call device_release_driver_internal(i2c)...
-                device_links_busy(i2c): links->status = DL_DEV_UNBINDING
-                __device_links_no_driver(i2c)...
-                  pinctrl--i2c link->status is DL_STATE_SUPPLIER_UNBIND
-                  oic--i2c link->status is DL_STATE_ACTIVE
-                  oic--i2c link->supplier->links.status is DL_DEV_UNBINDING
+So all of this is somewhat covered as channels are described as child 
+nodes, and have a reg property. Ideally non-existing channels just 
+wouldn't be listed, but I don't know if we want to rely on that.
 
-The warning is triggered by the i2c removal because the OIC (supplier)
-links status is not DL_DEV_DRIVER_BOUND. Its links status is indeed set
-to DL_DEV_UNBINDING.
+So I am wondering if we should introduce a limit, or rather a mask (to 
+cover the A133 oddity)?
+Either a DT property (channel-mask, as a single sell representing the 
+bit mask), or derived in the driver from the compatible string.
+The former would avoid introducing different compatible strings just 
+because of that, though I think this type of property is somewhat 
+discouraged?
 
-It is perfectly legit to have the links status set to DL_DEV_UNBINDING
-in that case. Indeed we had started to unbind the OIC which triggered
-the consumer unbinding and didn't finish yet when the i2c is unbound.
+Any thoughts?
 
-Avoid the warning when the supplier links status is set to
-DL_DEV_UNBINDING and thus support this removal sequence without any
-warnings.
+>   
+>     "#io-channel-cells":
+> @@ -29,7 +30,12 @@ properties:
+>       const: 0
+>   
+>     clocks:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    maxItems: 2
+>   
+>     interrupts:
+>       maxItems: 1
+> @@ -40,6 +46,35 @@ properties:
+>     resets:
+>       maxItems: 1
+>   
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          items:
+> +            - const: allwinner,sun55i-a523-gpadc
+> +            - const: allwinner,sun20i-d1-gpadc
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 2
+> +          maxItems: 2
+> +          items:
+> +            - description: Bus clock
+> +            - description: Module clock
 
-Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-Reviewed-by: Rafael J. Wysocki <rafael@kernel.org>
-Reviewed-by: Saravana Kannan <saravanak@google.com>
----
- drivers/base/core.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+I am not a YAML expert, but I think you can drop the min and max 
+properties, if you just enumerate the cases. Same for the names.
 
-diff --git a/drivers/base/core.c b/drivers/base/core.c
-index 478aa3fbf1e8..934da2566c61 100644
---- a/drivers/base/core.c
-+++ b/drivers/base/core.c
-@@ -1500,7 +1500,8 @@ static void __device_links_no_driver(struct device *dev)
- 		if (link->supplier->links.status == DL_DEV_DRIVER_BOUND) {
- 			WRITE_ONCE(link->status, DL_STATE_AVAILABLE);
- 		} else {
--			WARN_ON(!device_link_test(link, DL_FLAG_SYNC_STATE_ONLY));
-+			WARN_ON(link->supplier->links.status != DL_DEV_UNBINDING &&
-+				!device_link_test(link, DL_FLAG_SYNC_STATE_ONLY));
- 			WRITE_ONCE(link->status, DL_STATE_DORMANT);
- 		}
- 	}
--- 
-2.54.0
+Cheers,
+Andre
+
+> +        clock-names:
+> +          minItems: 2
+> +          maxItems: 2
+> +          items:
+> +            - const: bus
+> +            - const: mod
+> +      required:
+> +        - clock-names
+> +    else:
+> +      properties:
+> +        clocks:
+> +          maxItems: 1
+> +        clock-names: false
+> +
+>   patternProperties:
+>     "^channel@[0-9a-f]+$":
+>       $ref: adc.yaml
+> 
 
 
