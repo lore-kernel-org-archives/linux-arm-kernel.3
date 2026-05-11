@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DAD8CD484E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 20:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF26CD484E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 20:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lTrWXUpjsMBBWpS2gSQWCp6gw+QRYwM+oHQqfF71dnw=; b=qBynONhtGgnnCgfKLs2Ac/kpuZ
-	385FyAmMgFmsBgp9EUx28dsvjoJqbpyX3qkU4kK+zkIe8K41HbYNxzGUINAbwuEKAP3v4gu+RA/IJ
-	XS2TvfVb6PIiKAt781iY1isFCiVQP01u1YariZAxBpnjKru6OmIEKDSE6tA2RISR+y+vT25IKbjF/
-	Q21pJb7tZZviHskZ6u7DxAqsLQk8WHln/O+Ljfpk9x/qx3a46G8fQkZ4E7+V1okmZQjpWLOuoauN2
-	Ehs78W9RyLCW0Zi7bUYoQOk0GIA+qMEeV/9JeMzMqSX07FFGN98Q60nw0HWN/fFBzv34PBgR2VYt7
-	Gf3d7Sbw==;
+	bh=Jye6GvFlEjzThLUvmLkambJ/dmm3iU6zf37i3X16hC4=; b=Ps1GtUZ8SGQeTaBo4Ri83Lf/xe
+	pXfcp4W6RhTPn4+NTIE9ZC0e8f5ci5nG2NNQ0nRwzzXkqcgVh+qmiToWkVVBrcJFRDB4kMBdcI1Gn
+	mtj0E0apwgMta+3FclKRS0/cT9NrN+8Kfi6AyRWhzajqahBelr2vBvSiSAECJyIdyKR0Zx7SkRCLq
+	DSvw/hxv+IPDMvCLNABLX14BG2Ra6dT+5fxy/XCG4B5DOh2S6nAo9T0cIRnxnD83FSusBZxpnBSYW
+	twHYoDeJFjRaUnKWwR8KOOyml9niy4dKHvpTIGbN2KI5KXCdea0MotUDp9/6wDu05JOWR2g5XGr2A
+	18XzC8Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMWxg-0000000EfsJ-0AIb;
-	Mon, 11 May 2026 20:10:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMWzz-0000000EgGO-1xlm;
+	Mon, 11 May 2026 20:13:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMWxd-0000000EfrF-1Tn8
+	id 1wMWzx-0000000EgG1-1qok
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 20:10:42 +0000
+	Mon, 11 May 2026 20:13:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CF9FA44173
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:10:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA55CC2BCFF
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:10:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E178660103
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:13:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 935AEC2BCC9
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778530239;
-	bh=lTrWXUpjsMBBWpS2gSQWCp6gw+QRYwM+oHQqfF71dnw=;
+	s=k20201202; t=1778530384;
+	bh=Jye6GvFlEjzThLUvmLkambJ/dmm3iU6zf37i3X16hC4=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=PYMGQ5SICzh6TMtYZllVYQ8mBoIBVyiWE6JyluRB+fj637AkoKx+rg9N8OVu6yBXd
-	 2SCyWuajfyCbsIHOpZmp/sHCjqcSv56Bjr0Uvs7c3q6lTkY8f8mJuW+2K61WOB1ry7
-	 piTykdQYp8a1vNDiN+OY/JQqhmlxRSBUa5lsOZET5UK2mWVb3o5n7+MeMtJx0GF0nI
-	 TJhqHBpyOcoBv9yAgW/ts+hGEvg7CsBvZM8OEM8iA62u7O9NEgOr6RJJyWz0Je3QlW
-	 5WMvLYHulsJKdEMtfcDcT4e4yQsOLwPa3zOvlYIEUR71RXH8PDFxjZp9Q9II8I89Yw
-	 9o6hmQccGnPsQ==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5a525aedb24so4739329e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:10:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ93s0lQgJJQb1XboD6GctT/fq7P6Se5UpPF9dfUm0UOKQKcU7GQlaXoaLhYqZy9XL6Ox3TjPYjs8HtIs/a7a26k@lists.infradead.org
-X-Gm-Message-State: AOJu0YylMEcnYmiS+WERgpG+YEMSDcbFv0crSxI8gOEywsApG3XRoqtC
-	Y0V6fR79dOfhr+fo52mBA/oJ4aN/5XMbGMwiNoO61+9fYJtVOb6BhJtxkCwn75oFT3SMT48PKWk
-	3E10Z6IsNDNnscwrAswdDx0HRqe1z7Cg=
-X-Received: by 2002:a05:6512:1149:b0:5a8:757b:80ff with SMTP id
- 2adb3069b0e04-5a8e30cf5abmr22518e87.12.1778530238394; Mon, 11 May 2026
- 13:10:38 -0700 (PDT)
+	b=f5F/JnQHSKYkh1ZDoeWc0yFbkA3ZlVxuZe1RZYlXXFqzidoA5HlbOcLTxiK3W7N6C
+	 SBpq8Ql8L5DzkKbCGSTqXYwN8cjP5vHAiAXIJaLDObBnWKjXhUHL1Yeub6z2c9Tgis
+	 gYLFbF/JWJP2ymiBrR+9eq5aiYO0n83rc5H7/pzeDmvC9vCSypoMZJW7J7/5aKguCx
+	 pARHjI2mFhaxJbYy/hUzCjyYMB2ulCHjCDd131nTytK4p/ov3GJ3tQClaeGEgqMhhE
+	 Xv1CYUsTHPdRPMzGpwuFW5d7ToUpMGLGnwpv+ch6F4r0t52PMdMs95TAZS0ys4WAq4
+	 uIHvAQ1yaUUyw==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5a742b8b72eso4672452e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 13:13:04 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+wYvnqJveWVYbdRSO/QrEVjYxacc75dQ6w5VZf4ZwKXjVF0rJw/0nnQEudT/kkT60KEMiqXoRgxgsufIJyh4pC@lists.infradead.org
+X-Gm-Message-State: AOJu0YzD7QnnlY5p5DgoNztMHMnlAtITbXS64aRCYhVcL7CywZJO5rvn
+	heOH7lGoHJSkITnIr0JNz+4M5cHeFd+GVaQs+fi8yvyGFjsPgyO9lXXI2AePKG0ypnh1MJFjEhG
+	aDrygxh1SFYl4wIAEg8x7VsSOltqMNDw=
+X-Received: by 2002:a05:6512:3a88:b0:5a8:9aae:3c99 with SMTP id
+ 2adb3069b0e04-5a8b6e8f606mr4490300e87.16.1778530383250; Mon, 11 May 2026
+ 13:13:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260504072748.2580172-1-zhengxingda@iscas.ac.cn>
-In-Reply-To: <20260504072748.2580172-1-zhengxingda@iscas.ac.cn>
+References: <20260420213529.1645560-1-l.scorcia@gmail.com> <20260420213529.1645560-5-l.scorcia@gmail.com>
+In-Reply-To: <20260420213529.1645560-5-l.scorcia@gmail.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 11 May 2026 22:10:26 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=-9-Oq56WEsBgTJsS3WR=wn4-utawnkNoq__rCSff-eg@mail.gmail.com>
-X-Gm-Features: AVHnY4LZZFweJ9DX23kB3j5AOHEOM6q-LmnCTtTxpeyXfj6_HN_B5gNoCZt9TLE
-Message-ID: <CAD++jL=-9-Oq56WEsBgTJsS3WR=wn4-utawnkNoq__rCSff-eg@mail.gmail.com>
-Subject: Re: [PATCH 1/2] dt-bindings: pinctrl: mediatek: mt8188: allow gpio hogs
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Hui Liu <hui.liu@mediatek.com>, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
+Date: Mon, 11 May 2026 22:12:51 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnypYKUmKjnPX811m5Gc0guUwYeN=cQuxpAT3_gS9JWWg@mail.gmail.com>
+X-Gm-Features: AVHnY4LX3rah_STGf3_slNDMEwQfgJHe21tHW014S60VT0tshZIqHNAjHJXvWcE
+Message-ID: <CAD++jLnypYKUmKjnPX811m5Gc0guUwYeN=cQuxpAT3_gS9JWWg@mail.gmail.com>
+Subject: Re: [PATCH v5 4/9] dt-bindings: pinctrl: mediatek,mt65xx: Add MT6392 pinctrl
+To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sen Chu <sen.chu@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+	Lee Jones <lee@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Gary Bisson <bisson.gary@gmail.com>, 
+	Val Packett <val@packett.cool>, Julien Massot <julien.massot@collabora.com>, 
+	Fabien Parent <parent.f@gmail.com>, Akari Tsuyukusa <akkun11.open@gmail.com>, 
+	Chen Zhong <chen.zhong@mediatek.com>, linux-input@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_131041_417479_30173E68 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,16 +91,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 4, 2026 at 9:28=E2=80=AFAM Icenowy Zheng <zhengxingda@iscas.ac.=
-cn> wrote:
+On Mon, Apr 20, 2026 at 11:37=E2=80=AFPM Luca Leonardo Scorcia
+<l.scorcia@gmail.com> wrote:
 
-> Add gpio hogs subnode rules to the MT8188 pinctrl binding.
+> Add a compatible for the pinctrl device of the MT6392 PMIC, a variant of
+> the already supported MT6397.
 >
-> Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
 
-This patch 1/2 applied to the pinctrl tree.
-
-Please funnel patch 2/2 through the SoC tree.
+This patch 4/9 applied to the pinctrl tree.
 
 Yours,
 Linus Walleij
