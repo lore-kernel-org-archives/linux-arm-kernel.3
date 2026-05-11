@@ -4,84 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81622CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 08:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBFFBCD37B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 08:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lPUCt6ICGTtK/EiSnPgIORPfz44RRnfMxcp50LmxRBM=; b=qz75vL5YS4YpQzke8NrK3HL20d
-	kWyK2yOzgdcnvy9H9faeelvZiaxIO6kmoww67sCWiJCMYuENsL6aXW/c2EK9Ayf0H7rk3DXXsZrzC
-	x9OhA6S6OOlEdU4wwyJ0OhA3D8bVxyfW/H4BK4jh87T/SKx9zwva4Sx/PUG2SmP3nBkBUGKP28gDs
-	5jkGGsb5Ec3mDkKD8Gsx6JzZVqDyOvdc6P8RDqw+XpVKCEyPXfSzw8I+eEHuS1RqAZcyxcBI0uFAS
-	4i9MllY4c+m4RYHpRwEGh93KAe84p12is1MDHO3HGa9zhWNdOSi5LM9V32+qzBF4BoRDNpTli5B4z
-	ZGTLI0Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jt9ibOwOB5ZgDpl28+OU1PXCAn8QfJTRE4dkW9Vb3BA=; b=gpPVyh6oh/3nACIs30qv2NV81p
+	6ArsMHhW4LsveXJQz4bW37xg7dAn/uLexZF+mY81bYb654LvgndpLQ0aaTLb2sv1DXvigNBMCwURr
+	f37KOZ0q8UvaGI1rSdIrRRir3GVRg4/F/fymZ1nFdu1J8y1RjK9euyI6Po166NoQ/JM/+ml18o5Y6
+	bIK7L2PN6IVkwFqgQwZqYkyUzXho5LLUyK1K5lBonGMObYgtE2AzCIeuAh9k8rxUbdelElUvhXQvn
+	eAOe8Y+lQo4oGomLVVOr90ImbS5FXD2xUJnv+CpAy5NIJ45ANhVhajwDpYLv2bgLe6DgEEjCalBX4
+	F4vP0R3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMMJY-0000000CnJJ-39c8;
-	Mon, 11 May 2026 08:48:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMMLY-0000000CnXT-0ZeH;
+	Mon, 11 May 2026 08:50:40 +0000
+Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMMJW-0000000CnId-22qX
+	id 1wMMLU-0000000CnWo-1wP4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 08:48:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE3E9445A7
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 08:48:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94439C2BCF5
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 08:48:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778489313;
-	bh=FS9Vcj76U9RM5XIubOjoexo/Q66e6Qb8ezAJTR8qo6Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=BkFL70skeyMsxsAPovmmjWva/uA7ul3y+pIyc0IbC5Z6jp+X3h/7vsK1rfwOWZwPg
-	 yyof2+cc+0ChQ2ZmGzBckVM4Lho265t0+jpyzOhL0Z85yUbVdXmfJmgY+XWgfVuLx2
-	 XSMQHZ1SPx0FS7PtT6I/Kxdzu1DH/0TiUQvlV1AXSKc5p5bPkLemRqecW64jPWpgUX
-	 zorFbUkVKMMpZZClvBqYJNyNSAFy401fOr/YeNklUYQUHH0RP2e73Asc+fHm7CsYUZ
-	 lMVq0GCD6y86ofaHEztAM0IGwcsCFYuAtc+pTYuzFC128zk8vnCp1QfpB695rL+9Jg
-	 uZ3GOxabECP7A==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5a525aedb24so3980614e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 01:48:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/nmWp/mj6PMzPb+6hAXb4k35WzCxdZq8DXw+/pAMlsLu60mQwZeNs9fud7DMwE6RvyKgWrMHGsY61Tn8qyBpqH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzy/wH3+0xPHvlJeBaBSdK6eUG0BS8LotLU0ytNMEEV9KXMxjQF
-	041dVMuuQsQBF0ZNmLq6acizZmftzgUGT90y2WcjK+b3qcDMkWfDviqd20x2gHAx+J3q/dcbZ8w
-	5FVHmWSXpdrxupqQJSjGS39hm+D3Wlt8=
-X-Received: by 2002:a05:6512:304b:b0:5a8:6e64:a932 with SMTP id
- 2adb3069b0e04-5a887cea7efmr9393309e87.32.1778489312120; Mon, 11 May 2026
- 01:48:32 -0700 (PDT)
+	Mon, 11 May 2026 08:50:38 +0000
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 430FA7A00CE;
+	Mon, 11 May 2026 04:50:32 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-10.internal (MEProxy); Mon, 11 May 2026 04:50:32 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1778489432; x=1778575832; bh=jt9ibOwOB5
+	ZgDpl28+OU1PXCAn8QfJTRE4dkW9Vb3BA=; b=LOsTO+eQtpe3r741xaLkVQzRQd
+	qFVi7ShFZm3E9V4HVFTs2engBB1peCRCTkcsD0yraXQwlRMRKu4s6BvVSBH3pnAo
+	lpXTkMOxwHc++Yu1ePbtlTaWQXmYPLe4znOEnY1PBhwhQ107noiprFPjxFsjWwzs
+	MatNSiXRgMR0sSQVyPkamJdYyaSMl5YxRSPXYuXvfCWNEEHbROVwO3vTaReMABXJ
+	X0gYjzJxzEi+1dlZuovbWAhXEiA0D2oxudPXC40mWUm4b19e7+iFx/40Fa3l3YvC
+	yl57CbxbGqinwINz7roMlvZuOtsEWa0cVFu7NmeeTojctnKREDXtVBIWIR9A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1778489432; x=1778575832; bh=jt9ibOwOB5ZgDpl28+OU1PXCAn8QfJTRE4d
+	kW9Vb3BA=; b=pDcOPxMiiP5ruo2XWMZgzDesICesNWrkVL88okIX5UV3Kt+RM2Y
+	z5zSlB27DO1Mj8/6VZGL81Y2QIPQs+78SPS+aQg/rJTvgIGEsr8Q0iGkGQyvugKp
+	2v5jYFBuAp6dkiTUy7bmJjN4L4jyXWQjMN3QJuAlfIxvMVKc+67e+QqXWaEeFnVl
+	56dY+NJL2BJKGZF2i3Kmr7jk+yXva6vD9F1qmtubeWpLtCroJrtR2T8E3ZRIs7if
+	PdiXC6DUIIjx97YhuQxrs3eb4N2l51zKPSxYN2/FrzkNoKxWLFRObaGXAWa8Icut
+	gTPns1BTdlFdxPEwa35mnsqKYwalSxsPwRw==
+X-ME-Sender: <xms:VpgBanUU0ztE6Rg-LnfF-nLj1cnzfS7IVx_pJfHwnrFunw2lLxjcVA>
+    <xme:VpgBaniKE3NTpGwNZJ7FrgQTac17ZUp80KiEjJu-T9yLVtwm5PK87KWrfCVGw1aDE
+    JeLWDinbwjVeGkuqSLAN8Ddva10mmyA4V5rcZf1j4boMlSC6OHV5Lst>
+X-ME-Received: <xmr:VpgBaqnO_1mo6YLpCVnG5FVMhaiuWArMrQjGIVkhgDObhcOFK40MwaajL9o0Rf1jMVMgp-RV8DjBsvZTmUi22EQFtzOKq8Iwi7k>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdduudekhedvucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
+    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgud
+    euffelfeekgeeukedtheekjeettdfftddujefhvdehtefgiefgledtueefjeenucffohhm
+    rghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopedu
+    kedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhinhhugiesrhhovggtkhdquh
+    hsrdhnvghtpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthho
+    pehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodguth
+    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhpihgvrhgrlhhishhisehkvghrnhgv
+    lhdrohhrghdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    epnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepfihimheslhhinhhugidqfigr
+    thgthhguohhgrdhorhhgpdhrtghpthhtohepkhgvthhtvghnihhssehophgvnhgsshgurd
+    horhhg
+X-ME-Proxy: <xmx:VpgBaowxRkzlJZKgC0vwY4hQTbKM6iO9ervrzIr7KLryQ_5A28NGLg>
+    <xmx:VpgBatsyZlEk804I0LAQVVS7ia5EDKHFyp4-Pwjhw_6Lll0JE7F-MQ>
+    <xmx:VpgBaluhzmo_aN5ikDHnpeRe43hbMSuaKNGZGj4O_BkZY4gVVXhBJA>
+    <xmx:VpgBajlqNeNxTrn4oktYtSPno1O2oZ3jnjrBdX7XdqiF7qzUmQk8hA>
+    <xmx:WJgBavb1dT_Lmt3FGxmTxuK4B-v82xNwO1Npg8Xu56yNR40CrKn5tpUQ>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 11 May 2026 04:50:30 -0400 (EDT)
+Date: Mon, 11 May 2026 10:50:28 +0200
+From: Janne Grunau <j@jannau.net>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Mark Kettenis <kettenis@openbsd.org>,
+	Sasha Finkelstein <k@chaosmail.tech>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org, linux-pwm@vger.kernel.org,
+	Joshua Peisach <jpeisach@ubuntu.com>
+Subject: Re: [PATCH v3 2/5] dt-bindings: watchdog: apple,wdt: Add t8122
+ compatible
+Message-ID: <20260511085028.GA192358@robin.jannau.net>
+References: <20260507-apple-m3-initial-devicetrees-v3-0-ca07c81b5dc7@jannau.net>
+ <20260507-apple-m3-initial-devicetrees-v3-2-ca07c81b5dc7@jannau.net>
+ <85ea46a7-1136-4ea0-9eec-7dfa465df20b@roeck-us.net>
 MIME-Version: 1.0
-References: <20260504131148.3622697-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260504131148.3622697-7-khristineandreea.barbulescu@oss.nxp.com>
- <CAD++jLnk4q7L_cFzz+1gKkAqwhv=TW1_XSepuii7b_PHF7EPqQ@mail.gmail.com> <704e9e7b-0f45-4ed3-a686-9e20056eab2a@oss.nxp.com>
-In-Reply-To: <704e9e7b-0f45-4ed3-a686-9e20056eab2a@oss.nxp.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 11 May 2026 10:48:18 +0200
-X-Gmail-Original-Message-ID: <CAD++jLk-7UqjCsM4jCdRmBMMaNNXe8Gi_E00fJ_MRMsEGQcMZQ@mail.gmail.com>
-X-Gm-Features: AVHnY4Jgw80MuyK4ZGcKlHCdHrHAFZ3YKz8oTwazlDM_Kdt2Svy6qUsv6clMxog
-Message-ID: <CAD++jLk-7UqjCsM4jCdRmBMMaNNXe8Gi_E00fJ_MRMsEGQcMZQ@mail.gmail.com>
-Subject: Re: [PATCH v9 6/7] pinctrl: s32cc: implement GPIO functionality
-To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
-	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>, 
-	Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
-	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <85ea46a7-1136-4ea0-9eec-7dfa465df20b@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_014834_573002_9026543F 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20260511_015036_978054_3E0CC656 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,45 +124,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 8, 2026 at 11:07=E2=80=AFAM Khristine Andreea Barbulescu
-<khristineandreea.barbulescu@oss.nxp.com> wrote:
+On Sun, May 10, 2026 at 08:29:39AM -0700, Guenter Roeck wrote:
+> On Thu, May 07, 2026 at 09:33:08AM +0200, Janne Grunau wrote:
+> > The watchdog on the Apple silicon t8122 (M3) SoC is compatible with the
+> > existing driver. Add "apple,t8122-wdt" as SoC specific compatible under
+> > "apple,t8103-wdt" used by the driver.
+> 
+> '"apple,t8103-wdt" used by the driver' is not true. The watchdog driver
+> only supports "apple,wdt".
 
->I don't think the current driver is a good fit for
-> a full gpio-regmap conversion. Direction and GPIO mux are
-> handled through MSCR/pinctrl state (IBE/OBE/SSS), and the GPIO
-> logic spans multiple register regions across two SIUL2 instances.
+It slipped my mind that
+https://lore.kernel.org/linux-watchdog/20251231-watchdog-apple-t8103-base-compat-v1-1-1702a02e0c45@jannau.net/
+wasn't picked up yet.
 
-I don't see the problem with that?
+> 
+> > 
+> > Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> > Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+> > Reviewed-by: Neal Gompa <neal@gompa.dev>
+> > Signed-off-by: Janne Grunau <j@jannau.net>
+> > ---
+> >  Documentation/devicetree/bindings/watchdog/apple,wdt.yaml | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml b/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+> > index 05602678c070..845b5e8b5abc 100644
+> > --- a/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+> > +++ b/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+> > @@ -16,7 +16,9 @@ properties:
+> >    compatible:
+> >      oneOf:
+> >        - items:
+> > -          - const: apple,t6020-wdt
+> > +          - enum:
+> > +              - apple,t6020-wdt
+> > +              - apple,t8122-wdt
+> >            - const: apple,t8103-wdt
+> >        - items:
+> >            - enum:
+> 
+> I second Sashiko's findings that the driver will fail to bind because it
+> only supports "apple,wdt". I would not mind and apply the patch anyway,
+> but the statement in the description is just plain wrong and thus
+> misleading. Please fix.
 
-> A conversion would require stronger separation between
-> GPIO and pinctrl, leaving mux restoration entirely
-> to the pinctrl subsystem.
+I would prefer if the addition of the "apple,t8103-wdt" to the driver is
+picked.
 
-Why is that so? Sorry I don't get the problem here.
+Thanks,
 
-The pinmux operations have these callbacks:
-
-static const struct pinmux_ops s32_pmx_ops =3D {
-(...)
-        .gpio_request_enable =3D s32_pmx_gpio_request_enable,
-        .gpio_disable_free =3D s32_pmx_gpio_disable_free,
-        .gpio_set_direction =3D s32_pmx_gpio_set_direction,
-};
-
-So to me it looks like the pinctrl subsystem is *already*
-handling all the muxing of GPIO lines in these
-callbacks?
-
-> Would it be reasonable to keep the current approach for now
-> and revisit gpio-regmap later if needed?
-
-I'd prefer that you look into it now while you already
-have all the information at hand and fresh in your mind.
-
-You can forward my comments to your project lead
-/ JIRA instance and say it's Linus' fault you have to spend
-more time on this right now.
-
-Yours,
-Linus Walleij
+Janne
 
