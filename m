@@ -4,59 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED55CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 15:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A1ACD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 15:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vyWkP4Wq6/s6hj3sfbRyu7wwXtGFedMgYsQtSdIEdgk=; b=o6DvMxPZvDY7GXtL521k993D3J
-	PNgabrZCkE1pJw5ibdGItS5xdEeXTHTB4aHjn1TOwIczOS8FXQxp5xoN8iaAr+T/pIwn2i6XqINak
-	YfbZM8syCk2EpG6cFwAWe8hXaDLx7GYJJWKBbGheGZ5k31V7kw59D7d4rLNUAX/4GjW2q2Rs+G5o0
-	f8WsWztkXTTk+tMVqVcCmatyNGUvt7mlG2bFGxQ9rXXn/++zYB7iRuj4GciOEy5amYj7NByAOAgPI
-	V+lE+HHGaIziMWy1Hdea3KT4Fjd/klPG30gHUpr6gP0McfuljpHk8uJ2C2JSOZgU1OUPFx2xG9nsu
-	bfKQFd1g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bHbDw2kQDVt9bJG46JUREywkjRHfZCqW19vv3OS9bjw=; b=hHY1uHElte4u1lTX40ZucRRDml
+	Miz6GVzhvmTtlHYwdF1/TVSc7/G7Na7FkjFqp6OowfPR1hjuGcqZtYRxlaPqJM4ERBEhMyjxcCYpk
+	daQSdupsw8zCapYQWvTd+4nG94SrbUnjSXpDKQKGOGxapRH3R/9DsFFqFNDfi0YglG9qqqM9fr2qS
+	orR/Bl8+/FZ01Alfu2k1WJ641XPGtJBe/PUn3xjr0TxYpXD2wC6kSVE1FuVRvYP53MbIjC1wQBFGf
+	Db1PjopKhpysyH+7MYZBXztSHJJhkymc0fJkKBAKcu9o2Zyyew8Yul/Z2mYAxVZAm5KTuAni4kfaG
+	NNz18naA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMSH2-0000000E0zL-0Fni;
-	Mon, 11 May 2026 15:10:24 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wMSLZ-0000000E1eT-2xrE;
+	Mon, 11 May 2026 15:15:05 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMSGz-0000000E0y9-0GDT;
-	Mon, 11 May 2026 15:10:22 +0000
-Received: from pb-laptop.local (185.182.215.166.nat.pool.zt.hu [185.182.215.166])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 5ECE11E3C;
-	Mon, 11 May 2026 17:10:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778512208;
-	bh=qWYLVc/ghOkWX9V6XoAIsajHbvT65j8qJWEK+zkztpo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=LAWfxfeA3lmBFvl7VNMfX+BFTZHJhwihxYclCr91mnBr7oVxWAr0lVOklr9njhC4O
-	 ufASsH7QQfn0QNzq8fzSqu3lVbwHoM7t8WiToMIqm4k68RaEPg6Tp9KDVWbDp6bxoy
-	 KzcxtkMwmfUzEFN0eecl4esaP09G45xFovXIqieM=
-From: =?UTF-8?q?Barnab=C3=A1s=20P=C5=91cze?= <barnabas.pocze@ideasonboard.com>
-To: Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Barnab=C3=A1s=20P=C5=91cze?= <barnabas.pocze@ideasonboard.com>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Subject: [PATCH v3] media: rkisp1: Add support for CAC
-Date: Mon, 11 May 2026 17:09:57 +0200
-Message-ID: <20260511150957.581049-1-barnabas.pocze@ideasonboard.com>
-X-Mailer: git-send-email 2.54.0
+	id 1wMSLW-0000000E1dn-2LLT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 15:15:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1778512500;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=bHbDw2kQDVt9bJG46JUREywkjRHfZCqW19vv3OS9bjw=;
+	b=ZATvnm8htfK+K1UULPPgHf/rU8ukFXIF+oyPaHY9noE1VRCR8sNs2g29mCD5x0KelF1dmG
+	Gxt+Up8d13aAu2Mh3xZ/lQubq4vOpKcAfhDLbyh2Olg2ktwOPn6RJ4mckRfOstfZ3aLyYz
+	bwDNFGs8SM6KQE1wJ6TfibxUU4hhLqg=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-689-AdPGODgCPFCfv-AnQdUCAw-1; Mon,
+ 11 May 2026 11:14:56 -0400
+X-MC-Unique: AdPGODgCPFCfv-AnQdUCAw-1
+X-Mimecast-MFC-AGG-ID: AdPGODgCPFCfv-AnQdUCAw_1778512493
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CE1291955EB1;
+	Mon, 11 May 2026 15:14:51 +0000 (UTC)
+Received: from [10.44.34.38] (unknown [10.44.34.38])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 50A331800286;
+	Mon, 11 May 2026 15:14:43 +0000 (UTC)
+Message-ID: <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
+Date: Mon, 11 May 2026 17:14:42 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Documentation: KVM: Document guest-visible compatibility
+ expectations
+To: David Woodhouse <dwmw2@infradead.org>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, kvm@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Sean Christopherson <seanjc@google.com>, Jim Mattson <jmattson@google.com>
+Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Raghavendra Rao Ananta <rananta@google.com>,
+ Eric Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kselftest@vger.kernel.org
+References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Mimecast-MFC-PROC-ID: XN3a20x0qV-gyabx1KmPuAC38mgt5i1AYtaABU0L-sk_1778512493
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_081021_426150_BFAEADAD 
-X-CRM114-Status: GOOD (  20.16  )
+X-CRM114-CacheID: sfid-20260511_081502_686680_25E697F9 
+X-CRM114-Status: GOOD (  34.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,323 +132,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CAC block implements chromatic aberration correction. Expose it to
-userspace using the extensible parameters format. This was tested on the
-i.MX8MP platform, but based on available documentation it is also present
-in the RK3399 variant (V10). Thus presumably also in later versions,
-so no feature flag is introduced.
+On 5/11/26 10:57, David Woodhouse wrote:
+> From: David Woodhouse <dwmw@amazon.co.uk>
+> 
+> Document the expectation that KVM maintains guest-visible compatibility
+> across host kernel upgrades and rollbacks.  Specifically:
+> 
+>   - State saved/restored via KVM ioctls must be sufficient for live
+>     migration (and live update) between kernel versions.
+> 
+>   - Where a new kernel introduces a guest-visible change, it provides a
+>     mechanism for userspace to select the previous behaviour.
+> 
+>   - This allows both forward migration (upgrade) and backward migration
+>     (rollback) of guests.
+> 
+> These expectations have been implicitly required on x86 but were not
+> explicitly documented. Harmonise the expectations across all of KVM.
 
-Signed-off-by: Barnabás Pőcze <barnabas.pocze@ideasonboard.com>
-Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
----
-changes in v3:
-  * send from the corrent email address....
+One big part of achieving this on x86 is the handling of CPUID.  Despite 
+all the mess that KVM_SET_CPUID2 is (and sometimes the underlying 
+architecture too, as Jim Mattson would certainly agree), KVM is 
+generally able to provide a consistent view of its configuration to the 
+guest.  This doesn't quite extend to compatibility across vendors, but 
+it does work across processor generations from either Intel or AMD.
 
-changes in v2:
-  * address review comments
+I understand that Arm traditionally had much more trouble than x86 with 
+vendor-specified behavior that goes beyond the set of architectural 
+features, so we may need to tune the expectations.  However, I agree 
+with David that this is needed at least as long as the host CPU does not 
+change.
 
-v1: https://lore.kernel.org/linux-media/20260323140216.1486161-1-barnabas.pocze@ideasonboard.com/
----
- .../platform/rockchip/rkisp1/rkisp1-params.c  |  68 +++++++++++
- .../platform/rockchip/rkisp1/rkisp1-regs.h    |  15 ++-
- include/uapi/linux/rkisp1-config.h            | 107 +++++++++++++++++-
- 3 files changed, 187 insertions(+), 3 deletions(-)
+Thanks,
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-index 6442436a5e42..042b759eba62 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-@@ -64,6 +64,7 @@ union rkisp1_ext_params_config {
- 	struct rkisp1_ext_params_compand_bls_config compand_bls;
- 	struct rkisp1_ext_params_compand_curve_config compand_curve;
- 	struct rkisp1_ext_params_wdr_config wdr;
-+	struct rkisp1_ext_params_cac_config cac;
- };
- 
- enum rkisp1_params_formats {
-@@ -1413,6 +1414,47 @@ static void rkisp1_wdr_config(struct rkisp1_params *params,
- 				     RKISP1_CIF_ISP_WDR_TONE_CURVE_YM_MASK);
- }
- 
-+static void rkisp1_cac_config(struct rkisp1_params *params,
-+			      const struct rkisp1_cif_isp_cac_config *arg)
-+{
-+	u32 val;
-+
-+	/*
-+	 * The enable bit is in the same register (RKISP1_CIF_ISP_CAC_CTRL),
-+	 * so only set the clipping mode, and do not modify the other bits.
-+	 */
-+	val = rkisp1_read(params->rkisp1, RKISP1_CIF_ISP_CAC_CTRL);
-+	val &= ~(RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE |
-+		 RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE);
-+	val |= FIELD_PREP(RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE, arg->h_clip_mode) |
-+	       FIELD_PREP(RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE, arg->v_clip_mode);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_CTRL, val);
-+
-+	val = FIELD_PREP(RKISP1_CIF_ISP_CAC_COUNT_START_H_MASK, arg->h_count_start) |
-+	      FIELD_PREP(RKISP1_CIF_ISP_CAC_COUNT_START_V_MASK, arg->v_count_start);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_COUNT_START, val);
-+
-+	val = FIELD_PREP(RKISP1_CIF_ISP_CAC_RED_MASK, arg->red[0]) |
-+	      FIELD_PREP(RKISP1_CIF_ISP_CAC_BLUE_MASK, arg->blue[0]);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_A, val);
-+
-+	val = FIELD_PREP(RKISP1_CIF_ISP_CAC_RED_MASK, arg->red[1]) |
-+	      FIELD_PREP(RKISP1_CIF_ISP_CAC_BLUE_MASK, arg->blue[1]);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_B, val);
-+
-+	val = FIELD_PREP(RKISP1_CIF_ISP_CAC_RED_MASK, arg->red[2]) |
-+	      FIELD_PREP(RKISP1_CIF_ISP_CAC_BLUE_MASK, arg->blue[2]);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_C, val);
-+
-+	val = FIELD_PREP(RKISP1_CIF_ISP_CAC_NF_MASK, arg->x_nf) |
-+	      FIELD_PREP(RKISP1_CIF_ISP_CAC_NS_MASK, arg->x_ns);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_X_NORM, val);
-+
-+	val = FIELD_PREP(RKISP1_CIF_ISP_CAC_NF_MASK, arg->y_nf) |
-+	      FIELD_PREP(RKISP1_CIF_ISP_CAC_NS_MASK, arg->y_ns);
-+	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_CAC_Y_NORM, val);
-+}
-+
- static void
- rkisp1_isp_isr_other_config(struct rkisp1_params *params,
- 			    const struct rkisp1_params_cfg *new_params)
-@@ -2089,6 +2131,25 @@ static void rkisp1_ext_params_wdr(struct rkisp1_params *params,
- 				      RKISP1_CIF_ISP_WDR_CTRL_ENABLE);
- }
- 
-+static void rkisp1_ext_params_cac(struct rkisp1_params *params,
-+				  const union rkisp1_ext_params_config *block)
-+{
-+	const struct rkisp1_ext_params_cac_config *cac = &block->cac;
-+
-+	if (cac->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE) {
-+		rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
-+					RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
-+		return;
-+	}
-+
-+	rkisp1_cac_config(params, &cac->config);
-+
-+	if ((cac->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE) &&
-+	    !(params->enabled_blocks & BIT(cac->header.type)))
-+		rkisp1_param_set_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
-+				      RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
-+}
-+
- typedef void (*rkisp1_block_handler)(struct rkisp1_params *params,
- 			     const union rkisp1_ext_params_config *config);
- 
-@@ -2185,6 +2246,10 @@ static const struct rkisp1_ext_params_handler {
- 		.handler	= rkisp1_ext_params_wdr,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC] = {
-+		.handler	= rkisp1_ext_params_cac,
-+		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
-+	},
- };
- 
- #define RKISP1_PARAMS_BLOCK_INFO(block, data) \
-@@ -2215,6 +2280,7 @@ rkisp1_ext_params_block_types_info[] = {
- 	RKISP1_PARAMS_BLOCK_INFO(COMPAND_EXPAND, compand_curve),
- 	RKISP1_PARAMS_BLOCK_INFO(COMPAND_COMPRESS, compand_curve),
- 	RKISP1_PARAMS_BLOCK_INFO(WDR, wdr),
-+	RKISP1_PARAMS_BLOCK_INFO(CAC, cac),
- };
- 
- static_assert(ARRAY_SIZE(rkisp1_ext_params_handlers) ==
-@@ -2474,6 +2540,8 @@ void rkisp1_params_disable(struct rkisp1_params *params)
- 	rkisp1_ie_enable(params, false);
- 	rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_DPF_MODE,
- 				RKISP1_CIF_ISP_DPF_MODE_EN);
-+	rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_CAC_CTRL,
-+				RKISP1_CIF_ISP_CAC_CTRL_ENABLE);
- }
- 
- static const struct rkisp1_params_ops rkisp1_v10_params_ops = {
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-index fbeb186cde0d..2b842194de8f 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
-@@ -724,6 +724,17 @@
- #define RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MASK		GENMASK(20, 16)
- #define RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MAX		16U
- 
-+/* CAC */
-+#define RKISP1_CIF_ISP_CAC_CTRL_ENABLE		BIT(0)
-+#define RKISP1_CIF_ISP_CAC_CTRL_V_CLIP_MODE	GENMASK(2, 1)
-+#define RKISP1_CIF_ISP_CAC_CTRL_H_CLIP_MODE	BIT(3)
-+#define RKISP1_CIF_ISP_CAC_COUNT_START_H_MASK	GENMASK(12, 0)
-+#define RKISP1_CIF_ISP_CAC_COUNT_START_V_MASK	GENMASK(28, 16)
-+#define RKISP1_CIF_ISP_CAC_RED_MASK		GENMASK(8, 0)
-+#define RKISP1_CIF_ISP_CAC_BLUE_MASK		GENMASK(24, 16)
-+#define RKISP1_CIF_ISP_CAC_NF_MASK		GENMASK(4, 0)
-+#define RKISP1_CIF_ISP_CAC_NS_MASK		GENMASK(19, 16)
-+
- /* =================================================================== */
- /*                            CIF Registers                            */
- /* =================================================================== */
-@@ -1196,8 +1207,8 @@
- #define RKISP1_CIF_ISP_CAC_A			(RKISP1_CIF_ISP_CAC_BASE + 0x00000008)
- #define RKISP1_CIF_ISP_CAC_B			(RKISP1_CIF_ISP_CAC_BASE + 0x0000000c)
- #define RKISP1_CIF_ISP_CAC_C			(RKISP1_CIF_ISP_CAC_BASE + 0x00000010)
--#define RKISP1_CIF_ISP_X_NORM			(RKISP1_CIF_ISP_CAC_BASE + 0x00000014)
--#define RKISP1_CIF_ISP_Y_NORM			(RKISP1_CIF_ISP_CAC_BASE + 0x00000018)
-+#define RKISP1_CIF_ISP_CAC_X_NORM		(RKISP1_CIF_ISP_CAC_BASE + 0x00000014)
-+#define RKISP1_CIF_ISP_CAC_Y_NORM		(RKISP1_CIF_ISP_CAC_BASE + 0x00000018)
- 
- #define RKISP1_CIF_ISP_EXP_BASE			0x00002600
- #define RKISP1_CIF_ISP_EXP_CTRL			(RKISP1_CIF_ISP_EXP_BASE + 0x00000000)
-diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkisp1-config.h
-index b2d2a71f7baf..c6ba49621726 100644
---- a/include/uapi/linux/rkisp1-config.h
-+++ b/include/uapi/linux/rkisp1-config.h
-@@ -967,6 +967,92 @@ struct rkisp1_cif_isp_wdr_config {
- 	__u8 use_iref;
- };
- 
-+/*
-+ * enum rkisp1_cif_isp_cac_h_clip_mode - horizontal clipping mode
-+ *
-+ * @RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4PX: +/- 4 pixels
-+ * @RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4_5PX: +/- 4/5 pixels depending on bayer position
-+ */
-+enum rkisp1_cif_isp_cac_h_clip_mode {
-+	RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4PX = 0,
-+	RKISP1_CIF_ISP_CAC_H_CLIP_MODE_4_5PX = 1,
-+};
-+
-+/**
-+ * enum rkisp1_cif_isp_cac_v_clip_mode - vertical clipping mode
-+ *
-+ * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_2PX: +/- 2 pixels
-+ * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3PX: +/- 3 pixels
-+ * @RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3_4PX: +/- 3/4 pixels depending on bayer position
-+ */
-+enum rkisp1_cif_isp_cac_v_clip_mode {
-+	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_2PX = 0,
-+	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3PX = 1,
-+	RKISP1_CIF_ISP_CAC_V_CLIP_MODE_3_4PX = 2,
-+};
-+
-+/**
-+ * struct rkisp1_cif_isp_cac_config - chromatic aberration correction configuration
-+ *
-+ * The correction is carried out by shifting the red and blue pixels relative
-+ * to the green ones, depending on the distance from the optical center:
-+ *
-+ * @h_count_start: horizontal coordinate of the optical center (13-bit unsigned integer; [1,8191])
-+ * @v_count_start: vertical coordinate of the optical center (13-bit unsigned integer; [1,8191])
-+ *
-+ * For each pixel, the x/y distances from the optical center are calculated and
-+ * then transformed into the [0,255] range based on the following formula:
-+ *
-+ *   (((d << 4) >> ns) * nf) >> 5
-+ *
-+ * where `d` is the distance, `ns` and `nf` are the normalization parameters:
-+ *
-+ * @x_nf: horizontal normalization scale parameter (5-bit unsigned integer; [0,31])
-+ * @x_ns: horizontal normalization shift parameter (4-bit unsigned integer; [0,15])
-+ *
-+ * @y_nf: vertical normalization scale parameter (5-bit unsigned integer; [0,31])
-+ * @y_ns: vertical normalization shift parameter (4-bit unsigned integer; [0,15])
-+ *
-+ * These parameters should be chosen based on the image resolution, the position
-+ * of the optical center, and the shape of pixels, so that no normalized distance
-+ * is larger than 255. If the pixels have square shape, the two sets of parameters
-+ * should be equal.
-+ *
-+ * The actual amount of correction is calculated with a third degree polynomial:
-+ *
-+ *   c[0] * r + c[1] * r^2 + c[2] * r^3
-+ *
-+ * where `c` is the set of coefficients for the given color, and `r` is distance:
-+ *
-+ * @red: red coefficients (5.4 two's complement; [-16,15.9375])
-+ * @blue: blue coefficients (5.4 two's complement; [-16,15.9375])
-+ *
-+ * Finally, the amount is clipped as requested:
-+ *
-+ * @h_clip_mode: maximum horizontal shift (from enum rkisp1_cif_isp_cac_h_clip_mode)
-+ * @v_clip_mode: maximum vertical shift (from enum rkisp1_cif_isp_cac_v_clip_mode)
-+ *
-+ * A positive result will shift away from the optical center, while a negative
-+ * one will shift towards the optical center. In the latter case, the pixel
-+ * values at the edges are duplicated.
-+ */
-+struct rkisp1_cif_isp_cac_config {
-+	__u8 h_clip_mode;
-+	__u8 v_clip_mode;
-+
-+	__u16 h_count_start;
-+	__u16 v_count_start;
-+
-+	__u16 red[3];
-+	__u16 blue[3];
-+
-+	__u8 x_nf;
-+	__u8 x_ns;
-+
-+	__u8 y_nf;
-+	__u8 y_ns;
-+};
-+
- /*---------- PART2: Measurement Statistics ------------*/
- 
- /**
-@@ -1138,6 +1224,7 @@ struct rkisp1_stat_buffer {
-  * @RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND: Companding expand curve
-  * @RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS: Companding compress curve
-  * @RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR: Wide dynamic range
-+ * @RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC: Chromatic aberration correction
-  */
- enum rkisp1_ext_params_block_type {
- 	RKISP1_EXT_PARAMS_BLOCK_TYPE_BLS,
-@@ -1161,6 +1248,7 @@ enum rkisp1_ext_params_block_type {
- 	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND,
- 	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS,
- 	RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR,
-+	RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC,
- };
- 
- /* For backward compatibility */
-@@ -1507,6 +1595,22 @@ struct rkisp1_ext_params_wdr_config {
- 	struct rkisp1_cif_isp_wdr_config config;
- } __attribute__((aligned(8)));
- 
-+/**
-+ * struct rkisp1_ext_params_cac_config - RkISP1 extensible params CAC config
-+ *
-+ * RkISP1 extensible parameters CAC block.
-+ * Identified by :c:type:`RKISP1_EXT_PARAMS_BLOCK_TYPE_CAC`.
-+ *
-+ * @header: The RkISP1 extensible parameters header, see
-+ *	    :c:type:`rkisp1_ext_params_block_header`
-+ * @config: CAC configuration, see
-+ *	    :c:type:`rkisp1_cif_isp_cac_config`
-+ */
-+struct rkisp1_ext_params_cac_config {
-+	struct rkisp1_ext_params_block_header header;
-+	struct rkisp1_cif_isp_cac_config config;
-+} __attribute__((aligned(8)));
-+
- /*
-  * The rkisp1_ext_params_compand_curve_config structure is counted twice as it
-  * is used for both the COMPAND_EXPAND and COMPAND_COMPRESS block types.
-@@ -1532,7 +1636,8 @@ struct rkisp1_ext_params_wdr_config {
- 	sizeof(struct rkisp1_ext_params_compand_bls_config)		+\
- 	sizeof(struct rkisp1_ext_params_compand_curve_config)		+\
- 	sizeof(struct rkisp1_ext_params_compand_curve_config)		+\
--	sizeof(struct rkisp1_ext_params_wdr_config))
-+	sizeof(struct rkisp1_ext_params_wdr_config)			+\
-+	sizeof(struct rkisp1_ext_params_cac_config))
- 
- /**
-  * enum rksip1_ext_param_buffer_version - RkISP1 extensible parameters version
--- 
-2.54.0
+Paolo
+
+> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+> ---
+>   Documentation/virt/kvm/api.rst              | 14 ++++++++++++++
+>   Documentation/virt/kvm/review-checklist.rst | 20 ++++++++++++++------
+>   2 files changed, 28 insertions(+), 6 deletions(-)
+> 
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index 269970221797..864f3daa7acb 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -97,6 +97,20 @@ Instead, kvm defines extension identifiers and a facility to query
+>   whether a particular extension identifier is available.  If it is, a
+>   set of ioctls is available for application use.
+>   
+> +KVM will ensure that the state that can be saved and restored via the
+> +KVM ioctls is sufficient to allow migration of a running guest between
+> +host kernels while maintaining full compatibility of the guest-visible
+> +device model.  This includes migration to newer kernels (upgrade) and
+> +to older kernels (rollback), provided that the older kernel supports
+> +the set of features exposed to the guest.  Where a new kernel version
+> +introduces a guest-visible change, it will provide a mechanism (such
+> +as a capability or a device attribute) that allows userspace to select
+> +the previous behaviour.  This serves two purposes: guests migrated
+> +from an older kernel can continue to run with their original
+> +observable environment, and new guests launched on the newer kernel
+> +can be configured to match the feature set of the older kernel, so
+> +that they remain migratable to the older kernel in case of rollback.
+> +
+>   
+>   4. API description
+>   ==================
+> diff --git a/Documentation/virt/kvm/review-checklist.rst b/Documentation/virt/kvm/review-checklist.rst
+> index 053f00c50d66..f0fbe1577a90 100644
+> --- a/Documentation/virt/kvm/review-checklist.rst
+> +++ b/Documentation/virt/kvm/review-checklist.rst
+> @@ -18,22 +18,30 @@ Review checklist for kvm patches
+>   5.  New features must default to off (userspace should explicitly request them).
+>       Performance improvements can and should default to on.
+>   
+> -6.  New cpu features should be exposed via KVM_GET_SUPPORTED_CPUID2,
+> +6.  Guest-visible changes must not break migration compatibility.  A guest
+> +    migrated from an older kernel must be able to run with its original
+> +    observable environment, and a guest launched on a newer kernel must be
+> +    configurable to match the older kernel's feature set for rollback.
+> +    Where a change alters guest-visible behaviour, provide a mechanism
+> +    (capability, device attribute, etc.) for userspace to select the
+> +    previous behaviour.
+> +
+> +7.  New cpu features should be exposed via KVM_GET_SUPPORTED_CPUID2,
+>       or its equivalent for non-x86 architectures
+>   
+> -7.  The feature should be testable (see below).
+> +8.  The feature should be testable (see below).
+>   
+> -8.  Changes should be vendor neutral when possible.  Changes to common code
+> +9.  Changes should be vendor neutral when possible.  Changes to common code
+>       are better than duplicating changes to vendor code.
+>   
+> -9.  Similarly, prefer changes to arch independent code than to arch dependent
+> +10. Similarly, prefer changes to arch independent code than to arch dependent
+>       code.
+>   
+> -10. User/kernel interfaces and guest/host interfaces must be 64-bit clean
+> +11. User/kernel interfaces and guest/host interfaces must be 64-bit clean
+>       (all variables and sizes naturally aligned on 64-bit; use specific types
+>       only - u64 rather than ulong).
+>   
+> -11. New guest visible features must either be documented in a hardware manual
+> +12. New guest visible features must either be documented in a hardware manual
+>       or be accompanied by documentation.
+>   
+>   Testing of KVM code
 
 
