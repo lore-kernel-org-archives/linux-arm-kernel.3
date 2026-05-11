@@ -4,116 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC1FCD4857
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 21:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD0C9CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 21:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:
+	Date:In-Reply-To:From:Subject:Mime-Version:Content-Type:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=woeT7VU8Hjkb7K57SLCyIj0RlWrZOv5LgSO4QQP10cs=; b=wQx19FGqxnZ93h3uJCGNYpE+f+
-	94K1/FeqdM2hp3prPz/5tGafeME89hbDv//8tmC9pxRT8TjMVa6+ak3pOFbKOwTh/K9aQ/6tzxBOQ
-	V6WXmajsqBajECBxEt0gmgZK7cdeU3Kf81KoEFmAKUh2eYVsMmnnGlo6Obs6CrthjolP+O2uY7Bo0
-	7I6Gl8Nx+TuqFSx+72batuuAcKQGIgKR8GNe+FYDHJn8Fuu4koEHqQy6wj55RP9ZzdSQ27LcEguhd
-	DlRHd1rNWnsakyAQFq40QOXZnFNeh73Yp6a5QSKMXZjDKR+VqIrk1xUB/RVGf13m5mHUb33F6FoOv
-	OGXQmZVA==;
+	bh=vv6Cf4mYgD1HTgqKQL+63OwI9Ewor3llwuPU7oW2eIk=; b=UOj0GOe4mp75fxePZxDMWOGZbL
+	vLoOVPRwtXD0bMbEMOGAEnBpi+VS9XEddXgVzJPI2w5jOS/kqZQ7BdFTmrC4A803hoo/FTdEYDklW
+	9FBhskAksRJDWkd50wq7a2r7qGc0mw8XddAiTDkju3OJnXJJoDPNN6DMMDWR6bgqMy2sHYRL/wwqs
+	eb5BnsBvJLnR05DATYiVkLO7uR25oHFHfFnwkxkWxh5/d3CUL5z+SKfSumBFV9qRPFWTd4enTrQPn
+	ELzYxefTsrupES8j/4myRbPb04aVpX3tQhgLdDXlIV+I2sy9/fvqBg9446rwQ47e8gS+L0DepUyF9
+	IGoQ5FDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMY1k-0000000EnHV-12hL;
-	Mon, 11 May 2026 21:19:00 +0000
-Received: from mail-southcentralusazon11012021.outbound.protection.outlook.com ([40.93.195.21] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wMYGK-0000000EpFB-3TKv;
+	Mon, 11 May 2026 21:34:04 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMY1g-0000000EnEP-0lmO
+	id 1wMYGI-0000000EpE1-141J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 21:18:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Fwcq5nx/Qcnd5lep+py62O7h3cp2JaLTzsjEnxew6Aos4u49riaymfLuStmd/g/FPBGchdPHgEtBkRIwmvTdwXIzu7SCcnMLz+f0d2h7HRyIoluRdfd+bQpKt3JcpiO/hhI8PBknFj+MEJsOrfJ6XEectiVpx7cq6KFvjwqe0IyPSreOvTDNh6QE4QJiAHT/ySQftfdMg9jXfrJ1FvAvj33EOiUCT8XZZ9/Iv49Ae0a9s47vGhXdfYz6vM1MWsT/awopzlMXB1KYAWa1h5oepDmjmNo6mwIyeFFDU+agBXV44qjfPeDjuOK3LLaUtG0QE1Xqrdqy9JYbzvDkL5p5SA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=woeT7VU8Hjkb7K57SLCyIj0RlWrZOv5LgSO4QQP10cs=;
- b=M0xVtsGfqGeFIDjdKGqWwQH0GVDSJo8cbz3ND0A5IZh3MLRGwlJWc2nVdHgacLSPFN5D/uSht47amvypa5AYv4I1U9dUGIL6e0ZCfmUPA8InmMzcOMoa7gZbYsDfl92zz5/dY0D/dLSKJ5aded51SNVd7u0QBYVJu2KeN5gUVBbjm5lVp4ptE69Baa+Zbmb1HdBPD4DKuopF+fc0bAXswNo14gwCQD2S69ZnAvHqMvU8diuNQ/VYCmGvsYPS3JZSr/7q6jUJ5+cG3p9lVqCLeMvehZXLY51x96UgL+xFKn/EqFP0MbbppzbSf8UMmNnPGFP9z3qhWaFGZqpQAP3AbA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=woeT7VU8Hjkb7K57SLCyIj0RlWrZOv5LgSO4QQP10cs=;
- b=aRYgsQXrqA/by08gv/DsidmubamWQSM3Jfxmr6f118LJmXma9QHGYU6g5uDXVx4GEC00z9Wrrjw2Wa+6CKlnbG3zD6MpDw+Eu+/46AX72suPBmmyLP2sRHsE/Z5qUqqPkeCD9tzRgYbHJa06QAxABoXn9vKZVDBw0eYMsTG4ibc=
-Received: from PH7P220CA0146.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:327::32)
- by MW4PR12MB7142.namprd12.prod.outlook.com (2603:10b6:303:220::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Mon, 11 May
- 2026 21:18:48 +0000
-Received: from CY4PEPF0000EE37.namprd05.prod.outlook.com
- (2603:10b6:510:327:cafe::cd) by PH7P220CA0146.outlook.office365.com
- (2603:10b6:510:327::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.23 via Frontend Transport; Mon,
- 11 May 2026 21:18:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- CY4PEPF0000EE37.mail.protection.outlook.com (10.167.242.43) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Mon, 11 May 2026 21:18:47 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 11 May
- 2026 16:18:47 -0500
-Received: from xsjblevinsk51.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Mon, 11 May 2026 16:18:46 -0500
-From: Ben Levinsky <ben.levinsky@amd.com>
-To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>, <linux-remoteproc@vger.kernel.org>
-CC: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, "Magnus
- Damm" <magnus.damm@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-renesas-soc@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>, <tanmay.shah@amd.com>
-Subject: [PATCH 4/4] remoteproc: switch drivers to optional resource-table helper
-Date: Mon, 11 May 2026 14:18:41 -0700
-Message-ID: <20260511211841.284809-5-ben.levinsky@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260511211841.284809-1-ben.levinsky@amd.com>
-References: <20260511211841.284809-1-ben.levinsky@amd.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE37:EE_|MW4PR12MB7142:EE_
-X-MS-Office365-Filtering-Correlation-Id: 48faee58-e905-4689-fde9-08deafa2e40a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700016|82310400026|18002099003|56012099003|22082099003|11063799003;
-X-Microsoft-Antispam-Message-Info: gRAtMP5vcLp0y4xyzIzNFqsULmkolI9p3M4TlYTsg2cQXaKZW9e/sIuB5WcGRmi4GqF7ky4oJS7UK2hflvQo0WVTyyluKTlOajjyUPuO/cHloshD+7F372BhlK9CYMFhLLXWfIpaCc287bUSsbtaAdAEG5rQo/jlaKB8j9iyysrJpUJVpqBRXm1zlQk3LEjnBYlQt+knBOxg8Jip2zQ2NytplufgugxIJdp9E4Zo2ooxubFUFO2MBIlM5NK3Cp7C8l8ccW/7xzef8iR4VIOgZdQolMGNOCvKNpD+yLpxOvpIanbFt/ab9XxrB/nCoyDttbAmfiiTw6MlvwEGh5dqd7MhL+hhFJfGdIg/F0ElNSmTwaCgwg73sPv/9be3VkTUj0DjNxCA3qlI8m8pmCXlAAM32Gul19Nd0Ucs5AnZaz9Ryla650xYEZVtWAXzSGFujKYA+IRoa8gZehSbvF/hrNOlOmzNvQqxRBuqTaLX9upd57iskKDom7RzhyGNHVaN/sjyl/z74jM9CiRjXHd8PVeb4TxQhBjX4EGlOjqp3+mCggkrVw+RV37bFUtX8RTduQsu5KUv0f/l1t13vVZUw7EiCxmGUwS1kf6+UaPPjBskB+dIpLUPMyrGDq+FKRLlJP5u0uxmd5uIXKDk5/SM7xyeG7kCfguxLKM6QjvbztoLHO7Xnduh6BUm4Ld13TGIWwuvB8k+abztubWxYSqf/Za4y+sL/pzas9u4iP6TbIw=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700016)(82310400026)(18002099003)(56012099003)(22082099003)(11063799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: A7pd9nnxIAUzo19PEwmsAStbum6d/dF4YGVT9J794k5bcen7zSbCyBa0eHQrNTBQMeJbe+bSkDDrXDLVNLmISMYSgJ6nzU+IupOvQf9iMk2puQXwA0OnobEnOlla826G1x+sXT9kqtmM4zTFQFN0zZyo0Ofp12tEPLK3MbBCWtL+jAtKjGonVF7Z+Rt/xTsyGDZLyvv84kLNFZTXjgdAJ/yHyUpS+vf1V81aKM5yrMaXvJfU39b7tm4N7dRifjAVFhLfS0BIkZoC+vgSWTabsNZAyo09OZiPQJXpRBoLtqZhQqn69Hyzvvw9bM6kml9P1EJeNK3LtYGyDDdzUOKJUvMXcCVddYQ6xiDvWq7nsaDX9a8rW6cJQ9X73goJ3h8Ore+/7P86HqahjewO8Qgl0KaZr1jkIcztsh86uMG1W/wyqk0S18TXh56vmPouxKPd
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 21:18:47.7788
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 48faee58-e905-4689-fde9-08deafa2e40a
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE37.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7142
+	Mon, 11 May 2026 21:34:03 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-48374014a77so44705275e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 14:34:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778535240; x=1779140040; darn=lists.infradead.org;
+        h=to:references:message-id:cc:date:in-reply-to:from:subject
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=vv6Cf4mYgD1HTgqKQL+63OwI9Ewor3llwuPU7oW2eIk=;
+        b=UtTMNVewq2grnrLrrIbSgQW3l8zk27s2o7IiFt7MHcY1D89rxqtm1KpcdiyCpOBvrP
+         iULRNbOZQ8GRxOvIW1xuR5kRK91oI0RFwbu2Y9xGcAIcSshAyI25nDgZisUMXTW6JARe
+         X2zcAkpO5svtr+Mxa5/KFAWBTB4dEyQUtVun3ncVbaEG/xIEkIROGHdlnhA43EKW/sWD
+         PiMP+jd9m0JwZUsTBHVVxTcjzIJa1/4/yS5zk0cTcKW/3YY49ENEmktTcRkvRllx1WWr
+         m8+8jW7S+JSJXhggzTOrEqn1hbp7Ktrjk6StEDwH8MCvEq7WQqixobkQkF68EiQfQRSw
+         u+Mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778535240; x=1779140040;
+        h=to:references:message-id:cc:date:in-reply-to:from:subject
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vv6Cf4mYgD1HTgqKQL+63OwI9Ewor3llwuPU7oW2eIk=;
+        b=HzpQh+GISseUDIJtPiUmexv2CBnXa/jgwkmNsZAitxD2kDrgFTxjBwZPF0D7JN4PT9
+         zMz5hp57iV/6G0AVo04d/geXkyUUa13fSbqI3z2v2w3BMB0l74gFuLziDC8u2UGFExe7
+         s3gYxYebAT08GZ70kAPdNDJdv2YZiIu5FC1F+L1jA547W3arLoTMa9//k5RjSOVmRz8i
+         Pb6xM2LTcqwq48dI/ixMBUP0rs4pOWxyyFnUPnuRIzToogvizt0zES5ura1PwsBgN8+P
+         JzNt/J/8SSnvkMyWF6YaHY0pMDMnF3/2ZiX8OoYPqXFs66tM430qgEPaVtp4gWOpbHnM
+         nZBA==
+X-Forwarded-Encrypted: i=1; AFNElJ/TW+LAeJBpurt/XEpZFHOiDokcXSd82BYLG50XjxlY7VMbbA5B06ehdyPXSSFMuolwneSLeAORg+z2uzcndNDZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFCdTF8VkJPxapd0TbRrLH5Huh3q+LnCr/jXGSI0+gTDHq6sr0
+	dTIP0WjIyxugvyc3KqEumE0pVXwK9aOn66eK8KWWf1hgo6qPukOlO8vp
+X-Gm-Gg: Acq92OFlP7FpQ8cWSOKExZkGpWU+83dHRRIaPesrWL7lYPxJXEDzn/lFJJDytEKGJOf
+	2xEXTSriGgTOHKOuxefNdwcqsu4g76T/9LQMZzSboyQzvjDirjr4VPY6DoYS2XYkTJlqGy/0W01
+	TEM0X/QZ4eEov99Lm3Mk9xl3jafrtDzsgZ+IfapT5HFsIjifhudxWaRAF7F2P6x3cqE3BNj7X84
+	6cPSnkGBqHO6MK5P16f7PNT/4T08qMDhRZORF4JG3n5EqSQZblGZIywPcJoDfAdRV9CGzi0uere
+	S/vUFS5/8PcxEeelrIxq14GMreTkEZSiTw4Zyquka89aXxKDqzyydjH52kHH9KvWrD9zJ8R2HKv
+	AVKIHY5i5jpDeJwXsorCRrqxGbHFWLZ5wyYou2AKhL4BTPBVIHCmn1/CMp0aQpT7wPrTh3zcXnJ
+	1haLnZ5RbHNI0Nnia0c6wItsktp/GgRZNnYH2F
+X-Received: by 2002:a05:600c:4f46:b0:489:e126:b757 with SMTP id 5b1f17b1804b1-48e707fbb13mr187762585e9.25.1778535239802;
+        Mon, 11 May 2026 14:33:59 -0700 (PDT)
+Received: from smtpclient.apple ([197.250.227.112])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e7040a9a9sm370272295e9.9.2026.05.11.14.33.56
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 11 May 2026 14:33:58 -0700 (PDT)
+Content-Type: multipart/signed;
+	boundary="Apple-Mail=_86F8E9FE-3936-42D2-92C0-780617216CA2";
+	protocol="application/pgp-signature";
+	micalg=pgp-sha256
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.500.181\))
+Subject: Re: [PATCH RFC v2 1/4] dt-bindings: clk: zte: Add zx297520v3 clock
+ and reset bindings.
+From: =?utf-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+In-Reply-To: <20260511-backstage-crewman-e44947ab6cfc@spud>
+Date: Tue, 12 May 2026 00:33:42 +0300
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Message-Id: <DD71E384-1777-47B8-93C8-D6EFDA4BA74C@gmail.com>
+References: <20260511-zx29clk-v2-0-29f0edc300f5@gmail.com>
+ <20260511-zx29clk-v2-1-29f0edc300f5@gmail.com>
+ <20260511-backstage-crewman-e44947ab6cfc@spud>
+To: Conor Dooley <conor@kernel.org>
+X-Mailer: Apple Mail (2.3864.500.181)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_141856_239929_7F5D04F2 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20260511_143402_306716_9E8D538F 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,186 +111,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the shared optional resource-table helper in the remoteproc
-drivers that currently ignore a missing table. This keeps the missing
-resource-table case non-fatal while letting other parsing failures
-propagate to the caller.
 
-Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
----
- drivers/remoteproc/imx_dsp_rproc.c      | 10 +--------
- drivers/remoteproc/imx_rproc.c          | 13 +----------
- drivers/remoteproc/rcar_rproc.c         | 13 +----------
- drivers/remoteproc/stm32_rproc.c        | 10 +--------
- drivers/remoteproc/xlnx_r5_remoteproc.c | 29 +------------------------
- 5 files changed, 5 insertions(+), 70 deletions(-)
+--Apple-Mail=_86F8E9FE-3936-42D2-92C0-780617216CA2
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=us-ascii
 
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index 2d9f14fbef1d..3e96e7978cd2 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -954,14 +954,6 @@ static int imx_dsp_rproc_elf_load_segments(struct rproc *rproc, const struct fir
- 	return ret;
- }
- 
--static int imx_dsp_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
--{
--	if (rproc_elf_load_rsc_table(rproc, fw))
--		dev_warn(&rproc->dev, "no resource table found for this firmware\n");
--
--	return 0;
--}
--
- static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
- {
- 	struct imx_dsp_rproc *priv = rproc->priv;
-@@ -997,7 +989,7 @@ static const struct rproc_ops imx_dsp_rproc_ops = {
- 	.stop		= imx_dsp_rproc_stop,
- 	.kick		= imx_dsp_rproc_kick,
- 	.load		= imx_dsp_rproc_load,
--	.parse_fw	= imx_dsp_rproc_parse_fw,
-+	.parse_fw	= rproc_elf_load_rsc_table_optional,
- 	.handle_rsc	= imx_dsp_rproc_handle_rsc,
- 	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
- 	.sanity_check	= rproc_elf_sanity_check,
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 6249815b54d8..5509048f7e19 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -680,17 +680,6 @@ static int imx_rproc_prepare(struct rproc *rproc)
- 	return 0;
- }
- 
--static int imx_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
--{
--	int ret;
--
--	ret = rproc_elf_load_rsc_table(rproc, fw);
--	if (ret)
--		dev_info(&rproc->dev, "No resource table in elf\n");
--
--	return 0;
--}
--
- static void imx_rproc_kick(struct rproc *rproc, int vqid)
- {
- 	struct imx_rproc *priv = rproc->priv;
-@@ -777,7 +766,7 @@ static const struct rproc_ops imx_rproc_ops = {
- 	.kick		= imx_rproc_kick,
- 	.da_to_va       = imx_rproc_da_to_va,
- 	.load		= rproc_elf_load_segments,
--	.parse_fw	= imx_rproc_parse_fw,
-+	.parse_fw	= rproc_elf_load_rsc_table_optional,
- 	.find_loaded_rsc_table = imx_rproc_elf_find_loaded_rsc_table,
- 	.get_loaded_rsc_table = imx_rproc_get_loaded_rsc_table,
- 	.sanity_check	= rproc_elf_sanity_check,
-diff --git a/drivers/remoteproc/rcar_rproc.c b/drivers/remoteproc/rcar_rproc.c
-index e3121fadd292..7adaa6d37b82 100644
---- a/drivers/remoteproc/rcar_rproc.c
-+++ b/drivers/remoteproc/rcar_rproc.c
-@@ -55,17 +55,6 @@ static int rcar_rproc_prepare(struct rproc *rproc)
- 	}
- }
- 
--static int rcar_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
--{
--	int ret;
--
--	ret = rproc_elf_load_rsc_table(rproc, fw);
--	if (ret)
--		dev_info(&rproc->dev, "No resource table in elf\n");
--
--	return 0;
--}
--
- static int rcar_rproc_start(struct rproc *rproc)
- {
- 	struct rcar_rproc *priv = rproc->priv;
-@@ -104,7 +93,7 @@ static struct rproc_ops rcar_rproc_ops = {
- 	.start		= rcar_rproc_start,
- 	.stop		= rcar_rproc_stop,
- 	.load		= rproc_elf_load_segments,
--	.parse_fw	= rcar_rproc_parse_fw,
-+	.parse_fw	= rproc_elf_load_rsc_table_optional,
- 	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
- 	.sanity_check	= rproc_elf_sanity_check,
- 	.get_boot_addr	= rproc_elf_get_boot_addr,
-diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
-index 7ac8265b60ac..007175dcd7af 100644
---- a/drivers/remoteproc/stm32_rproc.c
-+++ b/drivers/remoteproc/stm32_rproc.c
-@@ -232,14 +232,6 @@ static int stm32_rproc_prepare(struct rproc *rproc)
- 	}
- }
- 
--static int stm32_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
--{
--	if (rproc_elf_load_rsc_table(rproc, fw))
--		dev_warn(&rproc->dev, "no resource table found for this firmware\n");
--
--	return 0;
--}
--
- static irqreturn_t stm32_rproc_wdg(int irq, void *data)
- {
- 	struct platform_device *pdev = data;
-@@ -631,7 +623,7 @@ static const struct rproc_ops st_rproc_ops = {
- 	.detach		= stm32_rproc_detach,
- 	.kick		= stm32_rproc_kick,
- 	.load		= rproc_elf_load_segments,
--	.parse_fw	= stm32_rproc_parse_fw,
-+	.parse_fw	= rproc_elf_load_rsc_table_optional,
- 	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
- 	.get_loaded_rsc_table = stm32_rproc_get_loaded_rsc_table,
- 	.sanity_check	= rproc_elf_sanity_check,
-diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-index e5d1903c9636..92c1f8972551 100644
---- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-+++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-@@ -664,33 +664,6 @@ static int add_tcm_banks(struct rproc *rproc)
- 	return ret;
- }
- 
--/*
-- * zynqmp_r5_parse_fw()
-- * @rproc: single R5 core's corresponding rproc instance
-- * @fw: ptr to firmware to be loaded onto r5 core
-- *
-- * get resource table if available
-- *
-- * return 0 on success, otherwise non-zero value on failure
-- */
--static int zynqmp_r5_parse_fw(struct rproc *rproc, const struct firmware *fw)
--{
--	int ret;
--
--	ret = rproc_elf_load_rsc_table(rproc, fw);
--	if (ret == -EINVAL) {
--		/*
--		 * resource table only required for IPC.
--		 * if not present, this is not necessarily an error;
--		 * for example, loading r5 hello world application
--		 * so simply inform user and keep going.
--		 */
--		dev_info(&rproc->dev, "no resource table found.\n");
--		ret = 0;
--	}
--	return ret;
--}
--
- /**
-  * zynqmp_r5_rproc_prepare() - prepare core to boot/attach
-  * adds carveouts for TCM bank and reserved memory regions
-@@ -849,7 +822,7 @@ static const struct rproc_ops zynqmp_r5_rproc_ops = {
- 	.start		= zynqmp_r5_rproc_start,
- 	.stop		= zynqmp_r5_rproc_stop,
- 	.load		= rproc_elf_load_segments,
--	.parse_fw	= zynqmp_r5_parse_fw,
-+	.parse_fw	= rproc_elf_load_rsc_table_optional,
- 	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
- 	.sanity_check	= rproc_elf_sanity_check,
- 	.get_boot_addr	= rproc_elf_get_boot_addr,
--- 
-2.34.1
+Hi Conor,
 
+Thanks for your reply!
+
+> Am 11.05.2026 um 19:07 schrieb Conor Dooley <conor@kernel.org>:
+>=20
+> How come the "matrixclk" has no constraints on clock properties?
+
+Because I am not sure what the correct/preferred way to express the =
+interface between top and matrix is - see the first question raised in =
+my cover letter.
+
+In short, matrix potentially consumes all clocks available on the top =
+controller. There is no obvious interface between them, like there is =
+between matrix and LSP. So I see two ways to handle this in the =
+bindings:
+
+1) List the top clk inputs, top clk PLL outputs and PLL fractionals as =
+matrix input
+2) Be quiet about it
+
+It'd be about 20 clocks or so that I know are consumed. The bigger issue =
+than the number of clocks is that my knowledge of the board is from =
+reverse engineering, not proper datasheets, so I might find out that a =
+clock is missing or wrong.
+
+> Although, these two devices seem too different to be in the same
+> dt-binding. Do they have anyhting in common other than the SoC they =
+are
+> part of?
+
+No, they don't have anything in common, other than that their concerns =
+are poorly separated in hardware.
+
+I take it from your question that the preferred way is to have separate =
+bindings for them in this case - I guess separate headers as well as =
+separate yaml files. Is this correct?
+
+The third clock controller - LSP - is nicely separated from the other =
+two. I would not be surprised to see this subsystem of the board show up =
+on a different ZTE board. If top and matrix should have different =
+bindings, LSP certainly should as well.=
+
+--Apple-Mail=_86F8E9FE-3936-42D2-92C0-780617216CA2
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename=signature.asc
+Content-Type: application/pgp-signature;
+	name=signature.asc
+Content-Description: Message signed with OpenPGP
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmoCSzYACgkQPRO8yFRP
+GiJreA/+NGigL8m01fqUXyaZXJW5lLjWCmzMbFofI/RsTAhtteVvQK2IwcfN6iYG
+KtWe+zgDbdjjhwLYy1VJqgUMfyYHaWVicYSnxJ0q8JvTcJeDclHifEV0sQjqsmQO
+KWlolqcNVfSq9qLcYNyfygoKbBOSlIt//WqyiX591Rpkcar/mPVjrrSXqHciErrs
+hE5eTYr0RoyE4CDc2o20I5oqZwtntKa1xbOav4GSD1tUNLbsTm0xWLFLf2Bh3uX9
+3qS/GJDgNCTeTnEK/Pks7JNPk25kIq2OeTktMR8cv5SSs8ZQLaKtvQCX97QnfL8H
+03YRzF/jbBXsCYO+IXWMrn1R+J26HkUR61lWOkiWykoj4Zda7mX2zGaTsFR/tcPL
+u3rOSmbcqEaMMY2hD08I/vIrbXcPiZ26rxS0DgnwKwqN8kFem0ULhjw3L0UCURXO
+3J9IHhKhkp++QmTZSclOOY8MWujAh3IRYoT8VwUtQkmmsEzDkTnmj+at0tf7CtOp
+fQmC3jkuGPrRj0fZJeFvPze3EGxHWWTBHkHaoAqtjGs6ONVNRx58MuasigPKmueb
+CN7jtmppAGpLlur53BXetZflBBdFfU+EpDmOszZJ989HOZtsg/zAu7ZuWfCYDMKH
+FD+WtwfgX6fIqRrLs0/FD7rV1kHx/GagGhOfBey/j+iPqvcTgoU=
+=XNGK
+-----END PGP SIGNATURE-----
+
+--Apple-Mail=_86F8E9FE-3936-42D2-92C0-780617216CA2--
 
