@@ -4,94 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA9BCD37B7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 09:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBFCCD37B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 09:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uH3ZWiM3HP8IOlhsaGFBjJo68aLk/9GptBzpH443orc=; b=FLarUARxVOSH6Mw54Hx1YXhSsU
-	3RKlsPPjZxhOHAhxYcCsyTVP+O+TkHBUBx6BqiO9xNQ376ZNgt2JfsgdBP0c2z6UvaJ7o+XhGM3PC
-	3LjLsXugKst93psRsb/VuLnSkDxVZ3qUKnQm08TFwEuNhKqi3Fw69GXpd9qSO7pzxkgWxN8SJVmlr
-	Brr43xESaYoYP93btmyGD6WU4IgqK8xpPbOt2sjEBSGcgvQq61vfyn/p9NCkbuUbSYDbIu1NUjhlS
-	hUY8TkF2Im/t5Z4LBc2fiIHB61sQ7hHIkEDFQwH+oBnRbG9fvOQA1y+z/P5ToiuugKChkYO+G5WuJ
-	KfhDAsxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W1MHBgc/HftMNnpo3aSTC/H7e4PTrJtd0zERmMQdpuE=; b=xgqVA5ivZQyO0oIZQ1VbxzRQ/s
+	SBQMhOR2Fa4XD/M6udD8unxuVhzMT7Athf7PrAtdEnm/0LYW8/5cD+bFG5Lpyo/WbTRaJzO2cpIjq
+	b5vI/KbzrZhcWBXNPvWuyZIAbVS7VrSbD0tdTyU2IHxBPn3pJxihQ+QpIWGjrOFKZyBc7d0mQOoIo
+	QaUwQwthkyIBFBxP5FjiEuFVTLbfMqXV9vixOTTic+slvOj3jPENryw+2ERH9xkRrxfE40F+asTVS
+	SXQxATFLWWLkuWO0SGx1aHQPd9aXwOAFpCKWUQmO6eJ59plAOoU4YBz/biDnG6vkFvTxNGrgfxU0C
+	ETiMnY1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMN4U-0000000CxEv-3Vdt;
-	Mon, 11 May 2026 09:37:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMN4I-0000000Cx4k-3q2e
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 11 May 2026 09:36:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=uH3ZWiM3HP8IOlhsaGFBjJo68aLk/9GptBzpH443orc=; b=AyFRZ5rkdGK78e3wY1aP3E40yG
-	iA5Jrpv4gdDqoARCUAFVGzLph2OoR/BDKX6FcIqG/etjVo1+5bm8bROgprsYG3ug3DKl0JzjiU0eN
-	Y8ksfpvvFxRAKZePffcOPG6X7XlYrri116Of53l+JLf2UhEATx0Lb1Avfu34N/KAloNiEu/BAub/m
-	kyzmSEs5qyVYVcrzbeIC3uIM7Gax+Fafu/xS9AFJCOXfb2VOMawNuF9D1Za/i8bfj4e5mM6bfvXlV
-	N1a/oTuzD2XxNNQaQeoM5+tiEwSTma3SmSWpLjkuLpFJRxAxlYUugGB3rwDnMPh9StNGwq8/IwMU4
-	BHvfF4eg==;
-Received: from mout.web.de ([212.227.17.11])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMN4D-0000000BD5h-2I1H
+	id 1wMN7a-0000000CyBr-44JB;
+	Mon, 11 May 2026 09:40:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMN7X-0000000CyAI-3eJ1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 09:36:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1778492193; x=1779096993; i=markus.elfring@web.de;
-	bh=uH3ZWiM3HP8IOlhsaGFBjJo68aLk/9GptBzpH443orc=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=vVw1FiXc7nSRfMeQILxb+4PoK9JO0SUvP0h1gXAopDPGB+vU/VznGgXNXxzf0+lB
-	 7Yu6md4LyovAWZM+ujk+x6RAliN9XXuk3kBy5aYn52YkYHonAwYo5WZykeqXoLQLC
-	 iQHMHCMqRBmCHlw6OAflmopup4oSFw11pBqI8giSVpcSDUDPqRfI2WhT/tgZ6GJtj
-	 AUsbs9UDigJLDciWX77FL5cN5zy+eNgEB0aqKGGFKjHTOA/EpAaYKtbxCHZeJjg1k
-	 2NVN9mESz/bQAJ+6vCvufvafrGpqZeu3Vk4hucV00OFMBYie7MBWJJD9xOrqjbsGc
-	 6vNNFE0JgCt2Utjjwg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mr7am-1xAGXP1z3G-00fmxV; Mon, 11
- May 2026 11:36:33 +0200
-Message-ID: <bd8e38d7-1010-4f04-8b28-38789596a502@web.de>
-Date: Mon, 11 May 2026 11:36:20 +0200
+	Mon, 11 May 2026 09:40:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06B211477;
+	Mon, 11 May 2026 02:40:07 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C57DA3F85F;
+	Mon, 11 May 2026 02:40:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778492412; bh=Ot2eN4Rwr0wT4qQBvc2wpwtb/0xmY45GYo+XcTU/Kv0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KgAHDhmDzkrEYH0oU60KumIz3pBVMD04jJMgUhwTIt1NjUP1hS1/xWYR46Toxxtpm
+	 nuTXzSF/UyzLA65hANMUiJ7TqcL/VfAeooDfIGLlfA6FMmwt6BbMjD5kImxHSkc/BP
+	 tcn18giVR+s0uhwNCg2fP5N5MEpYpIqN/PKJ67CQ=
+Date: Mon, 11 May 2026 10:40:09 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Jie Gan <quic_jiegan@quicinc.com>
+Subject: Re: [PATCH] coresight: fix source not disabled on idr_alloc_u32
+ failure
+Message-ID: <20260511094009.GK3778514@e132581.arm.com>
+References: <20260511-fix-coresight-sysfs-enable-issue-v1-1-1b3829748171@oss.qualcomm.com>
+ <20260511092446.GJ3778514@e132581.arm.com>
+ <eefdc953-a127-41b9-afba-a07cf5d5734a@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Pengyu Luo <mitltlatltl@gmail.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, kernel@pengutronix.de,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Frank Li <Frank.Li@nxp.com>, Hans Verkuil <hverkuil@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Martin Kepplinger-Novakovic <martink@posteo.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
-Cc: LKML <linux-kernel@vger.kernel.org>
-References: <20260511090924.269106-2-mitltlatltl@gmail.com>
-Subject: Re: [PATCH v3 1/5] media: hi846: fix hi846_write_reg_16 handling
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260511090924.269106-2-mitltlatltl@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:fgcAGPKJQZ4ynft/BV+cJqs49FnJ9QCMQMx5Xh/7+aTwz6W/oHH
- OW14R2/9wSUIiM1MXRF9+CgWlIwyIizjJ0qROHdWJ4lKcPQMCQfllvqVZ254MXrPmcuW3PP
- bhcqmNCt4XlHiZ/pd35/sZpPD/qvtNzW/m3bbKCFnyDAuRHyJ3gnNYhhXnJ9KpTGa6F6THx
- zseo30j6t73ICodaK86Lg==
-UI-OutboundReport: notjunk:1;M01:P0:25Rt7WHq6mw=;Dxo6zWfT2WGuELoALeewyBkcDg/ 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
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <eefdc953-a127-41b9-afba-a07cf5d5734a@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_103650_521784_793E12D3 
-X-CRM114-Status: UNSURE (   5.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260511_024015_982930_57E0CDFB 
+X-CRM114-Status: GOOD (  21.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,17 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> Fix this by resetting *err to 0 only when it is positive.
+On Mon, May 11, 2026 at 05:28:37PM +0800, Jie Gan wrote:
+> Hi Leo,
+> 
+> On 5/11/2026 5:24 PM, Leo Yan wrote:
+> > On Mon, May 11, 2026 at 05:04:44PM +0800, Jie Gan wrote:
+> > > In coresight_enable_sysfs(), for non-CPU sources (SOFTWARE, TPDM,
+> > > OTHERS), the source device is enabled via coresight_enable_source_sysfs()
+> > > before idr_alloc_u32() maps the path. If idr_alloc_u32() fails, the
+> > > original code jumped directly to err_source, which only calls
+> > > coresight_disable_path() and coresight_release_path(). The source device
+> > > was left enabled with an incremented refcnt but no path tracked for it,
+> > > leaving the device in an inconsistent state.
+> > > 
+> > > Disable the source before jumping to err_source so the enable and path
+> > > operations are fully unwound.
+> > > 
+> > > Fixes: 1f5149c7751c ("coresight: Move all sysfs code to sysfs file")
+> > > Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+> > 
+> > Actually I have noticed this. Since my PM series will remove IDR things,
+> > and I don't think anyone really hit idr alloc error, this is why I
+> > didn't send fix for this.
+> > 
+> > Anyway, this is a reasonable fix. I will send out my PM series later
+> > in today, I will pick this patch into my series and rebase on it, hope
+> > this is easier for all of us.
+> 
+> Well noted. Please feel free to pick it into your series.
 
-How do you think about to handle return values by an adjusted interface?
-https://elixir.bootlin.com/linux/v7.1-rc2/source/drivers/media/i2c/hi846.c=
-#L1265-L1282
+Thanks! Just note, I updated the Fixes tag as:
 
-Would a function signature (like the following) be nicer?
+  Fixes: 5c0016d7b343 ("coresight: core: Use IDR for non-cpu bound sources' paths.")
 
-static int hi846_write_reg_16(struct hi846 *hi846, u16 reg, u16 val);
+Which is the original patch for the issue.
 
-Regards,
-Markus
+Thanks,
+Leo
 
