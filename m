@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75224CD4842
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3EFDCD4842
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wPckqbRjLTLwCI5HFnRsqpqanDyUhEorHSYwo0jMzO4=; b=0naCvg6yw5AZVGXZFJFC0Sy9uo
-	h58/HvwHATLAGsq26wJvpjsfuLYgZz9aPYT2y3AfjFDn2vu22fVuHy1gNvlm7Uyor2N1qHo3rYl5u
-	KiN2AYchaJT18GlNc4VsQSDntxgFOM7LHAGtMVvNH1VcZO/yk/shZqGuScxanG7jX3bAfwAKlN5F6
-	mcuKOsu9q2YaG2o8u5S71dxnqHH+wBg/HeKht08hNnmdnXisiu89Mg2wLSifbDaTigbNWgV0upU1r
-	ns/JOmeMeUzQMpKSodQhCwY45ku69S6w0+8MEkH/DhYsnuNh4TohZz81TjD1xa+he5Kt3rItJDQK4
-	IZ5T0UZg==;
+	bh=Hrb5mTljujDZd9X5M2ml/xFdI4McB+Vbrhv6pIqJcPc=; b=boA1uSl6EMfc1LkOrLhAcgDcpo
+	S22YsojjGB72YvwA2l+Zpyn+PgsvY0lw1UXvXSdFxP1dK9NEPLGcI3LWDeCKfkMWikq7sl3UJiYpH
+	NPOS3b7NFelMJ89mWQWVeWFPtJzcACk+m1cl89kL7r54a4g3We+ZBkDkBI4J2v+zve5Yp9cclwV/T
+	FXLsWXmSttKZAP9VACisAD7TWh4NCj3kTv0nXQYTOPu9QD7E1FAqFdjS4ub8BDkKc/NT1nIoPMHlk
+	MzR7ijnn4Faj+jh7r17fTr4qOr7C3cyULyktwbzCKzbxdE9YFUhV/2y3nVMVwKjvmXRpmQlNNxgTj
+	1KC89PWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOYn-0000000DGP6-2VtB;
-	Mon, 11 May 2026 11:12:30 +0000
+	id 1wMOYr-0000000DGUN-2OAQ;
+	Mon, 11 May 2026 11:12:33 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOYZ-0000000DG5v-1iwT
+	id 1wMOYe-0000000DGDG-2aC1
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 11 May 2026 11:12:16 +0000
+	Mon, 11 May 2026 11:12:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
 	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
 	:Reply-To:Content-ID:Content-Description;
-	bh=wPckqbRjLTLwCI5HFnRsqpqanDyUhEorHSYwo0jMzO4=; b=uHvgDlM16bHkFYLR9UjpFzUAIp
-	DBfiOCBvmA+/xRFbzxR4kpDJkLrbzFr0g5RtHS99u7yxlEEGq/ovvPZ1O5cSTbNfRmH16WM0RDhxE
-	EkH1QXynqZKqFMStCRsXJhmkcLF05F3usJuknZ230lgyMgD+ojbF2iKu22jra90JxwTbXDVkreLR5
-	6GVRDbyKISh+RVGtKCR0t0xfWCcgFcTEkc584hJBEFnN/mDRTmQdN3InAkIXRZxc4NzTGtTuAKyER
-	nrUgnIv/tR00kkzW1Gy8IRj1sA8TMhXqrtlSHRIFPct844Kk691QZ74aZnk58QJy9ZupE3WZl2a26
-	AKs6mX7w==;
+	bh=Hrb5mTljujDZd9X5M2ml/xFdI4McB+Vbrhv6pIqJcPc=; b=hk3FLTlEBg+jRMX3+/I/PJ6gyM
+	Dmi4dk6dBBqTnlhaPRJjQ60E3kBCCQTlxr41SCEz72pC5PXDtdC2GAuQ5kJQKGi1OQLk3FLPLD2Wo
+	MrtHrDaqKqHLdvZYAT1cZa3BNv+XNuxz8UVdYx7weyh9pa8mwKHmQloFnoTs2mCafZ/RfD9SAhYmr
+	rvkt4lMWIZ2dNcwIMAj3cyA3dY3KC2FD1QJRqlpM0DMwseM4/AY5aFtPLOFCQlfmsmziBE5QPELdl
+	bba/VXpT1UpibFT4FlrWKPaAm7HUKF07eLhJKZWuJTeqjVn1r5TmsAZGc48wNCjS8yi/FVHnwbgW9
+	fhGYq+MA==;
 Received: from foss.arm.com ([217.140.110.172])
 	by casper.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMOYV-000000082pV-49w5
+	id 1wMOYa-000000082r8-0w19
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 11:12:14 +0000
+	Mon, 11 May 2026 11:12:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA9B015A1;
-	Mon, 11 May 2026 04:12:04 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B286422C8;
+	Mon, 11 May 2026 04:12:09 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F3C4C3F85F;
-	Mon, 11 May 2026 04:12:07 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D85C53F85F;
+	Mon, 11 May 2026 04:12:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778497930; bh=Rs8sqRP9AM2fkjgREmH03R5eNh7JZ49EjWSqgHnuMhk=;
+	t=1778497934; bh=BXij1k3TP57xl0BX6JWijBR4GKEmA52SprYTQoBkRuM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=AMaxs2zjLXYZSBZbC+htjHom3P4wLo1SHUb7sO9kp6F+wreIExLWzzXnQDjN+AeeN
-	 xv0F37c5ohTzQyhGY/9g/qV/FdLwzz95UR5ozBZtDsreKt8TEzCtS5/1PPuQ6IWnLo
-	 LFl3QqU/wLwtrQ2xL1p4tHWINZytWSf3PswvByfU=
+	b=VUqSUI0jxrdoNwlYe+FmZIEUdVCP+IkQrDTRp65Vawon+NHWFVkV8zG4JVx6D6bVr
+	 xKXObggrMBMfjWww2Oj5nLdsX6im0XDZr4nmdk2jxufExS8b/mTlPQyJH39s0g/FWJ
+	 KaccEFsWYww43ttN+Ezllqla0wEP6NHduYZ18ZOE=
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 11 May 2026 12:11:08 +0100
-Subject: [PATCH v12 24/28] coresight: Add PM callbacks for sink device
+Date: Mon, 11 May 2026 12:11:10 +0100
+Subject: [PATCH v12 26/28] coresight: sysfs: Increment refcount only for
+ software source
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260511-arm_coresight_path_power_management_improvement-v12-24-1c9dcb1de8c9@arm.com>
+Message-Id: <20260511-arm_coresight_path_power_management_improvement-v12-26-1c9dcb1de8c9@arm.com>
 References: <20260511-arm_coresight_path_power_management_improvement-v12-0-1c9dcb1de8c9@arm.com>
 In-Reply-To: <20260511-arm_coresight_path_power_management_improvement-v12-0-1c9dcb1de8c9@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -76,16 +77,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778497860; l=4031;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778497860; l=4561;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=Rs8sqRP9AM2fkjgREmH03R5eNh7JZ49EjWSqgHnuMhk=;
- b=m7UoZSFNHDxW0iokZI4SvcdEZvK19jSyqiXzGLEo3np0xFGNDHgi+CuRW/CrKaW3h1HfYQ7JX
- wC4wCCO+yGyCvWeVExHmBfTqS0tZDMQwLxDL9I6rXwNc+CA0fr4VUjx
+ bh=BXij1k3TP57xl0BX6JWijBR4GKEmA52SprYTQoBkRuM=;
+ b=H/rDLn4TvOhAe6Qo7HRWRbhe5GYBM0AxOSeTnSi2DXBXM3wzFdF2aHzkIJTCsmBp+2vB0M1nm
+ 56WKgG0exS7ALNoaEKA2qZI6YZBgm0R0GyZeMOiSiXIreJ2O1yP6mGc
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_121212_411539_252476B0 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20260511_121216_622956_87ACCAFB 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,13 +101,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike system level sinks, per-CPU sinks may lose power during CPU idle
-states.  Currently, this applies specifically to TRBE.  This commit
-invokes save and restore callbacks for the sink in the CPU PM notifier.
+Except for software sources (e.g. STM), other sources treat multiple
+enables as equivalent to a single enable. The device mode already
+tracks the binary state, so it is redundant to operate refcount.
 
-If the sink provides PM callbacks but the source does not, this is
-unsafe because the sink cannot be disabled safely unless the source
-can also be controlled, so veto low power entry to avoid lockups.
+Introduce a helper coresight_is_software_source() for check software
+source. Refactor to maintain the refcount only for software sources.
+This simplifies future CPU PM handling without refcount logic.
 
 Tested-by: James Clark <james.clark@linaro.org>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
@@ -114,102 +115,110 @@ Reviewed-by: James Clark <james.clark@linaro.org>
 Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 35 ++++++++++++++++++++++++++--
- 1 file changed, 33 insertions(+), 2 deletions(-)
+ drivers/hwtracing/coresight/coresight-sysfs.c | 39 +++++++++++++++++----------
+ include/linux/coresight.h                     |  6 +++++
+ 2 files changed, 31 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 674fc375ff44e732405563af7be9dc8fae118e41..424727ed12b2fd26be1267ce3e88bab9e3858772 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1868,7 +1868,7 @@ static struct coresight_path *coresight_cpu_get_active_path(void)
- /* Return: 1 if PM is required, 0 if skip, or a negative error */
- static int coresight_pm_is_needed(struct coresight_path *path)
- {
--	struct coresight_device *source;
-+	struct coresight_device *source, *sink;
+diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+index 0aebafcb8d0e8e699652244af5202e7c4dc4e9b1..6f11738b67303eb826c0577eedc418694a0bb1ca 100644
+--- a/drivers/hwtracing/coresight/coresight-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+@@ -39,6 +39,26 @@ ssize_t coresight_simple_show32(struct device *_dev,
+ }
+ EXPORT_SYMBOL_GPL(coresight_simple_show32);
  
- 	if (this_cpu_read(percpu_pm_failed))
- 		return -EIO;
-@@ -1877,7 +1877,8 @@ static int coresight_pm_is_needed(struct coresight_path *path)
- 		return 0;
- 
- 	source = coresight_get_source(path);
--	if (!source)
-+	sink = coresight_get_sink(path);
-+	if (!source || !sink)
- 		return 0;
- 
- 	/* pm_save_disable() and pm_restore_enable() must be paired */
-@@ -1885,16 +1886,35 @@ static int coresight_pm_is_needed(struct coresight_path *path)
- 	    coresight_ops(source)->pm_restore_enable)
- 		return 1;
- 
++static void coresight_source_get_refcnt(struct coresight_device *csdev)
++{
 +	/*
-+	 * It is not permitted that the source has no callbacks while the sink
-+	 * does, as the sink cannot be disabled without disabling the source,
-+	 * which may lead to lockups. Fix this by enabling self-hosted PM
-+	 * mode for ETM (see etm4_probe()).
++	 * There could be multiple applications driving the software
++	 * source. So keep the refcount for each such user when the
++	 * source is already enabled.
++	 *
++	 * No need to increment the reference counter for other source
++	 * types, as multiple enables are the same as a single enable.
 +	 */
-+	if (coresight_ops(sink)->pm_save_disable &&
-+	    coresight_ops(sink)->pm_restore_enable) {
-+		pr_warn_once("coresight PM failed: source has no PM callbacks; "
-+			     "cannot safely control sink\n");
-+		return -EINVAL;
-+	}
++	if (coresight_is_software_source(csdev))
++		csdev->refcnt++;
++}
 +
++static void coresight_source_put_refcnt(struct coresight_device *csdev)
++{
++	if (coresight_is_software_source(csdev))
++		csdev->refcnt--;
++}
++
+ static int coresight_enable_source_sysfs(struct coresight_device *csdev,
+ 					 enum cs_mode mode,
+ 					 struct coresight_path *path)
+@@ -57,14 +77,14 @@ static int coresight_enable_source_sysfs(struct coresight_device *csdev,
+ 			return ret;
+ 	}
+ 
+-	csdev->refcnt++;
++	coresight_source_get_refcnt(csdev);
+ 
  	return 0;
  }
  
- static int coresight_pm_device_save(struct coresight_device *csdev)
- {
-+	if (!csdev || !coresight_ops(csdev)->pm_save_disable)
-+		return 0;
-+
- 	return coresight_ops(csdev)->pm_save_disable(csdev);
+ /**
+- *  coresight_disable_source_sysfs - Drop the reference count by 1 and disable
+- *  the device if there are no users left.
++ *  coresight_disable_source_sysfs - Drop the reference count by 1 for software
++ *  sources. Disable the device if there are no users left.
+  *
+  *  @csdev: The coresight device to disable
+  *  @data: Opaque data to pass on to the disable function of the source device.
+@@ -79,7 +99,7 @@ static bool coresight_disable_source_sysfs(struct coresight_device *csdev,
+ 	if (coresight_get_mode(csdev) != CS_MODE_SYSFS)
+ 		return false;
+ 
+-	csdev->refcnt--;
++	coresight_source_put_refcnt(csdev);
+ 	if (csdev->refcnt == 0) {
+ 		coresight_disable_source(csdev, data);
+ 		return true;
+@@ -156,9 +176,6 @@ int coresight_enable_sysfs(struct coresight_device *csdev)
+ 	int ret = 0;
+ 	struct coresight_device *sink;
+ 	struct coresight_path *path;
+-	enum coresight_dev_subtype_source subtype;
+-
+-	subtype = csdev->subtype.source_subtype;
+ 
+ 	mutex_lock(&coresight_mutex);
+ 
+@@ -173,13 +190,7 @@ int coresight_enable_sysfs(struct coresight_device *csdev)
+ 	 * doesn't hold coresight_mutex.
+ 	 */
+ 	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
+-		/*
+-		 * There could be multiple applications driving the software
+-		 * source. So keep the refcount for each such user when the
+-		 * source is already enabled.
+-		 */
+-		if (subtype == CORESIGHT_DEV_SUBTYPE_SOURCE_SOFTWARE)
+-			csdev->refcnt++;
++		coresight_source_get_refcnt(csdev);
+ 		goto out;
+ 	}
+ 
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index 58d474b269806d32cad6ed87da96550b06f1f30f..76ef4c0965125cd11830df0151a6707d3e3b638d 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -611,6 +611,12 @@ static inline bool coresight_is_percpu_source(struct coresight_device *csdev)
+ 	       (csdev->subtype.source_subtype == CORESIGHT_DEV_SUBTYPE_SOURCE_PROC);
  }
  
- static void coresight_pm_device_restore(struct coresight_device *csdev)
++static inline bool coresight_is_software_source(struct coresight_device *csdev)
++{
++	return csdev && coresight_is_device_source(csdev) &&
++	       (csdev->subtype.source_subtype == CORESIGHT_DEV_SUBTYPE_SOURCE_SOFTWARE);
++}
++
+ static inline bool coresight_is_percpu_sink(struct coresight_device *csdev)
  {
-+	if (!csdev || !coresight_ops(csdev)->pm_restore_enable)
-+		return;
-+
- 	coresight_ops(csdev)->pm_restore_enable(csdev);
- }
- 
-@@ -1913,15 +1933,24 @@ static int coresight_pm_save(struct coresight_path *path)
- 	to = list_prev_entry(coresight_path_last_node(path), link);
- 	coresight_disable_path_from_to(path, from, to);
- 
-+	/*
-+	 * Save the sink. Most sinks do not implement a save callback to avoid
-+	 * latency from memory copying. We assume the sink's save and restore
-+	 * always succeed.
-+	 */
-+	coresight_pm_device_save(coresight_get_sink(path));
- 	return 0;
- }
- 
- static void coresight_pm_restore(struct coresight_path *path)
- {
- 	struct coresight_device *source = coresight_get_source(path);
-+	struct coresight_device *sink = coresight_get_sink(path);
- 	struct coresight_node *from, *to;
- 	int ret;
- 
-+	coresight_pm_device_restore(sink);
-+
- 	from = coresight_path_first_node(path);
- 	/* Enable up to the node before sink */
- 	to = list_prev_entry(coresight_path_last_node(path), link);
-@@ -1934,6 +1963,8 @@ static void coresight_pm_restore(struct coresight_path *path)
- 	return;
- 
- path_failed:
-+	coresight_pm_device_save(sink);
-+
- 	pr_err("Failed in coresight PM restore on CPU%d: %d\n",
- 	       smp_processor_id(), ret);
- 
+ 	return csdev && (csdev->type == CORESIGHT_DEV_TYPE_SINK) &&
 
 -- 
 2.34.1
