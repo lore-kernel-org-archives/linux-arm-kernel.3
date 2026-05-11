@@ -4,142 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB8ECCD4840
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 04:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD88CD37B7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 05:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kuzrfR/Mxgy+d8rXhjvSkFvDcWPZJwXKSWBS7v4vGbQ=; b=dZGIrSLkred8+oKwbVS0K5BGK/
-	hLHyB+PxJqol1QtvTynLhOqtzVZFAlVfj0jutIdPaE/3s68lhAzuZ5iVM5j2ljC2EUph1dYPn5I4R
-	80AtDWRwLDL01PpTJVj44Ijm9krjmptVcNYro0BwUOLAA6DsqMTALfW1v1jpTj9KVYudAFsjkKSuJ
-	NXxS60FNGF3+Gu+jEJKfw8KrMbHvnVD2PjwteWx66g8TwqBAhFm2D2ztN7+awWK7Ud9IO1QShF+YN
-	TnbZlte4chkVnnINqgXp0gM1F1f9B+4Bx1fnMNvSxbJBzljqMT8IDEMcf/Q6+VyIY+jgBs2jKyUZW
-	wc/2MgZw==;
+	bh=6ptWveaylkOnLhmiz/O6n3pjAXe5zjs/UNg9CXw+Xoo=; b=YQy753cocbU4msqeuMjKLcCZRl
+	VGws0pfF1md53AUelmHO+s1SrK/9c/mspKxLF1+psn/d3wqMoQrJSlj1DahI3rDlVcABffWyxr0Ws
+	t/rtbcnqvSnWviTix9iPk8h/4zEj9RkQplAYdvbcDENvIxbwpXzpGSxJ/JMfWUSdMZeNj3/MmK6MA
+	4HepqoI/Cf7I2h3WorRbkKw9bkTRcnzL7/m1FWK79OBHKrgqrEuzSUGkmAfoD1waBb/K6T4rwHvX2
+	e+Bld+1M6K1T0joakWgkYoXXEX8KdIow0Mpna3ZtNHaOQlO5fYPw5OX16rjXPX7tVDccOkX/xqitJ
+	AboFZAog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIjE-0000000CJnJ-2MH2;
-	Mon, 11 May 2026 04:58:53 +0000
-Received: from mail-northcentralusazon11012027.outbound.protection.outlook.com ([40.107.200.27] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wMItJ-0000000CKn6-20Fi;
+	Mon, 11 May 2026 05:09:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMIjA-0000000CJmj-3vlP
+	id 1wMItF-0000000CKmX-1ZxB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 04:58:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hVRhc8U4c5KcsVajCsZgoWdi/giJElYDzIBiUSCfNreiK1gMLoZGfOWFO1xgUecv2Kws5p9SiiAUaTc6NOqQByICCfdpLGBbQK3Qtn85v/C6lyInuNy60Pl9BzojxPfGovpXIBpSaFs+Xs42W1BEHeAQhtkb5CBIdylsbhMhfhH5tGeXQEWnWf/90Mb8jDifJuRmcKJbxMpQ9j5A249SLEs/3rmUsHmthIQswXgpAR8/vkyo40rrMYA7btOzn/s1ik1+fjBZpE6Xz6T46FwLTEWHCzNyt+go9otCmVhbXN2T+1+CTHND0EuBc+3u9eaO06DnWHZtIcLdyg8SscXTig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kuzrfR/Mxgy+d8rXhjvSkFvDcWPZJwXKSWBS7v4vGbQ=;
- b=ZS12Sf3cpl7TqThCwvUK5GIfDJrWaeD9+Z39Eqjt5XzGEQarWa1B9XWB9ZxC1mag0dLHvbyk8UDDTuVmEmSMDUpRwJ1PcwmbYMqKJJ3isJ7a4gffbu4TEE6H28zZ3xN7HvXeP2jn7WkhSsITAfr8ic/6jXYHI2vg0veqlWr+Yv2KYMQZaGh6DQebM0IU5c5Ql4VhxRbDcX2yYKmnAG6FS+hk/ubsyLHnjHuiULYjOlrgAPdC3dRsiily4t9Ta1e7eFOdD3cCvfwFU96B7ag7EHUjz203kDHp1BAF/AS8MxVktYpW2rvxZOYlXktfHfV5+JxFNw41OOErJjX1PBYG5Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=bgdev.pl smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kuzrfR/Mxgy+d8rXhjvSkFvDcWPZJwXKSWBS7v4vGbQ=;
- b=MOt3OaHms7OTBsCywHsmoFHeYdUjFhWrN9mCIieb41ERLQMU123vQl+xwXQVoF+vQymx41nfwfru57FzllEdJ7iWFbrPP8X1laYcZUgCRc7JqoO6MDJy1d41rpWhVVNexYtFy+nXnwdiuJV6jyuV0zQPkjTad6fXD/yT43hUqOo=
-Received: from BYAPR05CA0004.namprd05.prod.outlook.com (2603:10b6:a03:c0::17)
- by CO6PR10MB5634.namprd10.prod.outlook.com (2603:10b6:303:149::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Mon, 11 May
- 2026 04:58:43 +0000
-Received: from MWH0EPF000C6191.namprd02.prod.outlook.com
- (2603:10b6:a03:c0:cafe::a1) by BYAPR05CA0004.outlook.office365.com
- (2603:10b6:a03:c0::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.14 via Frontend Transport; Mon, 11
- May 2026 04:58:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MWH0EPF000C6191.mail.protection.outlook.com (10.167.249.106) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Mon, 11 May 2026 04:58:39 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Sun, 10 May
- 2026 23:58:38 -0500
-Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Sun, 10 May
- 2026 23:58:38 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Sun, 10 May 2026 23:58:38 -0500
-Received: from [172.24.18.18] (ltpw09g66v.dhcp.ti.com [172.24.18.18])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64B4wQLD2625874;
-	Sun, 10 May 2026 23:58:27 -0500
-Message-ID: <99819177-5911-4271-96b2-6f0eb7f9c42d@ti.com>
-Date: Mon, 11 May 2026 10:28:25 +0530
+	Mon, 11 May 2026 05:09:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D33724411C
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 05:09:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96F8DC2BCB0
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 05:09:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778476151;
+	bh=VjFgkcngnDyDi/6uf8HEAoafHucYPSUi6POvzSEjLaY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=jP6vxU5cdBo8/GjuNiwu9PWRzs/rw+/ukI6eaV4I42t6rHJTPvbrUfMdWLhhnymOO
+	 ZGEAp9slGYHXfjpTUS6DXE5TeKj4aCTHpEzGnWTcDE2NZk6QBGZNoPf0iG0lqFHLKZ
+	 LRsUxxGBpRNkcWK+9fPf8V4K+DPHcMffO9HhbedsMlu3FGadkEU0/cHI4iMo/Hrfkz
+	 LzNmsrbyPJX6qNMhUvm33phuzIx9Ub3Ext1wLkhGC5c5HXcO6xEL42R2v6g9bHmaPz
+	 ydLicnQi9DQBetV6LVQUyRCOY7e5f6/x3EIXWcz5qBz6ILH7J3FhkKm4VLVIgA8GPS
+	 0BCfZkZ64fw5A==
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-67179ed133dso4581880a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 May 2026 22:09:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9d+v/62SPMa04y/3j8mUnNQRWQusDsYY5QS/GR0PH2nPQhK/URj9oeJ5YRi32UYosgvUGW/U/OMHkxGh1udfPh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7ZHsg8YOJyyDy+eec0a0QDMMa1WMxRIBqqmD/dV3OyW+cNbnq
+	gD7mTwxXcrAJMZZOgIAC0qRu7bBnFodNGIJ++YlJ+6ppG+fq5w77VH0oOifN/mVYIqTrO3DfVpj
+	RHDNnXuIUfD3yZbxF05F2l977F0VUo3M=
+X-Received: by 2002:a05:6402:a587:10b0:66b:f527:c69d with SMTP id
+ 4fb4d7f45d1cf-67d63d8b66emr8455569a12.8.1778476150384; Sun, 10 May 2026
+ 22:09:10 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-To: Mathieu Poirier <mathieu.poirier@linaro.org>, Arnaud POULIQUEN
-	<arnaud.pouliquen@foss.st.com>
-CC: Shenwei Wang <shenwei.wang@nxp.com>, Andrew Lunn <andrew@lunn.ch>, "Linus
- Walleij" <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-	"Jonathan Corbet" <corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn
- Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"Peng Fan" <peng.fan@nxp.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-References: <CANLsYkwvL0Z3+12MD=J+Dc2yAU2T8ypizyG=6AhYoWOh55odHA@mail.gmail.com>
- <472f85bd-42c2-40c6-abfd-b76924797069@ti.com>
- <CANLsYkzt9xUczxSU28u-TfZAAjr0ufZKXAj8Eqfq=45gufXW3w@mail.gmail.com>
- <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com>
- <21de8440-adf7-454b-acfc-06e50882e075@ti.com>
- <4c526816-b127-43e7-86e9-eee4dc1152bc@foss.st.com>
- <268f8e00-91bc-43ea-ba95-077cf859e7f3@ti.com>
- <9e2492d3-8753-46c7-8db6-5f1a80b4f2e9@foss.st.com>
- <db4c18be-1c8d-4227-9fcc-1d25cec50e37@ti.com>
- <6917e3d7-8c6c-4e63-8eca-5308621ec3e8@foss.st.com> <afzIABSh1xtMEGbf@p14s>
-Content-Language: en-US
-From: "Padhi, Beleswar" <b-padhi@ti.com>
-In-Reply-To: <afzIABSh1xtMEGbf@p14s>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C6191:EE_|CO6PR10MB5634:EE_
-X-MS-Office365-Filtering-Correlation-Id: a713aac1-a590-47ff-2ff8-08deaf19f7d3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|82310400026|3023799003|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 0l8M33VNjrJmmAL1vlwh62ffIswToR2MzaHhF3jrP/dRQ/sAiRPRJHJ54zN3LuYDpqNVX344iMXqZ75GC+XPbriowahUJBvBkUAXviEWRm2s1yhrn4ScalsV92n43Ib9RRZiwrbrXSvEcI2REpTXQ/wZ/69cejdMlSoLbYDFJpTLyZALgJf2K+flyD40fvVFUD8o9tEyHcacL63Odqt2oqCPJAYioSzhAp0Nm/rfx2LA2W2i8gQwZuiPaMI2+pVjZap1JXMQAV4wJQz2Hc9/OmNW7cTVmTuNWWseijjxdLxzMmeh7U36Fnkr3YOieb9MSUHtOHwsSB0zpM2SyIIC8V38e4zp1495F+HbUYuhZ7y2yJiOKpLMXp0Fzlq+vJbd2PYuIDWAJD9BQlgGIzw7sCwwGkKO35+VJOQc/dodHuDRg4zOHbS23PNXkV5DGKRIRhFI9mH65IiCmM34xz+et16MW9ruW528u8WUFHuIRTazG8bnegOqZtaDVurRQ+qHiyIjBsiy5YRNHiZlPheDQ7Ch/4V7VpTyrpEfyCaaw6wNxvYgyBtttuUuZKpNlg6s1RANV7fohoA4iCOJLyB7qbmh1vbAwmUAFAT0PaNZhPP1LbIJPiy5lz0iPSr8ygXHgzCJTmwvqvVfM12tCbtHmsCffwikK44TKBaFWTrdNcvDGLIH7r+IbgMkU6ZuVDkKOMY5vRM6+ngppxXsPh3IbK5R9cG4COdUOWU4kvO5i2U=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(82310400026)(3023799003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: tIGpsyd34siFj55QdOsRPFCB+7ljgbt8aE/CpnyLzhKFxKo4Na0+ocO4eabSXR6hahjJGHz2La1+ID2DDhJYw8D0qbe0k9C4FNvDMZVt66cXVOT4p5BiPCoALUr6If0LvNp1ibXzQvqqy2rLA9VLtiQmVGFH3R+IRai4SHKUbOoGSUBND5AMw5a85VuUSCpyOXAktxVgkFOERfb8BmxaHJtzQOMJrOqegsBpV7aqvVAzHuD89+NTbWsESSyCS00zl5CRjNwk1pWArAqMqzm0hai32NeeoXOsLEwPCCdndKpCdljnspB5/BmSwLYuyeSdYHdzstl7fKvuTj1JJpipgU02dqaRQ3eZeXFkDL8oUm6u3kgCDuz5cB3gDoA+dKHxLTZzk3k9wNNWEAz5ZLT8kPsKsZMdySeel/Sy6g0L3uVXX98dn3yVGGhwflIy6jC+
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 04:58:39.8752
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a713aac1-a590-47ff-2ff8-08deaf19f7d3
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6191.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO6PR10MB5634
+References: <20260508123910.114273-1-ulf.hansson@linaro.org> <20260508123910.114273-3-ulf.hansson@linaro.org>
+In-Reply-To: <20260508123910.114273-3-ulf.hansson@linaro.org>
+From: Saravana Kannan <saravanak@kernel.org>
+Date: Sun, 10 May 2026 22:08:58 -0700
+X-Gmail-Original-Message-ID: <CACRMN=fseD6-ODYnOEE42S9VKAb2F33kRv_VPYBGyPsitG2how@mail.gmail.com>
+X-Gm-Features: AVHnY4Jyso8e2fZ7k8KjZKga2UrlRCr0usLugmNfu4YcyYocZL-OkXg90ISdkts
+Message-ID: <CACRMN=fseD6-ODYnOEE42S9VKAb2F33kRv_VPYBGyPsitG2how@mail.gmail.com>
+Subject: Re: [PATCH v3 02/13] driver core: Enable suppliers to implement fine
+ grained sync_state support
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Danilo Krummrich <dakr@kernel.org>, Saravana Kannan <saravanak@kernel.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260510_215849_094635_280395B0 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20260510_220913_556374_2AD95D54 
+X-CRM114-Status: GOOD (  48.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,237 +93,410 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mathieu,
-
-On 5/7/2026 10:42 PM, Mathieu Poirier wrote:
-> On Tue, May 05, 2026 at 10:46:11AM +0200, Arnaud POULIQUEN wrote:
->> Hi Beleswar
->>
->> On 5/5/26 07:25, Beleswar Prasad Padhi wrote:
->>> Hi Arnaud,
->>>
->>> On 04/05/26 22:34, Arnaud POULIQUEN wrote:
->>>> Hi Beleswar,
->>>>
->>>> On 5/4/26 10:17, Beleswar Prasad Padhi wrote:
->>>>
->>> [...]
->>>
->>>>>> I may have misunderstood your solution. Could you please help me
->>>>>> understand your proposal by explaining how you would handle three
->>>>>> GPIO ports defined in the DT, considering that the endpoint
->>>>>> addresses on the Linux side can be random?
->>>>>> If I assume there is a unique endpoint on the remote side,
->>>>>> I do not understand how you can match, on the firmware side,
->>>>>> the Linux endpoint address to the GPIO port.
->>>>>
->>>>> Sure, let me take an example:
->>>>> Assumptions: 3 GPIO ports in DT, 3 endpoints in Linux (one per port),
->>>>> 1 endpoint in remote (0xd) and 1 rpmsg channel (rpmsg-io)
->>>>>
->>>>>           rpmsg {
->>>>>             rpmsg-io {
->>>>>               #address-cells = <1>;
->>>>>               #size-cells = <0>;
->>>>>
->>>>>               gpio@25 {
->>>>>                 compatible = "rpmsg-gpio";
->>>>>                 reg = <25>;
->>>>>                 gpio-controller;
->>>>>                 #gpio-cells = <2>;
->>>>>                 #interrupt-cells = <2>;
->>>>>                 interrupt-controller;
->>>>>               };
->>>>>
->>>>>               gpio@32 {
->>>>>                 compatible = "rpmsg-gpio";
->>>>>                 reg = <32>;
->>>>>                 gpio-controller;
->>>>>                 #gpio-cells = <2>;
->>>>>                 #interrupt-cells = <2>;
->>>>>                 interrupt-controller;
->>>>>               };
->>>>>
->>>>>               gpio@35 {
->>>>>                 compatible = "rpmsg-gpio";
->>>>>                 reg = <35>;
->>>>>                 gpio-controller;
->>>>>                 #gpio-cells = <2>;
->>>>>                 #interrupt-cells = <2>;
->>>>>                 interrupt-controller;
->>>>>               };
->>>>>             };
->>>>>           };
->>>>>
->>>>> Code Flow:
->>>>> 1. "rpmsg-io" channel is announced from remote firmware with unique dst
->>>>>        ept = 0xd.
->>>>>
->>>>> 2. rpmsg_core.c creates the default dynamic local ept for the channel
->>>>>        ept = 0x405.
->>>>>
->>>>> 3. rpmsg_core.c assigns the allocated addr to rpdev device:
->>>>>        rpdev->src = 0x405 and rpdev->dst = 0xd.
->>>>>
->>>>> 4. rpmsg_gpio_channel_probe() is triggered. For *each* of the GPIO ports
->>>>>        in DT, it will trigger rpmsg_gpiochip_register() which will now:
->>>>>           a. Call port->ept = rpmsg_create_ept(rpdev,
->>>>>                                                                       rpmsg_gpio_channel_callback,
->>>>>                                                                       port,
->>>>>                                                                      {rpdev.id.name,
->>>>>                                                                       RPMSG_ADDR_ANY,
->>>>>                                                                       RPMSG_ADDR_ANY});
->>>>>               Ex- port->ept->addr = 0x408
->>>>>
->>>>>           b. Prepare a 8-byte message having 2 fields:
->>>>>               port->ept->addr (0x408) and port->idx (25)
->>>>>
->>>>>           c. Send this message to remote firmware on default channel ept
->>>>>               (0x405 -> 0xd) by:
->>>>>               rpmsg_send(rpdev->ept, &message, sizeof(message));
->>>>>
->>>>>           d. Remote side receives this message and creates a map of the
->>>>>               linux_ept_addr to gpio_port. (0x408 <-> 25)
->>>>>
->>>>> 5. After this point, any gpio messages sent from Linux from gpio port
->>>>>        endpoints (Ex- 0x408) can be decoded at remote side by looking up
->>>>>        its map (Ex- map[0x408] = 25).
->>>>>
->>>>> 6. Any messages sent from remote to Linux for a particular gpio port can
->>>>>        also be decoded at Linux by simply fetching the priv pointer to get
->>>>>        the per-port device:
->>>>>        struct rpmsg_gpio_port *port = priv;
->>>>>
->>>> Thanks for the details!
->>>>
->>>> To sum up:
->>>> - the default endpoint acts as the GPIO controller (0x405),
->>>> - one extra Linux endpoint is created per port defined in DT.
->>>>
->>>> This should work, but my concerns remain the same:
->>>>
->>>>     1) This implementation forces the remote processor to handle a single
->>>>        endpoint instead of one endpoint per port. This may add complexity to
->>>>        the remote firmware if each port is managed in a separate thread.
->>>
->>> A. Not really, I just chose 1 remote endpoint for this example as you
->>>       suggested to. We can scale it for two-way communication via the
->>>       get_config message like you suggested below.
->>>
->>> B. Isn't it a bad design of the firmware if it is handling 10 gpio ports
->>>       in 10 threads? The logic to handle all the ports is the same, only
->>>       the parameters (e.g. line number, msg) is different.
->>>
->>>>     2) Linux, as a consumer, should not expose its capabilities to the remote
->>>>        side (in your proposal it enumerates the ports defined in the DT).     In my view, the remote processor should expose its capabilities as the
->>>>        provider.
->>>
->>> Agreed on this.
->>>
->>>>   From my perspective, based on your proposal:
->>>>    1) Linux should send a get_config message to the remote proc (0x405 -> 0xD). 2) The remote processor would respond with the list of ports, associated
->>>>       with an remote endpoint addresses.
->>>
->>> Agreed, we can scale it for multiple remote endpoints like this.
->>>
->>>>    3) Linux would parse the response, compare it with the DT, enable the GPIO
->>>>       ports accordingly, creating it local endpoint and associating it with
->>>>       the remote endpoint.
->>>> Using name service to identify the ports should avoid step 1 & 2 ...
->>>
->>> Yes, but won't that make a lot of hard-codings in the driver?
->>>
->>> +static struct rpmsg_device_id rpmsg_gpio_channel_id_table[] = {
->>> +    { .name = "rpmsg-io-25" },
->>> +    { .name = "rpmsg-io-32" },
->>> +    { .name = "rpmsg-io-35" },
->>> +    { },
->>> +};
->>>
->>> What if tomorrow another vendor decides to add more remoteproc
->>> controlled GPIO ports to Linux, they would have to update this struct in
->>> the driver everytime. And the port indexes (25/32/35) could also differ
->>> between vendors. We should make the driver dynamic i.e. vendor
->>> agnostic.
->>>
->>> I think querying the remote firmware at runtime (step 1 & 2 above) is a
->>> common design pattern and makes the driver vendor agnostic. But feel
->>> free to correct me.
->>>
->> You are right. My proposal would require a patch in rpmsg-core. The idea of
->> allowing a postfix in the compatible string has been discussed before, but,
->> if I remember correctly, it was not concluded.
->>
-> I also remember discussing this.  I even reviewed one of Arnaud's patch
-> and submitted one myself.  This must have been in 2020 and the reason why it
-> wasn't merged has escaped my memory.
->   
->> /* rpmsg devices and drivers are matched using the service name */
->> static inline int rpmsg_id_match(const struct rpmsg_device *rpdev,
->> 				  const struct rpmsg_device_id *id)
->> {
->> 	size_t len;
->>
->> +	len = strnlen(id->name, RPMSG_NAME_SIZE);
->> +	if (len && id->name[len - 1] == '*')
->> +		return !strncmp(id->name, rpdev->id.name, len - 1);
->>
->> 	return strncmp(id->name, rpdev->id.name, RPMSG_NAME_SIZE) == 0;
->> }
->>
->> Then, in rpmsg-gpio, and possibly in other drivers such as rpmsg-tty and
->> a future rpmsg-i2c, we could use:
->> static struct rpmsg_device_id rpmsg_gpio_channel_id_table[] = {
->>      { .name = "rpmsg-io" },
->>      { .name = "rpmsg-io-*" },
->>      { },
->> };
-> That was my initial approach.  We don't even need an additional "rpmsg-io-*" in
-> rpmsg_gpio_channel_id_table[].  All we need is:
+On Fri, May 8, 2026 at 5:39=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.org>=
+ wrote:
 >
-> /* rpmsg devices and drivers are matched using the service name */
-> static inline int rpmsg_id_match(const struct rpmsg_device *rpdev,
->                                   const struct rpmsg_device_id *id)
-> {
->   +     size_t len = strnlen(id->name, RPMSG_NAME_SIZE);
+> The common sync_state support isn't fine grained enough for some types of
+> suppliers, like power domains for example. Especially when a supplier
+> provides multiple independent power domains, each with their own set of
+> consumers. In these cases we need to wait for all consumers for all the
+> provided power domains before invoking the supplier's ->sync_state().
 >
->   -     return strncmp(id->name, rpdev->id.name, RPMSG_NAME_SIZE) == 0;
->   +     return strncmp(id->name, rpdev->id.name, len) == 0;
-> }
+> To allow a more fine grained sync_state support to be implemented on per
+> supplier's driver basis, let's add a new optional callback. As soon as
+> there is an update worth to consider in regards to managing sync_state fo=
+r
+> a supplier device, __device_links_queue_sync_state() queues the device in=
+ a
+> list, allowing the new callback to be invoked when flushing the list in
+> device_links_flush_sync_list().
+>
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> ---
+>
+> Changes in v3:
+>         - Re-worked the approach to use a list to queue/flush devices for
+>         ->queue_sync_state(). This should make sure the device lock is be=
+ing
+>         held when it's needed, as pointed out by Danilo.
+>
 
+Hi Ulf,
 
-This wildcard channel matching is interesting. It would be good to know
-the reasons/cons why this patch was not concluded.
+Thanks for working on this!
+
+And please bear with my slow replies.
+
+> ---
+>  drivers/base/base.h           | 18 ++++++++
+>  drivers/base/core.c           | 77 ++++++++++++++++++++++++++---------
+>  drivers/base/driver.c         |  7 ++++
+>  include/linux/device.h        |  2 +
+>  include/linux/device/driver.h |  7 ++++
+>  5 files changed, 91 insertions(+), 20 deletions(-)
+>
+> diff --git a/drivers/base/base.h b/drivers/base/base.h
+> index 30b416588617..c8be24af92c3 100644
+> --- a/drivers/base/base.h
+> +++ b/drivers/base/base.h
+> @@ -196,6 +196,24 @@ static inline void dev_sync_state(struct device *dev=
+)
+>                 dev->driver->sync_state(dev);
+>  }
+>
+> +static inline bool dev_has_queue_sync_state(struct device *dev)
+
+Let's please pick a better name. This is too similar to the actual
+queue function you call __device_links_queue_sync_state() and is very
+confusing. Maybe something that has a meaning along the lines of
+"another consumer probed". So, maybe:
+* consumer_probed()
+* change_of_active_consumers()
+
+I'm going to refer to this new callback as "consumer_probed()" in the
+rest of my replies so I can keep it straight in my head.
+
+> +{
+> +       struct device_driver *drv;
+> +
+> +       if (!dev)
+> +               return false;
+> +       drv =3D READ_ONCE(dev->driver);
+> +       if (drv && drv->queue_sync_state)
+> +               return true;
+> +       return false;
+> +}
+> +
+> +static inline void dev_queue_sync_state(struct device *dev)
+> +{
+> +       if (dev->driver && dev->driver->queue_sync_state)
+> +               dev->driver->queue_sync_state(dev);
+> +}
+> +
+>  int driver_add_groups(const struct device_driver *drv, const struct attr=
+ibute_group **groups);
+>  void driver_remove_groups(const struct device_driver *drv, const struct =
+attribute_group **groups);
+>  void device_driver_detach(struct device *dev);
+> diff --git a/drivers/base/core.c b/drivers/base/core.c
+> index d49420e066de..f1f95b3c81e5 100644
+> --- a/drivers/base/core.c
+> +++ b/drivers/base/core.c
+> @@ -1101,15 +1101,18 @@ int device_links_check_suppliers(struct device *d=
+ev)
+>  /**
+>   * __device_links_queue_sync_state - Queue a device for sync_state() cal=
+lback
+>   * @dev: Device to call sync_state() on
+> - * @list: List head to queue the @dev on
+> + * @s_list: List head for the sync_state to queue the @dev on
+> + * @q_list: List head for the queue_sync_state to queue the @dev on
+>   *
+>   * Queues a device for a sync_state() callback when the device links wri=
+te lock
+>   * isn't held. This allows the sync_state() execution flow to use device=
+ links
+>   * APIs.  The caller must ensure this function is called with
+> - * device_links_write_lock() held.
+> + * device_links_write_lock() held.  Note, if the optional queue_sync_sta=
+te()
+> + * callback has been assigned too, the device is queued for that list to=
+ allow a
+> + * more fine grained support to be implemented on per supplier basis.
+
+Why not keep this in the same format as the existing doc? Something like:
+If option list xxx is provided, queues the device for the
+consumer_probed() callback.
+
+>   *
+>   * This function does a get_device() to make sure the device is not free=
+d while
+> - * on this list.
+> + * on the corresponding list.
+>   *
+>   * So the caller must also ensure that device_links_flush_sync_list() is=
+ called
+>   * as soon as the caller releases device_links_write_lock().  This is ne=
+cessary
+> @@ -1117,7 +1120,8 @@ int device_links_check_suppliers(struct device *dev=
+)
+>   * put_device() is called on this device.
+>   */
+>  static void __device_links_queue_sync_state(struct device *dev,
+> -                                           struct list_head *list)
+> +                                           struct list_head *s_list,
+> +                                           struct list_head *q_list)
+>  {
+>         struct device_link *link;
+>
+> @@ -1129,8 +1133,14 @@ static void __device_links_queue_sync_state(struct=
+ device *dev,
+>         list_for_each_entry(link, &dev->links.consumers, s_node) {
+>                 if (!device_link_test(link, DL_FLAG_MANAGED))
+>                         continue;
+> -               if (link->status !=3D DL_STATE_ACTIVE)
+> +               if (link->status !=3D DL_STATE_ACTIVE) {
+> +                       if (dev_has_queue_sync_state(dev) &&
+> +                           list_empty(&dev->links.queue_sync)) {
+> +                               get_device(dev);
+> +                               list_add_tail(&dev->links.queue_sync, q_l=
+ist);
+> +                       }
+>                         return;
+> +               }
+>         }
+>
+>         /*
+> @@ -1144,25 +1154,28 @@ static void __device_links_queue_sync_state(struc=
+t device *dev,
+>                 return;
+>
+>         get_device(dev);
+> -       list_add_tail(&dev->links.defer_sync, list);
+> +       list_add_tail(&dev->links.defer_sync, s_list);
+>  }
+>
+>  /**
+> - * device_links_flush_sync_list - Call sync_state() on a list of devices
+> - * @list: List of devices to call sync_state() on
+> + * device_links_flush_sync_list - Call sync_state callbacks for the devi=
+ces
+> + * @s_list: List of devices to call sync_state() on
+> + * @q_list: List of devices to call queue_sync_state() on
+>   * @dont_lock_dev: Device for which lock is already held by the caller
+>   *
+> - * Calls sync_state() on all the devices that have been queued for it. T=
+his
+> - * function is used in conjunction with __device_links_queue_sync_state(=
+). The
+> - * @dont_lock_dev parameter is useful when this function is called from =
+a
+> - * context where a device lock is already held.
+> + * Calls sync_state() and queue_sync_state() on all the devices that hav=
+e been
+> + * queued for it. This function is used in conjunction with
+> + * __device_links_queue_sync_state(). The @dont_lock_dev parameter is us=
+eful
+> + * when this function is called from a context where a device lock is al=
+ready
+> + * held.
+>   */
+> -static void device_links_flush_sync_list(struct list_head *list,
+> +static void device_links_flush_sync_list(struct list_head *s_list,
+> +                                        struct list_head *q_list,
+>                                          struct device *dont_lock_dev)
+>  {
+>         struct device *dev, *tmp;
+>
+> -       list_for_each_entry_safe(dev, tmp, list, links.defer_sync) {
+> +       list_for_each_entry_safe(dev, tmp, s_list, links.defer_sync) {
+>                 list_del_init(&dev->links.defer_sync);
+>
+>                 if (dev !=3D dont_lock_dev)
+> @@ -1175,6 +1188,25 @@ static void device_links_flush_sync_list(struct li=
+st_head *list,
+>
+>                 put_device(dev);
+>         }
+> +
+> +       if (!q_list)
+> +               return;
+> +
+> +       list_for_each_entry_safe(dev, tmp, q_list, links.queue_sync) {
+> +               list_del_init(&dev->links.queue_sync);
+> +
+> +               if (dev !=3D dont_lock_dev)
+> +                       device_lock(dev);
+> +
+> +               device_links_write_lock();
+> +               dev_queue_sync_state(dev);
+> +               device_links_write_unlock();
+> +
+> +               if (dev !=3D dont_lock_dev)
+> +                       device_unlock(dev);
+> +
+> +               put_device(dev);
+> +       }
+>  }
+>
+>  void device_links_supplier_sync_state_pause(void)
+> @@ -1188,6 +1220,7 @@ void device_links_supplier_sync_state_resume(void)
+>  {
+>         struct device *dev, *tmp;
+>         LIST_HEAD(sync_list);
+> +       LIST_HEAD(queue_list);
+>
+>         device_links_write_lock();
+>         if (!defer_sync_state_count) {
+> @@ -1204,12 +1237,12 @@ void device_links_supplier_sync_state_resume(void=
+)
+>                  * sync_list because defer_sync is used for both lists.
+>                  */
+>                 list_del_init(&dev->links.defer_sync);
+> -               __device_links_queue_sync_state(dev, &sync_list);
+> +               __device_links_queue_sync_state(dev, &sync_list, &queue_l=
+ist);
+>         }
+>  out:
+>         device_links_write_unlock();
+>
+> -       device_links_flush_sync_list(&sync_list, NULL);
+> +       device_links_flush_sync_list(&sync_list, &queue_list, NULL);
+>  }
+>
+>  static int sync_state_resume_initcall(void)
+> @@ -1296,6 +1329,7 @@ void device_links_driver_bound(struct device *dev)
+>  {
+>         struct device_link *link, *ln;
+>         LIST_HEAD(sync_list);
+> +       LIST_HEAD(queue_list);
+>
+>         /*
+>          * If a device binds successfully, it's expected to have created =
+all
+> @@ -1351,7 +1385,7 @@ void device_links_driver_bound(struct device *dev)
+>         if (defer_sync_state_count)
+>                 __device_links_supplier_defer_sync(dev);
+>         else
+> -               __device_links_queue_sync_state(dev, &sync_list);
+> +               __device_links_queue_sync_state(dev, &sync_list, &queue_l=
+ist);
+
+This path is really meant only for situations when the device has no
+consumers. So, I don't think fine grained control is relevant.
 
 >
-> And let the rpmsg-virtio-gpio driver parse @rpdev->id.name to match with a
-> GPIO controller in the DT.
+>         list_for_each_entry_safe(link, ln, &dev->links.suppliers, c_node)=
+ {
+>                 struct device *supplier;
+> @@ -1393,14 +1427,15 @@ void device_links_driver_bound(struct device *dev=
+)
+>                 if (defer_sync_state_count)
+>                         __device_links_supplier_defer_sync(supplier);
+>                 else
+> -                       __device_links_queue_sync_state(supplier, &sync_l=
+ist);
+> +                       __device_links_queue_sync_state(supplier, &sync_l=
+ist,
+> +                                                       &queue_list);
+>         }
 >
->> If exact name matching is strongly required, then this proposal would not be
->> suitablea.
->>
->> A third option would be a combination of both approaches: instantiate the
->> device using the same name service from the remote side, as done in
->> rpmsg-tty. In that case, a get_config message, or a similar mechanism, would
->> also be needed to retrieve the port information from the remote side.
->>
-> I'm not overly fond of a get_config message because it is one more thing we
-> have to define and maintain.
+>         dev->links.status =3D DL_DEV_DRIVER_BOUND;
 >
-> Arnaud: is there a get_config message already defined for rpmsg_tty?
+>         device_links_write_unlock();
 >
-> Beleswar: Can you provide a link to a virtio device that would use a get_config
-> message?
+> -       device_links_flush_sync_list(&sync_list, dev);
+> +       device_links_flush_sync_list(&sync_list, &queue_list, dev);
+>  }
+>
+>  /**
+> @@ -1516,6 +1551,7 @@ void device_links_driver_cleanup(struct device *dev=
+)
+>         }
+>
+>         list_del_init(&dev->links.defer_sync);
+> +       list_del_init(&dev->links.queue_sync);
+>         __device_links_no_driver(dev);
+>
+>         device_links_write_unlock();
+> @@ -1808,7 +1844,7 @@ void fw_devlink_probing_done(void)
+>         class_for_each_device(&devlink_class, NULL, &sync_list,
+>                               fw_devlink_dev_sync_state);
+>         device_links_write_unlock();
+> -       device_links_flush_sync_list(&sync_list, NULL);
+> +       device_links_flush_sync_list(&sync_list, NULL, NULL);
+>  }
+>
+>  /**
+> @@ -3169,6 +3205,7 @@ void device_initialize(struct device *dev)
+>         INIT_LIST_HEAD(&dev->links.consumers);
+>         INIT_LIST_HEAD(&dev->links.suppliers);
+>         INIT_LIST_HEAD(&dev->links.defer_sync);
+> +       INIT_LIST_HEAD(&dev->links.queue_sync);
+>         dev->links.status =3D DL_DEV_NO_DRIVER;
+>         dev_assign_dma_coherent(dev, dma_default_coherent);
+>         swiotlb_dev_init(dev);
+> diff --git a/drivers/base/driver.c b/drivers/base/driver.c
+> index 8ab010ddf709..b8f4d08bbd58 100644
+> --- a/drivers/base/driver.c
+> +++ b/drivers/base/driver.c
+> @@ -239,6 +239,13 @@ int driver_register(struct device_driver *drv)
+>                 pr_warn("Driver '%s' needs updating - please use "
+>                         "bus_type methods\n", drv->name);
+>
+> +       if (drv->queue_sync_state && !drv->sync_state &&
+> +           !drv->bus->sync_state) {
+> +               pr_err("Driver '%s' or its bus_type needs ->sync_state()"=
+,
+> +                      drv->name);
+> +               return -EINVAL;
+> +       }
+> +
+>         other =3D driver_find(drv->name, drv->bus);
+>         if (other) {
+>                 pr_err("Error: Driver '%s' is already registered, "
+> diff --git a/include/linux/device.h b/include/linux/device.h
+> index 56a96e41d2c9..6848b0a2c2d9 100644
+> --- a/include/linux/device.h
+> +++ b/include/linux/device.h
+> @@ -414,12 +414,14 @@ enum device_removable {
+>   * @suppliers: List of links to supplier devices.
+>   * @consumers: List of links to consumer devices.
+>   * @defer_sync: Hook to global list of devices that have deferred sync_s=
+tate.
+> + * @defer_sync: Hook to global list of devices scheduled for queue_sync_=
+state.
+>   * @status: Driver status information.
+>   */
+>  struct dev_links_info {
+>         struct list_head suppliers;
+>         struct list_head consumers;
+>         struct list_head defer_sync;
+> +       struct list_head queue_sync;
+>         enum dl_dev_state status;
+>  };
+>
+> diff --git a/include/linux/device/driver.h b/include/linux/device/driver.=
+h
+> index bbc67ec513ed..bc9ae1cbe03c 100644
+> --- a/include/linux/device/driver.h
+> +++ b/include/linux/device/driver.h
+> @@ -68,6 +68,12 @@ enum probe_type {
+>   *             be called at late_initcall_sync level. If the device has
+>   *             consumers that are never bound to a driver, this function
+>   *             will never get called until they do.
+> + * @queue_sync_state: Similar to the ->sync_state() callback, but called=
+ to
+> + *             allow syncing device state to software state in a more fi=
+ne
+> + *             grained way. It is called when there is an updated state =
+that
+> + *             may be worth to consider for any of the consumers linked =
+to
+> + *             this device. If implemented, the ->sync_state() callback =
+is
+> + *             required too.
 
-
-VirtIO typically uses the feature bits for negotiation and discovery.
-And such a get_config message would not be needed in VirtIO layer, as
-there is no multiplexing. It's a 1:1 mapping of device to driver
-instance.
+Let's make it clear that if a device gets sync_state() callback, it
+needs to sync the state independent of whether it has received any/all
+"consumer_probed()".
 
 Thanks,
-Beleswar
+Saravana
 
-[...]
 
+>   * @remove:    Called when the device is removed from the system to
+>   *             unbind a device from this driver.
+>   * @shutdown:  Called at shut-down time to quiesce the device.
+> @@ -110,6 +116,7 @@ struct device_driver {
+>
+>         int (*probe) (struct device *dev);
+>         void (*sync_state)(struct device *dev);
+> +       void (*queue_sync_state)(struct device *dev);
+>         int (*remove) (struct device *dev);
+>         void (*shutdown) (struct device *dev);
+>         int (*suspend) (struct device *dev, pm_message_t state);
+> --
+> 2.43.0
+>
 
