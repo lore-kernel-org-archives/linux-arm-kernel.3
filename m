@@ -4,130 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB54CD37B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 11:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B44CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 12:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AzR/0cV+87qdDOowZhG+TluF31kQyuNXdGczJSJzyMs=; b=LspRjKuSgf4U3l+eRAVvGchRb3
-	PSEtAS0nDbadoRfH9qAP5hDnWU+bykL9aBr3VzfXRA6oqBtpgWbzeoeqRSvjDo4lLhLbq+nmFPRfr
-	Mapb6/U28kGJBmAHwEyZoTNg8XaU7xU1ao5BLNjNoItD4RZV35kzgvVt6yQdw6yEuLLvGHDjucZYa
-	4JYxa2C6xJhJv1evO/MYbx/pEVpkfYkAHL40Q+HB2Kp61IV/IDYJ6eDra+kD73F+0suqlw7WCv/jl
-	LckaBQjKXMBCHvaxIhQ4kALYvJtdvFIPlTVW9FmVT/S5bGw877hOluJ5H1D5ztGYYbxA8/HfHrZDR
-	z1t3oSHw==;
+	bh=Z6912osLmgDLIF8tdws84RmqiMt/sK/Ye/ncz8PijXc=; b=cfu9o7E5jT9YwEZmicjehOX2HB
+	3TquK9IXeDC77YNpLesjr4qFk01a/5xXoT8LRRXRl0q3syXCMubzrdRA3mkmD6WFev7pxpFkxoYDy
+	0MB8aXHS+twx7nkMAuurGltprI8kvDjZCVgSfo2MZO6askLnXOthJd4lyqiSzRfOdOheTkhgqiCvZ
+	XPDUj9cN7JxN+wJTHBxh60tzRhUpmsZh5mc+7sEK7PK9nOzjqMwkXJkcmC6McJ8ecI3oSbSeSeRVu
+	S48XFbGgYJPS4VgrYkdZBHTLW5G99xuPnec07G8N5Nz57qBJTAosHDTtzibsd3my8NO9Rj54ihC2s
+	BzvFtTcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMPEj-0000000DPz3-46ur;
-	Mon, 11 May 2026 11:55:50 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1wMPKM-0000000DReu-1E3A;
+	Mon, 11 May 2026 12:01:38 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMPEh-0000000DPxI-01Si
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 May 2026 11:55:48 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	id 1wMPKK-0000000DRdn-0qs8;
+	Mon, 11 May 2026 12:01:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1778500893;
+	bh=crb3ittcW9FGUuF6KW6ZZq4Dy7SCwxnAySCRyMl6eAw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=f5mM1ApXE5IzjTxlGvc4LAy1emWQP844ll0il+LSJYsYw+D4355WN4ic0PxH2/4Av
+	 iy5s/es5HANsOOjk2XAPclqA6V+Td7zhlgUDAObkcr9Jy/jADGm2lG19nrvAYFdUE6
+	 mvNjVUvMTS/qHYPhMHU6dDQVf0cw59GQAImKMAo3p334vwkIbWC2imr7czH6WrSBJW
+	 fAKkYpm6QeVUmoLpNR6q4+Fk4ECyfKxA46rlNpqgwMA+/GcbIgBEFN9H48N7YCK6gI
+	 +heCzUW5Y+vWf6qYl5qzkuG8IN3w1unRWvJaomgFFAC4RKKs/7qSNLNYW4d0DIqhmT
+	 SVu7rHucPB5Jg==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 618DC75A8D;
-	Mon, 11 May 2026 11:55:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1778500543; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AzR/0cV+87qdDOowZhG+TluF31kQyuNXdGczJSJzyMs=;
-	b=vJo6Hoz/NkP1JnlKZwLQ9lmaO2f8JqfEsIcxkRa0JSujx/8fkYfiUFvvoEe4BANAMa86PT
-	VV1mP3D1SsLMyyNcKWvNZlOJyMU5xhFt/AbxZOX9kQzqv33oFlkbb+0nsDAhSG5MBqyOxl
-	a/CDCcg9E+eQmZtI0NFH9JdrMlNfxPM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1778500543;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AzR/0cV+87qdDOowZhG+TluF31kQyuNXdGczJSJzyMs=;
-	b=jpLrsP5QtEKkYHV6Zo7pAp/nC6KxKYyAR/MlRyVYTXAcgj40JOM+HkpN86OaPEm1+NJBM+
-	YYd8UrZStegxcJDQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1778500543; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AzR/0cV+87qdDOowZhG+TluF31kQyuNXdGczJSJzyMs=;
-	b=vJo6Hoz/NkP1JnlKZwLQ9lmaO2f8JqfEsIcxkRa0JSujx/8fkYfiUFvvoEe4BANAMa86PT
-	VV1mP3D1SsLMyyNcKWvNZlOJyMU5xhFt/AbxZOX9kQzqv33oFlkbb+0nsDAhSG5MBqyOxl
-	a/CDCcg9E+eQmZtI0NFH9JdrMlNfxPM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1778500543;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=AzR/0cV+87qdDOowZhG+TluF31kQyuNXdGczJSJzyMs=;
-	b=jpLrsP5QtEKkYHV6Zo7pAp/nC6KxKYyAR/MlRyVYTXAcgj40JOM+HkpN86OaPEm1+NJBM+
-	YYd8UrZStegxcJDQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 11DD4593A9;
-	Mon, 11 May 2026 11:55:43 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id GOgaA7/DAWoERgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Mon, 11 May 2026 11:55:43 +0000
-From: Thomas Zimmermann <tzimmermann@suse.de>
-To: inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	m.szyprowski@samsung.com,
-	wens@kernel.org,
-	airlied@gmail.com,
-	simona@ffwll.ch
-Cc: dri-devel@lists.freedesktop.org,
-	linux-samsung-soc@vger.kernel.org,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: [PATCH v3 1/5] drm/exynos: fbdev: Remove offset into screen_buffer
-Date: Mon, 11 May 2026 13:54:31 +0200
-Message-ID: <20260511115538.57884-2-tzimmermann@suse.de>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260511115538.57884-1-tzimmermann@suse.de>
-References: <20260511115538.57884-1-tzimmermann@suse.de>
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C153017E040C;
+	Mon, 11 May 2026 14:01:32 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Gary Bisson <bisson.gary@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20260310-mtkdefconfig-v1-1-717eb3e6eea7@gmail.com>
+References: <20260310-mtkdefconfig-v1-1-717eb3e6eea7@gmail.com>
+Subject: Re: [PATCH] arm64: defconfig: Enable MT7921S support
+Message-Id: <177850089272.133673.2886390087848759794.b4-ty@collabora.com>
+Date: Mon, 11 May 2026 14:01:32 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-6.80 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_CONTAINS_FROM(1.00)[];
-	R_MISSING_CHARSET(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_COUNT_TWO(0.00)[2];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[12];
-	MIME_TRACE(0.00)[0:+];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FREEMAIL_TO(0.00)[samsung.com,kernel.org,gmail.com,ffwll.ch];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo,infradead.org:email];
-	FROM_EQ_ENVFROM(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	RCVD_TLS_ALL(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_045547_182835_86019B31 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260511_050136_389697_5E704246 
+X-CRM114-Status: UNSURE (   6.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,46 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The screen_buffer field in struct fb_info contains the kernel address
-of the first byte of framebuffer memory. Do not add the display offset.
-This offset only describes scrolling during scanout.
+On Tue, 10 Mar 2026 16:52:12 +0100, Gary Bisson wrote:
+> Enable MT7921S which is the SDIO variant of the MT7921, also called
+> Filogic 320 [1].
+> This driver is now used by Tungsten510/700 platforms which are now
+> included upstream.
+> 
+> [1] https://www.mediatek.com/products/broadband-wifi/mediatek-filogic-320
+> 
+> [...]
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Fixes: 19c8b8343d9c ("drm/exynos: fixed overlay data updating.")
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: <stable@vger.kernel.org> # v3.2+
----
- drivers/gpu/drm/exynos/exynos_drm_fbdev.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+Applied to v7.1-next/defconfig, thanks!
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-index 637927818dfe..d283ded266d5 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-@@ -61,17 +61,13 @@ static int exynos_drm_fbdev_update(struct drm_fb_helper *helper,
- 	struct fb_info *fbi = helper->info;
- 	struct drm_framebuffer *fb = helper->fb;
- 	unsigned int size = fb->width * fb->height * fb->format->cpp[0];
--	unsigned long offset;
- 
- 	fbi->fbops = &exynos_drm_fb_ops;
- 
- 	drm_fb_helper_fill_info(fbi, helper, sizes);
- 
--	offset = fbi->var.xoffset * fb->format->cpp[0];
--	offset += fbi->var.yoffset * fb->pitches[0];
--
- 	fbi->flags |= FBINFO_VIRTFB;
--	fbi->screen_buffer = exynos_gem->kvaddr + offset;
-+	fbi->screen_buffer = exynos_gem->kvaddr;
- 	fbi->screen_size = size;
- 	fbi->fix.smem_len = size;
- 
--- 
-2.54.0
+[1/1] arm64: defconfig: Enable MT7921S support
+      commit: f86e8870547299cb6ee5b8c29d7e35d942b4bc39
+
+Cheers,
+Angelo
+
 
 
