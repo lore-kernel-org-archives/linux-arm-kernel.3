@@ -4,73 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BD37CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBBBACD37B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 May 2026 10:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xf4pKdf8gGKXDod7yewRCS/fMPBhP66Q4FQzfjWxYTI=; b=Gvgd1ssJ0Yi5I/n51LUWVjjMaM
-	kPcOSRPfFRQthjeOeJQVLdniqZbJK630BfavOQ3zdlJetg+86rLBo5Uglc7wtu4Rba+smlq7HSlS2
-	H20yCt9dK9Y6rNLyqunZqXfUlEngJ2N9aB5EFeueijS8YT7veR8/F9uKpyztPBoaaaBd6sm1hdrgn
-	lSD+LVfB28BOdHPuGOKlv3GEU644IgC8LScA3wNCRXJWOpAsrwTH43BdQhmb2+g/1/tVXg9wwfbRg
-	2ghjwEuh0hOw1RiMs8fEzZEFymHONLG2bGSDGCt989JN6tAKrN3fhyFwlqG32cfnRL0BYSHQNFhaO
-	blrMHOYw==;
+	bh=9ght5Wdeb2JGEw4kKVyOo05cbMJeLynpgp/ZLaVBbY4=; b=IwmiQHyjE5nxgtdglsZIzB3fog
+	KPK30bWl8oi/XtgLMQwpvBugpgwzDOwXlfvjsUiMr+99R5PaLcCRoQjwZ7RVG77xZUEBcH4qAnrvk
+	XyoisBtaU6740uH4xxf4kO8X9pxuHlt5m8Wdc+iHOBD5FT+uWHXoV7p4VrbSg+1holsMP1zwso/gs
+	S158YponfjBFhb4SWyheBAwxZBkwdmtnrB3zjloexuujgrLNO25Lpm7sy7AAvuqYaVgjMCP+NCMz6
+	VXbNkSbfV5ONJros+7EUZIScEpnEOLz2e1D+ecASN5d/m7P3+zk1JaSr5HScACaIztF03l8qjiUbv
+	Za8dETZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNeU-0000000D4hO-26Pp;
-	Mon, 11 May 2026 10:14:18 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wMNei-0000000D4yT-3Ulu;
+	Mon, 11 May 2026 10:14:32 +0000
+Received: from mail-westus3azon11012026.outbound.protection.outlook.com ([40.107.209.26] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMNeL-0000000D4ZX-2nPI;
-	Mon, 11 May 2026 10:14:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1778494447;
-	bh=RLK0bmNgqkncwSjSF0auY09mTQs7f3xCWXcuesgdBPg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lU4KqCcJZX8G3At4cO1r3SSkQx1+pUMqkCOgRdJYGKkrqDr9wNcTCbsbEU/pNSuFV
-	 UjgK0Pz2L2kFky+t63dQ7WKgQCOCzZ8l7O37kGhTS8JJ8lZngjyaPnngB+sOvRHNWf
-	 IkXkdW2MuRtzyrSiznqfmGE5uLtQlvI86+iVaOeR5iZmlYVs1GIBuDrDDWlnon1oBO
-	 0S5ayWA02flmEmddBPYW+QiFzdYsS0tAJQqtVJMzU5NS7mEmiXoIF7x5bKnBxMAcYM
-	 nbMTcldC0xNEPgmVePe4i7l7N7CQ6dkre4BTq9y+mhVn7iG7NasVJUtjXAV7a4jsSh
-	 weUy+fZelPFBQ==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EEBCA17E040C;
-	Mon, 11 May 2026 12:14:06 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-mediatek@lists.infradead.org
-Cc: lee@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	wenst@chromium.org,
-	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>
-Subject: [PATCH v12 4/5] dt-bindings: mfd: Add binding for MediaTek MT6363 series SPMI PMIC
-Date: Mon, 11 May 2026 12:13:54 +0200
-Message-ID: <20260511101355.122478-5-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260511101355.122478-1-angelogioacchino.delregno@collabora.com>
-References: <20260511101355.122478-1-angelogioacchino.delregno@collabora.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	id 1wMNee-0000000D4tc-1L82
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 May 2026 10:14:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z07H3lHOVK6Gr2GAHV9jYhczHAACPLamB1bCuKwT8aZv2ScMUDAqd+qjgbBmoMXn1WregpfC/xn/Wiyvb33HA1hWR0JjmB/zf/Cynvog1c96dNlV+vLQXvAR8LSaXs93DDZqgDMN2nCdXfYO6wjRl0HHOSlmszRx88/pZfn1vJBuz3wl4X83ZlkSGGPkbIsY5B5TP7tZIXUTX71wURJQpnfb+ehULuBXZJN11C9/M/0CrNYY2zbN04WoP11O6W79bXx0pvITZP8iVYH4y1I25Yvz+/LmhdCXhWdPtii8mCuozbvnBPguJ6OCBflodTfVISbL4vGKBNuOeNCNKvUPfw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CiJFMhUedcqeuCHJ/P1rjNJzeETpd6regquYXVIxiHk=;
+ b=k5xXeev00egEv2nPk/QAXvgn0QpxcTKdFtNqPFmyKIcpZG3uUPwtgJhXkWYKbD1D1DcZvqoY7UvWzZoZXtoWZMH680kTljwLFWztiSsj/ABc6Z3ePMBSpn0RnmbgFV1ua+1GG7NFENqCsk2V5K/dtHiUKCWvd57zJToC8GeuX+OMX/vMPuCHw9sjENmAtNfe61m9074rIwC5hbuX+Z4odN3+7cfc7CKrMN++UgnD6WSYuRGy5/V4Kxwg4aMhSS0fApUNUkyXL6uE12O8leZjIgkZerc3VR2Fwm/1rbGO6jg6haIievugdsOZux55aiF+S8xbDTF0WwQWKbOSzse3uA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CiJFMhUedcqeuCHJ/P1rjNJzeETpd6regquYXVIxiHk=;
+ b=dRY+vpaI8jxC+zTBDfN+ulVIz1lhdFs/IEusmIU1tk0siMCDREaHkaCPZx2mTKNi74FWxVzudEiFpmyelraWQdsm6/ebD6zvadwKc7ry/SaeAcZl0Flc0AHLyqA3Q8BXOsBG1zicVyrZWTvW3mDYN2dFItToZEO/XNfQukYnw7lElPOvuNMpniK7kQfPlgGS947wnLC08dvDY2aLGLKaHKdhym3nwkEGZE6zSxatuy1Jshk76P40Vgr86m5tq0/p7e9H1qRGt9Gd0PhSueGGON3LFcVx8xisoPU93qoa/hTH5js72/bEkz5P5SSV++g3Kpm6DF1ieoH586ytEc6RRg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL0PR12MB2370.namprd12.prod.outlook.com (2603:10b6:207:47::27)
+ by CH2PR12MB4088.namprd12.prod.outlook.com (2603:10b6:610:a5::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Mon, 11 May
+ 2026 10:14:21 +0000
+Received: from BL0PR12MB2370.namprd12.prod.outlook.com
+ ([fe80::86cf:c3ec:2cf5:74c8]) by BL0PR12MB2370.namprd12.prod.outlook.com
+ ([fe80::86cf:c3ec:2cf5:74c8%5]) with mapi id 15.20.9891.021; Mon, 11 May 2026
+ 10:14:20 +0000
+Date: Mon, 11 May 2026 18:14:16 +0800
+From: Richard Cheng <icheng@nvidia.com>
+To: Marco Crivellari <marco.crivellari@suse.com>
+Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+	Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
+	Frederic Weisbecker <frederic@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Michal Hocko <mhocko@suse.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	MD Danish Anwar <danishanwar@ti.com>, Roger Quadros <rogerq@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC PATCH net-next 2/5] net: ti: icssg-stats: Move long delayed
+ work on system_dfl_long_wq
+Message-ID: <agGrm-v3Bs5h4dAm@MWDK4CY14F>
+References: <20260511092846.120141-1-marco.crivellari@suse.com>
+ <20260511092846.120141-3-marco.crivellari@suse.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260511092846.120141-3-marco.crivellari@suse.com>
+X-ClientProxiedBy: TP0P295CA0060.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:3::15) To BL0PR12MB2370.namprd12.prod.outlook.com
+ (2603:10b6:207:47::27)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL0PR12MB2370:EE_|CH2PR12MB4088:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4b83f46b-0136-4221-1b3d-08deaf461152
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: MfjlO4SlwAEtGe7WlLkwkAfagmhKKqAzEt/V6c+rj9+OC5Lmn3m1aYUGtxlPSDzvtt/esfIw4M+2eEDbUuCRgfgpEc/QnP3t5sY26rnkuI7qimHd7If3s9vZDef7/EP+ZytqRhmLVreDFFGPiysMhNkQYlAlYU47tIe0nmbxnnyIbgjLtpd3uCEqOP7V5pAFHY5z/ZqCVoeNrPefbvrycjxYGtNIKD4hdPuBOuD1LEOTdWScBhbGtJ+aA4d+8l+NUsxiQ/PX0Ar6FTsVtgWpFKSCH/VIy0omUXEeKf1wZfeuW/1Z+yT1L+l4uvQMPM2DeYdxntOIsrdWVNV8lN4FKlWvYsX1Atew43sZGyJWLl3LOlK7FLBtm71QjtXB0ehxhFNANhDgmldLTq9uB9weM7MjYCGaC7HsgtMSppoWmwb8GKfhVSwAVwAbFq1jnKWpjh/hK+ORt6iSnkt3dCuGEsgtKCrtYJ1J9p8KpYO/vMeVwl7rsJdB/lDaQII7wzAIvvNpwwDpDWsk7glbBwQvVqsTgeqyvt1CfZK0bsdWBUX6VIAORDa1FqTK/Dp842ejCIa3qJ6L2oPjxI935A2aaOP3KU57SSyJ/lHN5ipBT+h509MMrOAIMzLFwEgLVxDJnrobjS5iwJ953qdcjFiZ4nsYZg9Mq9pgC78StC3lrjD/jW1LGxiUZbqB9oOhzULI
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL0PR12MB2370.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?09ypXf1JTBYkICNyx3evOZrKv/OcWCnz9p14FksofCtP40QpR+AfM9ebOn?=
+ =?iso-8859-1?Q?eUhMOLz8BQatePKJA3LhNdXuqYuWLBWx07SFWpmBpojayIdDNWJaNm6ZVW?=
+ =?iso-8859-1?Q?GGLX5JLRvuHS9aSxKfAtKEpsLLl/Mb/WFF286LgyRQ4PfEIWjLXDdhNjsR?=
+ =?iso-8859-1?Q?z0Czp9RCAaMNJWjgzOo/NK2ZGaH4lqra2yCIkfGs/Qukt7kRkREQEvLrmT?=
+ =?iso-8859-1?Q?OLRRgeYKea+MDhB/iBWFGjG+PBLVEsOY3ftUxVIU4ZRz4x1fRrz/lY7Nkr?=
+ =?iso-8859-1?Q?LDl1PfSMCXSkaCybxQQ88JuDjk8w1a7Z55RpVEdiI0jNcfQXUKsRDcirK8?=
+ =?iso-8859-1?Q?zM8bQlXJmggCuI1732hVAhbeHTq17Mt8JxKOqZcwIhrQrF1RD3+LGO0hBn?=
+ =?iso-8859-1?Q?B+R7evGe6UlFlk62YNj/ulxVNDnDyYNo2HRHanCm8HNTYN7EiPSnhWytWw?=
+ =?iso-8859-1?Q?wUfe0CM6OLJrnDIwpFlpH18sJzWK4adgXCs41eKIZfJjMFDUeAIDtwm9EC?=
+ =?iso-8859-1?Q?1LtqEX+Qn7ORa+XyS08CFgG9Evg6QQvcRk/mTBL0UwQg81UpuupObENkl6?=
+ =?iso-8859-1?Q?VnxCofXJg1kI4OnIO+/E328YS7oQ3UXYYjqg+GisDQaNhxNQPJYkey63Hq?=
+ =?iso-8859-1?Q?j9BaVvD/uzdsqvRKKlx/dz/15pIXu0RxJuRmlV9ceFtXwRbw2Xg2cRgImf?=
+ =?iso-8859-1?Q?wqdHtYL5QmCmlph6CcX4K/6D0u/QqH3TYfTb+PAz5bXDcvaakavwEVp6gl?=
+ =?iso-8859-1?Q?2PPFrQpSSAVSA7ipU8bXvGsUHUa1yCTYrDfdoWUipCj841Fa9l/CeyXqE9?=
+ =?iso-8859-1?Q?vlODqQSTn2a5oBJ3GBEabAC64aTX6Lg2h1WFGHpiLO08YH/FygzlRoFC7N?=
+ =?iso-8859-1?Q?bRzGQw68tvsoHqKiYmC0Pai2g+GDPMyhq5XBCeqvicKbZuJGkPDCXndtaV?=
+ =?iso-8859-1?Q?IwLYWyP6BYEi8Wf6xRjjkShGxkpZdypGolktLjdgyGEKYqz+bRC+QJBV5S?=
+ =?iso-8859-1?Q?nB+oCRDivaEX+F13oJ0jd7U836l2B7PqTuKBZuqtb9JVU3nh87S5+t/85E?=
+ =?iso-8859-1?Q?hkJjbu37/HH9HOV/eAw7UCC2ZhbFzvNzH4FyJXKAved8AggtJ7A+ud60py?=
+ =?iso-8859-1?Q?/WZznQsL/MJpa2Ekb8x7lebARq66ztnOUUJtNaWK/lPrkIlBbHV0l39UEo?=
+ =?iso-8859-1?Q?V3X9Nz0Ngcy7D40Ct8VEvkf5mxzmJcibihs6wWntLxyAddkhEGwkjBIqut?=
+ =?iso-8859-1?Q?0BR4FKps1ftJIJ2Go2dOFLFO8KRDrFvPaV2NsNOSw0rX1tSdh3w7ViiB/P?=
+ =?iso-8859-1?Q?z+u3HZJvmSTK77WJAnpeUpjBNeFHNf3tBu7J0t9dWTzvXy/JZ67qORxpgq?=
+ =?iso-8859-1?Q?QiMNvI51gHT6u2NyScezO1BVnlIf6YCyPscToTbSNKO9znknDu99ocNLH7?=
+ =?iso-8859-1?Q?tuj2gRg26D7h6vcM+gsQXh7cwRh8S+b2c2h2M5gqNzOxSBSJj6dZH8CeB3?=
+ =?iso-8859-1?Q?KyHVeBM07rMsDKjc+AnFusAia1kaCGzQfrTccmkGbcWOpJim+9Zosa7AxA?=
+ =?iso-8859-1?Q?CWcP5oULsqgnKKx/KESP7v90FrtYfCdfjsEY2yhPkpUIkpR3SUs1W6I991?=
+ =?iso-8859-1?Q?sIViQO0yyFdgalekihYcfHheDfhH9SxamcdUkVz6z/dQLiaCMudzfssShZ?=
+ =?iso-8859-1?Q?/pRpZfGRTDy/9lSU55pk6Rw1vT3DLMw4AjRUpr+5YRfmEd7ktgp7y2Ab5K?=
+ =?iso-8859-1?Q?ze1VnhLjXEhS2VMZp1ex9EA8f1O7EttLp/HW1YQubxoyLnStkUJwpF+rbn?=
+ =?iso-8859-1?Q?x9U3FBLZmw=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4b83f46b-0136-4221-1b3d-08deaf461152
+X-MS-Exchange-CrossTenant-AuthSource: BL0PR12MB2370.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2026 10:14:20.8539
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BYVJ+cLK8HlnK7WZxs5lL440v/KIykvIjqsDqI9+lBL+MMY68GGjk7lzzPS2EgBX6VlcqxERnXu15aky6z6qhQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_031409_874571_765E9253 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20260511_031428_401374_A3C414D2 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,137 +145,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a binding for the MediaTek MT6363/6373 (and similar) multi
-function PMICs connected over SPMI.
+On Mon, May 11, 2026 at 11:28:37AM +0800, Marco Crivellari wrote:
+> Currently the code enqueue work items using {queue|mod}_delayed_work(),
+> using system_long_wq. This workqueue should be used when long works are
+> expected and it is a per-cpu workqueue.
+> 
+> The function(s) end up calling __queue_delayed_work(), which set a global
+> timer that could fire anywhere, enqueuing the work where the timer fired.
+> 
+> Unbound works could benefit from scheduler task placement, to optimize
+> performance and power consumption. Long work shouldn't stick to a single
+> CPU.
+> 
+> Recently, a new unbound workqueue specific for long running work has
+> been added:
+> 
+>     c116737e972e ("workqueue: Add system_dfl_long_wq for long unbound works")
+> 
+> Since the workqueue work doesn't rely on per-cpu variables, there is no
+> obvious reason that justify the use of a per-cpu workqueue. So change
+> system_long_wq with system_dfl_long_wq so that the work may benefit from
+> scheduler task placement.
+> 
+> Cc: MD Danish Anwar <danishanwar@ti.com>
+> Cc: Roger Quadros <rogerq@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
+> ---
+>  drivers/net/ethernet/ti/icssg/icssg_stats.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.c b/drivers/net/ethernet/ti/icssg/icssg_stats.c
+> index 7159baa0155c..7d6d6692d819 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.c
+> @@ -69,7 +69,7 @@ void icssg_stats_work_handler(struct work_struct *work)
+>  						stats_work.work);
+>  	emac_update_hardware_stats(emac);
+>  
+> -	queue_delayed_work(system_long_wq, &emac->stats_work,
+> +	queue_delayed_work(system_dfl_long_wq, &emac->stats_work,
+>  			   msecs_to_jiffies((STATS_TIME_LIMIT_1G_MS * 1000) / emac->speed));
+>  }
+>  EXPORT_SYMBOL_GPL(icssg_stats_work_handler);
+> -- 
+> 2.54.0
+> 
+>
 
-These PMICs are found on board designs using newer MediaTek SoCs,
-such as the Dimensity 9400 Smartphone chip, or the Chromebook
-MT8196 chip.
+LGTM,
+Reviewed-by: Richard Cheng <icheng@nvidia.com>
 
-Reviewed-by: NÃ­colas F. R. A. Prado <nfraprado@collabora.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../bindings/mfd/mediatek,mt6363.yaml         | 109 ++++++++++++++++++
- 1 file changed, 109 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
-
-diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
-new file mode 100644
-index 000000000000..ee90d16053e9
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
-@@ -0,0 +1,109 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/mediatek,mt6363.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek MT6363 series SPMI PMICs multi-function device
-+
-+maintainers:
-+  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+
-+description: |
-+  Some MediaTek Power Management ICs (PMICs) found in board designs with
-+  the Helio, Dimensity and/or Kompanio series of SoCs are interfaced to
-+  the chip via the System Power Management Interface (SPMI) bus.
-+
-+  These PMICs are multi-function devices with various sub modules.
-+  For example, those may include one, or more of the following:
-+  - Auxiliary ADC Controller
-+  - Clock Controller
-+  - eFuses
-+  - GPIO Controller
-+  - Interrupt Controller
-+  - Keys
-+  - LEDs Controller
-+  - Regulators
-+  - RTC
-+
-+properties:
-+  compatible:
-+    enum:
-+      - mediatek,mt6363
-+      - mediatek,mt6373
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#address-cells':
-+    const: 1
-+
-+  '#size-cells':
-+    const: 0
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-controller: true
-+
-+  "#interrupt-cells":
-+    const: 3
-+
-+patternProperties:
-+  "^adc@[0-9a-f]+$":
-+    type: object
-+    $ref: /schemas/iio/adc/mediatek,mt6359-auxadc.yaml#
-+
-+  "^regulators@[0-9a-f]+$":
-+    type: object
-+    oneOf:
-+      - $ref: /schemas/regulator/mediatek,mt6363-regulator.yaml#
-+      - $ref: /schemas/regulator/mediatek,mt6373-regulator.yaml#
-+
-+required:
-+  - compatible
-+  - reg
-+  - '#address-cells'
-+  - '#size-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/spmi/spmi.h>
-+
-+    spmi {
-+      #address-cells = <2>;
-+      #size-cells = <0>;
-+
-+      pmic@4 {
-+        compatible = "mediatek,mt6363";
-+        reg = <0x4 SPMI_USID>;
-+        interrupts = <4 64 IRQ_TYPE_LEVEL_HIGH>;
-+        interrupt-controller;
-+        #address-cells = <1>;
-+        #interrupt-cells = <3>;
-+        #size-cells = <0>;
-+
-+        regulators@30 {
-+          compatible = "mediatek,mt6363-regulator";
-+          reg = <0x30>;
-+
-+          vio18 {
-+            regulator-name = "pp1800-vio18-s3";
-+            regulator-min-microvolt = <1800000>;
-+            regulator-max-microvolt = <1800000>;
-+            regulator-allowed-modes = <0 2>;
-+            regulator-allow-set-load;
-+            regulator-over-current-protection;
-+          };
-+        };
-+
-+        adc@1000 {
-+          compatible = "mediatek,mt6363-auxadc";
-+          reg = <0x1000>;
-+          #io-channel-cells = <1>;
-+        };
-+      };
-+    };
--- 
-2.53.0
-
+Best regards,
+Richard Cheng. 
 
