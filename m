@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2353BCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 10:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FD3CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 10:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K1DLY9Im8emQ1pvFmDCS9X34Zpvqnm1ezAB2dEZJU7I=; b=Yeeqz+XWN5iXjVhdzPLghcfSmW
-	7uAF7KvYEmfbi4JdWF4VjDJezrE/DrAJEPfHccSwqxCIbT+tB6zNhZqXlmKdnwq3SmeCLTV11D2oB
-	Q5Jbph/4V4HX1ckAL1XHIYuKjBKAUdPY08oyR49w3t4E7K/1AZUFNgTdVKayD5kMwJYfLjj0eDrR1
-	9fpTJweRpaozPR/O4ZiQX7yE0GeOVMnlmcIVy0A5SQmcR9rShwZ8ZOCm+nz9sNGy80MNwoWaOmKV0
-	abrey80NrmE4tqhUGnDkBncuAAdhWTA2InNFXZSKq6rAqD2E2u9ziQ5DlN6otyf9IGuv2j/v5qAke
-	R5P6ntfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c2fDzd4x1FsLocXBH5HRzatZTdsSBovOyPm3nwD2R3U=; b=cyuB9lzqna3y073apmzar2+Kfy
+	x2GPk0Z625X+2j3tld2hq4XpK3Lj5ZbyLeyNQYkozUaVExaOe0H/XRQMTAnYIKgO6TsFxWoO5U/es
+	PrPOF5fwAx6dpknM6lg+3DQltgfJ65EuOMROzKbxiD7/JMvbmyLRjldjSgSJEjNcPYwhgBKl3Eg66
+	Y02sKzbcF8qaVC3pGzm04rUBzN35AaoAY0t9V7F+2bBSrM7AFzgtVLga7WgODihyHNyyUHmnJRQ+M
+	1Wt7bRCbV599ev/F6kKDrUYAz6CyDeC5EC6WvAixPbvG3C7kaTbXC5eewDHSZkf33RPUurU/OYyYt
+	zTmLKpRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjwL-0000000GMdS-18yt;
-	Tue, 12 May 2026 10:02:13 +0000
-Received: from mail-m49248.qiye.163.com ([45.254.49.248])
+	id 1wMk0T-0000000GNRr-3vDC;
+	Tue, 12 May 2026 10:06:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjwE-0000000GMYB-0NZj;
-	Tue, 12 May 2026 10:02:07 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3e1830329;
-	Tue, 12 May 2026 17:57:01 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	nicolas.frattaroli@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	sebastian.reichel@collabora.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	luca.ceresoli@bootlin.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v4 07/10] arm64: dts: rockchip: Add eDP node for RK3576
-Date: Tue, 12 May 2026 17:56:41 +0800
-Message-Id: <20260512095644.1946084-8-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260512095644.1946084-1-damon.ding@rock-chips.com>
-References: <20260512095644.1946084-1-damon.ding@rock-chips.com>
+	id 1wMk0S-0000000GNR1-093O
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 10:06:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D32BE4400E
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 10:06:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8C0CC2BCFB
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 10:06:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778580386;
+	bh=c2fDzd4x1FsLocXBH5HRzatZTdsSBovOyPm3nwD2R3U=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=r2KJ/QwZZ93C7cnXZ9aXEdlIu73dxnvZ0dnrR5vy0frJtRCjaWTVYUtxugnJq/U1Z
+	 NVpVkemMglRlGeb6JfQSIDguI7nd3BkIb0sZfmI/YAf18/xBbPUMOqgRBhWu0L2GX7
+	 gIK9aj/AXOWyXBVeoCGqvTaxDeR/t7SMkOdL+6qZZNiIi0U1qkXJ2tvsTf4qO1cuOo
+	 iQ+61EdVMYIzEfzoVOwuiJ11aHkIGcCR0v76iEUwNSSIM1El6HiJjixktHOmvj4WdO
+	 Tf+9rzTya9/+FbIbY1x57nVgbcRGtgGBKtm0R577fkJTtafJ0+4aOZ0yvHwnRXXE8Y
+	 yjcUIZXAVWCZg==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-393d07e8938so49308701fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 03:06:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9V6LlwudpxCSEV056savfJLT8nCwcbtk74ViqgK/fLuq/0Dx2kCXoxdAgIVCjtzElYqrzOtmxXwMPh69Z+m5I7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBOsgsvrGo/aZySx44R52Is/js09AeWQxZaYgwbp25Q84ruQO4
+	aeY1hTpYb8GetL6BrRLenoeNiHfwqh4kboLlWx7VSS86eYCeHfvKqchZXKoRfCyGpXY5tCXPKZ5
+	4E5qOb+/4HsDJBfRMkNN8tDA9/prV+xMshv3FqPqJJQ==
+X-Received: by 2002:a05:6512:3a83:b0:5a8:6e64:e88b with SMTP id
+ 2adb3069b0e04-5a887add6d3mr8570434e87.4.1778580385278; Tue, 12 May 2026
+ 03:06:25 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 12 May 2026 03:06:23 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 12 May 2026 03:06:23 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260512030032.5006-1-chaitanya.msabnis@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e1b9e539603a3kunm05d2ddd6129074
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHk8ZVk1PSRgaGB9ITUpJQlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=TlZs2dle4U/ThViWcwWNBoHkaubGkGCdTjx/mzymetU+Vf9oQSsP2cbL/y7bdjnVkNIz2WoO+YKvHxLsbb0HzSap0McaC8TjAHn/JD2ktoJdOq3H1IE38T7P5lA5rNXR6NWUNWLXFZrrxNxQOvqPfh8uvoDOQLkwCekQ8Tso1sw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=K1DLY9Im8emQ1pvFmDCS9X34Zpvqnm1ezAB2dEZJU7I=;
-	h=date:mime-version:subject:message-id:from;
+References: <20260512030032.5006-1-chaitanya.msabnis@gmail.com>
+Date: Tue, 12 May 2026 03:06:23 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Me+27Eouotw18Ayw9GbkqPLN5g25gaBc_DyR3rrDOP-rw@mail.gmail.com>
+X-Gm-Features: AVHnY4IRViCLTV3_BvCH2BmXcl3_2W-sA61609ccNXge5bvIhYXSsMAvuuHcZWE
+Message-ID: <CAMRc=Me+27Eouotw18Ayw9GbkqPLN5g25gaBc_DyR3rrDOP-rw@mail.gmail.com>
+Subject: Re: [PATCH v3] dt-bindings: i2c: convert davinci i2c to dt-schema
+To: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kernel test robot <lkp@intel.com>, andi.shyti@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, brgl@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_030206_307452_48376972 
-X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-CacheID: sfid-20260512_030628_100318_3D7C815B 
+X-CRM114-Status: UNSURE (   9.48  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,66 +88,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add full device tree definition for the integrated eDP controller
-on RK3576, following the existing RK3588 hardware layout.
+On Tue, 12 May 2026 05:00:32 +0200, Chaitanya Sabnis
+<chaitanya.msabnis@gmail.com> said:
+> Convert the Texas Instruments DaVinci and Keystone I2C controller
+> bindings from legacy text format to modern dt-schema (YAML).
+>
+> During the conversion, the `interrupts` property was made required
+> to match the strict requirement in the driver probe function. The
+> custom `ti,has-pfunc` and `power-domains` properties were also
+> properly defined to match SoC-specific hardware features.
+>
+> Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202605120133.lQ1F3qlY-lkp@intel.com/
 
-Configure required register range, clocks, interrupt, phy, power
-domain, reset and grf properties to fully describe the controller.
+The report was on an earlier version. This patch is not a solution to a problem
+spotted by the build bot itself. I'd just drop this line.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
----
-
-Changes in v2:
-- Add Reviewed-by tag.
-
-Changes in v4:
-- Modify the commit msg.
----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 28 ++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 28175d8200d5..733449cb88b1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1496,6 +1496,34 @@ hdmi_out: port@1 {
- 			};
- 		};
- 
-+		edp: edp@27dc0000 {
-+			compatible = "rockchip,rk3576-edp";
-+			reg = <0x0 0x27dc0000 0x0 0x1000>;
-+			clocks = <&cru CLK_EDP0_24M>, <&cru PCLK_EDP0>, <&cru HCLK_VO0_ROOT>;
-+			clock-names = "dp", "pclk", "hclk";
-+			interrupts = <GIC_SPI 365 IRQ_TYPE_LEVEL_HIGH>;
-+			phys = <&hdptxphy>;
-+			phy-names = "dp";
-+			power-domains = <&power RK3576_PD_VO0>;
-+			resets = <&cru SRST_EDP0_24M>, <&cru SRST_P_EDP0>;
-+			reset-names = "dp", "apb";
-+			rockchip,grf = <&vo0_grf>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				edp_in: port@0 {
-+					reg = <0>;
-+				};
-+
-+				edp_out: port@1 {
-+					reg = <1>;
-+				};
-+			};
-+		};
-+
- 		dp: dp@27e40000 {
- 			compatible = "rockchip,rk3576-dp";
- 			reg = <0x0 0x27e40000 0x0 0x30000>;
--- 
-2.34.1
-
+Thanks,
+Bartosz
 
