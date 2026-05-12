@@ -4,94 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3B1CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:40:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15229CD4855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m4n/F1eKXbXqdeANeiK1vkq+es+HjdGAH5wuLHdXDwY=; b=ucmcMO+FYi+6/rfxVtcS5G5sZ7
-	FQ0KnnhzwNiBeV2VfOZOkmA4SU7R9AMdAMVlHNCwJM0fu1mZkLbQ7Aafpt4aSueAgreLJ7798CZr/
-	IymmdOGOev1xBWtbCgdfnrjHOkeiN8ae3WxFH45PiycqkR3GRcZuxErIt5W8H2LdFrECDikLUMDYl
-	nWj9pDB/gFd2Oe27eoJJ046iIjAcvOnjkm2XmDo6ELtCSlcWtP1RxFkfc/6LXlEXNi3wU4VD46IZU
-	zhT9e8JF7IqDEpNxArhlJq3CcbDoGvUvRJ8Hkkl/QiLwv8UeL8nuJ9f5LxxpDLCs1ryNrxwZOrjLI
-	DdwWZ+aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5reOlBrBteyVoVzr0lZ4JGq3fTTcu8Hy4b+X9bzv8qo=; b=Z0XUvEJZu2NDaSyKOvfYfg6DKq
+	U0b3yD3sW7/SYXOOthQoPPkC95sTkd6o4joHlvS91UzZNNKbNKepxkd1Vzd0NIEH2Jrvd55Synn+x
+	cWmx+spEvJfAReunFjYDwXq4kIXYEbVXoNDQGpogOxp9eDvRj5H81I37bujNAl9W7PGvgOpkrpnl7
+	9xYZ3g9vU96VYBEVXjhS6RfqAICWZNDtgST4OY4EyRYLpIX9TgxtI7lk6MRS2YsvW2znpUjh17B4M
+	H1m+NfBR1gqSqMU/HyRn8wj+W3Vp6q9meMoZss+qvqj2QXqNNTo7qA281B46ryk0+ovwMnIiLsJLl
+	OoLQg7lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhiz-0000000FxHK-24c2;
-	Tue, 12 May 2026 07:40:17 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wMhjs-0000000FxYz-3JDx;
+	Tue, 12 May 2026 07:41:12 +0000
+Received: from mail-francesouthazon11011038.outbound.protection.outlook.com ([40.107.130.38] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhiw-0000000FxFz-3sRA
+	id 1wMhjp-0000000FxXN-1u8k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 07:40:15 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-367c26471f5so2229102a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 00:40:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778571614; x=1779176414; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=m4n/F1eKXbXqdeANeiK1vkq+es+HjdGAH5wuLHdXDwY=;
-        b=bzX1CHBlrdWOJQdPGIqDXPB4xTCuP3D+fNPLprfkz82PQ3FF+NFBNUIaUDc4Mz1F7J
-         LDIiV5StGrh6DdeLqa08ONvXTbqvenAIErpAoIhySkwKVwvAi4VDovQNaMWdmSF/HbyP
-         2fgZbSMi+xSxdCrpf+Xh0yyNsBIKGrptFHfTJ9nmc3hA9pCsDcZsId0KZB9Z32K5ovjq
-         uqzVP+1x64emo3uJfO+Fo8INJNfMDiEHEHUPwXmGWCnOC3/78GUlLRJ08ZWi/OPy/ntC
-         89WnjuqQOJnoUD4/c0BQDOjXCGjstA61SBFc6tccaqTTXUenBCzsTfuJlEJON4VGghyW
-         0nnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778571614; x=1779176414;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=m4n/F1eKXbXqdeANeiK1vkq+es+HjdGAH5wuLHdXDwY=;
-        b=meXXbXXOG/moJz2Oif7kYYFmGQojQduPh1u6mQ9WMSjjoYnRkJy7+5zvDd7Ho4ikb1
-         JTu0nU4VfaI5QCZ3tVDDfp5AMOzIsq/OcaPV++MzifjgRH48ekPV2Hkq1k2a2rzsBVz3
-         jBwYn9JlD54Iw3eDK5bBqf9BKd4uUHOiKCPto82zZ/AGwtVSZpj+/PpnSTLaDekzuDEA
-         yCwFBjGymghaVIW3mkDnyRQwmPItKPElCYwSoXqzpsC7Ui0ivxMa8Sl+MGM4eFOiI5It
-         98dJjBsSzcV/GAUG13z/5x/HOuzNLk60yYzlLm6qHTo3aZuAB82ffWTfqt/ow5QePGV7
-         XuJw==
-X-Forwarded-Encrypted: i=1; AFNElJ/gWEbBiDCT018RBW27DfsMD4omZtsgObyc3l/Ds1veqyc9U+CgarTKPVIJuo/f7jYqS49iiwaE2HBbfsbSKLbD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJLTEYiZ23kAPfo/8C0mnDCvSA7klmcZ6BABSU6LJaedgXlpzE
-	s93l4wBsqp6LnCVo0t1s6HQPP9SrW6sXqccb1di/FeeBYwvSBDmxgCzD
-X-Gm-Gg: Acq92OG9nmna28vmF6I0Ofx0SUE5//vLnn8Hbf/bNAn5NE4cEstQP4ahzsxb8RzFVDC
-	QiA5k+ETluQlGUutdVd9cf6JtPCBwItWBCO6bz24f9biCJ4UQDyMt0jISrt2gIAnwemRcplFXT7
-	XQnNFlJaq5fhTddQC93bPjGV4kMrYAgEgBybTuKaMrT7oXJeIaJm/VMdP+z/abl7J+/8UTfr6fe
-	8DmaZ+cO0LGzMlVJ/ycvOhzNiKKaruIaEkBId6rV5q+X6EzySfNe3lpX2tEMvLZa0qpQjJ60fFP
-	S1ZOBc8YCEk1VUsfEeAvAYs9tPbFZD/sML0alto9WDu2uD9Im14XlsSsTlEW3XErskPpC39pgea
-	QS6o8X9vTE0Rv0szAJI2BCUXlybtK5jTj5g9vH630ZyCzljvadE1LQd1h/NRONQjrRxD96wrp50
-	FDwSnBO/t3a78Lg9SAkNxgsGSHX4DLlrE5Srte9erUnyjd5UzA6Abtsyj6qDavhqhwYymqLCa7v
-	Q4zW6dWaQ==
-X-Received: by 2002:a17:90b:590f:b0:368:5367:d679 with SMTP id 98e67ed59e1d1-3685368061emr7314796a91.9.1778571614197;
-        Tue, 12 May 2026 00:40:14 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367d65ed459sm13264489a91.14.2026.05.12.00.40.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2026 00:40:13 -0700 (PDT)
-From: Zi-Yu Chen <zychennvt@gmail.com>
-To: Jacky Huang <ychuang3@nuvoton.com>,
-	Andi Shyti <andi.shyti@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zi-Yu Chen <zychennvt@gmail.com>
-Subject: [PATCH v3 3/3] arm64: dts: nuvoton: Add I2C nodes for MA35D1 SoC
-Date: Tue, 12 May 2026 15:39:53 +0800
-Message-Id: <20260512073953.564323-4-zychennvt@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260512073953.564323-1-zychennvt@gmail.com>
-References: <20260512073953.564323-1-zychennvt@gmail.com>
+	Tue, 12 May 2026 07:41:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iUYNdUd/RVQ2PysfT1FApZJAin2DaPTXjSfmmpOWpfNUZtejP5kmvUyDSndqtV6SikCr1bg03/xxEUUrSOkdwApaKM63ZYQP/lijnXGE9zR5cWIcS1c4UWD7y2GKloiBaokE9Z2BJPIPKqO0er/xA9P0yVOeqnO5EtiPAGVNOoe3XmeH5GjV+wMcOIDM+kvUrdg0y9Lboi6ZOWyI1xJx66r5lme6hpoUmN3Dxtdq2gt/pZDGxZ+SLmk7H9ZWQj+JiOYttflJ0vDMW2f2g2b3yl3lC2CqsRYr+AJ/Nprl17qbPqO3wBRK4fVBaUSvuq2KcCAwf09vGstC6PQDbe4JWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5reOlBrBteyVoVzr0lZ4JGq3fTTcu8Hy4b+X9bzv8qo=;
+ b=rqgJSW7RyUhxJXQ8uy6PJ4GBbhUSEMLA1EvFHnqPmsRkiWf7um5UFsqn8GZiEajuJaZbbwBof4rYndjgh3D0tEq0sSN8nMUNsE991qXFkqxg+gwOCfDkQmr0kieTR28Ap+kxczdsPUuoCnB0Yz0kX61BzrP4zPcWyDR4enTnFplrJ1EQ0aig6t4UL0OBZ2Tm66ySSYMinIeRMD1zP0C++KOY1rJVKFvcYkHXHFUBBqVgINGY7+LJtfRt4sLRdHWe54WwsOUmLvrrxpuFiUDf77i1P40uDMTF67xYY1lIaMNkFXMwr7OY0MB7cSQ9/zKLnuDq/MiXnfN34EXAV2xadA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5reOlBrBteyVoVzr0lZ4JGq3fTTcu8Hy4b+X9bzv8qo=;
+ b=Zq8GpPrqnUOF8yidCu02FnIQV330BIeYgoJh7ZQDaoBEp9mvpEihPQUmITYS/x05DqCbHKwS+fnD9FoDSRbCHqNUUBNUmr5GLMddhPR/DugLaAf2RnlsJn8TMsmYAu8ioQbRU+avVbL9geXRtk1XKiyAflWdrzYYO83Y142qKPSa8NpZbFHHa7oxtwQLBZjPq6uc/CJ7/RWbWjST79gH8MAOJEBb/y1vpX7oiUgkjJdgOjS5zr2csJSAAQwuU1YkHR7ILbsHtb1wvJax+ckFD++NfJy0dr5UJAwfTu6yyvmxB2SiLSM1OpxMlNIy6i/7YTV7ZZ9orweSbnTwN4EjfA==
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ (2603:10a6:150:30c::14) by DU6PR04MB11159.eurprd04.prod.outlook.com
+ (2603:10a6:10:5c4::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
+ 2026 07:41:02 +0000
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.20.9891.021; Tue, 12 May 2026
+ 07:41:02 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de"
+	<l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "mani@kernel.org"
+	<mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>
+CC: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>
+Subject: RE: [PATCH v1 1/2] PCI: imx6: Configure REF_USE_PAD before PHY reset
+ for i.MX95
+Thread-Topic: [PATCH v1 1/2] PCI: imx6: Configure REF_USE_PAD before PHY reset
+ for i.MX95
+Thread-Index: AQHc4c8Wv56A2tGrxUq9iXBTPnyLs7YKABvQ
+Date: Tue, 12 May 2026 07:41:02 +0000
+Message-ID: <GV2PR04MB120199F3EAA4142DF4533229B8C392@GV2PR04MB12019.eurprd04.prod.outlook.com>
+References: <20260512052244.49414-1-hongxing.zhu@nxp.com>
+ <20260512052244.49414-2-hongxing.zhu@nxp.com>
+In-Reply-To: <20260512052244.49414-2-hongxing.zhu@nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV2PR04MB12019:EE_|DU6PR04MB11159:EE_
+x-ms-office365-filtering-correlation-id: 4423e6e3-d104-49c8-e57c-08deaff9d11e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|366016|3023799003|22082099003|56012099003|11063799003|38070700021|921020|18002099003;
+x-microsoft-antispam-message-info: 07fEPT8AU7kONsxmLPTxq4B+yunpZ3CEjlOLdo08JdGW6RFcbS+/fk7Iz75aWTLsnEphSUs0KCbUPkSSnuegEdaTvciiXjSoD9gYREGs+tnyZ6oK721x2vqrFV8q9KRfK1aum7/gFwbCtlWd1zwwn788jm6TuOCsan4HmVotUKtm16HL0ZYyKPZ5SNcFCNNF1dD8efBr4YxY/fQWTMkRv8lBJoWDxY5p/Ov4Qzgbad6V9GKCEnAo+WnIu/+oBhqxgJHB1tW6cGBH74Y8Cslo4HfY8Rp7p0kiZzgjnN9KVwYzblokOH7JEYUXcuUaUl/qB/g8zNkpYiCc91buN+31bfF2PvanoefuUHRFciNTsRUz9I53ESlnw3NFBas3Lkgj9/Y9uN7IV4eROH2zgZJBTLbnhzeIB9pIp99wvZ4ICcjoSP8Sy0tMt/ASKl1SdRc4ChJbYJeetF9NVwSaSG+zEgLKAyffRYsjQJOwBx6ikrIhnonJUvZ8VjoG6AoHKtfDAHf/XcU0pl5L/KVPYy07VhrEdNPV+w+8SvyhwkCq8g/VeHNHIeFFE521oWKnUHJ5C5kKCMw+GITIfSMSxZq84wglipwRPXM5yuPuqakrHcoHbbJbBf+G5Y3YwpgrtX4qHds1vkt41kIt1tiTPnXoQKMwtqH8LioLgTA/6T9gFRt+PyZHDfZPy0sIUR8xooZdK7QR+u+9vpdz3D2/f1/gogvL1QdspIHR3aURx0aFNGKwz5wHx4byTA9oUDhMk986jL6twUl3ZQA3pXSvzJ6aGw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(366016)(3023799003)(22082099003)(56012099003)(11063799003)(38070700021)(921020)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?tKeHCDmx3Hg69pbScA6xmYh59aN6poaazAnhLNxZeiJSm0QREyMttaZaOPo5?=
+ =?us-ascii?Q?heZlHaMG2QaAkJ3ZqEmJMhRJ5BGI/uvmH8lDysLac1QeyDN8gTO7XaO9ow6T?=
+ =?us-ascii?Q?0c3MeMggdwrM42KimxXcsY4q+DOToLRqS4yROO9pW5r16mKUTnP6lTo8g2Kz?=
+ =?us-ascii?Q?TkqVs3NOl8xhRoQUzqaqK/aa9wsR1ImDfZlmEa6UJMyv2lOUpz0s6T3pzu41?=
+ =?us-ascii?Q?0kkrJPWaLk3YHVV4WQMVMFvJETN73Rf/O+OkRpiEd9ClhJhPFjGMXh2tpJ3c?=
+ =?us-ascii?Q?JSSei6g7rLW/s+Y+RDOkt1vdFDT0SvYLcMp1wv1Opw3MNxYJrcimiQxAD5UW?=
+ =?us-ascii?Q?8/OWXuv6FxXB0OEkYgeGoG79lAW54we7KSf1p6DEOiXlBEwsD9BElDLtmT/R?=
+ =?us-ascii?Q?GHl2g8mf7b7/AdLniFen+PQUNjheKnWSoBZz3V4ZmdcfyT9LAwdpQHizrIAd?=
+ =?us-ascii?Q?Brrl9fiyW84sntC1pnoeixYIoCV4mzrY+13JhQMFInp5GjZLdEjRuzADv0Xu?=
+ =?us-ascii?Q?QUjpCR42f5aMmmIbOMHMXkfvgxtZwflACfVQOyulKalJ1hKhE+L8QxJ68tw5?=
+ =?us-ascii?Q?7QKvfenI8qN5CFwGlARrDUyjS/GOn5CPfuk1Ajbir4jFlL4NSMWLSiDE83LS?=
+ =?us-ascii?Q?ueEFDEzyoQb9jwjH9L1xmKb38PlVnQyi2kGIe+xQZT/tVdrgkfUsvhOs+QzY?=
+ =?us-ascii?Q?gBAZ9Eg7jKimGvXJKXuvoVKpIXgjOkfgp6kGHgl2rr3BFHWxj3KNUM7ZpSo/?=
+ =?us-ascii?Q?s8nXk6ADPnQU/+C6ZIQEtoKd+qvv2SiayMfWMqf2tfwJ775TMQ5AnSqshzx8?=
+ =?us-ascii?Q?S2mY9A9FC40dMunYTEkXsMrP3tlpvRny7qsCfrf7E/9/u5k3u+Ku/WcjD+bs?=
+ =?us-ascii?Q?tnE/kKNQgvDF8Ih6ULKS3Cpec+u+XTbwKoxUGvyNMu40H4YyVEZPgig4Mr/L?=
+ =?us-ascii?Q?RagvGpU1XJusHITSzEjSKiI2jW9bqt0vGKV8FBOxoVBoTPTXrN2WWDnlzdNN?=
+ =?us-ascii?Q?FGBItdCf7aytV5Swl973Pm7YeeAfPmi3PtMemLg3rwtHMYihM8LxT9KiIEdk?=
+ =?us-ascii?Q?RJVeprr5i91yMqgNce8RVCW3GeYn5Sxpl5AyH5iehPbEilQum5tN/2n14Uyu?=
+ =?us-ascii?Q?V2nRNF0h5Ki8V4TOe1CEVJZdGVNDTK1/b+0mD78VHrb1iZgepyEsD5f+bJvL?=
+ =?us-ascii?Q?NnIiYOzm8RPxzZjCIbOyQw0dpvRFZ0Xby6K+9z1s6wvYzcUw/gvIVfJ/+2SQ?=
+ =?us-ascii?Q?QfNpm8aotGRbYR4zsY9v3IqKkROlERxQ40PwgnhBv0OMyDwy/NUDN3IuLuOi?=
+ =?us-ascii?Q?WJLFxs+VmAKo2QLD0fMxzUAwZZDykUdGIjGR9BC4Iu/FQkWq0Z9Jq+5ZJkci?=
+ =?us-ascii?Q?+5V0qTVgNEEpWuq4Al76uFkOILepczqskucwO6DGtaGbXX67mtE3ZKYO+twK?=
+ =?us-ascii?Q?w5VzA4uxHOMmuMCkTEo7fSMnpbNFZRo7WB5C0h0AkFy+HZ7iUipb8BtCKFbC?=
+ =?us-ascii?Q?kGtGFztI3gHvxg4SDVdcYsMXLvsPsrXY65dGWqPqeXuX/4ZcSrB/MFhYf+Aq?=
+ =?us-ascii?Q?ONAa12Fo19pdao1dLxQO70VyY920TROemBA/HL4xhJ15GA2gqkACKNdLfWIY?=
+ =?us-ascii?Q?hm5fnGyt0/JLUVI+kZIRodgcHq/YPFLTmPPg+rQMSGVc7qw9YlTx+kwIuDtn?=
+ =?us-ascii?Q?y20wWla20WALBte6+wo4AKYZ+DOcXHpiN/wq7Ms4Yd5iQlRV?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4423e6e3-d104-49c8-e57c-08deaff9d11e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 May 2026 07:41:02.3293
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: f2l0N6JszseBju28nxk4weVaH60aPxXbQ2i1fxV/qxmmLpELOOCWoPskJeZwHBYWkR7ombgpjbzowAJFgmSw9g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11159
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_004014_967107_B4C510F1 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20260512_004109_509482_580C7244 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,128 +149,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add I2C controller nodes to the MA35D1 SoC dtsi.
-Also enable the I2C interfaces on the MA35D1 SOM board
-to allow communication with onboard peripherals.
+> -----Original Message-----
+> From: Hongxing Zhu <hongxing.zhu@nxp.com>
+> Sent: Tuesday, May 12, 2026 1:23 PM
+> To: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de; lpieralisi@kerne=
+l.org;
+> kwilczynski@kernel.org; mani@kernel.org; robh@kernel.org;
+> bhelgaas@google.com; s.hauer@pengutronix.de; kernel@pengutronix.de;
+> festevam@gmail.com
+> Cc: linux-pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> imx@lists.linux.dev; linux-kernel@vger.kernel.org; Hongxing Zhu
+> <hongxing.zhu@nxp.com>; stable@vger.kernel.org
+> Subject: [PATCH v1 1/2] PCI: imx6: Configure REF_USE_PAD before PHY reset=
+ for
+> i.MX95
+>=20
+> According to the i.MX95 PCIe PHY Databook, the ref_use_pad signal in the
+> Common Block Signals section selects the reference clock source connected=
+ to
+> the PHY pads. Per the specification, any change to this input must be fol=
+lowed by
+> a PHY reset assertion to take effect.
+>=20
+> Move the REF_USE_PAD configuration before the PHY reset toggle to comply =
+with
+> the required initialization sequence.
+>=20
+> Fixes: 47f54a902dcd ("PCI: imx6: Toggle the core reset for i.MX95 PCIe")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 27 ++++++++++++++++++++++++---
+>  1 file changed, 24 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c
+> b/drivers/pci/controller/dwc/pci-imx6.c
+> index 1034ac5c5f5c1..c57f18d9e4ffa 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -137,6 +137,7 @@ struct imx_pcie_drvdata {
+>  	const u32 mode_off[IMX_PCIE_MAX_INSTANCES];
+>  	const u32 mode_mask[IMX_PCIE_MAX_INSTANCES];
+>  	const struct pci_epc_features *epc_features;
+> +	int (*init_pre_reset)(struct imx_pcie *pcie);
+>  	int (*init_phy)(struct imx_pcie *pcie);
+>  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
+>  	int (*core_reset)(struct imx_pcie *pcie, bool assert); @@ -247,6 +248,2=
+4
+> @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pci=
+e)
+>  	return imx_pcie->controller_id =3D=3D 1 ? IOMUXC_GPR16 :
+> IOMUXC_GPR14;  }
+>=20
+> +static int imx95_pcie_init_pre_reset(struct imx_pcie *imx_pcie) {
+> +	bool ext =3D imx_pcie->enable_ext_refclk;
+> +
+> +	/*
+> +	 * Regarding the Signal Descriptions of i.MX95 PCIe PHY, ref_use_pad is
+> +	 * used to select reference clock connected to a pair of pads.
+> +	 *
+> +	 * Any change in this input must be followed by phy_reset assertion.
+> +	 */
+> +
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr,
+> IMX95_PCIE_SS_RW_REG_0,
+Sorry, the register name IMX95_PCIE_SS_RW_REG_0 is incorrect and should be
+replaced with IMX95_PCIE_PHY_GEN_CTRL. I will update this in the next versi=
+on.
 
-Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
----
- .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 15 +++++
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 60 +++++++++++++++++++
- 2 files changed, 75 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index f6f20a17e501..a0f1d76d288e 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -13,6 +13,7 @@ / {
- 	compatible = "nuvoton,ma35d1-som", "nuvoton,ma35d1";
- 
- 	aliases {
-+		i2c0 = &i2c2;
- 		serial0 = &uart0;
- 		serial11 = &uart11;
- 		serial12 = &uart12;
-@@ -55,6 +56,12 @@ &clk {
- 			   "integer";
- };
- 
-+&i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c1>;
-+	status = "okay";
-+};
-+
- &pinctrl {
- 	uart-grp {
- 		pinctrl_uart0: uart0-pins {
-@@ -98,6 +105,14 @@ pinctrl_uart16: uart16-pins {
- 			power-source = <1>;
- 		};
- 	};
-+
-+	i2c-grp {
-+		pinctrl_i2c1: i2c1-pins {
-+			nuvoton,pins = <1 10 12>,
-+				       <1 11 12>;
-+			bias-disable;
-+		};
-+	};
- };
- 
- &uart0 {
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index e51b98f5bdce..a88d1c2938e7 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -372,6 +372,66 @@ uart15: serial@407f0000 {
- 			status = "disabled";
- 		};
- 
-+		i2c1: i2c@40810000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40810000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C1_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c2: i2c@40820000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40820000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C2_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C2>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c3: i2c@40830000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40830000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C3_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C3>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c4: i2c@40840000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40840000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C4_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C4>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c5: i2c@40850000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40850000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C5_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C5>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
- 		uart16: serial@40880000 {
- 			compatible = "nuvoton,ma35d1-uart";
- 			reg = <0x0 0x40880000 0x0 0x100>;
--- 
-2.34.1
+> +			   IMX95_PCIE_REF_USE_PAD,
+> +			   ext ? IMX95_PCIE_REF_USE_PAD : 0);
+> +
+> +	return 0;
+> +}
+> +
+>  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)  {
+>  	bool ext =3D imx_pcie->enable_ext_refclk; @@ -269,9 +288,6 @@ static
+> int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+>  			IMX95_PCIE_PHY_CR_PARA_SEL,
+>  			IMX95_PCIE_PHY_CR_PARA_SEL);
+>=20
+> -	regmap_update_bits(imx_pcie->iomuxc_gpr,
+> IMX95_PCIE_PHY_GEN_CTRL,
+> -			   IMX95_PCIE_REF_USE_PAD,
+> -			   ext ? IMX95_PCIE_REF_USE_PAD : 0);
+>  	regmap_update_bits(imx_pcie->iomuxc_gpr,
+> IMX95_PCIE_SS_RW_REG_0,
+>  			   IMX95_PCIE_REF_CLKEN,
+>  			   ext ? 0 : IMX95_PCIE_REF_CLKEN);
+> @@ -1251,6 +1267,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp=
+)
+>  		pp->bridge->disable_device =3D imx_pcie_disable_device;
+>  	}
+>=20
+> +	if (imx_pcie->drvdata->init_pre_reset)
+> +		imx_pcie->drvdata->init_pre_reset(imx_pcie);
+> +
+>  	imx_pcie_assert_core_reset(imx_pcie);
+>  	imx_pcie_assert_perst(imx_pcie, true);
+>=20
+> @@ -1961,6 +1980,7 @@ static const struct imx_pcie_drvdata drvdata[] =3D =
+{
+>  		.mode_mask[0] =3D IMX95_PCIE_DEVICE_TYPE,
+>  		.core_reset =3D imx95_pcie_core_reset,
+>  		.init_phy =3D imx95_pcie_init_phy,
+> +		.init_pre_reset =3D imx95_pcie_init_pre_reset,
+>  		.wait_pll_lock =3D imx95_pcie_wait_for_phy_pll_lock,
+>  		.enable_ref_clk =3D imx95_pcie_enable_ref_clk,
+>  		.clr_clkreq_override =3D imx95_pcie_clr_clkreq_override, @@ -
+> 2016,6 +2036,7 @@ static const struct imx_pcie_drvdata drvdata[] =3D {
+>  		.ltssm_mask =3D IMX95_PCIE_LTSSM_EN,
+>  		.mode_off[0]  =3D IMX95_PE0_GEN_CTRL_1,
+>  		.mode_mask[0] =3D IMX95_PCIE_DEVICE_TYPE,
+> +		.init_pre_reset =3D imx95_pcie_init_pre_reset,
+>  		.init_phy =3D imx95_pcie_init_phy,
+>  		.core_reset =3D imx95_pcie_core_reset,
+>  		.wait_pll_lock =3D imx95_pcie_wait_for_phy_pll_lock,
+>=20
+> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+> --
+> 2.37.1
 
 
