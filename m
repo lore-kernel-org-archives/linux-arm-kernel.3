@@ -4,74 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86AEECD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7AE3CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BURi5vkPxcxPKcJLIsmlkzLGP0wRjDvf8EYPEcCoD1I=; b=y4TXOtpFNa2SsWsjEJqJ3UhJIw
-	4L2uUKmq+bVozA/lDuhNUznL7cGCuiWPCi+FXW+LTZ72uo5vhOJSoYhRvm+mP8AkEEWQhm1WHvi67
-	XY1+ckyE/EaFHWYu4s6i2X125Gj6OM/tZJJXVNjb/ia1gsNaPpj1k1RxxDaraFzrj8NzEczieFRtG
-	/CRaXnlucvPLFkFE0nEZ7cbKhfbg/Hl5FpIKKzlad+co0IWeWRb9sJQoLh+HLZ+34yUwJfkCQB8Wr
-	vqrGVVniPnYrnJdPdyjdVS7d0hSo0q5A1IrVdE3+0ozqMV6CUEgySNOXLR2l6vpxmbkuY4X/CLXaf
-	oCegVY3A==;
+	bh=75qBxmQOIEAlKUJsCU6kHkks8y+FZFXi5YOHbTzTprU=; b=JUo+xqzToRBLhVwk0wn+LZDfBt
+	H5Kju/1LlzB+NkvcTiUIsUxILCaTWFbw+L0D9lgag8ZL03fbLCYH55ONNOt2TJ868xbv+M3HFmlmf
+	wJZWg5SV6FfBSyU+yk2Pkpsf7ZiO0dCJB+GVLgSFz8qe4pAucLa50GGnWUfG1wGXoYskr167G1LRG
+	npphNPzQwwt8v8Oot4oSOxeblhnkYhn3/QCmv9zi/X/Ysq1dQs0LQYCMqDfjsug6U2iTDooXWH1KA
+	JR+Pi2cwGYE1XqBo9O/nzQOpaBvJLJRQc1i9Njkln76c7+ceYbqpdVhXBcLAKOWfspQFMGmV5Z0s4
+	fwkAuIrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMpHX-0000000HFkz-1Jx5;
-	Tue, 12 May 2026 15:44:27 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wMpJd-0000000HGEF-2c5x;
+	Tue, 12 May 2026 15:46:37 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMpHT-0000000HFje-0dLA
+	id 1wMpJa-0000000HGCb-12mg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 15:44:25 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 38325C5E17B;
-	Tue, 12 May 2026 15:45:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F1D5560646;
-	Tue, 12 May 2026 15:44:17 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AB84211AF8C84;
-	Tue, 12 May 2026 17:44:13 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1778600656; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=BURi5vkPxcxPKcJLIsmlkzLGP0wRjDvf8EYPEcCoD1I=;
-	b=omhLMDriLy7fOtPYzmTFgtuOpEWgUbD9lHNhu3jzp88xq8+RIQt2rrBpLoX2uZPiQb5Nw/
-	XGfVjrX0x+iJgs6NLuJJUM54WpGvIaDWfAmBCnqRlDn96rDOfFXz+Fl0yYiDYZ/BZfNzKE
-	fsEsh5WRzqpkNzs0i5GBiGnfeNLg5NB1MNJfT1mPgEb0s7Qtcl3zD6YP8tR9HyRdk/QGgE
-	v9YWPvqlpo8IhVNejFEthq8vqDKLkVicPsaAkJ8wXFITaOxOYBpjLK+fCxNNlbtTq73mjl
-	LJyMMaMLM4GNwrlmBYgTIVh9rvMrnwykeRvQUmIdKmNeJa4FV92Va+URZGQg1A==
-Message-ID: <110af14c-101e-48fb-8262-60bf395d4f0a@bootlin.com>
-Date: Tue, 12 May 2026 17:44:12 +0200
+	Tue, 12 May 2026 15:46:35 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b8f97c626aaso119632466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 08:46:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778600792; cv=none;
+        d=google.com; s=arc-20240605;
+        b=O48rfMpUag9d95li10GQhfpu0+PNZm6YPj9mgPaEaFkaf3i3hRa3jpTe2AuXM3lNfP
+         UymeIyR8vnIimwaLMKKgmy1T6c/rJtMbR+gIuF1JOQ5BIN2h+6I7gCxm2Gyw//K97S1M
+         1bzjoE5fX0zTXDuALY8Z9iNYbhfhVqUvZ7yRVdPWbtxrtcbqh8l/QJqYhwvogBbDoLPI
+         nZTRAW6DoKOJEo5XTZxAy2koV+IfaISYH6y/umAhu0RKt+IYNDGUH4OZW7CXlk1MNpvI
+         QCJwMD+Z7wMY1LEPLx2lS6g0WikPduusGfOEAz0Owp0WV9Vad01XIHTKwQMmLmfM0u+Z
+         xz3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=75qBxmQOIEAlKUJsCU6kHkks8y+FZFXi5YOHbTzTprU=;
+        fh=4xFBYc71EbGSTrlyooYhyct+7zm62SByqxocT/0CmDc=;
+        b=f9fUmJAOSUijZLFSNl8e2v00q2v3EUAGrx63YTxS3L2uembVAbMtmPxHs6JfMSsBdh
+         zAQDhIaGO+sqLiCrwp6jyL3j3H5GwwmhbQm30tBOOvQdA1rA2WKOvNrqcbPmYkgFYlO0
+         zEag0l+iXWw4zOkNXV1saXWUxtKQ439czu0h6v6i6/hQ8LvImcx7vrdi/4/i+ozZMRd7
+         c+V3ROw7K4aOJ9XcDHDyDsAX+/5zHVQ/esVGrxNOPm8WAaGEPnDOmyAoN5taT4bFnxTw
+         Bs9EH6qxI0ubXzQL9tYRBasADlhdpeAmoXT1aNEgKB6Wwtv1UVPE6+VTmEg5h+dTgkWD
+         uf3A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=usp.br; s=usp-google; t=1778600792; x=1779205592; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=75qBxmQOIEAlKUJsCU6kHkks8y+FZFXi5YOHbTzTprU=;
+        b=K93ftgbCly5VjjiZ54wDhJ1aVcy5q21iVO3RTsZoBFXIHu14+wXzH2Vd2GUKDKEBro
+         /Ny2ZPmdLKJT54fNZ+/DqyehQlKP0IkMr0HDhfB2AaNS70XrAVH/3BcoCwDG/4ntHzqG
+         gwnAk5wrs22F5Q0KQvqOl49iUeFX99XX+6vEn3089/6KXTI0wv6LGzbncvo/A5g1IaIi
+         LJP+RN1lSq+VOGJgN6c8LSOWzrwwasyEU4HUuJBYIYDCB41IVURqoUWBDipqpwGD8Ocr
+         3mLBzpmRKOgvlBQ3eNSiNXN9HGqmUhgmxt71qlbdrEragTVlFBUYuix2GSijhdYTJVnM
+         N60g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778600792; x=1779205592;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=75qBxmQOIEAlKUJsCU6kHkks8y+FZFXi5YOHbTzTprU=;
+        b=ACkPfZuLbC/4LkjU8zfNcdDPEvunMC2F2JyHOaV+VwXlD2Tylq5HfUxzVAZtC3TPKJ
+         pwXlaPzOdhwe/L8ThUnqKGu1AhVDvaGlgvKD8ZqcSxzb+1WMyvxuFVPOvG88/CMM5ff7
+         YOoTLauTO/ci4a2vAg6pDNVsXuEAj1gEwKxtX3ijag+xLh/1XgBbwiHZWLV//vCYD6F3
+         hdCgrkhHAxjGmuwyXUvTWgPB60sl7Ze4bMvWG59vvGFlUQ+1ioUARHo/bMWI4ArF14u9
+         pcOWQ019tZusOfEjNynHvZ40rvac2EOOElwwuUqpW/XUhTuprIKI9zf4EmILVsJaOL8G
+         WYpA==
+X-Forwarded-Encrypted: i=1; AFNElJ+czlW5CUyS5/ze/Y559pLiyouuWNQeO2fIbHGbgHaNCInek/IPZbxJZDUmxMuemcUFE3Zdd8jGpaZMyhU12L1K@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCW1hF4Sz9rgMYLZG+RLT9KK0ufjpJAvXIeNjBKAM+6jnH0swb
+	bZ28ZpIws2elc23IUZxMd6sVKSIe4M/cyyNv4I4M7vZkmtI/mnLFgXazp0BnmewxzafKFIDOEDK
+	J2zvkdHucpO7f3zLqqWQVaB1rDpDL4xblJZbCbQbbzA==
+X-Gm-Gg: Acq92OF3J4K1PIofWs4SMFtu1juxbgHTBtuRq3YKa7sscs6RpxI+zIDItbShT+NveLG
+	lWm9b7ntHeWJEOGOTJvps/NeybKMeCcyU6cVagRBCCHn/nDYzGT5vZTznVTjXtaFEpgh5Lu0DpZ
+	4hMgxiZ/RnWxda3+aSgCRQB6CWNj2EF8wjurZ7Vce5+9B6UIaduIuHqvLEmvKQ8Rrgmxc5GsnxL
+	jg+FTRzRKFca1BxOant2r2X9XRi+jZM6r6Ahq89wLdxyoVRnPA0LR0icH5DQ3jLSleYHaUux+WB
+	Ry+VddACr80MA1CJ0OlANOOPfxH0ABItjFNe2CPAhBgwMtdhLYOPgW9gbML3jpXeiH/dtD26jbJ
+	BWgxc/CqeWQZ9gKm+qkUvZKhF
+X-Received: by 2002:a17:907:6d10:b0:bca:4861:65d5 with SMTP id
+ a640c23a62f3a-bcaac35f762mr1082691066b.29.1778600791859; Tue, 12 May 2026
+ 08:46:31 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/4] firmware: ti_sci: add support for restoring IRQs
- during resume
-To: Nishanth Menon <nm@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Gregory CLEMENT <gregory.clement@bootlin.com>,
- richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>,
- Abhash Kumar <a-kumar2@ti.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, Dhruva Gole <d-gole@ti.com>,
- Kendall Willis <k-willis@ti.com>
-References: <20260506-ti-sci-jacinto-s2r-restore-irq-v7-0-037098a35215@bootlin.com>
- <20260506-ti-sci-jacinto-s2r-restore-irq-v7-2-037098a35215@bootlin.com>
- <20260506141508.2bko3ntcv7rkqfvn@certainty>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <20260506141508.2bko3ntcv7rkqfvn@certainty>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260414224245.8493-1-guilherme.bozi@usp.br> <20260414224245.8493-4-guilherme.bozi@usp.br>
+ <e84d98dd-c81c-418d-8cbe-5867f8bdd4c3@amd.com>
+In-Reply-To: <e84d98dd-c81c-418d-8cbe-5867f8bdd4c3@amd.com>
+From: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
+Date: Tue, 12 May 2026 12:46:20 -0300
+X-Gm-Features: AVHnY4K46d1uZa3D0VTlOTLicMN_W7masSFd8TRMYjScY4EWQs5rQm5x0V1Tk8Q
+Message-ID: <CAJgF-xt5UFzPsBXX-MUNOmqBTjZrZC8Wj4DTtqHehWCjUfYfFQ@mail.gmail.com>
+Subject: Re: [PATCH v3 3/3] iio: adc: xilinx-ams: refactor alarm mapping to
+ table-driven approach
+To: Salih Erim <salih.erim@amd.com>
+Cc: "Conall O'Griofa" <conall.ogriofa@amd.com>, Jonathan Cameron <jic23@kernel.org>, 
+	Michal Simek <michal.simek@amd.com>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_084423_551938_10BF15E8 
-X-CRM114-Status: GOOD (  32.12  )
+X-CRM114-CacheID: sfid-20260512_084634_302628_5F562397 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,361 +122,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Nishanth,
+Hi Salih,
 
-On 5/6/26 4:15 PM, Nishanth Menon wrote:
-> On 10:35-20260506, Thomas Richard (TI) wrote:
->> Some DM-Firmware are not able to restore the IRQ context after a
->> suspend-resume. The IRQ_CONTEXT_LOST firmware capability has been
->> introduced to identify this characteristic. In this case the
->> responsibility is delegated to the ti_sci driver, which maintains an
->> internal list of all requested IRQs. This list is updated on each
->> set()/free() operation, and all IRQs are restored during the resume_noirq()
->> phase.
->>
->> Reviewed-by: Dhruva Gole <d-gole@ti.com>
->> Reviewed-by: Kendall Willis <k-willis@ti.com>
->> Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
->> ---
-> 
-> coccicheck reports two additional warnings at this patch:
-> +drivers/firmware/ti_sci.c:2495:1-7: preceding lock on line 2454
-> +drivers/firmware/ti_sci.c:2420:1-7: preceding lock on line 2378
+On Tue, May 12, 2026 at 11:34=E2=80=AFAM Salih Erim <salih.erim@amd.com> wr=
+ote:
+>
+> Hi,
+>
+> On 4/14/2026 11:40 PM, Guilherme Ivo Bozi wrote:
+> > Replace multiple open-coded switch statements that map between
+> > scan_index, alarm bits, and register offsets with a centralized
+> > table-driven approach.
+> >
+> > Introduce a struct-based alarm_map to describe the relationship
+> > between scan indices and alarm offsets, and add a helper to
+> > translate scan_index to event IDs. This removes duplicated logic
+> > across ams_get_alarm_offset(), ams_event_to_channel(), and
+> > ams_get_alarm_mask().
+> >
+> > The new approach improves maintainability, reduces code size,
+> > and makes it easier to extend or modify alarm mappings in the
+> > future, while preserving existing behavior.
+> >
+> > Signed-off-by: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
+> > ---
+> >   drivers/iio/adc/xilinx-ams.c | 161 +++++++++++++---------------------=
+-
+> >   1 file changed, 58 insertions(+), 103 deletions(-)
+>
+> Two issues:
+>
+> 1) Same tabs-vs-spaces indentation problem as patches 1 and 2.
+>
+> 2) In ams_event_to_channel():
+>
+> > +       if (event < 0 || event >=3D ARRAY_SIZE(alarm_map))
+> > +               return NULL;
+>
+> The 'event' parameter is u32, so 'event < 0' is always false.
+> Either drop the < 0 check or change the parameter type to int
+> if you intend to handle negative values.
+You are correct regarding the u32 type -- the event < 0 check is
+unnecessary. I will remove it in the next revision.
 
-I do not see the potential deadlock in set_irq() and free_irq().
-I guess it is a false positive.
+>
+> Salih
 
-> 
->>  drivers/firmware/ti_sci.c | 201 +++++++++++++++++++++++++++++++++++++++++++---
->>  drivers/firmware/ti_sci.h |   2 +
->>  2 files changed, 191 insertions(+), 12 deletions(-)
->>
->> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
->> index eaeaaae94142..531ac3aa38b8 100644
->> --- a/drivers/firmware/ti_sci.c
->> +++ b/drivers/firmware/ti_sci.c
->> @@ -12,11 +12,13 @@
->>  #include <linux/cpu.h>
->>  #include <linux/debugfs.h>
->>  #include <linux/export.h>
->> +#include <linux/hashtable.h>
->>  #include <linux/io.h>
->>  #include <linux/iopoll.h>
->>  #include <linux/kernel.h>
->>  #include <linux/mailbox_client.h>
->>  #include <linux/module.h>
->> +#include <linux/mutex.h>
->>  #include <linux/of.h>
->>  #include <linux/of_platform.h>
->>  #include <linux/platform_device.h>
->> @@ -87,6 +89,16 @@ struct ti_sci_desc {
->>  	int max_msg_size;
->>  };
->>  
->> +/**
->> + * struct ti_sci_irq - Description of allocated irqs
->> + * @node: Link to hash table
->> + * @desc: Description of the irq
->> + */
->> +struct ti_sci_irq {
->> +	struct hlist_node node;
->> +	struct ti_sci_msg_req_manage_irq desc;
->> +};
->> +
->>  /**
->>   * struct ti_sci_info - Structure representing a TI SCI instance
->>   * @dev:	Device pointer
->> @@ -101,6 +113,8 @@ struct ti_sci_desc {
->>   * @chan_rx:	Receive mailbox channel
->>   * @minfo:	Message info
->>   * @node:	list head
->> + * @irqs:	List of allocated irqs
->> + * @irq_lock:	Protection for irq hash list
->>   * @host_id:	Host ID
->>   * @fw_caps:	FW/SoC low power capabilities
->>   * @users:	Number of users of this instance
->> @@ -118,6 +132,8 @@ struct ti_sci_info {
->>  	struct mbox_chan *chan_rx;
->>  	struct ti_sci_xfers_info minfo;
->>  	struct list_head node;
->> +	DECLARE_HASHTABLE(irqs, 8);
->> +	struct mutex irq_lock;
-> 
-> No action needed: checkpatch flags this as not documented, when it is
-> clearly documented above.
-> 
->>  	u8 host_id;
->>  	u64 fw_caps;
->>  	/* protected by ti_sci_list_mutex */
->> @@ -2301,6 +2317,32 @@ static int ti_sci_manage_irq(const struct ti_sci_handle *handle,
->>  	return ret;
->>  }
->>  
->> +/**
->> + * ti_sci_irq_hash() - Helper API to compute irq hash for the hash table.
->> + * @irq:	irq to hash
->> + *
->> + * Return: the computed hash value.
->> + */
->> +static int ti_sci_irq_hash(struct ti_sci_msg_req_manage_irq *irq)
->> +{
->> +	return irq->src_id ^ irq->src_index;
->> +}
->> +
->> +/**
->> + * ti_sci_irq_equal() - Helper API to compare two irqs (generic headers are not
->> + *                       compared)
->> + * @irq_a:	irq_a to compare
->> + * @irq_b:	irq_b to compare
->> + *
->> + * Return: true if the two irqs are equal, else false.
->> + */
->> +static bool ti_sci_irq_equal(struct ti_sci_msg_req_manage_irq *irq_a,
->> +			     struct ti_sci_msg_req_manage_irq *irq_b)
->> +{
->> +	return !memcmp(&irq_a->valid_params, &irq_b->valid_params,
->> +		       sizeof(*irq_a) - sizeof(irq_a->hdr));
->> +}
->> +
->>  /**
->>   * ti_sci_set_irq() - Helper api to configure the irq route between the
->>   *		      requested source and destination
->> @@ -2324,15 +2366,60 @@ static int ti_sci_set_irq(const struct ti_sci_handle *handle, u32 valid_params,
->>  			  u16 dst_host_irq, u16 ia_id, u16 vint,
->>  			  u16 global_event, u8 vint_status_bit, u8 s_host)
->>  {
->> +	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
->> +	struct ti_sci_msg_req_manage_irq *desc;
->> +	struct ti_sci_irq *irq;
->> +	int ret;
->> +
->> +	/*
->> +	 * Lock for set_irq() and free_irq() to keep the IRQ hash list
->> +	 * consistent only if MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST is set. Else
->> +	 * IRQ hash list is not used.
->> +	 */
->> +	if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST)
->> +		mutex_lock(&info->irq_lock);
->> +
->>  	pr_debug("%s: IRQ set with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
->>  		 __func__, valid_params, src_id, src_index,
->>  		 dst_id, dst_host_irq, ia_id, vint, global_event,
->>  		 vint_status_bit);
->>  
->> -	return ti_sci_manage_irq(handle, valid_params, src_id, src_index,
->> -				 dst_id, dst_host_irq, ia_id, vint,
->> -				 global_event, vint_status_bit, s_host,
->> -				 TI_SCI_MSG_SET_IRQ);
->> +	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
->> +				dst_id, dst_host_irq, ia_id, vint,
->> +				global_event, vint_status_bit, s_host,
->> +				TI_SCI_MSG_SET_IRQ);
->> +
->> +	if (ret || !(info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST))
->> +		goto end;
->> +
->> +	irq = kzalloc_obj(*irq, GFP_KERNEL);
->> +	if (!irq) {
->> +		ti_sci_manage_irq(handle, valid_params, src_id, src_index,
->> +				  dst_id, dst_host_irq, ia_id, vint,
->> +				  global_event, vint_status_bit, s_host,
->> +				  TI_SCI_MSG_FREE_IRQ);
->> +		ret = -ENOMEM;
->> +		goto end;
->> +	}
->> +
->> +	desc = &irq->desc;
->> +	desc->valid_params = valid_params;
->> +	desc->src_id = src_id;
->> +	desc->src_index = src_index;
->> +	desc->dst_id = dst_id;
->> +	desc->dst_host_irq = dst_host_irq;
->> +	desc->ia_id = ia_id;
->> +	desc->vint = vint;
->> +	desc->global_event = global_event;
->> +	desc->vint_status_bit = vint_status_bit;
->> +	desc->secondary_host = s_host;
->> +
->> +	hash_add(info->irqs, &irq->node, ti_sci_irq_hash(desc));
->> +
->> +end:
->> +	if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST)
->> +		mutex_unlock(&info->irq_lock);
->> +	return ret;
->>  }
->>  
->>  /**
->> @@ -2358,15 +2445,56 @@ static int ti_sci_free_irq(const struct ti_sci_handle *handle, u32 valid_params,
->>  			   u16 dst_host_irq, u16 ia_id, u16 vint,
->>  			   u16 global_event, u8 vint_status_bit, u8 s_host)
->>  {
->> +	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
->> +	struct ti_sci_msg_req_manage_irq irq_desc;
->> +	struct device *dev = info->dev;
->> +	struct ti_sci_irq *this_irq;
->> +	struct hlist_node *tmp_node;
->> +	int ret;
->> +
->> +	if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST)
->> +		mutex_lock(&info->irq_lock);
->> +
->>  	pr_debug("%s: IRQ release with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
->>  		 __func__, valid_params, src_id, src_index,
->>  		 dst_id, dst_host_irq, ia_id, vint, global_event,
->>  		 vint_status_bit);
->>  
->> -	return ti_sci_manage_irq(handle, valid_params, src_id, src_index,
->> -				 dst_id, dst_host_irq, ia_id, vint,
->> -				 global_event, vint_status_bit, s_host,
->> -				 TI_SCI_MSG_FREE_IRQ);
->> +	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
->> +				dst_id, dst_host_irq, ia_id, vint,
->> +				global_event, vint_status_bit, s_host,
->> +				TI_SCI_MSG_FREE_IRQ);
->> +
->> +	if (ret || !(info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST))
->> +		goto end;
->> +
->> +	irq_desc.valid_params = valid_params;
->> +	irq_desc.src_id = src_id;
->> +	irq_desc.src_index = src_index;
->> +	irq_desc.dst_id = dst_id;
->> +	irq_desc.dst_host_irq = dst_host_irq;
->> +	irq_desc.ia_id = ia_id;
->> +	irq_desc.vint = vint;
->> +	irq_desc.global_event = global_event;
->> +	irq_desc.vint_status_bit = vint_status_bit;
->> +	irq_desc.secondary_host = s_host;
->> +
->> +	hash_for_each_possible_safe(info->irqs, this_irq, tmp_node, node,
->> +				    ti_sci_irq_hash(&irq_desc)) {
->> +		if (ti_sci_irq_equal(&irq_desc, &this_irq->desc)) {
->> +			hlist_del(&this_irq->node);
->> +			kfree(this_irq);
->> +			goto end;
->> +		}
->> +	}
->> +
->> +	dev_warn(dev, "%s: should not be here, IRQ was not found in hash list\n",
->> +		 __func__);
->> +
->> +end:
->> +	if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST)
->> +		mutex_unlock(&info->irq_lock);
->> +	return ret;
->>  }
->>  
->>  /**
->> @@ -3847,7 +3975,10 @@ static int ti_sci_suspend_noirq(struct device *dev)
->>  static int ti_sci_resume_noirq(struct device *dev)
->>  {
->>  	struct ti_sci_info *info = dev_get_drvdata(dev);
->> -	int ret = 0;
->> +	struct ti_sci_msg_req_manage_irq *irq_desc;
->> +	struct ti_sci_irq *irq;
->> +	struct hlist_node *tmp_node;
->> +	int ret = 0, err = 0, i;
->>  	u32 source;
->>  	u64 time;
->>  	u8 pin;
->> @@ -3859,13 +3990,50 @@ static int ti_sci_resume_noirq(struct device *dev)
->>  			return ret;
->>  	}
->>  
->> +	switch (pm_suspend_target_state) {
->> +	case PM_SUSPEND_MEM:
->> +		if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST) {
->> +			hash_for_each_safe(info->irqs, i, tmp_node, irq, node) {
->> +				irq_desc = &irq->desc;
->> +				ret = ti_sci_manage_irq(&info->handle,
->> +							irq_desc->valid_params,
->> +							irq_desc->src_id,
->> +							irq_desc->src_index,
->> +							irq_desc->dst_id,
->> +							irq_desc->dst_host_irq,
->> +							irq_desc->ia_id,
->> +							irq_desc->vint,
->> +							irq_desc->global_event,
->> +							irq_desc->vint_status_bit,
->> +							irq_desc->secondary_host,
->> +							TI_SCI_MSG_SET_IRQ);
->> +				if (ret) {
->> +					dev_err(dev, "failed to restore IRQ with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
-> 
-> space before via? overall this print is needed, but a bit umm.. we have
-> similar ones already..
-
-Yes I wanted to have consistent messages.
-Will fix the missing space.
-
-> 
->> +						irq_desc->valid_params,
->> +						irq_desc->src_id,
->> +						irq_desc->src_index,
->> +						irq_desc->dst_id,
->> +						irq_desc->dst_host_irq,
->> +						irq_desc->ia_id,
->> +						irq_desc->vint,
->> +						irq_desc->global_event,
->> +						irq_desc->vint_status_bit);
->> +					err = ret;
->> +				}
->> +			}
->> +		}
->> +		break;
->> +	default:
->> +		break;
->> +	}
->> +
->>  	ret = ti_sci_msg_cmd_lpm_wake_reason(&info->handle, &source, &time, &pin, &mode);
->>  	/* Do not fail to resume on error as the wake reason is not critical */
->>  	if (!ret)
->>  		dev_info(dev, "ti_sci: wakeup source:0x%x, pin:0x%x, mode:0x%x\n",
->>  			 source, pin, mode);
->>  
->> -	return 0;
->> +	return err;
->>  }
->>  
->>  static void ti_sci_pm_complete(struct device *dev)
->> @@ -4014,13 +4182,14 @@ static int ti_sci_probe(struct platform_device *pdev)
->>  	}
->>  
->>  	ti_sci_msg_cmd_query_fw_caps(&info->handle, &info->fw_caps);
->> -	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s%s\n",
->> +	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s%s%s\n",
->>  		info->fw_caps & MSG_FLAG_CAPS_GENERIC ? "Generic" : "",
->>  		info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO ? " Partial-IO" : "",
->>  		info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED ? " DM-Managed" : "",
->>  		info->fw_caps & MSG_FLAG_CAPS_LPM_ABORT ? " LPM-Abort" : "",
->>  		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : "",
->> -		info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED ? " BoardConfig-Managed" : ""
->> +		info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED ? " BoardConfig-Managed" : "",
->> +		info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST ? " IRQ-Context-Lost" : ""
->>  	);
->>  
->>  	ti_sci_setup_ops(info);
->> @@ -4053,6 +4222,14 @@ static int ti_sci_probe(struct platform_device *pdev)
->>  	list_add_tail(&info->node, &ti_sci_list);
->>  	mutex_unlock(&ti_sci_list_mutex);
->>  
->> +	if (info->fw_caps & MSG_FLAG_CAPS_LPM_IRQ_CONTEXT_LOST) {
->> +		ret = devm_mutex_init(dev, &info->irq_lock);
->> +		if (ret)
->> +			return ret;
-> 
-> If devm_mutex_init() fails, the function returns directly rather than
-> going through the out: label. All other error paths after the mailbox
-> channel allocations use goto out, which calls mbox_free_channel() for
-> both channels. Since mbox_request_channel_byname() is not a devm
-> allocation, those channels would not be freed by the devm cleanup path
-> on probe failure.
-> 
-> Does this leak info->chan_tx and info->chan_rx when devm_mutex_init()
-> returns an error?
-
-Indeed we should go to 'out'.
-
-Best Regards,
-Thomas
+--
+Guilherme Ivo
 
