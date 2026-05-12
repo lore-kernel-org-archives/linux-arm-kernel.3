@@ -4,67 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBAD3CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961E2CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ppxq1CB1YXPO13jk9q1N7wyv/emP23uUqTwoj85xIew=; b=FDezhmuSU85hlf+lpLpLjcIAIs
-	TYsiLv6oiFCtw0Rb6O99VSO3DDZ2LWLu6LGsaagnMotWwLhavcj6Trs/xOnIVs54nH4b+zhWatNQj
-	BR0QYxX9+fCzsVegQBMJyWKZ0zIghRe3zRr1tiYdZWniqqMMlVF9OFan8+Pv7diO6pnTjYaWlz8BD
-	BffGrg3fDIFu5oKvgELRgKrsyiZDymSWc6fdqzUsXzHwD1tCNqVVJneTn+aLozNlnWjGZZsOJamad
-	uPsl4qvU2g8imcRAZlrq1R+Qpad8Mm6I/1KOJyZO7j2Z8iK5XuHuLhzVNQYC6K/5+X+3l6e2MhL/y
-	a7xhcafg==;
+	bh=4WKO48wCVFVY/Q3lQzIe4xzewKQpps/o90phN6WWe98=; b=KWgO3P/qRGIisX1wGYLi4SxSCc
+	6sxCLn7qPaQwqPnWIEykJgzSx0EqxNLylqZyntFZLZUevTXHjW2OECRhc0MVlZm+AyMZtvH87PBrD
+	+in6dUmq6F1PkvEXfdYLNTOLypUIsA10PSnHmsFGt4WlpfkMyj+Q42EwN9Ox7u28pn5uzkPI/3o9w
+	n1BHijm/SxgBQ1lcvG1QfBDT7nhHZen/X5N+OZZT4uydOf2MUrXvGJk/iG13+3U/IC6MN3bnelw6L
+	Jepx9qeJJ/ITK2F1xJsYkrsZdX85PrGv96aWU4J5VznEg6nxED3upjc+V+/CEeL+uWp+2b/LP1ErJ
+	sCzsc7VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhBD-0000000FrX6-0Tic;
-	Tue, 12 May 2026 07:05:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMhBR-0000000FrbD-13OD;
+	Tue, 12 May 2026 07:05:37 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhBA-0000000FrWb-2RCk;
-	Tue, 12 May 2026 07:05:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5DE9844046;
-	Tue, 12 May 2026 07:05:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69DEAC2BCB0;
-	Tue, 12 May 2026 07:05:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778569519;
-	bh=CbKrYA7cN/wwbpVWPG+J7VYnuHQ+Y1RlkMJzpdzjJ2Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tpq9cN3mXo3Rye52s4rApyI+1AFdgTwxtPdB/HYT1MCFvp9a7Jbr14L1eZLUokRl/
-	 wCrOlSQWkhqywVOEc9gAmR+PCPDUBQrlCrKoxV8b8cMHGNd0ebuYkQXVHk9PzFW925
-	 LF83+eoZKBvwxDoe396PpM1cvF5nuuhqtF/TCtPyRFrWe+NnQP5XifdUPQYsTP1knp
-	 mzMXLvEMem5OE0L7yyrk0iwks0k/jEDEU6P4ZMymGGG2FJo1w5kPJ6/3m80TnI3wyZ
-	 bpgWWyAyvJXsgIp5NSowbSc3tsxBnvzb9lzAZBfAZamK5+a2wBbHfkSVuBAqtcQLOV
-	 HT3Iu/3zoO52g==
-Message-ID: <e092cd5d-6a46-4440-9085-95c929e8fb83@kernel.org>
-Date: Tue, 12 May 2026 10:05:12 +0300
+	id 1wMhBP-0000000FraC-2zx6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 07:05:36 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-bccb9dca1beso450720266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 00:05:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778569534; cv=none;
+        d=google.com; s=arc-20240605;
+        b=BPk/1ETylxuGBk8akQfc0sV05eDSmsl22bZRKyPjXDBxJLIt0rHBgg4RETquQhnRss
+         dKad68iVSQXwLlJVERCszAGkAS1LCFz0GKA99caPcoSXfM3f/CmMGVNYSQ1vmTGek/+K
+         Tddju/klXzu75trasrrzaRbYWY8czGbSHMcb/Eh/LWGQzw7is2/HwSQuWDKOtq5jxS/T
+         4z4dljn0v5y8fdxM1Ggel8Ub3v/ISz0dySjd1eIC5ozYZuK/+iprLgLWWdepF5Scz/Cr
+         bB8NsMeVwoJTE6xnFQ6cKeBO3I2B+c6clucw9rOqtg5EVhJaZy899vIsFyYpYYqR+jwI
+         03BQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=4WKO48wCVFVY/Q3lQzIe4xzewKQpps/o90phN6WWe98=;
+        fh=vaa9tDAT/rxHsFkWAf+skdCQD4QOOMoS8NlWGz9K3hg=;
+        b=Qgn9M21y4dZmJRbKm8uahedDrQp7MJtH2jWpQtuHHF2UK0AEwcjRoWoBQreEWC6xNc
+         QhbHn6EmJBsjHhX8DUZtnaA+gGa6HjcQYtppSd96H3ivH52e9S2Em6fDuD2mdPpR65PN
+         gnqjr/o/K167YZ+YuShzPQW5MTDDLE3REckkWdTNk5L7EPDdIBGiz26Cz0KycTcCXAdq
+         coJInr6aRfoDGlxSqEtpGRQrm0M0ansoHDa0A/FiYk6bHegLGGZFyc1pyZtonAfyhq6j
+         6A+6BAaYs678KpNljsG5oQjeW7DTxnZHiCFA9AqsLOMxDDD94N78rq/QzVS+8hu2KVlc
+         OQzQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778569534; x=1779174334; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4WKO48wCVFVY/Q3lQzIe4xzewKQpps/o90phN6WWe98=;
+        b=cxcWpcKfOam/qotsbBcthus5xrmwfz3joZZ33auL76zr8Ke+IO5mAXCfQ6hS3wSQIX
+         eTEWdHg3vDxjqvKziFNaLUuhT/ueGEe4j6tN/A/C8aZL5AqqvLfpGsGobHcDfj6rsktE
+         /oKfRUwrqCWlDUa7FK+PbBUAeqP361CYuvGQVYqwndB5iXJ6BPAHXvPAklhuuX3/bZEt
+         sp4HlKrCb85BVYDDmrVJkDBPPoiPyhCmP97Ihn2mYT6w1kEreC9QMlSeYxB1oLsqyAsP
+         FlEGDlv0WBM9FwnJgYIOA8VIT1bU7wyUpjYOxmp1h6yHEEgaLJOQbapkayDncACNLr80
+         DLmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778569534; x=1779174334;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=4WKO48wCVFVY/Q3lQzIe4xzewKQpps/o90phN6WWe98=;
+        b=S6FQB2uAgagfb77d5oOOUZtGUvOXRu17rnRR30GvhUbznMSkjknV8uGYBqO3oHEPEA
+         8FZDz3qvi1m0Se0Du9UUIxOeE8dIReq2CTgV+t7s1qNHgXlgJoOKnxKm4BD09jiqU0Iw
+         nW+fuAucKsloUM2S3rqgxTD5y+5Gsel8uK1hSYmkV4n61YfKHHmYpp2I3j536PH3uNgE
+         AZ1dV04wWdzh/ZZOTna8qwCeVpVPgGANnVa2M0tl4qOjegX8dENVGnLO0Fs4q7yHJixM
+         PV+VJIcMx9kv4CFYp0/uIYxEayeSu+7mLgJqLeAPa+e0lIgylw30qK3L7GWIQMmYf0Ln
+         /DmA==
+X-Forwarded-Encrypted: i=1; AFNElJ/CmxvCoC+5NEb7uo2LT3DwX2KxJnUIeNAO02sMcVZoJP+IBbTp9sBvFOeZcwW1BWUxrtQo/JwjJ4Zx7xDMKGN/@lists.infradead.org
+X-Gm-Message-State: AOJu0YywIOZ6MmqLzVpGTGxc5uSzTclTr7JuSpnrVrbhvPYkxWjkGOYq
+	kdcWByQVL9TxyFsbXgKh8ycsOD61jNxvgnJ8+4HNbThlSyelOrsw9ksVlubHxp02QOf8SWbPSo2
+	CrZhHjHk/fqT55SXnblVrvE+Ahs4ms/Y=
+X-Gm-Gg: Acq92OGUOSc6Jf10+eIncdh5oKrizE7+U1wWPG8woBfJkzyheCx1gGmHuRBtBzwsJQ/
+	M0rr0VznBfUPWJdGVasft5ue435ddnCgGthMhU7sozp1aOEGMlfpsKoQSf3jJJosxIAa28wGkw5
+	WhUwv3DUChaDSmauVDpf7YVjQSEIKLNKApLg/GcEYXH/vTT1JVaqxv9X/bCJPed/d1l1wKDy9n/
+	s8733OOFCezWlYiAVBu5CNS3ENU0FzQ2MzBurNec08w0EJgiKI/8mtifB/kcsMYZhUVYqhxsYi3
+	onNdVx/9MoArHWkqF2A5wqe5knfBFLh+cdCrZ0njtbxYBMLCkj9bhQ1feTEvJGORZZS4aiff0uv
+	zqxkN4JA=
+X-Received: by 2002:a17:907:8b87:b0:bcd:2dbd:8241 with SMTP id
+ a640c23a62f3a-bcd2dbd8f82mr647649566b.5.1778569533677; Tue, 12 May 2026
+ 00:05:33 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/7] PCI: Add pci_host_common_link_train_delay() helper
-To: Hans Zhang <18255117159@163.com>, bhelgaas@google.com,
- lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
- vigneshr@ti.com, jingoohan1@gmail.com, thomas.petazzoni@bootlin.com,
- pali@kernel.org, ryder.lee@mediatek.com, claudiu.beznea.uj@bp.renesas.com,
- mpillai@cadence.com
-Cc: robh@kernel.org, s-vadapalli@ti.com, linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260511055923.37117-1-18255117159@163.com>
- <20260511055923.37117-2-18255117159@163.com>
-Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@kernel.org>
-In-Reply-To: <20260511055923.37117-2-18255117159@163.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com> <20260512-mt6323-v2-7-3efcba579e88@protonmail.com>
+In-Reply-To: <20260512-mt6323-v2-7-3efcba579e88@protonmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 12 May 2026 10:04:56 +0300
+X-Gm-Features: AVHnY4Ir9Mq_UQabCQBoJYVIwG-u_PpfuUXY4u_xRVfJJhNKJhDnleR-UqRVa9w
+Message-ID: <CAHp75VfgrbEDLavMKFp2maFCH08RBUxF2wYhh56GG1HCq4ogmA@mail.gmail.com>
+Subject: Re: [PATCH v2 07/16] thermal: mediatek: add PMIC thermal support
+To: rva333@protonmail.com
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sen Chu <sen.chu@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+	Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, linux-iio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_000520_665648_F627D8CD 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20260512_000535_782584_9AB37026 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,79 +128,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Hans,
+On Tue, May 12, 2026 at 8:21=E2=80=AFAM Roman Vivchar via B4 Relay
+<devnull+rva333.protonmail.com@kernel.org> wrote:
+>
+> Add a new driver to support thermal monitoring on MediaTek PMICs.
+>
+> The driver retrieves calibration data from EFUSE, calculates the
+> temperature using a linear interpolation, and registers the device with
+> the thermal framework.
+>
+> Initial support is added for the mt6323 PMIC.
 
-On 5/11/26 08:59, Hans Zhang wrote:
-> PCIe r6.0, sec 6.6.1 (Conventional Reset) requires that for a Downstream
-> Port supporting Link speeds greater than 5.0 GT/s, software must wait a
-> minimum of 100 ms after Link training completes before sending any
-> Configuration Request.
-> 
-> Introduce a static inline helper pci_host_common_link_train_delay() that
-> checks the given max_link_speed (2 = 5.0 GT/s, 3 = 8.0 GT/s, etc.) and
-> calls msleep(100) only when the speed is greater than 5.0 GT/s.
-> 
-> This allows multiple host controller drivers to share the same mandatory
-> delay without duplicating the logic.
-> 
-> Signed-off-by: Hans Zhang <18255117159@163.com>
-> ---
->   drivers/pci/controller/pci-host-common.h | 17 +++++++++++++++++
->   1 file changed, 17 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
-> index b5075d4bd7eb..d709f7e3e11a 100644
-> --- a/drivers/pci/controller/pci-host-common.h
-> +++ b/drivers/pci/controller/pci-host-common.h
-> @@ -10,6 +10,9 @@
->   #ifndef _PCI_HOST_COMMON_H
->   #define _PCI_HOST_COMMON_H
->   
-> +#include <linux/delay.h>
-> +#include "../pci.h"
-> +
->   struct pci_ecam_ops;
->   
->   int pci_host_common_probe(struct platform_device *pdev);
-> @@ -20,4 +23,18 @@ void pci_host_common_remove(struct platform_device *pdev);
->   
->   struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
->   	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
-> +
-> +/**
-> + * pci_host_common_link_train_delay - Wait 100 ms if link speed > 5 GT/s
-> + * @max_link_speed: the maximum link speed (2 = 5.0 GT/s, 3 = 8.0 GT/s, ...)
-> + *
-> + * Must be called after Link training completes and before the first
-> + * Configuration Request is sent.
-> + */
-> +static inline void pci_host_common_link_train_delay(int max_link_speed)
+...
+
++ array_size.h
+
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/err.h>
+> +#include <linux/iio/consumer.h>
+
+> +#include <linux/kernel.h>
+
+No way the driver(s) nowadays use this header. Please, drop it and add
+the ones that are really in use (there are missing ones).
+
+> +#include <linux/module.h>
+> +#include <linux/nvmem-consumer.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/property.h>
+> +#include <linux/regmap.h>
+
+> +#include <linux/slab.h>
+
+Is it used?
+
+> +#include <linux/thermal.h>
+
+Missing types.h
+
+> +#include <linux/units.h>
+
+...
+
+> +#define MT6323_ADC_VOLTAGE_RANGE       1800
+> +#define MT6323_ADC_RESOLUTION          32768
+
+These two ring a bell with the first code patch. Are they the same?
+Can they be deduplicated?
+
+...
+
+> +       ret =3D iio_read_channel_processed(sensor->adc_channel, &raw);
+> +       if (ret < 0) {
+
+Do we need that ' < 0' part? What is the meaning of positive returned
+value (if any) and why do we ignore that? Same question to all similar
+checks in the whole series.
+
+> +               dev_err(sensor->mt->dev, "failed to read iio channel: %d\=
+n",
+> +                       ret);
+> +               return ret;
+> +       }
+
+...
+
+> +       /*
+> +        * Temperature coefficient. The o_slope is a trim value applied t=
+o
+> +        * the base calibration
+
+Respect English grammar and punctuation. Here is the period missing.
+
+> +        */
+
+...
+
+> +static int mtk_pmic_thermal_extract_efuse_mt6323(struct mtk_pmic_thermal=
+ *mt,
+> +                                                u16 *buf)
 > +{
-> +	if (max_link_speed > 2)
-> +		msleep(PCIE_RESET_CONFIG_WAIT_MS);
+> +       u32 reg;
+> +       s32 vts, degc_cali, o_slope, o_slope_sign, id;
+> +       int ret;
 
-In case of RZ/G3S driver the max_link_speed is populated based on 
-"max-link-speed" DT property (by calling of_pci_get_max_link_speed()). My 
-understanding from [1] (and the review of the initial RZ/G3S driver support) is 
-that this is not a mandatory property (note also the "Host drivers *could* add 
-this" from [1]). At least for the RZ/G3S driver, in case the "max-link-speed" DT 
-property is not present in DT but the controller supports more than 5GT/s (that 
-is possible as the driver supports more controller variants), the max_link_speed 
-argument will be negative. In that case the msleep() will not be called. This 
-looks like an opposite of what the patch set is trying to achieve.
+Better to keep reversed xmas tree order.
 
-Also, if I'm not wrong, there is also the possibility of having the 
-max-link-speed > 2 but the downstream port to not support more than 5GT/s. In 
-that case the mspeep() would also be executed (but I think that wouldn't be 
-really an issue).
+> +       return 0;
+> +}
 
-Thank you,
-Claudiu
+...
 
-[1] 
-https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/pci/pci-bus-common.yaml#L117
+> +static int mtk_pmic_thermal_get_calib_data(struct device *dev,
+> +                                          struct mtk_pmic_thermal *mt)
+> +{
 
-Thank you,
-Claudiu
+> +       void *buf __free(kfree) =3D NULL;
 
+This is a discouraged way of defining variables with __free(). See below.
+
+> +       struct nvmem_cell *cell;
+> +       size_t len;
+> +       int ret;
+> +
+> +       cell =3D nvmem_cell_get(dev, NULL);
+> +       if (IS_ERR(cell))
+> +               return PTR_ERR(cell);
+
+> +       buf =3D nvmem_cell_read(cell, &len);
+
+Should be rather here
+
+       void *buf __free(kfree) =3D nvmem_cell_read(cell, &len);
+
+> +       nvmem_cell_put(cell);
+> +
+> +       if (IS_ERR(buf)) {
+> +               ret =3D PTR_ERR(buf);
+> +               buf =3D NULL;
+> +               return ret;
+> +       }
+> +
+> +       if (len < 2 * sizeof(u16)) {
+> +               dev_err(dev, "invalid calibration data length\n");
+> +               return -EINVAL;
+
+return dev_err_probe(...);
+
+> +       }
+> +
+> +       ret =3D mt->data->extract_efuse(mt, buf);
+> +       if (ret) {
+> +               dev_info(dev, "device not calibrated, using default value=
+s\n");
+> +               mt->data->precalc(mt, MT6323_DEFAULT_VTS,
+> +                                 MT6323_DEFAULT_DEGC_CALI,
+> +                                 MT6323_DEFAULT_SLOPE,
+> +                                 MT6323_DEFAULT_SLOPE_SIGN);
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static int mtk_pmic_thermal_init_sensor(struct mtk_pmic_thermal *mt, int=
+ id)
+> +{
+> +       struct mtk_pmic_sensor *sensor =3D &mt->sensors[id];
+> +       struct device *dev =3D mt->dev;
+> +
+> +       sensor->id =3D id;
+> +       sensor->mt =3D mt;
+> +
+> +       if (mt->data->num_sensors > 1)
+> +               sensor->adc_channel =3D devm_iio_channel_get(dev, mt->dat=
+a->sensors[id]);
+> +       else
+> +               sensor->adc_channel =3D devm_iio_channel_get(dev, NULL);
+
+> +
+
+Unneeded blank line as the above and below are coupled semantically.
+
+> +       if (IS_ERR(sensor->adc_channel))
+> +               return dev_err_probe(dev, PTR_ERR(sensor->adc_channel),
+> +                                    "failed to get channel %s\n",
+> +                                    mt->data->sensors[id]);
+> +
+> +       sensor->tzdev =3D devm_thermal_of_zone_register(dev, id, sensor,
+> +                                                     &mtk_pmic_thermal_o=
+ps);
+> +       if (IS_ERR(sensor->tzdev))
+> +               return dev_err_probe(dev, PTR_ERR(sensor->tzdev),
+> +                                    "failed to register thermal zone %d\=
+n", id);
+> +
+> +       return 0;
+> +}
+
+...
+
+> +static const struct of_device_id mtk_pmic_thermal_of_match[] =3D {
+> +       { .compatible =3D "mediatek,mt6323-thermal",
+> +         .data =3D &mt6323_thermal_data },
+> +       { /* sentinel */ },
+
+No comma for the terminator entry.
+
+> +};
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
