@@ -4,178 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D939BCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9190DCD4855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hq9ld3vAenEwhZ7E7Xt1IkGSKB8JvhGQnQTGcjSbfV0=; b=QglDK4+BDkin2rsthG7P1yRH6Z
-	muwylx3XwiBIi8a8MJh4TFSkMD4ZWM8SHntmjzYzvQ7EBP2ITscpKIaIveoqWgNvIdONoW+p56tDV
-	MoobyiTGDoQi+vhICRc8n9TEHPZaqVxPViFyiErkqQhNq5iv1luS0PHTvO6gEQhp5qLIIFIt7zfCh
-	HnXRKjIQjNCV40HWjyHUwurzPGNr0+0IYdsBvo3l8gxs8JucDNgBNkyRVWxe+4djPYwWddwoCwr3F
-	bm1AmeFqLJhqL7E47ZXcKZx7El0lWzCX5oRSweltP/49OJkudPKBWINwmMpnMoqdASWLEYS9liZf+
-	3NuhUSOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1jmP/TvG+eVU58X498eguI1YKUfux/ase4Doi+Mx29Q=; b=kPLGmnOqwsKiUKVXE/peHFjavv
+	DGF0T++mLoPnQH+Y0vRD56yGxsYnlTIvRaisAVHViGb2nGkL7V3fuNVShlcpPtPl+qe3Db135tBkR
+	C5BA/lDkYr645Qg+d/su9+XWDtqgbTnbsr2whuMfxjDEuIVQ8tftq00AirJBgVbLtA91bxzt+ozl9
+	AVuxDic1rl/FiyyRvAKSMd+t1/gX8DjxKeSCGFTiJFyfrBlmztcvUxBJm2WfmkXhvr8YXJuqL+IUU
+	MLGUZIe2hIYFMY6txb+p2asWktAU0poxLJQPXzWyzilAXLl24sX6W7DBKO9XvAyZdzyVNP1NdlNV9
+	LGSWPhfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMj4m-0000000GCYx-3cw3;
-	Tue, 12 May 2026 09:06:52 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wMj4q-0000000GCcB-0OuL;
+	Tue, 12 May 2026 09:06:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMj4l-0000000GCY3-1FrK;
-	Tue, 12 May 2026 09:06:52 +0000
-X-UUID: e6d3a5784de111f19f231fa534c5cac8-20260512
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=Hq9ld3vAenEwhZ7E7Xt1IkGSKB8JvhGQnQTGcjSbfV0=;
-	b=ikgvjq9xfIrTrfFIvdKjIfBF3U3bKuuAI97aOdSZbcp3qzYPHobtX/rHcj2rEiPiDKXUoQdrgMkObCrBbjcuIbeMJhRXp/LpjVh8oHlBGNZgkhqvg6SIBVgOccT5WXoyz0cf/NjivHXHdz08eRe6e3NZFOLfiO/0xS9fe0Dss18=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.13,REQID:fd9e3574-724e-4d26-b75c-93e79da42806,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b1afecd,CLOUDID:110e5271-3b7f-4b26-b2f9-40f0deecb36d,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:ni
-	l,BEC:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: e6d3a5784de111f19f231fa534c5cac8-20260512
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 797807834; Tue, 12 May 2026 02:06:46 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 12 May 2026 17:06:44 +0800
-Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Tue, 12 May 2026 17:06:43 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jaeEtNMXNOecTgQueAeW+Qr/DuyGkQiadS0WqaX0xgorh6AzvrIW2vcYq+pYFcuaVfq5q26++G38GbAlXkHcACuUeaBNJGIJbBY5mReFINBd1ySxf8uOzJkqsK1Ezqb/RHBQn5lGrGocVwVbS624o2j/T67XVJB5D5ptg+Zj22tZ2TYz+O7ib/8Bd+9RVr+FuZY1JWsnYkiPcGiOsFSP6aIx7O8jkjyFafvrtNw3voA6bcP881QCrbvdp1knqJ0DpkzwMP7VGGeq9tVCwn9inVpy0qs8o79+ctI9QvIcAF3Xjl7d5FkySm9R8cF3b5HUdlWPgRw/pDyvhDZBqzKlEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hq9ld3vAenEwhZ7E7Xt1IkGSKB8JvhGQnQTGcjSbfV0=;
- b=Q35X3doIXJoiH4YpKeJA/7Il7ckhb3/UGg/BGiKEP7BHVzN+wgyDru2r+QkwFQt/5lxc0mpYLTFkt1lu+Iuy5X+vFoLIha5+nKLfL15VDFLbOxHCyxs/gD6k3CCV9WkhftAnWFVuTrtf4XdsyODmu2faCL6WwYZdUG10Ga3Uodtkgzo6tT5CG1oc3t6wfgYTjGHgXuX2AFRJ38IR12XwGRTANIzuqlCFaMQZRouEK+Fu81mh3iLTByKJnPALpuWXtpBovFI4/MRH9geX+LIOxCtPFGwckD8KuDiHPzAQZ66UQVH16AKcdm2L+N+G7Nbs+FJjPEwjFDuHlmlE17Cn4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Hq9ld3vAenEwhZ7E7Xt1IkGSKB8JvhGQnQTGcjSbfV0=;
- b=H5SMXAqhg+5yFYqnWwrzlbo/uOWLawge3y9Osm3E5j5UKkTZGJIZLjfQbdxVkyLu1Lp30wTL+hD5CfQk4uhkoicrmnog+innLPVf6YTdjEBECinkjUyPnu1Clhqz0zy13VdsP+qwiVgArRG9tT4eSqROtGR608rCTZ7w/Yswa8k=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by SE3PR03MB9917.apcprd03.prod.outlook.com (2603:1096:101:333::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.15; Tue, 12 May
- 2026 09:06:41 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::a3c2:b94a:70f:e640]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::a3c2:b94a:70f:e640%4]) with mapi id 15.21.0025.012; Tue, 12 May 2026
- 09:06:41 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, "simona@ffwll.ch"
-	<simona@ffwll.ch>, Alexandre Mergnat <amergnat@baylibre.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"airlied@gmail.com" <airlied@gmail.com>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kernel@collabora.com"
-	<kernel@collabora.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 4/4] drm/mediatek: mtk_hdmi_ddc: Fix non-static global
- variable
-Thread-Topic: [PATCH 4/4] drm/mediatek: mtk_hdmi_ddc: Fix non-static global
- variable
-Thread-Index: AQHc177vLUgEuzkQqUq80wWjmMPU8bYKLcwA
-Date: Tue, 12 May 2026 09:06:40 +0000
-Message-ID: <dc44730f1cae13fd73db72afef72148cbe4b22ed.camel@mediatek.com>
-References: <20260429-mediatek-drm-fix-sparse-warnings-v1-0-d95c4d118b83@collabora.com>
-	 <20260429-mediatek-drm-fix-sparse-warnings-v1-4-d95c4d118b83@collabora.com>
-In-Reply-To: <20260429-mediatek-drm-fix-sparse-warnings-v1-4-d95c4d118b83@collabora.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|SE3PR03MB9917:EE_
-x-ms-office365-filtering-correlation-id: 8f810daa-a7d2-49da-1978-08deb005c80b
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|42112799006|1800799024|366016|376014|7416014|38070700021|11063799003|18002099003|56012099003|22082099003;
-x-microsoft-antispam-message-info: OM3vCxPFlMLDbyrNDXxun9rHpsO2OBK+WgM+23NpXggYu2OiGpw1l9MLhRmiCB4H6WpgniR+4w+7EKPTJUigbPK+MOmKiPdKVLHqSFhe9hlFuiy6pvvV2mO5AEzzSoQkKKsClU2w38tiVndl5zxVfgib2RCga1uQ5LmATVff12NMwpPgB8PwGwy1+jXi2dK+W7tVJMtpdhka9Da5RGZomBEOkRt+Uxj35NoM6ma6DieO4jWbAGch+cGr3bLmooGWOJU37syzwQguw5Z/NEF2xe0B5gCXgPl97vofbmL3IOyC7t92ReJDhY1lpyx7oteuzt0exaZ3V9hiDLC37qZEkgU21ozJ5lvoD3G1ObInyNDAuPyBaWQLu6mS/MogCiMNvKdenQ6VyYgCqMOekRYPO+7Q03qCJuOCl2FwmdwENYThiwqKSNaGT6De4zhikFg1Y8nK7jS8BCyDXGUSMczNKLxbCH4znLeIExX3hFUKP98BLnX1y4uVDxNJAeRz8o83prCd2OOamixqbJ3WMc+EkdaX65sbJfHRgZ+z8OsxWi7YYfRQ+Ay9ZminMNs668TOh68+6VLVQV//IEXECcQZDMzb0XDq15s2qSGUGRC/MOcynIitIrPlf0Vndw3fq1h/gxF/AbVXpusmQN05eMxsXy1IE5mrW9WPkH29+u6hKD32rLgMLaASPuoGxr7/bpQP+4sSAmsDjWWaCkOxAbR7PVAuwlihPDToBO6OnaPLqxIAWq3gDMAwT0z1mCfVFyfm
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(42112799006)(1800799024)(366016)(376014)(7416014)(38070700021)(11063799003)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eWZZd3BvNTBJNDJlNnRETmNKaXcwTnk3WEZPajBlaVI5RG5mQTlDeGpIaWRU?=
- =?utf-8?B?V2E2OFNUTEg4L0VIaUg3aDlzbEgwN05XeEVuczRqRlc4bWNiY01YSnR2elhv?=
- =?utf-8?B?a2R4Q1N1NG5sYW1kMko1K3dRemdEZFhtTEhSb1FMRXcyMjk5VlR0c0YxZmFX?=
- =?utf-8?B?aFVkY3J1TTNrcEtwMDhSZmRDbnViYUJyQUpJZ2ZCbXRPejlQQmZvdzJtSTFI?=
- =?utf-8?B?dmVvVStMMWY1WjMyc1lIeGR6OXdqL3I1WDNYcUJHeGFqc3hQSlUrWDFLVUk2?=
- =?utf-8?B?cjU3NHVVN0o0NlhwemRoWFl4amd6dUJ6SzFuTjJlMWlVL2d2VFhxeTZwamFq?=
- =?utf-8?B?cUFwK2plVk02US9sTGkweXArRjMxWHlBUm41cnhGTUk5YjIwQzB6Tm95ZWpL?=
- =?utf-8?B?aTdxTFB5TmFNV01NU3RtOFEzNndPUzF3Vmo1c2lXOWN6SnZzZGU1OFJnTEY5?=
- =?utf-8?B?TUE2aDJYTTI0NTZYRUEvS05iaEdsMkdGeGVBOTVmUDFPRmVpR0V3Z3Zlai90?=
- =?utf-8?B?SDlPYXpyaXBjWUQ1eUJHT3ZoWEhReW52YU02Wmxwb1VtUjZHNmlkTlZsOTBv?=
- =?utf-8?B?cEx6OHVOSTlmRHpSMVc4Q2w0MitTZmtoQVltVHJwdDN0Yy9hSjlTVVR3ekxU?=
- =?utf-8?B?MEUxWWx5TlVyeTBvSFNiNlJXc3U2MG9wSDZabnNOOUFvVlhhNzRZbk05dnQr?=
- =?utf-8?B?TU5vd1l5aDk0d0lzR3pHeUEwSWhhMFJKclhqNlRtbVd4bXBRVTN2M1dpYzdG?=
- =?utf-8?B?c1lUSVY2Tjh4VWtqU0o1WmNWT2JpbG9Wd2xFZDVvTnlkckptUmJJZDRMb1BT?=
- =?utf-8?B?a1NlanBNRG5lU0dIUEluQUVBajFWQ1llL3p0RnMvMXhNTEJ6TWgrbFVoWlFQ?=
- =?utf-8?B?QmwxVVpYazExRnhrbUJSNDV3a1l5cWZZRGNocTFrL2VtVUFVc1NCT2pZZkl2?=
- =?utf-8?B?eG10Tit0MVVjb1VwTjdrYnR4V21reUd3QUdGbUloNFJuSnR5d2ZJY04zMDVp?=
- =?utf-8?B?R0Rodmt5Z2FubG1SUjA4RkdsRXkvUzM1Q2g4RE1oWitYdmRxYnNKbHNOU09r?=
- =?utf-8?B?SXdaa1VwUk9zU0RSc09UNjBsWm5HYjlRQThIT2VlcGF0VURXL1BKMmNBN2lF?=
- =?utf-8?B?VjRsSUVJeU1KcnljZUJXRVRlV0NvaXgrY3BOQXdsVWFDSDBGUFY1NWVyZDh5?=
- =?utf-8?B?aVROa3N2V00rMEtYQis1ZE5IQlBsSHlxTWtBYlFCSDB6TEsrbnhrcWNHaHNk?=
- =?utf-8?B?dHZ2aHVpakFDZ2I1aXRHbG5DcTBmZU51NmUyQWcrb0JtUXdYUzNvbHhjTzUw?=
- =?utf-8?B?TndpZlo2cldJcEl3OUZzeFNhWElEZVR1WmQ1NXVDOFJwQkZRZGkvK0VWWWpj?=
- =?utf-8?B?Q2E4aitLWmFsZUZxaERpczBoVDhHbHdMMkN4NUF2TkxmNm1SN0F5N0MrM09E?=
- =?utf-8?B?cUtJNEJnQTVQK0ducHg0eUlYSC9oZnlERk0zY2RPQ2owOEpMakgxbVBpQTlp?=
- =?utf-8?B?OCtkM21SNmlUYkphNkRQZEhRc1Znd2lRZmQ3TENEaVJtY2lwckgxYk5HcXdG?=
- =?utf-8?B?QjVvdndIdTBJc2lXK08yc3F3KzBnUmJHdW0rYTNrUlFkVDVEUzB4WkJRNXVm?=
- =?utf-8?B?TVBDYUF2OG9UMkhVUXUyVVBJcWdTMW8wcG5uUkM5RXE1K2MxcWNKVVFlM0Z3?=
- =?utf-8?B?MTFreHlMRll5R1ZaNjhETWprdjMyN0RhdXBtbEs3dld3bkZJQVRPVzhMQXIx?=
- =?utf-8?B?ZVB6VWpnMjJyU0Nnak0vQURTbjFEZ3VFMXhwNEVFZ1VBcDMyQnMyQmV0WG1D?=
- =?utf-8?B?ZlVhYm9DQ3RlR3lhcUdYa1ZQVHd2YnlPRjJnQS8vdmJRY2lrbmFud1BCUm4v?=
- =?utf-8?B?Y1FqNkIxejRGVmNGT2NuOFlOVjg1ekU4ekpYVmNDbmJWWFBlcVNXaHllbll0?=
- =?utf-8?B?UmFHQ0xlVFQ2WlJ3MitqSm5kaWpYZGc1RkN2dU80TUFBWnkyc2FYNGpCREtr?=
- =?utf-8?B?L0szbmdld3NSZklCQTBaR2oxeWVkZ2NvN3ZtbmVaZHpKWk05VXlIQ3crVFNy?=
- =?utf-8?B?YlRaenRRNFBkVmdMd0p2Vk5RUE40NDVTTno1WGpsbS9nalM4blZvT1BicEF2?=
- =?utf-8?B?a01yclI5Qi9SaDMySDZzKzM2bjVaOHZ4N3Z0OGlPZkxodFZGanZjUi9kbm5C?=
- =?utf-8?B?ZThVcFRyaFJXMndmSVY3NVpWTkxlMHVaYlNYVUhjU29OMGFKbThuZHVoNWtZ?=
- =?utf-8?B?SW5KWW1HNWJWVUVObDIrOFVuaDNLbUxvbmRHR0RSbitLS25QbzRYbkZYYnd4?=
- =?utf-8?B?VFhLemZrbjJKYXJmcDlqYW1VbGNOcnMwQ01UNHhWeTdyMHRncDR6dz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <ADB0EBC4663D9543816DC9D1D0BF09AC@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1wMj4o-0000000GCaC-29PA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 12 May 2026 09:06:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=1jmP/TvG+eVU58X498eguI1YKUfux/ase4Doi+Mx29Q=; b=VIEfqQhLKQwxwQikyX/YvctYqj
+	u1fDOGOQmPcXnTkA6JTJEERPfcsaUcGNmciqqHXNAHNH3Ix9IWRPD9tYrhLgc0edur43O+P+tk+i8
+	7HmDEUSoJnA6S++H/GvWlelXfAsifpqQJHNN3HJ5wCDeAwjU8+b2gjJHNVbKGEmAq0lDkCo07qZU6
+	ShwuT+GuOwYm0I+L3Ai9K6GhmCsOwqiV5MCfbA8HoZYmkh1yk1hqHHTId9srk8fTdbiyYEPdZ55XD
+	tow/ollaNyAMVtn/o1BKtUo82yNMDDoyrDXWSyRMOZEfOZH/66woSvwsgMwbvZp+GSQigEFk7+lJx
+	dhsZMN2Q==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMj4a-0000000EC1y-3mR7
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 09:06:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CE56E4391C;
+	Tue, 12 May 2026 09:06:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AC84C2BCF7;
+	Tue, 12 May 2026 09:06:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778576799;
+	bh=mTlzwGmKaksgYc3F/GyUj4XB9AG9GATAkfL4j43fQ40=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Gg9NhAp7QAL+VjZbnyz/0jlu7gA+E880rsW1LbQ4Tm+kjB/qLh83dBTqQCogFkMnk
+	 6ldiTPnH1BZAHckzOmx/zFVXOvdywPpPf75pIgEpalHO5cqsgAyIFMRGo1Pp+77GEO
+	 MM0gflFTCnuDTyh7C+CWAabFjFk801in1C2uepCZveaoORNYDG2BAqk4lzaTwLJQO6
+	 msRKi6DGIBt9MapjDJ/C6gK56qwGC2e+Q3E3tpjbe3FWjBA4z4aPUCiQI43o+zkFJu
+	 mUPkM5VjW/y2kXSQuOj2NG74UZEsprayRa/8m7pL2NMYQAR7xaHdfQY+GzIyu7EPvK
+	 ce/+WEjgnU5BQ==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	x86@kernel.org
+Subject: [PATCH v4 11/13] dma-direct: rename ret to cpu_addr in alloc helpers
+Date: Tue, 12 May 2026 14:34:06 +0530
+Message-ID: <20260512090408.794195-12-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260512090408.794195-1-aneesh.kumar@kernel.org>
+References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: tktiKe8uqH3BcDRohuBZGDh/dp8Bpd8FlSC10b0os2fb/zNZTXi0PAF2LhPHghqwQWowpt5BCifTmk53fMbv7e7qjuwzUHeMD15WgJgh7CqUHuNi9idLCRRmMAYrkYAOcuao5do2CwKFkDzLbFSKTrnh0pw47bII3iXcyitwS3NqOMXwSiztCtDehvC0ZJhttUe7F+YhPHJGvvbRDlQHxv6UwUp6jxmin1/gT4kmJeTdGr5vp6WdUcYMm8qvwxM4mkJJY1vbt8FsKoiTqB/tCHPMVTi6T+ewN8YVCH20mka/8nv3Zxoofku6L5jLkBtLB/LFQb1ZpbxfdQOBt7S8wg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f810daa-a7d2-49da-1978-08deb005c80b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 May 2026 09:06:41.0180
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: x5w9H+XPznEEt9N86ezbIlPlq9YQ4XYmbqubHLRA9za4ic2QP3XvrAKFL+4r2mOGGx9qvji9/gipHyqWCiEsug==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR03MB9917
-X-MTK: N
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_020651_342947_4A7A56C9 
-X-CRM114-Status: GOOD (  18.18  )
+X-CRM114-CacheID: sfid-20260512_100647_441654_23179F67 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,27 +115,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI2LTA0LTI5IGF0IDExOjU5ICswMjAwLCBMb3Vpcy1BbGV4aXMgRXlyYXVkIHdy
-b3RlOg0KPiBUaGUgc3RydWN0ICdtdGtfaGRtaV9kZGNfZHJpdmVyJyBpcyBub3QgdXNlZCBvdXRz
-aWRlIG9mIHRoZQ0KPiBtdGtfaGRtaV9kZGMuYyBmaWxlLCBzbyBtYWtlIGl0IHN0YXRpYyB0byBz
-aWxlbmNlIHNwYXJzZSB3YXJuaW5nOg0KPiBgYGANCj4gZHJpdmVycy9ncHUvZHJtL21lZGlhdGVr
-L210a19oZG1pX2RkYy5jOjMzMToyNDogc3BhcnNlOiB3YXJuaW5nOiBzeW1ib2wNCj4gICAnbXRr
-X2hkbWlfZGRjX2RyaXZlcicgd2FzIG5vdCBkZWNsYXJlZC4gU2hvdWxkIGl0IGJlIHN0YXRpYz8N
-Cj4gYGBgDQoNClJldmlld2VkLWJ5OiBDSyBIdSA8Y2suaHVAbWVkaWF0ZWsuY29tPg0KDQo+IA0K
-PiBGaXhlczogYzI0MTExOGI2MjE2ICgiZHJtL21lZGlhdGVrOiBtdGtfaGRtaV9kZGM6IFN3aXRj
-aCB0byByZWdpc3RlciBhcyBtb2R1bGVfcGxhdGZvcm1fZHJpdmVyIikNCj4gU2lnbmVkLW9mZi1i
-eTogTG91aXMtQWxleGlzIEV5cmF1ZCA8bG91aXNhbGV4aXMuZXlyYXVkQGNvbGxhYm9yYS5jb20+
-DQo+IC0tLQ0KPiAgZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19oZG1pX2RkYy5jIHwgMiAr
-LQ0KPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pDQo+IA0K
-PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19oZG1pX2RkYy5jIGIv
-ZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19oZG1pX2RkYy5jDQo+IGluZGV4IDYzNThlMWFm
-NjliNC4uMmFjYmRiMDI1ZDg5IDEwMDY0NA0KPiAtLS0gYS9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0
-ZWsvbXRrX2hkbWlfZGRjLmMNCj4gKysrIGIvZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19o
-ZG1pX2RkYy5jDQo+IEBAIC0zMjgsNyArMzI4LDcgQEAgc3RhdGljIGNvbnN0IHN0cnVjdCBvZl9k
-ZXZpY2VfaWQgbXRrX2hkbWlfZGRjX21hdGNoW10gPSB7DQo+ICB9Ow0KPiAgTU9EVUxFX0RFVklD
-RV9UQUJMRShvZiwgbXRrX2hkbWlfZGRjX21hdGNoKTsNCj4gIA0KPiAtc3RydWN0IHBsYXRmb3Jt
-X2RyaXZlciBtdGtfaGRtaV9kZGNfZHJpdmVyID0gew0KPiArc3RhdGljIHN0cnVjdCBwbGF0Zm9y
-bV9kcml2ZXIgbXRrX2hkbWlfZGRjX2RyaXZlciA9IHsNCj4gIAkucHJvYmUgPSBtdGtfaGRtaV9k
-ZGNfcHJvYmUsDQo+ICAJLnJlbW92ZSA9IG10a19oZG1pX2RkY19yZW1vdmUsDQo+ICAJLmRyaXZl
-ciA9IHsNCj4gDQoNCg==
+ret in dma_direct_alloc() and dma_direct_alloc_pages() holds the returned
+CPU mapping, not a generic return value. Rename it to cpu_addr and update
+the remaining uses to match.
+
+This makes the allocation paths easier to follow and keeps the local naming
+consistent with what the variable actually represents.
+
+Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+---
+ kernel/dma/direct.c | 31 +++++++++++++++----------------
+ 1 file changed, 15 insertions(+), 16 deletions(-)
+
+diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+index 1e9f9ff7b9d3..902008e40ea1 100644
+--- a/kernel/dma/direct.c
++++ b/kernel/dma/direct.c
+@@ -212,7 +212,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+ 	bool mark_mem_decrypt = false;
+ 	bool allow_highmem = true;
+ 	struct page *page;
+-	void *ret;
++	void *cpu_addr;
+ 
+ 	/*
+ 	 * DMA_ATTR_CC_SHARED is not a caller-visible dma_alloc_*()
+@@ -326,34 +326,33 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+ 		arch_dma_prep_coherent(page, size);
+ 
+ 		/* create a coherent mapping */
+-		ret = dma_common_contiguous_remap(page, size, prot,
+-				__builtin_return_address(0));
+-		if (!ret)
++		cpu_addr = dma_common_contiguous_remap(page, size, prot,
++					__builtin_return_address(0));
++		if (!cpu_addr)
+ 			goto out_encrypt_pages;
+ 	} else {
+-		ret = page_address(page);
++		cpu_addr = page_address(page);
+ 	}
+ 
+-	memset(ret, 0, size);
++	memset(cpu_addr, 0, size);
+ 
+ 	if (set_uncached) {
+ 		void *uncached_cpu_addr;
+ 
+ 		arch_dma_prep_coherent(page, size);
+-		uncached_cpu_addr = arch_dma_set_uncached(ret, size);
++		uncached_cpu_addr = arch_dma_set_uncached(cpu_addr, size);
+ 		if (IS_ERR(uncached_cpu_addr))
+ 			goto out_free_remap_pages;
+-		ret = uncached_cpu_addr;
++		cpu_addr = uncached_cpu_addr;
+ 	}
+ 
+ 	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page),
+ 					 !!(attrs & DMA_ATTR_CC_SHARED));
+-	return ret;
+-
++	return cpu_addr;
+ 
+ out_free_remap_pages:
+ 	if (remap)
+-		dma_common_free_remap(ret, size);
++		dma_common_free_remap(cpu_addr, size);
+ 
+ out_encrypt_pages:
+ 	if (mark_mem_decrypt &&
+@@ -437,7 +436,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+ {
+ 	unsigned long attrs = 0;
+ 	struct page *page;
+-	void *ret;
++	void *cpu_addr;
+ 
+ 	if (force_dma_unencrypted(dev))
+ 		attrs |= DMA_ATTR_CC_SHARED;
+@@ -455,7 +454,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+ 			swiotlb_free(dev, page, size);
+ 			return NULL;
+ 		}
+-		ret = page_address(page);
++		cpu_addr = page_address(page);
+ 		goto setup_page;
+ 	}
+ 
+@@ -463,11 +462,11 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+ 	if (!page)
+ 		return NULL;
+ 
+-	ret = page_address(page);
+-	if ((attrs & DMA_ATTR_CC_SHARED) && dma_set_decrypted(dev, ret, size))
++	cpu_addr = page_address(page);
++	if ((attrs & DMA_ATTR_CC_SHARED) && dma_set_decrypted(dev, cpu_addr, size))
+ 		goto out_leak_pages;
+ setup_page:
+-	memset(ret, 0, size);
++	memset(cpu_addr, 0, size);
+ 	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page),
+ 					 !!(attrs & DMA_ATTR_CC_SHARED));
+ 	return page;
+-- 
+2.43.0
+
 
