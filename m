@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45CDCD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 554A3CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xnLTfDp68NkF+X3GgenzOQCUIlMmDDGlvtjzrPvr1ns=; b=aDpu+tVVsUvSwnfPDm/1urXJhp
-	o6w296hptv2YV2g+SQAO0inFTvst34bUNTHDi9UHH8szHeYTHCGwpaUS+7InV26uTsQGEq4g1tG1O
-	UkdtnE7+6w0rapQlb1bRXR8U2ECBR3itMCMZMoteegFuWffad08zn2idRqq0/d4scWGhe5+2NYgIq
-	HVR3oRYcoTbFdIrcaHfc5+G0/4OguiXEwwc5aUjE61WvIE+XKe+6krDblwi9EatPLk/orm8yTmeeW
-	aeSHdgGqBb4FzokZ1GFYVC30xr2LZNmdngPPWlVfVR0+ERdNHXULeSixj79NOPW0YaUvOJRT3e2vj
-	jLJ/urFQ==;
+	bh=vx1EZnStwDZZdxIcqyTZDoezBvHoI6tS8Dmz7WDLRe0=; b=4F6ZsdjOOfNSDfItR1ekcXDJS7
+	36fcWIR0ro1GQ35nw0CDPsbR0SQq74psW2MegxiSm3L+nZNCZPFSkdk+AskfxvAgZsj+RLaZWAVVN
+	eQPzuZtJE1JyO6CeEElrIDsCdEI9cmHxQGHMuLnGHfL0yEW6g+fgUNfQ+bGBfQQednOU40y1xRtHH
+	aYfKdzLvaV6K+3eMzRkaoSc/f+tJdaNBgjWoV/SGPREKU6lHSmrN/u1dxYjN5/INf0kUnir2o5Q8Y
+	/qgxQ3/rooOWgxzxSqCEow2IOtvlzBN61s8ejkI7Z7lPH0xx7n7yPiN+Wtmifi+P5f+SGnIJ0RkT+
+	1OJ3K6+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnID-0000000GsH3-3u5G;
-	Tue, 12 May 2026 13:37:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wMmpA-0000000Gl5M-3ZhM;
+	Tue, 12 May 2026 13:07:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnIC-0000000GsGW-2lTG;
-	Tue, 12 May 2026 13:37:00 +0000
+	id 1wMmp7-0000000Gl0O-42fq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 13:06:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 06B8561338;
-	Tue, 12 May 2026 13:37:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D73AFC2BCB0;
-	Tue, 12 May 2026 13:36:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2CB0C60172;
+	Tue, 12 May 2026 13:06:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5849AC2BCF5;
+	Tue, 12 May 2026 13:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778593019;
-	bh=x32bCq5aJ+bGmDmdT/N1et7DubPIFjtOHl9ouElgZW4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=W5by0G01+CuK8d7NBzJ7Am772HxNBgv0MQ45OjkYM2HyR9uLFfPo5YZnaTf4XO95k
-	 ljIJvsMUfBmWw4l2OUDAjzteHlDwoLKOUFmxQkajXJV7apqBn1rSDhbozuOjdX0Lw4
-	 cOJ3xCgX495b0TvSaELMpDH0LSxT15WLzd5UFN96n2bQds6hSWbEU5cT5xOoSShfxM
-	 QcHAdDivIYMJI26fwH4cBBu5uHu16pUmiAqAQt8rT02zkM3sXGGaWlHrrXinNBbpTM
-	 ZepIwf1yL6aIsSGxxMH09Z/NWpistREYLPi0qUUCCsaJQoFDaQ1Pj84pWLtT/XH+XK
-	 5391L+ROVUElw==
-Date: Tue, 12 May 2026 14:36:46 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Cc: rva333@protonmail.com, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Sen Chu <sen.chu@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
- Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, "Rafael
- J. Wysocki" <rafael@kernel.org>, Daniel Lezcano
- <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
- <lukasz.luba@arm.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH v2 14/16] MAINTAINERS: add MediaTek mt6323 PMIC AUXADC
- driver maintainer
-Message-ID: <20260512143646.15d0aa0e@jic23-huawei>
-In-Reply-To: <20260512-mt6323-v2-14-3efcba579e88@protonmail.com>
-References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
-	<20260512-mt6323-v2-14-3efcba579e88@protonmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20201202; t=1778591216;
+	bh=etL0BmY0A9Fqpeqx045EC22tvLHJ6vuKYkR//hKcODY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=DUtRSZsQ9gB36yLZtkozHG+6I0RAPwERl/ZfvksIqWpkfh7ltWrFcOm0oIB3iErA4
+	 zN4AOX/DtBVmZWupVNCjjRjb6J/WumQfm3eHU80x1x66IdQxtFWNBQzYCmlbWh4QKA
+	 iBg0zQw6PhRkRk66ID/iAyrQ9f6QMbyj9YjZ7mv2FKGg9Z2NiiE4VDMwO1ER7aewz2
+	 bD009BDa3w9wqj9xCcu0MHZVS5yoFam+wm+s8mcDmAG5EOepiWosMkzKGq83tLvupR
+	 gLIlEvRMJTtxhuiope1xqLgADVFhDd0tJx9MXG45Ayz38llduXsfUOBSuCFjbr2wv8
+	 nM4Ynxzp42haw==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Tue, 12 May 2026 15:06:13 +0200
+Subject: [PATCH v4 15/20] drm/connector: Add new atomic_create_state
+ callback
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260512-drm-mode-config-init-v4-15-591dfdcc1bf9@kernel.org>
+References: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
+In-Reply-To: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7400; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=etL0BmY0A9Fqpeqx045EC22tvLHJ6vuKYkR//hKcODY=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFnMqgcnJyZVpdYLqHedeDfbUu7Ct5Ap7kLxnbMCw6q6/
+ s2V9WPvmMrCIMzJICumyPJEJuz08vbFVQ72K3/AzGFlAhnCwMUpABOpeMTYcO+vofWyzeqmPZGz
+ LARK9x7d8/7IbUbXcz/X3VG4+cf56F7/G14+L3se/aove9ShE7bZgLE+wMpp5lp+BaP10h+2eAv
+ /3WmUxCCcPOcdW6+zef3k6pWWcw30uG+ey7l44s/zaYEatywA
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +102,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 May 2026 08:18:28 +0300
-Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
+Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
+to drm_private_obj") introduced a new pattern for allocating drm object
+states.
 
-> From: Roman Vivchar <rva333@protonmail.com>
-> 
-> Add myself as MediaTek mt6323 AUXADC driver maintainer.
-> 
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> ---
->  MAINTAINERS | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index d1cc0e12fe1f..52249c301633 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -16337,6 +16337,11 @@ S:	Orphan
->  F:	Documentation/devicetree/bindings/mtd/mediatek,mtk-nfc.yaml
->  F:	drivers/mtd/nand/raw/mtk_*
->  
-> +MEDIATEK PMIC AUXADC DRIVER
+Instead of relying on the reset() callback, it created a new
+atomic_create_state hook. This is helpful because reset is a bit
+overloaded: it's used to create the initial software state, reset it,
+but also reset the hardware.
 
-Given this is one of quite a few Mediatek PMIC drivers, you either
-need to be more specific in that title or offer to handle them all.
+It can also be used either at probe time, to create the initial state
+and possibly reset the hardware to an expected default, but also during
+suspend/resume.
 
-> +M:	Roman Vivchar <rva333@protonmail.com>
-> +S:	Odd Fixes
-> +F:	drivers/iio/adc/mt6323-auxadc.c
-> +
->  MEDIATEK PMIC LED DRIVER
->  M:	Sen Chu <sen.chu@mediatek.com>
->  M:	Sean Wang <sean.wang@mediatek.com>
-> 
+Both these cases come with different expectations too: during the
+initialization, we want to initialize all states, but during
+suspend/resume, drm_private_states for example are expected to be kept
+around.
+
+reset() also isn't fallible, which makes it harder to handle
+initialization errors properly. This is only really relevant for some
+drivers though, since all the helpers for reset only create a new
+state, and don't touch the hardware at all.
+
+It was thus decided to create a new hook that would allocate and
+initialize a pristine state without any side effect:
+atomic_create_state to untangle a bit some of it, and to separate the
+initialization with the actual reset one might need during a
+suspend/resume.
+
+Continue the transition to the new pattern with connectors.
+
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+ drivers/gpu/drm/drm_atomic_state_helper.c | 26 ++++++++++++++++++++++++++
+ drivers/gpu/drm/drm_mode_config.c         | 31 ++++++++++++++++++++++++++++++-
+ include/drm/drm_atomic_state_helper.h     |  2 ++
+ include/drm/drm_connector.h               | 16 ++++++++++++++++
+ 4 files changed, 74 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+index e2e5a1b8a820..07686e94aae0 100644
+--- a/drivers/gpu/drm/drm_atomic_state_helper.c
++++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+@@ -532,10 +532,36 @@ void drm_atomic_helper_connector_reset(struct drm_connector *connector)
+ 	kfree(connector->state);
+ 	__drm_atomic_helper_connector_reset(connector, conn_state);
+ }
+ EXPORT_SYMBOL(drm_atomic_helper_connector_reset);
+ 
++/**
++ * drm_atomic_helper_connector_create_state - default &drm_connector_funcs.atomic_create_state hook for connectors
++ * @connector: connector object
++ *
++ * Allocates and  initializes pristine @drm_connector_state.
++ *
++ * This is useful for drivers that don't subclass @drm_connector_state.
++ *
++ * RETURNS:
++ * Pointer to new connector state, or ERR_PTR on failure.
++ */
++struct drm_connector_state *
++drm_atomic_helper_connector_create_state(struct drm_connector *connector)
++{
++	struct drm_connector_state *state;
++
++	state = kzalloc_obj(*state);
++	if (!state)
++		return ERR_PTR(-ENOMEM);
++
++	__drm_atomic_helper_connector_state_init(state, connector);
++
++	return state;
++}
++EXPORT_SYMBOL(drm_atomic_helper_connector_create_state);
++
+ /**
+  * drm_atomic_helper_connector_tv_margins_reset - Resets TV connector properties
+  * @connector: DRM connector
+  *
+  * Resets the TV-related properties attached to a connector.
+diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+index 2e2cd18a14b4..9d240817f8b6 100644
+--- a/drivers/gpu/drm/drm_mode_config.c
++++ b/drivers/gpu/drm/drm_mode_config.c
+@@ -235,10 +235,36 @@ static int drm_mode_config_crtc_reset_with_create_state(struct drm_crtc *crtc)
+ 	}
+ 
+ 	return drm_mode_config_crtc_create_state(crtc);
+ }
+ 
++static int drm_mode_config_connector_create_state(struct drm_connector *connector)
++{
++	struct drm_connector_state *conn_state;
++
++	if (!connector->funcs->atomic_create_state)
++		return 0;
++
++	conn_state = connector->funcs->atomic_create_state(connector);
++	if (IS_ERR(conn_state))
++		return PTR_ERR(conn_state);
++
++	connector->state = conn_state;
++
++	return 0;
++}
++
++static int drm_mode_config_connector_reset_with_create_state(struct drm_connector *connector)
++{
++	if (connector->state) {
++		connector->funcs->atomic_destroy_state(connector, connector->state);
++		connector->state = NULL;
++	}
++
++	return drm_mode_config_connector_create_state(connector);
++}
++
+ /**
+  * drm_mode_config_reset - call ->reset callbacks
+  * @dev: drm device
+  *
+  * This functions calls all the crtc's, encoder's and connector's ->reset
+@@ -278,13 +304,16 @@ void drm_mode_config_reset(struct drm_device *dev)
+ 	drm_for_each_encoder(encoder, dev)
+ 		if (encoder->funcs && encoder->funcs->reset)
+ 			encoder->funcs->reset(encoder);
+ 
+ 	drm_connector_list_iter_begin(dev, &conn_iter);
+-	drm_for_each_connector_iter(connector, &conn_iter)
++	drm_for_each_connector_iter(connector, &conn_iter) {
+ 		if (connector->funcs->reset)
+ 			connector->funcs->reset(connector);
++		else if (connector->funcs->atomic_create_state)
++			drm_mode_config_connector_reset_with_create_state(connector);
++	}
+ 	drm_connector_list_iter_end(&conn_iter);
+ }
+ EXPORT_SYMBOL(drm_mode_config_reset);
+ 
+ /*
+diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
+index 9634a70e0401..f4b6d8833bc2 100644
+--- a/include/drm/drm_atomic_state_helper.h
++++ b/include/drm/drm_atomic_state_helper.h
+@@ -73,10 +73,12 @@ void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
+ void __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
+ 					       struct drm_connector *connector);
+ void __drm_atomic_helper_connector_reset(struct drm_connector *connector,
+ 					 struct drm_connector_state *conn_state);
+ void drm_atomic_helper_connector_reset(struct drm_connector *connector);
++struct drm_connector_state *
++drm_atomic_helper_connector_create_state(struct drm_connector *connector);
+ void drm_atomic_helper_connector_tv_reset(struct drm_connector *connector);
+ int drm_atomic_helper_connector_tv_check(struct drm_connector *connector,
+ 					 struct drm_atomic_commit *state);
+ void drm_atomic_helper_connector_tv_margins_reset(struct drm_connector *connector);
+ void
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index 5ad62c207d00..529755c2e862 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -1569,10 +1569,26 @@ struct drm_connector_funcs {
+ 	 * when a connector is being hot-unplugged for drivers that support
+ 	 * connector hotplugging (e.g. DisplayPort MST).
+ 	 */
+ 	void (*destroy)(struct drm_connector *connector);
+ 
++	/**
++	 * @atomic_create_state:
++	 *
++	 * Allocate a pristine, initialized, state for the connector
++	 * object and return it. This callback must have no side
++	 * effects: in particular, the returned state must not be
++	 * assigned to the object's state pointer and it must not affect
++	 * the hardware state.
++	 *
++	 * RETURNS:
++	 *
++	 * A new, pristine, connector state instance or an error pointer
++	 * on failure.
++	 */
++	struct drm_connector_state *(*atomic_create_state)(struct drm_connector *connector);
++
+ 	/**
+ 	 * @atomic_duplicate_state:
+ 	 *
+ 	 * Duplicate the current atomic state for this connector and return it.
+ 	 * The core and helpers guarantee that any atomic state duplicated with
+
+-- 
+2.54.0
 
 
