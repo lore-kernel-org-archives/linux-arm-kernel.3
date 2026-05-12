@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C064CD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 00:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C33CCD4846
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 00:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gO3h51HYtv45xRJLIzc56DgmssLAn+8K3ewRnk2t304=; b=b48BydpFy2J1GeEKAFBzMz0pCP
-	YfRxpYjlcZtircdxrqwnNdVBhpOzIXF7O+WKXYx4jiFQB+p5reGVo/pg+rq5M+iF9D9ilv7KJUPCU
-	t7zZRUM50Ug8cAqMhpdRlXfhoLrLFAOETKqAHv3Rq7lt5elOsAAmeH61dEVwuR2CwiPd5C+whlaPY
-	8ZkXqsa8uYiKeo7CjWXcUbO86hO6EojTu0h9/0wh35XV8vUhJeMhZMrHWoFlBm4vJSOuCWH0bszkz
-	zaiFPyzf9Um+EkTu2R4m20CsQ7DNhy9zbph1EAfqZ8WDYlmTyNzavOneRqXteDsqOhAtgaeVbQ0aV
-	roxaCTQQ==;
+	bh=24GM5OB6erBZYdLVYgSIwU4BQPr10WSW4wCAGCqi2GM=; b=R/t3dK8TlA25OJzKny2HTj0aNn
+	D2LhVThrBbx4W9pmvMUpOpLfYYRjcKRpHWc9JknuBBYGJ4MTOtyfXdkN8HB/4h9sVAbfnh4V+P+wd
+	aYM5DVfEBCe+8cpsMCJeo/cQtkE3Ob0d1PDC7/iYM+3t4ymv/0GluNeGe33u36e+Z4M6G3vRu9F3o
+	bBIopJap7z5hFtswutxSEWdIx8IOa214AdGjiPIYU/hzpIV7ZUs6Sy2bPzg90vNG9x602ieq+9vyG
+	fAAncNww+MLkeWQZOMRha9Iv2AQQx49HEm+CCC++hLnQdKIecaZqr2xwXu7/raAtEFGhynHtNR9Zg
+	FRpohG9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMbEp-0000000F6lS-0aUj;
-	Tue, 12 May 2026 00:44:43 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
+	id 1wMbOQ-0000000F7ib-29uz;
+	Tue, 12 May 2026 00:54:38 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMbEl-0000000F6kL-2wON;
-	Tue, 12 May 2026 00:44:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=gO3h51HYtv45xRJLIzc56DgmssLAn+8K3ewRnk2t304=;
-	b=EvZQJOfLau2GLCePkzSv5c0l+dA27qxpzkxxL5lydx66r3WLqhxpI3fKMj1KiS
-	ZRdD1T3DnPc55HvlgsmcvMs0Dh+SPbQrrf66mVJOEmMs+JbGFu1jqbAGCaYUL9m3
-	6zTeWutdfZPmgzL3ffeXvEBEjWbdwcmOTqCyqMOupook0=
-Received: from [192.168.50.71] (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wBXb4PPdwJq8dJuAw--.7483S2;
-	Tue, 12 May 2026 08:44:00 +0800 (CST)
-Message-ID: <e600d0a4-b93e-425f-a5f1-c76802c65622@163.com>
-Date: Tue, 12 May 2026 08:43:58 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/7] PCI: dwc: Use common
- pci_host_common_link_train_delay() helper
-To: =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, mani@kernel.org,
- vigneshr@ti.com, jingoohan1@gmail.com, thomas.petazzoni@bootlin.com,
- pali@kernel.org, ryder.lee@mediatek.com, claudiu.beznea.uj@bp.renesas.com,
- mpillai@cadence.com, robh@kernel.org, s-vadapalli@ti.com,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- claudiu.beznea@tuxon.dev, linux-mediatek@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260511055923.37117-1-18255117159@163.com>
- <20260511055923.37117-5-18255117159@163.com>
- <20260511070139.GA1096586@rocinante>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <20260511070139.GA1096586@rocinante>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wBXb4PPdwJq8dJuAw--.7483S2
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvj4REfOzUUUUU
-X-Originating-IP: [140.206.53.66]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxBAt0GoCd9AlOQAA36
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_174440_125596_0B89D1A8 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+	id 1wMbOP-0000000F7iO-0q6k
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 00:54:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 25C396001A;
+	Tue, 12 May 2026 00:54:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3219C2BCB0;
+	Tue, 12 May 2026 00:54:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778547275;
+	bh=I0C9SVdPZIofrk/2NYSPziKCFfKB6wJ7FO+blU1dDpc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=YUlOH647EhHXBO61NbZyj0E9iEKS2dPZrXHF6gzN9iUTdnlBnHqa9a9JAJflPIxks
+	 SA02DEnU2CDJjmE/cbgVGWFog2Ri0AUhfMnNb0kzAavEmIV+LK2LMZ9dzbIjS3Zeq8
+	 CCcporAywCEhvshFmOSBBOUQRgtQuSrCqbti7Besn8GLQEVw68rWMhjCrIDy5WQTFK
+	 ILkxLe1zTZbbUECFKwa8ODVTsecpbQKiwklqPNGCLw6cC4Z4y9ChfeH+Y6L0uZEM6b
+	 cSawowI41AWCqKFsjDWlZraLHWBsdwy6X1xJjpKdv9PiiUOEec3NQFOUO31MfUlTLP
+	 yT9QjCKn6yKsw==
+Date: Tue, 12 May 2026 09:54:31 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Steven Rostedt <rostedt@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Ian
+ Rogers <irogers@google.com>, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v19 0/7] ring-buffer: Making persistent ring buffers
+ robust
+Message-Id: <20260512095431.a01161ece2acb7f48d7bd8c2@kernel.org>
+In-Reply-To: <20260511122943.41e204bc@gandalf.local.home>
+References: <177751968499.2136606.17388366710182662849.stgit@mhiramat.tok.corp.google.com>
+	<20260502152304.560a5954@robin>
+	<20260502181619.7f5003dc@robin>
+	<20260507131416.35bc304d89f974ae3b33d20b@kernel.org>
+	<20260511122943.41e204bc@gandalf.local.home>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,33 +76,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 11 May 2026 12:29:43 -0400
+Steven Rostedt <rostedt@kernel.org> wrote:
 
-
-On 5/11/26 15:02, Krzysztof Wilczyński wrote:
-> Hello,
+> On Thu, 7 May 2026 13:14:16 +0900
+> Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
 > 
->> -	/*
->> -	 * As per PCIe r6.0, sec 6.6.1, a Downstream Port that supports Link
->> -	 * speeds greater than 5.0 GT/s, software must wait a minimum of 100 ms
->> -	 * after Link training completes before sending a Configuration Request.
->> -	 */
->> -	if (pci->max_link_speed > 2)
->> -		msleep(PCIE_RESET_CONFIG_WAIT_MS);
->> +	pci_host_common_link_train_delay(pci->max_link_speed);
+> > > I'll test this some more, and make a proper patch.  
+> > 
+> > Ah, indeed. Thanks for fixing!
+> > 
+> > BTW, shouldn't we unify common logic of those functions?
 > 
-> This comment could move to the helper you added.
+> Hmm, there's not much common between the two. One is a consuming read and
+> the other is a non-consuming read that needs to test for a bunch of race
+> conditions.
+> 
+> If you see something that can be shared, I'm all for it.
 
-Hi Krzysztof,
+Maybe we can introduce a common inline function to calculate
+max_loop, or at least replacing "3" with a common macro.
 
-Will add.
-
-Best regards,
-Hans
+Thank you,
 
 
 > 
-> Thank you!
-> 
-> 	Krzysztof
+> -- Steve
 
+
+-- 
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
