@@ -4,161 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B68ACD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:06:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF42CD4F35
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=48fRlDJ1AqQ6BIcOdbw64QCB+ytL2Gec1G5f13Z8bSc=; b=T6QZ56G+A2WDeo8znhvnKy+t7c
-	2reswpqEjzdlfD09m3q/rwhdQTNar2qn1K1hD/xcsQaFAHyplYlK64GDlvcSrkr4njBoS+4JBHxpF
-	+07cUgElLdAAp9KYv44oDHpDg8LXDOUv50aPjCwyw6MwdGWLUJzoOzwhG4BbLktxPLLLHP7Rllcu2
-	NTGQkrVeNIcIoQ8aZi4gcGTuQExEWw4qCGZEfahXA/LdP5urUiSA4lcxudD6l2bltM/Kx6C4Lg8Gg
-	OyzWA34/NPYAW2QKIAYSCA+zLfFx8y/6z08gxNTmdOP+2lTROTc/4tch+I51Cgl4SXCde4be/qbZJ
-	xs7Ea1Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bdx4205VyoFCYDpfX7LPhqGkWbNFekWVAl0CyAC7Exc=; b=18NJ+e/8yoPfp4ZskceFRpLz3F
+	co+bvB/8bJPoQYkLLrR4OptWGbqHzh4PaGNfVU6xGetipd9UKMzQfSea1ZAVSC4OdFRL8YG9gI6W9
+	w8jYKKIZyp4BjvO+HoWPLne9ENG0LU3JXTHiVo3qc3VunjUInQcMcKJYBIWFuUeMB0x9tMOeSShUH
+	ZLqinV0uY2VfBbiqQw/EHcePZ1DqEMQjxrFapR7I3qWxL4TgXJEHqY8Zbk6DGZ3WuKSRXJ404u/Yz
+	5U2OcBmx/6MQAa6xgbEZMDi/AjyzNsj5DQgGfLatgBlJmcOspPJpkvr5iOEzHPq/XP8lCnIwwmlOq
+	JU6VOZww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMj3s-0000000GC1X-0Rpm;
-	Tue, 12 May 2026 09:05:56 +0000
+	id 1wMj3z-0000000GC61-1JhO;
+	Tue, 12 May 2026 09:06:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMj3p-0000000GBzf-45RG
+	id 1wMj3x-0000000GC4c-1AoX
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 12 May 2026 09:05:54 +0000
+	Tue, 12 May 2026 09:06:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:Subject:Date:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=48fRlDJ1AqQ6BIcOdbw64QCB+ytL2Gec1G5f13Z8bSc=; b=RMYor85dkC7fS786guL9T1FcHt
-	GFNGvNBokidMQ/gD4UTKsZ/bLeTjcO3PlS0dD60G9VEv1qa+TBxrw1tS9woEnSGF/gTm6oSuG8Pzf
-	NsugeTq9+EE9WNig1Z66FVr6zHcrH0pxjL3YYGDk90x51wCisr/REJZxFeYD2hVzcnZXjezUKXqE7
-	cu7wkecli6xl4vSEhaSpyWq5dkQZCePz7kUvXyI8pKp4ucyW6hofqgmMHsVA6gnycRTsduKfixtFG
-	oHQ85tQ98pF1yraCaiL/3BXlMrG/EPawSh62eqFFEthx5KmHGUqZo5zjarXoyL1Kh2LN0ABonTxR6
-	AZfMmC0w==;
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Bdx4205VyoFCYDpfX7LPhqGkWbNFekWVAl0CyAC7Exc=; b=Ggtwupal+Jgm+weXle+on1QRfp
+	IcXKcqTQ4eA6DdnmlQmJ26w9B34omvi88P4WOkh+s5xh9AEPt6lCLUBgfIhYktaBkpbMbAQYRxkpm
+	+DxxiD6ZiD0wt7yRLt7QJ76bop9XxuvnNmh2/fTaengXUtWibfdhpVRIyDq1EM/SpXpocommO7aBb
+	YiR5WGTtM7RiYYcvT5OTgDHUunjZ5uSmL3dEawMmHu3SOFwu+1OtQq1COtHhYej4djXTYPqFfwreF
+	YAxZN85RaoNyKaCjp0BZkO2bV00BYuVAF9RNucpZj3ShJ5FPi4SmC4Qn5ljQuugXlRw7BxzuV6Id2
+	kSciB23w==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMj3b-0000000EBlO-24pC
+	id 1wMj3q-0000000EBqP-40WX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 09:05:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HCZ1zRvcJNOnxnm6MWD2xQjHTJs1IXtuH7bivrz26Tc4dqvrmyyOu5Fq2XI7u0GwGMnPibFCg8ppf+7gxgwdi/7Ap1IPWlacQIgrp0nkSVdjHaSGlaGvIYn1OVMGSl/EsfYfm4N6Ujp/He9u8EEnZKP1G9n5FC2Ewc1j0lU5tbQuqdYK0oa9GaXT0rta4CvGzLBsneMnD7SSSuGhDoJJ0yEFjJvQrCTwsUWjQvIzrnm0EHwprTmgQ4FmB/Dp5uyYtLDdBaTiUvO0VydQ64/kcnnPUISvcrTfGzKJndUToJIDxxWs535e4hE7gp7HKct8mQe3WFDVkV7DaMEyqfZ9/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=48fRlDJ1AqQ6BIcOdbw64QCB+ytL2Gec1G5f13Z8bSc=;
- b=y7fBLEHsOD/nI+w47AXi8OOaByPH9gTnsK4ij9qyQBc9JZu1PNnjxMv27YplFA9Vhnln5IpRIIHp/e4fCuD7+6LgPas01iPFsawPBvT1Tu3DdaY8OFSRgXsLOkBQYHNCzUWWv853XHQh6Dos5EfxZo7QlSdoEzlsx6SpeL2g5siC/1MQPnsOkF/l6Kap3oHGETEHWr2wkhRu2P0LcGeyl7qpCye2NgSDQzik2sfNXVcRz/NNIL7vYUz4s5NkQBTU4rpLC6sds7ILroEHRwi4UwyCIIPzv+1Jrq5Y1bLwHNgAHMsjz2mG6dvGnYzjWgGnL4h/sB1SWa5hz5NiQPGK3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=48fRlDJ1AqQ6BIcOdbw64QCB+ytL2Gec1G5f13Z8bSc=;
- b=n9tMNMvnOGLfXtqISNc2gQ6/Ng2HBhiN4Pr/Hsd5FePip9A6lKnuWFFijqUU47VS+9fPJRsAEgJSAdxt7tpkXITAgwTqmaPxKd0Iu4v3gcojFhgZ1HHmYwPKtLTpoDEErBw1x6y++uPs7hlsKJgqJJ4p0qWpgm0KC7K/jy8Xfk1XJ/5k0VDI1IHdU7MCnU8aMj3z7XFMsgFqhjqx6mqgNPNurVkfeExDZuF5laZFYywARjvq/TdPizLK3utGwVzv1JtWjNUiirp5DPLWobINFBXQ5MYD/8Rc+cRwjIBZu33AxcGfjycEJr70vPrG1M9I1DG1iSbpYPz+kjme50ziUw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI1PR04MB6861.eurprd04.prod.outlook.com (2603:10a6:803:13c::9)
- by AS8PR04MB8497.eurprd04.prod.outlook.com (2603:10a6:20b:340::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
- 2026 09:05:33 +0000
-Received: from VI1PR04MB6861.eurprd04.prod.outlook.com
- ([fe80::7f96:4bde:2e55:cd5]) by VI1PR04MB6861.eurprd04.prod.outlook.com
- ([fe80::7f96:4bde:2e55:cd5%4]) with mapi id 15.20.9913.009; Tue, 12 May 2026
- 09:05:32 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-Date: Tue, 12 May 2026 17:08:10 +0800
-Subject: [PATCH] clk: imx: Add audio PLL debugfs for K-divider control
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260512-imx8m_pll_debugfs-v1-1-e1e44b21be90@nxp.com>
-X-B4-Tracking: v=1; b=H4sIAPntAmoC/x3MTQqAIBBA4avIrBNUxKKrREiTYw30h1IE0d2Tl
- t/ivQcyJaYMrXgg0cWZ961AVwLGedgmkhyKwSjjlDVa8no3qz+WxQfCc4pZGuuCiojodA2lOxJ
- Fvv9n17/vB5kYz7tjAAAA
-X-Change-ID: 20260421-imx8m_pll_debugfs-246d0fbbb617
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Jacky Bai <ping.bai@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778576904; l=5882;
- i=ping.bai@nxp.com; s=20250804; h=from:subject:message-id;
- bh=ksnAda+S3StBuOVORPKyY/Utwq0uXLVgOK3kRpD/Kqw=;
- b=Pi8rdQCntgD1bel4UmsKb1KndS47EUN5TPJRCc/heCnkKeJnwQg5BdK0f6WBU4UkCkJxMsHYy
- SCsQlvZtYq/C8d5RJjDrsMb6ctLZR0E6bTwzDuniO/ElxDuFzOlT/Cj
-X-Developer-Key: i=ping.bai@nxp.com; a=ed25519;
- pk=ckFjCfRynXBjQGmSmzOVI5hggMD9XnnNlwj/jcO/j1U=
-X-ClientProxiedBy: SG2PR01CA0172.apcprd01.prod.exchangelabs.com
- (2603:1096:4:28::28) To VI1PR04MB6861.eurprd04.prod.outlook.com
- (2603:10a6:803:13c::9)
+	Tue, 12 May 2026 09:05:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D9510423C8;
+	Tue, 12 May 2026 09:05:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0682DC2BCC7;
+	Tue, 12 May 2026 09:05:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778576753;
+	bh=djoVlq64riIKyUlBW+OecFjb5IHhvE+yjLiRQdlK7Xo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fuh+zcQsaxfk2wQhFIIRp8/7gcaQLxZWOwrFiHLLxW5CnQkq0T/KSl1gp/vKApyP9
+	 R6DmxYhpxc2zRk2urFfPqZWxXnjmoH0MofSbKYSmgdbZB4P25Neb+k+78sIifLEU6e
+	 4w9X+UpIjBdI03TEPGNu6hiiYU2LzruavDT7RqYhhsafudue7rWC/M7yyh/AkAmu+A
+	 arg0xANxjpzXi8B9p5TT0Vu/fc7RmGkaEP3LnZP70W4DH6ZKE4PHX40DaupNv2eJe6
+	 3fBtIwklzh6LmOj/oEur30apoK6OLSNqPw4q32I6AUAghRWN6c98HJZ1M6PzXenUfZ
+	 GnfiBePVDQ7BA==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	x86@kernel.org
+Subject: [PATCH v4 07/13] dma-direct: make dma_direct_map_phys() honor DMA_ATTR_CC_SHARED
+Date: Tue, 12 May 2026 14:34:02 +0530
+Message-ID: <20260512090408.794195-8-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260512090408.794195-1-aneesh.kumar@kernel.org>
+References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI1PR04MB6861:EE_|AS8PR04MB8497:EE_
-X-MS-Office365-Filtering-Correlation-Id: 51227032-dd12-4f3a-3b8c-08deb0059f3f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|366016|376014|19092799006|11063799003|56012099003|18002099003|38350700014;
-X-Microsoft-Antispam-Message-Info: nonMXJsw/WGCvHceZ0dZWWvlXdAhfsi187nxi22D9kMLUKv2GYyYx5G9NfbQ0avuiinZ4xEk51aSQd+8P/qcQTeUqXiF4vGMueEzWmfWJXxwkt39WNlEn8hnUVP7rOVGREBzxEvsa+W1CkSN8Mi37HV5tpLEZQKrAh4scdEbG/28twPr/ek278jCe7fN//63STJbGVXLh/2XvUcPi5fzMLrOrCk1CNkMrZWpXFLgqoCqLBzqswM04J2y6Ol8X7kyENRajLTVGFZx5LHHZSmRlgWWjZdP3NFPb0nI4sCDk1ZA48SorT3jcfnNgIr7VO14s1FbcJcQErgYR/WymsXnya6WqE/WlSi/EDDogsV4IqqqhdzaVvueygYEIvaDYtpwI4st1xa5QfJKqYX0h1OjVu09w6zPFg7GtceP2b3OCHHlFnlCa56VqYfDvv5OYbkK/IhxGGUeZ9IVXa40HNfukucE/aJy6m0Gh8PgdirSwHER5fCJ/Y51o6U4RM0b6ddE59twKnOp/F+4zGcglHw0Pmmu919J5/gpttdv0/hi0K/HpM0DbROlNVz9okm1Kw/j2WWx0bSZaXV+5DPjasdeSzM/EusspKbV7byxbvZBVGXhXwCMfJp4DZBZI+RrT4eHJMkSMY2i6GJoE9r9bvUdvZ41/3dPDU0Yunx85XS5ZTgEAubdxJoC6qBZYEM0gmTR1wGWxITU7lNACR77GqRHoKGMi4gDD6/F9iR7GHhWrkZ6tmMkQOCkOzocSIV6Q40V
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB6861.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(366016)(376014)(19092799006)(11063799003)(56012099003)(18002099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?KzRwT3pjVithWWt1UU9zOWJVZ0FXOGdHYjRKcFBGMURINTZVaTR6Nk4rRk5X?=
- =?utf-8?B?NVZDYS9wTFB1V1NNSlgzOEdRQW41M1RleTM3UzIyU1U1MERPbGIzd3ovNVh4?=
- =?utf-8?B?SVJIbDRzb1NlUFJoSTVnZmRrNDZHOW83STJXWk5Pc05LTTZZU2ZwZnhDR2ZH?=
- =?utf-8?B?WFZGUGllelVCd2pDQU12MmJyZ3NoT3lUSHF5SlNhN2FONC9IV3NhTWxDOEp6?=
- =?utf-8?B?ckI1TXAzbnA2OFgxUmIxNjlFWHlOOWJPWThsRjFTekN6Ty9QYUcrcXBFTU5u?=
- =?utf-8?B?L0hyK1ZBb2k0Tk9UcGlFMUtCMEVSZHFXa0lwRndOemd2a2pvdkFaN09SSktB?=
- =?utf-8?B?dC9yeUVRL05tRXlSU0Mvdk9ac2tEZmVOT2tJTjliTVl2dHM3MmE3R2NKL0l4?=
- =?utf-8?B?SHhZU3pVTHBWRjJOR0ZTcThrOThna1FUOTdYcVV0WDVrTURtbHg4TVRZa3p6?=
- =?utf-8?B?SXkwQjcwU3E5NGpYcCtycTRNdFdUNjBKZncveE9DTDVHWGV6cEFaYzFjVE92?=
- =?utf-8?B?U2RJRC93WWI1RG1tOWVOVmVFZjA4MHBoSXUrbnR3ZEpVRUVvYWdwUkphZ1pP?=
- =?utf-8?B?VGEyN0V2Wkd0Ui91MWpFN1J2a1lkQmtHOHlxbUxXQ0I0bDYrM2NpaUxiMkZw?=
- =?utf-8?B?RkJxYnFLaXdSQXUxcFF5bi9mS09WdVBJWUpnazVRUE5qb1RMeWkzZG9RSldJ?=
- =?utf-8?B?YXlRUlYzcjZqaEZCcHM5aktHYjVkVXJIR3FRZkh3Tk9FbHZwWHFzK05tUDdI?=
- =?utf-8?B?dWxQRThTRlZZeUlGNjBEbWVyNW1sNS9IdXB0Nk5XQi9HYkZsaDJVYU5PS0do?=
- =?utf-8?B?TmQxLzVIdDFFdHBHWDU4TThIcEpMSGdzVHdVcWQwaytNcEdaQk9QWjYyRXQ0?=
- =?utf-8?B?RmFtenkwcFlRLysxU0pjQ1lLMHpJcTY1YU9USW85ZURrdWRtZWZXdzVMOEVv?=
- =?utf-8?B?ckQyM1BVM05va080WFlsTzVMQ2xkd0RYdkVhZnJiYmRNOEdJMnVseDFsV3c5?=
- =?utf-8?B?bGREbHdrOGhCREN6ZmlnU0hvMUxabFE2THR1NVhEcFJnTHdhbzFmaW84TE41?=
- =?utf-8?B?TVM2U3ZLSFR4V0ZQVTMwc1NiTGd0b0FsU3dnM1YxN2l2RlpjV09oajRzcTla?=
- =?utf-8?B?dFV1NENQNmtldW04WXNtSy9qdjhaVVc4WktKZmlSbXdHWS8zdDVPZ1NSUGM4?=
- =?utf-8?B?SjBRUkt6V0h2TW1hc3BuNDBBb1YxUG1PNTZNUXg2U2lia3YwOEcwWWVOV0tL?=
- =?utf-8?B?OE0randjeUpwYUs3Y1ZEMUR5RDdhWm9nWG5rVi9LNGxzNlg5Rkl4SzA3Ync4?=
- =?utf-8?B?LytyTktkSjB1U0ZJVWhKMndyZEpySlZvSi9Id0FCQ0YvUUIyMGpDRFJNRlpI?=
- =?utf-8?B?ZG94enVkb1FsRGtibFJuVVpnZ29za1BITjhkcG9pZnc0RHpaSUlIb3oxdEtB?=
- =?utf-8?B?ZmFTNVJoV0YvbDkrOGNEa0tPVEkyd1VibS9BUEZPME83RDFmaUprT1lVcmxD?=
- =?utf-8?B?dzdlRk5oazU5eUx5M3FsVndNNWN0Q1RRTWJmdFdtcUNoSnFvaVhuRGNjQjA1?=
- =?utf-8?B?QUIwaVYvQ1BxZlFCa0pTenNhbURwTVBnbjg2V2EyVWNzKzBqWklsNzFPQkhr?=
- =?utf-8?B?VkFKVUV6OWhIbVh0UGtHeVZabmE5SXI1b1BMcWZUOUw4NVhCMkhqcnlNMHpa?=
- =?utf-8?B?WTJ3TElCaTR1dEY2OGR2Z0szM3M1ZnFHTHJZNFkyekFrYk8rTmlYLzBhUm9o?=
- =?utf-8?B?aDY2NThLRnQwVXZMaVI1S2QrTzRXMWtpMGRmaFZkNWQvM2JqUnA1cWdkVnVT?=
- =?utf-8?B?NzFJNHdnaVJLc01ES29lcjc5a29iYk80R1lPSmVQZGpBSUZHQUtROTlYQTRP?=
- =?utf-8?B?Uk9xR0Z0RHpNWkYyaEFucmNXVzJ0YVY3Tk0ybzI1cE9pN25FOUJEdCsyWVVp?=
- =?utf-8?B?ZVk3YlVkYkV0ekI0SDYwODhZR3RrZk80Sk84cWRhZTFxcUlaMy93NFBQMmYw?=
- =?utf-8?B?TG9ybi84ejlybnU0OTEzTCtSUHEwTkpTUk1YNW9LcUNLcTQxWENLaVlNcHUz?=
- =?utf-8?B?MWtoQTM2VXNUSUUwWHI5bSt0OXhhMCt4VEs3OTFoRUpNbTVkK3ZGRVEzZ09J?=
- =?utf-8?B?NWJuRWNVTmR1UWd1R0d3YzJXRVJaalVaNGE5T1NpVTBSY2IzMVIrYS9uWXBm?=
- =?utf-8?B?UW5rYVVRUXcraVE0RWRQMWlHcVhQdk5CcjJEejlHb1IvR2huWUdBY1gzWjEv?=
- =?utf-8?B?bC9hNVhzUHZQMnpDTWUrSis5ODNabGt6eGlPSXo3OFBxR2FvRGkzMXBQSkV5?=
- =?utf-8?B?MlUxc0hMRjVTbGdCZkdPYWtCbHJKdTNZdDZJT1hUcXAreW1mbjhJQT09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 51227032-dd12-4f3a-3b8c-08deb0059f3f
-X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB6861.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 09:05:32.8448
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JZZgtnugmHUDgLP1srezF+289xFRzZNOr+UK65sG043QsOVWe/D9gBBHkTbt3NUSCnsM7rtsAtMqF7gVhumyVQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8497
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_100548_754032_68A255D3 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20260512_100556_324791_558FD014 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,170 +115,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add debugfs support for runtime tuning of the audio PLL K divider,
-which enables fine-grained frequency adjustments for audio PLL.
-This is used for:
-  - Audio clock calibration and testing
-  - Debugging audio synchronization issues
+Teach dma_direct_map_phys() to select the DMA address encoding based on
+DMA_ATTR_CC_SHARED.
 
-Two debug interfaces are exported to userspace:
-  - delta_k: It is used to adjust the K divider in PLL based on small
-    steps
-  - pll_parameter: It is used for get PLL's current M-divider,
-    P-divider, S-divider & K-divider setting in PLL register
+Use phys_to_dma_unencrypted() for decrypted mappings and
+phys_to_dma_encrypted() otherwise. If a device requires unencrypted DMA
+but the source physical address is still encrypted, force the mapping
+through swiotlb so the DMA address and backing memory attributes remain
+consistent.
 
-examples for the usage of the two interfaces:
-   1): Get the current PLL setting of dividers
-     cat /sys/kernel/debug/audio_pll_monitor/audio_pll1/pll_parameter
+Update the arm64, x86, s390 and powerpc secure-guest setup to not use
+swiotlb force option
 
-   2): if want to adjust the K-divider by a delta_k '1', then
-     echo 1 > /sys/kernel/debug/audio_pll_monitor/audio_pll1/delta_k;
-
-   3): if want to adjust the K-divider by a delta_k '-1', then
-     echo -1 > /sys/kernel/debug/audio_pll_monitor/audio_pll1/delta_k;
-
-Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- drivers/clk/imx/clk-imx8mm.c  |  6 ++++
- drivers/clk/imx/clk-pll14xx.c | 79 +++++++++++++++++++++++++++++++++++++++++++
- drivers/clk/imx/clk.h         |  1 +
- 3 files changed, 86 insertions(+)
+Changes from v3:
+* Handle DMA_ATTR_MMIO
+---
+ arch/arm64/mm/init.c                 |  4 +--
+ arch/powerpc/platforms/pseries/svm.c |  2 +-
+ arch/s390/mm/init.c                  |  2 +-
+ arch/x86/kernel/pci-dma.c            |  4 +--
+ kernel/dma/direct.c                  |  4 ++-
+ kernel/dma/direct.h                  | 38 +++++++++++++---------------
+ 6 files changed, 24 insertions(+), 30 deletions(-)
 
-diff --git a/drivers/clk/imx/clk-imx8mm.c b/drivers/clk/imx/clk-imx8mm.c
-index 319af4deec01c188524807d39dff92bbd08f3601..6a031d7cd031c8b5f5b01e5531ce54360724ba44 100644
---- a/drivers/clk/imx/clk-imx8mm.c
-+++ b/drivers/clk/imx/clk-imx8mm.c
-@@ -298,6 +298,7 @@ static struct clk_hw **hws;
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 97987f850a33..acf67c7064db 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -338,10 +338,8 @@ void __init arch_mm_preinit(void)
+ 	unsigned int flags = SWIOTLB_VERBOSE;
+ 	bool swiotlb = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
  
- static int imx8mm_clocks_probe(struct platform_device *pdev)
- {
-+	struct clk_hw *audio_pll_hws[2];
- 	struct device *dev = &pdev->dev;
- 	struct device_node *np = dev->of_node;
- 	void __iomem *base;
-@@ -610,6 +611,11 @@ static int imx8mm_clocks_probe(struct platform_device *pdev)
+-	if (is_realm_world()) {
++	if (is_realm_world())
+ 		swiotlb = true;
+-		flags |= SWIOTLB_FORCE;
+-	}
  
- 	imx_register_uart_clocks();
+ 	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb) {
+ 		/*
+diff --git a/arch/powerpc/platforms/pseries/svm.c b/arch/powerpc/platforms/pseries/svm.c
+index 384c9dc1899a..7a403dbd35ee 100644
+--- a/arch/powerpc/platforms/pseries/svm.c
++++ b/arch/powerpc/platforms/pseries/svm.c
+@@ -29,7 +29,7 @@ static int __init init_svm(void)
+ 	 * need to use the SWIOTLB buffer for DMA even if dma_capable() says
+ 	 * otherwise.
+ 	 */
+-	ppc_swiotlb_flags |= SWIOTLB_ANY | SWIOTLB_FORCE;
++	ppc_swiotlb_flags |= SWIOTLB_ANY;
  
-+	/* Add debug interface for audio PLLs */
-+	audio_pll_hws[0] = hws[IMX8MM_AUDIO_PLL1];
-+	audio_pll_hws[1] = hws[IMX8MM_AUDIO_PLL2];
-+	audio_pll_debug_init(audio_pll_hws, ARRAY_SIZE(audio_pll_hws));
-+
- 	return 0;
+ 	/* Share the SWIOTLB buffer with the host. */
+ 	swiotlb_update_mem_attributes();
+diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
+index 1f72efc2a579..843dbd445124 100644
+--- a/arch/s390/mm/init.c
++++ b/arch/s390/mm/init.c
+@@ -149,7 +149,7 @@ static void __init pv_init(void)
+ 	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
  
- unregister_hws:
-diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
-index 39600ee22be3066683b562aa6f2a8b750d19c4cc..59f126f35474116bdad0aeda59777b9eb7f246cf 100644
---- a/drivers/clk/imx/clk-pll14xx.c
-+++ b/drivers/clk/imx/clk-pll14xx.c
-@@ -8,6 +8,7 @@
- #include <linux/bitfield.h>
- #include <linux/bits.h>
- #include <linux/clk-provider.h>
-+#include <linux/debugfs.h>
- #include <linux/err.h>
- #include <linux/export.h>
- #include <linux/io.h>
-@@ -551,3 +552,81 @@ struct clk_hw *imx_dev_clk_hw_pll14xx(struct device *dev, const char *name,
- 	return hw;
+ 	/* make sure bounce buffers are shared */
+-	swiotlb_init(true, SWIOTLB_FORCE | SWIOTLB_VERBOSE);
++	swiotlb_init(true, SWIOTLB_VERBOSE);
+ 	swiotlb_update_mem_attributes();
  }
- EXPORT_SYMBOL_GPL(imx_dev_clk_hw_pll14xx);
-+
-+/*
-+ * Debugfs interface for Audio PLL runtime monitoring and control
-+ *
-+ * This interface allows dynamic adjustment of the Audio PLL
-+ * K-divider for precise frequency tuning, particularly useful
-+ * for audio applications.
-+ *
-+ * examples for the usage of the two interfaces:
-+ *   1): Get the current PLL setting of dividers
-+ *     cat /sys/kernel/debug/audio_pll_monitor/audio_pll1/pll_parameter
-+ *
-+ *   2): if want to adjust the K-divider by a delta_k '1', then
-+ *     echo 1 > /sys/kernel/debug/audio_pll_monitor/audio_pll1/delta_k;
-+ *
-+ *   3): if want to adjust the K-divider by a delta_k '-1', then
-+ *     echo -1 > /sys/kernel/debug/audio_pll_monitor/audio_pll1/delta_k;
-+ */
-+#ifdef CONFIG_DEBUG_FS
-+static int pll_delta_k_set(void *data, u64 val)
-+{
-+	struct clk_pll14xx *pll = to_clk_pll14xx(data);
-+	s16 delta_k = (s16)val;
-+	u32 div_ctl1;
-+	s16 kdiv;
-+
-+	div_ctl1 = readl_relaxed(pll->base + DIV_CTL1);
-+	kdiv = FIELD_GET(KDIV_MASK, div_ctl1) + delta_k;
-+	writel_relaxed(FIELD_PREP(KDIV_MASK, kdiv), pll->base + DIV_CTL1);
-+
-+	return 0;
-+}
-+DEFINE_DEBUGFS_ATTRIBUTE_SIGNED(delta_k_fops, NULL, pll_delta_k_set, "%lld\n");
-+
-+static int pll_setting_show(struct seq_file *s, void *data)
-+{
-+	struct clk_pll14xx *pll = to_clk_pll14xx(s->private);
-+	u32 div_ctl0, div_ctl1;
-+	u32 mdiv, pdiv, sdiv, kdiv;
-+
-+	div_ctl0 = readl_relaxed(pll->base + DIV_CTL0);
-+	div_ctl1 = readl_relaxed(pll->base + DIV_CTL1);
-+
-+	mdiv = FIELD_GET(MDIV_MASK, div_ctl0);
-+	pdiv = FIELD_GET(PDIV_MASK, div_ctl0);
-+	sdiv = FIELD_GET(SDIV_MASK, div_ctl0);
-+	kdiv = FIELD_GET(KDIV_MASK, div_ctl1);
-+
-+	seq_printf(s, "Mdiv: 0x%x; Pdiv: 0x%x; Sdiv: 0x%x; Kdiv: 0x%x\n",
-+	mdiv, pdiv, sdiv, kdiv);
-+
-+	return 0;
-+}
-+DEFINE_SHOW_ATTRIBUTE(pll_setting);
-+
-+void audio_pll_debug_init(struct clk_hw *hws[], unsigned int num_plls)
-+{
-+	struct dentry *rootdir, *audio_pll_dir;
-+	const char *pll_name;
-+	int i;
-+
-+	rootdir = debugfs_create_dir("audio_pll_monitor", NULL);
-+
-+	for (i = 0; i < num_plls; i++) {
-+		pll_name = clk_hw_get_name(hws[i]);
-+		audio_pll_dir = debugfs_create_dir(pll_name, rootdir);
-+		debugfs_create_file_unsafe("delta_k", 0200, audio_pll_dir,
-+				hws[i], &delta_k_fops);
-+		debugfs_create_file("pll_parameter", 0444, audio_pll_dir,
-+				hws[i], &pll_setting_fops);
-+	}
-+}
-+#else /* !CONFIG_DEBUG_FS */
-+void audio_pll_debug_init(struct clk_hw *hws[], unsigned int num_plls)
-+{
-+}
-+#endif /* CONFIG_DEBUG_FS */
-+EXPORT_SYMBOL_GPL(audio_pll_debug_init);
-diff --git a/drivers/clk/imx/clk.h b/drivers/clk/imx/clk.h
-index aa5202f284f3d1b7c1b4bf65e2329831832b43a5..9611ab127dad6f23770c18e22e1acbe2fc22bd4e 100644
---- a/drivers/clk/imx/clk.h
-+++ b/drivers/clk/imx/clk.h
-@@ -487,4 +487,5 @@ struct clk_hw *imx_clk_gpr_mux(const char *name, const char *compatible,
- 			       u32 reg, const char **parent_names,
- 			       u8 num_parents, const u32 *mux_table, u32 mask);
  
-+void audio_pll_debug_init(struct clk_hw **hws, unsigned int num_plls);
- #endif
-
----
-base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-change-id: 20260421-imx8m_pll_debugfs-246d0fbbb617
-
-Best regards,
+diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
+index 6267363e0189..75cf8f6ae8cd 100644
+--- a/arch/x86/kernel/pci-dma.c
++++ b/arch/x86/kernel/pci-dma.c
+@@ -59,10 +59,8 @@ static void __init pci_swiotlb_detect(void)
+ 	 * bounce buffers as the hypervisor can't access arbitrary VM memory
+ 	 * that is not explicitly shared with it.
+ 	 */
+-	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
++	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+ 		x86_swiotlb_enable = true;
+-		x86_swiotlb_flags |= SWIOTLB_FORCE;
+-	}
+ }
+ #else
+ static inline void __init pci_swiotlb_detect(void)
+diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+index ac315dd046c4..5aaa813c5509 100644
+--- a/kernel/dma/direct.c
++++ b/kernel/dma/direct.c
+@@ -691,8 +691,10 @@ size_t dma_direct_max_mapping_size(struct device *dev)
+ {
+ 	/* If SWIOTLB is active, use its maximum mapping size */
+ 	if (is_swiotlb_active(dev) &&
+-	    (dma_addressing_limited(dev) || is_swiotlb_force_bounce(dev)))
++	    (dma_addressing_limited(dev) || is_swiotlb_force_bounce(dev) ||
++	     force_dma_unencrypted(dev)))
+ 		return swiotlb_max_mapping_size(dev);
++
+ 	return SIZE_MAX;
+ }
+ 
+diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
+index e05dc7649366..4e35264ab6f8 100644
+--- a/kernel/dma/direct.h
++++ b/kernel/dma/direct.h
+@@ -89,36 +89,32 @@ static inline dma_addr_t dma_direct_map_phys(struct device *dev,
+ 	dma_addr_t dma_addr;
+ 
+ 	if (is_swiotlb_force_bounce(dev)) {
+-		if (!(attrs & DMA_ATTR_CC_SHARED)) {
+-			if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
+-				return DMA_MAPPING_ERROR;
++		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
++			return DMA_MAPPING_ERROR;
+ 
+-			return swiotlb_map(dev, phys, size, dir, attrs);
+-		}
+-	} else if (attrs & DMA_ATTR_CC_SHARED) {
+-		return DMA_MAPPING_ERROR;
++		return swiotlb_map(dev, phys, size, dir, attrs);
+ 	}
+ 
+-	if (attrs & DMA_ATTR_MMIO) {
+-		dma_addr = phys;
+-		if (unlikely(!dma_capable(dev, dma_addr, size, false, attrs)))
+-			goto err_overflow;
+-	} else if (attrs & DMA_ATTR_CC_SHARED) {
++	if (attrs & DMA_ATTR_CC_SHARED)
+ 		dma_addr = phys_to_dma_unencrypted(dev, phys);
++	else
++		dma_addr = phys_to_dma_encrypted(dev, phys);
++
++	if (attrs & DMA_ATTR_MMIO) {
+ 		if (unlikely(!dma_capable(dev, dma_addr, size, false, attrs)))
+ 			goto err_overflow;
+-	} else {
+-		dma_addr = phys_to_dma(dev, phys);
+-		if (unlikely(!dma_capable(dev, dma_addr, size, true, attrs)) ||
+-		    dma_kmalloc_needs_bounce(dev, size, dir)) {
+-			if (is_swiotlb_active(dev) &&
+-			    !(attrs & DMA_ATTR_REQUIRE_COHERENT))
+-				return swiotlb_map(dev, phys, size, dir, attrs);
++		goto dma_mapped;
++	}
+ 
+-			goto err_overflow;
+-		}
++	if (unlikely(!dma_capable(dev, dma_addr, size, true, attrs)) ||
++	    dma_kmalloc_needs_bounce(dev, size, dir)) {
++		if (is_swiotlb_active(dev) &&
++		    !(attrs & DMA_ATTR_REQUIRE_COHERENT))
++			return swiotlb_map(dev, phys, size, dir, attrs);
++		goto err_overflow;
+ 	}
+ 
++dma_mapped:
+ 	if (!dev_is_dma_coherent(dev) &&
+ 	    !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO))) {
+ 		arch_sync_dma_for_device(phys, size, dir);
 -- 
-Jacky Bai <ping.bai@nxp.com>
+2.43.0
 
 
