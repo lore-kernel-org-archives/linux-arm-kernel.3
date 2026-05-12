@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8039CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA5ECD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZBQE77at087Kv/UO/D97NZLBnF4zFFcQ2W7UuyX7pOQ=; b=lQ+T6c9lq2rEWouUIkkcGWaC29
-	AWRv+ZTXz4q23pc7CWSeuiY/4JjaaP/w2QvbK55Xaj8S6h3LqLQjWOKUnBrAAgiIKUhyMz4BT9UEe
-	gCrg3eC+6Xv09jZ29m3yhqeGbvS39hKVJEAtasuNE5g9w11wvQfEV1s5wXsl5YDc5fhsOq6jh915X
-	qhHQPgb2JnK0sqFp2U7XC5tkBqGannKiu2kr08201wxo1o0Qid38bM1II7P/u1RELIX96ydQH0ajf
-	IsIVKGJRRiRy2Hml7ljOLeh/ymbuLrvkryYEFauvUWNGl3/v152cAyNKDNzCAdofBV1UxpNm+yfvc
-	MtsmD96A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HaEn7dbgaH6iPMCO5J8FjdiEUHJuBFLTI9dORD5tRcM=; b=GA134iMHtCCkf27ONj2d5TPJN2
+	Y3uvvmwKlHtoRKxYD+pPpqoTC4kZsYI6dqbbJ7TtVr1T6pjw8sSIYa0lWxeIm7tMXTQZDQBb8um1l
+	K/oouaMTIhNwK8BaNxy0mGy3DKfqG++Vui+I+2Ttf6Qi9PkdZONuKUyX4I9VWJx8eNFoKf7OX7JR8
+	JjethP0DZ94C+ojxCpTBnlArWlFxFoiOkDsJrQeIYYQ9CkQtQmCIggwmIW9+oAC+j4FspKbEC1O5P
+	gJj7NRA+b3QOj/EHXXfROdumOWNXmgoAMRWG2ito1hYtJrFpGZVngc0grjHcq9CK/O9mk5KyElhlv
+	du0nv+LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnSp-0000000GuAA-23QS;
-	Tue, 12 May 2026 13:47:59 +0000
+	id 1wMnT4-0000000GuF3-2rKE;
+	Tue, 12 May 2026 13:48:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnSm-0000000Gu9K-3r6S
+	id 1wMnT1-0000000GuE7-23dO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:47:58 +0000
+	Tue, 12 May 2026 13:48:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 518C61655
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:47:50 -0700 (PDT)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5977F3F85F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:47:55 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F6641655;
+	Tue, 12 May 2026 06:48:05 -0700 (PDT)
+Received: from [10.57.33.240] (unknown [10.57.33.240])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D6BD63F85F;
+	Tue, 12 May 2026 06:48:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778593675; bh=AHvaIjAEownr1UuDMvzjOHmJ1x9P7IhUK8cJvIHHPdU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ljKSHafGgyi4gIoFC0PQavO/PbqZusPVGOl+oR+NgIC1kiUCyfPEX3/lpGCv2fQ5w
-	 73fcq4jj6av2WQMe5W5nOHtCwf2zEszIdfDR4mFq4nPqmWN4pC9g29Z1KuGe9MPJz8
-	 XNCnHhhU7MJcFpvapNVgw92SFd7ONTE5O8UJFWxw=
-Date: Tue, 12 May 2026 14:47:27 +0100
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Cc: Marcin =?utf-8?Q?=C5=9Alusarz?= <marcin.slusarz@arm.com>,
-	Ketil Johnsen <ketil.johnsen@arm.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T.J. Mercier" <tjmercier@google.com>,
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
-	Steven Price <steven.price@arm.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linaro-mm-sig@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Florent Tomasin <florent.tomasin@arm.com>, nd@arm.com
-Subject: Re: [PATCH 4/8] drm/panthor: Add support for protected memory
- allocation in panthor
-Message-ID: <agMvb_jeRsO7tSS-@e142607>
-References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
- <20260505140516.1372388-5-ketil.johnsen@arm.com>
- <20260505181523.49a3d85c@fedora>
- <afxVIuVVPisBQ9p_@e129842.arm.com>
- <20260507135356.5428d50d@fedora>
+	t=1778593690; bh=OOEl7Ee3v2lvVmXZkjR9vENiJNiSv2BYwxgLSf9hiw8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DjNptRD3V6bvItp9OSAF88zx5I9jZmWvqzrzPUdgdrZLNcdLQDqA6SIjnlcVWL4fc
+	 eKpZpYKfRC4U2FugcbGB5KReWOFqR2VFf1k1tc6M0CxzT+uoTaXPzAOLWw1YAetIbp
+	 3VvkIpQmXGEexpxJQ5U4KpIRTM6KMebD8HElYdIQ=
+Message-ID: <7e073ece-4fd6-4c36-ac2f-7604ccd38fff@arm.com>
+Date: Tue, 12 May 2026 15:48:05 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260507135356.5428d50d@fedora>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] iio: adc: sun20i-gpadc: add A523 gpadc support
+To: Jonathan Cameron <jic23@kernel.org>,
+ Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Maksim Kiselev
+ <bigunclemax@gmail.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260510-sunxi-a523-gpadc-v1-0-4f6b0f4000fb@mmpsystems.pl>
+ <20260510-sunxi-a523-gpadc-v1-2-4f6b0f4000fb@mmpsystems.pl>
+ <20260512125106.718d48d9@jic23-huawei>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260512125106.718d48d9@jic23-huawei>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_064757_045251_FA474B87 
-X-CRM114-Status: GOOD (  36.07  )
+X-CRM114-CacheID: sfid-20260512_064811_577672_75BAB5B1 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,83 +80,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 01:53:56PM +0200, Boris Brezillon wrote:
-> On Thu, 7 May 2026 11:02:26 +0200
-> Marcin Ślusarz <marcin.slusarz@arm.com> wrote:
+Hi,
+
+On 5/12/26 13:51, Jonathan Cameron wrote:
+> On Sun, 10 May 2026 14:57:23 +0200
+> Michal Piekos <michal.piekos@mmpsystems.pl> wrote:
 > 
-> > On Tue, May 05, 2026 at 06:15:23PM +0200, Boris Brezillon wrote:
-> > > > @@ -277,9 +286,21 @@ int panthor_device_init(struct panthor_device *ptdev)
-> > > >  			return ret;
-> > > >  	}
-> > > >  
-> > > > +	/* If a protected heap name is specified but not found, defer the probe until created */
-> > > > +	if (protected_heap_name && strlen(protected_heap_name)) {  
-> > > 
-> > > Do we really need this strlen() > 0? Won't dma_heap_find() fail is the
-> > > name is "" already?  
-> > 
-> > If dma_heap_find() will fail, then the whole probe with fail too.
-> > This check prevents that.
-> 
-> Yeah, that's also a questionable design choice. I mean, we can
-> currently probe and boot the FW even though we never setup the
-> protected FW sections, so why should we defer the probe here? Can't we
-> just retry the next time a group with the protected bit is created and
-> fail if we can find a protected heap?
+>> A523 differs from existing sun20i-gpadc-iio by having two clocks; bus
+>> clock and module clock.
+>>
+>> Change driver to enable all clocks.
+>>
+>> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> I'm expecting this to change given comment on not being quite compatible so
+> I'll wait for v2 before reviewing.
 
-The problem we have with the current firmware is that it does a number of setup steps at "boot"
-time only. One of the steps is preparing its internal structures for when it enters protected
-mode and it stores them in the buffer passed in at firmware loading. We cannot later run the
-process when we have a group with protected mode set.
+Yes, we need a v2, but just for adding the new compatible string. 
+Otherwise I think this patch is a neat solution, because we don't need 
+to further differentiate between the different SoC's number of required 
+clocks.
 
-So unfortunately adding support for protected mode where the heap name is provided means we
-have to try our best to set it up at boot time, or otherwise disable protected mode support.
-
-Best regards,
-Liviu
+Cheers,
+Andre
 
 > 
-> > I'm not sure why it's needed at all, but if
-> > it is really needed, then s/strlen(protected_heap_name)/protected_heap_name[0]/
-> > would simplify this.
+> Thanks,
 > 
-> It's not so much about how you do the test, and more about the case
-> you're trying to protect against. I guess here you assume that
-> panthor.protected_heap_name="" means "I don't have a protected heap for
-> you". If it's deemed acceptable, this should most certainly be
-> described somewhere.
+> Jonathan
 > 
-> > 
-> > > > +		ptdev->protm.heap = dma_heap_find(protected_heap_name);
-> > > > +		if (!ptdev->protm.heap) {
-> > > > +			drm_warn(&ptdev->base,
-> > > > +				 "Protected heap \'%s\' not (yet) available - deferring probe",
-> > > > +				 protected_heap_name);
-> > > > +			ret = -EPROBE_DEFER;
-> > > > +			goto err_rpm_put;  
-> > > 
-> > > If you move the heap retrieval before the rpm enablement, you can get
-> > > rid of this goto err_rpm_put.
-> > >   
-> > > > +		}
-> > > > +	}
-> > > > +
-> > > >  	ret = panthor_hw_init(ptdev);
-> > > >  	if (ret)
-> > > > -		goto err_rpm_put;
-> > > > +		goto err_dma_heap_put;
-> > > >  
-> > > >  	ret = panthor_pwr_init(ptdev);
-> > > >  	if (ret)  
+>> ---
+>>   drivers/iio/adc/sun20i-gpadc-iio.c | 8 ++++----
+>>   1 file changed, 4 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gpadc-iio.c
+>> index 861c14da75ad..dd4c7e6e3d76 100644
+>> --- a/drivers/iio/adc/sun20i-gpadc-iio.c
+>> +++ b/drivers/iio/adc/sun20i-gpadc-iio.c
+>> @@ -180,7 +180,7 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
+>>   	struct iio_dev *indio_dev;
+>>   	struct sun20i_gpadc_iio *info;
+>>   	struct reset_control *rst;
+>> -	struct clk *clk;
+>> +	struct clk_bulk_data *clks;
+>>   	int irq;
+>>   	int ret;
+>>   
+>> @@ -205,9 +205,9 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
+>>   	if (IS_ERR(info->regs))
+>>   		return PTR_ERR(info->regs);
+>>   
+>> -	clk = devm_clk_get_enabled(dev, NULL);
+>> -	if (IS_ERR(clk))
+>> -		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock\n");
+>> +	ret = devm_clk_bulk_get_all_enabled(dev, &clks);
+>> +	if (ret < 0)
+>> +		return dev_err_probe(dev, ret, "failed to enable clocks\n");
+>>   
+>>   	rst = devm_reset_control_get_exclusive(dev, NULL);
+>>   	if (IS_ERR(rst))
+>>
+> 
 > 
 
--- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
 
