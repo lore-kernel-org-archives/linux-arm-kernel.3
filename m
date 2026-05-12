@@ -4,72 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F166CCD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 20:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10645CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 21:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5vSXzbfxiDayi3uLMoENhtSVkT6Xt07qc9dfSIxaHTQ=; b=eTlW5r6ttNVSCGyGK/vb9/bpVr
-	b8PlvfMAi7FyTkaNG+NYDr7VXw5ZGT6SmYY+fDUiM/qB4m7dD4QaoBDxe+WWRFv784ff71J6aaNzn
-	53Lw7S9CRFnI13i18J20o2niVA33KT29STkFsFH6nGxyZolrgwgJeWKfHz/UjLT9SllLCSf4kCZ8F
-	hMo6+rZ0Ayy/AxVl9omKVQRrFnWDtugQmI0V79m6I64BpZo5LyOH+4FUNYplx3U/fvcA1tJzb+C7K
-	HhsdXeofrjnUydNjdttVN4iE06kLZvxOtYiV5M8phNi1/DetNKBjO3kIJ06C5EP9tb2zTd/beiyVr
-	XirRURvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BCaf028xC5s+DMoM0w5jJSQ23tua+iloa6oIupqhPqU=; b=drBRqQTw86E/Fq/i0/k5gI+6Xn
+	g41GBBXSfMpibX12Ka6VqYbJowvZMQ41B7Lxch7+CyWKLrBnqFhUeTrwPK3cr4rzz++UaL/Bvl6aV
+	C1Cq2/8t3fX9Fud1kbrd1TMsGGqHV0ePK90Nav3YAJNvRgpd/22NucArLDwdnh1WHrzbgmdG6NYeQ
+	KuvlOyqOqm4L4ZhVN8CEMNHB0rJvtscDPk9HWYNFJioP1DF1Fz/Z2XMnpZWbTTabioTN61UwFJcF3
+	zvFbF3U0yWiFqWqCkwrtJzfDWyL5feUaBlUUm+AvYKGpshRhC3mp7WOlK1gv46uf/u+6iAXrfkpjw
+	WbRjd9fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMuBj-00000000PLc-0pF1;
-	Tue, 12 May 2026 20:58:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMuRq-00000000SdW-30a3;
+	Tue, 12 May 2026 21:15:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMuBg-00000000PKv-3rrW;
-	Tue, 12 May 2026 20:58:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9CC6840647;
-	Tue, 12 May 2026 20:58:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F35D8C2BCB0;
-	Tue, 12 May 2026 20:58:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778619524;
-	bh=cwRYFJ8mo7xPr/Sm/kd6T4GfCK3h96cELX3tInSSqH4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aew4b/4EDTRlqlXHmm4ka53FQbHCXwfJFmy8x01qQqfmuztLbaflyIT6Z3KXDXwK2
-	 b5JiZYNgRlvCID3NhkRx3KDtWb4nCuI6wimqtfnIwAD1mAAd9SVaDC/JSFiX7UdSOg
-	 nBygmXFpmJNoPfEnWc4ul/IPZDtPZbA/n6+FpygRh3jpuCEYeD5hipGFrI1gxOs8M5
-	 mYoOME7LP9wAWubUPs6q5f6D+bABmxyF5wfHBRa4huykaC9maPfJwfYzzR7HaVSHzw
-	 ec5dE7LMCOooljRryEym8Iy191vRpFMtPYVbUYxXGVvdndmQCEXS+vjoUznhhOb1qg
-	 Oq1FYLT8tvPNg==
-Date: Tue, 12 May 2026 22:58:41 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Benjamin Larsson <benjamin.larsson@genexis.eu>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH net-next v6 11/12] net: airoha: Support multiple LAN/WAN
- interfaces for hw MAC address configuration
-Message-ID: <agOUgVn24Ls5jiHq@lore-desk>
-References: <20260511-airoha-eth-multi-serdes-v6-0-c899462c4f75@kernel.org>
- <20260511-airoha-eth-multi-serdes-v6-11-c899462c4f75@kernel.org>
- <f4a11830-8a3f-4cc3-ab82-e6f02ca34ae8@genexis.eu>
+	id 1wMuRn-00000000Sd3-47l9
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 21:15:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1778620523;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BCaf028xC5s+DMoM0w5jJSQ23tua+iloa6oIupqhPqU=;
+	b=hpxCoFH+VUn836kGtNlaF92zqWkqCSVpLfCcwbsof7pWakfZUPnNz8WoffJ8ha5HYPUWwt
+	HR0sqrfMGXwh4y49HW/O5pgrvVJAM4ZuJqOhMvfPJGX3OBSjxZdmggPzjNPpCk/uHSDAvq
+	R1jLYevC9fwD0kv5swoKgc0SHCu5VCk=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-85-krxYCjLLNZGef_v_RZVJmQ-1; Tue, 12 May 2026 17:15:18 -0400
+X-MC-Unique: krxYCjLLNZGef_v_RZVJmQ-1
+X-Mimecast-MFC-AGG-ID: krxYCjLLNZGef_v_RZVJmQ_1778620517
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-488c2aa6becso48469505e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 14:15:18 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778620517; x=1779225317;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=BCaf028xC5s+DMoM0w5jJSQ23tua+iloa6oIupqhPqU=;
+        b=n00FikADqPakqzWHioBOe6G/8Xfk1L/Y4Fym2r7vSiWYUYc5Wbhqp+miuD5YpdefB7
+         2UqmsEKAXnUiGKt9SsfO43Ff6LSKnoVB6ovVwNp+vgs2KTjJRPOH6SAUCn1oyZPb4h7y
+         ueZCE7srAOnct4D7Tx5zTy0uJVb6Sx0r293iPTC3jFiEq9uZIh8zx0Gi/UrCuAezSctR
+         FE+1sxBinaTIilMlqxKkl+zAhtWxJbEiYYEM1lo/eKQBxkBM3AiST0qI6QlM4RnW3YhQ
+         4ilvU0OpKL6dFhZBnOueKi3j7VwOlSVsCgFmcOWiKNmrbqPHtWWn3pHsWQ8IeT/2/3/R
+         jvww==
+X-Forwarded-Encrypted: i=1; AFNElJ+GglCcf2qAgWSMPSJ68U7+ra4wWgIt/NB0OExaDHcSUPWjMQtyXPRtz8jvpIrzszp7Y+UEid7mpn9iPAokctBu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZQ6UhPx+o8p1Kw2R4o/rFnTQdD5uVsGbxeiqArx8naK6IOEkJ
+	0VeIK5ObWjnmb5pEX0wDgziAO84rNh5N423LRuNhWvfpfEfTCHlyQFQdsZaM8m2OdhjhE3IuQnq
+	YymdPWoUwjnhhTZUJDGh7dmr230putNG29nKvTU47siLzx5xzncdJMyE0hJpz+I0voOLUUr+C+e
+	B+rpKNk/MkLG4DcMoxYAB3xPH/t8vZ/lvgw1Uqt/QIJ/Kzm6XVio0=
+X-Gm-Gg: Acq92OESgtJbnhoidfBJwaIt4RirBPE2XtJr3RCta9OzHURbSd8Z4a33RSCosq6ISrJ
+	9YanTM5dlI44wtgfSeeLjugxxr0zm2uqU/GH0WV3E6rMqlbEH33x4YcaiA6j2EtVl77aLSALlmc
+	9Z32grqJNZIPLHCiSbXkXIXPeOG6kVI0fBbhANwIrQSq+w5k4/udxyGn0iXhPUtxjVcS7nxf2KJ
+	Clfxr4l1Dv4fP+DvIXsq7ik2Q2atAkiZHA8/NyBv2SZi3y5s2XIxiZkkFN0yIdW2ek2j3IkRNVd
+	GTUhJu8O
+X-Received: by 2002:a05:600c:19c9:b0:489:1a63:509c with SMTP id 5b1f17b1804b1-48fc999e736mr7208155e9.0.1778620517223;
+        Tue, 12 May 2026 14:15:17 -0700 (PDT)
+X-Received: by 2002:a05:600c:19c9:b0:489:1a63:509c with SMTP id
+ 5b1f17b1804b1-48fc999e736mr7207685e9.0.1778620516761; Tue, 12 May 2026
+ 14:15:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Wnpl3sdvUPuniOKw"
-Content-Disposition: inline
-In-Reply-To: <f4a11830-8a3f-4cc3-ab82-e6f02ca34ae8@genexis.eu>
+References: <20260507154221.2905554-1-maz@kernel.org>
+In-Reply-To: <20260507154221.2905554-1-maz@kernel.org>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Tue, 12 May 2026 23:15:04 +0200
+X-Gm-Features: AVHnY4KtwnsJxjKodfXT2l49vyk4PWU8NRQcHeq925qaoxrCk6J9wCnG0t9SADY
+Message-ID: <CABgObfY+qCh3_j+ykf_5aU_FwWAKjnauby_AjXndkTAROKpFeQ@mail.gmail.com>
+Subject: Re: [GIT PULL] KVM/arm64 fixes for 7.1, take #2
+To: Marc Zyngier <maz@kernel.org>
+Cc: Alexandru Elisei <alexandru.elisei@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Fuad Tabba <tabba@google.com>, James Morse <james.morse@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Mostafa Saleh <smostafa@google.com>, Oliver Upton <oupton@kernel.org>, 
+	Sebastian Ott <sebott@redhat.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Sudeep Holla <sudeep.holla@kernel.org>, Vincent Donnefort <vdonnefort@google.com>, 
+	Wei-Lin Chang <weilin.chang@arm.com>, Will Deacon <will@kernel.org>, 
+	Yuan Yao <yaoyuan@linux.alibaba.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 9qtfFvHYPQm3VoNrkj6YF3fknmxPFOXOjYlKXWIxpkU_1778620517
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_135845_007062_0F1E20E4 
-X-CRM114-Status: GOOD (  24.79  )
+X-CRM114-CacheID: sfid-20260512_141524_091866_71CCB9F9 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,131 +113,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, May 7, 2026 at 5:42=E2=80=AFPM Marc Zyngier <maz@kernel.org> wrote:
+>
+> Paolo,
+>
+> Here's the second set of KVM/arm64 fixes for 7.1. Nothing too horrible
+> this time, aside from an ARM erratum workaround that has little impact
+> on KVM, but relies on some firmware dealing with the problem. Bleh.
+>
+> The rest is a small collection of bug fixes, mostly affecting the MMU
+> (permission fault handling with guest_memfd, 52bit VA with NV), and a
+> small set of AI-enhanced fixes from Fuad. I guess I'll have to get
+> used to that.
+>
+> And last but not least, Steffen joins the merry band of KVM/arm64
+> reviewers in preparation of s390 and arm64 being joined at the hip...
+>
+> Please pull,
 
---Wnpl3sdvUPuniOKw
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Done, thanks.
 
-On May 12, Benjamin Larsson wrote:
-> Hi.
->=20
-> On 11/05/2026 12:49, Lorenzo Bianconi wrote:
-> > The EN7581 and AN7583 SoCs provide registers to configure hardware LAN/=
-WAN
-> > MAC addresses, used to determine whether received traffic is destined f=
-or
-> > this host or should be forwarded to another device.
-> > The SoC hardware design assumes all interfaces configured as LAN (or WA=
-N)
-> > share a common upper MAC address, which is programmed into the
-> > REG_FE_{LAN,WAN}_MAC_H register. The lower bytes of 'local' addresses c=
-an
-> > be expressed as a range via the REG_FE_MAC_LMIN and REG_FE_MAC_LMAX
-> > registers.
-> > Previously, only a single interface was considered when programming the=
-se
-> > registers. Extend the logic to derive the correct minimum and maximum
-> > values for REG_FE_MAC_LMIN/REG_FE_MAC_LMAX when two or more interfaces =
-are
-> > configured as LAN or WAN.
-> >=20
-> > Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >   drivers/net/ethernet/airoha/airoha_eth.c | 75 +++++++++++++++++++++++=
-++++-----
-> >   drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
-> >   drivers/net/ethernet/airoha/airoha_ppe.c |  4 +-
-> >   3 files changed, 66 insertions(+), 15 deletions(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index 16c0ff9999da..533ffe20f833 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -71,20 +71,67 @@ static void airoha_qdma_irq_disable(struct airoha_i=
-rq_bank *irq_bank,
-> >   	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
-> >   }
-> > -static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *a=
-ddr)
-> > +static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *ad=
-dr)
-> >   {
-> >   	struct airoha_eth *eth =3D dev->eth;
-> > -	u32 val, reg;
-> > +	u8 ref_addr[ETH_ALEN] =3D {};
-> > +	u32 reg, val, lmin, lmax;
-> > +	int i;
-> > +
-> > +	lmin =3D (addr[3] << 16) | (addr[4] << 8) | addr[5];
-> > +	lmax =3D lmin;
-> > +
-> > +	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
-> > +		struct airoha_gdm_port *port =3D eth->ports[i];
-> > +		int j;
-> > +
-> > +		if (!port)
-> > +			continue;
-> > +
-> > +		for (j =3D 0; j < ARRAY_SIZE(port->devs); j++) {
-> > +			struct airoha_gdm_dev *iter_dev;
-> > +			struct net_device *netdev;
-> > +
-> > +			iter_dev =3D port->devs[j];
-> > +			if (!iter_dev || iter_dev =3D=3D dev)
-> > +				continue;
-> > +
-> > +			if (airoha_is_lan_gdm_dev(iter_dev) !=3D
-> > +			    airoha_is_lan_gdm_dev(dev))
-> > +				continue;
-> > +
-> > +			netdev =3D iter_dev->dev;
-> > +			if (netdev->reg_state !=3D NETREG_REGISTERED)
-> > +				continue;
-> > +
-> > +			ether_addr_copy(ref_addr, netdev->dev_addr);
-> > +			val =3D (netdev->dev_addr[3] << 16) |
-> > +			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
-> > +			if (val < lmin)
-> > +				lmin =3D val;
-> > +			if (val > lmax)
-> > +				lmax =3D val;
-> > +		}
-> > +	}
-> > +
-> > +	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
-> > +		/* According to the HW design, hw mac address MS bits
-> > +		 * must be the same for each net_device with the same
-> > +		 * LAN/WAN configuration.
-> > +		 */
-> > +		return -EINVAL;
-> > +	}
->=20
-> Maybe this information should be relayed to the user somehow?
+Paolo
 
-netdev_err()?
+>
+>         M.
+>
+> The following changes since commit 7fd2df204f342fc17d1a0bfcd474b24232fb0f=
+32:
+>
+>   Linux 7.1-rc2 (2026-05-03 14:21:25 -0700)
+>
+> are available in the Git repository at:
+>
+>   git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git kvmarm-=
+fixes-7.1-2
+>
+> for you to fetch changes up to effc0a39b8e0f30670fe24f51e44329d4324e566:
+>
+>   KVM: arm64: Pre-check vcpu memcache for host->guest donate (2026-05-07 =
+14:12:42 +0100)
+>
+> ----------------------------------------------------------------
+> KVM/arm64 fixes for 7.1, take #2
+>
+> - Add the pKVM side of the workaround for ARM's erratum 4193714, provided
+>   that the EL3 firmware does its part of the job. KVM will refuse to
+>   initialise otherwise.
+>
+> - Correctly handle 52bit VAs for guest EL2 stage-1 translations when
+>   running under NV with E2H=3D=3D0.
+>
+> - Correctly deal with permission faults in guest_memfd memslots.
+>
+> - Fix the steal-time selftest after the infrastructure was reworked.
+>
+> - Make sure the host cannot pass a non-sensical clock update to the
+>   EL2 tracing infrastructure.
+>
+> - Appoint Steffen Eiden as a reviewer in anticipation of the KVM/s390
+>   ability to run arm64 guests, which will inevitably lead to arm64
+>   code being directly used on s390.
+>
+> - Make sure that EL2 is configured with both exception entry and exit
+>   being Context Synchronization Events.
+>
+> - Handle the current vcpu being NULL on EL2 panic.
+>
+> - Fix the selftest_vcpu memcache being empty at the point of donation or
+>   sharing.
+>
+> - Check that the memcache has enough capacity before engaging on the
+>   share/donate path.
+>
+> - Fix __deactivate_fgt() to use its parameter rather than a variable
+>   in the macro context.
+>
+> ----------------------------------------------------------------
+> Alexandru Elisei (1):
+>       KVM: arm64: Handle permission faults with guest_memfd
+>
+> Fuad Tabba (6):
+>       KVM: arm64: Make EL2 exception entry and exit context-synchronizati=
+on events
+>       KVM: arm64: Guard against NULL vcpu on VHE hyp panic path
+>       KVM: arm64: Fix __deactivate_fgt macro parameter typo
+>       KVM: arm64: Seed pkvm_ownership_selftest vcpu memcache
+>       KVM: arm64: Pre-check vcpu memcache for host->guest share
+>       KVM: arm64: Pre-check vcpu memcache for host->guest donate
+>
+> James Morse (1):
+>       KVM: arm64: Work around C1-Pro erratum 4193714 for protected guests
+>
+> Mostafa Saleh (1):
+>       KVM: arm64: Remove potential UB on nvhe tracing clock update
+>
+> Sebastian Ott (1):
+>       KVM: selftests: arm64: Fix steal_time test after UAPI refactoring
+>
+> Steffen Eiden (1):
+>       MAINTAINERS: Add Steffen as reviewer for KVM/arm64
+>
+> Wei-Lin Chang (1):
+>       KVM: arm64: nv: Consider the DS bit when translating TCR_EL2
+>
+>  MAINTAINERS                              |  1 +
+>  arch/arm64/include/asm/kvm_nested.h      |  1 +
+>  arch/arm64/include/asm/sysreg.h          |  2 +-
+>  arch/arm64/kvm/arm.c                     | 21 ++++++++++++++
+>  arch/arm64/kvm/hyp/include/hyp/switch.h  |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/clock.c          |  3 ++
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c    | 47 ++++++++++++++++++++++++++=
++++++-
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c           | 16 ++++++++++-
+>  arch/arm64/kvm/hyp/vhe/switch.c          |  3 +-
+>  arch/arm64/kvm/mmu.c                     | 29 ++++++++++++++------
+>  include/linux/arm-smccc.h                |  6 ++++
+>  tools/testing/selftests/kvm/steal_time.c |  2 ++
+>  12 files changed, 120 insertions(+), 13 deletions(-)
+>
 
-Regards,
-Lorenzo
-
->=20
-> MvH
->=20
-> Benjamin Larsson
->=20
-
---Wnpl3sdvUPuniOKw
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCagOUgQAKCRA6cBh0uS2t
-rIn+APwKpb4qxMrPaC5ng4+5c/Ub1S62RXR68TIg3As8A6JbIwD/RGedQbqaS9xg
-zxmKutUfiYEtLPbAvGErfwePBAN6Gws=
-=JHOg
------END PGP SIGNATURE-----
-
---Wnpl3sdvUPuniOKw--
 
