@@ -4,65 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1421CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC71ECD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=liVM2EqeK6UO+mWFQsdjtalngmiYjIplysZ/U2oXbJw=; b=mYyK2dAJsva0TNSxI1m11yhwRx
-	ujtqbqJ3Re9A6PgyCmZ0ESiXoJ3jV4Pvl6DWXxH6xLB83jvuj/1Okvfx3dtbWZsBJfuoE25x11lLi
-	lJ6OjtZ3KYRZmAx6smCWp7k4AUZyq1+PfvGjvgFDRMJHkH7uQ/HP7B36fKG8VV6fJ6FgDxkaFpMKu
-	cszCOHhxHqWLwS9BakP13FKP0qGYovSbTSjEUcngLrvxwnJHANh+qPrnOV+6o5KpePnw4ha9MuB8T
-	7ZwrJCBl704QvcaU2ZByECHxa9hgtMz0kxUQ+q31NFM8HeT6a4OnS102n/1WiJQijoDz6Q6O9+d5C
-	CEjOBZPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LFiZAZLEKYd0K8SdQldw2CuoZmogpx3UzG232rIKVrg=; b=cuRaEzL3B9KnrduitqJC1VAXTK
+	8wOVSDZIu12FmlvIw2yDkegdbuWX55lu+ir0z8w6W6UA7NzSiLTvwVKmiC5ZMS0WvPrrfvR+o4ci8
+	/ZWgOaWsSUlOAGTVQmFoHRlQVOGThWhzxKywSjWD3EEp3mWqYJg71EalnTzzPQb9lrmNDQN2DSv3u
+	bRbsMtErsuoo3Eg6ChysjhQFIsVjf0ZHW+qbHcjxGTQiLGXJCJpmAxcuYFAgKj58JjPYxZQgo7Gja
+	WKAHu1ej60GkaDBVlP8NhNhB2yKTavNIV6mxU8cbcF8sNddgKzbSdm26OleOHHR8v4jsI5nxEBP4D
+	VeKbm5wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMoXs-0000000H7jB-1LAh;
-	Tue, 12 May 2026 14:57:16 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wMoaX-0000000H8BF-45xK;
+	Tue, 12 May 2026 15:00:01 +0000
+Received: from mail-westeuropeazon11010070.outbound.protection.outlook.com ([52.101.69.70] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMoXp-0000000H7hC-2baA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 14:57:15 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wMoXZ-0006ha-1B; Tue, 12 May 2026 16:56:57 +0200
-Message-ID: <e6d562e7-a9d2-4a1a-a139-c6e05eb4aaef@pengutronix.de>
-Date: Tue, 12 May 2026 16:56:53 +0200
+	id 1wMoaV-0000000H8A1-0ihg;
+	Tue, 12 May 2026 15:00:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rN1BKAKFJypF8C2b5B/p7PNJFciqsSAIntiNfVc2i8Wmw1zkP+pPIKV9iLJQARbEsiE/ts8DVRuHrlNM0rpH32guA7jZTYreXrFibXoA7aiAY/2hLDY3yZFryEHCuaZUqUiIILxupIpvHhrg0BKq+91ON6gS3z4UGZcUbrSqabPj/3xG2lD9WOyB+nbjPc5mYjTr4x0UH1Iwz1YDxOyh1RJ32ipSvj7YUVe5q9uioiIROxcwjKGxwuswOrmjNLzbhblvbGU/ZArryhTORHGgo/VjWu3sfyp4IFXpO5Rc8gOimNcQPqfST4g4u6fWZY4ZJpeB4J0s/1LpsLD8IPaAXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LFiZAZLEKYd0K8SdQldw2CuoZmogpx3UzG232rIKVrg=;
+ b=au8NKTCSgLW8AX80PmTqnMgMC+xmRsTyMRNRlPeh3WYEsjkuedGAiGHcLWnveDKyQi3H7uP0t4SLV0Vbxj5+IuuVQ3bAXQe0Vcjg9uoYShUhEII3I+Wl/tJr98fFHSikUZX8CVyp7Bh8wzzZkRf5Eif4FNPQ4eLQJLEGW0RdUrEfBo/Ahp/oGifJOvix6aDRzky8RpHL4zyRbLm4CkxumTmlKanglC9HwBo9IU3BY+CUtzv2gnmQuq3N5Hg9jAYeLsHM8ydXev9nfFAvqwuvx3CvW+ZZufiSkf5HDACeBQMWuYMTi5bXNJkcgmTUVfFeKE9o2JGe1zl0r1eHYe0CDQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LFiZAZLEKYd0K8SdQldw2CuoZmogpx3UzG232rIKVrg=;
+ b=YeYBESjtG84Cp49OAU8vKV9L619GoXdUvoj6dV1I7ZtBuQc66vaSp+1RZbBdpUd7nK9Tm4/XT4G5yntgz7svuMzyLPqG5sq2di7eoMQLgWyvztKlQIuiRLjZTM69gUQIlfPby05GtXwaiknyb7fYwt8XxL931VHxxuJS06PmRPbLJSJWuZHjW0jxbPl6WkntmvJxT0ki0owGWJDPugDIpg37vakij/o4xDwHIecspn8S+L8N9PhAWE98GU1BFAkdZth68Nac7l3VQOYT9coaQTEghPiweffOk26ecdxk/vDC3PkIyCkjmxRKBimAftM6i1Wfz0HXWanR4AfeN8W/gg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PAWPR04MB11609.eurprd04.prod.outlook.com (2603:10a6:102:50d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
+ 2026 14:59:54 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9891.021; Tue, 12 May 2026
+ 14:59:54 +0000
+Date: Tue, 12 May 2026 10:59:47 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com,
+	a.fatoum@pengutronix.de, franz.schnyder@toradex.com,
+	stefano.radaelli21@gmail.com, linux-phy@lists.infradead.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] phy: fsl-imx8mq-usb: add control register regmap
+Message-ID: <agNAY48qIjUcywUd@lizhi-Precision-Tower-5810>
+References: <20260512101212.1498223-1-xu.yang_2@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260512101212.1498223-1-xu.yang_2@nxp.com>
+X-ClientProxiedBy: SA0PR11CA0047.namprd11.prod.outlook.com
+ (2603:10b6:806:d0::22) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 12/29] media: rockchip: rga: avoid odd frame sizes for
- YUV formats
-To: Nicolas Dufresne <nicolas@ndufresne.ca>,
- Jacob Chen <jacob-chen@iotwrt.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, kernel@pengutronix.de,
- sebastian.reichel@collabora.com
-References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
- <20260428-spu-rga3-v5-12-eb7f5d019d86@pengutronix.de>
- <4f5e481c8883b358ee4cef64f26f3f00f0ac7304.camel@ndufresne.ca>
-Content-Language: en-US
-From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-In-Reply-To: <4f5e481c8883b358ee4cef64f26f3f00f0ac7304.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PAWPR04MB11609:EE_
+X-MS-Office365-Filtering-Correlation-Id: 68cecf92-10b0-4374-20f6-08deb037204c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|52116014|1800799024|22082099003|18002099003|38350700014|56012099003|11063799003;
+X-Microsoft-Antispam-Message-Info: USaRAlJKS7AgYj0ND4F75kzdrG12DaiyUOUTTTTT+sN9FKYpL+a5Y1BiADA/JwaA0gC8KtO27WDbCItx3ozHrhHYCqGInQBMPqj7hQw+l42yjnCDO3tO/uGYMPmkyPB7uPJE/3caLHMltoDfvfexH42S9DnA477YZdIJTTBQLT1Q1Y4JheMoLuJvABncuv7bT1iDKuVzQij+TkGJRWjGkO/QMCpjUtofeVDVFuN2KAWNUsnFt1QY0FEgXu0V+b02IF2yPFM3X5Y9MAF3/11z1a/pFnBiDjKz1GNBJphjTePEyoyB7VgD0ZLAeB9gIp7sLJulYTfAajFSC5koSPwCjmhEE9Hv0iYlT9Rwhkoo539JfQf/XjAjKtkblhasmUN22xboG0elXJOtKl1LjGKL2Vp/w3onv8LMgV2Hv58dyWrX9TSbRgsH9z5306lIsIMR3UPXQg19/T8I9X8jHm2Ddti6/EBYH+d5h5MV1bzQmk4xCrG8Na9Jb2FLp0ifvhTP81usesvKbb1uFHZCdLpOtwKdCUrAx2fulOMFg/siZVPLZnGjdPKJnuorVLt5SJuPVwWWOHVt0meKuA0448KrefZ0ak5veY7U8C4/2heAWVUWh/seIrRjiFug4PHHuIh5z8QGTSSiYTcyssodzBqnDToBWuY3gTlJKukDf8Y/glB/AN6wkDE3nxmM5mTan7czZvhZAbvp8dCYl1XaNdkgKSI2YV+/Vk3x2lMloqH5mS6spfBq/lL0VjKvoICuXuCZ
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(52116014)(1800799024)(22082099003)(18002099003)(38350700014)(56012099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CAk9YM1KEejdYfPRVcguaqTEnSrLwqKYnJpSLd1XlxRouJfVuOCzYrZp/0xw?=
+ =?us-ascii?Q?1clJgJUk2Gl23mfrQW8UBPgFkOLI+HtRRqLsVjs6aeLujL0Qlq5lH423hjwO?=
+ =?us-ascii?Q?d3v7i45pZi6DBTd/OvpHfGaNURCtWX7tyn60M+YIJ4IMu16bKG5XuVATAoHq?=
+ =?us-ascii?Q?M+YkRlBsW02OoEMbDL4ppxPm3ds06dxUXI3PB47ZpGJUJbrmlz+AfjnrC8dV?=
+ =?us-ascii?Q?WGQy8wKsm0QTOYr30BnnxXG7Jcql8I6AIRv09lRK6iSF34eM88uEOAH2eIlG?=
+ =?us-ascii?Q?WzRi67XlWAvSFV2ahyzWIi7sypps3KdEau1HCYjqsflUbxI9oofc9XB9aQ95?=
+ =?us-ascii?Q?PcedcpwkUQNGumhlGoUMV9fRcS0nd+yjs7QukhjbjW2X9rRMAr9Jg2dLvHcR?=
+ =?us-ascii?Q?mPkNnaq93q4PsPq4Qe1jhAtQNQ5f/epX2/C5f0uI4VagLpXjlv/XAuFxWREq?=
+ =?us-ascii?Q?83QCWK1L66pw3MLg2vLoDo7FW8Oh/11IDJ6h9ZIBO/HLw5SMwx2ZbmVTshDO?=
+ =?us-ascii?Q?eO/VlqSPJfaNGAbOAhmp4zGJ49R692ivxEZCCvR1qD5Q4+gKUAyaUL+75Fpq?=
+ =?us-ascii?Q?Va/QoObZf+FkrZj6JbTCbT3JK1G3maa/q1lQIQphnvhzUXGMCJA0xymKvYo5?=
+ =?us-ascii?Q?h3L7kv0CFEJB5mqKa/kSo1I9Vla0JSmc9rtWo6fk26J6/FUBLZRm/xXPy66s?=
+ =?us-ascii?Q?KsazF1E+f1e6yR35iD9X+zojrnKcZ4kJLTWg+7cYzJ7xkRm4RhgHbcLrh6+9?=
+ =?us-ascii?Q?XDM0mKMOJ63K9Fil6VuU/wzvG3UwOdVKAs8yfVvoaLufc4+6lQ8Epr9R0maV?=
+ =?us-ascii?Q?YiRalaMxR+QnQPnWawIjnj7y0ocWoL+WCFiPqMtoA3iAGnzt7/RbMi/ynRYV?=
+ =?us-ascii?Q?IP0e18hCmZW7TVWhNK3/KASzjXbYDapD8dYHu7HarMYVkaRPd9UsXpJc2Ya/?=
+ =?us-ascii?Q?DeYz2/NTzrUY5syXeziIrIR/wqEfI7JLeQB8l3j+jPZHZRf0bKvDoPZtw5cW?=
+ =?us-ascii?Q?QdkEd+RCLEnm3jbUuOxbrMrC8Y6KM4tGpW240HNG+b38ZfjkdiaLznLIrm7l?=
+ =?us-ascii?Q?SzL6ag0gHCJ3qKqZh02vib0rvGvWjm2O1yHBnNeJJa18+sF6YWNArXhCUuj2?=
+ =?us-ascii?Q?p/HL5kfOi8TdM7ghGMKbWVz1ZoXY3088XwFd6Fed7KPLHDvpV27jgQOhpmDO?=
+ =?us-ascii?Q?mb0xIKZNiuDQXFxtloE7EBEJHoRtwXiczo6A0ybOXDdB8qdwXA2jCcLMfzIn?=
+ =?us-ascii?Q?RrvS1Rm9f/4CYA7QZvQl8mW0rV9Lev89PzG/15cqr3xFjvZn7XG/TrQcNCCl?=
+ =?us-ascii?Q?4QPTkv8Rqn9agP9x/uADTEJbip6B++/wt+V9SLNgTQqDdvtgbj1F8RVGi/3j?=
+ =?us-ascii?Q?jY+RqXrb9PQnabZeDvfAg1KDtM9oxODTkuD3h60lJhuokR6JzrrcNm9MApu5?=
+ =?us-ascii?Q?icoz9q6Od5OwvoT7bDzftVON25Gb24IakCy60fO1I75A2jj5ngZqkCmGSGCy?=
+ =?us-ascii?Q?9/7FRY1feqDzaft1pyNQQaGjVpgtcd6RRFnzjKckaIHhLdfWuAKOg01K5Zuj?=
+ =?us-ascii?Q?3P06K52hqbakTUdAuJ5zSlg0KOMyDKSo0SA5zV7kRBpQyV2/BRq9XWk44k4V?=
+ =?us-ascii?Q?cU5+HamCeI8/NEQr9TTQ9r6z2IVyMnpAQAxKLZXlzsyvNhVOQyqKh4+imDJb?=
+ =?us-ascii?Q?W5O+K8fYlyubkGfGNVdTxwyHrABhinLUdaWJVd3YTTQ0yG4PIBdofXIvJ/FV?=
+ =?us-ascii?Q?X0tcBF7Vaw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 68cecf92-10b0-4374-20f6-08deb037204c
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 14:59:54.6636
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Z8DZ7LuP3PWcgqdBxMFTuHzUKNMnTu1nGHqNB9tT/7TYA9ebXj/qn6PVVagHobgdvjj96476koNZomqmkeId9w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB11609
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_075713_657273_23139576 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20260512_075959_212363_8710FE05 
+X-CRM114-Status: GOOD (  22.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,103 +137,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
-
-On 5/8/26 11:18 PM, Nicolas Dufresne wrote:
-> Le mardi 28 avril 2026 à 11:00 +0200, Sven Püschel a écrit :
->> Avoid odd frame sizes for YUV formats, as they may cause undefined
->> behavior. This is done in preparation for the RGA3, which hangs when the
->> output format is set to 129x129 pixel YUV420 SP (NV12).
->>
->> This requirement is documented explicitly for the RGA3 in  section 5.6.3
->> of the RK3588 TRM Part 2. For the RGA2 the RK3588 TRM Part 2
->> (section 6.1.2) and RK3568 TRM Part 2 (section 14.2) only mentions the
->> x/y offsets and stride aligning requirements. But the vendor driver for
->> the RGA2 also contains checks for the width and height to be aligned to
->> 2 bytes.
->>
->> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
->> ---
->>   drivers/media/platform/rockchip/rga/rga.c | 19 ++++++++++++++-----
->>   1 file changed, 14 insertions(+), 5 deletions(-)
->>
->> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
->> index f599c992829dd..77b8c7ab74274 100644
->> --- a/drivers/media/platform/rockchip/rga/rga.c
->> +++ b/drivers/media/platform/rockchip/rga/rga.c
->> @@ -337,6 +337,19 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
->>   	struct rga_ctx *ctx = file_to_rga_ctx(file);
->>   	const struct rga_hw *hw = ctx->rga->hw;
->>   	struct rga_fmt *fmt;
->> +	struct v4l2_frmsize_stepwise frmsize = {
->> +		.min_width = hw->min_width,
->> +		.max_width = hw->max_width,
->> +		.min_height = hw->min_height,
->> +		.max_height = hw->max_height,
->> +		.step_width = 1,
->> +		.step_height = 1,
->> +	};
->> +
->> +	if (v4l2_is_format_yuv(v4l2_format_info(pix_fmt->pixelformat))) {
->> +		frmsize.step_width = 2;
->> +		frmsize.step_height = 2;
-> I think its fine like this, so let's start with:
+On Tue, May 12, 2026 at 06:12:12PM +0800, Xu Yang wrote:
+> The CR port is a simple 16-bit data/address parallel port that is
+> provided for on-chip access to the control registers inside the
+> USB 3.0 femtoPHY. Add control register regmap and export these
+> registers by debugfs to help PHY's diagnostic.
 >
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 >
-> But it does not feel like a hardware alignment to me. When we process in
-> software these things, the minimum alignment is bound to the subsampling, since
-> there is no way to store half or quarter pixels, the padded width/height
-> requires a step that follow the subsampling, something like:
+> ---
+> Changes in v2:
+>  - no changes
+
+Do you means "resend" because not change in v2?
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
+> ---
+>  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 19 ++++++++++++++++++-
+>  1 file changed, 18 insertions(+), 1 deletion(-)
 >
-> 		frmsize.step_width = finfo->hdiv;
-> 		frmsize.step_height = finfo->vdiv;
-
-I agree that this looks better. My main intention is to be more 
-conservative, as the Rockchip related code/docs seem to always ensure a 
-2 pixel alignment in both directions even for formats like YUV422, where 
-we shouldn't have an alignment requirement in the height. Besides the 
-vendor driver and TRM mentioned in the datasheet, the librga and it's 
-docs also mention an alignment of 2 (pixels?!) for all YUV formats (see 
-format alignment list in [1] and Q2.5 in [2]).
-
-Given that the driver currently doesn't have any way to get the cores 
-unstuck/reset in case of a hang, I'd like to play it more safely by 
-adhering to what the vendor does instead of trying to do more and 
-therefore allowing some potential breaking format. E.g. I've also 
-experimented with sizes of 68x2, which the librga allows as input/output 
-of the RGA3 (whereas the TRM specifies a min size of 128x128), but 
-quickly dropped it as it produced some interesting broken outputs.
-
-Sincerely
-     Sven
-
-
-[1] 
-https://codeberg.org/airockchip/librga/src/branch/main/docs/Rockchip_Developer_Guide_RGA_EN.md#image-format-alignment-instructions
-
-[2] 
-https://codeberg.org/airockchip/librga/src/branch/main/docs/Rockchip_FAQ_RGA_EN.md
-
+> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> index b05d80e849a1..958d114b0c83 100644
+> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> @@ -1,5 +1,5 @@
+>  // SPDX-License-Identifier: GPL-2.0+
+> -/* Copyright (c) 2017 NXP. */
+> +/* Copyright 2017-2026 NXP. */
 >
-> Nicolas
+>  #include <linux/bitfield.h>
+>  #include <linux/clk.h>
+> @@ -9,6 +9,7 @@
+>  #include <linux/of.h>
+>  #include <linux/phy/phy.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+>  #include <linux/regulator/consumer.h>
+>  #include <linux/usb/typec_mux.h>
 >
+> @@ -55,6 +56,8 @@
+>  #define PHY_CTRL6_ALT_CLK_EN		BIT(1)
+>  #define PHY_CTRL6_ALT_CLK_SEL		BIT(0)
 >
->> +	}
->>   
->>   	if (V4L2_TYPE_IS_CAPTURE(f->type)) {
->>   		const struct rga_frame *frm;
->> @@ -358,11 +371,7 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
->>   	if (!fmt)
->>   		fmt = &hw->formats[0];
->>   
->> -	pix_fmt->width = clamp(pix_fmt->width,
->> -			       hw->min_width, hw->max_width);
->> -	pix_fmt->height = clamp(pix_fmt->height,
->> -				hw->min_height, hw->max_height);
->> -
->> +	v4l2_apply_frmsize_constraints(&pix_fmt->width, &pix_fmt->height, &frmsize);
->>   	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt->height);
->>   	pix_fmt->field = V4L2_FIELD_NONE;
->>   
+> +#define PHY_CRCTL			0x30
+> +
+>  #define PHY_TUNE_DEFAULT		0xffffffff
+>
+>  #define TCA_CLK_RST			0x00
+> @@ -118,6 +121,7 @@ struct imx8mq_usb_phy {
+>  	void __iomem *base;
+>  	struct regulator *vbus;
+>  	struct tca_blk *tca;
+> +	struct regmap *cr_regmap;
+>  	u32 pcs_tx_swing_full;
+>  	u32 pcs_tx_deemph_3p5db;
+>  	u32 tx_vref_tune;
+> @@ -685,6 +689,14 @@ static const struct of_device_id imx8mq_usb_phy_of_match[] = {
+>  };
+>  MODULE_DEVICE_TABLE(of, imx8mq_usb_phy_of_match);
+>
+> +static const struct regmap_config imx_cr_regmap_config = {
+> +	.name = "cr",
+> +	.reg_bits = 32,
+> +	.val_bits = 32,
+> +	.reg_stride = 4,
+> +	.max_register = 0x7,
+> +};
+> +
+>  static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+>  {
+>  	struct phy_provider *phy_provider;
+> @@ -713,6 +725,11 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+>  	if (IS_ERR(imx_phy->base))
+>  		return PTR_ERR(imx_phy->base);
+>
+> +	imx_phy->cr_regmap = devm_regmap_init_mmio(dev, imx_phy->base + PHY_CRCTL,
+> +						   &imx_cr_regmap_config);
+> +	if (IS_ERR(imx_phy->cr_regmap))
+> +		return PTR_ERR(imx_phy->cr_regmap);
+> +
+>  	phy_ops = of_device_get_match_data(dev);
+>  	if (!phy_ops)
+>  		return -EINVAL;
+> --
+> 2.34.1
+>
 
