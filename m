@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8657FCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 05:22:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE2BCD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 05:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qDuhkE5ZphA3SZEU8GLAGt1zk6Wso165ebmlY7yTxU=; b=Ajfu4aQ1Rh4igB5Q5v2jOqcBB3
-	amAEgUrgRTvRJiOz8DyX/2qxv3uq9/nMToXRzedL7/Gh5kxqnqWswOz+VHuntOWPNEvqRNxhRlK+y
-	9H7FRVer16doFX0Ljd4/XcGCa9bMSi7DHuztFNJiilmXpyGJmxov0oFYZ1N3ys8V0HGXtu8UdBM+R
-	sObS5FsfU8OeqP82avp80LkLTgVEewVWbMysPH3hTvMd350wdUzIZjoUUzwi8vmYK452e2wSS2tPc
-	aZTmg6cIZ3Nvzu7ghp5y5kj3Z6ioaUwUOqX3zvl5K2rI9KxnCmECjg2JipCTOBANJlODuSTkHdQV3
-	lv28hlPA==;
+	bh=PrxwLH3h7n3WE3GduP3w2rYXEh6p2JqY7Ntn66XaIHg=; b=n/9kqhgefj7u+GZ3J/JQh9RzcH
+	riCvrq5zpqWjkZGmF/szGIzUv1z0Klk3aabKI0FwGck2cGlWimPVdnLpPSKZiDkKMdO7rz34qnxDz
+	RjWbI3XQPIcBYaC1+Z0m+JL/esdwylNKooSE3Afim+1JfoFhiMMUc3Wxh/Se11BVFDpKAzPA4tLId
+	w2Xsf3UqvUkHQmbk+9qWpBYhGxInV2btagPlNYlvOIlGj0azOEf69LGgrhc6S2Eg727aKPY/GQQZN
+	0aBdf9XclQgZv4mPYmK/80eWTWxJCRNCyK6RhZkqXvgKlOf5BhCxWC8u7RahZL8gGYvTppIhga/R5
+	auEDcISQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfZ7-0000000FZG2-1Ttt;
-	Tue, 12 May 2026 05:21:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMfZ7-0000000FZHp-3lBL;
+	Tue, 12 May 2026 05:21:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfYu-0000000FYsp-1hmd;
+	id 1wMfYu-0000000FYsq-1fhi;
 	Tue, 12 May 2026 05:21:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D3B794470F;
+	by sea.source.kernel.org (Postfix) with ESMTP id BB5B9446F7;
 	Tue, 12 May 2026 05:21:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9DEFFC2BCFB;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8CDD6C2BCB0;
 	Tue, 12 May 2026 05:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1778563300;
-	bh=lNV6rXAaqpbqVOMmN8yGQfNnLkgmGHXvWReklWM53c0=;
+	bh=RIpGNaoDTAHuGIHlQtRcIWCRPbEDo7uD7YNwwpO5Pio=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=kjiQ+M3/iIvJCzxvEaKJfGX6RfmUNeXp7ryWAP0aNGsLgyKft9KbZh8L5SVnAgN/f
-	 59EO50iCinhumsG80zP9BrgawoDXWZ7XbYj0lA1wtsrT3lO5tYYT86MytY/7DpqXU8
-	 J/Jy1rxBEVttTFtn3PIlWfdTvKG0ql8LPDrFsT+EQ7tB46LY+D8VUFIuazEgp+h18t
-	 QcDLZki+Cqd3LZNF4BW+ohq4ZEk3kLZmEG6aVP1W7sM9Sx0pX4nJw//Ctv7vh2HZiV
-	 R2ZkQ5PBb6LoRgM8wKK/tRPblJu+M1k44xfMs9pfQc9m81FcORy78G3WjMv+AS8sx3
-	 a2gENiYtRU1Pg==
+	b=paRfOxsldGL2KhICflxpZMl6dfURYhyk766HxH7NKiPiyfypKNPT65k1kOJbPbi3r
+	 TwuH4Vs+T1UKyjJJ4CkUAw8kqiiEh9uE4XyoIFF0UxQnOAbd707fWAA464uDRm9L1+
+	 OiYeT78S2bkuzJFocgQOXuNIoLZqaZz4WWNJsT2rgUPNwLwUglAXNIpVPVhhHpAwfA
+	 D/8Gshi8kms1NMFzY95PwhoBeX2TlfXZGKQSmrEvYjnotaamyS8rsFikpZbPvFulsS
+	 87JrK+1+XCT+6H0oHWe+9IyD1gaJ3JjFWuGGt+mtdhTyqcnv5EFA+xD/t1w1Ek8FRL
+	 9WkaRbRMyYoOA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 96E90CD484E;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 83612CD4F24;
 	Tue, 12 May 2026 05:21:40 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Tue, 12 May 2026 08:18:28 +0300
-Subject: [PATCH v2 14/16] MAINTAINERS: add MediaTek mt6323 PMIC AUXADC
- driver maintainer
+Date: Tue, 12 May 2026 08:18:27 +0300
+Subject: [PATCH v2 13/16] ARM: dts: mediatek: mt6323: add thermal support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260512-mt6323-v2-14-3efcba579e88@protonmail.com>
+Message-Id: <20260512-mt6323-v2-13-3efcba579e88@protonmail.com>
 References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
 In-Reply-To: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
 To: Jonathan Cameron <jic23@kernel.org>, 
@@ -74,19 +73,19 @@ Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
  Ben Grisdale <bengris32@protonmail.ch>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778563297; l=679;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778563297; l=1594;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=hqGkTMsQwUh/P+F47/bfl+NnPVontePTFizlgJu6b+o=;
- b=/IuXBgoCNI59SNyo7+dbcOgJp2OD68fDMCBEnwGLvClBjpQt3xpA5Kc+B7BYuHj2/u+orM3Wz
- dSN1KoFoW2DDKk0aiit1Ik1HCGpOpfCEMyuTruHgXkXG9bMJWv54rpK
+ bh=hUyvSa8MYTwV73cQfjfUS4VTPsNzQkrB0KKei9sFl3w=;
+ b=iBXBJZ/5flzM6Pf+lOnm4NFJqNw9k+B/NfwaNSs7a/M4ot2GF0rt3PvAo32sJiacjN+R/WvmW
+ V4hKYbt4vbzC0WPWyWnRHKeOSQ6rnmouUXor3C4RWhJmez7RgdpMcpv
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
  auth_id=777
 X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_222144_669417_0A8C6DF2 
-X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-CacheID: sfid-20260511_222144_681156_5AF6EF8E 
+X-CRM114-Status: UNSURE (   9.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,29 +104,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Roman Vivchar <rva333@protonmail.com>
 
-Add myself as MediaTek mt6323 AUXADC driver maintainer.
+Add the devicetree node for the mt6323 thermal.
 
+Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- MAINTAINERS | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm/boot/dts/mediatek/mt6323.dtsi | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d1cc0e12fe1f..52249c301633 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16337,6 +16337,11 @@ S:	Orphan
- F:	Documentation/devicetree/bindings/mtd/mediatek,mtk-nfc.yaml
- F:	drivers/mtd/nand/raw/mtk_*
+diff --git a/arch/arm/boot/dts/mediatek/mt6323.dtsi b/arch/arm/boot/dts/mediatek/mt6323.dtsi
+index 435936b477fa..9825e15ab4e4 100644
+--- a/arch/arm/boot/dts/mediatek/mt6323.dtsi
++++ b/arch/arm/boot/dts/mediatek/mt6323.dtsi
+@@ -6,6 +6,8 @@
+  *
+  */
  
-+MEDIATEK PMIC AUXADC DRIVER
-+M:	Roman Vivchar <rva333@protonmail.com>
-+S:	Odd Fixes
-+F:	drivers/iio/adc/mt6323-auxadc.c
++#include <dt-bindings/iio/adc/mediatek,mt6323-auxadc.h>
 +
- MEDIATEK PMIC LED DRIVER
- M:	Sen Chu <sen.chu@mediatek.com>
- M:	Sean Wang <sean.wang@mediatek.com>
+ &pwrap {
+ 	pmic: mt6323 {
+ 		compatible = "mediatek,mt6323";
+@@ -21,6 +23,16 @@ mt6323_adc: adc {
+ 
+ 		mt6323_efuse: efuse {
+ 			compatible = "mediatek,mt6323-efuse";
++
++			nvmem-layout {
++				compatible = "fixed-layout";
++				#address-cells = <1>;
++				#size-cells = <1>;
++
++				mt6323_thermal_calibration_data: thermal-data@14 {
++					reg = <0x14 0x4>;
++				};
++			};
+ 		};
+ 
+ 		mt6323_leds: leds {
+@@ -274,5 +286,24 @@ power-controller {
+ 		rtc {
+ 			compatible = "mediatek,mt6323-rtc";
+ 		};
++
++		mt6323_thermal: thermal {
++			compatible = "mediatek,mt6323-thermal";
++			nvmem-cells = <&mt6323_thermal_calibration_data>;
++
++			io-channels = <&mt6323_adc MT6323_AUXADC_CHIP_TEMP>;
++			#thermal-sensor-cells = <1>;
++		};
++	};
++};
++
++/ {
++	thermal-zones {
++		pmic_vts_thermal {
++			polling-delay-passive = <1000>;
++			polling-delay = <1000>;
++
++			thermal-sensors = <&mt6323_thermal 0>;
++		};
+ 	};
+ };
 
 -- 
 2.54.0
