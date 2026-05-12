@@ -4,142 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 462F1CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 18:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC650CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 18:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ueo7uGsbZwhfJ0bT2SssVM4TJM+C11TJB3GgdvB1MWc=; b=S4s+Mtw3LASkGSU/X9Qp8lQkaR
-	VKd3FVLZnTXn2vLpeUo7Mp+3wyqmSHrAHQKGvRQki1N+M6CNkE9rW4SdzNi8KzYXajRoECFq3Wni5
-	4q46X928uirhQREzYI5wcAnV0rub/Wj8QpN+zdT4EiM1ftDfJX9Y3qHEMEzhJDuGMIZGf4f5TSXxz
-	U6ok6fEx3pNaW6s/2tvbOwAhfa6eNozq2Hj8owtGL9g8N4fQIPzlocWNGsNPjT9OzhqugX7sYN9yM
-	SwbbYupplUIx+oELnaPgkJDNl8a/D2dSt82aqH5XS5ontZLhDLnpDR/RVgpgwjMSYIk3mOh7pnvMU
-	XFMzj6Kw==;
+	bh=f8dPxVWRLRxQbXg/hz6I3Mk1xu2etFhGz0aLIBW0GUA=; b=a7CHrI4qEaVP9e81OCTsJoKbEN
+	/zAa2cZI1XeXw4XN3n9GOKuwsFsAuJHk0CqomxCmZOrmejWumRafGLNDgL7hvCtgmRWqJuiAE5SAV
+	uSiOnenCee1yUyVWMiEm1ioQ6CRTy3xXED0kxU+YomEWIM8HGuUcVvywXlp834pGE9y99hJeC6tC8
+	hl7KIIWS7UBJLIiY5fOWKSvlZusiq4m69l9MuOyXxnfgNcJSC8pjNOskKIhIObg3o8YyoH8Puudnr
+	ptCX//rNmzg4xXgdrqfjUhH/3Kq77HG8Ca/lwXFXrIOSGyPAf4yKkfSlNG//J4G3SVS+9ZLRVfO+N
+	ap5JZfGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMrUU-000000002xn-0FRq;
-	Tue, 12 May 2026 18:05:58 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wMrbJ-000000003qz-3ETt;
+	Tue, 12 May 2026 18:13:01 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMrUR-000000002xA-04by
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 18:05:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SzItTUrbh7aEwAQUJ7jf7tJoHrwkav4M0p+HKYmfZ2yb04SfGGz/eLCacL9c6Btwx6TPJwB7Obkce+YO0sAm8Gv27CHVeRUvvWAlVeUEbpdVz+OOivg0tbkrUhpJQR3QIpMBdLItPUTikWLijUBAa3OHKghXxTDlH5BrcdzIb10dciz8rdDlW2aFwEJzJegJbZqSWSb4BJhFye7ZMWOBlL4+H7sc3M7ksMD3xhR/g1+YPgvdrqVpve3BELAMzc/MhYlpCLJXGzA2DuJmxaoyF/QMdONDBn71c+QtXl6Fc9yFtsOgFcJMoD+HzA8LU3o4d9e4ZVOz7FeHA2Ci2qRAwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ueo7uGsbZwhfJ0bT2SssVM4TJM+C11TJB3GgdvB1MWc=;
- b=egbxwqfEv4eyTF51O2KGUR2HCnAQaLiprf1i3VWBQPeO3pYQp30eejb59xBJbPqR/0CorkvnSFpe82bW8fiyH1Gn0KYDRz4SxwbRi5PvikeyvRrFSldVQW/G8yturGrKbbkHE4GuycElyr1l9Nj989do067zqy0ywGyrEWZH8Yq9MOihunJl/5/jOz4UNPbK7oCyZP5tQga+sQtSbMH9k2IRr5Qpj6njR1fKlCZ2AO8JyDQ7yZMlgpwUTb9Xr0r2kZgqri9DeFOqECNM4j9uzrQPQ1V1yyaSYF8VsaDlIOd69olYi4bKBA2gFKgHOTDdg9OkJV3TAe1zqH79NR63yA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ueo7uGsbZwhfJ0bT2SssVM4TJM+C11TJB3GgdvB1MWc=;
- b=FjCTt5d0mPhX6TG25/f7uMkoNpTfkuoJbh0CcNx5+QXkxkmuMfUt7OCuLTSO+2zaKCESNj7IGXtyBOE0/gBV4pC5IdxpOIx+zmBLwu/vdHnAJ4ZCyyzrcdZY10C9ts571q+hoPzqaW7SpRUxiMN3MwfrzpnGqWZgCvVsD/rvDWA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from IA1PR12MB7736.namprd12.prod.outlook.com (2603:10b6:208:420::15)
- by DS2PR12MB9662.namprd12.prod.outlook.com (2603:10b6:8:27d::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
- 2026 18:05:48 +0000
-Received: from IA1PR12MB7736.namprd12.prod.outlook.com
- ([fe80::2274:9fed:8f3:8550]) by IA1PR12MB7736.namprd12.prod.outlook.com
- ([fe80::2274:9fed:8f3:8550%6]) with mapi id 15.20.9891.021; Tue, 12 May 2026
- 18:05:48 +0000
-Message-ID: <223817b7-8f6a-47d2-8362-19669815f48e@amd.com>
-Date: Tue, 12 May 2026 19:05:44 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] iio: adc: xilinx-ams: fix out-of-bounds channel
- lookup in event handling
-To: Jonathan Cameron <jic23@kernel.org>,
- Guilherme Ivo Bozi <guilherme.bozi@usp.br>
-Cc: Conall O'Griofa <conall.ogriofa@amd.com>,
- Michal Simek <michal.simek@amd.com>, David Lechner <dlechner@baylibre.com>,
- =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260414224245.8493-1-guilherme.bozi@usp.br>
- <20260414224245.8493-2-guilherme.bozi@usp.br>
- <46bcd2ce-bfb4-4fc3-b840-dba657f39a7f@amd.com>
- <CAJgF-xum3OQ36keRW5gCnTTbnUhsHZUzL41xKn0hjJ3GqgyOZg@mail.gmail.com>
- <20260512165444.4ae39d90@jic23-huawei>
-Content-Language: en-US
-From: Salih Erim <salih.erim@amd.com>
-In-Reply-To: <20260512165444.4ae39d90@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO6P123CA0058.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:310::19) To IA1PR12MB7736.namprd12.prod.outlook.com
- (2603:10b6:208:420::15)
+	id 1wMrbH-000000003qR-0rz4;
+	Tue, 12 May 2026 18:13:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778609579; x=1810145579;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=kVfoR+AdplYfIvhGONb3dXURbBAhg05PeV7RbNU8OdA=;
+  b=GnpZi2XyR0gwxZMeLWxSuuNNEAlwHu/Q4NL81MrO7M1TWvHkhBI0eWmd
+   8tJaBXQCo9X1iVuovojgvywa62gg/lWJA7nHKfzYoK48+OzVnbj9WqV1V
+   CyyxsLVqLRxnbvdQLpv0Cz2y+9SI/fMsA4WzPOYN0+aHGeqDJcUZSwzPb
+   W7BUTCowYpvQz6Xamo5mf9o0MhazFqI8bQVGqKl5BSzhB+ksQjBcd1DBF
+   RKfTbgTGxLiJp0UqgQ7D32ZuSpQh5bKFNQLKhNO7R7JWCffiz1dj8NFNS
+   dZfBSu+9Jkourdjg9FJTTrgwJi/1XHYUTCyuE/odSt81IcamNPTv311tW
+   w==;
+X-CSE-ConnectionGUID: bNp1zdVtTZuejdEc50ZEHQ==
+X-CSE-MsgGUID: hBDia310SraxH17Vf+7ibw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11784"; a="79549991"
+X-IronPort-AV: E=Sophos;i="6.23,231,1770624000"; 
+   d="scan'208";a="79549991"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2026 11:12:58 -0700
+X-CSE-ConnectionGUID: y73hOpATTu2pBU/3FyrbEA==
+X-CSE-MsgGUID: nDNi67M3SVG6IGS6BXBILg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,231,1770624000"; 
+   d="scan'208";a="236986462"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.244])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2026 11:12:53 -0700
+Date: Tue, 12 May 2026 21:12:50 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: linusw@kernel.org, brgl@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, afaerber@suse.com, wbg@kernel.org,
+	mathieu.dubois-briand@bootlin.com, mwalle@kernel.org,
+	lars@metafoo.de, Michael.Hennerich@analog.com, jic23@kernel.org,
+	nuno.sa@analog.com, andy@kernel.org, dlechner@baylibre.com,
+	tychang@realtek.com, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-realtek-soc@lists.infradead.org, linux-iio@vger.kernel.org,
+	cy.huang@realtek.com, stanley_chang@realtek.com,
+	james.tai@realtek.com
+Subject: Re: [PATCH v3 4/7] gpio: regmap: Add set_config callback
+Message-ID: <agNtok_vgcph1TZK@ashevche-desk.local>
+References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
+ <20260512033317.1602537-5-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR12MB7736:EE_|DS2PR12MB9662:EE_
-X-MS-Office365-Filtering-Correlation-Id: b0c8876b-4302-4980-10b7-08deb0511863
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|11063799003|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: MZJ79YqkLFTAvnULtuQmVg2q9wMGoynUFzE7YgWxxfxBTxCpaw5eMCSeT0UBNjOesAkdpRs5aXhmItp3ZVbYHByniiguAduWB7bRdrkwJqLjJOq8yYHiOzkotbpx2Tx9hDhbU1CV8Wz+jLXqnCS3C12aYIg3waCIxboPAtLZVdnyLqighl/xjRAoi/UwhCvsDoFgrOQwdcOVO3jIB+dPNYB7hby8ynmLnLN462/OWR2DDYFiJYawVkUq5M/WCQ1nk6B5J+41A1gAKFtV7QxAoXtzsAlnzUdtomFssz3cZfxhaMNHx1+GUlkaGDyMif2Iy3e2wIFkCmokzai5B6/83r0m9mLAgjClopcPQRVRG5aK/n5h0UljynZf+I7aTOxUX1JWiH3TTMx2SrJa4dKhrClMvmcA+i9OLX6geUYAfeAc69GSUMpjygeyB3yGtZgATihyqfEcr6Fs2KrukKmYRfKbdF3jRbJnwgk+P4uXcShY9t8XftKmfA5DP3hzR3rtTBoUoe/FY+sAXaMnFwigFmm2kdExRhHJAYALGVSfpvbRdwm6OJSuC+HeXvtCvHXfJ91cF/9oc0GCMBprivsmU+sJf1uUoeDBHB1CeLfafGm07uT2DqdOa2oTe9326rzujmAWmYK+QZhdV453+Wcb5dY4foR943s6LFCjA2pu01H5FkKGFMTWnBpFTsTu/YHU
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB7736.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(11063799003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ckIyTGNzMmpFMi91MzFpSkw0U1FaKzExU091SGlYRkt6WHREZUxpYmpySDlB?=
- =?utf-8?B?OENiS3l2V0lzOEhVNEkwZHdkUlpnS2FUTkZxTVhZb2ttWXRKMU9FNE9BRER3?=
- =?utf-8?B?ZDNhdXgySFJkRmhKZWYyTWpYWUhaeU9rV2ZGVEI1OGYwYzMxRklmRUpIMnlJ?=
- =?utf-8?B?V3F1cVgvdXdjMUNSeEZzUzJuZ1ovY2pFdU0rRDdkMzZqRFNCdDJraVhqTWtu?=
- =?utf-8?B?a2hXQllkcE9oRTBBV2xrWjUvaXgvSE40Wk04SS8wOXNkRmR2UVcrT3AwT3pa?=
- =?utf-8?B?S3dvOEVXa2ZXMTgzMDU4cE1QcTVwdnJ3NUNCcFh4NTVCbzZmcGNFc2dOb2F0?=
- =?utf-8?B?THpRYjZsOEdMU1lsQzlnNnRDb3Rwd1Q2QVdSR0FZamFjSnVnUzhSdFBURDYv?=
- =?utf-8?B?VlllODNBQXV4OFB2N282Qm1ub04rV1UrWmhnODJEeGFYR0RDamVnZXpoREsx?=
- =?utf-8?B?bFdXSC9VWVM3b0hLQjV0UkFQL2MwZm9jdTdyMmNjUDdQM2xqaWttRkE3aFE0?=
- =?utf-8?B?ZndXbjRHWEZFL1M1U1VWQjJ6UytRU3ZBZG5SU0wzNmZXc0JUUTg4aCt0ckNj?=
- =?utf-8?B?SDV2ZGdCNUpDZlN2UzRvYlBpR1VWQUYrM0dtdVYvQWhMMk03cDlLS2ZOY0pu?=
- =?utf-8?B?TXIzRGZJMzFyNDJuWG1YcTdobVJKcWo5dC9uNkxURk9OTjY3WWtEeXdVNkFG?=
- =?utf-8?B?UXZ2RGNYcjdySDBGOXR1dnE5TWVHMnBFOXJPbkx5cUNGby92S3MwcTY3UmFP?=
- =?utf-8?B?Um15WFU1aG5taFMweTFGTENPZ0dQejlQRU50b0xDUjVlSnllenIyZ1E5anI0?=
- =?utf-8?B?K0I5Uy9sbU85aDFyVDhDWXBhMXhtVlF0ZUZyVG9TSDFxY2wwanVXVkJhWE1v?=
- =?utf-8?B?aGlJUGFLQm0vbmowdEZxbWticTViaWpDTk82Q3JHVzUvOURiQ2xwMHU4ZGVq?=
- =?utf-8?B?cnpkaWZHS1BBbXNReDhXdmlTRmw4Z1MxMTBQbWlDVHhYd2NoMWNYRS9PYVFt?=
- =?utf-8?B?eXJHZ0Rzcnh3TGxNbCtoS0tTMGkzK3haaHk5M3lzVWUySFZOS0NqdExBa0tF?=
- =?utf-8?B?WmMvSjlMZldrTGx2N0c5Ni9pY2xwbHR4UlZXbm9PZHVCOWt0WEZYeWROZHdh?=
- =?utf-8?B?cWlseUJNL095UkdPY09VTWZobzhXN2huMDRhUXVBVEo5b29VRUt3bE13VzRJ?=
- =?utf-8?B?LzJYbjdLT2FPNy9sY2ZsWFZpZStyelF6dXZiMFpHYTIvdUV4UEYwcHI5eXJ2?=
- =?utf-8?B?VzZOdjhzNmtSQ0E3U3d1SEpxQzIvT3lMWkxaRlh4NmEzLzZLMFQvSW83V1ky?=
- =?utf-8?B?dDEzWjZPWG1Ec1ptRVp3L2JjOVBwK3Y3MnU3eXIzZVFvdElHWjlnZW1OQUkz?=
- =?utf-8?B?YXlRTnJvRGZPd2tzQVpMOXloV0M5SXJxUm1EcUQzOVNqQzl3b3BKeVp3azFK?=
- =?utf-8?B?YUdScUIxR0JMNHBVTUY1WDVXL2l1T0RpQnRRcCtYbUZSbjF0VXRUcFcxR2ht?=
- =?utf-8?B?cnByY0QwTnVuQ2hhS21MbnZjUFZEZjdnbVh0eU9FVnl3MTFJWDkrcHpJOHVX?=
- =?utf-8?B?V3E2Tm5JNU9pK1FEVXU0ckwrMlJsY2VKdUU1dVZoeFE3VVpFc1ptb2hlNVhK?=
- =?utf-8?B?enAzYTA2RG50NTVjVmZGTmQ5TGJJcFRJTFNqVEorVXA0RStndS8vMy8rcmoy?=
- =?utf-8?B?a2JPYTVQaWwvYklvNEpUS2t5STU3V2NMTGxSS1VpR2VYSjN3UWFZMDdrOVdk?=
- =?utf-8?B?RzROSDdxRjVQNG9ETGIvdnNiWVliR1hla2YvbW94WWtrTUhvZTlDc21uZ3pz?=
- =?utf-8?B?aStYeUtQV2w2cDNqQ3NFNGhpTDNjcWc0b3NldUdUQkJDWUZhYmZwblJydm0r?=
- =?utf-8?B?NEtYZ244OWM0a2haY1JYYmJ4TXpsOXJ6Z0cycFd5Y0NnSXRrdngwU2g5Tmph?=
- =?utf-8?B?K2w0MFhoeXZxeDZPK0RzOC85NEMrR2k2aWJWTzRSdDFUV01WS0tpaGhXemg5?=
- =?utf-8?B?L1FVYUhsTDI1UERFcktCbURKbzM3NVVPYmVDR2IrRmxhVVI2ZGJOZlR0b2k2?=
- =?utf-8?B?TTBTUWcyV0dxZGpqbkxuZnpkLzU0OTJKMCtUWi9LelRFMzlPMDQ3TS9xeTBD?=
- =?utf-8?B?VzJkVW90QW9LeDR1VXdQWkRPNUcrZjNwLzdRNEVJUmpDR2J2eVQ5N3RzUHF0?=
- =?utf-8?B?eFpINEhmRDA3VUxWdTBLV0tQQk5ZdTJmNVlyZms0TkNkTDd2UjlMQ2N2ektC?=
- =?utf-8?B?dmpBU0pqMUdHWWU2c2EwSFRlbkJFcS9Ic1R3SlZqN3NLTndxQ2tOcmpzUDdZ?=
- =?utf-8?Q?uEBXZOHYvU851Os+vc?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0c8876b-4302-4980-10b7-08deb0511863
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB7736.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 18:05:48.3887
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YyKLGg4kd5fDIv4553B5WbtSMuyAg886FNkqK4Nz3+6Ozo8rdFPMH0FaSlo4kTbA
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9662
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260512033317.1602537-5-eleanor.lin@realtek.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_110555_063690_5A907C75 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20260512_111259_286149_697911F8 
+X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,34 +95,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
->> I could not observe any indentation issues locally or from the raw mbox.
-> FWIW they look good to me as well. Salih, I'd guess you have a local issue.
-> b4 (on git.kernel.org) is really handy for ensuring none of those occur!
+On Tue, May 12, 2026 at 11:33:14AM +0800, Yu-Chun Lin wrote:
+> Add a new set_config callback to struct gpio_regmap_config to allow drivers
+> to implement hardware-specific configuration such as debounce settings,
+> or other platform-specific GPIO properties.
 
-You are right, apologies for the noise. The tabs were converted to
-spaces by my email client during export. I will use b4 for patch
-retrieval going forward.
+Okay, if it's needed...
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
-There is still the u32 dead code issue in patch 3/3
-(event < 0 check on a u32 parameter in ams_event_to_channel()),
-Guilherme has acknowledged.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-I am currently testing the series on ZCU102 hardware. Will follow up
-with my Reviewed-by and Tested-by tags on the v4.
-
-Salih
-
-> 
-> Jonathan
-> 
->>
->>>
->>> Salih
->>>
->>
->> --
->> Guilherme Ivo
-> 
 
 
