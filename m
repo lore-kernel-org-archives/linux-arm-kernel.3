@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 289C2CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 17:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57BB0CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 17:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8pS0Ld9uzavm9qCIn3zeBESeNJisq4fm3wOJuKswJN0=; b=vSw88hk7ibNTVz3js/fcccGU8o
-	iHsA7K/i4Z85kJidsr66rF+Op89Yr28bWEktbwU/KeADaIHIfdKr7j7KHJc+Ws8z9lmfGo0O5m4FU
-	IkgF7nMN6tmxNW94NgHtPDdqQS8AakNQL6Poa4Yx6JYHku6NVJfG2Euzl/t2WkIQLKXCJrlp4SUZg
-	G6hTU9ksQw9XtXvFAwNgl//qxxh/ASdT/7RJ37+zRFf1ddDMjxvtvG1PVqfpwU6BeX0Qdtj06zjLQ
-	ZjpxLbWuFlFIw0cBrqYpE9YUf2QcxV0IrAhxzqa6G8iZsyFESkXdBsvQPKJHrHzM71Ye8Lb43g3Eo
-	ACkOVXJA==;
+	bh=mwNscldXuAtscs8D5M0IBqKy8TvTXmFs8KiInOYeroc=; b=M1NE/D39D28m1nbGluvYVwlHy1
+	YI15Fvr/FedTEcG0Ig5CKdAtoxyR1Hy2tvuDJXo7Eu0LYV/PtlXzrFbmKM7d5b8e0S8jdBdpr9ipg
+	RLjOKhnriyJg4SsUUX1xbAsIbVz6PYPRW3vvOE3nK0zxKiNkzUx2skUsoeza4tyG7H7Vvhf9NcrNI
+	QUkpPOViZEGMmL9q5lIaPrlmOR1IFm/mKrYw1R/pzWBvMNX2uMBi1MPTT2a7ylX9psE95BTRPseAt
+	apzblAj8US0UGi4hHFZRjec3iV7AfJdHrhu/KyIYpReCu5OrQIPMGADQogy1wqfDAsr23zOCc+Ehr
+	8cYhcR4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMrFe-0000000006O-2Rtm;
-	Tue, 12 May 2026 17:50:38 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1wMrFn-000000000A5-2x61;
+	Tue, 12 May 2026 17:50:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMrFb-0000000005M-3obw
+	id 1wMrFm-0000000008x-045P
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 12 May 2026 17:50:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=mwNscldXuAtscs8D5M0IBqKy8TvTXmFs8KiInOYeroc=; b=CosqVMxj/nt3ZmEXZwD54uJs7F
+	RGWwiKtvCZXyERWycGzMpracBheN2kA6H8lJUOkusR/UqTbva4axM9w9IAARyEbjSwYuSoYJ/28qw
+	BTy5egiUEnwbez+bzw1z7VQ1Pn4/kT285VYDjrEz9RSqy5V+7MYuXPM+eY32FtQFFdzGMmF2w+6Dk
+	bwnU4QXGK/62i39juKSg+sOgVMRTDJZRkp9wSwUkSNN9MNISFVny3do1ZR/rAmVckAe88NHydd7QN
+	EiN1V3gjrnpZIdKKAJcdfeLprcV1Q1JPFkJz6/uXiZBw2zOmFImasFRzd7SOUSu+dJAiER6utxV/0
+	ysQ+9dUA==;
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMrFi-0000000FXzS-3NGi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 17:50:37 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8353fd1cb5fso2869872b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 10:50:35 -0700 (PDT)
+	Tue, 12 May 2026 17:50:44 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-c70c112cb61so4526338a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 10:50:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778608235; x=1779213035; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778608240; x=1779213040; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8pS0Ld9uzavm9qCIn3zeBESeNJisq4fm3wOJuKswJN0=;
-        b=osvLqbmGdA3yZYlDiTOo3X6ARN1F5ev1Ee8y0oRUpq/bUZGvrJjRD/QBlWEPMhOj/D
-         Foiyj4MY2rTK9+UFFSgxoaxRPnJSGlpGj5gjU79kY+R4xtor1K0JdMmx5w+8/xXsWm1F
-         m1kvqL8fxThZ90+NDsb3ZwbCdXhc5eJIJdJLJ6og6JqqKL11DDgh6Gum5kZzB1spD7bS
-         2hsoyCqwKie3ms00Z0xxlKzfYI0C3FSwI0IQNcAFxJG1ldC3i/3vagCBWUWP1P8mqGNq
-         tc2E3u+Zu8yzyH1T0bhqqzpAzgYiKVpDOGgIep8STmBAbN7bE50+FsupCzKXammvrEp3
-         rJkw==
+        bh=mwNscldXuAtscs8D5M0IBqKy8TvTXmFs8KiInOYeroc=;
+        b=mA+pd0+m8wP+ppDhrh8HG40/FLX40a4Ij6W8XGdsfFiC1i0KwwWqzOv1zWEJj84+pq
+         s9saxWyQq+AjpFVONmNVUFfxunl3ujHRQYxE9S4RePOZrWu73FwThNy2e28Z51kj+/2L
+         /KTtCGcgdPm8/8H1R+g4k3qEN78QzS+mhfbnaU+LdnwDmtj/kmcJ/3mCr6aGuFE1G/4o
+         SlIok8PNuBXDrcS7iCl4Mg1mQQLtlkTCIcSvo5NxYvuxmbvANwe/r21Abcez0k1KGqsL
+         gbp+RIBfg4k54xIFV0+efwqPbKv5urmau4s+endR2NUuBMy9Hq7uuZOkj+D66uIDAedL
+         XY7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778608235; x=1779213035;
+        d=1e100.net; s=20251104; t=1778608240; x=1779213040;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=8pS0Ld9uzavm9qCIn3zeBESeNJisq4fm3wOJuKswJN0=;
-        b=DxC699UDrkCG02dT9lC4xZWiTboLJASpypA7NOKVfsl/dACxduwkcBzHVQlBF0eBbB
-         Odsxm0gqY9HOj0aRlOQlRnTU2x3DbgwcNBDeYl5bCUCOOCnDtHsHGcasYh3LSJzYbKMw
-         oAiT9nUVLNxmt3RYFcPj1PD2d8sNIeX1H90rZaGvNDb+25Q84QLllHNPzqzl9iWKGUYi
-         dH8muVKcRaTntevPeYXBaLAxHSw+bvT1h6ggrXVZcXe1L85OH+0fObfroFyzJoLhjgct
-         T25wkxpHXkfi9znfghMlI80zlPjOHFn3GvEWyhBkGa748OGray3OWTvSENQv0As2E8vG
-         JYCw==
-X-Forwarded-Encrypted: i=1; AFNElJ+bLjoxB8kBDSssPxyue9l0QBJn01vbc6XcXGBwXgwbDZiZY1YPXBQtSJRJdJzzOVw6V78XydyDTOvWSunoewNq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6CckejKYXxmwB8Y1CxwvQsTdbkYZjAw1zNlk3QORVdrIT2Fx2
-	d/AgM2YFcD5D1lEmQbwSuU4hRCWTUNzwLKTZG1qKP2/DimPJYoNb2UON
-X-Gm-Gg: Acq92OGev0UieZD6GyUlD+7NKkkxC8SnWMxu48ClVBV57h5V2FxoBpwvWT1fyF3PET1
-	54kpGGYU0G4uB3M3T+i+DKCc/RspZiQbH/Vuw73W5f5pat+oPtBLZSn17T/1ime/0fWiYzIqpyS
-	xii6KiVPaefE/dLZVR+BycnmnHkp+Mtfn0sT8RPtuANGOCagZppF+FWREmMqvWFZW23kMsIzf+X
-	CGADO6lkBR/12VrwpHv5ZQMUAQmlIxhU/vNCnxavLTI297xn0/oReFomyTXvH4iPg2zdJD/87Wy
-	ackTumdE8pBKn5q8eCbEz0bVM0VEvuI6YnVnObDp7uFfw+4lNqBBfNSqaAsdbclP6tpfSmiFq8x
-	GV3sgpni1U7eM2os8IgR8V5PEur0p0xNAcQxFXesjuPC0wmWiGXorzclUa0csguPPcRz7lXOGZw
-	yyY+36Ey4yJb0ppkGp34U4d/GNaX9nO6rtyox9mC47
-X-Received: by 2002:a05:6a00:4206:b0:81f:4e1c:1d3b with SMTP id d2e1a72fcca58-83f02e579admr34477b3a.23.1778608235020;
-        Tue, 12 May 2026 10:50:35 -0700 (PDT)
+        bh=mwNscldXuAtscs8D5M0IBqKy8TvTXmFs8KiInOYeroc=;
+        b=oyLq9Nt/3DQZ/FWhjDg8lwAHnj8d7fhZUGGwOfzrkxOq1Brobq7MHmu6mY2haWxgMK
+         sLYDAm0uaoKZNRfx2bbLRX16vMTPoUXu8Fov/KZbk9dLaNIkTpj1IK9aAiNilZSqNI6U
+         0JVPYQB3fo0lXRLgB2ESTJ6liM5k1F/c/HYxkurV4uZfFdoJ9bf525xyhgTYcMldyemq
+         870gUEIbssZnWB9x+G1O7m8c82mebZWKghuEXhEaN6fNToVRDpD/27N0EeUvuuAP45Ou
+         iixlJVDkSl7zX68ri9Nf2UZrPEmCr3HZhYasFnGnhQIZEPBqL/BAJQ+TmL7zZTHKIot2
+         PRuQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9OrcrwNo6Ot54r1vJ6OgQCR4wjoT5vUopbwJG8tsAlbMdXtim1IFS3gR1598EC5Fzl7OG7p9zef1BlFu+tWKGY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8hZWKP0UeQE+rb22ID5KAqIbITwfKp+M4Q80FSJAkMvfoV9Mf
+	A+iZSWrbxYGjal9JeZBKqf8YRwyaFJQTgzGWwcPnNmcyYqVV7Bx6NWps
+X-Gm-Gg: Acq92OFvBTHMNl19xzRhLQQcrU5+C3zJBDW+CTuaYx3EjJfVznrXL6/QBQinPNlNXUa
+	sEkfvATA0TA4uHqnD8SWU+/5Qy361dZlNxwgAD+8mtGvjChr2irEDwzCJc2vJEbdt2sFMByMojR
+	F48cOqt5wanEIIxUy3/2DEVSZbnMyz7+9xNPmo33K28S1kop4RP6vDuW5bGWZAWbEovbzWqibK8
+	WG2AHTF0+/JuF3mlnxJfOmwq78QRnFavytvI9ANirVhPMrLekZmm7/ieiMZidF/A3+p3zSy59Cj
+	DSQxyLe81uWlJJLlGMoI3/ZyJ2okDYMNfnOaZyyYLkp4WVwMm3cxrwxG7D7cwojL9x9edZ6JXe3
+	Sq+np1BuuEAY2y1saZ6WMWDlyG1omzGxoRX4xJ4ufv/Kos/kD1XrhCsR0Kydi86TGGVrCKB4iWi
+	NJaZDm0Tr3ZohYIcAW1vubkOQRATJZIN9SLi2HU3KP
+X-Received: by 2002:a05:6a20:748a:b0:38b:eadd:449a with SMTP id adf61e73a8af0-3aa5ab66e31mr33083918637.38.1778608240549;
+        Tue, 12 May 2026 10:50:40 -0700 (PDT)
 Received: from debian.prasanth ([103.177.82.138])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839682a20ebsm24838732b3a.53.2026.05.12.10.50.31
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839682a20ebsm24838732b3a.53.2026.05.12.10.50.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2026 10:50:34 -0700 (PDT)
+        Tue, 12 May 2026 10:50:40 -0700 (PDT)
 From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
 To: joel@jms.id.au,
 	andrew@codeconstruct.com.au
@@ -79,18 +94,17 @@ Cc: robh@kernel.org,
 	linux-aspeed@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
 	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-Subject: [PATCH 1/2] dt-bindings: arm: aspeed: Add ASRock Rack B650D4U
-Date: Tue, 12 May 2026 23:20:18 +0530
-Message-ID: <20260512175019.47548-2-prasanth.padarthi10@gmail.com>
+Subject: [PATCH 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
+Date: Tue, 12 May 2026 23:20:19 +0530
+Message-ID: <20260512175019.47548-3-prasanth.padarthi10@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260512175019.47548-1-prasanth.padarthi10@gmail.com>
 References: <20260512175019.47548-1-prasanth.padarthi10@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_105035_951159_F6021643 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260512_185043_240978_893C941D 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,26 +119,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible string for the ASRock Rack B650D4U BMC,
-which is an AST2600-based server motherboard.
+Add initial device tree support for the ASRock Rack B650D4U BMC.
+The B650D4U is a server motherboard utilizing the ASPEED AST2600
+SoC for management.
 
 Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
 ---
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/aspeed/Makefile             |  1 +
+ .../dts/aspeed/aspeed-bmc-asrock-b650d4u.dts  | 61 +++++++++++++++++++
+ 2 files changed, 62 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
 
-diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-index 2f92b8ab0..656397850 100644
---- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-+++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
-@@ -77,6 +77,7 @@ properties:
-               - ampere,mtmitchell-bmc
-               - aspeed,ast2600-evb
-               - aspeed,ast2600-evb-a1
-+              - asrock,b650d4u-bmc
-               - asus,x4tf-bmc
-               - facebook,bletchley-bmc
-               - facebook,catalina-bmc
+diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+index c4f064e4b..124d4f8f8 100644
+--- a/arch/arm/boot/dts/aspeed/Makefile
++++ b/arch/arm/boot/dts/aspeed/Makefile
+@@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+ 	aspeed-bmc-asrock-romed8hm3.dtb \
+ 	aspeed-bmc-asrock-spc621d8hm3.dtb \
+ 	aspeed-bmc-asrock-x570d4u.dtb \
++	aspeed-bmc-asrock-b650d4u.dtb \
+ 	aspeed-bmc-asus-x4tf.dtb \
+ 	aspeed-bmc-bytedance-g220a.dtb \
+ 	aspeed-bmc-delta-ahe50dc.dtb \
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+new file mode 100644
+index 000000000..d0b9c1e1f
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+@@ -0,0 +1,61 @@
++// SPDX-License-Identifier: GPL-2.0
++/dts-v1/;
++
++#include "aspeed-g6.dtsi"
++#include <dt-bindings/gpio/aspeed-gpio.h> // Recommended for GPIO mapping
++
++/ {
++	model = "ASRock Rack B650D4U BMC";
++	compatible = "asrock,b650d4u-bmc", "aspeed,ast2600";
++
++	aliases {
++		serial4 = &uart5;
++	};
++
++	chosen {
++		stdout-path = "serial4:115200n8";
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x40000000>;
++	};
++};
++
++/* BMC Console UART */
++&uart5 {
++	status = "okay";
++};
++
++/* SPI Flash Management */
++&fmc {
++	status = "okay";
++	flash@0 {
++		status = "okay";
++		m25p,fast-read;
++		label = "bmc";
++	};
++};
++
++/* Dedicated Management LAN */
++&mac0 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_rgmii1_default &pinctrl_mdio1_default>;
++};
++
++/* I2C Bus for FRU/EEPROM Storage */
++&i2c7 {
++	status = "okay";
++	eeprom@57 {
++		compatible = "atmel,24c02";
++		reg = <0x57>;
++		pagesize = <16>;
++	};
++};
++
++/* System Watchdog */
++&wdt1 {
++	status = "okay";
++	aspeed,reset-type = "soc";
++};
 -- 
 2.47.3
 
