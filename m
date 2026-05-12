@@ -4,94 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93800CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 04:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4768BCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 05:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b39iRkdeAbf1CRvk6sxIU/W3t/buJ3cnlV/F50ibrYk=; b=ckteD/Qr3llRDUeyjUN/zLZfva
-	dc8JUueOo7ZhJsupsnd7P2JeLnaI5zrcssEfUlUYraYawY6nyTOo3NshorJCz7UU1VFbcNk7Gh4Sp
-	NV/0geKnwPwe7fMQTfRGtTbcw6ZaB7tucNP6KptWv2X/v/ia0HjRvK9ccTUnGXloETU8SMMybNz+C
-	77Y2C8+o/J1xp68U8febRd2MURchFiqfHBhrVY5oOitnj/+EoBXkM0oTPapZNk0kRrxeL/9A1BxTy
-	Dsw5VvS87tZYffCIYvcMfC3u07jDdIWdxvrhV9RdUzZ4kw0M6tg8iISAwE7vxI/OOa8SUoIJsOJpy
-	wzH16eAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jweZBIWoEVqcxEUXiFO6WKkYmKYFpXVseZ6QfRlLIus=; b=ph/ZrtN5c/ine7kRuEhuJPis6u
+	UE54VRSbhjEk48sUOUYNhZBzGP2t6UbD3yXSVtzcNkQ71LLdEMMoyK7Q5jFuPWfozHb3ubcZGgqqY
+	Kk13iMcajAJDR1oIFEytcm8hddzmxYrM6lwT9nQZAgCS8e8h4Ha/4g0LAIUoPzywbj4uaBUWx55S+
+	tBrtbtYCTERGsvAcsIjRNtpVHnyqjgrxNJTnp2c2k2toF+zgwmNuBNHmYhYbLg1FXccxJsC71P1Mf
+	lwbSrkNJio2IXZwQyJBjxMCqsw1n7d65Vdc3Qx4AK0ObgaIwDwJA5BzgO/3tgE5jnlQt0FFCEwkgc
+	FpOlbtcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMdt7-0000000FNCP-1kDB;
-	Tue, 12 May 2026 03:34:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wMfY1-0000000FYUg-14UG;
+	Tue, 12 May 2026 05:20:49 +0000
+Received: from mail-westeuropeazon11010031.outbound.protection.outlook.com ([52.101.69.31] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMdt2-0000000FN8y-2ySV;
-	Tue, 12 May 2026 03:34:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=b39iRkdeAbf1CRvk6sxIU/W3t/buJ3cnlV/F50ibrYk=; b=WpI0Fl/7E3UHz7wH6Gpf0YCljk
-	vDnHVmp/RY6JZmzVLqF1j8KT8Hne+GEHkcf0FJMwcFrT1f9VLIgg7BByPeNndj+k9WshRuOTspHUi
-	+0fZuU644iO7kNpw2aiL0DhUPdZi/64SuW7y9szU4co4u9K3+NEUBLEzf52BatqaHUrBXF3B8oHZV
-	tTzCdMlvCkxFgJIG2WR/GIeES8hV96fTIKefGooR6H0YGbojQMnnDTvm4UUzdAkVlrnyQgGyg4tT2
-	hhlk/Q+abUC3o5cTaklXwM87C6EKlhK/MNW+Mp7CfSYk0rI79aaD+4sQmhR6olTB/z2VWMs1Z4iZk
-	EenK59Bw==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMdsw-0000000DYbJ-2BRX;
-	Tue, 12 May 2026 03:34:23 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 64C3XIJG03571934, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1778556798; bh=b39iRkdeAbf1CRvk6sxIU/W3t/buJ3cnlV/F50ibrYk=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=N9VY6Bcws19ekXPWrJ8M5qYHsf4z1yU550RbNBFXq6SslSqwemJWDJgLQA+x0I/Ri
-	 vuldl9dQYwoGXv+5/I54Ae3fa/DpXDN0qp7wreLwLX/21P0t+dWG7+HOn4WnmjGWgu
-	 +17aEHAZ1RxPl1ipVzNzf4TPjhiu3yguDG6nvIjDvBTbwAzEOi4jPn7ZzFHbqHZQ5I
-	 M/zryn0xfPQLvYeqdimKj3BQRNNww/OJY18x4K6X8+kXEXC5Ni/OO6XSD/FuuiaoEy
-	 h+ArCzE/9y4wGUXAy1JwQejbNHWrxjxbvX7DHoSzkdri2bdUrvlPYA1TgNmn0ICGM7
-	 v9lTnRAos7Mwg==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 64C3XIJG03571934
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 12 May 2026 11:33:18 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Tue, 12 May 2026 11:33:19 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Tue, 12 May 2026 11:33:18 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
- (10.21.1.55) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Tue, 12 May 2026 11:33:18 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <linusw@kernel.org>, <brgl@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <afaerber@suse.com>,
-        <wbg@kernel.org>, <mathieu.dubois-briand@bootlin.com>,
-        <mwalle@kernel.org>, <lars@metafoo.de>, <Michael.Hennerich@analog.com>,
-        <jic23@kernel.org>, <nuno.sa@analog.com>, <andy@kernel.org>,
-        <dlechner@baylibre.com>, <tychang@realtek.com>
-CC: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-realtek-soc@lists.infradead.org>, <linux-iio@vger.kernel.org>,
-        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
-        <eleanor.lin@realtek.com>, <james.tai@realtek.com>,
-        Linus Walleij
-	<linus.walleij@linaro.org>
-Subject: [PATCH v3 3/7] gpio: regmap: Add gpio_regmap_operation and write-enable support
-Date: Tue, 12 May 2026 11:33:13 +0800
-Message-ID: <20260512033317.1602537-4-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260512033317.1602537-1-eleanor.lin@realtek.com>
-References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
-MIME-Version: 1.0
+	id 1wMfXz-0000000FYTa-0vvT
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 05:20:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dWb9bvHUCob2rcpPHWcXDq5T0PNPfBlKRcOP483vnZB/a6NMaW/9XQ4UZyMx7CV23X8qh25rOx/XCki2RY/JARWPUAAcVa1j30zppk1YYzBmmIe9hdLYXUt9E0apf4mpFGvNdAhTRKYesstFCCCRnQ47CESvdFnOCX30YuUhk14HlV+5eOtOI/WFjf8UAo6o24oZCkEBdcD2f+T24SdCOgP+kNefJ5VtsmqXjxLWBpWlybNAeKOsOX2So6YONz7u6lF5vi8uXdJlgD55ELApfofuu7x+k9zDknSfg4bPN/KY5PyLuvcdOSu5tA1S+DXaXz93I5pv/SOJuzqsWgienQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jweZBIWoEVqcxEUXiFO6WKkYmKYFpXVseZ6QfRlLIus=;
+ b=hnExN8f/I//CuWq6rManYKr0Hc8DIS9bF4mNw3QHy3gJu+wJmXWQ3eFLxiJLWFJxEEvR6582DXKElpvuhoFvZNWy/dtKJKHOpPv34LKIuD0T8F9Ki0eY1wWVfy8SNoXBMw4TcnCDFbjmlXKHVjqu/MR7W1yDsz1OvTaf90nBdoZZobPe/NPhh6l2T1NrJeNgjR3IwJGYkZkh+hxoCQlzyjgJ3kvYHpYXvDv/oqIOBT3xw791t7LS0CbR4tMggsVP0Df2G5Xz44vvGqw9nyPc7HdPNI1uEBVyNeVvIIxFYlLHwAn8eb7Rx9uTdWyiaT7RDtVf1A1fn9A0tjSBI2hmSw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jweZBIWoEVqcxEUXiFO6WKkYmKYFpXVseZ6QfRlLIus=;
+ b=OSTaN+3sv7fRESoltX2/spwqk+4HFM4bfdWIG7SMDJJKw9uoBk4odYuP5PjDctzqtbWTRQeGekZH3KGWWKS4s+108L2JvxzvhJMnqMjGtVHntMwI6EBj+oiy84w1XaiHxevLPrSz2POKoGdK+jRu7UW3H0Vvs5TGeIxILXmfGSeU07Cix3qU5p/PeLC9b6kbs0Yf7U1vioGXnHgDUOQXtvKrB+r5bBYuT2C0eZpE1ukynsGMEb8B2O7YcCQKWCRH/Sl9J0SYXsKsnzfudAKP6LGnwHvf8crximdtMqZ6fsnE47H0/ZOfOAWjL0LLpWfEMDOpf7MXjfV/wt3UGX1Gaw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ (2603:10a6:150:30c::14) by AMBPR04MB12287.eurprd04.prod.outlook.com
+ (2603:10a6:20b:730::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
+ 2026 05:20:41 +0000
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.20.9891.021; Tue, 12 May 2026
+ 05:20:40 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] PCI: imx6: Fix i.MX95 PCIe PHY initialization sequence
+Date: Tue, 12 May 2026 13:22:42 +0800
+Message-Id: <20260512052244.49414-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+X-ClientProxiedBy: MA5PR01CA0200.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1b2::15) To GV2PR04MB12019.eurprd04.prod.outlook.com
+ (2603:10a6:150:30c::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12019:EE_|AMBPR04MB12287:EE_
+X-MS-Office365-Filtering-Correlation-Id: 76428bcb-5f43-4d17-b53d-08deafe6354f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|7416014|376014|1800799024|38350700014|921020|56012099003|18002099003|11063799003;
+X-Microsoft-Antispam-Message-Info: jauqZuhCc6HfO1/fAUnt6DbYuBj8q+rmzzmZpX/ePiChbIAxnB762LoJsAcZyAGjm3wvO1v0oiixgiPH7G1K6aqyWMBBkSZjqpYdOpQDpRq5jL/Hfr/WoXqGozwoF/j32Ho39Dy9EfPlMYsYVpatI0nsk8J+GmjWR9mx7/pf2nV6N5HrNLfCAEwZhn/CwWnERKq58rbEfvVpry4rt3T8bLVTTCzhjoOlW0lTW64wl3VVABI8Obv5Bc3G3PveFNVtxHD0b5eyJZ3otCmfBsVqznCD+y7TrfSV644V4FM0Pb8arhOb9fTAQaOIgBfLwCm0AJw7YOXxcQPYlf/Gujq7rYRJSiiCS7o7LFMKLCQ7UkNOGe0gvRxtbV3YVb1aexUuu2mg4dlwbRg85anSFMdirBAdxcV2dewMO9NhNr9yYxF6Z/xGSHYvUp59OW+UCY7t2s4XBCnjj1GE66Px/232iRwGw8fT1M5727HqGFFBaR8jXFc7S4in7VCymhiluvIHxRevbi5LY2uQyoBLWTL0SdjfErAOj3KU7qrlPaqCyygEO4jgDBAdLVNhkwzXpw+MHe1AyDlJaHhZ/9zcale5D7K7Ox3LBUMM70PGjwE8T6mpjJpfCQ1mkpgJ8InY5jmC3Om1Vz0uvauYPqkwxaOMoYwyl6vdv055038NgO7lMv3N44wf1tgdRygqKiP8rW29tR+6eC8TqOGZi8O2cOnyEts9qohSUcwhsuXUdgLhsMK760bCWueRRjOEXTtecLznlsDUKi2mt7oZ52iyUUaWBw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(7416014)(376014)(1800799024)(38350700014)(921020)(56012099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?785QrmwcpOomsy18atV/+y1bCKwyHvviRhMdiHuZad0/02c8n4Bfb5zGtQR+?=
+ =?us-ascii?Q?BfSTHIFikWaYGAo7K8BhzrunX821mijIH9cHh/mad5uczpOpeuKn6LLd+lag?=
+ =?us-ascii?Q?YBd8FAYzNhJUQosQHnDxH1ZoIP6/sSNZr/DBNpCv2RA07bWYt88+NaaBdCMq?=
+ =?us-ascii?Q?EDvQDt/4sv6u99+0+Mxb7BtKpaHyACwT/usmsJNH0QmoTryCRHyPNscsRwmh?=
+ =?us-ascii?Q?bIrkihl/PSVDBc9frwK0qrb+clpvn8hzb1M9aRNkJFfHzomvUIDzW/cJtdQp?=
+ =?us-ascii?Q?etgrLkeLxrzsfP2RT3r/XZwy4anVhOyuQhzkGYbb+KzWGNsropZsAAAxOroG?=
+ =?us-ascii?Q?QIqTWqIzSZbGuRGJkyS6ec9Azp7v+GlbvW1kzAcpZCV2X4lzGrOrv0DWRBWA?=
+ =?us-ascii?Q?tWiV71l/dpOxa/h0XoKfczaAoXJyAS6JnXOedbF9g9rEtQfD0SndINBNtSGb?=
+ =?us-ascii?Q?JxOk5wTWXEfJjPApKfkxkZ8az5RCwRUcVf0s1unUAaflKdrM30xOUuV9q0Fz?=
+ =?us-ascii?Q?QDDuCDuIFadyVHCXk9ZBzgPvquS3dEdB0Xoz/nJ8NV2I9GzfVGsTCth13/cP?=
+ =?us-ascii?Q?YtiVtw+S/J6efNvujaMrVKfChmf4inSQSe4mUNciIpg439IzVeLIyk6zF1fA?=
+ =?us-ascii?Q?949xK65+pDA9e30qntVqQwtNuPEvjFf5hWjOWok8HIrjbxI9NuQCOt8sdpjw?=
+ =?us-ascii?Q?TderYnBjKqj0PZTK1WOZT6CUdfDMfjxCGyjzyHrfsUtIG2t6ypusOd1eg4j6?=
+ =?us-ascii?Q?qilMJEQXqs7CQcXpl+q7RHa0Eu5L7MLAS/SGIG2+gAS/3ElKzvNYA4MnYvi1?=
+ =?us-ascii?Q?0KiUtgIX3MUh1QMbIl18FYlPv4u39mjGWzkbyNaLvWUQrdLfuawKXOgC/2oW?=
+ =?us-ascii?Q?39XV9FI7+fewFLG13FpZcOJxWhnj89YCV9V3ZD72eY5wzE8Nv7RwInquutPP?=
+ =?us-ascii?Q?+7QbK3Y8yn8qhNV/R8XwlloLzCyqgzfsv5E1WOOTtExtW7bVXg2yJIwWG+Lz?=
+ =?us-ascii?Q?XG3uBz0fDy0CeIG2hkJM9fUN6UdYen3gECkptW6opRNdJe21DzsKqfD1VdCx?=
+ =?us-ascii?Q?Bm1OGhH/Ibn8qwzgBVIjHnMAGkPHgt2ACHK0BvFIrWHd0IFJffMe9/nG5bD9?=
+ =?us-ascii?Q?LRRN5b80/F3YfAhswSZ3nsx+oAOm2Ft/Sj9VPwKWPswMiLchFevVNxcbKzFZ?=
+ =?us-ascii?Q?QKiAvYhj1vvuWHr+XSUKDN4q1SAoa03FmnbXyVuLx7sjsgUlmV9x/G0JXfwT?=
+ =?us-ascii?Q?ZYdoyPqh7e7kOw+YpbUuI66Pf0t5TYlqWJ1LzROvqjBQTXpOvQVOU38zqE1w?=
+ =?us-ascii?Q?S4Ayg40meCAtApr+8i3+dr4KDEm6CSMqug7upCows1WjmEbzd6h54tjPUA6I?=
+ =?us-ascii?Q?2ACwa3RLZEi8q1BVfyJEOw4kh6GxgYa71B4FROrZSiazx7T+9DZdaTu2U4qO?=
+ =?us-ascii?Q?TuJo+OfheGypiTi+Rzs3bUy2fFqke2/IDLwCPtQCqUp4WLP1kjWUjI3PLO+R?=
+ =?us-ascii?Q?mb89/cUdmZBRwlFtDwfPpQRVry0kRUrZ7tmWFehTbObyqErVSjtJSUqOqUkG?=
+ =?us-ascii?Q?9B/LnaIkMj9bIpSjecUaeTfSPj2wUd2rozOEKyKsu4wlRQDm6jLWZ3qZAnLZ?=
+ =?us-ascii?Q?KarreILB3UQZGlibj//sKhgGfxh5mBkvs0pMT22moieNpfUicv6KToPDa3JW?=
+ =?us-ascii?Q?6cyfDrKv+Tvym+ItB6O66T9EkCleX8JUeNlQbqMpyUdYRz11+ZrSyOVSi9Gm?=
+ =?us-ascii?Q?BtwTyUnvBQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 76428bcb-5f43-4d17-b53d-08deafe6354f
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 05:20:40.7877
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WJX57lWzidXAXswRk6sg7HHijHPOeE+AzAkz/DGNCfzuveq76X/9oUCuwZDr/v+qCK+veWyfCQWzzyDlbAkSrw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB12287
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_043420_108896_D99B33C4 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20260511_222047_285127_C680C45B 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,572 +145,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the reg_mask_xlate callback with an operation type parameter
-(gpio_regmap_operation) to allow drivers to return different
-register/mask combinations for different GPIO operations.
+This series addresses PHY initialization sequence issues for i.MX95 PCIe
+that were identified through careful review of the i.MX95 PCIe PHY Databook.
 
-Also add write-enable mechanism for hardware that requires setting a
-write-enable bit before modifying GPIO control registers.
+The current implementation does not strictly follow the timing requirements
+specified in the PHY documentation for reference clock configuration and
+PHY reset sequencing. These violations can potentially lead to unreliable
+PHY initialization.
 
-Consequently, update all existing drivers utilizing the gpio-regmap
-framework (across drivers/gpio, drivers/iio, and drivers/pinctrl)
-to accommodate the new reg_mask_xlate function signature.
+Patch 1 ensures that the REF_USE_PAD configuration is applied before the
+PHY reset is toggled, as required by the Common Block Signals specification.
+Any change to ref_use_pad must be followed by a PHY reset assertion to take
+effect properly.
 
-Suggested-by: Linus Walleij <linus.walleij@linaro.org>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
----
- drivers/gpio/gpio-104-idi-48.c        | 18 +++++--
- drivers/gpio/gpio-i8255.c             | 13 ++++-
- drivers/gpio/gpio-idio-16.c           | 16 ++++--
- drivers/gpio/gpio-max7360.c           | 10 ++++
- drivers/gpio/gpio-pcie-idio-24.c      | 15 ++++--
- drivers/gpio/gpio-regmap.c            | 72 ++++++++++++++++++++-------
- drivers/iio/adc/ad7173.c              | 32 +++++++++---
- drivers/iio/addac/stx104.c            | 17 +++++--
- drivers/pinctrl/bcm/pinctrl-bcm63xx.c | 12 ++++-
- drivers/pinctrl/pinctrl-tps6594.c     | 10 ++++
- include/linux/gpio/regmap.h           | 43 ++++++++++++++--
- 11 files changed, 214 insertions(+), 44 deletions(-)
+Patch 2 corrects the ref_clk_en signal timing by moving its manipulation
+into the reference clock enable function. This ensures the reference clock
+is stable before ref_clk_en is asserted and before the PHY reset is
+de-asserted, meeting the PHY's power sequencing requirements.
 
-diff --git a/drivers/gpio/gpio-104-idi-48.c b/drivers/gpio/gpio-104-idi-48.c
-index ba73ee9c0c29..ebd0587f99c5 100644
---- a/drivers/gpio/gpio-104-idi-48.c
-+++ b/drivers/gpio/gpio-104-idi-48.c
-@@ -36,9 +36,10 @@ MODULE_PARM_DESC(irq, "ACCES 104-IDI-48 interrupt line numbers");
- #define IDI48_IRQ_STATUS 0x7
- #define IDI48_IRQ_ENABLE IDI48_IRQ_STATUS
- 
--static int idi_48_reg_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
--				 unsigned int offset, unsigned int *reg,
--				 unsigned int *mask)
-+static int idi_48_reg_mask_xlate(struct gpio_regmap *gpio,
-+				 enum gpio_regmap_operation op,
-+				 unsigned int base, unsigned int offset,
-+				 unsigned int *reg, unsigned int *mask)
- {
- 	const unsigned int line = offset % 8;
- 	const unsigned int stride = offset / 8;
-@@ -46,7 +47,16 @@ static int idi_48_reg_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
- 	const unsigned int port_stride = stride % 3;
- 
- 	*reg = base + port + port_stride;
--	*mask = BIT(line);
-+
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		break;
-+	default:
-+		*mask = BIT(line);
-+		break;
-+	}
- 
- 	return 0;
- }
-diff --git a/drivers/gpio/gpio-i8255.c b/drivers/gpio/gpio-i8255.c
-index 953018bfa2b1..ec3c3186e2d1 100644
---- a/drivers/gpio/gpio-i8255.c
-+++ b/drivers/gpio/gpio-i8255.c
-@@ -67,8 +67,8 @@ static int i8255_ppi_init(struct regmap *const map, const unsigned int base)
- 	return regmap_write(map, base + I8255_PORTC, 0x00);
- }
- 
--static int i8255_reg_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
--				unsigned int offset, unsigned int *reg,
-+static int i8255_reg_mask_xlate(struct gpio_regmap *gpio, enum gpio_regmap_operation op,
-+				unsigned int base, unsigned int offset, unsigned int *reg,
- 				unsigned int *mask)
- {
- 	const unsigned int ppi = offset / I8255_NGPIO;
-@@ -76,6 +76,15 @@ static int i8255_reg_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
- 	const unsigned int stride = ppi_offset / I8255_NGPIO_PER_REG;
- 	const unsigned int line = ppi_offset % I8255_NGPIO_PER_REG;
- 
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		return 0;
-+	default:
-+		break;
-+	}
-+
- 	switch (base) {
- 	case I8255_REG_DAT_BASE:
- 		*reg = base + stride + ppi * 4;
-diff --git a/drivers/gpio/gpio-idio-16.c b/drivers/gpio/gpio-idio-16.c
-index 4fbae6f6a497..d78a05c22531 100644
---- a/drivers/gpio/gpio-idio-16.c
-+++ b/drivers/gpio/gpio-idio-16.c
-@@ -66,9 +66,9 @@ static int idio_16_handle_mask_sync(const int index, const unsigned int mask_buf
- 	return 0;
- }
- 
--static int idio_16_reg_mask_xlate(struct gpio_regmap *const gpio, const unsigned int base,
--				  const unsigned int offset, unsigned int *const reg,
--				  unsigned int *const mask)
-+static int idio_16_reg_mask_xlate(struct gpio_regmap *const gpio, enum gpio_regmap_operation op,
-+				  const unsigned int base, const unsigned int offset,
-+				  unsigned int *const reg, unsigned int *const mask)
- {
- 	unsigned int stride;
- 
-@@ -81,7 +81,15 @@ static int idio_16_reg_mask_xlate(struct gpio_regmap *const gpio, const unsigned
- 		*reg = IDIO_16_IN_BASE + stride * IDIO_16_REG_STRIDE;
- 	}
- 
--	*mask = BIT(offset % IDIO_16_NGPIO_PER_REG);
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		break;
-+	default:
-+		*mask = BIT(offset % IDIO_16_NGPIO_PER_REG);
-+		break;
-+	}
- 
- 	return 0;
- }
-diff --git a/drivers/gpio/gpio-max7360.c b/drivers/gpio/gpio-max7360.c
-index db92a43776a9..2a26313d021d 100644
---- a/drivers/gpio/gpio-max7360.c
-+++ b/drivers/gpio/gpio-max7360.c
-@@ -94,9 +94,19 @@ static int max7360_set_gpos_count(struct device *dev, struct regmap *regmap)
- }
- 
- static int max7360_gpio_reg_mask_xlate(struct gpio_regmap *gpio,
-+				       enum gpio_regmap_operation op,
- 				       unsigned int base, unsigned int offset,
- 				       unsigned int *reg, unsigned int *mask)
- {
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		return 0;
-+	default:
-+		break;
-+	}
-+
- 	if (base == MAX7360_REG_PWMBASE) {
- 		/*
- 		 * GPIO output is using PWM duty cycle registers: one register
-diff --git a/drivers/gpio/gpio-pcie-idio-24.c b/drivers/gpio/gpio-pcie-idio-24.c
-index 80c0ba0afa67..dc80f96174c2 100644
---- a/drivers/gpio/gpio-pcie-idio-24.c
-+++ b/drivers/gpio/gpio-pcie-idio-24.c
-@@ -225,9 +225,9 @@ static int idio_24_set_type_config(unsigned int **const buf, const unsigned int
- 	return ret;
- }
- 
--static int idio_24_reg_mask_xlate(struct gpio_regmap *const gpio, const unsigned int base,
--				  const unsigned int offset, unsigned int *const reg,
--				  unsigned int *const mask)
-+static int idio_24_reg_mask_xlate(struct gpio_regmap *const gpio, enum gpio_regmap_operation op,
-+				  const unsigned int base, const unsigned int offset,
-+				  unsigned int *const reg, unsigned int *const mask)
- {
- 	const unsigned int out_stride = offset / IDIO_24_NGPIO_PER_REG;
- 	const unsigned int in_stride = (offset - 24) / IDIO_24_NGPIO_PER_REG;
-@@ -235,6 +235,15 @@ static int idio_24_reg_mask_xlate(struct gpio_regmap *const gpio, const unsigned
- 	int err;
- 	unsigned int ctrl_reg;
- 
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		return 0;
-+	default:
-+		break;
-+	}
-+
- 	switch (base) {
- 	case IDIO_24_OUT_BASE:
- 		*mask = BIT(offset % IDIO_24_NGPIO_PER_REG);
-diff --git a/drivers/gpio/gpio-regmap.c b/drivers/gpio/gpio-regmap.c
-index deb9eebb58de..c76eef20e412 100644
---- a/drivers/gpio/gpio-regmap.c
-+++ b/drivers/gpio/gpio-regmap.c
-@@ -38,9 +38,10 @@ struct gpio_regmap {
- 	struct regmap_irq_chip_data *irq_chip_data;
- #endif
- 
--	int (*reg_mask_xlate)(struct gpio_regmap *gpio, unsigned int base,
--			      unsigned int offset, unsigned int *reg,
--			      unsigned int *mask);
-+	int (*reg_mask_xlate)(struct gpio_regmap *gpio,
-+			      enum gpio_regmap_operation op,
-+			      unsigned int base, unsigned int offset,
-+			      unsigned int *reg, unsigned int *mask);
- 
- 	void *driver_data;
- };
-@@ -54,6 +55,7 @@ static unsigned int gpio_regmap_addr(unsigned int addr)
- }
- 
- static int gpio_regmap_simple_xlate(struct gpio_regmap *gpio,
-+				    enum gpio_regmap_operation op,
- 				    unsigned int base, unsigned int offset,
- 				    unsigned int *reg, unsigned int *mask)
- {
-@@ -61,7 +63,16 @@ static int gpio_regmap_simple_xlate(struct gpio_regmap *gpio,
- 	unsigned int stride = offset / gpio->ngpio_per_reg;
- 
- 	*reg = base + stride * gpio->reg_stride;
--	*mask = BIT(line);
-+
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		break;
-+	default:
-+		*mask = BIT(line);
-+		break;
-+	}
- 
- 	return 0;
- }
-@@ -69,7 +80,7 @@ static int gpio_regmap_simple_xlate(struct gpio_regmap *gpio,
- static int gpio_regmap_get(struct gpio_chip *chip, unsigned int offset)
- {
- 	struct gpio_regmap *gpio = gpiochip_get_data(chip);
--	unsigned int base, val, reg, mask;
-+	unsigned int base, val, reg, mask, dir_mask;
- 	int ret;
- 
- 	/* we might not have an output register if we are input only */
-@@ -78,10 +89,24 @@ static int gpio_regmap_get(struct gpio_chip *chip, unsigned int offset)
- 	else
- 		base = gpio_regmap_addr(gpio->reg_set_base);
- 
--	ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
-+	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_GET_OP, base, offset, &reg, &dir_mask);
- 	if (ret)
- 		return ret;
- 
-+	ret = regmap_read(gpio->regmap, reg, &val);
-+	if (ret)
-+		return ret;
-+
-+	if (val & dir_mask) {
-+		ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_OUT, base, offset, &reg, &mask);
-+		if (ret)
-+			return ret;
-+	} else {
-+		ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_IN, base, offset, &reg, &mask);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	/* ensure we don't spoil any register cache with pin input values */
- 	if (gpio->reg_dat_base == gpio->reg_set_base)
- 		ret = regmap_read_bypassed(gpio->regmap, reg, &val);
-@@ -98,10 +123,14 @@ static int gpio_regmap_set(struct gpio_chip *chip, unsigned int offset,
- {
- 	struct gpio_regmap *gpio = gpiochip_get_data(chip);
- 	unsigned int base = gpio_regmap_addr(gpio->reg_set_base);
--	unsigned int reg, mask, mask_val;
-+	unsigned int reg, mask, mask_val, wren_mask;
- 	int ret;
- 
--	ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
-+	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WREN_OP, base, offset, &reg, &wren_mask);
-+	if (ret)
-+		return ret;
-+
-+	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_OP, base, offset, &reg, &mask);
- 	if (ret)
- 		return ret;
- 
-@@ -112,9 +141,9 @@ static int gpio_regmap_set(struct gpio_chip *chip, unsigned int offset,
- 
- 	/* ignore input values which shadow the old output value */
- 	if (gpio->reg_dat_base == gpio->reg_set_base)
--		ret = regmap_write_bits(gpio->regmap, reg, mask, mask_val);
-+		ret = regmap_write_bits(gpio->regmap, reg, mask | wren_mask, mask_val | wren_mask);
- 	else
--		ret = regmap_update_bits(gpio->regmap, reg, mask, mask_val);
-+		ret = regmap_update_bits(gpio->regmap, reg, mask | wren_mask, mask_val | wren_mask);
- 
- 	return ret;
- }
-@@ -123,7 +152,7 @@ static int gpio_regmap_set_with_clear(struct gpio_chip *chip,
- 				      unsigned int offset, int val)
- {
- 	struct gpio_regmap *gpio = gpiochip_get_data(chip);
--	unsigned int base, reg, mask;
-+	unsigned int base, reg, mask, wren_mask;
- 	int ret;
- 
- 	if (val)
-@@ -131,11 +160,15 @@ static int gpio_regmap_set_with_clear(struct gpio_chip *chip,
- 	else
- 		base = gpio_regmap_addr(gpio->reg_clr_base);
- 
--	ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
-+	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WREN_OP, base, offset, &reg, &wren_mask);
- 	if (ret)
- 		return ret;
- 
--	return regmap_write(gpio->regmap, reg, mask);
-+	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WITH_CLEAR_OP, base, offset, &reg, &mask);
-+	if (ret)
-+		return ret;
-+
-+	return regmap_write(gpio->regmap, reg, mask | wren_mask);
- }
- 
- static int gpio_regmap_get_direction(struct gpio_chip *chip,
-@@ -167,7 +200,7 @@ static int gpio_regmap_get_direction(struct gpio_chip *chip,
- 		return -ENOTSUPP;
- 	}
- 
--	ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
-+	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_GET_DIR_OP, base, offset, &reg, &mask);
- 	if (ret)
- 		return ret;
- 
-@@ -185,7 +218,7 @@ static int gpio_regmap_set_direction(struct gpio_chip *chip,
- 				     unsigned int offset, bool output)
- {
- 	struct gpio_regmap *gpio = gpiochip_get_data(chip);
--	unsigned int base, val, reg, mask;
-+	unsigned int base, val, reg, mask, wren_mask;
- 	int invert, ret;
- 
- 	if (gpio->reg_dir_out_base) {
-@@ -198,7 +231,12 @@ static int gpio_regmap_set_direction(struct gpio_chip *chip,
- 		return -ENOTSUPP;
- 	}
- 
--	ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
-+	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_DIR_OP, base, offset, &reg, &mask);
-+	if (ret)
-+		return ret;
-+
-+	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_DIR_WREN_OP, base, offset, &reg,
-+				   &wren_mask);
- 	if (ret)
- 		return ret;
- 
-@@ -207,7 +245,7 @@ static int gpio_regmap_set_direction(struct gpio_chip *chip,
- 	else
- 		val = output ? mask : 0;
- 
--	return regmap_update_bits(gpio->regmap, reg, mask, val);
-+	return regmap_update_bits(gpio->regmap, reg, mask | wren_mask, val | wren_mask);
- }
- 
- static int gpio_regmap_direction_input(struct gpio_chip *chip,
-diff --git a/drivers/iio/adc/ad7173.c b/drivers/iio/adc/ad7173.c
-index f76a9e08f39e..e8a6921bc443 100644
---- a/drivers/iio/adc/ad7173.c
-+++ b/drivers/iio/adc/ad7173.c
-@@ -561,21 +561,41 @@ static int ad4111_openwire_event(struct iio_dev *indio_dev,
- 	return ret;
- }
- 
--static int ad7173_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
--			     unsigned int offset, unsigned int *reg,
-+static int ad7173_mask_xlate(struct gpio_regmap *gpio, enum gpio_regmap_operation op,
-+			     unsigned int base, unsigned int offset, unsigned int *reg,
- 			     unsigned int *mask)
- {
--	*mask = AD7173_GPO_DATA(offset);
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		return 0;
-+	default:
-+		*mask = AD7173_GPO_DATA(offset);
-+		break;
-+	}
-+
- 	*reg = base;
-+
- 	return 0;
- }
- 
--static int ad4111_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
--			     unsigned int offset, unsigned int *reg,
-+static int ad4111_mask_xlate(struct gpio_regmap *gpio, enum gpio_regmap_operation op,
-+			     unsigned int base, unsigned int offset, unsigned int *reg,
- 			     unsigned int *mask)
- {
--	*mask = AD4111_GPO01_DATA(offset);
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		break;
-+	default:
-+		*mask = AD4111_GPO01_DATA(offset);
-+		break;
-+	}
-+
- 	*reg = base;
-+
- 	return 0;
- }
- 
-diff --git a/drivers/iio/addac/stx104.c b/drivers/iio/addac/stx104.c
-index 7bdf2cb94176..a4e54ed102a2 100644
---- a/drivers/iio/addac/stx104.c
-+++ b/drivers/iio/addac/stx104.c
-@@ -349,16 +349,25 @@ static const struct iio_chan_spec stx104_channels_diff[] = {
- 	STX104_IN_CHAN(6, 1), STX104_IN_CHAN(7, 1)
- };
- 
--static int stx104_reg_mask_xlate(struct gpio_regmap *const gpio, const unsigned int base,
--				 unsigned int offset, unsigned int *const reg,
--				 unsigned int *const mask)
-+static int stx104_reg_mask_xlate(struct gpio_regmap *const gpio, enum gpio_regmap_operation op,
-+				 const unsigned int base, unsigned int offset,
-+				 unsigned int *const reg, unsigned int *const mask)
- {
- 	/* Output lines are located at same register bit offsets as input lines */
- 	if (offset >= 4)
- 		offset -= 4;
- 
- 	*reg = base;
--	*mask = BIT(offset);
-+
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		break;
-+	default:
-+		*mask = BIT(offset);
-+		break;
-+	}
- 
- 	return 0;
- }
-diff --git a/drivers/pinctrl/bcm/pinctrl-bcm63xx.c b/drivers/pinctrl/bcm/pinctrl-bcm63xx.c
-index 59d2ce8462d8..3a868deb7793 100644
---- a/drivers/pinctrl/bcm/pinctrl-bcm63xx.c
-+++ b/drivers/pinctrl/bcm/pinctrl-bcm63xx.c
-@@ -20,6 +20,7 @@
- #define BCM63XX_DATA_REG	0x0c
- 
- static int bcm63xx_reg_mask_xlate(struct gpio_regmap *gpio,
-+				  enum gpio_regmap_operation op,
- 				  unsigned int base, unsigned int offset,
- 				  unsigned int *reg, unsigned int *mask)
- {
-@@ -27,7 +28,16 @@ static int bcm63xx_reg_mask_xlate(struct gpio_regmap *gpio,
- 	unsigned int stride = offset / BCM63XX_BANK_GPIOS;
- 
- 	*reg = base - stride * BCM63XX_BANK_SIZE;
--	*mask = BIT(line);
-+
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		break;
-+	default:
-+		*mask = BIT(line);
-+		break;
-+	}
- 
- 	return 0;
- }
-diff --git a/drivers/pinctrl/pinctrl-tps6594.c b/drivers/pinctrl/pinctrl-tps6594.c
-index 6726853110d1..e30a856712af 100644
---- a/drivers/pinctrl/pinctrl-tps6594.c
-+++ b/drivers/pinctrl/pinctrl-tps6594.c
-@@ -347,12 +347,22 @@ static struct tps6594_pinctrl tps6594_template_pinctrl = {
- };
- 
- static int tps6594_gpio_regmap_xlate(struct gpio_regmap *gpio,
-+				     enum gpio_regmap_operation op,
- 				     unsigned int base, unsigned int offset,
- 				     unsigned int *reg, unsigned int *mask)
- {
- 	unsigned int line = offset % 8;
- 	unsigned int stride = offset / 8;
- 
-+	switch (op) {
-+	case GPIO_REGMAP_SET_WREN_OP:
-+	case GPIO_REGMAP_SET_DIR_WREN_OP:
-+		*mask = 0;
-+		return 0;
-+	default:
-+		break;
-+	}
-+
- 	switch (base) {
- 	case TPS6594_REG_GPIOX_CONF(0):
- 		*reg = TPS6594_REG_GPIOX_CONF(offset);
-diff --git a/include/linux/gpio/regmap.h b/include/linux/gpio/regmap.h
-index e4a95f805a81..519fc81add8a 100644
---- a/include/linux/gpio/regmap.h
-+++ b/include/linux/gpio/regmap.h
-@@ -13,6 +13,43 @@ struct regmap;
- #define GPIO_REGMAP_ADDR_ZERO ((unsigned int)(-1))
- #define GPIO_REGMAP_ADDR(addr) ((addr) ? : GPIO_REGMAP_ADDR_ZERO)
- 
-+/**
-+ * enum gpio_regmap_operation - Operation type for reg_mask_xlate callback
-+ *
-+ * This enum is used to distinguish between different types of GPIO operations
-+ * so that the reg_mask_xlate callback can return the appropriate mask for each
-+ * operation type.
-+ *
-+ * Value operations:
-+ * @GPIO_REGMAP_GET_OP: Mask for reading direction to detect if GPIO is input or output.
-+ *                      Used in gpio_regmap_get() to determine the GPIO direction.
-+ * @GPIO_REGMAP_IN: Mask for reading input value. Used when GPIO is configured as input.
-+ * @GPIO_REGMAP_OUT: Mask for reading output value. Used when GPIO is configured as output.
-+ *
-+ * Output operations:
-+ * @GPIO_REGMAP_SET_OP: Mask for setting GPIO output value.
-+ * @GPIO_REGMAP_SET_WITH_CLEAR_OP: Mask for setting/clearing GPIO using separate registers.
-+ * @GPIO_REGMAP_SET_WREN_OP: Write-enable mask for output operations. May be used to enable
-+ *                           writes to protected registers.
-+ *
-+ * Direction operations:
-+ * @GPIO_REGMAP_GET_DIR_OP: Mask for reading GPIO direction (input/output).
-+ * @GPIO_REGMAP_SET_DIR_OP: Mask for setting GPIO direction (input/output).
-+ * @GPIO_REGMAP_SET_DIR_WREN_OP: Write-enable mask for direction operations. May be used to
-+ *                               enable writes to protected direction registers.
-+ */
-+enum gpio_regmap_operation {
-+	GPIO_REGMAP_GET_OP,
-+	GPIO_REGMAP_SET_OP,
-+	GPIO_REGMAP_SET_WITH_CLEAR_OP,
-+	GPIO_REGMAP_SET_WREN_OP,
-+	GPIO_REGMAP_GET_DIR_OP,
-+	GPIO_REGMAP_SET_DIR_OP,
-+	GPIO_REGMAP_SET_DIR_WREN_OP,
-+	GPIO_REGMAP_IN,
-+	GPIO_REGMAP_OUT,
-+};
-+
- /**
-  * struct gpio_regmap_config - Description of a generic regmap gpio_chip.
-  * @parent:		The parent device
-@@ -97,9 +134,9 @@ struct gpio_regmap_config {
- 	unsigned long regmap_irq_flags;
- #endif
- 
--	int (*reg_mask_xlate)(struct gpio_regmap *gpio, unsigned int base,
--			      unsigned int offset, unsigned int *reg,
--			      unsigned int *mask);
-+	int (*reg_mask_xlate)(struct gpio_regmap *gpio, enum gpio_regmap_operation,
-+			      unsigned int base, unsigned int offset,
-+			      unsigned int *reg, unsigned int *mask);
- 
- 	int (*init_valid_mask)(struct gpio_chip *gc,
- 			       unsigned long *valid_mask,
--- 
-2.34.1
+Together, these patches ensure proper PHY initialization sequence compliance
+and improve the reliability of PCIe operation on i.MX95 platforms.
+
+[PATCH v1 1/2] PCI: imx6: Configure REF_USE_PAD before PHY reset for
+[PATCH v1 2/2] PCI: imx6: Assert ref_clk_en after reference clock
+
+drivers/pci/controller/dwc/pci-imx6.c | 65 +++++++++++++++++++++++++++++++++++++++++++++++++++--------------
+1 file changed, 51 insertions(+), 14 deletions(-)
 
 
