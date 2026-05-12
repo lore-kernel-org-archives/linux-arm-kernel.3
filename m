@@ -4,78 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 942FFCD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 10:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B55ACD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 10:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jSoh/GaXZZ/8u/7OZ65mHX+roVMfei3a9XOPoLfNbMY=; b=EiA2m0/cJkTbin/NH8PkEpCHoO
-	orm6V820gILfpXDXezFBcAgpiPQRTdRjabcGwfiSLB6tjVFD7TU8QyLSowk0RLOzHeQYX46zWBQnt
-	x4LfDh8mHwlNu/KqMsZsayVRvELxxTSlopfEwnsG6ryHRswjjf8UsWNXS1cNC4EH6ZUpHRhVbMItp
-	ohIO5AYFFCNK+E0etGvpYS0YrkqJ8mcIaDbDTjDFjsJuzH3F3ETDpLxUtHdik5cP7bi6ecVizInOE
-	Z8EhGIbqKId3TdzhC6D0b66zUFST6S7uv9wPPzhlY0HGp/CfeEdE4RLv8tNAQd0l7qrjRjU/2lBla
-	fx3GJFzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=59kt6aNwzcXJV4ZtVsWMaQLA4u7r8yoORDZ1L7mRnY0=; b=cJFQyb42JHYKceiQcAccyorWnL
+	GLHRhsooeY/9LzeItGCnn0DHeC7nEjwxN2C17Sc/BXcnCVi800Aoj3hkCvJ+Is0w6lgf3vX2qZKbV
+	JvQAxL5dV5qJayKr5m3QkZpLcpxc2BnegHAUrwgHSkZEN4xCBtdaH7KQBwH5+m0blYStIRYPHxlfu
+	VYQd2eNkjvUqu1qDcSlBYPo/4G1BQN0AHGdIPK5dfpxgzleYw77P4CxqLW06qekhhDHHBYJuCpGLW
+	a9qB9TmwTQIBa12xqfdPLmga4IBz+XYy+ekuPCIUfhi/eYMJHZgptOBaZS8WLYzz7RfHNCVicB+zz
+	Qx9gtYEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMkAe-0000000GPPw-1vdP;
-	Tue, 12 May 2026 10:17:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMisq-0000000G9MM-3TUl;
+	Tue, 12 May 2026 08:54:33 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMkAb-0000000GPPP-1lCE
+	id 1wMisn-0000000G9Gc-0t6n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 10:16:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AC4EA43CDA;
-	Tue, 12 May 2026 10:16:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BB70C2BCB0;
-	Tue, 12 May 2026 10:16:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778581016;
-	bh=w6hATkZRGSRSJowaFjN45EX2kl/oM+c7ccdVW67Eh3s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iyynMxhKI/8Jg0jAf3zt9NS9aZuPuBUsWGBl6pjep56D0BX7ArOWIvumJnsk4Hxuq
-	 mnnaRaFvBV5mkvEsDlbtbvUSCRvLWYdvCMf4sNeM7vNilIbeePN5AkWfwxvjAQev7g
-	 /0A4u2buvc8ZFh87pXWIBdFrJFLxqXQwPpvDqOdq1iuaVD2hhWsouG5CMcWCdCXTZv
-	 ifyJNn5+17bVPbWwPFuyMigi7nZbU+5QYcAqZqfLOaUQjlplaxZPW1O+AKlvC2/zNq
-	 0oO5sua9onBYaQGmy1JTt0SnaAYmCKIZGFkBl54L+OfZD1RfSStH8Oms9Ts4XPZzEe
-	 eFQvD4RfZWaYw==
-Date: Tue, 12 May 2026 12:16:53 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Jyri Sarha <jyri.sarha@iki.fi>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Simon Ser <contact@emersion.fr>, 
-	Harry Wentland <harry.wentland@amd.com>, Melissa Wen <mwen@igalia.com>, 
-	Sebastian Wick <sebastian.wick@redhat.com>, Alex Hung <alex.hung@amd.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v3 12/20] drm/crtc: Add new atomic_create_state callback
-Message-ID: <20260512-unbiased-apricot-jaguar-a63eba@houat>
-References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
- <20260424-drm-mode-config-init-v3-12-8b68d9db0d8b@kernel.org>
- <20260504172858.GO1344263@killaraus.ideasonboard.com>
+	Tue, 12 May 2026 08:54:30 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c8021c8c42fso2110009a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 01:54:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1778576068; x=1779180868; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=59kt6aNwzcXJV4ZtVsWMaQLA4u7r8yoORDZ1L7mRnY0=;
+        b=HFIyFBBBOIty+9glkLIqQ5ewGlTnOVVAf2yrS9rSEXBh+1GigXOzejJ1kh+R8b1BDR
+         WL82jG6ocSlmKzF1w4Of8sVdmFJsDhA3O8RsgKS6OX7EXYT4y7gauymSjdAuEk3F9kbY
+         Zka1Lc+BXfbhpq1vCQ9wj5rvu6Ms8G3G2yCr8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778576068; x=1779180868;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=59kt6aNwzcXJV4ZtVsWMaQLA4u7r8yoORDZ1L7mRnY0=;
+        b=PWR0Moddnt2cP3RJxjRc/G2gvos26MYVuNh6WvDtICkWLXXiH7gfwKc39GxVGElZus
+         RNraxdPZFDwCzYlDVn/SOVocHZaV0Ss6V3cUakDCTEYeJxxuHJiYX3JulFardNxy+mjP
+         NzWYY+1+I/WzOxSftsjO3v9UH/hREyqu/eyBM/R6JtACj3rKI02tM9eUfGIoNn5CnJ1p
+         A3/X/rMnG6yo0nAYm0Rmg2tywPrV1znmWiCtILaEa7N+KaCfLCpjRaIURkSF1kMNZPuY
+         4bX2yvQE/QSDCJcsW1Z1RZv1kuN8909EeRMHLGci4MZufaH58H4VYdxms435S1Eu8NjV
+         hdaw==
+X-Forwarded-Encrypted: i=1; AFNElJ8yHHMJjk7ZeHu7hMPEV+CvWvpHmUANMw8J9ZGrfOWLqIQNwVL+1ub/fEy9Swcl+BLdTXIwXsgTLLvjX40unE/e@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDOsGk+nSG1fWzS9iHOzj+jsJM8InY4DnZ+qFzqoMk5JSl3qlN
+	KyFkjeEm5zZ1uz8vps5khk2VuxfAntViyMJMLyh3uCXbZoBMBvxc0ljptR30EPiMpg==
+X-Gm-Gg: Acq92OHHbPZlXarKYVT3Q6RSHLaBwWjWROdZ1JCxmVK5GPkS0MRyUbnOpAQrAeFu2jf
+	9udMEIYV8yAbmjd/m35kWRLKWclidDQOQycyqPL0t5uGh6ZsRqEwoirz0yEzH9tgU0MToq/Mn3s
+	v+eT2WbvYCD5vW/mvoHnT2aqxYlJYNcowJssofy2ZmdQ0OlecYmmkge6kvUaS2I41nDxZsMHnxe
+	MuL75wphegMKIuoy3L1eJROqrkWa0ULJ/mwsWsif1oNLcwNrMyMddKrNBoj8nJ/lPGxSvxFJLu+
+	CHLctxzM4DcrKD+a3D7DJoj+/bNDpODpTQQO7WsrIqhjgJM+ESut/6OGhHu3SyBMjGJ4Dny5U+J
+	zSC+SFJML/hTmy4fUFgSMczHAVLPsE1WoHk82TJ0pZyqvpRaf+QoO5JSuYdEZ/ts/VGYZMjNB+X
+	zgImLuKLj6wqsFXyt9yJnQuRJ9NrDT2Ax5zE+jfL7Goe5/aKbcZnGGJkoDufUhnCNT2XeFubNWk
+	6WY+YFz
+X-Received: by 2002:a05:6a21:e082:b0:39c:787:f197 with SMTP id adf61e73a8af0-3aab17186femr19074564637.36.1778576068336;
+        Tue, 12 May 2026 01:54:28 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:6606:2bd2:159a:55e3])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c826771a8a1sm11136856a12.24.2026.05.12.01.54.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 May 2026 01:54:27 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH v3 4/6] regulator: mt6359: const-ify regulator descriptions
+Date: Tue, 12 May 2026 16:53:52 +0800
+Message-ID: <20260512085358.1693208-5-wenst@chromium.org>
+X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
+In-Reply-To: <20260512085358.1693208-1-wenst@chromium.org>
+References: <20260512085358.1693208-1-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="xucbq2efeno5xzls"
-Content-Disposition: inline
-In-Reply-To: <20260504172858.GO1344263@killaraus.ideasonboard.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_031657_503581_2872E99C 
-X-CRM114-Status: GOOD (  38.61  )
+X-CRM114-CacheID: sfid-20260512_015429_258386_919B6FFB 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,125 +105,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The regulator descriptions and extended descriptions don't change at
+runtime. The only reason they are not const is that the regulator
+driver data is non-const.
 
---xucbq2efeno5xzls
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 12/20] drm/crtc: Add new atomic_create_state callback
-MIME-Version: 1.0
+Const-ify the descriptions and all references to them. For the driver
+data, explicitly cast it to non-const void *.
 
-Hi,
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ drivers/regulator/mt6359-regulator.c | 19 ++++++++++---------
+ 1 file changed, 10 insertions(+), 9 deletions(-)
 
-On Mon, May 04, 2026 at 08:28:58PM +0300, Laurent Pinchart wrote:
-> On Fri, Apr 24, 2026 at 12:18:52PM +0200, Maxime Ripard wrote:
-> > Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
-> > to drm_private_obj") introduced a new pattern for allocating drm object
-> > states.
-> >=20
-> > Instead of relying on the reset() callback, it created a new
-> > atomic_create_state hook. This is helpful because reset is a bit
-> > overloaded: it's used to create the initial software state, reset it,
-> > but also reset the hardware.
-> >=20
-> > It can also be used either at probe time, to create the initial state
-> > and possibly reset the hardware to an expected default, but also during
-> > suspend/resume.
-> >=20
-> > Both these cases come with different expectations too: during the
-> > initialization, we want to initialize all states, but during
-> > suspend/resume, drm_private_states for example are expected to be kept
-> > around.
-> >=20
-> > reset() also isn't fallible, which makes it harder to handle
-> > initialization errors properly. This is only really relevant for some
-> > drivers though, since all the helpers for reset only create a new
-> > state, and don't touch the hardware at all.
-> >=20
-> > It was thus decided to create a new hook that would allocate and
-> > initialize a pristine state without any side effect:
-> > atomic_create_state to untangle a bit some of it, and to separate the
-> > initialization with the actual reset one might need during a
-> > suspend/resume.
-> >=20
-> > Continue the transition to the new pattern with CRTCs.
-> >=20
-> > Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> > Signed-off-by: Maxime Ripard <mripard@kernel.org>
-> > ---
-> >  drivers/gpu/drm/drm_atomic_state_helper.c | 47 +++++++++++++++++++++++=
-++++++++
-> >  drivers/gpu/drm/drm_mode_config.c         | 21 +++++++++++++-
-> >  include/drm/drm_atomic_state_helper.h     |  4 +++
-> >  include/drm/drm_crtc.h                    | 16 +++++++++++
-> >  4 files changed, 87 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/dr=
-m/drm_atomic_state_helper.c
-> > index 9cd8550cabb7..b7da134c8c50 100644
-> > --- a/drivers/gpu/drm/drm_atomic_state_helper.c
-> > +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-> > @@ -103,10 +103,32 @@ __drm_atomic_helper_crtc_reset(struct drm_crtc *c=
-rtc,
-> > =20
-> >  	crtc->state =3D crtc_state;
-> >  }
-> >  EXPORT_SYMBOL(__drm_atomic_helper_crtc_reset);
-> > =20
-> > +/**
-> > + * __drm_atomic_helper_crtc_create_state - initializes crtc state
->=20
-> "Initialize a CRTC state"
+diff --git a/drivers/regulator/mt6359-regulator.c b/drivers/regulator/mt6359-regulator.c
+index c8a788858824..bcf9a476a34e 100644
+--- a/drivers/regulator/mt6359-regulator.c
++++ b/drivers/regulator/mt6359-regulator.c
+@@ -251,7 +251,7 @@ static int mt6359_get_status(struct regulator_dev *rdev)
+ {
+ 	int ret;
+ 	u32 regval;
+-	struct mt6359_regulator_info *info = rdev_get_drvdata(rdev);
++	const struct mt6359_regulator_info *info = rdev_get_drvdata(rdev);
+ 
+ 	ret = regmap_read(rdev->regmap, info->status_reg, &regval);
+ 	if (ret != 0) {
+@@ -267,7 +267,7 @@ static int mt6359_get_status(struct regulator_dev *rdev)
+ 
+ static unsigned int mt6359_regulator_get_mode(struct regulator_dev *rdev)
+ {
+-	struct mt6359_regulator_info *info = rdev_get_drvdata(rdev);
++	const struct mt6359_regulator_info *info = rdev_get_drvdata(rdev);
+ 	int ret, regval;
+ 
+ 	ret = regmap_read(rdev->regmap, info->modeset_reg, &regval);
+@@ -299,7 +299,7 @@ static unsigned int mt6359_regulator_get_mode(struct regulator_dev *rdev)
+ static int mt6359_regulator_set_mode(struct regulator_dev *rdev,
+ 				     unsigned int mode)
+ {
+-	struct mt6359_regulator_info *info = rdev_get_drvdata(rdev);
++	const struct mt6359_regulator_info *info = rdev_get_drvdata(rdev);
+ 	int ret = 0, val;
+ 	int curr_mode;
+ 
+@@ -354,7 +354,7 @@ static int mt6359_regulator_set_mode(struct regulator_dev *rdev,
+ static int mt6359p_vemc_set_voltage_sel(struct regulator_dev *rdev,
+ 					u32 sel)
+ {
+-	struct mt6359_regulator_info *info = rdev_get_drvdata(rdev);
++	const struct mt6359_regulator_info *info = rdev_get_drvdata(rdev);
+ 	int ret;
+ 	u32 val = 0;
+ 
+@@ -393,7 +393,7 @@ static int mt6359p_vemc_set_voltage_sel(struct regulator_dev *rdev,
+ 
+ static int mt6359p_vemc_get_voltage_sel(struct regulator_dev *rdev)
+ {
+-	struct mt6359_regulator_info *info = rdev_get_drvdata(rdev);
++	const struct mt6359_regulator_info *info = rdev_get_drvdata(rdev);
+ 	int ret;
+ 	u32 val = 0;
+ 
+@@ -469,7 +469,7 @@ static const struct regulator_ops mt6359p_vemc_ops = {
+ };
+ 
+ /* The array is indexed by id(MT6359_ID_XXX) */
+-static struct mt6359_regulator_info mt6359_regulators[] = {
++static const struct mt6359_regulator_info mt6359_regulators[] = {
+ 	MT6359_BUCK("buck_vs1", VS1, 800000, 2200000, 12500,
+ 		    MT6359_RG_BUCK_VS1_EN_ADDR,
+ 		    MT6359_DA_VS1_EN_ADDR, MT6359_RG_BUCK_VS1_VOSEL_ADDR,
+@@ -705,7 +705,7 @@ static struct mt6359_regulator_info mt6359_regulators[] = {
+ 			  MT6359_RG_LDO_VSRAM_OTHERS_SSHUB_VOSEL_SHIFT),
+ };
+ 
+-static struct mt6359_regulator_info mt6359p_regulators[] = {
++static const struct mt6359_regulator_info mt6359p_regulators[] = {
+ 	MT6359_BUCK("buck_vs1", VS1, 800000, 2200000, 12500,
+ 		    MT6359_RG_BUCK_VS1_EN_ADDR,
+ 		    MT6359_DA_VS1_EN_ADDR, MT6359_RG_BUCK_VS1_VOSEL_ADDR,
+@@ -950,7 +950,7 @@ static int mt6359_regulator_probe(struct platform_device *pdev)
+ 	struct mt6397_chip *mt6397 = dev_get_drvdata(pdev->dev.parent);
+ 	struct regulator_config config = {};
+ 	struct regulator_dev *rdev;
+-	struct mt6359_regulator_info *mt6359_info;
++	const struct mt6359_regulator_info *mt6359_info;
+ 	int i, hw_ver, ret;
+ 
+ 	ret = regmap_read(mt6397->regmap, MT6359P_HWCID, &hw_ver);
+@@ -965,7 +965,8 @@ static int mt6359_regulator_probe(struct platform_device *pdev)
+ 	config.dev = mt6397->dev;
+ 	config.regmap = mt6397->regmap;
+ 	for (i = 0; i < MT6359_MAX_REGULATOR; i++, mt6359_info++) {
+-		config.driver_data = mt6359_info;
++		/* drop const here, but all uses in the driver are const */
++		config.driver_data = (void *)mt6359_info;
+ 		rdev = devm_regulator_register(&pdev->dev, &mt6359_info->desc, &config);
+ 		if (IS_ERR(rdev)) {
+ 			dev_err(&pdev->dev, "failed to register %s\n", mt6359_info->desc.name);
+-- 
+2.54.0.563.g4f69b47b94-goog
 
-Good catch, thanks.
-
-> The name of the function is misleading ("*_create_*" while you state it
-> performs initialization).
->
-> > + * @crtc: crtc object
-> > + * @state: new state to initialize
-> > + *
-> > + * Initializes the newly allocated @state, usually required when
-> > + * initializing the drivers.
-> > + *
-> > + * @state is assumed to be zeroed.
-> > + *
-> > + * This is useful for drivers that subclass @drm_crtc_state.
-> > + */
-> > +void __drm_atomic_helper_crtc_create_state(struct drm_crtc *crtc,
-> > +					   struct drm_crtc_state *state)
-> > +{
-> > +	__drm_atomic_helper_crtc_state_init(state, crtc);
-> > +
-> > +	if (drm_dev_has_vblank(crtc->dev))
-> > +		drm_crtc_vblank_reset(crtc);
->=20
-> This is confusing to me (at least before reading the rest of the
-> series), and itn't mentioned in the function documentation or in the
-> commit message.
->
-> Furthermore, __drm_atomic_helper_crtc_create_state() is later used in
-> tidss_crtc_create_state(), which is the
-> drm_crtc_funcs.atomic_create_state() implementation of the tidss driver.
-> The atomic_create_state documentation states that "This callback must
-> have no side effect", and drm_crtc_vblank_reset() has side effects.
-
-That's a good point. I've dropped that function entirely and moved the
-drm_crtc_vblank_reset() call in drm_mode_config_crtc_create_state().
-
-Maxime
-
---xucbq2efeno5xzls
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCagL+FQAKCRAnX84Zoj2+
-dnNzAX0fzjsGevsyIM+1eS7aSdqPXqaWO2e4vKxwlm1t0+VWLC1LChDXcVfr74JX
-gfLRKAABgLDj6dDvAIYO++YmRFrG/pDTCiRABTfTFmqA3MNWXLLdVzFuX/WVI0ll
-s+ZfkvI9qg==
-=NbJq
------END PGP SIGNATURE-----
-
---xucbq2efeno5xzls--
 
