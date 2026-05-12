@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07A83CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B96CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 16:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T+cRw/w8Tw2VtVhO7fjoQQLrVp/OXSiMwNSTHnDhBCw=; b=Sq5hEh794/v6BSe8iKa1bRKxRa
-	piKYBf73CFXYHp+2weZj+C7fsnKtgLuN0g0Bbl9HVWxjbuvARoT0VKFEXFbDKs174gBFFvUZTiktq
-	O9wm1lyqJU6/xWxB5pLOqvSiExYtYD6tfImOufV0YsmMLd6TG8iPsk85/gSRmchjA3tovgVhBW5b4
-	LxD1VZ8G14Ih/Ff/F726Kpj7qvecxIpeZRrqfvIdPPkfwZ2td+rRwjDCtutSgmDKahMeHTNX6DFic
-	XB0ESvsCLg1qMN0vI8/RR2apu/WbWpm6VC4r8N1n12VJgo40vOfLXwMwvSOaf63OIaxCyD/oRP1f5
-	5WCQW0FQ==;
+	bh=L7sYdxLuijt+9186h1ZtFmr0eUOg4mrztHCaUFuNYa8=; b=2a3ZgF+xCjZDnBwYj7VTxHGbMg
+	t5XxNtShNBOMtETG4mrv9zWEgGSxnZHF+6pKvhuTlh22PVza8BtjNehqKwDtrPMJ7a9ZmL0Ui/LEz
+	I5W4MB8AWEcgSWuZeU+16wSV9BEKH/HATqn1aKsJUu0X15hiYXClqDzWdBF+Svwh+5vVFLpe8jJAh
+	Pt6qc76DDxn8eI3JO+YjBmzLHlDNFxFMmVWqFHBUnTkUO0GQtU+qvZ/BrJISYCnPH86HAcIlIHwti
+	gLw0lFJT3NmNYfPHa/ysIs3+NEoeFAPKJhh8cCoWAjmH8wJ6M51FEDIToTXtyvYmFu7y3UwnuGFzH
+	TX0hVAXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMpRm-0000000HHQS-2fLE;
-	Tue, 12 May 2026 15:55:02 +0000
+	id 1wMpkJ-0000000HK6G-3B97;
+	Tue, 12 May 2026 16:14:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMpRl-0000000HHPj-2YXW
+	id 1wMpkH-0000000HK5x-3WDk
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 12 May 2026 15:55:01 +0000
+	Tue, 12 May 2026 16:14:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=T+cRw/w8Tw2VtVhO7fjoQQLrVp/OXSiMwNSTHnDhBCw=; b=dFGdkXTvM0znnzuurT3l8L1dFs
-	qQK1ME0q7dKz1F/cgU9yG1sT9LowWpXHi2aK3LJ6WZWnQr5HeIIyJghBdlxh9ryrg8N/EMdW8NoBb
-	Gjgr+PAG20WX3CV31JQBSWUUU5iTJtyqcAj9m4FQFgCLHz0uMuqJIV5OkKxSfHsxT8IgLq2V5ygzq
-	/Klv0z6I+a9Y3vXkEVrtvr6UuasZ3aFRlH5wXo3x5WPkxh2CCadBRzZLvx8PvssOenzshCu9QzZML
-	E2UOAcx+7pEslvBm/F4gPBfu4ZfH2QOAfLfc0ggkOw5nAvgRZnI2+OZc6EUk1KsnHFBwVb2LYc+wS
-	LVoiUKPg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMpRi-0000000FDzO-10jB
+	bh=L7sYdxLuijt+9186h1ZtFmr0eUOg4mrztHCaUFuNYa8=; b=oLDR30evtR4reVej5PcOUejLsR
+	FLxjACMNnwrsOO5/baMPFDyRsA++IhLJkIVpRy3t2u3OcRolRcCRqdCuffYwSXfPvNyPQoDtiMLju
+	qsp8GbeDkeoEdzmWCyUFoyAM/vQuXi0NDFWuYetqslUPG3MLKfVlhzHncstX29sDMmaEEevfUQXgn
+	Va/jab5Wlxjdd87EHfiCRIKRHVAn5qq+Ehb/4rJb7AvEy43m5qLXeqSKDLaP4sVEDDnb+LETt5USK
+	YiyzusK8eE6iB5EP99aO4ZQbApoRFX1RxwZpf3dKCi7paFDReYQWk+3Y/ZxQxhVPQP1TJxkamaiad
+	iq5kygCQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMpkD-0000000FHbd-19wH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 15:55:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CC87E419D1;
-	Tue, 12 May 2026 15:54:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB472C2BCC7;
-	Tue, 12 May 2026 15:54:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778601293;
-	bh=x96C7kQutkpEZcWiUIFWIivDdMrS5yAQtQyf7GWWB70=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mWnObZ5ueRQ8TBR7X3/Qbh3RbLcNntE9kfz4JIelJJIZzfz6H+3kEsUFfvYemSfvz
-	 Z3oBIpQecJzCt4OxWEthqCNIm50zojS9KMhtzzDEQRlwP9rNU5aLmYWmSVT/CgDwgh
-	 jbFu9BdGrO+oAGC7YMHooJMWqvX3Y21c5oYhHUIQKdHT9VMHJW1YtUSKBx+KIplCL3
-	 VtzJaqQRmpjfgxFf+QFUb2NoOgulQ/I+7hWbCjrQkVmk9TFczoy93c0pQ6ySx7HOlh
-	 4WUOZAzK/4FzJHtxL7dObM6YHsNls0Jhe6dCB3V4lwxKyNw2iSlwVSdWwyMRu/ZGLx
-	 cxS66hxSL5pjQ==
-Date: Tue, 12 May 2026 16:54:44 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
-Cc: Salih Erim <salih.erim@amd.com>, "Conall O'Griofa"
- <conall.ogriofa@amd.com>, Michal Simek <michal.simek@amd.com>, David
- Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] iio: adc: xilinx-ams: fix out-of-bounds channel
- lookup in event handling
-Message-ID: <20260512165444.4ae39d90@jic23-huawei>
-In-Reply-To: <CAJgF-xum3OQ36keRW5gCnTTbnUhsHZUzL41xKn0hjJ3GqgyOZg@mail.gmail.com>
-References: <20260414224245.8493-1-guilherme.bozi@usp.br>
-	<20260414224245.8493-2-guilherme.bozi@usp.br>
-	<46bcd2ce-bfb4-4fc3-b840-dba657f39a7f@amd.com>
-	<CAJgF-xum3OQ36keRW5gCnTTbnUhsHZUzL41xKn0hjJ3GqgyOZg@mail.gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Tue, 12 May 2026 16:14:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55E471650;
+	Tue, 12 May 2026 09:13:57 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E60113F836;
+	Tue, 12 May 2026 09:13:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778602442; bh=GHZWor7rdy45tprIWlWstOcDkMP3M+aEv6hEteW8EN4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TY7M8Nt4UDSmdhmrU1PKycF2lKfojYvEgKZZTllA6T6EIcJJAOG5s0dTV1+BBqFmc
+	 DwrW/PEUVkuEBxsmvpIePwV8KDGXTgriDtnkCq1esQvuHgd2gSCob83CbpWw6kv0ex
+	 vKB4hBVG18OeOxX6YGT7kP5rPYTjgAVZSs+/abZA=
+Message-ID: <15389814-e6d3-43bf-967b-38d0fc8f8c52@arm.com>
+Date: Tue, 12 May 2026 18:13:58 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/5] arm_mpam: Parse the rest of the ACPI table
+To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260429141339.3171205-1-andre.przywara@arm.com>
+ <20260429141339.3171205-2-andre.przywara@arm.com>
+ <f12b8d73-7c8e-43e7-b9ce-d80a7c3f10c8@arm.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <f12b8d73-7c8e-43e7-b9ce-d80a7c3f10c8@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_165458_930849_F84B2B36 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20260512_171406_048357_A68C9A10 
+X-CRM114-Status: GOOD (  26.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,74 +93,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 May 2026 12:40:05 -0300
-Guilherme Ivo Bozi <guilherme.bozi@usp.br> wrote:
+Hi Ben,
 
-> Hi Salih,
->=20
-> Replies are inline.
->=20
-> On Tue, May 12, 2026 at 11:22=E2=80=AFAM Salih Erim <salih.erim@amd.com> =
-wrote:
-> >
-> > Hi Guilherme,
-> >
-> > Replies are inline.
-> >
-> > On 4/14/2026 11:40 PM, Guilherme Ivo Bozi wrote: =20
-> > > ams_event_to_channel() may return a pointer past the end of
-> > > dev->channels when no matching scan_index is found. This can lead
-> > > to invalid memory access in ams_handle_event().
-> > >
-> > > Add a bounds check in ams_event_to_channel() and return NULL when
-> > > no channel is found. Also guard the caller to safely handle this
-> > > case.
-> > >
-> > > Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
-> > > Signed-off-by: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
-> > > ---
-> > >   drivers/iio/adc/xilinx-ams.c | 5 +++++
-> > >   1 file changed, 5 insertions(+)
-> > >
-> > > diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-am=
-s.c
-> > > index 124470c92529..6191cd1b29a5 100644
-> > > --- a/drivers/iio/adc/xilinx-ams.c
-> > > +++ b/drivers/iio/adc/xilinx-ams.c
-> > > @@ -871,6 +871,9 @@ static const struct iio_chan_spec *ams_event_to_c=
-hannel(struct iio_dev *dev,
-> > >                  if (dev->channels[i].scan_index =3D=3D scan_index)
-> > >                          break;
-> > >
-> > > +       if (i =3D=3D dev->num_channels)
-> > > +               return NULL;
-> > > + =20
-> > The added lines use spaces for indentation instead of tabs. =20
-> I checked both locally and the raw mbox from lore.kernel.org, and the
-> indentation uses TAB characters consistently (^I in the diff).
->=20
-> To verify, I inspected the relevant hunk using cat -A:
->=20
-> ^I^Iif (dev->channels[i].scan_index =3D=3D scan_index)
-> ^I^I^Ibreak;
->=20
-> +^Iif (i =3D=3D dev->num_channels)
-> +^I^Ireturn NULL;
->=20
-> ^Ireturn &dev->channels[i];
->=20
-> I could not observe any indentation issues locally or from the raw mbox.
-FWIW they look good to me as well. Salih, I'd guess you have a local issue.
-b4 (on git.kernel.org) is really handy for ensuring none of those occur!
+On 5/8/26 12:21, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 4/29/26 15:13, Andre Przywara wrote:
+>> From: James Morse <james.morse@arm.com>
+>>
+>> The MPAM ACPI table lists the MPAM MSCs and indicates which resources
+>> in the system they control. Not everything this table can describe is
+>> supported by resctrl, e.g. memory-side-caches.
+>>
+>> Add the additional table parsing to avoid reporting these as 'unknown'
+>> to the MPAM driver. This allows class+component hierarchys to be built.
+>>
+>> Until resctrl has support for any of these resources, users would be
+>> in-kernel managers of a resource/PARTID or perf to query bandwidth
+>> counters on a resource resctrl is unaware of.
+> 
+> Does this patch give us anything needed for MPAM-Fb? It seems to just add
+> parsing for things we don't support in the MPAM driver.
 
-Jonathan
+I think you are right, this just parses more resource types from the MSC 
+table, but is otherwise unrelated to MPAM-Fb.
+I probably just cargo-culted this patch all the time ;-)
+Will drop it now.
 
->=20
-> >
-> > Salih
-> > =20
->=20
-> --
-> Guilherme Ivo
+Cheers,
+Andre.
+
+> 
+> Thanks,
+> 
+> Ben
+> 
+>>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/acpi/arm64/mpam.c | 91 +++++++++++++++++++++++++++++++++++++--
+>>   1 file changed, 88 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+>> index 84963a20c3e7..99c2bdbb3314 100644
+>> --- a/drivers/acpi/arm64/mpam.c
+>> +++ b/drivers/acpi/arm64/mpam.c
+>> @@ -95,17 +95,51 @@ static void acpi_mpam_parse_irqs(struct platform_device *pdev,
+>>   		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
+>>   }
+>>   
+>> -static int acpi_mpam_parse_resource(struct mpam_msc *msc,
+>> +#define UUID_MPAM_INTERCONNECT_TABLE		"fe2bd645-033b-49e6-9479-2e0b8b21d1cd"
+>> +
+>> +struct acpi_mpam_interconnect_descriptor_table {
+>> +	u8	type_uuid[16];
+>> +	u32	num_descriptors;
+>> +};
+>> +
+>> +struct acpi_mpam_interconnect_descriptor {
+>> +	u32	source_id;
+>> +	u32	destination_id;
+>> +	u8	link_type;
+>> +	u8	reserved[3];
+>> +};
+>> +
+>> +static int acpi_mpam_parse_resource(struct acpi_mpam_msc_node *tbl_msc,
+>> +				    struct mpam_msc *msc,
+>>   				    struct acpi_mpam_resource_node *res)
+>>   {
+>> +	struct acpi_mpam_interconnect_descriptor_table *tbl_int_tbl;
+>> +	struct acpi_mpam_interconnect_descriptor *tbl_int;
+>> +	guid_t int_tbl_uuid, spec_uuid;
+>>   	int level, nid;
+>>   	u32 cache_id;
+>> +	off_t offset;
+>>   
+>> +	/*
+>> +	 * Class IDs are somewhat arbitrary, but need to be co-ordinated.
+>> +	 * 0-N are caches,
+>> +	 * 64, 65: Interconnect, but ideally these would appear between the
+>> +	 *     classes the controls are adjacent to.
+>> +	 * 128: SMMU,
+>> +	 * 192-192+level: Memory Side Caches, nothing checks that N is a
+>> +	 *                small number.
+>> +	 * 255: Memory Controllers
+>> +	 *
+>> +	 * ACPI devices would need a class id allocated based on the _HID.
+>> +	 *
+>> +	 * Classes that the mpam driver can't currently plumb into resctrl
+>> +	 * are registered as UNKNOWN.
+>> +	 */
+>>   	switch (res->locator_type) {
+>>   	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
+>>   		cache_id = res->locator.cache_locator.cache_reference;
+>>   		level = find_acpi_cache_level_from_id(cache_id);
+>> -		if (level <= 0) {
+>> +		if (level <= 0 || level >= 64) {
+>>   			pr_err_once("Bad level (%d) for cache with id %u\n", level, cache_id);
+>>   			return -EINVAL;
+>>   		}
+>> @@ -120,6 +154,57 @@ static int acpi_mpam_parse_resource(struct mpam_msc *msc,
+>>   		}
+>>   		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
+>>   				       MPAM_CLASS_ID_DEFAULT, nid);
+>> +	case ACPI_MPAM_LOCATION_TYPE_SMMU:
+>> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_UNKNOWN,
+>> +				       128, res->locator.smmu_locator.smmu_interface);
+>> +	case ACPI_MPAM_LOCATION_TYPE_MEMORY_CACHE:
+>> +		cache_id = res->locator.mem_cache_locator.reference;
+>> +		level = res->locator.mem_cache_locator.level;
+>> +		if (192 + level >= 255) {
+>> +			pr_err_once("Bad level for memory side cache with reference %u\n",
+>> +				    cache_id);
+>> +			return -EINVAL;
+>> +		}
+>> +
+>> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
+>> +				       192 + level, cache_id);
+>> +
+>> +	case ACPI_MPAM_LOCATION_TYPE_INTERCONNECT:
+>> +		/* Find the descriptor table, and check it lands in the parent msc */
+>> +		offset = res->locator.interconnect_ifc_locator.inter_connect_desc_tbl_off;
+>> +		if (offset >= tbl_msc->length) {
+>> +			pr_err_once("Bad offset for interconnect descriptor on msc %u\n",
+>> +				    tbl_msc->identifier);
+>> +			return -EINVAL;
+>> +		}
+>> +		tbl_int_tbl = ACPI_ADD_PTR(struct acpi_mpam_interconnect_descriptor_table,
+>> +					   tbl_msc, offset);
+>> +		guid_parse(UUID_MPAM_INTERCONNECT_TABLE, &spec_uuid);
+>> +		import_guid(&int_tbl_uuid, tbl_int_tbl->type_uuid);
+>> +		if (guid_equal(&spec_uuid, &int_tbl_uuid)) {
+>> +			pr_err_once("Bad UUID for interconnect descriptor on msc %u\n",
+>> +				    tbl_msc->identifier);
+>> +			return -EINVAL;
+>> +		}
+>> +
+>> +		offset += sizeof(*tbl_int_tbl);
+>> +		offset += tbl_int_tbl->num_descriptors * sizeof(*tbl_int);
+>> +		if (offset >= tbl_msc->length) {
+>> +			pr_err_once("Bad num_descriptors for interconnect descriptor on msc %u\n",
+>> +				    tbl_msc->identifier);
+>> +			return -EINVAL;
+>> +		}
+>> +
+>> +		tbl_int = ACPI_ADD_PTR(struct acpi_mpam_interconnect_descriptor,
+>> +				       tbl_int_tbl, sizeof(*tbl_int_tbl));
+>> +		cache_id = tbl_int->source_id;
+>> +
+>> +		/* Unknown link type? */
+>> +		if (tbl_int->link_type != 0 && tbl_int->link_type == 1)
+>> +			return 0;
+>> +
+>> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_UNKNOWN,
+>> +				       64 + tbl_int->link_type, cache_id);
+>>   	default:
+>>   		/* These get discovered later and are treated as unknown */
+>>   		return 0;
+>> @@ -150,7 +235,7 @@ int acpi_mpam_parse_resources(struct mpam_msc *msc,
+>>   			return -EINVAL;
+>>   		}
+>>   
+>> -		err = acpi_mpam_parse_resource(msc, resource);
+>> +		err = acpi_mpam_parse_resource(tbl_msc, msc, resource);
+>>   		if (err)
+>>   			return err;
+>>   
+> 
 
 
