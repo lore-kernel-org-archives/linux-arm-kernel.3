@@ -4,129 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C64E3CD4855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D74C5CD4855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=peE4IcDbXY9F4wtUsC9WhQF7W1PjKBnz0AgPBFJR+Bw=; b=1r+ZbadxiLIU4v39Z53aGL089J
-	psXy5m6lZiZ4nUnaWwKwJLFcLlLa/yOKUngNxi9Sp98QdWr05GDBYNImw7yWmKKTtnH2dEu2CTkVC
-	gTvkOhuwqKL02s3/WTI83noF0PTgL8rq7u8QwbALAcNKBH9G6ayeq+a2i+/n+LO9ELsfDC5cF5/95
-	kRbtKmmOJSnfO5mjL/q/S0L0OS3jKP6o5h62/JmX/ASyEj4geZ3+W7XDq7Ver6Hhbra9FWoonLiLU
-	mrkVbr70Mszwi+yMzm6k5plPcWy0IpkUi0W8Z4MM7HeMZdLYgcEvcPg9JiZ9IWR3DrMBQYbbXBjaa
-	iajBw2wQ==;
+	bh=T8uF4XJN5pVGOa4/ionebJ4noXzbKCw2DQ5aeIiNYvI=; b=gbErwBH1fnWXuktxX+gE/SHIby
+	ZojbupeWyUH1GZJD0jWWahnadjzRsDbgWSyLiIr/R5vDRTVaCIe41r/xLol7JDmzMqnEelhnTjhdk
+	jfi2DouOr2zM/pzpbpEEGoMYmitKtfTO2GZLxm3HRUt6VCVHe88XQIqnSn4k0gSek1Rm53uEOtrVB
+	S4C3/Y4lwxZEMI0Q+d4cFCh3c1UyzTGqxkR9DQQhfpvxrzlLoQUQGmaFFTiksRpkAjH0U1c3rL3JJ
+	koSf6Ez5NjBauL6Zr1UAWPCa2ZhO8c1WO/DQrySlMQuCn9wYaYaDOAsWgaz98KxodAHa4OslrBIam
+	aqHcdsyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjbk-0000000GI48-2hPV;
-	Tue, 12 May 2026 09:40:56 +0000
-Received: from mail-southcentralusazon11012041.outbound.protection.outlook.com ([40.93.195.41] helo=SN4PR2101CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjbg-0000000GI2r-3Rzg
+	id 1wMjeT-0000000GIal-1wUk;
+	Tue, 12 May 2026 09:43:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMjeQ-0000000GIa4-471O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 09:40:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UrDBar3SdUR/s8D3q91KQV3Vh78kEUPUZhtA9I/ftwBRXh4IFZcLkzWjuAdH08P/jLBEX+D+mTIwWeZddoM17F+kFLx4t4MJxqiMgG3LkuNdIMFxaSviYqMxp6QLk/Cxq/Q/TfepWJG5f1dWmZv6hYDQEbqYpbRQ8DDj06WW5fOJM7AICebh3dH9j+NdB9uiPe5eXdpq/xwa7IPreWz2bxdWePxeFYwPp3rjT5JHcT3QIBFlnqShmXc/1y/O+NRsX0rdbpbmmgSWYA3ZP2nmWovDcw4mvhmCkDLy9s1baJCoAfx7r2vvxgz+pOnjePbXruktHSbgiGDzqZ7Y/YhXzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=peE4IcDbXY9F4wtUsC9WhQF7W1PjKBnz0AgPBFJR+Bw=;
- b=QrZSMpGLTMa3DbLYq/+7d0SlEIPwyQ11CKOxp6h0a3xCiX/GjfWF6TiSXlHmLsIOlmQiEQA0IeUEjM4+sINmhPr7fAYIGLCf4noL+GRt+byxLQ+mjwj8WUxwGoFBjn8HqlGxZrwl7zuPU4mit9FqkB/QzBV3HqKInHeDk1PnPxXLEij8zFXxji+UQ/KEE0CHZxUSz+suNM4WAvOsDboBRGxWx9JX6SB9EtDq0LNVSAHsJswCO7e6Tt5cQuJ+CdI8uRytOoRjs8VSD4aIZkDOI/DzkgWQ+kHslt+MgQaEmPoCTBLDb1zMr6en/fTsq1x2VkmStR9m5ennuoaYVmF25A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=peE4IcDbXY9F4wtUsC9WhQF7W1PjKBnz0AgPBFJR+Bw=;
- b=vlkpQRy6iuqbUF3TYTyvGNdR3UyCsH+qPuMpSA9E+i54DSpJ7PWzAu0xWDNypzzFroRxGzvAGOvlX606iUSxZvUpOqUaLmV427EIs4NnuNF8M3AZsGjngTuRAJGO0+Oo0GTLaMcEmcggDZVyxAC+3nJ12LaAsIyj6TvMPCZHxLo=
-Received: from CH3P221CA0019.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:1e7::18)
- by CO1PR10MB4804.namprd10.prod.outlook.com (2603:10b6:303:90::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
- 2026 09:40:47 +0000
-Received: from DM2PEPF00003FC9.namprd04.prod.outlook.com
- (2603:10b6:610:1e7:cafe::34) by CH3P221CA0019.outlook.office365.com
- (2603:10b6:610:1e7::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.16 via Frontend Transport; Tue, 12
- May 2026 09:40:46 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- DM2PEPF00003FC9.mail.protection.outlook.com (10.167.23.27) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Tue, 12 May 2026 09:40:44 +0000
-Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
- 2026 04:40:44 -0500
-Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
- 2026 04:40:44 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 12 May 2026 04:40:44 -0500
-Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64C9eblj1179617;
-	Tue, 12 May 2026 04:40:38 -0500
-Message-ID: <6a1f411c-d7ed-463b-abf1-277d8cc0c184@ti.com>
-Date: Tue, 12 May 2026 15:10:37 +0530
+	Tue, 12 May 2026 09:43:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6B32168F;
+	Tue, 12 May 2026 02:43:36 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9A61B3F85F;
+	Tue, 12 May 2026 02:43:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778579021; bh=kOJCRAzi8jgzXKpnIhPLyhNepCk5HM31TghjYXYjAI0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uITf4fT6jILBpyg+QQ3qv/fUDVVODZD2WAVrMq8QXenjTm6t8X3S3CFjPaWIPDBaS
+	 HJY9aBshvifAmmB7FHLLiouptlqfawwShtG3sr1QoftvTb6lOM88tRY64iK4UrHNlu
+	 hdN0fW8hyTDJRwR7X0AP10H0DmJ8FmVCtvrbR+Sw=
+Message-ID: <11b37e81-309e-47f1-b234-7d54bafe1b2e@arm.com>
+Date: Tue, 12 May 2026 10:43:35 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/2] net: ti: icssg: Derive stats array lengths
- from ARRAY_SIZE
-To: David CARLIER <devnexen@gmail.com>
-CC: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Roger Quadros
-	<rogerq@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, Jacob Keller
-	<jacob.e.keller@intel.com>, Meghana Malladi <m-malladi@ti.com>, Kevin Hao
-	<haokexin@gmail.com>, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	<netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>
-References: <20260512060627.3781329-1-danishanwar@ti.com>
- <20260512060627.3781329-2-danishanwar@ti.com>
- <CA+XhMqykBWcMdk+iNnOtUxM4MX6jpDyUwfuAVZFbjAShO9_v7Q@mail.gmail.com>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v3 2/5] arm_mpam: resctrl: Pre-allocate assignable
+ monitors
+To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
+ "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
+ "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
+ "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+ "dave.martin@arm.com" <dave.martin@arm.com>,
+ "david@kernel.org" <david@kernel.org>,
+ "dfustini@baylibre.com" <dfustini@baylibre.com>,
+ "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+ "gshan@redhat.com" <gshan@redhat.com>,
+ "james.morse@arm.com" <james.morse@arm.com>,
+ "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
+ "kobak@nvidia.com" <kobak@nvidia.com>,
+ "lcherian@marvell.com" <lcherian@marvell.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "peternewman@google.com" <peternewman@google.com>,
+ "punit.agrawal@oss.qualcomm.com" <punit.agrawal@oss.qualcomm.com>,
+ "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
+ "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
+ "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
+ "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
+ "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
+ "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
+ "zengheng4@huawei.com" <zengheng4@huawei.com>,
+ "x86@kernel.org" <x86@kernel.org>
+References: <20260511154147.557481-1-ben.horgan@arm.com>
+ <20260511154147.557481-3-ben.horgan@arm.com>
+ <TY4PR01MB1693081CFF2DCB47DA4C2F9C38B392@TY4PR01MB16930.jpnprd01.prod.outlook.com>
 Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <CA+XhMqykBWcMdk+iNnOtUxM4MX6jpDyUwfuAVZFbjAShO9_v7Q@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC9:EE_|CO1PR10MB4804:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95725563-dba7-4401-f5dc-08deb00a8a47
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700016|7416014|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: qliQV+g1iv50Bhs6QymB+nhUqXV7U4tioPtB+rtcRA20ZVkrz3Xc4NOeCY22c6jybTBLnFo+hrNAkpZOKEdwOWe1hCb8+UNts4fvIXZI9HN1+SY8f0JpCM35eeIsfdX35tIGQgwOwIwRKj+bYKd/BYoo33yCzilQsRKKIDbbkcQ+7x+MDHR2HF5BWBlAS7FSLku4nPadGLmCgp56xWTvT6iZZjBCACDSU4ylhCBzI+SuflAtbljdr3FlGfI1uy9srvV5fhxu+z1WQmZAri8WEhfLoz3oCChlwanE7yXxJXwQvbNAHZ64zs/QEG9yxGwq1IGLbMZ8GEe9Suza6em8Ya4tx4SGS3XCm5fXD1CDNI3a7dmUkwnHGuYbPwofwQAai5Y8Uy1wEDP2r3RShtvcUEpzzh/cRxHg1lYCUEF3g3RcD7GDNGTyVDxuTlZj5kqoXTiSe59RxpLbKWmRF6wWlRPkuLdKF/Sj7niFXDzcenn22aUzQjq17bYWOh9b3qXZarkNWiI3ntKSDu6GD+lj6KWxPs9nbeTteCNATv3VZgrzG8358mKkz8uErknR1nSnb4FPKo+1Cr6Fqj/8SeWVVDPkLGTfWdTE2a1m4M4jNE8G5lCleLHqc/zpKMvbV0uigvChc134luJXTWZYJq6ldgf8BdDKfnRt7Euip6tQipjNctvsMUl+1O6IG6Xfc+t5
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700016)(7416014)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SXsDK1hGUber3gTqBg4IZ618FhfJJ7ypPPhIMnrFYJQY9YqCj9RevWV5aQ3zol+FrdBEWL+GP0eVepjnegkkJTOJ8fHcNy9qaR2DbsZoirmlZ0OEbh1aqcEm8ghyEUA/ypD1K3wmHFNRq59YYCLKrafRkPcJ6m+l7BCSvAUc5avnlFqEWnDu89fGOaikhd2Qw5XPJovkh8vzWD9L2MlgaoV1xnx+ugoycavdrQtBAg7NHR9j3n+HtAcj7THfcXZ7CekhbwrOJK/HzcxjCPOOYzDMDh+q7aTeMQSx5VO/7pW1B6aswORUaK5hpjP4eSu/vHWDswEIPEVxSslC53NDBD+T1A36VffypA0rp/RlMTqKBaLHG+3yEK769boZDx4Oqkg/qkoLQbqi5y+GflII0esItK8GQP/S4DLIhSVo6U366Uw9F7L2gyb9v/xjyTF/
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 09:40:44.8323
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95725563-dba7-4401-f5dc-08deb00a8a47
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC9.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR10MB4804
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <TY4PR01MB1693081CFF2DCB47DA4C2F9C38B392@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_024053_086318_00D42345 
-X-CRM114-Status: GOOD (  29.02  )
+X-CRM114-CacheID: sfid-20260512_024343_498920_B9D6981E 
+X-CRM114-Status: GOOD (  28.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,126 +97,313 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+Hi Shaopeng,
 
-On 12/05/26 1:28 pm, David CARLIER wrote:
-> Hi MD,
+Thanks for the quick review.
+
+On 5/12/26 08:16, Shaopeng Tan (Fujitsu) wrote:
+> Hello Ben,
 > 
-> On Tue, 12 May 2026 at 07:06, MD Danish Anwar <danishanwar@ti.com> wrote:
+> 
+>> MPAM is able to emulate ABMC, i.e. mbm_event mode, by making memory
+>> bandwidth monitors assignable. Rather than supporting the 'default'
+>> mbm_assign_mode always use 'mbm_event' mode even if there are sufficient
+>> memory bandwidth monitors. The per monitor event configuration is only
+>> provided by resctrl when in 'mbm_event' mode and so only allowing
+>> 'mbm_event' mode will make it easier to support per-monitor event
+>> configuration for MPAM. For the moment, the only event supported is
+>> mbm_total_event with no bandwidth type configuration. The 'mbm_assign_mode'
+>> file will still show 'default' when there is no support for memory
+>> bandwidth monitoring.
 >>
->> Replace the manually maintained ICSSG_NUM_MIIG_STATS and
->> ICSSG_NUM_PA_STATS constants with ARRAY_SIZE() expressions derived
->> directly from the corresponding stat descriptor arrays, so that adding
->> new entries to icssg_all_miig_stats[] or icssg_all_pa_stats[] no longer
->> requires a separate update to a numeric constant.
+>> The monitors need to be allocated from the driver, and mapped to whichever
+>> control/monitor group resctrl wants to use them with.
 >>
->> To make this self-contained, break the circular include dependency
->> between icssg_stats.h and icssg_prueth.h:
+>> Add a second array to hold the monitor values indexed by resctrl's cntr_id.
 >>
->>   - icssg_stats.h previously included icssg_prueth.h (transitively
->>     pulling in icssg_switch_map.h and ETH_GSTRING_LEN).  Replace that
->>     with direct includes of <linux/ethtool.h>, <linux/kernel.h> and
->>     "icssg_switch_map.h".
+>> When CDP is in use, two monitors are needed so the available number of
+>> counters halves. Platforms with one monitor will have zero monitors when
+>> CDP is in use.
 >>
->>   - icssg_prueth.h now includes icssg_stats.h, giving it access to
->>     the ARRAY_SIZE-based ICSSG_NUM_MIIG_STATS and ICSSG_NUM_PA_STATS
->>     before they are used in the prueth_emac struct and ICSSG_NUM_STATS.
->>
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>> Co-developed-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 >> ---
->>  drivers/net/ethernet/ti/icssg/icssg_prueth.h | 3 +--
->>  drivers/net/ethernet/ti/icssg/icssg_stats.h  | 7 ++++++-
->>  2 files changed, 7 insertions(+), 3 deletions(-)
+>> Changes since rfc v1:
+>> abmc enabled even if enough counters
+>> Helpers from dropped free running commits
+>> carry on with zero counters if using cdp
+>> set config bits
+>> use kmalloc_objs
+>> drop tags for rework
+>> Configure mbm_cntr_configurable, mbm_cntr_assign_fixed
 >>
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> index df93d15c5b78..e2ccecb0a0dd 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> @@ -43,6 +43,7 @@
+>> Changes since rfc v2:
+>> Don't set mon->assigned_counters to an error pointer
+>> Fix mpam_resctrl_teardown_mon()
+>> Remove free running check
+>> Separate cleanup allocations, e.g. __free(), from the rest
+>> Restrict scope on err in mpam_resctrl_monitor_init()
+>> ---
+>>  drivers/resctrl/mpam_internal.h |   6 +-
+>>  drivers/resctrl/mpam_resctrl.c  | 138 +++++++++++++++++++++++++++++++-
+>>  2 files changed, 140 insertions(+), 4 deletions(-)
 >>
->>  #include "icssg_config.h"
->>  #include "icss_iep.h"
->> +#include "icssg_stats.h"
->>  #include "icssg_switch_map.h"
->>
->>  #define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
->> @@ -57,8 +58,6 @@
->>
->>  #define ICSSG_MAX_RFLOWS       8       /* per slice */
->>
->> -#define ICSSG_NUM_PA_STATS     32
->> -#define ICSSG_NUM_MIIG_STATS   60
->>  /* Number of ICSSG related stats */
->>  #define ICSSG_NUM_STATS (ICSSG_NUM_MIIG_STATS + ICSSG_NUM_PA_STATS)
->>  #define ICSSG_NUM_STANDARD_STATS 31
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
->> index 5ec0b38e0c67..b854eb587c1e 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
->> @@ -8,10 +8,15 @@
->>  #ifndef __NET_TI_ICSSG_STATS_H
->>  #define __NET_TI_ICSSG_STATS_H
->>
->> -#include "icssg_prueth.h"
->> +#include <linux/ethtool.h>
->> +#include <linux/kernel.h>
->> +#include "icssg_switch_map.h"
->>
->>  #define STATS_TIME_LIMIT_1G_MS    25000    /* 25 seconds @ 1G */
->>
->> +#define ICSSG_NUM_MIIG_STATS   ARRAY_SIZE(icssg_all_miig_stats)
->> +#define ICSSG_NUM_PA_STATS     ARRAY_SIZE(icssg_all_pa_stats)
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>> index 1914aefdcba9..7a166b395b5a 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -411,7 +411,11 @@ struct mpam_resctrl_res {
+>>  struct mpam_resctrl_mon {
+>>          struct mpam_class       *class;
+>>  
+>> -       /* per-class data that resctrl needs will live here */
+>> +       /* Array of allocated MBWU monitors, indexed by (closid, rmid). */
+>> +       int                     *mbwu_idx_to_mon;
 >> +
->>  struct miig_stats_regs {
->>         /* Rx */
->>         u32 rx_packets;
+>> +       /* Array of assigned MBWU monitors, indexed by idx argument. */
+>> +       int                     *assigned_counters;
+>>  };
+>>  
+>>  static inline int mpam_alloc_csu_mon(struct mpam_class *class)
+>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>> index f70fa65d39e4..cba295621f56 100644
+>> --- a/drivers/resctrl/mpam_resctrl.c
+>> +++ b/drivers/resctrl/mpam_resctrl.c
+>> @@ -75,6 +75,8 @@ static DECLARE_WAIT_QUEUE_HEAD(wait_cacheinfo_ready);
+>>   */
+>>  static bool resctrl_enabled;
+>>  
+>> +static unsigned int l3_num_allocated_mbwu = ~0;
+>> +
+>>  bool resctrl_arch_alloc_capable(void)
+>>  {
+>>          struct mpam_resctrl_res *res;
+>> @@ -140,7 +142,7 @@ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+>>  
+>>  bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
+>>  {
+>> -       return false;
+>> +       return (r == &mpam_resctrl_controls[RDT_RESOURCE_L3].resctrl_res);
+>>  }
+>>  
+>>  int resctrl_arch_mbm_cntr_assign_set(struct rdt_resource *r, bool enable)
+>> @@ -185,6 +187,22 @@ static void resctrl_reset_task_closids(void)
+>>          read_unlock(&tasklist_lock);
+>>  }
+>>  
+>> +static void mpam_resctrl_monitor_sync_abmc_vals(struct rdt_resource *l3)
+>> +{
+>> +       l3->mon.num_mbm_cntrs = l3_num_allocated_mbwu;
+>> +       if (cdp_enabled)
+>> +               l3->mon.num_mbm_cntrs /= 2;
+>> +
+>> +       /*
+>> +        * Continue as normal even if there are zero counters to avoid giving
+>> +        * resctrl mixed messages.
+>> +        */
+>> +       l3->mon.mbm_cntr_assignable = true;
+>> +       l3->mon.mbm_assign_on_mkdir = true;
+>> +       l3->mon.mbm_cntr_configurable = false;
+>> +       l3->mon.mbm_cntr_assign_fixed = true;
+>> +}
+>> +
+>>  int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
+>>  {
+>>          u32 partid_i = RESCTRL_RESERVED_CLOSID, partid_d = RESCTRL_RESERVED_CLOSID;
+>> @@ -244,6 +262,7 @@ int resctrl_arch_set_cdp_enabled(enum resctrl_res_level rid, bool enable)
+>>          WRITE_ONCE(arm64_mpam_global_default, mpam_get_regval(current));
+>>  
+>>          resctrl_reset_task_closids();
+>> +       mpam_resctrl_monitor_sync_abmc_vals(l3);
+>>  
+>>          for_each_possible_cpu(cpu)
+>>                  mpam_set_cpu_defaults(cpu, partid_d, partid_i, 0, 0);
+>> @@ -613,6 +632,9 @@ static bool class_has_usable_mbwu(struct mpam_class *class)
+>>          if (!mpam_has_feature(mpam_feat_msmon_mbwu, cprops))
+>>                  return false;
+>>  
+>> +       if (!cprops->num_mbwu_mon)
+>> +               return false;
+>> +
+>>          return true;
+>>  }
+>>  
+>> @@ -935,6 +957,52 @@ static void mpam_resctrl_pick_mba(void)
+>>          }
+>>  }
+>>  
+>> +static void __free_mbwu_mon(struct mpam_class *class, int *array,
+>> +                           u16 num_mbwu_mon)
+>> +{
+>> +       for (int i = 0; i < num_mbwu_mon; i++) {
+>> +               if (array[i] < 0)
+>> +                       continue;
+>> +
+>> +               mpam_free_mbwu_mon(class, array[i]);
+>> +               array[i] = ~0;
+>> +       }
+>> +}
+>> +
+>> +static int __alloc_mbwu_mon(struct mpam_class *class, int *array,
+>> +                           u16 num_mbwu_mon)
+>> +{
+>> +       for (int i = 0; i < num_mbwu_mon; i++) {
+>> +               int mbwu_mon = mpam_alloc_mbwu_mon(class);
+>> +
+>> +               if (mbwu_mon < 0) {
+>> +                       __free_mbwu_mon(class, array, num_mbwu_mon);
+>> +                       return mbwu_mon;
+>> +               }
+>> +               array[i] = mbwu_mon;
+>> +       }
+>> +
+>> +       l3_num_allocated_mbwu = min(l3_num_allocated_mbwu, num_mbwu_mon);
+>> +
+>> +       return 0;
+>> +}
+>> +
+>> +static int *__alloc_mbwu_array(struct mpam_class *class, u16 num_mbwu_mon)
+>> +{
+>> +       int err;
+>> +
+>> +       int *array __free(kfree) = kmalloc_objs(*array, num_mbwu_mon);
+>> +       if (!array)
+>> +               return ERR_PTR(-ENOMEM);
+>> +
+>> +       memset(array, -1, num_mbwu_mon * sizeof(*array));
+>> +
+>> +       err = __alloc_mbwu_mon(class, array, num_mbwu_mon);
+>> +       if (err)
+>> +               return ERR_PTR(err);
+>> +       return_ptr(array);
+>> +}
+>> +
+>>  static void counter_update_class(enum resctrl_event_id evt_id,
+>>                                   struct mpam_class *class)
+>>  {
+>> @@ -1089,6 +1157,38 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
+>>          return comp->comp_id;
+>>  }
+>>  
+>> +/*
+>> + * This must run after all event counters have been picked so that any free
+>> + * running counters have already been allocated.
+>> + */
+>> +static int mpam_resctrl_monitor_init_abmc(struct mpam_resctrl_mon *mon)
+>> +{
+>> +       struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
+>> +       struct rdt_resource *l3 = &res->resctrl_res;
+>> +       struct mpam_class *class = mon->class;
+>> +       u16 num_mbwu_mon;
+>> +       size_t num_rmid = resctrl_arch_system_num_rmid_idx();
+>> +       int *cntrs;
+> 
+> Wouldn't a reverse tree format be better?
+
+Do you mean just moving the num_rmid line up? If so, yes, that is a bit neater.
+
+	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
+	size_t num_rmid = resctrl_arch_system_num_rmid_idx();
+	struct rdt_resource *l3 = &res->resctrl_res;
+	struct mpam_class *class = mon->class;
+	u16 num_mbwu_mon;
+	int *cntrs;
+
+> 
+>> +       int *rmid_array __free(kfree) = kmalloc_objs(*rmid_array, num_rmid);
+>> +       if (!rmid_array) {
+>> +               pr_debug("Failed to allocate RMID array\n");
+>> +               return -ENOMEM;
+>> +       }
+>> +       memset(rmid_array, -1, num_rmid * sizeof(*rmid_array));
+>> +
+>> +       num_mbwu_mon = class->props.num_mbwu_mon;
+>> +       cntrs = __alloc_mbwu_array(mon->class, num_mbwu_mon);
+>> +       if (IS_ERR(cntrs))
+>> +               return PTR_ERR(cntrs);
+>> +       mon->assigned_counters = cntrs;
+>> +       mon->mbwu_idx_to_mon = no_free_ptr(rmid_array);
+>> +
+>> +       mpam_resctrl_monitor_sync_abmc_vals(l3);
+>> +
+>> +       return 0;
+>> +}
+>> +
+>>  static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
+>>                                       enum resctrl_event_id type)
+>>  {
+>> @@ -1133,8 +1233,21 @@ static int mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
+>>           */
+>>          l3->mon.num_rmid = resctrl_arch_system_num_rmid_idx();
+>>  
+>> -       if (resctrl_enable_mon_event(type, false, 0, NULL))
+>> -               l3->mon_capable = true;
+>> +       if (type == QOS_L3_MBM_TOTAL_EVENT_ID) {
+>> +               int err;
+>> +
+>> +               err = mpam_resctrl_monitor_init_abmc(mon);
+>> +               if (err)
+>> +                       return err;
+>> +
+>> +               static_assert(MAX_EVT_CONFIG_BITS == 0x7f);
+>> +               l3->mon.mbm_cfg_mask = MAX_EVT_CONFIG_BITS;
+>> +       }
+>> +
+>> +       if (!resctrl_enable_mon_event(type, false, 0, NULL))
+>> +               return -EINVAL;
+>> +
+>> +       l3->mon_capable = true;
+>>  
+>>          return 0;
+>>  }
+>> @@ -1697,6 +1810,23 @@ void mpam_resctrl_exit(void)
+>>          resctrl_exit();
+>>  }
+>>  
+>> +static void mpam_resctrl_teardown_mon(struct mpam_resctrl_mon *mon, struct mpam_class *class)
+>> +{
+>> +       u32 num_mbwu_mon = l3_num_allocated_mbwu;
+>> +
+>> +       if (mon->mbwu_idx_to_mon)
+>> +               return;
+> 
+>  Isn't it 'if (mon->mbwu_idx_to_mon == NULL)' ?
+
+Oops... indeed.
+
+Thanks,
+
+Ben
+
+>  
+>  
+>  Best regards,
+>  Shaopeng TAN
+> 
+>> +       if (mon->assigned_counters) {
+>> +               __free_mbwu_mon(class, mon->assigned_counters, num_mbwu_mon);
+>> +               kfree(mon->assigned_counters);
+>> +               mon->assigned_counters = NULL;
+>> +       }
+>> +
+>> +       kfree(mon->mbwu_idx_to_mon);
+>> +       mon->mbwu_idx_to_mon = NULL;
+>> +}
+>> +
+>>  /*
+>>   * The driver is detaching an MSC from this class, if resctrl was using it,
+>>   * pull on resctrl_exit().
+>> @@ -1719,6 +1849,8 @@ void mpam_resctrl_teardown_class(struct mpam_class *class)
+>>          for_each_mpam_resctrl_mon(mon, eventid) {
+>>                  if (mon->class == class) {
+>>                          mon->class = NULL;
+>> +
+>> +                       mpam_resctrl_teardown_mon(mon, class);
+>>                          break;
+>>                  }
+>>          }
 >> --
->> 2.34.1
->>
-> 
-> One thing that caught my eye: icssg_all_miig_stats[] and
->   icssg_all_pa_stats[] are 'static const' arrays in icssg_stats.h with
->   ETH_GSTRING_LEN name buffers per entry. Right now only icssg_stats.c
->   and icssg_ethtool.c pull them in. After this patch icssg_prueth.h
->   includes icssg_stats.h, so every .c in the driver (classifier,
->   common, config, mii_cfg, queues, switchdev, ...) ends up with its own
->   static-const copy of both tables.
-> 
->   Would a static_assert() work for what you're after? Something like:
-> 
-
-While adding more stats manually, The ARRAY_SIZE() approach was
-explicitly requested by maintainer [1]:
-
-This patch is a direct response to that feedback. static_assert() would
-still require updating the numeric constant on every array change. The
-goal here is to eliminate the need of manually incrementing stats count
-whenever new stats are added
-
-Your concern about multiple copies of table is noted and valid. Could
-you advise on the preferred way to reconcile these two requirements? I
-am happy to restructure if there is an approach that satisfies both.
-
-[1]
-https://lore.kernel.org/all/20260112181436.4s5ceywwembn674r@skbuf/#:~:text=Can%27t%20this%20be%20expressed%20as%20ARRAY_SIZE(icssg_all_pa_stats)%3F%20It%20is%20very%0Afragile%20to%20have%20to%20count%20and%20update%20this%20manually.
-
-
->     static const struct icssg_miig_stats icssg_all_miig_stats[] = {
->         ...
->     };
->     static_assert(ARRAY_SIZE(icssg_all_miig_stats) == ICSSG_NUM_MIIG_STATS);
-> 
->   next to each array, keeping the numeric #defines as-is. Then 2/2 fails
->   to build the moment a new entry is added without bumping the count,
->   which is the case you're guarding against — without touching the
->   include graph.
-> 
-> What do you think ?
-> 
-> Cheers.
-
--- 
-Thanks and Regards,
-Danish
+>> 2.43.0
 
 
