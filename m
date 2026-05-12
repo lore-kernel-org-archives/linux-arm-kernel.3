@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE2ECD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 05:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DBE1CD4F27
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 05:22:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YIEXW/BFAtwXfWqD0NCtIzXlZTuKF+sJ2Ux3fsvSZKg=; b=YU3QMQbBcxHIkWQnHSdxmuU0WD
-	eaQ6T4psCitoFAKVBxgIyT5+EJ7JO1bKNBTrWd6yNjo5k4RVbaCiUkn1naCcCg/JquOBUFXDJ7dik
-	W8C1MYsQ9Nuth74Tvbu42FTEwrInJl+lcRJtsnqcTGQvg7d6zCDuPx0jwo6K6EZSl1+riOYuH6t5+
-	YHPAjwW1WNJsBxp/3LtAWVk1E4UooaLeMPHPoL+QnBZK5uIj8er/n/8TC4hWOjpHOWbWkBnMKa0Mo
-	jHFhscgpiDDxU0fjm5JSyeZP+mFPjWgP6jY9Onhic8EjWhyPnN6rRox3lE8ZoWz1M8Ulboi4qVH0m
-	p5y0LuZw==;
+	bh=Iueo791mRwnG+WFL6ABgwc7zbXDrjkXXtyAJQah+JSg=; b=n5iMLBB8c7duciM8BdnXsm6DNo
+	xa8M/DX6PY5YQDdRlJWfMveT8+JNRKT2EGctD+7q0BG2QNJ8KEIbnpCGVHrDgZnupV1496Dv3BRRZ
+	3vYaP1rjtsAp69eX58qBh6JhOuc+RImDD/CApqPMS8/DFlXpjd5d8RBrpMGpWdhd2CqALDIkay6Yw
+	XtXbjfTtAyQuHfDz8ynaEW85pRkyJPfkwyB4K8u1SqdpcWh3+as3qU6hSpdYNX9wPfwzSpLsX/X61
+	5bQ5LoE3nabj6wY9cBjcSvH6dG0eDgD1GYFCRSuayfn+RUGThVUiqokGFe/uUQOxV6+Xf6hJviR66
+	q9uCm2gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfZ9-0000000FZKk-0Wx1;
-	Tue, 12 May 2026 05:21:59 +0000
+	id 1wMfZA-0000000FZOO-1USo;
+	Tue, 12 May 2026 05:22:00 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfYu-0000000FYt4-2GeW;
-	Tue, 12 May 2026 05:21:49 +0000
+	id 1wMfYu-0000000FYt5-2GRD;
+	Tue, 12 May 2026 05:21:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DAC834471B;
+	by sea.source.kernel.org (Postfix) with ESMTP id ED9A944731;
 	Tue, 12 May 2026 05:21:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id B0CACC2BCFF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id C2EDBC4AF1C;
 	Tue, 12 May 2026 05:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1778563300;
-	bh=/p49E0kAapVpqQ1BgFexwVmJgZuamoRVrgCb0GktNF0=;
+	bh=DE9DtCJhXP2BqElPVUX9ed0zgo/XCG9/i5jncW01HEU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=BYbypev2x5JtDrd4+d6s8Ho7D0IWs5Usrx4GoMBnCzSay+xzBy93KS4+abYQIq5Sh
-	 WQ+9iZdy6yGA3PyzBHLMai6yZ6wn5NzxhQVEop79lWL3bdwtv5KXogNHuolj5sMnzK
-	 tLVefGnlshaJNqpRrUd1Mt2CT2Ea3WxoCOv23uuRNzMbsg/Ir5sW3D4IvCqL3ay/Co
-	 wo8aTpQrfPx5SJ0HnNxN0KpcjSQOhv8vZQJ8gOuNkPFNi0eLlvb5t0ERokCXmfd1U+
-	 fjGTSUBCIroPp3bV3v9ExL1YvZmI2fCZvkSkkDRjumn4wOWpkMJpM8DmHRYP8WrsqQ
-	 ijnB8d2Z0+NVg==
+	b=ffbE+zGJGCHr1lAYaJIR/6oJ9iU8LBZco0x0Tficx6r89p3Ly9zrEUzOegHrxguyd
+	 qHOFT0POxaO7S03I4cgc5yZAMDRAxQMQUTC+PSZMlg7Sc9MqOP47JUX3lhYI8vlfz0
+	 1Z1N0vv49imKJnADYpeKZgJ64GuxN+VSrNbwbHBlIPhOt5Gje3Y6ndZwiOjtzacyzB
+	 u1OgH0DaQFIpcE3UDC2lkylIhQu73XPQ4DgTiGLjb+ZEPjN/X1oRY5FOEN3IA+X+uo
+	 xGyojJehRUPIHVHvqr2OciQ/LU5bh5uM5XXFGg9qkbjq16PyZ+02f0ZpaoCFb7WBCU
+	 WJLAoViSUYHIA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A7993CD4851;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B9373CD4F24;
 	Tue, 12 May 2026 05:21:40 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Tue, 12 May 2026 08:18:29 +0300
-Subject: [PATCH v2 15/16] MAINTAINERS: add MediaTek mt6323 PMIC EFUSE
+Date: Tue, 12 May 2026 08:18:30 +0300
+Subject: [PATCH v2 16/16] MAINTAINERS: add MediaTek mt6323 PMIC thermal
  driver maintainer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260512-mt6323-v2-15-3efcba579e88@protonmail.com>
+Message-Id: <20260512-mt6323-v2-16-3efcba579e88@protonmail.com>
 References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
 In-Reply-To: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
 To: Jonathan Cameron <jic23@kernel.org>, 
@@ -74,19 +74,19 @@ Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
  Ben Grisdale <bengris32@protonmail.ch>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778563297; l=660;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778563297; l=692;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=if+Z5Y6WKURioqoOXDX0bP25C/WqfsUOAvh8ArrZ0l0=;
- b=+PAUp2rRKc2hyayPgfig+OPswFCKcw28umi1pE1EWA6SDbjVe3GbH5skbIdrNjk7zsueqwEVp
- d5k57KXidBsBi/AozWoFEn2srmGWDGSdvcBo7MvcyL/d7SE5A2BBF8s
+ bh=8NVcmhjcZUhwoicnOrm6owXnni+d+cpxkUFwQ33c1Hk=;
+ b=WuN6e8eFt0NDrjantucW+k4aytcYOhKb5NQLI+Q1K4YIL4RECU79bvOV8PH7sNGpbJyeE4bU4
+ iSn4SKfdH5aBINvQ7Sxh1OHbZdW6DFMOJXAR0+SgjlrMcnNwh/x96mn
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
  auth_id=777
 X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_222144_790951_38801E21 
-X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-CacheID: sfid-20260511_222144_857042_77F682C3 
+X-CRM114-Status: UNSURE (   8.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,7 +105,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Roman Vivchar <rva333@protonmail.com>
 
-Add myself as MediaTek mt6323 EFUSE driver maintainer.
+Add myself as MediaTek mt6323 thermal driver maintainer.
 
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
@@ -113,21 +113,21 @@ Signed-off-by: Roman Vivchar <rva333@protonmail.com>
  1 file changed, 5 insertions(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 52249c301633..bf2e066f377d 100644
+index bf2e066f377d..3001a713b083 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -16342,6 +16342,11 @@ M:	Roman Vivchar <rva333@protonmail.com>
- S:	Odd Fixes
- F:	drivers/iio/adc/mt6323-auxadc.c
+@@ -16355,6 +16355,11 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+ F:	drivers/leds/leds-mt6323.c
  
-+MEDIATEK PMIC EFUSE DRIVER
++MEDIATEK PMIC THERMAL DRIVER
 +M:	Roman Vivchar <rva333@protonmail.com>
 +S:	Odd Fixes
-+F:	drivers/nvmem/mt6323-efuse.c
++F:	drivers/thermal/mediatek/mtk_pmic_thermal.c
 +
- MEDIATEK PMIC LED DRIVER
- M:	Sen Chu <sen.chu@mediatek.com>
+ MEDIATEK RANDOM NUMBER GENERATOR SUPPORT
  M:	Sean Wang <sean.wang@mediatek.com>
+ S:	Maintained
 
 -- 
 2.54.0
