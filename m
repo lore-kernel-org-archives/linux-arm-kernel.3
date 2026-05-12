@@ -4,66 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0050DCD4855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0EA3CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zneASltas0oMQlIELljv5Hk5HU3jIgnWrTTwatdNdKk=; b=P2YBEWqALgN/inj1L68d0cZiPM
-	5VDo4KqkXjVtmDZG3WzCHgo8n7nalifhruhgr4+gXwtFJgx9RnfSY2yka0iQ/GraFdYmuGlX+VCNx
-	wmurb+tR/mqLtrQQwjVM49ius/bB/USUQgiOMUyFusEV19fNqmgLKBe2ofEQHh2w2sGTDJ/aaGL53
-	IFZ5kBP9o7AmzSmRR2Q+mkU0TK0BruTJ04nI2N4dVLym4yTb2lKTGWX6IKgCAzSW7tBZf1PG9tIn6
-	RKJf6iCWICrkk6keYlOKhITUTc6m58c6Am/4f1Rk8EbLzyUBKJJM418DDaQpGFxKcFJccCh56rA34
-	KBRa2iEg==;
+	bh=Kw0m2zJLGia1JcDNhMtQqbsIl0gkUJMpBMDpnKOPxwI=; b=vX+QbnvFC3p63P5CtoxSbg9ZcD
+	z95v76pK2r3VT6TNskBWPiu8+77wQ/Tpf2TjrIA5AExQ8juaOxYChPPiC89gcY4z0k+r0kDZ3eO0F
+	W+/bixpKzdT2ruXV14GkFr01rZ4BfsVSBDHbCJW9WR8lWUg+PxEsP6eWJ0CptKMq4UzFVfRT8MrCr
+	Z5+OhhkliBbK4Bv5URTWzAMUMyEYIt98f4hyEa2EmLVRZbPs2VeDPxZ8DEb1UVK7Nw0ygBOsNB+mN
+	BB7jAzNt1OOajlcw+uxqFQ8GMvhaxZTN2pG9JiykpXV4iPLa1jemD+r5wMun+X0nAeBx8dI6WrN5P
+	35RYRW4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhdi-0000000FwJg-28cz;
-	Tue, 12 May 2026 07:34:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMhhB-0000000Fwvh-3W1d;
+	Tue, 12 May 2026 07:38:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhdg-0000000FwJ9-2GG2
+	id 1wMhhB-0000000Fwux-0n3a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 07:34:49 +0000
+	Tue, 12 May 2026 07:38:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E4D2944071;
-	Tue, 12 May 2026 07:34:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E27BC2BCB0;
-	Tue, 12 May 2026 07:34:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778571287;
-	bh=T/Fjk+Ia8FeTP20elfFPSEy0lY7bZ7cUA3AKIwU37ZU=;
+	by tor.source.kernel.org (Postfix) with ESMTP id 61416600CB;
+	Tue, 12 May 2026 07:38:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAF9BC2BCB0;
+	Tue, 12 May 2026 07:38:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1778571504;
+	bh=Jv9TaO2hjTbCqZRz8ettFr/wuhIOEDMTUYhHzvA0e0U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b41QgKN8/pvSDbgptQLL7kDNut1BOUGA+W90IztVp/QJIz4DmjpHViUqgm/gWcQBz
-	 /9/D2QNqr9SK4X+RbqudiJWkDEEVS9L3KwnOM4JC44SXAvdIFvUj7OSxK3CGgaRwDJ
-	 nXTiq364Pe3yj5QXmN28eoof2LFc4DHIM8kFeMD02s2BfGrXaGWt1cshwD77t1G/07
-	 MpzPeeblgO2xG2d5a+l0zl/boS90vAeUnnrnrfx4V7Zp1J8MfLyy+lzezR/GiLquHm
-	 3en05WEMaCYfwHxwequ5zjGWKhCJV9dTxl6TKSXAnKpavL/VP33QA7T4GVZiKypF+D
-	 +HPwrkBZaQQeg==
-Date: Tue, 12 May 2026 16:34:42 +0900
-From: Nathan Chancellor <nathan@kernel.org>
-To: Mithil Bavishi <bavishimithil@gmail.com>
-Cc: Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <kees@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org, llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: OMAP2+: Make OMAP4 finish_suspend callback CFI-safe
-Message-ID: <20260512073442.GA570003@ax162>
-References: <20260512042341.1452-1-bavishimithil@gmail.com>
+	b=fpU3TJ5FZTBVUBfkMFFM9BHUYHUUUX+RmuvcYsrc5lp8O5QM7bc8vC/upYuo6DiSV
+	 DPGlPS75A76Yxb8QbqgBEO2iRpL1fzkCWo04QXT4kpUzHr8QbZDA1IXEWNXappogft
+	 uKXzedgzXHS0S6Q95menZl2lKOi8pTIuI5o31lOA=
+Date: Tue, 12 May 2026 09:38:21 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+Cc: linux-kernel@vger.kernel.org, git@amd.com, shubhrajyoti.datta@gmail.com,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Michal Simek <michal.simek@amd.com>, linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [LINUX PATCH] serial: xilinx_uartps: fix runtime PM race during
+ probe
+Message-ID: <2026051211-ladylike-dormitory-76b6@gregkh>
+References: <176bdb50948e99c40f8baaeaac9ffc5eaf10816f.1778567817.git.shubhrajyoti.datta@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260512042341.1452-1-bavishimithil@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_003448_598418_6BF5AA24 
-X-CRM114-Status: GOOD (  22.23  )
+In-Reply-To: <176bdb50948e99c40f8baaeaac9ffc5eaf10816f.1778567817.git.shubhrajyoti.datta@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,54 +68,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 12:23:41AM -0400, Mithil Bavishi wrote:
-> With CONFIG_CFI enabled, OMAP4 can trap in omap4_enter_lowpower()
-> because omap_pm_ops.finish_suspend points directly to the assembly
-> routine omap4_finish_suspend, which lacks the expected KCFI type
-> metadata.
-
-It sounds like omap4_finish_suspend() should be defined with
-SYM_TYPED_FUNC_START then? Is that the case for all of the other
-functions that are added to omap_pm_ops?
-
-> Add a small C wrapper with the exact callback prototype and use it for
-> finish_suspend.
+On Tue, May 12, 2026 at 12:11:33PM +0530, Shubhrajyoti Datta wrote:
+> pm_runtime_enable() was called with usage_count=0, allowing the PM
+> core to immediately queue a deferred suspend via pm_runtime_work.
+> This raced with console write, causing cdns_runtime_suspend to
+> fire before the port was fully registered.
 > 
-> Signed-off-by: Mithil Bavishi <bavishimithil@gmail.com>
+> Hold a reference with pm_runtime_get_noresume() before enabling
+> runtime PM.
+> 
+> Fixes: d62100f1aac2 ("serial: xilinx_uartps: Add pm runtime support")
+> Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 > ---
->  arch/arm/mach-omap2/omap-mpuss-lowpower.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
+>  drivers/tty/serial/xilinx_uartps.c | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> diff --git a/arch/arm/mach-omap2/omap-mpuss-lowpower.c b/arch/arm/mach-omap2/omap-mpuss-lowpower.c
-> index f18ef45e2..1c51b2f97 100644
-> --- a/arch/arm/mach-omap2/omap-mpuss-lowpower.c
-> +++ b/arch/arm/mach-omap2/omap-mpuss-lowpower.c
-> @@ -111,6 +111,11 @@ static struct cpu_pm_ops omap_pm_ops = {
->  	.hotplug_restart	= dummy_cpu_resume,
->  };
+> diff --git a/drivers/tty/serial/xilinx_uartps.c b/drivers/tty/serial/xilinx_uartps.c
+> index a072b75dbaf2..e316cac4f35b 100644
+> --- a/drivers/tty/serial/xilinx_uartps.c
+> +++ b/drivers/tty/serial/xilinx_uartps.c
+> @@ -1800,6 +1800,7 @@ static int cdns_uart_probe(struct platform_device *pdev)
+>  	pm_runtime_use_autosuspend(&pdev->dev);
+>  	pm_runtime_set_autosuspend_delay(&pdev->dev, UART_AUTOSUSPEND_TIMEOUT);
+>  	pm_runtime_set_active(&pdev->dev);
+> +	pm_runtime_get_noresume(&pdev->dev);
+>  	pm_runtime_enable(&pdev->dev);
+>  	device_init_wakeup(port->dev, true);
 >  
-> +static int omap4_finish_suspend_wrapper(unsigned long cpu_state)
-> +{
-> +	return omap4_finish_suspend(cpu_state);
-> +}
-> +
->  /*
->   * Program the wakeup routine address for the CPU0 and CPU1
->   * used for OFF or DORMANT wakeup.
-> @@ -437,7 +442,7 @@ int __init omap4_mpuss_init(void)
+> @@ -1824,6 +1825,8 @@ static int cdns_uart_probe(struct platform_device *pdev)
+>  			"uart_add_one_port() failed; err=%i\n", rc);
+>  		goto err_out_pm_disable;
 >  	}
+> +	pm_runtime_mark_last_busy(&pdev->dev);
+> +	pm_runtime_put_autosuspend(&pdev->dev);
 >  
->  	if (cpu_is_omap44xx()) {
-> -		omap_pm_ops.finish_suspend = omap4_finish_suspend;
-> +		omap_pm_ops.finish_suspend = omap4_finish_suspend_wrapper;
->  		omap_pm_ops.resume = omap4_cpu_resume;
->  		omap_pm_ops.scu_prepare = scu_pwrst_prepare;
->  		omap_pm_ops.hotplug_restart = omap4_secondary_startup;
+>  #ifdef CONFIG_SERIAL_XILINX_PS_UART_CONSOLE
+>  	/* This is not port which is used for console that's why clean it up */
+> @@ -1842,6 +1845,7 @@ static int cdns_uart_probe(struct platform_device *pdev)
+>  	return 0;
+>  
+>  err_out_pm_disable:
+> +	pm_runtime_put_noidle(&pdev->dev);
+>  	pm_runtime_disable(&pdev->dev);
+>  	pm_runtime_set_suspended(&pdev->dev);
+>  	pm_runtime_dont_use_autosuspend(&pdev->dev);
 > -- 
-> 2.43.0
+> 2.49.1
 > 
 
--- 
-Cheers,
-Nathan
+Hi,
+
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
+
+You are receiving this message because of the following common error(s)
+as indicated below:
+
+- You have marked a patch with a "Fixes:" tag for a commit that is in an
+  older released kernel, yet you do not have a cc: stable line in the
+  signed-off-by area at all, which means that the patch will not be
+  applied to any older kernel releases.  To properly fix this, please
+  follow the documented rules in the
+  Documentation/process/stable-kernel-rules.rst file for how to resolve
+  this.
+
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
+
+thanks,
+
+greg k-h's patch email bot
 
