@@ -4,83 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AB3ECD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 04:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93800CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 04:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PMohrpuW1XNL8Tl/+HzHMhndaieksY4cT+Td0vyTTOM=; b=WaCKRuWWsRcipT
-	bdtkM6N7BQhtYyWJCz7jh9CM37gAKMdqdolo8YcdOVrYTzLBlL8Hbg6zAZlYul+rTnLwyOK6ii6qz
-	SnQSYePtwxV9MVLoiZ3H6palmZjrrkX8rCuxzJr4GtTZ4XAKxjdN6ll60qvsyhJ9qTOPAZYkg2Lkh
-	qnNvvxHYkRsZfJj5L4GGk2c8hBQMJ36hZ1lBKdCsQHPADUqOTWPDYAv72UuTm6+jP/PgFwgK4FIoW
-	As9FaVf1LACtf/pxSr9/2bfwkLe+/pNlsq5jDPgsjGxeT8PahHVSUyRJkKWnloZqDa95liAfDffsl
-	+PCtIYCKGDwDJ4IHNEog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b39iRkdeAbf1CRvk6sxIU/W3t/buJ3cnlV/F50ibrYk=; b=ckteD/Qr3llRDUeyjUN/zLZfva
+	dc8JUueOo7ZhJsupsnd7P2JeLnaI5zrcssEfUlUYraYawY6nyTOo3NshorJCz7UU1VFbcNk7Gh4Sp
+	NV/0geKnwPwe7fMQTfRGtTbcw6ZaB7tucNP6KptWv2X/v/ia0HjRvK9ccTUnGXloETU8SMMybNz+C
+	77Y2C8+o/J1xp68U8febRd2MURchFiqfHBhrVY5oOitnj/+EoBXkM0oTPapZNk0kRrxeL/9A1BxTy
+	Dsw5VvS87tZYffCIYvcMfC3u07jDdIWdxvrhV9RdUzZ4kw0M6tg8iISAwE7vxI/OOa8SUoIJsOJpy
+	wzH16eAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMeoz-0000000FTtv-1Ytc;
-	Tue, 12 May 2026 04:34:20 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wMdt7-0000000FNCP-1kDB;
+	Tue, 12 May 2026 03:34:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMeos-0000000FTUz-2N5p;
-	Tue, 12 May 2026 04:34:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1778560426;
-	bh=MWhaDdak5r98qO1rolBpIOh2PBCTRceavWLUZ9x9mwc=;
-	h=From:Subject:Date:To:Cc:From;
-	b=pbz1IkRoxHMmyP/RE7fwIQLtsXRqGR54tiKENMif+OLYz+4D06l5aJ7Fv4L6hnrkP
-	 sqJDpqR2Lsqg75FbLHSM7yqeDj++jgMFk46o3FQY6sNSDvPsnExUShQxvazgem7RSb
-	 PEHyIegYT7IAMJliv5jGy4vrmYpfJITp7XU6O0CkAUVB+r3fDiDCvhwx64bnDDY040
-	 /ygu7jZ8Y0Ay4Rq6JUfV4SGBGYgwUHPc77zPvN+g2iJI7cwxQNmQFjFu1ceXT1H8c0
-	 NA6ZdLjEAzoNXJQkxBNXh78MxhizGHQMOoimOCOFEHsgpn7MOzFNYNLydTScyrE0t5
-	 guEUDwbtkd9AQ==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 91F0417E138B;
-	Tue, 12 May 2026 06:33:45 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Subject: [PATCH net-next v3 0/6] Introduce Airoha AN8801R series Gigabit
- Ethernet PHY driver
-Date: Tue, 12 May 2026 06:33:17 +0200
-Message-Id: <20260512-add-airoha-an8801-support-v3-0-1edb34e363ae@collabora.com>
+	id 1wMdt2-0000000FN8y-2ySV;
+	Tue, 12 May 2026 03:34:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=b39iRkdeAbf1CRvk6sxIU/W3t/buJ3cnlV/F50ibrYk=; b=WpI0Fl/7E3UHz7wH6Gpf0YCljk
+	vDnHVmp/RY6JZmzVLqF1j8KT8Hne+GEHkcf0FJMwcFrT1f9VLIgg7BByPeNndj+k9WshRuOTspHUi
+	+0fZuU644iO7kNpw2aiL0DhUPdZi/64SuW7y9szU4co4u9K3+NEUBLEzf52BatqaHUrBXF3B8oHZV
+	tTzCdMlvCkxFgJIG2WR/GIeES8hV96fTIKefGooR6H0YGbojQMnnDTvm4UUzdAkVlrnyQgGyg4tT2
+	hhlk/Q+abUC3o5cTaklXwM87C6EKlhK/MNW+Mp7CfSYk0rI79aaD+4sQmhR6olTB/z2VWMs1Z4iZk
+	EenK59Bw==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMdsw-0000000DYbJ-2BRX;
+	Tue, 12 May 2026 03:34:23 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 64C3XIJG03571934, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1778556798; bh=b39iRkdeAbf1CRvk6sxIU/W3t/buJ3cnlV/F50ibrYk=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=N9VY6Bcws19ekXPWrJ8M5qYHsf4z1yU550RbNBFXq6SslSqwemJWDJgLQA+x0I/Ri
+	 vuldl9dQYwoGXv+5/I54Ae3fa/DpXDN0qp7wreLwLX/21P0t+dWG7+HOn4WnmjGWgu
+	 +17aEHAZ1RxPl1ipVzNzf4TPjhiu3yguDG6nvIjDvBTbwAzEOi4jPn7ZzFHbqHZQ5I
+	 M/zryn0xfPQLvYeqdimKj3BQRNNww/OJY18x4K6X8+kXEXC5Ni/OO6XSD/FuuiaoEy
+	 h+ArCzE/9y4wGUXAy1JwQejbNHWrxjxbvX7DHoSzkdri2bdUrvlPYA1TgNmn0ICGM7
+	 v9lTnRAos7Mwg==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 64C3XIJG03571934
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 12 May 2026 11:33:18 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Tue, 12 May 2026 11:33:19 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Tue, 12 May 2026 11:33:18 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
+ (10.21.1.55) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 12 May 2026 11:33:18 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <linusw@kernel.org>, <brgl@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <afaerber@suse.com>,
+        <wbg@kernel.org>, <mathieu.dubois-briand@bootlin.com>,
+        <mwalle@kernel.org>, <lars@metafoo.de>, <Michael.Hennerich@analog.com>,
+        <jic23@kernel.org>, <nuno.sa@analog.com>, <andy@kernel.org>,
+        <dlechner@baylibre.com>, <tychang@realtek.com>
+CC: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-realtek-soc@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+        <eleanor.lin@realtek.com>, <james.tai@realtek.com>,
+        Linus Walleij
+	<linus.walleij@linaro.org>
+Subject: [PATCH v3 3/7] gpio: regmap: Add gpio_regmap_operation and write-enable support
+Date: Tue, 12 May 2026 11:33:13 +0800
+Message-ID: <20260512033317.1602537-4-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260512033317.1602537-1-eleanor.lin@realtek.com>
+References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33PPW7DMAwF4KsYmquC+rWdqfcoOlASXQtILFdSj
- BSB717BzVB0yEg88OPjnRXKkQo7dXeWaYslpqUN6qVjfsblk3gMbWYSpAUFimMIHGNOM3JchgE
- EL9d1Tbly0wejNWqcKLC2v2aa4u2w39lClS90q+zjN8n0dW3H6iN2WIj7dLnEeuqs6o2AcTQgg
- 4AJEK1zyshekbHeDADea1J4WHMsNeXv44FNHNijq37SdRMcOCBpIoNyGsObT+czupTxtdU45E3
- +0aR9psmmCdQyWGfBwPRf2/f9B53aGStqAQAA
-X-Change-ID: 20260303-add-airoha-an8801-support-57d544a4afed
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>
-Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com, 
- matthias.bgg@gmail.com, kernel@collabora.com, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778560425; l=6457;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=MWhaDdak5r98qO1rolBpIOh2PBCTRceavWLUZ9x9mwc=;
- b=MCT/Uk6d/XTnHRWJ7I81wDSbc/QuFA8e74dVkyCR+SbWOCllj7CPBvnWPGRAEXv6nYZ+ibK+o
- pVpKy1u7SKMAj+eLZP5WUQVLtByJabsKtjElWE9CfpT6HN0wfiCRvxb
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_213414_341806_CCA496BD 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20260512_043420_108896_D99B33C4 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,133 +106,572 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series introduces the Airoha AN8801R Gigabit Ethernet PHY initial
-support.
+Extend the reg_mask_xlate callback with an operation type parameter
+(gpio_regmap_operation) to allow drivers to return different
+register/mask combinations for different GPIO operations.
 
-The Airoha AN8801R is a low power single-port Ethernet PHY Transceiver
-with Single-port serdes interface for 1000Base-X/RGMII.
-This chip is compliant with 10Base-T, 100Base-TX and 1000Base-T IEEE
-802.3(u,ab) and supports:
-  - Energy Efficient Ethernet (802.3az)
-  - Full Duplex Control Flow (802.3x)
-  - auto-negotiation
-  - crossover detect and autocorrection,
-  - Wake-on-LAN with Magic Packet
-  - Jumbo Frame up to 9 Kilobytes.
-This PHY also supports up to three user-configurable LEDs, which are
-usually used for LAN Activity, 100M, 1000M indication.
+Also add write-enable mechanism for hardware that requires setting a
+write-enable bit before modifying GPIO control registers.
 
-The series provides the devicetree binding and the driver that have been
-written by AngeloGioacchino Del Regno, based on downstream
-implementation ([1]). The driver allows setting up PHY LEDs, 10/100M,
-1000M speeds, and Wake on LAN and PHY interrupts.
+Consequently, update all existing drivers utilizing the gpio-regmap
+framework (across drivers/gpio, drivers/iio, and drivers/pinctrl)
+to accommodate the new reg_mask_xlate function signature.
 
-Since v2, the series also adds the air_phy_lib library, which goal is to
-share common code between air_en8811h and air_an8801 drivers, and its use
-in them. The first shared functions are the existing BuckPbus register
-accessors and air_phy_read/write_page functions coming from air_en8811h
-driver.
-
-The series is based on net-next kernel tree (sha1: 63751099502d) and
-I have tested it on Mediatek Genio 720-EVK board (that integrates an
-Airoha AN8801RIN/A Ethernet PHY) with early board hardware enablement
-patches.
-
-[1]: https://gitlab.com/mediatek/aiot/bsp/linux/-/blob/mtk-v6.6/drivers/net/phy/an8801.c
-
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Suggested-by: Linus Walleij <linus.walleij@linaro.org>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
-Changes in v3:
-- Rebased on net-next (7e0cccae6b45)
-- Updated patch 1 to describe the function-enumator property for the
-  LEDs and its possible values
-- Modified patch 2 to add missing includes in air_phy_lib source and
-  header files
-- Split patch 3 in two so that the api call renames in air_en8811h
-  driver is done in a separate patch
-- Simplified return code handling in several functions
-- Fixed return code handling in several functions detected by AI
-  peer-reviews (netdev-ai or sashiko)
-- Added additional interrupt enabled check before enabling/disabling 
-  link changed interrupt in an8801r_suspend/resume callbacks
-- Fixed register mask for GPIO LED selection register in
-  an8801r_led_init function
-- Fixed potential uninitialized variable in an8801r_led_polarity_set
-  function
-- Fixed LED blink register settings in an8801r_led_blink_set function
-- Split an8801r_read_status function implementation in a separate patch
-  as requested and add comment to describe why the link mode register
-  needed to be modified after reading the link speed.
-- Link to v2: https://lore.kernel.org/r/20260326-add-airoha-an8801-support-v2-0-1a42d6b6050f@collabora.com
+ drivers/gpio/gpio-104-idi-48.c        | 18 +++++--
+ drivers/gpio/gpio-i8255.c             | 13 ++++-
+ drivers/gpio/gpio-idio-16.c           | 16 ++++--
+ drivers/gpio/gpio-max7360.c           | 10 ++++
+ drivers/gpio/gpio-pcie-idio-24.c      | 15 ++++--
+ drivers/gpio/gpio-regmap.c            | 72 ++++++++++++++++++++-------
+ drivers/iio/adc/ad7173.c              | 32 +++++++++---
+ drivers/iio/addac/stx104.c            | 17 +++++--
+ drivers/pinctrl/bcm/pinctrl-bcm63xx.c | 12 ++++-
+ drivers/pinctrl/pinctrl-tps6594.c     | 10 ++++
+ include/linux/gpio/regmap.h           | 43 ++++++++++++++--
+ 11 files changed, 214 insertions(+), 44 deletions(-)
 
-Changes in v2:
-- Rebased on net-next (d1e59a4697371)
-- Fixed dt-bindings to remove the leds property from the required ones and
-  add wakeup-source as valid property
-- Added new reviewed-by trailer for dt_bindings
-- Added new patches (2 and 3) to create air_phy_lib, to share common code
-  between air_en8811h and air_an8801 drivers and use it in air_en8811h.
-- Remove custom BuckPBus register accessor functions and definitions from
-  air_an8801 and use the ones from air_phy_lib. It also fixes a build
-  issue on v1 due to an uninitialized variable used in
-  __air_buckpbus_reg_read, that is now removed from driver code
-- Added air_an8801_probe function to allocate the newly added private
-  data structure and detect if the PHY is wakeup capable and the interrupt
-  can be registered as a wakeup IRQ, and perform the needed actions
-- Added an8801r_suspend and an8801r_resume functions to perform specific
-  actions when WoL is enabled (reset its status, enable/disable the Link
-  Changed interrupt) and call the genphy_suspend/resume functions if
-  needed
-- Modified an8801r_get_wol to return WoL is not supported if the PHY
-  device is not wakeup capable
-- Modified an8801r_set_wol to return EOPNOTSUPP error code if the PHY
-  device is not wakeup capable, and to update the wakeup flag according
-  to WoL mode
-- Modified an8801r_config_init to remove EEE disabling and replace
-  __phy_write use by phy_write_paged
-- Reworked an8801r_rgmii_delay_config and its subfunctions to fix a
-  double return use in PHY_INTERFACE_MODE_RGMII_ID case, replace the
-  magic value use for default TX and RX delay and handle better the
-  enable/disable the inserted delays for all RGMII modes
-- Merged an8801r_did_interrupt function in an8801r_handle_interrupt
-- Modified the an8801r_handle_interrupt processing to process differently
-  the Magic Packet (to notify system wakeup) and the Link Changed
-  interrupt (to notify PHY state machine)
-- Splitted the reset WoL status part from an8801r_ack_interrupt and fix
-  an issue that in some random cases made WAKEUP_CTL1 register lose the
-  Magic Packet WoL settings
-- Modified an8801r_of_init_leds function so it does not return an error
-  if the leds configuration is not present in devicetree
-- Removed feature field and add PHY_ALWAYS_CALL_SUSPEND flag in
-  airoha_driver data structure
-
-- Link to v1: https://lore.kernel.org/r/20260304-add-airoha-an8801-support-v1-0-0ae4ee5a2f9d@collabora.com
-
----
-AngeloGioacchino Del Regno (2):
-      dt-bindings: net: Add support for Airoha AN8801/R GbE PHY
-      net: phy: Introduce Airoha AN8801/R Gigabit Ethernet PHY driver
-
-Louis-Alexis Eyraud (4):
-      net: phy: Add Airoha phy library for shared code
-      net: phy: air_phy_lib: Factorize BuckPBus register accessors
-      net: phy: Rename Airoha common BuckPBus register accessors
-      net: phy: air_an8801: ensure maximum available speed link use
-
- .../devicetree/bindings/net/airoha,an8801.yaml     |   85 ++
- drivers/net/phy/Kconfig                            |   12 +
- drivers/net/phy/Makefile                           |    2 +
- drivers/net/phy/air_an8801.c                       | 1119 ++++++++++++++++++++
- drivers/net/phy/air_en8811h.c                      |  316 +-----
- drivers/net/phy/air_phy_lib.c                      |  212 ++++
- drivers/net/phy/air_phy_lib.h                      |   39 +
- 7 files changed, 1527 insertions(+), 258 deletions(-)
----
-base-commit: 63751099502d10f0aa6bb35273e56c5800cc4e3a
-change-id: 20260303-add-airoha-an8801-support-57d544a4afed
-
-Best regards,
+diff --git a/drivers/gpio/gpio-104-idi-48.c b/drivers/gpio/gpio-104-idi-48.c
+index ba73ee9c0c29..ebd0587f99c5 100644
+--- a/drivers/gpio/gpio-104-idi-48.c
++++ b/drivers/gpio/gpio-104-idi-48.c
+@@ -36,9 +36,10 @@ MODULE_PARM_DESC(irq, "ACCES 104-IDI-48 interrupt line numbers");
+ #define IDI48_IRQ_STATUS 0x7
+ #define IDI48_IRQ_ENABLE IDI48_IRQ_STATUS
+ 
+-static int idi_48_reg_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
+-				 unsigned int offset, unsigned int *reg,
+-				 unsigned int *mask)
++static int idi_48_reg_mask_xlate(struct gpio_regmap *gpio,
++				 enum gpio_regmap_operation op,
++				 unsigned int base, unsigned int offset,
++				 unsigned int *reg, unsigned int *mask)
+ {
+ 	const unsigned int line = offset % 8;
+ 	const unsigned int stride = offset / 8;
+@@ -46,7 +47,16 @@ static int idi_48_reg_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
+ 	const unsigned int port_stride = stride % 3;
+ 
+ 	*reg = base + port + port_stride;
+-	*mask = BIT(line);
++
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		break;
++	default:
++		*mask = BIT(line);
++		break;
++	}
+ 
+ 	return 0;
+ }
+diff --git a/drivers/gpio/gpio-i8255.c b/drivers/gpio/gpio-i8255.c
+index 953018bfa2b1..ec3c3186e2d1 100644
+--- a/drivers/gpio/gpio-i8255.c
++++ b/drivers/gpio/gpio-i8255.c
+@@ -67,8 +67,8 @@ static int i8255_ppi_init(struct regmap *const map, const unsigned int base)
+ 	return regmap_write(map, base + I8255_PORTC, 0x00);
+ }
+ 
+-static int i8255_reg_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
+-				unsigned int offset, unsigned int *reg,
++static int i8255_reg_mask_xlate(struct gpio_regmap *gpio, enum gpio_regmap_operation op,
++				unsigned int base, unsigned int offset, unsigned int *reg,
+ 				unsigned int *mask)
+ {
+ 	const unsigned int ppi = offset / I8255_NGPIO;
+@@ -76,6 +76,15 @@ static int i8255_reg_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
+ 	const unsigned int stride = ppi_offset / I8255_NGPIO_PER_REG;
+ 	const unsigned int line = ppi_offset % I8255_NGPIO_PER_REG;
+ 
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		return 0;
++	default:
++		break;
++	}
++
+ 	switch (base) {
+ 	case I8255_REG_DAT_BASE:
+ 		*reg = base + stride + ppi * 4;
+diff --git a/drivers/gpio/gpio-idio-16.c b/drivers/gpio/gpio-idio-16.c
+index 4fbae6f6a497..d78a05c22531 100644
+--- a/drivers/gpio/gpio-idio-16.c
++++ b/drivers/gpio/gpio-idio-16.c
+@@ -66,9 +66,9 @@ static int idio_16_handle_mask_sync(const int index, const unsigned int mask_buf
+ 	return 0;
+ }
+ 
+-static int idio_16_reg_mask_xlate(struct gpio_regmap *const gpio, const unsigned int base,
+-				  const unsigned int offset, unsigned int *const reg,
+-				  unsigned int *const mask)
++static int idio_16_reg_mask_xlate(struct gpio_regmap *const gpio, enum gpio_regmap_operation op,
++				  const unsigned int base, const unsigned int offset,
++				  unsigned int *const reg, unsigned int *const mask)
+ {
+ 	unsigned int stride;
+ 
+@@ -81,7 +81,15 @@ static int idio_16_reg_mask_xlate(struct gpio_regmap *const gpio, const unsigned
+ 		*reg = IDIO_16_IN_BASE + stride * IDIO_16_REG_STRIDE;
+ 	}
+ 
+-	*mask = BIT(offset % IDIO_16_NGPIO_PER_REG);
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		break;
++	default:
++		*mask = BIT(offset % IDIO_16_NGPIO_PER_REG);
++		break;
++	}
+ 
+ 	return 0;
+ }
+diff --git a/drivers/gpio/gpio-max7360.c b/drivers/gpio/gpio-max7360.c
+index db92a43776a9..2a26313d021d 100644
+--- a/drivers/gpio/gpio-max7360.c
++++ b/drivers/gpio/gpio-max7360.c
+@@ -94,9 +94,19 @@ static int max7360_set_gpos_count(struct device *dev, struct regmap *regmap)
+ }
+ 
+ static int max7360_gpio_reg_mask_xlate(struct gpio_regmap *gpio,
++				       enum gpio_regmap_operation op,
+ 				       unsigned int base, unsigned int offset,
+ 				       unsigned int *reg, unsigned int *mask)
+ {
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		return 0;
++	default:
++		break;
++	}
++
+ 	if (base == MAX7360_REG_PWMBASE) {
+ 		/*
+ 		 * GPIO output is using PWM duty cycle registers: one register
+diff --git a/drivers/gpio/gpio-pcie-idio-24.c b/drivers/gpio/gpio-pcie-idio-24.c
+index 80c0ba0afa67..dc80f96174c2 100644
+--- a/drivers/gpio/gpio-pcie-idio-24.c
++++ b/drivers/gpio/gpio-pcie-idio-24.c
+@@ -225,9 +225,9 @@ static int idio_24_set_type_config(unsigned int **const buf, const unsigned int
+ 	return ret;
+ }
+ 
+-static int idio_24_reg_mask_xlate(struct gpio_regmap *const gpio, const unsigned int base,
+-				  const unsigned int offset, unsigned int *const reg,
+-				  unsigned int *const mask)
++static int idio_24_reg_mask_xlate(struct gpio_regmap *const gpio, enum gpio_regmap_operation op,
++				  const unsigned int base, const unsigned int offset,
++				  unsigned int *const reg, unsigned int *const mask)
+ {
+ 	const unsigned int out_stride = offset / IDIO_24_NGPIO_PER_REG;
+ 	const unsigned int in_stride = (offset - 24) / IDIO_24_NGPIO_PER_REG;
+@@ -235,6 +235,15 @@ static int idio_24_reg_mask_xlate(struct gpio_regmap *const gpio, const unsigned
+ 	int err;
+ 	unsigned int ctrl_reg;
+ 
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		return 0;
++	default:
++		break;
++	}
++
+ 	switch (base) {
+ 	case IDIO_24_OUT_BASE:
+ 		*mask = BIT(offset % IDIO_24_NGPIO_PER_REG);
+diff --git a/drivers/gpio/gpio-regmap.c b/drivers/gpio/gpio-regmap.c
+index deb9eebb58de..c76eef20e412 100644
+--- a/drivers/gpio/gpio-regmap.c
++++ b/drivers/gpio/gpio-regmap.c
+@@ -38,9 +38,10 @@ struct gpio_regmap {
+ 	struct regmap_irq_chip_data *irq_chip_data;
+ #endif
+ 
+-	int (*reg_mask_xlate)(struct gpio_regmap *gpio, unsigned int base,
+-			      unsigned int offset, unsigned int *reg,
+-			      unsigned int *mask);
++	int (*reg_mask_xlate)(struct gpio_regmap *gpio,
++			      enum gpio_regmap_operation op,
++			      unsigned int base, unsigned int offset,
++			      unsigned int *reg, unsigned int *mask);
+ 
+ 	void *driver_data;
+ };
+@@ -54,6 +55,7 @@ static unsigned int gpio_regmap_addr(unsigned int addr)
+ }
+ 
+ static int gpio_regmap_simple_xlate(struct gpio_regmap *gpio,
++				    enum gpio_regmap_operation op,
+ 				    unsigned int base, unsigned int offset,
+ 				    unsigned int *reg, unsigned int *mask)
+ {
+@@ -61,7 +63,16 @@ static int gpio_regmap_simple_xlate(struct gpio_regmap *gpio,
+ 	unsigned int stride = offset / gpio->ngpio_per_reg;
+ 
+ 	*reg = base + stride * gpio->reg_stride;
+-	*mask = BIT(line);
++
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		break;
++	default:
++		*mask = BIT(line);
++		break;
++	}
+ 
+ 	return 0;
+ }
+@@ -69,7 +80,7 @@ static int gpio_regmap_simple_xlate(struct gpio_regmap *gpio,
+ static int gpio_regmap_get(struct gpio_chip *chip, unsigned int offset)
+ {
+ 	struct gpio_regmap *gpio = gpiochip_get_data(chip);
+-	unsigned int base, val, reg, mask;
++	unsigned int base, val, reg, mask, dir_mask;
+ 	int ret;
+ 
+ 	/* we might not have an output register if we are input only */
+@@ -78,10 +89,24 @@ static int gpio_regmap_get(struct gpio_chip *chip, unsigned int offset)
+ 	else
+ 		base = gpio_regmap_addr(gpio->reg_set_base);
+ 
+-	ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
++	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_GET_OP, base, offset, &reg, &dir_mask);
+ 	if (ret)
+ 		return ret;
+ 
++	ret = regmap_read(gpio->regmap, reg, &val);
++	if (ret)
++		return ret;
++
++	if (val & dir_mask) {
++		ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_OUT, base, offset, &reg, &mask);
++		if (ret)
++			return ret;
++	} else {
++		ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_IN, base, offset, &reg, &mask);
++		if (ret)
++			return ret;
++	}
++
+ 	/* ensure we don't spoil any register cache with pin input values */
+ 	if (gpio->reg_dat_base == gpio->reg_set_base)
+ 		ret = regmap_read_bypassed(gpio->regmap, reg, &val);
+@@ -98,10 +123,14 @@ static int gpio_regmap_set(struct gpio_chip *chip, unsigned int offset,
+ {
+ 	struct gpio_regmap *gpio = gpiochip_get_data(chip);
+ 	unsigned int base = gpio_regmap_addr(gpio->reg_set_base);
+-	unsigned int reg, mask, mask_val;
++	unsigned int reg, mask, mask_val, wren_mask;
+ 	int ret;
+ 
+-	ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
++	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WREN_OP, base, offset, &reg, &wren_mask);
++	if (ret)
++		return ret;
++
++	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_OP, base, offset, &reg, &mask);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -112,9 +141,9 @@ static int gpio_regmap_set(struct gpio_chip *chip, unsigned int offset,
+ 
+ 	/* ignore input values which shadow the old output value */
+ 	if (gpio->reg_dat_base == gpio->reg_set_base)
+-		ret = regmap_write_bits(gpio->regmap, reg, mask, mask_val);
++		ret = regmap_write_bits(gpio->regmap, reg, mask | wren_mask, mask_val | wren_mask);
+ 	else
+-		ret = regmap_update_bits(gpio->regmap, reg, mask, mask_val);
++		ret = regmap_update_bits(gpio->regmap, reg, mask | wren_mask, mask_val | wren_mask);
+ 
+ 	return ret;
+ }
+@@ -123,7 +152,7 @@ static int gpio_regmap_set_with_clear(struct gpio_chip *chip,
+ 				      unsigned int offset, int val)
+ {
+ 	struct gpio_regmap *gpio = gpiochip_get_data(chip);
+-	unsigned int base, reg, mask;
++	unsigned int base, reg, mask, wren_mask;
+ 	int ret;
+ 
+ 	if (val)
+@@ -131,11 +160,15 @@ static int gpio_regmap_set_with_clear(struct gpio_chip *chip,
+ 	else
+ 		base = gpio_regmap_addr(gpio->reg_clr_base);
+ 
+-	ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
++	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WREN_OP, base, offset, &reg, &wren_mask);
+ 	if (ret)
+ 		return ret;
+ 
+-	return regmap_write(gpio->regmap, reg, mask);
++	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_WITH_CLEAR_OP, base, offset, &reg, &mask);
++	if (ret)
++		return ret;
++
++	return regmap_write(gpio->regmap, reg, mask | wren_mask);
+ }
+ 
+ static int gpio_regmap_get_direction(struct gpio_chip *chip,
+@@ -167,7 +200,7 @@ static int gpio_regmap_get_direction(struct gpio_chip *chip,
+ 		return -ENOTSUPP;
+ 	}
+ 
+-	ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
++	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_GET_DIR_OP, base, offset, &reg, &mask);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -185,7 +218,7 @@ static int gpio_regmap_set_direction(struct gpio_chip *chip,
+ 				     unsigned int offset, bool output)
+ {
+ 	struct gpio_regmap *gpio = gpiochip_get_data(chip);
+-	unsigned int base, val, reg, mask;
++	unsigned int base, val, reg, mask, wren_mask;
+ 	int invert, ret;
+ 
+ 	if (gpio->reg_dir_out_base) {
+@@ -198,7 +231,12 @@ static int gpio_regmap_set_direction(struct gpio_chip *chip,
+ 		return -ENOTSUPP;
+ 	}
+ 
+-	ret = gpio->reg_mask_xlate(gpio, base, offset, &reg, &mask);
++	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_DIR_OP, base, offset, &reg, &mask);
++	if (ret)
++		return ret;
++
++	ret = gpio->reg_mask_xlate(gpio, GPIO_REGMAP_SET_DIR_WREN_OP, base, offset, &reg,
++				   &wren_mask);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -207,7 +245,7 @@ static int gpio_regmap_set_direction(struct gpio_chip *chip,
+ 	else
+ 		val = output ? mask : 0;
+ 
+-	return regmap_update_bits(gpio->regmap, reg, mask, val);
++	return regmap_update_bits(gpio->regmap, reg, mask | wren_mask, val | wren_mask);
+ }
+ 
+ static int gpio_regmap_direction_input(struct gpio_chip *chip,
+diff --git a/drivers/iio/adc/ad7173.c b/drivers/iio/adc/ad7173.c
+index f76a9e08f39e..e8a6921bc443 100644
+--- a/drivers/iio/adc/ad7173.c
++++ b/drivers/iio/adc/ad7173.c
+@@ -561,21 +561,41 @@ static int ad4111_openwire_event(struct iio_dev *indio_dev,
+ 	return ret;
+ }
+ 
+-static int ad7173_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
+-			     unsigned int offset, unsigned int *reg,
++static int ad7173_mask_xlate(struct gpio_regmap *gpio, enum gpio_regmap_operation op,
++			     unsigned int base, unsigned int offset, unsigned int *reg,
+ 			     unsigned int *mask)
+ {
+-	*mask = AD7173_GPO_DATA(offset);
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		return 0;
++	default:
++		*mask = AD7173_GPO_DATA(offset);
++		break;
++	}
++
+ 	*reg = base;
++
+ 	return 0;
+ }
+ 
+-static int ad4111_mask_xlate(struct gpio_regmap *gpio, unsigned int base,
+-			     unsigned int offset, unsigned int *reg,
++static int ad4111_mask_xlate(struct gpio_regmap *gpio, enum gpio_regmap_operation op,
++			     unsigned int base, unsigned int offset, unsigned int *reg,
+ 			     unsigned int *mask)
+ {
+-	*mask = AD4111_GPO01_DATA(offset);
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		break;
++	default:
++		*mask = AD4111_GPO01_DATA(offset);
++		break;
++	}
++
+ 	*reg = base;
++
+ 	return 0;
+ }
+ 
+diff --git a/drivers/iio/addac/stx104.c b/drivers/iio/addac/stx104.c
+index 7bdf2cb94176..a4e54ed102a2 100644
+--- a/drivers/iio/addac/stx104.c
++++ b/drivers/iio/addac/stx104.c
+@@ -349,16 +349,25 @@ static const struct iio_chan_spec stx104_channels_diff[] = {
+ 	STX104_IN_CHAN(6, 1), STX104_IN_CHAN(7, 1)
+ };
+ 
+-static int stx104_reg_mask_xlate(struct gpio_regmap *const gpio, const unsigned int base,
+-				 unsigned int offset, unsigned int *const reg,
+-				 unsigned int *const mask)
++static int stx104_reg_mask_xlate(struct gpio_regmap *const gpio, enum gpio_regmap_operation op,
++				 const unsigned int base, unsigned int offset,
++				 unsigned int *const reg, unsigned int *const mask)
+ {
+ 	/* Output lines are located at same register bit offsets as input lines */
+ 	if (offset >= 4)
+ 		offset -= 4;
+ 
+ 	*reg = base;
+-	*mask = BIT(offset);
++
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		break;
++	default:
++		*mask = BIT(offset);
++		break;
++	}
+ 
+ 	return 0;
+ }
+diff --git a/drivers/pinctrl/bcm/pinctrl-bcm63xx.c b/drivers/pinctrl/bcm/pinctrl-bcm63xx.c
+index 59d2ce8462d8..3a868deb7793 100644
+--- a/drivers/pinctrl/bcm/pinctrl-bcm63xx.c
++++ b/drivers/pinctrl/bcm/pinctrl-bcm63xx.c
+@@ -20,6 +20,7 @@
+ #define BCM63XX_DATA_REG	0x0c
+ 
+ static int bcm63xx_reg_mask_xlate(struct gpio_regmap *gpio,
++				  enum gpio_regmap_operation op,
+ 				  unsigned int base, unsigned int offset,
+ 				  unsigned int *reg, unsigned int *mask)
+ {
+@@ -27,7 +28,16 @@ static int bcm63xx_reg_mask_xlate(struct gpio_regmap *gpio,
+ 	unsigned int stride = offset / BCM63XX_BANK_GPIOS;
+ 
+ 	*reg = base - stride * BCM63XX_BANK_SIZE;
+-	*mask = BIT(line);
++
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		break;
++	default:
++		*mask = BIT(line);
++		break;
++	}
+ 
+ 	return 0;
+ }
+diff --git a/drivers/pinctrl/pinctrl-tps6594.c b/drivers/pinctrl/pinctrl-tps6594.c
+index 6726853110d1..e30a856712af 100644
+--- a/drivers/pinctrl/pinctrl-tps6594.c
++++ b/drivers/pinctrl/pinctrl-tps6594.c
+@@ -347,12 +347,22 @@ static struct tps6594_pinctrl tps6594_template_pinctrl = {
+ };
+ 
+ static int tps6594_gpio_regmap_xlate(struct gpio_regmap *gpio,
++				     enum gpio_regmap_operation op,
+ 				     unsigned int base, unsigned int offset,
+ 				     unsigned int *reg, unsigned int *mask)
+ {
+ 	unsigned int line = offset % 8;
+ 	unsigned int stride = offset / 8;
+ 
++	switch (op) {
++	case GPIO_REGMAP_SET_WREN_OP:
++	case GPIO_REGMAP_SET_DIR_WREN_OP:
++		*mask = 0;
++		return 0;
++	default:
++		break;
++	}
++
+ 	switch (base) {
+ 	case TPS6594_REG_GPIOX_CONF(0):
+ 		*reg = TPS6594_REG_GPIOX_CONF(offset);
+diff --git a/include/linux/gpio/regmap.h b/include/linux/gpio/regmap.h
+index e4a95f805a81..519fc81add8a 100644
+--- a/include/linux/gpio/regmap.h
++++ b/include/linux/gpio/regmap.h
+@@ -13,6 +13,43 @@ struct regmap;
+ #define GPIO_REGMAP_ADDR_ZERO ((unsigned int)(-1))
+ #define GPIO_REGMAP_ADDR(addr) ((addr) ? : GPIO_REGMAP_ADDR_ZERO)
+ 
++/**
++ * enum gpio_regmap_operation - Operation type for reg_mask_xlate callback
++ *
++ * This enum is used to distinguish between different types of GPIO operations
++ * so that the reg_mask_xlate callback can return the appropriate mask for each
++ * operation type.
++ *
++ * Value operations:
++ * @GPIO_REGMAP_GET_OP: Mask for reading direction to detect if GPIO is input or output.
++ *                      Used in gpio_regmap_get() to determine the GPIO direction.
++ * @GPIO_REGMAP_IN: Mask for reading input value. Used when GPIO is configured as input.
++ * @GPIO_REGMAP_OUT: Mask for reading output value. Used when GPIO is configured as output.
++ *
++ * Output operations:
++ * @GPIO_REGMAP_SET_OP: Mask for setting GPIO output value.
++ * @GPIO_REGMAP_SET_WITH_CLEAR_OP: Mask for setting/clearing GPIO using separate registers.
++ * @GPIO_REGMAP_SET_WREN_OP: Write-enable mask for output operations. May be used to enable
++ *                           writes to protected registers.
++ *
++ * Direction operations:
++ * @GPIO_REGMAP_GET_DIR_OP: Mask for reading GPIO direction (input/output).
++ * @GPIO_REGMAP_SET_DIR_OP: Mask for setting GPIO direction (input/output).
++ * @GPIO_REGMAP_SET_DIR_WREN_OP: Write-enable mask for direction operations. May be used to
++ *                               enable writes to protected direction registers.
++ */
++enum gpio_regmap_operation {
++	GPIO_REGMAP_GET_OP,
++	GPIO_REGMAP_SET_OP,
++	GPIO_REGMAP_SET_WITH_CLEAR_OP,
++	GPIO_REGMAP_SET_WREN_OP,
++	GPIO_REGMAP_GET_DIR_OP,
++	GPIO_REGMAP_SET_DIR_OP,
++	GPIO_REGMAP_SET_DIR_WREN_OP,
++	GPIO_REGMAP_IN,
++	GPIO_REGMAP_OUT,
++};
++
+ /**
+  * struct gpio_regmap_config - Description of a generic regmap gpio_chip.
+  * @parent:		The parent device
+@@ -97,9 +134,9 @@ struct gpio_regmap_config {
+ 	unsigned long regmap_irq_flags;
+ #endif
+ 
+-	int (*reg_mask_xlate)(struct gpio_regmap *gpio, unsigned int base,
+-			      unsigned int offset, unsigned int *reg,
+-			      unsigned int *mask);
++	int (*reg_mask_xlate)(struct gpio_regmap *gpio, enum gpio_regmap_operation,
++			      unsigned int base, unsigned int offset,
++			      unsigned int *reg, unsigned int *mask);
+ 
+ 	int (*init_valid_mask)(struct gpio_chip *gc,
+ 			       unsigned long *valid_mask,
 -- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+2.34.1
 
 
