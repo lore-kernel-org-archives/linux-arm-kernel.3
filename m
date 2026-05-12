@@ -4,137 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE6ACD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E381DCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JuKuW3fYeYZ2DMpiy3AOBH9xdEPmWGPOg8J17i7FBWs=; b=oundebGm/neC4lZms2ZWLBR33N
-	RE3pBxWEVrvPgatUCQbpjP8uUwnK32h3+xLxCDCPU9P2roxxKVmAi7sMO91YaWUsuBC/ccY90qYMQ
-	Jax5Ta9AbsDHN4M6LYWMCHxvCtPIkzhvXgqBGuRvR9HGqKp9yD3N/VQsg1k2jyaeZXt22CxAG+uuM
-	RN0AgaDd26hn5vnW/pfsZXfx9TfvaD/WWn/n/uMaB/03LY/+bWq2YJ9EKQERuYiCVfMaoclxAnTWp
-	Hz5MH+te/WuKCVMzCJ5rEzdjwZgIHXfhgZ1XLNCNIL1mzOztF4jDQO0W+gCjIfSKECKQ/Ic6K8ibZ
-	0GMw4RMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cnWES2DtzHOX7Ps9Md0/z2VxDbBxml/AvvTmLTj0mA8=; b=gFw6ZdthxudHyi/f2GEZmJFysg
+	pYNfz06PEoMOrFo2gPDys9bEe/ySJH/ySQ9aSPoP49W2Es7yBTzbzfp7sOb7DNHlR3rJVwMpQ2pyZ
+	PviTPTPqbvLkyC3HAz2BOrg7MZdykEYbl0K7OIbdLY1H0gVxHeo3HbmZ7002JhdVGzWIwFBhvRG6Z
+	jcrFdH4dJyp6PsAKJc9LCCDIec1sOlkEPe7Yy/yhF6Ry1RzQ9TLIAZcMOSv4QmjqvvcOkcgf0q527
+	3IcZ21y4PSKep46Q2/VtEJE0LCujo9MYGJOFaxAOiuUxwnBDtFCBiwh2dwJLFRY1zL47RtzawkoZ1
+	Vd4S6ohA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMp8v-0000000HE6K-1cII;
-	Tue, 12 May 2026 15:35:33 +0000
-Received: from mail-francesouthazon11011004.outbound.protection.outlook.com ([40.107.130.4] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMp8r-0000000HE55-39vM;
-	Tue, 12 May 2026 15:35:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xavyOKIKOGyuMGtmQYmhNY0x1OrlnEPeMzmyN96HoHVqcAZRLlR3k5g5ZfceQCo2cjiHJYLyeCyKVL79Ro3cljOX7rRQF0mr8rvWRIj4oaSLM/vjR4p+i/9dvoZuUIRf/eEF0qQKeSMUcL+/jXGxdNy80Hej4RAi+ujWRMQmtEOFvDzL4LvmqmDqOIeOmqXTI/dkJRWF7iSxRLILU94ixORCX0GMvn9G8lrbRbV/TArNCAF91icDKh3VUh8iDwr9cAr0muboDbp8dMy0XO4xkcRjIx91Wl0terTxNuxk/F/wn625LDt0MgYQfavLggoKOBWVSDPk/lJkwZRyyDad3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YvL1QLKqJKWudv8DUYocx6jzbOiTP5ZfL5aDyvY85Rw=;
- b=nw9lYGnpcvta4rMFdK3/u5XmgGImaLldDGlRXj/PfjtQbO/lT+Q0JqrC5gR6CYVLAiI2w8clnoQCLy/H1KV4I5ml0JEgU1EOmulhcEFUEOyTssr2Xnuusv7/9pLZnE3oT0akstrg5fMLgj4v1WIKYBluV1VFUyaXbtd2xBKvhEPSnzEdxcz7CR626W+A3l07tnq17FS5P0Z9vWlm43rvzkq3t6aS6p0dMtGJqRv4gi1W3exG7+8r+/RxZaVOpFlx5ETFoyjq4QE2i8BpcuvRiHHBCBAXV1aVnj+P+GIG2Td84cYKIcXyd4PHat+vpgbUteb0ja1QdUba+GOQscWmYA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YvL1QLKqJKWudv8DUYocx6jzbOiTP5ZfL5aDyvY85Rw=;
- b=lvZVrwRcH2LzD/cottMfXLOes3vfccTXlqTVnCiqoA2KXYuQ+Yh8QcVDMPg7CznZ8VWZUi3bwdtGpfv7QTXfLzsdVBVHZCC2bOPyZ+iqtUmSLJnzf2cjLbeULoEOvVMJCmIg+cfdrfIVo0s+LCDDtVG8CCuGUBgKwUq4knzprarIrGhSlrvo5/Eu8VgO7yJr3EFRZxnymErMds+gdd+6ocO/tlf9QivoOAHVvOOzoiTm4/7LpOe12GXXDu0MeAUCIaxNDnVz0HqDuiCql6fN5X9RqjsC91ICdqxcpw6iR0TpoDsnQhwugzA+gaVY2RyxlSPLCaknDlqcNsprbEf0nw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AM9PR04MB8456.eurprd04.prod.outlook.com (2603:10a6:20b:3df::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
- 2026 15:35:24 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9891.021; Tue, 12 May 2026
- 15:35:24 +0000
-Date: Tue, 12 May 2026 11:35:15 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Michael Riesch <michael.riesch@collabora.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	id 1wMpCE-0000000HElU-3ZrK;
+	Tue, 12 May 2026 15:38:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMpCB-0000000HEkQ-1iQQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 15:38:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8B04202C
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 08:38:46 -0700 (PDT)
+Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 916513F85F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 08:38:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778600331; bh=bTW8PIkNq6aZUF6NF1FmasGVCIC4HDNHJXMvlerQOQM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kx7Oy9RxnbwjWxTo4dE8kl4wbb3En/Wbc3B+aK+NuahXVAJT+w0BrOER9MNNcyd+J
+	 KzyJu8KzuznT+7PxVUDGVVpqEf4hZeaRdLYZpDJl2qqQygKxPMEToQBZowRnqQA9BZ
+	 qc9p3F9J5fHIiE864vBavIXoAcByrarBqMND2Ts0=
+Date: Tue, 12 May 2026 16:38:18 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Cc: Marcin =?utf-8?Q?=C5=9Alusarz?= <marcin.slusarz@arm.com>,
+	Ketil Johnsen <ketil.johnsen@arm.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T.J. Mercier" <tjmercier@google.com>,
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+	Steven Price <steven.price@arm.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linaro-mm-sig@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	imx@lists.linux.dev,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v3 0/6] media: synopsys: Add imx93 support
-Message-ID: <agNIs4GLcrMLWjZ1@lizhi-Precision-Tower-5810>
-References: <20260216-imx93-dw-csi2-v3-0-aabafee10923@nxp.com>
- <5993213.DvuYhMxLoT@steina-w>
-Content-Type: text/plain; charset=iso-8859-1
+	linux-mediatek@lists.infradead.org,
+	Florent Tomasin <florent.tomasin@arm.com>, nd@arm.com
+Subject: Re: [PATCH 4/8] drm/panthor: Add support for protected memory
+ allocation in panthor
+Message-ID: <agNJasayW8VCHTiU@e142607>
+References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
+ <20260505140516.1372388-5-ketil.johnsen@arm.com>
+ <20260505181523.49a3d85c@fedora>
+ <afxVIuVVPisBQ9p_@e129842.arm.com>
+ <20260507135356.5428d50d@fedora>
+ <agMvb_jeRsO7tSS-@e142607>
+ <20260512161111.0cb7000e@fedora>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <5993213.DvuYhMxLoT@steina-w>
-X-ClientProxiedBy: SJ0PR05CA0052.namprd05.prod.outlook.com
- (2603:10b6:a03:33f::27) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AM9PR04MB8456:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5eb19b00-f87a-4840-ec1f-08deb03c15c6
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|19092799006|1800799024|56012099003|18002099003|11063799003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: 9hHSr2iVvgF0oPV1N7gQcBAeYfUMiUixuoibZ+oziYnVnVzat9b8IgV2cBeSRBRRrnPSc+KhwIR0B4KxducozeHF//1pfh3EapiSobZ+A8m4/ZToCF5i4HdMUJjXzCAk87lQZfvVy6UYQ8oqbyi/VcdYAu42I3K9cvhVcRS0tzHRZqRLzEOTb4CpQCl96OYt6UQ9NCC3iqLgzDBjR+RalMgXHbdvqGF2rsasi7XV1f0KJDCoOXG1X/rPjS1xW5VzQf+gDWLp3OSFzgYTC0a3Cnqd1+PR+zgnFBPYXkw+XsWZzt2wX02h9oIm/wVx/khScZtKy8eRhs6mfBa4/bLbNsy8DZQi6xP4cQBsS/2BIBOZtI/YcUnhy0FIiUvI54IdN3mMV7vr0sAf65cCfCpM4DMGC0pLmWqs5kzfc3act3AzK4nDz/2Og7xUe0gbr0nkm4dFbRtZaan6N1WoiPr7hIFiSvbIh/W1EEKvY7yaXzdtXFFjWBNuhhv5QfpmMWKuKMzDZpbzdv2uo6pVXpM198SDQmfrOhs2/Q+qf5X+yE3009xguvfvOMS4pxftydY15ohbJFxwA56xe9rR4my2CrI+eEfGAiwZ+Ig/L4xOuTnKeBdtH1HqKEf5dYVev82crCG6CVwQfMUZUMyGyBMbCegCfyzWnD+7OieFb5FAGtV4FpGnos2Rxqsg3IsB1yix
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(19092799006)(1800799024)(56012099003)(18002099003)(11063799003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?G8KDcb/jJfXwR7N7VLG/R3vkkyk9NbUuln64Kwv/IH9GdGy7C4dQkwamfa?=
- =?iso-8859-1?Q?yd8C0dulCdM1bHuaJymduxuWjnqDFOjLWScTALgOyj8UrpleEbXPlDnO0F?=
- =?iso-8859-1?Q?m37yxsU/YX9u4mfcmM+itS1VmWPCh5g+mvne8dp7WUVHkCKV0i1Gx5/PL7?=
- =?iso-8859-1?Q?X/UHy6/ESoXTSE/mjqILquWyuENUpMaUs9Fcl4wKkt9JvtBlpQwxMiTl3M?=
- =?iso-8859-1?Q?FuAoRrXHXZYoxHtS7ITyxs8gwp7Qk9RPCl6BoelPFWchfBCFCKfJVAne22?=
- =?iso-8859-1?Q?O9/4StFOhMOiEAvk3iFK0weHucosLhkyPv97UEAZwHUoC/69ukG9E1AKXH?=
- =?iso-8859-1?Q?K9zhaDt3CueGr55hhz95Opd2bIrutIYqxlI6msLGb9KUCcxIjywTUX3XUq?=
- =?iso-8859-1?Q?EJRWpM9fy1da9i/0q6tzCK6wH6zBHbukKQq9wqFy03GKNf2aTS09QVNphP?=
- =?iso-8859-1?Q?JfppGTlIy01/YV0J0bxoynw0UQ3SV0/GSlFOCZkc4CdwTTqK7zskdtClyD?=
- =?iso-8859-1?Q?qccEmw/s+W0V3J3lQq7mBjsXhskGQrXohmke2sLf77ykrdxnaP18JtMZek?=
- =?iso-8859-1?Q?AX94iJunQaWBWnPmR9Xq2KThquvQz9aevJOGNVeK7R1fQJUJbQTd0CopnA?=
- =?iso-8859-1?Q?UZPBU+FD3dH0Z4/GIGkneho7KUjfB0O0WPKMk72Zw3zF/cQoS8G1BMObCr?=
- =?iso-8859-1?Q?j+ZX2x6Qw3J7T4gXOfv3Ur3pTvFMPUAT6RduqYYukGAlhRdo27n1YXJu9X?=
- =?iso-8859-1?Q?TNMtvz5aCVT9i5ECecWe3f0uWc+ZyKN2F/QybzvehjCrW9BVzPh0G5dJzh?=
- =?iso-8859-1?Q?EP770TYt9uqxkMeJGHg4h8+SWnwpJ7VS6ugvZDjVdHpygYFH/2s4wkhusC?=
- =?iso-8859-1?Q?19xpUUT66qp48ajc0NT7P8sX0TYXFyQlAjNKw3e8uyWp94qq87mWCw/dB3?=
- =?iso-8859-1?Q?LMpFPftzU8nPbhCVsFHb8zl9vjtQDR+Zk+k2jx9+tnfXjWithQZSO5apd7?=
- =?iso-8859-1?Q?cMkJVBRziJgzZu+wWd50PlN7dtmooCXhqZ6hpemD7JhruzI3Qclk9qi6z6?=
- =?iso-8859-1?Q?5zfUkBSuAwJY6WGFkS2Wlh4a9DuvtpUENLjWO2r483PPE2cPYDMkIl7VjL?=
- =?iso-8859-1?Q?CFRTJJxP+zSYtKbUAaHBnAzoNILfsg9U127UgzQBL68ol/wuCbl1MRXuwB?=
- =?iso-8859-1?Q?pQjGUfgPXAmziiF0zuuPEM+h2WGVpWKTv+XVTqqSIY3rmSe2YH9HX2GUos?=
- =?iso-8859-1?Q?kyoiA52E3YcAZuyTdW5p/xtL+dGAbcEQQ2r4MoSS6YBNPbqFmp+o2+v4hz?=
- =?iso-8859-1?Q?7ccfgXCqLu83q9XkO5mcx1MkjcAHrBptyZGbzWvFWycdpzExHur9LSdPuy?=
- =?iso-8859-1?Q?jQq8NmWz60N1uB076lurQ3HHQw1Nano/LrkGiZAcOdaDAbq00u9oVOc/25?=
- =?iso-8859-1?Q?NINTDGvCwSNzYtzegWml/+ZeCjxYMhR4FL8Q+jsX8ai8biqGp7Vh0PcfQo?=
- =?iso-8859-1?Q?PHb48wgQeFa05+9qOF1ZHj+RzxVfuIMxg7EVQzgpi9YThSE9qfK3hx8VEa?=
- =?iso-8859-1?Q?z286kmaWMok/wh45jKcu0wOdygLG+6kozIuEEjofuW7jbKrOeEbZsM0BZa?=
- =?iso-8859-1?Q?NVmcJxoXoeMwm9diouVXXcmqYprJUnCsjAtUchwRb+FBq6LyQJ6Bgemzkj?=
- =?iso-8859-1?Q?kIhwlqNF07Und/axYFWUtp/fnOtNyk46mW9B8ngFrBUe93ryI/ar3u/nrL?=
- =?iso-8859-1?Q?lL7x6zmCeEMSbFbyEi3klm41NS+nB0UV16yUUEFK0AvZF4/G7dzILiisgp?=
- =?iso-8859-1?Q?I2eZYaj33Q=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5eb19b00-f87a-4840-ec1f-08deb03c15c6
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 15:35:24.4853
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ddu4vtNp+3E6qzxW/R2NKTT399BhSwp4egq7WzaM2zPFJE7Rxysa6Imhy6B7uV/SUqX+1j9Hjau8Gv4pmenZEg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8456
+In-Reply-To: <20260512161111.0cb7000e@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_083529_812179_FD147D01 
-X-CRM114-Status: GOOD (  25.89  )
+X-CRM114-CacheID: sfid-20260512_083855_788305_B75C49F3 
+X-CRM114-Status: GOOD (  32.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,88 +99,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 05:02:42PM +0200, Alexander Stein wrote:
-> Hi Frank,
->
-> Am Montag, 16. Februar 2026, 20:18:38 CEST schrieb Frank Li:
-> > This 3rd time try to support DW CSI2RX support for imx93.
-> >
-> > 1st: Create new dw csi2 driver
-> > https://lore.kernel.org/all/20250701-95_cam-v1-5-c5172bab387b@nxp.com/
-> >
-> > 2nd: Based on legacy imx6's DW CSI2 constroller.
-> > https://lore.kernel.org/imx/20250821-95_cam-v3-0-c9286fbb34b9@nxp.com/
-> >
-> > Now rockchip create a common DW CSI2RX driver at
-> > drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-> >
-> > This time base on rockchip's implement.
-> >
-> > i.MX93's version is newer than rockchip one. i.MX6's is more similar with
-> > rockchips.
-> >
-> > But i.MX6 is too old. So start at i.MX93 firstly even it has bigger
-> > difference.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
->
-> I'm trying to give this a try. Did you actually manage to run a CSI pipeline?
-> What did you do for the D-PHY driver? (please refer to csi2->phy = devm_phy_get(dev, NULL);)
+On Tue, May 12, 2026 at 04:11:11PM +0200, Boris Brezillon wrote:
+> On Tue, 12 May 2026 14:47:27 +0100
+> Liviu Dudau <liviu.dudau@arm.com> wrote:
+> 
+> > On Thu, May 07, 2026 at 01:53:56PM +0200, Boris Brezillon wrote:
+> > > On Thu, 7 May 2026 11:02:26 +0200
+> > > Marcin Åšlusarz <marcin.slusarz@arm.com> wrote:
+> > >   
+> > > > On Tue, May 05, 2026 at 06:15:23PM +0200, Boris Brezillon wrote:  
+> > > > > > @@ -277,9 +286,21 @@ int panthor_device_init(struct panthor_device *ptdev)
+> > > > > >  			return ret;
+> > > > > >  	}
+> > > > > >  
+> > > > > > +	/* If a protected heap name is specified but not found, defer the probe until created */
+> > > > > > +	if (protected_heap_name && strlen(protected_heap_name)) {    
+> > > > > 
+> > > > > Do we really need this strlen() > 0? Won't dma_heap_find() fail is the
+> > > > > name is "" already?    
+> > > > 
+> > > > If dma_heap_find() will fail, then the whole probe with fail too.
+> > > > This check prevents that.  
+> > > 
+> > > Yeah, that's also a questionable design choice. I mean, we can
+> > > currently probe and boot the FW even though we never setup the
+> > > protected FW sections, so why should we defer the probe here? Can't we
+> > > just retry the next time a group with the protected bit is created and
+> > > fail if we can find a protected heap?  
+> > 
+> > The problem we have with the current firmware is that it does a number of setup steps at "boot"
+> > time only. One of the steps is preparing its internal structures for when it enters protected
+> > mode and it stores them in the buffer passed in at firmware loading. We cannot later run the
+> > process when we have a group with protected mode set.
+> 
+> No, but we can force a full/slow reset and have that thing
+> re-initialized, can't we? I mean, that's basically what we do when a
+> fast reset fails: we re-initialize all the sections and reset again, at
+> which point the FW should start from a fresh state, and be able to
+> properly initialize the protected-related stuff if protected sections
+> are populated. Am I missing something?
 
-Use old thread PHY driver
-https://lore.kernel.org/imx/20250701-95_cam-v1-2-c5172bab387b@nxp.com/
+Right, we can do that. For some reason I keep associating the reset with the
+error handling and not with "normal" operations.
 
-Frank
+Best regards,
+Liviu
 
->
-> Best regards,
-> Alexander
->
-> > ---
-> > Changes in v3:
-> > - use dw_mipi_csi2rx_has_reg().
-> > - detail change see each patches's change log
-> > - Link to v2: https://lore.kernel.org/r/20260213-imx93-dw-csi2-v2-0-8be6039f44c6@nxp.com
-> >
-> > Changes in v2:
-> > - use enum and array map to real register offset.
-> > - Please keep the order:
-> >  - #includes
-> >  - #defines
-> >  - enum and struct definitions
-> >  - the rest
-> > - detail change see each patches's change log
-> > - Link to v1: https://lore.kernel.org/r/20260210-imx93-dw-csi2-v1-0-69667bb86bfa@nxp.com
-> >
-> > ---
-> > Frank Li (6):
-> >       media: synopsys: csi2rx: use devm_reset_control_get_optional_exclusive()
-> >       media: synopsys: csi2rx: only check errors from devm_clk_bulk_get_all()
-> >       media: synopsys: csi2rx: implement .get_frame_desc() callback
-> >       media: synopsys: csi2rx: Use enum and u32 array for register offsets
-> >       media: dt-bindings: add NXP i.MX93 compatible string
-> >       media: synopsys: csi2rx: add i.MX93 support
-> >
-> >  .../bindings/media/rockchip,rk3568-mipi-csi2.yaml  |  47 +++-
-> >  drivers/media/platform/synopsys/dw-mipi-csi2rx.c   | 278 +++++++++++++++++++--
-> >  2 files changed, 303 insertions(+), 22 deletions(-)
-> > ---
-> > base-commit: ada3fa02f7a95623b724dfe300fce6f49cc2d75a
-> > change-id: 20260128-imx93-dw-csi2-b472ddcb176a
-> >
-> > Best regards,
-> > --
-> > Frank Li <Frank.Li@nxp.com>
-> >
-> >
-> >
->
->
-> --
-> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-> Amtsgericht München, HRB 105018
-> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-> http://www.tq-group.com/
->
->
+
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    Â¯\_(ãƒ„)_/Â¯
 
