@@ -4,106 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F7FCD4846
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 03:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B06CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 03:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f5afZUW8VRAgRwwZqxbpryqh9Su0hrtmWrw6tgsZctM=; b=r0T+2hrPzDGDJMcTB5p3ib7JGW
-	X7lK7NPwjvakqFx+Tn5z6BG9Gw5B++Db9vSu2NHoDIUD/XAgWLginfD2kBAYEpyGnTyZWo6HjolCY
-	lhCtp8nn/p3/fQxKE4cG7/adgilL4rPhLlgAnfm6wL+cfX8n65QN+6sbjD9LRisL8lmqpm9WiUNS5
-	K/dAYysRWxaTfXyH3U2nMm2zIJ8/fVmEzPNKZoZN5Ik82pzabPK12z4g7zwA97yvzKqDOI6Pqmt2O
-	HKjahM4EIZ0xBQRVTBXdK7sKqKoQmhLakL+AetJqAOQcaBe919DwKrkyreeU6YoA7xAevab0gU1o6
-	ECCjm1FQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LtdXnQEVIb6c5aCwt7NTASRXJz0sr0Gu7xDW8knSUp0=; b=Ft4L0uSQdQg9UmtgSYOQWm3/Yc
+	8Wdt6TTAuBrqxK8BAnHJsQ8zy2ESz222BORSKNFl8DAYivrMH3G4NSZxI6nSpqdC5soqqhwcAPnqC
+	h4W44uDPNOJ1KsHThyQKURpxECUq/Ge/B0tQPmn5einS+tSHDhGT074zKneTh/7t0usuOR6NtJFOK
+	Jc0atJnv/ZT6uScZVWDrgn69+JmYZeBFgPPOMIn5EKamLOizoXW816fv8PZFpCQXi+fVN2r/jp4Fu
+	Ho+AzlcVOBSIUcrW3cn/IqAmN5560/YPstYErnphxcmrZeflK0DXCl0h8uypPUmZuDooARtkdCLRV
+	S9Ng2ncA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMdNe-0000000FKH2-2ejb;
-	Tue, 12 May 2026 03:01:58 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1wMdt2-0000000FN9Z-3mTk;
+	Tue, 12 May 2026 03:34:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMdNc-0000000FKGO-1FHI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 03:01:57 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5a8891febd2so5908132e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 20:01:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778554914; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Xjoun2qutYUqpHm3PzKPzh+mwonkrmgPN2XCwD4GBD1oyLxLwC3vF6EqJC8GdM1tCJ
-         O1N3hfs4BXya0knLVGe/Pu2+6DOPdNuzmtBPZo7+DZ6+RrHwox/jcK+IhHXmRDVFFh85
-         0Bizjfx7trczH6deWJcPahmRmsPmjHCmwaxtpb8uwWdpsF1QkYs8liAKIv8n43/HiVtY
-         vwixrqew4aNfNxyjR1q9tZg5rtyNLYeNWyf2sMN6eoKvtwmESb6MVurwe6s/euHuMCpV
-         EY+EgMTs5uWUsNgx/LZXKRAtBFqV5mtxDjLn93MWI6AZJ3HX3LInYn//o/WJ9gksoJ2o
-         H+RA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=f5afZUW8VRAgRwwZqxbpryqh9Su0hrtmWrw6tgsZctM=;
-        fh=KtCVBZEDevTuPUgwV7VTDsgDGfb1eInNBTqb5C8zPgg=;
-        b=W01h1JfSRE7cn35BzM0HwGdKe1gKg5uoNY9wC6FnMxW5NhLwpQSvVr3BO6J51c2SlM
-         a++Gwal1DwPmXsv+1y3JLa60PmYF3mQxqbe/yyucBOlRo72Ihvgw8ORfNn10NrLtEbl4
-         8hIH0zBK+q2tNOQUDf7l52lP+55MT4557hcNS4VgsagT6tvq4Uf+mueW6cJlZQHuTu47
-         rJB4bktr5Ax2jt8A2Cx40O3gLYrJoQLdqMHbYTmaeUklG9O4SJY+G9JiqgsVV2vb+Xah
-         uDYz8fTWAdZXf6uZpD05cuPzsKraYAs/1ZBi0IfqEZ42OpLT+TeZtLACRQMd/khzcvT7
-         dprQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778554914; x=1779159714; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f5afZUW8VRAgRwwZqxbpryqh9Su0hrtmWrw6tgsZctM=;
-        b=eRTLngqoVraMkFKElNkqxjzP1hQqpGZSmCj1CpondcoSvBGRjzGlSW4WDiLBgGLSj8
-         KIe8l71nX+1QNimdD5q16t3DYfivburWXaWYyeivbdTg8/DvDHti831Adn2h8Qle7pN9
-         0969t7DhDRlYIzsJnC+ZCaeJWdcqAmoxKyX9DU4ksK/bPC6NX4YvJFjOiM5cD2pOl5f0
-         6Ybnuz7yMT0ho5pf3TJX2+p71L+7VSLJeRV5Rc4bwaNpksqLqiPRiwik/Zw3TbMNbZSY
-         dscdPW1CRJxwIuhXMcxfdq2bFHw9766jrghyaCYFK7PPay0o5G+6+rbgw5wkmLYHjUzg
-         4xHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778554914; x=1779159714;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=f5afZUW8VRAgRwwZqxbpryqh9Su0hrtmWrw6tgsZctM=;
-        b=fQdXNOw6rzmbkZ3C5khAQ2PC8kra2/+S0LJYhCyP1dchtZVY/00fIYWRC5ZJu06L5B
-         /4zUsnvBTbzi6tIw7p4EQvvlEf6eW6Ubqen+U+jM7n2DkzOADA3J/u+Qf90l/tJckCyI
-         0z706MOMukwM2sG1UMOz4faHIyI6P/xV8jp/kuMr+pBEf20feXEcx1zeZB+fUs6s6Jhk
-         ijBGhwGKux2b+EjG0N7bq0ykcJJbpIBKm59yFCRF6Il01g2FY+GfKf5oJPHEocdQdOT8
-         CLqjKXPEjsM2qL72hDKgSo/2s27CVvLXpoqJPl78TPXaYRcv3UdREv5tVjqNUSwnfQj6
-         Tuvg==
-X-Forwarded-Encrypted: i=1; AFNElJ+qC1tvHi9dZSprqJM/I1cMrEfuRoPZU1HQH9zsIDmOTyB7Z9j5fRrXZQwjcN/s9pSGEjKYJQV9q6E0pOrar7r7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbX6OBml9Z5lI6Eac2WX875JxDYPTdEjN3V7stJrigYxGq7KQW
-	QdW41aRiGVj8CLkU2/BuhFWwQuRnbM2UaPAYUxZcoNRMZnLg5yF7bd2iuEuQ26A8R9eFosy7VuV
-	fo23lOCN1VWCkaTrFB2ho14+dS776sfk=
-X-Gm-Gg: Acq92OEOBp2UkfBux236pOHu4JPuarCybgtNS31g5MG52yqzR+BkrE7MuJE28tczRAu
-	1pUptJowvv2AeAguzG/y5A/r7Aqxlcen1DcE0Z6ggd7nnyXM5MWfUkIVRfOUHyvwHCJaHuxHHh7
-	an+3xhzBzKsagpvZCUfxf0hX3gxqZwYEUt0Hw5uykrLE5v95kh6WJQuD1vKreDzTugc7PVufJ9/
-	pzBk1iniIi5W2iD8TpTuQYRd6qewc04XthDjlyXmMdHaSeu5bkFFN5YP38JkNQHSxRiOF0eBxOJ
-	X2c6o5Qbuz5oT0X9Zia+wh+DtFF5iwPIAaqya4rJcjYsKvhlFuPxEKrbw6F8ey6Td1/KBcvPsuy
-	jwGSVKJI=
-X-Received: by 2002:a05:6512:3d04:b0:5a8:2b1a:26f5 with SMTP id
- 2adb3069b0e04-5a8e31f5a98mr270389e87.39.1778554913320; Mon, 11 May 2026
- 20:01:53 -0700 (PDT)
+	id 1wMdt1-0000000FN8e-3Jsy;
+	Tue, 12 May 2026 03:34:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LtdXnQEVIb6c5aCwt7NTASRXJz0sr0Gu7xDW8knSUp0=; b=V0/v+Y0TTRZtaLu4QDyqCOwkRX
+	/Wq1W3TqEUGEQmoKKGKXPnx5zfZWL/CeSGYhBpd/lRMDObT58nOql5GX2cduCfdnLrwd12SNBzuwM
+	E+US4aaIp8rzs6gGtW/Fhv2hZyAxbpTe9gKnRekbZVzw6kGP1umW2n8zDa0Fg2C8mzAvxTZrV+Sre
+	o1767Wcr/+QHFizJkpr3UYtCwoVR+FbBnlUZDlbruMNMRUOjZEWYH2Rx+PqP+89If9h0D96TXwgEa
+	M4cR+keQRgoidUfz/79JXuGiLcMvv+M9aUYNDjqPabKU5cqMC28gDpZNB9Z6CkEBdgWha3HrRIhLh
+	Nis9vmUA==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMdsw-0000000DYbF-2BHx;
+	Tue, 12 May 2026 03:34:21 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 64C3XJoF43571941, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1778556799; bh=LtdXnQEVIb6c5aCwt7NTASRXJz0sr0Gu7xDW8knSUp0=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=PH/ibe10a+mefQYnoIHyfTzenlMWsYQCsiyitA/1ih68ubpjh4k6+k9o7bZ0qieRw
+	 PaDYkv2kH4AfQH0apvmW2y0R3AmXhvbyZx8kCVGVYAqtdcNTKffIieYTAIfAu73WNc
+	 bG74IX0xoiIyGCHxctQB/gfrzLgQWr+UE97QgqCUaAzPbpSBx/DvdXDPjK2hasHQRb
+	 xnfYO3PFRt+myy9gaBzM391GhMO4sOeVP0avb7ByxvJD+zwVm9a/LkFGNMi70CBzCT
+	 6SA5VN1OvC6fQGIztGBzOIne5eXDRVhKHC2EbrBGio+kOOLzp6DuJbtlGM69b/zBDt
+	 a/ZrCvPRA9YGg==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 64C3XJoF43571941
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 12 May 2026 11:33:19 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Tue, 12 May 2026 11:33:19 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Tue, 12 May 2026 11:33:19 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
+ (10.21.1.55) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 12 May 2026 11:33:19 +0800
+From: Yu-Chun Lin <eleanor.lin@realtek.com>
+To: <linusw@kernel.org>, <brgl@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <afaerber@suse.com>,
+        <wbg@kernel.org>, <mathieu.dubois-briand@bootlin.com>,
+        <mwalle@kernel.org>, <lars@metafoo.de>, <Michael.Hennerich@analog.com>,
+        <jic23@kernel.org>, <nuno.sa@analog.com>, <andy@kernel.org>,
+        <dlechner@baylibre.com>, <tychang@realtek.com>
+CC: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-realtek-soc@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+        <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
+        <eleanor.lin@realtek.com>, <james.tai@realtek.com>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v3 5/7] dt-bindings: gpio: realtek: Add realtek,rtd1625-gpio
+Date: Tue, 12 May 2026 11:33:15 +0800
+Message-ID: <20260512033317.1602537-6-eleanor.lin@realtek.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260512033317.1602537-1-eleanor.lin@realtek.com>
+References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-References: <20260512024850.904551-1-alice.guo@oss.nxp.com>
-In-Reply-To: <20260512024850.904551-1-alice.guo@oss.nxp.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 12 May 2026 00:01:42 -0300
-X-Gm-Features: AVHnY4JM8xWYId7_GEwqhTuQbzqK_Z2r74tfHHyGe9m6Ozr37EBkt-UJHpZx-e8
-Message-ID: <CAOMZO5AzNnpL2bCf3h-4Q+sp6Y7aPgGJoGC6_xLaN4dOOZdUKw@mail.gmail.com>
-Subject: Re: [PATCH v1] arm: dts: imx: Add watchdog support for early boot stages
-To: alice.guo@oss.nxp.com
-Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_200156_354045_66F882D5 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20260512_043420_029250_1D24A0B9 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,26 +106,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 11:46=E2=80=AFPM <alice.guo@oss.nxp.com> wrote:
+From: Tzuyi Chang <tychang@realtek.com>
 
-> --- a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-> @@ -325,6 +325,17 @@ smc1: clock-controller@40410000 {
->                         clock-names =3D "divcore", "hsrun_divcore";
->                 };
->
-> +               wdog2: watchdog@40430000 {
-> +                       compatible =3D "fsl,imx7ulp-wdt";
-> +                       reg =3D <0x40430000 0x10000>;
-> +                       interrupts =3D <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
-> +                       clocks =3D <&pcc2 IMX7ULP_CLK_WDG2>;
-> +                       assigned-clocks =3D <&pcc2 IMX7ULP_CLK_WDG2>;
-> +                       assigned-clock-parents =3D <&scg1 IMX7ULP_CLK_FIR=
-C_BUS_CLK>;
-> +                       timeout-sec =3D <40>;
-> +                       status =3D "disabled";
+Add the device tree bindings for the Realtek DHC (Digital Home Center)
+RTD1625 GPIO controllers.
 
-You missed passing bootph-all here.
+The RTD1625 GPIO controller features a per-pin register architecture
+that differs significantly from previous generations. It utilizes
+separate register blocks for GPIO configuration and interrupt control.
 
-Adding wdog2 would probably make more sense on a separate patch.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Tzuyi Chang <tychang@realtek.com>
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+ .../bindings/gpio/realtek,rtd1625-gpio.yaml   | 71 +++++++++++++++++++
+ 1 file changed, 71 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/gpio/realtek,rtd1625-gpio.yaml
+
+diff --git a/Documentation/devicetree/bindings/gpio/realtek,rtd1625-gpio.yaml b/Documentation/devicetree/bindings/gpio/realtek,rtd1625-gpio.yaml
+new file mode 100644
+index 000000000000..f13c910b73c6
+--- /dev/null
++++ b/Documentation/devicetree/bindings/gpio/realtek,rtd1625-gpio.yaml
+@@ -0,0 +1,71 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++# Copyright 2023 Realtek Semiconductor Corporation
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/gpio/realtek,rtd1625-gpio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Realtek DHC RTD1625 GPIO controller
++
++maintainers:
++  - Tzuyi Chang <tychang@realtek.com>
++
++description: |
++  GPIO controller for the Realtek RTD1625 SoC, featuring a per-pin register
++  architecture that differs significantly from earlier RTD series controllers.
++  Each GPIO has dedicated registers for configuration (direction, input/output
++  values, debounce), and interrupt control supporting edge and level detection
++  modes.
++
++properties:
++  compatible:
++    enum:
++      - realtek,rtd1625-iso-gpio
++      - realtek,rtd1625-isom-gpio
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    items:
++      - description: Interrupt number of the assert GPIO interrupt, which is
++                     triggered when there is a rising edge.
++      - description: Interrupt number of the deassert GPIO interrupt, which is
++                     triggered when there is a falling edge.
++      - description: Interrupt number of the level-sensitive GPIO interrupt,
++                     triggered by a configured logic level.
++
++  interrupt-controller: true
++
++  "#interrupt-cells":
++    const: 2
++
++  gpio-ranges: true
++
++  gpio-controller: true
++
++  "#gpio-cells":
++    const: 2
++
++required:
++  - compatible
++  - reg
++  - gpio-ranges
++  - gpio-controller
++  - "#gpio-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    gpio@89100 {
++      compatible = "realtek,rtd1625-isom-gpio";
++      reg = <0x89100 0x30>;
++      interrupt-parent = <&iso_m_irq_mux>;
++      interrupts = <0>, <1>, <2>;
++      interrupt-controller;
++      #interrupt-cells = <2>;
++      gpio-ranges = <&isom_pinctrl 0 0 4>;
++      gpio-controller;
++      #gpio-cells = <2>;
++    };
+-- 
+2.34.1
+
 
