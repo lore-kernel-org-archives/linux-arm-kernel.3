@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56147CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 20:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F166CCD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 20:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNSJK2hJvAs7WyQRUefVQasX5IszdzYjW6ZTM6I0MZ4=; b=TYj9/JuuCtV9PH/7X4+iLcbCj9
-	HMLReMhc1a84AqS6k8Vz2jvGqL7pT1518CHLj20v5SqBbKz4zOqmlyHNn8Af9yFbkqPH7SwMeFwHS
-	XrzQPN58Y1dIe/fvrgOMiScROVRoxzFwha2jVah05loZ6iu8MMDXmi6Ee8B407A6ydqOE1bVE/dtb
-	GB5y4bGGAFk/a23QFrVVUWnIYb0NLB4l+8gV+ZOmrwhPSqhL88y1SAdpoHXRSKcmprz8dg0laQoTX
-	dQ1G/aQnhL1WzKyAPI2yCDMV3l/N+ATOkAj8Q2Qr5mrECTjTvON2KtKDQeKmI3nQ6btUnhveYVecf
-	9Md/ypIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5vSXzbfxiDayi3uLMoENhtSVkT6Xt07qc9dfSIxaHTQ=; b=eTlW5r6ttNVSCGyGK/vb9/bpVr
+	b8PlvfMAi7FyTkaNG+NYDr7VXw5ZGT6SmYY+fDUiM/qB4m7dD4QaoBDxe+WWRFv784ff71J6aaNzn
+	53Lw7S9CRFnI13i18J20o2niVA33KT29STkFsFH6nGxyZolrgwgJeWKfHz/UjLT9SllLCSf4kCZ8F
+	hMo6+rZ0Ayy/AxVl9omKVQRrFnWDtugQmI0V79m6I64BpZo5LyOH+4FUNYplx3U/fvcA1tJzb+C7K
+	HhsdXeofrjnUydNjdttVN4iE06kLZvxOtYiV5M8phNi1/DetNKBjO3kIJ06C5EP9tb2zTd/beiyVr
+	XirRURvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMu1v-00000000NnG-28du;
-	Tue, 12 May 2026 20:48:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMuBj-00000000PLc-0pF1;
+	Tue, 12 May 2026 20:58:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMu1t-00000000Nmh-03Yw
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 20:48:38 +0000
+	id 1wMuBg-00000000PKv-3rrW;
+	Tue, 12 May 2026 20:58:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DE9A24437A
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 20:48:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2576C2BCF5
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 20:48:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9CC6840647;
+	Tue, 12 May 2026 20:58:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F35D8C2BCB0;
+	Tue, 12 May 2026 20:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778618915;
-	bh=SnEqL8Lj+FRSND8lqI+U43QtslizUAkSD7EWX7nfnTk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ayDhd3e7En3J4BRTfMsjiTG6p9YldApBdJ2kr662KQO4zvNY8rW6X1YZSG0DIdRC+
-	 Y7OdGmSSJ539k16mw/OfKv3zVSciTGRhQfxPIcJjG241e/CnTNIwY756Bb/+AJDj80
-	 ZrimwhNkRr10/w4WZ4oworajAmSMGRsaF9z90145dInmUgHItMFU6muT8C6gH1Bx5s
-	 N9c/y88MS160vcXKjR/Jr7K4U+cica6EmgeenYFSICBBmRVa+SGNDAo9mWB+oCdtt6
-	 flzJMNtYrC2WO9DRaoGnSyHGj6RE+0IHZMqfO9KL96VhF9zpYuWaBQ7vqYJufwo945
-	 +lkKFw8Y9Eq0A==
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6746d0b2b4aso9174179a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 13:48:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/qcNuUtIyF8CPUPbnX3IXXf6zcY31X3nfg7l996uoGaHkMXf6XcTr5Gv/PyRCQSiEPUVmPihnC86zn58k3urPw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8LRcdp8P31312tH1QP9WtUYMcl2FtudpuRf/hGhoeCt7ogIv9
-	aogEm731KONmnk+yoUMH6vVLyeeLBfnaXmTswIAzgOE2xPPm8EJOCEaNquyCKIrIJrxcHIkp8cB
-	LPPWx2M+P0ILuMd/Vkfn7YrNLsrfPuA==
-X-Received: by 2002:a05:6402:3059:b0:670:9ca8:1eb4 with SMTP id
- 4fb4d7f45d1cf-68255bf8040mr175415a12.12.1778618914126; Tue, 12 May 2026
- 13:48:34 -0700 (PDT)
+	s=k20201202; t=1778619524;
+	bh=cwRYFJ8mo7xPr/Sm/kd6T4GfCK3h96cELX3tInSSqH4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aew4b/4EDTRlqlXHmm4ka53FQbHCXwfJFmy8x01qQqfmuztLbaflyIT6Z3KXDXwK2
+	 b5JiZYNgRlvCID3NhkRx3KDtWb4nCuI6wimqtfnIwAD1mAAd9SVaDC/JSFiX7UdSOg
+	 nBygmXFpmJNoPfEnWc4ul/IPZDtPZbA/n6+FpygRh3jpuCEYeD5hipGFrI1gxOs8M5
+	 mYoOME7LP9wAWubUPs6q5f6D+bABmxyF5wfHBRa4huykaC9maPfJwfYzzR7HaVSHzw
+	 ec5dE7LMCOooljRryEym8Iy191vRpFMtPYVbUYxXGVvdndmQCEXS+vjoUznhhOb1qg
+	 Oq1FYLT8tvPNg==
+Date: Tue, 12 May 2026 22:58:41 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Benjamin Larsson <benjamin.larsson@genexis.eu>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Madhur Agrawal <madhur.agrawal@airoha.com>
+Subject: Re: [PATCH net-next v6 11/12] net: airoha: Support multiple LAN/WAN
+ interfaces for hw MAC address configuration
+Message-ID: <agOUgVn24Ls5jiHq@lore-desk>
+References: <20260511-airoha-eth-multi-serdes-v6-0-c899462c4f75@kernel.org>
+ <20260511-airoha-eth-multi-serdes-v6-11-c899462c4f75@kernel.org>
+ <f4a11830-8a3f-4cc3-ab82-e6f02ca34ae8@genexis.eu>
 MIME-Version: 1.0
-References: <20260510083219.70224-1-pramod.nexgen@gmail.com>
- <20260510120141.118057-1-pramod.nexgen@gmail.com> <20260511171554.6541042b@jic23-huawei>
- <7baf9ca5-50ff-4131-995b-70ee094ed247@baylibre.com> <CAL_JsqLxtWLR+jxRXt7Uz6dcF-90NYmfyGWYQk9um9TYHSWbTw@mail.gmail.com>
- <a4ecfb27-5ef4-4682-b87c-24917f81b4f0@baylibre.com> <CAL_JsqKP-C-rA6_19vtMzevVxQiD7bH=k5ObEZZDM3-Zmr_vtg@mail.gmail.com>
- <5a02550a-a578-4c0b-a8b0-2056f0248478@baylibre.com>
-In-Reply-To: <5a02550a-a578-4c0b-a8b0-2056f0248478@baylibre.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 12 May 2026 15:48:22 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJ1qD_3UE2FD5Pgme1yhSDLuGYYj3brfMJsmotSmNNhuw@mail.gmail.com>
-X-Gm-Features: AVHnY4JJAw3XA4xxqmQ2OyiF2Jg8Lwk1xyuoOr4v_YxirGxOoDE-30WV7bPgDT0
-Message-ID: <CAL_JsqJ1qD_3UE2FD5Pgme1yhSDLuGYYj3brfMJsmotSmNNhuw@mail.gmail.com>
-Subject: Re: [PATCH v3] dt-bindings: iio: adc: Convert xilinx-xadc bindings to
- YAML schema
-To: David Lechner <dlechner@baylibre.com>
-Cc: Pramod Maurya <pramod.nexgen@gmail.com>, Jonathan Cameron <jic23@kernel.org>, 
-	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michal Simek <michal.simek@amd.com>, Lars-Peter Clausen <lars@metafoo.de>, linux-iio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Wnpl3sdvUPuniOKw"
+Content-Disposition: inline
+In-Reply-To: <f4a11830-8a3f-4cc3-ab82-e6f02ca34ae8@genexis.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_134837_094686_F4BF6A37 
-X-CRM114-Status: GOOD (  33.06  )
+X-CRM114-CacheID: sfid-20260512_135845_007062_0F1E20E4 
+X-CRM114-Status: GOOD (  24.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,90 +84,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 3:03=E2=80=AFPM David Lechner <dlechner@baylibre.co=
-m> wrote:
->
-> On 5/12/26 2:42 PM, Rob Herring wrote:
-> > On Tue, May 12, 2026 at 8:58=E2=80=AFAM David Lechner <dlechner@baylibr=
-e.com> wrote:
-> >>
-> >> On 5/12/26 7:14 AM, Rob Herring wrote:
-> >>> On Mon, May 11, 2026 at 11:24=E2=80=AFAM David Lechner <dlechner@bayl=
-ibre.com> wrote:
-> >>>>
-> >>>> On 5/11/26 11:15 AM, Jonathan Cameron wrote:
-> >>>>> On Sun, 10 May 2026 08:01:36 -0400
-> >>>>> Pramod Maurya <pramod.nexgen@gmail.com> wrote:
-> >>>>>
-> >>>>>> Convert the Xilinx XADC and UltraScale System Monitor device tree =
-binding
-> >>>>>> from the legacy plain-text format to a YAML schema, enabling autom=
-ated
-> >>>>>> validation with dt-schema.
-> >>>>>>
-> >>>>>> The new binding covers the same hardware and compatible strings:
-> >>>>>>   - xlnx,zynq-xadc-1.00.a (ZYNQ hardmacro)
-> >>>>>>   - xlnx,axi-xadc-1.00.a  (AXI softmacro)
-> >>>>>>   - xlnx,system-management-wiz-1.3 (UltraScale System Management W=
-izard)
-> >>>>>>
-> >>>>>> Signed-off-by: Pramod Maurya <pramod.nexgen@gmail.com>
-> >>>>> Hi Pramod,
-> >>>>>
-> >>>>> Something went wrong with your sending of v3. I have two versions s=
-ent
-> >>>>> half a day apart and no idea how they are related.
-> >>>>>
-> >>>>> Anyhow one of them got feedback from Rob's bot so I'll assume we ar=
-e
-> >>>>> getting a v4 and wait for that.
-> >>>>>
-> >>>>> Jonathan
-> >>>>
-> >>>> I think Rob will have to fix the bot to make an exception for the
-> >>>> legacy bindings. This should have been called out in the commit mess=
-age
-> >>>> as requested in a previous revision.
-> >>>
-> >>> The bot is not the problem. It just runs validation. The schemas will
-> >>> have to either drop this check (comma's in nodenames) or exclude just
-> >>> this property.
-> >>>
-> >>>
-> >>> Rob
-> >>
-> >> Even though this is an existing text-based schema that has been around
-> >> for 12 years with this name already? Changing it could be a breaking
-> >> change to existing users. Although there aren't any in any .dts in the
-> >> kernel source.
-> >
-> > I'm absolutely not suggesting changing the node name.
-> >
-> > The common schemas globally disallow commas in nodenames. We can relax
-> > that and allow commas in any nodename. That check is largely from
-> > QCom's amazingly consistent use of 'qcom' prefix in nodenames. We've
-> > finally beat that practice out of them. So maybe it's not needed
-> > anymore.
-> >
-> > The other approach is to exclude this nodename and any other we have
-> > to keep. I don't like dtschema having to know about some random name,
-> > but we already have that in a few cases and I don't expect that list
-> > to be too long given this is the first case we've seen.
-> >
-> > Rob
->
-> Got it. So when I said "fix the bot" earlier, I should have said
-> "fix dtschema". We went through this before with adi,channels, but
-> I didn't remember exactly what you did.
 
-Completely forgot that. That makes picking which one easy...
+--Wnpl3sdvUPuniOKw
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> I created a pull request for dt-schema [1] for this since it was
-> easier than trying to explain it for someone else to do.
->
-> [1]: https://github.com/devicetree-org/dt-schema/pull/195
+On May 12, Benjamin Larsson wrote:
+> Hi.
+>=20
+> On 11/05/2026 12:49, Lorenzo Bianconi wrote:
+> > The EN7581 and AN7583 SoCs provide registers to configure hardware LAN/=
+WAN
+> > MAC addresses, used to determine whether received traffic is destined f=
+or
+> > this host or should be forwarded to another device.
+> > The SoC hardware design assumes all interfaces configured as LAN (or WA=
+N)
+> > share a common upper MAC address, which is programmed into the
+> > REG_FE_{LAN,WAN}_MAC_H register. The lower bytes of 'local' addresses c=
+an
+> > be expressed as a range via the REG_FE_MAC_LMIN and REG_FE_MAC_LMAX
+> > registers.
+> > Previously, only a single interface was considered when programming the=
+se
+> > registers. Extend the logic to derive the correct minimum and maximum
+> > values for REG_FE_MAC_LMIN/REG_FE_MAC_LMAX when two or more interfaces =
+are
+> > configured as LAN or WAN.
+> >=20
+> > Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> >   drivers/net/ethernet/airoha/airoha_eth.c | 75 +++++++++++++++++++++++=
+++++-----
+> >   drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
+> >   drivers/net/ethernet/airoha/airoha_ppe.c |  4 +-
+> >   3 files changed, 66 insertions(+), 15 deletions(-)
+> >=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
+ernet/airoha/airoha_eth.c
+> > index 16c0ff9999da..533ffe20f833 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> > @@ -71,20 +71,67 @@ static void airoha_qdma_irq_disable(struct airoha_i=
+rq_bank *irq_bank,
+> >   	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
+> >   }
+> > -static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *a=
+ddr)
+> > +static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *ad=
+dr)
+> >   {
+> >   	struct airoha_eth *eth =3D dev->eth;
+> > -	u32 val, reg;
+> > +	u8 ref_addr[ETH_ALEN] =3D {};
+> > +	u32 reg, val, lmin, lmax;
+> > +	int i;
+> > +
+> > +	lmin =3D (addr[3] << 16) | (addr[4] << 8) | addr[5];
+> > +	lmax =3D lmin;
+> > +
+> > +	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
+> > +		struct airoha_gdm_port *port =3D eth->ports[i];
+> > +		int j;
+> > +
+> > +		if (!port)
+> > +			continue;
+> > +
+> > +		for (j =3D 0; j < ARRAY_SIZE(port->devs); j++) {
+> > +			struct airoha_gdm_dev *iter_dev;
+> > +			struct net_device *netdev;
+> > +
+> > +			iter_dev =3D port->devs[j];
+> > +			if (!iter_dev || iter_dev =3D=3D dev)
+> > +				continue;
+> > +
+> > +			if (airoha_is_lan_gdm_dev(iter_dev) !=3D
+> > +			    airoha_is_lan_gdm_dev(dev))
+> > +				continue;
+> > +
+> > +			netdev =3D iter_dev->dev;
+> > +			if (netdev->reg_state !=3D NETREG_REGISTERED)
+> > +				continue;
+> > +
+> > +			ether_addr_copy(ref_addr, netdev->dev_addr);
+> > +			val =3D (netdev->dev_addr[3] << 16) |
+> > +			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
+> > +			if (val < lmin)
+> > +				lmin =3D val;
+> > +			if (val > lmax)
+> > +				lmax =3D val;
+> > +		}
+> > +	}
+> > +
+> > +	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
+> > +		/* According to the HW design, hw mac address MS bits
+> > +		 * must be the same for each net_device with the same
+> > +		 * LAN/WAN configuration.
+> > +		 */
+> > +		return -EINVAL;
+> > +	}
+>=20
+> Maybe this information should be relayed to the user somehow?
 
-Thank you! Applied.
+netdev_err()?
 
-Rob
+Regards,
+Lorenzo
+
+>=20
+> MvH
+>=20
+> Benjamin Larsson
+>=20
+
+--Wnpl3sdvUPuniOKw
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCagOUgQAKCRA6cBh0uS2t
+rIn+APwKpb4qxMrPaC5ng4+5c/Ub1S62RXR68TIg3As8A6JbIwD/RGedQbqaS9xg
+zxmKutUfiYEtLPbAvGErfwePBAN6Gws=
+=JHOg
+-----END PGP SIGNATURE-----
+
+--Wnpl3sdvUPuniOKw--
 
