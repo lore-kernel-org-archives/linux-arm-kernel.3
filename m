@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FB7CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76AFDCD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gw/3XWv3lqM4SVo7Ov48bZutctKT/FoPz6Ejl7rchB8=; b=lKxKltga5MRlSNIeBVTZNTdIuw
-	YQWihe+kExwE1cNX1D7Uvlk0W6hUNZ25HkJMUuu3PhmJaOm+5/18Njd2fqN4q2kj4hWhr9EKAPND5
-	nqNJaNtOTYSruHbgR4UVpKROKcE/f0T0V5xFaobR9/JRBfc9LaSSLXOgBafNNF6zmT3jpZaxXSgey
-	ZiuwLheMU+0rxC6eKqMgvs1hl/BZ81379xg602aqTCKJ+G4nsQDgr/XLEPNtaqCvzFBZbzQbi40Id
-	dFsA+nBAxF+DxWc6uBbPhicRqKxCpZA8xqNy9T8L/JoZkM3dzzVAHsKyyd2a1AAeppyT4iHEVcUtK
-	pObihH5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0d56vJ3JTSIVkz7MYUNcKIFCaEtZ+ftye7OojbyLBqk=; b=37LsOgNy5ARgXgCaq4X9cCr5H8
+	q43QoofefUOwzrCAM/aFRhPMlO0jo4TmPO4uVZUwDro0dyqbSAxcKEsFlIKKOF+ag3dX9GO7OxsaI
+	CMXhWevc7XqBSays/SkAEMiHw4s/JJCXNszVJ4S1VrtBiYFcZeQdIH3qp03ImmgHaZzfKi8QDHFMe
+	poSmWxymJW1RcQmpL9DP8VwEK0GpAHVJDXvRApl64rAw3bqxfHlWgXX59vN7MWgdpgpqGv4nLoac9
+	hUj8fn9XKywu3QX1qIqmFcbrv/Uxi+1ytupHiPeoOPGSq+64Cpeq1AxfvQ7UBivkmdWKeNS7GOpCU
+	n6pX7wZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnkz-0000000GxRT-0N3M;
-	Tue, 12 May 2026 14:06:45 +0000
+	id 1wMnmI-0000000Gxkh-2YX3;
+	Tue, 12 May 2026 14:08:06 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnky-0000000GxQy-25LB;
-	Tue, 12 May 2026 14:06:44 +0000
+	id 1wMnmH-0000000Gxk1-1i8k
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 14:08:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 987A8618B3;
-	Tue, 12 May 2026 14:06:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4D46C2BCB0;
-	Tue, 12 May 2026 14:06:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D983E62C33;
+	Tue, 12 May 2026 14:08:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E50AC2BCF5;
+	Tue, 12 May 2026 14:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778594802;
-	bh=sCdTEzy+9QK/GAC04dwJjssIvAEaneP0B0TsanrVNU0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mDZKGB4K/KBTh0Hm7t50LbJjRocFOeAjXT7hnG3mtf0eR5wpLkBPGFChYay35v5jR
-	 ydExe4pHsdItNrltZjn0Zl/A1JOLcD7mSI+mP/isxUIBIurNBAVrRShc6A+D6yxg+3
-	 Vtbr4nhW6DufgKxyIA66OT8C+PXB2nXdhPXaPP/y6lvYMkSJajNohSDH5Hmyv9+Cfc
-	 1Ce/VN1TCfraCWHNezX4SKDa4bORpvEXKO2RQa2WMBfGWHhu2J4ZnnYF4E6ANe1TpT
-	 Q8KxiX7IK7Y9CzE/AnWNzG7Z9bRu1p3tQPtnHltGqqdxEFaFn+FX8MvN7ivhfgkdQE
-	 HoCvd9wnsUc3w==
-Date: Tue, 12 May 2026 19:36:31 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
-	Chaitanya Kulkarni <kch@nvidia.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S. Miller" <davem@davemloft.net>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>, dmaengine@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org, 
-	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH v4 7/9] nvmet: pci-epf: Use
- dmaengine_prep_config_single_safe() API
-Message-ID: <xebioeyo4eecaj3sum6scttqqmubpcqutzdcrpjquvtmoaiskm@d2y744phmffd>
-References: <20260506-dma_prep_config-v4-0-85b3d22babff@nxp.com>
- <20260506-dma_prep_config-v4-7-85b3d22babff@nxp.com>
+	s=k20201202; t=1778594884;
+	bh=e4PfbEx8jOhpSA8r+WhznHgdIOWa2m/L358uEzzJ8tA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HoRUSFBUtJ49xk/SlHh6YvAELuufx8PqujoTufwIGwdAAAgX1BDIlk5oKXkQMrJeT
+	 VoaEqMx3Efv2/9hPIi3wNQhVJKmUVZdkKcBRFC1JnEw7G0p7DO2bXsWlHOa5dwLPGb
+	 wPj4N2x8uwFLq4ZbWCAHwrgucTIw6IsqLs6ebUc60laebpZH+vmevaPI6Yewl5KALV
+	 E6DCEEhi8WkfkfhjDwV4VCXZtcdT2KvzNF2vWBGK/yncJ3/FMay1ihYLAn6VANImVi
+	 JQYjByPrLZEf7OcmKbHTGYOLWvAjQ4Uxt279v64k/ARt6KnEOKWawi+BzN6ZZfwOz9
+	 prT/hoO1HAjiA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wMnmE-00000001Zsc-2qlf;
+	Tue, 12 May 2026 14:08:02 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH 2/2] KVM: arm64: nv: Don't save/restore FP register during a nested ERET or exception
+Date: Tue, 12 May 2026 15:07:55 +0100
+Message-ID: <20260512140755.3676306-3-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260512140755.3676306-1-maz@kernel.org>
+References: <20260512140755.3676306-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260506-dma_prep_config-v4-7-85b3d22babff@nxp.com>
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, mark.rutland@arm.com, will@kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,70 +86,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 06, 2026 at 04:44:19PM -0400, Frank Li wrote:
-> Use the new dmaengine_prep_config_single_safe() API to combine the
-> configuration and descriptor preparation into a single call.
-> 
-> Since dmaengine_prep_config_single_safe() performs the configuration and
-> preparation atomically and the mutex can be removed.
-> 
-> Tested-by: Niklas Cassel <cassel@kernel.org>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+When switching between L1 and L2, we diligently use a non-preemptible
+put/load sequence in order to make sure that the old state is saved,
+while the new state is brought in. Crucially, this includes the FP
+registers.
 
-Acked-by: Manivannan Sadhasivam <mani@kernel.org>
+However, this is a bit silly. The FP registers are completely shared
+between the various ELs (just like the GPRs, really), and eagerly
+save/restoring those in a non-preemptible section is just overhead.
+Not to mention that the next access will end-up trapping, something
+that becomes exponentially expensive as we nest deeper.
 
-- Mani
+The temptation is therefore to completely drop this save/restore thing.
+Why is it valid to do so? By analogy, the hypervisor doesn't try to
+poloce things between EL1 and EL0, or between EL2 and EL0. Why should
+it do so between EL2 and EL1 (or EL2 and L2 EL0)?
 
-> ---
->  drivers/nvme/target/pci-epf.c | 18 ++++--------------
->  1 file changed, 4 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/nvme/target/pci-epf.c b/drivers/nvme/target/pci-epf.c
-> index 2afe8f4d0e46104a1b3c98db3905cf33e8c9e011..04d8f48d6950349ca97d2dbeae4e38e4714ad0d4 100644
-> --- a/drivers/nvme/target/pci-epf.c
-> +++ b/drivers/nvme/target/pci-epf.c
-> @@ -388,22 +388,15 @@ static int nvmet_pci_epf_dma_transfer(struct nvmet_pci_epf *nvme_epf,
->  		return -EINVAL;
->  	}
->  
-> -	mutex_lock(lock);
-> -
->  	dma_dev = dmaengine_get_dma_device(chan);
->  	dma_addr = dma_map_single(dma_dev, seg->buf, seg->length, dir);
->  	ret = dma_mapping_error(dma_dev, dma_addr);
->  	if (ret)
-> -		goto unlock;
-> -
-> -	ret = dmaengine_slave_config(chan, &sconf);
-> -	if (ret) {
-> -		dev_err(dev, "Failed to configure DMA channel\n");
-> -		goto unmap;
-> -	}
-> +		return ret;
->  
-> -	desc = dmaengine_prep_slave_single(chan, dma_addr, seg->length,
-> -					   sconf.direction, DMA_CTRL_ACK);
-> +	desc = dmaengine_prep_config_single_safe(chan, dma_addr, seg->length,
-> +						 sconf.direction,
-> +						 DMA_CTRL_ACK, &sconf);
->  	if (!desc) {
->  		dev_err(dev, "Failed to prepare DMA\n");
->  		ret = -EIO;
-> @@ -426,9 +419,6 @@ static int nvmet_pci_epf_dma_transfer(struct nvmet_pci_epf *nvme_epf,
->  unmap:
->  	dma_unmap_single(dma_dev, dma_addr, seg->length, dir);
->  
-> -unlock:
-> -	mutex_unlock(lock);
-> -
->  	return ret;
->  }
->  
-> 
-> -- 
-> 2.43.0
-> 
+Once you admit that the FP (and by extension SVE) registers are EL-agnostic,
+the things that matter are:
 
+- the trap controls: the effective values are recomputed on each entry
+  into the guest to take the EL into account and merge the L0 and L1
+  configuration if in a nested context, or directly use the L0 configuration
+  in non-nested context (see __activate_traps()).
+
+- the VL settings: the effective values are are also recomputed on each
+  entry into the guest (see fpsimd_lazy_switch_to_guest()).
+
+Since we appear to cover all bases, use the vcpu flags indicating the
+handling of a nested ERET or exception delivery to avoid the whole FP
+save/restore shenanigans.
+
+For an EL1 L3 guest where L1 and L2 have this optimisation, this
+results in at least a 10% wall clock reduction when running an I/O
+heavy workload, generating a high rate of nested exceptions.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/fpsimd.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+index 15e17aca1dec0..73eda0f46b127 100644
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -28,6 +28,10 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+ 	if (!system_supports_fpsimd())
+ 		return;
+ 
++	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
++	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION))
++		return;
++
+ 	/*
+ 	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
+ 	 * that the host kernel is responsible for restoring this state upon
+@@ -102,6 +106,10 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+ {
+ 	unsigned long flags;
+ 
++	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
++	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION))
++		return;
++
+ 	local_irq_save(flags);
+ 
+ 	if (guest_owns_fp_regs()) {
 -- 
-மணிவண்ணன் சதாசிவம்
+2.47.3
+
 
