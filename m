@@ -4,99 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC635CD4846
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 02:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6894BCD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 02:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPXs4xfe9WaD1xaFn0d8PPw/gVNLx2J4xPkxz7s4xqs=; b=koKv+wAdpx3g14YXXtdANKERCO
-	mrgwEB6BxfHwvNO6rtq0ZaRI48HPAhL74RfiYrjL+gVWSsHIO16/awW/RlRweuU4mR4XmYuaY3sQr
-	sRevN0A4FbTgUtyFE9C+orl3wE80TjTDNB4ITZDcHfytwdHv9wsG3l9eyZvVSR8K1PcEvGADguD9n
-	C85Y45y3daytd+Atl4dowsicXu4eMX4nsGh+Lunwv2OTNJ6obSURQAeUpgCs2BdIVMagovmCOKLJQ
-	8nD8I+sCrDm1B/43b+yIC/dNokem0jCjrLwC2vnDPix3RETcAE+BB956QZAOzztuXRlb46zuRkR5E
-	/0GJhozw==;
+	bh=7On1g7UK4emWbIkTMV7hZ9nh3ffnrtBOHqX2nkDYCpg=; b=XndJed7n4nQHNgaV4l+SURw6AE
+	qlbthKxizj6PC3kHRHdIyRBkmfc/T/X4EkEk+kmv393wnYx/okW/WHT9R1ODf2KVs3xuE1ZrBQLjH
+	gKJAMPAeZqeLcKvRUc1crkOQ5fz+GWkaD+4dEpMJ2bjqazM73b2pbcZvocaOwANwrcvynx4cEWPGE
+	gdZVa/+/3c8DaW3LiD+rMj9GhRuCT80dfJhGVQmAlmQp3M0NnHiZv9oNcqpzxgpP2wmFzeoojcWvz
+	8oxXhXAX8HI/mdGbatU1LwaOSYTeMkfCJzJTbwAn11QBb0LhoprgdH1sZnqGE9SSMAG2xp0bBRPCl
+	l891F1AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMcbU-0000000FF12-1Xgd;
-	Tue, 12 May 2026 02:12:12 +0000
-Received: from jpms-ob01.noc.sony.co.jp ([2001:cf8:ace:41::4])
+	id 1wMcf9-0000000FFNz-0EL8;
+	Tue, 12 May 2026 02:15:59 +0000
+Received: from mail-northeuropeazon11012018.outbound.protection.outlook.com ([52.101.66.18] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMcbO-0000000FEyJ-3CYJ
+	id 1wMcf5-0000000FFNL-24pb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 02:12:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=sony.com; s=s1jp; t=1778551926; x=1810087926;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=hPXs4xfe9WaD1xaFn0d8PPw/gVNLx2J4xPkxz7s4xqs=;
-  b=oE2Fi+m5Q+0pWOsPWb+xdxt1HZl0nC5EstDQki3ArXqc+q3QtBhOj5Zb
-   QB6u2UCOYdMbg9ey9QFr85w19fro2lcc5YyceZD1rmhriVA8rXeFBlBvD
-   gePkfhckh9k63abPvM9ubhLgfj9OhMn+sXcpW+Ack52aBo+Roc19ssxHo
-   7GhQDAly0G8eu5dr1lW1bQxXTq8X34oRyMopX/OLWajjxalha0CorK6YK
-   lqy6NhYsY0g/CrYwph7E8ndJePUEs9Alfw0zy6z3Mv2GEGiDdyPZ9k3Ix
-   JMTNU5wbz2DnJGG2bOch4i95ySqE6qv2wFw6ESDPcJM0BoVtXBf4Akyz4
-   A==;
-X-CSE-ConnectionGUID: mMqO8ayGSh2J6gqMGWGv3w==
-X-CSE-MsgGUID: GLqFx78rRh6vl26RqbxuRg==
-Received: from unknown (HELO jpmta-ob02.noc.sony.co.jp) ([IPv6:2001:cf8:0:6e7::7])
-  by jpms-ob01.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2026 11:12:01 +0900
-X-CSE-ConnectionGUID: E4sXDblmSuKgQZmCqCcvnA==
-X-CSE-MsgGUID: Qwx43BEcSKO83PNWSCJ4AQ==
-X-IronPort-AV: E=Sophos;i="6.23,230,1770562800"; 
-   d="scan'208";a="606139396"
-Received: from unknown (HELO JPC00244420) ([IPv6:2001:cf8:1:573:0:dddd:6b3e:119e])
-  by jpmta-ob02.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2026 11:12:01 +0900
-Date: Tue, 12 May 2026 11:12:00 +0900
-From: Shashank Balaji <shashank.mahadasyam@sony.com>
-To: Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>
-Cc: Gary Guo <gary@garyguo.net>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
-	Boqun Feng <boqun@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Daniel Gomez <da.gomez@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Aaron Tomlin <atomlin@atomlin.com>, Mike Leach <mike.leach@arm.com>,
-	Leo Yan <leo.yan@arm.com>, Rahul Bukte <rahul.bukte@sony.com>,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, driver-core@lists.linux.dev,
-	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
-	Daniel Palmer <daniel.palmer@sony.com>,
-	Tim Bird <tim.bird@sony.com>, linux-modules@vger.kernel.org,
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v4 1/4] kernel: param: initialize module_kset before
- do_initcalls()
-Message-ID: <agKMcA7a_UqMua5V@JPC00244420>
-References: <20260427-acpi_mod_name-v4-0-22b42240c9bf@sony.com>
- <20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com>
- <DI3Z28IZZOT9.349TTWNN9VDMB@garyguo.net>
- <afABOMT_s9DvF6NY@JPC00244420>
- <DI4QQA6EGIA1.N8WRFWVKG91S@garyguo.net>
- <afCxHUrjr3Z22U6V@JPC00244420>
+	Tue, 12 May 2026 02:15:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IOxUAEE4BvVGatp4VNeAtQdUy1cSO3EYyZ1mMrLrO/JtYPdEKhInoPka3V8larocAQlz10zbIwxv5Lg2ouBRuiDaESC5tLMvwHYRTNEITGu1X9udIpjPUGENVM6hPT6HyL7xnfmqARUoRZVqMPgU0GZdAaCV8lp20mg7XYS0oq8TzH7Vc7uavhnfCMMqBxSoSraJt630+lI+GB1hsTrlkqM5G2XNiUftgpAccL38uLD1eBi2CF7W5s2wywRJ79nP1SGAERjXVv5/lY6VNX1iHqrMOAWE0SLLL1FyYpBZqThMN5Un4/csJ7/815D2aAC9ntxnb5vCs4+FobaqH6zwgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7On1g7UK4emWbIkTMV7hZ9nh3ffnrtBOHqX2nkDYCpg=;
+ b=cOFCJohbPioWCdaWgUWnR342IOympxHi7cQrpLmUGjjoupi75CbYOXpENVP1cc3pw+sgXObHYJt/O+7qnbDq6UOHecjZELVQiIdrgpdc523Rm7pWo33xwQrGBoSoxdeedCsqQiMc2pTPeQeaAIQVhQxUo3BYUUwDKlY5Wpkg5YPZ9LWmxVq4rSHc7hY8q02NsCvq05AElc2b7n4u0az3sjgQoEHIhiVtd8jxoVdEM/Jdt5zQMdzElA+nOrHBxVf/vGuY2AvQLO5E4aVmoQOFT3+Qftu0FZqWJLdGpmNA8a+j67a67btxlZigOHtKUwel1DzKqEko7sqKlL5me2E0eg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7On1g7UK4emWbIkTMV7hZ9nh3ffnrtBOHqX2nkDYCpg=;
+ b=GVnbBkQeo+iJ/PbMm7/VFp6YvjsQLYugvrEWlxYNAjniJMHtluGFyIwqBPTmZW1+rhZ7TxKq7Sr52U+2HgEIvnkw8V3j/FhttNAvJNClVlzKdjXL3hieGg7kbRRUSguLJDpr9V0MA4N7tRd3g1Mbqx/dj5OOcKgVu6X9nJTlxTQ8f+vdOCVqC7fJ56cpgx/NF60zoGag/WPePF/Z0fRIEGgSeveWLTBV0WGu8K1qO3j+gqgHr7Ly6o/0aJXqtj761tXaWoTfHlotctWWc9u6HpmrJTKPOeekd1P46VxAEkjJAx0lDv1+XB4hl8XBrhAthkKXV+PJMS1Kp3rMTXNOoA==
+Received: from DU2PR04MB9081.eurprd04.prod.outlook.com (2603:10a6:10:2f0::13)
+ by GVXPR04MB10899.eurprd04.prod.outlook.com (2603:10a6:150:225::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
+ 2026 02:15:47 +0000
+Received: from DU2PR04MB9081.eurprd04.prod.outlook.com
+ ([fe80::b025:f7ce:2cc:9e5e]) by DU2PR04MB9081.eurprd04.prod.outlook.com
+ ([fe80::b025:f7ce:2cc:9e5e%5]) with mapi id 15.20.9891.021; Tue, 12 May 2026
+ 02:15:47 +0000
+From: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>, "G.N. Zhou (OSS)"
+	<guoniu.zhou@oss.nxp.com>
+CC: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Frank Li <frank.li@nxp.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "G.N. Zhou"
+	<guoniu.zhou@nxp.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>
+Subject: RE: [PATCH v6 1/2] media: dt-bindings: Add CSI Pixel Formatter DT
+ bindings
+Thread-Topic: [PATCH v6 1/2] media: dt-bindings: Add CSI Pixel Formatter DT
+ bindings
+Thread-Index: AQHc4bU+aKYyErTm80uq3vc4RFQ64g==
+Date: Tue, 12 May 2026 02:15:47 +0000
+Message-ID: <DU2PR04MB9081F09027BDA09394D52251FA392@DU2PR04MB9081.eurprd04.prod.outlook.com>
+References: <20260511-csi_formatter-v6-0-01028e312e2b@oss.nxp.com>
+ <20260511-csi_formatter-v6-1-01028e312e2b@oss.nxp.com>
+ <yez4p77eclr4hfhb5ytyr64ponp4plpefxhfszqfvdinpvamuv@jod7fsgilowq>
+In-Reply-To: <yez4p77eclr4hfhb5ytyr64ponp4plpefxhfszqfvdinpvamuv@jod7fsgilowq>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DU2PR04MB9081:EE_|GVXPR04MB10899:EE_
+x-ms-office365-filtering-correlation-id: aef805b6-ab95-48a7-1e5b-08deafcc6172
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|1800799024|38070700021|22082099003|18002099003|56012099003|11063799003|3023799003;
+x-microsoft-antispam-message-info: B+9LBhGwupcxq6UB9pLWcxvhn8RYLwrdRP4fLGK2bgbk9hBXEK8j+nCCzw3xVGewWThPSgyFtJLrqr47nPQIYHWpiWbf0UDaK52UfaFoV6Lw7PeKlke5BC8zFhgy47/P8Sg0wbP8o2/8NAk9yNW1VhCyoYohEMiSoSZU7NrnVKvEdiPJjypDnJONd0xIReTuTKycTIemipypDQXTiy+np6y6NmOgEwbDhhLgS9wNaSMmaD8sUhH0nIhrKIk8bht8BrbwTj/3F6xAGCLWzShrHyA3YvLJh/pQOoqF7q+jD/velQfsm754WdH7QM0HqWYKIXqLslgTa+ImkI9Z170LNojs8NNO5Au7Nn+8cVGnWA0NkENepo3Vl9Yfwl512JA+6RSWin3GKR6VeABzodQUtasjxVNalq25gPZI+s6esEELaHgxPDmkTte8stTWfjt7Yr0sLPq5gXvlEsXLNaO6wBnm/WtjFPjhSp6CFj2e8z9LUh2ZqL0bZlWh2zDU2YTAJxUNJ/crmo1tYHiFfnbP1Y0C5JB9bBt368z44FDbYvjLZ6+8iKMzkyeW2GUUbqQuRLpNnP20OVnkqZqYlMYHGxMf1JLBpnXmrjwRby5qq/Ll3X3mOXI1DenV1IA55BJLOHGeR9gBSISf+KlqMzsRgcrhcQR325fXHUa/67JoCOm1waKXWEBXAnM91ybm5AdQ
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB9081.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(1800799024)(38070700021)(22082099003)(18002099003)(56012099003)(11063799003)(3023799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?InaE2vhD2R3F9gpFH66H+tyWA3nX+gsU7ccDukJKxSWZykMsRi0vmqGiwjVT?=
+ =?us-ascii?Q?MvvjV7mNBVDUD72sxilC/sdh2VH2H4GJ8WGiS60vKZEiAlbDblen9LPXPGv4?=
+ =?us-ascii?Q?U53ETQbmU4quRmluuGPKyRI29tViahqUFj26oXBC3SX9ArP/wTG625sZ3CBF?=
+ =?us-ascii?Q?NLrMcxOWVIt/4kkkupPgWVP8Lll/cWcm8H/JMdMzAe49/T4CLQnQswO9Dw+M?=
+ =?us-ascii?Q?f7IZlI+udpHkD5X9y32puEY33MtJM4/t2CwdP/Qrufkl9utETO2/dmx9KubF?=
+ =?us-ascii?Q?cKU5mqYnD1BEvizMI/ot11ZXvsa6oDqHObiSrYFOXHIqGeUIxPe9TyEzTJFx?=
+ =?us-ascii?Q?1puFUAwxr6cEJP9dHkVMs20R8pAkXL9tILyWt3D39uZRl5cnYEiXIafVRzNO?=
+ =?us-ascii?Q?9XYDp0954pp47yGF6qV9zP4G0gdnGnr7eJVo48N8hsi+qx0cnZKP2yLhK8gt?=
+ =?us-ascii?Q?im/8q3y7W2+cDTPRJkD1y8OyV2Sm8lA/Xr1bUC+j6JnwPXjhCZFBkID2w4N5?=
+ =?us-ascii?Q?i24C6iQkk0t9t0H6wcz6k0195zEonsNra3vU9GnPrHX3wvVpwW+Vh30uV0IJ?=
+ =?us-ascii?Q?naw49lF4SitBnSB9T2uHaBTUka7SbTUoD0kK48oKrhFIWxLDIWcaHGFMSepd?=
+ =?us-ascii?Q?UMPwVV8Pgzb9b8lydLbkjDjvthhOQG74AIA+5BMAYJVvsW4RrGJ9OgX3YJD7?=
+ =?us-ascii?Q?OCx9SWatF+8MJkBprmBas7pKuOhRbEIyvz9OaqtyQvnicQXkMEy73snw6xre?=
+ =?us-ascii?Q?1O3XAll159Ol9BJvHBORqzrD2hyc6vDObt0tmETnPfixdwEtXk5wTI/CGMc3?=
+ =?us-ascii?Q?PvE+NYP04qCRzLII1A/1Dx3KaHMrQlCJpy3y/C7l8r4GgF68gvzCsyWbrqzx?=
+ =?us-ascii?Q?AOD6Qk7l/631Pr1Cc5LPMGJ/of08a49arl6hPqMy7rmFI93FQqeb2+6fSTlh?=
+ =?us-ascii?Q?4MeNmMi1Yyfa5PeeDiuuhWMJWsxq0AaPKILCJMN4Z/6G/0DqeLe9VF42dHlb?=
+ =?us-ascii?Q?KKMCTCzQT07SHUbtrT0qUPfzCLehtZq5iKfSrIIMXYu6P8za4gNQfUY/3l/l?=
+ =?us-ascii?Q?Jk0HR1HN80JBA94zbJvqC5VAolyYYn6xOTiIgAFXSHLUd4K+6h4XAe7lBMif?=
+ =?us-ascii?Q?295TQdgbSHLHSQBmusgpWI9XrlfaOX1wSLy5YqKENrLnUrBA8gqkP3X34XA2?=
+ =?us-ascii?Q?gvKsC2aga1wF0X1AGdJoxmUFVnnMjUjrexuACZyaGQ6Ny2wlPQBWwNvZe3sj?=
+ =?us-ascii?Q?G1Q/pK1HwuOKUpMRi4izJCjcU3lwcaB6AycdUDA5/xr4WkfMP1IeGeJoWhCs?=
+ =?us-ascii?Q?b9ZByxGA9YLDRaMKRWEcoest92Jc1U9pfqzleul3C+kgUmxf2GMKxmqxeDFk?=
+ =?us-ascii?Q?7QVozdFDOJK25ixcLuOCOewRwnKuln9o6eygTggD+ohlVlfdenRvedtjGA7X?=
+ =?us-ascii?Q?RsTeuhuEdUR1xtkHinYtCYRc87rDicVwU7y8Y0gz/jfxzSU7vy2AvMRz7j18?=
+ =?us-ascii?Q?A+eBT28PhM8rVX5XnSD/u3qrpL8OejbUwDtAnEBX8h6FuMmnxqOuN8zUSBIZ?=
+ =?us-ascii?Q?dQSxiND3nbce2twNtTk8Vy9MFPBqffaMFk8Hlr6fWOBRufeSZyxK+7VS4spY?=
+ =?us-ascii?Q?kje8dTPm/QylxNP1PDFooFG8hvGzbFhrsleqOgKSXddAM5mj5Lh9PxOCj8TU?=
+ =?us-ascii?Q?ef8IINYNyltRJ2X2FYfIZRW6ggGe71C4NqArh5kT5zL+f5E6?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afCxHUrjr3Z22U6V@JPC00244420>
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB9081.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aef805b6-ab95-48a7-1e5b-08deafcc6172
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 May 2026 02:15:47.5616
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: JvLC0f7n6wZDZKQEn/7o3mdxHieP8c/bYw1A+4qwGbQsSoGu5UZlojD9RfbtBpdZH3Ikvo2jOm/d5BWH3+w9lw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10899
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_191207_576646_9DDC7BC2 
-X-CRM114-Status: GOOD (  37.79  )
+X-CRM114-CacheID: sfid-20260511_191555_686682_7B9D7BBD 
+X-CRM114-Status: GOOD (  28.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,130 +155,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thierry, Jonathan,
+Hi Macro,
 
-Just following up on the below, would moving tegra194_cbb_driver and
-tegra234_cbb_driver from pure_initcall to core_initcall work for you?
+Thank you for the review and the valid point!
 
-Thanks,
-Shashank
+> -----Original Message-----
+> From: Marco Felsch <m.felsch@pengutronix.de>
+> Sent: Monday, May 11, 2026 7:46 PM
+> To: G.N. Zhou (OSS) <guoniu.zhou@oss.nxp.com>
+> Cc: Mauro Carvalho Chehab <mchehab@kernel.org>; Rob Herring
+> <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+> <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
+> <s.hauer@pengutronix.de>; Pengutronix Kernel Team
+> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Laurent
+> Pinchart <laurent.pinchart@ideasonboard.com>; Frank Li <frank.li@nxp.com>=
+;
+> imx@lists.linux.dev; Krzysztof Kozlowski
+> <krzysztof.kozlowski@oss.qualcomm.com>; devicetree@vger.kernel.org; linux=
+-
+> kernel@vger.kernel.org; G.N. Zhou <guoniu.zhou@nxp.com>; linux-arm-
+> kernel@lists.infradead.org; linux-media@vger.kernel.org
+> Subject: Re: [PATCH v6 1/2] media: dt-bindings: Add CSI Pixel Formatter D=
+T
+> bindings
+>=20
+> [You don't often get email from m.felsch@pengutronix.de. Learn why this i=
+s
+> important at https://aka.ms/LearnAboutSenderIdentification ]
+>=20
+> On 26-05-11, Guoniu Zhou wrote:
+> > From: Guoniu Zhou <guoniu.zhou@nxp.com>
+> >
+> > The i.MX9 CSI pixel formatting module uses packet info, pixel and
+> > non-pixel data from the CSI-2 host controller and reformat them to
+> > match Pixel Link(PL) definition.
+>=20
+> Sorry for chiming in very late, but can you please provide on which
+> i.MX9 devices this formatting module is present? I've checked the i.MX93
+> reference manual and found no info instead I found a CAMERA_MUX register
+> which does something similiar but is not the same. Please provide a more
+> specific compatible if this IP is only be present on i.MX95 devices.
 
-On Tue, Apr 28, 2026 at 10:07:41PM +0900, Shashank Balaji wrote:
-> Adding Tegra maintainers.
-> 
-> On Tue, Apr 28, 2026 at 12:10:50PM +0100, Gary Guo wrote:
-> > On Tue Apr 28, 2026 at 1:37 AM BST, Shashank Balaji wrote:
-> > > Hi Gary,
-> > >
-> > > On Mon, Apr 27, 2026 at 02:29:55PM +0100, Gary Guo wrote:
-> > >> On Mon Apr 27, 2026 at 3:41 AM BST, Shashank Balaji wrote:
-> > >> > module_kset is initialized in param_sysfs_init(), a subsys_initcall. A number
-> > >> > of platform drivers register themselves prior to subsys_initcalls
-> > >> > (tegra194_cbb_driver registers in a pure_initcall, for example). With an
-> > >> > upcoming patch ("driver core: platform: set mod_name in driver registration")
-> > >> > that sets their mod_name in struct device_driver, lookup_or_create_module_kobject()
-> > >> > will be called for those drivers, which calls kset_find_obj(module_kset, mod_name).
-> > >> > This causes a null deref because module_kset isn't alive yet.
-> > >> >
-> > >> > Fix this by initializing module_kset in do_basic_setup() before do_initcalls().
-> > >> > Modernize the pr_warn while we're at it.
-> > >> >
-> > >> > Suggested-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> > >> > Suggested-by: Gary Guo <gary@garyguo.net>
-> > >> 
-> > >> I didn't suggest this change :)
-> > >> 
-> > >> I suggested `pure_initcall`, which is just a one line change.
-> > >
-> > > Oops, sorry about the misattribution.
-> > >
-> > >> diff --git a/kernel/params.c b/kernel/params.c
-> > >> index 74d620bc2521..ac088d4b09a9 100644
-> > >> --- a/kernel/params.c
-> > >> +++ b/kernel/params.c
-> > >> @@ -957,7 +957,7 @@ static int __init param_sysfs_init(void)
-> > >>  
-> > >>  	return 0;
-> > >>  }
-> > >> -subsys_initcall(param_sysfs_init);
-> > >> +pure_initcall(param_sysfs_init);
-> > >>  
-> > >>  /*
-> > >>   * param_sysfs_builtin_init - add sysfs version and parameter
-> > >> 
-> > >> pure_initcall is level 0 so it happens before all other init calls. Does it not
-> > >> work?
-> > >
-> > > tegra194_cbb_driver registers itself in a pure_initcall too. We wouldn't
-> > > want the ordering of its registration and module_kset init to be link order
-> > > dependent.
-> > 
-> > It's the only device driver that does this. And I don't think it's supposed to.
-> > 
-> > >From documentation:
-> > 
-> > > A "pure" initcall has no dependencies on anything else, and purely
-> > > initializes variables that couldn't be statically initialized.
-> > 
-> > I understand that given large amount of drivers registering themselves during
-> > core/arch_initcall that there might be regressions if all of them are moved, but
-> > surely we can demote these two specific tegra driver to core/postcore_initcall?
-> > This will still be called earlier than init_machine call which happens during
-> > arch_initcall.
-> > 
-> > Looks like the tegra CBB driver is just doing error logging anyway.
-> 
-> That's a good point, Gary. Thanks!
-> 
-> Hi Thierry and Jonathan,
-> 
-> You can find the context for this email in this patch:
-> https://lore.kernel.org/all/20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com/
-> 
-> TL;DR: tegra194_cbb_driver and tegra234_cbb_driver are the only drivers
-> registering themselves as early as in a pure_initcall. This is a problem
-> on two fronts:
-> 1. Philosophical: As Gary pointed out, pure_initcalls are intended to purely
-> initialize variables that couldn't be statically initialized. But these
-> are doing driver registrations.
-> 2. module_kset not initialized at pure_initcall stage: This is needed to
-> set the module sysfs symlink. Since module_kset is not alive yet during
-> pure_initcalls, registering these drivers panics the kernel.
-> 
-> We would like to do the tegra cbb driver registration in a core_initcall
-> (or some later initcall works too), and move module_kset initialization
-> to a pure_initcall. Like this:
-> 
-> diff --git a/drivers/soc/tegra/cbb/tegra194-cbb.c b/drivers/soc/tegra/cbb/tegra194-cbb.c
-> index ab75d50cc85c..2f69e104c838 100644
-> --- a/drivers/soc/tegra/cbb/tegra194-cbb.c
-> +++ b/drivers/soc/tegra/cbb/tegra194-cbb.c
-> @@ -2342,7 +2342,7 @@ static int __init tegra194_cbb_init(void)
->  {
->         return platform_driver_register(&tegra194_cbb_driver);
->  }
-> -pure_initcall(tegra194_cbb_init);
-> +core_initcall(tegra194_cbb_init);
-> 
->  static void __exit tegra194_cbb_exit(void)
->  {
-> diff --git a/drivers/soc/tegra/cbb/tegra234-cbb.c b/drivers/soc/tegra/cbb/tegra234-cbb.c
-> index fb26f085f691..785072fa4e85 100644
-> --- a/drivers/soc/tegra/cbb/tegra234-cbb.c
-> +++ b/drivers/soc/tegra/cbb/tegra234-cbb.c
-> @@ -1774,7 +1774,7 @@ static int __init tegra234_cbb_init(void)
->  {
->         return platform_driver_register(&tegra234_cbb_driver);
->  }
-> -pure_initcall(tegra234_cbb_init);
-> +core_initcall(tegra234_cbb_init);
-> 
->  static void __exit tegra234_cbb_exit(void)
->  {
-> 
-> Would this work?
-> 
-> Thanks,
-> Shashank
-> 
+You're right. I initially used "imx9" because this CSI formatter  IP is pre=
+sent on
+both i.MX95 and i.MX952 (not on i.MX93 as you correctly noted). However, I
+agree this naming is confusing and could mislead people  into thinking it's=
+ available
+across all i.MX9 series devices.
+
+I'll change the compatible to "fsl,imx95-csi-formatter" as the current driv=
+er=20
+only supports i.MX95. When i.MX952 support is added in the future, we can=20
+extend the compatible string accordingly (e.g., using "fsl,imx952-csi-forma=
+tter"=20
+with "fsl,imx95-csi-formatter" as fallback if they're compatible).
+
+Thanks again for catching this!
+
+Best Regards
+G.N Zhou
+
+>=20
+> Regards,
+>   Marco
+>=20
+> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > Reviewed-by: Krzysztof Kozlowski
+> > <krzysztof.kozlowski@oss.qualcomm.com>
+> > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> > ---
+> >  .../bindings/media/fsl,imx9-csi-formatter.yaml     | 87
+> ++++++++++++++++++++++
+> >  1 file changed, 87 insertions(+)
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml
+> > b/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml
+> > new file mode 100644
+> > index 000000000000..774d37d2b987
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.y
+> > +++ aml
+> > @@ -0,0 +1,87 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/media/fsl,imx9-csi-formatter.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: i.MX9 CSI Pixel Formatter
+> > +
+> > +maintainers:
+> > +  - Guoniu Zhou <guoniu.zhou@nxp.com>
+> > +
+> > +description:
+> > +  The CSI pixel formatting module uses packet info, pixel and
+> > +non-pixel
+> > +  data from the CSI-2 host controller and reformat them to match
+> > +Pixel
+> > +  Link(PL) definition.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: fsl,imx9-csi-formatter
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  power-domains:
+> > +    maxItems: 1
+> > +
+> > +  ports:
+> > +    $ref: /schemas/graph.yaml#/properties/ports
+> > +
+> > +    properties:
+> > +      port@0:
+> > +        $ref: /schemas/graph.yaml#/$defs/port-base
+> > +        unevaluatedProperties: false
+> > +        description: MIPI CSI-2 RX IDI interface
+> > +
+> > +        properties:
+> > +          endpoint:
+> > +            $ref: video-interfaces.yaml#
+> > +            unevaluatedProperties: false
+> > +
+> > +      port@1:
+> > +        $ref: /schemas/graph.yaml#/properties/port
+> > +        description: Pixel Link Interface
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - clocks
+> > +  - power-domains
+> > +  - ports
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/clock/nxp,imx95-clock.h>
+> > +
+> > +    formatter@20 {
+> > +        compatible =3D "fsl,imx9-csi-formatter";
+> > +        reg =3D <0x20 0x100>;
+> > +        clocks =3D <&cameramix_csr IMX95_CLK_CAMBLK_CSI2_FOR0>;
+> > +        power-domains =3D <&scmi_devpd 3>;
+> > +
+> > +        ports {
+> > +            #address-cells =3D <1>;
+> > +            #size-cells =3D <0>;
+> > +
+> > +            port@0 {
+> > +                reg =3D <0>;
+> > +
+> > +                endpoint {
+> > +                    remote-endpoint =3D <&mipi_csi_0_out>;
+> > +                };
+> > +            };
+> > +
+> > +            port@1 {
+> > +                reg =3D <1>;
+> > +
+> > +                endpoint {
+> > +                    remote-endpoint =3D <&isi_in_2>;
+> > +                };
+> > +            };
+> > +        };
+> > +    };
+> >
+> > --
+> > 2.34.1
+> >
+> >
+> >
+>=20
+> --
+> #gernperDu
+> #CallMeByMyFirstName
+>=20
+> Pengutronix e.K.                           |                             =
+|
+> Steuerwalder Str. 21                       | https://www.pengutronix.de/ =
+|
+> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    =
+|
+> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    =
+|
 
