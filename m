@@ -4,71 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F525CD343F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6102CD4F24
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 17:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GSr1Tf0ZzXk3mG4Djix4hLHmzWHNLYDR+N82KvuQvxI=; b=nOeMhX7ULz6wgj3KfDQyEGiSub
-	ABpwttgvPC/8Q0UuTasDvxa/A/+gqvtdw6JhJbM+MthbdVYuZ3DBAWZ4uqLHJjajFqURQ1b7GKn5q
-	OOu1RvC3ReEE+5R1+zoTfeX+UQWrC9Y/JsUXY/9+b38XoGFtUlKApyGQPzRs4IyWyPS8JIo0pdfFW
-	tmK6+gye14cVtTJs167sw1BwAO8115QUgegzTMIlIw8KXcC/Ni+lWzX5FO1Q7NBZ+t3Zt5BlMmfHI
-	wueBDeT1Blgb7H9hjBUIFpeUJohYbKP4tX1h7NZKnbJXgdXlW00TnQpgGr66EbsUFb9ewArKIRTnD
-	yOXXgtwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/J48EmcW4dR7PFqmMTDx2x42LKcChtmSoqG3QTqLIJ4=; b=zKKLkqWcP8TSeByvGPsggJCy1v
+	aUhRxU/00zXiJqdx9cwGk/b+20xkwuDCcGTCBurRki8z58ppOKINadcb5uZcKbzsRuf2XADwwV9Ic
+	orY0W7Lig20bcRukC2QM6BsbDoNu8Cyed/cfsa5MytyfuyGkzClkMb5Wp44BTfTH3xxSqtqIjSOry
+	Vz6MI9FqB2PwmXTtwg+sujYkrkTaTBXH/nx4r+jghpHxNAU02dV9eqYDkk7uPqwBQbggF77LcaGp+
+	pIARQxRgpR55MdjZ6BBYuJygacJMq31FPVXeqt6bSTEAjHfrRKzbJvbfSYzyvdh+PCRNWkL5SOm8G
+	hb6uiiyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqZB-0000000HU38-1qzd;
+	id 1wMqZB-0000000HU28-0G5t;
 	Tue, 12 May 2026 17:06:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from mail-northcentralusazon11013036.outbound.protection.outlook.com ([40.107.201.36] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqZ9-0000000HU09-1mPK;
-	Tue, 12 May 2026 17:06:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6B1BE60132;
-	Tue, 12 May 2026 17:06:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70055C2BCFB;
-	Tue, 12 May 2026 17:06:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778605601;
-	bh=ezfbGln1rAFroxwiTMHKaOWp+LJnHoZZM/cVb1R4ihY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jjHtIXK/1Reia9zFkZTv+Z8tndN2U01vImsudjV7gF3/4f5idlLEdWLA+ghnm/BRs
-	 doE0D43i3whpEKjdR/XEiMshzPFWw/6CDnVtU3Ss3bPeMc1Ijgn3vxiPctQtAXDhjs
-	 TYDyMF3beTwh9NqzTZqIlQfXrVe5cjDbsrMXkSurImJesRAQFXiPjE10gga6OLzPNJ
-	 IrWk58KY8jc6Jb58ACPLiXiTq1JKU6iHbyQNjGgGIYeRxw/QAWgXtWUtuOa8Wium/K
-	 0MAZuM5Et2YgPuan1t5AkZMvKMtwKH1cZAovmO+uEN/O3GO9+g0gEeBMFXWeDtDAQ/
-	 mmu33be+Bphkg==
-Date: Tue, 12 May 2026 18:06:27 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Roman Vivchar <rva333@protonmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sen
- Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Macpaul Lin
- <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, Srinivas Kandagatla
- <srini@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano
- <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
- <lukasz.luba@arm.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH v2 01/16] dt-bindings: iio: adc: mt6359: generalize
- description for mt63xx series
-Message-ID: <20260512180627.7301b0af@jic23-huawei>
-In-Reply-To: <wTd36596tJhd0sPk-1MSi79xz14IBgTKXpD25tnKuRXLfGywkoenZ-wIDtOvRxEZL8xpqijZ0nxMsCFTOJgJq__y26VzCpe_9f0JQGWrJVo=@protonmail.com>
-References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
-	<20260512-mt6323-v2-1-3efcba579e88@protonmail.com>
-	<20260512141313.425535d9@jic23-huawei>
-	<wTd36596tJhd0sPk-1MSi79xz14IBgTKXpD25tnKuRXLfGywkoenZ-wIDtOvRxEZL8xpqijZ0nxMsCFTOJgJq__y26VzCpe_9f0JQGWrJVo=@protonmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1wMqZ7-0000000HTy9-1YTW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 17:06:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PHrvUKpVXW2dvM2se58YaY9Zs48tEd7lOiUmM3khBLtbfhD8MGv+DEmm6BlGFAiOqyMhGSqh6zy2Q8o5IwQdx+pp5Z9sCMv9Y06RND1HBPwl9RNNB3N5e5T0zuCmzQj5p6IR/QGQNRgqYbdSnF7sV020ioIlp0M2EFyJW52QFiPuv+jI+3SO62tovOabdMdmawCLABCnEoj6rqRkOAxC6WbP9y7kMwI/3k9jUb1LTyHB0HY09CJTUGXUQyz8wBThRVvh2evpAGpGgQl2fU8VBvJc7+OFIO7gYbdowI5CBmW8VDj8W9VVuYesCT2+K6m0G7W07vZd/J+SsY+O2HEBJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/J48EmcW4dR7PFqmMTDx2x42LKcChtmSoqG3QTqLIJ4=;
+ b=N43CUtyAiEWa8QqDy004S2YszrSPCZXLjyIYdgh95Inu1qzX12fcA16+1j2e+Y/ZFT7bTaD4ivpkTrMBk+iHXJ97HSK15xtk3WmdDWw2mCfIBqScxgkgNlo1KmFyvyiNaKx4JRJJfhu2uczQzQE+c0xei6LP3UC09BCJIqG53EQqJzxZTpjQqzlUlXNTWxcDbfFhc1ixP0Ubf3HFhVnfuj4PR8sMuuRY6obnczwZThQMu+kZlcpKH0w4UK0M2xEOBFEXx/xRAUtH/9QYuKOVslGt7+rUQYBtqhBXvfDDxL3nvLWX2dFkjEtIbHh2NqJQOtY+aD+SxXM04vwA/zI1Zw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/J48EmcW4dR7PFqmMTDx2x42LKcChtmSoqG3QTqLIJ4=;
+ b=Doyx4+1FAr4hCY1kN3p+qdsKAorDttFOJHXWCNPES+rrMDxjx37eC3Fs9rux+DsCLlKv0/V+8OfnWFnccWAMRhDRg+aDjeIDLCjuohC11uKm/3EFch2qkRzA4TTauXBkO0bisRLwNHOp8rgsush05krU4MbfY+RUMXxK/3yAlPI=
+Received: from SJ0PR05CA0157.namprd05.prod.outlook.com (2603:10b6:a03:339::12)
+ by DM4PR10MB6886.namprd10.prod.outlook.com (2603:10b6:8:102::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
+ 2026 17:06:34 +0000
+Received: from SJ1PEPF00001CE5.namprd03.prod.outlook.com
+ (2603:10b6:a03:339:cafe::6e) by SJ0PR05CA0157.outlook.office365.com
+ (2603:10b6:a03:339::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.15 via Frontend Transport; Tue, 12
+ May 2026 17:06:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SJ1PEPF00001CE5.mail.protection.outlook.com (10.167.242.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Tue, 12 May 2026 17:06:33 +0000
+Received: from DFLE208.ent.ti.com (10.64.6.66) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
+ 2026 12:06:25 -0500
+Received: from DFLE208.ent.ti.com (10.64.6.66) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
+ 2026 12:06:25 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 12 May 2026 12:06:25 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64CH6Pni1887817;
+	Tue, 12 May 2026 12:06:25 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Justin Stitt <justinstitt@google.com>, Bill Wendling <morbo@google.com>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nathan Chancellor
+	<nathan@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>
+CC: <afd@ti.com>, Nishanth Menon <nm@ti.com>, <llvm@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH V2 02/11] soc: ti: knav_qmss: Rename global kdev to knav_qdev to fix -Wshadow
+Date: Tue, 12 May 2026 12:06:14 -0500
+Message-ID: <20260512170623.3174416-3-nm@ti.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20260512170623.3174416-1-nm@ti.com>
+References: <20260512170623.3174416-1-nm@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE5:EE_|DM4PR10MB6886:EE_
+X-MS-Office365-Filtering-Correlation-Id: 89231c87-23a0-45f3-ad7b-08deb048d17f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|376014|56012099003|18002099003|22082099003|3023799003;
+X-Microsoft-Antispam-Message-Info: p1OdQsLGFia5ljN4YIW1ae6z1p3VFeKevkGpPbgX/evOHqkcKhlz7DSS1qR80SUP/3kUW4cseo4edDGtDgMitbBFgRjZe+82qKpOvcKz9XE4BXFxrXzQQLjrGsCtBUM5xkqiDcRwxc+LijsOJeij9WuHg5LPmwgauASa61rI0hnES/SMDUzJ+2w95cRlM4Zi2EwEjCcIyotN+HGebvDOfsP6h0D0ikgOv7kFDjoAV60wZ2qcXl5XOGaeIvdZi3vrg7epb9px6H1noGtnMjUil+VvMXt+rDCpJ/fpelXJNl/rx9CLk+Ya4iP60xqIIXkPnr1auulAT2IeeazbVnGkSS5s5hIMzNMVjLOzJDx5zy+w4yQjlbxeFo2jYr1y94BIFpWawZoG5B1SkhRBJvgngMisC8UuPjwvNaB+rS6oB9cFu4jSYs5xgRAZ+xksKNRiNc5Q9Asv0+eGqS+y4lsVDGlCO5Cz8TuVPKscI0lwktwvRfoXuOb5k5DLttIzWzhm7CwlSRr0YuKdLxDzWL9rXQpD60h4rtc4zFwTb4HUKk9T4tPwPa9ViwzA+rCRElxPoJK9Ya6EUO66g57zJc6Jp+N+H9nZYJ2jM2WmulBP9TIfbi+h5sXIeBWwA7A3TNAp0xLo6wGhdlFq0IVnTg/7x73+L1UBm0P75MhNr3MCWaQRDozKyIlCdZcicHEcbGOP8ahg2dWud6hft6iOVPdXhO2JRagW69vGfDDNijQTdXo=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(376014)(56012099003)(18002099003)(22082099003)(3023799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 6JX/Gko1CHXXcDmO4OLnqaHpbcGG/+OXuG8ktAW224N/kegQ0z0lsfwP+x4Snfd7z27pf6dKlJ2yeNw7X9gJMt6+J32juPsFiFDku7HuI3sHfs6U2V0vKZT7vhfw3Fql7foXsLWM1GRgaiUdX2M3K9imV23nhojby1C+Un8kew4YH+xHiHguSk7C49IDVaaKP6/t97/qoZE1U4Q28nNI1sdWz90UJj7YCTb2mzyHqWnI0FeVpElLKcVycZ+0p1xto1JES5wOQndpTnpcddNxGvkXXDabh6nlurEkHQ5X6CUqlCYd2XWJMAdKcQPVcqS7qXuN0Yyos6p1wSkUhoLBJhUiUckTiUBwVO9QsqEw7vwPNZFLCYLSr9h4bOw1CVb0ya/ERHMfSoszc35a/XhoG/iBkyeoQFfc2TP5Qopn91kmhn7S9LPkqDf3Ymw5+r5z
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 17:06:33.0754
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 89231c87-23a0-45f3-ad7b-08deb048d17f
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE5.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6886
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_100641_478825_3281BBAE 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +131,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 May 2026 13:55:26 +0000
-Roman Vivchar <rva333@protonmail.com> wrote:
+Building with W=2 (clang, LLVM=1) produces 22 -Wshadow warnings in
+knav_qmss_queue.c because the file-scoped singleton 'kdev' is shadowed
+by a parameter of the same name in 21 internal functions and one local
+variable, e.g.:
 
-> On Tuesday, May 12th, 2026 at 4:13 PM, Jonathan Cameron <jic23@kernel.org> wrote:
-> 
-> > On Tue, 12 May 2026 08:18:15 +0300
-> > Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
-> >   
-> > > From: Roman Vivchar <rva333@protonmail.com>
-> > >
-> > > Update binding title to the MT63xx, since the list of compatibles already
-> > > includes mt6363 and mt6373 which don't belong to the mt6350 family.  
-> > Hi Roman,
-> > 
-> > Wild cards have a nasty habit of going wrong.  I'd prefer to see
-> > language like: MT6359 and similar PMIC AUXADC  
-> 
-> Hi Jonathan,
-> 
-> I agree that it would be better to specify the exact PMIC models, however
-> 'similar' wording might be a bit misleading here. As far as I know,
-> the mt6363 and mt6373 use SPMI, while mt635x (and older models, like
-> most of the mt63xx series) use PWRAP (a custom SPI-based protocol).
-> The mt6323 has an older AUXADC revision which is not compatible
-> with the mt635x driver.
-> 
-> Would you prefer more explicit list like 'MT6323, MT6350 series, MT6363
-> and MT6373 PMIC AUXADC'? It's a bit mess because some mt63xx
-> (like mt6333) are sub-PMICs and use I2C instead of PWRAP.
-Complete lists don't work because sooner or later they become too long
-for a title (though they should be there elsewhere in the dt-binding!)
+  knav_qmss_queue.c:194:49: warning: declaration shadows a variable
+  in the global scope [-Wshadow]
+  194 | knav_queue_match_id_to_inst(struct knav_device *kdev, unsigned id)
 
-Perhaps something around: mt6359 and similar SoC ADCs including those accessed via ....
+Rename the global singleton from kdev to knav_qdev rather than
+renaming all ~21 function parameters, as this requires fewer changes
+and leaves function signatures, struct field accesses, and header
+macros in knav_qmss.h untouched.
+
+Signed-off-by: Nishanth Menon <nm@ti.com>
+---
+Changes since V1:
+- None.
+
+V1: https://lore.kernel.org/all/20260508153211.3688277-3-nm@ti.com/
+
+ drivers/soc/ti/knav_qmss_queue.c | 94 ++++++++++++++++----------------
+ 1 file changed, 47 insertions(+), 47 deletions(-)
+
+diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
+index e87a42734f25..2c103bb6edef 100644
+--- a/drivers/soc/ti/knav_qmss_queue.c
++++ b/drivers/soc/ti/knav_qmss_queue.c
+@@ -25,7 +25,7 @@
  
-> 
-> > It is less important here than in many other places because the
-> > file has an explicit list soon after this, but none the less
-> > we've been bitten by this too often to think manufacturers won't
-> > throw a completely non compatible part in the middle of a wild
-> > card covered range.
-> >   
-> 
-> Best regards,
-> Roman
+ #include "knav_qmss.h"
+ 
+-static struct knav_device *kdev;
++static struct knav_device *knav_qdev;
+ static DEFINE_MUTEX(knav_dev_lock);
+ #define knav_dev_lock_held() \
+ 	lockdep_is_held(&knav_dev_lock)
+@@ -205,10 +205,10 @@ knav_queue_match_id_to_inst(struct knav_device *kdev, unsigned id)
+ 
+ static inline struct knav_queue_inst *knav_queue_find_by_id(int id)
+ {
+-	if (kdev->base_id <= id &&
+-	    kdev->base_id + kdev->num_queues > id) {
+-		id -= kdev->base_id;
+-		return knav_queue_match_id_to_inst(kdev, id);
++	if (knav_qdev->base_id <= id &&
++	    knav_qdev->base_id + knav_qdev->num_queues > id) {
++		id -= knav_qdev->base_id;
++		return knav_queue_match_id_to_inst(knav_qdev, id);
+ 	}
+ 	return NULL;
+ }
+@@ -296,7 +296,7 @@ static struct knav_queue *knav_queue_open_by_type(const char *name,
+ 
+ 	mutex_lock(&knav_dev_lock);
+ 
+-	for_each_instance(idx, inst, kdev) {
++	for_each_instance(idx, inst, knav_qdev) {
+ 		if (knav_queue_is_reserved(inst))
+ 			continue;
+ 		if (!knav_queue_match_type(inst, type))
+@@ -469,9 +469,9 @@ static int knav_queue_debug_show(struct seq_file *s, void *v)
+ 
+ 	mutex_lock(&knav_dev_lock);
+ 	seq_printf(s, "%s: %u-%u\n",
+-		   dev_name(kdev->dev), kdev->base_id,
+-		   kdev->base_id + kdev->num_queues - 1);
+-	for_each_instance(idx, inst, kdev)
++		   dev_name(knav_qdev->dev), knav_qdev->base_id,
++		   knav_qdev->base_id + knav_qdev->num_queues - 1);
++	for_each_instance(idx, inst, knav_qdev)
+ 		knav_queue_debug_show_instance(s, inst);
+ 	mutex_unlock(&knav_dev_lock);
+ 
+@@ -762,17 +762,17 @@ void *knav_pool_create(const char *name,
+ 	unsigned last_offset;
+ 	int ret;
+ 
+-	if (!kdev)
++	if (!knav_qdev)
+ 		return ERR_PTR(-EPROBE_DEFER);
+ 
+-	if (!kdev->dev)
++	if (!knav_qdev->dev)
+ 		return ERR_PTR(-ENODEV);
+ 
+-	pool = devm_kzalloc(kdev->dev, sizeof(*pool), GFP_KERNEL);
++	pool = devm_kzalloc(knav_qdev->dev, sizeof(*pool), GFP_KERNEL);
+ 	if (!pool)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	for_each_region(kdev, reg_itr) {
++	for_each_region(knav_qdev, reg_itr) {
+ 		if (reg_itr->id != region_id)
+ 			continue;
+ 		region = reg_itr;
+@@ -780,14 +780,14 @@ void *knav_pool_create(const char *name,
+ 	}
+ 
+ 	if (!region) {
+-		dev_err(kdev->dev, "region-id(%d) not found\n", region_id);
++		dev_err(knav_qdev->dev, "region-id(%d) not found\n", region_id);
+ 		ret = -EINVAL;
+ 		goto err;
+ 	}
+ 
+ 	pool->queue = knav_queue_open(name, KNAV_QUEUE_GP, 0);
+ 	if (IS_ERR(pool->queue)) {
+-		dev_err(kdev->dev,
++		dev_err(knav_qdev->dev,
+ 			"failed to open queue for pool(%s), error %ld\n",
+ 			name, PTR_ERR(pool->queue));
+ 		ret = PTR_ERR(pool->queue);
+@@ -795,13 +795,13 @@ void *knav_pool_create(const char *name,
+ 	}
+ 
+ 	pool->name = kstrndup(name, KNAV_NAME_SIZE - 1, GFP_KERNEL);
+-	pool->kdev = kdev;
+-	pool->dev = kdev->dev;
++	pool->kdev = knav_qdev;
++	pool->dev = knav_qdev->dev;
+ 
+ 	mutex_lock(&knav_dev_lock);
+ 
+ 	if (num_desc > (region->num_desc - region->used_desc)) {
+-		dev_err(kdev->dev, "out of descs in region(%d) for pool(%s)\n",
++		dev_err(knav_qdev->dev, "out of descs in region(%d) for pool(%s)\n",
+ 			region_id, name);
+ 		ret = -ENOMEM;
+ 		goto err_unlock;
+@@ -827,10 +827,10 @@ void *knav_pool_create(const char *name,
+ 		pool->num_desc = num_desc;
+ 		pool->region_offset = last_offset;
+ 		region->used_desc += num_desc;
+-		list_add_tail(&pool->list, &kdev->pools);
++		list_add_tail(&pool->list, &knav_qdev->pools);
+ 		list_add_tail(&pool->region_inst, node);
+ 	} else {
+-		dev_err(kdev->dev, "pool(%s) create failed: fragmented desc pool in region(%d)\n",
++		dev_err(knav_qdev->dev, "pool(%s) create failed: fragmented desc pool in region(%d)\n",
+ 			name, region_id);
+ 		ret = -ENOMEM;
+ 		goto err_unlock;
+@@ -844,7 +844,7 @@ void *knav_pool_create(const char *name,
+ 	mutex_unlock(&knav_dev_lock);
+ err:
+ 	kfree(pool->name);
+-	devm_kfree(kdev->dev, pool);
++	devm_kfree(knav_qdev->dev, pool);
+ 	return ERR_PTR(ret);
+ }
+ EXPORT_SYMBOL_GPL(knav_pool_create);
+@@ -872,7 +872,7 @@ void knav_pool_destroy(void *ph)
+ 
+ 	mutex_unlock(&knav_dev_lock);
+ 	kfree(pool->name);
+-	devm_kfree(kdev->dev, pool);
++	devm_kfree(knav_qdev->dev, pool);
+ }
+ EXPORT_SYMBOL_GPL(knav_pool_destroy);
+ 
+@@ -1683,7 +1683,7 @@ static inline struct knav_qmgr_info *knav_find_qmgr(unsigned id)
+ {
+ 	struct knav_qmgr_info *qmgr;
+ 
+-	for_each_qmgr(kdev, qmgr) {
++	for_each_qmgr(knav_qdev, qmgr) {
+ 		if ((id >= qmgr->start_queue) &&
+ 		    (id < qmgr->start_queue + qmgr->num_queues))
+ 			return qmgr;
+@@ -1775,22 +1775,22 @@ static int knav_queue_probe(struct platform_device *pdev)
+ 		return -ENODEV;
+ 	}
+ 
+-	kdev = devm_kzalloc(dev, sizeof(struct knav_device), GFP_KERNEL);
+-	if (!kdev) {
++	knav_qdev = devm_kzalloc(dev, sizeof(struct knav_device), GFP_KERNEL);
++	if (!knav_qdev) {
+ 		dev_err(dev, "memory allocation failed\n");
+ 		return -ENOMEM;
+ 	}
+ 
+ 	if (device_get_match_data(dev))
+-		kdev->version = QMSS_66AK2G;
++		knav_qdev->version = QMSS_66AK2G;
+ 
+-	platform_set_drvdata(pdev, kdev);
+-	kdev->dev = dev;
+-	INIT_LIST_HEAD(&kdev->queue_ranges);
+-	INIT_LIST_HEAD(&kdev->qmgrs);
+-	INIT_LIST_HEAD(&kdev->pools);
+-	INIT_LIST_HEAD(&kdev->regions);
+-	INIT_LIST_HEAD(&kdev->pdsps);
++	platform_set_drvdata(pdev, knav_qdev);
++	knav_qdev->dev = dev;
++	INIT_LIST_HEAD(&knav_qdev->queue_ranges);
++	INIT_LIST_HEAD(&knav_qdev->qmgrs);
++	INIT_LIST_HEAD(&knav_qdev->pools);
++	INIT_LIST_HEAD(&knav_qdev->regions);
++	INIT_LIST_HEAD(&knav_qdev->pdsps);
+ 
+ 	pm_runtime_enable(&pdev->dev);
+ 	ret = pm_runtime_resume_and_get(&pdev->dev);
+@@ -1805,31 +1805,31 @@ static int knav_queue_probe(struct platform_device *pdev)
+ 		ret = -ENODEV;
+ 		goto err;
+ 	}
+-	kdev->base_id    = temp[0];
+-	kdev->num_queues = temp[1];
++	knav_qdev->base_id    = temp[0];
++	knav_qdev->num_queues = temp[1];
+ 
+ 	/* Initialize queue managers using device tree configuration */
+-	ret = knav_queue_init_qmgrs(kdev, node);
++	ret = knav_queue_init_qmgrs(knav_qdev, node);
+ 	if (ret)
+ 		goto err;
+ 
+ 	/* get pdsp configuration values from device tree */
+-	ret = knav_queue_setup_pdsps(kdev, node);
++	ret = knav_queue_setup_pdsps(knav_qdev, node);
+ 	if (ret)
+ 		goto err;
+ 
+ 	/* get usable queue range values from device tree */
+-	ret = knav_setup_queue_pools(kdev, node);
++	ret = knav_setup_queue_pools(knav_qdev, node);
+ 	if (ret)
+ 		goto err;
+ 
+-	ret = knav_get_link_ram(kdev, "linkram0", &kdev->link_rams[0]);
++	ret = knav_get_link_ram(knav_qdev, "linkram0", &knav_qdev->link_rams[0]);
+ 	if (ret) {
+-		dev_err(kdev->dev, "could not setup linking ram\n");
++		dev_err(knav_qdev->dev, "could not setup linking ram\n");
+ 		goto err;
+ 	}
+ 
+-	ret = knav_get_link_ram(kdev, "linkram1", &kdev->link_rams[1]);
++	ret = knav_get_link_ram(knav_qdev, "linkram1", &knav_qdev->link_rams[1]);
+ 	if (ret) {
+ 		/*
+ 		 * nothing really, we have one linking ram already, so we just
+@@ -1837,15 +1837,15 @@ static int knav_queue_probe(struct platform_device *pdev)
+ 		 */
+ 	}
+ 
+-	ret = knav_queue_setup_link_ram(kdev);
++	ret = knav_queue_setup_link_ram(knav_qdev);
+ 	if (ret)
+ 		goto err;
+ 
+-	ret = knav_queue_setup_regions(kdev, node);
++	ret = knav_queue_setup_regions(knav_qdev, node);
+ 	if (ret)
+ 		goto err;
+ 
+-	ret = knav_queue_init_queues(kdev);
++	ret = knav_queue_init_queues(knav_qdev);
+ 	if (ret < 0) {
+ 		dev_err(dev, "hwqueue initialization failed\n");
+ 		goto err;
+@@ -1857,9 +1857,9 @@ static int knav_queue_probe(struct platform_device *pdev)
+ 	return 0;
+ 
+ err:
+-	knav_queue_stop_pdsps(kdev);
+-	knav_queue_free_regions(kdev);
+-	knav_free_queue_ranges(kdev);
++	knav_queue_stop_pdsps(knav_qdev);
++	knav_queue_free_regions(knav_qdev);
++	knav_free_queue_ranges(knav_qdev);
+ 	pm_runtime_put_sync(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
+ 	return ret;
+-- 
+2.47.0
 
 
