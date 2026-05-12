@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4446CD484E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 05:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A94CD484E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 05:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FIkZNeGgSVXhgVzo7Yqwh5gdAVZfUzYoIKIAcxn+4Eo=; b=MYdwJQDj60a73hm+YsvM5TnGx1
-	NDxI3wlLWup/b18kzLnC+h/e32st3q2cVWZto9hjH0KbfApTCLhHSfPVF5cl1aRqASFSwxg8ea32P
-	FX1l6h02yMz5fP3td9u6Lo33qZyeuOGuUanaGuRiYDa3GqFTsIU5dYFmcBALkjkLs+vArbGcuC7fw
-	gFUvQoJuvF7F2HJxRrz1ZGyoH3OZkJ9SOaOd0Fms+6pYYf5XPOp7QE5tnLzmP6u+mNKva1XnpONBM
-	6iAEt4E4VmrvuPTVU5S7qbvqdlp/Vkpr4RjQRJId3omjA+eSdUgr+v42wwjZ099dyaKwRmr525e+f
-	5Hpynsrw==;
+	bh=yxoWjSN0H+WtKxnq6Rp/z4kFHg7WTRKcoiSjQy5l0WM=; b=MognbYUUuv0TDTTRULGWATuPRY
+	l6dnvwQLhaOAX3qbt3p5bWkF3sYZHEcTn4TAkahXmYyj81vBMEFyZDm9ShAt/TBl+kqi0z1v16H87
+	2f2TVBP8rs9tRagxgWExyDC778A9ZOEk5M8I/N1zDnx26ZzXDgZ19jArm8vQKD4lFhlxPoMak0cN1
+	13boIjtPYgorG4F6/hIuRp/NEYPgRzeeVGRMKdEsMiVfNoeD+2gEgKpokARCxD/qb+QQu4DBTKL5I
+	r+8M3Op0K+aQ5xCFzlIbnqZp4H+m2MNI/n/R1BtOgfmvW9cpR6HOvJq8cMKzhhp/CF6oew4QPOehA
+	1kz1HwUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfbS-0000000Fbyp-1nkN;
-	Tue, 12 May 2026 05:24:22 +0000
+	id 1wMfbp-0000000FcH8-3rZf;
+	Tue, 12 May 2026 05:24:45 +0000
 Received: from 2a02-8389-2341-5b80-decc-1a96-daaa-a2cc.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:decc:1a96:daaa:a2cc] helo=localhost)
 	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfbO-0000000FblM-2vTU;
-	Tue, 12 May 2026 05:24:20 +0000
+	id 1wMfbo-0000000Fc70-0F09;
+	Tue, 12 May 2026 05:24:44 +0000
 From: Christoph Hellwig <hch@lst.de>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -70,9 +70,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-btrfs@vger.kernel.org,
 	linux-arch@vger.kernel.org,
 	linux-raid@vger.kernel.org
-Subject: [PATCH 09/19] raid6: hide internals
-Date: Tue, 12 May 2026 07:20:49 +0200
-Message-ID: <20260512052230.2947683-10-hch@lst.de>
+Subject: [PATCH 11/19] raid6: use static_call for gen_syndrom and xor_syndrom
+Date: Tue, 12 May 2026 07:20:51 +0200
+Message-ID: <20260512052230.2947683-12-hch@lst.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260512052230.2947683-1-hch@lst.de>
 References: <20260512052230.2947683-1-hch@lst.de>
@@ -92,661 +92,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Split out two new headers from the public pq.h:
-
- - lib/raid/raid6/algos.h contains the algorithm lists private to
-   lib/raid/raid6
- - include/linux/raid/pq_tables.h contains the tables also used by
-   async_tx providers.
-
-The public include/linux/pq.h is now limited to the public interface for
-the consumers of the RAID6 PQ API.
+Avoid indirect calls for P/Q parity generation.
 
 Signed-off-by: Christoph Hellwig <hch@lst.de>
 ---
- crypto/async_tx/async_pq.c                    |  1 +
- crypto/async_tx/async_raid6_recov.c           |  1 +
- drivers/dma/bcm-sba-raid.c                    |  1 +
- include/linux/raid/pq.h                       | 96 ++-----------------
- include/linux/raid/pq_tables.h                | 19 ++++
- lib/raid/raid6/Makefile                       |  2 +
- lib/raid/raid6/algos.c                        |  3 +-
- lib/raid/raid6/algos.h                        | 82 ++++++++++++++++
- lib/raid/raid6/arm/neon.c                     |  2 +-
- lib/raid/raid6/arm/recov_neon.c               |  2 +
- lib/raid/raid6/int.uc                         |  2 +-
- lib/raid/raid6/loongarch/loongarch_simd.c     |  2 +-
- .../raid6/loongarch/recov_loongarch_simd.c    |  2 +
- lib/raid/raid6/mktables.c                     |  2 +-
- lib/raid/raid6/powerpc/altivec.uc             |  2 +-
- lib/raid/raid6/powerpc/vpermxor.uc            |  2 +-
- lib/raid/raid6/recov.c                        |  2 +
- lib/raid/raid6/riscv/recov_rvv.c              |  2 +
- lib/raid/raid6/riscv/rvv.h                    |  2 +-
- lib/raid/raid6/s390/recov_s390xc.c            |  2 +
- lib/raid/raid6/s390/s390vx.uc                 |  2 +-
- lib/raid/raid6/tests/raid6_kunit.c            |  2 +-
- lib/raid/raid6/x86/avx2.c                     |  3 +-
- lib/raid/raid6/x86/avx512.c                   |  3 +-
- lib/raid/raid6/x86/mmx.c                      |  3 +-
- lib/raid/raid6/x86/recov_avx2.c               |  2 +
- lib/raid/raid6/x86/recov_avx512.c             |  2 +
- lib/raid/raid6/x86/recov_ssse3.c              |  2 +
- lib/raid/raid6/x86/sse1.c                     |  3 +-
- lib/raid/raid6/x86/sse2.c                     |  3 +-
- 30 files changed, 151 insertions(+), 103 deletions(-)
- create mode 100644 include/linux/raid/pq_tables.h
- create mode 100644 lib/raid/raid6/algos.h
+ lib/raid/raid6/algos.c | 18 ++++++++++++------
+ 1 file changed, 12 insertions(+), 6 deletions(-)
 
-diff --git a/crypto/async_tx/async_pq.c b/crypto/async_tx/async_pq.c
-index f3574f80d1df..27f99349e310 100644
---- a/crypto/async_tx/async_pq.c
-+++ b/crypto/async_tx/async_pq.c
-@@ -8,6 +8,7 @@
- #include <linux/module.h>
- #include <linux/dma-mapping.h>
- #include <linux/raid/pq.h>
-+#include <linux/raid/pq_tables.h>
- #include <linux/async_tx.h>
- #include <linux/gfp.h>
- 
-diff --git a/crypto/async_tx/async_raid6_recov.c b/crypto/async_tx/async_raid6_recov.c
-index 305ea1421a3e..e53870d84bc5 100644
---- a/crypto/async_tx/async_raid6_recov.c
-+++ b/crypto/async_tx/async_raid6_recov.c
-@@ -11,6 +11,7 @@
- #include <linux/module.h>
- #include <linux/dma-mapping.h>
- #include <linux/raid/pq.h>
-+#include <linux/raid/pq_tables.h>
- #include <linux/async_tx.h>
- #include <linux/dmaengine.h>
- 
-diff --git a/drivers/dma/bcm-sba-raid.c b/drivers/dma/bcm-sba-raid.c
-index ed037fa883f6..0de03611252e 100644
---- a/drivers/dma/bcm-sba-raid.c
-+++ b/drivers/dma/bcm-sba-raid.c
-@@ -40,6 +40,7 @@
- #include <linux/platform_device.h>
- #include <linux/slab.h>
- #include <linux/raid/pq.h>
-+#include <linux/raid/pq_tables.h>
- 
- #include "dmaengine.h"
- 
-diff --git a/include/linux/raid/pq.h b/include/linux/raid/pq.h
-index 662c2669f63f..760dd41a10b0 100644
---- a/include/linux/raid/pq.h
-+++ b/include/linux/raid/pq.h
-@@ -1,15 +1,13 @@
- /* SPDX-License-Identifier: GPL-2.0-or-later */
--/* -*- linux-c -*- ------------------------------------------------------- *
-- *
-- *   Copyright 2003 H. Peter Anvin - All Rights Reserved
-+/*
-+ * Copyright 2003 H. Peter Anvin - All Rights Reserved
-  *
-- * ----------------------------------------------------------------------- */
--
--#ifndef LINUX_RAID_RAID6_H
--#define LINUX_RAID_RAID6_H
-+ * Public interface to the RAID6 P/Q calculation and recovery library.
-+ */
-+#ifndef LINUX_RAID_PQ_H
-+#define LINUX_RAID_PQ_H
- 
--#include <linux/blkdev.h>
--#include <linux/mm.h>
-+#include <linux/types.h>
- 
- /*
-  * While the RAID6 algorithm could in theory support 3 devices by just copying
-@@ -30,82 +28,4 @@ void raid6_recov_2data(int disks, size_t bytes, int faila, int failb,
- void raid6_recov_datap(int disks, size_t bytes, int faila,
- 		void **ptrs);
- 
--/* Routine choices */
--struct raid6_calls {
--	void (*gen_syndrome)(int, size_t, void **);
--	void (*xor_syndrome)(int, int, int, size_t, void **);
--	int  (*valid)(void);	/* Returns 1 if this routine set is usable */
--	const char *name;	/* Name of this routine set */
--	int priority;		/* Relative priority ranking if non-zero */
--};
--
--/* Various routine sets */
--extern const struct raid6_calls raid6_intx1;
--extern const struct raid6_calls raid6_intx2;
--extern const struct raid6_calls raid6_intx4;
--extern const struct raid6_calls raid6_intx8;
--extern const struct raid6_calls raid6_mmxx1;
--extern const struct raid6_calls raid6_mmxx2;
--extern const struct raid6_calls raid6_sse1x1;
--extern const struct raid6_calls raid6_sse1x2;
--extern const struct raid6_calls raid6_sse2x1;
--extern const struct raid6_calls raid6_sse2x2;
--extern const struct raid6_calls raid6_sse2x4;
--extern const struct raid6_calls raid6_altivec1;
--extern const struct raid6_calls raid6_altivec2;
--extern const struct raid6_calls raid6_altivec4;
--extern const struct raid6_calls raid6_altivec8;
--extern const struct raid6_calls raid6_avx2x1;
--extern const struct raid6_calls raid6_avx2x2;
--extern const struct raid6_calls raid6_avx2x4;
--extern const struct raid6_calls raid6_avx512x1;
--extern const struct raid6_calls raid6_avx512x2;
--extern const struct raid6_calls raid6_avx512x4;
--extern const struct raid6_calls raid6_s390vx8;
--extern const struct raid6_calls raid6_vpermxor1;
--extern const struct raid6_calls raid6_vpermxor2;
--extern const struct raid6_calls raid6_vpermxor4;
--extern const struct raid6_calls raid6_vpermxor8;
--extern const struct raid6_calls raid6_lsx;
--extern const struct raid6_calls raid6_lasx;
--extern const struct raid6_calls raid6_rvvx1;
--extern const struct raid6_calls raid6_rvvx2;
--extern const struct raid6_calls raid6_rvvx4;
--extern const struct raid6_calls raid6_rvvx8;
--
--struct raid6_recov_calls {
--	void (*data2)(int, size_t, int, int, void **);
--	void (*datap)(int, size_t, int, void **);
--	int  (*valid)(void);
--	const char *name;
--	int priority;
--};
--
--extern const struct raid6_recov_calls raid6_recov_intx1;
--extern const struct raid6_recov_calls raid6_recov_ssse3;
--extern const struct raid6_recov_calls raid6_recov_avx2;
--extern const struct raid6_recov_calls raid6_recov_avx512;
--extern const struct raid6_recov_calls raid6_recov_s390xc;
--extern const struct raid6_recov_calls raid6_recov_neon;
--extern const struct raid6_recov_calls raid6_recov_lsx;
--extern const struct raid6_recov_calls raid6_recov_lasx;
--extern const struct raid6_recov_calls raid6_recov_rvv;
--
--extern const struct raid6_calls raid6_neonx1;
--extern const struct raid6_calls raid6_neonx2;
--extern const struct raid6_calls raid6_neonx4;
--extern const struct raid6_calls raid6_neonx8;
--
--/* Algorithm list */
--extern const struct raid6_calls * const raid6_algos[];
--extern const struct raid6_recov_calls *const raid6_recov_algos[];
--
--/* Galois field tables */
--extern const u8 raid6_gfmul[256][256] __attribute__((aligned(256)));
--extern const u8 raid6_vgfmul[256][32] __attribute__((aligned(256)));
--extern const u8 raid6_gfexp[256]      __attribute__((aligned(256)));
--extern const u8 raid6_gflog[256]      __attribute__((aligned(256)));
--extern const u8 raid6_gfinv[256]      __attribute__((aligned(256)));
--extern const u8 raid6_gfexi[256]      __attribute__((aligned(256)));
--
--#endif /* LINUX_RAID_RAID6_H */
-+#endif /* LINUX_RAID_PQ_H */
-diff --git a/include/linux/raid/pq_tables.h b/include/linux/raid/pq_tables.h
-new file mode 100644
-index 000000000000..7b1ebe675677
---- /dev/null
-+++ b/include/linux/raid/pq_tables.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Copyright 2003 H. Peter Anvin - All Rights Reserved
-+ *
-+ * Galois field tables for the Linux RAID6 P/Q parity algorithm.
-+ */
-+#ifndef _LINUX_RAID_PQ_TABLES_H
-+#define _LINUX_RAID_PQ_TABLES_H
-+
-+#include <linux/types.h>
-+
-+extern const u8 raid6_gfmul[256][256] __attribute__((aligned(256)));
-+extern const u8 raid6_vgfmul[256][32] __attribute__((aligned(256)));
-+extern const u8 raid6_gfexp[256]      __attribute__((aligned(256)));
-+extern const u8 raid6_gflog[256]      __attribute__((aligned(256)));
-+extern const u8 raid6_gfinv[256]      __attribute__((aligned(256)));
-+extern const u8 raid6_gfexi[256]      __attribute__((aligned(256)));
-+
-+#endif /* _LINUX_RAID_PQ_TABLES_H */
-diff --git a/lib/raid/raid6/Makefile b/lib/raid/raid6/Makefile
-index 886a1771e78d..f64f6d32f28b 100644
---- a/lib/raid/raid6/Makefile
-+++ b/lib/raid/raid6/Makefile
-@@ -2,6 +2,8 @@
- 
- hostprogs			+= mktables
- 
-+ccflags-y			+= -I $(src)
-+
- obj-$(CONFIG_RAID6_PQ)		+= raid6_pq.o tests/
- 
- raid6_pq-y			+= algos.o tables.o
 diff --git a/lib/raid/raid6/algos.c b/lib/raid/raid6/algos.c
-index 683b97cb94ad..af31a1feb6e7 100644
+index 5bd953032e55..65b75236ecf8 100644
 --- a/lib/raid/raid6/algos.c
 +++ b/lib/raid/raid6/algos.c
-@@ -11,10 +11,11 @@
-  * Algorithm list and algorithm selection for RAID-6
-  */
- 
--#include <linux/raid/pq.h>
+@@ -14,6 +14,7 @@
  #include <linux/module.h>
  #include <linux/gfp.h>
-+#include <linux/raid/pq.h>
+ #include <linux/raid/pq.h>
++#include <linux/static_call.h>
  #include <kunit/visibility.h>
-+#include "algos.h"
+ #include "algos.h"
  
+@@ -23,7 +24,8 @@ static unsigned int raid6_nr_algos;
  static const struct raid6_recov_calls *raid6_recov_algo;
  
-diff --git a/lib/raid/raid6/algos.h b/lib/raid/raid6/algos.h
-new file mode 100644
-index 000000000000..e5f1098d2179
---- /dev/null
-+++ b/lib/raid/raid6/algos.h
-@@ -0,0 +1,82 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Copyright 2003 H. Peter Anvin - All Rights Reserved
-+ */
-+#ifndef _PQ_IMPL_H
-+#define _PQ_IMPL_H
-+
-+#include <linux/raid/pq_tables.h>
-+
-+/* Routine choices */
-+struct raid6_calls {
-+	const char *name;
-+	void (*gen_syndrome)(int disks, size_t bytes, void **ptrs);
-+	void (*xor_syndrome)(int disks, int start, int stop, size_t bytes,
-+			void **ptrs);
-+	int  (*valid)(void);	/* Returns 1 if this routine set is usable */
-+	int priority;		/* Relative priority ranking if non-zero */
-+};
-+
-+/* Various routine sets */
-+extern const struct raid6_calls raid6_intx1;
-+extern const struct raid6_calls raid6_intx2;
-+extern const struct raid6_calls raid6_intx4;
-+extern const struct raid6_calls raid6_intx8;
-+extern const struct raid6_calls raid6_mmxx1;
-+extern const struct raid6_calls raid6_mmxx2;
-+extern const struct raid6_calls raid6_sse1x1;
-+extern const struct raid6_calls raid6_sse1x2;
-+extern const struct raid6_calls raid6_sse2x1;
-+extern const struct raid6_calls raid6_sse2x2;
-+extern const struct raid6_calls raid6_sse2x4;
-+extern const struct raid6_calls raid6_altivec1;
-+extern const struct raid6_calls raid6_altivec2;
-+extern const struct raid6_calls raid6_altivec4;
-+extern const struct raid6_calls raid6_altivec8;
-+extern const struct raid6_calls raid6_avx2x1;
-+extern const struct raid6_calls raid6_avx2x2;
-+extern const struct raid6_calls raid6_avx2x4;
-+extern const struct raid6_calls raid6_avx512x1;
-+extern const struct raid6_calls raid6_avx512x2;
-+extern const struct raid6_calls raid6_avx512x4;
-+extern const struct raid6_calls raid6_s390vx8;
-+extern const struct raid6_calls raid6_vpermxor1;
-+extern const struct raid6_calls raid6_vpermxor2;
-+extern const struct raid6_calls raid6_vpermxor4;
-+extern const struct raid6_calls raid6_vpermxor8;
-+extern const struct raid6_calls raid6_lsx;
-+extern const struct raid6_calls raid6_lasx;
-+extern const struct raid6_calls raid6_rvvx1;
-+extern const struct raid6_calls raid6_rvvx2;
-+extern const struct raid6_calls raid6_rvvx4;
-+extern const struct raid6_calls raid6_rvvx8;
-+
-+struct raid6_recov_calls {
-+	const char *name;
-+	void (*data2)(int disks, size_t bytes, int faila, int failb,
-+			void **ptrs);
-+	void (*datap)(int disks, size_t bytes, int faila, void **ptrs);
-+	int  (*valid)(void);
-+	int priority;
-+};
-+
-+extern const struct raid6_recov_calls raid6_recov_intx1;
-+extern const struct raid6_recov_calls raid6_recov_ssse3;
-+extern const struct raid6_recov_calls raid6_recov_avx2;
-+extern const struct raid6_recov_calls raid6_recov_avx512;
-+extern const struct raid6_recov_calls raid6_recov_s390xc;
-+extern const struct raid6_recov_calls raid6_recov_neon;
-+extern const struct raid6_recov_calls raid6_recov_lsx;
-+extern const struct raid6_recov_calls raid6_recov_lasx;
-+extern const struct raid6_recov_calls raid6_recov_rvv;
-+
-+extern const struct raid6_calls raid6_neonx1;
-+extern const struct raid6_calls raid6_neonx2;
-+extern const struct raid6_calls raid6_neonx4;
-+extern const struct raid6_calls raid6_neonx8;
-+
-+/* Algorithm list */
-+extern const struct raid6_calls * const raid6_algos[];
-+extern const struct raid6_recov_calls *const raid6_recov_algos[];
-+
-+#endif /* _PQ_IMPL_H */
-diff --git a/lib/raid/raid6/arm/neon.c b/lib/raid/raid6/arm/neon.c
-index c21da59ab48f..bd4ec4c86ee8 100644
---- a/lib/raid/raid6/arm/neon.c
-+++ b/lib/raid/raid6/arm/neon.c
-@@ -5,8 +5,8 @@
-  * Copyright (C) 2013 Linaro Ltd <ard.biesheuvel@linaro.org>
+ /* Selected algorithm */
+-static struct raid6_calls raid6_call;
++DEFINE_STATIC_CALL_NULL(raid6_gen_syndrome_impl, *raid6_intx1.gen_syndrome);
++DEFINE_STATIC_CALL_NULL(raid6_xor_syndrome_impl, *raid6_intx1.xor_syndrome);
+ 
+ /**
+  * raid6_gen_syndrome - generate RAID6 P/Q parity
+@@ -48,7 +50,7 @@ void raid6_gen_syndrome(int disks, size_t bytes, void **ptrs)
+ 	WARN_ON_ONCE(bytes & 511);
+ 	WARN_ON_ONCE(disks < RAID6_MIN_DISKS);
+ 
+-	raid6_call.gen_syndrome(disks, bytes, ptrs);
++	static_call(raid6_gen_syndrome_impl)(disks, bytes, ptrs);
+ }
+ EXPORT_SYMBOL_GPL(raid6_gen_syndrome);
+ 
+@@ -85,7 +87,7 @@ void raid6_xor_syndrome(int disks, int start, int stop, size_t bytes,
+ 	WARN_ON_ONCE(disks < RAID6_MIN_DISKS);
+ 	WARN_ON_ONCE(stop < start);
+ 
+-	raid6_call.xor_syndrome(disks, start, stop, bytes, ptrs);
++	static_call(raid6_xor_syndrome_impl)(disks, start, stop, bytes, ptrs);
+ }
+ EXPORT_SYMBOL_GPL(raid6_xor_syndrome);
+ 
+@@ -96,7 +98,7 @@ EXPORT_SYMBOL_GPL(raid6_xor_syndrome);
   */
- 
--#include <linux/raid/pq.h>
- #include <asm/simd.h>
-+#include "algos.h"
- 
- /*
-  * There are 2 reasons these wrappers are kept in a separate compilation unit
-diff --git a/lib/raid/raid6/arm/recov_neon.c b/lib/raid/raid6/arm/recov_neon.c
-index 4eb0efb44750..e1d1d19fc9a8 100644
---- a/lib/raid/raid6/arm/recov_neon.c
-+++ b/lib/raid/raid6/arm/recov_neon.c
-@@ -4,8 +4,10 @@
-  * Copyright (C) 2017 Linaro Ltd. <ard.biesheuvel@linaro.org>
-  */
- 
-+#include <linux/mm.h>
- #include <linux/raid/pq.h>
- #include <asm/simd.h>
-+#include "algos.h"
- #include "arm/neon.h"
- 
- static int raid6_has_neon(void)
-diff --git a/lib/raid/raid6/int.uc b/lib/raid/raid6/int.uc
-index 4f5f2869e21e..e63bd5a9c2ed 100644
---- a/lib/raid/raid6/int.uc
-+++ b/lib/raid/raid6/int.uc
-@@ -18,7 +18,7 @@
-  * This file is postprocessed using unroll.awk
-  */
- 
--#include <linux/raid/pq.h>
-+#include "algos.h"
- 
- /*
-  * This is the C data type to use
-diff --git a/lib/raid/raid6/loongarch/loongarch_simd.c b/lib/raid/raid6/loongarch/loongarch_simd.c
-index 1b4cd1512d05..f77d11ce676e 100644
---- a/lib/raid/raid6/loongarch/loongarch_simd.c
-+++ b/lib/raid/raid6/loongarch/loongarch_simd.c
-@@ -9,9 +9,9 @@
-  * Copyright 2002-2004 H. Peter Anvin
-  */
- 
--#include <linux/raid/pq.h>
- #include <asm/cpu-features.h>
- #include <asm/fpu.h>
-+#include "algos.h"
- 
- /*
-  * The vector algorithms are currently priority 0, which means the generic
-diff --git a/lib/raid/raid6/loongarch/recov_loongarch_simd.c b/lib/raid/raid6/loongarch/recov_loongarch_simd.c
-index 7d4d349322b3..0bbdc8b5c2e7 100644
---- a/lib/raid/raid6/loongarch/recov_loongarch_simd.c
-+++ b/lib/raid/raid6/loongarch/recov_loongarch_simd.c
-@@ -10,9 +10,11 @@
-  * Author: Jim Kukunas <james.t.kukunas@linux.intel.com>
-  */
- 
-+#include <linux/mm.h>
- #include <linux/raid/pq.h>
- #include <asm/cpu-features.h>
- #include <asm/fpu.h>
-+#include "algos.h"
- 
- /*
-  * Unlike with the syndrome calculation algorithms, there's no boot-time
-diff --git a/lib/raid/raid6/mktables.c b/lib/raid/raid6/mktables.c
-index 3de1dbf6846c..97a17493bbd8 100644
---- a/lib/raid/raid6/mktables.c
-+++ b/lib/raid/raid6/mktables.c
-@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
- 	uint8_t exptbl[256], invtbl[256];
- 
- 	printf("#include <linux/export.h>\n");
--	printf("#include <linux/raid/pq.h>\n");
-+	printf("#include \"algos.h\"\n");
- 
- 	/* Compute multiplication table */
- 	printf("\nconst u8  __attribute__((aligned(256)))\n"
-diff --git a/lib/raid/raid6/powerpc/altivec.uc b/lib/raid/raid6/powerpc/altivec.uc
-index 084ead768ddb..eb4a448cc88e 100644
---- a/lib/raid/raid6/powerpc/altivec.uc
-+++ b/lib/raid/raid6/powerpc/altivec.uc
-@@ -22,7 +22,7 @@
-  * bracked this with preempt_disable/enable or in a lock)
-  */
- 
--#include <linux/raid/pq.h>
-+#include "algos.h"
- 
- #include <altivec.h>
- #include <asm/cputable.h>
-diff --git a/lib/raid/raid6/powerpc/vpermxor.uc b/lib/raid/raid6/powerpc/vpermxor.uc
-index bb2c3a316ae8..ec61f30bec11 100644
---- a/lib/raid/raid6/powerpc/vpermxor.uc
-+++ b/lib/raid/raid6/powerpc/vpermxor.uc
-@@ -20,11 +20,11 @@
-  * This instruction was introduced in POWER8 - ISA v2.07.
-  */
- 
--#include <linux/raid/pq.h>
- #include <altivec.h>
- #include <asm/ppc-opcode.h>
- #include <asm/cputable.h>
- #include <asm/switch_to.h>
-+#include "algos.h"
- 
- typedef vector unsigned char unative_t;
- #define NSIZE sizeof(unative_t)
-diff --git a/lib/raid/raid6/recov.c b/lib/raid/raid6/recov.c
-index cc7e4dc1eaa6..735ab4013771 100644
---- a/lib/raid/raid6/recov.c
-+++ b/lib/raid/raid6/recov.c
-@@ -13,7 +13,9 @@
-  * the syndrome.)
-  */
- 
-+#include <linux/mm.h>
- #include <linux/raid/pq.h>
-+#include "algos.h"
- 
- /* Recover two failed data blocks. */
- static void raid6_2data_recov_intx1(int disks, size_t bytes, int faila,
-diff --git a/lib/raid/raid6/riscv/recov_rvv.c b/lib/raid/raid6/riscv/recov_rvv.c
-index 3ff39826e33f..02120d245e22 100644
---- a/lib/raid/raid6/riscv/recov_rvv.c
-+++ b/lib/raid/raid6/riscv/recov_rvv.c
-@@ -4,7 +4,9 @@
-  * Author: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-  */
- 
-+#include <linux/mm.h>
- #include <linux/raid/pq.h>
-+#include "algos.h"
- #include "rvv.h"
- 
- static void __raid6_2data_recov_rvv(int bytes, u8 *p, u8 *q, u8 *dp,
-diff --git a/lib/raid/raid6/riscv/rvv.h b/lib/raid/raid6/riscv/rvv.h
-index 0d430a4c5f08..c293130d798b 100644
---- a/lib/raid/raid6/riscv/rvv.h
-+++ b/lib/raid/raid6/riscv/rvv.h
-@@ -7,8 +7,8 @@
-  * Definitions for RISC-V RAID-6 code
-  */
- 
--#include <linux/raid/pq.h>
- #include <asm/vector.h>
-+#include "algos.h"
- 
- static int rvv_has_vector(void)
+ bool raid6_can_xor_syndrome(void)
  {
-diff --git a/lib/raid/raid6/s390/recov_s390xc.c b/lib/raid/raid6/s390/recov_s390xc.c
-index 2bc4c85174de..e7b3409f21e2 100644
---- a/lib/raid/raid6/s390/recov_s390xc.c
-+++ b/lib/raid/raid6/s390/recov_s390xc.c
-@@ -6,7 +6,9 @@
-  * Author(s): Martin Schwidefsky <schwidefsky@de.ibm.com>
-  */
+-	return !!raid6_call.xor_syndrome;
++	return !!static_call_query(raid6_xor_syndrome_impl);
+ }
+ EXPORT_SYMBOL_GPL(raid6_can_xor_syndrome);
  
-+#include <linux/mm.h>
- #include <linux/raid/pq.h>
-+#include "algos.h"
+@@ -195,7 +197,8 @@ static int raid6_choose_gen(void *(*const dptrs)[RAID6_TEST_DISKS],
+ 		return -EINVAL;
+ 	}
  
- static inline void xor_block(u8 *p1, u8 *p2)
- {
-diff --git a/lib/raid/raid6/s390/s390vx.uc b/lib/raid/raid6/s390/s390vx.uc
-index 97c5d5d9dcf9..aba3515eacac 100644
---- a/lib/raid/raid6/s390/s390vx.uc
-+++ b/lib/raid/raid6/s390/s390vx.uc
-@@ -12,8 +12,8 @@
-  */
+-	raid6_call = *best;
++	static_call_update(raid6_gen_syndrome_impl, best->gen_syndrome);
++	static_call_update(raid6_xor_syndrome_impl, best->xor_syndrome);
  
- #include <linux/cpufeature.h>
--#include <linux/raid/pq.h>
- #include <asm/fpu.h>
-+#include "algos.h"
+ 	pr_info("raid6: using algorithm %s gen() %ld MB/s\n",
+ 		best->name,
+@@ -240,7 +243,10 @@ static int __init raid6_select_algo(void)
+ 	if (!IS_ENABLED(CONFIG_RAID6_PQ_BENCHMARK) || raid6_nr_algos == 1) {
+ 		pr_info("raid6: skipped pq benchmark and selected %s\n",
+ 			raid6_algos[raid6_nr_algos - 1]->name);
+-		raid6_call = *raid6_algos[raid6_nr_algos - 1];
++		static_call_update(raid6_gen_syndrome_impl,
++				raid6_algos[raid6_nr_algos - 1]->gen_syndrome);
++		static_call_update(raid6_xor_syndrome_impl,
++				raid6_algos[raid6_nr_algos - 1]->xor_syndrome);
+ 		return 0;
+ 	}
  
- #define NSIZE 16
- 
-diff --git a/lib/raid/raid6/tests/raid6_kunit.c b/lib/raid/raid6/tests/raid6_kunit.c
-index ab4fda17395b..9b71f22fa19a 100644
---- a/lib/raid/raid6/tests/raid6_kunit.c
-+++ b/lib/raid/raid6/tests/raid6_kunit.c
-@@ -7,7 +7,7 @@
- 
- #include <kunit/test.h>
- #include <linux/prandom.h>
--#include <linux/raid/pq.h>
-+#include "../algos.h"
- 
- MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
- 
-diff --git a/lib/raid/raid6/x86/avx2.c b/lib/raid/raid6/x86/avx2.c
-index aab8b624c635..0bf831799082 100644
---- a/lib/raid/raid6/x86/avx2.c
-+++ b/lib/raid/raid6/x86/avx2.c
-@@ -13,8 +13,9 @@
-  *
-  */
- 
--#include <linux/raid/pq.h>
-+#include <asm/cpufeature.h>
- #include <asm/fpu/api.h>
-+#include "algos.h"
- 
- static const struct raid6_avx2_constants {
- 	u64 x1d[4];
-diff --git a/lib/raid/raid6/x86/avx512.c b/lib/raid/raid6/x86/avx512.c
-index 47636b16632f..98ed42fb0a46 100644
---- a/lib/raid/raid6/x86/avx512.c
-+++ b/lib/raid/raid6/x86/avx512.c
-@@ -17,8 +17,9 @@
-  *
-  */
- 
--#include <linux/raid/pq.h>
-+#include <asm/cpufeature.h>
- #include <asm/fpu/api.h>
-+#include "algos.h"
- 
- static const struct raid6_avx512_constants {
- 	u64 x1d[8];
-diff --git a/lib/raid/raid6/x86/mmx.c b/lib/raid/raid6/x86/mmx.c
-index 22b9fdaa705f..052d9f010bfe 100644
---- a/lib/raid/raid6/x86/mmx.c
-+++ b/lib/raid/raid6/x86/mmx.c
-@@ -11,8 +11,9 @@
-  * MMX implementation of RAID-6 syndrome functions
-  */
- 
--#include <linux/raid/pq.h>
-+#include <asm/cpufeature.h>
- #include <asm/fpu/api.h>
-+#include "algos.h"
- 
- /* Shared with raid6/sse1.c */
- const struct raid6_mmx_constants {
-diff --git a/lib/raid/raid6/x86/recov_avx2.c b/lib/raid/raid6/x86/recov_avx2.c
-index bef82a38d8eb..06c6e05763bc 100644
---- a/lib/raid/raid6/x86/recov_avx2.c
-+++ b/lib/raid/raid6/x86/recov_avx2.c
-@@ -4,8 +4,10 @@
-  * Author: Jim Kukunas <james.t.kukunas@linux.intel.com>
-  */
- 
-+#include <linux/mm.h>
- #include <linux/raid/pq.h>
- #include <asm/fpu/api.h>
-+#include "algos.h"
- 
- static int raid6_has_avx2(void)
- {
-diff --git a/lib/raid/raid6/x86/recov_avx512.c b/lib/raid/raid6/x86/recov_avx512.c
-index 06c70e771eaa..850bb962b514 100644
---- a/lib/raid/raid6/x86/recov_avx512.c
-+++ b/lib/raid/raid6/x86/recov_avx512.c
-@@ -6,8 +6,10 @@
-  * Author: Megha Dey <megha.dey@linux.intel.com>
-  */
- 
-+#include <linux/mm.h>
- #include <linux/raid/pq.h>
- #include <asm/fpu/api.h>
-+#include "algos.h"
- 
- static int raid6_has_avx512(void)
- {
-diff --git a/lib/raid/raid6/x86/recov_ssse3.c b/lib/raid/raid6/x86/recov_ssse3.c
-index 5ca7d56f23d8..95589c33003a 100644
---- a/lib/raid/raid6/x86/recov_ssse3.c
-+++ b/lib/raid/raid6/x86/recov_ssse3.c
-@@ -3,8 +3,10 @@
-  * Copyright (C) 2012 Intel Corporation
-  */
- 
-+#include <linux/mm.h>
- #include <linux/raid/pq.h>
- #include <asm/fpu/api.h>
-+#include "algos.h"
- 
- static int raid6_has_ssse3(void)
- {
-diff --git a/lib/raid/raid6/x86/sse1.c b/lib/raid/raid6/x86/sse1.c
-index fad214a430d8..7004255a0bb1 100644
---- a/lib/raid/raid6/x86/sse1.c
-+++ b/lib/raid/raid6/x86/sse1.c
-@@ -16,8 +16,9 @@
-  * worthwhile as a separate implementation.
-  */
- 
--#include <linux/raid/pq.h>
-+#include <asm/cpufeature.h>
- #include <asm/fpu/api.h>
-+#include "algos.h"
- 
- /* Defined in raid6/mmx.c */
- extern const struct raid6_mmx_constants {
-diff --git a/lib/raid/raid6/x86/sse2.c b/lib/raid/raid6/x86/sse2.c
-index 1b28e858a1d4..f30be4ee14d0 100644
---- a/lib/raid/raid6/x86/sse2.c
-+++ b/lib/raid/raid6/x86/sse2.c
-@@ -12,8 +12,9 @@
-  *
-  */
- 
--#include <linux/raid/pq.h>
-+#include <asm/cpufeature.h>
- #include <asm/fpu/api.h>
-+#include "algos.h"
- 
- static const struct raid6_sse_constants {
- 	u64 x1d[2];
 -- 
 2.53.0
 
