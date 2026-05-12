@@ -4,108 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D1ECD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 12:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08BCCD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 12:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZNiNSCnuGRYY15l9t3kR4oZkdq97BMSAIqkVYXGT2lI=; b=jGqN0X4tAOpIV12x1sxmPOg6wX
-	dl5P00NzquKH7h+rOpau9Ue0HdWo/aJzjUPsfu+jnxANSxh/Y2Ltr9tiKi99G9Tqz8LpKfkll05Xj
-	6zivI5VuK4tmrq2PFDiv0z+PhZSqEgD8e3XGBcpmTlxvfLwFJFg2jdmGn9/ClTY0wZ4wTBQEvZ0f6
-	3xvjV6ThGPPXnD5O6JtdnQjplbeFkPa0YyGhZeuQ18zf6W6nA7zX8h5/gxQMOr+TF7FXwF4ICAolO
-	IOdPjQeCqN6o+2qeOx7WuCF2oJItGDlwj/FOXK/5pX3iNJYiMgBvAFINwbcsyfMqHmhsDEu+kAgAK
-	7p7xnIHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MOp4VzQJzpVrzaLWG2n8IsNxEYbCwRvMjRwLio3IkjI=; b=hmqu+6fKkqxWuyB40s76vfsIVI
+	qqF25bDiXA5TBYlvxW1bm9OIarvymqPeDwYchSZElFhgdHdm72I8+DLRB96TUxrMdEMUSoc9wNwbS
+	bkp8yMQW8fV6e1VXgi2jFl4+St5xzxJU/4jRK6ene9JaPU9SbrucyTIoC3F01cGPcKw6dqRZVWp+d
+	q8o+G1uznvFx0aRA3Wm7CtVsl1GHgNDNQjNJ8SuKpSwIWjBri9sRKcVS9GA+8yCSsCabIevg2W1Ed
+	LK842tJ8hIPzwy3MZqoWxuzRBJlH7QQQLM8S7+9Pw+vuizMKx0ybr338knOhP5Md8ULaG4pR332xn
+	PajSxCTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMm9d-0000000Gezr-0OLu;
-	Tue, 12 May 2026 12:24:05 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1wMmLk-0000000Ggd9-32Dr;
+	Tue, 12 May 2026 12:36:36 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMm9a-0000000GezJ-30Rp
+	id 1wMmLi-0000000GgcX-3Z4Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 12:24:03 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-3922b35e69cso46365921fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 05:24:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778588640; cv=none;
-        d=google.com; s=arc-20240605;
-        b=bHzlcC1iaRIWeu9GnhH4SaZ4MKZVqNlngUMoTW85hjQl/ZNYV33wLqHbPpsOiHPlH8
-         1Ib2WcLg1pWwgBVkldAVte1s0crEp0le0NCkVoWx8kz6M2N9a+aiWkW/KRx7M9CrqTUU
-         iIOrtpJbDXnam23i8tQ9tqoZxzZXk9/z2No+avjlw01vP3xnd2odFFeMYMK06CajCqTR
-         62xrA8kpU2djA8Ze7mqrfr799dGH0C5qY8xsS6RR000LRLkNNVsOPyC7zF5IIPH6IyEo
-         flsBhaXTgQnRrOYr27bABP0DnpbsTB9QEeA0zvfMgQrGIUE4lJEx0yzqzJoj5TPi+xJl
-         ckBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZNiNSCnuGRYY15l9t3kR4oZkdq97BMSAIqkVYXGT2lI=;
-        fh=aigGiNdFBLP3UBm8bGQyOdqzBawgRkQdgDyeaDIVNJs=;
-        b=hW9CjDT9pYRIYgAE47hQYcnzrgsCgfHZqoPH1YSim+PHHPlUjK6AAkh2oJQZhi/LpT
-         eJmgPvYe37nSGk+dT8BQurzZMJMDehtWn6VWl6Ca0cH9gWxYx2xbPWtUmAg6efwtsC9u
-         VmDiBvouKjlSfNzb90D8D0f5+MKbT0DVSMNIx4xDKcoxTyI8gBQQm6zHLr7YIvFFALpt
-         I/mdwiheOzurgIbWixopYVFeDx9s1mvvX4CrBmxopjA+GPvz9JfTWEvVC86zFVPPRJpn
-         1loa7YsOqdnEPUmlxKzgGGO8FtgJIbsFhaRZT7Qyl8A2ncSb1jJ6nOfDwItK3VvOT+2n
-         Khyg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 12 May 2026 12:36:36 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-512f09ecc67so38277561cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 05:36:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778588640; x=1779193440; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZNiNSCnuGRYY15l9t3kR4oZkdq97BMSAIqkVYXGT2lI=;
-        b=FOAaJ4ikUTYNgPdd8uCRqdX3NiZc1v1trSj4B0PhMtmD4EihLHTKAmi8cCDTT5Dwiw
-         SAjOqOW6qQDiBdGiOuD/JLcB/CJucw/DweFafaJ978EArXx/VbOzdS2mKu3WBgiUIj1Y
-         QyFZMM3ug9b+CPH17hpaXuSdaD/FVHnT00J804f+u98wb1eG9IcvrRjH3KxCRAAFEUMO
-         mxXVuutLbRGJRaDGRPSs7nGy707oV8MOm+lEkIn8Yit32mgGjaT7JvezTOh1+LM4Ltbg
-         OV+xFmsQBUd3ZnyNJ0pfJZe7AYp+T+LBqIMw4ESx5Ul+VMuGtzLrv0AD6e+b3kc/rkxB
-         8CtQ==
+        d=ziepe.ca; s=google; t=1778589393; x=1779194193; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=MOp4VzQJzpVrzaLWG2n8IsNxEYbCwRvMjRwLio3IkjI=;
+        b=BSH4vyVkZ0Jfq8zC8miLUr0OXVvCxTUgQ5KRpe0LGuuvl/0Rho8of5bfYtkRXZ9k9E
+         OUWavEaVsuMpyxT2IkJ0ES3fw0ToK4UWyk8kwU8Vho4zmpfsVZ25RMcwZxtaTlEBFIc4
+         MKOgdHxQ0cajs+xkZ+rzsTasfIf+5IVt6sZgA7bz6IsZiqkSg0399THQyM3VewguOStS
+         Ez+Vc4fdTLnVdU9Z/hNWxrLSxPhL3J69JcyWlPRt9QKsiVggoFqRjF55zD2M6ZfCJNkx
+         7GAyvDQJb/KUEVuYMZ5qPwIbBM6nZx+d8Mvl7J6eE23Xbsk/wKuFc5OKZqcM90+LfLDk
+         lASQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778588640; x=1779193440;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZNiNSCnuGRYY15l9t3kR4oZkdq97BMSAIqkVYXGT2lI=;
-        b=q+h1krENdA0DV+C1FPD1ZSBm5DBezqBKB2o0GiTxIbB6kyyYmn79RBycDtvfgP7nlR
-         LKhAC4Q9ng/U2+cfF2KD1kkWk1CwIMLmFJlaFX6ydj2z8k5ViTuK1oWwl9s8CC3z/X6L
-         8aTHr4ub2DV+zBYhUcKxY28z8pB46cS54piol6xd0cPOiHOUCPSZ1fwgHhzyxQWqN+ge
-         8d9ML1NuWToMo7IEIhFyXrUgDWOgm++CF8Wb2YTqr2cYor1hf6CvM0Op2+28fkeA2jE7
-         p8zrvwKM+h5s27MZ4Xkp2hdWYUaw8iiN31eD6IZPbEWNBLEHWd3Jj3WqtNgnJJ2F8LXm
-         iChw==
-X-Forwarded-Encrypted: i=1; AFNElJ/qBSM+8S6Rml0pud/k4CGYWunasDIBPIPneUkdDh9deUSSkeDmuuYGo+xgDTWs3/f1mQSgyFqrrcrOdYwaJ7nH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5UJ+LELf9iZ8irEoeTDQYqhEJKxDht1Mv1BKkeVa8sLMZMdSo
-	aEtyH3e7RDW/2xPQzH604hTbLZp+liZyMphwEzApeP/BkjsiwucnsPczOj4m3EAoV7VwaRSt9TS
-	FvT0a7fs6eEsQIdc62I0j/ghqWpg826E=
-X-Gm-Gg: Acq92OGHW1CgfGmOXafGXxjcjf3hz+drYORlNEH53wxUi1Gr4cowpcxlJ7NYLaI1JRP
-	yN9zF+WUe5t8tbD2wJ5jXa1Ksp7th4Ac4hfbIfJxzEJcuiIdEafRJnixWTUX9OtLMPa9y2TJr/U
-	ya7BfMGaUGqXGqy4hamW9YfNEjCxfmcpGLqHPeM1u0WajaygItjJrPa4WFALIMm7Sq8QRU0zFVV
-	6dfL8tirI/rNGiRi7vuWREEyBoWR7ri4akTqiRjqRA5G8ti85zFvfNhTy8QUzXGrEPbw9VtEfev
-	5uccORbAK2yTVEV7IchzMtwylMtdvowFsh+da7GGBj94TFsmQYfp2Vlul2o5AwGq1vcfw1jd
-X-Received: by 2002:a05:651c:35c6:b0:393:903c:225b with SMTP id
- 38308e7fff4ca-3943cc32a2emr8953951fa.31.1778588640195; Tue, 12 May 2026
- 05:24:00 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778589393; x=1779194193;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MOp4VzQJzpVrzaLWG2n8IsNxEYbCwRvMjRwLio3IkjI=;
+        b=tOnKWB4je7YdxBUiTfRrYW8sAEVv4+cHYjb+TImMS4inw2b96MyqGPs6PK1sGlsdSG
+         Uma3gFaoZUmbZQ111sPyCX46MYdLPSPV9iz++K4DC4yy0exqSWsVfxijkyDTM87HUSwe
+         5146lFgNewQZKkfhhw0CkCYzXJvQV4hJ15ckSNQFBz6UhfK/fQEmw7gxOWrzlkbPQdlV
+         oiWnEY0aPGhQop3X2m3x3CWTWibVt2AmT6M1hHNxOfphQjdyENhqknNtu2C+T7hMiqjV
+         O+6JZfN1mL0coDxFIS0dddKY5QHxY7mWzD7AVFQCO+o65nJXOfdn2HROTUJFQJaM+UTh
+         plbQ==
+X-Gm-Message-State: AOJu0Yzx13Gya7l6pMlxWCV3e/REnOCwNPb6DeLF8dglafzvt4gJZsZY
+	zy/5tgGVhZbrXMmRGZkG6Xlt4FFpVsroEVkOuzdZ6AOx2uJNpoc2ova0OZxhCDN/gHs=
+X-Gm-Gg: Acq92OGJkngnu1GiTacQ0/da9+OkXHSUU7VmBGTOjqcCkTRvQrnWBZn5f0OO0mjCuz+
+	i1PgJCcfIpfxrbVKNhH9URLmbrT24KktogKeuZWrrweduvZD/7gkJjSGNFA7Y5uB+/FDqrH5lrV
+	CRvYcJR6Y6FUow33dYKBNtJ4IpzPGtUvpJRGOx4GolueIynJsMus2emzD3Jg/NX/IKiZ+b06xrm
+	OgJvtnVwED5BQg87dNsnskcN8aGDWakAdNIh6HBHoJXuIrH3KiZB3020bXE3yktalUsATQ/Ss7t
+	vJO+5Wc/6WZ03p30uL6zO/1L0sBTsztNVIX/H2IQ/grqv6/PxX0ZDlP9PxzF0Sa3Tlnb7p2bdKf
+	DLIA3jaWrjNJdBmzruLb4TwJHQ8JM74MFHh+6zBMqqa1YZLFqBif22EnL/NSUnkAHSCJDzABPyI
+	OhED/q/tFIHkBpZLOCyxLua9vbinLxabvIiNGq8ZL3dTspxL/bQIeD9fuI7qe0XS/Vg4Vp3rJaj
+	Xb2mA==
+X-Received: by 2002:a05:622a:4ccc:b0:50d:97e8:939b with SMTP id d75a77b69052e-51461f9e47fmr406246311cf.36.1778589393437;
+        Tue, 12 May 2026 05:36:33 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b53cd827c5sm391412326d6.40.2026.05.12.05.36.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 May 2026 05:36:32 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wMmLg-00000005AiQ-0kgs;
+	Tue, 12 May 2026 09:36:32 -0300
+Date: Tue, 12 May 2026 09:36:32 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
+	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 08/25] KVM: arm64: iommu: Shadow host stage-2 page
+ table
+Message-ID: <20260512123632.GT9285@ziepe.ca>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-9-smostafa@google.com>
+ <20260501130006.GF6912@ziepe.ca>
+ <afiRB3e3o0G1oZvY@google.com>
+ <20260509232714.GI9285@ziepe.ca>
+ <agG8XtrHUfWGy-kd@google.com>
+ <20260511142232.GP9285@ziepe.ca>
+ <agMEFhxsmjpO0thM@google.com>
 MIME-Version: 1.0
-References: <20260511-b4-imx25_dts_simple_warning-v1-0-01b855a5ce25@nxp.com>
- <20260511-b4-imx25_dts_simple_warning-v1-1-01b855a5ce25@nxp.com> <f04fadf2-8d73-435b-b713-9d07e48e80ae@lunn.ch>
-In-Reply-To: <f04fadf2-8d73-435b-b713-9d07e48e80ae@lunn.ch>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 12 May 2026 09:23:48 -0300
-X-Gm-Features: AVHnY4Igm0-o-ifd6S-hgKzaiMJz5oaJeDrrGsoCgjz255blF80xw9vHPNmBKaA
-Message-ID: <CAOMZO5Dm8FgzOfyp=6ZuDc=528FiqCPVYF07PjMGVP0Paye6vg@mail.gmail.com>
-Subject: Re: [PATCH 1/4] ARM: dts: imx6qdl-sabrelite: add mdio phy address 0
-To: Andrew Lunn <andrew@lunn.ch>, Gary Bisson <bisson.gary@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <agMEFhxsmjpO0thM@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_052402_778075_1818AB07 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20260512_053635_050183_A9658446 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,42 +116,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adding Gary.
+On Tue, May 12, 2026 at 10:42:30AM +0000, Mostafa Saleh wrote:
+> > Also io-pgtable arm cannot trigger BBM behaviors, so how do you
+> > implement it?
+> 
+> At the moment, we workaround this by mapping all the memory with PTE
+> level, while MMIO remains at block level as they never change ownership
+> at the moment.
+> 
+> This is one of the missing features I plan to add after this series,
+> if you look in the cover letter, these are listed under “Future work”
 
-On Mon, May 11, 2026 at 7:15=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Mon, May 11, 2026 at 05:04:56PM -0400, Frank Li wrote:
-> > According to IEEE 802.3 Clause 22.2.4.5.5 PHYAD (PHY Address), A PHY th=
-at
-> > is connected to the station management entity via the mechanical interf=
-ace
-> > defined in 22.6 shall always respond to transactions addressed to PHY
-> > Address zero <00000>.
->
-> Did you read 22.6? I've not seen a mechanical interface as defined in
-> 22.6 for at least 20 years, maybe 30 years.
->
-> That cause does not apply in this context.
->
-> > -             ethphy: ethernet-phy {
-> > +             ethphy: ethernet-phy@0 {
-> >                       compatible =3D "ethernet-phy-ieee802.3-c22";
-> > +                     reg =3D <0>;
->
-> This could very well break this board. Without a reg value, the core
-> will find the first PHY on the bus, at whatever address it is at. If
-> you hard code 0, the PHY must be at 0, otherwise it will not be found.
+Hrm, I would not be happy to see io-pgtable modified to have bbm
+features :\ They are very complex this is what iommupt is for..
 
-On this board, U-Boot checks for the Ethernet PHY at addresses 4, 5, 6, and=
- 7:
+> > So that's the real explanation, KVM cannot manage the S2 in the right
+> > way so you can't share it. RMM/etc are managing the S2 without
+> > pointless page faults so they can share it.
+> 
+> Well, there is not really a right way, even with a fully populated
+> stage-2 page table, you can’t guarantee not getting TLB conflict aborts
+> without FEAT_BBML3 (which is quite recent), unless you map everything
+> with a leaf level, which then impacts performance.
 
-https://github.com/u-boot/u-boot/blob/master/board/boundary/nitrogen6x/nitr=
-ogen6x.c#L287-L296
+I mean, there is a right way - you need to rely on the BBM features in
+all HW and fully populate the S2 for no faults. So if that isn't
+present then you are doing things that will harm performance to work
+around the issue. It's fine, but just explain in the commit message.
 
-In this case, shouldn't U-Boot fix up the Ethernet PHY address accordingly?
-
-Something like mx6cuboxi does:
-
-https://github.com/u-boot/u-boot/blob/master/board/solidrun/mx6cuboxi/mx6cu=
-boxi.c#L414-L446
+Jason
 
