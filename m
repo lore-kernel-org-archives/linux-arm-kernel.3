@@ -4,71 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A63CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 17:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 827D4CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 17:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VZBLTK2DdwywAhDF0XTPjOVZtq1ja7uZBlKESzPWNGI=; b=q90cZTcpgb0wSvc244KJI7SE8L
-	tG3QaS4f5TrgLSZmk8SNfjeYkcWxt/iA3yqYFzXTrq876jekVRa4zIGoyx+XfIUo8pey9GxLwTpap
-	cVPV2Ik6pXAQpFN9emeDxuccQYj5EmSvjehNGXIiFOtt9/VPlMc+O8fazT/q0LtHBNpfHHoN6DSB6
-	ug+XXW9PxAmz5ntX6mg/36P0sI4XXZOnXnfyCZNKmMlbTCmPg528bbTmbLeKAe0qkPuNKEXek6x3G
-	7F08mam7jyOypNgwj1I7hdLzncStByuJmmNAzDj1crRv81rp4U9Qg0NoMbVGnLJjaj3cpuFa2Hh2C
-	Gd9mkxzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R+ev741IfAdiFLbqHfFp3gCJqNW23cVxU94J2A4NDP0=; b=AD2LP1YL8HI8ZoJCUI31j0EFUD
+	UBQyVbHiknOJaHK5IeaS4UeJqVB9W1Acq1BomfppwMj4uoJikIKRz5Bx9T4KUqfYWQPX55OGuoaJ8
+	2c74HeBsAT/OFrqJV4VLKHz2skiE2fszlA63bU4Nu+/fGZgjdZnUX76+VO8OQlRCpdtVTS168+mQ4
+	j0FbkYE+W2SWyZAGUkh7CqItcLGnsMN8LLmINBixiU5DtngtEuGcIWZyBJCLMXzAPzvtVAR7ijWFM
+	AB/K3FE2GPyZPM6owBGBbpel3+frKwKrAwbAQd8CJ9ggbB1RW+eyA4E8R1K84hBb7FoGF6nlxRB82
+	ZNeAhBPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqXD-0000000HTcW-212u;
-	Tue, 12 May 2026 17:04:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wMqZ2-0000000HTuo-38kf;
+	Tue, 12 May 2026 17:06:36 +0000
+Received: from mail-southcentralusazon11013052.outbound.protection.outlook.com ([40.93.196.52] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqXB-0000000HTc3-2pQY;
-	Tue, 12 May 2026 17:04:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C54E760139;
-	Tue, 12 May 2026 17:04:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5208EC2BCB0;
-	Tue, 12 May 2026 17:04:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778605480;
-	bh=9Vq8ijFk8qJn7DB2+1iE5j4p/FmaoDocX6KgE6Vblx8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ckw8o3o0c0PfAJEyLSntxYwVU4AbfEuak91RBXrwRvyzNAIe4jv8elNEjpfjPY0PC
-	 MkPhOUg9mXjl6MShmhGCSrJ1Wi/YbhNZMV3OMkrZet37w7P7c78VHtD1BGnMduHl3w
-	 Tfmm5P5b4C7uOR4xgLVhKFhG4y+fiIzmQsbSbfBFORbEv6M6VS4q5qdE8n9xOg7185
-	 EfetoI9BoCOmRvpEw9cIDscSQ9sDtGLuvMyEGuMv9xXcpM4MH3RfGamDSrXuarfIWb
-	 B+x8jICCR3r04yE5fHgTYsCHm293bLNlNn46JSSWtoyneqS57vFmlHFeOUhd9JC/Zs
-	 Zp9b3Kve5z4jA==
-Date: Tue, 12 May 2026 18:04:26 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Roman Vivchar <rva333@protonmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sen
- Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Macpaul Lin
- <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, Srinivas Kandagatla
- <srini@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano
- <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
- <lukasz.luba@arm.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH v2 05/16] iio: adc: mediatek: add mt6323 PMIC AUXADC
- driver
-Message-ID: <20260512180426.04677461@jic23-huawei>
-In-Reply-To: <gWxamwTKyUeOF4QCsiIsrnh7DSWzIKFaY0h83qKq_0vg786xv1uFYhypix7BVO_ruG_vw3DrIsRhIKv5NAzl8hK72rjzPAjwAGU-rhkMgeA=@protonmail.com>
-References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
-	<20260512-mt6323-v2-5-3efcba579e88@protonmail.com>
-	<20260512142932.5c6801d1@jic23-huawei>
-	<gWxamwTKyUeOF4QCsiIsrnh7DSWzIKFaY0h83qKq_0vg786xv1uFYhypix7BVO_ruG_vw3DrIsRhIKv5NAzl8hK72rjzPAjwAGU-rhkMgeA=@protonmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1wMqYz-0000000HTtX-2rNP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 17:06:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tq6WsePIxU7V2liUZGt4Lak5pLBgM3fn5yriLFTvjsu5is9YqUs6tVkMaVfyXd14dAz3EWo/c//cBQRRlXMiqpRtzNecp9DjO6B+/U52E88zwMaVuEWIaYz+kjO0i4eOvpEaZFSqDtaKga6IZOeRT/IGlqWnuAW4908mfE1NKqzIEvlTZM0fLcFrSBebkdkkFJwXw3GVti+mG9cT8/OcFomT9DjQdU2zCmzh5B3Z+m+oK/s2rIHAGrbul95ctPVlDM4puFvublYrryH0rgyZx4PjUH5GVnWurqP5cwVY28wvzHBd1JI0yo3uagT5VCTF/PqcfjKMyhFNCg07LDQOIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=R+ev741IfAdiFLbqHfFp3gCJqNW23cVxU94J2A4NDP0=;
+ b=Yum2AeO6IwGmOFnmECyijXPF3shXapPwQUUGGSFmv+nMA9RZySZ0bJogIVLE2rLqvIkO4l0zULq1q5T/XoNi06uDFKVOzy4cezFZrM8755utNUq5jXoTIvrpORODyzLPvUk3s/eopKEV0RS6ac2bWMNJCFhclvPXgeV9+MUCY+8s9I0CnCI9tK978dUx1OC4yb6V0jcluDIlfBNSXvD3RKIKuCHpFZUOfdBfkH/ODNmY7yfwNxAVPEs4RYkTgSOuZGarm9vbqCCP/gkiPhcs350hUc1GjlTUHSrIH/lm02cP16opRsEktkhkC9hX5f1ImPj9/2GT78Uil5ZmyTEL0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=R+ev741IfAdiFLbqHfFp3gCJqNW23cVxU94J2A4NDP0=;
+ b=OkA8Wmw9S4pVQWzOAlmP0Bi0ZR42zwIKkAM85dafUwkgREGBOM6mXNGDKPWhy0qCZGf4F6RjQiUv4OyjgUw1D2R7oXdq7CBPSCaVgfPVZ+WF1hCJB3MJoZvRqm1cbvZ3Cc3hfOrECIGi7bOWpJgwZYXLL/VPOw1ispa+wPnWoBI=
+Received: from CH2PR19CA0008.namprd19.prod.outlook.com (2603:10b6:610:4d::18)
+ by MW5PR10MB5690.namprd10.prod.outlook.com (2603:10b6:303:19b::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
+ 2026 17:06:27 +0000
+Received: from DM2PEPF00003FC3.namprd04.prod.outlook.com
+ (2603:10b6:610:4d:cafe::fa) by CH2PR19CA0008.outlook.office365.com
+ (2603:10b6:610:4d::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.12 via Frontend Transport; Tue,
+ 12 May 2026 17:06:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ DM2PEPF00003FC3.mail.protection.outlook.com (10.167.23.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Tue, 12 May 2026 17:06:26 +0000
+Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
+ 2026 12:06:25 -0500
+Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
+ 2026 12:06:25 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 12 May 2026 12:06:25 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64CH6PZ52235116;
+	Tue, 12 May 2026 12:06:25 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Justin Stitt <justinstitt@google.com>, Bill Wendling <morbo@google.com>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nathan Chancellor
+	<nathan@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>
+CC: <afd@ti.com>, Nishanth Menon <nm@ti.com>, <llvm@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH V2 00/11] soc: ti: keystone/k3 navigator queue/dma/ringacc cleanups
+Date: Tue, 12 May 2026 12:06:12 -0500
+Message-ID: <20260512170623.3174416-1-nm@ti.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC3:EE_|MW5PR10MB5690:EE_
+X-MS-Office365-Filtering-Correlation-Id: cc79accf-ed9d-474b-47c4-08deb048cd94
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700016|1800799024|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: BZ0KdnAvMGdC6qdM38QSZKLgRILHAv53IqfeAdBhEH7UZ7DJTY6xBfd6nRJ9azjowfz1Oys+8VlusSgaxB9FOErEZggxVmcyUVGRQfb9eMAUA8/V0rrrpSDI91D4iUL/MRIQc9C+Je5YAKtow6ieLJ0UTr5mvpmz2wPO0MmmtNbLz3GSRn6gbNmvpbvd0nmsdL/IUC6+Cybi6QW8FWPi42k5B8PiDRoeJi4wLDztxFlLVxlvjdkKeLZxCPxBzLgolDYetQ48XFJNWc4e5cT4qEF5pDl+AAY6ltqqQVjx8I8GjQMNRZyFSUIY5ZTC0bHfX9MeXw+3Fb97UoDgaA3lYJYm+q14ZLgwOHtd+izZA3NyOpwONfxsSZZVnIXvRe9PojdkxnYF+KWmUdXrngYI+smuAEEWtIOmKgKlml6BNUb3hiapR1xh91Rm618DwJ69VPqiSrH8fVmzzkq5f+Vi0Pm0a9qvyEJHIdbD+Uqgmje4HbeLccWMgYPSsm8xAUU83BAa0Dk3F4jCN+QMrrccyuUW/3yu9hBUWkTVBlsS72pQUlZRYiB8dK37aDqtZM367Fj4ISf4ehbgJ5yRsMqZ21qWfzb9cIRVGCZLt/x39OnKRjtv4m/qsHxAPwGk+K+3jC4fo5HWaruHh3Im+t76HNtv2jsp/heFIjCcx4HjanUfiAnDIPWxEybol4iarb+Z
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700016)(1800799024)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: VMhd+DlH/Dlh8u8ImLySxl8+Cd5Q3thkByjBVWcPy8NDbRXF0fPk4e5CF+5Vmlfbbo0tH0CHzGU+nDqktqIJD2ces6LbmmjnwiBK7qANVowgteUUVxvwWKdB++Irkw0Jrs0RUbUWbRSXWIg/YJ0q6TsdYBn0KrEw6KKXfj7sYPLdsSH5PcLFOfmT+eJm3/UCTVzz2zMeE7yGYxN36UstCrmdVDeBdFCCSwOcMbL9JKgaaefLr+vUROTLwQcFwawjB3sJu1D7H6m1v1Sj7yNCXqVgax5BKUHdRnf9YUHlmJXXtaU3VYZiNNh8SpNTdYMgVnBZAB52Qx6ro84LqI/qwsR2a2pQkWxQryv3JP/EAl1+2pU2RElzQMNB/EAN1Fgr82Q+KAmoEhbmx7XW4ROcL6oLbs+Mhd2K+VqosM7Bh6DTUA22Fcj5ZnONsMP5aywm
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 17:06:26.5308
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc79accf-ed9d-474b-47c4-08deb048cd94
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC3.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR10MB5690
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_100633_718670_B6E2B15E 
+X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,37 +130,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 May 2026 14:34:55 +0000
-Roman Vivchar <rva333@protonmail.com> wrote:
+Fix W=2 (clang/gcc), sparse, smatch and coccinelle warnings.
+No functional changes.
 
-> On Tuesday, May 12th, 2026 at 4:29 PM, Jonathan Cameron <jic23@kernel.org> wrote:
-> 
-> > On Tue, 12 May 2026 08:18:19 +0300
-> > Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:  
-> 
-> ...
-> 
-> > > +#define VOLTAGE_FULL_RANGE	1800  
-> > Probably better to have this inline - however if you do keep it
-> > prefix t he define  VOLTAGE_FULL_RANGE sounds too generic!
-> >   
-> > > +#define AUXADC_PRECISE		32768  
-> > I'd put that inline.  Little benefit it in having it up here...  
-> 
-> There was a mention about magic values in the v1 for the thermal patch [1].
-> Andy, would it be better to use an inline style or a #define here?
-> If the former, I'll rename the first constant to something like
-> AUXADC_VOLTAGE_FULL_RANGE.
-FWIW that isn't a magic value - it's 2**resolution and the one is  a voltage
-in mV.  Those aren't normally the ones people care about defines for - those
-apply when they are weird and wonderful things not related directly to physical
-quantities.
+Tested: NFS boot (via nav subsystem) on k2l-evm, k2hk-evm and k2g-evm
+based on next-20260507:
+https://gist.github.com/nmenon/cff02a5f2a72fde5fcb49664fcc834d2
 
-Jonathan
-> 
-> [1]: https://lore.kernel.org/linux-mediatek/afmnUG8dG0N0HpV6@ashevche-desk.local/
-> 
-> Best regards,
-> Roman
+Changes since V1:
+- update for review comments.
+- Picked up Randy's and Andrew's tags in appropriate patches.
+
+V1: https://lore.kernel.org/all/20260508153211.3688277-1-nm@ti.com/
+
+Nishanth Menon (11):
+  soc: ti: knav_qmss: Remove remaining redundant ENOMEM printks
+  soc: ti: knav_qmss: Rename global kdev to knav_qdev to fix -Wshadow
+  soc: ti: knav_qmss: Inline lockdep condition in for_each_handle_rcu
+  soc: ti: knav_qmss: Fix kernel-doc Return: tags
+  soc: ti: knav_qmss: Use %pe to print PTR_ERR()
+  soc: ti: knav_qmss: Fix __iomem annotations and __be32 type
+  soc: ti: knav_qmss_acc: Fix kernel-doc Return: tag
+  soc: ti: knav_dma: Remove unused DMA_PRIO_MASK macro
+  soc: ti: knav_dma: Remove dead check on unsigned args.args[0]
+  soc: ti: knav_dma: Use IOMEM_ERR_PTR() in pktdma_get_regs()
+  soc: ti: k3-ringacc: Use str_enabled_disabled() helper
+
+ drivers/soc/ti/k3-ringacc.c      |   3 +-
+ drivers/soc/ti/knav_dma.c        |   8 +-
+ drivers/soc/ti/knav_qmss.h       |   2 +-
+ drivers/soc/ti/knav_qmss_acc.c   |   2 +-
+ drivers/soc/ti/knav_qmss_queue.c | 148 +++++++++++++++----------------
+ 5 files changed, 75 insertions(+), 88 deletions(-)
+
+-- 
+2.47.0
 
 
