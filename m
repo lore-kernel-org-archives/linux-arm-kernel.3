@@ -4,101 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DDECD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F75CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:01:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4qZUPICcL2SqDibVA/1E3uKAtRLts6kMoCRLGyFkOb4=; b=I8R2YGotzb1QokvyeYcAjX2dD6
-	UWtWhMwSPibuOLnrCrlveubKL1hiU4fdH6mLHBBw2MEpeBSOziK+C84W5yEKgQu3W9UHFth54341s
-	wEJNhB51vcCU19cTnJ94EMM2M6sm+NDovW1yuAPDiTgIMIg8AqWzEKs2h+0bHEq75cPLuWCmIx9Cu
-	9lQJ8/RpCVz0mXaUO8dJx+ES7lkqKkPJ9nxHCi67GbQFSxEDwJkQmfqGCzR4vAus9dbvw6bSndtGu
-	6F4f62znp4VXSYWYwGvITZ5wa8uGRKveaojBXP5lS4wgxDo4fO6UQcSkDpd6908Hu6IdxH11LypUv
-	aooJ4VFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nDp+7TD2W513jjYY+Q6olEWbeSyiZgmTKvMRXJIHyn8=; b=qiqra+VGSB7WzANBg8S6EmkMSp
+	M4Bd1KRsOGZzWLOgeMiw1KseQ0cpdHYQ/ivxJ0jC6/9qB4lhDeRNxE2ABXb+iqb4rdSCqBOEyRddr
+	HJlNibNiupQr81SCmM4zYILsEL1VL3haIhh8Ed8TFh0xVOE9777Rg9DhhVwRyW67iJLoKeIFVPcYJ
+	CubWbhdL6uiifVIr4lVVcNrVxiE+XAjkVqOHrNe6mOPKXFZfb1X1gmenbrK+Ek7vnls20EXub2ga/
+	RtTKT9i0Z/+aRRdMOEY0Dbst3JOT0LIoF56A8uwt3HEtF0LGbAgS/fbQQrEH65iPHziDtWPsXgw3r
+	1RnSgkhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnd1-0000000Gve6-1sji;
-	Tue, 12 May 2026 13:58:31 +0000
-Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
+	id 1wMnfT-0000000GvzN-3yb3;
+	Tue, 12 May 2026 14:01:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMncy-0000000Gvcx-2Q4X
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:58:30 +0000
-Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-479dc6d26e3so3154640b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:58:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778594307; x=1779199107; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4qZUPICcL2SqDibVA/1E3uKAtRLts6kMoCRLGyFkOb4=;
-        b=boPD2Ojf+Y+g2r6UY3ybsbpnjyTnMfQ0bWU9idVqMWoJf2mxd1MuGt97oTmPI0prGB
-         q0vS/wRTFIXCGledB+Ysbcg4tfAh5YelkwvEsi2qG+c9KZPailphv/sjMgvuVJYIcvLy
-         cFIGMY3sFnKSNLtp/DI1pDwyrAuf1yXA9+5jcP11pl9doIcKztfkISEJb/vTC1yMR67o
-         /SMgkLhGler876aLCnh7L2z2LQCRl+geHvtvE1PcSTGBy2Ztu/d/cxmaC3+pt/bkWtQm
-         WUcZfPjbuTc0xEddSt7YAG2DCP5bUm+13NF/8g/Ztk+v5aXU/BWJS95C7iGQGO83GMvO
-         vhMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778594307; x=1779199107;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4qZUPICcL2SqDibVA/1E3uKAtRLts6kMoCRLGyFkOb4=;
-        b=gTjvk3kVxJbtAe7waya111IcYzaUqwFnAD57PLfQF1cJFC8v6/E0QhZpL3hULhscdN
-         bt8hwckVMtXITaORTjZZu8HxYYqEEqEK6W5hfLI8or7VpZYKPs55ftAs+K7xjYag5YoQ
-         vNbr+IB+FmQ3bMoNubawSNGCijdIQc8MmQxifTEzkQaCiw1fTQSkJyIBNZGOg6Q/uncy
-         tAJoafMPOondrjcwiFqf6ijzFZ3MOFtbq5MnROCFotIIs9nPGgQGVTG0Txule96dFHzw
-         iDXZt40+3g8tPYhr4uLFxbHKafv/irNXhSPW8AFYjhdbOGcjkDH6BrAwhYGCARBHt499
-         0aOw==
-X-Forwarded-Encrypted: i=1; AFNElJ9y4Bhs+yJvyX1AzG+s1P2d6vnueIvR7pQl3ny+K/0Tl3RhKUENoSjfufoFEWIioCQDs2xC0zzUK9/FiTwiWxSU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0cEfG80ol7yoxnP6MYErwS1q3YVDOfiawRWcdyy/QJEjUs0Ys
-	klkz/t3IsM9NWZEeY44xXeLWJCvtBBzkjG/FURuTBCi9ikb9xdn4UuMKsUwh/IVuiMo=
-X-Gm-Gg: Acq92OHSMKVmRTw8VBYlEaRt0ACZfOY84bA3FlNIaAVmy2Zo1UD4vlnMwJx7pbNPtSn
-	Frl6B2Zj471LRwe1IjnUB6E5gWRYLM0sr/SQHFDyX+lMLtE/GHdOiLyis4MhEvB2yeKsWmk4en1
-	I7q3euOuwsE5MU4OzxFFPKlLudzmiynOr/f8Ens9ZlWjI4fyO+xnHgErq9qhGNh8Qghiu8Ih0gh
-	JAZVXPjcVvLAVJ77CksPc+OaBAwKUrFKm9gQfrTY/LL3dtTDI6Db04Z+2Qn3UbdJ8yl5HfYLsif
-	uF2eVY0x24H9Qw/FX5N5d/eJnwM093y/lplmMPs2gUSLXwUKrOHjSbpq/nTbXI/uU0G2bQvXUNS
-	B0RJ4tOWLyj2IZPMZ+ej7zCcZDKETuo8lbciqtZCyu0/F/7aaIGfh6U3Pg51xkHl2oRv7IP0msf
-	Kdz+GZLzSvhHEfU4MxnaKxXlLE5t+/D5wHFK8dcswacvStVumlEbqlYpk6ROYDpHVcWfOjZzHGr
-	g==
-X-Received: by 2002:a05:6808:508b:b0:467:23e2:5097 with SMTP id 5614622812f47-480424a4bc1mr18863086b6e.37.1778594307354;
-        Tue, 12 May 2026 06:58:27 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:500:baa4:f7fb:528a:2457? ([2600:8803:e7e4:500:baa4:f7fb:528a:2457])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-47c763b33c1sm22558261b6e.1.2026.05.12.06.58.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 May 2026 06:58:26 -0700 (PDT)
-Message-ID: <a4ecfb27-5ef4-4682-b87c-24917f81b4f0@baylibre.com>
-Date: Tue, 12 May 2026 08:58:26 -0500
+	id 1wMnfR-0000000Gvz5-45Pr;
+	Tue, 12 May 2026 14:01:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 54A5C62C19;
+	Tue, 12 May 2026 14:01:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9917AC2BCB0;
+	Tue, 12 May 2026 14:00:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778594461;
+	bh=73KY+PJnQz0DVDO55WQRtqfL9KC8eXib5SBHC0nL4q0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZsrKNSBjdZ8JvOL/tIch5tetu7d3acvdP5ngcZ/dXyTCzoko34LlvoSPIZ9/qZlTh
+	 egHfZkdRrTx0Uo21xIA5NrREt/v2pxE1tzGFKPJIfrK6gqDKzfGJ3R8bLpd6+VzY4G
+	 gMNIe8FwHDcazuujib9FDMzNaCbiMrLeWcOVu3JN/Iwn4/zsD+wa3OsS8Yus8UGDMM
+	 sSS8ohJOJOuDov8UFLtFUZUhUFBKXasF5J2Omz892ggz40wNHyHEIDI+ZLVcbpmo3L
+	 IZAxFO9v/6onKxqq9P2tadE/BIjvjeMkudjmW/IkUThvGD/EhwRAkXAfDPmPOkfdLY
+	 w5/HoxASJrzgA==
+Date: Tue, 12 May 2026 19:30:37 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
+	Chaitanya Kulkarni <kch@nvidia.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	"David S. Miller" <davem@davemloft.net>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>, dmaengine@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org, 
+	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v4 1/9] dmaengine: Add API to combine configuration and
+ preparation (sg and single)
+Message-ID: <77s7y2zu5y2jtauczrqvdtedrhqsmtcnkic2zgm77xopcyazxm@xubtnmcppcni>
+References: <20260506-dma_prep_config-v4-0-85b3d22babff@nxp.com>
+ <20260506-dma_prep_config-v4-1-85b3d22babff@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] dt-bindings: iio: adc: Convert xilinx-xadc bindings to
- YAML schema
-To: Rob Herring <robh@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Pramod Maurya <pramod.nexgen@gmail.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Lars-Peter Clausen <lars@metafoo.de>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260510083219.70224-1-pramod.nexgen@gmail.com>
- <20260510120141.118057-1-pramod.nexgen@gmail.com>
- <20260511171554.6541042b@jic23-huawei>
- <7baf9ca5-50ff-4131-995b-70ee094ed247@baylibre.com>
- <CAL_JsqLxtWLR+jxRXt7Uz6dcF-90NYmfyGWYQk9um9TYHSWbTw@mail.gmail.com>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <CAL_JsqLxtWLR+jxRXt7Uz6dcF-90NYmfyGWYQk9um9TYHSWbTw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_065828_882861_403F17F8 
-X-CRM114-Status: GOOD (  16.31  )
+In-Reply-To: <20260506-dma_prep_config-v4-1-85b3d22babff@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,46 +78,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/12/26 7:14 AM, Rob Herring wrote:
-> On Mon, May 11, 2026 at 11:24 AM David Lechner <dlechner@baylibre.com> wrote:
->>
->> On 5/11/26 11:15 AM, Jonathan Cameron wrote:
->>> On Sun, 10 May 2026 08:01:36 -0400
->>> Pramod Maurya <pramod.nexgen@gmail.com> wrote:
->>>
->>>> Convert the Xilinx XADC and UltraScale System Monitor device tree binding
->>>> from the legacy plain-text format to a YAML schema, enabling automated
->>>> validation with dt-schema.
->>>>
->>>> The new binding covers the same hardware and compatible strings:
->>>>   - xlnx,zynq-xadc-1.00.a (ZYNQ hardmacro)
->>>>   - xlnx,axi-xadc-1.00.a  (AXI softmacro)
->>>>   - xlnx,system-management-wiz-1.3 (UltraScale System Management Wizard)
->>>>
->>>> Signed-off-by: Pramod Maurya <pramod.nexgen@gmail.com>
->>> Hi Pramod,
->>>
->>> Something went wrong with your sending of v3. I have two versions sent
->>> half a day apart and no idea how they are related.
->>>
->>> Anyhow one of them got feedback from Rob's bot so I'll assume we are
->>> getting a v4 and wait for that.
->>>
->>> Jonathan
->>
->> I think Rob will have to fix the bot to make an exception for the
->> legacy bindings. This should have been called out in the commit message
->> as requested in a previous revision.
+On Wed, May 06, 2026 at 04:44:13PM -0400, Frank Li wrote:
+> Previously, configuration and preparation required two separate calls. This
+> works well when configuration is done only once during initialization.
 > 
-> The bot is not the problem. It just runs validation. The schemas will
-> have to either drop this check (comma's in nodenames) or exclude just
-> this property.
+> However, in cases where the burst length or source/destination address must
+> be adjusted for each transfer, calling two functions is verbose and
+> requires additional locking to ensure both steps complete atomically.
 > 
+> Add a new API dmaengine_prep_config_single() and dmaengine_prep_config_sg()
+> and callback device_prep_config_sg() that combines configuration and
+> preparation into a single operation. If the configuration argument is
+> passed as NULL, fall back to the existing implementation.
 > 
-> Rob
+> Tested-by: Niklas Cassel <cassel@kernel.org>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Even though this is an existing text-based schema that has been around
-for 12 years with this name already? Changing it could be a breaking
-change to existing users. Although there aren't any in any .dts in the
-kernel source.
+Acked-by: Manivannan Sadhasivam <mani@kernel.org>
+
+My only concern is that since these APIs are defined as 'inline' functions,
+adding more code will end up increasing the kernel Image size.
+
+- Mani
+
+> ---
+> change in v4
+> - drop context in device_prep_config_sg()
+> 
+> change in v3
+> - remove Deprecated for callback device_prep_slave_sg().
+> - Move condition check before sg init.
+> - split function at return type.
+> - move safe version to next patch
+> 
+> change in v2
+> - add () for function
+> - use short name device_prep_sg(), remove "slave" and "config". the 'slave'
+> is reduntant. after remove slave, the function name is difference existed
+> one, so remove _config suffix.
+> ---
+>  Documentation/driver-api/dmaengine/client.rst |  9 ++++
+>  include/linux/dmaengine.h                     | 63 +++++++++++++++++++++++----
+>  2 files changed, 64 insertions(+), 8 deletions(-)
+> 
+> diff --git a/Documentation/driver-api/dmaengine/client.rst b/Documentation/driver-api/dmaengine/client.rst
+> index d491e385d61a98b8a804cd823caf254a2dc62cf4..5ee5d4a3596dd986b02f1bce3078ca6c4c1fb45a 100644
+> --- a/Documentation/driver-api/dmaengine/client.rst
+> +++ b/Documentation/driver-api/dmaengine/client.rst
+> @@ -80,6 +80,10 @@ The details of these operations are:
+>  
+>    - slave_sg: DMA a list of scatter gather buffers from/to a peripheral
+>  
+> +  - config_sg: Similar with slave_sg, just pass down dma_slave_config
+> +    struct to avoid calling dmaengine_slave_config() every time adjusting the
+> +    burst length or the FIFO address is needed.
+> +
+>    - peripheral_dma_vec: DMA an array of scatter gather buffers from/to a
+>      peripheral. Similar to slave_sg, but uses an array of dma_vec
+>      structures instead of a scatterlist.
+> @@ -106,6 +110,11 @@ The details of these operations are:
+>  		unsigned int sg_len, enum dma_data_direction direction,
+>  		unsigned long flags);
+>  
+> +     struct dma_async_tx_descriptor *dmaengine_prep_config_sg(
+> +		struct dma_chan *chan, struct scatterlist *sgl,
+> +		unsigned int sg_len, enum dma_transfer_direction dir,
+> +		unsigned long flags, struct dma_slave_config *config);
+> +
+>       struct dma_async_tx_descriptor *dmaengine_prep_peripheral_dma_vec(
+>  		struct dma_chan *chan, const struct dma_vec *vecs,
+>  		size_t nents, enum dma_data_direction direction,
+> diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
+> index b3d251c9734e95e1b75cf6763d4d2c3a1c6a9910..defa377d2ef54d94e6337cdfa7826a091295535e 100644
+> --- a/include/linux/dmaengine.h
+> +++ b/include/linux/dmaengine.h
+> @@ -835,6 +835,7 @@ struct dma_filter {
+>   *	where the address and size of each segment is located in one entry of
+>   *	the dma_vec array.
+>   * @device_prep_slave_sg: prepares a slave dma operation
+> + * @device_prep_config_sg: prepares a slave DMA operation with dma_slave_config
+>   * @device_prep_dma_cyclic: prepare a cyclic dma operation suitable for audio.
+>   *	The function takes a buffer of size buf_len. The callback function will
+>   *	be called after period_len bytes have been transferred.
+> @@ -934,6 +935,10 @@ struct dma_device {
+>  		struct dma_chan *chan, struct scatterlist *sgl,
+>  		unsigned int sg_len, enum dma_transfer_direction direction,
+>  		unsigned long flags, void *context);
+> +	struct dma_async_tx_descriptor *(*device_prep_config_sg)(
+> +		struct dma_chan *chan, struct scatterlist *sgl,
+> +		unsigned int sg_len, enum dma_transfer_direction direction,
+> +		unsigned long flags, struct dma_slave_config *config);
+>  	struct dma_async_tx_descriptor *(*device_prep_dma_cyclic)(
+>  		struct dma_chan *chan, dma_addr_t buf_addr, size_t buf_len,
+>  		size_t period_len, enum dma_transfer_direction direction,
+> @@ -974,22 +979,44 @@ static inline bool is_slave_direction(enum dma_transfer_direction direction)
+>  	       (direction == DMA_DEV_TO_DEV);
+>  }
+>  
+> -static inline struct dma_async_tx_descriptor *dmaengine_prep_slave_single(
+> -	struct dma_chan *chan, dma_addr_t buf, size_t len,
+> -	enum dma_transfer_direction dir, unsigned long flags)
+> +static inline struct dma_async_tx_descriptor *
+> +dmaengine_prep_config_single(struct dma_chan *chan, dma_addr_t buf, size_t len,
+> +			     enum dma_transfer_direction dir,
+> +			     unsigned long flags,
+> +			     struct dma_slave_config *config)
+>  {
+>  	struct scatterlist sg;
+> +
+> +	if (!chan || !chan->device)
+> +		return NULL;
+> +
+>  	sg_init_table(&sg, 1);
+>  	sg_dma_address(&sg) = buf;
+>  	sg_dma_len(&sg) = len;
+>  
+> -	if (!chan || !chan->device || !chan->device->device_prep_slave_sg)
+> +	if (chan->device->device_prep_config_sg)
+> +		return chan->device->device_prep_config_sg(chan, &sg, 1, dir,
+> +							   flags, config);
+> +
+> +	if (config)
+> +		if (dmaengine_slave_config(chan, config))
+> +			return NULL;
+> +
+> +	if (!chan->device->device_prep_slave_sg)
+>  		return NULL;
+>  
+>  	return chan->device->device_prep_slave_sg(chan, &sg, 1,
+>  						  dir, flags, NULL);
+>  }
+>  
+> +static inline struct dma_async_tx_descriptor *
+> +dmaengine_prep_slave_single(struct dma_chan *chan, dma_addr_t buf, size_t len,
+> +			    enum dma_transfer_direction dir,
+> +			    unsigned long flags)
+> +{
+> +	return dmaengine_prep_config_single(chan, buf, len, dir, flags, NULL);
+> +}
+> +
+>  /**
+>   * dmaengine_prep_peripheral_dma_vec() - Prepare a DMA scatter-gather descriptor
+>   * @chan: The channel to be used for this descriptor
+> @@ -1010,17 +1037,37 @@ static inline struct dma_async_tx_descriptor *dmaengine_prep_peripheral_dma_vec(
+>  							    dir, flags);
+>  }
+>  
+> -static inline struct dma_async_tx_descriptor *dmaengine_prep_slave_sg(
+> -	struct dma_chan *chan, struct scatterlist *sgl,	unsigned int sg_len,
+> -	enum dma_transfer_direction dir, unsigned long flags)
+> +static inline struct dma_async_tx_descriptor *
+> +dmaengine_prep_config_sg(struct dma_chan *chan, struct scatterlist *sgl,
+> +			 unsigned int sg_len, enum dma_transfer_direction dir,
+> +			 unsigned long flags, struct dma_slave_config *config)
+>  {
+> -	if (!chan || !chan->device || !chan->device->device_prep_slave_sg)
+> +	if (!chan || !chan->device)
+> +		return NULL;
+> +
+> +	if (chan->device->device_prep_config_sg)
+> +		return chan->device->device_prep_config_sg(chan, sgl, sg_len,
+> +				dir, flags, config);
+> +
+> +	if (config)
+> +		if (dmaengine_slave_config(chan, config))
+> +			return NULL;
+> +
+> +	if (!chan->device->device_prep_slave_sg)
+>  		return NULL;
+>  
+>  	return chan->device->device_prep_slave_sg(chan, sgl, sg_len,
+>  						  dir, flags, NULL);
+>  }
+>  
+> +static inline struct dma_async_tx_descriptor *
+> +dmaengine_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
+> +			unsigned int sg_len, enum dma_transfer_direction dir,
+> +			unsigned long flags)
+> +{
+> +	return dmaengine_prep_config_sg(chan, sgl, sg_len, dir, flags, NULL);
+> +}
+> +
+>  #ifdef CONFIG_RAPIDIO_DMA_ENGINE
+>  struct rio_dma_ext;
+>  static inline struct dma_async_tx_descriptor *dmaengine_prep_rio_sg(
+> 
+> -- 
+> 2.43.0
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
