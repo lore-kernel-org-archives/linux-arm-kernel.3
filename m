@@ -4,152 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F6C1CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 11:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A79ECD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 11:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLgB5RUZcid9XLsWsmXqzit5YR0tRKGHMrKjGe72tnI=; b=ax4gzRwF1d32yhs6v517eM2Sxf
-	SLfpDZ9PJ6LSn8yRnHS9ENX9v4/oFyR/XvR2xrY7jYJ4BmXH0kXSuWzoo3ZTtLDsoKaqE6HK/t5c1
-	gjQWnKDlXZk8JgWmwIaaQZ3a73mUD6QOHKZQizhdCsmdZo3gLDYrO9yP4ltjs9dDJmQgBzdEdKw0E
-	utmjOg0P8jVYErMm3WRaSzjwEm1YzGaMbLFDvU7IKLHA1/mNqch9ib08aXfW7C7fn434HNRsEQi08
-	BcTTm1W6yg0hd04RcQ9uy15+iqT5I7bdOa7UZqoUsL0kJ8e9lpRAVXatz0BD/KDqhUIwxUtJa1xmG
-	l4N2fkew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nPt8aqJjigRU2CZSpEcU4uvqllHbLP1OAV/T78Qqolw=; b=c9PfYeTN+wqz+B7NwbGefPvuex
+	5/K8W+0h+pXUeWCRTpj/wDbCNKtc6xCQSQa8b8v3rt2iBeMbkmWacNfCK1XQCuGoDgcO5iZ4fWhPL
+	xnYdAGrDA3QADS2rdA1UbdV6Y0Zq+y5Vfle1GnJILnN1EeXRwzKNY/QQmf1BXDcyryNa0rt9GB0TP
+	9Ir51favtBwcLQFaAbpClvII+SXtspaMq1HV7aD2r2PEFHR1CPfV8hpU3IAgh3X+68SLT+BWzINlb
+	EMxWsx/xvHa99rpkKzRDRc+73ou0AmfDxV20vzK9u3V/99WCe/2WemNk4zNzURygd/wAnv/JYh/P2
+	jcHWyOdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMlVf-0000000GayE-0aER;
-	Tue, 12 May 2026 11:42:47 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wMldy-0000000GbnF-0SwQ;
+	Tue, 12 May 2026 11:51:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMlVc-0000000Gax7-3bDc
+	id 1wMldv-0000000Gbmk-1ZOE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 11:42:46 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 34B7376120;
-	Tue, 12 May 2026 11:42:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1778586161;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QLgB5RUZcid9XLsWsmXqzit5YR0tRKGHMrKjGe72tnI=;
-	b=KEweNcFXbI/4awwwikZwQpLsJhqdcKP/ND/eEIHZpMVZYswHjsmnrwZiU2bxaD8n1OK0IS
-	Kc6YjC0sw7nAn6qO/p47INirDH4cevpavEC2j0COzrDVxJtWpDOoi9k2FZAGtUc4QSsWyH
-	YY7KnSMmVLtonjV5smZq449Ls/XSOCc=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1778586161;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QLgB5RUZcid9XLsWsmXqzit5YR0tRKGHMrKjGe72tnI=;
-	b=0J342uiqkSfyW8DZyH8r4hsv6i4foe07KIq12qtoXRLRS5m/d+XbyypVqVX3QbmZPnqRJi
-	sxhM5qcbrx7pPCAQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1778586161;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QLgB5RUZcid9XLsWsmXqzit5YR0tRKGHMrKjGe72tnI=;
-	b=KEweNcFXbI/4awwwikZwQpLsJhqdcKP/ND/eEIHZpMVZYswHjsmnrwZiU2bxaD8n1OK0IS
-	Kc6YjC0sw7nAn6qO/p47INirDH4cevpavEC2j0COzrDVxJtWpDOoi9k2FZAGtUc4QSsWyH
-	YY7KnSMmVLtonjV5smZq449Ls/XSOCc=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1778586161;
-	h=from:from:reply-to:reply-to:date:date:message-id:message-id:to:to:
-	 cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QLgB5RUZcid9XLsWsmXqzit5YR0tRKGHMrKjGe72tnI=;
-	b=0J342uiqkSfyW8DZyH8r4hsv6i4foe07KIq12qtoXRLRS5m/d+XbyypVqVX3QbmZPnqRJi
-	sxhM5qcbrx7pPCAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 08727593A9;
-	Tue, 12 May 2026 11:42:41 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id rkjQATESA2rLPQAAD6G6ig
-	(envelope-from <dsterba@suse.cz>); Tue, 12 May 2026 11:42:41 +0000
-Date: Tue, 12 May 2026 13:42:31 +0200
-From: David Sterba <dsterba@suse.cz>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
-Message-ID: <20260512114231.GG2558453@suse.cz>
-References: <20260512052230.2947683-1-hch@lst.de>
- <20260512052230.2947683-2-hch@lst.de>
+	Tue, 12 May 2026 11:51:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 51D6841A15;
+	Tue, 12 May 2026 11:51:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31B77C2BCF5;
+	Tue, 12 May 2026 11:51:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778586678;
+	bh=WwtAEaqrbtuEVAX/vXP89IUrWEza728BCI7n+J1nGLE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mMQZJaJLv45V6KsaO3pklTKlKQhPyIF11vtRvSavicYEwqAvBXa3tsFr7d1ioRk2H
+	 lAtjgai6EQQznJp4zj9Vqt6nI27MNmRyD+lwlA3wDus8TgdfGRWaRqdb0F9mWEjd6s
+	 KkPxGUcHTGwCsWtu78pc4XDIjmzuZ4svCZjpyuHyDtm2sYzuNYTrXWAlhJe+yiu7V5
+	 A9wY4seQs0kv3daJ7hzNOswDVlld81RowGlbTTfzeH9PUx45a5CZNkzyvwtJUgIhqU
+	 gJpHpOFm2o9JyfoLOjyvA5GGoiaL0syM9dvfU/RJooD+Pt1+fjS2J7iVtugQgItIEL
+	 8PcJtJG17a+Fg==
+Date: Tue, 12 May 2026 12:51:06 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Maksim
+ Kiselev <bigunclemax@gmail.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] iio: adc: sun20i-gpadc: add A523 gpadc support
+Message-ID: <20260512125106.718d48d9@jic23-huawei>
+In-Reply-To: <20260510-sunxi-a523-gpadc-v1-2-4f6b0f4000fb@mmpsystems.pl>
+References: <20260510-sunxi-a523-gpadc-v1-0-4f6b0f4000fb@mmpsystems.pl>
+	<20260510-sunxi-a523-gpadc-v1-2-4f6b0f4000fb@mmpsystems.pl>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260512052230.2947683-2-hch@lst.de>
-User-Agent: Mutt/1.5.23.1-rc1 (2014-03-12)
-X-Spamd-Result: default: False [-8.00 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[99.99%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	HAS_REPLYTO(0.30)[dsterba@suse.cz];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MIME_TRACE(0.00)[0:+];
-	R_RATELIMIT(0.00)[to_ip_from(RLj13sa47em33kcomko4xd63ai)];
-	RCPT_COUNT_TWELVE(0.00)[44];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[linux-foundation.org,arm.com,kernel.org,xen0n.name,linux.ibm.com,ellerman.id.au,gmail.com,dabbelt.com,eecs.berkeley.edu,ghiti.fr,redhat.com,alien8.de,linux.intel.com,zytor.com,gondor.apana.org.au,intel.com,fb.com,suse.com,arndb.de,fnnas.com,huawei.com,vger.kernel.org,lists.infradead.org,lists.linux.dev,lists.ozlabs.org];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.cz:mid,suse.cz:replyto];
-	RCVD_COUNT_TWO(0.00)[2];
-	REPLYTO_ADDR_EQ_FROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	REPLYTO_DOM_NEQ_TO_DOM(0.00)[]
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_044245_048208_D2FF32D9 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20260512_045119_440625_6B0497E1 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,24 +76,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: dsterba@suse.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 07:20:41AM +0200, Christoph Hellwig wrote:
-> While the RAID6 algorithm could in theory support 3 devices by just
-> copying the data disk to the two parity disks, this version is not only
-> useless because it is a suboptimal version of 3-way mirroring, but also
-> broken with various crashes and incorrect parity generation in various
-> architecture-optimized implementations.  Disallow it similar to mdraid
-> which requires at least 4 devices for RAID 6.
-> 
-> Fixes: 53b381b3abeb ("Btrfs: RAID5 and RAID6")
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
+On Sun, 10 May 2026 14:57:23 +0200
+Michal Piekos <michal.piekos@mmpsystems.pl> wrote:
 
-This patch should have been sent separately as it has user visible
-impact and can potentially break some setups. The degenerate modes of
-raid0, 5, or 6 are explicit as a possible middle step when converting
-profiles.  We can use a fallback implementation for this case if the
-accelerated implementations cannot do it.
+> A523 differs from existing sun20i-gpadc-iio by having two clocks; bus
+> clock and module clock.
+> 
+> Change driver to enable all clocks.
+> 
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+I'm expecting this to change given comment on not being quite compatible so
+I'll wait for v2 before reviewing.
+
+Thanks,
+
+Jonathan
+
+> ---
+>  drivers/iio/adc/sun20i-gpadc-iio.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gpadc-iio.c
+> index 861c14da75ad..dd4c7e6e3d76 100644
+> --- a/drivers/iio/adc/sun20i-gpadc-iio.c
+> +++ b/drivers/iio/adc/sun20i-gpadc-iio.c
+> @@ -180,7 +180,7 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
+>  	struct iio_dev *indio_dev;
+>  	struct sun20i_gpadc_iio *info;
+>  	struct reset_control *rst;
+> -	struct clk *clk;
+> +	struct clk_bulk_data *clks;
+>  	int irq;
+>  	int ret;
+>  
+> @@ -205,9 +205,9 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
+>  	if (IS_ERR(info->regs))
+>  		return PTR_ERR(info->regs);
+>  
+> -	clk = devm_clk_get_enabled(dev, NULL);
+> -	if (IS_ERR(clk))
+> -		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock\n");
+> +	ret = devm_clk_bulk_get_all_enabled(dev, &clks);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "failed to enable clocks\n");
+>  
+>  	rst = devm_reset_control_get_exclusive(dev, NULL);
+>  	if (IS_ERR(rst))
+> 
+
 
