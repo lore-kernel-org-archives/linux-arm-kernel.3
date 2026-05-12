@@ -4,88 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB81CD4846
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 01:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9F5CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 01:10:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RI1LKPQBSFQGNx/RTpgPitop3o0KUtZZu7uLCufWIB0=; b=iMNBBgQall0TQwuyEQgXGbHBKN
-	xIWJZWuJRF4eyzg4sUp7wDeWZ4TUrlEf4xXdiGQFr0E8b9oFZld9tSEpnwH8iPqhKPMNikbbjHhdI
-	FhOo3qo/6chEaoJml+G2OPfP3cCpEO3OJQcmH2RFuuz5Uny3wJ7dfN9BdiP+Pf302qIUz59YL7jud
-	9cJDPBQIuTdwAunLkxDm6PamxQTNixN9Onl3cVT8/Y2oUCSnKtZmHLfqCgOIvpzALi/55wooCfUup
-	Ve7jRPa8W2NJ2DgGDRKUcFpisLONzFH77Jr6vyyOxbiy8sRvZmpdnu6mOCIY8tjkkUES0zaC6Lhs/
-	N3RT5MHQ==;
+	bh=d2L2S9MvUFFvpzZ7zF7cqwq66hTG1YCAiCG+LuOM55o=; b=01leZqMb+f+kZcwtk+91Bcd/qf
+	o9rxl1xusvXwWoT8KZFzyDnS3EanRQWz5ZqVSJb6E2phzafp8kKTueo8bI2YaU4EN1lGoOtsDTEoR
+	HKpDXNHuVnNAhpV77cS57F4FZ2ky1kNLdz1GEV5GcKs6uE1Yqc5xi2XzHknrluh+s0rM+xuV5L6hh
+	3X9Bm42kEMbagZSglLPs8N7abLc++KQOaATCBIvkH1rfkwSbj9XAmj8zaszCzAZWjK5UKt8H65a7f
+	IVHOnKgVEa4k7yiAx75rb8LEo6lYNtH7PyReUyIHAneD6Yi2UlSjoVGbL+rl7p0NC3L2ZpNv1SoDQ
+	EFbSztQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMbcR-0000000F916-0c96;
-	Tue, 12 May 2026 01:09:07 +0000
-Received: from smtpbgbr1.qq.com ([54.207.19.206])
+	id 1wMbe0-0000000F9EA-2IOV;
+	Tue, 12 May 2026 01:10:44 +0000
+Received: from mail-vk1-xa2b.google.com ([2607:f8b0:4864:20::a2b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMbcN-0000000F8yx-1ixH;
-	Tue, 12 May 2026 01:09:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1778548078;
-	bh=RI1LKPQBSFQGNx/RTpgPitop3o0KUtZZu7uLCufWIB0=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=S7A2YmsA6fEl5C3RBQpGxMay4ow2yaS4xbRCSOgVLwOvjdC6xKdiAXhtJPRpmhLK/
-	 kLC8mXrPexkxCAVV8/weIrTfyuxe1XfeRkV5eYOyPNYaWnrhf2Zez8lRlFfg+8Sjyy
-	 rpyOJZI+zkbwpteo/edngd/MLjgz3llCPIZybGC4=
-X-QQ-mid: zesmtpgz6t1778548076ta5496fac
-X-QQ-Originating-IP: VqDSdyIt6ayYF87ktnGO0QYcuHE+i5xXTIoANh/OHyk=
-Received: from [172.16.12.51] ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 12 May 2026 09:07:54 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 628164798136935440
-EX-QQ-RecipientCnt: 14
-Message-ID: <90EB6258578AF9E7+a9f8705d-48dc-4a3f-809a-fef9c8a5674e@airkyi.com>
-Date: Tue, 12 May 2026 09:07:52 +0800
+	id 1wMbdx-0000000F9DY-18wD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 01:10:43 +0000
+Received: by mail-vk1-xa2b.google.com with SMTP id 71dfb90a1353d-5673804da95so1674865e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 18:10:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778548239; cv=none;
+        d=google.com; s=arc-20240605;
+        b=i5YCdceltX1GYBl5ag+LtTQX6/UZD6D85GODsyc4KqoFBfYvitmdWroQovyOJyUoFb
+         uNiaRM+pre4WdIQgAQLna03dY8lgSPoKTY1ulxY74fK7wSvoj/Sb6+5NHV106aBbxU5s
+         DjLVosEl0zKGRJnM9SHCBEexRqYQMtlXRPIV0QkBw5eFGppN9laEgwO5VHvDyv7xJD7c
+         OeAKmxpEjaBPOOtmRsDhmG8lpdWisnSVWy0RmV2ipkHKxeADxtuFS0PFU2PwiZkXcLgo
+         eM/tmGZPLfqaF5Q33Bk1eqDmZ2bVW2UYmVwdG3GVsVv7gLn0bLEGqAyuVpX3/YSe0xRI
+         v4Og==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=d2L2S9MvUFFvpzZ7zF7cqwq66hTG1YCAiCG+LuOM55o=;
+        fh=tsF/cagm8irbjqBKxysApfyvG5KmBLTm2JuQN3LzJgA=;
+        b=ZRc+LokBxN1L7WfsJriK5OFs7SIQTEHGhGbSBBpZ942xREylvczvrAcvRRU2CuOWdw
+         kUPAL2UW8MQX2g096vw8iptynp4UVZBUnjzpXd2EUciF+w3Vn88/2PsAzxtrv/1qZOMm
+         4Eg1FbgA/Zior0lAEDEUSbwlXrqRWT5KtTC2y6yCVsuWnJFdyB/CVs8RW0mIXTfJP4VC
+         NBHJ3aXbOISktqphbWy7Pzc6dincebZQO36rwoQm1rEuCQThs6wqxjIuVLP2vHYPrffL
+         BDGBBULU1haLLkSXoNrOZk4pNEQLaA/7THTgcIYCRRYRrbjikaWBz78FieahGEpEMJr3
+         eLgw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778548239; x=1779153039; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d2L2S9MvUFFvpzZ7zF7cqwq66hTG1YCAiCG+LuOM55o=;
+        b=WWIurJb4UZ3+FMtJQmQ7K4iTaijQylk42G7T/SiqnfE2OQeLYpVHiA9shaAFmdDflc
+         u7NchxfIX3a9ZSBxRPZ8SYLVbFtmwoLvnP4KPIR6zsmpTz796zV58A01i46TIPXOsT7g
+         +tRsDTIc9s9TPFduvM2/f3f0qg0hbEuwbMaSVR+a+BrElXSQUhczPI5rVX9KUnMayW5i
+         /fr4ejutktacGsA4+/OqfdK/uphZiy7+FomuxcZVMuiOmXVMHfkegZop/H+6QJbtQKHx
+         cyW+xi3jFiqVWn5Kzz2a3f0y9Lzl9bzK7MQJlGHsfhWyszqysqfcYD5eKVURlD7RN835
+         UwFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778548239; x=1779153039;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=d2L2S9MvUFFvpzZ7zF7cqwq66hTG1YCAiCG+LuOM55o=;
+        b=HmwtnTWbAM9RxsJQ4FEWShQZIO21kjiT5Kky5anr6sCf28HxdR9Y4+evMAyJspAZZh
+         IvzN7Zm0q4jx8oS9ffCC3pFTJJohf0+hyq57SeqTgOwqyn6rcnla1/06RMhgHLglM9iU
+         h4MXUv5a8CgzkVP/2nR2nJrju82UvFRRPIgKIPdDhZn9gy24tVIsK1bbbItkLF6MgeoA
+         XZw21pG0vUfSTyY7b06+wr76y4fFGs2Is85o3UtvaJzUAZIsQa2oBzp8WH6QEK/yY1xV
+         BSfF9nhUiJTnSdsymsHGh01vQ7Ktr66zNrptmGxmiNKsD7FSrXR7dWE1Q8FYtXlKVRgu
+         ZkoQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+CUXF19afocunGOnTrxp/MPYtZCFLCaHXSD2tYQ0OO6C3TpBH52SpmQe2LaJNyjgJPo1Bh3XFtM5/LcXbJ3Wgp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUF5LNAFABH4W2km8LIbBnaiLT+4N9paqv2ZEQccQ1Fr1Zb2Js
+	mqvLIgnb3Iyj/7dc4yfrXnc0cZiXdAf2cVx3P9LmKWOUz46ExjqBk8aKuyei/hmG8t2KkeC38kc
+	ClyBpq/g1368K53jo2PsuFYm9GhoBVMbX8hjugLji
+X-Gm-Gg: Acq92OF9fnqo/SbgQqRVFKDvhofmfr9U0Ho/q1N+iKkuTiR/1IuDDDBhmsVbZ/n1fsR
+	eL0KI09uazqowLylUhycY7UweeDNWz0V76paoCotKHhCNaT8pIznSO+hAMURnCLIjnG+xKpssd1
+	gMjD5cN3owtdGcTsDyQ1ga5zAwdQvsR2cRcWsKhsq94auTPPfECE0fA2Paz6AgQPo3ukpfTgcGi
+	CFgYAOhoMT6UDqQ8goWWs4WVCRqRz+0rDLnj7GPwJ+L/qi564KgzEPFNtaA0igMJ01ccJ8NLdVr
+	AFR95CJ1tpdVLdhLbQ==
+X-Received: by 2002:a05:6102:2ad6:b0:611:6fef:90d with SMTP id
+ ada2fe7eead31-630f92a41a6mr12795859137.31.1778548238405; Mon, 11 May 2026
+ 18:10:38 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] drm/rockchip: dsi: Add maximum per lane bit rate
- calculation
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Chaoyi Chen <kernel@airkyi.com>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Guochun Huang <hero.huang@rock-chips.com>, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260324085838.90-1-kernel@airkyi.com>
-Content-Language: en-US
-From: Chaoyi Chen <kernel@airkyi.com>
-In-Reply-To: <20260324085838.90-1-kernel@airkyi.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: Ma4CB9LXNscG/qoZMz1+xRUpjQmuWBwkmEd1e5BhyZgZasHwpQcL3CCd
-	Bp6JEOT9t0EBSUdRKsJaxI6S9Xx77aG+4tvSbXW3aRf4gsno0L61YSL9d+XLUIYgfkhgmI5
-	0cuFF752v/L7YVrJypVxQ22aGLbRp/WNyRLQQhRT7+OKgEpdZotP1TH1pxDmJatUwVyfGie
-	lCv+i9du/4s3fKjQvGt7TD+qqGzDNQUsMLMmkQXSzXboq41qTXqi9BPxvwZxhd+ioEdXbvK
-	qCm0Y/mvg0OGKyeTXFbXmITlZnI3He+IcgluGz3x95xsrCOjqz5NAfaMqbfdKXKh+c74KBu
-	Pw41phwa2qKPMcyQ4ZSB9/mQ0zRBzQzMI8Oy+1T8jTp5bxT8VhxG+IBD+ZHLpM59dl5UJJD
-	MKFB+Vn/tZEzpun2tcZ+DcexTpWYHBNeAiSdQSjV3AKngJyeh6ZtkVd7tijibmKwAKTZg9y
-	DkmO04sb85SNvLIyoxVjxual7KLLLYYl6uwFnP6VSqFiPnaNQ1Ay+IjXTLDqRgTg1ejN3Jq
-	GiwuKP7zylRsRZbEIl+l9auDjCPtgDpZCVhyiNtPhg1IXSBOtZ/PH2s6YeJAK/57SJ7RGbb
-	ak0SpGrhIw0Kzx9QxTgpSdwMOyfW7RYUapU6MRHeCfvd/2e5QQNswNUah58Ig7AK3WVy9Mv
-	b2hQgVmHiTTP6wlSjC79h+2KElMR06GinKZJh19x8STZSnX9fRE2DsxaI6bOd++/RHYnZSs
-	08rz0ZRh+uFueKGZkL1jfOxpv/CFL5O6Jlbf6mHqmU5Z7r8Si4Lg9CYvV43lA7RaT40wq8t
-	MkTSiWl3xLh5rKTHHCQgQ/eYFZPd/CmN9s1eLIVY4RDivxeqfkoBLVI4xNjVXt5Mm5mzmUZ
-	r9Ukv70kTzMR+r6HDe1KhOrbmy+2MRJ8UtOdUbwVfiy8+4mGNfD5qq8zhDtES7MLmkRPnvH
-	46Q3uYLs4gAOIcXZBBPGBQM6bRF1yvspCUk5VFzYWJE1mPhYrXU4IUA6S1YXnV9Tst5cmKb
-	T4RXiVmEQXPOaQaJ4a
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-X-QQ-RECHKSPAM: 0
+References: <20260428183643.3796063-1-dylanbhatch@google.com> <549d10b6-ba2b-4ae9-86ef-6157e13b6ee3@linux.ibm.com>
+In-Reply-To: <549d10b6-ba2b-4ae9-86ef-6157e13b6ee3@linux.ibm.com>
+From: Dylan Hatch <dylanbhatch@google.com>
+Date: Mon, 11 May 2026 18:10:26 -0700
+X-Gm-Features: AVHnY4K1Ilc6ZNSFBH-MtrSxiuvTeFABP2FASi4Xr4ffzUnpNsS3RxypEz1ND1s
+Message-ID: <CADBMgpwDzrQU289fRXCRvSiCo3noOTy6=q8C58sLPrT_KO+=UQ@mail.gmail.com>
+Subject: Re: [PATCH v5 0/8] unwind, arm64: add sframe unwinder for kernel
+To: Jens Remus <jremus@linux.ibm.com>
+Cc: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
+	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Indu Bhagat <ibhagatgnu@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Prasanna Kumar T S M <ptsm@linux.microsoft.com>, Puranjay Mohan <puranjay@kernel.org>, 
+	Song Liu <song@kernel.org>, joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Randy Dunlap <rdunlap@infradead.org>, 
+	Heiko Carstens <hca@linux.ibm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_180904_282294_8168266D 
-X-CRM114-Status: GOOD (  18.90  )
+X-CRM114-CacheID: sfid-20260511_181041_359698_B6C9E568 
+X-CRM114-Status: GOOD (  24.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,166 +124,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Apr 30, 2026 at 3:11=E2=80=AFAM Jens Remus <jremus@linux.ibm.com> w=
+rote:
+>
+> On 4/28/2026 8:36 PM, Dylan Hatch wrote:
+> > Implement a generic kernel sframe-based [1] unwinder. The main goal is
+> > to improve reliable stacktrace on arm64 by unwinding across exception
+> > boundaries.
+>
+> Please add support to initialize the optional sframe unwinder debug
+> information.  Either in the appropriate patches in this series or as a
+> separate patch.
 
-On 3/24/2026 4:58 PM, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> Different chips have varying support for the maximum bit rate per lane.
-> 
-> Add calculation for the maximum per lane bit rate for various chip
-> platforms, and relax the bandwidth margin requirements.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
->  .../gpu/drm/rockchip/dw-mipi-dsi-rockchip.c   | 21 +++++++++++++++----
->  1 file changed, 17 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> index 3547d91b25d3..d3bacfae174e 100644
-> --- a/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c
-> @@ -268,6 +268,7 @@ struct rockchip_dw_dsi_chip_data {
->  
->  	unsigned int flags;
->  	unsigned int max_data_lanes;
-> +	unsigned long max_bit_rate_per_lane;
->  };
->  
->  struct dw_mipi_dsi_rockchip {
-> @@ -565,7 +566,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
->  	int bpp;
->  	unsigned long mpclk, tmp;
->  	unsigned int target_mbps = 1000;
-> -	unsigned int max_mbps = dppa_map[ARRAY_SIZE(dppa_map) - 1].max_mbps;
-> +	unsigned int max_mbps;
->  	unsigned long best_freq = 0;
->  	unsigned long fvco_min, fvco_max, fin, fout;
->  	unsigned int min_prediv, max_prediv;
-> @@ -573,6 +574,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
->  	unsigned long _fbdiv, best_fbdiv;
->  	unsigned long min_delta = ULONG_MAX;
->  
-> +	max_mbps = dsi->cdata->max_bit_rate_per_lane;
->  	dsi->format = format;
->  	bpp = mipi_dsi_pixel_format_to_bpp(dsi->format);
->  	if (bpp < 0) {
-> @@ -584,8 +586,8 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
->  
->  	mpclk = DIV_ROUND_UP(mode->clock, MSEC_PER_SEC);
->  	if (mpclk) {
-> -		/* take 1 / 0.8, since mbps must big than bandwidth of RGB */
-> -		tmp = mpclk * (bpp / lanes) * 10 / 8;
-> +		/* take 1 / 0.9, since mbps must big than bandwidth of RGB */
-> +		tmp = mpclk * (bpp / lanes) * 10 / 9;
->  		if (tmp < max_mbps)
->  			target_mbps = tmp;
->  		else
-> @@ -595,7 +597,7 @@ dw_mipi_dsi_get_lane_mbps(void *priv_data, const struct drm_display_mode *mode,
->  
->  	/* for external phy only a the mipi_dphy_config is necessary */
->  	if (dsi->phy) {
-> -		phy_mipi_dphy_get_default_config(mode->clock * 1000 * 10 / 8,
-> +		phy_mipi_dphy_get_default_config(mode->clock * 1000 * 10 / 9,
->  						 bpp, lanes,
->  						 &dsi->phy_opts.mipi_dphy);
->  		dsi->lane_mbps = target_mbps;
-> @@ -1503,6 +1505,7 @@ static const struct rockchip_dw_dsi_chip_data px30_chip_data[] = {
->  						PX30_DSI_FORCETXSTOPMODE), 0),
->  
->  		.max_data_lanes = 4,
-> +		.max_bit_rate_per_lane = 1000000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1515,6 +1518,7 @@ static const struct rockchip_dw_dsi_chip_data rk3128_chip_data[] = {
->  						RK3128_DSI_FORCERXMODE |
->  						RK3128_DSI_FORCETXSTOPMODE), 0),
->  		.max_data_lanes = 4,
-> +		.max_bit_rate_per_lane = 1000000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1527,6 +1531,7 @@ static const struct rockchip_dw_dsi_chip_data rk3288_chip_data[] = {
->  		.lcdsel_lit = FIELD_PREP_WM16_CONST(RK3288_DSI0_LCDC_SEL, 1),
->  
->  		.max_data_lanes = 4,
-> +		.max_bit_rate_per_lane = 1500000000UL,
->  	},
->  	{
->  		.reg = 0xff964000,
-> @@ -1535,6 +1540,7 @@ static const struct rockchip_dw_dsi_chip_data rk3288_chip_data[] = {
->  		.lcdsel_lit = FIELD_PREP_WM16_CONST(RK3288_DSI1_LCDC_SEL, 1),
->  
->  		.max_data_lanes = 4,
-> +		.max_bit_rate_per_lane = 1500000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1547,6 +1553,7 @@ static const struct rockchip_dw_dsi_chip_data rk3368_chip_data[] = {
->  						RK3368_DSI_FORCETXSTOPMODE |
->  						RK3368_DSI_FORCERXMODE), 0),
->  		.max_data_lanes = 4,
-> +		.max_bit_rate_per_lane = 1500000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1634,6 +1641,7 @@ static const struct rockchip_dw_dsi_chip_data rk3399_chip_data[] = {
->  
->  		.flags = DW_MIPI_NEEDS_PHY_CFG_CLK | DW_MIPI_NEEDS_GRF_CLK,
->  		.max_data_lanes = 4,
-> +		.max_bit_rate_per_lane = 1500000000UL,
->  	},
->  	{
->  		.reg = 0xff968000,
-> @@ -1658,6 +1666,7 @@ static const struct rockchip_dw_dsi_chip_data rk3399_chip_data[] = {
->  
->  		.flags = DW_MIPI_NEEDS_PHY_CFG_CLK | DW_MIPI_NEEDS_GRF_CLK,
->  		.max_data_lanes = 4,
-> +		.max_bit_rate_per_lane = 1500000000UL,
->  
->  		.dphy_rx_init = rk3399_dphy_tx1rx1_init,
->  		.dphy_rx_power_on = rk3399_dphy_tx1rx1_power_on,
-> @@ -1674,6 +1683,7 @@ static const struct rockchip_dw_dsi_chip_data rk3506_chip_data[] = {
->  			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCERXMODE, 0) |
->  			     FIELD_PREP_WM16_CONST(RK3506_DSI_FORCETXSTOPMODE, 0)),
->  		.max_data_lanes = 2,
-> +		.max_bit_rate_per_lane = 1500000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1687,6 +1697,7 @@ static const struct rockchip_dw_dsi_chip_data rk3568_chip_data[] = {
->  			     FIELD_PREP_WM16_CONST(RK3568_DSI0_TURNDISABLE, 0) |
->  			     FIELD_PREP_WM16_CONST(RK3568_DSI0_FORCERXMODE, 0)),
->  		.max_data_lanes = 4,
-> +		.max_bit_rate_per_lane = 1200000000UL,
->  	},
->  	{
->  		.reg = 0xfe070000,
-> @@ -1696,6 +1707,7 @@ static const struct rockchip_dw_dsi_chip_data rk3568_chip_data[] = {
->  			     FIELD_PREP_WM16_CONST(RK3568_DSI1_TURNDISABLE, 0) |
->  			     FIELD_PREP_WM16_CONST(RK3568_DSI1_FORCERXMODE, 0)),
->  		.max_data_lanes = 4,
-> +		.max_bit_rate_per_lane = 1200000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
-> @@ -1708,6 +1720,7 @@ static const struct rockchip_dw_dsi_chip_data rv1126_chip_data[] = {
->  			     FIELD_PREP_WM16_CONST(RV1126_DSI_FORCERXMODE, 0) |
->  			     FIELD_PREP_WM16_CONST(RV1126_DSI_FORCETXSTOPMODE, 0)),
->  		.max_data_lanes = 4,
-> +		.max_bit_rate_per_lane = 1000000000UL,
->  	},
->  	{ /* sentinel */ }
->  };
+Sounds good, I'll add this in as a separate patch in the next version.
 
-Gentle ping about this.
+>
+> Note that for the module case I wonder whether it would be preferable
+> to somehow indicate that it is a module name in the string, e.g.
+> "(<module-name>)" or "<module-name> (module)"?
 
-Thanks!
+I don't have a strong preference, though I agree it makes sense to
+indicate that the section is from a module. For now I'll add the
+parentheses "(<module-name>)".
 
--- 
-Best, 
-Chaoyi
+>
+> diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
+> --- a/kernel/unwind/sframe.c
+> +++ b/kernel/unwind/sframe.c
+> @@ -1028,6 +1028,8 @@ void __init init_sframe_table(void)
+>         kernel_sfsec.text_start         =3D (unsigned long)_stext;
+>         kernel_sfsec.text_end           =3D (unsigned long)_etext;
+>
+> +       dbg_init(&kernel_sfsec);
+> +
+>         if (WARN_ON(sframe_read_header(&kernel_sfsec)))
+>                 return;
+>         if (WARN_ON(sframe_validate_section(&kernel_sfsec)))
+> @@ -1047,6 +1049,8 @@ void sframe_module_init(struct module *mod, void *s=
+frame, size_t sframe_size,
+>         sec->text_start   =3D (unsigned long)text;
+>         sec->text_end     =3D (unsigned long)text + text_size;
+>
+> +       dbg_init(sec);
+> +
+>         if (WARN_ON(sframe_read_header(sec)))
+>                 return;
+>         if (WARN_ON(sframe_validate_section(sec)))
+> diff --git a/kernel/unwind/sframe_debug.h b/kernel/unwind/sframe_debug.h
+> --- a/kernel/unwind/sframe_debug.h
+> +++ b/kernel/unwind/sframe_debug.h
+> @@ -32,6 +32,18 @@ static inline void dbg_init(struct sframe_section *sec=
+)
+>         struct mm_struct *mm =3D current->mm;
+>         struct vm_area_struct *vma;
+>
+> +       if (sec->sec_type =3D=3D SFRAME_KERNEL) {
+> +               if (sec =3D=3D &kernel_sfsec) {
+> +                       sec->filename =3D kstrdup("(vmlinux)", GFP_KERNEL=
+);
+> +               } else {
+> +                       struct module *mod =3D container_of(sec, struct m=
+odule,
+> +                                                         arch.sframe_sec=
+);
+> +                       sec->filename =3D kstrdup(mod->name, GFP_KERNEL);
+> +               }
+> +
+> +               return;
+> +       }
+> +
+>         guard(mmap_read_lock)(mm);
+>         vma =3D vma_lookup(mm, sec->sframe_start);
+>         if (!vma)
+>
+> Regards,
+> Jens
+> --
+> Jens Remus
+> Linux on Z Development (D3303)
+> jremus@de.ibm.com / jremus@linux.ibm.com
+>
+> IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsra=
+ts: Wolfgang Wendt; Gesch=C3=A4ftsf=C3=BChrung: David Faller; Sitz der Gese=
+llschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
+> IBM Data Privacy Statement: https://www.ibm.com/privacy/
+>
 
-
+Thanks for the suggestion,
+Dylan
 
