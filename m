@@ -4,64 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4335CD4846
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 02:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC635CD4846
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 02:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lhy99H5Z5G7dzWd+oY9te4Ksayq4YqycA86cLBuHbaM=; b=LeS5utTKDIHpbJ9Qa7DK/z5v67
-	Np7c4d/obXVR8W8fSMyVYylEidUDMnllWx9ULKmtdMRkXR88ffKzS+/MppE6b5loA6GzvjdIic83W
-	9ltQR2uEPpkOGydsbY5oEPG3XZ1StLT28FDDnwznrdzZobY8fOKww6OOwxMAo4xys3OuPcaROVCnP
-	BywSFQwCTJIuT5exouoPb9qQaSa8j+yuOrOrxCtv8oe9VEFITqMPkC82SapwTfCBt/FEaBNz+3spe
-	tH7OVteL/3JspSctDHwWdwSvzGoagwFSbBhgl2smXhi4IZzFOljEiToypBsEt72NvRpalNBAkk56V
-	WrvWzI/w==;
+	bh=hPXs4xfe9WaD1xaFn0d8PPw/gVNLx2J4xPkxz7s4xqs=; b=koKv+wAdpx3g14YXXtdANKERCO
+	mrgwEB6BxfHwvNO6rtq0ZaRI48HPAhL74RfiYrjL+gVWSsHIO16/awW/RlRweuU4mR4XmYuaY3sQr
+	sRevN0A4FbTgUtyFE9C+orl3wE80TjTDNB4ITZDcHfytwdHv9wsG3l9eyZvVSR8K1PcEvGADguD9n
+	C85Y45y3daytd+Atl4dowsicXu4eMX4nsGh+Lunwv2OTNJ6obSURQAeUpgCs2BdIVMagovmCOKLJQ
+	8nD8I+sCrDm1B/43b+yIC/dNokem0jCjrLwC2vnDPix3RETcAE+BB956QZAOzztuXRlb46zuRkR5E
+	/0GJhozw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMcUG-0000000FEC5-24FV;
-	Tue, 12 May 2026 02:04:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wMcbU-0000000FF12-1Xgd;
+	Tue, 12 May 2026 02:12:12 +0000
+Received: from jpms-ob01.noc.sony.co.jp ([2001:cf8:ace:41::4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMcUF-0000000FEBk-2ZDK;
-	Tue, 12 May 2026 02:04:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A0FF360055;
-	Tue, 12 May 2026 02:04:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37C2EC2BCB0;
-	Tue, 12 May 2026 02:04:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778551482;
-	bh=BFfAV597fx7JIQQh3ImNXDlSTe0sOcLlBpul6Khg9KQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hv/ai9CAsNvqsXG1g6XrXNf5yiW1t5DA3ifU9yT3VR4+Yk3NSryMG4QxNk7jlx6Yc
-	 LRJm4+ds7I7zlbs5PENgwACO6mWNjtTeiO8l9nXVtMqrfWtAMpldCXdd/AlEsJ4op7
-	 sgmMvYAIu2dr9GsrDSwZ6oDuDFjvAE00WXn4WQ48EPpSe00kWuESXtz8h5TpRvgZpn
-	 CX/5TIESQ1y2GIfMkGW5uSkXHc2NiUnYIgSXbffV1Sy+T6rjaWFbyXAdgdKHegn2kT
-	 aJwm9fyZJLJfS+ghH8S4FokHG6KYu4XmG045e6E4vGffO/KCr+5kZPbv5qhGdYwvdy
-	 xizVbHKB1RDaw==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 222661AC5843; Tue, 12 May 2026 03:04:40 +0100 (BST)
-Date: Tue, 12 May 2026 11:04:40 +0900
-From: Mark Brown <broonie@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, lee@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
-	lgirdwood@gmail.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com, wenst@chromium.org
-Subject: Re: [PATCH v12 2/5] regulator: Add support for MediaTek MT6373 SPMI
- PMIC Regulators
-Message-ID: <agKKuH0fP3lBMuFd@sirena.co.uk>
-References: <20260511101355.122478-1-angelogioacchino.delregno@collabora.com>
- <20260511101355.122478-3-angelogioacchino.delregno@collabora.com>
+	id 1wMcbO-0000000FEyJ-3CYJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 02:12:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=sony.com; s=s1jp; t=1778551926; x=1810087926;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hPXs4xfe9WaD1xaFn0d8PPw/gVNLx2J4xPkxz7s4xqs=;
+  b=oE2Fi+m5Q+0pWOsPWb+xdxt1HZl0nC5EstDQki3ArXqc+q3QtBhOj5Zb
+   QB6u2UCOYdMbg9ey9QFr85w19fro2lcc5YyceZD1rmhriVA8rXeFBlBvD
+   gePkfhckh9k63abPvM9ubhLgfj9OhMn+sXcpW+Ack52aBo+Roc19ssxHo
+   7GhQDAly0G8eu5dr1lW1bQxXTq8X34oRyMopX/OLWajjxalha0CorK6YK
+   lqy6NhYsY0g/CrYwph7E8ndJePUEs9Alfw0zy6z3Mv2GEGiDdyPZ9k3Ix
+   JMTNU5wbz2DnJGG2bOch4i95ySqE6qv2wFw6ESDPcJM0BoVtXBf4Akyz4
+   A==;
+X-CSE-ConnectionGUID: mMqO8ayGSh2J6gqMGWGv3w==
+X-CSE-MsgGUID: GLqFx78rRh6vl26RqbxuRg==
+Received: from unknown (HELO jpmta-ob02.noc.sony.co.jp) ([IPv6:2001:cf8:0:6e7::7])
+  by jpms-ob01.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2026 11:12:01 +0900
+X-CSE-ConnectionGUID: E4sXDblmSuKgQZmCqCcvnA==
+X-CSE-MsgGUID: Qwx43BEcSKO83PNWSCJ4AQ==
+X-IronPort-AV: E=Sophos;i="6.23,230,1770562800"; 
+   d="scan'208";a="606139396"
+Received: from unknown (HELO JPC00244420) ([IPv6:2001:cf8:1:573:0:dddd:6b3e:119e])
+  by jpmta-ob02.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2026 11:12:01 +0900
+Date: Tue, 12 May 2026 11:12:00 +0900
+From: Shashank Balaji <shashank.mahadasyam@sony.com>
+To: Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>
+Cc: Gary Guo <gary@garyguo.net>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	Daniel Gomez <da.gomez@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Aaron Tomlin <atomlin@atomlin.com>, Mike Leach <mike.leach@arm.com>,
+	Leo Yan <leo.yan@arm.com>, Rahul Bukte <rahul.bukte@sony.com>,
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, driver-core@lists.linux.dev,
+	rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
+	Daniel Palmer <daniel.palmer@sony.com>,
+	Tim Bird <tim.bird@sony.com>, linux-modules@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: Re: [PATCH v4 1/4] kernel: param: initialize module_kset before
+ do_initcalls()
+Message-ID: <agKMcA7a_UqMua5V@JPC00244420>
+References: <20260427-acpi_mod_name-v4-0-22b42240c9bf@sony.com>
+ <20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com>
+ <DI3Z28IZZOT9.349TTWNN9VDMB@garyguo.net>
+ <afABOMT_s9DvF6NY@JPC00244420>
+ <DI4QQA6EGIA1.N8WRFWVKG91S@garyguo.net>
+ <afCxHUrjr3Z22U6V@JPC00244420>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Fg+KBHu9WioghG3Z"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260511101355.122478-3-angelogioacchino.delregno@collabora.com>
-X-Cookie: Truckers welcome.
+In-Reply-To: <afCxHUrjr3Z22U6V@JPC00244420>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260511_191207_576646_9DDC7BC2 
+X-CRM114-Status: GOOD (  37.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +111,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Thierry, Jonathan,
 
---Fg+KBHu9WioghG3Z
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Just following up on the below, would moving tegra194_cbb_driver and
+tegra234_cbb_driver from pure_initcall to core_initcall work for you?
 
-On Mon, May 11, 2026 at 12:13:52PM +0200, AngeloGioacchino Del Regno wrote:
+Thanks,
+Shashank
 
-> +static int mt6373_buck_unlock(struct regmap *map, bool unlock)
-> +{
-> +	u16 buf = unlock ? MT6373_BUCK_TOP_UNLOCK_VALUE : 0;
-> +
-> +	return regmap_bulk_write(map, MT6373_BUCK_TOP_KEY_PROT_LO, &buf, sizeof(buf));
-
-regmap_bulk_write() takes a number of registers.
-
-> +static irqreturn_t mt6373_oc_isr(int irq, void *data)
-> +{
-> +	struct regulator_dev *rdev = (struct regulator_dev *)data;
-> +	struct mt6373_regulator_info *info = rdev_get_drvdata(rdev);
-> +
-> +	disable_irq_nosync(info->virq);
-> +
-> +	if (regulator_is_enabled_regmap(rdev))
-> +		regulator_notifier_call_chain(rdev, REGULATOR_EVENT_OVER_CURRENT, NULL);
-
-If the hardware is reporting an error we should report an error.
-
-> +		INIT_DELAYED_WORK(&info->oc_work, mt6373_oc_irq_enable_work);
-
-What stops this work on driver removal/unbind?
-
---Fg+KBHu9WioghG3Z
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoCircACgkQJNaLcl1U
-h9D8+gf+Ji7rvtqYNutZdS+zKCDlfbTtrpScLfa0ZPS5xWFDLYt4/Rvhset5eAIe
-1bFjLbmykpiTwp2CrA50AuULlWeXRZIcHtU4w3TLbC0y9Jy56QbARjhVXgbLj0c3
-ZR7fHlhMf0JoS9TqSHqRU5mtBnMWS1z9sr4QBbfgmV+uVE4oOtREif7MIOpYMikV
-tEPHX9j+ljPXMb6i81E61VoQVI/xoIkmTdWtYgYSKizXzqt7VsWs3XhfDD+JKNLD
-2ZIHapsz+1VJ/9SVOjlaO2ujquKLdfjQFMJ8+nHyMGWRpsmUiYu9e/kyKsORpEuP
-swSqNRY9anDWWAFIr6ncfUTosit7CA==
-=f+lH
------END PGP SIGNATURE-----
-
---Fg+KBHu9WioghG3Z--
+On Tue, Apr 28, 2026 at 10:07:41PM +0900, Shashank Balaji wrote:
+> Adding Tegra maintainers.
+> 
+> On Tue, Apr 28, 2026 at 12:10:50PM +0100, Gary Guo wrote:
+> > On Tue Apr 28, 2026 at 1:37 AM BST, Shashank Balaji wrote:
+> > > Hi Gary,
+> > >
+> > > On Mon, Apr 27, 2026 at 02:29:55PM +0100, Gary Guo wrote:
+> > >> On Mon Apr 27, 2026 at 3:41 AM BST, Shashank Balaji wrote:
+> > >> > module_kset is initialized in param_sysfs_init(), a subsys_initcall. A number
+> > >> > of platform drivers register themselves prior to subsys_initcalls
+> > >> > (tegra194_cbb_driver registers in a pure_initcall, for example). With an
+> > >> > upcoming patch ("driver core: platform: set mod_name in driver registration")
+> > >> > that sets their mod_name in struct device_driver, lookup_or_create_module_kobject()
+> > >> > will be called for those drivers, which calls kset_find_obj(module_kset, mod_name).
+> > >> > This causes a null deref because module_kset isn't alive yet.
+> > >> >
+> > >> > Fix this by initializing module_kset in do_basic_setup() before do_initcalls().
+> > >> > Modernize the pr_warn while we're at it.
+> > >> >
+> > >> > Suggested-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> > >> > Suggested-by: Gary Guo <gary@garyguo.net>
+> > >> 
+> > >> I didn't suggest this change :)
+> > >> 
+> > >> I suggested `pure_initcall`, which is just a one line change.
+> > >
+> > > Oops, sorry about the misattribution.
+> > >
+> > >> diff --git a/kernel/params.c b/kernel/params.c
+> > >> index 74d620bc2521..ac088d4b09a9 100644
+> > >> --- a/kernel/params.c
+> > >> +++ b/kernel/params.c
+> > >> @@ -957,7 +957,7 @@ static int __init param_sysfs_init(void)
+> > >>  
+> > >>  	return 0;
+> > >>  }
+> > >> -subsys_initcall(param_sysfs_init);
+> > >> +pure_initcall(param_sysfs_init);
+> > >>  
+> > >>  /*
+> > >>   * param_sysfs_builtin_init - add sysfs version and parameter
+> > >> 
+> > >> pure_initcall is level 0 so it happens before all other init calls. Does it not
+> > >> work?
+> > >
+> > > tegra194_cbb_driver registers itself in a pure_initcall too. We wouldn't
+> > > want the ordering of its registration and module_kset init to be link order
+> > > dependent.
+> > 
+> > It's the only device driver that does this. And I don't think it's supposed to.
+> > 
+> > >From documentation:
+> > 
+> > > A "pure" initcall has no dependencies on anything else, and purely
+> > > initializes variables that couldn't be statically initialized.
+> > 
+> > I understand that given large amount of drivers registering themselves during
+> > core/arch_initcall that there might be regressions if all of them are moved, but
+> > surely we can demote these two specific tegra driver to core/postcore_initcall?
+> > This will still be called earlier than init_machine call which happens during
+> > arch_initcall.
+> > 
+> > Looks like the tegra CBB driver is just doing error logging anyway.
+> 
+> That's a good point, Gary. Thanks!
+> 
+> Hi Thierry and Jonathan,
+> 
+> You can find the context for this email in this patch:
+> https://lore.kernel.org/all/20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com/
+> 
+> TL;DR: tegra194_cbb_driver and tegra234_cbb_driver are the only drivers
+> registering themselves as early as in a pure_initcall. This is a problem
+> on two fronts:
+> 1. Philosophical: As Gary pointed out, pure_initcalls are intended to purely
+> initialize variables that couldn't be statically initialized. But these
+> are doing driver registrations.
+> 2. module_kset not initialized at pure_initcall stage: This is needed to
+> set the module sysfs symlink. Since module_kset is not alive yet during
+> pure_initcalls, registering these drivers panics the kernel.
+> 
+> We would like to do the tegra cbb driver registration in a core_initcall
+> (or some later initcall works too), and move module_kset initialization
+> to a pure_initcall. Like this:
+> 
+> diff --git a/drivers/soc/tegra/cbb/tegra194-cbb.c b/drivers/soc/tegra/cbb/tegra194-cbb.c
+> index ab75d50cc85c..2f69e104c838 100644
+> --- a/drivers/soc/tegra/cbb/tegra194-cbb.c
+> +++ b/drivers/soc/tegra/cbb/tegra194-cbb.c
+> @@ -2342,7 +2342,7 @@ static int __init tegra194_cbb_init(void)
+>  {
+>         return platform_driver_register(&tegra194_cbb_driver);
+>  }
+> -pure_initcall(tegra194_cbb_init);
+> +core_initcall(tegra194_cbb_init);
+> 
+>  static void __exit tegra194_cbb_exit(void)
+>  {
+> diff --git a/drivers/soc/tegra/cbb/tegra234-cbb.c b/drivers/soc/tegra/cbb/tegra234-cbb.c
+> index fb26f085f691..785072fa4e85 100644
+> --- a/drivers/soc/tegra/cbb/tegra234-cbb.c
+> +++ b/drivers/soc/tegra/cbb/tegra234-cbb.c
+> @@ -1774,7 +1774,7 @@ static int __init tegra234_cbb_init(void)
+>  {
+>         return platform_driver_register(&tegra234_cbb_driver);
+>  }
+> -pure_initcall(tegra234_cbb_init);
+> +core_initcall(tegra234_cbb_init);
+> 
+>  static void __exit tegra234_cbb_exit(void)
+>  {
+> 
+> Would this work?
+> 
+> Thanks,
+> Shashank
+> 
 
