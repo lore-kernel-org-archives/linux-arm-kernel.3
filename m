@@ -4,126 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524B5CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 12:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D1ECD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 12:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+6ATdAGKsKt7iZsWFgrAlJ3BrFtCxwuxUkj7PKHwzXw=; b=fiG5cLUL+uRvWO06QLM2hgTb/p
-	it8MtB86GBH6z0E4Yog/qkk0MCoy1v2Ia2UenSJDr8VgOBQ6CNVGNCQVCvGnG7hWjuZaurCrXvBTV
-	keM9wOgwr0ZtfK3NwVCWpbupNHMOdGKNl7jGYV9Z5hYm6T+IbYp/GYb9JjpyaljCw6+5c323VPPI/
-	gKa0pBqjzYsCOrxvxADt7oeNGpm4VnjMe0ONAe2xEyZ898uSW80tGw5WWsADjqSDhaqK+06JwQu7/
-	M2OL6YIMLFMYqzVggJoItsytculEay2/WxSypcrkxLRtWmKMIs/iL1kGh44AK1LiPdr3CUIOrRdXu
-	equmRF2g==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZNiNSCnuGRYY15l9t3kR4oZkdq97BMSAIqkVYXGT2lI=; b=jGqN0X4tAOpIV12x1sxmPOg6wX
+	dl5P00NzquKH7h+rOpau9Ue0HdWo/aJzjUPsfu+jnxANSxh/Y2Ltr9tiKi99G9Tqz8LpKfkll05Xj
+	6zivI5VuK4tmrq2PFDiv0z+PhZSqEgD8e3XGBcpmTlxvfLwFJFg2jdmGn9/ClTY0wZ4wTBQEvZ0f6
+	3xvjV6ThGPPXnD5O6JtdnQjplbeFkPa0YyGhZeuQ18zf6W6nA7zX8h5/gxQMOr+TF7FXwF4ICAolO
+	IOdPjQeCqN6o+2qeOx7WuCF2oJItGDlwj/FOXK/5pX3iNJYiMgBvAFINwbcsyfMqHmhsDEu+kAgAK
+	7p7xnIHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMm47-0000000GePA-1SAN;
-	Tue, 12 May 2026 12:18:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wMm9d-0000000Gezr-0OLu;
+	Tue, 12 May 2026 12:24:05 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMm44-0000000GeNo-10NB
+	id 1wMm9a-0000000GezJ-30Rp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 12:18:22 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64CB3pFx3385188
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 12:18:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=+6ATdAGKsKt7iZsWFgrAlJ3BrFtCxwuxUkj
-	7PKHwzXw=; b=D2+WYjYHHZ7bYBZJOGHm2B9d8lCd7m3khBVBCgsRuiZFlzByDbk
-	984/qgRbxlxOYuF7+5fntfHuviX2C2OQfl+Z/oB6Lu78rqyHXuEk/d52DomH0t1O
-	ks8QCFxz700NzYR8owhLvZy2x87X+Z0Hw7y2xegKAPdjy0kcMGzGWZ5eqf+yxA0l
-	qIianuJB61LtWIEkOj09P2G/pAlSvWrV4QFHH2avG8m3BW2dIkjAkzbcT2yZNg9Z
-	AG5pBcBs7V4Hvinlt/YdM7PHgr730n7SBHbKEx7sPZwxG9QKLtaS5sfA/PoLsjkF
-	f2jIkuko6cqJImkZBREBA8BiSxQNId3dJ+A==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e3nv4k62a-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 12:18:18 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-50da31af14cso125567671cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 05:18:18 -0700 (PDT)
+	Tue, 12 May 2026 12:24:03 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-3922b35e69cso46365921fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 05:24:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778588640; cv=none;
+        d=google.com; s=arc-20240605;
+        b=bHzlcC1iaRIWeu9GnhH4SaZ4MKZVqNlngUMoTW85hjQl/ZNYV33wLqHbPpsOiHPlH8
+         1Ib2WcLg1pWwgBVkldAVte1s0crEp0le0NCkVoWx8kz6M2N9a+aiWkW/KRx7M9CrqTUU
+         iIOrtpJbDXnam23i8tQ9tqoZxzZXk9/z2No+avjlw01vP3xnd2odFFeMYMK06CajCqTR
+         62xrA8kpU2djA8Ze7mqrfr799dGH0C5qY8xsS6RR000LRLkNNVsOPyC7zF5IIPH6IyEo
+         flsBhaXTgQnRrOYr27bABP0DnpbsTB9QEeA0zvfMgQrGIUE4lJEx0yzqzJoj5TPi+xJl
+         ckBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZNiNSCnuGRYY15l9t3kR4oZkdq97BMSAIqkVYXGT2lI=;
+        fh=aigGiNdFBLP3UBm8bGQyOdqzBawgRkQdgDyeaDIVNJs=;
+        b=hW9CjDT9pYRIYgAE47hQYcnzrgsCgfHZqoPH1YSim+PHHPlUjK6AAkh2oJQZhi/LpT
+         eJmgPvYe37nSGk+dT8BQurzZMJMDehtWn6VWl6Ca0cH9gWxYx2xbPWtUmAg6efwtsC9u
+         VmDiBvouKjlSfNzb90D8D0f5+MKbT0DVSMNIx4xDKcoxTyI8gBQQm6zHLr7YIvFFALpt
+         I/mdwiheOzurgIbWixopYVFeDx9s1mvvX4CrBmxopjA+GPvz9JfTWEvVC86zFVPPRJpn
+         1loa7YsOqdnEPUmlxKzgGGO8FtgJIbsFhaRZT7Qyl8A2ncSb1jJ6nOfDwItK3VvOT+2n
+         Khyg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778588298; x=1779193098; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+6ATdAGKsKt7iZsWFgrAlJ3BrFtCxwuxUkj7PKHwzXw=;
-        b=SPcCfy7PQGI7rGM8wGrLoAWX+0Rv5H+ZyOjmSt/UqzAKH1fp6cEbEbHIEzFdYn6zKA
-         pgxwOlSW7la8uri8/qKcqPkLc/TN100FwQxXcfFTKngeL6E4FPeuSAcM4/XKSw6Fz0yM
-         ev+lpf/mUHBfEAknXefAKxGCVpYOih3rE7pizPY4+pQ3t72G+mgjmec2PGydpxpGSPK7
-         qgwrqsK5QriiQAq3ctogFyyznH38oEkIRAICJua+vu9HqJidnq3kNsekyADklUuRfijS
-         dPEyaDzciy3XaVfYAnyj6z4tmmZ+Y3WRn+meZfI+HyhaMhWOLC75RvFYTRN6WztWD/EH
-         FUIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778588298; x=1779193098;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1778588640; x=1779193440; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+6ATdAGKsKt7iZsWFgrAlJ3BrFtCxwuxUkj7PKHwzXw=;
-        b=s44N8oZqlbfFjAg39cpNxLSFraB/Vhk6ePEUcAWWv6S+FR+tjhdjgx8xyh+FsnOzTD
-         zDz7RfvRnHGiP0BvdzMkPR8jTAW+6I/yn/23rhGFyg/WFloOgSt3+8QKfjM4QoZY6bAV
-         d74TaSi28lJqNmZHoh6sLuX8CFoSqWsxr3lnHbMW+8wiaKcYpC4aCPrm9I3piAzGWr2g
-         HsyREsUnJ1I1PfBstfVj+0/6Eji6lvgt735Gmaj++qopA4woOjuYEWZHNsJ8N6PsGIVn
-         rC4a7YJmIkeMavYTWAcvr+hdNm3mxWtfzgUHqMRX/Yld1u8Gl+MOu/3QeySqYjcMFebV
-         pQeQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/cOIBpYnFxBvnFpnghl+g3xA4hpK7oOqS2HG6bJ+ScJNhvvulr9V2q/69AYnPeq27PKH69semuAbEG1klvawU5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLnrpcsp9KNx65z0Te4cIeAN1S1dFkgvNgkXAC03aPxKeNfT/F
-	oGRy2NisuTFd0SB5SM+smTL4uCqcl+V2uAJiqS07JZ5J7fVkVbOIYX9XGaM2ycPpwCE3H0xAV99
-	cXsPy7B+OTjXcost5Gi6zgnjQGBazxoDJXVMWNoy1akYqBQkvHpGmLIb0NHoLglJ7+UIJ6+5C3P
-	rRSisqzZFKEw==
-X-Gm-Gg: Acq92OHcp+GwEBKkg0yoPkXVTyEsMe2uUiBGZTjrZHQnaDBTZtjSHifMRIUe+aKdYVh
-	JZZGvjeuha+S0XYNt9mE35DqffVG6GZnqBKILKW8RERnkUR8ZGnnaHq+wgqvK48/Xtk4Erjg1kx
-	Thiqb+Z6CTF9ZnbUQVukrcx0PQsBBlEPuDsJ2u70aX2h55hSppseFyZuLPcL9X3dN4fNV0jTNB7
-	miCdnqe/S14se6rrWajG6/cZZMvpQF3N74+t18nSRUULCOcESvyQGPQhE7xnPvJKDlqcjqg9KN3
-	fy993xuq2FqTu4/GrFgHvphpa6tnQf0r2MTbFo/v4Qc9agyVnk/fCo2fkJ8brHXLyc9KCr1e4zf
-	vllkgpwJnsNWVZwsWlYDkohLSPEl1OlIi4PYuKy0MEL8XFQaLAA==
-X-Received: by 2002:a05:622a:4ac7:b0:50b:4e4e:1a20 with SMTP id d75a77b69052e-514621c747cmr424347251cf.59.1778588297509;
-        Tue, 12 May 2026 05:18:17 -0700 (PDT)
-X-Received: by 2002:a05:622a:4ac7:b0:50b:4e4e:1a20 with SMTP id d75a77b69052e-514621c747cmr424346331cf.59.1778588296592;
-        Tue, 12 May 2026 05:18:16 -0700 (PDT)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:74a7:1c82:3f14:b431])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45491ca2fd6sm33563044f8f.30.2026.05.12.05.18.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2026 05:18:15 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: arm@kernel.org, soc@kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@kernel.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [GIT PULL] ARM: pxa: software node oriented GPIO rework for v7.2
-Date: Tue, 12 May 2026 14:18:05 +0200
-Message-ID: <20260512121805.26023-1-bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
+        bh=ZNiNSCnuGRYY15l9t3kR4oZkdq97BMSAIqkVYXGT2lI=;
+        b=FOAaJ4ikUTYNgPdd8uCRqdX3NiZc1v1trSj4B0PhMtmD4EihLHTKAmi8cCDTT5Dwiw
+         SAjOqOW6qQDiBdGiOuD/JLcB/CJucw/DweFafaJ978EArXx/VbOzdS2mKu3WBgiUIj1Y
+         QyFZMM3ug9b+CPH17hpaXuSdaD/FVHnT00J804f+u98wb1eG9IcvrRjH3KxCRAAFEUMO
+         mxXVuutLbRGJRaDGRPSs7nGy707oV8MOm+lEkIn8Yit32mgGjaT7JvezTOh1+LM4Ltbg
+         OV+xFmsQBUd3ZnyNJ0pfJZe7AYp+T+LBqIMw4ESx5Ul+VMuGtzLrv0AD6e+b3kc/rkxB
+         8CtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778588640; x=1779193440;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ZNiNSCnuGRYY15l9t3kR4oZkdq97BMSAIqkVYXGT2lI=;
+        b=q+h1krENdA0DV+C1FPD1ZSBm5DBezqBKB2o0GiTxIbB6kyyYmn79RBycDtvfgP7nlR
+         LKhAC4Q9ng/U2+cfF2KD1kkWk1CwIMLmFJlaFX6ydj2z8k5ViTuK1oWwl9s8CC3z/X6L
+         8aTHr4ub2DV+zBYhUcKxY28z8pB46cS54piol6xd0cPOiHOUCPSZ1fwgHhzyxQWqN+ge
+         8d9ML1NuWToMo7IEIhFyXrUgDWOgm++CF8Wb2YTqr2cYor1hf6CvM0Op2+28fkeA2jE7
+         p8zrvwKM+h5s27MZ4Xkp2hdWYUaw8iiN31eD6IZPbEWNBLEHWd3Jj3WqtNgnJJ2F8LXm
+         iChw==
+X-Forwarded-Encrypted: i=1; AFNElJ/qBSM+8S6Rml0pud/k4CGYWunasDIBPIPneUkdDh9deUSSkeDmuuYGo+xgDTWs3/f1mQSgyFqrrcrOdYwaJ7nH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx5UJ+LELf9iZ8irEoeTDQYqhEJKxDht1Mv1BKkeVa8sLMZMdSo
+	aEtyH3e7RDW/2xPQzH604hTbLZp+liZyMphwEzApeP/BkjsiwucnsPczOj4m3EAoV7VwaRSt9TS
+	FvT0a7fs6eEsQIdc62I0j/ghqWpg826E=
+X-Gm-Gg: Acq92OGHW1CgfGmOXafGXxjcjf3hz+drYORlNEH53wxUi1Gr4cowpcxlJ7NYLaI1JRP
+	yN9zF+WUe5t8tbD2wJ5jXa1Ksp7th4Ac4hfbIfJxzEJcuiIdEafRJnixWTUX9OtLMPa9y2TJr/U
+	ya7BfMGaUGqXGqy4hamW9YfNEjCxfmcpGLqHPeM1u0WajaygItjJrPa4WFALIMm7Sq8QRU0zFVV
+	6dfL8tirI/rNGiRi7vuWREEyBoWR7ri4akTqiRjqRA5G8ti85zFvfNhTy8QUzXGrEPbw9VtEfev
+	5uccORbAK2yTVEV7IchzMtwylMtdvowFsh+da7GGBj94TFsmQYfp2Vlul2o5AwGq1vcfw1jd
+X-Received: by 2002:a05:651c:35c6:b0:393:903c:225b with SMTP id
+ 38308e7fff4ca-3943cc32a2emr8953951fa.31.1778588640195; Tue, 12 May 2026
+ 05:24:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=ZrTd7d7G c=1 sm=1 tr=0 ts=6a031a8a cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=NGcC8JguVDcA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_K5XuSEh1TEqbUxoQ0s3:22 a=VwQbUJbxAAAA:8 a=-_aiTBz_rQ-7vHLFHe4A:9
- a=kacYvNCVWA4VmyqE58fU:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEyMDEyNyBTYWx0ZWRfX+asaWDrhhB8F
- Uw69DdLd4Q/jeaAp2CUU2ZURBK9uBSFqmNEgwDr/jZZ0yINsOC7GLT5vpmw2xm+6+G4TJUUzFoe
- HJKq7yuNIXK//rS0FkcNDIUbWHGh+jJ6Mre5kLS8bl8jYZuxXYNl7zeP7HRjZlSwBJf3nXuVHOs
- aDEdR6Y0vaGrGeSSN82IuxO1hp/tiTasyA5iBf5awr/U9usXZ4Aa8xsJ+HAwpBNXbvnvflOrFDN
- vZrEt5e/ytYb6ayxHDBLz4SFILYz0oOExtBwD+lLNkSzVkfHNh+KckqKXGmHJZnVD3QQ3MrakI8
- TOYEac+M/oFYhGuI3CheVCK1GkIlKFwr7FkDruu+atBkiIF8s8i0kByVpXIKruZXUrOzto8u/jc
- hm+s837mncGZ5ShkQaNL5NLQaq8eWgsNMYnszeWqIROxUjn+xBChPi3DDGA/9uHatzgxPcyiz38
- Iz7UWO+a/Ix8BBGDWRA==
-X-Proofpoint-ORIG-GUID: aVb2MuuK5Kj05p4RPCcDghhq_Vka7cqB
-X-Proofpoint-GUID: aVb2MuuK5Kj05p4RPCcDghhq_Vka7cqB
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-11_05,2026-05-08_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 spamscore=0 suspectscore=0 clxscore=1015
- priorityscore=1501 lowpriorityscore=0 bulkscore=0 adultscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605050000
- definitions=main-2605120127
+References: <20260511-b4-imx25_dts_simple_warning-v1-0-01b855a5ce25@nxp.com>
+ <20260511-b4-imx25_dts_simple_warning-v1-1-01b855a5ce25@nxp.com> <f04fadf2-8d73-435b-b713-9d07e48e80ae@lunn.ch>
+In-Reply-To: <f04fadf2-8d73-435b-b713-9d07e48e80ae@lunn.ch>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Tue, 12 May 2026 09:23:48 -0300
+X-Gm-Features: AVHnY4Igm0-o-ifd6S-hgKzaiMJz5oaJeDrrGsoCgjz255blF80xw9vHPNmBKaA
+Message-ID: <CAOMZO5Dm8FgzOfyp=6ZuDc=528FiqCPVYF07PjMGVP0Paye6vg@mail.gmail.com>
+Subject: Re: [PATCH 1/4] ARM: dts: imx6qdl-sabrelite: add mdio phy address 0
+To: Andrew Lunn <andrew@lunn.ch>, Gary Bisson <bisson.gary@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_051820_279509_A4A477D7 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260512_052402_778075_1818AB07 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,44 +120,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi SoC maintainers!
+Adding Gary.
 
-As suggested by Linus[1] I'm sending this as a PR for inclusion in the
-SoC tree for v7.2. This is a rework attaching software nodes to their
-target GPIO controllers on PXA platforms that will allow us to remove the
-unwanted behavior of GPIOLIB where software node lookup can work on
-matching of software node names against GPIO controllers' labels.
+On Mon, May 11, 2026 at 7:15=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Mon, May 11, 2026 at 05:04:56PM -0400, Frank Li wrote:
+> > According to IEEE 802.3 Clause 22.2.4.5.5 PHYAD (PHY Address), A PHY th=
+at
+> > is connected to the station management entity via the mechanical interf=
+ace
+> > defined in 22.6 shall always respond to transactions addressed to PHY
+> > Address zero <00000>.
+>
+> Did you read 22.6? I've not seen a mechanical interface as defined in
+> 22.6 for at least 20 years, maybe 30 years.
+>
+> That cause does not apply in this context.
+>
+> > -             ethphy: ethernet-phy {
+> > +             ethphy: ethernet-phy@0 {
+> >                       compatible =3D "ethernet-phy-ieee802.3-c22";
+> > +                     reg =3D <0>;
+>
+> This could very well break this board. Without a reg value, the core
+> will find the first PHY on the bus, at whatever address it is at. If
+> you hard code 0, the PHY must be at 0, otherwise it will not be found.
 
-Please consider pulling,
-Bartosz Golaszewski
+On this board, U-Boot checks for the Ethernet PHY at addresses 4, 5, 6, and=
+ 7:
 
-The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
+https://github.com/u-boot/u-boot/blob/master/board/boundary/nitrogen6x/nitr=
+ogen6x.c#L287-L296
 
-  Linux 7.1-rc1 (2026-04-26 14:19:00 -0700)
+In this case, shouldn't U-Boot fix up the Ethernet PHY address accordingly?
 
-are available in the Git repository at:
+Something like mx6cuboxi does:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git tags/soc-pxa-gpio-for-v7.2
-
-for you to fetch changes up to 2c450dd88161abbadf889711d0bcedd7a0504a84:
-
-  ARM: pxa: pxa27x: attach software node to its target GPIO controller (2026-05-12 14:03:19 +0200)
-
-----------------------------------------------------------------
-ARM: pxa: software node oriented GPIO rework for v7.2
-
-- attach software nodes to their target GPIO controllers on PXA
-  platforms
-
-----------------------------------------------------------------
-Bartosz Golaszewski (4):
-      ARM: pxa: statify platform device definitions in spitz board file
-      ARM: pxa: spitz: attach software nodes to their target GPIO controllers
-      ARM: pxa: pxa25x: attach software node to its target GPIO controller
-      ARM: pxa: pxa27x: attach software node to its target GPIO controller
-
- arch/arm/mach-pxa/pxa25x.c |  3 +++
- arch/arm/mach-pxa/pxa27x.c |  3 +++
- arch/arm/mach-pxa/spitz.c  | 11 ++++++++---
- 3 files changed, 14 insertions(+), 3 deletions(-)
+https://github.com/u-boot/u-boot/blob/master/board/solidrun/mx6cuboxi/mx6cu=
+boxi.c#L414-L446
 
