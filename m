@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991D8CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37FEDCD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9AskrI+u9gyyOEfYZxxdvAr9+S3Axevjsi0Sx07dleg=; b=fIUYncAFiEl+JwA8p00sVRhNRX
-	rfos/KMGPls/FXIyxbFKhu/8cAz8/iRdzK2gqe+qXOZ2x0CCCaga3OBMSggZDB+cNgZnteEL4y+m9
-	WGMZc6AsWxgulv20I+b8WrBarYxn5AZnFxX/EyjrtKETL21rbcgbUiWI9AfwXsS52T5Vj++FkQm0b
-	WSUbqXiMeJp25qDMWR6JSBOTu01W7JFGtiMxMY0bZPwO5RQMt4yR/nIc0zHxAS3EH45DoCs//ZtrT
-	j0+MaoZltP9GFP/hXSzAmRxxVzhuCG18GZ9NhpveuVnnE4137Me6St5rweRGsRaR3SpVVedFRV/mY
-	S9vGO4gQ==;
+	bh=LuESLJP6Mjmw0qBQu/ftP2J1IXOJsizO90ATRcETkqk=; b=ub7K/q/3WF1I/h+J99+pOeMb4X
+	e4zrQGlAayki+JCoxgwR9L1mzRLiwLemSMdYBh5vh9sGibNu/nMemTex+UKYM1+O5v/uWcV8E2M4I
+	xwW4qd8sf3senF04GjX619srXvyGyJOGOLvaL2PS4cE+0Kh652EmI+6VbnBg/OVNB0kdDbybmtTod
+	nPP34ccsCTCF1+n7KxQ0FWnmawBfq3VP7ZG0hdcupYY+jP4gfgi3DvO5zOH2jYGLMWQ0KVChWJQBX
+	mfqDUYWW0lqnlWENmqrUklk4W2TTQm/zBl9IdIPRo9ZDA3Z54b0Mn6aPCX9y3D1pWMpBfD8GDc+qi
+	y4+aSGuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmoX-0000000GkWl-0NMy;
-	Tue, 12 May 2026 13:06:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMmoZ-0000000GkY5-20v6;
+	Tue, 12 May 2026 13:06:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmoU-0000000GkVU-0Fd9
+	id 1wMmoX-0000000GkWj-00wH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:06:19 +0000
+	Tue, 12 May 2026 13:06:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6DCCE440F8;
-	Tue, 12 May 2026 13:06:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C464FC2BCF5;
-	Tue, 12 May 2026 13:06:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B23160132;
+	Tue, 12 May 2026 13:06:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86111C2BCF5;
+	Tue, 12 May 2026 13:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778591177;
-	bh=jYT+8eKQtT56pqf/AoWAaezeyAaTlJPtELeA7v5tLcg=;
+	s=k20201202; t=1778591180;
+	bh=JdNElNwTIUBx+lfJsjS2BzsCplWERmeATaICya7vgAQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nZw+w0NHkTpEIdvVBpFpNUnzeCCKgqSSe8va8WoUXQMuGEINJy6M4f8lQT6xf5H72
-	 vFVeDwNp6lpYI6Fe68AlkRfk0TUbq1ab9u2dY8F/v5Dtlldp56vfe/bdT7VDptST2N
-	 TVk/ob2A04+iR1UsUFn9ASCDqg+ZNC3pGe48lQdBApOUgORlmxEHHpxaadtzLoGNYr
-	 N3eCFd7YXfZpq+uxcQxc7x2C2GmDkUPBdYWnSD+sP69roLxFTb0u6uhDtKWPAkrLBL
-	 FG8LEv33Je1M/N4X+CKAf8twZA7WOs1NCybeqmHXd8RXA/84HlEI0mnHtcfnb++rbN
-	 l6L0R+LAEGlzQ==
+	b=etPBNuAUvUtQLWcLh+NlkgoDDW6zIFV7FK5O25PxjxrpMiYUjM50QWJx0phWQkU3p
+	 tbh12iROjj0a0aKSxcRrOexrE3dSTuFckCFDVEoHQop/3cnMVkEPIvRoNWREdYdHvt
+	 1c7tHhKWnW0HhkAQ3ASo3Fo2yAjO1kpPsPfRabEOnYOeaAQERJesBXdgeOc28xzqNb
+	 tsVyHomWf56Qnqk/bhQ4KTUT0atxb0pUTmz+nPDmDSqNEDYFg8W4pJMOjOqJE4Wsbz
+	 +std+KOwD2K82F7YLKBULnpMVdQv+P5khfqPGs5Lr8liVvmKgV0HKhckkSYMxrpOeu
+	 jPfsCJ0vx6e3w==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 12 May 2026 15:05:59 +0200
-Subject: [PATCH v4 01/20] drm/atomic: Document atomic commit lifetime
+Date: Tue, 12 May 2026 15:06:00 +0200
+Subject: [PATCH v4 02/20] drm/colorop: Fix typos in the doc
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260512-drm-mode-config-init-v4-1-591dfdcc1bf9@kernel.org>
+Message-Id: <20260512-drm-mode-config-init-v4-2-591dfdcc1bf9@kernel.org>
 References: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
 In-Reply-To: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -79,17 +79,14 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  Maxime Ripard <mripard@kernel.org>, 
  Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4424; i=mripard@kernel.org;
- h=from:subject:message-id; bh=jYT+8eKQtT56pqf/AoWAaezeyAaTlJPtELeA7v5tLcg=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFnMqrtKJlrtcH3kNlsh4+MDleB/K26LfbrjUeZant/a8
- kzlyqbJHVNZGIQ5GWTFFFmeyISdXt6+uMrBfuUPmDmsTCBDGLg4BWAiaZaMdcpS68z2nfh/Jtv7
- yLo1ratWb619PvOsQWdxW1Q7B8uKxYF/FZ1V1h382qTm67dMYvrEVsb6mK+H46ekz2Ffwjlj/Sz
- TmdbOL4t3b9d6EiOkuHWT0fK7XeHqv82MjJ0nSFdeTZDMPzoHAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2369; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=JdNElNwTIUBx+lfJsjS2BzsCplWERmeATaICya7vgAQ=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFnMqrvOZ5pZTK2+5OHtYyXwJVOu9PvnTfMn/P/1U1SoS
+ epupLhmx1QWBmFOBlkxRZYnMmGnl7cvrnKwX/kDZg4rE8gQBi5OAZhIhwtjfdijjtayNCvF+VLB
+ swSq2VoMm+ft5H7ZdeTUrGNq0U/E22/OqVo295cah/2kLrtPglOSGGtFpm7f3rG98Wr28SlfpSR
+ mpht5R7RVZ86T/sP/gf3ank7Ggm3LJn6fNWXK+iN75WcFq9oAAA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_060618_147109_EDDA569A 
-X-CRM114-Status: GOOD (  21.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,109 +101,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-How drm_atomic_commit and the various entity structures are allocated
-and freed isn't really trivial. Document it.
+In the documentation of drm_colorop introduced by commit cfc27680ee20
+("drm/colorop: Introduce new drm_colorop mode object"), the
+documentation of __drm_colorop_state_reset() and __drm_colorop_reset()
+were mentioning CRTC when they really meant colorop, probably due to
+copy and paste.
 
+Fixes: cfc27680ee20 ("drm/colorop: Introduce new drm_colorop mode object")
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- Documentation/gpu/drm-kms.rst |  6 +++++
- drivers/gpu/drm/drm_atomic.c  | 57 +++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 63 insertions(+)
+ drivers/gpu/drm/drm_colorop.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/gpu/drm-kms.rst b/Documentation/gpu/drm-kms.rst
-index fbe0583eb84c..d50529482335 100644
---- a/Documentation/gpu/drm-kms.rst
-+++ b/Documentation/gpu/drm-kms.rst
-@@ -280,10 +280,16 @@ structure, ordering of committing state changes to hardware is sequenced using
- :c:type:`struct drm_crtc_commit <drm_crtc_commit>`.
- 
- Read on in this chapter, and also in :ref:`drm_atomic_helper` for more detailed
- coverage of specific topics.
- 
-+Atomic State Lifetime
-+---------------------
-+
-+.. kernel-doc:: drivers/gpu/drm/drm_atomic.c
-+   :doc: state lifetime
-+
- Handling Driver Private State
- -----------------------------
- 
- .. kernel-doc:: drivers/gpu/drm/drm_atomic.c
-    :doc: handling driver private state
-diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
-index 170de30c28ae..04bc3e736cbd 100644
---- a/drivers/gpu/drm/drm_atomic.c
-+++ b/drivers/gpu/drm/drm_atomic.c
-@@ -45,10 +45,67 @@
- #include <drm/drm_colorop.h>
- 
- #include "drm_crtc_internal.h"
- #include "drm_internal.h"
- 
-+/**
-+ * DOC: state lifetime
-+ *
-+ * &struct drm_atomic_commit represents an update to video pipeline
-+ * state. It's a transient object that holds a state update as a
-+ * collection of pointers to individual objects' states. &struct
-+ * drm_atomic_commit has a much shorter lifetime than the objects'
-+ * states, since it's only allocated while preparing, checking or
-+ * committing the update, while object states are allocated when
-+ * preparing the update and kept alive as long as they are active in the
-+ * device.
-+ *
-+ * Their respective lifetimes are:
-+ *
-+ * - at reset time, the object reset implementation will allocate a new
-+ *   default state and will store it in the object state pointer.
-+ *
-+ * - whenever a new update is needed:
-+ *
-+ *   + A new &struct drm_atomic_commit is allocated using
-+ *     drm_atomic_commit_alloc().
-+ *
-+ *   + The current active state of all entities affected by the update
-+ *     is copied into this new &struct drm_atomic_commit using
-+ *     drm_atomic_get_plane_state(), drm_atomic_get_crtc_state(),
-+ *     drm_atomic_get_connector_state(), or
-+ *     drm_atomic_get_private_obj_state(). This new state can then be
-+ *     modified.
-+ *
-+ *     At that point, &struct drm_atomic_commit stores three state
-+ *     pointers for any affected entity: the "old" and "new" states, and
-+ *     state_to_destroy. The old state is the state currently active in
-+ *     the hardware, which is either the one initialized by reset() or a
-+ *     newer one if a commit has been made. The new state is the state
-+ *     we just allocated and we might eventually commit to the hardware.
-+ *     The state_to_destroy points to the state we'll eventually have to
-+ *     free when the drm_atomic_commit will be destroyed, and points to
-+ *     the new state for now since the old state is still the active
-+ *     state.
-+ *
-+ *   + After the state is populated, it is checked. If the check is
-+ *     successful, the update is committed. Part of the commit is a call
-+ *     to drm_atomic_helper_swap_state() which will turn the new states
-+ *     into the active states. Doing so involves updating the object's
-+ *     state pointer (&drm_crtc.state or similar) to point to the new
-+ *     state, and state_to_destroy will now point to the old states,
-+ *     that used to be active but aren't anymore.
-+ *
-+ *   + When the commit is done, and when all references to our &struct
-+ *     drm_atomic_commit are put, drm_atomic_commit_clear() runs and
-+ *     will free all state_to_destroy (ie. old states), and the &struct
-+ *     drm_atomic_commit instance.
-+ *
-+ *   + Now, we don't have any active &struct drm_atomic_commit anymore,
-+ *     and only the entity active states remain allocated.
-+ */
-+
- void __drm_crtc_commit_free(struct kref *kref)
+diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
+index 764d12060666..48d0b7ae3fc9 100644
+--- a/drivers/gpu/drm/drm_colorop.c
++++ b/drivers/gpu/drm/drm_colorop.c
+@@ -503,11 +503,11 @@ void drm_colorop_atomic_destroy_state(struct drm_colorop *colorop,
+  * __drm_colorop_state_reset - resets colorop state to default values
+  * @colorop_state: atomic colorop state, must not be NULL
+  * @colorop: colorop object, must not be NULL
+  *
+  * Initializes the newly allocated @colorop_state with default
+- * values. This is useful for drivers that subclass the CRTC state.
++ * values. This is useful for drivers that subclass the colorop state.
+  */
+ static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
+ 				      struct drm_colorop *colorop)
  {
- 	struct drm_crtc_commit *commit =
- 		container_of(kref, struct drm_crtc_commit, ref);
- 
+ 	u64 val;
+@@ -526,14 +526,14 @@ static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
+ /**
+  * __drm_colorop_reset - reset state on colorop
+  * @colorop: drm colorop
+  * @colorop_state: colorop state to assign
+  *
+- * Initializes the newly allocated @colorop_state and assigns it to
+- * the &drm_crtc->state pointer of @colorop, usually required when
+- * initializing the drivers or when called from the &drm_colorop_funcs.reset
+- * hook.
++ * Initializes the newly allocated @colorop_state and assigns it to the
++ * &drm_colorop->state pointer of @colorop, usually required when
++ * initializing the drivers or when called from the
++ * &drm_colorop_funcs.reset hook.
+  *
+  * This is useful for drivers that subclass the colorop state.
+  */
+ static void __drm_colorop_reset(struct drm_colorop *colorop,
+ 				struct drm_colorop_state *colorop_state)
 
 -- 
 2.54.0
