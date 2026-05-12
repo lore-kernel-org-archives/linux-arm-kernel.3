@@ -4,151 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C67BCD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 17:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE27ACD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 17:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:Cc:References:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w/AoDDE4OkeBe3CLgRzPTmw7mPNw+go0G7XwVsvZMOc=; b=BE2HLUmAqe28Ujrq8oAC/uqQiq
-	UgXsZzP52bnvMtbL4c/mLQ5xMX9gmDzxY7A7XHEwEVqkI4DrZFtfqcQ0DjyGcbLMY1MtFiCmA098Q
-	jR+Sx0hnMQL2VVefWEhu9e6ZQl3YAALnSZCS6VJCDsZUqOgEey/nPI737TADA5oYWBCKXXJHbjZ/9
-	fxM1zPJAl8PJCuhgFLk/r0HTnaYUBdHzu7A9wxj8Sa4bnfDdfRwA19o41kbAQlloeORuidNIxY/4J
-	LeUsU5yQl1fUfjjuRt6QcGfmrjydlqJRfMhAMON1n6tX+Bqhy8LVSpjAWblUkk2WwtdtKt8k1PrFL
-	RGIKlTJA==;
+	bh=Ye2EuyLWcnvncBYxQalplepFyMeY7Tpbew69nVoIh0w=; b=mw2GLhANtH5Q0sT9kc4zd0EQfc
+	UFBLDQmRHNB+MKdeLptg/pi8bOCjKL0p5abMLhfDQ+CkfEtAAGomucVx8egqIDGTskV20er7+woAf
+	WRZKJ7Chk9TqhZ65fflHM/SaqK7ZOeQ8FPaztSwZ/0R38sMB/HUgUCdenmUrEpKZO/NrIhYBFX2Ly
+	VBOzD/OWGnvUYyZTwjo3xGrbtktLYvZ/4OrqtgFIaS8W0HkhPiruXuU/Xm/M3VzrsdFdcxbei0Pev
+	uigo06VX4fVs+B0Er9tddcqKsR+75BByp6bspcsj55XW9KRbItbFYF89FSVnkkLcgoPj1zYSp2UFM
+	U+3NEsow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqhR-0000000HWCh-2zwb;
-	Tue, 12 May 2026 17:15:17 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wMqiO-0000000HWOM-3yVu;
+	Tue, 12 May 2026 17:16:16 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqhO-0000000HWBv-1Zal
+	id 1wMqiM-0000000HWNp-1S4F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 17:15:16 +0000
+	Tue, 12 May 2026 17:16:15 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CqNcPd9k3oy4oJEJz38SX7iB6gcrG0XqeP3EvnzzxRHxkwQjAye2ZdcM1leXOJHwt3sNkGoF/F7dUiubM0dYvdXhQ/ecF76LFTAZh63prhi34fLvfO9kZZpwh1Q239kztAp6YIZF4rEV7FnYE9E4gk00pi9/5RNL5bBXXUzqcFjL3Dt4oXMV0ful2bd8JAhXH3daKEjvdvDD52DYDsgwn3+vHgDHL5UHmijliZuMDt+CDQ7Gb0QeyMWwyIUTySyGbXeaQc0G3h54V68zVXTkN4mc7bIC3ipBH9I/GuVwTsbXiX7a1Iid+PJV/btWCQzpLI0YuGQT2v4yJ7qnoSZcrg==
+ b=K01ybbfeZWADEPsUMlmA3JpdKVu7lioU9rGfXy5JF4k/gSEmoKk0DxE0vJp6RhoDN2ydu6b3l9Hev1IQVxYkZQEJ6f5tV9dnrh0nBesu7WcPfGtfUm4RJxFhTDSdnNF3Mh0Bveq/CeHsi2UjOVTnWWSf3NTdHUQ7ARG9pQ3/snUOxtsocInqnVh0MPgeTKvf0mYU3LVrMuvwnjV6c8+Ir+Iu2In3J6LntN3J603vyYYJ0eXR3mUjpOZa0ZGZRTSwqYgRQ8MXxYDnvSOVxd7vVVyHAdk677+asfpoNcTyvRwG7HhgNKTrG8YeE25w2eBLHEYkd+ufFBSa5sZnPYuOUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w/AoDDE4OkeBe3CLgRzPTmw7mPNw+go0G7XwVsvZMOc=;
- b=HT7naAsgG5G+WknTUR071zXKebOL1Ulu8frc23roogfsgrZg8BS+E6vkkAGcj4td5w012ieVr7GXprXABecvcocDCCOGEbYwVp6vEkpWDNfsSw+9+a4gJstgMKiPr1MriWRrFIU1Zr2ILaNXeeks4YS//CIHHqW0/5iHrh7n7Ct4oFL9z5G43/zxvcKgwp5v3+ejSnL8t+FKCxrw10wJzjkz5bQrs3eyDv8haVWcPwPK7bUZXTKJEGOAbGXgRjuG5/OM+W2YDH1SkBzheWjilVyh5ZVZ06wb2wHcQuMS9uJHTwTA/BwpQPr6+mNBiNNZagxbs6uD+El2PTg5/cv4UQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=Ye2EuyLWcnvncBYxQalplepFyMeY7Tpbew69nVoIh0w=;
+ b=UswwpEN1FLz+UQ0h3SLvelJ+jTbcQ69XK757wilcDg7X3VCAMWnW/vD6VeOoOdHt5aKMxe2tusFuu1U3H9m0gY0yr8mjNnzY1wwcIPWRizofycdzrGFKNwtWl60xCpxpXUwmEBe8Wi5XKLHWcQon5ji/aE3ZAfHXMejGruxYlGk7njsoTi8GJVN7nC5QWsLci43AZfKEcYE4V2iP/QQTB2qVw2XKIMNpRQVn/ZZGi7l9wmxU3B5TaKJUShkk7ju4oTuMRX6VS43AAks6M8i0IizbkrhZzSIGtoCqg9advIqbLeQSWiEAVlJWcCBIA7CDth9OBh4TwKPQDOIqMRSLqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=baylibre.com smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w/AoDDE4OkeBe3CLgRzPTmw7mPNw+go0G7XwVsvZMOc=;
- b=qu1pNOWciw+wRz8jBcHEjoUSf0IOJjZj/0fHoukohZX1vDhqWWERQyzEPURkUhhaBvfuhUrSi7oZPSXVaDr8WDRiASAsC4t72s6Mlx3DzA0XfzLLld7nTwUGaNtT6xTirKgbLBo5x4sU9sV1Ck+mvLwGK22xtVUhvsOtLN326Ec=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DM4PR12MB6448.namprd12.prod.outlook.com (2603:10b6:8:8a::7) by
- DM6PR12MB4435.namprd12.prod.outlook.com (2603:10b6:5:2a6::23) with Microsoft
+ bh=Ye2EuyLWcnvncBYxQalplepFyMeY7Tpbew69nVoIh0w=;
+ b=wwKoZZwMOQtFcjYEudYhG2XgFwsA8DYt0LkqmtNcNx5wSreV4WXuNdykNaVXovv0ANs+XrcpGcnsruwNEqEdpSwGIOgHmnzJEWi7hyBRCrsWT25nDBxknnnscy+tRYlbg9m6DsMt1L6nO0PRqPWMxLYU72tuyXV2Ng738TLv0ag=
+Received: from CH0PR03CA0400.namprd03.prod.outlook.com (2603:10b6:610:11b::20)
+ by MN0PR10MB5983.namprd10.prod.outlook.com (2603:10b6:208:3c9::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
+ 2026 17:16:09 +0000
+Received: from CH2PEPF00000148.namprd02.prod.outlook.com
+ (2603:10b6:610:11b:cafe::d4) by CH0PR03CA0400.outlook.office365.com
+ (2603:10b6:610:11b::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.12 via Frontend Transport; Tue,
+ 12 May 2026 17:16:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ CH2PEPF00000148.mail.protection.outlook.com (10.167.244.105) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9913.11; Tue, 12 May 2026 17:15:04 +0000
-Received: from DM4PR12MB6448.namprd12.prod.outlook.com
- ([fe80::62c2:71cd:7fdc:987a]) by DM4PR12MB6448.namprd12.prod.outlook.com
- ([fe80::62c2:71cd:7fdc:987a%6]) with mapi id 15.20.9891.021; Tue, 12 May 2026
- 17:15:04 +0000
-Message-ID: <986f9f97-e990-4a61-bd25-d32f6cdea325@amd.com>
-Date: Tue, 12 May 2026 10:15:01 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] remoteproc: add common wc-ioremap carveout callbacks
-To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>
-References: <20260511211841.284809-1-ben.levinsky@amd.com>
- <20260511211841.284809-2-ben.levinsky@amd.com>
- <bd083464-a5a2-4994-ad88-ddf42d2c765e@foss.st.com>
- <DM4PR12MB64482037D67096393D4668CE83392@DM4PR12MB6448.namprd12.prod.outlook.com>
-Content-Language: en-US
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Magnus Damm <magnus.damm@gmail.com>,
- Patrice Chotard <patrice.chotard@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
- "linux-stm32@st-md-mailman.stormreply.com"
- <linux-stm32@st-md-mailman.stormreply.com>,
- "Shah, Tanmay" <tanmay.shah@amd.com>
-From: Ben Levinsky <blevinsk@amd.com>
-In-Reply-To: <DM4PR12MB64482037D67096393D4668CE83392@DM4PR12MB6448.namprd12.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SJ0PR05CA0104.namprd05.prod.outlook.com
- (2603:10b6:a03:334::19) To DM4PR12MB6448.namprd12.prod.outlook.com
- (2603:10b6:8:8a::7)
+ 15.21.25.13 via Frontend Transport; Tue, 12 May 2026 17:16:08 +0000
+Received: from DLEE210.ent.ti.com (157.170.170.112) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
+ 2026 12:16:04 -0500
+Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
+ 2026 12:16:04 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 12 May 2026 12:16:04 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64CHG4WT2248995;
+	Tue, 12 May 2026 12:16:04 -0500
+Date: Tue, 12 May 2026 12:16:04 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Brian Masney <bmasney@redhat.com>
+CC: <a-christidis@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
+	<ssantosh@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Stephen
+ Boyd" <sboyd@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>, Michael Walle
+	<mwalle@kernel.org>, Kevin Hilman <khilman@baylibre.com>, Randolph Sapp
+	<rs@ti.com>
+Subject: Re: [PATCH v2] clk: keystone: don't cache clock rate
+Message-ID: <20260512171604.5ntgq65bmedb7jpc@stinger>
+References: <20260507-clk-sci-v2-1-38f59b48777a@ti.com>
+ <agHpYnkCgGfZp2-E@redhat.com>
+ <20260512104848.4axgjeto6i7ejvli@retorted>
+ <agM-VB-ToGFNphfu@redhat.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <agM-VB-ToGFNphfu@redhat.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB6448:EE_|DM6PR12MB4435:EE_
-X-MS-Office365-Filtering-Correlation-Id: bc538916-cac6-4473-ccc6-08deb04a023f
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000148:EE_|MN0PR10MB5983:EE_
+X-MS-Office365-Filtering-Correlation-Id: 77a651c7-fe65-4416-411a-08deb04a2852
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|11063799003|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: kUdizuQVqc09KA0KefFz7G1t49sTZJScKOrTzJo3Qns+nG4FLOeXKSGzE0JXByv8Ef4Y0XSVv7LEb6jpKMnNGNcjqUMy575Nus0Ue/JyP5JqxzmR9mvxlaLoX/dIO6ILrSVNFJCorqwsqhQiVTjoVSvgaojw3cfyAF08Gu7h+Yd1N6CNNyBwlYl13T1PTHlVQLDuPKfMfW/DZkjTQiH5b7ySLj9jOKiUl/iQeqSl966gu/xC/zs8RvCGP9LQtQ6JWgaNyUOrNbeslhzzCwovRoEyVkSfD9gdmdIYEmrpT7zKNdl0MPLth0VuCPPYuzlSe/zF6RrtPvkASNV0B3YdtFL6vQ9TqjhLBZPAZxQ3VMxlMFnTr9sDSXxsXkn/HF2aiibLEIHLg0K4G5Cal9Ju+8eJBAB12/ZD9afL5K7GwGjJJsiC6cMPy65U1pNktuZ3hUuRjk3cVJWWxTbZS1GMa8mfthkl7OvGGE6c+Ovg7/blE6zRMlKku2it2Nhj/0oFrx1YpbE2/A+KdZgd3xDfZGEl2w366RQj2/c/MOF1sUqVg/NqbXO8f0qrCUPQrVEF4V4IqELDcWBUKxpu0LdWOXYUD98PKYg0QpGiuZ8m78HJlpedjv/HslYdVXuytSL8s2IIrzujuSC8k0A6Feg+JoxauGA7VmXM1Z5YwvuxG7EU4ZQLz05M+CGQC7SZn8sH
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB6448.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(11063799003)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700016|1800799024|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: wPDphZCERGn2UoRjIrtQFCXgmIL00bLV0O9Vl9fpvuUQUGLIzXvSuxdH+3xwCIU6XaCAqkL/iRcNbUvteg1jKxpeC6uqRAmBGrz5bOkFt0yryGGNjDmKkdwRtj1jmw9eRzk1oogII83vdlipOYeBQ3MV1bW7WtWbszYV9vvGacR6duRJTqk0ncX46XHOgNTgq442If3ybjb9EegHdAO00Y4Re0FtW7Yq9V0iDwWcj3xwpwCOktVTqgBfbl/2SO/CWHdNlUuFe484MbXwqd2QKzn/6T29hGXINDXpijbTj8fi3+ir73Kcsrr88OXfJ0FN4EWCNEF2IuWOwQG+XfLkhrjQTwi6UhvvBnowlK+HR7/F9xLt4VuAmuEVObOJ5jfIfDZzjdc+O12jCC4bBvrc9rMz8YRXGoNJZ5IqAUeKWGV0FugUzShfG5gcsgWQOhzBIaNhTya5AplAER1kBwFngdvtz6UQxcERNR2pPY+gk2NaWl9VRT1ampaVDFXJL6R0nsWoffzI/JORGaNtvTzCZJZJ/7/N/JhZFXeoRrXIIfxtNxVdHd2k/ZOmotOrIHd8RYHHkyPFfR8zqWUfHVbsLPSz3ipoCreeqyNJEZccazfCYWyqWR3JIGr+joFLEaScXGk4rzxT7+AlSLf5lP14ecUs3cufPWHESfeKu0xJJLVBJXrf1OZ4dWsMU1RzH123+BS1bb5rGDiHmGT5FWpgvvvJQDOiEOqsISFnT/h7vtU=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700016)(1800799024)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R1hrNVRRdzd5Q3grRWhENTVCMGJ6REhsa0NycmhoaGpBZWpJMjRUYTM1OExt?=
- =?utf-8?B?NFl5VFk3NFdHclpJK0p2b1dRK01FWE1KYnFDVFBIRFlhSFY5QlA0bHN1NDU5?=
- =?utf-8?B?RzBBU0tscWFMSFdEOXpQNHF6N29RWnFOVTY0SFdpSUFpRVo4Z1VmNDdoakEx?=
- =?utf-8?B?c29BV2oyUVgvRjlqL0pmM3J4WnR5eWVYRk14NW4vbXdJbzdSN3UzaFNjVjFZ?=
- =?utf-8?B?anUrL1VPcmJrTXV4ekpQakxnNmc5bWJjQWlGQVptV1F3WUl3d3FuLzdWLzNX?=
- =?utf-8?B?cEhqbnJNelloTDdFbGZTSGhYSzRyaUhyL29uL01MS1BEeFR3V2Mya1dUd25i?=
- =?utf-8?B?RExkbVRWM1VOKzNRMmsvMHNKVDJ0dzNMMHJESDc0U2NuTzBBck5jY21wNFdT?=
- =?utf-8?B?QkxJNWVFUmhvdmNsQjB5Q3lHdnV0UHpUdnVLUnVhZzNKcDM0Vk1NeVNJVmFa?=
- =?utf-8?B?cm4wVjdOMU5Ja3hPdyt2RXZHTmNPUmRudXVCSEt1R3IyRUlIV2NGaFl5bERZ?=
- =?utf-8?B?TVJOMkF4MFp1OUttYWNXQ3NSMXd1Vm9mekJ3dzh5Ync4amI1WHBmWUFKQ1ZP?=
- =?utf-8?B?UkVPQ3BadnpIZ1FpdlJDTGE4Z1BGVUdSMHZ1ZU5qTjczRUFFKzF1N1gydnZr?=
- =?utf-8?B?Ni84N2NOeEhPQ2x6cVRtbnBadHp2QjVJQWZNdGQvMzV4aWh3NFFjcElFOGdl?=
- =?utf-8?B?VE5NbldzQXMzK1NYRGxISERHV0dzSkJnWDFSV0NDUVhxQ1VQTzVnSmp1anU1?=
- =?utf-8?B?bGl4MzhKK3lvRGdhMkh1SDlPR1FWSk1xaGZwQ0lYa0VPREgvZ0JjL2R4RFFR?=
- =?utf-8?B?dm15aXJSaUp1S2RwMUNSckQ3Tm9KRWlhblBnek16S2tTQ2xrWDdDVG9OZWpu?=
- =?utf-8?B?enIxQlF6QXc1WmRGRDRxbEQvYTdTMjZsRmhHWU5TaDZza1JXY0pTSzhON3lV?=
- =?utf-8?B?ZXovRitWUzFBZWRma3hNRHNYNHUyendWeTZYWTJ2Y2VUUitFZHFtbVNjeEtJ?=
- =?utf-8?B?MHphUDRVYVhzYzBFaVRZSmFmNVRvQzJDRVFqUUtDbkJQOXl5VzRCNjR3RE5X?=
- =?utf-8?B?cUZNOWUxTENtVkd0eDRrZHBkRU1oMytXbG5menN4ejh1NVFzYkVuZmJCMWJP?=
- =?utf-8?B?YXlIVGpqdjVPWVBDMU43N1F2ZmxaWXR2ZjJxUGlpYjc0dVd1bWQwWXRDTEFZ?=
- =?utf-8?B?ampRRkQ3RUJDMFF6T1JwdXVPVDFxdSt1d2F5VDJoajhiTGRESVlhL0hwd3VD?=
- =?utf-8?B?b1R6NUJKdFRveWViWnJwYXIzQmRNZW1uWVEwcTJzTllYQ21Tb29UN1hrc0Rw?=
- =?utf-8?B?cTlxQ0Fnd3kveTlxV0luUGRwUnRzSlhRS05uWW1STkZzTzJWTU44NVI5c1JP?=
- =?utf-8?B?ZktkUXI2SXo5bE5HMFZnWDJ5a0NKU2V4YjA1VU4xYkVpM0RoM0RmYVB6SmZi?=
- =?utf-8?B?a1M0SE5QVWJ1N3U0QXZRV3dhb1NyQlIvLzNkU3Jjdjg2TmhOclVmT1lXVzVh?=
- =?utf-8?B?VUwveDVjZExzL091ejF0ekgvZVZkcVAva2p6TkVKZ0FZZkNDSUVkUmJQNzNz?=
- =?utf-8?B?RDhhRnFiRmgxY2EzRmhVbHVrZEZkREIxRE1iWlFTQ2tMUzU0TjZBT3RLQ3Q1?=
- =?utf-8?B?OE5VT3lNQVQ1Q2VJZ0hTQytBUldRQVZEZ1BvYlF4T2lybUdFWkVIUS9kSTJV?=
- =?utf-8?B?dCtDQUhGMGh6S3cyaHFSdnE2V0dYL2Rhd2RRUXA1WlRXVy9LSUp3UTZHUVQ0?=
- =?utf-8?B?VG5wRkRjSk8xcyswK1luWHdNMkhEQlF5Z3RPQ0lJRngvVlZ4OG8xVUVoRzNP?=
- =?utf-8?B?OVFPaU51cTEyVlJPUm1KeVRYWHJleGh3d1RRNVducTUxUUlNSk9MRStSaWV3?=
- =?utf-8?B?YW5JclFRaGM5NTUxL29QRUEzT01qTWJySFRnWVFHMW4yUHkyZnZmMHNHcWJR?=
- =?utf-8?B?czd3YkVWUTZSK1ppM3VBWUVHdjVnMzhsbW9nOUNKdmN1OE1DSFZQRmJZcFNQ?=
- =?utf-8?B?cXprQjdWZGswMFc5OU5oY2ZQZWQ4U3p5ek11UkZLYlROQlRUUDd4YkE4ZklJ?=
- =?utf-8?B?bGxuUGhIM3pTV2M5dW5OUVFaQVg2REk2MHJGK0pxcFg4enN5bHI0VnZseXFR?=
- =?utf-8?B?aklMdklSZXhsWkJKNDQ5RkJHQUVMeE5nSE9oRjVPdzhkVVUxbHZ0VmVrWk8v?=
- =?utf-8?B?LzE1dUwvYjdJYjMyUVNSN0xNQVJBRDVNOGl4SGt2YUNZdjkyNGc5QnpzdXo2?=
- =?utf-8?B?aHY0Z1JZWm0zcUpPMS92QzFLd0l6WUE0VVdibnlzSkZ1THJ5akFiVzg1VzEy?=
- =?utf-8?B?TnBKOElsRUVUTS9KNE1BUjhXTFBDVVY4Uk1sa0kzYmZMR1NYakRUQT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bc538916-cac6-4473-ccc6-08deb04a023f
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB6448.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 17:15:04.6948
+X-MS-Exchange-AntiSpam-MessageData-0: VsqkLi/9n5cO9l6NDyZTKVlzzQm4UCSgB0fc7OhrwdlPgk6ddEpiKH1/VCtEMnqd2n4IuQkp3TaiTuky8ce6NbYUMyGT75zCkaa84ROvBchgcVAjmPIqJGRx5gMpFrAJbXn2+O/nsHmVGzYcIvrdVci41d1Z0H6ti9S4SurOYpwt+JtTVIryOTUw+9Fgu3Ug4tCyCYNZ1ZULmxnoCRh5uF82LmSh89fNO8O8BMvCnqzK8JJBeyTPdb8iHzjWnCZf40JmBQiwoGwDLfB3cw3B1iL8DN4D2vOJXrLiaVYIRFVd23EnDvDA1ChwBiVWw+W5MZVY/MKATKICHgSSBPkm0ewEMy4slXeT1prj6FqaXiIf0bitU/JdL5hmTG0eL9yEjAA0cy7zPpwyZRNi/QmIqSuqvruosHIOdraE7QXPWdOJTUrvvnUKdQgz4eFkUuCP
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 17:16:08.2567
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: FguomXZaUmeL2pVsbvhw3ESKKszKE8w4HIgjLA80KwhY/xsT8iqSg/X1Qe8S4lyUeyyl3Wpjz8rKv8mIyAQ+IQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4435
+X-MS-Exchange-CrossTenant-Network-Message-Id: 77a651c7-fe65-4416-411a-08deb04a2852
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000148.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR10MB5983
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_101514_464998_B000436D 
-X-CRM114-Status: GOOD (  25.63  )
+X-CRM114-CacheID: sfid-20260512_101614_388141_BAFAD50C 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,135 +135,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Hi Arnaud, Geert,
-
-See my replies below
-
-On 5/12/26 10:03 AM, Levinsky, Ben wrote:
-> AMD General
+On 10:51-20260512, Brian Masney wrote:
+> Hi Nishanth,
+> > Could you clarify if I need to take it via my tree to arnd or if this
+> > patch will go via the clk tree?
 > 
-> 
-> 
-> 
-> *From: *Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-> *Date: *Tuesday, May 12, 2026 at 2:45 AM
-> *To: *Levinsky, Ben <ben.levinsky@amd.com>; Bjorn Andersson 
-> <andersson@kernel.org>; Mathieu Poirier <mathieu.poirier@linaro.org>; linux- 
-> remoteproc@vger.kernel.org <linux-remoteproc@vger.kernel.org>
-> *Cc: *Frank Li <Frank.Li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; 
-> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam 
-> <festevam@gmail.com>; Geert Uytterhoeven <geert+renesas@glider.be>; Magnus Damm 
-> <magnus.damm@gmail.com>; Patrice Chotard <patrice.chotard@foss.st.com>; Maxime 
-> Coquelin <mcoquelin.stm32@gmail.com>; Alexandre Torgue 
-> <alexandre.torgue@foss.st.com>; imx@lists.linux.dev <imx@lists.linux.dev>; 
-> linux-arm-kernel@lists.infradead.org <linux-arm-kernel@lists.infradead.org>; 
-> linux-kernel@vger.kernel.org <linux-kernel@vger.kernel.org>; linux-renesas- 
-> soc@vger.kernel.org <linux-renesas-soc@vger.kernel.org>; linux-stm32@st-md- 
-> mailman.stormreply.com <linux-stm32@st-md-mailman.stormreply.com>; Shah, Tanmay 
-> <tanmay.shah@amd.com>
-> *Subject: *Re: [PATCH 1/4] remoteproc: add common wc-ioremap carveout callbacks
-> 
-> 
-> 
-> On 5/11/26 23:18, Ben Levinsky wrote:
->  > Several remoteproc drivers open-code the same ioremap_wc() and
->  > iounmap() callbacks for carveout mappings. Add subsystem-private
->  > helpers in remoteproc_internal.h so those drivers can share the same
->  > implementation.
->  >
->  > Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
->  > ---
->  >   drivers/remoteproc/remoteproc_internal.h | 26 +++++++++++++++++++++++-
->  >   1 file changed, 25 insertions(+), 1 deletion(-)
->  >
->  > diff --git a/drivers/remoteproc/remoteproc_internal.h b/drivers/remoteproc/ 
-> remoteproc_internal.h
->  > index 0a5e15744b1d..3724a47a9748 100644
->  > --- a/drivers/remoteproc/remoteproc_internal.h
->  > +++ b/drivers/remoteproc/remoteproc_internal.h
->  > @@ -12,8 +12,9 @@
->  >   #ifndef REMOTEPROC_INTERNAL_H
->  >   #define REMOTEPROC_INTERNAL_H
->  >
->  > -#include <linux/irqreturn.h>
->  >   #include <linux/firmware.h>
->  > +#include <linux/io.h>
->  > +#include <linux/irqreturn.h>
->  >
->  >   struct rproc;
->  >
->  > @@ -122,6 +123,29 @@ rproc_find_carveout_by_name(struct rproc *rproc, const 
-> char *name, ...);
->  >   void rproc_add_rvdev(struct rproc *rproc, struct rproc_vdev *rvdev);
->  >   void rproc_remove_rvdev(struct rproc_vdev *rvdev);
->  >
->  > +static inline int rproc_mem_entry_ioremap_wc(struct rproc *rproc,
->  > +                                          struct rproc_mem_entry *mem)
->  > +{
->  > +     void __iomem *va;
->  > +
->  > +     va = ioremap_wc(mem->dma, mem->len);
->  > +     if (!va)
->  > +             return -ENOMEM;
-> 
-> Could you add error message here to help for debug
-> 
-> +               dev_err(dev, "Unable to map memory region: %pa+%zx\n",
-> +                       &mem->dma, mem->len);
->  > +
->  > +     mem->va = (__force void *)va;
->  > +     mem->is_iomem = true;
+> Sorry, I'm not sure what Stephen prefers here. An argument could be made
+> for either approach. I would just go with whatever you have done in the
+> past.
 
-Hi Geert,
+Thanks Brian for the review.
 
-Thanks for the review and the Reviewed-by for 4/4.
+This usually will go via Stephen. Will wait, just trying to make sure
+there is no change in expectations (given this patch missed a window).
 
-Here there is a real behavioral impact from not setting mem->is_iomem for carveouts backed by ioremap_wc(). In that case rproc_da_to_va() reports the region as normal memory, so the ELF load and
-coredump paths can end up using memcpy/memset/memcpy_fromio incorrectly instead of the io accessors.
-
-Given Arnaud's feedback, I'll split that out from the helper cleanup and explain it explicitly in a separate patch in v2.
-
-Thanks,
-Ben
-
-> 
-> HHere, you set mem->is_iomem, but this is not done in platform drivers.
-> 
-> It seems better to add this in a separate commit after patch 2/4, with
-> an explanation of why it needs to be set.
-> 
-> Regards,
-> Arnaud
-
-Hi Arnaud,
-
-Thanks for the review.
-
-Agreed on both points. I'll add the missing map-failure error message in v2.
-
-For mem->is_iomem, I agree it should not be folded into this cleanup patch without its own justification. I'll keep the helper conversion behavior-neutral here and split
-it into a separate patch with an explanation of the impact on the remoteproc load/coredump paths.
-
-Thanks,
-Ben
-
-> 
->  > +
->  > +     return 0;
->  > +}
->  > +
->  > +static inline int rproc_mem_entry_iounmap(struct rproc *rproc,
->  > +                                       struct rproc_mem_entry *mem)
->  > +{
->  > +     iounmap((__force __iomem void *)mem->va);
->  > +
->  > +     return 0;
->  > +}
->  > +
->  >   static inline int rproc_prepare_device(struct rproc *rproc)
->  >   {
->  >        if (rproc->ops->prepare)
-> 
-
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
