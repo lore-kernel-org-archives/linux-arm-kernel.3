@@ -4,106 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8F7CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 16:56:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A62FCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 16:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Z4XofTmyrXM1eDUAnyoLPP8UjMjadHg57bVLtHnqZE=; b=N9oy1NKX8+X6j5frXyV4NdNumr
-	V2wdd64K2Hd2GdKqzELtaEU3BEqx4xrDirdod2eNTPeT4fVWjJqSh33BAzNfA6Wot1clLm+DWuTD7
-	WLSVpZdJQa8+qRaWSE3aw6Pdeq/X1mHLCuD7jGXZDvJqRYEddx+3kS2O0deX9QVYvNjdfd6GKGnAc
-	BorxJrd6/BV8Vk6rMaas3+A4P3NPEVyryR3a/vQtp9a0UIxszg4oE6bu4olLWPGaAc6UY+lcnfeb0
-	7XVvTRtICWAKXvtM1EaAKq1WigRoVeAFWJYmVFIPCTfvTM4H7zbWg8BzGNPJ0R/N+DI679CSk2ZFr
-	xc8X/xug==;
+	bh=GMlWUewpnO5BHrxePkEK12VmSLLS4fX3PTW9+WOgwyc=; b=awqGrSP29Wf2NN9IIOejVMPVE/
+	LGZoYb4Dq9IiSDn6gEC3SOHH8drQhOFvkpEZkrNFohf48G7PSbDFEuw/14lR+IxwnL0MRi6bdYBKH
+	WxvetymZJNoYuh9kxklQzRRPb1u/Mm9OyFxkWeJVJcmIuQv9dcVglpUytvQMMnJJiOF/GwWe+7ydB
+	iM4CZqtwMzSFDnUXZHWXAoSyhm5A02DoPjdDlFQP9z319G2YNLfaDA8TFhGyYJaBiieW5TORglQGJ
+	Ia9plWJpaDMP/BBNb8zD3eK22V7mNZFhdDhWbAzsgOi59QOa/SZN8qJgp2ykZQHLXYfP4moDkWBhD
+	wcb5+GCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqP9-0000000HS6R-3r4q;
-	Tue, 12 May 2026 16:56:23 +0000
+	id 1wMqQV-0000000HSTJ-1wiA;
+	Tue, 12 May 2026 16:57:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqP8-0000000HS61-1D8Z;
-	Tue, 12 May 2026 16:56:22 +0000
+	id 1wMqQV-0000000HSSl-0AxF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 12 May 2026 16:57:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+Z4XofTmyrXM1eDUAnyoLPP8UjMjadHg57bVLtHnqZE=; b=gL4r811Tp7e8ubp7S0DAkgee51
-	LrSDrsiCRhowy1uDkIDgg3wYRdGerCUT9LGDHtqnCTcAHCZBW28bQvwR2gNcv8h4vEsa58tisFRKS
-	Ogeg01+eU2hk8/NzebkA5/4GTMYc5e7mTiNrydmi/p6KrXv5dPfXa6CLr/bUAkAo9/4Nzqg89ySEF
-	00DOySC3TO4SxvTah1XkdUzB3ksqigm675CmsEfaIJCf7XIMSyRIQsufkMieYpAY2UY8+EvL4lgDc
-	+15IUUY/p6PDzJbr/UXI6lvCshcfIIiG3k66YrqaXaBWp4Bh6GU5HkBCwBl8K0oh4QggK+Z/wZ8AL
-	RP2e+/aw==;
-Received: from mgamail.intel.com ([192.198.163.8])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=GMlWUewpnO5BHrxePkEK12VmSLLS4fX3PTW9+WOgwyc=; b=WMzU4sdVTZq9iKKwVYfbaaPnaP
+	RfO3BfoXXEvlni7RbqUAWe4Iwn6gECpMFBBuNsxsMXKX98qv//GxGxjasyit4auSYLKqZqey5pDFY
+	1R5PPgGcF4GuqwnwJ/1VojuTEigCKG+03q7fTVMgMM6Jc3sMKwIaR0i3nxO1We/ZVEBvHpwKLL/RY
+	zawabKTxdUW1pTfIcG5mk2+TqXZHe09mdR1eF2R/wIlWLbLMdENWQBsOR9Fh3MJ+1oEoQXsy2FxD4
+	wsHdAIsBYRRw7ZR7FVf8N/C1+RKLfwCqGzKMrpXGJAdwnu6nGD4LPyLGM6+8BFwUjK/cKF7BuxEL6
+	9sZK5KkA==;
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqP3-0000000FPwO-25mU;
-	Tue, 12 May 2026 16:56:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1778604978; x=1810140978;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9JqXkD4oo5STPUWAnq9HH/ZMSx9akBEyLL9pFMj5Eto=;
-  b=AQZHyaEgFTJq1RztkgSK0/hQDVmgO7jts7JqJTvmbch9dI/V5rjda5UO
-   QyqL8a+rFaciBcSKqdc3eOLYPLmQx2rb5hI+LnI7sS8hNSq60AiumcB+k
-   CHXmUM4x8z49qsPZ42l3P6XA2XwBSVUFofA7WGd2pw3h6HV65I8D4NOu+
-   wKj3C73ZZcgixKRYVnOP7NYU0YXMy4ZZQPtREtX5SMr4D1EBv+lYzaMel
-   lrrX6H6jAi5Nu/Us7xbmYjvXRzJ4z2uBV0pVMhc4CTVssyx9ZobqtN5wt
-   yaW3Eov1YUN4M7b9vv6dPYoeQGFBJSqD6m2ABbfagfuThKdM0biwVa8Uf
-   A==;
-X-CSE-ConnectionGUID: 3O1BEVFnSjGIRo2a3JFVKQ==
-X-CSE-MsgGUID: RddlUAKLQgK6ILA9Q0TZdQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11784"; a="97090230"
-X-IronPort-AV: E=Sophos;i="6.23,231,1770624000"; 
-   d="scan'208";a="97090230"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2026 09:56:11 -0700
-X-CSE-ConnectionGUID: eE/ZxnqvT+CkeJ6UrkNkkQ==
-X-CSE-MsgGUID: AtasLK9fTAie+dOmlPczyA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,231,1770624000"; 
-   d="scan'208";a="242171405"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.244])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2026 09:56:05 -0700
-Date: Tue, 12 May 2026 19:56:03 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Roman Vivchar <rva333@protonmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
-	Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH v2 05/16] iio: adc: mediatek: add mt6323 PMIC AUXADC
- driver
-Message-ID: <agNbo39p6uACvQHd@ashevche-desk.local>
-References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
- <20260512-mt6323-v2-5-3efcba579e88@protonmail.com>
- <20260512142932.5c6801d1@jic23-huawei>
- <gWxamwTKyUeOF4QCsiIsrnh7DSWzIKFaY0h83qKq_0vg786xv1uFYhypix7BVO_ruG_vw3DrIsRhIKv5NAzl8hK72rjzPAjwAGU-rhkMgeA=@protonmail.com>
+	id 1wMpWm-0000000FF8E-2Nc6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 16:00:15 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-48984d29fe3so60817835e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 09:00:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778601611; x=1779206411; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GMlWUewpnO5BHrxePkEK12VmSLLS4fX3PTW9+WOgwyc=;
+        b=mSmfALDHGDLfO7PkcJZ80V3HDrqhZPm7dvGXK4pQJI4DIJaDmOyr9bG6Ib3YGMaApe
+         VoUKbmlbCJaMhfPH9Ck/mVZREPde9OPq8A8UEhVolrXqXIJYa0/CsdkNE0Xw30Q3QJ5i
+         66AhNiGkWHI1YKITAEjFqyODAthP9Oy8BlVXA4KVvW0uJlIFbsjnsASbbIpSeXDe9log
+         cnFc8Lkp8eEwQmdiUErX5Zn4csleWqi3mibYctngUHbZhX6HviiUTtnntfh6itXtYj7G
+         SU8wURkzZqywR4siZiS7NXuVkR9Uc7wIz5ANOAuSAKZ5jbTJovcU5KzSOMXxQRaRtfll
+         jUJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778601611; x=1779206411;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=GMlWUewpnO5BHrxePkEK12VmSLLS4fX3PTW9+WOgwyc=;
+        b=c2ZM3MtiXcVBbThEGXBbeluJFugWIi4xZ+4lL7dtQ+2Mu2KKeoCUeFrIRL4FvqGgZK
+         CsXQ2ZTtwAv4E5cttjviF37lfCe0Okqh1Cj0cPm3WXnNr5PTtWDu+enO1eaUwrBd0Po+
+         gfo2r+zteiyzleyu3255QAELUGrKraNcEVdUliyymx3+sBGmeWq6JZqD3MPVCn43A004
+         rKJ9692KKeDvLNuH3BkeUTjQqXJ5A5mXL/Pcx3ejjHRtj9/Im8ZiP34cbjhbUt1K/LaK
+         6Tml7XXhwfEVRixqK1BTGAHep7Ol4CBSxrCU21MX9BfS02B5mdgikLV2e+DFKHKC3L4n
+         zUNg==
+X-Forwarded-Encrypted: i=1; AFNElJ/b+IaRgSeabgNp8KwNKQMzI0SA4pQhq6t/HqScnHYcxL/XdnqTbjnXQknKi2eB+KOhZ3lJXkHvwMsbKOfzW5+d@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXZ0vm/mb+0j3bQPvFidYo2nCoKvD1P4bZClCWi3e2ZP/2lUyO
+	g152dXnjTaaEafqegkcsHwFkuMsBL0QKIlTesbX8SiNkMwuajs+wVvQc
+X-Gm-Gg: Acq92OHK724ow5YgjaYLD1YOFN9b2u5wE2srfFi0UdB40y1vSDEBhtg791RVX2fhqfl
+	jh//ExrniJNP0i20apqcxAxuqFfq5BRTTD6RdkE/KAvZ2OeNTvO7yuSGbWwGDcCBdgJvCuFyo5h
+	CCy4J/QhZnSZ4TtFMskoQaXgcgVZCo5fC7tJH1q4uEF2HHYAzondPHRliD2PqSeedA5ex7rQVBO
+	5gIWbbnY5Ls8vydfnERnZzBjTXNtUhF0ZyhJwTEXMz4eRnP4ciZRb0tZHP3ZEXBnnxlscjcxhVn
+	GgQJHPS3JdU2Uwj0k26bvibZRoON9tDeKltd1YMZNFPNddy80y1NJlkr8I+sDV/v819HPhNpmZr
+	mrnmJqrHTG+AhKt0D1O1Yk0emy2Sepk9CQJvBsWpR8ebhVLZhRLdW6CCeuKKESEVApLM+XIrPlk
+	H7MJegxUMa8av8zD7uUbWGwqywo/kS9jHXpY3kSojNz8k92KTKf9qYKyy5IiWan6pB2sjXX2AID
+	zT2vPyb
+X-Received: by 2002:a05:600c:c166:b0:48e:8499:4bda with SMTP id 5b1f17b1804b1-48e8fe732c5mr56263285e9.13.1778601610271;
+        Tue, 12 May 2026 09:00:10 -0700 (PDT)
+Received: from jernej-laptop.localnet (46-150-62-216.dynamic.telemach.net. [46.150.62.216])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e913469besm14404775e9.14.2026.05.12.09.00.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 May 2026 09:00:09 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH] arm64: dts: allwinner: Cubie A5E: enable SPI flash
+Date: Tue, 12 May 2026 18:00:08 +0200
+Message-ID: <cjl1U0d5TU-5Dhz5uRAUHg@gmail.com>
+In-Reply-To: <20260511221741.25888-1-andre.przywara@arm.com>
+References: <20260511221741.25888-1-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <gWxamwTKyUeOF4QCsiIsrnh7DSWzIKFaY0h83qKq_0vg786xv1uFYhypix7BVO_ruG_vw3DrIsRhIKv5NAzl8hK72rjzPAjwAGU-rhkMgeA=@protonmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_175618_249173_58323813 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20260512_170013_013660_2828C3E1 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,33 +117,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 02:34:55PM +0000, Roman Vivchar wrote:
-> On Tuesday, May 12th, 2026 at 4:29 PM, Jonathan Cameron <jic23@kernel.org> wrote:
-> > On Tue, 12 May 2026 08:18:19 +0300
-> > Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
+Dne torek, 12. maj 2026 ob 00:17:41 Srednjeevropski poletni =C4=8Das je And=
+re Przywara napisal(a):
+> The Cubie A5E board comes with 16MiB of SPI NOR flash.
+>=20
+> Enable the SPI0 DT node and describe the configuration.
+>=20
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-...
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-> > > +#define VOLTAGE_FULL_RANGE	1800
-> > Probably better to have this inline - however if you do keep it
-> > prefix t he define  VOLTAGE_FULL_RANGE sounds too generic!
-> > 
-> > > +#define AUXADC_PRECISE		32768
-> > I'd put that inline.  Little benefit it in having it up here...
-> 
-> There was a mention about magic values in the v1 for the thermal patch [1].
-> Andy, would it be better to use an inline style or a #define here?
-> If the former, I'll rename the first constant to something like
-> AUXADC_VOLTAGE_FULL_RANGE.
-
-If you use it inline, add a comment to explain the magic.
-It will be a good compromise.
-
-> [1]: https://lore.kernel.org/linux-mediatek/afmnUG8dG0N0HpV6@ashevche-desk.local/
-
--- 
-With Best Regards,
-Andy Shevchenko
+Best regards,
+Jernej
 
 
 
