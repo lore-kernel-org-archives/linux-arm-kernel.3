@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19B6CD4F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:28:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0050DCD4855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0nYwTUDHswJFeRsm/3KU6Cy6V8aaaXNHXn0IsdxK2KM=; b=tubWhi7J6YG8H7K74WEKTIE/ZO
-	GDLR4LHycwzWtKkz6QRUCC8L87np/+QB3sMV0A1ZHXnZKR1y6M+SqSRlZBMZQdCbRAPL498SZA0NR
-	8PaNmZXqF35itkCAj7OrEZqig4tne/+Q0OHBnlwPjCBr14Dhfs4/qrF3i1K1oK14w6lU3zW2yVtGf
-	KGcwOR965pb1GJKtTc6mPzc6SNjDUnAG1z+hKhh5KxUh0idZRYw7wm6J0NztW/tkwworhOq2aing6
-	fuc/8GTVWvpSMhMBMZoVRXjx2e6TgLj3d4QxYC1AkwkiYwD7gDorJt2B3ZnlHBSqTTRIy/yp3n1qF
-	1wDensAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zneASltas0oMQlIELljv5Hk5HU3jIgnWrTTwatdNdKk=; b=P2YBEWqALgN/inj1L68d0cZiPM
+	5VDo4KqkXjVtmDZG3WzCHgo8n7nalifhruhgr4+gXwtFJgx9RnfSY2yka0iQ/GraFdYmuGlX+VCNx
+	wmurb+tR/mqLtrQQwjVM49ius/bB/USUQgiOMUyFusEV19fNqmgLKBe2ofEQHh2w2sGTDJ/aaGL53
+	IFZ5kBP9o7AmzSmRR2Q+mkU0TK0BruTJ04nI2N4dVLym4yTb2lKTGWX6IKgCAzSW7tBZf1PG9tIn6
+	RKJf6iCWICrkk6keYlOKhITUTc6m58c6Am/4f1Rk8EbLzyUBKJJM418DDaQpGFxKcFJccCh56rA34
+	KBRa2iEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhXa-0000000FvST-3bHH;
-	Tue, 12 May 2026 07:28:30 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1wMhdi-0000000FwJg-28cz;
+	Tue, 12 May 2026 07:34:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhXW-0000000FvRR-47RK
+	id 1wMhdg-0000000FwJ9-2GG2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 07:28:29 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=0nYwTUDHswJFeRsm/3KU6Cy6V8aaaXNHXn0IsdxK2KM=;
-	b=jDz5xt+7E9Lxfqur4EwzYh7d4J68ycyVgDFhfjX+3kufj3THHFvpmx0rAgUJs7I3IvBvS/xhN
-	kRmNigPk/3bor01beAWpkIif/AtEHZ2SkATpOewgHbf9yewe0lajQKkW0+LLDeh9Udesbzl1aZw
-	0kHXJRz4zkGulG4lwkrqlWc=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gF7Kk28hxz1K96d;
-	Tue, 12 May 2026 15:20:42 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5A6B34056E;
-	Tue, 12 May 2026 15:28:17 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 12 May 2026 15:28:16 +0800
-Subject: Re: [PATCH v17 24/24] KVM: selftests: Add guest_memfd testcase to
- fault-in on !mmap()'d memory
-To: Sean Christopherson <seanjc@google.com>
-CC: Zenghui Yu <zenghui.yu@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-kernel@vger.kernel.org>, Ira Weiny
-	<ira.weiny@intel.com>, Gavin Shan <gshan@redhat.com>, Shivank Garg
-	<shivankg@amd.com>, Vlastimil Babka <vbabka@suse.cz>, Xiaoyao Li
-	<xiaoyao.li@intel.com>, David Hildenbrand <david@redhat.com>, Fuad Tabba
-	<tabba@google.com>, Ackerley Tng <ackerleytng@google.com>, Tao Chan
-	<chentao@kylinos.cn>, James Houghton <jthoughton@google.com>
-References: <20250729225455.670324-1-seanjc@google.com>
- <20250729225455.670324-25-seanjc@google.com>
- <0064952b-048c-455d-ad89-e27e5cb82591@linux.dev>
- <aeJkCGwsrRmuBikT@google.com>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <c17d864a-42fc-afbe-345e-c728e2735d0c@huawei.com>
-Date: Tue, 12 May 2026 15:28:15 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	Tue, 12 May 2026 07:34:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E4D2944071;
+	Tue, 12 May 2026 07:34:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E27BC2BCB0;
+	Tue, 12 May 2026 07:34:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778571287;
+	bh=T/Fjk+Ia8FeTP20elfFPSEy0lY7bZ7cUA3AKIwU37ZU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b41QgKN8/pvSDbgptQLL7kDNut1BOUGA+W90IztVp/QJIz4DmjpHViUqgm/gWcQBz
+	 /9/D2QNqr9SK4X+RbqudiJWkDEEVS9L3KwnOM4JC44SXAvdIFvUj7OSxK3CGgaRwDJ
+	 nXTiq364Pe3yj5QXmN28eoof2LFc4DHIM8kFeMD02s2BfGrXaGWt1cshwD77t1G/07
+	 MpzPeeblgO2xG2d5a+l0zl/boS90vAeUnnrnrfx4V7Zp1J8MfLyy+lzezR/GiLquHm
+	 3en05WEMaCYfwHxwequ5zjGWKhCJV9dTxl6TKSXAnKpavL/VP33QA7T4GVZiKypF+D
+	 +HPwrkBZaQQeg==
+Date: Tue, 12 May 2026 16:34:42 +0900
+From: Nathan Chancellor <nathan@kernel.org>
+To: Mithil Bavishi <bavishimithil@gmail.com>
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <kees@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org, llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: OMAP2+: Make OMAP4 finish_suspend callback CFI-safe
+Message-ID: <20260512073442.GA570003@ax162>
+References: <20260512042341.1452-1-bavishimithil@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <aeJkCGwsrRmuBikT@google.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemk200017.china.huawei.com (7.202.194.83)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260512042341.1452-1-bavishimithil@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_002827_683835_3A2073C2 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20260512_003448_598418_6BF5AA24 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +78,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+On Tue, May 12, 2026 at 12:23:41AM -0400, Mithil Bavishi wrote:
+> With CONFIG_CFI enabled, OMAP4 can trap in omap4_enter_lowpower()
+> because omap_pm_ops.finish_suspend points directly to the assembly
+> routine omap4_finish_suspend, which lacks the expected KCFI type
+> metadata.
 
-On 2026/4/18 0:47, Sean Christopherson wrote:
+It sounds like omap4_finish_suspend() should be defined with
+SYM_TYPED_FUNC_START then? Is that the case for all of the other
+functions that are added to omap_pm_ops?
+
+> Add a small C wrapper with the exact callback prototype and use it for
+> finish_suspend.
 > 
-> Does this fix things for you?  If so, I'll send a proper patch.
+> Signed-off-by: Mithil Bavishi <bavishimithil@gmail.com>
+> ---
+>  arch/arm/mach-omap2/omap-mpuss-lowpower.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
 > 
-> diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
-> index ec7644aae999..c682bda722f9 100644
-> --- a/tools/testing/selftests/kvm/guest_memfd_test.c
-> +++ b/tools/testing/selftests/kvm/guest_memfd_test.c
-> @@ -510,9 +510,15 @@ static void test_guest_memfd_guest(void)
->                     "Default VM type should support INIT_SHARED, supported flags = 0x%x",
->                     vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_FLAGS));
+> diff --git a/arch/arm/mach-omap2/omap-mpuss-lowpower.c b/arch/arm/mach-omap2/omap-mpuss-lowpower.c
+> index f18ef45e2..1c51b2f97 100644
+> --- a/arch/arm/mach-omap2/omap-mpuss-lowpower.c
+> +++ b/arch/arm/mach-omap2/omap-mpuss-lowpower.c
+> @@ -111,6 +111,11 @@ static struct cpu_pm_ops omap_pm_ops = {
+>  	.hotplug_restart	= dummy_cpu_resume,
+>  };
 >  
-> +       /*
-> +        * Use the guest's page size for all accesses, e.g. to avoid having to
-> +        * map multiple pages, but create the guest_memfd instance with the max
-> +        * of the host or guest page size, as KVM requires gmem files to be
-> +        * aligned to the host page size.
-> +        */
->         size = vm->page_size;
-> -       fd = vm_create_guest_memfd(vm, size, GUEST_MEMFD_FLAG_MMAP |
-> -                                            GUEST_MEMFD_FLAG_INIT_SHARED);
-> +       fd = vm_create_guest_memfd(vm, max(size, page_size), GUEST_MEMFD_FLAG_MMAP |
-> +                                                            GUEST_MEMFD_FLAG_INIT_SHARED);
->         vm_set_user_memory_region2(vm, slot, KVM_MEM_GUEST_MEMFD, gpa, size, NULL, fd, 0);
+> +static int omap4_finish_suspend_wrapper(unsigned long cpu_state)
+> +{
+> +	return omap4_finish_suspend(cpu_state);
+> +}
+> +
+>  /*
+>   * Program the wakeup routine address for the CPU0 and CPU1
+>   * used for OFF or DORMANT wakeup.
+> @@ -437,7 +442,7 @@ int __init omap4_mpuss_init(void)
+>  	}
 >  
->         mem = kvm_mmap(size, PROT_READ | PROT_WRITE, MAP_SHARED, fd);
+>  	if (cpu_is_omap44xx()) {
+> -		omap_pm_ops.finish_suspend = omap4_finish_suspend;
+> +		omap_pm_ops.finish_suspend = omap4_finish_suspend_wrapper;
+>  		omap_pm_ops.resume = omap4_cpu_resume;
+>  		omap_pm_ops.scu_prepare = scu_pwrst_prepare;
+>  		omap_pm_ops.hotplug_restart = omap4_secondary_startup;
+> -- 
+> 2.43.0
+> 
 
-This results in another failure at
-
-|	vm_set_user_memory_region2(vm, slot, KVM_MEM_GUEST_MEMFD, gpa, size,
-NULL, fd, 0);
-
-# ./guest_memfd_test
-Random seed: 0x6b8b4567
-__vm_create: mode='PA-bits:40,  VA-bits:48,  4K pages' type='0', pages='672'
-==== Test Assertion Failure ====
-  lib/kvm_util.c:974: !ret
-  pid=284539 tid=284539 errno=22 - Invalid argument
-     1	0x00000000004008fb: test_guest_memfd_guest at guest_memfd_test.c:522
-     2	 (inlined by) main at guest_memfd_test.c:561
-     3	0x0000000000417623: __libc_start_call_main at libc-start.o:?
-     4	0x000000000041796b: __libc_start_main_impl at ??:?
-     5	0x0000000000400cef: _start at ??:?
-  KVM_SET_USER_MEMORY_REGION2 failed, errno = 22 (Invalid argument)
-
-Thanks,
-Zenghui
+-- 
+Cheers,
+Nathan
 
