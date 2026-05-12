@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F79CCD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:08:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD95CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J2xPrSGSLq0PpqiMQaJdlY8PYtxGArCooKFROiwosD0=; b=I97E4Db8UhHnhse+vPLmNYjoBq
-	sd1DBoy0heXcvymXXW35MBhP+4tBQXRq9+SrDIXyEEPLYULv3+E/09jTZBMAn7eY7V/m62JQAU5nb
-	RuoZTxotteYd/jABqC0zp40AmicGu0HvpK+jPCG7WQc2l/KVVwkrIdR/QcmId/as0U2/XG5cOd4WU
-	Hi2UlOYeZEsFVjTM3cRT8KW9D/XlBI7FSMlvg99iZA4rGDgcRhKHUHD8/WE7IzTv4I8lDXOMpt+LJ
-	6Avc+8F47C8u1/PTXoA0o646NAFrnaDIEEE3rn/UIYyBMSQ9LICMUKnNq9j/W3uiTfj3Evwwjtbu7
-	NHBEZZ/Q==;
+	bh=Dnd1bX0pr3hK6Ikbbvz/Jke+2CcjZleJZglgA4t1wTM=; b=TnM+tJQLgrKDlXm2FdEc0VF/PO
+	Sj6ZFUt8kgXzQbyE6E3AtiU/BfDq/4B03Ua3CdB7kNlWq20EX2Z0GquGa9sCNXAUn8CXl8A/9K4UN
+	SxnfymGwxbCaU1imwE/q17DZ4XMjr0RD0InI7KEzNGYcodeCKnXWiyRggwjCfHXEySXLRCmJAldHL
+	Gn2OxGUY0/+d/wDsi0azbvLBNif+7m7Li6cTW6jLmAc/mb6z7pCnvKwhLrYlCSJeVfTK3YNqb29zZ
+	jrLkuA4iCLkmT47tRRJ1Rdetgtpn1kLLQoBfQTKw3Kf+ppQ9PyzSSUdPN1gn6diAZHWA1r+JE8di7
+	ttxas/3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnn0-0000000Gxy7-0kV3;
-	Tue, 12 May 2026 14:08:50 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnmx-0000000Gxw5-1F3j
+	id 1wMnnS-0000000Gy7E-1gWz;
+	Tue, 12 May 2026 14:09:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMnnP-0000000Gy4z-2Ye4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 14:08:48 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wMnmV-0001ds-N8; Tue, 12 May 2026 16:08:19 +0200
-Message-ID: <1f447423-8c63-4545-a4f7-d8d5ef821255@pengutronix.de>
-Date: Tue, 12 May 2026 16:08:14 +0200
+	Tue, 12 May 2026 14:09:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 787D9165C;
+	Tue, 12 May 2026 07:09:07 -0700 (PDT)
+Received: from [10.57.33.240] (unknown [10.57.33.240])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 079253F836;
+	Tue, 12 May 2026 07:09:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778594952; bh=FabVZhOZB1uonc8YK0s1vwGU1P3Po5fM+FR8VPSJIAU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IGD1VT8NvuVMDyZ+D8KoPMKISbi0exI1QYq7+sh2n18jN1Q88kOhYfTML+RbTs4rE
+	 u1P3tY1/4+Q7QFYHh8+dm0Nvxw1YugVAja850MLudwPIam80fEd+gpLjb9L9X1158K
+	 0hGoa283rG1u8luQHzHoKY21rh3i3tFQJiK/f6hg=
+Message-ID: <506bf1b9-dfc4-4717-b26b-835c331d23c4@arm.com>
+Date: Tue, 12 May 2026 16:09:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 16/29] media: rockchip: rga: split flip and rotate into
- separate function
-To: Nicolas Dufresne <nicolas@ndufresne.ca>,
- Jacob Chen <jacob-chen@iotwrt.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, kernel@pengutronix.de,
- sebastian.reichel@collabora.com
-References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
- <20260428-spu-rga3-v5-16-eb7f5d019d86@pengutronix.de>
- <ebe5cd6689923eb1e2124e177f694895383fba54.camel@ndufresne.ca>
+Subject: Re: [PATCH] firmware: smccc: Fix Arm SMCCC SOC_ID name call
+To: Paul Benoit <paul@os.amperecomputing.com>,
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250902172053.304911-1-andre.przywara@arm.com>
+ <20250903-great-savvy-bloodhound-38c1ca@sudeepholla>
+ <20250903-loutish-orangutan-of-experience-3dcfda@sudeepholla>
+ <cc8000c0-e457-4bfc-94de-aeeddacab23b@os.amperecomputing.com>
+ <20250904-powerful-futuristic-tench-bcebd4@sudeepholla>
+ <c0bcef12-6837-414a-960c-da3cf3948308@arm.com>
+ <c72b6d61-d532-48f0-add0-4f44051b4ae9@os.amperecomputing.com>
 Content-Language: en-US
-From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-In-Reply-To: <ebe5cd6689923eb1e2124e177f694895383fba54.camel@ndufresne.ca>
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <c72b6d61-d532-48f0-add0-4f44051b4ae9@os.amperecomputing.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_070847_482585_36DE1B0D 
-X-CRM114-Status: GOOD (  38.35  )
+X-CRM114-CacheID: sfid-20260512_070915_861580_02881F5C 
+X-CRM114-Status: GOOD (  41.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,174 +78,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+Hi Paul,
 
-On 5/9/26 12:11 AM, Nicolas Dufresne wrote:
-> Le mardi 28 avril 2026 à 11:00 +0200, Sven Püschel a écrit :
->> Split the flip and rotate command configuration into a separate
->> function in preparation of filling the command stream at streamon.
->> As the userspace can change the flipping and rotation controls while
->> streaming, we have to update them with each new frame to prevent the
->> user being unable to change them while streaming.
+many thanks for the answer, and apologies for the delay (was on holidays).
+
+On 5/1/26 22:14, Paul Benoit wrote:
+> On 4/30/2026 10:59 AM, Andre Przywara wrote:
+>> [You don't often get email from andre.przywara@arm.com. Learn why this 
+>> is important at https://aka.ms/LearnAboutSenderIdentification ]
 >>
->> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
-> For code point of view, everything seems fine, but the commit message leave me a
-> bit wondering. Any rotation that isn't 180 degree will cause the width and
-> height to be reversed, and a new stride is needed to present the buffer
-> correctly. Meaning the capture format can be affected by this change.
-
-Sorry for missing to properly communicate my intention with this patch.
-
-I've stumbled over the RGA pulling a spin lock on the controls, when 
-starting the next job [1]. This made me realize that the driver allows 
-changing the controls while streaming, which my change to move the 
-command buffer setup to streamon breaks (as a potential rotation isn't 
-updated until the next streamon).
-
-This commit is the result of trying to not break the old behavior by 
-moving the relevant code parts to be run on every frame instead of being 
-only run at streamon. I didn't think about the 90 degree rotation 
-problems, which are also present in the current RGA state.
-
-sashiko.dev also pointed out that my simple code move didn't work for 
-the mirroring case [2], as the relevant command buffer is ore'd with the 
-mirroring flags. Also I've noticed that the rotation mode affects the 
-scaling factor. To avoid these footguns, I've got the idea to set a flag 
-to raise when the controls change. Then I can fully re-initialize the 
-command buffer on the next frame and fully avoid these kind of problems.
-
-
-[1] 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/media/platform/rockchip/rga/rga.c?id=50897c955902c93ae71c38698abb910525ebdc89#n41
-
-[2] 
-https://sashiko.dev/#/patchset/20260428-spu-rga3-v5-0-eb7f5d019d86%40pengutronix.de?part=16
-
->
-> To stick with the spec, the capture format needs to be updated, and it needs to
-> happen in a way user can be able to read it back for the correct frame if
-> userspace make use of the queues. I see 3 options, let me know what you think,
-> or what is later implemented if you already thought about that.
->
-> 1. Synchronously update the capture format width/height, document in the
-> respective control this behaviour, leaving to userspace to remember which frames
-> the change will apply to.
->
-> This works nicely for this type of HW, but would be a bit complicated for a
-> deinterlacer, since the buffering might be HW specific. It also make usage of
-> queues harder, less independent.
->
-> 2. Force a drain/stop/start for any 90 degree rotation
->
-> This might impose a longer idle time for the converter core, and is kind of
-> opposite of your commit message. But requires no spec work.
->
-> 3. Emit SRC_CH, implement the drain procedure typical to decoder resolution
-> change.
->
-> Typically it means userspace can keep buffering on the OUTPUT queue, and once
-> the LAST buffer is met, it can simply read the new format (and new stride, since
-> due to alignment, this might be hardware specific) and toggle streamoff/on only
-> on capture queue to reactivate the processing.
->
-> The 3. is more complex for the driver, but its a proven race-free method for
-> decoders already. 2 would be statusquo to get this series in, and we could post-
-> poned more advance work for seamless 90degree rorations. 1., I don't really like
-> that solution, it not quite generic enough.
-
-I'll go with option 2 for now to keep it simple and improve the status 
-quo a bit.
-
-Sincerely
-     Sven
-
-> feedback welcome,
-> Nicolas
->
->> ---
->>   drivers/media/platform/rockchip/rga/rga-hw.c | 57 +++++++++++++++++-----------
->>   1 file changed, 34 insertions(+), 23 deletions(-)
+>> Hi Paul,
 >>
->> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
->> index dac3cb6aa17d3..6c1956b04f6ba 100644
->> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
->> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
->> @@ -156,7 +156,38 @@ static void rga_cmd_set_dst_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
->>   	dest[reg >> 2] |= 0x7 << 8;
->>   }
->>   
->> -static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
->> +static void rga_cmd_set_flip_rotate_info(struct rga_ctx *ctx)
->> +{
->> +	u32 *dest = ctx->cmdbuf_virt;
->> +	union rga_src_info src_info;
->> +
->> +	src_info.val = dest[(RGA_SRC_INFO - RGA_MODE_BASE_REG) >> 2];
->> +
->> +	if (ctx->vflip)
->> +		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_X;
->> +
->> +	if (ctx->hflip)
->> +		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_Y;
->> +
->> +	switch (ctx->rotate) {
->> +	case 90:
->> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_90_DEGREE;
->> +		break;
->> +	case 180:
->> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_180_DEGREE;
->> +		break;
->> +	case 270:
->> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_270_DEGREE;
->> +		break;
->> +	default:
->> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_0_DEGREE;
->> +		break;
->> +	}
->> +
->> +	dest[(RGA_SRC_INFO - RGA_MODE_BASE_REG) >> 2] = src_info.val;
->> +}
->> +
->> +static void rga_cmd_set_format_scale_info(struct rga_ctx *ctx)
->>   {
->>   	struct rockchip_rga *rga = ctx->rga;
->>   	u32 *dest = ctx->cmdbuf_virt;
->> @@ -219,27 +250,6 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
->>   		}
->>   	}
->>   
->> -	if (ctx->vflip)
->> -		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_X;
->> -
->> -	if (ctx->hflip)
->> -		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_Y;
->> -
->> -	switch (ctx->rotate) {
->> -	case 90:
->> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_90_DEGREE;
->> -		break;
->> -	case 180:
->> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_180_DEGREE;
->> -		break;
->> -	case 270:
->> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_270_DEGREE;
->> -		break;
->> -	default:
->> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_0_DEGREE;
->> -		break;
->> -	}
->> -
->>   	/*
->>   	 * Calculate the up/down scaling mode/factor.
->>   	 *
->> @@ -431,7 +441,8 @@ static void rga_cmd_set(struct rga_ctx *ctx,
->>   
->>   	rga_cmd_set_src_info(ctx, &src->offset);
->>   	rga_cmd_set_dst_info(ctx, &dst->offset);
->> -	rga_cmd_set_trans_info(ctx);
->> +	rga_cmd_set_format_scale_info(ctx);
->> +	rga_cmd_set_flip_rotate_info(ctx);
->>   
->>   	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
->>   
+>> is there any update on this?
+>> One more thought below ...
+>>
+> 
+> Hi Andre,
+> 
+> Using the incorrect SMC32 vs. the correct SMC64 interface, for SOC_ID
+> Name, was addressed by Ampere firmware some months back.
+> 
+> In addition to recent firmware now responding to a SMC64 CC SOC_ID Name
+> request, it will continue to respond to an incorrect/broken SMC32
+> request and return the SOC_ID Name string packed in 64-bit registers.
+> This will allow Linux kernels 6.15+, incorrectly using SMC32 to get the
+> SOC_ID Name, to continue to work with new Ampere firmware versions.
+
+OK, many thanks for the information, that seems to be a good solution.
+
+> In other words, unless any other vendors also implemented SOC_ID Name as
+> SMC32 in their firmware, I think we can let the Ampere firmware handle
+> the SMC32 vs. SMC64 mix-up and keep the handling of it out of the Linux
+> kernel.
+
+But I think availability of the machines predates the "some month back" 
+period you mention above?
+So it would only work if users would update the firmware?
+
+> It should now be safe to make the SMC32->SMC64 SOC_ID Name change in
+> Linux.
+
+So I wonder if would still need a quirk for AmpereOne. I guess we can't 
+query the TF-A build version easily, and a DMI quirk probably doesn't 
+work either, judging by the dmidecode output of one machine I looked at.
+So I was wondering if we should employ the following algorithm:
+
+	- do call with 64-bit FID
+	- if (ret == -1) && (soc_id == jep106:0a16:0004)
+		- try 32-bit FID
+
+Would that work? That checks for the SoC, not the firmware version, but 
+seems way easier to implement and would cover all cases.
+
+Thoughts?
+
+Cheers,
+Andre
+
+> 
+> 
+>> On 9/4/25 16:29, Sudeep Holla wrote:
+>>> On Wed, Sep 03, 2025 at 05:38:44PM -0400, Paul Benoit wrote:
+>>>> On 9/3/2025 10:49 AM, Sudeep Holla wrote:
+>>>>> On Wed, Sep 03, 2025 at 03:23:58PM +0100, Sudeep Holla wrote:
+>>>>>> On Tue, Sep 02, 2025 at 06:20:53PM +0100, Andre Przywara wrote:
+>>>>>>> Commit 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC 
+>>>>>>> SOC_ID
+>>>>>>> name") introduced the SOC_ID name string call, which reports a human
+>>>>>>> readable string describing the SoC, as returned by firmware.
+>>>>>>> The SMCCC spec v1.6 describes this feature as AArch64 only, since 
+>>>>>>> we rely
+>>>>>>> on 8 characters to be transmitted per register. Consequently the 
+>>>>>>> SMCCC
+>>>>>>> call must use the AArch64 calling convention, which requires bit 
+>>>>>>> 30 of
+>>>>>>> the FID to be set. The spec is a bit confusing here, since it 
+>>>>>>> mentions
+>>>>>>> that in the parameter description ("2: SoC name (optionally 
+>>>>>>> implemented for
+>>>>>>> SMC64 calls, ..."), but still prints the FID explicitly as 
+>>>>>>> 0x80000002.
+>>>>>>> But as this FID is using the SMC32 calling convention (correct 
+>>>>>>> for the
+>>>>>>> other two calls), it will not match what mainline TF-A is 
+>>>>>>> expecting, so
+>>>>>>> any call would return NOT_SUPPORTED.
+>>>>>>>
+>>>>>>
+>>>>>> Good catch and I must admit I completely missed it inspite of 
+>>>>>> discussing
+>>>>>> 32b vs 64b FID around the same time this was introduced.
+>>>>>>
+>>>>>>> Add a 64-bit version of the ARCH_SOC_ID FID macro, and use that 
+>>>>>>> for the
+>>>>>>> SoC name version of the call.
+>>>>>>>
+>>>>>>> Fixes: 5f9c23abc477 ("firmware: smccc: Support optional Arm SMCCC 
+>>>>>>> SOC_ID name")
+>>>>>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>>>>>>> ---
+>>>>>>> Hi,
+>>>>>>>
+>>>>>>> as somewhat expected, this now fails on an Ampere machine, which
+>>>>>>> reported a string in /sys/devices/soc0/machine before, but is now 
+>>>>>>> missing
+>>>>>>> this file.
+>>>>>>> Any idea what's the best way to handle this? Let the code try the 
+>>>>>>> 32-bit
+>>>>>>> FID, when the 64-bit one fails? Or handle this as some kind of 
+>>>>>>> erratum?
+>>>>>>>
+>>>>>>
+>>>>>> Not sure about it yet. Erratum seems good option so that we can avoid
+>>>>>> others getting it wrong too as they might just run the kernel and 
+>>>>>> be happy
+>>>>>> if the machine sysfs shows up as we decided to do fallback to 32b 
+>>>>>> FID.
+>>>>>>
+>>>>>> I will start a discussion to get the spec updated and pushed out 
+>>>>>> and see
+>>>>>> how that goes.
+>>>>>>
+>>>>>> The change itself looks good and happy to get it merged once we know
+>>>>>> what is the best approach(erratum vs fallback).
+>>>>>>
+>>>>>
+>>>>> Looking at the SMCCC spec(DEN0028 v1.6 G Edition) ->
+>>>>> Section 7.4.6 Implementation responsibilities
+>>>>>
+>>>>> If implemented, the firmware:
+>>>>> ...
+>>>>> • must not implement SoC_ID_type == 2 for SMC32.
+>>>>> • can optionally implement SoC_ID_type == 2 for SMC64 (Function ID 
+>>>>> 0xC000_0002),
+>>>>> ...
+>>>>>
+>>>>> So Ampere is not spec conformant here and hence I prefer to handle 
+>>>>> it as
+>>>>> erratum. Hopefully we can use SOC_ID version and revision to keep 
+>>>>> the scope
+>>>>> of erratum confined to smallest set of platforms.
+>>>>>
+>>>>> Paul,
+>>>>>
+>>>>> Thoughts ?
+>>>>>
+>>>>
+>>>> Am I correctly understanding that, if the SMC64 SOC_ID Name call fails,
+>>>> rather than an unconditional fallback to the SMC32 call, the SMC32
+>>>> fallback would only be occurring under the proposed erratum?
+>>>>
+>>>
+>>> Correct, if we have unconditional fallback to the SMC32 call, then there
+>>> is a chance that this issue gets carried into newer Ampere systems as 
+>>> f/w
+>>> gets copied as well as other vendors will also not notice the issue if
+>>> they make similar mistake as the kernel silent makes a SMC32 call.
+>>>
+>>> We do need details of  the SoC revision and version for which we need to
+>>> apply this workaround/erratum.
+>>
+>> So this looks more like a firmware erratum than a SoC specific one,
+>> right? So I wonder if any SoC specific IDs are really appropriate here.
+>> Is there some firmware version we can read via DMI or so to identify
+>> affected systems?
+>> Or shall we use a probably much easier SoC or even MIDR check anyway,
+>> since it's just a fallback? As in: try smc64, if that fails and if it's
+>> a core that ever shipped with that affected firmware, try smc32? I think
+>> there is not much harm in trying those FIDs, so we just limit the scope
+>> to Ampere cores - even though that's technically not the right method by
+>> the book?
+>>
+>> Cheers,
+>> Andre
+>>
+>>
+>>
+>>>
+>>>> I brought this issue up at a weekly team meeting today, and I'll 
+>>>> also be
+>>>> communicating with the Ampere Computing firmware team regarding this
+>>>> issue.
+>>>
+>>> Thanks!
+>>>
+>>
+> 
+
 
