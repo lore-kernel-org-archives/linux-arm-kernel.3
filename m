@@ -4,112 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28ED4CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 10:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853D6CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 10:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9vpyC9g/4a6soW3baW1ZfRfFD5ejqC8VcJYB7ujrZwE=; b=KM+3bdYmw+kr3D1UIxTfHmLBQm
-	jFM4L1/qT2vgxvsYx9Lr9512tG0d8jgAIol7+NquDznEOse0C4wEeBU526mjuPm7YOe0lEt5iaep8
-	M82y3jOKL2WqjJeQ6gUlgm7Ca7SEsDTcP3UTzrx4WHA4wHYgSnPYzDT+eVPlROVonzfo7nnuqzi4j
-	zWobVVCX10VP70kqtPeyofAUa8xXWEk3b6pFIeQE7Beg8TUVrKE+vRYO9KGuA5PJxwUhhyJAUOLFg
-	32NDhaqb+NumLIAM/LzAxSzejLv757x+0zfo+ISMRc43GooLQFkdEEzZt9wvcmyZV2Xp154DDT4WZ
-	ff10UrLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AQnsKNhNXTVBwVhbx5Jsv/rmlTd+CekkurepoSyw9KI=; b=G1oyeBBuTmW1eEDgiOFdhl+kuj
+	965vTb3ibkaaySGKtQskti4o2uMBBVvdxPpvIIeasGnLR6YsLAd6cOIXI8lbyYMR9VBCAZ1PF1iBi
+	DUEbkH0tTQ/PSF+nsf6W/G6YZq10mp73GXEyeq0jkDlQmvT5HjpsPchuq7LOnUxp2jISn6tGrkWXS
+	pnG5qIg17iTnbdUwabK5zNgEkF0CWgNmdwp+4Zc1XiyVcnGZG5Eo8apFx3ziQS079rzwR6vvQRzSf
+	8hdEqS+eeBi8Ncu4pno+qBzAsOgFPMJxuXeFAUNneyM7KZaNiP3VxIDXFdcrVsLgwKIIGNHk3em28
+	VIVR/NRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjxk-0000000GN1s-2JxX;
-	Tue, 12 May 2026 10:03:40 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
+	id 1wMkKo-0000000GQcW-1TMD;
+	Tue, 12 May 2026 10:27:30 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjxh-0000000GN1R-2JI3
+	id 1wMkKl-0000000GQbs-1YUB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 10:03:38 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-4232323a7daso2466777fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 03:03:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778580216; cv=none;
-        d=google.com; s=arc-20240605;
-        b=FH1F8NnIW5HIsw3dYxRing115Cz89p+cbpWZ2ne36UNQbr+rcuWZnI7r3V6PfOu2Vj
-         9oA9xhI2vz9fujlHgdYTesjdeATz0P+RBGu9yj3BLsWh8vG5CWCapBD8ASvWd4gz6B7t
-         ms9LCe9Aq0Bn5EYbUBYBh1+WK4oDEWEwi3WnH25fdpc5dO87tfzRoc5ATo4pWk7T5623
-         cvMiPzZpZYYz2F48AJOaQmwuOes3VxHRwIQluYwEV+lGt3x/WMLsDZfqOk6vQmvoqq55
-         phNHU10FRzN//nBfpeY8rOm/xRP25AiV5cssdZO543jDbNUFMMmAtMVK9Tb+dFO35KHD
-         S+lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=9vpyC9g/4a6soW3baW1ZfRfFD5ejqC8VcJYB7ujrZwE=;
-        fh=2munFbRi39ZED7t9H8hPbTULjaWZxec1lqQcpleceVo=;
-        b=ACOQaWN0pOIjNon8dh+v2nrWScaylduEEd92rsqUq54VPuvhz3ir5NJmlK6y2tdd0G
-         gTDhxqkn2wP/kcj1TAYC3GJ7uPnhLbpZGCkilXsmdm+M7kjTRCJmN4QI114cHOyucD1H
-         aSyiFPcadFiwuG1K+ZdHFu6zrlaXqXt6q2qoSJZV6gtqY3FiUuYxQ23g4qx6Kcxf+cqq
-         c+JSqMG06xdmwjlo0pa691Lqk/WD4mXRs9FhA25KYuFIsp9O22RKSI05uszwu08eUMLz
-         PsKFJ3X1VsjCgBNLs22p1qHP9adIXyprNOjOLZHWe/PpjMHusHfx5dtKr17clJjQI02J
-         SySg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778580216; x=1779185016; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9vpyC9g/4a6soW3baW1ZfRfFD5ejqC8VcJYB7ujrZwE=;
-        b=DpPrq3AeJ2JThZ3W4oMwj+1R4SoHtZUxYJOpItoX64m18vMdQoQy491VQMX8W7nnkA
-         shOscSXM3RoF5Vr1/vWcIzmisaMRzJhguH1noAIniMS5kFSjtDjptfr/ZnKktyI8lnYO
-         1PYTR+PL5wSNiQ7J7lGnEsRLFAw6BrM22RbjWDbG1BSR2bj5ol1yo1VVdOqroQ21/Ots
-         /hlXxohrt8NOhq9AUyTPy5vw+ggSANx5Y8tqPKY6IwwFz+d2LsVOyZ611lEAalNgSfEe
-         nqH4ppAH0uP3xCq6eXt3BhbSQ6ZAz31O/0x/tMgkrnLguX/Jy9YMfHuugvJF3lr5R5P4
-         bjUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778580216; x=1779185016;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=9vpyC9g/4a6soW3baW1ZfRfFD5ejqC8VcJYB7ujrZwE=;
-        b=edawYibds4DfnlVxaawlPfy0dlgsIMDKXVW7q9b3aL/OTFcEzSPzhHOK/mK1VnJ5Tf
-         mbs6d4u8pDhLyC+RvlCna7s+B20lqxnEe1N8cZegb0rZt7qpRAXmAByEzjppoA+rA+N5
-         VvEw5OK1FmRIF0QYQOsdZKSKpH/tBFuudmeJp2OGySw6vRPTkq+1y7LMqxAApw13431n
-         rHUm0urqidNCtz0ycpoXSM/kkveJcvovsz1hYvODdCe7Hxuvs1zklUi559Px1twyJt82
-         MJfgZ1KvrQ+3tAXEfjzxi6e3oc5hiQCN5A/4QxHI1mIMls+vpcfMdUmXsQhqElWuOlPL
-         +brQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/O1LduA0wOfASx3Yp8+FCAIgkm/Lmi/rCBxKV1vdjNMzGXjz6nNtWIWz/iJuTdElmfL4zqssyDWVz/juFyQzc2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjeRBUUitaLgnTk32g0Mbcuw9h8iMwwtcd7xa50Bon1myqTyEw
-	4ndZGjkMzWHBsGdZIFNl6o7vIF7fWKJowl36KfWm3nSbWfHAnDG4o3Yt06JBJDA7jdo47x07WPf
-	I97BUmuQW4r8HZQeBjgYe0U79rhoxhc8=
-X-Gm-Gg: Acq92OHGFvKTT+YMTCJp6N/h+TZZXIStBXcSmDJilVZPfn5IFX0K3E6EtreoSTxEaUK
-	Cg6hMV3WCWrpiyoEV7fZRYOtkUpuDYxBOnFqBqCfT7jtEieZDungm0gBzA3KypqhKqadRBxzB19
-	6WDWE5WqOBbwuTtHSbg7gYCc+B5PfVMxzmkNmME2szsc0WOm+k7+NEh/25999nnhv5hJV/oDJsR
-	WJsZdRJObC4VWme36JyBL9MCnoBSglKAfHBkynb/8kmuVi/nJ2GUx3SR27fc2pmirUs7BYona3l
-	hfmLhSY+6xDXNM/CZ3WBESrL7U7ng1GQwDdRCQ==
-X-Received: by 2002:a05:6870:55c6:b0:42b:d0fa:771 with SMTP id
- 586e51a60fabf-439a29aa5d3mr1258410fac.21.1778580216477; Tue, 12 May 2026
- 03:03:36 -0700 (PDT)
+	Tue, 12 May 2026 10:27:28 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=cLI763SZwYf3nr+cHCWRbMRZgue+krhSSLowZD8hBOCNLMcBPGMRWN+uVSY40AoGw5dR8Aa62CwhH7SuZi+IxOgfpomsRbOF+KHrJsEntaIqvwWsRLwEAslyCfHVnKZg/tFInTKb02DiPBtdi/GPC85uTYtZFXx24wkGRBm0i87LyM97x6TccTUxhDBQNk03EUh2Bxxo0Or2AUxl0Gk8wN1Ov6L9/xKhkGIKIIEs7HvhCBHL2oJjaFPaVorjX+RyXWfFQABBMtZO2R5LJVqQVvKDli9FFq5MMA6HuwUpu0ARUHgmflhEZsqmZwCNyGb47z9f+d8YFOl7sdtaNS7LoA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AQnsKNhNXTVBwVhbx5Jsv/rmlTd+CekkurepoSyw9KI=;
+ b=UFnoRxQlv6eOl5lt4Bos3ecK9shILCbKvLW3GBtyIgcujVhJX0Om/XoWp02K6xOm8Dj6AWhlg5s9YxT4gsyqzBI43JjRVnPxgMAu332MoW1sdqSuR18R5YKZ3YekWhAvEKbwk6tujcTHvDhvqoP+sxIYveJlGf3or7YguE2bWejp24bWvYHrcRfhJgOFQtORbRRYbfJRHB4v2RfhceGO4wijt6Ri1h7oD28IBj968RWeFbHb4+PM+nNU+AeT4ricWcfmhp/8BmUwkg8koF3hm55UZ+OIfkO77r7gk6RihPQHSunRYXHIH1oOOpc46fPoQokCM2lhz5JSjCebGsK1GA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.17.62.50) smtp.rcpttodomain=davemloft.net smtp.mailfrom=solid-run.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=solid-run.com; dkim=pass (signature was verified)
+ header.d=solid-run.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=solid-run.com] dkim=[1,1,header.d=solid-run.com]
+ dmarc=[1,1,header.from=solid-run.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AQnsKNhNXTVBwVhbx5Jsv/rmlTd+CekkurepoSyw9KI=;
+ b=q0DBjqf4m9J0nRIpcGOzWWw8rfxoggQ372JmoCaVvTtQmj4c/UrrK9lOYT4g398WXddp5AkL29JmAueu+8G7wsxWjyjjLr0yG3UY2IB6Z0Q2exXHlh7BXuZ7ixMxN7z38chuuGUSKUoIlIIDyu0gwqxTNQbkSwjxtYsFnZnlOKOk88ZhjOjmhB3j0ETveCaqeSVZJ6l7hXELF+kQYmJ0KO6LZttsd3jQRhatBWyn4Xfzy4jCyL+ueqSkh2x/DohYgD2OHgOUpRuLcKMX4/pyNIiUh26pVKVwSzUUz0eZhMopsGiVdQOsIOxGpiMDBlTMgGGekLdz3K9GqisD/1BFcg==
+Received: from DU2P251CA0001.EURP251.PROD.OUTLOOK.COM (2603:10a6:10:230::12)
+ by PA1PR04MB10986.eurprd04.prod.outlook.com (2603:10a6:102:489::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
+ 2026 10:27:20 +0000
+Received: from DU6PEPF0000A7DD.eurprd02.prod.outlook.com
+ (2603:10a6:10:230:cafe::b0) by DU2P251CA0001.outlook.office365.com
+ (2603:10a6:10:230::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.11 via Frontend Transport; Tue,
+ 12 May 2026 10:27:20 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
+ smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
+ header.d=solid-run.com;dmarc=pass action=none header.from=solid-run.com;
+Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
+ designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
+Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
+ DU6PEPF0000A7DD.mail.protection.outlook.com (10.167.8.37) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.13 via
+ Frontend Transport; Tue, 12 May 2026 10:27:18 +0000
+Received: from emails-4282437-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-6-103.eu-west-1.compute.internal [10.20.6.103])
+	by mta-outgoing-dlp-588-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id D806F8046A;
+	Tue, 12 May 2026 10:27:18 +0000 (UTC)
+X-Mailbox-Line: From b'josua@solid-run.com' Tue May 12 10:27:05 2026
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qoGgcmRcpVoWomsvLAilCmozJ/IN9ZtrEEqnJKF4xNnl9JGO2X4zveec1s3Bpi6mGOpnBoG8Nk9nMNL6pqfWTOmqHzFJRIiYGYpHYfaG4K/xZ2py9njT8X8ldUO5+zVV8DdtCj2qBXDkEZoArtQgGWIAIGBjFgZbb1+ykLoRq5k6az02e/PxBvEE67VuIkhn9/vYZSuBPFHSlxpREtHPeOm/FzkMjqhXaZmYy/Zi0fFpgw7uUvkJwQx1kzE/PRPX4qTdPeIMhpz3IN6fjmPwO8SuqwP0kCS9kT5kGYf64DpMCF+MGQrm3rdYuZn92QAczSE2B62Wy9ByOOhNHkMMzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AQnsKNhNXTVBwVhbx5Jsv/rmlTd+CekkurepoSyw9KI=;
+ b=G1N7xyzpwPPPCdN63ICLpCYSj2XN/fpYBqJFVxoaUhMsP32XRnR+ShGNaiV/NqCm5e5tVcDjGkiIBjmjjv3Y4/GsYaE83GP8ZYYmSGJJur73JG4WVOKzqMjcwNjyOim3ANUyxECvlsJTt4M/PbxuHmSC7ei51gaon1C37dcvpOyyvzW5vfrot0++XIpoknf6uu8SJEn5yQhLc9yAOj9DH4/FuFQtTV36m6X5icfq8hKFWxiF2ktuU3LLMFJDPXYVarie1DQsETLaNY/m4KKcEF9sZPxE+wK/COY+uZwtR5i/miNZRLrUm8EQ7ltg7KBfhW5v9tBw+2P90z/iJTsz4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=solid-run.com; dmarc=pass action=none
+ header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AQnsKNhNXTVBwVhbx5Jsv/rmlTd+CekkurepoSyw9KI=;
+ b=q0DBjqf4m9J0nRIpcGOzWWw8rfxoggQ372JmoCaVvTtQmj4c/UrrK9lOYT4g398WXddp5AkL29JmAueu+8G7wsxWjyjjLr0yG3UY2IB6Z0Q2exXHlh7BXuZ7ixMxN7z38chuuGUSKUoIlIIDyu0gwqxTNQbkSwjxtYsFnZnlOKOk88ZhjOjmhB3j0ETveCaqeSVZJ6l7hXELF+kQYmJ0KO6LZttsd3jQRhatBWyn4Xfzy4jCyL+ueqSkh2x/DohYgD2OHgOUpRuLcKMX4/pyNIiUh26pVKVwSzUUz0eZhMopsGiVdQOsIOxGpiMDBlTMgGGekLdz3K9GqisD/1BFcg==
+Received: from GVXPR04MB12057.eurprd04.prod.outlook.com
+ (2603:10a6:150:313::24) by AS8PR04MB8309.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3fe::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
+ 2026 10:27:02 +0000
+Received: from GVXPR04MB12057.eurprd04.prod.outlook.com
+ ([fe80::14f1:a127:2988:de5b]) by GVXPR04MB12057.eurprd04.prod.outlook.com
+ ([fe80::14f1:a127:2988:de5b%7]) with mapi id 15.20.9891.021; Tue, 12 May 2026
+ 10:27:02 +0000
+From: Josua Mayer <josua@solid-run.com>
+To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <vladimir.oltean@nxp.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Frank Li
+	<Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel
+ Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Vladimir
+ Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Yazan Shhady <yazan.shhady@solid-run.com>, Mikhail
+ Anikin <mikhail.anikin@solid-run.com>, Alexander Dahl <ada@thorsis.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Conor Dooley
+	<conor.dooley@microchip.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
+Subject: Re: [PATCH v4 2/2] arm64: dts: imx8dxl: Add SolidRun SoM and
+ HummingBoard
+Thread-Topic: [PATCH v4 2/2] arm64: dts: imx8dxl: Add SolidRun SoM and
+ HummingBoard
+Thread-Index: AQHc4S6NPDp3cRKl10uFQFLEqUD7b7YIr0xYgAAisQCAAV9igA==
+Date: Tue, 12 May 2026 10:27:02 +0000
+Message-ID: <25e8c090-aaea-4898-b3bb-14c71bcab41e@solid-run.com>
+References: <20260511-imx8dxl-sr-som-v4-0-64381b3bf80d@solid-run.com>
+ <20260511-imx8dxl-sr-som-v4-0-64381b3bf80d@solid-run.com>
+ <20260511-imx8dxl-sr-som-v4-2-64381b3bf80d@solid-run.com>
+ <20260511-imx8dxl-sr-som-v4-2-64381b3bf80d@solid-run.com>
+ <20260511112438.4fxvhelf242emzft@skbuf>
+ <557f7332-42b4-49eb-85ea-76d141a2150f@lunn.ch>
+In-Reply-To: <557f7332-42b4-49eb-85ea-76d141a2150f@lunn.ch>
+Accept-Language: de-DE, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=solid-run.com;
+x-ms-traffictypediagnostic: GVXPR04MB12057:EE_|AS8PR04MB8309:EE_|DU6PEPF0000A7DD:EE_|PA1PR04MB10986:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef66ccf3-e019-4665-59b1-08deb0110bb2
+x-cloud-sec-av-info: solidrun,office365_emails,sent,inline
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700021|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: T/+1dKBelOBbI6xoIkLCfM8vwQYPdZa3rbLJVykW/qUMz9HR/vczevdTEQAG8GTIDiUnoJQMLsKYkPVjfMpHeShvVr6xRbbcVtD83HkFIlY0fprYPspwaitv5cViNxdbQMokUMvQFIc9i8CsCqaeYEOuiaQsLLEFznrqZ4BaF+G+NQVQKbmjrsJr+lDowkXtk3RGK1wus9YY1c1Do8Bt6XE9MIFU5tMWHgc0XMxLCqRUZ3zOAqv4u18hoWGuUXhRqPe8PKGT1uN9ee3sMn9oBi6NjV2rAng0eA4Qa4pSLmDklL4kmzFcSfAbdXvsCC+ApxXJS90T3dteRZoGyF71+Qpe1H44uaGCx/99FSV6Vli0ISiZmCwI5DKzl3UzMkgDX+1DqD/dlL5KdApU4Gvg23T8IpGv1G2vehtuGXlwXNmXsvGUFlbiXeRjwUFaEZ3iptrbYP3GOnyqOR4+wL1OjOzxvvgOONIkCTdd77AwvEuK25nHLYQ/W2GtjGoixAzDWuVOpmlAE6NMKF4FRIWHAX5K3REpyczwq3jVsW1xBXfypWiCA53XHBUIrVX2ufxZABqXShtKgtZlAJ8Jn3NLdcv6whB9e4azJGTj2Q1ey0lSitRvB3NA5zV7tDMNyshKBAqN71rf2CCeittf3uReXDQhB1ZvhB0OrCT1jaImp1VbRF+LCw1TjsWtGuHbGU4yqjzfmej2Pf9/EqnslnRx0VzEHMLDe95hhm9QiuSqzi9AJZXg+1jzSOS6AuZjwc56
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12057.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <2C06E89CAC83C245B818AA6DBC466F8B@eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20260512060627.3781329-1-danishanwar@ti.com> <20260512060627.3781329-2-danishanwar@ti.com>
- <CA+XhMqykBWcMdk+iNnOtUxM4MX6jpDyUwfuAVZFbjAShO9_v7Q@mail.gmail.com> <6a1f411c-d7ed-463b-abf1-277d8cc0c184@ti.com>
-In-Reply-To: <6a1f411c-d7ed-463b-abf1-277d8cc0c184@ti.com>
-From: David CARLIER <devnexen@gmail.com>
-Date: Tue, 12 May 2026 11:03:23 +0100
-X-Gm-Features: AVHnY4JoBEuCCshjttiiP4pUrkdFzUklGWLsHa6Nwoh6aUuuy2gt7vVqJ1dT2a4
-Message-ID: <CA+XhMqzx9CUX5H7q1UqL=heGWLFjZVfyiTx6b45VW=E9t13Fow@mail.gmail.com>
-Subject: Re: [PATCH net-next 1/2] net: ti: icssg: Derive stats array lengths
- from ARRAY_SIZE
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Roger Quadros <rogerq@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	Jacob Keller <jacob.e.keller@intel.com>, Meghana Malladi <m-malladi@ti.com>, 
-	Kevin Hao <haokexin@gmail.com>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, netdev@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Vignesh Raghavendra <vigneshr@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-Exchange-RoutingPolicyChecked: U9pmuek0yYjZjRMKtpLgmexvcqddKspnGLIM4BE03dt4IJ9AgNTLZ3PNDGAfeiDv5De28j5m/4jc8JxIKYY1o+d68rprt/nzr4I9369JcCiTH/JaQVIR47SAMfmTMzhXVa3gnijhbvhxcOL9qn15ghrFP+TmTwOrCsFbVfwa4O7Z+LkUy1097YeJbRYepMrEs+wkDrjqs2HKhlpgIDlGOTk8e4JpNa4CLb6t5lRZzrnCrBRCKWtb4HOhXh2HTBeTb3EpukEraXamTfunTG/5o8jPbC0nliiIN91sglWkK8DeyVlxeQnqorexMALC1bs3/uGYDETjfg+lvChGG5XF7w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8309
+X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2-7.checkpointcloudsec.com>
+X-CLOUD-SEC-AV-UUID: eba8b737d1af42f4958b5d4547eef157:solidrun,office365_emails,sent,inline:51c2f25af5c28c995c24baa31bf88b29
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7DD.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 45a50b5d-903f-4c1f-7c1e-08deb01101a6
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700016|1800799024|35042699022|14060799003|82310400026|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: ojiH+cqVJz0KA8QaVHGCwzCP/YOe1MRsgVhaMyxgbqXvfO6SIS33XEowrBVY0j1/J/C6ctgEXCEf4vPwROtWKkL6/NJAP810G2mjHnLB8I0YMGYOoaR8hbrIoLtqWRRa76t+KkedEAlwKxW6aJ/ze069mWjK8/d/LSYiYMgmPVgwZx2wn2tbnjKXhr1ngJNL1hoEebjDLUtZJhH4SmSyD+4moEduUn/EryfQR4Ugtcio6mECrcgq9cdT0y0ly4g7QCu22E0cj7/lcvTURk+Uuz2+l4vPJWaAek7hlKI0BDCrpKX7mcVcpzUasB0+VHruURCaROgQeI0Tml0mxWt6kj4gTiHsOCB8HXOyVMnunIyUEvsvq7IMRQpJUr0PCvhvmhYpW16/GKRmmBwky6tQzW+QaZZW84HUUUFp5384fXPVM5x/3aSF/9CPksVR13uBu/nzmc7erckCvHMw3y3smFriY3unRahOSYp7MriFMgtz81JkjEEHhpJ1P0rsXgcv1U5rQ7agZ45Nja708BBiydkApCkcQ/GowxST0/RhCdQ7fxy3TPXNfAK6nwmr4kc6lhdbmHcWpLc0+1Mm6z2pFKumiukkmTPmJfpqyZptJSBZlVDLb9I11H2aiZUjRWzn9PU+ri0XQsZ375gWpswTrP7eXXAjqmQ1pBDfiTJc04V5SRIkU6WiJFWxaAZxP4Bz9IO5qj7Fc4d5P1H66y8JyW4lGQij+tsTUFmvkETNcgs=
+X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700016)(1800799024)(35042699022)(14060799003)(82310400026)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: +FCR159PkOTB90SrMYGbVQ94fpFR2KJGdM7vb8wpf4e+2HUqDEBcXhuU4goAJBKdSCcAHhRuWLbSfG7zxu92C/mZuaqhkQzct+KvKkyXL4S8L4UJH64QbvkAq1Lc3aND3uEHdpm3LtY53X0mV0hkqHuI9U0mxI9aCzBpJP2dPf7UlBUit0hqNjJ5AcxhxtR+7GQD6bUGhlKSRKpkCfFC/Y+qjc8eg1Nm9oWlEua/pTY2OW8ZAhazt/EpsqYNco0CJFz4wHcRyzGRZpTXJ5vDY5r+SyPO0F9C7Xy2AQG5WmSwL1A7NLXEO7Ikc72x2SMySa99Rrd5jM/eY4lfv67hrn/aleMU9ZuTCrG8Yd3ZhDXLosvaGxSjQS1MDFAoEX2URzkDpdwo1XvDnXWrNNTbSFx+dSdT44zXY70SnNoZMzwQCe0+4kWanGag5c49i7DV
+X-OriginatorOrg: solid-run.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 10:27:18.9927
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef66ccf3-e019-4665-59b1-08deb0110bb2
+X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7DD.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10986
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_030337_601853_5A136804 
-X-CRM114-Status: GOOD (  40.64  )
+X-CRM114-CacheID: sfid-20260512_032727_434376_1683B78B 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,162 +183,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Danish,
-
-
-On Tue, 12 May 2026 at 10:40, MD Danish Anwar <danishanwar@ti.com> wrote:
->
-> Hi David,
->
-> On 12/05/26 1:28 pm, David CARLIER wrote:
-> > Hi MD,
-> >
-> > On Tue, 12 May 2026 at 07:06, MD Danish Anwar <danishanwar@ti.com> wrot=
-e:
-> >>
-> >> Replace the manually maintained ICSSG_NUM_MIIG_STATS and
-> >> ICSSG_NUM_PA_STATS constants with ARRAY_SIZE() expressions derived
-> >> directly from the corresponding stat descriptor arrays, so that adding
-> >> new entries to icssg_all_miig_stats[] or icssg_all_pa_stats[] no longe=
-r
-> >> requires a separate update to a numeric constant.
-> >>
-> >> To make this self-contained, break the circular include dependency
-> >> between icssg_stats.h and icssg_prueth.h:
-> >>
-> >>   - icssg_stats.h previously included icssg_prueth.h (transitively
-> >>     pulling in icssg_switch_map.h and ETH_GSTRING_LEN).  Replace that
-> >>     with direct includes of <linux/ethtool.h>, <linux/kernel.h> and
-> >>     "icssg_switch_map.h".
-> >>
-> >>   - icssg_prueth.h now includes icssg_stats.h, giving it access to
-> >>     the ARRAY_SIZE-based ICSSG_NUM_MIIG_STATS and ICSSG_NUM_PA_STATS
-> >>     before they are used in the prueth_emac struct and ICSSG_NUM_STATS=
-.
-> >>
-> >> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> >> ---
-> >>  drivers/net/ethernet/ti/icssg/icssg_prueth.h | 3 +--
-> >>  drivers/net/ethernet/ti/icssg/icssg_stats.h  | 7 ++++++-
-> >>  2 files changed, 7 insertions(+), 3 deletions(-)
-> >>
-> >> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/ne=
-t/ethernet/ti/icssg/icssg_prueth.h
-> >> index df93d15c5b78..e2ccecb0a0dd 100644
-> >> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> >> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> >> @@ -43,6 +43,7 @@
-> >>
-> >>  #include "icssg_config.h"
-> >>  #include "icss_iep.h"
-> >> +#include "icssg_stats.h"
-> >>  #include "icssg_switch_map.h"
-> >>
-> >>  #define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
-> >> @@ -57,8 +58,6 @@
-> >>
-> >>  #define ICSSG_MAX_RFLOWS       8       /* per slice */
-> >>
-> >> -#define ICSSG_NUM_PA_STATS     32
-> >> -#define ICSSG_NUM_MIIG_STATS   60
-> >>  /* Number of ICSSG related stats */
-> >>  #define ICSSG_NUM_STATS (ICSSG_NUM_MIIG_STATS + ICSSG_NUM_PA_STATS)
-> >>  #define ICSSG_NUM_STANDARD_STATS 31
-> >> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net=
-/ethernet/ti/icssg/icssg_stats.h
-> >> index 5ec0b38e0c67..b854eb587c1e 100644
-> >> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
-> >> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-> >> @@ -8,10 +8,15 @@
-> >>  #ifndef __NET_TI_ICSSG_STATS_H
-> >>  #define __NET_TI_ICSSG_STATS_H
-> >>
-> >> -#include "icssg_prueth.h"
-> >> +#include <linux/ethtool.h>
-> >> +#include <linux/kernel.h>
-> >> +#include "icssg_switch_map.h"
-> >>
-> >>  #define STATS_TIME_LIMIT_1G_MS    25000    /* 25 seconds @ 1G */
-> >>
-> >> +#define ICSSG_NUM_MIIG_STATS   ARRAY_SIZE(icssg_all_miig_stats)
-> >> +#define ICSSG_NUM_PA_STATS     ARRAY_SIZE(icssg_all_pa_stats)
-> >> +
-> >>  struct miig_stats_regs {
-> >>         /* Rx */
-> >>         u32 rx_packets;
-> >> --
-> >> 2.34.1
-> >>
-> >
-> > One thing that caught my eye: icssg_all_miig_stats[] and
-> >   icssg_all_pa_stats[] are 'static const' arrays in icssg_stats.h with
-> >   ETH_GSTRING_LEN name buffers per entry. Right now only icssg_stats.c
-> >   and icssg_ethtool.c pull them in. After this patch icssg_prueth.h
-> >   includes icssg_stats.h, so every .c in the driver (classifier,
-> >   common, config, mii_cfg, queues, switchdev, ...) ends up with its own
-> >   static-const copy of both tables.
-> >
-> >   Would a static_assert() work for what you're after? Something like:
-> >
->
-> While adding more stats manually, The ARRAY_SIZE() approach was
-> explicitly requested by maintainer [1]:
->
-> This patch is a direct response to that feedback. static_assert() would
-> still require updating the numeric constant on every array change. The
-> goal here is to eliminate the need of manually incrementing stats count
-> whenever new stats are added
->
-> Your concern about multiple copies of table is noted and valid. Could
-> you advise on the preferred way to reconcile these two requirements? I
-> am happy to restructure if there is an approach that satisfies both.
->
-> [1]
-> https://lore.kernel.org/all/20260112181436.4s5ceywwembn674r@skbuf/#:~:tex=
-t=3DCan%27t%20this%20be%20expressed%20as%20ARRAY_SIZE(icssg_all_pa_stats)%3=
-F%20It%20is%20very%0Afragile%20to%20have%20to%20count%20and%20update%20this=
-%20manually.
->
->
-> >     static const struct icssg_miig_stats icssg_all_miig_stats[] =3D {
-> >         ...
-> >     };
-> >     static_assert(ARRAY_SIZE(icssg_all_miig_stats) =3D=3D ICSSG_NUM_MII=
-G_STATS);
-> >
-> >   next to each array, keeping the numeric #defines as-is. Then 2/2 fail=
-s
-> >   to build the moment a new entry is added without bumping the count,
-> >   which is the case you're guarding against =E2=80=94 without touching =
-the
-> >   include graph.
-> >
-> > What do you think ?
-> >
-> > Cheers.
->
-> --
-> Thanks and Regards,
-> Danish
->
-
-
-  Thanks for digging up the context =E2=80=94 fair point, I'd missed Vladim=
-ir's
-  earlier ask. Reading it again though, what he calls fragile is the
-  silent miscount, not the keystroke of typing a number. A static_assert
-  turns "forgot to bump" into a build error, which I think gets you
-  there.
-
-  What about moving the two arrays into icssg_stats.c, declaring them
-  extern in the header, and dropping a static_assert next to each
-  definition? Numeric #defines stay where they are, icssg_prueth.h
-  doesn't need to know about icssg_stats.h, and the tables live in one
-  TU instead of every .o in the driver. If the count and the array
-  disagree, you get a compile error on the spot.
-
-  Probably worth keeping Vladimir on Cc for v2 in case he had something
-  else in mind.
-
-  Cheers,
+SGkgQW5kcmV3LA0KDQpBbSAxMS4wNS4yNiB1bSAxNToyOSBzY2hyaWViIEFuZHJldyBMdW5uOg0K
+PiBPbiBNb24sIE1heSAxMSwgMjAyNiBhdCAwMjoyNDozOFBNICswMzAwLCBWbGFkaW1pciBPbHRl
+YW4gd3JvdGU6DQo+PiBPbiBNb24sIE1heSAxMSwgMjAyNiBhdCAxMjoxMTozMVBNICswMjAwLCBK
+b3N1YSBNYXllciB3cm90ZToNCj4+PiArJmVxb3Mgew0KPj4+ICsJLyogZGVsYXlzIGFyZSBhZGRl
+ZCBieSBjb25uZWN0ZWQgZXRoZXJuZXQtc3dpdGNoIGNwdSBwb3J0ICovDQo+Pj4gKwlwaHktbW9k
+ZSA9ICJyZ21paSI7DQo+IEZvciBldGhlcm5ldC1waHkgY29tYmluYXRpb25zIGknbSBwcmV0dHkg
+c3RyaWN0LCBidXQgaSdtIG1vcmUNCj4gZm9yZ2l2aW5nIHdoZW4gc3dpdGNoZXMgYXJlIGludm9s
+dmVkLg0KPg0KPiBJZiByeC90eC1pbnRlcm5hbC1kZWxheXMtcHMgd29yaywgdGhhdCB3b3VsZCBi
+ZSBiZXR0ZXIsIGJ1dCBpJ20NCj4gd2lsbGluZyB0byBhY2NlcHQgdGhpcywgd2l0aCB0aGUgY29t
+bWVudCBpbiBwbGFjZS4NCk9ubHkgc29tZSBzdG1tYWMgZHJpdmVyIHZhcmlhbnRzIGhhbmRsZSBk
+ZWxheXMsIGR3bWFjLWlteCBpcyBub3Qgb25lDQpvZiB0aGVtLiBpdCBjYXJlcyBuZWl0aGVyIGZv
+ciBwaHktbW9kZSBub3IgcngvdHgtaW50ZXJuYWwtZGVsYXktcHMuDQoNClNvIEkgd291bGRuJ3Qg
+bWluZCBwdXR0aW5nIGluc3RlYWQNCg0KcGh5LW1vZGUgPSAicmdtaWktaWQiOw0KcngtaW50ZXJu
+YWwtZGVsYXktcHMgPSA8MD47DQp0eC1pbnRlcm5hbC1kZWxheS1wcyA9IDwwPjsNCg0Kd2l0aCB0
+aGUgc2FtZSBjb21tZW50LCBhcyBsb25nIGFzIGl0IGlzIG1vcmUgY29ycmVjdC4NCg==
 
