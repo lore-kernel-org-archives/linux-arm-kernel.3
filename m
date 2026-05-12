@@ -4,93 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A6ECD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:54:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51003CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:55:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MsimPcdUANfcIFgHzpPOd6ABveJwxGYZMeC9Y1ifSik=; b=BtOrKIZlkb5W/+8Sb6Bn3mrEHP
-	u3zazo6P4xl7XZAQY4w27VdHc6Xb72ZUled+NMAvHvlrCYTGk7u60D0KZ3I2aM9e92C4WL330XN+2
-	jGr/Q1yYMGFh+I2Uv1MOwfGzq4xtsayMFGvcuxE4IVxbOiBBQNm0ux5O7CpAYIFJp7Ojtrrtv20wc
-	1rXI2w/ucicF6pk94jwHZ3mo3B25OBMpxNTjlNtSc064jUxn5Rysq7SW1XwlMBXTrjXDVINg+GxTY
-	WIghnYSbZEnSo0YwrhNSmocDpM6lav7T08kvCf3FSok+3XBtgz6yK94tS6cq5e2RLH36BHmnXvXAD
-	OC5t2TdA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LeXgjKzkNMDeBopPQNfwTQzIIVjtMI+vtYIQNjQTAik=; b=kK6LQnKrl54cJ7sw2WjY2Sgzmc
+	++BKrzmt9RLql6PKmzSfPgHUqmzz1osL8oLPsQoeVvfjtXIZNzLwgzVAbg94DEC73LH4m1vskPkj9
+	G2gQzkXY1HNEMu83ZsjR9d8ckbelRy7KMRxm+5JvzSQBi8JGkw9pl6m0bktwGgi3M8LiKM6/r05jY
+	gxc1vz+LknFgOCaFziW+OZ80om6ZBHgM7rooQ1dKT141ohV2Jy8eawHfMsEWkNKqylsKouIRkV7/V
+	tFka/hDeXHxWLNPqK1Q53SeXXmtRP6osA/4w0X0+fd9ZCysd8KNEIJL9qXYA3s+uB8nIamgPLznza
+	P/CHAvfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnZ6-0000000Gv2x-25Jh;
-	Tue, 12 May 2026 13:54:28 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wMnaO-0000000GvHf-2nCV;
+	Tue, 12 May 2026 13:55:48 +0000
+Received: from mail-43167.protonmail.ch ([185.70.43.167])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnZ4-0000000Gv1r-0EbA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:54:27 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4891f625344so52286815e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:54:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778594064; x=1779198864; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MsimPcdUANfcIFgHzpPOd6ABveJwxGYZMeC9Y1ifSik=;
-        b=VhVc75Z1zZpuEBSCUe1/1GRG0Ouro8BmTAgou+wFS18giVohwv4j/NZpHT4qOc9oTk
-         vLrfy9hf6Ch4gTpHdo961Gp9TPzbNm3G8gcItsdOfuXzOfBQeD42bg+76tae53nOAAgF
-         nC/Jjvofz1C2GCMQuqYth0kDUJkB5Jqjzbh5JRaTv7nk95gC831hQSFEa/VD5XBAr0zH
-         3AnPiLiy+MMcKfgAPfSUu6eHj0h4qj0zWPOJV5GLZ0HK+kqq7j2wyC1trgdvwKQfR/jm
-         CKnAwjht9/kINrKpwQCLj3CxKB0kCId7MmBdV5glAf112NgvC/uThq82qnxOcwIHxqZT
-         9tiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778594064; x=1779198864;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MsimPcdUANfcIFgHzpPOd6ABveJwxGYZMeC9Y1ifSik=;
-        b=iUxo9N3L0Wy27IMuko9qDDsOqp8f2YxNHcUoI2YO5y6rSu+l9+oTI4xZymnbYkKYLI
-         9jQNvAGS+xL2QBz4xprUOhwGYwnjn2zuUGSCO5vdxv/2OSSt9SniWLAxQNoCvuuKaKcb
-         T7tmg9vmNjglecyiYwWImBEuWtw8VKZL02Be1U+832TxKbqMibCCMjRWOj63JMUryEbO
-         5I4Q6vcXkK78nB7VPW7p8nMGL0LUBWvjGyiSlWndFBnoxWNWmFUYSrCZV/okxTJ+soks
-         HkboTpvQlk5NA31Icu2onf16Yzt+RgcQarOVs5+RbPL4PLPMinDM0p3bSLY1WMs9kkyA
-         4hZA==
-X-Forwarded-Encrypted: i=1; AFNElJ+tFZOtx3nZgNfw5jsQQA03JO30Tk+LIjU8bVTPlHApJPzalKRIzBM8ci2oKg1+WwORaZ9Z6PbKRr68Q2MKGnVD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMF9v+pS8PuImH32kviRthcsYUCMt2vYVV81uGiWACgTFC4w51
-	9mGmjhHC9kLjr1O+AXdaUDv5rtRBUTPU5J01v7acdyooUA4HtkNkXNaJ
-X-Gm-Gg: Acq92OGF6MPast0PjM9MLpWwoETMoGIWktXqd2wWY83iIWQAeohLUGPnpPlMddHQARL
-	8uzZdJ+pfasHmd2NNxVcER5lG1LlLqcS3cNN/Iur+B/s3FsdIwrlHIsWEOFfRHfR2ysY6gyRgbW
-	8Y26+yDb1oCafQcszCz2qif3iYEhSB+wAQEDp7w8l+UXNK83BCN9WwTCLtLEqGph8I9kAhQ34RZ
-	9+fkVTXcn5Lf7Rui1vmrHZ+SJ8fo52MG+Qm96Ne2I7rLZ8NaEwyz3Csq5KVhC9RYH0XDIn6jND/
-	iMYe7iPgYMCThdOApqAm4Ap0qlWm90DXGbkhhTEUAsZKYwbWnbUC4OQBC6xbdvpbm21ztbJS0uj
-	gmqrHtE0R9P6Vv45QBMom8f7+7q3UKbtIPMGIu9vmycSHJE7+FdJ3eZ40RsccwBgKYIKksiWxmV
-	+Q3YM28SNEk2G5pcrqhA3MSOKOzcQn2wQyySusfLKD0nVjn8p/L33WRO5UyVb190AMyH2ZZqqi/
-	ZOxt4NJO7Y=
-X-Received: by 2002:a05:600c:3b99:b0:486:faa8:9e4 with SMTP id 5b1f17b1804b1-48e906c4525mr43131835e9.12.1778594063788;
-        Tue, 12 May 2026 06:54:23 -0700 (PDT)
-Received: from dohko.chello.ie (188-141-5-72.dynamic.upc.ie. [188.141.5.72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e908d890fsm43691055e9.15.2026.05.12.06.54.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2026 06:54:23 -0700 (PDT)
-From: David Carlier <devnexen@gmail.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com,
-	vdonnefort@google.com,
-	ryan.roberts@arm.com,
-	maz@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	David Carlier <devnexen@gmail.com>
-Subject: [PATCH v3] tracing: Fix nr_subbufs initialization in simple_ring_buffer_init_mm()
-Date: Tue, 12 May 2026 14:54:20 +0100
-Message-ID: <20260512135420.99194-1-devnexen@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	id 1wMnaK-0000000GvFx-3xD7;
+	Tue, 12 May 2026 13:55:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1778594132; x=1778853332;
+	bh=LeXgjKzkNMDeBopPQNfwTQzIIVjtMI+vtYIQNjQTAik=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=Jd7WmbEUFTq/LzB5l9+t3kyztP2gdvUHz51SIZGm3lcxKFmPL0hRk2J0HGyC1bXf0
+	 tOPn51ILtDwmgvkazusbJ9t6HpF7P/FXF229xOA0ZU+Jcsc1LPp4ITaoNaR+X4Agoc
+	 y5JmO3T7QM9gQZVm0+AIpEJlBYHHbPYLokJvnFcqIt1WaJJu18Jn3n3ltBpL04hRRC
+	 BUUf9xSiQRU8xg4YQd6eCjhq/36k5u+J//5u14rS3zG2CFWweyKDsPkkKAAbmcsIRf
+	 TkkV/oc05YWPQ6iWAbm+jOx2OOQ2F2Lp1hGL/mxMOqf+met+oLr541Fd+/CG/lprYb
+	 r4K7x/DPYMASg==
+Date: Tue, 12 May 2026 13:55:26 +0000
+To: Jonathan Cameron <jic23@kernel.org>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH v2 01/16] dt-bindings: iio: adc: mt6359: generalize description for mt63xx series
+Message-ID: <wTd36596tJhd0sPk-1MSi79xz14IBgTKXpD25tnKuRXLfGywkoenZ-wIDtOvRxEZL8xpqijZ0nxMsCFTOJgJq__y26VzCpe_9f0JQGWrJVo=@protonmail.com>
+In-Reply-To: <20260512141313.425535d9@jic23-huawei>
+References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com> <20260512-mt6323-v2-1-3efcba579e88@protonmail.com> <20260512141313.425535d9@jic23-huawei>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: ff83f57ffc4d622d3c6e2bc332a83f392b3034e1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_065426_106652_ABFF33AE 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20260512_065545_186003_5A0AFC90 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,44 +68,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-nr_subbufs in the ring buffer metadata is always initialized to zero
-because it is assigned from cpu_buffer->nr_pages before the page
-initialization loop has run. While nr_subbufs is not currently read
-by the kernel, it should reflect the actual buffer geometry in the
-meta page for correctness.
+On Tuesday, May 12th, 2026 at 4:13 PM, Jonathan Cameron <jic23@kernel.org> =
+wrote:
 
-Move the assignment after the page loop so that cpu_buffer->nr_pages
-holds the final count.
+> On Tue, 12 May 2026 08:18:15 +0300
+> Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wro=
+te:
+>=20
+> > From: Roman Vivchar <rva333@protonmail.com>
+> >
+> > Update binding title to the MT63xx, since the list of compatibles alrea=
+dy
+> > includes mt6363 and mt6373 which don't belong to the mt6350 family.
+> Hi Roman,
+>=20
+> Wild cards have a nasty habit of going wrong.  I'd prefer to see
+> language like: MT6359 and similar PMIC AUXADC
 
-Fixes: 34e5b958bdad ("tracing: Introduce simple_ring_buffer")
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-Assisted-by: Claude:claude-opus-4-7
-Signed-off-by: David Carlier <devnexen@gmail.com>
----
- kernel/trace/simple_ring_buffer.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hi Jonathan,
 
-diff --git a/kernel/trace/simple_ring_buffer.c b/kernel/trace/simple_ring_buffer.c
-index 02af2297ae5a..f731f14d0ff7 100644
---- a/kernel/trace/simple_ring_buffer.c
-+++ b/kernel/trace/simple_ring_buffer.c
-@@ -395,7 +395,6 @@ int simple_ring_buffer_init_mm(struct simple_rb_per_cpu *cpu_buffer,
- 
- 	memset(cpu_buffer->meta, 0, sizeof(*cpu_buffer->meta));
- 	cpu_buffer->meta->meta_page_size = PAGE_SIZE;
--	cpu_buffer->meta->nr_subbufs = cpu_buffer->nr_pages;
- 
- 	/* The reader page is not part of the ring initially */
- 	page = load_page(desc->page_va[0]);
-@@ -437,6 +436,7 @@ int simple_ring_buffer_init_mm(struct simple_rb_per_cpu *cpu_buffer,
- 		return ret;
- 	}
- 
-+	cpu_buffer->meta->nr_subbufs = cpu_buffer->nr_pages;
- 	/* Close the ring */
- 	bpage->link.next = &cpu_buffer->tail_page->link;
- 	cpu_buffer->tail_page->link.prev = &bpage->link;
--- 
-2.53.0
+I agree that it would be better to specify the exact PMIC models, however
+'similar' wording might be a bit misleading here. As far as I know,
+the mt6363 and mt6373 use SPMI, while mt635x (and older models, like
+most of the mt63xx series) use PWRAP (a custom SPI-based protocol).
+The mt6323 has an older AUXADC revision which is not compatible
+with the mt635x driver.
 
+Would you prefer more explicit list like 'MT6323, MT6350 series, MT6363
+and MT6373 PMIC AUXADC'? It's a bit mess because some mt63xx
+(like mt6333) are sub-PMICs and use I2C instead of PWRAP.
+
+> It is less important here than in many other places because the
+> file has an explicit list soon after this, but none the less
+> we've been bitten by this too often to think manufacturers won't
+> throw a completely non compatible part in the middle of a wild
+> card covered range.
+>=20
+
+Best regards,
+Roman
 
