@@ -4,72 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C1F4CD4855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 08:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F64CD4855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 08:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WkOaXzKPMuxC5YGc6fREz2IvVZ152n0pdW2k9zoo3oc=; b=UCPyE8sB0TjyA7z/MVVoegbp7T
-	lL9i7wkDBRkk3SG3izj4eZ3k5Pbgjclxygk2XviuvC1NH0iQ6J+ShrVri0auqySz3hYQl+e1f0B57
-	AGo6kOBnTSSBgz44JUYweK822avpY2wRmnqfzepXs/H5I5Tduf+3MIUXji8ljruGT/yYMyJ1U38po
-	r8jwxRierlxajJBZp8FIp+VjvPeucztsodgiXVm+YYGpotzD+BsPWdvpFPYGfs3p45ycF9ryYWlHE
-	btaakPnsN/NEQYTgGW9XRxOAOEgHtSWBc6s/83QjQF8zPDzhcYqwx25UH2bWQLyGxxgXNDwCVop9U
-	RmH5hGlA==;
+	bh=qG8oe8z9sxMMUyor2T7pysVRE2qkXzHzDQe0MhODf5I=; b=2e8L21oBINcOdAFNlyDCC8wfwu
+	ZP1gj6cMY6P4OHlQs8GGztVQFXbtvvJg8lfwqYdx5nZ5MW+k9nWFXzXFmiAI/D4dW6Cur13vMIp8i
+	xBabWYZ2L4P6OH4B4idhR4dFc8TB5ZriekM3c1lriVpQlLKB5F8s2Fvi0gLr2WOish5t2N6MLP6IW
+	qJMzZ7Qn6TqhUGeBa/YRMVqlZYXjAzAo2w55NgnN4r3X6cYQXo71SamcqXnDeHpCHiPK88d7umISX
+	WMFG8sZPmYredRQrNjOEV8EePRdJpel5ttduFfj77agXieft81kqOJbSfvOkCGAqS9nFsTHgxj9jx
+	zA4i8HEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMiuX-0000000GAC4-3Qfv;
-	Tue, 12 May 2026 08:56:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wMiuf-0000000GAFU-3qeF;
+	Tue, 12 May 2026 08:56:25 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMiuV-0000000GABJ-2rOK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 12 May 2026 08:56:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:To:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=WkOaXzKPMuxC5YGc6fREz2IvVZ152n0pdW2k9zoo3oc=; b=OJF/ilO3zEZe5P8n6Ome/RcZTx
-	wlHABT8K75934rgOHkU7hSbz2AJf92kS99LR+op/bV9CDX/pHJMUWP7Ugekp1mecR+zibcACmwi+7
-	7LEv+VMnBj/+W/JYAwSWdryR+e/Crlzairj3gsZpoq30zqlgX0Vc4VjoMzhNkueKKK4TmEqaonPbm
-	CMZGaTMbjrV2Mdxer9Gldhrf7SuCPfX8PCGLwTxSahO7GTvzOI2a3T30ean/9+Xo5WE/lNwNmc/UC
-	NdmzWZF7qC+ylXPBk3m3zp/4KxeMSj5i3V7e/ay4bYMr+3Ajbo8H6zIb1LxrXwViOz29XqQqQJ6QZ
-	rWuun/4g==;
-Received: from mail-10697.protonmail.ch ([79.135.106.97])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMiuI-0000000EAHk-0NME
+	id 1wMiud-0000000GAEU-0Vs4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 08:56:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1778576151; x=1778835351;
-	bh=WkOaXzKPMuxC5YGc6fREz2IvVZ152n0pdW2k9zoo3oc=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=u3/+/i0kg2rBQhVXxJemYSUcFAGCTQQ5eoCfvqgeXVzweKsu9dyDZqh1kHcAT5SEY
-	 mQ+DTe+TrXX/uL/DZc3SyZ38hw2gO7HNpiFSj7TD7Ehq+pYyzxurFV0HjjLtu1eNTl
-	 zrEeGMKk5pPvFwKkLtIVxUzMgdCgcNofjtO6D1gElCGO1lVHG7UNzUyJ+hAhDhYHfR
-	 UpfJlX6JvTnkRYftUjyZpxc/eaBPdcFV9B6BmBDUbi0E7mx0pXKK+uZuOCkVYSWg6P
-	 eS5OQmKBJPZMQrY0w+r996i5NkPtz0X/7ppBiM8aATXs99rfikyPazuN2FL/Jb3G/h
-	 Eqn06hkG1gDlg==
-Date: Tue, 12 May 2026 08:55:44 +0000
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-From: Roman Vivchar <rva333@protonmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH v2 07/16] thermal: mediatek: add PMIC thermal support
-Message-ID: <j2uhavC9edilBoD6VJnlz8cCmMPhE9rQavh1epqLk61zrlZ3k1rqlyj8fVYWnkddIY1fEfPk1DfcW09i39hd-Q7I9Y8Vxd0w8C2eCjVGLc4=@protonmail.com>
-In-Reply-To: <CAHp75VfgrbEDLavMKFp2maFCH08RBUxF2wYhh56GG1HCq4ogmA@mail.gmail.com>
-References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com> <20260512-mt6323-v2-7-3efcba579e88@protonmail.com> <CAHp75VfgrbEDLavMKFp2maFCH08RBUxF2wYhh56GG1HCq4ogmA@mail.gmail.com>
-Feedback-ID: 173184497:user:proton
-X-Pm-Message-ID: 981c736e97e4dbd1e20caa42f42d8805c8c23015
+	Tue, 12 May 2026 08:56:24 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64BK74IO3179453;
+	Tue, 12 May 2026 08:55:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=qG8oe8
+	z9sxMMUyor2T7pysVRE2qkXzHzDQe0MhODf5I=; b=Jn0XbJgJMXIbZier46PZCD
+	1Emzb7CkLbBHBzHez1MSnqwfcIcz959PdIhksNDc3cuXu9ukkA+sVrYyp9iAxQ9Y
+	mZvuXOqDklUbdqaF4bDqYwdT3nqyGnctRec1Apx8L52IfDBd5tzV1pV7dFGYugGT
+	OZSbrPXsN+tR7CJEEFOyPj5IPJlWK2Q5wIly6qPjATt60UM33PYstDXTmC4AIoyy
+	BMQLD+0K9jRs6eZFEG5x7Vz3I739JrrIlJKe5wN/08/1qc26nXZz2sMoyaNEHpau
+	iE9y1haORy6wrlaC5K5GbvhhoKv+yil3eq6esGFP24Xwg56Kw28Obo0N2UVsOO1w
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4e3nv6j3wc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 12 May 2026 08:55:32 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64C8sV9a024634;
+	Tue, 12 May 2026 08:55:31 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4e3nfgtdap-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 12 May 2026 08:55:31 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64C8tTpv25100836
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 12 May 2026 08:55:29 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BA5972004B;
+	Tue, 12 May 2026 08:55:29 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4F2FF20040;
+	Tue, 12 May 2026 08:55:29 +0000 (GMT)
+Received: from [9.52.200.195] (unknown [9.52.200.195])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 12 May 2026 08:55:29 +0000 (GMT)
+Message-ID: <0542f042-14fb-4588-bc3a-5031249d9834@linux.ibm.com>
+Date: Tue, 12 May 2026 10:55:28 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 8/8] unwind: arm64: Use sframe to unwind interrupt
+ frames
+To: Dylan Hatch <dylanbhatch@google.com>, Mark Rutland <mark.rutland@arm.com>
+Cc: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>,
+        Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>,
+        Indu Bhagat <ibhagatgnu@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Steven Rostedt <rostedt@goodmis.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Kosina <jikos@kernel.org>,
+        Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
+        Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
+        joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
+        linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        Randy Dunlap <rdunlap@infradead.org>,
+        Heiko Carstens <hca@linux.ibm.com>
+References: <20260428183643.3796063-1-dylanbhatch@google.com>
+ <20260428183643.3796063-9-dylanbhatch@google.com>
+ <afTYzAF_x41pyilu@J2N7QTR9R3>
+ <CADBMgpx9YxNUO6wLP7mYKxWW8L78Hk9gPwHrMjXUwPyUmGEu9w@mail.gmail.com>
+Content-Language: en-US
+From: Jens Remus <jremus@linux.ibm.com>
+Organization: IBM Deutschland Research & Development GmbH
+In-Reply-To: <CADBMgpx9YxNUO6wLP7mYKxWW8L78Hk9gPwHrMjXUwPyUmGEu9w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=Us1T8ewB c=1 sm=1 tr=0 ts=6a02eb05 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
+ a=7CQSdrXTAAAA:8 a=pbiPq8VqF0LfWx_iDpQA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: uaHr7nwzr83LXGrb9KDOQt7khmo6iJZR
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEyMDA4NiBTYWx0ZWRfX6MHUaow91jQs
+ Y3MxrcX7t4Mr1vZvD8FzelZHzDowUFqS9L3BLeQtklVqqiyO54C9bZLgId8VHGENrTMf5ZxjxRu
+ iv6GmwcM3Hd9NSb87unpoNEzxJ1FHQ7NBBpTjRazCdj4Mjwu8vN4JYm+ilRnjyNJ+3WYsmdFBPJ
+ SQpla5QHjgCq6CES9w/SCaunqWa0Sffh78Fc+mgqnfIlxPWkfgBFpJhnPJNXRZSVrCWN5JdUDpn
+ wMEXPbHTRN8naneqSYgncazvqJRV/q6Sc937dTOXSgr69N64IKs4bDKMLvwHIXZ3ZvG1FISrOgA
+ LvF9/sGmqj4np6S2xhjRRFvPXbpHxw6vMsTsV3Sdbrlcsy/uNgqH2iuVIPFCZ8JrBg0hH14e+49
+ QT/hw1Hg7e9OAEAGLAAutNYGNeXD+lN1sKzoMlD2EauzEgFBiowsoU87aUyKlJJ/JizrkzF7J/3
+ Qijeiq81p5MwfRUX0Zg==
+X-Proofpoint-ORIG-GUID: HRl52iudk8zwHmSdjLV0b5-DZVW86Cil
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-11_05,2026-05-08_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 impostorscore=0 lowpriorityscore=0
+ bulkscore=0 suspectscore=0 spamscore=0 malwarescore=0 clxscore=1015
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605050000
+ definitions=main-2605120086
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_095602_800551_A7CCCEFD 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20260512_015623_289490_60300D54 
+X-CRM114-Status: GOOD (  33.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,54 +139,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, May 12th, 2026 at 10:05 AM, Andy Shevchenko <andy.shevchenko@gm=
-ail.com> wrote:
+Hello Dylan and Mark!
 
-> On Tue, May 12, 2026 at 8:21=E2=80=AFAM Roman Vivchar via B4 Relay
-> <devnull+rva333.protonmail.com@kernel.org> wrote:
+On 5/12/2026 5:00 AM, Dylan Hatch wrote:
+> On Fri, May 1, 2026 at 9:46 AM Mark Rutland <mark.rutland@arm.com>
+> wrote:
 
-...
+>> More generally, there are a few things that aren't addressed by
+>> this series that we will also need to address. Importantly:
+>> 
+>> (1) For correctness, we'll need to address a latent issue with
+>> unwinding across an fgraph return trampoline, where the return
+>> address is transiently unrecoverable.
+>> 
+>> Before this series, that doesn't matter for livepatching because
+>> the livepatching code isn't called synchronously within the fgraph 
+>> handler, and unwinds which cross an exception boundary are marked
+>> as unreliable.
+>> 
+>> After this series, that does matter as we can unwind across an 
+>> exception boundary, and might happen to interrupt that transient 
+>> window.
+>> 
+>> I think we can solve that with some restructuring of that code, 
+>> restoring the original address *before* removing that from the 
+>> fgraph return stack, and ensuring that the unwinder can find it.
+> 
+> If my understanding is correct, the issue arrises in
+> return_to_handler as the return address is recovered:
+> 
+> mov x0, sp bl ftrace_return_to_handler // addr =
+> ftrace_return_to_hander(fregs); mov x30, x0 // restore the original
+> return address
+> 
+> Because ftrace_return_to_handler pops the return address from the 
+> return stack before it can be restored into the LR, it cannot be 
+> recovered.
 
-> > +#include <linux/kernel.h>
->
-> No way the driver(s) nowadays use this header. Please, drop it and add
-> the ones that are really in use (there are missing ones).
+Based on reliable-stacktrace.rst section "4.4 Rewriting of return
+addresses" I wonder whether the following might work:
 
-Is there a tool or script that can check for IWYU? For example,
-the u32 and s32 types are defined in the asm-generic/int-ll64.h, which
-is not used by any device driver. Instead, types.h should be used.
-It's difficult to guess which header to use for a given type/function.
+- If an unwound RA points at return_to_handler the actual RA needs to
+  be obtained using ftrace_graph_ret_addr().  This might already be
+  taken into account if ftrace_graph_ret_addr() is used unconditionally.
 
-I've tried include-what-you-use [1], but it gives bad results like
-"add #include <asm-generic/int-ll64.h> // for u32".
+- If an unwound RA points into return_to_handler() mark the stack trace
+  as unreliable.  This could be accomplished by marking LR in
+  return_to_handler() as undefined (i.e. .cfi_undefined 30) to use
+  SFrame's outermost frame indication to stop and mark the stack trace
+  as unreliable:
 
-> > +#include <linux/module.h>
-> > +#include <linux/nvmem-consumer.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/property.h>
-> > +#include <linux/regmap.h>
->
-> > +#include <linux/slab.h>
->
-> Is it used?
+diff --git a/arch/arm64/kernel/entry-ftrace.S b/arch/arm64/kernel/entry-ftrace.S
+@@ -329,8 +329,12 @@ SYM_FUNC_END(ftrace_stub_graph)
+  * @fp is checked against the value passed by ftrace_graph_caller().
+  */
+ SYM_CODE_START(return_to_handler)
++       .cfi_startproc
++       /* Mark unwinding of LR as unreliable */
++       .cfi_undefined 30
+        /* Make room for ftrace_regs */
+        sub     sp, sp, #FREGS_SIZE
++       .cfi_adjust_cfa_offset -FREGS_SIZE
 
-Yes, without slab.h the __free would complain about missing __free_kfree,
-which is DEFINE_FREE(kfree, void *, if (!IS_ERR_OR_NULL(_T)) kfree(_T)).
+        /* Save return value regs */
+        stp     x0, x1, [sp, #FREGS_X0]
+@@ -344,6 +348,8 @@ SYM_CODE_START(return_to_handler)
+        mov     x0, sp
+        bl      ftrace_return_to_handler        // addr = ftrace_return_to_hander(fregs);
+        mov     x30, x0                         // restore the original return address
++       /* Mark unwinding of LR as reliable */
++       .cfi_restore 30
 
-...
+        /* Restore return value regs */
+        ldp     x0, x1, [sp, #FREGS_X0]
+@@ -351,7 +357,9 @@ SYM_CODE_START(return_to_handler)
+        ldp     x4, x5, [sp, #FREGS_X4]
+        ldp     x6, x7, [sp, #FREGS_X6]
+        add     sp, sp, #FREGS_SIZE
++       .cfi_adjust_cfa_offset FREGS_SIZE
 
-> > +#define MT6323_ADC_VOLTAGE_RANGE       1800
-> > +#define MT6323_ADC_RESOLUTION          32768
->
-> These two ring a bell with the first code patch. Are they the same?
-> Can they be deduplicated?
+        ret
++       .cfi_endproc
+ SYM_CODE_END(return_to_handler)
+ #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
 
-They can, but I doubt it's worth creating a header just for 2 constants.
-It would look too small compared to the other headers in the include/linux/=
-iio/adc.
+Notes regarding above:
+- return_to_handler() saves the caller's FP in ftrace_regs but never
+  restores it.  I suppose this is because ftrace_regs is an input to
+  ftrace_return_to_handler().  The DWARF CFI above assumes SP and FP
+  can be restored at all times as SP=CFA and FP=FP.
+- One might be tempted to add a .cfi_register 30, 0 after the call to
+  ftrace_return_to_handler.  This would be wrong, because if unwinding
+  comes from ftrace_return_to_handler() the unwound RA will point there
+  and the unwinding logic would erroneously assume x0 to contain the RA.
+- The DWARF CFI could be simplified as follows to just convey that
+  unwinding through return_to_handler is impossible at all times:
 
-1: https://github.com/include-what-you-use/include-what-you-use
+diff --git a/arch/arm64/kernel/entry-ftrace.S b/arch/arm64/kernel/entry-ftrace.S
+@@ -329,6 +329,9 @@ SYM_FUNC_END(ftrace_stub_graph)
+  * @fp is checked against the value passed by ftrace_graph_caller().
+  */
+ SYM_CODE_START(return_to_handler)
++       .cfi_startproc simple
++       /* Mark unwinding of LR as unreliable */
++       .cfi_undefined 30
+        /* Make room for ftrace_regs */
+        sub     sp, sp, #FREGS_SIZE
 
-Best regards,
-Roman
+@@ -353,5 +356,6 @@ SYM_CODE_START(return_to_handler)
+        add     sp, sp, #FREGS_SIZE
+
+        ret
++       .cfi_endproc
+ SYM_CODE_END(return_to_handler)
+ #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
+
+> 
+> Based on this, I believe you are suggesting to restructure this code 
+> path such that the return address is removed from the return stack 
+> only after it has been restored to LR. But since kernel/trace/
+> fgraph.c is core kernel code, will this end up requiring either (1)
+> a similar restructuring of other arches supporting ftrace, or (2) an 
+> arm64-specific implementation of this recovery logic?
+> 
+> It looks to me like there is essentially the same recovery pattern
+> on other arches; is there a reason this transient unrecoverability
+> isn't an issue for reliable unwind on other platforms?
+> 
+>> 
+>> I'm not immediately sure whether kretprobes has a similar issue.
+
+Regards,
+Jens
+-- 
+Jens Remus
+Linux on Z Development (D3303)
+jremus@de.ibm.com / jremus@linux.ibm.com
+
+IBM Deutschland Research & Development GmbH; Vorsitzender des Aufsichtsrats: Wolfgang Wendt; Geschäftsführung: David Faller; Sitz der Gesellschaft: Ehningen; Registergericht: Amtsgericht Stuttgart, HRB 243294
+IBM Data Privacy Statement: https://www.ibm.com/privacy/
+
 
