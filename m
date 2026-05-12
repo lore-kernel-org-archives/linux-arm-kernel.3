@@ -4,106 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ECB6CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 12:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53949CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:06:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/3Udc5nzTpFH3ZNPZ40mqdHxD5oBSqWoFzFOzQyS2M=; b=SDYiRrjgG9JrRw7JFwT9XsQI2i
-	ucyemSj59xbhpa4An2EPGf++eCC+RBSm+/r1k6J1I5Y7w24ztazg5x3ku/6wlYvLT/vxkWVY8etIV
-	R307azl03qXOm06eikxesOzawClL45kfY7ThPanUenDgUxIhx/VnMxehbBUEzcxfsh2cwL3FGlZEJ
-	NE6IF+n2UCc5r5b7QDeiM84xoISFyTuK+SOP2vhHSHzmAxJy+cHhXRjyP23Gc2H2JnA2ZSjOm8Y2J
-	qng+4/JD9GnhAdBEFWVvUpDKCFL8skPsc2wCUHI676Da65GW9auOYpj+uqjpn6uBVdOBoKpcSVc7b
-	NORaUKyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eNw77Y115KgnCA4n6U1Ivb4wi6zZwFo8xMGBM5HrmxE=; b=q8v8IVRa7QVsiO
+	PMb7Sle55jPvNFEvs5D8fW1+lsXyZEAeeliCvRVXRqD7gTaSQqDsmI8JUKCEsI3sIUwMVRvsqCWhu
+	VcofznklUqYgUPzvlKoAmYVQx91a1TcZmz9+OB/N3C3EpnGur+qYpbBNLmCEGoGNqNuB0CQ1Ud4cP
+	jRe6ivondHSuCd7Grx9gcBru8L1a0yUnH2eo60lqDBWmDbfZkut/XYL2R53RfWeJStBAxMMwywZcm
+	nQkqo68XHP6i6BPZdvaUprKVIPjfL8FUzEWzNVRhX24FI7dY+lwnEYji9A9OV/ulYgzuLcbIZmr71
+	TfapPurX48z0N8Y7hcEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmfC-0000000GjbK-0ZGd;
-	Tue, 12 May 2026 12:56:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMmoS-0000000GkV9-3nvH;
+	Tue, 12 May 2026 13:06:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmf9-0000000GjaQ-3lYP
+	id 1wMmoR-0000000GkUt-3X1F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 12:56:41 +0000
+	Tue, 12 May 2026 13:06:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 06B7044A7C;
-	Tue, 12 May 2026 12:56:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E623C2BCF5;
-	Tue, 12 May 2026 12:56:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DC5FA6012A;
+	Tue, 12 May 2026 13:06:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 129ECC2BCF6;
+	Tue, 12 May 2026 13:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778590598;
-	bh=Wh+lZzPFifVjKQxtwMnmuUW6xrspawFbZuPQ2q0YSpg=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=DmKf42NY0WWRlCkkNzExpTYBmIQ9HR2Doig1JCAiM4ihoFWAuc3Y+jenpQBYH9ouN
-	 CL0jpI7Lnp9A0611CRZs1ZZIT5Vghp2ksNxoDzCBv0nzMfFX7zITspw9YKuNE0TLMY
-	 gk6sU3nlffh4023Q1JioJOXjMlVoSsyxtYFE9Eb7V+9U5Z/EK6yqeyD6Xnk9ydaUaA
-	 yqTCM6RLXromyApfdUkRviOmb+DSeynH8dazyjF6aXYfHYeEd7p49AUIWJmTN86qNc
-	 33LuNGnkfvhy2kDKUU0yPz3OVRwxECsq66+VBx7Q8JOm9vjK3uWKpu1g7z9o3ZDuwz
-	 w2CfjG6Uv46IQ==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 83F93F4007B;
-	Tue, 12 May 2026 08:56:37 -0400 (EDT)
-Received: from phl-imap-14 ([10.202.2.87])
-  by phl-compute-01.internal (MEProxy); Tue, 12 May 2026 08:56:37 -0400
-X-ME-Sender: <xms:hSMDahjr8fBgo0X2A2B8pbiCglvSsihFvMy8aFmE9oRvch_oaIh0mg>
-    <xme:hSMDag1951UAdP4pjap-AlawMUnIDjVlal4tByB7vjVGOV7cJkeYwt8-wXc4lc_JO
-    RNfZDYr-iMFO9ZUB0Ip3zzKeIp63vMsMYZ5dPYKJ3MJn_WRlGxvIA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdduvddukeeiucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrugcu
-    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
-    htthgvrhhnpeefvdejhfelgeefffejgfeivdejvddvleevffeuffduhfeivedvudevveet
-    ffejheenucffohhmrghinheprhgvlhdrrhhonecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprghrugdomhgvshhmthhprghuthhhphgvrhhsohhn
-    rghlihhthidqudeijedthedttdejledqfeefvdduieegudehqdgrrhgusgeppehkvghrnh
-    gvlhdrohhrghesfihorhhkohhfrghrugdrtghomhdpnhgspghrtghpthhtohepudejpdhm
-    ohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhhshhhumhgrnhdrkhhhrghnughurg
-    hlsegrrhhmrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghr
-    mhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprh
-    gtphhtthhopehrhigrnhdrrhhosggvrhhtshesrghrmhdrtghomhdprhgtphhtthhopegr
-    rhgusgdoghhithesghhoohhglhgvrdgtohhmpdhrtghpthhtohepjhgrnhhnhhesghhooh
-    hglhgvrdgtohhmpdhrtghpthhtoheplhhiiihprhhutghkrgesghhoohhglhgvrdgtohhm
-    pdhrtghpthhtohepshgvthhhjhgvnhhkihhnshesghhoohhglhgvrdgtohhmpdhrtghpth
-    htohepuggrvhhiugeskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:hSMDasgmoBdlr5QNfHwUEzI8JmBqWi4-fEZBraqA5kxJ3519fRwUDQ>
-    <xmx:hSMDahX96c-lKMxhuUioA8VjgSniJeeFqXTtHKY1vCxuWJ9iBg0Gkg>
-    <xmx:hSMDaltCU_8JA2q7fkHE0P2all3FAwUxdl43M7L2CMlgOMCyq8Ilqg>
-    <xmx:hSMDaqbBOePMI5ZHODv8aZWZyeiCX99S5zw_gaQs9q_LHhkN8TFMAQ>
-    <xmx:hSMDau4zfN_MC61dB4OvUNbnNDrGEzRZ8v3fCbfFfIis_ErU-AQ-YiyI>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 5FD6EC4006E; Tue, 12 May 2026 08:56:37 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20201202; t=1778591174;
+	bh=mxkddz9BDuQCHvOCbUUJ90eg8pjGZVnjyCNE9GmxaFA=;
+	h=From:Subject:Date:To:Cc:From;
+	b=A3G7WWRWS4rMEE3kgvcztzYc4Vp0UwFUvGZuWuuBEL2U90x/52C786k9rldo6PuIm
+	 OeO9JsWgkXiP5kf1qb88sPJfzb/Zinr+6PMcGTJL04eIGFI7OHWciyqfxLk+wvZ1Vs
+	 YqA8s/Gq5r/4d8cdTyoUobaYwPRGhryzG6V/zcahueM6Q54YCNbpJWpT1eftT65Uxe
+	 gZX91C5wEygAJTd5eMI0ERK3YQM0R/6RAPkF9GRHYJCYHuET91NpsAFTWLEunJ1DRV
+	 8kyRi6eNuodqdRW4pUXJRNsse931/+cRWYHlRsrzvCIEhgOFdhbEBmIeit8gfdq3Yg
+	 ZWv8uSKTtfEpQ==
+From: Maxime Ripard <mripard@kernel.org>
+Subject: [PATCH v4 00/20] drm/atomic: Rework initial state allocation
+Date: Tue, 12 May 2026 15:05:58 +0200
+Message-Id: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
 MIME-Version: 1.0
-Date: Tue, 12 May 2026 14:56:16 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Jann Horn" <jannh@google.com>
-Cc: "Ard Biesheuvel" <ardb+git@google.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Will Deacon" <will@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Rutland" <mark.rutland@arm.com>, "Ryan Roberts" <ryan.roberts@arm.com>,
- "Anshuman Khandual" <anshuman.khandual@arm.com>,
- "Liz Prucka" <lizprucka@google.com>, "Seth Jenkins" <sethjenkins@google.com>,
- "Kees Cook" <kees@kernel.org>, "Mike Rapoport" <rppt@kernel.org>,
- "David Hildenbrand" <david@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>, linux-mm@kvack.org,
- linux-hardening@vger.kernel.org
-Message-Id: <fb5749bb-bc87-4f0b-9ec9-8a1eb7ded3b5@app.fastmail.com>
-In-Reply-To: <CAG48ez2xJwJDgxSH0u2G==9dOQJQxQ7WsQfU14O1H5hEWic1eA@mail.gmail.com>
-References: <20260427153416.2103979-17-ardb+git@google.com>
- <20260427153416.2103979-19-ardb+git@google.com>
- <CAG48ez1DJ88a0pBCE-Q0VXyDuJgng8zdunb38g4b4JPU88exww@mail.gmail.com>
- <31252c1d-a98d-4635-ab61-ce5b649e256f@app.fastmail.com>
- <CAG48ez2xJwJDgxSH0u2G==9dOQJQxQ7WsQfU14O1H5hEWic1eA@mail.gmail.com>
-Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_055639_973512_0DAEBC17 
-X-CRM114-Status: GOOD (  15.14  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33OTW7DIBAF4KtYrEvFn22SVe9RdRFgcEapIQVqp
+ Yp89xKySKoqWb4ZvW/mTDIkhEy23ZkkWDBjDDWol47Y/S5MQNHVTAQTA5OcUZdmOkcH1MbgcaI
+ YsFAO3PfCjKp3jNTqMYHHU2PfP645wdd31ct1SMwuX4h5xrLtApwKbRd6psmlsMdcYvppby28N
+ Z5/sHBaNzDKzWg1cOvfDpACfL7GNDVxEXeKeKSIqthBes6lgnGw/xR5U5RQDxRZFW0G7TbOMKf
+ NH2Vd119lfOmOdgEAAA==
+X-Change-ID: 20260310-drm-mode-config-init-1e1f52b745d0
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5534; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=mxkddz9BDuQCHvOCbUUJ90eg8pjGZVnjyCNE9GmxaFA=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFnMqjvXLZf6dyeu1XHP/u9HBWbVRZtfjGu+6rvorGIN9
+ 4HbT29odkxlYRDmZJAVU2R5IhN2enn74ioH+5U/YOawMoEMYeDiFICJ2K5nrI/Or+nKbkyvvMLX
+ 5DWlY4Ga9c7kmUs3fi0wTKyd5hP1OPy+l+qnPF6n/nv7bkv2xngcYazh3FwsuI8v/dxi/i0r3Za
+ eF99arPP1j7ZmWlFQ05cvS9Wmh2bFSSh08T1iZq+buetWmTcA
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,68 +106,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 May 2026, at 16:40, Jann Horn wrote:
-> On Mon, May 11, 2026 at 10:59=E2=80=AFAM Ard Biesheuvel <ardb@kernel.o=
-rg> wrote:
->> I think we should simply do something along the lines of the below,
->> considering that the size of a data object tends to correlate with
->> its minimum alignment.
->>
->> I do find it rather puzzling that the compiler emits empty_zero_page
->> *after* zero_page_pfn - ideally, we'd combine the below with
->> -fdata-sections so that the linker sees all individual objects, but
->> I suspect that would create some problems elsewhere.
->>
->>
->> --- a/include/asm-generic/vmlinux.lds.h
->> +++ b/include/asm-generic/vmlinux.lds.h
->> @@ -452,7 +452,7 @@
->>  #define RO_AFTER_INIT_DATA                                   \
->>         . =3D ALIGN(8);                                         \
->>         __start_ro_after_init =3D .;                            \
->> -       *(.data..ro_after_init)                               \
->> +       *(SORT_BY_ALIGNMENT(.data..ro_after_init))            \
->
-> Oh, neat, I didn't realize that's possible. That seems like a nicer
-> approach...
+Hi,
 
-Neat but rather ineffective, unfortunately. (I don't see a size
-difference with the arm64 defconfig kernel)
+This series started from my work on the hardware state readout[1], and
+more specifically a discussion with Thomas[2].
 
-Given that empty_zero_page only ever gets its address taken, we
-might just move it into the linker script if that requires tweaking
-anyway. We can just place it at the start of .rodata, which is
-already page aligned on most architectures (and will become page
-aligned unless EMPTY_ZERO_PAGE is #define'd by the arch linker
-script to something else)
+This series expands the work that has been merged recently to make
+drm_private_obj and drm_private_state allocation a bit more consistent
+and ended up creating a new atomic_create_state callback to allocate a
+new state with no side effect.
 
+The first patches document the existing behaviour and fix a few
+cleanups and typos.
 
---- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -472,6 +472,17 @@
- #endif
- #endif
-=20
-+#ifndef EMPTY_ZERO_PAGE
-+#ifndef __HAVE_COLOR_ZERO_PAGE
-+#define EMPTY_ZERO_PAGE                                        \
-+       . =3D ALIGN(PAGE_SIZE);                                   \
-+       empty_zero_page =3D .;                                    \
-+       . +=3D PAGE_SIZE;
-+#else
-+#define EMPTY_ZERO_PAGE
-+#endif
-+#endif
-+
- /*
-  * Read only Data
-  */
-@@ -479,6 +490,7 @@
-        . =3D ALIGN((align));                                     \
-        .rodata           : AT(ADDR(.rodata) - LOAD_OFFSET) {   \
-                __start_rodata =3D .;                             \
-+               EMPTY_ZERO_PAGE                                 \
-                *(.rodata) *(.rodata.*) *(.data.rel.ro*)        \
-                SCHED_DATA                                      \
+Then, __drm_*_state_reset() helpers are renamed to
+__drm_*_state_init() to clarify that they initialize rather than
+reset state, and we add the new atomic_create_state callback to
+every other DRM object (planes, CRTCs, connectors, colorops).
+
+Next, we leverage those new callbacks to create a new helper,
+drm_mode_config_create_initial_state(), to create the initial state
+for all the objects of a driver, and update the driver skeleton to
+recommend it.
+
+Finally, we convert the tidss driver and the bridge_connector to the
+new pattern.
+
+This was tested on a TI SK-AM62, with the tidss driver.
+
+Let me know what you think,
+Maxime
+
+1: https://lore.kernel.org/dri-devel/20250902-drm-state-readout-v1-0-14ad5315da3f@kernel.org/
+2: https://lore.kernel.org/dri-devel/5920ffe5-b6b1-484b-b320-332b9eb9db82@suse.de/
+
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+Changes in v4:
+- Rebased on current drm-misc-next
+- Update drm_atomic_state to drm_atomic_commit
+- Various doc impromvements
+- Don't call drm_crtc_vblank_reset in create_state
+- Prevent mem leak if states already have a state when
+  drm_mode_config_reset or _create_initial_state are called
+- Link to v3: https://lore.kernel.org/r/20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org
+
+Changes in v3:
+- Reintroduce state documentation that was dropped by accident
+- Change name to drm_mode_config_create_initial_state()
+- Don't call drm_mode_config_create_initial_state() in drm_dev_register
+  anymore
+- Drop __drm_atomic_helper_*_create_state
+- Improve documentation and commit messages where necessary
+- Collected tags
+- Link to v2: https://lore.kernel.org/r/20260320-drm-mode-config-init-v2-0-c63f1134e76c@kernel.org
+
+Changes in v2:
+- Change the _state_reset function names to _state_init
+- Change the colorop too
+- Various doc improvements
+- Link to v1: https://lore.kernel.org/r/20260310-drm-mode-config-init-v1-0-de7397c8e1cf@kernel.org
+
+---
+Maxime Ripard (20):
+      drm/atomic: Document atomic commit lifetime
+      drm/colorop: Fix typos in the doc
+      drm/atomic: Drop drm_private_obj.state assignment from create_state
+      drm/atomic: Expand atomic_create_state expectations for drm_private_obj
+      drm/mode-config: Document drm_private_obj exclusion from drm_mode_config_reset()
+      drm/colorop: Rename __drm_colorop_state_reset()
+      drm/colorop: Create drm_atomic_helper_colorop_create_state()
+      drm/atomic-state-helper: Fix __drm_atomic_helper_plane_reset() doc typo
+      drm/atomic-state-helper: Rename __drm_atomic_helper_plane_state_reset()
+      drm/plane: Add new atomic_create_state callback
+      drm/atomic-state-helper: Rename __drm_atomic_helper_crtc_state_reset()
+      drm/crtc: Add new atomic_create_state callback
+      drm/atomic-state-helper: Rename __drm_atomic_helper_connector_state_reset()
+      drm/hdmi: Rename __drm_atomic_helper_connector_hdmi_reset()
+      drm/connector: Add new atomic_create_state callback
+      drm/mode-config: Create drm_mode_config_create_initial_state()
+      drm/drv: Switch skeleton to drm_mode_config_create_initial_state()
+      drm/tidss: Switch to drm_mode_config_create_initial_state()
+      drm/tidss: Convert to atomic_create_state
+      drm/bridge_connector: Convert to atomic_create_state
+
+ Documentation/gpu/drm-kms.rst                      |   6 +
+ drivers/gpu/drm/display/drm_bridge_connector.c     |  17 +-
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  15 +-
+ drivers/gpu/drm/drm_atomic.c                       |  66 ++++++++
+ drivers/gpu/drm/drm_atomic_state_helper.c          | 114 ++++++++++---
+ drivers/gpu/drm/drm_colorop.c                      |  41 ++++-
+ drivers/gpu/drm/drm_drv.c                          |   4 +-
+ drivers/gpu/drm/drm_mode_config.c                  | 187 ++++++++++++++++++++-
+ drivers/gpu/drm/i915/display/intel_crtc.c          |   2 +-
+ drivers/gpu/drm/i915/display/intel_plane.c         |   2 +-
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |   2 +-
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c |   2 +-
+ drivers/gpu/drm/tidss/tidss_crtc.c                 |  17 +-
+ drivers/gpu/drm/tidss/tidss_drv.c                  |   6 +-
+ drivers/gpu/drm/tidss/tidss_plane.c                |   2 +-
+ drivers/gpu/drm/vc4/vc4_hdmi.c                     |   2 +-
+ include/drm/display/drm_hdmi_state_helper.h        |   4 +-
+ include/drm/drm_atomic.h                           |   5 +-
+ include/drm/drm_atomic_state_helper.h              |  12 +-
+ include/drm/drm_colorop.h                          |   2 +
+ include/drm/drm_connector.h                        |  16 ++
+ include/drm/drm_crtc.h                             |  16 ++
+ include/drm/drm_mode_config.h                      |   1 +
+ include/drm/drm_plane.h                            |  16 ++
+ 24 files changed, 489 insertions(+), 68 deletions(-)
+---
+base-commit: b462608de92a7cac450781f9d8d4c7cf3ccf82db
+change-id: 20260310-drm-mode-config-init-1e1f52b745d0
+
+Best regards,
+-- 
+Maxime Ripard <mripard@kernel.org>
 
 
