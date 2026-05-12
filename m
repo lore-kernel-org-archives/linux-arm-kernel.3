@@ -4,128 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AE5CD484E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 06:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BF1CD484E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 06:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8fcrJadT7W6v+hMSnEjgUHAK9SZBnbuQcyT+WI+mDsQ=; b=HddGal86h53leExvosFc7bilIx
-	cshvBDh2ZcBgvNovKX1TIWLMsNbMunIvP9Vghjgi0sJdfwfZwBLQV4HxoEBQXiULzeicpqEG6eqM/
-	lQ9NbNBIEjvPE/XECx8//ptEr3YUJAwlxNkEeHyfyrcalZpohaue51AlUx3lI7bX5s5S+TA8Bf7Th
-	O2qHmSvgzWo2YTJsVcblM3HY5KwG9GQVDYjGMNUrHpP1vN9Uu0abPHlNpxnQnQzCjn47W6lNSjbLD
-	5/V8CVc7o26gQkTbtN6MPyw2DDNFI+CFt2LwUFof+d7FLumE/6Aapv3bczmNqycurWK9wrRwuuAR5
-	JYcDxtxQ==;
+	bh=DR7wM94W4WPEH6a2yD5h6iLUv0ceeieWcpfrJRMkgIk=; b=myH88W5tb4d4CPboSdGI/AniCk
+	6V0UVjlJozdxeVrQmZE8/qvfVeDzNK/bCssWeZImRQcPXiz1kiEYR+HG+6dsk575fY6Y0Wdx0BLZW
+	nPc5Fxq5oX5fzNrmIYpj6pYVdjpKPXl/vLG5CyZqNPWd+DgIyulk/SVw36oyZb4emBvPgiMgO6lYL
+	F/hEutyoXNzwGqLPDWfi2uGQtGqDM/DFyeGAfAYm5p8bN5H46Gy2HOt+ul9V7I6+dFk/3ArRFhYD9
+	iBLDS+QVIa4iQPjoev8qiF/BBBTcLbkNbLhHjH2gHhwwPwO2BBvwJp3e42oCO3Vz1ee02dHcFgPaG
+	/9I9t4uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMgGZ-0000000Fj9e-3RyM;
-	Tue, 12 May 2026 06:06:51 +0000
-Received: from mail-eastus2azon11010060.outbound.protection.outlook.com ([52.101.56.60] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1wMgJF-0000000Fjfk-12eJ;
+	Tue, 12 May 2026 06:09:37 +0000
+Received: from mail-southcentralusazon11011038.outbound.protection.outlook.com ([40.93.194.38] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMgGV-0000000Fj7o-3smp
+	id 1wMgJD-0000000FjeO-0DXM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 06:06:50 +0000
+	Tue, 12 May 2026 06:09:36 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GJys44lwBMon5CwIeXMWpE4q25SFZIzOtOGA+M7+z3Pmngt86gGTM7i4oEOwn7DWPY9IP3eEgVVyB8cLEmhocjCfEyvnmC4TFJyEHbAhQuKIfvtQ3Ypt1nXBzcJzy9SXi2c5v682Kcpio1JL40ngWgieK+nUqE3NmfIYqpM5ux7j6ALrC0fYa+sr5IALv3+Py8CaRkFZiDuzzC9afS+lZe3NJyox3KnS07sGKpBbYf1DwaiwtGE8perTY99jiShBmyFd3PPsdYsGnzi3o3ZcG0l35UnPt8KfQLXm+rmL/p096zA5aCusFP81nzfxrhnAcczw0+i9wB0vXy2K74idgA==
+ b=CqvMOCDDYk5EsoPtJsfwYbqvqr+2BIhJB0ai6yovpigM9ftZBHm5leo3Vjx7ilqrrVH5ZhzRG5WtI5x68g8z73bM7BGRBNtWIHgakvLHVg52AHw8cHKxHF4RZaQYLBHZZeiGrTPWF4SWjb8c+He741efWRS5CM4giEqvBZL724twMzLqeSOc+xStecIClKPdg9Uo6jH222FCnUnmdobPhUo0SmvjhHuEw4m0iRuuBkSyMAXfCZ0Joc5O5utBsRKU9J1yv2NbJFU27dgZXMwnnDqhpELqm5LQtz1ypGE8HsXk397C328lSqOxzZM5R1qp4K47L0SIcGL0bSGlTCM66w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8fcrJadT7W6v+hMSnEjgUHAK9SZBnbuQcyT+WI+mDsQ=;
- b=ftSM7tfnByd5DOLDDmct+59kwB8WT0NcK/LHu0XMi5az/r6hhrQgiYhnQ759Dj4kXMnHmBkeINDsuOXvDlnbEJBd8sERBYbHHHuw+KJmbd0f6BXX800Q8z1g97s/ih3QHJlJHthu1Uns2JUGWsBKrGdKbzl0sUqrfG8pmigeeafbe/eMvYvRYLo+Y0XoFoleGDfv8a/XL0vizzhlTwPHvv3FYY0rZPvLCsT478na23X0puvj/pLSOj1tAmGO9TaOlW8vNqUlQVqdwG2NnsbnUbUQlRz0qvaHaqDYCZvL4akRDkSihRsB3ms+Sfbwfwo/B0WE3+UwN3RFr3qqX8cMGQ==
+ bh=DR7wM94W4WPEH6a2yD5h6iLUv0ceeieWcpfrJRMkgIk=;
+ b=qFkvdEZlqongBWIrUQkaQtjSUKJ/IAd+cXhapgwfc4eUDw459O9TCpTaiuFOxN1X20kjmvzEHLxKvPeV1hm0zoxHI1GMhpHvRsQlOeyk7qDDhIl71EvO6SWV2lGdASNhtK2oavBBIkPBM0HapSOT97aG0J5TVmYqe4VPds0hXxJK6wt22RtzaQctxnU6PODfAjGpSR5xOj+QwrbineYsGicyq6yP08RmeOQap+ByU93j4t2J8OlHtTatIvd3qrpYtrudnxnqtjkaKjXSO+G1eY5IZ2SSdXGgSun6wW23ul/la6cKgGNs3BVSEQ5dew/oAPJEkkp7/2kPMxYKJaqdqg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=davemloft.net smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8fcrJadT7W6v+hMSnEjgUHAK9SZBnbuQcyT+WI+mDsQ=;
- b=Fgw2kkNeIcHrs8xl46RaIhU6KyLQw9RlBd8AwYtQahkTVFmZR5XU+Um3m+JlWIxDB0o/j9ebxdZkWNA1Uprpq16Xl8tmHvC4yj0zSeuP0IkkblCOQa2YAuploWzHaaZH8zrt2VnDuljPvd+isP6nKv+a2m9sDKoEbhQQgJJi7JE=
-Received: from SJ0PR03CA0296.namprd03.prod.outlook.com (2603:10b6:a03:39e::31)
- by BL3PR10MB6116.namprd10.prod.outlook.com (2603:10b6:208:3bb::7) with
+ bh=DR7wM94W4WPEH6a2yD5h6iLUv0ceeieWcpfrJRMkgIk=;
+ b=QClDzNv8u9ZkGViyCIvquNB+LYTykE2D0wYkRZrNLBHUEABuvBtNzJujsEFi7YTHzy47Gb9lRI+fUzOMrlqz94/WoWkc3V16ABGasmDEjlRO9iwScyxRyOv+V+8XbXy80KDzCHeoFm9u3ECMP9AFlvsbEcAxrmVnIDcrG7T+Ju0=
+Received: from BL1PR13CA0343.namprd13.prod.outlook.com (2603:10b6:208:2c6::18)
+ by SA1PR12MB6947.namprd12.prod.outlook.com (2603:10b6:806:24e::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
- 2026 06:06:42 +0000
-Received: from SJ1PEPF000023CB.namprd02.prod.outlook.com
- (2603:10b6:a03:39e:cafe::71) by SJ0PR03CA0296.outlook.office365.com
- (2603:10b6:a03:39e::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.23 via Frontend Transport; Tue,
- 12 May 2026 06:06:42 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SJ1PEPF000023CB.mail.protection.outlook.com (10.167.244.5) with Microsoft
+ 2026 06:09:27 +0000
+Received: from BL6PEPF0001AB50.namprd04.prod.outlook.com
+ (2603:10b6:208:2c6:cafe::83) by BL1PR13CA0343.outlook.office365.com
+ (2603:10b6:208:2c6::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.16 via Frontend Transport; Tue, 12
+ May 2026 06:09:26 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BL6PEPF0001AB50.mail.protection.outlook.com (10.167.242.74) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Tue, 12 May 2026 06:06:39 +0000
-Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
- 2026 01:06:39 -0500
-Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
- 2026 01:06:39 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 12 May 2026 01:06:39 -0500
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64C66dDE1179576;
-	Tue, 12 May 2026 01:06:39 -0500
-Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 64C66b51032010;
-	Tue, 12 May 2026 01:06:38 -0500
-From: MD Danish Anwar <danishanwar@ti.com>
-To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, MD Danish Anwar
-	<danishanwar@ti.com>, Roger Quadros <rogerq@kernel.org>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Jacob Keller <jacob.e.keller@intel.com>, "Meghana
- Malladi" <m-malladi@ti.com>, David Carlier <devnexen@gmail.com>, Kevin Hao
-	<haokexin@gmail.com>, Vadim Fedorenko <vadim.fedorenko@linux.dev>
-CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>
-Subject: [PATCH net-next 2/2] net: ti: icssg: Add HSR and LRE PA statistics
-Date: Tue, 12 May 2026 11:36:27 +0530
-Message-ID: <20260512060627.3781329-3-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260512060627.3781329-1-danishanwar@ti.com>
-References: <20260512060627.3781329-1-danishanwar@ti.com>
+ 15.21.25.13 via Frontend Transport; Tue, 12 May 2026 06:09:26 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 12 May
+ 2026 01:09:26 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 12 May
+ 2026 01:09:25 -0500
+Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Tue, 12 May 2026 01:09:22 -0500
+From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+To: <linux-kernel@vger.kernel.org>
+CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, Shubhrajyoti Datta
+	<shubhrajyoti.datta@amd.com>, Srinivas Neeli <srinivas.neeli@amd.com>, Michal
+ Simek <michal.simek@amd.com>, Linus Walleij <linusw@kernel.org>, Bartosz
+ Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	<linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v4 1/3] dt-bindings: gpio: zynq: Sort compatible strings alphabetically
+Date: Tue, 12 May 2026 11:38:47 +0530
+Message-ID: <20260512060917.2096456-2-shubhrajyoti.datta@amd.com>
+X-Mailer: git-send-email 2.49.1
+In-Reply-To: <20260512060917.2096456-1-shubhrajyoti.datta@amd.com>
+References: <20260512060917.2096456-1-shubhrajyoti.datta@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CB:EE_|BL3PR10MB6116:EE_
-X-MS-Office365-Filtering-Correlation-Id: f35062ed-80e8-449b-d336-08deafeca228
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB50:EE_|SA1PR12MB6947:EE_
+X-MS-Office365-Filtering-Correlation-Id: d98529ae-a4f7-4236-575c-08deafed057a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|82310400026|921020|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: QQlRkfZIXY+fq5dTMtfgYuhZuU+wv8PA9/67GzYYCMbG/a6OPDNaQRX8B3V/GinHRMs6qUn+djyGxAYs5BIMsG8FjOG2veAjopbNKT1EvM+w4TUX9HO990drfMN1AXBf2iUueEgmAFZLHnYEW9CNAB0fscnw5EU01L23c56aq973YosV5j4A0/Z2J0fKy/hF9SN1qF3N+ufRP5tEy6fvGri+QglSzznq1G4dh27mTJLEffc2NdXIT6wqPSgjGYs2bN840R8Mws/65sjF1Z0KSp6OaLrIfg9pkc2/DUVKuAQdtEtzGcJQ+KWkLbezoVkMzj3N4dJMGx0MSwI0eJZCjwZSfIgIud7S9j3T9EbuZPl7KWyWpWLh3Z69wSKYfXvYZ/OgDfsDFI8t07ZDH8lbUb1JmNVB1Qdhe2KjWiMwN8UMA7NvhfQblg+U5StdVfB/NewgryFdN9CWaF6q822W9e8tQ48PQDXXftmWlxbU+zogappJaALsMml/D6yxZWubKyLz1KrSbWrwSwmgYvvgliq1bTdeTeP555NsIK3P4zhszDvAAtG6aS9Y7te+ZEJvpHSMNIl30lQerhjDStnfdHFccX2/OsjljaFP+NSF/IydgFf7Y/RisKlaoMAV9k1kTiARzrHlXQoGVYXcu02Hj9L3SjO5xm525C34LsZoMwjNZb3cc9ep70tIDc3byxPhwvWczgFnxNkTHH33us5qW0HRjvWGRYYRd97zCHhCxrkZEASEIIha6niHJHSuybx5uEcgUSq+ofFF5myMf+7diQ==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(82310400026)(921020)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|36860700016|1800799024|11063799003|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: R4j6vCK8Dqv4VyscQAiZKjJcH3cO1VwsgynvgQ/l0WGWio9cM5Y5wrAtjaBZtV1mozAsejVZveM+J/28oTgC55lL28AmtQzxdth3RO34xylKaPKholBqk1L+z6UcL03Jte+ePXj7lYcom1+FPFcasTbr3q3ozzVsLg7WtR140R/8bDk2BWgwRWT/3TS1kTJt9fuezEpwmJ2iaGQx757DFsDHL1tg80hw88HKonX0WWDi5t+fyoQ35X/i+cShKu/ERD9lKpcVeYXRqV1a8Uc5GUvHPnBmE3Nn/DyokhoF3VQ9sN0HSD6oFCPU+7ERHpDATCATzE9UC3boSVWnQhBXtPw5pCH93GFZjJijgAXDyeCQh/qrgb9/FLXlnkTchdLNYvfqJBLgHxun8plk2DgaZetKV0iNow/x4NUAjF/4KiH60E+DeIpw57qS3YVnDHot5jClG9yr5HdL+o50bNRCY0z4F/WSaxk+dVnMAZo8lDs9fZ7Kbh4pylesdY+LlHzXlXrViI3r9Q3yCjEGCknwvderhYtCzPF9R8O9F0TwF1qqvt1aVGIOpdgDXgyw9pxS9ezuiUDYSJDEraK/XS+cLBR+MR4x1sS1wtEPi+u5l4nI7/SrMTJB4PoTcoYULxc8h/a+HMEjyvKWCEIVWdvf/WfWiF2wiAbBm2CnimddoCjAaXefjJxQxlNhnkBScCUsBs/AusHHr32X8ITJV2fVgZo6ZFMz/AQywUsqe2zENB8=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(36860700016)(1800799024)(11063799003)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: pUxHLWR9G/V6w0JEClGocjUiCVrzvbVBlsS0bkUo3/vH18UHOQ0Oz2Qcgih265bToktoCqnJp2mKMADxCU8JdRilwY5gsuNx/7E1n5Lzy51noNTbwh379ErognTuonkbLwsWsB+bzfa5lSgADFhlAGgX1COyd3FBLn0fFSa8XjHR3qzglEgCQxcXfvLAyyRihBz8VOwnB0yPfxxHCU88S6OTx3nvbpmYv/DRZ4CxZqeGA/aQnRgA2H6+7SYmfE8zCSVf6foemMqzj35qabPqcj5hq/NgfwOMDPMCAFtpchZhdc9pEOJasmXM7Yi1nhpTcZ9o3i7OqLy6xWf1DCodjPnBK0VKV+Fw1JmAeFYsR0M35Czak/mt8z2sT7dH7rFm3P8e+TJ/8DXV+l3CotHdER56xWq8sCDwNXYpM+VSB4LjXGREHjyKjoPyKYPAimq3
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 06:06:39.9600
+X-MS-Exchange-AntiSpam-MessageData-0: Sqb7sK7Cpeb0EKoWE6RpKvpNnRtm7RBEW5EW7NGqKbaQTVq15pBkVNUcZZCf37zpCSZzwpuzEtXF00kChZPfRk6BwnnzqSNfDhEb1hIQ69eqqz7WX4X4T7sZtLa3aNTy5p2dRs2plDz+qkrZBGaFCN13noSiK8ljYdy0mnd+vPqCXxI5Ct4n9DQmCwE1Nchxp17F9Ljj5SC4EtxCGnB7qEGn2vzOZG6x+X5hnT6s+8OxhGYvxTonMUBsflwpLV2uo84xUBEINgT3ZryZKPtqC7oiTNilhBO+TD+n5fyxAlvESmBJwAu7p7e3tfiIYqiU9pDIXddGp4/PRtBg7iYCQJwdprY7Ee5lhk/ZbsVSidqlIveXbkoh5l1Cg2Gz8rmz/HPklbCXif1CUcljOKogggXDRDItAXpRka0tIKqmajarWdrMzJTU1fVwPK24uxWA
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 06:09:26.6759
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f35062ed-80e8-449b-d336-08deafeca228
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CB.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d98529ae-a4f7-4236-575c-08deafed057a
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB50.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR10MB6116
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6947
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_230648_752727_52591F16 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260511_230935_096177_28AD521F 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,114 +129,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new firmware PA statistics counters for HSR and LRE to the ethtool
-statistics exposed by the ICSSG driver.
+Sort the compatible string alphabetically.
 
-New statistics added:
- - FW_HSR_FWD_CHECK_FAIL_DROP: Packets dropped on the HSR forwarding path
- - FW_HSR_HE_CHECK_FAIL_DROP: Packets dropped on the HSR host egress path
- - FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES: Frames with duplicate discard
-   skipped
- - FW_LRE_CNT_UNIQUE/DUPLICATE/MULTIPLE_RX: LRE duplicate detetcion
-   counters
- - FW_LRE_CNT_RX/TX: LRE per-port frame counters
- - FW_LRE_CNT_OWN_RX: Own HSR tagged frames received
- - FW_LRE_CNT_ERRWRONGLAN: Frames with wrong LAN identifier (PRP)
-
-Document the new HSR/LRE statistics in icssg_prueth.rst.
-
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 ---
- .../device_drivers/ethernet/ti/icssg_prueth.rst        | 10 ++++++++++
- drivers/net/ethernet/ti/icssg/icssg_common.c           |  7 +++++--
- drivers/net/ethernet/ti/icssg/icssg_stats.h            | 10 ++++++++++
- drivers/net/ethernet/ti/icssg/icssg_switch_map.h       | 10 ++++++++++
- 4 files changed, 35 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/networking/device_drivers/ethernet/ti/icssg_prueth.rst b/Documentation/networking/device_drivers/ethernet/ti/icssg_prueth.rst
-index da21ddf431bb..b0bda7327b2a 100644
---- a/Documentation/networking/device_drivers/ethernet/ti/icssg_prueth.rst
-+++ b/Documentation/networking/device_drivers/ethernet/ti/icssg_prueth.rst
-@@ -54,3 +54,13 @@ These statistics are as follows,
-  - ``FW_HOST_TX_PKT_CNT``: Number of valid packets copied by RTU0 to Tx queues
-  - ``FW_HOST_EGRESS_Q_PRE_OVERFLOW``: Host Egress Q (Pre-emptible) Overflow Counter
-  - ``FW_HOST_EGRESS_Q_EXP_OVERFLOW``: Host Egress Q (Pre-emptible) Overflow Counter
-+ - ``FW_HSR_FWD_CHECK_FAIL_DROP``: Packets dropped on the HSR forwarding path due to failed checks
-+ - ``FW_HSR_HE_CHECK_FAIL_DROP``: Packets dropped on the host egress path due to failed checks
-+ - ``FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES``: Frames for which the host duplicate discard check was skipped
-+ - ``FW_LRE_CNT_UNIQUE_RX``: Number of frames received with no duplicate detected
-+ - ``FW_LRE_CNT_DUPLICATE_RX``: Number of frames received for which exactly one duplicate was detected
-+ - ``FW_LRE_CNT_MULTIPLE_RX``: Number of frames received for which more than one duplicate was detected
-+ - ``FW_LRE_CNT_RX``: Number of HSR/PRP tagged frames received
-+ - ``FW_LRE_CNT_TX``: Number of HSR/PRP tagged frames sent
-+ - ``FW_LRE_CNT_OWN_RX``: Number of HSR/PRP tagged frames received whose source MAC matches the node's own address
-+ - ``FW_LRE_CNT_ERRWRONGLAN``: Number of frames received with a wrong LAN identifier, PRP only
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index a28a608f9bf4..e7a51a9eee24 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -1633,7 +1633,8 @@ void icssg_ndo_get_stats64(struct net_device *ndev,
- 			    emac_get_stat_by_name(emac, "FW_RX_EOF_SHORT_FRMERR") +
- 			    emac_get_stat_by_name(emac, "FW_RX_B0_DROP_EARLY_EOF") +
- 			    emac_get_stat_by_name(emac, "FW_RX_EXP_FRAG_Q_DROP") +
--			    emac_get_stat_by_name(emac, "FW_RX_FIFO_OVERRUN");
-+			    emac_get_stat_by_name(emac, "FW_RX_FIFO_OVERRUN") +
-+			    emac_get_stat_by_name(emac, "FW_LRE_CNT_ERRWRONGLAN");
- 	stats->rx_dropped = ndev->stats.rx_dropped +
- 			    emac_get_stat_by_name(emac, "FW_DROPPED_PKT") +
- 			    emac_get_stat_by_name(emac, "FW_INF_PORT_DISABLED") +
-@@ -1643,7 +1644,9 @@ void icssg_ndo_get_stats64(struct net_device *ndev,
- 			    emac_get_stat_by_name(emac, "FW_INF_DROP_TAGGED") +
- 			    emac_get_stat_by_name(emac, "FW_INF_DROP_PRIOTAGGED") +
- 			    emac_get_stat_by_name(emac, "FW_INF_DROP_NOTAG") +
--			    emac_get_stat_by_name(emac, "FW_INF_DROP_NOTMEMBER");
-+			    emac_get_stat_by_name(emac, "FW_INF_DROP_NOTMEMBER") +
-+			    emac_get_stat_by_name(emac, "FW_HSR_FWD_CHECK_FAIL_DROP") +
-+			    emac_get_stat_by_name(emac, "FW_HSR_HE_CHECK_FAIL_DROP");
- 	stats->tx_errors  = ndev->stats.tx_errors;
- 	stats->tx_dropped = ndev->stats.tx_dropped +
- 			    emac_get_stat_by_name(emac, "FW_RTU_PKT_DROP") +
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-index b854eb587c1e..af3fcecac403 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-@@ -204,6 +204,16 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
- 	ICSSG_PA_STATS(FW_HOST_TX_PKT_CNT),
- 	ICSSG_PA_STATS(FW_HOST_EGRESS_Q_PRE_OVERFLOW),
- 	ICSSG_PA_STATS(FW_HOST_EGRESS_Q_EXP_OVERFLOW),
-+	ICSSG_PA_STATS(FW_HSR_FWD_CHECK_FAIL_DROP),
-+	ICSSG_PA_STATS(FW_HSR_HE_CHECK_FAIL_DROP),
-+	ICSSG_PA_STATS(FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES),
-+	ICSSG_PA_STATS(FW_LRE_CNT_UNIQUE_RX),
-+	ICSSG_PA_STATS(FW_LRE_CNT_DUPLICATE_RX),
-+	ICSSG_PA_STATS(FW_LRE_CNT_MULTIPLE_RX),
-+	ICSSG_PA_STATS(FW_LRE_CNT_RX),
-+	ICSSG_PA_STATS(FW_LRE_CNT_TX),
-+	ICSSG_PA_STATS(FW_LRE_CNT_OWN_RX),
-+	ICSSG_PA_STATS(FW_LRE_CNT_ERRWRONGLAN),
- };
+Changes in v4:
+- Add Conor ack
+
+Changes in v2:
+- Add new patch to sort the compatible strings alphabetically
+
+ Documentation/devicetree/bindings/gpio/gpio-zynq.yaml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml b/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml
+index 5e2496379a3c..30a7f836c341 100644
+--- a/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml
++++ b/Documentation/devicetree/bindings/gpio/gpio-zynq.yaml
+@@ -12,10 +12,10 @@ maintainers:
+ properties:
+   compatible:
+     enum:
++      - xlnx,pmc-gpio-1.0
++      - xlnx,versal-gpio-1.0
+       - xlnx,zynq-gpio-1.0
+       - xlnx,zynqmp-gpio-1.0
+-      - xlnx,versal-gpio-1.0
+-      - xlnx,pmc-gpio-1.0
  
- #endif /* __NET_TI_ICSSG_STATS_H */
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-index 7e053b8af3ec..bd2d54dd7f45 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-@@ -266,5 +266,15 @@
- #define FW_HOST_TX_PKT_CNT		0x0250
- #define FW_HOST_EGRESS_Q_PRE_OVERFLOW	0x0258
- #define FW_HOST_EGRESS_Q_EXP_OVERFLOW	0x0260
-+#define FW_HSR_FWD_CHECK_FAIL_DROP		0x0500
-+#define FW_HSR_HE_CHECK_FAIL_DROP		0x0508
-+#define FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES	0x0510
-+#define FW_LRE_CNT_UNIQUE_RX			0x0518
-+#define FW_LRE_CNT_DUPLICATE_RX			0x0520
-+#define FW_LRE_CNT_MULTIPLE_RX			0x0528
-+#define FW_LRE_CNT_RX				0x0530
-+#define FW_LRE_CNT_TX				0x0538
-+#define FW_LRE_CNT_OWN_RX			0x0540
-+#define FW_LRE_CNT_ERRWRONGLAN			0x0548
- 
- #endif /* __NET_TI_ICSSG_SWITCH_MAP_H  */
+   reg:
+     maxItems: 1
 -- 
 2.34.1
 
