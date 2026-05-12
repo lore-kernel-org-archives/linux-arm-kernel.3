@@ -4,79 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9ADECD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A387CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X0K/Mr//olzYxdXG3Wy8BYdN2fTftbgvAW7RSEPad2I=; b=wXATAJZPlHZ5DqLu8N5PxUaBLT
-	j/tNMZgMFlcTr6X1oNIKYq9GOpcR3wp1nopsUSAUHGoxcckCjUPkwkd2cb3NMe63Wo8CbOTtxwFyG
-	NAgwUS34ddLqOsJsH1Sv+iiLSW1gt+z1F5zHX15RNjFCzm91IdIChox8VbWQYmImAttOkaKWfUVlD
-	rM26ivykZO0K7GsRbvDViesAjXbGYQlw1OlgDjX9oGA3iZjJnf+nOmPZK7l2nQbkSGxCsIrFto5lZ
-	PxRW3CVmk1OPCWLbBBTM8iENdVW8seHv/30z4QDL5SUHOYjizmxYk7f/FQJSg3RP02KXg9+Q0kryO
-	N+w2i9kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sbIbgh8j6uqLsMS86SPclcDZYZknQ4Sx+eXsmdaeqRQ=; b=iMwKzKiscqWghvJXxQmzp7YNkC
+	M0J8u4rQoYR1C4ijAYKsxhHqV33gvp6aOTUXvmQxc/cjYtwhWTzDGWoXUs4QgnTg8Kj+S/9mPRjG+
+	4+2OPOj2nMWyhLIlDJY7Q4FjqeqqkMNYuAqUkaobz3U6gtpk3U/6+SKUB9h77YJaKUNth5c2U1Sve
+	BeDEl0hO3ZM4WHgURnNG3OdwaidVvsWo6cCsgm9DKIXt8bhT5cu2sCL2RbxIFTsVcGuFWPLKHyswh
+	Hp3NQkN1ko8eNIRa8rblsAKgUIw0rbHcPvibafFhdP5F0j+BwI7/DNuUC4f7F/XqtYilN3P7n7mNX
+	BijeCFmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnJ4-0000000GsTJ-2Wzp;
-	Tue, 12 May 2026 13:37:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnJ2-0000000GsRe-0dIM
+	id 1wMnM6-0000000Gt3H-10Nx;
+	Tue, 12 May 2026 13:41:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMnM4-0000000Gt2n-2ps2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:37:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E34801655
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:37:42 -0700 (PDT)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E9D8D3FA1F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:37:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778593068; bh=Gvl4cEd1ZiXBIpJHrKLmqu+T8vzwYIr7JhCY27iDUns=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SChCFyHykrVe3sL5BHjuhYE359KIDcWzJf0KJIhWb/46b/tDAGqQ41klFSiOZAPNX
-	 O9L1lIWldaVfn/vxBfpcLrv175kPKvlaEIP6ZLOxQtTx+4XSTuSuZCOfzhTvLdaips
-	 ATp13V3jhREnf9fFIF6gJ/4uv2PAgRNjRmb1SO6A=
-Date: Tue, 12 May 2026 14:37:21 +0100
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Ketil Johnsen <ketil.johnsen@arm.com>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T.J. Mercier" <tjmercier@google.com>,
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Steven Price <steven.price@arm.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linaro-mm-sig@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 3/8] drm/panthor: De-duplicate FW memory section sync
-Message-ID: <agMtEXOqPGEwKuwt@e142607>
-References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
- <20260505140516.1372388-4-ketil.johnsen@arm.com>
+	Tue, 12 May 2026 13:41:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EEF7061338;
+	Tue, 12 May 2026 13:40:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3C34C2BCB0;
+	Tue, 12 May 2026 13:40:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778593259;
+	bh=987bjNRCrI3/Zujt7W+zUe5CBFskLwI/W/PALNXXSqw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=hyeOW3z7uGUygE6nQcN80o59NMPBXWRoSgeYa/rjIA6rp/ls22MdtWVxo3QyP0j4+
+	 HwTsJUHCO58j6elVE4tAKeVOtfYQMBQkc3tOXFCSuGoWjL4jNKlMjT4WoWnj0iPsVG
+	 3b511Km4HzqLUGABYPOaJB6R4ZEjIoFSNgzF/URqpS91nMdzcMf2BzKxSMndRK+hY1
+	 bYbs9GshuTHIy64ZING6s95TSF6r8C700OmseF+4AiGyfHfTsnWv5odQX22r+7FdPl
+	 Svd2Nl8U1dTKuakWqgTkIUTGVIzoMKFNGZmgefN3d/LQeepRy4yBJ71qLWXk4Bzfh+
+	 9H02qASO5gxBA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 02E9B3811A57;
+	Tue, 12 May 2026 13:40:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260505140516.1372388-4-ketil.johnsen@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_063752_480070_72BC4B6E 
-X-CRM114-Status: GOOD (  22.35  )
+Subject: Re: [PATCH] net: ethernet: cs89x0: remove stale CONFIG_MACH_MX31ADS
+ reference
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <177859320580.2872735.6530995193637920675.git-patchwork-notify@kernel.org>
+Date: Tue, 12 May 2026 13:40:05 +0000
+References: <20260509023732.42256-1-enelsonmoore@gmail.com>
+In-Reply-To: <20260509023732.42256-1-enelsonmoore@gmail.com>
+To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux@armlinux.org.uk, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,101 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 05, 2026 at 04:05:09PM +0200, Ketil Johnsen wrote:
-> Handle the sync to device of FW memory sections inside
-> panthor_fw_init_section_mem() so that the callers do not have to.
+Hello:
+
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
+
+On Fri,  8 May 2026 19:37:28 -0700 you wrote:
+> The legacy ARM board file for MACH_MX31ADS was removed in commit
+> c93197b0041d ("ARM: imx: Remove i.MX31 board files"), but a reference
+> to it remained in the cs89x0 driver. Drop this unused code.
 > 
-> This small improvement is also critical for protected FW sections,
-> so we avoid issuing memory transactions to protected memory from
-> CPU running in normal mode.
-> 
-> Signed-off-by: Ketil Johnsen <ketil.johnsen@arm.com>
-
-Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
-
-Best regards,
-Liviu
-
+> Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
 > ---
->  drivers/gpu/drm/panthor/panthor_fw.c | 22 ++++++----------------
->  1 file changed, 6 insertions(+), 16 deletions(-)
+> I found this issue while working on updating arch/arm/tools/mach-types
+> to remove entries for board files that are not in the kernel - this
+> reference caused my script to consider MACH_MX31ADS to be present in
+> the kernel.
 > 
-> diff --git a/drivers/gpu/drm/panthor/panthor_fw.c b/drivers/gpu/drm/panthor/panthor_fw.c
-> index be0da5b1f3abf..0d07a133dc3af 100644
-> --- a/drivers/gpu/drm/panthor/panthor_fw.c
-> +++ b/drivers/gpu/drm/panthor/panthor_fw.c
-> @@ -446,6 +446,7 @@ static void panthor_fw_init_section_mem(struct panthor_device *ptdev,
->  					struct panthor_fw_section *section)
->  {
->  	bool was_mapped = !!section->mem->kmap;
-> +	struct sg_table *sgt;
->  	int ret;
->  
->  	if (!section->data.size &&
-> @@ -464,6 +465,11 @@ static void panthor_fw_init_section_mem(struct panthor_device *ptdev,
->  
->  	if (!was_mapped)
->  		panthor_kernel_bo_vunmap(section->mem);
-> +
-> +	/* An sgt should have been requested when the kernel BO was GPU-mapped. */
-> +	sgt = to_panthor_bo(section->mem->obj)->dmap.sgt;
-> +	if (!drm_WARN_ON_ONCE(&ptdev->base, !sgt))
-> +		dma_sync_sgtable_for_device(ptdev->base.dev, sgt, DMA_TO_DEVICE);
->  }
->  
->  /**
-> @@ -626,7 +632,6 @@ static int panthor_fw_load_section_entry(struct panthor_device *ptdev,
->  	section_size = hdr.va.end - hdr.va.start;
->  	if (section_size) {
->  		u32 cache_mode = hdr.flags & CSF_FW_BINARY_IFACE_ENTRY_CACHE_MODE_MASK;
-> -		struct panthor_gem_object *bo;
->  		u32 vm_map_flags = 0;
->  		u64 va = hdr.va.start;
->  
-> @@ -663,14 +668,6 @@ static int panthor_fw_load_section_entry(struct panthor_device *ptdev,
->  		}
->  
->  		panthor_fw_init_section_mem(ptdev, section);
-> -
-> -		bo = to_panthor_bo(section->mem->obj);
-> -
-> -		/* An sgt should have been requested when the kernel BO was GPU-mapped. */
-> -		if (drm_WARN_ON_ONCE(&ptdev->base, !bo->dmap.sgt))
-> -			return -EINVAL;
-> -
-> -		dma_sync_sgtable_for_device(ptdev->base.dev, bo->dmap.sgt, DMA_TO_DEVICE);
->  	}
->  
->  	if (hdr.va.start == CSF_MCU_SHARED_REGION_START)
-> @@ -724,17 +721,10 @@ panthor_reload_fw_sections(struct panthor_device *ptdev, bool full_reload)
->  	struct panthor_fw_section *section;
->  
->  	list_for_each_entry(section, &ptdev->fw->sections, node) {
-> -		struct sg_table *sgt;
-> -
->  		if (!full_reload && !(section->flags & CSF_FW_BINARY_IFACE_ENTRY_WR))
->  			continue;
->  
->  		panthor_fw_init_section_mem(ptdev, section);
-> -
-> -		/* An sgt should have been requested when the kernel BO was GPU-mapped. */
-> -		sgt = to_panthor_bo(section->mem->obj)->dmap.sgt;
-> -		if (!drm_WARN_ON_ONCE(&ptdev->base, !sgt))
-> -			dma_sync_sgtable_for_device(ptdev->base.dev, sgt, DMA_TO_DEVICE);
->  	}
->  }
->  
-> -- 
-> 2.43.0
-> 
+> [...]
 
+Here is the summary with links:
+  - net: ethernet: cs89x0: remove stale CONFIG_MACH_MX31ADS reference
+    https://git.kernel.org/netdev/net/c/36a8d04a8293
+
+You are awesome, thank you!
 -- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
