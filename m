@@ -4,121 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F940CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 10:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE0FCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 10:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWlcJ2jfSlSy4lXfY8bcEp9v+FLnNY1LWdjJ03R8AY4=; b=leXg7C/GuNfkbJGHqiufGSLQYJ
-	4y0CsScYWHSISyF8R2VVs7r6dFjxIW4dD9TfQ1ucPIhqCOAQRiRivzhufbkjuwdbH7MHTOm1hf28y
-	t0TRDNild5H7tMybpHj0R6hp5aJMMSeg2woblCnqoHIG8tJTnohkB/atyzbvHLRpGDcYRa9Dk7rRU
-	Foxj7z0elFA7A3LCql40avMOaDcIceadt/IRpxNJeZh8WSc2sDsJLkGbQWgIOEyTe0PjW1UsZlXp0
-	c7vOwyOX0/Y0nz8UhRNYh+HJnOqxUdznM0qPzke2s8uCjWVfqSP+QWEcfwZa4NYg5iZQPiB3/pk3w
-	YVSFznag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lFfxIbyksNeEtf5P/BOwbmqUFbMT5NN+UNPslcsX6G8=; b=e2uY2zwW8HgmeXSM0PZf6M1cKZ
+	ju9nrJe5cyeb2UXUCCCY6NXvOlxoHU8ueDwVYjJcAnDPfvzwNxt4+b0IGH75hgeR61vauM3OWzRTc
+	rrwFdKpVGahsKEIt7Zukfqj/ANeLuaDuXY12t5GVBBeJz6UkwW0SiI4s9D4pLv4YB32Gww3dJdmjg
+	yJ6u/BvEJCThF5PUT7ihs2eupzSUmq1iwBs120q8NAlsIx4YvoykSncsXQ1r5o/VbLPmMERPc8Iia
+	c+TKET5Q3QS0Y9qDcsrp3hnfwsRhVGjSTzYjyyet/ZbErzIdnjIRi7a3kXms9s3CHncXSUlZxXEvw
+	1f+EDHUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMkfc-0000000GTzc-3AXU;
-	Tue, 12 May 2026 10:49:00 +0000
-Received: from mail-westus2azon11012002.outbound.protection.outlook.com ([52.101.48.2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wMkpn-0000000GVKu-2ydB;
+	Tue, 12 May 2026 10:59:31 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMkfZ-0000000GTyg-1PpY
+	id 1wMkpk-0000000GVKA-3uRB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 10:48:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RcOOoJuowcYF1xSRuRqLLMkdpbr1X3SLABrdiJ4NZAtHSzW6fh8XWL/+sx1VWLwyFSBQnByrMBnGF7Nchch1MLpM5Afng+fKzz1gj+15UY3sOvEd32h0yvQWc1RV53W3Wjc678pD0FsFGc5me8P52ICdA8AWuk7/Zf9FTRDkSCEbzrxhDiedFVM1gSZkDeMeJR/TXIknjY3yBWWwT/N687iEiP42V/k1nsGbAfN6SgU25TvmL1mwIABsibkwnSNMhLxnd0Zbu40d2+djCyqX4pb56lNYqRUSZEDpFxK4c5mqcfNjoGaCRKs2xYwkFRf7WTaV0KS2NkKcJ4GfNcUepQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XWlcJ2jfSlSy4lXfY8bcEp9v+FLnNY1LWdjJ03R8AY4=;
- b=d8pbDSGJSzguXdJ7XJaVgkqAFH55LUl9fWteB3D/Plwec7B/OxTEQh+wX7GjgSDRqn7y+yb1IWPwME5QtyQWFVpOYiyK0Vmo4OgZil9NsHQbbhCOtpr0GfQ7BS+GZX7ucpf5fVATpdJtj0Y56i8Cx2/JgdTEq7QNLMeS8mwXA1CzSiYZdiqFbQQY1yZU9IK6R+Fsr0JZC9U9rSghd8cMn1U0z/+aaD/pQVM30u6KVGuT6F/yYLFQSylamHIDryNtyWRZXssOR4K6VlzZF3g1tVd/pQvYDKIlsMkSqK5pphyIIYBS2LTTTm3YZg+PF/jjxELRNpSRI5h1ia8DwOIcZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=baylibre.com smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XWlcJ2jfSlSy4lXfY8bcEp9v+FLnNY1LWdjJ03R8AY4=;
- b=l7hwQokEIQc1UcV7RQkiXib7OCkWm6DRniLEpbo5O2/vFcdEILYxySSM1JplU+suxMfpiYy5io51tkYtxT+QqEqAKBB+5xneLl0B3T5V6P2+SlzJbPsK85CW31FhnuwUsdG4UtWA81mM2WrbrW12ycZA/ZUmI8oC7rK8kkrYWD0=
-Received: from PH1PEPF00013302.namprd07.prod.outlook.com (2603:10b6:518:1::11)
- by PH8PR10MB6551.namprd10.prod.outlook.com (2603:10b6:510:225::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Tue, 12 May
- 2026 10:48:49 +0000
-Received: from CY4PEPF0000FCC1.namprd03.prod.outlook.com
- (2a01:111:f403:f910::1) by PH1PEPF00013302.outlook.office365.com
- (2603:1036:903:47::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.23 via Frontend Transport; Tue,
- 12 May 2026 10:48:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- CY4PEPF0000FCC1.mail.protection.outlook.com (10.167.242.103) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Tue, 12 May 2026 10:48:49 +0000
-Received: from DLEE203.ent.ti.com (157.170.170.78) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
- 2026 05:48:49 -0500
-Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
- 2026 05:48:48 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
- (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 12 May 2026 05:48:48 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64CAmmI01283642;
-	Tue, 12 May 2026 05:48:48 -0500
-Date: Tue, 12 May 2026 05:48:48 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Brian Masney <bmasney@redhat.com>
-CC: <a-christidis@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
-	<ssantosh@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Stephen
- Boyd" <sboyd@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>, Michael Walle
-	<mwalle@kernel.org>, Kevin Hilman <khilman@baylibre.com>, Randolph Sapp
-	<rs@ti.com>
-Subject: Re: [PATCH v2] clk: keystone: don't cache clock rate
-Message-ID: <20260512104848.4axgjeto6i7ejvli@retorted>
-References: <20260507-clk-sci-v2-1-38f59b48777a@ti.com>
- <agHpYnkCgGfZp2-E@redhat.com>
+	Tue, 12 May 2026 10:59:30 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-367c2a39fcfso1774279a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 03:59:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778583568; x=1779188368; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lFfxIbyksNeEtf5P/BOwbmqUFbMT5NN+UNPslcsX6G8=;
+        b=Oh7zx4Ln7Pi70mlHswJXbh7Mw5T7PJ9KlO0X7zOQNrMiTIQ7vBGkPT/9B7lM2OxJFB
+         UCkdiJ+p439m66ugmUXwfCsfOhqdCohoyTUo1D4zxX9I4h1NlezhriF9okPUqgeu9+Q/
+         0Ffs8YbDh7BFKHqnAo323VhqeITbcg8PYu4iR1Jt69nApVDtWS8hYRVR9pmxITLrcpR5
+         RF6GxjVfAf9aBU760oZpExRZhyyvnqTYjZpDaqgHQSIh0I3VzSHa3IW8/21JNxHj9R9x
+         wu443otCjmKNXPvUlYzphNVBNylCMyw1klPoTvpLTu6ydd36gG6FGz/RJBnWyHVTWFRv
+         d4mQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778583568; x=1779188368;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lFfxIbyksNeEtf5P/BOwbmqUFbMT5NN+UNPslcsX6G8=;
+        b=CUtlawiOg3KTRPg06sWYo/p3XsRh4NYhqpReuyyHSi1WzNchJ4jnOezzTW85sZIM/5
+         dWIQJWla8vZM/unY2XLYXgmzvp0ACPvR+UJrGHkhF2JDb+7NU7pj9weNnA+1wzsvZ73y
+         e8tsGlsl8bb7+P4apeRYXLS9pViqJEJxP1pjSySdQhiWw6MeusWnO6Wl3id1J5wxXnPn
+         1WJzna7SCPHzSyEz+O1jADKBdhjGGmYBuhskSdbXrUr0EL3Yen/Gt1cNqazYwm1QXqt7
+         Pglsiktt4p3bvOIOR40jEOBtTXHEnxGiXRPpdJ4CJOcENCXSB3trOOLdxOm3YPQk4fC1
+         8dKw==
+X-Forwarded-Encrypted: i=1; AFNElJ9deHRTGDe+5Ve1ExBYwcVPquiRWRqtTADdde6VnX6zVQ7Xccg0a94tyRa26ZXHT5A4Dnn5x4thxysVzuD+vzLq@lists.infradead.org
+X-Gm-Message-State: AOJu0YywNEj4LWqO0GNB4TtUfMs6Bo0EDSTFYQXZ/dIZ7OXwzex4x4tr
+	yT3njvnYQa12yOcjOHYYU1FO42D0AXINEnHu3mLvshO9E58/X8eXDe2H
+X-Gm-Gg: Acq92OEGTm2akpjZGp4gJU4thyxnk0QrdkoKwkkFn3qB4QoIZiktFLLzLJr2ACYnEeH
+	lcKfWrg5aRcxR8TGlXM811iDabM52EE124rtzjRI8imjPTaRvDNogchBvYs1zbhlom0SmLb28vc
+	s92o4pY4UoC8Nwc9Y4GH26x2bZ57Pv/cCQFYeCoKDKHsNuZ2zabjeRqgGmWzjziZqyQzDf7nUnl
+	nEiIRG5usyBf4IX2bCdT2u1ZULv5o/tKW3GGKBOUYWMqZeNdjmpUl0YHzgYqpX9BqSquiEn/aWZ
+	CY9kxfJBBNX22hz7g1oZUvvJXHbTWmho7AH/MXpylVXUVxtufMIoSEyQGJNybHtCYXL5iXrd/WF
+	MjnmphN+ENEsMRKIFhXxT9VnHvLgafb6bpud9s8NR2+5uOvaSw34HeskxTbDO/EX+Efvm4kcSvK
+	WFB+CCdzXryDee/UyTTf8iaGM6zxIwaffDAgJsME/Ayl/0471YzyZP+Pq1QJTxhOlP61x75pkKp
+	QKv
+X-Received: by 2002:a17:90b:3883:b0:368:6998:b49e with SMTP id 98e67ed59e1d1-3686998bc7emr7312294a91.9.1778583567896;
+        Tue, 12 May 2026 03:59:27 -0700 (PDT)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-367d65ed459sm14241837a91.14.2026.05.12.03.59.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 May 2026 03:59:27 -0700 (PDT)
+Message-ID: <1d04dd6d-f245-4b83-96b0-c5491fad8093@gmail.com>
+Date: Tue, 12 May 2026 18:59:21 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <agHpYnkCgGfZp2-E@redhat.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC1:EE_|PH8PR10MB6551:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5cfb56a9-e116-4db5-0cca-08deb0140cdc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|82310400026|1800799024|376014|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: KpwDWA17OSro9ObU7nvsaJSmAvVOgZa7usiUHHbnNiFoQirInvvxnSf+2npgWKsAZXeOczNLDk0SMZ6ZT9mK8vM07bXXYy0WKP5SFkvzj+9lRFwDreJLp4M3XTC2gLJj2hwblpO4ksiOyntwC4qAaYwdLaUZcUw2DF3oaXaKHsYJdRbaV274/M1Kj2lii0mitYTGr1O4kBWNzsJs8hUE0GMSlGxJ2QeZTMtp5AcPevDgcDKy81bk+R7WTiK9qrdQ268dbjz8z+DqA9P30gcsnrPH17gJFNxiBBaEB+f66mjm1AZR2Cwy6nRH4fw5yDBHfiGXz4dcd046838ictXfF7hbUdMaCdk4P5PFko9td3nq62xDcbzuzTom28T/JlsvArdBvs/INRL1wr2mZCyCKxYx8biAe4jAEM55EiHz2UkecOI752hIqW94fwmoqhEU4DmQzTBFAQTgYRADRPlfZsG4anMxGWq0mFoRF78bR9EVGm9tsplFfqEPc9NxhLjObEPQcbKA9oHv0Kx2qkrmCDru/Y3mqi0BS77ji8mRy5M56AsEAtpLvsthG+nmv2fXU1epmQZ4fxa33gJwX630vqAWlojdRPKDvTP/G/fNmkSMr/HAhqMmXo9Gknh9TwNg1yq9kAgOmLMKOVU37kMwqSHZOjX4xzO+VPBrt1KX6KVtp55vLs3yLUnwgbuQUU0I9Zvp/lfUdonc1dlQWo2LYeXFNTAoK4H33II4K4iSXN8=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(82310400026)(1800799024)(376014)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 3YYQKtOn5ujAgmOzWRd0z0Czkha4IkoM+i6P2ZBFDDlTzdYesYMrWsher40sjt+nv3gwe4TnUVVFm1M2AngRZKxEgBqQ2JfC2HWsQbKuT+VJ8Qr757EFKT4pODcBdqzJvpmIgvXQZvdavS8cltqNzsKJD/bc4dKfSyMOgEpfnIoWiS0Yfg2+qS7P9K3pgdPLGPSlDyavqX3BxQZfGVMAXKdjjSXa4QkBqbRIqNjqCZdgeNePH+mO/bAC4Q0+rdk8e66Frtn5oc/2qnOBeNdT1iwTzVwBXY2uFrA7qLOMANPj99JQHoqp0aUU1W7H3nOYs5T/8Z/RBlxGBNbp1Mf3dK4h09r2LE2E4eRnE9OGH+m67o20s8xD9CvXavgqj7mpMWb81LCUoJrz/w96tZann18XxG8CrbpIFnyMvGtuM/iGv5i5VLg9PUgwqQwpcY4p
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 10:48:49.3868
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5cfb56a9-e116-4db5-0cca-08deb0140cdc
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC1.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR10MB6551
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] drm/verisilicon: add support for Nuvoton MA35D1
+ DCUltra Lite display controller
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260511075142.54752-1-a0987203069@gmail.com>
+ <20260511075142.54752-3-a0987203069@gmail.com>
+ <93e69179dbc495188cfffd8015350b3a55ce7876.camel@iscas.ac.cn>
+ <de35406e-874d-4bdd-be7f-3d74dc37b13f@gmail.com>
+ <3b94806073de8bd1d79aa7ec956493f67679e46b.camel@iscas.ac.cn>
+ <dfbc4042-64cf-49f2-a5de-12260beffaa0@gmail.com>
+ <4bf6efbb222ebc4d770ad613d17c6185e7cb2fda.camel@iscas.ac.cn>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <4bf6efbb222ebc4d770ad613d17c6185e7cb2fda.camel@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_034857_453814_E3735756 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20260512_035928_973098_30EA7D0E 
+X-CRM114-Status: GOOD (  24.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,36 +113,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10:36-20260511, Brian Masney wrote:
-> On Thu, May 07, 2026 at 11:09:34AM -0500, a-christidis@ti.com wrote:
-> > From: Michael Walle <mwalle@kernel.org>
-> > 
-> > The TISCI firmware will return 0 if the clock or consumer is not
-> > enabled although there is a stored value in the firmware. IOW a call to
-> > set rate will work but at get rate will always return 0 if the clock is
-> > disabled.
-> > The clk framework will try to cache the clock rate when it's requested
-> > by a consumer. If the clock or consumer is not enabled at that point,
-> > the cached value is 0, which is wrong. Thus, disable the cache
-> > altogether.
-> > 
-> > Signed-off-by: Michael Walle <mwalle@kernel.org>
-> > Reviewed-by: Kevin Hilman <khilman@baylibre.com>
-> > Reviewed-by: Randolph Sapp <rs@ti.com>
-> > Reviewed-by: Nishanth Menon <nm@ti.com>
-> > Signed-off-by: Antonios Christidis <a-christidis@ti.com>
-> 
-> Reviewed-by: Brian Masney <bmasney@redhat.com>
-> 
 
-Brian,
+On 5/12/2026 6:01 PM, Icenowy Zheng wrote:
+> 在 2026-05-12二的 17:06 +0800，Joey Lu写道：
+>
+> ======= 8< =============
+>>>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>>>> b/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>>>> index 7a93049368db..225af322de32 100644
+>>>>>> --- a/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>>>> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>>>> @@ -164,13 +164,16 @@ static void
+>>>>>> vs_bridge_enable_common(struct
+>>>>>> vs_crtc *crtc,
+>>>>>>     			VSDC_DISP_PANEL_CONFIG_CLK_EN);
+>>>>>>     	regmap_set_bits(dc->regs,
+>>>>>> VSDC_DISP_PANEL_CONFIG(output),
+>>>>>>     			VSDC_DISP_PANEL_CONFIG_RUNNING);
+>>>>>> -	regmap_clear_bits(dc->regs, VSDC_DISP_PANEL_START,
+>>>>>> -			
+>>>>>> VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
+>>>>>> -	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_START,
+>>>>>> -
+>>>>>> 			VSDC_DISP_PANEL_START_RUNNING(output));
+>>>>>>     
+>>>>>> -	regmap_set_bits(dc->regs,
+>>>>>> VSDC_DISP_PANEL_CONFIG_EX(crtc-
+>>>>>>> id),
+>>>>>> -			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
+>>>>>> +	if (dc->info->has_config_ex) {
+>>>>>> +		regmap_clear_bits(dc->regs,
+>>>>>> VSDC_DISP_PANEL_START,
+>>>>>> +				
+>>>>>> VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
+>>>>>> +		regmap_set_bits(dc->regs,
+>>>>>> VSDC_DISP_PANEL_START,
+>>>>>> +				VSDC_DISP_PANEL_START_RUNNIN
+>>>>>> G(ou
+>>>>>> tput
+>>>>>> ));
+>>>>>> +
+>>>>>> +		regmap_set_bits(dc->regs,
+>>>>>> VSDC_DISP_PANEL_CONFIG_EX(crtc->id),
+>>>>>> +				VSDC_DISP_PANEL_CONFIG_EX_CO
+>>>>>> MMIT
+>>>>>> );
+>>>>> Should the commit operation happen on DC8000/DCUltraLite too?
+>>>>> (By
+>>>>> writing to DcregFrameBufferConfig0.VALID).
+>>>>>
+>>>>> Many registers written has "Note: This field is double
+>>>>> buffered" in
+>>>>> the
+>>>>> DCUltraLite documentation.
+>>>>>
+>>>>> I suggest create a static function for commit -- write to the
+>>>>> corresponding commit bit on DC8200, and write to
+>>>>> DcregFrameBufferConfig0.VALID on DC8000/DCUltraLite.
+>>>> [a] There is no commit operation for DCUltra Lite.
+>>>> I'll not add a `VSDC_FB_CONFIG_VALID` macro. VALID (BIT(3)) is a
+>>>> hardware-managed double-buffer status bit: hardware writes
+>>>> 1=PENDING
+>>>> when a new register set is ready and clears to 0=WORKING after
+>>>> the
+>>>> VBLANK copy. Software must never write it, and there is no
+>>>> polling
+>>>> use
+>>> It seems to be writable and controls whether register buffering is
+>>> enabled, see [1].
+>>>
+>>> The description of this bit in MA35D1 TRM says "This ensures a
+>>> frame
+>>> will always start with a valid working set if this register is
+>>> programmed last, which reduces the need for SW to wait for the
+>>> start of
+>>> a VBLANK signal in order to ensure all states are loaded before the
+>>> next VBLANK", which indicates some kind of "committing write",
+>>> although
+>>> the code at [1] seems to indicate that double buffering is only
+>>> enabled
+>>> when bit is cleared.
+>>>
+>>> Anyway this bit should be programmable, and "Software must never
+>>> write
+>>> it" contradicts with the MA35D1 TRM.
+>>>
+>>> Thanks,
+>>> Icenowy
+>>>
+>>> [1]
+>>> https://github.com/rockos-riscv/rockos-kernel/blob/rockos-v6.6.y/drivers/gpu/drm/eswin/es_dc_hw.c#L993
+>> Thank you for the correction. I'll add
+>> `#define VSDC_FB_CONFIG_VALID BIT(3)` to vs_primary_plane_regs.h and
+>> write it in `vs_primary_plane_commit()` for non-config_ex variants.
+>>>> case in the driver that requires a named constant. For non-
+>>>> config_ex
+>>>> variants, `vs_primary_plane_commit()` performs no commit
+>>>> operation —
+>>>> `VSDC_FB_CONFIG_ENABLE` (OUTPUT, BIT(0)) is set in
+>>>> `vs_crtc_atomic_enable()` and `VSDC_FB_CONFIG_RESET` (BIT(4)) is
+>>>> set/cleared in the bridge enable/disable paths.
+> Well according to the driver code for DC8000 from Eswin, and the bit
+> named "VALID", maybe it should be cleared before programming the
+> registers, and set after programming registers, to make the process of
+> programming registers atomic from the perspective of the display
+> controller.
+>
+> Anyway this should require testing on real hardware to verify.
+>
+> By the way, I see multiple peripheral drivers for MA35D1 get applied in
+> the torvalds tree, but the device tree is still only a skeleton; when
+> will the device tree be updated?
+>
+> Thanks,
+> Icenowy
 
-Could you clarify if I need to take it via my tree to arnd or if this
-patch will go via the clk tree?
+Thanks for pointing this out. I’ll perform tests on real hardware since 
+I haven’t used this bit before.
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+As for the device tree, we plan to update it comprehensively after 
+completing several major IPs, with the goal of releasing the update 
+later this year.
+
+>>> ========= 8< ==========
+>>>
 
