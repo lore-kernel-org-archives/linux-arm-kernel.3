@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455A9CD484E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 05:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80058CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 05:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VLL9ELTYpl2Z/PtV5ezkA3tdcxmAf+VSreORf7yQztY=; b=Nsr4ngfIc2Ytt1085jHR2upxql
-	dPfAHNu27g5RVdw1gQ0TPF79R4yntRk0PA4RW0WMyWZrpeErAuQfpYtdy2QSmHYpAgfBG4eQMYg/B
-	E4b1aAPyzdQCfk9/GVjGCAgaObk6PQE6bWQaSIwOcZTCJLn7aBCbjssOQFCqtB3RjCC+SG3mIld6X
-	1LCv7OkP8s8DTzEAaCjgCCbjC05PL1u5Xea9OP95fMAGvy+tBuHkfbEpn3PRa9YIXyUGdcX6uK4kU
-	7EPzL4p7DPQtnVb2D8WmjtXsLpX/83PmT08aHF1h0iK5iNWksxfB5bVw8uv4B3xPwIbiA8yqfDj1C
-	vGUJkY9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vkhmEf7l/p3H+evY3e6sZCpcHnKb11tYhtK4qTF0OHU=; b=v4N13bol0ImLn84QYrNi9NFAiq
+	uoFBpE3K0naPXP9mUfLOdev4B9zAG4+nrQbG7eWtU9M1wO0cJZlRKcFG2UQ7Qo66oy0fYdsNNt4yc
+	g204KE3L++8jhqOvkFqAS3K684TFXbKdNDmkkTCuPsqAapKn8U7ugchqOzyNiGtJ2FyyCMsKQyx5X
+	0TTUmanLr69Ogq233d3KNs8swOruFivzaLYWrTq3dAv5c8F9XZhZ/U8OwqYqsED9N1Wd5I5w0BUnN
+	8lENfIXKI/6xyXaWRb0djcr8NxuV58AvBO8X2ZOjZOIuuK3pKGBLWjQv/HiAOg7zeSRSOMbf+SGod
+	yYE1SJkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfqf-0000000Ffpv-2Il9;
-	Tue, 12 May 2026 05:40:05 +0000
-Received: from azure-sdnproxy.icoremail.net ([4.193.249.245])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfqb-0000000Ffnv-3yQA;
-	Tue, 12 May 2026 05:40:04 +0000
-Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
- ajax-webmail-app1 (Coremail) ; Tue, 12 May 2026 13:39:12 +0800 (GMT+08:00)
-X-Originating-IP: [10.11.96.26]
-Date: Tue, 12 May 2026 13:39:12 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-To: "Jakub Kicinski" <kuba@kernel.org>
-Cc: andrew+netdev@lunn.ch, devicetree@vger.kernel.org, davem@davemloft.net,
-	edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
-	horms@kernel.org
-Subject: Re: Re: Re: [PATCH net-next v7 2/4] net: stmmac: eic7700: enable
- clocks before syscon access and correct RX sampling timing
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <38d052b7.7a70.19dfb0d782b.Coremail.lizhi2@eswincomputing.com>
-References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
- <20260427072508.1151-1-lizhi2@eswincomputing.com>
- <20260428180625.738223cf@kernel.org>
- <2117464.7991.19ddd2125d1.Coremail.lizhi2@eswincomputing.com>
- <20260430163551.7491407a@kernel.org>
- <38d052b7.7a70.19dfb0d782b.Coremail.lizhi2@eswincomputing.com>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
-MIME-Version: 1.0
-Message-ID: <446f69bd.7fe4.19e1ab248fb.Coremail.lizhi2@eswincomputing.com>
-X-Coremail-Locale: en_US
-X-CM-TRANSID: TAJkCgBnCXMAvQJqub8YAA--.6986W
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAgEFDGoCBREW-AAAsc
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+	id 1wMfsK-0000000FgAz-03Mx;
+	Tue, 12 May 2026 05:41:48 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMfsH-0000000Fg9v-3IET
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 05:41:46 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2f5943ca81aso6184521eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 22:41:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778564504; x=1779169304; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vkhmEf7l/p3H+evY3e6sZCpcHnKb11tYhtK4qTF0OHU=;
+        b=Rb2hQKqPXEyKoWugPN/c70Rmrsr0uj/UBdC03i7mZ3JQ/NQ5t5ma+ZhR2j68fNSg8Y
+         /SFLLEUlYOmCxHjX4IdY+lAckGhnHgg5caJPJ/ijHRCFB74r6CFCbUbxzpfzADMhTJf1
+         a3rMm0rIA/xxpIL3LWmlSlsX/xdRtSc2pyXICMm+l4/prG7cRacWx1v1PyIKGLU1fOVG
+         FhvtnYcNRiOe/5X8us7RTQQ+fNxG3ur2cN2sg6VuMn7K2SdMVheNpQD+R58dpNpOwwUv
+         i6HT9CDMUO+rAFOruj9MPmMExZGuQeUW3IDN5GwdCnX0A1HUcB2fNa4njM0KUoXQKbZX
+         zGig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778564504; x=1779169304;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vkhmEf7l/p3H+evY3e6sZCpcHnKb11tYhtK4qTF0OHU=;
+        b=p5lIQsnDNNMiNOPMMGNXrxKCYxsz4oJGXnv8RZTFfv6+up3kN/aEmDuM3kvP+nII9w
+         f42whryd3zfrLILFzFkGU7kdhPnI94Nb6jcsftsWiTbQ5X29cdtLM88WOJRqkNYppL2R
+         g/N9D71znAm18PesgDXBWqdQo0okBQZkn2NZJehVNu6hwBjWr/3qHEagIs5MC524+38I
+         hOPWgSm0Nvrp0M7DvU6lPYX5GOVBqtqWPH717NVsar/UpqQ7FOxjpj3V3FF2S2qjRhsp
+         ce3PKxfhfB0dUEWnlZdY7RnwrSKvZ2LQ+8GsJaP3fVJllehu/hSEwBZntokbxUvbmROY
+         IVUQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8QKyG8wChZLyLXYom98Xuxbe1MRYLSMmbjFC0Ka1qwiEK3K0hP5Jslgf22y1NSpS1qTNBHaVMNMIDDUr2p0q8V@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywld1tIS0WA7EP/h1FA4eIoNmLgxsfIAbm7I9g0u5kx2Gd/wIV1
+	dnQ26i2mr29fL0p1G5Jo31YVawTckomf2xkWZ9QpXf5KiqUe2ncTI1FTYzu1OWVpGFjyopjlJ9n
+	0K9bJyAPiRw==
+X-Received: from dlbbt1.prod.google.com ([2002:a05:7022:981:b0:12d:c585:f600])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:ec07:b0:130:9b78:b17b
+ with SMTP id a92af1059eb24-132a83ed506mr6504466c88.38.1778564503592; Mon, 11
+ May 2026 22:41:43 -0700 (PDT)
+Date: Mon, 11 May 2026 22:41:40 -0700
+In-Reply-To: <20260507170622.611933-1-irogers@google.com>
+Mime-Version: 1.0
+References: <20260507170622.611933-1-irogers@google.com>
+X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
+Message-ID: <20260512054140.3427725-1-irogers@google.com>
+Subject: [PATCH v2] perf record: Refactor ARM64 leaf caller setup out of arch
+From: Ian Rogers <irogers@google.com>
+To: acme@kernel.org, james.clark@linaro.org, namhyung@kernel.org
+Cc: adrian.hunter@intel.com, alexander.shishkin@linux.intel.com, 
+	dapeng1.mi@linux.intel.com, john.g.garry@oracle.com, jolsa@kernel.org, 
+	leo.yan@linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	mark.rutland@arm.com, mike.leach@arm.com, mingo@redhat.com, 
+	peterz@infradead.org, shimin.guo@skydio.com, will@kernel.org, 
+	Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_224002_156796_084F4C8F 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20260511_224145_832120_30BE2529 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,73 +93,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgoKPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2VzLS0tLS0KPiBGcm9tOiDmnY7lv5cgPGxpemhpMkBl
-c3dpbmNvbXB1dGluZy5jb20+Cj4gU2VuZCB0aW1lOldlZG5lc2RheSwgMDYvMDUvMjAyNiAxMDox
-MDo1Nwo+IFRvOiAiSmFrdWIgS2ljaW5za2kiIDxrdWJhQGtlcm5lbC5vcmc+Cj4gQ2M6IGFuZHJl
-dytuZXRkZXZAbHVubi5jaCwgZGV2aWNldHJlZUB2Z2VyLmtlcm5lbC5vcmcsIGRhdmVtQGRhdmVt
-bG9mdC5uZXQsIGVkdW1hemV0QGdvb2dsZS5jb20sIHJvYmhAa2VybmVsLm9yZywga3J6aytkdEBr
-ZXJuZWwub3JnLCBjb25vcitkdEBrZXJuZWwub3JnLCBuZXRkZXZAdmdlci5rZXJuZWwub3JnLCBw
-YWJlbmlAcmVkaGF0LmNvbSwgbWNvcXVlbGluLnN0bTMyQGdtYWlsLmNvbSwgYWxleGFuZHJlLnRv
-cmd1ZUBmb3NzLnN0LmNvbSwgcm1rK2tlcm5lbEBhcm1saW51eC5vcmcudWssIHBqd0BrZXJuZWwu
-b3JnLCBwYWxtZXJAZGFiYmVsdC5jb20sIGFvdUBlZWNzLmJlcmtlbGV5LmVkdSwgYWxleEBnaGl0
-aS5mciwgbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZywgbGludXgtc3RtMzJAc3QtbWQt
-bWFpbG1hbi5zdG9ybXJlcGx5LmNvbSwgbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQu
-b3JnLCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCBtYXhpbWUuY2hldmFsbGllckBib290
-bGluLmNvbSwgbmluZ3l1QGVzd2luY29tcHV0aW5nLmNvbSwgbGlubWluQGVzd2luY29tcHV0aW5n
-LmNvbSwgcGlua2VzaC52YWdoZWxhQGVpbmZvY2hpcHMuY29tLCBwcml0ZXNoLnBhdGVsQGVpbmZv
-Y2hpcHMuY29tLCB3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29tLCBob3Jtc0BrZXJuZWwu
-b3JnCj4gU3ViamVjdDogUmU6IFJlOiBbUEFUQ0ggbmV0LW5leHQgdjcgMi80XSBuZXQ6IHN0bW1h
-YzogZWljNzcwMDogZW5hYmxlIGNsb2NrcyBiZWZvcmUgc3lzY29uIGFjY2VzcyBhbmQgY29ycmVj
-dCBSWCBzYW1wbGluZyB0aW1pbmcKPiAKPiAKPiAKPiAKPiA+IC0tLS0t5Y6f5aeL6YKu5Lu2LS0t
-LS0KPiA+IOWPkeS7tuS6ujogIkpha3ViIEtpY2luc2tpIiA8a3ViYUBrZXJuZWwub3JnPgo+ID4g
-5Y+R6YCB5pe26Ze0OjIwMjYtMDUtMDEgMDc6MzU6NTEgKOaYn+acn+S6lCkKPiA+IOaUtuS7tuS6
-ujog5p2O5b+XIDxsaXpoaTJAZXN3aW5jb21wdXRpbmcuY29tPgo+ID4g5oqE6YCBOiBhbmRyZXcr
-bmV0ZGV2QGx1bm4uY2gsIGRldmljZXRyZWVAdmdlci5rZXJuZWwub3JnLCBkYXZlbUBkYXZlbWxv
-ZnQubmV0LCBlZHVtYXpldEBnb29nbGUuY29tLCByb2JoQGtlcm5lbC5vcmcsIGtyemsrZHRAa2Vy
-bmVsLm9yZywgY29ub3IrZHRAa2VybmVsLm9yZywgbmV0ZGV2QHZnZXIua2VybmVsLm9yZywgcGFi
-ZW5pQHJlZGhhdC5jb20sIG1jb3F1ZWxpbi5zdG0zMkBnbWFpbC5jb20sIGFsZXhhbmRyZS50b3Jn
-dWVAZm9zcy5zdC5jb20sIHJtaytrZXJuZWxAYXJtbGludXgub3JnLnVrLCBwandAa2VybmVsLm9y
-ZywgcGFsbWVyQGRhYmJlbHQuY29tLCBhb3VAZWVjcy5iZXJrZWxleS5lZHUsIGFsZXhAZ2hpdGku
-ZnIsIGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcsIGxpbnV4LXN0bTMyQHN0LW1kLW1h
-aWxtYW4uc3Rvcm1yZXBseS5jb20sIGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9y
-ZywgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZywgbWF4aW1lLmNoZXZhbGxpZXJAYm9vdGxp
-bi5jb20sIG5pbmd5dUBlc3dpbmNvbXB1dGluZy5jb20sIGxpbm1pbkBlc3dpbmNvbXB1dGluZy5j
-b20sIHBpbmtlc2gudmFnaGVsYUBlaW5mb2NoaXBzLmNvbSwgcHJpdGVzaC5wYXRlbEBlaW5mb2No
-aXBzLmNvbSwgd2Vpc2hhbmdqdWFuQGVzd2luY29tcHV0aW5nLmNvbSwgaG9ybXNAa2VybmVsLm9y
-Zwo+ID4g5Li76aKYOiBSZTogW1BBVENIIG5ldC1uZXh0IHY3IDIvNF0gbmV0OiBzdG1tYWM6IGVp
-Yzc3MDA6IGVuYWJsZSBjbG9ja3MgYmVmb3JlIHN5c2NvbiBhY2Nlc3MgYW5kIGNvcnJlY3QgUlgg
-c2FtcGxpbmcgdGltaW5nCj4gPiAKPiA+IE9uIFRodSwgMzAgQXByIDIwMjYgMTQ6NDM6NTAgKzA4
-MDAgKEdNVCswODowMCkg5p2O5b+XIHdyb3RlOgo+ID4gPiA+IFdoeSBGaXhlcz8gSWYgZXRoMSBu
-ZXZlciB3b3JrZWQgdGhpcyBpcyBub3QgYSBmaXggYnV0IG5ldyBmdW5jdGlvbmFsaXR5Cj4gPiA+
-ID4gSWYgeW91IHdhbnQgdG8gbWFrZSB0aGlzIGEgZml4IHRvIHByZXZlbnQgaW5jb21wYXRpYmls
-aXR5IC0gY3V0IGl0IGRvd24KPiA+ID4gPiBqdXN0IHRvIHRoZSBldGgwIGNoYW5nZXMuCj4gPiA+
-ID4gICAKPiA+ID4gVGhhbmsgeW91IGZvciB0aGUgc3VnZ2VzdGlvbi4KPiA+ID4gCj4gPiA+IFlv
-dSdyZSByaWdodCB0aGF0IGV0aDEgbmV2ZXIgd29ya2VkIGF0IEdpZ2FiaXQgc3BlZWQsIHNvIHRo
-aXMgc2hvdWxkCj4gPiA+IG5vdCBiZSB0cmVhdGVkIGFzIGEgZml4Lgo+ID4gPiAKPiA+ID4gSW4g
-djgsIEkgd2lsbCBzcGxpdCB0aGUgY2hhbmdlcyBpbnRvIHR3byBwYXRjaGVzIHdpdGhpbiB0aGUg
-c2FtZSBzZXJpZXM6Cj4gPiA+IC0gUGF0Y2ggMSB3aWxsIGNvbnRhaW4gb25seSB0aGUgZml4ZXMg
-YWZmZWN0aW5nIHRoZSBleGlzdGluZyBldGgwCj4gPiA+IGZ1bmN0aW9uYWxpdHksIGFuZCB3aWxs
-IGtlZXAgdGhlIEZpeGVzIHRhZy4KPiA+ID4gLSBQYXRjaCAyIHdpbGwgYWRkIHRoZSBldGgxIHN1
-cHBvcnQgKFJYIGNsb2NrIGludmVyc2lvbiB3b3JrYXJvdW5kKQo+ID4gPiBhcyBuZXcgZnVuY3Rp
-b25hbGl0eSwgd2l0aG91dCBhIEZpeGVzIHRhZy4KPiA+ID4gCj4gPiA+IFBsZWFzZSBsZXQgbWUg
-a25vdyBpZiB5b3Ugd291bGQgcHJlZmVyIGEgZGlmZmVyZW50IHNwbGl0IG9yIG9yZGVyaW5nLgo+
-ID4gCj4gPiBJZiB5b3Ugd2FudCB0byBjb25zaWRlciBzb21lIHBhcnQgb2YgdGhpcyBjb21taXQg
-YSBmaXggaXQgaGFzIHRvIGJlCj4gPiBwb3N0ZWQgc2VwYXJhdGVseSB0byB0aGUgbmV0IHRyZWUg
-KHJhdGhlciB0aGFuIG5ldC1uZXh0KS4KPiA+IE9uY2UgaXQncyBtZXJnZWQgYW5kIG1ha2VzIGl0
-IHdheSBvdmVyIHRvIHRoZSBuZXQtbmV4dCB0cmVlIChlYWNoCj4gPiBUaHVyc2RheSkgeW91IGNh
-biBwb3N0IHRoZSBuZXQtbmV4dCBjaG5hZ2VzIGZvciBldGgxCj4gCj4gVGhhbmtzLCB1bmRlcnN0
-b29kLgo+IAo+IEkgd2lsbCBzcGxpdCB0aGUgY2hhbmdlcyBhY2NvcmRpbmdseToKPiAtIFNlbmQg
-dGhlIGV0aDAgZml4ZXMgYXMgYSBuZXcgdjEgc2VyaWVzIHRhcmdldGluZyBuZXQuCj4gLSBTZW5k
-IHRoZSBldGgxIGVuYWJsZW1lbnQgYXMgYSBuZXcgdjEgc2VyaWVzIHRhcmdldGluZyBuZXQtbmV4
-dC4KPiAKPiBUaGFua3MgZm9yIHRoZSBndWlkYW5jZS4KCkhpIEpha3ViLAoKSnVzdCB0byBjb25m
-aXJtIHRoZSB2ZXJzaW9uaW5nIGZvciB0aGUgZXRoMSBwYXJ0IGFmdGVyIHNwbGl0dGluZyB0aGUK
-b3JpZ2luYWwgdjcvdjggc2VyaWVzOgoKRm9yIHRoZSBuZXQgZml4IHBhcnQsIEkgaGF2ZSBhbHJl
-YWR5IHBvc3RlZCBpdCBhcyBhIG5ldyB2MSBzZXJpZXMKdGFyZ2V0aW5nIG5ldC4KCkZvciB0aGUg
-ZXRoMSBlbmFibGVtZW50IHBhcnQsIG15IGN1cnJlbnQgdW5kZXJzdGFuZGluZyBpcyB0aGF0IGl0
-CnNob3VsZCBiZSB0cmVhdGVkIGFzIGEgbmV3IGluZGVwZW5kZW50IHYxIHNlcmllcyBmb3IgbmV0
-LW5leHQsCnNpbmNlIHRoZSBzY29wZSBhbmQgdGFyZ2V0IHRyZWUgaGF2ZSBjaGFuZ2VkIGFmdGVy
-IHRoZSBzcGxpdC4KCldvdWxkIHlvdSBwcmVmZXIgdGhpcyBldGgxIHNlcmllcyB0byBzdGFydCBh
-cyB2MSwgb3Igc2hvdWxkIGl0CmNvbnRpbnVlIGFzIHY4IGZvciBjb250aW51aXR5IHdpdGggdGhl
-IG9yaWdpbmFsIHNlcmllcz8KCkkgd2lsbCBmb2xsb3cgeW91ciBwcmVmZXJyZWQgYXBwcm9hY2gg
-YmVmb3JlIHBvc3RpbmcgaXQuCgpUaGFua3MsClpoaQo=
+Code in tools/perf/arch causes portability issues/opaqueness and LTO
+issues due to the use of weak symbols. Move the adding of LR to the
+sample_user_regs into arm64-frame-pointer-unwind-support.c conditional
+on EM_HOST == EM_AARCH64 (false on all non-ARM64 builds). This also
+better encapsulates the use of the sampled registers by
+get_leaf_frame_caller_aarch64 and the set up by the new
+add_leaf_frame_caller_opts_aarch64, exposing opportunities for
+possibly sampling PC and SP to help the unwinder.
+
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+ tools/perf/arch/arm64/util/Build                     |  1 -
+ tools/perf/arch/arm64/util/machine.c                 | 12 ------------
+ tools/perf/builtin-record.c                          | 11 +++++------
+ tools/perf/util/arm64-frame-pointer-unwind-support.c |  6 ++++++
+ tools/perf/util/arm64-frame-pointer-unwind-support.h |  2 ++
+ tools/perf/util/callchain.h                          |  2 --
+ 6 files changed, 13 insertions(+), 21 deletions(-)
+ delete mode 100644 tools/perf/arch/arm64/util/machine.c
+
+diff --git a/tools/perf/arch/arm64/util/Build b/tools/perf/arch/arm64/util/Build
+index 4e06a08d281a..638aa6948ab5 100644
+--- a/tools/perf/arch/arm64/util/Build
++++ b/tools/perf/arch/arm64/util/Build
+@@ -5,7 +5,6 @@ perf-util-y += ../../arm/util/pmu.o
+ perf-util-y += arm-spe.o
+ perf-util-y += header.o
+ perf-util-y += hisi-ptt.o
+-perf-util-y += machine.o
+ perf-util-y += mem-events.o
+ perf-util-y += pmu.o
+ perf-util-y += tsc.o
+diff --git a/tools/perf/arch/arm64/util/machine.c b/tools/perf/arch/arm64/util/machine.c
+deleted file mode 100644
+index 80fb13c958d9..000000000000
+--- a/tools/perf/arch/arm64/util/machine.c
++++ /dev/null
+@@ -1,12 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0
+-
+-#include "callchain.h" // prototype of arch__add_leaf_frame_record_opts
+-#include "perf_regs.h"
+-#include "record.h"
+-
+-#define SMPL_REG_MASK(b) (1ULL << (b))
+-
+-void arch__add_leaf_frame_record_opts(struct record_opts *opts)
+-{
+-	opts->sample_user_regs |= SMPL_REG_MASK(PERF_REG_ARM64_LR);
+-}
+diff --git a/tools/perf/builtin-record.c b/tools/perf/builtin-record.c
+index 4a5eba498c02..272bba7f4b9e 100644
+--- a/tools/perf/builtin-record.c
++++ b/tools/perf/builtin-record.c
+@@ -14,6 +14,7 @@
+ #include "util/parse-events.h"
+ #include "util/config.h"
+ 
++#include "util/arm64-frame-pointer-unwind-support.h"
+ #include "util/callchain.h"
+ #include "util/cgroup.h"
+ #include "util/header.h"
+@@ -3230,10 +3231,6 @@ static int record__parse_off_cpu_thresh(const struct option *opt,
+ 	return 0;
+ }
+ 
+-void __weak arch__add_leaf_frame_record_opts(struct record_opts *opts __maybe_unused)
+-{
+-}
+-
+ static int parse_control_option(const struct option *opt,
+ 				const char *str,
+ 				int unset __maybe_unused)
+@@ -4319,8 +4316,10 @@ int cmd_record(int argc, const char **argv)
+ 
+ 	evlist__warn_user_requested_cpus(rec->evlist, rec->opts.target.cpu_list);
+ 
+-	if (callchain_param.enabled && callchain_param.record_mode == CALLCHAIN_FP)
+-		arch__add_leaf_frame_record_opts(&rec->opts);
++	if (callchain_param.enabled && callchain_param.record_mode == CALLCHAIN_FP) {
++		if (EM_HOST == EM_AARCH64)
++			add_leaf_frame_caller_opts_aarch64(&rec->opts);
++	}
+ 
+ 	err = -ENOMEM;
+ 	if (evlist__create_maps(rec->evlist, &rec->opts.target) < 0) {
+diff --git a/tools/perf/util/arm64-frame-pointer-unwind-support.c b/tools/perf/util/arm64-frame-pointer-unwind-support.c
+index 858ce2b01812..3af8c7a466e0 100644
+--- a/tools/perf/util/arm64-frame-pointer-unwind-support.c
++++ b/tools/perf/util/arm64-frame-pointer-unwind-support.c
+@@ -2,6 +2,7 @@
+ #include "arm64-frame-pointer-unwind-support.h"
+ #include "callchain.h"
+ #include "event.h"
++#include "record.h"
+ #include "unwind.h"
+ #include <string.h>
+ 
+@@ -16,6 +17,11 @@ struct entries {
+ 
+ #define SMPL_REG_MASK(b) (1ULL << (b))
+ 
++void add_leaf_frame_caller_opts_aarch64(struct record_opts *opts)
++{
++	opts->sample_user_regs |= SMPL_REG_MASK(PERF_REG_ARM64_LR);
++}
++
+ static bool get_leaf_frame_caller_enabled(struct perf_sample *sample)
+ {
+ 	struct regs_dump *regs;
+diff --git a/tools/perf/util/arm64-frame-pointer-unwind-support.h b/tools/perf/util/arm64-frame-pointer-unwind-support.h
+index 42d3a45490f5..ba35b295bfcd 100644
+--- a/tools/perf/util/arm64-frame-pointer-unwind-support.h
++++ b/tools/perf/util/arm64-frame-pointer-unwind-support.h
+@@ -5,8 +5,10 @@
+ #include <linux/types.h>
+ 
+ struct perf_sample;
++struct record_opts;
+ struct thread;
+ 
++void add_leaf_frame_caller_opts_aarch64(struct record_opts *opts);
+ u64 get_leaf_frame_caller_aarch64(struct perf_sample *sample, struct thread *thread, int user_idx);
+ 
+ #endif /* __PERF_ARM_FRAME_POINTER_UNWIND_SUPPORT_H */
+diff --git a/tools/perf/util/callchain.h b/tools/perf/util/callchain.h
+index 06d463ccc7a0..b7702d65ad60 100644
+--- a/tools/perf/util/callchain.h
++++ b/tools/perf/util/callchain.h
+@@ -277,8 +277,6 @@ static inline int arch_skip_callchain_idx(struct thread *thread __maybe_unused,
+ }
+ #endif
+ 
+-void arch__add_leaf_frame_record_opts(struct record_opts *opts);
+-
+ char *callchain_list__sym_name(struct callchain_list *cl,
+ 			       char *bf, size_t bfsize, bool show_dso);
+ char *callchain_node__scnprintf_value(struct callchain_node *node,
+-- 
+2.54.0.563.g4f69b47b94-goog
+
 
