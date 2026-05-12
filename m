@@ -4,110 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D518ACD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:44:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8039CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UIBbDdY/6Vl81uBfM5dEV50W8t5LzE4VYm82dl6aad0=; b=j1RRK5QWDLPdj1XKJ+08Gn9Z/k
-	5lGYeEtvv0o1/aNTrsf6N5qMhI4r17O3S7QJK81hzn3QMRm0XxzlgOjUWLSNxEvNQ/SSkdmF7I8Gr
-	QvzaNcQo3351aM2nTafjs/5dTqo5xWS+I8ZVcqx3dOZXaUUXdRziUFOLLHYtIxwis6VboliNniYlp
-	DzVGqLy30phW7K2ZgU6WZGiVSQQYjMcByrSB0/Y10YsGtPnxJTlKiuy3gRxh4xzz771w9wmxWx1Er
-	3iGdjKiYdtOJ5fb/QBJui9+4EPNSxISx9akfgbU1Z18RE5C0DQ0bn68k4QeQN2s9cQFoQCkKvLp/0
-	lZgyXvHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZBQE77at087Kv/UO/D97NZLBnF4zFFcQ2W7UuyX7pOQ=; b=lQ+T6c9lq2rEWouUIkkcGWaC29
+	AWRv+ZTXz4q23pc7CWSeuiY/4JjaaP/w2QvbK55Xaj8S6h3LqLQjWOKUnBrAAgiIKUhyMz4BT9UEe
+	gCrg3eC+6Xv09jZ29m3yhqeGbvS39hKVJEAtasuNE5g9w11wvQfEV1s5wXsl5YDc5fhsOq6jh915X
+	qhHQPgb2JnK0sqFp2U7XC5tkBqGannKiu2kr08201wxo1o0Qid38bM1II7P/u1RELIX96ydQH0ajf
+	IsIVKGJRRiRy2Hml7ljOLeh/ymbuLrvkryYEFauvUWNGl3/v152cAyNKDNzCAdofBV1UxpNm+yfvc
+	MtsmD96A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnP8-0000000GtUP-3Dhp;
-	Tue, 12 May 2026 13:44:10 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnP5-0000000GtTV-3GuS
+	id 1wMnSp-0000000GuAA-23QS;
+	Tue, 12 May 2026 13:47:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMnSm-0000000Gu9K-3r6S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:44:08 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-39378db197aso56616021fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:44:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778593445; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HZtFEycmhz6A5bAjcaQeurwrjGd84e+vCgneenefb4WAAytnkQhYDpNU7xV5CyrjSZ
-         /gGNnunWh7Nncp3bs3fI9NolmICJO8dxqQmhxw784RJl8yy693pQT5Z8GR6dPk1sTggp
-         PAeQCkiAY+DCyyAI2S0ipbDk8YD7Ap9AnPuRs8tFgnRQpxquAJEqGKNzCBmBJgg2UTJe
-         hRMgbq71uIKIKlxO8G6EZGnN0pK//gZuH8O7wdBmcX+G4AyZtB0bp2FP2xIkoVrlhY11
-         q9BfYteYwcxfhQeEfF+6ogFwvnz0CFhftXwTdqVb/LkawwU3meH/zVkxDGL0gmsEPoMQ
-         d12g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=UIBbDdY/6Vl81uBfM5dEV50W8t5LzE4VYm82dl6aad0=;
-        fh=l0d1wccZDcita7fwkra7aKDCTnrR1zdaGDFqFPp9ln8=;
-        b=VMVziR+DBbFh0Ie8tmXOiaD0ZWAQRElkSa1Q2YCRklZYJvJW4DxHZiSwiu62rv5YGj
-         BTo9T6a5RIRlGdS4UVPeuXze7AvLj/q8lXmqd6wUwzuwBnGMO1X9YMPUrokm6Qtltont
-         cTB9pEa6ZGnhwT+YkUxHjg3DN9BdC8TOgsjHknpWCfQGndzBJ8g4t+0FJVi0QiUe67ZF
-         dVwnJCyUTkuPXbdNRKup9dsNk/5E/TLpRgUZoEWlFY+m8KwRt4oks4H9rVQRj8M2AuFb
-         d+K2JroGRS/pd+Lg0WyzqUq5aIDJ/PrDjITKeEIiV4bP2edWfl3IGAxatV/uA+zhuguD
-         KRCw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778593445; x=1779198245; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UIBbDdY/6Vl81uBfM5dEV50W8t5LzE4VYm82dl6aad0=;
-        b=KGh3cZ6/NmpoT4MWyY+mNGN8C/f+Fimlbl6XKJTZq4ONyJfb10aowkESxBvmoSx+D+
-         NgZQtCC0aV5e6TAfZKje+isH4gRk2o3vC1qUttIv7sYRGJ4FQ5ymyGtSwoapNqy3sAEA
-         JuemJhb2Zu0+v7VdScpBVCfBbzVW4IxlhPEeBY6OgdkEXsnRiy5ZgInGtYOk8yMiL49H
-         XpP5TjRZPZy8TgsBVd0z72DMLKGKIzzu19G6w81NUx+vg6KgAjoEWvJKnAmf/fn6q1AO
-         nEMOJzq5Sn6Dk8L4zd+TR+umno5t1siCs3eSUvQIOlBScU/6F3QB8pEMaSWtFA20ZEaJ
-         AVuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778593445; x=1779198245;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=UIBbDdY/6Vl81uBfM5dEV50W8t5LzE4VYm82dl6aad0=;
-        b=SYiDRsLnOryN++7a/rDYWAEFrd6NMvAVj92JM6lrqh5h1hvs3UV8B9J3D0W3lhz5Va
-         w6MD3IXs5dqR4zw2xnw6s/0fwC/RMmvF3qVARQANmSJ8YQkd056rFWQaYozureW9X6cA
-         FcWBKtFGrqFfAbR2mxadmu8N1i+9Az7mJklKCzXGDOZGoMsInlJ5XzNuwPEoNZPgLHr0
-         9v075HsENDvShVUsgm07sLD8X+WCUBf65hqYKQn7NjOj3NmC4uIpJi+mwdV/A+tGcwF9
-         7u0KagAJI79wh64EW0vbj8WADKjkiI1VYBAWM9TiKHEollykXkj08TaGn/N1AFu2ggiF
-         4dKA==
-X-Forwarded-Encrypted: i=1; AFNElJ/lUozuyIAGzjbZIv9ykb1T9PrejlkrFarB8yn1o6u7r+WPH8ZwOpQXRJnzz/+DgansT7a0rJdT+WeLlN99DU/S@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxz0pJJu9IsXNVCo+Rbl8TonnNI4Q5OO9vA65ywXal/e/FVtoQW
-	JbRgVtmIwqKGTVw+68qUbW/gCm/TROv1FxVi895ouZsVAhN9rG8Zfb1BCrzknq640fqLpyj5Nc4
-	5UZHgvA11OY5NZDsoAhELxe8Pas1Qbpw=
-X-Gm-Gg: Acq92OHcFx9KGY6Jvz3F9nGEDOckMzQnqDvgW2fcaaSWscxTSDbK3wUlbFGdeQfkSHa
-	4Nejh+LaR5pUotr/d15cwYXiaHemxrxiWRcQ6zGKJ+S6Mpddr7I+eCPpC9yc2OZsIQz6W33UEXi
-	QMEdI+iDDav1M2K/HbbEJn5eLSB9u4eVhzbWVKzPRSAH/HRtVwROVk74S0Vh0kxnNDJyPFl1Yoe
-	p3Xko1I9qcuAtI6kUu2ydYaPJP/rFKMM5b61VscuTojCXmNw7auMtMTMbD1sd7NJOOjZMjBWHTp
-	X8e4X3m4mXmBsvbJt72sg9MZ60+Sw1dfyBcJ3Jc1/hGY5J5pPEwiKZM3UfaqbIT2N9tAJ4oJ
-X-Received: by 2002:a2e:be10:0:b0:393:ca4d:2313 with SMTP id
- 38308e7fff4ca-39408002f04mr46273671fa.5.1778593445018; Tue, 12 May 2026
- 06:44:05 -0700 (PDT)
+	Tue, 12 May 2026 13:47:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 518C61655
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:47:50 -0700 (PDT)
+Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5977F3F85F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:47:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778593675; bh=AHvaIjAEownr1UuDMvzjOHmJ1x9P7IhUK8cJvIHHPdU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ljKSHafGgyi4gIoFC0PQavO/PbqZusPVGOl+oR+NgIC1kiUCyfPEX3/lpGCv2fQ5w
+	 73fcq4jj6av2WQMe5W5nOHtCwf2zEszIdfDR4mFq4nPqmWN4pC9g29Z1KuGe9MPJz8
+	 XNCnHhhU7MJcFpvapNVgw92SFd7ONTE5O8UJFWxw=
+Date: Tue, 12 May 2026 14:47:27 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Cc: Marcin =?utf-8?Q?=C5=9Alusarz?= <marcin.slusarz@arm.com>,
+	Ketil Johnsen <ketil.johnsen@arm.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T.J. Mercier" <tjmercier@google.com>,
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+	Steven Price <steven.price@arm.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linaro-mm-sig@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Florent Tomasin <florent.tomasin@arm.com>, nd@arm.com
+Subject: Re: [PATCH 4/8] drm/panthor: Add support for protected memory
+ allocation in panthor
+Message-ID: <agMvb_jeRsO7tSS-@e142607>
+References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
+ <20260505140516.1372388-5-ketil.johnsen@arm.com>
+ <20260505181523.49a3d85c@fedora>
+ <afxVIuVVPisBQ9p_@e129842.arm.com>
+ <20260507135356.5428d50d@fedora>
 MIME-Version: 1.0
-References: <20260511-b4-imx25_dts_simple_warning-v1-0-01b855a5ce25@nxp.com>
- <20260511-b4-imx25_dts_simple_warning-v1-1-01b855a5ce25@nxp.com>
- <f04fadf2-8d73-435b-b713-9d07e48e80ae@lunn.ch> <CAOMZO5Dm8FgzOfyp=6ZuDc=528FiqCPVYF07PjMGVP0Paye6vg@mail.gmail.com>
-In-Reply-To: <CAOMZO5Dm8FgzOfyp=6ZuDc=528FiqCPVYF07PjMGVP0Paye6vg@mail.gmail.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Tue, 12 May 2026 10:43:53 -0300
-X-Gm-Features: AVHnY4LZUMkE_oZU8jhYuGqiMMJ-pFMt78stSfr4BKQ4Jreq-iTmwB4N5o8icjY
-Message-ID: <CAOMZO5CscUL=uj0dqmUjoxXNvJHfH4hsno9-jLLrLx=09na5kQ@mail.gmail.com>
-Subject: Re: [PATCH 1/4] ARM: dts: imx6qdl-sabrelite: add mdio phy address 0
-To: Andrew Lunn <andrew@lunn.ch>, Gary Bisson <bisson.gary@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260507135356.5428d50d@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_064407_838710_E95F1ED3 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260512_064757_045251_FA474B87 
+X-CRM114-Status: GOOD (  36.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,26 +97,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 9:23=E2=80=AFAM Fabio Estevam <festevam@gmail.com> =
-wrote:
+On Thu, May 07, 2026 at 01:53:56PM +0200, Boris Brezillon wrote:
+> On Thu, 7 May 2026 11:02:26 +0200
+> Marcin Ślusarz <marcin.slusarz@arm.com> wrote:
+> 
+> > On Tue, May 05, 2026 at 06:15:23PM +0200, Boris Brezillon wrote:
+> > > > @@ -277,9 +286,21 @@ int panthor_device_init(struct panthor_device *ptdev)
+> > > >  			return ret;
+> > > >  	}
+> > > >  
+> > > > +	/* If a protected heap name is specified but not found, defer the probe until created */
+> > > > +	if (protected_heap_name && strlen(protected_heap_name)) {  
+> > > 
+> > > Do we really need this strlen() > 0? Won't dma_heap_find() fail is the
+> > > name is "" already?  
+> > 
+> > If dma_heap_find() will fail, then the whole probe with fail too.
+> > This check prevents that.
+> 
+> Yeah, that's also a questionable design choice. I mean, we can
+> currently probe and boot the FW even though we never setup the
+> protected FW sections, so why should we defer the probe here? Can't we
+> just retry the next time a group with the protected bit is created and
+> fail if we can find a protected heap?
 
-> On this board, U-Boot checks for the Ethernet PHY at addresses 4, 5, 6, a=
-nd 7:
->
-> https://github.com/u-boot/u-boot/blob/master/board/boundary/nitrogen6x/ni=
-trogen6x.c#L287-L296
->
-> In this case, shouldn't U-Boot fix up the Ethernet PHY address accordingl=
-y?
->
-> Something like mx6cuboxi does:
->
-> https://github.com/u-boot/u-boot/blob/master/board/solidrun/mx6cuboxi/mx6=
-cuboxi.c#L414-L446
+The problem we have with the current firmware is that it does a number of setup steps at "boot"
+time only. One of the steps is preparing its internal structures for when it enters protected
+mode and it stores them in the buffer passed in at firmware loading. We cannot later run the
+process when we have a group with protected mode set.
 
-And from the devicetree side, imx6qdl-sr-som lists the possible
-Ethernet PHY addresses it can support:
+So unfortunately adding support for protected mode where the heap name is provided means we
+have to try our best to set it up at boot time, or otherwise disable protected mode support.
 
-https://github.com/gregkh/linux/blob/master/arch/arm/boot/dts/nxp/imx/imx6q=
-dl-sr-som.dtsi#L72-L95
+Best regards,
+Liviu
+
+> 
+> > I'm not sure why it's needed at all, but if
+> > it is really needed, then s/strlen(protected_heap_name)/protected_heap_name[0]/
+> > would simplify this.
+> 
+> It's not so much about how you do the test, and more about the case
+> you're trying to protect against. I guess here you assume that
+> panthor.protected_heap_name="" means "I don't have a protected heap for
+> you". If it's deemed acceptable, this should most certainly be
+> described somewhere.
+> 
+> > 
+> > > > +		ptdev->protm.heap = dma_heap_find(protected_heap_name);
+> > > > +		if (!ptdev->protm.heap) {
+> > > > +			drm_warn(&ptdev->base,
+> > > > +				 "Protected heap \'%s\' not (yet) available - deferring probe",
+> > > > +				 protected_heap_name);
+> > > > +			ret = -EPROBE_DEFER;
+> > > > +			goto err_rpm_put;  
+> > > 
+> > > If you move the heap retrieval before the rpm enablement, you can get
+> > > rid of this goto err_rpm_put.
+> > >   
+> > > > +		}
+> > > > +	}
+> > > > +
+> > > >  	ret = panthor_hw_init(ptdev);
+> > > >  	if (ret)
+> > > > -		goto err_rpm_put;
+> > > > +		goto err_dma_heap_put;
+> > > >  
+> > > >  	ret = panthor_pwr_init(ptdev);
+> > > >  	if (ret)  
+> 
+
+-- 
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
