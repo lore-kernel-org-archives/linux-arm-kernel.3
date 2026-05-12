@@ -4,143 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6894BCD37BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 02:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4F6CD4846
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 02:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7On1g7UK4emWbIkTMV7hZ9nh3ffnrtBOHqX2nkDYCpg=; b=XndJed7n4nQHNgaV4l+SURw6AE
-	qlbthKxizj6PC3kHRHdIyRBkmfc/T/X4EkEk+kmv393wnYx/okW/WHT9R1ODf2KVs3xuE1ZrBQLjH
-	gKJAMPAeZqeLcKvRUc1crkOQ5fz+GWkaD+4dEpMJ2bjqazM73b2pbcZvocaOwANwrcvynx4cEWPGE
-	gdZVa/+/3c8DaW3LiD+rMj9GhRuCT80dfJhGVQmAlmQp3M0NnHiZv9oNcqpzxgpP2wmFzeoojcWvz
-	8oxXhXAX8HI/mdGbatU1LwaOSYTeMkfCJzJTbwAn11QBb0LhoprgdH1sZnqGE9SSMAG2xp0bBRPCl
-	l891F1AA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qCpmwOBMO2WUkTkzHq+nS/FnpxquV63bE+Zm5s0BjQ8=; b=ibyKC4A0OtHhPCf26d9KpaSd5Z
+	hHndwjpojrpYDrZtsd2kUAShNn80M6MJ6rXpAOC9b2gFHlUzkKsSrM7L9f4tvhkMhwRVMseQ2oBXt
+	j4hUATEehDrC0184QonaLNKqIC6IBEkldL3gWRS2jGSjgW8YUkYUz24PgSEvRYMfdAOex7JWPausr
+	148xdGEG6Ry9QEsElM4tDuQPskb4dBKJ0Ad4Z4cea4L/Ebq2W5USR5RqA8h5/4UV0VIqXmVbBAX+s
+	6WSs7socTaiXMWky5of5fI1xvck1QPIqrrmJqDo3CrGeHXd7PhulTFU9uLsyz1Me1gKxvyRvL/tRq
+	80wj4dfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMcf9-0000000FFNz-0EL8;
-	Tue, 12 May 2026 02:15:59 +0000
-Received: from mail-northeuropeazon11012018.outbound.protection.outlook.com ([52.101.66.18] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wMcjQ-0000000FFmm-2RGJ;
+	Tue, 12 May 2026 02:20:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMcf5-0000000FFNL-24pb
+	id 1wMcjN-0000000FFmR-2fNs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 02:15:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IOxUAEE4BvVGatp4VNeAtQdUy1cSO3EYyZ1mMrLrO/JtYPdEKhInoPka3V8larocAQlz10zbIwxv5Lg2ouBRuiDaESC5tLMvwHYRTNEITGu1X9udIpjPUGENVM6hPT6HyL7xnfmqARUoRZVqMPgU0GZdAaCV8lp20mg7XYS0oq8TzH7Vc7uavhnfCMMqBxSoSraJt630+lI+GB1hsTrlkqM5G2XNiUftgpAccL38uLD1eBi2CF7W5s2wywRJ79nP1SGAERjXVv5/lY6VNX1iHqrMOAWE0SLLL1FyYpBZqThMN5Un4/csJ7/815D2aAC9ntxnb5vCs4+FobaqH6zwgQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7On1g7UK4emWbIkTMV7hZ9nh3ffnrtBOHqX2nkDYCpg=;
- b=cOFCJohbPioWCdaWgUWnR342IOympxHi7cQrpLmUGjjoupi75CbYOXpENVP1cc3pw+sgXObHYJt/O+7qnbDq6UOHecjZELVQiIdrgpdc523Rm7pWo33xwQrGBoSoxdeedCsqQiMc2pTPeQeaAIQVhQxUo3BYUUwDKlY5Wpkg5YPZ9LWmxVq4rSHc7hY8q02NsCvq05AElc2b7n4u0az3sjgQoEHIhiVtd8jxoVdEM/Jdt5zQMdzElA+nOrHBxVf/vGuY2AvQLO5E4aVmoQOFT3+Qftu0FZqWJLdGpmNA8a+j67a67btxlZigOHtKUwel1DzKqEko7sqKlL5me2E0eg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7On1g7UK4emWbIkTMV7hZ9nh3ffnrtBOHqX2nkDYCpg=;
- b=GVnbBkQeo+iJ/PbMm7/VFp6YvjsQLYugvrEWlxYNAjniJMHtluGFyIwqBPTmZW1+rhZ7TxKq7Sr52U+2HgEIvnkw8V3j/FhttNAvJNClVlzKdjXL3hieGg7kbRRUSguLJDpr9V0MA4N7tRd3g1Mbqx/dj5OOcKgVu6X9nJTlxTQ8f+vdOCVqC7fJ56cpgx/NF60zoGag/WPePF/Z0fRIEGgSeveWLTBV0WGu8K1qO3j+gqgHr7Ly6o/0aJXqtj761tXaWoTfHlotctWWc9u6HpmrJTKPOeekd1P46VxAEkjJAx0lDv1+XB4hl8XBrhAthkKXV+PJMS1Kp3rMTXNOoA==
-Received: from DU2PR04MB9081.eurprd04.prod.outlook.com (2603:10a6:10:2f0::13)
- by GVXPR04MB10899.eurprd04.prod.outlook.com (2603:10a6:150:225::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
- 2026 02:15:47 +0000
-Received: from DU2PR04MB9081.eurprd04.prod.outlook.com
- ([fe80::b025:f7ce:2cc:9e5e]) by DU2PR04MB9081.eurprd04.prod.outlook.com
- ([fe80::b025:f7ce:2cc:9e5e%5]) with mapi id 15.20.9891.021; Tue, 12 May 2026
- 02:15:47 +0000
-From: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>, "G.N. Zhou (OSS)"
-	<guoniu.zhou@oss.nxp.com>
-CC: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Frank Li <frank.li@nxp.com>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "G.N. Zhou"
-	<guoniu.zhou@nxp.com>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-media@vger.kernel.org"
-	<linux-media@vger.kernel.org>
-Subject: RE: [PATCH v6 1/2] media: dt-bindings: Add CSI Pixel Formatter DT
- bindings
-Thread-Topic: [PATCH v6 1/2] media: dt-bindings: Add CSI Pixel Formatter DT
- bindings
-Thread-Index: AQHc4bU+aKYyErTm80uq3vc4RFQ64g==
-Date: Tue, 12 May 2026 02:15:47 +0000
-Message-ID: <DU2PR04MB9081F09027BDA09394D52251FA392@DU2PR04MB9081.eurprd04.prod.outlook.com>
-References: <20260511-csi_formatter-v6-0-01028e312e2b@oss.nxp.com>
- <20260511-csi_formatter-v6-1-01028e312e2b@oss.nxp.com>
- <yez4p77eclr4hfhb5ytyr64ponp4plpefxhfszqfvdinpvamuv@jod7fsgilowq>
-In-Reply-To: <yez4p77eclr4hfhb5ytyr64ponp4plpefxhfszqfvdinpvamuv@jod7fsgilowq>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DU2PR04MB9081:EE_|GVXPR04MB10899:EE_
-x-ms-office365-filtering-correlation-id: aef805b6-ab95-48a7-1e5b-08deafcc6172
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|1800799024|38070700021|22082099003|18002099003|56012099003|11063799003|3023799003;
-x-microsoft-antispam-message-info: B+9LBhGwupcxq6UB9pLWcxvhn8RYLwrdRP4fLGK2bgbk9hBXEK8j+nCCzw3xVGewWThPSgyFtJLrqr47nPQIYHWpiWbf0UDaK52UfaFoV6Lw7PeKlke5BC8zFhgy47/P8Sg0wbP8o2/8NAk9yNW1VhCyoYohEMiSoSZU7NrnVKvEdiPJjypDnJONd0xIReTuTKycTIemipypDQXTiy+np6y6NmOgEwbDhhLgS9wNaSMmaD8sUhH0nIhrKIk8bht8BrbwTj/3F6xAGCLWzShrHyA3YvLJh/pQOoqF7q+jD/velQfsm754WdH7QM0HqWYKIXqLslgTa+ImkI9Z170LNojs8NNO5Au7Nn+8cVGnWA0NkENepo3Vl9Yfwl512JA+6RSWin3GKR6VeABzodQUtasjxVNalq25gPZI+s6esEELaHgxPDmkTte8stTWfjt7Yr0sLPq5gXvlEsXLNaO6wBnm/WtjFPjhSp6CFj2e8z9LUh2ZqL0bZlWh2zDU2YTAJxUNJ/crmo1tYHiFfnbP1Y0C5JB9bBt368z44FDbYvjLZ6+8iKMzkyeW2GUUbqQuRLpNnP20OVnkqZqYlMYHGxMf1JLBpnXmrjwRby5qq/Ll3X3mOXI1DenV1IA55BJLOHGeR9gBSISf+KlqMzsRgcrhcQR325fXHUa/67JoCOm1waKXWEBXAnM91ybm5AdQ
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB9081.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(1800799024)(38070700021)(22082099003)(18002099003)(56012099003)(11063799003)(3023799003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?InaE2vhD2R3F9gpFH66H+tyWA3nX+gsU7ccDukJKxSWZykMsRi0vmqGiwjVT?=
- =?us-ascii?Q?MvvjV7mNBVDUD72sxilC/sdh2VH2H4GJ8WGiS60vKZEiAlbDblen9LPXPGv4?=
- =?us-ascii?Q?U53ETQbmU4quRmluuGPKyRI29tViahqUFj26oXBC3SX9ArP/wTG625sZ3CBF?=
- =?us-ascii?Q?NLrMcxOWVIt/4kkkupPgWVP8Lll/cWcm8H/JMdMzAe49/T4CLQnQswO9Dw+M?=
- =?us-ascii?Q?f7IZlI+udpHkD5X9y32puEY33MtJM4/t2CwdP/Qrufkl9utETO2/dmx9KubF?=
- =?us-ascii?Q?cKU5mqYnD1BEvizMI/ot11ZXvsa6oDqHObiSrYFOXHIqGeUIxPe9TyEzTJFx?=
- =?us-ascii?Q?1puFUAwxr6cEJP9dHkVMs20R8pAkXL9tILyWt3D39uZRl5cnYEiXIafVRzNO?=
- =?us-ascii?Q?9XYDp0954pp47yGF6qV9zP4G0gdnGnr7eJVo48N8hsi+qx0cnZKP2yLhK8gt?=
- =?us-ascii?Q?im/8q3y7W2+cDTPRJkD1y8OyV2Sm8lA/Xr1bUC+j6JnwPXjhCZFBkID2w4N5?=
- =?us-ascii?Q?i24C6iQkk0t9t0H6wcz6k0195zEonsNra3vU9GnPrHX3wvVpwW+Vh30uV0IJ?=
- =?us-ascii?Q?naw49lF4SitBnSB9T2uHaBTUka7SbTUoD0kK48oKrhFIWxLDIWcaHGFMSepd?=
- =?us-ascii?Q?UMPwVV8Pgzb9b8lydLbkjDjvthhOQG74AIA+5BMAYJVvsW4RrGJ9OgX3YJD7?=
- =?us-ascii?Q?OCx9SWatF+8MJkBprmBas7pKuOhRbEIyvz9OaqtyQvnicQXkMEy73snw6xre?=
- =?us-ascii?Q?1O3XAll159Ol9BJvHBORqzrD2hyc6vDObt0tmETnPfixdwEtXk5wTI/CGMc3?=
- =?us-ascii?Q?PvE+NYP04qCRzLII1A/1Dx3KaHMrQlCJpy3y/C7l8r4GgF68gvzCsyWbrqzx?=
- =?us-ascii?Q?AOD6Qk7l/631Pr1Cc5LPMGJ/of08a49arl6hPqMy7rmFI93FQqeb2+6fSTlh?=
- =?us-ascii?Q?4MeNmMi1Yyfa5PeeDiuuhWMJWsxq0AaPKILCJMN4Z/6G/0DqeLe9VF42dHlb?=
- =?us-ascii?Q?KKMCTCzQT07SHUbtrT0qUPfzCLehtZq5iKfSrIIMXYu6P8za4gNQfUY/3l/l?=
- =?us-ascii?Q?Jk0HR1HN80JBA94zbJvqC5VAolyYYn6xOTiIgAFXSHLUd4K+6h4XAe7lBMif?=
- =?us-ascii?Q?295TQdgbSHLHSQBmusgpWI9XrlfaOX1wSLy5YqKENrLnUrBA8gqkP3X34XA2?=
- =?us-ascii?Q?gvKsC2aga1wF0X1AGdJoxmUFVnnMjUjrexuACZyaGQ6Ny2wlPQBWwNvZe3sj?=
- =?us-ascii?Q?G1Q/pK1HwuOKUpMRi4izJCjcU3lwcaB6AycdUDA5/xr4WkfMP1IeGeJoWhCs?=
- =?us-ascii?Q?b9ZByxGA9YLDRaMKRWEcoest92Jc1U9pfqzleul3C+kgUmxf2GMKxmqxeDFk?=
- =?us-ascii?Q?7QVozdFDOJK25ixcLuOCOewRwnKuln9o6eygTggD+ohlVlfdenRvedtjGA7X?=
- =?us-ascii?Q?RsTeuhuEdUR1xtkHinYtCYRc87rDicVwU7y8Y0gz/jfxzSU7vy2AvMRz7j18?=
- =?us-ascii?Q?A+eBT28PhM8rVX5XnSD/u3qrpL8OejbUwDtAnEBX8h6FuMmnxqOuN8zUSBIZ?=
- =?us-ascii?Q?dQSxiND3nbce2twNtTk8Vy9MFPBqffaMFk8Hlr6fWOBRufeSZyxK+7VS4spY?=
- =?us-ascii?Q?kje8dTPm/QylxNP1PDFooFG8hvGzbFhrsleqOgKSXddAM5mj5Lh9PxOCj8TU?=
- =?us-ascii?Q?ef8IINYNyltRJ2X2FYfIZRW6ggGe71C4NqArh5kT5zL+f5E6?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 12 May 2026 02:20:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C564F40316;
+	Tue, 12 May 2026 02:20:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2FEFC2BCF5;
+	Tue, 12 May 2026 02:20:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778552420;
+	bh=qCpmwOBMO2WUkTkzHq+nS/FnpxquV63bE+Zm5s0BjQ8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=qGxfJUCl4H7hCiKozqcohLBmSz2UGHjAUAnhFnbCkokN/8U5+DNCy3gkdREIPy5lT
+	 FcuKyjngJ4CLIq0CowDYsBvmOjYrJRSQ/fcF4fZheIk5E9BeebiHbOg+5bpzhegKpM
+	 /KDCxxemrJV0rjqXJnckd7dkSlKt6+E3hdojzLsWWTFF3wj41TvRqlfubpWfGfinyI
+	 2GEAYue+fArQRJQBENFSnlCcU0Qmx+0fd3NtT7Lj5QnSadh4lBHWrnX2s18U4nAv+O
+	 YWfd8QL3KimEIygt1/6FVwEaPCoANw85ANpVmOXB/P/sdTA6ocdQxV68U16KQQaVlQ
+	 BVg7iY1KhqMkA==
+Date: Mon, 11 May 2026 19:20:18 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Horatiu Vultur <horatiu.vultur@microchip.com>, Steen
+ Hegelund <steen.hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>,
+ "Alexei Starovoitov" <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, "Jesper Dangaard Brouer" <hawk@kernel.org>, John
+ Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>,
+ Herve Codina <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Mohsin Bashir
+ <mohsin.bashr@gmail.com>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH net-next v4 00/13] net: lan966x: add support for PCIe
+ FDMA
+Message-ID: <20260511192018.49dfcd7b@kernel.org>
+In-Reply-To: <20260508-lan966x-pci-fdma-v4-0-14e0c89d8d63@microchip.com>
+References: <20260508-lan966x-pci-fdma-v4-0-14e0c89d8d63@microchip.com>
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB9081.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aef805b6-ab95-48a7-1e5b-08deafcc6172
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 May 2026 02:15:47.5616
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: JvLC0f7n6wZDZKQEn/7o3mdxHieP8c/bYw1A+4qwGbQsSoGu5UZlojD9RfbtBpdZH3Ikvo2jOm/d5BWH3+w9lw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10899
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_191555_686682_7B9D7BBD 
-X-CRM114-Status: GOOD (  28.06  )
+X-CRM114-CacheID: sfid-20260511_192021_702622_15C612C2 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,193 +83,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Macro,
+On Fri, 8 May 2026 09:35:24 +0200 Daniel Machon wrote:
+> When lan966x operates as a PCIe endpoint, the driver currently uses
+> register-based I/O for frame injection and extraction. This approach is
+> functional but slow, topping out at around 33 Mbps on an Intel x86 host
+> with a lan966x PCIe card.
 
-Thank you for the review and the valid point!
-
-> -----Original Message-----
-> From: Marco Felsch <m.felsch@pengutronix.de>
-> Sent: Monday, May 11, 2026 7:46 PM
-> To: G.N. Zhou (OSS) <guoniu.zhou@oss.nxp.com>
-> Cc: Mauro Carvalho Chehab <mchehab@kernel.org>; Rob Herring
-> <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
-> <conor+dt@kernel.org>; Shawn Guo <shawnguo@kernel.org>; Sascha Hauer
-> <s.hauer@pengutronix.de>; Pengutronix Kernel Team
-> <kernel@pengutronix.de>; Fabio Estevam <festevam@gmail.com>; Laurent
-> Pinchart <laurent.pinchart@ideasonboard.com>; Frank Li <frank.li@nxp.com>=
-;
-> imx@lists.linux.dev; Krzysztof Kozlowski
-> <krzysztof.kozlowski@oss.qualcomm.com>; devicetree@vger.kernel.org; linux=
--
-> kernel@vger.kernel.org; G.N. Zhou <guoniu.zhou@nxp.com>; linux-arm-
-> kernel@lists.infradead.org; linux-media@vger.kernel.org
-> Subject: Re: [PATCH v6 1/2] media: dt-bindings: Add CSI Pixel Formatter D=
-T
-> bindings
->=20
-> [You don't often get email from m.felsch@pengutronix.de. Learn why this i=
-s
-> important at https://aka.ms/LearnAboutSenderIdentification ]
->=20
-> On 26-05-11, Guoniu Zhou wrote:
-> > From: Guoniu Zhou <guoniu.zhou@nxp.com>
-> >
-> > The i.MX9 CSI pixel formatting module uses packet info, pixel and
-> > non-pixel data from the CSI-2 host controller and reformat them to
-> > match Pixel Link(PL) definition.
->=20
-> Sorry for chiming in very late, but can you please provide on which
-> i.MX9 devices this formatting module is present? I've checked the i.MX93
-> reference manual and found no info instead I found a CAMERA_MUX register
-> which does something similiar but is not the same. Please provide a more
-> specific compatible if this IP is only be present on i.MX95 devices.
-
-You're right. I initially used "imx9" because this CSI formatter  IP is pre=
-sent on
-both i.MX95 and i.MX952 (not on i.MX93 as you correctly noted). However, I
-agree this naming is confusing and could mislead people  into thinking it's=
- available
-across all i.MX9 series devices.
-
-I'll change the compatible to "fsl,imx95-csi-formatter" as the current driv=
-er=20
-only supports i.MX95. When i.MX952 support is added in the future, we can=20
-extend the compatible string accordingly (e.g., using "fsl,imx952-csi-forma=
-tter"=20
-with "fsl,imx95-csi-formatter" as fallback if they're compatible).
-
-Thanks again for catching this!
-
-Best Regards
-G.N Zhou
-
->=20
-> Regards,
->   Marco
->=20
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > Reviewed-by: Krzysztof Kozlowski
-> > <krzysztof.kozlowski@oss.qualcomm.com>
-> > Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> > ---
-> >  .../bindings/media/fsl,imx9-csi-formatter.yaml     | 87
-> ++++++++++++++++++++++
-> >  1 file changed, 87 insertions(+)
-> >
-> > diff --git
-> > a/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml
-> > b/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml
-> > new file mode 100644
-> > index 000000000000..774d37d2b987
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.y
-> > +++ aml
-> > @@ -0,0 +1,87 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/media/fsl,imx9-csi-formatter.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: i.MX9 CSI Pixel Formatter
-> > +
-> > +maintainers:
-> > +  - Guoniu Zhou <guoniu.zhou@nxp.com>
-> > +
-> > +description:
-> > +  The CSI pixel formatting module uses packet info, pixel and
-> > +non-pixel
-> > +  data from the CSI-2 host controller and reformat them to match
-> > +Pixel
-> > +  Link(PL) definition.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: fsl,imx9-csi-formatter
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  clocks:
-> > +    maxItems: 1
-> > +
-> > +  power-domains:
-> > +    maxItems: 1
-> > +
-> > +  ports:
-> > +    $ref: /schemas/graph.yaml#/properties/ports
-> > +
-> > +    properties:
-> > +      port@0:
-> > +        $ref: /schemas/graph.yaml#/$defs/port-base
-> > +        unevaluatedProperties: false
-> > +        description: MIPI CSI-2 RX IDI interface
-> > +
-> > +        properties:
-> > +          endpoint:
-> > +            $ref: video-interfaces.yaml#
-> > +            unevaluatedProperties: false
-> > +
-> > +      port@1:
-> > +        $ref: /schemas/graph.yaml#/properties/port
-> > +        description: Pixel Link Interface
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - power-domains
-> > +  - ports
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/clock/nxp,imx95-clock.h>
-> > +
-> > +    formatter@20 {
-> > +        compatible =3D "fsl,imx9-csi-formatter";
-> > +        reg =3D <0x20 0x100>;
-> > +        clocks =3D <&cameramix_csr IMX95_CLK_CAMBLK_CSI2_FOR0>;
-> > +        power-domains =3D <&scmi_devpd 3>;
-> > +
-> > +        ports {
-> > +            #address-cells =3D <1>;
-> > +            #size-cells =3D <0>;
-> > +
-> > +            port@0 {
-> > +                reg =3D <0>;
-> > +
-> > +                endpoint {
-> > +                    remote-endpoint =3D <&mipi_csi_0_out>;
-> > +                };
-> > +            };
-> > +
-> > +            port@1 {
-> > +                reg =3D <1>;
-> > +
-> > +                endpoint {
-> > +                    remote-endpoint =3D <&isi_in_2>;
-> > +                };
-> > +            };
-> > +        };
-> > +    };
-> >
-> > --
-> > 2.34.1
-> >
-> >
-> >
->=20
-> --
-> #gernperDu
-> #CallMeByMyFirstName
->=20
-> Pengutronix e.K.                           |                             =
-|
-> Steuerwalder Str. 21                       | https://www.pengutronix.de/ =
-|
-> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    =
-|
-> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    =
-|
+Looks like sashiko-bot responded but only CCed bpf@
+Please let us know if all the issues are false positives,
+I'm going to assume for now that at least one of the issues
+is real :)
 
