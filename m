@@ -4,90 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 554A3CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9ADECD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vx1EZnStwDZZdxIcqyTZDoezBvHoI6tS8Dmz7WDLRe0=; b=4F6ZsdjOOfNSDfItR1ekcXDJS7
-	36fcWIR0ro1GQ35nw0CDPsbR0SQq74psW2MegxiSm3L+nZNCZPFSkdk+AskfxvAgZsj+RLaZWAVVN
-	eQPzuZtJE1JyO6CeEElrIDsCdEI9cmHxQGHMuLnGHfL0yEW6g+fgUNfQ+bGBfQQednOU40y1xRtHH
-	aYfKdzLvaV6K+3eMzRkaoSc/f+tJdaNBgjWoV/SGPREKU6lHSmrN/u1dxYjN5/INf0kUnir2o5Q8Y
-	/qgxQ3/rooOWgxzxSqCEow2IOtvlzBN61s8ejkI7Z7lPH0xx7n7yPiN+Wtmifi+P5f+SGnIJ0RkT+
-	1OJ3K6+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X0K/Mr//olzYxdXG3Wy8BYdN2fTftbgvAW7RSEPad2I=; b=wXATAJZPlHZ5DqLu8N5PxUaBLT
+	j/tNMZgMFlcTr6X1oNIKYq9GOpcR3wp1nopsUSAUHGoxcckCjUPkwkd2cb3NMe63Wo8CbOTtxwFyG
+	NAgwUS34ddLqOsJsH1Sv+iiLSW1gt+z1F5zHX15RNjFCzm91IdIChox8VbWQYmImAttOkaKWfUVlD
+	rM26ivykZO0K7GsRbvDViesAjXbGYQlw1OlgDjX9oGA3iZjJnf+nOmPZK7l2nQbkSGxCsIrFto5lZ
+	PxRW3CVmk1OPCWLbBBTM8iENdVW8seHv/30z4QDL5SUHOYjizmxYk7f/FQJSg3RP02KXg9+Q0kryO
+	N+w2i9kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmpA-0000000Gl5M-3ZhM;
-	Tue, 12 May 2026 13:07:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmp7-0000000Gl0O-42fq
+	id 1wMnJ4-0000000GsTJ-2Wzp;
+	Tue, 12 May 2026 13:37:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMnJ2-0000000GsRe-0dIM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:06:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CB0C60172;
-	Tue, 12 May 2026 13:06:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5849AC2BCF5;
-	Tue, 12 May 2026 13:06:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778591216;
-	bh=etL0BmY0A9Fqpeqx045EC22tvLHJ6vuKYkR//hKcODY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=DUtRSZsQ9gB36yLZtkozHG+6I0RAPwERl/ZfvksIqWpkfh7ltWrFcOm0oIB3iErA4
-	 zN4AOX/DtBVmZWupVNCjjRjb6J/WumQfm3eHU80x1x66IdQxtFWNBQzYCmlbWh4QKA
-	 iBg0zQw6PhRkRk66ID/iAyrQ9f6QMbyj9YjZ7mv2FKGg9Z2NiiE4VDMwO1ER7aewz2
-	 bD009BDa3w9wqj9xCcu0MHZVS5yoFam+wm+s8mcDmAG5EOepiWosMkzKGq83tLvupR
-	 gLIlEvRMJTtxhuiope1xqLgADVFhDd0tJx9MXG45Ayz38llduXsfUOBSuCFjbr2wv8
-	 nM4Ynxzp42haw==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 12 May 2026 15:06:13 +0200
-Subject: [PATCH v4 15/20] drm/connector: Add new atomic_create_state
- callback
+	Tue, 12 May 2026 13:37:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E34801655
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:37:42 -0700 (PDT)
+Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E9D8D3FA1F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:37:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778593068; bh=Gvl4cEd1ZiXBIpJHrKLmqu+T8vzwYIr7JhCY27iDUns=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SChCFyHykrVe3sL5BHjuhYE359KIDcWzJf0KJIhWb/46b/tDAGqQ41klFSiOZAPNX
+	 O9L1lIWldaVfn/vxBfpcLrv175kPKvlaEIP6ZLOxQtTx+4XSTuSuZCOfzhTvLdaips
+	 ATp13V3jhREnf9fFIF6gJ/4uv2PAgRNjRmb1SO6A=
+Date: Tue, 12 May 2026 14:37:21 +0100
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Ketil Johnsen <ketil.johnsen@arm.com>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T.J. Mercier" <tjmercier@google.com>,
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Steven Price <steven.price@arm.com>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	linaro-mm-sig@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 3/8] drm/panthor: De-duplicate FW memory section sync
+Message-ID: <agMtEXOqPGEwKuwt@e142607>
+References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
+ <20260505140516.1372388-4-ketil.johnsen@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260512-drm-mode-config-init-v4-15-591dfdcc1bf9@kernel.org>
-References: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
-In-Reply-To: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Jyri Sarha <jyri.sarha@iki.fi>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Maxime Ripard <mripard@kernel.org>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7400; i=mripard@kernel.org;
- h=from:subject:message-id; bh=etL0BmY0A9Fqpeqx045EC22tvLHJ6vuKYkR//hKcODY=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFnMqgcnJyZVpdYLqHedeDfbUu7Ct5Ap7kLxnbMCw6q6/
- s2V9WPvmMrCIMzJICumyPJEJuz08vbFVQ72K3/AzGFlAhnCwMUpABOpeMTYcO+vofWyzeqmPZGz
- LARK9x7d8/7IbUbXcz/X3VG4+cf56F7/G14+L3se/aove9ShE7bZgLE+wMpp5lp+BaP10h+2eAv
- /3WmUxCCcPOcdW6+zef3k6pWWcw30uG+ey7l44s/zaYEatywA
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260505140516.1372388-4-ketil.johnsen@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_063752_480070_72BC4B6E 
+X-CRM114-Status: GOOD (  22.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,197 +91,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
-to drm_private_obj") introduced a new pattern for allocating drm object
-states.
+On Tue, May 05, 2026 at 04:05:09PM +0200, Ketil Johnsen wrote:
+> Handle the sync to device of FW memory sections inside
+> panthor_fw_init_section_mem() so that the callers do not have to.
+> 
+> This small improvement is also critical for protected FW sections,
+> so we avoid issuing memory transactions to protected memory from
+> CPU running in normal mode.
+> 
+> Signed-off-by: Ketil Johnsen <ketil.johnsen@arm.com>
 
-Instead of relying on the reset() callback, it created a new
-atomic_create_state hook. This is helpful because reset is a bit
-overloaded: it's used to create the initial software state, reset it,
-but also reset the hardware.
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 
-It can also be used either at probe time, to create the initial state
-and possibly reset the hardware to an expected default, but also during
-suspend/resume.
+Best regards,
+Liviu
 
-Both these cases come with different expectations too: during the
-initialization, we want to initialize all states, but during
-suspend/resume, drm_private_states for example are expected to be kept
-around.
-
-reset() also isn't fallible, which makes it harder to handle
-initialization errors properly. This is only really relevant for some
-drivers though, since all the helpers for reset only create a new
-state, and don't touch the hardware at all.
-
-It was thus decided to create a new hook that would allocate and
-initialize a pristine state without any side effect:
-atomic_create_state to untangle a bit some of it, and to separate the
-initialization with the actual reset one might need during a
-suspend/resume.
-
-Continue the transition to the new pattern with connectors.
-
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
- drivers/gpu/drm/drm_atomic_state_helper.c | 26 ++++++++++++++++++++++++++
- drivers/gpu/drm/drm_mode_config.c         | 31 ++++++++++++++++++++++++++++++-
- include/drm/drm_atomic_state_helper.h     |  2 ++
- include/drm/drm_connector.h               | 16 ++++++++++++++++
- 4 files changed, 74 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-index e2e5a1b8a820..07686e94aae0 100644
---- a/drivers/gpu/drm/drm_atomic_state_helper.c
-+++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-@@ -532,10 +532,36 @@ void drm_atomic_helper_connector_reset(struct drm_connector *connector)
- 	kfree(connector->state);
- 	__drm_atomic_helper_connector_reset(connector, conn_state);
- }
- EXPORT_SYMBOL(drm_atomic_helper_connector_reset);
- 
-+/**
-+ * drm_atomic_helper_connector_create_state - default &drm_connector_funcs.atomic_create_state hook for connectors
-+ * @connector: connector object
-+ *
-+ * Allocates and  initializes pristine @drm_connector_state.
-+ *
-+ * This is useful for drivers that don't subclass @drm_connector_state.
-+ *
-+ * RETURNS:
-+ * Pointer to new connector state, or ERR_PTR on failure.
-+ */
-+struct drm_connector_state *
-+drm_atomic_helper_connector_create_state(struct drm_connector *connector)
-+{
-+	struct drm_connector_state *state;
-+
-+	state = kzalloc_obj(*state);
-+	if (!state)
-+		return ERR_PTR(-ENOMEM);
-+
-+	__drm_atomic_helper_connector_state_init(state, connector);
-+
-+	return state;
-+}
-+EXPORT_SYMBOL(drm_atomic_helper_connector_create_state);
-+
- /**
-  * drm_atomic_helper_connector_tv_margins_reset - Resets TV connector properties
-  * @connector: DRM connector
-  *
-  * Resets the TV-related properties attached to a connector.
-diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
-index 2e2cd18a14b4..9d240817f8b6 100644
---- a/drivers/gpu/drm/drm_mode_config.c
-+++ b/drivers/gpu/drm/drm_mode_config.c
-@@ -235,10 +235,36 @@ static int drm_mode_config_crtc_reset_with_create_state(struct drm_crtc *crtc)
- 	}
- 
- 	return drm_mode_config_crtc_create_state(crtc);
- }
- 
-+static int drm_mode_config_connector_create_state(struct drm_connector *connector)
-+{
-+	struct drm_connector_state *conn_state;
-+
-+	if (!connector->funcs->atomic_create_state)
-+		return 0;
-+
-+	conn_state = connector->funcs->atomic_create_state(connector);
-+	if (IS_ERR(conn_state))
-+		return PTR_ERR(conn_state);
-+
-+	connector->state = conn_state;
-+
-+	return 0;
-+}
-+
-+static int drm_mode_config_connector_reset_with_create_state(struct drm_connector *connector)
-+{
-+	if (connector->state) {
-+		connector->funcs->atomic_destroy_state(connector, connector->state);
-+		connector->state = NULL;
-+	}
-+
-+	return drm_mode_config_connector_create_state(connector);
-+}
-+
- /**
-  * drm_mode_config_reset - call ->reset callbacks
-  * @dev: drm device
-  *
-  * This functions calls all the crtc's, encoder's and connector's ->reset
-@@ -278,13 +304,16 @@ void drm_mode_config_reset(struct drm_device *dev)
- 	drm_for_each_encoder(encoder, dev)
- 		if (encoder->funcs && encoder->funcs->reset)
- 			encoder->funcs->reset(encoder);
- 
- 	drm_connector_list_iter_begin(dev, &conn_iter);
--	drm_for_each_connector_iter(connector, &conn_iter)
-+	drm_for_each_connector_iter(connector, &conn_iter) {
- 		if (connector->funcs->reset)
- 			connector->funcs->reset(connector);
-+		else if (connector->funcs->atomic_create_state)
-+			drm_mode_config_connector_reset_with_create_state(connector);
-+	}
- 	drm_connector_list_iter_end(&conn_iter);
- }
- EXPORT_SYMBOL(drm_mode_config_reset);
- 
- /*
-diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
-index 9634a70e0401..f4b6d8833bc2 100644
---- a/include/drm/drm_atomic_state_helper.h
-+++ b/include/drm/drm_atomic_state_helper.h
-@@ -73,10 +73,12 @@ void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
- void __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
- 					       struct drm_connector *connector);
- void __drm_atomic_helper_connector_reset(struct drm_connector *connector,
- 					 struct drm_connector_state *conn_state);
- void drm_atomic_helper_connector_reset(struct drm_connector *connector);
-+struct drm_connector_state *
-+drm_atomic_helper_connector_create_state(struct drm_connector *connector);
- void drm_atomic_helper_connector_tv_reset(struct drm_connector *connector);
- int drm_atomic_helper_connector_tv_check(struct drm_connector *connector,
- 					 struct drm_atomic_commit *state);
- void drm_atomic_helper_connector_tv_margins_reset(struct drm_connector *connector);
- void
-diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-index 5ad62c207d00..529755c2e862 100644
---- a/include/drm/drm_connector.h
-+++ b/include/drm/drm_connector.h
-@@ -1569,10 +1569,26 @@ struct drm_connector_funcs {
- 	 * when a connector is being hot-unplugged for drivers that support
- 	 * connector hotplugging (e.g. DisplayPort MST).
- 	 */
- 	void (*destroy)(struct drm_connector *connector);
- 
-+	/**
-+	 * @atomic_create_state:
-+	 *
-+	 * Allocate a pristine, initialized, state for the connector
-+	 * object and return it. This callback must have no side
-+	 * effects: in particular, the returned state must not be
-+	 * assigned to the object's state pointer and it must not affect
-+	 * the hardware state.
-+	 *
-+	 * RETURNS:
-+	 *
-+	 * A new, pristine, connector state instance or an error pointer
-+	 * on failure.
-+	 */
-+	struct drm_connector_state *(*atomic_create_state)(struct drm_connector *connector);
-+
- 	/**
- 	 * @atomic_duplicate_state:
- 	 *
- 	 * Duplicate the current atomic state for this connector and return it.
- 	 * The core and helpers guarantee that any atomic state duplicated with
+> ---
+>  drivers/gpu/drm/panthor/panthor_fw.c | 22 ++++++----------------
+>  1 file changed, 6 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_fw.c b/drivers/gpu/drm/panthor/panthor_fw.c
+> index be0da5b1f3abf..0d07a133dc3af 100644
+> --- a/drivers/gpu/drm/panthor/panthor_fw.c
+> +++ b/drivers/gpu/drm/panthor/panthor_fw.c
+> @@ -446,6 +446,7 @@ static void panthor_fw_init_section_mem(struct panthor_device *ptdev,
+>  					struct panthor_fw_section *section)
+>  {
+>  	bool was_mapped = !!section->mem->kmap;
+> +	struct sg_table *sgt;
+>  	int ret;
+>  
+>  	if (!section->data.size &&
+> @@ -464,6 +465,11 @@ static void panthor_fw_init_section_mem(struct panthor_device *ptdev,
+>  
+>  	if (!was_mapped)
+>  		panthor_kernel_bo_vunmap(section->mem);
+> +
+> +	/* An sgt should have been requested when the kernel BO was GPU-mapped. */
+> +	sgt = to_panthor_bo(section->mem->obj)->dmap.sgt;
+> +	if (!drm_WARN_ON_ONCE(&ptdev->base, !sgt))
+> +		dma_sync_sgtable_for_device(ptdev->base.dev, sgt, DMA_TO_DEVICE);
+>  }
+>  
+>  /**
+> @@ -626,7 +632,6 @@ static int panthor_fw_load_section_entry(struct panthor_device *ptdev,
+>  	section_size = hdr.va.end - hdr.va.start;
+>  	if (section_size) {
+>  		u32 cache_mode = hdr.flags & CSF_FW_BINARY_IFACE_ENTRY_CACHE_MODE_MASK;
+> -		struct panthor_gem_object *bo;
+>  		u32 vm_map_flags = 0;
+>  		u64 va = hdr.va.start;
+>  
+> @@ -663,14 +668,6 @@ static int panthor_fw_load_section_entry(struct panthor_device *ptdev,
+>  		}
+>  
+>  		panthor_fw_init_section_mem(ptdev, section);
+> -
+> -		bo = to_panthor_bo(section->mem->obj);
+> -
+> -		/* An sgt should have been requested when the kernel BO was GPU-mapped. */
+> -		if (drm_WARN_ON_ONCE(&ptdev->base, !bo->dmap.sgt))
+> -			return -EINVAL;
+> -
+> -		dma_sync_sgtable_for_device(ptdev->base.dev, bo->dmap.sgt, DMA_TO_DEVICE);
+>  	}
+>  
+>  	if (hdr.va.start == CSF_MCU_SHARED_REGION_START)
+> @@ -724,17 +721,10 @@ panthor_reload_fw_sections(struct panthor_device *ptdev, bool full_reload)
+>  	struct panthor_fw_section *section;
+>  
+>  	list_for_each_entry(section, &ptdev->fw->sections, node) {
+> -		struct sg_table *sgt;
+> -
+>  		if (!full_reload && !(section->flags & CSF_FW_BINARY_IFACE_ENTRY_WR))
+>  			continue;
+>  
+>  		panthor_fw_init_section_mem(ptdev, section);
+> -
+> -		/* An sgt should have been requested when the kernel BO was GPU-mapped. */
+> -		sgt = to_panthor_bo(section->mem->obj)->dmap.sgt;
+> -		if (!drm_WARN_ON_ONCE(&ptdev->base, !sgt))
+> -			dma_sync_sgtable_for_device(ptdev->base.dev, sgt, DMA_TO_DEVICE);
+>  	}
+>  }
+>  
+> -- 
+> 2.43.0
+> 
 
 -- 
-2.54.0
-
+====================
+| I would like to |
+| fix the world,  |
+| but they're not |
+| giving me the   |
+ \ source code!  /
+  ---------------
+    ¯\_(ツ)_/¯
 
