@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA5ECD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 645F9CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HaEn7dbgaH6iPMCO5J8FjdiEUHJuBFLTI9dORD5tRcM=; b=GA134iMHtCCkf27ONj2d5TPJN2
-	Y3uvvmwKlHtoRKxYD+pPpqoTC4kZsYI6dqbbJ7TtVr1T6pjw8sSIYa0lWxeIm7tMXTQZDQBb8um1l
-	K/oouaMTIhNwK8BaNxy0mGy3DKfqG++Vui+I+2Ttf6Qi9PkdZONuKUyX4I9VWJx8eNFoKf7OX7JR8
-	JjethP0DZ94C+ojxCpTBnlArWlFxFoiOkDsJrQeIYYQ9CkQtQmCIggwmIW9+oAC+j4FspKbEC1O5P
-	gJj7NRA+b3QOj/EHXXfROdumOWNXmgoAMRWG2ito1hYtJrFpGZVngc0grjHcq9CK/O9mk5KyElhlv
-	du0nv+LA==;
+	bh=SauRn4rNyLo5Gxe9Z9Dfnna6e3IhDA5Q7nGogBdXi2M=; b=H6U4wdDefgKOKtpTEvmo+W8FOH
+	6RyokBbAepTu5Z/zMIxu/kgt/3TpRpcFlhbukuleZOn/9SYm2lygXZwyyawTZmtFJir5MgZRExVPQ
+	WKpvG4jeJyRrZSn8tm/mHYc25ECGCIqQ9U73kd3BOszX7o/jkXMzSiOdM/rRIlJAZ8ur7d7PkjeTv
+	uKGYi7F8Z0GTHYRq6za5WimFqKMoUUf3qqVl0+nfCMU7B9OwfKCjYSJn5+hIeWHZiJ8YOZ8tdQiek
+	+1OTZtoLwWNxGl4oJDyED1gA4/9fimN7AhoL/tJ6/uYMxtLkRPQzMnFbcYwoqX7AH+arZSABxSTZG
+	w3/FE2Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnT4-0000000GuF3-2rKE;
-	Tue, 12 May 2026 13:48:14 +0000
+	id 1wMnYf-0000000GuwI-1IBk;
+	Tue, 12 May 2026 13:54:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnT1-0000000GuE7-23dO
+	id 1wMnYc-0000000Guvn-1qdH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:48:13 +0000
+	Tue, 12 May 2026 13:53:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F6641655;
-	Tue, 12 May 2026 06:48:05 -0700 (PDT)
-Received: from [10.57.33.240] (unknown [10.57.33.240])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D6BD63F85F;
-	Tue, 12 May 2026 06:48:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD4B91655;
+	Tue, 12 May 2026 06:53:49 -0700 (PDT)
+Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7CF53F85F;
+	Tue, 12 May 2026 06:53:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778593690; bh=OOEl7Ee3v2lvVmXZkjR9vENiJNiSv2BYwxgLSf9hiw8=;
+	t=1778594035; bh=gQhaNhMmvHKpp2DPTddlYwPbDh9/dUpVw6fJuFpkQAw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DjNptRD3V6bvItp9OSAF88zx5I9jZmWvqzrzPUdgdrZLNcdLQDqA6SIjnlcVWL4fc
-	 eKpZpYKfRC4U2FugcbGB5KReWOFqR2VFf1k1tc6M0CxzT+uoTaXPzAOLWw1YAetIbp
-	 3VvkIpQmXGEexpxJQ5U4KpIRTM6KMebD8HElYdIQ=
-Message-ID: <7e073ece-4fd6-4c36-ac2f-7604ccd38fff@arm.com>
-Date: Tue, 12 May 2026 15:48:05 +0200
+	b=AvDbkyI/apv2QKkRzcv1qomxgmQ8r+9ZC/MCfWWieYiZwDcrOlH30JxSndJ7um0Bq
+	 Xj0tuOcIPj+GrrdQXZWB0Xh4ReCS/I0RcP3M4V/ijVbsYNYi7vwpHEE4GAOegbhShh
+	 DorDUYtmUnsgGmS5gldEUuawZlAHc2D33Y6kk6Z0=
+Message-ID: <b95b42c6-4d10-4701-88e2-9991f3773e6a@arm.com>
+Date: Tue, 12 May 2026 14:53:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] iio: adc: sun20i-gpadc: add A523 gpadc support
-To: Jonathan Cameron <jic23@kernel.org>,
- Michal Piekos <michal.piekos@mmpsystems.pl>
-Cc: David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Maksim Kiselev
- <bigunclemax@gmail.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20260510-sunxi-a523-gpadc-v1-0-4f6b0f4000fb@mmpsystems.pl>
- <20260510-sunxi-a523-gpadc-v1-2-4f6b0f4000fb@mmpsystems.pl>
- <20260512125106.718d48d9@jic23-huawei>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260512125106.718d48d9@jic23-huawei>
+Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
+To: Jason Gunthorpe <jgg@ziepe.ca>, Joonwon Kang <joonwonkang@google.com>
+Cc: Alexander.Grest@microsoft.com, amhetre@nvidia.com,
+ baolu.lu@linux.intel.com, easwar.hariharan@linux.microsoft.com,
+ iommu@lists.linux.dev, jacob.jun.pan@linux.intel.com, joro@8bytes.org,
+ jpb@kernel.org, kees@kernel.org, kevin.tian@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ nicolinc@nvidia.com, praan@google.com, smostafa@google.com, will@kernel.org
+References: <20260511132128.GM9285@ziepe.ca>
+ <20260512095714.2518097-1-joonwonkang@google.com>
+ <20260512124015.GU9285@ziepe.ca>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260512124015.GU9285@ziepe.ca>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_064811_577672_75BAB5B1 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20260512_065358_671677_0A028A84 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +76,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 5/12/26 13:51, Jonathan Cameron wrote:
-> On Sun, 10 May 2026 14:57:23 +0200
-> Michal Piekos <michal.piekos@mmpsystems.pl> wrote:
-> 
->> A523 differs from existing sun20i-gpadc-iio by having two clocks; bus
->> clock and module clock.
+On 12/05/2026 1:40 pm, Jason Gunthorpe wrote:
+> On Tue, May 12, 2026 at 09:57:14AM +0000, Joonwon Kang wrote:
+>>> There is a bit more going on though, I think that is what Joonwon is
+>>> mentioning by asking about ST64B and ST64BV. I *think* the answer is:
+>>>
+>>> - ST64B uses a posted write
+>>> - ST64BV can be restricted so EL0 cannot execute it, it uses a
+>>>    non-posted write (AI tells me via EnASR)
+>>> - ST64BV0 can be used by EL0, always uses a non-posted write, and always
+>>>    uses ACCDATA_EL1
+>>>
+>>> Which is similar to Intel.
 >>
->> Change driver to enable all clocks.
->>
->> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> I'm expecting this to change given comment on not being quite compatible so
-> I'll wait for v2 before reviewing.
+>> Ah, I missed that ST64BV is currently being trapped to EL1 while ST64B is
+>> not [1]. However, I am not sure if the trap is to disallow EL0 to use it.
+>> Can it be instead to pass the response value of the non-posted write to
+>> EL0 while using the EL0-given PASID as-is? If so, I believe EL0 still can
+>> specify arbitrary PASID as it wants via ST64BV.
+> 
+> I think if an OS implements things this way it is would security
+> broken as far as ENQCMD compatible HW goes.
 
-Yes, we need a v2, but just for adding the new compatible string. 
-Otherwise I think this patch is a neat solution, because we don't need 
-to further differentiate between the different SoC's number of required 
-clocks.
+Yes, I think it's rather the point that the EnALS/EnASR traps to EL1 
+allow EL1 to sanitise the data that ST64B/ST64BV are sending, and do 
+exactly things like substituting a valid PASID. ST64BV0 offers a way of 
+doing so _without_ needing the overhead of trapping, but conversely that 
+needs the EnAS0 opt-in all the way down to indicate both EL1's awareness 
+of programming ACCDATA_EL1 appropriately and EL2/3's awareness of 
+context-switching it.
 
-Cheers,
-Andre
+I've not looked closely at what exactly the arm64 arch code is doing 
+today and how well it actually fits the expected ENQCMD usage model, but 
+I can well believe it might need a bit of tweaking.
 
+Thanks,
+Robin.
+
+>> Since I guess ST64B* instructions are to serve generic purposes not only
+>> for communication with accelerators with SIOV but also with any memory
+>> location or device without SIOV, I am not sure if it is always okay to
+>> make those instructions work the way Jason mentioned.
 > 
-> Thanks,
+> The end point has to use the posted vs non-posted write distinction
+> for security.
 > 
-> Jonathan
-> 
->> ---
->>   drivers/iio/adc/sun20i-gpadc-iio.c | 8 ++++----
->>   1 file changed, 4 insertions(+), 4 deletions(-)
+>>> The device only processes the PASID from a non-posted write,
 >>
->> diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gpadc-iio.c
->> index 861c14da75ad..dd4c7e6e3d76 100644
->> --- a/drivers/iio/adc/sun20i-gpadc-iio.c
->> +++ b/drivers/iio/adc/sun20i-gpadc-iio.c
->> @@ -180,7 +180,7 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
->>   	struct iio_dev *indio_dev;
->>   	struct sun20i_gpadc_iio *info;
->>   	struct reset_control *rst;
->> -	struct clk *clk;
->> +	struct clk_bulk_data *clks;
->>   	int irq;
->>   	int ret;
->>   
->> @@ -205,9 +205,9 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
->>   	if (IS_ERR(info->regs))
->>   		return PTR_ERR(info->regs);
->>   
->> -	clk = devm_clk_get_enabled(dev, NULL);
->> -	if (IS_ERR(clk))
->> -		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock\n");
->> +	ret = devm_clk_bulk_get_all_enabled(dev, &clks);
->> +	if (ret < 0)
->> +		return dev_err_probe(dev, ret, "failed to enable clocks\n");
->>   
->>   	rst = devm_reset_control_get_exclusive(dev, NULL);
->>   	if (IS_ERR(rst))
->>
+>> Regarding ST64B, are the ARM devices behind ARM SMMU v3 supposed to work
+>> this way too? If not, EL0 can specify arbitrary PASID via ST64B with the
+>> kernel today [1].
 > 
+> If you want ENQCMD compatible semantics then yes you have to do all of
+> these things, it is part of the security design.
 > 
+> Jason
 
 
