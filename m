@@ -4,160 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5832CD4855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 08:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C1F4CD4855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 08:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fj3Vuo9GMfeHPQDMhxuRQydEpui0Y6zehvhn1dWs0OY=; b=QCOko56xu3yYeaMPAuV2GhQp9X
-	O1YJG5rLMUZMH+qNccdThk+5HjYd/VT7DXUHQjhFj+HdKUEcybZMGYJdvUSkeJ13UouA+3lHgy5XT
-	aE0Nfrh84vn0Oipx7MJbnSJBKvWwysftqWqAwxBuAQzn/31OT52+ihZIr9JimyqQIE0aXbdQhAm6T
-	tHqYUFh34V5Gt5HuWlgASthxfGDOtjT4ioHoyCoPnQ95KxM4RM/3Ep5QzY85UrK3aktEeTr3I7XSN
-	40BbOF8kn5Ag3R+EsoydlwnWqqVcbZ9Kz/5VBu6ovY0FOpcOY2s4S/SSq5QZId44yR5R10doxneBy
-	4JwCVAiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WkOaXzKPMuxC5YGc6fREz2IvVZ152n0pdW2k9zoo3oc=; b=UCPyE8sB0TjyA7z/MVVoegbp7T
+	lL9i7wkDBRkk3SG3izj4eZ3k5Pbgjclxygk2XviuvC1NH0iQ6J+ShrVri0auqySz3hYQl+e1f0B57
+	AGo6kOBnTSSBgz44JUYweK822avpY2wRmnqfzepXs/H5I5Tduf+3MIUXji8ljruGT/yYMyJ1U38po
+	r8jwxRierlxajJBZp8FIp+VjvPeucztsodgiXVm+YYGpotzD+BsPWdvpFPYGfs3p45ycF9ryYWlHE
+	btaakPnsN/NEQYTgGW9XRxOAOEgHtSWBc6s/83QjQF8zPDzhcYqwx25UH2bWQLyGxxgXNDwCVop9U
+	RmH5hGlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMitf-0000000G9zs-2JSh;
-	Tue, 12 May 2026 08:55:23 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wMiuX-0000000GAC4-3Qfv;
+	Tue, 12 May 2026 08:56:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMitb-0000000G9y6-40bj
+	id 1wMiuV-0000000GABJ-2rOK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 12 May 2026 08:56:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:To:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=WkOaXzKPMuxC5YGc6fREz2IvVZ152n0pdW2k9zoo3oc=; b=OJF/ilO3zEZe5P8n6Ome/RcZTx
+	wlHABT8K75934rgOHkU7hSbz2AJf92kS99LR+op/bV9CDX/pHJMUWP7Ugekp1mecR+zibcACmwi+7
+	7LEv+VMnBj/+W/JYAwSWdryR+e/Crlzairj3gsZpoq30zqlgX0Vc4VjoMzhNkueKKK4TmEqaonPbm
+	CMZGaTMbjrV2Mdxer9Gldhrf7SuCPfX8PCGLwTxSahO7GTvzOI2a3T30ean/9+Xo5WE/lNwNmc/UC
+	NdmzWZF7qC+ylXPBk3m3zp/4KxeMSj5i3V7e/ay4bYMr+3Ajbo8H6zIb1LxrXwViOz29XqQqQJ6QZ
+	rWuun/4g==;
+Received: from mail-10697.protonmail.ch ([79.135.106.97])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMiuI-0000000EAHk-0NME
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 08:55:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iEbzGBs1cnIxZsHzY/k9jXqwuUKHdpsSWhOu59ssQiYtWfQ/d6wJ1PtD0kykKwyAhQ+XZ9j25iG7U2nRU+tmkuo1mILxKA4bi/M5YRQyx6SBuvIRE+g/SRgf68NnS/tyj11/EaDYHLGqUxSnwMDUQ6pGPslr585G55lwFC6lEHoWikb4wZmeTMtsqjpmFe/PvMhq1h/ICkSZQAJXhYkAgMn17ZvebJUfthFVC9QRltTsheOu4VZGDWEv2uNdlwKny/eryXawrvZbzvSjmq0x3zzfcPKEQuB2IPeWNJ/CRbUTCWGNbgcSeTEYLGVnPrxYpTloThcFkLQSOMDiB+2VUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fj3Vuo9GMfeHPQDMhxuRQydEpui0Y6zehvhn1dWs0OY=;
- b=pQ+6OwhyTccd+TtiqzwRF7gjw3gvhjXfO9G/vhqmA8JdXHVcTuNND+C4vJALu0IAgde2LS1s+ov2saKVnT8TeBMNtOrMNGUU44IdD8mjF48V6PKAM6ctmErzlEYz2DhBnvvBF7jw9h5RQuNREpwnGwE2LLs2I5VMpkC//Rb4GOeZPmozwN27ry7IeankOlP2y5ZYlhJiyb46o+zLN9/3PiBKeYWmNnP9st6FSaVRmu1HWawTDhE/+5lTRO1Z4F5DlMFFP4tAFfjZ3rsMFgop2rK+xmCykh0RiVzFxhMBP/PhYm7nikcWpJjYazkfbvtxE+DYWlus9Jr+b1AONbuJeQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fj3Vuo9GMfeHPQDMhxuRQydEpui0Y6zehvhn1dWs0OY=;
- b=eRBaFOP4wTpPKYs2885V4zet9hOnlvzN1xuihuyNHToF9RsuOfax2BSImRYn2LPgqryUIfoMomzICtDV+7KCIbONGf302KfDeMeufyqh0SF2B9GP4vRah170AnYg+zat1TQ4c/yoWf6VyvrXOfyhHTuo1XKU+AcJPNAcAtCwB4JxI5xWyG2EPM0iz7IMk91aO6sgvws90kZdDsaYs2T8RFLdv0GjL8ITavUDKJQyXa2X+x5Afx3vSy+Hx34CTWdxGUMxYKVlKWF7OD9yvu5+oY1VUwLDoiLzkqRGxdjle3zrwzZNiguUx2IQyxVoqkwGtXicTGoz4CpgKrSglrMktg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS2PR12MB9750.namprd12.prod.outlook.com (2603:10b6:8:2b0::12)
- by PH7PR12MB8595.namprd12.prod.outlook.com (2603:10b6:510:1b5::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
- 2026 08:55:11 +0000
-Received: from DS2PR12MB9750.namprd12.prod.outlook.com
- ([fe80::56a8:d6bf:e24c:b391]) by DS2PR12MB9750.namprd12.prod.outlook.com
- ([fe80::56a8:d6bf:e24c:b391%6]) with mapi id 15.20.9913.009; Tue, 12 May 2026
- 08:55:10 +0000
-Message-ID: <40c3aab2-b5cf-4297-9b14-3ccfea377c83@nvidia.com>
-Date: Tue, 12 May 2026 09:55:03 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/4] kernel: param: initialize module_kset before
- do_initcalls()
-To: Shashank Balaji <shashank.mahadasyam@sony.com>,
- Thierry Reding <thierry.reding@kernel.org>, Sumit Gupta <sumitg@nvidia.com>
-Cc: Gary Guo <gary@garyguo.net>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
- =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
- Richard Cochran <richardcochran@gmail.com>, Jonathan Corbet
- <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>,
- Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
- Aaron Tomlin <atomlin@atomlin.com>, Mike Leach <mike.leach@arm.com>,
- Leo Yan <leo.yan@arm.com>, Rahul Bukte <rahul.bukte@sony.com>,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, driver-core@lists.linux.dev,
- rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
- Daniel Palmer <daniel.palmer@sony.com>, Tim Bird <tim.bird@sony.com>,
- linux-modules@vger.kernel.org, linux-tegra@vger.kernel.org
-References: <20260427-acpi_mod_name-v4-0-22b42240c9bf@sony.com>
- <20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com>
- <DI3Z28IZZOT9.349TTWNN9VDMB@garyguo.net> <afABOMT_s9DvF6NY@JPC00244420>
- <DI4QQA6EGIA1.N8WRFWVKG91S@garyguo.net> <afCxHUrjr3Z22U6V@JPC00244420>
- <agKMcA7a_UqMua5V@JPC00244420>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <agKMcA7a_UqMua5V@JPC00244420>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P265CA0143.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:2c4::19) To DS2PR12MB9750.namprd12.prod.outlook.com
- (2603:10b6:8:2b0::12)
+	Tue, 12 May 2026 08:56:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1778576151; x=1778835351;
+	bh=WkOaXzKPMuxC5YGc6fREz2IvVZ152n0pdW2k9zoo3oc=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=u3/+/i0kg2rBQhVXxJemYSUcFAGCTQQ5eoCfvqgeXVzweKsu9dyDZqh1kHcAT5SEY
+	 mQ+DTe+TrXX/uL/DZc3SyZ38hw2gO7HNpiFSj7TD7Ehq+pYyzxurFV0HjjLtu1eNTl
+	 zrEeGMKk5pPvFwKkLtIVxUzMgdCgcNofjtO6D1gElCGO1lVHG7UNzUyJ+hAhDhYHfR
+	 UpfJlX6JvTnkRYftUjyZpxc/eaBPdcFV9B6BmBDUbi0E7mx0pXKK+uZuOCkVYSWg6P
+	 eS5OQmKBJPZMQrY0w+r996i5NkPtz0X/7ppBiM8aATXs99rfikyPazuN2FL/Jb3G/h
+	 Eqn06hkG1gDlg==
+Date: Tue, 12 May 2026 08:55:44 +0000
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH v2 07/16] thermal: mediatek: add PMIC thermal support
+Message-ID: <j2uhavC9edilBoD6VJnlz8cCmMPhE9rQavh1epqLk61zrlZ3k1rqlyj8fVYWnkddIY1fEfPk1DfcW09i39hd-Q7I9Y8Vxd0w8C2eCjVGLc4=@protonmail.com>
+In-Reply-To: <CAHp75VfgrbEDLavMKFp2maFCH08RBUxF2wYhh56GG1HCq4ogmA@mail.gmail.com>
+References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com> <20260512-mt6323-v2-7-3efcba579e88@protonmail.com> <CAHp75VfgrbEDLavMKFp2maFCH08RBUxF2wYhh56GG1HCq4ogmA@mail.gmail.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: 981c736e97e4dbd1e20caa42f42d8805c8c23015
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PR12MB9750:EE_|PH7PR12MB8595:EE_
-X-MS-Office365-Filtering-Correlation-Id: ac3f25da-ae05-42fa-bb1c-08deb0042c93
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|22082099003|18002099003|11063799003|56012099003;
-X-Microsoft-Antispam-Message-Info: AfCcAJEsxlYiZZkf333KJueJnPzpOcWMCvdtTNl/ZiJG7SHvBEvx5ezJHXvtxwyE6J4U89dPqfzLqUBkyAxBN1HjOm75my6XqOOdyPCAG7hc3ytdz4GUrzx+mWoj7+3nqLcAilIrFXueqBFkiZCo1LG4B4/lhLJPzAFVMwTeWaF6/mB6JzKurGMah0tXCh48KvBa8ZTobOTUVEb0CJC553HHVAr7dvleDkTOtoioLNH+VJqWv3U643DHKgWk4nwIPW1znu++NE0GS7oaLKTpXpjYY8ufYf4oljvyv1A3MUg17KTEbEjJLGX5DJkV+WJa/gNwnBt9M7Nlia25RX29ZGpudTgFje7CvMQ1u0Gby8nZ/ZtP/imYrEQ7Sbv6IEDgRE9sM4c+qyVT0o3ARE2hC9wl4aCtvH31n8ASG2RPoVsto6BLD4mgIsXnUOOOHgZC2JkMR4YjA5/OaRQQvqS+i9VzpaSV7ieoXafuWbDHjWf3K6itrZ9HQ8HymsbFq7nxISE+3fc+E7yIsa396hZKXGu+EOaDDjunEsKX5rd4w1AVmkrplza/nZUDcOeGreGSs+vlIl5pUKd6IPxeJt5leGmP8Vgij6qNTBClNvVN6j/6DsNfsDpFjFfd9+GmL4618nXUcTorLREuVdLtg0DfbP4UuzrVnp0JXoIQ9sF8X/0GtwWlWspFQhlXZCbvDuRdJxdLxwYl9iht0HJ33oknGA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS2PR12MB9750.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(22082099003)(18002099003)(11063799003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aGhORWVPSEp0KzVrbmc1ZzJLNlNlTDB5S1ZIbzVPY2MweUpOQkt4cmxwZDg4?=
- =?utf-8?B?eDc0ZmsxV282cG9EQVRkUGJJOVFiN3RscGRkUUlPRlRMN0t1QWdyV3NjUjd4?=
- =?utf-8?B?UU9qSkVqMzlXdXhpQS93RWhwS09lY0FwSGpzVWdwZjd2ZlhYczRmWmRZd2kw?=
- =?utf-8?B?b3FrazNhMytGczEwdVhuSXllSXZDMExDUVE2WHVzRVFxekU4VjRINGg2VmpX?=
- =?utf-8?B?dzFoK0Y5ejRDTGNUNWI2NnA4eXo5cG1ZWWE0MjZNNTNFcHBJZjBEZ2hQcGtJ?=
- =?utf-8?B?QVk2WGFkVjNWemxwejhMakZNR0lyaWExZWlYQWY4K28xa09uYlpIaElOZVZI?=
- =?utf-8?B?MzRNRGJLbWxTYkd6SGRDdVlmR1pUTzBCcHlYeGIzclBORnhndXcxUnRSQXV3?=
- =?utf-8?B?S2RjU2JIWTZtUjIxblBZMmVaSVlmY1JISld1NEdlZjYwU2xyRWFrcThvMWF0?=
- =?utf-8?B?U0FKYWxnc2lsT1pYdWY0S2Rsa2h5MnltNzRwYVExa3lrakkvaWdHTDhiZVFq?=
- =?utf-8?B?aHlBTXptZS9DTk94d3Rqb3Jpa0t0a0U4REN2YUNlcTlEM3NRTzdXd25uN0c3?=
- =?utf-8?B?MjhvTktvUnpNbk5Qa2FYWU9TeGlOVUowVjAwY2lrTU1Najg0S0xTaWVMZHkr?=
- =?utf-8?B?UnM0RW11aGxwVDNlbFlNbnNGNlhhSWxwU2F6L3pBb3NYaUxMRmxFZW9xUSsr?=
- =?utf-8?B?Ri9ERCtsMDVwUVpPbE1ZVWU3bnU3V01rSU5TRnhVUUQ3MFdmdVQyWmwxVHdB?=
- =?utf-8?B?Sk44RWplUjNrZFIyZm5sVlBIdjdVdDJrajNqWmNYUGptOWhHc2tRU1NZUzZ1?=
- =?utf-8?B?akE5cG9BYlo5dXBnd3k2YU1QVW1DQ2VzMjdjVEVKZzJIMlV4dVIwOUcyV1Nz?=
- =?utf-8?B?aGhPVjdrUWVJV3c0ZW82TC9qdFpRRTd3WFNKSmUxeHlKZ2VuejZMT0g3ZzFq?=
- =?utf-8?B?SHVsQXdwKzRrL1pORXVNZnhzUlhOQlpUUFBOWGkwbTNsZ00rQ1UwcUhzZHFF?=
- =?utf-8?B?MHVQamNTZE1UbDNqeFB2dm03TjBtaFFBQ3pCY1hIbHNHTWtURHVTSFdwVzNO?=
- =?utf-8?B?VFQ0V1M0aGMwWThlcGx4OThDSFJ4N01YaWxHUkVaODArMHhtYW4rcnhlNUts?=
- =?utf-8?B?SXB1NFQycFNvRVFQaVB5YTY5bm9tRHJLWjc1TWJXcWdaYkx4TWpUbVRqMGRC?=
- =?utf-8?B?WVhDUlJKWEI5bGY0SHFQUis5V1gwTVlOMWpBYXhsdHFnZWhCL0tCNk9OaFZW?=
- =?utf-8?B?aVVGQWxSeTRnbDN3QVYrMitvdU4yVUJlcEpPcFBWQVp5Y2Fwa2pyeHhzSm1S?=
- =?utf-8?B?NFZSZStaRHYvbjViMFJnRzFSRTVwWkxsS05RR3lXeUJTYSszR2RuUG5UNEdC?=
- =?utf-8?B?czZxQmthRFJjeDV2UWJIc0hrYUZCUEtpb1BFUEsyZ2cxMUw2bzY0UWNIb1FC?=
- =?utf-8?B?Ky9wcVYxa2hyR09JUC91bVIwMmFHUlI0T0lud2tuR3UwLzFIWDg0ck0wRDE5?=
- =?utf-8?B?d254QWtWbWlTdFpTVHNQYUc4QXgxR0ljWFlzaUw2R1VZMGtuV0JYMGpxTlUy?=
- =?utf-8?B?NDROTkVLMHozKy9lZ0FmTGtYOE9PRVQ4eE9rSUVlODE3enoxQ2MrazNLRHVU?=
- =?utf-8?B?dlpRb1J3Q0NRdWZ6S2ppYmRnQUwwR1hTQUpNdENwMUxKdkNDM2hqNnZpbXdt?=
- =?utf-8?B?Nno3OVpNZWczcXJOditkYTlaL0RvSUR2SGhEWnNPUm15SHpNN1VlSmVaSFhT?=
- =?utf-8?B?WTlXV2VVQkVOV0pmRUtodFFhYmVGUEtkZTkxdjkwR01SNVh1WmJoaHc2bDdn?=
- =?utf-8?B?RFpUMytwMmVTMUhzNUR3Q3VabGdhZ3gyVGI3RXJVVm1NdnA4SStHSTJuR2Ri?=
- =?utf-8?B?Q2hzOXhDajNYcXpDbDNuT0pubXVFbGxqN2N5NG0xN0tESDFaMDhhNHp2ZTFx?=
- =?utf-8?B?Y0VjdVlOM3gvRXFZOFk5VGY3RUw1VTQ0elUwSExhZ2Q4czZSWmJ2b01BUUY5?=
- =?utf-8?B?eUV1Tkxkb01rRmk4VDIybW5SSnBKVnNBenNVQ1lySFFNdUJlVUZLbC9LMWxL?=
- =?utf-8?B?TXJYY2YvNUdSRUFFMWhJQVFKT1BTRWRDNUM0ZG1sRUNUemx2cTlyb3hmb2d2?=
- =?utf-8?B?UzdJQU03dXRIMEYrYTJ3TUdkS0tBWC9LSW5yVXJRUTRveU05cXI3Y1lWVFRr?=
- =?utf-8?B?SFcrbk03b0l6UVJ6Qm5IcGtaSGE1VmZvY2w4RUZhNmIreEM0QnVtMG85VEt3?=
- =?utf-8?B?cVdyNVVSVHRsdnplQ1JOcDVkQXhXRkgrQ0NzQ20yMEo2RGtxQUhqMG9yQWhz?=
- =?utf-8?B?RFVDZ0w1TzZiWDVtaUI3NXRFZDdRNzIwbXR2S0dVdXdNTXRLblE3UT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ac3f25da-ae05-42fa-bb1c-08deb0042c93
-X-MS-Exchange-CrossTenant-AuthSource: DS2PR12MB9750.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 08:55:10.8172
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JSYoLgtK5Nfy2BY+do1cxPfFg64oyWDLByGsit3sqo05ajl2HI7z0NOi+t5vqEZoJsbJZVOfpl85m9hqcIZRVg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8595
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_015520_003661_F571F998 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20260512_095602_800551_A7CCCEFD 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,71 +84,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shashank,
+On Tuesday, May 12th, 2026 at 10:05 AM, Andy Shevchenko <andy.shevchenko@gm=
+ail.com> wrote:
 
-On 12/05/2026 03:12, Shashank Balaji wrote:
+> On Tue, May 12, 2026 at 8:21=E2=80=AFAM Roman Vivchar via B4 Relay
+> <devnull+rva333.protonmail.com@kernel.org> wrote:
 
 ...
 
->> Hi Thierry and Jonathan,
->>
->> You can find the context for this email in this patch:
->> https://lore.kernel.org/all/20260427-acpi_mod_name-v4-1-22b42240c9bf@sony.com/
->>
->> TL;DR: tegra194_cbb_driver and tegra234_cbb_driver are the only drivers
->> registering themselves as early as in a pure_initcall. This is a problem
->> on two fronts:
->> 1. Philosophical: As Gary pointed out, pure_initcalls are intended to purely
->> initialize variables that couldn't be statically initialized. But these
->> are doing driver registrations.
->> 2. module_kset not initialized at pure_initcall stage: This is needed to
->> set the module sysfs symlink. Since module_kset is not alive yet during
->> pure_initcalls, registering these drivers panics the kernel.
+> > +#include <linux/kernel.h>
+>
+> No way the driver(s) nowadays use this header. Please, drop it and add
+> the ones that are really in use (there are missing ones).
 
-Where exactly is this panic seen? Ie. why are we not seeing this?
+Is there a tool or script that can check for IWYU? For example,
+the u32 and s32 types are defined in the asm-generic/int-ll64.h, which
+is not used by any device driver. Instead, types.h should be used.
+It's difficult to guess which header to use for a given type/function.
 
->> We would like to do the tegra cbb driver registration in a core_initcall
->> (or some later initcall works too), and move module_kset initialization
->> to a pure_initcall. Like this:
->>
->> diff --git a/drivers/soc/tegra/cbb/tegra194-cbb.c b/drivers/soc/tegra/cbb/tegra194-cbb.c
->> index ab75d50cc85c..2f69e104c838 100644
->> --- a/drivers/soc/tegra/cbb/tegra194-cbb.c
->> +++ b/drivers/soc/tegra/cbb/tegra194-cbb.c
->> @@ -2342,7 +2342,7 @@ static int __init tegra194_cbb_init(void)
->>   {
->>          return platform_driver_register(&tegra194_cbb_driver);
->>   }
->> -pure_initcall(tegra194_cbb_init);
->> +core_initcall(tegra194_cbb_init);
->>
->>   static void __exit tegra194_cbb_exit(void)
->>   {
->> diff --git a/drivers/soc/tegra/cbb/tegra234-cbb.c b/drivers/soc/tegra/cbb/tegra234-cbb.c
->> index fb26f085f691..785072fa4e85 100644
->> --- a/drivers/soc/tegra/cbb/tegra234-cbb.c
->> +++ b/drivers/soc/tegra/cbb/tegra234-cbb.c
->> @@ -1774,7 +1774,7 @@ static int __init tegra234_cbb_init(void)
->>   {
->>          return platform_driver_register(&tegra234_cbb_driver);
->>   }
->> -pure_initcall(tegra234_cbb_init);
->> +core_initcall(tegra234_cbb_init);
->>
->>   static void __exit tegra234_cbb_exit(void)
->>   {
->>
->> Would this work?
+I've tried include-what-you-use [1], but it gives bad results like
+"add #include <asm-generic/int-ll64.h> // for u32".
 
+> > +#include <linux/module.h>
+> > +#include <linux/nvmem-consumer.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/property.h>
+> > +#include <linux/regmap.h>
+>
+> > +#include <linux/slab.h>
+>
+> Is it used?
 
-I am adding Sumit who has been doing a lot of the Tegra CBB driver work.
+Yes, without slab.h the __free would complain about missing __free_kfree,
+which is DEFINE_FREE(kfree, void *, if (!IS_ERR_OR_NULL(_T)) kfree(_T)).
 
-Sumit, any concerns here? We could run this change through our internal 
-testing to confirm.
+...
 
-Jon
+> > +#define MT6323_ADC_VOLTAGE_RANGE       1800
+> > +#define MT6323_ADC_RESOLUTION          32768
+>
+> These two ring a bell with the first code patch. Are they the same?
+> Can they be deduplicated?
 
--- 
-nvpublic
+They can, but I doubt it's worth creating a header just for 2 constants.
+It would look too small compared to the other headers in the include/linux/=
+iio/adc.
 
+1: https://github.com/include-what-you-use/include-what-you-use
+
+Best regards,
+Roman
 
