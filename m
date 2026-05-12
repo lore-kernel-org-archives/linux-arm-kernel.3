@@ -4,89 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B30CD4855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:07:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC3DCD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6U9R02UyT6PCn4mJzYYl/CPWidpbIlIhzjolxdPX7hg=; b=Uf3/W65X+ru/c0pvcHRUp9z9oP
-	iBOH1dheHrx46pNoddqzFn4Bf5q2uC8912Uq3W+luS3uZlPd34UsJOpyRa0z/E2GLh5enc1N3hicw
-	ItZQHvqyD62kiYrFz/Z3w0zw+PcYXIM+M/tvzZuFmsbHLQplGHG9ZBcWkprb8vSpEiU2a/l+WV3Bb
-	mN7MH1nC60qvIPkj2lNxcW9Pdhf3kgJ6mOf/zAZkBC4KeLFdXngRWNUXOJ5udxqCq7KYqmmqFlvCO
-	m3y11k8CcmcC3plMlxUXO75Bx2HV8JdHrUyCljZVAF8/xYsJN8J0mS/rpFNV0SKhsbANtsoE2jx+N
-	NHuGB3aQ==;
+	bh=2FuciPnJNj5AwtRdMcxDTBtjQGaobaVWkr7dCuNdv28=; b=NlOyMiHtkwQTRleoJPavKwts8H
+	Js6UMyCOJBRf/YdSDbqZpCVOf0mPdBZZ5eKKITwDAQBvPgy0lQSvGDRcvOlXbVDbtfinGCwgGrmRE
+	WJmq/qqejgSKnJIG9dLDopI9Zm9UeNmmht10OVYXCJW1QVDtTBbZUCp3+hLZerSldB64WKRMtjjKF
+	p9amxx7iRKWuR7mq3sfN1DV1YNDmPHMKA1twNWcyJ3reuNN1kZ3Vxk8s3Ac+Ck2sQqESOCa4ZPOQe
+	zY9TkXxKGNQDHwH+oX5lWEo8yNs8mmKc99oZLwHx6eA4NTzh2fGM8mzx3/WPwnVB5lRo1KOCsjmLw
+	putBZ9mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhCd-0000000Frqb-2eOH;
-	Tue, 12 May 2026 07:06:51 +0000
-Received: from mail-vs1-f47.google.com ([209.85.217.47])
+	id 1wMhDD-0000000Frx4-399G;
+	Tue, 12 May 2026 07:07:27 +0000
+Received: from mail-vk1-f172.google.com ([209.85.221.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMhCa-0000000Frpz-2qsE
+	id 1wMhDC-0000000FrwH-01io
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 07:06:50 +0000
-Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-5ff05af29b4so2017351137.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 00:06:48 -0700 (PDT)
+	Tue, 12 May 2026 07:07:27 +0000
+Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-56f6afbd205so2844895e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 00:07:25 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778569607; x=1779174407;
+        d=1e100.net; s=20251104; t=1778569644; x=1779174444;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6U9R02UyT6PCn4mJzYYl/CPWidpbIlIhzjolxdPX7hg=;
-        b=W4mMYcXEspdpHFS4DngyssbQ1GMPQcx+f7CTkvmmbNjDt94wp5AFBA5+rOja6Q5CLG
-         u2tHHGHCGjHKrWDciNY34hutoZuEOqjU8V/FYCp3KXTQcR4pUH/+zgDETR6hN6asPdK1
-         t8TA/Dtjz+Gd/qrHWaGSPC2bpOvESO9gaogNo2aV1BKjNLM7fZ8fvRCH0QWjcGYEQ5Zh
-         QfDaBq7/DGHwDXqRmjMR13svzSWy7R4LWPPOPiXIbaFamY7rZTi+h3Er1gDT0SC3HqgT
-         WeiNuilOel6gRmVxViaH7hn94qdEDYabzJ7VPs/jml5zSuW89NDA96JSXP2d68VNMsmd
-         VvKQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8fp7dsvArdKQtythpqaqdGLT+JhHk3iHrFy81rYngXdA/mmpHUa3SZ1Kv/yYnKCjRgFXDjgM/6i3RQ9j/6w/2x@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJXzNBRdvr4CFKG9R1bTF0/VsCiTfsKxt6u3ZzvkwYSgT9OsDC
-	ja5r9E4czIBKs7wKNggyAkmdWlUbGCk1w1/JBnCD8dISgmAcU020qR1lsJYGaFMJ
-X-Gm-Gg: Acq92OH5cIQ0FJpw0h/EVBya2TgHovsr6JYDsGe6oJhxD9NpVWfjYnt+4H5o5qGMBWT
-	5mOwr1KsFEhTZWKhVCnMJXvglI9UgEcJmPUdf+sPpknCP6xUsNyl11QcIMDfjyxmtIJX2/1F2mP
-	N0DuBycuAVOnH6wOzza7982lUdxSrTAmcZTjiwp8+FOq/o2R8ruuhcULS0ljSmBN/WxTYguw6KL
-	aa+eStAd0JIDkQLYvjdLy5Tw/nA+myAvhbMUhVlmf6QJ/u9bIYM4bMBJsv3yQ16rmwdVdnVl8Ju
-	Uh+sE3hty1b0ClKLytgwHmXMZZx1Lj+EInifvxwGsoHqjnxiUjp1BMv4TEu8Q2HpwCa1d8r3kd7
-	TkyDaBCFi1m5dhxViY1iaJLv6uIPnznfkJCpYZlAxqi407gBaGiulpFeRyQK79X90ffVwVrGUMk
-	KiOkYgNrSOP49di5g0JCDhGotjpQPva0CeX3qORo3aXsH/y/qCQqZOHP4oA/ltJLQl
-X-Received: by 2002:a05:6102:5694:b0:632:6cec:435f with SMTP id ada2fe7eead31-63610fcbdcamr651455137.0.1778569607059;
-        Tue, 12 May 2026 00:06:47 -0700 (PDT)
-Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com. [209.85.221.176])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-95f219f6fc3sm7250929241.4.2026.05.12.00.06.45
+        bh=2FuciPnJNj5AwtRdMcxDTBtjQGaobaVWkr7dCuNdv28=;
+        b=a4yYxdr1m6Y3o8Tc2l+KmxCwLp0eaFGocjsoW6r84IllcZ8QC1CGibKjXAVzgkmhMf
+         qIYxZup/tBwn7MEgLdFmEXzw+q+m1TV/lN8By9VYE518FURmNu2Iy1f5y9OhTiwLPTny
+         4cwkDCeMkuz2z/BIkigdj8OWujvQNsPgac0YhOddktrghQxq6CXW5dHfwxb6E+AQt61T
+         /1oNCWdsBrtLLDiXXwO462Xvja1Gggai/FIVNcTUPFvT0X8RC1RUPWvJIozr0+KmA+RQ
+         KU05u8B3+bcU8OQrS5OGzl0vxVBw55FsFzKECNGqwSXwuxh5HnFYU2UT5IaPxwVnReku
+         6FKQ==
+X-Forwarded-Encrypted: i=1; AFNElJ87Cm9PJPxthgSpEiqgXYxTbMLzERr0PJc+zaGl/uU6hQEmihRqufGA7cmZ9fTD2i/jpVN+PPbPkW1W/wckqC0Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfKeXrcmmwOMkNJXleKJwiyWaH530cMXyaZo9UkMxTkYYPPZWf
+	2wGMGIJqjM9o49mNF0nlOPFiaOqHgp7fLjpcfQLhrT9f9PuATLkY4wZ1FgvR8MDt
+X-Gm-Gg: Acq92OGrNTPnHs8yU6bbvgFuSrvw5bUalOcOuzY6X1mbwtoqrgLKmX42MDvod/Xoo13
+	sOp99PfBU8rrUsMcRi0uK1XKEfCHQoO9zuCYLn9rMYegJ/WDe3tAIUsrfH9kxABOXSC7XT4BNh1
+	Ml1uALeNysbu30rf6xXASYigSgjgsSOnpDGCWCR+qF6reWENXMxYfUEI3WIV7kOvgeMVAVaYDt8
+	Xd4hHc8YC8JQxHeGR1GEOiqvnFDZvZ9d/iXoi0YUeXrXB/5Culuh9HgPsomhGlY5O02ORlmwqRi
+	NzyPB5PQBkRIf5wUhRw9DONLJCeqEIM9k2VQlZn/3lvdJxjoWLMxwGGJaxCpzGsCBgVddCbw9Hz
+	Zlra3seOqZEgnJt/n5QGQLqiWXolCsRBDnGNMENahOi+V6EGEyj46n/lZjcjeTpVUEcWz8h1lkS
+	Y4CyCYBQrs1rw3X3pyJj/FK2P/zIPXgS+ixjl7ZiqkFMhhDmOZ/5QsXOd9C+CZ
+X-Received: by 2002:a05:6122:d15:b0:575:2ec0:2000 with SMTP id 71dfb90a1353d-575cfe9bfa3mr1010124e0c.9.1778569644342;
+        Tue, 12 May 2026 00:07:24 -0700 (PDT)
+Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com. [209.85.222.46])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-575dcef092dsm72708e0c.13.2026.05.12.00.07.22
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 May 2026 00:06:45 -0700 (PDT)
-Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-5751e12c524so1793317e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 00:06:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8Ag5UkpqW9HQSfFb3hb9tcmULyQRNYjCtuXMaguempYDhGogxMH7B8TPVxooTlkf3YsETLMosdDAhxuzwsXXTf@lists.infradead.org
-X-Received: by 2002:a67:e7c5:0:b0:631:26f6:701c with SMTP id
- ada2fe7eead31-636187cd6ffmr637420137.31.1778569604976; Tue, 12 May 2026
- 00:06:44 -0700 (PDT)
+        Tue, 12 May 2026 00:07:23 -0700 (PDT)
+Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-95ce0cf2d4bso3014647241.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 00:07:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9M0z3gFIZN24pImE3TMcgs/cF2otojdwzWXNQ3aarpA+hm9rUgjPa8ZKHKa9VaupHGQ/xsNuT/qrWauSUaNlCK@lists.infradead.org
+X-Received: by 2002:a05:6102:41a7:b0:631:5717:5248 with SMTP id
+ ada2fe7eead31-635d27ded2cmr1082007137.21.1778569642797; Tue, 12 May 2026
+ 00:07:22 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260511211841.284809-1-ben.levinsky@amd.com> <20260511211841.284809-3-ben.levinsky@amd.com>
-In-Reply-To: <20260511211841.284809-3-ben.levinsky@amd.com>
+References: <20260511211841.284809-1-ben.levinsky@amd.com> <20260511211841.284809-5-ben.levinsky@amd.com>
+In-Reply-To: <20260511211841.284809-5-ben.levinsky@amd.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 12 May 2026 09:06:33 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXn8G-nJ-=_eVRnZO_1nzWuP-AjTVL5SWH-D1w2F2QVfA@mail.gmail.com>
-X-Gm-Features: AVHnY4Jzn5XG3w_TFgzZrTYfNPhFMcAA9wRYKEMGtDIRqvMdxDHMc6dhfvtpVZA
-Message-ID: <CAMuHMdXn8G-nJ-=_eVRnZO_1nzWuP-AjTVL5SWH-D1w2F2QVfA@mail.gmail.com>
-Subject: Re: [PATCH 2/4] remoteproc: switch exact-match drivers to wc-ioremap callbacks
+Date: Tue, 12 May 2026 09:07:10 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdV5UjAB35nPA9ghNm3J9oFavuEv3NHxkxxW3nOU5ZsMwQ@mail.gmail.com>
+X-Gm-Features: AVHnY4IHIx-N6TjHjhDj_v4IyNJlawKxUXPhLNy1xplrNwtoo77SAjjbsdZbWCo
+Message-ID: <CAMuHMdV5UjAB35nPA9ghNm3J9oFavuEv3NHxkxxW3nOU5ZsMwQ@mail.gmail.com>
+Subject: Re: [PATCH 4/4] remoteproc: switch drivers to optional resource-table helper
 To: Ben Levinsky <ben.levinsky@amd.com>
 Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
 	linux-remoteproc@vger.kernel.org, Frank Li <Frank.Li@nxp.com>, 
 	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, tanmay.shah@amd.com
+	Fabio Estevam <festevam@gmail.com>, Magnus Damm <magnus.damm@gmail.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	tanmay.shah@amd.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_000648_870101_89D4B65F 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20260512_000726_051919_2F4326E2 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,25 +101,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
-
 On Mon, 11 May 2026 at 23:18, Ben Levinsky <ben.levinsky@amd.com> wrote:
-> Replace the exact-match carveout map and unmap callbacks in the
-> existing remoteproc drivers with the common wc-ioremap helpers. Leave
-> the zynqmp R5 TCM callbacks alone because they also clear the mapped
-> memory and are not exact matches.
+> Use the shared optional resource-table helper in the remoteproc
+> drivers that currently ignore a missing table. This keeps the missing
+> resource-table case non-fatal while letting other parsing failures
+> propagate to the caller.
 >
 > Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
 
-Thanks for your patch!
+>  drivers/remoteproc/rcar_rproc.c         | 13 +----------
 
->  drivers/remoteproc/rcar_rproc.c         | 33 ++---------------
-
-This change also makes sure mem->is_iomem is true, which looks like
-a valid bug fix. Do you know what was the impact of not setting
-this before?
-
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be> # renesas
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be> # rcar
 
 Gr{oetje,eeting}s,
 
