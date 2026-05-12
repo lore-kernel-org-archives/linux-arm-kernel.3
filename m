@@ -4,110 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A10D8CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 11:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B32CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 11:00:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LhDgvl7uPRs3CMEExuv1J69kWjAxPIo3iySve0DDFCQ=; b=HT6obWujzJnNyNFC+2LycraKta
-	ItanR9N+qQYKqtC4sfHKUJIYXcj+8xMs5V5v87O9HM2RCueu2f56lYIx3Xc4i4eTWyJR+NyZZL4z6
-	XiccX8U+OYOINeHP1yjv8mHDXx+0Ha8Dq7/sF9N6Qm3SN4W9ypr31u0sYUg7/BInMhs3nSwPUx44F
-	mWqwu+GtoGu19GygylQvUUGZsymijuIz1bxqY/xDrOztUX1r5ME4BGHWNsg9sn9faveJ88jPk1qHV
-	mPEQCT7/DPStRWuznMr2ge9aENXknDeJ9H9HoaNLh8k+JMSlCGATykmV1y0Y/QneFlVZNPOkdVGro
-	9oU3AxUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=luMdKvIMMuMMIqOb9WfA055mU4AAtA659xE8LllknIg=; b=uayyaSfQygyYUhpkvNualU2i8C
+	4ggcKKKeVIcHCgldYElyz/p8WhPrNc5n2MBgcT40LQG/1l9EicgM/H4wabLEBAoBXs4I1loyXJgQB
+	r72NsUVeMtEA22Ld9Rz7Q1CZA0I5DBYo/HyU/uOw9pxKoLBNPL8kz1Vo/xHFFw8BqK8TA5wsuAFVu
+	ssgBAOzQ05zitUvtpgo0Kryt8pfr4YFj69qCvhDFlWYiSqs1AgQ4EzGtWBKynVWx5GcuuwW8LyuCZ
+	mVpplNd5m9WntpqjJxQ8EeCssNtkmIgq79n+x2ddTnbxIc2FM/Ln4uIbGgKkcqp8K8CHgIXIZTeuC
+	/LF/06EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMkqb-0000000GVXQ-3bmn;
-	Tue, 12 May 2026 11:00:21 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1wMkr4-0000000GVeH-46SA;
+	Tue, 12 May 2026 11:00:50 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMkqY-0000000GVVw-1pQW
+	id 1wMkr1-0000000GVdT-2Mg3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 11:00:21 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-67f94c078e8so3584524a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 04:00:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778583615; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Ro6+1a9fJQiUw5T4MeLgfCGfu8DGUZj4EeyxvoVQwUt29ZtZ7XjVFVw/cRzMfINDz2
-         bEkM4GN9jU3P0pGDGx+Zp2HmjIXgvXh1DuLorZM4QDpKH6b9TpD9E5EkgZgFK1tHjHWt
-         ZWUJ3YV5aKlnMXhsk+FWy7sGQIPk/avHqVJToHGkseOmob0XMIV9JzNd9eQDkOO+ZOMT
-         sx9rbsj0rgvhDSiuEB34T0fPsDNV34slV52mjSMe0+0lHGmP/LIsDeLb3nPffCCWGTjw
-         g54AZk6jttPFXKjvBG+CjFvV71VgEuvwbfWQjaOixYpBE5o36NQtmMpadLXAH4Dhq1rX
-         DPyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=LhDgvl7uPRs3CMEExuv1J69kWjAxPIo3iySve0DDFCQ=;
-        fh=ctlHtU4EJb3Xq3wfSg4J9qaH7+nX/VvXEIsgFXcW9RE=;
-        b=SCfHpDan36FOgYWHoG+lEJmXMQO7Cei79mDNTYslzl2Z3X/N9Pwnw2WMNpe2vdS9nx
-         YFjLYx6S2t03JqWx8D2wMMee5wn5PaNqo5dMB6ABREWrslzmQdoRBvCtgYTKiRhlEts+
-         TU/hrJ8CTFa90ToCvLtycWzfcZixzYL4ErukC3fRKL74YcySGzPiPtHh3gFxEeeVHKUj
-         n+K8xd06zYC0MS7l74yjBfBwR1DLZtV5fiyn0AlU/vlaOVzzIGVqAmff8mRelXYGdmMY
-         8rp6vzRz9w6/Lc2ypPa2uHA7UO8qAJ/faKBhlDgnw5fpHVkWNIg8k3mu/o4vQTvF/Bve
-         sPfw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=usp.br; s=usp-google; t=1778583615; x=1779188415; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LhDgvl7uPRs3CMEExuv1J69kWjAxPIo3iySve0DDFCQ=;
-        b=KrQduURhailJ4Qrgf0eNaaqtr6KBycyH87kmCDKJn2Sm5WxC2+IVjTYeHEFFVqlUEv
-         DteDXIYUI9/dEwGqLq4HIb3i3o7MXvmWW4sfqx58CBvDPx7+fttce//wi9ygb4NyEikn
-         JdXoMHKO9dy7m/SIpHSfvdOaeKZrKl64vr4msOEqNpaZJ8UwxFYZkYB42tR4VU00Xcmo
-         nJQH89Vv3pS2qgnsWTlLIIklkOrvMARbW3E7PGY7bxU9ISgKN6SK8j6AzOIaFY8ZRzti
-         obKk6FpBCTWaIFBqP6BBktygquZiThcUF6KkApM8QVbTA3aIiDISj+m7LvrL7epB/5H+
-         n5Zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778583615; x=1779188415;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=LhDgvl7uPRs3CMEExuv1J69kWjAxPIo3iySve0DDFCQ=;
-        b=XNcFXjddpQJ+Rdvl0yYPdPnTnI5OGu4gEEAcfnxmWbpFVY6+fcXRga2j3bciL4BEnv
-         FRxDr+tNYH16XwgL791JUtbWBxo3hNQ74ZkMKAn0QWDzLjzh4Xyp9/IKdBapr2rmqioa
-         XqMXrcrYZipyr2M16Rry1wxzao1Ojqnmvv99wynuNzTkIIvF5YNNEIm5/xjhPUyN3O/S
-         9IneDJXtC35DSHgk1jROeyxEcikyGrOBIlrM+wipP/dZ9CSSqxHMIeiMhOa+onjDCWOv
-         U962a1FKL47t9AlzZIsWjOQpYUaBrwDS4Xs61gzW+KV1caIIcVGMUan132nRYmZOnmaA
-         2zYQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/0Y8r69OR7HcjiZ5idvaEEfFJZ4ddW/2W7Cq6pz8kdFdm5zwF9zZl/uY6tGJJVqiZUxoh06/4jAYnTgd/qMf1p@lists.infradead.org
-X-Gm-Message-State: AOJu0YymcLtIJC6Nq+Dkq/8XDo+XvVV5Vw2TCjsAeNgxcwSaZO9ezUnD
-	juIbmZoKIufoN7vhOAPL/oYpNPxGxZPPCFFcVDp3YeUU/tM8V+ZgK7BGi3aWs+VRDrYMen091GK
-	qrsOEpX1UlHRcS1TC62qBmK6DN8E05p0URQI5IIzOFg==
-X-Gm-Gg: Acq92OFJE6ncbrEeyzSDgJA2keM2XWheNuO8h2fZln3U3xUUD6C7j9Xsag12d5TUuSP
-	VO3xf1QRtD+rcCGsLzmrZtdoNkuIjBbH33GGdn6DBDXStrMcozLpCn9mXgI/GapYy5w6VmlJvf+
-	FpqC03QJe4FkuvdNJUcb6L/fFQSicg3B2nwOJMRwg7qwLRSbr8mtea5pwh1hB9VjFFbzAHKAXE8
-	tsw+/zGpDpBJMH2GqhgX0VN3PzE4lpz8wmo49RPry/S136edv8Z5brFM64ynVMSrI2OWbzrr+IZ
-	TmYoWp1KraXK6Tx94ZYzXVEuOUYKjAUgHRGtC1nWBTP1o0eVQ2s7U3oFtdB46k01FyBDuWve2Ol
-	k3rxw2VcnxvWt+NgTJi3eXgBc
-X-Received: by 2002:a05:6402:404d:20b0:67c:4e1b:9134 with SMTP id
- 4fb4d7f45d1cf-680cfe24becmr1173638a12.14.1778583615257; Tue, 12 May 2026
- 04:00:15 -0700 (PDT)
+	Tue, 12 May 2026 11:00:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TSyuSmttbDKvdUnx3MQXmjw2tHNAxH2VLa65lECE58QxjBEpfaVJGD4BL/1Cw6PNy4WOukhm0vGRJCi3d8j8BdiqF/Wg4ysRIipZzXxCZlei1zmiTc+3gWfTg+nGIdrZTDC/xV8DGSDqDH7Ov39yalzKhE7x8FJul+RHPF0HQ2jk9Dap24xlo/3hR37CNWLYjKyBmj3oSk2RmJkA/fJ/d/a7vOjFD2/85kEandkvlZ3OOMHQIwSBHegHA9CAlZ4IW6CZ6Mb6+rydOC0VUB32tojZlNP+/lcdKmYMOblAGVOXIO9W13WFSlqgBHsisBORb/1njTCqxwMqAgwPVOsfiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=luMdKvIMMuMMIqOb9WfA055mU4AAtA659xE8LllknIg=;
+ b=gSyyTSDc32H8IdF6bqZQLortYOiTrpjWCdgK59LmcO5q55fbWVpTtmc4PwDMjXBukTj43x7D4KkCsoAi/7phDHdHyj7wY1PMYR+bduRF/c3U8reX0EPVodyuoI9lLZ51njhUSvMnJJQNc8tauNiriAJ1n7wJm8st6O+gryLb2nBaxgkDgsgd7etWhZu4BdoLba/eCWUTxXwpepcBg/kmRBe4r4VZCd1s5vS45KPla8jz2Pa6gaB4k+yCXv7IpTfb+cXdCHMJftEKfwNOkkpEJgk1Gjo2eYBnFNT0sC8dcGpILdKBoZljEHO3IbAoxn/iC9YCgzpw5j1QiHxaverMzA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=gmail.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=luMdKvIMMuMMIqOb9WfA055mU4AAtA659xE8LllknIg=;
+ b=Pv5KV5/MVxSTr4sojsjlLeQoi/uxQLwG7bYbP8vFYAOo8Uf2WHPWkWxuHnLNFHbzthXrMi9Xh+l5RLTa88nYbIOFVUMYfIwVhR7/SiKFc8VKc3tEW9kf822DQ5ju4Obe858fk2DrMOm+AY5/8BaCMxMpNM0lnJM08Db1MUE/sSw=
+Received: from CH0P221CA0019.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11c::8)
+ by SA2PR10MB4476.namprd10.prod.outlook.com (2603:10b6:806:f9::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
+ 2026 11:00:43 +0000
+Received: from CH2PEPF0000009B.namprd02.prod.outlook.com
+ (2603:10b6:610:11c:cafe::8a) by CH0P221CA0019.outlook.office365.com
+ (2603:10b6:610:11c::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.17 via Frontend Transport; Tue, 12
+ May 2026 11:00:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ CH2PEPF0000009B.mail.protection.outlook.com (10.167.244.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Tue, 12 May 2026 11:00:39 +0000
+Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
+ 2026 06:00:38 -0500
+Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
+ 2026 06:00:38 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 12 May 2026 06:00:38 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64CB0c3H1646990;
+	Tue, 12 May 2026 06:00:38 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Brian Masney <bmasney@redhat.com>, Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>
+CC: Santosh Shilimkar <ssantosh@kernel.org>, Tero Kristo <kristo@kernel.org>,
+	Nishanth Menon <nm@ti.com>, <linux-clk@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<afd@ti.com>, <sozdayvek@gmail.com>, Jing Yangyang
+	<jing.yangyang@zte.com.cn>, Zeal Robot <zealci@zte.com.cn>, kernel test robot
+	<lkp@intel.com>, Julia Lawall <julia.lawall@inria.fr>, David Yang
+	<davidcomponentone@gmail.com>
+Subject: [PATCH V2] clk: keystone: sci-clk: fix application of sizeof to pointer
+Date: Tue, 12 May 2026 06:00:28 -0500
+Message-ID: <20260512110028.2999471-1-nm@ti.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-References: <20260414224245.8493-1-guilherme.bozi@usp.br> <20260425163449.547b7ed9@jic23-huawei>
-In-Reply-To: <20260425163449.547b7ed9@jic23-huawei>
-From: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
-Date: Tue, 12 May 2026 08:00:00 -0300
-X-Gm-Features: AVHnY4JOYBBFrty7L67g9NKspgD2Gbz4Gg9WVL7Yka7j0SH0JfRIOzMv0nT0aZ0
-Message-ID: <CAJgF-xv2SpaOu+6K6k3CzFVNfWTx8LyeGJMZjLheCSETOR3Yzg@mail.gmail.com>
-Subject: Re: [PATCH v3 0/3] iio: adc: xilinx-ams: refactor alarm handling to
- table-driven design
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Salih Erim <salih.erim@amd.com>, "Conall O'Griofa" <conall.ogriofa@amd.com>, 
-	Michal Simek <michal.simek@amd.com>, David Lechner <dlechner@baylibre.com>, 
-	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009B:EE_|SA2PR10MB4476:EE_
+X-MS-Office365-Filtering-Correlation-Id: 67282267-2b95-426a-2a19-08deb015b47b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|7416014|376014|1800799024|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: uv0Sd2ZMn9OrymDfCq42x9zbepUiJCjEBH9UqTcUZ6B83f2SCO140GVf0p7L9152eEoOQ0g9cCiH21xWaA0bq3kXi+pVqI7qelo3TZUb7bXabI3LaQ2mP6IneDeLFHUNyS2+HW6EYdyLYKgJ+tv1prKlboT8jr97VgNx0LyHJAEcPktV8t+756YSBEZDOMM6+yXPqSFyx8/EbAkLag3rTPs4RfFIp+vWXB/hwdosqoqYEoB/p29hMNPllZirxZCW3ZwKMlnlU9ich5CxOc0zWQ998pGXa8LvGBTWSOlo99CkhUfOhbXmwJ9JinJ1nQfZxf/traOCMcu+khZUGZkmY0dWHm1txY6J6bqpf9Wzbm12gTKB8ZJ6Rii5vvZxRr73y9wTH9ebaGS8XKwGok/Tt3AHg+liMPQbqO0jlTn8BgvZGKqhFNi+JNLQEROLIRIccBCxVnrym/uAuTEwIGw8/WiZIcyol+0nNaEldls0ZKw/dsR4xuec8AfBX0GQrMq85iMNRCDYQESiiFUjqpL7PCHb++/KVHGXOJwflaozKSw/LktN8a2hzOl4hwhJ9nTZL6DRqUqNjxFqbnLj4G4N0n/UBW5acpcJB1devWqEuctYy8Z8Ztj00p6gY6NNsKPsvlVQkQNNzF8SCRoBxmpULjqNRmrUc/ycccPz8Syl0Vz6gfHPdC9FKVQ5fsWcQxrx
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(376014)(1800799024)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: icKSQ9GQEb6pgjByz+2e0AJ/wgZThUpIPCth24+BEG1I48VlP+PNsVsjvSAK7iiKLkosI9gHc24DWP+rN05IreCXNmRfIirTbN91AzANtOTeM2gsuBYTCRaQ79tQI2tVPQs+1Q0Ard3pv4sFh3mrUmNfg+epPXi/PYvZrKliH8X0tg0wQonSkHtB1qv+ULGnV1bRNP3Cv6Uk82kL3jJetDnLlSY5KB98Wg3L5BbApHmXKJMUSJuFGrfGfInyHc17snRg/xG4lWRsZ02nRW0RZ8MpCQmM4NLSw+HfwoD+JScpIe0ASCWpKx6v2XQyPBnjY98m9TuHi1QWrP4nQuHFdQ9+5/Fe8cto6I9janKOrAbuMxk3wGeV3yDRJrBSTySIzPVwqANtEawFIjWjb5ySUcaxglEwKKOsrkFOhNDKajmQ3LSUsQ9Bq0+GtkkLZH47
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 11:00:39.9194
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 67282267-2b95-426a-2a19-08deb015b47b
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR10MB4476
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_040019_186125_A6EEACAA 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260512_040047_623295_F6E79BAF 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,15 +133,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> This series looks fine to me.
->
-> Given the AMD Xilinx folk are fairly active reviewers I'm just
-> waiting on them taking a look.
-Hi, just checking in on this series since it=E2=80=99s been some time.
-Any updates from AMD Xilinx review or anything else needed from
-my side?
+From: Jing Yangyang <jing.yangyang@zte.com.cn>
 
---
-Thanks,
-Guilherme Ivo
+Coccinelle (scripts/coccinelle/misc/noderef.cocci) reports:
+
+  drivers/clk/keystone/sci-clk.c:391:8-14: ERROR: application of
+  sizeof to pointer
+
+In sci_clk_get(), 'clk' is declared as 'struct sci_clk **', so
+sizeof(clk) is sizeof(struct sci_clk **) which is the size of a
+pointer rather than the size of an array element. provider->clocks
+is an array of 'struct sci_clk *', so the canonical size argument
+to bsearch() is sizeof(*clk) (i.e. sizeof(struct sci_clk *)).
+
+The two values are equal on every supported architecture, so this
+is correctness/idiom, not a runtime fix, but the new form matches
+the rest of the bsearch() callers in the tree and silences the
+Coccinelle warning the script flagged.
+
+Reported-by: Zeal Robot <zealci@zte.com.cn>
+Closes: https://lore.kernel.org/all/84a6ba16686347099a3dab2e5161a930e792eb6e.1629198281.git.jing.yangyang@zte.com.cn/
+Reported-by: kernel test robot <lkp@intel.com>
+Reported-by: Julia Lawall <julia.lawall@inria.fr>
+Closes: https://lore.kernel.org/all/202512040525.zrHSDl5h-lkp@intel.com/
+Link: https://lore.kernel.org/linux-clk/20211012021931.176727-1-davidcomponentone@gmail.com/
+Reviewed-by: Stepan Ionichev <sozdayvek@gmail.com>
+Reviewed-by: Andrew Davis <afd@ti.com>
+Signed-off-by: Jing Yangyang <jing.yangyang@zte.com.cn>
+Signed-off-by: David Yang <davidcomponentone@gmail.com>
+[nm@ti.com: Improved commit message]
+Signed-off-by: Nishanth Menon <nm@ti.com>
+---
+Changes in V2:
+ - Picked up Stepan's suggestion on commit message
+ - Picked up Andrew and Stepan's reviewed-by
+V1: https://lore.kernel.org/all/20260508152321.3683799-1-nm@ti.com/
+
+ drivers/clk/keystone/sci-clk.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
+index 9d5071223f4c..2fc1f050779b 100644
+--- a/drivers/clk/keystone/sci-clk.c
++++ b/drivers/clk/keystone/sci-clk.c
+@@ -388,7 +388,7 @@ static struct clk_hw *sci_clk_get(struct of_phandle_args *clkspec, void *data)
+ 	key.clk_id = clkspec->args[1];
+ 
+ 	clk = bsearch(&key, provider->clocks, provider->num_clocks,
+-		      sizeof(clk), _cmp_sci_clk);
++		      sizeof(*clk), _cmp_sci_clk);
+ 
+ 	if (!clk)
+ 		return ERR_PTR(-ENODEV);
+-- 
+2.32.0
+
 
