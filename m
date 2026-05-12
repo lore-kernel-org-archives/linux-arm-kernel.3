@@ -4,81 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B96CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 16:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA99CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 16:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L7sYdxLuijt+9186h1ZtFmr0eUOg4mrztHCaUFuNYa8=; b=2a3ZgF+xCjZDnBwYj7VTxHGbMg
-	t5XxNtShNBOMtETG4mrv9zWEgGSxnZHF+6pKvhuTlh22PVza8BtjNehqKwDtrPMJ7a9ZmL0Ui/LEz
-	I5W4MB8AWEcgSWuZeU+16wSV9BEKH/HATqn1aKsJUu0X15hiYXClqDzWdBF+Svwh+5vVFLpe8jJAh
-	Pt6qc76DDxn8eI3JO+YjBmzLHlDNFxFMmVWqFHBUnTkUO0GQtU+qvZ/BrJISYCnPH86HAcIlIHwti
-	gLw0lFJT3NmNYfPHa/ysIs3+NEoeFAPKJhh8cCoWAjmH8wJ6M51FEDIToTXtyvYmFu7y3UwnuGFzH
-	TX0hVAXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Za6grCrNecMkHljJ/y7tcLqNAzMXsmuQ05DMz9OHhoM=; b=nnN4hXvzhd2N3KzuFRumGKzEDr
+	DXnxXCStZujoBfd/u2NpqS7uZ+/Ma21PzoG7hyRQeiK/Bt0nZODx8GLd5SiiVwN2Hi0iuwvsIySvT
+	pVx0n5bxIpusX3L4qujUQAnqGZPJiJ7yUl5Rot6CYPjPJ5kadtlJajI70mwGQgV3QJprw384tRlFC
+	qreb19d+IyHqrYJHPS/uI/h5aKsBpQ9gc/G0IZ8fDcC1IwuWrbCX+umSGHYXe9VHkBpUJhTEf0qki
+	unWNUGxIiFOQOIWFNmYA9fF9DqF/bgIlH7CQ+YFI2qR1N8J9MeFcJCFk1bixoFgCIaVQktOFRloje
+	R4ZpSTmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMpkJ-0000000HK6G-3B97;
-	Tue, 12 May 2026 16:14:11 +0000
+	id 1wMpnw-0000000HKhf-1bWX;
+	Tue, 12 May 2026 16:17:56 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMpkH-0000000HK5x-3WDk
+	id 1wMpnu-0000000HKhF-4Bj1
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 12 May 2026 16:14:09 +0000
+	Tue, 12 May 2026 16:17:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=L7sYdxLuijt+9186h1ZtFmr0eUOg4mrztHCaUFuNYa8=; b=oLDR30evtR4reVej5PcOUejLsR
-	FLxjACMNnwrsOO5/baMPFDyRsA++IhLJkIVpRy3t2u3OcRolRcCRqdCuffYwSXfPvNyPQoDtiMLju
-	qsp8GbeDkeoEdzmWCyUFoyAM/vQuXi0NDFWuYetqslUPG3MLKfVlhzHncstX29sDMmaEEevfUQXgn
-	Va/jab5Wlxjdd87EHfiCRIKRHVAn5qq+Ehb/4rJb7AvEy43m5qLXeqSKDLaP4sVEDDnb+LETt5USK
-	YiyzusK8eE6iB5EP99aO4ZQbApoRFX1RxwZpf3dKCi7paFDReYQWk+3Y/ZxQxhVPQP1TJxkamaiad
-	iq5kygCQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMpkD-0000000FHbd-19wH
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Za6grCrNecMkHljJ/y7tcLqNAzMXsmuQ05DMz9OHhoM=; b=EO/wDN71AuqbRlhSlq81uv6iva
+	zEuOLtHY5ecNXwFxJ+H9NuOQmCeH2bW+IJ1l9V/yQ6y1EA7Rf15As2XSLpqpJh14iqAkOidL4Tz8t
+	GUjwPUsQ9Vl1P5RdjE+VVoAE7RJdCgijL7BL3dUaMe3mRBdmsrHJPCZ80n0wUfVuNiRkVrXefcQE1
+	twG2zvL1id1nxQnshmKJpd0feSat9rMM96yQFAAPE7I+wWjj76LDjx4d/wFVczZmN+inm6rjoR6df
+	HIgcLwt+srr1X/odPFvn+IVLkDkKJe3Ui+q/TdL4WhRx1tOs6GxrKksTeoUtvD6gsotphsF5/K1Ck
+	ifcrCvgQ==;
+Received: from mail-centralusazon11010010.outbound.protection.outlook.com ([52.101.61.10] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMpnp-0000000FIOk-2B0c
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 16:14:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55E471650;
-	Tue, 12 May 2026 09:13:57 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E60113F836;
-	Tue, 12 May 2026 09:13:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778602442; bh=GHZWor7rdy45tprIWlWstOcDkMP3M+aEv6hEteW8EN4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TY7M8Nt4UDSmdhmrU1PKycF2lKfojYvEgKZZTllA6T6EIcJJAOG5s0dTV1+BBqFmc
-	 DwrW/PEUVkuEBxsmvpIePwV8KDGXTgriDtnkCq1esQvuHgd2gSCob83CbpWw6kv0ex
-	 vKB4hBVG18OeOxX6YGT7kP5rPYTjgAVZSs+/abZA=
-Message-ID: <15389814-e6d3-43bf-967b-38d0fc8f8c52@arm.com>
-Date: Tue, 12 May 2026 18:13:58 +0200
+	Tue, 12 May 2026 16:17:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CtRSIS3BtbTqKfq1ZEeUH6vnja8DRTe1hs9FCxTVlnPgB/tcqG9ZZzEGQrTXtBX17CN3dAYg7xBQWL6SR4MKEdqU6z9A8BSeRhGv7SDB22NuHVSNW+mBFgLQYTQh6cQcXKy1JPxc0Q97e0N5bsw/z9ORc+vc2Si3KAfUGof0ulnRMfFtnHmmdhEm0mgrGec75yWfoZNh11edAPlFYR/SWLSA2FI5RmNltP7/rfTA1Ep8OK5bFCdDj8jG7Er9C2qS4cp4w+tJouo/AX23EXb0EvBKyu4KtrHiju2LJWZsCIMIUsCEzARwM+nAo3ZT6xAsYsShdC4N9jKBwUw18DTK6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Za6grCrNecMkHljJ/y7tcLqNAzMXsmuQ05DMz9OHhoM=;
+ b=ZDWxBuaGxb5Bc/mACGA1Px392+/aqigHW+oXCB4S2Spbz0upk83QtWFJZmrl+5Q9D8dKpvhVKZe2NQUZZmjIK8zVVWJu/xE29NgKqzPJycD8kTLDo0PrxmXSfxVE87UmagAfpzbgr23XNEKYafiCzINM0lbamCUo6XqUo/qIbq5bdIF3OnBaE3ur4uQP6idUHypDXugWSMaTb8Lt8MMOVogMBNUkExHqHCG6idl80PmVognMCI/Ieggx4G1uI6sDUBZ//KvBss7sjEYJlMZE5xfwG04nb+Un33wFET8n6OKFoFjjFmFoRV+rFRwAftItH0zMpNxm50HjN33CRFstSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=toradex.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Za6grCrNecMkHljJ/y7tcLqNAzMXsmuQ05DMz9OHhoM=;
+ b=l0y66MK1NAc6y8jKgYoCu7C2Y948AcUIn2Fzid01C4AUvqx/KzoOGKRToPEGPNcdY5YHhCLXwqLOg9U2QxTVhIrFV81Vh+2DmjDN+4M0uvmORwx6Y4NheTOZbdc6vTWTo6ienpMhXpfne9v8ZryA/ISietvYkclD19SgmGKIKqw=
+Received: from DS1P220CA0010.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:455::16) by
+ MN2PR10MB4400.namprd10.prod.outlook.com (2603:10b6:208:198::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
+ 2026 16:17:39 +0000
+Received: from DS2PEPF00003446.namprd04.prod.outlook.com
+ (2603:10b6:8:455:cafe::26) by DS1P220CA0010.outlook.office365.com
+ (2603:10b6:8:455::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.11 via Frontend Transport; Tue,
+ 12 May 2026 16:17:39 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ DS2PEPF00003446.mail.protection.outlook.com (10.167.17.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Tue, 12 May 2026 16:17:38 +0000
+Received: from DLEE209.ent.ti.com (157.170.170.98) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
+ 2026 11:17:37 -0500
+Received: from DLEE211.ent.ti.com (157.170.170.113) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
+ 2026 11:17:37 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE211.ent.ti.com
+ (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 12 May 2026 11:17:37 -0500
+Received: from localhost (uda0506412.dhcp.ti.com [128.247.81.196])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64CGHbKp1803413;
+	Tue, 12 May 2026 11:17:37 -0500
+Date: Tue, 12 May 2026 11:17:37 -0500
+From: Kendall Willis <k-willis@ti.com>
+To: Vitor Soares <ivitro@gmail.com>
+CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, "Santosh
+ Shilimkar" <ssantosh@kernel.org>, Ulf Hansson <ulfh@kernel.org>, Kevin Hilman
+	<khilman@baylibre.com>, Dhruva Gole <d-gole@ti.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>,
+	<tomi.valkeinen@ideasonboard.com>, <sebin.francis@ti.com>, <devarsht@ti.com>,
+	<vigneshr@ti.com>, <vishalm@ti.com>, <vitor.soares@toradex.com>
+Subject: Re: [PATCH] pmdomain: ti_sci: add wakeup constraint to parent
+ devices of wakeup source
+Message-ID: <20260512161737.pflweaz2r3q3nrfl@uda0506412>
+References: <20260506-wkup-constraint-v1-1-0a4bce791b29@ti.com>
+ <becb54adc0bea88578c8fe4c7c1b7b68bf5cc6d4.camel@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] arm_mpam: Parse the rest of the ACPI table
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260429141339.3171205-1-andre.przywara@arm.com>
- <20260429141339.3171205-2-andre.przywara@arm.com>
- <f12b8d73-7c8e-43e7-b9ce-d80a7c3f10c8@arm.com>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <f12b8d73-7c8e-43e7-b9ce-d80a7c3f10c8@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <becb54adc0bea88578c8fe4c7c1b7b68bf5cc6d4.camel@gmail.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF00003446:EE_|MN2PR10MB4400:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8fba6018-f394-4c75-b13e-08deb041fc77
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|1800799024|82310400026|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: jcZtRxOYBzEWWhz45FPw66szuCtzmXOEfXqxl45qoGKi07TaWx2XdXZZeC37Ov7nuXpEdGN2pwlAdMdhTibe+MJNpOAwVmmkFypZnyXmqjEWgT0nlxaPuClaBeQGg+4gbdfzPV3m/q4OB5EmlckIjybx/Nlv0fRwY46kjuXePrHm99IXeNcoS92CmPsXkIWnoC3EVMK+UDcXnuHGrBPLOQgW37x/k8+KfTtVuFa9GJQjU+/pR1b1YElxfW3X95W0RVTGzowvl+MgjgDZhQTONIYroIHPpb2WtxB+NdmA/ss72cJfOdtKM+P8nJXAI3XcqNxV/MpIabXD5DBov4PX7r2mOTsojtrtQFIfsbeYCpnBmu5d0DIBZn297K93heML8CK1bQLcrkBUShzG6gsF7TGhIBjmDoJF2aqSPzXksPwHjwhxKfbnLioUNnOBebWJmMryZbVXhBiPakWTvWEWpq7ZazsQf8iqp5bR8merqo6QOTqHkSOqXFQA6b3WovMiQXoHQCleX2s0T+zCKXL626Xi5HTa4+3lt9L8eMdKaf4ZDJJ7VYdXadxTw5a4RD6YjzFHmMlVCLtucDlDmTrHvrVEm0uIXgG54rUsHS55eywp8HPhuHTLoO5lSKBaeE8Q64U2QadAzS+ZlzFrUZxdyfxv/Q8Dv6jm4HUVZqLuzDHRJs8Zt3zAUgAdAjC6VNm+bZWWwQ+YuWjKJ80RnDsjazBef9pihaZKEX3tAOCn2VM=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(1800799024)(82310400026)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Ip6zbDN6cNE41Lcry5Y03uzfALPOIGwY/ZSooWNYOd6bekFCSBh5fLIVAibxXOtqHVfzI5VyyFZlRNMCV3dtzDXbYUFx+UHM13bAssLrstRnE8Eq7WVZPfG6GrTl9BL3ioQLPojWBrXI4y6Xxvcwk6Z2t51cN3P9qTzR2Upq2IiTsqL0NujDWcwlwGAK1szdkAuLlSyTAqN6Nsvw668Z/3bSGU+uYHNsZoad93b33qvIDSEV4go4UNumduR5HUdriSPQE9R/s2r4IqPBMS9SFHttmOHg9UBDXTP8miqFQOyAX42Z5a2tFrfR49nQgxGzrDbh/UgtW8RN/0uM4vmJ0ChXbtgMTJtbpcw1dpz1OT63LLMFrct8+UQEWMmmLbFFFx9vbPOc4Nl9TkoSJXatAqCZZbdSVRODeCKc+LGL/BmP0fdFWlbyrLkfb4JzPTOp
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 16:17:38.7030
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8fba6018-f394-4c75-b13e-08deb041fc77
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF00003446.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR10MB4400
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_171406_048357_A68C9A10 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20260512_171750_538213_E75C2554 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,173 +150,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
-
-On 5/8/26 12:21, Ben Horgan wrote:
-> Hi Andre,
+On 17:51-20260511, Vitor Soares wrote:
+> Hi Kendall,
 > 
-> On 4/29/26 15:13, Andre Przywara wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> The MPAM ACPI table lists the MPAM MSCs and indicates which resources
->> in the system they control. Not everything this table can describe is
->> supported by resctrl, e.g. memory-side-caches.
->>
->> Add the additional table parsing to avoid reporting these as 'unknown'
->> to the MPAM driver. This allows class+component hierarchys to be built.
->>
->> Until resctrl has support for any of these resources, users would be
->> in-kernel managers of a resource/PARTID or perf to query bandwidth
->> counters on a resource resctrl is unaware of.
+> On Wed, 2026-05-06 at 22:16 -0500, Kendall Willis wrote:
+> > Set wakeup constraint for any device in a wakeup path. All parent devices
+> > of a wakeup device should not be turned off during suspend. This ensures
+> > the wakeup device is kept on while the system is suspended.
+> > 
 > 
-> Does this patch give us anything needed for MPAM-Fb? It seems to just add
-> parsing for things we don't support in the MPAM driver.
-
-I think you are right, this just parses more resource types from the MSC 
-table, but is otherwise unrelated to MPAM-Fb.
-I probably just cargo-culted this patch all the time ;-)
-Will drop it now.
-
-Cheers,
-Andre.
-
+> Thanks for the patch.
 > 
-> Thanks,
+> I tested it on our Verdin AM62P. As expected, suspend now fails cleanly with "-
+> 19" when an SDIO WiFi module is registered as a wakeup source, instead of
+> crashing on resume:
 > 
-> Ben
+> ti-sci 44043000.system-controller: PM: failed to suspend: error -19
 > 
->>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/acpi/arm64/mpam.c | 91 +++++++++++++++++++++++++++++++++++++--
->>   1 file changed, 88 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
->> index 84963a20c3e7..99c2bdbb3314 100644
->> --- a/drivers/acpi/arm64/mpam.c
->> +++ b/drivers/acpi/arm64/mpam.c
->> @@ -95,17 +95,51 @@ static void acpi_mpam_parse_irqs(struct platform_device *pdev,
->>   		res[(*res_idx)++] = DEFINE_RES_IRQ_NAMED(irq, "error");
->>   }
->>   
->> -static int acpi_mpam_parse_resource(struct mpam_msc *msc,
->> +#define UUID_MPAM_INTERCONNECT_TABLE		"fe2bd645-033b-49e6-9479-2e0b8b21d1cd"
->> +
->> +struct acpi_mpam_interconnect_descriptor_table {
->> +	u8	type_uuid[16];
->> +	u32	num_descriptors;
->> +};
->> +
->> +struct acpi_mpam_interconnect_descriptor {
->> +	u32	source_id;
->> +	u32	destination_id;
->> +	u8	link_type;
->> +	u8	reserved[3];
->> +};
->> +
->> +static int acpi_mpam_parse_resource(struct acpi_mpam_msc_node *tbl_msc,
->> +				    struct mpam_msc *msc,
->>   				    struct acpi_mpam_resource_node *res)
->>   {
->> +	struct acpi_mpam_interconnect_descriptor_table *tbl_int_tbl;
->> +	struct acpi_mpam_interconnect_descriptor *tbl_int;
->> +	guid_t int_tbl_uuid, spec_uuid;
->>   	int level, nid;
->>   	u32 cache_id;
->> +	off_t offset;
->>   
->> +	/*
->> +	 * Class IDs are somewhat arbitrary, but need to be co-ordinated.
->> +	 * 0-N are caches,
->> +	 * 64, 65: Interconnect, but ideally these would appear between the
->> +	 *     classes the controls are adjacent to.
->> +	 * 128: SMMU,
->> +	 * 192-192+level: Memory Side Caches, nothing checks that N is a
->> +	 *                small number.
->> +	 * 255: Memory Controllers
->> +	 *
->> +	 * ACPI devices would need a class id allocated based on the _HID.
->> +	 *
->> +	 * Classes that the mpam driver can't currently plumb into resctrl
->> +	 * are registered as UNKNOWN.
->> +	 */
->>   	switch (res->locator_type) {
->>   	case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
->>   		cache_id = res->locator.cache_locator.cache_reference;
->>   		level = find_acpi_cache_level_from_id(cache_id);
->> -		if (level <= 0) {
->> +		if (level <= 0 || level >= 64) {
->>   			pr_err_once("Bad level (%d) for cache with id %u\n", level, cache_id);
->>   			return -EINVAL;
->>   		}
->> @@ -120,6 +154,57 @@ static int acpi_mpam_parse_resource(struct mpam_msc *msc,
->>   		}
->>   		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
->>   				       MPAM_CLASS_ID_DEFAULT, nid);
->> +	case ACPI_MPAM_LOCATION_TYPE_SMMU:
->> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_UNKNOWN,
->> +				       128, res->locator.smmu_locator.smmu_interface);
->> +	case ACPI_MPAM_LOCATION_TYPE_MEMORY_CACHE:
->> +		cache_id = res->locator.mem_cache_locator.reference;
->> +		level = res->locator.mem_cache_locator.level;
->> +		if (192 + level >= 255) {
->> +			pr_err_once("Bad level for memory side cache with reference %u\n",
->> +				    cache_id);
->> +			return -EINVAL;
->> +		}
->> +
->> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
->> +				       192 + level, cache_id);
->> +
->> +	case ACPI_MPAM_LOCATION_TYPE_INTERCONNECT:
->> +		/* Find the descriptor table, and check it lands in the parent msc */
->> +		offset = res->locator.interconnect_ifc_locator.inter_connect_desc_tbl_off;
->> +		if (offset >= tbl_msc->length) {
->> +			pr_err_once("Bad offset for interconnect descriptor on msc %u\n",
->> +				    tbl_msc->identifier);
->> +			return -EINVAL;
->> +		}
->> +		tbl_int_tbl = ACPI_ADD_PTR(struct acpi_mpam_interconnect_descriptor_table,
->> +					   tbl_msc, offset);
->> +		guid_parse(UUID_MPAM_INTERCONNECT_TABLE, &spec_uuid);
->> +		import_guid(&int_tbl_uuid, tbl_int_tbl->type_uuid);
->> +		if (guid_equal(&spec_uuid, &int_tbl_uuid)) {
->> +			pr_err_once("Bad UUID for interconnect descriptor on msc %u\n",
->> +				    tbl_msc->identifier);
->> +			return -EINVAL;
->> +		}
->> +
->> +		offset += sizeof(*tbl_int_tbl);
->> +		offset += tbl_int_tbl->num_descriptors * sizeof(*tbl_int);
->> +		if (offset >= tbl_msc->length) {
->> +			pr_err_once("Bad num_descriptors for interconnect descriptor on msc %u\n",
->> +				    tbl_msc->identifier);
->> +			return -EINVAL;
->> +		}
->> +
->> +		tbl_int = ACPI_ADD_PTR(struct acpi_mpam_interconnect_descriptor,
->> +				       tbl_int_tbl, sizeof(*tbl_int_tbl));
->> +		cache_id = tbl_int->source_id;
->> +
->> +		/* Unknown link type? */
->> +		if (tbl_int->link_type != 0 && tbl_int->link_type == 1)
->> +			return 0;
->> +
->> +		return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_UNKNOWN,
->> +				       64 + tbl_int->link_type, cache_id);
->>   	default:
->>   		/* These get discovered later and are treated as unknown */
->>   		return 0;
->> @@ -150,7 +235,7 @@ int acpi_mpam_parse_resources(struct mpam_msc *msc,
->>   			return -EINVAL;
->>   		}
->>   
->> -		err = acpi_mpam_parse_resource(msc, resource);
->> +		err = acpi_mpam_parse_resource(tbl_msc, msc, resource);
->>   		if (err)
->>   			return err;
->>   
+> I did not test the IO daisy chain wakeup path, since that is out of scope for
+> this patch.
+> 
+> Best regards,
+> Vitor Soares
 > 
 
+Hi Vitor,
+
+Thanks for testing the patch! Could you add your Tested-by tag?
+
+Best,
+Kendall
 
