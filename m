@@ -4,92 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FB05CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF42CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TRUQ7VRBHVaVxbbAttWXyHjOTDYSaT6tyGmviBcmO54=; b=H0j41iDaE7fzGLKyM9OoTzwug6
-	SkE6cK7VMxQpG9/MUCeW+Cd0rxu3SpCD4WLlhyhkNleczKVTUjG3R7cu1GPO3YNZsLDceKRPi4r/6
-	cQjFkzMfbzPYSxNvcL8A3w0W4uDEXx0OmiFK6vP5l+NvAlNtOy8n1UVZSEfV/qbgYwLer9DtUnyiQ
-	tS6x4wyTwOhxoNS5p7xSV9BjAfpAiPOYp9nzH+yvkmUffmfzHKDXeBDtMP0i5rDdwnXq1RWKressa
-	IMqD2WJz+MIFqlVccVuxED+oh742Ty0kqUW4iFBr7gQp8M6dVrDt2Gt8TUlFb2uP9Q5PUifOKwKCP
-	fGcyDw5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eevlV6sWfF2wzzQTDTYtGiKOSWs2ayhmWdsB3FVgpfo=; b=TZw2pwfSLlnKR1/020QX2Eq9gc
+	xwS2FVvRcyejRkuHSpuS6a7FPrkpAzjICQG8k/QzFrl6BLhl0UZWwP/wawTevgKMsv9CBu8vjXxGH
+	Nf24fLASwW3vRQG0Qxg8YxqPWkoG4RUwzw0Knf2Iy3HHv2PxXYCPiqIV8GgsCrCBHSZIeentvpaPS
+	7HjH2cMTS4K8ZbolIi1iUivWwpadBP1MCWcSah6Jy4W+RCCg+eOFUVwtkeR//F58saa+MaORqdnzU
+	y6Flt9+2g9G8N8TOFBuxBBHJZqOg9/01chqJsjxobf21mn6nI9rlSdceW2CaYcKcWUkB+Dq/q9pYA
+	bcNOWfmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmpS-0000000GlQz-2jND;
-	Tue, 12 May 2026 13:07:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wMmuh-0000000GmbM-0fZU;
+	Tue, 12 May 2026 13:12:43 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmpJ-0000000GlF1-0QuJ
+	id 1wMmue-0000000GmZr-02jm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:07:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC8AA4439C;
-	Tue, 12 May 2026 13:07:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17A04C2BCF7;
-	Tue, 12 May 2026 13:07:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778591228;
-	bh=ol7ZxJRFzPU3goqwZsKdhnIW4o0nEjdILT7N6tLltxI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WAUi5sRf6BKQ/uDLVc5ATtjBP9nlE3aCn29T/tC4wH35JigkXRKB/j+56cnhKZ9oi
-	 Vte4BqVxaskJIDQ2NR93DrOKLBLYK2zLmTChoA7HjEzIjaoY2n9qNS7w82X/ZCf/DI
-	 mZlCpjIPbFW8I9VmIUbQKCmlEInU3FJS85VgTz2RoS+fA9D6UZTz1FmCXsxp5E6OxZ
-	 0d8ak2tmB/Krbn0bTyvZ/qo7So3+ctJL7nMPjEAoLcfUQEML/2Wt7PHFyN0OV7NOmB
-	 8Tqiv4Xe8TJRxqw36HnVi233ohFWnVVj2s2HNKVFJEjVw7DCNhEVIbeXpL75vzV8JT
-	 IYZ6zcI8XmYAQ==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 12 May 2026 15:06:17 +0200
-Subject: [PATCH v4 19/20] drm/tidss: Convert to atomic_create_state
+	Tue, 12 May 2026 13:12:42 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.82])
+	by APP-01 (Coremail) with SMTP id qwCowAAny2Y9JwNq934DEA--.20289S2;
+	Tue, 12 May 2026 21:12:29 +0800 (CST)
+Message-ID: <76a9e9b676509e85484a1eb31c723b46c7e21a19.camel@iscas.ac.cn>
+Subject: Re: [PATCH 2/2] drm/verisilicon: add support for Nuvoton MA35D1
+ DCUltra Lite display controller
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Tue, 12 May 2026 21:12:28 +0800
+In-Reply-To: <1d04dd6d-f245-4b83-96b0-c5491fad8093@gmail.com>
+References: <20260511075142.54752-1-a0987203069@gmail.com>
+	 <20260511075142.54752-3-a0987203069@gmail.com>
+	 <93e69179dbc495188cfffd8015350b3a55ce7876.camel@iscas.ac.cn>
+	 <de35406e-874d-4bdd-be7f-3d74dc37b13f@gmail.com>
+	 <3b94806073de8bd1d79aa7ec956493f67679e46b.camel@iscas.ac.cn>
+	 <dfbc4042-64cf-49f2-a5de-12260beffaa0@gmail.com>
+	 <4bf6efbb222ebc4d770ad613d17c6185e7cb2fda.camel@iscas.ac.cn>
+	 <1d04dd6d-f245-4b83-96b0-c5491fad8093@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260512-drm-mode-config-init-v4-19-591dfdcc1bf9@kernel.org>
-References: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
-In-Reply-To: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Jyri Sarha <jyri.sarha@iki.fi>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Maxime Ripard <mripard@kernel.org>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3091; i=mripard@kernel.org;
- h=from:subject:message-id; bh=ol7ZxJRFzPU3goqwZsKdhnIW4o0nEjdILT7N6tLltxI=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFnMqoczFE8tTjvCncxSzut8YJ3V1+di7587Xu9h/MY/7
- +neKpbDHVNZGIQ5GWTFFFmeyISdXt6+uMrBfuUPmDmsTCBDGLg4BWAiRqcZG2aZX21z6N86SUBd
- idnBa5LgXtu0CO/iH47tEm/3iKxx2H1vsvCJk3baP/2VbP49/d6Sylhn3Kx9RHGC6WZppkcG7Un
- vPAq0jBZuPL3EXiTl0ntl0Q7Zgu2FsUszHz4/WjRhVqQg/zMA
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-CM-TRANSID: qwCowAAny2Y9JwNq934DEA--.20289S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Wr1ftr13XFWkGry3JrWkJFb_yoW7AF4xpr
+	ykJFWI9rs5JryavrsrK3WDKFyjyw4ktw4fWr1kWr1Fgr1qkrn7Wr48Jr1DCa1v9r1DCr1x
+	Jr48JrWxur98ArUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvqb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
+	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
+	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
+	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
+	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
+	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
+	ZFpf9x07betCcUUUUU=
+X-Originating-IP: [112.94.100.82]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_060709_970799_7854B2A6 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20260512_061240_424564_20591757 
+X-CRM114-Status: GOOD (  38.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,90 +90,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Our driver uses reset to create the various object states, but only
-calls the helper that allocate a new state. They are thus strictly
-equivalent to the new atomic_create_state helpers, so let's switch to
-these.
+=E5=9C=A8 2026-05-12=E4=BA=8C=E7=9A=84 18:59 +0800=EF=BC=8CJoey Lu=E5=86=99=
+=E9=81=93=EF=BC=9A
+>=20
+> On 5/12/2026 6:01 PM, Icenowy Zheng wrote:
+> > =E5=9C=A8 2026-05-12=E4=BA=8C=E7=9A=84 17:06 +0800=EF=BC=8CJoey Lu=E5=
+=86=99=E9=81=93=EF=BC=9A
+> >=20
+> > =3D=3D=3D=3D=3D=3D=3D 8< =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> > > > > > > diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c
+> > > > > > > b/drivers/gpu/drm/verisilicon/vs_bridge.c
+> > > > > > > index 7a93049368db..225af322de32 100644
+> > > > > > > --- a/drivers/gpu/drm/verisilicon/vs_bridge.c
+> > > > > > > +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
+> > > > > > > @@ -164,13 +164,16 @@ static void
+> > > > > > > vs_bridge_enable_common(struct
+> > > > > > > vs_crtc *crtc,
+> > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0			VSDC_DISP_PANEL_CONFIG_CLK_EN);
+> > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0	regmap_set_bits(dc->regs,
+> > > > > > > VSDC_DISP_PANEL_CONFIG(output),
+> > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0			VSDC_DISP_PANEL_CONFIG_RUNNING);
+> > > > > > > -	regmap_clear_bits(dc->regs,
+> > > > > > > VSDC_DISP_PANEL_START,
+> > > > > > > -		=09
+> > > > > > > VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
+> > > > > > > -	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_START,
+> > > > > > > -
+> > > > > > > 			VSDC_DISP_PANEL_START_RUNNING(ou
+> > > > > > > tput));
+> > > > > > > =C2=A0=C2=A0=C2=A0=20
+> > > > > > > -	regmap_set_bits(dc->regs,
+> > > > > > > VSDC_DISP_PANEL_CONFIG_EX(crtc-
+> > > > > > > > id),
+> > > > > > > -
+> > > > > > > 			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
+> > > > > > > +	if (dc->info->has_config_ex) {
+> > > > > > > +		regmap_clear_bits(dc->regs,
+> > > > > > > VSDC_DISP_PANEL_START,
+> > > > > > > +			=09
+> > > > > > > VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
+> > > > > > > +		regmap_set_bits(dc->regs,
+> > > > > > > VSDC_DISP_PANEL_START,
+> > > > > > > +				VSDC_DISP_PANEL_START_RU
+> > > > > > > NNIN
+> > > > > > > G(ou
+> > > > > > > tput
+> > > > > > > ));
+> > > > > > > +
+> > > > > > > +		regmap_set_bits(dc->regs,
+> > > > > > > VSDC_DISP_PANEL_CONFIG_EX(crtc->id),
+> > > > > > > +				VSDC_DISP_PANEL_CONFIG_E
+> > > > > > > X_CO
+> > > > > > > MMIT
+> > > > > > > );
+> > > > > > Should the commit operation happen on DC8000/DCUltraLite
+> > > > > > too?
+> > > > > > (By
+> > > > > > writing to DcregFrameBufferConfig0.VALID).
+> > > > > >=20
+> > > > > > Many registers written has "Note: This field is double
+> > > > > > buffered" in
+> > > > > > the
+> > > > > > DCUltraLite documentation.
+> > > > > >=20
+> > > > > > I suggest create a static function for commit -- write to
+> > > > > > the
+> > > > > > corresponding commit bit on DC8200, and write to
+> > > > > > DcregFrameBufferConfig0.VALID on DC8000/DCUltraLite.
+> > > > > [a] There is no commit operation for DCUltra Lite.
+> > > > > I'll not add a `VSDC_FB_CONFIG_VALID` macro. VALID (BIT(3))
+> > > > > is a
+> > > > > hardware-managed double-buffer status bit: hardware writes
+> > > > > 1=3DPENDING
+> > > > > when a new register set is ready and clears to 0=3DWORKING
+> > > > > after
+> > > > > the
+> > > > > VBLANK copy. Software must never write it, and there is no
+> > > > > polling
+> > > > > use
+> > > > It seems to be writable and controls whether register buffering
+> > > > is
+> > > > enabled, see [1].
+> > > >=20
+> > > > The description of this bit in MA35D1 TRM says "This ensures a
+> > > > frame
+> > > > will always start with a valid working set if this register is
+> > > > programmed last, which reduces the need for SW to wait for the
+> > > > start of
+> > > > a VBLANK signal in order to ensure all states are loaded before
+> > > > the
+> > > > next VBLANK", which indicates some kind of "committing write",
+> > > > although
+> > > > the code at [1] seems to indicate that double buffering is only
+> > > > enabled
+> > > > when bit is cleared.
+> > > >=20
+> > > > Anyway this bit should be programmable, and "Software must
+> > > > never
+> > > > write
+> > > > it" contradicts with the MA35D1 TRM.
+> > > >=20
+> > > > Thanks,
+> > > > Icenowy
+> > > >=20
+> > > > [1]
+> > > > https://github.com/rockos-riscv/rockos-kernel/blob/rockos-v6.6.y/dr=
+ivers/gpu/drm/eswin/es_dc_hw.c#L993
+> > > Thank you for the correction. I'll add
+> > > `#define VSDC_FB_CONFIG_VALID BIT(3)` to vs_primary_plane_regs.h
+> > > and
+> > > write it in `vs_primary_plane_commit()` for non-config_ex
+> > > variants.
+> > > > > case in the driver that requires a named constant. For non-
+> > > > > config_ex
+> > > > > variants, `vs_primary_plane_commit()` performs no commit
+> > > > > operation =E2=80=94
+> > > > > `VSDC_FB_CONFIG_ENABLE` (OUTPUT, BIT(0)) is set in
+> > > > > `vs_crtc_atomic_enable()` and `VSDC_FB_CONFIG_RESET` (BIT(4))
+> > > > > is
+> > > > > set/cleared in the bridge enable/disable paths.
+> > Well according to the driver code for DC8000 from Eswin, and the
+> > bit
+> > named "VALID", maybe it should be cleared before programming the
+> > registers, and set after programming registers, to make the process
+> > of
+> > programming registers atomic from the perspective of the display
+> > controller.
+> >=20
+> > Anyway this should require testing on real hardware to verify.
+> >=20
+> > By the way, I see multiple peripheral drivers for MA35D1 get
+> > applied in
+> > the torvalds tree, but the device tree is still only a skeleton;
+> > when
+> > will the device tree be updated?
+> >=20
+> > Thanks,
+> > Icenowy
+>=20
+> Thanks for pointing this out.=C2=A0I=E2=80=99ll perform tests on real har=
+dware
+> since=20
+> I haven=E2=80=99t used this bit before.
+>=20
+> As for the device tree,=C2=A0we plan to update it comprehensively after=
+=20
+> completing several major IPs, with the goal of releasing the update=20
+> later this year.
 
-Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
- drivers/gpu/drm/tidss/tidss_crtc.c  | 17 +++++++----------
- drivers/gpu/drm/tidss/tidss_plane.c |  2 +-
- 2 files changed, 8 insertions(+), 11 deletions(-)
+Well I bought a MA35D1 board (MYIR MYB-LMA35 + RGB LCD) earlier this
+year (and this is where I got the MA35D1 identification register
+values). Hope I can have a chance to test this driver by myself.
 
-diff --git a/drivers/gpu/drm/tidss/tidss_crtc.c b/drivers/gpu/drm/tidss/tidss_crtc.c
-index acab9307bdf3..400329aa2200 100644
---- a/drivers/gpu/drm/tidss/tidss_crtc.c
-+++ b/drivers/gpu/drm/tidss/tidss_crtc.c
-@@ -355,24 +355,21 @@ static void tidss_crtc_destroy_state(struct drm_crtc *crtc,
- 
- 	__drm_atomic_helper_crtc_destroy_state(&tstate->base);
- 	kfree(tstate);
- }
- 
--static void tidss_crtc_reset(struct drm_crtc *crtc)
-+static struct drm_crtc_state *tidss_crtc_create_state(struct drm_crtc *crtc)
- {
- 	struct tidss_crtc_state *tstate;
- 
--	if (crtc->state)
--		tidss_crtc_destroy_state(crtc, crtc->state);
--
- 	tstate = kzalloc_obj(*tstate);
--	if (!tstate) {
--		crtc->state = NULL;
--		return;
--	}
-+	if (!tstate)
-+		return ERR_PTR(-ENOMEM);
- 
--	__drm_atomic_helper_crtc_reset(crtc, &tstate->base);
-+	__drm_atomic_helper_crtc_state_init(&tstate->base, crtc);
-+
-+	return &tstate->base;
- }
- 
- static struct drm_crtc_state *tidss_crtc_duplicate_state(struct drm_crtc *crtc)
- {
- 	struct tidss_crtc_state *state, *current_state;
-@@ -403,14 +400,14 @@ static void tidss_crtc_destroy(struct drm_crtc *crtc)
- 	drm_crtc_cleanup(crtc);
- 	kfree(tcrtc);
- }
- 
- static const struct drm_crtc_funcs tidss_crtc_funcs = {
--	.reset = tidss_crtc_reset,
- 	.destroy = tidss_crtc_destroy,
- 	.set_config = drm_atomic_helper_set_config,
- 	.page_flip = drm_atomic_helper_page_flip,
-+	.atomic_create_state = tidss_crtc_create_state,
- 	.atomic_duplicate_state = tidss_crtc_duplicate_state,
- 	.atomic_destroy_state = tidss_crtc_destroy_state,
- 	.enable_vblank = tidss_crtc_enable_vblank,
- 	.disable_vblank = tidss_crtc_disable_vblank,
- };
-diff --git a/drivers/gpu/drm/tidss/tidss_plane.c b/drivers/gpu/drm/tidss/tidss_plane.c
-index 1a8b44fb45f8..6d82976c2db1 100644
---- a/drivers/gpu/drm/tidss/tidss_plane.c
-+++ b/drivers/gpu/drm/tidss/tidss_plane.c
-@@ -176,12 +176,12 @@ static const struct drm_plane_helper_funcs tidss_primary_plane_helper_funcs = {
- };
- 
- static const struct drm_plane_funcs tidss_plane_funcs = {
- 	.update_plane = drm_atomic_helper_update_plane,
- 	.disable_plane = drm_atomic_helper_disable_plane,
--	.reset = drm_atomic_helper_plane_reset,
- 	.destroy = drm_plane_destroy,
-+	.atomic_create_state = drm_atomic_helper_plane_create_state,
- 	.atomic_duplicate_state = drm_atomic_helper_plane_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_plane_destroy_state,
- };
- 
- struct tidss_plane *tidss_plane_create(struct tidss_device *tidss,
+As MMC, Ethernet and USB support is all applied, maybe it's already
+worthy to update the device tree ;-)
 
--- 
-2.54.0
+Thanks,
+Icenowy
+
+>=20
+> > > > =3D=3D=3D=3D=3D=3D=3D=3D=3D 8< =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> > > >=20
 
 
