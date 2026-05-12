@@ -4,56 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D8FCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524C4CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RPNV9f2FkJa8SsKMvM0nSEQ+h9Bwc3cCq10hzKrpUc=; b=iBKeor8kJJYhOrojOK9chndFmN
-	J+AtzRllWg4Rf/3lTEa+byOVRdthc6s/5IEO63tAl2+tSZzuX0tfeDJdJWZ10IGJtZYIAbPSkPTVz
-	Jl8CtXYLdE5dkuPJ1hYqOgW8+MgNssF1Glp3QEy0lpph5A8gkoTQrlL25L7hy+IR7qqxI/Q4PToGi
-	yiQbY7hqyGqoDN7HVwkujdjBN3v16IDX7zrDR3OGAxFgX/UK7zEPM8IN9Z/u1stXT3CF3+7jLTH4y
-	H31/r+LbTmtCzBtYC7Hs9XNL713rQwlN3L91a6DaEPLZYSFLHBfakSuDVHthvGamdHqlunQKg/mgV
-	5eEGjuvQ==;
+	bh=AENqFhTMzGEG0tZvFQfc1G7qbyWmmCFMDTZhOUpQHRY=; b=vv/z2STTtMcYDGuyauE/fg/9QA
+	D0y7JU/4bVKl8M1TYvMcE0Z0WbFusIJXVADP7potTWsR3lsPBc7scvgTJg1wzinPvWrTAFTjNSjJZ
+	chH/4nEK/+EE+TNbvyMDAburA/u2SuUoCdtvPsblcU4GgO7KKXX485mouj4HyB2Uk4ZmuUYB4NG3h
+	38vMDy5rRGyazOqiXHvYSH3s0PH0DnN1Cf5hXl0Tg9UQgeUixnIJlCRtrzmJhbiF5rbd+irmTCRh+
+	a7nivXjyyo/YzdNp8onjQXh7guiY2ysKJmu8y50G7Fp9k/w/94JPGmoVGHZuofS+BVwC+9W8uEEL9
+	KC9Qq0vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMow6-0000000HCHO-37jo;
-	Tue, 12 May 2026 15:22:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMow6-0000000HCGn-0J0Q
+	id 1wMoxu-0000000HChI-0Sd1;
+	Tue, 12 May 2026 15:24:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMoxs-0000000HCgj-0bz3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 15:22:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D306618A1;
-	Tue, 12 May 2026 15:22:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEB83C2BCB0;
-	Tue, 12 May 2026 15:22:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778599336;
-	bh=0mQ9WUyf//P5pbvLH0sW41h1Dq7UtQ3QNXMnE8N+8AM=;
+	Tue, 12 May 2026 15:24:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7230F1691;
+	Tue, 12 May 2026 08:23:59 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 516BA3F905;
+	Tue, 12 May 2026 08:24:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778599444; bh=XPwUdxVOc0Tqd107WVgjRsQ2UAF234jshz+3ch/zx5s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S8BrcVysnQowfGUpu+ooPgWJynKE//pAzW6sSO7hDvSasTPlNgaVqtfpUGhH851R2
-	 WmHO7Xdgy9S+x2SWRJU3mYy0Hy9nhugcyvSv2ZftkS291MX/rYqeLqgiVjJl6qqA5V
-	 Eq9TR0XO5SGn1wb2tvYv9yzENhNHhw6GfogkwbcEzPHqBh1ZAj2HKKqW0A+9M5mdY4
-	 aGgvW8eSC0BhkkvXQpo8t5ylz4xhWFpkgzWzL2dGJnCllyMlRYtwiSLmc4tzQ6gI3F
-	 QcrtlGWqCdUQ0ePPvZGqgeN3fC4LN/Fg4sp0x+IuvE86fQ5APeTOg7AXs7YER+3U5D
-	 UJYMiVWDvdgAw==
-Date: Tue, 12 May 2026 16:22:10 +0100
-From: Will Deacon <will@kernel.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, cl@gentwo.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [v6 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-Message-ID: <agNFou9cAavEILXl@willie-the-truck>
-References: <20260316192933.3993042-1-yang@os.amperecomputing.com>
+	b=XXVtzqi8OLp1GOwHqyH658/tCsxQoR/N9z0Ii+Mu0dSY5kw+OcdUAMLVmibTZ6mHu
+	 DWySnsUW63/uuDwJ/UTa38Tl2bjQTeyxeDiGnHFu5MyRhon70hkn7f5q8lGNmE3fzZ
+	 dmU7lGdZiqOckaWU4Bb7/WPofxK4vzxqCwsGurTA=
+Date: Tue, 12 May 2026 16:24:02 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Richard Cheng <icheng@nvidia.com>
+Subject: Re: [PATCH v4] coresight: fix missing error code when trace ID is
+ invalid
+Message-ID: <20260512152402.GB34802@e132581.arm.com>
+References: <20260512-fix-trace-id-error-v4-1-eb3de789767a@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260316192933.3993042-1-yang@os.amperecomputing.com>
+In-Reply-To: <20260512-fix-trace-id-error-v4-1-eb3de789767a@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_082408_227281_FA0AB1F6 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,132 +75,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 16, 2026 at 12:29:33PM -0700, Yang Shi wrote:
-> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
-> rodata=full"), the direct mapping may be split on some machines instead
-> keeping static since boot. It makes more sense to show the direct mapping
-> use in /proc/meminfo than before.
-> This patch will make /proc/meminfo show the direct mapping use like the
-> below (4K base page size):
-> DirectMap4K:       94792 kB
-> DirectMap64K:     134208 kB
-> DirectMap2M:     1173504 kB
-> DirectMap32M:    5636096 kB
-> DirectMap1G:    529530880 kB
+On Tue, May 12, 2026 at 09:56:07AM +0800, Jie Gan wrote:
+> When coresight_path_assign_trace_id() cannot assign a valid trace ID,
+> coresight_enable_sysfs() takes the err_path goto with ret still 0,
+> returning success to the caller despite no trace session being started.
 > 
-> Although just the machines which support BBML2_NOABORT can split the
-> direct mapping, show it on all machines regardless of BBML2_NOABORT so
-> that the users have consistent view in order to avoid confusion.
+> Change coresight_path_assign_trace_id() to return int, moving the
+> IS_VALID_CS_TRACE_ID() check inside it so it returns -EINVAL on failure
+> and 0 on success. Update both callers to propagate this return value
+> directly instead of inspecting path->trace_id after the call.
 > 
-> Although ptdump also can tell the direct map use, but it needs to dump
-> the whole kernel page table. It is costly and overkilling. It is also
-> in debugfs which may not be enabled by all distros. So showing direct
-> map use in /proc/meminfo seems more convenient and has less overhead.
-> 
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-> ---
-> v6: * Rebased to v7.0-rc3
->     * Rebased on top of Anshuman's v5 "arm64/mm: Enable batched TLB flush
->       in unmap_hotplug_range()"
->     * Used const for direct map type array per Will
->     * Defined PUD size for 16K/64K even though it is not used per Will
->     * Removed the misleading comment in init_pmd() per Will
-> v5: * Rebased to v6.19-rc4
->     * Fixed the build error for !CONFIG_PROC_FS
-> v4: * Used PAGE_END instead of _PAGE_END(VA_BITS_MIN) per Ryan
->     * Used shorter name for the helpers and variables per Ryan
->     * Fixed accounting for memory hotunplug
-> v3: * Fixed the over-accounting problems per Ryan
->     * Introduced helpers for add/sub direct map use and #ifdef them with
->       CONFIG_PROC_FS per Ryan
->     * v3 is a fix patch on top of v2
-> v2: * Counted in size instead of the number of entries per Ryan
->     * Removed shift array per Ryan
->     * Use lower case "k" per Ryan
->     * Fixed a couple of build warnings reported by kernel test robot
->     * Fixed a couple of poential miscounts
-> 
->  arch/arm64/mm/mmu.c | 197 +++++++++++++++++++++++++++++++++++++++-----
->  1 file changed, 176 insertions(+), 21 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 5fb9a66f0754..7e95dbc69d57 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -29,6 +29,7 @@
->  #include <linux/mm_inline.h>
->  #include <linux/pagewalk.h>
->  #include <linux/stop_machine.h>
-> +#include <linux/proc_fs.h>
->  
->  #include <asm/barrier.h>
->  #include <asm/cputype.h>
-> @@ -171,6 +172,87 @@ static void init_clear_pgtable(void *table)
->  	dsb(ishst);
->  }
->  
-> +enum dm_type {
-> +	PTE,
-> +	CONT_PTE,
-> +	PMD,
-> +	CONT_PMD,
-> +	PUD,
-> +	NR_DM_TYPE,
-> +};
-> +
-> +#ifdef CONFIG_PROC_FS
-> +static unsigned long dm_meminfo[NR_DM_TYPE];
-> +
-> +void arch_report_meminfo(struct seq_file *m)
-> +{
-> +	const char *size[NR_DM_TYPE];
-> +
-> +#if defined(CONFIG_ARM64_4K_PAGES)
-> +	size[PTE] = "4k";
-> +	size[CONT_PTE] = "64k";
-> +	size[PMD] = "2M";
-> +	size[CONT_PMD] = "32M";
-> +	size[PUD] = "1G";
-> +#elif defined(CONFIG_ARM64_16K_PAGES)
-> +	size[PTE] = "16k";
-> +	size[CONT_PTE] = "2M";
-> +	size[PMD] = "32M";
-> +	size[CONT_PMD] = "1G";
-> +	size[PUD] = "64G";
-> +#elif defined(CONFIG_ARM64_64K_PAGES)
-> +	size[PTE] = "64k";
-> +	size[CONT_PTE] = "2M";
-> +	size[PMD] = "512M";
-> +	size[CONT_PMD] = "16G";
-> +	size[PUD] = "4T";
-> +#endif
-> +
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[PTE], dm_meminfo[PTE] >> 10);
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[CONT_PTE],
-> +			dm_meminfo[CONT_PTE] >> 10);
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[PMD], dm_meminfo[PMD] >> 10);
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[CONT_PMD],
-> +			dm_meminfo[CONT_PMD] >> 10);
-> +	if (pud_sect_supported())
-> +		seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[PUD], dm_meminfo[PUD] >> 10);
-> +}
-> +
-> +static inline bool is_dm_addr(unsigned long addr)
-> +{
-> +	return (addr >= PAGE_OFFSET) && (addr < PAGE_END);
-> +}
+> Fixes: d87d76d823d1 ("Coresight: Allocate trace ID after building the path")
+> Reviewed-by: James Clark <james.clark@linaro.org>
+> Reviewed-by: Richard Cheng <icheng@nvidia.com>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 
-Just use __is_lm_address()?
-
-For better or worse, the arm64 arch code tends to talk about the "linear
-map" rather than the "direct map", so a little bit of renaming would be
-good (i.e. s/dm/lm/). I'm fine if you want to keep the user-visible
-strings as "DirectMap".
-
-Will
+Reviewed-by: Leo Yan <leo.yan@arm.com>
 
