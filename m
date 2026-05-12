@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3348DCD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57A6CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YnF3EdK3+J3oHq0axleLMpUdqK1qVnn9JJt0xzFwOCc=; b=qSv5GSA2WT/XYVR9nz+Ha+4Hxi
-	TFWnFqzoNE/9l5GnztiHVQDUxkOGFAoZlH6SC81qBmQk4f7AD/n8o957Q+3mLf6ztp1bCu1hXLr/J
-	qw7S7a824nY1MhOxudz/jkLJPPcy5SXYxfcNgPr3G9xpEbOvYIEQSJbKssf065OUMJbp0rlrXsK49
-	ltFUGA0gJ8KpzF8f+n5+3hS0O3j9lbm8gyBb2QLQaaT2kM6F6ELgme205Eompq/xekUuk2+SkTFVE
-	AA30QEZN2RB79YUAKrqnpyOvz/84aJOVyaNMq3PBpgT1Mw7TdEWEFqG9LBEbzfB2bOR1pes0Kl9RS
-	i3q9Nlqg==;
+	bh=GoXBOAsCBLkRgIlTLAaPNEvsIAgN10v/xLJsKPeWKHc=; b=K2bOO/EQk3n3S0IRShXV0L5BYx
+	UzDDOKMWCdetRUIsn4DwqKNjIKMt0sCHzsEKHqEyo6ymBNkodBnXAUh3B37G2lw8FBIqW3pj5cQ30
+	7SdnN1jiuzwMBheTbOUyU5+2ZnzjwOfEF0Txp2c7AGEutV17X9GjXMQ0U1Ndfv05BEPw1cyBR6+qE
+	L+XjYpJELS4pij3xZ7ZD871JQ5VDn+itIT+jY1WkbY3h4r0STv82V2h1Ons52ZQPRXjLoR8KcPX6c
+	JGhGtN5SteIB2lf1JKTVgcUfx9ZhSTOWCg4VogngnoJSif9mxwpQDhMEfvNuu+0BXKkqw8RbO3Ms3
+	uJ/PEtng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmpI-0000000GlEX-201p;
-	Tue, 12 May 2026 13:07:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wMmpS-0000000GlRh-43Ro;
+	Tue, 12 May 2026 13:07:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmpA-0000000Gl49-2v4i
+	id 1wMmpM-0000000GlIz-0ln5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:07:00 +0000
+	Tue, 12 May 2026 13:07:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2484C6014B;
-	Tue, 12 May 2026 13:07:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CEFBC2BD00;
-	Tue, 12 May 2026 13:06:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DD03041869;
+	Tue, 12 May 2026 13:07:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DBA9C2BD05;
+	Tue, 12 May 2026 13:07:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778591219;
-	bh=ggQTHc1Vrf1OootvBKBhx0sCr3dngBz6Q+7np6t2O3M=;
+	s=k20201202; t=1778591231;
+	bh=n4eohByrrLdrAD3Xh6iy0bQauhz8JMCGndNHIg0F7dc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nzPtGX1k/gT/E2w5z+GOhYIJqiBOOOas5cXYGZGRd+B0g9YliaRGJ1t+v65NAEL+z
-	 aG3kjdeS/jC6w60E2suUAKeookEpP06UasmZK+Hg494n3AV36nJQaCz75poH/yRzP0
-	 3aVWMxCxk9Ari79ub1YUJNCSxk2dsOAoVkDkbEzvAvPavjWYyNgXsQMTJAftWy3C5j
-	 wnqgRPXsL4JubErR0RoogASnppJDIOq5s/BVbnO4oPejGE8FEqrvMI8RqKP/TeY8sU
-	 HXygCbD/97N1dutDGntSpYu9h8C6s3e/NGZMg2DRfwO9uu4JXdnLRyuQpXk7PNzLDV
-	 z9PmR4CkwPMDA==
+	b=aZfJpeagASMSt93SGtgNPNFiIKv0sh5rePucN3m7DE4JKFFBrN5YlHVtWXGZR6SLj
+	 BEm8ZgWwkKkCdzUj86dqxN2ZdllsnkQx8d0BU0dagu6MI8Ud2z4h8c7CAoV+6W3Tqs
+	 rhMmsHRam00BhFm9jzImcyuYcG5NiAowfHeL/iQtZlqHG5EE7OIlKYYXBFRxBVN/Nh
+	 /Q10EZZkBhRRSe0WoHbdBRA3d+Zd8+uS6IZFKLJlwgm98N5xwORj66O1phNOwgyaFM
+	 yjh/7zdswAcg43SJ7MQ4sEQHn8DqfQF+9PDTMCAZjRuGkY1/TV9DxqpyJxU49SFXLR
+	 bAU8JQXLhAbQw==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 12 May 2026 15:06:14 +0200
-Subject: [PATCH v4 16/20] drm/mode-config: Create
- drm_mode_config_create_initial_state()
+Date: Tue, 12 May 2026 15:06:18 +0200
+Subject: [PATCH v4 20/20] drm/bridge_connector: Convert to
+ atomic_create_state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260512-drm-mode-config-init-v4-16-591dfdcc1bf9@kernel.org>
+Message-Id: <20260512-drm-mode-config-init-v4-20-591dfdcc1bf9@kernel.org>
 References: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
 In-Reply-To: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -80,14 +80,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  Maxime Ripard <mripard@kernel.org>, 
  Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6149; i=mripard@kernel.org;
- h=from:subject:message-id; bh=ggQTHc1Vrf1OootvBKBhx0sCr3dngBz6Q+7np6t2O3M=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFnMqgd1dxraZveU+dxrmzSr68rHV3dPZgRxOicZHfF74
- eDplyrUMZWFQZiTQVZMkeWJTNjp5e2LqxzsV/6AmcPKBDKEgYtTACbisJmxvupGVt+jqu8dl7bK
- ureJbvl5r/rl5uffOWN6q6bZ/5h71q3u3I+omzfz7T97vVYWTO3ax1hfqrKXZ9aO0pZ3x7nzZS8
- pZdYF884MnWcrL97D2bu3zmbGW90vN904iw6zCBdGvG1hkwAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2233; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=n4eohByrrLdrAD3Xh6iy0bQauhz8JMCGndNHIg0F7dc=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFnMqofX7m//V/ko0eeLjvieiynXfOyL5kYH71h544hi9
+ 9aImScudUxlYRDmZJAVU2R5IhN2enn74ioH+5U/YOawMoEMYeDiFICJKAYyNvyT6Qkx5bJZJs7K
+ VHQj1rhjduaE+uctAd4fn/NdbPl9LvLzEs6XR2YG8Qkttj7yu6IgnrHh0JnCA+kqdjM732oV/NJ
+ alfLqm805P9mOXUfqrziee9248rOc3d15rDc/GGl8THhRI1sGAA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_060712_301735_4C4716C9 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,188 +105,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-drm_mode_config_reset() can be used to create the initial state, but
-also to return to the initial state, when doing a suspend/resume cycle
-for example.
+The connector created by drm_bridge_connector only initializes a
+pristine state in reset, which is equivalent to what
+atomic_create_state would expect. Convert to it.
 
-It also affects both the software and the hardware, and drivers can
-choose to reset the hardware as well. Most will just create an empty
-state and the synchronisation between hardware and software states will
-effectively be done when the first commit is done.
-
-That dual role can be harmful, since some objects do need to be
-initialized but also need to be preserved across a suspend/resume cycle.
-drm_private_obj are such objects for example.
-
-Thus, create another helper for drivers to call to initialize their
-state when the driver is loaded, so we can make
-drm_mode_config_reset() only about handling suspend/resume and similar.
-
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/drm_atomic.c      | 13 +++++-
- drivers/gpu/drm/drm_mode_config.c | 87 +++++++++++++++++++++++++++++++++++++++
- include/drm/drm_mode_config.h     |  1 +
- 3 files changed, 99 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/display/drm_bridge_connector.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
-index 04bc3e736cbd..1afa3eef58b5 100644
---- a/drivers/gpu/drm/drm_atomic.c
-+++ b/drivers/gpu/drm/drm_atomic.c
-@@ -59,12 +59,21 @@
-  * preparing the update and kept alive as long as they are active in the
-  * device.
-  *
-  * Their respective lifetimes are:
-  *
-- * - at reset time, the object reset implementation will allocate a new
-- *   default state and will store it in the object state pointer.
-+ * - at driver initialization time, the driver will call
-+ *   drm_mode_config_create_initial_state() to allocate an initial,
-+ *   pristine, state for each object and will store it in the objects
-+ *   state pointer. Historically, this was one of
-+ *   drm_mode_config_reset() job, so one might still encounter it in a
-+ *   driver.
-+ *
-+ * - at reset time, for example during suspend/resume,
-+ *   drm_mode_config_reset() will reset the software and hardware state
-+ *   to a known default and will store it in the object's state pointer.
-+ *   Not all objects are affected by drm_mode_config_reset() though.
-  *
-  * - whenever a new update is needed:
-  *
-  *   + A new &struct drm_atomic_commit is allocated using
-  *     drm_atomic_commit_alloc().
-diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
-index 9d240817f8b6..27fe95184182 100644
---- a/drivers/gpu/drm/drm_mode_config.c
-+++ b/drivers/gpu/drm/drm_mode_config.c
-@@ -21,10 +21,11 @@
-  */
- 
- #include <linux/export.h>
- #include <linux/uaccess.h>
- 
-+#include <drm/drm_atomic.h>
- #include <drm/drm_drv.h>
- #include <drm/drm_encoder.h>
- #include <drm/drm_file.h>
- #include <drm/drm_framebuffer.h>
- #include <drm/drm_managed.h>
-@@ -314,10 +315,96 @@ void drm_mode_config_reset(struct drm_device *dev)
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 50408af746d8..cafa498c3848 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -263,26 +263,33 @@ static void drm_bridge_connector_debugfs_init(struct drm_connector *connector,
+ 		if (bridge->funcs->debugfs_init)
+ 			bridge->funcs->debugfs_init(bridge, root);
  	}
- 	drm_connector_list_iter_end(&conn_iter);
  }
- EXPORT_SYMBOL(drm_mode_config_reset);
  
-+/**
-+ * drm_mode_config_create_initial_state - Allocates the initial state
-+ * @dev: drm device
-+ *
-+ * This functions creates the initial state for all the objects. Drivers
-+ * can use this in e.g. probe to initialize their software state.
-+ *
-+ * It has two main differences with drm_mode_config_reset(): the reset()
-+ * hooks aren't called and thus the hardware will be left untouched, but
-+ * also the &drm_private_obj structures will be initialized as opposed
-+ * to drm_mode_config_reset() that skips them.
-+ *
-+ * Returns: 0 on success, negative error value on failure.
-+ */
-+int drm_mode_config_create_initial_state(struct drm_device *dev)
-+{
-+	struct drm_crtc *crtc;
-+	struct drm_colorop *colorop;
-+	struct drm_plane *plane;
-+	struct drm_connector *connector;
-+	struct drm_connector_list_iter conn_iter;
-+	struct drm_private_obj *privobj;
-+	int ret;
-+
-+	drm_for_each_privobj(privobj, dev) {
-+		struct drm_private_state *privobj_state;
-+
-+		if (privobj->state)
-+			continue;
-+
-+		if (!privobj->funcs->atomic_create_state)
-+			continue;
-+
-+		privobj_state = privobj->funcs->atomic_create_state(privobj);
-+		if (IS_ERR(privobj_state))
-+			return PTR_ERR(privobj_state);
-+
-+		privobj->state = privobj_state;
-+	}
-+
-+	drm_for_each_colorop(colorop, dev) {
-+		struct drm_colorop_state *colorop_state;
-+
-+		if (colorop->state)
-+			continue;
-+
-+		colorop_state = drm_atomic_helper_colorop_create_state(colorop);
-+		if (IS_ERR(colorop_state))
-+			return PTR_ERR(colorop_state);
-+
-+		colorop->state = colorop_state;
-+	}
-+
-+	drm_for_each_plane(plane, dev) {
-+		if (plane->state)
-+			continue;
-+
-+		ret = drm_mode_config_plane_create_state(plane);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	drm_for_each_crtc(crtc, dev) {
-+		if (crtc->state)
-+			continue;
-+
-+		ret = drm_mode_config_crtc_create_state(crtc);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	drm_connector_list_iter_begin(dev, &conn_iter);
-+	drm_for_each_connector_iter(connector, &conn_iter) {
-+		if (connector->state)
-+			continue;
-+
-+		ret = drm_mode_config_connector_create_state(connector);
-+		if (ret)
-+			return ret;
-+	}
-+	drm_connector_list_iter_end(&conn_iter);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL(drm_mode_config_create_initial_state);
-+
- /*
-  * Global properties
-  */
- static const struct drm_prop_enum_list drm_plane_type_enum_list[] = {
- 	{ DRM_PLANE_TYPE_OVERLAY, "Overlay" },
-diff --git a/include/drm/drm_mode_config.h b/include/drm/drm_mode_config.h
-index e584652ddf67..d8f5b7e9673e 100644
---- a/include/drm/drm_mode_config.h
-+++ b/include/drm/drm_mode_config.h
-@@ -1005,9 +1005,10 @@ int __must_check drmm_mode_config_init(struct drm_device *dev);
- static inline int drm_mode_config_init(struct drm_device *dev)
+-static void drm_bridge_connector_reset(struct drm_connector *connector)
++static struct drm_connector_state *
++drm_bridge_connector_create_state(struct drm_connector *connector)
  {
- 	return drmm_mode_config_init(dev);
+ 	struct drm_bridge_connector *bridge_connector =
+ 		to_drm_bridge_connector(connector);
++	struct drm_connector_state *conn_state;
++
++	conn_state = drm_atomic_helper_connector_create_state(connector);
++	if (IS_ERR(conn_state))
++		return conn_state;
+ 
+-	drm_atomic_helper_connector_reset(connector);
+ 	if (bridge_connector->bridge_hdmi)
+ 		__drm_atomic_helper_connector_hdmi_state_init(connector,
+-							      connector->state);
++							      conn_state);
++
++	return conn_state;
  }
  
-+int drm_mode_config_create_initial_state(struct drm_device *dev);
- void drm_mode_config_reset(struct drm_device *dev);
- void drm_mode_config_cleanup(struct drm_device *dev);
- 
- #endif
+ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
+-	.reset = drm_bridge_connector_reset,
+ 	.detect = drm_bridge_connector_detect,
+ 	.force = drm_bridge_connector_force,
+ 	.fill_modes = drm_helper_probe_single_connector_modes,
++	.atomic_create_state = drm_bridge_connector_create_state,
+ 	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
+ 	.debugfs_init = drm_bridge_connector_debugfs_init,
+ 	.oob_hotplug_event = drm_bridge_connector_oob_hotplug_event,
+ };
 
 -- 
 2.54.0
