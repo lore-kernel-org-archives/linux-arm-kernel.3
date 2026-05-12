@@ -4,71 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85B45CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 03:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E6FCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 04:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Euouo/K/RbEumsaT1GH2JUlCYd6qzEvxZUoNiId5TT4=; b=ze6+32NLYSErJ5hzUUwZ0LuiiF
-	/1doBVU/HXlBi2DcqxWxf7RefobaFvscW/f+QRE1oz3rcHokanZ7pTd/rmBSqgaVY1O95JfayR8To
-	+Fh3zQngfgISJ1+FR10/ej2/UuqaCrp4GnYk3gfExWV7xJzgosIvK0GoRDlUtOD7nDLULWCbbcX5+
-	g0DFlFjnkZqoK5+j6fhPdvBEDXtx2lyxJOpGYMTrnWl2dKa0xGElQJOHuSyrz89wlxMhR97jpgvev
-	N9N3vCo0ialoIBwmBk3uAPBCizoRlSnldXRM4UaTNUfaDP0sr02gArE4OJdSWiW3lAo2rUmUPKA1O
-	v01GtP4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zP/+2G+KQKp0jcs9Wp+FgRomWiwgmnqO7eeiRjAeLco=; b=rcYnimahOYAWUHRtialt2J7MzO
+	pamssSQxGXhhzqo5DtVpSqRs0x3kJ8qz4XDAzdYLQuZN1y6m/VfIZB8/Wj5c/bdJ39ac0XekdidJK
+	z/bg6ka/1vdmuAL3u1bSWVy3mzZw8WqVHmldV09VcOZoE34C7Myr8MfO7787LvixR/Gf9bxmFbmSD
+	DR/nl2PKXuVZBW5GmxR+tQ2vDmFUFXtH77Pl4vf9arPxwTa/nB1UzONs5vXtK9Vm6rfmMhXD2kP3U
+	KsMKcDIZc4HT+WaD7hJLug31wy2FWxoMFSdbTiE7YvN4iq8HISi5R76AB3gjeqqPEU+KE/yaLa0yu
+	/eJRdICA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMeFq-0000000FQ87-43a3;
-	Tue, 12 May 2026 03:57:58 +0000
-Received: from s106b.cyber-folks.pl ([195.78.66.88])
+	id 1wMeeu-0000000FSgd-2y0T;
+	Tue, 12 May 2026 04:23:52 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMeFm-0000000FQ66-1AqY
+	id 1wMeer-0000000FSg7-1fcZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 03:57:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=mmpsystems.pl; s=x; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Euouo/K/RbEumsaT1GH2JUlCYd6qzEvxZUoNiId5TT4=; b=pVbVIxXByLhlXqnNT+0d+CbEve
-	TjY0bwKs+/AYKrfSWu8mPOnImLsJNhc0Lmg7JggF9Q0CQHzdtFogBgpRGiAHApaocHOFShgOykLpk
-	eysv5YIBb4pLQGwd3tNAl0P0hkNNONnv6tunaHzK9+7s5xdYNkjistxxT9WqqgrZxsT6Zu2ALrdM3
-	AsQU/uqgI02OxtyW9MujjNgIY8puI4mfJkKjBzRGF9Y1ClyabokNj/hczmAjrYBl98cuCOxACZ8tj
-	U3qI9h+MUaJIXtZ6vaWGLQrxGcoorF8i1AF3Nt7sZl4X3kfR8kBKrhAk9fZ43pXn01ciUFFQJx9ee
-	0gcTliDA==;
-Received: from user-188-33-36-12.play-internet.pl ([188.33.36.12] helo=localhost)
-	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <michal.piekos@mmpsystems.pl>)
-	id 1wMeFj-00000007kOo-3hb9;
-	Tue, 12 May 2026 05:57:52 +0200
-Date: Tue, 12 May 2026 05:56:54 +0200
-From: Michal Piekos <michal.piekos@mmpsystems.pl>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Maksim Kiselev <bigunclemax@gmail.com>, 
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: iio: adc: Add GPADC for Allwinner A523
-Message-ID: <3aabrtlih2z3b4v5ec5jdb76cb4aesqm2grjudzxhlkk3iwzcn@bawiakcija6d>
-References: <20260510-sunxi-a523-gpadc-v1-0-4f6b0f4000fb@mmpsystems.pl>
- <20260510-sunxi-a523-gpadc-v1-1-4f6b0f4000fb@mmpsystems.pl>
- <e7269822-afc4-4a80-8408-297f9dbd6791@arm.com>
+	Tue, 12 May 2026 04:23:50 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-8cb40149037so478552785a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 21:23:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778559828; x=1779164628; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zP/+2G+KQKp0jcs9Wp+FgRomWiwgmnqO7eeiRjAeLco=;
+        b=KfdTbijV0Gq5UYV3UsxH3VS1R+bQ1M0+x1JWWwK7jA8qnQrt2P9Aj7xBVS1P2FNb5t
+         0jZlWfMoTZ9Ope57Cmxfz5FQzl1mPkd5YEbdeq/2oXzFX81xh5eFt8jwA3yQFoFrUp1O
+         H5/LL3urXTFNcl9vybYB4B3nACYh/Dtrzli7IEqN9QzOpYEjf37wpZ6FDBM0X3Ifd+6I
+         1DV9+O9vvsm2VAduHQGx3TQ6HpOfmSQBpHpFbG+m4w1flpjkaWAqEd2aPRlYIuarPLuL
+         MICizm8cE0ku2kVFlTblcFvs21WdhjlTVpTmPkkTdOZ2lqipuVF2c0mzT5MH1z950Q6+
+         X6Wg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778559828; x=1779164628;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zP/+2G+KQKp0jcs9Wp+FgRomWiwgmnqO7eeiRjAeLco=;
+        b=DL5o6rRZis7WE50Yme2Ki/Tn4ehgPb1b8vV3kg6hgtEF0L5JzuPNtS7KxtAniJtmYn
+         SaZqHktqRDUEigqDvGGjOtcQi6AeT9Hoau+XXwgv4k7XwF976qYYbcPRecReDBjypTV3
+         ueEmuJXoybzI+pUdaUA2W/XOmG9x8QrDcS5E9hRw0OGv3AcuBL66KrnZfvFPD/DgtV6Q
+         D1MiciEmX2/Nk3iPyzRXwLMQ+133m6MGJc5EnjlEA1yBnLI6PxEViswKT3OE3Sf3x0MT
+         xsMVzZJXd3IFoHi2H36vX+P5fa215NDWpmbQlNGT12AKhuaOQVoL2DXm7nvJILoAauk2
+         sCow==
+X-Forwarded-Encrypted: i=1; AFNElJ/RI2Rm12EUY+lUBP1JKD/iPZ8O0f80LjGLzP27TL99YUVhkQuTtkmU4nBEYu77KCvxlLwFuopy35EUzaTthEJq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoQp14tgGBvpmCGgArDQOQiiRGXG8WMUjn0vuU1jM9L56L450U
+	rvvPtcTmu2bpH5NSLeICiX1D6NXquvGruhD/F1AWufP3wZ3jeh6qoi5z
+X-Gm-Gg: Acq92OHM50bURxTCwADt39pb7H8EZAoH9JDM2DenCuyr9ngg86WAyxBbR2a6U7w/BNR
+	n93hRslcmeFm4ThClT749OKRBkLmJdQhLCHFIFYmHnLtn6ySmm5bp9hb616LP91x2hs0dDnFhgD
+	qWbFsuuWqYikvtj060Tf3xhl/rUGVhOlrpBmx2eWU2EchuYmakBJqPIrK0SUTWS7cdAtp9222gF
+	ch2qnVY70ykfv8fOuh2UxnV75e+heurpChHagjeZzOv7/E4TJ6gYzP0eigDJZdvVHdVoXahencW
+	icljRN8pucZxc7NxsOSSRJ2a1NGx0IEVzJnRMePtpMgKnyYDhNUUkYOcEGr3EZR+afqm67eNxSb
+	yGsnH5exn0xZDeILF+hRSw8zELAvhLgXeU5maXWR4bLlozNQ2D06yE63kKrVrbNdnab1DfB4f6S
+	b6gxJrW/LY+ZwNuGrGUz5shqzeJDx3IfrghzVs+66dVpTdZF8fgKZSGNqmDwUhTqLbU6ze8Ig0c
+	ShsSR5VSv0Wq0fFb1V4/WjzqzIb07V7svrZDZ1D0DwVYrU=
+X-Received: by 2002:a05:620a:4888:b0:8cf:d717:c22e with SMTP id af79cd13be357-907badfbfebmr2504182785a.28.1778559827743;
+        Mon, 11 May 2026 21:23:47 -0700 (PDT)
+Received: from mighty.tail79ce1c.ts.net (nat-130-245-192-1.resnet.stonybrook.edu. [130.245.192.1])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b53c7accddsm330162176d6.36.2026.05.11.21.23.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 May 2026 21:23:47 -0700 (PDT)
+From: Mithil Bavishi <bavishimithil@gmail.com>
+To: Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <kees@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Mithil Bavishi <bavishimithil@gmail.com>
+Subject: [PATCH] ARM: OMAP2+: Make OMAP4 finish_suspend callback CFI-safe
+Date: Tue, 12 May 2026 00:23:41 -0400
+Message-ID: <20260512042341.1452-1-bavishimithil@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e7269822-afc4-4a80-8408-297f9dbd6791@arm.com>
-X-Authenticated-Id: michal.piekos@mmpsystems.pl
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_205754_831217_CF1AE72A 
-X-CRM114-Status: GOOD (  32.86  )
+X-CRM114-CacheID: sfid-20260511_212349_448585_4173695B 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,129 +107,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 06:02:16PM +0200, Andre Przywara wrote:
-> Hi Michal,
-> 
-> thanks for adding this!
-> 
-> On 5/10/26 14:57, Michal Piekos wrote:
-> > Add support for the GPADC for the Allwinner A523. It differs from the
-> > D1/T113s/R329/T507 by having two clocks.
-> > 
-> > Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> > ---
-> >   .../iio/adc/allwinner,sun20i-d1-gpadc.yaml         | 37 +++++++++++++++++++++-
-> >   1 file changed, 36 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-> > index da605a051b94..89da96cd705f 100644
-> > --- a/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-> > +++ b/Documentation/devicetree/bindings/iio/adc/allwinner,sun20i-d1-gpadc.yaml
-> > @@ -17,6 +17,7 @@ properties:
-> >         - items:
-> >             - enum:
-> >                 - allwinner,sun50i-h616-gpadc
-> > +              - allwinner,sun55i-a523-gpadc
-> >             - const: allwinner,sun20i-d1-gpadc
-> 
-> As Jernej already mentioned, the A523 GPADC is not fully compatible, since
-> it adds another clock. The question to ask is: Can a driver only knowing
-> about the fallback device handle this new device? For which the answer here
-> is: No, it misses a clock.
-> So add just a single entry for the A523 (plus adding it to the driver).
-> 
-> So looking at this I wonder if we should add some property to describe the
-> number of supported channels, since they are slightly different between the
-> SoCs:
-> - The D1 manual mentions 2 channels.
-> - The T113s manual (same die as the D1?) describes 1 channel only.
-> - The T507 manual (same die as the H616) reports 4 channels.
-> - The A733 has 6 channels.
-> - The A133 has 1 channel, but it's channel 1, not 0.
-> 
-> So all of this is somewhat covered as channels are described as child nodes,
-> and have a reg property. Ideally non-existing channels just wouldn't be
-> listed, but I don't know if we want to rely on that.
-> 
-> So I am wondering if we should introduce a limit, or rather a mask (to cover
-> the A133 oddity)?
-> Either a DT property (channel-mask, as a single sell representing the bit
-> mask), or derived in the driver from the compatible string.
-> The former would avoid introducing different compatible strings just because
-> of that, though I think this type of property is somewhat discouraged?
-> 
-> Any thoughts?
+With CONFIG_CFI enabled, OMAP4 can trap in omap4_enter_lowpower()
+because omap_pm_ops.finish_suspend points directly to the assembly
+routine omap4_finish_suspend, which lacks the expected KCFI type
+metadata.
 
-Thanks. I have missed that sparse channels are also possible. I think in
-current implementation it will cause issue with lookup through
-<&gpadc 1> as sun20i_gpadc_alloc_channels would effectively create
-channels[0].channel = 1 in such scenario. I will try to verify if my
-logic is correct and provide separate fix if needed.
+Add a small C wrapper with the exact callback prototype and use it for
+finish_suspend.
 
-Regarding DT property masking channels there is already precedence:
-atmel,adc-channels-used is a bitmask of muxed and enabled channels.
-Not sure if preferable though...
+Signed-off-by: Mithil Bavishi <bavishimithil@gmail.com>
+---
+ arch/arm/mach-omap2/omap-mpuss-lowpower.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-Michal
-> 
-> >     "#io-channel-cells":
-> > @@ -29,7 +30,12 @@ properties:
-> >       const: 0
-> >     clocks:
-> > -    maxItems: 1
-> > +    minItems: 1
-> > +    maxItems: 2
-> > +
-> > +  clock-names:
-> > +    minItems: 1
-> > +    maxItems: 2
-> >     interrupts:
-> >       maxItems: 1
-> > @@ -40,6 +46,35 @@ properties:
-> >     resets:
-> >       maxItems: 1
-> > +allOf:
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          items:
-> > +            - const: allwinner,sun55i-a523-gpadc
-> > +            - const: allwinner,sun20i-d1-gpadc
-> > +    then:
-> > +      properties:
-> > +        clocks:
-> > +          minItems: 2
-> > +          maxItems: 2
-> > +          items:
-> > +            - description: Bus clock
-> > +            - description: Module clock
-> 
-> I am not a YAML expert, but I think you can drop the min and max properties,
-> if you just enumerate the cases. Same for the names.
-> 
-> Cheers,
-> Andre
+diff --git a/arch/arm/mach-omap2/omap-mpuss-lowpower.c b/arch/arm/mach-omap2/omap-mpuss-lowpower.c
+index f18ef45e2..1c51b2f97 100644
+--- a/arch/arm/mach-omap2/omap-mpuss-lowpower.c
++++ b/arch/arm/mach-omap2/omap-mpuss-lowpower.c
+@@ -111,6 +111,11 @@ static struct cpu_pm_ops omap_pm_ops = {
+ 	.hotplug_restart	= dummy_cpu_resume,
+ };
+ 
++static int omap4_finish_suspend_wrapper(unsigned long cpu_state)
++{
++	return omap4_finish_suspend(cpu_state);
++}
++
+ /*
+  * Program the wakeup routine address for the CPU0 and CPU1
+  * used for OFF or DORMANT wakeup.
+@@ -437,7 +442,7 @@ int __init omap4_mpuss_init(void)
+ 	}
+ 
+ 	if (cpu_is_omap44xx()) {
+-		omap_pm_ops.finish_suspend = omap4_finish_suspend;
++		omap_pm_ops.finish_suspend = omap4_finish_suspend_wrapper;
+ 		omap_pm_ops.resume = omap4_cpu_resume;
+ 		omap_pm_ops.scu_prepare = scu_pwrst_prepare;
+ 		omap_pm_ops.hotplug_restart = omap4_secondary_startup;
+-- 
+2.43.0
 
-I will correct that in v2.
-Michal.
-> 
-> > +        clock-names:
-> > +          minItems: 2
-> > +          maxItems: 2
-> > +          items:
-> > +            - const: bus
-> > +            - const: mod
-> > +      required:
-> > +        - clock-names
-> > +    else:
-> > +      properties:
-> > +        clocks:
-> > +          maxItems: 1
-> > +        clock-names: false
-> > +
-> >   patternProperties:
-> >     "^channel@[0-9a-f]+$":
-> >       $ref: adc.yaml
-> > 
-> 
 
