@@ -4,96 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0BA3CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2647ECD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vWXMLSbqiyEkH0k1UKJeayzUqXsbhd23PKmYFrT067Y=; b=prhkDcY8VyQfYTrsOSkDBZYQ/K
-	JF5fQaQ92Ctx5HTbs+tE6M/Pj8kUcUjXfBcOUhjh+/7zHvKfQCcLjk/ZujxJ/lW7tkTQWrx98Dwt4
-	q35sgp8YF05SrB1v2UDhq4Qs9e8LcDJfNBsMtRlUnf67JUi+LIckE8F0XyjwS03kQ4Kihs7OUJ+kl
-	js/IK1Y3uMfM/OsWcLAcLuhzxKcwTU4KO+QGl3AL1IHuWwSJWqfegqczM/FfUT1Jl75R79o9fEK49
-	WQui7tpx/4KGELkxZ6/CLdN7TAHJtgSX/rxXakm7xeUX7xsFCsSOK6kAWjSh0x77VuhP3IiuM/3Bd
-	RzgDvLUw==;
+	bh=ev8vh5ns96+Mwfb2pHRZUX8j/pGmczCVQ0yRoYyUO/4=; b=xV2nurhM7f6vk+51Pu8oJ2ozH7
+	CtBn1HJ/5/2q88BwYwIqa2RMwDLMRw3t6e0t5ccl9LlSapF5W1EG2RS4rgkRdz0SLt1qEQhRGZYW3
+	Y7BssTh78vyuEP9TvsdojJMw4wY4yrqs5oeU4MyUCJtef4kKBZHCt9g+xx2UjPIb5A8Q2UPaCY96+
+	YZxXGZfIeoyLruXrEwtuFuOsYlNufN24PKD5JRC3q9rOj8EEIbOlafX6ad67nZ2p+tS05Kw4aaMyS
+	1URWPG+evNhrSSbhGTZlv5IIlfjvUMmuBo2h3Xh2mDQD65Erz1+AQ0vVD2WZ9QRj7TT2b7ZRIX8mQ
+	4dbc6UVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMolm-0000000HATn-13zQ;
-	Tue, 12 May 2026 15:11:38 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1wMon8-0000000HAlj-2USn;
+	Tue, 12 May 2026 15:13:02 +0000
+Received: from mail-norwayeastazon11013045.outbound.protection.outlook.com ([40.107.159.45] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMolk-0000000HAT3-1le6
+	id 1wMon6-0000000HAlF-1eyU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 15:11:37 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-900fa9f178dso612412385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 08:11:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1778598695; x=1779203495; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vWXMLSbqiyEkH0k1UKJeayzUqXsbhd23PKmYFrT067Y=;
-        b=C37sB+VeIB3VyPPEiNvOq8h5ILLgh5chV0B2SosggNF1t2U8XcpzbzIW74ZFscixmN
-         t03kPxD4UjrHZ6iuHYddQ21nMolDQcbTrcSvWBLH7LYhGvFuK0XBCmsEbp8rjfC5BFkn
-         atQI+L8kRHvH4wBepz/Nii39mpMzLEyYSctNsBJYrft05V5RscE9jEbVEiUgVoO5/SwK
-         aYpfFQLTTGkHDpDJB/ni2aHWltSkQieEhq/ozQqfZf0eKx64SaqyZRCxkMxtxR2smZAE
-         a5LCpwH4SKLsdv10EUSmSQesBcKv0OsOR8jIoWsmlqppNsZHiYuKGlps57BFQT6ivQI8
-         EiaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778598695; x=1779203495;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vWXMLSbqiyEkH0k1UKJeayzUqXsbhd23PKmYFrT067Y=;
-        b=DEjoyIEbS98Xfr8L49BNLtRTXKp0um77dpvJoqA7WjeriOupZrV6OC4Iwyqmn3RivR
-         BVuJt1taylNZ9Sw/H6qHfI53l+MIcc08YpEWZPYiF+G9wQQLLBmTgWXs/0RjfWpSWwuW
-         /UOiRzzavB6UbBPinsW/pBPj4O1U/lDM66rA1rCauKyW67yH4fdc27dOrfFUY5WmTsT/
-         x0D7eh/tHXDNu+wzgweN9y5ZbAyxmzOR7g2X/mjjCq6IigcU/6XdXOSf786By2yWYoz2
-         E/TxWblvy26ujS+XLO3t9AlFB6yKNZU9EgKv8aVd1Cl4jth5ld3u5kuukZhsBFK1SdOD
-         v9+Q==
-X-Forwarded-Encrypted: i=1; AFNElJ9Vu/80Py/9XPFSf53keMkXYBxM3j0d3FJXp7iWYetrKLVeCJr/Yf71P+T770tc75bJWWiQ7HIMDgTPJdam+n/B@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxycn2Z1RpyGZu1ESvkZLaoV4rEgoQ/V+J0SHR8iryhG3zLRfed
-	Q7I909Mw7v0mo23blCf8liEQwj8Y55wI7+/6FhRnzSCPG2AoQeoh/xXVbWJLXQWuoSs=
-X-Gm-Gg: Acq92OG8HHg5xHuQvGphBjLmQpDKsAORkxFdaMGdI6lUINnG/ny5WxZdVOZQYIEul0g
-	ORgAYLnCseCZNWpRLK6CPJt+xteC9UW7ALhzPCsLImntRqR3B9UM+c1ppBowMwy/jiLOluWwoJH
-	NtAqQ4gY5epjo1SQBKewkeTb1LTSyNi0EFANk8eYbSev9QFpB6dRuqVV8wPHx5rM8HDBCDeGbFP
-	t+VrPjmy9PdR5WOZH0l10edjBfJY3ZaB0R1f1k8dLLqZXx3GfugNv0e3Q85+cVcIEvehzp5+yg5
-	QzUjhRPL0Zmc9viyj2bj5M1DLf9N85lF/y6XEGl4XebluXMUEG4QrEf78C8rS+jpjQOKZeY0RAA
-	4dXtkA64PZp4KdMfpoUFhs04mkwi+55sADaZ8+PdHQ7X3bIjYopgJ65ah3lnQcMhWx7ClSR9cUg
-	xb4bawDdE7RfimO3aDsuyXjzNj1LRBMXxUa2I/KVH6j8BNYSFP4KTR6FVhCbHobNaLiR/VDRFcM
-	QUS3tMiFI6WHYjT
-X-Received: by 2002:a05:620a:c45:b0:8d6:39c0:e6a0 with SMTP id af79cd13be357-90910ffe81cmr2184465385a.54.1778598694733;
-        Tue, 12 May 2026 08:11:34 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-907b918cffesm1444739385a.14.2026.05.12.08.11.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2026 08:11:34 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wMolh-00000000ATo-2WZI;
-	Tue, 12 May 2026 12:11:33 -0300
-Date: Tue, 12 May 2026 12:11:33 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Joonwon Kang <joonwonkang@google.com>
-Cc: robin.murphy@arm.com, Alexander.Grest@microsoft.com, amhetre@nvidia.com,
-	baolu.lu@linux.intel.com, easwar.hariharan@linux.microsoft.com,
-	iommu@lists.linux.dev, jacob.jun.pan@linux.intel.com,
-	joro@8bytes.org, jpb@kernel.org, kees@kernel.org,
-	kevin.tian@intel.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, nicolinc@nvidia.com, praan@google.com,
-	smostafa@google.com, will@kernel.org
-Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
-Message-ID: <20260512151133.GD7702@ziepe.ca>
-References: <b95b42c6-4d10-4701-88e2-9991f3773e6a@arm.com>
- <20260512145138.3414002-1-joonwonkang@google.com>
-MIME-Version: 1.0
+	Tue, 12 May 2026 15:13:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nekuVKhQVcAtXlxUN8gulouwazI/76C+vFnAQPq8lghzrFBBNocOjj0mg8zvSNNZLkEjLj4U51Eh2PZUNCwTYcsNULbbYvgXaSQUH5dSJbJddpi8TeZblaTxqc5YySKFk5fECzpam5xfAkk74dZQ3G6jbv0lMjDBhNSsZuxV/d9iKuPuoGnT1TSf4JIAnra/425waR+MznhTKODMgEgX0oGkFwPmJjb7uvXueGI7qP/HowW4qep3agQ1F3KvLw7XJ8P4IobYzeGAjl+FCesoHKGvuYbuJkKZinH7mNFtp3qoH265LqzLItHC9vK/v/pdxcGqZnMRbtkIgFW4ok+Kew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ev8vh5ns96+Mwfb2pHRZUX8j/pGmczCVQ0yRoYyUO/4=;
+ b=l3ZoEEyYijSvKZU6ffa0spVQtMP76gW+pjikJFPmJlyHbCOjrXYAV7hzuXmocnxKhuXvgIsvPcOCRjZFbuHSOsNL0KZfRunFQk1XbBAYjP0mCQjjYDhP/yNzGGuPwpUC9+8Q9i6dylxf0YxPAeJi9Sd5fY23QwSB1gDlYvgidxhDxf/ddmAOfuyTN6zw0C3KECQFCqEM0JsMXkKdYAzghLI1lWJ68XoaUCeFITof90Sag1RssZNgzU/AjlmeLaZE9QtDUr/w9HMyYQs+TmZtdsVTjJBP2YMC0oK1JSqbPrIARil3a2CrM56DIPoth0vTgB2H67Pzg9ipQPxONY1+gA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ev8vh5ns96+Mwfb2pHRZUX8j/pGmczCVQ0yRoYyUO/4=;
+ b=Y242gxDBwXbnk9dTztkKn0okayy+/JVu/wFvj1+YuWgxYq+58vT5Zwfa5+4Sn72yUdt36lp/c1lQ32U411itQTiVFzMXQXx7+WS+feDcGWXMkDNCjeP+vI+1Sys2mS9QLu0343d62sr9ecvbTtxADKrvHmr2WVsT4kGYbpTxQqRi3eZF8f2kF4KpuTKjrg1ccROi2PSXGKURtSm6iHfwykozzCzL5jj3qHimHwfm08dQUsY11V34uyI6p4GmtrIbQu1FWCsrnsxOX34hFe3wFZ4YglNJMgvMpKlhx4vLCNq9TiYTHiWegS74f1t+rjTObsNGdleodpZtD/aPssKGBw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DUZPR04MB9966.eurprd04.prod.outlook.com (2603:10a6:10:4d9::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
+ 2026 15:12:55 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9891.021; Tue, 12 May 2026
+ 15:12:55 +0000
+Date: Tue, 12 May 2026 11:12:45 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Jacky Bai <ping.bai@nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] clk: imx: Add audio PLL debugfs for K-divider control
+Message-ID: <agNDbQsJn2jcnA9q@lizhi-Precision-Tower-5810>
+References: <20260512-imx8m_pll_debugfs-v1-1-e1e44b21be90@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260512145138.3414002-1-joonwonkang@google.com>
+In-Reply-To: <20260512-imx8m_pll_debugfs-v1-1-e1e44b21be90@nxp.com>
+X-ClientProxiedBy: SJ0PR05CA0146.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d::31) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DUZPR04MB9966:EE_
+X-MS-Office365-Filtering-Correlation-Id: a2c1f0bc-9f2a-4e5c-5c2e-08deb038f15b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|1800799024|366016|38350700014|11063799003|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: ak6mnD7QbAXRbhmoDh95bR9vJMBAnoXmahaDrXr/u/GaewJ/SvEmy+mhKIIyZX9Ht83ZFKL2WlCA2xC4H1mzjvwSheshm36t1WAldCnS/wFUqGY5qOMKDVXaXSdGMWeVzGgLLsBkCqoGeNRrJ64wzGjnzGpkYBPz+Cgg95rxS//1oJcnI2vZbTFomcEUTyBV/aX6OvuG6iin2ofKR32gY/tf/6mULwza0wMOMVixeYxt4vsXYO/dyIGD/sJTJiL+/Rv8BUT0HqzJ6mBS2hDPrq2OiPWxl8V7vs5QEzwE0F5olNwgZELhxfKhU1FVNDtrEaW3gqkXcxXdNotIcgXOq6aZgT6CH1tTR4CK9pAtkbiu4dGugJmAea6R0eqGugLH/WPbyfpb7NT6dF4bkzSaMNfZiPlYvi4t9uitJ3pFD4BSTCnMapYL7v2JimUqVQi6wIGtenDr4fh4lXsylxHix+7FhshZoNrY4DrIeE+xjBBki5AhWCRzbDxGdznInf5vNJmLCL85KU7vkyBlBEAhzkJbRUTy707b/Aiu8Wt0RjoVH/nNu51xbgOVwfo2yUQmEeQYJh1lVvV6lkP1Bra498WEjmGmQwnLu8b84dd4cNGLRre9eiwiFIssMLYAe3kgjel5EnwSAgGscAtsgkCgIZ09MkLpRwlj6Qru1jBPk7c6Jwt+8XDAGWmzF662IXJpPgyqCXu0gLb0vZEVbh06ngx1fxd7ypQZpTSgaCaSii1RgaN8/BcS8/tYQG0KRO2N
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014)(11063799003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VHjNMUMSxuNHz5d7hGXDLtpG1psDNr4mz3W+O2JdFBBDgcsj+BfBH1LvDo+7?=
+ =?us-ascii?Q?nknq7RmZPRoinHye5/piNmhij2SXiJKl6x7TpN26BCQoxzpJ2CAd/tnCWacH?=
+ =?us-ascii?Q?0+lVeEStkfK2JoEVh84//3wweXdcO3WGLqfDHZXiuo98J2I7XQ3JEDXUWeKO?=
+ =?us-ascii?Q?7BEa88RXxDUx7Usjf/jeV6/d1Y4XSacHvPvqGG4bBLNwokFMshSSUGAJMMgw?=
+ =?us-ascii?Q?73WXLzsHH8LyAvzYvZQZvY4OhSDilmYOStQ+AZL0MRUdD3n2W+SVwKGSaGHd?=
+ =?us-ascii?Q?KKFBoO4oGcNRVsfTV4Pki3HJ6Hiu4FoXQJp0B3ktsGYCZ/OlWo7gur5ySchm?=
+ =?us-ascii?Q?nSY9MZU6rR+TpBYkhR/6KZuNph4KdrRHq3ZoLWfaESgd4U9ngA9/sPO4wG9b?=
+ =?us-ascii?Q?GTjv22YBpCFdal6ykuPhshHj0P7jR1Ilwmi3KajyJdPTXwLV92SOMEqdk+ub?=
+ =?us-ascii?Q?mam2Pjo9abWkuvHRJhtUeu5WT3UYfbcs/R42uoy2Kf5Xq6m5AD30Uzg4f2iP?=
+ =?us-ascii?Q?c7xN+DxditW4PZdkVT2UAysDcHNWj2RX2OVnFAxbwjcpPclo0xiCUDO6XJBL?=
+ =?us-ascii?Q?Egku2Yhiz/X9c9cjMThKK921T8cw0P0mIokbOnTKnj5WeXa1Dw2bdRvRZMaw?=
+ =?us-ascii?Q?ANXGoYRo1VHZS9U9PsRxrwrffQiRoH1H3xWm1s9HQ4eRqrhgWg7QbFPnCMg/?=
+ =?us-ascii?Q?HMopm8k4v6snEl+ovY29NpFjbWuGCPRPmd5rRMobtZVEzGanSx1LmRA8rlwu?=
+ =?us-ascii?Q?zAggzN+7CSU6/Lxeuc/6zTD7s6Rjen4ZOBGtbqD05/cF+IrtdQtvOdOqnT9d?=
+ =?us-ascii?Q?99kvOBnPoHf/Bb9NfwP9ZflClxR2BHsBUUQ0wcFnSQuAejVQ1OsnZ1pIY0MK?=
+ =?us-ascii?Q?PBjdx6gtTs9clu4LGbtbntZ/0il7a2Jy2qME4w8gLcwj6TmepUqR2fFkKyES?=
+ =?us-ascii?Q?wEKPPIPk4O6U35rXnrFmvmKYfKW28BGM4IdiOxz1/y6KiDdhKM+QQjy51Wbi?=
+ =?us-ascii?Q?/TvIxmGKc+IVB4gdXWLisaEHBG5FR3RfDjHB8ZVPA76edU1ZEdTKjEd8oOfb?=
+ =?us-ascii?Q?fytTY1ZpWOEGm80peSMcwJhzF+Iu0Rl2mAtwA6DeduV5zs2tIpsy4iR3gqHu?=
+ =?us-ascii?Q?iBFNlPT7SU0sTMcT2OYW1M6o7v0LTW+AhG8Oa7HSWUJGfvjqOHmKqG4tN9ZI?=
+ =?us-ascii?Q?JV4zq2ZNuoYcFN9RzLWsof219a/AaXA5vEtne2gBgcoTw57n8mD/Fl7+ew6E?=
+ =?us-ascii?Q?6aAurN11VDJu8b1tPRtfBjoe3Ji0twQYHHSrOeLw+gi2qoS6cKAdNeI83+gx?=
+ =?us-ascii?Q?RTRjGiaZydruvx6x3IQECTfpezxjNrXE6awvpdadOScgzcxNJBYS+NZ2clCw?=
+ =?us-ascii?Q?WXPbthM8dBSN2sBe9ytNjElT6DPpoAxKtJZWeRX2IhO3/PNYK8w3mJOmPbIS?=
+ =?us-ascii?Q?qoC5e0LDfGx5jx2viFcDkKuJZwXAjWuSZxuNtvsPwBgEXQGEJI3RB4NtF8o0?=
+ =?us-ascii?Q?p/120C7glxslbwRiAIi8RfXV8b1fD8CuuQmED/WfdQQZJEXh6P7Vu+VLyxd1?=
+ =?us-ascii?Q?VUy4LDcrieAfiINUPTRsSYJpPHP9sauadlbvdxzna0D4W/4qYnbNGegIlOHt?=
+ =?us-ascii?Q?s2NoLQ5TTYJeZY5wd/sRF+WBpqkAO8QIoVubUG2LJ8XhC/j7VdN3hKSX2d+z?=
+ =?us-ascii?Q?Zhut05IR2tyyoRYq3eRx3whfZvhjT247eiSEEqeYEUc/5sFn?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a2c1f0bc-9f2a-4e5c-5c2e-08deb038f15b
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 15:12:54.8810
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Piq+HnruPQ7AyLpg1Qlmcm44DKzjzpwBfwcyP/CFvBuoIiYSJZA9Fl7zPewcuFIdhe6eeIxX9kUs3a3Ucf9n5Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9966
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_081136_461953_0B3E171D 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260512_081300_436262_852A8ECF 
+X-CRM114-Status: GOOD (  31.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,19 +138,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 02:51:38PM +0000, Joonwon Kang wrote:
+On Tue, May 12, 2026 at 05:08:10PM +0800, Jacky Bai wrote:
+> Add debugfs support for runtime tuning of the audio PLL K divider,
+> which enables fine-grained frequency adjustments for audio PLL.
+> This is used for:
+>   - Audio clock calibration and testing
+>   - Debugging audio synchronization issues
+>
+> Two debug interfaces are exported to userspace:
+>   - delta_k: It is used to adjust the K divider in PLL based on small
+>     steps
+>   - pll_parameter: It is used for get PLL's current M-divider,
+>     P-divider, S-divider & K-divider setting in PLL register
+>
+> examples for the usage of the two interfaces:
+>    1): Get the current PLL setting of dividers
+>      cat /sys/kernel/debug/audio_pll_monitor/audio_pll1/pll_parameter
+>
+>    2): if want to adjust the K-divider by a delta_k '1', then
+>      echo 1 > /sys/kernel/debug/audio_pll_monitor/audio_pll1/delta_k;
+>
+>    3): if want to adjust the K-divider by a delta_k '-1', then
+>      echo -1 > /sys/kernel/debug/audio_pll_monitor/audio_pll1/delta_k;
 
-> Appreciate all your clarifications here. So, my understanding is that if
-> our system does not support ST64BV and ST64BV0 or if our device does not
-> distinguish between the posted write and the non-posted write regarding
-> PASID, then we can lift the use of the global PASID space. Can I say this?
+Nit: needn't example, it is basic usage mode for debugfs.
 
-You should do what Robin said - just have your driver use a per-device
-PASID that it allocates and never use the global pasid allocator.
+>
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> ---
+>  drivers/clk/imx/clk-imx8mm.c  |  6 ++++
+>  drivers/clk/imx/clk-pll14xx.c | 79 +++++++++++++++++++++++++++++++++++++++++++
+>  drivers/clk/imx/clk.h         |  1 +
+>  3 files changed, 86 insertions(+)
+>
+> diff --git a/drivers/clk/imx/clk-imx8mm.c b/drivers/clk/imx/clk-imx8mm.c
+> index 319af4deec01c188524807d39dff92bbd08f3601..6a031d7cd031c8b5f5b01e5531ce54360724ba44 100644
+> --- a/drivers/clk/imx/clk-imx8mm.c
+> +++ b/drivers/clk/imx/clk-imx8mm.c
+> @@ -298,6 +298,7 @@ static struct clk_hw **hws;
+>
+>  static int imx8mm_clocks_probe(struct platform_device *pdev)
+>  {
+> +	struct clk_hw *audio_pll_hws[2];
+>  	struct device *dev = &pdev->dev;
+>  	struct device_node *np = dev->of_node;
+>  	void __iomem *base;
+> @@ -610,6 +611,11 @@ static int imx8mm_clocks_probe(struct platform_device *pdev)
+>
+>  	imx_register_uart_clocks();
+>
+> +	/* Add debug interface for audio PLLs */
+> +	audio_pll_hws[0] = hws[IMX8MM_AUDIO_PLL1];
+> +	audio_pll_hws[1] = hws[IMX8MM_AUDIO_PLL2];
+> +	audio_pll_debug_init(audio_pll_hws, ARRAY_SIZE(audio_pll_hws));
+> +
+>  	return 0;
+>
+>  unregister_hws:
+> diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
+> index 39600ee22be3066683b562aa6f2a8b750d19c4cc..59f126f35474116bdad0aeda59777b9eb7f246cf 100644
+> --- a/drivers/clk/imx/clk-pll14xx.c
+> +++ b/drivers/clk/imx/clk-pll14xx.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/bitfield.h>
+>  #include <linux/bits.h>
+>  #include <linux/clk-provider.h>
+> +#include <linux/debugfs.h>
+>  #include <linux/err.h>
+>  #include <linux/export.h>
+>  #include <linux/io.h>
+> @@ -551,3 +552,81 @@ struct clk_hw *imx_dev_clk_hw_pll14xx(struct device *dev, const char *name,
+>  	return hw;
+>  }
+>  EXPORT_SYMBOL_GPL(imx_dev_clk_hw_pll14xx);
+> +
+> +/*
+> + * Debugfs interface for Audio PLL runtime monitoring and control
+> + *
+> + * This interface allows dynamic adjustment of the Audio PLL
+> + * K-divider for precise frequency tuning, particularly useful
+> + * for audio applications.
+> + *
+> + * examples for the usage of the two interfaces:
+> + *   1): Get the current PLL setting of dividers
+> + *     cat /sys/kernel/debug/audio_pll_monitor/audio_pll1/pll_parameter
+> + *
+> + *   2): if want to adjust the K-divider by a delta_k '1', then
+> + *     echo 1 > /sys/kernel/debug/audio_pll_monitor/audio_pll1/delta_k;
+> + *
+> + *   3): if want to adjust the K-divider by a delta_k '-1', then
+> + *     echo -1 > /sys/kernel/debug/audio_pll_monitor/audio_pll1/delta_k;
+> + */
 
-To do this lightly re-organize the SVA code so the driver can supply
-its own PASID, and in this mode we wouldn't activate the ENQCMD
-features in the mm.
+2) and 3) keep one is enough, you better descript validate range for
+delta_k here, which is more valuable information.
 
-Jason
+> +#ifdef CONFIG_DEBUG_FS
+> +static int pll_delta_k_set(void *data, u64 val)
+> +{
+> +	struct clk_pll14xx *pll = to_clk_pll14xx(data);
+> +	s16 delta_k = (s16)val;
+> +	u32 div_ctl1;
+> +	s16 kdiv;
+> +
+> +	div_ctl1 = readl_relaxed(pll->base + DIV_CTL1);
+> +	kdiv = FIELD_GET(KDIV_MASK, div_ctl1) + delta_k;
+> +	writel_relaxed(FIELD_PREP(KDIV_MASK, kdiv), pll->base + DIV_CTL1);
+> +
+> +	return 0;
+> +}
+> +DEFINE_DEBUGFS_ATTRIBUTE_SIGNED(delta_k_fops, NULL, pll_delta_k_set, "%lld\n");
+
+generally, better also provide read for delta_k
+
+cat /sys/kernel/debug/audio_pll_monitor/audio_pll1/delta_k because user
+want to check value by read it back naturally.
+
+Frank
+> +
+> +static int pll_setting_show(struct seq_file *s, void *data)
+> +{
+> +	struct clk_pll14xx *pll = to_clk_pll14xx(s->private);
+> +	u32 div_ctl0, div_ctl1;
+> +	u32 mdiv, pdiv, sdiv, kdiv;
+> +
+> +	div_ctl0 = readl_relaxed(pll->base + DIV_CTL0);
+> +	div_ctl1 = readl_relaxed(pll->base + DIV_CTL1);
+> +
+> +	mdiv = FIELD_GET(MDIV_MASK, div_ctl0);
+> +	pdiv = FIELD_GET(PDIV_MASK, div_ctl0);
+> +	sdiv = FIELD_GET(SDIV_MASK, div_ctl0);
+> +	kdiv = FIELD_GET(KDIV_MASK, div_ctl1);
+> +
+> +	seq_printf(s, "Mdiv: 0x%x; Pdiv: 0x%x; Sdiv: 0x%x; Kdiv: 0x%x\n",
+> +	mdiv, pdiv, sdiv, kdiv);
+> +
+> +	return 0;
+> +}
+> +DEFINE_SHOW_ATTRIBUTE(pll_setting);
+> +
+> +void audio_pll_debug_init(struct clk_hw *hws[], unsigned int num_plls)
+> +{
+> +	struct dentry *rootdir, *audio_pll_dir;
+> +	const char *pll_name;
+> +	int i;
+> +
+> +	rootdir = debugfs_create_dir("audio_pll_monitor", NULL);
+> +
+> +	for (i = 0; i < num_plls; i++) {
+> +		pll_name = clk_hw_get_name(hws[i]);
+> +		audio_pll_dir = debugfs_create_dir(pll_name, rootdir);
+> +		debugfs_create_file_unsafe("delta_k", 0200, audio_pll_dir,
+> +				hws[i], &delta_k_fops);
+> +		debugfs_create_file("pll_parameter", 0444, audio_pll_dir,
+> +				hws[i], &pll_setting_fops);
+> +	}
+> +}
+> +#else /* !CONFIG_DEBUG_FS */
+> +void audio_pll_debug_init(struct clk_hw *hws[], unsigned int num_plls)
+> +{
+> +}
+> +#endif /* CONFIG_DEBUG_FS */
+> +EXPORT_SYMBOL_GPL(audio_pll_debug_init);
+> diff --git a/drivers/clk/imx/clk.h b/drivers/clk/imx/clk.h
+> index aa5202f284f3d1b7c1b4bf65e2329831832b43a5..9611ab127dad6f23770c18e22e1acbe2fc22bd4e 100644
+> --- a/drivers/clk/imx/clk.h
+> +++ b/drivers/clk/imx/clk.h
+> @@ -487,4 +487,5 @@ struct clk_hw *imx_clk_gpr_mux(const char *name, const char *compatible,
+>  			       u32 reg, const char **parent_names,
+>  			       u8 num_parents, const u32 *mux_table, u32 mask);
+>
+> +void audio_pll_debug_init(struct clk_hw **hws, unsigned int num_plls);
+>  #endif
+>
+> ---
+> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+> change-id: 20260421-imx8m_pll_debugfs-246d0fbbb617
+>
+> Best regards,
+> --
+> Jacky Bai <ping.bai@nxp.com>
+>
 
