@@ -4,108 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E85F8CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:10:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71974CD4855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BaQVFSo7/RABUgV7WjxPFRBzBaIOTZlhi7UVYJK3BzI=; b=DjEB2OKGcmosfhXULel+rFCzLG
-	ckHaWVWcoUqo25mcW8il+gCpCqvdNhmNCursg/SpW/q4p498LXqDH/tXdwFmxHtkP/+rpTwd+XR7S
-	8SWUhge/iD7rohInlqQRDKGMj6lYVzMc7fEbDQV3i/RYQWm7bPymejd2TKzFT1KWkiU+dBoKSazZj
-	TQ7jLCdmHftETs8v96tniTvhihV2myn9pW5XDJsvQW3+/vvc42YrbNE0oRv2T3Y5tht9PGTk/n8Uk
-	PzMGCIeiuPXSEyHsJn+GPUHU5bX3/Mg4EPRNTSxlZ9G2ifDFvwgDpemkv+9fB9azDRve8kx0XjWtW
-	9f9cH9SQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=18Vr+HYQqU1x0d3zcxMR3wjgCPa9yyH37iJ2bUgZJpk=; b=QKIJJqUS+lgZMMcV3eouqHuInb
+	WzBQyqcyTLiaGATXdCEDzG/9zFioJ6c0ewLVA6YfC3nqfdTxCtY2U4dr3cR8GvuRUNuVEPfgZCE1O
+	bTkTR2uDyAEAS5wo4eoQeYGAq7WlRS1gyMmYWE2Wz0sPmmjPfYgL3C61WN/veFMUZ/GfVS5Evm6V8
+	9z7ClAcUXD97D9XVGmiTcGFUdlwlXIJDZh1o/LExBeWZnLdKFatiSlh6QgTlA5NYHfOPxUbTLeRmo
+	hc7unIqpfwAxdYXZnCsUrUpqO7Q0U7OI+japPmFDIl0o8bKdAEkDZfq3eMHDQY6Ku0ex9yCmjlOPO
+	8RwG6Y8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMj8V-0000000GDd0-1qmO;
-	Tue, 12 May 2026 09:10:43 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1wMjFO-0000000GEan-3HAR;
+	Tue, 12 May 2026 09:17:50 +0000
+Received: from mail-francesouthazon11011043.outbound.protection.outlook.com ([40.107.130.43] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMj8T-0000000GDbc-14HO
+	id 1wMjFM-0000000GEaB-0lWw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 09:10:42 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5a8704dc3a8so5288945e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 02:10:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778577039; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ZS3XcFuCRuz4vnKfNrm72QgXBxJ45cdR3CODhXjlgqUhKv4Qr5tR3jHVqZAlo2uXS5
-         aYUhpWcx1x/j3lgoZV4ckSH1+3CDo4WtUmy/WVy4Dey6N/alG0QGiaTDuxUP/DCBXusR
-         8vs6M2KBdNRx4zpMp/RpKIP7zzc4dEHQ1ncIbmeHwXtz3BP3dgJx45y+sKZUkY8XDNMf
-         mOQ5gacN7CHpSMVwbGz4HuRfr1QoaWJT2Wvzv2QeM25SBVDNa7xhVWcV2QnwlLECwhmU
-         gJ3oEVN6o5c7qPjYET+iWFL7aScSACOES2aTTnGBWGZQQ+FPp0V0h5QGpdLLp4QUc3Xb
-         DLNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=BaQVFSo7/RABUgV7WjxPFRBzBaIOTZlhi7UVYJK3BzI=;
-        fh=MPGcOLpVe+So3AhiyINzTNFJXAV1I1l9SLfWrjTTZF0=;
-        b=hbUgmK6hEIcLFNw4ahwlQOypgylw4GfZB3O3K9qhuQ3Gr2NTazOIjQXBUp9f8khxlw
-         qQZs+jYbjAPOcENXVkmn5QCmlwveGuj/Jlk9pYxpWCJMGRnKa7OmHy6auELMQSCo0oVa
-         x/M8aZ16PsO/f1T0XX1Cj7LakmyBzuYlUgEMSvanvBVVzKUmQvr6qMff/Y7DCX7R4x6k
-         WTmiswnLhdE4WCMPukBCmiD9nkUmWlO2x0fX9QougYdFycHdhEVo7dD5w5H/hKVb/R3o
-         gHrSghFGTpiEwlsmOKsoZcRBNrKz/NP79ayWNgApO+V/L7AXakXAqlZKZLWsf515Sunj
-         GdCw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1778577039; x=1779181839; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BaQVFSo7/RABUgV7WjxPFRBzBaIOTZlhi7UVYJK3BzI=;
-        b=aPKDLQgx9wOlRuBxL9vlKUK55eljcqEDbP2mQyJrpR9TmRXls1KQhE9NbFsry8MH3b
-         WReSjcwiJbcCm1PJ2CrcnIxBMMpGHUCq2b8ie+1Uuvnp82EGLfUVFYWHZEQz0FmjDJ4K
-         xg6YlGSKdqcZ5oHe4SnBswr7qo7uSuQFBtCng=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778577039; x=1779181839;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=BaQVFSo7/RABUgV7WjxPFRBzBaIOTZlhi7UVYJK3BzI=;
-        b=mIShqZPghoKEnOjDziWIYWHGuDD7bOyS7Ggb7lebGUzZeyoqMm3dL9F0xaE+djmRxD
-         3d7aAOqleHhp+N2qmt7nH9fU8zl5gAXWbJsaZcfhrLAAJrvRf5r1KZy2aqNCpkWjpkPY
-         6FvOH82t/j+6RzJe/dMJ6uf5D6hEgwBoeRJqofzlufK44qC8ccP31AQ5TJt92xegzilo
-         NJTNGVjTrQHouuBVfgXHIYOkdqQ12IT9KYTc4xTi3i5fauJl/oyfHz+9I/D7rLFBtNvR
-         UNmLJUOxTrm1/ipH+lA4OwB4QBuYi0/0Ma6IqgefCAksgFFybNxqjVQc0gwDl9MCo9mR
-         Nv7g==
-X-Forwarded-Encrypted: i=1; AFNElJ/5Z1rESmFkHNebj7Lr+rkbJpsrImEIv30Vem9jl6aAF9qRonPFCGd+rrfXxHvRIf0pZ5NbX2zfV+gO6GTIs9cQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyttZUzoMdk+R4VpFpliU7SMFbm7PCg6RzInsHI7egPkuRq/xPr
-	26orbKuDEGZy1fcDms+/vETPI0kxoWP/sLJhW/WsKtMuwN6HGOVcZlWP6FNX4eNylzdVDW7llPg
-	1t6w6XfeaXKNcIf0kNbpKTPb9OIzaptp28wF9SVwW
-X-Gm-Gg: Acq92OG2d2sBNctMQ7wkMS/c0Akcs7zAqFF3qhGI7QK5LrK1Pi5x30sGh97gWnWr+8Y
-	i8hz2EQed4DxUzbKjJkgmNKa5LrXM72jXSsovjJ9lIfgluD8mHyDxV2A3T+OaB6X7VhdyZMBf2P
-	VFya5LCJvmr1ZBZ+D3m9LMkiyoNEIxuFSy86dWU/4bjRLA+Gx/6MZif8d7RX+O4+kQyGP0fFG/I
-	ggwtxz4q7jw27yKXsObfcKSLYfjMoeDnRIGGlOsZRNuilt3lmMMTdd1xQCY1fva7zxMHIsu6DbF
-	2vTP/E3l0/Ne1bLkYZ7EPJuKPkLRITDcpezNSQ==
-X-Received: by 2002:ac2:4f03:0:b0:5a3:cc81:eff3 with SMTP id
- 2adb3069b0e04-5a8e31e792cmr741475e87.26.1778577038810; Tue, 12 May 2026
- 02:10:38 -0700 (PDT)
+	Tue, 12 May 2026 09:17:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gq/zBKMW1zYoeV83QZcHo5ze6GvRpU7vMAHk0fXz/hgN/ay72Sl02ePeH4aiQ2PidcFLX2B/RInFzWlngvwTHdi21ZarsOWsiHH/+77SfFxPNRQ+ye3UXYyA1Iw+FpRl3NQOZwaTvNNS1Xxlft374r1g8GKLWc5tKQxvj0XPPPPbxMzdiXmmPAeYV2qeOHOPZWTtn/oqpAxEel/nZ2FGZbpXxOqztfPT7bEG11P+C8Mf1xprKepEYu6sZkDy4SpEzr2dPD+KNNuZxl3lHK2Hnw6JCpQyWlqdnmZCLHVW4E+G/Bn+NN5oBSz83FKjEzxeeigRnxXAy/59zfq4TOM/hA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=18Vr+HYQqU1x0d3zcxMR3wjgCPa9yyH37iJ2bUgZJpk=;
+ b=QDzQYbhtjkHk12EXWOqfk28ZOQD5vsrtp86oGfkiUpAVvQZUi3hWcsJcrVUKLLtaCk5sG6vuRjV9jw65bYGwzmN9vYNMw3kGZsjLL8H2tNx7IOnF4oF+Qw666SyA2hsMXkh6EelFQwCdHHF5LgOQDKn8uadVpmuRLzg+yP9y6L/bak9El52ZRpgm1Q8cRFOqoE5upQEgTvXNpDzzpDdEK+YYD8tK0mibZaFhIgnHEP0mBGHZ19b+xu18WOeEdSPlnG+hn7T+nYZ+Xb1tblsLfraEuyamwQSaEpJyE34bCqz7PQjmcVvprae/q0JcUXkjfAcR0UPU6ueL5/mPcyzlWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=18Vr+HYQqU1x0d3zcxMR3wjgCPa9yyH37iJ2bUgZJpk=;
+ b=UKefvGu7oy0gSXBmrfyFB7SZpHRiyVg93rzeg4/028ISwrIZGZqjXR/oPXZ1yvN5ELE5ToUY7t1F5iXnLvp/ILy1JSIsHkQdx17Rq/N17lzdisEqANdB1dxI5LP0+ZZLWK7m2Wv42mUt2RdIjqX9OiWFgB3DR010qwM4ayyFGYmWKhT730Dvvef7NYSulEXOh2ZNrN/p6IHR+r1pynQXHibH7lsTcQSAX7JHh67TcQdgE4Jkpab1jLCMCCDWkBYdknBithQQAhC6b3F0ped7PwE/tcVTyb5X3GMAvFaiyNvfJVZNbMHZ+U7q8R5ZhvbvPjRaeOtTSvMopTKRx32e7w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
+ by AS5PR04MB9997.eurprd04.prod.outlook.com (2603:10a6:20b:67c::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
+ 2026 09:17:42 +0000
+Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
+ ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
+ ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.20.9891.021; Tue, 12 May 2026
+ 09:17:42 +0000
+From: Liu Ying <victor.liu@nxp.com>
+Date: Tue, 12 May 2026 17:18:49 +0800
+Subject: [PATCH v2] drm/bridge: imx93-mipi-dsi: Fix mode validation
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260512-imx93-mipi-dsi-fix-mode-validation-v2-1-7aec3be5da2c@nxp.com>
+X-B4-Tracking: v=1; b=H4sIAHjwAmoC/5WNQQ6DIBBFr2Jm3WlktCqueo/GBQFaJylCwBAb4
+ 91LvUGX7+f/93dINrJNMFY7RJs5sV8K0KUCPavlZZFNYaCaupqoR3abbNBxYDSJ8ckbOm8sZvV
+ mo9Yyx5ZueuhJUSsbKKIQbamdJ4+p8Mxp9fFzfmbxS//SZ4ECldSm66UUNNT3ZQtX7R1Mx3F8A
+ aQcEILSAAAA
+X-Change-ID: 20260227-imx93-mipi-dsi-fix-mode-validation-425c872a2493
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Liu Ying <victor.liu@nxp.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: MA5PR01CA0121.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1a7::10) To AS1PR04MB9287.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4dd::8)
 MIME-Version: 1.0
-References: <20260504072748.2580172-1-zhengxingda@iscas.ac.cn>
- <20260504072748.2580172-2-zhengxingda@iscas.ac.cn> <CAGXv+5F6BSmqq5HEybuCSwt75LVzh5gvs2wQpqy3vgfLi60Dcg@mail.gmail.com>
- <4a43edb8c7ae3f96f77272db89ec6450ffa28876.camel@iscas.ac.cn>
-In-Reply-To: <4a43edb8c7ae3f96f77272db89ec6450ffa28876.camel@iscas.ac.cn>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 12 May 2026 17:10:25 +0800
-X-Gm-Features: AVHnY4JpFJ80xfcJKb4R3fVCclO5uQOrLLkEvtBAuF9RxcpiffXxdfYLmlfODZk
-Message-ID: <CAGXv+5HFD_8e7odEwXk3vXZThBAor0PvVCbb+=wjR8gxwqwnqQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: mediatek: mt8188-geralt: enable Wi-Fi card
-To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Hui Liu <hui.liu@mediatek.com>, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|AS5PR04MB9997:EE_
+X-MS-Office365-Filtering-Correlation-Id: 20965aae-e1ec-4f4e-2c4a-08deb00751e0
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|1800799024|366016|921020|38350700014|11063799003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: WodZeaDVjtdiJjS/aZwJoe0cfHdQBNzgo8D8Q9UrkVYUju9FJjQOPlYUgFHw2GmAfHrcOt9MOpvuat1BhowdWERNSWlokI5DZ/Ru4DO/68vqJLJy3ZoQueFmMXRe1gmF6bO90NjzqBk+z+wWu+70QmuMFTjxaRhKv5KBWi3kI+hi2M++yUlRwXrNUFxgTF7SlNQFMm/v6hNfG/GsyfyrN4ulXxM1ASWht8Fyp4N0e3BVQkZdXtyxrb/7c60yMCf+S47QRuGkM7lpN6ysmF4yEcc4XqyDONr5CqeKxUWqQ3fdNmXMYTORz/LwYN4GsjS8djTLEwMGVGoobPBj/Pu4Yg3Uk3Mg76HbDJ3vqHYjyrLL9oY5Lfr5KSVOh+yUuE+HscIgF39YO+CQVIubYFZOdS5cazIpjtomSqXp1XHgFfXqREQxR0b3RrspazD4Ik1dib7E5huf5RmTIy5rLQlLL9wlBfGQ2XF/2h/vW59e/tBYinHOlBVk85w16giUf0qUziYYOqnZyoAFj9MEz65932X4kD1yodjYWzoEWiLIPv23m1rGBeAW/0WWYniVWve8Q1A7kyv57QOMiqzGVII6+H7teHmXCreN7ykw2nNhIXnJHSHr0gmZMNqjgwtm18On6P8+krs/Keo/DtgJ5/H2BOcOtC5+mTmlNQHn4p27yzDFlO9rvU8uNRcR162fnWgN/9eGo5o8srAYV7FGx3IKpysKQfUj8AchZDGp9pKA0Rzg4FZ7/xepCWf1bmo+pgFDLvMdDgZnSgW+OAaRoAKDCQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(1800799024)(366016)(921020)(38350700014)(11063799003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDR0SzBXMENyMGhKbFQ1QnRUSDJDRWtRNnNzbGlpZ2luYW5RZzl3bWsvVFpZ?=
+ =?utf-8?B?TzV1QXNMQllOQllJN2RSOWVLQStsalhsT2phd04vZDdNek15NWVCVVVmNDli?=
+ =?utf-8?B?ZHg5MDRhT1piZTEreGJ2b0ZWVmFEODlmdEpuZDJ0VThoK2sxeFBWOE1HRVQ1?=
+ =?utf-8?B?alZZd1ZOZmhtS0xhSGFhdmFhVm8vWDB3K004OWdnaXFMTVhVcWV4ajlmT0pw?=
+ =?utf-8?B?L05VQWlucXRscnFaZ0NHY1Bjd01qSTlMWUp0SHoxMlVIWDlyK0ZkdGM1L1Fp?=
+ =?utf-8?B?bWRCV0duekNUQk9WeUpLTjBjMzNYNXB0RkdtRk9oRGluL0NnR2RuSmpKZmNQ?=
+ =?utf-8?B?dFRBb0dsQmJQOFJKbXlZK0l6WWFvT29YYmJhcDUrOThHU290eE1oUld1OEYz?=
+ =?utf-8?B?TXkzVkZPd0s3TlBFTzZqQ0UxdnZVdkxFQzhCL0FDd2VzeFlpakFaZVQ0U2gr?=
+ =?utf-8?B?MldNVTZmdlNlTm9mMmlTRWZyZGgrYkVqa0RIMW9sNlhKckUrc0VsZXFrRDhX?=
+ =?utf-8?B?MnF2QzFvaEgwaTEzTy9FM256WkcvOHJBQUE3RmhyU0dmbjMxN3hmUmJiQUJl?=
+ =?utf-8?B?c2VSbGMwcGVYKzJaZHg4eEhDUzNNRVJFVERmM2o3dk1wdGo1bitUT0RXc1BE?=
+ =?utf-8?B?VHMzTEhDZkpHT280cTRCUXFlNXNXMWcxQW9CMzczMEJ0NDFZUndKbVQwYXlJ?=
+ =?utf-8?B?dk5mUDVuaERpOTZYMmxVY0VsWG1WaEVaSHA0cy9aNUNnZmFSRU83NGtGbm80?=
+ =?utf-8?B?eGRZM1JIS2FoSVZpQnh6NUpFclBXSDh4ZzFRdjBzdmozVWVDQ3dET3k1bXAv?=
+ =?utf-8?B?MDg1bXZqcThSbmdnTW90cFpVR3Fja3UzNkVrc29FZUxiR1NsZHNnOHVPTXFq?=
+ =?utf-8?B?TGVpd0VMMzJKYTk5YkxJNnZsemJ3WUo0ZEc0cDdmb0ZtMUlFQXBFUGJ2STlY?=
+ =?utf-8?B?Szg1U3lad1RsUFFWdE9xTVgweWFRakdjMmtGSWI3U1NhT2ZLbFNGeFFiV1Bz?=
+ =?utf-8?B?OVNya2Rqb0tmbWVPV0RxSTNyaFFSVUtqMW9vaUhkR20rMHg3dmV2WG1sRlda?=
+ =?utf-8?B?STR5UnQ1UGdmbGVjbDJISytTUWJaVWNvQWJzelN4Wm85eUw3ZzZ4d2RlS2J6?=
+ =?utf-8?B?ME9INlpqRkRDVjdXVmUyTjRFSGQ4WEFOWWZqb3piS0l1Wk1vcWhCZVp6bU5h?=
+ =?utf-8?B?SnFaREtWRVoyZ05WeWhjMUUxcnhIOGdNK3p4ZjEyRnBibUpHTXZnY29vOUpG?=
+ =?utf-8?B?UklvWjlOOWdtMjR6bU9TU3VEc0Rnd01WWEZ0WDBaaEx1U0crL250V01veU42?=
+ =?utf-8?B?S3BXR1VZR3BSYXVWSGZwUEpDTlhVaUxCV25zb0JYNzNvazRpWWpyblBodUg2?=
+ =?utf-8?B?dytaYkhmQzU1d3ZPd2ZaK3RSaHRPOFQ3ZjB4bExhR09VdVZpOXQzQjNSL0Za?=
+ =?utf-8?B?Vi9BUlp3Y0Y2WWdJSjZYYUUza0F3RnBlTzQ0RDFyb1ZYZjhuaE9oOVcwUW5y?=
+ =?utf-8?B?Z3FBV3Y1NnFhVkhreUwrQzhRTnBMUmdweGFDU1Nuck5oK0hwR1ZsOCsyb3M2?=
+ =?utf-8?B?aFZQSldlODZURW1TQnREQ0xFa2ZaNko5bk1QU2J5eVVJRTNobm8vVzNhVnU1?=
+ =?utf-8?B?cWlpSUJsR1RTVFdUdVJqSnFadXkxdHJEZDhRNVgrb0pMWFZHYms2QVFjNlB2?=
+ =?utf-8?B?NkhCYzN5K2pobTc3WlloWUVBUU1GQndaZzdmUFpsYkx6Ky95dzlWTmovVSs5?=
+ =?utf-8?B?Zm02SUNIMVM2c0QrVjlKQkZRaFU5SXYvak9peHdaaEFuL3ZzcDFpQThvU0Ro?=
+ =?utf-8?B?TEVXVWpVRGx0YzlTNmdHOGNSVm9hNFV4cjE5Wjhkdy9TNmhOMGxjdlBtVnFX?=
+ =?utf-8?B?bUY1QU02bmlkdzB5VThxNHBmVmNvdTU2QTNVWmJpY0dnMnd3dWcyRjRnR0Np?=
+ =?utf-8?B?K3NiZXcrbFIrMnlmSkNNTVB5Q0hnZ2h5aVVmK2pMK2cyeXRpU1VoY0lwczc4?=
+ =?utf-8?B?eWhicmtIV0ZMcDN2QVhmTDNsblUrWnlzbXZIRG5SU2NNWnA1NTkxaWVQdFlh?=
+ =?utf-8?B?V2ZLQ0dlQ0F5MEdvdk1CZUl6WVhHNnA0UTA2cUtYaWpmTnpaMEJNWVlqTmd3?=
+ =?utf-8?B?RnVGTkQxeHdyaG5BQ1lVNmNEeTVxTWdyWUVxLytTQUN3VXZ0Z1VJRXd2K2NH?=
+ =?utf-8?B?N3NtUEZSR2toem83R29VSHRsYUxqa2I4L2Q2L3Frb3RoUDFuZmlHaXlCSnVN?=
+ =?utf-8?B?bWllZ3BscWNOUWIwUHdFZnBoTUt4ZVY1anlQOGl1ZWdra3NhQ3dWbnVVbzFY?=
+ =?utf-8?B?MUdBdHhmUWFTMlVDK1lYT0UwME5LOVhDc0o1ZXNjTDNZMTlRWkkxdz09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 20965aae-e1ec-4f4e-2c4a-08deb00751e0
+X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 09:17:41.9910
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5aPsA3cvwBc1aHgAinsNKtx6BpMu6xhlwjJ+6jRbR5Rjd8IkFS6ovJDwPCwXkOUpQKp+yM8Z/L2Bm/erHyvsmw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9997
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_021041_355247_FCD6852A 
-X-CRM114-Status: GOOD (  32.97  )
+X-CRM114-CacheID: sfid-20260512_021748_233486_E1E7018D 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,89 +160,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 6, 2026 at 10:14=E2=80=AFPM Icenowy Zheng <zhengxingda@iscas.ac=
-.cn> wrote:
->
-> =E5=9C=A8 2026-05-04=E4=B8=80=E7=9A=84 15:34 +0800=EF=BC=8CChen-Yu Tsai=
-=E5=86=99=E9=81=93=EF=BC=9A
-> > Hi,
-> >
-> > On Mon, May 4, 2026 at 3:28=E2=80=AFPM Icenowy Zheng
-> > <zhengxingda@iscas.ac.cn> wrote:
-> > >
-> > > The mainline pcie-mediatek-gen3 driver does not have code managing
-> > > downstream device power / reset.
-> > >
-> > > As the Wi-Fi card on ciri is a fixed device, set the related
-> > > regulator
-> > > to always-on and use GPIO hog to set the status of its reset pin.
-> >
-> > The plan now is to model it as an M.2 E-key slot (even though the
-> > chip
-> > is actually soldered on the main board).
->
-> Interestingly I saw a "PCI_PWRCTRL_GENERIC" driver in 7.1, although it
-> does not support toggling #PERST now -- maybe this should be done and
-> used instead? (Well it looks like the driver had existed for some time,
-> but it was for "slots" previously)
+i.MX93 MIPI DPHY PLL has limitation for matching with some pixel clock
+rates, e.g., the best DPHY PLL frequency is 445.333333MHz for a typical
+1920x1080p@60Hz CEA/DMT display modes with a pixel clock rate running
+at 148.5MHz with 4 data lanes + RGB888 pixel in MIPI DSI sync pulse mode,
+while the expected PLL frequency is (148.5 * 24) / 4 / 2 MHz = 445.5MHz.
+Fortunately, VESA Display Monitor Timing Standard allows +/-0.5% pixel
+clock rate deviation for timings.  So, for those display modes read
+from EDID through a bridge with DRM_BRIDGE_OP_DETECT and DRM_BRIDGE_OP_EDID
+operation bit masks set, pixel clock rate could be adjusted to match
+with the PLL frequency(for the above example, the pixel clock rate is
+adjusted to be 148.444444MHz with about -0.03% deviation from the 148.5MHz
+nominal rate so that the adjusted rate matches with the 445.333333MHz PLL
+frequency).
 
-#PERST currently is still left to the PCI controller drivers, since some
-of them have dedicated functions for it, while others use the GPIO API.
+Instead of checking the last bridge's operation bit masks against
+DRM_BRIDGE_OP_DETECT and DRM_BRIDGE_OP_EDID to determine if allowing
++/-0.5% pixel clock rate deviation, check any bridge after this bridge,
+because the last bridge is usually a display connector bridge without
+any operation bit mask when the clock rate deviation is allowed.
 
-If you check the history of the "PCI pwrctrl framework" [1], you will
-see the design choice.
+Fixes: ce62f8ea7e3f ("drm/bridge: imx: Add i.MX93 MIPI DSI support")
+Fixes: 5849eff7f067 ("drm/bridge: imx93-mipi-dsi: use drm_bridge_chain_get_last_bridge()")
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+---
+Changes in v2:
+- Collect Frank's R-b tag.
+- Add an explanation to commit message about the reason why mode validation
+  checks bridge's operation bit masks.  (Dmitry)
+- Copy Dmitry.
+- Link to v1: https://lore.kernel.org/r/20260227-imx93-mipi-dsi-fix-mode-validation-v1-1-a9cd67991280@nxp.com
 
-[1] https://lore.kernel.org/all/20260115-pci-pwrctrl-rework-v5-0-9d26da3ce9=
-03@oss.qualcomm.com/
+To: Liu Ying <victor.liu@nxp.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Robert Foss <rfoss@kernel.org>
+To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+To: Jonas Karlman <jonas@kwiboo.se>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+To: Maxime Ripard <mripard@kernel.org>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+To: David Airlie <airlied@gmail.com>
+To: Simona Vetter <simona@ffwll.ch>
+To: Frank Li <Frank.Li@nxp.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c | 29 ++++++++++++++++-------------
+ 1 file changed, 16 insertions(+), 13 deletions(-)
 
-> Thanks,
-> Icenowy
->
-> >
-> > I have some of the patches ready, but I'm still working out the USB
-> > side of it.
-> >
-> >
-> > ChenYu
-> >
-> > > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> > > ---
-> > >  arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi | 11 +++++++++++
-> > >  1 file changed, 11 insertions(+)
-> > >
-> > > diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> > > b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> > > index 8e423504ec052..c25780098103b 100644
-> > > --- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> > > +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-> > > @@ -544,6 +544,11 @@ &mt6359codec {
-> > >         mediatek,mic-type-2 =3D <2>; /* DMIC */
-> > >  };
-> > >
-> > > +&mt6359_vcn18_ldo_reg {
-> > > +       /* Used by WLAN */
-> > > +       regulator-always-on;
-> > > +};
-> > > +
-> > >  &mt6359_vcore_buck_reg {
-> > >         regulator-always-on;
-> > >  };
-> > > @@ -1145,6 +1150,12 @@ pins-en-pp3300-wlan {
-> > >                         output-low;
-> > >                 };
-> > >         };
-> > > +
-> > > +       wlan-reset-hog {
-> > > +               gpio-hog;
-> > > +               gpios =3D <145 GPIO_ACTIVE_HIGH>;
-> > > +               output-high;
-> > > +       };
-> > >  };
-> > >
-> > >  &pmic {
-> > > --
-> > > 2.52.0
-> > >
-> > >
->
+diff --git a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
+index 8f312f9edf97..6d65df9ed970 100644
+--- a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
++++ b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
+@@ -493,21 +493,24 @@ static enum drm_mode_status
+ imx93_dsi_validate_mode(struct imx93_dsi *dsi, const struct drm_display_mode *mode)
+ {
+ 	struct drm_bridge *dmd_bridge = dw_mipi_dsi_get_bridge(dsi->dmd);
+-	struct drm_bridge *last_bridge __free(drm_bridge_put) =
+-		drm_bridge_chain_get_last_bridge(dmd_bridge->encoder);
+ 
+-	if ((last_bridge->ops & DRM_BRIDGE_OP_DETECT) &&
+-	    (last_bridge->ops & DRM_BRIDGE_OP_EDID)) {
+-		unsigned long pixel_clock_rate = mode->clock * 1000;
+-		unsigned long rounded_rate;
++	drm_for_each_bridge_in_chain_from(dmd_bridge, bridge) {
++		if ((bridge->ops & DRM_BRIDGE_OP_DETECT) &&
++		    (bridge->ops & DRM_BRIDGE_OP_EDID)) {
++			unsigned long pixel_clock_rate = mode->clock * 1000;
++			unsigned long rounded_rate;
+ 
+-		/* Allow +/-0.5% pixel clock rate deviation */
+-		rounded_rate = clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
+-		if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
+-		    rounded_rate > pixel_clock_rate * 1005 / 1000) {
+-			dev_dbg(dsi->dev, "failed to round clock for mode " DRM_MODE_FMT "\n",
+-				DRM_MODE_ARG(mode));
+-			return MODE_NOCLOCK;
++			/* Allow +/-0.5% pixel clock rate deviation */
++			rounded_rate = clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
++			if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
++			    rounded_rate > pixel_clock_rate * 1005 / 1000) {
++				dev_dbg(dsi->dev,
++					"failed to round clock for mode " DRM_MODE_FMT "\n",
++					DRM_MODE_ARG(mode));
++				return MODE_NOCLOCK;
++			}
++
++			break;
+ 		}
+ 	}
+ 
+
+---
+base-commit: 877552aa875839314afad7154b5a561889e87ea9
+change-id: 20260227-imx93-mipi-dsi-fix-mode-validation-425c872a2493
+
+Best regards,
+--  
+Regards,
+Liu Ying
+
 
