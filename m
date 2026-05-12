@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1730FCD37BE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F33ACD484C
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 03:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oZBr9pwH4UXc5QEjRFphG+sAgmDAvI5SstkFwh3TAWA=; b=VSm9D8Pj7eCbSD7wxVzHYm5Iy/
-	MKs+iweHeIMpXGdMjraNjPtrCSrXhHY8LQlCCqUGOWLyfreMgbuBla+mCbSzB9SZl9JOX4021Imof
-	FuazvLwBUDAY58qOVLkaL/AuWBMusCO0WmoPr007xgiOyRZN825fgCIOeG6aJGKDvw1iGDbzB1R7Q
-	kZtOEgyiC7L/OG5wJCvO45KIajLHz3rbRuY2pKGFKbrId+uVd+LEfIx3r1qvT7nZhM9lcwfbm1YTx
-	+sdXqZk7in4Fb+5vLWqOBPXK1Yz7AVrIG2UVSF6PIjtR4VxQTsWC8AARoUrgesp8KEkQtmhbpeB55
-	nAVH4aMQ==;
+	bh=UJl/6Y6d4E6puh3y3cEykQ83pumRgeb1nEF73Wn9I74=; b=rQr40MGPOHTQjlwYgHdGeZNLCv
+	lmfrXmXMMZtPUPkpvwqdtcxo7NucohbglnyvkUG08Jo7VZBxut1+a7gfUjRRCkeS8qVO2hkFj2TwN
+	pPC7ZB+WwOyWW7nkSkhzgY1Wgg8vLUbgS1xayk5zflv0CLnDQs1aYzDovYQ6v7SoyzuxJG/pK4gRQ
+	rEvCo7jOiyL540WpSjt7Q4bqojVNO/6X9nWK727B7s+qvZfkwYKmDOq0WRadeY8iMvzxdcz6VaAXS
+	bwUxkbJaHfNLREmj+ofgzWtuhMGYc1PbPFi4r/JgQNmGQ2UySPpxveP9fxLIw0rZnQEDhxYeXYdzZ
+	utf7I1Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMdt6-0000000FNBc-16Ld;
+	id 1wMdt6-0000000FNBJ-0Nqj;
 	Tue, 12 May 2026 03:34:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMdt2-0000000FN8i-1yMF;
+	id 1wMdt2-0000000FN8h-1j0V;
 	Tue, 12 May 2026 03:34:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=oZBr9pwH4UXc5QEjRFphG+sAgmDAvI5SstkFwh3TAWA=; b=ctYuGMZKjYqAPpcpLp/y9MANBt
-	6ZSV2OjFQciWhpkdv3LEwMVucJOGtoqjgLnj+m0oqZe7FXLLMh7Y6j+453lW236YFxeREO1/L1jc+
-	g/8RFXFruvbFse9hnEJRGUJTMWbBpPrd4gnn8m9vGQZcVMHZtlC1oRE4rA210y/bxEDOH/FuYghrW
-	8SB1g/pt9k227zJb5XrWLIGLQ3vNsnOlP8x2WUvMfwbdTZQupCTf0EDkHE6r/0OULbjjqxNFqEpo3
-	v7YyZ28KxwcM09eHpIijl9ZMKGMVhiWt0rHrpYz+UYXLGoqDn07zAYXlb7NpdNv+9glTuPujXdfN5
-	5tOCRrkg==;
+	bh=UJl/6Y6d4E6puh3y3cEykQ83pumRgeb1nEF73Wn9I74=; b=pBqUqULPzd86VazQvZrhBm+exF
+	hStvotL977dr0QbNvV0+/eDcxpeSJtLxrtnWe44EF0uyF4h/8IdQJ/vrFq1iQk+TWqKIsd6lxt/v2
+	og6YgJuNToHHLDabXK/EsgNDx9iqV9Jqx5rbpzdLsaaXQ8QTMjkiCGsCKWIYTwNDI5zUgxlOqHo9Z
+	ozlcdz78QRlK5wtCEvfRDH+QCvUUpLrcxiDOGPgawfiMQiSQd7LtjWRFw5HEbgKgkUa9XkKBOsw1S
+	TdNfL/TaVjSBTOdef+wmN7nJTDdHl/bdqkc9GFZ6Oal5c2t9kYM3c13oEb7FIGyWDLfTZlJOl23tN
+	Pq9lNBbw==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMdsw-0000000DYbC-2BpR;
+	id 1wMdsw-0000000DYbD-2BOO;
 	Tue, 12 May 2026 03:34:23 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 64C3XJJb83571936, This message is accepted by code: ctloc85258
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 64C3XIeR43571932, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1778556799; bh=oZBr9pwH4UXc5QEjRFphG+sAgmDAvI5SstkFwh3TAWA=;
+	t=1778556798; bh=UJl/6Y6d4E6puh3y3cEykQ83pumRgeb1nEF73Wn9I74=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=Dm5NRpYyetZZsz5cBE+5AZv1AnkBs4Lqme8c9gx3Bd8UKMBVA1NCbdg5AkE0g5QUo
-	 1RRchNc7CLTuD5PehZmeChRJRrS21rRV7AyGtnKVtcxq/mcOL1SyWuQfOsFFqrLLBc
-	 NtACys14NHVhXiR0CqFveOmS4zr4ot9gbXmfz8be8Hn8Bxi9ixJMQtrLcbrQmgtJ6G
-	 GTejugRSl2QhhtkDKWuAtJ2GlDKnWymgJGdKumqfIdr9MD3MRoEOWiY9Dn4JOLUdG4
-	 NE4AFR09MPZZdPLMnUU1bCi7MlbzJW2IjNkczKY0vv6Cb8v3KhjRLTdWA3QtEuEAeW
-	 JsJtxt0gpe/+g==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 64C3XJJb83571936
+	b=YCKBm32CPGop+DynySQ5CrtQTVwrpjxzjpPWAZ/hkBe1/hVH6Sh9pZh8cMwPkrsJN
+	 u/STXO9gnMlc0Yb1pnN3qOvsebF6+9yJdLSxDt3033ULLKhXId20NdZG1A08Pc5zYf
+	 lrchTqSasIbl5wmx/4sVGwJJy51tWFelV05ZVueRPMHM+k3JJXq9alU4RAin2m8O0G
+	 4kBd7QqfNZDwUV25d0uvm+YnvNkQcFARS6uXhmtd6d9eyD37Ur5KhvBfKymbzOyhE6
+	 EbcFn5gUa0alCbmrAJkADc8IDYAx7+yQFUqSZbMAkV7VZUyzP18+kd7Wp2/l8QPjko
+	 wIe/n/1NtRNmg==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.27/5.94) with ESMTPS id 64C3XIeR43571932
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 12 May 2026 11:33:19 +0800
+	Tue, 12 May 2026 11:33:18 +0800
 Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.2562.17; Tue, 12 May 2026 11:33:19 +0800
 Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
  RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Tue, 12 May 2026 11:33:19 +0800
+ 15.2.2562.17; Tue, 12 May 2026 11:33:18 +0800
 Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS05.realtek.com.tw
  (10.21.1.55) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
  Transport; Tue, 12 May 2026 11:33:18 +0800
@@ -78,9 +78,9 @@ CC: <linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-realtek-soc@lists.infradead.org>, <linux-iio@vger.kernel.org>,
         <cy.huang@realtek.com>, <stanley_chang@realtek.com>,
         <eleanor.lin@realtek.com>, <james.tai@realtek.com>
-Subject: [PATCH v3 4/7] gpio: regmap: Add set_config callback
-Date: Tue, 12 May 2026 11:33:14 +0800
-Message-ID: <20260512033317.1602537-5-eleanor.lin@realtek.com>
+Subject: [PATCH v3 2/7] gpio: regmap: add gpio_regmap_get_gpiochip() accessor
+Date: Tue, 12 May 2026 11:33:12 +0800
+Message-ID: <20260512033317.1602537-3-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260512033317.1602537-1-eleanor.lin@realtek.com>
 References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
@@ -88,8 +88,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_043420_062206_C58F24C9 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20260512_043420_060764_67DB20B4 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,54 +105,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new set_config callback to struct gpio_regmap_config to allow drivers
-to implement hardware-specific configuration such as debounce settings,
-or other platform-specific GPIO properties.
+Expose an accessor function to retrieve the gpio_chip pointer from
+a gpio_regmap instance.
+
+This is needed by drivers that use gpio_regmap but also manage their
+own irq_chip, where gpiochip_enable_irq()/gpiochip_disable_irq() must
+be called with the gpio_chip pointer.
+
+Add gpio_regmap_get_gpiochip() to allow drivers with complex custom IRQ
+implementations.
 
 Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 ---
- drivers/gpio/gpio-regmap.c  | 2 ++
- include/linux/gpio/regmap.h | 7 +++++++
- 2 files changed, 9 insertions(+)
+ drivers/gpio/gpio-regmap.c  | 6 ++++++
+ include/linux/gpio/regmap.h | 1 +
+ 2 files changed, 7 insertions(+)
 
 diff --git a/drivers/gpio/gpio-regmap.c b/drivers/gpio/gpio-regmap.c
-index c76eef20e412..490a35fe8768 100644
+index 9ae4a41a2427..deb9eebb58de 100644
 --- a/drivers/gpio/gpio-regmap.c
 +++ b/drivers/gpio/gpio-regmap.c
-@@ -371,6 +371,8 @@ struct gpio_regmap *gpio_regmap_register(const struct gpio_regmap_config *config
- 	if (!gpio->reg_mask_xlate)
- 		gpio->reg_mask_xlate = gpio_regmap_simple_xlate;
+@@ -230,6 +230,12 @@ void *gpio_regmap_get_drvdata(struct gpio_regmap *gpio)
+ }
+ EXPORT_SYMBOL_GPL(gpio_regmap_get_drvdata);
  
-+	chip->set_config = config->set_config;
++struct gpio_chip *gpio_regmap_get_gpiochip(struct gpio_regmap *gpio)
++{
++	return &gpio->gpio_chip;
++}
++EXPORT_SYMBOL_GPL(gpio_regmap_get_gpiochip);
 +
- 	ret = gpiochip_add_data(chip, gpio);
- 	if (ret < 0)
- 		goto err_free_bitmap;
+ /**
+  * gpio_regmap_register() - Register a generic regmap GPIO controller
+  * @config: configuration for gpio_regmap
 diff --git a/include/linux/gpio/regmap.h b/include/linux/gpio/regmap.h
-index 519fc81add8a..0660fd9be928 100644
+index 12d154732ca9..e4a95f805a81 100644
 --- a/include/linux/gpio/regmap.h
 +++ b/include/linux/gpio/regmap.h
-@@ -89,6 +89,9 @@ enum gpio_regmap_operation {
-  *			domain will be set accordingly.
-  * @regmap_irq_line:	(Optional) The IRQ the device uses to signal interrupts.
-  * @regmap_irq_flags:	(Optional) The IRQF_ flags to use for the interrupt.
-+ * @set_config:		(Optional) Callback for setting GPIO configuration such
-+ *			as debounce, drive strength, or other hardware specific
-+ *			settings.
-  *
-  * The ->reg_mask_xlate translates a given base address and GPIO offset to
-  * register and mask pair. The base address is one of the given register
-@@ -142,6 +145,10 @@ struct gpio_regmap_config {
- 			       unsigned long *valid_mask,
- 			       unsigned int ngpios);
+@@ -113,5 +113,6 @@ void gpio_regmap_unregister(struct gpio_regmap *gpio);
+ struct gpio_regmap *devm_gpio_regmap_register(struct device *dev,
+ 					      const struct gpio_regmap_config *config);
+ void *gpio_regmap_get_drvdata(struct gpio_regmap *gpio);
++struct gpio_chip *gpio_regmap_get_gpiochip(struct gpio_regmap *gpio);
  
-+	int (*set_config)(struct gpio_chip *gc,
-+			  unsigned int offset,
-+			  unsigned long config);
-+
- 	void *drvdata;
- };
- 
+ #endif /* _LINUX_GPIO_REGMAP_H */
 -- 
 2.34.1
 
