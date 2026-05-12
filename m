@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D7ACD4855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBAD3CD4F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 07:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=geqc96SELgbz2znYeMENdveDPnpttdiIfioEj3emgdc=; b=Mr60IlEKB7dSkasapEeDdtvnsf
-	Vj+sWoLlJlicbzWoWo3rQHh+eAGLoeumN8Z8xlpD7AmsLwtu3099oiH/6y94z0fqjCFKCQ8+b1GBt
-	VDTH/bLEqXtGL8dKQpksjT8iJNflh9lU/yjYnesfSvbLVbZGbbjpvasl2VSzDuNXlU66wHJsKuNmB
-	xoxpeLfM27Oo/AMFAbz+lFjXFv5+Wy4sH3MtKadWcTA5LUFU5GlKzhRh98myy/ZYlXfgfUPNVZyAq
-	fa/7Xcim0gOLTHMwTIyPQWXdIkhDQG7mtwvavVRxX/shWSW+UEHStbVntqFl2lSjCCEP5l3ScfW9m
-	TUv9d8Qg==;
+	bh=ppxq1CB1YXPO13jk9q1N7wyv/emP23uUqTwoj85xIew=; b=FDezhmuSU85hlf+lpLpLjcIAIs
+	TYsiLv6oiFCtw0Rb6O99VSO3DDZ2LWLu6LGsaagnMotWwLhavcj6Trs/xOnIVs54nH4b+zhWatNQj
+	BR0QYxX9+fCzsVegQBMJyWKZ0zIghRe3zRr1tiYdZWniqqMMlVF9OFan8+Pv7diO6pnTjYaWlz8BD
+	BffGrg3fDIFu5oKvgELRgKrsyiZDymSWc6fdqzUsXzHwD1tCNqVVJneTn+aLozNlnWjGZZsOJamad
+	uPsl4qvU2g8imcRAZlrq1R+Qpad8Mm6I/1KOJyZO7j2Z8iK5XuHuLhzVNQYC6K/5+X+3l6e2MhL/y
+	a7xhcafg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfbG-0000000Fbo6-141l;
-	Tue, 12 May 2026 05:24:10 +0000
-Received: from 2a02-8389-2341-5b80-decc-1a96-daaa-a2cc.cable.dynamic.v6.surfer.at ([2a02:8389:2341:5b80:decc:1a96:daaa:a2cc] helo=localhost)
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfbC-0000000FbY0-0qyj;
-	Tue, 12 May 2026 05:24:06 +0000
-From: Christoph Hellwig <hch@lst.de>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: [PATCH 08/19] raid6: improve the public interface
-Date: Tue, 12 May 2026 07:20:48 +0200
-Message-ID: <20260512052230.2947683-9-hch@lst.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260512052230.2947683-1-hch@lst.de>
-References: <20260512052230.2947683-1-hch@lst.de>
+	id 1wMhBD-0000000FrX6-0Tic;
+	Tue, 12 May 2026 07:05:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMhBA-0000000FrWb-2RCk;
+	Tue, 12 May 2026 07:05:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5DE9844046;
+	Tue, 12 May 2026 07:05:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69DEAC2BCB0;
+	Tue, 12 May 2026 07:05:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778569519;
+	bh=CbKrYA7cN/wwbpVWPG+J7VYnuHQ+Y1RlkMJzpdzjJ2Q=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tpq9cN3mXo3Rye52s4rApyI+1AFdgTwxtPdB/HYT1MCFvp9a7Jbr14L1eZLUokRl/
+	 wCrOlSQWkhqywVOEc9gAmR+PCPDUBQrlCrKoxV8b8cMHGNd0ebuYkQXVHk9PzFW925
+	 LF83+eoZKBvwxDoe396PpM1cvF5nuuhqtF/TCtPyRFrWe+NnQP5XifdUPQYsTP1knp
+	 mzMXLvEMem5OE0L7yyrk0iwks0k/jEDEU6P4ZMymGGG2FJo1w5kPJ6/3m80TnI3wyZ
+	 bpgWWyAyvJXsgIp5NSowbSc3tsxBnvzb9lzAZBfAZamK5+a2wBbHfkSVuBAqtcQLOV
+	 HT3Iu/3zoO52g==
+Message-ID: <e092cd5d-6a46-4440-9085-95c929e8fb83@kernel.org>
+Date: Tue, 12 May 2026 10:05:12 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/7] PCI: Add pci_host_common_link_train_delay() helper
+To: Hans Zhang <18255117159@163.com>, bhelgaas@google.com,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ vigneshr@ti.com, jingoohan1@gmail.com, thomas.petazzoni@bootlin.com,
+ pali@kernel.org, ryder.lee@mediatek.com, claudiu.beznea.uj@bp.renesas.com,
+ mpillai@cadence.com
+Cc: robh@kernel.org, s-vadapalli@ti.com, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260511055923.37117-1-18255117159@163.com>
+ <20260511055923.37117-2-18255117159@163.com>
+Content-Language: en-US
+From: Claudiu Beznea <claudiu.beznea@kernel.org>
+In-Reply-To: <20260511055923.37117-2-18255117159@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_000520_665648_F627D8CD 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,554 +79,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Stop directly calling into function pointers from users of the RAID6 PQ
-API, and provide exported functions with proper documentation and
-API guarantees asserts where applicable instead.
+Hi, Hans,
 
-Signed-off-by: Christoph Hellwig <hch@lst.de>
----
- Documentation/crypto/async-tx-api.rst         |   4 +-
- crypto/async_tx/async_pq.c                    |   6 +-
- crypto/async_tx/async_raid6_recov.c           |   4 +-
- drivers/md/raid5.c                            |   4 +-
- fs/btrfs/raid56.c                             |   8 +-
- include/linux/raid/pq.h                       |  28 ++--
- lib/raid/raid6/algos.c                        | 139 +++++++++++++++++-
- lib/raid/raid6/arm/recov_neon.c               |   4 +-
- .../raid6/loongarch/recov_loongarch_simd.c    |   8 +-
- lib/raid/raid6/recov.c                        |   4 +-
- lib/raid/raid6/riscv/recov_rvv.c              |   4 +-
- lib/raid/raid6/s390/recov_s390xc.c            |   4 +-
- lib/raid/raid6/x86/recov_avx2.c               |   4 +-
- lib/raid/raid6/x86/recov_avx512.c             |   4 +-
- lib/raid/raid6/x86/recov_ssse3.c              |   4 +-
- 15 files changed, 181 insertions(+), 48 deletions(-)
+On 5/11/26 08:59, Hans Zhang wrote:
+> PCIe r6.0, sec 6.6.1 (Conventional Reset) requires that for a Downstream
+> Port supporting Link speeds greater than 5.0 GT/s, software must wait a
+> minimum of 100 ms after Link training completes before sending any
+> Configuration Request.
+> 
+> Introduce a static inline helper pci_host_common_link_train_delay() that
+> checks the given max_link_speed (2 = 5.0 GT/s, 3 = 8.0 GT/s, etc.) and
+> calls msleep(100) only when the speed is greater than 5.0 GT/s.
+> 
+> This allows multiple host controller drivers to share the same mandatory
+> delay without duplicating the logic.
+> 
+> Signed-off-by: Hans Zhang <18255117159@163.com>
+> ---
+>   drivers/pci/controller/pci-host-common.h | 17 +++++++++++++++++
+>   1 file changed, 17 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
+> index b5075d4bd7eb..d709f7e3e11a 100644
+> --- a/drivers/pci/controller/pci-host-common.h
+> +++ b/drivers/pci/controller/pci-host-common.h
+> @@ -10,6 +10,9 @@
+>   #ifndef _PCI_HOST_COMMON_H
+>   #define _PCI_HOST_COMMON_H
+>   
+> +#include <linux/delay.h>
+> +#include "../pci.h"
+> +
+>   struct pci_ecam_ops;
+>   
+>   int pci_host_common_probe(struct platform_device *pdev);
+> @@ -20,4 +23,18 @@ void pci_host_common_remove(struct platform_device *pdev);
+>   
+>   struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
+>   	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
+> +
+> +/**
+> + * pci_host_common_link_train_delay - Wait 100 ms if link speed > 5 GT/s
+> + * @max_link_speed: the maximum link speed (2 = 5.0 GT/s, 3 = 8.0 GT/s, ...)
+> + *
+> + * Must be called after Link training completes and before the first
+> + * Configuration Request is sent.
+> + */
+> +static inline void pci_host_common_link_train_delay(int max_link_speed)
+> +{
+> +	if (max_link_speed > 2)
+> +		msleep(PCIE_RESET_CONFIG_WAIT_MS);
 
-diff --git a/Documentation/crypto/async-tx-api.rst b/Documentation/crypto/async-tx-api.rst
-index f88a7809385e..49fcfc66314a 100644
---- a/Documentation/crypto/async-tx-api.rst
-+++ b/Documentation/crypto/async-tx-api.rst
-@@ -82,9 +82,9 @@ xor_val   xor a series of source buffers and set a flag if the
- pq	  generate the p+q (raid6 syndrome) from a series of source buffers
- pq_val    validate that a p and or q buffer are in sync with a given series of
- 	  sources
--datap	  (raid6_datap_recov) recover a raid6 data block and the p block
-+datap	  (raid6_recov_datap) recover a raid6 data block and the p block
- 	  from the given sources
--2data	  (raid6_2data_recov) recover 2 raid6 data blocks from the given
-+2data	  (raid6_recov_2data) recover 2 raid6 data blocks from the given
- 	  sources
- ========  ====================================================================
- 
-diff --git a/crypto/async_tx/async_pq.c b/crypto/async_tx/async_pq.c
-index 0ce6f07b4e0d..f3574f80d1df 100644
---- a/crypto/async_tx/async_pq.c
-+++ b/crypto/async_tx/async_pq.c
-@@ -131,11 +131,11 @@ do_sync_gen_syndrome(struct page **blocks, unsigned int *offsets, int disks,
- 		}
- 	}
- 	if (submit->flags & ASYNC_TX_PQ_XOR_DST) {
--		BUG_ON(!raid6_call.xor_syndrome);
-+		BUG_ON(!raid6_can_xor_syndrome());
- 		if (start >= 0)
--			raid6_call.xor_syndrome(disks, start, stop, len, srcs);
-+			raid6_xor_syndrome(disks, start, stop, len, srcs);
- 	} else
--		raid6_call.gen_syndrome(disks, len, srcs);
-+		raid6_gen_syndrome(disks, len, srcs);
- 	async_tx_sync_epilog(submit);
- }
- 
-diff --git a/crypto/async_tx/async_raid6_recov.c b/crypto/async_tx/async_raid6_recov.c
-index f2dc6af6e6a7..305ea1421a3e 100644
---- a/crypto/async_tx/async_raid6_recov.c
-+++ b/crypto/async_tx/async_raid6_recov.c
-@@ -418,7 +418,7 @@ async_raid6_2data_recov(int disks, size_t bytes, int faila, int failb,
- 			else
- 				ptrs[i] = page_address(blocks[i]) + offs[i];
- 
--		raid6_2data_recov(disks, bytes, faila, failb, ptrs);
-+		raid6_recov_2data(disks, bytes, faila, failb, ptrs);
- 
- 		async_tx_sync_epilog(submit);
- 
-@@ -501,7 +501,7 @@ async_raid6_datap_recov(int disks, size_t bytes, int faila,
- 			else
- 				ptrs[i] = page_address(blocks[i]) + offs[i];
- 
--		raid6_datap_recov(disks, bytes, faila, ptrs);
-+		raid6_recov_datap(disks, bytes, faila, ptrs);
- 
- 		async_tx_sync_epilog(submit);
- 
-diff --git a/drivers/md/raid5.c b/drivers/md/raid5.c
-index 0d76e82f4506..ebcb19317670 100644
---- a/drivers/md/raid5.c
-+++ b/drivers/md/raid5.c
-@@ -6955,7 +6955,7 @@ raid5_store_rmw_level(struct mddev  *mddev, const char *page, size_t len)
- 	if (kstrtoul(page, 10, &new))
- 		return -EINVAL;
- 
--	if (new != PARITY_DISABLE_RMW && !raid6_call.xor_syndrome)
-+	if (new != PARITY_DISABLE_RMW && !raid6_can_xor_syndrome())
- 		return -EINVAL;
- 
- 	if (new != PARITY_DISABLE_RMW &&
-@@ -7646,7 +7646,7 @@ static struct r5conf *setup_conf(struct mddev *mddev)
- 	conf->level = mddev->new_level;
- 	if (conf->level == 6) {
- 		conf->max_degraded = 2;
--		if (raid6_call.xor_syndrome)
-+		if (raid6_can_xor_syndrome())
- 			conf->rmw_level = PARITY_ENABLE_RMW;
- 		else
- 			conf->rmw_level = PARITY_DISABLE_RMW;
-diff --git a/fs/btrfs/raid56.c b/fs/btrfs/raid56.c
-index 08ee8f316d96..dabc9522e881 100644
---- a/fs/btrfs/raid56.c
-+++ b/fs/btrfs/raid56.c
-@@ -1410,7 +1410,7 @@ static void generate_pq_vertical_step(struct btrfs_raid_bio *rbio, unsigned int
- 				rbio_qstripe_paddr(rbio, sector_nr, step_nr));
- 
- 		assert_rbio(rbio);
--		raid6_call.gen_syndrome(rbio->real_stripes, step, pointers);
-+		raid6_gen_syndrome(rbio->real_stripes, step, pointers);
- 	} else {
- 		/* raid5 */
- 		memcpy(pointers[rbio->nr_data], pointers[0], step);
-@@ -1987,10 +1987,10 @@ static void recover_vertical_step(struct btrfs_raid_bio *rbio,
- 		}
- 
- 		if (failb == rbio->real_stripes - 2) {
--			raid6_datap_recov(rbio->real_stripes, step,
-+			raid6_recov_datap(rbio->real_stripes, step,
- 					  faila, pointers);
- 		} else {
--			raid6_2data_recov(rbio->real_stripes, step,
-+			raid6_recov_2data(rbio->real_stripes, step,
- 					  faila, failb, pointers);
- 		}
- 	} else {
-@@ -2644,7 +2644,7 @@ static bool verify_one_parity_step(struct btrfs_raid_bio *rbio,
- 	if (has_qstripe) {
- 		assert_rbio(rbio);
- 		/* RAID6, call the library function to fill in our P/Q. */
--		raid6_call.gen_syndrome(rbio->real_stripes, step, pointers);
-+		raid6_gen_syndrome(rbio->real_stripes, step, pointers);
- 	} else {
- 		/* RAID5. */
- 		memcpy(pointers[nr_data], pointers[0], step);
-diff --git a/include/linux/raid/pq.h b/include/linux/raid/pq.h
-index f27a866c287f..662c2669f63f 100644
---- a/include/linux/raid/pq.h
-+++ b/include/linux/raid/pq.h
-@@ -11,6 +11,25 @@
- #include <linux/blkdev.h>
- #include <linux/mm.h>
- 
-+/*
-+ * While the RAID6 algorithm could in theory support 3 devices by just copying
-+ * the data disk to the two parity disks, this configuration is not only useless
-+ * because it is a suboptimal version of 3-way mirroring, but also easy to get
-+ * wrong in architecture-optimized implementations due to special casing, so
-+ * don't support it.
-+ */
-+#define RAID6_MIN_DISKS		4
-+
-+void raid6_gen_syndrome(int disks, size_t bytes, void **ptrs);
-+void raid6_xor_syndrome(int disks, int start, int stop, size_t bytes,
-+		void **ptrs);
-+bool raid6_can_xor_syndrome(void);
-+
-+void raid6_recov_2data(int disks, size_t bytes, int faila, int failb,
-+		void **ptrs);
-+void raid6_recov_datap(int disks, size_t bytes, int faila,
-+		void **ptrs);
-+
- /* Routine choices */
- struct raid6_calls {
- 	void (*gen_syndrome)(int, size_t, void **);
-@@ -20,9 +39,6 @@ struct raid6_calls {
- 	int priority;		/* Relative priority ranking if non-zero */
- };
- 
--/* Selected algorithm */
--extern struct raid6_calls raid6_call;
--
- /* Various routine sets */
- extern const struct raid6_calls raid6_intx1;
- extern const struct raid6_calls raid6_intx2;
-@@ -92,10 +108,4 @@ extern const u8 raid6_gflog[256]      __attribute__((aligned(256)));
- extern const u8 raid6_gfinv[256]      __attribute__((aligned(256)));
- extern const u8 raid6_gfexi[256]      __attribute__((aligned(256)));
- 
--/* Recovery routines */
--extern void (*raid6_2data_recov)(int disks, size_t bytes, int faila, int failb,
--		       void **ptrs);
--extern void (*raid6_datap_recov)(int disks, size_t bytes, int faila,
--			void **ptrs);
--
- #endif /* LINUX_RAID_RAID6_H */
-diff --git a/lib/raid/raid6/algos.c b/lib/raid/raid6/algos.c
-index 985c60bb00a4..683b97cb94ad 100644
---- a/lib/raid/raid6/algos.c
-+++ b/lib/raid/raid6/algos.c
-@@ -16,8 +16,85 @@
- #include <linux/gfp.h>
- #include <kunit/visibility.h>
- 
--struct raid6_calls raid6_call;
--EXPORT_SYMBOL_GPL(raid6_call);
-+static const struct raid6_recov_calls *raid6_recov_algo;
-+
-+/* Selected algorithm */
-+static struct raid6_calls raid6_call;
-+
-+/**
-+ * raid6_gen_syndrome - generate RAID6 P/Q parity
-+ * @disks:	number of "disks" to operate on including parity
-+ * @bytes:	length in bytes of each vector
-+ * @ptrs:	@disks size array of memory pointers
-+ *
-+ * Generate @bytes worth of RAID6 P and Q parity in @ptrs[@disks - 2] and
-+ * @ptrs[@disks - 1] respectively from the memory pointed to by @ptrs[0] to
-+ * @ptrs[@disks - 3].
-+ *
-+ * @disks must be at least 3, and the memory pointed to by each member of @ptrs
-+ * must be at least 64-byte aligned.  @bytes must be non-zero and a multiple of
-+ * 512.
-+ *
-+ * See https://kernel.org/pub/linux/kernel/people/hpa/raid6.pdf for underlying
-+ * algorithm.
-+ */
-+void raid6_gen_syndrome(int disks, size_t bytes, void **ptrs)
-+{
-+	WARN_ON_ONCE(!in_task() || irqs_disabled() || softirq_count());
-+	WARN_ON_ONCE(bytes & 511);
-+	WARN_ON_ONCE(disks < RAID6_MIN_DISKS);
-+
-+	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+}
-+EXPORT_SYMBOL_GPL(raid6_gen_syndrome);
-+
-+/**
-+ * raid6_xor_syndrome - update RAID6 P/Q parity
-+ * @disks:	number of "disks" to operate on including parity
-+ * @start:	first index into @disk to update
-+ * @stop:	last index into @disk to update
-+ * @bytes:	length in bytes of each vector
-+ * @ptrs:	@disks size array of memory pointers
-+ *
-+ * Update @bytes worth of RAID6 P and Q parity in @ptrs[@disks - 2] and
-+ * @ptrs[@disks - 1] respectively for the memory pointed to by
-+ * @ptrs[@start..@stop].
-+ *
-+ * This is used to update parity in place using the following sequence:
-+ *
-+ * 1) call raid6_xor_syndrome(disk, start, stop, ...) for the existing data.
-+ * 2) update the the data in @ptrs[@start..@stop].
-+ * 3) call raid6_xor_syndrome(disk, start, stop, ...) for the new data.
-+ *
-+ * Data between @start and @stop that is not changed should be filled
-+ * with a pointer to the kernel zero page.
-+ *
-+ * @disks must be at least 3, and the memory pointed to by each member of @ptrs
-+ * must be at least 64-byte aligned.  @bytes must be non-zero and a multiple of
-+ * 512.  @stop must be larger or equal to @start.
-+ */
-+void raid6_xor_syndrome(int disks, int start, int stop, size_t bytes,
-+		void **ptrs)
-+{
-+	WARN_ON_ONCE(!in_task() || irqs_disabled() || softirq_count());
-+	WARN_ON_ONCE(bytes & 511);
-+	WARN_ON_ONCE(disks < RAID6_MIN_DISKS);
-+	WARN_ON_ONCE(stop < start);
-+
-+	raid6_call.xor_syndrome(disks, start, stop, bytes, ptrs);
-+}
-+EXPORT_SYMBOL_GPL(raid6_xor_syndrome);
-+
-+/*
-+ * raid6_can_xor_syndrome - check if raid6_xor_syndrome() can be used
-+ *
-+ * Returns %true if raid6_can_xor_syndrome() can be used, else %false.
-+ */
-+bool raid6_can_xor_syndrome(void)
-+{
-+	return !!raid6_call.xor_syndrome;
-+}
-+EXPORT_SYMBOL_GPL(raid6_can_xor_syndrome);
- 
- const struct raid6_calls * const raid6_algos[] = {
- #if defined(__i386__) && !defined(__arch_um__)
-@@ -84,11 +161,58 @@ const struct raid6_calls * const raid6_algos[] = {
- };
- EXPORT_SYMBOL_IF_KUNIT(raid6_algos);
- 
--void (*raid6_2data_recov)(int, size_t, int, int, void **);
--EXPORT_SYMBOL_GPL(raid6_2data_recov);
-+/**
-+ * raid6_recov_2data - recover two missing data disks
-+ * @disks:	number of "disks" to operate on including parity
-+ * @bytes:	length in bytes of each vector
-+ * @faila:	first failed data disk index
-+ * @failb:	second failed data disk index
-+ * @ptrs:	@disks size array of memory pointers
-+ *
-+ * Rebuild @bytes of missing data in @ptrs[@faila] and @ptrs[@failb] from the
-+ * data in the remaining disks and the two parities pointed to by the other
-+ * indices between 0 and @disks - 1 in @ptrs.  @disks includes the data disks
-+ * and the two parities.  @faila must be smaller than @failb.
-+ *
-+ * Memory pointed to by each pointer in @ptrs must be page aligned and is
-+ * limited to %PAGE_SIZE.
-+ */
-+void raid6_recov_2data(int disks, size_t bytes, int faila, int failb,
-+		void **ptrs)
-+{
-+	WARN_ON_ONCE(!in_task() || irqs_disabled() || softirq_count());
-+	WARN_ON_ONCE(bytes & 511);
-+	WARN_ON_ONCE(bytes > PAGE_SIZE);
-+	WARN_ON_ONCE(failb <= faila);
-+
-+	raid6_recov_algo->data2(disks, bytes, faila, failb, ptrs);
-+}
-+EXPORT_SYMBOL_GPL(raid6_recov_2data);
-+
-+/**
-+ * raid6_recov_datap - recover a missing data disk and missing P-parity
-+ * @disks:	number of "disks" to operate on including parity
-+ * @bytes:	length in bytes of each vector
-+ * @faila:	failed data disk index
-+ * @ptrs:	@disks size array of memory pointers
-+ *
-+ * Rebuild @bytes of missing data in @ptrs[@faila] and the missing P-parity in
-+ * @ptrs[@disks - 2] from the data in the remaining disks and the Q-parity
-+ * pointed to by the other indices between 0 and @disks - 1 in @ptrs.  @disks
-+ * includes the data disks and the two parities.
-+ *
-+ * Memory pointed to by each pointer in @ptrs must be page aligned and is
-+ * limited to %PAGE_SIZE.
-+ */
-+void raid6_recov_datap(int disks, size_t bytes, int faila, void **ptrs)
-+{
-+	WARN_ON_ONCE(!in_task() || irqs_disabled() || softirq_count());
-+	WARN_ON_ONCE(bytes & 511);
-+	WARN_ON_ONCE(bytes > PAGE_SIZE);
- 
--void (*raid6_datap_recov)(int, size_t, int, void **);
--EXPORT_SYMBOL_GPL(raid6_datap_recov);
-+	raid6_recov_algo->datap(disks, bytes, faila, ptrs);
-+}
-+EXPORT_SYMBOL_GPL(raid6_recov_datap);
- 
- const struct raid6_recov_calls *const raid6_recov_algos[] = {
- #ifdef CONFIG_X86
-@@ -133,8 +257,7 @@ static inline const struct raid6_recov_calls *raid6_choose_recov(void)
- 				best = *algo;
- 
- 	if (best) {
--		raid6_2data_recov = best->data2;
--		raid6_datap_recov = best->datap;
-+		raid6_recov_algo = best;
- 
- 		pr_info("raid6: using %s recovery algorithm\n", best->name);
- 	} else
-diff --git a/lib/raid/raid6/arm/recov_neon.c b/lib/raid/raid6/arm/recov_neon.c
-index 9993bda5d3a6..4eb0efb44750 100644
---- a/lib/raid/raid6/arm/recov_neon.c
-+++ b/lib/raid/raid6/arm/recov_neon.c
-@@ -35,7 +35,7 @@ static void raid6_2data_recov_neon(int disks, size_t bytes, int faila,
- 	ptrs[failb] = page_address(ZERO_PAGE(0));
- 	ptrs[disks - 1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]     = dp;
-@@ -69,7 +69,7 @@ static void raid6_datap_recov_neon(int disks, size_t bytes, int faila,
- 	ptrs[faila] = page_address(ZERO_PAGE(0));
- 	ptrs[disks - 1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]     = dq;
-diff --git a/lib/raid/raid6/loongarch/recov_loongarch_simd.c b/lib/raid/raid6/loongarch/recov_loongarch_simd.c
-index 4d4563209647..7d4d349322b3 100644
---- a/lib/raid/raid6/loongarch/recov_loongarch_simd.c
-+++ b/lib/raid/raid6/loongarch/recov_loongarch_simd.c
-@@ -49,7 +49,7 @@ static void raid6_2data_recov_lsx(int disks, size_t bytes, int faila,
- 	ptrs[failb] = page_address(ZERO_PAGE(0));
- 	ptrs[disks - 1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila] = dp;
-@@ -201,7 +201,7 @@ static void raid6_datap_recov_lsx(int disks, size_t bytes, int faila,
- 	ptrs[faila] = page_address(ZERO_PAGE(0));
- 	ptrs[disks - 1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila] = dq;
-@@ -323,7 +323,7 @@ static void raid6_2data_recov_lasx(int disks, size_t bytes, int faila,
- 	ptrs[failb] = page_address(ZERO_PAGE(0));
- 	ptrs[disks - 1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila] = dp;
-@@ -440,7 +440,7 @@ static void raid6_datap_recov_lasx(int disks, size_t bytes, int faila,
- 	ptrs[faila] = page_address(ZERO_PAGE(0));
- 	ptrs[disks - 1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila] = dq;
-diff --git a/lib/raid/raid6/recov.c b/lib/raid/raid6/recov.c
-index 211e1df28963..cc7e4dc1eaa6 100644
---- a/lib/raid/raid6/recov.c
-+++ b/lib/raid/raid6/recov.c
-@@ -37,7 +37,7 @@ static void raid6_2data_recov_intx1(int disks, size_t bytes, int faila,
- 	ptrs[failb] = page_address(ZERO_PAGE(0));
- 	ptrs[disks-1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]   = dp;
-@@ -75,7 +75,7 @@ static void raid6_datap_recov_intx1(int disks, size_t bytes, int faila,
- 	ptrs[faila] = page_address(ZERO_PAGE(0));
- 	ptrs[disks-1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]   = dq;
-diff --git a/lib/raid/raid6/riscv/recov_rvv.c b/lib/raid/raid6/riscv/recov_rvv.c
-index f77d9c430687..3ff39826e33f 100644
---- a/lib/raid/raid6/riscv/recov_rvv.c
-+++ b/lib/raid/raid6/riscv/recov_rvv.c
-@@ -164,7 +164,7 @@ static void raid6_2data_recov_rvv(int disks, size_t bytes, int faila,
- 	ptrs[failb] = page_address(ZERO_PAGE(0));
- 	ptrs[disks - 1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]     = dp;
-@@ -199,7 +199,7 @@ static void raid6_datap_recov_rvv(int disks, size_t bytes, int faila,
- 	ptrs[faila] = page_address(ZERO_PAGE(0));
- 	ptrs[disks - 1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]     = dq;
-diff --git a/lib/raid/raid6/s390/recov_s390xc.c b/lib/raid/raid6/s390/recov_s390xc.c
-index 0f32217b7123..2bc4c85174de 100644
---- a/lib/raid/raid6/s390/recov_s390xc.c
-+++ b/lib/raid/raid6/s390/recov_s390xc.c
-@@ -40,7 +40,7 @@ static void raid6_2data_recov_s390xc(int disks, size_t bytes, int faila,
- 	ptrs[failb] = page_address(ZERO_PAGE(0));
- 	ptrs[disks-1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]   = dp;
-@@ -84,7 +84,7 @@ static void raid6_datap_recov_s390xc(int disks, size_t bytes, int faila,
- 	ptrs[faila] = page_address(ZERO_PAGE(0));
- 	ptrs[disks-1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]   = dq;
-diff --git a/lib/raid/raid6/x86/recov_avx2.c b/lib/raid/raid6/x86/recov_avx2.c
-index 325310c81e1c..bef82a38d8eb 100644
---- a/lib/raid/raid6/x86/recov_avx2.c
-+++ b/lib/raid/raid6/x86/recov_avx2.c
-@@ -34,7 +34,7 @@ static void raid6_2data_recov_avx2(int disks, size_t bytes, int faila,
- 	ptrs[failb] = page_address(ZERO_PAGE(0));
- 	ptrs[disks-1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]   = dp;
-@@ -199,7 +199,7 @@ static void raid6_datap_recov_avx2(int disks, size_t bytes, int faila,
- 	ptrs[faila] = page_address(ZERO_PAGE(0));
- 	ptrs[disks-1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]   = dq;
-diff --git a/lib/raid/raid6/x86/recov_avx512.c b/lib/raid/raid6/x86/recov_avx512.c
-index 08de77fcb8bd..06c70e771eaa 100644
---- a/lib/raid/raid6/x86/recov_avx512.c
-+++ b/lib/raid/raid6/x86/recov_avx512.c
-@@ -43,7 +43,7 @@ static void raid6_2data_recov_avx512(int disks, size_t bytes, int faila,
- 	ptrs[failb] = page_address(ZERO_PAGE(0));
- 	ptrs[disks-1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]   = dp;
-@@ -241,7 +241,7 @@ static void raid6_datap_recov_avx512(int disks, size_t bytes, int faila,
- 	ptrs[faila] = page_address(ZERO_PAGE(0));
- 	ptrs[disks-1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]   = dq;
-diff --git a/lib/raid/raid6/x86/recov_ssse3.c b/lib/raid/raid6/x86/recov_ssse3.c
-index 002bef1e0847..5ca7d56f23d8 100644
---- a/lib/raid/raid6/x86/recov_ssse3.c
-+++ b/lib/raid/raid6/x86/recov_ssse3.c
-@@ -36,7 +36,7 @@ static void raid6_2data_recov_ssse3(int disks, size_t bytes, int faila,
- 	ptrs[failb] = page_address(ZERO_PAGE(0));
- 	ptrs[disks-1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]   = dp;
-@@ -206,7 +206,7 @@ static void raid6_datap_recov_ssse3(int disks, size_t bytes, int faila,
- 	ptrs[faila] = page_address(ZERO_PAGE(0));
- 	ptrs[disks-1] = dq;
- 
--	raid6_call.gen_syndrome(disks, bytes, ptrs);
-+	raid6_gen_syndrome(disks, bytes, ptrs);
- 
- 	/* Restore pointer table */
- 	ptrs[faila]   = dq;
--- 
-2.53.0
+In case of RZ/G3S driver the max_link_speed is populated based on 
+"max-link-speed" DT property (by calling of_pci_get_max_link_speed()). My 
+understanding from [1] (and the review of the initial RZ/G3S driver support) is 
+that this is not a mandatory property (note also the "Host drivers *could* add 
+this" from [1]). At least for the RZ/G3S driver, in case the "max-link-speed" DT 
+property is not present in DT but the controller supports more than 5GT/s (that 
+is possible as the driver supports more controller variants), the max_link_speed 
+argument will be negative. In that case the msleep() will not be called. This 
+looks like an opposite of what the patch set is trying to achieve.
+
+Also, if I'm not wrong, there is also the possibility of having the 
+max-link-speed > 2 but the downstream port to not support more than 5GT/s. In 
+that case the mspeep() would also be executed (but I think that wouldn't be 
+really an issue).
+
+Thank you,
+Claudiu
+
+[1] 
+https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/pci/pci-bus-common.yaml#L117
+
+Thank you,
+Claudiu
 
 
