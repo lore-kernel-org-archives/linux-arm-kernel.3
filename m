@@ -4,120 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D8F5CD4855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5887ACD4855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a1RC0kpmGJbZo1UqA0ld7Tn2VrAQWpnq79+ztkIjS8I=; b=Ewl0ggoMoLhfzDVw0IiA4TY5vT
-	KZ1mRg30auTFFsqVTSBL97K1OwYO6q2iP51X+OFhwPyTjl71OqB5AjAziuy2buVrsqzeC6mh9SkjD
-	gADkKJCTEJIQfKVKq+OFQQlBdma2UcVY3XD2ZIeZLpNs8GP2rubm9Fik7p9IMJajKPjTiZNivgI6m
-	vhUBDavbH/M4m+hjDHvnBLNkoJsOir5XHGOhn7gZshZDOPdv8I5e8qFmAEtEmAjvo/vhu1EttSbix
-	bM8sevtS/lmzD7r55Nv+aSzLQptHkLXwGygjTHpJFKc+hyShS67VlgfRkuTIeJKWnzFHc8jQL6LI+
-	u2GM25BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hHEQybcyh2jXtO4gZAavHtnMdO1WHd/gjEPDaJ0CSR8=; b=YQB3s6Ppg1sW5BKUX1N2tkcL1H
+	iQcw5zqsTyDgBkuVScCKfD/dczL9Nl7uquWAw7gIxCmUtxE8s1EAFE0lqWtu0Kdgb02U0WyMRcL2Z
+	8pqeyFRNPh31dU7Nz+j616dCgkxzSAlffs0kRWMxLR1F074snawbTUt5antt/35DCFne30ZohKVqX
+	/NmZ7GgjTfSRYwtTsKZ/6cvPodEJCC6BXdvAzudqtWP5qy6O1Vbd0ofDMM4KSBH6nnrbb2ecI6ad/
+	PlP8vnh0MNnuAThIY93q5N4Nxzqslh9Dc6YMiokKht65OsWkK7YR6p7er+tPyRN3ILXvxAuySkBDk
+	ul2b9Wnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjlC-0000000GJdl-1wGA;
-	Tue, 12 May 2026 09:50:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMjpT-0000000GKKe-0EHf;
+	Tue, 12 May 2026 09:55:07 +0000
+Received: from mail-swedencentralazon11013003.outbound.protection.outlook.com ([52.101.83.3] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjl9-0000000GJcn-1yss
+	id 1wMjpP-0000000GKJ8-2mAQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 09:50:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E88E4408B;
-	Tue, 12 May 2026 09:50:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63F87C4AF0B;
-	Tue, 12 May 2026 09:50:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778579438;
-	bh=iodQUQY7CnisbRWz7ZX1kdnUrHJlSwk4Axa8QKYq830=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=XFOgFHvn9mBF2xBvRAZWYN4FsdnnUCfPsyFwGq5E9zA90qIOCobVdiEX9IjRuOO7A
-	 a4koWchkllcAIttf8zp8nn4DNgAVrP9LdSX7c7Wd2O/Ip/XWfV7tEV0OA9U7Udc+UE
-	 fEBu5x2ef3P1zVecOZKVBZrnFtNm/j8jBWssv5lVpyaW+nKCdX9FnSHkuv+MOahJJE
-	 QNDdbgoh7OoscH495SUEFI0BJnaKehG0YhHRaOpuk7FVyVPOsRcJRVWd+JLcdYAR9J
-	 Mh1IFQ3qEmNBYLJIOPrHNmKAZ1ztNQxjTy4SJZikX6wyepAIsQBzQb9nb5w/at5zDd
-	 CFzv2hvfalSuw==
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 69211F4007E;
-	Tue, 12 May 2026 05:50:36 -0400 (EDT)
-Received: from phl-imap-14 ([10.202.2.87])
-  by phl-compute-01.internal (MEProxy); Tue, 12 May 2026 05:50:36 -0400
-X-ME-Sender: <xms:7PcCam9YJOHuCSkFlDq4ISbUnfEsy1OEjiwfu2I0G97RJXn0Y9Qj3Q>
-    <xme:7PcCahg10CcdO5ywOYNj_MoUADdtr56c-r9bHz7tueJKnmE7BlO5CNe34OWAHP6O0
-    K2ZP7MTmRqCKNmM6To0iTGAEXW_mzbRu-_Ppobim0hC3yvVCtlniA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgdduvddugeekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrugcu
-    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
-    htthgvrhhnpeetgedvtddttdeuffegvdefgffgteeiueejuefhjefhvdekkeelkeduteej
-    tdetheenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucevlhhushhtvghruf
-    hiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhguodhmvghsmhhtphgruhht
-    hhhpvghrshhonhgrlhhithihqdduieejtdehtddtjeelqdeffedvudeigeduhedqrghrug
-    gspeepkhgvrhhnvghlrdhorhhgseifohhrkhhofhgrrhgurdgtohhmpdhnsggprhgtphht
-    thhopeegfedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghpsegrlhhivghnke
-    druggvpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdp
-    rhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtohepphgrlhhmvghrse
-    gurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgv
-    hidrvgguuhdprhgtphhtthhopehmphgvsegvlhhlvghrmhgrnhdrihgurdgruhdprhgtph
-    htthhopegtlhhmsehfsgdrtghomhdprhgtphhtthhopeihuhhkuhgrihesfhhnnhgrshdr
-    tghomhdprhgtphhtthhopegrlhgvgiesghhhihhtihdrfhhr
-X-ME-Proxy: <xmx:7PcCalktau1ceeO9LVmwrvdgtBQqFGLkbXstpSg8yybS685IYcHORw>
-    <xmx:7PcCasmugZGdftyVI7SsXjAnPbfXZESq-0jgJf5WHEk-4Op-5tihhg>
-    <xmx:7PcCakOBuua_a1L3B6_7D8BIKwPWLDsIB0zTRk7q4odJEd-XR7f0rg>
-    <xmx:7PcCamtx3Q0fvbGtW41fj2F_sqDaICjJw47CJSybFMv4EVU0bnkNFA>
-    <xmx:7PcCauA9QdM04AOLLlOCDA53c0jW-oZSzKQywL6_3ngSclabTlPoqQSc>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 38C50C4006F; Tue, 12 May 2026 05:50:36 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 12 May 2026 09:55:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kHRAPIcMrJmN0CIc5MADjsii1nQpdBqvIU9N3Di6Qz+hsqU1fW5RoURthTKqSgzmyHw4yxhvDOts3QvnDnFg4TNqdM6+M3Dw1SgOkcWYfs0qdFZWCZR8xkjVYBsAJiXs7qa0tnAC2z2Q6NdP1B3Yte5qiyXCbsHPz2arOXbcbYdvtnM6QhqA+Fi+R8SL591VY5uLqy1xwn1RftF9WWRvQk2JzAwn4JkDE9JHeKpXAYB/s8Nv4etMdmUsZkvwKpeMmd0PCD1kJCkcT9261kOOdXzJGBMrN1DYBU0a5GL3TeH5Dywee2doJ3tn+MWvhNQz3mv8ORCRuOZUhgsi5aT16g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hHEQybcyh2jXtO4gZAavHtnMdO1WHd/gjEPDaJ0CSR8=;
+ b=Nb7efpmoRKBrhuW7x8hzXvOxUYpb8qGmbB+3TVH0/9Re4YcJzMcxOy47BFWgq/HdjnfD2J6GHPh4NXEfX9EGrFupAxmZ9HN8EtauM1Rcsqg5d1qatPXF9BPYVXEQPEwBC8cBgTT/51q1g/E4vVf+Y18qZp2BxY6UMdcGBbM3EDSLHLO4Uez6O+b7T1E4PwdfVYW6LB5YZ/vWv96bT6c0GBP+ehEuEFR5s9GEFnBU6Ku0u3dCrA3oKD9ogitY/AUOgMb4oOd5bcyEdXDUSlT5VBrVvmKsVCdOwTbscvu7XcMdRSgRJSRHH8lMWTUtzxIQfDTWYhP3ZBDgVEMcAZrkjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hHEQybcyh2jXtO4gZAavHtnMdO1WHd/gjEPDaJ0CSR8=;
+ b=dy37VpQtTbse5DnlKlBEWm8vuH3g2kn9Os4fFvxJWaEhaicSB8dhVnXHF890pqfKQ4HTmxLkOq0ogtM/KAN8Q3LqC/QcjV9tYH80WMUSu6m+k9zWnjmKiAOoGSXAXEz9nckq6GMkpgOLV4A0jHlN2x85zUjjxGeuX8wlXmgVBxLQB2HsbHbUnVA6e1P8B7sWeESP+91qxRT/CICVJNx9OMw6t0Z+fMsaJMrDyU4HgNwHOIQ4oXGQ3N5vYqBqBB2E6mMA0RP4pNrz8YON+hgt/64MWnvBSKDKYshlV0seuU/WafE/b7+aMke2tVvbIXFNkj4bFr6WvYOAULHCx2tEBA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by AMVPR04MB12673.eurprd04.prod.outlook.com (2603:10a6:20b:775::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
+ 2026 09:54:56 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9891.019; Tue, 12 May 2026
+ 09:54:56 +0000
+Date: Tue, 12 May 2026 17:53:57 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Franz Schnyder <fra.schnyder@gmail.com>
+Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, 
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jun.li@nxp.com, 
+	Francesco Dolcini <francesco@dolcini.it>
+Subject: Re: [PATCH v3 3/3] usb: dwc3: imx8mp: disable auto suspend for host
+ role
+Message-ID: <5zz6yhc4ymoccovibmjlse2l2d6y3g3dwu5r5a677rplpfdnwu@fo2ed54hqzeh>
+References: <20260108081433.2119328-1-xu.yang_2@nxp.com>
+ <20260108081433.2119328-3-xu.yang_2@nxp.com>
+ <k2sxmwhrv3tivustfnpz54ehuufkcrcruu2uuukuyugqtqljzl@5roxndm5fn5u>
+ <jjwlrgusucoacaye75uqfuh76a4jhdv3ivzjuemgusw3trwseb@mymuy62cptxp>
+ <hsyy2owzbt7tsljktlrz5g4bnrnecznvcyy6zxt7gfyxb4xvgi@ysko6xe6h2zm>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <hsyy2owzbt7tsljktlrz5g4bnrnecznvcyy6zxt7gfyxb4xvgi@ysko6xe6h2zm>
+X-ClientProxiedBy: AM0PR02CA0192.eurprd02.prod.outlook.com
+ (2603:10a6:20b:28e::29) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
-Date: Tue, 12 May 2026 11:50:15 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Christoph Hellwig" <hch@lst.de>,
- "Andrew Morton" <akpm@linux-foundation.org>
-Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, "Huacai Chen" <chenhuacai@kernel.org>,
- "WANG Xuerui" <kernel@xen0n.name>,
- "Madhavan Srinivasan" <maddy@linux.ibm.com>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Paul Walmsley" <pjw@kernel.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>,
- "Heiko Carstens" <hca@linux.ibm.com>,
- "Vasily Gorbik" <gor@linux.ibm.com>,
- "Alexander Gordeev" <agordeev@linux.ibm.com>,
- "Christian Borntraeger" <borntraeger@linux.ibm.com>,
- "Sven Schnelle" <svens@linux.ibm.com>,
- "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>,
- "Herbert Xu" <herbert@gondor.apana.org.au>,
- "Dan Williams" <dan.j.williams@intel.com>, "Chris Mason" <clm@fb.com>,
- "David Sterba" <dsterba@suse.com>, "Arnd Bergmann" <arnd@arndb.de>,
- "Song Liu" <song@kernel.org>, "Yu Kuai" <yukuai@fnnas.com>,
- "Li Nan" <linan122@huawei.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
- linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-raid@vger.kernel.org
-Message-Id: <d40e984f-7dec-425c-bf80-a255980c7457@app.fastmail.com>
-In-Reply-To: <20260512052230.2947683-1-hch@lst.de>
-References: <20260512052230.2947683-1-hch@lst.de>
-Subject: Re: cleanup the RAID6 P/Q library v2
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AMVPR04MB12673:EE_
+X-MS-Office365-Filtering-Correlation-Id: b04fcd20-4669-48f2-e8c2-08deb00c8599
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|52116014|1800799024|18002099003|22082099003|11063799003|38350700014|56012099003;
+X-Microsoft-Antispam-Message-Info: QigG1U1r+OqNOfPlTM2hDfFCoxYnQ1PhUFtrysmSpwnsfdpYqeUtxC9jtQwScScv/twWln6D2X41nrzniEzRsK/gpg8nEx8cbKJy9d2dFmU3r6wKEbtgZmNVsFUfc8Gw3jqJTkd8uU6Efs9bgQRQQ+UM1ZN+pDTska87g3W0RCvMWj9O03m4DbMkEj5HCiywGXJ4S7VYgUPnz1AVTCwFzuGrxNfcjoYaXhNQOuyBWxE0aTAjTbRcPWg05X7tizi3bjnQ8V5C2ajfvwkJUGswId7RwYS02UJsX7PKwF8e8UEkVb2OCzxk45z7o+i0Td0ZOpMW9SNArQCLTTxTvbq1FqB/ctKY9mDWAH6OtSMDuidTtTb5uDqn/Q3n0oucNGXluV44CTbgiUPPsTFISf4Air0dm4eAEUwwjzGehQrSzyDYbap+Ut6H4qdozGrmxHBqMXGYHnvO3BWqPawIj5Ios/CjI36pMlgjPjiLjE3vZZPfm4eD0oUVN+y/0n0E0VCZTuxqlwJ8cpz6ubY+vUj7BEjtIVlbodNR2DiplYC+0K+tXFGUJiaD/i4sHBoJI+ptdNQiXyGZBG5V1mpkBJbvY4UeUz2JHKHopYnqxUWH+wDCriNkFk714NvWaUGvYTQhKoqwYhba7IGqNrH1VbYq2XF75sc/421qtnlV746gVyIvKdLwpTEnLsCU+VuA/fdpJJcZIov5cJo8TuyMBhhjzyllLuBk4l/ZXf5GzlGlo2kYKpeU8MqxOp2wn/mrSK4u
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(52116014)(1800799024)(18002099003)(22082099003)(11063799003)(38350700014)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vq+3kp6c1I0hoCZnA35Mb4AZUBhtF/jXnFCBxtxPp1Yt5LPKYr71J/a6tEZM?=
+ =?us-ascii?Q?8WoQhKaQCOC60v00T18NpNgpCSqOuAal0CKONqDhsoWdZGRSw9INYFlnVtFE?=
+ =?us-ascii?Q?8SH4C2oYOuvjXfzotYCPRed34enRKkND4/VaOsbwhT6Ew03Rl3St8sC3nP6c?=
+ =?us-ascii?Q?DODezZM4HLmzr6Iz07ISGBsjNZkTxho1ADfi0EXo+JQMNRNHIpNVdEm+QBj0?=
+ =?us-ascii?Q?g2wkkLco4o1kLiCHQkPiCdmdEfSnHw2NT2RRaJn8/REWXM8/2EgCRRzqWkR6?=
+ =?us-ascii?Q?zeDc3LQatczr0LAuYaXXY2PiMQgjS/KMgOAatjJzY8HgoVrItn74GkfMFSE2?=
+ =?us-ascii?Q?LBLgrMvxQapUA9jZSq2Bh64N8x/1QXuVIiy1jL1U7bDgpzO9Nl1JKgdejw3P?=
+ =?us-ascii?Q?zM7E7SHLrL8MmPKU2hspAxWgf0ucjr9xq71d0EKMSqCzlR4sSOyiWryYyTIc?=
+ =?us-ascii?Q?xj1sFks9mp6I9te0oF/D2Udi+4La0QVjIIGSKKXB1xaAsIZBazjrDMLu0aSd?=
+ =?us-ascii?Q?PUEXyDjMqFw8kAybasX2nGEuZZweVkziJOI9yQQuLxdWXwWqS/cXBQvEFCPm?=
+ =?us-ascii?Q?LoBjoQA5ArkFm2XwGJNI53QQv70KyIRowwvyNPMirm2yXBemA69uv02J7dDB?=
+ =?us-ascii?Q?o00iYOYBtu8+Us49Xc8N4LEoPj3wY+A3xuymogcGs2cAypJbVyWVOrI+Dtfj?=
+ =?us-ascii?Q?eN6BXOTKg4Yg5lVg8ZjAWg6e587RsGOWVi40oU8PHw4UFgqHzukPxRK1UHiF?=
+ =?us-ascii?Q?a2XCK7XPz7xf24dsKGQLZsvoPGtYx5lRT329YMDJP83/5usnTXw6GF2mcj1p?=
+ =?us-ascii?Q?2VGMzAG58JGLcVWR6zvxlS0ugWQUU9U3+GKJoKLsSNjumogdvbLQCUoW+bV/?=
+ =?us-ascii?Q?ANW6OYa36ST0xxFktfBiK1p7/bc1s9aLzV+zrPbFVv5a8CaBe3kgWiYpeupk?=
+ =?us-ascii?Q?Q13fv/CiDOPWvj6/DUPF6lUX55yP+HwVExNgB9/P6nVuIeQN8mGoHxnjXudx?=
+ =?us-ascii?Q?Z8iXQI7vasUFbXbrbXnEeK449Z2gSyOE6UMnwWoOuGJIVbj68LT6NlyoQcYw?=
+ =?us-ascii?Q?AH1VitkBVI5TsRmBtb2ucFOGitajALYL+Z0nwEntZ3nQeQu97IiyUd0GWMdJ?=
+ =?us-ascii?Q?p8LTduHXFMenxFb+ucq1P41axXHKcUj0PaFTZeryqdXzB528UbDR8JChW3bR?=
+ =?us-ascii?Q?3GnGIBvoNGNSYA/U7N+Wb/FCJGmjzNXd6OpbwWTScYpy+EBa1PVxtBsAkzGW?=
+ =?us-ascii?Q?2IcHZk8BPnUT/vRpu09Q/tXIY0wzGpXQ8RjH3hDFx1LzG+aj2MGhHy54DwJ0?=
+ =?us-ascii?Q?Dj72aXcIvV+Vrws7Jwcm4ge6eojtVWy6NLunp5XPzFmkfaWZmRTqi4LorgTR?=
+ =?us-ascii?Q?18VHiXzx+Y35zgZ8QJ22VNRMsfEENw7FCt70aFYaRToGguffLKH4Fwy31YZ6?=
+ =?us-ascii?Q?+PDR4hHcxJlQL2sSwFd7xhTKECI7gUcJqrNvQxoT76yylk1sewUB+LAi4qyh?=
+ =?us-ascii?Q?qqnoAi986bNc38R6aIC0qt5mhRd3/KWVh6tVzgwN2CmlsXbSCoZr3uLAu04d?=
+ =?us-ascii?Q?nsk7/SI4jP8yNDX/HAya1QE7WpCvv4elIRe6YGn/Eg7fIHQ6NktUP8nLHBtI?=
+ =?us-ascii?Q?wwPD9xHy++U0R+gG+ljs2JEOH6rZzAiMBOdGXpGSI2pnjb9EVcO4LK0PMvky?=
+ =?us-ascii?Q?mBauz0QooNQq3xr/ifD1YBCO9pqJ0iiJ2W/0nMP5/M3IrMhv1ZVAdY7NiHKM?=
+ =?us-ascii?Q?NHWFl3O+jg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b04fcd20-4669-48f2-e8c2-08deb00c8599
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 09:54:56.3305
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: c7zf61BJ+t5ZndxY6+B3jk6eoTQ1NQ07ufLo3y9sA9AHJqrnU7gp0IKVn0jrjIW4RJ1Zk2xfRNJH/Dv8MgHg7Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMVPR04MB12673
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_025039_546948_23FB5E7C 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20260512_025503_705693_33B44BDD 
+X-CRM114-Status: GOOD (  26.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,48 +142,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 08, 2026 at 06:04:49PM +0200, Franz Schnyder wrote:
+> Hi Xu,
+> 
+> On Fri, May 08, 2026 at 06:54:40PM +0800, Xu Yang wrote:
+> > It's strange that link->status is not DL_STATE_DORMANT or DL_STATE_NONE at
+> > the time which means the device core may not properly unbind consumer devices
+> > or handle something. The patch does a simple thing so the issue may not come
+> > from the patch itself.
+> > 
+> > 1639:	list_for_each_entry_safe_reverse(link, ln, &dev->links.consumers, s_node) {
+> > 1640:		WARN_ON(link->status != DL_STATE_DORMANT &&
+> > 1641:			link->status != DL_STATE_NONE);
+> > 1642:		__device_link_del(&link->kref);
+> > 1643:	}
+> > 
+> > Which kernel and dtb are you using? If it's a downstream repo, how do the USB
+> > controller and related DTS nodes look like?
+> 
+> I was using kernel version 7.1-rc2 and noticed it while working on 
+> sending the Aquila iMX95 upstream.
+> https://lore.kernel.org/all/20260506-add-aquila-imx95-v1-2-69c8ee1c5413@toradex.com/
 
-On Tue, 12 May 2026, at 07:20, Christoph Hellwig wrote:
-> Hi all,
->
-> this series cleans up the RAID6 P/Q library to match the recent updates
-> to the RAID 5 XOR library and other CRC/crypto libraries.  This includes
-> providing properly documented external interfaces, hiding the internals,
-> using static_call instead of indirect calls and turning the user space
-> test suite into an in-kernel kunit test which is also extended to
-> improve coverage.
->
-> Note that this changes registration so that non-priority algorithms are
-> not registered, which greatly helps with the benchmark time at boot time.
-> I'd like to encourage all architecture maintainers to see if they can
-> further optimized this by registering as few as possible algorithms when
-> there is a clear benefit in optimized or more unrolled implementations.
->
-> This series sits on top of the "cleanup the RAID5 XOR library v3" series.
->
-> A git tree is also available here:
->
->     git://git.infradead.org/users/hch/misc.git lib-raid6
->
-> Gitweb:
->
->     
-> https://git.infradead.org/?p=users/hch/misc.git;a=shortlog;h=refs/heads/lib-raid6
->
-> Changes since v1:
->  - fix arm64 objdir != srcdir builds
->  - call the kunit module raid6_kunit.ko from the beginning
->  - update MAINTAINERS
->  - don't require preemptible context and apply the same restrictions as
->    the merged version of the XOR API
->  - fix the arm64 default in Kconfig
->  - pick the last registered (and presumably most optimized) algorithm when
->    benchmarking is disabled
->  - port over the randomization fixes from the XOR series
->  - misc other kunit cleanups
->  - require at least 4 devices for RAID6 to skip broken special cases
->
+I don't see any special configuration in your DTS. I modified my configuration
+to match yours, but I can't reproduce the issue. I also created some fault points
+during the probe process, but still didn't encounter the issue.
 
-Tested-by: Ard Biesheuvel <ardb@kernel.org> # kunit only on arm64
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+> > 
+> > Does the issue easily happen? Does dwc3_imx8mp_probe() eventually succeed?
+> 
+> I did various boot attempts with the commit reverted and couldn't 
+> reproduce the issue. With the commit I ran into the issue in about one 
+> third of all boot attempts. So most of the time dwc3_imx8mp_prove 
+> actually succeeds.
+
+OK. I mean, does dwc3_imx8mp_probe() still succeed after the kernel dumps
+at the end?
+
+> 
+> > 
+> > Could you add "#define DEBUG" in the head of drivers/base/core.c, rerun and share the log?
+> >
+> I can provide you with the data next week.
+
+OK. More debug information will be helpful.
+
+Thanks,
+Xu Yang
+
 
