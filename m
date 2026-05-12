@@ -4,139 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3786DCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:34:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 093EFCD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D5tJ4DlWdWYbJgVru1dea+/ts/cXr3egAdHUOOsuBYM=; b=p/etFdCci38Gn6dSQqwYbfkba0
-	7YYNXoy9b0SnE4FXNrcEYkKZxo7iqq8OMeWz/sJZ+iLURTYXgk2YpNsUbxvyyxm2Ou5szZ81AdAZS
-	VPfveZWlVJUfVtbbgjC0Og2HhaZGy/Nv7FhBZboCrm9p1friUyleJFy2ebnJ+30cSIRx+Tl0bX+kZ
-	lpCgZiO+V+r+OqjLj2APWOlBXk4tcjIaE2AGOPaBVMXWI3esZpISXAinw9Fl43IZk8mcYgC5uBu0A
-	GtIROKin39tIPrX29dOIDr9q6YwYem2PioREMZLyxP3N+3uzvisIJ6J7XHH7IpbM3nvyvsV0MzS59
-	Hzae2Www==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bjvlgt0Lgrc9OBikw5UYF113Dh9R7321VRJTyU1aRkA=; b=1lYCi97KiBd4XgDCbSsLcv5i+6
+	f3QL3KXsFBA36w03a8pniG3NwLabuEK/iRllYggRNyfT21I4KPdQv42c3wjzi72xjEABrXPD/FyAV
+	0EoHs8t4x8KqFf9BWu8AmuoNGpsKQDbnC42BhSJPaS8Zbgxm7e4fs2dkNkPaiyY5jebiYANDkFY1Y
+	mTRJDv8/4866SXdLqJV91qSgPSo7H9/F9NEN1SY+TmkX2Bpr71lqShDQPXTwcBmvJxpr34x/LDXlq
+	7UTG/Q1d5HEws49QBH7arhza8lOvI1q9wO4F15awzccWkTFkAWI1oIntq9Cxzkzs2oZhhB8Artclt
+	faZ1RaUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMoBu-0000000H2wk-182q;
-	Tue, 12 May 2026 14:34:34 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wMoCQ-0000000H33k-28GP;
+	Tue, 12 May 2026 14:35:07 +0000
+Received: from mail-43166.protonmail.ch ([185.70.43.166])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMoBr-0000000H2w4-1OY8
+	id 1wMoCN-0000000H32d-1VhL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 14:34:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gb5rZdJlTR51tzVmOXtkwHDaxJHxEc3kpVL5s2pQxM94XAPss7DlNb/GTRAom+FhO1+g1pByD6KMuRktlJeKRkEbmvTniWmGfLHQ1tIFTlQCsZT6mNBN07QL/37Bw6nri2q6SWf4y3eUO7Zqv5ZcNJmntuBRd1pas0rYvM0q8ZIGeyHDXWICychBlkKGgbaMtY1SPvtxHM0fIjVNTTpmKhh9GL6S+GB8XF2bYoP2BFTNppko1MuYowU++1S/okc++ETw2Wzc558FIAU0x4/uTPddnU64Mln2s9wAlhZyuLdGSUz9Y9ujThNa36zPAcUdCgc7uQH0IVaidwlsCrKthw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D5tJ4DlWdWYbJgVru1dea+/ts/cXr3egAdHUOOsuBYM=;
- b=tPcswU0JeSeKKwD0clpeeqhTnj68HFxTC8iKPSyLTAGLFzVYcvtg4l2Wj6A8hPnBxbzf1XGOlHlAhssyR4K+X7MlHXxwGZBw0M7sGQzNOgM/mbCNChYlmUtsPP2E/yc2O7JErJZ21snLWKEIQRvZ/YFo7X5K5Jg4SMxFXLFJ+hp5kP9M2OqO2HohtCIfXBCdc/incutMp154sk6EAHm0MDBntgcnOyPSHyOzOVCx6oG4lwzTi7au3uEO/xqh0EB4pdOm0qVih3RC6mpCMSOP+Jvt+xoDeLBKK86ylej4lbhtHdxjLFzFpSgZIKFoxzspIewRVg031QBS2cLKeVBz6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D5tJ4DlWdWYbJgVru1dea+/ts/cXr3egAdHUOOsuBYM=;
- b=GYKfb85TV7piXJM3NxbHjCiyZbREEnehGh+go0alev0DEa5sjN6UjF3g9OyL2ygZ2VxihxYjURm9IFlO22aYEKBIc/favJ6S8qLEZuMRf4qFYy/Gos8jNfl5ESyIG9SB10hDPOGfOR9AHwM3YLhg4Gx4jFgN0z1O5d3ht+nIKEU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from IA1PR12MB7736.namprd12.prod.outlook.com (2603:10b6:208:420::15)
- by MN0PR12MB5883.namprd12.prod.outlook.com (2603:10b6:208:37b::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
- 2026 14:34:17 +0000
-Received: from IA1PR12MB7736.namprd12.prod.outlook.com
- ([fe80::2274:9fed:8f3:8550]) by IA1PR12MB7736.namprd12.prod.outlook.com
- ([fe80::2274:9fed:8f3:8550%6]) with mapi id 15.20.9891.021; Tue, 12 May 2026
- 14:34:17 +0000
-Message-ID: <e84d98dd-c81c-418d-8cbe-5867f8bdd4c3@amd.com>
-Date: Tue, 12 May 2026 15:34:13 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] iio: adc: xilinx-ams: refactor alarm mapping to
- table-driven approach
-To: Guilherme Ivo Bozi <guilherme.bozi@usp.br>,
- Conall O'Griofa <conall.ogriofa@amd.com>, Jonathan Cameron
- <jic23@kernel.org>, Michal Simek <michal.simek@amd.com>
-Cc: David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260414224245.8493-1-guilherme.bozi@usp.br>
- <20260414224245.8493-4-guilherme.bozi@usp.br>
-Content-Language: en-US
-From: Salih Erim <salih.erim@amd.com>
-In-Reply-To: <20260414224245.8493-4-guilherme.bozi@usp.br>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P302CA0003.GBRP302.PROD.OUTLOOK.COM
- (2603:10a6:600:2c2::10) To IA1PR12MB7736.namprd12.prod.outlook.com
- (2603:10b6:208:420::15)
+	Tue, 12 May 2026 14:35:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1778596500; x=1778855700;
+	bh=Bjvlgt0Lgrc9OBikw5UYF113Dh9R7321VRJTyU1aRkA=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=zPZD/p4SRQgqRukzsZL8bfeuoUSZlow8uaSZj8HdWMiT1ef1HN/ZIXaLy/0KCPInP
+	 SASaTb2/Z2Uf/M+XrpexvbSgYgxVF/Mo8BmlCpluMJAqcvhtKAIFImoy2WbaFWLjjR
+	 mAcTx4LqulUTmRWkPwhTE+WUSYzmuYsHUV2BtrdscD2iE9Tiv96KiUci86fVA3WieJ
+	 a9LmYG3HqnRq5QRH23n2Q9BRY8Agl2SQuRYPYs7xYnw3h3ii3aRjv33L/Oy9WvEDSt
+	 YV8KUgbSgbOfzSFuTvKXm7h4SYjEPN7IgvnCzrFq4yKc8S2ITo0KzlsG/AkD49NtuH
+	 xs/29bVL96M2A==
+Date: Tue, 12 May 2026 14:34:55 +0000
+To: Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko <andy@kernel.org>
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, =?utf-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, linux-iio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH v2 05/16] iio: adc: mediatek: add mt6323 PMIC AUXADC driver
+Message-ID: <gWxamwTKyUeOF4QCsiIsrnh7DSWzIKFaY0h83qKq_0vg786xv1uFYhypix7BVO_ruG_vw3DrIsRhIKv5NAzl8hK72rjzPAjwAGU-rhkMgeA=@protonmail.com>
+In-Reply-To: <20260512142932.5c6801d1@jic23-huawei>
+References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com> <20260512-mt6323-v2-5-3efcba579e88@protonmail.com> <20260512142932.5c6801d1@jic23-huawei>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: f3a0f1c1dc4818e265ee79b323d08552aaf3f4e5
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR12MB7736:EE_|MN0PR12MB5883:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2c161b5e-4462-4e90-55de-08deb0338c0f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|11063799003|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: RqEI2gqDhw+jlS6avMkRVeYF4Kn8un+Ns92wRLAcdRRB9zfYZzBK0UOHd5F1XIPGPOIW1ar3Y4GBRfZHPus9hfVsGLotJnaUELtE7msLY5AKQ8CkqGcuAuqrw5jKY5TnPl2ZVYYBrDy3gdBBzRJny+LrNK6XpxJiooxz41TWAyF5n8e3v8Ya/OdiAShQKV00QpnAyh1uvpfnmQWeq4giThXxd3uiRplel3bFaRWHVHuagB0iyDw95uLYlXMrY17gL85XyAQI8xc/m8Xs1x3V0ddDD6GieFoPh6G6xNne1bxcAeScmQllCCv930S3YvKDmLtPhMDqxlFeY+WsBZcTowD8wRoyAS0zpNfnZ2sQmIqqyrqxLDKzyYMwpizWZQQKpAlmsv5NJboeGfUhEQ4OFr8sbVj3aMif80Yxl2sO1kcO1Ju+hs+qGAjzVUGpBi8pcuqwgVN7nkGzYOK2aue9Fo+9omfNa5KrnhrwG6cr6t/aZ/DqzSc1bd/o5UlhM/cu5j6ckIsmi5YiKQFjOWkfe0DMt6e3jYw7oLD0Xv49XOZ70EFeaaZ+8UnaGG3jJR5kkqJzaU4zjJoS0Uxj+DHYhy6jiPpBtwwH7fJ50Qgt39aS9/nrgv8YZyoV7ep3EbQ9SK9gCib/i0tLsXI/IPiT0mnMEIbCmKB2d6tp1GL03fn3Nvvy+xJxj6T7MlNaPGfH
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB7736.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(11063799003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZXB4M1FKVk05V2t0Z3NZODNQVnVXYVl2NGxQcUtGaXY4M3dMeXBoSU5OclhT?=
- =?utf-8?B?VVI3bldQV2NXTXo1d2QrSG9MZE1BMW0wWm1DRnVzK1Y5eWhMMElpajlsUGE0?=
- =?utf-8?B?RURuUGl3d0ppNFJad1R5OUJvZFBXZVcybnk2ZXZSOFoyYlNMcTJWVjd6Q0Ev?=
- =?utf-8?B?TTE1Q0RMaVVRMEN0dWJBUm43MWEwa1RwdngxTldWcmpud3ExSUtZR2FOMVFi?=
- =?utf-8?B?aVMrRk1aUTZxY2padVFKZVgxUWR1NzNMV1AxWlpXMm10cmhmMFdNeUVrODRZ?=
- =?utf-8?B?a2R2eDdQOHlFVmVSRldTTXh0Y0dGZHhUN3daRG91ajV0bjhmUnA0RFZYemxJ?=
- =?utf-8?B?TkE3QXV0RVU0aGxYM1VsaGEyeHRpbWhaNFpzM015dlh6QlY2OXc0cEw3clls?=
- =?utf-8?B?akhJc3hwcG11TVZjbTBJS2s3VGx2Z3lnK2ZiTmZ3bm9GSGlsRklud29Pc0o0?=
- =?utf-8?B?SFlIZnJuTWd0bExILzhUZk14eVNjZnNBQ2x3V1VzQXBMQTl4VzNlakNSN0Y4?=
- =?utf-8?B?NDc0cTljOXNjMGxxMVk0bUU2cWluTlUvOFM2YVFvVDVxcFhIQmZVbStFRDFw?=
- =?utf-8?B?WGk5QmVoWFNvcEpPTmNUMU1VMGh4STBKNnN4Ykt1dGkvNVRRYVBjNk55MkM2?=
- =?utf-8?B?RGNUS3V6N1NGMlJxaWk2WWJ1bndSSDFzbWtRK2NWVXd4bjdDZ3l5ZzQ0UXJG?=
- =?utf-8?B?RUpVQ2luOFVnYmgyNDN5Y0tPSzdva0kwamxPeUlpN0lkVW9pZG15REpjcE1L?=
- =?utf-8?B?ajBSSXlPcEFYMytpK3ZSUDZXQzZ6bTFNUUYxckovdmdXY0gzMTd3RmdWbk5J?=
- =?utf-8?B?RzY0T05leUIxTzFWR0oxY3VacFlpZFpCOERIT2hGM2Z1R0FHVHNzUzh3VytD?=
- =?utf-8?B?M0FoUXE1ZlJBQjI0WVkrOG05eTdiM0VWZi9IVEVBSGpFZ1NKRUpvNFV6aGtS?=
- =?utf-8?B?aWFKaFB5MjZ6blpsQ2RlYi84YlZ1RXdXMW9RT29mR3pJRFduNFBlOVlqV1Vm?=
- =?utf-8?B?UUhqWGFNeUFMZUhLVXJFUldxSUZuNVpTQ0lwb0lwSHNDNEtpK1Vkb3dMdm4x?=
- =?utf-8?B?WHJhT2UzYVFDYSt3dkxMYTFRQ2l1TFRZSTl3amRUekdGaWZBaWpBZUxpOVo1?=
- =?utf-8?B?OTNkZDJWckJRTHE0dTJiTUdjM3lGQnFHTmhJSFhBZ1VialJzWDdVMms2ZnAw?=
- =?utf-8?B?MjZCZHZyR01YTE1aRnRieER1SWdESWdYTkhMTDF5TWY1QlZHSlFyd3llMkZQ?=
- =?utf-8?B?OXlZb2VUUHNaUlFWRDJIUkplVWlxTk84ZFkxTVNiMGp4dnM5eXpGemlGTnpa?=
- =?utf-8?B?UHpvMEZqQmJiZjhiV3FXNDY4bXRaUlFRYUhzTExsNzZZNHNvK2FKMFIzdFFT?=
- =?utf-8?B?enRwdlRlU2ptWW5mZitma3oyUzQvR0NvRytEQ1lJN3dNWWVyemZLb3l6cm1l?=
- =?utf-8?B?d1Fwbnp6d0tCWWowNUtNQk9PTU9vakVlYTJJcHRtT25CK0ZIMll3TjcrSFpt?=
- =?utf-8?B?b3dNeWUzQTg2VlA3MlpRVGFaam43b1BjbHRlWVNaYjFGVS9md3p0Vzc2QjJh?=
- =?utf-8?B?Z3lFN1FMQlk5bUlHdEVpWmtraDdHclRDeG9sbGc2UjRqUGtRcmlxR29Eamdk?=
- =?utf-8?B?TXRPQWU1SmFRNmgrMFZNM3hWWUFlSVlBc1FtZURpMEkzMy9namhFSlpZSUdO?=
- =?utf-8?B?OWtwd0tUeUk3Sk9nVW9OUTBtOVV4YmVnYzBTNzhla1RLT3puY00wT05LcXJh?=
- =?utf-8?B?Ri8wR21XeVVnWENjclZKb1FOMjJubjduL3F3RHZoSUdjLzkwa3Q1eGgwOURO?=
- =?utf-8?B?bDBWLzFYaGlKOWY4alc3YU5sRlBQNGlOSE1ueFgrOWRwUUxmZlpKSW5mVFVB?=
- =?utf-8?B?UnA3Nm5TQXRoc3BSeUs0OGNlK0lrdml1NmhDVWN4WTFmYlZQVUFVK3lxeFBY?=
- =?utf-8?B?U054K0FhUkFxejBKSnB3V2hJYTc1TGZSWUVHakJXV3BGWDhZQzNNNUpTejdN?=
- =?utf-8?B?ak9oeDYwakdsVlUzTGZDNmZGeG1WL3RiQWJocDVqN3JaV1B6VmdpbkxTOTdo?=
- =?utf-8?B?SWhLMDNsWmpVckJtYi9ISHVwOWRNWE1VWDZJUEpMMHYxcjFpNkEyNEljaTRI?=
- =?utf-8?B?Kzc4U3BQVU0zNTJKNVJJUURhTHk2eE12OHZIeU00WENDbWVoZ211Qk8yM3RE?=
- =?utf-8?B?Ny9RNjFJMjN0Z3JsbjZkOHhXOVVUN2YySjlGRHFjMkpYZWtXTXZOQ2pWVkNz?=
- =?utf-8?B?RktOdXpIVnowcHl4VWJWK1ZBNEFvdTZLb1BuaWpGclF6b2F1ZjF0OEkzSlJS?=
- =?utf-8?Q?cRgkVpFuYZI2ZAuaoa?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2c161b5e-4462-4e90-55de-08deb0338c0f
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB7736.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 14:34:17.6377
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6ois2OXuTOR8SUBqqb2EhYqExaIOIefcv5XruAVImbzr5dxos2Xbk8HhjdVuNhz3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5883
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_073431_384365_20DFF7E9 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20260512_073503_538652_BDC2C272 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,40 +69,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tuesday, May 12th, 2026 at 4:29 PM, Jonathan Cameron <jic23@kernel.org> =
+wrote:
 
-On 4/14/2026 11:40 PM, Guilherme Ivo Bozi wrote:
-> Replace multiple open-coded switch statements that map between
-> scan_index, alarm bits, and register offsets with a centralized
-> table-driven approach.
-> 
-> Introduce a struct-based alarm_map to describe the relationship
-> between scan indices and alarm offsets, and add a helper to
-> translate scan_index to event IDs. This removes duplicated logic
-> across ams_get_alarm_offset(), ams_event_to_channel(), and
-> ams_get_alarm_mask().
-> 
-> The new approach improves maintainability, reduces code size,
-> and makes it easier to extend or modify alarm mappings in the
-> future, while preserving existing behavior.
-> 
-> Signed-off-by: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
-> ---
->   drivers/iio/adc/xilinx-ams.c | 161 +++++++++++++----------------------
->   1 file changed, 58 insertions(+), 103 deletions(-)
+> On Tue, 12 May 2026 08:18:19 +0300
+> Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wro=
+te:
 
-Two issues:
+...
 
-1) Same tabs-vs-spaces indentation problem as patches 1 and 2.
+> > +#define VOLTAGE_FULL_RANGE=091800
+> Probably better to have this inline - however if you do keep it
+> prefix t he define  VOLTAGE_FULL_RANGE sounds too generic!
+>=20
+> > +#define AUXADC_PRECISE=09=0932768
+> I'd put that inline.  Little benefit it in having it up here...
 
-2) In ams_event_to_channel():
+There was a mention about magic values in the v1 for the thermal patch [1].
+Andy, would it be better to use an inline style or a #define here?
+If the former, I'll rename the first constant to something like
+AUXADC_VOLTAGE_FULL_RANGE.
 
-> +       if (event < 0 || event >= ARRAY_SIZE(alarm_map))
-> +               return NULL;
+[1]: https://lore.kernel.org/linux-mediatek/afmnUG8dG0N0HpV6@ashevche-desk.=
+local/
 
-The 'event' parameter is u32, so 'event < 0' is always false.
-Either drop the < 0 check or change the parameter type to int
-if you intend to handle negative values.
-
-Salih
+Best regards,
+Roman
 
