@@ -4,146 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98DDACD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D8FCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AmSCqJZKt+pC9dIJtxOBW40oO6XkPuLhXrAs7g5j5M=; b=1AUmP5U1cTX5A5sjUyakCMz9EE
-	KSvSogRvJvpmoL9r7koHEkho42on3lMr3hQsNzFbzvyTzIXzpKCeqEuIL0MF9Lp0fC3ThlSIZlEhw
-	/9dyMu0S267h+AI7iana47VLl6OJd04NyhRixtDZq7mbRrwahk7QT09hiwsA7Z/uVBl1eIwCwRw16
-	PFQ9i6OrEdqnE/szp0/JWPEhPvnMkv0GfowHg937oIdVs9hICZVZMigtJF+naQIaf/HWiTAY3tFra
-	gZkCuYvTvfSkIt2UcNGS+hOTORow4hzDgU4YubLT8pgtqiaMAjYtIltZphtcEeaPIyrjWksuLIKGQ
-	4SLO8uPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9RPNV9f2FkJa8SsKMvM0nSEQ+h9Bwc3cCq10hzKrpUc=; b=iBKeor8kJJYhOrojOK9chndFmN
+	J+AtzRllWg4Rf/3lTEa+byOVRdthc6s/5IEO63tAl2+tSZzuX0tfeDJdJWZ10IGJtZYIAbPSkPTVz
+	Jl8CtXYLdE5dkuPJ1hYqOgW8+MgNssF1Glp3QEy0lpph5A8gkoTQrlL25L7hy+IR7qqxI/Q4PToGi
+	yiQbY7hqyGqoDN7HVwkujdjBN3v16IDX7zrDR3OGAxFgX/UK7zEPM8IN9Z/u1stXT3CF3+7jLTH4y
+	H31/r+LbTmtCzBtYC7Hs9XNL713rQwlN3L91a6DaEPLZYSFLHBfakSuDVHthvGamdHqlunQKg/mgV
+	5eEGjuvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMovN-0000000HC4H-2WvA;
-	Tue, 12 May 2026 15:21:33 +0000
-Received: from mail-francesouthazon11011068.outbound.protection.outlook.com ([40.107.130.68] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wMow6-0000000HCHO-37jo;
+	Tue, 12 May 2026 15:22:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMovG-0000000HC1U-3QAH
+	id 1wMow6-0000000HCGn-0J0Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 15:21:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DOjbeisRBv02tetCTmyqsLvcPoKkh8Pq/Pfk9mqA5Qty9GfpgwahiVtE9T5MoNGL8aJjs/IxDgglGCKtP3hDEsBCv7oIq0a86LGbrLtileSxqu96ALuSQ4RzWJe5A1ntPvrxN92ex8y6X0R4O5JkkQ6ehuDddIBh6N+KHjNNAndIY+I61lmQMIw12Qiq7tYqFTDOzfuWuXNjl5/0r42vklW0kWrGnon3jSOOGK+i9cNNr/Wl9E+I1U/EhgOqML9k4FkCyFSmTuVywFEBO6KSzu2wLjQHy9ie/AO4S+Qb4j3gvMsIsu9HTekUpAeIK+efCA7OU9qlGwLBp7TlftNtIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+AmSCqJZKt+pC9dIJtxOBW40oO6XkPuLhXrAs7g5j5M=;
- b=ldwOxwYN4G+6gniMFmme0oUJkHOyn699nF8MsHS37kkDmUBrjLC0uMyoKHaqqBNjeL/Cluhm8D3sxWmywk6swb6lQ+pNw4e8HQl51/AKir0SiHfREdmMe90y8MPvV+TdASUjbMBglbvgoLl4KlzU5czoYdJp5i8kHwgEhG+zxxrXpSBUaz4i5ZkMjbe1AYrzf7LAZpHovPQZeioEUHuxQ/eL923OHhEv8adi7HU7MPp5CDMhe5MRNxHgLHb0zceVRkrZLpT9tXrHkvME+0tptdYUcILlBXE8h3go/bonuTMUgM4rkVEZ1xlmmvhng9ViEsIx+cnPy/eegEwGSTpPGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+AmSCqJZKt+pC9dIJtxOBW40oO6XkPuLhXrAs7g5j5M=;
- b=A55qzcqLi6VLladQ1iK1e6eI/5Q3scuMYXcFYbOnfCPsy+GiKOBy3+bA4x8S/u3XRVzD1gQ8Wk8m1bYKLWzqSu46iByh++glYZ1e4erA3PWAPKtEWs2r6ZeJBJyUnV2IRlLI92gfzCMz2o0Io12NjkIlabQLtBW6T/LnxS8EEcKOzgV8RqL88HptTX+bfrSD1qMLu62RMLByLgSZO4V6pNyzbBsi/RQjY9kZtNDbuYx0k62dVGRVA4AFdMTm0fDKuUb05a7vqGHKg4SuPKeXOGaVmcRcVXnFDHLDnh1ojCJ2GArrZPVDSKh8x81TmEKd1jgBg4D4/Q5jbVAAYAlpiA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by AS8PR04MB8452.eurprd04.prod.outlook.com (2603:10a6:20b:348::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
- 2026 15:21:21 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9891.021; Tue, 12 May 2026
- 15:21:21 +0000
-Date: Tue, 12 May 2026 11:21:13 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Haibo Chen <haibo.chen@nxp.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: Re: [PATCH v6 0/7] pinctrl: Add generic pinctrl for board-level mux
- chips
-Message-ID: <agNFaXbd_sMq5eAo@lizhi-Precision-Tower-5810>
-References: <20260504-pinctrl-mux-v6-0-8ea858ba3a5b@nxp.com>
- <CAD++jLmXvnf6sSWsGe+++u37ONJpFFvxFMUkLdvvxiiaWuf9gQ@mail.gmail.com>
- <agIwOYrKXlnKbpII@lizhi-Precision-Tower-5810>
- <CAD++jL=eqEaTcG7P=++Md7fqosmrGbRRPDb90+=Q4q8oQ=xqRA@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jL=eqEaTcG7P=++Md7fqosmrGbRRPDb90+=Q4q8oQ=xqRA@mail.gmail.com>
-X-ClientProxiedBy: PH8PR05CA0001.namprd05.prod.outlook.com
- (2603:10b6:510:2cc::22) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 12 May 2026 15:22:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D306618A1;
+	Tue, 12 May 2026 15:22:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEB83C2BCB0;
+	Tue, 12 May 2026 15:22:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778599336;
+	bh=0mQ9WUyf//P5pbvLH0sW41h1Dq7UtQ3QNXMnE8N+8AM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S8BrcVysnQowfGUpu+ooPgWJynKE//pAzW6sSO7hDvSasTPlNgaVqtfpUGhH851R2
+	 WmHO7Xdgy9S+x2SWRJU3mYy0Hy9nhugcyvSv2ZftkS291MX/rYqeLqgiVjJl6qqA5V
+	 Eq9TR0XO5SGn1wb2tvYv9yzENhNHhw6GfogkwbcEzPHqBh1ZAj2HKKqW0A+9M5mdY4
+	 aGgvW8eSC0BhkkvXQpo8t5ylz4xhWFpkgzWzL2dGJnCllyMlRYtwiSLmc4tzQ6gI3F
+	 QcrtlGWqCdUQ0ePPvZGqgeN3fC4LN/Fg4sp0x+IuvE86fQ5APeTOg7AXs7YER+3U5D
+	 UJYMiVWDvdgAw==
+Date: Tue, 12 May 2026 16:22:10 +0100
+From: Will Deacon <will@kernel.org>
+To: Yang Shi <yang@os.amperecomputing.com>
+Cc: catalin.marinas@arm.com, ryan.roberts@arm.com, cl@gentwo.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [v6 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
+Message-ID: <agNFou9cAavEILXl@willie-the-truck>
+References: <20260316192933.3993042-1-yang@os.amperecomputing.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AS8PR04MB8452:EE_
-X-MS-Office365-Filtering-Correlation-Id: a32967d9-ffba-406e-571f-08deb03a1f27
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|52116014|19092799006|366016|38350700014|56012099003|18002099003|22082099003|11063799003;
-X-Microsoft-Antispam-Message-Info: ax3HX1x4WJ7jDB8nZfUkMKsnkLzbut6f/YPImtSppkjoCcM/OPwkV4VkeWfM3DZ2zxYgTnMc+XeMuBlyrbtivyOSkZ/kXFXk89c7r2afYRbHCklY5vEh6vBN4vRcpZ3F/o9Ljc4EgEnLBBjfGhsuIXH04w5bRoZPv8vJfbBLfPZ9YfBYgeQdSs2hgeepVgYqNjS5nnA32djBXArHXSdlHkqDeR//ZIfZc5/1PdAkMu84Kn3VzIznn91zQ/vGyjIkWJmLbNwpcbhTtBS3eXaOeTN6gpBeiQbsQhFVoOvQG5xHqpGO1iafM3HyEF5WoiStMa79A2OqprnR4ONK/HTBHN1g+B4kzfj2giCnKJpK65pkzYXxN/MNMERNTs23OMWWMATsnfYh2xG5UE9QKtPrSD7kJdoL7OSZgMUbc4zpWjuEbkq3w3eN5KDI4UVMzFXXPoTP8jzS0dPEMk6KsZjY/y59nbtdSxzB1k9StO1yHLUKqRUufrE2dKr78Em0T7wGiu2mzFWJdU6rH/WoMTO/NCGSS7orpoTOsQPIo4XBNGBQkISjhK386FrWe6ewYWDyPrji1d8LvA7dJJ2zkIZNTP0n1Z+FJ/10Z5JIpx1S563/ZxNgl8t6FslrmlsC2S/koqCMbMsF3JLyHBBLMzrae5/W9um7kyAhAUIL7RtUJUKaGv1yoTHHswxffEcfVbSrn44eMcfV7yjEzuL+OTm7zZxl0HdbGwcXa65RbJRghQBtzridvPpAsf5QerW6YVPj
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(52116014)(19092799006)(366016)(38350700014)(56012099003)(18002099003)(22082099003)(11063799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dWtaOXdWUUp0TTNFdXJxRTUxVXVtUUdZL3JWeEUrbHdrNW1yQy8yY25kYXhh?=
- =?utf-8?B?WDdkNUMyRDl1V24vMzE4N1RFYlk1NlFSa2g4VkZ3L1hWaGc0cjdHS1RVS3ow?=
- =?utf-8?B?cXZ5WnplUGc3cklCbUdpdHMrR0psNGJuWVhvS3lOajl2K0RSQm43WE9iSmdI?=
- =?utf-8?B?dEF4SUdTRmFWbjRTck9CQXZFd3JhNGpzcC9IeVVmOURuT1I1OEZlWFVqV1Vq?=
- =?utf-8?B?R2dUeUMvSlpZYkMxaitGdENGK3ZRS0NtUXc2L3BlL1RvcUIxanhwdndtQWt2?=
- =?utf-8?B?V0hkbmduRUZNdFV3aElTYlZyVEVMZW8zUjVlazhiZWFRK3NlSGE4dWs5SXhR?=
- =?utf-8?B?bVNESUJCNFNlVjFiMzVqblFNT3VkRmtEVU5MUXlDT3AxN3F2alZWUjVpY3ho?=
- =?utf-8?B?YTMwclU5L1Y5Yms0bDQ1VE5IcFBQV1VDZ0dheU1EVXBmcnBPTHNUejlEREgr?=
- =?utf-8?B?bUJ1Q053TTJEc3Jla3VISGkvMkdIdlRncTNXRm5iQmd5Mklvd3F4WnljKzBB?=
- =?utf-8?B?RDRDTVNTY0I2N0wvbldKV2VMd1dJd0xGQW9VWUZjQkEwUUVCbk5Ha3B0NnN1?=
- =?utf-8?B?c3FLd0RYd1NtcUFremUzZEJuV1RkWnhOUzRvbTJvbmZMSDdqK3pIem0ra29Q?=
- =?utf-8?B?LzdQK3VDT0ZZb280NXJmSDliMDkya3RRS0E5QTd3ajI4TUZqYWhrbXhSanZZ?=
- =?utf-8?B?NnVDUWZtZllmTTRRV0ZtNUFNSU9DTGdGNzdleFF0RXk3ODdhN05GMVRqTjdt?=
- =?utf-8?B?VEtIakcrajlDbFZhNFpONGdZN3VpYm1LSEF6UWEvUjdPMS9wSlE2NkkrVDAy?=
- =?utf-8?B?MGFJY0IzRmJzckJycml1NXVOUEdjQzdiVW9kb1Z4bmtFR2VtbEhMVU1HUU9w?=
- =?utf-8?B?WE5ZcmFrbUFLN25OY2tUYmRreW0vb1dIQW8zcTYvN2ZoUE1YeG9VbVZ0akMw?=
- =?utf-8?B?dktLYjFwZWRwdmMzQVdEV01KenV5Si9RMlRHL2R6MGZReXIvbmIvVUwxUE5o?=
- =?utf-8?B?YWZqTlBtMFBPeC9IQ3BNVTVqbGNqQmppOVFScFdndVd5eklIRFNDR1lFT1hB?=
- =?utf-8?B?RkRKZ21hWTFoUUNzbVVkSWhxbjZrN2k0cG5EWGQrVG1BcG50Z1ZKamxzSlZC?=
- =?utf-8?B?N2w4MTUvMlZxaTlRL1hLdk5Ybkh4RS9FMUdSeEFLUVpXTk5sOWMxWXhEelJZ?=
- =?utf-8?B?aFJpQnRJN3htWEkrQzFzSFBhZGVuR2RZZkl5TXZKeXVDUlZQR2lsVDQwcTd5?=
- =?utf-8?B?MWNydHZQRHRucUlGSENVQkM4MWJINkxUa3lZVXE0U285Z2dybWlWMmxJYzFh?=
- =?utf-8?B?VThSTnBRbGhtOU5wK1UzOE9ZaDVhN2NTdWtUWE1ONGVTRWpPbThlaWtja3B5?=
- =?utf-8?B?clBNRStIME9ER0F0N0FVZkM5a0cybS9Kekd3THZ0TUU3d2lhYnh6SVl0aXQ4?=
- =?utf-8?B?SU5QQTdHK25zRTNLUUhaZ2RyYStqMmsrRytwa1IxSW94Tmtpc2F1NzJLamk4?=
- =?utf-8?B?a3VSQWFLQ1dLZVVQVkhyMHNoN08ySEg3TERTZXduS082S1RyN0RpSUVjUXhZ?=
- =?utf-8?B?OGdJbk1QeWEyRTRTNms3czFvaGxGaXNEc2l2ekVYcTAzSEUrbzRxR2tQTzln?=
- =?utf-8?B?dThTNTRMWVpBTUFtcEJld0g2SkVVQkdMUVJoQjQ2VVNkQWt6dFlVTCtJelZv?=
- =?utf-8?B?WFo0dlowd201aGwvUm9ja0dXN1dLaDdHSHo0TnhVblZTVWYrTFlrVmNsRVZS?=
- =?utf-8?B?THFlUE9qMk5iQm5YNlNVaWVsYlo2NEpUV0xQUUpKdytDcC9hSERiNE50Yzc3?=
- =?utf-8?B?YTlZY3IvNWlHWDcwTHdtdXhxZjZPMW5odlRkam1yRGNtUE14aU15aW1zdkFT?=
- =?utf-8?B?OTAzd0dabXE4K1pUZE5qaTJkZG5QMzhOZUNJZ0RNWm8zWXN0b29hWDNDbHZh?=
- =?utf-8?B?VU81VkxYMHlnWGVOU0s4RWkxdUF3VzBoY2hVRGJ5Uzh5bXlQTnhBN2tyejB3?=
- =?utf-8?B?a1VKb2hoUFBOREgwVjZrY3MrQ2hhRENRb0dINk1iRktFTFlGbmF1YVZVK1dh?=
- =?utf-8?B?SjBoY0YxeUhDcEN4VDRBN0sxZk9MZGgxUHMxdXE5cytBMUE2N3ZnR2VEN0pw?=
- =?utf-8?B?ckZ5YTFJdHlXakwzNjhjR28vMTdwdFBxeVBvSXlRUk0yT05IaVVWQmJZWWhu?=
- =?utf-8?B?UlBNNlBOMmpDekhkT1l2bGlMVVFUUjliaTcycDBvNEdjZkpzZ0dlOVNmRmRp?=
- =?utf-8?B?ZjlRaXlZVEJ0aUlBR2grVEZXNllSSnY1OEtORVFMVGNoa1B4cGFES0hCbFgy?=
- =?utf-8?Q?Yu1U/aCB7daVjx1glc?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a32967d9-ffba-406e-571f-08deb03a1f27
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 15:21:21.2807
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IX6Zj5lTW/X1zHfKdjtwZZ17hU2x+xrit2M2pkiFIiEXT4C6aaZ2m/RpPcn2Q+4zQzZPszLUhXh6K0IdPAlI2g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8452
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_082126_865854_8CB7402D 
-X-CRM114-Status: GOOD (  12.93  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260316192933.3993042-1-yang@os.amperecomputing.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,26 +68,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 10:34:35PM +0200, Linus Walleij wrote:
-> On Mon, May 11, 2026 at 9:38 PM Frank Li <Frank.li@nxp.com> wrote:
->
-> > I fixed a build warning by missing doc 'np',
-> > https://lore.kernel.org/imx/20260507152117.240612-1-Frank.Li@nxp.com/
-> >
-> > Anything need me to do futher?
->
-> Sorry was busy!
->
-> Applied this fixup on top of the branch and merged it into my
-> devel branch for v7.2!
+On Mon, Mar 16, 2026 at 12:29:33PM -0700, Yang Shi wrote:
+> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
+> rodata=full"), the direct mapping may be split on some machines instead
+> keeping static since boot. It makes more sense to show the direct mapping
+> use in /proc/meminfo than before.
+> This patch will make /proc/meminfo show the direct mapping use like the
+> below (4K base page size):
+> DirectMap4K:       94792 kB
+> DirectMap64K:     134208 kB
+> DirectMap2M:     1173504 kB
+> DirectMap32M:    5636096 kB
+> DirectMap1G:    529530880 kB
+> 
+> Although just the machines which support BBML2_NOABORT can split the
+> direct mapping, show it on all machines regardless of BBML2_NOABORT so
+> that the users have consistent view in order to avoid confusion.
+> 
+> Although ptdump also can tell the direct map use, but it needs to dump
+> the whole kernel page table. It is costly and overkilling. It is also
+> in debugfs which may not be enabled by all distros. So showing direct
+> map use in /proc/meminfo seems more convenient and has less overhead.
+> 
+> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+> ---
+> v6: * Rebased to v7.0-rc3
+>     * Rebased on top of Anshuman's v5 "arm64/mm: Enable batched TLB flush
+>       in unmap_hotplug_range()"
+>     * Used const for direct map type array per Will
+>     * Defined PUD size for 16K/64K even though it is not used per Will
+>     * Removed the misleading comment in init_pmd() per Will
+> v5: * Rebased to v6.19-rc4
+>     * Fixed the build error for !CONFIG_PROC_FS
+> v4: * Used PAGE_END instead of _PAGE_END(VA_BITS_MIN) per Ryan
+>     * Used shorter name for the helpers and variables per Ryan
+>     * Fixed accounting for memory hotunplug
+> v3: * Fixed the over-accounting problems per Ryan
+>     * Introduced helpers for add/sub direct map use and #ifdef them with
+>       CONFIG_PROC_FS per Ryan
+>     * v3 is a fix patch on top of v2
+> v2: * Counted in size instead of the number of entries per Ryan
+>     * Removed shift array per Ryan
+>     * Use lower case "k" per Ryan
+>     * Fixed a couple of build warnings reported by kernel test robot
+>     * Fixed a couple of poential miscounts
+> 
+>  arch/arm64/mm/mmu.c | 197 +++++++++++++++++++++++++++++++++++++++-----
+>  1 file changed, 176 insertions(+), 21 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 5fb9a66f0754..7e95dbc69d57 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -29,6 +29,7 @@
+>  #include <linux/mm_inline.h>
+>  #include <linux/pagewalk.h>
+>  #include <linux/stop_machine.h>
+> +#include <linux/proc_fs.h>
+>  
+>  #include <asm/barrier.h>
+>  #include <asm/cputype.h>
+> @@ -171,6 +172,87 @@ static void init_clear_pgtable(void *table)
+>  	dsb(ishst);
+>  }
+>  
+> +enum dm_type {
+> +	PTE,
+> +	CONT_PTE,
+> +	PMD,
+> +	CONT_PMD,
+> +	PUD,
+> +	NR_DM_TYPE,
+> +};
+> +
+> +#ifdef CONFIG_PROC_FS
+> +static unsigned long dm_meminfo[NR_DM_TYPE];
+> +
+> +void arch_report_meminfo(struct seq_file *m)
+> +{
+> +	const char *size[NR_DM_TYPE];
+> +
+> +#if defined(CONFIG_ARM64_4K_PAGES)
+> +	size[PTE] = "4k";
+> +	size[CONT_PTE] = "64k";
+> +	size[PMD] = "2M";
+> +	size[CONT_PMD] = "32M";
+> +	size[PUD] = "1G";
+> +#elif defined(CONFIG_ARM64_16K_PAGES)
+> +	size[PTE] = "16k";
+> +	size[CONT_PTE] = "2M";
+> +	size[PMD] = "32M";
+> +	size[CONT_PMD] = "1G";
+> +	size[PUD] = "64G";
+> +#elif defined(CONFIG_ARM64_64K_PAGES)
+> +	size[PTE] = "64k";
+> +	size[CONT_PTE] = "2M";
+> +	size[PMD] = "512M";
+> +	size[CONT_PMD] = "16G";
+> +	size[PUD] = "4T";
+> +#endif
+> +
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[PTE], dm_meminfo[PTE] >> 10);
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[CONT_PTE],
+> +			dm_meminfo[CONT_PTE] >> 10);
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[PMD], dm_meminfo[PMD] >> 10);
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[CONT_PMD],
+> +			dm_meminfo[CONT_PMD] >> 10);
+> +	if (pud_sect_supported())
+> +		seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[PUD], dm_meminfo[PUD] >> 10);
+> +}
+> +
+> +static inline bool is_dm_addr(unsigned long addr)
+> +{
+> +	return (addr >= PAGE_OFFSET) && (addr < PAGE_END);
+> +}
 
-Sorry, I missed picked up fix patch during rebase.
+Just use __is_lm_address()?
 
-https://lore.kernel.org/imx/20260512144806.22447-1-Frank.Li@nxp.com/T/#u
+For better or worse, the arm64 arch code tends to talk about the "linear
+map" rather than the "direct map", so a little bit of renaming would be
+good (i.e. s/dm/lm/). I'm fine if you want to keep the user-visible
+strings as "DirectMap".
 
-Frank
-
->
-> Yours,
-> Linus Walleij
+Will
 
