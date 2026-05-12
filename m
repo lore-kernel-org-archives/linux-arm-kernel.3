@@ -4,72 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F1F0CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 23:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 494B2CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 23:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7y5ERZ+46G5TuZ6kypctntsWjjmLUBio5KVlVFgY9Zw=; b=zpXBOPYwRx5CRQw2Ob56zYlY4k
-	SW/kt+iYXuTFTgfEirqmui8jJ5vOY33kS3nWclZn5WRlsw1K/uB25l22PSrrya4E2WVC71wYErsSx
-	VjXKCgQp87epsHvE8l46cp9ysfF8c5mQRHD4XZZ9DPcXRdD0FAUT383fPrKUKTDurZmQpRWgPMyzB
-	kO5eCgHGrf22Y4Qhl2RvuvhZFiRsjA0qHuAzDjetavlHBz6jLq9gyw2YYQhFBUbh9lOLNPg3+851L
-	/P32FKXDjmvLoC5axzY9ZVqIdJnzZWy5dJoYknUfXGYXRanMAQgkRr6GaWIztwsP0PjmloPeyaGgH
-	rqwAQxyg==;
+	bh=CQMP+CsFbE9KP3qAcxLaIg4zkOxpF/EIB64y6avymrk=; b=bfUkAMVwE6GsJjZTWrWbjuSdaW
+	NyQqN1Soe4s7xj+nBYob/hU+DdoL8CFYTH84LIQ/bpCL3faOKKejqNr5Vyq1NbaFcBuRsfmXuDuTJ
+	NautvO9Bu/IHwlxAPuyvFM7wqmIZ4ISawKs8fzTa9h0FZJqfAfe+bkYO/qhdIG/h/MrsZZAYp97xe
+	H0LUTT/6pHvJR9an6+WyQ67GJCgOUes9H4fD5aSNNGa/4zLSaf6QagnEpl6ekj7MVYfbPIXvyaaW+
+	WuHVLOYMfA9KKs3ZTmV8vuokkQKoPS8niViw5HXXlKFQ5OH2s5kNu2KauMfwOFOoDfHpiB4/FsnIx
+	uqZvVzVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMwHw-00000000fgY-1EZk;
-	Tue, 12 May 2026 23:13:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wMvpu-00000000c4Q-15oX;
+	Tue, 12 May 2026 22:44:22 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMwHv-00000000fg0-0WUS;
-	Tue, 12 May 2026 23:13:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2723160120;
-	Tue, 12 May 2026 23:13:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88E9CC2BCB0;
-	Tue, 12 May 2026 23:13:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778627597;
-	bh=7y5ERZ+46G5TuZ6kypctntsWjjmLUBio5KVlVFgY9Zw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=L8ix4T7LumVzKwTGAmGHMrwUukpsAmAzFvnrLz0XdT9IECAVpIFPzI8JAdwAjELFb
-	 eEOXvwRJm5nKwiHf/5bwAazCxNLpjjYIURLL8u5VLa2jLpFYeCMrf0TzKNrnZcgJ3k
-	 b1lCRWWmuNb7/GLTRAnrSQXC0w+Xf2ly6Yt7jub737/bcoKACKWpPLlF+VCL8d8bld
-	 +ASIw4J2jCQZw86XzI2rfrgQWBcvoQF4p6LyjzYRgVlHTseYTsHE0RaF3T6I2k9mJZ
-	 OwdU7ctOnJp0Ts89wGEA+Md1HUBm4TJwDahotDhq1bYxG1AgaLLYqPhajGxV8kGAQ9
-	 YJQWeT5Ho3mBg==
-Date: Tue, 12 May 2026 16:13:15 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-Cc: andrew+netdev@lunn.ch, devicetree@vger.kernel.org, davem@davemloft.net,
- edumazet@google.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- rmk+kernel@armlinux.org.uk, pjw@kernel.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, linux-riscv@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
- linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
- pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
- horms@kernel.org
-Subject: Re: [PATCH net-next v7 2/4] net: stmmac: eic7700: enable clocks
- before syscon access and correct RX sampling timing
-Message-ID: <20260512161315.141aba88@kernel.org>
-In-Reply-To: <446f69bd.7fe4.19e1ab248fb.Coremail.lizhi2@eswincomputing.com>
-References: <20260427072353.1114-1-lizhi2@eswincomputing.com>
-	<20260427072508.1151-1-lizhi2@eswincomputing.com>
-	<20260428180625.738223cf@kernel.org>
-	<2117464.7991.19ddd2125d1.Coremail.lizhi2@eswincomputing.com>
-	<20260430163551.7491407a@kernel.org>
-	<38d052b7.7a70.19dfb0d782b.Coremail.lizhi2@eswincomputing.com>
-	<446f69bd.7fe4.19e1ab248fb.Coremail.lizhi2@eswincomputing.com>
+	id 1wMvpr-00000000bzF-0kZ1
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 22:44:20 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-44b729aa7c5so468867f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 15:44:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778625857; x=1779230657; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CQMP+CsFbE9KP3qAcxLaIg4zkOxpF/EIB64y6avymrk=;
+        b=nhMRG5YrLWU9UvUM6GQcXJcsZwUek633cxYl/Xiv2qGp900W9cNaxu0EFt49vOusxw
+         iNa+1eE4gEhgYePlgx9b9AxPOv9ltwtRn2Ahp94EDRT6PDiNZ3AuYPiz4KRMdwx0XOYI
+         iznqR1YEyuwmJgDNB3Zs4LAsW1mlICk5vsPQiRqh/KCUJ27mJOm2WXAZuyenbEEHwi3K
+         8bolvdDZFr8BdQpPMZigCRtWNxLUiGU3gh6exY2Aa0P2Wq/jUF4EAR+RBiNavOqQ2VZZ
+         xpAbGpOVre4X6a7LY2icI0nLgnRl16gr+m+YiQ2WTkt+DVIFjzT860Sjntwoxv4LllW7
+         nBqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778625857; x=1779230657;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=CQMP+CsFbE9KP3qAcxLaIg4zkOxpF/EIB64y6avymrk=;
+        b=HqvLwU4IpoOS6HLc4/S/euaPeY7rWZMDaFYUgk1A4owosmv1Ons0l6mZBenRU0gn3g
+         DH8NQRhY7ZaZa7EmbNI8HBWoe1S0gUye/sXpTpMxltqScnVNL+pCsiMQ3Y3NqELM9qA3
+         4WJAjPT6D6jhrsdCF3V9tKgx2kF3d2Yrw8bZAPZNRYN4xHf7QBSY3AUoJYJfkmNuA+PN
+         638xZK7OhlCeHtnYvvQLyC6qVIK6cCgqDr6/7BoUY/8rZrB7oh9LsJ1RKZzublOpk36t
+         XCWIn5zt5vAZLrJErEHRgvDGJ0Y/Nti5UIO4zDA+UV9K6wyIGbbP9rmQVWntZ3HMp+ru
+         Zd0g==
+X-Forwarded-Encrypted: i=1; AFNElJ+JumqbDc7f9yDfex8xFfVzaQf67U97BGGnIsDRnF4bXsQs+/0OrdjqObvjaWJsENM2XI8sA3YZ0lippmN44zOD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5Juf/fqdeqbjMj8uDLYDfoOQYdiLYQSbkVeYzSq74TrrEIBht
+	MMGY17xmcMhy29WEQGL+Yt+d/UT9jgjlnIiz74hx8ZiYjKfns8Fu3pkR
+X-Gm-Gg: Acq92OHoY9p1rd4bXyY1nKYqu3sGHfox4DjQaCaiih43Q3jZsub3yVi0vIlIdMClqvg
+	zt2slH8MO2AgSqah12iIiW7zc4GEj8+BtygK6wJSrSeHhkdVCs14lMQyZ4nrxZTPgffBmUPUUg2
+	F2a/7hVAfbJlMLqgH9n6KclrmWQqNYsWecSjjiyq4MXlpTSmspEgNvAF0IprQkozRYHFC4CKsYn
+	Nw5wxQfx/QJ4zdk+De2iEWNvlI4nleyh9I2JKdVw3cNqCSpIuTamZ8TUd0dh2Ecg3TR9E0IXJZh
+	Qkysjl8YPLK8PTY+hR+i3FQ1+WSNWaFsrfzmVziFV1Xden1BwzjOG8LD0tYOkgF/gGPOPqwfTux
+	y7TqJIKpJgI6dnKrlZR26QBlOurdN72VgjgEcPaq+mBd8T6cb/2whaK57PKUzvspOCZgPO3Bgb3
+	uRfpy69unbgk46+2bZXrTjPJNYanrazQgKJGnwoWIB6eW/xiCMZNItnFXml6R5pE3rWD3KX+sov
+	g==
+X-Received: by 2002:a05:600c:4e8c:b0:489:6c28:dbc9 with SMTP id 5b1f17b1804b1-48fc9a45602mr4727125e9.7.1778625857153;
+        Tue, 12 May 2026 15:44:17 -0700 (PDT)
+Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fce385ea5sm3194025e9.14.2026.05.12.15.44.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 May 2026 15:44:16 -0700 (PDT)
+From: Lothar Rubusch <l.rubusch@gmail.com>
+To: thorsten.blum@linux.dev,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev
+Cc: linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	l.rubusch@gmail.com
+Subject: [PATCH 09/12] crypto: atmel - check client data in remove callbacks
+Date: Tue, 12 May 2026 22:43:46 +0000
+Message-Id: <20260512224349.64621-10-l.rubusch@gmail.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260512224349.64621-1-l.rubusch@gmail.com>
+References: <20260512224349.64621-1-l.rubusch@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_154419_232081_338BC9C3 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,17 +106,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 May 2026 13:39:12 +0800 (GMT+08:00) =E6=9D=8E=E5=BF=97 wrote:
-> For the eth1 enablement part, my current understanding is that it
-> should be treated as a new independent v1 series for net-next,
-> since the scope and target tree have changed after the split.
->=20
-> Would you prefer this eth1 series to start as v1, or should it
-> continue as v8 for continuity with the original series?
+Check the i2c client private data pointer in the remove callbacks of
+the Atmel ECC and SHA204A drivers before accessing driver state.
+Move sysfs group removal ahead of the NULL check so cleanup can still
+proceed even if client data is unavailable. Also downgrade the
+busy-device warning in the ECC remove path from dev_emerg() to
+dev_warn().
 
-v8 is better, but is the fix in net-next already?
+Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
+---
+ drivers/crypto/atmel-ecc.c     | 20 ++++++--------------
+ drivers/crypto/atmel-sha204a.c |  7 +++++--
+ 2 files changed, 11 insertions(+), 16 deletions(-)
 
-If this is the posting you're referring to:
-https://lore.kernel.org/all/20260507083214.192-1-lizhi2@eswincomputing.com/
-it has been dropped based on feedback from Maxime and I don't see a v2.
+diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+index f6d1a9694d63..9ad6d42b6eef 100644
+--- a/drivers/crypto/atmel-ecc.c
++++ b/drivers/crypto/atmel-ecc.c
+@@ -380,19 +380,13 @@ static void atmel_ecc_remove(struct i2c_client *client)
+ {
+ 	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
+ 
+-	/* Return EBUSY if i2c client already allocated. */
+-	if (atomic_read(&i2c_priv->tfm_count)) {
+-		/*
+-		 * After we return here, the memory backing the device is freed.
+-		 * That happens no matter what the return value of this function
+-		 * is because in the Linux device model there is no error
+-		 * handling for unbinding a driver.
+-		 * If there is still some action pending, it probably involves
+-		 * accessing the freed memory.
+-		 */
+-		dev_emerg(&client->dev, "Device is busy, expect memory corruption.\n");
++	sysfs_remove_group(&client->dev.kobj, &atmel_ecc508a_groups);
++
++	if (!i2c_priv)
+ 		return;
+-	}
++
++	if (atomic_read(&i2c_priv->tfm_count))
++		dev_warn(&client->dev, "Device is busy, remove it anyhow\n");
+ 
+ 	atmel_i2c_unregister_client(i2c_priv);
+ 	atmel_i2c_flush_queue();
+@@ -403,8 +397,6 @@ static void atmel_ecc_remove(struct i2c_client *client)
+ 		kfree((void *)i2c_priv->hwrng.priv);
+ 		i2c_priv->hwrng.priv = 0;
+ 	}
+-
+-	sysfs_remove_group(&client->dev.kobj, &atmel_ecc508a_groups);
+ }
+ 
+ static const struct atmel_i2c_of_match_data atecc508a_match_data = {
+diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
+index 88726f6ef87c..6a41024ae40d 100644
+--- a/drivers/crypto/atmel-sha204a.c
++++ b/drivers/crypto/atmel-sha204a.c
+@@ -111,6 +111,11 @@ static void atmel_sha204a_remove(struct i2c_client *client)
+ {
+ 	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
+ 
++	sysfs_remove_group(&client->dev.kobj, &atmel_sha204a_groups);
++
++	if (!i2c_priv)
++		return;
++
+ 	devm_hwrng_unregister(&client->dev, &i2c_priv->hwrng);
+ 	atmel_i2c_flush_queue();
+ 
+@@ -118,8 +123,6 @@ static void atmel_sha204a_remove(struct i2c_client *client)
+ 		kfree((void *)i2c_priv->hwrng.priv);
+ 		i2c_priv->hwrng.priv = 0;
+ 	}
+-
+-	sysfs_remove_group(&client->dev.kobj, &atmel_sha204a_groups);
+ }
+ 
+ static const struct atmel_i2c_of_match_data atsha204_match_data = {
+-- 
+2.53.0
+
 
