@@ -4,136 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED895CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 22:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E04CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 22:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3imlcggKl0MMTERSCowpEOjuDFafiQdvbdJV6tWYJqA=; b=G5zag3bi95nZuee0/AU5zMuazQ
-	9SYKuuwJ4xu4mhI5JvlhMfEZ+UIZyCma7U4P4O8HU9AvBn6HXr/0loodQFQO1UxXrjgBYUG+PrgNy
-	PZt/opMMiz22RkGOH1sYwSqbJuy10z54d+r4jPt2iIRVX5NVhBERIVg4ZbIfG/1V8DPRfS90F+s2O
-	uygjArE6SzPS93RNzFbk/m0CjXKs5+ChMfWeaiSTy+GcRtP/xNlPUzefm8v3ogAkPVj7HQsrOZ7qm
-	arr+TmxRA5iFvRthYoB50XB/Glt/gLxfkOXhQ1U51FewZTMjVpVYcAKGHZdfufpdzqh1mb7jt2LV2
-	5/WhAaUg==;
+	bh=cPxmplJASoE7i3DAWTstEUF/mwjYvLDna7DGnqxuUrc=; b=dMmKtFV8SOvcDb+QsqLB/i0LAj
+	z+3SN8TUh1yjgD0vxepEoUmpHd6nVhvFG/UDoCffdbjKudthOqwSqHFQQ1JliR8LfJLjQqPmPo2Sm
+	/y/RLr+s6DromGqjn4xVUEmiUW68rRGC/bIZwWrnI7P8v7G/S7v13vJj5VrUvSWfvC1Mgkl806mym
+	TiIj/tEI9CtYTID8V78cJQB9WrWGq1MjzQv+S5Le7B3zF9DtsMDxIvtzd86mMOopw2+Knq6n6A7PR
+	VbK/kRsE/t+4LImRx26IBwRjb+NU737SMf9Hiih45ovqLMPotL14waSpDtRDT2dyFYHwoHkDlQk9e
+	zVwlz+6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMveH-00000000ajr-2gkT;
-	Tue, 12 May 2026 22:32:21 +0000
-Received: from mail-northeuropeazon11010008.outbound.protection.outlook.com ([52.101.84.8] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wMvpk-00000000bvn-2yG0;
+	Tue, 12 May 2026 22:44:12 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMveE-00000000aio-2Tll
+	id 1wMvpi-00000000buP-098o
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 22:32:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T1tKvflWpNeuWv5eB1JNEK9vBHM617PTsQXYY//e4BMlicE6GeK7MFMbp3hhXtHO+ON9k47H/H4UYLBUb9eaQBMN0WWvCw7X8Q1H3f6pMHIj15OxU7FIOWXdpK9p2Ys35+8SjC6ShcS6phOxZNnj0bCrhQJLA8u41FQVNHgr0zTKkwWfG3gFf/zmyB46YgsapLfgAFrDHJywCGfBktqIy609UtIE82uupnNX64ykOQNnPjw6Pa7aoUxrSTDiA5eHmVJxj/4ahyTcS8D1r4V8ZB2X8vtNnymc2c+RBktKmHdEB85R52H0j10mKotBubqhXfbNiGpyQgOdVOtzTZsFwA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3imlcggKl0MMTERSCowpEOjuDFafiQdvbdJV6tWYJqA=;
- b=M1xfSdhVwCD+LZZGpwDg5QPiAyFhOU3atFae3DPtzEy+N6UKXedA/sRa8wDR/0EP+7+5u73L9GijgWXluupTNHzTpqZ0NMI43xWdPeitUZAopbyR7ui85cKayXP+GnLfonCffr/7NHyrlxAXX0gQ+toMTNG2JX4ZYlqSJLU7Ea7OlG/WsyUlIx5pa9zaLCoHr2SK6Luw0gLDJMydiqLAHwLMQWv/a7zo5nJxxabbChWyWMSmwIG1gIEFMZn7O+tqlm0qQE13T8ah8LL0qBzI0IKzIbIsmz0l3C3HZiR4VWSA+qcUL3sVppBBdHGqQQifSiqRJY24fTmotz4sYFqP2g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3imlcggKl0MMTERSCowpEOjuDFafiQdvbdJV6tWYJqA=;
- b=kEuwSJr8lBxymyBuUyq4JHT4vj91BV1xyrCVH8iFgKQsncEPYCT8P4FqfFB61En4pR2J6TG6zVtz7PppiTmKZlOEeddBu4QEWYzuUbpkYs+Gb7m13BF04ypHF/Xpv7k/uWhOtpkZkG4r4Oxha49aP3i99DfTRsd4x49pG9IuMeghFW6N2VDCHGrFN2HosbrrCfiT/qQ/A8L2k7vf79VbU2U9MSEOu2RJ7z/yKS2pUzyE4Qba77JO46afTmeQ5aeu/KxtZwSfLJfF5BggR1qo4Tr3q6/fk/zE05YlvgJveFtkI9LR/MlRVo0sqHM+BMQpqIFQFTxcNZP+g/JE0iv+Sg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by GV1PR04MB10125.eurprd04.prod.outlook.com (2603:10a6:150:1ac::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
- 2026 22:32:06 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9913.009; Tue, 12 May 2026
- 22:32:06 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS FOR FREESCALE IMX 5/6),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH 1/1] dt-bindings: display: imx: Add television encoder (TVE) for imx53
-Date: Tue, 12 May 2026 18:31:35 -0400
-Message-ID: <20260512223137.1190096-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH5P222CA0006.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:34b::6) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 12 May 2026 22:44:11 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-48e69e60063so5386995e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 15:44:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778625847; x=1779230647; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cPxmplJASoE7i3DAWTstEUF/mwjYvLDna7DGnqxuUrc=;
+        b=bxRVm5N030iw0Xu8tuxMhZEXRlk8birTqitlLDzG7LSHfbreBq4V5WIBqzRbbji+QU
+         rKVWGBBFo2DfQM8EQfit066s7xvGAGw7VpbyJhiu8mZMhAjbmRcYdIaDEHxfjqh/qNxm
+         cLyOkjsKiQUV800zBpvo49WotQFeWOuGx/yGGAmAo057f/oYwOt/TdVIoO6XiPTZ1ELH
+         pY1rX8TMLStYDsPm4bm3ruIv57OEg6qwskPiC+4AzC2dJ39rZdjrGtQkPFSnB0vQqlnd
+         V7Y6GoUX/T8TX0zSrNwEXBJSXWQDJAdytRlJahxbdHFuBda6NNm1s7PSPXZDmGonetJA
+         wanQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778625847; x=1779230647;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cPxmplJASoE7i3DAWTstEUF/mwjYvLDna7DGnqxuUrc=;
+        b=TfUxZdpfDcUGF+SRjQbV8DgjPY3PBui4YAWfebQHFCYDgtI2FUcFu68JjqiQZAUZUk
+         lIbqL7Coznp2mjNt+uo54ADYK8uCsbh5jNc+jHRlHBjQ6J6JVZVR1OzNRfm2QZZY9tJc
+         FTjGoMdeaBXlzm0Rz5X+WJid8ZkTJe+4mIwrKdDb+Fy32fwXMXYDpzN6WtDsRDwzsAv6
+         mFNeXbIMmNs5SVvAWpSF6ZFsCI7s2g1WlbdBmc0iV1sEtsZmjvhY1rM9W20UTOTOSfcE
+         coOu0RszYYb7WHpcEdhZTo1AwWu8P4R34gv/8g1FGEvvScDcjeWySqY5fUFuxBZeUrZl
+         4iHQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9Zi6W3w9/Yq3p3FIk18SdT1hMXOCohkYlQJoxCivJkR6JvdeYW8AvETEYTDzVcmov2UBytPW9tP2WsLUObRPAO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxabMmLo0bxYdWka79TO9B5/RYrx+6m23IBG4IKdszYaQxFRSeu
+	KoyRBs38cOhHlsrHFE8r3LzpnHndLbbuMVx5gNlObm9j7eZYVnzZGgJO
+X-Gm-Gg: Acq92OHYaAexQFdYIq3OrMxOvHdH0moe+bOSgnFI989FkqXejoETn2Vxafv3ttqQRpm
+	vDxOZKokONEXRcNHw+3T5un1E+1IRxhq9UZAQNJLSsQHOxgECkL4EEgNEyYLwxPp6EjsCkU91j7
+	Nvs+mZIgoN0y00Af/xyg0Xx4R92KgATn4ouGZGzAnnfq2/38hjkCqK3fy8ykAQJOlhx2Vu+K0jJ
+	LZf5oNTtgdrAe/GyY073Pqpe6puqEoYlqQzEnRsZYvunjz7eiTmvY6PNM6tmrQjsmDOxEz78HDL
+	W11vcJQUJxYHkqzJ57fRXjIBXLEVdsVioGZkWhObpcqi/Q114LVIljnL0q0+jLl2irQU9hy/Bol
+	UNe4IFeKmTY3Kmjvb07cmw5bvv1jQSbw0p/01UHWOgms4apCTgyxECtJtGecAGzOeCMJgsGIR7z
+	A/6a7+oxgj9y6j9gzrusVG3FMDkafK/7/hotDX64r07YacY9Duwc86lBcWwjIneHc=
+X-Received: by 2002:a05:600c:c4b7:b0:48a:6848:527 with SMTP id 5b1f17b1804b1-48fc9a4e9f5mr4178665e9.7.1778625847438;
+        Tue, 12 May 2026 15:44:07 -0700 (PDT)
+Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fce385ea5sm3194025e9.14.2026.05.12.15.44.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 May 2026 15:44:07 -0700 (PDT)
+From: Lothar Rubusch <l.rubusch@gmail.com>
+To: thorsten.blum@linux.dev,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev
+Cc: linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	l.rubusch@gmail.com
+Subject: [PATCH 00/12] crypto: atmel - refactor common i2c support and add SHA256 ahash support
+Date: Tue, 12 May 2026 22:43:37 +0000
+Message-Id: <20260512224349.64621-1-l.rubusch@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GV1PR04MB10125:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb9cdf29-c4dc-40eb-232c-08deb0764be6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|52116014|376014|1800799024|38350700014|921020|18002099003|56012099003|11063799003|3023799003;
-X-Microsoft-Antispam-Message-Info: VdD8Qj0flG1w81MUILO7ok4fUJfFB0PUzN/RnocVZliS+AFmpKn9FEuXxvb+u94GSy+i+H1yLU+79ELaRJ+yLUkhCRnw8ThxBGkWD9JhrlQOUYKA2edJ3sSSWfm51MCgGfGUNhOWWugs+7QYxzIZIxphuEQ6+xnT2L1QT+H1bzb8ZEt3LdhJOD4LWCLQZcaDqItaa+g9wSTo6+VffpvrVfJGVDvQffPOJWbayM4J/HQ8xmWME+4KfkTL0teIqALuS0qFaEAtHz9LMMJc+4iSeaatjZQ/RE+gwpk9GbLUgmuIpJRnppxEdbSYkimQic87TCRwV/oHerRKMY8NALxIICUdgN3huLOnuRKK/iOFCAHhWEft12k6IXVzYXTR5t3X+eq/ephrOYe8RzRFvp4Wrf6AJKkvQNV/rz4qKhW6QG0oB+yGYuIMrU6hEX39O3HPs/XBDt+i5P72Sm9M0gklQ8e1cLiuB8dhRgrfMEnAduh7Tg/Btk1VTeLjM3oCRS3cE5tgJD6Rf2NuMd2yS3KDS6Mcj/se1hgi7rc9/APGZipSpwpZ86ibBq8kYdQBt06NcIgyjrxJlIa51tMFOyC8NmU6f+vQGxDUPCe9NeMx0/jdHKqYRpBlA0s2RDnXdaUsoqLvaXZDy5LoTSt2Dd8z7g1CrndO1bMFjyw2fB/y/th02xah4P3D6pngvBsaLuOQMRO/jRhWBOzVupeL+RkM1IIybvEyTNn78s24NwX5gLk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(52116014)(376014)(1800799024)(38350700014)(921020)(18002099003)(56012099003)(11063799003)(3023799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9a+paHraas2ZRiiT1A8zwQ91UlzuWiol68IRpZXPcnS5KnN3jt/iQuCOq6aB?=
- =?us-ascii?Q?svJmv17YaqrMlweYDbzJyuZTxcbUzvR0N5swrRqcOP9iN3Pm45/E5qTb28v8?=
- =?us-ascii?Q?q0VsBLA+7sAbWF4HmNSbMhP9sOFUIItvsyJw31OzB59EFhpUw+nQOZkVCGMG?=
- =?us-ascii?Q?+otyRYtX8keRAaMfHTv7U/hckc/rovs54MkiiN1f3MBPrk8a8fKGAOXzyebL?=
- =?us-ascii?Q?poxVcyx8L94w8+SdZgCy/wqpxQmD9+DfI2K13xZEPsrEgKBGeOHYJGp82Fcu?=
- =?us-ascii?Q?lsW45n2cIkpz2WWtr6VtBwy7yr+/p2QmiCraAIq40Moy0zVms0pyPgat8qdt?=
- =?us-ascii?Q?QK2qMOBZkwCHqpteArmOcFPkHyiZondyA+KDswM5Xzcwa4gneF957ZhDMs/0?=
- =?us-ascii?Q?QhONcAiKpUm22ChBn0Um4De3x1fXLs0HAhmwq+FiEOFf/cYX+XQNqrWSqWK+?=
- =?us-ascii?Q?8xPbFqfCPVny+Koxf/l2dJZNs/pX7uLEu7adkx/a2oGQwbreKBAjGXbYmg4h?=
- =?us-ascii?Q?iFkcmwX7Q9ejI9NCi0P7XHmjgvWH+zuFc1PCDjYJg/HIhnnIkedvlgRkvfST?=
- =?us-ascii?Q?3fP8ZqU0iTWO601YCZH0GzhipxDOPfKmWlL8HBkftfYZ0mOij7I8NapapPeq?=
- =?us-ascii?Q?7mLSQQUSN5SknZC0yfO6rAGyoyS7t+rrq2YwiA4/kaQFh+MlQUHx5kUPsSyj?=
- =?us-ascii?Q?UzGCVVHTH4IZxqreff/ItoJS0DA2d9qsLEh++W1zRSIt3aVUkwlkLwBviyF0?=
- =?us-ascii?Q?3ejnWipiDgqU67ZKepYlZTIv4KXaNTncbUCw/5+SqwVN6P6LW4Ep5KIiUT2z?=
- =?us-ascii?Q?crgVSFuke2oFvzRJF7Edtj43M1OakW1QVQIbP2rfEqySy+EKKMoycG6ovIVo?=
- =?us-ascii?Q?BF4hMrO0Xt1HZnxejq3jkNYmbeV5Nz0cCYKtVHk7hCyts8SmbYJQv7Dp+lP/?=
- =?us-ascii?Q?ImbY39+0FycMIYMEciOZ+oTY3n/8p5ZW/9Y0aWprSoDLO5X4tR8YEt3roB0U?=
- =?us-ascii?Q?5hypNxKF26/1LDWBtrj7XzZq1cKW8lF3A4AsS25mLymVaZWgbkGxhdH7Ztxj?=
- =?us-ascii?Q?yNxlMHcUHR2qStpzut5jHAKOp4dB73qU9MKVyhb+lFXRO0W64roNKzfJPOaB?=
- =?us-ascii?Q?b8p7X15uUTtMTJBeIPJ9SKeOXkPIMqozUCYjcH5aoYvMbx+JlV1UUN3iDQhD?=
- =?us-ascii?Q?Ln2TsvXIYa11o70amyzw9lWkJwAJOGKBn51goWugT5O8fs2qyOgHVtcumn0j?=
- =?us-ascii?Q?QimGCsx5Wi/UjRMuQ3167eqIm6Cllx58yXZGkyaZN6Vsrop9Ref+KqBNnkCH?=
- =?us-ascii?Q?97IWSEmGswPNpdapv70KL+GSRRkmiFJv1Q/fHSADFuCD7JEohFxUeUPSUY1/?=
- =?us-ascii?Q?WCQWANgpOYURk6UfetUyErhdGg6tkaHAgX5y/VBkxEY812yl8XYObXoErsRK?=
- =?us-ascii?Q?A6WIiojS6qVGbzI/qqODH1b1f4mw5xdvnWAsgsVPjdTh2SAcBfLVeeg0L7Lo?=
- =?us-ascii?Q?s6yYHO/Nd882plQNg5uo1pHwafvMu4dGeblMLOCqQdz7p2YrdQXYeUgK1dkg?=
- =?us-ascii?Q?WXQvcTTD7JulVPLF9Z1JlZ5MF73OalTmPwffbTJ+ugveVvwfC3uVwmEKgmII?=
- =?us-ascii?Q?Z0XMVMS/EBnO2/Gx2z8QhxqsEJYSWOlhuGlHTddscymYlP78tNbu88hYBLvw?=
- =?us-ascii?Q?VR+ZVE/KeymSN/cPHBvtsaX7xn7ifPq9PCtz9tkTHE6fAh6J?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb9cdf29-c4dc-40eb-232c-08deb0764be6
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 22:32:06.1316
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EZe4v4/LcVZfzNQjqG7AIHkC+WG7Orhx+UGLq+Box9K1vl/24Zd/S+3TLvsSKkSExzgCFVaaKat2k17klwt4Eg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10125
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_153218_636024_51F37547 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20260512_154410_095789_0DF5D30E 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,127 +102,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add television encoder (TVE) for legacy i.MX53 (over 15 years) to fix below
-DTB_CHECK warnings:
-  arch/arm/boot/dts/nxp/imx/imx53-ard.dtb: /soc/bus@60000000/tve@63ff0000: failed to match any schema with compatible: ['fsl,imx53-tve']
+This series restructures the Atmel secure element drivers around a
+shared atmel-i2c core and adds SHA256 ahash support for ATSHA204A and
+ECC based devices.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-About cleanup 300 lines warnings for i.MX ARM platform
----
- .../bindings/display/imx/fsl,imx53-tve.yaml   | 102 ++++++++++++++++++
- 1 file changed, 102 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx53-tve.yaml
+The existing drivers duplicated substantial parts of the transport,
+RNG, EEPROM and device management logic. This series consolidates the
+common functionality into the shared i2c core and converts the client
+drivers to capability based allocation.
 
-diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx53-tve.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx53-tve.yaml
-new file mode 100644
-index 0000000000000..a7c971be1959b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/imx/fsl,imx53-tve.yaml
-@@ -0,0 +1,102 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/imx/fsl,imx53-tve.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Freescale i.MX53 Television Encoder (TVE)
-+
-+maintainers:
-+  - Frank Li <Frank.Li@nxp.com>
-+
-+description:
-+  The Television Encoder (TVE) is a hardware block in the i.MX53 SoC that
-+  converts digital video data into analog TV signals (NTSC/PAL).
-+
-+properties:
-+  compatible:
-+    const: fsl,imx53-tve
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: TVE gate clock
-+      - description: Display interface selector clock
-+
-+  clock-names:
-+    items:
-+      - const: tve
-+      - const: di_sel
-+
-+  ddc-i2c-bus:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the I2C bus used for DDC (Display Data Channel) communication
-+      to read EDID information from the connected display.
-+
-+  dac-supply:
-+    description:
-+      Regulator supply for the TVE DAC (Digital-to-Analog Converter).
-+
-+  fsl,tve-mode:
-+    $ref: /schemas/types.yaml#/definitions/string
-+    description:
-+      TVE output mode selection.
-+    enum:
-+      - ntsc
-+      - pal
-+      - vga
-+
-+  fsl,hsync-pin:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      Pin number for horizontal sync signal in VGA mode.
-+    minimum: 0
-+    maximum: 8
-+
-+  fsl,vsync-pin:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      Pin number for vertical sync signal in VGA mode.
-+    minimum: 0
-+    maximum: 8
-+
-+  port:
-+    $ref: /schemas/graph.yaml#/properties/port
-+    description:
-+      Port node with one endpoint connected to the IPU display interface.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/imx5-clock.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    tve@63ff0000 {
-+        compatible = "fsl,imx53-tve";
-+        reg = <0x63ff0000 0x1000>;
-+        interrupts = <92>;
-+        clocks = <&clks IMX5_CLK_TVE_GATE>,
-+                 <&clks IMX5_CLK_IPU_DI1_SEL>;
-+        clock-names = "tve", "di_sel";
-+
-+        port {
-+            endpoint {
-+                remote-endpoint = <&ipu_di1_tve>;
-+            };
-+        };
-+    };
-+
+The series also introduces per-device timing configuration through
+match data, moves sanity checks and RNG handling into the core driver,
+updates workqueue handling and cleans up internal constants and helper
+definitions.
+
+The final patch adds SHA256 ahash support using the hardware SHA engine
+provided by the devices.
+
+ATSHA204A devices require software-side SHA256 padding according to
+FIPS 180-4, while newer ECC devices provide a dedicated SHA final
+command and perform padding internally in hardware.
+
+Supporting the SHA engine also requires changes to the command
+transport path. SHA operations must execute as a strict uninterrupted
+sequence consisting of SHA INIT, one or more SHA COMPUTE commands and,
+for ECC devices, a terminating SHA FINAL command. The device loses its
+internal SHA state if it enters sleep mode or if unrelated commands
+are interleaved during the transaction.
+
+To satisfy these hardware requirements, the send/receive path is split
+into a low-level transfer helper and a higher-level wrapper managing
+wakeup, sleep and locking. SHA operations keep the device awake and
+hold the i2c lock for the full duration of the hashing transaction.
+
+The series has been tested on ATSHA204A and ATECC508A devices.
+Tests are ongoing/pending on ATECC608A and ATECC608B.
+---
+Lothar Rubusch (12):
+  crypto: atmel - introduce shared I2C client management
+  crypto: atmel - move capability-based client allocation into i2c core
+  crypto: atmel - remove obsolete CONFIG_OF guard
+  crypto: atmel - add per-device timing and match-data driven
+    configuration
+  crypto: atmel - move RNG support into common i2c core
+  crypto: atmel - move EEPROM access support into common i2c core
+  crypto: atmel - expose CONFIG zone through sysfs
+  crypto: atmel - move device sanity check to core driver
+  crypto: atmel - check client data in remove callbacks
+  crypto: atmel - update workqueue flags and add flush on exit
+  crypto: atmel - refactor and localize driver constants
+  crypto: atmel - add SHA256 ahash support
+
+ drivers/crypto/atmel-ecc.c     | 252 +++++++-----
+ drivers/crypto/atmel-i2c.c     | 679 +++++++++++++++++++++++++++++----
+ drivers/crypto/atmel-i2c.h     | 180 +++++----
+ drivers/crypto/atmel-sha204a.c | 284 +++++++-------
+ 4 files changed, 1010 insertions(+), 385 deletions(-)
+
+Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
+
+base-commit: f7dd32c5179d7755de18e21d5674b08f9e5cb180
 -- 
-2.43.0
+2.53.0
 
 
