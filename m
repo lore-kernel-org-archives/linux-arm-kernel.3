@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40900CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91DDECD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RINGSwLfirnDxpEGRz9oyW/qhPkm2xg2HRUxl9r+nPI=; b=sAoVYlqHzJd2n/dVdXgjYAiAw8
-	7OmOjjujGZ4/24Mqu0cCFSVoMSiluuc4XcRXNvGjRu+yindxnomxC0Bjdd4ifgxPZYkcIxJs3Q+6X
-	jn7y22YAxvtnfeQ9iU1y2rroEire/dYN3lA55xv3n7ajSp8n7cztmTFrGlL6vux+2gsFmdDSpI4nZ
-	BJGp77Hlyf4DQcC3Bq1DbyD2/hQrAd2ZD9kZcKHgp+w4Zu0MqNCj4vll9xHOC6x59uWIC2u+C7XpD
-	xdPnTrtridshAZArYEbMkUyP4GMWr3LLAlsnF8sBVD9UQe0PKms9Gi2EWVAX56ud3DLxzXTa/exny
-	bokQMd5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4qZUPICcL2SqDibVA/1E3uKAtRLts6kMoCRLGyFkOb4=; b=I8R2YGotzb1QokvyeYcAjX2dD6
+	UWtWhMwSPibuOLnrCrlveubKL1hiU4fdH6mLHBBw2MEpeBSOziK+C84W5yEKgQu3W9UHFth54341s
+	wEJNhB51vcCU19cTnJ94EMM2M6sm+NDovW1yuAPDiTgIMIg8AqWzEKs2h+0bHEq75cPLuWCmIx9Cu
+	9lQJ8/RpCVz0mXaUO8dJx+ES7lkqKkPJ9nxHCi67GbQFSxEDwJkQmfqGCzR4vAus9dbvw6bSndtGu
+	6F4f62znp4VXSYWYwGvITZ5wa8uGRKveaojBXP5lS4wgxDo4fO6UQcSkDpd6908Hu6IdxH11LypUv
+	aooJ4VFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMncc-0000000GvZN-0MhE;
-	Tue, 12 May 2026 13:58:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wMnd1-0000000Gve6-1sji;
+	Tue, 12 May 2026 13:58:31 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMnca-0000000GvYs-2Atp
+	id 1wMncy-0000000Gvcx-2Q4X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:58:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2E8641882;
-	Tue, 12 May 2026 13:58:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BF97C2BCB0;
-	Tue, 12 May 2026 13:58:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778594282;
-	bh=Rc/JbSkhQh3KrrYjNEJF3TR+KAXO9DvjdINtI40/Tfw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=D0RmO0jqQzwPQcyKil9HUcb1QoWlKI0VQLz3v+wjcMdkUGHv/Whh/XUa47rOSRmOW
-	 8Qgc82+PHXLy0rIczKBOOVDL/C+4/5o9KPYhA6FlZ3pZ6XR/TxQu/dksjUnQzmxGx9
-	 yApeu3sHkH0a+AGWuJLBK44eLJ9GQ3u0pH5oQcGEnOm8ggD6aONLhcU2q/I533f1jO
-	 RYFgQR6rmvPuRNXS+5eNObmXIQny8HqL1vg+ZSZ2Dxxdnmmao5asePeHrfRkipi/Iu
-	 ZaNJLoej2XJNfOCjv5EDrRN8G8ypODoiXtuJR0qNOZnA3C+VEU/MRyjcb1v6cWC8B8
-	 8fW9B3r4vFe5Q==
-Date: Tue, 12 May 2026 22:57:57 +0900
-From: Nathan Chancellor <nathan@kernel.org>
-To: Andreas Kemnade <andreas@kemnade.info>
-Cc: Mithil Bavishi <bavishimithil@gmail.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <kees@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org, llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: OMAP2+: Make OMAP4 finish_suspend callback CFI-safe
-Message-ID: <20260512135757.GB570003@ax162>
-References: <20260512042341.1452-1-bavishimithil@gmail.com>
- <20260512073442.GA570003@ax162>
- <20260512100207.3d24837e@kemnade.info>
+	Tue, 12 May 2026 13:58:30 +0000
+Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-479dc6d26e3so3154640b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 06:58:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778594307; x=1779199107; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4qZUPICcL2SqDibVA/1E3uKAtRLts6kMoCRLGyFkOb4=;
+        b=boPD2Ojf+Y+g2r6UY3ybsbpnjyTnMfQ0bWU9idVqMWoJf2mxd1MuGt97oTmPI0prGB
+         q0vS/wRTFIXCGledB+Ysbcg4tfAh5YelkwvEsi2qG+c9KZPailphv/sjMgvuVJYIcvLy
+         cFIGMY3sFnKSNLtp/DI1pDwyrAuf1yXA9+5jcP11pl9doIcKztfkISEJb/vTC1yMR67o
+         /SMgkLhGler876aLCnh7L2z2LQCRl+geHvtvE1PcSTGBy2Ztu/d/cxmaC3+pt/bkWtQm
+         WUcZfPjbuTc0xEddSt7YAG2DCP5bUm+13NF/8g/Ztk+v5aXU/BWJS95C7iGQGO83GMvO
+         vhMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778594307; x=1779199107;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4qZUPICcL2SqDibVA/1E3uKAtRLts6kMoCRLGyFkOb4=;
+        b=gTjvk3kVxJbtAe7waya111IcYzaUqwFnAD57PLfQF1cJFC8v6/E0QhZpL3hULhscdN
+         bt8hwckVMtXITaORTjZZu8HxYYqEEqEK6W5hfLI8or7VpZYKPs55ftAs+K7xjYag5YoQ
+         vNbr+IB+FmQ3bMoNubawSNGCijdIQc8MmQxifTEzkQaCiw1fTQSkJyIBNZGOg6Q/uncy
+         tAJoafMPOondrjcwiFqf6ijzFZ3MOFtbq5MnROCFotIIs9nPGgQGVTG0Txule96dFHzw
+         iDXZt40+3g8tPYhr4uLFxbHKafv/irNXhSPW8AFYjhdbOGcjkDH6BrAwhYGCARBHt499
+         0aOw==
+X-Forwarded-Encrypted: i=1; AFNElJ9y4Bhs+yJvyX1AzG+s1P2d6vnueIvR7pQl3ny+K/0Tl3RhKUENoSjfufoFEWIioCQDs2xC0zzUK9/FiTwiWxSU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0cEfG80ol7yoxnP6MYErwS1q3YVDOfiawRWcdyy/QJEjUs0Ys
+	klkz/t3IsM9NWZEeY44xXeLWJCvtBBzkjG/FURuTBCi9ikb9xdn4UuMKsUwh/IVuiMo=
+X-Gm-Gg: Acq92OHSMKVmRTw8VBYlEaRt0ACZfOY84bA3FlNIaAVmy2Zo1UD4vlnMwJx7pbNPtSn
+	Frl6B2Zj471LRwe1IjnUB6E5gWRYLM0sr/SQHFDyX+lMLtE/GHdOiLyis4MhEvB2yeKsWmk4en1
+	I7q3euOuwsE5MU4OzxFFPKlLudzmiynOr/f8Ens9ZlWjI4fyO+xnHgErq9qhGNh8Qghiu8Ih0gh
+	JAZVXPjcVvLAVJ77CksPc+OaBAwKUrFKm9gQfrTY/LL3dtTDI6Db04Z+2Qn3UbdJ8yl5HfYLsif
+	uF2eVY0x24H9Qw/FX5N5d/eJnwM093y/lplmMPs2gUSLXwUKrOHjSbpq/nTbXI/uU0G2bQvXUNS
+	B0RJ4tOWLyj2IZPMZ+ej7zCcZDKETuo8lbciqtZCyu0/F/7aaIGfh6U3Pg51xkHl2oRv7IP0msf
+	Kdz+GZLzSvhHEfU4MxnaKxXlLE5t+/D5wHFK8dcswacvStVumlEbqlYpk6ROYDpHVcWfOjZzHGr
+	g==
+X-Received: by 2002:a05:6808:508b:b0:467:23e2:5097 with SMTP id 5614622812f47-480424a4bc1mr18863086b6e.37.1778594307354;
+        Tue, 12 May 2026 06:58:27 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:500:baa4:f7fb:528a:2457? ([2600:8803:e7e4:500:baa4:f7fb:528a:2457])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-47c763b33c1sm22558261b6e.1.2026.05.12.06.58.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 May 2026 06:58:26 -0700 (PDT)
+Message-ID: <a4ecfb27-5ef4-4682-b87c-24917f81b4f0@baylibre.com>
+Date: Tue, 12 May 2026 08:58:26 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260512100207.3d24837e@kemnade.info>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] dt-bindings: iio: adc: Convert xilinx-xadc bindings to
+ YAML schema
+To: Rob Herring <robh@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Pramod Maurya <pramod.nexgen@gmail.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ Lars-Peter Clausen <lars@metafoo.de>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260510083219.70224-1-pramod.nexgen@gmail.com>
+ <20260510120141.118057-1-pramod.nexgen@gmail.com>
+ <20260511171554.6541042b@jic23-huawei>
+ <7baf9ca5-50ff-4131-995b-70ee094ed247@baylibre.com>
+ <CAL_JsqLxtWLR+jxRXt7Uz6dcF-90NYmfyGWYQk9um9TYHSWbTw@mail.gmail.com>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <CAL_JsqLxtWLR+jxRXt7Uz6dcF-90NYmfyGWYQk9um9TYHSWbTw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_065804_576331_5D831A2C 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20260512_065828_882861_403F17F8 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +113,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 10:02:07AM +0200, Andreas Kemnade wrote:
-> On Tue, 12 May 2026 16:34:42 +0900
-> Nathan Chancellor <nathan@kernel.org> wrote:
+On 5/12/26 7:14 AM, Rob Herring wrote:
+> On Mon, May 11, 2026 at 11:24 AM David Lechner <dlechner@baylibre.com> wrote:
+>>
+>> On 5/11/26 11:15 AM, Jonathan Cameron wrote:
+>>> On Sun, 10 May 2026 08:01:36 -0400
+>>> Pramod Maurya <pramod.nexgen@gmail.com> wrote:
+>>>
+>>>> Convert the Xilinx XADC and UltraScale System Monitor device tree binding
+>>>> from the legacy plain-text format to a YAML schema, enabling automated
+>>>> validation with dt-schema.
+>>>>
+>>>> The new binding covers the same hardware and compatible strings:
+>>>>   - xlnx,zynq-xadc-1.00.a (ZYNQ hardmacro)
+>>>>   - xlnx,axi-xadc-1.00.a  (AXI softmacro)
+>>>>   - xlnx,system-management-wiz-1.3 (UltraScale System Management Wizard)
+>>>>
+>>>> Signed-off-by: Pramod Maurya <pramod.nexgen@gmail.com>
+>>> Hi Pramod,
+>>>
+>>> Something went wrong with your sending of v3. I have two versions sent
+>>> half a day apart and no idea how they are related.
+>>>
+>>> Anyhow one of them got feedback from Rob's bot so I'll assume we are
+>>> getting a v4 and wait for that.
+>>>
+>>> Jonathan
+>>
+>> I think Rob will have to fix the bot to make an exception for the
+>> legacy bindings. This should have been called out in the commit message
+>> as requested in a previous revision.
 > 
-> > On Tue, May 12, 2026 at 12:23:41AM -0400, Mithil Bavishi wrote:
-> > > With CONFIG_CFI enabled, OMAP4 can trap in omap4_enter_lowpower()
-> > > because omap_pm_ops.finish_suspend points directly to the assembly
-> > > routine omap4_finish_suspend, which lacks the expected KCFI type
-> > > metadata.  
-> > 
-> > It sounds like omap4_finish_suspend() should be defined with
-> > SYM_TYPED_FUNC_START then? Is that the case for all of the other
-> > functions that are added to omap_pm_ops?
-> > 
-> omap_cpu_resume: the address is written to some cpu register and
-> on that way casted to u32. So therefore does not trigger CFI.
-> Same for secondary_startup which is also assembler code.
-> scu_prepare is C.
+> The bot is not the problem. It just runs validation. The schemas will
+> have to either drop this check (comma's in nodenames) or exclude just
+> this property.
 > 
-> DO you have a pointer to any documentation:
-> :~/linux$ grep -R SYM_TYPED_FUNC_START Documentation/
+> 
+> Rob
 
-I don't think we have any formal documentation for SYM_TYPED_FUNC_START
-(it should probably be documented via kernel-doc?) but you can read the
-commit message of the change that added it for more information:
-
-  e84e008e7b02 ("cfi: Add type helper macros")
-
--- 
-Cheers,
-Nathan
+Even though this is an existing text-based schema that has been around
+for 12 years with this name already? Changing it could be a breaking
+change to existing users. Although there aren't any in any .dts in the
+kernel source.
 
