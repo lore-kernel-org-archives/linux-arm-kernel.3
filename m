@@ -4,81 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80058CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 05:41:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3CBCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 06:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vkhmEf7l/p3H+evY3e6sZCpcHnKb11tYhtK4qTF0OHU=; b=v4N13bol0ImLn84QYrNi9NFAiq
-	uoFBpE3K0naPXP9mUfLOdev4B9zAG4+nrQbG7eWtU9M1wO0cJZlRKcFG2UQ7Qo66oy0fYdsNNt4yc
-	g204KE3L++8jhqOvkFqAS3K684TFXbKdNDmkkTCuPsqAapKn8U7ugchqOzyNiGtJ2FyyCMsKQyx5X
-	0TTUmanLr69Ogq233d3KNs8swOruFivzaLYWrTq3dAv5c8F9XZhZ/U8OwqYqsED9N1Wd5I5w0BUnN
-	8lENfIXKI/6xyXaWRb0djcr8NxuV58AvBO8X2ZOjZOIuuK3pKGBLWjQv/HiAOg7zeSRSOMbf+SGod
-	yYE1SJkA==;
+	bh=uw0xowMNR4swZOBo4JPbgW37vC/3fB8GbaVWXp4+IT8=; b=mU4FQAkW+xlNxKOp5dKO033DAs
+	mpebhLeEG5XoxiCS/ZNxwmVXgUPVj3tIGHc3nXGtwa9+0vIKNcuxrIPOclKJFqqYIWZBK1HVoV8+P
+	OWHoT0+rDyf39IJdABbnvVm+80iC2S1wG/4EAyzQtRceUIbquZ+/JFQYtgQLD1ENkigUKi9zlFoXn
+	QMtLPB7UCeWVLe74r2z71BjFYw/8ktdpGCZprdRsFuCtVlHei+Wu8DiDc6onCDcwTheK9a9cAcEDG
+	BLRd2tti67G+xzMv1Fpxze6h6eRQQNCzHLmNri8SDJcDaKA8N81BaNwdzkI+9JSAh/S4hz46YixmJ
+	dCzwPu/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfsK-0000000FgAz-03Mx;
-	Tue, 12 May 2026 05:41:48 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	id 1wMgAO-0000000FiDu-38Qa;
+	Tue, 12 May 2026 06:00:28 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMfsH-0000000Fg9v-3IET
+	id 1wMgAK-0000000FiCy-2cam
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 05:41:46 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2f5943ca81aso6184521eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 22:41:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778564504; x=1779169304; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vkhmEf7l/p3H+evY3e6sZCpcHnKb11tYhtK4qTF0OHU=;
-        b=Rb2hQKqPXEyKoWugPN/c70Rmrsr0uj/UBdC03i7mZ3JQ/NQ5t5ma+ZhR2j68fNSg8Y
-         /SFLLEUlYOmCxHjX4IdY+lAckGhnHgg5caJPJ/ijHRCFB74r6CFCbUbxzpfzADMhTJf1
-         a3rMm0rIA/xxpIL3LWmlSlsX/xdRtSc2pyXICMm+l4/prG7cRacWx1v1PyIKGLU1fOVG
-         FhvtnYcNRiOe/5X8us7RTQQ+fNxG3ur2cN2sg6VuMn7K2SdMVheNpQD+R58dpNpOwwUv
-         i6HT9CDMUO+rAFOruj9MPmMExZGuQeUW3IDN5GwdCnX0A1HUcB2fNa4njM0KUoXQKbZX
-         zGig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778564504; x=1779169304;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vkhmEf7l/p3H+evY3e6sZCpcHnKb11tYhtK4qTF0OHU=;
-        b=p5lIQsnDNNMiNOPMMGNXrxKCYxsz4oJGXnv8RZTFfv6+up3kN/aEmDuM3kvP+nII9w
-         f42whryd3zfrLILFzFkGU7kdhPnI94Nb6jcsftsWiTbQ5X29cdtLM88WOJRqkNYppL2R
-         g/N9D71znAm18PesgDXBWqdQo0okBQZkn2NZJehVNu6hwBjWr/3qHEagIs5MC524+38I
-         hOPWgSm0Nvrp0M7DvU6lPYX5GOVBqtqWPH717NVsar/UpqQ7FOxjpj3V3FF2S2qjRhsp
-         ce3PKxfhfB0dUEWnlZdY7RnwrSKvZ2LQ+8GsJaP3fVJllehu/hSEwBZntokbxUvbmROY
-         IVUQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8QKyG8wChZLyLXYom98Xuxbe1MRYLSMmbjFC0Ka1qwiEK3K0hP5Jslgf22y1NSpS1qTNBHaVMNMIDDUr2p0q8V@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywld1tIS0WA7EP/h1FA4eIoNmLgxsfIAbm7I9g0u5kx2Gd/wIV1
-	dnQ26i2mr29fL0p1G5Jo31YVawTckomf2xkWZ9QpXf5KiqUe2ncTI1FTYzu1OWVpGFjyopjlJ9n
-	0K9bJyAPiRw==
-X-Received: from dlbbt1.prod.google.com ([2002:a05:7022:981:b0:12d:c585:f600])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:ec07:b0:130:9b78:b17b
- with SMTP id a92af1059eb24-132a83ed506mr6504466c88.38.1778564503592; Mon, 11
- May 2026 22:41:43 -0700 (PDT)
-Date: Mon, 11 May 2026 22:41:40 -0700
-In-Reply-To: <20260507170622.611933-1-irogers@google.com>
-Mime-Version: 1.0
-References: <20260507170622.611933-1-irogers@google.com>
-X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
-Message-ID: <20260512054140.3427725-1-irogers@google.com>
-Subject: [PATCH v2] perf record: Refactor ARM64 leaf caller setup out of arch
-From: Ian Rogers <irogers@google.com>
-To: acme@kernel.org, james.clark@linaro.org, namhyung@kernel.org
-Cc: adrian.hunter@intel.com, alexander.shishkin@linux.intel.com, 
-	dapeng1.mi@linux.intel.com, john.g.garry@oracle.com, jolsa@kernel.org, 
-	leo.yan@linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	mark.rutland@arm.com, mike.leach@arm.com, mingo@redhat.com, 
-	peterz@infradead.org, shimin.guo@skydio.com, will@kernel.org, 
-	Ian Rogers <irogers@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 12 May 2026 06:00:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G6OvHnpSEVvdWVUf03oAg3BcDWDp05cGvjcleuz18TZmXlno0Fq1vrADe27XjyCnnIVt1k5RThlP5wcfYJO8Ogi86uRbx8EkGF8nByvKa2ryYkpZxoB2qnxQXM8Nt+yDhbsPQ/8NJJxxjPEaYQf6uZzMGMtip2jqLuScWLlN3h5oDWKOCDzXla6AvInTLb4f3yoaKBKaI6bOImSHpcVGEK7AQJWWOCzgaePHhaEuu5sXi5Y+AX8z00plAct87vwKocdXnoCRMyQV1hz+bA0zN/xC7kvyFyNaAzhRHMpa2wd4Q9WkFogLkft9/2S7nR76xPHz8Cd6yHj0PRdO+VEjcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uw0xowMNR4swZOBo4JPbgW37vC/3fB8GbaVWXp4+IT8=;
+ b=uLxuW5hclrhQDW14tzcTUm58YuD66LmzNkp5M99ZWw5Aj+tZ9MUsKeAeVzA4lits7vUPCbblJH8TrkHDyao4xMDBRQUtolhidihKujXHx7TTF7DIaJdDF36hMIRVi22+YasrLWeJYaUkf4JudwKQRwmSOjKwBQVT68ohIxn4oj0OhFtAGf8fGl+oYtuSdBgVnnz11qQR7LGh1ggY7pCU/gR5Rjky3iQ+Wxv/Zsd2Y2U+e64zsYsWJSv4GPLuaZCtlOfO7xUW5gc7tDM6ug4d5leawPvIaEv9/5M9ylYJLbxBGh+JfwfxpycufVFLAvSNNkvtbzssEgwpBavml7PDQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uw0xowMNR4swZOBo4JPbgW37vC/3fB8GbaVWXp4+IT8=;
+ b=US6NRwxRtlbknfTmZW53N+IhLIpPH675Suqy4idAs0Pr9X8Ze/FLQ9B27mnmYZkuCMjY1dmYaUr8dVKSDvbU86V3KNsuhOHPiDPY+m9T/8zNAiICNBXRxNdBJhGUhyRRkwlibDFrkcfXGm2MiWcuIO0ubGB83MmoT06kD4kFK1ov/GJ92v0S7MJd/bIeqedTfLJfbSaLPIRmmCEy7nCoX0wGHhtZJbJ7vBuSO3kzMe+BbeIVcoCbzQsGJCA/iSRG5Ei5vtTwxSiMh95l5yRUCl/QIsZAiF8bmRrBo2H/34nOjsxFdImHaARffOWi9cmv9xocJshxQgsaPT4F6locFA==
+Received: from DBBPR04MB7500.eurprd04.prod.outlook.com (2603:10a6:10:1f4::16)
+ by GVXPR04MB12014.eurprd04.prod.outlook.com (2603:10a6:150:2be::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 12 May
+ 2026 06:00:17 +0000
+Received: from DBBPR04MB7500.eurprd04.prod.outlook.com
+ ([fe80::c291:543b:4bde:cee7]) by DBBPR04MB7500.eurprd04.prod.outlook.com
+ ([fe80::c291:543b:4bde:cee7%6]) with mapi id 15.20.9891.021; Tue, 12 May 2026
+ 06:00:17 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Networking <netdev@vger.kernel.org>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir
+ Oltean <vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, Frank Li <frank.li@nxp.com>,
+	"chleroy@kernel.org" <chleroy@kernel.org>, "horms@kernel.org"
+	<horms@kernel.org>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>,
+	"andrew@lunn.ch" <andrew@lunn.ch>, "olteanv@gmail.com" <olteanv@gmail.com>
+Subject: RE: [PATCH v6 net-next 15/15] net: dsa: netc: add support for ethtool
+ private statistics
+Thread-Topic: [PATCH v6 net-next 15/15] net: dsa: netc: add support for
+ ethtool private statistics
+Thread-Index: AQHc3560uEq/mPxEPkyFK/hht0XX6bYJt11w
+Date: Tue, 12 May 2026 06:00:16 +0000
+Message-ID: <DBBPR04MB7500B5FA0EF5BD3B13DEA0B488392@DBBPR04MB7500.eurprd04.prod.outlook.com>
+References: <20260509102954.4116624-1-wei.fang@nxp.com>
+ <20260509102954.4116624-16-wei.fang@nxp.com>
+In-Reply-To: <20260509102954.4116624-16-wei.fang@nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DBBPR04MB7500:EE_|GVXPR04MB12014:EE_
+x-ms-office365-filtering-correlation-id: 5d04b4a3-80f2-479b-fbce-08deafebbe02
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|1800799024|22082099003|18002099003|38070700021|56012099003|11063799003;
+x-microsoft-antispam-message-info: E94Zkeuf3rZOj+uAY8WSn6t34sUy+UDGUgaN5THHwNAhWLvLBI/OdsjorJxxgZ+j5HHFB5zRc9psSbbHxcg7he1HPaJU1W717L1eLaZxdrVY512CtP2OOFYj6hW+bSmDm2rxIeF9/4Kk8Wo8q3p4vdrjYmniyUZd1+lOejqY3CvjIiNZhxZQOsqaALkYPo8Y6SGbw3hL1Dwh8qhn+Az5tf+jJB7SCqCw7agFWqUqj97WyyM/OolmdY6+/1luRTIwjtrDmjc1mUSRLloi5NN0lnLLB2vxF7cjNfjymKWnMzL6nqZOvTcwWynJ9qhbynGi2w5xkkyFt5XYFBbO+AoYhH22m5KxFUBu0oSdn3kItRhX+uGb0+Y/DwDoUGvx7sZS1vv22sn67tynYHtTNbHlURTKhnAYNPyZnq6zDFi5ZNQzqHUZSfk8JPdgxbiaGNpbhhh2dYr/F69C4frNf0xWYFJppKSGeOgJNtynDIPyWAFxBLnsndoMo87A+KSLt7Gd4bUaS4WQn7JdenUCOBQ5t1mWz47YiAkJK/CKgyx9b2CmRHWNN1e2tVbLdLfCSMZttynVlsNrGT0naj2nQxgRLN1wj2uPv3XNA84adzcuXOXGhVSEC2PKe4T/3YFyb5zzBWoRiqHieeb4JaLiIruSV6n2h1F/9cfwt6I9+7ZgNnHIbjSC2nvH/EFNR0Vk00PFY7iWnPCrCev0k9U12H52ZA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR04MB7500.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(1800799024)(22082099003)(18002099003)(38070700021)(56012099003)(11063799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?PUZMXy0lVbRn48FtboHnPGCV9JvL2ae5dUGv/k2kDNXTO/Jz2xw5iImYD3Pz?=
+ =?us-ascii?Q?ggD2tGVVtp7FjgSOXGfKqkvYpts+dG6Xjvzcbx+Q8Xd5OgYzjq/oLjyMSsxs?=
+ =?us-ascii?Q?0r0NiFSt/tFFwdUgyVE4xDALlO1K8W1ac2dv3P0XSQBQBhjY2e1De3XDHpDM?=
+ =?us-ascii?Q?02IP9xkXcBKoOS4WKEavlB5rKm3FLsRhG9p8A5FuWZaMFBtmjYyUYmKWa7BV?=
+ =?us-ascii?Q?g8M/1npv8KxC9kXrKQNw6NBJh6cnwWCsAzjfXKz7Jm7lPsAOPk7riGTbKgtl?=
+ =?us-ascii?Q?9z8y7scXnLTZFHUSFvblAUy6aCAukGn+O4r4BHlYtT9OBuHV5aChCnGONtRC?=
+ =?us-ascii?Q?6Z7AZPBBZjVZ6ppRy074mvlMETN1RUSoKd5IcnAnUU9A5vBDHybijP563z72?=
+ =?us-ascii?Q?tWSKNzhe95tAVqF6hI2bDXCIvEje0f1POUrYH5gbzhZM12/kF1IaB37bi1Lp?=
+ =?us-ascii?Q?1pVbh86CNF/RoqZW2c59bdtwzbWVUuxgI/l2akPvJI4qDC/5e+z/ELroS2zF?=
+ =?us-ascii?Q?kDm3zbmVhJu1eNKE0ELCkHgwvAeqbJAgruEg5DYMH6nOBu4iSu5imy5KCJcy?=
+ =?us-ascii?Q?7lTFROWoHxSN938DNRD0xJQsXY7+eYVdtuOMKfL8FuL17CzW6cYbCuCXhPli?=
+ =?us-ascii?Q?qejzNZaNU/dWOEkKZeOmrjrKbr5yWzWbi5XsMJOC0a09fSYsRc4tOG/95+sy?=
+ =?us-ascii?Q?OZ+TYF8gS+Qv2uR7hzx7+GbUxiVnvdeMl/U1znVnUYC7HX0TT8mpul0aTgv0?=
+ =?us-ascii?Q?fdI5wniwAvPji+dpApA3nL9Cnt8aGIcTgI2Qzz2tEmAjzziEgBwBxAK3Nc8B?=
+ =?us-ascii?Q?m125TudOv8wH50tZPjzYaS+QII9Hu91o7Gp9OHH/MsCrQJhoPXuQB+f1gUyx?=
+ =?us-ascii?Q?/eV7TcU/nQiHEPtChn3elanaGMTkJS0BV95fsC9t3I/iOgFaXOxVyelByVOO?=
+ =?us-ascii?Q?TvKVm4SoN1FpTrkYEuqpIEwQU9l1CP8FZWBpows/DbGGPN8SgPA/uWFoY4ZT?=
+ =?us-ascii?Q?wL8OlN2vpBiT88pZpwLKSG14Qx1MC25hPMg0+UR05ZzKTmbR1Ambs4ySpYnB?=
+ =?us-ascii?Q?N7T/dfegekIUputtK1W3dnoElfK6nbBdmmkLYNCbM2w7srU2eIwub6o9HuE7?=
+ =?us-ascii?Q?w1QEcHAYtrtqr8XTZQDxbl23Kv0fEw18DxeG7V5yp/VrIUM/Iw2Zq4tvEnxy?=
+ =?us-ascii?Q?dof6c43ZfOlLEnHOs953BJotAlicoxcz+dLriJ8oJbu1bI07uydcO5MjIJa8?=
+ =?us-ascii?Q?FrZVeFNDNIrYZgaFsoQq7BJMBHXQEXEZFsTf0m80U/R50XSggnNYE7sy+FMF?=
+ =?us-ascii?Q?cOHIPTWxHU7qREJ0oNFlwoyAOylOInWY0ENIsbZqXGClVvqEn7Q/mkSulhae?=
+ =?us-ascii?Q?59AgvgAmZagwrvU2+ao+98sng+EZCdTxDhnDPgK20iapL6r7/W2od5zmS2Qh?=
+ =?us-ascii?Q?3kDCnYkQOk3TjmPlz9q71jR0iQB9npglM0cWYwxZ/6O/oGEvw4KQtrQwurwE?=
+ =?us-ascii?Q?IGZQvzVDlKKeoikpOMR+ftZFTOKzHlRVJpQRO2yHGeXOYxRY+2AZ4EMfRmdt?=
+ =?us-ascii?Q?il3AdmaYeyQ0CLpotJtAarZ+3lz5X9fvWk1hB+Wx0QBnmcT0kIpVRZBvRBhl?=
+ =?us-ascii?Q?3AdgAs87GbEee2PH7/aj7AMgJvGmZo1fILxYQvajzQFOTUNmrLZ863h+gSRm?=
+ =?us-ascii?Q?4ZIykXHZakEY1lhM4yKQ4qLgigagHvd9q1zwNVHgbgDFw/RH?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DBBPR04MB7500.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5d04b4a3-80f2-479b-fbce-08deafebbe02
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 May 2026 06:00:17.2953
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: PQMA6Hy3g0Jw4MvtFh6INWmPdsaXMuDk1JQH6KSB7eMj3xrfsRheFfpABA75YVmeg4sj0KNECisoFgQWw7hA+g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12014
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_224145_832120_30BE2529 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20260511_230024_829426_3FB0A8B3 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,146 +154,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Code in tools/perf/arch causes portability issues/opaqueness and LTO
-issues due to the use of weak symbols. Move the adding of LR to the
-sample_user_regs into arm64-frame-pointer-unwind-support.c conditional
-on EM_HOST == EM_AARCH64 (false on all non-ARM64 builds). This also
-better encapsulates the use of the sampled registers by
-get_leaf_frame_caller_aarch64 and the set up by the new
-add_leaf_frame_caller_opts_aarch64, exposing opportunities for
-possibly sampling PC and SP to help the unwinder.
+I noticed that sashiko-nipa aslo reported some warnings, most of them
+are minor issues or false positives. I will fix/improve them in the next
+version. Only this patch reported a high warning, but I don't think it's
+a problem. See sashiko's comment and my reply below.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/arch/arm64/util/Build                     |  1 -
- tools/perf/arch/arm64/util/machine.c                 | 12 ------------
- tools/perf/builtin-record.c                          | 11 +++++------
- tools/perf/util/arm64-frame-pointer-unwind-support.c |  6 ++++++
- tools/perf/util/arm64-frame-pointer-unwind-support.h |  2 ++
- tools/perf/util/callchain.h                          |  2 --
- 6 files changed, 13 insertions(+), 21 deletions(-)
- delete mode 100644 tools/perf/arch/arm64/util/machine.c
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260509102954.41=
+16624-1-wei.fang%40nxp.com
 
-diff --git a/tools/perf/arch/arm64/util/Build b/tools/perf/arch/arm64/util/Build
-index 4e06a08d281a..638aa6948ab5 100644
---- a/tools/perf/arch/arm64/util/Build
-+++ b/tools/perf/arch/arm64/util/Build
-@@ -5,7 +5,6 @@ perf-util-y += ../../arm/util/pmu.o
- perf-util-y += arm-spe.o
- perf-util-y += header.o
- perf-util-y += hisi-ptt.o
--perf-util-y += machine.o
- perf-util-y += mem-events.o
- perf-util-y += pmu.o
- perf-util-y += tsc.o
-diff --git a/tools/perf/arch/arm64/util/machine.c b/tools/perf/arch/arm64/util/machine.c
-deleted file mode 100644
-index 80fb13c958d9..000000000000
---- a/tools/perf/arch/arm64/util/machine.c
-+++ /dev/null
-@@ -1,12 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--
--#include "callchain.h" // prototype of arch__add_leaf_frame_record_opts
--#include "perf_regs.h"
--#include "record.h"
--
--#define SMPL_REG_MASK(b) (1ULL << (b))
--
--void arch__add_leaf_frame_record_opts(struct record_opts *opts)
--{
--	opts->sample_user_regs |= SMPL_REG_MASK(PERF_REG_ARM64_LR);
--}
-diff --git a/tools/perf/builtin-record.c b/tools/perf/builtin-record.c
-index 4a5eba498c02..272bba7f4b9e 100644
---- a/tools/perf/builtin-record.c
-+++ b/tools/perf/builtin-record.c
-@@ -14,6 +14,7 @@
- #include "util/parse-events.h"
- #include "util/config.h"
- 
-+#include "util/arm64-frame-pointer-unwind-support.h"
- #include "util/callchain.h"
- #include "util/cgroup.h"
- #include "util/header.h"
-@@ -3230,10 +3231,6 @@ static int record__parse_off_cpu_thresh(const struct option *opt,
- 	return 0;
- }
- 
--void __weak arch__add_leaf_frame_record_opts(struct record_opts *opts __maybe_unused)
--{
--}
--
- static int parse_control_option(const struct option *opt,
- 				const char *str,
- 				int unset __maybe_unused)
-@@ -4319,8 +4316,10 @@ int cmd_record(int argc, const char **argv)
- 
- 	evlist__warn_user_requested_cpus(rec->evlist, rec->opts.target.cpu_list);
- 
--	if (callchain_param.enabled && callchain_param.record_mode == CALLCHAIN_FP)
--		arch__add_leaf_frame_record_opts(&rec->opts);
-+	if (callchain_param.enabled && callchain_param.record_mode == CALLCHAIN_FP) {
-+		if (EM_HOST == EM_AARCH64)
-+			add_leaf_frame_caller_opts_aarch64(&rec->opts);
-+	}
- 
- 	err = -ENOMEM;
- 	if (evlist__create_maps(rec->evlist, &rec->opts.target) < 0) {
-diff --git a/tools/perf/util/arm64-frame-pointer-unwind-support.c b/tools/perf/util/arm64-frame-pointer-unwind-support.c
-index 858ce2b01812..3af8c7a466e0 100644
---- a/tools/perf/util/arm64-frame-pointer-unwind-support.c
-+++ b/tools/perf/util/arm64-frame-pointer-unwind-support.c
-@@ -2,6 +2,7 @@
- #include "arm64-frame-pointer-unwind-support.h"
- #include "callchain.h"
- #include "event.h"
-+#include "record.h"
- #include "unwind.h"
- #include <string.h>
- 
-@@ -16,6 +17,11 @@ struct entries {
- 
- #define SMPL_REG_MASK(b) (1ULL << (b))
- 
-+void add_leaf_frame_caller_opts_aarch64(struct record_opts *opts)
-+{
-+	opts->sample_user_regs |= SMPL_REG_MASK(PERF_REG_ARM64_LR);
-+}
-+
- static bool get_leaf_frame_caller_enabled(struct perf_sample *sample)
- {
- 	struct regs_dump *regs;
-diff --git a/tools/perf/util/arm64-frame-pointer-unwind-support.h b/tools/perf/util/arm64-frame-pointer-unwind-support.h
-index 42d3a45490f5..ba35b295bfcd 100644
---- a/tools/perf/util/arm64-frame-pointer-unwind-support.h
-+++ b/tools/perf/util/arm64-frame-pointer-unwind-support.h
-@@ -5,8 +5,10 @@
- #include <linux/types.h>
- 
- struct perf_sample;
-+struct record_opts;
- struct thread;
- 
-+void add_leaf_frame_caller_opts_aarch64(struct record_opts *opts);
- u64 get_leaf_frame_caller_aarch64(struct perf_sample *sample, struct thread *thread, int user_idx);
- 
- #endif /* __PERF_ARM_FRAME_POINTER_UNWIND_SUPPORT_H */
-diff --git a/tools/perf/util/callchain.h b/tools/perf/util/callchain.h
-index 06d463ccc7a0..b7702d65ad60 100644
---- a/tools/perf/util/callchain.h
-+++ b/tools/perf/util/callchain.h
-@@ -277,8 +277,6 @@ static inline int arch_skip_callchain_idx(struct thread *thread __maybe_unused,
- }
- #endif
- 
--void arch__add_leaf_frame_record_opts(struct record_opts *opts);
--
- char *callchain_list__sym_name(struct callchain_list *cl,
- 			       char *bf, size_t bfsize, bool show_dso);
- char *callchain_node__scnprintf_value(struct callchain_node *node,
--- 
-2.54.0.563.g4f69b47b94-goog
+> +static const struct netc_port_stat netc_port_counters[] =3D {
+> +	{ NETC_PTGSLACR,	"port gate late arrival frames" },
+> +	{ NETC_PSDFTCR,	"port SDF transmit frames" },
+> +	{ NETC_PSDFDDCR,	"port SDF drop duplicate frames" },
+> +	{ NETC_PRXDCR,		"port rx discard frames" },
+> +	{ NETC_PRXDCRRR,	"port rx discard read-reset" },
+> +	{ NETC_PRXDCRR0,	"port rx discard reason 0" },
+> +	{ NETC_PRXDCRR1,	"port rx discard reason 1" },
+> +	{ NETC_PTXDCR,		"port tx discard frames" },
+> +	{ NETC_PTXDCRRR,	"port tx discard read-reset" },
+> +	{ NETC_PTXDCRR0,	"port tx discard reason 0" },
+> +	{ NETC_PTXDCRR1,	"port tx discard reason 1" },
+> +	{ NETC_BPDCR,		"bridge port discard frames" },
+> +	{ NETC_BPDCRRR,	"bridge port discard read-reset" },
+> +	{ NETC_BPDCRR0,	"bridge port discard reason 0" },
+> +	{ NETC_BPDCRR1,	"bridge port discard reason 1" },
+> +};
+
+Should the port rx/tx discard frame counts and the bridge port discard
+frame count be exposed through ethtool -S at all?  These look like values
+that map onto the standard rtnl_link_stats64 fields (rx_dropped /
+tx_dropped) reported via ndo_get_stats64 and visible through "ip -s link
+show" on the DSA user netdev.
+
+[Wei Fang] The port rx/tx discard frame counts and the bridge port discard
+frame count are used to count the number of packets lost due to certain
+reasons including buffer exhaustion. By querying the packet loss reason
+register, users can clearly understand why the frames are dropped. These
+counters are not the same concept as rx_dropped/tx_dropped in
+rtnl_link_stats64. For example, rx_dropped should not includes packets
+dropped by the device due to buffer exhaustion, but PRXDCR includes them.
+
+Documentation/networking/statistics.rst calls out that ethtool -S is for
+driver-private counters only, and the networking review guidance asks
+that stats which already have a standard uAPI not be duplicated under
+ethtool -S even when the driver is not currently feeding the standard
+interface.  Could the discard frame totals be routed through
+ndo_get_stats64 instead, leaving only the truly private parts (the
+per-reason RR0/RR1 codes, the SDF counters, the gate late-arrival
+counter) under ethtool -S?
+
+[Wei Fang] As I explained above, I would like to keep them in the
+driver-private counters.
+
+Is including NETC_PRXDCRRR / NETC_PTXDCRRR / NETC_BPDCRRR in the routine
+ethtool -S read path intentional?  The "RR" suffix on these registers
+
+[Wei Fang] Yes, for example, NETC_PRXDCR represents the total statistics,
+while NETC_PRXDCRRR represents the statistics between the last read and
+the current read. During user debugging, this register, along with the pack=
+et
+drop reason register, can be used to determine the cause of packet drop
+during this period.
+
+appears to denote read-reset semantics; the sibling ENETC4 driver
+documents the same naming convention, e.g. in
+drivers/net/ethernet/freescale/enetc/enetc4_hw.h:
+
+    /* Port Rx discard count read-reset register */
+    ... ENETC4_PRXDCRRR ...
+
+netc_port_get_ethtool_stats() reads them on every invocation:
+    for (i =3D 0; i < ARRAY_SIZE(netc_port_counters); i++)
+        *data++ =3D netc_port_rd(np, netc_port_counters[i].reg);
+
+If reading PRXDCRRR/PTXDCRRR/BPDCRRR clears the underlying counter as a
+side effect, then "watch ethtool -S" or any periodic poll will see a
+delta-since-last-read value rather than a cumulative total, and two
+concurrent observers will perturb each other's view.  Would it be safer
+to expose only the non-reset variants (PRXDCR/PTXDCR/BPDCR, which are
+already in this list as "port rx/tx discard frames" and "bridge port
+discard frames") here, and move the read-reset aliases to a one-shot
+debug interface such as devlink or debugfs?
+
+[Wei Fang] Currently, we do not support devlink and debugfs, which
+makes debugging packet drop issues quite cumbersome for users.
+This current approach can serve as a transitional solution; we can
+remove it from ethtool -S when debugfs or devlink are supported.
+
+> +
+> +static const struct netc_port_stat netc_emac_counters[] =3D {
+> +	{ NETC_PM_ROCT(0),	"eMAC rx octets" },
+> +	{ NETC_PM_RVLAN(0),	"eMAC rx VLAN frames" },
+> +	{ NETC_PM_RERR(0),	"eMAC rx frame errors" },
+> +	{ NETC_PM_RUCA(0),	"eMAC rx unicast frames" },
+> +	{ NETC_PM_RDRP(0),	"eMAC rx dropped packets" },
+> +	{ NETC_PM_RPKT(0),	"eMAC rx packets" },
+> +	{ NETC_PM_TOCT(0),	"eMAC tx octets" },
+> +	{ NETC_PM_TVLAN(0),	"eMAC tx VLAN frames" },
+> +	{ NETC_PM_TFCS(0),	"eMAC tx FCS errors" },
+> +	{ NETC_PM_TUCA(0),	"eMAC tx unicast frames" },
+> +	{ NETC_PM_TPKT(0),	"eMAC tx packets" },
+> +	{ NETC_PM_TUND(0),	"eMAC tx undersized packets" },
+> +	{ NETC_PM_TIOCT(0),	"eMAC tx invalid octets" },
+> +};
+> +
+> +static const struct netc_port_stat netc_pmac_counters[] =3D {
+> +	{ NETC_PM_ROCT(1),	"pMAC rx octets" },
+> +	{ NETC_PM_RVLAN(1),	"pMAC rx VLAN frames" },
+> +	{ NETC_PM_RERR(1),	"pMAC rx frame errors" },
+> +	{ NETC_PM_RUCA(1),	"pMAC rx unicast frames" },
+> +	{ NETC_PM_RDRP(1),	"pMAC rx dropped packets" },
+> +	{ NETC_PM_RPKT(1),	"pMAC rx packets" },
+> +	{ NETC_PM_TOCT(1),	"pMAC tx octets" },
+> +	{ NETC_PM_TVLAN(1),	"pMAC tx VLAN frames" },
+> +	{ NETC_PM_TFCS(1),	"pMAC tx FCS errors" },
+> +	{ NETC_PM_TUCA(1),	"pMAC tx unicast frames" },
+> +	{ NETC_PM_TPKT(1),	"pMAC tx packets" },
+> +	{ NETC_PM_TUND(1),	"pMAC tx undersized packets" },
+> +	{ NETC_PM_TIOCT(1),	"pMAC tx invalid octets" },
+> +};
+
+Do most of these eMAC and pMAC strings duplicate counters that already
+have a standard uAPI?
+
+[Wei Fang] No, the standard uAPI is implemented in patch 14. This part of
+the statistics is not supported by the standard API.
+
+Several look like direct overlaps with struct ethtool_eth_mac_stats,
+which this driver already populates via .get_eth_mac_stats:
+
+    eMAC/pMAC rx octets (NETC_PM_ROCT)   vs OctetsReceivedOK
+                                            (already exposed via NETC_PM_RE=
+OCT)
+    eMAC/pMAC tx octets (NETC_PM_TOCT)   vs OctetsTransmittedOK
+                                            (already exposed via NETC_PM_TE=
+OCT)
+    eMAC/pMAC rx packets (NETC_PM_RPKT)  vs FramesReceivedOK    (NETC_PM_RF=
+RM)
+    eMAC/pMAC tx packets (NETC_PM_TPKT)  vs FramesTransmittedOK (NETC_PM_TF=
+RM)
+    eMAC/pMAC tx FCS errors / rx frame errors
+                                         vs FrameCheckSequenceErrors and th=
+e
+                                            FramesLostDueToIntMAC*Error fie=
+lds
+
+[Wei Fang] They are different registers and the statistical data they
+produce is different. In addition, FrameCheckSequenceErrors is used
+for RX not TX.
+
+Others overlap rtnl_link_stats64 (visible via "ip -s link show"):
+    rx octets / tx octets       -> rx_bytes / tx_bytes
+    rx packets / tx packets     -> rx_packets / tx_packets
+    rx dropped packets (RDRP)   -> rx_dropped
+    rx/tx unicast frames        -> derivable from rtnl_link_stats64's
+                                   total/multicast/broadcast triplet
+
+[Wei Fang] As I explained in v5, rtnl_link_stats64 is used to collect total
+statistics for the network device. For NETC switch, its ports support
+preemption, so each port has two MACs, the netc_p/emac_counters is
+used to collect statistics for each MAC. Their usage are different.
+
+And tx undersized packets (NETC_PM_TUND) overlaps the rmon undersize
+buckets that .get_rmon_stats already reports.
+
+[Wei Fang] The undersize_pkts of struct ethtool_rmon_stats is used for RX
+not TX.
 
 
