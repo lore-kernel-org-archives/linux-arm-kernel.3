@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BCEACD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 17:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB00CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 17:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tH1iSPUGcILJyJMLpmaUvCCX0dmGX7q3b3+fvsD9RQc=; b=ZveT+SXz1/gPRnZLviL5M4VMfn
-	jwAUwWVoFOpCkJCJBbVkZSjW9CCgAG2yvzWAdRZpuq7qvFV1HyM9lOv7sNscujddiIPrGnaONJlo9
-	E21/bC5aiEM6ii2rYD4yhetQgIKrj8yYYM1fXwnjU3Vhyi6oiaS7n6kaNFvXElcocKsV+S/FQ4dCC
-	qgZc+SSyZl0M4bwETVO81UOeYUbzfFiMmlxyNPshvs9kTEFY/YE5xleoulTNVy1WYzMnkQr4BDSDA
-	tckNw3YJn7fFNo34jrnjMJH2p1Q55sVMoc9kyVtG/XJdeS8Ml4hzsZ6mBefmtM7amuu2UVDFx7uGI
-	rJsnUZqA==;
+	bh=WTE9sENCyrA+FQ3/aF1GiuwlmmKh+HsAjVQHsUOsWFo=; b=c3+DdF2Cit6V0069bBeVmONSBh
+	IaQELlWp8fr5mf0BzFyWPGF48QaiUmXY6BnD7YWcjLBZvxILNUau6tYBtiWSxCMQtX5d56c/leFxk
+	Fl556P/NHtAd94cRAVa8G6ixtBdvx9tkCAKugifoV67DXgVwq91XdcNtHPJQ/63RQm6gKNmVydDO7
+	5EoEPbU3Kf3HJZfqYVsLwmZi6EyW0lRO1XgfERD+BwNxxQwTz1INGh8JKH8wbNb3sykwOlEHvlMYq
+	qLH3iDMAH8Z3a8jNPOjVMq8FdyakDZhCZDi+UZh6Jm1FuVDMyhZ6cYhkhXKgMnyGcHPDI4mHYbKoU
+	53NBPO3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqZ4-0000000HTwM-4AKl;
-	Tue, 12 May 2026 17:06:38 +0000
-Received: from mail-southcentralusazon11011020.outbound.protection.outlook.com ([40.93.194.20] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wMqZ5-0000000HTwR-0Qj6;
+	Tue, 12 May 2026 17:06:39 +0000
+Received: from mail-westus3azon11011018.outbound.protection.outlook.com ([40.107.208.18] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMqYz-0000000HTtY-2gPz
+	id 1wMqZ2-0000000HTuI-1Ipa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 17:06:35 +0000
+	Tue, 12 May 2026 17:06:37 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Nr5LVXrhHK/hxFcJE7x/iTUFZl6PmDm78TdJ1rfCTmu8HWx15Czgzrkhp1GRV3TBNCHzqBOQZg1JiL+Wa8rHL7//Vx3/80BZ2MWunCuhdtGWH4MOVx+ep7hqBtfaLbxCbnGVBPO+uFBdXoZUVd8CrIl1YCtUP09HOZxBjyI8nKVOW+vYGvfUjwZpr+pxb/dN9jIhUfJqxO/YaWe+8IWzWTkwQ7Pkh8bpL8W/ZPVqBGgP3fUaOIntpJ6T+NcKKcSfOUronCEiAYp1kAaAqJk0+OD4Ja+20pfUHild/QTGEzwzNmuCqufFe/VHHRQwKWjyM5z6VIIPhfjWTkQpbosjEA==
+ b=r7bK0Aw/iTGEJzN457MFehP5oGy4rKFojBWjEisj10Kx0AGXrNP4+XGWU91KX5SZnTopbJc6k00dzy4t5fuWqBkf3zCFHNL9OIlAKgYMRloPhe95dT6bOoKU3MTwl3uvt4FISqcKUVTZtjX2qrqOZC0vzdvgylJddfTnDoDCb6TPVCWUNPq/s5y9h/Cs5Roj0+su3sbRv+kb58f2c3MDb/d7orFcchLsaygZ2g7IWcgaB5gjKhGChNSZsLTmhOO8/+XW98S+AwN3qwQzxq1HGPvsj/GCCQ+y+C/IRmmSieY+G6WDB2s3AKnhhgQEz+GHifCoM7Z0DPrnDX7hipf/+w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tH1iSPUGcILJyJMLpmaUvCCX0dmGX7q3b3+fvsD9RQc=;
- b=JXMMJeEpKPIHsb0APAZoEOztdlWZQXg8oV/8o6edQv+SESXcaCLVTKB4LfXUg0tTedOytEyuLY33QMUAOrhr9COjwdFVWEum9xL0mmJvQwdpVLLKtaR93+YQbu1olSr5KnTnBQLBEv+x5AU5/uPkY9keAbxuwZ6DlGPndnezyQ5yyxipt1wYTBlohKNpgbvgL31C8KAHYp/l9h+pcytxIxQYLaprXpaCAlzuhdgmP/8O2OBUebTGYyoYffDCvQZVfBkNzBj08Tx3fFXafup1XuXI/wqtm5VL4ctdTgmo0/sTgtMEXsoNve1eAyMCp2SfW+eY2/LcXEVGaB+B0zLWkQ==
+ bh=WTE9sENCyrA+FQ3/aF1GiuwlmmKh+HsAjVQHsUOsWFo=;
+ b=OTZByqY3fxvbIhIgJhgeYJW5kGJDfZlZqqPpdHO6IfPwpMLMXmcLHQ1Z+qoEsXNUZO0f64QnkYlMOyTdWNPvmM1KilJ6iPJGB4Jvy8EVqHLZBrKOeSUjLh6YKDt/OvyrOdfIQeWKEAVbdQc/tUVmj3TI9xVq+FSAGM93/mqGum7UnWY4cCHWl2Ip1rTox8tEAGImZicXPlxUnqlWVTRnSSFpsyI9G6JroDP+GWlVU7s60SK8URJxPAeA24X+U2rn58OE90L6YHB19gDVL1O+c3Zen8nNVaabsfISOEQLyTe/AZupMusEbK2VbVk/DfUkXFkDLYjgKy2VopIRmaFiXQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ 198.47.23.194) smtp.rcpttodomain=infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tH1iSPUGcILJyJMLpmaUvCCX0dmGX7q3b3+fvsD9RQc=;
- b=QxDGc7i5Ag1W31QKeoFzSx7Gc/qWZcSVfwEmOW0Er191VF/zgSwLXtqoW1XyLWr2y12yjto+y9SPg069aKxtwIbZw8235log9hbjE+7WFG4iMwZkXsf6Q3V0UkF1Th4VnUhnbMZqcTPhMtiRUEwdoNtF/iCQtzVndayh9M68Lvc=
-Received: from PH7P220CA0005.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:326::22)
- by SA1PR10MB7789.namprd10.prod.outlook.com (2603:10b6:806:3ab::18) with
+ bh=WTE9sENCyrA+FQ3/aF1GiuwlmmKh+HsAjVQHsUOsWFo=;
+ b=B9nmDYQJ7fZf4YEP5MfBEJSHg3DS0adfyr1gGwM1bHU3BZbHdIrC3LR0yVuNCohRdTxS3HbbX1+AIvrhfZOuQ1pNJpqt42abxTve0hbzzQhPNOBBZgSvt2lNsZU1z03/e5Y4/8sjdntpsZnq3G2OLRFM44L04clgav5r3uphC+Q=
+Received: from PH7P220CA0029.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:326::21)
+ by DS4PPF0316BCB78.namprd10.prod.outlook.com (2603:10b6:f:fc00::d04) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
- 2026 17:06:29 +0000
+ 2026 17:06:28 +0000
 Received: from SJ1PEPF000023D8.namprd21.prod.outlook.com
- (2603:10b6:510:326:cafe::6d) by PH7P220CA0005.outlook.office365.com
- (2603:10b6:510:326::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.11 via Frontend Transport; Tue,
- 12 May 2026 17:06:28 +0000
+ (2603:10b6:510:326:cafe::8) by PH7P220CA0029.outlook.office365.com
+ (2603:10b6:510:326::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.23 via Frontend Transport; Tue,
+ 12 May 2026 17:06:26 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
@@ -61,31 +61,32 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
 Received: from lewvzet200.ext.ti.com (198.47.23.194) by
  SJ1PEPF000023D8.mail.protection.outlook.com (10.167.244.73) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.3 via Frontend Transport; Tue, 12 May 2026 17:06:28 +0000
-Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
+ 15.21.48.3 via Frontend Transport; Tue, 12 May 2026 17:06:26 +0000
+Received: from DLEE208.ent.ti.com (157.170.170.97) by lewvzet200.ext.ti.com
  (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
  2026 12:06:26 -0500
-Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE208.ent.ti.com
+ (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 12 May
  2026 12:06:25 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE201.ent.ti.com
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
  (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
  Transport; Tue, 12 May 2026 12:06:25 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64CH6PG12235143;
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64CH6PBc1887826;
 	Tue, 12 May 2026 12:06:25 -0500
 From: Nishanth Menon <nm@ti.com>
 To: Justin Stitt <justinstitt@google.com>, Bill Wendling <morbo@google.com>,
 	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nathan Chancellor
 	<nathan@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>
 CC: <afd@ti.com>, Nishanth Menon <nm@ti.com>, <llvm@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH V2 06/11] soc: ti: knav_qmss: Fix __iomem annotations and __be32 type
-Date: Tue, 12 May 2026 12:06:18 -0500
-Message-ID: <20260512170623.3174416-7-nm@ti.com>
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	"Randy Dunlap" <rdunlap@infradead.org>
+Subject: [PATCH V2 07/11] soc: ti: knav_qmss_acc: Fix kernel-doc Return: tag
+Date: Tue, 12 May 2026 12:06:19 -0500
+Message-ID: <20260512170623.3174416-8-nm@ti.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20260512170623.3174416-1-nm@ti.com>
 References: <20260512170623.3174416-1-nm@ti.com>
@@ -95,28 +96,28 @@ Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D8:EE_|SA1PR10MB7789:EE_
-X-MS-Office365-Filtering-Correlation-Id: 349b38a8-a93a-498c-5027-08deb048cef5
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D8:EE_|DS4PPF0316BCB78:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f7f28fd-4c22-4221-54aa-08deb048cd6a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|1800799024|56012099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: S6uyNvF/TbsjIBPcCCk9UOG5lAMqoFJ/ragGjN8Se/IW7F3J9CjTpA2IUEDB0Rh/5CfvfPwzY0iV7nnMFFjbhPy9URQi/eAevSZCNSCUKxwzfAUdGfGIcx/KkbE/pTJp1gBI1TXlBce4dO1tSwRJLjm1rYNeht3BGmmgTAsrahsOFnSIJCz8vqUSYDuXqzgFjO1ZT3dGRiuyq21HhxrphdVw94bUgEi0Lk1F16WEnXxM4926Z8LzK/i1OOyJ9ICt4ROHxi8N/eMlGbAgPzHXaKDBwacMNsUyZqy0RtCFw9O9u4hkyMAASSvg/42onBAaiMImBk38UGHyciK47ROIR/w/SYc+c+h6I9LYtOdOFgbWPDWWN4ps/cT93reFQwADRG36dlKyB6MsLBo1GWpX6Fdg598kb6M4j54+B+sX765r0gKxcJWI7p8Lu4fS2MHKx7bIq/PBw2kUuJyjH8L1Y0uLBQQVW1zhXPkS28VYpsY7uJWmdFhPVQeJtLd7AmaIpveTLNjF7OixLzzcBoVnCfguFhBPMjfAfEe3c9EtPD6FNALtvFTmwHBek2WNsRFeWSLjDGLi/Mf3QDUv4ngFZSs7Irk4JLrxR2WUtSBSbbQrx01Je0MuEeHmsOyDo/jZjX3O6HLHZGBbFh5uJ/tLBAkz2jFvK7b9+qRqR6pnVhG4M3ZsFlOMKAab/RU0JL9slsdiNDlJaVp/1tLCTYz3yGsxW5zRWMTB8ZIEBzeLPB8=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(1800799024)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|376014|82310400026|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: n4SWjYhobuS40c/4C0A4zM9Cuu9uIi7lQ1w7U68+38amtAmxZ+zGRS+Sr/ajpnoG/tv03g5aMX3hD2t1n68TftBApjDz2rK/UpYbj/14VSWI27e7LPrDUcXw2MJ7HXe1WcF55FrnU82smqrQQiq+xxOCx78XVmndvvAoeHlyuWVf6vaHAdc3ESY3jU7jecgXIbi0voUM8sTLMbqdvcIUx/JT3Pd/kB8ndfX3IYrXc6orALObxe+MmQhUuGeHTKIUTDH1qVZKYs9QeEQiHNYjaFHG0yzxWft87hcbbKsYBkOP4tKoe5j/F1zGO81SMt6z26f3lVfgKrZxs4LW5S7P0nqb3C4F5s44l6a/xeztBfyOMwNrkVTkDtn1uZf/fUN5GLUUWF2Aq951RKE4BXsHfAQnaY+HZ6/IUFif94d9vfZ0ERD3MVlE1vr9EmXFjyVYfZkbsurW59jWRhl8fln+/pbqmvuQ+w9v/Fzt2610rXjh4UagCflZn/w5p76w3nwYb8vpV5ld6pgfaZNgBkv9G65F8lngjPtVP+AyJIX0eLD5LnYOFaY4MmtuN+/bw7MIxqlCqOH+QhSUfx6zjoC92d+teoxYBIttwQGcsLoX1WdhUt5sCXlDvlyCphupCjGqVdF3c3lBzm01kyye6MRwEuDtX/Zrxi0Haa2eU6kw0a9pWDQuu/id/BrtWwMSDZGsTzkBKtp1BpyVVrWamTc/J7vwV1o+rq2StOKRc244+5M=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(82310400026)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: em9eGbX3XOAA+8Mo6XPPicUnjC78wszM0rS9XSR6qgbuP7VEdQbA9GwjZZB1IaAMpNBhSyLmwc0QZTU1oOw+Jk6mYAeTbebN1oQ+cVJN3YsSo2rUYp73Bw6zpxcqQXU+UlC0DSJxEy7zz+Rwn0rjczKWn5MNypw6aTWhW3GpxpXSy41u2qwDnzHvghl3fXvhfL/S25eGewhhVK8cy4Fc1Yq4z1Cihk5xLR/ce0HByTMKW1T7AvonrK/lcVbSJfBJBIF7QtAM8pXWXQz3rBupkXDOETCyS0Xi43iT/RyA7CK/Wg4ONOcoLEOkvy415oHdiesO7oMPviZOz269RyRpBa0uQdgsZWDWuY1MaXi50Kb9ArwpDJYqEn4fpWNlPMS/GNyy21opBtfSzTX52QfUmI34qirEM2VjBeFzSEKMtd0vFr0uibTs8tfxSMBQOMTT
+X-MS-Exchange-AntiSpam-MessageData-0: A0lVh85W8H7veW78vCvbm8lF7QedOTN6QBy1cX/DEdn3AR2atkV0UgyOaghErpHhXvZzQkageaK69sDJwBdGFsc4fSSYKzGfc63tgwuQNcWFR9hsQF3HBW8Yai3AdGtrafybPECyKz1L+C8p7hPfR+Dz2xZny8ioRZ57fqCvOrXDs5YGbPWAmd7Wsv7Gm3wyG/isvsdAp9gVXQDzmAt+sO/x7vV0xaH+kxGfK0Q5S8DPp2JP9pNbCabhQgsNID2u6fcs+1Tj7EsTppF4OZSA54+5IW4V58MjoJX+Y/AUc9NliHkMRHts56YBEzD0Vq2ncY+aFfN3hzU8m25aodxOLJdUV1PfbKXYDRqi1UqWIr15nqeO2tkozlIFzYOtUqnRcrlUqizCN4Y3/JrAGuH4iRKKqGNNaYMNSoj9Hz04oKcbcx9qIIVxPIVe2SSGzhML
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 17:06:28.8209
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 17:06:26.2326
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 349b38a8-a93a-498c-5027-08deb048cef5
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f7f28fd-4c22-4221-54aa-08deb048cd6a
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
 X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D8.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB7789
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF0316BCB78
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_100633_685122_28460BDE 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20260512_100636_352221_69AAA3BA 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,93 +132,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix several address-space and type annotation issues reported by sparse:
+Fix knav_init_acc_range() use of 'Return ...' instead of 'Return:'
+kernel-doc comment, which produces a warning with W=2:
 
-- Change pdsp->command from 'void __iomem *' to 'u32 __iomem *' to
-  match the other union members (acc_command, qos_command); adjust
-  the offset in knav_queue_load_pdsp() from +0x18 to +0x6 to
-  preserve the 24-byte offset.
-- Fix knav_queue_pdsp_wait() declaration: correct the parameter
-  annotation from 'u32 * __iomem' (pointer-in-iomem-space) to
-  'u32 __iomem *' (pointer-to-iomem); use 'unsigned int' for the
-  timeout parameter instead of bare 'unsigned'; fix the continuation-
-  line alignment.
-- Use IOMEM_ERR_PTR() in knav_queue_map_reg() instead of ERR_PTR()
-  when returning an error as void __iomem *.
-- Annotate the firmware data array as 'const __be32 *' instead of
-  'u32 *', as be32_to_cpu() requires __be32 input.
+  knav_qmss_acc.c:473: No description found for return value of
+  'knav_init_acc_range'
 
+Acked-by: Randy Dunlap <rdunlap@infradead.org>
+Tested-by: Randy Dunlap <rdunlap@infradead.org>
 Signed-off-by: Nishanth Menon <nm@ti.com>
 ---
 Changes since V1:
-- pdsp->command from 'void __iomem *' to 'u32 __iomem *' based on
-  Andrew's suggestion (it is a more accurate representation anyways).
-- Fix ups in commit message
+- Picked Randy's Tested and Acked.
 
-V1: https://lore.kernel.org/all/20260508153211.3688277-7-nm@ti.com/
+V1: https://lore.kernel.org/all/20260508153211.3688277-8-nm@ti.com/
 
- drivers/soc/ti/knav_qmss.h       |  2 +-
- drivers/soc/ti/knav_qmss_queue.c | 12 ++++++------
- 2 files changed, 7 insertions(+), 7 deletions(-)
+ drivers/soc/ti/knav_qmss_acc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/soc/ti/knav_qmss.h b/drivers/soc/ti/knav_qmss.h
-index 9325e8ce2e25..037dc1b36645 100644
---- a/drivers/soc/ti/knav_qmss.h
-+++ b/drivers/soc/ti/knav_qmss.h
-@@ -123,7 +123,7 @@ struct knav_pdsp_info {
- 	const char					*name;
- 	struct knav_reg_pdsp_regs  __iomem		*regs;
- 	union {
--		void __iomem				*command;
-+		u32 __iomem				*command;
- 		struct knav_reg_acc_command __iomem	*acc_command;
- 		u32 __iomem				*qos_command;
- 	};
-diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
-index 50072e9dea37..a747a08115d3 100644
---- a/drivers/soc/ti/knav_qmss_queue.c
-+++ b/drivers/soc/ti/knav_qmss_queue.c
-@@ -477,8 +477,8 @@ static int knav_queue_debug_show(struct seq_file *s, void *v)
- 
- DEFINE_SHOW_ATTRIBUTE(knav_queue_debug);
- 
--static inline int knav_queue_pdsp_wait(u32 * __iomem addr, unsigned timeout,
--					u32 flags)
-+static inline int knav_queue_pdsp_wait(u32 __iomem *addr, unsigned int timeout,
-+				       u32 flags)
- {
- 	unsigned long end;
- 	u32 val = 0;
-@@ -1368,7 +1368,7 @@ static void __iomem *knav_queue_map_reg(struct knav_device *kdev,
- 	if (ret) {
- 		dev_err(kdev->dev, "Can't translate of node(%pOFn) address for index(%d)\n",
- 			node, index);
--		return ERR_PTR(ret);
-+		return IOMEM_ERR_PTR(ret);
- 	}
- 
- 	regs = devm_ioremap_resource(kdev->dev, &res);
-@@ -1556,7 +1556,7 @@ static int knav_queue_load_pdsp(struct knav_device *kdev,
- 	int i, ret, fwlen;
- 	const struct firmware *fw;
- 	bool found = false;
--	u32 *fwdata;
-+	const __be32 *fwdata;
- 
- 	for (i = 0; i < ARRAY_SIZE(knav_acc_firmwares); i++) {
- 		if (knav_acc_firmwares[i]) {
-@@ -1578,9 +1578,9 @@ static int knav_queue_load_pdsp(struct knav_device *kdev,
- 	dev_info(kdev->dev, "firmware file %s downloaded for PDSP\n",
- 		 knav_acc_firmwares[i]);
- 
--	writel_relaxed(pdsp->id + 1, pdsp->command + 0x18);
-+	writel_relaxed(pdsp->id + 1, pdsp->command + 0x6);
- 	/* download the firmware */
--	fwdata = (u32 *)fw->data;
-+	fwdata = (const __be32 *)fw->data;
- 	fwlen = (fw->size + sizeof(u32) - 1) / sizeof(u32);
- 	for (i = 0; i < fwlen; i++)
- 		writel_relaxed(be32_to_cpu(fwdata[i]), pdsp->iram + i);
+diff --git a/drivers/soc/ti/knav_qmss_acc.c b/drivers/soc/ti/knav_qmss_acc.c
+index 269b4e75ae40..1f8b5acdd462 100644
+--- a/drivers/soc/ti/knav_qmss_acc.c
++++ b/drivers/soc/ti/knav_qmss_acc.c
+@@ -466,7 +466,7 @@ static const struct knav_range_ops knav_acc_range_ops = {
+  * @node:		device node
+  * @range:		qmms range information
+  *
+- * Return 0 on success or error
++ * Return: 0 on success, errno otherwise.
+  */
+ int knav_init_acc_range(struct knav_device *kdev,
+ 			struct device_node *node,
 -- 
 2.47.0
 
