@@ -4,130 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2DE6CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1484CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 15:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fo9xMzwweBahoQX7hLGoBhQSw4y3PCEu9BFFmoIpsuI=; b=rFJKGX7dvfOlge8hSe+YMxrRwQ
-	2GFaEWQKtl5MTZlaVnUkooGdNyl+l7Fc2mhf054m67NpZyTZqxZwY8jksffrFMb52hLVZA9A7jGxJ
-	rqYyO+7091906r8EM9lpmjeWzk7xSb81mbfY1WDiAbeHQpOU3YkOBaFAfPJN0cN93MwdFpiVZgj0B
-	yUf4lT4koLt33ZpZaiOqywHIj+Kr3N8SQaRY1AQCu/S/TSEQnngtNCo04jPEZX9U8Nj2jPy993Fta
-	/JiWa5odq/2Wq8v/OuoAkvet2qEeMhihznfma6G86de5G71AT59XJoD6hroFETjDY3m7A0Lq/azxA
-	SRX9/a+w==;
+	bh=t0ujevqgQXDHfoEPkvrwGuNuwg0PASas1+bZlJQ1jQU=; b=WmTGQIkMA0pdjyyqasX7qli14J
+	kPCuuz4HMt90cPI2Jf3qHd0CqOH2bwN7GremcdYI0uonrLuWQUCZQtGINg5iG0MSbQsvj3CSXOQhS
+	05eX7fiFi39v7fMYT7xuz3aVIi+chXz2kqz/IYUO1xtoWLD5yxVP/2xtDU9y+fACqr08hlR1vOJIC
+	dHXYsNuzjurQ1pkF6bDbiCGrm+v2b0ZZDvWOdEgHaMd8FjFffRA/KZ58szzlMnN5P/CbI/HXe390b
+	UQJe6XuJcDftVcgny7KeDovYrypY8DbInc7j8o3VzpOTA9ENza9u2XhGX7z/6w52KjqeygwId+PMd
+	ERhzqitw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMorH-0000000HBMQ-0BHJ;
-	Tue, 12 May 2026 15:17:19 +0000
-Received: from mail-norwayeastazon11013041.outbound.protection.outlook.com ([40.107.159.41] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wMovH-0000000HC2B-24EU;
+	Tue, 12 May 2026 15:21:27 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMorE-0000000HBL8-0gaY
+	id 1wMovD-0000000HC0l-3yjp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 15:17:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s0T04bZSJ7yz1KJ6dUpUZwWE+lxQA4oftURYFNUYfJbLdGANbSh8yf/OHxaKKAx9iL+gqdVt1cZWs6WRYh7bkB7w1l0wAOy8/Zf3FU8fbrr2/oWTs/kbMS9Eau+lJ8eIItZ/eQ0KtaunPxZZ1xLDX5YMLl2/qHqPNt25xybtN5pxJpzvhQtVUUF+igNzr2+zoqtP6viNhXFm/tORwuu9vAMkqghYd6o3lTMSHdtK4P6opHMdaUpxaV+NgnIQvVLJEfCZBwyv4pjjjCi6Vz9gIKWvlaNcslYCo/AQ88jYbDaHI4Eaa7i/NjXzYMEGVutIxBiF33FOKQQfITrGr6EioQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fo9xMzwweBahoQX7hLGoBhQSw4y3PCEu9BFFmoIpsuI=;
- b=RocTbG4I3wd1H6UFHlbL6fS0imf2PY1+2ZDdwODNDicOI17e8o0QCT2xqnEavNAk7VuxCQpH8fLljAnd331N+4pwWeGQ678PtIOFajVMWI+UIE9ZmimEO40nUSoujtHGLLcM3MZjq6fQcEd8bRQm6fonLKuJt8EE4ifns4MC8g1rB+NbxBLwIxkgwvvC1qej/91qHWKZVa2VEKX6GllaeY0lNtwtEvsdyv6L8ic4QckhqsfERrBcTHqvCD+u/7xcXBU1rm+UDTQYHKV6Dg7KktwV/5lgrf4j3isc7dgWp9oSJnUcY6xjSumgW3PD/rA4fK8fDiGQZcfXxGjlwg8KTA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fo9xMzwweBahoQX7hLGoBhQSw4y3PCEu9BFFmoIpsuI=;
- b=SnmXuVrjfqiDDr4qq1crbOsOUDKdj+X89uF1FIogfbWJn3nYH017WY1udOY7rTF8lxoHZAnZ6dVJUy0GyDrH+C5gufCYKHMkcJFJ8e5NNo4LyUDS0GuOjPS8tSt3F1hNdR9LJemVighRdVtVSi/+ov0da6i6JoCx9KTEgU1qchwUPlfEjtyh3aYMNtEuHX7rzAuRgjDYrAiFnmam/ErMF7Qbk6JP96D+AsNLVSOzDhSa1ddTkvWo6kBYfhItrge+jABVtf9PrnmaNNH8JTheP0IYVsP6hnJHCZYUAZHKCXARhlK+5H8JC+0t0I+5uhRxN6uWySXZySNzql0qYzhHEw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI1PR04MB7006.eurprd04.prod.outlook.com (2603:10a6:803:137::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
- 2026 15:17:10 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9891.021; Tue, 12 May 2026
- 15:17:10 +0000
-Date: Tue, 12 May 2026 11:17:04 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Enric Balletbo i Serra <eballetbo@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Enric Balletbo i Serra <eballetb@redhat.com>
-Subject: Re: [PATCH RESEND] clocksource: move NXP timer selection to
- drivers/clocksource
-Message-ID: <agNEcIbvcjFKn_Ay@lizhi-Precision-Tower-5810>
-References: <20260512-fix-nxp-timer-v1-1-565e13ef3e46@redhat.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260512-fix-nxp-timer-v1-1-565e13ef3e46@redhat.com>
-X-ClientProxiedBy: SA9PR10CA0008.namprd10.prod.outlook.com
- (2603:10b6:806:a7::13) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Tue, 12 May 2026 15:21:25 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-67bc8609a9bso10389233a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 08:21:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778599282; cv=none;
+        d=google.com; s=arc-20240605;
+        b=cE9blR3JH3cTFjlW0kqBvFv98722CCHtPqCE/2XLKVNxUxot7HK7enUd24oj/Rp83h
+         +jV6IxY1Khf7KbsYkcntlR00/Suj2u9GZZUlM7CMdL1T8mI6oT9d/086WdWsHy1SfyAB
+         quIs9lzDpDdlQb92LYuypZP4vj0o1ULpXF/v0YPYi/wDj60J0Vj9je32eY4Xnm7SrhnP
+         6CoH2vVLxtg28j06HJVmCmUqKjpnmgvNhjks2eBlMUGeOIJgCVrRD5kFFB6S7h7zZmA0
+         Vx3rnG67M76xS9ciA1VnRdy9REaauEHmBGQ2amByPbbVscbSJUdTEF8yPNY+UgpsYiTQ
+         HoXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=t0ujevqgQXDHfoEPkvrwGuNuwg0PASas1+bZlJQ1jQU=;
+        fh=eFK2CPAy6W+QYDSo9DPIu0Tmkys9/GVYFVj8PsFhxtk=;
+        b=PzWYi8CnIYpOxaDpV6oNKAmfKwLWpzuZItd9iJod8zg85UdgNDacfRqAA2GpcWqFB7
+         MSs9nWwYivg2hXKGJohUWuCMQMDUX0vEkHkLdG3N4ZikdG8/BMwbkkJ8NSwWspJps4dN
+         TP8HJMSgW/AYBeyy2BZ/SPbBcIv6+fXNB/EBSFeJG0wVH2l2+gsJNsEJ9OzSYix3Igzo
+         4q67BYCeRcN/MLwENQLpeItlXMR/0+KCYmCeNGxRvm6m0oDm+tr1fSoJ1poeEuqGs7D3
+         OZ5bd2vN7MZ+ALxpIsXR4PO8J+dkbGV10/NuKAg3orEqpMccgm5DtVV0aV/fgpJ6a3YM
+         +UwQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1778599282; x=1779204082; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=t0ujevqgQXDHfoEPkvrwGuNuwg0PASas1+bZlJQ1jQU=;
+        b=iJA/jQiE/Hk/fAv9giPvhcCIKT9bZ8mrjE3+VJ2r05eca+4W+9z5Qzod4tp/JU5ddI
+         zhBJMfoyTPM8fdks0642x2vOUMrLqJX5Luc59Bp6Gbp4BezHyXiS41zo9xC8Y4UcwCik
+         8K/FkLdmuF6UFL8nmj1A9yqUesi34w3hwohCKVdJeLua1qr2hUMlA46IrW58zT+VK9oA
+         3Fd/G6XBzHE+mX1+AbJdC1e/++Eeox7M9NoCxM6fIUkSwAdoVPWRZiOEFPsftworrZO3
+         b0mToktxMnW0wyIhilKrM1XPObddV1JXc4UNhvv3dOoNb8ig4fryJADas1CnIMHTSc1Z
+         ynKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778599282; x=1779204082;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t0ujevqgQXDHfoEPkvrwGuNuwg0PASas1+bZlJQ1jQU=;
+        b=rJC2wK87lrGLN12BBcRuHXglnxgaJZefNmvXXYlNjqYZ7DnEj/evpDWfIttw51aFrS
+         rvvEPjBQAhPzKsydw1VmbYf/icfu3C7QuRlHL7QvLbw0ElyxKmz1S8IHdvD81U6kOXMW
+         cpg2y6vvog0w86y++g5ssh7H+1oXP0mJDovAGlvp1XarMtgzVlSI2Rm7XlcJaL0S4hUo
+         o1ZknUTuFGmy29ygmCvGgqnGPUBpe4XiylVmcuc8X8gWtoC9MZuhomVM77M8a8Bzb1f2
+         42hGwl8H/3sHaXKPkZ0I8zaD/gZosy94ZIuicgR8+a2BV2wm1H/SisjzkICljxJej05/
+         ReDg==
+X-Forwarded-Encrypted: i=1; AFNElJ9rayvZIXP2wrR69Bz4HnHEN2CEb5dJnY0iPyFIRhkjCmm/U02+b2ycF0mdy35AztPPxyMfY2iHMC3yhx4e36LO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhyqZ23XTrqbChHsBfsqr6vuGaFnCRyluUPlWm3NymAp/L1UTl
+	i0y+tz4nY3YYSS36S+QQlQTb0ErrKzRg4gkeFrVRNhICkQ4fU3xU00Rmh2L67w7DgQW3QSM7p0U
+	8z8qZBrqdZ7TDv1BzSuVSURZ6gDk0A975LI8XZcgMWg==
+X-Gm-Gg: Acq92OGrkDDUqFWdm8zq+jktecfH/iDN9bBG8k7ynJ8lijkFOtXy2mBaOrQKcjTOqOC
+	t/XucPrPqfdL0iGoZwxo7hZhDGd+TuMpmRThp3b+TaGyk1nbpLWS3ElJrvGV7lpXQsDvB66zX+z
+	3AxXYVPb+P+JhwHkJBNfccPNaIa3ShaB8bZiOGjqcU4UwB+OWe3jCF4Le8Q6Z3/4NHXqNonLiUw
+	Ell53dSy8sv3PA1oxSUjXyGav1RTQcqMMybtiyIkTBECUHhLTV5qeT6ci7HDHdsN+uNq5bbPDPT
+	4IybQ2JvZYVR2dogZYqKliVvHNq90WTiIf4EBeNJVg==
+X-Received: by 2002:a05:6402:4315:b0:66e:8ca6:e79f with SMTP id
+ 4fb4d7f45d1cf-680cf3642bbmr2086182a12.13.1778599281971; Tue, 12 May 2026
+ 08:21:21 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI1PR04MB7006:EE_
-X-MS-Office365-Filtering-Correlation-Id: e6888fca-a3ef-467c-52d8-08deb03989ad
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|19092799006|11063799003|18002099003|56012099003|22082099003|38350700014;
-X-Microsoft-Antispam-Message-Info: 47LEQSJwL8Yl1aMpKfbisnGRoiDZiQexOytg/U5QIwcYg2F+iU6OAFvhwhGjyNlb7Ot7kvsxLCCEFJPWTW3bSd37c+d2LHqa+gjSIbPZJlrtyXwSgF+X6+7/DLzxVcu9WJZF9Jqavb+dwkJtHXNOEBSzC11OzIZyzvskppibLbV1u5Q/RlHhdR5Oo7ZPmFJW1UIJ+xG+Dbfw2HRJpk9DVEnxad0Ck7cOka4w/Wb2UNOasTRbHIQ4AgxrfXxTzHDOIcBwhSijMxOB/ij/e0k5XSZSYkV9+YnkfL6Uv3Ifr7lY1O8s0AknaSmXKcLqmx1FE3NoImqSLQGlHOcYWrUNJRiEgBc+q/NCJ+Ei6tm5Td4icFtau0kt96ClWEH4TTaom/f6OHE25pahbj0P7FR7jlgJqNY7qzb/03GmScaYefcKksvk20P3b+/6QI4SK6ALYe9qeDDRtkILe2LuQL121d00fI0T5lLDLMvtEq6dYMZnk/wr1mxD77pWks92LN9N261f5yO/wdWzq9TL8wgu2HECVHOsf6Lr5TH5CvBV1fNJSWBvnEHpqasY1h6Q5t+XTaZRT6XJODk4BQcx8tOaX3BifGW1kGTLgEFEJqAfi/1N2LZhsASDQA+uX8NVoA4DsiX7cZC2eSRFktifUgw1brsKv+2iH25d/p9hkSBCWWxdCUBjNV7RNkD8pecIbrqBtnOTmm/USx7PZszi5T06JBZGPo9xlK6Tz9UqDNUPd6/m+FE8AVU/TuEQ7Ov7QxCu
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(19092799006)(11063799003)(18002099003)(56012099003)(22082099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZEkLPzrJX/HddIQ2f/i3/x7gxiFrks9UwIKGkbYR1164F6c9JDGR7mQTrg4J?=
- =?us-ascii?Q?FTzrMqn9qy6CBQ2W4MToz1xGzQwxsshifRvdCOlpWJeyf04kO1d8nQM7+Sa/?=
- =?us-ascii?Q?b4wDfGoANN3OrJpzua8QZ1KibkAWxXsUYOxCnf7jRcGvONy9ReoU1HaI+HTR?=
- =?us-ascii?Q?RUd/rOaYLX2lVX+B/RQFJFZ/+tbgmXFOqxMNEtvoFe/DNXG2/58+WzV9oRmy?=
- =?us-ascii?Q?SdRnFpxyxP+oA37a1lXLm80IMQtImZ1p/SSXftSGqyzby91QdPy4kV/mWAfT?=
- =?us-ascii?Q?Le+NSmpPWesEM3pXiZwI7sEIqNf9Zn1dpaEwfIhtrVKxr6x5y0GIE392zevP?=
- =?us-ascii?Q?IIgTqfbey3sqA7pXYLRcP3NgfQLXXNx23UeadAb61H0WvG2G7DxDs3v2PLCA?=
- =?us-ascii?Q?mK0Xh80Q20LlkvN2Uouzx0jUzkOqEWp9PuI0PGpoS+M5FiLUpvGt7iRrBFeh?=
- =?us-ascii?Q?wiz/dQS/BE32PU6jQZ6djIMn5djvMNS3KeNLaM1n4Vglvc4H4ZfOULew9Hqp?=
- =?us-ascii?Q?Vi12RleJ9QKkKdaPngLSJp5tr0tlwTQlPCjNU+5r52pLjZE6m3U/mcoStIko?=
- =?us-ascii?Q?0TY7MRfg4d67PwtMjIoC1sY21tZVMCR/ny7kCxdGy7SQRTaGPj+XmV4Vg9P1?=
- =?us-ascii?Q?dDs3AFKmJOgHB4ttXumt3FY5BVQ8xTolsclNiL+vi6+vtJdJo+WpGXYUxRxL?=
- =?us-ascii?Q?Zfu6XFCMHaNZgHJRbluCblIrkgWlWIf6JhR93AVUwy5iTHmzFagfpxvqRZ2r?=
- =?us-ascii?Q?UW7IiRi7vuFbBPZiHpGpsyAip7/QHAM3yxFlCQc2Fs4kCkyRmV7t5UcKCVS6?=
- =?us-ascii?Q?sZS3A3RVNKqPjG0yR0sPt4B+WFWPZT2anlGfNbVhQhoYlI6wYY6cQ2rwEPhS?=
- =?us-ascii?Q?fdxjoxRPoaw5o6OUfeWM8q5CnA8tV44J22te68HUqZYLpgcwl9391P9FwKJl?=
- =?us-ascii?Q?SvBZZrUDJXN1o4LGv6YNNiZGT69I3ij3oUaNvWblgSVGUhZiuLEpLaXm/HPi?=
- =?us-ascii?Q?UcQQUO5ZUAJoQzA9Y5Aa4EgD0g/hO3Jg2isITv5AIYODZEheQWiCR8ymuT6a?=
- =?us-ascii?Q?V4f/N+LDnHODy4NZgMCILFEaqfOkIOLiX5srfmY9lkY/UyX/HHdQbwPjYmvt?=
- =?us-ascii?Q?B6qbKktaXRAUSkMoG3S3+bD2dWYDQdEYFlmwzjqMuye8xtIP91WimfvUr4+a?=
- =?us-ascii?Q?HZrMpYYsJLfZ6FCwLmbwlMTA6DFNKRY0+XvUj/hoqLH0bmzJf/R7EedBvSsx?=
- =?us-ascii?Q?hsipa8qpwmF9QDGZlEueepFWT3US8l/+bOw6SHC6Dg+C21BHZ0Wxo/35Xmh0?=
- =?us-ascii?Q?bBz3ApCYJb09HpYUNMH5lUrHBvIntjN81fxSCiRFxCtUyJ4YC8zYIzYanCKZ?=
- =?us-ascii?Q?X9rgRulljjyQJt6dm52ZwQkIgzscfXhUewuI18hLdUF37zEmM/lqirZqm8fW?=
- =?us-ascii?Q?dGNn/J+DnDVVB/6IdsBP7IoIHnedIsBx/yeFqgjNkJzLE68kWO16Dn8vAsM1?=
- =?us-ascii?Q?wXnz9E+V9mcxXd3ZKpMc0H79AnUe3W/T+XO/MsodlzTGp19phXdtACDBFuzG?=
- =?us-ascii?Q?oe9LerrdxYw7jrAMB6Xc1AiPP3uxHdtZGVIZS9Bc2nKGiEUJSaJlTP6lMLwV?=
- =?us-ascii?Q?98m/s13jEfm88Ml7eMQpvvREQo6HeFxKZ5y3kpO6AD/mUY/p0TSPoT0Tw6Qi?=
- =?us-ascii?Q?dNN6oQpF99p7a5xMMZNo15W3IIQSvLmoE7XDXNiWooqqC1HE06ABptEjgghq?=
- =?us-ascii?Q?hUNBXhyemQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e6888fca-a3ef-467c-52d8-08deb03989ad
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 15:17:10.5131
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ra+5uI1wfuLZ7yTSO35HclvKcFEhcw3Lvu0WO+7Q+igiC6uEgS8WtbePQjdeJFKSURnq+QGWh/7Su65MpZEpUw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7006
+References: <472f85bd-42c2-40c6-abfd-b76924797069@ti.com> <CANLsYkzt9xUczxSU28u-TfZAAjr0ufZKXAj8Eqfq=45gufXW3w@mail.gmail.com>
+ <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com> <21de8440-adf7-454b-acfc-06e50882e075@ti.com>
+ <4c526816-b127-43e7-86e9-eee4dc1152bc@foss.st.com> <c6f68ab5-271a-41ed-b285-75b739f1edd6@amd.com>
+ <87850f70-5275-4393-941f-d01146a9cffc@foss.st.com> <da3b79b7-9dad-48cb-b552-cf6df445899f@amd.com>
+ <08c815f5-ccbe-404a-95a1-a549aac8a55d@amd.com> <CANLsYkz8HpM_8eS7DjN_jmYs4T7P9xY0jYmdiAx5WO=_1zvFpQ@mail.gmail.com>
+ <4ae35920-2539-4b12-8dea-efd407b8aaeb@lunn.ch>
+In-Reply-To: <4ae35920-2539-4b12-8dea-efd407b8aaeb@lunn.ch>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Tue, 12 May 2026 09:21:09 -0600
+X-Gm-Features: AVHnY4LT22IVt808sLwJL3ajF9BoO5QglODlYYWO0TdL8CMLNQDb8uF-T1sOSus
+Message-ID: <CANLsYkwBk0KbN-k9ce+5=oT+scdZ3nU5AOr3Fz4zT=0AFzghDA@mail.gmail.com>
+Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: tanmay.shah@amd.com, Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, 
+	Beleswar Prasad Padhi <b-padhi@ti.com>, Shenwei Wang <shenwei.wang@nxp.com>, Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_081716_208324_01668CE1 
-X-CRM114-Status: GOOD (  24.67  )
+X-CRM114-CacheID: sfid-20260512_082124_017480_FBB9CBCB 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,114 +132,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 08:45:16AM +0200, Enric Balletbo i Serra wrote:
-> From: Enric Balletbo i Serra <eballetb@redhat.com>
+On Mon, 11 May 2026 at 12:18, Andrew Lunn <andrew@lunn.ch> wrote:
 >
-> The Kconfig logic for selecting the scheduler clocksource on
-> NXP Vybrid (VF610) uses a `choice` block restricted to 32-bit ARM. This
-> prevents 64-bit architectures, such as the NXP S32 family, from enabling
-> the NXP Periodic Interrupt Timer (PIT) driver (CONFIG_NXP_PIT_TIMER).
+> > Arnaud, Beleswar, Andrew and I are all advocating for one endpoint per
+> > GPIO controller.  The remaining issue it about the best way to work
+> > out source and destination addresses between Linux and the remote
+> > processor.  I'm running out of time for today but I'll return to this
+> > thread with a final analysis by the end of the week.
 >
-> Relocate the NXP clocksource selection from arch/arm/mach-imx/Kconfig to
-> drivers/clocksource/Kconfig. This allows the configuration to be shared
-> across different architectures.
+> How many of the participants here will be in Minneapolis next week for
+> the Embedded Linux Conference? There is even a talk about this:
 >
-> Update the selection to include support for ARCH_S32 and add a "None"
-> option to allow using the standard ARM Architected Timer. The Vybrid
-> Global Timer option is now specifically restricted to 32-bit ARM SOC_VF610
-> platforms.
+> https://osselcna2026.sched.com/event/2JQpx/building-virtual-drivers-with-rpmsg-key-design-principles-challenges-trade-offs-beleswar-prasad-padhi-texas-instruments?iframe=yes&w=100%&sidebar=yes&bg=no
 >
-> Fixes: bee33f22d7c3 ("clocksource/drivers/nxp-pit: Add NXP Automotive s32g2 / s32g3 support")
+> Maybe we can get together and decide on the final design after the
+> session.
+>
 
-How it work when upstream clocksource/drivers/nxp-pit?
+I will not be in Minneapolis next week.  At this point I think things
+are converging into 2 main takeaways:
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+1) A serious refactoring of the protocol to include only what is
+available in the virtio-gpio specification [1].
+2) The specification of GPIO controller number in an extension of the
+namespace announcement [2].
 
-> Signed-off-by: Enric Balletbo i Serra <eballetb@redhat.com>
-> ---
->  arch/arm/mach-imx/Kconfig   | 21 ---------------------
->  drivers/clocksource/Kconfig | 31 +++++++++++++++++++++++++++++++
->  2 files changed, 31 insertions(+), 21 deletions(-)
->
-> diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
-> index 6ea1bd55acf8..a361840d7a04 100644
-> --- a/arch/arm/mach-imx/Kconfig
-> +++ b/arch/arm/mach-imx/Kconfig
-> @@ -227,27 +227,6 @@ config SOC_VF610
->  	help
->  	  This enables support for Freescale Vybrid VF610 processor.
->
-> -choice
-> -	prompt "Clocksource for scheduler clock"
-> -	depends on SOC_VF610
-> -	default VF_USE_ARM_GLOBAL_TIMER
-> -
-> -	config VF_USE_ARM_GLOBAL_TIMER
-> -		bool "Use ARM Global Timer"
-> -		depends on ARCH_MULTI_V7
-> -		select ARM_GLOBAL_TIMER
-> -		select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
-> -		help
-> -		  Use the ARM Global Timer as clocksource
-> -
-> -	config VF_USE_PIT_TIMER
-> -		bool "Use PIT timer"
-> -		select NXP_PIT_TIMER
-> -		help
-> -		  Use SoC Periodic Interrupt Timer (PIT) as clocksource
-> -
-> -endchoice
-> -
->  endif
->
->  endif
-> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-> index fd9112706545..b5c88ec65802 100644
-> --- a/drivers/clocksource/Kconfig
-> +++ b/drivers/clocksource/Kconfig
-> @@ -794,4 +794,35 @@ config RTK_SYSTIMER
->  	  this option only when building for a Realtek platform or for compilation
->  	  testing.
->
-> +choice
-> +	prompt "NXP clocksource for scheduler clock"
-> +	depends on SOC_VF610 || ARCH_S32
-> +	# Default to Global Timer for Vybrid (32-bit)
-> +	default VF_USE_ARM_GLOBAL_TIMER if SOC_VF610
-> +	# Default to None for S32 (64-bit)
-> +	default VF_TIMER_NONE if ARCH_S32
-> +
-> +	config VF_USE_ARM_GLOBAL_TIMER
-> +		bool "Use NXP Vybrid Global Timer"
-> +		# This option is ONLY visible if we are on 32-bit ARM
-> +		depends on ARM && SOC_VF610
-> +		select ARM_GLOBAL_TIMER
-> +		select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
-> +		help
-> +		  Use the NXP Vybrid Global Timer as clocksource.
-> +
-> +	config VF_USE_PIT_TIMER
-> +		bool "Use NXP PIT timer"
-> +		select NXP_PIT_TIMER
-> +		help
-> +		  Use NXP Periodic Interrupt Timer (PIT) as clocksource.
-> +
-> +	config VF_TIMER_NONE
-> +		bool "None (Use standard Arch Timer)"
-> +		help
-> +		  Do not use any specific NXP timer driver. Use the standard
-> +		  ARM Architected Timer instead.
-> +
-> +endchoice
-> +
->  endmenu
->
-> ---
-> base-commit: 11439c4635edd669ae435eec308f4ab8a0804808
-> change-id: 20260302-fix-nxp-timer-9cb1fbd7afcd
->
-> Best regards,
-> --
-> Enric Balletbo i Serra <eballetb@redhat.com>
->
+Shenwei proposed embedding the GPIO controller number in the
+endpoint's source address [3], something I'm ambivalent about and
+still have to look into.  I also have to read Tanmay's latest
+comments.  I'm hoping to be done with all that by the end of the week.
+With the above (1) and (2), a new patchset will be required to reset
+this thread.
+
+Thanks,
+Mathieu
+
+[1]. https://lwn.net/ml/all/afjyH5JT0JS2j0L5@p14s/
+[2]. https://lwn.net/ml/all/afzIABSh1xtMEGbf%40p14s/
+[3]. https://lwn.net/ml/all/PAXPR04MB9185BFA6E7375FAD0B15B021893C2@PAXPR04MB9185.eurprd04.prod.outlook.com/
+
+>         Andrew
 
