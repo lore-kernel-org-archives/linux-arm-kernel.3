@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 346F3CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 22:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F4DACD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 22:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Agx9kWGeXoYnLuy6T8nmbJ6vrFvM27r6/mvFennmg1w=; b=bv83/+4qZqag29xhY/2xX+sRcD
-	NWeT5Xua9VUSHBMG5TGnE9eUkKtmf4bYevl+GWBqg14HwR9wmresQRNAV/BCjTYGSGwbkPg6u7a0Z
-	yWxryhBc66rmpvHyQ2vu55N2+PETGG0fxVsfMdcYINlBBv3BvvRl9fpmsTc/lScp/gYAS/1JJ40Yh
-	h+pADfHHgK6d2iJwD9kE2MIASTS+key6r15mkeIydVn7HtpBkRDZnoUJdhmes0QmFoJNtGLOiLTWv
-	7sOlI9xzr2SQv3F19tLCu5o48Eiy3R6LKFHFDDwysoAwvAT+0Mrdn1RcxKv1UwxV7w9D9thplxmmh
-	jhKoiZQw==;
+	bh=FW3Lz2dkj/BvPnoX47K8raPJn2eGQ3HHuGdfSzXvUi0=; b=UiDN/q7WcTi1rkm0O3QWviz06k
+	pn2xAN4B/aalOPk/7jcIU6p1mEpmpEHsxLzd5amOdfchM1ku/zzvbUNiBTKbYWeiQhQyV+9oEqVRY
+	1MMkZSyK8++19SbLg+b4lSQhlz3qqUOLMrtJzJFkcw6TfN1nB8mTPqT9lnu+eLonCadOFcPhZVDVI
+	mm/nq8rcgYxcMHfLsD0SUiiPpMK6XmW+LYZno3uc2gtdFbsOkqHl0uVFSPtNd+jQBwXlv8W7P7d27
+	aU7IX0dz9LP3LE1QNxiO25La1XDT6CSBeSHO7ZSCJ948XRARGgYDWPaerSgqALLvPcR/n3u9U085s
+	OSh7SGgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMvpt-00000000c37-2iwn;
+	id 1wMvpt-00000000c2i-28S0;
 	Tue, 12 May 2026 22:44:21 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMvpo-00000000bx0-1Qhl
+	id 1wMvpn-00000000bwP-1jcC
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 12 May 2026 22:44:17 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-44b729aa7c5so468860f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 15:44:15 -0700 (PDT)
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4891b02a0acso6258465e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 15:44:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778625854; x=1779230654; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778625853; x=1779230653; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Agx9kWGeXoYnLuy6T8nmbJ6vrFvM27r6/mvFennmg1w=;
-        b=YDEEAFxpGJhLEqSH/c4B1/CTZwT5lg1f0oIx3I31k/SCESqL2DHQ44O61GMBZzhFVc
-         MORDaLYMEsbwyzzXTa9yIKxnh0D1BHZyQpHGAFYRaStL3KKV9eJpQEMHEAxEYQLjP/dD
-         /puPNrJXsp/Np1TWVlpX7NEpcTo2SPe4FUHQG4Gq6QIXy/5yCyJ8Pbqc5H3IeSdB28RA
-         VQgv4JX7+fq3lJ4NYf+mytN6vXFUigp6DKODMHC5qwmtmtj06scIXeLNYO1PMmv7Q8wU
-         xMRsj+K6HVM88cT//+QuT3AsFCvkBGI4xsLsiziEolRfeCx6HAjCIsRpuO7EsZLdb95U
-         keEQ==
+        bh=FW3Lz2dkj/BvPnoX47K8raPJn2eGQ3HHuGdfSzXvUi0=;
+        b=ivZqoKEa+YqlsyYd4Esgc2vNkpNdqk+InY4Wc1U47KxHYpkBB/JdzO9VsTuGrFlWUB
+         xMJxGSu2iJZ7joZQnnAD9YqeXyRKFqKoe7W0pwxEFP4/4Nhbclba0yD8TcqEipa3EXYX
+         MTbYH1BltclaCK2KMTNPATwJf3IMIu9opUwxnJj3vsWNO0cacjIlnAh2QphmDbEYxWIi
+         1WpTLEtGFVVfR528admP/cVY5O1KoZOr6mitk4I3KFbPl167L0VAuJ9zmDz5rw6iiOUW
+         dWDS+RTsRqCaft94jv93VFBfpupLA5lFYRwGWwlXzTf6uJQNNF1wJ2uk54iCGy3dOUw1
+         NX6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778625854; x=1779230654;
+        d=1e100.net; s=20251104; t=1778625853; x=1779230653;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Agx9kWGeXoYnLuy6T8nmbJ6vrFvM27r6/mvFennmg1w=;
-        b=WKLqvyJKhknCz23CiwJeOb6/r4euS552C1wBIoXmZIMpBGDeTfSh3FJ9SJraFOA93E
-         iolx3BBsPdugii9dC/DnXbSOynClIZmPsldwtivX5EpB5dS3Ao4c0j31nr5uDVhbhFqz
-         ZFVi0aMz7yzA2rSQQZR17nwxTCV8CbNtOcL/PKvrKHHlEC1Hw3jqMy7BbQ1gjuYK2SYY
-         wgwn9iPvr7m/MdBFcsN0P04gsQ4QS+zkLmaRhaJSys6O4D1our8z5Njz45R1SoaLCbPQ
-         YjesJJXpu6fXA9QrqFxn0fgoa0uDXkm1YOgVDLSAMkRHYYHxasaTI/X1o58clX9xRPfs
-         h/fA==
-X-Forwarded-Encrypted: i=1; AFNElJ+M6ZoX958MfOPFHHT5Z8UnVLe6MDvNGFzHWnRKzXrzjnZUMjyktGLn1FOfe3xBd8pgBXZ31ONUhgjLptOYy/59@lists.infradead.org
-X-Gm-Message-State: AOJu0YySUlax9Rday43hLqU86WKq0v8VsTjN1bRZfykjtbCcxkmjr3oQ
-	6z+BqYJrRKExvt72/l3cN9UFBLhec7AT+uHUaMr7LJ5XuiNyGyaBsqzp
-X-Gm-Gg: Acq92OG0fAsOebgqeSBHDOfB5YIAdv//Amdsp2YanIzTXn1hnx55IZ3eMWkNQGxtabs
-	JcCjC5brl6f09/S3GAVMtVBn91VSF28bQnCiQbaezH7yJccM9e0CvqcgB66lsfp1xrBc6vUhzs+
-	NIoBtqL0040VCfpJa2fegNs3K4u+XHCplgWBsiXvNVPWkzf4MSwWnSUOiS1bYL0jG1MkINCFmeQ
-	TFoE+A41NcsEOLhmuZUDS3poC0YLehRjbe57Ms5kKakWVVU1OuTrpPvbslgJaVKTRUN5thWYgyc
-	mRoj+waGKuzRcwYRY7Yr7Az1nKDs5+E7dOLxVPoCBHwugwewTcWdl/ivn7xfaItcjEOXOOFDHEa
-	Gw8rYXCqN8aTBsdc9WBfg04Lf5+Px0COK7BPfuDNqgbn2g0zA4unm7BF5Tcqs2lYop4uA36y3Tk
-	1yvZmNECirX4fhBTPTwqsB0ZP0jldXWllQmZyy+vPI2PqRKujKlxAmoom63wf/maQ=
-X-Received: by 2002:a05:600c:1385:b0:48e:6db5:76e6 with SMTP id 5b1f17b1804b1-48fc99ede8emr4846485e9.2.1778625854276;
-        Tue, 12 May 2026 15:44:14 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fce385ea5sm3194025e9.14.2026.05.12.15.44.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=FW3Lz2dkj/BvPnoX47K8raPJn2eGQ3HHuGdfSzXvUi0=;
+        b=T40UQ4j/nSqu1gosKPAlyeWbhvefLQCrQChX0jWxgjCYql+G1EEund/uB1ipH7J9vm
+         MxncLpENrdqkmXCSJHIfFzDcTl95NIpCoQ04ka9Apk4nKC6u8n5GjSNDAOP9aizcvdTr
+         mgcRpQUtrLFN8YnnX7OzPbG9DO31nlIsxyH+TkDsLLzFLsq+BXbwLn2YJ7z81p4yC3XY
+         zLXvermoOv1NUwFRSJ0WTMHP1qINekz9TJnPbP0jYFSP6IXUwvS7gXvKXOCUMcDMAMXd
+         zb0Ec+qZH/qlLF8P6t3iG98rU8/GbtVVf2LSUKLLWxnGJhqVHamel69wP/g7r9314dNe
+         QLYw==
+X-Forwarded-Encrypted: i=1; AFNElJ8Gs5CFVrpt0T1z/IWkm3v+uWcd+2axrP93Jt6UxmbORtJAvB1Ighnn6mr+pxS3zZPWVHkY9oEHCx4fHfk//XoB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkAlmo7OntUwoh0cwqekaX9p8mGWgIQLljJDUTLRl/hiKdmW+Y
+	QhiVyo/68V33Ypu0+Y+YE92HQDqJeAhryIxBdfAYZuSZSIDWwozTCGlU
+X-Gm-Gg: Acq92OEw1TX0gxFKaRa3FGUOw/ME5JY2d/fzBpRh9cgJPg9x17cVrrya9nz3vASIart
+	+uuZ/nPNHbMBosc8KLZiW8QXuUDJW3anbj3tAsg4e1G7IRbqHialHH91ZBsBKr+MOCFCYmWNbnZ
+	pVp9DeC4w9Vi4tfMZt1DIqhRU1D/JqtSDlZP8bLq8Mpo3ZN1AolAODvikqkGZqUD8bB/hEM4UWk
+	eWeEpNYCxOlg1dkXQ0mIyTVPUMSVrooVTdKiLarw/4CwCOpVWIvEbLXJCHevYw0/46hHE3rX3qj
+	ScDrUewkWxd860HmrLsoOtmypDKroqWQJ0LQt+JSkN9U98OkbbbedmLR6UpmJ718xy6DGJnkbDm
+	J+FKeX8MOAXLwodPu7QROdEscwZoSWDqTn3dCL84OqAmONoiLwNRsc6Qgy/vGhiSbYaGG6E1vDS
+	aOlQjdXS4UI3KKurjRsTVI/rxA6yw4vG5Xz2QSKQsQ2KBZ60aFj08+EocFX+/Eh1wY4r+X6/Nlq
+	Q==
+X-Received: by 2002:a05:600c:3149:b0:485:f1d6:2b1d with SMTP id 5b1f17b1804b1-48fc99a8c2emr4963905e9.0.1778625853300;
         Tue, 12 May 2026 15:44:13 -0700 (PDT)
+Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fce385ea5sm3194025e9.14.2026.05.12.15.44.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 May 2026 15:44:12 -0700 (PDT)
 From: Lothar Rubusch <l.rubusch@gmail.com>
 To: thorsten.blum@linux.dev,
 	herbert@gondor.apana.org.au,
@@ -80,17 +81,17 @@ Cc: linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	l.rubusch@gmail.com
-Subject: [PATCH 06/12] crypto: atmel - move EEPROM access support into common i2c core
-Date: Tue, 12 May 2026 22:43:43 +0000
-Message-Id: <20260512224349.64621-7-l.rubusch@gmail.com>
+Subject: [PATCH 05/12] crypto: atmel - move RNG support into common i2c core
+Date: Tue, 12 May 2026 22:43:42 +0000
+Message-Id: <20260512224349.64621-6-l.rubusch@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260512224349.64621-1-l.rubusch@gmail.com>
 References: <20260512224349.64621-1-l.rubusch@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_154416_524092_03DCE9E1 
-X-CRM114-Status: GOOD (  28.29  )
+X-CRM114-CacheID: sfid-20260512_154415_516153_164DA4D1 
+X-CRM114-Status: GOOD (  25.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,507 +106,341 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move EEPROM read support from atmel-sha204a and atmel-ecc into the
-shared atmel-i2c core and provide a generic interface for accessing
-EEPROM zones on compatible Atmel devices.
+Move the hardware RNG implementation from atmel-sha204a into the
+shared atmel-i2c core.
 
-Introduce enum atmel_i2c_eeprom_zones together with per-device EEPROM
-zone sizing in struct atmel_i2c_of_match_data. Add common helpers for
-EEPROM readout and sysfs formatting, and convert existing OTP sysfs
-handling to use the shared infrastructure.
+The ATSHA204(A) and ATECC devices provide compatible RANDOM commands
+through the common Atmel I2C interface. Consolidate the RNG handling in
+the core driver and provide a shared atmel_i2c_register_rng() helper for
+registering the hwrng device.
 
-This removes duplicated EEPROM access logic from individual drivers and
-extends support to ECC devices. The common implementation supports
-CONFIG, OTP, and DATA zones using device-specific layout information
-supplied via match data tables.
+This removes duplicated RNG code from atmel-sha204a and enables RNG
+support for other compatible Atmel devices, including the ECC family.
 
 Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 ---
- drivers/crypto/atmel-ecc.c     |  36 ++++++++
- drivers/crypto/atmel-i2c.c     | 153 +++++++++++++++++++++++++--------
- drivers/crypto/atmel-i2c.h     |  30 +++----
- drivers/crypto/atmel-sha204a.c |  65 ++++----------
- 4 files changed, 186 insertions(+), 98 deletions(-)
+ drivers/crypto/atmel-ecc.c     |  12 ++++
+ drivers/crypto/atmel-i2c.c     |  93 ++++++++++++++++++++++++++
+ drivers/crypto/atmel-i2c.h     |   4 +-
+ drivers/crypto/atmel-sha204a.c | 115 +++++----------------------------
+ 4 files changed, 123 insertions(+), 101 deletions(-)
 
 diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index 67fa5975fa7f..b5f2d44ec74c 100644
+index 7793f7b4e97e..67fa5975fa7f 100644
 --- a/drivers/crypto/atmel-ecc.c
 +++ b/drivers/crypto/atmel-ecc.c
-@@ -23,6 +23,22 @@
- #include <crypto/kpp.h>
- #include "atmel-i2c.h"
- 
-+static ssize_t otp_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	return atmel_i2c_eeprom_display(dev, attr, buf, ATMEL_EEPROM_OTP_ZONE);
-+}
-+static DEVICE_ATTR_RO(otp);
-+
-+static struct attribute *atmel_ecc508a_attrs[] = {
-+	&dev_attr_otp.attr,
-+	NULL
-+};
-+
-+static const struct attribute_group atmel_ecc508a_groups = {
-+	.name = "atecc508a",
-+	.attrs = atmel_ecc508a_attrs,
-+};
-+
- /**
-  * struct atmel_ecdh_ctx - transformation context
-  * @client     : pointer to i2c client device
-@@ -306,6 +322,18 @@ static int atmel_ecc_probe(struct i2c_client *client)
+@@ -306,6 +306,13 @@ static int atmel_ecc_probe(struct i2c_client *client)
  		      &atmel_i2c_mgmt.i2c_client_list);
  	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
  
-+	/* EEPROM read out */
-+	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C)) {
-+		ret = -ENODEV;
-+		goto err_list_del;
-+	}
-+
-+	ret = sysfs_create_group(&client->dev.kobj, &atmel_ecc508a_groups);
++	/* register rng */
++	ret = atmel_i2c_register_rng(i2c_priv, &client->dev);
 +	if (ret) {
-+		dev_err(&client->dev, "failed to register sysfs entry\n");
++		dev_err(&client->dev, "failed to register hw_random\n");
 +		goto err_list_del;
 +	}
 +
- 	/* register rng */
- 	ret = atmel_i2c_register_rng(i2c_priv, &client->dev);
+ 	/* register algorithms */
+ 	ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
  	if (ret) {
-@@ -326,6 +354,7 @@ static int atmel_ecc_probe(struct i2c_client *client)
- 	goto done;
+@@ -349,6 +356,11 @@ static void atmel_ecc_remove(struct i2c_client *client)
+ 	atmel_i2c_flush_queue();
  
- err_list_del:
-+	sysfs_remove_group(&client->dev.kobj, &atmel_ecc508a_groups);
- 	spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
- 	list_del(&i2c_priv->i2c_client_list_node);
- 	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-@@ -361,6 +390,8 @@ static void atmel_ecc_remove(struct i2c_client *client)
- 		kfree((void *)i2c_priv->hwrng.priv);
- 		i2c_priv->hwrng.priv = 0;
- 	}
+ 	crypto_unregister_kpp(&atmel_ecdh_nist_p256);
 +
-+	sysfs_remove_group(&client->dev.kobj, &atmel_ecc508a_groups);
++	if (i2c_priv->hwrng.priv) {
++		kfree((void *)i2c_priv->hwrng.priv);
++		i2c_priv->hwrng.priv = 0;
++	}
  }
  
  static const struct atmel_i2c_of_match_data atecc508a_match_data = {
-@@ -371,6 +402,11 @@ static const struct atmel_i2c_of_match_data atecc508a_match_data = {
- 		.max_exec_time_read = 1,
- 		.max_exec_time_write = 42,
- 	},
-+	.eeprom_zone_size = {
-+		[ATMEL_EEPROM_CONFIG_ZONE] = 128,
-+		[ATMEL_EEPROM_OTP_ZONE] = 64,
-+		[ATMEL_EEPROM_DATA_ZONE] = 1208
-+	},
- };
- 
- static const struct of_device_id atmel_ecc_dt_ids[] = {
 diff --git a/drivers/crypto/atmel-i2c.c b/drivers/crypto/atmel-i2c.c
-index d451017171d8..26863573a10f 100644
+index 7fa7cf9ab3c1..d451017171d8 100644
 --- a/drivers/crypto/atmel-i2c.c
 +++ b/drivers/crypto/atmel-i2c.c
-@@ -21,6 +21,15 @@
- #include <linux/workqueue.h>
- #include "atmel-i2c.h"
- 
-+#define ATMEL_I2C_COMMAND			0x03 /* packet function */
-+
-+/* Command opcode */
-+#define ATMEL_I2C_OPCODE_ECDH			0x43
-+#define ATMEL_I2C_OPCODE_GENKEY			0x40
-+#define ATMEL_I2C_OPCODE_READ			0x02
-+#define ATMEL_I2C_OPCODE_RANDOM			0x1b
-+#define ATMEL_I2C_OPCODE_WRITE			0x12
-+
- struct atmel_i2c_client_mgmt atmel_i2c_mgmt = {
- 	.i2c_list_lock = __SPIN_LOCK_UNLOCKED(atmel_i2c_mgmt.i2c_list_lock),
- 	.i2c_client_list = LIST_HEAD_INIT(atmel_i2c_mgmt.i2c_client_list),
-@@ -96,56 +105,55 @@ struct i2c_client *atmel_i2c_client_alloc(enum atmel_i2c_capability cap)
+@@ -208,6 +208,99 @@ int atmel_i2c_init_ecdh_cmd(struct atmel_i2c_cmd *cmd,
  }
- EXPORT_SYMBOL(atmel_i2c_client_alloc);
+ EXPORT_SYMBOL(atmel_i2c_init_ecdh_cmd);
  
--void atmel_i2c_init_read_config_cmd(struct atmel_i2c_cmd *cmd,
--				    const struct atmel_i2c_max_exec_timings *timings)
-+static int atmel_i2c_init_read_eeprom_cmd(struct atmel_i2c_cmd *cmd, u16 addr,
-+					  enum atmel_i2c_eeprom_zones zone,
-+					  const struct atmel_i2c_of_match_data *data)
- {
--	cmd->word_addr = COMMAND;
--	cmd->opcode = OPCODE_READ;
--	/*
--	 * Read the word from Configuration zone that contains the lock bytes
--	 * (UserExtra, Selector, LockValue, LockConfig).
--	 */
--	cmd->param1 = CONFIGURATION_ZONE;
--	cmd->param2 = cpu_to_le16(DEVICE_LOCK_ADDR);
--	cmd->count = READ_COUNT;
-+	const struct atmel_i2c_max_exec_timings *timings = &data->timings;
-+	size_t zone_size = data->eeprom_zone_size[zone];
-+
-+	if (addr > zone_size)
-+		return -EINVAL;
-+
-+	cmd->word_addr = ATMEL_I2C_COMMAND;
-+	cmd->opcode = ATMEL_I2C_OPCODE_READ;
-+	cmd->param1 = zone;
-+	cmd->param2 = cpu_to_le16(addr);
-+	cmd->count = ATMEL_I2C_READ_COUNT;
- 
- 	atmel_i2c_checksum(cmd);
- 
- 	cmd->msecs = timings->max_exec_time_read;
--	cmd->rxsize = READ_RSP_SIZE;
-+	cmd->rxsize = ATMEL_I2C_READ_RSP_SIZE;
-+
-+	return 0;
- }
--EXPORT_SYMBOL(atmel_i2c_init_read_config_cmd);
- 
--int atmel_i2c_init_read_otp_cmd(struct atmel_i2c_cmd *cmd, u16 addr,
--				const struct atmel_i2c_max_exec_timings *timings)
-+void atmel_i2c_init_read_config_cmd(struct atmel_i2c_cmd *cmd,
-+				    const struct atmel_i2c_max_exec_timings *timings)
- {
--	if (addr >= OTP_ZONE_SIZE / 4)
--		return -EINVAL;
--
--	cmd->word_addr = COMMAND;
--	cmd->opcode = OPCODE_READ;
-+	cmd->word_addr = ATMEL_I2C_COMMAND;
-+	cmd->opcode = ATMEL_I2C_OPCODE_READ;
- 	/*
--	 * Read the word from OTP zone that may contain e.g. serial
--	 * numbers or similar if persistently pre-initialized and locked
-+	 * Read the word from Configuration zone that contains the lock bytes
-+	 * (UserExtra, Selector, LockValue, LockConfig).
- 	 */
--	cmd->param1 = OTP_ZONE;
--	cmd->param2 = cpu_to_le16(addr);
--	cmd->count = READ_COUNT;
-+	cmd->param1 = CONFIGURATION_ZONE;
-+	cmd->param2 = cpu_to_le16(DEVICE_LOCK_ADDR);
-+	cmd->count = ATMEL_I2C_READ_COUNT;
- 
- 	atmel_i2c_checksum(cmd);
- 
- 	cmd->msecs = timings->max_exec_time_read;
--	cmd->rxsize = READ_RSP_SIZE;
--
--	return 0;
-+	cmd->rxsize = ATMEL_I2C_READ_RSP_SIZE;
- }
--EXPORT_SYMBOL(atmel_i2c_init_read_otp_cmd);
-+EXPORT_SYMBOL(atmel_i2c_init_read_config_cmd);
- 
- void atmel_i2c_init_random_cmd(struct atmel_i2c_cmd *cmd,
- 			       const struct atmel_i2c_max_exec_timings *timings)
- {
--	cmd->word_addr = COMMAND;
--	cmd->opcode = OPCODE_RANDOM;
-+	cmd->word_addr = ATMEL_I2C_COMMAND;
-+	cmd->opcode = ATMEL_I2C_OPCODE_RANDOM;
- 	cmd->param1 = 0;
- 	cmd->param2 = 0;
- 	cmd->count = RANDOM_COUNT;
-@@ -160,9 +168,9 @@ EXPORT_SYMBOL(atmel_i2c_init_random_cmd);
- void atmel_i2c_init_genkey_cmd(struct atmel_i2c_cmd *cmd, u16 keyid,
- 			       const struct atmel_i2c_max_exec_timings *timings)
- {
--	cmd->word_addr = COMMAND;
-+	cmd->word_addr = ATMEL_I2C_COMMAND;
- 	cmd->count = GENKEY_COUNT;
--	cmd->opcode = OPCODE_GENKEY;
-+	cmd->opcode = ATMEL_I2C_OPCODE_GENKEY;
- 	cmd->param1 = GENKEY_MODE_PRIVATE;
- 	/* a random private key will be generated and stored in slot keyID */
- 	cmd->param2 = cpu_to_le16(keyid);
-@@ -180,9 +188,9 @@ int atmel_i2c_init_ecdh_cmd(struct atmel_i2c_cmd *cmd,
- {
- 	size_t copied;
- 
--	cmd->word_addr = COMMAND;
-+	cmd->word_addr = ATMEL_I2C_COMMAND;
- 	cmd->count = ECDH_COUNT;
--	cmd->opcode = OPCODE_ECDH;
-+	cmd->opcode = ATMEL_I2C_OPCODE_ECDH;
- 	cmd->param1 = ECDH_PREFIX_MODE;
- 	/* private key slot */
- 	cmd->param2 = cpu_to_le16(DATA_SLOT_2);
-@@ -301,6 +309,81 @@ int atmel_i2c_register_rng(struct atmel_i2c_client_priv *i2c_priv,
- }
- EXPORT_SYMBOL(atmel_i2c_register_rng);
- 
-+static int atmel_i2c_eeprom_read(struct i2c_client *client, u16 addr,
-+				 enum atmel_i2c_eeprom_zones zone, u8 *buf)
++static void atmel_i2c_rng_done(struct atmel_i2c_work_data *work_data,
++			       void *areq, int status)
 +{
-+	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
-+	const struct atmel_i2c_of_match_data *data = i2c_priv->data;
-+	struct atmel_i2c_cmd *cmd;
-+	int ret = -1;
++	struct atmel_i2c_client_priv *i2c_priv = work_data->ctx;
++	struct hwrng *rng = areq;
 +
-+	cmd = kmalloc_obj(*cmd);
-+	if (!cmd)
-+		return -ENOMEM;
++	if (status)
++		dev_warn_ratelimited(&i2c_priv->client->dev,
++				     "i2c transaction failed (%d)\n",
++				     status);
 +
-+	ret = atmel_i2c_init_read_eeprom_cmd(cmd, addr, zone, data);
-+	if (ret < 0) {
-+		dev_err(&client->dev, "failed, invalid eeprom address %04X\n",
-+			addr);
-+		goto err;
-+	}
-+
-+	ret = atmel_i2c_send_receive(client, cmd);
-+	if (ret)
-+		goto err;
-+
-+	if (cmd->data[0] == 0xff) {
-+		dev_err(&client->dev, "failed, device not ready\n");
-+		ret = -EINVAL;
-+		goto err;
-+	}
-+
-+	memcpy(buf, cmd->data + RSP_DATA_IDX, 4);
-+
-+err:
-+	kfree(cmd);
-+	return ret;
++	rng->priv = (unsigned long)work_data;
++	atomic_dec(&i2c_priv->tfm_count);
 +}
 +
-+ssize_t atmel_i2c_eeprom_display(struct device *dev,
-+				 struct device_attribute *attr,
-+				 char *buf,
-+				 enum atmel_i2c_eeprom_zones zone)
++static int atmel_i2c_rng_read_nonblocking(struct hwrng *rng, void *buf,
++					  size_t max)
 +{
-+	struct i2c_client *client = to_i2c_client(dev);
-+	const struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
++	struct atmel_i2c_client_priv *i2c_priv = container_of(rng,
++							      struct atmel_i2c_client_priv,
++							      hwrng);
 +	const struct atmel_i2c_of_match_data *data = i2c_priv->data;
-+	const size_t *eeprom = data->eeprom_zone_size;
-+	u16 block_addr;
-+	u8 *eeprom_buf;
-+	ssize_t len = 0;
-+	int i, ret = 0;
++	struct atmel_i2c_work_data *work_data;
 +
-+	eeprom_buf = kcalloc(eeprom[zone], sizeof(*eeprom_buf), GFP_KERNEL);
-+	if (!eeprom_buf)
-+		return -ENOMEM;
++	/* keep maximum 1 asynchronous read in flight at any time */
++	if (!atomic_add_unless(&i2c_priv->tfm_count, 1, 1))
++		return 0;
 +
-+	for (block_addr = 0; block_addr < eeprom[zone] / 4; block_addr++) {
-+		ret = atmel_i2c_eeprom_read(client, block_addr, zone,
-+					    eeprom_buf + block_addr * 4);
-+		if (ret < 0) {
-+			dev_err(dev, "failed to read %s zone\n",
-+				zone == ATMEL_EEPROM_CONFIG_ZONE ? "CONFIG"
-+				: (zone == ATMEL_EEPROM_OTP_ZONE ? "OTP" : "DATA"));
-+			goto err;
++	if (rng->priv) {
++		work_data = (struct atmel_i2c_work_data *)rng->priv;
++		max = min(RANDOM_RSP_SIZE - CMD_OVERHEAD_SIZE, max);
++		memcpy(buf, &work_data->cmd.data[RSP_DATA_IDX], max);
++		rng->priv = 0;
++	} else {
++		work_data = kmalloc_obj(*work_data, GFP_ATOMIC);
++		if (!work_data) {
++			atomic_dec(&i2c_priv->tfm_count);
++			return -ENOMEM;
 +		}
++		work_data->ctx = i2c_priv;
++		work_data->client = i2c_priv->client;
++
++		max = 0;
 +	}
 +
-+	for (i = 0; i < eeprom[zone]; i++)
-+		len += sysfs_emit_at(buf, len, "%02X", eeprom_buf[i]);
-+	len += sysfs_emit_at(buf, len, "\n");
-+	ret = len;
-+err:
-+	kfree(eeprom_buf);
-+	return ret;
++	atmel_i2c_init_random_cmd(&work_data->cmd, &data->timings);
++	atmel_i2c_enqueue(work_data, atmel_i2c_rng_done, rng);
++
++	return max;
 +}
-+EXPORT_SYMBOL(atmel_i2c_eeprom_display);
++
++static int atmel_i2c_rng_read(struct hwrng *rng, void *buf, size_t max,
++			      bool wait)
++{
++	struct atmel_i2c_client_priv *i2c_priv = container_of(rng,
++							      struct atmel_i2c_client_priv,
++							      hwrng);
++	const struct atmel_i2c_of_match_data *data = i2c_priv->data;
++	struct atmel_i2c_cmd cmd;
++	int ret;
++
++	if (!wait)
++		return atmel_i2c_rng_read_nonblocking(rng, buf, max);
++
++	atmel_i2c_init_random_cmd(&cmd, &data->timings);
++
++	ret = atmel_i2c_send_receive(i2c_priv->client, &cmd);
++	if (ret)
++		return ret;
++
++	max = min(RANDOM_RSP_SIZE - CMD_OVERHEAD_SIZE, max);
++	memcpy(buf, &cmd.data[RSP_DATA_IDX], max);
++
++	return max;
++}
++
++int atmel_i2c_register_rng(struct atmel_i2c_client_priv *i2c_priv,
++			   struct device *dev)
++{
++	const struct atmel_i2c_of_match_data *data = i2c_priv->data;
++
++	memset(&i2c_priv->hwrng, 0, sizeof(i2c_priv->hwrng));
++
++	i2c_priv->hwrng.name = dev_name(dev);
++	i2c_priv->hwrng.read = atmel_i2c_rng_read;
++
++	if (data->needs_legacy_hwrng)
++		i2c_priv->hwrng.quality = data->needs_legacy_hwrng;
++
++	return devm_hwrng_register(dev, &i2c_priv->hwrng);
++}
++EXPORT_SYMBOL(atmel_i2c_register_rng);
 +
  /*
   * After wake and after execution of a command, there will be error, status, or
   * result bytes in the device's output register that can be retrieved by the
 diff --git a/drivers/crypto/atmel-i2c.h b/drivers/crypto/atmel-i2c.h
-index 5f6c9ff0cf64..e30e0c417de2 100644
+index 5224a62c16c9..5f6c9ff0cf64 100644
 --- a/drivers/crypto/atmel-i2c.h
 +++ b/drivers/crypto/atmel-i2c.h
-@@ -12,7 +12,6 @@
- 
- #define ATMEL_ECC_PRIORITY		300
- 
--#define COMMAND				0x03 /* packet function */
- #define SLEEP_TOKEN			0x01
- #define WAKE_TOKEN_MAX_SIZE		8
- 
-@@ -30,7 +29,7 @@
- #define ECDH_RSP_SIZE			(32 + CMD_OVERHEAD_SIZE)
- #define GENKEY_RSP_SIZE			(ATMEL_ECC_PUBKEY_SIZE + \
- 					 CMD_OVERHEAD_SIZE)
--#define READ_RSP_SIZE			(4 + CMD_OVERHEAD_SIZE)
-+#define ATMEL_I2C_READ_RSP_SIZE		(4 + CMD_OVERHEAD_SIZE)
- #define RANDOM_RSP_SIZE			(32 + CMD_OVERHEAD_SIZE)
- #define MAX_RSP_SIZE			GENKEY_RSP_SIZE
- 
-@@ -57,6 +56,13 @@ struct atmel_i2c_cmd {
- 	u16 rxsize;
- } __packed;
- 
-+/* Definitions for eeprom organization */
-+enum atmel_i2c_eeprom_zones {
-+	ATMEL_EEPROM_CONFIG_ZONE = 0,
-+	ATMEL_EEPROM_OTP_ZONE = 1,
-+	ATMEL_EEPROM_DATA_ZONE = 2,
-+};
-+
- struct atmel_i2c_max_exec_timings {
- 	unsigned int max_exec_time_genkey;
- 	unsigned int max_exec_time_ecdh;
-@@ -68,6 +74,7 @@ struct atmel_i2c_max_exec_timings {
- struct atmel_i2c_of_match_data {
- 	const unsigned short needs_legacy_hwrng;
- 	struct atmel_i2c_max_exec_timings timings;
-+	size_t eeprom_zone_size[3]; /* all atmel devices have three zones */
+@@ -66,7 +66,7 @@ struct atmel_i2c_max_exec_timings {
  };
  
- /* Status/Error codes */
-@@ -77,10 +84,6 @@ struct atmel_i2c_of_match_data {
+ struct atmel_i2c_of_match_data {
+-	const unsigned short *legacy_hwrng;
++	const unsigned short needs_legacy_hwrng;
+ 	struct atmel_i2c_max_exec_timings timings;
+ };
  
- /* Definitions for eeprom organization */
- #define CONFIGURATION_ZONE		0
--#define OTP_ZONE			1
--
--/* Definitions for eeprom zone sizes */
--#define OTP_ZONE_SIZE			64
+@@ -209,6 +209,8 @@ void atmel_i2c_init_genkey_cmd(struct atmel_i2c_cmd *cmd, u16 keyid,
+ int atmel_i2c_init_ecdh_cmd(struct atmel_i2c_cmd *cmd,
+ 			    struct scatterlist *pubkey,
+ 			    const struct atmel_i2c_max_exec_timings *timings);
++int atmel_i2c_register_rng(struct atmel_i2c_client_priv *i2c_priv,
++			   struct device *dev);
  
- /* Definitions for Indexes common to all commands */
- #define RSP_DATA_IDX			1 /* buffer index of data in response */
-@@ -101,14 +104,8 @@ struct atmel_i2c_of_match_data {
- /* Wake Low duration */
- #define TWLO_USEC			60
- 
--/* Command opcode */
--#define OPCODE_ECDH			0x43
--#define OPCODE_GENKEY			0x40
--#define OPCODE_READ			0x02
--#define OPCODE_RANDOM			0x1b
--
- /* Definitions for the READ Command */
--#define READ_COUNT			7
-+#define ATMEL_I2C_READ_COUNT		7
- 
- /* Definitions for the RANDOM Command */
- #define RANDOM_COUNT			7
-@@ -200,8 +197,6 @@ int atmel_i2c_send_receive(struct i2c_client *client, struct atmel_i2c_cmd *cmd)
- 
- void atmel_i2c_init_read_config_cmd(struct atmel_i2c_cmd *cmd,
- 				    const struct atmel_i2c_max_exec_timings *timings);
--int atmel_i2c_init_read_otp_cmd(struct atmel_i2c_cmd *cmd, u16 addr,
--				const struct atmel_i2c_max_exec_timings *timings);
- void atmel_i2c_init_random_cmd(struct atmel_i2c_cmd *cmd,
- 			       const struct atmel_i2c_max_exec_timings *timings);
- void atmel_i2c_init_genkey_cmd(struct atmel_i2c_cmd *cmd, u16 keyid,
-@@ -212,6 +207,11 @@ int atmel_i2c_init_ecdh_cmd(struct atmel_i2c_cmd *cmd,
- int atmel_i2c_register_rng(struct atmel_i2c_client_priv *i2c_priv,
- 			   struct device *dev);
- 
-+ssize_t atmel_i2c_eeprom_display(struct device *dev,
-+				 struct device_attribute *attr,
-+				 char *buf,
-+				 enum atmel_i2c_eeprom_zones zone);
-+
  struct i2c_client *atmel_i2c_client_alloc(enum atmel_i2c_capability cap);
  void atmel_i2c_unregister_client(struct atmel_i2c_client_priv *i2c_priv);
- 
 diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index ae24d8fbabf9..4f10e826e675 100644
+index febf9891b167..ae24d8fbabf9 100644
 --- a/drivers/crypto/atmel-sha204a.c
 +++ b/drivers/crypto/atmel-sha204a.c
-@@ -19,57 +19,10 @@
+@@ -19,88 +19,6 @@
  #include <linux/workqueue.h>
  #include "atmel-i2c.h"
  
--static int atmel_sha204a_otp_read(struct i2c_client *client, u16 addr, u8 *otp)
+-/*
+- * According to review by Bill Cox [1], the ATSHA204 has very low entropy.
+- * [1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
+- */
+-static const unsigned short atsha204_quality = 1;
+-
+-static void atmel_sha204a_rng_done(struct atmel_i2c_work_data *work_data,
+-				   void *areq, int status)
 -{
--	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
+-	struct atmel_i2c_client_priv *i2c_priv = work_data->ctx;
+-	struct hwrng *rng = areq;
+-
+-	if (status)
+-		dev_warn_ratelimited(&i2c_priv->client->dev,
+-				     "i2c transaction failed (%d)\n",
+-				     status);
+-
+-	rng->priv = (unsigned long)work_data;
+-	atomic_dec(&i2c_priv->tfm_count);
+-}
+-
+-static int atmel_sha204a_rng_read_nonblocking(struct hwrng *rng, void *buf,
+-					      size_t max)
+-{
+-	struct atmel_i2c_client_priv *i2c_priv = container_of(rng,
+-							      struct atmel_i2c_client_priv,
+-							      hwrng);
+-	const struct atmel_i2c_of_match_data *data = i2c_priv->data;
+-	struct atmel_i2c_work_data *work_data;
+-
+-	/* keep maximum 1 asynchronous read in flight at any time */
+-	if (!atomic_add_unless(&i2c_priv->tfm_count, 1, 1))
+-		return 0;
+-
+-	if (rng->priv) {
+-		work_data = (struct atmel_i2c_work_data *)rng->priv;
+-		max = min(RANDOM_RSP_SIZE - CMD_OVERHEAD_SIZE, max);
+-		memcpy(buf, &work_data->cmd.data[RSP_DATA_IDX], max);
+-		rng->priv = 0;
+-	} else {
+-		work_data = kmalloc_obj(*work_data, GFP_ATOMIC);
+-		if (!work_data) {
+-			atomic_dec(&i2c_priv->tfm_count);
+-			return -ENOMEM;
+-		}
+-		work_data->ctx = i2c_priv;
+-		work_data->client = i2c_priv->client;
+-
+-		max = 0;
+-	}
+-
+-	atmel_i2c_init_random_cmd(&work_data->cmd, &data->timings);
+-	atmel_i2c_enqueue(work_data, atmel_sha204a_rng_done, rng);
+-
+-	return max;
+-}
+-
+-static int atmel_sha204a_rng_read(struct hwrng *rng, void *buf, size_t max,
+-				  bool wait)
+-{
+-	struct atmel_i2c_client_priv *i2c_priv = container_of(rng,
+-							      struct atmel_i2c_client_priv,
+-							      hwrng);
 -	const struct atmel_i2c_of_match_data *data = i2c_priv->data;
 -	struct atmel_i2c_cmd cmd;
 -	int ret;
 -
--	ret = atmel_i2c_init_read_otp_cmd(&cmd, addr, &data->timings);
--	if (ret < 0) {
--		dev_err(&client->dev, "failed, invalid otp address %04X\n",
--			addr);
+-	if (!wait)
+-		return atmel_sha204a_rng_read_nonblocking(rng, buf, max);
+-
+-	atmel_i2c_init_random_cmd(&cmd, &data->timings);
+-
+-	ret = atmel_i2c_send_receive(i2c_priv->client, &cmd);
+-	if (ret)
 -		return ret;
--	}
 -
--	ret = atmel_i2c_send_receive(client, &cmd);
--	if (ret < 0) {
--		dev_err(&client->dev, "failed to read otp at %04X\n", addr);
--		return ret;
--	}
+-	max = min(RANDOM_RSP_SIZE - CMD_OVERHEAD_SIZE, max);
+-	memcpy(buf, &cmd.data[RSP_DATA_IDX], max);
 -
--	if (cmd.data[0] == 0xff) {
--		dev_err(&client->dev, "failed, device not ready\n");
--		return -EIO;
--	}
--
--	memcpy(otp, cmd.data+1, 4);
--
--	return ret;
+-	return max;
 -}
 -
- static ssize_t otp_show(struct device *dev,
- 			struct device_attribute *attr, char *buf)
+ static int atmel_sha204a_otp_read(struct i2c_client *client, u16 addr, u8 *otp)
  {
--	u16 addr;
--	u8 otp[OTP_ZONE_SIZE];
--	struct i2c_client *client = to_i2c_client(dev);
--	ssize_t len = 0;
--	int i, ret;
--
--	for (addr = 0; addr < OTP_ZONE_SIZE / 4; addr++) {
--		ret = atmel_sha204a_otp_read(client, addr, otp + addr * 4);
--		if (ret < 0) {
--			dev_err(dev, "failed to read otp zone\n");
--			return ret;
--		}
--	}
--
--	for (i = 0; i < OTP_ZONE_SIZE; i++)
--		len += sysfs_emit_at(buf, len, "%02X", otp[i]);
--	len += sysfs_emit_at(buf, len, "\n");
--	return len;
-+	return atmel_i2c_eeprom_display(dev, attr, buf, ATMEL_EEPROM_OTP_ZONE);
- }
- static DEVICE_ATTR_RO(otp);
+ 	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
+@@ -169,7 +87,6 @@ static int atmel_sha204a_probe(struct i2c_client *client)
+ {
+ 	struct atmel_i2c_client_priv *i2c_priv;
+ 	const struct atmel_i2c_of_match_data *data;
+-	const unsigned short *quality;
+ 	int ret;
  
-@@ -110,6 +63,12 @@ static int atmel_sha204a_probe(struct i2c_client *client)
+ 	ret = atmel_i2c_probe(client);
+@@ -193,25 +110,16 @@ static int atmel_sha204a_probe(struct i2c_client *client)
  		      &atmel_i2c_mgmt.i2c_client_list);
  	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
  
-+	/* EEPROM read out */
-+	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C)) {
-+		ret = -ENODEV;
-+		goto err_list_del;
-+	}
-+
- 	ret = sysfs_create_group(&client->dev.kobj, &atmel_sha204a_groups);
+-	/* register rng */
+-	memset(&i2c_priv->hwrng, 0, sizeof(i2c_priv->hwrng));
+-
+-	i2c_priv->hwrng.name = dev_name(&client->dev);
+-	i2c_priv->hwrng.read = atmel_sha204a_rng_read;
+-
+-	quality = i2c_priv->data->legacy_hwrng;
+-	if (quality)
+-		i2c_priv->hwrng.quality = *quality;
+-
+-	ret = devm_hwrng_register(&client->dev, &i2c_priv->hwrng);
++	ret = sysfs_create_group(&client->dev.kobj, &atmel_sha204a_groups);
  	if (ret) {
- 		dev_err(&client->dev, "failed to register sysfs entry\n");
-@@ -157,6 +116,11 @@ static const struct atmel_i2c_of_match_data atsha204_match_data = {
+-		dev_warn(&client->dev, "failed to register RNG (%d)\n", ret);
++		dev_err(&client->dev, "failed to register sysfs entry\n");
+ 		goto err_list_del;
+ 	}
+ 
+-	ret = sysfs_create_group(&client->dev.kobj, &atmel_sha204a_groups);
++	/* register rng */
++	ret = atmel_i2c_register_rng(i2c_priv, &client->dev);
+ 	if (ret) {
+-		dev_err(&client->dev, "failed to register sysfs entry\n");
++		dev_err(&client->dev, "failed to register hw_random\n");
+ 		goto err_list_del;
+ 	}
+ 
+@@ -234,9 +142,12 @@ static void atmel_sha204a_remove(struct i2c_client *client)
+ 	devm_hwrng_unregister(&client->dev, &i2c_priv->hwrng);
+ 	atmel_i2c_flush_queue();
+ 
+-	sysfs_remove_group(&client->dev.kobj, &atmel_sha204a_groups);
++	if (i2c_priv->hwrng.priv) {
++		kfree((void *)i2c_priv->hwrng.priv);
++		i2c_priv->hwrng.priv = 0;
++	}
+ 
+-	kfree((void *)i2c_priv->hwrng.priv);
++	sysfs_remove_group(&client->dev.kobj, &atmel_sha204a_groups);
+ }
+ 
+ static const struct atmel_i2c_of_match_data atsha204_match_data = {
+@@ -246,7 +157,11 @@ static const struct atmel_i2c_of_match_data atsha204_match_data = {
  		.max_exec_time_read = 4,
  		.max_exec_time_write = 42,
  	},
-+	.eeprom_zone_size = {
-+		[ATMEL_EEPROM_CONFIG_ZONE] = 88,
-+		[ATMEL_EEPROM_OTP_ZONE] = 64,
-+		[ATMEL_EEPROM_DATA_ZONE] = 512
-+	},
- 	/*
- 	 * According to review by Bill Cox [1], the ATSHA204 has very low entropy.
- 	 * [1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
-@@ -171,6 +135,11 @@ static const struct atmel_i2c_of_match_data atsha204a_match_data = {
- 		.max_exec_time_read = 4,
- 		.max_exec_time_write = 42,
- 	},
-+	.eeprom_zone_size = {
-+		[ATMEL_EEPROM_CONFIG_ZONE] = 88,
-+		[ATMEL_EEPROM_OTP_ZONE] = 64,
-+		[ATMEL_EEPROM_DATA_ZONE] = 512
-+	},
+-	.legacy_hwrng = &atsha204_quality,
++	/*
++	 * According to review by Bill Cox [1], the ATSHA204 has very low entropy.
++	 * [1] https://www.metzdowd.com/pipermail/cryptography/2014-December/023858.html
++	 */
++	.needs_legacy_hwrng = 1,
  };
  
- static const struct of_device_id atmel_sha204a_dt_ids[] __maybe_unused = {
+ static const struct atmel_i2c_of_match_data atsha204a_match_data = {
 -- 
 2.53.0
 
