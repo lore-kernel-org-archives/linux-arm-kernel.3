@@ -4,148 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71974CD4855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3594CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=18Vr+HYQqU1x0d3zcxMR3wjgCPa9yyH37iJ2bUgZJpk=; b=QKIJJqUS+lgZMMcV3eouqHuInb
-	WzBQyqcyTLiaGATXdCEDzG/9zFioJ6c0ewLVA6YfC3nqfdTxCtY2U4dr3cR8GvuRUNuVEPfgZCE1O
-	bTkTR2uDyAEAS5wo4eoQeYGAq7WlRS1gyMmYWE2Wz0sPmmjPfYgL3C61WN/veFMUZ/GfVS5Evm6V8
-	9z7ClAcUXD97D9XVGmiTcGFUdlwlXIJDZh1o/LExBeWZnLdKFatiSlh6QgTlA5NYHfOPxUbTLeRmo
-	hc7unIqpfwAxdYXZnCsUrUpqO7Q0U7OI+japPmFDIl0o8bKdAEkDZfq3eMHDQY6Ku0ex9yCmjlOPO
-	8RwG6Y8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BGAqF9KOnXCUPVKDUSozZVeXf1lc4fF3RLr2ygVQtdI=; b=Db6lpa7fNjr0OiMG0I3nwBrLy/
+	MtPV+1wFhtRf0h8LnXVOl2uQazAFNWqdsNfomakGNC3Q/oIpbysBLc5t1akDUhE0IO0BAWyJNQ96W
+	LnK/HkxRz//99okTP8ko8kNUVTqgg8I35Y8uHr9fQCFLVWAkjpOTGivs0Ep6miD0dO6SUViDCgPoV
+	C+mRFlKYaBBhFIpIx616iJ4CgUqfakvqU8sjluwvQgq4A8n/6aR5q8cf3qWevMTaKarH+bwuamlJI
+	hnBwgCgTCxnGK4ut8+DBN08iNmwwSTZP+4OCd1mJx6QxnZ8v/QrnVyRkKQ44amZLtveGG3AcVvtPP
+	4jzYZq5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjFO-0000000GEan-3HAR;
-	Tue, 12 May 2026 09:17:50 +0000
-Received: from mail-francesouthazon11011043.outbound.protection.outlook.com ([40.107.130.43] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjFM-0000000GEaB-0lWw
+	id 1wMjJ6-0000000GF8t-0c8Q;
+	Tue, 12 May 2026 09:21:40 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wMjJ2-0000000GF8C-3ZNd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 09:17:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gq/zBKMW1zYoeV83QZcHo5ze6GvRpU7vMAHk0fXz/hgN/ay72Sl02ePeH4aiQ2PidcFLX2B/RInFzWlngvwTHdi21ZarsOWsiHH/+77SfFxPNRQ+ye3UXYyA1Iw+FpRl3NQOZwaTvNNS1Xxlft374r1g8GKLWc5tKQxvj0XPPPPbxMzdiXmmPAeYV2qeOHOPZWTtn/oqpAxEel/nZ2FGZbpXxOqztfPT7bEG11P+C8Mf1xprKepEYu6sZkDy4SpEzr2dPD+KNNuZxl3lHK2Hnw6JCpQyWlqdnmZCLHVW4E+G/Bn+NN5oBSz83FKjEzxeeigRnxXAy/59zfq4TOM/hA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=18Vr+HYQqU1x0d3zcxMR3wjgCPa9yyH37iJ2bUgZJpk=;
- b=QDzQYbhtjkHk12EXWOqfk28ZOQD5vsrtp86oGfkiUpAVvQZUi3hWcsJcrVUKLLtaCk5sG6vuRjV9jw65bYGwzmN9vYNMw3kGZsjLL8H2tNx7IOnF4oF+Qw666SyA2hsMXkh6EelFQwCdHHF5LgOQDKn8uadVpmuRLzg+yP9y6L/bak9El52ZRpgm1Q8cRFOqoE5upQEgTvXNpDzzpDdEK+YYD8tK0mibZaFhIgnHEP0mBGHZ19b+xu18WOeEdSPlnG+hn7T+nYZ+Xb1tblsLfraEuyamwQSaEpJyE34bCqz7PQjmcVvprae/q0JcUXkjfAcR0UPU6ueL5/mPcyzlWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=18Vr+HYQqU1x0d3zcxMR3wjgCPa9yyH37iJ2bUgZJpk=;
- b=UKefvGu7oy0gSXBmrfyFB7SZpHRiyVg93rzeg4/028ISwrIZGZqjXR/oPXZ1yvN5ELE5ToUY7t1F5iXnLvp/ILy1JSIsHkQdx17Rq/N17lzdisEqANdB1dxI5LP0+ZZLWK7m2Wv42mUt2RdIjqX9OiWFgB3DR010qwM4ayyFGYmWKhT730Dvvef7NYSulEXOh2ZNrN/p6IHR+r1pynQXHibH7lsTcQSAX7JHh67TcQdgE4Jkpab1jLCMCCDWkBYdknBithQQAhC6b3F0ped7PwE/tcVTyb5X3GMAvFaiyNvfJVZNbMHZ+U7q8R5ZhvbvPjRaeOtTSvMopTKRx32e7w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com (2603:10a6:20b:4dd::8)
- by AS5PR04MB9997.eurprd04.prod.outlook.com (2603:10a6:20b:67c::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
- 2026 09:17:42 +0000
-Received: from AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c]) by AS1PR04MB9287.eurprd04.prod.outlook.com
- ([fe80::6f30:763d:17d2:b79c%3]) with mapi id 15.20.9891.021; Tue, 12 May 2026
- 09:17:42 +0000
-From: Liu Ying <victor.liu@nxp.com>
-Date: Tue, 12 May 2026 17:18:49 +0800
-Subject: [PATCH v2] drm/bridge: imx93-mipi-dsi: Fix mode validation
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260512-imx93-mipi-dsi-fix-mode-validation-v2-1-7aec3be5da2c@nxp.com>
-X-B4-Tracking: v=1; b=H4sIAHjwAmoC/5WNQQ6DIBBFr2Jm3WlktCqueo/GBQFaJylCwBAb4
- 91LvUGX7+f/93dINrJNMFY7RJs5sV8K0KUCPavlZZFNYaCaupqoR3abbNBxYDSJ8ckbOm8sZvV
- mo9Yyx5ZueuhJUSsbKKIQbamdJ4+p8Mxp9fFzfmbxS//SZ4ECldSm66UUNNT3ZQtX7R1Mx3F8A
- aQcEILSAAAA
-X-Change-ID: 20260227-imx93-mipi-dsi-fix-mode-validation-425c872a2493
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Liu Ying <victor.liu@nxp.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: MA5PR01CA0121.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1a7::10) To AS1PR04MB9287.eurprd04.prod.outlook.com
- (2603:10a6:20b:4dd::8)
+	Tue, 12 May 2026 09:21:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49460165C;
+	Tue, 12 May 2026 02:21:30 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D4603F85F;
+	Tue, 12 May 2026 02:21:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778577695; bh=rVHI0g1ZXeZzYdn5JRy6TJgzmy5LHmX8Hr/6NJELCx4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iJoHbZECxITCq+1qSOISt9fBQzwnTyo8fJEyXhjd3jbXeLqgqcdR1VEaZhI0wWvKL
+	 JKWy7H0sOsX6sbmo7fICK6XyaMRhLmjyzBWYwnc0cAFlhFKa4E920dzjFt41vFeXoR
+	 j8vAfhf06srV3B+jD2Z4lFNZ4rq6lCiBchvKDEnk=
+Message-ID: <63f74d29-aa75-43f2-8198-88e21821df12@arm.com>
+Date: Tue, 12 May 2026 10:21:29 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS1PR04MB9287:EE_|AS5PR04MB9997:EE_
-X-MS-Office365-Filtering-Correlation-Id: 20965aae-e1ec-4f4e-2c4a-08deb00751e0
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|1800799024|366016|921020|38350700014|11063799003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: WodZeaDVjtdiJjS/aZwJoe0cfHdQBNzgo8D8Q9UrkVYUju9FJjQOPlYUgFHw2GmAfHrcOt9MOpvuat1BhowdWERNSWlokI5DZ/Ru4DO/68vqJLJy3ZoQueFmMXRe1gmF6bO90NjzqBk+z+wWu+70QmuMFTjxaRhKv5KBWi3kI+hi2M++yUlRwXrNUFxgTF7SlNQFMm/v6hNfG/GsyfyrN4ulXxM1ASWht8Fyp4N0e3BVQkZdXtyxrb/7c60yMCf+S47QRuGkM7lpN6ysmF4yEcc4XqyDONr5CqeKxUWqQ3fdNmXMYTORz/LwYN4GsjS8djTLEwMGVGoobPBj/Pu4Yg3Uk3Mg76HbDJ3vqHYjyrLL9oY5Lfr5KSVOh+yUuE+HscIgF39YO+CQVIubYFZOdS5cazIpjtomSqXp1XHgFfXqREQxR0b3RrspazD4Ik1dib7E5huf5RmTIy5rLQlLL9wlBfGQ2XF/2h/vW59e/tBYinHOlBVk85w16giUf0qUziYYOqnZyoAFj9MEz65932X4kD1yodjYWzoEWiLIPv23m1rGBeAW/0WWYniVWve8Q1A7kyv57QOMiqzGVII6+H7teHmXCreN7ykw2nNhIXnJHSHr0gmZMNqjgwtm18On6P8+krs/Keo/DtgJ5/H2BOcOtC5+mTmlNQHn4p27yzDFlO9rvU8uNRcR162fnWgN/9eGo5o8srAYV7FGx3IKpysKQfUj8AchZDGp9pKA0Rzg4FZ7/xepCWf1bmo+pgFDLvMdDgZnSgW+OAaRoAKDCQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS1PR04MB9287.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(1800799024)(366016)(921020)(38350700014)(11063799003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NDR0SzBXMENyMGhKbFQ1QnRUSDJDRWtRNnNzbGlpZ2luYW5RZzl3bWsvVFpZ?=
- =?utf-8?B?TzV1QXNMQllOQllJN2RSOWVLQStsalhsT2phd04vZDdNek15NWVCVVVmNDli?=
- =?utf-8?B?ZHg5MDRhT1piZTEreGJ2b0ZWVmFEODlmdEpuZDJ0VThoK2sxeFBWOE1HRVQ1?=
- =?utf-8?B?alZZd1ZOZmhtS0xhSGFhdmFhVm8vWDB3K004OWdnaXFMTVhVcWV4ajlmT0pw?=
- =?utf-8?B?L05VQWlucXRscnFaZ0NHY1Bjd01qSTlMWUp0SHoxMlVIWDlyK0ZkdGM1L1Fp?=
- =?utf-8?B?bWRCV0duekNUQk9WeUpLTjBjMzNYNXB0RkdtRk9oRGluL0NnR2RuSmpKZmNQ?=
- =?utf-8?B?dFRBb0dsQmJQOFJKbXlZK0l6WWFvT29YYmJhcDUrOThHU290eE1oUld1OEYz?=
- =?utf-8?B?TXkzVkZPd0s3TlBFTzZqQ0UxdnZVdkxFQzhCL0FDd2VzeFlpakFaZVQ0U2gr?=
- =?utf-8?B?MldNVTZmdlNlTm9mMmlTRWZyZGgrYkVqa0RIMW9sNlhKckUrc0VsZXFrRDhX?=
- =?utf-8?B?MnF2QzFvaEgwaTEzTy9FM256WkcvOHJBQUE3RmhyU0dmbjMxN3hmUmJiQUJl?=
- =?utf-8?B?c2VSbGMwcGVYKzJaZHg4eEhDUzNNRVJFVERmM2o3dk1wdGo1bitUT0RXc1BE?=
- =?utf-8?B?VHMzTEhDZkpHT280cTRCUXFlNXNXMWcxQW9CMzczMEJ0NDFZUndKbVQwYXlJ?=
- =?utf-8?B?dk5mUDVuaERpOTZYMmxVY0VsWG1WaEVaSHA0cy9aNUNnZmFSRU83NGtGbm80?=
- =?utf-8?B?eGRZM1JIS2FoSVZpQnh6NUpFclBXSDh4ZzFRdjBzdmozVWVDQ3dET3k1bXAv?=
- =?utf-8?B?MDg1bXZqcThSbmdnTW90cFpVR3Fja3UzNkVrc29FZUxiR1NsZHNnOHVPTXFq?=
- =?utf-8?B?TGVpd0VMMzJKYTk5YkxJNnZsemJ3WUo0ZEc0cDdmb0ZtMUlFQXBFUGJ2STlY?=
- =?utf-8?B?Szg1U3lad1RsUFFWdE9xTVgweWFRakdjMmtGSWI3U1NhT2ZLbFNGeFFiV1Bz?=
- =?utf-8?B?OVNya2Rqb0tmbWVPV0RxSTNyaFFSVUtqMW9vaUhkR20rMHg3dmV2WG1sRlda?=
- =?utf-8?B?STR5UnQ1UGdmbGVjbDJISytTUWJaVWNvQWJzelN4Wm85eUw3ZzZ4d2RlS2J6?=
- =?utf-8?B?ME9INlpqRkRDVjdXVmUyTjRFSGQ4WEFOWWZqb3piS0l1Wk1vcWhCZVp6bU5h?=
- =?utf-8?B?SnFaREtWRVoyZ05WeWhjMUUxcnhIOGdNK3p4ZjEyRnBibUpHTXZnY29vOUpG?=
- =?utf-8?B?UklvWjlOOWdtMjR6bU9TU3VEc0Rnd01WWEZ0WDBaaEx1U0crL250V01veU42?=
- =?utf-8?B?S3BXR1VZR3BSYXVWSGZwUEpDTlhVaUxCV25zb0JYNzNvazRpWWpyblBodUg2?=
- =?utf-8?B?dytaYkhmQzU1d3ZPd2ZaK3RSaHRPOFQ3ZjB4bExhR09VdVZpOXQzQjNSL0Za?=
- =?utf-8?B?Vi9BUlp3Y0Y2WWdJSjZYYUUza0F3RnBlTzQ0RDFyb1ZYZjhuaE9oOVcwUW5y?=
- =?utf-8?B?Z3FBV3Y1NnFhVkhreUwrQzhRTnBMUmdweGFDU1Nuck5oK0hwR1ZsOCsyb3M2?=
- =?utf-8?B?aFZQSldlODZURW1TQnREQ0xFa2ZaNko5bk1QU2J5eVVJRTNobm8vVzNhVnU1?=
- =?utf-8?B?cWlpSUJsR1RTVFdUdVJqSnFadXkxdHJEZDhRNVgrb0pMWFZHYms2QVFjNlB2?=
- =?utf-8?B?NkhCYzN5K2pobTc3WlloWUVBUU1GQndaZzdmUFpsYkx6Ky95dzlWTmovVSs5?=
- =?utf-8?B?Zm02SUNIMVM2c0QrVjlKQkZRaFU5SXYvak9peHdaaEFuL3ZzcDFpQThvU0Ro?=
- =?utf-8?B?TEVXVWpVRGx0YzlTNmdHOGNSVm9hNFV4cjE5Wjhkdy9TNmhOMGxjdlBtVnFX?=
- =?utf-8?B?bUY1QU02bmlkdzB5VThxNHBmVmNvdTU2QTNVWmJpY0dnMnd3dWcyRjRnR0Np?=
- =?utf-8?B?K3NiZXcrbFIrMnlmSkNNTVB5Q0hnZ2h5aVVmK2pMK2cyeXRpU1VoY0lwczc4?=
- =?utf-8?B?eWhicmtIV0ZMcDN2QVhmTDNsblUrWnlzbXZIRG5SU2NNWnA1NTkxaWVQdFlh?=
- =?utf-8?B?V2ZLQ0dlQ0F5MEdvdk1CZUl6WVhHNnA0UTA2cUtYaWpmTnpaMEJNWVlqTmd3?=
- =?utf-8?B?RnVGTkQxeHdyaG5BQ1lVNmNEeTVxTWdyWUVxLytTQUN3VXZ0Z1VJRXd2K2NH?=
- =?utf-8?B?N3NtUEZSR2toem83R29VSHRsYUxqa2I4L2Q2L3Frb3RoUDFuZmlHaXlCSnVN?=
- =?utf-8?B?bWllZ3BscWNOUWIwUHdFZnBoTUt4ZVY1anlQOGl1ZWdra3NhQ3dWbnVVbzFY?=
- =?utf-8?B?MUdBdHhmUWFTMlVDK1lYT0UwME5LOVhDc0o1ZXNjTDNZMTlRWkkxdz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 20965aae-e1ec-4f4e-2c4a-08deb00751e0
-X-MS-Exchange-CrossTenant-AuthSource: AS1PR04MB9287.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 09:17:41.9910
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5aPsA3cvwBc1aHgAinsNKtx6BpMu6xhlwjJ+6jRbR5Rjd8IkFS6ovJDwPCwXkOUpQKp+yM8Z/L2Bm/erHyvsmw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9997
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v3 1/5] arm_mpam: resctrl: Pick classes for use as mbm
+ counters
+To: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+Cc: "amitsinght@marvell.com" <amitsinght@marvell.com>,
+ "baisheng.gao@unisoc.com" <baisheng.gao@unisoc.com>,
+ "baolin.wang@linux.alibaba.com" <baolin.wang@linux.alibaba.com>,
+ "carl@os.amperecomputing.com" <carl@os.amperecomputing.com>,
+ "dave.martin@arm.com" <dave.martin@arm.com>,
+ "david@kernel.org" <david@kernel.org>,
+ "dfustini@baylibre.com" <dfustini@baylibre.com>,
+ "fenghuay@nvidia.com" <fenghuay@nvidia.com>,
+ "gshan@redhat.com" <gshan@redhat.com>,
+ "james.morse@arm.com" <james.morse@arm.com>,
+ "jonathan.cameron@huawei.com" <jonathan.cameron@huawei.com>,
+ "kobak@nvidia.com" <kobak@nvidia.com>,
+ "lcherian@marvell.com" <lcherian@marvell.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "peternewman@google.com" <peternewman@google.com>,
+ "punit.agrawal@oss.qualcomm.com" <punit.agrawal@oss.qualcomm.com>,
+ "quic_jiles@quicinc.com" <quic_jiles@quicinc.com>,
+ "reinette.chatre@intel.com" <reinette.chatre@intel.com>,
+ "rohit.mathew@arm.com" <rohit.mathew@arm.com>,
+ "scott@os.amperecomputing.com" <scott@os.amperecomputing.com>,
+ "sdonthineni@nvidia.com" <sdonthineni@nvidia.com>,
+ "xhao@linux.alibaba.com" <xhao@linux.alibaba.com>,
+ "zengheng4@huawei.com" <zengheng4@huawei.com>,
+ "x86@kernel.org" <x86@kernel.org>
+References: <20260511154147.557481-1-ben.horgan@arm.com>
+ <20260511154147.557481-2-ben.horgan@arm.com>
+ <TY4PR01MB1693044EDBBF023317F9059A98B392@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <TY4PR01MB1693044EDBBF023317F9059A98B392@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_021748_233486_E1E7018D 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20260512_022137_154191_E674FAB5 
+X-CRM114-Status: GOOD (  40.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,114 +97,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX93 MIPI DPHY PLL has limitation for matching with some pixel clock
-rates, e.g., the best DPHY PLL frequency is 445.333333MHz for a typical
-1920x1080p@60Hz CEA/DMT display modes with a pixel clock rate running
-at 148.5MHz with 4 data lanes + RGB888 pixel in MIPI DSI sync pulse mode,
-while the expected PLL frequency is (148.5 * 24) / 4 / 2 MHz = 445.5MHz.
-Fortunately, VESA Display Monitor Timing Standard allows +/-0.5% pixel
-clock rate deviation for timings.  So, for those display modes read
-from EDID through a bridge with DRM_BRIDGE_OP_DETECT and DRM_BRIDGE_OP_EDID
-operation bit masks set, pixel clock rate could be adjusted to match
-with the PLL frequency(for the above example, the pixel clock rate is
-adjusted to be 148.444444MHz with about -0.03% deviation from the 148.5MHz
-nominal rate so that the adjusted rate matches with the 445.333333MHz PLL
-frequency).
+Hi Shaopeng,
 
-Instead of checking the last bridge's operation bit masks against
-DRM_BRIDGE_OP_DETECT and DRM_BRIDGE_OP_EDID to determine if allowing
-+/-0.5% pixel clock rate deviation, check any bridge after this bridge,
-because the last bridge is usually a display connector bridge without
-any operation bit mask when the clock rate deviation is allowed.
+On 5/12/26 07:50, Shaopeng Tan (Fujitsu) wrote:
+> Hello Ben,
+> 
+>> From: James Morse <james.morse@arm.com>
+>>
+>> resctrl has two types of counters, NUMA-local and global. MPAM can only
+>> count global either using MSC at the L3 cache or in the memory controllers.
+>> When global and local equate to the same thing continue just to call it
+>> global.
+>>
+>> Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Tested-by: Zeng Heng <zengheng4@huawei.com>
+>> Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
+>> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+>> ---
+>> Changes since rfc v1:
+>> Move finding any_mon_comp into monitor boilerplate patch
+>> Move mpam_resctrl_get_domain_from_cpu() into monitor boilerplate
+>> Remove free running check
+>> Trim commit message
+>> ---
+>>  drivers/resctrl/mpam_resctrl.c | 26 ++++++++++++++++++++++++++
+>>  1 file changed, 26 insertions(+)
+>>
+>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>> index 226ff6f532fa..f70fa65d39e4 100644
+>> --- a/drivers/resctrl/mpam_resctrl.c
+>> +++ b/drivers/resctrl/mpam_resctrl.c
+>> @@ -606,6 +606,16 @@ static bool cache_has_usable_csu(struct mpam_class *class)
+>>          return true;
+>>  }
+>>  
+>> +static bool class_has_usable_mbwu(struct mpam_class *class)
+>> +{
+>> +       struct mpam_props *cprops = &class->props;
+>> +
+>> +       if (!mpam_has_feature(mpam_feat_msmon_mbwu, cprops))
+>> +               return false;
+>> +
+>> +       return true;
+>> +}
+>> +
+>>  /*
+>>   * Calculate the worst-case percentage change from each implemented step
+>>   * in the control.
+>> @@ -983,6 +993,22 @@ static void mpam_resctrl_pick_counters(void)
+>>                                  break;
+>>                          }
+>>                  }
+>> +
+>> +               if (class_has_usable_mbwu(class) &&
+>> +                   topology_matches_l3(class) &&
+>> +                   traffic_matches_l3(class)) {
+>> +                       pr_debug("class %u has usable MBWU, and matches L3 topology and traffic\n",
+>> +                                class->level);
+>> +
+>> +                       /*
+>> +                        * We can't distinguish traffic by destination so
+>> +                        * we don't know if it's staying on the same NUMA
+>> +                        * node. Hence, we can't calculate mbm_local except
+>> +                        * when we only have one L3 and it's equivalent to
+>> +                        * mbm_total and so always use mbm_total.
+>> +                        */
+>> +                       counter_update_class(QOS_L3_MBM_TOTAL_EVENT_ID, class);
+>> +               }
+>>          }
+>>  }
+>>  
+>> -- 
+>> 2.43.0
+> 
+> https://lore.kernel.org/lkml/599617aa-aade-4fde-9efa-79d592f1ff3f@arm.com/
+> 
+> This concerns the comment I received last time. 
+> I may not have fully understood it, so I'd like to clarify it once more.
 
-Fixes: ce62f8ea7e3f ("drm/bridge: imx: Add i.MX93 MIPI DSI support")
-Fixes: 5849eff7f067 ("drm/bridge: imx93-mipi-dsi: use drm_bridge_chain_get_last_bridge()")
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
----
-Changes in v2:
-- Collect Frank's R-b tag.
-- Add an explanation to commit message about the reason why mode validation
-  checks bridge's operation bit masks.  (Dmitry)
-- Copy Dmitry.
-- Link to v1: https://lore.kernel.org/r/20260227-imx93-mipi-dsi-fix-mode-validation-v1-1-a9cd67991280@nxp.com
+I'll try and explain better.
 
-To: Liu Ying <victor.liu@nxp.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-To: Robert Foss <rfoss@kernel.org>
-To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-To: Jonas Karlman <jonas@kwiboo.se>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-To: Maxime Ripard <mripard@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-To: David Airlie <airlied@gmail.com>
-To: Simona Vetter <simona@ffwll.ch>
-To: Frank Li <Frank.Li@nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-To: Pengutronix Kernel Team <kernel@pengutronix.de>
-To: Fabio Estevam <festevam@gmail.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
- drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c | 29 ++++++++++++++++-------------
- 1 file changed, 16 insertions(+), 13 deletions(-)
+> 
+> Even if the system as a whole has multiple L3 caches and multiple NUMA nodes,
+> ABMC will be enabled as long as there is a single L3 cache and a single corresponding NUMA node.
+> Is my understanding correct?
+> If my understanding is correct, within the 'traffic_matches_l3()' function,
+> ABMC is enabled only when the entire system has a single NUMA node and a single L3 cache.
 
-diff --git a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
-index 8f312f9edf97..6d65df9ed970 100644
---- a/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
-+++ b/drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c
-@@ -493,21 +493,24 @@ static enum drm_mode_status
- imx93_dsi_validate_mode(struct imx93_dsi *dsi, const struct drm_display_mode *mode)
- {
- 	struct drm_bridge *dmd_bridge = dw_mipi_dsi_get_bridge(dsi->dmd);
--	struct drm_bridge *last_bridge __free(drm_bridge_put) =
--		drm_bridge_chain_get_last_bridge(dmd_bridge->encoder);
- 
--	if ((last_bridge->ops & DRM_BRIDGE_OP_DETECT) &&
--	    (last_bridge->ops & DRM_BRIDGE_OP_EDID)) {
--		unsigned long pixel_clock_rate = mode->clock * 1000;
--		unsigned long rounded_rate;
-+	drm_for_each_bridge_in_chain_from(dmd_bridge, bridge) {
-+		if ((bridge->ops & DRM_BRIDGE_OP_DETECT) &&
-+		    (bridge->ops & DRM_BRIDGE_OP_EDID)) {
-+			unsigned long pixel_clock_rate = mode->clock * 1000;
-+			unsigned long rounded_rate;
- 
--		/* Allow +/-0.5% pixel clock rate deviation */
--		rounded_rate = clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
--		if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
--		    rounded_rate > pixel_clock_rate * 1005 / 1000) {
--			dev_dbg(dsi->dev, "failed to round clock for mode " DRM_MODE_FMT "\n",
--				DRM_MODE_ARG(mode));
--			return MODE_NOCLOCK;
-+			/* Allow +/-0.5% pixel clock rate deviation */
-+			rounded_rate = clk_round_rate(dsi->clk_pixel, pixel_clock_rate);
-+			if (rounded_rate < pixel_clock_rate * 995 / 1000 ||
-+			    rounded_rate > pixel_clock_rate * 1005 / 1000) {
-+				dev_dbg(dsi->dev,
-+					"failed to round clock for mode " DRM_MODE_FMT "\n",
-+					DRM_MODE_ARG(mode));
-+				return MODE_NOCLOCK;
-+			}
-+
-+			break;
- 		}
- 	}
- 
 
----
-base-commit: 877552aa875839314afad7154b5a561889e87ea9
-change-id: 20260227-imx93-mipi-dsi-fix-mode-validation-425c872a2493
+These restrictions only apply when the MSC containing the bandwidth counters is
+at the memory, as advertised by ACPI. When the counters are on the L3 cache
+there can be multiple L3 and multiple NUMA nodes and a domain with AMBC memory
+bandwidth counters will be exposed for each instance of the L3 cache.
 
-Best regards,
---  
-Regards,
-Liu Ying
+As resctrl, currently, expects all monitors to be on the L3 cache we can only
+use counters if they can be considered to be at the L3. The user just sees an
+L3_MON directory. When the monitors/counters are at the memory we can only
+pretend they are at the L3 when there is a single L3 and a single NUMA node.
+This is because the topology needs to match, the same cpus are affine to the L3
+instance and corresponding NUMA instance and the traffic measured also needs to
+match. If there is multiple NUMA and L3 then cross NUMA traffic means that the
+traffic seen at the NUMA node is different from what is seen at the L3.
+
+If a workload runs on cpus affine to the L3, instance A, but allows cross NUMA
+traffic then the memory bandwidth leaving the L3, instance A, will be different
+from that entering NUMA instance A.
+
+L3_A --> NUMA_A
+     \
+      \
+       🡖
+L3_B     NUMA_B
+
+This is still the case if the traffic goes via the L3 to the other NUMA node.
+
+L3_A --> NUMA_A
+   |
+   |
+   ⌄
+L3_B --> NUMA_B
+
+The future plan, is to add support for monitoring scoped to the NUMA node in
+resctrl. This means we can we can more accurately expose the counters later on
+without being held back by inaccurate descriptions. Ideally, we would have added
+proper support for monitors at the memory scoped by NUMA node rather than adding
+traffic_matches_l3() and topology_matches_l3(), which are there to allow us to
+support platforms where the traffic entering the memory controller is the same
+as that leaving the L3. To cope with the case when memory is powered down we
+need to introduce memory hotplug locking to resctrl as well as the support for
+understanding the NUMA scope.
+
+> 
+>  870 static bool traffic_matches_l3(struct mpam_class *class)
+>  871 {
+> ...
+>  901
+>  902         if (!cpumask_equal(tmp_cpumask, cpu_possible_mask)) {
+>  903                 pr_debug("There is more than one L3\n");
+>  904                 return false; *
+>  905         }
+> ...
+>  912
+>  913         if (num_possible_nodes() > 1) {
+>  914                 pr_debug("There is more than one numa node\n");
+>  915                 return false;  *
+>  916         }
+>  917
+> ...
+>  926 }
+> 
+> 
+> Also, I'd also like to confirm one more thing.
+> The mpam_resctrl_pick_mba() function also calls traffic_matches_l3(). 
+> This suggests that, except in scenarios where the entire system has a single L3 cache and a single NUMA node (ABMC is disabled),
+> the Memory Bandwidth allocation will also be disabled.
+> Is this the intended behavior? If so, could you explain why?
+
+Yes, but only when the memory allocation control, mbw_max, is on the memory
+controller and not the L3 cache. There is no restriction when the MSC is on the
+L3 cache. This is for the same reasons as for the memory bandwidth counters. The
+traffic that we say is coming from the L3 may not be the same as that entering
+the memory controller and resctrl assumes that the MBA is at the L3. Memory
+hotplug locking in resctrl would also be needed here.
+
+Reinete is creating a proof of concept for a structured way to add new schemata
+into resctrl, some discussion of initial ideas [1]. I'm also looking to see how
+the generic schemata ideas can fit with MPAM and what resctrl support we'd require.
+
+Zeng has indicated [2] that he might look into adding the MB support at NUMA nodes.
+
+I hope this makes things a bit clearer.
+
+[1] https://lore.kernel.org/lkml/fb1e2686-237b-4536-acd6-15159abafcba@intel.com/
+[2]
+https://lore.kernel.org/linux-arm-kernel/f6f865bc-319c-8944-9989-4fd83a59d4b8@huawei.com/
+
+Thanks,
+
+Ben
+
+> 
+> Best regards,
+> Shaopeng TAN
+> 
+> 
+> 
+> 
 
 
