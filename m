@@ -4,129 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16E3CD4846
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 02:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 709A3CD37BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 02:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GIK7cXc0EMtmj+eBa3rhM46lkjfF/24i8aEWdJOpE8E=; b=a8ZE/ItvopzLVw+o0zCmFZ0f6E
-	mhO/K/qp8IhJRCXCmtAhjzMNgLj6V20YBOiJ/MGaHigtrDTCcn38jsmcgohxOBIjD3VPuTZjdq+V6
-	pIsg7UFNYTXJq72PeJTTUnrPvADb7zDxFv9h1Fnr7Wp12Kmlk8DxcUI9Jao/L0wKk2P0A/uIpJiEW
-	ml0spXzBojjaj9QJzk4yeihETaj+kZGfxqGK6Jen8P3BWVE6TvTOGOGpa6VE5nUd0jhn+2IeoR5kE
-	IDarY1JB3xm0ScWmxREgoNiMKszSGLPM+6Pi1VoXookmxe4rfN9ZKKreDeav2I9Wz/BDuespBnCcK
-	8Ym81E6w==;
+	bh=zPHa6Agzy1CClNZP307eBIa+jAOQbdPXd+dwL+YOTPg=; b=IA6DHbpx6+vpFpDLWN7sSTREbs
+	zvNxk90MoXafX8PeFtTCKNhQ55lmTsoMgzzk75DT7z1HTqi/O+wRO7ibSKOygkgiR01sySrel+FiM
+	apMyiKyKMeu4OTabJ85C/WUHC85RdGy0WRQHvZWrWi5bB1jCwjQfEIyDJE+Ml+j39zjxDTYB7egRd
+	CVkdg0ihRGosa69tRCoYoVooUMdLfUgjI0AO6bWLI0Zlz8rxwVrSh1nPv3uqGhQT5NpKHOmW6Ibev
+	5xX6oeL3MS+XKYxrTEzVolfE53MX/sYT0Rxc0t1hKafpCmnBXBXubaB7uGi5CV2FVcePLvxPJVclZ
+	zLy3V+og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMd8f-0000000FIVI-0ctM;
-	Tue, 12 May 2026 02:46:29 +0000
-Received: from mail-northeuropeazon11010014.outbound.protection.outlook.com ([52.101.84.14] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wMdBO-0000000FIkj-22P9;
+	Tue, 12 May 2026 02:49:18 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMd8c-0000000FIUW-0Oa6
+	id 1wMdBK-0000000FIk9-3clT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 02:46:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TaCDwif3VUeaisuOUxnZzLKIYY/agE9pdUzxGkEaLCbauNGwqJB9Io8+JsSpReOmpV6h/WSxqBgfPOIaVPEvXTZXjq7xG0B/gauZBVosZOlJlGCwsiq2N2Nrsn7i+ZFZ1s5GOzzP0piVs6D5Yy11FVibbu5wU3P+2B7FMKcKEhHK9SDyByh0DGTrD/gn6X5QTedjOyEJdvQjMrdGRQ4frbb/LFnFn0SG4uS+/9SdVnJxoHEy2Bm6H2HMKhxtm7PFOPq/n2uknFkFdt8akyPi8Pls6AZ7+6Rqu+01/gQdOYIXHfOq5Z+RK4tECEhcrd8zMRcg+oj7XVZxAPifROpjnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GIK7cXc0EMtmj+eBa3rhM46lkjfF/24i8aEWdJOpE8E=;
- b=KMCKKfPMTOlhbBNUcXgAtFFOF4waRNuF8sLVQzY2pX7H3eEjhmtCtasukJ8gn+MHxbl3Vk7ae2dbKzgTMR1JS6Q/0chNwIZfQy5h7sb6A047WY2+zMmIIpB3nAoFBozKWbKH88JASj2yaAgemaa8M9ecwwIDb0JK2cC/DZBqt2zZPUwsKyWFHS60tWOUEbXofaMl9nIlLVlodtYoBWNocmUvT5w/tOaSNjc0+KHvRCjxCQLYmzqRVhX21dGyzT8sQ/pk7Xsagp+Ld/RgTHxhFfrf2KC6V0IH1mDItW3ng7EOtbbtjxpMlBs6/XNe5GzecHwyDXRlRj8bx4+GCdmdXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GIK7cXc0EMtmj+eBa3rhM46lkjfF/24i8aEWdJOpE8E=;
- b=Bft/Q2856LFAADDjzkpnCsyfnFsnRfhbSnPGgaN8bMuIBbI1duNiSJpy2GMO7r4DHwMUftrHhRp39a0v8tpkuu1jl6P5UDqANh76zd75FHjxFS62fJra52MPqs1/6SfiCQlp0tSioecDilOZlyjHZ/l/h8FMVhXep0mgCsR9oZlIE03rK9QGP77DsLiOjiyhDiytOc7e5oX9zSvEspK5neyiXsQORd1SqV+xGgfD9x8urRKzDJ3rEa2/7l11a7hLcqfP9VQUfISs5k2jF8GHvlD2IgN05eUW+h0lQWUFdCPYNGnDdPVC/FEbhV/Od71z6R1kGEB2ANsu6tpWIbTWIg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com (2603:10a6:102:242::11)
- by VI0PR04MB10928.eurprd04.prod.outlook.com (2603:10a6:800:261::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.22; Tue, 12 May
- 2026 02:46:13 +0000
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::cf3:c5b0:7a0c:d11b]) by PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::cf3:c5b0:7a0c:d11b%5]) with mapi id 15.20.9913.009; Tue, 12 May 2026
- 02:46:13 +0000
-From: alice.guo@oss.nxp.com
-To: Frank.Li@nxp.com,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
+	Tue, 12 May 2026 02:49:16 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-366375c4076so2262720a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 May 2026 19:49:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778554153; x=1779158953; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zPHa6Agzy1CClNZP307eBIa+jAOQbdPXd+dwL+YOTPg=;
+        b=BHcf1znBxyfbh1TUAte9Uqjw+klixdVJzLolKVGME4nf9aN5nUkVd56Q9QPF92NmG3
+         rJlK7QJogUT2dylwiObIMPhrOA956TZm21SrK9balaqBL6aWzb9FHmthQAVOpDTEkcun
+         wla9zDgFzNC49Bjx8x1+jZ2DCJCZD9mQCzWhdJpDfs7VUhN090HcjuHK93gVYBKbxXdl
+         t5V45X6xnsCfBb5xh7ldYSFRNQhLXwBJUrUadE+VecuTfYHrHKqqHog252DaappCL8IL
+         Y2HgPcaKQmVWULTdzvEdKG5cN3ST8XqRrEJVUIQEYCuoRa5Iy88YheS94S8X7A284diW
+         9yWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778554153; x=1779158953;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zPHa6Agzy1CClNZP307eBIa+jAOQbdPXd+dwL+YOTPg=;
+        b=fPDAUvDektCE27DS2MtbkK7l94zaYcG52fJIMTHAjcnVD1FFlg8GqIHpNaDXtn7GuW
+         oOsF1Gz8lkehLCz/DBwCQ5kG4nzreWjiaEbV2vAlZw2p7gAYbkyYqbCpPqJQN4teBtAx
+         AYQUlWl9Pl9GHz0IV2VgH3W3ziGPFXKIkow42BLZKRclqrhSldiEwMNz/A90u5TJ0cAA
+         EuXWKxZ1QMR6uZwmuDQr+t86I3uHyAaozs4C79WbmyWxwrvjjy0FZ0oX+2l4wUfZBEv3
+         Fjy88HjryTHf620evtI19QxUeysF+gxISPBxUX4hDFwOct3B/UjLG//obUTMgbNOSvV/
+         8skQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/9/GzOTVIN6unn0UsU1ykrVg4OwGMlVwhw5JAIUk9pOIZi1ZkCRxX2jf6TrE9+tCT5aiuJkQgDlQVM8fv1xj1T@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1mDJNa/DYWFWgvDhxHfiQTuPSU07BwEblLv3maG4VxGlzGkS7
+	22uD8611ev9SEDEhH0eyWl38j0e2V6YqMiTFFTx7THIztvPt0rgibjIe
+X-Gm-Gg: Acq92OHBNmFn4RmT7GVvncFKGEgl1IgBNTNsFczCbaqE29Oo+edWsSodmRuTlWPsHJQ
+	vna+J8wjwtzKBiLTMjOZM2AK8x+SRg75uGUN+LGTmxpFWF1974gPuZhsUGnBHFDvrzbInRMy2r5
+	k07mVjhw6eEY3BlMOUdaxd0v+UqQlAsE/SyrVMNyL74BeVDnYgBSFnEM/p39hxHOe7pnMPr/3YG
+	IR24vAb4BCurcFb0jAYJGsv71Hf+Zo1eVXf6F5WGO7qt/QOiH5KwdbuB/lNyhNpHL+BFdoqefLc
+	P0MJZE+CMDu/g3VG1Yqt/2YT0lJqiL+6q2rmYWP9sJZKJxGjnP2kvYw4duIE8YvpLsABXNbCPxg
+	4NdJH2Oxk0zZtPtsvCHVqlTt/WbEK4SVYTu8kxnLh3pNJ4xiWEt1LThU5wnhtAqwyk1Pry93Gw4
+	RjXTCfomGhQFpo5MNgZh8owEgrT6M8QmXkGjrrbG0bglU8pNeL41x/3VgdhYaORYT2VbtnXs7Y
+X-Received: by 2002:a17:90a:1001:b0:368:78da:803 with SMTP id 98e67ed59e1d1-36878da159fmr3395240a91.12.1778554153407;
+        Mon, 11 May 2026 19:49:13 -0700 (PDT)
+Received: from chaitanya-virtualbox.. ([103.249.241.52])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1e690c4sm118619185ad.57.2026.05.11.19.49.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 May 2026 19:49:12 -0700 (PDT)
+From: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+To: andi.shyti@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	brgl@kernel.org
+Cc: linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] arm: dts: imx: Add watchdog support for early boot stages
-Date: Tue, 12 May 2026 10:48:50 +0800
-Message-Id: <20260512024850.904551-1-alice.guo@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0050.apcprd02.prod.outlook.com
- (2603:1096:4:196::11) To PAXPR04MB9644.eurprd04.prod.outlook.com
- (2603:10a6:102:242::11)
+	Chaitanya Sabnis <chaitanya.msabnis@gmail.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH v2] dt-bindings: i2c: convert davinci i2c to dt-schema
+Date: Tue, 12 May 2026 08:18:51 +0530
+Message-ID: <20260512024851.4792-1-chaitanya.msabnis@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9644:EE_|VI0PR04MB10928:EE_
-X-MS-Office365-Filtering-Correlation-Id: 08066f29-efd0-4ba6-62d9-08deafd0a168
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|19092799006|1800799024|366016|38350700014|11063799003|3023799003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Uj6IWFHIfBV0VTCIWCNEUcy8JB+luIHBCmxJ1W107tBKBqgPqrhzmgIWEUiuHJn4J8yCPCldvcAtE9Rgz79V/+P6/Rkg7lOuQXa3kbjDPS+jxj75f+Sal5grlLZ4NSsyHu+wOzGxXQjfMBH7n9cC2lTOVmBlww7NALcPBASYgijwco4pkPLyDcxsaE2CGbOZzIUT8PcoOHBKN9XZo+tVHoDI8DKm0rQ2UyOkovR/ZVt3AXpQb8D+fOrmT/xWJiruntefp5OOWvMIrQ/aI2DYZzkdje/AoGOILWdNun8pVJ57Zyi1kZhmbEUzdj+ND/TGVzbu3IUeIuiyO6vHEx7DN0xGT+TsVCTOZ9M+Ll/08wDOCiX1UjvGN5x42Nj75kni48xKrToX2oHmFFwLcL9SGxNgOI30ufLRVlcacEY2APNXkiZiYlTiGfzOEX/6gUXK77e5svmUoGiAs/NPfy/+zg6xp4zAMfs6FHu62Mbb8Bjx/pUWLmPiJv2OqGk8jtkEmjgV1rqMBzhzBfpI5i3h9+Uv05vbVL2/HRxg+CVX8S8p1P3HFxj/nVOZKFhR6NAObqP++rM5h7/b8gXHF3A+2f/JnYd3ykukMG0f5KFIzhIBZuHeIFe3XtlpR9vPn9WzIDjJxfTHIzp482l+0ynmpR72Hxs0ECdQJGDYhqsAp0OeGEmG/CEaAzigCW9X+qIHCRH4fTsHb9zlu3GC6VraUrhF4vgHDCUFHzYqtzWQsQn5r6S+93GtNhqG56eMwAc3
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(19092799006)(1800799024)(366016)(38350700014)(11063799003)(3023799003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Z0xLz0k7lzI4nMqJ44Uc/0x1M51mN//5t+ZAcgfGUfKwH3s3d9tdisOlgB3b?=
- =?us-ascii?Q?OzIYuPFShK/3z1A8Zzrmd6qCLo8xBUAtKipl4UfnMsGo5xEKIng1sOlGakuu?=
- =?us-ascii?Q?7FszoeB+K73bL8ozRGZdA2l+wVSIKF6ILk8tpruXT4YMlEn5PkHQGS2Db4cw?=
- =?us-ascii?Q?eQm1PEdqgqm8ZRKPdd98/d+AprqjnohNGXAk72Rae0FcQABzN3NEli05xR44?=
- =?us-ascii?Q?ek1zb/2HzY2fA9e690595C0psKYOo1axgGzqezF6PxbG+anXz9f3RUchSHeg?=
- =?us-ascii?Q?UNnWXaWpYWPWHxc2EVIKJDWr65/r/ywRTj6sCx9NN51AwLBDoQQcslMy+lwv?=
- =?us-ascii?Q?eHZkzc+0bQeuowptEHkwQL2FHFztMUx8Gh5ym7DU03DCoriTRVAYMgl/VVJU?=
- =?us-ascii?Q?d+6TbMG8cpNE/t4Xx9/1YkJNJtQuypPitjsoOb/4kyr+2PMzJoy3ZHgZQ+T+?=
- =?us-ascii?Q?ci/64S4341W052Yw8Zzhf9rc78kKjKAfIKlIJvKuS4ZChDjdBszbm0K2Dn+L?=
- =?us-ascii?Q?nQK9LKLoZ9B68IDPjtoZppSj0dRw6RSgTEBVfDRBa3nBl4x3sRb7cjDr+5Mk?=
- =?us-ascii?Q?QUNUGefu1eIn5wkDYxvkDwopBtxz+R1DwIImubgcNhxA9H8i7/AJXRvhVXaN?=
- =?us-ascii?Q?UqTrQrjiteAS9PClztHzrA9MAoixNvYuSCCBtJzvWFbmGj6M99yfMSGx4RXH?=
- =?us-ascii?Q?6NeVzd8HWD3wIa5Ita0twQe5RsFbyNp4ejaKgfN2hxlYGZM1eYTUuwUWsS7/?=
- =?us-ascii?Q?JXSe6tKOaB+aofZ25Z0NO52J4lTRMMCEJKoG9pDZe1WYinP2Hh0VMCF2N0fr?=
- =?us-ascii?Q?Rr78dM1M8XCZ5wED0jEmJLqxxMfIew6hZaYrkUbM8tFd/a0x9RCBLCvx4KrB?=
- =?us-ascii?Q?TN+i+RN8xl/FnJLsczfJl0QB+CpF3e568QGk+E3Z5UX5Ri7/Q10ci+ZSH7rA?=
- =?us-ascii?Q?LuRcwu1ikPo/3H9Eu/T1z74dys6RAVisxbBX4Yay4u9G6mxSgLwsxW+eSHFN?=
- =?us-ascii?Q?gkwe+kAdbXockDk9Q6c9ptW8DzO7mJTGfXjIs2opdlmiylw+gtYFoDz1ObWb?=
- =?us-ascii?Q?qLpKLIVJjnflSuAXu+jcRptzIdwoMV0Qp8xV/NNhr5lRdz/G3PfhWMA9uo9h?=
- =?us-ascii?Q?xJKBvaZAhvfp0nFo83te2MQTKAmwdaRr1M+1bOEOpIANkwa7xRLD+s6LXS4+?=
- =?us-ascii?Q?5+aiCaCHJsrLCYJPk3Uyy0AaR5qrZe6sWHzunVZGwf6wd2VV/6m9f/XiB5bc?=
- =?us-ascii?Q?PoIyPCOkFkChB494Brd240kzQ6XwwEQrfugjXG7H4pCkon/SnCTx9ucTaLSO?=
- =?us-ascii?Q?UEGVDnnGyZtg6XqxgScv288kV+XfKdKf6R41SGynxSiqT6pojyLdwLwgCEae?=
- =?us-ascii?Q?l06D7aSnWuAl1UfRebMHRoj+9rknH6NKyP65OX98v/HFc8sEgebMMTxw8VCG?=
- =?us-ascii?Q?K6lkuG/f9feIljSnOVR09zYOB8SXF17kYT3Fy72jS3oHNLdZ+IVDU8GCjmnY?=
- =?us-ascii?Q?fm2Jgno3xdPjk2Ggex2p1moogiLUncrnplGzzIn4LJeJv0jzdZnCbSYzdLyi?=
- =?us-ascii?Q?XdYgjI+8mR3RvY3re8zHOnkN3o0HoXj1Ra0wQMP+/Nc4PwRloxFPNtfHtmzw?=
- =?us-ascii?Q?s8wYoM5yjQqU6YAUqNaFfr3VS6PjdjDcBgFCbIlAAbux+Zwn61C7TwuDzfNB?=
- =?us-ascii?Q?4KsaDtdgS1KRmrUWFG+wZ9lo+qDedbknPwRjbMiMGvjsURvTkmEU7/baCM5X?=
- =?us-ascii?Q?2C44tF2hTA=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 08066f29-efd0-4ba6-62d9-08deafd0a168
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9644.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 02:46:13.2456
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: h1IlWcoySEWPlLUBkdqwY8VVpdBIIiMw6Ue3Xr3Exy3pcOo5ZwR/fb5VWlEvb/BlZsUVighswKNvFZOmqDIE6w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10928
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260511_194626_144434_A5CAE369 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260511_194914_908867_D76AF311 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,155 +103,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alice Guo <alice.guo@nxp.com>
+Convert the Texas Instruments DaVinci and Keystone I2C controller
+bindings from legacy text format to modern dt-schema (YAML).
 
-Add bootph-all property to watchdog nodes to enable them in U-Boot's
-early boot phases. This allows U-Boot to utilize these watchdogs for
-system monitoring and reset functionality during boot.
+During the conversion, the `interrupts` property was made required
+to match the strict requirement in the driver probe function. The
+custom `ti,has-pfunc` and `power-domains` properties were also
+properly defined to match SoC-specific hardware features.
 
-The bootph-all property ensures these watchdog devices are available
-across all U-Boot boot phases (TPL, SPL, and U-Boot proper).
-
-Signed-off-by: Alice Guo <alice.guo@nxp.com>
+Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202605120133.lQ1F3qlY-lkp@intel.com/
 ---
- arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi             | 11 +++++++++++
- arch/arm64/boot/dts/freescale/imx8ulp.dtsi         |  1 +
- arch/arm64/boot/dts/freescale/imx91_93_common.dtsi |  3 +++
- arch/arm64/boot/dts/freescale/imx94.dtsi           | 12 ++++++++++++
- arch/arm64/boot/dts/freescale/imx95.dtsi           | 11 +++++++++++
- arch/arm64/boot/dts/freescale/imx952.dtsi          | 11 +++++++++++
- 6 files changed, 49 insertions(+)
+Changes in v2:
+- Updated MAINTAINERS file to point to the new ti,davinci-i2c.yaml file instead of the deleted .txt file.
+ .../devicetree/bindings/i2c/i2c-davinci.txt   | 43 -------------
+ .../bindings/i2c/ti,davinci-i2c.yaml          | 62 +++++++++++++++++++
+ MAINTAINERS                                   |  2 +-
+ 3 files changed, 63 insertions(+), 44 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/i2c/i2c-davinci.txt
+ create mode 100644 Documentation/devicetree/bindings/i2c/ti,davinci-i2c.yaml
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-index 1355feda1aa7..c29a767df925 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-@@ -325,6 +325,17 @@ smc1: clock-controller@40410000 {
- 			clock-names = "divcore", "hsrun_divcore";
- 		};
- 
-+		wdog2: watchdog@40430000 {
-+			compatible = "fsl,imx7ulp-wdt";
-+			reg = <0x40430000 0x10000>;
-+			interrupts = <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&pcc2 IMX7ULP_CLK_WDG2>;
-+			assigned-clocks = <&pcc2 IMX7ULP_CLK_WDG2>;
-+			assigned-clock-parents = <&scg1 IMX7ULP_CLK_FIRC_BUS_CLK>;
-+			timeout-sec = <40>;
-+			status = "disabled";
-+		};
+diff --git a/Documentation/devicetree/bindings/i2c/i2c-davinci.txt b/Documentation/devicetree/bindings/i2c/i2c-davinci.txt
+deleted file mode 100644
+index 6590501c53d4..000000000000
+--- a/Documentation/devicetree/bindings/i2c/i2c-davinci.txt
++++ /dev/null
+@@ -1,43 +0,0 @@
+-* Texas Instruments Davinci/Keystone I2C
+-
+-This file provides information, what the device node for the
+-davinci/keystone i2c interface contains.
+-
+-Required properties:
+-- compatible: "ti,davinci-i2c" or "ti,keystone-i2c";
+-- reg : Offset and length of the register set for the device
+-- clocks: I2C functional clock phandle.
+-	  For 66AK2G this property should be set per binding,
+-	  Documentation/devicetree/bindings/clock/ti,sci-clk.yaml
+-
+-SoC-specific Required Properties:
+-
+-The following are mandatory properties for Keystone 2 66AK2G SoCs only:
+-
+-- power-domains:	Should contain a phandle to a PM domain provider node
+-			and an args specifier containing the I2C device id
+-			value. This property is as per the binding,
+-			Documentation/devicetree/bindings/soc/ti/sci-pm-domain.yaml
+-
+-Recommended properties :
+-- interrupts : standard interrupt property.
+-- clock-frequency : desired I2C bus clock frequency in Hz.
+-- ti,has-pfunc: boolean; if defined, it indicates that SoC supports PFUNC
+-	registers. PFUNC registers allow to switch I2C pins to function as
+-	GPIOs, so they can be toggled manually.
+-
+-Example (enbw_cmc board):
+-	i2c@1c22000 {
+-		compatible = "ti,davinci-i2c";
+-		reg = <0x22000 0x1000>;
+-		clock-frequency = <100000>;
+-		interrupts = <15>;
+-		interrupt-parent = <&intc>;
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-
+-		dtt@48 {
+-			compatible = "national,lm75";
+-			reg = <0x48>;
+-		};
+-	};
+diff --git a/Documentation/devicetree/bindings/i2c/ti,davinci-i2c.yaml b/Documentation/devicetree/bindings/i2c/ti,davinci-i2c.yaml
+new file mode 100644
+index 000000000000..89c639d023a3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/i2c/ti,davinci-i2c.yaml
+@@ -0,0 +1,62 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/i2c/ti,davinci-i2c.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 		pcc3: clock-controller@40b30000 {
- 			compatible = "fsl,imx7ulp-pcc3";
- 			reg = <0x40b30000 0x10000>;
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-index 1de3ad60c6aa..df06f03624d6 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-@@ -302,6 +302,7 @@ wdog3: watchdog@292a0000 {
- 				assigned-clocks = <&pcc3 IMX8ULP_CLK_WDOG3>;
- 				assigned-clock-parents = <&cgc1 IMX8ULP_CLK_SOSC_DIV2>;
- 				timeout-sec = <40>;
-+				bootph-all;
- 			};
- 
- 			cgc1: clock-controller@292c0000 {
-diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-index 46a5d2df074d..a1a7e6a0571b 100644
---- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-@@ -525,6 +525,7 @@ wdog3: watchdog@42490000 {
- 				clocks = <&clk IMX93_CLK_WDOG3_GATE>;
- 				timeout-sec = <40>;
- 				status = "disabled";
-+				bootph-all;
- 			};
- 
- 			wdog4: watchdog@424a0000 {
-@@ -534,6 +535,7 @@ wdog4: watchdog@424a0000 {
- 				clocks = <&clk IMX93_CLK_WDOG4_GATE>;
- 				timeout-sec = <40>;
- 				status = "disabled";
-+				bootph-all;
- 			};
- 
- 			wdog5: watchdog@424b0000 {
-@@ -543,6 +545,7 @@ wdog5: watchdog@424b0000 {
- 				clocks = <&clk IMX93_CLK_WDOG5_GATE>;
- 				timeout-sec = <40>;
- 				status = "disabled";
-+				bootph-all;
- 			};
- 
- 			tpm3: pwm@424e0000 {
-diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
-index c460ece6070f..9420519b5be1 100644
---- a/arch/arm64/boot/dts/freescale/imx94.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
-@@ -1283,6 +1283,18 @@ wdog3: watchdog@49220000 {
- 				timeout-sec = <40>;
- 				fsl,ext-reset-output;
- 				status = "disabled";
-+				bootph-all;
-+			};
++title: Texas Instruments DaVinci/Keystone I2C
 +
-+			wdog4: watchdog@49230000 {
-+				compatible = "fsl,imx94-wdt", "fsl,imx93-wdt";
-+				reg = <0x49230000 0x10000>;
-+				interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&scmi_clk IMX94_CLK_BUSWAKEUP>;
-+				timeout-sec = <40>;
-+				fsl,ext-reset-output;
-+				status = "disabled";
-+				bootph-all;
- 			};
- 		};
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 71394871d8dd..7caacdc819c4 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -795,6 +795,17 @@ wdog3: watchdog@42490000 {
- 				clocks = <&scmi_clk IMX95_CLK_BUSWAKEUP>;
- 				timeout-sec = <40>;
- 				status = "disabled";
-+				bootph-all;
-+			};
++maintainers:
++  - Chaitanya Sabnis <chaitanya.msabni@gmail.com>
 +
-+			wdog4: watchdog@424a0000 {
-+				compatible = "fsl,imx93-wdt";
-+				reg = <0x424a0000 0x10000>;
-+				interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&scmi_clk IMX95_CLK_BUSWAKEUP>;
-+				timeout-sec = <40>;
-+				status = "disabled";
-+				bootph-all;
- 			};
- 
- 			tpm3: pwm@424e0000 {
-diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/dts/freescale/imx952.dtsi
-index b30707837f35..59f829004000 100644
---- a/arch/arm64/boot/dts/freescale/imx952.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
-@@ -349,6 +349,17 @@ wdog3: watchdog@420b0000 {
- 				clocks = <&scmi_clk IMX952_CLK_BUSWAKEUP>;
- 				timeout-sec = <40>;
- 				status = "disabled";
-+				bootph-all;
-+			};
++allOf:
++  - $ref: /schemas/i2c/i2c-controller.yaml#
 +
-+			wdog4: watchdog@420c0000 {
-+				compatible = "fsl,imx93-wdt";
-+				reg = <0x420c0000 0x10000>;
-+				interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&scmi_clk IMX952_CLK_BUSWAKEUP>;
-+				timeout-sec = <40>;
-+				status = "disabled";
-+				bootph-all;
- 			};
- 
- 			tpm3: pwm@42100000 {
++properties:
++  compatible:
++    enum:
++      - ti,davinci-i2c
++      - ti,keystone-i2c
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++  ti,has-pfunc:
++    description:
++      Indicates that the SoC supports PFUNC registers, allowing I2C pins 
++      to function as GPIOs for manual toggling.
++    type: boolean
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    i2c@1c22000 {
++        compatible = "ti,davinci-i2c";
++        reg = <0x01c22000 0x1000>;
++        clocks = <&i2c_clk>;
++        clock-frequency = <100000>;
++        interrupts = <15>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        sensor@48 {
++            compatible = "national,lm75";
++            reg = <0x48>;
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index bc3bcc641663..50a11a8d71a2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -26396,7 +26396,7 @@ M:	Bartosz Golaszewski <brgl@kernel.org>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Maintained
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git
+-F:	Documentation/devicetree/bindings/i2c/i2c-davinci.txt
++F:	Documentation/devicetree/bindings/i2c/ti,davinci-i2c.yaml
+ F:	arch/arm/boot/dts/ti/davinci/
+ F:	arch/arm/mach-davinci/
+ F:	drivers/i2c/busses/i2c-davinci.c
 -- 
-2.34.1
+2.43.0
 
 
