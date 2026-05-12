@@ -4,104 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08BCCD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 12:36:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B25AECD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 12:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MOp4VzQJzpVrzaLWG2n8IsNxEYbCwRvMjRwLio3IkjI=; b=hmqu+6fKkqxWuyB40s76vfsIVI
-	qqF25bDiXA5TBYlvxW1bm9OIarvymqPeDwYchSZElFhgdHdm72I8+DLRB96TUxrMdEMUSoc9wNwbS
-	bkp8yMQW8fV6e1VXgi2jFl4+St5xzxJU/4jRK6ene9JaPU9SbrucyTIoC3F01cGPcKw6dqRZVWp+d
-	q8o+G1uznvFx0aRA3Wm7CtVsl1GHgNDNQjNJ8SuKpSwIWjBri9sRKcVS9GA+8yCSsCabIevg2W1Ed
-	LK842tJ8hIPzwy3MZqoWxuzRBJlH7QQQLM8S7+9Pw+vuizMKx0ybr338knOhP5Md8ULaG4pR332xn
-	PajSxCTQ==;
+	bh=4lELg4tysIZjC4IAy9jg6iqJ6L2+JsLGKduxlfu78HE=; b=O2XmChgXSTSX4GMoZG60iNWOYn
+	y6E0QR3wwjp2QfuoWG5wFxaXwSruwn9kAswYTv1xEtGUA23YgWEqLzGPdVcKfZBtvSAocbFR4DQzn
+	VcDyPG+zy3Zm9kOTCfCpFPY0pTnuvGcnrXsJMcjw1DJta+7Z3G8ekyTRT+SNuSsXLm+vFu1U1vx1f
+	aJXWX6+KtYZI+Ku5R2XY7uJYijzpJpjTZzJxySqqFKt8FqPDX0OtkOhWUMzvRnX7Y8veWrfEHRu07
+	feu9KjYW6DgegTjDIEVFbZb7H/aCmpe0SyoddPBwJj6ebVDEIooAqIAAWV7wbaSfse2cAxKnCeO/6
+	B6UBUqRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmLk-0000000Ggd9-32Dr;
-	Tue, 12 May 2026 12:36:36 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1wMmPN-0000000Ggzh-0hRV;
+	Tue, 12 May 2026 12:40:21 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmLi-0000000GgcX-3Z4Q
+	id 1wMmPL-0000000GgzD-1MFf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 12:36:36 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-512f09ecc67so38277561cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 05:36:34 -0700 (PDT)
+	Tue, 12 May 2026 12:40:20 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-8f15e900586so279938185a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 05:40:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1778589393; x=1779194193; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=MOp4VzQJzpVrzaLWG2n8IsNxEYbCwRvMjRwLio3IkjI=;
-        b=BSH4vyVkZ0Jfq8zC8miLUr0OXVvCxTUgQ5KRpe0LGuuvl/0Rho8of5bfYtkRXZ9k9E
-         OUWavEaVsuMpyxT2IkJ0ES3fw0ToK4UWyk8kwU8Vho4zmpfsVZ25RMcwZxtaTlEBFIc4
-         MKOgdHxQ0cajs+xkZ+rzsTasfIf+5IVt6sZgA7bz6IsZiqkSg0399THQyM3VewguOStS
-         Ez+Vc4fdTLnVdU9Z/hNWxrLSxPhL3J69JcyWlPRt9QKsiVggoFqRjF55zD2M6ZfCJNkx
-         7GAyvDQJb/KUEVuYMZ5qPwIbBM6nZx+d8Mvl7J6eE23Xbsk/wKuFc5OKZqcM90+LfLDk
-         lASQ==
+        d=ziepe.ca; s=google; t=1778589618; x=1779194418; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4lELg4tysIZjC4IAy9jg6iqJ6L2+JsLGKduxlfu78HE=;
+        b=E2Fxt+Afn9gwkCoaL2feMxxHinsk+wDFHBi8+oacxIrRvbmqdoHHuL0VbEEl5syLb3
+         W87nRWUVTSFxWJVpNHSxxS9UAuUzPZakQMqP3t+94RiuK0iTG+6IlCIDyA7X9EaIPkNY
+         9yqhQdaUfP+QQhDf1myl8FiDveJ8maohhCh4u0/EEUHG1fawt4SDT0PfT0w6e0fAqWpv
+         OvDr8aos0rwbskAfyhC4lPi6fGyCyS7t2ExJMzN102x/w5lu8aUDC9/V0l3GDY1IJVfX
+         E5DIhbjlZCFUwy7Gs0NzxjA9ylddSjGqGmiwekYsLpgkdZih6OH+24f/R+EyaCRneWAD
+         wvcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778589393; x=1779194193;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MOp4VzQJzpVrzaLWG2n8IsNxEYbCwRvMjRwLio3IkjI=;
-        b=tOnKWB4je7YdxBUiTfRrYW8sAEVv4+cHYjb+TImMS4inw2b96MyqGPs6PK1sGlsdSG
-         Uma3gFaoZUmbZQ111sPyCX46MYdLPSPV9iz++K4DC4yy0exqSWsVfxijkyDTM87HUSwe
-         5146lFgNewQZKkfhhw0CkCYzXJvQV4hJ15ckSNQFBz6UhfK/fQEmw7gxOWrzlkbPQdlV
-         oiWnEY0aPGhQop3X2m3x3CWTWibVt2AmT6M1hHNxOfphQjdyENhqknNtu2C+T7hMiqjV
-         O+6JZfN1mL0coDxFIS0dddKY5QHxY7mWzD7AVFQCO+o65nJXOfdn2HROTUJFQJaM+UTh
-         plbQ==
-X-Gm-Message-State: AOJu0Yzx13Gya7l6pMlxWCV3e/REnOCwNPb6DeLF8dglafzvt4gJZsZY
-	zy/5tgGVhZbrXMmRGZkG6Xlt4FFpVsroEVkOuzdZ6AOx2uJNpoc2ova0OZxhCDN/gHs=
-X-Gm-Gg: Acq92OGJkngnu1GiTacQ0/da9+OkXHSUU7VmBGTOjqcCkTRvQrnWBZn5f0OO0mjCuz+
-	i1PgJCcfIpfxrbVKNhH9URLmbrT24KktogKeuZWrrweduvZD/7gkJjSGNFA7Y5uB+/FDqrH5lrV
-	CRvYcJR6Y6FUow33dYKBNtJ4IpzPGtUvpJRGOx4GolueIynJsMus2emzD3Jg/NX/IKiZ+b06xrm
-	OgJvtnVwED5BQg87dNsnskcN8aGDWakAdNIh6HBHoJXuIrH3KiZB3020bXE3yktalUsATQ/Ss7t
-	vJO+5Wc/6WZ03p30uL6zO/1L0sBTsztNVIX/H2IQ/grqv6/PxX0ZDlP9PxzF0Sa3Tlnb7p2bdKf
-	DLIA3jaWrjNJdBmzruLb4TwJHQ8JM74MFHh+6zBMqqa1YZLFqBif22EnL/NSUnkAHSCJDzABPyI
-	OhED/q/tFIHkBpZLOCyxLua9vbinLxabvIiNGq8ZL3dTspxL/bQIeD9fuI7qe0XS/Vg4Vp3rJaj
-	Xb2mA==
-X-Received: by 2002:a05:622a:4ccc:b0:50d:97e8:939b with SMTP id d75a77b69052e-51461f9e47fmr406246311cf.36.1778589393437;
-        Tue, 12 May 2026 05:36:33 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778589618; x=1779194418;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4lELg4tysIZjC4IAy9jg6iqJ6L2+JsLGKduxlfu78HE=;
+        b=HSrcojcLZMTH+EGeI26EBxABOLq4CkK4NnGdgqcVFUFtV2xy/38wic68/GbWXogTPF
+         jtynVmG4UYpLE9HoW1vUhgIOa77MD/Ym4OxX1AO3NcSJWNyMTZgYkPM63dSoAo22VgUG
+         Q6PL7mvzRBynhj/wEMvJuXbGlDEq+XGUiVD8WPS9Gsls1hLfUrCQ2os6iUGwcKu+SfjM
+         caitTuzYWi1RD7Us1kxGfZFtR6QtAFo7ohmz2BCmiMB3uYGak3wOlrWkfnPrEQXBOt3g
+         IwzUyrbx11GPLcWjOTQb/GlCoAtuyCVJgVfgfPZAuQEr8/VTu8VV0Ywn3zGuZ+2Lg7YS
+         5yrw==
+X-Forwarded-Encrypted: i=1; AFNElJ/ERdG3QeE2nJxPNE5REh01/qn6rp0SSrVRMs3iC5RHro7DlNDusRkFBc/Lskl4TZRCqskIhquZLjiKGazg93lK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdrvA3rPIHBq6Q1yEavFM3mQWwOf+3flx+BCPeEAfYf+dw7F+D
+	GJLjdtiktBntu4VktMrhX6gG6nVgXvED5beNyvzzSXLZsqz4/syIZEOglBoNL83EJqs=
+X-Gm-Gg: Acq92OHavSRjndsICBwmvvSc2//bwS2swnixskombbsnV1C++KakjSpm9luzM0wgkFZ
+	y9kuexz3TAuyyDzEVSwhvQ/8H20kBFOXEdqMv/mhO4EFFtDztwKeNI1IoxdB+7Hq9WrmD/O7LTe
+	LTzGSMe/afMcpvOB2C/G4IXOkKxcQQHGau5B9OGmy3q2q/40dzX59VLFfE+FN5g5u2dIZHIC9Lh
+	jDc5+PBMa9JzvA47MunLnwGhdT/t9N9tW7lqp8D2ywC7IYtiLKFTUh/rPGnf4kdKJY8Q4zMo+NS
+	2cRl++rRjhQJvv3QiXvEY4YR7ttGo/jaSmLWcEjQ8QqkW2zFniu+Ee+MZWRAqH57VZQRLYZ6ifi
+	5eLNJRKe5mt2AA66gXqqEeijeOr20I9MLO0ordqn5IwBokoWAFBc81RtUsWt+KDltQ4X4gS89Lo
+	+LRFVPFIBXFxDklxul941jzAzWQS/l3vg7HfVP2Br4BLK8G791CpXO/ei3vE6BodQ3b3zH7y3FF
+	HJ0aQ==
+X-Received: by 2002:a05:620a:2887:b0:8eb:2aae:ef9c with SMTP id af79cd13be357-904d4f4b25amr4301047185a.27.1778589617549;
+        Tue, 12 May 2026 05:40:17 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8b53cd827c5sm391412326d6.40.2026.05.12.05.36.32
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-907b87bd588sm1464542685a.29.2026.05.12.05.40.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2026 05:36:32 -0700 (PDT)
+        Tue, 12 May 2026 05:40:16 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wMmLg-00000005AiQ-0kgs;
-	Tue, 12 May 2026 09:36:32 -0300
-Date: Tue, 12 May 2026 09:36:32 -0300
+	id 1wMmPH-00000005Aky-3Kl2;
+	Tue, 12 May 2026 09:40:15 -0300
+Date: Tue, 12 May 2026 09:40:15 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
-	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
-	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Subject: Re: [PATCH v6 08/25] KVM: arm64: iommu: Shadow host stage-2 page
- table
-Message-ID: <20260512123632.GT9285@ziepe.ca>
-References: <20260501111928.259252-1-smostafa@google.com>
- <20260501111928.259252-9-smostafa@google.com>
- <20260501130006.GF6912@ziepe.ca>
- <afiRB3e3o0G1oZvY@google.com>
- <20260509232714.GI9285@ziepe.ca>
- <agG8XtrHUfWGy-kd@google.com>
- <20260511142232.GP9285@ziepe.ca>
- <agMEFhxsmjpO0thM@google.com>
+To: Joonwon Kang <joonwonkang@google.com>
+Cc: robin.murphy@arm.com, Alexander.Grest@microsoft.com, amhetre@nvidia.com,
+	baolu.lu@linux.intel.com, easwar.hariharan@linux.microsoft.com,
+	iommu@lists.linux.dev, jacob.jun.pan@linux.intel.com,
+	joro@8bytes.org, jpb@kernel.org, kees@kernel.org,
+	kevin.tian@intel.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, nicolinc@nvidia.com, praan@google.com,
+	smostafa@google.com, will@kernel.org
+Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
+Message-ID: <20260512124015.GU9285@ziepe.ca>
+References: <20260511132128.GM9285@ziepe.ca>
+ <20260512095714.2518097-1-joonwonkang@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <agMEFhxsmjpO0thM@google.com>
+In-Reply-To: <20260512095714.2518097-1-joonwonkang@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_053635_050183_A9658446 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20260512_054019_373012_6E9651F3 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,33 +108,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 10:42:30AM +0000, Mostafa Saleh wrote:
-> > Also io-pgtable arm cannot trigger BBM behaviors, so how do you
-> > implement it?
+On Tue, May 12, 2026 at 09:57:14AM +0000, Joonwon Kang wrote:
+> > There is a bit more going on though, I think that is what Joonwon is
+> > mentioning by asking about ST64B and ST64BV. I *think* the answer is:
+> > 
+> > - ST64B uses a posted write
+> > - ST64BV can be restricted so EL0 cannot execute it, it uses a
+> >   non-posted write (AI tells me via EnASR)
+> > - ST64BV0 can be used by EL0, always uses a non-posted write, and always
+> >   uses ACCDATA_EL1
+> > 
+> > Which is similar to Intel.
 > 
-> At the moment, we workaround this by mapping all the memory with PTE
-> level, while MMIO remains at block level as they never change ownership
-> at the moment.
+> Ah, I missed that ST64BV is currently being trapped to EL1 while ST64B is
+> not [1]. However, I am not sure if the trap is to disallow EL0 to use it.
+> Can it be instead to pass the response value of the non-posted write to
+> EL0 while using the EL0-given PASID as-is? If so, I believe EL0 still can
+> specify arbitrary PASID as it wants via ST64BV.
+
+I think if an OS implements things this way it is would security
+broken as far as ENQCMD compatible HW goes.
+
+> Since I guess ST64B* instructions are to serve generic purposes not only
+> for communication with accelerators with SIOV but also with any memory
+> location or device without SIOV, I am not sure if it is always okay to
+> make those instructions work the way Jason mentioned.
+
+The end point has to use the posted vs non-posted write distinction
+for security.
+
+> > The device only processes the PASID from a non-posted write,
 > 
-> This is one of the missing features I plan to add after this series,
-> if you look in the cover letter, these are listed under “Future work”
+> Regarding ST64B, are the ARM devices behind ARM SMMU v3 supposed to work
+> this way too? If not, EL0 can specify arbitrary PASID via ST64B with the
+> kernel today [1].
 
-Hrm, I would not be happy to see io-pgtable modified to have bbm
-features :\ They are very complex this is what iommupt is for..
-
-> > So that's the real explanation, KVM cannot manage the S2 in the right
-> > way so you can't share it. RMM/etc are managing the S2 without
-> > pointless page faults so they can share it.
-> 
-> Well, there is not really a right way, even with a fully populated
-> stage-2 page table, you can’t guarantee not getting TLB conflict aborts
-> without FEAT_BBML3 (which is quite recent), unless you map everything
-> with a leaf level, which then impacts performance.
-
-I mean, there is a right way - you need to rely on the BBM features in
-all HW and fully populate the S2 for no faults. So if that isn't
-present then you are doing things that will harm performance to work
-around the issue. It's fine, but just explain in the commit message.
+If you want ENQCMD compatible semantics then yes you have to do all of
+these things, it is part of the security design.
 
 Jason
 
