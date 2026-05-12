@@ -4,130 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5887ACD4855
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B26D6CD4855
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 09:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hHEQybcyh2jXtO4gZAavHtnMdO1WHd/gjEPDaJ0CSR8=; b=YQB3s6Ppg1sW5BKUX1N2tkcL1H
-	iQcw5zqsTyDgBkuVScCKfD/dczL9Nl7uquWAw7gIxCmUtxE8s1EAFE0lqWtu0Kdgb02U0WyMRcL2Z
-	8pqeyFRNPh31dU7Nz+j616dCgkxzSAlffs0kRWMxLR1F074snawbTUt5antt/35DCFne30ZohKVqX
-	/NmZ7GgjTfSRYwtTsKZ/6cvPodEJCC6BXdvAzudqtWP5qy6O1Vbd0ofDMM4KSBH6nnrbb2ecI6ad/
-	PlP8vnh0MNnuAThIY93q5N4Nxzqslh9Dc6YMiokKht65OsWkK7YR6p7er+tPyRN3ILXvxAuySkBDk
-	ul2b9Wnw==;
+	bh=DGMbMgiPrQW9m7V0yb0uzVt7i0ChVnqwTfRSClSCuxg=; b=GfA0avWHTT3QaoAx3I8ewTeNFB
+	vZ3hgrvLwuHuAeKgEm0Jy/OFMorBzWegVI0M66Ysu1Tr/qk6Ov2fqjshAaXXW43PwFx/7xCn3LbQ2
+	fe+7/QkjPFusF4u8qPW1gME9UmyMWywvdefgWrod2F0RFbUnjyopglItN+8FrLJC9M9uPfIUYTJiq
+	PxnLXCz6XtrHYpDzjq3l7IiiYHkDxTxx9JBgs+M137wJY0oDMpf91rGqFCGYXJPZ1I416hF3pT88B
+	wohxVskyo+li9sUMGYZUvrqwmOZUFeIIDeR4NkW4bjSfCYAfQmF9qIjCneoAOyGVv1Fd9Nc468W1Y
+	UHjoTmfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjpT-0000000GKKe-0EHf;
-	Tue, 12 May 2026 09:55:07 +0000
-Received: from mail-swedencentralazon11013003.outbound.protection.outlook.com ([52.101.83.3] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wMjpx-0000000GKR6-0kSX;
+	Tue, 12 May 2026 09:55:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMjpP-0000000GKJ8-2mAQ
+	id 1wMjpv-0000000GKPv-0bKp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 09:55:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kHRAPIcMrJmN0CIc5MADjsii1nQpdBqvIU9N3Di6Qz+hsqU1fW5RoURthTKqSgzmyHw4yxhvDOts3QvnDnFg4TNqdM6+M3Dw1SgOkcWYfs0qdFZWCZR8xkjVYBsAJiXs7qa0tnAC2z2Q6NdP1B3Yte5qiyXCbsHPz2arOXbcbYdvtnM6QhqA+Fi+R8SL591VY5uLqy1xwn1RftF9WWRvQk2JzAwn4JkDE9JHeKpXAYB/s8Nv4etMdmUsZkvwKpeMmd0PCD1kJCkcT9261kOOdXzJGBMrN1DYBU0a5GL3TeH5Dywee2doJ3tn+MWvhNQz3mv8ORCRuOZUhgsi5aT16g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hHEQybcyh2jXtO4gZAavHtnMdO1WHd/gjEPDaJ0CSR8=;
- b=Nb7efpmoRKBrhuW7x8hzXvOxUYpb8qGmbB+3TVH0/9Re4YcJzMcxOy47BFWgq/HdjnfD2J6GHPh4NXEfX9EGrFupAxmZ9HN8EtauM1Rcsqg5d1qatPXF9BPYVXEQPEwBC8cBgTT/51q1g/E4vVf+Y18qZp2BxY6UMdcGBbM3EDSLHLO4Uez6O+b7T1E4PwdfVYW6LB5YZ/vWv96bT6c0GBP+ehEuEFR5s9GEFnBU6Ku0u3dCrA3oKD9ogitY/AUOgMb4oOd5bcyEdXDUSlT5VBrVvmKsVCdOwTbscvu7XcMdRSgRJSRHH8lMWTUtzxIQfDTWYhP3ZBDgVEMcAZrkjg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hHEQybcyh2jXtO4gZAavHtnMdO1WHd/gjEPDaJ0CSR8=;
- b=dy37VpQtTbse5DnlKlBEWm8vuH3g2kn9Os4fFvxJWaEhaicSB8dhVnXHF890pqfKQ4HTmxLkOq0ogtM/KAN8Q3LqC/QcjV9tYH80WMUSu6m+k9zWnjmKiAOoGSXAXEz9nckq6GMkpgOLV4A0jHlN2x85zUjjxGeuX8wlXmgVBxLQB2HsbHbUnVA6e1P8B7sWeESP+91qxRT/CICVJNx9OMw6t0Z+fMsaJMrDyU4HgNwHOIQ4oXGQ3N5vYqBqBB2E6mMA0RP4pNrz8YON+hgt/64MWnvBSKDKYshlV0seuU/WafE/b7+aMke2tVvbIXFNkj4bFr6WvYOAULHCx2tEBA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by AMVPR04MB12673.eurprd04.prod.outlook.com (2603:10a6:20b:775::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
- 2026 09:54:56 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9891.019; Tue, 12 May 2026
- 09:54:56 +0000
-Date: Tue, 12 May 2026 17:53:57 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Franz Schnyder <fra.schnyder@gmail.com>
-Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jun.li@nxp.com, 
-	Francesco Dolcini <francesco@dolcini.it>
-Subject: Re: [PATCH v3 3/3] usb: dwc3: imx8mp: disable auto suspend for host
- role
-Message-ID: <5zz6yhc4ymoccovibmjlse2l2d6y3g3dwu5r5a677rplpfdnwu@fo2ed54hqzeh>
-References: <20260108081433.2119328-1-xu.yang_2@nxp.com>
- <20260108081433.2119328-3-xu.yang_2@nxp.com>
- <k2sxmwhrv3tivustfnpz54ehuufkcrcruu2uuukuyugqtqljzl@5roxndm5fn5u>
- <jjwlrgusucoacaye75uqfuh76a4jhdv3ivzjuemgusw3trwseb@mymuy62cptxp>
- <hsyy2owzbt7tsljktlrz5g4bnrnecznvcyy6zxt7gfyxb4xvgi@ysko6xe6h2zm>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <hsyy2owzbt7tsljktlrz5g4bnrnecznvcyy6zxt7gfyxb4xvgi@ysko6xe6h2zm>
-X-ClientProxiedBy: AM0PR02CA0192.eurprd02.prod.outlook.com
- (2603:10a6:20b:28e::29) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	Tue, 12 May 2026 09:55:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AB8EE40DE0;
+	Tue, 12 May 2026 09:55:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B0C1C2BCB0;
+	Tue, 12 May 2026 09:55:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778579733;
+	bh=sKtOdshfCoX9MSFc77fz6L3nrgnwT/LACWvUhL5OfVg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DxnuZ0dTMIPrtYkkFNyjpxIU2k1GNR56TB3NXSivcCStVQW683e2Xw7JJczyUi3ta
+	 0MSLaDxb/f5MTm9aKw6LGkBNmmnTOz4uFtrljJyJ5KzusZdrgeDAumATwqAwpSKP/C
+	 zk56xho1rCi3cE9YgLBMeZbEYyh48l1MDIHZg91ilibgHasAj1SNo/CG98mUN+NANp
+	 kYljsLqCtoetCiGLGlxcrGLPqWEZu8TR4crtz8nDBvdk7piw6acWzgNYk1Hr0Xjg37
+	 yYBXRSSWg6Sl/Yrt685291veeK7bzUZGNLPJVMvhsGfsvpqabZ9dMxpC4G0mujHmYS
+	 9Qw2o2ZGnFXhA==
+Date: Tue, 12 May 2026 11:55:30 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Jyri Sarha <jyri.sarha@iki.fi>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Simon Ser <contact@emersion.fr>, 
+	Harry Wentland <harry.wentland@amd.com>, Melissa Wen <mwen@igalia.com>, 
+	Sebastian Wick <sebastian.wick@redhat.com>, Alex Hung <alex.hung@amd.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, 
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 10/20] drm/plane: Add new atomic_create_state callback
+Message-ID: <20260512-versed-cougar-of-sunshine-dcf86c@houat>
+References: <20260424-drm-mode-config-init-v3-0-8b68d9db0d8b@kernel.org>
+ <20260424-drm-mode-config-init-v3-10-8b68d9db0d8b@kernel.org>
+ <20260504165229.GM1344263@killaraus.ideasonboard.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AMVPR04MB12673:EE_
-X-MS-Office365-Filtering-Correlation-Id: b04fcd20-4669-48f2-e8c2-08deb00c8599
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|52116014|1800799024|18002099003|22082099003|11063799003|38350700014|56012099003;
-X-Microsoft-Antispam-Message-Info: QigG1U1r+OqNOfPlTM2hDfFCoxYnQ1PhUFtrysmSpwnsfdpYqeUtxC9jtQwScScv/twWln6D2X41nrzniEzRsK/gpg8nEx8cbKJy9d2dFmU3r6wKEbtgZmNVsFUfc8Gw3jqJTkd8uU6Efs9bgQRQQ+UM1ZN+pDTska87g3W0RCvMWj9O03m4DbMkEj5HCiywGXJ4S7VYgUPnz1AVTCwFzuGrxNfcjoYaXhNQOuyBWxE0aTAjTbRcPWg05X7tizi3bjnQ8V5C2ajfvwkJUGswId7RwYS02UJsX7PKwF8e8UEkVb2OCzxk45z7o+i0Td0ZOpMW9SNArQCLTTxTvbq1FqB/ctKY9mDWAH6OtSMDuidTtTb5uDqn/Q3n0oucNGXluV44CTbgiUPPsTFISf4Air0dm4eAEUwwjzGehQrSzyDYbap+Ut6H4qdozGrmxHBqMXGYHnvO3BWqPawIj5Ios/CjI36pMlgjPjiLjE3vZZPfm4eD0oUVN+y/0n0E0VCZTuxqlwJ8cpz6ubY+vUj7BEjtIVlbodNR2DiplYC+0K+tXFGUJiaD/i4sHBoJI+ptdNQiXyGZBG5V1mpkBJbvY4UeUz2JHKHopYnqxUWH+wDCriNkFk714NvWaUGvYTQhKoqwYhba7IGqNrH1VbYq2XF75sc/421qtnlV746gVyIvKdLwpTEnLsCU+VuA/fdpJJcZIov5cJo8TuyMBhhjzyllLuBk4l/ZXf5GzlGlo2kYKpeU8MqxOp2wn/mrSK4u
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(52116014)(1800799024)(18002099003)(22082099003)(11063799003)(38350700014)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vq+3kp6c1I0hoCZnA35Mb4AZUBhtF/jXnFCBxtxPp1Yt5LPKYr71J/a6tEZM?=
- =?us-ascii?Q?8WoQhKaQCOC60v00T18NpNgpCSqOuAal0CKONqDhsoWdZGRSw9INYFlnVtFE?=
- =?us-ascii?Q?8SH4C2oYOuvjXfzotYCPRed34enRKkND4/VaOsbwhT6Ew03Rl3St8sC3nP6c?=
- =?us-ascii?Q?DODezZM4HLmzr6Iz07ISGBsjNZkTxho1ADfi0EXo+JQMNRNHIpNVdEm+QBj0?=
- =?us-ascii?Q?g2wkkLco4o1kLiCHQkPiCdmdEfSnHw2NT2RRaJn8/REWXM8/2EgCRRzqWkR6?=
- =?us-ascii?Q?zeDc3LQatczr0LAuYaXXY2PiMQgjS/KMgOAatjJzY8HgoVrItn74GkfMFSE2?=
- =?us-ascii?Q?LBLgrMvxQapUA9jZSq2Bh64N8x/1QXuVIiy1jL1U7bDgpzO9Nl1JKgdejw3P?=
- =?us-ascii?Q?zM7E7SHLrL8MmPKU2hspAxWgf0ucjr9xq71d0EKMSqCzlR4sSOyiWryYyTIc?=
- =?us-ascii?Q?xj1sFks9mp6I9te0oF/D2Udi+4La0QVjIIGSKKXB1xaAsIZBazjrDMLu0aSd?=
- =?us-ascii?Q?PUEXyDjMqFw8kAybasX2nGEuZZweVkziJOI9yQQuLxdWXwWqS/cXBQvEFCPm?=
- =?us-ascii?Q?LoBjoQA5ArkFm2XwGJNI53QQv70KyIRowwvyNPMirm2yXBemA69uv02J7dDB?=
- =?us-ascii?Q?o00iYOYBtu8+Us49Xc8N4LEoPj3wY+A3xuymogcGs2cAypJbVyWVOrI+Dtfj?=
- =?us-ascii?Q?eN6BXOTKg4Yg5lVg8ZjAWg6e587RsGOWVi40oU8PHw4UFgqHzukPxRK1UHiF?=
- =?us-ascii?Q?a2XCK7XPz7xf24dsKGQLZsvoPGtYx5lRT329YMDJP83/5usnTXw6GF2mcj1p?=
- =?us-ascii?Q?2VGMzAG58JGLcVWR6zvxlS0ugWQUU9U3+GKJoKLsSNjumogdvbLQCUoW+bV/?=
- =?us-ascii?Q?ANW6OYa36ST0xxFktfBiK1p7/bc1s9aLzV+zrPbFVv5a8CaBe3kgWiYpeupk?=
- =?us-ascii?Q?Q13fv/CiDOPWvj6/DUPF6lUX55yP+HwVExNgB9/P6nVuIeQN8mGoHxnjXudx?=
- =?us-ascii?Q?Z8iXQI7vasUFbXbrbXnEeK449Z2gSyOE6UMnwWoOuGJIVbj68LT6NlyoQcYw?=
- =?us-ascii?Q?AH1VitkBVI5TsRmBtb2ucFOGitajALYL+Z0nwEntZ3nQeQu97IiyUd0GWMdJ?=
- =?us-ascii?Q?p8LTduHXFMenxFb+ucq1P41axXHKcUj0PaFTZeryqdXzB528UbDR8JChW3bR?=
- =?us-ascii?Q?3GnGIBvoNGNSYA/U7N+Wb/FCJGmjzNXd6OpbwWTScYpy+EBa1PVxtBsAkzGW?=
- =?us-ascii?Q?2IcHZk8BPnUT/vRpu09Q/tXIY0wzGpXQ8RjH3hDFx1LzG+aj2MGhHy54DwJ0?=
- =?us-ascii?Q?Dj72aXcIvV+Vrws7Jwcm4ge6eojtVWy6NLunp5XPzFmkfaWZmRTqi4LorgTR?=
- =?us-ascii?Q?18VHiXzx+Y35zgZ8QJ22VNRMsfEENw7FCt70aFYaRToGguffLKH4Fwy31YZ6?=
- =?us-ascii?Q?+PDR4hHcxJlQL2sSwFd7xhTKECI7gUcJqrNvQxoT76yylk1sewUB+LAi4qyh?=
- =?us-ascii?Q?qqnoAi986bNc38R6aIC0qt5mhRd3/KWVh6tVzgwN2CmlsXbSCoZr3uLAu04d?=
- =?us-ascii?Q?nsk7/SI4jP8yNDX/HAya1QE7WpCvv4elIRe6YGn/Eg7fIHQ6NktUP8nLHBtI?=
- =?us-ascii?Q?wwPD9xHy++U0R+gG+ljs2JEOH6rZzAiMBOdGXpGSI2pnjb9EVcO4LK0PMvky?=
- =?us-ascii?Q?mBauz0QooNQq3xr/ifD1YBCO9pqJ0iiJ2W/0nMP5/M3IrMhv1ZVAdY7NiHKM?=
- =?us-ascii?Q?NHWFl3O+jg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b04fcd20-4669-48f2-e8c2-08deb00c8599
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 09:54:56.3305
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: c7zf61BJ+t5ZndxY6+B3jk6eoTQ1NQ07ufLo3y9sA9AHJqrnU7gp0IKVn0jrjIW4RJ1Zk2xfRNJH/Dv8MgHg7Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMVPR04MB12673
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="22373ydgvhi5g6fp"
+Content-Disposition: inline
+In-Reply-To: <20260504165229.GM1344263@killaraus.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_025503_705693_33B44BDD 
-X-CRM114-Status: GOOD (  26.10  )
+X-CRM114-CacheID: sfid-20260512_025535_319289_33B77FCA 
+X-CRM114-Status: GOOD (  34.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,52 +90,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 06:04:49PM +0200, Franz Schnyder wrote:
-> Hi Xu,
-> 
-> On Fri, May 08, 2026 at 06:54:40PM +0800, Xu Yang wrote:
-> > It's strange that link->status is not DL_STATE_DORMANT or DL_STATE_NONE at
-> > the time which means the device core may not properly unbind consumer devices
-> > or handle something. The patch does a simple thing so the issue may not come
-> > from the patch itself.
-> > 
-> > 1639:	list_for_each_entry_safe_reverse(link, ln, &dev->links.consumers, s_node) {
-> > 1640:		WARN_ON(link->status != DL_STATE_DORMANT &&
-> > 1641:			link->status != DL_STATE_NONE);
-> > 1642:		__device_link_del(&link->kref);
-> > 1643:	}
-> > 
-> > Which kernel and dtb are you using? If it's a downstream repo, how do the USB
-> > controller and related DTS nodes look like?
-> 
-> I was using kernel version 7.1-rc2 and noticed it while working on 
-> sending the Aquila iMX95 upstream.
-> https://lore.kernel.org/all/20260506-add-aquila-imx95-v1-2-69c8ee1c5413@toradex.com/
 
-I don't see any special configuration in your DTS. I modified my configuration
-to match yours, but I can't reproduce the issue. I also created some fault points
-during the probe process, but still didn't encounter the issue.
+--22373ydgvhi5g6fp
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 10/20] drm/plane: Add new atomic_create_state callback
+MIME-Version: 1.0
 
-> > 
-> > Does the issue easily happen? Does dwc3_imx8mp_probe() eventually succeed?
-> 
-> I did various boot attempts with the commit reverted and couldn't 
-> reproduce the issue. With the commit I ran into the issue in about one 
-> third of all boot attempts. So most of the time dwc3_imx8mp_prove 
-> actually succeeds.
+Hi,
 
-OK. I mean, does dwc3_imx8mp_probe() still succeed after the kernel dumps
-at the end?
+On Mon, May 04, 2026 at 07:52:29PM +0300, Laurent Pinchart wrote:
+> On Fri, Apr 24, 2026 at 12:18:50PM +0200, Maxime Ripard wrote:
+> > Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
+> > to drm_private_obj") introduced a new pattern for allocating drm object
+> > states.
+> >=20
+> > Instead of relying on the reset() callback, it created a new
+> > atomic_create_state hook. This is helpful because reset is a bit
+> > overloaded: it's used to create the initial software state, reset it,
+> > but also reset the hardware.
+> >=20
+> > It can also be used either at probe time, to create the initial state
+> > and possibly reset the hardware to an expected default, but also during
+> > suspend/resume.
+> >=20
+> > Both these cases come with different expectations too: during the
+> > initialization, we want to initialize all states, but during
+> > suspend/resume, drm_private_states for example are expected to be kept
+> > around.
+> >=20
+> > reset() also isn't fallible, which makes it harder to handle
+> > initialization errors properly. This is only really relevant for some
+> > drivers though, since all the helpers for reset only create a new
+> > state, and don't touch the hardware at all.
+> >=20
+> > It was thus decided to create a new hook that would allocate and
+> > initialize a pristine state without any side effect:
+> > atomic_create_state to untangle a bit some of it, and to separate the
+> > initialization with the actual reset one might need during a
+> > suspend/resume.
+> >=20
+> > Continue the transition to the new pattern with planes.
+> >=20
+> > Signed-off-by: Maxime Ripard <mripard@kernel.org>
+> > ---
+> >  drivers/gpu/drm/drm_atomic_state_helper.c | 25 +++++++++++++++++++++++=
+++
+> >  drivers/gpu/drm/drm_mode_config.c         | 21 ++++++++++++++++++++-
+> >  include/drm/drm_atomic_state_helper.h     |  2 ++
+> >  include/drm/drm_plane.h                   | 16 ++++++++++++++++
+> >  4 files changed, 63 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/dr=
+m/drm_atomic_state_helper.c
+> > index 285efbf29520..50fe4eec41a8 100644
+> > --- a/drivers/gpu/drm/drm_atomic_state_helper.c
+> > +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+> > @@ -338,10 +338,35 @@ void drm_atomic_helper_plane_reset(struct drm_pla=
+ne *plane)
+> >  	if (plane->state)
+> >  		__drm_atomic_helper_plane_reset(plane, plane->state);
+> >  }
+> >  EXPORT_SYMBOL(drm_atomic_helper_plane_reset);
+> > =20
+> > +/**
+> > + * drm_atomic_helper_plane_create_state - default &drm_plane_funcs.ato=
+mic_create_state hook for planes
+>=20
+> drm_atomic_helper_colorop_create_state() states "Allocates and
+> initializes colorop atomic state", while here you document it as
+> "default hook for planes". Consistency would be good.
 
-> 
-> > 
-> > Could you add "#define DEBUG" in the head of drivers/base/core.c, rerun and share the log?
-> >
-> I can provide you with the data next week.
+I don't think it's inconsistent?
 
-OK. More debug information will be helpful.
+colorops don't have a create_state callback, so the only function to
+create it is defined as "Allocates and initializes colorop atomic
+state". For planes, the hook is documented as "Allocates a pristine,
+initialized, state for the plane object and returns it.", and here we
+have the default implementation for that hook, which is documented as
+such.
 
-Thanks,
-Xu Yang
+It all seems consistent to me?
 
+Maxime
+
+--22373ydgvhi5g6fp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCagL5DgAKCRAnX84Zoj2+
+dkRdAYD0DMSjBZG7KznVzXsEfKNp2FbSJf1ulgAd4J6iTdzQ1dB+YlrxnLFoX8sG
+PCH3lKkBgN5APIC+q4CMgKtqaEulFN6SaM58HNWcqL5byNjMi/zSBGs3FJRVyiME
+cyx+95kJPA==
+=j3nb
+-----END PGP SIGNATURE-----
+
+--22373ydgvhi5g6fp--
 
