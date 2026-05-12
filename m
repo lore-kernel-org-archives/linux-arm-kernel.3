@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70BD0CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:27:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C79B0CD4F35
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 13:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fQO37iwoL1842Avlnd13K3l5iFyYe8sdEPMZNsnUqmw=; b=HQkCxqqVmav2OqjwxGMSY7FJ0v
-	XDazqs0wmhL3MgK4pVEfNx6t5k+ynKnSHY/ZSCcudQX9/QK+xvvxbbzysnqxvj08sxuKRWKoJApr8
-	KkeQ13HH96RZ9m63eHpoRTd8DJ+Wsqh1SDJLco0k/f+5kSA39J+CZ3RZtsFwEcsKBX3Unzd1kWgUM
-	lYZeU39VM5cYglCMhPZE7pYfFgH+GlkTppB8UKEa0vOHZpFy3aUt4Pvg03fKqvLlj42EH8xQzKRC7
-	8OuGo6mfEAftnWrd7Tc8GrZH1xpvWfwMlDvgNxGa6WeBBli/UGu7XAx05yHJP0sg8y8UhNnGlCg7Z
-	4nGxRThw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xG4eUljkev6EFMCHkXPSd1wU7e+AIHUocEa6ai+XaE4=; b=xDofSf040Rwvjq18ihwmiXCdmQ
+	EB3Jvzov+XcGf0UVniXUhjjJhu6lZCfsKcXZuZ8c77KKahH8XJhl1BfZs1r/PupSTtW6CoGPHloVC
+	2BdaFejlP+m38DDF00oXtKWPHUh/OVZBJ0/xlnA68VMtEFLMJg0PSRBkxGq4j7gsKD8Uwh8b8ymx8
+	8Bc8BPemZRtrKjLxkart3LCgLFYaXpmAzWIRsuyt6HjflIgJ4nDL4+p+F0szQxGbjqXebcArhCka5
+	tdJbOKSprfPpeIoeY3J4wCngGPM9R4I/AR8O9EKBbW9YVqlcT3UNt/jSpd/Rd4TdRYrZ9XEuMPmD3
+	8mBV5FmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMn8Y-0000000GqIc-1HPZ;
-	Tue, 12 May 2026 13:27:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wMnBj-0000000Gr5e-1sNv;
+	Tue, 12 May 2026 13:30:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMn8X-0000000GqIM-3K22
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:27:01 +0000
+	id 1wMnBh-0000000Gr5J-45Hz;
+	Tue, 12 May 2026 13:30:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4601D61335;
-	Tue, 12 May 2026 13:27:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 484FBC2BCB0;
-	Tue, 12 May 2026 13:26:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0B7146183A;
+	Tue, 12 May 2026 13:29:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DD06C2BCF6;
+	Tue, 12 May 2026 13:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778592421;
-	bh=N1R7TqmycjTX2xwMWBpyDMY64Xdu0Sxh/2pss/RBKaE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cKYk/TZy3Ie0pFOp7a9/YmoLU7+Wmas6Ib9z0fwDYQcgzHEqK7gvOBcL3Zqq1B8yc
-	 ahYsJFyBNCY3nbSltUHnMiLSNcuwC/WeuTvQTUH+xwrd7cDJoV9p7Ej6BnRlO6UxLi
-	 QL4yU1XXw/1ycML975bp0e+jYaXs90knhVNeWyTw1352l8LuuMfOi2A8eCv0mPFzrr
-	 tiOACA5MdfvtInsdlpyshTsDFR2oAmL9LzPnQZFFRb2AeANRdq4yp7jwp9FW36r9cV
-	 jIi+ZDT0OnAbk9b5IxjVqfCdDKNvh+tUsbnikNisjdGKVCi5/qb+9hB+2Tlx75uv8V
-	 KrX19J514c9FA==
-Date: Tue, 12 May 2026 18:56:51 +0530
-From: "mani@kernel.org" <mani@kernel.org>
-To: Hongxing Zhu <hongxing.zhu@nxp.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>, 
-	Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>, 
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"festevam@gmail.com" <festevam@gmail.com>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 1/3] dt-bindings: PCI: imx6q-pcie: Add intr, aer and
- pme interrupts
-Message-ID: <t3d2s6rl25ywobis4xiwwdvjrccua2qrpwfsxqpvp6qw5pzofa@kjm4wzcpjcli>
-References: <20260430050954.3467984-1-hongxing.zhu@nxp.com>
- <20260430050954.3467984-2-hongxing.zhu@nxp.com>
- <20260430-proud-ammonite-of-gaiety-abaafc@quoll>
- <AM0PR04MB52202A13D528B3AE16C3616A8C352@AM0PR04MB5220.eurprd04.prod.outlook.com>
- <55258a51-9cdb-451c-be06-74b9b3020cbc@kernel.org>
- <GV2PR04MB12019F5425D6EB9AE52FC32CE8C3C2@GV2PR04MB12019.eurprd04.prod.outlook.com>
+	s=k20201202; t=1778592586;
+	bh=OE2XOA8Ys/J68M2y8Svmcp4K9BF42SihLc9PvIZ2c1U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=m3bqYVgss5gGSLp+d7Jk7GkVsx9WevUkW0NCpmq904DyHvmgN774LUagw55vDZGyu
+	 LFNVeRPgb3SGxxeC0uIzZco6gL3Ft1tWpZGWx0oINYONCbj04EL154U7vvLo/hn9mN
+	 j+ZdFPGuVyOsF1VjQO7nz3Ic49b76nyCvnnizE48f9VGyApyCQx+fw+ot2QqJa3uoS
+	 v4+ubQQhpwXR5P2rvgkUTS5OmYEexMko68cLgCXQtslT6heauPB8jNc6ZwN85IO/gZ
+	 sYLoBwrfAhqkGgRYZy+SSc2r8atrc0fyKxPINOG5COJuZdKjWuLqwkdSpSoXUVfVNJ
+	 xZxJOsN8dq/Sg==
+Date: Tue, 12 May 2026 14:29:32 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Cc: rva333@protonmail.com, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Sen Chu <sen.chu@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>,
+ Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, "Rafael
+ J. Wysocki" <rafael@kernel.org>, Daniel Lezcano
+ <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+ <lukasz.luba@arm.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org, Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH v2 05/16] iio: adc: mediatek: add mt6323 PMIC AUXADC
+ driver
+Message-ID: <20260512142932.5c6801d1@jic23-huawei>
+In-Reply-To: <20260512-mt6323-v2-5-3efcba579e88@protonmail.com>
+References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
+	<20260512-mt6323-v2-5-3efcba579e88@protonmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <GV2PR04MB12019F5425D6EB9AE52FC32CE8C3C2@GV2PR04MB12019.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,79 +82,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 08:04:22AM +0000, Hongxing Zhu wrote:
-> > -----Original Message-----
-> > From: Krzysztof Kozlowski <krzk@kernel.org>
-> > Sent: Thursday, April 30, 2026 6:49 PM
-> > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> > bhelgaas@google.com; Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de;
-> > lpieralisi@kernel.org; kwilczynski@kernel.org; mani@kernel.org;
-> > s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com; linux-
-> > pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > devicetree@vger.kernel.org; imx@lists.linux.dev; linux-kernel@vger.kernel.org
-> > Subject: Re: [PATCH v3 1/3] dt-bindings: PCI: imx6q-pcie: Add intr, aer and pme
-> > interrupts
-> > 
-> > On 30/04/2026 10:37, Hongxing Zhu wrote:
-> > >> -----Original Message-----
-> > >> From: Krzysztof Kozlowski <krzk@kernel.org>
-> > >> Sent: Thursday, April 30, 2026 4:04 PM
-> > >> To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > >> Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> > >> bhelgaas@google.com; Frank Li <frank.li@nxp.com>;
-> > >> l.stach@pengutronix.de; lpieralisi@kernel.org;
-> > >> kwilczynski@kernel.org; mani@kernel.org; s.hauer@pengutronix.de;
-> > >> kernel@pengutronix.de; festevam@gmail.com; linux-
-> > >> pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > >> devicetree@vger.kernel.org; imx@lists.linux.dev;
-> > >> linux-kernel@vger.kernel.org
-> > >> Subject: Re: [PATCH v3 1/3] dt-bindings: PCI: imx6q-pcie: Add intr,
-> > >> aer and pme interrupts
-> > >>
-> > >> On Thu, Apr 30, 2026 at 01:09:52PM +0800, Richard Zhu wrote:
-> > >>> Add 'intr', 'aer', and 'pme' interrupt entries to the i.MX6Q PCIe
-> > >>> binding to support PCIe event-based interrupts for general
-> > >>> controller events, Advanced Error Reporting, and Power Management Events
-> > respectively.
-> > >>>
-> > >>> These interrupts are optional for existing variants (imx6q, imx6sx,
-> > >>> imx6qp, imx7d, imx8mq, imx8mm, imx8mp) to maintain backward
-> > >>> compatibility with existing device trees.
-> > >>>
-> > >>> For fsl,imx95-pcie, all 5 interrupts (msi, dma, intr, aer, pme) are
-> > >>> mandatory due to hardware requirements.
-> > >>>
-> > >>> This introduces an ABI requirement for fsl,imx95-pcie. The i.MX95
-> > >>> hardware requires dedicated interrupt lines for AER, PME, and
-> > >>> general controller events due to its redesigned interrupt
-> > >>> architecture. i.MX95 cannot function correctly without explicit
-> > >>> interrupt routing for error handling, power management and link event
-> > detection.
-> > >>
-> > >> fsl,imx95-pcie was added more than two years ago, so how it cannot
-> > >> function correctly? Are you saying that for two years you had here
-> > >> completely broken code?
-> > >>
-> > >> If this wasn't tested for two years, how can we believe anything is tested now?
-> > > The basic PCIe functionality has been working since the initial
-> > > fsl,imx95-pcie support. However, AER (Advanced Error Reporting) and
-> > > link up/down detection were not previously enabled. This patch-set
-> > > adds and verifies support for these advanced features.
-> > >
-> > 
-> > That is not what you said in the commit msg.
-> Hi Krzysztof:
-> Sorry for the delayed response due to a holiday.
-> After reviewing this patch-set again, I'd like to suggest an alternative
-> approach: would it be possible to mark these newly added interrupts as
-> optional?
+On Tue, 12 May 2026 08:18:19 +0300
+Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org> wrote:
 
-Yes, since even without these interrupts, PCIe functionality still works. Only
-issue is that it cannot report error and recover from LDn.
+> From: Roman Vivchar <rva333@protonmail.com>
+> 
+> The mt6323 AUXADC is a 15-bit ADC used for system monitoring. This driver
+> provides support for reading various channels including battery and
+> charger voltages, battery and chip temperature, current sensing and
+> accessory detection.
+> 
+> Add a driver for the AUXADC found in the MediaTek mt6323 PMIC.
+> 
+> Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+Hi Roman
 
-- Mani
+Various comments inline - mostly naming related.
 
--- 
-மணிவண்ணன் சதாசிவம்
+Jonathan
+
+> diff --git a/drivers/iio/adc/mt6323-auxadc.c b/drivers/iio/adc/mt6323-auxadc.c
+> new file mode 100644
+> index 000000000000..2c2b495e3d38
+> --- /dev/null
+> +++ b/drivers/iio/adc/mt6323-auxadc.c
+> @@ -0,0 +1,319 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2026 Roman Vivchar <rva333@protonmail.com>
+> + *
+> + * Based on drivers/iio/adc/mt6359-auxadc.c
+> + */
+> +
+> +#include <linux/array_size.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/delay.h>
+> +#include <linux/iio/iio.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/property.h>
+> +#include <linux/regmap.h>
+> +#include <linux/stringify.h>
+> +#include <linux/types.h>
+> +
+> +#include <linux/mfd/mt6397/core.h>
+> +#include <linux/mfd/mt6323/registers.h>
+> +
+> +#include <dt-bindings/iio/adc/mediatek,mt6323-auxadc.h>
+> +
+> +#define AUXADC_RSTB_SEL		BIT(7)
+> +#define AUXADC_RSTB_SW		BIT(5)
+> +
+> +#define AUXADC_CTL_CK		BIT(5)
+> +
+> +#define AUXADC_TRIM_CH2		(3 << 10)
+> +#define AUXADC_TRIM_CH4		(3 << 8)
+> +#define AUXADC_TRIM_CH5		(3 << 4)
+> +#define AUXADC_TRIM_CH6		(3 << 2)
+> +
+> +#define AUXADC_VREF18_ENB_MD	BIT(15)
+> +#define AUXADC_MD_STATUS	BIT(0)
+> +
+> +#define AUXADC_GPS_STATUS	BIT(1)
+> +
+> +#define AUXADC_VREF18_SELB	BIT(1)
+> +#define AUXADC_DECI_GDLY_SEL	BIT(0)
+> +
+> +#define AUXADC_VBUF_EN		BIT(4)
+> +
+> +#define AUXADC_DECI_GDLY_MASK		GENMASK(15, 14)
+Why you can it is much better to clearly associate a field mask
+definition with which register it is in. Lets us quickly spot
+if there is a missmatch.
+
+#define AUXADC_CON19_DECI_GDLY_MASK  for example.
+
+THough DECI_GDLY isn't exactly easy to understand as abbreviations
+go!
+
+> +#define AUXADC_ADC19_BUSY_MASK		GENMASK(15, 1)
+> +#define AUXADC_RDY_MASK			BIT(15)
+> +#define AUXADC_DATA_MASK		GENMASK(14, 0)
+> +
+> +#define AUXADC_OSR_MASK			GENMASK(12, 10)
+> +#define AUXADC_DEFAULT_OSR		3
+> +
+> +#define AUXADC_LOW_CHANNEL_MASK		GENMASK(9, 0)
+> +#define AUXADC_AUDIO_CHANNEL_MASK	GENMASK(8, 0)
+> +
+> +#define VOLTAGE_FULL_RANGE	1800
+Probably better to have this inline - however if you do keep it
+prefix t he define  VOLTAGE_FULL_RANGE sounds too generic!
+
+> +#define AUXADC_PRECISE		32768
+I'd put that inline.  Little benefit it in having it up here...
+> +
+> +#define MTK_PMIC_IIO_CHAN(_name, _idx, _ch_type)       \
+> +{                                                      \
+> +	.type = _ch_type,                              \
+> +	.indexed = 1,                                  \
+> +	.channel = _idx,                               \
+> +	.address = _idx,                               \
+
+Why put an index in address?  Seems to me that complicates things
+vs putting the relevant register address in there.
+
+> +	.datasheet_name = __stringify(_name),          \
+> +	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW) | \
+> +			      BIT(IIO_CHAN_INFO_SCALE) \
+> +}
+> +
+> +static const struct iio_chan_spec mt6323_auxadc_channels[] = {
+> +	MTK_PMIC_IIO_CHAN(baton2, MT6323_AUXADC_BATON2, IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(ch6, MT6323_AUXADC_CH6, IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(bat_temp, MT6323_AUXADC_BAT_TEMP, IIO_TEMP),
+> +	MTK_PMIC_IIO_CHAN(chip_temp, MT6323_AUXADC_CHIP_TEMP, IIO_TEMP),
+> +	MTK_PMIC_IIO_CHAN(vcdt, MT6323_AUXADC_VCDT, IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(baton1, MT6323_AUXADC_BATON1, IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(isense, MT6323_AUXADC_ISENSE, IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(batsns, MT6323_AUXADC_BATSNS, IIO_VOLTAGE),
+> +	MTK_PMIC_IIO_CHAN(accdet, MT6323_AUXADC_ACCDET, IIO_VOLTAGE),
+> +};
+> +
+> +/**
+> + * struct mt6323_auxadc - Main driver structure
+> + * @regmap:        Regmap from PWRAP
+> + * @lock:          Mutex to serialize AUXADC reading vs configuration
+> + *
+> + * The MediaTek MT6323 (as well as lot of other PMICs) have the following hierarchy:
+> + * PMIC AUXADC <- PMIC MFD <- SoC PWRAP (wrapper for PWRAP FSM)
+> + *
+> + * Therefore, PWRAP regmap should be get using dev->parent->parent.
+> + */
+> +struct mt6323_auxadc {
+> +	struct regmap *regmap;
+> +	struct mutex lock;
+> +};
+> +
+> +static u32 mt6323_auxadc_channel_to_reg(unsigned long channel)
+> +{
+> +	switch (channel) {
+> +	case MT6323_AUXADC_BATON2:
+> +		return MT6323_AUXADC_ADC6;
+
+You should put these in chan->address perhaps to avoid
+need for a separate lookup function.
+
+> +	case MT6323_AUXADC_CH6:
+> +		return MT6323_AUXADC_ADC11;
+> +	case MT6323_AUXADC_BAT_TEMP:
+> +		return MT6323_AUXADC_ADC5;
+> +	case MT6323_AUXADC_CHIP_TEMP:
+> +		return MT6323_AUXADC_ADC4;
+> +	case MT6323_AUXADC_VCDT:
+> +		return MT6323_AUXADC_ADC2;
+> +	case MT6323_AUXADC_BATON1:
+> +		return MT6323_AUXADC_ADC3;
+> +	case MT6323_AUXADC_ISENSE:
+> +		return MT6323_AUXADC_ADC1;
+> +	case MT6323_AUXADC_BATSNS:
+> +		return MT6323_AUXADC_ADC0;
+> +	case MT6323_AUXADC_ACCDET:
+> +		return MT6323_AUXADC_ADC7;
+> +	default:
+> +		return MT6323_AUXADC_ADC17;
+> +	}
+> +}
+
+> +static int mt6323_auxadc_request(struct mt6323_auxadc *auxadc,
+> +				 unsigned long channel)
+> +{
+> +	struct regmap *map = auxadc->regmap;
+> +	int ret;
+> +
+> +	ret = regmap_set_bits(map, MT6323_AUXADC_CON11, AUXADC_VBUF_EN);
+
+As above. I'd like that field name to include which register it is in.
+That makes it easier to spot mismatches.
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_clear_bits(map, MT6323_AUXADC_CON22, BIT(channel));
+> +	if (ret)
+> +		return ret;
+> +
+> +	return regmap_set_bits(map, MT6323_AUXADC_CON22, BIT(channel));
+> +}
+> +
+> +static int mt6323_auxadc_read(struct mt6323_auxadc *auxadc,
+> +			      const struct iio_chan_spec *chan, int *out)
+> +{
+> +	struct regmap *map = auxadc->regmap;
+> +	u32 val, reg = mt6323_auxadc_channel_to_reg(chan->address);
+
+Don't mix elements that assign with ones that don't. Doesn't make for easy
+to read code.
+
+> +	int ret;
+> +
+> +	ret = regmap_read_poll_timeout(map, reg, val, (val & AUXADC_RDY_MASK),
+> +				       1 * USEC_PER_MSEC, 100 * USEC_PER_MSEC);
+> +	if (ret)
+> +		return ret;
+> +
+> +	*out = FIELD_GET(AUXADC_DATA_MASK, val);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mt6323_auxadc_read_raw(struct iio_dev *indio_dev,
+> +				  const struct iio_chan_spec *chan, int *val,
+> +				  int *val2, long mask)
+> +{
+> +	struct mt6323_auxadc *auxadc = iio_priv(indio_dev);
+> +	int ret, mult = 1;
+> +
+> +	if (mask == IIO_CHAN_INFO_RAW) {
+> +		guard(mutex)(&auxadc->lock);
+> +		ret = mt6323_auxadc_prepare_channel(auxadc);
+> +		if (ret)
+> +			return ret;
+> +
+> +		ret = mt6323_auxadc_request(auxadc, chan->address);
+> +		if (ret)
+> +			return ret;
+> +
+> +		fsleep(300);
+> +
+> +		ret = mt6323_auxadc_read(auxadc, chan, val);
+> +		if (ret)
+> +			return ret;
+> +		return IIO_VAL_INT;
+> +	} else if (mask == IIO_CHAN_INFO_SCALE) {
+Andy covered not having the else etc already I think. A switch might
+work better though.
+> +		if (chan->channel == MT6323_AUXADC_ISENSE ||
+> +		    chan->channel == MT6323_AUXADC_BATSNS)
+> +			mult = 4;
+> +
+> +		*val = mult * VOLTAGE_FULL_RANGE;
+> +		*val2 = AUXADC_PRECISE;
+
+IIO_VAL_FRACTIONAL_LOG2 probably more appropriate here
+(which would be more obvious with the values down here.
+
+
+> +
+> +		return IIO_VAL_FRACTIONAL;
+> +	} else
+> +		return -EINVAL;
+> +}
+> +
+> +static int mt6323_auxadc_init(struct mt6323_auxadc *auxadc)
+> +{
+> +	struct regmap *map = auxadc->regmap;
+> +	int ret;
+> +
+> +	ret = regmap_set_bits(map, MT6323_STRUP_CON10,
+> +			      AUXADC_RSTB_SW | AUXADC_RSTB_SEL);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_set_bits(map, MT6323_TOP_CKPDN2, AUXADC_CTL_CK);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_set_bits(map, MT6323_AUXADC_CON10,
+> +			      AUXADC_TRIM_CH2 | AUXADC_TRIM_CH4 |
+> +				      AUXADC_TRIM_CH5 | AUXADC_TRIM_CH6);
+
+	ret = regmap_set_bits(map, MT6323_AUXADC_CON10,
+			      AUXADC_TRIM_CH2 | AUXADC_TRIM_CH4 |
+			      AUXADC_TRIM_CH5 | AUXADC_TRIM_CH6);
+is fine.
+
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_set_bits(map, MT6323_AUXADC_CON27,
+> +			      AUXADC_VREF18_ENB_MD | AUXADC_MD_STATUS);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_set_bits(map, MT6323_AUXADC_CON19, AUXADC_GPS_STATUS);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_set_bits(map, MT6323_AUXADC_CON26,
+> +			      AUXADC_VREF18_SELB | AUXADC_DECI_GDLY_SEL);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = regmap_update_bits(map, MT6323_AUXADC_CON9, AUXADC_OSR_MASK,
+> +				 FIELD_PREP(AUXADC_OSR_MASK,
+> +					    AUXADC_DEFAULT_OSR));
+> +	return ret;
+
+Might as well do
+	return regmap_update_bits()
+
+> +}
 
