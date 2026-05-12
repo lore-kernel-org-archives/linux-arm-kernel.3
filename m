@@ -4,91 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78DF1CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3786DCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BpKk6Gij2WxsoBaa/RiasDHSglHxtZ5uMjAEt5+zsC8=; b=UVZKXpWC3xm4v+rFlfJtlhfmGQ
-	f2FT/fGLNHm/0l4VmV6HCr7nGYbKdzkYlvKenb4D5MMg13mVJPZpHUtkNWNP/tkHrh+hIYEPqShhY
-	YNmgytPzGGBIEsp/EBqXBK7MfPC5IJvxgqKnnE5eIq0yL6NIK1HdnjPyD6RuFGL6ZU+fl7BHLwdSc
-	eV0uZ889kQvquoTV89qpkBhYPCpcux0eTHYf+GGjVUjCpUwXfhAOvRaotP3CbtyJI23bfvxnF/mNp
-	RngfXfEVCoJh4tcnV3jQgqjH9PRe6O5uJdC0ZtMuflDezvpg0l9B4rujobAGDSXmJktCWUXJyd1e4
-	r3cH9itw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D5tJ4DlWdWYbJgVru1dea+/ts/cXr3egAdHUOOsuBYM=; b=p/etFdCci38Gn6dSQqwYbfkba0
+	7YYNXoy9b0SnE4FXNrcEYkKZxo7iqq8OMeWz/sJZ+iLURTYXgk2YpNsUbxvyyxm2Ou5szZ81AdAZS
+	VPfveZWlVJUfVtbbgjC0Og2HhaZGy/Nv7FhBZboCrm9p1friUyleJFy2ebnJ+30cSIRx+Tl0bX+kZ
+	lpCgZiO+V+r+OqjLj2APWOlBXk4tcjIaE2AGOPaBVMXWI3esZpISXAinw9Fl43IZk8mcYgC5uBu0A
+	GtIROKin39tIPrX29dOIDr9q6YwYem2PioREMZLyxP3N+3uzvisIJ6J7XHH7IpbM3nvyvsV0MzS59
+	Hzae2Www==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmp2-0000000Gkwp-2LJN;
-	Tue, 12 May 2026 13:06:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wMoBu-0000000H2wk-182q;
+	Tue, 12 May 2026 14:34:34 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMmow-0000000Gkq7-11LS
+	id 1wMoBr-0000000H2w4-1OY8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 13:06:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AFCB560121;
-	Tue, 12 May 2026 13:06:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA909C2BCF6;
-	Tue, 12 May 2026 13:06:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778591205;
-	bh=uLHaGHSP9UQjQQ5jBIAoXbBwJSEBPtjOM2YeKkN0O2Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qx/pkiimB/jRi9sGazs9cL7ErD+vzz4h9oJqHvSE/FRCkvIY3WQqHojGQ3Lku4PKj
-	 UCkiRlx8xIUYvAH1mXDPZDM5tEfXNV6GQIBike19wfUMpI9mfuLBgER0TavG4HlG1T
-	 LUEJig+eAjpSDSRgb1e2gCyX6jsbnF5jthFLOCRAD4r+zenR5hR3kx0X6C+zJ6HQ+L
-	 fepL+3Fethj/qa8HdabkRIB++I90GxpoZwb8/HIQQDUntrSHNOHzkmrT7T1k0CKRW2
-	 ghQovrLSN+Omwzr1AsL2RI6RsbfTyIHucnj8I+kkuuMxvTEEyjLhylUfaXzJ+OkA7Y
-	 l8CTieV1O5ZAA==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 12 May 2026 15:06:09 +0200
-Subject: [PATCH v4 11/20] drm/atomic-state-helper: Rename
- __drm_atomic_helper_crtc_state_reset()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Tue, 12 May 2026 14:34:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gb5rZdJlTR51tzVmOXtkwHDaxJHxEc3kpVL5s2pQxM94XAPss7DlNb/GTRAom+FhO1+g1pByD6KMuRktlJeKRkEbmvTniWmGfLHQ1tIFTlQCsZT6mNBN07QL/37Bw6nri2q6SWf4y3eUO7Zqv5ZcNJmntuBRd1pas0rYvM0q8ZIGeyHDXWICychBlkKGgbaMtY1SPvtxHM0fIjVNTTpmKhh9GL6S+GB8XF2bYoP2BFTNppko1MuYowU++1S/okc++ETw2Wzc558FIAU0x4/uTPddnU64Mln2s9wAlhZyuLdGSUz9Y9ujThNa36zPAcUdCgc7uQH0IVaidwlsCrKthw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D5tJ4DlWdWYbJgVru1dea+/ts/cXr3egAdHUOOsuBYM=;
+ b=tPcswU0JeSeKKwD0clpeeqhTnj68HFxTC8iKPSyLTAGLFzVYcvtg4l2Wj6A8hPnBxbzf1XGOlHlAhssyR4K+X7MlHXxwGZBw0M7sGQzNOgM/mbCNChYlmUtsPP2E/yc2O7JErJZ21snLWKEIQRvZ/YFo7X5K5Jg4SMxFXLFJ+hp5kP9M2OqO2HohtCIfXBCdc/incutMp154sk6EAHm0MDBntgcnOyPSHyOzOVCx6oG4lwzTi7au3uEO/xqh0EB4pdOm0qVih3RC6mpCMSOP+Jvt+xoDeLBKK86ylej4lbhtHdxjLFzFpSgZIKFoxzspIewRVg031QBS2cLKeVBz6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=D5tJ4DlWdWYbJgVru1dea+/ts/cXr3egAdHUOOsuBYM=;
+ b=GYKfb85TV7piXJM3NxbHjCiyZbREEnehGh+go0alev0DEa5sjN6UjF3g9OyL2ygZ2VxihxYjURm9IFlO22aYEKBIc/favJ6S8qLEZuMRf4qFYy/Gos8jNfl5ESyIG9SB10hDPOGfOR9AHwM3YLhg4Gx4jFgN0z1O5d3ht+nIKEU=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from IA1PR12MB7736.namprd12.prod.outlook.com (2603:10b6:208:420::15)
+ by MN0PR12MB5883.namprd12.prod.outlook.com (2603:10b6:208:37b::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Tue, 12 May
+ 2026 14:34:17 +0000
+Received: from IA1PR12MB7736.namprd12.prod.outlook.com
+ ([fe80::2274:9fed:8f3:8550]) by IA1PR12MB7736.namprd12.prod.outlook.com
+ ([fe80::2274:9fed:8f3:8550%6]) with mapi id 15.20.9891.021; Tue, 12 May 2026
+ 14:34:17 +0000
+Message-ID: <e84d98dd-c81c-418d-8cbe-5867f8bdd4c3@amd.com>
+Date: Tue, 12 May 2026 15:34:13 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] iio: adc: xilinx-ams: refactor alarm mapping to
+ table-driven approach
+To: Guilherme Ivo Bozi <guilherme.bozi@usp.br>,
+ Conall O'Griofa <conall.ogriofa@amd.com>, Jonathan Cameron
+ <jic23@kernel.org>, Michal Simek <michal.simek@amd.com>
+Cc: David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260414224245.8493-1-guilherme.bozi@usp.br>
+ <20260414224245.8493-4-guilherme.bozi@usp.br>
+Content-Language: en-US
+From: Salih Erim <salih.erim@amd.com>
+In-Reply-To: <20260414224245.8493-4-guilherme.bozi@usp.br>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260512-drm-mode-config-init-v4-11-591dfdcc1bf9@kernel.org>
-References: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
-In-Reply-To: <20260512-drm-mode-config-init-v4-0-591dfdcc1bf9@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Jyri Sarha <jyri.sarha@iki.fi>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Maxime Ripard <mripard@kernel.org>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4452; i=mripard@kernel.org;
- h=from:subject:message-id; bh=uLHaGHSP9UQjQQ5jBIAoXbBwJSEBPtjOM2YeKkN0O2Q=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFnMqvv3z8xMOXagYo1S+665En87VYueeK3iWft3fp6hy
- PsZeup6HVNZGIQ5GWTFFFmeyISdXt6+uMrBfuUPmDmsTCBDGLg4BeAmP2ZseD/5X/G5yMdiApa3
- LD6K6f74dVtOJvK1+XHlxyYnFDKvG+peMKzuWNex9kFkxv3S/AgRxvrUU55ll/t2X/8g9P/czMJ
- 7/bv38+357v9cJUB8em6eis2qd5f+KF7d2XX9HYuCQlm6aSAA
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-ClientProxiedBy: LO4P302CA0003.GBRP302.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c2::10) To IA1PR12MB7736.namprd12.prod.outlook.com
+ (2603:10b6:208:420::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR12MB7736:EE_|MN0PR12MB5883:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2c161b5e-4462-4e90-55de-08deb0338c0f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|11063799003|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: RqEI2gqDhw+jlS6avMkRVeYF4Kn8un+Ns92wRLAcdRRB9zfYZzBK0UOHd5F1XIPGPOIW1ar3Y4GBRfZHPus9hfVsGLotJnaUELtE7msLY5AKQ8CkqGcuAuqrw5jKY5TnPl2ZVYYBrDy3gdBBzRJny+LrNK6XpxJiooxz41TWAyF5n8e3v8Ya/OdiAShQKV00QpnAyh1uvpfnmQWeq4giThXxd3uiRplel3bFaRWHVHuagB0iyDw95uLYlXMrY17gL85XyAQI8xc/m8Xs1x3V0ddDD6GieFoPh6G6xNne1bxcAeScmQllCCv930S3YvKDmLtPhMDqxlFeY+WsBZcTowD8wRoyAS0zpNfnZ2sQmIqqyrqxLDKzyYMwpizWZQQKpAlmsv5NJboeGfUhEQ4OFr8sbVj3aMif80Yxl2sO1kcO1Ju+hs+qGAjzVUGpBi8pcuqwgVN7nkGzYOK2aue9Fo+9omfNa5KrnhrwG6cr6t/aZ/DqzSc1bd/o5UlhM/cu5j6ckIsmi5YiKQFjOWkfe0DMt6e3jYw7oLD0Xv49XOZ70EFeaaZ+8UnaGG3jJR5kkqJzaU4zjJoS0Uxj+DHYhy6jiPpBtwwH7fJ50Qgt39aS9/nrgv8YZyoV7ep3EbQ9SK9gCib/i0tLsXI/IPiT0mnMEIbCmKB2d6tp1GL03fn3Nvvy+xJxj6T7MlNaPGfH
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB7736.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(11063799003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZXB4M1FKVk05V2t0Z3NZODNQVnVXYVl2NGxQcUtGaXY4M3dMeXBoSU5OclhT?=
+ =?utf-8?B?VVI3bldQV2NXTXo1d2QrSG9MZE1BMW0wWm1DRnVzK1Y5eWhMMElpajlsUGE0?=
+ =?utf-8?B?RURuUGl3d0ppNFJad1R5OUJvZFBXZVcybnk2ZXZSOFoyYlNMcTJWVjd6Q0Ev?=
+ =?utf-8?B?TTE1Q0RMaVVRMEN0dWJBUm43MWEwa1RwdngxTldWcmpud3ExSUtZR2FOMVFi?=
+ =?utf-8?B?aVMrRk1aUTZxY2padVFKZVgxUWR1NzNMV1AxWlpXMm10cmhmMFdNeUVrODRZ?=
+ =?utf-8?B?a2R2eDdQOHlFVmVSRldTTXh0Y0dGZHhUN3daRG91ajV0bjhmUnA0RFZYemxJ?=
+ =?utf-8?B?TkE3QXV0RVU0aGxYM1VsaGEyeHRpbWhaNFpzM015dlh6QlY2OXc0cEw3clls?=
+ =?utf-8?B?akhJc3hwcG11TVZjbTBJS2s3VGx2Z3lnK2ZiTmZ3bm9GSGlsRklud29Pc0o0?=
+ =?utf-8?B?SFlIZnJuTWd0bExILzhUZk14eVNjZnNBQ2x3V1VzQXBMQTl4VzNlakNSN0Y4?=
+ =?utf-8?B?NDc0cTljOXNjMGxxMVk0bUU2cWluTlUvOFM2YVFvVDVxcFhIQmZVbStFRDFw?=
+ =?utf-8?B?WGk5QmVoWFNvcEpPTmNUMU1VMGh4STBKNnN4Ykt1dGkvNVRRYVBjNk55MkM2?=
+ =?utf-8?B?RGNUS3V6N1NGMlJxaWk2WWJ1bndSSDFzbWtRK2NWVXd4bjdDZ3l5ZzQ0UXJG?=
+ =?utf-8?B?RUpVQ2luOFVnYmgyNDN5Y0tPSzdva0kwamxPeUlpN0lkVW9pZG15REpjcE1L?=
+ =?utf-8?B?ajBSSXlPcEFYMytpK3ZSUDZXQzZ6bTFNUUYxckovdmdXY0gzMTd3RmdWbk5J?=
+ =?utf-8?B?RzY0T05leUIxTzFWR0oxY3VacFlpZFpCOERIT2hGM2Z1R0FHVHNzUzh3VytD?=
+ =?utf-8?B?M0FoUXE1ZlJBQjI0WVkrOG05eTdiM0VWZi9IVEVBSGpFZ1NKRUpvNFV6aGtS?=
+ =?utf-8?B?aWFKaFB5MjZ6blpsQ2RlYi84YlZ1RXdXMW9RT29mR3pJRFduNFBlOVlqV1Vm?=
+ =?utf-8?B?UUhqWGFNeUFMZUhLVXJFUldxSUZuNVpTQ0lwb0lwSHNDNEtpK1Vkb3dMdm4x?=
+ =?utf-8?B?WHJhT2UzYVFDYSt3dkxMYTFRQ2l1TFRZSTl3amRUekdGaWZBaWpBZUxpOVo1?=
+ =?utf-8?B?OTNkZDJWckJRTHE0dTJiTUdjM3lGQnFHTmhJSFhBZ1VialJzWDdVMms2ZnAw?=
+ =?utf-8?B?MjZCZHZyR01YTE1aRnRieER1SWdESWdYTkhMTDF5TWY1QlZHSlFyd3llMkZQ?=
+ =?utf-8?B?OXlZb2VUUHNaUlFWRDJIUkplVWlxTk84ZFkxTVNiMGp4dnM5eXpGemlGTnpa?=
+ =?utf-8?B?UHpvMEZqQmJiZjhiV3FXNDY4bXRaUlFRYUhzTExsNzZZNHNvK2FKMFIzdFFT?=
+ =?utf-8?B?enRwdlRlU2ptWW5mZitma3oyUzQvR0NvRytEQ1lJN3dNWWVyemZLb3l6cm1l?=
+ =?utf-8?B?d1Fwbnp6d0tCWWowNUtNQk9PTU9vakVlYTJJcHRtT25CK0ZIMll3TjcrSFpt?=
+ =?utf-8?B?b3dNeWUzQTg2VlA3MlpRVGFaam43b1BjbHRlWVNaYjFGVS9md3p0Vzc2QjJh?=
+ =?utf-8?B?Z3lFN1FMQlk5bUlHdEVpWmtraDdHclRDeG9sbGc2UjRqUGtRcmlxR29Eamdk?=
+ =?utf-8?B?TXRPQWU1SmFRNmgrMFZNM3hWWUFlSVlBc1FtZURpMEkzMy9namhFSlpZSUdO?=
+ =?utf-8?B?OWtwd0tUeUk3Sk9nVW9OUTBtOVV4YmVnYzBTNzhla1RLT3puY00wT05LcXJh?=
+ =?utf-8?B?Ri8wR21XeVVnWENjclZKb1FOMjJubjduL3F3RHZoSUdjLzkwa3Q1eGgwOURO?=
+ =?utf-8?B?bDBWLzFYaGlKOWY4alc3YU5sRlBQNGlOSE1ueFgrOWRwUUxmZlpKSW5mVFVB?=
+ =?utf-8?B?UnA3Nm5TQXRoc3BSeUs0OGNlK0lrdml1NmhDVWN4WTFmYlZQVUFVK3lxeFBY?=
+ =?utf-8?B?U054K0FhUkFxejBKSnB3V2hJYTc1TGZSWUVHakJXV3BGWDhZQzNNNUpTejdN?=
+ =?utf-8?B?ak9oeDYwakdsVlUzTGZDNmZGeG1WL3RiQWJocDVqN3JaV1B6VmdpbkxTOTdo?=
+ =?utf-8?B?SWhLMDNsWmpVckJtYi9ISHVwOWRNWE1VWDZJUEpMMHYxcjFpNkEyNEljaTRI?=
+ =?utf-8?B?Kzc4U3BQVU0zNTJKNVJJUURhTHk2eE12OHZIeU00WENDbWVoZ211Qk8yM3RE?=
+ =?utf-8?B?Ny9RNjFJMjN0Z3JsbjZkOHhXOVVUN2YySjlGRHFjMkpYZWtXTXZOQ2pWVkNz?=
+ =?utf-8?B?RktOdXpIVnowcHl4VWJWK1ZBNEFvdTZLb1BuaWpGclF6b2F1ZjF0OEkzSlJS?=
+ =?utf-8?Q?cRgkVpFuYZI2ZAuaoa?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c161b5e-4462-4e90-55de-08deb0338c0f
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB7736.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2026 14:34:17.6377
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6ois2OXuTOR8SUBqqb2EhYqExaIOIefcv5XruAVImbzr5dxos2Xbk8HhjdVuNhz3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5883
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_073431_384365_20DFF7E9 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,113 +151,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__drm_atomic_helper_crtc_state_reset() is used to initialize a newly
-allocated drm_crtc_state, and is being typically called by the
-drm_crtc_funcs.reset implementation.
+Hi,
 
-Since we want to consolidate DRM objects state allocation around the
-atomic_create_state callback that will only allocate and initialize a
-new drm_crtc_state instance, we will need to call
-__drm_atomic_helper_crtc_state_reset() from both the reset and
-atomic_create hooks.
+On 4/14/2026 11:40 PM, Guilherme Ivo Bozi wrote:
+> Replace multiple open-coded switch statements that map between
+> scan_index, alarm bits, and register offsets with a centralized
+> table-driven approach.
+> 
+> Introduce a struct-based alarm_map to describe the relationship
+> between scan indices and alarm offsets, and add a helper to
+> translate scan_index to event IDs. This removes duplicated logic
+> across ams_get_alarm_offset(), ams_event_to_channel(), and
+> ams_get_alarm_mask().
+> 
+> The new approach improves maintainability, reduces code size,
+> and makes it easier to extend or modify alarm mappings in the
+> future, while preserving existing behavior.
+> 
+> Signed-off-by: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
+> ---
+>   drivers/iio/adc/xilinx-ams.c | 161 +++++++++++++----------------------
+>   1 file changed, 58 insertions(+), 103 deletions(-)
 
-To avoid any confusion, we can thus rename
-__drm_atomic_helper_crtc_state_reset() to
-__drm_atomic_helper_crtc_state_init().
+Two issues:
 
-Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
- drivers/gpu/drm/drm_atomic_state_helper.c | 10 +++++-----
- drivers/gpu/drm/i915/display/intel_crtc.c |  2 +-
- include/drm/drm_atomic_state_helper.h     |  2 +-
- 3 files changed, 7 insertions(+), 7 deletions(-)
+1) Same tabs-vs-spaces indentation problem as patches 1 and 2.
 
-diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-index ab171bfe6e86..b277f92f4532 100644
---- a/drivers/gpu/drm/drm_atomic_state_helper.c
-+++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-@@ -61,25 +61,25 @@
-  * For other drivers the building blocks are split out, see the documentation
-  * for these functions.
-  */
- 
- /**
-- * __drm_atomic_helper_crtc_state_reset - reset the CRTC state
-+ * __drm_atomic_helper_crtc_state_init - Initialize the CRTC state
-  * @crtc_state: atomic CRTC state, must not be NULL
-  * @crtc: CRTC object, must not be NULL
-  *
-  * Initializes the newly allocated @crtc_state with default
-  * values. This is useful for drivers that subclass the CRTC state.
-  */
- void
--__drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *crtc_state,
--				     struct drm_crtc *crtc)
-+__drm_atomic_helper_crtc_state_init(struct drm_crtc_state *crtc_state,
-+				    struct drm_crtc *crtc)
- {
- 	crtc_state->crtc = crtc;
- 	crtc_state->background_color = DRM_ARGB64_PREP(0xffff, 0, 0, 0);
- }
--EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
-+EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_init);
- 
- /**
-  * __drm_atomic_helper_crtc_reset - reset state on CRTC
-  * @crtc: drm CRTC
-  * @crtc_state: CRTC state to assign
-@@ -94,11 +94,11 @@ EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
- void
- __drm_atomic_helper_crtc_reset(struct drm_crtc *crtc,
- 			       struct drm_crtc_state *crtc_state)
- {
- 	if (crtc_state)
--		__drm_atomic_helper_crtc_state_reset(crtc_state, crtc);
-+		__drm_atomic_helper_crtc_state_init(crtc_state, crtc);
- 
- 	if (drm_dev_has_vblank(crtc->dev))
- 		drm_crtc_vblank_reset(crtc);
- 
- 	crtc->state = crtc_state;
-diff --git a/drivers/gpu/drm/i915/display/intel_crtc.c b/drivers/gpu/drm/i915/display/intel_crtc.c
-index 03de219f7a64..7486f2dc60ef 100644
---- a/drivers/gpu/drm/i915/display/intel_crtc.c
-+++ b/drivers/gpu/drm/i915/display/intel_crtc.c
-@@ -179,11 +179,11 @@ struct intel_crtc_state *intel_crtc_state_alloc(struct intel_crtc *crtc)
- void intel_crtc_state_reset(struct intel_crtc_state *crtc_state,
- 			    struct intel_crtc *crtc)
- {
- 	memset(crtc_state, 0, sizeof(*crtc_state));
- 
--	__drm_atomic_helper_crtc_state_reset(&crtc_state->uapi, &crtc->base);
-+	__drm_atomic_helper_crtc_state_init(&crtc_state->uapi, &crtc->base);
- 
- 	crtc_state->cpu_transcoder = INVALID_TRANSCODER;
- 	crtc_state->master_transcoder = INVALID_TRANSCODER;
- 	crtc_state->hsw_workaround_pipe = INVALID_PIPE;
- 	crtc_state->scaler_state.scaler_id = -1;
-diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
-index 8d1ef268fdef..0bb72453464a 100644
---- a/include/drm/drm_atomic_state_helper.h
-+++ b/include/drm/drm_atomic_state_helper.h
-@@ -38,11 +38,11 @@ struct drm_connector_state;
- struct drm_private_obj;
- struct drm_private_state;
- struct drm_modeset_acquire_ctx;
- struct drm_device;
- 
--void __drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *state,
-+void __drm_atomic_helper_crtc_state_init(struct drm_crtc_state *state,
- 					  struct drm_crtc *crtc);
- void __drm_atomic_helper_crtc_reset(struct drm_crtc *crtc,
- 				    struct drm_crtc_state *state);
- void drm_atomic_helper_crtc_reset(struct drm_crtc *crtc);
- void __drm_atomic_helper_crtc_duplicate_state(struct drm_crtc *crtc,
+2) In ams_event_to_channel():
 
--- 
-2.54.0
+> +       if (event < 0 || event >= ARRAY_SIZE(alarm_map))
+> +               return NULL;
 
+The 'event' parameter is u32, so 'event < 0' is always false.
+Either drop the < 0 check or change the parameter type to int
+if you intend to handle negative values.
+
+Salih
 
