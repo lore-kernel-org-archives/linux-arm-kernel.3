@@ -4,73 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CAC5CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 10:07:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F117ACD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 10:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rq4RL+Vka9BqWTh+n74cXJ8jiIkAjFYQA9ezbcVKwM8=; b=GJluWRWzZTs3URs68dwGj3Uwd1
-	BfWvsdSu1IeElzmrwGJHps37asJndoSz6gRiQtKhTcKFMjuaj6Q3WmnSJ05XqhbfOKRwx88ymD6xi
-	G0Zk0+7GLLZZdtL2pCclkaWlwPM7W0AUVTImMCyaIxWkWzKFdlybPZkzm8KB1l9ueuX62rYLzTlBE
-	77T7b8DKqPjbSGYAZ3TaGlLUBkkWPVAAQQasjmwPq1ut93v3WPucYqy3xLc1IKehfIauECu34/xuA
-	gcQlLZ8xbL+JjuPP7ynvgh1Cwly7p8KoDqhi6hSyd6OU/8FdECpBWSojwxBwdgWQjFVYlCOQqDsn8
-	/R+CV3dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4BRCH8Q+sSIoCslEFIamY+nsMlk/tKqIeqWpZmZWSTw=; b=B59/DhV+X7j83L+kycv2mDgJvB
+	VuzpJhrXj7ysP2Na9dri6ows/E5MrOZgg6/4lbw1TPRE66RwV6uBYaOWLrP4wdqVk8wvbnJhCDR7H
+	WYKMhAhbvI+JYaaC81t1BT56oVxSzffBb5fZQfLsU/j7IPMbSc/TI8QpoegdnpdsUw3nLjfM2qY6a
+	PXdwvGAStGzuR58x17nIgtRdUGm3pRVq1YcGYwuNv5zxpbjVCiafegLAjoVhZiM4K/bM8lAfkHsz6
+	qeP2Y9bDtYFfCFdfaB9Npw/Qx4utacEvLovNvyXZ1sXcZGDNpH9JPQKe+kNBJS74dBTpAU/tDcv3W
+	+rQBUBBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMk1T-0000000GNoQ-2O2D;
-	Tue, 12 May 2026 10:07:31 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1wMk1n-0000000GO1r-3AKv;
+	Tue, 12 May 2026 10:07:51 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMk1Q-0000000GNlb-1bTr;
-	Tue, 12 May 2026 10:07:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=rq4RL+Vka9BqWTh+n74cXJ8jiIkAjFYQA9ezbcVKwM8=;
-	b=l11nVtHhS05LPBjraPnJUV3epcd49eg7vnfCSTy3DkvxfB/Iem6EvnQ4JrZ+O3
-	BhcY7irXVFlck61xjPG4X8Hus9w0cfkoycqGiyCMqQ/WFdniOD93FdgJ9AxJeoGe
-	dVHmA2apbi2ME13a7dgimnGQ49LaIn7Vkbs2WArMTitJE=
-Received: from [192.168.50.71] (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PygvCgB3yRC0+wJqHlnODQ--.89S2;
-	Tue, 12 May 2026 18:06:46 +0800 (CST)
-Message-ID: <a28b7442-8bd6-4a05-8864-af6c0ad35a2c@163.com>
-Date: Tue, 12 May 2026 18:06:44 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/7] PCI: dwc: Use common
- pci_host_common_link_train_delay() helper
-To: =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, mani@kernel.org,
- vigneshr@ti.com, jingoohan1@gmail.com, thomas.petazzoni@bootlin.com,
- pali@kernel.org, ryder.lee@mediatek.com, claudiu.beznea.uj@bp.renesas.com,
- mpillai@cadence.com, robh@kernel.org, s-vadapalli@ti.com,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- claudiu.beznea@tuxon.dev, linux-mediatek@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260511055923.37117-1-18255117159@163.com>
- <20260511055923.37117-5-18255117159@163.com>
- <20260511070139.GA1096586@rocinante>
- <e600d0a4-b93e-425f-a5f1-c76802c65622@163.com>
- <20260512071328.GA3606279@rocinante>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <20260512071328.GA3606279@rocinante>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PygvCgB3yRC0+wJqHlnODQ--.89S2
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Gr47XFW5ZryfKF15WryDWrg_yoWxuFg_u3
-	y8Awn7ur43XF93WwsIyrn8XFnxX34DuFWFqry0vrW2gw1jga1qyrsIgFs5ta1xC3y7JF47
-	JF1vkw1xKwn3ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUjeT5PUUUUU==
-X-Originating-IP: [140.206.53.66]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6xZH6moC+7ZuEQAA3K
+	id 1wMk1h-0000000GNy1-3TpU
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 May 2026 10:07:49 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2b4678c6171so56077535ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 03:07:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778580464; x=1779185264; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4BRCH8Q+sSIoCslEFIamY+nsMlk/tKqIeqWpZmZWSTw=;
+        b=oh7pjXACwpgRURO6cyeUl/OR2p/fa5E65Tkl4y2sPl2FXvF6ckRQYy0lkq2mSk6dGT
+         F2XR1QD6HhrggXhMD8Gr4eiyCwj0nfOrHh+jgSrLP3iyueJ89huxLAA8TnQZb/vFma9N
+         PF7tcwF41j5TkNP2CoIrEypd1208NdleCPGR/dLqyhJgjOOanqR5nvj5z5pWgMu4zeAy
+         OvvbpksK1IFs1hyd0lDfqKHO+krNnQIEFCcsNdBrT1/yqeARbA+/WSP4OWMuKNqWciIP
+         vj6UxsjS4iEatsKgIZaldD+dJuZZR1EIaJIhJydKFNZjeAzbTFEpNHwolQrtJAciFItH
+         jRJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778580464; x=1779185264;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4BRCH8Q+sSIoCslEFIamY+nsMlk/tKqIeqWpZmZWSTw=;
+        b=ngMhXPS5nGDvyOQSdE2erj7zXVWtS8tA/JhwYgdMGgTljq68CRve+Hq3mHQ6yH9DWP
+         U7DG2rMAAj7YXeqlZFT/F5f4xwTlyWbIfHLIur1yioUDM7awECfIu8TZQnPdw8lRD0+3
+         9g6dNXOat7h6c0EvYotiqgeJ3Ae9tHi7La9mc3d4UpLsSVYhHiALbl5R9JbeM1D6VOta
+         gXP0I2dtmFs6ecz7wwPsx2Fh/qyR3+kgB+sLBddef8On2efQDDRaikX6ZjEiM+Pgbhsq
+         /F9oFikbs6Y29Ofpkf/Ndz85sJXXRycxMMEtmwUkfuYgDalHTTWMK4XUbOxJinsceTJ5
+         kVNg==
+X-Forwarded-Encrypted: i=1; AFNElJ+MqrsmmpMBh7FoX6IE1R/fWk76xT+NmNmzv3+Nhuvma3/va8kV3xqQ3e18MXMVMRV/0ejlvbllsSvISUelnHOG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyqq0syobPDXBYgAu0yU0Rl2WKp17RLNlUjpZwsqGvz+zTKCHNx
+	gr4jq/37OrAlH0vCByICOkEEDqnGVgYHtl0fq8n9dUHCquU/m9dgGgnW98aMK9+Kr/L20xBCKpG
+	DZRoEnGXRS135mapzat8WOnUZ+Q==
+X-Received: from plqu15.prod.google.com ([2002:a17:902:a60f:b0:2ae:c329:bddd])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:903:1ac3:b0:2bd:7ca:e67d with SMTP id d9443c01a7336-2bd07caea66mr18092335ad.29.1778580463897;
+ Tue, 12 May 2026 03:07:43 -0700 (PDT)
+Date: Tue, 12 May 2026 10:07:42 +0000
+In-Reply-To: <20260509171013.GF9285@ziepe.ca>
+Mime-Version: 1.0
+References: <20260509171013.GF9285@ziepe.ca>
+X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
+Message-ID: <20260512100742.2522825-1-joonwonkang@google.com>
+Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
+From: Joonwon Kang <joonwonkang@google.com>
+To: jgg@ziepe.ca
+Cc: Alexander.Grest@microsoft.com, amhetre@nvidia.com, 
+	baolu.lu@linux.intel.com, easwar.hariharan@linux.microsoft.com, 
+	iommu@lists.linux.dev, jacob.jun.pan@linux.intel.com, joonwonkang@google.com, 
+	joro@8bytes.org, jpb@kernel.org, kees@kernel.org, kevin.tian@intel.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	nicolinc@nvidia.com, praan@google.com, robin.murphy@arm.com, 
+	smostafa@google.com, will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_030728_774959_C2526ED0 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260512_030745_867158_F9D788B0 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +93,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/12/26 15:14, Krzysztof Wilczyński wrote:
-> Hello,
+> > We have multiple processes and a single device, those processes want to
+> > do SVA with the same device, and only one process will do SVA with the
+> > device at a time. Though, the problem occurs even when irrelevant
+> > processes allocate the PASIDs from the global PASID space for their own
+> > irrelevant purposes.
 > 
->>>> -	/*
->>>> -	 * As per PCIe r6.0, sec 6.6.1, a Downstream Port that supports Link
->>>> -	 * speeds greater than 5.0 GT/s, software must wait a minimum of 100 ms
->>>> -	 * after Link training completes before sending a Configuration Request.
->>>> -	 */
->>>> -	if (pci->max_link_speed > 2)
->>>> -		msleep(PCIE_RESET_CONFIG_WAIT_MS);
->>>> +	pci_host_common_link_train_delay(pci->max_link_speed);
->>>
->>> This comment could move to the helper you added.
->>
->> Hi Krzysztof,
->>
->> Will add.
-> 
-> No need.  Per Mani's feedback about macro being well documented.
-> 
+> The only way to allocate a PASID from the global PASID space is to
+> establish another SVA, so you have multiple devices doing SVA?
 
-Hi Krzysztof,
+Another way is via iommu_alloc_global_pasid() [1] and it does not require
+SVA. No, we currently do not have multiple devices doing SVA. But, the
+problem is that it is out of our control when any device is to allocate a
+PASID or do SVA for its own purpose.
 
-Okay.
+[1] https://lore.kernel.org/all/20230802212427.1497170-3-jacob.jun.pan@linux.intel.com/
 
-Best regards,
-Hans
-
-> Thank you nonetheless!
-> 
-> 	Krzysztof
-
+Thanks,
+Joonwon Kang
 
