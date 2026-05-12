@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D85CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AF6BCD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 14:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PuUs8kKkIEhwOvaXczjv+qMRMgXGRrj8wjtlYn3kysc=; b=xKu0yyWn4D8TCiYo8jWETU7Dnn
-	y20iSjNrZAkONhV7Y0axwuhT1jBLi7wLoOTSZeQIPjYFumfUVhzdIkasjypUiyGyM/EVCD4g5jl7E
-	e8xvwdPxzrt0bz1HJ/hy8ht8EqEnDO3zm2rILiI2wkwRF/AmwiStWxMn8qx+AcNv8LTTIrbEyDlrw
-	H/+YRhYjx/4jD3mZD8Od4RtE5GtwZNt+oPa55zYyJsmhO+JPwAXSXVeV4MF9sF9e+At2JxH+Q48ha
-	Jytq3Fv20H7ir8r4150wD3DGW03yE9BCvEBVsRdJUYdu9uYoG93Yo6+YtI0+itdSMxMAIm00kuTPN
-	LkvzInOw==;
+	bh=AlZpbLfSaUrDMg9zIBxHBDs7klGRu58GhjpCt+/JOuQ=; b=UVdEAsLD8CpTvBzsQXaunlhjLO
+	1DF24r0QwUasNQnndGm/ftvNb9UINVP3jD9K7o5K5BBriEZgtXBFRUkK4GwLerRkEwC1XvNmOp5oy
+	jILEd49TrzjVWjZVbjAfUcf9WzaEqjv5ShZs+os9CTUm9kzAqMJbFiWdSrMvYmLOcrPdaTW54zLXH
+	m4wlYvpiWBBrOKrvyDWyZyX2+Rb4ZjDAZYNQ5dl5Ov0i6PwnHYvPemmb2u0c2Sh1/aEAQS8cvainr
+	yIgFldw4MUiG1AYj3tFkj3JyHCKxC1vn9G68ecWMITqoi4mgLgpxMvw2y10trEcRRintfAsarCAhU
+	BLBjQKxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMniO-0000000GwhS-4Aq8;
-	Tue, 12 May 2026 14:04:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wMnjN-0000000Gx45-2Eqp;
+	Tue, 12 May 2026 14:05:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMniO-0000000Gwgj-0P6p;
-	Tue, 12 May 2026 14:04:04 +0000
+	id 1wMnjM-0000000Gx37-18FT;
+	Tue, 12 May 2026 14:05:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 387AE62C1E;
-	Tue, 12 May 2026 14:04:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B730C2BCB0;
-	Tue, 12 May 2026 14:03:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9410A62C1E;
+	Tue, 12 May 2026 14:05:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D56D0C2BCF5;
+	Tue, 12 May 2026 14:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778594642;
-	bh=wZIDx7vXSGoTrkQ9Gai4XwKtCh48yAuiTnAYTQ2Zz9A=;
+	s=k20201202; t=1778594703;
+	bh=BIPChrZ4UpoM72ZAiDAI8HWazP45rR6zIg1tu4Dy7mw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bpdNMZTibadEBjbeQDSM9SwNXYlJWq/aP1DZ7nbJtV85oGI0nyDSxZXUeFJnOniHe
-	 9Xf+bnpk+WrN8NtAZ0sqh3ejX948zKaly44LK/qNu595lycRemW82MSF/zk5jX88LD
-	 o+DMvIKSsZk/T4oCsqkLzL40/sNQYWTzB7ekDR4uJVWUuNEwvtIfhpzJjAuDqLV43b
-	 IlSgWBt+n7hBM0KVKiEK182XCyeTlWcEHqZIVS7DGf4a9Mzsexiu48/6Cq/X53V7BY
-	 xQgKTtGSlYkDFEfAl09ifBuVUygFr6kS1rrEWATVAs/Va9XrWRdBYRHYoqeOUTknN8
-	 AgCun9dDR48yg==
-Date: Tue, 12 May 2026 19:33:51 +0530
+	b=l8Dz+yxWS9Dm/bT6dOvuuuc2q6WwbWt7taRbZ9XzSnJHfGvP0dAO58m+EUdSUKVji
+	 sky0xYgEuhBWzvsr8LRabQsufhrtiKDW0962BhkqyVcI0VW1Raio2h5OO/hQG8CYcw
+	 m/updJZpr/GR/9a7F3gLP1OMBpJ0MW3n5K2W1A7jmV5sAP0EICEIjbJjSrCEBu+mc8
+	 GtBal0WTjrsxrbPyuwajM0ib3d0ACQeC/NJL3DZnmZDvZnRji8dG0d5cu+g3KIG7pz
+	 1qZTeiuE+RSSxPzRT8Asj6QdrfkpKtpZ0Bx2z6OgdG0eAICrcx7WnH1JHgO6DNPAD8
+	 hGmE2ALMemKvQ==
+Date: Tue, 12 May 2026 19:34:52 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Vinod Koul <vkoul@kernel.org>, 
@@ -53,17 +53,17 @@ Cc: Vinod Koul <vkoul@kernel.org>,
 	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>, dmaengine@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org, 
 	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, Damien Le Moal <dlemoal@kernel.org>
-Subject: Re: [PATCH v4 4/9] dmaengine: dw-edma: Use new
- .device_prep_config_sg() callback
-Message-ID: <bjroe5qbpggiolfqqexm5vy2edmhxp5qyrejxdklwlg5y53gfc@n3bz7i2jqja6>
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH v4 5/9] dmaengine: dw-edma: Pass dma_slave_config to
+ dw_edma_device_transfer()
+Message-ID: <35yqgcks3umcplmqq4q5qpbyqmjn2j2utk2tsyz6lbbtkgx7bi@ndbu2timf2ok>
 References: <20260506-dma_prep_config-v4-0-85b3d22babff@nxp.com>
- <20260506-dma_prep_config-v4-4-85b3d22babff@nxp.com>
+ <20260506-dma_prep_config-v4-5-85b3d22babff@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260506-dma_prep_config-v4-4-85b3d22babff@nxp.com>
+In-Reply-To: <20260506-dma_prep_config-v4-5-85b3d22babff@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,14 +78,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 06, 2026 at 04:44:16PM -0400, Frank Li wrote:
-> Use the new .device_prep_config_sg() callback to combine configuration and
-> descriptor preparation.
-> 
-> No functional changes.
+On Wed, May 06, 2026 at 04:44:17PM -0400, Frank Li wrote:
+> Pass dma_slave_config to dw_edma_device_transfer() to support atomic
+> configuration and descriptor preparation when a non-NULL config is
+> provided to device_prep_config_sg().
 > 
 > Tested-by: Niklas Cassel <cassel@kernel.org>
-> Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
 Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
@@ -93,53 +91,85 @@ Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
 - Mani
 
 > ---
-> change in v4
-> - drop context in callback.
 > change in v3
-> - add Damien Le Moal review tag
+> - rewrite dw_edma_device_slave_config() according to Damien's suggestion.
 > ---
->  drivers/dma/dw-edma/dw-edma-core.c | 14 +++++++++-----
->  1 file changed, 9 insertions(+), 5 deletions(-)
+>  drivers/dma/dw-edma/dw-edma-core.c | 27 +++++++++++++++++++++------
+>  1 file changed, 21 insertions(+), 6 deletions(-)
 > 
 > diff --git a/drivers/dma/dw-edma/dw-edma-core.c b/drivers/dma/dw-edma/dw-edma-core.c
-> index c2feb3adc79fa94b016913443305b9fae9deef12..f7f58b0010e26b529ffb7382d5b166a703587c71 100644
+> index f7f58b0010e26b529ffb7382d5b166a703587c71..ec6f6b1e482568a27ebe90852d5679672b24a1e9 100644
 > --- a/drivers/dma/dw-edma/dw-edma-core.c
 > +++ b/drivers/dma/dw-edma/dw-edma-core.c
-> @@ -577,10 +577,11 @@ dw_edma_device_transfer(struct dw_edma_transfer *xfer)
+> @@ -267,6 +267,20 @@ static int dw_edma_device_config(struct dma_chan *dchan,
+>  	return 0;
+>  }
+>  
+> +static struct dma_slave_config *
+> +dw_edma_device_get_config(struct dma_chan *dchan,
+> +			  struct dma_slave_config *config)
+> +{
+> +	struct dw_edma_chan *chan;
+> +
+> +	if (config)
+> +		return config;
+> +
+> +	chan = dchan2dw_edma_chan(dchan);
+> +
+> +	return &chan->config;
+> +}
+> +
+>  static int dw_edma_device_pause(struct dma_chan *dchan)
+>  {
+>  	struct dw_edma_chan *chan = dchan2dw_edma_chan(dchan);
+> @@ -385,7 +399,8 @@ dw_edma_device_tx_status(struct dma_chan *dchan, dma_cookie_t cookie,
 >  }
 >  
 >  static struct dma_async_tx_descriptor *
-> -dw_edma_device_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
-> -			     unsigned int len,
-> -			     enum dma_transfer_direction direction,
-> -			     unsigned long flags, void *context)
-> +dw_edma_device_prep_config_sg(struct dma_chan *dchan, struct scatterlist *sgl,
-> +			      unsigned int len,
-> +			      enum dma_transfer_direction direction,
-> +			      unsigned long flags,
-> +			      struct dma_slave_config *config)
+> -dw_edma_device_transfer(struct dw_edma_transfer *xfer)
+> +dw_edma_device_transfer(struct dw_edma_transfer *xfer,
+> +			struct dma_slave_config *config)
 >  {
->  	struct dw_edma_transfer xfer;
+>  	struct dw_edma_chan *chan = dchan2dw_edma_chan(xfer->dchan);
+>  	enum dma_transfer_direction dir = xfer->direction;
+> @@ -472,8 +487,8 @@ dw_edma_device_transfer(struct dw_edma_transfer *xfer)
+>  		src_addr = xfer->xfer.il->src_start;
+>  		dst_addr = xfer->xfer.il->dst_start;
+>  	} else {
+> -		src_addr = chan->config.src_addr;
+> -		dst_addr = chan->config.dst_addr;
+> +		src_addr = config->src_addr;
+> +		dst_addr = config->dst_addr;
+>  	}
 >  
-> @@ -591,6 +592,9 @@ dw_edma_device_prep_slave_sg(struct dma_chan *dchan, struct scatterlist *sgl,
->  	xfer.flags = flags;
->  	xfer.type = EDMA_XFER_SCATTER_GATHER;
+>  	if (dir == DMA_DEV_TO_MEM)
+> @@ -595,7 +610,7 @@ dw_edma_device_prep_config_sg(struct dma_chan *dchan, struct scatterlist *sgl,
+>  	if (config)
+>  		dw_edma_device_config(dchan, config);
 >  
-> +	if (config)
-> +		dw_edma_device_config(dchan, config);
-> +
->  	return dw_edma_device_transfer(&xfer);
+> -	return dw_edma_device_transfer(&xfer);
+> +	return dw_edma_device_transfer(&xfer, dw_edma_device_get_config(dchan, config));
 >  }
 >  
-> @@ -970,7 +974,7 @@ static int dw_edma_channel_setup(struct dw_edma *dw, u32 wr_alloc, u32 rd_alloc)
->  	dma->device_terminate_all = dw_edma_device_terminate_all;
->  	dma->device_issue_pending = dw_edma_device_issue_pending;
->  	dma->device_tx_status = dw_edma_device_tx_status;
-> -	dma->device_prep_slave_sg = dw_edma_device_prep_slave_sg;
-> +	dma->device_prep_config_sg = dw_edma_device_prep_config_sg;
->  	dma->device_prep_dma_cyclic = dw_edma_device_prep_dma_cyclic;
->  	dma->device_prep_interleaved_dma = dw_edma_device_prep_interleaved_dma;
+>  static struct dma_async_tx_descriptor *
+> @@ -614,7 +629,7 @@ dw_edma_device_prep_dma_cyclic(struct dma_chan *dchan, dma_addr_t paddr,
+>  	xfer.flags = flags;
+>  	xfer.type = EDMA_XFER_CYCLIC;
 >  
+> -	return dw_edma_device_transfer(&xfer);
+> +	return dw_edma_device_transfer(&xfer, dw_edma_device_get_config(dchan, NULL));
+>  }
+>  
+>  static struct dma_async_tx_descriptor *
+> @@ -630,7 +645,7 @@ dw_edma_device_prep_interleaved_dma(struct dma_chan *dchan,
+>  	xfer.flags = flags;
+>  	xfer.type = EDMA_XFER_INTERLEAVED;
+>  
+> -	return dw_edma_device_transfer(&xfer);
+> +	return dw_edma_device_transfer(&xfer, dw_edma_device_get_config(dchan, NULL));
+>  }
+>  
+>  static void dw_hdma_set_callback_result(struct virt_dma_desc *vd,
 > 
 > -- 
 > 2.43.0
