@@ -4,102 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9324DCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 14:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E82CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 14:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3TnKwYV0Kzd1zXkaaqOGDYWO3WX2nNMrzmPg/2ozAlk=; b=CTDDbRuZ30gEnFXvR4b+lxMqeq
-	G3QIoP50MJkuj3x76JNiAJb0bp9Yh6J8hSiXCueLb605EE85ArQgdF6IbBmUyx1IlLShmTrZbN1ih
-	8JemEhX8o/UYxsbjdObHbaZmPXgLH7r/WbrYq7rgk3DTWng1wGHJso5xJ2ImYyDsTJMD3jnVGnRAo
-	XHbW72OcYqdUAkrBxYTMX2V8LkM1tl+OIICF4dS2JQM/57zFQZ8ME+si3M1md/WU/OIQm8RaPjwVC
-	Y4JaEAPCNIRdKuI2pOdhH6HkuNrfuNKSU+IoS3BDu7hShpNOtz1fhwwEHO8g4m82+CAhsL+xIINJJ
-	BLl6UfcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4JlmyHDSwkIRsvpvBKpT31LPv1O4ptlHr2c6u5Zp1Gw=; b=NEzhRV7SHtsceKjgQnr4iSxNtj
+	iifa/t2P5dd4+Y1hJJOU2NW2pE6Rx6GGpU3p2K7S6nolBhnoFnCws7AHS30IXTZv1dp8RcNLgzVBc
+	32+Or1fpCn3dbgasq4qJQuczk/qo5GgBlCcyu1cBW1ufazHjaozIPKImIhJ3BPifMvFPE3TunYJOl
+	ARFyrOqqZjGBvRMzOPrYl6/YC5bdduMAiLKb921AasdXpK8m57RK+v6oXtYW9pCi9SMtfw9xhvi0p
+	5JnaTdesXcYg/Uxh6c9RP9KVKr2OBIX+ntRvvffY+osm2D3CHe4lpL+le9kV9RpuJWBpR/LC3uSAk
+	Rk3PXBUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAZ7-00000002vbI-0Sf3;
-	Wed, 13 May 2026 14:28:01 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wNAaV-00000002vqi-1ZSZ;
+	Wed, 13 May 2026 14:29:27 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAZ4-00000002vaA-0ciW
+	id 1wNAaS-00000002vpu-3l3m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 14:27:59 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2b46da8c48eso1535ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 07:27:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778682476; x=1779287276; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=3TnKwYV0Kzd1zXkaaqOGDYWO3WX2nNMrzmPg/2ozAlk=;
-        b=ULPVnfgI6sXI3vMUJJznwtFQ/zJ8bXZXyv51mqmhuR++DnqI/c8OZDUgWcX8M4OqVY
-         Gphyb6j57Ujv2h4MVuaoMweXT3ofcg+XJsUfCzySramtwJB3ev/mHOt8u8fL145TcHai
-         kwKjqjes+puB2I+g7iHLQGdxF/ouIk63XetG8Y5kLCDldGW1hvtIwQ0+O86bjRIEM545
-         1S07q3rqHzmT2gDpZodUJqqmxKpEfnygRwi0GHD71Lv0I3xXyHGLEJM1oM4xkOmo2vt1
-         Vr1dZghku/Rcgd4EOogi4Y+bMVNEgGXUUdusjjjlEPtziqInv8c6eCwm8EdtH/R+f/qt
-         5Nuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778682476; x=1779287276;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3TnKwYV0Kzd1zXkaaqOGDYWO3WX2nNMrzmPg/2ozAlk=;
-        b=Ml4KaZP7rOfMMXSypamiZCmBCaB8Iyc4EtAQk1XR42kthG6osL5fJ8AaWFr947XzUN
-         m9qQE+Ev3UTVurEuqOTUffDxte1p9umM3BELm1Knva3Z+NEGJhVmQY4Qy9t2Ug77eeTx
-         Et36PfZ7wa7dvtDI016ieq8J4B2b0vm4vgP4DFAr1pEncwGrt38RdMojlI/A9uzMgVqC
-         MFzitSJUWau0SC21p3v1dkS0zRsIXY02UinWr9oyYxdzyl2Zl5qYBPivvTJklF+JFyCZ
-         M8PLYbhEitUM92uKF494dj1SA4jPxFlm23kHR+44PslE7OsXaIpAt1u3GWM7Pp4aBkjB
-         8/Fg==
-X-Forwarded-Encrypted: i=1; AFNElJ/4Hv6jQZTE7jWjsNKTyVdYYrTeOFLRi/y3ycso4LEqCGM497L0UnpG+zV5Yn0n28vd2R/NOORafeh28eyZjnS5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwejnT2nMc5T7Sa0efzdB2awVUBkGQcbq3RQ2kQTi01gk3Ivwe/
-	noIUlzfzb0aP2fy2vCJp6mjprmEmUyrWAeqHAeGUboImBVTWD6WhPgI0aC35CL1Gbg==
-X-Gm-Gg: Acq92OHE1v8brQ0EnRJNkVUHIxrFhwFe3phm+GVflD4duUdTPKENumWmZq1Yo5+BwZn
-	6jHE9FyCCYwOxvpGB+OLgnz7tNmUm8ydr8myRq4iPGt/jjiYbNH4qjddDv7qbAdDHNZHCrYX5l2
-	f+RDFOytdXBrud7wj0hSfaxRvQ6sVPaoPMPSSLMR3HAOb+bDvj1kyfjF7Ge2gthTotEZG/3XS0B
-	GZsB4owJLgQ5S0vC6qt6Oq+Dn2FmcSHZHXafr06uQDJFDEAJghA5d9BO0GT+ys10LmlS2f0wKxF
-	vdaMr1lBUin16STD0iPuP2iQqujzzBJY5w5tNDJeZC28uc9s+jeuXczJqQ/7Z5cSCnDvYTrdoig
-	3+kHnD2a1uENyeNJupMKOiMXXLGmpr+mcROLxc6zllXL/HHPJfrUxYCOYnwuyE0nPtDvb4XfB5O
-	jO9UNFmt9HUvckdv7TYpPv1zyXkPQWSViHCig+/MlGhToV8mxHhmBbhxIXUrB7QOgg1yLB
-X-Received: by 2002:a17:903:2154:b0:2b8:e82d:ff7c with SMTP id d9443c01a7336-2bd2c0f12bemr1729045ad.9.1778682475851;
-        Wed, 13 May 2026 07:27:55 -0700 (PDT)
-Received: from google.com (44.234.124.34.bc.googleusercontent.com. [34.124.234.44])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-368edfa2fb1sm3416572a91.17.2026.05.13.07.27.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 07:27:55 -0700 (PDT)
-Date: Wed, 13 May 2026 14:27:48 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3-sva: Enable Hardware Access and
- Hardware Dirty bits
-Message-ID: <agSKZPJmFMLc0gno@google.com>
-References: <20260503135413.1108138-1-nicolinc@nvidia.com>
- <af0SdkjQOZxnnaQb@google.com>
- <20260508123550.GB9254@nvidia.com>
- <af3hWGp3etGOIdEn@google.com>
- <f31043cc-45dd-457f-8031-0cef51c9470e@arm.com>
- <af3ryl7G58D2GeWr@google.com>
- <4e129891-2f52-4bac-8e33-1fdde42fd29a@arm.com>
- <af7oyeleKFXpcIKu@nvidia.com>
- <agHYDxuYyqzmAfy5@google.com>
- <agRjt9XpN66ktdk9@willie-the-truck>
+	Wed, 13 May 2026 14:29:25 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1wNAaD-0002gm-FK; Wed, 13 May 2026 16:29:09 +0200
+Message-ID: <aeff9412-1c69-469d-bee3-7b9efa9b3947@pengutronix.de>
+Date: Wed, 13 May 2026 16:29:06 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 16/29] media: rockchip: rga: split flip and rotate into
+ separate function
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Jacob Chen <jacob-chen@iotwrt.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Hans Verkuil <hverkuil@kernel.org>,
+ Philipp Zabel <pza@pengutronix.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kernel@pengutronix.de,
+ sebastian.reichel@collabora.com
+References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
+ <20260428-spu-rga3-v5-16-eb7f5d019d86@pengutronix.de>
+ <ebe5cd6689923eb1e2124e177f694895383fba54.camel@ndufresne.ca>
+ <1f447423-8c63-4545-a4f7-d8d5ef821255@pengutronix.de>
+ <30f56a0ac9f724b5ec1b936eec7b5b7c5e751c75.camel@ndufresne.ca>
+Content-Language: en-US
+From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+In-Reply-To: <30f56a0ac9f724b5ec1b936eec7b5b7c5e751c75.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <agRjt9XpN66ktdk9@willie-the-truck>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_072758_198666_6A9F2DE8 
-X-CRM114-Status: GOOD (  38.71  )
+X-CRM114-CacheID: sfid-20260513_072924_930089_5434DC1A 
+X-CRM114-Status: GOOD (  23.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,100 +80,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 12:42:47PM +0100, Will Deacon wrote:
-> On Mon, May 11, 2026 at 01:22:23PM +0000, Pranjal Shrivastava wrote:
-> > On Sat, May 09, 2026 at 12:56:57AM -0700, Nicolin Chen wrote:
-> > > On Fri, May 08, 2026 at 03:24:32PM +0100, Robin Murphy wrote:
-> > > > On 2026-05-08 2:57 pm, Pranjal Shrivastava wrote:
-> > > > > I see, so IIUC, you mean if IS_ENABLED(CONFIG_ARM64_HW_AFDBM) but CPU
-> > > > > doesn't enable HTTU, it is perfectly safe to let the SMMU do HTT updates,
-> > > > > Since the fault handlers are already expecting HW-triggered updates?
-> > > > > 
-> > > > > Which means our check would be something like:
-> > > > > 
-> > > > >     if (IS_ENABLED(CONFIG_ARM64_HW_AFDBM) {
-> > > > >     	if (smmu->features & FEAT_HA)
-> > > > > 	 ...
-> > > > >     }
-> > > > > 
-> > > > > instead of cpu_has_hw_af()?
-> > > > 
-> > > > Hmm, looking closer, cpu_has_hw_af() is the thing which actually influences
-> > > > mm behaviour (via arch_has_hw_pte_young and arch_wants_old_prefaulted_pte),
-> > > > and that can still be false at runtime if ARM64_HW_AFDBM is enabled but any
-> > > > CPU doesn't support HAFDBS, so perhaps you were right the first time :)
-> > > 
-> > > IIUIC, v2 should be:
-> > > 
-> > > +		/*
-> > > +		 * Enable Hardware Access and Dirty updates (DBM) if supported by
-> > > +		 * both the SMMU and the CPU. It is unsafe to enable SMMU's HTTU,
-> > > +		 * if the CPU does not support it as it bypasses mm page aging.
-> > > +		 */
-> > > +		if (cpu_has_hw_af()) {
-> > 
-> > Ack, yes. IMO, this is the correct system-wide gate.
-> 
-> Hmm, I'm not so sure :/
-> 
-> cpu_has_hw_af() doesn't take into account CPUs with broken DBM and, in
-> fact, ID_AA64MMFR1_EL1.HAFDBS allows support for AF to be advertised
-> without support for DBM.
-> 
-> Having said that, I don't understand why we need to care about the CPU
-> support. The comment above states:
-> 
->   "It is unsafe to enable SMMU's HTTU, if the CPU does not support it as
->    it bypasses mm page aging."
-> 
-> but I don't understand what that "bypassing" means. vmscan should still
-> pick up the correct state from the page-table, so what's the problem?
+Hi Nicola,
 
-I agree that for the Access Flag (AF), vmscan would eventually see the 
-bit in the table. However, I’m concerned about Hardware Dirty (HD/DBM).
-I know the vmscan might eventually get to it.. but here's my worry:
+On 5/12/26 4:15 PM, Nicolas Dufresne wrote:
+> Le mardi 12 mai 2026 à 16:08 +0200, Sven Püschel a écrit :
+>
+>
+>>> To stick with the spec, the capture format needs to be updated, and it needs to
+>>> happen in a way user can be able to read it back for the correct frame if
+>>> userspace make use of the queues. I see 3 options, let me know what you think,
+>>> or what is later implemented if you already thought about that.
+>>>
+>>> 1. Synchronously update the capture format width/height, document in the
+>>> respective control this behaviour, leaving to userspace to remember which frames
+>>> the change will apply to.
+>>>
+>>> This works nicely for this type of HW, but would be a bit complicated for a
+>>> deinterlacer, since the buffering might be HW specific. It also make usage of
+>>> queues harder, less independent.
+>>>
+>>> 2. Force a drain/stop/start for any 90 degree rotation
+>>>
+>>> This might impose a longer idle time for the converter core, and is kind of
+>>> opposite of your commit message. But requires no spec work.
+>>>
+>>> 3. Emit SRC_CH, implement the drain procedure typical to decoder resolution
+>>> change.
+>>>
+>>> Typically it means userspace can keep buffering on the OUTPUT queue, and once
+>>> the LAST buffer is met, it can simply read the new format (and new stride, since
+>>> due to alignment, this might be hardware specific) and toggle streamoff/on only
+>>> on capture queue to reactivate the processing.
+>>>
+>>> The 3. is more complex for the driver, but its a proven race-free method for
+>>> decoders already. 2 would be statusquo to get this series in, and we could post-
+>>> poned more advance work for seamless 90degree rorations. 1., I don't really like
+>>> that solution, it not quite generic enough.
+>> I'll go with option 2 for now to keep it simple and improve the status
+>> quo a bit.
+> Works for me.
 
-IIUC, in arm64 the dirty state of a page is tracked through a specific 
-protocol using the PTE_RDONLY and PTE_WRITE (DBM) bits. A shared writable
-page is initially mapped with both bits set (_PAGE_SHARED [1])
+Philipp Zabel just mentioned that a 90 degree rotation would just cause 
+the RGA to scale it to the output format (deforming if it isn't 
+quadratic). The existing code already considers the rotation to set the 
+scaling factor accordingly (which I've also missed in this commit. But 
+the commit is dropped anyways in v6 due to the various footguns).
 
-It also seems to be documented in arch/arm64/include/asm/pgtable.h [2]:
+While I see that the V4L2_CID_ROTATE docs mention the need to set the 
+format according to the chosen rotation, it feels like it's intended for 
+non-scaling converters. So I don't see a problem to just allow the 
+current state, as the user has to adjust the format anyways if he isn't 
+interested in a deformed image (instead of blocking this potential rare 
+use-case).
 
-/*
- * PTE bits configuration in the presence of hardware Dirty Bit Management
- * (PTE_WRITE == PTE_DBM):
- *
- * Dirty  Writable | PTE_RDONLY  PTE_WRITE  PTE_DIRTY (sw)
- *   0      0      |   1           0          0
- *   0      1      |   1           1          0
- *   1      0      |   1           0          1
- *   1      1      |   0           1          x
- *
- * When hardware DBM is not present, the software PTE_DIRTY bit is updated via
- * the page fault mechanism. Checking the dirty status of a pte becomes:
- *
- *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
- */
+But I'd add a check in my scaling commit to also check in the streaming 
+state that we don't set a 90 degree rotation causing the scaling factor 
+to be exceeded (e.g. 1x2 -> 1x32 scales by 16, whereas 90 degree 
+rotation causes a scaling factor of 32).
 
-Thus, if the CPU does not support/enable Hardware Dirty management
-(TCR_EL1.HD == 0), it is forced to trigger a Permission Fault on the 1st
-write because PTE_RDONLY is 1. The fault allows the kernel to call 
-folio_mark_dirty() [3]
+Sincerely
+     Sven
 
-If we enable SMMU HD independently in the Context Descriptor, the SMMU
-will see a write and silently clear PTE_RDONLY in the hardware table.
-When the CPU later accesses the page, it sees PTE_RDONLY == 0 and 
-proceeds without ever faulting.
-
-Now, if we're work on an SVA page, with only SMMU supporting HTTU. A DMA
-writes to the page and the process (CPU) calls fsync(). IIUC, it performs
-a lookup in the Page Cache specifically for folios tagged as DIRTY.
-Since, vmscan didn't run yet, this could potentally drop the writes..
-
-Thanks,
-Praan
-
-[1] https://elixir.bootlin.com/linux/v7.1-rc3/source/arch/arm64/include/asm/pgtable-prot.h#L61
-[2] https://elixir.bootlin.com/linux/v7.1-rc3/source/arch/arm64/include/asm/pgtable.h#L390
-[3] https://elixir.bootlin.com/linux/v7.1-rc3/source/mm/memory.c#L3698
+>
+> Nicolas
+>
+>> Sincerely
+>>       Sven
+>>
+>>> feedback welcome,
+>>> Nicolas
+>>>
+>>>> ---
+>>>>    drivers/media/platform/rockchip/rga/rga-hw.c | 57 +++++++++++++++++-----------
+>>>>    1 file changed, 34 insertions(+), 23 deletions(-)
+>>>>
+>>>> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+>>>> index dac3cb6aa17d3..6c1956b04f6ba 100644
+>>>> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
+>>>> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+>>>> @@ -156,7 +156,38 @@ static void rga_cmd_set_dst_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
+>>>>    	dest[reg >> 2] |= 0x7 << 8;
+>>>>    }
+>>>>    
+>>>> -static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+>>>> +static void rga_cmd_set_flip_rotate_info(struct rga_ctx *ctx)
+>>>> +{
+>>>> +	u32 *dest = ctx->cmdbuf_virt;
+>>>> +	union rga_src_info src_info;
+>>>> +
+>>>> +	src_info.val = dest[(RGA_SRC_INFO - RGA_MODE_BASE_REG) >> 2];
+>>>> +
+>>>> +	if (ctx->vflip)
+>>>> +		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_X;
+>>>> +
+>>>> +	if (ctx->hflip)
+>>>> +		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_Y;
+>>>> +
+>>>> +	switch (ctx->rotate) {
+>>>> +	case 90:
+>>>> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_90_DEGREE;
+>>>> +		break;
+>>>> +	case 180:
+>>>> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_180_DEGREE;
+>>>> +		break;
+>>>> +	case 270:
+>>>> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_270_DEGREE;
+>>>> +		break;
+>>>> +	default:
+>>>> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_0_DEGREE;
+>>>> +		break;
+>>>> +	}
+>>>> +
+>>>> +	dest[(RGA_SRC_INFO - RGA_MODE_BASE_REG) >> 2] = src_info.val;
+>>>> +}
+>>>> +
+>>>> +static void rga_cmd_set_format_scale_info(struct rga_ctx *ctx)
+>>>>    {
+>>>>    	struct rockchip_rga *rga = ctx->rga;
+>>>>    	u32 *dest = ctx->cmdbuf_virt;
+>>>> @@ -219,27 +250,6 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+>>>>    		}
+>>>>    	}
+>>>>    
+>>>> -	if (ctx->vflip)
+>>>> -		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_X;
+>>>> -
+>>>> -	if (ctx->hflip)
+>>>> -		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_Y;
+>>>> -
+>>>> -	switch (ctx->rotate) {
+>>>> -	case 90:
+>>>> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_90_DEGREE;
+>>>> -		break;
+>>>> -	case 180:
+>>>> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_180_DEGREE;
+>>>> -		break;
+>>>> -	case 270:
+>>>> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_270_DEGREE;
+>>>> -		break;
+>>>> -	default:
+>>>> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_0_DEGREE;
+>>>> -		break;
+>>>> -	}
+>>>> -
+>>>>    	/*
+>>>>    	 * Calculate the up/down scaling mode/factor.
+>>>>    	 *
+>>>> @@ -431,7 +441,8 @@ static void rga_cmd_set(struct rga_ctx *ctx,
+>>>>    
+>>>>    	rga_cmd_set_src_info(ctx, &src->offset);
+>>>>    	rga_cmd_set_dst_info(ctx, &dst->offset);
+>>>> -	rga_cmd_set_trans_info(ctx);
+>>>> +	rga_cmd_set_format_scale_info(ctx);
+>>>> +	rga_cmd_set_flip_rotate_info(ctx);
+>>>>    
+>>>>    	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
+>>>>    
 
