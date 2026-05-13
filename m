@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A6CCD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:18:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08244CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i9NIfrMOCl6tbj4XdqTQ+eOVGar4tz/Vn0QwnaZpEBs=; b=GCiE82tUaOhmMvNELDIvpymZic
-	qlO3i2++hEtGPDg/mqUP9cXVmqJD+6EufSI6kW3oSNQLo9Cfbw28txCVNbcoSOfZbJ+bD/bBQfHKD
-	dgB14af++ltsiq5RmJFURMIieY2OzWX58rq6eu6WIgKi+LwtmHLSav9ja7scaHKjI/3PmaHz2Vh9u
-	en/zE22lAJ6vyTRDAlTunX7j8ZDTg9ZrT+AFvdbRYLe1fNjuy9FSlwo3V3Ui0A2TjUdAh/JS6q0ct
-	SBBWKWEzNuQ77odUfueuhQCe2yUJCixuzKlqg61jRPjwDZ/wJnktJSIwTaSwEte/wy0GeebQE28K2
-	kjw100wg==;
+	bh=n/+5d6Iee2Wnc2t8RkTdT9sHxMC62Ecd6fmVxlQHbEE=; b=TDainDT9GV1yNqoZRqfKq6cMh8
+	HbxpZBKiChOq2jUsJDGHrD6GPkbCmn1hRGyyNAYY0PqIxvnlUq16b2zadBP5hcXodyXHfhwK4LpWM
+	lj1c1Iru4QU4WbGfo/RvrcOiYl6Wv+zC+qzFnbA+pk1OTps3C14wRqL6pMzNM0Y/OOiv7gdqEBXGJ
+	6x9zysnwHbw4IMA0a6PdKJFoMbMNJ89JAWcHW2dS3cZU14cuNhsZOelw4a8AdpOKyy3c84FU+iGhm
+	7FIh70r2rLoMXf1FIC980WaMZ9ElOGJ27J35wMvnsIBesYLGrnJJoPVTs65pvVajtPgwkjNcI1zSH
+	X7+5z/nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9To-00000002dpU-32Kk;
-	Wed, 13 May 2026 13:18:28 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9TW-00000002dWr-3EYi
+	id 1wN9UK-00000002eUD-1srS;
+	Wed, 13 May 2026 13:19:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wN9Tq-00000002drV-31ke
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:18:13 +0000
-Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0E8502F81;
-	Wed, 13 May 2026 15:18:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778678281;
-	bh=iVTG0B+cVq7zMLwd1l18EkP50Lew0RlRkKUlnj/wipk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MmToqoTnJJGzZD32CwXl6In/SQfNvXZYIFc7RduXmYx1awOJpfpq+FqSki6MAyfWo
-	 8Vuzrsa7Joj2wbstFtv1XJjV9hAHgLqlKPwjg447droiDKPT8EicQqgkzD/3tn6jit
-	 ZEP3cQRxVsTJ6Hr8wjmgAtelgxx2QebpBJe4+Luk=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 13 May 2026 16:17:34 +0300
-Subject: [PATCH v2 12/16] drm/tidss: oldi: Convert OLDI to an aux driver
+	Wed, 13 May 2026 13:18:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C79FC1E2F;
+	Wed, 13 May 2026 06:18:24 -0700 (PDT)
+Received: from e122027.arm.com (unknown [10.57.68.187])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68CCF3F836;
+	Wed, 13 May 2026 06:18:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778678310; bh=L2CeU8vxIxbtmaEZc3t55CUNGK5e4FMZDRDaVix4sq8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=tnCIj/2xwLblTM/Ij6JP9/NL7go962aQhxYY1e8MYBkOeaWsKN3edKqiQ2c8pzj2e
+	 oxVyFhNXWDFF+VKeq4hZhchmXM3W/yQQqDYQOjEcjVq/t4OQT8r9AAI3bnfb3RuC2x
+	 etf55nU10Xtsi0yOxBtPxbV65yPId1IykH57WaQc=
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: [PATCH v14 02/44] kvm: arm64: Avoid including linux/kvm_host.h in kvm_pgtable.h
+Date: Wed, 13 May 2026 14:17:10 +0100
+Message-ID: <20260513131757.116630-3-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260513131757.116630-1-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-beagley-ai-display-v2-12-9e9bcefde6bc@ideasonboard.com>
-References: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
-In-Reply-To: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, 
- Devarsh Thakkar <devarsht@ti.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=23421;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=iVTG0B+cVq7zMLwd1l18EkP50Lew0RlRkKUlnj/wipk=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqBHoAU/50lMa5bdFqxOjpn02xIOQla/us4qvA/
- gHIelMrDuaJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCagR6AAAKCRD6PaqMvJYe
- 9UkkEACUIIgOooba1t6Mw9RwQsRWzMJJJVJF9dtuWNp8v8xr6IW2RV4tSYloCNh5QgL+88dMQiO
- B/ZoRgCIYjfTo23mjkbLmzYZq8YAK1XCFOtwLDS7XNJ1s6GX4PP7BLIUVvioD8fELE0XLEE9W29
- hhe/Sfq4vQTwzGww9PNEH6W6U7JSR/39zdCYV6FwBVbLj/Uskc5YyDeMPowO4JXThsLPmUjAeTF
- /OHsHPA2dmRDEYC12Emwt9eR6UY9u/N6I2ZQVg2Jbe5a3v25XX2nj24ZEVepSIBtRWNS9fO7FfS
- 8gF1afIM6a01FnlWJ+rpS7j6B6OHFgwxgdbCnNuaoolr5y3a1jvC0sSUrX5oPSTK0OFxUtAugTq
- 6tTqHksd2TfEopNpjDPp6NvgRlEVxyVdT5phD0xn9hksUX1nKpN1a9U6lzIaq+odZjhA0zP+lhj
- b1S3HcvxFQBb5ZriddZNjfcuWZ7BTSJVZqDKj60AFSa60eejt3kN08gzVSQCB+Uzlz/XWDxtRE1
- C9GOOv64hbzQ/waX8XKoHM8Pd86mRLSc6pkkLW2uJU1+oy+IHsgcHbJADanPZccG90rkjW3x3zp
- hM+0SEik2yAdguVONwysDrGzEnBcBz+DMV8U5Vi1B6UwoV8IHfHtUmTh06rnkhBWMjQaFqFdRaD
- KYF0yoyFB2+8ujA==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_061811_296749_F00B7E44 
-X-CRM114-Status: GOOD (  37.84  )
+X-CRM114-CacheID: sfid-20260513_061830_864077_F593D080 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,762 +91,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently in the DT, OLDI is defined in child nodes under the DSS node.
-The tidss driver will parse the DT, and create DRM bridges for the
-OLDIs, and there are no Linux devices for the OLDIs.
+To avoid future include cycles, drop the linux/kvm_host.h include in
+kvm_pgtable.h and include two _types.h headers for the types that are
+actually used. Additionally provide a forward declaration for struct
+kvm_s2_mmu as it's only used as a pointer in this file.
 
-On new SoCs the OLDIs have their own power-domains which we need to
-control. The cleanest way to do this in DT is to add the PDs to the OLDI
-nodes. But this means the OLDI bridge code would somehow have to
-manually manage the PDs, the PDs not being under a Linux device, and
-there isn't much support for that kind of setup in the PD framework.
+Both pgtable.c and kvm_pkvm.h relied on the indirect inclusion of
+kvm_host.h, so make that explicit.
 
-A solution to this is to convert the OLDI to an auxiliary device/driver,
-created by tidss:
-
-- At module load time the tidss module will, in addition to registering
-  the tidss DRM driver, register an oldi auxiliary driver.
-- At probe time tidss will parse the DT, and create an auxiliary device
-  for each OLDI.
-
-The aux driver will probe, and as its of_node points to the OLDI node
-containing the PD, the driver framework will take care of enabling and
-disabling the PD when OLDI is used ("used" as in pm_runtime context).
-
-Tested-by: Swamil Jain <s-jain1@ti.com>
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
 ---
- drivers/gpu/drm/tidss/tidss_drv.c  |  51 +++-
- drivers/gpu/drm/tidss/tidss_drv.h  |   5 +-
- drivers/gpu/drm/tidss/tidss_oldi.c | 493 ++++++++++++++++++++++++++-----------
- drivers/gpu/drm/tidss/tidss_oldi.h |   7 +-
- 4 files changed, 400 insertions(+), 156 deletions(-)
+New patch in v13
+---
+ arch/arm64/include/asm/kvm_pgtable.h | 5 ++++-
+ arch/arm64/include/asm/kvm_pkvm.h    | 2 +-
+ arch/arm64/kvm/hyp/pgtable.c         | 1 +
+ 3 files changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/tidss/tidss_drv.c b/drivers/gpu/drm/tidss/tidss_drv.c
-index 5cb3e746aeb3..aef945101be4 100644
---- a/drivers/gpu/drm/tidss/tidss_drv.c
-+++ b/drivers/gpu/drm/tidss/tidss_drv.c
-@@ -133,10 +133,6 @@ static int tidss_probe(struct platform_device *pdev)
- 		return ret;
- 	}
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 41a8687938eb..e4770ce2ccf6 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -8,9 +8,12 @@
+ #define __ARM64_KVM_PGTABLE_H__
  
--	ret = tidss_oldi_init(tidss);
--	if (ret)
--		return dev_err_probe(dev, ret, "failed to init OLDI\n");
--
- 	pm_runtime_enable(dev);
+ #include <linux/bits.h>
+-#include <linux/kvm_host.h>
++#include <linux/kvm_types.h>
++#include <linux/rbtree_types.h>
+ #include <linux/types.h>
  
- 	pm_runtime_set_autosuspend_delay(dev, 1000);
-@@ -147,24 +143,30 @@ static int tidss_probe(struct platform_device *pdev)
- 	dispc_runtime_resume(tidss->dispc);
- #endif
- 
-+	ret = tidss_oldi_create_devices(tidss);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "failed to create OLDI devices\n");
-+		goto err_runtime_suspend;
-+	}
++struct kvm_s2_mmu;
 +
- 	ret = tidss_modeset_init(tidss);
- 	if (ret < 0) {
- 		if (ret != -EPROBE_DEFER)
- 			dev_err(dev, "failed to init DRM/KMS (%d)\n", ret);
--		goto err_runtime_suspend;
-+		goto err_destroy_oldis;
- 	}
+ #define KVM_PGTABLE_FIRST_LEVEL		-1
+ #define KVM_PGTABLE_LAST_LEVEL		3
  
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0) {
- 		ret = irq;
--		goto err_runtime_suspend;
-+		goto err_destroy_oldis;
- 	}
- 	tidss->irq = irq;
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index 2954b311128c..1bc6a6a34ec9 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -9,7 +9,7 @@
+ #include <linux/arm_ffa.h>
+ #include <linux/memblock.h>
+ #include <linux/scatterlist.h>
+-#include <asm/kvm_host.h>
++#include <linux/kvm_host.h>
+ #include <asm/kvm_pgtable.h>
  
- 	ret = tidss_irq_install(ddev, irq);
- 	if (ret) {
- 		dev_err(dev, "tidss_irq_install failed: %d\n", ret);
--		goto err_runtime_suspend;
-+		goto err_destroy_oldis;
- 	}
- 
- 	drm_kms_helper_poll_init(ddev);
-@@ -194,6 +196,9 @@ static int tidss_probe(struct platform_device *pdev)
- err_irq_uninstall:
- 	tidss_irq_uninstall(ddev);
- 
-+err_destroy_oldis:
-+	tidss_oldi_destroy_devices(tidss);
-+
- err_runtime_suspend:
- #ifndef CONFIG_PM
- 	dispc_runtime_suspend(tidss->dispc);
-@@ -201,8 +206,6 @@ static int tidss_probe(struct platform_device *pdev)
- 	pm_runtime_dont_use_autosuspend(dev);
- 	pm_runtime_disable(dev);
- 
--	tidss_oldi_deinit(tidss);
--
- 	return ret;
- }
- 
-@@ -218,6 +221,8 @@ static void tidss_remove(struct platform_device *pdev)
- 
- 	tidss_irq_uninstall(ddev);
- 
-+	tidss_oldi_destroy_devices(tidss);
-+
- #ifndef CONFIG_PM
- 	/* If we don't have PM, we need to call suspend manually */
- 	dispc_runtime_suspend(tidss->dispc);
-@@ -225,8 +230,6 @@ static void tidss_remove(struct platform_device *pdev)
- 	pm_runtime_dont_use_autosuspend(dev);
- 	pm_runtime_disable(dev);
- 
--	tidss_oldi_deinit(tidss);
--
- 	/* devm allocated dispc goes away with the dev so mark it NULL */
- 	dispc_remove(tidss);
- 
-@@ -262,7 +265,31 @@ static struct platform_driver tidss_platform_driver = {
- 	},
- };
- 
--drm_module_platform_driver(tidss_platform_driver);
-+static int __init tidss_platform_driver_init(void)
-+{
-+	int ret;
-+
-+	ret = tidss_oldi_register_driver();
-+	if (ret)
-+		return ret;
-+
-+	ret = drm_platform_driver_register(&tidss_platform_driver);
-+	if (ret) {
-+		tidss_oldi_unregister_driver();
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+module_init(tidss_platform_driver_init);
-+
-+static void __exit tidss_platform_driver_exit(void)
-+{
-+	platform_driver_unregister(&tidss_platform_driver);
-+	tidss_oldi_unregister_driver();
-+}
-+module_exit(tidss_platform_driver_exit);
-+
- 
- MODULE_AUTHOR("Tomi Valkeinen <tomi.valkeinen@ti.com>");
- MODULE_DESCRIPTION("TI Keystone DSS Driver");
-diff --git a/drivers/gpu/drm/tidss/tidss_drv.h b/drivers/gpu/drm/tidss/tidss_drv.h
-index e1c1f41d8b4b..d3dba639b278 100644
---- a/drivers/gpu/drm/tidss/tidss_drv.h
-+++ b/drivers/gpu/drm/tidss/tidss_drv.h
-@@ -16,7 +16,8 @@
- #define TIDSS_MAX_OLDI_TXES 2
- 
- typedef u32 dispc_irq_t;
--struct tidss_oldi;
-+
-+struct auxiliary_device;
- 
- struct tidss_device {
- 	struct drm_device ddev;		/* DRM device for DSS */
-@@ -34,7 +35,7 @@ struct tidss_device {
- 	struct drm_plane *planes[TIDSS_MAX_PLANES];
- 
- 	unsigned int num_oldis;
--	struct tidss_oldi *oldis[TIDSS_MAX_OLDI_TXES];
-+	struct auxiliary_device *oldis[TIDSS_MAX_OLDI_TXES];
- 
- 	unsigned int irq;
- 
-diff --git a/drivers/gpu/drm/tidss/tidss_oldi.c b/drivers/gpu/drm/tidss/tidss_oldi.c
-index e925ddaa4fd6..5331732ac99e 100644
---- a/drivers/gpu/drm/tidss/tidss_oldi.c
-+++ b/drivers/gpu/drm/tidss/tidss_oldi.c
-@@ -5,11 +5,13 @@
-  * Aradhya Bhatia <a-bhatia1@ti.com>
+ /* Maximum number of VMs that can co-exist under pKVM. */
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 0c1defa5fb0f..0bcd6f06aafb 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -8,6 +8,7 @@
   */
  
-+#include <linux/auxiliary_bus.h>
- #include <linux/clk.h>
- #include <linux/of.h>
- #include <linux/of_graph.h>
- #include <linux/mfd/syscon.h>
- #include <linux/media-bus-format.h>
-+#include <linux/pm_runtime.h>
- #include <linux/regmap.h>
+ #include <linux/bitfield.h>
++#include <linux/kvm_host.h>
+ #include <asm/kvm_pgtable.h>
+ #include <asm/stage2_pgtable.h>
  
- #include <drm/drm_atomic_helper.h>
-@@ -20,6 +22,12 @@
- #include "tidss_dispc_regs.h"
- #include "tidss_oldi.h"
- 
-+static DEFINE_IDA(tidss_oldi_ida);
-+
-+struct tidss_oldi_platform_data {
-+	struct tidss_device *tidss;
-+};
-+
- struct tidss_oldi {
- 	struct tidss_device	*tidss;
- 	struct device		*dev;
-@@ -251,6 +259,8 @@ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
- 	if (oldi->link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK)
- 		return;
- 
-+	WARN_ON(pm_runtime_get_sync(oldi->dev) < 0);
-+
- 	connector = drm_atomic_get_new_connector_for_encoder(state,
- 							     bridge->encoder);
- 	if (WARN_ON(!connector))
-@@ -296,6 +306,8 @@ static void tidss_oldi_atomic_post_disable(struct drm_bridge *bridge,
- 
- 	/* Clear OLDI Config */
- 	tidss_disable_oldi(oldi->tidss, oldi->parent_vp);
-+
-+	pm_runtime_put_autosuspend(oldi->dev);
- }
- 
- #define MAX_INPUT_SEL_FORMATS	1
-@@ -464,174 +476,375 @@ static int get_parent_dss_vp(struct device_node *oldi_tx, u32 *parent_vp)
- 	return -ENODEV;
- }
- 
--void tidss_oldi_deinit(struct tidss_device *tidss)
--{
--	for (int i = 0; i < tidss->num_oldis; i++) {
--		if (tidss->oldis[i]) {
--			drm_bridge_remove(&tidss->oldis[i]->bridge);
--			tidss->is_ext_vp_clk[tidss->oldis[i]->parent_vp] = false;
--			tidss->oldis[i] = NULL;
--		}
--	}
--}
--
--int tidss_oldi_init(struct tidss_device *tidss)
-+static int tidss_oldi_probe(struct auxiliary_device *auxdev,
-+			    const struct auxiliary_device_id *id)
- {
--	struct tidss_oldi *oldi;
--	struct device_node *child;
--	struct drm_bridge *bridge;
--	u32 parent_vp, oldi_instance;
--	int companion_instance = -1;
-+	struct device *dev = &auxdev->dev;
-+	struct tidss_oldi_platform_data *oldi_pdata = dev_get_platdata(dev);
-+	struct tidss_device *tidss = oldi_pdata->tidss;
-+	struct device_node *node = auxdev->dev.of_node;
- 	enum tidss_oldi_link_type link_type = OLDI_MODE_UNSUPPORTED;
--	struct device_node *oldi_parent;
--	int ret = 0;
--
--	tidss->num_oldis = 0;
-+	int companion_instance = -1;
-+	struct drm_bridge *bridge;
-+	struct device_link *link;
-+	struct tidss_oldi *oldi;
-+	u32 oldi_instance;
-+	u32 parent_vp;
-+	int ret;
- 
--	oldi_parent = of_get_child_by_name(tidss->dev->of_node, "oldi-transmitters");
--	if (!oldi_parent)
--		/* Return gracefully */
--		return 0;
-+	ret = of_property_read_u32(node, "reg", &oldi_instance);
-+	if (ret)
-+		return ret;
- 
--	for_each_available_child_of_node(oldi_parent, child) {
--		ret = get_parent_dss_vp(child, &parent_vp);
--		if (ret) {
--			if (ret == -ENODEV) {
--				/*
--				 * ENODEV means that this particular OLDI node
--				 * is not connected with the DSS, which is not
--				 * a harmful case. There could be another OLDI
--				 * which may still be connected.
--				 * Continue to search for that.
--				 */
--				continue;
--			}
--			goto err_put_node;
--		}
-+	ret = get_parent_dss_vp(node, &parent_vp);
-+	if (ret)
-+		return ret;
- 
--		ret = of_property_read_u32(child, "reg", &oldi_instance);
--		if (ret)
--			goto err_put_node;
-+	/*
-+	 * Now that it's confirmed that OLDI is connected with DSS,
-+	 * let's continue getting the OLDI sinks ahead and other OLDI
-+	 * properties.
-+	 */
-+	bridge = devm_drm_of_get_bridge(dev, node, OLDI_OUTPUT_PORT, 0);
-+	if (IS_ERR(bridge)) {
-+		/*
-+		 * Either there was no OLDI sink in the devicetree, or the OLDI
-+		 * sink has not been added yet. In any case, return.
-+		 */
-+		ret = dev_err_probe(dev, PTR_ERR(bridge),
-+				    "no panel/bridge for OLDI%u.\n",
-+				    oldi_instance);
-+		goto err_put_node;
-+	}
- 
-+	link_type = get_oldi_mode(node, &companion_instance);
-+	if (link_type == OLDI_MODE_UNSUPPORTED) {
-+		ret = dev_err_probe(dev, -EINVAL,
-+				    "OLDI%u: Unsupported OLDI connection.\n",
-+				    oldi_instance);
-+		goto err_put_node;
-+	} else if ((link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) ||
-+		   (link_type == OLDI_MODE_CLONE_SINGLE_LINK)) {
- 		/*
--		 * Now that it's confirmed that OLDI is connected with DSS,
--		 * let's continue getting the OLDI sinks ahead and other OLDI
--		 * properties.
-+		 * The OLDI driver cannot support OLDI clone mode properly at
-+		 * present. The clone mode requires 2 working encoder-bridge
-+		 * pipelines, generating from the same crtc. The DRM framework
-+		 * does not support this at present. If there were to be, say, 2
-+		 * OLDI sink bridges each connected to an OLDI TXes, they
-+		 * couldn't both be supported simultaneously. This driver still
-+		 * has some code pertaining to OLDI clone mode configuration in
-+		 * DSS hardware for future, when there is a better
-+		 * infrastructure in the DRM framework to support 2
-+		 * encoder-bridge pipelines simultaneously. Till that time, this
-+		 * driver shall error out if it detects a clone mode
-+		 * configuration.
- 		 */
--		bridge = devm_drm_of_get_bridge(tidss->dev, child,
--						OLDI_OUTPUT_PORT, 0);
--		if (IS_ERR(bridge)) {
--			/*
--			 * Either there was no OLDI sink in the devicetree, or
--			 * the OLDI sink has not been added yet. In any case,
--			 * return.
--			 * We don't want to have an OLDI node connected to DSS
--			 * but not to any sink.
--			 */
--			ret = dev_err_probe(tidss->dev, PTR_ERR(bridge),
--					    "no panel/bridge for OLDI%u.\n",
-+		ret = dev_err_probe(dev, -EOPNOTSUPP,
-+				    "The OLDI driver does not support Clone Mode at present.\n");
-+		goto err_put_node;
-+	}
-+
-+	oldi = devm_drm_bridge_alloc(dev, struct tidss_oldi, bridge,
-+				     &tidss_oldi_bridge_funcs);
-+	if (IS_ERR(oldi)) {
-+		ret = PTR_ERR(oldi);
-+		goto err_put_node;
-+	}
-+
-+	oldi->parent_vp = parent_vp;
-+	oldi->oldi_instance = oldi_instance;
-+	oldi->companion_instance = companion_instance;
-+	oldi->link_type = link_type;
-+	oldi->dev = dev;
-+	oldi->next_bridge = bridge;
-+	oldi->tidss = tidss;
-+
-+	auxiliary_set_drvdata(auxdev, oldi);
-+
-+	/*
-+	 * Only the primary OLDI needs to reference the io-ctrl system
-+	 * registers, and the serial clock.
-+	 * We don't require a check for secondary OLDI in dual-link mode
-+	 * because the driver will not create a drm_bridge instance.
-+	 * But the driver will need to create a drm_bridge instance,
-+	 * for secondary OLDI in clone mode (once it is supported).
-+	 */
-+	if (link_type != OLDI_MODE_SECONDARY_DUAL_LINK &&
-+	    link_type != OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) {
-+		oldi->io_ctrl = syscon_regmap_lookup_by_phandle(node,
-+								"ti,oldi-io-ctrl");
-+		if (IS_ERR(oldi->io_ctrl)) {
-+			ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->io_ctrl),
-+					    "OLDI%u: syscon_regmap_lookup_by_phandle failed.\n",
- 					    oldi_instance);
- 			goto err_put_node;
- 		}
- 
--		link_type = get_oldi_mode(child, &companion_instance);
--		if (link_type == OLDI_MODE_UNSUPPORTED) {
--			ret = dev_err_probe(tidss->dev, -EINVAL,
--					    "OLDI%u: Unsupported OLDI connection.\n",
-+		oldi->serial = of_clk_get_by_name(node, "serial");
-+		if (IS_ERR(oldi->serial)) {
-+			ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->serial),
-+					    "OLDI%u: Failed to get serial clock.\n",
- 					    oldi_instance);
- 			goto err_put_node;
--		} else if ((link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) ||
--			   (link_type == OLDI_MODE_CLONE_SINGLE_LINK)) {
--			/*
--			 * The OLDI driver cannot support OLDI clone mode
--			 * properly at present.
--			 * The clone mode requires 2 working encoder-bridge
--			 * pipelines, generating from the same crtc. The DRM
--			 * framework does not support this at present. If
--			 * there were to be, say, 2 OLDI sink bridges each
--			 * connected to an OLDI TXes, they couldn't both be
--			 * supported simultaneously.
--			 * This driver still has some code pertaining to OLDI
--			 * clone mode configuration in DSS hardware for future,
--			 * when there is a better infrastructure in the DRM
--			 * framework to support 2 encoder-bridge pipelines
--			 * simultaneously.
--			 * Till that time, this driver shall error out if it
--			 * detects a clone mode configuration.
--			 */
--			ret = dev_err_probe(tidss->dev, -EOPNOTSUPP,
--					    "The OLDI driver does not support Clone Mode at present.\n");
--			goto err_put_node;
--		} else if (link_type == OLDI_MODE_SECONDARY_DUAL_LINK) {
--			/*
--			 * This is the secondary OLDI node, which serves as a
--			 * companion to the primary OLDI, when it is configured
--			 * for the dual-link mode. Since the primary OLDI will
--			 * be a part of bridge chain, no need to put this one
--			 * too. Continue onto the next OLDI node.
--			 */
--			continue;
- 		}
-+	}
- 
--		oldi = devm_drm_bridge_alloc(tidss->dev, struct tidss_oldi, bridge,
--					     &tidss_oldi_bridge_funcs);
--		if (IS_ERR(oldi)) {
--			ret = PTR_ERR(oldi);
--			goto err_put_node;
--		}
-+	if (link_type != OLDI_MODE_SECONDARY_DUAL_LINK) {
-+		/* Register the bridge. */
-+		oldi->bridge.of_node = node;
-+		oldi->bridge.driver_private = oldi;
- 
--		oldi->parent_vp = parent_vp;
--		oldi->oldi_instance = oldi_instance;
--		oldi->companion_instance = companion_instance;
--		oldi->link_type = link_type;
--		oldi->dev = tidss->dev;
--		oldi->next_bridge = bridge;
-+		tidss->is_ext_vp_clk[oldi->parent_vp] = true;
- 
--		/*
--		 * Only the primary OLDI needs to reference the io-ctrl system
--		 * registers, and the serial clock.
--		 * We don't require a check for secondary OLDI in dual-link mode
--		 * because the driver will not create a drm_bridge instance.
--		 * But the driver will need to create a drm_bridge instance,
--		 * for secondary OLDI in clone mode (once it is supported).
--		 */
--		if (link_type != OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK) {
--			oldi->io_ctrl = syscon_regmap_lookup_by_phandle(child,
--									"ti,oldi-io-ctrl");
--			if (IS_ERR(oldi->io_ctrl)) {
--				ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->io_ctrl),
--						    "OLDI%u: syscon_regmap_lookup_by_phandle failed.\n",
--						    oldi_instance);
--				goto err_put_node;
--			}
-+		drm_bridge_add(&oldi->bridge);
-+	}
-+
-+	link = device_link_add(&auxdev->dev, tidss->dev,
-+			       DL_FLAG_PM_RUNTIME |
-+				       DL_FLAG_AUTOREMOVE_CONSUMER);
-+	if (!link) {
-+		ret = -EINVAL;
-+		goto err_bridge_remove;
-+	}
-+
-+	pm_runtime_enable(dev);
-+	pm_runtime_set_autosuspend_delay(dev, 500);
-+	pm_runtime_use_autosuspend(dev);
-+
-+	return 0;
-+
-+err_bridge_remove:
-+	if (link_type != OLDI_MODE_SECONDARY_DUAL_LINK) {
-+		drm_bridge_remove(&oldi->bridge);
-+		tidss->is_ext_vp_clk[oldi->parent_vp] = false;
-+	}
-+
-+err_put_node:
-+	return ret;
-+}
-+
-+static void tidss_oldi_remove(struct auxiliary_device *auxdev)
-+{
-+	struct tidss_oldi *oldi = auxiliary_get_drvdata(auxdev);
-+	struct tidss_device *tidss = oldi->tidss;
-+	struct device *dev = &auxdev->dev;
-+
-+	pm_runtime_dont_use_autosuspend(dev);
-+	pm_runtime_disable(dev);
-+
-+	if (oldi->link_type != OLDI_MODE_SECONDARY_DUAL_LINK) {
-+		drm_bridge_remove(&oldi->bridge);
- 
--			oldi->serial = of_clk_get_by_name(child, "serial");
--			if (IS_ERR(oldi->serial)) {
--				ret = dev_err_probe(oldi->dev, PTR_ERR(oldi->serial),
--						    "OLDI%u: Failed to get serial clock.\n",
--						    oldi_instance);
--				goto err_put_node;
-+		tidss->is_ext_vp_clk[oldi->parent_vp] = false;
-+	}
-+}
-+
-+static const struct auxiliary_device_id tidss_oldi_aux_id_table[] = {
-+	{ .name = "tidss.oldi" },
-+	{}
-+};
-+
-+static struct auxiliary_driver oldi_aux_driver = {
-+	.name = "oldi",
-+	.probe = tidss_oldi_probe,
-+	.remove = tidss_oldi_remove,
-+	.id_table = tidss_oldi_aux_id_table,
-+};
-+
-+static void tidss_oldi_aux_device_release(struct device *dev)
-+{
-+	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
-+
-+	ida_free(&tidss_oldi_ida, auxdev->id);
-+
-+	of_node_put(auxdev->dev.of_node);
-+
-+	kfree(auxdev->dev.platform_data);
-+	kfree(auxdev);
-+}
-+
-+static struct auxiliary_device *
-+tidss_oldi_create_device(struct tidss_device *tidss,
-+			 struct device_node *oldi_tx)
-+{
-+	struct tidss_oldi_platform_data *oldi_pdata;
-+	struct auxiliary_device *companion_auxdev;
-+	struct auxiliary_device *auxdev;
-+	u32 oldi_aux_id;
-+	int ret;
-+
-+	/*
-+	 * Allocate the ID first, so that we get a lower ID for the primary
-+	 * OLDI, instead of the companion grabbing it in the call below. Note
-+	 * that the ID allocated here often matches the OLDI hardware index,
-+	 * but not always.
-+	 * The OLDI hardware index cannot be used as an ID, as, say, OLDI 1 on
-+	 * two DSS instances would produce the exact same device name
-+	 * ("tidss.oldi.1").
-+	 */
-+	ret = ida_alloc(&tidss_oldi_ida, GFP_KERNEL);
-+	if (ret < 0)
-+		return ERR_PTR(ret);
-+
-+	oldi_aux_id = ret;
-+
-+	companion_auxdev = NULL;
-+
-+	/*
-+	 * If this is the primary OLDI and there is a companion, create the
-+	 * auxdev for the secondary OLDI first, as the secondary will act as
-+	 * a supplier for the primary OLDI.
-+	 */
-+	if (!of_property_read_bool(oldi_tx, "ti,secondary-oldi")) {
-+		struct device_node *companion_node;
-+
-+		companion_node = of_parse_phandle(oldi_tx, "ti,companion-oldi", 0);
-+		if (companion_node) {
-+			companion_auxdev =
-+				tidss_oldi_create_device(tidss, companion_node);
-+
-+			of_node_put(companion_node);
-+
-+			if (IS_ERR(companion_auxdev)) {
-+				dev_err(tidss->dev,
-+					"Failed to create secondary oldi device\n");
-+				ret = PTR_ERR(companion_auxdev);
-+				goto err_free_ida;
- 			}
- 		}
-+	}
- 
--		/* Register the bridge. */
--		oldi->bridge.of_node = child;
--		oldi->bridge.driver_private = oldi;
-+	oldi_pdata = kzalloc_obj(*oldi_pdata);
-+	if (!oldi_pdata) {
-+		ret = -ENOMEM;
-+		goto err_free_ida;
-+	}
- 
--		tidss->oldis[tidss->num_oldis++] = oldi;
--		tidss->is_ext_vp_clk[oldi->parent_vp] = true;
--		oldi->tidss = tidss;
-+	oldi_pdata->tidss = tidss;
- 
--		drm_bridge_add(&oldi->bridge);
-+	auxdev = kzalloc_obj(*auxdev);
-+	if (!auxdev) {
-+		ret = -ENOMEM;
-+		goto err_free_pdata;
-+	}
-+
-+	*auxdev = (struct auxiliary_device) {
-+		.name = "oldi",
-+		.id = oldi_aux_id,
-+		.dev = {
-+			.parent = tidss->dev,
-+			.of_node = of_node_get(oldi_tx),
-+			.release = tidss_oldi_aux_device_release,
-+			.platform_data = oldi_pdata,
-+		},
-+	};
-+
-+	ret = auxiliary_device_init(auxdev);
-+	if (ret) {
-+		dev_err(tidss->dev, "OLDI auxiliary_device_init failed: %d\n",
-+			ret);
-+		goto err_free_auxdev;
-+	}
-+
-+	/*
-+	 * Create a device-link between the primary and the secondary, so that
-+	 * the secondary will be powered on when the primary is used.
-+	 */
-+	if (companion_auxdev) {
-+		struct device_link *link;
-+
-+		link = device_link_add(&auxdev->dev, &companion_auxdev->dev,
-+				       DL_FLAG_PM_RUNTIME |
-+					       DL_FLAG_AUTOREMOVE_CONSUMER |
-+					       DL_FLAG_AUTOREMOVE_SUPPLIER);
-+		if (!link) {
-+			dev_err(tidss->dev,
-+				"device_link_add failed between primary and secondary OLDI\n");
-+			ret = -EINVAL;
-+			goto err_uninit_auxdev;
-+		}
-+	}
-+
-+	ret = auxiliary_device_add(auxdev);
-+	if (ret) {
-+		dev_err(tidss->dev, "OLDI auxiliary_device_add failed: %d\n",
-+			ret);
-+		goto err_uninit_auxdev;
- 	}
- 
--	of_node_put(child);
--	of_node_put(oldi_parent);
-+	tidss->oldis[tidss->num_oldis++] = auxdev;
-+
-+	return auxdev;
-+
-+err_uninit_auxdev:
-+	auxiliary_device_uninit(auxdev);
-+	/* return here, as the rest are done in auxdev's release */
-+	return ERR_PTR(ret);
-+
-+err_free_auxdev:
-+	kfree(auxdev);
-+err_free_pdata:
-+	kfree(oldi_pdata);
-+err_free_ida:
-+	ida_free(&tidss_oldi_ida, oldi_aux_id);
-+
-+	return ERR_PTR(ret);
-+}
-+
-+int tidss_oldi_create_devices(struct tidss_device *tidss)
-+{
-+	struct device_node *oldi_txes;
-+	struct device_node *oldi_tx;
-+	int ret;
-+
-+	oldi_txes = of_get_child_by_name(tidss->dev->of_node,
-+					 "oldi-transmitters");
-+	if (!oldi_txes)
-+		return 0;
-+
-+	/*
-+	 * Look for primary OLDIs and create devices for them. For dual-link
-+	 * cases, the primary's create_device call will also create the
-+	 * secondary device.
-+	 */
-+	for_each_available_child_of_node(oldi_txes, oldi_tx) {
-+		struct auxiliary_device *auxdev;
-+
-+		if (of_property_read_bool(oldi_tx, "ti,secondary-oldi"))
-+			continue;
-+
-+		auxdev = tidss_oldi_create_device(tidss, oldi_tx);
-+		if (IS_ERR(auxdev)) {
-+			ret = PTR_ERR(auxdev);
-+			goto err_destroy_oldis;
-+		}
-+	}
-+
-+	of_node_put(oldi_txes);
- 
- 	return 0;
- 
--err_put_node:
--	of_node_put(child);
--	of_node_put(oldi_parent);
-+err_destroy_oldis:
-+	tidss_oldi_destroy_devices(tidss);
-+
-+	of_node_put(oldi_tx);
-+	of_node_put(oldi_txes);
-+
- 	return ret;
- }
-+
-+void tidss_oldi_destroy_devices(struct tidss_device *tidss)
-+{
-+	for (unsigned int i = 0; i < tidss->num_oldis; ++i)
-+		auxiliary_device_destroy(tidss->oldis[i]);
-+}
-+
-+int tidss_oldi_register_driver(void)
-+{
-+	return auxiliary_driver_register(&oldi_aux_driver);
-+}
-+
-+void tidss_oldi_unregister_driver(void)
-+{
-+	auxiliary_driver_unregister(&oldi_aux_driver);
-+}
-diff --git a/drivers/gpu/drm/tidss/tidss_oldi.h b/drivers/gpu/drm/tidss/tidss_oldi.h
-index a361e6dbfce3..2069bd46aaae 100644
---- a/drivers/gpu/drm/tidss/tidss_oldi.h
-+++ b/drivers/gpu/drm/tidss/tidss_oldi.h
-@@ -36,7 +36,10 @@ enum tidss_oldi_link_type {
- 	OLDI_MODE_SECONDARY_DUAL_LINK,
- };
- 
--int tidss_oldi_init(struct tidss_device *tidss);
--void tidss_oldi_deinit(struct tidss_device *tidss);
-+int tidss_oldi_create_devices(struct tidss_device *tidss);
-+void tidss_oldi_destroy_devices(struct tidss_device *tidss);
-+
-+int tidss_oldi_register_driver(void);
-+void tidss_oldi_unregister_driver(void);
- 
- #endif /* __TIDSS_OLDI_H__ */
-
 -- 
 2.43.0
 
