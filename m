@@ -4,90 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39E6CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 054A7CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VZc3x1onPlaeGznTxMN1bb6JXc6Uk+UXj7ekUJ2LC04=; b=dLHh2zL5tS9Tpa0ICt0IA6oz/C
-	Stsu1GxItqs1/pKlM0lWHmNFty1ERQJSeTDSq57+gcsolJuQY4XjgwOF1IvmsWN/jxhwghWGbRqvP
-	kop+jhKnUB87oTFAelcBEu7DfqeBvkCY8aWEWvh9fLa2+dsZdQJ8A5zSG3gtPhDtGfkQgcNhlKGc8
-	dRX3bfgMA3BGX5yX8hAi+Oia94Pk1L0slmAH4pAhQRg2CEDYeOOUL0B8KuGXX4UVK/T3jzxjJ8KHQ
-	RupJ6Do1CzQQ9Q1Ul7Xroa0k+8lSHD5imobJ/cLHPdduYwSNxZrQEFEwu56xBo9Er02L3thHexk/0
-	PeMjEKqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uEBddq2I9/xi/Y/+09mKq1a+W0z/iD8O7FvkVZ5efms=; b=eEQtpmSlhzPAs5
+	2EF8kcNXU7YjsWg2ZEkz9LKUUV2b2tmjXXMu47qDm+NLc2aUZ00KfYFBZVMYQJhC/jOeXrC/PxFnO
+	u5QobiyKVjfk41x1rPOYprrWVd4ZtsZRT9RtCX3ux2aivGUbbOsVqWu4DSRc1J17CyzPoyRmza5jk
+	18C5FJgYzNgdUGs80agehHgCzd/Iw3X0EY2YgRQbR3utZlW554kHYF/r3TpKWa8WpodYcUJGOoAMQ
+	PL7afAucWWtUBnl9qItc+WsLQLEy3RircJ6AMw1WFtUeGiS1ULThGKifX+AfP8xLgKx5MreErRcaz
+	IOn+IrMynHNjf1LjkTzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHE2-00000003ptw-3dtR;
-	Wed, 13 May 2026 21:34:42 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1wNHEP-00000003q0U-491q;
+	Wed, 13 May 2026 21:35:05 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHE0-00000003psv-15Ic
+	id 1wNHEN-00000003pzR-477c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 21:34:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1778708080; x=1810244080;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=kZcChJqREVkQQHEf+Cv+4DLUKpU/qmqpFtGEeNeoxC8=;
-  b=KIOo5nBXZvoaSHI1oNjSuDatwn2iHnw1oa+0zi7h15sPPohlH4j+bbEv
-   uZE/R6TrHdSfSHD5Qd3X5ABIIq73GQDmsF8jfGT5io3zCzZd15pzMBA1H
-   25ph0gZnRKw685afoxd1ElXAX/2P9r5eD4OjFh5FUi7oDoPxvo/K6yt0Q
-   917m7aoUdV97pLjlvBeqC3AdvkDqUKEqq0OO1x6vRpvRP2GSl7s5zVoLm
-   S5GHFukt0Lh9W+52gQtp6o3C7o7qLHlncU2PLsdGFHRZ5dbY+mwLT6znV
-   JtFhXdCSDTjKPydoRTHQe0nm0s5WDAC/SEGV56msiKQ8KmrCqG2OG3n3i
-   w==;
-X-CSE-ConnectionGUID: 45/Tqm/pR4Op21aVYeec0w==
-X-CSE-MsgGUID: bPmHc6RZRXe+cbQnz26DHA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11785"; a="97072920"
-X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
-   d="scan'208";a="97072920"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 14:34:39 -0700
-X-CSE-ConnectionGUID: EhQxfke0QaawRfntB0aqog==
-X-CSE-MsgGUID: rwJD+o+LR4G92b/NypN8/Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
-   d="scan'208";a="233751257"
-Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.106])
-  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 14:34:34 -0700
-Date: Thu, 14 May 2026 00:34:32 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Sanjay Chitroda <sanjayembeddedse@gmail.com>,
-	Michal Piekos <michal.piekos@mmpsystems.pl>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maksim Kiselev <bigunclemax@gmail.com>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] iio: adc: sun20i-gpadc: add A523 gpadc support
-Message-ID: <agTuaAjtpIRBAo6N@ashevche-desk.local>
-References: <20260513-sunxi-a523-gpadc-v2-0-d5efde151dac@mmpsystems.pl>
- <20260513-sunxi-a523-gpadc-v2-2-d5efde151dac@mmpsystems.pl>
- <A7772824-E704-4BFD-A796-BCD81197E5A2@gmail.com>
- <4248ac7e-3cce-4db8-a2c1-710f2c903490@arm.com>
- <agTbFbicv9yzTQb9@ashevche-desk.local>
- <20260513231901.05dc9a82@ryzen.lan>
+	Wed, 13 May 2026 21:35:05 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4891e86fabeso83077195e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:35:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778708102; x=1779312902; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uEBddq2I9/xi/Y/+09mKq1a+W0z/iD8O7FvkVZ5efms=;
+        b=mQN1LFvRpU5/E+s82YBZ93OCAi/UH4/3z/qZH9JyLPGTaGGkOjfXFGX9ngqwqFQ6mv
+         mssqMixkJr0JtrEoACTxV4QG8GmmfRre7uWQ4N/p0NI+vl8VNcdonTTvT4iJ0oyWtEef
+         58pEq51lnnMjSrcN8/ZNRLx8+sSUhHpzN5bn11iL4GQvEyLpkbsJ7dDqcMBCBTgEl9q3
+         YJlHEzt6H5vFVF9IZmQ/iWIXr8CqGJwLEPEERW/iitMG8BAVgjUlkkcduG7y37HtWchb
+         Do2n4/Ku8qIHy88wqygBnE8lIipq6odA+Javu4xbulTBLejbO8PzDHc7WCI7tkJG8A9p
+         kFTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778708102; x=1779312902;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uEBddq2I9/xi/Y/+09mKq1a+W0z/iD8O7FvkVZ5efms=;
+        b=pY3eXW6WdsvIE0IfNqULrNIwDEyd3jhFhVDhIdn+ghdYiEGh4uD+jCfL1QkPZS9X7l
+         yHJaU2cPOXeLJ06pPtmfIoELR6O7mNJ2hD9c9yXVYPs/9diDk21vbPp8DJy56RVg52t+
+         anGUgjqJ1W56UF4KoSJYwoMaIu+1KVJZwV5ySkh9CccInjti2KxEFlAfjnPq8ZWhkKLV
+         eq6oGkZGcawWa8TdXUCndq81M2X4ZR8G4nmKAnU2NWAc0zjytqdPcIncjvDpcRRrK5Mg
+         YbIgKDVqsVu7R7Hlz3wDvy2z/QEkpPKJRUnsKq5hVC9SBPQf1NKVsAwUQIKL3WbOzBGa
+         YfZQ==
+X-Gm-Message-State: AOJu0YxBcVv2qjEmy0tDK4de90EOtOoE3q01ts9oR2S5kCEyIY+/smRq
+	/M3v3oLrtR2RA1c4S5Lq0IZOWOS6Ox/4xxW4zUIQFGwDl+WkadLe0sHanMTQd6hDgZg=
+X-Gm-Gg: Acq92OHRBUSUSlY4ZgsTOqGlYTtE88GNfuAeZTFsieCUV0O/IItPvpBsRPoIpGaBEZU
+	xyP7OI3Ax8PMDJWQ182Evye5jNIkMvPCnJQxEQInIe2k6B36DorTSC41owAwYk3mdlKbITw+eXi
+	EUG9BW1DTNZCrP7+If/NXfyHeVmw0Ga3CDwhLHngayP/RT9yaPE4XXCIv2mxzhg5hguRPEr40sx
+	CwrBN4Eo/r7zJ8npZTCKlXxB5UYtIK4TO7xXDph/D+zfiiHu257YwD9Nhd7y0j7doT1lYqL+Zh6
+	/mcrCOZ373QwCpDrEoXPGZcTuG3R7nnLdKxqJ90NBA1jkg2B8PTtEpfHpVdBLlZNRYlu9aBxWXR
+	U4D2loz1MaIMLjA2YATnmghIHK2rRR0bLfzLo7VED9hwExI7JvmJe5wDVpm/IdcDVcQWbPWDCum
+	bfQNXX2yIFwvXZH78CPBgiW9PcSmONJiw8L3usPsCNuGM=
+X-Received: by 2002:a05:600c:6217:b0:488:ae6c:42c6 with SMTP id 5b1f17b1804b1-48fce9d92bbmr70751895e9.14.1778708102024;
+        Wed, 13 May 2026 14:35:02 -0700 (PDT)
+Received: from [192.168.0.2] ([197.250.51.99])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fdb1fee9csm2553055e9.0.2026.05.13.14.34.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 May 2026 14:35:01 -0700 (PDT)
+From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+Subject: [PATCH 0/2] amba/serial: amba-pl011: Bring back zx29 UART support
+Date: Thu, 14 May 2026 00:34:55 +0300
+Message-Id: <20260514-zx29uart-v1-0-68470ecc3977@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260513231901.05dc9a82@ryzen.lan>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-B4-Tracking: v=1; b=H4sIAH/uBGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDU0Nj3aoKI8vSxKIS3dQ0E5PENHNjQ2NLAyWg8oKi1LTMCrBR0bG1tQD
+ /2TtwWgAAAA==
+X-Change-ID: 20260513-zx29uart-ef44af731390
+To: Russell King <linux@armlinux.org.uk>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-serial@vger.kernel.org, 
+ =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>, 
+ Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1204;
+ i=stefandoesinger@gmail.com; h=from:subject:message-id;
+ bh=L/sIeqo5TAzLfSgfOfVLZxiWCo79S6F2nfHSiF7e1AM=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqBO6Dl3/1/DRcjANJ0f1RNC59xVDm3d1kR5c9s
+ i/RNdUzi7iJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCagTugxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiITwQ/8CHj2/Yi3yO54KxxakskmiteBJ8oXFPG
+ ZqES5WVnpQrdzLVVy+LfILJin+nX9wMOj19hqwt234T6LsWXs0+Ry49fL9U6IOrEEqFUHisCLNu
+ PKVJrWlwdmBZxpqhwE+FIo6NZp/M8KF9L7KUbHNCiG3pHaFOWwlICzkoROoFFhNlFkCxQ0Y4FXi
+ qK7GN4yqcCb+VavGI1COzepQQvshWATUgkZbQDT18DU8cb4dYzXVJ+wcYmnyObBPlWtxLNvn4UQ
+ x8c3IOpCXCPLbdjbpHNqbk6QsvQDldyYK0nQP0B0UDhZQETjtu/FsG+gLOhTT0b8s/dpAF+inRA
+ rcdhCuuvOVzVF12r5g/SMWai9mhVXhWtvod4jfasfZKdcHi5TGHSPwHVxiImXz2YIPh+2CsIC1+
+ LnSQn3vBTF+Sv4zCg4e7PcNicp3lNYtL1BkRZUTuAOod1y2agvhhlvK0Ywy72DqWbtxbgJniSFd
+ j2XNnTyGdQvHGinTNt9pdOyXlmSLK8wZjAzdWnR1Mqij8wxZzNv9Oq1B8m53fSSgmh86zf/6alR
+ ktyncFPy1U52AjUdVWScq8G9QShYGHTj/5WhbIdxFw3DzYsML3dvbyFTBy2bN0JglkCNtnHpGbS
+ cISdk1NoUdw4ODYUIijTMcFYLT53Bh00d2FqxjlAH2Oj5eSL0BYg=
+X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
+ fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_143440_347060_8BF71D2A 
-X-CRM114-Status: GOOD (  25.95  )
+X-CRM114-CacheID: sfid-20260513_143504_039921_C52E9E0A 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,75 +120,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 11:19:01PM +0200, Andre Przywara wrote:
-> On Wed, 13 May 2026 23:12:05 +0300
-> Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
-> > On Wed, May 13, 2026 at 01:53:49PM +0200, Andre Przywara wrote:
-> > > On 5/13/26 13:44, Sanjay Chitroda wrote:  
-> > > > On 13 May 2026 10:29:43 am IST, Michal Piekos <michal.piekos@mmpsystems.pl> wrote:  
+This is based on code removed in commit 89d4f98ae90d ("ARM: remove zte
+zx platform"). It was previously discussed and reviewed on the 
+linux-arm-kernel mailing list as part of my patchset to add initial 
+support for ZTE's zx297520v3 router board. I am sending the two UART 
+driver patches to linux-serial. The rest goes through the soc list.
 
-...
+Note that the first patch (LLDEBUG) uses a Kconfig symbol introduced by 
+my platform patch, which was sent to the soc mailing list. I don't know 
+what the correct way to handle this is. I can delay/resend this patchset 
+after the soc changes are merged.
 
-> > > > > +	if (ret <= 0)  
-> > > > 
-> > > > Thank you Michal for the change.
-> > > > 
-> > > > Have you validated the changes ?
-> > > > It looks while success ret would be 0 and it would give return error.
-> 
-> No, it doesn't. Returning 0 means no clocks found:
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/clk/clk-devres.c#n300
-> 
-> > Good catch!
-> > 
-> > > But devm_clk_bulk_get_all_enabled() returns the number of clocks found and
-> > > enabled. And since we need at least one, I think this is correct, and the
-> > > error message below reflects that.
-> > > 
-> > > To me that change looks good:
-> > > 
-> > > Reviewed-by: Andre Przywara <andre.przywara@arm.com>  
-> > 
-> > == 0 ???
-> > Doesn't look like correct code.
-> 
-> Not sure I follow:
-> devm_clk_bulk_get_all_enabled() returns the number of clocks in that
-> node, or a negative error value. If it returns 0, that means no clocks
-> have been found,
+Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
+---
+Stefan Dösinger (2):
+      ARM: zte: Add support for zx29 low level debug
+      amba/serial: amba-pl011: Bring back zx29 UART support
 
-Not in this code. Here it will be resent to the caller as success.
+ arch/arm/Kconfig.debug          | 12 ++++++++++++
+ arch/arm/include/debug/pl01x.S  |  9 +++++++++
+ drivers/tty/serial/amba-pl011.c | 42 +++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 63 insertions(+)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20260513-zx29uart-ef44af731390
 
-> which is an error in our case, since we expect at
-> least one clock. This is what the second part of the error message
-> refers to.
-
-But not the error code itself! There will be no error message, IIRC the
-implementation of dev_err_probe().
-
-> So we want one or two as the return value, with the current bindings,
-> but really anything greater than 0 is fine, from the driver's
-> perspective, since we don't care about the clocks beyond them being
-> enabled.
-> 
-> So am I missing something?
-
-Yes!
-
-You returned that to the caller, meaning everything is fine. There is a success
-that is returned. The code is buggy (okay, not that, it rather will behave not
-as intended).
-
-TL;DR:
-You should have something like
-	if (ret < 0)
-		return dev_err_probe(ret);
-	if (ret == 0)
-		return dev_err_probe(-Exxx, "Needs at least one clock!\n");
-
+Best regards,
 -- 
-With Best Regards,
-Andy Shevchenko
-
+Stefan Dösinger <stefandoesinger@gmail.com>
 
 
