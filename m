@@ -4,144 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BDFDCD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 14:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 792EBCD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 14:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YhyxLSAetmHnb7HdQ6m92kzaYf43HIKFFQCugLEieTI=; b=i7Q1xqRpdHC1fUYCXkDzmMFSyg
-	sSYCOtfo+5N9W/1qcapYPQRMIfSIegVMh8oxvSVRVRglQPaY+7DotEXBg1vOEaPSX2pesfCr4N1xJ
-	OqWzUmET4S4gqjLi82ek5VRqg4azcnhr+3rcdpktQMksu9FS5xhgcMc4O2maUI/5QrGdcZnE6yIPF
-	cd+Wtn7uIX7jDiC93LnD11byXE7r14MVOpZaFRAfdNhdpmcfjIhh7dJ22rrioNfTcb8i6w3yIRaKi
-	OkLt1nnw2nXNBBD/6pn4tpedMtllc2m1Nd6Ke5vGBV+7512ri7qCQtgFv9mh+UCjkiXc2a5SuHCiO
-	80mAEGjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xPktgwoU4d02NAyObkW/YkTJGCpEY2Svs/Yqm0svHPU=; b=zlf4C0eYZQO5VUDIhFX+88Mkul
+	wYtHfjySBSLFcfF528TUPvDx7a6wTTs+AR4Romkz3JNoF22Kw+2hAB+1n/JTRaimgtrl6Iw3E54ku
+	/SBSRKAcPomFO2tDyTWoQESsDV3XNEf3LK+W70/WLAdyyrA6dJwGl95Gq+ZLldCbAnLt7/fo4OSKS
+	Phots1/RXbflytlRI67VC1o0QbBEofXKRf1KdJ+uKWIAfnpwsq44J7d3RKzm1PTnxDdg9Epz/b7Jv
+	1sEg9XeLWSzOLJ3k/UE/8NfpyrKVVmkukST7k/AWO5hFDSuK5+buhufHw3vJXV2tyf6EAwFsjketI
+	mt52sIZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAVM-00000002uUz-0STm;
-	Wed, 13 May 2026 14:24:08 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wNAYa-00000002vIi-3IdM;
+	Wed, 13 May 2026 14:27:28 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAVH-00000002uRy-1I2M
+	id 1wNAYX-00000002vHv-23Oi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 14:24:06 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64D8nHXM2887975
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:24:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	YhyxLSAetmHnb7HdQ6m92kzaYf43HIKFFQCugLEieTI=; b=jZhoQkFf1aM4hwBK
-	hvQNh6I/ZJQJITeBr3uLgWNyQnttqOZZ9/FOf/zKmK5mZj0BRMiIyWL50Fnx7AZf
-	AM9hkaSzvQbSy+RuLnICiqQ03zpVjNnDOwx5BAW1EiOwbZ3sj9JR817HbkEmzPHz
-	DOesEH3UkX1u/v+pA9nMJIc9WFHHKfIqk5AXgdlMd/WHIjHV5I6UgXw2sftlKEHu
-	c7mK8L7yySfPODP8PyIkcyawMWr8p7Oh+nULDzunJtA6arYYqDtQzo9OS6DxLYgr
-	4yYeFgQZrmSPzbdiJ6bmT2fW64QmCMtX/K/C8LTqhCI4U+4uVVdPuNsq9lNKCfyo
-	q5ik3g==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e4p4gh91e-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:24:02 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2b9fe2d6793so123851375ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 07:24:02 -0700 (PDT)
+	Wed, 13 May 2026 14:27:27 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4891b4934ffso1505e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 07:27:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778682242; x=1779287042; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YhyxLSAetmHnb7HdQ6m92kzaYf43HIKFFQCugLEieTI=;
-        b=CKGY/zcJFG0A2oeEQ0N0WbfDnr/hRezFJoLQ16Tlk+QAADugFnOAPGPVa9ceuK1oXB
-         8LT6POw/trQRxX97zwh54360fLpbTTyfHWSR8IGco/sVKOwV9prtIaZQ3nqDq48RS8Jv
-         uFM12nMYaFnVZDMoTBkbA8QS4jvigzScF8u8KqPYqDhd6GIoBce70Xi/oqPK7Y4946u9
-         P/DtLup7eLAOdtm9so25rGiTlUOFzNbWN58hfrIUKIXnZ9fZ6sSbzhhdq/AEJ98Ilpke
-         4/TauePkDw5RShQtj+FA48ospKVPhpJiODmOIre+51l3tVeOnSYdrPUphcKRp2taZVRA
-         2sAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778682242; x=1779287042;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+        d=google.com; s=20251104; t=1778682444; x=1779287244; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=YhyxLSAetmHnb7HdQ6m92kzaYf43HIKFFQCugLEieTI=;
-        b=VngOM9zKyAXZZc8/S+GZTbS1ndRLgBNn7YCvrROCABGbtSKMmue3F3MPRqN3qa/vfk
-         ktW8Xeg71DxC+XHeJUbZOVLSbxgnl0wL/0bKM8obWB5LtBzeYbFhPq02LaOnwR2030Ks
-         Fqa8MVD8bVXfyGzNlYc8ObRd+LRa8x6BWGcAulrRnAplEuyuUR0M+ExtHnIG120ZsMNu
-         TLh7K2+EbknPrztZEQJ/MLstw3fjUTOU42KUsMMcyWHrWGrDmUkM20+VMRAprxvCHpj2
-         9wdR4qELZPfDyPkkkt0ieRCPz8mD7KUBqEL65Iod3mroVfZBpp5d0P3BBupawjmR81Ov
-         iamw==
-X-Forwarded-Encrypted: i=1; AFNElJ9oCQq71LouQkQVnpFEKmFW+eBH3ReeES5pgr2mrZSi7OvvZB4hcnyZBlpMAW8wgZuHd6MM1ymmKtrxTt8Xx3Mz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOyU4J0m7OCwakaPeWUdg3NhrWpWHexFgEcjJ7GZm10yq2jhOD
-	cNIghy0pVgxhQIlDvW/dLiZ1Js7XIWs3kvUoFhtn5TjXd2IRS95HYoLywLul+q1QR4jhz2wwSnM
-	zcvQixBmBGG2aeK4Ui47bjdCKids9DYK0bBtDxWzIVRJvK2tE7Uqyv3A5Y2Vm+WuL7Uz+R8MNAX
-	G16w==
-X-Gm-Gg: Acq92OH6ilQjDRAnIUzW3iQrnOi8jPXrQZkfxRRYvYBRCQI9rSrLbx5vG8Z8OYiNvYV
-	lPrxtKe2lTw/8RCaFSdRBIBKMPuD6O/f8ltX0bcii9uU1I5feTaHlakLK+3heZfI27EZoftz3OB
-	M/qfHKPMOjDDxUDyFHJgiJpLjYqB1rBbdQFnksDT0Q0CJuM2qdn2iPvYn3iCeEfzY4+qyDy0/c/
-	CBWJZwR7HX0lbBzz4Nvmoq6+5WfQD6hxM9JFwR4XhGtXxV7yHgoHNAvxCG0kH16t+Fo0dVcljpD
-	wAe4+8II3nIEDlEDgWdVdx57z58ZV2uwlcpY2XFDvSWPxw+1gdZnelQhGykexksXjSwIj/0jpCs
-	tk4IUOgVtVvrP+gJsxt4nQYcOQM2myxTvsk0piSP2jNyiTQ==
-X-Received: by 2002:a17:903:3d0b:b0:2b4:5aff:de60 with SMTP id d9443c01a7336-2bd276f2a6dmr42761345ad.22.1778682240781;
-        Wed, 13 May 2026 07:24:00 -0700 (PDT)
-X-Received: by 2002:a17:903:3d0b:b0:2b4:5aff:de60 with SMTP id d9443c01a7336-2bd276f2a6dmr42760425ad.22.1778682239573;
-        Wed, 13 May 2026 07:23:59 -0700 (PDT)
-Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1d40427sm179296105ad.24.2026.05.13.07.23.53
+        bh=xPktgwoU4d02NAyObkW/YkTJGCpEY2Svs/Yqm0svHPU=;
+        b=Pa+31fsiE8+Du4Ik1URVgsK9uUXrfvmq0QzXvJA/7B+8irUC0aGWEDpEE1HlVYqvIC
+         gqOKznPpaJR7U08S07m5dIQpxH4D2PX2y+g0G3K+qij5FWg1XM6nVQwfdrEghxTTiuFD
+         roM0SpPzPBmEohxUvdnK6W3563c92rfbOrRUCvHarwzrrztweOIoa4JrGjbciKVyasI9
+         pTwrwKGldRe5Q0tEjm3T6doozEE7oTPV9RyUEAFchEAEWh7ds3DJxrA8ZJxd9b68Wcfy
+         wGTHzIdscrMXYSe4Pj15gbbesGA+O1+fxI9Z99rC8oRMPpXZx1ssZTeWT1XMCmt93t4o
+         NvKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778682444; x=1779287244;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xPktgwoU4d02NAyObkW/YkTJGCpEY2Svs/Yqm0svHPU=;
+        b=rvcax7v2G7i0SKBgw6iJBGASl4uS13s54qA0PXQYqEQtC7qeQZE7MjsMsDBoBmivDm
+         1m3u2xMpAMUELauBCNwAPoKFhKX3qpLQTWrDdXkGtkRrf+bbJuyhY/CSZ51loBRxFowm
+         naBMowH5Vi00pGXaso0E1i/f3MsS2zEMuWuO+s48/8wqn06iPGYlRJdtbQ+iDIYK79Dy
+         iQxk8S/+20eYRY1dfK549RCyx2UlATeQFAuoyz+OwRKsHGWO3V1au4aJzHBoxGcc3fnI
+         Ed2sBE/H4iZmyQCJIa7l2SwlhppCdt0zp/d2MRLjvwI+I1Frab1xRxQRUsOOsO4sNP4f
+         RgIw==
+X-Forwarded-Encrypted: i=1; AFNElJ93DyoVVgo8MalaxxeYfg4wXtHagOksUggEpS6j5RLVEzY5HiNPBEai9Fj1XZAUCs87qsr/qf+0t/sRDFjp7ay8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVh3559+04ISq9CKliV7NiclemrxTaU6CNvgLPiv5ivKHpLQrQ
+	Ab+3WMtY372iRUrPMKvlzTCc/qFEZEe97j6fqWNwcF2/XQOyMhxEVDVd23cIm7oxUQ==
+X-Gm-Gg: Acq92OFDPVyO4u5fHkiD2oYGu0+nEwLUPqoTWR1Y3chsCh5NBkuPyFGd5CHWHNaIWDN
+	HP0VZ8CBucABh/NUaEPPzhm5RUFv1W9U/d/IJ724jleIin+B0k6ASxvBFA42iY0/3wRESTAFB1h
+	gfAbrRJwjcOM4bmHIc26hBoQncQnElk9C8Jp0/BPMfEWe2iqcyw2eI6UvPiQAGBxyTil24QHbj9
+	Kx11kxRog/Ngi+qPom2eQ9x53WjfcqEGKAJZyPKOYu0wHYTx9xT+NyIGBqeiAmiAkYj35QRtjFk
+	nFsjV0Ehh2VGBak9lenFTEBM6YEGmA3ylfZpu0zCxZ1NHRsUaIX9s+dkv+XBo3wFuCWVgV0jqRe
+	mMJvU/DECjVIxih1P8NCeZ39b2vJNjVIh5NszhDN2HufsHOG7/jokD2iEquhC91QegZCI2ZrvT2
+	Ydkblt54/MjcBhpU7RpI8gphz3cVGgjDUzgbHcBfrzzyGOb2fI2hSdq9wCP9xz//pcE1o=
+X-Received: by 2002:a05:600c:694:b0:489:1f6a:4ac0 with SMTP id 5b1f17b1804b1-48fc90e57famr722265e9.0.1778682442946;
+        Wed, 13 May 2026 07:27:22 -0700 (PDT)
+Received: from google.com (8.181.38.34.bc.googleusercontent.com. [34.38.181.8])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48e8e7491edsm45411285e9.13.2026.05.13.07.27.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 07:23:59 -0700 (PDT)
-From: Taniya Das <taniya.das@oss.qualcomm.com>
-Date: Wed, 13 May 2026 19:53:11 +0530
-Subject: [PATCH v3 6/7] clk: qcom: camcc: Add support for camera clock
- controller for Eliza
+        Wed, 13 May 2026 07:27:22 -0700 (PDT)
+Date: Wed, 13 May 2026 14:27:14 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
+ honor DMA_ATTR_CC_SHARED
+Message-ID: <agSKQrSIhizCXKwx@google.com>
+References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
+ <20260512090408.794195-5-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-eliza_mm_cc_v2-v3-6-b59c370dc281@oss.qualcomm.com>
-References: <20260513-eliza_mm_cc_v2-v3-0-b59c370dc281@oss.qualcomm.com>
-In-Reply-To: <20260513-eliza_mm_cc_v2-v3-0-b59c370dc281@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Luca Weiss <luca.weiss@fairphone.com>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Taniya Das <taniya.das@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.15-dev-aa3f6
-X-Proofpoint-GUID: EqgdhLeohNkVuvSm2o6oMnRDBHc82K0G
-X-Authority-Analysis: v=2.4 cv=DOS/JSNb c=1 sm=1 tr=0 ts=6a048982 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=X1llO5yGiJ2-4Hw6Iw4A:9 a=QEXdDO2ut3YA:10
- a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-ORIG-GUID: EqgdhLeohNkVuvSm2o6oMnRDBHc82K0G
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDE0NyBTYWx0ZWRfX9Uh2l7kamkJw
- 71rSiDH9q/J4IihSBGhMQscIUFa53GfDL4wmPBW5MhMM3uJzgmOhbkNyYv/Ac7M6fkqn+wCzCbg
- AML4BP0PBaIwbtYDeOdeib6Vjre+b2xgYZVAiWcfDpB7e/tUId2gPZywU/G6+2evZII+ERpU527
- CRzmmSEknJh2QJ3NpYUqiMuxzU9roUVr3k7E7wa0MK5zQed6ppf1EII6Fhr4SbtNccd961929ej
- O/xwgU7xr2PcdASWmwTuUJN+on1ivEocuJpgd1H/oEsSAcbsSOlQS6G0BG0KHoO3QEGQAiPw0t5
- wbb3n1I5Lku65enw0teuMn6QcsPaZ9RbClMc35s6k1oK0MhlgIWrWIUdQqwkPOWyIPZ2AGnLlwP
- 9UVO3NxZrmiDR6gNcDMisDUMgVxXcW09FQOXf9oVW+Yea6tQJ3Rs+mIJMs/jgoDtpT78L8a1rZS
- kqE+JKS3kI8q0kJCNOQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-13_01,2026-05-13_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 impostorscore=0 bulkscore=0 clxscore=1015
- priorityscore=1501 phishscore=0 suspectscore=0 lowpriorityscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605130147
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260512090408.794195-5-aneesh.kumar@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_072725_690972_F87B28DA 
+X-CRM114-Status: GOOD (  36.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,3338 +123,462 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Camera Clock Controller (CAMCC) on the Eliza
-platform.
+On Tue, May 12, 2026 at 02:33:59PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> Teach swiotlb to distinguish between encrypted and decrypted bounce
+> buffer pools, and make allocation and mapping paths select a pool whose
+> state matches the requested DMA attributes.
+> 
+> Add a decrypted flag to io_tlb_mem, initialize it for the default and
+> restricted pools, and propagate DMA_ATTR_CC_SHARED into swiotlb pool
+> allocation. Reject swiotlb alloc/map requests when the selected pool does
+> not match the required encrypted/decrypted state.
+> 
+> Also return DMA addresses with the matching phys_to_dma_{encrypted,
+> unencrypted} helper so the DMA address encoding stays consistent with the
+> chosen pool.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  include/linux/dma-direct.h |  10 ++++
+>  include/linux/swiotlb.h    |   8 ++-
+>  kernel/dma/direct.c        |  14 +++--
+>  kernel/dma/swiotlb.c       | 108 +++++++++++++++++++++++++++----------
+>  4 files changed, 107 insertions(+), 33 deletions(-)
+> 
+> diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
+> index c249912456f9..94fad4e7c11e 100644
+> --- a/include/linux/dma-direct.h
+> +++ b/include/linux/dma-direct.h
+> @@ -77,6 +77,10 @@ static inline dma_addr_t dma_range_map_max(const struct bus_dma_region *map)
+>  #ifndef phys_to_dma_unencrypted
+>  #define phys_to_dma_unencrypted		phys_to_dma
+>  #endif
+> +
+> +#ifndef phys_to_dma_encrypted
+> +#define phys_to_dma_encrypted		phys_to_dma
+> +#endif
+>  #else
+>  static inline dma_addr_t __phys_to_dma(struct device *dev, phys_addr_t paddr)
+>  {
+> @@ -90,6 +94,12 @@ static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
+>  {
+>  	return dma_addr_unencrypted(__phys_to_dma(dev, paddr));
+>  }
+> +
+> +static inline dma_addr_t phys_to_dma_encrypted(struct device *dev,
+> +		phys_addr_t paddr)
+> +{
+> +	return dma_addr_encrypted(__phys_to_dma(dev, paddr));
+> +}
+>  /*
+>   * If memory encryption is supported, phys_to_dma will set the memory encryption
+>   * bit in the DMA address, and dma_to_phys will clear it.
+> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+> index 3dae0f592063..b3fa3c6e0169 100644
+> --- a/include/linux/swiotlb.h
+> +++ b/include/linux/swiotlb.h
+> @@ -81,6 +81,7 @@ struct io_tlb_pool {
+>  	struct list_head node;
+>  	struct rcu_head rcu;
+>  	bool transient;
+> +	bool unencrypted;
+>  #endif
+>  };
+>  
+> @@ -111,6 +112,7 @@ struct io_tlb_mem {
+>  	struct dentry *debugfs;
+>  	bool force_bounce;
+>  	bool for_alloc;
+> +	bool unencrypted;
+>  #ifdef CONFIG_SWIOTLB_DYNAMIC
+>  	bool can_grow;
+>  	u64 phys_limit;
+> @@ -282,7 +284,8 @@ static inline void swiotlb_sync_single_for_cpu(struct device *dev,
+>  extern void swiotlb_print_info(void);
+>  
+>  #ifdef CONFIG_DMA_RESTRICTED_POOL
+> -struct page *swiotlb_alloc(struct device *dev, size_t size);
+> +struct page *swiotlb_alloc(struct device *dev, size_t size,
+> +		unsigned long attrs);
+>  bool swiotlb_free(struct device *dev, struct page *page, size_t size);
+>  
+>  static inline bool is_swiotlb_for_alloc(struct device *dev)
+> @@ -290,7 +293,8 @@ static inline bool is_swiotlb_for_alloc(struct device *dev)
+>  	return dev->dma_io_tlb_mem->for_alloc;
+>  }
+>  #else
+> -static inline struct page *swiotlb_alloc(struct device *dev, size_t size)
+> +static inline struct page *swiotlb_alloc(struct device *dev, size_t size,
+> +		unsigned long attrs)
+>  {
+>  	return NULL;
+>  }
+> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> index dc2907439b3d..97ae4fa10521 100644
+> --- a/kernel/dma/direct.c
+> +++ b/kernel/dma/direct.c
+> @@ -104,9 +104,10 @@ static void __dma_direct_free_pages(struct device *dev, struct page *page,
+>  	dma_free_contiguous(dev, page, size);
+>  }
+>  
+> -static struct page *dma_direct_alloc_swiotlb(struct device *dev, size_t size)
+> +static struct page *dma_direct_alloc_swiotlb(struct device *dev, size_t size,
+> +		unsigned long attrs)
+>  {
+> -	struct page *page = swiotlb_alloc(dev, size);
+> +	struct page *page = swiotlb_alloc(dev, size, attrs);
+>  
+>  	if (page && !dma_coherent_ok(dev, page_to_phys(page), size)) {
+>  		swiotlb_free(dev, page, size);
+> @@ -266,8 +267,12 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>  						  gfp, attrs);
+>  
+>  	if (is_swiotlb_for_alloc(dev)) {
+> -		page = dma_direct_alloc_swiotlb(dev, size);
+> +		page = dma_direct_alloc_swiotlb(dev, size, attrs);
+>  		if (page) {
+> +			/*
+> +			 * swiotlb allocations comes from pool already marked
+> +			 * decrypted
+> +			 */
+>  			mark_mem_decrypt = false;
+>  			goto setup_page;
+>  		}
+> @@ -374,6 +379,7 @@ void dma_direct_free(struct device *dev, size_t size,
+>  		return;
+>  
+>  	if (swiotlb_find_pool(dev, dma_to_phys(dev, dma_addr)))
+> +		/* Swiotlb doesn't need a page attribute update on free */
+>  		mark_mem_encrypted = false;
+>  
+>  	if (is_vmalloc_addr(cpu_addr)) {
+> @@ -403,7 +409,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+>  						  gfp, attrs);
+>  
+>  	if (is_swiotlb_for_alloc(dev)) {
+> -		page = dma_direct_alloc_swiotlb(dev, size);
+> +		page = dma_direct_alloc_swiotlb(dev, size, attrs);
+>  		if (!page)
+>  			return NULL;
+>  
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index ab4eccbaa076..065663be282c 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -259,10 +259,21 @@ void __init swiotlb_update_mem_attributes(void)
+>  	struct io_tlb_pool *mem = &io_tlb_default_mem.defpool;
+>  	unsigned long bytes;
+>  
+> +	/*
+> +	 * if platform support memory encryption, swiotlb buffers are
+> +	 * decrypted by default.
+> +	 */
+> +	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+> +		io_tlb_default_mem.unencrypted = true;
+> +	else
+> +		io_tlb_default_mem.unencrypted = false;
+> +
+>  	if (!mem->nslabs || mem->late_alloc)
+>  		return;
+>  	bytes = PAGE_ALIGN(mem->nslabs << IO_TLB_SHIFT);
+> -	set_memory_decrypted((unsigned long)mem->vaddr, bytes >> PAGE_SHIFT);
+> +
+> +	if (io_tlb_default_mem.unencrypted)
+> +		set_memory_decrypted((unsigned long)mem->vaddr, bytes >> PAGE_SHIFT);
+>  }
+>  
+>  static void swiotlb_init_io_tlb_pool(struct io_tlb_pool *mem, phys_addr_t start,
+> @@ -505,8 +516,10 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
+>  	if (!mem->slots)
+>  		goto error_slots;
+>  
+> -	set_memory_decrypted((unsigned long)vstart,
+> -			     (nslabs << IO_TLB_SHIFT) >> PAGE_SHIFT);
+> +	if (io_tlb_default_mem.unencrypted)
+> +		set_memory_decrypted((unsigned long)vstart,
+> +				     (nslabs << IO_TLB_SHIFT) >> PAGE_SHIFT);
+> +
+>  	swiotlb_init_io_tlb_pool(mem, virt_to_phys(vstart), nslabs, true,
+>  				 nareas);
+>  	add_mem_pool(&io_tlb_default_mem, mem);
+> @@ -539,7 +552,9 @@ void __init swiotlb_exit(void)
+>  	tbl_size = PAGE_ALIGN(mem->end - mem->start);
+>  	slots_size = PAGE_ALIGN(array_size(sizeof(*mem->slots), mem->nslabs));
+>  
+> -	set_memory_encrypted(tbl_vaddr, tbl_size >> PAGE_SHIFT);
+> +	if (io_tlb_default_mem.unencrypted)
+> +		set_memory_encrypted(tbl_vaddr, tbl_size >> PAGE_SHIFT);
+> +
+>  	if (mem->late_alloc) {
+>  		area_order = get_order(array_size(sizeof(*mem->areas),
+>  			mem->nareas));
+> @@ -563,6 +578,7 @@ void __init swiotlb_exit(void)
+>   * @gfp:	GFP flags for the allocation.
+>   * @bytes:	Size of the buffer.
+>   * @phys_limit:	Maximum allowed physical address of the buffer.
+> + * @unencrypted: true to allocate unencrypted memory, false for encrypted memory
+>   *
+>   * Allocate pages from the buddy allocator. If successful, make the allocated
+>   * pages decrypted that they can be used for DMA.
+> @@ -570,7 +586,8 @@ void __init swiotlb_exit(void)
+>   * Return: Decrypted pages, %NULL on allocation failure, or ERR_PTR(-EAGAIN)
+>   * if the allocated physical address was above @phys_limit.
+>   */
+> -static struct page *alloc_dma_pages(gfp_t gfp, size_t bytes, u64 phys_limit)
+> +static struct page *alloc_dma_pages(gfp_t gfp, size_t bytes,
+> +		u64 phys_limit, bool unencrypted)
+>  {
+>  	unsigned int order = get_order(bytes);
+>  	struct page *page;
+> @@ -588,13 +605,13 @@ static struct page *alloc_dma_pages(gfp_t gfp, size_t bytes, u64 phys_limit)
+>  	}
+>  
+>  	vaddr = phys_to_virt(paddr);
+> -	if (set_memory_decrypted((unsigned long)vaddr, PFN_UP(bytes)))
+> +	if (unencrypted && set_memory_decrypted((unsigned long)vaddr, PFN_UP(bytes)))
+>  		goto error;
+>  	return page;
+>  
+>  error:
+>  	/* Intentional leak if pages cannot be encrypted again. */
+> -	if (!set_memory_encrypted((unsigned long)vaddr, PFN_UP(bytes)))
+> +	if (unencrypted && !set_memory_encrypted((unsigned long)vaddr, PFN_UP(bytes)))
+>  		__free_pages(page, order);
+>  	return NULL;
+>  }
+> @@ -604,30 +621,26 @@ static struct page *alloc_dma_pages(gfp_t gfp, size_t bytes, u64 phys_limit)
+>   * @dev:	Device for which a memory pool is allocated.
+>   * @bytes:	Size of the buffer.
+>   * @phys_limit:	Maximum allowed physical address of the buffer.
+> + * @attrs:	DMA attributes for the allocation.
+>   * @gfp:	GFP flags for the allocation.
+>   *
+>   * Return: Allocated pages, or %NULL on allocation failure.
+>   */
+>  static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
+> -		u64 phys_limit, gfp_t gfp)
+> +		u64 phys_limit, unsigned long attrs, gfp_t gfp)
+>  {
+>  	struct page *page;
+> -	unsigned long attrs = 0;
+>  
+>  	/*
+>  	 * Allocate from the atomic pools if memory is encrypted and
+>  	 * the allocation is atomic, because decrypting may block.
+>  	 */
+> -	if (!gfpflags_allow_blocking(gfp) && dev && force_dma_unencrypted(dev)) {
+> +	if (!gfpflags_allow_blocking(gfp) && (attrs & DMA_ATTR_CC_SHARED)) {
+>  		void *vaddr;
+>  
+>  		if (!IS_ENABLED(CONFIG_DMA_COHERENT_POOL))
+>  			return NULL;
+>  
+> -		/* swiotlb considered decrypted by default */
+> -		if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+> -			attrs = DMA_ATTR_CC_SHARED;
+> -
+>  		return dma_alloc_from_pool(dev, bytes, &vaddr, gfp,
+>  					   attrs, dma_coherent_ok);
+>  	}
+> @@ -638,7 +651,8 @@ static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
+>  	else if (phys_limit <= DMA_BIT_MASK(32))
+>  		gfp |= __GFP_DMA32;
+>  
+> -	while (IS_ERR(page = alloc_dma_pages(gfp, bytes, phys_limit))) {
+> +	while (IS_ERR(page = alloc_dma_pages(gfp, bytes, phys_limit,
+> +					     !!(attrs & DMA_ATTR_CC_SHARED)))) {
+>  		if (IS_ENABLED(CONFIG_ZONE_DMA32) &&
+>  		    phys_limit < DMA_BIT_MASK(64) &&
+>  		    !(gfp & (__GFP_DMA32 | __GFP_DMA)))
+> @@ -657,15 +671,18 @@ static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
+>   * swiotlb_free_tlb() - free a dynamically allocated IO TLB buffer
+>   * @vaddr:	Virtual address of the buffer.
+>   * @bytes:	Size of the buffer.
+> + * @unencrypted: true if @vaddr was allocated decrypted and must be
+> + *	re-encrypted before being freed
+>   */
+> -static void swiotlb_free_tlb(void *vaddr, size_t bytes)
+> +static void swiotlb_free_tlb(void *vaddr, size_t bytes, bool unencrypted)
+>  {
+>  	if (IS_ENABLED(CONFIG_DMA_COHERENT_POOL) &&
+>  	    dma_free_from_pool(NULL, vaddr, bytes))
+>  		return;
+>  
+>  	/* Intentional leak if pages cannot be encrypted again. */
+> -	if (!set_memory_encrypted((unsigned long)vaddr, PFN_UP(bytes)))
+> +	if (!unencrypted ||
+> +	    !set_memory_encrypted((unsigned long)vaddr, PFN_UP(bytes)))
+>  		__free_pages(virt_to_page(vaddr), get_order(bytes));
+>  }
+>  
+> @@ -676,6 +693,7 @@ static void swiotlb_free_tlb(void *vaddr, size_t bytes)
+>   * @nslabs:	Desired (maximum) number of slabs.
+>   * @nareas:	Number of areas.
+>   * @phys_limit:	Maximum DMA buffer physical address.
+> + * @attrs:	DMA attributes for the allocation.
+>   * @gfp:	GFP flags for the allocations.
+>   *
+>   * Allocate and initialize a new IO TLB memory pool. The actual number of
+> @@ -686,7 +704,8 @@ static void swiotlb_free_tlb(void *vaddr, size_t bytes)
+>   */
+>  static struct io_tlb_pool *swiotlb_alloc_pool(struct device *dev,
+>  		unsigned long minslabs, unsigned long nslabs,
+> -		unsigned int nareas, u64 phys_limit, gfp_t gfp)
+> +		unsigned int nareas, u64 phys_limit, unsigned long attrs,
+> +		gfp_t gfp)
+>  {
+>  	struct io_tlb_pool *pool;
+>  	unsigned int slot_order;
+> @@ -704,9 +723,10 @@ static struct io_tlb_pool *swiotlb_alloc_pool(struct device *dev,
+>  	if (!pool)
+>  		goto error;
+>  	pool->areas = (void *)pool + sizeof(*pool);
+> +	pool->unencrypted = !!(attrs & DMA_ATTR_CC_SHARED);
+>  
+>  	tlb_size = nslabs << IO_TLB_SHIFT;
+> -	while (!(tlb = swiotlb_alloc_tlb(dev, tlb_size, phys_limit, gfp))) {
+> +	while (!(tlb = swiotlb_alloc_tlb(dev, tlb_size, phys_limit, attrs, gfp))) {
+>  		if (nslabs <= minslabs)
+>  			goto error_tlb;
+>  		nslabs = ALIGN(nslabs >> 1, IO_TLB_SEGSIZE);
+> @@ -724,7 +744,8 @@ static struct io_tlb_pool *swiotlb_alloc_pool(struct device *dev,
+>  	return pool;
+>  
+>  error_slots:
+> -	swiotlb_free_tlb(page_address(tlb), tlb_size);
+> +	swiotlb_free_tlb(page_address(tlb), tlb_size,
+> +			 !!(attrs & DMA_ATTR_CC_SHARED));
+>  error_tlb:
+>  	kfree(pool);
+>  error:
+> @@ -742,7 +763,9 @@ static void swiotlb_dyn_alloc(struct work_struct *work)
+>  	struct io_tlb_pool *pool;
+>  
+>  	pool = swiotlb_alloc_pool(NULL, IO_TLB_MIN_SLABS, default_nslabs,
+> -				  default_nareas, mem->phys_limit, GFP_KERNEL);
+> +				  default_nareas, mem->phys_limit,
+> +				  mem->unencrypted ? DMA_ATTR_CC_SHARED : 0,
+> +				  GFP_KERNEL);
+>  	if (!pool) {
+>  		pr_warn_ratelimited("Failed to allocate new pool");
+>  		return;
+> @@ -762,7 +785,7 @@ static void swiotlb_dyn_free(struct rcu_head *rcu)
+>  	size_t tlb_size = pool->end - pool->start;
+>  
+>  	free_pages((unsigned long)pool->slots, get_order(slots_size));
+> -	swiotlb_free_tlb(pool->vaddr, tlb_size);
+> +	swiotlb_free_tlb(pool->vaddr, tlb_size, pool->unencrypted);
+>  	kfree(pool);
+>  }
+>  
+> @@ -1232,6 +1255,7 @@ static int swiotlb_find_slots(struct device *dev, phys_addr_t orig_addr,
+>  	nslabs = nr_slots(alloc_size);
+>  	phys_limit = min_not_zero(*dev->dma_mask, dev->bus_dma_limit);
+>  	pool = swiotlb_alloc_pool(dev, nslabs, nslabs, 1, phys_limit,
+> +				  mem->unencrypted ? DMA_ATTR_CC_SHARED : 0,
+>  				  GFP_NOWAIT);
+>  	if (!pool)
+>  		return -1;
+> @@ -1394,6 +1418,7 @@ phys_addr_t swiotlb_tbl_map_single(struct device *dev, phys_addr_t orig_addr,
+>  		enum dma_data_direction dir, unsigned long attrs)
+>  {
+>  	struct io_tlb_mem *mem = dev->dma_io_tlb_mem;
+> +	bool require_decrypted = false;
+>  	unsigned int offset;
+>  	struct io_tlb_pool *pool;
+>  	unsigned int i;
+> @@ -1411,6 +1436,16 @@ phys_addr_t swiotlb_tbl_map_single(struct device *dev, phys_addr_t orig_addr,
+>  	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+>  		pr_warn_once("Memory encryption is active and system is using DMA bounce buffers\n");
+>  
+> +	/*
+> +	 * if we are trying to swiotlb map a decrypted paddr or the paddr is encrypted
+> +	 * but the device is forcing decryption, use decrypted io_tlb_mem
+> +	 */
+> +	if ((attrs & DMA_ATTR_CC_SHARED) || force_dma_unencrypted(dev))
+> +		require_decrypted = true;
+> +
+> +	if (require_decrypted != mem->unencrypted)
+> +		return (phys_addr_t)DMA_MAPPING_ERROR;
+> +
+>  	/*
+>  	 * The default swiotlb memory pool is allocated with PAGE_SIZE
+>  	 * alignment. If a mapping is requested with larger alignment,
+> @@ -1608,8 +1643,14 @@ dma_addr_t swiotlb_map(struct device *dev, phys_addr_t paddr, size_t size,
+>  	if (swiotlb_addr == (phys_addr_t)DMA_MAPPING_ERROR)
+>  		return DMA_MAPPING_ERROR;
+>  
+> -	/* Ensure that the address returned is DMA'ble */
+> -	dma_addr = phys_to_dma_unencrypted(dev, swiotlb_addr);
+> +	/*
+> +	 * Use the allocated io_tlb_mem encryption type to determine dma addr.
+> +	 */
+> +	if (dev->dma_io_tlb_mem->unencrypted)
+> +		dma_addr = phys_to_dma_unencrypted(dev, swiotlb_addr);
+> +	else
+> +		dma_addr = phys_to_dma_encrypted(dev, swiotlb_addr);
+> +
+>  	if (unlikely(!dma_capable(dev, dma_addr, size, true))) {
+>  		__swiotlb_tbl_unmap_single(dev, swiotlb_addr, size, dir,
+>  			attrs | DMA_ATTR_SKIP_CPU_SYNC,
+> @@ -1773,7 +1814,8 @@ static inline void swiotlb_create_debugfs_files(struct io_tlb_mem *mem,
+>  
+>  #ifdef CONFIG_DMA_RESTRICTED_POOL
+>  
+> -struct page *swiotlb_alloc(struct device *dev, size_t size)
+> +struct page *swiotlb_alloc(struct device *dev, size_t size,
+> +		unsigned long attrs)
+>  {
+>  	struct io_tlb_mem *mem = dev->dma_io_tlb_mem;
+>  	struct io_tlb_pool *pool;
+> @@ -1784,6 +1826,9 @@ struct page *swiotlb_alloc(struct device *dev, size_t size)
+>  	if (!mem)
+>  		return NULL;
+>  
+> +	if (mem->unencrypted != !!(attrs & DMA_ATTR_CC_SHARED))
+> +		return NULL;
+> +
+>  	align = (1 << (get_order(size) + PAGE_SHIFT)) - 1;
+>  	index = swiotlb_find_slots(dev, 0, size, align, &pool);
+>  	if (index == -1)
+> @@ -1853,9 +1898,18 @@ static int rmem_swiotlb_device_init(struct reserved_mem *rmem,
+>  			kfree(mem);
+>  			return -ENOMEM;
+>  		}
+> +		/*
+> +		 * if platform supports memory encryption,
+> +		 * restricted mem pool is decrypted by default
+> +		 */
+> +		if (cc_platform_has(CC_ATTR_MEM_ENCRYPT)) {
+> +			mem->unencrypted = true;
+> +			set_memory_decrypted((unsigned long)phys_to_virt(rmem->base),
+> +					     rmem->size >> PAGE_SHIFT);
+> +		} else {
+> +			mem->unencrypted = false;
+> +		}
 
-The CAMCC block on Eliza includes both the primary camera clock
-controller and the Camera BIST clock controller, which provides the
-functional MCLK required for camera operations.
+This breaks pKVM as it doesn’t set CC_ATTR_MEM_ENCRYPT, so all virtio
+traffic now fails.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
----
- drivers/clk/qcom/Kconfig               |   11 +
- drivers/clk/qcom/Makefile              |    1 +
- drivers/clk/qcom/cambistmclkcc-eliza.c |  465 ++++++
- drivers/clk/qcom/camcc-eliza.c         | 2803 ++++++++++++++++++++++++++++++++
- 4 files changed, 3280 insertions(+)
+Also, by design, some drivers are clueless about bouncing, so
+I believe that the pool should have a way to control it’s property
+(encrypted or decrypted) and that takes priority over whatever
+attributes comes from allocation.
+And that brings us to the same point whether it’s better to return
+the memory along with it’s state or we pass the requested state.
+I think for other cases it’s fine for the device/DMA-API to dictate
+the attrs, but not in restricted-dma case, the firmware just knows better.
 
-diff --git a/drivers/clk/qcom/Kconfig b/drivers/clk/qcom/Kconfig
-index 084af4c72250edfb41a9bef1b639ed5d144f6d1a..712d1224c8b959f187ede159e084440738326382 100644
---- a/drivers/clk/qcom/Kconfig
-+++ b/drivers/clk/qcom/Kconfig
-@@ -19,6 +19,17 @@ menuconfig COMMON_CLK_QCOM
- 
- if COMMON_CLK_QCOM
- 
-+config CLK_ELIZA_CAMCC
-+	tristate "Eliza Camera Clock Controller"
-+	depends on ARM64 || COMPILE_TEST
-+	select CLK_ELIZA_GCC
-+	default m if ARCH_QCOM
-+	help
-+	  Support for the camera clock controller on Qualcomm Technologies, Inc
-+	  Eliza devices.
-+	  Say Y if you want to support camera devices and functionality such as
-+	  capturing pictures.
-+
- config CLK_ELIZA_DISPCC
- 	tristate "Eliza Display Clock Controller"
- 	depends on ARM64 || COMPILE_TEST
-diff --git a/drivers/clk/qcom/Makefile b/drivers/clk/qcom/Makefile
-index 1c34797eb385963110614ba43eb9bbc9653699fb..12574157b7c8a82c890996502f79da03f25cfaa2 100644
---- a/drivers/clk/qcom/Makefile
-+++ b/drivers/clk/qcom/Makefile
-@@ -20,6 +20,7 @@ clk-qcom-$(CONFIG_QCOM_GDSC) += gdsc.o
- # Keep alphabetically sorted by config
- obj-$(CONFIG_APQ_GCC_8084) += gcc-apq8084.o
- obj-$(CONFIG_APQ_MMCC_8084) += mmcc-apq8084.o
-+obj-$(CONFIG_CLK_ELIZA_CAMCC) += cambistmclkcc-eliza.o camcc-eliza.o
- obj-$(CONFIG_CLK_ELIZA_DISPCC) += dispcc-eliza.o
- obj-$(CONFIG_CLK_ELIZA_GCC) += gcc-eliza.o
- obj-$(CONFIG_CLK_ELIZA_GPUCC) += gpucc-eliza.o
-diff --git a/drivers/clk/qcom/cambistmclkcc-eliza.c b/drivers/clk/qcom/cambistmclkcc-eliza.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..b65e224a1be907701899a5987644ad8f1af23b88
---- /dev/null
-+++ b/drivers/clk/qcom/cambistmclkcc-eliza.c
-@@ -0,0 +1,465 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#include <dt-bindings/clock/qcom,eliza-cambistmclkcc.h>
-+
-+#include "clk-alpha-pll.h"
-+#include "clk-branch.h"
-+#include "clk-pll.h"
-+#include "clk-rcg.h"
-+#include "clk-regmap.h"
-+#include "clk-regmap-divider.h"
-+#include "clk-regmap-mux.h"
-+#include "common.h"
-+#include "reset.h"
-+
-+enum {
-+	DT_BI_TCXO,
-+	DT_SLEEP_CLK,
-+	DT_AHB_CLK,
-+};
-+
-+enum {
-+	P_BI_TCXO,
-+	P_CAM_BIST_MCLK_CC_PLL0_OUT_EVEN,
-+	P_CAM_BIST_MCLK_CC_PLL0_OUT_MAIN,
-+	P_SLEEP_CLK,
-+};
-+
-+static const struct pll_vco rivian_ole_vco[] = {
-+	{ 777000000, 1285000000, 0 },
-+};
-+
-+/* 960.0 MHz Configuration */
-+static const struct alpha_pll_config cam_bist_mclk_cc_pll0_config = {
-+	.l = 0x32,
-+	.cal_l = 0x32,
-+	.alpha = 0x0,
-+	.config_ctl_val = 0x10000030,
-+	.config_ctl_hi_val = 0x80890263,
-+	.config_ctl_hi1_val = 0x00000217,
-+	.user_ctl_val = 0x00000001,
-+	.user_ctl_hi_val = 0x00000000,
-+};
-+
-+static struct clk_alpha_pll cam_bist_mclk_cc_pll0 = {
-+	.offset = 0x0,
-+	.config = &cam_bist_mclk_cc_pll0_config,
-+	.vco_table = rivian_ole_vco,
-+	.num_vco = ARRAY_SIZE(rivian_ole_vco),
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_RIVIAN_EVO],
-+	.clkr = {
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_bist_mclk_cc_pll0",
-+			.parent_data = &(const struct clk_parent_data) {
-+				.index = DT_BI_TCXO,
-+			},
-+			.num_parents = 1,
-+			.ops = &clk_alpha_pll_rivian_evo_ops,
-+		},
-+	},
-+};
-+
-+static const struct parent_map cam_bist_mclk_cc_parent_map_0[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_CAM_BIST_MCLK_CC_PLL0_OUT_EVEN, 3 },
-+	{ P_CAM_BIST_MCLK_CC_PLL0_OUT_MAIN, 5 },
-+};
-+
-+static const struct clk_parent_data cam_bist_mclk_cc_parent_data_0[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &cam_bist_mclk_cc_pll0.clkr.hw },
-+	{ .hw = &cam_bist_mclk_cc_pll0.clkr.hw },
-+};
-+
-+static const struct parent_map cam_bist_mclk_cc_parent_map_1[] = {
-+	{ P_SLEEP_CLK, 0 },
-+};
-+
-+static const struct clk_parent_data cam_bist_mclk_cc_parent_data_1[] = {
-+	{ .index = DT_SLEEP_CLK },
-+};
-+
-+static const struct freq_tbl ftbl_cam_bist_mclk_cc_mclk0_clk_src[] = {
-+	F(19200000, P_BI_TCXO, 1, 0, 0),
-+	F(24000000, P_CAM_BIST_MCLK_CC_PLL0_OUT_EVEN, 10, 1, 4),
-+	F(68571429, P_CAM_BIST_MCLK_CC_PLL0_OUT_MAIN, 14, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_bist_mclk_cc_mclk0_clk_src = {
-+	.cmd_rcgr = 0x4000,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_bist_mclk_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_bist_mclk_cc_mclk0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_bist_mclk_cc_mclk0_clk_src",
-+		.parent_data = cam_bist_mclk_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_bist_mclk_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_bist_mclk_cc_mclk1_clk_src = {
-+	.cmd_rcgr = 0x401c,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_bist_mclk_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_bist_mclk_cc_mclk0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_bist_mclk_cc_mclk1_clk_src",
-+		.parent_data = cam_bist_mclk_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_bist_mclk_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_bist_mclk_cc_mclk2_clk_src = {
-+	.cmd_rcgr = 0x4038,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_bist_mclk_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_bist_mclk_cc_mclk0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_bist_mclk_cc_mclk2_clk_src",
-+		.parent_data = cam_bist_mclk_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_bist_mclk_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_bist_mclk_cc_mclk3_clk_src = {
-+	.cmd_rcgr = 0x4054,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_bist_mclk_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_bist_mclk_cc_mclk0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_bist_mclk_cc_mclk3_clk_src",
-+		.parent_data = cam_bist_mclk_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_bist_mclk_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_bist_mclk_cc_mclk4_clk_src = {
-+	.cmd_rcgr = 0x4070,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_bist_mclk_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_bist_mclk_cc_mclk0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_bist_mclk_cc_mclk4_clk_src",
-+		.parent_data = cam_bist_mclk_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_bist_mclk_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_bist_mclk_cc_mclk5_clk_src = {
-+	.cmd_rcgr = 0x408c,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_bist_mclk_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_bist_mclk_cc_mclk0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_bist_mclk_cc_mclk5_clk_src",
-+		.parent_data = cam_bist_mclk_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_bist_mclk_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_bist_mclk_cc_mclk6_clk_src = {
-+	.cmd_rcgr = 0x40a8,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_bist_mclk_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_bist_mclk_cc_mclk0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_bist_mclk_cc_mclk6_clk_src",
-+		.parent_data = cam_bist_mclk_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_bist_mclk_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_bist_mclk_cc_mclk7_clk_src = {
-+	.cmd_rcgr = 0x40c4,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_bist_mclk_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_bist_mclk_cc_mclk0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_bist_mclk_cc_mclk7_clk_src",
-+		.parent_data = cam_bist_mclk_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_bist_mclk_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_bist_mclk_cc_sleep_clk_src[] = {
-+	F(32000, P_SLEEP_CLK, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_bist_mclk_cc_sleep_clk_src = {
-+	.cmd_rcgr = 0x40e0,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_bist_mclk_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_bist_mclk_cc_sleep_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_bist_mclk_cc_sleep_clk_src",
-+		.parent_data = cam_bist_mclk_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_bist_mclk_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_branch cam_bist_mclk_cc_mclk0_clk = {
-+	.halt_reg = 0x4018,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x4018,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_bist_mclk_cc_mclk0_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_bist_mclk_cc_mclk0_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_bist_mclk_cc_mclk1_clk = {
-+	.halt_reg = 0x4034,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x4034,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_bist_mclk_cc_mclk1_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_bist_mclk_cc_mclk1_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_bist_mclk_cc_mclk2_clk = {
-+	.halt_reg = 0x4050,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x4050,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_bist_mclk_cc_mclk2_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_bist_mclk_cc_mclk2_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_bist_mclk_cc_mclk3_clk = {
-+	.halt_reg = 0x406c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x406c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_bist_mclk_cc_mclk3_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_bist_mclk_cc_mclk3_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_bist_mclk_cc_mclk4_clk = {
-+	.halt_reg = 0x4088,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x4088,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_bist_mclk_cc_mclk4_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_bist_mclk_cc_mclk4_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_bist_mclk_cc_mclk5_clk = {
-+	.halt_reg = 0x40a4,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x40a4,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_bist_mclk_cc_mclk5_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_bist_mclk_cc_mclk5_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_bist_mclk_cc_mclk6_clk = {
-+	.halt_reg = 0x40c0,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x40c0,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_bist_mclk_cc_mclk6_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_bist_mclk_cc_mclk6_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_bist_mclk_cc_mclk7_clk = {
-+	.halt_reg = 0x40dc,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x40dc,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_bist_mclk_cc_mclk7_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_bist_mclk_cc_mclk7_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_regmap *cam_bist_mclk_cc_eliza_clocks[] = {
-+	[CAM_BIST_MCLK_CC_MCLK0_CLK] = &cam_bist_mclk_cc_mclk0_clk.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK0_CLK_SRC] = &cam_bist_mclk_cc_mclk0_clk_src.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK1_CLK] = &cam_bist_mclk_cc_mclk1_clk.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK1_CLK_SRC] = &cam_bist_mclk_cc_mclk1_clk_src.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK2_CLK] = &cam_bist_mclk_cc_mclk2_clk.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK2_CLK_SRC] = &cam_bist_mclk_cc_mclk2_clk_src.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK3_CLK] = &cam_bist_mclk_cc_mclk3_clk.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK3_CLK_SRC] = &cam_bist_mclk_cc_mclk3_clk_src.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK4_CLK] = &cam_bist_mclk_cc_mclk4_clk.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK4_CLK_SRC] = &cam_bist_mclk_cc_mclk4_clk_src.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK5_CLK] = &cam_bist_mclk_cc_mclk5_clk.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK5_CLK_SRC] = &cam_bist_mclk_cc_mclk5_clk_src.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK6_CLK] = &cam_bist_mclk_cc_mclk6_clk.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK6_CLK_SRC] = &cam_bist_mclk_cc_mclk6_clk_src.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK7_CLK] = &cam_bist_mclk_cc_mclk7_clk.clkr,
-+	[CAM_BIST_MCLK_CC_MCLK7_CLK_SRC] = &cam_bist_mclk_cc_mclk7_clk_src.clkr,
-+	[CAM_BIST_MCLK_CC_PLL0] = &cam_bist_mclk_cc_pll0.clkr,
-+	[CAM_BIST_MCLK_CC_SLEEP_CLK_SRC] = &cam_bist_mclk_cc_sleep_clk_src.clkr,
-+};
-+
-+static struct clk_alpha_pll *cam_bist_mclk_cc_eliza_plls[] = {
-+	&cam_bist_mclk_cc_pll0,
-+};
-+
-+static u32 cam_bist_mclk_cc_eliza_critical_cbcrs[] = {
-+	0x40f8, /* CAM_BIST_MCLK_CC_SLEEP_CLK */
-+};
-+
-+static const struct regmap_config cam_bist_mclk_cc_eliza_regmap_config = {
-+	.reg_bits = 32,
-+	.reg_stride = 4,
-+	.val_bits = 32,
-+	.max_register = 0x5010,
-+	.fast_io = true,
-+};
-+
-+static struct qcom_cc_driver_data cam_bist_mclk_cc_eliza_driver_data = {
-+	.alpha_plls = cam_bist_mclk_cc_eliza_plls,
-+	.num_alpha_plls = ARRAY_SIZE(cam_bist_mclk_cc_eliza_plls),
-+	.clk_cbcrs = cam_bist_mclk_cc_eliza_critical_cbcrs,
-+	.num_clk_cbcrs = ARRAY_SIZE(cam_bist_mclk_cc_eliza_critical_cbcrs),
-+};
-+
-+static const struct qcom_cc_desc cam_bist_mclk_cc_eliza_desc = {
-+	.config = &cam_bist_mclk_cc_eliza_regmap_config,
-+	.clks = cam_bist_mclk_cc_eliza_clocks,
-+	.num_clks = ARRAY_SIZE(cam_bist_mclk_cc_eliza_clocks),
-+	.use_rpm = true,
-+	.driver_data = &cam_bist_mclk_cc_eliza_driver_data,
-+};
-+
-+static const struct of_device_id cam_bist_mclk_cc_eliza_match_table[] = {
-+	{ .compatible = "qcom,eliza-cambistmclkcc" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, cam_bist_mclk_cc_eliza_match_table);
-+
-+static int cam_bist_mclk_cc_eliza_probe(struct platform_device *pdev)
-+{
-+	return qcom_cc_probe(pdev, &cam_bist_mclk_cc_eliza_desc);
-+}
-+
-+static struct platform_driver cam_bist_mclk_cc_eliza_driver = {
-+	.probe = cam_bist_mclk_cc_eliza_probe,
-+	.driver = {
-+		.name = "cambistmclkcc-eliza",
-+		.of_match_table = cam_bist_mclk_cc_eliza_match_table,
-+	},
-+};
-+
-+module_platform_driver(cam_bist_mclk_cc_eliza_driver);
-+
-+MODULE_DESCRIPTION("QTI CAMBISTMCLKCC Eliza Driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/clk/qcom/camcc-eliza.c b/drivers/clk/qcom/camcc-eliza.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..b96a2a58b32a78c50836410fc23b58e6892196f0
---- /dev/null
-+++ b/drivers/clk/qcom/camcc-eliza.c
-@@ -0,0 +1,2803 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#include <dt-bindings/clock/qcom,eliza-camcc.h>
-+
-+#include "clk-alpha-pll.h"
-+#include "clk-branch.h"
-+#include "clk-pll.h"
-+#include "clk-rcg.h"
-+#include "clk-regmap.h"
-+#include "clk-regmap-divider.h"
-+#include "clk-regmap-mux.h"
-+#include "common.h"
-+#include "gdsc.h"
-+#include "reset.h"
-+
-+enum {
-+	DT_BI_TCXO,
-+	DT_SLEEP_CLK,
-+	DT_AHB_CLK,
-+};
-+
-+enum {
-+	P_BI_TCXO,
-+	P_CAM_CC_PLL0_OUT_EVEN,
-+	P_CAM_CC_PLL0_OUT_MAIN,
-+	P_CAM_CC_PLL0_OUT_ODD,
-+	P_CAM_CC_PLL1_OUT_EVEN,
-+	P_CAM_CC_PLL2_OUT_EVEN,
-+	P_CAM_CC_PLL3_OUT_EVEN,
-+	P_CAM_CC_PLL4_OUT_EVEN,
-+	P_CAM_CC_PLL5_OUT_EVEN,
-+	P_CAM_CC_PLL6_OUT_EVEN,
-+	P_CAM_CC_PLL6_OUT_ODD,
-+	P_SLEEP_CLK,
-+};
-+
-+static const struct pll_vco lucid_ole_vco[] = {
-+	{ 249600000, 2300000000, 0 },
-+};
-+
-+/* 1200.0 MHz Configuration */
-+static const struct alpha_pll_config cam_cc_pll0_config = {
-+	.l = 0x3e,
-+	.cal_l = 0x44,
-+	.alpha = 0x8000,
-+	.config_ctl_val = 0x20485699,
-+	.config_ctl_hi_val = 0x00182261,
-+	.config_ctl_hi1_val = 0x82aa299c,
-+	.test_ctl_val = 0x00000000,
-+	.test_ctl_hi_val = 0x00000003,
-+	.test_ctl_hi1_val = 0x00009000,
-+	.test_ctl_hi2_val = 0x00000034,
-+	.user_ctl_val = 0x00008400,
-+	.user_ctl_hi_val = 0x00000005,
-+};
-+
-+static struct clk_alpha_pll cam_cc_pll0 = {
-+	.offset = 0x0,
-+	.config = &cam_cc_pll0_config,
-+	.vco_table = lucid_ole_vco,
-+	.num_vco = ARRAY_SIZE(lucid_ole_vco),
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr = {
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_pll0",
-+			.parent_data = &(const struct clk_parent_data) {
-+				.index = DT_BI_TCXO,
-+			},
-+			.num_parents = 1,
-+			.ops = &clk_alpha_pll_lucid_evo_ops,
-+		},
-+	},
-+};
-+
-+static const struct clk_div_table post_div_table_cam_cc_pll0_out_even[] = {
-+	{ 0x1, 2 },
-+	{ }
-+};
-+
-+static struct clk_alpha_pll_postdiv cam_cc_pll0_out_even = {
-+	.offset = 0x0,
-+	.post_div_shift = 10,
-+	.post_div_table = post_div_table_cam_cc_pll0_out_even,
-+	.num_post_div = ARRAY_SIZE(post_div_table_cam_cc_pll0_out_even),
-+	.width = 4,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_pll0_out_even",
-+		.parent_hws = (const struct clk_hw*[]) {
-+			&cam_cc_pll0.clkr.hw,
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_alpha_pll_postdiv_lucid_ole_ops,
-+	},
-+};
-+
-+static const struct clk_div_table post_div_table_cam_cc_pll0_out_odd[] = {
-+	{ 0x2, 3 },
-+	{ }
-+};
-+
-+static struct clk_alpha_pll_postdiv cam_cc_pll0_out_odd = {
-+	.offset = 0x0,
-+	.post_div_shift = 14,
-+	.post_div_table = post_div_table_cam_cc_pll0_out_odd,
-+	.num_post_div = ARRAY_SIZE(post_div_table_cam_cc_pll0_out_odd),
-+	.width = 4,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_pll0_out_odd",
-+		.parent_hws = (const struct clk_hw*[]) {
-+			&cam_cc_pll0.clkr.hw,
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_alpha_pll_postdiv_lucid_ole_ops,
-+	},
-+};
-+
-+/* 900.0 MHz Configuration */
-+static const struct alpha_pll_config cam_cc_pll1_config = {
-+	.l = 0x2e,
-+	.cal_l = 0x44,
-+	.alpha = 0xe000,
-+	.config_ctl_val = 0x20485699,
-+	.config_ctl_hi_val = 0x00182261,
-+	.config_ctl_hi1_val = 0x82aa299c,
-+	.test_ctl_val = 0x00000000,
-+	.test_ctl_hi_val = 0x00000003,
-+	.test_ctl_hi1_val = 0x00009000,
-+	.test_ctl_hi2_val = 0x00000034,
-+	.user_ctl_val = 0x00000400,
-+	.user_ctl_hi_val = 0x00000005,
-+};
-+
-+static struct clk_alpha_pll cam_cc_pll1 = {
-+	.offset = 0x1000,
-+	.config = &cam_cc_pll1_config,
-+	.vco_table = lucid_ole_vco,
-+	.num_vco = ARRAY_SIZE(lucid_ole_vco),
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr = {
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_pll1",
-+			.parent_data = &(const struct clk_parent_data) {
-+				.index = DT_BI_TCXO,
-+			},
-+			.num_parents = 1,
-+			.ops = &clk_alpha_pll_lucid_evo_ops,
-+		},
-+	},
-+};
-+
-+static const struct clk_div_table post_div_table_cam_cc_pll1_out_even[] = {
-+	{ 0x1, 2 },
-+	{ }
-+};
-+
-+static struct clk_alpha_pll_postdiv cam_cc_pll1_out_even = {
-+	.offset = 0x1000,
-+	.post_div_shift = 10,
-+	.post_div_table = post_div_table_cam_cc_pll1_out_even,
-+	.num_post_div = ARRAY_SIZE(post_div_table_cam_cc_pll1_out_even),
-+	.width = 4,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_pll1_out_even",
-+		.parent_hws = (const struct clk_hw*[]) {
-+			&cam_cc_pll1.clkr.hw,
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_alpha_pll_postdiv_lucid_ole_ops,
-+	},
-+};
-+
-+/* 872.0 MHz Configuration */
-+static const struct alpha_pll_config cam_cc_pll2_config = {
-+	.l = 0x2d,
-+	.cal_l = 0x44,
-+	.alpha = 0x6aaa,
-+	.config_ctl_val = 0x20485699,
-+	.config_ctl_hi_val = 0x00182261,
-+	.config_ctl_hi1_val = 0x82aa299c,
-+	.test_ctl_val = 0x00000000,
-+	.test_ctl_hi_val = 0x00000003,
-+	.test_ctl_hi1_val = 0x00009000,
-+	.test_ctl_hi2_val = 0x00000034,
-+	.user_ctl_val = 0x00000400,
-+	.user_ctl_hi_val = 0x00000005,
-+};
-+
-+static struct clk_alpha_pll cam_cc_pll2 = {
-+	.offset = 0x2000,
-+	.config = &cam_cc_pll2_config,
-+	.vco_table = lucid_ole_vco,
-+	.num_vco = ARRAY_SIZE(lucid_ole_vco),
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr = {
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_pll2",
-+			.parent_data = &(const struct clk_parent_data) {
-+				.index = DT_BI_TCXO,
-+			},
-+			.num_parents = 1,
-+			.ops = &clk_alpha_pll_lucid_evo_ops,
-+		},
-+	},
-+};
-+
-+static const struct clk_div_table post_div_table_cam_cc_pll2_out_even[] = {
-+	{ 0x1, 2 },
-+	{ }
-+};
-+
-+static struct clk_alpha_pll_postdiv cam_cc_pll2_out_even = {
-+	.offset = 0x2000,
-+	.post_div_shift = 10,
-+	.post_div_table = post_div_table_cam_cc_pll2_out_even,
-+	.num_post_div = ARRAY_SIZE(post_div_table_cam_cc_pll2_out_even),
-+	.width = 4,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_pll2_out_even",
-+		.parent_hws = (const struct clk_hw*[]) {
-+			&cam_cc_pll2.clkr.hw,
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_alpha_pll_postdiv_lucid_ole_ops,
-+	},
-+};
-+
-+/* 890.0 MHz Configuration */
-+static const struct alpha_pll_config cam_cc_pll3_config = {
-+	.l = 0x2e,
-+	.cal_l = 0x44,
-+	.alpha = 0x5aaa,
-+	.config_ctl_val = 0x20485699,
-+	.config_ctl_hi_val = 0x00182261,
-+	.config_ctl_hi1_val = 0x82aa299c,
-+	.test_ctl_val = 0x00000000,
-+	.test_ctl_hi_val = 0x00000003,
-+	.test_ctl_hi1_val = 0x00009000,
-+	.test_ctl_hi2_val = 0x00000034,
-+	.user_ctl_val = 0x00000400,
-+	.user_ctl_hi_val = 0x00000005,
-+};
-+
-+static struct clk_alpha_pll cam_cc_pll3 = {
-+	.offset = 0x3000,
-+	.config = &cam_cc_pll3_config,
-+	.vco_table = lucid_ole_vco,
-+	.num_vco = ARRAY_SIZE(lucid_ole_vco),
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr = {
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_pll3",
-+			.parent_data = &(const struct clk_parent_data) {
-+				.index = DT_BI_TCXO,
-+			},
-+			.num_parents = 1,
-+			.ops = &clk_alpha_pll_lucid_evo_ops,
-+		},
-+	},
-+};
-+
-+static const struct clk_div_table post_div_table_cam_cc_pll3_out_even[] = {
-+	{ 0x1, 2 },
-+	{ }
-+};
-+
-+static struct clk_alpha_pll_postdiv cam_cc_pll3_out_even = {
-+	.offset = 0x3000,
-+	.post_div_shift = 10,
-+	.post_div_table = post_div_table_cam_cc_pll3_out_even,
-+	.num_post_div = ARRAY_SIZE(post_div_table_cam_cc_pll3_out_even),
-+	.width = 4,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_pll3_out_even",
-+		.parent_hws = (const struct clk_hw*[]) {
-+			&cam_cc_pll3.clkr.hw,
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_alpha_pll_postdiv_lucid_ole_ops,
-+	},
-+};
-+
-+/* 890.0 MHz Configuration */
-+static const struct alpha_pll_config cam_cc_pll4_config = {
-+	.l = 0x2e,
-+	.cal_l = 0x44,
-+	.alpha = 0x5aaa,
-+	.config_ctl_val = 0x20485699,
-+	.config_ctl_hi_val = 0x00182261,
-+	.config_ctl_hi1_val = 0x82aa299c,
-+	.test_ctl_val = 0x00000000,
-+	.test_ctl_hi_val = 0x00000003,
-+	.test_ctl_hi1_val = 0x00009000,
-+	.test_ctl_hi2_val = 0x00000034,
-+	.user_ctl_val = 0x00000400,
-+	.user_ctl_hi_val = 0x00000005,
-+};
-+
-+static struct clk_alpha_pll cam_cc_pll4 = {
-+	.offset = 0x4000,
-+	.config = &cam_cc_pll4_config,
-+	.vco_table = lucid_ole_vco,
-+	.num_vco = ARRAY_SIZE(lucid_ole_vco),
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr = {
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_pll4",
-+			.parent_data = &(const struct clk_parent_data) {
-+				.index = DT_BI_TCXO,
-+			},
-+			.num_parents = 1,
-+			.ops = &clk_alpha_pll_lucid_evo_ops,
-+		},
-+	},
-+};
-+
-+static const struct clk_div_table post_div_table_cam_cc_pll4_out_even[] = {
-+	{ 0x1, 2 },
-+	{ }
-+};
-+
-+static struct clk_alpha_pll_postdiv cam_cc_pll4_out_even = {
-+	.offset = 0x4000,
-+	.post_div_shift = 10,
-+	.post_div_table = post_div_table_cam_cc_pll4_out_even,
-+	.num_post_div = ARRAY_SIZE(post_div_table_cam_cc_pll4_out_even),
-+	.width = 4,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_pll4_out_even",
-+		.parent_hws = (const struct clk_hw*[]) {
-+			&cam_cc_pll4.clkr.hw,
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_alpha_pll_postdiv_lucid_ole_ops,
-+	},
-+};
-+
-+/* 890.0 MHz Configuration */
-+static const struct alpha_pll_config cam_cc_pll5_config = {
-+	.l = 0x2e,
-+	.cal_l = 0x44,
-+	.alpha = 0x5aaa,
-+	.config_ctl_val = 0x20485699,
-+	.config_ctl_hi_val = 0x00182261,
-+	.config_ctl_hi1_val = 0x82aa299c,
-+	.test_ctl_val = 0x00000000,
-+	.test_ctl_hi_val = 0x00000003,
-+	.test_ctl_hi1_val = 0x00009000,
-+	.test_ctl_hi2_val = 0x00000034,
-+	.user_ctl_val = 0x00000400,
-+	.user_ctl_hi_val = 0x00000005,
-+};
-+
-+static struct clk_alpha_pll cam_cc_pll5 = {
-+	.offset = 0x5000,
-+	.config = &cam_cc_pll5_config,
-+	.vco_table = lucid_ole_vco,
-+	.num_vco = ARRAY_SIZE(lucid_ole_vco),
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr = {
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_pll5",
-+			.parent_data = &(const struct clk_parent_data) {
-+				.index = DT_BI_TCXO,
-+			},
-+			.num_parents = 1,
-+			.ops = &clk_alpha_pll_lucid_evo_ops,
-+		},
-+	},
-+};
-+
-+static const struct clk_div_table post_div_table_cam_cc_pll5_out_even[] = {
-+	{ 0x1, 2 },
-+	{ }
-+};
-+
-+static struct clk_alpha_pll_postdiv cam_cc_pll5_out_even = {
-+	.offset = 0x5000,
-+	.post_div_shift = 10,
-+	.post_div_table = post_div_table_cam_cc_pll5_out_even,
-+	.num_post_div = ARRAY_SIZE(post_div_table_cam_cc_pll5_out_even),
-+	.width = 4,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_pll5_out_even",
-+		.parent_hws = (const struct clk_hw*[]) {
-+			&cam_cc_pll5.clkr.hw,
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_alpha_pll_postdiv_lucid_ole_ops,
-+	},
-+};
-+
-+/* 960.0 MHz Configuration */
-+static const struct alpha_pll_config cam_cc_pll6_config = {
-+	.l = 0x32,
-+	.cal_l = 0x44,
-+	.alpha = 0x0,
-+	.config_ctl_val = 0x20485699,
-+	.config_ctl_hi_val = 0x00182261,
-+	.config_ctl_hi1_val = 0x82aa299c,
-+	.test_ctl_val = 0x00000000,
-+	.test_ctl_hi_val = 0x00000003,
-+	.test_ctl_hi1_val = 0x00009000,
-+	.test_ctl_hi2_val = 0x00000034,
-+	.user_ctl_val = 0x00008400,
-+	.user_ctl_hi_val = 0x00000005,
-+};
-+
-+static struct clk_alpha_pll cam_cc_pll6 = {
-+	.offset = 0x6000,
-+	.config = &cam_cc_pll6_config,
-+	.vco_table = lucid_ole_vco,
-+	.num_vco = ARRAY_SIZE(lucid_ole_vco),
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr = {
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_pll6",
-+			.parent_data = &(const struct clk_parent_data) {
-+				.index = DT_BI_TCXO,
-+			},
-+			.num_parents = 1,
-+			.ops = &clk_alpha_pll_lucid_evo_ops,
-+		},
-+	},
-+};
-+
-+static const struct clk_div_table post_div_table_cam_cc_pll6_out_even[] = {
-+	{ 0x1, 2 },
-+	{ }
-+};
-+
-+static struct clk_alpha_pll_postdiv cam_cc_pll6_out_even = {
-+	.offset = 0x6000,
-+	.post_div_shift = 10,
-+	.post_div_table = post_div_table_cam_cc_pll6_out_even,
-+	.num_post_div = ARRAY_SIZE(post_div_table_cam_cc_pll6_out_even),
-+	.width = 4,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_pll6_out_even",
-+		.parent_hws = (const struct clk_hw*[]) {
-+			&cam_cc_pll6.clkr.hw,
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_alpha_pll_postdiv_lucid_ole_ops,
-+	},
-+};
-+
-+static const struct clk_div_table post_div_table_cam_cc_pll6_out_odd[] = {
-+	{ 0x2, 3 },
-+	{ }
-+};
-+
-+static struct clk_alpha_pll_postdiv cam_cc_pll6_out_odd = {
-+	.offset = 0x6000,
-+	.post_div_shift = 14,
-+	.post_div_table = post_div_table_cam_cc_pll6_out_odd,
-+	.num_post_div = ARRAY_SIZE(post_div_table_cam_cc_pll6_out_odd),
-+	.width = 4,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_pll6_out_odd",
-+		.parent_hws = (const struct clk_hw*[]) {
-+			&cam_cc_pll6.clkr.hw,
-+		},
-+		.num_parents = 1,
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_alpha_pll_postdiv_lucid_ole_ops,
-+	},
-+};
-+
-+static const struct parent_map cam_cc_parent_map_0[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_CAM_CC_PLL0_OUT_MAIN, 1 },
-+	{ P_CAM_CC_PLL0_OUT_EVEN, 2 },
-+	{ P_CAM_CC_PLL0_OUT_ODD, 3 },
-+	{ P_CAM_CC_PLL6_OUT_ODD, 4 },
-+	{ P_CAM_CC_PLL6_OUT_EVEN, 5 },
-+};
-+
-+static const struct clk_parent_data cam_cc_parent_data_0[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &cam_cc_pll0.clkr.hw },
-+	{ .hw = &cam_cc_pll0_out_even.clkr.hw },
-+	{ .hw = &cam_cc_pll0_out_odd.clkr.hw },
-+	{ .hw = &cam_cc_pll6_out_odd.clkr.hw },
-+	{ .hw = &cam_cc_pll6_out_even.clkr.hw },
-+};
-+
-+static const struct parent_map cam_cc_parent_map_1[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_CAM_CC_PLL0_OUT_MAIN, 1 },
-+	{ P_CAM_CC_PLL0_OUT_EVEN, 2 },
-+	{ P_CAM_CC_PLL0_OUT_ODD, 3 },
-+	{ P_CAM_CC_PLL6_OUT_ODD, 4 },
-+	{ P_CAM_CC_PLL6_OUT_EVEN, 5 },
-+};
-+
-+static const struct clk_parent_data cam_cc_parent_data_1[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &cam_cc_pll0.clkr.hw },
-+	{ .hw = &cam_cc_pll0_out_even.clkr.hw },
-+	{ .hw = &cam_cc_pll0_out_odd.clkr.hw },
-+	{ .hw = &cam_cc_pll6_out_odd.clkr.hw },
-+	{ .hw = &cam_cc_pll6_out_even.clkr.hw },
-+};
-+
-+static const struct parent_map cam_cc_parent_map_2[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_CAM_CC_PLL1_OUT_EVEN, 4 },
-+};
-+
-+static const struct clk_parent_data cam_cc_parent_data_2[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &cam_cc_pll1_out_even.clkr.hw },
-+};
-+
-+static const struct parent_map cam_cc_parent_map_3[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_CAM_CC_PLL2_OUT_EVEN, 5 },
-+};
-+
-+static const struct clk_parent_data cam_cc_parent_data_3[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &cam_cc_pll2_out_even.clkr.hw },
-+};
-+
-+static const struct parent_map cam_cc_parent_map_4[] = {
-+	{ P_SLEEP_CLK, 0 },
-+};
-+
-+static const struct clk_parent_data cam_cc_parent_data_4[] = {
-+	{ .index = DT_SLEEP_CLK },
-+};
-+
-+static const struct parent_map cam_cc_parent_map_5[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_CAM_CC_PLL3_OUT_EVEN, 6 },
-+};
-+
-+static const struct clk_parent_data cam_cc_parent_data_5[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &cam_cc_pll3_out_even.clkr.hw },
-+};
-+
-+static const struct parent_map cam_cc_parent_map_6[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_CAM_CC_PLL4_OUT_EVEN, 6 },
-+};
-+
-+static const struct clk_parent_data cam_cc_parent_data_6[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &cam_cc_pll4_out_even.clkr.hw },
-+};
-+
-+static const struct parent_map cam_cc_parent_map_7[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_CAM_CC_PLL5_OUT_EVEN, 6 },
-+};
-+
-+static const struct clk_parent_data cam_cc_parent_data_7[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &cam_cc_pll5_out_even.clkr.hw },
-+};
-+
-+static const struct parent_map cam_cc_parent_map_8[] = {
-+	{ P_BI_TCXO, 0 },
-+};
-+
-+static const struct clk_parent_data cam_cc_parent_data_8[] = {
-+	{ .index = DT_BI_TCXO },
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_camnoc_rt_axi_clk_src[] = {
-+	F(19200000, P_BI_TCXO, 1, 0, 0),
-+	F(300000000, P_CAM_CC_PLL0_OUT_EVEN, 2, 0, 0),
-+	F(400000000, P_CAM_CC_PLL0_OUT_ODD, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_camnoc_rt_axi_clk_src = {
-+	.cmd_rcgr = 0x112e8,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_camnoc_rt_axi_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_camnoc_rt_axi_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_cci_0_clk_src[] = {
-+	F(37500000, P_CAM_CC_PLL0_OUT_EVEN, 16, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_cci_0_clk_src = {
-+	.cmd_rcgr = 0x1126c,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_cci_0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_cci_0_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_cci_1_clk_src = {
-+	.cmd_rcgr = 0x11288,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_cci_0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_cci_1_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_cci_2_clk_src = {
-+	.cmd_rcgr = 0x112a4,
-+	.mnd_width = 8,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_cci_0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_cci_2_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_cphy_rx_clk_src[] = {
-+	F(400000000, P_CAM_CC_PLL0_OUT_MAIN, 3, 0, 0),
-+	F(480000000, P_CAM_CC_PLL0_OUT_MAIN, 2.5, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_cphy_rx_clk_src = {
-+	.cmd_rcgr = 0x11068,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_cc_cphy_rx_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_cphy_rx_clk_src",
-+		.parent_data = cam_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_cre_clk_src[] = {
-+	F(200000000, P_CAM_CC_PLL0_OUT_ODD, 2, 0, 0),
-+	F(400000000, P_CAM_CC_PLL0_OUT_ODD, 1, 0, 0),
-+	F(480000000, P_CAM_CC_PLL6_OUT_EVEN, 1, 0, 0),
-+	F(600000000, P_CAM_CC_PLL0_OUT_EVEN, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_cre_clk_src = {
-+	.cmd_rcgr = 0x111ac,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_cre_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_cre_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_csi0phytimer_clk_src[] = {
-+	F(400000000, P_CAM_CC_PLL0_OUT_MAIN, 3, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_csi0phytimer_clk_src = {
-+	.cmd_rcgr = 0x10000,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_cc_csi0phytimer_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_csi0phytimer_clk_src",
-+		.parent_data = cam_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_csi1phytimer_clk_src = {
-+	.cmd_rcgr = 0x10024,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_cc_csi0phytimer_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_csi1phytimer_clk_src",
-+		.parent_data = cam_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_csi2phytimer_clk_src = {
-+	.cmd_rcgr = 0x10044,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_cc_csi0phytimer_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_csi2phytimer_clk_src",
-+		.parent_data = cam_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_csi3phytimer_clk_src = {
-+	.cmd_rcgr = 0x10064,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_cc_csi0phytimer_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_csi3phytimer_clk_src",
-+		.parent_data = cam_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_csi4phytimer_clk_src = {
-+	.cmd_rcgr = 0x10084,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_cc_csi0phytimer_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_csi4phytimer_clk_src",
-+		.parent_data = cam_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_csi5phytimer_clk_src = {
-+	.cmd_rcgr = 0x100a4,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_cc_csi0phytimer_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_csi5phytimer_clk_src",
-+		.parent_data = cam_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_csid_clk_src = {
-+	.cmd_rcgr = 0x112c0,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_cc_cphy_rx_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_csid_clk_src",
-+		.parent_data = cam_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_fast_ahb_clk_src[] = {
-+	F(300000000, P_CAM_CC_PLL0_OUT_EVEN, 2, 0, 0),
-+	F(400000000, P_CAM_CC_PLL0_OUT_MAIN, 3, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_fast_ahb_clk_src = {
-+	.cmd_rcgr = 0x100dc,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_fast_ahb_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_fast_ahb_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_icp_0_clk_src[] = {
-+	F(400000000, P_CAM_CC_PLL0_OUT_ODD, 1, 0, 0),
-+	F(480000000, P_CAM_CC_PLL6_OUT_EVEN, 1, 0, 0),
-+	F(600000000, P_CAM_CC_PLL0_OUT_MAIN, 2, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_icp_0_clk_src = {
-+	.cmd_rcgr = 0x11214,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_icp_0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_icp_0_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_icp_1_clk_src = {
-+	.cmd_rcgr = 0x1123c,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_icp_0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_icp_1_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_ife_lite_clk_src = {
-+	.cmd_rcgr = 0x11150,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_cc_cphy_rx_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_ife_lite_clk_src",
-+		.parent_data = cam_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_ife_lite_csid_clk_src = {
-+	.cmd_rcgr = 0x1117c,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_1,
-+	.freq_tbl = ftbl_cam_cc_cphy_rx_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_ife_lite_csid_clk_src",
-+		.parent_data = cam_cc_parent_data_1,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_1),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_ipe_nps_clk_src[] = {
-+	F(450000000, P_CAM_CC_PLL1_OUT_EVEN, 1, 0, 0),
-+	F(575000000, P_CAM_CC_PLL1_OUT_EVEN, 1, 0, 0),
-+	F(675000000, P_CAM_CC_PLL1_OUT_EVEN, 1, 0, 0),
-+	F(825000000, P_CAM_CC_PLL1_OUT_EVEN, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_ipe_nps_clk_src = {
-+	.cmd_rcgr = 0x10190,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_2,
-+	.freq_tbl = ftbl_cam_cc_ipe_nps_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_ipe_nps_clk_src",
-+		.parent_data = cam_cc_parent_data_2,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_2),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_rcg2 cam_cc_jpeg_clk_src = {
-+	.cmd_rcgr = 0x111d0,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_cre_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_jpeg_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_ofe_clk_src[] = {
-+	F(436000000, P_CAM_CC_PLL2_OUT_EVEN, 1, 0, 0),
-+	F(570000000, P_CAM_CC_PLL2_OUT_EVEN, 1, 0, 0),
-+	F(675000000, P_CAM_CC_PLL2_OUT_EVEN, 1, 0, 0),
-+	F(757000000, P_CAM_CC_PLL2_OUT_EVEN, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_ofe_clk_src = {
-+	.cmd_rcgr = 0x1011c,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_3,
-+	.freq_tbl = ftbl_cam_cc_ofe_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_ofe_clk_src",
-+		.parent_data = cam_cc_parent_data_3,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_3),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_qdss_debug_clk_src[] = {
-+	F(60000000, P_CAM_CC_PLL6_OUT_EVEN, 8, 0, 0),
-+	F(120000000, P_CAM_CC_PLL0_OUT_EVEN, 5, 0, 0),
-+	F(240000000, P_CAM_CC_PLL0_OUT_MAIN, 5, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_qdss_debug_clk_src = {
-+	.cmd_rcgr = 0x1132c,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_qdss_debug_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_qdss_debug_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_sleep_clk_src[] = {
-+	F(32000, P_SLEEP_CLK, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_sleep_clk_src = {
-+	.cmd_rcgr = 0x11380,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_4,
-+	.freq_tbl = ftbl_cam_cc_sleep_clk_src,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_sleep_clk_src",
-+		.parent_data = cam_cc_parent_data_4,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_4),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_slow_ahb_clk_src[] = {
-+	F(80000000, P_CAM_CC_PLL0_OUT_EVEN, 7.5, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_slow_ahb_clk_src = {
-+	.cmd_rcgr = 0x10100,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_0,
-+	.freq_tbl = ftbl_cam_cc_slow_ahb_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_slow_ahb_clk_src",
-+		.parent_data = cam_cc_parent_data_0,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_0),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_tfe_0_clk_src[] = {
-+	F(445000000, P_CAM_CC_PLL3_OUT_EVEN, 1, 0, 0),
-+	F(567000000, P_CAM_CC_PLL3_OUT_EVEN, 1, 0, 0),
-+	F(644000000, P_CAM_CC_PLL3_OUT_EVEN, 1, 0, 0),
-+	F(785000000, P_CAM_CC_PLL3_OUT_EVEN, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_tfe_0_clk_src = {
-+	.cmd_rcgr = 0x11018,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_5,
-+	.freq_tbl = ftbl_cam_cc_tfe_0_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_tfe_0_clk_src",
-+		.parent_data = cam_cc_parent_data_5,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_5),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_tfe_1_clk_src[] = {
-+	F(445000000, P_CAM_CC_PLL4_OUT_EVEN, 1, 0, 0),
-+	F(567000000, P_CAM_CC_PLL4_OUT_EVEN, 1, 0, 0),
-+	F(644000000, P_CAM_CC_PLL4_OUT_EVEN, 1, 0, 0),
-+	F(785000000, P_CAM_CC_PLL4_OUT_EVEN, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_tfe_1_clk_src = {
-+	.cmd_rcgr = 0x11098,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_6,
-+	.freq_tbl = ftbl_cam_cc_tfe_1_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_tfe_1_clk_src",
-+		.parent_data = cam_cc_parent_data_6,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_6),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_tfe_2_clk_src[] = {
-+	F(445000000, P_CAM_CC_PLL5_OUT_EVEN, 1, 0, 0),
-+	F(567000000, P_CAM_CC_PLL5_OUT_EVEN, 1, 0, 0),
-+	F(644000000, P_CAM_CC_PLL5_OUT_EVEN, 1, 0, 0),
-+	F(785000000, P_CAM_CC_PLL5_OUT_EVEN, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_tfe_2_clk_src = {
-+	.cmd_rcgr = 0x11100,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_7,
-+	.freq_tbl = ftbl_cam_cc_tfe_2_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_tfe_2_clk_src",
-+		.parent_data = cam_cc_parent_data_7,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_7),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static const struct freq_tbl ftbl_cam_cc_xo_clk_src[] = {
-+	F(19200000, P_BI_TCXO, 1, 0, 0),
-+	{ }
-+};
-+
-+static struct clk_rcg2 cam_cc_xo_clk_src = {
-+	.cmd_rcgr = 0x11364,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = cam_cc_parent_map_8,
-+	.freq_tbl = ftbl_cam_cc_xo_clk_src,
-+	.hw_clk_ctrl = true,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "cam_cc_xo_clk_src",
-+		.parent_data = cam_cc_parent_data_8,
-+		.num_parents = ARRAY_SIZE(cam_cc_parent_data_8),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
-+static struct clk_branch cam_cc_cam_top_ahb_clk = {
-+	.halt_reg = 0x113ac,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x113ac,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_cam_top_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_slow_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_cam_top_fast_ahb_clk = {
-+	.halt_reg = 0x1139c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1139c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_cam_top_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_dcd_xo_clk = {
-+	.halt_reg = 0x11320,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11320,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_dcd_xo_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_xo_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_nrt_axi_clk = {
-+	.halt_reg = 0x11310,
-+	.halt_check = BRANCH_HALT_VOTED,
-+	.hwcg_reg = 0x11310,
-+	.hwcg_bit = 1,
-+	.clkr = {
-+		.enable_reg = 0x11310,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_nrt_axi_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_camnoc_rt_axi_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_nrt_cre_clk = {
-+	.halt_reg = 0x111c8,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x111c8,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_nrt_cre_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cre_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_nrt_ipe_nps_clk = {
-+	.halt_reg = 0x101b8,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x101b8,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_nrt_ipe_nps_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ipe_nps_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_nrt_ofe_anchor_clk = {
-+	.halt_reg = 0x10158,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x10158,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_nrt_ofe_anchor_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ofe_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_nrt_ofe_hdr_clk = {
-+	.halt_reg = 0x1016c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1016c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_nrt_ofe_hdr_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ofe_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_nrt_ofe_main_clk = {
-+	.halt_reg = 0x10144,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x10144,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_nrt_ofe_main_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ofe_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_rt_axi_clk = {
-+	.halt_reg = 0x11300,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11300,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_rt_axi_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_camnoc_rt_axi_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_rt_ife_lite_clk = {
-+	.halt_reg = 0x11178,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11178,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_rt_ife_lite_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ife_lite_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_rt_tfe_0_bayer_clk = {
-+	.halt_reg = 0x11054,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11054,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_rt_tfe_0_bayer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_0_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_rt_tfe_0_main_clk = {
-+	.halt_reg = 0x11040,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11040,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_rt_tfe_0_main_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_0_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_rt_tfe_1_bayer_clk = {
-+	.halt_reg = 0x110d4,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x110d4,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_rt_tfe_1_bayer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_1_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_rt_tfe_1_main_clk = {
-+	.halt_reg = 0x110c0,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x110c0,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_rt_tfe_1_main_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_1_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_rt_tfe_2_bayer_clk = {
-+	.halt_reg = 0x1113c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1113c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_rt_tfe_2_bayer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_2_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_rt_tfe_2_main_clk = {
-+	.halt_reg = 0x11128,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11128,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_rt_tfe_2_main_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_2_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_camnoc_xo_clk = {
-+	.halt_reg = 0x11324,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11324,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_camnoc_xo_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_xo_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_cci_0_clk = {
-+	.halt_reg = 0x11284,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11284,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_cci_0_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cci_0_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_cci_1_clk = {
-+	.halt_reg = 0x112a0,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x112a0,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_cci_1_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cci_1_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_cci_2_clk = {
-+	.halt_reg = 0x112bc,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x112bc,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_cci_2_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cci_2_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_core_ahb_clk = {
-+	.halt_reg = 0x11360,
-+	.halt_check = BRANCH_HALT_DELAY,
-+	.clkr = {
-+		.enable_reg = 0x11360,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_core_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_slow_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_cre_ahb_clk = {
-+	.halt_reg = 0x111cc,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x111cc,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_cre_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_slow_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_cre_clk = {
-+	.halt_reg = 0x111c4,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x111c4,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_cre_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cre_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csi0phytimer_clk = {
-+	.halt_reg = 0x10018,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x10018,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csi0phytimer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_csi0phytimer_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csi1phytimer_clk = {
-+	.halt_reg = 0x1003c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1003c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csi1phytimer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_csi1phytimer_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csi2phytimer_clk = {
-+	.halt_reg = 0x1005c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1005c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csi2phytimer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_csi2phytimer_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csi3phytimer_clk = {
-+	.halt_reg = 0x1007c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1007c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csi3phytimer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_csi3phytimer_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csi4phytimer_clk = {
-+	.halt_reg = 0x1009c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1009c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csi4phytimer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_csi4phytimer_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csi5phytimer_clk = {
-+	.halt_reg = 0x100bc,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x100bc,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csi5phytimer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_csi5phytimer_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csid_clk = {
-+	.halt_reg = 0x112d8,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x112d8,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csid_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_csid_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csid_csiphy_rx_clk = {
-+	.halt_reg = 0x10020,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x10020,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csid_csiphy_rx_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cphy_rx_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csiphy0_clk = {
-+	.halt_reg = 0x1001c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1001c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csiphy0_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cphy_rx_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csiphy1_clk = {
-+	.halt_reg = 0x10040,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x10040,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csiphy1_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cphy_rx_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csiphy2_clk = {
-+	.halt_reg = 0x10060,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x10060,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csiphy2_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cphy_rx_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csiphy3_clk = {
-+	.halt_reg = 0x10080,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x10080,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csiphy3_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cphy_rx_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csiphy4_clk = {
-+	.halt_reg = 0x100a0,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x100a0,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csiphy4_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cphy_rx_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_csiphy5_clk = {
-+	.halt_reg = 0x100c0,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x100c0,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_csiphy5_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cphy_rx_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_drv_ahb_clk = {
-+	.halt_reg = 0x113c4,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x113c4,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_drv_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_slow_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_aon_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_drv_xo_clk = {
-+	.halt_reg = 0x113c0,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x113c0,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_drv_xo_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_xo_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_aon_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_icp_0_ahb_clk = {
-+	.halt_reg = 0x11264,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11264,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_icp_0_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_slow_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_icp_0_clk = {
-+	.halt_reg = 0x1122c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1122c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_icp_0_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_icp_0_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_icp_1_ahb_clk = {
-+	.halt_reg = 0x11268,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11268,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_icp_1_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_slow_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_icp_1_clk = {
-+	.halt_reg = 0x11254,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11254,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_icp_1_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_icp_1_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ife_lite_ahb_clk = {
-+	.halt_reg = 0x111a8,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x111a8,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ife_lite_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_slow_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ife_lite_clk = {
-+	.halt_reg = 0x11168,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11168,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ife_lite_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ife_lite_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ife_lite_cphy_rx_clk = {
-+	.halt_reg = 0x111a4,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x111a4,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ife_lite_cphy_rx_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_cphy_rx_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ife_lite_csid_clk = {
-+	.halt_reg = 0x11194,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11194,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ife_lite_csid_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ife_lite_csid_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ipe_nps_ahb_clk = {
-+	.halt_reg = 0x101d4,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x101d4,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ipe_nps_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_slow_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ipe_nps_clk = {
-+	.halt_reg = 0x101a8,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x101a8,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ipe_nps_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ipe_nps_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ipe_nps_fast_ahb_clk = {
-+	.halt_reg = 0x101d8,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x101d8,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ipe_nps_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ipe_pps_clk = {
-+	.halt_reg = 0x101bc,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x101bc,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ipe_pps_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ipe_nps_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ipe_pps_fast_ahb_clk = {
-+	.halt_reg = 0x101dc,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x101dc,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ipe_pps_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_jpeg_0_clk = {
-+	.halt_reg = 0x111e8,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x111e8,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_jpeg_0_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_jpeg_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_jpeg_1_clk = {
-+	.halt_reg = 0x111f8,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x111f8,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_jpeg_1_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_jpeg_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ofe_ahb_clk = {
-+	.halt_reg = 0x10118,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x10118,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ofe_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_slow_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ofe_anchor_clk = {
-+	.halt_reg = 0x10148,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x10148,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ofe_anchor_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ofe_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ofe_anchor_fast_ahb_clk = {
-+	.halt_reg = 0x100f8,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x100f8,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ofe_anchor_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ofe_hdr_clk = {
-+	.halt_reg = 0x1015c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1015c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ofe_hdr_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ofe_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ofe_hdr_fast_ahb_clk = {
-+	.halt_reg = 0x100fc,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x100fc,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ofe_hdr_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ofe_main_clk = {
-+	.halt_reg = 0x10134,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x10134,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ofe_main_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_ofe_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_ofe_main_fast_ahb_clk = {
-+	.halt_reg = 0x100f4,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x100f4,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_ofe_main_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_qdss_debug_clk = {
-+	.halt_reg = 0x11344,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11344,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_qdss_debug_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_qdss_debug_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_qdss_debug_xo_clk = {
-+	.halt_reg = 0x11348,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11348,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_qdss_debug_xo_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_xo_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_0_bayer_clk = {
-+	.halt_reg = 0x11044,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11044,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_0_bayer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_0_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_0_bayer_fast_ahb_clk = {
-+	.halt_reg = 0x11064,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11064,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_0_bayer_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_0_main_clk = {
-+	.halt_reg = 0x11030,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11030,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_0_main_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_0_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_0_main_fast_ahb_clk = {
-+	.halt_reg = 0x11060,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11060,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_0_main_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_1_bayer_clk = {
-+	.halt_reg = 0x110c4,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x110c4,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_1_bayer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_1_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_1_bayer_fast_ahb_clk = {
-+	.halt_reg = 0x110e4,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x110e4,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_1_bayer_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_1_main_clk = {
-+	.halt_reg = 0x110b0,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x110b0,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_1_main_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_1_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_1_main_fast_ahb_clk = {
-+	.halt_reg = 0x110e0,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x110e0,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_1_main_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_2_bayer_clk = {
-+	.halt_reg = 0x1112c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1112c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_2_bayer_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_2_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_2_bayer_fast_ahb_clk = {
-+	.halt_reg = 0x1114c,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x1114c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_2_bayer_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_2_main_clk = {
-+	.halt_reg = 0x11118,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11118,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_2_main_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_tfe_2_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch cam_cc_tfe_2_main_fast_ahb_clk = {
-+	.halt_reg = 0x11148,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x11148,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "cam_cc_tfe_2_main_fast_ahb_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&cam_cc_fast_ahb_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct gdsc cam_cc_titan_top_gdsc = {
-+	.gdscr = 0x1134c,
-+	.en_rest_wait_val = 0x2,
-+	.en_few_wait_val = 0x2,
-+	.clk_dis_wait_val = 0xf,
-+	.pd = {
-+		.name = "cam_cc_titan_top_gdsc",
-+	},
-+	.pwrsts = PWRSTS_OFF_ON,
-+	.flags = POLL_CFG_GDSCR | RETAIN_FF_ENABLE,
-+};
-+
-+static struct gdsc cam_cc_ipe_0_gdsc = {
-+	.gdscr = 0x1017c,
-+	.en_rest_wait_val = 0x2,
-+	.en_few_wait_val = 0x2,
-+	.clk_dis_wait_val = 0xf,
-+	.pd = {
-+		.name = "cam_cc_ipe_0_gdsc",
-+	},
-+	.parent = &cam_cc_titan_top_gdsc.pd,
-+	.pwrsts = PWRSTS_OFF_ON,
-+	.flags = HW_CTRL_TRIGGER | POLL_CFG_GDSCR | RETAIN_FF_ENABLE,
-+};
-+
-+static struct gdsc cam_cc_ofe_gdsc = {
-+	.gdscr = 0x100c8,
-+	.en_rest_wait_val = 0x2,
-+	.en_few_wait_val = 0x2,
-+	.clk_dis_wait_val = 0xf,
-+	.pd = {
-+		.name = "cam_cc_ofe_gdsc",
-+	},
-+	.parent = &cam_cc_titan_top_gdsc.pd,
-+	.pwrsts = PWRSTS_OFF_ON,
-+	.flags = HW_CTRL_TRIGGER | POLL_CFG_GDSCR | RETAIN_FF_ENABLE,
-+};
-+
-+static struct gdsc cam_cc_tfe_0_gdsc = {
-+	.gdscr = 0x11004,
-+	.en_rest_wait_val = 0x2,
-+	.en_few_wait_val = 0x2,
-+	.clk_dis_wait_val = 0xf,
-+	.pd = {
-+		.name = "cam_cc_tfe_0_gdsc",
-+	},
-+	.parent = &cam_cc_titan_top_gdsc.pd,
-+	.pwrsts = PWRSTS_OFF_ON,
-+	.flags = POLL_CFG_GDSCR | RETAIN_FF_ENABLE,
-+};
-+
-+static struct gdsc cam_cc_tfe_1_gdsc = {
-+	.gdscr = 0x11084,
-+	.en_rest_wait_val = 0x2,
-+	.en_few_wait_val = 0x2,
-+	.clk_dis_wait_val = 0xf,
-+	.pd = {
-+		.name = "cam_cc_tfe_1_gdsc",
-+	},
-+	.parent = &cam_cc_titan_top_gdsc.pd,
-+	.pwrsts = PWRSTS_OFF_ON,
-+	.flags = POLL_CFG_GDSCR | RETAIN_FF_ENABLE,
-+};
-+
-+static struct gdsc cam_cc_tfe_2_gdsc = {
-+	.gdscr = 0x110ec,
-+	.en_rest_wait_val = 0x2,
-+	.en_few_wait_val = 0x2,
-+	.clk_dis_wait_val = 0xf,
-+	.pd = {
-+		.name = "cam_cc_tfe_2_gdsc",
-+	},
-+	.parent = &cam_cc_titan_top_gdsc.pd,
-+	.pwrsts = PWRSTS_OFF_ON,
-+	.flags = POLL_CFG_GDSCR | RETAIN_FF_ENABLE,
-+};
-+
-+static struct clk_regmap *cam_cc_eliza_clocks[] = {
-+	[CAM_CC_CAM_TOP_AHB_CLK] = &cam_cc_cam_top_ahb_clk.clkr,
-+	[CAM_CC_CAM_TOP_FAST_AHB_CLK] = &cam_cc_cam_top_fast_ahb_clk.clkr,
-+	[CAM_CC_CAMNOC_DCD_XO_CLK] = &cam_cc_camnoc_dcd_xo_clk.clkr,
-+	[CAM_CC_CAMNOC_NRT_AXI_CLK] = &cam_cc_camnoc_nrt_axi_clk.clkr,
-+	[CAM_CC_CAMNOC_NRT_CRE_CLK] = &cam_cc_camnoc_nrt_cre_clk.clkr,
-+	[CAM_CC_CAMNOC_NRT_IPE_NPS_CLK] = &cam_cc_camnoc_nrt_ipe_nps_clk.clkr,
-+	[CAM_CC_CAMNOC_NRT_OFE_ANCHOR_CLK] = &cam_cc_camnoc_nrt_ofe_anchor_clk.clkr,
-+	[CAM_CC_CAMNOC_NRT_OFE_HDR_CLK] = &cam_cc_camnoc_nrt_ofe_hdr_clk.clkr,
-+	[CAM_CC_CAMNOC_NRT_OFE_MAIN_CLK] = &cam_cc_camnoc_nrt_ofe_main_clk.clkr,
-+	[CAM_CC_CAMNOC_RT_AXI_CLK] = &cam_cc_camnoc_rt_axi_clk.clkr,
-+	[CAM_CC_CAMNOC_RT_AXI_CLK_SRC] = &cam_cc_camnoc_rt_axi_clk_src.clkr,
-+	[CAM_CC_CAMNOC_RT_IFE_LITE_CLK] = &cam_cc_camnoc_rt_ife_lite_clk.clkr,
-+	[CAM_CC_CAMNOC_RT_TFE_0_BAYER_CLK] = &cam_cc_camnoc_rt_tfe_0_bayer_clk.clkr,
-+	[CAM_CC_CAMNOC_RT_TFE_0_MAIN_CLK] = &cam_cc_camnoc_rt_tfe_0_main_clk.clkr,
-+	[CAM_CC_CAMNOC_RT_TFE_1_BAYER_CLK] = &cam_cc_camnoc_rt_tfe_1_bayer_clk.clkr,
-+	[CAM_CC_CAMNOC_RT_TFE_1_MAIN_CLK] = &cam_cc_camnoc_rt_tfe_1_main_clk.clkr,
-+	[CAM_CC_CAMNOC_RT_TFE_2_BAYER_CLK] = &cam_cc_camnoc_rt_tfe_2_bayer_clk.clkr,
-+	[CAM_CC_CAMNOC_RT_TFE_2_MAIN_CLK] = &cam_cc_camnoc_rt_tfe_2_main_clk.clkr,
-+	[CAM_CC_CAMNOC_XO_CLK] = &cam_cc_camnoc_xo_clk.clkr,
-+	[CAM_CC_CCI_0_CLK] = &cam_cc_cci_0_clk.clkr,
-+	[CAM_CC_CCI_0_CLK_SRC] = &cam_cc_cci_0_clk_src.clkr,
-+	[CAM_CC_CCI_1_CLK] = &cam_cc_cci_1_clk.clkr,
-+	[CAM_CC_CCI_1_CLK_SRC] = &cam_cc_cci_1_clk_src.clkr,
-+	[CAM_CC_CCI_2_CLK] = &cam_cc_cci_2_clk.clkr,
-+	[CAM_CC_CCI_2_CLK_SRC] = &cam_cc_cci_2_clk_src.clkr,
-+	[CAM_CC_CORE_AHB_CLK] = &cam_cc_core_ahb_clk.clkr,
-+	[CAM_CC_CPHY_RX_CLK_SRC] = &cam_cc_cphy_rx_clk_src.clkr,
-+	[CAM_CC_CRE_AHB_CLK] = &cam_cc_cre_ahb_clk.clkr,
-+	[CAM_CC_CRE_CLK] = &cam_cc_cre_clk.clkr,
-+	[CAM_CC_CRE_CLK_SRC] = &cam_cc_cre_clk_src.clkr,
-+	[CAM_CC_CSI0PHYTIMER_CLK] = &cam_cc_csi0phytimer_clk.clkr,
-+	[CAM_CC_CSI0PHYTIMER_CLK_SRC] = &cam_cc_csi0phytimer_clk_src.clkr,
-+	[CAM_CC_CSI1PHYTIMER_CLK] = &cam_cc_csi1phytimer_clk.clkr,
-+	[CAM_CC_CSI1PHYTIMER_CLK_SRC] = &cam_cc_csi1phytimer_clk_src.clkr,
-+	[CAM_CC_CSI2PHYTIMER_CLK] = &cam_cc_csi2phytimer_clk.clkr,
-+	[CAM_CC_CSI2PHYTIMER_CLK_SRC] = &cam_cc_csi2phytimer_clk_src.clkr,
-+	[CAM_CC_CSI3PHYTIMER_CLK] = &cam_cc_csi3phytimer_clk.clkr,
-+	[CAM_CC_CSI3PHYTIMER_CLK_SRC] = &cam_cc_csi3phytimer_clk_src.clkr,
-+	[CAM_CC_CSI4PHYTIMER_CLK] = &cam_cc_csi4phytimer_clk.clkr,
-+	[CAM_CC_CSI4PHYTIMER_CLK_SRC] = &cam_cc_csi4phytimer_clk_src.clkr,
-+	[CAM_CC_CSI5PHYTIMER_CLK] = &cam_cc_csi5phytimer_clk.clkr,
-+	[CAM_CC_CSI5PHYTIMER_CLK_SRC] = &cam_cc_csi5phytimer_clk_src.clkr,
-+	[CAM_CC_CSID_CLK] = &cam_cc_csid_clk.clkr,
-+	[CAM_CC_CSID_CLK_SRC] = &cam_cc_csid_clk_src.clkr,
-+	[CAM_CC_CSID_CSIPHY_RX_CLK] = &cam_cc_csid_csiphy_rx_clk.clkr,
-+	[CAM_CC_CSIPHY0_CLK] = &cam_cc_csiphy0_clk.clkr,
-+	[CAM_CC_CSIPHY1_CLK] = &cam_cc_csiphy1_clk.clkr,
-+	[CAM_CC_CSIPHY2_CLK] = &cam_cc_csiphy2_clk.clkr,
-+	[CAM_CC_CSIPHY3_CLK] = &cam_cc_csiphy3_clk.clkr,
-+	[CAM_CC_CSIPHY4_CLK] = &cam_cc_csiphy4_clk.clkr,
-+	[CAM_CC_CSIPHY5_CLK] = &cam_cc_csiphy5_clk.clkr,
-+	[CAM_CC_DRV_AHB_CLK] = &cam_cc_drv_ahb_clk.clkr,
-+	[CAM_CC_DRV_XO_CLK] = &cam_cc_drv_xo_clk.clkr,
-+	[CAM_CC_FAST_AHB_CLK_SRC] = &cam_cc_fast_ahb_clk_src.clkr,
-+	[CAM_CC_ICP_0_AHB_CLK] = &cam_cc_icp_0_ahb_clk.clkr,
-+	[CAM_CC_ICP_0_CLK] = &cam_cc_icp_0_clk.clkr,
-+	[CAM_CC_ICP_0_CLK_SRC] = &cam_cc_icp_0_clk_src.clkr,
-+	[CAM_CC_ICP_1_AHB_CLK] = &cam_cc_icp_1_ahb_clk.clkr,
-+	[CAM_CC_ICP_1_CLK] = &cam_cc_icp_1_clk.clkr,
-+	[CAM_CC_ICP_1_CLK_SRC] = &cam_cc_icp_1_clk_src.clkr,
-+	[CAM_CC_IFE_LITE_AHB_CLK] = &cam_cc_ife_lite_ahb_clk.clkr,
-+	[CAM_CC_IFE_LITE_CLK] = &cam_cc_ife_lite_clk.clkr,
-+	[CAM_CC_IFE_LITE_CLK_SRC] = &cam_cc_ife_lite_clk_src.clkr,
-+	[CAM_CC_IFE_LITE_CPHY_RX_CLK] = &cam_cc_ife_lite_cphy_rx_clk.clkr,
-+	[CAM_CC_IFE_LITE_CSID_CLK] = &cam_cc_ife_lite_csid_clk.clkr,
-+	[CAM_CC_IFE_LITE_CSID_CLK_SRC] = &cam_cc_ife_lite_csid_clk_src.clkr,
-+	[CAM_CC_IPE_NPS_AHB_CLK] = &cam_cc_ipe_nps_ahb_clk.clkr,
-+	[CAM_CC_IPE_NPS_CLK] = &cam_cc_ipe_nps_clk.clkr,
-+	[CAM_CC_IPE_NPS_CLK_SRC] = &cam_cc_ipe_nps_clk_src.clkr,
-+	[CAM_CC_IPE_NPS_FAST_AHB_CLK] = &cam_cc_ipe_nps_fast_ahb_clk.clkr,
-+	[CAM_CC_IPE_PPS_CLK] = &cam_cc_ipe_pps_clk.clkr,
-+	[CAM_CC_IPE_PPS_FAST_AHB_CLK] = &cam_cc_ipe_pps_fast_ahb_clk.clkr,
-+	[CAM_CC_JPEG_0_CLK] = &cam_cc_jpeg_0_clk.clkr,
-+	[CAM_CC_JPEG_1_CLK] = &cam_cc_jpeg_1_clk.clkr,
-+	[CAM_CC_JPEG_CLK_SRC] = &cam_cc_jpeg_clk_src.clkr,
-+	[CAM_CC_OFE_AHB_CLK] = &cam_cc_ofe_ahb_clk.clkr,
-+	[CAM_CC_OFE_ANCHOR_CLK] = &cam_cc_ofe_anchor_clk.clkr,
-+	[CAM_CC_OFE_ANCHOR_FAST_AHB_CLK] = &cam_cc_ofe_anchor_fast_ahb_clk.clkr,
-+	[CAM_CC_OFE_CLK_SRC] = &cam_cc_ofe_clk_src.clkr,
-+	[CAM_CC_OFE_HDR_CLK] = &cam_cc_ofe_hdr_clk.clkr,
-+	[CAM_CC_OFE_HDR_FAST_AHB_CLK] = &cam_cc_ofe_hdr_fast_ahb_clk.clkr,
-+	[CAM_CC_OFE_MAIN_CLK] = &cam_cc_ofe_main_clk.clkr,
-+	[CAM_CC_OFE_MAIN_FAST_AHB_CLK] = &cam_cc_ofe_main_fast_ahb_clk.clkr,
-+	[CAM_CC_PLL0] = &cam_cc_pll0.clkr,
-+	[CAM_CC_PLL0_OUT_EVEN] = &cam_cc_pll0_out_even.clkr,
-+	[CAM_CC_PLL0_OUT_ODD] = &cam_cc_pll0_out_odd.clkr,
-+	[CAM_CC_PLL1] = &cam_cc_pll1.clkr,
-+	[CAM_CC_PLL1_OUT_EVEN] = &cam_cc_pll1_out_even.clkr,
-+	[CAM_CC_PLL2] = &cam_cc_pll2.clkr,
-+	[CAM_CC_PLL2_OUT_EVEN] = &cam_cc_pll2_out_even.clkr,
-+	[CAM_CC_PLL3] = &cam_cc_pll3.clkr,
-+	[CAM_CC_PLL3_OUT_EVEN] = &cam_cc_pll3_out_even.clkr,
-+	[CAM_CC_PLL4] = &cam_cc_pll4.clkr,
-+	[CAM_CC_PLL4_OUT_EVEN] = &cam_cc_pll4_out_even.clkr,
-+	[CAM_CC_PLL5] = &cam_cc_pll5.clkr,
-+	[CAM_CC_PLL5_OUT_EVEN] = &cam_cc_pll5_out_even.clkr,
-+	[CAM_CC_PLL6] = &cam_cc_pll6.clkr,
-+	[CAM_CC_PLL6_OUT_EVEN] = &cam_cc_pll6_out_even.clkr,
-+	[CAM_CC_PLL6_OUT_ODD] = &cam_cc_pll6_out_odd.clkr,
-+	[CAM_CC_QDSS_DEBUG_CLK] = &cam_cc_qdss_debug_clk.clkr,
-+	[CAM_CC_QDSS_DEBUG_CLK_SRC] = &cam_cc_qdss_debug_clk_src.clkr,
-+	[CAM_CC_QDSS_DEBUG_XO_CLK] = &cam_cc_qdss_debug_xo_clk.clkr,
-+	[CAM_CC_SLEEP_CLK_SRC] = &cam_cc_sleep_clk_src.clkr,
-+	[CAM_CC_SLOW_AHB_CLK_SRC] = &cam_cc_slow_ahb_clk_src.clkr,
-+	[CAM_CC_TFE_0_BAYER_CLK] = &cam_cc_tfe_0_bayer_clk.clkr,
-+	[CAM_CC_TFE_0_BAYER_FAST_AHB_CLK] = &cam_cc_tfe_0_bayer_fast_ahb_clk.clkr,
-+	[CAM_CC_TFE_0_CLK_SRC] = &cam_cc_tfe_0_clk_src.clkr,
-+	[CAM_CC_TFE_0_MAIN_CLK] = &cam_cc_tfe_0_main_clk.clkr,
-+	[CAM_CC_TFE_0_MAIN_FAST_AHB_CLK] = &cam_cc_tfe_0_main_fast_ahb_clk.clkr,
-+	[CAM_CC_TFE_1_BAYER_CLK] = &cam_cc_tfe_1_bayer_clk.clkr,
-+	[CAM_CC_TFE_1_BAYER_FAST_AHB_CLK] = &cam_cc_tfe_1_bayer_fast_ahb_clk.clkr,
-+	[CAM_CC_TFE_1_CLK_SRC] = &cam_cc_tfe_1_clk_src.clkr,
-+	[CAM_CC_TFE_1_MAIN_CLK] = &cam_cc_tfe_1_main_clk.clkr,
-+	[CAM_CC_TFE_1_MAIN_FAST_AHB_CLK] = &cam_cc_tfe_1_main_fast_ahb_clk.clkr,
-+	[CAM_CC_TFE_2_BAYER_CLK] = &cam_cc_tfe_2_bayer_clk.clkr,
-+	[CAM_CC_TFE_2_BAYER_FAST_AHB_CLK] = &cam_cc_tfe_2_bayer_fast_ahb_clk.clkr,
-+	[CAM_CC_TFE_2_CLK_SRC] = &cam_cc_tfe_2_clk_src.clkr,
-+	[CAM_CC_TFE_2_MAIN_CLK] = &cam_cc_tfe_2_main_clk.clkr,
-+	[CAM_CC_TFE_2_MAIN_FAST_AHB_CLK] = &cam_cc_tfe_2_main_fast_ahb_clk.clkr,
-+	[CAM_CC_XO_CLK_SRC] = &cam_cc_xo_clk_src.clkr,
-+};
-+
-+static struct gdsc *cam_cc_eliza_gdscs[] = {
-+	[CAM_CC_IPE_0_GDSC] = &cam_cc_ipe_0_gdsc,
-+	[CAM_CC_OFE_GDSC] = &cam_cc_ofe_gdsc,
-+	[CAM_CC_TFE_0_GDSC] = &cam_cc_tfe_0_gdsc,
-+	[CAM_CC_TFE_1_GDSC] = &cam_cc_tfe_1_gdsc,
-+	[CAM_CC_TFE_2_GDSC] = &cam_cc_tfe_2_gdsc,
-+	[CAM_CC_TITAN_TOP_GDSC] = &cam_cc_titan_top_gdsc,
-+};
-+
-+static const struct qcom_reset_map cam_cc_eliza_resets[] = {
-+	[CAM_CC_DRV_BCR] = { 0x113bc },
-+	[CAM_CC_ICP_BCR] = { 0x11210 },
-+	[CAM_CC_IPE_0_BCR] = { 0x10178 },
-+	[CAM_CC_OFE_BCR] = { 0x100c4 },
-+	[CAM_CC_QDSS_DEBUG_BCR] = { 0x11328 },
-+	[CAM_CC_TFE_0_BCR] = { 0x11000 },
-+	[CAM_CC_TFE_1_BCR] = { 0x11080 },
-+	[CAM_CC_TFE_2_BCR] = { 0x110e8 },
-+};
-+
-+static struct clk_alpha_pll *cam_cc_eliza_plls[] = {
-+	&cam_cc_pll0,
-+	&cam_cc_pll1,
-+	&cam_cc_pll2,
-+	&cam_cc_pll3,
-+	&cam_cc_pll4,
-+	&cam_cc_pll5,
-+	&cam_cc_pll6,
-+};
-+
-+static u32 cam_cc_eliza_critical_cbcrs[] = {
-+	0x1137c, /* CAM_CC_GDSC_CLK */
-+	0x11398, /* CAM_CC_SLEEP_CLK */
-+};
-+
-+static const struct regmap_config cam_cc_eliza_regmap_config = {
-+	.reg_bits = 32,
-+	.reg_stride = 4,
-+	.val_bits = 32,
-+	.max_register = 0x1601c,
-+	.fast_io = true,
-+};
-+
-+static struct qcom_cc_driver_data cam_cc_eliza_driver_data = {
-+	.alpha_plls = cam_cc_eliza_plls,
-+	.num_alpha_plls = ARRAY_SIZE(cam_cc_eliza_plls),
-+	.clk_cbcrs = cam_cc_eliza_critical_cbcrs,
-+	.num_clk_cbcrs = ARRAY_SIZE(cam_cc_eliza_critical_cbcrs),
-+};
-+
-+static const struct qcom_cc_desc cam_cc_eliza_desc = {
-+	.config = &cam_cc_eliza_regmap_config,
-+	.clks = cam_cc_eliza_clocks,
-+	.num_clks = ARRAY_SIZE(cam_cc_eliza_clocks),
-+	.resets = cam_cc_eliza_resets,
-+	.num_resets = ARRAY_SIZE(cam_cc_eliza_resets),
-+	.gdscs = cam_cc_eliza_gdscs,
-+	.num_gdscs = ARRAY_SIZE(cam_cc_eliza_gdscs),
-+	.driver_data = &cam_cc_eliza_driver_data,
-+};
-+
-+static const struct of_device_id cam_cc_eliza_match_table[] = {
-+	{ .compatible = "qcom,eliza-camcc" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, cam_cc_eliza_match_table);
-+
-+static int cam_cc_eliza_probe(struct platform_device *pdev)
-+{
-+	return qcom_cc_probe(pdev, &cam_cc_eliza_desc);
-+}
-+
-+static struct platform_driver cam_cc_eliza_driver = {
-+	.probe = cam_cc_eliza_probe,
-+	.driver = {
-+		.name = "camcc-eliza",
-+		.of_match_table = cam_cc_eliza_match_table,
-+	},
-+};
-+
-+module_platform_driver(cam_cc_eliza_driver);
-+
-+MODULE_DESCRIPTION("QTI CAMCC Eliza Driver");
-+MODULE_LICENSE("GPL");
+Thanks,
+Mostafa
 
--- 
-2.34.1
-
+>  
+> -		set_memory_decrypted((unsigned long)phys_to_virt(rmem->base),
+> -				     rmem->size >> PAGE_SHIFT);
+>  		swiotlb_init_io_tlb_pool(pool, rmem->base, nslabs,
+>  					 false, nareas);
+>  		mem->force_bounce = true;
+> -- 
+> 2.43.0
+> 
 
