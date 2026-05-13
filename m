@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C35DFCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 15:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BEAACD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 15:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=egkQO5rSZuhvDzAWypjBMQfkK9TMUqcOI7fLpXUCcDY=; b=OCENkNCgCEFj7WMoWNJZQFQ97c
-	+lfdas7Z8sQ/Yuwd4rse167eC9u5kLVQiQX/mPLWQjJbcvfptFF6wguClTwOPSPPy3WbSlcJwPIw9
-	2JR/7XmcqlM0H7nmsftcxC4bWR2UKWgGD4i+Z1yByctXyBfqClPp0uDigywAtFm0B1j6zc/UJ+k36
-	d9DzS2voFZ7QnzBbKfrNQKUrpLV//mcKGjLpK+5HV2Lq4PHpU+sX4m+PmEKYN2CmO+BTADbZTZ1/p
-	At8o/O45wQxczc3Yzoln2LviTYg2+jXnoy6Feeuqk4HYe7jZWd6IOLqjUTjRXPtHIkQ0PHVuRDRUh
-	p+/C64KQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nObldBkoFz93TvD+rJyqHcpBLDBEZ04xwgIHNgsnAO8=; b=2PTrGdJ9dGQ92or0cmwB+BrqQb
+	CWzr7oQLrZE6DlMK4lU/l41S6GdDsZ3JYhcwl63syjmR/6Oe6qYpJh1hl7kA4eMKeettJa3jDNqsb
+	cL7QMBvKi7yowbJum5vuxWZPTQArH6kiG0ghFjd6dhZu6w3DZpyjorWp9l+TItzImBbHm8NSSM3QL
+	xaEIJXhucrK6A0vli8Hp10JC+m99tzJsGD45nHw+43FjtEUVDF/JKzkiY963HSHeIjr8hP8XL0suQ
+	QHrNWC1vdOtHQ2jOxWGXTfd7X+ghz1wnH3DgXTL8+jGM7d6Rdk8U8fv6aLbDYVyj6btKjFmmA8/4m
+	uXxKKwpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNB4J-000000030UL-3rc3;
-	Wed, 13 May 2026 15:00:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNB8B-0000000316S-0GdS;
+	Wed, 13 May 2026 15:04:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNB4E-000000030PG-43St
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 15:00:12 +0000
+	id 1wNB87-0000000315o-3h5O;
+	Wed, 13 May 2026 15:04:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6DECD60121;
-	Wed, 13 May 2026 15:00:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E74EC2BCB3;
-	Wed, 13 May 2026 15:00:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2854543DB5;
+	Wed, 13 May 2026 15:04:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEDDBC19425;
+	Wed, 13 May 2026 15:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778684410;
-	bh=/uW52ugSWwtF3Yt2difUPaJV99v9sizQWUARunWAmFc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lrei1yAtUKzo0amo9A0//XrWbCS3EumS5X8DZfk97DLPG4FF/mwKvZmfcNrwHfi22
-	 TLwoNZpB+YAWWgVFEijOVUFHfCOpSaPbQVnekr78I1R5VrMte3m7ZcDacMadqbvcpk
-	 RY8HZiCK4y919QSMV/ax4vThVzjydZO2iGqc7BDez+7PFF1fP0phBcT1lWol4fLH91
-	 FGSbRWt4x6J3t5eoQVBvqZqwppCsjqGWOTN8Jd7d/Kon5/E8wpH9U062xemFMYW7my
-	 zAQ/DHvmyfMOxktWmg+Y2gBrb7iNaaUM87+Ktr0M3O7VAP5dLrVZir3KmkPs88itKC
-	 gAnJvsGmpueMA==
-Date: Wed, 13 May 2026 20:30:00 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Steev Klimaszewski <threeway@gmail.com>, bhelgaas@google.com, 
-	bjorn.andersson@oss.qualcomm.com, jingoohan1@gmail.com, jonathanh@nvidia.com, 
-	kwilczynski@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	lpieralisi@kernel.org, robh@kernel.org, will@kernel.org
-Subject: Re: PCI: qcom: Add D3cold support
-Message-ID: <22mtoygxvyfaibmfwv5itayhcwwjl2mv6knmdyfiehmebdgg4u@hfooqf6css2l>
-References: <dd4dc11e-338a-4d13-9830-095a93187f4c@oss.qualcomm.com>
- <20260504041407.289464-1-threeway@gmail.com>
- <ffd59407-c65c-4f99-a587-3b968f9c82c5@oss.qualcomm.com>
+	s=k20201202; t=1778684651;
+	bh=iliNH01E0zCiR4ewRpQV15XeBpC7YO/HdMRcKK4W6Pc=;
+	h=From:Date:Subject:To:Cc:From;
+	b=bjBDGjnbHvLYaOEiG9nuqJk7YEMQb2VQpKoPHXjdQXblqZcdm561Qe/3MuOtCDaZd
+	 FKzh1KCl0FBkts3VT4Ks6sJnnoKYOe3ByrO5mKx83nfoN9tTZOgSqXS9CE9B/n3luX
+	 Qb4lv/pVLkbf8crrPPNsUQnFnvwJlhUodzxSqAj7l6L+VM+s0O2wjqn2E2Bx7XtZut
+	 uikhh8u5QNKm9F00CxrprCmzOSoon4Wu8vkvafONK2ukxs3StgVssSdLXYasSisvpl
+	 K9Fj1rBSe2VxTBm36tKU+Dqei+6/lRU5bEbPFlQNPZOqyrFPSKKQYCY+RtTd70IbM7
+	 70tS4jddPVnLQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 13 May 2026 17:03:59 +0200
+Subject: [PATCH net-next] net: airoha: Reserve RX headroom to avoid skb
+ reallocation
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ffd59407-c65c-4f99-a587-3b968f9c82c5@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260513-airoha-rx-headroom-v1-1-bd87798e422d@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqEMAxA0atI1hNonSp1rjLMIthos7AdUpGCe
+ HeLy7f4/4TCKlzg052gfEiRnBrsq4M5UloZJTRDb/rRDPaNJJojoVaMTEFz3tAFO83knSfroIV
+ /5UXqM/1C4h0T1x1+13UDkkWbjm4AAAA=
+X-Change-ID: 20260513-airoha-rx-headroom-4d19ca848a14
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Xuegang Lu <xuegang.lu@airoha.com>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_080411_965678_20AE910F 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +79,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 04, 2026 at 12:36:29PM +0530, Krishna Chaitanya Chundru wrote:
-> 
-> 
-> On 5/4/2026 9:44 AM, Steev Klimaszewski wrote:
-> > On Sun, May 3, 2026 at 10:37 PM Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com> wrote:
-> >>> v4 of this patchset *boots* along with Mani's patchset, however, v5 does not,
-> >>> and unfortunately, the machine does not seem to get to a point where I can even
-> >>> get logs from it.  Do you know what I might be missing?  I have *not* attempted
-> >>> to remove the nvme drive and boot off USB to test it.
-> >> This series, will not have any impact on the boot, this series comes in to the
-> >> picture only in case
-> >> of suspend and resume. can you share your platform details and kernel you are
-> >> booting with.
-> > Oddly, it seems to, because if I simply go back to v4, the system boots.  I'm
-> > using a 7.0 kernel on the Thinkpad X13s (SC8280XP).  The sources are at
-> > https://github.com/steev/linux/tree/lenovo-x13s-linux-7.0.y (with the v5
-> > applied).  PCIE_QCOM is built-in to the kernel.  Not sure what other information
-> > is needed.
-> Hi Steev,
-> 
-> I made mistake in re basing the code, can you try below and see if that fixes
-> your issue.
-> I will send this in next patch series.
-> 
-> --- a/drivers/pci/controller/dwc/pcie-qcom.c
-> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
-> @@ -1327,7 +1327,7 @@ static enum dw_pcie_ltssm qcom_pcie_get_ltssm(struct
-> dw_pcie *pci)
->         struct qcom_pcie *pcie = to_qcom_pcie(pci);
->         u32 val;
-> 
-> -       if (pcie->cfg->ops->ltssm_enable)
-> +       if (pcie->cfg->ops->get_ltssm)
->                 return pcie->cfg->ops->get_ltssm(pcie);
+Reserve NET_SKB_PAD + NET_IP_ALIGN bytes of headroom for received packets
+to avoid skb head reallocation when pushing protocol headers into the skb.
 
-Squashed this change while applying.
+Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 14 ++++++++------
+ drivers/net/ethernet/airoha/airoha_eth.h |  2 ++
+ 2 files changed, 10 insertions(+), 6 deletions(-)
 
-- Mani
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index f71fb18197ec..5a027cc7ffcb 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -543,9 +543,10 @@ static int airoha_qdma_fill_rx_queue(struct airoha_queue *q)
+ 		q->queued++;
+ 		nframes++;
+ 
++		offset += AIROHA_RX_HEADROOM;
+ 		e->buf = page_address(page) + offset;
+ 		e->dma_addr = page_pool_get_dma_addr(page) + offset;
+-		e->dma_len = SKB_WITH_OVERHEAD(q->buf_size);
++		e->dma_len = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
+ 
+ 		val = FIELD_PREP(QDMA_DESC_LEN_MASK, e->dma_len);
+ 		WRITE_ONCE(desc->ctrl, cpu_to_le32(val));
+@@ -611,13 +612,12 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 		q->tail = (q->tail + 1) % q->ndesc;
+ 		q->queued--;
+ 
+-		dma_sync_single_for_cpu(eth->dev, e->dma_addr,
+-					SKB_WITH_OVERHEAD(q->buf_size), dir);
++		dma_sync_single_for_cpu(eth->dev, e->dma_addr, e->dma_len,
++					dir);
+ 
+ 		page = virt_to_head_page(e->buf);
+ 		len = FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
+-		data_len = q->skb ? q->buf_size
+-				  : SKB_WITH_OVERHEAD(q->buf_size);
++		data_len = q->skb ? AIROHA_RX_LEN(q->buf_size) : e->dma_len;
+ 		if (!len || data_len < len)
+ 			goto free_frag;
+ 
+@@ -627,10 +627,12 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 
+ 		port = eth->ports[p];
+ 		if (!q->skb) { /* first buffer */
+-			q->skb = napi_build_skb(e->buf, q->buf_size);
++			q->skb = napi_build_skb(e->buf - AIROHA_RX_HEADROOM,
++						q->buf_size);
+ 			if (!q->skb)
+ 				goto free_frag;
+ 
++			skb_reserve(q->skb, AIROHA_RX_HEADROOM);
+ 			__skb_put(q->skb, len);
+ 			skb_mark_for_recycle(q->skb);
+ 			q->skb->dev = port->dev;
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index 58530d096de7..d3781103abb5 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -32,6 +32,8 @@
+ #define AIROHA_FE_MC_MAX_VLAN_TABLE	64
+ #define AIROHA_FE_MC_MAX_VLAN_PORT	16
+ #define AIROHA_NUM_TX_IRQ		2
++#define AIROHA_RX_HEADROOM		(NET_SKB_PAD + NET_IP_ALIGN)
++#define AIROHA_RX_LEN(_n)		((_n) - AIROHA_RX_HEADROOM)
+ #define HW_DSCP_NUM			2048
+ #define IRQ_QUEUE_LEN(_n)		((_n) ? 1024 : 2048)
+ #define TX_DSCP_NUM			1024
 
+---
+base-commit: 8ebd24a7822cbae25beeafba49b2159d6a68a5f2
+change-id: 20260513-airoha-rx-headroom-4d19ca848a14
+
+Best regards,
 -- 
-மணிவண்ணன் சதாசிவம்
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
