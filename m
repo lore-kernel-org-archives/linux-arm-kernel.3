@@ -4,74 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CE9CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 02:15:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57348CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 02:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=74Cn4hg4RXxElIhSInZ/m7ZsUzxyX6/zI9dRPVJHie0=; b=m40zF/2ELbBucOlBOYkhUVaHm5
-	SMj5+1oD5Jwj9uNOZpXSzjAdDzfiYCjSAFMAKoEy7C5nV4hkd114C8fl0pJhONdNMR9Yh513eFGFB
-	CkiCO/9PVoj9NQWAtwzBJ0sYJBvzmAPea1ngIwjXpGFJJMKy7NNujX4aFFgmSDcxvsUDb5FxkDzjt
-	0xetUTV4Sz58G5H/pMeUpjGRAbKkjdW4PL2WPa1xNVuvQr4wnm6Gaw9vVxgbm8OshprVes/ZKZxCC
-	GAq8YKigKqsMLPiLzYW1vZeJH5OWY+BV1H3YwSTq9vjclA8vDNYkSaNPWqi9BVSkavK9vnhWSuW5i
-	wAv0QnCw==;
+	bh=0PW1M58tpd29WwbhOV5Jq2RAaBXYu1zUOI3XdAjEj+4=; b=LrmlQWrNAzO7/mpTWYI2Eowuoq
+	gUwmruUX/6GvyV2mtwH2XBKE+Qhjbbw5jeDlO6bFTmafEv1+KgK0wza779lXhBBE3SWKokcpoI3Z4
+	EAtvfhum8F8uYUXml5R1oN6IiBth/IOyHMRO0EPZBDeC33U/daUOAngESEtqfpdHrXa07sNV7zcH2
+	MrAFd+p8UNUQIJfg8mhqugRKhGAySSmPHfO3fuatuUIrXZCVQDnEK5MkXkDqa76TAOt+J5KG6zbla
+	RO+8BAUBitxr0tYRQF87cYkvGtIPbbLatzG//FnCGt2krxCh2mGkgnH4d9+yD4e/rcyIl9vrtvwTS
+	dw8bHIvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMz7w-00000000uzl-33Ki;
-	Wed, 13 May 2026 02:15:12 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wMzek-00000000xmL-1ekL;
+	Wed, 13 May 2026 02:49:06 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMz7t-00000000uwg-0q8p;
-	Wed, 13 May 2026 02:15:11 +0000
-X-UUID: 8acc9a744e7111f1aa26b74ffac11d73-20260513
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:f90f73a6-8043-4526-90d4-b5098d380dba,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:e7bac3a,CLOUDID:654c1fa903bfe6f384811b843b57053b,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|898,TC:nil,Content:0|15|16|50,ED
-	M:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
-	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 8acc9a744e7111f1aa26b74ffac11d73-20260513
-X-User: zenghongling@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <zenghongling@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 234632021; Wed, 13 May 2026 10:14:59 +0800
-From: Hongling Zeng <zenghongling@kylinos.cn>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	xiong.huang@mediatek.com,
-	madhurkumar004@gmail.com
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1wMzei-00000000xlg-1oDi
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 May 2026 02:49:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=enwbVocNBPcLhF7Lx6ZcDpggCyo9olMHMZ2cO99uq8KrD20ijvSxmpcqv848642flaLYnvxMjP/g8i1wxzy88TwtDNpFjVNsSlzf0pODaFqqgSjgQtwnMSTKyLoZXVZ+LknVXcbd1uEUw8AoSMno6DvLp/6ilcsvg05feMjEvOFsA90TFVf8YRH1eZKxvkxNpPw63L3qnN14LsUMDX53xG4/ego3eFxw/yOTH/lIDUGYCSnoJ8aDm6Wil8pDSLl2Gf1ss9QsW57yTgqfxpFivZA8pF9OCnpFtnWEIfW71xq2fMJG1gVgeLFTPrnNonfUetGM8QqlWXjTTqaG8suS+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0PW1M58tpd29WwbhOV5Jq2RAaBXYu1zUOI3XdAjEj+4=;
+ b=L7aMu5kb2VWPfgFi3UwOBDHCklq2alghwde88Q/EcCddIp/dji7XwO8lhcBjEE4nEUo9xe9JfQb2z1383VmAsM6XwjI4HQJ/sw8pmqlujqEIM2bQ5HpTKHvlU/NqinaodlThdP36SqV9Uj6wnCoVBsMV5VSVsEr02zKf6UZgywflda0pZC2ODAVEsN/BSzB489cgxoYFZdQbMGiiYI0Wc8tScuiMvCMhsQ6oMlcLk6QgeaRAeFzBsU4W27vMvu37u/K6REqHXrZe2ZRg7b6PMR9RPcKQMiKqXeDLSQrsHv+sL7rDsRlR2tD+86TlR30E91BM+nbDfK/IrUNg4JGdlA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0PW1M58tpd29WwbhOV5Jq2RAaBXYu1zUOI3XdAjEj+4=;
+ b=dUdsH0y/xImyonO75C5H8/hNxUqAoF91q2KufktWfS9ukYMESHD0omH9IOkb8esUdQLRWXlevfYqBQitqSK1m+UyLY01C7mjyISsMpnu0f1N05e6ErSivpg9VMppY3sYmoKOzQd9P2x3MAkq1EMwhzKVeDC0KJDEfLVrWUcQEz/7lGqDXv/TfekHkE8aeFbXchgzy2IaUaXJysAeewoh9fr+0BRZhE4dCuTeWf6e4/Cgp5PZSlKcKJr49t11rhBb2pWt65Aifey+EU4FK56ZW6eORUy2FjHpOeIQ//yge+Y8yhgLScurP2IH3dlpn+gigYu14hGYMcb10m8Lwzs+JA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12008.eurprd04.prod.outlook.com
+ (2603:10a6:800:317::15) by DB9PR04MB9867.eurprd04.prod.outlook.com
+ (2603:10a6:10:4c0::8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
+ 2026 02:48:59 +0000
+Received: from VI0PR04MB12008.eurprd04.prod.outlook.com
+ ([fe80::3e42:1e5:5955:d68a]) by VI0PR04MB12008.eurprd04.prod.outlook.com
+ ([fe80::3e42:1e5:5955:d68a%5]) with mapi id 15.20.9913.009; Wed, 13 May 2026
+ 02:48:59 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	bhelgaas@google.com,
+	frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	zhongling0719@126.com,
-	Hongling Zeng <zenghongling@kylinos.cn>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] wifi: mt76: mt7921: fix uninitialized variable warning
-Date: Wed, 13 May 2026 10:14:55 +0800
-Message-Id: <20260513021455.80175-1-zenghongling@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/3] Add root port reset to support link recovery
+Date: Wed, 13 May 2026 10:50:58 +0800
+Message-Id: <20260513025101.1498104-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2P153CA0009.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:140::18) To VI0PR04MB12008.eurprd04.prod.outlook.com
+ (2603:10a6:800:317::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12008:EE_|DB9PR04MB9867:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75a3b22f-c7e8-4589-6c58-08deb09a2eb0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|19092799006|921020|38350700014|11063799003|3023799003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: VUY9LYFLtNeKtGOaXNjQ1lwPmTWpPomyB8Y4cpJFhrcqekkY7F2JDhWfLYBatG5XYXZI77tbOrDrjzTF4dRsL6Xazlf0HMznlVIQR6tISPvtGNsf8q51UuHyCmardfjTCVwU3pygEBG45DKe/hmBjsoUQBWHB5nfNvKxmrwuU08MwV3xFbZCIsITLJDW+XMgdKWvHanCGhA8HE0jWAESzIt885CFRODS7kMEh7m/c52cSTuWTpQVVtt36oF2Yw1RBWa9L2EB2VaVAUMKVJcBAeK4Wpq3gQjaJN2Ksrv7WobrAriNIPS8ZlJ8zIWfqQONgcrE4PSnhz8TNYJn+fx7d7C6zxYA6VcPLJZlQcUdohg4LnsDTtPcxoSM7EzSKfc+1hGMvJt5FPCvZnWRuuuAPPkvKJqlnFwNfFClf2LnaCjWKE9tPeU5ImIKcjxf3mYbBxV5na/0gjE92XewsF6JvM+9iBVgIpc8yXPPuxiHrAC4QsbvjH6waVfd8vGRNe6ACGaZrdlZW0GTIOKnbhz4rdFmcRjBnPmS4lsHrV4Tz8dKmQC88XVRILEkojGfoqL2tfrKEYtIM0pOADUoqLdnT1gI3fGteapCFFbtBp621mvBbQKKGIkHrLv20oA0e9M5lJUlWQ3XCUFtCpSXb+zVRZQz75fVlivRbAlMoEhKzQss2/9o/hIu+KWljI5MQjC96ViAfdkArGjEk6dWkUeUVKMrii7J9FKrsenOmvFXPqE9ks6vbrNcp1Bh5FNUdamgyApB5SwIcXlIdu+A5An89w==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12008.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(19092799006)(921020)(38350700014)(11063799003)(3023799003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CyyYZIZEdIHgiLErNAkXsr762jqozCLkzV3dvfHHB89Qu7V6GqH4Eafv6dqy?=
+ =?us-ascii?Q?MgDVOBXjdacxutOvis75nxqEEZ1+JAYso+V0LxTy03U0ZgIXnJPpES1tYyTT?=
+ =?us-ascii?Q?zhJ/N3ZKIIWoFpJhg4olJEuQCGl8R2FG8WgOHxNdTzPom256B8Tlq8vYg6S+?=
+ =?us-ascii?Q?gFlgql6QHoUCH5s4vWux3r+V7GzjnOc34sNQkJic/M1zGjlbQ7Wi4afw+aR7?=
+ =?us-ascii?Q?unjbWXrKM3NZlTlmEFmYlV1TAHJtLTjvSa+5tNlyQpDtoETVe9dqN/YRIbYJ?=
+ =?us-ascii?Q?d4VCl9baaNVrOl2UIkx9SbclhRpoMZ6/TfYwjWrWibN7Efm2c6WxVz3is1w0?=
+ =?us-ascii?Q?K1RUBZMbVDvnXGKiio4TbzEDf2HFdBcSheuuiTAdsSlb85JITDEaBX6dy148?=
+ =?us-ascii?Q?S7wfpUSwohB2jfrrldQhrJw5RzJdUK2lCZjNbeBA+GRUU9Z0PUcUTXuUV2b+?=
+ =?us-ascii?Q?cueo0mXe8ieTrijXCuVckTr19UcrCHMrdmhnGzzsXCV0NxjHGKJ2hLmW2D38?=
+ =?us-ascii?Q?p0sJA3GiceXlLdSwJWxKHHYpemPGfl4py4adJesm20/yC7E/OudQk51/FR/B?=
+ =?us-ascii?Q?gpQbJS/zT9oQSXdtGyCoJT9XXOi0Fl6u+RMV8iUP8Bhv2ChzxnDQCwanYrby?=
+ =?us-ascii?Q?ESSrdZ/u6x+8nrBMb5eicJLKRw5Up8B5OCQznHzge2xV/lOt2O5hhUX8IxQv?=
+ =?us-ascii?Q?7w1klxHqSKDZxyIISICzN13e8GxfSdx1tMnZoypp0PsCiF7D7LZSWyH6Dkql?=
+ =?us-ascii?Q?gdCd7bIi7IQNAht2eXsxsMmrN/kLIaiqRveRJrAF3nc0ekonIdH12tGAPsHd?=
+ =?us-ascii?Q?RHJX+aWSInnsPuC+xkZsYOCtbgxOLnLJ0g7A2Tzh7lD2yuG4RZdVGE7XOT64?=
+ =?us-ascii?Q?8hScyYpXk/HuX7Gyi/pejyIeFFtDdLhke+Glsn6kJL7bg3roVbUS8tTtCHAI?=
+ =?us-ascii?Q?mm6JkVw3fDn5C9kU1fY0SqgJhFoPyzdO8jAba4lLaHTDqN+PCzgIrGy6yIFJ?=
+ =?us-ascii?Q?Q7rm9FN/h0AEBVxhISEf88wfOqYC7M2G/cFGCLSoYgknwxGRMEY//cNEzJal?=
+ =?us-ascii?Q?drEnthl6l3NF26OXeRh5fg3t5aTdpSRwU03aPT5/XBGd1H6lF8V/GIX3E08j?=
+ =?us-ascii?Q?lYXPKmnO/G5EZYu17GeLFsrn6Fl2bfshdUW9wJfzquV/wOPuBebORJrnaD/O?=
+ =?us-ascii?Q?7soNhNgOcBIAzPDNaKin7nPKvovq6L46JQAf+IhohNai7ShE0ZhUnD0hixZs?=
+ =?us-ascii?Q?QSQUe+AgB227/ttnBclib2a4BgQtGZy5UQZF5Sf5lll9mAYsSQ9Eg3/8SIro?=
+ =?us-ascii?Q?J0L7qt+6c71to4RTmgNsvKsronObURBUN1iHW7S5XByEeuaFOvbiUCaNwjar?=
+ =?us-ascii?Q?sbrp67mzAykTTWAwVa+15SZ0ryCX8DhOdONf/ogbLpNcDxZeNJYB2L0j0reS?=
+ =?us-ascii?Q?m/wjW0YaUjipQE2STnmFcaBWauV4KY6EgTufHrKCMnY2ZcDcOsbokBub9Nx0?=
+ =?us-ascii?Q?p3XUOifQ0v+jltdCtspMvCOjhW9R0ATdAxsQobcEgheG3vHCul24lnxvsJJP?=
+ =?us-ascii?Q?2utR4bTf62lIERk+5+IyG3BJ5CN96ngHm8gfbFKNgeZt6RSeo3yCzQCCYnGG?=
+ =?us-ascii?Q?1PZ6hrIGzRAdPoAxezYDn4cx2DNVPUCHX4/0jRXJ84LCv7QM4dn6P0Mzbd50?=
+ =?us-ascii?Q?UWu8k+IPDAz46TbQrZ6N7ivGLQ3scvs4IrOClnXjKUupa2YrX02L/x+AmW4Z?=
+ =?us-ascii?Q?qlLHXHsAOQ=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75a3b22f-c7e8-4589-6c58-08deb09a2eb0
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12008.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 02:48:59.0315
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VZbUmvxspe6Y3XCm5FBf7HBrQP0TBydAceCEwrzPiClxvcZqheh1/uzagDVTsneVutMGrh4gjSX4l4/iXc7Exw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9867
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_191509_555248_C1D89F41 
-X-CRM114-Status: UNSURE (   9.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260512_194904_477201_CF72075C 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,40 +147,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the initialization of 'dev' before the error path that uses it.
-This fixes the compiler warning:
-  drivers/net/wireless/mediatek/mt76/mt7921/pci.c:347:6: warning:
-  variable 'dev' is used uninitialized whenever 'if' condition is true
+Based on the following patch-set[1] issued by Mani.
+Add support for resetting the Root Port for i.MX PCIe to enable link recovery.
 
-Fixes: 0d56655a74ef ("wifi: mt76: mt7921: fix resource leak in probe error path")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202605130432.S8Ozipm2-lkp@intel.com/
-Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
----
- drivers/net/wireless/mediatek/mt76/mt7921/pci.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+[1] [v7,0/4] PCI: Add support for resetting the Root Ports in a platform specific way
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/pci.c b/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
-index 4bb436465a3d..49a37185f056 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
-@@ -343,13 +343,14 @@ static int mt7921_pci_probe(struct pci_dev *pdev,
- 
- 	pci_set_drvdata(pdev, mdev);
- 
-+	dev = container_of(mdev, struct mt792x_dev, mt76);
-+
- 	regs =  pcim_iomap_region(pdev, 0, pci_name(pdev));
- 	if (IS_ERR(regs)) {
- 		ret = PTR_ERR(regs);
- 		goto err_free_dev;
- 	}
- 
--	dev = container_of(mdev, struct mt792x_dev, mt76);
- 	dev->fw_features = features;
- 	dev->hif_ops = &mt7921_pcie_ops;
- 	dev->irq_map = &irq_map;
--- 
-2.25.1
+PCIe links can go down due to various unexpected circumstances. This patch series
+adds root port reset support for link recovery on i.MX PCIe controllers when the
+optional "intr" interrupt is present.
+
+When a link down event is detected, the root port reset uninitializes and
+reinitializes the PCIe controller, then restarts the PCIe link.
+
+On i.MX95 platforms, link events and PME share the same interrupt line.
+Link event interrupts cannot use only an IRQ thread handler because the PME
+driver uses request_irq() to bind the PME interrupt directly with only the
+IRQF_SHARED flag set.
+
+To address this, we register one handler with IRQF_SHARED for link event
+interrupts and manipulate the enable bits of link events to ensure the same
+interrupt source is triggered only once at a time.
+
+Additionally, this series adds 'intr', 'aer', and 'pme' interrupt entries to
+the i.MX6Q PCIe binding to support PCIe event-based interrupts for general
+controller events, Advanced Error Reporting, and Power Management Events
+respectively.
+
+Changes in v4:
+- Set these new added three interrupts as optional interrupt.
+
+Changes in v3:
+- Don't add a new if:block; Drop the maxItems constraint of the interrupts
+  property for i.MX95 PCIe.
+- Add constraints for the interrupts property for other variants.
+- Regarding the ABI break: add descriptions explaining why these new
+  interrupts are mandatory and required by i.MX95 PCIe.
+
+Changes in v2:
+- Constrain the new added three interrupt entries to be valid only for the
+  i.MX95 variant using conditional schemas
+
+[PATCH v4 1/3] dt-bindings: PCI: imx6q-pcie: Add intr, aer and pme
+[PATCH v4 2/3] arm64: dts: imx95: Add dma, intr, aer and pme
+[PATCH v4 3/3] PCI: imx6: Add root port reset to support link
+
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml |   6 +++++
+arch/arm64/boot/dts/freescale/imx95.dtsi                  |  16 +++++++++---
+drivers/pci/controller/dwc/pci-imx6.c                     | 123 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+3 files changed, 141 insertions(+), 4 deletions(-)
 
 
