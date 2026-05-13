@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F3ECD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D5D3CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TI5NRrZ+zLBkpp0luXsxTg5zs9xhBdh65yF3aHf9xC8=; b=ytOwH3TZ1Vq4cvjliyrhE4hHuC
-	TRNC7Jao4isxEYwAvq6/44ljXxuOoN7gKGxM8tlpITauAErotXj6E9sFUxnOPzebage1b76Y7RgKD
-	LGlPwfmTIQtQunOsPLjyb33LFH4cN8jbOhgLaTXVV9w7lAN19ugnLExtEJml4I8mB0gR3mYhQYh9o
-	bZ4NAuDceE19wm+x8x8zevh8rRRuWc/8oJAImwHYhYB1yXHovUD8xMXc7/ov93kvyv6eUEW63K8pd
-	ptFsSVVHR0b9rgQHvfYfKr/GsN5Sxn3z39EBAB0bppr28APX05/cQIQpVMwKk8FLolF8XwdeTKnMm
-	4Fz3tKFA==;
+	bh=9FlFwWHyfeLVSzy7dxeX6YuLnhCqsxZ+9PmC5R6EYAE=; b=He3pQml19FAMcKFKFzK9A/FIMO
+	+AP/U31tPULrFxCsXlhbMWiNpcntEycwWerIqICaJyXBc4DQuspoXslomjNx7AGHhYklUc9sGhGdw
+	CKqKOZwBcuGHPbT28l2LxfRje/JuasrpqTYi8yVF2IJTLrhsuE8B/66G5QrFW7516H+28m/uNeKUn
+	sjSVC4+6bORiQXbH+PDYbc51G9mZB2/x3k1do+MPTkMc5oWZeN/oicKNeXbxr9sSNXNn7TrsRG5Jx
+	m7lFnfhrOwDkQltEl8/iBQrWaiDKLsrjedVQcqsBoColX/6rc5Hp7UwLei7anc5qMxXbIGmdEXSmv
+	6O5ymhYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9To-00000002dof-1q6R;
-	Wed, 13 May 2026 13:18:28 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9TV-00000002dVt-2CL9
+	id 1wN9W4-00000002gs1-1c4f;
+	Wed, 13 May 2026 13:20:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wN9Vu-00000002gfG-1I6L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:18:11 +0000
-Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E8EFE2F84;
-	Wed, 13 May 2026 15:17:58 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778678279;
-	bh=vNhPG3gt1iNAQede4sSDJktbqWiYm6dT9TVVZYkS1Jg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=wmmeqmvcAwYM3R3n48gpc9vcJ5xbooIoKw710g0UvU85u/2AvwUktsjnjpl1hNcGe
-	 PdPKryRzh6cr3VrxWa0YtSQJ6MOxdXugLpqx0MaB8hTsNJRDDtXh8vU+q8SjV1M2F9
-	 JULW1baHsJ8NhGAq8tCVfBxCeXsmX+Oe9jUqOFjg=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 13 May 2026 16:17:33 +0300
-Subject: [PATCH v2 11/16] drm/tidss: oldi: Fix OLDI signal polarities
+	Wed, 13 May 2026 13:20:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 728F330B1;
+	Wed, 13 May 2026 06:20:31 -0700 (PDT)
+Received: from e122027.arm.com (unknown [10.57.68.187])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B5773F836;
+	Wed, 13 May 2026 06:20:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778678436; bh=YndVBENKT7za7Eh2CgyvzwtNsJtX3XG29UQvOY5vpGI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=LxXlHadbmDg6/uoY8VbuxewTVGFI8q1uoTPhTJ2hyFqYxekVi5Vf3AJge5+vIDD0K
+	 TVhxdF5mw0hjyHqK5GaPsWbJ++vc3s1ofLEGE1DJLOcQZAZMW+f4VMJMdalAGzs++6
+	 XiVuOsAC/5IDR9JqRFjvJE9IZPYjhXR+UB9CB3+4=
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: [PATCH v14 25/44] KVM: arm64: Expose support for private memory
+Date: Wed, 13 May 2026 14:17:33 +0100
+Message-ID: <20260513131757.116630-26-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260513131757.116630-1-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-beagley-ai-display-v2-11-9e9bcefde6bc@ideasonboard.com>
-References: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
-In-Reply-To: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, 
- Devarsh Thakkar <devarsht@ti.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4997;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=vNhPG3gt1iNAQede4sSDJktbqWiYm6dT9TVVZYkS1Jg=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqBHoADKKdxxycDiVBKEHdHXn6PBSrKmAg76JTO
- qmDkuR18cWJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCagR6AAAKCRD6PaqMvJYe
- 9f/uEACn14KBoTk3RisMc2V47Nm7Qa+OtgZ8ZtleGMyekyKkSb6msFgrJfz5VmQCiEqnb97Ur2R
- +/STOmNOOM5++gVhOozKtzXBTcMYtTAWbHwgjMzxezpChXR0PSNKY2luLbBf2oQs23fidZfnRBc
- lGDWz8jIU3162LDvBGsHmi79za1SXEfo0WqCzJg24yVRnwPZLSJsZiF5zM95plRJ6jY74Pi0GCf
- nqv8PsYNEe1+zbYAw0tptHBmoCFLhEVgHfMtrVpkWctfmRSR1lA5SsHNz2eCYgh4KC1DVbDJFoH
- WMXgxLFtxzaPrdqJDOd0wZ2B7IWUH8WAPJS86wcWToElMiebwHHKBTPEemjJv27iyM4HPpRWHQr
- W22XWQ6rKNiLrFEpu91zwkdNcIzCf0eglWck+6IPZtnrgshRpeP5piZ0/Xn54g6ORuGzIR1jSL2
- YsHBo+7OPKOJiH7h3hPdrQfiRLohkn38EWLMT1JGM5CbyAXltbr1c7GMRJAv4hb6gpU9UJSz5kQ
- xfm2PAIJJtIv2pRsAN6ae1x5YV7q3e7v7tu9TTUi7ysUoX4KgBRMw2jp3tKL3EJVeP+edjUEP4m
- aVs/MSxJEy9PcvDL01iYZlXtT4twt6xbiZOROXEbMNlEDoIf3LRat738O28RLvrKxsjwd9Dl4ZD
- 8vRYMrNtjxuIB0A==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_061809_804488_1BCFFCCF 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20260513_062038_551756_E66B0F85 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,135 +91,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-OLDI has a few issues with how it handles the signal polarities:
+Select KVM_GENERIC_MEMORY_ATTRIBUTES and provide the necessary support
+functions.
 
-- It always sets OLDI_DEPOL, which means DE active low
-- It sets DRM_BUS_FLAG_DE_HIGH in struct drm_bridge_timings, i.e.
-  reverse to the OLDI_DEPOL
-- It sets DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE in struct drm_bridge_timings,
-  but the TRM says "The DSS interface is clocked on the rising edge of
-  OLDI_FWD_P_CLK pixel clock", which I read as "OLDI samples on rising
-  edge".
-- But the defined drm_bridge_timings is not actually used anywhere, even
-  if it is set to bridge->timings, so the bus flags are just ignored.
-
-However, based on my testing, OLDI_DEPOL bit or the edge on which data
-and syncs are driven doesn't seem to affect the OLDI output. Possibly
-it's not as robust, but I did not see any effect with an oscilloscope.
-
-However, the code is still quite broken, so let's fix it:
-- Remove drm_bridge_timings
-- Set the correct input_bus_cfg.flags in tidss_oldi_atomic_check()
-- Set OLDI_DEPOL based on the DE bus flag
-
-Tested-by: Swamil Jain <s-jain1@ti.com>
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
 ---
- drivers/gpu/drm/tidss/tidss_oldi.c | 38 ++++++++++++++++++++++++++++----------
- 1 file changed, 28 insertions(+), 10 deletions(-)
+Changes since v13:
+ * Also update documentation to show that KVM_CAP_MEMORY_ATTRIBUTES is
+   used on arm64.
+Changes since v12:
+ * Only define kvm_arch_has_private_mem() when
+   CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES is set to avoid build issues
+   when KVM is disabled.
+Changes since v10:
+ * KVM_GENERIC_PRIVATE_MEM replacd with KVM_GENERIC_MEMORY_ATTRIBUTES.
+Changes since v9:
+ * Drop the #ifdef CONFIG_KVM_PRIVATE_MEM guard from the definition of
+   kvm_arch_has_private_mem()
+Changes since v2:
+ * Switch kvm_arch_has_private_mem() to a macro to avoid overhead of a
+   function call.
+ * Guard definitions of kvm_arch_{pre,post}_set_memory_attributes() with
+   #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES.
+ * Early out in kvm_arch_post_set_memory_attributes() if the WARN_ON
+   should trigger.
+---
+ Documentation/virt/kvm/api.rst    |  2 +-
+ arch/arm64/include/asm/kvm_host.h |  4 ++++
+ arch/arm64/kvm/Kconfig            |  1 +
+ arch/arm64/kvm/mmu.c              | 24 ++++++++++++++++++++++++
+ 4 files changed, 30 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/tidss/tidss_oldi.c b/drivers/gpu/drm/tidss/tidss_oldi.c
-index 17c535bfa057..e925ddaa4fd6 100644
---- a/drivers/gpu/drm/tidss/tidss_oldi.c
-+++ b/drivers/gpu/drm/tidss/tidss_oldi.c
-@@ -164,7 +164,8 @@ static void tidss_oldi_tx_power(struct tidss_oldi *oldi, bool enable)
- 	regmap_update_bits(oldi->io_ctrl, OLDI_PD_CTRL, mask, enable ? 0 : mask);
- }
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 31a5919d8d5f..a47c60490475 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -6379,7 +6379,7 @@ Returns -EINVAL if called on a protected VM.
+ -------------------------------
  
--static int tidss_oldi_config(struct tidss_oldi *oldi)
-+static int tidss_oldi_config(struct tidss_oldi *oldi,
-+			     struct drm_bridge_state *bridge_state)
- {
- 	const struct oldi_bus_format *bus_fmt = NULL;
- 	u32 oldi_cfg = 0;
-@@ -183,7 +184,8 @@ static int tidss_oldi_config(struct tidss_oldi *oldi)
- 			 "OLDI%u: DSS port width %d not supported\n",
- 			 oldi->oldi_instance, bus_fmt->data_width);
+ :Capability: KVM_CAP_MEMORY_ATTRIBUTES
+-:Architectures: x86
++:Architectures: x86, arm64
+ :Type: vm ioctl
+ :Parameters: struct kvm_memory_attributes (in)
+ :Returns: 0 on success, <0 on error
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 39b5de03d0fe..11e7b629c950 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1531,6 +1531,10 @@ struct kvm *kvm_arch_alloc_vm(void);
  
--	oldi_cfg |= OLDI_DEPOL;
-+	if (bridge_state->input_bus_cfg.flags & DRM_BUS_FLAG_DE_LOW)
-+		oldi_cfg |= OLDI_DEPOL; /* 1 = active low */
+ #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
  
- 	oldi_cfg = (oldi_cfg & (~OLDI_MAP)) | (bus_fmt->oldi_mode_reg_val << 1);
++#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
++#define kvm_arch_has_private_mem(kvm) ((kvm)->arch.is_realm)
++#endif
++
+ int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
+ bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
  
-@@ -220,6 +222,22 @@ static int tidss_oldi_config(struct tidss_oldi *oldi)
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 449154f9a485..4e16719fda22 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -37,6 +37,7 @@ menuconfig KVM
+ 	select SCHED_INFO
+ 	select GUEST_PERF_EVENTS if PERF_EVENTS
+ 	select KVM_GUEST_MEMFD
++	select KVM_GENERIC_MEMORY_ATTRIBUTES
+ 	help
+ 	  Support hosting virtualized guest machines.
+ 
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 10ca9dbe40a0..ac2a0f0106b0 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2684,6 +2684,30 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
  	return ret;
  }
  
-+static int tidss_oldi_atomic_check(struct drm_bridge *bridge,
-+				   struct drm_bridge_state *bridge_state,
-+				   struct drm_crtc_state *crtc_state,
-+				   struct drm_connector_state *conn_state)
++#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
++bool kvm_arch_pre_set_memory_attributes(struct kvm *kvm,
++					struct kvm_gfn_range *range)
 +{
-+	bridge_state->input_bus_cfg.flags &=
-+		~(DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE |
-+		  DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE);
-+
-+	bridge_state->input_bus_cfg.flags |=
-+		DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE |
-+		DRM_BUS_FLAG_SYNC_SAMPLE_POSEDGE;
-+
-+	return 0;
++	WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm));
++	return false;
 +}
 +
- static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
- 					 struct drm_atomic_state *state)
- {
-@@ -228,6 +246,7 @@ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
- 	struct drm_connector_state *conn_state;
- 	struct drm_crtc_state *crtc_state;
- 	struct drm_display_mode *mode;
-+	struct drm_bridge_state *bridge_state;
- 
- 	if (oldi->link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK)
- 		return;
-@@ -245,10 +264,14 @@ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
- 	if (WARN_ON(!crtc_state))
- 		return;
- 
-+	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
-+	if (WARN_ON(!bridge_state))
-+		return;
++bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
++					 struct kvm_gfn_range *range)
++{
++	if (WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm)))
++		return false;
 +
- 	mode = &crtc_state->adjusted_mode;
- 
- 	/* Configure the OLDI params*/
--	tidss_oldi_config(oldi);
-+	tidss_oldi_config(oldi, bridge_state);
- 
- 	/* Set the OLDI serial clock (7 times the pixel clock) */
- 	tidss_oldi_set_serial_clk(oldi, mode->clock * 7 * 1000);
-@@ -329,7 +352,8 @@ tidss_oldi_mode_valid(struct drm_bridge *bridge,
- }
- 
- static const struct drm_bridge_funcs tidss_oldi_bridge_funcs = {
--	.attach	= tidss_oldi_bridge_attach,
-+	.attach = tidss_oldi_bridge_attach,
-+	.atomic_check = tidss_oldi_atomic_check,
- 	.atomic_pre_enable = tidss_oldi_atomic_pre_enable,
- 	.atomic_post_disable = tidss_oldi_atomic_post_disable,
- 	.atomic_get_input_bus_fmts = tidss_oldi_atomic_get_input_bus_fmts,
-@@ -440,11 +464,6 @@ static int get_parent_dss_vp(struct device_node *oldi_tx, u32 *parent_vp)
- 	return -ENODEV;
- }
- 
--static const struct drm_bridge_timings default_tidss_oldi_timings = {
--	.input_bus_flags = DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE
--			 | DRM_BUS_FLAG_DE_HIGH,
--};
--
- void tidss_oldi_deinit(struct tidss_device *tidss)
++	if (range->arg.attributes & KVM_MEMORY_ATTRIBUTE_PRIVATE)
++		range->attr_filter = KVM_FILTER_SHARED;
++	else
++		range->attr_filter = KVM_FILTER_PRIVATE;
++	kvm_unmap_gfn_range(kvm, range);
++
++	return false;
++}
++#endif
++
+ void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot)
  {
- 	for (int i = 0; i < tidss->num_oldis; i++) {
-@@ -598,7 +617,6 @@ int tidss_oldi_init(struct tidss_device *tidss)
- 		/* Register the bridge. */
- 		oldi->bridge.of_node = child;
- 		oldi->bridge.driver_private = oldi;
--		oldi->bridge.timings = &default_tidss_oldi_timings;
- 
- 		tidss->oldis[tidss->num_oldis++] = oldi;
- 		tidss->is_ext_vp_clk[oldi->parent_vp] = true;
-
+ }
 -- 
 2.43.0
 
