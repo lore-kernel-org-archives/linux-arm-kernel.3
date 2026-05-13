@@ -4,61 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F91CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 23:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D39CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 23:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xK0KgLrcY6Y+zllw21iOU6QjdvdTD571guej3BUh21w=; b=J/ryReN1kFrxrRygwAWoR1ABOv
-	0FlWZX9IJG5aufxGP+4hTKsmddGUyaKQLZB9D/RNY8FqmhXfuJfePT3Vtabgc9QN04Z7w+VNdcgD4
-	mqaI1tZ0GWQlS5d8wd8xhxpYywLIM1L7meXiCQUmtknEX4xckY3Xhnwxbp7w0wjtTGQ5Q9xsh8DBq
-	ozqcW8dedtbQ/C/P+bBMw3U6w2njojsVdgBhpyT9B3o4JnMQYEOn/mKIBDwUzCcKKMbnpdedvzcS0
-	CPwa+AusDgndBqtciUN/memzBnq7HjUF3tPcJ+ATliWAoq93vymumcURnz8tyiN43Qe9o1VEK+DQc
-	pUldqDWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7Yct74R6u5xZnX3Os6NlsUYpj9wSRVWf8fshvIp3Uws=; b=NmQLWuj43qMTHxhTFWoISW9oxv
+	9hvoSTZVyE9+dz93sCpLcy05WvEBRnMqGCHa0rpGGXg0xWlHyIOizTqoNS69ZB1xXNvOhLKW5/dsB
+	TqRJtwsGgZc0HbfcVbu+HwK0hyN00x3CnEtkOW+4j/55vBYgIeMfrtY4jUxM/xWZw9vmrB7mjfF/T
+	DxAuyNXwvr+5meHElxNKxzJ1/TYsIjchPTI3Bt+r8t4DMidR5pxbOAlfJZhEWyMFDDiEhV4E+pSbO
+	Gh3noZlsGooomtHu/oOZs5ZAqvBTyGMMicOxiI+O2PtiOyGlEP2e46CzHlfWfKynLi90Bjb+ZTYTg
+	tLZt4RjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNJ9l-000000044bF-3ItM;
-	Wed, 13 May 2026 23:38:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNJSm-000000046Dp-1wKb;
+	Wed, 13 May 2026 23:58:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNJ9k-000000044b2-3830
+	id 1wNJSk-000000046Dc-3gDm
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 13 May 2026 23:58:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=7Yct74R6u5xZnX3Os6NlsUYpj9wSRVWf8fshvIp3Uws=; b=HCw1m0AN/gm8IlucqrBLM973kp
+	L4KCkgSUDjxIqYspTxCf24ca8f6rrNcu3XUbTqNVfmFbvTuDzHfqcaKHreGZBzEjgA+JsRP7synEq
+	BhG7c2IRVLOMnveWvT9oCLuuHUVM80wXaMOf9fLelW6Mg9jZjpXJgxCeAf71zLlAJqZq4oLKKWPJc
+	zuVvvDoch9qBvkbPnJXUsm+a9HKxBM3VTDNMjgyxjo7L64NonxWoc0J3yKbmR9YVPK7uB/3wOPoui
+	+LDmxX9uN3VE0huvegww+XQpNY/1m3rEzf1PU9KkzEaEbIjql3KAtwVfn1001vyOicFoQHKJMpXIV
+	NEVTHMoA==;
+Received: from mail-eastus2azon11011011.outbound.protection.outlook.com ([52.101.57.11] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNJSh-00000001mzP-1C9E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 23:38:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CBBF860052;
-	Wed, 13 May 2026 23:38:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B38FC19425;
-	Wed, 13 May 2026 23:38:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778715503;
-	bh=d2UALDv0MmPHTajabTGVMFkrVWBmz2128Gozj64Y2PQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bm/n/qyun+G15cXN7LBd7nI1VSnQFijVvVjZXMvnq2d3l1KvJObYDQEqRP27Z1Unh
-	 zEGguN0USvmwQdxTJc1UP+b823n8toMssQKXmPGD5pphvpZH31uSMbBy56Ye7lJsYh
-	 PzMl8pTEzYAfuNfeJPRIt+Bv8O9+J4+Dtc8EqO+PcuOtg6gh9BHns/y+ciKP5bVYp7
-	 0uRJgJrijyNhrxk/avpD9rl85PmVapzzxdyEFvIjZNHvGUim5FC4zt+/je739hxU2L
-	 PfnAkUzy3w4RucHYw2VgxsN5gdIgIm9mHgqPA3lnjMEHnGxUOwdHwTVK7TX3RCKWQs
-	 ncBoUA6lzNxew==
-Date: Wed, 13 May 2026 18:38:19 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Judith Mendez <jm@ti.com>
-Cc: Andrew Davis <afd@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-	Bryan Brattlof <bb@ti.com>, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org, Tero Kristo <kristo@kernel.org>,
-	Nishanth Menon <nm@ti.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: arm: ti: Add am62l3-beaglebadge
-Message-ID: <177871549917.2312246.2169010198859833404.robh@kernel.org>
-References: <20260508230341.1891450-1-jm@ti.com>
- <20260508230341.1891450-2-jm@ti.com>
+	Wed, 13 May 2026 23:58:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ho4UjJrEest5BDBHfUWJaf6rd2R9Yqxx06JG0rRyzm10Mdg/EGN8DVz6NJgnmRLWKFe+OfFDbgA4iQSN+IMSBXo4I2sPjcsMi2Wf8UeMt/6xQfmU8OcMuxgGpxsBblwSc/aTVOXzGz+4Fx6PPjBjtrCWkgkOxcVO4/5nidwaMC56Fl2aUsYbseUGiocPK1Q8m+iEm7bgUahFrWZIJ9RtjipDzr5sJggH7ahSAadfJE4k9McxULfUh/KVIeRVtABp6lepKiq+iQcQRRBNLzoDr+eTQCg/0BLXVBG7VwAf+3REEYP1GgUY31QVxUzT2Q5CpTh9FMwDK2nrlgTwQecTJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7Yct74R6u5xZnX3Os6NlsUYpj9wSRVWf8fshvIp3Uws=;
+ b=Xo8n2gYWwS4TumuG7vglYP2rzng/8HPsOiIK+44Tf0bShkwM8ZmTXqV3jffkuPoVUZPFvcUfBMq8u7ngTS7nWDSrBtGw9QHODM0TxNBEoPUlK3p/4wb4rrkxtEDcytnwFWAeH90XNtg/jPLdhREL7suNZldPo1Tf4LTqFCPnmsbFthTUFJNaxAgw12MnlcBOFK58ZM0oyY3AAx71ddf2ZmVQjm7OyKz9W5tR/sqRCYvIGktqcXUKyPxe2O8HppCEJccMOO9ETxjo7s85IqeAIRbv/8C8LAuFowsWmlbfKHlszCDbqtyoE1Cd6jlrpuc5qJnIiki3nm3VJffI0kmO0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7Yct74R6u5xZnX3Os6NlsUYpj9wSRVWf8fshvIp3Uws=;
+ b=Vf9K2EeZohBZyS674/FW+vtL0Ji8rFM8eKZrbs8b6zIl9uTkOVsnGBQjOa8XuLjmFBesmEIp4cwfRigCO/1tZNwXMmnuaMk7kwCoswS+pon90gMzp2mlMaeoTfkhat1RkO51i1ZD35yDLTUL/S/UQ34/8IsvJa/cr6T2MXrtb7q1NIxbV8pybDPiujL/KqXmyVSQylNtS0igtYRGT1Bsz9yaonoLJlSTCEUXAsV32ACpnGAKYeCceH7HeUCAQZisxcFT0ogWdNdhRYwJ9x12kys8tI4dxmRdeGtEj0gbPzxnvwMqAUx6BnWH1Ez5+jw/01wJyOuTN/l7xaBpPdfuLQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by PH7PR12MB5653.namprd12.prod.outlook.com (2603:10b6:510:132::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
+ 2026 23:57:50 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9913.009; Wed, 13 May 2026
+ 23:57:50 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: iommu@lists.linux.dev,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	Will Deacon <will@kernel.org>
+Cc: David Matlack <dmatlack@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: [PATCH v2 1/9] iommu/arm-smmu-v3: Add struct arm_smmu_cmd to represent the HW format command
+Date: Wed, 13 May 2026 20:57:40 -0300
+Message-ID: <1-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
+In-Reply-To: <0-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
+References: 
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: YT4P288CA0020.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d4::19) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260508230341.1891450-2-jm@ti.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB5653:EE_
+X-MS-Office365-Filtering-Correlation-Id: 213f3244-31b6-4d80-5557-08deb14b7007
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|3023799003|22082099003|56012099003|18002099003|11063799003;
+X-Microsoft-Antispam-Message-Info: 8InJTFH8vW+g3ZjOmcnXIV5iA0D19IjSKPyIltDvKqLubFORFpnEDzx5kFuNNNkQh/s3frzOhrgAhT1gU+ppb0gAa029rHt3N7NGQPvRAkl9YxC5ihoKKNguwd8wTZZIMQ494HEcYYl+jDSnwp7BUrP6vRw3tbelQgggfh8gs+ahGNLlf8vEfievIJP4cUV99Dv/PVXiC5XrrhGNuD7UsMeBly2yvcfMWCVFfm57+ZL3DKbwDysz9IW0VWKbS8q7Ss9co+PQn0RuD8Z5RPaklXrb3FQLX5z2C8SLn/Z+39q6Kx9vGv6jGeZfkaIqL8IZ1YDeCnNVJk9VhIetBgFwok7zL3SvuHW99yE3tBWukPUng+w4PbrdduCI9DA4bNfDmBUI3YIPB0zWycWnAKflm/z7SAJUT2Zz5EpniW20eXyaa+3dVdahkorm8Zu7Xir/6b8BfoXZg+cufoJh1unLOLwQdPMXDHu2TEyF1Z3f5jkFlT+Ft3IVIiXrxF7Lvbs23rMlTyLDvOxXGWynbP/h5vDJfBCsCDOQ4JRdezB9gvD35l/Sk5q7vcQSnPET8ZAPmOzGoIdCRYgr0F6Q2in9im9RleyfZ5yDqBURLuFdl/etTpW4YRG2y8iHeDoOv3Oro33JqPAod+LQDVC308q97RFtwKoAc6sb5t/IRLFUeHXPGtsh2zuXwSDtuJrs03rK
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(3023799003)(22082099003)(56012099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?x7c/T66fusXNK5LaMx8bkPffMH39IGljhS2i0b/Z1677ALw1+mJtnn4BuhbD?=
+ =?us-ascii?Q?q6X8k4FBjpsewZgymOhMEeIRomhlzAtWIJ3ArOce6ZN3/9TZrGUiZP/+PWXn?=
+ =?us-ascii?Q?0jvzD05OvpbX5YAcb3PbZqOWjWX8VRoioY2uiKKj3RbYVH8c7BxkfYOS/Jcq?=
+ =?us-ascii?Q?FkkFrJZONj5uODSVy4EXjlvCFXABH2HiBJ2gX7x1SFW0lKNIXEmBtjDWiLEL?=
+ =?us-ascii?Q?BvKTOSKvVObpsjnQKoOYxhMz/M7eQvStUUToNFILQA+rVYf5HNdf/iLSjkme?=
+ =?us-ascii?Q?Goi/k8LLmEqanlBokuBJK2p+4rOgxLJRlh+xVJmfGfxrHws9edWrAgTyOw3C?=
+ =?us-ascii?Q?2dqX+yJE2QIRBtjohuqPTw1aqoAHtM5aM/YypCwGr2wzeVTcSoIVUWyi+lOy?=
+ =?us-ascii?Q?38wh9nGCxLtvkFRpgPfMwaxikOyJNNDdXypg3mxsY/X37Nn0R8QKTbtppigE?=
+ =?us-ascii?Q?Mb32PBc9hz2Jm6rHE5QAS5vfdf6hqB9NBh8fi+wA/zRvNVqGLQPFrawZ3v3n?=
+ =?us-ascii?Q?Rd/otQ9OFEfe3g9zYw8O4x0S2KnN++oo908B6f7HErXaZwedbQMEaezX5FLe?=
+ =?us-ascii?Q?GA4zfphNdwPtwsMPlAwkwYpOYt8VQdDNOfRXNFzPPMu+D0RR7iS8N09TmyCG?=
+ =?us-ascii?Q?vMGMuYwIPdYhsO5XDo5Dg4fnm7hgbmb3IVo8S69ovIEw0vIA+852muRfMIuH?=
+ =?us-ascii?Q?COd+bGCXtWPsIF8PLa0EHWbIoXOQ/ZxlR8LaKQkvqUvdIhL+a4z2sIxToGfK?=
+ =?us-ascii?Q?c2NL0vjIfz1Ny92+4Na2f6OVUtXvF+2LU5IJYQbl/3nh6iHtOZIFRrJsVKgU?=
+ =?us-ascii?Q?io5uj5PuyCjIIRJt/QIIqw7T+itokOGTwnDo56/mmukYYPdEXq/hBwB3aEot?=
+ =?us-ascii?Q?h7o2xNRBUP0/NsBEudNNWHlnchBZkTiAxDuxBPe6MF0u8Aun7DoLVbSZ7Yuv?=
+ =?us-ascii?Q?WwEfYQ7RKYNYBHKE8C7NFbfvJ5sevazBAGfQiOYaULgQikwcPs6aZ/Nr5lEe?=
+ =?us-ascii?Q?705scuEom2C0g0ygbDVo6xJoAL60pH3KgkGQNl/qWkKhK+rFP4LAcvjF0JSi?=
+ =?us-ascii?Q?YXSSeP23VJpgjMDscMxA5NiO7MEsBYnTQEAGCGQJsHQUjg/isgZatlz9FXYQ?=
+ =?us-ascii?Q?kAl17whLrJ044LLBypph8e5+HKmfnLOsbUpFwP5hhuaVbKf5pwxgRHrDDMMI?=
+ =?us-ascii?Q?/Op7ZG/he8f3gVTHr9sf+UIAMlNEEk268ssX7f8zWseP7T+Zwdkv9aJ2L9Fw?=
+ =?us-ascii?Q?van4nkl0Jn4ec58MC48HtjFmRfgnRjMcTue2ebzdi/iu2QJkU2RXIpawfETZ?=
+ =?us-ascii?Q?BgUw4Bm7zHdoGVWGAH2HdAyQyovATQSXqL59HCl6N//Gc9zQZ9dbsSLXINXI?=
+ =?us-ascii?Q?LHs1C1+8P6qiPXxNe2w6yX+NwKAJiEBHgcuVj1bW9Pymc1GyUcQI0AyEdxMI?=
+ =?us-ascii?Q?2Yry2Jf3T7hxWnVdcIAunYMEI4p0HWUG4T7BqlA9QJdz8XQuioRTQQd7QQS1?=
+ =?us-ascii?Q?ZKmoA1K4BjefXhsft/qatDPz1fqxJMZLYXkLp0lp1BYKBxmooCQS3prvt/sG?=
+ =?us-ascii?Q?BjlhIy8JT6WxFa9TzapF+OpUe2/shYQQY/WU9ODas4r+fMGxyYsiXelKOHwt?=
+ =?us-ascii?Q?W+ipwuhqZ9Mm5KO05Q7z/iN2H+fHU6781qshhEX+tvFTb5qC9920jlJEcYbF?=
+ =?us-ascii?Q?TBHQCMkzs1+ev1GP7LWxb1JPEzVEfZTwdbYZCzNvkkd87lmy?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 213f3244-31b6-4d80-5557-08deb14b7007
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 23:57:49.6408
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YYwD2jGcfbAdi1xeRZRhf0wtnHMouDArEHPnEwldUCWeD3meE1opKpNlIqY0XG69
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5653
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_005759_782061_44A7D4F0 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,21 +162,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Like STE/CD, add a wrapper struct around the u64 array to represent the
+already FIELD_PREP'd command data. Unlike the STE/CD this is a u64
+because the command submission path will have the swap to le64.
 
-On Fri, 08 May 2026 18:03:39 -0500, Judith Mendez wrote:
-> This board is based on ti,am62l3.
-> 
-> https://beagleboard.org
-> https://github.com/beagleboard/BeagleBadge
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
-> Changelog:
-> - Update compatible to: beagle,am62l3-beaglebadge
-> ---
->  Documentation/devicetree/bindings/arm/ti/k3.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
+This makes the API clearer when a u64 is referring to a formatted
+command and makes the following changes easier to follow.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Move the command constants out of the struct and into an enum alongside
+the rest of the constants defining the HW format so the entire HW format
+is self contained and independent of struct arm_smmu_cmdq_ent.
+
+Reviewed-by: Samiullah Khawaja <skhawaja@google.com>
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Tested-by: Pranjal Shrivastava <praan@google.com>
+Tested-by: Mostafa Saleh <smostafa@google.com>
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 48 ++++++++++++---------
+ 1 file changed, 28 insertions(+), 20 deletions(-)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index ef42df4753ec4d..092179f689e9f1 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -390,6 +390,10 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+ 
+ #define CMDQ_PROD_OWNED_FLAG		Q_OVERFLOW_FLAG
+ 
++struct arm_smmu_cmd {
++	u64 data[CMDQ_ENT_DWORDS];
++};
++
+ /*
+  * This is used to size the command queue and therefore must be at least
+  * BITS_PER_LONG so that the valid_map works correctly (it relies on the
+@@ -426,6 +430,8 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+ #define CMDQ_ATC_1_SIZE			GENMASK_ULL(5, 0)
+ #define CMDQ_ATC_1_ADDR_MASK		GENMASK_ULL(63, 12)
+ 
++#define ATC_INV_SIZE_ALL 52
++
+ #define CMDQ_PRI_0_SSID			GENMASK_ULL(31, 12)
+ #define CMDQ_PRI_0_SID			GENMASK_ULL(63, 32)
+ #define CMDQ_PRI_1_GRPID		GENMASK_ULL(8, 0)
+@@ -447,6 +453,28 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+ #define CMDQ_SYNC_0_MSIDATA		GENMASK_ULL(63, 32)
+ #define CMDQ_SYNC_1_MSIADDR_MASK	GENMASK_ULL(51, 2)
+ 
++enum arm_smmu_cmdq_opcode {
++	CMDQ_OP_PREFETCH_CFG = 0x1,
++	CMDQ_OP_CFGI_STE = 0x3,
++	CMDQ_OP_CFGI_ALL = 0x4,
++	CMDQ_OP_CFGI_CD = 0x5,
++	CMDQ_OP_CFGI_CD_ALL = 0x6,
++	CMDQ_OP_TLBI_NH_ALL = 0x10,
++	CMDQ_OP_TLBI_NH_ASID = 0x11,
++	CMDQ_OP_TLBI_NH_VA = 0x12,
++	CMDQ_OP_TLBI_NH_VAA = 0x13,
++	CMDQ_OP_TLBI_EL2_ALL = 0x20,
++	CMDQ_OP_TLBI_EL2_ASID = 0x21,
++	CMDQ_OP_TLBI_EL2_VA = 0x22,
++	CMDQ_OP_TLBI_S12_VMALL = 0x28,
++	CMDQ_OP_TLBI_S2_IPA = 0x2a,
++	CMDQ_OP_TLBI_NSNH_ALL = 0x30,
++	CMDQ_OP_ATC_INV = 0x40,
++	CMDQ_OP_PRI_RESP = 0x41,
++	CMDQ_OP_RESUME = 0x44,
++	CMDQ_OP_CMD_SYNC = 0x46,
++};
++
+ /* Event queue */
+ #define EVTQ_ENT_SZ_SHIFT		5
+ #define EVTQ_ENT_DWORDS			((1 << EVTQ_ENT_SZ_SHIFT) >> 3)
+@@ -520,15 +548,10 @@ struct arm_smmu_cmdq_ent {
+ 
+ 	/* Command-specific fields */
+ 	union {
+-		#define CMDQ_OP_PREFETCH_CFG	0x1
+ 		struct {
+ 			u32			sid;
+ 		} prefetch;
+ 
+-		#define CMDQ_OP_CFGI_STE	0x3
+-		#define CMDQ_OP_CFGI_ALL	0x4
+-		#define CMDQ_OP_CFGI_CD		0x5
+-		#define CMDQ_OP_CFGI_CD_ALL	0x6
+ 		struct {
+ 			u32			sid;
+ 			u32			ssid;
+@@ -538,16 +561,6 @@ struct arm_smmu_cmdq_ent {
+ 			};
+ 		} cfgi;
+ 
+-		#define CMDQ_OP_TLBI_NH_ALL     0x10
+-		#define CMDQ_OP_TLBI_NH_ASID	0x11
+-		#define CMDQ_OP_TLBI_NH_VA	0x12
+-		#define CMDQ_OP_TLBI_NH_VAA	0x13
+-		#define CMDQ_OP_TLBI_EL2_ALL	0x20
+-		#define CMDQ_OP_TLBI_EL2_ASID	0x21
+-		#define CMDQ_OP_TLBI_EL2_VA	0x22
+-		#define CMDQ_OP_TLBI_S12_VMALL	0x28
+-		#define CMDQ_OP_TLBI_S2_IPA	0x2a
+-		#define CMDQ_OP_TLBI_NSNH_ALL	0x30
+ 		struct {
+ 			u8			num;
+ 			u8			scale;
+@@ -559,8 +572,6 @@ struct arm_smmu_cmdq_ent {
+ 			u64			addr;
+ 		} tlbi;
+ 
+-		#define CMDQ_OP_ATC_INV		0x40
+-		#define ATC_INV_SIZE_ALL	52
+ 		struct {
+ 			u32			sid;
+ 			u32			ssid;
+@@ -569,7 +580,6 @@ struct arm_smmu_cmdq_ent {
+ 			bool			global;
+ 		} atc;
+ 
+-		#define CMDQ_OP_PRI_RESP	0x41
+ 		struct {
+ 			u32			sid;
+ 			u32			ssid;
+@@ -577,14 +587,12 @@ struct arm_smmu_cmdq_ent {
+ 			enum pri_resp		resp;
+ 		} pri;
+ 
+-		#define CMDQ_OP_RESUME		0x44
+ 		struct {
+ 			u32			sid;
+ 			u16			stag;
+ 			u8			resp;
+ 		} resume;
+ 
+-		#define CMDQ_OP_CMD_SYNC	0x46
+ 		struct {
+ 			u64			msiaddr;
+ 		} sync;
+-- 
+2.43.0
 
 
