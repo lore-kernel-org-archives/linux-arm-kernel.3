@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA78CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 07:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B1E4CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 07:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8w+Lwv/3yD6ITbesHduHO+VKPwheOro8pVVXLP3Yaiw=; b=3qCH30sSe7tcGU6f6wOnvzCJpD
-	vVn8f5t3QB9AuTQS/PmzGZmGEQ1Rt4UaujwlmF/A64BO99IInR/Gya5Pu8sUH6J4apGfGztDGqgct
-	ZYeWg0tyB/N9eDwYQ8hZd8SlNeHY6eESgPT9tr8j+lUYuMMToE+VqdEmrcbjqI+XcS8u3nRyMJEC0
-	04zJmDhWtxaucwtoODCseVjMKgf/z05cFs90LUXozWUFpie+apj16D9p32NrRMxbA1+v7LQ4iHgvd
-	jZkgf+R+Vsjbg9EfY82+2fq/tt80aDiCGg2F9Yar4evkVvPKKZgSkeg8IujU/5b+hTBB2Wf78uR/f
-	joEbYYRg==;
+	bh=IQmFM69C4mxOALzSJ5phbdau72i7voT3uFS0QSMXyFs=; b=qTE38J56SuYzZrcnozv0va8uYE
+	8lmg60dFoWzQC5MNj/6ZdtB53R3ymVb6v4RiHhRjOJbv3kqSFgnEt1SnToggx3wBW5x+K6SLPQ5Df
+	0AfueEIdj34SzngDGU05euR74SGOX6ItBbLPA58A7iBDWGYM4OmAkdpGbfvINL6UfbeoMmPloeG4n
+	A4VUwCMSDCr1jHKj26y/goaTi9zmXOwJNWpThMBzIMsoopwhU9vBSwkyBuuo9ln/T9przgE2xRnMJ
+	n6YRDvvEsVuJPGPp86cs4v7PzLAOU9WCNyiJDK+xWfEYiBTabbg1D1plWwtb3HvubELw/zkF2lRiC
+	jcb8gJhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN3lF-00000001WrF-0iTY;
-	Wed, 13 May 2026 07:12:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wN3tG-00000001Xtw-1mlw;
+	Wed, 13 May 2026 07:20:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN3lD-00000001Wqn-00BS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 07:12:04 +0000
+	id 1wN3tD-00000001XrA-18A0;
+	Wed, 13 May 2026 07:20:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5433A443A6;
-	Wed, 13 May 2026 07:12:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 960E9C2BCB7;
-	Wed, 13 May 2026 07:12:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1778656322;
-	bh=ocTceWbdCyIQe+/QSperWMAMz5uDG99LcuPJ/Mj7aa0=;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1E3CE41968;
+	Wed, 13 May 2026 07:20:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 988B6C2BCB7;
+	Wed, 13 May 2026 07:20:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778656818;
+	bh=IZC58uKnwZDOpHbW9eAHW46rxtkXxkQRHztEtG6TFdw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IfZ1+dGYGxKOdobj4UC5wARWbeKM4ZI0xRXzO1w0/GvtjWs4rKxm19I2eSR13zfMP
-	 HlJN9bFQDZNy8U0CpUGR43Uth4iAGvKoaLfpDJvE96nUnW8PoZodnjbRFofz22e15Z
-	 qrMFKwL9Qu+QsKmKGY7nt1/kgxqYymzKeUVYOEhY=
-Date: Wed, 13 May 2026 09:11:17 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>
-Subject: Re: [PATCH v4 2/2] coco: guest: arm64: Drop dummy RSI platform
- device stub
-Message-ID: <2026051352-albatross-contents-7113@gregkh>
-References: <20260427061615.905018-1-aneesh.kumar@kernel.org>
- <20260427061615.905018-3-aneesh.kumar@kernel.org>
- <agM7VmoQ--ylUmyM@arm.com>
- <yq5a7bp7u77f.fsf@kernel.org>
+	b=UeqzWDBD200D0E+7cWQ3ItPGbmCACk6cc388fKQYM6SpkFcVR1e8ZNTJgWXUPhMmX
+	 l3NYLvHnKckuDA+dhS61j8Su067jIKnk8isBYPN3qNxv21Bamz2d6hlYALks8iqN75
+	 wKTyPTttdTlnZVLdii+WgJsejlUHYdfTeMa6bo2x/1nW2YttqBQUjcEh7iqVZ5aA+T
+	 QR5S1YiO60Mb99Nl3pftTrEhk5BuUzdZNTZdSNOcWRbgAevxypH39Bh32rcscHovtk
+	 ug93xrUEKct4PDJxwRDjzPG5QW1eBAzX5stvC9Wn/HGg5ftwandsAhq/qAW9o6/MGJ
+	 0UgKqu9mpLspA==
+Received: by pali.im (Postfix)
+	id BA3B5BA0; Wed, 13 May 2026 09:20:08 +0200 (CEST)
+Date: Wed, 13 May 2026 09:20:08 +0200
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, vigneshr@ti.com, jingoohan1@gmail.com,
+	thomas.petazzoni@bootlin.com, ryder.lee@mediatek.com,
+	jianjun.wang@mediatek.com, claudiu.beznea.uj@bp.renesas.com,
+	mpillai@cadence.com, robh@kernel.org, s-vadapalli@ti.com,
+	linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 6/8] PCI: aardvark: Add 100 ms delay after link
+ training
+Message-ID: <20260513072008.vol4htgbzquly2rb@pali>
+References: <20260506152346.166056-1-18255117159@163.com>
+ <20260506152346.166056-7-18255117159@163.com>
+ <20260512212531.jupoocz7acv22qyg@pali>
+ <581e91fb-2e57-43ed-b79d-19dbf384b955@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <yq5a7bp7u77f.fsf@kernel.org>
+In-Reply-To: <581e91fb-2e57-43ed-b79d-19dbf384b955@163.com>
+User-Agent: NeoMutt/20180716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_001203_061215_566E2BBC 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20260513_002019_356410_6B7C14AA 
+X-CRM114-Status: GOOD (  40.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +85,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 12:28:12PM +0530, Aneesh Kumar K.V wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
+On Wednesday 13 May 2026 15:00:04 Hans Zhang wrote:
 > 
-> > + Suzuki again
-> >
-> > On Mon, Apr 27, 2026 at 11:46:15AM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> The SMCCC firmware driver now creates the `arm-smccc` platform device
-> >> and also creates the CCA auxiliary devices once the RSI ABI is
-> >> discovered. This makes the arch-specific arm64_create_dummy_rsi_dev()
-> >> helper redundant. Remove the arm-cca-dev platform device registration
-> >> and let the SMCCC probe manage the RSI device.
-> >> 
-> >> systemd match on platform:arm-cca-dev for confidential vm detection [1].
-> >> Losing the platform device registration can break that. Keeping this
-> >> removal in its own change makes it easy to revert if that regression
-> >> blocks the rollout.
-> >> 
-> >> [1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
-> >
-> > I wouldn't merge this now given that systemd checks this file. Could we
-> > have a symbolic link instead for some time until systemd eventually gets
-> > updated (years?).
-> >
 > 
-> I’ll add this in the next revision.
+> On 5/13/26 05:25, Pali Rohár wrote:
+> > On Wednesday 06 May 2026 23:23:44 Hans Zhang wrote:
+> > > The Aardvark PCIe controller driver waits for the link to come up but
+> > > does not implement the mandatory 100 ms delay after link training
+> > > completes for speeds greater than 5.0 GT/s (PCIe r6.0 sec 6.6.1).
+> > > 
+> > > The driver already maintains a 'link_gen' field that holds the negotiated
+> > > link speed. Use it together with pcie_wait_after_link_train() to insert
+> > > the required delay immediately after confirming that the link is up.
+> > > 
+> > > Signed-off-by: Hans Zhang <18255117159@163.com>
+> > > ---
+> > >   drivers/pci/controller/pci-aardvark.c | 4 +++-
+> > >   1 file changed, 3 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/drivers/pci/controller/pci-aardvark.c b/drivers/pci/controller/pci-aardvark.c
+> > > index e34bea1ff0ac..526351c21c49 100644
+> > > --- a/drivers/pci/controller/pci-aardvark.c
+> > > +++ b/drivers/pci/controller/pci-aardvark.c
+> > > @@ -350,8 +350,10 @@ static int advk_pcie_wait_for_link(struct advk_pcie *pcie)
+> > >   	/* check if the link is up or not */
+> > >   	for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
+> > > -		if (advk_pcie_link_up(pcie))
+> > > +		if (advk_pcie_link_up(pcie)) {
+> > > +			pcie_wait_after_link_train(pcie->link_gen);
+> > >   			return 0;
+> > > +		}
+> > >   		usleep_range(LINK_WAIT_USLEEP_MIN, LINK_WAIT_USLEEP_MAX);
+> > >   	}
+> > > -- 
+> > > 2.34.1
+> > > 
+> > 
+> > Are you sure that this is correct to do? Have you checked the A3720
+> > Functional Specification which describes how to bring PCIe link up?
+> > 
+> > A3720 PCIe controller is buggy and needs more timing hacks to make it
+> > behave. Playing with random sleeps can break its internal logic.
+> > I'm not sure if it could be safe without proper testing.
+> > 
+> > And IIRC A3720 PCIe controller is just PCIe2.0 with 5 GT/s.
 > 
-> static int create_rsi_compat_link(struct device *target_dev)
-> {
-> 	struct kobject *platform_kobj;
-> 	/*
-> 	 * target_dev is:
-> 	 * /sys/devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0
-> 	 * Create compat link /sys/devices/platform/arm-cca-dev
-> 	 */
-> 	platform_kobj = target_dev->kobj.parent->parent;
+> 
+> Hi Pali,
+> 
+> 1. This driver does not support A3720.
+> 
+> static const struct of_device_id advk_pcie_of_match_table[] = {
+> 	{ .compatible = "marvell,armada-3700-pcie", },
+> 	{},
+> };
+> MODULE_DEVICE_TABLE(of, advk_pcie_of_match_table);
+> 
+> If you need support for A3720, please submit the corresponding patch so that
+> Bjorn and Mani can review it.
 
-What?  That is crazy, you don't know that is always going to be ok.
+3700 (or 37xx) is family and covers both a3710 and a3720. In most cases is the
+a3720 dominant and hence identifiers 3700 and 3720 are begin mixed.
 
-> 	return sysfs_create_link(platform_kobj,
-> 				 &target_dev->kobj,
-> 				 "arm-cca-dev");
+> 
+> 2. If A3720 only supports GEN2, you can configure "max-link-speed" to be 2
+> in the DT. This will not affect the functionality of this patch.
 
-No, don't do that, if a driver calls a sysfs* function, something is
-almost always wrong.  Don't be making random sysfs symlinks please.
+Whole A37xx supports only GEN2. And in DT files for 37xx should be
+already there max-link-speed.
 
-If userspace can not find the device anymore, that's fine, that's how
-sysfs works, devices move around all the time.  Especially platform
-devices as those are almost always not supposed to be platform devices :)
+Seems that in advk_pcie_of_match_table there is no GEN3 device
+specified.
 
-thanks,
+> 3. This patch is a common delay requirement stipulated by the PCIe
+> specification. If it is greater than GEN2, then msleep(100) will be added;
+> otherwise, there will be no such delay.
+> 
+> 4. For instance, we often come across the situation where some common APIs
+> are modified, and in many cases, their functionality does not require the
+> actual development board for verification. I believe that many other
+> developers and maintainers have modified different parts of the code. For
+> example, the recent submission:
 
-greg k-h
+Switching one API to another is one thing. But changing code which looks
+to be critical, specially when it is known that hw has bugs, can cause
+breaking of existing boards.
+
+> commit 750277048afe7ce8ebfc0b120de7dfbc745058a7
+> Author: Nam Cao <namcao@linutronix.de>
+> Date:   Thu Jun 26 16:47:53 2025 +0200
+> 
+>     PCI: aardvark: Switch to msi_create_parent_irq_domain()
+> 
+>     Switch to msi_create_parent_irq_domain() from
+> pci_msi_create_irq_domain()
+>     which was using legacy MSI domain setup.
+> 
+> 
+> And many controller drivers have been modified.
+> 
+> 
+> Best regards,
+> Hans
+> 
+> 
 
