@@ -4,64 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC1B8CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 01:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AF5CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 01:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nnvr1QfUiI/1L0M+F2dbf5MSadPBsbA8UnndgUxb2TM=; b=Pslnb+6Q15ZnJT00DEaZwaBzEV
-	9IKsmAmilyO1NijiNNdY9813umktLLdgxeVcmRaDSdrQ+5F4ohdu7rkdTod6GEePd0SE0+c5QWKGH
-	d+10bPVOgVPz/IyUjXw6fF3A27X//a/PUbR3TkPkH6RTm2nDrISq9/ehmF0bHac7mgLlgllzJg/19
-	K+vU8bOxTghHmdQytbceORgVX4UGpZLPC+tKsOuurOzQuOblityKWEL8xbwVamH2H8b5PlOmJrc6V
-	EVm8IjW+c/s7nLVGAFl2E/jTvOpPWWuluDBYOW4bzgZ7T5nli7iB5R2+mFbEfyS1M6Jx+wFIeYm4G
-	8e0jyVPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6KRwB08wa5LSCOrHplBli913U01qsOZ1SqPoeDdqIUU=; b=rJAWayXOiqboLTgsofNy2DMxT8
+	MSRhTf7KOqnAS9wqnPSwE3PT4UTeoPRdgJQKE+/njHXonGA+96slNzSOem7f/5Jkjew9IKWZ2LZH6
+	3Z/HZSDynZn01XFZtD1tEvwrC3dMhW401I4/99K1t090UxqweAgsnRSLoiqWEhZQglTX1TddXoqny
+	2+iGP86Gn8Z2mSPPnilYwN3Wvp/o/fzOG/+pX2y4tW0ch6YXwguRtDLs3/vbsO/GggfgM2etX4Lsd
+	WwMU487iAdt4r840s+EKCW5aUWLLn71OAuhmIWRjLRxj5IgO7z564gRlfHfnG2V4BXFbTALDtum6Y
+	K+j6Mp0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMyFY-00000000qZn-3mqi;
-	Wed, 13 May 2026 01:19:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wMyTD-00000000rn3-0FDv;
+	Wed, 13 May 2026 01:33:07 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMyFX-00000000qZg-2eEO
+	id 1wMyT9-00000000rmP-3wYn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 01:18:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4186160120;
-	Wed, 13 May 2026 01:18:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C94EEC2BCB0;
-	Wed, 13 May 2026 01:18:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778635137;
-	bh=E+JWPPBc7bsB6Ffqs4uC6QTuO+REotZfurer97o3dSg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dIMNb9p61FcVEvKXabsO3328w87b5n+VSdC8+EpNl42uGChJiYiVjLMBy72O/ttOC
-	 qa5/g30pGgCf778Gt7VAkyJzISS00BxZ1doB11r9Scp/jHpd14kqbM5zQa/N1RLsod
-	 XB55ZdytbWuinbQ6bng/bZgyaoWN/T5XK2PyPXTR/+1PCBznlfxGJBA5mCLefKzpKR
-	 bqsWCgJAzTVvKQqIQphx80dJRfavVSNqeypTvZEAC8m8mR/Py5l3IbUEzMHrgpczGq
-	 MKm+lnrAW2C/kX2rzAuVMGMQjoCnmHSc/yKF9hEH6dvsoXovkb0V6KDU2AguUjvO64
-	 yDfgh7gtzoIOg==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id D78CE1AC58CB; Wed, 13 May 2026 02:18:55 +0100 (BST)
-Date: Wed, 13 May 2026 10:18:55 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <Mark.Rutland@arm.com>,
-	Ryan Roberts <Ryan.Roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 0/2] arm64/sve: Performance improvements with SVE
- state saving
-Message-ID: <agPRf9XTQPwyA3n_@sirena.co.uk>
-References: <20260320-arm64-sve-trap-mitigation-v8-0-8bf116c8e360@kernel.org>
- <agM03CN6cX2JNu62@willie-the-truck>
+	Wed, 13 May 2026 01:33:05 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64D08j692912273
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 01:33:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=6KRwB08wa5LSCOrHplBli9
+	13U01qsOZ1SqPoeDdqIUU=; b=DdLE/04vl++QTQmxFZnHQQnpgEiEHiXQTgaJRy
+	yR71UhjSrVdyGKwNiFsQcP9kSkvAYFk0bW6Q/NjyzXoGM1Ak6nX9dswGwtBQ+kq6
+	88fb7jiA6RVko8jTn9li8pz8V5fghJ76SAW14zZr7wSdK8MHbBWjn0j2bj1We5cD
+	QD/rfge6eNgv82lXufESBzTzqZZ1XiXo6RJaTapSh5zQzl6JUqCzyKzem6k9nKPw
+	1Q+4/r++LuGIeuQUm+BtD+ukdHWYycsTSECFcpleRVUoaeHCWYzSv57MOw4m3m11
+	OLQYIHmv6MN2pSzRsf+xTgU+cIpMlhsv+hYIybwLE+iNC5aw==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e44f32jk4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 01:33:02 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-82fa860e71eso3401203b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 18:33:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1778635981; x=1779240781; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6KRwB08wa5LSCOrHplBli913U01qsOZ1SqPoeDdqIUU=;
+        b=Y/qCoL/MuW1NTImY7vr+BO5v1u5JK8C3fFTJZ87tsYtPRu/pjSdro7Hb9PoxvZkO9d
+         nr/S063yUi4keI2iQ2dTf+Snt2mpKYgmP7y9RbENPSxskQlVhzWU1sgRCAhQSacXWgeV
+         VO57+TfVzGGxzCsMg86KGjsVe74Wcj52EfvensinJ58Wz02iWOWDeevygopyrsysvv5A
+         A1ydfgjYLOOKYvwDPxttu0Sy500566eFL054YZa3e/VKa3PHn0TXVJyNXz26L8aaQMDK
+         J1VIEK5ulb6hHYAu6f8XB3GvA/u2z+Ht/cQHlmNBuZLtg8ZRmXABvS7ov1JzqDHRSWoL
+         n9Hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778635981; x=1779240781;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6KRwB08wa5LSCOrHplBli913U01qsOZ1SqPoeDdqIUU=;
+        b=gQzYGSbbGYJkm3phTJYEstIDh+5w7CLRcEkK4GdGZCqVbzVRkneWPwlc3N1jTQ+tEt
+         V1ii9MnMkpbIur+Nx4m4Zn8NGbjUc50k+S4IIivZv04Jf6KIDH60uYbYi84Fmzi8XibF
+         9WoiY08rRH3ZXZdkaBvhgvgX3QV3cU9+/0xvxbYE+X7zfOuvJ+pDMHSSS6ca9B9OZUFi
+         65yvnC/osV4ne8F7uJVWku6f9BIMMf+oO1yS86geVEtlSmvi9CeGddyMZ/SavBn3zibq
+         +nh0TYRDwXDD6pUh4JjfeDpgxVSapdzNPqFMqehyieDRG9BsAiV5iVjc8MRAE3fVbPg3
+         xgyQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8Em8k+3xo1yvnYT7nUNu5DckhxCx96BUyTSgQGS0Z4Ggw1bDp4rhZ97ikce3QIKZ6cQvyTtYif447Hwg8XZBDs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+kWICU9zNwjO4Iy2/tPewiVpcXQTj/5IlnR3ZOqiMe/tYngXB
+	s8yviZjx4Vws4YqiFdOes4l0U9S6+W5LmIQp9o4hscq1ALy8oCJP95PYVhrJMm3Ub3k5XMDN/L2
+	KYdppFSqk5BIaaFefk1TNCFFMzgF0sV6AZi1mKCTs33Q+ooCzmiXoXkiz28KWsBZ9FXdUIzV9EG
+	D7hTl209M4FxVG
+X-Gm-Gg: Acq92OHBUxRPm4cTwaY+H9zxsyL6bRLfZVyvaDBd3CxoHIy3MuBUwbU4hmhoN4GK7tV
+	6yqhMDCJiioQSWQQGkN0P6RxeIaUytDa2keiNvvTgBp/5naqjiY8QNT/ckGnRl2IVd35l5Sbk6q
+	hPXBfylff8MeE3k2TAX5/PI6XX0J/3eOCIRMQcss3TQwA7nAAGJrHRUoN6goFegbeC7odl4gfxt
+	G5EFlKtJBUP7HfWw+/FCmKZIdNcSMTnMCVXgmPwBhON0r/tXqyZ1EOuQYAJzsBgpk8BR8ZOXHs/
+	PXc9fb0QQFqXh9g8jpGX6Rlaz6qjPtohBTEaBUg2QZB6UHxWLvOegy/voupfw4akbx0unqkheZa
+	kUlvI89qD+iLvfEjZdlwUS/IdZ2abydAkJllgNCUvLO9ooh6Li+lttApiNm+DFJDzTt6z6bHSEG
+	eD5vKxsJBY
+X-Received: by 2002:a05:6a00:420c:b0:835:405a:7e6d with SMTP id d2e1a72fcca58-83f041e9eddmr1109650b3a.21.1778635981475;
+        Tue, 12 May 2026 18:33:01 -0700 (PDT)
+X-Received: by 2002:a05:6a00:420c:b0:835:405a:7e6d with SMTP id d2e1a72fcca58-83f041e9eddmr1109626b3a.21.1778635980998;
+        Tue, 12 May 2026 18:33:00 -0700 (PDT)
+Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-839683a088fsm24755895b3a.58.2026.05.12.18.32.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 May 2026 18:33:00 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+Date: Wed, 13 May 2026 09:32:43 +0800
+Subject: [PATCH] coresight: fix resource leaks on path build failure
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DI6dvZbBOgCmkDi5"
-Content-Disposition: inline
-In-Reply-To: <agM03CN6cX2JNu62@willie-the-truck>
-X-Cookie: Truckers welcome.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260513-fix-memory-leak-issue-v1-1-49822d7bc7d4@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIALvUA2oC/x2MSwqDQBAFryK9TsM4HxdeRbKY6Ets/DKNIUHm7
+ g4uC6rqJEUSKLXVSQlfUdnWAvWjon6M6wcsQ2GyxjYm1I7f8uMFy5b+PCNOLKoH2Dj/8tEH2wR
+ QafeEIt7f7pnzBUgjC/pnAAAA
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+        James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778635977; l=2366;
+ i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
+ bh=eyAUz1s3eo4gcawWBadiNGT5QH1Paem+sgDmcWO3pn0=;
+ b=S43pJJWKnshVyblz4uBIzxJEY37DHzyhcNQdEubzZFyUjTbySJF0sQshDClqkaa2p699hC8d9
+ vPhsrptMnhcB9SvNm7m/mo7Q5Z9v7Tt98jFrM+M9M8dPO+CTONPRdjd
+X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
+ pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
+X-Proofpoint-ORIG-GUID: JQVPF-C5JIjRnVW5QvQqRVvywTgiB79W
+X-Authority-Analysis: v=2.4 cv=SpSgLvO0 c=1 sm=1 tr=0 ts=6a03d4ce cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=JWgtPBJkhr62ReCL0bsA:9 a=QEXdDO2ut3YA:10
+ a=zc0IvFSfCIW2DFIPzwfm:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDAxMiBTYWx0ZWRfX4QNF3893AN0e
+ TjREfPhrt+xFiPDMXrbzohaGc+36ydeNHkoEdqs+34/Q0ZemVYeCkXyZMxgbP0yo2X1XhunwKfb
+ /8RQ/ZE+mPSyBuR4c2RwVm0iSFSJb7WDmNtb4mMFqQoMSWSFOvaYoGUIqxFtArP4YH4jUINDNeC
+ U++m56jHQFAK/Q9ZtezRLqMxNbfNNGIeuHt9iD2w86B8UeP+bLqFWWdd2swXYY0UOmzRVi+bn9f
+ E8zV5Lw4I0zE2MYHbpBZahkyQ02sA8VOyECv4WHr6tn7XP8JCelS8OPofCbvOqLSF3aaooV74zk
+ mLsJBjruTWqE5DTrHLmHHY/Rmjtr8REwnqkEntgK7B8eGEPLe5qB6F89csxfEIHRZo8l/tSfKL4
+ 1M22JicsT0v7krFtr7aJfG+UOrftbi0Xu5uDiQcIOccqEFeVql7UdTgXE7QGb0q9/CI7wqkNE5J
+ fOvI1wvUwXC4MvrbXcg==
+X-Proofpoint-GUID: JQVPF-C5JIjRnVW5QvQqRVvywTgiB79W
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-11_05,2026-05-08_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 suspectscore=0 impostorscore=0 bulkscore=0
+ spamscore=0 phishscore=0 priorityscore=1501 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605130012
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_183303_994165_F23870CA 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,52 +155,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Two related leaks when _coresight_build_path() encounters an error after
+coresight_grab_device() has already incremented the pm_runtime, module,
+and device references for a node:
 
---DI6dvZbBOgCmkDi5
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+1. In _coresight_build_path(), if kzalloc_obj() for the path node fails
+   after coresight_grab_device() succeeds, coresight_drop_device() was
+   never called, permanently leaking all three references.
 
-On Tue, May 12, 2026 at 03:10:36PM +0100, Will Deacon wrote:
-> On Fri, Mar 20, 2026 at 03:44:13PM +0000, Mark Brown wrote:
+2. In coresight_build_path(), on failure the partial path was freed with
+   kfree(path) instead of coresight_release_path(path).  kfree() only
+   frees the coresight_path struct itself; it does not iterate path_list
+   to call coresight_drop_device() and kfree() for each coresight_node
+   already added by deeper recursive calls, leaking both the pm_runtime,
+   module, and device references and the node memory for every element
+   on the partial path.
 
-> > The two patches here move to using a time based heuristic to decide when
-> > to reenable the SVE access trap, doing so after a second.  This means
-> > that tasks actively using SVE which block in syscalls should see reduced
-> > or similar numbers of access traps, while CPU bound tasks that rarely
-> > use SVE will see the SVE syscall overhead removed after running for
-> > approximately a second, confirmed via fp-pidbench.
+Fix both by adding coresight_drop_device() in the OOM unwind of
+_coresight_build_path(), and replacing kfree(path) with
+coresight_release_path(path) in coresight_build_path().
 
-> Have you looked at all at applying this heuristic to SME? I wonder if it
-> would help with the recent DVMSync erratum workaround, where tasks that
-> use SME once/infrequently end up causing IPIs for TLB invalidation every
-> time they run on an effected core.
+Fixes: 32b0707a4182 ("coresight: Add try_get_module() in coresight_grab_device()")
+Fixes: b3e94405941e ("coresight: associating path with session rather than tracer")
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+---
+ drivers/hwtracing/coresight/coresight-core.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-I have not done so myself, though I did discuss this with Catalin while
-he was working on those workarounds.  IIRC he wanted to get a better
-picture of the system level costs with actual usage before deciding if
-it was a good tradeoff, either to do this at all or to see if we can
-skip the timeout based approach or could just reenable SME traps
-whenever we see SME is not in use.
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 46f247f73cf6..c1354ea8e11d 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -825,8 +825,10 @@ static int _coresight_build_path(struct coresight_device *csdev,
+ 		return ret;
+ 
+ 	node = kzalloc_obj(struct coresight_node);
+-	if (!node)
++	if (!node) {
++		coresight_drop_device(csdev);
+ 		return -ENOMEM;
++	}
+ 
+ 	node->csdev = csdev;
+ 	list_add(&node->link, &path->path_list);
+@@ -851,7 +853,7 @@ struct coresight_path *coresight_build_path(struct coresight_device *source,
+ 
+ 	rc = _coresight_build_path(source, source, sink, path);
+ 	if (rc) {
+-		kfree(path);
++		coresight_release_path(path);
+ 		return ERR_PTR(rc);
+ 	}
+ 
 
-With SME it's easier because you can directly tell if the task currently
-has SME enabled so I'd expect the checks on state load are enough and we
-don't need to put anything into the syscall path, it's likely that the
-tradeoffs for doing that don't work out so well.
+---
+base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+change-id: 20260513-fix-memory-leak-issue-034b4a45265e
 
---DI6dvZbBOgCmkDi5
-Content-Type: application/pgp-signature; name="signature.asc"
+Best regards,
+-- 
+Jie Gan <jie.gan@oss.qualcomm.com>
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoD0X8ACgkQJNaLcl1U
-h9A3oQf+PsILwAYAvj4KguOQVxSaBxU0/ypimslkHq6oULGJJJ+90dOwTf0oawMH
-zR/hS4tTkas3rauaO8ej0FdFmhg9bW7SwuKjC4oKgi93JGIaemVc2GODHGmrdKiO
-gxnwcM7yGwaDKrvliGDeiiK8iWVnQ/Aw/PhTvMVOav00IcgY2tVLU1ZlSoKTtyqz
-TTITcrcxsv3a/2LxNYx6Hd9aj+/kqHbwkXiFV4YZ9Ae5tbR62DEdSXUCWAr1oJED
-sAgvgerMfwTOUcmEhkvj6eFu2cfhNdGRHdu/SB8rF/0tAHkNX2my3JmJvZpVZRKl
-ljCt5IJB7srYLXApXiORxV5U0/py2A==
-=b6pC
------END PGP SIGNATURE-----
-
---DI6dvZbBOgCmkDi5--
 
