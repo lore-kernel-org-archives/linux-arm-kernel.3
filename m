@@ -4,68 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E82CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 14:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B56CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 14:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4JlmyHDSwkIRsvpvBKpT31LPv1O4ptlHr2c6u5Zp1Gw=; b=NEzhRV7SHtsceKjgQnr4iSxNtj
-	iifa/t2P5dd4+Y1hJJOU2NW2pE6Rx6GGpU3p2K7S6nolBhnoFnCws7AHS30IXTZv1dp8RcNLgzVBc
-	32+Or1fpCn3dbgasq4qJQuczk/qo5GgBlCcyu1cBW1ufazHjaozIPKImIhJ3BPifMvFPE3TunYJOl
-	ARFyrOqqZjGBvRMzOPrYl6/YC5bdduMAiLKb921AasdXpK8m57RK+v6oXtYW9pCi9SMtfw9xhvi0p
-	5JnaTdesXcYg/Uxh6c9RP9KVKr2OBIX+ntRvvffY+osm2D3CHe4lpL+le9kV9RpuJWBpR/LC3uSAk
-	Rk3PXBUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BX5wnLHzj/bh1jkClxlGja8vikxY/qGYs3UqU0rxafU=; b=Jabb2ZuaWgb1WdaKsBQKxaDlTb
+	E9GS2VOD3dLU1GjXjrsCif0sLwzzrM83wA6EHXC8t+fhZK89jKa2yDwdmdbLNo+6ZJ4yMCh14mINP
+	2qUjKzw8YkpOsLn7fjSvcFoLoi1GgaE4SQRb4e966y4+/sm0wz/RusOaQFKjHogxm47Tmnvy4BKjs
+	GaQhzJ7cGU4Yex/9uaLEB9ensBXdAUYDXfJzMzEKhog2iUrwB/D8ZHKfqKERTt34kzQT8mGKyeBru
+	qradeBsP6n+nFuFD1YUAHFxve6R19z+O0npxEhr7dbt0ywJ9AlTYJfzjD+64Oem+e0X5UM+4MYMiL
+	KVH7LEZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAaV-00000002vqi-1ZSZ;
-	Wed, 13 May 2026 14:29:27 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wNAb4-00000002w0A-2hYy;
+	Wed, 13 May 2026 14:30:02 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAaS-00000002vpu-3l3m
+	id 1wNAb1-00000002vyA-3ps4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 14:29:25 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wNAaD-0002gm-FK; Wed, 13 May 2026 16:29:09 +0200
-Message-ID: <aeff9412-1c69-469d-bee3-7b9efa9b3947@pengutronix.de>
-Date: Wed, 13 May 2026 16:29:06 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 16/29] media: rockchip: rga: split flip and rotate into
- separate function
-To: Nicolas Dufresne <nicolas@ndufresne.ca>,
- Jacob Chen <jacob-chen@iotwrt.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Hans Verkuil <hverkuil@kernel.org>,
- Philipp Zabel <pza@pengutronix.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, kernel@pengutronix.de,
- sebastian.reichel@collabora.com
-References: <20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de>
- <20260428-spu-rga3-v5-16-eb7f5d019d86@pengutronix.de>
- <ebe5cd6689923eb1e2124e177f694895383fba54.camel@ndufresne.ca>
- <1f447423-8c63-4545-a4f7-d8d5ef821255@pengutronix.de>
- <30f56a0ac9f724b5ec1b936eec7b5b7c5e751c75.camel@ndufresne.ca>
-Content-Language: en-US
-From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-In-Reply-To: <30f56a0ac9f724b5ec1b936eec7b5b7c5e751c75.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Wed, 13 May 2026 14:30:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rbGxSDy6Ent/UL4j7dFAjyvqCFmbYEwmJPURtutT6maT/vcVLf4sMedqZLazLMFX5JEpC13pEEPRFsrdeCq0xQTvbBMXWVhSb5CMFxyBYQdyzwp9aiL/qnV4ADcVrHd1ISCn9sUH28/8dUczzb6ybccfGG+HM+J0UNnsoNIkdK0Hs4FcbqjpgknSFj9SKSUrOD1BR8Y7k3/9V9KnP4qNeSZImW4TU7qAFPyC1gAMbGhl+OCxXWyqLco7+3+v1nRyzMpbRd/Mf4D04mUknu0i9CGhYwCGmugY+AZS6Lc2EmlKJT746K6aQ7r/jexILSegyIs8S3ZhvT+Uzt9iBIYa8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BX5wnLHzj/bh1jkClxlGja8vikxY/qGYs3UqU0rxafU=;
+ b=rVg3d3yQsQaHVmBwjTXhn4ELA5gr08aFp044wv71O6vjEWJrytnURddN8DybF4+jtRZj/m4HG2KjMjzsIadBUikotG+IQQ5Qrqw4Fm4xWo3JOvTTSVIEAwQwgOK+PR3Tdk4k8d60qAUQ5wWmp1ciuMxg1jXWZsx07AhdBSwgc8ivb2UXygVPqdof7/z/V8kXAdw+9dXLKmOx9olVf10UJRtYNdtR15eu7SrRN/sl8/m7oWUvIptufI4elpdVjd2y20YyN0RgYBtWWaYOa0is+lWqc+Qf2bJzmVBNUZDE9wc3UwY6y/iAZbY+sZtUEBGnpK5tEC6JwNcFm7oWrE1U1w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BX5wnLHzj/bh1jkClxlGja8vikxY/qGYs3UqU0rxafU=;
+ b=BZNN/L2H21kb5tyZzP0emzjiokoNa5TIPkzOS3tRyjn+jfVre3FmV1aBZYCgZN5R7RwyKJABXR9sWNP1yKg2PzmwH8/O9VAPSeo4fI7Zg2QwLWuR71QWJ/NbnjVVy/tuzOUfgPQVXzKVDDuCy0f3kgYLvMgjAAr6TC0+5AO3zyVSJTf05tD2B7tFup7RyKEwF4IVdKHwOfyf30suxoImYyBo52FmRbNGH1fXo4xFzqSyDQspxV9eNfREqFDxiDGr51j8cdLNOMcD5cmuvN4AZ7lPqVJJ3SZ3pl0SU9GebF7O5J5ZEXrAV8qxWH/G1sCQ/hcZXRCP52uMemqFZBFS6Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
+ by VI1PR04MB6815.eurprd04.prod.outlook.com (2603:10a6:803:130::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
+ 2026 14:29:52 +0000
+Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
+ ([fe80::a551:cde0:6730:1d85%6]) with mapi id 15.20.9913.009; Wed, 13 May 2026
+ 14:29:50 +0000
+From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+To: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	NXP S32 Linux <s32@nxp.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>
+Subject: [PATCH 1/1] arm64: dts: s32g: add SAR ADC support for s32g2 and s32g3
+Date: Wed, 13 May 2026 16:29:48 +0200
+Message-Id: <20260513142948.640057-2-khristineandreea.barbulescu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260513142948.640057-1-khristineandreea.barbulescu@oss.nxp.com>
+References: <20260513142948.640057-1-khristineandreea.barbulescu@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-ClientProxiedBy: AM0P309CA0009.EURP309.PROD.OUTLOOK.COM
+ (2603:10a6:20b:28f::24) To AM9PR04MB8179.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3b5::20)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|VI1PR04MB6815:EE_
+X-MS-Office365-Filtering-Correlation-Id: af124d6d-5ca4-464d-d986-08deb0fc1774
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006|56012099003|22082099003|18002099003|11063799003;
+X-Microsoft-Antispam-Message-Info: 0cCs+uj+dAx0yUikJpEjwU1MTrrUiSRI4bLhAVe7Gsh0LfGDDnN2gWwfhMwoN53TE0KzVyRRfVvw2/41Ddy+CLURFI9S8U6e7lumZh4CuSRPYn47VvZzmLMGvsn+zsTpBzuUvKQpv0ZryIKaFBqkCAHzOGi+GbZ6EBAMJAwfOrUgnpUXn5725O+mvM86Kvrt9ShSxa0DHp95HXXiZ7dFZ6Uz3iybc1L5Nd32+rmEolJq48uWByXBV6++Lx8X56RoOcACtvYVBPi8GhzHlctqKif/nQ91X+8Lygkd16FlO6Qv5zH+v2DFNKwO4QrDL69oehb+KY3/fa4TSMO06/3pRVyofuykBhakszyr7V2ElbQVm917Ptd9ASoLLFci/wBufhXg+WiZM9TA+NYjqg1PBiwj4bsYnW+tSUlxNh6fqhHkVBv2DLAoBNrPGEhWmrYP8kSokAwyX5MDtkk6uGD46O1oWQeasmEsivhP0u9dxMW6NbzkB4qKJRqA3OsuYLCIf29Dg4U3rVX3JuHuW80MKTnDRI7sPksAKmmei9tXx6+ongRtaaWxAAI7Itl4opyZjxvyd2XNTQXnYe9o5eIyF5aVGw+LrZPO/1thuxtfzz4TEvuLImEHfofP8C/c9U6QcEJPJYxr0mY17LGvqo3kXVLK5nEgSx4XkbKz6DYjTDOEbVm39LF6p+UUbHuS8sh8
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006)(56012099003)(22082099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NG52elZOWDBZU2NQUzJkMVJWOHdoMFNkdVdzZEFwU0g3THRYR0tQODNSdWQ1?=
+ =?utf-8?B?ZFpReWhLM2d5ZktWa1UxQUlYVytKSHhaNGdldUtLWXF4c2VtWGRGcVp2UmM4?=
+ =?utf-8?B?SVIvMnNwOGpEcVBPQ1pmUzVDaGhFbXNkS3AwWkZzRkZVTXQ2N25kWHdLSlJD?=
+ =?utf-8?B?bzdTTTNNUDBEVW9HTzRiRCt0dWt2TTZnczQ2aHl6TnlZQjQrWjQ4QzBNc3BP?=
+ =?utf-8?B?VlZnNGhRN2RSWVJGM1ZDUldZU3NTUHQ1OUROQ1JDdUEyYncrckl2R0JNUVNk?=
+ =?utf-8?B?b0JaTnNGSDMybUFZUEJzbDJ4ZEpBWi9YWGNjbWtpTEhQL1I3ZGJ1NGdZc3pi?=
+ =?utf-8?B?dG5KRVBOK25ZMi9lRThnYkQ4Smx1TjM5R29Iek1DcnpjZmNvc0NTNGxDRGVL?=
+ =?utf-8?B?YXB4eldRKzZ2UHJPZmpOTGErL2J6ZDZOcktGbEFwTEJMdWUwVzVmaWZlOFJF?=
+ =?utf-8?B?SHNJZFQxeUpOMjR6ZkgwbXFxSFprMy9qQzN6dzQwbnBVOG9hQzVraDhzb0Vn?=
+ =?utf-8?B?cERXYkgyR1JkWFU0ZjFWR3JseW9KcXBxYTYrN1pmTXhYS0REZU1kbVBaaVl3?=
+ =?utf-8?B?cFlCUnBoN1RrazUvUGpyVm9hSDlUQXcxSVRiNlBkZTNoZEk2cGoyRlo4NEMv?=
+ =?utf-8?B?RXpzUG44TnZpYWd1RFRncDJDVEV3anFqWVRwRExRTkptTWxENzRqOVZ6OVVW?=
+ =?utf-8?B?SSs4S1RlVVpSY2tGU0lpdEtiRlNsT0VTNWFWNmhmSGtQNTRCdThSTkYwZG9V?=
+ =?utf-8?B?WGRodUcwcUtkUjNkNVZwcVc5MUhWWDZ4Mjh5QVNBQjg3VEhHbFBReTh2TzRp?=
+ =?utf-8?B?SWE2clhMdlNOZmxNbXhKU3NhTDZ2RXVtY3dydlhJeDh4WFV6UmxEZXUvMDFq?=
+ =?utf-8?B?eTBDRnYzNE85OUVvQUhjZ0tLektaS3ZTUUs2VWpXWEhYSmlKRmdZQVVybXJE?=
+ =?utf-8?B?dG1EcTZrcEpNMzVvMEduNzNYdEJPTngvMnU0Y2V3NGc0bm9BYnQ5K1BVRTVG?=
+ =?utf-8?B?NDlhMmJsb2JCT21oYW5HeGtRaVlqYUt5SFhheDFLdTFyaDFRQlB3RkRQZVVw?=
+ =?utf-8?B?RjU0cEVYN0hiY1dvMzJFcVNhVW5ORFdkNGxXNEtrdTk1T0VneTZxUDhMZWpn?=
+ =?utf-8?B?Z1NWbWU2M0ExckYya0pYTCt0WFMvUWRydjk1bUtRRDFMQ3VtQXhFTkZKQWhr?=
+ =?utf-8?B?a2NOb0tvSUZkbFZYZ0FuajZ2WjloZjUzNVJLYTBxWDh4UXNrZWtGc1llWi9P?=
+ =?utf-8?B?VVNDZzk2ZWlUbk15WStINml3RUNWa0pjRTNMN2t1d0YyYnZVMWZIOFhxRFUv?=
+ =?utf-8?B?YlhxdW1ZOGhHYU1mbmxQdHYxdzNjVnB6d0phRGNSdEZNV3I3eFZPajZGclZ1?=
+ =?utf-8?B?Nzh5VHQ3R2lGTmttdDUrSWRUb1dPdCtYM2MvNW9taUo0MHA2aEJnZExhSURN?=
+ =?utf-8?B?V0ZZbXdZR2VmWFhYdGR6QXQ2UFZyVEtIVzBpQXZyVU94aU1jemtoYnRrQ3RS?=
+ =?utf-8?B?eVdIMHcvSmlsM2N5L2kzOTNMK0FFdHRYaXdIbS9vVm0zdGwvZGxlYzEram5R?=
+ =?utf-8?B?bWE1Zi82SnFRSXFkT0o4RjF3Rk9EaUltUmhCOVBabFNUWjFpYzIzV3RSV0k5?=
+ =?utf-8?B?OWx2WXdjcmZsVGRrNnJNdGZiY09zc0pCZStqMCthR29qclgwUXFIVzZHdmxo?=
+ =?utf-8?B?YkpTUEQ3K09vUXBVa1hHWmxYSm8vcm5hbDZJamMrSENuN2JFdmJmNm95VFp1?=
+ =?utf-8?B?bHBGU2NqUE9QOXAwZ2pvV1pNL29ab3pNWDFIcVhGQmUxWHpIK3VFR0t4U0hS?=
+ =?utf-8?B?WlV1S09Vc0lMRlhSZXdWY0J5V3dveitocElsa1gwZndkdjZKQmlMclgvQ1BT?=
+ =?utf-8?B?QWtWWHlObjlyVWpiYXVkQ2RtM3VDVnczcGFVY2owRG5mb0wvUnRpblg0TGVp?=
+ =?utf-8?B?andGbDJiaklDQzcxdVBCa3loWHduV2YrR3c2ZXZESllFVjJ6dkFjemZxOEw5?=
+ =?utf-8?B?RmVGQnBMNlB1Vml0cnJUOVc4TzRjeWpsUzR0WUluSmtIOGhxQ3V2WG8vSWNF?=
+ =?utf-8?B?ODVPR0Z0VU0ybEZHQ3U3dnRxNndwcU1ydHFjdEV2MjJqYTNBTitPVVYwdSt6?=
+ =?utf-8?B?UlRlZ2FDMm44dTcyRVlFNFd6WThaWEMydnhSa25FdCtkRDNhRDZ1RHlJZ3lw?=
+ =?utf-8?B?UEN0a3lZNWN1OW5JYXovYU9rV2w4SGdRUllaa0xXQTJxRFNubjhlSko0SFVu?=
+ =?utf-8?B?RTFHL1pHTTZuVnVTa3RHbGRoaGtBU2NhOXhENmNBZEZacnRvODF1TmpMMlc3?=
+ =?utf-8?B?L1RvNE9iZkdERGFGUUxtUk0xRVU3eUFFbVZsYVZzcnNxQUJNenVrSlZMUHUy?=
+ =?utf-8?Q?mjnHbGrKjlxj34VsjSWVhjmNWUoBMmtQOjzjS?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: af124d6d-5ca4-464d-d986-08deb0fc1774
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 14:29:50.5989
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mr5S+3KGKqDyUcDOyWXKWhZg+/VgRVYhVmin0VLQ5x4/0eEqCnsVF4yWpMLOz3t+VgjMxH/4nLmG8cLPeTx581h2A8SOT6sRls7uE9sxqmtnCb+feb9p6an33eLMmzRq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6815
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_072924_930089_5434DC1A 
-X-CRM114-Status: GOOD (  23.31  )
+X-CRM114-CacheID: sfid-20260513_072959_958319_F7B17ACA 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,160 +164,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicola,
+Add ADC0 and ADC1 for S32G2 and S32G3 SoCs.
 
-On 5/12/26 4:15 PM, Nicolas Dufresne wrote:
-> Le mardi 12 mai 2026 à 16:08 +0200, Sven Püschel a écrit :
->
->
->>> To stick with the spec, the capture format needs to be updated, and it needs to
->>> happen in a way user can be able to read it back for the correct frame if
->>> userspace make use of the queues. I see 3 options, let me know what you think,
->>> or what is later implemented if you already thought about that.
->>>
->>> 1. Synchronously update the capture format width/height, document in the
->>> respective control this behaviour, leaving to userspace to remember which frames
->>> the change will apply to.
->>>
->>> This works nicely for this type of HW, but would be a bit complicated for a
->>> deinterlacer, since the buffering might be HW specific. It also make usage of
->>> queues harder, less independent.
->>>
->>> 2. Force a drain/stop/start for any 90 degree rotation
->>>
->>> This might impose a longer idle time for the converter core, and is kind of
->>> opposite of your commit message. But requires no spec work.
->>>
->>> 3. Emit SRC_CH, implement the drain procedure typical to decoder resolution
->>> change.
->>>
->>> Typically it means userspace can keep buffering on the OUTPUT queue, and once
->>> the LAST buffer is met, it can simply read the new format (and new stride, since
->>> due to alignment, this might be hardware specific) and toggle streamoff/on only
->>> on capture queue to reactivate the processing.
->>>
->>> The 3. is more complex for the driver, but its a proven race-free method for
->>> decoders already. 2 would be statusquo to get this series in, and we could post-
->>> poned more advance work for seamless 90degree rorations. 1., I don't really like
->>> that solution, it not quite generic enough.
->> I'll go with option 2 for now to keep it simple and improve the status
->> quo a bit.
-> Works for me.
+Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+---
+ arch/arm64/boot/dts/freescale/s32g2.dtsi | 24 +++++++++++++++++++++++-
+ arch/arm64/boot/dts/freescale/s32g3.dtsi | 24 +++++++++++++++++++++++-
+ 2 files changed, 46 insertions(+), 2 deletions(-)
 
-Philipp Zabel just mentioned that a 90 degree rotation would just cause 
-the RGA to scale it to the output format (deforming if it isn't 
-quadratic). The existing code already considers the rotation to set the 
-scaling factor accordingly (which I've also missed in this commit. But 
-the commit is dropped anyways in v6 due to the various footguns).
+diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+index 51d00dac12de..e69bd6222511 100644
+--- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+@@ -3,7 +3,7 @@
+  * NXP S32G2 SoC family
+  *
+  * Copyright (c) 2021 SUSE LLC
+- * Copyright 2017-2021, 2024-2025 NXP
++ * Copyright 2017-2021, 2024-2026 NXP
+  */
+ 
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+@@ -554,6 +554,28 @@ i2c2: i2c@401ec000 {
+ 			status = "disabled";
+ 		};
+ 
++		adc0: adc@401f8000 {
++			compatible = "nxp,s32g2-sar-adc";
++			reg = <0x401f8000 0x1000>;
++			interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 0x41>;
++			dmas = <&edma0 0 32>;
++			dma-names = "rx";
++			vref = <1800>;
++			status = "disabled";
++		};
++
++		adc1: adc@402e8000 {
++			compatible = "nxp,s32g2-sar-adc";
++			reg = <0x402e8000 0x1000>;
++			interrupts = <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 0x41>;
++			dmas = <&edma1 1 32>;
++			dma-names = "rx";
++			vref = <1800>;
++			status = "disabled";
++		};
++
+ 		swt4: watchdog@40200000 {
+ 			compatible = "nxp,s32g2-swt";
+ 			reg = <0x40200000 0x1000>;
+diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+index e314f3c7d61d..1d48d8c47767 100644
+--- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+ /*
+- * Copyright 2021-2025 NXP
++ * Copyright 2021-2026 NXP
+  *
+  * Authors: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+  *          Ciprian Costea <ciprianmarian.costea@nxp.com>
+@@ -617,6 +617,28 @@ i2c2: i2c@401ec000 {
+ 			status = "disabled";
+ 		};
+ 
++		adc0: adc@401f8000 {
++			compatible = "nxp,s32g3-sar-adc", "nxp,s32g2-sar-adc";
++			reg = <0x401f8000 0x1000>;
++			interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 0x41>;
++			dmas = <&edma0 0 32>;
++			dma-names = "rx";
++			vref = <1800>;
++			status = "disabled";
++		};
++
++		adc1: adc@402e8000 {
++			compatible = "nxp,s32g3-sar-adc", "nxp,s32g2-sar-adc";
++			reg = <0x402e8000 0x1000>;
++			interrupts = <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clks 0x41>;
++			dmas = <&edma1 1 32>;
++			dma-names = "rx";
++			vref = <1800>;
++			status = "disabled";
++		};
++
+ 		swt4: watchdog@40200000 {
+ 			compatible = "nxp,s32g3-swt", "nxp,s32g2-swt";
+ 			reg = <0x40200000 0x1000>;
+-- 
+2.34.1
 
-While I see that the V4L2_CID_ROTATE docs mention the need to set the 
-format according to the chosen rotation, it feels like it's intended for 
-non-scaling converters. So I don't see a problem to just allow the 
-current state, as the user has to adjust the format anyways if he isn't 
-interested in a deformed image (instead of blocking this potential rare 
-use-case).
-
-But I'd add a check in my scaling commit to also check in the streaming 
-state that we don't set a 90 degree rotation causing the scaling factor 
-to be exceeded (e.g. 1x2 -> 1x32 scales by 16, whereas 90 degree 
-rotation causes a scaling factor of 32).
-
-Sincerely
-     Sven
-
->
-> Nicolas
->
->> Sincerely
->>       Sven
->>
->>> feedback welcome,
->>> Nicolas
->>>
->>>> ---
->>>>    drivers/media/platform/rockchip/rga/rga-hw.c | 57 +++++++++++++++++-----------
->>>>    1 file changed, 34 insertions(+), 23 deletions(-)
->>>>
->>>> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
->>>> index dac3cb6aa17d3..6c1956b04f6ba 100644
->>>> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
->>>> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
->>>> @@ -156,7 +156,38 @@ static void rga_cmd_set_dst_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
->>>>    	dest[reg >> 2] |= 0x7 << 8;
->>>>    }
->>>>    
->>>> -static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
->>>> +static void rga_cmd_set_flip_rotate_info(struct rga_ctx *ctx)
->>>> +{
->>>> +	u32 *dest = ctx->cmdbuf_virt;
->>>> +	union rga_src_info src_info;
->>>> +
->>>> +	src_info.val = dest[(RGA_SRC_INFO - RGA_MODE_BASE_REG) >> 2];
->>>> +
->>>> +	if (ctx->vflip)
->>>> +		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_X;
->>>> +
->>>> +	if (ctx->hflip)
->>>> +		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_Y;
->>>> +
->>>> +	switch (ctx->rotate) {
->>>> +	case 90:
->>>> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_90_DEGREE;
->>>> +		break;
->>>> +	case 180:
->>>> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_180_DEGREE;
->>>> +		break;
->>>> +	case 270:
->>>> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_270_DEGREE;
->>>> +		break;
->>>> +	default:
->>>> +		src_info.data.rot_mode = RGA_SRC_ROT_MODE_0_DEGREE;
->>>> +		break;
->>>> +	}
->>>> +
->>>> +	dest[(RGA_SRC_INFO - RGA_MODE_BASE_REG) >> 2] = src_info.val;
->>>> +}
->>>> +
->>>> +static void rga_cmd_set_format_scale_info(struct rga_ctx *ctx)
->>>>    {
->>>>    	struct rockchip_rga *rga = ctx->rga;
->>>>    	u32 *dest = ctx->cmdbuf_virt;
->>>> @@ -219,27 +250,6 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
->>>>    		}
->>>>    	}
->>>>    
->>>> -	if (ctx->vflip)
->>>> -		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_X;
->>>> -
->>>> -	if (ctx->hflip)
->>>> -		src_info.data.mir_mode |= RGA_SRC_MIRR_MODE_Y;
->>>> -
->>>> -	switch (ctx->rotate) {
->>>> -	case 90:
->>>> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_90_DEGREE;
->>>> -		break;
->>>> -	case 180:
->>>> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_180_DEGREE;
->>>> -		break;
->>>> -	case 270:
->>>> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_270_DEGREE;
->>>> -		break;
->>>> -	default:
->>>> -		src_info.data.rot_mode = RGA_SRC_ROT_MODE_0_DEGREE;
->>>> -		break;
->>>> -	}
->>>> -
->>>>    	/*
->>>>    	 * Calculate the up/down scaling mode/factor.
->>>>    	 *
->>>> @@ -431,7 +441,8 @@ static void rga_cmd_set(struct rga_ctx *ctx,
->>>>    
->>>>    	rga_cmd_set_src_info(ctx, &src->offset);
->>>>    	rga_cmd_set_dst_info(ctx, &dst->offset);
->>>> -	rga_cmd_set_trans_info(ctx);
->>>> +	rga_cmd_set_format_scale_info(ctx);
->>>> +	rga_cmd_set_flip_rotate_info(ctx);
->>>>    
->>>>    	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
->>>>    
 
