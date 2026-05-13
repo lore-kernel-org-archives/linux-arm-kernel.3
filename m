@@ -4,93 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00292CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 05:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36655CD37B6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 06:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E6lsTS2bThXFNqKtA/Z8FkqMfRb5iPzxNdnamFjvzQg=; b=JqkbAHE/HGh1234HXgXYN8fkJ0
-	jP0aN81m5qJHsXELgYOenCwZiYiXZyAfdNCHc3RoufVrJfs04w0nrVaBOndNRSzKyGsYOjq4ELrWq
-	qfn0WD6FhycCXfBR7FKxQxhrcIcY/AzcIEDWkR9p403Yv8LQjJ7ym67d4ksgmP9NLWRjPl8PvXkST
-	eRTorbunFAsc7NznEmMBQSPufJ/7qTCWbYYmwoocC5/yu0UDPFoaM1UaAMmlyaIN1Om4ljSVCrtJW
-	9D8PS6A+B+0iU+fLzXD7gbNYJiOMl/HHpo5HjwC0NHbpiOJWOSzRddkDBIf8u+eHUUDz8o5HvoHNW
-	iGeFUgtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J80QfQDkMBEJElE7VsvGgWOfTV4inxrtLIVS9WrKCSQ=; b=TguW2apVXl7GSAN33CYUvIB93W
+	6YTOBBHOojXvkxKU6fKJ0B/pP1dfgRxrgQoOueKiqjcnSWNEQnG0Sx4fsFSHUt0Y5huw94gSzMNFP
+	7HZ1mO7PfcezKxsppoj2RN7T7Y3hU7Ap4nlbTsnnp5bqX6j969graa4/fyZlCPuUgxYXnAolS/XB3
+	div//WoWeSZSgNT/Ving14EcSKMOUPpKKpjYKJn9Iso3zod8usphZLa9kAhBJJMfwOUX/HFoPA1J4
+	NrntyoQjz1Xuv5w8Dk07aie+qj/CNaP6YfAiYFGBNxEFAA23WW7bz5WutCk1xJqSFvTLiSUM7HQDQ
+	kTWkMPgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN2aT-00000001O5J-0agx;
-	Wed, 13 May 2026 05:56:53 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wN34S-00000001Qw0-0OWk;
+	Wed, 13 May 2026 06:27:52 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN2aR-00000001O3W-0x8R
+	id 1wN34P-00000001QvE-1zyB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 05:56:52 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-367cbac9cb1so4128306a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 22:56:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778651810; x=1779256610; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E6lsTS2bThXFNqKtA/Z8FkqMfRb5iPzxNdnamFjvzQg=;
-        b=UTzqrglYmtBkQ31RMpMMOlDBu6Ghl4qMXjjdSWTCL8ssYfCGYTCHEL55r3RyOMHze6
-         ktZcHPQMpn7YW2LMMsrVwtQuHxqP6jBF+RyEp+G5mOyaVf81B2HY3+AxFq9M9jpJ6EA4
-         /PpX70GIYcZ4GN8bMJo3YOalqgmcwBlUyxVldihGlWtViVgpLVFLKqqcdIM6q7gdw4A6
-         +kRW3QDbWrm2O120V/fKRdIlZBBdRATaNnaZvQ/lU4Dk7Kiz+ev+HsMgNWrm8r14gtVm
-         UapCqkKl+v4tkT7YEbyJ+RVx5gPJXzMHPSrlatNqpqffDZocm7kFK49F5wOT4xAQyfN+
-         jOlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778651810; x=1779256610;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=E6lsTS2bThXFNqKtA/Z8FkqMfRb5iPzxNdnamFjvzQg=;
-        b=dOsL6DPrf9Jos8KeQzBgeBRvaZtZ5H92HRa8F518rTRlKxDrW7Eyz3G3FZGxwPAq4w
-         38JfH5+Ut1YQ01PZZutKefDq/RjbjnC9eiDPFExDetjsTotj2r4D8oGdr518spwndjlX
-         UhLYaclcoSQkDjjj7d/GoiT7deVRvcOKZCxY0rgFdpWhyQPdCub6Hw9WcEwQjYv42cT5
-         lo27X5d9j5cQWmnMhzeSbNp+26yOLXxXOtykd+mIoUYQuDueckK+mzGeuqlXudr9+h38
-         OvXN3kfW93ooxhfrEJ8SQego2p4a/Dblu+SC4i9mKUm5F/SROue0TZfqGzPbI+nZFZ5I
-         uSqw==
-X-Forwarded-Encrypted: i=1; AFNElJ8PtwFdLI3mCKwaKEZNdWV4i3r/7mKqQus80IEmDci6Q/XFHfZwDIbVc95kPfsXc5xrc7ZNlZE0JLQfLRBezZgS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwETLUXgPaJC4c/Rvz0Lk7H1ybEUc95j/iXniB9uUVok93z46jg
-	KDv3c43LqYR6BheK96BQzJXCdf08eqXPZ5cl7rsXtZLi46EH4o2/T25q
-X-Gm-Gg: Acq92OGDLLEctRYLNlpC9y3/JspPthkztgCUnzisfMf4YsSSVni1NRqWHf4Xk1cIOBL
-	NA+CzIMbx95fhQmp4CjgN2tjmXRzauz2lZYvD6p32BYZDKYEaOn9kpW9b5Neu2adLhYOXiIsZgs
-	z/25LWM5SUw18rlq9bCoWrQsZ3m4eDUkkiSbM6XzMyYB4oEuyCqMeHfLFupa9VKT+6ONJ9zP0f4
-	tzbEQvW1cbPyMgrhb0gSeEOMEbvX/+MECLq9VFtFbcNYPGrb9PvEDlZ9axGF3ybRQfvAorb4XCN
-	XwZTAHprUAzuaIi+WLUR68uruIxCwQdE2s5DFaez+hf316vS4jFILKjGpUtS+vb/F7OxJeNtjxK
-	DR1XrWiLjO0BG5msxRqTHdM37p7UfyhfGHMKP7iChaqi0mjKCpdTygakaf4byCzD1oOZqMy5BYU
-	crn6i+sCx5cplOTpNm3G+lMsZNpiUdl2oLCbe6iAiZRcBG8dWoi+rtbpbeXPtjCnpmNmLkcRjCp
-	9wzuZ/djaaJ
-X-Received: by 2002:a17:90b:524f:b0:366:469d:98ec with SMTP id 98e67ed59e1d1-368f799454bmr1558490a91.13.1778651810384;
-        Tue, 12 May 2026 22:56:50 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-368ee32822asm1785492a91.12.2026.05.12.22.56.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2026 22:56:50 -0700 (PDT)
-From: Joey Lu <a0987203069@gmail.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org
-Cc: ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	yclu4@nuvoton.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v2 3/3] clk: nuvoton: ma35d1: fix ma35d1_clk_pll_determine_rate logic
-Date: Wed, 13 May 2026 13:56:26 +0800
-Message-ID: <20260513055626.1070533-4-a0987203069@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260513055626.1070533-1-a0987203069@gmail.com>
-References: <20260513055626.1070533-1-a0987203069@gmail.com>
+	Wed, 13 May 2026 06:27:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FwGUvHBXKGYoEhYE0fmDbS2RCdiXzp86+M1THcmnbkC2i8w5p69Vkf2vg7QmQbC7haLQrJIj57xWYQYH0G5RO32VOuakKyCdbff4cISy6cD3JXbU+ORQcycWav1NcnNurqATbSUwcQLF+qjb3D4LDHSj3w6AqvPAT8DWP29KxPqtfGTuijOSl15Ph7BAPOoGDw2L2jdCrc8J+VrJ4VlVA8+9XozggPGwkipZJvfRC8XvtKQ2X/6oPi8tPlz9wgYJSS+mFgR2Zdjv/dHnpxOrQEpeHuiBHloH3CkdstC1iN1MIe/EjSqx/L8j98+1JpBG3F4NWY92jcAGNlmPEZv+KQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J80QfQDkMBEJElE7VsvGgWOfTV4inxrtLIVS9WrKCSQ=;
+ b=shLOo0dlxUavgNgZex8Bpz8O+DOt7HKSx8F1r3q2a+kL6UlwEjKgM9enQt7D9iXKbCHTSCfTOhEY0k1lCXAcRPxb/42jYOFvXydhNmkzn2SGDSYX0B3tlegATzZzkIeOomW9TVk6trKQq/+vrwXnrrtMa0Ql/qwxpkaVDe+TvV4tgZLV/4nehExs2FA8wksjHOJjbKAXdgewZ1EjsFqcYTxN8LS6l/g8a/FlwpR6bjo5LjueGG7CmRazLA9hC3Pq0dXA1d2y+yI76kekQ1KNyR3rkNphMVhuBsrze7i/JN43vz7G/mMeFzjf6O9vedUlP/DQm5Lbmm0Q+gD9wTDEFQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=J80QfQDkMBEJElE7VsvGgWOfTV4inxrtLIVS9WrKCSQ=;
+ b=kWXa3WQpoHqHi6CDVDhUQh+HjJzySNcBlHzE0b/8jcv9kc4V/+wZHGcdNwj4q6/01zdOZEyreQSozAtQDLTpWeXzFZbEl4R4GRkT+WnGcPNfLx7XtFo2WyQLV5MKn74NiLfqw9DFHpzmYubUcEFWd4xXuTqVLC+H/XeWUunXjJ3DN7gxaIhluQaX3kZVxH04c1aGCCWCm+32g7WBh2F3p6MjKhH910AyqkGVKXs3t7aImqhus+79jowMDS565edK34PxwXI574D/NCw8riowo6fak6q369jyZh25PURJAsHXzCN6YZqSv5vrDq1q3RFoj7jvpK8CXjsJwnO284KxbQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by PAXPR04MB9668.eurprd04.prod.outlook.com (2603:10a6:102:243::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.21; Wed, 13 May
+ 2026 06:27:42 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%6]) with mapi id 15.20.9913.009; Wed, 13 May 2026
+ 06:27:41 +0000
+Message-ID: <3b1c5579-a9de-4955-ad3c-df3f8c1860f4@oss.nxp.com>
+Date: Wed, 13 May 2026 09:30:56 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] remoteproc: add helper for optional ELF resource
+ tables
+To: tanmay.shah@amd.com, Ben Levinsky <ben.levinsky@amd.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ linux-remoteproc@vger.kernel.org
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Patrice Chotard <patrice.chotard@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20260511211841.284809-1-ben.levinsky@amd.com>
+ <20260511211841.284809-4-ben.levinsky@amd.com>
+ <3b7f009c-dc4b-4fc0-becc-4d07eb4ff016@oss.nxp.com>
+ <9e3a88d9-1679-43ae-a96b-62a29bd45d9d@amd.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <9e3a88d9-1679-43ae-a96b-62a29bd45d9d@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0197.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e5::7) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|PAXPR04MB9668:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3d447fef-cecb-4607-d46a-08deb0b8bc86
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|19092799006|56012099003|22082099003|18002099003|11063799003;
+X-Microsoft-Antispam-Message-Info: qIjv4+9lAOJxjodOP1VquSqIumo2bhnjDSGbVKvIdmGq70x57Y8ngZjDavyOG9Z0s5NqO4UBW/Rs0gy9F+MBcFNt4I2BQzb2olyGbUpUJO+xOaqKONNsbGTvQaMztrsOzxfheB3NgAnvc9c+P+oTA3qDVCyxCZw8HV7w6JKR76fr0sGhey2y4fUgkgxF1DsUrRf1FqWljf6dqIeuCLJOzsUEXD9jQ1CsnipeMkW2mJN/TeWX4aNmw7uT4MSTNgPeXMaoyhptA+1E0YLRpLhrgu+i8+94ZJShRcdOjE3sMf20bmbpBJAYiJhDuWij7E6nxdRq6JTFt1JJWpv89ZBEWK+OaCfvJ4KfNmf1MPNOpYU1OLSa7ilCE5SxDOsF95zCW1vlE8LAUH5CYTPOyFRm8vyW9+jIynpwdbnr1LIaH5L+ca2ab1TgoLGkkCXVZg50J15Wszt2YahPTyju9LU2tWtXesP6zoovGUBqd2p16qVPHZsXrU/Q7qwwF1Xi0SBlXX5nhb08t+sENAUy5ISUPI/o3K9z9EBmWlU4XzZCaVwZW1yi+ZPikBrETAJsMiq1xGSTaspWVLZLA5D1R/ncA2XM9CT2jVAYfZlESP4m+LKw7e3AlgarHcwf1Os9rtBsmme2gsWsQMd3pVoa6OkjUgEQXPxGelt9+aRLA/0ir7YT8FbLXNB4tFw/K+LMsdQY
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(19092799006)(56012099003)(22082099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eE9OcWNUaGR6bFFtdTVmZzA1U1FySXQ0OFAvdko0WnJsa0J1OFJoU0ZLTndZ?=
+ =?utf-8?B?T1pJMGNQVmJKUWxjOFY1S0ljR1gyWDFzQ2xhN1ZmeXFLc3JyU01DQWhGa08r?=
+ =?utf-8?B?TWRjb25yMnlWZk5QR1NNc3pqQVp5emdiZy9rU2E3d2NEc3FPcGsrT2tjYUwy?=
+ =?utf-8?B?OW5KTzZrM2xjVVZIcGlOTFlJMnJ2OEFUOFVFMlg5d3RGNGsrZmt5TTRMRldq?=
+ =?utf-8?B?c1pTSkFicTk4SDNyUU9TL0wzRk84RVhqME54R3I0a0Yrc3QxcTREUmdhendu?=
+ =?utf-8?B?cmpDY3RiQmJKQXJIb3hRRnVZbGdGZ3pqZitiMDZ3c3Q1djkxWFd3cEc2SEU5?=
+ =?utf-8?B?SGs0UHl6c0dXbzExbnBjRjh4YlRRK09FL0tRMWRPMHBOL2tMZnowWklrZUxj?=
+ =?utf-8?B?Y2lyS0lFOGh4WGhhRThSZERFcmxMZm1rU3V6SDU4U29EYmFuYzNNT2NxbU9K?=
+ =?utf-8?B?TURkeWZNVS9JTWp2c2p0M0JFMU5Qd01TSXZOWVd0aXZlclVNck5RaTZRUzlD?=
+ =?utf-8?B?czJ4SWpqWVhBVkh2MlVQcC9HWEM1OHp2Y2pHWk96UTVCMGg4aVJhT2RXNENq?=
+ =?utf-8?B?b1ZMdkVYL2pnM0JyK011eXk1MGo1bE40RmhjN3o5UDhoRERlRkhvRGZnWFZq?=
+ =?utf-8?B?N1JlRVBrQjZ5djZoYmZPcUE0SFZvaVdyN1hwT0x1MldBWEpiaXV2MVZPL3E2?=
+ =?utf-8?B?RXM5RWZCNWx0WDdMYnl6c0JZNDlJUDdtL3hJRTJDWUppZCtaOTRNemhZWVRB?=
+ =?utf-8?B?Vko1cTQ4NnpwbCtEL3IyN3grWVViRE12TFJEdC84alJRY05JcllIamFJQys1?=
+ =?utf-8?B?RjJuOW1SNnRmVC9qUmx4VHhLVGJrTFljWDRUTGVnbDFvZXYwakdhejB4akQy?=
+ =?utf-8?B?VWNnckFFUVJMSnlhV3ZobjlWV09KV0dWSkRlNEtpOWpTRmV0c3lQUDY4LzMw?=
+ =?utf-8?B?bWhLSVJVN0VXZmV3SGxURkR2Ykp1VnhadWJpNi9EK0VXNVlvTU5iZDJUMU9r?=
+ =?utf-8?B?OE9YcWNkYmhIZVU3MVlIamQ1LzRUcU9jQ0loM0RHdjJxZXRZWGNDbWN3VlU4?=
+ =?utf-8?B?a3M3dFVCNkg2Z3hTQ29lTmxDU09CTFdjaW5PdXFQQzJ4dlpYK0ltb2VEK1J4?=
+ =?utf-8?B?akNUNGFEakJzNDBlWUNDWmxBSk5OVlRRVEdTaUdQN2h6S2J1ZkllK0VwRENQ?=
+ =?utf-8?B?RkRWbjg4YStQM1A5SHoycVVOMmdoMkxveXR3Y2dhRDAxbnBTNjVDZmtCYWFs?=
+ =?utf-8?B?V3V0S2FKVEZ0MFIxUi95NzVoT3Y0Sm1ONHUrTDU4NXZVQzZ1TmdlY0tVYWQ2?=
+ =?utf-8?B?QlRUWmhaNmpjbGQwUksxN1RSUEVxb2NCUmFkTTRCWFhWdGZIbjl0aHVuNngr?=
+ =?utf-8?B?V0laR2JvN2l5OWlhTXNiNU1XYysvbVYvcTdTdXRnOXd4Y21TeHRWNUZDb0xi?=
+ =?utf-8?B?UUNGRUJvMGJSN0RLTS9YZW8wKzFUZjFLZWswbHJBQUU1VkFsZUNtSm9odVdE?=
+ =?utf-8?B?QklyV1NvR0NNa1VOeUtoSUZ0S1kvSElsRFd2SmRNb3VBbHo0c2lxSnVsanJO?=
+ =?utf-8?B?L3htTFlRN2pxY29yQ0xHREFtUUNoSklnRW95enF4YkpOVVNXY3NkWU1ZK29s?=
+ =?utf-8?B?WUxDK0c1Y29PdG5VMGpJcEFKaDRJcU4rSGJlV0ZaR2tVN3B2cUpwcko3YkRz?=
+ =?utf-8?B?Ym5rbEJ5N29rSVJQNm5BM3FJMXBNWFNiWkorUm1GZndFREhQTHpqczZmU0JV?=
+ =?utf-8?B?bHh3MytHTHdZaWZCanV5YXhVNmhreXplNUpwMmxnejBTeGFaSTNoVXZZL1ZD?=
+ =?utf-8?B?NlpCZVNKZjYveUlqVHpFczEvZ1RKZzFBamQ2Y3FSTzJ1d1B1dm1KUGRnL09K?=
+ =?utf-8?B?Q1p0QmRIRWhsWnlxYk1Ydld1aWxCMXFVSk9ROTUzamczODY2RWlJL09JUHk1?=
+ =?utf-8?B?SmFKazk4SU9FcEd1V0V3N2FpcjZMbkxCWXV4d1RRS2NJWGxtOTQ2TkJpRkhq?=
+ =?utf-8?B?VEp2ZHF0ZjQzdTJlZnc1ZUdxUUtkWGx2ejFjRFpaZkEvOVdXbUZJb3oveEJB?=
+ =?utf-8?B?aHQ4OFRFdUo0VE53V1V6a2l6NjBMN0FKR2dIblVQUFROTytHSWo1bFI1d05a?=
+ =?utf-8?B?Ny9wSG5kZTREVFNGQ0IyU29FQUFabllENkFQL2VkRUk4aWtudlhYVlIrYWVW?=
+ =?utf-8?B?elBzcjM2ay9qY00rZklFTEM3cHdJTUdUSDc5bHM3L0RKcHNuUnBmdWRHdmxR?=
+ =?utf-8?B?Ykc2VTB1YjNVT1hPeVpvWmRiS2VTbnN0MDZKQ2VCaGZROWVURE0zQWQ3UW5h?=
+ =?utf-8?B?amhGTU1YK20yeTdwbEZLektwN01heCtTR0h3K0lUc1Fkb2ZScTJiQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d447fef-cecb-4607-d46a-08deb0b8bc86
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 06:27:41.8582
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ze3WeO+jJfc3mOuvZiDvAUjardt/AyoaKmQfRytBX3fTaOIujDrpZPuAS0YbzaxgRUWMFSx1LrOebjccrK2JRA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9668
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_225651_271631_590E2B0B 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20260512_232749_531196_866741F5 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,76 +163,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ma35d1_clk_pll_determine_rate() called ma35d1_pll_find_closest()
-unconditionally before the switch statement, and then every case
-branch overwrote pll_freq by reading the current hardware registers.
-For CAPLL and DDRPLL this means find_closest() ran unnecessarily
-(and incorrectly, since those PLLs are read-only) and its result
-was silently discarded.
+On 5/12/26 17:53, Shah, Tanmay wrote:
+> 
+> 
+> On 5/12/2026 2:55 AM, Daniel Baluta wrote:
+>> On 5/12/26 00:18, Ben Levinsky wrote:
+>>> [You don't often get email from ben.levinsky@amd.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>>
+>>> Add a small helper around rproc_elf_load_rsc_table() for remoteproc
+>>> drivers that treat a missing ELF resource table as optional. The helper
+>>> returns success on -EINVAL and propagates other failures unchanged.
+>>>
+>>> Signed-off-by: Ben Levinsky <ben.levinsky@amd.com>
+>>> ---
+>>>  drivers/remoteproc/remoteproc_internal.h | 12 ++++++++++++
+>>>  1 file changed, 12 insertions(+)
+>>>
+>>> diff --git a/drivers/remoteproc/remoteproc_internal.h b/drivers/remoteproc/remoteproc_internal.h
+>>> index 3724a47a9748..dff87e468837 100644
+>>> --- a/drivers/remoteproc/remoteproc_internal.h
+>>> +++ b/drivers/remoteproc/remoteproc_internal.h
+>>> @@ -146,6 +146,18 @@ static inline int rproc_mem_entry_iounmap(struct rproc *rproc,
+>>>         return 0;
+>>>  }
+>>>
+>>> +static inline int rproc_elf_load_rsc_table_optional(struct rproc *rproc,
+>>> +                                                   const struct firmware *fw)
+>>> +{
+>>> +       int ret;
+>>> +
+>>> +       ret = rproc_elf_load_rsc_table(rproc, fw);
+>>> +       if (ret == -EINVAL)
+>>> +               dev_dbg(&rproc->dev, "no resource table found\n");
+>>
+>> You are changing loglevel here. Initial drivers use dev_info or dev_warn. At least I'm used
+>> with seeing this messages in the logs. 
+>>
+>> So, what do you think on adding at least dev_info to this instead of dev_dbg?
+>>
+> 
+> Actually can we leave that choice to the platform driver ? There are
+> many use cases where the remoteproc subsystem is used to load and start
+> the remote core and the firmware doesn't have the resource table. We
+> don't want to make info level log for such use cases, as the resource
+> table is not expected in the first place there.
 
-Fix by moving the find_closest() call inside the APLL/EPLL/VPLL
-branch where it belongs.  Group CAPLL and DDRPLL together as
-read-only PLLs that simply report their current rate; handle them
-with an explicit if/else to keep the CAPLL (SMIC design) and DDRPLL
-(standard design) paths distinct.
-
-Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
-Signed-off-by: Joey Lu <a0987203069@gmail.com>
----
- drivers/clk/nuvoton/clk-ma35d1-pll.c | 26 +++++++++++++-------------
- 1 file changed, 13 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/clk/nuvoton/clk-ma35d1-pll.c b/drivers/clk/nuvoton/clk-ma35d1-pll.c
-index 7e6b30d20c01..314b81e7727c 100644
---- a/drivers/clk/nuvoton/clk-ma35d1-pll.c
-+++ b/drivers/clk/nuvoton/clk-ma35d1-pll.c
-@@ -255,32 +255,32 @@ static int ma35d1_clk_pll_determine_rate(struct clk_hw *hw,
- 	if (req->best_parent_rate < PLL_FREF_MIN_FREQ || req->best_parent_rate > PLL_FREF_MAX_FREQ)
- 		return -EINVAL;
- 
--	ret = ma35d1_pll_find_closest(pll, req->rate, req->best_parent_rate,
--				      reg_ctl, &pll_freq);
--	if (ret < 0)
--		return ret;
--
- 	switch (pll->id) {
- 	case CAPLL:
-+	case DDRPLL:
-+		/* Read-only PLLs: return current rate */
- 		reg_ctl[0] = readl_relaxed(pll->ctl0_base);
--		pll_freq = ma35d1_calc_smic_pll_freq(reg_ctl[0], req->best_parent_rate);
-+		if (pll->id == CAPLL) {
-+			pll_freq = ma35d1_calc_smic_pll_freq(reg_ctl[0], req->best_parent_rate);
-+		} else {
-+			reg_ctl[1] = readl_relaxed(pll->ctl1_base);
-+			pll_freq = ma35d1_calc_pll_freq(pll->mode, reg_ctl, req->best_parent_rate);
-+		}
- 		req->rate = pll_freq;
--
- 		return 0;
--	case DDRPLL:
- 	case APLL:
- 	case EPLL:
- 	case VPLL:
--		reg_ctl[0] = readl_relaxed(pll->ctl0_base);
--		reg_ctl[1] = readl_relaxed(pll->ctl1_base);
--		pll_freq = ma35d1_calc_pll_freq(pll->mode, reg_ctl, req->best_parent_rate);
-+		/* Configurable PLLs: find closest achievable rate */
-+		ret = ma35d1_pll_find_closest(pll, req->rate, req->best_parent_rate,
-+					      reg_ctl, &pll_freq);
-+		if (ret < 0)
-+			return ret;
- 		req->rate = pll_freq;
--
- 		return 0;
- 	}
- 
- 	req->rate = 0;
--
- 	return 0;
- }
- 
--- 
-2.43.0
+Agree, this is the best way to go.
 
 
