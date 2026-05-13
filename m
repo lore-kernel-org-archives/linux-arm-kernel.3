@@ -4,62 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9EA3CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 11:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E668CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 12:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BWkCz+DqFTW7wt2D8of+2AGF26ajnxS3iJv9/ADODgY=; b=LtxiKWn75snLoYD38x6mm0V4El
-	kIxGerTq+RoBu3w2X8GKYyRewlwUFrT250UHgVKe0nTGKkc03IVpwaOVpwNHH1oONDKpigfbIDiTU
-	q+NggoWf+wpOQHxraM5j58zaD60vSDxDoMa2+5nhHB2FqwcL/d8Ao417QKTUOSgRWT1ke+nQ9Ab9/
-	Oc+Rw+kaD3umiAKYxWsIKYFHC+kJgoQEy3P4/rNsyP8u2PvvANdAYZ1Sc6N03CZoSm7t9PYIy0rQw
-	tkDiNbq2r12qs2DBBiVbzM7VXFjJcUgFU+9/UjeanUyRTCbo5AhjRHq4FoYueWwFYXR6OvjHaSjLI
-	RJSHMgbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3LC4fNF8p/jvREecgjKsO7Z+1J4/UR0HOWcbhEz9/DU=; b=1kdkQCD0+ihQHqdTLAzpIkIHjX
+	McwxWWnhNEOcSsFLoaZGCCEN7xJuoLslEUBtwZmiWQhEw85mc3I/5aBpLNefpz7kLXF9/I30jh/2B
+	dZfMGFy8rrwlStJpXl/vP2lNCHlBh0uWg27Yct5Nj704u6GKzJpmmgETxLKW+Izxew52M3vxNz3KX
+	eHBxY7atLGKPmD4ZF047Q/sJkH6YzXpJjMdA1y/nYPAGY21gKVFFE0DDrMdBAl5NHuqR4yeOxaCIo
+	MassAyRi2pgyHrJQMXE4mkxDCg7MMqa0aFDNaKW7UE1T/K60wMulBtHdGoDC+WKZCt+JmeE+pODNx
+	siXIWGPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN8EI-00000002PQW-2hhQ;
-	Wed, 13 May 2026 11:58:22 +0000
-Received: from out-189.mta0.migadu.com ([91.218.175.189])
+	id 1wN8ZG-00000002SNX-3Oqy;
+	Wed, 13 May 2026 12:20:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN8EG-00000002PPV-0Czf
+	id 1wN8ZF-00000002SN2-3H4q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 11:58:21 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1778673495;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=BWkCz+DqFTW7wt2D8of+2AGF26ajnxS3iJv9/ADODgY=;
-	b=VrdfOcauiFN5qDLFCLBeLAA6nq75l8wwLg5R7Bic6nYZqEnjZcSNYnxweNnKkHhRvcZ8ZB
-	A1c8ZOy/pHTwCFaLNekV2WDAD3HqjCRnDduPSn3IJTfQ8iSNtjLpJCYy+UtpHXJ1XO3Dsz
-	YsTrGvHO//YRJm3XFpSDGU53PpNOhBA=
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	shechenglong <shechenglong@xfusion.com>,
-	Zenghui Yu <zenghui.yu@linux.dev>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Jonathan Marek <jonathan@marek.ca>,
-	Jinqian Yang <yangjinqian1@huawei.com>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: proton-pack: use sysfs_emit in sysfs show functions
-Date: Wed, 13 May 2026 13:57:55 +0200
-Message-ID: <20260513115756.447661-2-thorsten.blum@linux.dev>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2798; i=thorsten.blum@linux.dev; h=from:subject; bh=86KR6ysRrOFZZ3Ztz7ike1WiQ1Qtx2XB5IZuIv60m1c=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFks6S4ZXmUl/y7EP3hgvcZNyuJkylw9xffrKq4eSrx/h PvT58eGHaUsDGJcDLJiiiwPZv2Y4VtaU7nJJGInzBxWJpAhDFycAjCRe22MDAfXnbzFvUbKcn+I Xdbx++G+bteDL6VdXeItuarowS7fIwEM/5N2T9kQIDgp+7+L3WNLt607ck+JvQ65vENf1P1o64T aTywA
-X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_045820_602595_3CDFF7FD 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+	Wed, 13 May 2026 12:20:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9229D600CB;
+	Wed, 13 May 2026 12:20:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24EC3C2BCB7;
+	Wed, 13 May 2026 12:20:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778674800;
+	bh=RwG6QV1m/Cl64DkSBJyEOa248vAgjawUEC0CfydbuI0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RbIBiMeDhOnccxwTUphmUO35kX6bx6hVsB/D5hQK8aesbu38+fuMnEByBng/Hyxbo
+	 O3b8p5Z9rVFjJ4hvL17uP5wCBNxDHUDcpNGT6BVXfwQ0gQXh+GSETlOy3tJsBjiK3x
+	 e+mHiKWDlmUyzc050Z8A6sYCu9oV73L9eLZ8JLhj/1zvMBloVEKiUqEYlFzIe6u83v
+	 wpOVMnXk099JAcxBkZkjTK5so6CLwmkzKbOjb86U+TbaKTSkQk3P6j2ByniLE+Ji7s
+	 ZYNJX6wYCZ6qbQmDfwzaML1fxzCmiIlh5MoABEB9HOvIcWtX1IqUmSIa8QSzFKzpfO
+	 7VM5juEM6Qa9g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wN8ZB-00000001y2O-1eZP;
+	Wed, 13 May 2026 12:19:57 +0000
+Date: Wed, 13 May 2026 13:19:56 +0100
+Message-ID: <86ecjfy00j.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,	devicetree@vger.kernel.org,	Lorenzo Pieralisi
+ <lpieralisi@kernel.org>,	Hanjun Guo <guohanjun@huawei.com>,	Catalin
+ Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,	Mark Rutland
+ <mark.rutland@arm.com>,	Daniel Lezcano <daniel.lezcano@kernel.org>,	Thomas
+ Gleixner <tglx@kernel.org>,	Rob Herring <robh@kernel.org>,	Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,	Conor Dooley <conor+dt@kernel.org>,	Chen-Yu
+ Tsai <wens@kernel.org>,	Jernej Skrabec <jernej.skrabec@gmail.com>,	Samuel
+ Holland <samuel@sholland.org>,	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,	Ge Gordon
+ <gordon.ge@bst.ai>,	BST Linux Kernel Upstream Group
+ <bst-upstream@bstai.top>,	Jesper Nilsson <jesper.nilsson@axis.com>,	Lars
+ Persson <lars.persson@axis.com>,	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,	Pengutronix Kernel Team
+ <kernel@pengutronix.de>,	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen
+ <dinguyen@kernel.org>,	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@kernel.org>,	Jonathan Hunter
+ <jonathanh@nvidia.com>,	Bjorn Andersson <andersson@kernel.org>,	Konrad
+ Dybcio <konradybcio@kernel.org>,	Andreas =?UTF-8?B?RsOkcmJlcg==?=
+ <afaerber@suse.de>,	Heiko Stuebner <heiko@sntech.de>,	Shawn Lin
+ <shawn.lin@rock-chips.com>,	Orson Zhai <orsonzhai@gmail.com>,	Baolin Wang
+ <baolin.wang@linux.alibaba.com>,	Michal Simek <michal.simek@amd.com>
+Subject: Re: [PATCH 01/16] ACPI: GTDT: Parse information related to the EL2 virtual timer
+In-Reply-To: <20260513-crouching-stirring-pigeon-6e46bf@sudeepholla>
+References: <20260507125544.2903406-1-maz@kernel.org>
+	<20260507125544.2903406-2-maz@kernel.org>
+	<20260513-crouching-stirring-pigeon-6e46bf@sudeepholla>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sudeep.holla@kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
+ heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,80 +107,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace sprintf() with sysfs_emit() in sysfs show functions, which is
-preferred for formatting sysfs output because it provides safer bounds
-checking.
+Hi Sudeep,
 
-While the current code only emits fixed strings that fit easily within
-PAGE_SIZE, use sysfs_emit() to follow secure coding best practices.
+On Wed, 13 May 2026 10:41:51 +0100,
+Sudeep Holla <sudeep.holla@kernel.org> wrote:
+> 
+> On Thu, May 07, 2026 at 01:55:29PM +0100, Marc Zyngier wrote:
+> > Since ARMv8.1, the architecture has grown an EL2-private virtual
+> > timer. This has been described in ACPI since ACPI v6.3 and revision
+> > 3 of the GTDT table.
+> > 
+> > An aditional structure was added in ACPICA, though in a rather
+> > bizarre way, and merged in v5.1 as 8f5a14d053100 ("ACPICA: ACPI 6.3:
+> > add GTDT Revision 3 support").
+> > 
+> > Finally plug the table parsing in GTDT, and allow it to be eventually
+> > presented to the architected timer driver.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  drivers/acpi/arm64/gtdt.c | 25 +++++++++++++++++++++++++
+> >  1 file changed, 25 insertions(+)
+> > 
+> > diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
+> > index ffc867bac2d60..1a58007fccf0a 100644
+> > --- a/drivers/acpi/arm64/gtdt.c
+> > +++ b/drivers/acpi/arm64/gtdt.c
+> > @@ -88,6 +88,19 @@ static int __init map_gt_gsi(u32 interrupt, u32 flags)
+> >  	return acpi_register_gsi(NULL, interrupt, trigger, polarity);
+> >  }
+> >  
+> > +struct gtdt_v3 {
+> > +	struct acpi_table_gtdt	gtdt_v2;
+> > +	struct acpi_gtdt_el2	el2_vtimer;
+> > +};
+> > +
+> > +static struct acpi_gtdt_el2 *gtdt_to_el2_vtimer(struct acpi_table_gtdt *gtdt)
+> > +{
+> > +	if (gtdt->header.revision < 3)
+> > +		return NULL;
+> > +
+> 
+> We should validate the length as well just in case some platform bumped version
+> but didn't add these fields. Again it is problem if the platform timers are
+> also missing. We can just add the check in acpi_gtdt_init() if the version >=3
+> perhaps? If (gtdt->header.length < sizeof(struct gtdt_v3) invalid table or
+> something.
 
-Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
----
- arch/arm64/kernel/proton-pack.c | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
+Yeah, that seems like a valuable thing to do.
+>
+> Also we have in platform_timer_valid()
+> 	platform_timer >= (void *)(acpi_gtdt_desc.gtdt + 1)
+> which is still valid, but again if someone messes up in v3 keeping
+> offset where virtual EL2 timer GSI should be present as they just copied
+> it from v2, then we might allow it as valid.
+> 
+> Do it make sense to add that check as well in acpi_gtdt_init()? I mean
+> the offset should be >= sizeof(struct gtdt_v3).
+> 
+> Both checks can be added to acpi_gtdt_init() to avoid checking for each
+> platform timer instance may be ?
 
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index b3801f532b10..7bb6553fec08 100644
---- a/arch/arm64/kernel/proton-pack.c
-+++ b/arch/arm64/kernel/proton-pack.c
-@@ -24,6 +24,7 @@
- #include <linux/nospec.h>
- #include <linux/prctl.h>
- #include <linux/sched/task_stack.h>
-+#include <linux/sysfs.h>
- 
- #include <asm/debug-monitors.h>
- #include <asm/insn.h>
-@@ -61,7 +62,7 @@ static void update_mitigation_state(enum mitigation_state *oldp,
- ssize_t cpu_show_spectre_v1(struct device *dev, struct device_attribute *attr,
- 			    char *buf)
- {
--	return sprintf(buf, "Mitigation: __user pointer sanitization\n");
-+	return sysfs_emit(buf, "Mitigation: __user pointer sanitization\n");
- }
- 
- /*
-@@ -126,7 +127,7 @@ ssize_t cpu_show_spectre_v2(struct device *dev, struct device_attribute *attr,
- 	switch (spectre_v2_state) {
- 	case SPECTRE_UNAFFECTED:
- 		if (bhb_state == SPECTRE_UNAFFECTED)
--			return sprintf(buf, "Not affected\n");
-+			return sysfs_emit(buf, "Not affected\n");
- 
- 		/*
- 		 * Platforms affected by Spectre-BHB can't report
-@@ -136,13 +137,13 @@ ssize_t cpu_show_spectre_v2(struct device *dev, struct device_attribute *attr,
- 		fallthrough;
- 	case SPECTRE_MITIGATED:
- 		if (bhb_state == SPECTRE_MITIGATED && _unprivileged_ebpf_enabled())
--			return sprintf(buf, "Vulnerable: Unprivileged eBPF enabled\n");
-+			return sysfs_emit(buf, "Vulnerable: Unprivileged eBPF enabled\n");
- 
--		return sprintf(buf, "Mitigation: %s%s\n", v2_str, bhb_str);
-+		return sysfs_emit(buf, "Mitigation: %s%s\n", v2_str, bhb_str);
- 	case SPECTRE_VULNERABLE:
- 		fallthrough;
- 	default:
--		return sprintf(buf, "Vulnerable\n");
-+		return sysfs_emit(buf, "Vulnerable\n");
- 	}
- }
- 
-@@ -438,13 +439,13 @@ ssize_t cpu_show_spec_store_bypass(struct device *dev,
- {
- 	switch (spectre_v4_state) {
- 	case SPECTRE_UNAFFECTED:
--		return sprintf(buf, "Not affected\n");
-+		return sysfs_emit(buf, "Not affected\n");
- 	case SPECTRE_MITIGATED:
--		return sprintf(buf, "Mitigation: Speculative Store Bypass disabled via prctl\n");
-+		return sysfs_emit(buf, "Mitigation: Speculative Store Bypass disabled via prctl\n");
- 	case SPECTRE_VULNERABLE:
- 		fallthrough;
- 	default:
--		return sprintf(buf, "Vulnerable\n");
-+		return sysfs_emit(buf, "Vulnerable\n");
- 	}
- }
- 
+That makes some sense to me.
+
+What I'll do is introduce gtdt_v3 in a first patch, making sure that
+the parser is correctly handling the difference (pointer arithmetic
+and such), and then add the virtual timer interrupt handling in a
+subsequent change.
+
+> 
+> Other than this couple of minor nit, this patch looks fine.
+> 
+> Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
+
+Thanks for having had a look!
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
