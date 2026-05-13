@@ -4,91 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C51BCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 20:23:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF43CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 20:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7V1myvD5g5e+ykOUotYKcza96x6t5F4ELRDkfltp7Vc=; b=rTF/quNiRs8hqodGM+s4kEJQmU
-	nVRXUgh1PD/7S3DzzvjbmQD5g4LcBFPYKMwoMwzO0YhiNbt6DsNEo8fXmXWA3BDMK/sBOJKmAIxTH
-	/YuaB4XvdTMaD7sZJ/lG+lBG0wWYCbQ+z5/WjovHgwgGkv9mjo/JiKCTXK0nHeXycjtYmshXln5er
-	pqwSVk95KY53cQjWu68e5Yr+AIFkjP1gixCutcBddEIgdXU3Yjvf3gXGmEYEZ3jq3FtGNCOimgXer
-	tAHzgdObz4UkJmGb3WjgSrx224TM0PmeYElwkfoj+XqwIdbHwdLWiyWQ6N1boawyN2Ktlb7XnLjGg
-	iJcoQxwQ==;
+	bh=uGopBsLqO2aU9U0+Bg4ESbCh30nZOqyDa8IE0MbQ+7E=; b=QBuuYBI5rKrFaCdjNsKRREb6m5
+	tT1+uIxP8oUcB7e1A6S9DueW172txO3dg38mVuFtaS6fQeEZ62QL4VEGZtG22JOr6QgkNxQRs2CIt
+	ED+dthb7ikybtLFdHEXeEEtMMKx7gqWOYTGFJy9d5MAsBqP8DkqY20FHAY62FoNYWOE0IDC6n2bRL
+	QOW/ufTe5n0asYxRR8KuBwlZi1cCwlNXUdR+mP4/YJJNBY785EY6Hfj9C1nmzX5EFTuiAImn208Om
+	Ozd2uP+04aeLn7+mQpbhTS7CrVUMMnfXh1vUiwDFns4JQewAfEJUqC5ERQi81f+TXMQmHimTXlEyH
+	RhD5BZzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNG7O-00000003hBx-332O;
-	Wed, 13 May 2026 20:23:47 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wNGC8-00000003i0Q-1RH4;
+	Wed, 13 May 2026 20:28:40 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNG6j-00000003h5f-0LZO
+	id 1wNGC6-00000003hzY-2DZ9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 20:23:44 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-44a5174670eso4079922f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 13:23:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778703783; x=1779308583; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7V1myvD5g5e+ykOUotYKcza96x6t5F4ELRDkfltp7Vc=;
-        b=lK4ppRPz57afyscpxDdBLijSdn6M1Axv8mtnbiZlPdW66VIDxLck0U9W7sfSRLcoa2
-         CoZbCcEBGb1KdjXl/vADHRchLIop/pNGZDcmsi1jLQIfj1s/4S9R9PHHdDkZnAOlBb2D
-         gwDx20UKMHii8W02GQdkk0bDDZKhy4ddwDvzAP3+n+diHvB7LVs2ySYRDy5ViLdmhibT
-         hEVxibnb5+0anjsZCNxZFYHPM6EyZ1caG53yWgMF5AYacB22Bzzled0iSgVfmyYtM5e7
-         7LTZtBd9ubmzJJEstFe9ctacaC2Zmex5QjDOQMbCdVTrq+dKqwObe2PqqmAVYEyjH5xS
-         /upg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778703783; x=1779308583;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7V1myvD5g5e+ykOUotYKcza96x6t5F4ELRDkfltp7Vc=;
-        b=Mt1qYvZsS+r2QvBIMOc4IkTjeEf0csOeFmVRhSn33blagKEYnUGNDVifOIIkRpjvtY
-         NtmqmdnTfiP4pqmdVrPrgu1xvJn8KpxRBb8D4rxwWQOHH+ba+fvU7tudVNkRbzg/Qd5h
-         2R4F0VuzeklWeOk5xFwTMka9H3iPoIlvOCBRXwh3P8bsLHEzLSDFRPKl0bFfbDYvW5S2
-         Wa7xfG+DyHkL2VudcBoeJruObTjcusZfJkx8Os858HNu8urHcGKVONf/bZkMdEjYAK7u
-         ypfgSAXHg4LWunhr1q8qYdP0g6fVQI4hOeaLhX+GmSOYS31GFcYe9jWQ3ffIrGM7+nrX
-         1KPg==
-X-Forwarded-Encrypted: i=1; AFNElJ8AVpd+VhqUnGQuIdGoBEN5T5MMk5DussLnlUYESHXiCXkHPa/q7NkG4mnBg9RIUyD4m7XBeE7u1axXLoQHJCYA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPT3kRqcpBmt0ZRtB/0scfW/6mSzwfxhvFL+Hx58adIH5pqtjT
-	qFTU3TnfrdI1zuK27YLCWY4PHscPNFWTMsKGnXa3eYVcVNpIAyJrF486
-X-Gm-Gg: Acq92OEhMGN39yINLvkiIxCHerlHuVnG7EFB+hot0enErF91YfzncWgH/a5y6/b+ENd
-	UD5ncJqlJ/RgrYxPT8OfgYRgS2ruHhhq8pV9CNFKpZpTrMqmvQzsyRgSvUz1DDMFmIIiwxmKUj5
-	KJPptIpEaejdGEPupYt4ohbNYdWT201feObAd4Ai6D+dxj43gihzmBDrE8o4dfBOwPeVTmUHmQT
-	CzRBhsaiBIJiUndLQomn1M/lT/9Hb/bQGReluWAHM1ir3vZaQg4393/r1o8KkHWSFdS7YjjKIq3
-	5kVD2DktNVa2Pwl8KR1IEarj+XAk4S0Oxzqqj/HF8cNP29xbFUYKqVHUVOeE+PqTgQ9kSKVpony
-	J1OcwGgsR7yPurC21G2USt+FvgzxMQW4Hv7/Wuk7tOFSnrdyNlqLoGhFyMjyveAhSh6QrP9uA6b
-	QAd3WEEP4eD9UVVv68G4SLDqO03/xHFoG9/HtguhG992u/3X1Vq3mYLx5UWOpbOdoKUz5qrnSCS
-	6sAXnsB
-X-Received: by 2002:a05:6000:24c6:b0:45c:154d:6387 with SMTP id ffacd0b85a97d-45c7a7dc6a2mr7430880f8f.37.1778703782701;
-        Wed, 13 May 2026 13:23:02 -0700 (PDT)
-Received: from jernej-laptop.localnet (46-150-62-216.dynamic.telemach.net. [46.150.62.216])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9ed2ffdfsm1279025f8f.15.2026.05.13.13.23.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 13:23:02 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Sean Young <sean@mess.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- =?UTF-8?B?67CV66qF7ZuI?= <mhun512@gmail.com>
-Cc: Myeonghun Pak <mhun512@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>, linux-media@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org,
- Ijae Kim <ae878000@gmail.com>
-Subject: Re: [PATCH] media: rc: sunxi-cir: unregister rc device on probe failure
-Date: Wed, 13 May 2026 22:23:00 +0200
-Message-ID: <YRYbhQnwRdCZPKQIjbWE2A@gmail.com>
-In-Reply-To: <20260424000000.558-1-mhun512@gmail.com>
-References: <20260424000000.558-1-mhun512@gmail.com>
+	Wed, 13 May 2026 20:28:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778704118; x=1810240118;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=94YyXNzMTEt4UesTQXEg5EHXkdJVDB9o4CXu2ck8OUA=;
+  b=DK+koLMuk52ZhwgxpWlh197s8n+9uCiNO3dIIPVME9QL19n0mfP5YSvH
+   /WCHe3245fe+BafCaHnz46KVsMvi+E0SjamXsynK76R7S/8Aa54eCCSSX
+   LmWNHrnok3cGMrNlALgd6IADFjpPfC/kBwyXWEol433u7CSiL/VJ/772E
+   TzAw21bLLIOyiHQon4//R3ezgpRjy8W7Il/ucVjREwT31bKwz7zLVrQkY
+   VTci3UgN3FtEiNPF4oWLQFQ8XYBWKVTtG/ldKXbZtqtTiH5F3aVXFRh2b
+   6s8vI5jrPh2vTd2MI5CCGLD4zja+dnn7oEl4EKl+FDhndMP2KaRx3JlEn
+   A==;
+X-CSE-ConnectionGUID: mtlVcOHISEaS3/fqOC8Ptg==
+X-CSE-MsgGUID: muF0VT4uT72cQ/PlHKcFtw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11785"; a="102309898"
+X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
+   d="scan'208";a="102309898"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 13:28:37 -0700
+X-CSE-ConnectionGUID: aedUM+sTS4aBSfGy9nseAA==
+X-CSE-MsgGUID: Oz9845mtQWuod6gKW4p9zw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
+   d="scan'208";a="261936442"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.106])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 13:28:33 -0700
+Date: Wed, 13 May 2026 23:28:30 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Angelo Dureghello <adureghello@baylibre.com>
+Cc: Greg Ungerer <gerg@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
+	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
+Subject: Re: [PATCH v2 11/11] iio: dac: add mcf54415 DAC
+Message-ID: <agTe7vZ94DnmD4Ed@ashevche-desk.local>
+References: <20260513-wip-stmark2-dac-v2-0-fcdae50cf51a@baylibre.com>
+ <20260513-wip-stmark2-dac-v2-11-fcdae50cf51a@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260513-wip-stmark2-dac-v2-11-fcdae50cf51a@baylibre.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_132305_169206_9D62BF29 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20260513_132838_645178_6EF6CD1F 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,74 +96,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 13. maj 2026 ob 09:11:03 Srednjeevropski poletni =C4=8Das je =EB=
-=B0=95=EB=AA=85=ED=9B=88 napisal(a):
-> From: Myeonghun Pak <mhun512@gmail.com>
->=20
-> After rc_register_device() succeeds, later probe failures must undo the
-> registration with rc_unregister_device(). The current error path jumps to
-> the allocation cleanup label and only calls rc_free_device(), leaving the
-> rc device registration and resources created by rc_register_device()
-> behind.
->=20
-> Add a registered-device unwind label for the IRQ lookup, IRQ request, and
-> hardware initialization failure paths. Keep rc_free_device() for failures
-> before rc_register_device() succeeds.
->=20
-> Fixes: b4e3e59fb59c ("[media] rc: add sunxi-ir driver")
-> Cc: stable@vger.kernel.org
-> Co-developed-by: Ijae Kim <ae878000@gmail.com>
-> Signed-off-by: Ijae Kim <ae878000@gmail.com>
-> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
-> ---
->  drivers/media/rc/sunxi-cir.c | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/media/rc/sunxi-cir.c b/drivers/media/rc/sunxi-cir.c
-> index 92ef4e7c6f..cc64a68dfe 100644
-> --- a/drivers/media/rc/sunxi-cir.c
-> +++ b/drivers/media/rc/sunxi-cir.c
-> @@ -344,22 +344,26 @@ static int sunxi_ir_probe(struct platform_device *p=
-dev)
->  	ir->irq =3D platform_get_irq(pdev, 0);
->  	if (ir->irq < 0) {
->  		ret =3D ir->irq;
-> -		goto exit_free_dev;
-> +		goto exit_unregister_dev;
->  	}
-> =20
->  	ret =3D devm_request_irq(dev, ir->irq, sunxi_ir_irq, 0, SUNXI_IR_DEV, i=
-r);
->  	if (ret) {
->  		dev_err(dev, "failed request irq\n");
-> -		goto exit_free_dev;
-> +		goto exit_unregister_dev;
->  	}
-> =20
->  	ret =3D sunxi_ir_hw_init(dev);
->  	if (ret)
-> -		goto exit_free_dev;
-> +		goto exit_unregister_dev;
-> =20
->  	dev_info(dev, "initialized sunXi IR driver\n");
->  	return 0;
-> =20
-> +exit_unregister_dev:
-> +	rc_unregister_device(ir->rc);
-> +	return ret;
+On Wed, May 13, 2026 at 11:14:35AM +0200, Angelo Dureghello wrote:
+> 
+> Add basic version of mcf54415 DAC driver. DAC is embedded in the cpu and
+> DAC configuration registers are mapped in the internal IO address space.
+> 
+> The DAC accepts a 12-bit digital signal and creates a monotonic 12-bit
+> analog output varying from DAC_VREFL to DAC_VREFH. The DAC module
+> consists of a conversion unit, an output amplifier, and the associated
+> digital control blocks. Default register values for DAC_VREFL and DAC_VREFH
+> are respectively 0 and 0xfff, left untouched in this initial version.
+> 
+> This initial version of the driver is minimalistic, "output raw" only, to
+> be extended in the future. DMA and external sync are disabled, default mode
+> is high speed, default format is right-justified 12bit on 16bit word.
 
-This return should not be here.  Device must be freed too.
+...
 
-Best regards,
-Jernej
+> +#include <linux/array_size.h>
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/clk.h>
+> +#include <linux/compiler_types.h>
+> +#include <linux/delay.h>
+
++ err.h
+
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+
+...
+
+> +struct mcf54415_dac {
+> +	struct clk *clk;
+> +	struct regmap *map;
+
+I believe that regmap pointer is used more often, can you check with
+bloat-o-meter that swapping these two (by the order) gives any benefit in
+object size?
+
+> +};
+
+...
+
+> +	.max_register = 0x1F,
+
+No definition? What datasheet says about this? Perhaps define the MAX as per
+last defined register in the datasheet?
+
+> +};
+
+...
+
+> +static void mcf54415_dac_init(struct mcf54415_dac *info)
+> +{
+> +	/* Keeping defaults and enable DAC (bit 0 set to 0) */
+> +	regmap_write(info->map, MCF54415_DAC_CR, MCF54415_DAC_CR_FILT |
+> +		     FIELD_PREP(MCF54415_DAC_CR_WMLVL, 1));
+
+Seems the whole driver ignores IO errors, why?
+
+> +	/* DAC is ready after 12us, from RM table 40-3  */
+> +	fsleep(12);
+> +}
+
+...
+
+> +static void mcf54415_dac_exit(void *data)
+> +{
+> +	struct mcf54415_dac *info = data;
+> +
+> +	regmap_update_bits(info->map, MCF54415_DAC_CR, MCF54415_DAC_CR_PDN,
+> +			   MCF54415_DAC_CR_PDN);
+
+regmap_set_bits()
+
+> +}
+
+...
+
+> +static int mcf54415_write_raw(struct iio_dev *indio_dev,
+> +			      struct iio_chan_spec const *chan,
+> +			      int val, int val2, long mask)
+> +{
+> +	struct mcf54415_dac *info = iio_priv(indio_dev);
+> +
+> +	switch (mask) {
+> +	case IIO_CHAN_INFO_RAW:
+> +		if (val < 0 || val > 4095)
+
+Do we have a definition for the resolution? I'm fine with the plain numbers,
+but it's better to add a short comment to say that this is "based on the
+resolution of XXX register per datasheet".
+
+> +			return -EINVAL;
+> +		regmap_write(info->map, MCF54415_DAC_DATA, val);
+> +		return 0;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+...
+
+> +static int mcf54415_dac_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct iio_dev *indio_dev;
+> +	struct mcf54415_dac *info;
+> +	void __iomem *regs;
+> +	int ret;
+> +
+> +	indio_dev = devm_iio_device_alloc(dev, sizeof(*info));
+> +	if (!indio_dev)
+> +		return -ENOMEM;
+> +
+> +	info = iio_priv(indio_dev);
+> +
+> +	regs = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(regs))
+> +		return dev_err_probe(dev, PTR_ERR(regs),
+> +				     "failed to get io regs\n");
+
+One line.
 
 > +
->  exit_free_dev:
->  	rc_free_device(ir->rc);
-> =20
->=20
+> +	info->map = devm_regmap_init_mmio(dev, regs,
+> +					  &mcf54415_dac_regmap_config);
+> +	if (IS_ERR(info->map))
+> +		return PTR_ERR(info->map);
+> +
+> +	info->clk = devm_clk_get_enabled(dev, "dac");
+> +	if (IS_ERR(info->clk))
+> +		return dev_err_probe(dev, PTR_ERR(info->clk),
+> +				     "failed getting clock\n");
 
+Also can be a single line, but this one a bit longer than above, gives
+88 characters.
 
+> +	platform_set_drvdata(pdev, indio_dev);
+> +
+> +	indio_dev->name = "mcf54415";
+> +	indio_dev->info = &mcf54415_dac_iio_info;
+> +	indio_dev->modes = INDIO_DIRECT_MODE;
+> +	indio_dev->channels = mcf54415_dac_iio_channels;
+> +	indio_dev->num_channels = ARRAY_SIZE(mcf54415_dac_iio_channels);
+> +
+> +	mcf54415_dac_init(info);
+> +
+> +	ret = devm_add_action_or_reset(dev, mcf54415_dac_exit, info);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return devm_iio_device_register(dev, indio_dev);
+> +}
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
 
