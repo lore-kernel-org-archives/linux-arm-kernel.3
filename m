@@ -4,135 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42AACD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46840CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7HfzTTvIslIljk1fIwY8vvlobMaEcqsDqYgimgdYkuc=; b=12pUYw/c64TNwX2WuzlSot6UYR
-	SCuhtat1LOFfOZORn9SP+GQUjeSIOH0tOZLKjgqFGFz5eahoy3EgDyujqwoP0t23jVE2eGE3y04LQ
-	Fo7fB/hg/iWeqU3X2D5DewBb9GVzDnLLyEnTfeyZJU7rlHRaqjp9xKhqPTU+w8qGucXlGuhBs/7+J
-	jAdv8dCtAlxIbeTWxqJBWWhd/hhlcQjQVbMpHt6VtHYNNSadtEzee3AP6lXlEeLsWtUUBiNZSQk1A
-	7B5v/pOPb52XTyy7xonEGaQfJ6Clns/WPHBa3V3v+TcMVQu8m+gyhJhFAYmjucn4P4SILzLSN12OY
-	ETpOUV9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RYam0oKHZ1mefmxNauzbtEOzCh2XsHG8uF8K+fxc6yc=; b=MyIRc5TNCJyXzW7h30NSpET8mJ
+	2+zVQ/qmTcTX42A8Bq/larUbtDxNbHqGGy9NvHtsddt7oX7NgLP72A62HgpkwqtwC+cVpPSu7aCyR
+	p9slJMKH4rCVkOtfRm+FySALzaw10nhQI4mSJOqo76judqw0dQ66lUVPVO1heRNs544nODaKP8d/u
+	h3f1yh/s3TRSu7gq6WRGg06BjN/cdEAb+nznPV08do1ebJnLmVqPKpLkbew8aaV8FN3NP067CbcaM
+	4s0+Sa3Zsrdime43Zkq2kdVBlV5scHgAtbLMxC9cUqguovMIO4yHZRjdWquxKTaS2QhiYA4roL0kr
+	QnlSQijg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN08T-000000011xW-0FV3;
-	Wed, 13 May 2026 03:19:49 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wN0Gy-000000012xR-3cg0;
+	Wed, 13 May 2026 03:28:36 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN08P-000000011x5-28Mv
+	id 1wN0Gw-000000012wp-1EQn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:19:46 +0000
+	Wed, 13 May 2026 03:28:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H7avIj/6VmfsgtBw5ppYHCL89cSwQVYg2VpG0aNTa/yT5PCbXFDZmGK5d8vOfPSjgQHAglhkT4GChFgfXaF+jnVHResjN3/OQNNb0l5gNlbeGk15a4lT2yAVaocPN1li+ZtEawhd7G7GBJ0OhflVINH3tTxKy9NsGydSUHX3jhLyyLuj6qkTABRHoqCr5oJFUVEejG2an0/TKilSH1kv1DlDtoZNS8gHpBXrqG8m1vdEkv+PYvlgAfgqUJ8Pp2QakN2+gRl/bcCEo57/HqhArboW9GXuS/i7aqXNknUnw8wzyr+9G71MjrsWYjRDjLmpMBLJDDCwhoOvd9s9XM4G9Q==
+ b=mmmPmpJVN4Q1p+zljiz55gG/Y+2jiZGPnGcEWyYnP3YNATm9bzOuuI8s5bo/9nd9X1CcORG5qqDrGXliD3vFGDaGXcYqzzZ4fybKBEm4kv7LIHqt5XQ3k5EjN5npvIRaJDMwpysngptpJp/ehN64QN7mwnOivrtO8QPkWSFKapuVOVi0UVgIs3WEWnTaQ1I8qaQ46W+T8nQxhp0XElzTEl0l9wvtyF60su/KhGVuW+JmRXOLVfLZVoK4int0LNr1GCQVrjFfBLomGfcRpQqHDCY4HM+65nRyMqKR5Hd+PIkrzRtnsSIoaA/ZHzxsgChJkCyyhExCFYsMUdTfnknqEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7HfzTTvIslIljk1fIwY8vvlobMaEcqsDqYgimgdYkuc=;
- b=VZ1Lqq+CaV12aA/v8R08L61U9tP5ocn4GgsPGVPD8QUjANFSXvSLQXWsJvl89+DWp9CDPiltJwcjS7kPoZCc9xbG1bYGm694xhDsBnapF8qK5mLIftN5TdJTdY4Mnzwzh0Ncs3NwXxBHcWyJND7gRj9SWMXI0hY/TGGsWtLiZN+t/K7U6LxmTSCJEwUP0+iB6yA72MeBTRDXAk4/mGXdcTqGyVE9njZxnpNlwLyB0O1aTHbzbcfgcz2NePlOVLfPImXYbyn01tI9LpJ+8CHGzRBCzAixQKpCRZQkLUMCAU8HQOoxg6ozExD7JRQDp0vkvSLmudF8EuCSG92Py6OVYw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=RYam0oKHZ1mefmxNauzbtEOzCh2XsHG8uF8K+fxc6yc=;
+ b=BtzWUYWhe7oID/W2WeLQYyZZJCen5/9F7Gd/72iN0VQ3CFqz+X9rW7GHC8FFHizEuCabCcUErIrQVPHT5obgsfuLLxGWQrH55oL6qNkhee5RPQUAhxJ/AfkmIrw4Y9USStBRFAdy5urXM2ThhT7bmmL6/fqVmUSn316HsDCA7UAsxXmlSpSNVRzoj6MxNhOxSQGZg7BICcWg3/X0JWNdVgvIZbs2UM/7GWlLf5ZRBz8UMXtXwknWL4eejK32vNPvmU8sLf1vRJdrTfZn0hTlVbvVYFIRKLtCaSKLZg4bl/19D0QH28mnLw3cVskJQcokdkv3U13h5kjgPq8b28gy6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7HfzTTvIslIljk1fIwY8vvlobMaEcqsDqYgimgdYkuc=;
- b=NhCPGl8t4YwRW2q/hsB4nD3wXGbEDnsePLPWSQNc8lEjpNGxbIRNBm/ko22wqsOJ8m7dNC7PeCqu0k3bmuyTZCl2Xynu2CJAIIzFPf8Wzh1jPMFwh3OdGxL6i17CmGwwtTlxuXPRQ7y1zJxeSJK2qKD4MgLUIeLIv86Mf04SokwjomxUx+elfW1F0gBRj43Am/eaqQHbbgYrKs3JgKQWLCDHz2ds0K2u00SdpOlcjc4giKmPzWd/llt1zBH7Ub8uM1KxqRzxeNIVWBXYb0iRRPapIsJjNUnI65Jy/dHW37s2Kiq+uV48ALOAyzgMRQ6CFuSkw6arjZd6+omm/PvCrA==
-Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
- by GV4PR04MB11903.eurprd04.prod.outlook.com (2603:10a6:150:2ea::22) with
+ bh=RYam0oKHZ1mefmxNauzbtEOzCh2XsHG8uF8K+fxc6yc=;
+ b=ipNc54zQuDHEKfGU9zg2Zt9g74U3VLJPAzrVaZIx9EYrvH6pIsNteVZysNCH+haArW/T5AMI79ZTKISis3RSPrDjRh3AL9eBB56eSLtbXr/DUhunlnTUhI/TWidm50VF5oc4kWDPAogc4up/xDVTlFImRVKdN1ODH/Hfk6wOk2AO0ELt/iucovIH1fRAqPvnJ27fquGym5b+79IW0xr88kkTZKGUo6Dxnve9lIXrERkXA8fdA/cyMExSlzBBf9HXVEFYCevRSJl8bXK5ShfqzipsxTDAvgW0cHDbl8pUVGfh3MaZeTFOIMnytjGJ50Q/Ny8SzEc79W1gdJqJjBZiKg==
+Received: from SJ0PR03CA0065.namprd03.prod.outlook.com (2603:10b6:a03:331::10)
+ by SN7PR12MB7912.namprd12.prod.outlook.com (2603:10b6:806:341::9) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
- 2026 03:19:35 +0000
-Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
- ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
- ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.20.9870.023; Wed, 13 May 2026
- 03:19:35 +0000
-From: Chancel Liu <chancel.liu@nxp.com>
-To: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li
-	<frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "mturquette@baylibre.com"
-	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>
-CC: "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-clk@vger.kernel.org"
-	<linux-clk@vger.kernel.org>
-Subject: RE: [PATCH 1/5] clk: Add support for clock nexus dt bindings
-Thread-Topic: [PATCH 1/5] clk: Add support for clock nexus dt bindings
-Thread-Index: AQHc3158VfB70hHkmkqSrDXWncQcGLYLTw3A
-Date: Wed, 13 May 2026 03:19:35 +0000
-Message-ID: <AM9PR04MB8353787A307A3064C669BD94E3062@AM9PR04MB8353.eurprd04.prod.outlook.com>
-References: <20260509024846.2094049-1-chancel.liu@nxp.com>
- <20260509024846.2094049-2-chancel.liu@nxp.com>
-In-Reply-To: <20260509024846.2094049-2-chancel.liu@nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM9PR04MB8353:EE_|GV4PR04MB11903:EE_
-x-ms-office365-filtering-correlation-id: 0153fcd5-f07e-4ac8-6717-08deb09e7597
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006|11063799003|18002099003|56012099003|22082099003|38070700021;
-x-microsoft-antispam-message-info: VvzIDJYaGBDYvRnM6nRBej4JVZG7gKATrEM25WBd8dBRfUsAHamR8RMMafqh04JAnsjAcNEndk09N4X1jUXPHIx/lbWzPW+czvgrzX1/NEe4dACfHDt+WgUsyO86cFBfMTNWwuXneC+7Zb1fW8wJ7UyeIL3oD6djdK0KV7wEzIpmSclM6dXkDZfkHwI/y7BQDcJonvQAhxpVD+dZ9olJb8BLhgh3cZNC9gw8vNXEkoyw0ZCzY+aYhLtANL061aYuvebXobCXXVueK6A8D8zKS/a8DUjgFeS90JJzEE85aOhTSyoRQI8ENra45mpj9FeDglL+492+ZOAxdEaJowOx8TF519Dv7E1LZ+7L3i19UmH09VVdCfBD4apywOZlHzf9S9HXjHzO//do2IQw/oXk/UvRgtEYr/x5woGMbDQ6QzgJ+Qdenrm+CvUCyLRm5x4lrM+Xvnb1+URIf2eOH90xE5coAneW/3eaQ6nmSviNa2owb6loUchwLm6osLfYLIJ2AmJLsrekLYcUHFU1mXBzrHtjtk4P0f/MFPvIWVfB/6iyHD3G9n53Zw3m2O5ht65qjd3sWfi9LOfxOZCMHK1NnyooXb3swKZfSbXRk4Efv+bHo9PLX+a0wKuW1pA2A9mv2YuW/HB0/6EtptMeAwMwwZ5+8Lhptj0s/40Tv7b8nu+03kacGtHWavtEiLE3LV8xbRa9fGNGN/1KzRd7WtLz2bYO918+4JOChesk4Lj6FyYem/h4P/je6TQ/dzoMojTX
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006)(11063799003)(18002099003)(56012099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?o7QeS8gSeM45vRZ4IyvecbZHe9DT/rTx2W0DSY9TdQCwQ5c2GHve5mH7kp?=
- =?iso-8859-1?Q?/th8XTSTbRmiYKUhyRw9bv0bV5jDZOlpegNXYyr9zzDiNeRHF8nfDOfpiz?=
- =?iso-8859-1?Q?xaSFYSHwFEeD0J0snFFET+o65xf9H1vw1s0rmHyW9p5IgLuaYswK/bIfxC?=
- =?iso-8859-1?Q?vVY4ucUxV0OH3Ne+RMZkjIvpD0TSHMlAZ5xbeC2eYRG4GYqN5F5eYwYRmg?=
- =?iso-8859-1?Q?mUvAIEQSvliYWY1+d1VNVRRdmDtR+K0kkLG6EzpyaUS0Uok/u1GB9axZHh?=
- =?iso-8859-1?Q?YQbjOmHU2mNJKXdorX7VBn+YmXO/kY4n/nGjD4BIIdfW9fwicCx8+/wwUL?=
- =?iso-8859-1?Q?G+CN/J+OrxT5/yfGxLBDtBJyLdJzwrPl6Gwksx22vqwvS73QlVIB7+b0YO?=
- =?iso-8859-1?Q?D3s30wNZ0qI6Xc7ckJVyF7kHT1/nQDC8qOval8toHNNvYAlh4vcUezjlha?=
- =?iso-8859-1?Q?IxPqu5g8/9VstKjT0qoS1rq2imDfzaF61Vc50iheF2tLODMwWV0/6ixzk9?=
- =?iso-8859-1?Q?zUpo6rLMFomSaLnXYHGVJmHJEAD+E9iVB70RQJKoGSgIoHPzc3A328uein?=
- =?iso-8859-1?Q?7VyXXGbn3IBnjsNV1ouBNC7YmDQjPfpAiB/eSwJPa2+jRUV1L0O0wM1FSq?=
- =?iso-8859-1?Q?pO47+hjezie1ajbD9Aw8wd8jK59e92FPVfoMG/3nMQca2rRJzvB1NSbIpm?=
- =?iso-8859-1?Q?rnFSXZxPIrnPRSFRQ24+aCK53tcWPOnHJbUp7uCwQ3NnuOKsFp0sU+tQkZ?=
- =?iso-8859-1?Q?RMGzZkKGrf3C1o9nISzL5de7Jep19GVH+kFX0ZAC3s+kVOFwNhamZ4BwVs?=
- =?iso-8859-1?Q?8y/q0h8x6l8/1bLIUOPocrxIiiLBMltObnzVcTIlkkCoIUBqonIelYy7uW?=
- =?iso-8859-1?Q?5JopPCbPi08o5aO8ZMUIspHAnGgLb89qlvAnjEj+2Js+mjo3QmywsJnAmJ?=
- =?iso-8859-1?Q?VCCtXWMYhtnNYlokRQktnoD6YyRLCTcgor/CzTcKwZD8SSH5kTf5yZnhKd?=
- =?iso-8859-1?Q?CK23DhNO3DbhTMHZMX2nth6gKKFtmjb5gdjXAESFcgvxR5HuD768v22UeA?=
- =?iso-8859-1?Q?XF1+adV8FRKfJWAxCjUXJxJUBgOYvyTx/7R2wahmLBPAW5CCzsBqBIudNl?=
- =?iso-8859-1?Q?PrBUUkczbvf64gxksiqipOivWcfFXS9zTIIyLHGN2LTh9KNjHv/Bwh0gIR?=
- =?iso-8859-1?Q?Jppjmaw+ma+5rZfxFc5MaIik2r7z92iZSf0Ax9V9s/UoCsSEzMwqGjv4VS?=
- =?iso-8859-1?Q?9tCarb2KDPqtLE34HJBgT7+PeIFlqXnk4FuqPvaJCjvP0xXHHm7ehyhdkl?=
- =?iso-8859-1?Q?s8d8vskxLh+6wk8IUOQqzRZmbGvkyt5U381VPTFIrCXfaju9lSVj+2DfT+?=
- =?iso-8859-1?Q?fCDNf8VNb6HNFY1IAFEg2IEQ7BDImV4Kahg3dbet19ToazV14Yqy2dz2A/?=
- =?iso-8859-1?Q?mRv3VrDcO05CtOxO7NST4MMQaEZccJPecaDOCJN/RByDMbrcke+pcMGZDo?=
- =?iso-8859-1?Q?vgkugG/XYt51qYTBDcgdelenMsl3oesv0GAtRW3VT7KJj5JfOasUMty6tc?=
- =?iso-8859-1?Q?uL0jNH0H7KTumWlMp7P2WAfnO5qclYnLsc01WkEPm16jtqk/S2b5GXbrJx?=
- =?iso-8859-1?Q?zYL1kKMyXzv3MmVDTXfbV5RvkaZh09EfvA7zNXRutBmHN9RG4tdEo1W14y?=
- =?iso-8859-1?Q?3lVONjSOhYMVRa6p1ZgGSroO2bPIbjCLZ5d4VFE1IgWFqAoxgG7W1fRktF?=
- =?iso-8859-1?Q?bD+Fdog5w82n60myoL89OeQNMBY/Moyddi6sHnXDGdht/6?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+ 2026 03:28:25 +0000
+Received: from SJ5PEPF00000204.namprd05.prod.outlook.com
+ (2603:10b6:a03:331:cafe::8a) by SJ0PR03CA0065.outlook.office365.com
+ (2603:10b6:a03:331::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.12 via Frontend Transport; Wed,
+ 13 May 2026 03:28:25 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ5PEPF00000204.mail.protection.outlook.com (10.167.244.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Wed, 13 May 2026 03:28:24 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 12 May
+ 2026 20:28:10 -0700
+Received: from localhost.localdomain (10.126.230.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 12 May
+ 2026 20:28:09 -0700
+From: Jamie Nguyen <jamien@nvidia.com>
+To: <sudeep.holla@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<jamien@nvidia.com>
+Subject: [PATCH] firmware: arm_ffa: honor descriptor size in PARTITION_INFO_GET_REGS
+Date: Tue, 12 May 2026 20:28:00 -0700
+Message-ID: <20260513032800.68807-1-jamien@nvidia.com>
+X-Mailer: git-send-email 2.46.2
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0153fcd5-f07e-4ac8-6717-08deb09e7597
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 May 2026 03:19:35.6870
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.126.230.37]
+X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF00000204:EE_|SN7PR12MB7912:EE_
+X-MS-Office365-Filtering-Correlation-Id: fcc90193-4079-46e4-80a6-08deb09fb104
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|1800799024|56012099003|18002099003|11063799003;
+X-Microsoft-Antispam-Message-Info: gxNc5SKGCaNnNnmkrtL2WhjvSXbrOfGRuB9kqA4Olb4llKZI9mrp/RCptjO1h6qA2RdomcL+oDW3c34BOPHeSK+d+9RFbJ6Pe/A3FNbWRhTaFPT6QPQnOMDxHGOQ1qL6NLF/Q0C9omte5aiKdf5IQfUvABjK/D7ldogRrwFlo63O7OTokymHHUxksE8mnWq+KbeWo880XkDuCi/U78fzFyLSjx8P4eHmc6ZSNVelYiHmupX1g1xR800GCRcdtAnrqMLwdZhAGBIQWLTzwuCQWqQXliXon3j3/mOg4o/eWicgL063bGiubk7lzK9utjU//R/cf8rpRfdRblrBafTed7fgQAHIYMQvb3d8XzyS369UvFyoN5GRqtN1OnyJOnAfos2eeYE12rGzwNBx6QfX+Njl5x+6s06uUgE3tmDOjPZd+mJ0eMbDYRS5QmXbUW91p9ynwbs9agA47a/zn5ocBkmYMCFC82LxXWI2mdHgChcqnNCTUB8FqXvnBViM70mPcw7famK1kT0+/p2SRns8yza9agFT9jLhn1ijua1NYqTQUtE7ofQeDN8e25lrax7X7YfAzcxjXc0WKf0iRKiAqKw4JrDQwJfVryqh8+F0uBTXqc2rp6eQbn1CKRcJ9dTIH06GmrqZO8YX/SKmjZZFFEO+vq3W/z0fxtt6gUV8VEMJzKdrHv4Oyy3CREEF0aSE9cTpjmB+Zu7qwKzJ+Imp7jFmgz7LSCjeoiKDBhBy3Jw=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(1800799024)(56012099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: UvMxju9++HYaoYnLHGGTWSCKv4OMwcsA+7E5v+rJWQMgjxPU2GX5jo+jV3FUS+LeGDWfFMZlI3GQdfe8t6SYvOx1yF35bL576LDG/TodwKztuAosvNluj65E5pG5DZU6u2KRHMZi5Q3WxKZ03q7o+2jglfFDbzVBK7q19YtfC17rrEMhiHQI9y2uFs11/DiaUTwZXJSWxA50ih9iUVlvLMkVNv55LICLLn3MxWEUlH2Jq/CWbYj4rlzS49kO+Z+fmh1252nP45B9IghNAm7Kjh/W52Xl5/GaLXHoFdzzPefRmxON1mk4SwyZYi1pQ3o5H097pUvOz8lEbv0vr8zR68GHV8JJrzJSCzqu1XFcoasBnvtkYNuHRxIDeuXkmrEH3rdqNBdKFDHNSgBIbyYjNlQE77/PHo5NPsYEs2dJFyhR2jH4VdB389eGmTLqhBSn
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 03:28:24.7925
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: iVQ25XFILN1Ul6Cqfn3zIAxDsDkbpQsqysrc2Nb/blCQ0rjyFcrz9Xnooa/mLOdy/vA1z77FUa3EuhBLFJFDuA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11903
+X-MS-Exchange-CrossTenant-Network-Message-Id: fcc90193-4079-46e4-80a6-08deb09fb104
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000204.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7912
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_201945_554803_120BD854 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20260512_202834_346789_D1BB5504 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,68 +123,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+__ffa_partition_info_get_regs() walks the response with a hardcoded
+24-byte stride (regs += 3) even though the SPMC tells us the actual
+per-descriptor size via PARTITION_INFO_SZ in x2[63:48]. The size is
+read into buf_sz and then thrown away.
 
-Please ignore this patch.
+That works while every SPMC returns the FF-A v1.1 layout, but it falls
+apart against a v1.3 SPMC returning the 48-byte descriptor. The loop
+strides over half a descriptor at a time and ends up parsing every
+other entry from a slice of two adjacent ones.
 
-I noticed that the same change was already posted earlier by Miquel Raynal
-as part of his series ([PATCH 10/16] clk: Add support for clock nexus dt bi=
-ndings):
- https://lkml.org/lkml/2026/3/27/1983
+The FF-A spec (v1.2, section 18.5) says that the producer should
+report the descriptor size, and the consumer is supposed to stride by
+that size and ignore any trailing fields it doesn't understand. The
+non-REGS path (__ffa_partition_info_get) does this already, and the
+REGS path should match.
 
-To avoid duplication, noise, and wasted review time, I will drop my patch.
+Use buf_sz for the stride, and bail out with -EPROTO if the SPMC
+reports something we can't safely walk.
 
-Regarding the questions raised by the sashiko review (e.g. assigned-clocks =
-/
-assigned-clock-parents behavior with nexus nodes), this aligns with the
-ongoing discussion in Miquel's thread so I suggest we continue the discussi=
-on there.
+Fixes: 7bc0f589c81d ("firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_regs_get()")
+Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
+---
+ drivers/firmware/arm_ffa/driver.c | 35 ++++++++++++++++++++++++++++---
+ 1 file changed, 32 insertions(+), 3 deletions(-)
 
-Sorry for the noise.
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index c72ee4756585..b712e8a03dab 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -321,6 +321,22 @@ __ffa_partition_info_get(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+ #define PART_INFO_ID(x)		((u16)(FIELD_GET(PART_INFO_ID_MASK, (x))))
+ #define PART_INFO_EXEC_CXT(x)	((u16)(FIELD_GET(PART_INFO_EXEC_CXT_MASK, (x))))
+ #define PART_INFO_PROPERTIES(x)	((u32)(FIELD_GET(PART_INFO_PROPS_MASK, (x))))
++
++/*
++ * FF-A v1.2 section 13.9 Table 13.40: registers x3..x17 carry the partition
++ * descriptors, i.e. 15 u64 of payload per FFA_PARTITION_INFO_GET_REGS call.
++ */
++#define FFA_PART_INFO_REGS_PAYLOAD_U64	15
++
++/*
++ * FF-A v1.1 partition information descriptor (FF-A v1.2 section 6.2.1
++ * Table 6.1): id (2) + exec_ctxt (2) + properties (4) + UUID (16) = 24
++ * bytes. This is the minimum size the SPMC must report; the kernel reads
++ * exactly these fields and ignores any trailing ones per the forward-
++ * compatibility rules in FF-A v1.2 section 18.5.
++ */
++#define FFA_PART_INFO_DESC_V1_1_SZ	24
++
+ static int
+ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+ 			      struct ffa_partition_info *buffer, int num_parts)
+@@ -353,8 +369,21 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+ 		cur_idx = CURRENT_INDEX(partition_info.a2);
+ 		tag = UUID_INFO_TAG(partition_info.a2);
+ 		buf_sz = PARTITION_INFO_SZ(partition_info.a2);
+-		if (buf_sz > sizeof(*buffer))
+-			buf_sz = sizeof(*buffer);
++
++		/*
++		 * Per FF-A v1.2 section 18.5 the SPMC reports its per-
++		 * descriptor size and consumers must stride by that size,
++		 * consuming only the fields they understand and ignoring any
++		 * trailing ones. Reject sizes that cannot hold the v1.1 fields
++		 * read below, are not u64-aligned, or would overrun the
++		 * x3..x17 window.
++		 */
++		if (buf_sz < FFA_PART_INFO_DESC_V1_1_SZ ||
++		    buf_sz % sizeof(u64))
++			return -EPROTO;
++		if ((cur_idx - start_idx + 1) * buf_sz >
++		    FFA_PART_INFO_REGS_PAYLOAD_U64 * sizeof(u64))
++			return -EPROTO;
+ 
+ 		regs = (void *)&partition_info.a3;
+ 		for (idx = 0; idx < cur_idx - start_idx + 1; idx++, buf++) {
+@@ -373,7 +402,7 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+ 			buf->exec_ctxt = PART_INFO_EXEC_CXT(val);
+ 			buf->properties = PART_INFO_PROPERTIES(val);
+ 			uuid_copy(&buf->uuid, &uuid_regs.uuid);
+-			regs += 3;
++			regs += buf_sz / sizeof(u64);
+ 		}
+ 		prev_idx = cur_idx;
+ 
 
-Regards,=A0
-Chancel Liu
-
-> Platforms can have a standardized connector/expansion slot that exposes
-> signals like clocks to expansion boards in an SoC agnostic way.
->=20
-> The support for nexus node has been added to handle those cases in
-> commit bd6f2fd5a1d5 ("of: Support parsing phandle argument lists through
-> a nexus node"). This commit introduced of_parse_phandle_with_args_map()
-> to handle nexus nodes in a generic way. Currently the gpio subsystem
-> adopted the support in commit c11e6f0f04db ("gpio: Support gpio nexus dt
-> bindings") and pwm subsystem adopted the support in commit
-> e71e46a6f19c4
-> ("pwm: Add support for pwm nexus dt bindings").
->=20
-> Change the function call to use of_parse_phandle_with_args_map() that
-> parses the phandle lists of clocks to use the nexus variant. This
-> allows remapping phandles and their arguments through any number of
-> nexus nodes and end up with the actual clock provider being used.
->=20
-> Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
-> ---
->  drivers/clk/clk.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-> index 048adfa86a5d..4240f059bec2 100644
-> --- a/drivers/clk/clk.c
-> +++ b/drivers/clk/clk.c
-> @@ -5206,8 +5206,8 @@ static int of_parse_clkspec(const struct
-> device_node *np, int index,
->  		 */
->  		if (name)
->  			index =3D of_property_match_string(np, "clock-names",
-> name);
-> -		ret =3D of_parse_phandle_with_args(np, "clocks", "#clock-cells",
-> -						 index, out_args);
-> +		ret =3D of_parse_phandle_with_args_map(np, "clocks", "clock",
-> +						     index, out_args);
->  		if (!ret)
->  			break;
->  		if (name && index >=3D 0)
-> --
-> 2.50.1
+base-commit: 38edeaf4dcf3d8381ba801e494ba03179c145c70
+-- 
+2.34.1
 
 
