@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2587DCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:35:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A04BCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nVPE7oOVfGnNr6jF7jIWIckta4AQ9Sxz6dWYpY6hciU=; b=pdhII6bUtM9IpoOeD7z/AwkPSq
-	GfRbJ4ukGX1VCP3jYp4prdXrtrl9NejGaixRpF5JNwpSMKei62jD62vvOOFxpXEKCb2NC2lpAiUbm
-	fJfb7/HS4uJSepjsvBtLtRpJhoo1A1RJOVbYItXLRaAZDiXJk4CJ+7bcFYPVfQARR5PTFf4cJbEHx
-	RLMb0QOnTvGBdUyI83pUVogIkgnbkQsVWRc+jld4vK3mOG9ZRUKIu5YdW0aa9ZHHx79+i9iKvvHau
-	hmq40ltIw9mIjUse5yk0gTrNBLaei7hH3zVOE6GBIyyHvBeomcM1017niwP/KK4tayu3gGKR1ydnV
-	pWoQpJkA==;
+	bh=RilAo0AC07SYUvwWHlTg5PS51NN+H4oJ9eXEklI23Pg=; b=MevZPpSgO5goZ/QwR0XFt4PCFU
+	eiY5butRifcrwYKFaFky4HPkICWsnlxiULDAm6gAaJnqSyeRiq++jyQrfsb6K2jUISGzmnyDmBqun
+	9ytWWCfzZmdzf8tLXx8d+x7kB9fUnw3VawPfDsMLM/864C2h9txeIQMipvernTKKWXv9UMxzCH7q4
+	E2N0wE9gAU27+7vfUQWHLD4UTdgI26dTm4O4iOSS/UOPFwm9EUg3T8OT9V+UnTKPVXgcyFkDR1x2R
+	9eO0u1q/mC2ZgbwWk0k4mkM70rmxgu3EqI+tnnoUx4Ob7e70v2gKNz5laGzKKxJxF9HhuwdHGkT4I
+	l7XTixrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Mt-000000013r1-2EH8;
-	Wed, 13 May 2026 03:34:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wN0NU-000000014dL-0ZkW;
+	Wed, 13 May 2026 03:35:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Mo-000000013hl-33IO
+	id 1wN0Mq-000000013kZ-2hIo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:34:39 +0000
+	Wed, 13 May 2026 03:34:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A018644481;
-	Wed, 13 May 2026 03:34:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11D32C2BCC9;
-	Wed, 13 May 2026 03:34:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 613BF444B0;
+	Wed, 13 May 2026 03:34:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8234C2BCFB;
+	Wed, 13 May 2026 03:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778643278;
-	bh=lYQ1yov6GYXVE+5pFJSvbDLFJ5lLXCdGtVTWLqgmeuM=;
+	s=k20201202; t=1778643280;
+	bh=+/sFHocRcUihmUH6/AgqXb/DZFT8Oa4f5kM+W19rLY8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ncUO3Z32AbCA3N67e+bLhuW1dnvX0NQjy8olIzxmFBg+0bPjrMcNu0YF6dkAtue9L
-	 ki4CmckhNSZTSQps7z/m/oqN+kRw4sVVYZWOlE67k0U53hsYcyo2Zy7lkEwA194nzD
-	 e1rUTJkVPsoB1Qk1L5vr/1IagUXAy7mPYABMJcccHC0yP6myPwj7diAgZydR6JJxYV
-	 TDoNDG9TaWcpTjCfQ11W4HbQjqOhBSz+tbvEk6FiMdgqhFyCsrfcM8SrUdMy2Z4sYi
-	 p9JB7/eom2Ck4C3MoiDqc+h5JWS+1+R7wp98F/LDjVlfO5I4S9Fs/I5k3PE5CpGbyE
-	 FPkPPhuQSHenw==
+	b=KnB1C68tGrQ+hg40bSzILDRUj87xYxnqRY9/BJQhZg67HOujbCZsCfElQ0oEInBTU
+	 7tv8z+bAbnURxLtVLeojl9BGOy9qkqaLXsDZOtgO36wyn9iYQCvWHzCASnC14oQHX1
+	 i/M4WTGGdXN3aQ8s+O/Tzs/BsxlE67LVTTOQD+RlxQCTW3kCA5vvBXMwS3BpjNpy/s
+	 OP9hTFojt1p8wBP1lKsoY8lmqu6OIiyUwLTUYxOa2+D8EDeCSp5l6qYAwmdlT9bDS9
+	 MZ5e8uRti/DPMjq1lu8C8aXp3b0uVbxAOor3Ya4kChgc9DZbQA58zPO3eCsbgJaEgo
+	 gewvx101BQYYw==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,17 +55,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Mark Rutland <mark.rutland@arm.com>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v3 13/21] objtool: Reuse string references
-Date: Tue, 12 May 2026 20:33:47 -0700
-Message-ID: <8881010b54f07432929acb8e704cd6ffcc835318.1778642120.git.jpoimboe@kernel.org>
+Subject: [PATCH v3 16/21] objtool/klp: Filter arm64 mapping symbols in find_symbol_by_offset()
+Date: Tue, 12 May 2026 20:33:50 -0700
+Message-ID: <236050080db7b2462fdb13a03ed48a8efb2415a4.1778642120.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1778642120.git.jpoimboe@kernel.org>
 References: <cover.1778642120.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_203438_801887_E6FB6626 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20260512_203440_696646_F0104F8D 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,105 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For duplicate strings, elf_add_string() just blindly adds duplicates.
-
-That can be a problem for arm64 which often uses two consecutive
-instructions (and corresponding relocations) to put an address into a
-register, like:
-
-  d8:   90000001        adrp    x1, 0 <meminfo_proc_show>       d8: R_AARCH64_ADR_PREL_PG_HI21  .rodata.meminfo_proc_show.str1.8
-  dc:   91000021        add     x1, x1, #0x0    dc: R_AARCH64_ADD_ABS_LO12_NC   .rodata.meminfo_proc_show.str1.8
-
-Referencing two different addresses in the ADRP+ADD pair would corrupt
-the memory access.  Avoid that by detecting and reusing duplicates when
-cloning string relocs.
+ARM64 ELF objects contain $d/$x mapping symbols (STT_NOTYPE) at offset 0
+in data/text sections.  These aren't "real" symbols so filter them from
+find_symbol_by_offset(), consistent with the existing section symbol
+filter.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/elf.c                 | 29 +++++++++++++++++++++++------
- tools/objtool/include/objtool/elf.h |  3 ++-
- tools/objtool/klp-diff.c            |  4 +++-
- 3 files changed, 28 insertions(+), 8 deletions(-)
+ tools/objtool/elf.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
-index e09bb0a63be35..065ccfeb98288 100644
+index 9d5a926934dc2..a4d9afa3a079c 100644
 --- a/tools/objtool/elf.c
 +++ b/tools/objtool/elf.c
-@@ -1366,9 +1366,27 @@ struct elf *elf_create_file(GElf_Ehdr *ehdr, const char *name)
- 	return elf;
- }
+@@ -159,7 +159,7 @@ struct symbol *find_symbol_by_offset(struct section *sec, unsigned long offset)
+ 	struct symbol *sym;
  
--unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
-+int elf_find_string(struct elf *elf, struct section *strtab, const char *str)
- {
--	unsigned int offset;
-+	char *d_buf;
-+	int i;
-+
-+	if (!strtab->data)
-+		return -1;
-+
-+	d_buf = strtab->data->d_buf;
-+
-+	for (i = 0; i < strtab->data->d_size; i += strlen(d_buf + i) + 1) {
-+		if (!strcmp(d_buf + i, str))
-+			return i;
-+	}
-+
-+	return -1;
-+}
-+
-+int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
-+{
-+	void *data;
- 
- 	if (!strtab)
- 		strtab = find_section_by_name(elf, ".strtab");
-@@ -1382,12 +1400,11 @@ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char
- 		return -1;
+ 	__sym_for_each(sym, tree, offset, offset) {
+-		if (sym->offset == offset && !is_sec_sym(sym))
++		if (sym->offset == offset && !is_sec_sym(sym) && !is_mapping_sym(sym))
+ 			return sym->alias;
  	}
  
--	offset = ALIGN(sec_size(strtab), strtab->sh.sh_addralign);
--
--	if (!elf_add_data(elf, strtab, str, strlen(str) + 1))
-+	data = elf_add_data(elf, strtab, str, strlen(str) + 1);
-+	if (!data)
- 		return -1;
- 
--	return offset;
-+	return data - strtab->data->d_buf;
- }
- 
- void *elf_add_data(struct elf *elf, struct section *sec, const void *data, size_t size)
-diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
-index 0801fcad516bb..d895023674673 100644
---- a/tools/objtool/include/objtool/elf.h
-+++ b/tools/objtool/include/objtool/elf.h
-@@ -187,7 +187,8 @@ struct symbol *elf_create_section_symbol(struct elf *elf, struct section *sec);
- void *elf_add_data(struct elf *elf, struct section *sec, const void *data,
- 		   size_t size);
- 
--unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str);
-+int elf_find_string(struct elf *elf, struct section *strtab, const char *str);
-+int elf_add_string(struct elf *elf, struct section *strtab, const char *str);
- 
- struct reloc *elf_create_reloc(struct elf *elf, struct section *sec,
- 			       unsigned long offset, struct symbol *sym,
-diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
-index 6a1cec57dc6a3..6957292e455e4 100644
---- a/tools/objtool/klp-diff.c
-+++ b/tools/objtool/klp-diff.c
-@@ -1509,7 +1509,9 @@ static int clone_reloc(struct elfs *e, struct reloc *patched_reloc,
- 
- 		__dbg_clone("\"%s\"", escape_str(str));
- 
--		addend = elf_add_string(e->out, out_sym->sec, str);
-+		addend = elf_find_string(e->out, out_sym->sec, str);
-+		if (addend == -1)
-+			addend = elf_add_string(e->out, out_sym->sec, str);
- 		if (addend == -1)
- 			return -1;
- 	}
 -- 
 2.53.0
 
