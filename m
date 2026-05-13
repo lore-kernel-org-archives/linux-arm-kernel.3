@@ -4,126 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F19BCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 12:44:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52133CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 12:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCqqmvyfBRoByfly7X2wP/YX/5z+CJ5QvZWJz06fuzM=; b=f4GI58sLvRbLF/Pck3JYZbBDdU
-	MR4h3BX+gS5mQSCzCvRLBKW1Io8zSHHauf/UYl7Ff2SFOR+KowtPkQd7i6d2o7+UHj5IUsdjm1b9K
-	DotSYqsR8BTKfLMNZkakkfJFi7mbfOYLe4aAi4NJXLM6cLExA+PlvPfqcPa1l/hbu4CTdEpvdcqRQ
-	S/gDksJTI/R2CQGDBRWxbCqf7PsuFIOZkbZt1wHYd7fL/CgSi5ySo3SwYsWOo4RhaT0S9R61oESMd
-	dtK3NJPZnilzK8yY8kHORBA9Us6KKt10aVr9AzlEhhQkA6TqMvhkcBkMRNQQcQARyKr0cqbxj45bT
-	GzeoLp3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KimBNnvZIExu9m7Gn6O/J5U055DSJkXcv1Df4OGtexA=; b=YYzoRtZScaJwWD
+	KA074E9PnlQLPccJDq9C9XsaCPAqe5dRari3irRdV/o1xkFrkkZ3UUjkSN6cDluxBjAV2G5BR86bQ
+	+MxGzAwGo2juVIc+1OG39SstfCPibGVU44XuFNDgcdBbZ2HCsizJ5mo8d0P7UY1vzbhBk5gkYHYUo
+	Jq7nxIbrxYeD8OapCjy0HgAEg+sNS4RZDbkRrPQk9TmX/VIEsqqRvdyZF3fy6gTCDizjVo1UMlTjY
+	Jqtqu+L0gX5N2c0S4RoGSJeaHlvnw7Q2zvYVoctHmOQ+pedfwKkb1An/yXb9wxYmRPePH2nYYj5gi
+	nJG8FcqoTx6Vh4OSAEFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN8wc-00000002XJR-2osu;
-	Wed, 13 May 2026 12:44:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wN8q0-00000002VdR-1INZ;
+	Wed, 13 May 2026 12:37:20 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN8wY-00000002XIm-44aG
+	id 1wN8px-00000002VaR-3ASL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 12:44:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1778676245;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=qCqqmvyfBRoByfly7X2wP/YX/5z+CJ5QvZWJz06fuzM=;
-	b=D6PNqCKTVXDGzBD/JKKPy9ZXoFubRTWl3W6s50vzGBgsrrx/8bleQ0ZZn3XaY5zoYUlxap
-	lB6jNDZFeBvh3UUBZbUlC7r4YR3uu78nOwXaQnnL3DaQgxE2VNo6C8tqq1JoMT6+EFSBUq
-	BqhwHc7PLcbGs600++sIwl9PYYQDM4M=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-223-V10L4c38NFm5JVp7kK65ow-1; Wed,
- 13 May 2026 08:43:58 -0400
-X-MC-Unique: V10L4c38NFm5JVp7kK65ow-1
-X-Mimecast-MFC-AGG-ID: V10L4c38NFm5JVp7kK65ow_1778676234
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 66C65180034E;
-	Wed, 13 May 2026 12:43:53 +0000 (UTC)
-Received: from [10.44.50.86] (unknown [10.44.50.86])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 070DE180034E;
-	Wed, 13 May 2026 12:43:44 +0000 (UTC)
-Message-ID: <ba08dfe9-932b-40c3-9fdf-fc891d52e1d8@redhat.com>
-Date: Wed, 13 May 2026 14:43:42 +0200
+	Wed, 13 May 2026 12:37:19 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-453903ee4adso5847100f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 05:37:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1778675836; x=1779280636; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KimBNnvZIExu9m7Gn6O/J5U055DSJkXcv1Df4OGtexA=;
+        b=askAzgLvyNikKKP7vTO0siHeHJDYhlqzDqZ2FEQWBecjkQZ4+/nwMVyCeB1Wyv8Ahr
+         V/u8lOA55CL8GKbbl9Owjxx5B7idG45hgimMA0M8TsszQXxtsa4EjQoajK3eNOt7wn0+
+         gRi8+hKcV2MQ1B68YZjXzfeBfkaPEUQ7O87F/lic5TCbLQ+ArgEsI9Dq3NeSVVDA5ST6
+         VmLTTMdho7NbvQ4wriFWAd9t5wFnN2bkgzZ7jxqiudx8rV92wPUxsxgXq1YWDQ/G4sJT
+         BzHf5ln+dGr8zC8FFRNGfWjCNejRcAE9jT3AsCuISH3kYlc156XmP1QxE331r2PeTkfT
+         b4Jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778675836; x=1779280636;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KimBNnvZIExu9m7Gn6O/J5U055DSJkXcv1Df4OGtexA=;
+        b=KyFATzvdn8qR2cphNOCrml0loQQP3o/8QCC2V19TguCyZapxV47TsYoDUIIJwG60MT
+         W4wqp3/qLvLzxHACZBa6x9ZTqdN1H1LC4CO+wY8OeB9aQ9qrXoGudU2IpKEB8BJWGU3W
+         aHc1ShOrAN/W0zr6ZhH3aMDycyLf2fDt0+iXbf0Y4TN9cv3dRmkoCIeyxvY6a4dq3B0p
+         kwjj/cdjikm0uscAbEGA0UAPU6ZailD7UiMsgz0tV0KtWbjEc3e602+6eZ+vg8b8NQ/Y
+         uxyaW6AOwgdfGj4dix06TIqISkXxsDaA81CSjvdv7cO75hU1jt0I6bOnj1gOuvvNut6j
+         8ycQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9MWjoCuUewBNvu+GK08rOygiF4Fd+xNGhtJiTnuPlV/byi88JFNYcQ6OzvkKBz3GbB24COPGCw3r5Wt7GjjFZm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvF3iqBmkgoPfqglML5y9ReuhtQexc9XE9JiQK3VzupvWAUiGp
+	mZVenKfwSizNNQ++XOQdEIvxcpYjI2KXprOcP9agCq42LLoW+5R19/zMGIq4nPWigFE=
+X-Gm-Gg: Acq92OHrG8LF4PQe7VBVCWwAkSlL6zfowBiTDuOFDrdiFlXJhiSnp2SdEVArA7Zjz+S
+	a6SNxwIlbLV0uDQNM54HLpEl8tbZMazi8EwevammdJN/uYE4yxrwC0xC2GWlBx++MK6jg6EB/1J
+	X8Y9v6oNBOIhBy3zFejYI1NuCs3fBY4Wrd+HpQNziZ0dVW60wkNtxdV5OS/Pp2sBlSBvUHRPNhl
+	ZaqPdYWq2NCJdZaH6hQ3jqfIaBnTfNGHCdWP4RzMU4jZ57YXM8O7ciBw7N5pv+FbKPkFLThKaoq
+	/X/cltrBXBkcYSEQn8siS/49OE1h7LoDlakWahWU6SWzD6esz+gd9zBaoKJepvbl4gJOoQSdDos
+	impAU6/bdC7Op0AQGdpcGskcES9xlDxChjeoFWYMiEnTCm1J1UtkmKGttwOUcfnSagXuJnzRSGx
+	i8xfIw7ECPhlV94S5zI8tLiuFKu3vVPetvNKPEM73XImrO2PtFRpLRdfYL2ckOYLthQBqr6z6f8
+	Er7HhFPVke8SkpJsvy2iPbQADg=
+X-Received: by 2002:a05:6000:3101:b0:43b:498f:dceb with SMTP id ffacd0b85a97d-45c57edf73amr5082318f8f.9.1778675835858;
+        Wed, 13 May 2026 05:37:15 -0700 (PDT)
+Received: from [127.0.1.1] ([94.4.195.193])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4548e4bb87bsm38899725f8f.2.2026.05.13.05.37.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 May 2026 05:37:15 -0700 (PDT)
+From: Alexey Klimov <alexey.klimov@linaro.org>
+Subject: [PATCH v4 0/6] Exynos-pmu: Generalise cpu{hotplug,idle},PMU intr
+ gen and add Exynos850 CPU hotplug
+Date: Wed, 13 May 2026 13:37:12 +0100
+Message-Id: <20260513-exynos850-cpuhotplug-v4-0-54fec5f65362@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] Documentation: KVM: Document guest-visible compatibility
- expectations
-To: David Woodhouse <dwmw2@infradead.org>, Marc Zyngier <maz@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- kvm@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Sean Christopherson <seanjc@google.com>,
- Jim Mattson <jmattson@google.com>, Oliver Upton <oupton@kernel.org>,
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Raghavendra Rao Ananta <rananta@google.com>,
- Eric Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kselftest@vger.kernel.org
-References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
- <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
- <57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
- <baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com>
- <86h5obya2r.wl-maz@kernel.org>
- <48b06e5655d56ff6eda30e563b34894fa0eb2f07.camel@infradead.org>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Autocrypt: addr=pbonzini@redhat.com; keydata=
- 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
-In-Reply-To: <48b06e5655d56ff6eda30e563b34894fa0eb2f07.camel@infradead.org>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-X-Mimecast-MFC-PROC-ID: A_7I_BGIdFAq4qmBEd8ZD1_gHpD9jd7VrA4f3CsDalQ_1778676234
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHhwBGoC/4XNQQqDMBCF4atI1k2ZTDTRrnqP0kXQUQNiJNGgF
+ O/etJu2lNLl/2C+ubFA3lJgp+zGPEUbrBtT5IeM1b0ZO+K2Sc0QUAGi4rRuowtlAbyelt7N07B
+ 0XFWtqLQiak3J0unkqbXrk71cU/c2zM5vzy9RPNY/YBQcuBaNrnNQUpZ4HuxovDs637GHGPGl5
+ CB+KJiUujBagZGERfWlyDdFwg9FJqVtFBaiATRCfyj7vt8BDJDUD0UBAAA=
+X-Change-ID: 20260226-exynos850-cpuhotplug-69f1976eefa8
+To: Sam Protsenko <semen.protsenko@linaro.org>, 
+ linux-samsung-soc@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Henrik Grimler <henrik@grimler.se>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_054407_078427_45FCEAB8 
-X-CRM114-Status: GOOD (  34.01  )
+X-CRM114-CacheID: sfid-20260513_053717_828311_7F762209 
+X-CRM114-Status: GOOD (  17.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,89 +109,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/13/26 11:24, David Woodhouse wrote:
-> On Wed, 2026-05-13 at 09:42 +0100, Marc Zyngier wrote:
->> If userspace is not a total joke, it will read all the ID registers,
->> and configure what it wants to see, assuming it is a feature that can
->> be configured (not everything can, because the architecture itself is
->> not fully backward compatible).
->>
->> Yes, this is buggy at times, because the combinatorial explosion of
->> CPU capabilities and supported features makes it pretty hard to test
->> (and really nobody actually does). But overall, it works, and QEMU is
->> growing an infrastructure to manage it in a "user friendly" way.
-> 
-> Yes, that is precisely what I'm asking for. I'm prepared to deal with
-> the fact that KVM/Arm64 is not a stable and mature platform like x86
-> is, and that userspace has to find all the random changes from one
-> version to the next, and explicitly pin things down to be compatible.
-> 
-> All I'm asking for is that KVM makes it *possible* to pin things down
-> to the behaviour of previously released Linux/KVM kernels.
-> 
->> But really, this isn't what David is asking. He's demanding "bug for
->> bug" compatibility. For that, we have two possible cases:
-> 
-> No, I am not asking you to meet that bar. I merely observed that x86
-> does and that it would be nice. But we are a *long* way from that.
+Series generalises the GS101-specific cpuhotplug, cpuidle and PMU interrupt
+generation block support, which is currently implemented specifically for
+the google GS101 SoC, to make it reusable by other Samsung Exynos SoCs.
 
-x86 doesn't do bug-for-bug compatibility, thankfully - we have quirks 
-but only 11 of them, or about one per year since we started adding them. 
-  We only add quirks, generally speaking, when 1) we change the way file 
-descriptors are initialized, 2) guests in the wild were relying on it, 
-or 3) it prevends restoring state saved from an old kernel.  Is there 
-anything else?
+The PMU interrupt generation IP block introduced for google GS101 is a
+standard Samsung Exynos block found in other SoCs, including Exynos850,
+and it is not strictly exclusive to google Exynos-based platforms.
+Access to this block is required to implement and enable cpuhotplug
+on Exynos850-based boards.
 
-So you're asking something not really far from this:
+As a next steps it will be possible to enable idle states on top of it.
 
->> - this is a behaviour that is not allowed by the architecture: we fix
->>    it for good. We do that on every release. Some minor, some much more
->>    visible. And there is no way we will add this sort of "bring the
->>    bugs back" type of behaviours. Specially when it is really obvious
->>    that no SW can make any reasonable use of the defect. We allow
->>    userspace to keep behaving as before, but the guest will not see a
->>    non-compliant behaviour.
+First patches work on DT bindings to reflect that Exynos850 SoC predates
+gs101 one and adding mandatory property 'google,pmu-intr-gen-syscon'
+for exynos850-pmu.
+Then series generalises ("Exynosizes") cpuhotplug/cpuidle routines by
+deferring platform-specific PMU and PMU-intr-gen updates to platform-
+specific callbacks and then finally introduces new file exynos850-pmu.c
+where such callbacks are implemented for Exynos850. Last commit adds
+pmu_intr_gen DT node to exynos850.dtsi.
 
-... where for example 
-https://lore.kernel.org/kvm/e03f092dfbb7d391a6bf2797ba01e122ba080bcd.camel@infradead.org/ 
-is an example of a bug that "no SW can make any reasonable use of".
+This series was tested on Exynos850 WinLink E850-96 board:
+-- by spinning "chcpu -d 1-7; chcpu -e 1-7" in a loop for a few hours;
+-- by running script [1] that randomly offlines or onlines random cpus
+   for a few hours.
 
-> Marc, this is complete nonsense and you should know better.
-> Once a behaviour is present in a released version of Linux/KVM, we
-> can't just declare it "wrong" and unilaterally impose a change in
-> guest-visible behaviour on *running* guests as a side-effect of a
-> kernel upgrade.
-> 
-> The criterion for *KVM* to remain compatible is "once it has been in a
-> released version of the kernel". Not "once it is in the architecture".
+I tried to implement it in way to not break anything for gs101, thanks to
+Peter for testing.
 
-That is *also* obviously nonsense though, isn't it (see example above)? 
-The truth is in the middle, "once it is in the architecture" is likely 
-too narrow but "once it is in a Linux release" is way too broad.  And 
-besides, both miss the point of *configurability* which is the basis of 
-it all.
+Thanks,
+Alexey
 
-The main difference between x86 and Arm is the default state at 
-creation; x86 defaults to a blank slate, mostly; and when we didn't do 
-that, we regretted it later (cue the STUFF_FEATURE_MSRS quirk).  It's 
-too late to change the behavior for Arm, but I think we can agree that 
-patches such as 
-https://lore.kernel.org/kvm/20260511113558.3325004-2-dwmw2@infradead.org/ 
-("KVM: arm64: vgic: Allow userspace to set IIDR revision 1") are what 
-the letter and spirit of this proposal is about.
+[1]: https://github.com/laklimov/xlam/blob/main/e850_cpuhotplug_random.sh
 
-Marc did not mention having to deal with guests in the wild.  Let's 
-ignore it for now because even defining "guests in the wild" is hard; 
-and anyway it's not related to the patch that triggered the discussion.
+Signed-off-by: Alexey Klimov <alexey.klimov@linaro.org>
+---
+Changes in v4:
+- remove blank line in file exynos850-pmu.c, commit (as suggested by Krzysztof);
+- only update trailers/tags in commit messages;
+- Link to v3: https://lore.kernel.org/r/20260430-exynos850-cpuhotplug-v3-0-fd6251d02a17@linaro.org
 
-So we have the third case, "restoring state saved from an old kernel". 
-If this case arises, I do believe that Arm will have to deal with it and 
-introduce quirks or KVM_GET/SET_REG hacks.  Maybe it hasn't happened 
-yet, lucky you.
+Changes in v3:
+- dropped two commits where samsung,pmu-intr-gen phandle is introduced and
+  where google,pmu-intr-gen-syscon is deprecated (as suggested by Rob Herring);
+- addtion to maintainers file was moved to separate entry, change commit message;
+- commit message in "generalise gs101-specific cpu{idle,hotplug} for Exynos SoCs"
+  was updated since it no longer touches samsung,pmu-intr-gen-syscon;
+- added missing asm/cputype.h header to exynos850-pmu.h
+  (reported by Henrik Grimler);
+- new commit "dt-bindings: soc: samsung: exynos-pmu: Require
+  pmu-intr-gen-syscon for Exynos850";
+- Link to v2: https://lore.kernel.org/r/20260401-exynos850-cpuhotplug-v2-0-c5a760a3e259@linaro.org
 
-Overall, even if we may disagree about the details, are we really on 
-terribly distant grounds, or are we not?
+Changes in v2:
+- moved gs101 cpu {offline,online} callbacks to gs101-pmu.c, updated MAINTAINERS;
+- added new file exynos850-pmu.c with cpu {offline,online} callbacks and
+  exynos850 pmu data;
+- new patch that adds exynos850-pmu.c to MAINTAINERS;
+- moved pmu_intr_gen to right after pmu_system_controller@11860000;
+- merged two patches that update google,gs101-pmu-intr-gen.yaml together,
+  now rename and adding exynos850 entry goes in a single patch;
+- commits 5 and 6 from RFC series are merged together and reworked,
+  cpu_pmu_{offline,online} callbacks are moved into pmu_data struct, and
+  callbacks now need pmu_context as an argument, exynos_pmu_context and
+  CPU_INFORM defines are moved to exynos-pmu.h, gs101 callbacks
+  renamed. It is really better to check commit description.
+- Link to RFC (v1 from b4 point of view):
+  https://lore.kernel.org/r/20260226-exynos850-cpuhotplug-v1-0-71d7c4063382@linaro.org
 
-Paolo
+---
+Alexey Klimov (6):
+      dt-bindings: soc: move,rename google,gs101-pmu-intr-gen and add exynos850
+      dt-bindings: soc: samsung: exynos-pmu: Require pmu-intr-gen-syscon for Exynos850
+      soc: samsung: exynos-pmu: generalise gs101-specific cpu{idle,hotplug} for Exynos SoCs
+      soc: samsung: exynos-pmu: add Exynos850 CPU hotplug support
+      MAINTAINERS: add Exynos850 PMU entry
+      arm64: dts: exynos850: add PMU interrupt generation node
+
+ .../bindings/soc/samsung/exynos-pmu.yaml           |   1 +
+ .../samsung,exynos850-pmu-intr-gen.yaml}           |   8 +-
+ MAINTAINERS                                        |   9 +-
+ arch/arm64/boot/dts/exynos/exynos850.dtsi          |   6 ++
+ drivers/soc/samsung/Makefile                       |   2 +-
+ drivers/soc/samsung/exynos-pmu.c                   | 119 ++++-----------------
+ drivers/soc/samsung/exynos-pmu.h                   |  32 ++++++
+ drivers/soc/samsung/exynos850-pmu.c                |  78 ++++++++++++++
+ drivers/soc/samsung/gs101-pmu.c                    |  57 ++++++++++
+ include/linux/soc/samsung/exynos-regs-pmu.h        |  15 ++-
+ 10 files changed, 221 insertions(+), 106 deletions(-)
+---
+base-commit: 0787c45ea08a13b5482e701fabc741877cf681f6
+change-id: 20260226-exynos850-cpuhotplug-69f1976eefa8
+
+Best regards,
+-- 
+Alexey Klimov <alexey.klimov@linaro.org>
 
 
