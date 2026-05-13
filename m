@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF43CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 20:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 693FFCD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 20:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGopBsLqO2aU9U0+Bg4ESbCh30nZOqyDa8IE0MbQ+7E=; b=QBuuYBI5rKrFaCdjNsKRREb6m5
-	tT1+uIxP8oUcB7e1A6S9DueW172txO3dg38mVuFtaS6fQeEZ62QL4VEGZtG22JOr6QgkNxQRs2CIt
-	ED+dthb7ikybtLFdHEXeEEtMMKx7gqWOYTGFJy9d5MAsBqP8DkqY20FHAY62FoNYWOE0IDC6n2bRL
-	QOW/ufTe5n0asYxRR8KuBwlZi1cCwlNXUdR+mP4/YJJNBY785EY6Hfj9C1nmzX5EFTuiAImn208Om
-	Ozd2uP+04aeLn7+mQpbhTS7CrVUMMnfXh1vUiwDFns4JQewAfEJUqC5ERQi81f+TXMQmHimTXlEyH
-	RhD5BZzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oKXnHxcGKyEItz8+qPNqFMSPcNy9STP0W4CtPGkebJI=; b=oEWPi8woTS4G8oj37x0uDVcQ8z
+	e8d1asrVTuswEJhKMUQqqYm8uLBnU6MXpQJPW55OoHV9kc5sFiCll8O4/7CoQZHEKa/M7HBrGYytM
+	kswFSS902x1Kmn3qEbwF8n7RSNpJGcs0czdr3is4s8TyPFIKT6+mmYyegGSwKmcf+rUKC0Xbdf0Q0
+	qZK7Vu6Xq4W+DMMvS7vHoAE+o19Bqoyof+wZQd427DEc8cfQwyGZ42184+MrOnYqwdo5zmN4b6R9o
+	LZjmPTgVaRZ02VfDTvTkfT7wjQ6/2Z2ElrEVOMWbtbzxnFPQpy0XHHYHH6fDTTaQKkFm1oc9WY01q
+	80ZIcz2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNGC8-00000003i0Q-1RH4;
-	Wed, 13 May 2026 20:28:40 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1wNGe1-00000003m82-0zjc;
+	Wed, 13 May 2026 20:57:29 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNGC6-00000003hzY-2DZ9
+	id 1wNGdy-00000003m7A-113b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 20:28:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1778704118; x=1810240118;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=94YyXNzMTEt4UesTQXEg5EHXkdJVDB9o4CXu2ck8OUA=;
-  b=DK+koLMuk52ZhwgxpWlh197s8n+9uCiNO3dIIPVME9QL19n0mfP5YSvH
-   /WCHe3245fe+BafCaHnz46KVsMvi+E0SjamXsynK76R7S/8Aa54eCCSSX
-   LmWNHrnok3cGMrNlALgd6IADFjpPfC/kBwyXWEol433u7CSiL/VJ/772E
-   TzAw21bLLIOyiHQon4//R3ezgpRjy8W7Il/ucVjREwT31bKwz7zLVrQkY
-   VTci3UgN3FtEiNPF4oWLQFQ8XYBWKVTtG/ldKXbZtqtTiH5F3aVXFRh2b
-   6s8vI5jrPh2vTd2MI5CCGLD4zja+dnn7oEl4EKl+FDhndMP2KaRx3JlEn
-   A==;
-X-CSE-ConnectionGUID: mtlVcOHISEaS3/fqOC8Ptg==
-X-CSE-MsgGUID: muF0VT4uT72cQ/PlHKcFtw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11785"; a="102309898"
-X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
-   d="scan'208";a="102309898"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 13:28:37 -0700
-X-CSE-ConnectionGUID: aedUM+sTS4aBSfGy9nseAA==
-X-CSE-MsgGUID: Oz9845mtQWuod6gKW4p9zw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
-   d="scan'208";a="261936442"
-Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.106])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 13:28:33 -0700
-Date: Wed, 13 May 2026 23:28:30 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Angelo Dureghello <adureghello@baylibre.com>
-Cc: Greg Ungerer <gerg@linux-m68k.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
-Subject: Re: [PATCH v2 11/11] iio: dac: add mcf54415 DAC
-Message-ID: <agTe7vZ94DnmD4Ed@ashevche-desk.local>
-References: <20260513-wip-stmark2-dac-v2-0-fcdae50cf51a@baylibre.com>
- <20260513-wip-stmark2-dac-v2-11-fcdae50cf51a@baylibre.com>
+	Wed, 13 May 2026 20:57:27 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-8b5cda2dab9so67405596d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 13:57:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778705844; x=1779310644; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oKXnHxcGKyEItz8+qPNqFMSPcNy9STP0W4CtPGkebJI=;
+        b=gJ9W72qVbtC/DGuasKKGoAiqIzXlKn28Vox3sjAcBAxO5Mip1M00JhAFWGaRnfHmal
+         o43nHM13fa+oWy+q8h7vGrKdLZRRzFBcK8VlD3lx/hAFPVVx5zCx07faevcSbSV/Lx7t
+         g/VE7hupcF/TupQJCm4rEYhjPOABoJuiSYCFEXr/yddnsYRkrAmAfCfK1N1dSruHCvYT
+         RKO6GxvV0rqNg8uegd/Xv2dVXTp85tZEUJaMPVK0Kpevbpp5G2ZEb6bKjRUz6GTkvY2a
+         gWUSycSlmwAWwvXRRr3KN5GMJtzDn4rjEU2cn0mjqu0FoUFVe4jCJw0SgOPpSt4+6+hx
+         jlBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778705844; x=1779310644;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oKXnHxcGKyEItz8+qPNqFMSPcNy9STP0W4CtPGkebJI=;
+        b=RhBS4MzVDtqdF8VKDnGGUB+7tRbNXD8hWaHP4m/mVOKm88YIo+v8Y0837Cv/uzK3gX
+         oMGoMmtdxdAd7MaC6vCXHyzZ14Kz4v3BsVAzuMHIQXqF2YpwsWNq2o0TVS9Jpr2DAEC2
+         VUta+4hJbevv0BB4NfSLdxUVjcJ8DhCPBfcW0nr8Ra0A8bH+H8G1eEUIVEwMjk3bYrWf
+         MYeHz5HazXSfLAwSZSQcxXVn2pT+KkTMtIVP8aPX16lQ4AtybP3nZl7aZseuvspQEHSr
+         waLatdCcswe/AbwDRyYPdlImNOpWUkMOjp4daKi2lsuFJPX/GCFjdr56eqNVczHW9oLK
+         0+KQ==
+X-Gm-Message-State: AOJu0Yw0N96rNEVrC3mDqkPg9j29Dw71gJhpQpVyTO9tL2Td/VJ9IQhA
+	YpNYxg462KD7zdGEgI0XkY5woxsktkzf/obpewmFjyakVyfSuc10UIbs
+X-Gm-Gg: Acq92OExgspsQM2qkucInlHrns+3DIJmg/3p1qZ2HRA9QrSSv2qT8A3m3WzUjV0O0vx
+	gKHmRwudFh3TBY6jm9hA+qsWt2zTGL9sRuGRh2JcfVRb99Sw9AVEZyOOfPOKa83XBM1OvFdbk+t
+	HfV5Rwkm8tOoxBiUjDPmwvFWS1f85eVJm2cbF/BQG0TzcUFudit88KY4xVEQVGfMZ/6iWI0vrrs
+	kx/cJWIg9ID6Uwq0ns0rkeMECxbMYn7toAAgYSI+fx4u6e00hA+kgn0+xXiiTMYzzqCL41JSQQa
+	9ILeRIxbD2VNJrWYBRuJ5QDmxpJSak33bwdmkU9pjBy0UiJsDKg1eMqA/NXZXLQEPbjIuNu1zuo
+	ardgDMS04Mt8pDAc+X4mangCCc67GSutIo9MIu580jGaEqY7o9/OhY9/vrowD2eVqK8dY1GhVAG
+	r4CTKY1jZnG1WqpVZDaDiqrINbPEVsnPpxxFdWfYKe
+X-Received: by 2002:a05:622a:1209:b0:50b:29da:ec58 with SMTP id d75a77b69052e-51641651eadmr15939811cf.8.1778705844388;
+        Wed, 13 May 2026 13:57:24 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5148e7e3d90sm152940931cf.20.2026.05.13.13.57.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 May 2026 13:57:23 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v1] ARM: devtree: Fix /cpus node reference leak
+Date: Wed, 13 May 2026 16:57:20 -0400
+Message-ID: <20260513205720.638900-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260513-wip-stmark2-dac-v2-11-fcdae50cf51a@baylibre.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_132838_645178_6EF6CD1F 
-X-CRM114-Status: GOOD (  25.23  )
+X-CRM114-CacheID: sfid-20260513_135726_284716_8B25C180 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,167 +95,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 11:14:35AM +0200, Angelo Dureghello wrote:
-> 
-> Add basic version of mcf54415 DAC driver. DAC is embedded in the cpu and
-> DAC configuration registers are mapped in the internal IO address space.
-> 
-> The DAC accepts a 12-bit digital signal and creates a monotonic 12-bit
-> analog output varying from DAC_VREFL to DAC_VREFH. The DAC module
-> consists of a conversion unit, an output amplifier, and the associated
-> digital control blocks. Default register values for DAC_VREFL and DAC_VREFH
-> are respectively 0 and 0xfff, left untouched in this initial version.
-> 
-> This initial version of the driver is minimalistic, "output raw" only, to
-> be extended in the future. DMA and external sync are disabled, default mode
-> is high speed, default format is right-justified 12bit on 16bit word.
+of_find_node_by_path() returns a referenced device node.  In
+arm_dt_init_cpu_maps(), the /cpus node is kept across CPU node parsing
+but is never released on the success path or on post-acquire error
+paths.
 
-...
+Route all exits after the /cpus lookup through a common cleanup label so
+the node reference is dropped.
 
-> +#include <linux/array_size.h>
-> +#include <linux/bitfield.h>
-> +#include <linux/bits.h>
-> +#include <linux/clk.h>
-> +#include <linux/compiler_types.h>
-> +#include <linux/delay.h>
+Fixes: a0ae02405076a ("ARM: kernel: add device tree init map function")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+---
+ arch/arm/kernel/devtree.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-+ err.h
-
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-
-...
-
-> +struct mcf54415_dac {
-> +	struct clk *clk;
-> +	struct regmap *map;
-
-I believe that regmap pointer is used more often, can you check with
-bloat-o-meter that swapping these two (by the order) gives any benefit in
-object size?
-
-> +};
-
-...
-
-> +	.max_register = 0x1F,
-
-No definition? What datasheet says about this? Perhaps define the MAX as per
-last defined register in the datasheet?
-
-> +};
-
-...
-
-> +static void mcf54415_dac_init(struct mcf54415_dac *info)
-> +{
-> +	/* Keeping defaults and enable DAC (bit 0 set to 0) */
-> +	regmap_write(info->map, MCF54415_DAC_CR, MCF54415_DAC_CR_FILT |
-> +		     FIELD_PREP(MCF54415_DAC_CR_WMLVL, 1));
-
-Seems the whole driver ignores IO errors, why?
-
-> +	/* DAC is ready after 12us, from RM table 40-3  */
-> +	fsleep(12);
-> +}
-
-...
-
-> +static void mcf54415_dac_exit(void *data)
-> +{
-> +	struct mcf54415_dac *info = data;
-> +
-> +	regmap_update_bits(info->map, MCF54415_DAC_CR, MCF54415_DAC_CR_PDN,
-> +			   MCF54415_DAC_CR_PDN);
-
-regmap_set_bits()
-
-> +}
-
-...
-
-> +static int mcf54415_write_raw(struct iio_dev *indio_dev,
-> +			      struct iio_chan_spec const *chan,
-> +			      int val, int val2, long mask)
-> +{
-> +	struct mcf54415_dac *info = iio_priv(indio_dev);
-> +
-> +	switch (mask) {
-> +	case IIO_CHAN_INFO_RAW:
-> +		if (val < 0 || val > 4095)
-
-Do we have a definition for the resolution? I'm fine with the plain numbers,
-but it's better to add a short comment to say that this is "based on the
-resolution of XXX register per datasheet".
-
-> +			return -EINVAL;
-> +		regmap_write(info->map, MCF54415_DAC_DATA, val);
-> +		return 0;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-
-...
-
-> +static int mcf54415_dac_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct iio_dev *indio_dev;
-> +	struct mcf54415_dac *info;
-> +	void __iomem *regs;
-> +	int ret;
-> +
-> +	indio_dev = devm_iio_device_alloc(dev, sizeof(*info));
-> +	if (!indio_dev)
-> +		return -ENOMEM;
-> +
-> +	info = iio_priv(indio_dev);
-> +
-> +	regs = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(regs))
-> +		return dev_err_probe(dev, PTR_ERR(regs),
-> +				     "failed to get io regs\n");
-
-One line.
-
-> +
-> +	info->map = devm_regmap_init_mmio(dev, regs,
-> +					  &mcf54415_dac_regmap_config);
-> +	if (IS_ERR(info->map))
-> +		return PTR_ERR(info->map);
-> +
-> +	info->clk = devm_clk_get_enabled(dev, "dac");
-> +	if (IS_ERR(info->clk))
-> +		return dev_err_probe(dev, PTR_ERR(info->clk),
-> +				     "failed getting clock\n");
-
-Also can be a single line, but this one a bit longer than above, gives
-88 characters.
-
-> +	platform_set_drvdata(pdev, indio_dev);
-> +
-> +	indio_dev->name = "mcf54415";
-> +	indio_dev->info = &mcf54415_dac_iio_info;
-> +	indio_dev->modes = INDIO_DIRECT_MODE;
-> +	indio_dev->channels = mcf54415_dac_iio_channels;
-> +	indio_dev->num_channels = ARRAY_SIZE(mcf54415_dac_iio_channels);
-> +
-> +	mcf54415_dac_init(info);
-> +
-> +	ret = devm_add_action_or_reset(dev, mcf54415_dac_exit, info);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return devm_iio_device_register(dev, indio_dev);
-> +}
-
+diff --git a/arch/arm/kernel/devtree.c b/arch/arm/kernel/devtree.c
+index 3b78966e750a..88a072d3b8e1 100644
+--- a/arch/arm/kernel/devtree.c
++++ b/arch/arm/kernel/devtree.c
+@@ -93,7 +93,7 @@ void __init arm_dt_init_cpu_maps(void)
+ 		 */
+ 		if (hwid & ~MPIDR_HWID_BITMASK) {
+ 			of_node_put(cpu);
+-			return;
++			goto out_put_cpus;
+ 		}
+ 
+ 		/*
+@@ -107,7 +107,7 @@ void __init arm_dt_init_cpu_maps(void)
+ 			if (WARN(tmp_map[j] == hwid,
+ 				 "Duplicate /cpu reg properties in the DT\n")) {
+ 				of_node_put(cpu);
+-				return;
++				goto out_put_cpus;
+ 			}
+ 
+ 		/*
+@@ -149,7 +149,7 @@ void __init arm_dt_init_cpu_maps(void)
+ 
+ 	if (!bootcpu_valid) {
+ 		pr_warn("DT missing boot CPU MPIDR[23:0], fall back to default cpu_logical_map\n");
+-		return;
++		goto out_put_cpus;
+ 	}
+ 
+ 	/*
+@@ -162,6 +162,9 @@ void __init arm_dt_init_cpu_maps(void)
+ 		cpu_logical_map(i) = tmp_map[i];
+ 		pr_debug("cpu logical map 0x%x\n", cpu_logical_map(i));
+ 	}
++
++out_put_cpus:
++	of_node_put(cpus);
+ }
+ 
+ bool arch_match_cpu_phys_id(int cpu, u64 phys_id)
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.43.0
 
 
