@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E71E8CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 05:34:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B41CD37B6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 05:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cib4DEuJ3Qb31GU/VeWbFg6orAoKtLPFmf6uqex2nIs=; b=J1SKvJVc41g5afDJdkJX+SJtdp
-	MSJzKv7GrW1HfX0jhAsG126UlU8Q0RadF3DHw+ALAcMehHVmE/YldKGG8ImT4q70BMmGKMMWqeUkm
-	XNy5wZhlsT7Bur/L0mGN0ix49NdYITzYJ9weDldPPNFgSNbSynBcNDOb6NPbv3vXQB1zCQ/fEUtUB
-	CiYZetIJhsdYGgkXecGCSkNXh2hEvfUtzNVJm0477lxNjhVzUC37H4hR5QJgz/CTCC0KnLZt1HcWb
-	5wcE7z454bEEZ3XR6ecXi93XBjXyhNQG4htAPrJnaYSiGfQyh/chfwjjYL1eDDOx0Gm7tY80D+J8g
-	t29StNrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+doqOq5qahrITQTt42Vk0H3M5xERwzM2ccixxL3hjQo=; b=rq8gmEtJDdp9XDhLlKKjbisHRf
+	y33KVVrJnnS0oaTK2BmBFvc76uI69Bm0dw2pYXfXzPVuOGlLIZ+yZcmdJvbxIl4kHJb3nTXmNJPY1
+	GwVIuk3x83qpv9/AvUNf5mouy6iRySCMRTNooemXb1jwOCOrPXb4xTMbZHS0p1fDG1PcSfM/hCJoY
+	BpmadS3R4pZQHczQlUHf+r14psEf+PExGei0wc9qzyvuhGSlbIcBzOB5cNJCqIrj5woJYcQSLdcU3
+	jX0iBTxhiJI93+uBnFw9REZscqZdZfWkgZLLLG4r2JLH3tP4lWBmtkZVUX/p4TVd0wgDAyC2e9x28
+	MWrbyEDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN2F7-00000001Kqz-14gW;
-	Wed, 13 May 2026 05:34:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wN2Rm-00000001MhT-26fX;
+	Wed, 13 May 2026 05:47:54 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN2F4-00000001KqL-3DxP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 05:34:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3952A444AC
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 05:34:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A7BDC2BD04
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 05:34:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778650486;
-	bh=2dm9LJzKS2vHlnPyimeXOnAI0qwpLFhX3y1a2u/Y9Bw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IyRIRsP4rbC+iIfAMYiX90OH3+4zuMyG+RXJ8qJUoGna+dv/oSxAyM8ByKmHdQ3gk
-	 mCr20ywzo5ZgFTAm8v8tKy9yxdOitY6s8PZDlXBUMVG3DEttPoaNz+gjRDbvMCE03E
-	 h6DvSHgCHQoJfJkfF9P20B0cOwaT/hSG+mdmOoilXhIdvG9bZgMSK10ugP1ft6b8kb
-	 NEZw/HhsbvvfgFgFJuV0q64ngsKznJ7SMeMu1KI5kf9FfGfHdQiciBnvG2Qo4454A1
-	 535YW+jplAUdn10vtHFBjnAd3Fuck/tUePR6gKkAjoD/H5vvjQayRWoC1XFsytqbyA
-	 GVDfuMaoGTpxQ==
-Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-67c2d57a5ceso11120245a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 22:34:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9rJhRgNTGspbEnQTMZzn2IENQ4cRXctuqQLZd5kUVWu4G3Fv54DUQs2UUTi3TplXx2txf1BfHFka34HXX3Wj+Q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy14RAMdQSzgWc2oQt0C888qX1hamB/7rc61Lhm0nlRUqlXiOk3
-	w+tIE3/09jm4s/aXzx+5toMHQ+Xhe2jQ6gDmL92Obki07wnIesHXUui45OKPVLGUp9APyNQfNQu
-	6EFJWZq3/IKjOl7HncvV8SPGKam0Q37k=
-X-Received: by 2002:a17:906:8d8b:b0:ba4:94f8:4df with SMTP id
- a640c23a62f3a-bd3bfb8f581mr101033666b.17.1778650484437; Tue, 12 May 2026
- 22:34:44 -0700 (PDT)
+	id 1wN2Ri-00000001MgA-0qbk;
+	Wed, 13 May 2026 05:47:52 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id B404568B05; Wed, 13 May 2026 07:47:42 +0200 (CEST)
+Date: Wed, 13 May 2026 07:47:42 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: David Sterba <dsterba@suse.cz>
+Cc: Christoph Hellwig <hch@lst.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
+	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-raid@vger.kernel.org
+Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
+Message-ID: <20260513054742.GA1018@lst.de>
+References: <20260512052230.2947683-1-hch@lst.de> <20260512052230.2947683-2-hch@lst.de> <20260512114231.GG2558453@suse.cz>
 MIME-Version: 1.0
-References: <20260508123910.114273-1-ulf.hansson@linaro.org>
- <20260508123910.114273-7-ulf.hansson@linaro.org> <CACRMN=cowCsGb3x=tPOWLYdittwLCsSb2N2SXVPyxBRHThGAVg@mail.gmail.com>
- <CAPDyKFoxJ8AOyqzbEQc8x-e5fRf0p3faE23PRNcbA4aPSY_cdg@mail.gmail.com>
-In-Reply-To: <CAPDyKFoxJ8AOyqzbEQc8x-e5fRf0p3faE23PRNcbA4aPSY_cdg@mail.gmail.com>
-From: Saravana Kannan <saravanak@kernel.org>
-Date: Tue, 12 May 2026 22:34:28 -0700
-X-Gmail-Original-Message-ID: <CACRMN=cyMjHtW1xjoYPWa8_TjmQEoJBvKtMo-UgP5yZJ=zDh2Q@mail.gmail.com>
-X-Gm-Features: AVHnY4LyfY4cUuXax6ixWmnl65gxoZBZuMNMRgoV0xiInOYdE0OY_bavPn835OQ
-Message-ID: <CACRMN=cyMjHtW1xjoYPWa8_TjmQEoJBvKtMo-UgP5yZJ=zDh2Q@mail.gmail.com>
-Subject: Re: [PATCH v3 06/13] pmdomain: core: Add initial fine grained
- sync_state support
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Saravana Kannan <saravanak@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
-	Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260512114231.GG2558453@suse.cz>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_223446_854927_2EE830BA 
-X-CRM114-Status: GOOD (  68.64  )
+X-CRM114-CacheID: sfid-20260512_224750_380222_6E63D641 
+X-CRM114-Status: GOOD (  22.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,313 +87,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 11, 2026 at 3:25=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.org=
-> wrote:
->
-> On Mon, 11 May 2026 at 07:09, Saravana Kannan <saravanak@kernel.org> wrot=
-e:
-> >
-> > On Fri, May 8, 2026 at 5:39=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.=
-org> wrote:
-> > >
-> > > A onecell (#power-domain-cells =3D <1 or 2>; in DT) power domain prov=
-ider
-> > > typically provides multiple independent power domains, each with thei=
-r own
-> > > corresponding consumers. In these cases we have to wait for all consu=
-mers
-> > > for all the provided power domains before the ->sync_state() callback=
- gets
-> > > called for the supplier.
-> > >
-> > > In a first step to improve this, let's implement support for fine gra=
-ined
-> > > sync_state support a per genpd basis by using the ->queue_sync_state(=
-)
-> > > callback. To take step by step, let's initially limit the improvement=
- to
-> > > the internal genpd provider driver and to its corresponding genpd dev=
-ices
-> > > for onecell providers.
-> > >
-> > > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> > > ---
-> > >
-> > > Changes in v3:
-> > >         - Addressed some cosmetic comments from Geert.
-> > >
-> > > ---
-> > >  drivers/pmdomain/core.c   | 124 ++++++++++++++++++++++++++++++++++++=
-++
-> > >  include/linux/pm_domain.h |   1 +
-> > >  2 files changed, 125 insertions(+)
-> > >
-> > > diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> > > index ad57846f02a3..c01a9a96e5c2 100644
-> > > --- a/drivers/pmdomain/core.c
-> > > +++ b/drivers/pmdomain/core.c
-> > > @@ -2699,6 +2699,119 @@ static struct generic_pm_domain *genpd_get_fr=
-om_provider(
-> > >         return genpd;
-> > >  }
-> > >
-> > > +static bool genpd_should_wait_for_consumer(struct device_node *np)
-> > > +{
-> > > +       struct generic_pm_domain *genpd;
-> > > +       bool should_wait =3D false;
-> > > +
-> > > +       mutex_lock(&gpd_list_lock);
-> > > +       list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
-> > > +               if (genpd->provider =3D=3D of_fwnode_handle(np)) {
-> > > +                       genpd_lock(genpd);
-> > > +
-> > > +                       /* Clear the previous state before reevaluati=
-ng. */
-> > > +                       genpd->wait_for_consumer =3D false;
-> > > +
-> > > +                       /*
-> > > +                        * Unless there is at least one genpd for the=
- provider
-> > > +                        * that is being kept powered-on, we don't ha=
-ve to care
-> > > +                        * about waiting for consumers.
-> > > +                        */
-> > > +                       if (genpd->stay_on)
-> > > +                               should_wait =3D true;
-> > > +
-> > > +                       genpd_unlock(genpd);
-> > > +               }
-> > > +       }
-> > > +       mutex_unlock(&gpd_list_lock);
-> >
-> > I think I understand the intent of this function, but haven't dug into
-> > genpd code enough to comment on this yet. I'll come back to this
-> > later.
-> >
-> > > +
-> > > +       return should_wait;
-> > > +}
-> > > +
-> > > +static void genpd_parse_for_consumer(struct device_node *sup,
-> > > +                                    struct device_node *con)
-> > > +{
-> > > +       struct generic_pm_domain *genpd;
-> > > +
-> > > +       for (unsigned int i =3D 0; ; i++) {
-> > > +               struct of_phandle_args pd_args;
-> > > +
-> > > +               if (of_parse_phandle_with_args(con, "power-domains",
-> > > +                                              "#power-domain-cells",
-> > > +                                              i, &pd_args))
-> > > +                       break;
-> >
-> > Why not use a while or a do while() instead of this infinite for loop
-> > with a break?
->
-> I guess it's a matter of personal preference. I'm not sure the code
-> gets any nicer with a do/while, but if you really insist I can change
-> it.
->
-> >
-> > > +
-> > > +               /*
-> > > +                * The phandle must correspond to the supplier's genp=
-d provider
-> > > +                * to be relevant else let's move to the next index.
-> > > +                */
-> > > +               if (sup !=3D pd_args.np) {
-> > > +                       of_node_put(pd_args.np);
-> > > +                       continue;
-> > > +               }
-> > > +
-> > > +               mutex_lock(&gpd_list_lock);
-> > > +               genpd =3D genpd_get_from_provider(&pd_args);
-> > > +               if (!IS_ERR(genpd)) {
-> > > +                       genpd_lock(genpd);
-> > > +                       genpd->wait_for_consumer =3D true;
-> > > +                       genpd_unlock(genpd);
-> > > +               }
-> > > +               mutex_unlock(&gpd_list_lock);
-> > > +
-> > > +               of_node_put(pd_args.np);
-> > > +       }
-> > > +}
-> > > +
-> > > +static void _genpd_queue_sync_state(struct device_node *np)
-> > > +{
-> > > +       struct generic_pm_domain *genpd;
-> > > +
-> > > +       mutex_lock(&gpd_list_lock);
-> > > +       list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
-> > > +               if (genpd->provider =3D=3D of_fwnode_handle(np)) {
-> > > +                       genpd_lock(genpd);
-> > > +                       if (genpd->stay_on && !genpd->wait_for_consum=
-er) {
-> > > +                               genpd->stay_on =3D false;
-> > > +                               genpd_queue_power_off_work(genpd);
-> > > +                       }
-> > > +                       genpd_unlock(genpd);
-> > > +               }
-> > > +       }
-> > > +       mutex_unlock(&gpd_list_lock);
-> > > +}
-> > > +
-> > > +static void genpd_queue_sync_state(struct device *dev)
-> > > +{
-> > > +       struct device_node *np =3D dev->of_node;
-> > > +       struct device_link *link;
-> > > +
-> > > +       if (!genpd_should_wait_for_consumer(np))
-> > > +               return;
-> > > +
-> > > +       list_for_each_entry(link, &dev->links.consumers, s_node) {
-> >
-> > Couple of issues:
-> > 1. I don't want the frameworks to be so deeply aware of driver core
-> > internals. I want the driver core maintainers to be able to change the
-> > devlink implementation without having to worry about going and fixing
-> > all the frameworks. So, please add a for_each_consumer_dev(supplier,
-> > callback) and for_each_supplier_dev(consumer, callback) helper
-> > functions.
->
-> I understand your concern and I like the idea. However, maybe it's
-> better to get this landed (the series is complicated as is) first and
-> then can continue to improve the code on top, with helper functions
-> etc.
+On Tue, May 12, 2026 at 01:42:31PM +0200, David Sterba wrote:
+> On Tue, May 12, 2026 at 07:20:41AM +0200, Christoph Hellwig wrote:
+> > While the RAID6 algorithm could in theory support 3 devices by just
+> > copying the data disk to the two parity disks, this version is not only
+> > useless because it is a suboptimal version of 3-way mirroring, but also
+> > broken with various crashes and incorrect parity generation in various
+> > architecture-optimized implementations.  Disallow it similar to mdraid
+> > which requires at least 4 devices for RAID 6.
+> > 
+> > Fixes: 53b381b3abeb ("Btrfs: RAID5 and RAID6")
+> > Signed-off-by: Christoph Hellwig <hch@lst.de>
+> 
+> This patch should have been sent separately as it has user visible
+> impact and can potentially break some setups.
 
-That patch should be pretty simple, so let's just do it? You are
-literally just moving the code to another file and massaging it a bit.
-I can send one out if you want/
+It _is_ sent out separate.
 
-> >
-> > 2. This doesn't ignore "SYNC_STATE_ONLY" links and that's going to
-> > confuse the consumer count/check you might do or at the least waste
-> > parsing those.
->
-> I am not sure I understand how I should take SYNC_STATE_ONLY links
-> into account here.
->
-> At each call to the genpd_queue_sync_state(), we walk through all the
-> provided genpds for the provider. No previous state is cached to track
-> consumer counts.
+> The degenerate modes of
+> raid0, 5, or 6 are explicit as a possible middle step when converting
+> profiles.  We can use a fallback implementation for this case if the
+> accelerated implementations cannot do it.
 
-Ok, correct me if I'm wrong here, but it looks like you are looking at
-all the consumers, finding the ones that haven't probed yet and then
-trying to see which specific genpd provider each one of them is using
-by parsing their dt properties and then keep those ON.
-
-If my understanding above is wrong then, please help me understand
-what the code is trying to do.
-
-If it's right, then here's the issue:
-
-fw_devlink relies on device links and fwnode links to keep track of
-consumers. fwnode links get created first and then get converted to
-device links when both the supplier AND consumer devices are created.
-
-Consider a case when the supplier S is created and the consumer device
-C is several levels deep inside a parent device A.
-S { #power-domain-cells =3D <1>; }
-A { B { C { power-domains =3D <&S MY_DOMAIN>; } } }
-
-fw_devlink can't just go "oh there's no consumer device that hasn't
-probed yet, let me call sync_state()". It needs to wait for C. But
-there's no way to create a device link to C. So, here's the sequence
-that happens:
-
-1. When device A gets added, it creates a "proxy" SYNC_STATE_ONLY link
-between S and A.
-2. When A probes, it adds device B.
-3. The SYNC_STATE_ONLY link between S to B is created.
-4. The SYNC_STATE_ONLY link between S to A is deleted.
-5. When B probes, it adds device C.
-6. The actual device link between S and C is created.
-7. The SYNC_STATE_ONLY link between S to B is deleted.
-8. Device C probes, the device links get updated, sync_state() gets called.
-
-So, if your code doesn't account for SYNC_STATE_ONLY links, you are
-going to check device "A" to see which providers are used. You'll
-think that MY_DOMAIN isn't used by any unprobed consumer and turn it
-off.
-
->
-> >
-> > 3. **Device** links are not the complete list of consumers because
-> > they can only link consumer **devices** once the consumer **device**
-> > is created.
-> >
-> > 4. What you really need is a for_each_consumer_fwnode(supplier,
-> > callback) that first loops through all the consumer device links and
-> > calls the callback() on their fwnode and then the same function needs
-> > to loop through all the fwnode links and then pass those consumer
-> > fwnodes to the callback. And inside that callback you can do whatever
-> > you want.
->
-> The ->queue_sync_state() callback is invoked *after*
-> __device_links_queue_sync_state() has been called for the device,
-> which is also when the conditions for calling ->sync_state() is
-> checked.
-
-I'm not sure what you are trying to say here. Yes, what you are saying
-is true. But at the point the current code returns before calling
-sync_state(), your patch 2/13 ends up calling the "consumer_probed()"
-callback.
-
-If you see the example I gave above, there is a SYNC_STATE_ONLY link
-all the way up to step 7 that'll prevent sync_state() from being
-called. And until step 5, there is no device link between S and C and
-you'll have to go look at S's fwnode links to find C.
-
-> If there are problems with not yet registered consumer device links,
-> why isn't that as problem for regular ->sync_state() in
-> __device_links_queue_sync_state()?
-
-Does my explanation above make sense?
-
-Welcome to the annoying worlds of fw_devlink corner cases/nuances.
-There's a case where the child is the supplier of the
-parent/grandparent. There's a comment for that in the fw_devlink code.
-
-Thanks,
-Saravana
-
-> >
-> > 5. You might want to add a for_each_inactive_consumer(supplier,
-> > callback) too to simplify your need for checking if a fwnode has a
-> > device and then checking if it's probed.
-> >
-> > Thanks,
-> > Saravana
-> >
-> >
-> > > +               struct device *consumer =3D link->consumer;
-> > > +
-> > > +               if (!device_link_test(link, DL_FLAG_MANAGED))
-> > > +                       continue;
-> > > +
-> > > +               if (link->status =3D=3D DL_STATE_ACTIVE)
-> > > +                       continue;
-> > > +
-> > > +               if (!consumer->of_node)
-> > > +                       continue;
-> > > +
-> > > +               /*
-> > > +                * A consumer device has not been probed yet. Let's p=
-arse its
-> > > +                * device node for the power-domains property, to fin=
-d out the
-> > > +                * genpds it may belong to and then prevent sync stat=
-e for them.
-> > > +                */
-> > > +               genpd_parse_for_consumer(np, consumer->of_node);
-> > > +       }
-> > > +
-> > > +       _genpd_queue_sync_state(np);
-> > > +}
-> > > +
->
-> [...]
->
-> Kind regards
-> Uffe
+This is not about a degenerated mode.  For a degenerated RAID 6, parity
+generation uses the RAID 5 XOR routines as the second parity will be
+missing.  This is about generating two parities for a single data disk,
+which must be explicitly selected.
 
