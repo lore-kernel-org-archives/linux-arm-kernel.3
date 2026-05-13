@@ -4,105 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE31CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 20:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C51BCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 20:23:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uEs2l25RMgTsDXvEQvBIXqNT2xkIVk4H/8R/2ZbyLkM=; b=rseISWg1WKQji5xIoadtWw1C8V
-	hHoH0TGXGyKPlyBX5GcdQ9nv1qpn9jdZr32/bl6CF8o0SZ4xrtgol5kCfJl7xNrJfw1u6kcRjbjaT
-	Om6wxhrL7slC3rLrW0ZVUvRQugCszhSY8NNMn/8lAbxAGHalM8/lY2C33+OXbZxirt1G3zQQxF8BG
-	1rIi07x0hCKk0WzxeZNOpRDvN+z5gzfe4TB1mHlslOK2Jxo1ACeWDnfFSSAYoeN1aF1HwTuYdd+oL
-	7kCSXRHZBJVyanW8cQyoJzZB/AQjEaF/LQzqbZ3B1xs9LY85L+z8KNX3y1q5MclLOTkvT9yS9iyg3
-	7GnYuYug==;
+	bh=7V1myvD5g5e+ykOUotYKcza96x6t5F4ELRDkfltp7Vc=; b=rTF/quNiRs8hqodGM+s4kEJQmU
+	nVRXUgh1PD/7S3DzzvjbmQD5g4LcBFPYKMwoMwzO0YhiNbt6DsNEo8fXmXWA3BDMK/sBOJKmAIxTH
+	/YuaB4XvdTMaD7sZJ/lG+lBG0wWYCbQ+z5/WjovHgwgGkv9mjo/JiKCTXK0nHeXycjtYmshXln5er
+	pqwSVk95KY53cQjWu68e5Yr+AIFkjP1gixCutcBddEIgdXU3Yjvf3gXGmEYEZ3jq3FtGNCOimgXer
+	tAHzgdObz4UkJmGb3WjgSrx224TM0PmeYElwkfoj+XqwIdbHwdLWiyWQ6N1boawyN2Ktlb7XnLjGg
+	iJcoQxwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNG3M-00000003gMb-0lkR;
-	Wed, 13 May 2026 20:19:36 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1wNG7O-00000003hBx-332O;
+	Wed, 13 May 2026 20:23:47 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNG3J-00000003gLJ-3u9H
+	id 1wNG6j-00000003h5f-0LZO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 20:19:35 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id ED6E36B0F3;
-	Wed, 13 May 2026 20:19:29 +0000 (UTC)
-Authentication-Results: smtp-out1.suse.de;
-	none
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A5E0E593A9;
-	Wed, 13 May 2026 20:19:29 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id G7fLJ9HcBGpwcwAAD6G6ig
-	(envelope-from <dsterba@suse.cz>); Wed, 13 May 2026 20:19:29 +0000
-Date: Wed, 13 May 2026 22:19:28 +0200
-From: David Sterba <dsterba@suse.cz>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>,
-	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
-Message-ID: <20260513201928.GO2558453@suse.cz>
-References: <20260512052230.2947683-1-hch@lst.de>
- <20260512052230.2947683-2-hch@lst.de>
- <20260512114231.GG2558453@suse.cz>
- <20260513054742.GA1018@lst.de>
+	Wed, 13 May 2026 20:23:44 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-44a5174670eso4079922f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 13:23:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778703783; x=1779308583; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7V1myvD5g5e+ykOUotYKcza96x6t5F4ELRDkfltp7Vc=;
+        b=lK4ppRPz57afyscpxDdBLijSdn6M1Axv8mtnbiZlPdW66VIDxLck0U9W7sfSRLcoa2
+         CoZbCcEBGb1KdjXl/vADHRchLIop/pNGZDcmsi1jLQIfj1s/4S9R9PHHdDkZnAOlBb2D
+         gwDx20UKMHii8W02GQdkk0bDDZKhy4ddwDvzAP3+n+diHvB7LVs2ySYRDy5ViLdmhibT
+         hEVxibnb5+0anjsZCNxZFYHPM6EyZ1caG53yWgMF5AYacB22Bzzled0iSgVfmyYtM5e7
+         7LTZtBd9ubmzJJEstFe9ctacaC2Zmex5QjDOQMbCdVTrq+dKqwObe2PqqmAVYEyjH5xS
+         /upg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778703783; x=1779308583;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7V1myvD5g5e+ykOUotYKcza96x6t5F4ELRDkfltp7Vc=;
+        b=Mt1qYvZsS+r2QvBIMOc4IkTjeEf0csOeFmVRhSn33blagKEYnUGNDVifOIIkRpjvtY
+         NtmqmdnTfiP4pqmdVrPrgu1xvJn8KpxRBb8D4rxwWQOHH+ba+fvU7tudVNkRbzg/Qd5h
+         2R4F0VuzeklWeOk5xFwTMka9H3iPoIlvOCBRXwh3P8bsLHEzLSDFRPKl0bFfbDYvW5S2
+         Wa7xfG+DyHkL2VudcBoeJruObTjcusZfJkx8Os858HNu8urHcGKVONf/bZkMdEjYAK7u
+         ypfgSAXHg4LWunhr1q8qYdP0g6fVQI4hOeaLhX+GmSOYS31GFcYe9jWQ3ffIrGM7+nrX
+         1KPg==
+X-Forwarded-Encrypted: i=1; AFNElJ8AVpd+VhqUnGQuIdGoBEN5T5MMk5DussLnlUYESHXiCXkHPa/q7NkG4mnBg9RIUyD4m7XBeE7u1axXLoQHJCYA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPT3kRqcpBmt0ZRtB/0scfW/6mSzwfxhvFL+Hx58adIH5pqtjT
+	qFTU3TnfrdI1zuK27YLCWY4PHscPNFWTMsKGnXa3eYVcVNpIAyJrF486
+X-Gm-Gg: Acq92OEhMGN39yINLvkiIxCHerlHuVnG7EFB+hot0enErF91YfzncWgH/a5y6/b+ENd
+	UD5ncJqlJ/RgrYxPT8OfgYRgS2ruHhhq8pV9CNFKpZpTrMqmvQzsyRgSvUz1DDMFmIIiwxmKUj5
+	KJPptIpEaejdGEPupYt4ohbNYdWT201feObAd4Ai6D+dxj43gihzmBDrE8o4dfBOwPeVTmUHmQT
+	CzRBhsaiBIJiUndLQomn1M/lT/9Hb/bQGReluWAHM1ir3vZaQg4393/r1o8KkHWSFdS7YjjKIq3
+	5kVD2DktNVa2Pwl8KR1IEarj+XAk4S0Oxzqqj/HF8cNP29xbFUYKqVHUVOeE+PqTgQ9kSKVpony
+	J1OcwGgsR7yPurC21G2USt+FvgzxMQW4Hv7/Wuk7tOFSnrdyNlqLoGhFyMjyveAhSh6QrP9uA6b
+	QAd3WEEP4eD9UVVv68G4SLDqO03/xHFoG9/HtguhG992u/3X1Vq3mYLx5UWOpbOdoKUz5qrnSCS
+	6sAXnsB
+X-Received: by 2002:a05:6000:24c6:b0:45c:154d:6387 with SMTP id ffacd0b85a97d-45c7a7dc6a2mr7430880f8f.37.1778703782701;
+        Wed, 13 May 2026 13:23:02 -0700 (PDT)
+Received: from jernej-laptop.localnet (46-150-62-216.dynamic.telemach.net. [46.150.62.216])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9ed2ffdfsm1279025f8f.15.2026.05.13.13.23.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 May 2026 13:23:02 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Sean Young <sean@mess.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ =?UTF-8?B?67CV66qF7ZuI?= <mhun512@gmail.com>
+Cc: Myeonghun Pak <mhun512@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>, linux-media@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Ijae Kim <ae878000@gmail.com>
+Subject: Re: [PATCH] media: rc: sunxi-cir: unregister rc device on probe failure
+Date: Wed, 13 May 2026 22:23:00 +0200
+Message-ID: <YRYbhQnwRdCZPKQIjbWE2A@gmail.com>
+In-Reply-To: <20260424000000.558-1-mhun512@gmail.com>
+References: <20260424000000.558-1-mhun512@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260513054742.GA1018@lst.de>
-User-Agent: Mutt/1.5.23.1-rc1 (2014-03-12)
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Rspamd-Queue-Id: ED6E36B0F3
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_131934_107582_ADB617C3 
-X-CRM114-Status: GOOD (  28.12  )
+X-CRM114-CacheID: sfid-20260513_132305_169206_9D62BF29 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,43 +100,77 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: dsterba@suse.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 07:47:42AM +0200, Christoph Hellwig wrote:
-> On Tue, May 12, 2026 at 01:42:31PM +0200, David Sterba wrote:
-> > On Tue, May 12, 2026 at 07:20:41AM +0200, Christoph Hellwig wrote:
-> > > While the RAID6 algorithm could in theory support 3 devices by just
-> > > copying the data disk to the two parity disks, this version is not only
-> > > useless because it is a suboptimal version of 3-way mirroring, but also
-> > > broken with various crashes and incorrect parity generation in various
-> > > architecture-optimized implementations.  Disallow it similar to mdraid
-> > > which requires at least 4 devices for RAID 6.
-> > > 
-> > > Fixes: 53b381b3abeb ("Btrfs: RAID5 and RAID6")
-> > > Signed-off-by: Christoph Hellwig <hch@lst.de>
-> > 
-> > This patch should have been sent separately as it has user visible
-> > impact and can potentially break some setups.
-> 
-> It _is_ sent out separate.
+Dne sreda, 13. maj 2026 ob 09:11:03 Srednjeevropski poletni =C4=8Das je =EB=
+=B0=95=EB=AA=85=ED=9B=88 napisal(a):
+> From: Myeonghun Pak <mhun512@gmail.com>
+>=20
+> After rc_register_device() succeeds, later probe failures must undo the
+> registration with rc_unregister_device(). The current error path jumps to
+> the allocation cleanup label and only calls rc_free_device(), leaving the
+> rc device registration and resources created by rc_register_device()
+> behind.
+>=20
+> Add a registered-device unwind label for the IRQ lookup, IRQ request, and
+> hardware initialization failure paths. Keep rc_free_device() for failures
+> before rc_register_device() succeeds.
+>=20
+> Fixes: b4e3e59fb59c ("[media] rc: add sunxi-ir driver")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+> ---
+>  drivers/media/rc/sunxi-cir.c | 10 +++++++---
+>  1 file changed, 7 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/media/rc/sunxi-cir.c b/drivers/media/rc/sunxi-cir.c
+> index 92ef4e7c6f..cc64a68dfe 100644
+> --- a/drivers/media/rc/sunxi-cir.c
+> +++ b/drivers/media/rc/sunxi-cir.c
+> @@ -344,22 +344,26 @@ static int sunxi_ir_probe(struct platform_device *p=
+dev)
+>  	ir->irq =3D platform_get_irq(pdev, 0);
+>  	if (ir->irq < 0) {
+>  		ret =3D ir->irq;
+> -		goto exit_free_dev;
+> +		goto exit_unregister_dev;
+>  	}
+> =20
+>  	ret =3D devm_request_irq(dev, ir->irq, sunxi_ir_irq, 0, SUNXI_IR_DEV, i=
+r);
+>  	if (ret) {
+>  		dev_err(dev, "failed request irq\n");
+> -		goto exit_free_dev;
+> +		goto exit_unregister_dev;
+>  	}
+> =20
+>  	ret =3D sunxi_ir_hw_init(dev);
+>  	if (ret)
+> -		goto exit_free_dev;
+> +		goto exit_unregister_dev;
+> =20
+>  	dev_info(dev, "initialized sunXi IR driver\n");
+>  	return 0;
+> =20
+> +exit_unregister_dev:
+> +	rc_unregister_device(ir->rc);
+> +	return ret;
 
-It's public interface change of btrfs but in a patch series cleaning
-up some library code, I noticed it by accident.
+This return should not be here.  Device must be freed too.
 
-> > The degenerate modes of
-> > raid0, 5, or 6 are explicit as a possible middle step when converting
-> > profiles.  We can use a fallback implementation for this case if the
-> > accelerated implementations cannot do it.
-> 
-> This is not about a degenerated mode.  For a degenerated RAID 6, parity
-> generation uses the RAID 5 XOR routines as the second parity will be
-> missing.  This is about generating two parities for a single data disk,
-> which must be explicitly selected.
+Best regards,
+Jernej
 
-The calcuation is a different than what I'm concened about, changing
-minimum devices from 3 to 4 is a breaking change. If the library won't
-provide the xor/parity functions then we'll have to add a fallback for
-this special case.
+> +
+>  exit_free_dev:
+>  	rc_free_device(ir->rc);
+> =20
+>=20
+
+
+
+
 
