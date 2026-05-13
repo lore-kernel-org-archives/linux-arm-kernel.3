@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DBC8CD37B6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 05:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B606CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 05:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ra8FK+IjnzcQJElh4Bz008lPaSmGodsKw8/Zi9VAbNE=; b=JQidcSMlcu6L81i3SO7XZcpyMv
-	WwVxM4vFmrreKqF60gi6ve91frCxreolkMr59VWPUITAUxe6mpmyHukWMnaTZEI4poy7HOweQHNH8
-	Q4CVFkcCuI+8EQKHDPvdBS+5sY7zelc3SHEgLv6jcKEMofnUoy0Lptg8AL6NQjBqhBJFywZL7n9TH
-	GncNgkkZbWa/cX8fISa2oggn+pttC22ZCZLOhMcRkLNkaHnVfjyLUkZWgO9Q8dv+ZG81waBGoDzB0
-	tNKF6wDOtbx1DH62sj+MlkeTrFbJmDw2M2cJxHS7+/NzfpWNqYoJaLFpREABZMAJpSOp9Ru2xReCh
-	ISegv06g==;
+	bh=/LoS/AHTeCtpWKc6PkMtF6EkZQfXCl5pc+5m7F4o70U=; b=2k2GES/FIpRCbPv0WCinG6i/CN
+	AqnC/LrhPzq33GvNMa8BenEWlJBlMNYynXQMRl6iZiwQtP/1LfcnP15Y17KiHpBU9sQpWQ3YwReSN
+	KtvPa09R+oRuRZyb5h9Kr6XH0Bs7i1rlTCCpKfk6Rrys1OxEjuJH5pGJO7ljetzKxNSXzQUot+HZH
+	X6DzO5fTEGtT1c3ASYa+Be5TgbiRkE5jVjPJj5b1fC3e5U40qmQgZtrFlDH1AeYNWBzVpygQ3mgi5
+	nDTBn/BURCCuWtz96s9NwihJl17OHJSgWRt0qDporAHsGsykyeh+JK7487Y05d1yo1VtT6jMOTPIl
+	bL12Wo8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN2aP-00000001O2Y-3dlj;
-	Wed, 13 May 2026 05:56:49 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wN2aT-00000001O53-0EX7;
+	Wed, 13 May 2026 05:56:53 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN2aM-00000001O18-48vM
+	id 1wN2aP-00000001O24-0Wk7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 05:56:48 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-367d88b9940so3002476a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 22:56:46 -0700 (PDT)
+	Wed, 13 May 2026 05:56:50 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c80167f56cdso2570403a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 22:56:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778651806; x=1779256606; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778651808; x=1779256608; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Ra8FK+IjnzcQJElh4Bz008lPaSmGodsKw8/Zi9VAbNE=;
-        b=mzkEhgzgRVbgpfdR+taE3qPs+sxuPDVITl+FRslv4U17JUyqZvhoAC1TKFD0KMLNtd
-         GdmCtF2PkYt3DeRwSwRQTEPmkA78Vr0QCw/s5owcCIYKX9Iu76/F/hPfTr9Rc4DFm9c5
-         cNnPw8Lw5XKmv80EkVpLRSdx4pShu2H6iQkmrNerlTe46lDs5cxnwtZHYaMFDA5w8xa6
-         f5OU+/cjuv4nhfSw8eXnsvwO/BDbBCN/+L9Pn95v93VVefPPo3NAMd0oAylAchCh7WC0
-         KoXc5QHdGiR1usdRXV6yhhVtuzQ6qu2Xel5W2RB0qhEkSfKLHw2nW8VuDQxWq014/Mc4
-         Eoaw==
+        bh=/LoS/AHTeCtpWKc6PkMtF6EkZQfXCl5pc+5m7F4o70U=;
+        b=KEtKaW9xocH0AbKoiimdqdQRcS/cHC5A3d+usXpZ6jbzqAihYZbY5L4sSxfXrt+b62
+         Xl8YY8Oak+Jdz2hV3F6Z2RAXNTHJoz+I3hoZWyvjJeswdCeHUhHiKXUublcd8XB4LCNc
+         6i0vYpItF32F6msrWGbAKmkQaZTwzXJOgHb7GzFqJ3WYcJFTXHQfj2ovTTv+6HyLqaaW
+         +ydsxfL91WZnorQi6/e3OLG5Q2vHKGzA/jBPLAnhrhEV0zUflGujIlVnstv6aCys8O5Z
+         5N2jlg/qXkdUTfz5uBenYsskh+gXWV6MMOrLmxRhFWrdUIyMYyu8D3GcRxUPVxj49GeZ
+         R/Fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778651806; x=1779256606;
+        d=1e100.net; s=20251104; t=1778651808; x=1779256608;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Ra8FK+IjnzcQJElh4Bz008lPaSmGodsKw8/Zi9VAbNE=;
-        b=VS73A+SVcGf8t5MiYf8ALWIBYrGDywuC1lAlZr+Z2XwnnlDQVkN+3mgxo2pjpN591/
-         4n9+DAhz/m+dr5UhOVkd6NAtNUmAJY+gVyDOcdJkhpVxzVV+4C9i/aXM6ZFJClVJAXFU
-         rn0VUXD5cKn1U8nLKKUaYAw/BDYrPZPdYNjmZqt4ohsrEl9ONoingXT9N362yeLEM3vO
-         u/qqCJwVujPRGcKmBhOwY+Tk+wfVH1r8AkP+9U/E9qZMHB51HJUOx5hJLP40eqS67riv
-         gEmeoR4N7n8zSJ+Sfysbuj1cqVCEWszkhjNDK/xNanZBn8XLaO7L/6gJ/ZXgw+kNXpbT
-         qoyg==
-X-Forwarded-Encrypted: i=1; AFNElJ/Ahw1D392ND6FZHk/fskWsNHtpBzFY33HlrGReJX2Ag9QT/dFbkznVM4Y/W8h3fqoPv9vUBZV4U1Zh7qK6zRwy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+9++ziVQxPf1bsNnSUdf5qHknHPOYeRDgF42RGIDWCc1aMV2l
-	HmaFB7jZLHaZZhaeFBr4cTWeaW5j4OJjO6e1V1F33YG8M5hZYd7CxgJ7
-X-Gm-Gg: Acq92OGhpyexAP5EvXOr5XqTi8ugBxrYAU5OV5KfdPmxf4hG1XxfMLoaLiEEEZA0BBu
-	kbKhJHFhBD1Z7Pm+uO6cIy3maFPFjChIAXU6RoPR9Jvr5cHMuj3CVV7xaP4bMDa6ae0srS58dRk
-	thX9MEgWgQco+j3Mxfc8XxFvS/6M3OUUwqHWto78986DFEiHKPVPEO6kJWRC6K9FIrS0XodYM6k
-	a2tf23nTNSfuTwHhyWZkYmABHSoX4izfjD9NNR/Hnz7fG1X0j0lqQRr9RsBjrK5AwRDNe9dSUd4
-	2P0f+mcjaHkW79kldDv0/Z65k3w/IOp17C/xlWeIgGpWkWOn5g2kNTvmwCKT6wh6woTYQLqUekg
-	Eej59Elha7njlWkE3gt6IkY9eTwpbSpjZafc4KaPB9kCHUoJKs++EdkFNY6vROHqYIsOP+SZN++
-	byMkIbpQuJGAnUbwrRQhzLI7bYimflzw7QFiklKM04Yj+Z4MX1kGUwufRCR5vjtkC7CnIAhh2tC
-	s24A2S+kXbI
-X-Received: by 2002:a17:90b:1d4e:b0:368:2289:42cc with SMTP id 98e67ed59e1d1-368f4092542mr2283215a91.24.1778651806092;
-        Tue, 12 May 2026 22:56:46 -0700 (PDT)
+        bh=/LoS/AHTeCtpWKc6PkMtF6EkZQfXCl5pc+5m7F4o70U=;
+        b=sloseCJZZx6fldjBDlWGRd05okFoBdWMH/Td55WCUNC/lw1u9GRv7MGXgkkSVvcfxN
+         mlaCLRaKgD9RunA4BHHyYZ06VjFnv7Oe1FuhmyFhzxpV/g5gAeMg0s/w+IUJMu4PPcIO
+         Hw9LJI7awRv/P8I4yVs9AoE4UmYVC7OAn6sNCDX7fxwkHEYsalfJuzK3fpmtSVv8C7VH
+         +2ugqX5O9U669hcK1UjdVnRN3SsGTVXoHKTF33OCehWd5Xnyq+/Eal0GJuC1M0PbjCXe
+         PzLXwVH+6wowGfwwrqgVO3DfnjswymtvEGZK/t3s154DmX0bemcsY2LToIM4LbEw0FFE
+         M1LQ==
+X-Forwarded-Encrypted: i=1; AFNElJ90k1DcbHuBGZ7frjZUTYpC9vsAMgza+x5pEWuqLkuJ02Nv1AqhjSvIrwIchVy6HI3Q+3TX0BHuw26JcOWGxpHi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOerw9EErzDPeRkO1INirs9gJX2p0r7928Uz5of782q3QcVqtJ
+	/qu4cTiYtW77SWDLNyZTPNy0peuM4P47N2UaaPRBmzFaO+c3uQ7/ngYw
+X-Gm-Gg: Acq92OGBOUdMeVAkUJnK4rMmqJjgG47xrz/PFyhywzwDdDtunD+/6vSmvUeFm+unNEl
+	B4k42QTp40YvpYUAH6HasNo6CSmt1nQLrH12Gw15otI6M5+YQLVFqB/fCRMVEugFr05quUVdkSw
+	5QvyTsWaZpSqK+JyjdeYB2QM9OYZsX/wC1ipX6W9sWiaNDq9iEHkTXWjB+N4g1JfkVT6z3BhoWI
+	FVkP2M0svfhOlirK0jlp067pOkyqQkSxCW9v0xpPFIgSyiOX+0xINV3rMOGW+MhfuHyYzhpkyMk
+	mBZ7jRCg71cpEblnkdNCqtPT7np7dL6VO+23IHP7jUznZifYug9kRLcFKMr1dObNasyjJFEy+M2
+	Wk1oBX+SnpkXFt/tKL0aDPsrUNGq18hwNbi56GoPbXzIZkMOeo86DQQUF7mS69j9x5DU8dBNOWT
+	kFobKsTeknfpikc37iarAXKUfyGi9fOVKvtUBk1BXrgiGsgGAm+8BI0BD+ZgCfHYjPy8sBN8BG0
+	LtBYKH4F+BAYi0odbl9/3M=
+X-Received: by 2002:a17:90b:5688:b0:356:22ef:57ba with SMTP id 98e67ed59e1d1-368f781c7b9mr1480053a91.7.1778651808190;
+        Tue, 12 May 2026 22:56:48 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-368ee32822asm1785492a91.12.2026.05.12.22.56.44
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-368ee32822asm1785492a91.12.2026.05.12.22.56.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2026 22:56:45 -0700 (PDT)
+        Tue, 12 May 2026 22:56:47 -0700 (PDT)
 From: Joey Lu <a0987203069@gmail.com>
 To: mturquette@baylibre.com,
 	sboyd@kernel.org
@@ -80,17 +80,17 @@ Cc: ychuang3@nuvoton.com,
 	linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v2 1/3] clk: nuvoton: ma35d1: fix ignored div_u64 return values in PLL freq calculation
-Date: Wed, 13 May 2026 13:56:24 +0800
-Message-ID: <20260513055626.1070533-2-a0987203069@gmail.com>
+Subject: [PATCH v2 2/3] clk: nuvoton: ma35d1: fix PLL_CTL1_FRAC bit field width and fractional calc
+Date: Wed, 13 May 2026 13:56:25 +0800
+Message-ID: <20260513055626.1070533-3-a0987203069@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260513055626.1070533-1-a0987203069@gmail.com>
 References: <20260513055626.1070533-1-a0987203069@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_225647_028795_E9140F5F 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20260512_225649_167658_A7132101 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,40 +105,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-div_u64() does not modify its argument in place; the return value must
-be assigned.  Both ma35d1_calc_smic_pll_freq() and ma35d1_calc_pll_freq()
-called div_u64() and discarded the result, leaving pll_freq holding the
-undivided product and thus returning a frequency orders of magnitude too
-high.
+PLL_CTL1_FRAC was defined as GENMASK(31, 24), covering only 8 bits.
+The hardware fractional field occupies bits [31:8] (24 bits), so the
+mask must be GENMASK(31, 8).
+
+The previous fractional-mode calculation used FIELD_MAX(PLL_CTL1_FRAC)
+as the denominator to obtain 2 decimal places.  With the corrected 24-bit
+mask the old divisor is wrong; replace the arithmetic with a proper
+24-bit fixed-point rounding to 3 decimal places:
+
+  n_frac = n * 1000 + (x * 1000 + 500) >> 24
+
+The +500 term provides round-to-nearest before the right shift.
 
 Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
 Signed-off-by: Joey Lu <a0987203069@gmail.com>
 ---
- drivers/clk/nuvoton/clk-ma35d1-pll.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/clk/nuvoton/clk-ma35d1-pll.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/clk/nuvoton/clk-ma35d1-pll.c b/drivers/clk/nuvoton/clk-ma35d1-pll.c
-index 4620acfe47e8..bfedd45bd04b 100644
+index bfedd45bd04b..7e6b30d20c01 100644
 --- a/drivers/clk/nuvoton/clk-ma35d1-pll.c
 +++ b/drivers/clk/nuvoton/clk-ma35d1-pll.c
-@@ -92,7 +92,7 @@ static unsigned long ma35d1_calc_smic_pll_freq(u32 pll0_ctl0,
- 	p = FIELD_GET(SPLL0_CTL0_OUTDIV, pll0_ctl0);
- 	outdiv = 1 << p;
- 	pll_freq = (u64)parent_rate * n;
--	div_u64(pll_freq, m * outdiv);
-+	pll_freq = div_u64(pll_freq, m * outdiv);
- 	return pll_freq;
- }
+@@ -48,7 +48,7 @@
+ #define PLL_CTL1_PD		BIT(0)
+ #define PLL_CTL1_BP		BIT(1)
+ #define PLL_CTL1_OUTDIV		GENMASK(6, 4)
+-#define PLL_CTL1_FRAC		GENMASK(31, 24)
++#define PLL_CTL1_FRAC		GENMASK(31, 8)
+ #define PLL_CTL2_SLOPE		GENMASK(23, 0)
  
-@@ -110,7 +110,7 @@ static unsigned long ma35d1_calc_pll_freq(u8 mode, u32 *reg_ctl, unsigned long p
- 
- 	if (mode == PLL_MODE_INT) {
- 		pll_freq = (u64)parent_rate * n;
--		div_u64(pll_freq, m * p);
-+		pll_freq = div_u64(pll_freq, m * p);
+ #define INDIV_MIN		1
+@@ -113,9 +113,9 @@ static unsigned long ma35d1_calc_pll_freq(u8 mode, u32 *reg_ctl, unsigned long p
+ 		pll_freq = div_u64(pll_freq, m * p);
  	} else {
  		x = FIELD_GET(PLL_CTL1_FRAC, reg_ctl[1]);
- 		/* 2 decimal places floating to integer (ex. 1.23 to 123) */
+-		/* 2 decimal places floating to integer (ex. 1.23 to 123) */
+-		n = n * 100 + ((x * 100) / FIELD_MAX(PLL_CTL1_FRAC));
+-		pll_freq = div_u64(parent_rate * n, 100 * m * p);
++		/* x is 24-bit fractional part, convert to 3 decimal digits */
++		n = n * 1000 + (u32)(((u64)x * 1000 + 500) >> 24);
++		pll_freq = div_u64((u64)parent_rate * n, 1000 * m * p);
+ 	}
+ 	return pll_freq;
+ }
 -- 
 2.43.0
 
