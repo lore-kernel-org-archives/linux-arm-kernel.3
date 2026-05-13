@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32230CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 May 2026 23:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96276CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 00:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xgh7Qwrou5qNvOkoF1+XnxYAOb54Zebpq26aOMB+2tM=; b=q8CGji+cqRiOOS9FM+eoicXTCO
-	BDaGeyaUepTjWFJipgwP4n6No4VEetoyCzLwmYDl9Y9XsxdRu+ThyOJeg/+I+vXGmVwyX80F57e/a
-	C+FDU5XIjILduw+3Uct88n/usTNNXaXX8xMo8mlSz2KFMBR7/7i0VZXy9g/Gqui8OEMqnMiqBg70e
-	MP4FH95A7tH1g1Fyc8AONJEfIRp5qyc/codB/G/Mb79VkYsMdftFALAWxVlxb2bird+vQKwf/fUkd
-	VCdCMAEndFhtkWG1jN1Rkw8nMcX12IEdHfMCqN0oBws0TNY7UIdVH44lSQbAOCK8epTm8FIB0QlXI
-	6/csAa6A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2HdlAWdjeMiye6hUd5QaqiRVp5gEIQPNXzXyC/HWY7w=; b=3sDEvb+4urYQJLVl/nlBtfH1RJ
+	cVNaZ1qNgFrn6gzPAkj75EuMiW/8NLtLnDtYUD6soQCEVH34AJvegVn01CRX++gVcTNqWfMji4lM7
+	HWG1QCqPZ4+tz1wi+/MgjsCDlkNJYTCvoSarfU/R90+kH0xy4vgyrofx+HDrNmWQDEO/N8mOFGYhj
+	Czcq5RKEc3MKI9zrVN0YxNm0fdY7ewLUcXxdc/9anYSlPxieaNeER+HQmHGhSeMDHX86Vr3LMRWjk
+	HEHQHyrXoJcoGHzDTLmXZBlWWj8EJyQ4G2fDl/76g1QhKGWpbTHS1OfvqGHoecboa2UdCdDDnAR0v
+	YwgrgMnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMvpt-00000000c3V-3ZGr;
-	Tue, 12 May 2026 22:44:21 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wMxZD-00000000n1F-27ld;
+	Wed, 13 May 2026 00:35:15 +0000
+Received: from mail-dy1-x1333.google.com ([2607:f8b0:4864:20::1333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMvpp-00000000byA-1IpK
+	id 1wMxZ9-00000000n0n-33pw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 May 2026 22:44:18 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-43d7828221bso303409f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 15:44:16 -0700 (PDT)
+	Wed, 13 May 2026 00:35:14 +0000
+Received: by mail-dy1-x1333.google.com with SMTP id 5a478bee46e88-2f0d3e07e30so14844324eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 17:35:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778625855; x=1779230655; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Xgh7Qwrou5qNvOkoF1+XnxYAOb54Zebpq26aOMB+2tM=;
-        b=LOxIry6qUsEh784IdeY/4LkZgdI+fBm5SN4XaM0HM3AUD4bmUioEKeA4j11l50taMT
-         H72KVAUDxuA4e7C4/k5RBl7dAXp4t++ajcu7uhwZ0kQzWsqhO/VgDLzRoEQtPi6FCgBV
-         5lsBdPt7FmEVp+y5NPI9N8xqpePmFI/aV34Q3o7oVXZRWFWuJd0EocsaMeUxoFdphJh5
-         MJWSe/zl8FBCrTZLlw9Aez4pdRopp6hSUBRDUit1CC8N+h91gOTqpjBPYEB9FT5Yb9ps
-         e7NRcmJMG3l8OsLeHPz2IdObKSByv3N9JP7D5ScCVzjRW5q2Ti5ch9gnFdzHLBDTLP4c
-         meBw==
+        d=usp.br; s=usp-google; t=1778632510; x=1779237310; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2HdlAWdjeMiye6hUd5QaqiRVp5gEIQPNXzXyC/HWY7w=;
+        b=HpEQgVv3xpPmURGNM9fK8AWkdhQ9h2I2Gthu+rufW4xdH+7gj124UM1tzj5+latJDV
+         4+NTOZSzbT+E5efSRCZCNuKH9KnduVMIKc57/po1uNsZeHDzn5BT2Lom8R87BSInjXDf
+         Ny+vxRnwCQnHRUNyK4VZlfNBn6MWBrDUvTt/O4DlMyHCtKxuUt0lGIdZz75U/YuOMs3u
+         EX7pMh5ditUrujBeZW08gF9K4dKcbsdbj1Yk9NbE9Apcvm+Nz84OLEaSd4RXBHVi3WCz
+         +wonbxiS4mP/0kcSqwaZUG+2ggTUCmo4z6QJfW5bkTKPND2vNBHDezP/f2l6Y9EURjMy
+         +pHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778625855; x=1779230655;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Xgh7Qwrou5qNvOkoF1+XnxYAOb54Zebpq26aOMB+2tM=;
-        b=iObxy66coC7stcdlvpMh98pp2++vQySCwZnKytAKCKl7Vpmh2UtiPrizDz6iRiTnTa
-         2kNRE29SUfdPmpxvG/JpFG/r4AoijBa9qG90QFCTT18Lref03ZO5JIgs4iU26ffid8zs
-         TXnK7DYdSmEopLkHUlBZAq6Ve9jq0A38p90Ly18nkeU+/LFTtiP7P2M2PjQTWiPluI0f
-         eyADqPbbTGwXPEKe+9EkiS4cdEd4GDMoeimiiamrKdQXv2DgaElFo1DmOOHqQiWfzAm3
-         PBO6oCk3CgHX3+yxzcXz1WCpohfMKnXRE0J26JN/EAkO3tZHpWCrtkkTqnj81qwHg20n
-         Sn9Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/bHG/5TamBK0MB20mLJxbKp573hK6TTFJ4863Kl5kjV3xxpjDbzZ/bYgs/BBAn4aOnsUC1LEyruh5hj2tEWylK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsT24OGckXqSMMw44cmjTpXa+v+eiesVApYunIsayI6ir2yHWn
-	YDc+JSRerekJjHi9zgFzSnwav9IO47Lk3cPzG1Yr/Uu/Jg6zXCLCKs59
-X-Gm-Gg: Acq92OHj6S8HxQan8Qk09OV7OOrmi1B5usgYLKw8+fTWXo585oE3LxuiPSEpZlXzBD7
-	7gXB/sXqoW9wCB3gFsMdjltueHUBpYJQLZDKlyr2caotSBgjX3XXmgcA6a787CVpxDocN5z1ZW1
-	6D2BHeBPYcdR58inYpnOd37C8EVUkFuXagfhmg64Ln0Yx0+D/xsmd0E5Dm9MigWz5/q8Lu1wUvq
-	qtJ5jGNnerRn/8eLCWWwPG9z82WSCA/ogHMiKe9e70iFyzbQavaCtjlf257Ao+HFVRvNSeZ+C4l
-	FM0C7p/jN1denhQoiEiKLG6+z5lp5aL6c8efgsFXCpfSBqHioS8HQ0QuR6sVtoohLpj4ivbtYAM
-	UpNnww5AEDV8eWe6XV6hZ+AOaPz2o16Awn9SFAKJy8hd9UVWKT6icQsfVHKp/W6xq0XtaR6kiQq
-	k9KvZgU4Kf3s+qCpG/7pV5f3AaXa5mM8Xgkg/4JjsGRj31qG2OomikESfTp3j3p2c=
-X-Received: by 2002:a05:600c:1910:b0:487:1fbb:5a28 with SMTP id 5b1f17b1804b1-48fc9a09523mr5008635e9.1.1778625855234;
-        Tue, 12 May 2026 15:44:15 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fce385ea5sm3194025e9.14.2026.05.12.15.44.14
+        d=1e100.net; s=20251104; t=1778632510; x=1779237310;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2HdlAWdjeMiye6hUd5QaqiRVp5gEIQPNXzXyC/HWY7w=;
+        b=GfaPfIgY3acTJ2BRQuA30QjoLtXnPRoRZTlzLFFJC+fHK7fj6EvPSE/YhVevFNHhIY
+         4anMe9DTzbIX5sX+MAR9qF6aef1VJvDNYYvzenXVLyVOtdkyBmBoMNMmb9j6g2aW1i+A
+         kakn5Z71U5ctx+pMtaBGTk1cQKrkeYp/4R/fKBCqVr8et3ixffNgWETGZfkrh/oK9S1+
+         CDnIuFcFE1ag1yKffSxwOJWJYTVvaF9dUhx/PVohmLP+//SxE/BMg1naG/Hs7AU1SjAa
+         rXtbfpIkPTs1UntTCART7UC+soDNQgFOERf7FSDk8kwHuLw1hI/k7PAPwHiZrYSXwHGp
+         mHjA==
+X-Forwarded-Encrypted: i=1; AFNElJ+xmpX/9WfpW2wxUl4pEgHayYLug/JNcwRogHp8FUjci7kgU1Bs2cqU7BF7uP3rIgut1ZSplLIvjwL+dKu/tLWa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdvhG7zLOYdw8woQ1a1k9/186WpLJaEB/8rcbBrMAiBAO9fSWI
+	o0h6qKUax3w9Hx0M360Ir6b0WZhKilmfKfhkaG/JQ1k1WCcwAC5SvBpBONppQZhluPo=
+X-Gm-Gg: Acq92OFhBf1AfSxYuFeYhh1SluodEu5NtcvJLcxG8qksi0PR8dqCJ3JG6ARSETV5D2m
+	C5JsU7qORXkvfqSlpCVRGvmKo1fcqpCzvpWDcG+p71HpOqsjVlcFNFJL9HWs1jiS0InyrPvWuZy
+	Kl09HS6HvODcHEGqydoLzZ3baTHdgs7mQAFqsK/tcxBh6FmmguSFdKM5dMMrs2V7xsS/Vj8yZdA
+	9P/DkYgCHGoXG/gWZT/8thfhfHSpS0ThDTUsfY8a7gyP4S7p64hs5KZv/nOqMTzayirY245X6vy
+	WEMS55lZV8BYSTy+Bjbpyak4kqPzUU3S9QbnLpjhE28eY2/dqna8/36zGjAZ3+7dCBPvX1VmwSj
+	8L++2EVB3P2IoYKeT2f45f30SbcbU1zbSJY+EGLM5/5tNkRbsig2y2jF9JROYbeOfE+SMCV0sF9
+	MgyHvwau4+OIrejkZujurp6vo7biWvzluk9uCSeWWcCLgmMtsHR+Z2Tu0NR6AphIDPZ1FE/8hIQ
+	0TwMPqOTmaTwAzCRPO+sKrZLeF3ZKyzfT5/CsaRDlzKRHEy
+X-Received: by 2002:a05:7300:b586:b0:2f1:3aa8:f2c with SMTP id 5a478bee46e88-30116e980c9mr798294eec.4.1778632510419;
+        Tue, 12 May 2026 17:35:10 -0700 (PDT)
+Received: from gui-host.Dlink ([177.140.77.53])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f91004b6a2sm18471381eec.0.2026.05.12.17.35.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2026 15:44:14 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: thorsten.blum@linux.dev,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev
-Cc: linux-crypto@vger.kernel.org,
+        Tue, 12 May 2026 17:35:09 -0700 (PDT)
+From: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
+To: anand.ashok.dumbre@xilinx.com,
+	andy@kernel.org,
+	conall.ogriofa@amd.com,
+	dlechner@baylibre.com,
+	jic23@kernel.org,
+	manish.narani@xilinx.com,
+	michal.simek@amd.com,
+	nuno.sa@analog.com,
+	salih.erim@amd.com
+Cc: Guilherme Ivo Bozi <guilherme.bozi@usp.br>,
+	Jonathan.Cameron@huawei.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: [PATCH 07/12] crypto: atmel - expose CONFIG zone through sysfs
-Date: Tue, 12 May 2026 22:43:44 +0000
-Message-Id: <20260512224349.64621-8-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260512224349.64621-1-l.rubusch@gmail.com>
-References: <20260512224349.64621-1-l.rubusch@gmail.com>
+	linux-iio@vger.kernel.org
+Subject: [PATCH v4 0/3] iio: adc: xilinx-ams: refactor alarm handling to table-driven design
+Date: Tue, 12 May 2026 21:31:49 -0300
+Message-ID: <20260513003503.339418-1-guilherme.bozi@usp.br>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_154417_364642_0D2BF5DA 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20260512_173512_291684_4B6CCF79 
+X-CRM114-Status: UNSURE (   7.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,73 +107,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose the CONFIG EEPROM zone through a read-only sysfs attribute for
-Atmel I2C crypto devices.
+This series addresses significant code duplication in alarm handling
+logic across the Xilinx AMS IIO driver.
 
-The CONFIG zone contains device configuration state, including slot
-configuration and lock status, which is useful for debugging and
-verifying provisioning state.
+To address this, the series introduces a centralized table-driven
+mapping (alarm_map) that replaces multiple switch statements spread
+across the driver.
 
-Reuse the generic EEPROM display helper provided by the Atmel I2C core
-driver to expose the CONFIG zone for both SHA204A and ECC devices.
+This improves:
+- maintainability (single source of truth for mappings)
+- readability (removes repeated switch logic)
+- extensibility (new alarms require only table updates)
 
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
----
- drivers/crypto/atmel-ecc.c     | 7 +++++++
- drivers/crypto/atmel-sha204a.c | 7 +++++++
- 2 files changed, 14 insertions(+)
+No functional changes are intended.
 
-diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index b5f2d44ec74c..f08fdf284b60 100644
---- a/drivers/crypto/atmel-ecc.c
-+++ b/drivers/crypto/atmel-ecc.c
-@@ -23,6 +23,12 @@
- #include <crypto/kpp.h>
- #include "atmel-i2c.h"
- 
-+static ssize_t config_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	return atmel_i2c_eeprom_display(dev, attr, buf, ATMEL_EEPROM_CONFIG_ZONE);
-+}
-+static DEVICE_ATTR_ADMIN_RO(config);
-+
- static ssize_t otp_show(struct device *dev, struct device_attribute *attr, char *buf)
- {
- 	return atmel_i2c_eeprom_display(dev, attr, buf, ATMEL_EEPROM_OTP_ZONE);
-@@ -30,6 +36,7 @@ static ssize_t otp_show(struct device *dev, struct device_attribute *attr, char
- static DEVICE_ATTR_RO(otp);
- 
- static struct attribute *atmel_ecc508a_attrs[] = {
-+	&dev_attr_config.attr,
- 	&dev_attr_otp.attr,
- 	NULL
- };
-diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index 4f10e826e675..341554b7b7a2 100644
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -19,6 +19,12 @@
- #include <linux/workqueue.h>
- #include "atmel-i2c.h"
- 
-+static ssize_t config_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	return atmel_i2c_eeprom_display(dev, attr, buf, ATMEL_EEPROM_CONFIG_ZONE);
-+}
-+static DEVICE_ATTR_ADMIN_RO(config);
-+
- static ssize_t otp_show(struct device *dev,
- 			struct device_attribute *attr, char *buf)
- {
-@@ -27,6 +33,7 @@ static ssize_t otp_show(struct device *dev,
- static DEVICE_ATTR_RO(otp);
- 
- static struct attribute *atmel_sha204a_attrs[] = {
-+	&dev_attr_config.attr,
- 	&dev_attr_otp.attr,
- 	NULL
- };
+Series overview:
+- Patch 1: fix out-of-bounds channel lookup 
+- Patch 2: convert mutex handling to guard(mutex) 
+- Patch 3: introduce table-driven alarm mapping
+
+v1 -> v2:
+- Fixed Fixes tag format
+- Replaced AMS_ALARM_INVALID with AMS_ALARM_NONE
+- Changed alarm_map base_offset type
+
+v2 -> v3:
+- Replace 'i >= num_channels' with 'i == num_channels'
+- Add missing trailing comma in alarm_map array initializer
+
+v3 -> v4:
+- Removed unnecessary 'event < 0' check for type e32
+
+Guilherme Ivo Bozi (3):
+  iio: adc: xilinx-ams: fix out-of-bounds channel lookup in event
+    handling
+  iio: adc: xilinx-ams: use guard(mutex) for automatic locking
+  iio: adc: xilinx-ams: refactor alarm mapping to table-driven approach
+
+ drivers/iio/adc/xilinx-ams.c | 190 +++++++++++++----------------------
+ 1 file changed, 71 insertions(+), 119 deletions(-)
+
 -- 
-2.53.0
+2.47.3
 
 
