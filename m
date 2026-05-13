@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFFACD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3A82CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2Ooj7F76F4/htrsBO8X2cHcTBIYbwW5nBalyGxkNHs=; b=LEJh1MCEj0mRTN/oxsk4esX5gB
-	+2smhj+rsxcUpQ4GfSNL521AD6vGKeVk/WAhJLFH+UTC6zALqJd7/WCvjCDjWyXKifoKpC2C2DqCK
-	l2DDDIVZ9Y9Kb7ZeIDZRn9DVl0lXBfC3xZ+4+R3A0r+RR4pmLzWFGexjdHdRtqg920NUTd84AIZKl
-	u1k0AB48zZq6L0pkMJL6FI9kCFLnzriq7WW22X/e35O7nVJdfOmGHjssMWiCn0Db/RcMc9Sd6v+lw
-	kYA+oMzGpp8hJvhoaobGz7kOWRDz6KwJOmM814cm0xZRujW0T9hhsljY8h/WfaKPZbI4cNXwN7ALg
-	0XLezUTQ==;
+	bh=JWoDbkMpvnLXMsOXX2tfgUjzZ1TVKHLgwurwHvoTUu4=; b=fWhluBc0yXGJNoW3K/0mCOqvkT
+	AQPVZS5MPrKiR750IHLF60pOIWvIMYC5vOLZIA2lNKWJLsvk6/JrtJfesyQdopgJsmVkvlRtAMWto
+	4CG6DBBZ1t5O1U0x7Q1WIhXoX0f0A7xGQpJnL94D2+NMuXwLBeH8JnoK0ubG1qQvdEMXDcPuyiMsJ
+	uo03+3ozcvhWSe2clRbLREe9FjRXXL8BT78Ty4ngLlfxbEQdzAshaZk9oU2y3lXyXSaj7pwmRAnjA
+	/PGz/iZ6EgZpsYA9nz3JtYiNk5cr28TvDAcBwEZpbFU9ogxkGGS97XVlZJ9HMz78sTVPqnKmtBDiF
+	S1aZTfOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Nc-000000014rW-05ue;
-	Wed, 13 May 2026 03:35:28 +0000
+	id 1wN0Nh-000000014zZ-48Cw;
+	Wed, 13 May 2026 03:35:33 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Mw-000000013tl-04Nl
+	id 1wN0N0-0000000140W-0q23
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:34:50 +0000
+	Wed, 13 May 2026 03:34:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBE2E444ED;
-	Wed, 13 May 2026 03:34:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 213AAC4AF16;
-	Wed, 13 May 2026 03:34:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E85674450A;
+	Wed, 13 May 2026 03:34:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5710FC4AF1B;
+	Wed, 13 May 2026 03:34:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778643285;
-	bh=/D2z4LhluhXqyHCGUz6p/RDiGmFitxBUbjhr8ydpie0=;
+	s=k20201202; t=1778643289;
+	bh=G1VVkFA+yVRTPwxqst2UM5oq5D62mSukpDgUevX4w2g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=n4wFO7NyEYV/0+gNSdpO5s6iBrXisy37EVMZ7XBcBafOcltAlXO8aNqvC66gwtukA
-	 BpAC8LbYsQ83PGTqi+BVIzjsHKleUaDINXj+X40ksQjhqfhKihbK2EMAUEE1CN7Z2O
-	 2VxRe0WmYAIYRhBeOkV23VTmSMiKwFnkptoN0E9+gsURWFFm9BWuOlNsGxdlIJOdKL
-	 HKe/rTqC3sN/Kk/T09iqfq1Tx2kMx/M5PlnfC1rVP6e99977xU8Czo5Dn+iBzn6dXB
-	 5WOSu4exmVjZxnfcBgO/MXRSObGNVub56XoGBSugxwKrYmMp/FMo46gA/gWv1UVicG
-	 7v9P0wAMQPUnw==
+	b=qFK55v94+q/TgZ04oKyJ60qsdMKAZLWUmcuBlNhyXyN2mhUyeFJv30vLfN4RHe8xs
+	 rvS6G5L8Ladtg+NNWyqBLjtdWk8kNTWV+8jkhqKR6L8hWULPG9q/smyw5VvYTloS/H
+	 Q9em+hdiu/MuBOyOTvhY23o3BAHJ4hkXISHsm9dkOUZ7g1HiItJP2+zgwc9KUuInFj
+	 8aNoQPcLW1KQqcsaT8LuzqVbQKapDdOqCvQfy7FiPMUJF8FYJ8orYN+8pnVMTuNMiF
+	 LYokG8FW5X/PKZhcVv8195naNHfdsffqAoefoKz1Ghd8S93ciZ8vruRrULq7l5sUxc
+	 OBio90LEomidA==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,17 +55,18 @@ Cc: linux-kernel@vger.kernel.org,
 	Mark Rutland <mark.rutland@arm.com>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v3 02/21] arm64: Annotate intra-function calls
-Date: Tue, 12 May 2026 20:33:58 -0700
-Message-ID: <16bdb04ed6653809514d9f060702248b8e587f05.1778642120.git.jpoimboe@kernel.org>
+Subject: [PATCH v3 08/21] objtool: Allow setting --mnop without --mcount
+Date: Tue, 12 May 2026 20:34:04 -0700
+Message-ID: <87e956a4b3c8081c6ce0b75c043c15babf2a7f7e.1778642120.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1778642120.git.jpoimboe@kernel.org>
 References: <cover.1778642120.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_203447_719145_83B68C9D 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20260512_203450_698552_0F548560 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,67 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20260513033404.4U9Ig6V7wNIZNO-yeYAvguOq23oM1U9PrzNrWNKQ-Uc@z>
 
-In preparation for enabling objtool on arm64, annotate intra-function
-calls.
+Instead of returning an error for --mnop without --mcount, just silently
+ignore it.  This will help simplify kbuild's handling of objtool args.
 
 Acked-by: Song Liu <song@kernel.org>
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- arch/arm64/kernel/entry.S       |  2 ++
- arch/arm64/kernel/proton-pack.c | 12 +++++++-----
- 2 files changed, 9 insertions(+), 5 deletions(-)
+ tools/objtool/builtin-check.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index e0db14e9c843a..d4cbdfb23d733 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -10,6 +10,7 @@
- #include <linux/arm-smccc.h>
- #include <linux/init.h>
- #include <linux/linkage.h>
-+#include <linux/annotate.h>
+diff --git a/tools/objtool/builtin-check.c b/tools/objtool/builtin-check.c
+index 118c3de2f293e..bd84f5b7c9ee9 100644
+--- a/tools/objtool/builtin-check.c
++++ b/tools/objtool/builtin-check.c
+@@ -144,11 +144,6 @@ int cmd_parse_options(int argc, const char **argv, const char * const usage[])
  
- #include <asm/alternative.h>
- #include <asm/assembler.h>
-@@ -705,6 +706,7 @@ alternative_else_nop_endif
- 	 * entry onto the return stack and using a RET instruction to
- 	 * enter the full-fat kernel vectors.
- 	 */
-+	ANNOTATE_INTRA_FUNCTION_CALL
- 	bl	2f
- 	b	.
- 2:
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index b3801f532b10b..b63887a1b8234 100644
---- a/arch/arm64/kernel/proton-pack.c
-+++ b/arch/arm64/kernel/proton-pack.c
-@@ -24,6 +24,7 @@
- #include <linux/nospec.h>
- #include <linux/prctl.h>
- #include <linux/sched/task_stack.h>
-+#include <linux/annotate.h>
- 
- #include <asm/debug-monitors.h>
- #include <asm/insn.h>
-@@ -245,11 +246,12 @@ static noinstr void qcom_link_stack_sanitisation(void)
+ static bool opts_valid(void)
  {
- 	u64 tmp;
- 
--	asm volatile("mov	%0, x30		\n"
--		     ".rept	16		\n"
--		     "bl	. + 4		\n"
--		     ".endr			\n"
--		     "mov	x30, %0		\n"
-+	asm volatile("mov	%0, x30			\n"
-+		     ".rept	16			\n"
-+		     ANNOTATE_INTRA_FUNCTION_CALL "	\n"
-+		     "bl	. + 4			\n"
-+		     ".endr				\n"
-+		     "mov	x30, %0			\n"
- 		     : "=&r" (tmp));
- }
- 
+-	if (opts.mnop && !opts.mcount) {
+-		ERROR("--mnop requires --mcount");
+-		return false;
+-	}
+-
+ 	if (opts.noinstr && !opts.link) {
+ 		ERROR("--noinstr requires --link");
+ 		return false;
 -- 
 2.53.0
 
