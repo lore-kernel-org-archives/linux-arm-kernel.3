@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 838CCCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 05:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E71E8CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 05:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8swGP4fSebuVVwJiC5PHQWhD8prgZ48URqom4QP5BAE=; b=B2TBb1npsadBJ77O9cqzWEnf+8
-	JPMIq6ckV1EGL4KHB857wn8hyfuSOujatJa7b4xur+Ggvr56iu7Djk1xQpJEuSLh44WVOEhhTIEUc
-	pPLkh8j/KDD+UYB0ZZr/ZThNljphqIgMHGEX2Pb9CotQWWFPzu9urxMJIgpwHzHXa0TecHJlyWBI7
-	8318C0tVeX5HrVMo+tGMNrP11Be0OF6m77v/wPuiQODxDCwHw5btlB2wLjSAuxxFKqJNwHnqnbGw5
-	3bcMQqZolsnXsGRwY6hDwtGUancwybJAMBmCSg4Cc/3jJXSF62LjXS4s7zkjRAboee0bOPjkxtbKY
-	EVGeITNg==;
+	bh=Cib4DEuJ3Qb31GU/VeWbFg6orAoKtLPFmf6uqex2nIs=; b=J1SKvJVc41g5afDJdkJX+SJtdp
+	MSJzKv7GrW1HfX0jhAsG126UlU8Q0RadF3DHw+ALAcMehHVmE/YldKGG8ImT4q70BMmGKMMWqeUkm
+	XNy5wZhlsT7Bur/L0mGN0ix49NdYITzYJ9weDldPPNFgSNbSynBcNDOb6NPbv3vXQB1zCQ/fEUtUB
+	CiYZetIJhsdYGgkXecGCSkNXh2hEvfUtzNVJm0477lxNjhVzUC37H4hR5QJgz/CTCC0KnLZt1HcWb
+	5wcE7z454bEEZ3XR6ecXi93XBjXyhNQG4htAPrJnaYSiGfQyh/chfwjjYL1eDDOx0Gm7tY80D+J8g
+	t29StNrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN2D1-00000001KNf-03zX;
-	Wed, 13 May 2026 05:32:39 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
+	id 1wN2F7-00000001Kqz-14gW;
+	Wed, 13 May 2026 05:34:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN2Cv-00000001KGx-32R9
+	id 1wN2F4-00000001KqL-3DxP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 05:32:34 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 13 May
- 2026 13:32:12 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 13 May 2026 13:32:12 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Wed, 13 May 2026 13:32:03 +0800
-Subject: [PATCH RESEND v29 4/4] i2c: ast2600: Add target mode support
+	Wed, 13 May 2026 05:34:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3952A444AC
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 05:34:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A7BDC2BD04
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 05:34:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778650486;
+	bh=2dm9LJzKS2vHlnPyimeXOnAI0qwpLFhX3y1a2u/Y9Bw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=IyRIRsP4rbC+iIfAMYiX90OH3+4zuMyG+RXJ8qJUoGna+dv/oSxAyM8ByKmHdQ3gk
+	 mCr20ywzo5ZgFTAm8v8tKy9yxdOitY6s8PZDlXBUMVG3DEttPoaNz+gjRDbvMCE03E
+	 h6DvSHgCHQoJfJkfF9P20B0cOwaT/hSG+mdmOoilXhIdvG9bZgMSK10ugP1ft6b8kb
+	 NEZw/HhsbvvfgFgFJuV0q64ngsKznJ7SMeMu1KI5kf9FfGfHdQiciBnvG2Qo4454A1
+	 535YW+jplAUdn10vtHFBjnAd3Fuck/tUePR6gKkAjoD/H5vvjQayRWoC1XFsytqbyA
+	 GVDfuMaoGTpxQ==
+Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-67c2d57a5ceso11120245a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 22:34:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9rJhRgNTGspbEnQTMZzn2IENQ4cRXctuqQLZd5kUVWu4G3Fv54DUQs2UUTi3TplXx2txf1BfHFka34HXX3Wj+Q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy14RAMdQSzgWc2oQt0C888qX1hamB/7rc61Lhm0nlRUqlXiOk3
+	w+tIE3/09jm4s/aXzx+5toMHQ+Xhe2jQ6gDmL92Obki07wnIesHXUui45OKPVLGUp9APyNQfNQu
+	6EFJWZq3/IKjOl7HncvV8SPGKam0Q37k=
+X-Received: by 2002:a17:906:8d8b:b0:ba4:94f8:4df with SMTP id
+ a640c23a62f3a-bd3bfb8f581mr101033666b.17.1778650484437; Tue, 12 May 2026
+ 22:34:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20260513-upstream_i2c-v29-4-fe9926964d55@aspeedtech.com>
-References: <20260513-upstream_i2c-v29-0-fe9926964d55@aspeedtech.com>
-In-Reply-To: <20260513-upstream_i2c-v29-0-fe9926964d55@aspeedtech.com>
-To: <jk@codeconstruct.com.au>, <andriy.shevchenko@linux.intel.com>, Andi Shyti
-	<andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, "Benjamin
- Herrenschmidt" <benh@kernel.crashing.org>, Rayn Chen
-	<rayn_chen@aspeedtech.com>, Philipp Zabel <p.zabel@pengutronix.de>
-CC: <linux-i2c@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>, Ryan Chen
-	<ryan_chen@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778650331; l=17308;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=7gdQPuqUllpQHg8Qb2lTDDNbP8FnNu6CN80JWiz5OB0=;
- b=Ftqe6+U28gE4qZUU5RJ0izpkfV8/YRont8i4Oc7PNtZbYCF4BSnHUz9a9bUWT07NpmR6rtFIH
- 235S/LVEhXGDaY+8Gub2Dc/p2TEsxGfiYrEmG8akqbGj1+rNkFOvNW0
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+References: <20260508123910.114273-1-ulf.hansson@linaro.org>
+ <20260508123910.114273-7-ulf.hansson@linaro.org> <CACRMN=cowCsGb3x=tPOWLYdittwLCsSb2N2SXVPyxBRHThGAVg@mail.gmail.com>
+ <CAPDyKFoxJ8AOyqzbEQc8x-e5fRf0p3faE23PRNcbA4aPSY_cdg@mail.gmail.com>
+In-Reply-To: <CAPDyKFoxJ8AOyqzbEQc8x-e5fRf0p3faE23PRNcbA4aPSY_cdg@mail.gmail.com>
+From: Saravana Kannan <saravanak@kernel.org>
+Date: Tue, 12 May 2026 22:34:28 -0700
+X-Gmail-Original-Message-ID: <CACRMN=cyMjHtW1xjoYPWa8_TjmQEoJBvKtMo-UgP5yZJ=zDh2Q@mail.gmail.com>
+X-Gm-Features: AVHnY4LyfY4cUuXax6ixWmnl65gxoZBZuMNMRgoV0xiInOYdE0OY_bavPn835OQ
+Message-ID: <CACRMN=cyMjHtW1xjoYPWa8_TjmQEoJBvKtMo-UgP5yZJ=zDh2Q@mail.gmail.com>
+Subject: Re: [PATCH v3 06/13] pmdomain: core: Add initial fine grained
+ sync_state support
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Saravana Kannan <saravanak@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@oss.qualcomm.com>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_223233_779135_0841584D 
-X-CRM114-Status: GOOD (  20.99  )
+X-CRM114-CacheID: sfid-20260512_223446_854927_2EE830BA 
+X-CRM114-Status: GOOD (  68.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,459 +95,313 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add target mode support to the AST2600 I2C driver.
+On Mon, May 11, 2026 at 3:25=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.org=
+> wrote:
+>
+> On Mon, 11 May 2026 at 07:09, Saravana Kannan <saravanak@kernel.org> wrot=
+e:
+> >
+> > On Fri, May 8, 2026 at 5:39=E2=80=AFAM Ulf Hansson <ulf.hansson@linaro.=
+org> wrote:
+> > >
+> > > A onecell (#power-domain-cells =3D <1 or 2>; in DT) power domain prov=
+ider
+> > > typically provides multiple independent power domains, each with thei=
+r own
+> > > corresponding consumers. In these cases we have to wait for all consu=
+mers
+> > > for all the provided power domains before the ->sync_state() callback=
+ gets
+> > > called for the supplier.
+> > >
+> > > In a first step to improve this, let's implement support for fine gra=
+ined
+> > > sync_state support a per genpd basis by using the ->queue_sync_state(=
+)
+> > > callback. To take step by step, let's initially limit the improvement=
+ to
+> > > the internal genpd provider driver and to its corresponding genpd dev=
+ices
+> > > for onecell providers.
+> > >
+> > > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> > > ---
+> > >
+> > > Changes in v3:
+> > >         - Addressed some cosmetic comments from Geert.
+> > >
+> > > ---
+> > >  drivers/pmdomain/core.c   | 124 ++++++++++++++++++++++++++++++++++++=
+++
+> > >  include/linux/pm_domain.h |   1 +
+> > >  2 files changed, 125 insertions(+)
+> > >
+> > > diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> > > index ad57846f02a3..c01a9a96e5c2 100644
+> > > --- a/drivers/pmdomain/core.c
+> > > +++ b/drivers/pmdomain/core.c
+> > > @@ -2699,6 +2699,119 @@ static struct generic_pm_domain *genpd_get_fr=
+om_provider(
+> > >         return genpd;
+> > >  }
+> > >
+> > > +static bool genpd_should_wait_for_consumer(struct device_node *np)
+> > > +{
+> > > +       struct generic_pm_domain *genpd;
+> > > +       bool should_wait =3D false;
+> > > +
+> > > +       mutex_lock(&gpd_list_lock);
+> > > +       list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
+> > > +               if (genpd->provider =3D=3D of_fwnode_handle(np)) {
+> > > +                       genpd_lock(genpd);
+> > > +
+> > > +                       /* Clear the previous state before reevaluati=
+ng. */
+> > > +                       genpd->wait_for_consumer =3D false;
+> > > +
+> > > +                       /*
+> > > +                        * Unless there is at least one genpd for the=
+ provider
+> > > +                        * that is being kept powered-on, we don't ha=
+ve to care
+> > > +                        * about waiting for consumers.
+> > > +                        */
+> > > +                       if (genpd->stay_on)
+> > > +                               should_wait =3D true;
+> > > +
+> > > +                       genpd_unlock(genpd);
+> > > +               }
+> > > +       }
+> > > +       mutex_unlock(&gpd_list_lock);
+> >
+> > I think I understand the intent of this function, but haven't dug into
+> > genpd code enough to comment on this yet. I'll come back to this
+> > later.
+> >
+> > > +
+> > > +       return should_wait;
+> > > +}
+> > > +
+> > > +static void genpd_parse_for_consumer(struct device_node *sup,
+> > > +                                    struct device_node *con)
+> > > +{
+> > > +       struct generic_pm_domain *genpd;
+> > > +
+> > > +       for (unsigned int i =3D 0; ; i++) {
+> > > +               struct of_phandle_args pd_args;
+> > > +
+> > > +               if (of_parse_phandle_with_args(con, "power-domains",
+> > > +                                              "#power-domain-cells",
+> > > +                                              i, &pd_args))
+> > > +                       break;
+> >
+> > Why not use a while or a do while() instead of this infinite for loop
+> > with a break?
+>
+> I guess it's a matter of personal preference. I'm not sure the code
+> gets any nicer with a do/while, but if you really insist I can change
+> it.
+>
+> >
+> > > +
+> > > +               /*
+> > > +                * The phandle must correspond to the supplier's genp=
+d provider
+> > > +                * to be relevant else let's move to the next index.
+> > > +                */
+> > > +               if (sup !=3D pd_args.np) {
+> > > +                       of_node_put(pd_args.np);
+> > > +                       continue;
+> > > +               }
+> > > +
+> > > +               mutex_lock(&gpd_list_lock);
+> > > +               genpd =3D genpd_get_from_provider(&pd_args);
+> > > +               if (!IS_ERR(genpd)) {
+> > > +                       genpd_lock(genpd);
+> > > +                       genpd->wait_for_consumer =3D true;
+> > > +                       genpd_unlock(genpd);
+> > > +               }
+> > > +               mutex_unlock(&gpd_list_lock);
+> > > +
+> > > +               of_node_put(pd_args.np);
+> > > +       }
+> > > +}
+> > > +
+> > > +static void _genpd_queue_sync_state(struct device_node *np)
+> > > +{
+> > > +       struct generic_pm_domain *genpd;
+> > > +
+> > > +       mutex_lock(&gpd_list_lock);
+> > > +       list_for_each_entry(genpd, &gpd_list, gpd_list_node) {
+> > > +               if (genpd->provider =3D=3D of_fwnode_handle(np)) {
+> > > +                       genpd_lock(genpd);
+> > > +                       if (genpd->stay_on && !genpd->wait_for_consum=
+er) {
+> > > +                               genpd->stay_on =3D false;
+> > > +                               genpd_queue_power_off_work(genpd);
+> > > +                       }
+> > > +                       genpd_unlock(genpd);
+> > > +               }
+> > > +       }
+> > > +       mutex_unlock(&gpd_list_lock);
+> > > +}
+> > > +
+> > > +static void genpd_queue_sync_state(struct device *dev)
+> > > +{
+> > > +       struct device_node *np =3D dev->of_node;
+> > > +       struct device_link *link;
+> > > +
+> > > +       if (!genpd_should_wait_for_consumer(np))
+> > > +               return;
+> > > +
+> > > +       list_for_each_entry(link, &dev->links.consumers, s_node) {
+> >
+> > Couple of issues:
+> > 1. I don't want the frameworks to be so deeply aware of driver core
+> > internals. I want the driver core maintainers to be able to change the
+> > devlink implementation without having to worry about going and fixing
+> > all the frameworks. So, please add a for_each_consumer_dev(supplier,
+> > callback) and for_each_supplier_dev(consumer, callback) helper
+> > functions.
+>
+> I understand your concern and I like the idea. However, maybe it's
+> better to get this landed (the series is complicated as is) first and
+> then can continue to improve the code on top, with helper functions
+> etc.
 
-Target mode features implemented include:
-- Add target interrupt handling
-- Address match and response logic
+That patch should be pretty simple, so let's just do it? You are
+literally just moving the code to another file and massaging it a bit.
+I can send one out if you want/
 
-This complements the existing controller-mode support, enabling
-dual-role capability.
+> >
+> > 2. This doesn't ignore "SYNC_STATE_ONLY" links and that's going to
+> > confuse the consumer count/check you might do or at the least waste
+> > parsing those.
+>
+> I am not sure I understand how I should take SYNC_STATE_ONLY links
+> into account here.
+>
+> At each call to the genpd_queue_sync_state(), we walk through all the
+> provided genpds for the provider. No previous state is cached to track
+> consumer counts.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
-Changes in v29:
-- fix race between unreg_target and IRQ handler.
-- move i2cs ier enable from ast2600_i2c_init to probe after master ier enable.
-- remove dma/byte transfer, use buffer mode only.
+Ok, correct me if I'm wrong here, but it looks like you are looking at
+all the consumers, finding the ones that haven't probed yet and then
+trying to see which specific genpd provider each one of them is using
+by parsing their dt properties and then keep those ON.
 
-Changes in v28:
-- fix typo condication -> condition
-- fix compile error, when disable CONFIG_I2C_SLAVE
+If my understanding above is wrong then, please help me understand
+what the code is trying to do.
 
-Changes in v26:
-- change int to bool target_operate
-- rename target_operate to target_active
-- use i2c_bus->target replace require IO
-- use WRITE_ONCE replace target_operate write.
----
- drivers/i2c/busses/i2c-ast2600.c | 340 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 340 insertions(+)
+If it's right, then here's the issue:
 
-diff --git a/drivers/i2c/busses/i2c-ast2600.c b/drivers/i2c/busses/i2c-ast2600.c
-index 787ef6bd6244..137aaf7e26b5 100644
---- a/drivers/i2c/busses/i2c-ast2600.c
-+++ b/drivers/i2c/busses/i2c-ast2600.c
-@@ -254,6 +254,11 @@ struct ast2600_i2c_bus {
- 	size_t			buf_size;
- 	bool			multi_master;
- 	void __iomem		*buf_base;
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+	/* target structure */
-+	bool			target_active;
-+	struct i2c_client	*target;
-+#endif
- };
- 
- static void ast2600_i2c_ac_timing_config(struct ast2600_i2c_bus *i2c_bus)
-@@ -337,6 +342,243 @@ static int ast2600_i2c_recover_bus(struct ast2600_i2c_bus *i2c_bus)
- 	return ret;
- }
- 
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+static void ast2600_i2c_target_packet_buff_irq(struct ast2600_i2c_bus *i2c_bus, u32 sts)
-+{
-+	int target_rx_len = 0;
-+	u32 cmd = 0;
-+	u8 value;
-+	int i;
-+
-+	/* due to controller target is common buffer, need force the master stop not issue */
-+	if (readl(i2c_bus->reg_base + AST2600_I2CM_CMD_STS) & GENMASK(15, 0)) {
-+		writel(0, i2c_bus->reg_base + AST2600_I2CM_CMD_STS);
-+		i2c_bus->cmd_err = -EBUSY;
-+		writel(0, i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+		complete(&i2c_bus->cmd_complete);
-+	}
-+
-+	/* Handle i2c target timeout condition */
-+	if (AST2600_I2CS_INACTIVE_TO & sts) {
-+		/* Reset timeout counter */
-+		u32 ac_timing = readl(i2c_bus->reg_base + AST2600_I2CC_AC_TIMING) &
-+				AST2600_I2CC_AC_TIMING_MASK;
-+
-+		writel(ac_timing, i2c_bus->reg_base + AST2600_I2CC_AC_TIMING);
-+		ac_timing |= AST2600_I2CC_TTIMEOUT(i2c_bus->timeout);
-+		writel(ac_timing, i2c_bus->reg_base + AST2600_I2CC_AC_TIMING);
-+		writel(TARGET_TRIGGER_CMD, i2c_bus->reg_base + AST2600_I2CS_CMD_STS);
-+		writel(AST2600_I2CS_PKT_DONE, i2c_bus->reg_base + AST2600_I2CS_ISR);
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_STOP, &value);
-+		WRITE_ONCE(i2c_bus->target_active, false);
-+		return;
-+	}
-+
-+	sts &= ~(AST2600_I2CS_PKT_DONE | AST2600_I2CS_PKT_ERROR);
-+
-+	if (sts & AST2600_I2CS_SLAVE_MATCH)
-+		WRITE_ONCE(i2c_bus->target_active, true);
-+
-+	switch (sts) {
-+	case AST2600_I2CS_SLAVE_PENDING | AST2600_I2CS_WAIT_RX_DMA |
-+		 AST2600_I2CS_SLAVE_MATCH | AST2600_I2CS_RX_DONE | AST2600_I2CS_STOP:
-+	case AST2600_I2CS_SLAVE_PENDING |
-+		 AST2600_I2CS_SLAVE_MATCH | AST2600_I2CS_RX_DONE | AST2600_I2CS_STOP:
-+	case AST2600_I2CS_SLAVE_PENDING |
-+		 AST2600_I2CS_SLAVE_MATCH | AST2600_I2CS_STOP:
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_STOP, &value);
-+		fallthrough;
-+	case AST2600_I2CS_SLAVE_PENDING |
-+		 AST2600_I2CS_WAIT_RX_DMA | AST2600_I2CS_SLAVE_MATCH | AST2600_I2CS_RX_DONE:
-+	case AST2600_I2CS_WAIT_RX_DMA | AST2600_I2CS_SLAVE_MATCH | AST2600_I2CS_RX_DONE:
-+	case AST2600_I2CS_WAIT_RX_DMA | AST2600_I2CS_SLAVE_MATCH:
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_REQUESTED, &value);
-+		cmd = TARGET_TRIGGER_CMD;
-+		if (sts & AST2600_I2CS_RX_DONE) {
-+			target_rx_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
-+							       AST2600_I2CC_BUFF_CTRL));
-+			for (i = 0; i < target_rx_len; i++) {
-+				value = readb(i2c_bus->buf_base + 0x10 + i);
-+				i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_RECEIVED, &value);
-+			}
-+		}
-+		if (readl(i2c_bus->reg_base + AST2600_I2CS_CMD_STS) & AST2600_I2CS_RX_BUFF_EN)
-+			cmd = 0;
-+		else
-+			cmd = TARGET_TRIGGER_CMD | AST2600_I2CS_RX_BUFF_EN;
-+
-+		writel(AST2600_I2CC_SET_RX_BUF_LEN(i2c_bus->buf_size),
-+		       i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+		break;
-+	case AST2600_I2CS_WAIT_RX_DMA | AST2600_I2CS_RX_DONE:
-+		cmd = TARGET_TRIGGER_CMD;
-+		target_rx_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
-+						       AST2600_I2CC_BUFF_CTRL));
-+		for (i = 0; i < target_rx_len; i++) {
-+			value = readb(i2c_bus->buf_base + 0x10 + i);
-+			i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_RECEIVED, &value);
-+		}
-+		cmd |= AST2600_I2CS_RX_BUFF_EN;
-+		writel(AST2600_I2CC_SET_RX_BUF_LEN(i2c_bus->buf_size),
-+		       i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+		break;
-+	case AST2600_I2CS_SLAVE_PENDING | AST2600_I2CS_WAIT_RX_DMA |
-+				AST2600_I2CS_RX_DONE | AST2600_I2CS_STOP:
-+		cmd = TARGET_TRIGGER_CMD;
-+		target_rx_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
-+								 AST2600_I2CC_BUFF_CTRL));
-+		for (i = 0; i < target_rx_len; i++) {
-+			value = readb(i2c_bus->buf_base + 0x10 + i);
-+			i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_RECEIVED, &value);
-+		}
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_STOP, &value);
-+		cmd |= AST2600_I2CS_RX_BUFF_EN;
-+		writel(AST2600_I2CC_SET_RX_BUF_LEN(i2c_bus->buf_size),
-+		       i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+		break;
-+	case AST2600_I2CS_SLAVE_PENDING | AST2600_I2CS_RX_DONE | AST2600_I2CS_STOP:
-+		cmd = TARGET_TRIGGER_CMD;
-+		target_rx_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
-+								 AST2600_I2CC_BUFF_CTRL));
-+		for (i = 0; i < target_rx_len; i++) {
-+			value = readb(i2c_bus->buf_base + 0x10 + i);
-+			i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_RECEIVED, &value);
-+		}
-+		/* workaround for avoid next start with len != 0 */
-+		writel(BIT(0), i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_STOP, &value);
-+		break;
-+	case AST2600_I2CS_RX_DONE | AST2600_I2CS_STOP:
-+		cmd = TARGET_TRIGGER_CMD;
-+		target_rx_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
-+								 AST2600_I2CC_BUFF_CTRL));
-+		for (i = 0; i < target_rx_len; i++) {
-+			value = readb(i2c_bus->buf_base + 0x10 + i);
-+			i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_RECEIVED, &value);
-+		}
-+		/* workaround for avoid next start with len != 0 */
-+		writel(BIT(0), i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_STOP, &value);
-+		break;
-+	case AST2600_I2CS_SLAVE_PENDING | AST2600_I2CS_RX_DONE |
-+	     AST2600_I2CS_WAIT_TX_DMA | AST2600_I2CS_STOP:
-+		target_rx_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
-+								 AST2600_I2CC_BUFF_CTRL));
-+		for (i = 0; i < target_rx_len; i++) {
-+			value = readb(i2c_bus->buf_base + 0x10 + i);
-+			i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_RECEIVED, &value);
-+		}
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_STOP, &value);
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_READ_REQUESTED, &value);
-+		writeb(value, i2c_bus->buf_base);
-+		break;
-+	case AST2600_I2CS_WAIT_TX_DMA | AST2600_I2CS_SLAVE_MATCH:
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_READ_REQUESTED, &value);
-+		writeb(value, i2c_bus->buf_base);
-+		writel(AST2600_I2CC_SET_TX_BUF_LEN(1),
-+		       i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+		cmd = TARGET_TRIGGER_CMD | AST2600_I2CS_TX_BUFF_EN;
-+		break;
-+	case AST2600_I2CS_SLAVE_PENDING | AST2600_I2CS_STOP |
-+	     AST2600_I2CS_TX_NAK | AST2600_I2CS_SLAVE_MATCH | AST2600_I2CS_RX_DONE:
-+	case AST2600_I2CS_SLAVE_PENDING | AST2600_I2CS_WAIT_RX_DMA | AST2600_I2CS_STOP |
-+	     AST2600_I2CS_TX_NAK | AST2600_I2CS_SLAVE_MATCH | AST2600_I2CS_RX_DONE:
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_STOP, &value);
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_REQUESTED, &value);
-+		target_rx_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
-+						AST2600_I2CC_BUFF_CTRL));
-+		for (i = 0; i < target_rx_len; i++) {
-+			value = readb(i2c_bus->buf_base + 0x10 + i);
-+			i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_RECEIVED, &value);
-+		}
-+		writel(AST2600_I2CC_SET_RX_BUF_LEN(i2c_bus->buf_size),
-+		       i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+		cmd = TARGET_TRIGGER_CMD | AST2600_I2CS_RX_BUFF_EN;
-+		break;
-+	case AST2600_I2CS_SLAVE_MATCH | AST2600_I2CS_WAIT_TX_DMA | AST2600_I2CS_RX_DONE:
-+	case AST2600_I2CS_WAIT_TX_DMA | AST2600_I2CS_RX_DONE:
-+	case AST2600_I2CS_WAIT_TX_DMA:
-+		if (sts & AST2600_I2CS_SLAVE_MATCH)
-+			i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_REQUESTED, &value);
-+
-+		if (sts & AST2600_I2CS_RX_DONE) {
-+			target_rx_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
-+							AST2600_I2CC_BUFF_CTRL));
-+			for (i = 0; i < target_rx_len; i++) {
-+				value = readb(i2c_bus->buf_base + 0x10 + i);
-+				i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_RECEIVED, &value);
-+			}
-+			i2c_slave_event(i2c_bus->target, I2C_SLAVE_READ_REQUESTED, &value);
-+		} else {
-+			i2c_slave_event(i2c_bus->target, I2C_SLAVE_READ_PROCESSED, &value);
-+		}
-+		writeb(value, i2c_bus->buf_base);
-+		writel(AST2600_I2CC_SET_TX_BUF_LEN(1),
-+		       i2c_bus->reg_base + AST2600_I2CC_BUFF_CTRL);
-+		cmd = TARGET_TRIGGER_CMD | AST2600_I2CS_TX_BUFF_EN;
-+		break;
-+	/* workaround : trigger the cmd twice to fix next state keep 1000000 */
-+	case AST2600_I2CS_SLAVE_MATCH | AST2600_I2CS_RX_DONE:
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_WRITE_REQUESTED, &value);
-+		cmd = TARGET_TRIGGER_CMD | AST2600_I2CS_RX_BUFF_EN;
-+		writel(cmd, i2c_bus->reg_base + AST2600_I2CS_CMD_STS);
-+		break;
-+	case AST2600_I2CS_TX_NAK | AST2600_I2CS_STOP:
-+	case AST2600_I2CS_STOP:
-+		cmd = TARGET_TRIGGER_CMD;
-+		i2c_slave_event(i2c_bus->target, I2C_SLAVE_STOP, &value);
-+		break;
-+	default:
-+		dev_dbg(i2c_bus->dev, "unhandled target isr case %x, sts %x\n", sts,
-+			readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF));
-+		break;
-+	}
-+
-+	if (cmd)
-+		writel(cmd, i2c_bus->reg_base + AST2600_I2CS_CMD_STS);
-+	writel(AST2600_I2CS_PKT_DONE, i2c_bus->reg_base + AST2600_I2CS_ISR);
-+	readl(i2c_bus->reg_base + AST2600_I2CS_ISR);
-+
-+	if ((sts & AST2600_I2CS_STOP) && !(sts & AST2600_I2CS_SLAVE_PENDING))
-+		WRITE_ONCE(i2c_bus->target_active, false);
-+}
-+
-+static int ast2600_i2c_target_irq(struct ast2600_i2c_bus *i2c_bus)
-+{
-+	u32 ier = readl(i2c_bus->reg_base + AST2600_I2CS_IER);
-+	u32 isr = readl(i2c_bus->reg_base + AST2600_I2CS_ISR);
-+
-+	if (!(isr & ier))
-+		return 0;
-+
-+	/*
-+	 * Target interrupt coming after controller packet done
-+	 * So need handle controller first.
-+	 */
-+	if (readl(i2c_bus->reg_base + AST2600_I2CM_ISR) & AST2600_I2CM_PKT_DONE)
-+		return 0;
-+
-+	isr &= ~(AST2600_I2CS_ADDR_INDICATE_MASK);
-+
-+	if (AST2600_I2CS_ADDR1_NAK & isr)
-+		isr &= ~AST2600_I2CS_ADDR1_NAK;
-+
-+	if (AST2600_I2CS_ADDR2_NAK & isr)
-+		isr &= ~AST2600_I2CS_ADDR2_NAK;
-+
-+	if (AST2600_I2CS_ADDR3_NAK & isr)
-+		isr &= ~AST2600_I2CS_ADDR3_NAK;
-+
-+	if (AST2600_I2CS_ADDR_MASK & isr)
-+		isr &= ~AST2600_I2CS_ADDR_MASK;
-+
-+	if (AST2600_I2CS_PKT_DONE & isr)
-+		ast2600_i2c_target_packet_buff_irq(i2c_bus, isr);
-+
-+	return 1;
-+}
-+#endif
-+
- static int ast2600_i2c_setup_buff_tx(u32 cmd, struct ast2600_i2c_bus *i2c_bus)
- {
- 	struct i2c_msg *msg = &i2c_bus->msgs[i2c_bus->msgs_index];
-@@ -498,6 +740,20 @@ static void ast2600_i2c_controller_packet_irq(struct ast2600_i2c_bus *i2c_bus, u
- 		}
- 		break;
- 	case AST2600_I2CM_RX_DONE:
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+		/*
-+		 * Workaround for controller/target packet mode enable rx done stuck issue
-+		 * When controller go for first read (RX_DONE), target mode will also effect
-+		 * Then controller will send nack, not operate anymore.
-+		 */
-+		if (readl(i2c_bus->reg_base + AST2600_I2CS_CMD_STS) & AST2600_I2CS_PKT_MODE_EN) {
-+			u32 target_cmd = readl(i2c_bus->reg_base + AST2600_I2CS_CMD_STS);
-+
-+			writel(0, i2c_bus->reg_base + AST2600_I2CS_CMD_STS);
-+			writel(target_cmd, i2c_bus->reg_base + AST2600_I2CS_CMD_STS);
-+		}
-+		fallthrough;
-+#endif
- 	case AST2600_I2CM_RX_DONE | AST2600_I2CM_NORMAL_STOP:
- 		/* do next rx */
- 		xfer_len = AST2600_I2CC_GET_RX_BUF_LEN(readl(i2c_bus->reg_base +
-@@ -584,6 +840,12 @@ static irqreturn_t ast2600_i2c_bus_irq(int irq, void *dev_id)
- {
- 	struct ast2600_i2c_bus *i2c_bus = dev_id;
- 
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+	if (i2c_bus->target) {
-+		if (ast2600_i2c_target_irq(i2c_bus))
-+			return IRQ_HANDLED;
-+	}
-+#endif
- 	return IRQ_RETVAL(ast2600_i2c_controller_irq(i2c_bus));
- }
- 
-@@ -600,12 +862,31 @@ static int ast2600_i2c_controller_xfer(struct i2c_adapter *adap, struct i2c_msg
- 			return ret;
- 	}
- 
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+	if (i2c_bus->target_active)
-+		return -EBUSY;
-+	/*
-+	 * Controller and target share the same buffer register. A target
-+	 * transaction can update buffer state asynchronously via IRQ, so block
-+	 * controller transfers while target is active to avoid buffer corruption.
-+	 */
-+	writel(0, i2c_bus->reg_base + AST2600_I2CS_IER);
-+	if (readl(i2c_bus->reg_base + AST2600_I2CS_ISR) || i2c_bus->target_active) {
-+		writel(AST2600_I2CS_PKT_DONE, i2c_bus->reg_base + AST2600_I2CS_IER);
-+		return -EBUSY;
-+	}
-+#endif
-+
- 	i2c_bus->cmd_err = 0;
- 	i2c_bus->msgs = msgs;
- 	i2c_bus->msgs_index = 0;
- 	i2c_bus->msgs_count = num;
- 	reinit_completion(&i2c_bus->cmd_complete);
- 	ret = ast2600_i2c_do_start(i2c_bus);
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+	/* avoid race condition target is wait and controller wait 1st target operate */
-+	writel(AST2600_I2CS_PKT_DONE, i2c_bus->reg_base + AST2600_I2CS_IER);
-+#endif
- 	if (ret)
- 		goto controller_out;
- 	timeout = wait_for_completion_timeout(&i2c_bus->cmd_complete, i2c_bus->adap.timeout);
-@@ -624,6 +905,9 @@ static int ast2600_i2c_controller_xfer(struct i2c_adapter *adap, struct i2c_msg
- 		 * if the bus is still busy.
- 		 */
- 		if (i2c_bus->multi_master &&
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+		    !i2c_bus->target_active &&
-+#endif
- 		    (readl(i2c_bus->reg_base + AST2600_I2CC_STS_AND_BUFF) &
- 		    AST2600_I2CC_BUS_BUSY_STS))
- 			ast2600_i2c_recover_bus(i2c_bus);
-@@ -659,8 +943,54 @@ static int ast2600_i2c_init(struct ast2600_i2c_bus *i2c_bus)
- 	/* Clear Interrupt */
- 	writel(GENMASK(27, 0), i2c_bus->reg_base + AST2600_I2CM_ISR);
- 
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+	writel(GENMASK(27, 0), i2c_bus->reg_base + AST2600_I2CS_ISR);
-+#endif
-+
-+	return 0;
-+}
-+
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+static int ast2600_i2c_reg_target(struct i2c_client *client)
-+{
-+	struct ast2600_i2c_bus *i2c_bus = i2c_get_adapdata(client->adapter);
-+	u32 cmd = TARGET_TRIGGER_CMD;
-+
-+	if (i2c_bus->target)
-+		return -EINVAL;
-+
-+	dev_dbg(i2c_bus->dev, "target addr %x\n", client->addr);
-+
-+	writel(0, i2c_bus->reg_base + AST2600_I2CS_ADDR_CTRL);
-+	writel(AST2600_I2CC_SLAVE_EN | readl(i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL),
-+	       i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+
-+	writel(cmd, i2c_bus->reg_base + AST2600_I2CS_CMD_STS);
-+	i2c_bus->target = client;
-+	/* Set target addr. */
-+	writel(client->addr | AST2600_I2CS_ADDR1_ENABLE,
-+	       i2c_bus->reg_base + AST2600_I2CS_ADDR_CTRL);
-+
-+	return 0;
-+}
-+
-+static int ast2600_i2c_unreg_target(struct i2c_client *client)
-+{
-+	struct ast2600_i2c_bus *i2c_bus = i2c_get_adapdata(client->adapter);
-+	u32 val;
-+
-+	/* Turn off target mode. */
-+	val = readl(i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+	writel(val & ~AST2600_I2CC_SLAVE_EN, i2c_bus->reg_base + AST2600_I2CC_FUN_CTRL);
-+	val = readl(i2c_bus->reg_base + AST2600_I2CS_ADDR_CTRL);
-+	writel(val & ~AST2600_I2CS_ADDR1_MASK, i2c_bus->reg_base + AST2600_I2CS_ADDR_CTRL);
-+
-+	synchronize_irq(i2c_bus->irq);
-+	i2c_bus->target = NULL;
-+
- 	return 0;
- }
-+#endif
- 
- static u32 ast2600_i2c_functionality(struct i2c_adapter *adap)
- {
-@@ -670,6 +1000,10 @@ static u32 ast2600_i2c_functionality(struct i2c_adapter *adap)
- static const struct i2c_algorithm i2c_ast2600_algorithm = {
- 	.xfer = ast2600_i2c_controller_xfer,
- 	.functionality = ast2600_i2c_functionality,
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+	.reg_target = ast2600_i2c_reg_target,
-+	.unreg_target = ast2600_i2c_unreg_target,
-+#endif
- };
- 
- static int ast2600_i2c_probe(struct platform_device *pdev)
-@@ -708,6 +1042,9 @@ static int ast2600_i2c_probe(struct platform_device *pdev)
- 		regmap_write(i2c_bus->global_regs, AST2600_I2CG_CLK_DIV_CTRL, I2CCG_DIV_CTRL);
- 	}
- 
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+	WRITE_ONCE(i2c_bus->target_active, false);
-+#endif
- 	i2c_bus->dev = dev;
- 	i2c_bus->multi_master = device_property_read_bool(dev, "multi-master");
- 
-@@ -765,6 +1102,9 @@ static int ast2600_i2c_probe(struct platform_device *pdev)
- 
- 	writel(AST2600_I2CM_PKT_DONE | AST2600_I2CM_BUS_RECOVER,
- 	       i2c_bus->reg_base + AST2600_I2CM_IER);
-+#if IS_ENABLED(CONFIG_I2C_SLAVE)
-+	writel(AST2600_I2CS_PKT_DONE, i2c_bus->reg_base + AST2600_I2CS_IER);
-+#endif
- 
- 	ret = devm_i2c_add_adapter(dev, &i2c_bus->adap);
- 	if (ret)
+fw_devlink relies on device links and fwnode links to keep track of
+consumers. fwnode links get created first and then get converted to
+device links when both the supplier AND consumer devices are created.
 
--- 
-2.34.1
+Consider a case when the supplier S is created and the consumer device
+C is several levels deep inside a parent device A.
+S { #power-domain-cells =3D <1>; }
+A { B { C { power-domains =3D <&S MY_DOMAIN>; } } }
 
+fw_devlink can't just go "oh there's no consumer device that hasn't
+probed yet, let me call sync_state()". It needs to wait for C. But
+there's no way to create a device link to C. So, here's the sequence
+that happens:
+
+1. When device A gets added, it creates a "proxy" SYNC_STATE_ONLY link
+between S and A.
+2. When A probes, it adds device B.
+3. The SYNC_STATE_ONLY link between S to B is created.
+4. The SYNC_STATE_ONLY link between S to A is deleted.
+5. When B probes, it adds device C.
+6. The actual device link between S and C is created.
+7. The SYNC_STATE_ONLY link between S to B is deleted.
+8. Device C probes, the device links get updated, sync_state() gets called.
+
+So, if your code doesn't account for SYNC_STATE_ONLY links, you are
+going to check device "A" to see which providers are used. You'll
+think that MY_DOMAIN isn't used by any unprobed consumer and turn it
+off.
+
+>
+> >
+> > 3. **Device** links are not the complete list of consumers because
+> > they can only link consumer **devices** once the consumer **device**
+> > is created.
+> >
+> > 4. What you really need is a for_each_consumer_fwnode(supplier,
+> > callback) that first loops through all the consumer device links and
+> > calls the callback() on their fwnode and then the same function needs
+> > to loop through all the fwnode links and then pass those consumer
+> > fwnodes to the callback. And inside that callback you can do whatever
+> > you want.
+>
+> The ->queue_sync_state() callback is invoked *after*
+> __device_links_queue_sync_state() has been called for the device,
+> which is also when the conditions for calling ->sync_state() is
+> checked.
+
+I'm not sure what you are trying to say here. Yes, what you are saying
+is true. But at the point the current code returns before calling
+sync_state(), your patch 2/13 ends up calling the "consumer_probed()"
+callback.
+
+If you see the example I gave above, there is a SYNC_STATE_ONLY link
+all the way up to step 7 that'll prevent sync_state() from being
+called. And until step 5, there is no device link between S and C and
+you'll have to go look at S's fwnode links to find C.
+
+> If there are problems with not yet registered consumer device links,
+> why isn't that as problem for regular ->sync_state() in
+> __device_links_queue_sync_state()?
+
+Does my explanation above make sense?
+
+Welcome to the annoying worlds of fw_devlink corner cases/nuances.
+There's a case where the child is the supplier of the
+parent/grandparent. There's a comment for that in the fw_devlink code.
+
+Thanks,
+Saravana
+
+> >
+> > 5. You might want to add a for_each_inactive_consumer(supplier,
+> > callback) too to simplify your need for checking if a fwnode has a
+> > device and then checking if it's probed.
+> >
+> > Thanks,
+> > Saravana
+> >
+> >
+> > > +               struct device *consumer =3D link->consumer;
+> > > +
+> > > +               if (!device_link_test(link, DL_FLAG_MANAGED))
+> > > +                       continue;
+> > > +
+> > > +               if (link->status =3D=3D DL_STATE_ACTIVE)
+> > > +                       continue;
+> > > +
+> > > +               if (!consumer->of_node)
+> > > +                       continue;
+> > > +
+> > > +               /*
+> > > +                * A consumer device has not been probed yet. Let's p=
+arse its
+> > > +                * device node for the power-domains property, to fin=
+d out the
+> > > +                * genpds it may belong to and then prevent sync stat=
+e for them.
+> > > +                */
+> > > +               genpd_parse_for_consumer(np, consumer->of_node);
+> > > +       }
+> > > +
+> > > +       _genpd_queue_sync_state(np);
+> > > +}
+> > > +
+>
+> [...]
+>
+> Kind regards
+> Uffe
 
