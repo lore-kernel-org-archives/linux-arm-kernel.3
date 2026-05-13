@@ -4,63 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD904CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59215CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F95Aqp7UwoY/7Y7Y2dbxMxQCH7fBooS400Hkf6P8rP8=; b=RmbToKBdO5vrfAKLgIex89ZoLd
-	k/TZCogG/HonUg3WugAsWAr95S45nGpOV8QK7iE7lyLrdCckL68tVY6uCWtwQmPI/XAmI28qFDDkr
-	NjPORC1iduyEEurpRuYqtGCRb2VnB05nPw8hpHelrJTs5y4BwLvx8bn9iaDbj74Wr2UfImgi8UOHY
-	Kcs/crn7OTSJv9Rkgh3vN2O21zesaloN6Ox6pKPcWlvFribIjYhakWKZOY04a7iB23FeNb+shHs2H
-	hcKSnEHFxuO1diiIsRpPzS4eKiNMwZFdiUSDLZhgjcP23f0x6+rDwzzpo3iidsO8uLbmC7KxvXYWB
-	MnwM+pDg==;
+	bh=vqvYy20a5Jx86hYqfZOkuBqz2ypooclQXyvZoS2/rnE=; b=SDPJD4FtK1gGULX/Z6N5ROjdJq
+	CCzzeOz9rvbvVVc1gOHTqmnKLJ5aOv3zGZUK5c9f4/pBihDwR7avCJBNRij5f05qS7ftRPBSojFvj
+	9gFv27WRJQLmplq+mzSC0r+39NZZ3XLSPqdMSrHV0g4xG5v9LL4BkB2s7c7R7tyQCUcigykqIG7xg
+	d6va2iEE6IYfrvMLHPgiW2C2OX9wsrSCgdma6zi1IVomhfBThK0uhGis3ti14AeQ08BShtVuGqVZO
+	3Q3uOSTychCzua/JezKva1psx2Uzw//ScYtrLqDLjmP/SjlDcasoXaColyLFzOft4ZYNIUyXRq6wc
+	VxJk59dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0NZ-000000014le-2o0U;
-	Wed, 13 May 2026 03:35:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wN0Uq-000000017iB-3SIO;
+	Wed, 13 May 2026 03:42:56 +0000
+Received: from mail-westeuropeazon11011026.outbound.protection.outlook.com ([52.101.70.26] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Mv-000000013tV-0nCz
+	id 1wN0Up-000000017hc-0TKK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:34:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A017260582;
-	Wed, 13 May 2026 03:34:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB9BEC4AF14;
-	Wed, 13 May 2026 03:34:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778643284;
-	bh=3oqfclx78zKWNl/PM+bomMzSvStvzcGz0lbbX8cPMeE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=WlqjoU52+gq0FyxfwZOzH82yJZr0UgxgZPiYgxmKKJDvROjj6OdnFdfQD0d0K93Gq
-	 3AuvzBnOCwXcweM2Klbu0ANETmWilajiIhwsgxPxKyXqLTvmsSntR7rfC1qYqXrhcH
-	 JPqhQSkMxD8Itxi4ZY2wqxgh3UA2VxdG10J+WAFeETExz+HSr2MBecaN31QRAPzjds
-	 KRjEUDvTdYZYNgE7O3MaXji6JkthOppKVq82PHSDuiw3zQ/Uhty5mWKlsOGCCyNk/0
-	 AK+TGFLsvFhiKKPMZ+3gf/Idi9OaVwo3fS6bbLxsODJJovWh1OXe6uU/6zVgy6brUX
-	 lyUCPQA2Yd7og==
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: x86@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	live-patching@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	Song Liu <song@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+	Wed, 13 May 2026 03:42:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Wzma5PpMmZ/NAPmX+wmdiycdMJTMuQIlgoungpoOCMZ6JiS1Xxd2vWSPaq2JZXx/x3Hv8xZepp9cITz1/SyGYHglFt/wfXCv6nRTW2GhRj5ypDJjzezAb9FALQfl5n9qAM2X+3bRFpMaR6OQdvaKbFqcLlDmzqzMo8zNXeccD2Ygd0e8batrr9hueGSEOM/rAM0kM8UtJSphyklWyoHQAo1g/AYP7PTDw2FT/pKJPh1xUYS0kek6v1aqe6jLqGoP+oJ2cpVqOPeRsSiqaW4fuz8/3lbSt8t//7T2i7o9WJbfFaBhFP6cVsZYWR/o4Xvyonv2Ey1AVqTRMe5IRW5fdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vqvYy20a5Jx86hYqfZOkuBqz2ypooclQXyvZoS2/rnE=;
+ b=EbO8fsIkfCZyu/sLLj4cMzYtFz/BI24anRyoJz+fRvL889mCxGXb2nFJQD7rdCIz8JZaA8NL4eKtRSgFyefaAvpCyScaRWmFKYnHTIHmx0K3t8GcCx4jlAXg/tYQD1c64E3vdHqmquUjPaIAVl7oU881OcOrZ2aA0k4H36AaXVm8K6jNQDPyJyaywT5dD6hLqC4ttct9tAf3TG+9gved7ceIfW2ERFRNiNOE2MELLjTTy5tzK59ffTOtpIKQY/InycI9sEpOEOu3c7486oGuPbitJFH3HqkAk91dUJfFVtgx2An6ETHSrp0MLzG46pB+3MfaPjhWyltpr46y51FMfg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vqvYy20a5Jx86hYqfZOkuBqz2ypooclQXyvZoS2/rnE=;
+ b=Urdz8cMuHlTuCJJvn0gxFBwOXdJN/kV+G/dc+kWk2cqDdXnbrbrXtSRoeLBSxBRqtOZm9W/JuohdcrALFFtpnYjLPTNXboVFf7Wylz6qsMsIkLR0kK+JK5vasCczpXV7JQNRBGMGG5J+gqd82kBdZig+Rd93Pc8+kKX6/kJVocewQZ0U9iLOQe2D/e7AD0cKZbZ1IMpekYwv/RHTLnPTm2i0AgLgldPjMvEgDhgZgnermz3z7Lkvr7afYtARAF+tNOajao9Qiset55RH/p6Hpn2doHmQFTL9xETcrWd8+rNjdTDEDtzoNctnumDFBZnmg0LMfKQRPBalvIvqv2323w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI0PR04MB12008.eurprd04.prod.outlook.com
+ (2603:10a6:800:317::15) by DU2PR04MB8920.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e3::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 13 May
+ 2026 03:42:49 +0000
+Received: from VI0PR04MB12008.eurprd04.prod.outlook.com
+ ([fe80::3e42:1e5:5955:d68a]) by VI0PR04MB12008.eurprd04.prod.outlook.com
+ ([fe80::3e42:1e5:5955:d68a%5]) with mapi id 15.20.9913.009; Wed, 13 May 2026
+ 03:42:49 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	frank.li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v3 00/21] objtool/arm64: Port klp-build to arm64
-Date: Tue, 12 May 2026 20:33:56 -0700
-Message-ID: <cover.1778642120.git.jpoimboe@kernel.org>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v4] arm64: dts: imx95: Increase PCIe outbound address space to 4GB
+Date: Wed, 13 May 2026 11:44:56 +0800
+Message-Id: <20260513034456.1554188-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MAXPR01CA0110.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:5d::28) To VI0PR04MB12008.eurprd04.prod.outlook.com
+ (2603:10a6:800:317::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12008:EE_|DU2PR04MB8920:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad78bdf7-bacc-4726-77f3-08deb0a1b441
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|19092799006|52116014|366016|18002099003|56012099003|38350700014|11063799003;
+X-Microsoft-Antispam-Message-Info: MI9L5tib8u7km8XSYZXKqCi0EqFocH5MW4kgSS6VSdPhB5uRIIKEYiteGM1HEgBb4hkAHTs2zyz5dB+lQQ3p4cOfKnohOF1FwcXr1yPEf0b2Iy1SEJBnNDP12Kl2O38jLJW/tUDyzxz1FxyJucLFv1OBdr2nhq/hCsKxF0D+bi+w7Qx44z7nahWTtcdUkBGX24QuB3i01SJdAxA6+xUJHWMl6GF9YjujnJIzM48Lc/VJz4Yrx55Aag8Tv7h+Y2gX52C3bh5/TSBPY5mQIoL2Eh+HjYWTtKPes44ptoeRqN4by6XoP9uIYY+3x5LrBlADMAPnVvVsNZ8inmi+592qLH2S1FzDa5iHtu36o///dBHmZLR1//8VdGTGRHyJb7oNcm9iOkOkqkwdJv0tIZM9S2mqA1Hhgc7vmn82Xsf5qhFfEEDbWaxjqjb79Uf1RPd4WGGE5QB25taVxBv2W5c2zn/6H5JoqaguaTNrmmjqq4+kKoSMRcq4KWiV8pJ0O8j5xiOreYpPJSYfKJVYrzw9+KUSxFZ1kyE/V4l0+qTGPsezU9/C8I/S71fmTudmXVu1qozyXF+/f0cxGj+6b2U15b9ieWpzCF/iXsOjEGEKcyoVW8kFXN09lpuj5+B33GHEtXvDKqGgGC2Q4/3rc4TJswB5XyAQVMORf7ZfhN0eQ4iV8YV6EaZvwem7cOZ4OhnxYfYOufo5qXoRTOD0cxU7g9Z1hc+xFzRMWTE3ekbRhLLypCDpMNxc2T+VMM6IxUI7
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12008.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(19092799006)(52116014)(366016)(18002099003)(56012099003)(38350700014)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q4mFpwr7trhNMm7KiTbhc+ILEysNitrUDfiGuALfxkX7NyoZpAVLCsoVs6XM?=
+ =?us-ascii?Q?/6XyzKSKJOmbY1ksDLfH9I3fKDE0rOO4fz8JM3XGruqcPCaDtXvXDoHZmasX?=
+ =?us-ascii?Q?HGz7MN5aJ9Vhq/dg4SdcOeloE7vr344jsWZbpoxQg7A4I7zM4tUGygUScGc3?=
+ =?us-ascii?Q?2rUPwIrp3FOZ4JDregCBOEGBRDSSzJNyL+/RVg4L8LtXm9dqnpdmyuonhzJz?=
+ =?us-ascii?Q?0QY7paqv8OvMBQaxUr/khK31asomKMQ6CVp5g6g7uVOzb/cyYt5J+10XVNue?=
+ =?us-ascii?Q?rbo4KMaYuoREVjbEn2Yj/q8YJAH3NLaw+fxKnSMbM2HjF8i6POzQ3fKoi7hE?=
+ =?us-ascii?Q?o17hM7EenYCjns/3CDPm/ZX7kIF/vytL56uwbDH/RpMiPzmJnUKTCv/+vJ23?=
+ =?us-ascii?Q?KCv0PIEVhuUPjNGC9Jq2Bz9bxGzAiUPSHI3hWg+LGueHlr4yQbpa8devdWIU?=
+ =?us-ascii?Q?CQWlmdiLjMomNm64r2Z8sy3M5Mx0o908FMi/tD+SCnScOvl1RJj4ryWE3Mfy?=
+ =?us-ascii?Q?XRTlVoEoBC4tpdHyEddD/BO+cSmXLhuwsobEmx83jF+/1Zn0ZSMIG8Gifyur?=
+ =?us-ascii?Q?stbH5oUBaNqZCMPx985s22x8iHXeqr+0PP+c96uXogef6FulpM1Qyo6DjUJR?=
+ =?us-ascii?Q?RSDEkSZKPmkcDaQ2E+pHaJvFO+pDBdr/47eQGpvvs5XHRH63E1b0N6pwMXfG?=
+ =?us-ascii?Q?385a5qbKTHAAPo/+TzfrDaVmPEKUGDkx01E1lWEgml/SkJWavJm/PpSlqHvR?=
+ =?us-ascii?Q?Y9i4JqXWNxZ+9FdZLRVXtJqQ4dlwZy7ktZfVVrPOVAAP19KP6RylHey08PYg?=
+ =?us-ascii?Q?/KUXgS2q+jnux2+l/zFbToYBYtFdoog61k/4czY0mSVe8cCY5lWLxh+94SnR?=
+ =?us-ascii?Q?Zjo35i6kTV3shnn6u/eKn7MmmLLmuYPlwSoc5W3zRdfzU7LInhOWo2jMlx4p?=
+ =?us-ascii?Q?wSEzy1maPiqWKtC8JE73LmyMD9GihiTQpAtbp7Zq2Hi2g3iHMC/EDfUXS07O?=
+ =?us-ascii?Q?x7+fmY+e6OH6ChnlZG8xxp+eqzC3tPwI44f5k7WfDqSlrAfIVnuGH7k7CZMP?=
+ =?us-ascii?Q?y+iXCqC2079DqjdkhLh2tJk+rbozFiRsbfG/41uzRbvXGEcSyJjUrHgHjNna?=
+ =?us-ascii?Q?EYJy7vtqwv2jhWXOuYF0HAOAsC9Ow0wkaX6iBW72eoA+hF0oUE9a2YZN4Xbx?=
+ =?us-ascii?Q?IVLqZm3ZOQ0OX2gKwsx1Uc+wvQjM7waZOKe2XzxZmO2itKkuhAxmg9JOJF/v?=
+ =?us-ascii?Q?PGQ9ZL7aCcd7foK+4Vj3GgAbGQ4ivOAEKjjjhjiV+TAm1FFOUMvXn9h/6fav?=
+ =?us-ascii?Q?8l1Uy0QKNr0kHInw7n/Iq8ZJ3Ec5RhGjSNTrkYuEUQ9RjV0Vy1W4m/YwRqul?=
+ =?us-ascii?Q?bVS9osoGndE8FKMbeBisBQtOcGpIMOKl8rOZwL8TWnQwsOdNzxvbhYsZm+tH?=
+ =?us-ascii?Q?DoXulJG3iznl7oifWp3UHFwLHT5wjEzBT8c9CCQOAiKHGXdmcs3PB92iBNKT?=
+ =?us-ascii?Q?iNRWY53fpKVreRjczzjC8A1NgJ/M118JN0+BoYfnfgTiMjlVRzCPrfMQCmSf?=
+ =?us-ascii?Q?tqWUZJE1IJVjL+hmcViSJdwJihNgWupWn8UJy527ax1vhc73fOjcP7TvMF3c?=
+ =?us-ascii?Q?OlgxKcgvHW3n3vKRMTQi/nx80h4bKOcSVRgjc6Zx7iyRHaVAr7juvxzEX/7G?=
+ =?us-ascii?Q?HfCNKT3mywpUD5rZkFpuMp5Ct50fEN7mBo/iL6LCu/UqqARr6fUZfZof5a9i?=
+ =?us-ascii?Q?TKTB0ZK2MA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad78bdf7-bacc-4726-77f3-08deb0a1b441
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12008.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 03:42:49.7854
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: z8OR1YHiJXOSQ9zUI3sEbWRQMk0wbYZN9tRSGkmhGA17YcgguwlayW/90Npq95687keCu6CVIphGYHRfyIbTPA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8920
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260512_204255_152400_96AFBB6B 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,98 +141,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-Message-ID: <20260513033356.naJIPlAyQUrFhdt79aAYBnxnNPKF5UJ4KB5zjUKW10s@z>
 
-Based on tip/objtool/core.
+Fix the PCIe outbound memory region size to 4GB, which is the actual
+hardware-supported memory space. The size was incorrectly set to 256MB
+during bring-up.
 
-v3:
-- Too many changes to list.  Did a lot of testing and fixed a bunch of
-  issues (many of which have already been merged in tip/objtool/core).
+Fixes: 3b1d5deb29ff ("arm64: dts: imx95: add pcie[0,1] and pcie-ep[0,1] support")
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx95.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+---
+Changes in v4:
+Update the flag from 0x82000000 to 0x83000000 to declare a 64-bit PCI
+space.
 
-v2: https://lore.kernel.org/cover.1773787568.git.jpoimboe@kernel.org
-- patches 1-2 were merged, rebase on tip/master
-- improve commit message for "objtool: Extricate checksum calculation from validate_branch()"
-- add review tags
+Changes in v3:
+Update the commit message, and set the region size to the max
+hardware-supported memory space 4G.
 
-v1: https://lore.kernel.org/cover.1772681234.git.jpoimboe@kernel.org
+Changes in v2:
+Add the Fixes tag, and rebase to latest imx/dt64 branch.
 
-Port objtool and the klp-build tooling (for building livepatch modules)
-to arm64.
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index adcc0e1d3696..d8a6a18ddfa1 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -1940,7 +1940,7 @@ pcie0: pcie@4c300000 {
+ 			      <0 0x4c340000 0 0x4000>;
+ 			reg-names = "dbi", "config", "atu", "app";
+ 			ranges = <0x81000000 0x0 0x00000000 0x0 0x6ff00000 0 0x00100000>,
+-				 <0x82000000 0x0 0x10000000 0x9 0x10000000 0 0x10000000>;
++				 <0x83000000 0x0 0x10000000 0x9 0x00000000 1 0x00000000>;
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+ 			device_type = "pci";
+@@ -2015,7 +2015,7 @@ pcie1: pcie@4c380000 {
+ 			      <0 0x4c3c0000 0 0x4000>;
+ 			reg-names = "dbi", "config", "atu", "app";
+ 			ranges = <0x81000000 0 0x00000000 0x8 0x8ff00000 0 0x00100000>,
+-				 <0x82000000 0 0x10000000 0xa 0x10000000 0 0x10000000>;
++				 <0x83000000 0 0x10000000 0xa 0x00000000 1 0x00000000>;
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+ 			device_type = "pci";
 
-Note this doesn't bring all the objtool bells and whistles to arm64, nor
-any of the CFG reverse engineering.  This only adds the bare minimum
-needed for 'objtool --checksum'.
-
-And note that objtool still doesn't get enabled at all for normal arm64
-kernel builds, so this doesn't affect any users other than those running
-klp-build directly.
-
-
-Josh Poimboeuf (21):
-  klp-build: Reject patches to init/*.c
-  arm64: Annotate intra-function calls
-  arm64: Fix EFI linking with -fdata-sections
-  arm64: Rename TRAMP_VALIAS -> TRAMP_VALIAS_ASM in asm-offsets
-  arm64: vdso: Discard .discard.* sections
-  arm64: Annotate special section entries
-  crypto: arm64: Move data to .rodata
-  objtool: Allow setting --mnop without --mcount
-  kbuild: Only run objtool if there is at least one command
-  objtool: Ignore jumps to the end of the function for checksum runs
-  objtool: Allow empty alternatives
-  objtool: Refactor elf_add_data() to use a growable data buffer
-  objtool: Reuse string references
-  objtool: Prevent kCFI hashes from being decoded as instructions
-  objtool/klp: Add arm64 support for prefix/PFE detection
-  objtool/klp: Filter arm64 mapping symbols in find_symbol_by_offset()
-  objtool/klp: Don't correlate arm64 mapping symbols
-  objtool/klp: Clone inline alternative replacements
-  objtool/klp: Introduce objtool for arm64
-  klp-build: Support cross-compilation
-  klp-build: Add arm64 syscall patching macro
-
- arch/arm64/Kconfig                            |   2 +
- arch/arm64/include/asm/alternative-macros.h   |  27 +-
- arch/arm64/include/asm/asm-bug.h              |   2 +
- arch/arm64/include/asm/asm-extable.h          |  21 +-
- arch/arm64/include/asm/jump_label.h           |   2 +
- arch/arm64/kernel/asm-offsets.c               |   7 +-
- arch/arm64/kernel/entry.S                     |  10 +-
- arch/arm64/kernel/proton-pack.c               |  12 +-
- arch/arm64/kernel/vdso/vdso.lds.S             |   1 +
- arch/arm64/kernel/vmlinux.lds.S               |   2 +-
- arch/x86/boot/startup/Makefile                |   2 +-
- include/linux/annotate.h                      |  14 +-
- include/linux/livepatch_helpers.h             |  19 ++
- include/linux/objtool_types.h                 |   1 +
- lib/crypto/arm64/sha2-armv8.pl                |  18 +-
- scripts/Makefile.build                        |   4 +-
- scripts/Makefile.lib                          |  52 ++--
- scripts/Makefile.vmlinux_o                    |  15 +-
- scripts/livepatch/klp-build                   |  24 +-
- tools/include/linux/objtool_types.h           |   1 +
- tools/objtool/Makefile                        |   4 +
- tools/objtool/arch/arm64/Build                |   2 +
- tools/objtool/arch/arm64/decode.c             | 177 +++++++++++++
- .../arch/arm64/include/arch/cfi_regs.h        |  11 +
- tools/objtool/arch/arm64/include/arch/elf.h   |  15 ++
- .../objtool/arch/arm64/include/arch/special.h |  21 ++
- tools/objtool/arch/arm64/special.c            |  21 ++
- tools/objtool/arch/x86/include/arch/elf.h     |   2 +
- tools/objtool/builtin-check.c                 |   5 -
- tools/objtool/check.c                         |  65 +++--
- tools/objtool/elf.c                           | 170 +++++++------
- tools/objtool/include/objtool/elf.h           |  48 +++-
- tools/objtool/klp-diff.c                      | 237 ++++++++++++++++--
- 33 files changed, 819 insertions(+), 195 deletions(-)
- create mode 100644 tools/objtool/arch/arm64/Build
- create mode 100644 tools/objtool/arch/arm64/decode.c
- create mode 100644 tools/objtool/arch/arm64/include/arch/cfi_regs.h
- create mode 100644 tools/objtool/arch/arm64/include/arch/elf.h
- create mode 100644 tools/objtool/arch/arm64/include/arch/special.h
- create mode 100644 tools/objtool/arch/arm64/special.c
-
+base-commit: 5f9e9f83aee0fa8f2124c6f192505de2cdf7c5dc
 -- 
-2.53.0
+2.37.1
 
 
