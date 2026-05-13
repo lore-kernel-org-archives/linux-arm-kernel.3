@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F89CD4F35
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6246BCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bkIwmE7gk9BuDM3tRTDWMpFUoKQjyNrVcx4rhs4IgJg=; b=rg80ntFMxj3WIw0sLbZZlop0P4
-	yoD+r2GL7pXrEDF22WLUGMP++EdqQkm77gpy2ghsTp4jryqUAW5JSLPC1L83bfoNNq1JfJ2fjau/5
-	Qhq4Dk1i5joyPon2QFFmGGQuFVbn6ZnaheTnHPH081ANuP4Xe2X6NMA06juDcBQ23J3DB1MSFjBKz
-	JFX55Dw1UEf/7eZU0Awt5gzc6ZyWZuSlhUi8XLDpzg1ml0BEW9k+3agT0pvH0LNiyPD2F+Rj/MQX5
-	Rj28KE3z6X8iznnR/eei0tT8kOAW4q9DcryBv7gLzixRHBiOJugb/c5zsmUiACbrFI2ft0B3Kh0OU
-	FQ6DN2vw==;
+	bh=nVPE7oOVfGnNr6jF7jIWIckta4AQ9Sxz6dWYpY6hciU=; b=y0KwyAkahjFA3EdZgg7ap0qg0e
+	1vZIo/Cj62Jzv/D/EB5xxYcUSqTsR/pJU7FlGgQL24QZU8nfphUT+wRoTgSAEQQDsdKXxaextkHNr
+	4gaTTpTeNoTc008hCFujWwA6cHj8b6tRmvgbmwHQPU3xYc+uWu07alJksvXS1rviVOfcMMkcgyF2b
+	ptnISJmdWW26Bfy2ktvJorKkvrvnqxnUYN3MwJjdj6CZy10PkJyMuO4wmBmSIRnTf2Sq0w1sDSSAj
+	rWU3n1/Iy7wMgvzyzSa+9BITupIOfjWe9dUUX+plPc6Lv8tpmNUdnarLrz7AWtosewsd/T/WRgk0E
+	2hNou+4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Ni-0000000150p-1vIe;
-	Wed, 13 May 2026 03:35:34 +0000
+	id 1wN0Nk-0000000156s-18Pm;
+	Wed, 13 May 2026 03:35:36 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0N2-00000001458-1IrN
+	id 1wN0N5-000000014AF-1XXC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:34:52 +0000
+	Wed, 13 May 2026 03:34:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A9E8960180;
-	Wed, 13 May 2026 03:34:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3F3CC2BCFB;
-	Wed, 13 May 2026 03:34:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C604761143;
+	Wed, 13 May 2026 03:34:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAAC3C2BCFD;
+	Wed, 13 May 2026 03:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778643291;
-	bh=voedLEVhufD2EC2qnX2retheCvvJ6sgwG1j/M2rJ6o4=;
+	s=k20201202; t=1778643293;
+	bh=lYQ1yov6GYXVE+5pFJSvbDLFJ5lLXCdGtVTWLqgmeuM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hA06cJnDIUfmXB/3JBgPXTt/tPmcVQStNmHqYSgYdqyZK1z0fhnA5E1Wg+3OSwk4a
-	 l8+c9EEraTlHhcNn7ogPeQ/SxzRmhMbzbhv5S5t+feNsOaX+Kpu2J0K4LNjATTU4+X
-	 Hsv7TAQEP9qJYXyTOZnWW8Io2lS2QDF3YQ6h7tScpWhbeD2JBV8QITnFwehBfkuSYh
-	 p46H1xKZh9y+H9uzV/VPpcoRn3KpKS80XEnstUKE19kRTS2KmXnsYyDhAyzGzSAOn/
-	 NxWt21EH45/0Jg707+N2zxMaWD/QGFatK5a9YDhSE1a5Fy/JXEp9CvMx/87hyCf7/R
-	 fKGB57IpVN9Bg==
+	b=PGYOhOsB1l9PgfOcHexCpsxifLmrVATJQBGZNZHmdkwnC5oejNuu4vj5eWe0SMaG5
+	 lRAZJjthUe+ZNkcKO/ZoRrG8yKxtUxuW1FuUbHJU2ljX0GVApSJ66YmpgceIFV9snr
+	 nDShSgveH1aRcIPaZVgFzmwiI6yamzf3v+fX477Q+3u0Ez7SvLPCsND3nnrGBr8hZO
+	 Q3xUDrtkn/3spXcF8+4roPjMM/icQ2GV9D6DgSK3O6RYTtortpyX3VA9iQgbnJhmO7
+	 OkA4dxPzrkvFgAWYQCV5PfH4T30+EegvDKSY80d28fp7RlZVXYyFW5BeocLWS3xqyn
+	 PMWd6gm+hEJhw==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Mark Rutland <mark.rutland@arm.com>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v3 10/21] objtool: Ignore jumps to the end of the function for checksum runs
-Date: Tue, 12 May 2026 20:34:06 -0700
-Message-ID: <b3b58101e15e1bb5266e57134f0b65f7d8efdd4b.1778642120.git.jpoimboe@kernel.org>
+Subject: [PATCH v3 13/21] objtool: Reuse string references
+Date: Tue, 12 May 2026 20:34:09 -0700
+Message-ID: <8881010b54f07432929acb8e704cd6ffcc835318.1778642120.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1778642120.git.jpoimboe@kernel.org>
 References: <cover.1778642120.git.jpoimboe@kernel.org>
@@ -76,83 +76,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20260513033409.3Deuzh-UhS9ep0WpZuuY3I8-fwRHB96_HAsFzlcEoNc@z>
 
-Sometimes Clang arm64 code jumps to the end of the function for UB.
-No need to make that an error for checksum runs.
+For duplicate strings, elf_add_string() just blindly adds duplicates.
+
+That can be a problem for arm64 which often uses two consecutive
+instructions (and corresponding relocations) to put an address into a
+register, like:
+
+  d8:   90000001        adrp    x1, 0 <meminfo_proc_show>       d8: R_AARCH64_ADR_PREL_PG_HI21  .rodata.meminfo_proc_show.str1.8
+  dc:   91000021        add     x1, x1, #0x0    dc: R_AARCH64_ADD_ABS_LO12_NC   .rodata.meminfo_proc_show.str1.8
+
+Referencing two different addresses in the ADRP+ADD pair would corrupt
+the memory access.  Avoid that by detecting and reusing duplicates when
+cloning string relocs.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/check.c | 42 +++++++++++++++++++++++-------------------
- 1 file changed, 23 insertions(+), 19 deletions(-)
+ tools/objtool/elf.c                 | 29 +++++++++++++++++++++++------
+ tools/objtool/include/objtool/elf.h |  3 ++-
+ tools/objtool/klp-diff.c            |  4 +++-
+ 3 files changed, 28 insertions(+), 8 deletions(-)
 
-diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index 10b18cf9c3608..73451aef68029 100644
---- a/tools/objtool/check.c
-+++ b/tools/objtool/check.c
-@@ -37,6 +37,22 @@ struct disas_context *objtool_disas_ctx;
- 
- size_t sym_name_max_len;
- 
-+static bool validate_branch_enabled(void)
-+{
-+	return opts.stackval	||
-+	       opts.orc		||
-+	       opts.uaccess;
-+}
-+
-+static bool alts_needed(void)
-+{
-+	return validate_branch_enabled()	||
-+	       opts.noinstr			||
-+	       opts.hack_jump_label		||
-+	       opts.disas			||
-+	       opts.checksum;
-+}
-+
- struct instruction *find_insn(struct objtool_file *file,
- 			      struct section *sec, unsigned long offset)
- {
-@@ -1593,10 +1609,14 @@ static int add_jump_destinations(struct objtool_file *file)
- 			/*
- 			 * GCOV/KCOV dead code can jump to the end of
- 			 * the function/section.
-+			 *
-+			 * Clang on arm64 also does this sometimes for
-+			 * undefined behavior.
- 			 */
--			if (file->ignore_unreachables && func &&
--			    dest_sec == insn->sec &&
--			    dest_off == func->offset + func->len)
-+			if (!validate_branch_enabled() ||
-+			    (file->ignore_unreachables && func &&
-+			     dest_sec == insn->sec &&
-+			     dest_off == func->offset + func->len))
- 				continue;
- 
- 			ERROR_INSN(insn, "can't find jump dest instruction at %s",
-@@ -2584,22 +2604,6 @@ static void mark_holes(struct objtool_file *file)
- 	}
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index e09bb0a63be35..065ccfeb98288 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -1366,9 +1366,27 @@ struct elf *elf_create_file(GElf_Ehdr *ehdr, const char *name)
+ 	return elf;
  }
  
--static bool validate_branch_enabled(void)
--{
--	return opts.stackval	||
--	       opts.orc		||
--	       opts.uaccess;
--}
--
--static bool alts_needed(void)
--{
--	return validate_branch_enabled()	||
--	       opts.noinstr			||
--	       opts.hack_jump_label		||
--	       opts.disas			||
--	       opts.checksum;
--}
--
- int decode_file(struct objtool_file *file)
+-unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
++int elf_find_string(struct elf *elf, struct section *strtab, const char *str)
  {
- 	arch_initial_func_cfi_state(&initial_func_cfi);
+-	unsigned int offset;
++	char *d_buf;
++	int i;
++
++	if (!strtab->data)
++		return -1;
++
++	d_buf = strtab->data->d_buf;
++
++	for (i = 0; i < strtab->data->d_size; i += strlen(d_buf + i) + 1) {
++		if (!strcmp(d_buf + i, str))
++			return i;
++	}
++
++	return -1;
++}
++
++int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
++{
++	void *data;
+ 
+ 	if (!strtab)
+ 		strtab = find_section_by_name(elf, ".strtab");
+@@ -1382,12 +1400,11 @@ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char
+ 		return -1;
+ 	}
+ 
+-	offset = ALIGN(sec_size(strtab), strtab->sh.sh_addralign);
+-
+-	if (!elf_add_data(elf, strtab, str, strlen(str) + 1))
++	data = elf_add_data(elf, strtab, str, strlen(str) + 1);
++	if (!data)
+ 		return -1;
+ 
+-	return offset;
++	return data - strtab->data->d_buf;
+ }
+ 
+ void *elf_add_data(struct elf *elf, struct section *sec, const void *data, size_t size)
+diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
+index 0801fcad516bb..d895023674673 100644
+--- a/tools/objtool/include/objtool/elf.h
++++ b/tools/objtool/include/objtool/elf.h
+@@ -187,7 +187,8 @@ struct symbol *elf_create_section_symbol(struct elf *elf, struct section *sec);
+ void *elf_add_data(struct elf *elf, struct section *sec, const void *data,
+ 		   size_t size);
+ 
+-unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str);
++int elf_find_string(struct elf *elf, struct section *strtab, const char *str);
++int elf_add_string(struct elf *elf, struct section *strtab, const char *str);
+ 
+ struct reloc *elf_create_reloc(struct elf *elf, struct section *sec,
+ 			       unsigned long offset, struct symbol *sym,
+diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
+index 6a1cec57dc6a3..6957292e455e4 100644
+--- a/tools/objtool/klp-diff.c
++++ b/tools/objtool/klp-diff.c
+@@ -1509,7 +1509,9 @@ static int clone_reloc(struct elfs *e, struct reloc *patched_reloc,
+ 
+ 		__dbg_clone("\"%s\"", escape_str(str));
+ 
+-		addend = elf_add_string(e->out, out_sym->sec, str);
++		addend = elf_find_string(e->out, out_sym->sec, str);
++		if (addend == -1)
++			addend = elf_add_string(e->out, out_sym->sec, str);
+ 		if (addend == -1)
+ 			return -1;
+ 	}
 -- 
 2.53.0
 
