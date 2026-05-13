@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DCFECD4F40
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 23:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9194FCD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 23:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UuhhN2ow+8aUzefr3FH0DEGbH0rpxCfPOPRqcsdxH0Y=; b=OSLoYFHYrolrGPpgyASk947ofh
-	hLWpFfQIFvreElXm51eEO4q3x+E56njuECvPnkbYWqDq3jt3mSmDxw/YBJcwbpraRk8b50xoixZ5b
-	zkcXZMJr4oLwqjlRzoHdAqr5fncL4y9PWtffGN7489kOyx5fHpvVYR+mUbQxEaIiSp497WbVnOnr3
-	8HHx0bC3uOr1MbOeFA6Aslz68U/ge9lv07UIr6NZIpG8ico1Pt6SylBL4LrmCZbQV51ZKk1Q0ZA8V
-	1TdtrsMxeA8CU1yWlvIWHuO/xNEq6ctq/8tMyN3ROyIoghx0rP2OKs+l5pgsqJzXiY9EqN3ZbSmpX
-	NSWGkLjQ==;
+	bh=zcSUDodWJURWun7QKLcFjXxajA5T9sQZZ15+Xc3SKtc=; b=QW7vXM8jiNQJhrYpcWvAX0mGnw
+	19r8Nm3DGImEndEtD9soXkDPIeiG/YCu2K+kJLQs/UIeawbZZopgJq+W4IJdkpzdCatEVD18dNVvl
+	MhdqzN0v0eDYseZXo1WX9wnW1KAyiiS7cnOE6IbdjnIUIcWrD97jGwfgxyhdGlzxtCVU73OSKbIoD
+	MmnNFwC8R0xOLTA+Q0F3ieoCXYwYUqZv7AGLeDXWQ9yBRiSnVtS1nqyuaxqBlji/OYQbU+2VrzBZ/
+	4ZjwHqiQfTrx2gZEPYfcV6kg2yjt1H57DkZ7nkcypQa0JWs8okjifD52e2eUWhGOUS8amDGbfO8+y
+	dfY0syJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNJSt-000000046Ge-3Aqz;
-	Wed, 13 May 2026 23:58:11 +0000
+	id 1wNJSu-000000046HV-0a0A;
+	Wed, 13 May 2026 23:58:12 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNJSo-000000046EV-2ywf
+	id 1wNJSr-000000046Fn-3XNr
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 May 2026 23:58:06 +0000
+	Wed, 13 May 2026 23:58:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=UuhhN2ow+8aUzefr3FH0DEGbH0rpxCfPOPRqcsdxH0Y=; b=EsS63BN8ispiCUFHSKsrslSPRL
-	10DIT5dGw5kOQi/lnGhn/4jK7lr4a+bHWiAL8HesQ6njt8Sq43WF00vxqFKUXkorOuQfbVQCiQHlL
-	A9KudAYyd8f2A3OV0hEhJYuGqex/fqww72MPOVAJXWzjuhjfg5BWYlj8jeIMLmSKYQXloxIvHUbys
-	g7MIm6WZWDCil7vMWG+P03OcDTKmxeJUaL04dofdVPv7gfalCiOl4lE9DwWeg6ZmwYd5gcCoGLMoH
-	5Cm3oIUIPC1Xb/P8WhiWav6O2vAsE1emn/+Gx+9TXe/DY69gCVPtVkabXCLr7WKwwfKrH7PmhcIWL
-	ZLz5ndDw==;
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	bh=zcSUDodWJURWun7QKLcFjXxajA5T9sQZZ15+Xc3SKtc=; b=Np7tU3yv8bS/H49RvDnOldAYb/
+	UpaPzrjQaO9q65PlFwuZ1mZYLZPxmcvn9PEtSGp0x4ygICTKhIDOmxAbT80WfJRyT0ZOImcFDOx/2
+	Bkn4zY8tdeN66WBW2AAWpYldc79YB8q55WI+skUlqg7hrj/deQHmjnctdv80PARQVXyRYcuEEv1e5
+	RNAXEAAZ343Eb23S1PqKVVOTby8gQ4taOftSePJUt8tf1fof1oA7gxncXP/Pw4okIksYo3whL/cIk
+	mH1rvpJe5Y8YhYfAXZ6c9Mvd0Nx1iyk4gIIQ7G6HmUet+ay+zNI7XmLjFaIOQAIVxp3d5kUHgHpb9
+	HpunOUIg==;
+Received: from mail-eastus2azon11011011.outbound.protection.outlook.com ([52.101.57.11] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNJSk-00000001mzn-0lIc
+	id 1wNJSo-00000001mzP-2578
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 23:58:05 +0000
+	Wed, 13 May 2026 23:58:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yyl8YJOOoYDUGiHZnBa6QzJ0zEvSe7zVkv0XXYj/puu1WDq4D4BdWuzpHhxAIkxxJsLbeBArACq17hzdPG6HkrS5maah0pj2DBxvemK1qogUlFV1aLe8bbGVbyB1guH5/T+3g9KezIdjGWAIG0EtOumoUUe7bfyeTIGQ93IHpsOcjFbAyq7NwN3LzCdR89A7xoLdFWoF+GL/fJyMZxa7mRnYRZgjjWG+KIrLllQRnBRMbG1LwN33Cvp0oKZ2+9V+7PFpElw0qqTxYJ4ugRe1ZzBpcrkff5/mP7LqdoxKPMZ1qf5/2WRQQGrA8Qnp1Lf8QZpyYRJvLqLk7FovLsrU1Q==
+ b=Mk0XCif514ITocjYxQ9WQRlpX5L37tVJKhoSUVnmN1VWnMfcEaXctw4+aCxLGUYm79Rwi4FIvzru1eUANWdfvjmy4dxnUW4C4Se6XSdX8OJuMgWC4tvG/xDcBUo4zvDNLAHds5RB+dApgu62CcrF4vFsgh5nGpkpFsdoRGr1OEA3jhZ9gtPOnBQ4eSH3ar+iOXf9vG6xwKLko0VbMec5w34DbgyqPfUx0H5d0Qj8Fxze8MYdOZeyQp3OMkfIrIPYVCDnSaPi039Xn9THoSCCl0YYefZ/Av0fjdbhiyCi8xJhSWmb06mXti581UdxniZJYSHLPymwM6JzgICDeoh4Yw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UuhhN2ow+8aUzefr3FH0DEGbH0rpxCfPOPRqcsdxH0Y=;
- b=kQf+gFoRyjf1h4G14+88uF7PIukS/q9WEzmTYi4/LNcVfG8yS1pmJnJhdyg4mDJUy2Xxswk9xPLP7qSQvzyH4+1YYfNYtJeInRy6yCyHsivaDupHHGw8hcWnrPaU535Wwp0f7yR5q7kjktzJzo7Xzp5NI0672OwUYyorw5ZlzTeoNCXYawPiUhnSMrqFs08WXXQ2TCHVg31uBHNIGZ6sf91L2QGKcUJAabpIY5EPHrV96gCNMzFDFfPAvSBQfV5g+sqIHR9HX100WfaHyvpsTKM4rOwCP0kyG34N1fOsV5vbTz4G3pzoyXrp6CO/BPA87HqAv/ZK4MmjlOsNtMgjjQ==
+ bh=zcSUDodWJURWun7QKLcFjXxajA5T9sQZZ15+Xc3SKtc=;
+ b=gWKXDbOjZ7FGrnG6Ph9KPH7iFu6lUJb0ECNkSJZK5EaY7CfBnXwfRxRGOlzI1x09ZKmqUoZJbUfCHP1zBqV3Ds+NSEGRDcnoHxu+nCYdoTUpXe+ba68RXlWQTKJqyWDD7NnEcB9w9hx1NCmpDDR81E1S+f5W2K3zFKmPPEpt4d4DJyLJSARfaKqLH6gz4dmGfpMcApakzvMLJh9Wcg/GOCaEubIk3fo/CXK9cVFjYI4uYwWUnrxua7JduMf9IdaKETM0KnNbHcmCLEYwpC0h8819djZwI6S3i/jry7yNfufbCAqPhjBYhchFVVMo4pvWMYVBJIDZZSpmyOAKLhYecQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UuhhN2ow+8aUzefr3FH0DEGbH0rpxCfPOPRqcsdxH0Y=;
- b=M+WSubqggYZ+oL3Q03p3d4PFETekYq5lkR1ij6UdyEGzvFJ/B75Na79F8u6t6pfUef1Ve1DLbrka+H73pjXuS2eYpUt9QHl6eExQ7u3U2kstG3TRuCm4dPIpM2YmZ0/KCwOSPj1EB3DsyodJ936+1EoigooodU7Ha5A6bPfxKNOmI1FKEZgPC45G6Lc8YtAYwntCD9fH1+tUJ3Qz9Gl1IfgWgnvyzIvkCk2x2JBhybQjfco7iDV4x0P8AhpCiVCiYnxZlwg+WYPy/XAjlQ5g+5PigOzRF/C1xlYRbJCb1T4wF7tre+IumWJhryVyMZyZ7jUgKqHBjq3FJ9Uf+fqQxg==
+ bh=zcSUDodWJURWun7QKLcFjXxajA5T9sQZZ15+Xc3SKtc=;
+ b=YP0h7mVf/xknOApZU/yi1MAp2V2BxHIRhXs/w7gNjQypdIksZL4UOGXrB9Esn53BPNX3tr/6HZ2bySQ0GQS/ZODEas4fJFtmaayrVr97iMHFBX07EnV30UJdPGpQGJXwHquWOtko5f28LX006McWCqshrBBDuEiqCBrDNxJlgH1W/ZI4JMU6d0tCkO605qzNsGHEwGkYTMoE99wR6X+B7ngA++jNLveodmSfpWDJgVqaOCV+To+aTJRCgD54XhKg5t+O4FEiCBSgoDxaYoFoHb0e3cWaccuFPmqcLsPVPXYkypRL6OrSZySKgat7tpi5kATRMbItncTZlCFXEnGNiA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
  by PH7PR12MB5653.namprd12.prod.outlook.com (2603:10b6:510:132::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
- 2026 23:57:50 +0000
+ 2026 23:57:54 +0000
 Received: from LV8PR12MB9620.namprd12.prod.outlook.com
  ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
  ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.20.9913.009; Wed, 13 May 2026
- 23:57:50 +0000
+ 23:57:54 +0000
 From: Jason Gunthorpe <jgg@nvidia.com>
 To: iommu@lists.linux.dev,
 	Jonathan Hunter <jonathanh@nvidia.com>,
@@ -85,69 +85,69 @@ Cc: David Matlack <dmatlack@google.com>,
 	Pranjal Shrivastava <praan@google.com>,
 	Samiullah Khawaja <skhawaja@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH v2 2/9] iommu/arm-smmu-v3: Use the HW arm_smmu_cmd in cmdq selection functions
-Date: Wed, 13 May 2026 20:57:41 -0300
-Message-ID: <2-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
+Subject: [PATCH v2 7/9] iommu/arm-smmu-v3: Directly encode CMDQ_OP_ATC_INV
+Date: Wed, 13 May 2026 20:57:46 -0300
+Message-ID: <7-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
 In-Reply-To: <0-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
 References: 
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: YT4PR01CA0493.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10c::13) To LV8PR12MB9620.namprd12.prod.outlook.com
+X-ClientProxiedBy: YT4PR01CA0497.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10c::15) To LV8PR12MB9620.namprd12.prod.outlook.com
  (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB5653:EE_
-X-MS-Office365-Filtering-Correlation-Id: ff48aaff-4628-4a32-8820-08deb14b6ffd
+X-MS-Office365-Filtering-Correlation-Id: f921494d-41d2-495c-95f4-08deb14b7180
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|22082099003|56012099003|18002099003|11063799003;
-X-Microsoft-Antispam-Message-Info: hjSOLj4b3N0yEirgGaWQt77bzIaTfsz8I87C0Ysgs7wMvl3+OFeTDYr9P5M8fMjQAmovz+nZoAva5EvQsA7o0biOQ8piSXktIZ0kH93bQF85Ox4dWKMvVoTz91dBpcouOQ2LdAkQ8HjSA/PZ9CLqN2D4NUWvFvp5HgeKCwxwN5azZDept3kHeEj1BBjBq8ipEMAnPdnooa15f9Jj68GIIYO4PcTz00o3Q/+QxjgjCXZpE/XplrC9QPYpKVm04oDrvT6tk+qtPwYrycb4t+O97IQAfSQ5j6SuY4bw9o+7ePi4ix2Xwp02ccxYdNtmx1oJ0fNgGl/5zlbIep/1vCwJZJ+iydeeOrzKztaNchcu5f9mVUWQwkaPK/QUzEOZHFL5GlqPvdMYkMhZSpqAPg6qICLiIlUuTJoyGaNq1zw+coIfwc9eSl2I27ErsUF1r9zwTLtCeX+HO2j1ZRCCCvA/EWEaUh1V4MfwhPeTNC/RJFGmD5w4/2rPj1J4W46d4foxFTumD7bkppPn1e1YwfKDmnQPGwk0kC3t3tn6E7ZCEyO6cPvW3HCrkgFRWPRJL93ZiN+vbUIy225p6YZ10VWC6TNxWibSYYIA4B8Tn5ol/VYceBVJu+z+dkCM4FjFbGSQYRO3g1XFzVZlMVsV6LlUrIfbuG+iKqqX1GxMgQDCmhI3z2QUKlYQfsXLyR6k6DRc
+X-Microsoft-Antispam-Message-Info: +q9aUgvpLlbS1w6KNK0G8Fxc8iO0qHrIc2efY2xiOAjgOPzMmkxW96ZyzM44T7gJA+qI3Y50aPMswKKj4TDarGn75BmNvVZiT3S90gfI4eNIDnnjFxxlkoDa9WQmp0DKjXYuEFuI6kOOy+JOh8GxJeX4gnPXjA9MRR4TKTlbSeahXh89T6zzjY8y8W9fMv/c5SFKwF4HbsFXNUhjwWhvnV/R8qzrvDHOg5DAGRTw1HyP4pUVjTApSkXGSn8GMqXKivNT5CLkdWhQ2uNvaXNCbZg7GJf/B4n9ciGPPJ86VwWn7EPxZAOIEzsqBdgmS5BuShcm8O/L2ByxnSH/hQoA61XtSYMvrk9wNpbAknm2SmJsBak/cCkuSd535SzAhTUpNhqptLwb/ADzpCGSKlG3nkRujN9XuMGNR9j6K2mH5P3I+N5c7+7/FRcLV4AAqE178TWRNTQa7jTQZEHK1AuSqCC/4ZqJq7hhAABkdl2fYK9BWqPayRqlA6Md5cw+STBYa7U7AeC/8cWRQ78CNj6iZsykij59W8/ZGY8YDGXkHIhSsQLz/PTX1Jve9go1srHwT2hwYYvD7LVGwLDyhgz6YoF7JXoK1pEd24z4aG/gzmFRX5pPshBlk+af2Yg+gzYeMN0U/BnEC9BL4KVpBb/kb+tKAmwSrLdKwEVk3OIJNSHYkSOSDnD5EV0qOfJdLAuS
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(22082099003)(56012099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OGtUIJ0UNd/V22nED7YMT5FQ+8Is36T9B3wHm59aIsfl9c2hOFRhONNYn246?=
- =?us-ascii?Q?9RjULIOvuk+lLS2byvMloRmIjCZ+duwir1wei8rNIFCkywYA38URbXjnPXhT?=
- =?us-ascii?Q?ruvXeweQH82hCzKNvC7YZnLuIFsX2AsT2YSfatIRJrLoj0Yd1a8zfRq4ZrHc?=
- =?us-ascii?Q?9HdUYLAzqDv/kaXI/4rFdFfzT7Rxp578ksLFLBhMvO2SOa8wVR1nxU8+X5nf?=
- =?us-ascii?Q?8o7RV+XrJ8Z0GZ9Km+JyCuCMOi5xrKs1UWZm1W84fYaXjaOcHE73Aq3ghMoS?=
- =?us-ascii?Q?bNHr4uDARKCsPQURKkuonWwVf99e/Rw5EOVuPTP5YFQrEAoKkZpLbF9Oj4H7?=
- =?us-ascii?Q?hnUF4nECnCohIKgLvmXt+EkbodE2piY5LMrQcseFk8sQGDoAWWPbpNJS9py1?=
- =?us-ascii?Q?d6q52CazibSt7AlRD8jLypwmr0axgMM/90ZJRGjLjQQk1Peef1AhzzqvdD57?=
- =?us-ascii?Q?JenZoGz9uyQBb2ZYqBwZz/4S9Ky3ejrvID4GUufZUI6UxtABzatS4WDXv7BV?=
- =?us-ascii?Q?bFwAdi7RGhPy4JP/zlIvp/qOlaHaKV4ybxFc4o4uL/g5NFTV3xgGykMGRM2r?=
- =?us-ascii?Q?qbao7FgnpfH1t8ClUGiqi70j7hvslA/fd0utk5ikVcL86/vnSfzOR+R9KTvM?=
- =?us-ascii?Q?hY8fyjYne9wgav7faDAUCukHI2cSpJycvMnK3cTtqNH7Sas9i5PNEayt3INt?=
- =?us-ascii?Q?aV0knmwQYMVFOfaaapiZt2GOQagAK/mcilb4iUtASiNOey6tAbl74s+DZx+t?=
- =?us-ascii?Q?B+cjNFVWwEYxMrIYQVUmAi25unLqCwwYmaCCreQkoOknO33dLinGQZQytStD?=
- =?us-ascii?Q?979WbkFcHPiTHu1i2bylVjB/Bw2/vD6Fx/R8wtAP05A4tdGqyNldTYHN6344?=
- =?us-ascii?Q?K8V7vNmJCpQCTKmmHX/pk6m2aGyW3yX/VifGvGHC3XY05ClqihJJ1ZPQ2vnY?=
- =?us-ascii?Q?pNpNlb3ioxqcEFTZni7sRI7NTjYXkL6DEmIS3hyJUOOnTvhEwCKWv6cHVSQx?=
- =?us-ascii?Q?4xe+B5JzAXhxCObwNuhHfAGIKTmLVYfTfDDDY9vqIijDICjWK4PS3OSY0yWc?=
- =?us-ascii?Q?Maz990u57SO8esLhADxQk4xZqB6FkLv59UpDc1JQy99lEeMC+AO3ekwpB2s/?=
- =?us-ascii?Q?XrzYcMR2AxtWdiNLHjW2hbbnV9ReYp76X04aZ9c5J1YD/9rhdh2IdurxLySq?=
- =?us-ascii?Q?lEDet898vhFKyXQ1bS39Kloipu0D9GAnb5C03YZrjODqQXkfchgQrbaMiuTH?=
- =?us-ascii?Q?sipEB/ZfVp4SpNJfxFqrDuivTHppcIZcicsqL8W9+YNoaLIP/h+OPUD6zR6B?=
- =?us-ascii?Q?EcXOunal8XxoIYnKNuglT3BESdIi1AIm08k5Xa+VXyj9HavGNMFTiPHu4g/F?=
- =?us-ascii?Q?sJ0t4ZZ3wGemEI9PZ0UMgAu+uHQdgHBmZE9uDegMS1m9h7mh8UaXIXy8QnGm?=
- =?us-ascii?Q?pNwYjaGzq+1GeZax2CTndKBcPNCj46LWz4k1admGRahWrq71JQ6Uo0ZrMO8y?=
- =?us-ascii?Q?FMgxHzfPwf3DZiOxPEOajqVSYg5FzbuXxEYi0Ji/sYIPoIBzquQ+U7fEaZRy?=
- =?us-ascii?Q?+DzFkimoz32JQ3dOF8ppIKq3Oijvou4YtYMrk+pc4HuPFd/CqsKbYUUzHmRF?=
- =?us-ascii?Q?M2I0ztKaS/hOrBcbd61FkyS+krfmKxpTY8WI3dIgM7++1CQ7XrM+D+yqt96c?=
- =?us-ascii?Q?1iNrZGJQR7ad70c98uiN8O0AKiy4SRFGcsxdrG33mB63DjUt?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jhieVwjpLCzub2ZqEHJOe3VvEPn2VrEgWJg5/bSUgA7gcpFAH040uOSCwuyJ?=
+ =?us-ascii?Q?eVo+iZ8iANeMPRyjLQYlVENydiNZaMaD87XxAkgS4a2v5NDBVjUmiezVFd1d?=
+ =?us-ascii?Q?T1mFZiN/a2G2m+K8bJv4mb35CVbQlsM4fmMCjvutHbPIdVoO2nCwUxsDzCSh?=
+ =?us-ascii?Q?hwCgYAJ5bbxafxYBFBockrh5Tx/EHLjQtccti+e+gxkXU3kL1z9OR00Fh2Wq?=
+ =?us-ascii?Q?zwnOwbOXfa8ldWAfK83VuSwDLcJG37hBuht+NPz+xnJI3h9P4ns4uDPgz7fy?=
+ =?us-ascii?Q?nOI7ntrO+Xi3jLazbfDM4IK338muvH/0Llf3uMe++khXm4vBhh0hkc7d4suj?=
+ =?us-ascii?Q?iCsdKo2FNzLfPu3Vjm7kV9L8C0qYFx3LhWOYEgl5bOBlfAF1xvl4eo+AXtQt?=
+ =?us-ascii?Q?HYZJljqm+rxSfYBtERDIFFwFkmcw8w9Fe6vPPGrI04sdECno1cEyQ+46R1I/?=
+ =?us-ascii?Q?vDycgImoFNECJ2Aw+JpeCw/aKdwRH2ZAl7YnSZH6z0MbKhURZk8Tdp8Cl/JJ?=
+ =?us-ascii?Q?tZEMUawcp6RdPKX9nUnpB3ZnmcX6rApY9vUMXHZp676z91Oy7n3VPuPQxGBA?=
+ =?us-ascii?Q?CghplvYKg1pHSTy/eqZQK5oYUl3xseoC0llcW5ag6bzLyutK18wSZmhk+rS9?=
+ =?us-ascii?Q?X3/lOcXBtWV1qPdx7hszQdXzFj2eEYmaL966LV4E7z7qZUH/WEzFd5n0BX8x?=
+ =?us-ascii?Q?0Lk71C1UGA1nXhQYDk8w3GXCPcL4/hp2mlPQFRlpBG/qucGknMflpA6Mv3+7?=
+ =?us-ascii?Q?XvzXVgf3f8RnNcobd1YL3J/BI5OTAbIKDunQ58pU7JaPMUw8om0VOrxN5aOT?=
+ =?us-ascii?Q?OeVsFqV3CdzCjUkVtrEWABuCEHPs3BkrqpizN9YH4lFwTJ/T+y5ykvJPslhQ?=
+ =?us-ascii?Q?CbOZgtkawA1h5SfQQrkyKE/Hgj2uoDrVdfUrQ9fxM/ublm7xxbnln7al2cm5?=
+ =?us-ascii?Q?o6LzcW6ZAnQF+wXMGN/oBCoR+XpVGHXz8sZ8HgANZdBFW/3s9w9v7XgjCQ0Z?=
+ =?us-ascii?Q?MD2tjn8suDPKKJ3WKxmZcbbxjBSM7bLsiTkmKRdT1yzS+/+slByEzhoKJ1zy?=
+ =?us-ascii?Q?46T86JWcvqiZRbIQXkQOypz3ZN1rxoDQj+MS12XV6tCYat8UX7Tnd90r0u3I?=
+ =?us-ascii?Q?sEiaDfNCXyPLAPZl5xn9zNUnpBmbvv7tzHkuksGGzU8jrqVYkp0xxuB7Ir5s?=
+ =?us-ascii?Q?2Xks3H+sS9/SeZM7c2E7fQZDoNdY2LPJKLUbci9EgYW0C9pDzCaUzgtdSNBe?=
+ =?us-ascii?Q?DCLI1bwrT8uzu8AOh+z5b8mo3z4ReZNZxcdBI0XQw/HKdyOEwXddwLKnBbFn?=
+ =?us-ascii?Q?iwBf0o/HIZSu1u+07UMUzE8+OE25RdpsQUdaw38t5ekMNJNkcibMqbUhYNwc?=
+ =?us-ascii?Q?oqctuP09bnBHW5tHPlyAvpBDnWbhRVMqqJNDBwv+V6qKp1Q8aFOyWnpRVxJn?=
+ =?us-ascii?Q?ecwvM188sktShIvGCQ2WM729Mmy665lb2SaCvbY1pYCwNapgcyhn+NO6sfFr?=
+ =?us-ascii?Q?6VUPGB39yfXNM6DwQ2Es5ADrpJU3GPKNmUQyzZkRVy/xFaQkB3eC+gmGS7NO?=
+ =?us-ascii?Q?aAh1A0rfeFRMh+0OxqA6gD7ZjlgF6Yzo5xPLqBqPuyayPow3HpqHxVSHznYQ?=
+ =?us-ascii?Q?/hphOqbwQU2wx/FeZghEcPW95aVdBaCBxR1Eu6qO5XVA1k0yFK4asxF3vrAu?=
+ =?us-ascii?Q?a6EfVP1xXST2DUF9VHZCmSkjTsS2+h+HYV7qCi9UnsxV3/ki?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ff48aaff-4628-4a32-8820-08deb14b6ffd
+X-MS-Exchange-CrossTenant-Network-Message-Id: f921494d-41d2-495c-95f4-08deb14b7180
 X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 23:57:49.9265
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 23:57:52.3598
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UxIZy6a0Nt/EfI0ptETBt5TarJlJHxVJ9Dz6WiYzv/yUy8VwFs1ayQy+mUNodgIy
+X-MS-Exchange-CrossTenant-UserPrincipalName: rtjF9qJIJKFZ0LVlscANmpkNWGNGgQEtRjJWIlWwH09CLXaRLVjxXz9y3rGIFBNC
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5653
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_005802_827158_163276B3 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20260514_005807_138298_795E4322 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,192 +162,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Start removing the use of struct arm_smmu_cmdq_ent, starting at the
-lower levels of the call chain. Change the functions that determine what
-cmdq to issue the batch to into using struct arm_smmu_cmd directly.
+Add a new command make function and convert all the places using
+ATC_INV.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Split out full invalidation to directly make the cmd instead of
+overloading size=0 to mean full invalidation.
+
+In section "3.9.1 ATS Interface" of F.b the specification says:
+
+  When the SMMU returns an ATS Translation Completion for a request that
+  had a PASID, the Global bit of the Translation Completion Data Entry
+  must be zero.
+
+Even though it faithfully forwards the G bit through to the ATS
+invalidation command there is no way to create G mappings so there is
+never any need to send a G invalidation. Thus don't expose global in the
+new helpers and leave CMDQ_ATC_0_GLOBAL unused.
+
 Reviewed-by: Mostafa Saleh <smostafa@google.com>
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 Tested-by: Pranjal Shrivastava <praan@google.com>
 Tested-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 47 ++++++++++++-------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  8 ++--
- .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    |  8 ++--
- 3 files changed, 38 insertions(+), 25 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 59 ++++++++-------------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 27 +++++++---
+ 2 files changed, 40 insertions(+), 46 deletions(-)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index e8d7dbe495f030..5cdeaec890592f 100644
+index f9c25ca9a9e7b8..0cdf0752ff6d62 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -371,12 +371,12 @@ static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
+@@ -308,14 +308,6 @@ static int arm_smmu_cmdq_build_cmd(struct arm_smmu_cmd *cmd_out,
+ 	case CMDQ_OP_TLBI_EL2_ASID:
+ 		cmd[0] |= FIELD_PREP(CMDQ_TLBI_0_ASID, ent->tlbi.asid);
+ 		break;
+-	case CMDQ_OP_ATC_INV:
+-		cmd[0] |= FIELD_PREP(CMDQ_0_SSV, ent->substream_valid);
+-		cmd[0] |= FIELD_PREP(CMDQ_ATC_0_GLOBAL, ent->atc.global);
+-		cmd[0] |= FIELD_PREP(CMDQ_ATC_0_SSID, ent->atc.ssid);
+-		cmd[0] |= FIELD_PREP(CMDQ_ATC_0_SID, ent->atc.sid);
+-		cmd[1] |= FIELD_PREP(CMDQ_ATC_1_SIZE, ent->atc.size);
+-		cmd[1] |= ent->atc.addr & CMDQ_ATC_1_ADDR_MASK;
+-		break;
+ 	case CMDQ_OP_CMD_SYNC:
+ 		if (ent->sync.msiaddr) {
+ 			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_CS, CMDQ_SYNC_0_CS_IRQ);
+@@ -2371,9 +2363,8 @@ static irqreturn_t arm_smmu_combined_irq_handler(int irq, void *dev)
+ 	return IRQ_WAKE_THREAD;
  }
  
- static struct arm_smmu_cmdq *arm_smmu_get_cmdq(struct arm_smmu_device *smmu,
--					       struct arm_smmu_cmdq_ent *ent)
-+					       struct arm_smmu_cmd *cmd)
+-static void
+-arm_smmu_atc_inv_to_cmd(int ssid, unsigned long iova, size_t size,
+-			struct arm_smmu_cmdq_ent *cmd)
++static struct arm_smmu_cmd
++arm_smmu_atc_inv_to_cmd(u32 sid, int ssid, unsigned long iova, size_t size)
  {
- 	struct arm_smmu_cmdq *cmdq = NULL;
- 
- 	if (smmu->impl_ops && smmu->impl_ops->get_secondary_cmdq)
--		cmdq = smmu->impl_ops->get_secondary_cmdq(smmu, ent);
-+		cmdq = smmu->impl_ops->get_secondary_cmdq(smmu, cmd);
- 
- 	return cmdq ?: &smmu->cmdq;
- }
-@@ -924,16 +924,16 @@ static int __arm_smmu_cmdq_issue_cmd(struct arm_smmu_device *smmu,
- 				     struct arm_smmu_cmdq_ent *ent,
- 				     bool sync)
- {
--	u64 cmd[CMDQ_ENT_DWORDS];
-+	struct arm_smmu_cmd cmd;
- 
--	if (unlikely(arm_smmu_cmdq_build_cmd(cmd, ent))) {
-+	if (unlikely(arm_smmu_cmdq_build_cmd(cmd.data, ent))) {
- 		dev_warn(smmu->dev, "ignoring unknown CMDQ opcode 0x%x\n",
- 			 ent->opcode);
- 		return -EINVAL;
- 	}
- 
- 	return arm_smmu_cmdq_issue_cmdlist(
--		smmu, arm_smmu_get_cmdq(smmu, ent), cmd, 1, sync);
-+		smmu, arm_smmu_get_cmdq(smmu, &cmd), cmd.data, 1, sync);
- }
- 
- static int arm_smmu_cmdq_issue_cmd(struct arm_smmu_device *smmu,
-@@ -948,42 +948,55 @@ static int arm_smmu_cmdq_issue_cmd_with_sync(struct arm_smmu_device *smmu,
- 	return __arm_smmu_cmdq_issue_cmd(smmu, ent, true);
- }
- 
-+static void arm_smmu_cmdq_batch_init_cmd(struct arm_smmu_device *smmu,
-+					 struct arm_smmu_cmdq_batch *cmds,
-+					 struct arm_smmu_cmd *cmd)
-+{
-+	cmds->num = 0;
-+	cmds->cmdq = arm_smmu_get_cmdq(smmu, cmd);
-+}
-+
- static void arm_smmu_cmdq_batch_init(struct arm_smmu_device *smmu,
- 				     struct arm_smmu_cmdq_batch *cmds,
- 				     struct arm_smmu_cmdq_ent *ent)
- {
--	cmds->num = 0;
--	cmds->cmdq = arm_smmu_get_cmdq(smmu, ent);
-+	struct arm_smmu_cmd cmd;
-+
-+	arm_smmu_cmdq_build_cmd(cmd.data, ent);
-+	arm_smmu_cmdq_batch_init_cmd(smmu, cmds, &cmd);
- }
- 
- static void arm_smmu_cmdq_batch_add(struct arm_smmu_device *smmu,
- 				    struct arm_smmu_cmdq_batch *cmds,
--				    struct arm_smmu_cmdq_ent *cmd)
-+				    struct arm_smmu_cmdq_ent *ent)
- {
--	bool unsupported_cmd = !arm_smmu_cmdq_supports_cmd(cmds->cmdq, cmd);
- 	bool force_sync = (cmds->num == CMDQ_BATCH_ENTRIES - 1) &&
- 			  (smmu->options & ARM_SMMU_OPT_CMDQ_FORCE_SYNC);
-+	struct arm_smmu_cmd cmd;
-+	bool unsupported_cmd;
- 	int index;
- 
-+	if (unlikely(arm_smmu_cmdq_build_cmd(cmd.data, ent))) {
-+		dev_warn(smmu->dev, "ignoring unknown CMDQ opcode 0x%x\n",
-+			 ent->opcode);
-+		return;
-+	}
-+
-+	unsupported_cmd = !arm_smmu_cmdq_supports_cmd(cmds->cmdq, &cmd);
- 	if (force_sync || unsupported_cmd) {
- 		arm_smmu_cmdq_issue_cmdlist(smmu, cmds->cmdq, cmds->cmds,
- 					    cmds->num, true);
--		arm_smmu_cmdq_batch_init(smmu, cmds, cmd);
-+		arm_smmu_cmdq_batch_init_cmd(smmu, cmds, &cmd);
- 	}
- 
- 	if (cmds->num == CMDQ_BATCH_ENTRIES) {
- 		arm_smmu_cmdq_issue_cmdlist(smmu, cmds->cmdq, cmds->cmds,
- 					    cmds->num, false);
--		arm_smmu_cmdq_batch_init(smmu, cmds, cmd);
-+		arm_smmu_cmdq_batch_init_cmd(smmu, cmds, &cmd);
- 	}
- 
- 	index = cmds->num * CMDQ_ENT_DWORDS;
--	if (unlikely(arm_smmu_cmdq_build_cmd(&cmds->cmds[index], cmd))) {
--		dev_warn(smmu->dev, "ignoring unknown CMDQ opcode 0x%x\n",
--			 cmd->opcode);
+ 	size_t log2_span;
+ 	size_t span_mask;
+@@ -2395,17 +2386,6 @@ arm_smmu_atc_inv_to_cmd(int ssid, unsigned long iova, size_t size,
+ 	 * This has the unpleasant side-effect of invalidating all PASID-tagged
+ 	 * ATC entries within the address range.
+ 	 */
+-	*cmd = (struct arm_smmu_cmdq_ent) {
+-		.opcode			= CMDQ_OP_ATC_INV,
+-		.substream_valid	= (ssid != IOMMU_NO_PASID),
+-		.atc.ssid		= ssid,
+-	};
+-
+-	if (!size) {
+-		cmd->atc.size = ATC_INV_SIZE_ALL;
 -		return;
 -	}
 -
-+	memcpy(&cmds->cmds[index], cmd.data, sizeof(cmd.data));
- 	cmds->num++;
+ 	page_start	= iova >> inval_grain_shift;
+ 	page_end	= (iova + size - 1) >> inval_grain_shift;
+ 
+@@ -2434,24 +2414,25 @@ arm_smmu_atc_inv_to_cmd(int ssid, unsigned long iova, size_t size,
+ 
+ 	page_start	&= ~span_mask;
+ 
+-	cmd->atc.addr	= page_start << inval_grain_shift;
+-	cmd->atc.size	= log2_span;
++	return arm_smmu_make_cmd_atc_inv(sid, ssid,
++					 page_start << inval_grain_shift,
++					 log2_span);
  }
  
+ static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
+ 				   ioasid_t ssid)
+ {
+ 	int i;
+-	struct arm_smmu_cmdq_ent cmd;
++	struct arm_smmu_cmd cmd;
+ 	struct arm_smmu_cmdq_batch cmds;
+ 
+-	arm_smmu_atc_inv_to_cmd(ssid, 0, 0, &cmd);
+-
+-	arm_smmu_cmdq_batch_init(master->smmu, &cmds, &cmd);
+-	for (i = 0; i < master->num_streams; i++) {
+-		cmd.atc.sid = master->streams[i].id;
+-		arm_smmu_cmdq_batch_add(master->smmu, &cmds, &cmd);
+-	}
++	cmd = arm_smmu_make_cmd_atc_inv_all(0, IOMMU_NO_PASID);
++	arm_smmu_cmdq_batch_init_cmd(master->smmu, &cmds, &cmd);
++	for (i = 0; i < master->num_streams; i++)
++		arm_smmu_cmdq_batch_add_cmd(
++			master->smmu, &cmds,
++			arm_smmu_make_cmd_atc_inv_all(master->streams[i].id,
++						      ssid));
+ 
+ 	return arm_smmu_cmdq_batch_submit(master->smmu, &cmds);
+ }
+@@ -2650,14 +2631,16 @@ static void __arm_smmu_domain_inv_range(struct arm_smmu_invs *invs,
+ 			arm_smmu_cmdq_batch_add(smmu, &cmds, &cmd);
+ 			break;
+ 		case INV_TYPE_ATS:
+-			arm_smmu_atc_inv_to_cmd(cur->ssid, iova, size, &cmd);
+-			cmd.atc.sid = cur->id;
+-			arm_smmu_cmdq_batch_add(smmu, &cmds, &cmd);
++			arm_smmu_cmdq_batch_add_cmd(
++				smmu, &cmds,
++				arm_smmu_atc_inv_to_cmd(cur->id, cur->ssid,
++							iova, size));
+ 			break;
+ 		case INV_TYPE_ATS_FULL:
+-			arm_smmu_atc_inv_to_cmd(IOMMU_NO_PASID, 0, 0, &cmd);
+-			cmd.atc.sid = cur->id;
+-			arm_smmu_cmdq_batch_add(smmu, &cmds, &cmd);
++			arm_smmu_cmdq_batch_add_cmd(
++				smmu, &cmds,
++				arm_smmu_make_cmd_atc_inv_all(cur->id,
++							      IOMMU_NO_PASID));
+ 			break;
+ 		default:
+ 			WARN_ON_ONCE(1);
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 092179f689e9f1..6d73f6b63e64a9 100644
+index 10b3d95d9ee660..194f73cabef5c9 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -641,13 +641,13 @@ struct arm_smmu_cmdq {
- 	atomic_long_t			*valid_map;
- 	atomic_t			owner_prod;
- 	atomic_t			lock;
--	bool				(*supports_cmd)(struct arm_smmu_cmdq_ent *ent);
-+	bool				(*supports_cmd)(struct arm_smmu_cmd *cmd);
- };
- 
- static inline bool arm_smmu_cmdq_supports_cmd(struct arm_smmu_cmdq *cmdq,
--					      struct arm_smmu_cmdq_ent *ent)
-+					      struct arm_smmu_cmd *cmd)
- {
--	return cmdq->supports_cmd ? cmdq->supports_cmd(ent) : true;
-+	return cmdq->supports_cmd ? cmdq->supports_cmd(cmd) : true;
+@@ -552,6 +552,25 @@ static inline struct arm_smmu_cmd arm_smmu_make_cmd_pri_resp(u32 sid, u32 ssid,
+ 	return cmd;
  }
  
- struct arm_smmu_cmdq_batch {
-@@ -815,7 +815,7 @@ struct arm_smmu_impl_ops {
- 	void (*device_remove)(struct arm_smmu_device *smmu);
- 	int (*init_structures)(struct arm_smmu_device *smmu);
- 	struct arm_smmu_cmdq *(*get_secondary_cmdq)(
--		struct arm_smmu_device *smmu, struct arm_smmu_cmdq_ent *ent);
-+		struct arm_smmu_device *smmu, struct arm_smmu_cmd *cmd);
- 	/*
- 	 * An implementation should define its own type other than the default
- 	 * IOMMU_HW_INFO_TYPE_ARM_SMMUV3. And it must validate the input @type
-diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-index 83f6e9f6c51d6b..b4d8c1f2fd3878 100644
---- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-@@ -367,9 +367,9 @@ static irqreturn_t tegra241_cmdqv_isr(int irq, void *devid)
++static inline struct arm_smmu_cmd arm_smmu_make_cmd_atc_inv(u32 sid, u32 ssid,
++							    u64 addr, u8 size)
++{
++	struct arm_smmu_cmd cmd = arm_smmu_make_cmd_op(CMDQ_OP_ATC_INV);
++
++	cmd.data[0] |= FIELD_PREP(CMDQ_0_SSV, ssid != IOMMU_NO_PASID) |
++		       FIELD_PREP(CMDQ_ATC_0_SSID, ssid) |
++		       FIELD_PREP(CMDQ_ATC_0_SID, sid);
++	cmd.data[1] |= FIELD_PREP(CMDQ_ATC_1_SIZE, size) |
++		       (addr & CMDQ_ATC_1_ADDR_MASK);
++	return cmd;
++}
++
++static inline struct arm_smmu_cmd arm_smmu_make_cmd_atc_inv_all(u32 sid,
++								u32 ssid)
++{
++	return arm_smmu_make_cmd_atc_inv(sid, ssid, 0, ATC_INV_SIZE_ALL);
++}
++
+ /* Event queue */
+ #define EVTQ_ENT_SZ_SHIFT		5
+ #define EVTQ_ENT_DWORDS			((1 << EVTQ_ENT_SZ_SHIFT) >> 3)
+@@ -630,14 +649,6 @@ struct arm_smmu_cmdq_ent {
+ 			u64			addr;
+ 		} tlbi;
  
- /* Command Queue Function */
- 
--static bool tegra241_guest_vcmdq_supports_cmd(struct arm_smmu_cmdq_ent *ent)
-+static bool tegra241_guest_vcmdq_supports_cmd(struct arm_smmu_cmd *cmd)
- {
--	switch (ent->opcode) {
-+	switch (FIELD_GET(CMDQ_0_OP, cmd->data[0])) {
- 	case CMDQ_OP_TLBI_NH_ASID:
- 	case CMDQ_OP_TLBI_NH_VA:
- 	case CMDQ_OP_ATC_INV:
-@@ -381,7 +381,7 @@ static bool tegra241_guest_vcmdq_supports_cmd(struct arm_smmu_cmdq_ent *ent)
- 
- static struct arm_smmu_cmdq *
- tegra241_cmdqv_get_cmdq(struct arm_smmu_device *smmu,
--			struct arm_smmu_cmdq_ent *ent)
-+			struct arm_smmu_cmd *cmd)
- {
- 	struct tegra241_cmdqv *cmdqv =
- 		container_of(smmu, struct tegra241_cmdqv, smmu);
-@@ -409,7 +409,7 @@ tegra241_cmdqv_get_cmdq(struct arm_smmu_device *smmu,
- 		return NULL;
- 
- 	/* Unsupported CMD goes for smmu->cmdq pathway */
--	if (!arm_smmu_cmdq_supports_cmd(&vcmdq->cmdq, ent))
-+	if (!arm_smmu_cmdq_supports_cmd(&vcmdq->cmdq, cmd))
- 		return NULL;
- 	return &vcmdq->cmdq;
- }
+-		struct {
+-			u32			sid;
+-			u32			ssid;
+-			u64			addr;
+-			u8			size;
+-			bool			global;
+-		} atc;
+-
+ 		struct {
+ 			u64			msiaddr;
+ 		} sync;
 -- 
 2.43.0
 
