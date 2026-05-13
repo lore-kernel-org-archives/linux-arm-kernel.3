@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7964CD4F3E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C782CD4F24
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E8GJRk982Y2HrNKc5fBED+iVDMrlYywZENblJYokhXo=; b=RiZb2rN3Xbz1e2VMPv1FDi9sQ+
-	k2w3QfkvaBjWqAdZnyGxypUgE5IsJtmrokBj3SUA95z2PVVZmJBtrFZSwyfTqCho/G7Vw700ZcJ0H
-	oouwI4LXHHBgaGKxnSJU5EBJFRdWLhChJzWTrFuI3aztD4+BBObz87fd44gy1Xc3pl8BswcE4O6bj
-	x3bq4UTZhF7w44oFNi7MO4jQQ+v6uy6hDRHNwLOMSDg1GihucFWkOe3/ZBtaKXTiw3iKHdy7OT0FT
-	8dRtMYMdTedS4x8gQ+gSVtFimSVf+/mqLOcdgOX0XUPUKhZelpSDlnHxW3yh8AJsFN1M1te4m+f8P
-	j15P/KPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3VYUeXMdoMyaNZg6vvAsAVjd0aWv0uzBcYzs6K83fqY=; b=e0gkAPzTJMc2jkDDsGmmpXLdxB
+	NKhjjhp+ofmd+0PZT3Yh6Fv3p84BvOocCzCvEmRtMytQnV33n15OiyjbQRa2qTtneNGedyZkuaeUg
+	7Tqi7kaLpwjExasmg7jjEpDD1ECFzbYE7Fw55KexKojYZALDh0dUzmoGU480E2zmdBlBAMV7Qx8KF
+	nHNl9xs6xeF5sawDPHzytLvaFj3tYdcez0TM5Ez//c/3f4IdA4x7IKJmk+2fQ70LNp8wWSHfGOv0/
+	ZOVaZQ4qnnV9EWcM2FexClv0d1D2MRjWpRslABU2A1nkVufJVm8KVkp+N9DOHgRK+gl3iDpLpT7Sw
+	SKm3gynA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9WB-00000002h18-3OhU;
-	Wed, 13 May 2026 13:20:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wN9To-00000002dnu-0k0O;
+	Wed, 13 May 2026 13:18:28 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9W8-00000002gwn-3XnY
+	id 1wN9TS-00000002dSO-0uzk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:20:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1765060121;
-	Wed, 13 May 2026 13:20:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58D35C2BCF5;
-	Wed, 13 May 2026 13:20:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778678421;
-	bh=S1BvYYSJE5VcerFQf1EGsA9bOPQ2bXNuvJNtcspmZMc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oOOXw93GvA6+1amZ9s2I820J3rT+oiFMY8pXrlRLSph1Y05NEtpVVjTwU3pm2zIA3
-	 8WLw2KH8MCz2Tjgv9MmyxPsKk/vKWWLTemrNznjiwMO/vFohGAIiMUPUhP++TekKqC
-	 UjgQsTi8/RkFcTuAGVGvQ9lSHA7oBAfRnrHPYhnx7rNTy24tjiFD77+DvqyktiEyXG
-	 wVznEz3Wo99Wx7BJAOVWbhhD5i5CfOcMfTQKMqryi5lg/qsBsI3QHttObxelPJRsxu
-	 asYHMW+pPgFIDlY8cU2maG/pMooJ/OFAnulPM2P1DbHvJFlbX/0wYOK314MRR7HAqe
-	 4ip8G5aDODncw==
-Date: Wed, 13 May 2026 18:50:12 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com, 
-	bjorn.andersson@oss.qualcomm.com
-Subject: Re: [PATCH v5 4/5] PCI: dwc: Use common D3cold eligibility helper in
- suspend path
-Message-ID: <psbhxfox2dwdwv7m773xociaq3z5ns2ktognhu6hvoyptkoxvy@x6s4rkdq3dhj>
-References: <20260429-d3cold-v5-0-89e9735b9df6@oss.qualcomm.com>
- <20260429-d3cold-v5-4-89e9735b9df6@oss.qualcomm.com>
+	Wed, 13 May 2026 13:18:09 +0000
+Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 92C9A2E6B;
+	Wed, 13 May 2026 15:17:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1778678276;
+	bh=MrAjka1D20dEvHeE79IK5H5AEJhNel9NxBpXOhee+Q8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=RmqGVWdOu7q12709miAhB1xapZHlPyt2j+E9fZEOGkDJfaCvFCvqVouom0KupF3cV
+	 A2lLDKxZQI+lXyE6Ts90cUfnNrc+hapRJeOuZvniAm7pCh3u6OoMoCRLNfI8Grg0Uo
+	 zI0MdtmHdnAqZMY5T6y7iNdmEvcifLmcETsyZmu0=
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Date: Wed, 13 May 2026 16:17:30 +0300
+Subject: [PATCH v2 08/16] drm/tidss: Add mechanism to detect DPI output
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260429-d3cold-v5-4-89e9735b9df6@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260513-beagley-ai-display-v2-8-9e9bcefde6bc@ideasonboard.com>
+References: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
+In-Reply-To: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, 
+ Devarsh Thakkar <devarsht@ti.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+X-Mailer: b4 0.15-dev-c25d1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8450;
+ i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
+ bh=MrAjka1D20dEvHeE79IK5H5AEJhNel9NxBpXOhee+Q8=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqBHn/32Szw/TlqUEhEHpyppXM04CluvkNOCVNd
+ jHEEctIfHCJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCagR5/wAKCRD6PaqMvJYe
+ 9UfMEACh7uiFdfBPA+bz5Dx9LsCTGd5Izs72YYN6XDdAG++M1MoQ7pqHel7uvh0FlCJQjURQI6Q
+ cPXgZ35cLYkuoqGHq2oo1OoFKazi/yyTXh7+QqJJ9Y19T5/reFr8ZWR3lh+gVqBSoG3mDojTHr8
+ gR8V6d0vLwaA7jcZf73umcVdfg5RuaT7nvE/SCbPx+6kv9Rfkn7wc+NkoSaEkAvKFCCpeLIAnXO
+ DqvehT/BCymdIBrPDQ8yLgOfexBpg45Rr6KhIQAElTYmLcnFEatcAkjQKPsE110SC7W8v1J3akL
+ wHPUalLfWx7jJX4mctuYnT+QsqMhvTLbA6AErnBLfcm78vLbpKhG+gwpLnt7NHt6uo3pPQerioc
+ rmQXrZ2CIqG40zT2XSWEjax3AypXcjrv/bMnogWPr68GLMYxn3eQrXak6PKF/dLhiJXhrQinIoQ
+ Eq0ckSD24Bc+lf3HD2xjponiM7q4bmofgw/EbQzr/kKjy4PLlNyAmp+gzBYwr+8Esv32o2LZq0G
+ r5a4jIAoOD5UPn0LSAZE6kWJ99Fx4tKdt7+y4OD5gfAVEDx3DnNr8TvTm5HyJ/5zCHt9YpDpoZN
+ NO7UilTu/6rXyBw8IzzNAsFdGWEvCcWGsC0c1lrWNI8ERIgorVCixvrCrczEdG2/glyEBL0RI95
+ xaHvsFNp1wXXxCg==
+X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
+ fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_061806_417861_279DF282 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,125 +93,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 29, 2026 at 12:12:26PM +0530, Krishna Chaitanya Chundru wrote:
-> Previously, the driver skipped putting the link into L2/device state in
-> D3cold whenever L1 ASPM was enabled, since some devices (e.g. NVMe) expect
-> low resume latency and may not tolerate deeper power states. However, such
-> devices typically remain in D0 and are already covered by the new helper's
-> requirement that all endpoints be in D3hot before the devices under host
-> bridge may enter D3cold.
-> 
-> So, replace the local L1/L1SS-based check in dw_pcie_suspend_noirq() with
-> the shared pci_host_common_d3cold_possible() helper to decide whether the
-> devices under host bridge can safely transition to D3cold.
-> 
-> In addition, propagate PME-from-D3cold capability information from the
-> helper and record it in skip_pwrctrl_off. Some devices (e.g. M.2 cards
-> without auxiliary power) may lose PME detection when main power is
-> removed, even if they advertise PME-from-D3cold support. This allows
-> controller power-off to be skipped when required to preserve wakeup
-> functionality.
-> 
+There are situations where the driver needs to know if the output is
+going to the DPI output or not. There is no trivial way to get this
+information, as there is no "DPI bridge". We can only find this out in
+reverse: check if the output is NOT DPI, and if that is negative, then
+it must be DPI.
 
-But you are unconditionally keeping the devices in power ON state even if they
-are not M.2 based. We should be able to get this information from the pwrctrl
-driver through an API since it has the knowledge of the power supplies. But it
-can be done in a follow-up series.
+At the moment we have two non-DPI outputs: DSI and OLDI. DSI always has
+"ti,j721e-dsi" DSI bridge connected to the DSI, so we can use that for
+checking. OLDI doesn't have a compatible property, but we can check if
+the DT node has "oldi-transmitters" node as a parent, and the dss node
+itself as a grand-parent.
 
-I'll add TODO while applying.
+If the output is not connected to either of the above, it must be DPI.
 
-- Mani
+Tested-by: Swamil Jain <s-jain1@ti.com>
+Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+---
+ drivers/gpu/drm/tidss/tidss_crtc.c  | 10 +++++--
+ drivers/gpu/drm/tidss/tidss_crtc.h  |  4 ++-
+ drivers/gpu/drm/tidss/tidss_dispc.c |  5 +++-
+ drivers/gpu/drm/tidss/tidss_dispc.h |  3 +-
+ drivers/gpu/drm/tidss/tidss_kms.c   | 55 ++++++++++++++++++++++++++++++++++++-
+ 5 files changed, 70 insertions(+), 7 deletions(-)
 
-> Update the suspended flag in dw_pcie_resume_noirq() only after the PCIe
-> link resumes successfully, to avoid marking the controller active when
-> link resume fails.
-> 
-> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> ---
->  drivers/pci/controller/dwc/pcie-designware-host.c | 15 +++++++--------
->  drivers/pci/controller/dwc/pcie-designware.h      |  1 +
->  2 files changed, 8 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index c9517a348836..9e409a1909e6 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -16,9 +16,11 @@
->  #include <linux/msi.h>
->  #include <linux/of_address.h>
->  #include <linux/of_pci.h>
-> +#include <linux/pci.h>
->  #include <linux/pci_regs.h>
->  #include <linux/platform_device.h>
->  
-> +#include "../pci-host-common.h"
->  #include "../../pci.h"
->  #include "pcie-designware.h"
->  
-> @@ -1218,18 +1220,14 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
->  
->  int dw_pcie_suspend_noirq(struct dw_pcie *pci)
->  {
-> -	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> +	bool pme_capable = false;
->  	int ret = 0;
->  	u32 val;
->  
->  	if (!dw_pcie_link_up(pci))
->  		goto stop_link;
->  
-> -	/*
-> -	 * If L1SS is supported, then do not put the link into L2 as some
-> -	 * devices such as NVMe expect low resume latency.
-> -	 */
-> -	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
-> +	if (!pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable))
->  		return 0;
->  
->  	if (pci->pp.ops->pme_turn_off) {
-> @@ -1273,6 +1271,7 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
->  	udelay(1);
->  
->  stop_link:
-> +	pci->pp.skip_pwrctrl_off = pme_capable;
->  	dw_pcie_stop_link(pci);
->  	if (pci->pp.ops->deinit)
->  		pci->pp.ops->deinit(&pci->pp);
-> @@ -1290,8 +1289,6 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
->  	if (!pci->suspended)
->  		return 0;
->  
-> -	pci->suspended = false;
-> -
->  	if (pci->pp.ops->init) {
->  		ret = pci->pp.ops->init(&pci->pp);
->  		if (ret) {
-> @@ -1313,6 +1310,8 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
->  	if (pci->pp.ops->post_init)
->  		pci->pp.ops->post_init(&pci->pp);
->  
-> +	pci->suspended = false;
-> +
->  	return 0;
->  
->  err_stop_link:
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> index 3e69ef60165b..e759c5c7257e 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.h
-> +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> @@ -450,6 +450,7 @@ struct dw_pcie_rp {
->  	bool			ecam_enabled;
->  	bool			native_ecam;
->  	bool                    skip_l23_ready;
-> +	bool			skip_pwrctrl_off;
->  };
->  
->  struct dw_pcie_ep_ops {
-> 
-> -- 
-> 2.34.1
-> 
+diff --git a/drivers/gpu/drm/tidss/tidss_crtc.c b/drivers/gpu/drm/tidss/tidss_crtc.c
+index a31c21c5f855..dfdf61b01dcd 100644
+--- a/drivers/gpu/drm/tidss/tidss_crtc.c
++++ b/drivers/gpu/drm/tidss/tidss_crtc.c
+@@ -192,7 +192,8 @@ static void tidss_crtc_atomic_flush(struct drm_crtc *crtc,
+ 		return;
+ 
+ 	/* Write vp properties to HW if needed. */
+-	dispc_vp_setup(tidss->dispc, tcrtc->hw_videoport, crtc->state, false);
++	dispc_vp_setup(tidss->dispc, tcrtc->hw_videoport, crtc->state, false,
++		       tcrtc->dpi_output);
+ 
+ 	/* Update plane positions if needed. */
+ 	tidss_crtc_position_planes(tidss, crtc, old_crtc_state, false);
+@@ -235,7 +236,8 @@ static void tidss_crtc_atomic_enable(struct drm_crtc *crtc,
+ 	if (r != 0)
+ 		return;
+ 
+-	dispc_vp_setup(tidss->dispc, tcrtc->hw_videoport, crtc->state, true);
++	dispc_vp_setup(tidss->dispc, tcrtc->hw_videoport, crtc->state, true,
++		       tcrtc->dpi_output);
+ 	tidss_crtc_position_planes(tidss, crtc, old_state, true);
+ 
+ 	/* Turn vertical blanking interrupt reporting on. */
+@@ -417,7 +419,8 @@ static const struct drm_crtc_funcs tidss_crtc_funcs = {
+ 
+ struct tidss_crtc *tidss_crtc_create(struct tidss_device *tidss,
+ 				     u32 hw_videoport,
+-				     struct drm_plane *primary)
++				     struct drm_plane *primary,
++				     bool dpi_output)
+ {
+ 	struct tidss_crtc *tcrtc;
+ 	struct drm_crtc *crtc;
+@@ -430,6 +433,7 @@ struct tidss_crtc *tidss_crtc_create(struct tidss_device *tidss,
+ 		return ERR_PTR(-ENOMEM);
+ 
+ 	tcrtc->hw_videoport = hw_videoport;
++	tcrtc->dpi_output = dpi_output;
+ 	init_completion(&tcrtc->framedone_completion);
+ 
+ 	crtc =  &tcrtc->crtc;
+diff --git a/drivers/gpu/drm/tidss/tidss_crtc.h b/drivers/gpu/drm/tidss/tidss_crtc.h
+index 040d1205496b..65df220698f6 100644
+--- a/drivers/gpu/drm/tidss/tidss_crtc.h
++++ b/drivers/gpu/drm/tidss/tidss_crtc.h
+@@ -20,6 +20,7 @@ struct tidss_crtc {
+ 	struct drm_crtc crtc;
+ 
+ 	u32 hw_videoport;
++	bool dpi_output;
+ 
+ 	struct drm_pending_vblank_event *event;
+ 
+@@ -44,5 +45,6 @@ void tidss_crtc_error_irq(struct drm_crtc *crtc, u64 irqstatus);
+ 
+ struct tidss_crtc *tidss_crtc_create(struct tidss_device *tidss,
+ 				     u32 hw_videoport,
+-				     struct drm_plane *primary);
++				     struct drm_plane *primary,
++				     bool dpi_output);
+ #endif
+diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
+index 58d5eb033bdb..c21ac3f51720 100644
+--- a/drivers/gpu/drm/tidss/tidss_dispc.c
++++ b/drivers/gpu/drm/tidss/tidss_dispc.c
+@@ -448,6 +448,7 @@ static const u16 *dispc_common_regmap;
+ 
+ struct dss_vp_data {
+ 	u32 *gamma_table;
++	bool dpi_output;
+ };
+ 
+ struct dispc_device {
+@@ -2770,8 +2771,10 @@ static void dispc_vp_set_color_mgmt(struct dispc_device *dispc,
+ }
+ 
+ void dispc_vp_setup(struct dispc_device *dispc, u32 hw_videoport,
+-		    const struct drm_crtc_state *state, bool newmodeset)
++		    const struct drm_crtc_state *state, bool newmodeset,
++		    bool dpi_output)
+ {
++	dispc->vp_data[hw_videoport].dpi_output = dpi_output;
+ 	dispc_vp_set_default_color(dispc, hw_videoport, 0);
+ 	dispc_vp_set_color_mgmt(dispc, hw_videoport, state, newmodeset);
+ }
+diff --git a/drivers/gpu/drm/tidss/tidss_dispc.h b/drivers/gpu/drm/tidss/tidss_dispc.h
+index 739d211d0018..6f53d554259c 100644
+--- a/drivers/gpu/drm/tidss/tidss_dispc.h
++++ b/drivers/gpu/drm/tidss/tidss_dispc.h
+@@ -131,7 +131,8 @@ void dispc_vp_disable_clk(struct dispc_device *dispc, u32 hw_videoport);
+ int dispc_vp_set_clk_rate(struct dispc_device *dispc, u32 hw_videoport,
+ 			  unsigned long rate);
+ void dispc_vp_setup(struct dispc_device *dispc, u32 hw_videoport,
+-		    const struct drm_crtc_state *state, bool newmodeset);
++		    const struct drm_crtc_state *state, bool newmodeset,
++		    bool dpi_output);
+ 
+ int dispc_runtime_suspend(struct dispc_device *dispc);
+ int dispc_runtime_resume(struct dispc_device *dispc);
+diff --git a/drivers/gpu/drm/tidss/tidss_kms.c b/drivers/gpu/drm/tidss/tidss_kms.c
+index 8bb93194e5ac..bc8b10af9a48 100644
+--- a/drivers/gpu/drm/tidss/tidss_kms.c
++++ b/drivers/gpu/drm/tidss/tidss_kms.c
+@@ -122,6 +122,50 @@ static const struct drm_mode_config_funcs mode_config_funcs = {
+ 	.atomic_commit = drm_atomic_helper_commit,
+ };
+ 
++static const char * const tidss_internal_bridge_compatibles[] = {
++	"ti,j721e-dsi",
++};
++
++/*
++ * Detect whether the bridge is internal to the SoC or not. This is needed
++ * to find out whether we are using DPI output (thus no internal bridge).
++ * We detect this via two means:
++ * - If the bridge's of_node has a compatible, compare to known internal values.
++ * - If the bridge is a grand-child of DSS, and has "oldi-transmitters" parent.
++ */
++static bool tidss_is_bridge_internal(struct tidss_device *tidss,
++				     struct drm_bridge *bridge)
++{
++	struct device_node *parent, *grand_parent;
++	struct property *prop;
++	bool is_internal;
++
++	if (WARN_ON(!bridge->of_node))
++		return false;
++
++	prop = of_find_property(bridge->of_node, "compatible", NULL);
++	for (const char *cp = of_prop_next_string(prop, NULL); cp;
++	     cp = of_prop_next_string(prop, cp)) {
++		for (unsigned int i = 0;
++		     i < ARRAY_SIZE(tidss_internal_bridge_compatibles); ++i) {
++			if (strcmp(cp, tidss_internal_bridge_compatibles[i]) == 0)
++				return true;
++		}
++	}
++
++	parent = of_get_parent(bridge->of_node);
++	grand_parent = of_get_parent(parent);
++
++	is_internal = parent && grand_parent &&
++		      tidss->dev->of_node == grand_parent &&
++		      of_node_name_eq(parent, "oldi-transmitters");
++
++	of_node_put(grand_parent);
++	of_node_put(parent);
++
++	return is_internal;
++}
++
+ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
+ {
+ 	struct device *dev = tidss->dev;
+@@ -133,6 +177,7 @@ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
+ 		u32 hw_videoport;
+ 		struct drm_bridge *bridge;
+ 		u32 enc_type;
++		bool dpi_output;
+ 	};
+ 
+ 	const struct dispc_features *feat = tidss->feat;
+@@ -149,6 +194,7 @@ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
+ 		struct drm_panel *panel;
+ 		struct drm_bridge *bridge;
+ 		u32 enc_type = DRM_MODE_ENCODER_NONE;
++		bool dpi_output;
+ 		int ret;
+ 
+ 		ret = drm_of_find_panel_or_bridge(dev->of_node, i, 0,
+@@ -160,6 +206,11 @@ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
+ 			return dev_err_probe(dev, ret, "port %d probe failed\n", i);
+ 		}
+ 
++		if (bridge)
++			dpi_output = !tidss_is_bridge_internal(tidss, bridge);
++		else
++			dpi_output = true;
++
+ 		if (panel) {
+ 			u32 conn_type;
+ 
+@@ -199,6 +250,7 @@ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
+ 		pipes[num_pipes].hw_videoport = i;
+ 		pipes[num_pipes].bridge = bridge;
+ 		pipes[num_pipes].enc_type = enc_type;
++		pipes[num_pipes].dpi_output = dpi_output;
+ 		num_pipes++;
+ 	}
+ 
+@@ -224,7 +276,8 @@ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
+ 		tidss->planes[tidss->num_planes++] = &tplane->plane;
+ 
+ 		tcrtc = tidss_crtc_create(tidss, pipes[i].hw_videoport,
+-					  &tplane->plane);
++					  &tplane->plane,
++					  pipes[i].dpi_output);
+ 		if (IS_ERR(tcrtc)) {
+ 			dev_err(tidss->dev, "crtc create failed\n");
+ 			return PTR_ERR(tcrtc);
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.43.0
+
 
