@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 258D5CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD3ECD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vrwW8HJMZcY9Fq5J+G2ZrLwjCrrOc6AC4xQETMaCZKg=; b=eKT3xsH+UV3GnCDbFOrJov33o4
-	mGZh3fQZ4fvBRiF2oW/3T/02V1y9M3/V3SGhSNLmbjKkKqEAhLNXfqYYhZBJImBE4+Bjz8Bzd2fpJ
-	ERvy1zTPnwlRJlLK3LPkuiSiIlQNW0avIlasnUWz296LtA8kdNboNXkB6Q1DPmCV3EnCrXtt3GTx+
-	UNNI0LtMhd3i17WO3buIP97bOQPn4tuoCE9jUQakZWQQ1pjGxaWyOBjgVyBIGtWvO+c+V1pnuENSp
-	MiXFGonRh9COnTKIZ7/jOq7HeqBv9/WX7rGXGpbyrlsFnI+iMtoCD14Ztq6ODInD7R0ascGP/uL+F
-	RO5JHlsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oRk+m0ylelb0MFEK2ufkPqihO7787jCK43Nrzsk+OFI=; b=NORs2g2k2z+F1A7HtFDaLLMlgD
+	GPRGnQzWJsvXl56wBSNinPF+XOweRTRPylhIS7t/yV4hUImmL1MdTCZwoAtZyQr8z5p5biucWkOxr
+	Df0A41W5rubLsz/PnNVDTA61oK28u07osZlHAK6Ape8FC/5O4lJlHz32+9szkHFSZ6CfNr1YUeuJJ
+	lA5ctCKaAQfsXNrCl+hl+dlemyYLLV5FrHVGszGDp928cTGJLh9BHPNLy/NA2PQTWXWNSd/6NkPyf
+	I6vzLbJu30GPxhecoir2sAPO9xC57Ai9Lb1RDSI3ykl5tr8Q+zksubNyYoFpEoESBWgmW8YO2t+2N
+	gOoZTrwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9nb-00000002nBt-2Zu8;
-	Wed, 13 May 2026 13:38:55 +0000
-Received: from mail-ua1-f49.google.com ([209.85.222.49])
+	id 1wNA1X-00000002pSm-1AWk;
+	Wed, 13 May 2026 13:53:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9nZ-00000002nB6-0HFA
+	id 1wNA1W-00000002pSD-1qGA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 13 May 2026 13:53:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=oRk+m0ylelb0MFEK2ufkPqihO7787jCK43Nrzsk+OFI=; b=ZNZt77Np69zxlqzMUxjcvWsfNd
+	L2up2alEPgkZFYUHjVMGT8jMqHpuHh4XKDG+tMfuCUs4Fj5DWrOfCSOOiqmLL158NAvuS/mMQu5bx
+	BYXPOk5sBL+ohV5oxczxSyP/rVpv5LZADA6TfFgpydYUXBnR6Apo+xSyJVR0FQ2wqJov0CcCBobp8
+	6iYzq4zU7wqICG/M4TBntAWYDh9W4tZR0IrbqPm+JQiqCA5HAApmNIULJEQFrn7ogxH2mBqwRtp/j
+	4vXWZG3EosCHA7EX5RzO04ooDFTfHadyhsge8hN8Ctm0aMf7XagCdawvnaKX6Szh3bt9T0hccd+Qa
+	/DYLRXZQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNA1S-000000004mV-1tg1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:38:54 +0000
-Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-95cd8b71105so3759926241.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 06:38:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778679532; x=1779284332;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vrwW8HJMZcY9Fq5J+G2ZrLwjCrrOc6AC4xQETMaCZKg=;
-        b=j2JTIt0HTGWdOXcJXwW6SMKy6vWFZ04bZg4SpDhWeMQRG+lTzcjrgxBlulKPPJibyz
-         MynMrT8diroLobOA4JzA4qw96p/ETQVQmyFmZejrhkzRzVLRbxwCiZFyx+P7Ih0GhzXG
-         vMT4vJdWUp2KgEM7b23V87bCdLldR7siv70Fe73UWx7GhOptj+6bwff04vzQkC7nRoXF
-         bCoFFgtH5Abb8TkXgBFeIT3D6VMyhBl2bqIELDZLkjx4dTeGtYZE/eE2sBDCYq/365l2
-         6/COQJLuZCMCtbDlR1TYQpC+RNlrzE1fILCgU2TZGfcvZP6jTGGP1eT5r1aRV2U5eMyq
-         2Ecw==
-X-Gm-Message-State: AOJu0YwAkOHpNb2m2BzrgaJRPkG5blQz4jNBYzVWF8pmMDKrbjjbF+BR
-	SZLynrRNIGqx2Isz+hvx4C3+kBTKqomd07auapJ33hO60LKiC/dqCVqDxZgKN7Na
-X-Gm-Gg: Acq92OFxHcLyJtG+n8UWf5A8J75fJ/wb5tsbujczBOEJOZ6P4rouxoKjZ+ZTxMkeeas
-	BEOvFIiaZBdk5ETrKaoSNJypELU04r7+Cg2BG4tmC8MsNM6cJarFpJxyU/Sa3tQJzjWis4gmRxj
-	elMAZ2sjd7DH6Pc0RLgxlo4YmDwxprZTCBzdKG08NKNd5zN0JxV8O1znVy3EhUodbYm8Ed65DEH
-	oI1ZYkJQAhQ5YW4dYQ5qhWcoVhow4nRbnWb1aoKf9WtCctTMMkdxJOuXpHiVaSd9HaJwXTAPJss
-	rTr3eCoMJB6J6f0tgru4eGy8WstO1qTok+Co0hz3GW7m6rastkwWhWlJKtgpriUq5E/Iu3jE6tH
-	asXYoCdhcKg54l1k7zDtZz/8raFcmX4AkCnPvWkPV1E9OXW0KFcNr1kri+55oYTHumCzfdJMgLz
-	SiW3fa+wZ41SC1Rm5xGvvTK2reqSWoFEiTkR7pA2GU5+svgnKwYv4daDteIwyX
-X-Received: by 2002:a05:6102:d8c:b0:610:1c78:9531 with SMTP id ada2fe7eead31-637761505a7mr1462582137.24.1778679531551;
-        Wed, 13 May 2026 06:38:51 -0700 (PDT)
-Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com. [209.85.222.50])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-95f21a274dbsm8910583241.7.2026.05.13.06.38.51
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 May 2026 06:38:51 -0700 (PDT)
-Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-95f61c1ace0so1958220241.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 06:38:51 -0700 (PDT)
-X-Received: by 2002:a05:6102:2924:b0:631:b365:40f6 with SMTP id
- ada2fe7eead31-63775f441f7mr1566639137.23.1778679530826; Wed, 13 May 2026
- 06:38:50 -0700 (PDT)
+	Wed, 13 May 2026 13:53:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4B99C407B7;
+	Wed, 13 May 2026 13:53:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30095C2BCB7;
+	Wed, 13 May 2026 13:53:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778680393;
+	bh=vboSbNrhRoqpwhCEDdVvoJxSw2POTG5BmRbeyr6o4VY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GTNKAIBkIXuP1UZacQ3v4jPyQXH2SdW/3YmEtUUU6GFKwEzHnJdSFeXI1PhulfTK9
+	 ov7ztaqGpNo9EldG4Nl+Kzsl6GNzsoB3b/EdxxQZtMaPDBXWEtUDg1E4Bfd+jpH3Iy
+	 F08WTE6Sop4lRBVC1YWBs4PPuX1u+MRSBR1nkOsl9A9TjclBBKgvZR3DG2HMzLDUKB
+	 0KcfEWZkEaFfHl05tcnkWJPcIFyOpadHMiBQlX9dvZtcQmy27OcG6FIRz50kgaUTfn
+	 9SPXpYHiS6/IQlQJqCHvaOYFZdVjmNVpTX1OaCIUmBsaC4f7ZGp5y/hLUHIemFzIfP
+	 tVnmoTc3wrZyw==
+Date: Wed, 13 May 2026 14:53:00 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Angelo Dureghello <adureghello@baylibre.com>
+Cc: Greg Ungerer <gerg@linux-m68k.org>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, Arnd Bergmann
+ <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
+ linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
+Subject: Re: [PATCH v2 08/11] m68k: stmark2: add mcf5441x DAC platform
+ devices
+Message-ID: <20260513145300.11b4fdd6@jic23-huawei>
+In-Reply-To: <20260513-wip-stmark2-dac-v2-8-fcdae50cf51a@baylibre.com>
+References: <20260513-wip-stmark2-dac-v2-0-fcdae50cf51a@baylibre.com>
+	<20260513-wip-stmark2-dac-v2-8-fcdae50cf51a@baylibre.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20260502185557.93061-1-marek.vasut+renesas@mailbox.org>
- <20260502185557.93061-3-marek.vasut+renesas@mailbox.org> <CAMuHMdUXjwyVk2kuGAJOdPHw=qv_iwO2pSR3Rp+5ayoP2QG25w@mail.gmail.com>
- <c4e6e48d-9a8f-48f0-8666-22efebf86d8a@mailbox.org>
-In-Reply-To: <c4e6e48d-9a8f-48f0-8666-22efebf86d8a@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 13 May 2026 15:38:39 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUVAXZtWAUn5fDgTKszHh7voQMJMyPBxbUiqOYRSfzCzA@mail.gmail.com>
-X-Gm-Features: AVHnY4LU1BBWpNxE_fkGvk4Rs-4viEWKSh1Rjw7iIL0Qt5GSNDkgP1kR7U3ItzU
-Message-ID: <CAMuHMdUVAXZtWAUn5fDgTKszHh7voQMJMyPBxbUiqOYRSfzCzA@mail.gmail.com>
-Subject: Re: [PATCH 2/4] clk: renesas: r8a73a4: Implement ZT/ZTR trace clock
- on R-Mobile APE6
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Stephen Boyd <sboyd@kernel.org>, devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_063853_108928_CEB40370 
-X-CRM114-Status: GOOD (  27.82  )
+X-CRM114-CacheID: sfid-20260513_145315_004472_11EF8825 
+X-CRM114-Status: UNSURE (   7.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,62 +97,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 May 2026 at 15:37, Marek Vasut <marek.vasut@mailbox.org> wrote:
-> On 5/13/26 3:15 PM, Geert Uytterhoeven wrote:
-> > On Sat, 2 May 2026 at 20:56, Marek Vasut
-> > <marek.vasut+renesas@mailbox.org> wrote:
-> >> Implement ZT trace bus and ZTR trace clock on the R-Mobile APE6.
-> >>
-> >> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> >
-> > Thanks for your patch!
-> >
-> > /sys/kernel/debug/clk/clk_summary looks a bit off to me:
-> >
-> >      zt                         0       0        0        208000000
-> >      ztr                        0       0        0        277333334
-> >
-> >> --- a/drivers/clk/renesas/clk-r8a73a4.c
-> >> +++ b/drivers/clk/renesas/clk-r8a73a4.c
-> >> @@ -43,6 +43,8 @@ static struct div4_clk div4_clks[] = {
-> >>          { "m1", CPG_FRQCRA,  4 },
-> >>          { "m2", CPG_FRQCRA,  0 },
-> >>          { "zx", CPG_FRQCRB, 12 },
-> >> +       { "ztr", CPG_FRQCRB, 16 },
-> >
-> > 20?
-> >
-> >> +       { "zt", CPG_FRQCRB, 12 },
-> >
-> > 16? (12 is zx, cfr. above).
-> >
-> > I.e. the same shifts as on R-Mobile A1.
-> >
-> >>          { "zs", CPG_FRQCRB,  8 },
-> >>          { "hp", CPG_FRQCRB,  4 },
-> >>          { NULL, 0, 0 },
-> >
-> > After fixing the shifts, I get:
-> >
-> >      zt                         0       0        0        277333334
-> >      ztr                        0       0        0        277333334
-> >
-> > which looks much better. If you agree, I can fix this while applying.
->
-> Yes please. I can confirm in APE6 RM v0.7 that the ZTFC is at bit offset
-> 16 and ZTRFC at bit offset 20 . Thank you for spotting this.
+On Wed, 13 May 2026 11:14:32 +0200
+Angelo Dureghello <adureghello@baylibre.com> wrote:
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.2 with the above fixed.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> From: Angelo Dureghello <adureghello@baylibre.com>
+> 
+> Add mcf5441x DAC platform devices.
+> 
+> Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
+Looks good now.
+Reviewed-by: Jonathan Cameron <jic23@kernel.org>
 
