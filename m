@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F67CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B1DCD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:21:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hKRfueAUrzjkM91UBXn5M20nwzcmhT+lP/g5iDeet9o=; b=SbN+/kFvJo6gr2Hdonhajnc+0K
-	bFEpC1fDBS6VcALOpcLg+zAXXmTt1CREVGyn/t1Tpta7QBp+3eM17qkndko98rN1UKfB64A/Tm4ES
-	oBV6qs2BrOg95PmXf4Yyd6NDjQhbI0LL2iIl33VrIEUK3rETwwDTppbWkdPY7IXCvpRNKDE8PxEsv
-	LFe6hOqKcdE+ITlyGB/HlfYFuRIYaagekZNJX3EUV7TpkJW9flZ7MedBjU6YCNnM9Tab8PJMVx9xz
-	UjjdtDVPSQ7Um34ZiYnc0hqag1jjNaG7370YcGioNVpvt6mwIg+vDVhpeQOROncNnaPizQlm2WSI4
-	W6Et7cXQ==;
+	bh=c6CUfOFr6m5QaenhIZhXMv7jaj13ID72rQAvFIcjDlo=; b=utH2J9rVH2KYc5642TM/od+LE7
+	0PFXrTGLwesYkNf7b3/W8pkKyf1B1MEVHlHW7Sl7qoCRNUFnRgh1lQcVuVDOPrDTzwpG4TuYJjcHT
+	311vwayzPr8EA6qXAB8L8+13RSMhfIhTj3lHSWZOrbhZkLxM6+RMIbRF9IKElyOHKqUdoHooiwrx0
+	42Uji1gQ5WXN4U6AD07SqIefHqy8Ry04l57+SAIVMBv9EPJSHU0LKcftQwoZvhGgmsul8Np1XSpDM
+	ISXtqTuUX5tCVi+S0loBXDhf7XH4zRkH2Yu1Td1FJb/C7Eb7pJMZfW/lHsRzOLb1cN+JagQYnzhpS
+	EmXZddCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNGzr-00000003o7U-1hSE;
-	Wed, 13 May 2026 21:20:03 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wNH0h-00000003oHk-2KAa;
+	Wed, 13 May 2026 21:20:55 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNGzp-00000003o5Y-0doQ
+	id 1wNH0e-00000003oGk-4Aq6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 21:20:02 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-48d102471a4so72452125e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:20:00 -0700 (PDT)
+	Wed, 13 May 2026 21:20:54 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-44985f4ab0fso4277629f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:20:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778707199; x=1779311999; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778707251; x=1779312051; darn=lists.infradead.org;
         h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=hKRfueAUrzjkM91UBXn5M20nwzcmhT+lP/g5iDeet9o=;
-        b=O/tA+a3q/tAe69gHaT4fszjz5ndCPu6V2DaOlEipELDc7smJJhr+uJYl793DXRMaY5
-         s7TJelGFdg9AgzF6brtBkWzJFj/cld4yEVNB0vsEGI8Eh33WhBKfavCUB/wOhy1BQzyP
-         zKhUH64mbnQkFcrB5Et19bbxcsjAuL9PrN96nAk8XOSJvGXSlkurLbyyWXtarKRtkwXU
-         zgwJyY1rURSpP0PSe/hTu+MjGM4Y1ZSRizWo6e/6/Wd3p5r+la//KTsRITiyrl4Oi2NL
-         waXIufGQUYQyXCGsjGLtcgZKqjQ+M9DoUdWPsXdCCMQSwzxKTjqFWncKMeKqgsVFLn3B
-         IrIQ==
+        bh=c6CUfOFr6m5QaenhIZhXMv7jaj13ID72rQAvFIcjDlo=;
+        b=hR10jDyXbqCMu8ONSPR7pvMOWnQ08vb8WPhLNm8xjaYK+Me6VFNa7fewuojnwbIt8/
+         f4iOO2g1RV34LbKa2mii2WLqr9XV4RRyzFjVdhCo8rWfuUuSlMmwVYQKTTLOp0/ACPBB
+         TD9qCW91Q9iCbxiB6XIZ/TKJ3Zv7LKyCbHSIFPu4wWTGQ3CU644BKWE5nHtwSN3XRnm4
+         DRPONrmolHb+41iIqQNkqXKYsU0Wvr8G88JqvEAq7qoTYjobQq1mb6D4+AZh8yp2RS84
+         5ds62xrpxnMb9NtO3A0VISOGBr+3hO5DFfM6di91S9DTUQ8/lvrtM5ratrVWkcJgEqSR
+         451A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778707199; x=1779311999;
+        d=1e100.net; s=20251104; t=1778707251; x=1779312051;
         h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hKRfueAUrzjkM91UBXn5M20nwzcmhT+lP/g5iDeet9o=;
-        b=SjGySWS5bdfEOx5dDf0psvDMgdVxM0G18+X8RqFSlu+Aj9oCLEqNsdvq9Pg9VdbJZr
-         olz1FzXIms0CiWPoo28S5UeIrk/CPVMekAgM9ympNTpbwTrjlYYat66n9xJQOWfmNmRU
-         SNaDXd28L8qLLufqQIlim3MvGIRBB3Rgvx9y6Jh8zadRitQvzdXT0uu/Ny0R9aHkVG5A
-         x2R05EORS4uNKnJYuyCzpH60FUZ9XIqwkBKx9ijv3UDD96hQjlZ3hW7SHNh+TmmCSIGZ
-         wrjPX+KqbliItTKSD5jPY+s4MdwTDlkCZ/J4VYR2oy17s4feici0ZO3ILJIY+D7Viby/
-         ZoCQ==
-X-Gm-Message-State: AOJu0Yzz4gnPbTFgUtO9AonZ51LUqJclObdBXYI8ddZlLBCrPxAfsPyf
-	sph7fktvV4H1e2y+e7sGxKRd+nydVCnPQltvFkF5HJRT4ngPM4o/lWTo
-X-Gm-Gg: Acq92OFvXEQQWtxxTQjmuify3f6Sqkxx0mR1beWc1xhpQlBxx43f4xJov8MCaffj7b9
-	WhL+c8rXVc3d50mi1UHhJ6cfbRJUDF9dvJzay2Hv3AL23FRvTyhnjnk4F5UgvWgbpU8a2xg0AEj
-	eEnULkGWxkXn5BVnwJFDB8eDZXMo6DVPKl4bezTg3zta9sURL7LPPJasbCZthTloqiOoyyNQLFy
-	ELHAbHKqcQZq1cuOu8VlelyevEz/83yWrVxd6XQC6ZsVQdCeLhoDMMNgKiH2pRUNdEcQyptZclq
-	vqwXpWAShea2tY/MJmXtNZZ5P33/K/hYsr9MJlvWLaYZ5zKFEspKY9z+PUPT8D1+PwU16Fjsu+Z
-	quP6wtDc8qU95zer6MZkwhziSMirXc8DMPTRZHDgDE8VZq+XXlN0/T1qFVjtt3+3QCX87UbOsOG
-	tc+9KDi8h12HgT2i3XKQiyFwsskaZwXDQ=
-X-Received: by 2002:a05:600c:c4ac:b0:488:936a:6220 with SMTP id 5b1f17b1804b1-48fc9a3a9c1mr75541035e9.21.1778707198978;
-        Wed, 13 May 2026 14:19:58 -0700 (PDT)
+        bh=c6CUfOFr6m5QaenhIZhXMv7jaj13ID72rQAvFIcjDlo=;
+        b=bOw/vuAB7EaK2dRv/gyyOfL52QCs6abkPxpzvFFYHBLR3A1LkQACy3dppDq7c6HJqD
+         d00XglnPUEc4Icdsm4Bv0eLsCi3cqQuWbTT3tzwTYk4rrBJ6WFeBc6Za43YWSFePIkGV
+         1oh2hJsGYPGjrMNsU3Bt8/5hvyGrxDoK9H8c8vy39kU8L205ltbRDQ9WzbWOyY9LN4KP
+         RmMnLMQB/FfI98sA623pfnlQs1YoMX95gg2xmyBRG2wOSGpiqtt3q9Ryca8G3OIYGgyb
+         ffgmdiPhiwH0XbRBtyXcd2f0Syyf27tu3uQzh21xMWKvPF+hGDRjVG5pqEf883tNxS0U
+         y62Q==
+X-Gm-Message-State: AOJu0YzluPqCzVS7adkCad7tDceSXJS/kwgRPofkY/DO0fBbKDSBsh4x
+	VcJZnG5m6Fpb8y4Gd63NKWfWNydx4gkWsqTmtIUQEdP1A7idoEXW/rSRKf4PMGQS
+X-Gm-Gg: Acq92OH1+FfERr+In6Rr1pKcyzx/WHIlFTw9355vk6Hrlp3DLL4s1t+MU2tOuh73DN9
+	yf/BOo9fAjSvJ0S5bW7nvl1F9UXnaFi8SFVLnFvG5wt2ELvJ6wO79MykAAkGkKAiutJ5zEr/88v
+	FnsHlm2iTwsgn+2yxcHKGlnlteJSonrOR3WHNu+P6LsXyJ6iU+Iog77cTMW53nrrE2Lgnt2RbXv
+	d+vdLVmFLZw1YHcJtx201PKil9cPgBLqKz7DoWr85gMXBJUAfqdN9spG3+zVklg8R5VTqKz0k1p
+	JpPJwwlWhhB2EpOC33h1GsE6iD+CVxsf7JAAZO4d8SfWfJ/drxUJcdDY4a/sTILFZseu6QelZEB
+	lHToX+7NGV6p5THRUhvEiwM6K82vnkr5VY6+ZOQdIU6WAJZG4CC8mvXmfV4yuQiStYyP3Ssc3xe
+	S5UZgU15zRIWV+FfWqjBNGhG03AyKCkeY=
+X-Received: by 2002:a05:6000:2681:b0:45a:e3dd:5869 with SMTP id ffacd0b85a97d-45c5a782769mr8034411f8f.30.1778707251033;
+        Wed, 13 May 2026 14:20:51 -0700 (PDT)
 Received: from strix.localnet ([197.250.51.99])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fdb27173bsm880045e9.6.2026.05.13.14.19.57
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9e768acesm2043639f8f.7.2026.05.13.14.20.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 14:19:58 -0700 (PDT)
+        Wed, 13 May 2026 14:20:50 -0700 (PDT)
 From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
 To: soc@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] ARM: zte: Add zx297520v3 platform support
-Date: Thu, 14 May 2026 00:19:49 +0300
-Message-ID: <2114249.usQuhbGJ8B@strix>
+Subject: [GIT PULL] ARM: dts: zte: Add ZTE zx297520v3 for 7.2
+Date: Thu, 14 May 2026 00:20:47 +0300
+Message-ID: <24423793.6Emhk5qWAg@strix>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart3665866.QJadu78ljV";
+Content-Type: multipart/signed; boundary="nextPart2757041.Lt9SDvczpP";
  micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_142001_233005_6806DC51 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20260513_142053_061360_B6821F53 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,33 +92,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart3665866.QJadu78ljV
+--nextPart2757041.Lt9SDvczpP
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
 From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
 To: soc@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] ARM: zte: Add zx297520v3 platform support
-Date: Thu, 14 May 2026 00:19:49 +0300
-Message-ID: <2114249.usQuhbGJ8B@strix>
+Subject: [GIT PULL] ARM: dts: zte: Add ZTE zx297520v3 for 7.2
+Date: Thu, 14 May 2026 00:20:47 +0300
+Message-ID: <24423793.6Emhk5qWAg@strix>
 MIME-Version: 1.0
 
-Dear SoC maintainers,
+Dear SoC Maintainers,
 
-Here is my pull request for adding initial support for ZTE's zx297520v3 SoC=
-=2E=20
-The code has been reviewed on the linux-arm-kernel mailing list. My ultimat=
-e=20
-goal is to run OpenWRT on these devices.
-
-This SoC is used in low end LTE-to-WiFi routers, for example some D-Link
-DWR 932 revisions, ZTE K10, ZLT S10 4G, but also models that are branded
-and sold by ISPs themselves. They are widespread in Africa, China,
-Russia and Eastern Europe.
-
-This SoC is a relative of the zx296702 and zx296718 that had some
-upstream support until commit 89d4f98ae90d ("ARM: remove zte zx
-platform").
+This pull request adds a device tree board binding for zx297520v3 boards an=
+d one initial board (D-Link DWR-932M) that is based on it.
 
 The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
@@ -126,72 +114,65 @@ The following changes since commit 254f49634ee16a731174d2ae34bc50bd5f45e731:
 
 are available in the Git repository at:
 
-  https://gitlab.com/stefandoesinger/zx297520-kernel.git tags/zx29-plat-for=
-=2D7.2
+  https://gitlab.com/stefandoesinger/zx297520-kernel.git tags/zx29-dts-for-=
+7.2
 
-for you to fetch changes up to 220ae5d36dba278003d265aabd080ffa78553f5a:
+for you to fetch changes up to 7d1f68e87b7302d0bd22c001e6c0511d0e827875:
 
-  ARM: zte: Add zx297520v3 platform support (2026-05-13 23:59:56 +0300)
-
-=2D---------------------------------------------------------------
-ARM: zte: Add zx297520v3 platform support
-
-This SoC is used in low end LTE-to-WiFi routers, for example some D-Link
-DWR 932 revisions, ZTE K10, ZLT S10 4G, but also models that are branded
-and sold by ISPs themselves. They are widespread in Africa, China,
-Russia and Eastern Europe.
-
-This SoC is a relative of the zx296702 and zx296718 that had some
-upstream support until commit 89d4f98ae90d ("ARM: remove zte zx
-platform").
+  ARM: dts: zte: Add D-Link DWR-932M support (2026-05-14 00:02:39 +0300)
 
 =2D---------------------------------------------------------------
-Stefan D=C3=B6singer (1):
-      ARM: zte: Add zx297520v3 platform support
+ARM: dts: zte: zx297520v3 device tree for 7.2
 
- Documentation/arch/arm/index.rst          |   2 ++
- Documentation/arch/arm/zte/index.rst      |  10 ++++++++++
- Documentation/arch/arm/zte/zx297520v3.rst | 167 ++++++++++++++++++++++++++=
+This pull request adds board bindings and DTS files for ZTE zx297520v3
+boards as well as one initial device (D-Link DWR 932M) based on this
+board.
+
+=2D---------------------------------------------------------------
+Stefan D=C3=B6singer (2):
+      dt-bindings: arm: zte: Add D-Link DWR932M board based on zx297520v3 S=
+oC
+      ARM: dts: zte: Add D-Link DWR-932M support
+
+ Documentation/devicetree/bindings/arm/zte.yaml     |  26 +++++++++++++++++=
++++++++++
+ arch/arm/boot/dts/Makefile                         |   1 +
+ arch/arm/boot/dts/zte/Makefile                     |   3 +++
+ arch/arm/boot/dts/zte/zx297520v3-dlink-dwr932m.dts |  22 +++++++++++++++++=
++++++
+ arch/arm/boot/dts/zte/zx297520v3.dtsi              | 103 +++++++++++++++++=
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- MAINTAINERS                               |   9 +++++++++
- arch/arm/Kconfig                          |   2 ++
- arch/arm/Makefile                         |   1 +
- arch/arm/mach-zte/Kconfig                 |  29 ++++++++++++++++++++++++++=
-+++
- arch/arm/mach-zte/Makefile                |   2 ++
- arch/arm/mach-zte/zx297520v3.c            |  16 ++++++++++++++++
- 9 files changed, 238 insertions(+)
- create mode 100644 Documentation/arch/arm/zte/index.rst
- create mode 100644 Documentation/arch/arm/zte/zx297520v3.rst
- create mode 100644 arch/arm/mach-zte/Kconfig
- create mode 100644 arch/arm/mach-zte/Makefile
- create mode 100644 arch/arm/mach-zte/zx297520v3.c
++++++++++++
+ 5 files changed, 155 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/arm/zte.yaml
+ create mode 100644 arch/arm/boot/dts/zte/Makefile
+ create mode 100644 arch/arm/boot/dts/zte/zx297520v3-dlink-dwr932m.dts
+ create mode 100644 arch/arm/boot/dts/zte/zx297520v3.dtsi
 
---nextPart3665866.QJadu78ljV
+--nextPart2757041.Lt9SDvczpP
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part.
 Content-Transfer-Encoding: 7Bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmoE6vYbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoim08P/ApwP43M9rvjPpQtOX3y
-hEdyhSxQh9uD+ufuHlnRAJFqDfbbWyLhpUTrcM4f0rAqG58Y9kX33rI/7RjtGdCV
-6aSKGkSSVoBqzcKiaw0sSXBCM5QsI2eol594JZg3RT16Ya2JqMk+2HvZRfHlBCB4
-sjEHBxgRePcE8x+qiU3fUb2RnaXvSadYgeEGkNR+sMupssDpeJg5/lBfRxC1E4dS
-ya9b+rR7T9CIWyszDfdWEN2RL6bkOvp2KDeAuxGl4q590KqFDdFSo27JYFWX1rsK
-WTySaMzEVKHjkfi44KJkWYde0xZ3CegrBOPiCCXhaEwtihr0JuNihDb+KJmP6dzf
-NBmAjWSAqs9Dwk/5StZL+se5DWavSxeooqT4SckJEVfCCuo2D8/hYuYapXwgkg9N
-NCZFUM6ax6ETX1FaFX4UsY3KeQIKQuZIo29+q9NAuV9uXJO1RkMOQRJGD18hnaPW
-mrHwSkKGXTRbMiVsgRae+OeFcfosMo8xvgZNfhtZNlR1G+ReOtKV/ScihoiyD5Qq
-f6AN3YZOsXFw5nqg72CRlopxCvy17zI+cCu8sDLzmgSIRNeGrKPGqRnJz7lkxjI6
-s2l1kqDIoa7GxiaF9/XLWMgnuHorll288PfR3kF/n3qX+8kDrQNrwoESwCserg6Z
-BWwBBeprQ9CREOxSmbKKZg8f
-=lAHd
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmoE6y8bFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoi7Y8P/joGHGNInyk+RNFqvL/e
++IJF0lxox84rWCRSd1I/moOfx8Zf4RoKczJKezdkxcrsBVsSCFrsVnf7FK/7AyDD
+xTiCwIWn5b9mio9O3ttZZuzoqCswkTQb3Y8GqGGBOlbxnUxXTZ02VTnVll2GsD6U
+m5tVt04snVWqNgqbHUWijYqAWcOjb1u19EKQVkosZf4gUSkrTI0oUjspAlH/pX0w
+/xeIFIm7s3iDZS3oc87Kn1l2Uv15rsxzu+3fXK3ryl04pAH4u0Y8GXvSyRzAcjpS
+HoZLNVgCSLZQJ4/1JBeQutogy/QGW6iXIGIu6Mh3AOowLTsLz1/vgeiSnigb6sK6
+IN1R3uWsUa7dZqx9Fyq1EU1s/VhIftR6scIBrFDhp/TeHybE4K/bYaPLU1tulXWx
+cPcPxhBD8nDunSZt9kA88sNEmuLfrDrBmHsg7rgJo6QMpatbC+FkimUbJzov/Rkg
+9lR7G3nMDCnTOl0UMIi7kIuFJou1Uz3jkBT+JgvUGF0wAwA3KLVgdKL3YikvxLS/
+TnRMOiEcY+9TTJ38kgLvZ4DM63r1WLQvqkiVLOE1QrXVsEUdVWzIHnGe4bfeKAuy
+Q8gDz7frqtuf9tsKdUFeL5hsEpUcwVqL+/C4JxHrO5nZb8ok/0UZnO+vAjjWuQ0/
+L9op5zjIsWaMns8FchMCAwYL
+=8csp
 -----END PGP SIGNATURE-----
 
---nextPart3665866.QJadu78ljV--
+--nextPart2757041.Lt9SDvczpP--
 
 
 
