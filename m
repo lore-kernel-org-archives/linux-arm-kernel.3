@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 336AFCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 18:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E91CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 18:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TQ10s60y84Cayjd/Zc+2xGAqU2bR61FOgQ8qQN0exP0=; b=ohy64kXqNtGFXCTohvtdZUyGcy
-	iKWoai/Zd9iOXFH2LNwgrOCK3kn9MNMrO3t35VJyyvmq4wiLMv3OE7cY/QXIluFOB+hHvCC0f4Sb0
-	52cr84SA1qR0OO4oXqyFfNPNuvsW5A4zmXuULq0MFmFmp24DE4adZR52gpJzoOO+c0dUTmBXSCaru
-	Mr7aZOusNjNwJDQ4wmqZUO2gB3d9uyKygmnXynkTqEL9wRJpkPhg9mIUAlh+0/pl84OBQtIHWKagW
-	E71Yo8CPI8WG58BNFP9OM/2S2PhfykSqUTRTiF3Ek1XIjr8GIp/asrWcgwCByUe0GgYZsdHvRoUKM
-	bOcv84Hg==;
+	bh=w2nT4LAaMYDrmMArQ6I70Mfy0vDRfjR4UrTSTpxOnBw=; b=utEucHamyFP4pr/WFHeSzSDM9C
+	Sn7W510d9x2YSX/nLLCqddWc7nl/H8on4nEJ1xs2LdZyA9wpsnWyklCA/eFk4gU3CkQVcPMuCGYmJ
+	tN4IhRf7adpwv/Vl5SpV4F3Bo4Y6JlU4qGeGGN9aVdG/8i5XwOS7lWsAtP5Bjdne8EnmM01FpM3VB
+	bOkpp4n/iKwIMjnuvnhlmNQ2+TcniXyEpVt5pDrJ3NUB5TzYNMKY5UJ8QisHKgQgUKM2d/c2d+pW0
+	m/+dOl9MG+9h7WA7BAGf0WOjG8cGxOuRXTBGrRS/tI9hgP3KzmfsGHhAIQ+FKwJ6TXo5M4EwAUBg4
+	i1UmwYKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNDvX-00000003QIf-41V5;
-	Wed, 13 May 2026 18:03:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNDwq-00000003QYJ-0VYr;
+	Wed, 13 May 2026 18:04:44 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNDvX-00000003QIT-0eXt
+	id 1wNDwn-00000003QDN-37uu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 18:03:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C17F600AE;
-	Wed, 13 May 2026 18:03:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 214D8C19425;
-	Wed, 13 May 2026 18:03:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778695402;
-	bh=w0VBX5Pqrw6WMZ6TTwlHS14W+TYMlrmHx13BLs87qI4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lIY7G4LYmrN2oGQutV24t5rICtUiNBRKZWU3bXLaTCc0fK1wyL/9XrqHEV8p4e8pE
-	 PIniBXCVr0vMUhSm/dggY5nKJ5gOyPecspHvsMf3nESp9xvW9eD1LUh7hLPD6afeRe
-	 nkhq/955kLntwfvVb4pIE7DNMPSBJ0T13JX+T4HZGQaoxCITMU3ewWmUSTs3vtopsC
-	 dGyozzWYcid3t5Y5QRxwXgDVYN9hzJCdZv13yxKmYeV5XQH7+ppgj6i2zSe18TP8JU
-	 o2SvbhbjzJ2xLcW2Esk8AfeKPHneDeLwRw0bYjhpuKfUEtYVgA7smwf4LBzIJDvXOj
-	 9LHZ54RX726XA==
-Date: Wed, 13 May 2026 13:03:19 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	linux-arm-kernel@lists.infradead.org,
-	Maxime Ripard <mripard@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	devicetree@vger.kernel.org,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-media@vger.kernel.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 1/7] dt-bindings: media: sun4i-a10-video-engine: Fix
- IOMMU count for H6
-Message-ID: <177869539916.1493173.10825192912452085922.robh@kernel.org>
-References: <20260505134812.408316-1-wens@kernel.org>
- <20260505134812.408316-2-wens@kernel.org>
+	Wed, 13 May 2026 18:04:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778695482; x=1810231482;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=aHZIz4hYTuSjsATQj/AJOW5Udmy+w4c+hHTnvk8Qu4E=;
+  b=LTC9YcyoilI5avhIkFSFFKihTQh56vO3zIgfPDaKj8zwpwWE/qkjMbYd
+   e+4dfy7IFdfhb/Kt/kWmMXU2ioW03hoTmmqbLjjLuFnoEs2X5uDHQdzvX
+   paa1aC1OEbHt4tOyzbb+6HKLkPIoZSYkVz5cFN7ftHXWpC0Qqjr531Oua
+   AXXK5O2h9R3FfvFTLaM0uw726oMzvMbWGg4DMfTPHEec+K0rbNv6Iu9S4
+   pO2I04OBiph6A4qbhtdhWLp6rtO6iZwTccBkQaWbejA2BGwF1IeiReCnU
+   Nmmhc1LW7UWEIswkhpKaTqo8zwYC8kGcgUZIRoJo+vjVG+WV2Cn/UQPYN
+   g==;
+X-CSE-ConnectionGUID: 4qijKzOMTiidzZNg4lfW9Q==
+X-CSE-MsgGUID: QEbSR8zyRCyxu/vIGrNG7Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11785"; a="97201735"
+X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
+   d="scan'208";a="97201735"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 11:02:41 -0700
+X-CSE-ConnectionGUID: uHI03tMxSxWaY8esQUwn2A==
+X-CSE-MsgGUID: 4yUmGZg3Ra+2Wl66l+e5ew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,233,1770624000"; 
+   d="scan'208";a="268488853"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.106])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 11:02:36 -0700
+Date: Wed, 13 May 2026 21:02:33 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Alex Tran <alex.tran@oss.qualcomm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Jyoti Bhayana <jbhayana@google.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Linus Walleij <linusw@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Guenter Roeck <linux@roeck-us.net>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-hwmon@vger.kernel.org
+Subject: Re: [PATCH 0/5] scmi: Log client subsystem entity counts
+Message-ID: <agS8udcvqgQmiqB4@ashevche-desk.local>
+References: <20260513-scmi-client-probe-log-v1-0-00b47b1be009@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260505134812.408316-2-wens@kernel.org>
+In-Reply-To: <20260513-scmi-client-probe-log-v1-0-00b47b1be009@oss.qualcomm.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_110441_831082_3DE81E60 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,22 +100,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
++Greg (I believe the trend is to drop such messages and not add them [back]?)
 
-On Tue, 05 May 2026 21:48:05 +0800, Chen-Yu Tsai wrote:
-> On the H6 SoC, the Video Engine has two memory ports, thus two IOMMU
-> connections. The secondary one that is missing is likely used for
-> reading reference frames. The newer H616 is the same. On the other
-> hand, the D1 only has one memory port.
+On Wed, May 13, 2026 at 09:44:18AM -0700, Alex Tran wrote:
+> SCMI client drivers do not consistently log the number of supported
+> entities discovered from firmware. This information is useful during
+> debugging because it shows which domains or resources were exposed by
+> firmware during probe.
 > 
-> Add the missing IOMMU connection for the Video Engine.
-> 
-> Fixes: 62a8ccf3a248 ("arm64: dts: allwinner: h6: Fix Cedrus IOMMU usage")
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> ---
->  .../allwinner,sun4i-a10-video-engine.yaml     | 21 ++++++++++++++++++-
->  1 file changed, 20 insertions(+), 1 deletion(-)
-> 
+> Add logging of the number of supported entities to the SCMI cpufreq,
+> pinctrl, reset, hwmon, and powercap client drivers after a successful
+> probe. This aligns these drivers with the existing logging in the SCMI
+> power and performance domain drivers.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+-- 
+With Best Regards,
+Andy Shevchenko
+
 
 
