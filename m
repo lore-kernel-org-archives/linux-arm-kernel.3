@@ -4,68 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7322CCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03AA9CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TjIkbZ3qmRQz0xoDM71sUUVP6TfPlzYj6OXukJFOKjc=; b=snCSD0vkJIidz7G/w1hBp3N/oP
-	e0u/J+X0RhyKzHipGbjshVUAmPY8IBe4WVcoKx+n6M1oHiw5TP2NUEwh6BWdN5F6Qhn1ZNjuokwOL
-	o+vsSBXM+yl9a7qyyKM/J8kT28OwTemTxuHopnjA4wRyJzjD2v00F5twzQOk6P2I1Zx8esjeKPvUB
-	3sf2GKt99XuWsNJA6YAKEx5FDU/abZFEvv8nAFlMB1frDaNCXfgeBGsuE7OvwkQXqBQULhpPV5Lq+
-	HJ2GVN+A1g8gOtLA4kKOc+joWfQqV116ezZTzszCHNb+85mOsbJrvW7broU/bYEJ1sCLT6PCT1YDc
-	9fu443ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tGhCh2OQkZFdnv4sRHIHoYbKGv1fjIyVUxMgrDgsNmM=; b=C4LPmf0TAA0tAi5GZ2KnC5q0NE
+	6W8O3uEzCXURWU0IPUTB6McTTiY5oVXOvcjr4om0KDu7XHsZxmYbDYjO+uYrU6jygufLZpU47zQZi
+	G+3bGTgiod4ooNw7Dxd7ATDAyz+xFmxiM5StpQCpeIiR0FIWjIZ2a7xqN0NwotrkecWOET82q6QMJ
+	k0W7JjVpnpWuDYzt12oCq8gSglm/9lquhG2bB1nzlYXfBZTw6sPXww5XzpBqP5StQ/MlfoNaBV5A0
+	PTN0+wC2HuqpBlYKtmYjGSuxPFR4fdQCOd0g8xUH/uLbBwirsHWbk3DteIeQ+SnoPdDOWYwgm/ag4
+	JvHmo8Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Nr-000000015E9-0CxW;
-	Wed, 13 May 2026 03:35:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wN0fF-000000018wQ-3fRO;
+	Wed, 13 May 2026 03:53:42 +0000
+Received: from mail-koreacentralazon11023099.outbound.protection.outlook.com ([40.107.44.99] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0N5-000000014Ai-1iUC
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:34:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2171341685;
-	Wed, 13 May 2026 03:34:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 622D9C32781;
-	Wed, 13 May 2026 03:34:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778643295;
-	bh=jFDTETNcRZkO+WMEenMV2NobbCVqrkY8dx/Pz4H2Wk8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HhRMU5nyZGk0qmy6luwh9Bvni2CL50D5jbW+CbbcOACEdQ1UfseznLeg9Yz7KnvMT
-	 107G49TNUCLyFbG2EKgKiqFDx9Vxly4+m5BxT9CQdf758mGug8mFvbRPaqP17XBFoq
-	 PLS+vmFt5l1KiJrLCaTp48N53ZwxYavANG6lGwk0e+DSrF8JQ8V4r2M73ecEa6lTlM
-	 1++FRbkSuo92fEMFw6HoSvCdK46CpRD/Dowh8IOQaURB9YmZX/sJrckE6Mg3jwqSJ3
-	 mJAxo+Syie2d2dM0MS+ev7Or6VWpKwAB0WfAPftfMvzRxewM3OT7/wUzdDfi/ahMnS
-	 nw1+9mojPPlgg==
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: x86@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	live-patching@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	Song Liu <song@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v3 15/21] objtool/klp: Add arm64 support for prefix/PFE detection
-Date: Tue, 12 May 2026 20:34:11 -0700
-Message-ID: <c7751602066fec175fc58488c72b0b29224b1ffa.1778642120.git.jpoimboe@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1778642120.git.jpoimboe@kernel.org>
-References: <cover.1778642120.git.jpoimboe@kernel.org>
-MIME-Version: 1.0
+	id 1wN0fD-000000018vX-25EM;
+	Wed, 13 May 2026 03:53:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j1iIWI92IAEkhLob7acAxoAh/dPPUxKu4cfKT41N+jjHwppjhNHvgjCOwIjoqX205qULY8idNIW2PwkiUHR8WLYXpf7tyJYyvmzI7sENCyHZf958i56mKHfQaszhuzHkeGxIovyVLv61i2ct4FrA8w4I7m77Tg19HtYSa3b9Fy+r6Z9gtf2dZQQeUCj5grXfL/+BMP0JgI7V0EIuQ4IieDAnDyQyPVrG4a5F9Eh+FiSsPsn5lX5lFvLgjSIWZc5arN4w6oOOFo9d3qC4lsfNT7S4MBTfyccoeHpSw6NoiiM7uuPdD8SfSiE7+Y2tvJUusYHnfZmKNPHxkuAOT8NDCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tGhCh2OQkZFdnv4sRHIHoYbKGv1fjIyVUxMgrDgsNmM=;
+ b=PEp/m9R+moBzezYIhgig21CAG8Yu/TCBBXihFlYVuCl7okBPnb42oMeOXTvjz+PZErohymEZTcnCt5lOZhEMwiOZF71obLeiku3Zvh0jYtS/G/C5nUCjrcFXMkD5XG0OsRyeeiPntw1qlLQyCxTUFCxaRk5t8Rhq+L/lXydueZXoCENWaZxrlSQggdKzZwm0fEgTVb78hFjIsdymkHE6CeNiuTpWiAJaokOtRilRJGyrd5hS2Lz04O4x+30nArz1zFHTjjcx3rZ4eAJhnBNINuwufCJNuyI3JgCPhDqe7w35J4L9laQ0T3+iXCfGFtTTaRv7CfL4fPMBMAZE+CnEDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tGhCh2OQkZFdnv4sRHIHoYbKGv1fjIyVUxMgrDgsNmM=;
+ b=rUkd0Dk56Mqk3wuoBnSf4sYc1TRbZlciEo6sJepvw4ITBzW1dZMilKOufnviRIf65M73QRSJybb0vuIwdZQf+JVjp8v+09NDNuwcQh/uIb9ih8hV2ZK278HEpZjqHAbYE1PG1PWZXiKB3T5YUwwnvmRedBzqFd/w0CU2Vm8clgdsyH98s3Y4xcerGJyLOi7JFi6QcVaPBXMDR/X05z/Ws6y/UyADmVpXcKMXHDLjSOmKpukdAIF9C26ypSWUfilw24BCImPQaVDVwE50DgB5z6xpkYLiqHE4XCvPoCpB2ou+8mPI5NYU7DufNf6Np2oh2zUOHWJCxX1Fn/9mmk5tsA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by SEZPR03MB7837.apcprd03.prod.outlook.com (2603:1096:101:17e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.17; Wed, 13 May
+ 2026 03:53:20 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0025.012; Wed, 13 May 2026
+ 03:53:19 +0000
+Message-ID: <f597307c-d1c0-4add-b3f9-34ee1bda0a24@amlogic.com>
+Date: Wed, 13 May 2026 11:53:15 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/10] clk: amlogic: PLL reset signal supports active-low
+ configuration
+To: Brian Masney <bmasney@redhat.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
+ <xianwei.zhao@amlogic.com>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
+ <20260511-b4-a9_clk-v1-6-41cb4071b7c9@amlogic.com>
+ <agH0FMzku3QRlB50@redhat.com>
+From: Jian Hu <jian.hu@amlogic.com>
+In-Reply-To: <agH0FMzku3QRlB50@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SE2P216CA0007.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:117::9) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEZPR03MB7837:EE_
+X-MS-Office365-Filtering-Correlation-Id: 305aaf65-63b9-4d3c-afa6-08deb0a32bee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|22082099003|56012099003|18002099003|11063799003;
+X-Microsoft-Antispam-Message-Info: R68Uj9LQI8rj5Dla3KklwfvX7dOQkhruxEpUVggFQw6AwQRLVbvNfz8RF0QnFx9XubmqkUs3OBHq6eyeRA18HUvIs08Tj1vzkTbANpUXkY+IrAEPBT+VE+6ttbAuSxDiQQp8xQvymYP9/aU3kaGbUSP0f2/pinsjeikysP2lgFRT6YqOOZpkbdyKZyBlxyzOkzemczLlx+BMvDDftee3doo184WZX51YoD/wlt0Se7dSG0q6yuJOdqc7AWS/D/oxMwFh9S6Vq1QNbTksqRTjztjqJBzRuyIV+Y32T8cZzRvei/K3vHfPIJnvpwtdtuJZneGie+P5yu+BbypjRoRYbZdh8Dq3Y9j7bvc+7vaU8gdfwRi7HjPNmr8bQV/UdJEaulopugOT2a1PRyDd+Jskgk2cOX6epW2M32JOsRm7ARex2+9iebVClpv6GkgcQFxJZjUQ+XVVSLjHXiVhwOUBLLJdM4WrLKdLlOyJfcyChTLcA7qg/mjW/s5VUSotzm7siKT4KS1xWToMXx7sOofsJWqNsXP8he1W6UxLqoo8CLXnuZSCcmgwb3U+24Yyv3o3AXRgY1VRRH6RolFtIOjP/+y8wn/4jbFo/GBdz44/Ny5dycM2brZUBTRLbdMjRuljQ+ArAphTXdY1VAwXiItL7JM6bl4GTIZMk3wYnK98lfxt+QQZCDyoUyfFZON8CYaf
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(22082099003)(56012099003)(18002099003)(11063799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NGVja0dSZVZPbkVObWFpZzNkWlhlYWFoUWxlQmh6SG5UY3FtWWlBcGFrcWdy?=
+ =?utf-8?B?WnZNa0Q4VVRKZU13RWl0WTVJMXl5a0xlZTNOV0JJbTFNL2NLS0FkRStpc3hE?=
+ =?utf-8?B?OXpmUVk5TXM5aGxQd2NVVExBUG5YMGR1VExCcFFKZDBGd1d4Y09VUnpicXNu?=
+ =?utf-8?B?Y21GSnJqYkZTUTZHM2IzandIZTlrVGY0c3gwUE1IOVJ6TFdOVks5TE4zLzZt?=
+ =?utf-8?B?OEZ2enVqenliVTkxNDhqTUJyaXV0cHlLVHk3MXhoQ0w5ZzFQc003YXFpTktj?=
+ =?utf-8?B?ZElyRHJYTTFUTU5qZFVXWWhmUjBEakxKUkgxVG9zLytZTjNzWDhIVlRxc2Ix?=
+ =?utf-8?B?ajkydTUrUW5nNlJyR2dWanhldktNeC9mcDdZVTlKTWdCTVVra3FIeVZCeXNp?=
+ =?utf-8?B?NEl3SWtzR0F4citnNGF5U0JGK3JTQUE5NnJVZVFUMnpTWHZ5OUpZZkZsbDlT?=
+ =?utf-8?B?UlRuWTh1K1VPd2xMMVJ4T3FqR3VKTGZQY0x5ZC91NVpHclFNSWpwak9LSnhD?=
+ =?utf-8?B?RG9Jbm1sRTVzNUV1VHhlbG1Ka3JWQmc2MmZQVUJSbERGSmptbnV3bzNHWWJE?=
+ =?utf-8?B?THlHS0g4NkFmRDlrZk1NbEg1aU8va050VkdpeVV0ekw2K1hVN0lHVk9GQ1Zo?=
+ =?utf-8?B?bzd1ZGZvZHpYR3puaDJDSStsV2tLY2l6VXdpT2lpb0JCUUNudzMwbG1KbUtz?=
+ =?utf-8?B?ZVNVV2dtdlZ6dlRoTVEyQk9TTXJRdFdMWlNxR1lkckdkb3JjODgyM0g5OEov?=
+ =?utf-8?B?ZlFCTU1PWlAvWEQ2RW1SdHZLWXV4Mlp4RTB0aC9SRUxMZUtiRkFodmxiZ281?=
+ =?utf-8?B?Y21YOWNBbTF2dG1OSjcySWlPY3JvR3YxdlVOOXFwMmJ2UzFRcGJ6THVvTlNz?=
+ =?utf-8?B?L2Voc3o1STMyb0xVR0RTSVMyZ0xyS2lWaHNJSWlYVDdHUGJPUWFPcmhKSDBs?=
+ =?utf-8?B?THBES3pMYnlLckgranBNSXJRN0o3Q0VVS0NTeGhSYnpvdWtvZ2puR04wZ0Zr?=
+ =?utf-8?B?TUxkMS9TWEozb250dEpKcU9WRnRMYlVWUC8xRWQ0c2ZBamdHM2lwdENEcmgw?=
+ =?utf-8?B?L3JVNnBkVUJ1SHdYbzRTVk1JdVJlR2lHK0poYllQVGtCbytxR1EvV0ZwQWZD?=
+ =?utf-8?B?UThHY2EwRHJuSTdFbmlwMVgzUTlpVXFGWW02bjZseDF6M0s4QkwzaFRCbGNk?=
+ =?utf-8?B?cEIxWTRwMGNERWlPR3FxT1hWdmhzdDlvcThpbTJMSEp5NUNOQnJBeW9ncEFM?=
+ =?utf-8?B?SUFZODhqeG1DUXFZakpYSnpZYlFsWGYxeXFaRmt2SEtJWnVzQjcrUTI0eCs1?=
+ =?utf-8?B?RXQ2Z2xDQ1RUbllLYTRlVXRtdzJ4M2YzdjVNbUlCb21LamhaNFMzN3ZWYnY1?=
+ =?utf-8?B?NkQxZkVHSlFmSGlFdFF3ejh0eHBoOGpNZWFUaGMwZG1iWm1Fek85RDN2Z3hF?=
+ =?utf-8?B?czgvQUNJLzRSS0dLRWNCa0sraUlYNTNyTlRQeU5lOW9QbHV0VEFIN3FwZUFi?=
+ =?utf-8?B?U1pTQXh6WXRISjJTSk83cloveTkvSGE1aE4vMjg0R1lTTklFN0laUGV3bm1a?=
+ =?utf-8?B?cmxHUlRNa2xHNlNjMUZrcE5CS0ZUa00zbHJ4dU5vNHNDNzlOV3JOS2s3cjQr?=
+ =?utf-8?B?bUVKK0ZoL2ozR1g4T0I2amd1R210NHl2T0NDMkNkUWJmUWVVTTNTM2ZOYkhv?=
+ =?utf-8?B?ZWN0L0VTcFJDMHdsbEh1SkF3ekZjeEJXVFcxTng0VDh6VGZucTQ0cTYrTThG?=
+ =?utf-8?B?VTZIYWVCZ0VmSUFuSzBHZFhrbEJnMUI1aUg3cTBqVGpwb1NZb1I2eGJTZDNx?=
+ =?utf-8?B?OE91VjFEZS9mTEMvTkxxOUFNZndvOUtxYXMxK0RKTUNZY2wwSnBSa01hQlNU?=
+ =?utf-8?B?elRRaUFJUUFzVEhZY2U2ZHZ0T3VlVGF4Q3FrdnFMY09lbnpEYURHZ0t5eHR6?=
+ =?utf-8?B?cGw5d3N1UnVSTk5kM0dFNVhUd3QzckRqZGFSU2lFbEtFRFhQRFZBNmlJSU9o?=
+ =?utf-8?B?cU1lTjZ5cEpPZUozTllKdU54d3Q3NXVSTmxqNUV6ZDJ6TEJZWHl4UGtETmxW?=
+ =?utf-8?B?SHhhUk5lejNSSW0rKzVOUElaMHdjQzZhdlZRblFlWWUwZG1odWxVMzlMZjdN?=
+ =?utf-8?B?MXMyc2xTS2RMbjJJWTk1OXc2a2VwdGZYelhYY1IxVXRiR1pvQlp5U0g5TUps?=
+ =?utf-8?B?QlM4c1BoVVk1Smgwd29pbGxtUVJNQ3lWUXJLRDBURkdsQ2Z6ejRGaXM2eWd6?=
+ =?utf-8?B?V0hPeVhjVUZSeGZZTWRJOVF0dG5NbjJpdUNJYXRsYk1qcGx3bGpLc3JZUW1m?=
+ =?utf-8?B?anhQRm0wVlIxeGpiV2dFVGhGRzR1b2FVQVNudTRiUHFpMU8rOVBBUT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 305aaf65-63b9-4d3c-afa6-08deb0a32bee
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 03:53:19.8550
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: l5GXOJP2k2mXLOUI6eibXRa4Qm29OcGM+aS12J30MTyveuOa1cugoXHVCos0k9J9nX3bEDxh/EQuZBfwlQRzBQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7837
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_203455_486349_F353F0D8 
-X-CRM114-Status: GOOD (  26.90  )
+X-CRM114-CacheID: sfid-20260512_205339_543134_2D9F335D 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,376 +155,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-Message-ID: <20260513033411.8Rh5sH3FIvtaf9RcTfNZ4Cs_lPJgl8qt2Koe2Db8DDA@z>
 
-Add arm64 support for detecting prefixed areas before functions (for
-kCFI or ftrace with call ops), and __patchable_function_entries (for
-ftrace with call ops or args).
+Hi Brain,
 
-Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
----
- tools/objtool/arch/x86/include/arch/elf.h |   2 +
- tools/objtool/elf.c                       |  13 ++
- tools/objtool/include/objtool/elf.h       |  22 +++
- tools/objtool/klp-diff.c                  | 166 ++++++++++++++++++++--
- 4 files changed, 192 insertions(+), 11 deletions(-)
 
-diff --git a/tools/objtool/arch/x86/include/arch/elf.h b/tools/objtool/arch/x86/include/arch/elf.h
-index 7131f7f51a4e8..5ee0ccda7db18 100644
---- a/tools/objtool/arch/x86/include/arch/elf.h
-+++ b/tools/objtool/arch/x86/include/arch/elf.h
-@@ -10,4 +10,6 @@
- #define R_TEXT32	R_X86_64_PC32
- #define R_TEXT64	R_X86_64_PC32
- 
-+#define ARCH_HAS_PREFIX_SYMBOLS 1
-+
- #endif /* _OBJTOOL_ARCH_ELF */
-diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
-index 065ccfeb98288..9d5a926934dc2 100644
---- a/tools/objtool/elf.c
-+++ b/tools/objtool/elf.c
-@@ -274,6 +274,19 @@ struct symbol *find_func_containing(struct section *sec, unsigned long offset)
- 	return NULL;
- }
- 
-+struct symbol *find_data_mapping_sym(struct section *sec, unsigned long offset)
-+{
-+	struct rb_root_cached *tree = (struct rb_root_cached *)&sec->symbol_tree;
-+	struct symbol *sym;
-+
-+	__sym_for_each(sym, tree, offset, offset) {
-+		if (sym->offset == offset && is_data_mapping_sym(sym))
-+			return sym;
-+	}
-+
-+	return NULL;
-+}
-+
- struct symbol *find_symbol_by_name(const struct elf *elf, const char *name)
- {
- 	struct symbol *sym;
-diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
-index 9d36b14f420e2..ab1d53ed23189 100644
---- a/tools/objtool/include/objtool/elf.h
-+++ b/tools/objtool/include/objtool/elf.h
-@@ -130,6 +130,7 @@ struct elf {
- 	struct list_head sections;
- 	struct list_head symbols;
- 	unsigned long num_relocs;
-+	int pfe_offset;
- 
- 	int symbol_bits;
- 	int symbol_name_bits;
-@@ -229,6 +230,7 @@ struct reloc *find_reloc_by_dest(const struct elf *elf, struct section *sec, uns
- struct reloc *find_reloc_by_dest_range(const struct elf *elf, struct section *sec,
- 				     unsigned long offset, unsigned int len);
- struct symbol *find_func_containing(struct section *sec, unsigned long offset);
-+struct symbol *find_data_mapping_sym(struct section *sec, unsigned long offset);
- 
- /*
-  * Try to see if it's a whole archive (vmlinux.o or module).
-@@ -295,6 +297,26 @@ static inline bool is_notype_sym(struct symbol *sym)
- 	return sym->type == STT_NOTYPE;
- }
- 
-+/*
-+ * ARM64 mapping symbols ($d, $x, $a, __pi_$d, etc) which mark transitions
-+ * between code and data.
-+ */
-+static inline bool is_mapping_sym(struct symbol *sym)
-+{
-+	return is_notype_sym(sym) && strchr(sym->name, '$');
-+}
-+
-+static inline bool is_data_mapping_sym(struct symbol *sym)
-+{
-+	const char *dollar;
-+
-+	if (!is_mapping_sym(sym))
-+		return false;
-+
-+	dollar = strchr(sym->name, '$');
-+	return dollar && dollar[1] == 'd';
-+}
-+
- static inline bool is_global_sym(struct symbol *sym)
- {
- 	return sym->bind == STB_GLOBAL;
-diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
-index 6957292e455e4..eb21f3bf3120b 100644
---- a/tools/objtool/klp-diff.c
-+++ b/tools/objtool/klp-diff.c
-@@ -20,6 +20,7 @@
- #include <linux/stringify.h>
- #include <linux/string.h>
- #include <linux/jhash.h>
-+#include <linux/kconfig.h>
- 
- #define sizeof_field(TYPE, MEMBER) sizeof((((TYPE *)0)->MEMBER))
- 
-@@ -213,6 +214,98 @@ static int read_sym_checksums(struct elf *elf)
- 	return 0;
- }
- 
-+/*
-+ * For non-x86, detect the offset from the function entry point to its
-+ * __patchable_function_entries (PFE) relocation target.  x86 doesn't need this,
-+ * it clones the __cfi/__pfx symbol instead.
-+ *
-+ * offset < 0 (before function entry):
-+ *
-+ *    CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS (arm64)
-+ *
-+ * offset == 0 (at function entry):
-+ *
-+ *    CONFIG_DYNAMIC_FTRACE_WITH_ARGS without BTI (arm64)
-+ *
-+ * offset > 0 (after function entry):
-+ *
-+ *    CONFIG_DYNAMIC_FTRACE_WITH_ARGS with BTI (arm64)
-+ */
-+static int read_pfe_offset(struct elf *elf)
-+{
-+	bool has_pfe = false;
-+	struct section *sec;
-+
-+	if (__is_defined(ARCH_HAS_PREFIX_SYMBOLS))
-+		return 0;
-+
-+	for_each_sec(elf, sec) {
-+		struct reloc *reloc;
-+
-+		if (strcmp(sec->name, "__patchable_function_entries"))
-+			continue;
-+		if (!sec->rsec)
-+			continue;
-+
-+		has_pfe = true;
-+
-+		for_each_reloc(sec->rsec, reloc) {
-+			unsigned long target = reloc->sym->offset + reloc_addend(reloc);
-+			struct symbol *func;
-+
-+			/* arm64 func */
-+			func = find_func_containing(reloc->sym->sec, target);
-+			if (func) {
-+				elf->pfe_offset = target - func->offset;
-+				return 0;
-+			}
-+
-+			/* arm64 CALL_OPS */
-+			func = find_func_by_offset(reloc->sym->sec, target + 8);
-+			if (func) {
-+				elf->pfe_offset = -8;
-+				return 0;
-+			}
-+		}
-+	}
-+
-+	if (has_pfe) {
-+		ERROR("can't find __patchable_function_entries offset");
-+		return -1;
-+	}
-+
-+	return 0;
-+}
-+
-+/*
-+ * Detect the size of the area before a function's entry point.  This prefix
-+ * area is used for CFI type hashes or ftrace call ops.
-+ *
-+ *  $d mapping symbol (arm64):
-+ *
-+ *    CONFIG_CFI
-+ *
-+ *  PFE before function entry, no symbol (arm64):
-+ *
-+ *    CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-+ */
-+static unsigned long func_pfx_size(struct elf *elf, struct symbol *func)
-+{
-+	if (__is_defined(ARCH_HAS_PREFIX_SYMBOLS))
-+		return 0;
-+
-+	/* arm64 kCFI $d data mapping symbol */
-+	if (func->offset >= 4 &&
-+	    find_data_mapping_sym(func->sec, func->offset - 4))
-+		return 4;
-+
-+	/* arm64 CALL_OPS (mutually exclusive with kCFI) */
-+	if (elf->pfe_offset < 0 && func->offset >= -elf->pfe_offset)
-+		return -elf->pfe_offset;
-+
-+	return 0;
-+}
-+
- static struct symbol *first_file_symbol(struct elf *elf)
- {
- 	struct symbol *sym;
-@@ -302,6 +395,9 @@ static bool is_special_section(struct section *sec)
- 		"__ex_table",
- 		"__jump_table",
- 		"__mcount_loc",
-+#ifndef ARCH_HAS_PREFIX_SYMBOLS
-+		"__patchable_function_entries",
-+#endif
- 
- 		/*
- 		 * Extract .static_call_sites here to inherit non-module
-@@ -931,7 +1027,7 @@ static struct symbol *__clone_symbol(struct elf *elf, struct symbol *patched_sym
- 				     bool data_too)
- {
- 	struct section *out_sec = NULL;
--	unsigned long offset = 0;
-+	unsigned long offset = 0, pfx_size = 0;
- 	struct symbol *out_sym;
- 
- 	if (data_too && !is_undef_sym(patched_sym)) {
-@@ -963,17 +1059,22 @@ static struct symbol *__clone_symbol(struct elf *elf, struct symbol *patched_sym
- 			void *data = NULL;
- 			size_t size;
- 
-+			/* Clone (non-x86) function prefix area */
-+			pfx_size = is_func_sym(patched_sym) ? func_pfx_size(elf, patched_sym) : 0;
-+
- 			/* bss doesn't have data */
- 			if (patched_sym->sec->data && patched_sym->sec->data->d_buf)
--				data = patched_sym->sec->data->d_buf + patched_sym->offset;
-+				data = patched_sym->sec->data->d_buf + patched_sym->offset - pfx_size;
- 
- 			if (is_sec_sym(patched_sym))
- 				size = sec_size(patched_sym->sec);
- 			else
--				size = patched_sym->len;
-+				size = patched_sym->len + pfx_size;
- 
- 			if (!elf_add_data(elf, out_sec, data, size))
- 				return NULL;
-+
-+			offset += pfx_size;
- 		}
- 	}
- 
-@@ -1251,21 +1352,41 @@ static int convert_reloc_sym_to_secsym(struct elf *elf, struct reloc *reloc)
- 	return 0;
- }
- 
-+/*
-+ * __patchable_function_entries relocs point to the patchable entry NOPs,
-+ * which are at 'pfe_offset' bytes from the function symbol.
-+ *
-+ * Some entries (e.g., removed weak functions, syscall -ENOSYS stubs) don't
-+ * have a corresponding function symbol.  Skip those with a return value of 1.
-+ */
-+static int convert_pfe_reloc(struct elf *elf, struct reloc *reloc)
-+{
-+	struct symbol *func;
-+
-+	func = find_func_by_offset(reloc->sym->sec,
-+				   reloc->sym->offset +
-+				   reloc_addend(reloc) - elf->pfe_offset);
-+	if (!func)
-+		return 1;
-+
-+	reloc->sym = func;
-+	set_reloc_sym(elf, reloc, func->idx);
-+	set_reloc_addend(elf, reloc, elf->pfe_offset);
-+	return 0;
-+}
-+
- /* Return -1 error, 0 success, 1 skip */
- static int convert_reloc_secsym_to_sym(struct elf *elf, struct reloc *reloc)
- {
- 	struct symbol *sym = reloc->sym;
- 	struct section *sec = sym->sec;
- 
-+	if (!strcmp(reloc->sec->name, ".rela__patchable_function_entries"))
-+		return convert_pfe_reloc(elf, reloc);
-+
- 	if (!is_sec_sym(sym))
- 		return 0;
- 
--	/* If the symbol has a dedicated section, it's easy to find */
--	sym = find_symbol_by_offset(sec, 0);
--	if (sym && sym->len == sec_size(sec))
--		goto found_sym;
--
--	/* No dedicated section; find the symbol manually */
- 	sym = find_symbol_containing_inclusive(sec, arch_adjusted_addend(reloc));
- 	if (!sym) {
- 		/*
-@@ -1293,7 +1414,6 @@ static int convert_reloc_secsym_to_sym(struct elf *elf, struct reloc *reloc)
- 		return -1;
- 	}
- 
--found_sym:
- 	reloc->sym = sym;
- 	set_reloc_sym(elf, reloc, sym->idx);
- 	set_reloc_addend(elf, reloc, reloc_addend(reloc) - sym->offset);
-@@ -1856,6 +1976,9 @@ static int validate_special_section_klp_reloc(struct elfs *e, struct symbol *sym
- 
- static int clone_special_section(struct elfs *e, struct section *patched_sec)
- {
-+	bool is_pfe = !strcmp(patched_sec->name, "__patchable_function_entries");
-+	struct section *out_sec = NULL;
-+	struct reloc *patched_reloc;
- 	struct symbol *patched_sym;
- 
- 	/*
-@@ -1863,6 +1986,7 @@ static int clone_special_section(struct elfs *e, struct section *patched_sec)
- 	 * reference included functions.
- 	 */
- 	sec_for_each_sym(patched_sec, patched_sym) {
-+		struct symbol *out_sym;
- 		int ret;
- 
- 		if (!is_object_sym(patched_sym))
-@@ -1877,8 +2001,23 @@ static int clone_special_section(struct elfs *e, struct section *patched_sec)
- 		if (ret > 0)
- 			continue;
- 
--		if (!clone_symbol(e, patched_sym, true))
-+		out_sym = clone_symbol(e, patched_sym, true);
-+		if (!out_sym)
- 			return -1;
-+
-+		if (!is_pfe || (out_sec && out_sec->sh.sh_link))
-+			continue;
-+
-+		/*
-+		 * For reasons, the patched object has multiple PFE sections,
-+		 * but we only need to create one combined section for the
-+		 * output.  Link the single PFE ouput section to a random text
-+		 * section to satisfy the linker for SHF_LINK_ORDER.
-+		 */
-+		out_sec = out_sym->sec;
-+		patched_reloc = find_reloc_by_dest(e->patched, patched_sec,
-+						   patched_sym->offset);
-+		out_sec->sh.sh_link = patched_reloc->sym->clone->sec->idx;
- 	}
- 
- 	return 0;
-@@ -2175,6 +2314,9 @@ int cmd_klp_diff(int argc, const char **argv)
- 	if (read_sym_checksums(e.patched))
- 		return -1;
- 
-+	if (read_pfe_offset(e.patched))
-+		return -1;
-+
- 	if (correlate_symbols(&e))
- 		return -1;
- 
-@@ -2188,6 +2330,8 @@ int cmd_klp_diff(int argc, const char **argv)
- 	if (!e.out)
- 		return -1;
- 
-+	e.out->pfe_offset = e.patched->pfe_offset;
-+
- 	/*
- 	 * Special section fake symbols are needed so that individual special
- 	 * section entries can be extracted by clone_special_sections().
--- 
-2.53.0
+Thanks for your review.
+
+On 5/11/2026 11:21 PM, Brian Masney wrote:
+> [ EXTERNAL EMAIL ]
+>
+> On Mon, May 11, 2026 at 08:47:28PM +0800, Jian Hu via B4 Relay wrote:
+>> From: Jian Hu <jian.hu@amlogic.com>
+>>
+>> In the A9 design, the PLL reset signal is configured as active-low.
+>>
+>> Add the flag 'CLK_MESON_PLL_RST_N' to indicate that the PLL reset signal
+>> is active-low.
+> This flag isn't in the patch. I assume that you mean
+> CLK_MESON_PLL_RST_ACTIVE_LOW?
+>
+> Brian
+
+
+Yes,  You are right, the flag should indeed be CLK_MESON_PLL_RST_ACTIVE_LOW.
+
+I will fix the description in the next version.
+
+Thank you for pointing it out.
+
+
+[......]
+
+
+Best regards,
+
+Jian
 
 
