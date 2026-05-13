@@ -4,77 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03A2CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 19:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A8FCD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 19:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=clnJtWJasHFx+KKfjBIgMipxjlx72ONnIo8zI8FF8rw=; b=nFdRiaNFOA/xN/7Wnhjg+ASLEX
-	4vCrxGRGcUn39EsbamzWU9felktI6kHdyOFQjKZ6HasBb/DHHnzz00Q+1SXIXygic/Ey6FqcSQ+UZ
-	Oy58aENLUDrgh2ydhgTGBa1urVL7fTyCgiu8JfQEdu8m47gMXC1d0u06UtXxECukat49X/xvAh/in
-	Oiv82vcEJytIo7Q6HI3+YS6OeGLKFavY5Hksi4JBpyGvKeYESzXF4eUMqNgS8rRLQA3EvQBhlLkEE
-	kmEqUyB7k5ZuAXdfRtZIdAm3FpjA6ULMKOgliCwDw/WUnp9vKdK/TkDkH5mDI9CS0/mbWaJUohPmh
-	e4vq1IpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g4Y3i2VzEUpUrHnVXfd2puXKp9894xeLrJot7HkksF4=; b=DdcbbVHcj+mUvbB8ezl8IZ1Xf5
+	7SplL/yng/Z0x3454stITYkwzQfV/x7JNHrGjnNe6p5vgmKNym/OQbVFcPyejQyzzNIQ1dIZbte9O
+	w0qGX6Jlqq4OdumhaRKjQTLKrXxZf/nkHLQC2MZPV8FZaqgHcPl+KkIWlrwpNthDqhHLnMsum8TI/
+	+lyKGjb5jxiTnHtSHAR+7IlEURyXPpr9IJsKiBLnvJE3VJa/gJnAqAc9gLgbJOSzT+yi/wz43Z5du
+	tSqm/GU8k7PsCuHhS3AJeBibodfRCZBhYBHX24ijdkuGlR8mUCAY5MzCCNMFKNYD8vj065mSs0vIJ
+	321BgdxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNEID-00000003TN9-2BFV;
-	Wed, 13 May 2026 18:26:49 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wNFJ6-00000003b1Z-3Anf;
+	Wed, 13 May 2026 19:31:48 +0000
+Received: from mail-yx1-xb130.google.com ([2607:f8b0:4864:20::b130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNEIB-00000003TMm-2MU6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 May 2026 18:26:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=clnJtWJasHFx+KKfjBIgMipxjlx72ONnIo8zI8FF8rw=; b=JiB/Vb/wPfgkIt93JXwHaLoY2W
-	A8TyP3PgDmKlQw8/YaN/ChxRpbSwn6mJtIMhnpGBkEj11d/GJjXE8nOnSHJ+m+06cHZnpnY2KHx+U
-	FBTsVQBuz1aUPYdzRkjnkRHb3HM37m7LBVDScJTz2H6Gx7PajOrsT6bkB06ztwQWypDmvZpNR+gC2
-	B8yIgWej63/qpTmmLjcicXW7Q7ad5ITV04LuqSNEzm6E2eWgfExCbeFo856KNVq1suRhexTGs/Hjl
-	MHDFR61K2htwqGKAWfiOdz5kEOe/i7PTuKk8mAi4xjNLTEgsiFUcPTH1oe0Dgl2yVb4W5TAvJsNlf
-	ovy3sn3w==;
-Received: from 54-240-197-236.amazon.com ([54.240.197.236] helo=u09cd745991455d.ant.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNEI8-0000000Byzv-1jWn;
-	Wed, 13 May 2026 18:26:44 +0000
-Message-ID: <95e411c3f238e29e29aa36331a7cc964c7393d2f.camel@infradead.org>
-Subject: Re: [PATCH] Documentation: KVM: Document guest-visible
- compatibility expectations
-From: David Woodhouse <dwmw2@infradead.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah
- Khan <skhan@linuxfoundation.org>, kvm <kvm@vger.kernel.org>, Linux Doc
- Mailing List <linux-doc@vger.kernel.org>, "Kernel Mailing List, Linux"
- <linux-kernel@vger.kernel.org>, Sean Christopherson <seanjc@google.com>,
- Jim Mattson <jmattson@google.com>, Oliver Upton <oupton@kernel.org>, Joey
- Gouly <joey.gouly@arm.com>,  Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Raghavendra Rao
- Ananta <rananta@google.com>, Eric Auger <eric.auger@redhat.com>, Kees Cook
- <kees@kernel.org>,  Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor
- <nathan@kernel.org>, linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>, kvmarm@lists.linux.dev,
- linux-kselftest <linux-kselftest@vger.kernel.org>
-Date: Wed, 13 May 2026 19:26:42 +0100
-In-Reply-To: <CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
-References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
-	 <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
-	 <57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
-	 <baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com>
-	 <86h5obya2r.wl-maz@kernel.org>
-	 <48b06e5655d56ff6eda30e563b34894fa0eb2f07.camel@infradead.org>
-	 <ba08dfe9-932b-40c3-9fdf-fc891d52e1d8@redhat.com>
-	 <d9d4471a7f5ec1e297b3ca07f42a59090aa91e15.camel@infradead.org>
-	 <CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-z2xhXgi/QSz0pyBgNgRN"
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1wNFJ3-00000003b05-25xX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 May 2026 19:31:46 +0000
+Received: by mail-yx1-xb130.google.com with SMTP id 956f58d0204a3-651c5d525f6so8399328d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 12:31:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778700704; cv=none;
+        d=google.com; s=arc-20240605;
+        b=R526m0Y8DAlVOYgGPQGbzMvab7rPGT+LppsjkAhSDGFO4bq2i2iD+nL0s1vRAGa2jw
+         kOZw3PsIbpum27gd+XUiAezY29A4xP3ip3CHoA7BvQsQyJhfSOEM+8xVkIzqK3xKrhUP
+         /SIQLhToSkdIXEe2QGKtRKXUPXBQ4uWDV5A2d3HAThTsd0OCSzx3nxvET8ZXuf6HUorY
+         ch/ljx27zksWzhURHGV+KiXR5OaKDLx9iY8C4l3Qgx/nP2p8vmxfUMHk3H3K8/IWbPgI
+         alDyce6R+ok4Ftp6xDCTFSwmPeKznLxjPNiM4Q1glfrc2vPCFZBXiVd1S8mVXanyN/Nn
+         y3hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=g4Y3i2VzEUpUrHnVXfd2puXKp9894xeLrJot7HkksF4=;
+        fh=mSlFAGCyg9KVvzseuiodveMp1s61D/LTfISpex9nRZw=;
+        b=eGxt5AfpYZWCStQOXz+q7W7lgn/3cOFW8eK0lKMBh/zYjV8IEhx187dfshKvSeZ2Rk
+         yKMHIod0KfMvZgjTav/ZNPPfi8eeHY/c28IWg+cZBQ0RmBb0fmfKv76d8u/ZYGwfXaDh
+         jt4lK3oSMBGgvuzPQIP5dR6x8UbvJhpfzoCrV4OFqoBVhFQYYGkGTsGzTIUVspgAFcp/
+         MFXQeKpoOHj2HiHkrN0pbUfa1sd6f+Q2tWRKHVNpIBD7gbS04B+5DYR5E36a4BQYQqTG
+         0WCudDeZZb34R8QjJLHmGztKHkbY/JvCfMGmFC/TUF0BiLdJ9h9PoalQJNCw/KeHebnO
+         hKdg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778700704; x=1779305504; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g4Y3i2VzEUpUrHnVXfd2puXKp9894xeLrJot7HkksF4=;
+        b=SXVDZBrywoEVYS9zbNFQRgV7Y423de6xOHM9fJD78DhK9lRQ0BmRDcs4lANBq16YbX
+         bAEstwimAYxzFUP3ZBpXvtkRoB9DSMtUINxUZ66AYDX7V8rt2KntbCh2TfehS7/I78AX
+         k4KPUMIUQw7Ka2/dBAcsFTaGG2OjwWC6SEJiIUgepqqUbgcXQP4A8oGGQjp+QStJ6bK9
+         1+8PjGfgpRVHttfGFD8w4LphCgTA8F+vV0cYDDldfBi7TG9WSXCEFB2Dp7XC+NGLpDQk
+         KaCfdpTmeBNk0XYDrUmaSEoLxc424Q0Rdf4zYFVE/1NnlqHnyu742hLSxh725Kl6juG2
+         hD9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778700704; x=1779305504;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=g4Y3i2VzEUpUrHnVXfd2puXKp9894xeLrJot7HkksF4=;
+        b=Yhncrhotes2/jDn3fvJeW02titu3nPDTxt42dKaOEQIWXKqUHPns4K5zra6sF+Bx+N
+         e2BO67sjxpN+cGQjoe9FQcuzcjVLpPpJaRkvSk+h9E4vZg9bPC08mTObSLWS5DVrQcZ2
+         xTzPF2J0KMhfSUMPZfyA4YNzvJ8y76wW/FJPq2PauY/0SN29GVXlTB6u6eWYthVAkIUX
+         50mc8AZXKuTfV0qX4yhTp7XvhCHvAsZsyj/MeeCnnej88fn+g/mglQXO2lphLl1smJIz
+         ZYASsLeRoSRcKnqpO+e0/8dmoeIDcFJ/i2sEhDGgIT/tMxpHJyM4w5CM16ZGfXyUy7ZX
+         37+A==
+X-Forwarded-Encrypted: i=1; AFNElJ/3iuHQ/WMqQIYHCD8pleSK9wXKeitQhRdG4apcsET4DnlFJS+Mzt0IWNUfG5MDaz/liDrITM2/ahZ7CA5JjSUr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzumej43u2VSJX5S9FWBty1ns8MDJdeE3XfJeEFFnfmkGiie5o+
+	NNSXnYaIaoFdb0ZRq+6xSo3g4am6HHnqtAc9JlCRrWMCfZeRv+o2rDcMogQ2UMDYKGLvgDL3GuK
+	3H9GlABNE0tfQQq0xY3Jdy9LBzPAE/go=
+X-Gm-Gg: Acq92OGZS1qZvEYmgb1ExkTUERmxM5UwRUR4ZhH4UD4FT7cQeJa0FG2Ofvrpz39fJgl
+	gCnZexLQy9wlKy4Yfms8ciyrS0XlIYV7SvZaL05GdM+ZbcD553763KF7o/RUyDt1kKuIP5Icg1h
+	0b69WiUqs3xezS60fQtMIj4bpphiHB3b+oT0ZVvyJrWLXaLkI6rFkQrF7TIg7J4VpilgUVSoTnb
+	+hqyOIIsBue5nTPOKEsIIlia/kGvdl05vYhrvRHY1LRPEbrj6eHrDbIA2Il6dNYaHlFRnvy2q6R
+	s4grgrEtCmujLn6hcy6LQTQUFhmxX/qEzNWkl1OYT0su7U1C65nPKGc/idzxqVNaM7zIbPsx2w=
+	=
+X-Received: by 2002:a05:690c:38b:b0:7bd:a50c:454c with SMTP id
+ 00721157ae682-7c6da2152a8mr42579647b3.19.1778700703738; Wed, 13 May 2026
+ 12:31:43 -0700 (PDT)
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
+ <20260505140516.1372388-5-ketil.johnsen@arm.com> <20260505181523.49a3d85c@fedora>
+ <afxVIuVVPisBQ9p_@e129842.arm.com> <20260507135356.5428d50d@fedora>
+ <agMvb_jeRsO7tSS-@e142607> <20260512161111.0cb7000e@fedora> <agNJasayW8VCHTiU@e142607>
+In-Reply-To: <agNJasayW8VCHTiU@e142607>
+From: Chia-I Wu <olvaffe@gmail.com>
+Date: Wed, 13 May 2026 12:31:32 -0700
+X-Gm-Features: AVHnY4JH8Ip_tVhSu6utyw5cZH7Mreif1YmCt2t2xjBKPcGuoTWdGxm_i0T-RLg
+Message-ID: <CAPaKu7QC7FdjL6m_OSb+E5aYKs6bmT-9DAHc5PC=XctCmRph2Q@mail.gmail.com>
+Subject: Re: [PATCH 4/8] drm/panthor: Add support for protected memory
+ allocation in panthor
+To: Liviu Dudau <liviu.dudau@arm.com>
+Cc: Boris Brezillon <boris.brezillon@collabora.com>, 
+	=?UTF-8?Q?Marcin_=C5=9Alusarz?= <marcin.slusarz@arm.com>, 
+	Ketil Johnsen <ketil.johnsen@arm.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T.J. Mercier" <tjmercier@google.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Steven Price <steven.price@arm.com>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	Alice Ryhl <aliceryhl@google.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Florent Tomasin <florent.tomasin@arm.com>, nd@arm.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_123145_550756_9DAC0C31 
+X-CRM114-Status: GOOD (  38.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,261 +136,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-z2xhXgi/QSz0pyBgNgRN
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, 2026-05-13 at 18:24 +0200, Paolo Bonzini wrote:
-> Il mer 13 mag 2026, 15:57 David Woodhouse <dwmw2@infradead.org> ha scritt=
-o:
-> > > x86 doesn't do bug-for-bug compatibility, thankfully - we have quirks
-> > > but only 11 of them, or about one per year since we started adding th=
-em.
-> > > =C2=A0 We only add quirks, generally speaking, when 1) we change the =
-way file
-> > > descriptors are initialized, 2) guests in the wild were relying on it=
-,
-> > > or 3) it prevends restoring state saved from an old kernel.=C2=A0 Is =
-there
-> > > anything else?
-> > >=20
-> > > https://lore.kernel.org/kvm/e03f092dfbb7d391a6bf2797ba01e122ba080bcd.=
-camel@infradead.org/
-> > > is an example of a bug that "no SW can make any reasonable use of".
-> >=20
-> > I actually believe that the focus on ICEBP was triggered by some weird
-> > gaming software's anti-DRM mechanism, and that it *did* affect actual
-> > guests in the wild?
-> >=20
-> > But yeah, *fixing* it should not have any adverse effects. That's the
-> > key.
->=20
-> Yep, so "bug for bug" is not it.
-
-Of course. I'm not discriminating between 'bugs' and 'features'. In
-this context I only care about guest-visible behaviour changes,
-whatever the reason.
-
-What I said was:
-> > > > Once a behaviour is present in a released version of Linux/KVM, we
-> > > > can't just declare it "wrong" and unilaterally impose a change in
-> > > > guest-visible behaviour on *running* guests as a side-effect of a
-> > > > kernel upgrade.
-
-And yes, you're technically right to challenge that phrasing of it. It
-does need the additional caveat of "...unless we are sure that changing
-it in either direction underneath running guests cannot cause
-problems", as discussed. That's the key for the ICEBP thing.
-
-> >=20
-> > > And besides, both miss the point of *configurability* which is the ba=
-sis of
-> > > it all.
-> >=20
-> > Hm, configurability *is* the point, I thought.
->=20
-> Yes, and configurability goes way beyond bugs/quirks, which are to
-> some extent a red herring. Configurability for example says that "KVM:
-> arm64: vgic: Allow userspace to set IIDR revision 1" shouldn't be
-> controversial at all.
-
-Indeed it shouldn't. And yet here we are.
-
-> > > So we have the third case, "restoring state saved from an old kernel"=
-.
-> > > If this case arises, I do believe that Arm will have to deal with it =
+On Tue, May 12, 2026 at 8:39=E2=80=AFAM Liviu Dudau <liviu.dudau@arm.com> w=
+rote:
+>
+> On Tue, May 12, 2026 at 04:11:11PM +0200, Boris Brezillon wrote:
+> > On Tue, 12 May 2026 14:47:27 +0100
+> > Liviu Dudau <liviu.dudau@arm.com> wrote:
+> >
+> > > On Thu, May 07, 2026 at 01:53:56PM +0200, Boris Brezillon wrote:
+> > > > On Thu, 7 May 2026 11:02:26 +0200
+> > > > Marcin =C5=9Alusarz <marcin.slusarz@arm.com> wrote:
+> > > >
+> > > > > On Tue, May 05, 2026 at 06:15:23PM +0200, Boris Brezillon wrote:
+> > > > > > > @@ -277,9 +286,21 @@ int panthor_device_init(struct panthor_d=
+evice *ptdev)
+> > > > > > >                     return ret;
+> > > > > > >     }
+> > > > > > >
+> > > > > > > +   /* If a protected heap name is specified but not found, d=
+efer the probe until created */
+> > > > > > > +   if (protected_heap_name && strlen(protected_heap_name)) {
+> > > > > >
+> > > > > > Do we really need this strlen() > 0? Won't dma_heap_find() fail=
+ is the
+> > > > > > name is "" already?
+> > > > >
+> > > > > If dma_heap_find() will fail, then the whole probe with fail too.
+> > > > > This check prevents that.
+> > > >
+> > > > Yeah, that's also a questionable design choice. I mean, we can
+> > > > currently probe and boot the FW even though we never setup the
+> > > > protected FW sections, so why should we defer the probe here? Can't=
+ we
+> > > > just retry the next time a group with the protected bit is created =
 and
-> > > introduce quirks or KVM_GET/SET_REG hacks.=C2=A0 Maybe it hasn't happ=
-ened
-> > > yet, lucky you.
-> >=20
-> > We literally have those mechanisms already.
->=20
-> I am not talking about guest-visible changes across save/restore here,
-> but rather about round-trips through userspace. For example, see the
-> effect of KVM_X2APIC_API_USE_32BIT_IDS on KVM_GET/SET_LAPIC: it
-> couldn't be made the default, because userspace expects to take old
-> data returned by KVM_GET_LAPIC and shove it into KVM_SET_LAPIC. Sucks
-> but can't be avoided.
+> > > > fail if we can find a protected heap?
+> > >
+> > > The problem we have with the current firmware is that it does a numbe=
+r of setup steps at "boot"
+> > > time only. One of the steps is preparing its internal structures for =
+when it enters protected
+> > > mode and it stores them in the buffer passed in at firmware loading. =
+We cannot later run the
+> > > process when we have a group with protected mode set.
+> >
+> > No, but we can force a full/slow reset and have that thing
+> > re-initialized, can't we? I mean, that's basically what we do when a
+> > fast reset fails: we re-initialize all the sections and reset again, at
+> > which point the FW should start from a fresh state, and be able to
+> > properly initialize the protected-related stuff if protected sections
+> > are populated. Am I missing something?
+>
+> Right, we can do that. For some reason I keep associating the reset with =
+the
+> error handling and not with "normal" operations.
+I kind of hope we end up with either
 
-Yes, you're right. And I fully expect and trust x86 to get that right
-and not break existing userspace in any way at all.
+ - panthor knows the exact heap to use and fails with EPROBE_DEFER if
+the heap is missing, or
+ - panthor gets a dma-buf from userspace and does the full reset
+   - userspace also needs to provide a dma-buf for each protected
+group for the suspend buffer
 
-But honestly, the bar for Arm is so low right now that anything I
-physically *can* work around in userspace, I'm prepared to tolerate.
+than something in-between. The latter is more ad-hoc and basically
+kicks the issue to the userspace.
 
-If KVM/arm did the equivalent of just changing the KVM_[SG]ET_LAPIC
-data without the KVM_X2APIC_API_USE_32BIT_IDS trick, I wouldn't even
-bat an eyelid; I'd just accommodate it and move on.
+For the former, expressing the relation in DT seems to be the best,
+but only if possible :-). Otherwise, a kconfig option (instead of
+module param) should be easier to work with.
 
-> > See commit https://git.kernel.org/torvalds/c/49a1a2c70a7f=C2=A0which ad=
-ds a
-> > new guest-visible feature in revision 3, but allowed userspace to
-> > restore the old behaviour by setting it to revision 2. All my patch abo=
-ve does, is make it possible to set it to revision 1 as
-> > well. Because https://git.kernel.org/torvalds/c/d53c2c29ae0d=C2=A0previ=
-ously
-> > changed the behaviour and bumped the default to 2 *without* allowing
-> > userspace to restore the prior behaviour, and we've been carrying a
-> > *revert* of that patch.
-> >=20
-> > Why would we *not* accept such a patch?
->=20
-> Agreed. Even ignoring your revert, there's no reason why any upgrade
-> past 49a1a2c70a7f has to be from after d53c2c29ae0d.
->=20
-> > Marc seems terribly insistent that we SHOULD NOT
-> > restore the behaviour that older KVM offered to guests, and we MUST
-> > change it unconditionally underneath running guests, making these
-> > registers writable on upgrade... and reverting them to read-only for
-> > running guests on a rollback.
-> >=20
-> > And there we do have a very different viewpoint.
->=20
-> That's the design decision I mentioned, of not starting the guest
-> configuration from a clean slate. I believe it complicates things
-> because you have to design from the beginning with the ability to
-> rollback to old versions and to potentially detect conflicts
-> introduced by the rollback. This is exactly why
-> KVM_X86_QUIRK_STUFF_FEATURE_MSRS was introduced: "KVM's initialization
-> of feature MSRs during vCPU creation results in a failed save/restore
-> of PERF_CAPABILITIES. If userspace configures the VM to _not_ have a
-> PMU, because KVM initializes the vCPU's PERF_CAPABILITIES, trying to
-> save/restore the non-zero value will be rejected by the destination."
-> (https://lkml.org/lkml/2024/8/2/1032)
-
-No, I don't think this is like that. In that case, IIUC it was at least
-*possible* for userspace to manually filter out capabilities and adjust
-things. But it kind of sucked if we *made* userspace do that and broke
-things for existing userspace, so of *course* x86 did better.
-
-I'm not even *dreaming* about a world where KVM/arm meets that bar.
-
-> For Arm, however, it may be too late to change it; if not, I'll
-> happily watch you argue with Marc about it.=C2=A0
-
-I'm not even going to try. You're right that it's the better option,
-and it most certainly *isn't* too late for Arm to choose to be a stable
-and mature platform providing continuity to userspace like x86 does.
-
-But we are *so* far from that right now; we're fighting even to have
-the *possibility* for userspace to remain compatible =E2=80=94 even if
-userspace *is* updated to know everything that the latest kernel
-changed underneath it.
-
-> But even without that,
-> this doc patch (and the idea that "Where a new kernel introduces a
-> guest-visible change, it provides a mechanism for userspace to select
-> the previous behaviour") should be uncontroversial.
-
-Indeed. And again, if you really want then you can add the caveat
-discussed above, "unless you're really sure it won't make *any*
-difference to the zoo of possible guests running Linux, Windows,
-FreeBSD, or any number of random home-grown or network appliance
-operating systems".
-
-Although I didn't think it really needed spelling out in the doc, just
-as I didn't think it needed spelling out earlier today (although you
-called my sentence nonsense purely because it lacked that obvious
-caveat, AFAICT).
+Looking at the userspace implementation, can we also have an panthor
+ioctl to return the heap to userspace? A dma-heap ioctl to query the
+heap size is also lacking.
 
 
---=-z2xhXgi/QSz0pyBgNgRN
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDUxMzE4MjY0
-MlowLwYJKoZIhvcNAQkEMSIEIDWa/wjM+JevO2SVdN9XcsfTvGPPU6ITNWhxBJljPklPMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAbxPu8r9Vmj/o
-vsJpgkdCEI+kmoZylwgpteXwA7sMtfMY47NwDvpSJCx/nGD/QMN0I8EteOZu4useWb9Ol6XJQvzJ
-abEwNsMxY5MhUERwLMo9LfY0aZoB56E/rfyD0GCSttJ9p8cFeCP+9mv9VAXneb8CSH1ozpMH3sJB
-fZz1uEvVXr9Oz22C3a/kAXsJbbPXqc3t8QAI16vxFB6TsSnYeyes1mD5dbC0z6xsJmlfGWVz/qob
-P8e/NSTIpDwz9JneRS8nssM82/FyEp8lyL8X1ldjqbdSEjGVUy+UvwpoMdYXEtZEn+etvPNGCXlb
-QeTywON/RcMwbx/zJkKskJtsK7WmD1s6QJglavZ1lllWv3MP3Qs7iXKt1qY1SGf4HZfFGJV/Vcgu
-wiIARdRSwCejuVNt88U38pFn9fQHdp+NT6E4qjhSXQikUaMsBljOUhiBvkD3NgmZC0dDrUO0EeUf
-Bz8H3nES4ba3XjkfLU7iwICMoIGCDIlE0JUA/K/vKSo/qnRKmQXh7kPNhypzSsbahs/nL5M7GL4z
-atEgaArWIrnJp7h/ca5ne5FiZSrvxRuqTABPKIma1xiUgUKTi2k61tQjAmDaMoQgbDzkDWbOGP5L
-kpYNrsXg+VY0zKcd1rQzChZ+N4tBJiIUfYKp618lgT9Zq/s2NG1LHhrgEJ4BzJ8AAAAAAAA=
-
-
---=-z2xhXgi/QSz0pyBgNgRN--
+>
+> Best regards,
+> Liviu
+>
+>
+> --
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+> | I would like to |
+> | fix the world,  |
+> | but they're not |
+> | giving me the   |
+>  \ source code!  /
+>   ---------------
+>     =C2=AF\_(=E3=83=84)_/=C2=AF
+>
 
