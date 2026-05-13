@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48038CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BA25CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K2K0ZIDmDouzIYjOgQrDHa+obDFg7JDm6ArC3vxrn58=; b=veZZ45ALAg+bzq2s3GtuXEpSn5
-	kSRK0rVtL+tIbambaHKKkffGoxWIiNcbOuTQrwZgjBPf7mYcTUyF2YYeDQNPMU384K5EbxyiSN9P0
-	SaHUuGwIIEmeif6DDNaaHSobxMDyKjoc1cZ3SgQWx4JVKi2DPQ6faNMXOToRqeH3TKZfBwuSoTxF7
-	FT1nnYEgtg7P/MWZaX8Klo0HeelDLYhRf5g3xOCKymxVeToGKxPr15iUGrk8inKkzZBeyzTeRoxr7
-	jX6doTSvkiEr92+vqCj25WaHDWqYQkGVAM4VIlCMSE9Iew5Tcx8ekPVpuYPFimJtNUM9Ntou2wQuv
-	lSgvQsjQ==;
+	bh=VvSwoxSiatVvxEWU9UXOMyAINfanvVCSTpfBdY/SsOE=; b=l2D0ITWbulTkRMCQK+mwpyzKiL
+	fog6+rBZmEqeqSF66irqXp8ctUNJ3/3098LVL4IsYP60wysAUsdCenVrPySirO5+5AAiHi40HZYNB
+	9N5MyYqPjynQQ22zhyuw1XitIDeB7njXfxMSiVpLXS9orw6MT0L9HMpl9qN7c9WGzGWI3E00ld4oJ
+	/0s3JM/IGgA0qVbiYzjlNjAfqOQPFtSMuVDYnmoVxoCD3O+mC7YtVZmLU+j0ys+YE24Rhrp+Ou+5G
+	GENNZgLllI9dj556pjFg93M2rSRa01HbsBziFrnR5MydcayaYyX/3PXg04Kkom6KMKYydY/lGtgn4
+	AHO8xmHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9m9-00000002mp7-1NpI;
+	id 1wN9m9-00000002mor-10Kr;
 	Wed, 13 May 2026 13:37:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9m5-00000002mna-1AH3
+	id 1wN9m5-00000002mmX-0DZU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:37:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46124442DF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 13:37:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28FB8C4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 13:37:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778679440;
-	bh=K2K0ZIDmDouzIYjOgQrDHa+obDFg7JDm6ArC3vxrn58=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=p1mkykF10sGMcnkI4zGd8+MrvAv07Rpfsg7wnzLYvADPoJxCSZcVKZ9hfsZPAbdOp
-	 aOaS0+HYEjjm72bGvt/08o4tg553smMoX86Y4IvYRTHuZ/waEgOET7tXGYrim4xjGF
-	 UJ9OYJBBNoiA7jvVe0ToHrH+vm3y4zcYzu6Z3EweI/SQ40ntFkFWgfZ1Pkhf/2anmw
-	 BNJR2+sA/h4iaJximBT7QNEOJcIsxDk3/MH0EIM1Uyu1dTSTb4V55q070M/zmHtXPE
-	 ncEgoJAMZLZu4Zlv8tSxCDfDOJP4NFgrYEug+dUn/HiK8HAynR4zVOxmGaR4p/exiW
-	 hvrfa13vSpqBQ==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5a87edf88b3so5302388e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 06:37:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ99C0nVHxymcyQ/X008+ePsFMilWCvxZcCZLft6+AugFNWqPVsGEVn4sFMIJ50S7+ZCk2cUyYkcm5xzv9V9BH0V@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8DHKNh9zZS22fxqSSBYCrtDeIpcqziVIR9TSWxY4HA3RbAo0N
-	zNR/iB2idyoPcccs/iKRaCFp/GTpQF8MjZmoF8XdWrO3Dvn6Y+YhZde3Aj5G7oseN7mp2o1yhWJ
-	mc5lP1Y3+XLKXVt73HikJU/dnEysURa4Y+aVLZGcMig==
-X-Received: by 2002:a05:6512:224b:b0:5a8:b8bf:f742 with SMTP id
- 2adb3069b0e04-5a8ef987a62mr1294266e87.20.1778679438834; Wed, 13 May 2026
- 06:37:18 -0700 (PDT)
+	Wed, 13 May 2026 13:37:23 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gFvdk4Ngdz9vfd;
+	Wed, 13 May 2026 15:37:14 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1778679434;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VvSwoxSiatVvxEWU9UXOMyAINfanvVCSTpfBdY/SsOE=;
+	b=gtigegsRzs/PH4410a+01bUv2j2KyUKcwfaWpppuhLu8m2I1YU6obCyivI5oHmQ8FNhKaL
+	m3BVDkT61G0Vc7uCDQDg0aJy+YBZaWKAS9a7QH47YSWoSGQqLkPQq/rQISbz+6ZKnND1wG
+	rjloA982IY9Bh+5iWCDDt7SlIVVhmJjgcn3l6z/aOYiwH3gyCCzr0gsb9iyvjMlpvY/TT7
+	d/NsBbk1oA9BAX6bN9oUxLurQk1s41uLejxMbzJ/KjHhOCtQpvr1lRJNlvayNHPOWG1Ozx
+	X55HErnWj2APUmPCcSW42iBSmhFzQt8tWNJ+LilyZpsZRoo7m8bewF818ApU1g==
+Message-ID: <c4e6e48d-9a8f-48f0-8666-22efebf86d8a@mailbox.org>
+Date: Wed, 13 May 2026 15:37:10 +0200
 MIME-Version: 1.0
-References: <20260513123758.4955-1-chaitanya.msabnis@gmail.com>
-In-Reply-To: <20260513123758.4955-1-chaitanya.msabnis@gmail.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Wed, 13 May 2026 15:37:06 +0200
-X-Gmail-Original-Message-ID: <CAMRc=Mc=kcWv1Eo=Z5j8C+O49skeLfsBOB+rEZBF=Gy-VwLC4w@mail.gmail.com>
-X-Gm-Features: AVHnY4IFyN40KMvyDcVQAeiIe3pL67V2UuNqra_cNWQHkSdc-tBvVbPq0awIgIc
-Message-ID: <CAMRc=Mc=kcWv1Eo=Z5j8C+O49skeLfsBOB+rEZBF=Gy-VwLC4w@mail.gmail.com>
-Subject: Re: [PATCH v4] dt-bindings: i2c: convert davinci i2c to dt-schema
-To: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
-Cc: andi.shyti@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, bartosz.golaszewski@oss.qualcomm.com, 
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/4] clk: renesas: r8a73a4: Implement ZT/ZTR trace clock
+ on R-Mobile APE6
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
+ <magnus.damm@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
+ Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+References: <20260502185557.93061-1-marek.vasut+renesas@mailbox.org>
+ <20260502185557.93061-3-marek.vasut+renesas@mailbox.org>
+ <CAMuHMdUXjwyVk2kuGAJOdPHw=qv_iwO2pSR3Rp+5ayoP2QG25w@mail.gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <CAMuHMdUXjwyVk2kuGAJOdPHw=qv_iwO2pSR3Rp+5ayoP2QG25w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: gnir56bo4zqqypyqe9fzb64orawq84oz
+X-MBO-RS-ID: c62258f6f52ae9b4f90
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_063721_332220_F449CC2F 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20260513_063721_389008_EB43B539 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,22 +84,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 2:38=E2=80=AFPM Chaitanya Sabnis
-<chaitanya.msabnis@gmail.com> wrote:
->
-> Convert the Texas Instruments DaVinci and Keystone I2C controller
-> bindings from legacy text format to modern dt-schema (YAML).
->
-> During the conversion, the `interrupts` property was made required
-> to match the strict requirement in the driver probe function. The
-> custom `ti,has-pfunc` and `power-domains` properties were also
-> properly defined to match SoC-specific hardware features.
->
-> Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
+On 5/13/26 3:15 PM, Geert Uytterhoeven wrote:
 
-I left my Ack under v3. Please keep tags when resending.
+Hello Geert,
 
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> On Sat, 2 May 2026 at 20:56, Marek Vasut
+> <marek.vasut+renesas@mailbox.org> wrote:
+>> Implement ZT trace bus and ZTR trace clock on the R-Mobile APE6.
+>>
+>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> 
+> Thanks for your patch!
+> 
+> /sys/kernel/debug/clk/clk_summary looks a bit off to me:
+> 
+>      zt                         0       0        0        208000000
+>      ztr                        0       0        0        277333334
+> 
+>> --- a/drivers/clk/renesas/clk-r8a73a4.c
+>> +++ b/drivers/clk/renesas/clk-r8a73a4.c
+>> @@ -43,6 +43,8 @@ static struct div4_clk div4_clks[] = {
+>>          { "m1", CPG_FRQCRA,  4 },
+>>          { "m2", CPG_FRQCRA,  0 },
+>>          { "zx", CPG_FRQCRB, 12 },
+>> +       { "ztr", CPG_FRQCRB, 16 },
+> 
+> 20?
+> 
+>> +       { "zt", CPG_FRQCRB, 12 },
+> 
+> 16? (12 is zx, cfr. above).
+> 
+> I.e. the same shifts as on R-Mobile A1.
+> 
+>>          { "zs", CPG_FRQCRB,  8 },
+>>          { "hp", CPG_FRQCRB,  4 },
+>>          { NULL, 0, 0 },
+> 
+> After fixing the shifts, I get:
+> 
+>      zt                         0       0        0        277333334
+>      ztr                        0       0        0        277333334
+> 
+> which looks much better. If you agree, I can fix this while applying.
+
+Yes please. I can confirm in APE6 RM v0.7 that the ZTFC is at bit offset 
+16 and ZTRFC at bit offset 20 . Thank you for spotting this.
+
+-- 
+Best regards,
+Marek Vasut
 
