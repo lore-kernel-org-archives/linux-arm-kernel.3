@@ -4,183 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C14F0CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66219CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QZ+zj71/YNH4j55OLbywI780kbju00ugzhWkkawyP88=; b=pfmznxcbJCrNIkZhksOzRw7gVx
-	7HuU8jmpbB1i/liHVJTzxl0qU+2FLAj15ToAFC3LI8lWd9n6h61UWpzqb36smZChV10IsSOxSc2Mp
-	za13Wm1YLmoUyCfHcVuM6Layawnw+oLWjqY+IahfanwWjJ/LwIUNP2wPH0EHtFBaH8YAnRGtMNU/m
-	NasW+Cvk5kQZzOZlKJrfq0d3N2/Gp7JmZeBJ8rCkyTV+22Nv+C6QQN3/02cjqHCAoVWi4xTTjj3Yr
-	SqywqmUp/DpseU2XQZGhZbcbZ0DRDFy2Y6T1YvOqExBXq4gjWwLnJOn935iCQQI9am2F7rubn7mZ9
-	nRLE/dyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=87q79VBUBAoV03ks74/SeOz/4GOZSstUrCW7DZkds1c=; b=iBz93m3BE8J3Y/J5r+nGYjkbga
+	bqciQ/IMcf2452utlMliOJOUMiZQs1BF3ZNfiBFzMl4/tEXIF673C29s0LRwchPiH1qzIGLDTXYwT
+	LkTnmoPt5vL7N6NdG7N0nmzC4YmVsPxXkWYjxSPMVrKjhio1bHNwtijPKDdsPmOV1xyOwooRAPrSa
+	AinAS5WFYkcA0c0jtIX1s8nrgUapH9KI7KRs8A2ZWwrJAwHN/FnZOCtUdyBIXOjihOLakmpMtIWro
+	W/BCNRXzaCzypDEy6JjJJIB0t46QqTlaBXjEqwnnwi0SGZLws2eFwRjC9UEpnY0C4zh7CVPmQDjmc
+	uzjNbdHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN6u1-00000002CFt-03rk;
-	Wed, 13 May 2026 10:33:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wN6vu-00000002CiX-0C3K;
+	Wed, 13 May 2026 10:35:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN6ty-00000002CEn-3hRk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 May 2026 10:33:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=QZ+zj71/YNH4j55OLbywI780kbju00ugzhWkkawyP88=; b=Lsr4n5KZgEwIE1drxVdw5AzEde
-	CEd7ci+tHFC1TQVsujxFvOPlRYEWaEmPgB5Y1vddPKHCHCol1VVwqbdkTwrnLjLwJUO3BdcWdq17J
-	fLvqWNlEM14ukhuYKDJ6PRiuBG5USyzm8ma5rx6DQJ7tDb1jlhUWajd7QrCrKAyJqDJs6Mw+LKynD
-	aIqwLbnzeOVzIpu7OFzsEDCqMG2h0RTWB0re90QzjJo1C8BuFoGCSYA1u7WRlc4+nsUaLRU+WnxtT
-	kLk6bkM5atWdfYffvsyFtGDOocNxmwdgKPUUq9UcaklO2Lg6sg4Jax6vNh4w4hzraB+WRLcSBfJ9u
-	8UnDXq0Q==;
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN6tv-0000000H9Rz-17ZC
+	id 1wN6vs-00000002Chf-0QrC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 10:33:17 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=cutOkbuqN8rfavyONrm+cgXL3YIqTY474rrqW4eHInZSJi0QNIElL6QRi9cfkfgVYob/sCa+BGAaexwHLvz4AmY9vvJMXP1sJovBfmuZFQdHV1Bu6BGh1PSnuVq98rcnhtg7nIio6HFm4Wjn2GGFzi4vZZp6hvVNo1TVabfgRTkg0/NJeJtVtm0fRZOEZ0yva9z9Q7EXYB+IYyOcnSuQMwqUFql7IuygVK7QdpeIuioFeKQePGNwuaHKD3t7DkHfFTPC7N5HjzGUO13AJBKb7ogFpZMLMsWcRX/ZWFNsGdGa3swA+j2ssh1cSiAuzBRPVE8ThWUdXsRD/IlH23XUxQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QZ+zj71/YNH4j55OLbywI780kbju00ugzhWkkawyP88=;
- b=qYCFf7iP8+gjQWhonAFMw8RwugVyWw9vrwFgErwk25n14GA0BM6b1eW5SDJX7lVNAJnBCRJ2KJqyDo2IGobBBjmBg2lQJQ8OCVRJ0J7soF844lacLDQcvbYY4ogdN4UhMCebAP3X1q0RXJUg+fb8b+9DeEU1ZzPHZhqtovAocE7rAAo70UISl/htSxtfDguOJXhOFthPY65mXh3BVAUVwANjyKnLE31QOb3EfBsVuR4jLeq9R0jo2Os6TPVqaWYM3Px2efohSJR/P01UtLxMsnAiK592mUTwGLxl77D437TrUGon7/DyXkfLjG1Da6+6YZOSvgnLH/LxCJgI2b76QA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
- 52.17.62.50) smtp.rcpttodomain=davemloft.net smtp.mailfrom=solid-run.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none
- header.from=solid-run.com; dkim=pass (signature was verified)
- header.d=solid-run.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=solid-run.com] dkim=[1,1,header.d=solid-run.com]
- dmarc=[1,1,header.from=solid-run.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QZ+zj71/YNH4j55OLbywI780kbju00ugzhWkkawyP88=;
- b=laP/+dcJ7hnPWsLQwXF82IN34AuIrN+/EN6V59gw70K0+OpfDcdR1NxScPtjIqvk5K6r5xp2eGwavax+s6pCyi3YuKHbMglsAVYI25oU8K/niehBCwDrDQ1yjBKnH2XsiwV/c48WiIBA78DsC/zuhIaSpC/XzysDN5rT9bndZbV5LWCIy8zZqFGhc2aUjvXlZyHMcd/UF8ZJAXS/RhhlCojx/RTX25QIyFo4pAXA1RCdMitHG7p5NbhZINhxCy+8II2pp+t39acf3yWYmW8q1BKdo4HfomrKN53dUl4uInsZxL+LBI6tgA15KkxyLUn1UDaXoR+1/FVFYEdyrxbePg==
-Received: from DB7PR05CA0014.eurprd05.prod.outlook.com (2603:10a6:10:36::27)
- by DB9PR04MB9555.eurprd04.prod.outlook.com (2603:10a6:10:303::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
- 2026 10:33:03 +0000
-Received: from DU2PEPF0001E9C2.eurprd03.prod.outlook.com
- (2603:10a6:10:36:cafe::32) by DB7PR05CA0014.outlook.office365.com
- (2603:10a6:10:36::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.12 via Frontend Transport; Wed,
- 13 May 2026 10:33:03 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 52.17.62.50)
- smtp.mailfrom=solid-run.com; dkim=pass (signature was verified)
- header.d=solid-run.com;dmarc=pass action=none header.from=solid-run.com;
-Received-SPF: Fail (protection.outlook.com: domain of solid-run.com does not
- designate 52.17.62.50 as permitted sender) receiver=protection.outlook.com;
- client-ip=52.17.62.50; helo=eu-dlp.cloud-sec-av.com;
-Received: from eu-dlp.cloud-sec-av.com (52.17.62.50) by
- DU2PEPF0001E9C2.mail.protection.outlook.com (10.167.8.71) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.8 via
- Frontend Transport; Wed, 13 May 2026 10:33:01 +0000
-Received: from emails-4184520-12-mt-prod-cp-eu-2.checkpointcloudsec.com (ip-10-20-5-220.eu-west-1.compute.internal [10.20.5.220])
-	by mta-outgoing-dlp-305-mt-prod-cp-eu-2.checkpointcloudsec.com (Postfix) with ESMTPS id 73AD27FFD0;
-	Wed, 13 May 2026 10:33:01 +0000 (UTC)
-X-Mailbox-Line: From b'josua@solid-run.com' Wed May 13 10:32:47 2026
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=roIFh9XGks5C4FJmoufRysIceQqfIB0PqyBiwv6NyFFGRM1RhOXDl0wiOFwj7Ovcgc0ot1G5gZ+Kr7oQye7M3CHwkCv8a2I1dUQpgRgHmCT0jO/Z0I/RaULCPJCz525VL0uBeakX02DeOWUIMKY5gXM1JAWQhVrAu0C2VOro6TEU87S/g1QwVs2T9D8sMgHna7O3WSfeSiXdloaVrYVRmjIohu5STVX4Ea4lqq4GVGU8Bs0bbhj790Ive129HmIaLOm0VOzqtrVauytcJgQpLkf9dZDlK/tgkAn60RlHdNkJQ50KM7Ll5W2iORMYJVlhnfqkc9h44mlXjuNCiYnTbQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QZ+zj71/YNH4j55OLbywI780kbju00ugzhWkkawyP88=;
- b=L3n0no6H0nOy3tEj8Z8vLPP0LKXJkCVdqwBloKejeOSE8IDg72NWC01/4Z2Cg4h5BxABZBU8jfJDoafqzYkzUKSJ0MJvClV18wqLkf4LS1otPrAYxct3V4v9zFgf/QvvBQLw8DL1Lqb+FrwPKfBDzdobbnb+eq1gWCogoyH/Xkr0gov8H/8qbzM0qfZVPf7YSGYpOHce1jCI6R0+GrZ3yxDlI4CqGcpAoN9dfdIRWroAk3Jrv3trgYt+qRS5YDfdjf0RnmedgR4XgHmdEzzbbxKSTNjHgVAskjaWEsTd71sYWOZ4H28u0k8Ht1LFbZrGuZxY0KIKZZta70PUBhkInA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=solid-run.com; dmarc=pass action=none
- header.from=solid-run.com; dkim=pass header.d=solid-run.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=solid-run.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QZ+zj71/YNH4j55OLbywI780kbju00ugzhWkkawyP88=;
- b=laP/+dcJ7hnPWsLQwXF82IN34AuIrN+/EN6V59gw70K0+OpfDcdR1NxScPtjIqvk5K6r5xp2eGwavax+s6pCyi3YuKHbMglsAVYI25oU8K/niehBCwDrDQ1yjBKnH2XsiwV/c48WiIBA78DsC/zuhIaSpC/XzysDN5rT9bndZbV5LWCIy8zZqFGhc2aUjvXlZyHMcd/UF8ZJAXS/RhhlCojx/RTX25QIyFo4pAXA1RCdMitHG7p5NbhZINhxCy+8II2pp+t39acf3yWYmW8q1BKdo4HfomrKN53dUl4uInsZxL+LBI6tgA15KkxyLUn1UDaXoR+1/FVFYEdyrxbePg==
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=solid-run.com;
-Received: from GVXPR04MB12057.eurprd04.prod.outlook.com
- (2603:10a6:150:313::24) by GVXPR04MB9802.eurprd04.prod.outlook.com
- (2603:10a6:150:110::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Wed, 13 May
- 2026 10:32:43 +0000
-Received: from GVXPR04MB12057.eurprd04.prod.outlook.com
- ([fe80::14f1:a127:2988:de5b]) by GVXPR04MB12057.eurprd04.prod.outlook.com
- ([fe80::14f1:a127:2988:de5b%7]) with mapi id 15.20.9913.009; Wed, 13 May 2026
- 10:32:42 +0000
-From: Josua Mayer <josua@solid-run.com>
-Subject: [PATCH v5 0/2] arm64: dts: imx8dxl: Add SolidRun SoM and
- HummingBoard
-Date: Wed, 13 May 2026 12:32:29 +0200
-Message-Id: <20260513-imx8dxl-sr-som-v5-0-d0899b371c38@solid-run.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAD1TBGoC/3XOTQ6CMBCG4auYrq3pdAoUV97DuKB/2kSoaZVgD
- He3spEILt8vmSfzIslGbxPZb14k2t4nH7ocxXZD9KXpzpZ6k5twxksmmKS+HaQZrjRFmkJLHQi
- wGgVChSQf3aJ1fpjA4yn3xad7iM/J7+Gz/qV6oIxqWzRYN9pUgIcUrt7Q+Oh2OrTkw/V8TtQLg
- mdConOclbxWDVsjcEYgWxA4fcGVLLWrCqXXCPElCoAFITJRCpSgUDnJzC8xjuMbH9EN23kBAAA
- =
-X-Change-ID: 20260408-imx8dxl-sr-som-f141ec343173
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
- Vladimir Oltean <olteanv@gmail.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Yazan Shhady <yazan.shhady@solid-run.com>, 
- Mikhail Anikin <mikhail.anikin@solid-run.com>, 
- Alexander Dahl <ada@thorsis.com>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Vladimir Oltean <vladimir.oltean@nxp.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, netdev@vger.kernel.org, 
- Josua Mayer <josua@solid-run.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-ClientProxiedBy: FR0P281CA0171.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:b4::12) To GVXPR04MB12057.eurprd04.prod.outlook.com
- (2603:10a6:150:313::24)
+	Wed, 13 May 2026 10:35:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A613B43995;
+	Wed, 13 May 2026 10:35:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E4AAC2BCB8;
+	Wed, 13 May 2026 10:35:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1778668515;
+	bh=wrLs4XjI3t/ijO5RtVIO8F98O7lgFKIA/HaZF6uxGvs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S1/SwdJJa09YLPCFAC2P5o1yPWweFkqpaHnJKKWpxS4jTyjiuYuowiWV+DjXnJRQY
+	 d8fW7n7Hl+EeMTIy1w9PR+CEFTJ1/clY7CakIoEyadMYojOZPfwQLKJQKP/iZiQiYe
+	 buhnfzR1vxZcI2oUhNB1f3bho5laJ53qJysSVZ9w=
+Date: Wed, 13 May 2026 11:59:38 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v4 2/2] coco: guest: arm64: Drop dummy RSI platform
+ device stub
+Message-ID: <2026051316-confidant-turtle-1e84@gregkh>
+References: <20260427061615.905018-1-aneesh.kumar@kernel.org>
+ <20260427061615.905018-3-aneesh.kumar@kernel.org>
+ <agM7VmoQ--ylUmyM@arm.com>
+ <yq5a7bp7u77f.fsf@kernel.org>
+ <2026051352-albatross-contents-7113@gregkh>
+ <yq5a4ikbu1w2.fsf@kernel.org>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12057:EE_|GVXPR04MB9802:EE_|DU2PEPF0001E9C2:EE_|DB9PR04MB9555:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f5799cd-6395-4623-c397-08deb0db0245
-X-CLOUD-SEC-AV-Info: solidrun,office365_emails,sent,inline
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|18002099003|921020|38350700014|56012099003;
-X-Microsoft-Antispam-Message-Info-Original: hRRm91c6LC+fprN8Z9ph3zF0B2bes3KMiNSZiLAHay/Aydvc31huChVMArZJC3b5tqwJHWC3pmESaRM3JVQ06LzMfDuazTp7i5DkQ28ZnMPomABTN2UjPq4rGIXKHPxZ5wI88dOkPqd9CDKFoXkVZK4uFnxFgqaJDSBJGBJzfTMjEpKcy3awJWIfZTZRdYC9hTBlQzTeQm7hc58rRx7atRkKwblzom7WNDmiYLugxj0IH8i3HuHthnQ0kPSyKDhaq3yA0uWlq/TFvmoJOdPUDZ/LS40OT5eEgtcctn1ee1+ScHq53zRRq6RBVKF18o44I4pmARfDOVL9iCYksEi5CIbs4/OZ53oo5V8Kvlibq+wNbeLFc+yC+4oHgfWXebvJCWNiokp/z1vpagiO+l0/xKfO/NpJ6V/fH4HtzFfrbf8+vHUInkFkRdTkG6frgGe4niOwUcsKKfFkaAZFOpdKgCTiVrVBwxnAjVP0KX+v9ddSPSWuqSfOF4r9CdhrgduM7maNPgv+76mDODDt3XBHhFzeWg3+ls9i5cD+PTsWUoK2rWrWotdNKk+Y+4oi9DuXWSbxH6sU9XW0jA0OND5J49soJw6rj4/uBX0D64rwFS5G2TEqW8AUkmOmJ4sQf8DTbU6w7lawMVB8A6nGSoktZT1rIDcVQ6dxE0G2WKSyV/8oRWvbvLOjA+tIQmV2LZ27ypcR7/UTGJ0r2jTnXMDw897UnI2hvsXazAvXzOjq9VC4bh3+5QJXf5vt0BjkcJELb7ntJ/m27izGPAP6AD1mLg==
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12057.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(18002099003)(921020)(38350700014)(56012099003);DIR:OUT;SFP:1102;
-X-Exchange-RoutingPolicyChecked: noK/1Wt2ZE2aN0HiR4eoYZSAYiaQ9ymjSzgYK8dM0KEF+wAWToejycgqtW8lpoc1Baeewl/nuZN05xCh3866EDhXeDJlR5GtTsa53f1CsSz2VlA82PFrpxMxilnXgYMbRnKaAP1qiWdmO6NEWZXOErX2taQ0r9dSzHP7IabsjeQYkkkb2dVa3FVTSKibHIcS0dHGcsosNLGqOYuAyVE5p5p/IEVB89POoK3Lzct4mdJb31s33m6pQwAMLP+wxbevBbGQEYJ92RkjBv+jwbm9mbAEo5QPCGNCrt4y9LxmY9Dlcnk/DT74ZIb277o7YJ5enTjAmOuvdK4pe6+YkiJlMA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9802
-X-CLOUD-SEC-AV-INT-Relay: sent<mta-outgoing-dlp-mt-prod-cp-eu-2-7.checkpointcloudsec.com>
-X-CLOUD-SEC-AV-UUID: 9364bee21a374a8e9819b3b0d55fba60:solidrun,office365_emails,sent,inline:932655bd921d1a8df2b3aed684bc64d7
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF0001E9C2.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 56dbbeb3-8135-44d7-1c94-08deb0daf6da
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|14060799003|35042699022|36860700016|82310400026|1800799024|13003099007|921020|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: IINjZmW8XcTInxcV/f7euE/wxocMq3bG9ApoybRN/U+hOHV7tpi/n/q0IhN7YrJfMRWljeb4AeRxn3AXY6/DtVCryFwSUGOETDtLCRgE3Wy5Kmicy10PopgkRC7t24JNRp/XtWPTjwpl5C5UOjrtb2kA4uu0btzv1ME0JYRdh88TtZMZ+r++/Z1Fvb785CiNEcYi6E71Lxz2TUKcBGonGAHZCHVdDccu4uEOsfiboUsNO1FGTp9XZesuUE05eepgZQ49EAg/fGFch1eVpCVulqzdjRIQ9x9pSndOWYv/TqJJAb0TtnZ3yhUDuL6381cu71C69o3Nui5IfvvCSF0aY6qPmTJ97iPJhNQJiDinAsY8gtVK03CyAg2IIv3R5L3RZdPNCZEFbXP7PUDONlEKfK4AD8q6gWEJtiiMB7j4bh4mIfHFZpjsBLtQL2cV8OEuvNkpZcJkPW7WQo1SlNhYleA6vZTEO/uOhp7SXw23hfZx2BbykQB5HKZaZ1t8nUWcodZs9FCP7cDvD1btumZo2U20hPzKzLC7+TEk4M5bhqKsdugxn3pTkC7y0kFy5LRn9MWW9dJ9s4iDxHfk/efcmsv17Vf1inAX28jnDxwrPxfyrrCe5s1x36gEfX8mFDRj7+eBdsZyFaTN96psPR2bVYi/+3lyXzzFgf8Cmn5WvhrbwUIPg/CuqY7+St4vT0d4QPGlA/RvlLE5BPWLY53UAlSSFLz1P8WfjLHcCDHs+mZBws1UFJ874C5fdzeMG8kwKK4p4b02Ka6CI/+Kaai12w==
-X-Forefront-Antispam-Report: CIP:52.17.62.50;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:eu-dlp.cloud-sec-av.com;PTR:eu-dlp.cloud-sec-av.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(14060799003)(35042699022)(36860700016)(82310400026)(1800799024)(13003099007)(921020)(56012099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: F92Ai06/JVyR+/5xZccGoXuFP05Y3sZOpWBXwqEeJf+xys8x9wKcCxf1mW8DZNH+IfXyDaMlMitNoqYDsXvC8/TIdmfIIdn1wGQeQIxzRoNxG82eBlcXNYfVQyty2tpu3UcjtzHCQIeLnYG+XZCPTb5+L3JmznThUX3lNqZMRAKTVzMu2+zWGhYcgrlYPVJlPBaZTnHYy/CNuYEkUkG/qB+qT+UuSLeHUdS5TtRCe8DwEeoELtW8Mt2ifC45Dsi5N9kAABWaqVZ8tdyQSOAOM9craVFKnpg5uXVAGRurnKBI3LiLXNRzmAbe8741U5HZZZvLieoWGw72noyC7Jt/cw+fW5yv3Kxw9UNDr5G1ID+r6BlMcwHh5U6TkP1NqdtghBqLNhfTluefrDHBn0QI4pEE2vSZ/FMReoDuWhnQq2BGtw2rCsBIdzynqokQP1AE
-X-OriginatorOrg: solid-run.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 10:33:01.5203
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f5799cd-6395-4623-c397-08deb0db0245
-X-MS-Exchange-CrossTenant-Id: a4a8aaf3-fd27-4e27-add2-604707ce5b82
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=a4a8aaf3-fd27-4e27-add2-604707ce5b82;Ip=[52.17.62.50];Helo=[eu-dlp.cloud-sec-av.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C2.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9555
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <yq5a4ikbu1w2.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_113315_773576_44EE3A1B 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20260513_033516_181683_DC67C74A 
+X-CRM114-Status: GOOD (  28.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,65 +82,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add bindings and description for SolidRUn i.MX8DXL based SoM and
-HummingBoard Telematics.
+On Wed, May 13, 2026 at 02:23:01PM +0530, Aneesh Kumar K.V wrote:
+> Greg KH <gregkh@linuxfoundation.org> writes:
+> 
+> > On Wed, May 13, 2026 at 12:28:12PM +0530, Aneesh Kumar K.V wrote:
+> >> Catalin Marinas <catalin.marinas@arm.com> writes:
+> >> 
+> >> > + Suzuki again
+> >> >
+> >> > On Mon, Apr 27, 2026 at 11:46:15AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> >> >> The SMCCC firmware driver now creates the `arm-smccc` platform device
+> >> >> and also creates the CCA auxiliary devices once the RSI ABI is
+> >> >> discovered. This makes the arch-specific arm64_create_dummy_rsi_dev()
+> >> >> helper redundant. Remove the arm-cca-dev platform device registration
+> >> >> and let the SMCCC probe manage the RSI device.
+> >> >> 
+> >> >> systemd match on platform:arm-cca-dev for confidential vm detection [1].
+> >> >> Losing the platform device registration can break that. Keeping this
+> >> >> removal in its own change makes it easy to revert if that regression
+> >> >> blocks the rollout.
+> >> >> 
+> >> >> [1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
+> >> >
+> >> > I wouldn't merge this now given that systemd checks this file. Could we
+> >> > have a symbolic link instead for some time until systemd eventually gets
+> >> > updated (years?).
+> >> >
+> >> 
+> >> I’ll add this in the next revision.
+> >> 
+> >> static int create_rsi_compat_link(struct device *target_dev)
+> >> {
+> >> 	struct kobject *platform_kobj;
+> >> 	/*
+> >> 	 * target_dev is:
+> >> 	 * /sys/devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0
+> >> 	 * Create compat link /sys/devices/platform/arm-cca-dev
+> >> 	 */
+> >> 	platform_kobj = target_dev->kobj.parent->parent;
+> >
+> > What?  That is crazy, you don't know that is always going to be ok.
+> >
+> >> 	return sysfs_create_link(platform_kobj,
+> >> 				 &target_dev->kobj,
+> >> 				 "arm-cca-dev");
+> >
+> > No, don't do that, if a driver calls a sysfs* function, something is
+> > almost always wrong.  Don't be making random sysfs symlinks please.
+> >
+> 
+> Sure, but could you explain why this is wrong? Below is the full version
+> of the updated patch.
+> 
+> coco: guest: arm64 Replace RSI platform device with compat symlink
+> 
+> The SMCCC firmware driver now creates the arm-smccc platform device and
+> registers the RSI device as an auxiliary device once the RSI ABI has been
+> discovered. This makes the arch-specific arm64 arm-cca-dev platform device
+> redundant.
+> 
+> Remove the arm64 platform device stub and let the SMCCC core manage RSI
+> device creation.
+> 
+> This changes the real device location from the old platform device path to:
+> 
+>   /sys/devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0
+> 
+> Keep userspace compatibility by creating a sysfs symlink at the old path:
+> 
+>   /sys/devices/platform/arm-cca-dev
+> 
+> A Debian Code Search check found systemd matching on the old
+> platform:arm-cca-dev device path for confidential VM detection. No other
+> userspace dependency on the old platform device path was found, but keeping
+> the compatibility symlink avoids breaking existing systemd-based detection
+> [1].
+> 
+> [1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
 
-Modify SJA1110 Ethernet Switch bindings to allow SPI Mode 0.
+Don't attempt to put symlinks between random devices in sysfs, that way
+lies madness and you will never get anything fixed.
 
-This patch-set is based on v7.0-rc2, because rc1 was experiencing
-deadlocks with imx8qxp clock driver.
+Just fix userspace, it shouldn't have hard-coded a device path in the
+first place, and you are thinking it would now use a different
+hard-coded device path?  Please do this properly.
 
-Signed-off-by: Josua Mayer <josua@solid-run.com>
----
-Changes in v5:
-- Change cpu port phy-mode to rgmii-id, and set zero delays. Delays are
-  added by connected ethernet switch port.
-- Added ethernet aliases for all switch ports.
-- Removed undocumented reset-duration-us property from usb modem node.
-- Fix T1 interface count in commit message.
-- Change USB-A Port dr_mode to host.
-- Add cap-sdio-irq for wifi.
-- Link to v4: https://lore.kernel.org/r/20260511-imx8dxl-sr-som-v4-0-64381b3bf80d@solid-run.com
+Again, there should never be any hard-coded device paths, they are free
+to move around and be renamed at any time.  Use the correct apis instead
+(walking all bus devices, looking at userspace attributes of classes,
+etc.)
 
-Changes in v4:
-- picked up acked-by adnrew lunn
-- Link to v3: https://lore.kernel.org/r/20260430-imx8dxl-sr-som-v3-0-ce2b86cf75bc@solid-run.com
+So your patch is ok, if you remove the symlink stuff.
 
-Changes in v3:
-- rebased on v7.1-rc1.
-- dropped dsa swtch port labels, should be handled by udev rules if
-  required.
-- Fixed spelling error in alias comment.
-- Dropped superfluous status okay properties from switch sub-nodes.
-- Link to v2: https://lore.kernel.org/r/20260409-imx8dxl-sr-som-v2-0-83ff20629ba0@solid-run.com
+thanks,
 
-Changes in v2:
-- Dropped accidental change to unrelated imx8mp-sr-som.dtsi file.
-- Fixed phy-mode on fixed link between cpu and ethernet switch.
-  (Reported-by: Andrew Lunn <andrew@lunn.ch>)
-- Removed spi-cpol property from ethernet-switch on spi bus, fixing
-  sja1110a driver probe.
-- Changed SJA1110 bindings to allow removing spi-cpol property.
-- Aligned comments on all ethernet switch port nodes to be consistent.
-- Dropped regulator-always-on from dsrc radio power-supplies.
-- Link to v1: https://lore.kernel.org/r/20260408-imx8dxl-sr-som-v1-0-ce5a39acd713@solid-run.com
-
----
-Josua Mayer (2):
-      dt-bindings: arm: fsl: Add SolidRun i.MX8DXL SoM and HummingBoard
-      arm64: dts: imx8dxl: Add SolidRun SoM and HummingBoard
-
- Documentation/devicetree/bindings/arm/fsl.yaml     |   7 +
- arch/arm64/boot/dts/freescale/Makefile             |   2 +
- .../freescale/imx8dxl-hummingboard-telematics.dts  | 536 +++++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx8dxl-sr-som.dtsi  | 458 ++++++++++++++++++
- 4 files changed, 1003 insertions(+)
----
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
-change-id: 20260408-imx8dxl-sr-som-f141ec343173
-
-Best regards,
--- 
-Josua Mayer <josua@solid-run.com>
-
+greg k-h
 
