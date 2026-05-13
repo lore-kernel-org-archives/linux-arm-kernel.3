@@ -4,102 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8172CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE43CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a38+h9bWp3RlleTL1QjZzeIbioOA+x/4L20QS9dVRSE=; b=RMsaYe7tk3VanFE+M4ctWs3oOd
-	PUkN/hOjmdKzGNrSzQSCeET+R3actjlaEoIp+bA2KOl4Ox7VTzunceZiXAqFA7Kvyu3Bi+J6RTaaI
-	HKeRShAAPKzlwnbcDCSvJX6xOqqW2ImolymbCaFiY1jirRE5+JttAyPxX4ukmu/yscjwb2H2PHlLg
-	GMfSj1OyHM1r5x5J6iT3bgM3ezkaUjoiWkrtn1DFqZZ0A0YGuEpZzqdJN5gmiUqFqQCe0R9cJSSO6
-	R2MR/z+gdL+SMDo46ux10Eb5yPSYhjAOidXbxPf2zdCjo7V6Qmfht8dsvz8O9bqPiu4RwkrAJQd3o
-	TL5B7dig==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=47RwooVING59/ooQWdA7SNr7Zs32TKeNO1snt4GymBg=; b=cPaCKjqCnCpyUy
+	7/HBkrPBjT9i4edVTZ2hd2P7hkm7+bKbDm+/10f76s3nISYnjBZnM6Q+wnpXNJjdfQqLKjGOebnzJ
+	COfzrgcoO+5DsP++KPj5rQVw6A6mcQXpBYE11DyxZzQDKU+6Dm5C3+Mzu9mEhuT6nONSgPr7Q2ACl
+	mMm2pGJt+k+A8HexwgDcvEhP0KyOQj/ccKJ+gjnpbiBmg00bLiJc/ih+2+A8clrmhawWwtB10imIH
+	FLIR0lffH9IhmW3UPkL5wDaANovu9jCYp4FXRaRcvJ5QpDEq8SkrkaRG7w7PHoe9vJyzY7dGSOM5t
+	vSjxql4eSzyLbRtTQ5rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9GD-00000002bB5-2Xvm;
-	Wed, 13 May 2026 13:04:25 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1wN9Gl-00000002bHl-3wXM;
+	Wed, 13 May 2026 13:04:59 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9GB-00000002b9i-1TUI
+	id 1wN9Gj-00000002bH1-1AgI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:04:24 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-44c350a5b87so4246269f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 06:04:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1778677460; x=1779282260; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=a38+h9bWp3RlleTL1QjZzeIbioOA+x/4L20QS9dVRSE=;
-        b=BDx5nDw1u/8SjAR2ZFtEPppKlQs3zmxra9Jhi207CSL9qbAh0Tp2v8eRFaSAaYhPgy
-         t9LJZg8Qfx3JS3/MexjA46ZcM++66167KKNwgHoIKyaWkmE5w7n4QfTTJOn74sXLOyOt
-         1UwqBaj/tWf9ott8Lyc/9BMhqzwJ8cgNEorWGa9r4fzjPXQmuvA5yMbw/voSESxg3Red
-         lNfFeJSH4BvR/5DU0MLtxl2dfmyJHlHh5iqRowzx4ov0Egv2sI/mBEtgVu8TBUhFElDK
-         vIQiijal2lG/K7AjI/oqvTTFkL9xSm2lnBf462phogb1g3iOszsVWKalJcFecbRwKGd3
-         IEoQ==
+	Wed, 13 May 2026 13:04:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1778677495;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=47RwooVING59/ooQWdA7SNr7Zs32TKeNO1snt4GymBg=;
+	b=Ao71FOjWBNFAdAV8eU4H8HOV/liwQgEWoMNFARWFMxj2yl2uzyO9MhRbuZSehybbTmAwZz
+	fmL1S4pU/WOcZGH03Il2NvaAI4/hOXVB9AaHXK+0No3fW9BbzmBqEXeK8+RlmoAYws0Mz5
+	EgJ2cjOIC291YrvL9P0/HkaBgb+ZN+U=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-235-c717OVjhMFmfoI7pVV25wA-1; Wed, 13 May 2026 09:03:21 -0400
+X-MC-Unique: c717OVjhMFmfoI7pVV25wA-1
+X-Mimecast-MFC-AGG-ID: c717OVjhMFmfoI7pVV25wA_1778677401
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-48fc9084562so12471165e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 06:03:21 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778677460; x=1779282260;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=a38+h9bWp3RlleTL1QjZzeIbioOA+x/4L20QS9dVRSE=;
-        b=IxxDg0ZTeTd3byGFqR1KcVnny1AvaloeNLDaeu2cAshwow4otyI+Xh072+aXHg4Cpv
-         eWti4PbrLuQ9onuI8M122tWTU57XgrDAp4u4Z36FuP6+7MuAqHXtQFyYXP60YuVEdxjZ
-         v3McEn4i2GSX5x+bUi8F+aa0Dr1NFDUCAgvsXVAGnmf7KLlk4zlyMIe1zqNyRNg2XoUn
-         ORznJHJKs0oz/OQM7UqzaKVOPYY1r/SSLNstWkAQ9Fe83ODmZqARSZ7Bc/Ft9Z+EvlX8
-         isEMfNBxrP+Ca4YpbQByP0HOfxYwxxYfXNbpKNA1rcSLqd0AwduJpxTdERVt1wa5b2Ef
-         RKzQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/RTGqD+Z/3rKgrFuQ3jdRIpS/TdeN+AmzrzflPGtGI0vEWa6h6BakuLhOKUFaAQmUXn99Dpbzqjdk0L2+o9aDg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHQPa2TroOnxMEqeGL6iSCU4xmIPP+mxXhwRA48sFl8Ae0YHSj
-	6CUppwL3Bry7f7a0nsoTUeFSBCUbSi9o87y4FVHtnd/shxeN873odEmB355xEwtYWto=
-X-Gm-Gg: Acq92OEa6Y1VHB4i2+uGe9SW0IRRK//JmKjFi38Un+nW5D3I7Afpd4aUzvHCnuW3/xT
-	fzpvCN1b9G9aBIfltAYT3t7gVbkd6AX++/RvBk5p+1EEbKU1F6Zk8dEGLksuxGRGulUopdD6Kvz
-	d79EJ5sZIYC0oqXOK1weh/y0QWMZcdzUVlwuVIz+HF165f6ha7RQtkhv+BM0xRGTpOq5jaQic3h
-	wKStDi8FrhnSJ23cw8Uh41cQAwV1ofpF5byn97OfY2RGQ1KsIqSnNsy42eLJJT3YXJMiak0DuMX
-	UvaCse0x4E+nu6kULmQfwDf7TxJsGmCRIUKHDGWF7E1GYXkIiWf2yAqAq9CBJSWumqENSzX7+x5
-	3GuGkufp+t9A2ujhguQpBtv3THxjfd8815kra13S/t/WyQY9Gve8dQRj14R9FpAgMhbLEAAby6+
-	xOE/oytbSZwxKtCqaDPtH92GcO3a4794bdTYAv
-X-Received: by 2002:a05:6000:1acc:b0:43d:7e11:1b72 with SMTP id ffacd0b85a97d-45c57de9e7emr5052075f8f.9.1778677459533;
-        Wed, 13 May 2026 06:04:19 -0700 (PDT)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45ba2aaec3asm11115693f8f.15.2026.05.13.06.04.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 06:04:18 -0700 (PDT)
-Date: Wed, 13 May 2026 15:04:15 +0200
-From: Petr Mladek <pmladek@suse.com>
-To: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Clark Williams <clrkwllms@kernel.org>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH RFC] printk: remove BOOT_PRINTK_DELAY
-Message-ID: <agR2z4r5sJvAjm1a@pathway.suse.cz>
-References: <20260505-printk_delay-v1-1-5dba51d7f17c@thegoodpenguin.co.uk>
- <afn-H1EQJxnDs0BZ@pathway.suse.cz>
- <CALqELGxhXO=kzh9bpztd9=Ug9ykPL2NALo9Apq3=Oj6aeiEcKg@mail.gmail.com>
+        d=1e100.net; s=20251104; t=1778677400; x=1779282200;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:reply-to:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=47RwooVING59/ooQWdA7SNr7Zs32TKeNO1snt4GymBg=;
+        b=tJe6B+hHRoiwiTazdG77V2aTbZGWvy0bMiOZS/LjmXvVnQIKlpbQPsX9iP5TVtGsY2
+         FgBobtkV3kQiSB7hwHfYxP1uoRhK1N4Of/wDgD7Jh06rQ99nZaMb1BgO0E+q1BVxEhNb
+         71xsPiLtZvdBGpOfCgin+BOUU4mTPkzqIXSAQcCpBY/9zWbfnwIhyEFxnO9fw9mD2U8k
+         H7kRbIYP7AnjTjtxxHoasDDTqvXPMByg3tv4EVkTAhGtB36g0I2Hik70gyoxuwwhg7zH
+         J7YsxzgnlgT/QMO/JoZcfe5FJlC7A+LFmyK2skAJrKbRcbZN/DykGlXhQi8wfNazf9Fy
+         SRNA==
+X-Forwarded-Encrypted: i=1; AFNElJ+L2vMNL61G9ON9kLbAYWDF2C1DvNpgCE9kFfNN/HM3P5zGbGjOtBxJQ/TowF6wWdEn4vCCToHvQd3Ou1i52Fcr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfJyQhCjKwK2wGbtxj1EPdm+dK291oJRnRtO3kb5JtUFtl9SJG
+	eDJZI9epW2qkGv+UPQZMeI16tZW8EsG7taqxTIJJv6y4WWmiL2UKF2MDBFDp3EDfhEXqGO8Dx8T
+	EROxshfAwT5zFgMOkVHf4K/2OxfyDNngeLQ4xSDZ2/iZS86fFMRU5R4efmOZTDBYusRZSf9Kuim
+	Za
+X-Gm-Gg: Acq92OF0/DEujU231nVBjifSBHU97RMFWj9OmV96W4TAQ6PEBDImD3vzmvYHoj+CqPS
+	rgt0XcxWrSO4VSV3HesqcBURJorGJDTGBeoyngMVMw5jst6T1W2EtyY24EldcNTRDbTepFvzk7K
+	rgVHI0tVmIm4dxZqbfYyd0clvY31zWHWlkc7cjQZWCQ+WIAWP6Pj0m3PeR0GKOr4cWsXnN2i/T1
+	SBndXwdl77C63FBoZibYq835zq6H40ayoe5VWQHAUl9EHn4dQiOGLyx2+izi9q1McP8G0ZnkcCB
+	W1HJ3QnCTvmMzpvpptGZikDZJmp+/KhIrW9TlAS4p5c58FwxWuCE9MZsPdarq4Jqa+orYxeSy6H
+	T6OUcSefk9mFGlGsLjXQPXj4AXc6Fhs6kV/kcgA+5CN6BENywZZFfWIuNUT6aoYCJp3l3Gw==
+X-Received: by 2002:a05:600c:19cd:b0:48f:be94:d82c with SMTP id 5b1f17b1804b1-48fce9e1a34mr42450295e9.19.1778677400512;
+        Wed, 13 May 2026 06:03:20 -0700 (PDT)
+X-Received: by 2002:a05:600c:19cd:b0:48f:be94:d82c with SMTP id 5b1f17b1804b1-48fce9e1a34mr42449655e9.19.1778677399778;
+        Wed, 13 May 2026 06:03:19 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:f0e:9070:527b:9dff:feef:3874? ([2a01:e0a:f0e:9070:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4549120f1f9sm41638565f8f.24.2026.05.13.06.03.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 May 2026 06:03:19 -0700 (PDT)
+Message-ID: <c3848d24-f924-497b-b5e7-3ef3a07c3a6b@redhat.com>
+Date: Wed, 13 May 2026 15:03:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CALqELGxhXO=kzh9bpztd9=Ug9ykPL2NALo9Apq3=Oj6aeiEcKg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Documentation: KVM: Document guest-visible compatibility
+ expectations
+To: Paolo Bonzini <pbonzini@redhat.com>, David Woodhouse
+ <dwmw2@infradead.org>, Marc Zyngier <maz@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Sean Christopherson <seanjc@google.com>,
+ Jim Mattson <jmattson@google.com>, Oliver Upton <oupton@kernel.org>,
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Raghavendra Rao Ananta <rananta@google.com>, Kees Cook <kees@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Nathan Chancellor <nathan@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kselftest@vger.kernel.org
+References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
+ <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
+ <57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
+ <baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com>
+ <86h5obya2r.wl-maz@kernel.org>
+ <48b06e5655d56ff6eda30e563b34894fa0eb2f07.camel@infradead.org>
+ <ba08dfe9-932b-40c3-9fdf-fc891d52e1d8@redhat.com>
+From: Eric Auger <eric.auger@redhat.com>
+In-Reply-To: <ba08dfe9-932b-40c3-9fdf-fc891d52e1d8@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: bif_kZBEnryJrZAPmLTmLglycifOYzg076LQKXe1YJc_1778677401
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_060423_420887_2D85BD53 
-X-CRM114-Status: GOOD (  55.67  )
+X-CRM114-CacheID: sfid-20260513_060457_396887_3C895924 
+X-CRM114-Status: GOOD (  40.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,144 +126,116 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: eric.auger@redhat.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed 2026-05-06 23:37:01, Andrew Murray wrote:
-> On Tue, 5 May 2026 at 15:26, Petr Mladek <pmladek@suse.com> wrote:
-> >
-> > On Tue 2026-05-05 14:45:00, Andrew Murray wrote:
-> > > The CONFIG_BOOT_PRINTK_DELAY option enables support for the boot_delay
-> > > kernel parameter, this allows for a configurable delay to be added before
-> > > each and every printk is emitted. This is DEBUG_KERNEL option that is
-> > > helpful for debugging as kernel output can be slowed down during boot
-> > > allowing messages to be seen before scrolling off the screen, or to
-> > > correlate timing between some physical event and console output.
-> > >
-> > > However, since the introduction of nbcon and the legacy printer thread for
-> > > PREEMPT_RT kernels, printk records are now emited to the console
-> > > asynchronously to the caller of printk and its boot_delay. The delay added
-> > > by boot_delay continues to slow down the calling process, but may not have
-> > > any impact to the rate in which records are emited to the console. For
-> > > example, if delay_use is set to 100ms, and the printer thread has a
-> > > backlog of more than 100ms, perhaps due to a slow serial console, then the
-> > > records will appear to be printed without any delay between them.
-> > >
-> > > It would be unhelpful to add a delay to the printer thread, and it would
-> > > not be possible to disallow selection of CONFIG_BOOT_PRINTK_DELAY at build
-> > > time as it's not possible to detect which consoles are nbcon enabled at
-> > > build time. Therefore, let's remove this feature.
-> >
-> > Heh, Randy proposed to remove "boot_delay" few days ago.
-> > This RFC goes even further and remove both "boot_delay" and
-> > "printk_delay".
-> 
-> Apologies, I didn't see this. I'll co-ordinate with Randy.
+Hi,
 
-No need to apologize.
+On 5/13/26 2:43 PM, Paolo Bonzini wrote:
+> On 5/13/26 11:24, David Woodhouse wrote:
+>> On Wed, 2026-05-13 at 09:42 +0100, Marc Zyngier wrote:
+>>> If userspace is not a total joke, it will read all the ID registers,
+>>> and configure what it wants to see, assuming it is a feature that can
+>>> be configured (not everything can, because the architecture itself is
+>>> not fully backward compatible).
+>>>
+>>> Yes, this is buggy at times, because the combinatorial explosion of
+>>> CPU capabilities and supported features makes it pretty hard to test
+>>> (and really nobody actually does). But overall, it works, and QEMU is
+>>> growing an infrastructure to manage it in a "user friendly" way.
+>>
+>> Yes, that is precisely what I'm asking for. I'm prepared to deal with
+>> the fact that KVM/Arm64 is not a stable and mature platform like x86
+>> is, and that userspace has to find all the random changes from one
+>> version to the next, and explicitly pin things down to be compatible.
+>>
+>> All I'm asking for is that KVM makes it *possible* to pin things down
+>> to the behaviour of previously released Linux/KVM kernels.
+>>
+>>> But really, this isn't what David is asking. He's demanding "bug for
+>>> bug" compatibility. For that, we have two possible cases:
+>>
+>> No, I am not asking you to meet that bar. I merely observed that x86
+>> does and that it would be nice. But we are a *long* way from that.
+>
+> x86 doesn't do bug-for-bug compatibility, thankfully - we have quirks
+> but only 11 of them, or about one per year since we started adding
+> them.  We only add quirks, generally speaking, when 1) we change the
+> way file descriptors are initialized, 2) guests in the wild were
+> relying on it, or 3) it prevends restoring state saved from an old
+> kernel.  Is there anything else?
+>
+> So you're asking something not really far from this:
+>
+>>> - this is a behaviour that is not allowed by the architecture: we fix
+>>>    it for good. We do that on every release. Some minor, some much more
+>>>    visible. And there is no way we will add this sort of "bring the
+>>>    bugs back" type of behaviours. Specially when it is really obvious
+>>>    that no SW can make any reasonable use of the defect. We allow
+>>>    userspace to keep behaving as before, but the guest will not see a
+>>>    non-compliant behaviour.
+>
+> ... where for example
+> https://lore.kernel.org/kvm/e03f092dfbb7d391a6bf2797ba01e122ba080bcd.camel@infradead.org/
+> is an example of a bug that "no SW can make any reasonable use of".
+>
+>> Marc, this is complete nonsense and you should know better.
+>> Once a behaviour is present in a released version of Linux/KVM, we
+>> can't just declare it "wrong" and unilaterally impose a change in
+>> guest-visible behaviour on *running* guests as a side-effect of a
+>> kernel upgrade.
+>>
+>> The criterion for *KVM* to remain compatible is "once it has been in a
+>> released version of the kernel". Not "once it is in the architecture".
+>
+> That is *also* obviously nonsense though, isn't it (see example
+> above)? The truth is in the middle, "once it is in the architecture"
+> is likely too narrow but "once it is in a Linux release" is way too
+> broad.  And besides, both miss the point of *configurability* which is
+> the basis of it all.
+>
+> The main difference between x86 and Arm is the default state at
+> creation; x86 defaults to a blank slate, mostly; and when we didn't do
+> that, we regretted it later (cue the STUFF_FEATURE_MSRS quirk).  It's
+> too late to change the behavior for Arm, but I think we can agree that
+> patches such as
+> https://lore.kernel.org/kvm/20260511113558.3325004-2-dwmw2@infradead.org/
+> ("KVM: arm64: vgic: Allow userspace to set IIDR revision 1") are what
+> the letter and spirit of this proposal is about.
+>
+> Marc did not mention having to deal with guests in the wild.  Let's
+> ignore it for now because even defining "guests in the wild" is hard;
+> and anyway it's not related to the patch that triggered the discussion.
+>
+> So we have the third case, "restoring state saved from an old kernel".
+> If this case arises, I do believe that Arm will have to deal with it
+> and introduce quirks or KVM_GET/SET_REG hacks.  Maybe it hasn't
+> happened yet, lucky you. 
 
-> > Honestly, I do not feel comfortable by this. The delay seems to
-> > be handy when there is only graphical console. I would suggest
-> > to do:
-> >
-> >    1. Obsolete "boot_delay" with "printk_delay" as
-> >       proposed in Randy's thread, see
-> >       https://lore.kernel.org/all/afn2sYKKsqG4QBVX@pathway.suse.cz/
-> 
-> Your suggestion was:
-> 
-> " 1. Add "printk_delay" early_param() which would allow
->      to set "printk_delay_msec" via command line."
-> 
-> And I assume the intent is to replicate the functionality of
-> boot_delay, by allowing printk_delay to be used to introduce delays
-> from early_param time? Thus deprecating delay_use.
+for info, this qemu series was merged laterly.
 
-Exactly.
+[PATCH v10 0/7] Mitigation of "failed to load
+cpu:cpreg_vmstate_array_len" migration failures <https://lore.kernel.org/all/20260420140552.104369-1-eric.auger@redhat.com/#r>
+https://lore.kernel.org/all/20260420140552.104369-1-eric.auger@redhat.com/#r
 
-> 
-> "  2. Modify boot_delay_setup() to set "printk_delay_msec" as well.
->      In addition, it might print a message that it has been
->      obsoleted by "printk_delay" and will be removed."
-> 
-> Given the intent may be to deprecate boot_delay, I'm not sure that
-> setting printk_delay_msec as well would be beneficial, as this would
-> extend its functionality to add delays beyond SYSTEM_RUNNING which is
-> where boot_delay stops. Unless you mean to use boot_delay as an alias
-> to an early_param hook for printk_delay?
+It brings an infrastructure to mitigate some migration failures accross different kernel versions.
 
-I do not think that this is a big problem. As you write below, it is
-a debug feature. IMHO, people debugging boot problems won't mind when
-the delay continues beyond SYSTEM_RUNNING. And if anyone complains
-than we would at least know that there are people using this feature ;-)
+Also there is [PATCH v4 00/17] kvm/arm: Introduce a customizable aarch64 KVM host model, under review
+https://lore.kernel.org/all/20260503073541.790215-1-eric.auger@redhat.com/
 
-> It seems that there are also differences in behavior between
-> printk_delay and boot_use, with printk_delay unconditionally adding
-> delays to all printks, and delay_use which considers the loglevel.
+This series aims at beeing able to offer the capacity to set writable ID regs on the host passthrough vcpu model.
 
-The unconditional delay does not make much sense. I consider it a bug.
+Thanks
 
-> >
-> >    2. Move printk_delay() from vprintk_emit() to
-> >       console_emit_next_record() and nbcon_emit_next_record().
-> >
-> >       For nbcon console, even better would be to use a sleeping
-> >       wait in nbcon_kthread_func(). But it would need some
-> >       changes to call it only when a record was really emitted.
-> >       Also we would need to use the busy wait in
-> >       __nbcon_atomic_flush_pending_con().
-> 
-> This makes sense.
-> 
-> If the use case (in a post kthread printk thread world), is only
-> relevant for graphical consoles, then I do wonder if printk_delay and
-> boot_delay can be replaced with a more specific solution? Now that we
-> have printk threads, the time in which a printk is presented to the
-> user may not relate to when it was created, and I fear people may
-> continue to debug issues that rely on that assumption.
-> 
-> I think the most pragmatic solution for now is:
-> - Move the printk delay to the point where the printk is actually
-> printed (e.g. console_flush_one_record and descendants)
-> - Add an early_param to allow for printk_delay_msec to be set
-> - Deprecate boot_delay, by using it as an alias for setting
- > printk_delay_msec, and include a user mesage that it is being
-> deprecated and that it now extends to beyond boot (which could impact
-> performance on non PREEMPT_RT and non nbcon systems)
+Eric
 
-Sounds good.
 
-> - Update printk_delay function to use the appropiate mechanism to
-> delay based on stage of boot and using printk_delay_msec instead of
-> boot_delay.
+>
+> Overall, even if we may disagree about the details, are we really on
+> terribly distant grounds, or are we not?
+>
+> Paolo
+>
 
-Good point! I thought that mdelay() can be used even for the early
-messages because parse_early_param() is called right before
-parse_args() in start_kernel() in init/main.c.
-
-But parse_early_param() might be called even earlier, for example,
-by setup_arch in arch/x86/kernel/setup.c. And it is called before
-
-  + tsc_early_init()
-    + tsc_enable_sched_clock()
-      + loops_per_jiffy = get_loops_per_jiffy()
-
-which seems to be used by
-
-  + mdelay()
-    + udelay()
-      + __const_udelay()
-
-Anyway, it has to be done before printk_delay_msec() can be set
-via an early parameter.
-
-> If that makes sense I can fashion a patchset.
-
-That would be great.
-
-Best Regards,
-Petr
-
-PS: Note that I am traveling the following week so my review might
-    get delayed.
 
