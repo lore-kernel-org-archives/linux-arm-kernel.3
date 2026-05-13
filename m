@@ -4,95 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8871CCD4F35
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009EFCD4F35
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p7vfilyN7JRkYppcEdLbkM+WwTn5eActEOggTfymGRQ=; b=x17DNYXRyf+Qg0UW+RPlbyNK5E
-	Eiecr48UXYpYDSgPfcprR+pKsufgG8Kjc2OrZq1Y8bWS8Pndkm2y6I+Z51RR4Db/upHjevl9w6Pzf
-	xSeVHKo7LuOCm6A4JDkabsczXwPOhTopkGoLZvnZZlULINqL+IGYsFWaTZmi/0l7YQVS5YsP5I7DN
-	LlL3R5Eq6VL1+EgK4NiE8oplKrqojBd1ncl7atFSFYnPt9IulG3zKFuNA34alUQB01Saru//JKsfa
-	zfE7mgPnZrRxlEyLGXJqA61pnUuDcT9drpb+1BaWOd6P9fKZHPF7czifX55UhyaeGj/b/OzIjhbBu
-	LrMTSeLA==;
+	bh=Jnb2bxZ/lnKlTGg+igX+necaPDsE1yQq4AeJ4mWz2ec=; b=dGnqHJkVNglaVdEfAOj+5C0Mt9
+	tqGRt6i/01VAkCiXjTbr8wvdKzK1EIPQxq0vB0Rdc7PnZGB1ATId6fSwTNDsERmJcVl/QCB887IXK
+	+/2wAZH5FrkqR8kYQF+q6NnIDl2E+Whv3uOjHssUz9syn/G5/BbLrQHfDAOdC6F99Yg5dP9O4FP0H
+	/4OWelkvHZQkJxzHj9ZtNTV18FtJtxl25Vj+ARzBExJILmO7YO9pQrBWAvPLIfxCtiINB6jonLHAb
+	EPF24Qyc4ym3woSQwj9Z+/K8rCvRVeSoCU3KvmOXNmjIsGs8Xndxjvhn+ysE3+7WhbYIvjOzKrP5f
+	pt5uadSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN74x-00000002Ecy-2fuT;
-	Wed, 13 May 2026 10:44:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN74s-00000002EUs-1mDr;
-	Wed, 13 May 2026 10:44:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=p7vfilyN7JRkYppcEdLbkM+WwTn5eActEOggTfymGRQ=; b=hZ11ZoD5uZ5Mi+Kdv+wAXX5rsa
-	4Z4lOPw0jklR+VT49efaDoYKul8oRLaOvebFljqnUdvspeu9dw6kgXTotQ/ilBX3L+g+/AcCYHMad
-	lIafjs7xrZBmMLns353W0cc3TOfQm2kf/Mcb0UYx2UvpZFxOYfSIAJRtYjR3DzGqLZYn51+rL98yV
-	0NZVSuU6V8OmyvS/a3j+AGr0k8ZfDuq7WsR6Wv10s/Vgn+uxqCxj6+47PhLmASwKFQrr2Iu5ai2Wv
-	M6DWxd5Qj4z/SANgPMphIajJzgB78OMjyPoguR3RdZVKXENfyqvio6kxI6xUWP5PlG6h5KP4QkD5O
-	NhZzMgKw==;
+	id 1wN76A-00000002FEV-0wQ3;
+	Wed, 13 May 2026 10:45:55 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN74n-0000000HBNj-1VfM;
-	Wed, 13 May 2026 10:44:33 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wN767-00000002FDO-2KF5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 May 2026 10:45:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 601AD443CA;
-	Wed, 13 May 2026 10:44:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3C7E5C2BCB8;
-	Wed, 13 May 2026 10:44:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 16089429E0;
+	Wed, 13 May 2026 10:45:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FA74C2BCFA;
+	Wed, 13 May 2026 10:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778669066;
-	bh=AVnCN6kymER6wy+4kacjuFr2lYcaGoCedkDJ0zolop0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=UkTtBFwhz5qvnpqKSbhXOQT6p5elGLeyJCNRsQNpheaIJAKTLtDyhjXtshr3Kl4GH
-	 o79RM8utGGbZ5LmoH1F0PyOn3VztjK3i0bARlEGb1WyrMk6twcLcYs5FBQKy1gK9RZ
-	 GwtZ3DKuJ9JwYAxyR20i/6xWn06uxMdTwTd21VyGQcxzhFgkaUi4sLyNZ79N8BOuaW
-	 MaWP5jFZ5hMPA2pC9nrqWVMzFVH7C7fch2ph9pKMZ+4s99WBN+QvDEferElsOpEeaM
-	 Wtal+I4e32gujlIBaY1x5VHJ5dobFi7q69WNlJ6Tl904DGftdycOioBr7m/vAr9Nua
-	 OMX7a+f2/mUKw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 32A51CD4F24;
-	Wed, 13 May 2026 10:44:26 +0000 (UTC)
-From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Wed, 13 May 2026 12:43:55 +0200
-Subject: [PATCH v2 3/3] arm64: dts: amlogic: t7: khadas-vim4: add
- PWM-driven status LED
+	s=k20201202; t=1778669151;
+	bh=muuwARazTjEAvbXIOfzW/1TAyB+3XXA0p2SK256ykVk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AvMpum+0pqdXm9vGudPLtAmsoqsFbzz3XrQU7cRtMb7mU9DP5Qs70kk0AUdyyxdtb
+	 qDueFOICre4yQUeyMTywlSc0DEO7wUbtjUDMwDtFiFAX2WrJCHWb2rb66fr7lhj5DX
+	 mYezn7FnP8jK3rB1dUlu8+ZOE8H55IjMgrtoZTm/wMiUmdkbLP+hV+ePbOt9aIKcGX
+	 JqKbc66ny+KzcrVHmaxsGazj9jl3zcJBCQFk4IQ52v27paYFx40W27WPUMMevX1gMW
+	 DDXHG1TU0D8EM524vv5a0Q1sTqpBJRlb6AnTH1vg2RtR6qvXFJm3dgX7qH8w3CYZLG
+	 g5nJfhI4pDtaQ==
+Message-ID: <b88eb1df-6841-43b8-990d-506c8c4f2d4f@kernel.org>
+Date: Wed, 13 May 2026 05:45:48 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-add-kvim4-sysled-v2-3-3ec9779e8875@aliel.fr>
-References: <20260513-add-kvim4-sysled-v2-0-3ec9779e8875@aliel.fr>
-In-Reply-To: <20260513-add-kvim4-sysled-v2-0-3ec9779e8875@aliel.fr>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1280;
- i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=2xdbcwmGmHmxRvinJQMTjDVB63/BF5fZ22AOjpf30NU=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQxZLGAe/2O2a+3P475ob7pLlVj5TH3PE96Vip/GKqam2/
- LtVTP53lLIwiHExyIopsvTPtTzx7vLRM1/3qKfAzGFlAhnCwMUpABOxZWb4H8rz9ZbCD4fdmnPv
- fm6YeX9D6AqvSVOr/7fvWzMjwq193XuG/26NkW8q47RFz+RJuS00FPyzrT+VY/eZGWc3+OzWeFQ
- 3lR0A
-X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
- fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
-X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
- auth_id=744
-X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drivers: altera_edac: Guard SDRAM irq2 retrieval for
+ Arria10 only
+Content-Language: en-US
+To: "Nazle Asmade, Muhammad Nazim Amirul"
+ <muhammad.nazim.amirul.nazle.asmade@altera.com>, "bp@alien8.de"
+ <bp@alien8.de>, "tony.luck@intel.com" <tony.luck@intel.com>
+Cc: "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20260508075240.23638-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <cc767b60-3b91-40d5-aa70-c5f252d1d39b@kernel.org>
+ <275595ca-6044-4882-a9fd-ca9d496a27a5@altera.com>
+ <de0f32eb-2216-47a8-80d4-bd66fcb253a9@kernel.org>
+ <4f80ef77-a38b-4652-a1f1-1bea3e88de74@altera.com>
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <4f80ef77-a38b-4652-a1f1-1bea3e88de74@altera.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_114430_392034_33CC814F 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260513_034551_639494_94D2ABEC 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,58 +79,72 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-The VIM4 board exposes a status LED wired to the PWM_AO_C_D output.
-Enable the pwm_ao_cd controller with its pinmux, and declare a
-pwm-leds node with a heartbeat trigger.
 
-Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
----
- .../boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts   | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+On 5/12/26 06:51, Nazle Asmade, Muhammad Nazim Amirul wrote:
+> On 12/5/2026 7:25 pm, Dinh Nguyen wrote:
+>>
+>>
+>> On 5/11/26 20:37, Nazle Asmade, Muhammad Nazim Amirul wrote:
+>>> On 11/5/2026 7:54 pm, Dinh Nguyen wrote:
+>>>>
+>>>>
+>>>> On 5/8/26 02:52, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
+>>>>> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+>>>>>
+>>>>> Guard the irq2 retrieval with an of_machine_is_compatible() check so
+>>>>> that platform_get_irq(pdev, 1) is only called on Arria10 platforms.
+>>>>>
+>>>>> Signed-off-by: Nazim Amirul
+>>>>> <muhammad.nazim.amirul.nazle.asmade@altera.com>
+>>>>> Signed-off-by: Niravkumar L Rabara <nirav.rabara@altera.com>
+>>>>> ---
+>>>>>     drivers/edac/altera_edac.c | 3 ++-
+>>>>>     1 file changed, 2 insertions(+), 1 deletion(-)
+>>>>>
+>>>>> diff --git a/drivers/edac/altera_edac.c b/drivers/edac/altera_edac.c
+>>>>> index 4edd2088c2db..b30302198cd4 100644
+>>>>> --- a/drivers/edac/altera_edac.c
+>>>>> +++ b/drivers/edac/altera_edac.c
+>>>>> @@ -348,7 +348,8 @@ static int altr_sdram_probe(struct platform_device
+>>>>> *pdev)
+>>>>>         }
+>>>>>         /* Arria10 has a 2nd IRQ */
+>>>>> -    irq2 = platform_get_irq(pdev, 1);
+>>>>> +    if (of_machine_is_compatible("altr,socfpga-arria10"))
+>>>>> +        irq2 = platform_get_irq(pdev, 1);
+>>>>>         layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
+>>>>>         layers[0].size = 1;
+>>>>
+>>>> Why? We already switch on arria10 later in the same function.
+>>>>
+>>>> Sorry, but NAK.
+>>>>
+>>>> Dinh
+>>> This driver were used by cyclone5 and arria10. Cyclone5 only has one
+>>> interrupt whereby arria10 has 2 interrupt. That is the reason why the
+>>> interrupt was guard by (of_machine_is_compatible("altr,socfpga-arria10"))
+>>>
+>>
+>> Yes, but look at line 397,
+>>
+>>             /* Only the Arria10 has separate IRQs */
+>>           if (of_machine_is_compatible("altr,socfpga-arria10")) {
+>>                   /* Arria10 specific initialization */
+>>
+>> Dinh
+>>
+>>
+> Hi Dinh, That is true, but the one that we looking at now is at line 352
+> which enabling the second interrupt and it is not required by cyclone5.
+> Perhaps are you saying we should move the irq2 at line 352 under this
+> line 397?
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-index fd1b983354a01..c41525a34b721 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-@@ -53,6 +53,16 @@ dc_in: regulator-dc-in {
- 		regulator-always-on;
- 	};
- 
-+	pwm-leds {
-+		compatible = "pwm-leds";
-+
-+		status {
-+			linux,default-trigger="heartbeat";
-+			max-brightness = <255>;
-+			pwms = <&pwm_ao_cd 0 30040 0>;
-+		};
-+	};
-+
- 	sd_3v3: regulator-sdcard-3v3 {
- 		compatible = "regulator-fixed";
- 		regulator-name = "SD_3V3";
-@@ -163,6 +173,12 @@ &pwm_ab {
- 	pinctrl-names = "default";
- };
- 
-+&pwm_ao_cd {
-+	status = "okay";
-+	pinctrl-0 = <&pwm_ao_c_d_pins>;
-+	pinctrl-names = "default";
-+};
-+
- /* SDIO */
- &sd_emmc_a {
- 	status = "okay";
+Yes, that would be fine.
 
--- 
-2.49.0
-
+Dinh
 
 
