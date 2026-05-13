@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24058CD37B6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 09:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF04CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 09:14:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3M6rRLTQ9CGPGf8NA7+4xvB1DmVHioIYgHph20eH9Ks=; b=anLoz18ofiAoNA
-	3xE22CFWJIoNIJsiJyt/taM5Aj8jmW5r2FxC9flE6tCBArvxVvXvA0t3s5AWCztom7+DUQzlLceFw
-	pwxqZxc+9H9iz1VyU2X1iyUhReDfE42siSSy+wrfHEX2Fxn0mObFkTmE/mkXiQZRpIk2dxwLqp/rI
-	Y8JoG8tfXcCnskwFxjev4lJ3teHRpB6I214Iy3eLBvQBaJXSrMTlneNp5PvvVFMVK/46/m4WdBDez
-	Af9Sj5eAYpQlqlIb93ktEYIrGGw9fRJcaSFmfBFhft/j73wEMH2bizoetkLvEskdpzHpZCWVvS2R8
-	GzERuU9RlhQ2UQ+3PtgQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=; b=W13hYzDIEUHPq5LYg8o6hLaATq
+	JJxgMOPID1E9X9/XwC5QkmctTn53V2bvnLthG4v3tW3xB5z4Yhy2+xNGTcEJgXgFTaQo0yuWlyoH9
+	9TRtTktUUnz7RTKHHltLxqAQeCN+vrj4q3A76jse6vOv3pcqfdqk5ox7IJsvveEv3iN5ZG2A3kO61
+	94QaaFmGVU9OgB6VOwMS5OvlE6tili06ocX4xQA03o9uDBlFMtbvsdml+KURZuOFEsH28EAj2iZOF
+	/eELRfzcDOj6bP3yhssirUb1agjgvsJ8sIQrS1/OYGuIuXWoNxecJVHnzBFWf8tGIQ8yq2r/aydxT
+	ud385ERQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN5fx-00000001rld-33Qx;
-	Wed, 13 May 2026 09:14:45 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wN5fz-00000001rmZ-3QYg;
+	Wed, 13 May 2026 09:14:47 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN5fu-00000001rk8-1SNV
+	id 1wN5fw-00000001rkt-411f
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 09:14:44 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-48d146705b4so78723705e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 02:14:41 -0700 (PDT)
+	Wed, 13 May 2026 09:14:46 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-44a044cb827so5170913f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 02:14:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778663680; x=1779268480; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3M6rRLTQ9CGPGf8NA7+4xvB1DmVHioIYgHph20eH9Ks=;
-        b=Uxi4Ed8Ao3OZi1PaaZvF0pWmNAy+46NoAqim1bVLZ4Bwt7mV8vIu0L697/qADTsSdc
-         +Syd5Hk9KGoNpK/FmWdBdLj9pOeq9Uu8Kh+Tb5CAUhI/V3NIewTvbcvVfgsewOZ57JMz
-         LoFUMtxFeCAyC8eM6qS132GQ4jcra39KlvbVxVL+Q2SOMEFo5ohwP0hm6wn5iqlZ0loL
-         zY7Vj4vV8bok0CYuNZr8f2c99CMfMuz0XeGzoaSPayKURzOyHdoQEeHxGVAviogSCmoc
-         FjlJnJ4kQ+QGKgQ5OXMWmg4g/TsC6ikIVJULCpoTQzrh+yjLezfsgI/wHcyaiPOz83eS
-         U+cA==
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778663683; x=1779268483; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=;
+        b=TyN9fKN1C1BKkffJEBH5/TYl+kBj8/DjZDWbhYeV+ABDolKFAtVMBeYBEuJNl7nsx5
+         NIYIyob6tZzO/VNLez+36s1OqfqVbscizp2fD21nfe/nLpcpQuGctq76wRrcs7uOpUv9
+         nG4Yhi0fvZoPMpdGSSE4tzY+nnxvbN7c0UnMwXroS3lYx8MePVlDfbLb8xvS0sJrd7sJ
+         54eUn1Aojptzh4Q6NvXpb1lChvuFSmLF6kVE3zQw9mlEoIrFVzudwZIHe6Uzx2QYtgqd
+         KYa4x+RHyyb4UCoN4q5EeXmFJLFCt5Tvj1tqvOLa3488t+K+1hA7L/ouwGoQPVk3axri
+         PBnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778663680; x=1779268480;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3M6rRLTQ9CGPGf8NA7+4xvB1DmVHioIYgHph20eH9Ks=;
-        b=rGRjuy+fs0VCU+p51sxDUJ+IIlDtxkCnNDzpaFcOISb39oBJjFpWH3jYvs2Jkg9dzd
-         MwULsWXSvi4+nPeyi1RLb+DEOkYwKmFyLMjKhspjO0J0KNzpQperXCo6iEN8HCe9/eLN
-         HOuHVjy4S933hPY/JqpLzQJ977w6SUU3eKjpjtxTBpR61yiQLOKgH65pEn13DCLxiDVi
-         XHp54Y6jijcDNtRrHPA94gvjBHwRCW+mmiw2zChbtDfryZpPqKJUGBTKYVVhVDxaeHuR
-         O+9oNNTta4w1lMaFNT+1IEW+Bi2FTHZihLcxpViHWePygVAU8hGj4uZ/OUjFBWFqAPz3
-         t1oA==
-X-Forwarded-Encrypted: i=1; AFNElJ9ZqwXUl5egXl1bjevUxdgJqpU8Gqd5C23NHciht7oe2WxIoNxzs+zbR1oAnNMDEHyucwso+BJLzTN0bDRebDNh@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhSDsoL0TtdDSQgl9GA3iYXt80UQjshHoXGvK2hSV1B6aTofmj
-	rdlXL30hkyrKjcjYUFayu1hP/VKRkMNJSqT4h8xIjx9+Je9xGgHyOY2mPd4L8VRjrls=
-X-Gm-Gg: Acq92OFAdmzkK+Yjqb7K4Fl8fck/WqjHU5nqDCF2ibZGwf5h32+9AzTR5zqxzAMOEgl
-	aoAgqre1kj+/ACXLhsRlZ1WCTnah5EcTTminq1NPCQkLbHvFwsv69tZClMJDKP6S0s7ZKpK4+JY
-	pYiSPjAtwGFwkWbcIrgbIk2WMrI9WV152Rz647Z1Mh0PIM65GS/Zeml9rFekQm39KubbuH9xN1N
-	w1YUAI9LuVkWY4hkm7WxiHm2XxfrWMm+4ApfgLHUH6bO0wON0QRi5szUaGwAtsp3fnMyvbrpgNK
-	cv9N8kftJROLDcCuuxL5bBGng5oCim7z2DheHaykyx7gFUWW+LsjafDvAuS0ZnAtmp5/tHbUOT6
-	k6hI28RG+ECBA7W+DSpt5EZ/H8o/UMnkyO11Kd++pxRj2MJEuV5j+Wvo7oU1FS+wCDFM+okTI3U
-	rtJrC/vd3d6pqu+Sfi05zHMB8kufq0ONS7LJJon+89bw==
-X-Received: by 2002:a05:600c:c4ab:b0:485:30d4:6b9e with SMTP id 5b1f17b1804b1-48fc9a3c1ffmr38082135e9.21.1778663679846;
-        Wed, 13 May 2026 02:14:39 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778663683; x=1779268483;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=;
+        b=pho2b4UCAzCDtznjLSuRxp+mcNiM08O4m+G1ulyPD1UplYgi6+46w3Gn5U5ouVRRsh
+         qiZ1kFa2yVznjqJfqewDWxZICJkZuspGPxDfhDrB8Jq6lCrBbAdBaAbeO8tGsM0934Bn
+         5CAmz8FzeS4EZgi1rEZpM9VECsXYpLi4GsSQTIkHUawUKljWusszfu1Xqy8XJvnmEhcZ
+         VPjvtZ6emmdxaQW7NfizaiNjPI6WQb7zSCiGC8TBr4JEPphtNhhvoxvpKNpG3DnMLPXR
+         xV/P1KuMiCVWlWm3IkBOGZnNV9VCTigyQS1OmtVRIKjVDoccxv44e1+G3MITrUrMx4J+
+         g2vw==
+X-Forwarded-Encrypted: i=1; AFNElJ95Xjt3USFrYfTZG3dg1OZ5INTiJMg/dgVplibhwPoMmORUeHwNKTbi8NjcqgBRP2Kcj0HitLwt21nAGdqmzR8A@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQ1IrXAdU+lh4PZKsHaeokX6nP+7M/v+XiFZ+IPrd53bgsUex7
+	0CY65dCIpXeWHeDrGXUxFnhhYqX5ZKIpBURXM7edCws+OPH2NjFO0u9ataJ8mWxy7ZY=
+X-Gm-Gg: Acq92OEwOCZRquFvqp0Hkkvic5q8yMXGZZ5LYaTl5UTIbhm/ksCsX3R4rwPEMPm5szF
+	toYPBTWsNUXDa3aLmVxz2tq+uSMzy0V05vNpshhi2sIQ1fzqZrfrBYAdmEi1DtDS+6fKJu2EexD
+	4cmDvjmuf8+8jWrKoP+8SFtSBp5V93ZsBnTBJghYqVCSyeijIVqCJcX5STicB1Dm0GFZp5/ttWX
+	d2C8C6iF3TU25Ps1afghPoXbK6UNxsH58O9d5JcXxLXGr0EPLwBNHEO1ylyVnJ3ihEeAiaPZAuw
+	ZAIn3UstHvotXZYl2V83DUX2hqOSlqnmrDZGCG1wsxQ+EDRG452934/HPmhfcYdw5jahPkgVScZ
+	SdyZm0iZM4fY7oJRFcx4w0W3FQ0EFn95n/9X7XnggyhmdvrJR+fN3QIbdlB6k/KRNJaqyLE0g3i
+	KIhy/uy3a6iPe83dy4GLIM/GKU/dTQ2fg=
+X-Received: by 2002:a05:6000:400f:b0:45a:c0e1:37b with SMTP id ffacd0b85a97d-45c7b470819mr3099954f8f.32.1778663682506;
+        Wed, 13 May 2026 02:14:42 -0700 (PDT)
 Received: from [192.168.0.2] ([2a07:7e81:7daa:0:62cf:84ff:feee:627])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4548e6a66bfsm34590821f8f.4.2026.05.13.02.14.38
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4548e6a66bfsm34590821f8f.4.2026.05.13.02.14.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 02:14:39 -0700 (PDT)
+        Wed, 13 May 2026 02:14:41 -0700 (PDT)
 From: Angelo Dureghello <adureghello@baylibre.com>
 X-Google-Original-From: Angelo Dureghello <adureghello@baylibre.org>
-Subject: [PATCH v2 00/11] add mcf54415 DAC driver
-Date: Wed, 13 May 2026 11:14:24 +0200
-Message-Id: <20260513-wip-stmark2-dac-v2-0-fcdae50cf51a@baylibre.com>
+Date: Wed, 13 May 2026 11:14:26 +0200
+Subject: [PATCH v2 02/11] m68k: mcf5441x: add clock for DAC channel 1
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XNyQrCMBgE4FeRnI38Wbp58j3EQ5rFRu1CUqul9
- N1N6kFwwePAzDcT8tpZ7dF2NSGnB+tt24RA1yskK9EcNbYqZESBpsAZ4JvtsO9r4c4UKyFxBik
- YXihVcIPCqnPa2Psi7g/P7K/lScs+MrFRWd+3blwuBxp7v/WBYsCaCZOnueQgyK4U48WWTm9kW
- 6N4MLAXkQD/JFggIKFcECOJZN8I8ocggcgzLlkqeEFAvRHzPD8AnWT3ykkBAAA=
-X-Change-ID: 20260430-wip-stmark2-dac-7060f49dd94f
+Message-Id: <20260513-wip-stmark2-dac-v2-2-fcdae50cf51a@baylibre.com>
+References: <20260513-wip-stmark2-dac-v2-0-fcdae50cf51a@baylibre.com>
+In-Reply-To: <20260513-wip-stmark2-dac-v2-0-fcdae50cf51a@baylibre.com>
 To: Greg Ungerer <gerg@linux-m68k.org>, 
  Geert Uytterhoeven <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, 
  Arnd Bergmann <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
@@ -94,8 +92,8 @@ Cc: Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org,
  Angelo Dureghello <adureghello@baylibre.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_021442_658268_32A1B851 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20260513_021445_016506_D261D94D 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,75 +108,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset adds a minimalistic DAC driver for the NXP mcf54415/6/7/8
-ibuiltin DACs.
+From: Angelo Dureghello <adureghello@baylibre.com>
 
-Currently the driver enables the raw write only. Feature as dma, sync, or
-format are not supoprted for this version.
+Add missing clock for mcf5441x DAC channel 1.
 
-Additional options suppoerted by the DAC module will be added to the driver
-later on, as needed.
-
-The same patchset prepares the m68k/coldfire architecture to support
-the driver.
-
-Below soem basic tests done on stmark2 mcf54415-based board, voltage check
-on DAC0 and DAC1:
-
-~ # cd /sys/bus/iio/devices/iio:device0/
-/sys/bus/iio/devices/iio:device0 # ls
-name               out_voltage_scale  uevent
-out_voltage_raw    subsystem
-/sys/bus/iio/devices/iio:device0 # cat name
-mcf54415
-/sys/bus/iio/devices/iio:device0 # echo 4095 > out_voltage_raw 
-/sys/bus/iio/devices/iio:device0 # echo 2048 > out_voltage_raw 
-/sys/bus/iio/devices/iio:device0 # echo 4096 > out_voltage_raw 
-sh: write error: Invalid argument
-/sys/bus/iio/devices/iio:device0 # cat out_voltage_raw 
-2048
-/sys/bus/iio/devices/iio:device0 # 
-
-Same behavior for /sys/bus/iio/devices/iio:device1.
-
-Generated a sine wave by shell script, sine shape is good.
-
-Note: this patchset depends on mew mcf_read/mcf_write implementation:
-Link: https://lore.kernel.org/linux-m68k/209d0653-6386-4b64-9e15-e358f84453ab@app.fastmail.com/T/#t
-
+Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
 ---
-Changes in v2:
-- keeping changelog in each single patch, where any
-- Link to v1: https://patch.msgid.link/20260504-wip-stmark2-dac-v1-0-874c36a4910d@baylibre.com
+ arch/m68k/coldfire/m5441x.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
----
-Angelo Dureghello (11):
-      m68k: mcf5441x: fix clocks numbering
-      m68k: mcf5441x: add clock for DAC channel 1
-      m68k: mcf5441x: setup DAC clock name as per driver name
-      m68k: defconfig: update stmark2 defconfig
-      m68k: add DAC modules base addresses
-      m68k: mcf5441x: add CCM registers
-      m68k: mcf5441x: add CCR MISCCR2 bitfields
-      m68k: stmark2: add mcf5441x DAC platform devices
-      m68k: stmark2: use ioport.h macros for resources
-      m68k: stmark2: enable DACs outputs
-      iio: dac: add mcf54415 DAC
+diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
+index 613b0275d9d8..5b5e09ecf487 100644
+--- a/arch/m68k/coldfire/m5441x.c
++++ b/arch/m68k/coldfire/m5441x.c
+@@ -44,6 +44,7 @@ DEFINE_CLK(0, "mcfpit.3", 35, MCF_BUSCLK);
+ DEFINE_CLK(0, "mcfeport.0", 36, MCF_CLK);
+ DEFINE_CLK(0, "mcfadc.0", 37, MCF_CLK);
+ DEFINE_CLK(0, "mcfdac.0", 38, MCF_CLK);
++DEFINE_CLK(0, "mcfdac.1", 39, MCF_CLK);
+ DEFINE_CLK(0, "mcfrtc.0", 42, MCF_CLK);
+ DEFINE_CLK(0, "mcfsim.0", 43, MCF_CLK);
+ DEFINE_CLK(0, "mcfusb-otg.0", 44, MCF_CLK);
+@@ -106,6 +107,7 @@ static struct clk_lookup m5411x_clk_lookup[] = {
+ 	CLKDEV_INIT("mcfeport.0", NULL, &__clk_0_36),
+ 	CLKDEV_INIT("mcfadc.0", NULL, &__clk_0_37),
+ 	CLKDEV_INIT("mcfdac.0", NULL, &__clk_0_38),
++	CLKDEV_INIT("mcfdac.1", NULL, &__clk_0_39),
+ 	CLKDEV_INIT("mcfrtc.0", NULL, &__clk_0_42),
+ 	CLKDEV_INIT("mcfsim.0", NULL, &__clk_0_43),
+ 	CLKDEV_INIT("mcfusb-otg.0", NULL, &__clk_0_44),
+@@ -176,6 +178,7 @@ static struct clk * const disable_clks[] __initconst = {
+ 	&__clk_0_35, /* pit.3 */
+ 	&__clk_0_37, /* adc */
+ 	&__clk_0_38, /* dac.0 */
++	&__clk_0_39, /* dac.1 */
+ 	&__clk_0_44, /* usb otg */
+ 	&__clk_0_45, /* usb host */
+ 	&__clk_0_47, /* ssi.0 */
 
- arch/m68k/coldfire/m5441x.c         |  21 ++--
- arch/m68k/coldfire/stmark2.c        |  51 ++++++---
- arch/m68k/configs/stmark2_defconfig |   2 +
- arch/m68k/include/asm/m5441xsim.h   |  42 ++++++++
- drivers/iio/dac/Kconfig             |  10 ++
- drivers/iio/dac/Makefile            |   1 +
- drivers/iio/dac/mcf54415_dac.c      | 203 ++++++++++++++++++++++++++++++++++++
- 7 files changed, 306 insertions(+), 24 deletions(-)
----
-base-commit: 25c66a1b49f3c5463ee8266a3fd5256cbc794610
-change-id: 20260430-wip-stmark2-dac-7060f49dd94f
-
-Best regards,
---  
-Angelo Dureghello <adureghello@baylibre.com>
+-- 
+2.54.0
 
 
