@@ -4,111 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C841CCD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 12:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D5FCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 12:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4chqvdfqdlpd51Jc1ZDdzdbFEZgBpj4aJvQtdp2bJY=; b=mxJuZPZhJ9H5LPXTXd5+WvdhO6
-	A+OugTyEbO3EIVqNm60ZC7DKgX4qth/57eDVTq5Uz09ptzSob5emSNJ4/c32ZnH6wYMKu9zwwZyl4
-	PFq0qzHMYLoxIYbRmSc67PdxDziGOJVnBvLfJJ2QM2tQ52oaCuTdNn7V0BJXUSzBSXuEoQ74t5200
-	hGVO0f0aIvqjPHMQLYKEM4isZMauaiZnvAhnnD3kzGv1lDkOwxdtrzVQ7FxR5qud1sf3TEPGftAj+
-	2bvxpVzdqA/nqK//tyj+ASq2hguqWTWEFDO6vSldTtIhxG/eWGMG10sF/yoY2nwW86jm4xilTaWIH
-	ipMyWr8w==;
+	bh=cIKGnDKNpd0yeMQIMK4UDELk2FN0CMAVb9xNAeplAlA=; b=hrM6gCtD0EYQgYu3wk+sq9bGLQ
+	rfys30/MFkNBoHkpYqU9TMOVHLGYQq27p882dSgECu5UD168oYf8Twx01/f4uTrRtd8eaoUs3dCqW
+	RQKBm5DvLMRuWG7babX3d20N1m1szazi3rNnPqI1R6KhqMmyehtxQMJh/RtIUFxoG9gKL62RHDfui
+	B0grhVcXJ22V6UzBjP+YU04/ifKzgzTDRJ80N2U5q50PePIhpH8xY/9Ly5oIrH84kswVnqgm0I490
+	q7I6bqNwCGe3KWe8lqRQKwcA1avzgKp+fea+hTTCMVrTYYYNt7XcKlrtUvbb87wapiVNLWqzY4uNu
+	aXNeL7bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN97z-00000002a2W-2E3T;
-	Wed, 13 May 2026 12:55:55 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1wN9Bl-00000002aXa-41Gm;
+	Wed, 13 May 2026 12:59:49 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN97x-00000002a23-2pEM
+	id 1wN9Bj-00000002aWL-3AYo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 12:55:54 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2ba180a022dso125ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 05:55:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778676953; cv=none;
-        d=google.com; s=arc-20240605;
-        b=MeKQcomFe9P0HuJaiJaHODeq9P3bHBVnhNCWMM+glFgnhSXLFp5Bu3sdFlL1mKhHjy
-         yM6+8TFMMDP9qRKl1Sqcj9+tLxuUzxgTgPGISkNVP5SEauj0v7XO+H4DmsvLb/JlbkEC
-         YClF1WZ338PshfABjU5HXWudkVUq+ObToiaLoGw1JtgzxKLeYky2MGDulwj9bnOh7QYG
-         XsHmvK9CXBE2MM094jRnfsrC5n+QJVE+vbWYIvMFv2msdUCR+L6B6XhwHbLvq8d0gWyg
-         25252Y14ULUI+MKSFcTGQs7sKFKTcr5fExDiMjM3BA5iYcyqNi4IXYM4j7jcogJZzVlA
-         00ng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=p4chqvdfqdlpd51Jc1ZDdzdbFEZgBpj4aJvQtdp2bJY=;
-        fh=PJWA7egO3An/OCoGRuViL+MMAZn5PfFIY5oLYz/Kw/8=;
-        b=OXPJCDKteephuuCMTOSIwIfLNSyxozyeRBAbdWR0HtyqfeejGIzARGsrprD/odsWof
-         bsYLHV5epkonwdT4IahVIOaR0sXXh3XolfpBspwG93qzuqUCMV56RciA6oEOt5lbHov1
-         Uc2aaIBgATwEDn12LCrL83f2NWPiPJA7pccdgn95EQN4BEKgjxbK4Bu2osnO1cCGBVST
-         AWrdlYlL2+XpA1neybwAJsdwzD1XDi07fXSMkTuzDmiCsQgcusSMLoQRGML6aE6E9QCR
-         L/KDXGKFioT3KB7duROSoExoKLDxfNAt+7/Sp7nLqHZuOyKmfzanH2zIox/8I/p4LnKj
-         ddoQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778676953; x=1779281753; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p4chqvdfqdlpd51Jc1ZDdzdbFEZgBpj4aJvQtdp2bJY=;
-        b=Aub+8zKsLzeV6MYo/vkgV1NXcBZSPpCPwZ8foWiIFGXl1rFfXmzuC19Upm4qpmi+OS
-         YD3TI5R8KgHp7vCTCptaDDJ63Jzw3bPo8lRqEzeo0Qo/i+GtlBIdaYrhAFhq8L4Ibr7l
-         vhnUO6BYGdc4Vdrqp0QC6H2glhqDlYX4GMYSwJ8huf+elOpFoJLFdvtKKrZMsbobjFck
-         6h5XBOOtu1SSjMmlpdNcc18PL8M9/Mz4ThtaZWe6v7KkMDxb6cPdj10NTO4/xwP27Lhf
-         +8ltrHBZN1nnTDQ+uIEnwuHutXjS8PYEPe1dpZLsFNdrWnS8W+DDBO6ij69cHuXXJ49f
-         zgMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778676953; x=1779281753;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=p4chqvdfqdlpd51Jc1ZDdzdbFEZgBpj4aJvQtdp2bJY=;
-        b=YzhawzW06TCZpQ7nE7Cl51+47f+20CEhYalsHFRy/fd9M4xCBMheAA31/uNHuPeQi2
-         tQ3L8NPWgJe3sTXd3h+ES1OjxySXQJU68H4QOiSp3Bi7m57thIy9E8tJVC6DtlZzrfes
-         DEXluo0GsNQ2bjjkhIE/anT7TxNj3yFtE/cWOl4lZnsaHkpaELL70/FgI2KIYS6QqeVy
-         hwpXd3tx2V6RGb6AMu9Fcm5jprMNzmO1XActbBOEAi4UiGZvBtbe9eOEG5jrrl5yVjoK
-         1YbHX+ZyeYe8cc8Cn/LdvyI8DdnS/53tQXXDUhe2p1XoBEl9PKL+Ans9Btww1WwJcooC
-         6cWQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9D5EQNc7PFkvAPfaFkxyep4ivuZUfKGsqD3MCMSW+fxOO12Sn3ZeJjVn+3KjYZ45hDB5pfPMQehCI6cTTgrs2O@lists.infradead.org
-X-Gm-Message-State: AOJu0YyunaBXHo3y85V2dE8go3m6+OuenG4vIyGJQ8mqQDGY8d/TC/gD
-	2j97oB0Bh/SsRHuRsu31u8sctPUPu8I0ddKocFcP66MNENU0CADCUlQGS0iEGSNDAw36ptfMiGq
-	1AjaHs4exMLOLSNpv+f3XQmB4uhGWfT8uzzsTAC1u
-X-Gm-Gg: Acq92OHxr3lxmt1Eh/7JL7sNQ1QdMdqnZ9rFDtwwjRO2aHKGrGOhnGjxZslRW/8Klea
-	ofqlmUyrmvPdv/VyKmUHA/Ex7xbY6Eyvb0/QSnnnrpMx1/lIUbEZCqsEpssa5xHcyAASw/S5hGr
-	pVG3SlnHlQyDWSKnn1MhDGCYGh8zoNjWVSZnKq1EaLUwFPnRVKhdSsFwUdLBQIImhaCznQg1a66
-	wXwBakkvXc3gJ62MPNh9uSle/gnoSHLSF4ARmUr/l3RmRJ3/8kOQhL9qnUy7fYQxfOqYLHh18ej
-	wu/t2b7Cwtse6oa5xe2+0glU626zTQ==
-X-Received: by 2002:a17:903:1a8b:b0:2bd:3c1b:3073 with SMTP id
- d9443c01a7336-2bd3c1b31c2mr972875ad.16.1778676952003; Wed, 13 May 2026
- 05:55:52 -0700 (PDT)
+	Wed, 13 May 2026 12:59:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=cIKGnDKNpd0yeMQIMK4UDELk2FN0CMAVb9xNAeplAlA=; b=9bt1TwsCEKoo8St3/+kGbMAKD7
+	8ZvyLalmRMbAvKadjuldwHhuGmsdcR29ANCDvQyYiCR4yUTaHaxemyWl9mGIa5128c8ywQ6j1BhoJ
+	ye/CFFEe3WkOdvngj1LjSIZRlz15g9n+Dxk4AK5L6b9wQ57BSh/eMJhb6k/jEfJjf75KRVai/vWEF
+	liEzGyrd9ax5LMAGpwNCywOgnjtL3nnf99FUemoHrITFO4r/XnRuDFB79qbLT9enEzZPInl8HiMoi
+	q5htgxm326nekPmE+gEd21q6n6Q8nxVgCszZyw0U293QxjMkBFHtm1+ck1Nf1jvZCKkcy3cckiupU
+	jZlnjSfw==;
+Date: Wed, 13 May 2026 14:59:26 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, Sakari Ailus
+ <sakari.ailus@linux.intel.com>, Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Russell King <linux@armlinux.org.uk>, Dmitry Torokhov
+ <dmitry.torokhov@gmail.com>, Kevin Hilman <khilman@baylibre.com>, Arnd
+ Bergmann <arnd@arndb.de>, driver-core@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
+Subject: Re: [PATCH v7 0/3] ARM: omap1: use real firmware node lookup for
+ GPIOs on Nokia 770
+Message-ID: <20260513145926.2dc4d037@kemnade.info>
+In-Reply-To: <CAMRc=MdN9EpQVW=1Sb-9hRdt56Y5NNbskujjq2RiXhu90t0QyA@mail.gmail.com>
+References: <20260430-nokia770-gpio-swnodes-v7-0-c88f74c90dd6@oss.qualcomm.com>
+	<CAMRc=MdN9EpQVW=1Sb-9hRdt56Y5NNbskujjq2RiXhu90t0QyA@mail.gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-References: <20260410-james-spe-discard-warning-v1-1-985c02756ee4@linaro.org> <20260513102024.GE34802@e132581.arm.com>
-In-Reply-To: <20260513102024.GE34802@e132581.arm.com>
-From: Ian Rogers <irogers@google.com>
-Date: Wed, 13 May 2026 05:55:40 -0700
-X-Gm-Features: AVHnY4InNk-bInjoavdvMv1aeYxqzotXH5pd7IbLWmqSVKfM-woL6gSaSwwZyiA
-Message-ID: <CAP-5=fUoebOVhWvTbgkyY6erZJjbLRbRVk6oauVKjtHGGgMyaQ@mail.gmail.com>
-Subject: Re: [PATCH] perf arm-spe: Don't warn about the discard bit if it
- doesn't exist
-To: Leo Yan <leo.yan@arm.com>
-Cc: James Clark <james.clark@linaro.org>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_055553_713209_9F4CE45C 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20260513_055947_792605_6A488B19 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,32 +79,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 3:20=E2=80=AFAM Leo Yan <leo.yan@arm.com> wrote:
->
-> On Fri, Apr 10, 2026 at 12:05:12PM +0100, James Clark wrote:
-> > Opening an SPE event shows a warning that doesn't concern the user:
-> >
-> >   $ perf record -e arm_spe
-> >   Unknown/empty format name: discard
-> >
-> > Perf only wants to know if the discard bit is set for configuring the
-> > event, not in response to anything the user has done. Fix it by adding
-> > another helper that returns if a config bit exists without warning.
-> >
-> > We should probably keep the warning in evsel__get_config_val() to avoid
-> > having every caller having to do it, and most format bits should never
-> > be missing.
-> >
-> > Add a test for the new helper. Rename the parent test function to be
-> > more generic rather than adding a new one as it requires a lot of
-> > boilerplate.
-> >
-> > Signed-off-by: James Clark <james.clark@linaro.org>
->
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+Hi,
 
-Reviewed-by: Ian Rogers <irogers@google.com>
+On Mon, 11 May 2026 15:34:39 +0200
+Bartosz Golaszewski <brgl@kernel.org> wrote:
 
-Thanks,
-Ian
+> On Thu, Apr 30, 2026 at 9:31=E2=80=AFAM Bartosz Golaszewski
+> <bartosz.golaszewski@oss.qualcomm.com> wrote:
+> >
+> > This converts Nokia 770 to using real firmware node lookup for GPIOs by
+> > attaching the software nodes describing GPIO controllers to their target
+> > devices.
+> >
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.co=
+m>
+> > --- =20
+>=20
+> Hi!
+>=20
+> Gentle ping, can this be queued now for v7.2?
+>=20
+So any objections from your side, Aaro?
+
+Regards,
+Andreas
 
