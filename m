@@ -4,77 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84580CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5195CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VmY5S5fM8AoCCFdXEvoltLd2gDk1b3FPoGY3dWz/ZhU=; b=y5TmfL9cuX7UqM0BhOhsyBSwr9
-	9WMshcO+12oTz9Qf6FZQrWQC6v6Y84skLQFRLtYgeFuCeVv1xcmIoutZMdhTERjq3UOqbuc1bRzRx
-	yFVJcyYkdRY2anPDfZanFJ25YC+IDk/qk92XPiayRsqff33F+dG4Um0kM3BP9oLdv9miU8Yv+7bhY
-	GqSyGvjE+4ktgouR7dIVSC21jvy+pRoV0WfEvvDgHQH47Ezp23x18nBd2HUpcVuCaqr55JAAkT4Cf
-	SBsZ/WwD2k/EKBV6NnErFr4JmG1EnU16HmzNA+Er/0K151gS8UoU+KB6UeZNr3E9mSsJMY90A2HeH
-	3WNLRiuw==;
+	bh=B4gZFEOmN4BitsxINTjrbRsNtg0gv58NYoTuWrSbwJg=; b=xSHkahj+uSnHFC//VI2uvtiWVa
+	s7486+myuwtyK8ZMMR4bZ9sqTzs57DP0dqAsivyfAMmJ4EViDwVQobxlQsbrAndOzSQYigTHYJbXN
+	2iKgrEncLC/X1xEN1JtQrJlpGC1eogKYlqp2vye+f0pZWHoONO4XuJIS37SS9unJDJFj2wz2HwOu4
+	h7Z4WylKH/LN0yFSyoScptVAKDLVt90AntpUpKkcKZ/zrceC+aVeYZ350HYtQZXDGeJetzUpDnNvg
+	AYBLi5Ei9RZ/c16ODP7DbGRK6ze9RTCyTMt/ez3AIF/Cs4COoYyAIpBg6VYK2ywqJLIiunAxHKKqN
+	o819aVHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHVd-00000003rpA-29uk;
-	Wed, 13 May 2026 21:52:53 +0000
-Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
+	id 1wNHVj-00000003rsE-2eYG;
+	Wed, 13 May 2026 21:52:59 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHVa-00000003rnU-0xiu
+	id 1wNHVh-00000003rqL-1QCX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 21:52:51 +0000
-Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-678ad5bfc8cso7147262a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:52:48 -0700 (PDT)
+	Wed, 13 May 2026 21:52:58 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-45d7293c595so401786f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:52:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778709168; x=1779313968; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VmY5S5fM8AoCCFdXEvoltLd2gDk1b3FPoGY3dWz/ZhU=;
-        b=kH1RCuFc5KvisC69KhOlu+xLxYubqfISUJWfjOLNYaTWdw5gzCCwIO84W6or3UskAh
-         XPUGrDqPTsfHx8lGGEhdyMKAdTTCVrNF0kjilootqyAS7lDjk+liT/rHDPY/lAtwHHgb
-         h0K39b30B55PpRj1147suRycb2w85IeWMx/oKnjgyXxpYyh6yP76pqZyytztLSGqsdQB
-         UNHgUBJ0UkTbI1aEVezcvMUNwitkMU8ObhSD+VijSRGwNyW2KD68mI7PEGutXESJOJsP
-         SS0qVE6UROujg/urtGyd10gwMJKHUviasgV/KxmwjXQukYZRfrLmkZR/xq5egju/6cb1
-         0Ryw==
+        d=google.com; s=20251104; t=1778709175; x=1779313975; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=B4gZFEOmN4BitsxINTjrbRsNtg0gv58NYoTuWrSbwJg=;
+        b=XDP+vgYlhiDjD6Lp3SoDVkpc2P8q7o39mtJh7M/TcaxxEQbf2u4JGcAGWsx0Xixnvq
+         ObASGH/uYIY9wGZ+Sqc+oEGN0GgF3IKXOvmLxL+noplgWnsze8prcu7Bm4H3rKuorUN1
+         t0a7g12e8JME5TTjtACgCTaedFlGxP0UpxVlTxy5rBPCvuq18AyVDEXDe9mcq1aaLHuZ
+         UB+5gZTT7DO+YFpQPJp9I800i+zZsT36Z1ln3qHeMZiQ1ejB4GWkKvu0212nTwRuecuN
+         usIZAXd0RCejWm3xZ3wQ72iJRkViakD/fXDBTnpITOr88ZoHllVLp+jQ3zaEgKK27BQv
+         iTSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778709168; x=1779313968;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VmY5S5fM8AoCCFdXEvoltLd2gDk1b3FPoGY3dWz/ZhU=;
-        b=nmoh19KtgQZT5gCUlS4zb5We0of5nYhfThn7aCqKeWvtlcpsCUg8V5StQFP+PPRSnK
-         NITUUSOOU2t5lzdaHrGLI+Q2Owlu2eiqY8Gp6oli2PmQqlsR9X8vZR0rC5QEsULUxtLQ
-         0C9b/IeH7hrVj12Su5Ve83ntblIUhPzO4cO2aSj4drIBHVdC8UwVV8KfBoKbNdgxwiKx
-         V8Bscic4NvVBAp75oj9QNSAMOmZmOpR4ewkJCH9/qGXO5IXLmxoWnDiny3ZcyVIYCzdr
-         3uYdNYZFuLGyxQouADmiNSJ4xfW5M5F8p3K4eM1WrmWb1BVF4X4GX2ECpTo9tBnTBb0R
-         1irQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+DwdzzdGVkOt/NffZ30Ij2XQJirne5pPtskDTDACvOqdgLRe9tp6OfyipJIYRXPF7Y/OfCCSMpPzqspaFFKRI6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxssbzpxq8czNtQTXu3jujKiJu4PD3A3C64la9zRq5Yin3QdqvL
-	aH8aDZOM6NTPSU3JAlBuTDi8OM6R0yOwfabU992n3TrTbJ+amEgzCeF22ji+61X9ED6OOsYHRuI
-	CSN84rrMNaD28jw==
-X-Received: from edbel4.prod.google.com ([2002:a05:6402:3604:b0:67c:d93d:89cd])
+        d=1e100.net; s=20251104; t=1778709175; x=1779313975;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=B4gZFEOmN4BitsxINTjrbRsNtg0gv58NYoTuWrSbwJg=;
+        b=YLMMm0se4TPInuqyfvP9t1+PRGqSOK1hgNCh1gjbqyJNdFQ4K9LNShwlrVHDH8a1yV
+         2Tbodo/kZelYjl/oSvvOrjxqmccwgMhD6lXImlowFZnRGvUS14anu34Vtp+bLrrwndrL
+         MH2VjZoNid7x1SQEbtdCU4FQL+JZqidceKUKJA3SVotMpLDH6eZVRa6cLcA1u0FUpPn6
+         w9kf8OCEMa6ZO0jz7n8enb2sVE3CR10oTSjetXzZBlVZ7YjL0SJIZW5iR1WyneFo4rpo
+         QcO4aCqQP1yJ7zXJxGkuqhHpFehkCIskjAdw1Y2lWQCgliGYwIk3zlgMQZa5wdQiiraw
+         3h9Q==
+X-Forwarded-Encrypted: i=1; AFNElJ+4zdDdU0dAOCKYxLlaFPqKaljWrk7AWTtOiHbecBuSKEHngHPw/TQTjdhnB1CJhI+Vxz0eoxwK64w6Xsy7UZHV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHULmELC0w9ICM4xvb2u/p9gPnC/IXNVNBltVx+AItGGc0aEt8
+	j5fq2YJ+mMjjjtOvRq0Z9FBs4LShrgJhtgFnyLzGe6gAOe2RAmAXlbXQZXwA7bTJw+YTxVt5pPR
+	Yna8eA8iGRdZKCQ==
+X-Received: from wroe2.prod.google.com ([2002:adf:ef02:0:b0:43d:6fc6:5521])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:8cb:b0:66d:d2f9:520c with SMTP id 4fb4d7f45d1cf-68256d5afa3mr2319843a12.19.1778709167343;
- Wed, 13 May 2026 14:52:47 -0700 (PDT)
-Date: Wed, 13 May 2026 21:52:02 +0000
+ 2002:a05:6000:2486:b0:44b:e349:e6bc with SMTP id ffacd0b85a97d-45c77b7bacdmr7661958f8f.3.1778709174704;
+ Wed, 13 May 2026 14:52:54 -0700 (PDT)
+Date: Wed, 13 May 2026 21:52:03 +0000
 In-Reply-To: <20260513215203.3852661-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20260513215203.3852661-1-smostafa@google.com>
 X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
-Message-ID: <20260513215203.3852661-3-smostafa@google.com>
-Subject: [PATCH 2/3] iommu/io-pgtable-arm: Rework to use the iommu-pages API
+Message-ID: <20260513215203.3852661-4-smostafa@google.com>
+Subject: [PATCH 3/3] iommu/io-pgtable-arm: Use address conversion consistently
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
 Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, 
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_145250_291099_9F83836F 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260513_145257_392785_8DDDEF72 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,137 +92,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the io-pgtable-arm allocator to use the iommu-pages API.
+Use consistent address conversions in the driver:
+- virt_to_phys(): For all virtual to physical address conversion,
+  convert __pa users as we don=E2=80=99t need to rely on it type casting.
+- phys_to_virt(): For all physical to virtual address conversion,
+  similarly, convert __va users.
 
-Replace the DMA API usage from __arm_lpae_alloc_pages() with
-iommu_pages_start_incoherent() and from __arm_lpae_free_pages() with
-iommu_pages_free_incoherent().
+That changes nothing at all. However, it will be useful when
+compiling this file for the KVM hypervisor as it can cleanly
+replace virt_to_phys/phys_to_virt
 
-Since the iommu-pages API relies on metadata stored in the struct page
-during iommu_alloc_pages_node_sz(), it cannot be used safely with memory
-allocated via the custom cfg->alloc (which may not be backed by pages).
-So, isolate that logic and keep it as it.
-
-Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- drivers/iommu/io-pgtable-arm.c | 79 ++++++++++++++++++++++++----------
- 1 file changed, 56 insertions(+), 23 deletions(-)
+ drivers/iommu/io-pgtable-arm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index 0cbe545c491d..86b23aa04324 100644
+diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.=
+c
+index 86b23aa04324..476c0e25631a 100644
 --- a/drivers/iommu/io-pgtable-arm.c
 +++ b/drivers/iommu/io-pgtable-arm.c
-@@ -248,24 +248,15 @@ static dma_addr_t __arm_lpae_dma_addr(void *pages)
- 	return (dma_addr_t)virt_to_phys(pages);
- }
- 
--static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
--				    struct io_pgtable_cfg *cfg,
--				    void *cookie)
-+static void *__arm_lpae_cfg_alloc(size_t size, gfp_t gfp,
-+				  struct io_pgtable_cfg *cfg,
-+				  void *cookie)
- {
- 	struct device *dev = cfg->iommu_dev;
- 	dma_addr_t dma;
- 	void *pages;
- 
--	/*
--	 * For very small starting-level translation tables the HW requires a
--	 * minimum alignment of at least 64 to cover all cases.
--	 */
--	size = max(size, 64);
--	if (cfg->alloc)
--		pages = cfg->alloc(cookie, size, gfp);
--	else
--		pages = iommu_alloc_pages_node_sz(dev_to_node(dev), gfp, size);
--
-+	pages = cfg->alloc(cookie, size, gfp);
- 	if (!pages)
- 		return NULL;
- 
-@@ -289,14 +280,55 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
- 	dma_unmap_single(dev, dma, size, DMA_TO_DEVICE);
- 
- out_free:
--	if (cfg->free)
--		cfg->free(cookie, pages, size);
--	else
--		iommu_free_pages(pages);
--
-+	cfg->free(cookie, pages, size);
- 	return NULL;
- }
- 
-+static void __arm_lpae_cfg_free(void *pages, size_t size,
-+				struct io_pgtable_cfg *cfg,
-+				void *cookie)
-+{
-+	if (!cfg->coherent_walk)
-+		dma_unmap_single(cfg->iommu_dev, __arm_lpae_dma_addr(pages),
-+				 size, DMA_TO_DEVICE);
-+
-+	cfg->free(cookie, pages, size);
-+}
-+
-+static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
-+				    struct io_pgtable_cfg *cfg,
-+				    void *cookie)
-+{
-+	struct device *dev = cfg->iommu_dev;
-+	void *pages;
-+
-+	/*
-+	 * For very small starting-level translation tables the HW requires a
-+	 * minimum alignment of at least 64 to cover all cases.
-+	 */
-+	size = max(size, 64);
-+
-+	if (cfg->alloc)
-+		return __arm_lpae_cfg_alloc(size, gfp, cfg, cookie);
-+
-+	pages = iommu_alloc_pages_node_sz(dev_to_node(dev), gfp, size);
-+	if (!pages)
-+		return NULL;
-+
-+	if (!cfg->coherent_walk) {
-+		int ret = iommu_pages_start_incoherent(pages, dev);
-+
-+		if (ret) {
-+			if (ret == -EOPNOTSUPP)
-+				dev_err(dev, "Cannot accommodate DMA translation for IOMMU page tables\n");
-+			iommu_free_pages(pages);
-+			return NULL;
-+		}
-+	}
-+
-+	return pages;
-+}
-+
- static void __arm_lpae_free_pages(void *pages, size_t size,
- 				  struct io_pgtable_cfg *cfg,
- 				  void *cookie)
-@@ -304,12 +336,13 @@ static void __arm_lpae_free_pages(void *pages, size_t size,
- 	/* See __arm_lpae_alloc_pages(). */
- 	size = max(size, 64);
- 
--	if (!cfg->coherent_walk)
--		dma_unmap_single(cfg->iommu_dev, __arm_lpae_dma_addr(pages),
--				 size, DMA_TO_DEVICE);
-+	if (cfg->free) {
-+		__arm_lpae_cfg_free(pages, size, cfg, cookie);
-+		return;
-+	}
- 
--	if (cfg->free)
--		cfg->free(cookie, pages, size);
-+	if (!cfg->coherent_walk)
-+		iommu_pages_free_incoherent(pages, cfg->iommu_dev);
- 	else
- 		iommu_free_pages(pages);
- }
--- 
+@@ -143,7 +143,7 @@
+ #define ARM_MALI_LPAE_MEMATTR_WRITE_ALLOC 0x8DULL
+=20
+ /* IOPTE accessors */
+-#define iopte_deref(pte,d) __va(iopte_to_paddr(pte, d))
++#define iopte_deref(pte, d) phys_to_virt(iopte_to_paddr(pte, d))
+=20
+ #define iopte_type(pte)					\
+ 	(((pte) >> ARM_LPAE_PTE_TYPE_SHIFT) & ARM_LPAE_PTE_TYPE_MASK)
+@@ -429,7 +429,7 @@ static arm_lpae_iopte arm_lpae_install_table(arm_lpae_i=
+opte *table,
+ 	arm_lpae_iopte old, new;
+ 	struct io_pgtable_cfg *cfg =3D &data->iop.cfg;
+=20
+-	new =3D paddr_to_iopte(__pa(table), data) | ARM_LPAE_PTE_TYPE_TABLE;
++	new =3D paddr_to_iopte(virt_to_phys(table), data) | ARM_LPAE_PTE_TYPE_TAB=
+LE;
+ 	if (cfg->quirks & IO_PGTABLE_QUIRK_ARM_NS)
+ 		new |=3D ARM_LPAE_PTE_NSTABLE;
+=20
+--=20
 2.54.0.563.g4f69b47b94-goog
 
 
