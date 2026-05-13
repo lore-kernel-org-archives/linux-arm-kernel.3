@@ -4,79 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECE0CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 22:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA70ECD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 22:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YaX/Xo+aYjHdQZOl52aRhuT+hJsQaI4oWfGWWCZOJZg=; b=DygEk3iAS9ra1wAMrgj0YFS9Gf
-	rD6lLFHu+suU6SYxxZIg4kz2xEYNJEyQZj/LKX/ScBILTzJ/UXinwobgce3gM6PAibkb1IPTHuPZE
-	+Gf8vjooso7wUrvy9NHVp7RvfdbCPTOXFLKBSgfQNoUaphhd7rQc6BSW1qp0Yq49PuEftiNyNmB1I
-	Jw/GrNTkc180T3qxsfq2nIQkygONEp1mSRhos45f1jK3VoMcVd6QvC0YhiEgVLFQiuLZY/u6ffV/n
-	ve5kvCWW/JYTCmozOSfbgMhJN4HM4MTJBgL8wMc8KoQDAtGj5p1bxKYQwNiL/+kZd3ebxSL9tkhO+
-	oCWMwrAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mqoWDJsbI4YlhBTV0oRNS9vO4MGiI1gRi8Q9p3RXt2k=; b=TOIofbb/wxAzgtq5dIQ2KHvFY5
+	8Y5i2w02MzJQqHJb8CwRGFc79ToeH84fkCDzAbBTqA7pGGKHI1SSRRPfaYciIDERYaNJGkxRwyLPO
+	egwH2/VT7kRZbtYJ0Bupb80Ne2pGFdZS4LOegkmP2W/0OxY3BpIkfCx9j9gaE8HuC9zJy3FiCvoA8
+	ZdoKIXnxJwqCuRASzdN49RLvT/Xc4puxAzb6pDOWGZoXY2JwLnz4ilBGi0650QIbZQopgrxhLPcZp
+	S9R6nVBOiHkoHwsVt3hbI4Ti0Ng8uXTmUt6v7gzEa8RGyIdLIgsq4Gn0EBF9yNI6MnynJf76a3zF/
+	w7j04dfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNI7E-00000003vOz-2nRb;
-	Wed, 13 May 2026 22:31:44 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1wNI8v-00000003vi1-3xh4;
+	Wed, 13 May 2026 22:33:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNI7B-00000003vO4-2xOx
+	id 1wNI8t-00000003vgx-3pW1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 22:31:43 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gG7VJ6QrCz9vL6;
-	Thu, 14 May 2026 00:31:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1778711496;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=YaX/Xo+aYjHdQZOl52aRhuT+hJsQaI4oWfGWWCZOJZg=;
-	b=hNAMBlxUaqoHIkR0xiFX6TG8ieW3zHxUqwE/3zbedEVYZtohfKC2xboGPytY1wAqVvs4Gr
-	Da6zirJ0qUJZE/27hLiC5DhnFfih3tDBNTQdQGYUA3RCpj/REuxu2iy52dAt4CTvYx7n3j
-	5KaFNsubSJ2URFXVK0qIqDGTv4ZTWcgZLrkMgNzkvAoCCRwRuQ4GwGrxMasKprtGRaZ9jw
-	/P7pcaMieigeFmlGYu7LVhx3vSBi6veNoodSYjBjbTNhm8nb/cOTAiiAX8/+mGPTdFRu/4
-	cBwhoEnLlvKRS4xMHENfDCFApb3JiU7/A3+ZhalEVxRHB7BYXtfhg/voljmUNQ==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1778711494;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=YaX/Xo+aYjHdQZOl52aRhuT+hJsQaI4oWfGWWCZOJZg=;
-	b=lKslt6Q4R8iLS52CuB54bOm1JFkDprgAKfhNyEcMbzk/4aNhPyjfSCdad2Jd89wE/UNDu+
-	Cz58gpdO5GYMLr7n2M6kEwd5hKGjZFos2O4TCMLFUMFGMTwTkf22h2YLT0U7BEQljaN8O0
-	m6nHyQNAnnj29e3FdMk3LA44JtqgSrkhvSAIw8mprBJuehvr6Lc06lMQEGMmQICn2AyIVF
-	9hmjbrdQpFeLg3MJYMDHHRkKVAQLisLApHF0opIbJQj3Zkf5Deb37+Rj2abb3ZTE6XCly0
-	ZPaxixhvt4yQfeVr5KC3xWNbne1ikrlZ1xO78FVPTj/tnB+DiBkxO2jVLoyLeQ==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Wed, 13 May 2026 22:33:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8AE8143E4F;
+	Wed, 13 May 2026 22:33:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DCC8C19425;
+	Wed, 13 May 2026 22:33:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778711605;
+	bh=hwTH+6hUhoEyj5JZNYIPEtUSA8SkvfuKwQ7mDWYWBoQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RGKO7okSgOVQ9IZrUm25mf71fR/4z438lhcaWg5EFEAt6bMnUoUYv7uyYc2jyW1RO
+	 ZvNRX/He8KuHhzu2WbQYVDNit4HiSaJ3OQIVQNRdAolxdLHYGvD9P9a27K5o1aLjq0
+	 xDlVkx0srUtuzR6L2cyChOIZnSNRpj/yDv4ADydw6HSgxp2TnS0Qb0QJ39rrzrn/vP
+	 qruV+E04+ScJ4ihorRjadeGcbtwiKjaQOV3z4t2oWZwVPOMn6ujEATAPj3wfGD2JGm
+	 vCW8dOyZZhFP+Q+JK2xZ733PW7zArcH9Fz1KMGpxpSNxtlpPlDMXW+1SdqfBVo2RUo
+	 OUXl5sG+9LZtw==
+Date: Wed, 13 May 2026 17:33:20 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+	linux-acpi@vger.kernel.org,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Will Deacon <will@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Lars Persson <lars.persson@axis.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] arm64: dts: renesas: r8a78000: Fix GIC-720AE View 1 Redistributor description
-Date: Thu, 14 May 2026 00:30:08 +0200
-Message-ID: <20260513223125.43337-1-marek.vasut+renesas@mailbox.org>
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
+	Orson Zhai <orsonzhai@gmail.com>, Ge Gordon <gordon.ge@bst.ai>,
+	linux-kernel@vger.kernel.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Samuel Holland <samuel@sholland.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>
+Subject: Re: [PATCH 03/16] dt-bindings: timer: arm,arch_timer: Fix
+ requirements for interrupt description
+Message-ID: <177871159980.2167014.13931408615582570920.robh@kernel.org>
+References: <20260507125544.2903406-1-maz@kernel.org>
+ <20260507125544.2903406-4-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: 1836kzmypo36jkf9t45gcq77knmzzhm7
-X-MBO-RS-ID: 6de09209b627974ea58
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260507125544.2903406-4-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_153141_893537_72AC38F2 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20260513_153327_994513_298E8118 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,106 +113,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Renesas R-Car X5H (R8A78000) SoC contains Arm CoreLink GIC-720AE
-Generic Interrupt Controller with Multi View capability. Firmware has
-access to configuration View 0, Linux kernel has access to View 1.
 
-The Arm CoreLink GIC-720AE Generic Interrupt Controller Technical
-Reference Manual, currently latest r2p1 [1], chapter "Programmers model
-for GIC-720AE", subchapter "Redistributor registers for control and
-physical LPIs summary", part "GICR_TYPER, Redistributor Type Register"
-clarifies register "GICR_TYPER" bit 4 "Last" behavior in Multi View
-setup as follows:
+On Thu, 07 May 2026 13:55:31 +0100, Marc Zyngier wrote:
+> The arm,arch_timer DT binding is extremely imprecise in describing
+> the requirements for interrupts.
+> 
+> Follow the architecture by making it explicit that:
+> - the EL1 secure timer irq is required if EL3 is implemented
+> - the EL1 physical timer irq is always required
+> - the EL1 virtual timer irq is always required
+> - the EL2 physical timer irq is required if EL2 is implemented
+> - the EL2 virtual timer irq is required if FEAT_VHE is implemented
+> 
+> The consequence of the above is that the minimum number of interrupts
+> to be described is 2, and not 1.
+> 
+> Finally, clean up the description which made the assumption that
+> the timers are plugged into a GIC (unfortunately, that's not always
+> true), drop the MMIO nonsense that has long be moved to a separate
+> binding, and use the architectural terminology to describe the various
+> interrupts.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  .../bindings/timer/arm,arch_timer.yaml        | 21 +++++++------------
+>  1 file changed, 8 insertions(+), 13 deletions(-)
+> 
 
-"
-Last
-Last Redistributor:
-
-0 ... This Redistributor is not the last Redistributor on the chip.
-1 ... This Redistributor is the last Redistributor on the chip.
-      When GICD_CFGID.VIEW == 1, for views 1, 2, or 3 this bit
-      always returns 1.
-"
-
-On this SoC, GICD_CFGID.VIEW is 1 and the Linux kernel has access to
-View 1, therefore Linux kernel GICv3 driver will interpret register
-"GICR_TYPER" bit 4 "Last" = 1 in the first Redistributor in continuous
-Redistributor page as that first Redistributor being the one and only
-Redistributor and will stop processing the continuous Redistributor
-page further. This will prevent the other Redistributors from being
-recognized by the system and used for other PEs.
-
-Because the hardware indicates that the continuous Redistributor page
-is not continuous for View 1, 2, or 3, describe every Redistributor
-separately in the DT. This makes all Redistributors for all cores
-accessible in Linux.
-
-[1] https://developer.arm.com/documentation/102666/0201/Programmers-model-for-GIC-720AE/Redistributor-registers-for-control-and-physical-LPIs-summary/GICR-TYPER--Redistributor-Type-Register?lang=en
-
-Fixes: 63500d12cf76 ("arm64: dts: renesas: Add R8A78000 SoC support")
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- arch/arm64/boot/dts/renesas/r8a78000.dtsi | 36 +++++++++++++++++++++--
- 1 file changed, 34 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/renesas/r8a78000.dtsi b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
-index 3ec1b53d27828..73be51787265c 100644
---- a/arch/arm64/boot/dts/renesas/r8a78000.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
-@@ -689,8 +689,40 @@ gic: interrupt-controller@39000000 {
- 			#interrupt-cells = <3>;
- 			#address-cells = <0>;
- 			interrupt-controller;
--			reg = <0 0x39000000 0 0x10000>,
--			      <0 0x39080000 0 0x800000>;
-+			#redistributor-regions = <32>;
-+			reg = <0x0 0x39000000 0x0 0x10000>,
-+			      <0x0 0x39080000 0x0 0x40000>,
-+			      <0x0 0x390c0000 0x0 0x40000>,
-+			      <0x0 0x39100000 0x0 0x40000>,
-+			      <0x0 0x39140000 0x0 0x40000>,
-+			      <0x0 0x39180000 0x0 0x40000>,
-+			      <0x0 0x391c0000 0x0 0x40000>,
-+			      <0x0 0x39200000 0x0 0x40000>,
-+			      <0x0 0x39240000 0x0 0x40000>,
-+			      <0x0 0x39280000 0x0 0x40000>,
-+			      <0x0 0x392c0000 0x0 0x40000>,
-+			      <0x0 0x39300000 0x0 0x40000>,
-+			      <0x0 0x39340000 0x0 0x40000>,
-+			      <0x0 0x39380000 0x0 0x40000>,
-+			      <0x0 0x393c0000 0x0 0x40000>,
-+			      <0x0 0x39400000 0x0 0x40000>,
-+			      <0x0 0x39440000 0x0 0x40000>,
-+			      <0x0 0x39480000 0x0 0x40000>,
-+			      <0x0 0x394c0000 0x0 0x40000>,
-+			      <0x0 0x39500000 0x0 0x40000>,
-+			      <0x0 0x39540000 0x0 0x40000>,
-+			      <0x0 0x39580000 0x0 0x40000>,
-+			      <0x0 0x395c0000 0x0 0x40000>,
-+			      <0x0 0x39600000 0x0 0x40000>,
-+			      <0x0 0x39640000 0x0 0x40000>,
-+			      <0x0 0x39680000 0x0 0x40000>,
-+			      <0x0 0x396c0000 0x0 0x40000>,
-+			      <0x0 0x39700000 0x0 0x40000>,
-+			      <0x0 0x39740000 0x0 0x40000>,
-+			      <0x0 0x39780000 0x0 0x40000>,
-+			      <0x0 0x397c0000 0x0 0x40000>,
-+			      <0x0 0x39800000 0x0 0x40000>,
-+			      <0x0 0x39840000 0x0 0x40000>;
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
--- 
-2.53.0
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
