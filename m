@@ -4,127 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D67BCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 15:16:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC0ECD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 15:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1PhLi/gU/akWa+adOOxtrBShyISnlkKmM+tsEVdwzYA=; b=M8k3SH8zTZ+zNiOad1YNZKHgJx
-	8IwNbdX1GbGOtFgGMQi9GEtGgWq/2GbicRBaPTVZPBFjN33U9frEoMAdJJ4vgX+fEQnS1yrjDlSg7
-	DUlmE2tEALog9lnr7tjZM7c1x2WKfPqdEBwOnqZAqEEfS1Ih4GNrXEGkSPGsp2Eoez1sUo9Uwyi9F
-	C63JK69ZSJ43d/UzxlM2AZ1+RCkZkF1IvSZPS9ML536dDuG4e4Gw61RUwi9tgZuO6LIkzf/uncak1
-	VWqqALJHtrZryEVs4iC1ak0Hl9xJCC3/6foF1RF9g6IQLRbeHhHBXTTbqQKFUF2lvVlptrl6VxrXI
-	UkaWfG8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PLRVRXYe5uxCYuxI2XGDi5MFd0LhFIIf1w7B7feNGuY=; b=L3Fnc2p420An0L
+	B/mp6yp+9tRyrMEj6OgICz+H3YpeoVNx8m4dBb0TVoCZl86i+JRujgJVp99oeX2HUp8bvk3TKYzee
+	tw8R1sDioj3mEbS4GarJimH956ekr2Wl2MqAAsizvMd3zffS8PQKxwxTQ/DGWkEydEM7/M/thuu/i
+	qtjY/B8F8WGKj4DkTrDbF3aeRKmmU9fK1NYdux5NszrAu/pvzv7wR2hTUN+xJSYD/TjD7iTCHCgu0
+	+Knuj6dYSgKA+72DHNH/AfWJDluYVquY4CsDHUVM+SFkfusiQl2c+T0eI6dPhfdyNOp4NF6lQkepC
+	Oh9JEBc0wWnNugGhxnag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNBJR-000000032kx-2Ul2;
-	Wed, 13 May 2026 15:15:53 +0000
-Received: from mail-northeuropeazon11012058.outbound.protection.outlook.com ([52.101.66.58] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wNBV3-0000000345f-33ri;
+	Wed, 13 May 2026 15:27:53 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNBJP-000000032jv-20tS
+	id 1wNBV1-00000003454-2HQI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 15:15:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LDr7bjtLcV2kllAcRMe2KkpsaWEdIUwyPhxGWKUAUCvsKN4D1OtS9yTx05IvSdQR0BRghxma1WqWZBc/OkL+JJ0IC9d1poMVe1Qg94OzsytcBQK1hx1q4BlCRUaEk7LAjCEiluyWVsHMyfekMkuRBhlTBb6JAtY3qFZJ2RD1eKB6SpsyqNGKwyOsDp4P5emU1W1cDBz/9bhtiHSV8QZPA5R4jVMJ/Zn712CTq0NSNxfRcGN8lPSH9vb9COI1sFTYddtQ/fp+J8mHiYUFPTRlroJgcf8uLgrdcT+81G8Nb5Do/TeqmFZunu3NdjGPAIKQIbOg1ItOPkCxODAd5e8t8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1PhLi/gU/akWa+adOOxtrBShyISnlkKmM+tsEVdwzYA=;
- b=ZmbrwPY5GmlALqwzzBdaTnd7sLrDC7t7ibh/eoPtHfIFodVmA3qi9MwrasyDhd0PuOI+T/kgOw0ywX2dq/OFvWlKharNQWSjcMBAqQYwBMaKA+e5j/xqS+6hj3RCwJumyROwfl6ZFMZb+xtjpS2fsuim8vxT7VyNrPWMHTHO9JlprML55GJc0mVRRmmLMjsD0yNf//bSj0lcLrAdq0yq8xsIeqYqkZTJxZn/il+xKiz06PVTgXT/NWMu4pF/2Po4xBMHpaIzPXgNpuxef0kTr3JjIHUcALnKP/DSELDNDaTuTwTGHYQJ0bXPPNjSDvASzEmtgslJwwG5EWx50Dl3aw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1PhLi/gU/akWa+adOOxtrBShyISnlkKmM+tsEVdwzYA=;
- b=RGKZTEecw8rgMfgHq8dVhAS2HWg1kKK4RMKYmjl2ImCyvIeIZOChhgOhta1doWG+cIyXS1c4gLYJCulsMS9plupLzuCu17M9qajDO3h6CWWnnINwTx0moVm94DvY0I/kfw+ixHBiywo+YNnLklR9Y+bo/cLl3dUoTOi6Xna2F0KEYjAqDPNtvKdYs8X6pHURY5FjYar5wJchp9HVl0slmZFD8SHOp3j+NGZpd5rv7ZYNraWfdqwThM/nbM0ZlEZiKhFeVjCpVJNsDpMACZZ2ooU0AGv4/sR82oz9G0v1QcRYKm2NlIq5LBrNQMmcrR/9HZHR65dYX961pMHaoydFXA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by DB8PR04MB6985.eurprd04.prod.outlook.com (2603:10a6:10:11e::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
- 2026 15:15:46 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9913.009; Wed, 13 May 2026
- 15:15:46 +0000
-Date: Wed, 13 May 2026 11:15:38 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	mani@kernel.org, robh@kernel.org, bhelgaas@google.com,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v1 1/2] PCI: imx6: Configure REF_USE_PAD before PHY reset
- for i.MX95
-Message-ID: <agSVms2Etg1taGr0@lizhi-Precision-Tower-5810>
-References: <20260512052244.49414-1-hongxing.zhu@nxp.com>
- <20260512052244.49414-2-hongxing.zhu@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260512052244.49414-2-hongxing.zhu@nxp.com>
-X-ClientProxiedBy: PH7P221CA0004.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:32a::14) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	Wed, 13 May 2026 15:27:53 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64D9jfBj3007206
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 15:27:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=PLRVRXYe5uxCYuxI2XGDi5
+	MFd0LhFIIf1w7B7feNGuY=; b=SvpdaSqDEuf58NMSIVLGrh34lNxh9ggqfW0V08
+	eCMylx2jLky9u1WwsE14Pr2E+uXUSDkZoF2A4dumhbT5RQ5jlQhmq/KnIpz46Fvw
+	welp096pKenb0K2VikdluhG3C7oOi20KC4FF/BU+YLPaBy9QxTtq20kcYNJfLngt
+	i6iXfv9R1QC+pEr60/jV+YWCQFXm94wg9kiSUjYARn1Ril2jdzqnNTXFr0Ous9+K
+	mWotc6Wnvb+r2j6XTz5s7DhpTPANGFUD269YjCLaCrIK7a6VjEfq5CHrSVz0tdej
+	vWb6s2hVa0xjypgDGJ/p1/iE5uY8ITRfojaucXR95ZK+VdUQ==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e4py0h9q8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 15:27:50 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2baedd2fd43so42903915ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 08:27:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1778686069; x=1779290869; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PLRVRXYe5uxCYuxI2XGDi5MFd0LhFIIf1w7B7feNGuY=;
+        b=CxguDPjYNkAud4PLTmr3J0LFzLuHEVh96L3oEJQIYlmQHwnqsD34c8iB5G0ct2WJXF
+         EaYpXDN+cnFmYUikiAZlWGylKD2iUfQXtC563beXFVNP+Pdg3PpGMTX92rNoc6s3hMPt
+         thqKtVgEXZPfAmSWoK9zdNQ0KDiOsvXgy6mWibAm3QtlUW+YK4cATXVGxtw0Pl966iI8
+         sjmpcdbv7PhORS2+9jEaccCuAQaV4PU+th0tu1jjfSz8ePqSieCEs6uAHIINYhOoEqnr
+         4VP/yZ21PmKXAuKJkzlAJdSL1Se1KGDFLmlusbyDXV38EQxkt+QIXgUiVk1ZBo4N1EtE
+         XLOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778686069; x=1779290869;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PLRVRXYe5uxCYuxI2XGDi5MFd0LhFIIf1w7B7feNGuY=;
+        b=VZ7OMB91sZ0P2h9iom4FesB4IS+Bi84GIGF6goE6yl8V7mhfldtHZQJLZ2aUjWpAQQ
+         YEBY2T2H+TD7ASJ745lKcrAJW7nrtYDeZq5UPSMGGiW70r5pIRdtfL1EZJmda8z2Ygxr
+         rvb/tnHaJc8CF7gSRRuoOZXmM32ksvAaBSn/IvnUQ2aWG3sRQsmh/lmJkYrOS3PVTRj3
+         xJuuiul87QAnkKzaUzIcYyEnmMOGam8rRkrWAkzo3y2pM/SWz1gj3VxBtl9HzoFrCPj+
+         MQeoO11NM7n4B4VpOGVIAlP/220wuPAwJUWTkAYMYiNwijQYQOQljdQc2cnFFYuQZ1Lw
+         eaoA==
+X-Forwarded-Encrypted: i=1; AFNElJ82gd6enUJojV3M/cqrDht+db8jcm7tColflyYzWwTa4/H3UvwbxQ7dR3qyg9glZCbqrHfYiYdvMA4WihjBCfcn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2dkF2xve8sXJCfXCuiS7hOita5IzsZ853HbDI/xiQ8cUYS6Te
+	VbxmCMGU6POfToLikWd38jq7dF8Z9A91IK3Gzng10CxLm5pKXbURpFLlBoK7NFrY6kfxhiVt93V
+	ANNLpelDxj8HjFNycPGn+dHnka+cISjX4I3+0cr6b13ROH6HW5zKCFfAnUmlBk/wkyerYaGDOVv
+	RP2Q==
+X-Gm-Gg: Acq92OGHgCY93r/DhZQtR6uXm8RrIQz0QJjPRblI6cL9kp5cMYcYpY+2Rrn7/v6GWui
+	krta3xJbxhvIFueA4SC8Qsl6BE6eWEVyw2XfamjgOi8fBjDlJhiSz2c+GEQd38qBVlIyzlpkrsW
+	XMiQ+6fz1DdL1oGy2I0vn0fVtPb15R+ZjO5ABcbYpmuZLev5jPy7vPeUJVQ8ouZBNl1gzDyRTgG
+	UNwhB2cRb31KO841j966w8pVcMxAMTxOLy8c8d0LLF9NA9+tnqnOcotxMDWy5XyHVBkwpMLdSMc
+	344PHvKflLR3wshBQVwqUfDcoUh/Lotzx3x9ctOb3kRqzD+Ol7jyFeVn0bfJelhVEO7Gcv3SP1I
+	B1mjIS/d6CX/n3B/9m+JIUzl5zbsG3HD0Il4MpsLwjD5ong==
+X-Received: by 2002:a17:903:22c7:b0:2ba:4086:ecb9 with SMTP id d9443c01a7336-2bd3032f9a5mr37432195ad.36.1778686069428;
+        Wed, 13 May 2026 08:27:49 -0700 (PDT)
+X-Received: by 2002:a17:903:22c7:b0:2ba:4086:ecb9 with SMTP id d9443c01a7336-2bd3032f9a5mr37431695ad.36.1778686068872;
+        Wed, 13 May 2026 08:27:48 -0700 (PDT)
+Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2baf1eafa62sm185042375ad.74.2026.05.13.08.27.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 May 2026 08:27:48 -0700 (PDT)
+From: Taniya Das <taniya.das@oss.qualcomm.com>
+Subject: [PATCH v4 0/7] Add support for Video, Camera, Graphics clock
+ controllers on Eliza
+Date: Wed, 13 May 2026 20:57:35 +0530
+Message-Id: <20260513-eliza_mm_cc_v2-v4-0-e61b5434e8d9@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB8PR04MB6985:EE_
-X-MS-Office365-Filtering-Correlation-Id: cd3c1115-7238-4584-5bbf-08deb1028212
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|52116014|1800799024|18002099003|22082099003|38350700014|11063799003|56012099003|3023799003;
-X-Microsoft-Antispam-Message-Info: whOWVXDS8B8U9Mm3s/MZYl1W6imGCJa5H+U0bkD4E5Vohidez4Qfi5whnBaw7m0jwplUKF3uKSbPGLl24LjYo/Pw3/B2Jb5zT3gVUgoUTz3s9CuRoWVrW9fwsM5GZn+082MEyYEz+KbyfJWjmxl9m/VbUNLxL6OxGzNidClJhk+6p8nQIUt8VjA0IZ+j0V7fHc+pOiEmp0EALcdgbWkxsuDpBKFdOHcY5nVTB2zOHSfB8Pu60Oq261ZktvM2LoyQxCdh5pT8Xq3FicVQ2hi8lKUq0Yek2vZrwpHpbDtiT7/+26PfGxpaRJl38+R2VFkplrsWcGrHSEuosmiU/03TK3UyjspEnJ4bB7Kuxr8oW//2PP3wVYKzsB3JKGBAlpHBwPTRUOJ79MWKqfYW8fUgNryGJGjC9tgg+FiEsYizPRymgmqNZfHTtbNuNunwQ4/ThTRT6xvO4A2bMQIQ6m0LpsH6D3SjQqfPxa0DaEkCe62/x+wnwZnoW74viC6CjCRH0aPO4N5gRh9SkGEyvA/Rihiv6azn8jpDNy1vx/swsA6aNjBr/s0uSH+K9hhRInFMYhyTXo6xyNRcLNEC0gmjog7apstR34psCPc8ZSdWZs+L3jREmpRQkVG/u3esjGgz5mavqhNMoOnrEDRsHVZ5vDz8kahb/ZOZA6HolI+YuN8JNi00ix5txkXpVbg3FvxkRIfQttnbU8byV2jFhjHnWawHaWsHP350YxBVRtKJzR1i13IXIdUtbLYv1nLQo6a1
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(52116014)(1800799024)(18002099003)(22082099003)(38350700014)(11063799003)(56012099003)(3023799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9nIkbWvYjnGK/PerlSL+ES++Yt/judN5cOTNh1/ht0erR2s5MefI6W9SFxGo?=
- =?us-ascii?Q?h+aD+Ow1QC5jUCa9h0Ucw2P9rxjbeXt40L3MwVZRgQr8COO0LL6D8VsU4zko?=
- =?us-ascii?Q?SEum9ulj2GmDoIE5sXAH206XZOQSu3q8DcoyBUUc85QIwjVKIYPxJKFM7Q6t?=
- =?us-ascii?Q?UCSj7pr6pDDl2sbmV6wuDyS0zotQ/7dvkg8PLA51LPCIwxBxMQPUlSlx3hLv?=
- =?us-ascii?Q?tYSdXUf9viNFMCBAvo+RWySpFGr2308+Ze4rIzcpPZqVRCnOSdKSiieEtrpv?=
- =?us-ascii?Q?bz+76rlXEAGjYdJzFfmePRZi72FV1gFsqpEGpnoCkBrp/DbtpDOiXqGrcTUs?=
- =?us-ascii?Q?QkX9pOtU5kBwLnC/KYTRq0OiYxWKX0PrIE3ljz2hsvHbxZMlhNaohfUpp7Kp?=
- =?us-ascii?Q?LDIRKE/jrZCvVXSsnnc2MOGquiTqmXn9LJffcfqKKi8RwEgk8xq+5kQ/aIMF?=
- =?us-ascii?Q?AuzkA1VGPi2UyuY/21+svuhVyysGUYEjGNpeeXnoDYWmzFJgXjQ/IB4F9OD0?=
- =?us-ascii?Q?3yRdC0P4qovXUwzemsA/j9aRepyBMzmF8QBH3hdXbb+Sz9b2GRfHGXfYmaNW?=
- =?us-ascii?Q?b/BNR7lzaXUM1fhw0zhUBBt2pZ3ksVyJtQqs1/JwJcF9h359IdqntU783GFa?=
- =?us-ascii?Q?wW1XMbTDsR1TfDPtGqkhC3nrDOk4ipHDhKdJd3Mufv3tSbBuR0bJ9ksM2cPG?=
- =?us-ascii?Q?Dehw/V9xlIjBooAtGvIJclXwN1oAyk67D/r0UOUFctwEfJID2fkjm8cZNJCb?=
- =?us-ascii?Q?3PL48wMBf9UQ5IDWeOqWRsPZV7o5Ey6d2CVCND7CqV+bVUG9y0E0BmbS+gNI?=
- =?us-ascii?Q?lHhCpP3wByfdogKYuVJfG2C31/8jBThzTKgkCfOcOHufGVQ0R++VxWHV2J9f?=
- =?us-ascii?Q?4cneK/OgGI+UDzy8rrlf3n7+ISC1y9g4JMVhrIzXpY2xikUa7EqXzwiOavcI?=
- =?us-ascii?Q?4uT0kwrXhorR8YroWJORC1zNCg70vBMFXJPQAbb7golYKbx+SdTV3smUAXtX?=
- =?us-ascii?Q?Zr48cDIWDwZ7Z2unwjG3up1vp+CnL0v3jJIpH5RlLmerxdWrlGNtL/FrMSoG?=
- =?us-ascii?Q?KC7Se1ZCS7qlrI3LIkJYaybtPKm+poX+R4jE0HOFpT6C82dm+fN6MEwFk3v5?=
- =?us-ascii?Q?lntiVGnwIlM9hLO+azEwxjeRLDDUM4dLZz3DZea3WKPk28qCeOCN4cU2vPoX?=
- =?us-ascii?Q?c8EC13saxuSWkCIxMXFHtUs5F/pIpft+uKexwV+KGMdolj71kY9ml2kCub2Q?=
- =?us-ascii?Q?jNBvIQXz2Etu0+yiehBfHzgo9usXWMdS5wh+Rmxr8o1uTuSVpv/joKZUVDlI?=
- =?us-ascii?Q?8QFPIX2R/LChTbsti1O2MsVLneg3U8bWEZibtw+92cTJMYFkPm3O1+s3IHdU?=
- =?us-ascii?Q?Su4NSEfvAHIZKv2xs8YUBFsLbBa9X4oKkXMMr4jNT42/52KP4Unr5L8vKzUK?=
- =?us-ascii?Q?Sb3iuZbDq0Yqr5C7epIfoDCpDdCT4OJjKWZTCSrMOwnp5xEy1DQvZExSrezK?=
- =?us-ascii?Q?hc8NmKHbRR9EyLAijCOMJ0hCQifnrLTwDVnEV005tUKFbDzA/oGCQpPEZl0P?=
- =?us-ascii?Q?BeVzf9nKemFYhuuUnV20ma2P3f9fxheH7P1yyYZqvTK/A3KvklmLN0N2ETrM?=
- =?us-ascii?Q?ZWDw5fexjue3cBLR180fPW8kwC9uvQaPpEIY4i+DjX9K9ewfjiqtWPaxDGSp?=
- =?us-ascii?Q?vj2+AIOziLQtxz4oqTZbDGkF7K695u59KGxry3AwCp4NY//r?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd3c1115-7238-4584-5bbf-08deb1028212
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 15:15:46.4904
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: K6WjIfprk0oz3/5sYC3OKsEx94Dj5bzgBpNQgRhupv3uNVJ+BNeuEMqVrKfJXyfz2gLcR06brj64rwBLMQ6yGA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6985
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGeYBGoC/3XMUQuCMBDA8a8ie24yt+myp75HhOht5YFztdWox
+ O/e9KWHCo6D/8H9JhKMRxPILpuINxEDujGF3GQE+nY8G4o6NeGMV0yympoBX21jbQPQRE4VK0B
+ IrTslDUlPF29O+FjBwzF1j+Hm/HP1I1+uf6k0jHbAoNJaqQ7KvQshv97bAZy1eVpkEaP4KGUhv
+ hSxKGUNQjENfFv8UOZ5fgOZ6B+O+QAAAA==
+X-Change-ID: 20260409-eliza_mm_cc_v2-701c34ddb74e
+To: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Luca Weiss <luca.weiss@fairphone.com>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Taniya Das <taniya.das@oss.qualcomm.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.15-dev-aa3f6
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDE1OCBTYWx0ZWRfX4rAzTCHIzdZB
+ h3eQfDuNj6LqCImHBgEArhiZgjGrC3caHZ17eiEygMSjt73TJNdpCxGmgWteap49fOW74+c7RIK
+ p/sw0M/F556JJEz+QfNiVJm5ydjbDQdOo0uM6Ho9In5aPYehucJ1Mkxfhy8KATAtGGu/GHMfCBl
+ BdZg1iBMjA+V4Ymt8wNB+SGLf+wDL1bdhkGYn0rsb/YuzPfAA1iOLyUQzn8tlDohyWrkwOQZwch
+ nPJUC1Yasv2fhq0PTgqhqSe4ZYNh09QMQqOaRFP3aSGai+tboIVKnVwm+ORYd2iphQN7P5DWuJP
+ uviWxq/T94HFddRXAXmhvhEi9ODBCqDv+ggTG4wVvYrUXT+gv3j96Rvdcnj6FvA4uvklw0Kknmj
+ z39T+YdaU/U+8YcEccJHyVEqrrLA4HRrP6U+TVbkdoHgpYk0VJveKSq8n6LNbboADHbBmyPMKFS
+ zKFLBqnCwges+ELeZlQ==
+X-Authority-Analysis: v=2.4 cv=XqXK/1F9 c=1 sm=1 tr=0 ts=6a049876 cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=8HYrQF7E7KXWYYjJzRwA:9 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-ORIG-GUID: aEXbJCVzI1JiVkckDoiRjQP2thAJiBuU
+X-Proofpoint-GUID: aEXbJCVzI1JiVkckDoiRjQP2thAJiBuU
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-13_01,2026-05-13_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 phishscore=0 bulkscore=0 impostorscore=0
+ lowpriorityscore=0 malwarescore=0 adultscore=0 clxscore=1015 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605130158
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_081551_520151_D3A74CF8 
-X-CRM114-Status: GOOD (  24.13  )
+X-CRM114-CacheID: sfid-20260513_082751_707686_60A70B86 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,101 +160,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 01:22:43PM +0800, Richard Zhu wrote:
-> According to the i.MX95 PCIe PHY Databook, the ref_use_pad signal in the
-> Common Block Signals section selects the reference clock source connected
-> to the PHY pads. Per the specification, any change to this input must be
-> followed by a PHY reset assertion to take effect.
->
-> Move the REF_USE_PAD configuration before the PHY reset toggle to comply
-> with the required initialization sequence.
->
-> Fixes: 47f54a902dcd ("PCI: imx6: Toggle the core reset for i.MX95 PCIe")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> ---
+Add driver for Eliza SoC camera, graphics and Video clock controllers.
+The camera clock controller supports the cambist clock controller and
+the regular camera clock controller.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Eliza camcc and videocc are on CX and MX rails and doesn't have MMCX
+and MXC rails dependency. Since CX and MX rails are already ON when APPS
+is active, explicit power-domain voting is not required similar to Milos.
+Hence extended the Milos camcc & videocc documentation bindings for Eliza.
 
->  drivers/pci/controller/dwc/pci-imx6.c | 27 ++++++++++++++++++++++++---
->  1 file changed, 24 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 1034ac5c5f5c1..c57f18d9e4ffa 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -137,6 +137,7 @@ struct imx_pcie_drvdata {
->  	const u32 mode_off[IMX_PCIE_MAX_INSTANCES];
->  	const u32 mode_mask[IMX_PCIE_MAX_INSTANCES];
->  	const struct pci_epc_features *epc_features;
-> +	int (*init_pre_reset)(struct imx_pcie *pcie);
->  	int (*init_phy)(struct imx_pcie *pcie);
->  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
->  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
-> @@ -247,6 +248,24 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
->  	return imx_pcie->controller_id == 1 ? IOMUXC_GPR16 : IOMUXC_GPR14;
->  }
->
-> +static int imx95_pcie_init_pre_reset(struct imx_pcie *imx_pcie)
-> +{
-> +	bool ext = imx_pcie->enable_ext_refclk;
-> +
-> +	/*
-> +	 * Regarding the Signal Descriptions of i.MX95 PCIe PHY, ref_use_pad is
-> +	 * used to select reference clock connected to a pair of pads.
-> +	 *
-> +	 * Any change in this input must be followed by phy_reset assertion.
-> +	 */
-> +
-> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_0,
-> +			   IMX95_PCIE_REF_USE_PAD,
-> +			   ext ? IMX95_PCIE_REF_USE_PAD : 0);
-> +
-> +	return 0;
-> +}
-> +
->  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
->  {
->  	bool ext = imx_pcie->enable_ext_refclk;
-> @@ -269,9 +288,6 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
->  			IMX95_PCIE_PHY_CR_PARA_SEL,
->  			IMX95_PCIE_PHY_CR_PARA_SEL);
->
-> -	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_GEN_CTRL,
-> -			   IMX95_PCIE_REF_USE_PAD,
-> -			   ext ? IMX95_PCIE_REF_USE_PAD : 0);
->  	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_0,
->  			   IMX95_PCIE_REF_CLKEN,
->  			   ext ? 0 : IMX95_PCIE_REF_CLKEN);
-> @@ -1251,6 +1267,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
->  		pp->bridge->disable_device = imx_pcie_disable_device;
->  	}
->
-> +	if (imx_pcie->drvdata->init_pre_reset)
-> +		imx_pcie->drvdata->init_pre_reset(imx_pcie);
-> +
->  	imx_pcie_assert_core_reset(imx_pcie);
->  	imx_pcie_assert_perst(imx_pcie, true);
->
-> @@ -1961,6 +1980,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
->  		.core_reset = imx95_pcie_core_reset,
->  		.init_phy = imx95_pcie_init_phy,
-> +		.init_pre_reset = imx95_pcie_init_pre_reset,
->  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
->  		.enable_ref_clk = imx95_pcie_enable_ref_clk,
->  		.clr_clkreq_override = imx95_pcie_clr_clkreq_override,
-> @@ -2016,6 +2036,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
->  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
->  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
->  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
-> +		.init_pre_reset = imx95_pcie_init_pre_reset,
->  		.init_phy = imx95_pcie_init_phy,
->  		.core_reset = imx95_pcie_core_reset,
->  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
->
-> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-> --
-> 2.37.1
->
+The patches have been tested on Qualcomm Eliza MTP board.
+
+Changes in v4:
+- Update the clock ordering for camcc and cambistmclkcc in milos.dtsi.
+- Link to v3: https://lore.kernel.org/r/20260513-eliza_mm_cc_v2-v3-0-b59c370dc281@oss.qualcomm.com
+
+Changes in v3:
+- Dropped new documentation bindings & extended Milos documentation bindings for Eliza videocc & camcc.
+- Dropped the defconfig patch and included the drivers as m from Kconfig itself.
+- Update the header inclusion in the milos.dtsi.
+- Link to v2: https://lore.kernel.org/r/20260409-eliza_mm_cc_v2-v2-0-bc0c6dd77bc5@oss.qualcomm.com
+
+Changes in v2:
+ - rebased the patches on the latest linux-next.
+ - Add new bindings for Video and Camcc.
+ - Remove commented code in GPUCC (limiter code).
+ - Add device nodes for the corresponding clock controllers.
+ - Add RB-by tags for VideoCC and CamCC/Cambistmclk from v1.
+ - Link to v1: https://lore.kernel.org/r/20260317-eliza_mm_clock_controllers_v1-v1-0-4696eeda8cfb@oss.qualcomm.com
+
+Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+---
+Taniya Das (7):
+      dt-bindings: clock: qcom: Add video clock controller on Qualcomm Eliza SoC
+      dt-bindings: clock: qcom: document the Eliza GPU Clock Controller
+      dt-bindings: clock: qcom: Add support for CAMCC for Eliza
+      clk: qcom: videocc: Add video clock controller driver for Eliza
+      clk: qcom: gpucc: Add GPU Clock Controller driver for Eliza
+      clk: qcom: camcc: Add support for camera clock controller for Eliza
+      arm64: dts: qcom: eliza: Add support for MM clock controllers
+
+ .../bindings/clock/qcom,milos-camcc.yaml           |   11 +-
+ .../bindings/clock/qcom,milos-videocc.yaml         |    9 +-
+ .../bindings/clock/qcom,sm8450-gpucc.yaml          |    3 +
+ arch/arm64/boot/dts/qcom/eliza.dtsi                |   59 +
+ drivers/clk/qcom/Kconfig                           |   31 +
+ drivers/clk/qcom/Makefile                          |    3 +
+ drivers/clk/qcom/cambistmclkcc-eliza.c             |  465 ++++
+ drivers/clk/qcom/camcc-eliza.c                     | 2803 ++++++++++++++++++++
+ drivers/clk/qcom/gpucc-eliza.c                     |  621 +++++
+ drivers/clk/qcom/videocc-eliza.c                   |  404 +++
+ .../dt-bindings/clock/qcom,eliza-cambistmclkcc.h   |   32 +
+ include/dt-bindings/clock/qcom,eliza-camcc.h       |  151 ++
+ include/dt-bindings/clock/qcom,eliza-gpucc.h       |   52 +
+ include/dt-bindings/clock/qcom,eliza-videocc.h     |   37 +
+ 14 files changed, 4677 insertions(+), 4 deletions(-)
+---
+base-commit: db7efce4ae23ad5e42f5f55428f529ff62b86fab
+change-id: 20260409-eliza_mm_cc_v2-701c34ddb74e
+
+Best regards,
+-- 
+Taniya Das <taniya.das@oss.qualcomm.com>
+
 
