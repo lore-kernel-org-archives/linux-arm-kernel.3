@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0EB5CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 17:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 488BACD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 17:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZhqeTaO2TDEjcP66wfCrkDg+Koq/B3QkWrfrf2cS9lQ=; b=sH4REyM7GjNJ1hXHzles03z9V2
-	lkixxutoMmswhcN4Dt2SqDOUw9Un4RArczCDDKEWCFC3OlISi5ucANqlyAwZA9XJJzPp+ya23vKSw
-	L87D5TEJ7+v7cG1WVkJoDIoBK/a7Kdzmsdy7YOA3ecUvXJe61n+RQPJ0yuRZABIiaNst6D3eegFqd
-	r86vNspq1wHYu7jyK6nI8j1JgqSjgcaZX0Pi6slfSIlnQoWnDRBqRxdWHimqF36cz6wjBpETMAXGo
-	5Nvfur5EdTgvT/CB7BbrGjZ+teKKgIk1AruXbh4na3LLBXxy/I+L8r05bNWpXQLNzvUzz4SZP+ZMb
-	sUAIdmXw==;
+	bh=aSNW5jdxcUIAPP3Bs33L7OprcOwqqAXBDPxUoI0e9M0=; b=KVlt6Qtb82UgV5Gqqqs+cC1Zyh
+	4QBGUV6OzWsEzy1mpohbZbin6K2QjOjW94QmDsS0+xjHajyduEq13VXUK9BiwjfpwV/sZHuvlDZFi
+	+2FpZr5gM3P2+xtV30iUZPtihQL4VoD8xMIp7snsP27HPUQ6LJS2dYUySivVizHiPSQCEXFXn7t5v
+	Xn4EegXj2zToze3IVbwZO6cq2b1acDJ+x6iM1PFXw/ZG1reyKQ7BcNfPggEtzKImzuRgk+mdNPfOI
+	qhYs4SglkyqdzCIWqtXpv+tTkdmshQtXQo+p9GSg1G4TBqAauKZ2OlOOA8UwgA0/xir9lLzf3piW3
+	mZcruRhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNDCl-00000003JzB-21oT;
-	Wed, 13 May 2026 17:17:07 +0000
+	id 1wNDCq-00000003K45-3b6t;
+	Wed, 13 May 2026 17:17:12 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNDCi-00000003JwQ-2CX4
+	id 1wNDCl-00000003Jyz-3s6g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 17:17:05 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64DC57iK3324882
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 17:17:03 GMT
+	Wed, 13 May 2026 17:17:09 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64DEvrkK3474707
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 17:17:07 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ZhqeTaO2TDEjcP66wfCrkDg+Koq/B3QkWrfrf2cS9lQ=; b=fQxQq+ogkG0kthGh
-	83i0eWPeE8JdizI4q8NsjOSv25cMCXMfjG9C8NIJem68Z34SEDrIgMZ+AGG6OSjl
-	DgFFyOYmxWP1JJDx/TXLFlXQDc58BkOsHdeIMoNnhWGkrkNz/IAS8RzCsELMMq0J
-	jGoKWs6nCVaamf6Aj4YKX0puFEnbGpLmeI8cbdg9meGFixdKckeOnBm4/YRpNGjW
-	3XSyf98t4OIxbgi3D1B0/8psNXix6XDNN7w7Eo3nYiKwGu1ZM0GtNB00r/KYGYOg
-	NW903jrcHRD95MEMQCcBK2GoA1BKk/xtzxDFVYp4GQFp7pxOgL0xZpHlkblMopRi
-	jlIS1A==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e4kvdamk8-1
+	aSNW5jdxcUIAPP3Bs33L7OprcOwqqAXBDPxUoI0e9M0=; b=kryTxQA6RM485eQX
+	dx42ibBOB75xs/MJw/7b3DKZEiDJoe6dqOpjyvUAVS/XrFHKfS7lTZhkbJMgzocU
+	m8TngOGjPaWwym33crrprlVCa/LhJP7R2/qHPUFnxVCLowrI1BDsElkK7//ZEtWt
+	1Oyuw+KaiRd3xVbzKPDHVxIxS9tJga80y+guWSPjrExWnzHAgkPbLmRbKKIODbjf
+	harIdC9nNhxRhduZLHu2336MAwCDgWEQkn1tN7iFieVDpCdTzbDg61a91GhkyNjw
+	pNQq9AZFNeEJEwZHfZN/qLVPM2HdlXKI711JqpJ6sWkMQki6Uq7Fw0ye6KznP0Ue
+	OCw5LA==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e4p41a0qg-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 17:17:02 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-2f2d983d109so11356628eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 10:17:02 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 17:17:06 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2bdd327d970so3970549eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 10:17:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778692622; x=1779297422; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1778692626; x=1779297426; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ZhqeTaO2TDEjcP66wfCrkDg+Koq/B3QkWrfrf2cS9lQ=;
-        b=i6nxWj+UtSrOudYSqUY5WLGMm9T9rcC7s6FQVJjScDPwsbMngBu1+HIOTXtNBQrq7n
-         OztRhvP/njd0G1WQJpghu9bLEE1Ee37mu3+K3Rpq5cWvgzUWCSatWdl3wlaCBCVmPwqj
-         i26ixQqsYGMJCwQpChx3lo1tJUKfl26rOLeGcy9YrKkEM+xFxQ9dz4Q5s4aw7tC6tBb6
-         gwakbxe03nZ/FHcSXZAa3WVcIFbQV6DmVZBl3ZmFDOw9fmuuWB74Ln1Z3W+1Wdg8DW+6
-         RzqUUsDo2IGut1x+YYkdH3nLabwgwf2B6/+UOjqZ4q+pPlBrKBQqMfWxmdwq3GVaP5lc
-         YNYw==
+        bh=aSNW5jdxcUIAPP3Bs33L7OprcOwqqAXBDPxUoI0e9M0=;
+        b=H4S1J9L6qlnVdp+utSVmLB9zn21IGvz8Uh0CfklsB2psd7DNTrPtlSu+Ofvhblagc1
+         ki9+8JftNsaQaeq4yiuGummd3uwo1j1JxBcQVOAet4Jasi3ccvjYfSPvn/L9jF2y8D7e
+         VbjICyTy+zzSH7R3GMSCnV/AZ27rlDFnxd6/hDA7dE0AqyEAUKwzciL/0gwsMw1wZWrH
+         A0Xjj2P59NKrk97WJW98LC6Cc8Dy6L3IiYtrZPNyN4LqeDONqsRVDpF/3TpPVp11wcS3
+         BwLP43eA9agehmFiukTwekge4C1qkZVI3OTVIUYwfRxdqiHClZvj0oezGyTyhdEfuiRn
+         BeEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778692622; x=1779297422;
+        d=1e100.net; s=20251104; t=1778692626; x=1779297426;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=ZhqeTaO2TDEjcP66wfCrkDg+Koq/B3QkWrfrf2cS9lQ=;
-        b=NzGunR/TypDAG0hi6EarR7ZQjlSFKGd9FxT898aXSh46WQc1ZgDdsIuxRUvRDf9p1X
-         KC+MccPFRDkk7UAyH0r6xKsfaw0quYoUt0rBLkGCamh3YAxa1IBEwLwffqgKgMnXftUg
-         T4w7NPwW/S9o30xGnnV9QsLH5hcGIUgvs+Wo6P4OYASuWsc0p+AFx91zte9053XhtZ/v
-         jHop9ehw41f8xI/JLzbP0/ebaOjkyLArXSwtfoiUlOxf4yEkTpRWEHGsstqr8DFBnrLH
-         bXZXP/BOSbk8iE1mWu8hZaq8ynzVSkWSm3NhbI/Sj4pxO5o6hOjZkQlJusAbroFyfg5k
-         IwlA==
-X-Forwarded-Encrypted: i=1; AFNElJ/jSubWQMEVb4u1MSd7GRk7smIWmiVTw1/tj7GWlN2pNi9bGOrXlKCjZOBSS7AVPHBfJ3WeyGugGSCpLejTtu3u@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRrmrbKnrC07dIdlDDGYMQxo4m1guKNPBqIxBLY/0NBkOflSbd
-	MMXSgOblwi4Jmpbo5O9eeTupyOwwWiUvPJmRUISSVunZ6oSCmFMnd2eI4zEIcjxX8rwXHzaMsDj
-	Hw9XErQvh4q7piZmgQE0TPoFhk+O9e21kDxhUdhs0EyHVo8fysUHKQ6jaVPVgp7evBFeOyETd7u
-	SjyA==
-X-Gm-Gg: Acq92OH2wPesnujtCPzHYSjrL4iyJdI2H7Inv7r0n+hc7YY2nzGT5YXlxjjl8voJwvl
-	0ca889Xf5RHvzBBoU4D9S93QyxPWYtzGoYafhwk2VxBXwyRBmK52lkB4UHshOHRAtfAq386moS8
-	a8swWplYaSgsz8ia+vuMystJQdDavmE0tav4whx8qq1eLoaHdhAFHxZcwO0IzTRUMms5GejPa6p
-	6DAbTkiE27scI8CxVdBUGb7jZJoU1jGmjGFzq9gnjD66F02N4T++m2wi690pSLjKR8GKlUciB+V
-	c4h+6XRUuECmwu+y/6plClcvF1eii9WduCVR8zpH57WMlVU6mTVTGO3VY0LeVztZbl9PZBd5fef
-	gM0Rez/+Dji6E3Tm8KS95MvHKw3aFT/0jOa+0tIyU2R59YG1ttkqCgyUT2qosBuu4i6M5vrU=
-X-Received: by 2002:a05:7300:a146:b0:2c5:60d0:701e with SMTP id 5a478bee46e88-3011708531cmr2740281eec.3.1778692621907;
-        Wed, 13 May 2026 10:17:01 -0700 (PDT)
-X-Received: by 2002:a05:7300:a146:b0:2c5:60d0:701e with SMTP id 5a478bee46e88-3011708531cmr2740240eec.3.1778692621289;
-        Wed, 13 May 2026 10:17:01 -0700 (PDT)
+        bh=aSNW5jdxcUIAPP3Bs33L7OprcOwqqAXBDPxUoI0e9M0=;
+        b=dDI9UQN7HczHf37ipDiEikIfqoz6mpsAkKiZ7hhk6WMyati3bDo+s7WkJrkvnzq8Mo
+         ddI7cS/E4kKzvdEWm6W4U8RaddkQRocPegYRCStmyZgPAaGuKsYCADAk9xpaMsQx31+e
+         KUNFeloXJWLTro/zKGSYeIdKP89AzDF3Ou7vvrDJrNI7la3e/o0kdiAgJ7grTveiL8QN
+         MkXdSdwae1KR3P6gxs7f6cRYBogAgOh8pAPU3eI7tvUQBKnwUb34IyraQZ8+r47/4ez8
+         B8KcR8IR0isVf3ZaKbjzm5djiiS36MnbS+Rvst8CNMMlj81R7FNvjC9UtDQ1j3yWlYv0
+         zeRA==
+X-Forwarded-Encrypted: i=1; AFNElJ9gHRw4FUZDtBAPOGzm/5w79TkBFiy+yf6c0YcQWFear9qD/3gOLtHlMStSgYiCKV3r3nll9s9FrIkH0DGLXQQk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwBJMoiVruYyxziWop80fKT22CQLdSPCGs1sFL4e+nz+M6FmCP
+	7pb+yn8vVAs5eUn/aZUM0ykrDctfni3DQi6ZY6gEsK29yBvAnWWHZzG9rIRuBlcuRrHq7RZj7jA
+	gQFL7jPCOU5TIe5bgpq0xN8v7YaOo/4DexE3c7YIdDFEZ5//WN8XiqocVg+UTBcCHyJBoaN3DQA
+	aYWOZDJeedHQ==
+X-Gm-Gg: Acq92OHrRdfAr3pjEegwT8eCEbCpvCx//Z35ikWpMA9GrdmBG/39ShQ5oy3ilW2milh
+	vc9qcypL5l7rRC5PONDf1B/4xdQSe/5XJdEgYJjvNj1fs5vBV00X9tdQH4lWpTs/hd5bV7K002k
+	UXTk2D/8Ez+Xic5DRQtbx6ge79NebypB+x44ii2JpnLeS9NJEcbRtMpztyqB2KysrMl5PyuqPxK
+	QAkqMC60K5MMcemDjEeprtI3jCVGyCBEHWG2xcwH67GqV1XG+YdM9IbmOntxJPq3h4/x4WZdiY1
+	PTi03VrVA3UKoitWhl71ERIb2TRcJTy+fxvzUh+/dbO7tOqHSqcOSlyltygW624fwwiL36/zJei
+	Mipfb5EHGMzHQ0fsA5LuwcKqS6N8R0jraKRq02ltEWOUrLRcQ7u+6tQqtHW6/dqNqg0T0x4Y=
+X-Received: by 2002:a05:7300:d505:b0:2f1:1fe8:cf5c with SMTP id 5a478bee46e88-3025fd4ce24mr270841eec.11.1778692625727;
+        Wed, 13 May 2026 10:17:05 -0700 (PDT)
+X-Received: by 2002:a05:7300:d505:b0:2f1:1fe8:cf5c with SMTP id 5a478bee46e88-3025fd4ce24mr270809eec.11.1778692625112;
+        Wed, 13 May 2026 10:17:05 -0700 (PDT)
 Received: from hu-aletran-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f888d3af4esm23075939eec.25.2026.05.13.10.17.00
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f888d3af4esm23075939eec.25.2026.05.13.10.17.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 10:17:00 -0700 (PDT)
+        Wed, 13 May 2026 10:17:04 -0700 (PDT)
 From: Alex Tran <alex.tran@oss.qualcomm.com>
-Date: Wed, 13 May 2026 10:16:54 -0700
-Subject: [PATCH v2 1/5] powercap: arm_scmi_powercap: Log number of powercap
- domains
+Date: Wed, 13 May 2026 10:16:58 -0700
+Subject: [PATCH v2 5/5] pinctrl: pinctrl-scmi: Log number of pins, groups,
+ functions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-scmi-client-probe-log-v2-1-36607e9dd540@oss.qualcomm.com>
+Message-Id: <20260513-scmi-client-probe-log-v2-5-36607e9dd540@oss.qualcomm.com>
 References: <20260513-scmi-client-probe-log-v2-0-36607e9dd540@oss.qualcomm.com>
 In-Reply-To: <20260513-scmi-client-probe-log-v2-0-36607e9dd540@oss.qualcomm.com>
 To: Jyoti Bhayana <jbhayana@google.com>, Jonathan Cameron <jic23@kernel.org>,
@@ -115,40 +115,40 @@ Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-gpio@vger.kernel.org, linux-pm@vger.kernel.org,
         linux-hwmon@vger.kernel.org, Alex Tran <alex.tran@oss.qualcomm.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778692619; l=941;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778692619; l=1456;
  i=alex.tran@oss.qualcomm.com; h=from:subject:message-id;
- bh=IWeomyOh1Ae5xTrTn3KT0pUIoKGaJ6fwTgGzVci0FIE=;
- b=eYcVU7i936b/87IEJANq3Fe77/zHJ+AvzRNx5TeCA/mVoSm099367r2A/+6SswcY3A1YG+/rf
- uHQ/wReFD31CuchIdzYXXVih9AwybSWgz42qZ6LDlL0I/3GrPN1/A04
+ bh=Kj3iXhctlrnoi195JSqc+ZVTxrEJIVDVilbcH2wOlpY=;
+ b=8IZtV5wzteupSXqIq+Bsxez1uHO07ft4wROITW/YKp+/ETuq3ZDtrIO4dorhEbPjGInJMDVlv
+ mm2SVl1RvGNAtCxpfXCiux0cQSUOEKk7z9zzmj5dpwtHLyyAvkQN8yW
 X-Developer-Key: i=alex.tran@oss.qualcomm.com; a=ed25519;
  pk=vKab/gw1fXij5UviWoglv+ho+H/oOiTHyETCLfayPE0=
-X-Proofpoint-GUID: MNmrnTz3nREWR_jjMRKfK-ZoBn6Du2GB
-X-Proofpoint-ORIG-GUID: MNmrnTz3nREWR_jjMRKfK-ZoBn6Du2GB
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDE3NCBTYWx0ZWRfX4oZJRjiuCl/o
- G1TFDy/MX++UgFAPW+mSne+stvNAx3ztJOP+6c7Ig5iNR80Pu+I/czICdSKdi60bD7I6vPlU5Bu
- RJUUvRtjad3RQt5fOry1oYTo7TAlcFLtYP+A9xa9Pp8Hb2NHSzc1Pdw+df4tUO8KxxlB+XPeIOM
- 78puWVcHZQXdYjqp1lzoj5wM5Be07N8jJSXHqZ875zYTfS7Sc4SbPueTG9A9Q7HTRjZa8/N38+e
- IRg7TNGYEu2dGX06OBoQI2djYtXRuQIok68SC8d1PQRLegaJ190scc8eiwHiFqRS/2aWzh7jk3x
- cYKfiK6MXTJsmzRQ8e0j8QX5ADrz+NYNvsnh7SA8hnBj7cHNX04PdeaSH4aT/JfFIMr3SN10zpP
- r4r9ovqC/TovppnTaCh3oj/LLIIwQOAdko9c5gClALgFq1zTsyUQA7nLdyOb1EWzt6nIqg1sBzc
- /PqwPLF07Eua/EKw8uA==
-X-Authority-Analysis: v=2.4 cv=Iu0utr/g c=1 sm=1 tr=0 ts=6a04b20f cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Authority-Analysis: v=2.4 cv=df+wG3Xe c=1 sm=1 tr=0 ts=6a04b212 cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=EUspDBNiAAAA:8 a=Bjf1dfg4zo7KOAcPRCoA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
- a=PxkB5W3o20Ba91AHUih5:22
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=HhDMDxCfm6Xc3nGqG0sA:9 a=QEXdDO2ut3YA:10
+ a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDE3NCBTYWx0ZWRfX4XOLCByYdHYO
+ Td7THEBFoRrrXg/DjuVdNd0I1NxjQsst3nnoVepK8e7egIy5PpyRq7YYxKWOyzkmOY1FPYNCokd
+ gQjHzS+HZ/dOWtjgPWxAdwkqZQ/+7s0od+RjEBHMP3nsloolylxXZq8HoNLKybCaLdbtZHV0IB3
+ CKtM36Fd+adBB+6HJ9Qrs58P7TUFnz1/3ue+njAe/awnTnvp5/ZBNRyR9u/VZJy1MrY+z4xaYTV
+ fWGAPv09oGDlibVzXuJfek8enVy7qHcXNiyUoB9TO7ULszsZPh45Botlt5GOd+H6NgMfZE3mxkf
+ PcIrDkWKqvJMqy7DiDVd52WLamPw62mdW6Ra1eMTPOHWWOk+Ds6wUWYhECYokG/3SFaWtU1wgj+
+ u+fDu9Lvlf7NK07tCoE0PQxHPe5k2egRcOSfzXQZHviJ7Xxep7erwtpyULBg8GXLlUfInAeGmwJ
+ Tfrn34ZzvLYTx2WsluQ==
+X-Proofpoint-GUID: jjXmzIGVfyTOwTYXdnYSA-x8u3iwVvJ3
+X-Proofpoint-ORIG-GUID: jjXmzIGVfyTOwTYXdnYSA-x8u3iwVvJ3
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-13_01,2026-05-13_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 spamscore=0 adultscore=0 impostorscore=0
- bulkscore=0 clxscore=1015 malwarescore=0 lowpriorityscore=0 suspectscore=0
+ adultscore=0 malwarescore=0 priorityscore=1501 suspectscore=0 clxscore=1015
+ impostorscore=0 phishscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605130174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_101704_687053_26BCCE7C 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20260513_101708_105978_CD5FB86B 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,30 +163,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI powercap driver does not currently report how many powercap
-domains were discovered from firmware during probe. This makes it harder
-to confirm the firmware exposed powercap resources during debugging.
+The SCMI pinctrl driver does not currently log the number of pins,
+groups, and functions discovered from firmware. This information is
+useful for confirming the firmware exposed pinctrl resources during
+debugging.
 
-Log the powercap domain count after a successful probe, aligning the
-driver with the existing SCMI client driver logging pattern.
+Log these counts after a successful probe to align with the existing
+SCMI client driver logging pattern.
 
 Signed-off-by: Alex Tran <alex.tran@oss.qualcomm.com>
 ---
- drivers/powercap/arm_scmi_powercap.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/pinctrl/pinctrl-scmi.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-index ab66e9a3b1e2..3efe3743cce0 100644
---- a/drivers/powercap/arm_scmi_powercap.c
-+++ b/drivers/powercap/arm_scmi_powercap.c
-@@ -496,6 +496,7 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
- 		return ret;
+diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scmi.c
+index f22be6b7b82a..999c2061ddc3 100644
+--- a/drivers/pinctrl/pinctrl-scmi.c
++++ b/drivers/pinctrl/pinctrl-scmi.c
+@@ -40,6 +40,7 @@ struct scmi_pinctrl {
+ 	struct pinctrl_desc pctl_desc;
+ 	struct pinfunction *functions;
+ 	unsigned int nr_functions;
++	unsigned int nr_groups;
+ };
  
- 	dev_set_drvdata(dev, pr);
-+	dev_dbg(dev, "Initialized %d powercap domains\n", pr->num_zones);
+ static int pinctrl_scmi_get_groups_count(struct pinctrl_dev *pctldev)
+@@ -578,7 +579,15 @@ static int scmi_pinctrl_probe(struct scmi_device *sdev)
+ 	if (!pmx->functions)
+ 		return -ENOMEM;
  
- 	return ret;
+-	return pinctrl_enable(pmx->pctldev);
++	pmx->nr_groups = pinctrl_scmi_get_groups_count(pmx->pctldev);
++
++	ret = pinctrl_enable(pmx->pctldev);
++	if (ret)
++		return ret;
++
++	dev_dbg(dev, "Initialized %d pins, %d groups, %d functions\n",
++		 pmx->pctl_desc.npins, pmx->nr_groups, pmx->nr_functions);
++	return 0;
  }
+ 
+ static const struct scmi_device_id scmi_id_table[] = {
 
 -- 
 2.43.0
