@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 260AACD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B65CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TMvUPwFT7/J1lhQfJw0iEYEQyrzoM9wvs9qm8L06ERk=; b=dVv7o7WBA1k2Yg9s87cgOHFbIB
-	FEJ5BJpDKC1gjs66JT9h/vTEB0hWqb1wQj2JbYlOEfZ8FQO72kcU349zzexaVSU0rhqV1zWOj10ge
-	x1Lt9XtH6RaBx9phLAKcZ2sqqecLhYkOxOmjSGjHUuvbDZ7sgvX6LKtNTVzDhOE6oysFocaoykOx4
-	os9lu86oRVjO3yaRIMXL7OiKNTO1bC2dw++MQaKi9LVAsIr2QsAzoUtJQEBL09hu3ajI73BOWvdI3
-	XAsGzz8nenVyBtd/IuyI+8fQ65YeoY0g+42rKVK6qYtv5O7WEvMQS7qzpHA4gkLhHsCJGxBJYkiAI
-	BBNUS9Pg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R9f23+34NQ+b4srH9etrLJCyaRm9k30QgdwYkbwhyFA=; b=KvUQkvuF46LEc6vnUUNpcZu0aJ
+	+aBf5OLebTT6P9t7s0RdwKmaQP3rpuJTw30ku0cuu+vFIbAS/DbHWovxVYFdqmlMsEC6Ik2CRkAsh
+	Q0Q7v+HD5p3SvW5dYQ8RxLfMeKpig78rnjnHiYd4GQNqQs79l9TOoTrziEH+MIDc3Fb0MaYtXFDz0
+	rZxYa+X9b+wQQLK3tVa1Pnk//ez0W3IvCTPbfrmngPFzLTXR5PgYiWoAzwTBjtW+mmcmbKe9aDgOm
+	eDCuPLVXf//kyptgcxNjygQOHmRqCAEzsIjtiyD/EZ6YnSiIO+oeb9LlBot8zJxCZQhN+v4EAtE9z
+	odOu1lhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9UK-00000002eTj-0vh9;
-	Wed, 13 May 2026 13:19:00 +0000
+	id 1wN9UN-00000002eYv-1RgU;
+	Wed, 13 May 2026 13:19:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9Tn-00000002dkL-1P6X
+	id 1wN9Tx-00000002e51-3lMT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:18:31 +0000
+	Wed, 13 May 2026 13:18:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8BDAD1C14;
-	Wed, 13 May 2026 06:18:14 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 369452008;
+	Wed, 13 May 2026 06:18:30 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.68.187])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C4CE13F836;
-	Wed, 13 May 2026 06:18:14 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 731803F836;
+	Wed, 13 May 2026 06:18:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778678299; bh=mPzCcDED60bjX6A2Gwx//sNfCouiSOsEZUW1a9b8vxY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=L0vxWiwpUToB4RBVYmCN7+mrMNQwwq+zoXksV9iqAHHWX8lJyscPEbEXuzsc3Fq1p
-	 wCFm4oUALrTsFIAy77GTSfeK6Tk+Uj84gmjq+NDKj88TfEocgwoItQc9CA0pS/fxJ4
-	 rJx5jml5cyHNk9YhVUC/CBkY8CmH5lTjkfDiW6Bo=
+	t=1778678315; bh=wYci/lR7QDlj0l+x5OwM4GlFdDBfZiFG/oxhB6X2q68=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mogvs1ErX9X9DjFMK4iIiR+gk2qBwM1Bz4Hli86c8vN7ZW6Z4BRhiknMwPynHCh8y
+	 QMahyUAxmA+D5w5e50VOqQx/4J9XFJTIKZOSkC00lozbyD/Bijuo6LPOHIZIq5ory3
+	 i9VyMIPhtctokQftznRMHXYluEPZxsc8Mlmi79pw=
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -66,16 +66,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	WeiLin.Chang@arm.com,
 	Lorenzo.Pieralisi2@arm.com
-Subject: [PATCH v14 00/44] arm64: Support for Arm CCA in KVM
-Date: Wed, 13 May 2026 14:17:08 +0100
-Message-ID: <20260513131757.116630-1-steven.price@arm.com>
+Subject: [PATCH v14 03/44] arm64: RME: Handle Granule Protection Faults (GPFs)
+Date: Wed, 13 May 2026 14:17:11 +0100
+Message-ID: <20260513131757.116630-4-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260513131757.116630-1-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_061827_507598_2798D1ED 
-X-CRM114-Status: GOOD (  30.79  )
+X-CRM114-CacheID: sfid-20260513_061838_038868_DE1B3385 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,193 +91,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for running protected VMs using KVM under the
-Arm Confidential Compute Architecture (CCA).
+If the host attempts to access granules that have been delegated for use
+in a realm these accesses will be caught and will trigger a Granule
+Protection Fault (GPF).
 
-This is rebased on v7.1-rc1, but still targets RMM v2.0-bet1[1].
+A fault during a page walk signals a bug in the kernel and is handled by
+oopsing the kernel. A non-page walk fault could be caused by user space
+having access to a page which has been delegated to the kernel and will
+trigger a SIGBUS to allow debugging why user space is trying to access a
+delegated page.
 
-The major updates from v13 remain but have been more fully implemented:
-the RMM uses the host's page size, range based RMI APIs mean we don't
-have to break everything down to base page sizes, the GIC state is
-passed via system registers, and the uAPI has been simplified.
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
+---
+Changes since v10:
+ * Don't call arm64_notify_die() in do_gpf() but simply return 1.
+Changes since v2:
+ * Include missing "Granule Protection Fault at level -1"
+---
+ arch/arm64/mm/fault.c | 28 ++++++++++++++++++++++------
+ 1 file changed, 22 insertions(+), 6 deletions(-)
 
-The main changes since v13 are:
-
- * The RMI definitions and wrappers have been fully updated for RMM
-   v2.0-bet1. In particular the temporary RMM v1.0 SMC compatibility
-   patch has been dropped.
-
- * The PSCI completion ioctl has been removed. RMM v2.0-bet1 still
-   requires the host to provide the target REC for PSCI calls which
-   name another vCPU, but KVM now performs the RMI PSCI completion
-   automatically before entering the REC again. Userspace no longer
-   needs to issue KVM_ARM_VCPU_RMI_PSCI_COMPLETE. A future spec should
-   remove the need for the host to provide the MPIDR mapping.
-
- * The generic RMI init, RMM configuration, GPT setup,
-   delegate/undelegate helpers and SRO infrastructure have moved out of
-   KVM into arch/arm64/kernel/rmi.c. RMI is expected to be used by
-   features outside KVM, so this code should be available even when KVM
-   is not built.
-
- * RMI_GRANULE_TRACKING_GET has been updated to work on a range, this
-   allows it to work when the region is not aligned to the tracking
-   size. Solves the problem reported by Mathieu[2].
-
- * SRO support has been moved earlier in the series and improved. It
-   provides a cleaner way for the host to provide the RMM with the extra
-   memory it requires. However support is still incomplete where the
-   TF-RMM code does not yet implement it. This is noted by FIXMEs in the
-   code.
-
- * The ARM VM type encoding has been reworked to coexist with the
-   upstream pKVM KVM_VM_TYPE_ARM_PROTECTED bit.
-
- * The private-memory documentation now notes that arm64 uses
-   KVM_CAP_MEMORY_ATTRIBUTES.
-
- * PMU support is dropped for now. It will be added later in a separate
-   series. Similarly for selecting the hash algorithm and RPV.
-
-There are also the usual rebase updates and smaller fixes, including
-changes to the RMM v2.0-bet1 range APIs, removal of REC auxiliary
-granule handling, fixes to the address range descriptor encoding, and
-cleanups around realm stage-2 teardown.
-
-Stateful RMI Operations
------------------------
-
-The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
-the RMM to complete an operation over several SMC calls while requesting
-or returning memory to the host. This allows interrupts to be handled in
-the middle of an operation and lets the RMM dynamically allocate memory
-for internal tracking purposes. For example, RMI_REC_CREATE no longer
-needs auxiliary granules to be provided up front, and can instead
-request memory during the operation.
-
-This series includes the generic SRO infrastructure in
-arch/arm64/kernel/rmi.c and uses it for REC create/destroy. The other
-cases are not yet used by TF-RMM and a future revision will be needed to
-finish those paths in Linux.
-
-This series is based on v7.1-rc1. It is also available as a git
-repository:
-
-https://gitlab.arm.com/linux-arm/linux-cca cca-host/v14
-
-Work in progress changes for kvmtool are available from the git
-repository below:
-
-https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v12
-
-The TF-RMM has not yet merged the RMM v2.0 support, so you will need to
-use a branch with RMM v2.0-bet1 support. At the time of writing the
-following branch is being used:
-
-https://git.trustedfirmware.org/TF-RMM/tf-rmm.git topics/rmm-v2.0-poc_2
-(tested on commit 3340667a291a)
-
-There is a kvm-unit-test branch which has been updated to support the
-attestation used in RMMv2.0 available here:
-
-https://gitlab.arm.com/linux-arm/kvm-unit-tests-cca cca/v4
-
-[1] https://developer.arm.com/documentation/den0137/2-0bet1/
-[2] https://lore.kernel.org/all/acrj-cKphy4hJsEG@p14s/
-
-Jean-Philippe Brucker (6):
-  arm64: RMI: Propagate number of breakpoints and watchpoints to
-    userspace
-  arm64: RMI: Set breakpoint parameters through SET_ONE_REG
-  arm64: RMI: Propagate max SVE vector length from RMM
-  arm64: RMI: Configure max SVE vector length for a Realm
-  arm64: RMI: Provide register list for unfinalized RMI RECs
-  arm64: RMI: Provide accurate register list
-
-Joey Gouly (2):
-  arm64: RMI: allow userspace to inject aborts
-  arm64: RMI: support RSI_HOST_CALL
-
-Steven Price (33):
-  kvm: arm64: Avoid including linux/kvm_host.h in kvm_pgtable.h
-  arm64: RME: Handle Granule Protection Faults (GPFs)
-  arm64: RMI: Add SMC definitions for calling the RMM
-  arm64: RMI: Add wrappers for RMI calls
-  arm64: RMI: Check for RMI support at init
-  arm64: RMI: Configure the RMM with the host's page size
-  arm64: RMI: Ensure that the RMM has GPT entries for memory
-  arm64: RMI: Provide functions to delegate/undelegate ranges of memory
-  arm64: RMI: Add support for SRO
-  arm64: RMI: Check for RMI support at KVM init
-  arm64: RMI: Check for LPA2 support
-  arm64: RMI: Define the user ABI
-  arm64: RMI: Basic infrastructure for creating a realm.
-  KVM: arm64: Allow passing machine type in KVM creation
-  arm64: RMI: RTT tear down
-  arm64: RMI: Activate realm on first VCPU run
-  arm64: RMI: Allocate/free RECs to match vCPUs
-  arm64: RMI: Support for the VGIC in realms
-  KVM: arm64: Support timers in realm RECs
-  arm64: RMI: Handle realm enter/exit
-  arm64: RMI: Handle RMI_EXIT_RIPAS_CHANGE
-  KVM: arm64: Handle realm MMIO emulation
-  KVM: arm64: Expose support for private memory
-  arm64: RMI: Allow populating initial contents
-  arm64: RMI: Set RIPAS of initial memslots
-  arm64: RMI: Create the realm descriptor
-  arm64: RMI: Runtime faulting of memory
-  KVM: arm64: Handle realm VCPU load
-  KVM: arm64: Validate register access for a Realm VM
-  KVM: arm64: Handle Realm PSCI requests
-  KVM: arm64: WARN on injected undef exceptions
-  arm64: RMI: Prevent Device mappings for Realms
-  arm64: RMI: Enable realms to be created
-
-Suzuki K Poulose (3):
-  kvm: arm64: Include kvm_emulate.h in kvm/arm_psci.h
-  kvm: arm64: Don't expose unsupported capabilities for realm guests
-  arm64: RMI: Allow checking SVE on VM instance
-
- Documentation/virt/kvm/api.rst       |   62 +-
- arch/arm64/include/asm/kvm_emulate.h |   37 +
- arch/arm64/include/asm/kvm_host.h    |   13 +-
- arch/arm64/include/asm/kvm_pgtable.h |    5 +-
- arch/arm64/include/asm/kvm_pkvm.h    |    2 +-
- arch/arm64/include/asm/kvm_rmi.h     |  127 +++
- arch/arm64/include/asm/rmi_cmds.h    |  680 +++++++++++++
- arch/arm64/include/asm/rmi_smc.h     |  448 ++++++++
- arch/arm64/include/asm/virt.h        |    1 +
- arch/arm64/kernel/Makefile           |    2 +-
- arch/arm64/kernel/cpufeature.c       |    1 +
- arch/arm64/kernel/rmi.c              |  605 +++++++++++
- arch/arm64/kvm/Kconfig               |    2 +
- arch/arm64/kvm/Makefile              |    2 +-
- arch/arm64/kvm/arch_timer.c          |   28 +-
- arch/arm64/kvm/arm.c                 |  140 ++-
- arch/arm64/kvm/guest.c               |   93 +-
- arch/arm64/kvm/hyp/pgtable.c         |    1 +
- arch/arm64/kvm/hypercalls.c          |    4 +-
- arch/arm64/kvm/inject_fault.c        |    5 +-
- arch/arm64/kvm/mmio.c                |   16 +-
- arch/arm64/kvm/mmu.c                 |  197 +++-
- arch/arm64/kvm/psci.c                |   15 +-
- arch/arm64/kvm/reset.c               |   13 +-
- arch/arm64/kvm/rmi-exit.c            |  215 ++++
- arch/arm64/kvm/rmi.c                 | 1401 ++++++++++++++++++++++++++
- arch/arm64/kvm/sys_regs.c            |   47 +-
- arch/arm64/kvm/vgic/vgic-init.c      |    2 +-
- arch/arm64/mm/fault.c                |   28 +-
- include/kvm/arm_arch_timer.h         |    2 +
- include/kvm/arm_psci.h               |    2 +
- include/uapi/linux/kvm.h             |   20 +-
- 32 files changed, 4122 insertions(+), 94 deletions(-)
- create mode 100644 arch/arm64/include/asm/kvm_rmi.h
- create mode 100644 arch/arm64/include/asm/rmi_cmds.h
- create mode 100644 arch/arm64/include/asm/rmi_smc.h
- create mode 100644 arch/arm64/kernel/rmi.c
- create mode 100644 arch/arm64/kvm/rmi-exit.c
- create mode 100644 arch/arm64/kvm/rmi.c
-
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index 0f3c5c7ca054..6358ea4787ba 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -905,6 +905,22 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
+ 	return 0;
+ }
+ 
++static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
++{
++	const struct fault_info *inf = esr_to_fault_info(esr);
++
++	die_kernel_fault(inf->name, far, esr, regs);
++	return 0;
++}
++
++static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
++{
++	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
++		return 0;
++
++	return 1;
++}
++
+ static const struct fault_info fault_info[] = {
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"ttbr address size fault"	},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"level 1 address size fault"	},
+@@ -941,12 +957,12 @@ static const struct fault_info fault_info[] = {
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 32"			},
+ 	{ do_alignment_fault,	SIGBUS,  BUS_ADRALN,	"alignment fault"		},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 34"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 35"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 36"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 37"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 38"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 39"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 40"			},
++	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level -1" },
++	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 0" },
++	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 1" },
++	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 2" },
++	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 3" },
++	{ do_gpf,		SIGBUS,  SI_KERNEL,	"Granule Protection Fault not on table walk" },
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"level -1 address size fault"	},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 42"			},
+ 	{ do_translation_fault,	SIGSEGV, SEGV_MAPERR,	"level -1 translation fault"	},
 -- 
 2.43.0
 
