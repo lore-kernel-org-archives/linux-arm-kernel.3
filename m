@@ -4,143 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E9ACD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 08:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C815CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 08:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZHz2ZP/Yj/LVP4hC0jUYTBaLqWIPQwgf4nCmR7VfxG0=; b=IsFaLSpfT1/psZi99BCE12l3XO
-	Kw4d+5KID66r/92MZoazaVQVbJZiVB01hlOysv33Qa1aflSmfUFywJRxLYDRGZR/OdjWtKM2VNUQp
-	dxhStr9KhTsFQIZj6VBxAl2sGcx96t8sJJatyeS3J3BXKS6ylWlV6ZHdD7F7G1Tit05RnnzuRiH04
-	TxsgaUPASyjeuVLMkItyOyhHq2OM2RyRNqFNSn1YWrJiSjnOM+Pkocg69qQ/ZuUpkDmjev9gWYCjV
-	opPoAUQiHfVAxeOn2Ia40eFHdaPDRhPzDSv7e87e952+1y/RYSDiuqeLcjUB49ez2Hf3C/YT1Ag8X
-	zl4ehDYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s8Ocn4nwTRhFMkjQTMAnp8QwG3RynslSzTJA+aoMMG8=; b=gY+5iajqVuNDXkUgMke0gHkQB7
+	uuw6uxVQdEAcfGJ2qSnrLeEZ/7Df1RZlNAjWtB33f3MvFYBHKu47yXoqVejnLIBG2sGV/uzequzTk
+	MlUDr7ftJxvV7SLsHM2B3bloCRqKElpjc7gacP8/JSg/on+5X2e61MoZaEliLwWy0v4DtCayJU2Yx
+	1+NfEYaNrBT4/Wh4SByBiWcLJ0s7yIZ3JEJfZt8Pvx0T6BNwykodG57IrUxxzk5ikR/1HPqf76gDj
+	SoXOxNd3VY0pSoOWF9ZL29hH1BCK+FqSBgI2uYc3R2MLI452KZpBgvI0FQpTDLO0fdDReS8WxsN9t
+	EAY20N0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN5JA-00000001nwI-2MCI;
-	Wed, 13 May 2026 08:51:12 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1wN5L5-00000001oPC-2B5X;
+	Wed, 13 May 2026 08:53:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN5J7-00000001nvD-2hsq;
-	Wed, 13 May 2026 08:51:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n5CZPwOZNOluNrmOftsfr27BfloJaXQo0Cn9+j29QvmjS43wg/oo1Gtop0eccFZ8Bqy99JOlb42jLbmEiWaPYmPsM8d4tWXDm3MiztcnuZSxG9+5ArgTBr4wUXkTeNhEW+ArSX3QQKY4Ac5FB4YsOlMaPrqwEVAk2IJUWTQoleFOHYDuldEtV0KjDVDkK6divNlVCurWukdF9h67APwaGiVk0wHggZfhA0v/ip0tIzO45GOUnOx7JHN2HbmopVkzGi73Oj43Ye0WcPme4sid/smO7BNoyctaHJ72SV9s4T/b1/fV3gnxLEIA2sRfYDMo9WipMTcskVc81Gq02m7bng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZHz2ZP/Yj/LVP4hC0jUYTBaLqWIPQwgf4nCmR7VfxG0=;
- b=jkX2v94LJFt9o8frhvB0XzvZgulstSlepXDB7JDVcVgcxWEntUAC1pdImH7smCt34+q2AkblF2OlF1DM51WA21+eoFTdZ3mk7SI/z+UISMM8AgpEHUs9Pe0B8rJJMiu97Y7KFsHmqShVEl2i2sPAwTB3lRRW1htN3lmeG+x8xILvb/ilEBDA8gck120MKRJnLWEGMRA2Eu4tcDgwZJxIxE6k6kPIJfSXZsTqD11bufS0zVXHN2Fz6/V0Qw2E+sApumEI4duHmnPuAPhRv3a3SLYaQO+AALxJ0wC8qa0y22NV7RRuUj4CQVnYT1zCnnyIazvBT3vJGno0vJXTJvEmkA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZHz2ZP/Yj/LVP4hC0jUYTBaLqWIPQwgf4nCmR7VfxG0=;
- b=neV+CQx2oxY1jYIkiUnpaicSxSrVuHsOg+aReKuy5YCINx34w4GYfFaLluBXfcJLUp+QVpwWJD32GRDlPn5Pb3BChJjn/exCyYYB2YNnHQ6p0OYsIEUN8h1Rrl+GFxjbpmGzINUqf4UMFDlJRPPzR2aD8qxz4mEHXo4emb6ZHlXkN29ty1SI/QMJqXJQMWksbRyf4UbAqlKJs0sC8p6YO48QcB6HdQ8gLzvlGB4dJclLlgcPVWQ4K8bcqeNGhMNcr/MXxT2Aknn26fV7AUIu2YkqmM2HQWcxn/6ILOOrulgXOTPZR09HSl4LJglY+ZTTqKm5tqxCKFOKzOVJ0wGhbA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
- by SEZPR03MB7702.apcprd03.prod.outlook.com (2603:1096:101:10d::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.17; Wed, 13 May
- 2026 08:51:02 +0000
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0025.012; Wed, 13 May 2026
- 08:51:02 +0000
-Message-ID: <00d8ed18-f753-405a-9ba4-e044129bf33a@amlogic.com>
-Date: Wed, 13 May 2026 16:50:57 +0800
-User-Agent: Mozilla Thunderbird
-From: Jian Hu <jian.hu@amlogic.com>
-Subject: Re: [PATCH 09/10] clk: amlogic: Add A9 peripherals clock controller
- driver
-To: Brian Masney <bmasney@redhat.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
- <xianwei.zhao@amlogic.com>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
- <20260511-b4-a9_clk-v1-9-41cb4071b7c9@amlogic.com>
- <agH4_gClJW8CVV75@redhat.com>
-In-Reply-To: <agH4_gClJW8CVV75@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SL2P216CA0182.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:1a::12) To KL1PR03MB7149.apcprd03.prod.outlook.com
- (2603:1096:820:ca::7)
+	id 1wN5L4-00000001oOq-1EOj
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 May 2026 08:53:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 97D56600CB;
+	Wed, 13 May 2026 08:53:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35477C2BCB7;
+	Wed, 13 May 2026 08:53:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778662389;
+	bh=vO2Fq6n7DMfc4owJztYq4f21UxNQ3yHxFKI4nhD0l6g=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Ihk647Q6Z+znMSZqQNrJ9GSxCrIzUL2H+uKMZ75jjuImKW+uYTPsSMbowS7zyr776
+	 cdY13jsSyBYIt5eQGjSqQXL/BUdAx/ZcHFa55g9sIBfkUapvPhYtbx/uL9ktd2y7dy
+	 DbJM/6IdzBYa4tyR+adRFhRsQrthR5aocBEtPklEZEOfEsNiqQeQ/xQaP84peePQVH
+	 16IgJTQLJNsCxjQYkLt6G+qCVp9fdxNHnfksny07l3AfH9URzTMFvpRIt+yOzFufqV
+	 fX/Lx4WloXyuOjjZ7nMHnfA++zdiO4ZXFpLzRpQeLMKnYMntm4X5mFWNS64AqupWkD
+	 RG1U+BM3+7KRA==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v4 2/2] coco: guest: arm64: Drop dummy RSI platform
+ device stub
+In-Reply-To: <2026051352-albatross-contents-7113@gregkh>
+References: <20260427061615.905018-1-aneesh.kumar@kernel.org>
+ <20260427061615.905018-3-aneesh.kumar@kernel.org>
+ <agM7VmoQ--ylUmyM@arm.com> <yq5a7bp7u77f.fsf@kernel.org>
+ <2026051352-albatross-contents-7113@gregkh>
+Date: Wed, 13 May 2026 14:23:01 +0530
+Message-ID: <yq5a4ikbu1w2.fsf@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEZPR03MB7702:EE_
-X-MS-Office365-Filtering-Correlation-Id: 76c2b986-5668-46ef-e45a-08deb0ccc2c1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|11063799003|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: hVPB+NcR/8jv68X8xZa+dwAPyqqCCGTLODwCR67vyXm8o5lKVK2bgF7t0oeOy9vpjRUPKKixsKzlQ38Wb9NnW2JRGNm39U5746GcHfRWF75DMfxJjR2ctHJVcHmJ2gKyLpGMOdHrkOJTp2QYtb2JTIjmE/d1bcIJrVb8iZ7en/uqk3vpNleic3OFYQNumXhrueP+VeEJ6bNa4DUL/05C3NOSGirq8MerwRhg1M2wwob5GsHrgnOaSbtuIulp3prBYZOO2stWEofoq045SG4ae6MlMB3npKKHXwVEpMcDkH7aVg6G7emwswwOYNm9h2kekiDntPmmVFIm+PhYjcJbi+wlRRTJEFJbYWbPNJsz8m1QY3qLLhW2BjJAww0wkyfuREPzOXdHKJbhPy9gRJ8hVOCIRnx3lbRL9b4nKPBRoPdSPR1drnKfj9DV5E/5KT7Nb37g4Kh1+CAV/j44fA7kMTB8UgxFvzJci+ORDj3JsEMU7+9yVLEo7ZGBVkGPR0Q0GHa0CPe5pWwR5uryAX2aBqpsFRfVWrn1u/HqL5vsZqRGHIAqLaSsl4B+pnKd6A4NLL2IcPlZwdODbU7eL7RkTD5B2DT5I6t+NTiXGDRzfjx+VKwoeGLsAmrZIJfJmg9gKL0GwelNaVvUdKRlLdNtt/ubRZZuLWxmU/zx9JJXTRw8ZuD3Z3yN7khSfIHcRfVM
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(11063799003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TnpCcC8veUY3QThJMG01bEFIQ2s2azNlNk9pbEVldURndmZwZkpvNGRqa2lX?=
- =?utf-8?B?T213WGpJY213aFl6M1NWcjBaRExMVldFY3kyWW5wM3h5YkZ6OHdSWVAybi85?=
- =?utf-8?B?TGh5WWljRTdqQ0htaE4zdXFNdU50b1VPeUZGL0FrUjVqeFpjM2hRMzdtZVBu?=
- =?utf-8?B?OU9MVFpIeGswdXdlT1d2K3JpN1NmTWtOamRHSktSbkxnWllhU2ljVndsenRX?=
- =?utf-8?B?QzB1WDg0N0hMdVg2OHNTRVR4TnI3MlpUdWNVSlZkbFIwMmo5WEtUdjhQWm4y?=
- =?utf-8?B?VGZlSjNNRkJ3VFZXMmwxZERXME56RlZQZDZVWFc4TDlDaW1YTTVnNmdFQWd5?=
- =?utf-8?B?SXIxaktDdVc4bGdqR3NCRmdvcFdMNnJOUjduT2REelNyYk1vYmovTjhpZzNS?=
- =?utf-8?B?dk1GeUVHK08rbTBvemhQZ09MeGF0R2FJYjBhZ0dWRFc0STV6R0xtTWVLSTNv?=
- =?utf-8?B?d29VVGNEQVdqbEhKVGo2bUVMMVBVbVNKblpHM0FpbXVLRFBXalRjWGJQc1lG?=
- =?utf-8?B?VTB6NkhTemJBU2dNVWhmeitXV0RyZGEvUjIzT1FYTTEvY2FQOW1BcjJUZ3Jy?=
- =?utf-8?B?eWh6T21uWjJQUC9SZE4wZWhlNThEcmFOcWg3L2tTS1ZWRXRRWDRXY3BkZHpB?=
- =?utf-8?B?VEdRQkxIdlRlY2pycjJnRlk2TFVFMkZzSmRJVnpLcGpIK2VuOE4rVDBwVmRW?=
- =?utf-8?B?WXlVanZUV3ZHbmtRZjUyZHJWckZMMzR1amtvYmNJVEZud1pXeVE0TENWRXlp?=
- =?utf-8?B?V2tVeTgrenRnVGhEMDEzRlJFRTJncFJmaGQ5YWRMSFM2aTl2LzNZbFgvY0pN?=
- =?utf-8?B?TGREV1dYZjgrMFkwdUFGcGVxL0R5VEJsdXF1Z05UUXl2UVdUZkxJZ2MvbTk3?=
- =?utf-8?B?bHRzWG5scUZyVGVwYjB0WCtUazFERVJyanNCUDU3MU00NkwveGhDMXgyRHFp?=
- =?utf-8?B?M054VjdGb0lTU2VzbWg1ZUtocXZKRnpUbmtmVzAyOUF1V05WcGxxTmdGeUFX?=
- =?utf-8?B?Q1ltVW04bm5nRy9LMldtNVBkVmF4dDBhc0c1UWdNS0w0MDRIWms1YlVwLzdR?=
- =?utf-8?B?VWpSZ3gwTEhDNFMrMmtXbms1SG84SkFvR2c5MXBuYWplU1Voa1d3TGpjZCtF?=
- =?utf-8?B?UFpHK0hIRWwyME1KRTVkQ0E0amhIN1FkTlY1ZXJCYWxxZStsYW1WRGZ1SWhR?=
- =?utf-8?B?emk0MGlnaFBxaS83dE0rV2ZpQTJubXBJdzBsZUY0bU9FQm8ybmwrK0VjSExI?=
- =?utf-8?B?dTFGWUt0RVV3UzhKL1dHb1NzNVF0TjYzSHN4QkxQcS9qeGJmZ2dKZ2Z3M2RC?=
- =?utf-8?B?YWhFS2JsWEtuQVovTEZuYkkrWnhGaWJVRUp1WjJXa0xOaFNBZUhiYS9KZG5r?=
- =?utf-8?B?LzIrUWRZYU1oMk5yVGV5blFqTi9nL2NWaGc2SVNUL3hBNFNLbmZJazVBNmZx?=
- =?utf-8?B?a2k0MHZLK2RmREZvVm1CY1FoS3JNMzJ0SkdHdTBZTDZPRXJtMWUvVUQzcE1B?=
- =?utf-8?B?Mk9mcE4xSmMzcVQ0bis2TEpydWZ0ekZhTjdlV2ZHSUdQNnpIcFZzN3MwenNo?=
- =?utf-8?B?eGxHVEZsK01sbkZhTEFsVEhlT2hjdU5GcEMybXcrUWFrYnZ3TTMxc1JVUUdZ?=
- =?utf-8?B?U3hwOCsycnlQZVlLcllmOGQ3b1RhZXl2QnBSWU1hbXM3L1VSV05yRjBIUWsy?=
- =?utf-8?B?V2hpR1ZZRUFRNnJsSm1kYS9tZmpzSEhBQkFlT0NhNDlDVlREVkF3WmxHRVZI?=
- =?utf-8?B?MDl6enlqcEZWWXRwS3JQeFdUdzVGQ0xXUTZQdEI4Mm9PU3hHLzM5TkFvelFK?=
- =?utf-8?B?QXYzWkdGRzlqdTBQYUgra1kzOUJWUU5YV2tGRmMxa3ZHSkkxeXc4S0hCdEgr?=
- =?utf-8?B?K2xjdmhJYlZQOFRFcERKclF2VTZMLzVhckdzRUg3czkwNWJ0OFdmOVAyZExT?=
- =?utf-8?B?ZjJ1RDV5dEZsdkd5NUp2RDdrUTlueU53dmZCRzJJK05ka2grVGFaVU1Tamcw?=
- =?utf-8?B?cXNCUU50SDlLMm8yWHNuZ3BzUXUwWkdDVisva0hlZFdnSFlWN2NyS1ZONzBu?=
- =?utf-8?B?MEw0K05hR2lGTlAzRXE4NU9KZzJzT1RLVFRwU0srbDNjczgzcFlNbVZOeVJI?=
- =?utf-8?B?M0ZLR3puTFR6eXJRV3huMnJsajZkbFF1SkYyMWZYUnlEYjdtaFJtck5Wb2Vl?=
- =?utf-8?B?b3FPSUx4M3dZVEJiMFZkLzNRSjNQK29BTTB4dTJaZmo2MjdQWGdmV0FKMUNZ?=
- =?utf-8?B?MWUrNTVzSGdvY3NTWENzTTN5b3BZODJkaDBMRFN3V3g4TG5ZY2k4OVl3UFNt?=
- =?utf-8?B?YjBBWjBQbjd3bWRrTGFmUFN1aE1mWGM3Tk5YYThyMXFZZWJyZzA2UT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 76c2b986-5668-46ef-e45a-08deb0ccc2c1
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 08:51:02.2616
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4ci+4SUTKvG+XLdz5P5bk+hmrRI2mnPRnv6NXDRA3Y7ZPEZa8KKzuwHkF6LS6PqbSR8KCFuOJhaRCRJd80nBZg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7702
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_015109_695539_791C7946 
-X-CRM114-Status: GOOD (  20.41  )
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,144 +82,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/11/2026 11:42 PM, Brian Masney wrote:
-> [ EXTERNAL EMAIL ]
+Greg KH <gregkh@linuxfoundation.org> writes:
+
+> On Wed, May 13, 2026 at 12:28:12PM +0530, Aneesh Kumar K.V wrote:
+>> Catalin Marinas <catalin.marinas@arm.com> writes:
+>>=20
+>> > + Suzuki again
+>> >
+>> > On Mon, Apr 27, 2026 at 11:46:15AM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> >> The SMCCC firmware driver now creates the `arm-smccc` platform device
+>> >> and also creates the CCA auxiliary devices once the RSI ABI is
+>> >> discovered. This makes the arch-specific arm64_create_dummy_rsi_dev()
+>> >> helper redundant. Remove the arm-cca-dev platform device registration
+>> >> and let the SMCCC probe manage the RSI device.
+>> >>=20
+>> >> systemd match on platform:arm-cca-dev for confidential vm detection [=
+1].
+>> >> Losing the platform device registration can break that. Keeping this
+>> >> removal in its own change makes it easy to revert if that regression
+>> >> blocks the rollout.
+>> >>=20
+>> >> [1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@=
+arm.com
+>> >
+>> > I wouldn't merge this now given that systemd checks this file. Could we
+>> > have a symbolic link instead for some time until systemd eventually ge=
+ts
+>> > updated (years?).
+>> >
+>>=20
+>> I=E2=80=99ll add this in the next revision.
+>>=20
+>> static int create_rsi_compat_link(struct device *target_dev)
+>> {
+>> 	struct kobject *platform_kobj;
+>> 	/*
+>> 	 * target_dev is:
+>> 	 * /sys/devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0
+>> 	 * Create compat link /sys/devices/platform/arm-cca-dev
+>> 	 */
+>> 	platform_kobj =3D target_dev->kobj.parent->parent;
 >
-> Hi Jian,
+> What?  That is crazy, you don't know that is always going to be ok.
 >
-> On Mon, May 11, 2026 at 08:47:31PM +0800, Jian Hu via B4 Relay wrote:
->> From: Jian Hu <jian.hu@amlogic.com>
->>
->> Add the peripherals clock controller driver for the Amlogic A9 SoC family.
->>
->> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->> ---
->>   drivers/clk/meson/Kconfig          |   15 +
->>   drivers/clk/meson/Makefile         |    1 +
->>   drivers/clk/meson/a9-peripherals.c | 2317 ++++++++++++++++++++++++++++++++++++
->>   3 files changed, 2333 insertions(+)
->>
->> diff --git a/drivers/clk/meson/Kconfig b/drivers/clk/meson/Kconfig
->> index 3549e67d6988..48a15a5e1323 100644
->> --- a/drivers/clk/meson/Kconfig
->> +++ b/drivers/clk/meson/Kconfig
->> @@ -145,6 +145,21 @@ config COMMON_CLK_A9_PLL
->>          device, AKA A9. PLLs are required by most peripheral to operate.
->>          Say Y if you want A9 PLL clock controller to work.
->>
->> +config COMMON_CLK_A9_PERIPHERALS
->> +     tristate "Amlogic A9 SoC peripherals clock controller support"
->> +     depends on ARM64
-> depends on ARM64 || COMPILE_TEST
-
-
-Ok, I will add COMPILE_TEST in the next version.
-
->> +     default ARCH_MESON
->> +     select COMMON_CLK_MESON_REGMAP
->> +     select COMMON_CLK_MESON_CLKC_UTILS
->> +     select COMMON_CLK_MESON_DUALDIV
->> +     select COMMON_CLK_MESON_VID_PLL_DIV
->> +     imply COMMON_CLK_SCMI
->> +     imply COMMON_CLK_A9_PLL
->> +     help
->> +       Support for the peripherals clock controller on Amlogic A311Y3 based
->> +       device, AKA A9. Peripherals are required by most peripheral to operate.
->> +       Say Y if you want A9 peripherals clock controller to work.
->> +
->>   config COMMON_CLK_C3_PLL
->>        tristate "Amlogic C3 PLL clock controller"
->>        depends on ARM64
->> diff --git a/drivers/clk/meson/Makefile b/drivers/clk/meson/Makefile
->> index 77636033061f..2b5b67b14efc 100644
->> --- a/drivers/clk/meson/Makefile
->> +++ b/drivers/clk/meson/Makefile
->> @@ -20,6 +20,7 @@ obj-$(CONFIG_COMMON_CLK_AXG_AUDIO) += axg-audio.o
->>   obj-$(CONFIG_COMMON_CLK_A1_PLL) += a1-pll.o
->>   obj-$(CONFIG_COMMON_CLK_A1_PERIPHERALS) += a1-peripherals.o
->>   obj-$(CONFIG_COMMON_CLK_A9_PLL) += a9-pll.o
->> +obj-$(CONFIG_COMMON_CLK_A9_PERIPHERALS) += a9-peripherals.o
->>   obj-$(CONFIG_COMMON_CLK_C3_PLL) += c3-pll.o
->>   obj-$(CONFIG_COMMON_CLK_C3_PERIPHERALS) += c3-peripherals.o
->>   obj-$(CONFIG_COMMON_CLK_GXBB) += gxbb.o gxbb-aoclk.o
->> diff --git a/drivers/clk/meson/a9-peripherals.c b/drivers/clk/meson/a9-peripherals.c
->> new file mode 100644
->> index 000000000000..338a91c473ea
->> --- /dev/null
->> +++ b/drivers/clk/meson/a9-peripherals.c
->> @@ -0,0 +1,2317 @@
->> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
->> +/*
->> + * Copyright (C) 2026 Amlogic, Inc. All rights reserved
->> + */
->> +
->> +#include <linux/clk-provider.h>
->> +#include <linux/platform_device.h>
->> +#include <dt-bindings/clock/amlogic,a9-peripherals-clkc.h>
->> +#include "clk-regmap.h"
->> +#include "clk-dualdiv.h"
->> +#include "vid-pll-div.h"
->> +#include "meson-clkc-utils.h"
-> Sort the headers.
-
-
-Ok, I will place them in order.
-
-After updated:
-
-#include <dt-bindings/clock/amlogic,a9-peripherals-clkc.h>
-#include <linux/clk-provider.h>
-#include <linux/platform_device.h>
-#include "clk-regmap.h"
-#include "clk-dualdiv.h"
-#include "meson-clkc-utils.h"
-#include "vid-pll-div.h"
-
-[......]
->> +static const struct clk_parent_data a9_nna_parents[] = {
->> +     { .fw_name = "xtal", },
->> +     { .fw_name = "fdiv2p5", },
->> +     { .fw_name = "fdiv4", },
->> +     { .fw_name = "fdiv3", },
->> +     { .fw_name = "fdiv5", },
->> +     { .fw_name = "fdiv2", },
->> +     { .fw_name = "gp2", },
->> +     { .fw_name = "hifi", }
-> hifi isn't in the dt bindings. Should this be hifi0 and/or hifi1?
-
-
-It should be hifi0，I will fix it in the next version.
-
-Thank you for pointing it out.
-
-[......]
->> +
->> +static struct clk_regmap a9_sc = {
->> +     .data = &(struct clk_regmap_div_data) {
->> +             .offset = SC_CLK_CTRL,
->> +             .shift = 16,
->> +             .width = 4,
->> +     },
->> +     .hw.init = &(struct clk_init_data) {
->> +             .name = "sc",
->> +             .ops = &clk_regmap_divider_ops,
->> +             .parent_hws = (const struct clk_hw *[]) {
->> +                     &a9_sc_pre.hw
->> +             },
->> +             .num_parents = 1,
->> +             .flags = CLK_SET_RATE_PARENT,
->> +     },
-> You can use CLK_HW_INIT_HWS() here.
+>> 	return sysfs_create_link(platform_kobj,
+>> 				 &target_dev->kobj,
+>> 				 "arm-cca-dev");
 >
-> Brian
+> No, don't do that, if a driver calls a sysfs* function, something is
+> almost always wrong.  Don't be making random sysfs symlinks please.
+>
+
+Sure, but could you explain why this is wrong? Below is the full version
+of the updated patch.
+
+coco: guest: arm64 Replace RSI platform device with compat symlink
+
+The SMCCC firmware driver now creates the arm-smccc platform device and
+registers the RSI device as an auxiliary device once the RSI ABI has been
+discovered. This makes the arch-specific arm64 arm-cca-dev platform device
+redundant.
+
+Remove the arm64 platform device stub and let the SMCCC core manage RSI
+device creation.
+
+This changes the real device location from the old platform device path to:
+
+  /sys/devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0
+
+Keep userspace compatibility by creating a sysfs symlink at the old path:
+
+  /sys/devices/platform/arm-cca-dev
+
+A Debian Code Search check found systemd matching on the old
+platform:arm-cca-dev device path for confidential VM detection. No other
+userspace dependency on the old platform device path was found, but keeping
+the compatibility symlink avoids breaking existing systemd-based detection
+[1].
+
+[1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
+
+Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+
+modified   arch/arm64/kernel/rsi.c
+@@ -159,18 +159,3 @@ void __init arm64_rsi_init(void)
+=20
+ 	static_branch_enable(&rsi_present);
+ }
+-
+-static struct platform_device rsi_dev =3D {
+-	.name =3D "arm-cca-dev",
+-	.id =3D PLATFORM_DEVID_NONE
+-};
+-
+-static int __init arm64_create_dummy_rsi_dev(void)
+-{
+-	if (is_realm_world() &&
+-	    platform_device_register(&rsi_dev))
+-		pr_err("failed to register rsi platform device\n");
+-	return 0;
+-}
+-
+-arch_initcall(arm64_create_dummy_rsi_dev)
+modified   drivers/firmware/smccc/rmm.c
+@@ -4,13 +4,31 @@
+  */
+=20
+ #include <linux/auxiliary_bus.h>
++#include <linux/sysfs.h>
++#include <linux/device.h>
+=20
+ #include "rmm.h"
+=20
++static int create_rsi_compat_link(struct device *target_dev)
++{
++	struct kobject *platform_kobj;
++	/*
++	 * target_dev is:
++	 * /sys/devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0
++	 * Create compat link /sys/devices/platform/arm-cca-dev
++	 */
++	platform_kobj =3D target_dev->kobj.parent->parent;
++
++	return sysfs_create_link(platform_kobj,
++				 &target_dev->kobj,
++				 "arm-cca-dev");
++}
++
+ void __init register_rsi_device(struct platform_device *pdev)
+ {
+ 	unsigned long ret;
+ 	unsigned long ver_lower, ver_higher;
++	struct auxiliary_device *adev;
+=20
+ 	if (arm_smccc_1_1_get_conduit() !=3D SMCCC_CONDUIT_SMC)
+ 		return;
+@@ -19,6 +37,10 @@ void __init register_rsi_device(struct platform_device *=
+pdev)
+ 	if (ret !=3D RSI_SUCCESS)
+ 		return;
+=20
+-	__devm_auxiliary_device_create(&pdev->dev,
+-				       "arm_cca_guest", RSI_DEV_NAME, NULL, 0);
++	adev =3D __devm_auxiliary_device_create(&pdev->dev,
++				"arm_cca_guest", RSI_DEV_NAME, NULL, 0);
++	if (!adev)
++		return;
++
++	create_rsi_compat_link(&adev->dev);
+ }
 
 
-Ok, I will use CLK_HW_INIT_HWS instead, and the same below.
+>
+> If userspace can not find the device anymore, that's fine, that's how
+> sysfs works, devices move around all the time.  Especially platform
+> devices as those are almost always not supposed to be platform devices :)
+>
+> thanks,
+>
+> greg k-h
 
 
-Best regards,
-
-Jian
-
-
+-aneesh
 
