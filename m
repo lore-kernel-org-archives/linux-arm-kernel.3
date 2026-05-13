@@ -4,80 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5195CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:53:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AFFCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4gZFEOmN4BitsxINTjrbRsNtg0gv58NYoTuWrSbwJg=; b=xSHkahj+uSnHFC//VI2uvtiWVa
-	s7486+myuwtyK8ZMMR4bZ9sqTzs57DP0dqAsivyfAMmJ4EViDwVQobxlQsbrAndOzSQYigTHYJbXN
-	2iKgrEncLC/X1xEN1JtQrJlpGC1eogKYlqp2vye+f0pZWHoONO4XuJIS37SS9unJDJFj2wz2HwOu4
-	h7Z4WylKH/LN0yFSyoScptVAKDLVt90AntpUpKkcKZ/zrceC+aVeYZ350HYtQZXDGeJetzUpDnNvg
-	AYBLi5Ei9RZ/c16ODP7DbGRK6ze9RTCyTMt/ez3AIF/Cs4COoYyAIpBg6VYK2ywqJLIiunAxHKKqN
-	o819aVHA==;
+	bh=ezXQwA1bTr4JmObmofRNYrBy4UfsX59CPxxan0BrTBM=; b=Os1lRojs+XVwxZla4DiLStJWxV
+	+EF1bXEErI6C7jeY1BDrWT32CIHPuzdZe1rNB9/v/1BiGqagsu87i0duefIZodyxm2zwvQIScI9nE
+	2d3UgeS41ljEgmUUOHoM8anD6OqSNjWbRKvRTiuLMySNHhFFSCSR/itnDwBDbxANy9iE4vkK9oo5F
+	aQiLQhpji0EwqyGLZdlTcjvKI2v4NIa/EIe/ShSzFvN3lrP/YXADu+XqpbZiOkkL15hd09avvEZTc
+	7TY9nF4OfB5j7GKBLWlF69DxZBq/L+5dgNCVeyjccQeegxespcqcsWyEagKzowJdBXSjTHwH6m0gA
+	AxtptWww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHVj-00000003rsE-2eYG;
-	Wed, 13 May 2026 21:52:59 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1wNHXl-00000003sDc-0TuX;
+	Wed, 13 May 2026 21:55:05 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHVh-00000003rqL-1QCX
+	id 1wNHXi-00000003sD5-3gLX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 21:52:58 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-45d7293c595so401786f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:52:56 -0700 (PDT)
+	Wed, 13 May 2026 21:55:04 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-48d1c670255so17655e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:55:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778709175; x=1779313975; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=B4gZFEOmN4BitsxINTjrbRsNtg0gv58NYoTuWrSbwJg=;
-        b=XDP+vgYlhiDjD6Lp3SoDVkpc2P8q7o39mtJh7M/TcaxxEQbf2u4JGcAGWsx0Xixnvq
-         ObASGH/uYIY9wGZ+Sqc+oEGN0GgF3IKXOvmLxL+noplgWnsze8prcu7Bm4H3rKuorUN1
-         t0a7g12e8JME5TTjtACgCTaedFlGxP0UpxVlTxy5rBPCvuq18AyVDEXDe9mcq1aaLHuZ
-         UB+5gZTT7DO+YFpQPJp9I800i+zZsT36Z1ln3qHeMZiQ1ejB4GWkKvu0212nTwRuecuN
-         usIZAXd0RCejWm3xZ3wQ72iJRkViakD/fXDBTnpITOr88ZoHllVLp+jQ3zaEgKK27BQv
-         iTSg==
+        d=google.com; s=20251104; t=1778709301; x=1779314101; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ezXQwA1bTr4JmObmofRNYrBy4UfsX59CPxxan0BrTBM=;
+        b=uZpwHu6Bryb3wxQJ79pQwCoV4sIaGsstHOJNeqk7B8v8yxxZlcdn8vZZfUARaSijyi
+         ZTzRZ02WxYKrUWCXo5tCKDiKCDfG4qws3E2FcNFFOJhpv5QXbzVba3xdRkMebo7HdCx2
+         7u/iJd6KCFb/BURAsDq/gzjw+38jUOba0kptMXoCrg7GK390/XVgPApHBSBZl9UyWdK4
+         Gdzcs4zhIHLOZr4xyqOVK0316/jOcAP9ZTfmbdMrJIi1i65/AopxOBctdr/QsCE0Kgtd
+         QzLCDqQQX9K0UBoqTfulybd6ukmIJcC9I3khCzx5LaT7mxYUj4Ke3WyLu0RDalfAG6jj
+         txTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778709175; x=1779313975;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=B4gZFEOmN4BitsxINTjrbRsNtg0gv58NYoTuWrSbwJg=;
-        b=YLMMm0se4TPInuqyfvP9t1+PRGqSOK1hgNCh1gjbqyJNdFQ4K9LNShwlrVHDH8a1yV
-         2Tbodo/kZelYjl/oSvvOrjxqmccwgMhD6lXImlowFZnRGvUS14anu34Vtp+bLrrwndrL
-         MH2VjZoNid7x1SQEbtdCU4FQL+JZqidceKUKJA3SVotMpLDH6eZVRa6cLcA1u0FUpPn6
-         w9kf8OCEMa6ZO0jz7n8enb2sVE3CR10oTSjetXzZBlVZ7YjL0SJIZW5iR1WyneFo4rpo
-         QcO4aCqQP1yJ7zXJxGkuqhHpFehkCIskjAdw1Y2lWQCgliGYwIk3zlgMQZa5wdQiiraw
-         3h9Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+4zdDdU0dAOCKYxLlaFPqKaljWrk7AWTtOiHbecBuSKEHngHPw/TQTjdhnB1CJhI+Vxz0eoxwK64w6Xsy7UZHV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHULmELC0w9ICM4xvb2u/p9gPnC/IXNVNBltVx+AItGGc0aEt8
-	j5fq2YJ+mMjjjtOvRq0Z9FBs4LShrgJhtgFnyLzGe6gAOe2RAmAXlbXQZXwA7bTJw+YTxVt5pPR
-	Yna8eA8iGRdZKCQ==
-X-Received: from wroe2.prod.google.com ([2002:adf:ef02:0:b0:43d:6fc6:5521])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2486:b0:44b:e349:e6bc with SMTP id ffacd0b85a97d-45c77b7bacdmr7661958f8f.3.1778709174704;
- Wed, 13 May 2026 14:52:54 -0700 (PDT)
-Date: Wed, 13 May 2026 21:52:03 +0000
-In-Reply-To: <20260513215203.3852661-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20260513215203.3852661-1-smostafa@google.com>
-X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
-Message-ID: <20260513215203.3852661-4-smostafa@google.com>
-Subject: [PATCH 3/3] iommu/io-pgtable-arm: Use address conversion consistently
+        d=1e100.net; s=20251104; t=1778709301; x=1779314101;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ezXQwA1bTr4JmObmofRNYrBy4UfsX59CPxxan0BrTBM=;
+        b=ebGdeBs+c0Wxx7u2MoAojidF23qaT/CenVWDnQE3fuZHVNCeBaQk+BAm2dLiVzVw3p
+         Q91fQQ6r9hBdNWs4wrelI1GSksUFebqODOM7hF+wkNWgQS2khooZm0FO3FtEMbC52ZRk
+         w6vTGSIVA5ZxXzEKdlk6kIw2il0l62oMAtcn6bNhIfM4UlBmPEgoXuUySHeLATG6wijk
+         PobHebyVK9KLrPb0jUVTqzV5hAU5HeEjjXM1IsFnl/L3PL4DXg/U65700OXVq3omWGj6
+         fxLWJdAF4cUl6J613A+BI66k4L2/Fh66t7hWCfe7YduSij5Nx1G7PoWkOy+5hd8Uvqhu
+         Vftg==
+X-Gm-Message-State: AOJu0YzICiPGHdqQ1IuhsbGMN3de6mSvQEpqvTn0TSEb2Rl2BuyTQVWL
+	kOjzjNSM0gqrBHNYHalPA13DLVZbTgjM/v5APZezFzkryvelnYwaHjUdcKEBxKafcQ==
+X-Gm-Gg: Acq92OF5+mrQohUfHYNfGhVl3P9kCWCxCLclsvgbDxUHZdSKvrGVaMBMPpI2KoK0Ueg
+	jCrnuOBTiCLaVPNKFjQcCwddRMfFcpHRPbZEKNjK1NE3zSAgMneija/UfARlB5pR95AMKspnh32
+	tiQzkF04ms67SeQ3RabZR48+vjeylGDTyM5LipZc3GbpIBw6mjp3/yaOZWcsxYkbVY50l4GWlvv
+	kC/RgYnbIAHl/B1QnHjyAkOZyBdRgGfflRpJdSfEScnv9G0DTu/ygqGuPdWWFnaNDVKhWVXLcaD
+	xZAsT4W7Fhh1vozoL8BCw6g/xvO46cU97laxZcMx3JIaZqGorclxxxLZi/2qlxeGjgK0OzpOmFu
+	XTvV06+WE5YRq4VMf6b4af4eKv1nOAQZAynr32wlMdAschjkpmjXt5GIzJ7TkQtlzFbe+YoW5SX
+	9snJygMQoOBLyG6uGJm50nxloOBZYaBVqsVsDAjt7dshN/yXGHxKQJvaRKHLiZ4T06jkc=
+X-Received: by 2002:a05:600c:a404:b0:483:6a76:11a6 with SMTP id 5b1f17b1804b1-48fdafcf030mr95235e9.5.1778709300573;
+        Wed, 13 May 2026 14:55:00 -0700 (PDT)
+Received: from google.com (8.181.38.34.bc.googleusercontent.com. [34.38.181.8])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a19b1dsm1499641f8f.17.2026.05.13.14.54.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 May 2026 14:54:59 -0700 (PDT)
+Date: Wed, 13 May 2026 21:54:46 +0000
 From: Mostafa Saleh <smostafa@google.com>
-To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, 
-	Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
+	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH v6 06/25] iommu/io-pgtable-arm: Rework to use the
+ iommu-pages API
+Message-ID: <agTzJuKQoBqfQkq7@google.com>
+References: <20260501111928.259252-1-smostafa@google.com>
+ <20260501111928.259252-7-smostafa@google.com>
+ <20260501122424.GA6912@ziepe.ca>
+ <afiO2WL4ILGfmUui@google.com>
+ <20260509232155.GH9285@ziepe.ca>
+ <agG6n4CeuIMD57G1@google.com>
+ <20260511141849.GO9285@ziepe.ca>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260511141849.GO9285@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_145257_392785_8DDDEF72 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20260513_145502_925722_A81D41D7 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +108,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use consistent address conversions in the driver:
-- virt_to_phys(): For all virtual to physical address conversion,
-  convert __pa users as we don=E2=80=99t need to rely on it type casting.
-- phys_to_virt(): For all physical to virtual address conversion,
-  similarly, convert __va users.
+On Mon, May 11, 2026 at 11:18:49AM -0300, Jason Gunthorpe wrote:
+> On Mon, May 11, 2026 at 11:16:47AM +0000, Mostafa Saleh wrote:
+> > > IDK, why? virt_to_phys() is part of the iommu-pages API, I'd just
+> > > leave it.. If you want to narrow it then #define it for pkvm when
+> > > compiling this file..
+> > 
+> > It is not going to be part of the iommu-pages API, I meant in
+> > io-pgtable-arm, we will use something arm_lpae_virt_to_phys()...
+> > which is then implemented differently for pkvm.
+> 
+> Again why? I think the main goal should be to not mess up the normal
+> code. 
+> 
+>   #define virt_to_phys pkvm_virt_to_phys
+> 
+> Does that, we should be leaning into this pattern I think, not adding
+> unnecessary churn...
+> 
+> If anything is needed then it should be an iommu_pages function to
+> wrapper virt_to_phys() for use by iommu_pages uses but I'd rather
+> not..
+> 
 
-That changes nothing at all. However, it will be useful when
-compiling this file for the KVM hypervisor as it can cleanly
-replace virt_to_phys/phys_to_virt
+Sure, no strong opinion, I did post this patch along with cleanups
+separately in:
+https://lore.kernel.org/linux-iommu/20260513215203.3852661-1-smostafa@google.com/
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- drivers/iommu/io-pgtable-arm.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Thanks,
+Mostafa
 
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.=
-c
-index 86b23aa04324..476c0e25631a 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -143,7 +143,7 @@
- #define ARM_MALI_LPAE_MEMATTR_WRITE_ALLOC 0x8DULL
-=20
- /* IOPTE accessors */
--#define iopte_deref(pte,d) __va(iopte_to_paddr(pte, d))
-+#define iopte_deref(pte, d) phys_to_virt(iopte_to_paddr(pte, d))
-=20
- #define iopte_type(pte)					\
- 	(((pte) >> ARM_LPAE_PTE_TYPE_SHIFT) & ARM_LPAE_PTE_TYPE_MASK)
-@@ -429,7 +429,7 @@ static arm_lpae_iopte arm_lpae_install_table(arm_lpae_i=
-opte *table,
- 	arm_lpae_iopte old, new;
- 	struct io_pgtable_cfg *cfg =3D &data->iop.cfg;
-=20
--	new =3D paddr_to_iopte(__pa(table), data) | ARM_LPAE_PTE_TYPE_TABLE;
-+	new =3D paddr_to_iopte(virt_to_phys(table), data) | ARM_LPAE_PTE_TYPE_TAB=
-LE;
- 	if (cfg->quirks & IO_PGTABLE_QUIRK_ARM_NS)
- 		new |=3D ARM_LPAE_PTE_NSTABLE;
-=20
---=20
-2.54.0.563.g4f69b47b94-goog
 
+> Jason
 
