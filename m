@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94711CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:35:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99795CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZbI0jVEKP4rS4s+J5RoosuFYtKofOrtiC7bLWb2PusA=; b=XtGZWZD8myHR/U1XUnqAtSkQw8
-	N7xzp036Nbmbyn7WkSfndluwaQOCv7MCvehtN9s6dXVWvwn0nneZY8iH6EjuRMIw/IhEUJPQrI8hW
-	Q5otjX4SQkYBDVPmhYQUbt1gI2ANe4RH/y15wLUmLxaBcLqOXaI/EBoHBNnr8g944RdTqffRG0F6X
-	OHCkLVwjc9PtnNK9yHZwG4WaKP9WRypGv8Z0hh+fCviUiPdkRIs6WpBuD7cPMDgdZuHhCx9Idm8uI
-	bQyWhb93DUkQT3dboui2rgsyuZ/qWU1hqf+MchcBsqdVkPC272MloLA7/EZ8rQqqpFQz3UE93u469
-	5kQeVKPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xiR080QbM62s8vT4MbmTv04ZkR7uTTVOpbLdEGUZspk=; b=QAZbMrTtFt4tAYmvnavUaisx/L
+	Fmlw695HRdcDfsYvMo5UaGWAn70DF5WvTNKa7/vOOb7zneWAFLhv2EI3hmXLpH/3iKPaLar1J7oEj
+	3h0IQwAzvdTonZEYHOsYcxNl+p+x9FB/n73RjxkmwnB4TGZ6KAA8dQeaDBqqKQxDv1u0vL0l1jR0l
+	Js0x301hHpKK4ZXKa12HqmjYJ3yFaQeKUp0xxOLfp80WFZImoHhj2lx8maxMJ4Hu6j8s6V/E3O3Nw
+	ugLOVZH+ChOyNyWqQxbxbqY+XVjfrUAG7H5/q4Y4kkJiQpqQXDHAU6980FkgNoaKId+SEeYBARr6s
+	MgPO0CvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHEp-00000003qEX-2SYS;
-	Wed, 13 May 2026 21:35:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHEm-00000003qCw-2mDZ
+	id 1wNHVI-00000003rjL-1725;
+	Wed, 13 May 2026 21:52:32 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNHVF-00000003rip-3w7c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 21:35:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 864ED1595;
-	Wed, 13 May 2026 14:35:20 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D45333F836;
-	Wed, 13 May 2026 14:35:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778708125; bh=V4Z9P+e2GyvMrVAC0rqhZI/HKDK4a0CYJ4lhRPYRqmU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Kdc5qFLSoy7UP4qMQ1TYe6wOFSpqTGrPIVjQ0dmIODVJGPJO8opMmhOg3QJUZYVwE
-	 YcuooyzWUOc+8Fh+i9StCkCB+DjYgIrQQeBbDZfFvzJ3xjtinPcapSwlhygdP749c4
-	 jalwVuE4X0IDBxDUHBcNP3UmAAC6Mi1HeQAUMLPw=
-Date: Wed, 13 May 2026 23:34:38 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Sanjay Chitroda <sanjayembeddedse@gmail.com>, Michal Piekos
- <michal.piekos@mmpsystems.pl>, David Lechner <dlechner@baylibre.com>, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Maksim Kiselev <bigunclemax@gmail.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] iio: adc: sun20i-gpadc: add A523 gpadc support
-Message-ID: <20260513233438.2715cfb5@ryzen.lan>
-In-Reply-To: <20260513171638.77af3b24@jic23-huawei>
-References: <20260513-sunxi-a523-gpadc-v2-0-d5efde151dac@mmpsystems.pl>
-	<20260513-sunxi-a523-gpadc-v2-2-d5efde151dac@mmpsystems.pl>
-	<A7772824-E704-4BFD-A796-BCD81197E5A2@gmail.com>
-	<4248ac7e-3cce-4db8-a2c1-710f2c903490@arm.com>
-	<20260513171638.77af3b24@jic23-huawei>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+	Wed, 13 May 2026 21:52:31 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-48d1b294dfeso64338845e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:52:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1778709147; x=1779313947; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=xiR080QbM62s8vT4MbmTv04ZkR7uTTVOpbLdEGUZspk=;
+        b=dTjt15dsnid+x01hH6+HZH0jsJgeU1HFjtT7eDUu+aoMD2ZCAv4rxu9FdYJYEa+Sid
+         Wscn1hOID1btCm+/3Ie290G8VooR+o4IqZOGBqCC8DJHWiD3csi99lgNhha+u3PiDrvC
+         pSUsBBh77ekGQXwNfzJrYeW6KDkrl0+PB28IoN8je8qkyXjDve1lHCHrjxHBKCLp7VOC
+         TihDZMTAGVWn2Xm3+2y8HQYzlGwLRLFHexasbiJ6S9XQQb8ROQcJU79CNPMn0viCk9eY
+         4FASO89kUQWmmbFMMJrOAV9c+mcIA+yVCQZvky+QQjBBWj62l8vQVGr90K4CUqSQxCbo
+         JBig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778709147; x=1779313947;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xiR080QbM62s8vT4MbmTv04ZkR7uTTVOpbLdEGUZspk=;
+        b=NAZSXgluIf5K+9n9GuTsrpycx9wdPI1YerOZrokKibe6DFkpdDYRIE7z3kHl22FrE5
+         +ZmHunuq6cu8PIL7q6geTNqf8bLZOR2e+ymDQdkGLMxe1EuI0byqHm8pPrMAyzd0omvx
+         4nQtv/eiTO7ZdWFAQLVVfnh5yIs4W6EMoRLbOtWXJ5f99rdnB0lLfHWhwaTzL0vqikuF
+         3HQwVe5rAMTmCVnBiMAvYObOEzUagTki7a6UbJt9gdkQI3n855E8JR5MIl6k+Zo0NJeK
+         7rCsz/2vqHHSR4IPWXEmg3qviJF3pc/G659EE0Hhda1IqytL6xrDWxtHnbQxy4XZ4Mz1
+         qP3A==
+X-Forwarded-Encrypted: i=1; AFNElJ9OrE9k4FHeb0ko1+QV1VWa14u9SiuMPMnbHnV5ikQQ/QmAxZtW/d+/wkuiVupSS/z/1z7s2JSjGcT1G8A05wpR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlTQ8hV5vzIykcp2TAIovi1dT8voTUrtH7Vgoni9H/7WtCz9KA
+	wGaNZbWhnwE5+cQE8T4PTJEDdTq7TtDJFmOAuVyvG7YiBmx1G0vwVU8ZAVkHkhvbyG80wyU1RHg
+	nH6UdNTGCk9sZzQ==
+X-Received: from wmdi7.prod.google.com ([2002:a05:600c:2907:b0:485:c45a:fcc2])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:a48:b0:48a:52ee:5776 with SMTP id 5b1f17b1804b1-48fc9a0ef80mr77492595e9.11.1778709147564;
+ Wed, 13 May 2026 14:52:27 -0700 (PDT)
+Date: Wed, 13 May 2026 21:52:00 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
+Message-ID: <20260513215203.3852661-1-smostafa@google.com>
+Subject: [PATCH 0/3] iommu/io-pgtable-arm: iommu-pages and cleanup
+From: Mostafa Saleh <smostafa@google.com>
+To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, 
+	Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_143529_701038_5F6CF7FE 
-X-CRM114-Status: GOOD (  30.13  )
+X-CRM114-CacheID: sfid-20260513_145230_018605_2E1E8402 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,119 +88,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 May 2026 17:16:38 +0100
-Jonathan Cameron <jic23@kernel.org> wrote:
+This is a small cleanup coming from the pKVM SMMUv3 support [1].
+However, they are not pKVM specific and useful in general.
 
-Hi,
+The first patch is to fix a theoretical issues with alloc/free size.
+The second patch is the main one to convert the code to iommu-pages.
+The third patch is a cleanup to use address conversion consistently.
 
-> On Wed, 13 May 2026 13:53:49 +0200
-> Andre Przywara <andre.przywara@arm.com> wrote:
->=20
-> > Hi Sanjay,
-> >=20
-> > thanks for having a look!
-> >=20
-> > On 5/13/26 13:44, Sanjay Chitroda wrote: =20
-> > >=20
-> > >=20
-> > > On 13 May 2026 10:29:43=E2=80=AFam IST, Michal Piekos <michal.piekos@=
-mmpsystems.pl> wrote:   =20
-> > >> A523 differs from existing sun20i-gpadc-iio by having two clocks; bus
-> > >> clock and module clock.
-> > >>
-> > >> Change driver to enable all clocks.
-> > >>
-> > >> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
-> > >> ---
-> > >> drivers/iio/adc/sun20i-gpadc-iio.c | 11 +++++++----
-> > >> 1 file changed, 7 insertions(+), 4 deletions(-)
-> > >>
-> > >> diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/su=
-n20i-gpadc-iio.c
-> > >> index 861c14da75ad..3f1f07b3a385 100644
-> > >> --- a/drivers/iio/adc/sun20i-gpadc-iio.c
-> > >> +++ b/drivers/iio/adc/sun20i-gpadc-iio.c
-> > >> @@ -180,7 +180,7 @@ static int sun20i_gpadc_probe(struct platform_de=
-vice *pdev)
-> > >> 	struct iio_dev *indio_dev;
-> > >> 	struct sun20i_gpadc_iio *info;
-> > >> 	struct reset_control *rst;
-> > >> -	struct clk *clk;
-> > >> +	struct clk_bulk_data *clks;
-> > >> 	int irq;
-> > >> 	int ret;
-> > >>
-> > >> @@ -205,9 +205,11 @@ static int sun20i_gpadc_probe(struct platform_d=
-evice *pdev)
-> > >> 	if (IS_ERR(info->regs))
-> > >> 		return PTR_ERR(info->regs);
-> > >>
-> > >> -	clk =3D devm_clk_get_enabled(dev, NULL);
-> > >> -	if (IS_ERR(clk))
-> > >> -		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clo=
-ck\n");
-> > >> +	ret =3D devm_clk_bulk_get_all_enabled(dev, &clks);
-> > >> +	if (ret <=3D 0)   =20
-> > >=20
-> > > Thank you Michal for the change.
-> > >=20
-> > > Have you validated the changes ?
-> > > It looks while success ret would be 0 and it would give return error.=
-   =20
-> >=20
-> > But devm_clk_bulk_get_all_enabled() returns the number of clocks found=
-=20
-> > and enabled. And since we need at least one, I think this is correct,=20
-> > and the error message below reflects that. =20
->=20
-> True but passing 0 to dev_err_probe() isn't going to do the right thing.
->=20
-> Though from this function, 0 is an error you need to return an error code
-> not 0 which to the caller looks like a success.
+[1] https://lore.kernel.org/linux-iommu/20260501111928.259252-1-smostafa@google.com/
 
-Ah, that's true - should have read your email first before answering to
-Andy ;-)
+Mostafa Saleh (3):
+  iommu/io-pgtable-arm: Use consistent sizes for page allocation and
+    freeing
+  iommu/io-pgtable-arm: Rework to use the iommu-pages API
+  iommu/io-pgtable-arm: Use address conversion consistently
 
-So yeah, that needs a split handling, for =3D=3D 0, and for < 0.
+ drivers/iommu/io-pgtable-arm.c | 88 +++++++++++++++++++++++-----------
+ 1 file changed, 61 insertions(+), 27 deletions(-)
 
-Cheers,
-Andre
-
->=20
->=20
->=20
-> >=20
-> > To me that change looks good:
-> >=20
-> > Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-> >=20
-> > Cheers,
-> > Andre
-> >=20
-> >  =20
-> > >=20
-> > > Thanks, Sanjay
-> > >=20
-> > >    =20
-> > >> +		return dev_err_probe(
-> > >> +			dev, ret,
-> > >> +			"failed to enable clocks or no clocks defined\n");
-> > >>
-> > >> 	rst =3D devm_reset_control_get_exclusive(dev, NULL);
-> > >> 	if (IS_ERR(rst))
-> > >> @@ -243,6 +245,7 @@ static int sun20i_gpadc_probe(struct platform_de=
-vice *pdev)
-> > >>
-> > >> static const struct of_device_id sun20i_gpadc_of_id[] =3D {
-> > >> 	{ .compatible =3D "allwinner,sun20i-d1-gpadc" },
-> > >> +	{ .compatible =3D "allwinner,sun55i-a523-gpadc" },
-> > >> 	{ }
-> > >> };
-> > >> MODULE_DEVICE_TABLE(of, sun20i_gpadc_of_id);
-> > >>   =20
-> > >    =20
-> >  =20
->=20
->=20
+-- 
+2.54.0.563.g4f69b47b94-goog
 
 
