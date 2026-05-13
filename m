@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120A0CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 07:34:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6666DCD37B6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 07:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fFOzrYaW++AmTHyOncKUNG2vqhFQ0/GWfCseoe5OOkk=; b=PNBbxb9ymEFmSy1Ggl0rMmm0+v
-	BTy+ygtdZQPdIMxhkqOqvzotE23SMvNb5TtlCneH6kJ23KPkWItU5jVaKMXBlRtyY/ZDk1bBOPkE4
-	3HKZtfu2zoac4xVsSEJfEBC2C1f0KxnPKhvuSPwirCSpUtsiiyLCuEmhV8y6GQaquEuwDnR9+XlYL
-	IIf6DiL0UAXrzRPmPgSg4FUL2+h88pxYNQY8VRnmLYx5T4kGgnLUh+19T9rNTyX7rLCGbTpTFLzIU
-	vNYiAMolvXqtjNWJ4WQjGhkKWudvp0JW7JnZ9VZIOt2gD82sJ9KI8xvJe/WnOjknt+ypTQ+GoDzr+
-	DSbWZduQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VijwG2fIs9LhVa8a8fRpWCP40TzL9ibkl6s9H7Eu2SA=; b=nCqPNLAhJwl/tYsv+UReHCf3FS
+	SzI+oxRHiMGLiJo5XAVg3rIJ21rKoVHXO994ZS7spJJOxUgjmYHp4jFki7N9sqhZHeg9FaYbycZve
+	xVY5URZ3d4pRMNWAHUfjg492S6C53fa3vLWLjzvyztU36FWgm4r4KkaMVoEqrbJLNQJI75SU3pIjL
+	Nm93IfTr8vPFspi5hdQUTiF42qwnTxSWIMpYfqTdWCZfZlYbLDU10oJspGxjZNRrgFpdxbxjqzLIv
+	e5qcqN5V+6TViGqhyLduON9GXKXKAfGf6wkp8t/uY8tbj53e9+Cfxg1G+4wfLhKD8uV0QStPJV+0l
+	9NOGiSTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN46d-00000001aG6-2TCb;
-	Wed, 13 May 2026 07:34:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wN48R-00000001aYm-3nrR;
+	Wed, 13 May 2026 07:36:04 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN46c-00000001aFf-0sqP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 07:34:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0DEAD60120;
-	Wed, 13 May 2026 07:34:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AB0AC2BCB7;
-	Wed, 13 May 2026 07:34:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778657648;
-	bh=i70caX1Yr5xAdjGQu0SXobJw2EJJdoR0JSUg6QLPi5A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XmwXSoztVYi0JmtDTF/XDCIcWyHqle3fQy8GbLdpa7GwP7KTGVNBfb3T8L+pqoKdT
-	 Jseo6mKI2e0vaGaMiw01h9ZdhNcgpKbB+2yFWnBnMlZ9mgujkMCkgSVrggkSTMZGrQ
-	 ZpHTMWWa607c+IJAEvbirha6JAHVkIiSf10SoJ77c60Nw/AUFI8MkXdDKZ5Epx4uLJ
-	 +ng7sEf14h+pQUidmmgiVXyql3Nqi1xKaPOSqIwRjpWnR7MUA0RwSG2BPMtlmGLeD/
-	 sYZlKWzHE78JsgTUbxsz5yYPlOhD38S6iZlh480kqGJ8XKNBrw4DWHJlH2KDeQ/Sre
-	 Tksnt5laoe59g==
-Date: Wed, 13 May 2026 00:34:06 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org, Alexandru Elisei <alexandru.elisei@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	James Clark <james.clark@linaro.org>, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v7 07/20] KVM: arm64: Set up FGT for Partitioned PMU
-Message-ID: <agQpbiD8Fi6fzomf@kernel.org>
-References: <20260504211813.1804997-1-coltonlewis@google.com>
- <20260504211813.1804997-8-coltonlewis@google.com>
+	id 1wN48O-00000001aWd-0MIu;
+	Wed, 13 May 2026 07:36:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=VijwG2fIs9LhVa8a8fRpWCP40TzL9ibkl6s9H7Eu2SA=;
+	b=e5KTyfYlAFGe/42vF2z8P7EXkacJhGfEpbHUW3Awoev0s0P91k3Z+NfTtXQEgn
+	9uMXTA8eHBgDYCY6c6yWdK/j/IKqOnESn7atUr3cBQdyRnFdejtOkQttakzNE1DM
+	qQuDf+g119YFLEA/Z5kqLP5P2HQgn/L64VqoP6KWzoMik=
+Received: from [192.168.50.71] (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wC3bRWWKQRqHpJqBA--.6846S2;
+	Wed, 13 May 2026 15:34:47 +0800 (CST)
+Message-ID: <15532890-ce22-4b20-96d9-e7f7c47050d2@163.com>
+Date: Wed, 13 May 2026 15:34:46 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260504211813.1804997-8-coltonlewis@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 6/8] PCI: aardvark: Add 100 ms delay after link
+ training
+To: =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ mani@kernel.org, vigneshr@ti.com, jingoohan1@gmail.com,
+ thomas.petazzoni@bootlin.com, ryder.lee@mediatek.com,
+ jianjun.wang@mediatek.com, claudiu.beznea.uj@bp.renesas.com,
+ mpillai@cadence.com, robh@kernel.org, s-vadapalli@ti.com,
+ linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260506152346.166056-1-18255117159@163.com>
+ <20260506152346.166056-7-18255117159@163.com>
+ <20260512212531.jupoocz7acv22qyg@pali>
+ <581e91fb-2e57-43ed-b79d-19dbf384b955@163.com>
+ <20260513072008.vol4htgbzquly2rb@pali>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <20260513072008.vol4htgbzquly2rb@pali>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wC3bRWWKQRqHpJqBA--.6846S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Ar48GrWDZFWUCw48tr1DJrb_yoW7AF4fpa
+	y7GasFyFs5Jr15u3WIq3WDXFyYqan8uFyUXr18Wry7XF9IyryUWF12krZI9FyDGr4vvF1j
+	vw4jqFyxu3WYva7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UEPfLUUUUU=
+X-Originating-IP: [140.206.53.66]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCwxcLrmoEKZfYBwAA3+
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_003600_517409_29E8043E 
+X-CRM114-Status: GOOD (  29.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,89 +84,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 04, 2026 at 09:18:00PM +0000, Colton Lewis wrote:
-> +static void __compute_hdfgrtr(struct kvm_vcpu *vcpu)
-> +{
-> +	__compute_fgt(vcpu, HDFGRTR_EL2);
-> +
-> +	*vcpu_fgt(vcpu, HDFGRTR_EL2) |=
-> +		HDFGRTR_EL2_PMOVS
-> +		| HDFGRTR_EL2_PMCCFILTR_EL0
-> +		| HDFGRTR_EL2_PMEVTYPERn_EL0
-> +		| HDFGRTR_EL2_PMCEIDn_EL0
-> +		| HDFGRTR_EL2_PMMIR_EL1;
-> +}
-> +
 
-I've given this feedback at least twice already...
 
-Operators go on the preceding line in the case of line continuations.
+On 5/13/26 15:20, Pali Rohár wrote:
+> On Wednesday 13 May 2026 15:00:04 Hans Zhang wrote:
+>>
+>>
+>> On 5/13/26 05:25, Pali Rohár wrote:
+>>> On Wednesday 06 May 2026 23:23:44 Hans Zhang wrote:
+>>>> The Aardvark PCIe controller driver waits for the link to come up but
+>>>> does not implement the mandatory 100 ms delay after link training
+>>>> completes for speeds greater than 5.0 GT/s (PCIe r6.0 sec 6.6.1).
+>>>>
+>>>> The driver already maintains a 'link_gen' field that holds the negotiated
+>>>> link speed. Use it together with pcie_wait_after_link_train() to insert
+>>>> the required delay immediately after confirming that the link is up.
+>>>>
+>>>> Signed-off-by: Hans Zhang <18255117159@163.com>
+>>>> ---
+>>>>    drivers/pci/controller/pci-aardvark.c | 4 +++-
+>>>>    1 file changed, 3 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/drivers/pci/controller/pci-aardvark.c b/drivers/pci/controller/pci-aardvark.c
+>>>> index e34bea1ff0ac..526351c21c49 100644
+>>>> --- a/drivers/pci/controller/pci-aardvark.c
+>>>> +++ b/drivers/pci/controller/pci-aardvark.c
+>>>> @@ -350,8 +350,10 @@ static int advk_pcie_wait_for_link(struct advk_pcie *pcie)
+>>>>    	/* check if the link is up or not */
+>>>>    	for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
+>>>> -		if (advk_pcie_link_up(pcie))
+>>>> +		if (advk_pcie_link_up(pcie)) {
+>>>> +			pcie_wait_after_link_train(pcie->link_gen);
+>>>>    			return 0;
+>>>> +		}
+>>>>    		usleep_range(LINK_WAIT_USLEEP_MIN, LINK_WAIT_USLEEP_MAX);
+>>>>    	}
+>>>> -- 
+>>>> 2.34.1
+>>>>
+>>>
+>>> Are you sure that this is correct to do? Have you checked the A3720
+>>> Functional Specification which describes how to bring PCIe link up?
+>>>
+>>> A3720 PCIe controller is buggy and needs more timing hacks to make it
+>>> behave. Playing with random sleeps can break its internal logic.
+>>> I'm not sure if it could be safe without proper testing.
+>>>
+>>> And IIRC A3720 PCIe controller is just PCIe2.0 with 5 GT/s.
+>>
+>>
+>> Hi Pali,
+>>
+>> 1. This driver does not support A3720.
+>>
+>> static const struct of_device_id advk_pcie_of_match_table[] = {
+>> 	{ .compatible = "marvell,armada-3700-pcie", },
+>> 	{},
+>> };
+>> MODULE_DEVICE_TABLE(of, advk_pcie_of_match_table);
+>>
+>> If you need support for A3720, please submit the corresponding patch so that
+>> Bjorn and Mani can review it.
+> 
+> 3700 (or 37xx) is family and covers both a3710 and a3720. In most cases is the
+> a3720 dominant and hence identifiers 3700 and 3720 are begin mixed.
+> 
+>>
+>> 2. If A3720 only supports GEN2, you can configure "max-link-speed" to be 2
+>> in the DT. This will not affect the functionality of this patch.
+> 
+> Whole A37xx supports only GEN2. And in DT files for 37xx should be
+> already there max-link-speed.
+> 
+> Seems that in advk_pcie_of_match_table there is no GEN3 device
+> specified.
+> 
 
-> +
-> +/**
-> + * kvm_pmu_is_partitioned() - Determine if given PMU is partitioned
-> + * @pmu: Pointer to arm_pmu struct
-> + *
-> + * Determine if given PMU is partitioned by looking at hpmn field. The
-> + * PMU is partitioned if this field is less than the number of
-> + * counters in the system.
-> + *
-> + * Return: True if the PMU is partitioned, false otherwise
-> + */
-> +bool kvm_pmu_is_partitioned(struct arm_pmu *pmu)
-> +{
-> +	if (!pmu)
-> +		return false;
-> +
-> +	return pmu->max_guest_counters >= 0 &&
-> +		pmu->max_guest_counters <= *host_data_ptr(nr_event_counters);
-> +}
-> +
-> +/**
-> + * kvm_vcpu_pmu_is_partitioned() - Determine if given VCPU has a partitioned PMU
-> + * @vcpu: Pointer to kvm_vcpu struct
-> + *
-> + * Determine if given VCPU has a partitioned PMU by extracting that
-> + * field and passing it to :c:func:`kvm_pmu_is_partitioned`
-> + *
-> + * Return: True if the VCPU PMU is partitioned, false otherwise
-> + */
-> +bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu)
-> +{
-> +	return kvm_pmu_is_partitioned(vcpu->kvm->arch.arm_pmu) &&
-> +		false;
-> +}
+Hi Pali,
 
-Ok, I'm thoroughly confused about these predicates.
+However, I saw many GEN3 assignments and conditions in the code.
 
-Whether or not a vCPU is using a partitioned PMU is a per-VM property.
-This is separate from whether or not the backing arm_pmu has a range of
-available counters for the guest to use.
+ret = of_pci_get_max_link_speed(dev->of_node);
+if (ret <= 0 || ret > 3)
+	pcie->link_gen = 3;
+else
+	pcie->link_gen = ret;
 
-It is entirely possible that a VM *isn't* using the partitioned PMU
-feature (i.e. backed with perf events) yet the supporting arm_pmu has a
-guest counter range.
 
- 
-> +#if !defined(__KVM_NVHE_HYPERVISOR__)
-> +bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu);
-> +bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu);
-> +#else
-> +static inline bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu)
-> +{
-> +	return false;
-> +}
-> +
-> +static inline bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
+static void advk_pcie_train_link(struct advk_pcie *pcie)
+{
+	struct device *dev = &pcie->pdev->dev;
+	u32 reg;
+	int ret;
 
-Don't use ifdeffery for this. Aim to have a single definition and rely
-on has_vhe() to do the rest of the work.
- 
-Thanks,
-Oliver
+	/*
+	 * Setup PCIe rev / gen compliance based on device tree property
+	 * 'max-link-speed' which also forces maximal link speed.
+	 */
+	reg = advk_readl(pcie, PCIE_CORE_CTRL0_REG);
+	reg &= ~PCIE_GEN_SEL_MSK;
+	if (pcie->link_gen == 3)
+		reg |= SPEED_GEN_3;
+	else if (pcie->link_gen == 2)
+		reg |= SPEED_GEN_2;
+	else
+		reg |= SPEED_GEN_1;
+	advk_writel(pcie, reg, PCIE_CORE_CTRL0_REG);
+
+	/*
+	 * Set maximal link speed value also into PCIe Link Control 2 register.
+	 * Armada 3700 Functional Specification says that default value is based
+	 * on SPEED_GEN but tests showed that default value is always 8.0 GT/s.
+	 */
+	reg = advk_readl(pcie, PCIE_CORE_PCIEXP_CAP + PCI_EXP_LNKCTL2);
+	reg &= ~PCI_EXP_LNKCTL2_TLS;
+	if (pcie->link_gen == 3)
+		reg |= PCI_EXP_LNKCTL2_TLS_8_0GT;
+	else if (pcie->link_gen == 2)
+		reg |= PCI_EXP_LNKCTL2_TLS_5_0GT;
+	else
+		reg |= PCI_EXP_LNKCTL2_TLS_2_5GT;
+	advk_writel(pcie, reg, PCIE_CORE_PCIEXP_CAP + PCI_EXP_LNKCTL2);
+
+....
+
+
+If you are certain about the relevant information. Is it understandable 
+that we need to delete the code related to GEN3?
+
+
+Best regards,
+Hans
+
+
+>> 3. This patch is a common delay requirement stipulated by the PCIe
+>> specification. If it is greater than GEN2, then msleep(100) will be added;
+>> otherwise, there will be no such delay.
+>>
+>> 4. For instance, we often come across the situation where some common APIs
+>> are modified, and in many cases, their functionality does not require the
+>> actual development board for verification. I believe that many other
+>> developers and maintainers have modified different parts of the code. For
+>> example, the recent submission:
+> 
+> Switching one API to another is one thing. But changing code which looks
+> to be critical, specially when it is known that hw has bugs, can cause
+> breaking of existing boards.
+> 
+>> commit 750277048afe7ce8ebfc0b120de7dfbc745058a7
+>> Author: Nam Cao <namcao@linutronix.de>
+>> Date:   Thu Jun 26 16:47:53 2025 +0200
+>>
+>>      PCI: aardvark: Switch to msi_create_parent_irq_domain()
+>>
+>>      Switch to msi_create_parent_irq_domain() from
+>> pci_msi_create_irq_domain()
+>>      which was using legacy MSI domain setup.
+>>
+>>
+>> And many controller drivers have been modified.
+>>
+>>
+>> Best regards,
+>> Hans
+>>
+>>
+
 
