@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0576CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 11:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9EA3CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 11:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NLMKDFvArJD9yyJwlsmLkdTy5DNhVq9RPp3PbRs63Ck=; b=rzC5lqevUWrLajukCtYOVEOxGA
-	4wpNSHVrYVtzZdt2Y9tsCLD1/xeLDVFaNm8kwdCZ5LSckbWV/6JjBwqPIgS5f6SVPEaeVAitT5DJv
-	TYVmoFU6C+GdwbXASYzfNKYybzc62Ml2YQ52cGPGSavKcuOaRtyjzSSSsgwcjNFToz3I3h0fk/GZF
-	vk9C0xgDQQALyGEJw+yY5gSijEQjOcrq0IDx8YQmCnL/VqSry5L1k9Ldkj76kmBeQ70wwYs/PklVh
-	oXlOe45Ko+2cQ99S4Su76VRjSNiW/GrFi/v9bv9wtxOJXh6NK9eoSoAKVlA/KZgbHvel7YmuQZPS8
-	94Ma7fXA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BWkCz+DqFTW7wt2D8of+2AGF26ajnxS3iJv9/ADODgY=; b=LtxiKWn75snLoYD38x6mm0V4El
+	kIxGerTq+RoBu3w2X8GKYyRewlwUFrT250UHgVKe0nTGKkc03IVpwaOVpwNHH1oONDKpigfbIDiTU
+	q+NggoWf+wpOQHxraM5j58zaD60vSDxDoMa2+5nhHB2FqwcL/d8Ao417QKTUOSgRWT1ke+nQ9Ab9/
+	Oc+Rw+kaD3umiAKYxWsIKYFHC+kJgoQEy3P4/rNsyP8u2PvvANdAYZ1Sc6N03CZoSm7t9PYIy0rQw
+	tkDiNbq2r12qs2DBBiVbzM7VXFjJcUgFU+9/UjeanUyRTCbo5AhjRHq4FoYueWwFYXR6OvjHaSjLI
+	RJSHMgbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN8A5-00000002Op0-0ZUB;
-	Wed, 13 May 2026 11:54:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN8A2-00000002OoS-1ctc
+	id 1wN8EI-00000002PQW-2hhQ;
+	Wed, 13 May 2026 11:58:22 +0000
+Received: from out-189.mta0.migadu.com ([91.218.175.189])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wN8EG-00000002PPV-0Czf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 11:53:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42516165C;
-	Wed, 13 May 2026 04:53:49 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7DDDA3F836;
-	Wed, 13 May 2026 04:53:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778673234; bh=dE7oXpK/R8zVWQ4MQZ3hfXSes/zwUvFmkUxfmE1/DBI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=MhXolWLC/PPYbdZnrarpww/SaQyugJrY6kZn10zt/uGqVMabQTaZqeojEOq74RcdZ
-	 FmvbE8mcVwZ0U9WntP0tnCw5UdOIXDl9nQ9gl+Jpkxfwe4Nr+ztkFmqvoy8aqMbf2S
-	 YMwjy1rl/28TUVJKbt7jb0syBzOmYO0aVkRzAIYc=
-Message-ID: <4248ac7e-3cce-4db8-a2c1-710f2c903490@arm.com>
-Date: Wed, 13 May 2026 13:53:49 +0200
+	Wed, 13 May 2026 11:58:21 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1778673495;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=BWkCz+DqFTW7wt2D8of+2AGF26ajnxS3iJv9/ADODgY=;
+	b=VrdfOcauiFN5qDLFCLBeLAA6nq75l8wwLg5R7Bic6nYZqEnjZcSNYnxweNnKkHhRvcZ8ZB
+	A1c8ZOy/pHTwCFaLNekV2WDAD3HqjCRnDduPSn3IJTfQ8iSNtjLpJCYy+UtpHXJ1XO3Dsz
+	YsTrGvHO//YRJm3XFpSDGU53PpNOhBA=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	shechenglong <shechenglong@xfusion.com>,
+	Zenghui Yu <zenghui.yu@linux.dev>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Jonathan Marek <jonathan@marek.ca>,
+	Jinqian Yang <yangjinqian1@huawei.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: proton-pack: use sysfs_emit in sysfs show functions
+Date: Wed, 13 May 2026 13:57:55 +0200
+Message-ID: <20260513115756.447661-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] iio: adc: sun20i-gpadc: add A523 gpadc support
-To: Sanjay Chitroda <sanjayembeddedse@gmail.com>,
- Michal Piekos <michal.piekos@mmpsystems.pl>,
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
- =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Maksim Kiselev <bigunclemax@gmail.com>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260513-sunxi-a523-gpadc-v2-0-d5efde151dac@mmpsystems.pl>
- <20260513-sunxi-a523-gpadc-v2-2-d5efde151dac@mmpsystems.pl>
- <A7772824-E704-4BFD-A796-BCD81197E5A2@gmail.com>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <A7772824-E704-4BFD-A796-BCD81197E5A2@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2798; i=thorsten.blum@linux.dev; h=from:subject; bh=86KR6ysRrOFZZ3Ztz7ike1WiQ1Qtx2XB5IZuIv60m1c=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFks6S4ZXmUl/y7EP3hgvcZNyuJkylw9xffrKq4eSrx/h PvT58eGHaUsDGJcDLJiiiwPZv2Y4VtaU7nJJGInzBxWJpAhDFycAjCRe22MDAfXnbzFvUbKcn+I Xdbx++G+bteDL6VdXeItuarowS7fIwEM/5N2T9kQIDgp+7+L3WNLt607ck+JvQ65vENf1P1o64T aTywA
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
 Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_045358_600230_5C076958 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20260513_045820_602595_3CDFF7FD 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,83 +74,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sanjay,
+Replace sprintf() with sysfs_emit() in sysfs show functions, which is
+preferred for formatting sysfs output because it provides safer bounds
+checking.
 
-thanks for having a look!
+While the current code only emits fixed strings that fit easily within
+PAGE_SIZE, use sysfs_emit() to follow secure coding best practices.
 
-On 5/13/26 13:44, Sanjay Chitroda wrote:
-> 
-> 
-> On 13 May 2026 10:29:43 am IST, Michal Piekos <michal.piekos@mmpsystems.pl> wrote:
->> A523 differs from existing sun20i-gpadc-iio by having two clocks; bus
->> clock and module clock.
->>
->> Change driver to enable all clocks.
->>
->> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
->> ---
->> drivers/iio/adc/sun20i-gpadc-iio.c | 11 +++++++----
->> 1 file changed, 7 insertions(+), 4 deletions(-)
->>
->> diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gpadc-iio.c
->> index 861c14da75ad..3f1f07b3a385 100644
->> --- a/drivers/iio/adc/sun20i-gpadc-iio.c
->> +++ b/drivers/iio/adc/sun20i-gpadc-iio.c
->> @@ -180,7 +180,7 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
->> 	struct iio_dev *indio_dev;
->> 	struct sun20i_gpadc_iio *info;
->> 	struct reset_control *rst;
->> -	struct clk *clk;
->> +	struct clk_bulk_data *clks;
->> 	int irq;
->> 	int ret;
->>
->> @@ -205,9 +205,11 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
->> 	if (IS_ERR(info->regs))
->> 		return PTR_ERR(info->regs);
->>
->> -	clk = devm_clk_get_enabled(dev, NULL);
->> -	if (IS_ERR(clk))
->> -		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock\n");
->> +	ret = devm_clk_bulk_get_all_enabled(dev, &clks);
->> +	if (ret <= 0)
-> 
-> Thank you Michal for the change.
-> 
-> Have you validated the changes ?
-> It looks while success ret would be 0 and it would give return error.
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ arch/arm64/kernel/proton-pack.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
 
-But devm_clk_bulk_get_all_enabled() returns the number of clocks found 
-and enabled. And since we need at least one, I think this is correct, 
-and the error message below reflects that.
-
-To me that change looks good:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-
-> 
-> Thanks, Sanjay
-> 
-> 
->> +		return dev_err_probe(
->> +			dev, ret,
->> +			"failed to enable clocks or no clocks defined\n");
->>
->> 	rst = devm_reset_control_get_exclusive(dev, NULL);
->> 	if (IS_ERR(rst))
->> @@ -243,6 +245,7 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
->>
->> static const struct of_device_id sun20i_gpadc_of_id[] = {
->> 	{ .compatible = "allwinner,sun20i-d1-gpadc" },
->> +	{ .compatible = "allwinner,sun55i-a523-gpadc" },
->> 	{ }
->> };
->> MODULE_DEVICE_TABLE(of, sun20i_gpadc_of_id);
->>
-> 
-
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index b3801f532b10..7bb6553fec08 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -24,6 +24,7 @@
+ #include <linux/nospec.h>
+ #include <linux/prctl.h>
+ #include <linux/sched/task_stack.h>
++#include <linux/sysfs.h>
+ 
+ #include <asm/debug-monitors.h>
+ #include <asm/insn.h>
+@@ -61,7 +62,7 @@ static void update_mitigation_state(enum mitigation_state *oldp,
+ ssize_t cpu_show_spectre_v1(struct device *dev, struct device_attribute *attr,
+ 			    char *buf)
+ {
+-	return sprintf(buf, "Mitigation: __user pointer sanitization\n");
++	return sysfs_emit(buf, "Mitigation: __user pointer sanitization\n");
+ }
+ 
+ /*
+@@ -126,7 +127,7 @@ ssize_t cpu_show_spectre_v2(struct device *dev, struct device_attribute *attr,
+ 	switch (spectre_v2_state) {
+ 	case SPECTRE_UNAFFECTED:
+ 		if (bhb_state == SPECTRE_UNAFFECTED)
+-			return sprintf(buf, "Not affected\n");
++			return sysfs_emit(buf, "Not affected\n");
+ 
+ 		/*
+ 		 * Platforms affected by Spectre-BHB can't report
+@@ -136,13 +137,13 @@ ssize_t cpu_show_spectre_v2(struct device *dev, struct device_attribute *attr,
+ 		fallthrough;
+ 	case SPECTRE_MITIGATED:
+ 		if (bhb_state == SPECTRE_MITIGATED && _unprivileged_ebpf_enabled())
+-			return sprintf(buf, "Vulnerable: Unprivileged eBPF enabled\n");
++			return sysfs_emit(buf, "Vulnerable: Unprivileged eBPF enabled\n");
+ 
+-		return sprintf(buf, "Mitigation: %s%s\n", v2_str, bhb_str);
++		return sysfs_emit(buf, "Mitigation: %s%s\n", v2_str, bhb_str);
+ 	case SPECTRE_VULNERABLE:
+ 		fallthrough;
+ 	default:
+-		return sprintf(buf, "Vulnerable\n");
++		return sysfs_emit(buf, "Vulnerable\n");
+ 	}
+ }
+ 
+@@ -438,13 +439,13 @@ ssize_t cpu_show_spec_store_bypass(struct device *dev,
+ {
+ 	switch (spectre_v4_state) {
+ 	case SPECTRE_UNAFFECTED:
+-		return sprintf(buf, "Not affected\n");
++		return sysfs_emit(buf, "Not affected\n");
+ 	case SPECTRE_MITIGATED:
+-		return sprintf(buf, "Mitigation: Speculative Store Bypass disabled via prctl\n");
++		return sysfs_emit(buf, "Mitigation: Speculative Store Bypass disabled via prctl\n");
+ 	case SPECTRE_VULNERABLE:
+ 		fallthrough;
+ 	default:
+-		return sprintf(buf, "Vulnerable\n");
++		return sysfs_emit(buf, "Vulnerable\n");
+ 	}
+ }
+ 
 
