@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01854CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 09:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68A7CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 09:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eR/377sWNeVjzPMNMI4Ye/W95sbh/D0Or5aYjlGi+nk=; b=jo3x5YmVKNIkQGrCc/dA4zdAYE
-	Na8uQJ0s3jdQxRiX2pNNST7iZ0bd5pw4J/8QWinhwrvSj+CcH5Rnv+OZMff58OjQRWImnHDkUDxSi
-	3GSEDxSEpt3mUP0qt/nBM9aYycI25JBBWrK/+RI4XZ9CrcLPy9EwimXBYn62zFJAiVMMqKMLfYSUP
-	4+y3otY+JaWLaD+50ytj4YKzVGX2jlzi1s6jTXbWcZMXEXAzxgmaN292/faTn6R7sOkUX2tXlRlfZ
-	gqecUQdYuF/yaBZxyydHNiIqpl42QEsFJnPv5KX8kgb3a1nPH+ifK2yKrjVE5IcELOG33dWwCCE4G
-	eKAjdjCQ==;
+	bh=j/v9nDfgdE59ic82vqcYy/v3exAROoZS7Ig6DxjZpqo=; b=AHOLzQNSIhxC7f5NDcOLPtifMz
+	J2awnNVds91Ra3lnzgo0MIfULhtLnljlYN3H4+lZQZBypZ/4IrISbJa6bupp+p25ej6IyFtxuNKXD
+	c3nSUgC4GgCN2sCo/1P8DZrfGeLQAwDF1BsX700UN+NXcJsLUVu7ikrfNgJOG8GyN2KVGbQn8n1B6
+	fZwdD+rbKjIuac5T9SVHfybVfGSbGEPK2oXj7POvPD39gUifpz+2sTQVXQ0xzlaonV2uNthYb4t/z
+	HTULos9uSStkLcyeiH8JrS6awZuz+qsRd4++uGAO6eVJBknn4Mnr15OUquowTPoftUm4lcuz4MU9m
+	6hoSNMZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN67o-00000001xlF-2tYc;
+	id 1wN67o-00000001xkz-2LNz;
 	Wed, 13 May 2026 09:43:32 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN67j-00000001xhL-0wiy
+	id 1wN67i-00000001xhB-0kRI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 09:43:29 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gFpH22ychzmV7R;
-	Wed, 13 May 2026 17:35:42 +0800 (CST)
+	Wed, 13 May 2026 09:43:28 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gFpHK0V9lzcZyh;
+	Wed, 13 May 2026 17:35:57 +0800 (CST)
 Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
-	by mail.maildlp.com (Postfix) with ESMTPS id A62EC40562;
-	Wed, 13 May 2026 17:43:20 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 615BB40538;
+	Wed, 13 May 2026 17:43:18 +0800 (CST)
 Received: from localhost.localdomain (10.50.163.32) by
  kwepemf200017.china.huawei.com (7.202.181.10) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 13 May 2026 17:43:20 +0800
+ 15.2.1544.11; Wed, 13 May 2026 17:43:17 +0800
 From: Jie Zhan <zhanjie9@hisilicon.com>
 To: <cwchoi00@gmail.com>, <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
 	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
@@ -44,9 +44,9 @@ To: <cwchoi00@gmail.com>, <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
 CC: <linuxarm@huawei.com>, <tianyaxiong@kylinos.cn>, <zhanjie9@hisilicon.com>,
 	<zhenglifeng1@huawei.com>, <zhangpengjie2@huawei.com>,
 	<lihuisong@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v2 6/6] devfreq: Get module refcount in try_then_request_governor()
-Date: Wed, 13 May 2026 17:38:32 +0800
-Message-ID: <20260513093832.1645890-7-zhanjie9@hisilicon.com>
+Subject: [PATCH v2 1/6] devfreq: Use mutex guard in governor_store()
+Date: Wed, 13 May 2026 17:38:27 +0800
+Message-ID: <20260513093832.1645890-2-zhanjie9@hisilicon.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260513093832.1645890-1-zhanjie9@hisilicon.com>
 References: <20260513093832.1645890-1-zhanjie9@hisilicon.com>
@@ -57,8 +57,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  kwepemf200017.china.huawei.com (7.202.181.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_024327_425490_24B615C7 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20260513_024326_532719_F2D1786C 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,58 +73,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Get a refcount of the governor module in try_then_request_governor() so
-that the governor module cannot be unloaded between finding the governor
-and the caller using it.
+Use mutex guard in governor_store() so as to simplify the locking logic.
+
+No functional impact intended.
 
 Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
 ---
- drivers/devfreq/devfreq.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/devfreq/devfreq.c | 38 ++++++++++++++++----------------------
+ 1 file changed, 16 insertions(+), 22 deletions(-)
 
 diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
-index 2ea42325d030..fb1a7aa168aa 100644
+index f08fc6966eae..7a70dd051644 100644
 --- a/drivers/devfreq/devfreq.c
 +++ b/drivers/devfreq/devfreq.c
-@@ -285,6 +285,9 @@ static struct devfreq_governor *find_devfreq_governor(const char *name)
-  * and the driver that call devfreq_add_device) are built as modules.
-  * devfreq_list_lock should be held by the caller. Returns the matched
-  * governor's pointer or an error pointer.
-+ * On success, this holds a refcount of the governor module to prevent the
-+ * module from being unloaded during usage, so the caller should put a module
-+ * refcount after using it.
-  */
- static struct devfreq_governor *try_then_request_governor(const char *name)
- {
-@@ -313,8 +316,13 @@ static struct devfreq_governor *try_then_request_governor(const char *name)
- 			return (err < 0) ? ERR_PTR(err) : ERR_PTR(-EINVAL);
+@@ -1394,23 +1394,20 @@ static ssize_t governor_store(struct device *dev, struct device_attribute *attr,
+ 	if (ret != 1)
+ 		return -EINVAL;
  
- 		governor = find_devfreq_governor(name);
-+		if (IS_ERR(governor))
-+			return governor;
- 	}
- 
-+	if (!try_module_get(governor->owner))
-+		return ERR_PTR(-EBUSY);
+-	mutex_lock(&devfreq_list_lock);
++	guard(mutex)(&devfreq_list_lock);
+ 	governor = try_then_request_governor(str_governor);
+-	if (IS_ERR(governor)) {
+-		ret = PTR_ERR(governor);
+-		goto out;
+-	}
++	if (IS_ERR(governor))
++		return PTR_ERR(governor);
 +
- 	return governor;
- }
+ 	if (!df->governor)
+ 		goto start_new_governor;
  
-@@ -1009,6 +1017,7 @@ struct devfreq *devfreq_add_device(struct device *dev,
+-	if (df->governor == governor) {
+-		ret = 0;
+-		goto out;
+-	} else if (IS_SUPPORTED_FLAG(df->governor->flags, IMMUTABLE)
+-		|| IS_SUPPORTED_FLAG(governor->flags, IMMUTABLE)) {
+-		ret = -EINVAL;
+-		goto out;
+-	}
++	if (df->governor == governor)
++		return count;
++
++	if (IS_SUPPORTED_FLAG(df->governor->flags, IMMUTABLE) ||
++	    IS_SUPPORTED_FLAG(governor->flags, IMMUTABLE))
++		return -EINVAL;
+ 
+ 	/*
+ 	 * Stop the current governor and remove the specific sysfs files
+@@ -1420,7 +1417,7 @@ static ssize_t governor_store(struct device *dev, struct device_attribute *attr,
+ 	if (ret) {
+ 		dev_warn(dev, "%s: Governor %s not stopped(%d)\n",
+ 			 __func__, df->governor->name, ret);
+-		goto out;
++		return ret;
  	}
  
- 	err = devfreq_set_governor(devfreq, governor);
-+	module_put(governor->owner);
- 	if (err) {
- 		dev_err_probe(dev, err,
- 			"%s: Unable to start governor for the device\n",
-@@ -1446,6 +1455,7 @@ static ssize_t governor_store(struct device *dev, struct device_attribute *attr,
- 		return PTR_ERR(governor);
+ start_new_governor:
+@@ -1438,7 +1435,7 @@ static ssize_t governor_store(struct device *dev, struct device_attribute *attr,
+ 		/* Restore previous governor */
+ 		df->governor = prev_governor;
+ 		if (!df->governor)
+-			goto out;
++			return ret;
  
- 	ret = devfreq_set_governor(df, governor);
-+	module_put(governor->owner);
- 	if (ret)
- 		return ret;
+ 		ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
+ 		if (ret) {
+@@ -1446,7 +1443,7 @@ static ssize_t governor_store(struct device *dev, struct device_attribute *attr,
+ 				"%s: reverting to Governor %s failed (%d)\n",
+ 				__func__, prev_governor->name, ret);
+ 			df->governor = NULL;
+-			goto out;
++			return ret;
+ 		}
+ 	}
+ 
+@@ -1455,13 +1452,10 @@ static ssize_t governor_store(struct device *dev, struct device_attribute *attr,
+ 	 * the new governor, restore the sysfs files of previous governor.
+ 	 */
+ 	ret = sysfs_update_group(&df->dev.kobj, &gov_attr_group);
++	if (ret)
++		return ret;
+ 
+-out:
+-	mutex_unlock(&devfreq_list_lock);
+-
+-	if (!ret)
+-		ret = count;
+-	return ret;
++	return count;
+ }
+ static DEVICE_ATTR_RW(governor);
  
 -- 
 2.43.0
