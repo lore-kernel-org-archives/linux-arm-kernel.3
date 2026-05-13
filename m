@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F7AECD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE90CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oz1sO0noErWIr/wAUf1Kc7OyeiRRhMrq6bcVvAOAaQY=; b=Z7iCINlJj21E6v9JYLA4977NCA
-	yebFmg6U0w1bMY/8Zz1kKmevCL1/2V4MiXG5rcJ2+SY/8vtAVeqddnEWu1yAsi7SgHOdSXcCLf/an
-	etgAHSCXYDSfi4tO6LfIcWSvU0r4YiNAWbXyK2Rwoi1IMm3mtiSBdAGc6i15lQ28fyNd4Q0znFGt8
-	63LgbmInj0nUlKh++C9ICy1YjbRsqJm9s7soNtGaTQuLvaqfNE8yIxldsj5otJznqDlDYMhLvy+qH
-	9cJFTkycTXtZnkLBd7vDGC/m8T6iaUbglE1KGXaGDEwabQpHY/316/oYIeaC083hNRfbMc4CksnMV
-	7O9XXPDA==;
+	bh=FNNn5dnnpyvJuyKAxYA2adJap7lbBk22/oz4SGdTL7U=; b=Yx7TP9cp2ADw3daT1vizp5XkC+
+	0EGN0BOkDln51K6X5/4l40wEfb+9FjOOz4B3ANRETtLpXknqjBD5Wq5V3yzdcORaaB93fDVN/hNMT
+	eKOwMcwUfOTR0wgQlMu7tICZcmY62IaF0BNq6WwCCNPopgHFU+F1k6Ai4YhKmRP1ij6uyyiRg4tBT
+	HQWgA4xTF2nSPX+02/VXGpPHteAqpZRfnfEmVVkt5U9x2Ktirq2EScZYR0//UdRwTFMove0n0DZsz
+	PQqCVVHIXbzBlAeTi3mYRu4PFhl0xvsJ/33z9wNc44l+ee+Zz08pY3zalqyTlmy9pdgTx122MBCcg
+	IaubJjjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9XG-00000002iHd-1tbG;
+	id 1wN9XG-00000002iHC-13GE;
 	Wed, 13 May 2026 13:22:02 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9X3-00000002i2b-0XUQ
+	id 1wN9X8-00000002i7x-2E8s
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 13 May 2026 13:22:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 29A87307A;
-	Wed, 13 May 2026 06:21:43 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A9A6F302F;
+	Wed, 13 May 2026 06:21:48 -0700 (PDT)
 Received: from e122027.arm.com (unknown [10.57.68.187])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED13E3F836;
-	Wed, 13 May 2026 06:21:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DFA073F836;
+	Wed, 13 May 2026 06:21:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778678508; bh=dd7d4//cGxgBZyFyKsuPwJHj3GVg9BM+16ST4hPGD/c=;
+	t=1778678513; bh=Btq7ft9zk/uFtE9uWnv2cALBRvqWZUOTEQMSbx02HHs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NzFipSWjMtkOl8N+0ukKH54WZI43rm9G1I9SFZusrwgOZ537wSgsHkuk25rCpJSJl
-	 Hgi7w7pg6NNkJpIiJS/7PQyDzxq0JwGMYvxms+wv3AP4raG1013yNAh1e7y22TRaa8
-	 eZh1sW2gvUVyZyPVsNV3xk07wJjyoqMfC9Rtz0yk=
+	b=nz3rRFKPo4EXzkAHgctymG9RoU9lmgtoM1iB1Y60WSfs96vCu0s07r5uRppbTi7T3
+	 li0vb1MDd/6fhf+CdPNRZy5h5qifzdp1BkCQn7Jz/BnxWhcMzC8MAPJCsOySQgPKWX
+	 IJMLXugVbuMutUsMpbchXhWwQhXe2vqX8k7xgn4g=
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -67,17 +67,17 @@ Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
 	WeiLin.Chang@arm.com,
 	Lorenzo.Pieralisi2@arm.com,
 	Steven Price <steven.price@arm.com>
-Subject: [PATCH v14 38/44] arm64: RMI: Propagate number of breakpoints and watchpoints to userspace
-Date: Wed, 13 May 2026 14:17:46 +0100
-Message-ID: <20260513131757.116630-39-steven.price@arm.com>
+Subject: [PATCH v14 39/44] arm64: RMI: Set breakpoint parameters through SET_ONE_REG
+Date: Wed, 13 May 2026 14:17:47 +0100
+Message-ID: <20260513131757.116630-40-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260513131757.116630-1-steven.price@arm.com>
 References: <20260513131757.116630-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_062149_314896_A346DD2F 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20260513_062156_118814_8B7D62E9 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,79 +94,116 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jean-Philippe Brucker <jean-philippe@linaro.org>
 
-The RMM describes the maximum number of BPs/WPs available to the guest
-in the Feature Register 0. Propagate those numbers into ID_AA64DFR0_EL1,
-which is visible to userspace. A VMM needs this information in order to
-set up realm parameters.
+Allow userspace to configure the number of breakpoints and watchpoints
+of a Realm VM through KVM_SET_ONE_REG ID_AA64DFR0_EL1.
+
+The KVM sys_reg handler checks the user value against the maximum value
+given by RMM (arm64_check_features() gets it from the
+read_sanitised_id_aa64dfr0_el1() reset handler).
+
+Userspace discovers that it can write these fields by issuing a
+KVM_ARM_GET_REG_WRITABLE_MASKS ioctl.
 
 Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Steven Price <steven.price@arm.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 ---
- arch/arm64/include/asm/kvm_rmi.h |  2 ++
- arch/arm64/kvm/rmi.c             | 19 +++++++++++++++++++
- arch/arm64/kvm/sys_regs.c        |  3 +++
- 3 files changed, 24 insertions(+)
+ arch/arm64/kvm/guest.c    |  7 +++++++
+ arch/arm64/kvm/rmi.c      |  3 +++
+ arch/arm64/kvm/sys_regs.c | 17 +++++++++++------
+ 3 files changed, 21 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-index d641748b5306..568b0169ab46 100644
---- a/arch/arm64/include/asm/kvm_rmi.h
-+++ b/arch/arm64/include/asm/kvm_rmi.h
-@@ -79,6 +79,8 @@ struct realm_rec {
- void kvm_init_rmi(void);
- u32 kvm_realm_ipa_limit(void);
+diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+index 447674373426..fd7233e00215 100644
+--- a/arch/arm64/kvm/guest.c
++++ b/arch/arm64/kvm/guest.c
+@@ -735,6 +735,8 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+ 	return kvm_arm_sys_reg_get_reg(vcpu, reg);
+ }
  
-+u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
++#define KVM_REG_ARM_ID_AA64DFR0_EL1	ARM64_SYS_REG(3, 0, 0, 5, 0)
 +
- bool kvm_rmi_supports_sve(void);
+ /*
+  * The RMI ABI only enables setting some GPRs and PC. The selection of GPRs
+  * that are available depends on the Realm state and the reason for the last
+@@ -749,6 +751,11 @@ static bool validate_realm_set_reg(struct kvm_vcpu *vcpu,
+ 		u64 off = core_reg_offset_from_id(reg->id);
  
- int kvm_init_realm(struct kvm *kvm);
+ 		return kvm_realm_validate_core_reg(off);
++	} else {
++		switch (reg->id) {
++		case KVM_REG_ARM_ID_AA64DFR0_EL1:
++			return true;
++		}
+ 	}
+ 
+ 	return false;
 diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index 678d775aa1c7..64e8e50f86d6 100644
+index 64e8e50f86d6..251de0a3425c 100644
 --- a/arch/arm64/kvm/rmi.c
 +++ b/arch/arm64/kvm/rmi.c
-@@ -35,6 +35,25 @@ u32 kvm_realm_ipa_limit(void)
- 	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
- }
+@@ -469,6 +469,7 @@ static int realm_create_rd(struct kvm *kvm)
+ 	void *rd = NULL;
+ 	phys_addr_t rd_phys, params_phys;
+ 	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
++	u64 dfr0 = kvm_read_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1);
+ 	int r;
  
-+u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
-+{
-+	u32 bps = u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_NUM_BPS);
-+	u32 wps = u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_NUM_WPS);
-+	u32 ctx_cmps;
-+
-+	/* Ensure CTX_CMPs is still valid */
-+	ctx_cmps = FIELD_GET(ID_AA64DFR0_EL1_CTX_CMPs, val);
-+	ctx_cmps = min(bps, ctx_cmps);
-+
-+	val &= ~(ID_AA64DFR0_EL1_BRPs_MASK | ID_AA64DFR0_EL1_WRPs_MASK |
-+		 ID_AA64DFR0_EL1_CTX_CMPs);
-+	val |= FIELD_PREP(ID_AA64DFR0_EL1_BRPs_MASK, bps) |
-+	       FIELD_PREP(ID_AA64DFR0_EL1_WRPs_MASK, wps) |
-+	       FIELD_PREP(ID_AA64DFR0_EL1_CTX_CMPs, ctx_cmps);
-+
-+	return val;
-+}
-+
- static int get_start_level(struct realm *realm)
- {
- 	return 4 - stage2_pgtable_levels(realm->ia_bits);
+ 	realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
+@@ -495,6 +496,8 @@ static int realm_create_rd(struct kvm *kvm)
+ 	params->rtt_level_start = get_start_level(realm);
+ 	params->rtt_num_start = pgd_size / PAGE_SIZE;
+ 	params->rtt_base = kvm->arch.mmu.pgd_phys;
++	params->num_bps = SYS_FIELD_GET(ID_AA64DFR0_EL1, BRPs, dfr0);
++	params->num_wps = SYS_FIELD_GET(ID_AA64DFR0_EL1, WRPs, dfr0);
+ 
+ 	if (kvm->arch.arm_pmu) {
+ 		params->pmu_num_ctrs = kvm->arch.nr_pmu_counters;
 diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 148fc3400ea8..10d191f83bb0 100644
+index 10d191f83bb0..607396f378dc 100644
 --- a/arch/arm64/kvm/sys_regs.c
 +++ b/arch/arm64/kvm/sys_regs.c
-@@ -2145,6 +2145,9 @@ static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
- 	/* Hide BRBE from guests */
- 	val &= ~ID_AA64DFR0_EL1_BRBE_MASK;
+@@ -2177,6 +2177,9 @@ static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
+ {
+ 	u8 debugver = SYS_FIELD_GET(ID_AA64DFR0_EL1, DebugVer, val);
+ 	u8 pmuver = SYS_FIELD_GET(ID_AA64DFR0_EL1, PMUVer, val);
++	u8 bps = SYS_FIELD_GET(ID_AA64DFR0_EL1, BRPs, val);
++	u8 wps = SYS_FIELD_GET(ID_AA64DFR0_EL1, WRPs, val);
++	u8 ctx_cmps = SYS_FIELD_GET(ID_AA64DFR0_EL1, CTX_CMPs, val);
  
-+	if (vcpu_is_rec(vcpu))
-+		return kvm_realm_reset_id_aa64dfr0_el1(vcpu, val);
-+
- 	return val;
- }
+ 	/*
+ 	 * Prior to commit 3d0dba5764b9 ("KVM: arm64: PMU: Move the
+@@ -2196,10 +2199,11 @@ static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
+ 		val &= ~ID_AA64DFR0_EL1_PMUVer_MASK;
  
+ 	/*
+-	 * ID_AA64DFR0_EL1.DebugVer is one of those awkward fields with a
+-	 * nonzero minimum safe value.
++	 * ID_AA64DFR0_EL1.DebugVer, BRPs and WRPs all have to be greater than
++	 * zero. CTX_CMPs is never greater than BRPs.
+ 	 */
+-	if (debugver < ID_AA64DFR0_EL1_DebugVer_IMP)
++	if (debugver < ID_AA64DFR0_EL1_DebugVer_IMP || !bps || !wps ||
++	    ctx_cmps > bps)
+ 		return -EINVAL;
+ 
+ 	if (ignore_feat_doublelock(vcpu, val)) {
+@@ -2432,10 +2436,11 @@ static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
+ 	mutex_lock(&vcpu->kvm->arch.config_lock);
+ 
+ 	/*
+-	 * Once the VM has started the ID registers are immutable. Reject any
+-	 * write that does not match the final register value.
++	 * Once the VM has started or the Realm descriptor is created, the ID
++	 * registers are immutable. Reject any write that does not match the
++	 * final register value.
+ 	 */
+-	if (kvm_vm_has_ran_once(vcpu->kvm)) {
++	if (kvm_vm_has_ran_once(vcpu->kvm) || kvm_realm_is_created(vcpu->kvm)) {
+ 		if (val != read_id_reg(vcpu, rd))
+ 			ret = -EBUSY;
+ 		else
 -- 
 2.43.0
 
