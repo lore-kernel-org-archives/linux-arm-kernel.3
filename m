@@ -4,82 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC4B9CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 16:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BD0CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 16:44:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=vOSSQNbTKfOf2TGLzCUkqwpB1cEjCNpCYDqaTZDjYhU=; b=RKk4H87Y41pKKU
-	shHfqmJdHRjUub55iA92UmVXTpSCby9sOs9cjUMK2dnCQD+kXxP258nYSBjeOwYmOnWvtKEt+xwuM
-	7oczEc8/Prtoz87Zb9hndb/aVnTGPZ5osmGnPhHLLcoI456ydjrn0xnqhlcvjX9BjwBjusQ0AWyt1
-	U5NHYCAd1s2cetKxnd+RiYu7vUoU7/C4pyVXB989dNvprif+bmXqk4nL2PvcJrjELoV1ZFIR9joV3
-	0lWfdYjk7Bfgv6n7xAmm8I4AeVXqFPXeRvdvb2w39qHjmPj5pRp31zDbqbfMA0y6rLaKLKJQ6qBAQ
-	wrZrZX052XUka3xV4m9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NqpHbTw5SrTogkQ6SExJKQySRSNYlZPHGNncVU5RI/Y=; b=sBpvPVgohT9+3nlc0k9ltWE5Fq
+	jNBQAeb0PW4SASda4RYbCisYLmDm/XGmFVZgvyZUo0QA+kTegcsYoBz+9K+Wd4nUh3Um0z/E0W3h3
+	HoTyRk9krp8XpnNnjTq84aOK9Ec+GogOcu/o/6kbC4vRzh2R2mbxYT9i8kR03s8khBy95xRcu+aSv
+	8ilFJHxO5MXo/OwO51KCTxUDeU8rnpeYcdrLFaYUIRelPOdLn6JReLzLUTQ/qBUQp6cJ2cxpEQkR/
+	nrDxKXUL4QvrQd3czN3yu0GHMDyxzXQxd6LPep/kDE0U0uNaI2zlPAu4thB/OvRkHiwii3ySX72WE
+	LXxAceHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNCc6-00000003EYo-1cff;
-	Wed, 13 May 2026 16:39:14 +0000
-Received: from mail-oo1-xc49.google.com ([2607:f8b0:4864:20::c49])
+	id 1wNChE-00000003F9V-45IZ;
+	Wed, 13 May 2026 16:44:32 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNCc4-00000003EYN-2Ryf
+	id 1wNChC-00000003F8Q-3WPh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 16:39:13 +0000
-Received: by mail-oo1-xc49.google.com with SMTP id 006d021491bc7-69b4f753046so6984729eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 09:39:11 -0700 (PDT)
+	Wed, 13 May 2026 16:44:32 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64DGAu5Y2524334
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 16:44:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	NqpHbTw5SrTogkQ6SExJKQySRSNYlZPHGNncVU5RI/Y=; b=C8KHt1JE0kglxy4D
+	vqNfiYBPgRn5k5qtEg7Xr6aFGruSU4sdGDOCBqf4i78qfDWAA0bNToyL18FGM7ky
+	FEPa20P7r2uCs7vhZJAaF6al91MtG0Oc2IdOah2c86KlWHKFAHOaitfQiOk69anJ
+	be43IJEtSroB048evvO37sKIa7ZHNTskDrWESICr1MsaoaCE3Dj0IHflfiyMkJL2
+	cOvKqPy6eSAOGrSfu2pj51F29MQvE4AOeR/I8+ZCMW5EAgLpqjCyvHdvweGr04tY
+	yZxR7Lqbm35Y/M8Y2JGepKDU7/zl0/eevgeZNNtIFhS9qazYy7Uf4oCevSXZojeT
+	hwrjQQ==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e4vkjg48u-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 16:44:29 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-2fe1cf409a1so6051026eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 09:44:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778690351; x=1779295151; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=vOSSQNbTKfOf2TGLzCUkqwpB1cEjCNpCYDqaTZDjYhU=;
-        b=KCyZ1Tf7TitoSM9mG2XUgYsidhKKNRUQr9I05ssvs5crsjBPpU+C3497c/yDIU4mbz
-         NH+hqPgnC7ApqZ6CPZSplaEY6PqEovJiOyb4bFcVgHy6Rr0vKRnoj6UZYIdTBb4q80zK
-         l46YJrOXhO1quwWORFe1Oa+Fe/SwS8mO6IVXLT6ZRB5+x0jDDyg8M+gCk12U2VRMnCKS
-         7EIf4ZSeYPSBXCaAGAnbob2B/mqhobhFPD0PH0ks1bgmrHCICqM9p77v8n0OJ9Zx8/Vr
-         iONgGM+yjwWGIYTEUT4/HSFB8K1g4OpMud0rE1zwdMN6gjkK5ECh2k2eBQ637XwUz/tI
-         Fyug==
+        d=oss.qualcomm.com; s=google; t=1778690669; x=1779295469; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NqpHbTw5SrTogkQ6SExJKQySRSNYlZPHGNncVU5RI/Y=;
+        b=Y4pFgjSAagKPfZT5JxVMRrNjNDWFTEzungfkqrVtRO836Z9hJqTqPz6fpsJHhA18SR
+         Uhnh/G1y80WTCOF5RbwmnW7R3CXPbxKCii8r4Ef2Xlku0pj7mt3UiviCc1DM3wteWmbo
+         Ept0w4oA77bAVJzfcLYeP+rA6JVcduJpcWwhKXTBd3qJBfac1chmcGK0IqEsKgMLmJHx
+         kBdxfV3gSkXIGyxGZh17PFVwFJa55GGqsx/LqcgVql/lq/O/S8NI4dRgfcXIg/5VcAyH
+         O92WwDoHLuMTdw6fPVG7aBSqIPZw1IyF6Rs9GwEYdx24UPVE6cLVSGrRGQeF+yC1PDeD
+         IQzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778690351; x=1779295151;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vOSSQNbTKfOf2TGLzCUkqwpB1cEjCNpCYDqaTZDjYhU=;
-        b=Xgpl3BGJM4s1OCvEuqGUkEkj7wZUOP1VtyK+Xv0TV5mTgwIzQygbZMC7KNjl+xgGXF
-         G0jnxXhqIRiWSgqiY4tWuZg9UO041RyzrEE7xKw5BmpMR0hgGjKG9O/IslocWh5A6QLR
-         1siTaIEUabZJi78VSOs7AlhwK0yA8Dd1Bkv6SnsKbhLjHzEKhc2sMPPpzOjr4/jgUJFo
-         wEQMv/FlYHtsSQAsPNXwI5SxB8RA4GKoM30cc6a4n8IL+lipsXxoKgO1sgAHl8IfrV65
-         2y1DSC/rNdvEDxuGzmmhnSsVuccbRh1J7zEehusDIhsZnvnnuse5njo9tl1jE8jePwnC
-         ryjQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9lBkXfKPNGXLhwOA/1XvFvfSvTT0GInVBJU/liuqCg0UeopTNmxnKPZwGlAsWq31RPC6fb3fpLWgF5c9fqTO0w@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYPE7Crlt4l3AYyA+ZqsCIqIBBeom3x7bFbhk+s2ZIU/6g3nmm
-	MsS6/9l2prOBvIYxRlFE4h0/C1MZCOqp9nDGsC8Aa7RbmONXYvTrsil3B2ULKcMzVRPznhU51qd
-	YtEH8vD8Po1wWLOopFPhMJulEBQ==
-X-Received: from jatn7.prod.google.com ([2002:a05:6638:2647:b0:5d1:d9e5:ccbd])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6820:4c02:b0:69b:56e5:cd6b with SMTP id 006d021491bc7-69b7a9d2905mr1848851eaf.11.1778690350606;
- Wed, 13 May 2026 09:39:10 -0700 (PDT)
-Date: Wed, 13 May 2026 16:38:46 +0000
-In-Reply-To: <ad02327b-01b6-4ed9-b9bb-e2c6ed4b2890@linaro.org> (message from
- James Clark on Mon, 11 May 2026 15:49:37 +0100)
-Mime-Version: 1.0
-Message-ID: <gsnt33zvclih.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH v7 10/20] KVM: arm64: Context swap Partitioned PMU guest registers
-From: Colton Lewis <coltonlewis@google.com>
-To: James Clark <james.clark@linaro.org>
-Cc: alexandru.elisei@arm.com, pbonzini@redhat.com, corbet@lwn.net, 
-	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	kvm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+        d=1e100.net; s=20251104; t=1778690669; x=1779295469;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NqpHbTw5SrTogkQ6SExJKQySRSNYlZPHGNncVU5RI/Y=;
+        b=MnULPIC/RJx2Q+5TlOyVObRMTJN/sTpbcjwTGEWq3KF3HiNMmnrz+e4ACkrSpz/vhW
+         Ca8QgtdugqnqNE6uZX6kkzpuVqgOLs6Wz2XhzSRBTRzQg/yZ2iL1ohRQvt3/T1NiY3xw
+         apYT9FtIQyYt/W1g60Wtcy2jTocLT4e1MSWUTffhlDfbxEdjZzTCqm71T/B+MqdpKAGL
+         OzZgd6HH3FKGF6OfxoJqZAGDqNN+HT27QaBB8yz7xmbNJocTs+u1CzNknDcrAWJV5Izt
+         E2fJG+6X9bmOhxwHdoaQElR0FpY0asgWa/6HAQu3pxfNpMPDdnn9nz37EBAyFOt9o7Al
+         3N8A==
+X-Forwarded-Encrypted: i=1; AFNElJ+dKCJqP7kbSV8btdw9SwveRo/91zlR07Q5AiaQ7EAVmIyu5+tprt3ol1+453JV8coi0a1hLYszRSJNhNrlN2Vs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0sqcW4sglKzNmENLyomgzDyIDratqiQJRCPR/F4FKXh4tAqMe
+	ZZ73n+vcM4kJJ7FyLKADjVP87S/hbWbajl4sMYZGYDLaCMhhTuK3+HzWTPl9yQYoZKYKovEsgQY
+	ZKxELL0xcbiIYKIHX/FmfdqRTxpkPpZrsO4HELTPrsxmAYMvkqgG8WijyTEBOicDPCQAsSdKA7+
+	fkuA==
+X-Gm-Gg: Acq92OGMzOXYBVoorjMdECllb/jxgjD9hRboOJf1JKqoKgBe6b5MzddvtUex4m6QLMw
+	3e/kGe4hsfXTNWoZsscLksHKijt5kg9TIlSbvEs+bAT6wiMW1W6hEEk0i3e7n+PRQQflH3QfBlX
+	mgTK2+9cjcN1eSaVvZdCAipqUL+riHh/G3R+U5qkRN2YPpaCgZetqwGKudDHvKFG4WX/aiESu4u
+	DvAjvBzqBw76jEfXs0joloaDIfuRylQR/c9O39XJVtirNQiiER9mT1Dj7PQ1Od5c++IE+2PsYuU
+	IWxMRKN7mmr9xKkI4I2mcxL0A8USz+KYbp2NaakgRgB2Kr1+pM6/HwGcaEfVhnTOwFhbTQaU1IT
+	EyXU1B84YXMb49LP/25/HDI2+6gx/Giri2tAT+nevo1MCr0PoGVJxfWfSpVUG0OsTasBHVuw=
+X-Received: by 2002:a05:7300:a50b:b0:2ee:f85:ec3c with SMTP id 5a478bee46e88-3011a369c25mr2262183eec.30.1778690668583;
+        Wed, 13 May 2026 09:44:28 -0700 (PDT)
+X-Received: by 2002:a05:7300:a50b:b0:2ee:f85:ec3c with SMTP id 5a478bee46e88-3011a369c25mr2262156eec.30.1778690668042;
+        Wed, 13 May 2026 09:44:28 -0700 (PDT)
+Received: from hu-aletran-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f8864c37basm22570076eec.13.2026.05.13.09.44.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 May 2026 09:44:27 -0700 (PDT)
+From: Alex Tran <alex.tran@oss.qualcomm.com>
+Date: Wed, 13 May 2026 09:44:19 -0700
+Subject: [PATCH 1/5] powercap: arm_scmi_powercap: Log number of powercap
+ domains
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260513-scmi-client-probe-log-v1-1-00b47b1be009@oss.qualcomm.com>
+References: <20260513-scmi-client-probe-log-v1-0-00b47b1be009@oss.qualcomm.com>
+In-Reply-To: <20260513-scmi-client-probe-log-v1-0-00b47b1be009@oss.qualcomm.com>
+To: Jyoti Bhayana <jbhayana@google.com>, Jonathan Cameron <jic23@kernel.org>,
+        David Lechner <dlechner@baylibre.com>,
+        =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+        Andy Shevchenko <andy@kernel.org>,
+        Sudeep Holla <sudeep.holla@kernel.org>,
+        Cristian Marussi <cristian.marussi@arm.com>,
+        Linus Walleij <linusw@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Viresh Kumar <viresh.kumar@linaro.org>,
+        Guenter Roeck <linux@roeck-us.net>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-gpio@vger.kernel.org, linux-pm@vger.kernel.org,
+        linux-hwmon@vger.kernel.org, Alex Tran <alex.tran@oss.qualcomm.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778690665; l=942;
+ i=alex.tran@oss.qualcomm.com; h=from:subject:message-id;
+ bh=b1XEOyYfA71ulQFPRY4KVUwTd8I87LzQvOwhzVXsPXc=;
+ b=My5DR7z1/2KIWwHKe0cIBTddjrYizysbTmiPqsKJxVjsb26CE5501wqsIcvFi+92wv43QWc7p
+ CdUopfQLwVqBg3dE2T/aTJ84vQpNT7/PK79MNjb/MZXiXtast982sre
+X-Developer-Key: i=alex.tran@oss.qualcomm.com; a=ed25519;
+ pk=vKab/gw1fXij5UviWoglv+ho+H/oOiTHyETCLfayPE0=
+X-Proofpoint-GUID: YBBj4PIDpK93h-eov2KVBCDCgzeaYqww
+X-Proofpoint-ORIG-GUID: YBBj4PIDpK93h-eov2KVBCDCgzeaYqww
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDE2OSBTYWx0ZWRfX9ofJzMDo3kO0
+ X1TpJa6zxukq9pNdSgfJ/p7yapmRd5OiPOtaWHwqpUhjuUJlNKy3U2TWD/qOG6d0i8BvKiHv/A7
+ 7qPn8XC4oTWWOiWI1zOIWmVjVTMO/SymJve4dqf+yTNUAiLd6vypgiYrRrXu8pl+gF+1fQ5jboI
+ cfrRT9GVoDcJTK2QVV3nOPlTeBzbMNMW4ge2SGq7viWhTfjd8YbOM7bIXNMctwUV28haJT0RipE
+ TcDpdF+fqJrn1XWih0zYI9/zUs1IyFYZv7Hn4Ippt+5VLqmmeRp63M79mnIgW5qXAa6N3ER4CmV
+ c9Ici07bebxGcrv1lMQPxMAKdBqROBCsj70ig+ieL8b+ehSEOh7rnhuoeimEARBwu8PnTg/Crz3
+ xrmKat5DXREYnCW7zX8K1qU4BiL9jRx5JUlKJzkUJUDZa0afJQGULTuQvAa0RgCb1LlUSD+ysR0
+ Otf6ohfEPay8PXHPpVg==
+X-Authority-Analysis: v=2.4 cv=PbDPQChd c=1 sm=1 tr=0 ts=6a04aa6d cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=Bjf1dfg4zo7KOAcPRCoA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
+ a=PxkB5W3o20Ba91AHUih5:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-13_01,2026-05-13_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 suspectscore=0 lowpriorityscore=0
+ priorityscore=1501 bulkscore=0 phishscore=0 malwarescore=0 spamscore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605050000
+ definitions=main-2605130169
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_093912_630203_E19EDF4C 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20260513_094430_996130_C441FA26 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,136 +164,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-James Clark <james.clark@linaro.org> writes:
+The SCMI powercap driver does not currently report how many powercap
+domains were discovered from firmware during probe. This makes it harder
+to confirm the firmware exposed powercap resources during debugging.
 
-> On 04/05/2026 10:18 pm, Colton Lewis wrote:
->> Save and restore newly untrapped registers that can be directly
->> accessed by the guest when the PMU is partitioned.
+Log the powercap domain count after a successful probe, aligning the
+driver with the existing SCMI client driver logging pattern.
 
->> * PMEVCNTRn_EL0
->> * PMCCNTR_EL0
->> * PMSELR_EL0
->> * PMCR_EL0
->> * PMCNTEN_EL0
->> * PMINTEN_EL1
+Signed-off-by: Alex Tran <alex.tran@oss.qualcomm.com>
+---
+ drivers/powercap/arm_scmi_powercap.c | 1 +
+ 1 file changed, 1 insertion(+)
 
->> If we know we are not partitioned (that is, using the emulated vPMU),
->> then return immediately. A later patch will make this lazy so the
->> context swaps don't happen unless the guest has accessed the PMU.
+diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
+index ab66e9a3b1e2..48d721385f94 100644
+--- a/drivers/powercap/arm_scmi_powercap.c
++++ b/drivers/powercap/arm_scmi_powercap.c
+@@ -496,6 +496,7 @@ static int scmi_powercap_probe(struct scmi_device *sdev)
+ 		return ret;
+ 
+ 	dev_set_drvdata(dev, pr);
++	dev_info(dev, "Initialized %d powercap domains\n", pr->num_zones);
+ 
+ 	return ret;
+ }
 
->> PMEVTYPER is handled in a following patch since we must apply the KVM
->> event filter before writing values to hardware.
+-- 
+2.43.0
 
->> PMOVS guest counters are cleared to avoid the possibility of
->> generating spurious interrupts when PMINTEN is written. This is fine
->> because the virtual register for PMOVS is always the canonical value.
-
->> Signed-off-by: Colton Lewis <coltonlewis@google.com>
->> ---
->>    arch/arm/include/asm/arm_pmuv3.h |   4 +
->>    arch/arm64/kvm/arm.c             |   2 +
->>    arch/arm64/kvm/pmu-direct.c      | 169 +++++++++++++++++++++++++++++++
->>    include/kvm/arm_pmu.h            |  16 +++
->>    4 files changed, 191 insertions(+)
-
->> diff --git a/arch/arm/include/asm/arm_pmuv3.h  
->> b/arch/arm/include/asm/arm_pmuv3.h
->> index 42d62aa48d0a6..eebc89bdab7a1 100644
->> --- a/arch/arm/include/asm/arm_pmuv3.h
->> +++ b/arch/arm/include/asm/arm_pmuv3.h
->> @@ -235,6 +235,10 @@ static inline bool kvm_pmu_is_partitioned(struct  
->> arm_pmu *pmu)
->>    {
->>    	return false;
->>    }
->> +static inline u64 kvm_pmu_host_counter_mask(struct arm_pmu *pmu)
->> +{
->> +	return ~0;
->> +}
-
->>    /* PMU Version in DFR Register */
->>    #define ARMV8_PMU_DFR_VER_NI        0
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index 410ffd41fd73a..a942f2bc13fc4 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -680,6 +680,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int  
->> cpu)
->>    		kvm_vcpu_load_vhe(vcpu);
->>    	kvm_arch_vcpu_load_fp(vcpu);
->>    	kvm_vcpu_pmu_restore_guest(vcpu);
->> +	kvm_pmu_load(vcpu);
->>    	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
->>    		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
-
->> @@ -721,6 +722,7 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
->>    	kvm_timer_vcpu_put(vcpu);
->>    	kvm_vgic_put(vcpu);
->>    	kvm_vcpu_pmu_restore_host(vcpu);
->> +	kvm_pmu_put(vcpu);
->>    	if (vcpu_has_nv(vcpu))
->>    		kvm_vcpu_put_hw_mmu(vcpu);
->>    	kvm_arm_vmid_clear_active();
->> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
->> index 63ac72910e4b5..360d022d918d5 100644
->> --- a/arch/arm64/kvm/pmu-direct.c
->> +++ b/arch/arm64/kvm/pmu-direct.c
->> @@ -9,6 +9,7 @@
->>    #include <linux/perf/arm_pmuv3.h>
-
->>    #include <asm/arm_pmuv3.h>
->> +#include <asm/kvm_emulate.h>
-
->>    /**
->>     * has_host_pmu_partition_support() - Determine if partitioning is  
->> possible
->> @@ -98,3 +99,171 @@ u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu)
-
->>    	return *host_data_ptr(nr_event_counters);
->>    }
->> +
->> +/**
->> + * kvm_pmu_host_counter_mask() - Compute bitmask of host-reserved  
->> counters
->> + * @pmu: Pointer to arm_pmu struct
->> + *
->> + * Compute the bitmask that selects the host-reserved counters in the
->> + * {PMCNTEN,PMINTEN,PMOVS}{SET,CLR} registers. These are the counters
->> + * in HPMN..N
->> + *
->> + * Return: Bitmask
->> + */
->> +u64 kvm_pmu_host_counter_mask(struct arm_pmu *pmu)
->> +{
->> +	u8 nr_counters = *host_data_ptr(nr_event_counters);
->> +
->> +	if (kvm_pmu_is_partitioned(pmu))
->> +		return GENMASK(nr_counters - 1, pmu->max_guest_counters);
->> +
->> +	return ARMV8_PMU_CNT_MASK_ALL;
->> +}
->> +
->> +/**
->> + * kvm_pmu_guest_counter_mask() - Compute bitmask of guest-reserved  
->> counters
->> + * @pmu: Pointer to arm_pmu struct
->> + *
->> + * Compute the bitmask that selects the guest-reserved counters in the
->> + * {PMCNTEN,PMINTEN,PMOVS}{SET,CLR} registers. These are the counters
->> + * in 0..HPMN and the cycle and instruction counters.
->> + *
->> + * Return: Bitmask
->> + */
->> +u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu)
->> +{
->> +	if (kvm_pmu_is_partitioned(pmu))
->> +		return ARMV8_PMU_CNT_MASK_C | GENMASK(pmu->max_guest_counters - 1, 0);
->> +
->> +	return 0;
->> +}
-
-> Minor nit: slightly inconsistent use of types. Returns a u64 but doesn't
-> use GENMASK_ULL and is also usually saved into a long when it's called.
-
-Will fix
 
