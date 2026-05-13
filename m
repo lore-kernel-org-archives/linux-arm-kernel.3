@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D50A1CD343F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDF8CD4F21
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QuooEUok1GpCDkm4VtEIYuDTL0CHTyH1EUKNWINlNbg=; b=UqM1ZmgwSmOi8hXWJXNFaslyiL
-	uZ3zgxzW2ik4/YThWyKXDCaqbdWMb9UsiqC27DByRx1uUDlLEf+DVwRpCd4HjiAxMg7jEBw3MTnUL
-	frfKvs6wzDgTcTGTLOhvsgoIyrnELFUMTiqw6HS4HvDoqWMmjdLPlVsWmQJSntMNb7Soeq7ML5HMs
-	cT6Sst/DoHZInel01AV38RTZ9LKZiwED+3A5net5UX9n3QmwzMG1eksFhjI+HHAdptVzcm2HErO5s
-	Vgj3Mw8MfEPpwQSluPtN6Et+pnNHC2OefzXtyVS3fwpv67pYcNfEjy8IrGLheiGzEIeOwHdKE+PZP
-	dL62EzAw==;
+	bh=7uGcgPPfHiCVQXRsQYzLcjM8rVCdMfd1z7rcqSF9YAY=; b=UOiBddhO+xOn09u2qc+6Ae1hBe
+	thg9rjIVy4bBtyfQpI5Hm2VttbL4GpgHB1NTPovuvj9Lio9fcqEKxI+LR5DpYczyZNoFRvnCyK3ag
+	BZMO5RUQs1CKnG7/hUAWgSPCW/FnmOLQRPmC685okQri4y181IhhNa9kdxCapEjFS8+Zi45HWhdOg
+	N1QkB7LmS3NNmXATMrdMPe3luNMS2qllsTPk9/JkhzOOS0dE1tQWdA3w8cEw01u9w8u5BUQjmAEOK
+	iw3c4XA5eWYx0dNs03JQQcIsju+9GUpIT+TkGVrHr4wdm1cho0fg+D8SoryoI+GhCU3cTkveAPwEE
+	qN3TewyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Nv-000000015RR-1i8U;
-	Wed, 13 May 2026 03:35:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wN0Nu-000000015Na-1Coy;
+	Wed, 13 May 2026 03:35:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0N8-000000014GC-1XOZ
+	id 1wN0N7-000000014E6-11xH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:34:59 +0000
+	Wed, 13 May 2026 03:34:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1C5004451E;
-	Wed, 13 May 2026 03:34:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91BBDC2BCC7;
-	Wed, 13 May 2026 03:34:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F349744516;
+	Wed, 13 May 2026 03:34:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74873C2BCC7;
+	Wed, 13 May 2026 03:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778643298;
-	bh=Qd0dO/5tgykNYwWLyXzlbqJjDPv/OlwKa96fpijusbY=;
+	s=k20201202; t=1778643296;
+	bh=/Ud7RFmvMlyU46qLdzlp+gqu1cwu2w70Cyl79KX3OK0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ezRwnLFhhW/r1qzWrMNMdxEu2H/DqfXiJ2o4GqbWf+0lMYBwxuOqxduhE5ZEUvVoV
-	 cJxTTo+ZYLnCujf7pblg6hk4GFibLqRnpO87CQm8asIkk8EAc6HQhDpewVA9Q8F2Db
-	 SM/Exd57jrsCYYHoYwtyvp2Snn8PqfrdMGh9jj+DneVXyHg8hwONsjcZe4ooN+2xRZ
-	 y7qeOwVxCOyLeyuyeaRIGiDz9NkSVMQPlrN7HrKnMsQdEauN4So5GSCviuU68oblCn
-	 d7t9lqGJlGLg1Km+1zpF0utVYxKUZK4nYJHfx9ZSFOdLO/jVE1lcs7wwFQbGEUpzOb
-	 M5KYm1BhNvC5A==
+	b=BAHMWZye+awNKBMXJe0s5jlOd+m/VZf/9rSyW063iL0R8i+kaE9a0gvMOKew7L1Y6
+	 +OUSZfpwIsEpOrIa0stkHA0jf0PfqYQhFO9ZibdzhbOM+bDgZNB8o/Iw1cvRz9147L
+	 ZWWams6x9W3aI3fir/8pT8F8+N8mDCIe82jSI16wD1atwLsr3tmL9K3fxo6+vAlF6P
+	 K+2jdmsK8nndzFrxGrPlhJiVI27ddZU2CKoKCcLKDcJ3Uh8KeAoXX5Q7DtTi/QGbBA
+	 iRzPG7YHG7tlawYdMrADkDzuEskV8hOjnQWSSNipW0ISOqws7B0sdtT2jA9YboFzFm
+	 6Nu9JDf5X6WDw==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,17 +55,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Mark Rutland <mark.rutland@arm.com>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v3 20/21] klp-build: Support cross-compilation
-Date: Tue, 12 May 2026 20:34:16 -0700
-Message-ID: <8e19a330a899520434cc83f7ccc434c83101ac3c.1778642121.git.jpoimboe@kernel.org>
+Subject: [PATCH v3 18/21] objtool/klp: Clone inline alternative replacements
+Date: Tue, 12 May 2026 20:34:14 -0700
+Message-ID: <de4d1696be0af867573f559448dd82a16c7d7a24.1778642120.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1778642120.git.jpoimboe@kernel.org>
 References: <cover.1778642120.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_203458_431312_299D791A 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260512_203457_345660_FE880E2C 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,63 +79,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-Message-ID: <20260513033416.tSvLgHwdPEP2FbPQu2HvVgZHLNSP8rx0GwGxB_6AzPo@z>
+Message-ID: <20260513033414.ZdKX1Wh1iN3XsRsKu2-eiE_-Ms44BKqYWvO9jV8M8_8@z>
 
-Add support for cross-compilation.  The user must export ARCH, and
-either CROSS_COMPILE or LLVM as needed.
+Unlike x86-64, arm64 places alternative replacement instructions in
+.text, immediately after the affected function.
+
+So if the replacement instructions have PC-relative branches without
+relocations, their offsets relative to the function have to remain
+constant.
+
+Achieve that by cloning the function's alternative replacements
+immediately after cloning the function itself.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- scripts/livepatch/klp-build | 22 +++++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+ tools/objtool/elf.c                 |  9 +++--
+ tools/objtool/include/objtool/elf.h |  7 +++-
+ tools/objtool/klp-diff.c            | 63 ++++++++++++++++++++++++-----
+ 3 files changed, 65 insertions(+), 14 deletions(-)
 
-diff --git a/scripts/livepatch/klp-build b/scripts/livepatch/klp-build
-index 911ada05673c2..e83973567c878 100755
---- a/scripts/livepatch/klp-build
-+++ b/scripts/livepatch/klp-build
-@@ -432,6 +432,25 @@ validate_patches() {
- 	revert_patches
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index a4d9afa3a079c..a5b2929ea0fa9 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -1413,14 +1413,15 @@ int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
+ 		return -1;
+ 	}
+ 
+-	data = elf_add_data(elf, strtab, str, strlen(str) + 1);
++	data = elf_add_data(elf, strtab, str, strlen(str) + 1, true);
+ 	if (!data)
+ 		return -1;
+ 
+ 	return data - strtab->data->d_buf;
  }
  
-+cross_compile_init() {
-+	if [[ -v LLVM && -n "$LLVM" ]]; then
-+		local prefix=""
-+		local suffix=""
+-void *elf_add_data(struct elf *elf, struct section *sec, const void *data, size_t size)
++void *elf_add_data(struct elf *elf, struct section *sec, const void *data,
++		   size_t size, bool align)
+ {
+ 	unsigned long offset, size_old, size_new, alloc_size_old, alloc_size_new;
+ 	Elf_Scn *s;
+@@ -1447,7 +1448,7 @@ void *elf_add_data(struct elf *elf, struct section *sec, const void *data, size_
+ 	}
+ 
+ 	size_old = sec->data->d_size;
+-	offset = ALIGN(size_old, sec->sh.sh_addralign);
++	offset = ALIGN(size_old, align ? sec->sh.sh_addralign : 1);
+ 	size_new = offset + size;
+ 
+ 	if (!sec->data_overallocated)
+@@ -1590,7 +1591,7 @@ static int elf_alloc_reloc(struct elf *elf, struct section *rsec)
+ 	unsigned long nr_alloc_old = 0, nr_alloc_new;
+ 	struct symbol *sym;
+ 
+-	if (!elf_add_data(elf, rsec, NULL, elf_rela_size(elf)))
++	if (!elf_add_data(elf, rsec, NULL, elf_rela_size(elf), true))
+ 		return -1;
+ 
+ 	rsec->data->d_type = ELF_T_RELA;
+diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
+index ab1d53ed23189..fba0a0e08f8b6 100644
+--- a/tools/objtool/include/objtool/elf.h
++++ b/tools/objtool/include/objtool/elf.h
+@@ -106,6 +106,8 @@ struct symbol {
+ 	u8 included	     : 1;
+ 	u8 klp		     : 1;
+ 	u8 dont_correlate    : 1;
++	u8 fake		     : 1;
++	u8 unalign	     : 1;
+ 	struct list_head pv_target;
+ 	struct reloc *relocs;
+ 	struct section *group_sec;
+@@ -186,7 +188,7 @@ struct symbol *elf_create_symbol(struct elf *elf, const char *name,
+ struct symbol *elf_create_section_symbol(struct elf *elf, struct section *sec);
+ 
+ void *elf_add_data(struct elf *elf, struct section *sec, const void *data,
+-		   size_t size);
++		   size_t size, bool align);
+ 
+ int elf_find_string(struct elf *elf, struct section *strtab, const char *str);
+ int elf_add_string(struct elf *elf, struct section *strtab, const char *str);
+@@ -532,6 +534,9 @@ static inline void set_sym_next_reloc(struct reloc *reloc, struct reloc *next)
+ #define sec_for_each_sym_from(sec, sym)					\
+ 	list_for_each_entry_from(sym, &sec->symbol_list, list)
+ 
++#define sec_for_each_sym_continue(sec, sym)				\
++	list_for_each_entry_continue(sym, &sec->symbol_list, list)
 +
-+		if [[ "$LLVM" == */ ]]; then
-+			# LLVM=/path/to/bin/
-+			prefix="$LLVM"
-+		elif [[ "$LLVM" == -* ]]; then
-+			# LLVM=-14
-+			suffix="$LLVM"
-+		fi
+ #define sec_prev_sym(sym)						\
+ 	sym->sec && sym->list.prev != &sym->sec->symbol_list ?		\
+ 	list_prev_entry(sym, list) : NULL
+diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
+index e1d4d94c9d77c..b9624bd9439b9 100644
+--- a/tools/objtool/klp-diff.c
++++ b/tools/objtool/klp-diff.c
+@@ -1027,8 +1027,9 @@ static int clone_sym_relocs(struct elfs *e, struct symbol *patched_sym);
+ static struct symbol *__clone_symbol(struct elf *elf, struct symbol *patched_sym,
+ 				     bool data_too)
+ {
+-	struct section *out_sec = NULL;
+ 	unsigned long offset = 0, pfx_size = 0;
++	bool align = !patched_sym->unalign;
++	struct section *out_sec = NULL;
+ 	struct symbol *out_sym;
+ 
+ 	if (data_too && !is_undef_sym(patched_sym)) {
+@@ -1054,7 +1055,7 @@ static struct symbol *__clone_symbol(struct elf *elf, struct symbol *patched_sym
+ 		}
+ 
+ 		if (!is_sec_sym(patched_sym))
+-			offset = ALIGN(sec_size(out_sec), out_sec->sh.sh_addralign);
++			offset = ALIGN(sec_size(out_sec), align ? out_sec->sh.sh_addralign : 1);
+ 
+ 		if (patched_sym->len || is_sec_sym(patched_sym)) {
+ 			void *data = NULL;
+@@ -1072,7 +1073,7 @@ static struct symbol *__clone_symbol(struct elf *elf, struct symbol *patched_sym
+ 			else
+ 				size = patched_sym->len + pfx_size;
+ 
+-			if (!elf_add_data(elf, out_sec, data, size))
++			if (!elf_add_data(elf, out_sec, data, size, align))
+ 				return NULL;
+ 
+ 			offset += pfx_size;
+@@ -1114,6 +1115,37 @@ static const char *sym_bind(struct symbol *sym)
+ 	}
+ }
+ 
++static struct symbol *clone_symbol(struct elfs *e, struct symbol *patched_sym,
++				   bool data_too);
 +
-+		OBJCOPY="${prefix}llvm-objcopy${suffix}"
-+	else
-+		OBJCOPY="${CROSS_COMPILE:-}objcopy"
-+	fi
++/*
++ * For arm64 alternatives, the replacement instructions come immediately after
++ * the function.  Clone any such blocks of instructions in place to preserve
++ * their offsets relative to the function in case they have hard-coded PC
++ * relative branches.
++ */
++static int clone_inline_alternatives(struct elfs *e, struct symbol *patched_sym)
++{
++	struct symbol *next;
++
++	if (!__is_defined(ARCH_HAS_INLINE_ALTS) || !is_func_sym(patched_sym))
++		return 0;
++
++	next = patched_sym;
++	sec_for_each_sym_continue(patched_sym->sec, next) {
++		if (next->offset < (patched_sym->offset + patched_sym->len) ||
++		    is_mapping_sym(next))
++			continue;
++		if (!next->fake)
++			break;
++		next->unalign = 1;
++		if (!clone_symbol(e, next, true))
++			return -1;
++	}
++
++	return 0;
 +}
 +
- do_init() {
- 	# We're not yet smart enough to handle anything other than in-tree
- 	# builds in pwd.
-@@ -462,6 +481,7 @@ do_init() {
- 	validate_config
- 	set_module_name
- 	set_kernelversion
-+	cross_compile_init
+ /*
+  * Copy a symbol to the output object, optionally including its data and
+  * relocations.
+@@ -1138,7 +1170,13 @@ static struct symbol *clone_symbol(struct elfs *e, struct symbol *patched_sym,
+ 	if (!__clone_symbol(e->out, patched_sym, data_too))
+ 		return NULL;
+ 
+-	if (data_too && clone_sym_relocs(e, patched_sym))
++	if (!data_too || is_undef_sym(patched_sym))
++		return patched_sym->clone;
++
++	if (clone_sym_relocs(e, patched_sym))
++		return NULL;
++
++	if (clone_inline_alternatives(e, patched_sym))
+ 		return NULL;
+ 
+ 	return patched_sym->clone;
+@@ -1551,7 +1589,7 @@ static int clone_reloc_klp(struct elfs *e, struct reloc *patched_reloc,
+ 	memset(&klp_reloc, 0, sizeof(klp_reloc));
+ 
+ 	klp_reloc.type = reloc_type(patched_reloc);
+-	if (!elf_add_data(e->out, klp_relocs, &klp_reloc, sizeof(klp_reloc)))
++	if (!elf_add_data(e->out, klp_relocs, &klp_reloc, sizeof(klp_reloc), true))
+ 		return -1;
+ 
+ 	/* klp_reloc.offset */
+@@ -1714,6 +1752,7 @@ static int create_fake_symbol(struct elf *elf, struct section *sec,
+ 			      unsigned long offset, size_t size)
+ {
+ 	char name[SYM_NAME_LEN];
++	struct symbol *sym;
+ 	unsigned int type;
+ 	static int ctr;
+ 	char *c;
+@@ -1730,7 +1769,13 @@ static int create_fake_symbol(struct elf *elf, struct section *sec,
+ 	 *	       while still allowing objdump to disassemble it.
+ 	 */
+ 	type = is_text_sec(sec) ? STT_NOTYPE : STT_OBJECT;
+-	return elf_create_symbol(elf, name, sec, STB_LOCAL, type, offset, size) ? 0 : -1;
++
++	sym = elf_create_symbol(elf, name, sec, STB_LOCAL, type, offset, size);
++	if (!sym)
++		return -1;
++
++	sym->fake = 1;
++	return 0;
  }
  
- # Refresh the patch hunk headers, specifically the line numbers and counts.
-@@ -871,7 +891,7 @@ build_patch_module() {
- 	cp -f "$kmod_file" "$kmod_file.orig"
+ /*
+@@ -2095,7 +2140,7 @@ static int create_klp_sections(struct elfs *e)
+ 		return -1;
  
- 	# Work around issue where slight .config change makes corrupt BTF
--	objcopy --remove-section=.BTF "$kmod_file"
-+	"$OBJCOPY" --remove-section=.BTF "$kmod_file"
+ 	/* allocate klp_object_ext */
+-	obj_data = elf_add_data(e->out, obj_sec, NULL, obj_size);
++	obj_data = elf_add_data(e->out, obj_sec, NULL, obj_size, true);
+ 	if (!obj_data)
+ 		return -1;
  
- 	# Fix (and work around) linker wreckage for klp syms / relocs
- 	"$OBJTOOL" klp post-link "$kmod_file" || die "objtool klp post-link failed"
+@@ -2130,7 +2175,7 @@ static int create_klp_sections(struct elfs *e)
+ 			continue;
+ 
+ 		/* allocate klp_func_ext */
+-		func_data = elf_add_data(e->out, funcs_sec, NULL, func_size);
++		func_data = elf_add_data(e->out, funcs_sec, NULL, func_size, true);
+ 		if (!func_data)
+ 			return -1;
+ 
+@@ -2276,7 +2321,7 @@ static int copy_import_ns(struct elfs *e)
+ 			}
+ 		}
+ 
+-		if (!elf_add_data(e->out, out_sec, import_ns, strlen(import_ns) + 1))
++		if (!elf_add_data(e->out, out_sec, import_ns, strlen(import_ns) + 1, true))
+ 			return -1;
+ 	}
+ 
 -- 
 2.53.0
 
