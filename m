@@ -4,111 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F306CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F457CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tPMVkSo7vb48jv7YwJ0Vd+mCEf6970EXP9V58QWiGq0=; b=SsRjx/R7GvAX6kliiNCNmda1D9
-	Ty5nwbb5nWxkrliHmoUp7Y3RD4CnlWgQK1F1gXt+nDCzFHId6EHIhYOMCDnETJ0jE3s2U54n6WJvI
-	B5hCQQtolPjIs6vu+0GHzOeUZ8f+ivjhZQtj8hoQJ9uIj9nZCnY4MAiXUZK87gL/20/faruvIiG2G
-	cxYa92jyKTV4/LDB2il6aXtzKMA2J/MH01BQi7OuwQEuftnLfbpPnWZBVVXLiXcSjSUPb5/PXesKd
-	JQacDJJXdXx+lJgq+EPZjuHs0V3hE/xEmIPkP/9Ew+pOEYW0s37J1CfNRdeT+IeoJu3pbkWtdClzR
-	vbIBrgGw==;
+	bh=b6C2QkLyR0u0X9GCK//jckwKzoabhVEHfCSic1LNgaA=; b=VvA9TgrFzNSBRt3l8D13Ih9XIG
+	fzb71opUrROrxuilOIl2ajmwldX1xIZxV6w/kvE46HUHsg4YLHODD7eoui+lZZhFtkI+3XitoPqHE
+	ZaKaEtsOilo1zQwoRMTfO+OVeBENq33Sy1xD5XIJUVjfGTZczA7bZPnQD++mqTUo174yz8CZ92fpP
+	wXpecvpB6dcbJCeNIBQYdgcrIbip84wezf26Qiv91pl6rTASl3fGvIcys/zomwmzwLdfuS1MDGsxs
+	QKMEx+DzLCbp/9yibllmxIEa/tTl62VCeH3S2WvpNq48tm/gi8MiQhcYEwBuWu1liWBwtpB9xsx/y
+	iEirtozw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNA6w-00000002qvD-17b5;
-	Wed, 13 May 2026 13:58:54 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wNA7q-00000002rEW-1pwQ;
+	Wed, 13 May 2026 13:59:50 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNA6t-00000002qtt-1rGk
+	id 1wNA7n-00000002qYj-3aWn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:58:52 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4891ca4ce02so3555e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 06:58:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778680729; x=1779285529; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=tPMVkSo7vb48jv7YwJ0Vd+mCEf6970EXP9V58QWiGq0=;
-        b=t0ZQnx/mzelPJPh7MHF/pkMQpxcdJr8A4imMLS3dhFug2Z8m+pM8ThAc5OIMAqfIIM
-         1lTC2MuCkEJxzPP6lcZo7g0GG+/kP57Xuyo20ixHHi4LQM3sIaJEHnQUm+rwZi/1/P0m
-         hZjfWWr3wTzc47mxKUB0hRn7/Wmfy2QIT4m0t4x5h7+jSvYq7OwiTvHCYQ8nTOVxEMXK
-         Sv3Sr8KQhC5tXp8uXqGz45iExqn1nIpH4rr7cr7H74TSsLID40TG7Ww7ZoKZoioRFYVX
-         WvQjZtrTl5CmPjqZL45hrhCJgUrfW+dryscwCev7aA5QQAvcNwU6YjpsGB1qOeVA/TCU
-         IvgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778680729; x=1779285529;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tPMVkSo7vb48jv7YwJ0Vd+mCEf6970EXP9V58QWiGq0=;
-        b=C017NVdDf1Ibs/HK/RCpinPTcIuU7UQHeSPuZ4L4Vybq//GXW57xDFEOVCsKIRAltB
-         28pW8JJaCzR40rhaujnNNEdAbO0SIVaCSE8ww9ZblOMp3naGBij7qIUIJLx7A4wJvMG4
-         1tBK+/PpwKHJMcaXLItEkY+aU18wKsBD6Lk6N/Se5UKVWUpMcPavAqPyD5JTM4Hx06cs
-         CHdrdDTKy39fhxi59r5FLptDbKw6XXUVjC+J3TEHdfdaxXVnW/PYnddMWuEHSg1Xc5Dc
-         SrPnvXunSYOKz63XL7BIXCqUmBc0CWx1JIJdAWKFkaFjOTTYrTIVZjwkGvjbhEGiWQfN
-         Zq+Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8O0jBvFsUclRj5T+WjN22OAqiPjy4MAYLlsyype9bAzHKMNjMpIFSf72dQxWztHeGBdLqTocErWC4ityn64HpG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHWZM3FpVY3Ke5HoLKu1DBd2TJgIzuMjNbXY42tpfjbAImWP1M
-	+EBp1z15/lb/L+qFrsMFTH90aaQf2zdBeht92m29LcD6yp2ssE2QS6K+SBZm5H261Q==
-X-Gm-Gg: Acq92OHMrPtMrK2Z28NQTHemZGPQAoktFc4wXk6QXrBuxjFoJFMsF3qh2qQmpUORPZo
-	/W/FjvgFrIlGKuPVKfYgbvcbksAmenUgAvaT9UQ2D1vqpH4idbbG3NeC4BKUv66kis2jbHIPpFl
-	H8Ns726Vudcf5ZICkpD6WvYD7E0Kcy+F7hu0QLZ3U2Ks36CVg79ZoEBDXrQZ4QDNXOJzta6GVyS
-	P7HJYyRnRVcWox4SjL/hqwqr7+btvjrKt6IE1QCZzsvwqXmXT5uSgZEj259udICRZwLLSQtv/Dw
-	9j4p9qMmko7nbvQmYb+KGHVJM9v+RVf5KAZVBm8Cc8lVUDoAouK2UdgHVsQIzjO1LQhQ6oLMiGb
-	T0mZTT71MchQx2Ba8VNl2Be7qG1DbfnSiofo+M1uiuzj7eEeASKfiIC8oFZNDSNJzfeedfDr3Nq
-	7Phs6oQrbOjQalIXgXTd/3n7bdKwsQLEPRk4swwxD2NOoaW7ONSDUHEg4UrxTuNEf/GSI=
-X-Received: by 2002:a05:600c:8a16:10b0:48a:5618:b4d4 with SMTP id 5b1f17b1804b1-48fcacd0d81mr589735e9.1.1778680729194;
-        Wed, 13 May 2026 06:58:49 -0700 (PDT)
-Received: from google.com (8.181.38.34.bc.googleusercontent.com. [34.38.181.8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4548ec6cd75sm39576190f8f.16.2026.05.13.06.58.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 06:58:48 -0700 (PDT)
-Date: Wed, 13 May 2026 13:58:43 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v4 02/13] dma-direct: use DMA_ATTR_CC_SHARED in
- alloc/free paths
-Message-ID: <agSDk0QsEM0ZBCTA@google.com>
-References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
- <20260512090408.794195-3-aneesh.kumar@kernel.org>
+	Wed, 13 May 2026 13:59:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778680788; x=1810216788;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xCGSmUNmAHPDgb/YXdd0V9GbihR6QzirJZG+PlgQxoc=;
+  b=bcQftgc8ZKCva8PQ9J3zQq6C/FG2tS61gEilW8/GT1VLsk+fVft/l+MD
+   kyvd0OJdj2nbhzyojJr5s/rC0o7e2ZZhJHJoiM6MTTACX1iq80g5ox+eI
+   7BUs/UiKMPwxYvdbqdDwRFyk+0m0gm7scVP+3hggrsSAyyHozZK66IJPq
+   nOa0oY1XeOf7acnEUAxx5k5ADNu8GxG5PATEAbstg6glgF2LK4RGSlQrk
+   lKrnvbyQcqZYTPVA7bpkmFNAR2yEUqqwmOvkQG/yfwohlORt7Fzy2iJdb
+   o2JslkXCJKTDxW2GGogpfoMieRSg9CN29b9HRSnbv1CNceG/eTQFUjVfJ
+   A==;
+X-CSE-ConnectionGUID: qtoitiKfRL2itUOKYrKg1Q==
+X-CSE-MsgGUID: EdaECst4Ss6hJCwumR/agw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11784"; a="97034629"
+X-IronPort-AV: E=Sophos;i="6.23,232,1770624000"; 
+   d="scan'208";a="97034629"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 06:57:47 -0700
+X-CSE-ConnectionGUID: KmLy6cpsRD6biS0Axw4NwA==
+X-CSE-MsgGUID: 029kK+GUTgW9bdGj+3ao3A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,232,1770624000"; 
+   d="scan'208";a="231700498"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.111])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 06:57:42 -0700
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 68CE0121C9E;
+	Wed, 13 May 2026 16:57:40 +0300 (EEST)
+Date: Wed, 13 May 2026 16:57:40 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Pengyu Luo <mitltlatltl@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Martin Kepplinger-Novakovic <martink@posteo.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org
+Subject: Re: [PATCH v4 2/5] media: hi846: fix link frequency handling
+Message-ID: <agSDVJX0QKNgDMuw@kekkonen.localdomain>
+References: <20260511103927.279550-1-mitltlatltl@gmail.com>
+ <20260511103927.279550-3-mitltlatltl@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260512090408.794195-3-aneesh.kumar@kernel.org>
+In-Reply-To: <20260511103927.279550-3-mitltlatltl@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_065851_510824_88944300 
-X-CRM114-Status: GOOD (  28.36  )
+X-CRM114-CacheID: sfid-20260513_065947_947479_C129C56D 
+X-CRM114-Status: GOOD (  34.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,119 +98,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 02:33:57PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> Propagate force_dma_unencrypted() into DMA_ATTR_CC_SHARED in the
-> dma-direct allocation path and use the attribute to drive the related
-> decisions.
+Hi Penguy,
+
+On Mon, May 11, 2026 at 06:39:24PM +0800, Pengyu Luo wrote:
+> link frequency is tied to PLL configuration, lane count, and external
+
+A sentence begins with a capital letter, also the subject does.
+
+> clock rate, so use runtime here instead of hardcoding for specific
+> configuration. To implement this, this commit did
 > 
-> This updates dma_direct_alloc(), dma_direct_free(), and
-> dma_direct_alloc_pages() to fold the forced unencrypted case into attrs.
+> 1. dropped exposed link freqs as a v4l2_ctrl, since we are runtime
+> now, it is inconvenient and unnecessary to expose it, and
+> hi846_set_ctrl has nothing to do with it.
+
+Please describe the changes the patch does in imperative form.
+
 > 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> 2. attached pll_cfg_4lane to current mode, and use it with clock, lane
+> count to calculate link frequency, we use 4-lane config as default,
+> but we can double it easily for 2-lane case.
+> 
+> 3. dropped mclk clock rate check.
+> 
+> Fixes: e8c0882685f9 ("media: i2c: add driver for the SK Hynix Hi-846 8M pixel camera")
+> Signed-off-by: Pengyu Luo <mitltlatltl@gmail.com>
 > ---
->  kernel/dma/direct.c | 44 ++++++++++++++++++++++++++++++++++++--------
->  1 file changed, 36 insertions(+), 8 deletions(-)
+>  drivers/media/i2c/hi846.c | 75 ++++++++++++++++++++-------------------
+>  1 file changed, 38 insertions(+), 37 deletions(-)
 > 
-> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-> index b958f150718a..0c2e1f8436ce 100644
-> --- a/kernel/dma/direct.c
-> +++ b/kernel/dma/direct.c
-> @@ -201,16 +201,31 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
->  {
->  	bool remap = false, set_uncached = false;
-> -	bool mark_mem_decrypt = true;
-> +	bool mark_mem_decrypt = false;
->  	struct page *page;
->  	void *ret;
+> diff --git a/drivers/media/i2c/hi846.c b/drivers/media/i2c/hi846.c
+> index 7f069aca0fce..61297ef66a0e 100644
+> --- a/drivers/media/i2c/hi846.c
+> +++ b/drivers/media/i2c/hi846.c
+> @@ -1,7 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  // Copyright (c) 2021 Purism SPC
 >  
+> -#include <linux/unaligned.h>
+> +#include <linux/bitfield.h>
+>  #include <linux/clk.h>
+>  #include <linux/delay.h>
+>  #include <linux/gpio/consumer.h>
+> @@ -11,6 +11,7 @@
+>  #include <linux/pm.h>
+>  #include <linux/property.h>
+>  #include <linux/regulator/consumer.h>
+> +#include <linux/unaligned.h>
+>  #include <media/v4l2-ctrls.h>
+>  #include <media/v4l2-device.h>
+>  #include <media/v4l2-fwnode.h>
+> @@ -219,8 +220,8 @@ struct hi846_mode {
+>  	/* Horizontal timing size */
+>  	u32 llp;
+>  
+> -	/* Link frequency needed for this resolution */
+> -	u8 link_freq_index;
+> +	/* PLL configuration for 4-lane link at this resolution */
+> +	u16 pll_cfg_4lane;
+
+Please use separate fields for different PLL configuration parameters, i.e.
+not register values.
+
+>  
+>  	u16 fps;
+>  
+> @@ -1040,13 +1041,6 @@ static const char * const hi846_test_pattern_menu[] = {
+>  	"Resolution Pattern",
+>  };
+>  
+> -#define FREQ_INDEX_640	0
+> -#define FREQ_INDEX_1280	1
+> -static const s64 hi846_link_freqs[] = {
+> -	[FREQ_INDEX_640] = 80000000,
+> -	[FREQ_INDEX_1280] = 200000000,
+> -};
+> -
+>  static const struct hi846_reg_list hi846_init_regs_list_2lane = {
+>  	.num_of_regs = ARRAY_SIZE(hi846_init_2lane),
+>  	.regs = hi846_init_2lane,
+> @@ -1061,7 +1055,7 @@ static const struct hi846_mode supported_modes[] = {
+>  	{
+>  		.width = 640,
+>  		.height = 480,
+> -		.link_freq_index = FREQ_INDEX_640,
+> +		.pll_cfg_4lane = 0x4924, /* HI846_REG_PLL_CFG_MIPI2_H */
+>  		.fps = 120,
+>  		.frame_len = 631,
+>  		.llp = HI846_LINE_LENGTH,
+> @@ -1086,7 +1080,7 @@ static const struct hi846_mode supported_modes[] = {
+>  	{
+>  		.width = 1280,
+>  		.height = 720,
+> -		.link_freq_index = FREQ_INDEX_1280,
+> +		.pll_cfg_4lane = 0x4924, /* HI846_REG_PLL_CFG_MIPI2_H */
+>  		.fps = 90,
+>  		.frame_len = 842,
+>  		.llp = HI846_LINE_LENGTH,
+> @@ -1112,7 +1106,7 @@ static const struct hi846_mode supported_modes[] = {
+>  	{
+>  		.width = 1632,
+>  		.height = 1224,
+> -		.link_freq_index = FREQ_INDEX_1280,
+> +		.pll_cfg_4lane = 0x4924, /* HI846_REG_PLL_CFG_MIPI2_H */
+>  		.fps = 30,
+>  		.frame_len = 2526,
+>  		.llp = HI846_LINE_LENGTH,
+> @@ -1161,7 +1155,6 @@ struct hi846 {
+>  	struct v4l2_ctrl_handler ctrl_handler;
+>  	u8 nr_lanes;
+>  
+> -	struct v4l2_ctrl *link_freq;
+>  	struct v4l2_ctrl *pixel_rate;
+>  	struct v4l2_ctrl *vblank;
+>  	struct v4l2_ctrl *hblank;
+> @@ -1192,21 +1185,37 @@ static const struct hi846_datafmt *hi846_find_datafmt(u32 code)
+>  	return NULL;
+>  }
+>  
+> -static inline u8 hi846_get_link_freq_index(struct hi846 *hi846)
+> +static u64
+> +hi846_get_link_freq(struct hi846 *hi846, const struct hi846_mode *cur_mode)
+>  {
+> -	return hi846->cur_mode->link_freq_index;
+> -}
+> +	u16 cfg = cur_mode->pll_cfg_4lane;
+> +	u64 mclk = clk_get_rate(hi846->clock);
+>  
+> -static u64 hi846_get_link_freq(struct hi846 *hi846)
+> -{
+> -	u8 index = hi846_get_link_freq_index(hi846);
+> +	/* NOTE: 6, 7 actually map to 8, 10, but this won't be that big */
+> +	u8 post_div1 = 1 + FIELD_GET(GENMASK(10, 8), cfg);
+> +	u8 post_div2 = 1 << FIELD_GET(GENMASK(12, 11), cfg);
+
+s/1U/1/
+
+>  
+> -	return hi846_link_freqs[index];
 > +	/*
-> +	 * DMA_ATTR_CC_SHARED is not a caller-visible dma_alloc_*()
-> +	 * attribute. The direct allocator uses it internally after it has
-> +	 * decided that the backing pages must be shared/decrypted, so the
-> +	 * rest of the allocation path can consistently select DMA addresses,
-> +	 * choose compatible pools and restore encryption on free.
+> +	 * HI846_REG_PLL_CFG_MIPI1_H = 0x025a, it is fixed in listed modes
+> +	 * [11:8]: 0x02 => pre_div = 3
+> +	 * [7:0]: 0x5a => multiplier = 90
 > +	 */
-> +	if (attrs & DMA_ATTR_CC_SHARED)
-> +		return NULL;
-> +
-> +	if (force_dma_unencrypted(dev)) {
-> +		attrs |= DMA_ATTR_CC_SHARED;
-> +		mark_mem_decrypt = true;
-> +	}
-> +
->  	size = PAGE_ALIGN(size);
->  	if (attrs & DMA_ATTR_NO_WARN)
->  		gfp |= __GFP_NOWARN;
->  
-> -	if ((attrs & DMA_ATTR_NO_KERNEL_MAPPING) &&
-> -	    !force_dma_unencrypted(dev) && !is_swiotlb_for_alloc(dev))
-> +	if (((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | DMA_ATTR_CC_SHARED)) ==
-> +	     DMA_ATTR_NO_KERNEL_MAPPING) && !is_swiotlb_for_alloc(dev))
->  		return dma_direct_alloc_no_mapping(dev, size, dma_handle, gfp);
->  
->  	if (!dev_is_dma_coherent(dev)) {
-> @@ -244,7 +259,7 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  	 * Remapping or decrypting memory may block, allocate the memory from
->  	 * the atomic pools instead if we aren't allowed block.
->  	 */
-> -	if ((remap || force_dma_unencrypted(dev)) &&
-> +	if ((remap || (attrs & DMA_ATTR_CC_SHARED)) &&
->  	    dma_direct_use_pool(dev, gfp))
->  		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
->  
-> @@ -318,11 +333,20 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->  void dma_direct_free(struct device *dev, size_t size,
->  		void *cpu_addr, dma_addr_t dma_addr, unsigned long attrs)
->  {
-> -	bool mark_mem_encrypted = true;
-> +	bool mark_mem_encrypted = false;
->  	unsigned int page_order = get_order(size);
->  
-> -	if ((attrs & DMA_ATTR_NO_KERNEL_MAPPING) &&
-> -	    !force_dma_unencrypted(dev) && !is_swiotlb_for_alloc(dev)) {
+> +	u64 link_freq = mclk / 3 * 90 / post_div1 / post_div2;
+
+This needs div_u64().
+
+Don't divide by 3 upfront, you'll lose information.
+
 > +	/*
-> +	 * if the device had requested for an unencrypted buffer,
-> +	 * convert it to encrypted on free
+> +	 * for shared modes, since lane count is halved for 2-lane, then getting
+> +	 * link_freq doubled to match the same data rate. Since 720x480 is
+> +	 * 2-lane only(reg_list_4lane.num_of_regs == 0), no pll cfg for 4-lane,
+> +	 * the pll cfg is for 2-lane, so use the cfg as is.
 > +	 */
-> +	if (force_dma_unencrypted(dev)) {
-> +		attrs |= DMA_ATTR_CC_SHARED;
-> +		mark_mem_encrypted = true;
-> +	}
+> +	if (hi846->nr_lanes == 2 && cur_mode->reg_list_4lane.num_of_regs)
+> +		link_freq *= 2;
 > +
-> +	if (((attrs & (DMA_ATTR_NO_KERNEL_MAPPING | DMA_ATTR_CC_SHARED)) ==
-> +	     DMA_ATTR_NO_KERNEL_MAPPING) && !is_swiotlb_for_alloc(dev)) {
->  		/* cpu_addr is a struct page cookie, not a kernel address */
->  		dma_free_contiguous(dev, cpu_addr, size);
->  		return;
-> @@ -365,10 +389,14 @@ void dma_direct_free(struct device *dev, size_t size,
->  struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
->  		dma_addr_t *dma_handle, enum dma_data_direction dir, gfp_t gfp)
+> +	return link_freq;
+>  }
+>  
+>  static u64 hi846_calc_pixel_rate(struct hi846 *hi846)
 >  {
-> +	unsigned long attrs = 0;
->  	struct page *page;
->  	void *ret;
+> -	u64 link_freq = hi846_get_link_freq(hi846);
+> +	u64 link_freq = hi846_get_link_freq(hi846, hi846->cur_mode);
+>  	u64 pixel_rate = link_freq * 2 * hi846->nr_lanes;
 >  
-> -	if (force_dma_unencrypted(dev) && dma_direct_use_pool(dev, gfp))
-> +	if (force_dma_unencrypted(dev))
-> +		attrs |= DMA_ATTR_CC_SHARED;
-> +
-> +	if ((attrs & DMA_ATTR_CC_SHARED) && dma_direct_use_pool(dev, gfp))
->  		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
+>  	do_div(pixel_rate, HI846_RGB_DEPTH);
+> @@ -1426,14 +1435,6 @@ static int hi846_init_controls(struct hi846 *hi846)
+>  
+>  	ctrl_hdlr->lock = &hi846->mutex;
+>  
+> -	hi846->link_freq =
+> -		v4l2_ctrl_new_int_menu(ctrl_hdlr, &hi846_ctrl_ops,
+> -				       V4L2_CID_LINK_FREQ,
+> -				       ARRAY_SIZE(hi846_link_freqs) - 1,
+> -				       0, hi846_link_freqs);
+> -	if (hi846->link_freq)
+> -		hi846->link_freq->flags |= V4L2_CTRL_FLAG_READ_ONLY;
+> -
+>  	hi846->pixel_rate =
+>  		v4l2_ctrl_new_std(ctrl_hdlr, &hi846_ctrl_ops,
+>  				  V4L2_CID_PIXEL_RATE, 0,
+> @@ -1503,10 +1504,10 @@ static int hi846_set_video_mode(struct hi846 *hi846, int fps)
+>  	u64 frame_length;
+>  	int ret = 0;
+>  	int dummy_lines;
+> -	u64 link_freq = hi846_get_link_freq(hi846);
+> +	u64 link_freq = hi846_get_link_freq(hi846, hi846->cur_mode);
+>  
+>  	dev_dbg(&client->dev, "%s: link freq: %llu\n", __func__,
+> -		hi846_get_link_freq(hi846));
+> +		link_freq);
 
-What about dma_direct_free_pages()? Nothing inside uses attrs, but
-that’s quite similar to dma_direct_alloc_pages()
-
-Also, at this point, shouldn’t this patch also remove
-force_dma_unencrypted() calls from dma_set_decrypted() and
-dma_set_encrypted()?
-
-Thanks,
-Mostafa
+Fits on the same line.
 
 >  
->  	if (is_swiotlb_for_alloc(dev)) {
-> -- 
-> 2.43.0
-> 
+>  	do_div(link_freq, fps);
+>  	frame_length = link_freq;
+> @@ -1749,7 +1750,6 @@ static int hi846_set_format(struct v4l2_subdev *sd,
+>  	mf->code = HI846_MEDIA_BUS_FORMAT;
+>  	mf->field = V4L2_FIELD_NONE;
+>  
+> -	__v4l2_ctrl_s_ctrl(hi846->link_freq, hi846_get_link_freq_index(hi846));
+>  	__v4l2_ctrl_s_ctrl_int64(hi846->pixel_rate,
+>  				 hi846_calc_pixel_rate(hi846));
+>  
+> @@ -1950,16 +1950,17 @@ static int hi846_identify_module(struct hi846 *hi846)
+>  static s64 hi846_check_link_freqs(struct hi846 *hi846,
+>  				  struct v4l2_fwnode_endpoint *ep)
+>  {
+> -	const s64 *freqs = hi846_link_freqs;
+> -	int freqs_count = ARRAY_SIZE(hi846_link_freqs);
+> +	int freqs_count = ARRAY_SIZE(supported_modes);
+> +	u64 link_freq;
+>  	int i, j;
+>  
+>  	for (i = 0; i < freqs_count; i++) {
+> +		link_freq = hi846_get_link_freq(hi846, &supported_modes[i]);
+>  		for (j = 0; j < ep->nr_of_link_frequencies; j++)
+> -			if (freqs[i] == ep->link_frequencies[j])
+> +			if (link_freq == ep->link_frequencies[j])
+>  				break;
+>  		if (j == ep->nr_of_link_frequencies)
+> -			return freqs[i];
+> +			return link_freq;
+
+I think v4l2_link_freq_to_bitmap() would be useful here.
+
+>  	}
+>  
+>  	return 0;
+
+-- 
+Regards,
+
+Sakari Ailus
 
