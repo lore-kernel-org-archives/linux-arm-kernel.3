@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C91CCD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 22:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECE0CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 22:31:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYBjY0bvsRn8fUX1uUBbkQy+QYqws04/bLkni/izJ6U=; b=mTwYlHCA99V/YQEDQyInf4WTzP
-	/Z4qH7liBDn6HEgdAfzeEIejgOMeB/3p97uKj6xrrZXDzbM5adEYJ4PHSogoTAbWU1VRWmSWWdYaU
-	yMTplqMNPMBM1c0RfRVU5dKCbwTLcCMKz8HdbqteklmPDp9jsxQk7ymeFC/qfZEiY70ProuQnWlEP
-	WKwFDznS2FDoP9zdNZSr15cQ2XcBDZPv/9LyBskrwv1II+uFqfKhBf05wdgS4WXT8eJRqh7qzCO0h
-	Wj1+wkBe3mGl9mIZgV5ZSr/Q74B+5AXBXb5L3wOwe3OSKce8Aaaodgm/bAWIXtM9Tj0ohKMdqUed+
-	urJYuDEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YaX/Xo+aYjHdQZOl52aRhuT+hJsQaI4oWfGWWCZOJZg=; b=DygEk3iAS9ra1wAMrgj0YFS9Gf
+	rD6lLFHu+suU6SYxxZIg4kz2xEYNJEyQZj/LKX/ScBILTzJ/UXinwobgce3gM6PAibkb1IPTHuPZE
+	+Gf8vjooso7wUrvy9NHVp7RvfdbCPTOXFLKBSgfQNoUaphhd7rQc6BSW1qp0Yq49PuEftiNyNmB1I
+	Jw/GrNTkc180T3qxsfq2nIQkygONEp1mSRhos45f1jK3VoMcVd6QvC0YhiEgVLFQiuLZY/u6ffV/n
+	ve5kvCWW/JYTCmozOSfbgMhJN4HM4MTJBgL8wMc8KoQDAtGj5p1bxKYQwNiL/+kZd3ebxSL9tkhO+
+	oCWMwrAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHeZ-00000003slN-3MT3;
-	Wed, 13 May 2026 22:02:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNI7E-00000003vOz-2nRb;
+	Wed, 13 May 2026 22:31:44 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHeY-00000003skk-2ufd
+	id 1wNI7B-00000003vO4-2xOx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 22:02:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC85660052;
-	Wed, 13 May 2026 22:02:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C189DC19425;
-	Wed, 13 May 2026 22:02:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778709725;
-	bh=/gJKXcfLpffrosVi62SdDLKP271qgTVAvxV27fCg7NA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V4nyM2h/Axw+JFALNF1A5fN/+YSUOUtit/xhwczDhyMJIWOKizSHqQLB67heCkcX9
-	 vcvp53DAE0tslSBqx7B3qNyE4PlskBZoRT4TBzs4QT422btlzKRLYG8MRO+mPdebjA
-	 UbMEQXLXxbQFOFeMTAOGh6/83NI+823W/GVmGQaaSxHTtV0YzqeX+TmpAXjeU6rpND
-	 y5ualPNMtFSkvyiaFE7+59UIviDwhMKInFb4bKzWM5W64uukWE/rUlsxNo11l2OYNO
-	 oczODsdeUh7fR1N9UBdhiwNNJ67wUFonuvLwNHi2wpFhNdu8miY9HUFAhh7mV6pGsu
-	 p1CdA+zwOCaog==
-Date: Thu, 14 May 2026 00:02:00 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	brgl@kernel.org, bartosz.golaszewski@oss.qualcomm.com, linux-i2c@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4] dt-bindings: i2c: convert davinci i2c to dt-schema
-Message-ID: <agT0xYb-Do2rcob5@zenone.zhora.eu>
-References: <20260513123758.4955-1-chaitanya.msabnis@gmail.com>
+	Wed, 13 May 2026 22:31:43 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gG7VJ6QrCz9vL6;
+	Thu, 14 May 2026 00:31:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1778711496;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=YaX/Xo+aYjHdQZOl52aRhuT+hJsQaI4oWfGWWCZOJZg=;
+	b=hNAMBlxUaqoHIkR0xiFX6TG8ieW3zHxUqwE/3zbedEVYZtohfKC2xboGPytY1wAqVvs4Gr
+	Da6zirJ0qUJZE/27hLiC5DhnFfih3tDBNTQdQGYUA3RCpj/REuxu2iy52dAt4CTvYx7n3j
+	5KaFNsubSJ2URFXVK0qIqDGTv4ZTWcgZLrkMgNzkvAoCCRwRuQ4GwGrxMasKprtGRaZ9jw
+	/P7pcaMieigeFmlGYu7LVhx3vSBi6veNoodSYjBjbTNhm8nb/cOTAiiAX8/+mGPTdFRu/4
+	cBwhoEnLlvKRS4xMHENfDCFApb3JiU7/A3+ZhalEVxRHB7BYXtfhg/voljmUNQ==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1778711494;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=YaX/Xo+aYjHdQZOl52aRhuT+hJsQaI4oWfGWWCZOJZg=;
+	b=lKslt6Q4R8iLS52CuB54bOm1JFkDprgAKfhNyEcMbzk/4aNhPyjfSCdad2Jd89wE/UNDu+
+	Cz58gpdO5GYMLr7n2M6kEwd5hKGjZFos2O4TCMLFUMFGMTwTkf22h2YLT0U7BEQljaN8O0
+	m6nHyQNAnnj29e3FdMk3LA44JtqgSrkhvSAIw8mprBJuehvr6Lc06lMQEGMmQICn2AyIVF
+	9hmjbrdQpFeLg3MJYMDHHRkKVAQLisLApHF0opIbJQj3Zkf5Deb37+Rj2abb3ZTE6XCly0
+	ZPaxixhvt4yQfeVr5KC3xWNbne1ikrlZ1xO78FVPTj/tnB+DiBkxO2jVLoyLeQ==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] arm64: dts: renesas: r8a78000: Fix GIC-720AE View 1 Redistributor description
+Date: Thu, 14 May 2026 00:30:08 +0200
+Message-ID: <20260513223125.43337-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260513123758.4955-1-chaitanya.msabnis@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: 1836kzmypo36jkf9t45gcq77knmzzhm7
+X-MBO-RS-ID: 6de09209b627974ea58
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_153141_893537_72AC38F2 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,22 +91,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chaitanya,
+The Renesas R-Car X5H (R8A78000) SoC contains Arm CoreLink GIC-720AE
+Generic Interrupt Controller with Multi View capability. Firmware has
+access to configuration View 0, Linux kernel has access to View 1.
 
-On Wed, May 13, 2026 at 06:07:57PM +0530, Chaitanya Sabnis wrote:
-> Convert the Texas Instruments DaVinci and Keystone I2C controller
-> bindings from legacy text format to modern dt-schema (YAML).
-> 
-> During the conversion, the `interrupts` property was made required
-> to match the strict requirement in the driver probe function. The
-> custom `ti,has-pfunc` and `power-domains` properties were also
-> properly defined to match SoC-specific hardware features.
-> 
-> Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+The Arm CoreLink GIC-720AE Generic Interrupt Controller Technical
+Reference Manual, currently latest r2p1 [1], chapter "Programmers model
+for GIC-720AE", subchapter "Redistributor registers for control and
+physical LPIs summary", part "GICR_TYPER, Redistributor Type Register"
+clarifies register "GICR_TYPER" bit 4 "Last" behavior in Multi View
+setup as follows:
 
-merged to i2c/i2c-host.
+"
+Last
+Last Redistributor:
 
-Thanks,
-Andi
+0 ... This Redistributor is not the last Redistributor on the chip.
+1 ... This Redistributor is the last Redistributor on the chip.
+      When GICD_CFGID.VIEW == 1, for views 1, 2, or 3 this bit
+      always returns 1.
+"
+
+On this SoC, GICD_CFGID.VIEW is 1 and the Linux kernel has access to
+View 1, therefore Linux kernel GICv3 driver will interpret register
+"GICR_TYPER" bit 4 "Last" = 1 in the first Redistributor in continuous
+Redistributor page as that first Redistributor being the one and only
+Redistributor and will stop processing the continuous Redistributor
+page further. This will prevent the other Redistributors from being
+recognized by the system and used for other PEs.
+
+Because the hardware indicates that the continuous Redistributor page
+is not continuous for View 1, 2, or 3, describe every Redistributor
+separately in the DT. This makes all Redistributors for all cores
+accessible in Linux.
+
+[1] https://developer.arm.com/documentation/102666/0201/Programmers-model-for-GIC-720AE/Redistributor-registers-for-control-and-physical-LPIs-summary/GICR-TYPER--Redistributor-Type-Register?lang=en
+
+Fixes: 63500d12cf76 ("arm64: dts: renesas: Add R8A78000 SoC support")
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a78000.dtsi | 36 +++++++++++++++++++++--
+ 1 file changed, 34 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/renesas/r8a78000.dtsi b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+index 3ec1b53d27828..73be51787265c 100644
+--- a/arch/arm64/boot/dts/renesas/r8a78000.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a78000.dtsi
+@@ -689,8 +689,40 @@ gic: interrupt-controller@39000000 {
+ 			#interrupt-cells = <3>;
+ 			#address-cells = <0>;
+ 			interrupt-controller;
+-			reg = <0 0x39000000 0 0x10000>,
+-			      <0 0x39080000 0 0x800000>;
++			#redistributor-regions = <32>;
++			reg = <0x0 0x39000000 0x0 0x10000>,
++			      <0x0 0x39080000 0x0 0x40000>,
++			      <0x0 0x390c0000 0x0 0x40000>,
++			      <0x0 0x39100000 0x0 0x40000>,
++			      <0x0 0x39140000 0x0 0x40000>,
++			      <0x0 0x39180000 0x0 0x40000>,
++			      <0x0 0x391c0000 0x0 0x40000>,
++			      <0x0 0x39200000 0x0 0x40000>,
++			      <0x0 0x39240000 0x0 0x40000>,
++			      <0x0 0x39280000 0x0 0x40000>,
++			      <0x0 0x392c0000 0x0 0x40000>,
++			      <0x0 0x39300000 0x0 0x40000>,
++			      <0x0 0x39340000 0x0 0x40000>,
++			      <0x0 0x39380000 0x0 0x40000>,
++			      <0x0 0x393c0000 0x0 0x40000>,
++			      <0x0 0x39400000 0x0 0x40000>,
++			      <0x0 0x39440000 0x0 0x40000>,
++			      <0x0 0x39480000 0x0 0x40000>,
++			      <0x0 0x394c0000 0x0 0x40000>,
++			      <0x0 0x39500000 0x0 0x40000>,
++			      <0x0 0x39540000 0x0 0x40000>,
++			      <0x0 0x39580000 0x0 0x40000>,
++			      <0x0 0x395c0000 0x0 0x40000>,
++			      <0x0 0x39600000 0x0 0x40000>,
++			      <0x0 0x39640000 0x0 0x40000>,
++			      <0x0 0x39680000 0x0 0x40000>,
++			      <0x0 0x396c0000 0x0 0x40000>,
++			      <0x0 0x39700000 0x0 0x40000>,
++			      <0x0 0x39740000 0x0 0x40000>,
++			      <0x0 0x39780000 0x0 0x40000>,
++			      <0x0 0x397c0000 0x0 0x40000>,
++			      <0x0 0x39800000 0x0 0x40000>,
++			      <0x0 0x39840000 0x0 0x40000>;
+ 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
+ 
+-- 
+2.53.0
+
 
