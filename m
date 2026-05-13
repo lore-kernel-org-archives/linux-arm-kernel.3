@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB78CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 09:44:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCC2CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 09:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+ZEenHC5Dw5pa3hF4xWhQjQWcl+zE0Tg3zwHlFD/XI=; b=tHxQ0Cxj0iiU1D5wKb1dt3JqXx
-	uGYY5XHfuqZC/jjYrcDhtFkVv99t8rMry5442ZQiknqR+LfuDjC7sRcXrJfeDGzW8AELG96RPqTqp
-	ziiosdDM6XKXOsmqq8sna7j9I4lFY4x9dO/SQetdSo4vMWGkgF9dVZBbFTuZUiCEJrijC7T92IoMw
-	bxxONV4GYpJcPG611LSZzUB3yghmSxWVwroBF1Ew+4qwP7vv9YNqoHRp9evIuna0qoAw7PK23KrOz
-	eaaSAYaOf1xZUIfrBnQW7YsC+KjuUSuCgo43ZeZvpuBa9REGtqbxYZMqM+qlE0vN9V7+52/aj4e0m
-	xlhn5mHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vEDRe/xC/gPc24D+Kj1YaUyDaZbKSvYBwdYalmYN/BA=; b=4WOaCqgnJzUT1uNyz5QT29sHgx
+	Qm1wtGI8l3l6YT4dL4TtPHls5JtSoX2ypQcneSEzYzWSybwqTmhjnDpJZ2amcR5Wp1zDYfNX4YcxG
+	02kSdCFfL0Ulj5Vc1Ohq/wj7/sjNZdKSZyqbdIMkndPsVcTXTH1hX+4tXo0v1fsgSura8RSzTIRK/
+	LX3B1D/5gcIRjzrttXXFg0cn3K0P5iiXcZnSb1QWjuBPcaMuvSPGmME6S6lU2tqeEOKCgFUtULrum
+	41aJo1r+AyHVeOKiqK3AXsRluvYimUBCkZtAb2aF5pZ4+3s76O8MMF19rqL5zH1qEGE3A1ppfxc6p
+	usPeaCzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN68C-00000001y1L-05Fa;
-	Wed, 13 May 2026 09:43:56 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wN6FQ-00000001zUm-1Lz1;
+	Wed, 13 May 2026 09:51:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN688-00000001xyW-3gny
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 13 May 2026 09:43:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=O+ZEenHC5Dw5pa3hF4xWhQjQWcl+zE0Tg3zwHlFD/XI=; b=p5pplJ9khMugd8rnbHw2T6mJaK
-	9/0HDdYFUv//pl/s8JIQRvxUsMO2GoQnQt9BhvX0Suo6d+V3L8VnfiIoNaM94q5VhnkGz0YEOEAQL
-	EeATOtz6q13QaSbEz+eA7PR/BW2uDFOUtP3XA9oi4FY85SXoX8xeRvuSwEbufCyOF/A7KUedB2Lxi
-	kwAIF0iaNbfqG9prwj7t2lssVFfSGvgz6oPDehmFnYsC9U4HWS5ZbnuWTQ3aQQah0olkgNp73TPaa
-	sLcH2sYdHuRz+mcvUlyYTSK2U9w3l+SpY81RJj5ohVLx59jjWq1DChHF9rZNb8brb0G6vA5VVsLzY
-	AlFyhOqA==;
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN685-0000000BPxm-02MI
+	id 1wN6FN-00000001zTy-1vXP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 09:43:51 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gFpGx3TYQz1T4Fh;
-	Wed, 13 May 2026 17:35:37 +0800 (CST)
-Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
-	by mail.maildlp.com (Postfix) with ESMTPS id D2A43202E6;
-	Wed, 13 May 2026 17:43:18 +0800 (CST)
-Received: from localhost.localdomain (10.50.163.32) by
- kwepemf200017.china.huawei.com (7.202.181.10) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 13 May 2026 17:43:18 +0800
-From: Jie Zhan <zhanjie9@hisilicon.com>
-To: <cwchoi00@gmail.com>, <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
-	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <linuxarm@huawei.com>, <tianyaxiong@kylinos.cn>, <zhanjie9@hisilicon.com>,
-	<zhenglifeng1@huawei.com>, <zhangpengjie2@huawei.com>,
-	<lihuisong@huawei.com>, <prime.zeng@hisilicon.com>
-Subject: [PATCH v2 2/6] devfreq: Use mutex guard in devfreq_add/remove_governor()
-Date: Wed, 13 May 2026 17:38:28 +0800
-Message-ID: <20260513093832.1645890-3-zhanjie9@hisilicon.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260513093832.1645890-1-zhanjie9@hisilicon.com>
-References: <20260513093832.1645890-1-zhanjie9@hisilicon.com>
+	Wed, 13 May 2026 09:51:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 806DA43BA6;
+	Wed, 13 May 2026 09:51:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38152C2BCB7;
+	Wed, 13 May 2026 09:51:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778665880;
+	bh=sqWUPzpRP4PII6LWHef9S7DmiWrMfjXIWacy6KIrHew=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=GX73eICGy1Ri9uocWlivZ8Px9qGDYrPBKaSf2s7DdV2g3MbsLcGWV67MmSIgGb45K
+	 m5ayHurz0+d2nMlZToxkUqAHdu4sXCcFVp3jpwSPlwZU82tClOMwFb46fPQ4g43/FE
+	 TkXdCFpRR14glId4QdLJf5xPPI08MFY5kAO/xWLbXh6/CaPguc8Yh7FiVAxiQU00a4
+	 ioiyKm4LvPhT7yNQfYYROK2C7wwo0yGyKM3+y/XHnRDf7GAQlZbAoxfD0hPJoPS3Qv
+	 HWUwr3ljU6jP0wwnbaPzU5+VAXAL9bMgmeBEBs2wHSLEfqWePf8mTFyU3wgwiAcsee
+	 qIDGUeVnlPLHQ==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v4 2/2] coco: guest: arm64: Drop dummy RSI platform
+ device stub
+In-Reply-To: <yq5a4ikbu1w2.fsf@kernel.org>
+References: <20260427061615.905018-1-aneesh.kumar@kernel.org>
+ <20260427061615.905018-3-aneesh.kumar@kernel.org>
+ <agM7VmoQ--ylUmyM@arm.com> <yq5a7bp7u77f.fsf@kernel.org>
+ <2026051352-albatross-contents-7113@gregkh> <yq5a4ikbu1w2.fsf@kernel.org>
+Date: Wed, 13 May 2026 15:21:12 +0530
+Message-ID: <yq5azf23skmn.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemf200017.china.huawei.com (7.202.181.10)
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_104349_968346_6580DEF3 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260513_025122_126036_0B44FA45 
+X-CRM114-Status: GOOD (  31.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,90 +85,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use mutex guard in devfreq_add/remove_governor() so as to simplify the
-locking logic.
+Aneesh Kumar K.V <aneesh.kumar@kernel.org> writes:
 
-No functional impact intended.
+> Greg KH <gregkh@linuxfoundation.org> writes:
+>
+>> On Wed, May 13, 2026 at 12:28:12PM +0530, Aneesh Kumar K.V wrote:
+>>> Catalin Marinas <catalin.marinas@arm.com> writes:
+>>>=20
+>>> > + Suzuki again
+>>> >
+>>> > On Mon, Apr 27, 2026 at 11:46:15AM +0530, Aneesh Kumar K.V (Arm) wrot=
+e:
+>>> >> The SMCCC firmware driver now creates the `arm-smccc` platform device
+>>> >> and also creates the CCA auxiliary devices once the RSI ABI is
+>>> >> discovered. This makes the arch-specific arm64_create_dummy_rsi_dev()
+>>> >> helper redundant. Remove the arm-cca-dev platform device registration
+>>> >> and let the SMCCC probe manage the RSI device.
+>>> >>=20
+>>> >> systemd match on platform:arm-cca-dev for confidential vm detection =
+[1].
+>>> >> Losing the platform device registration can break that. Keeping this
+>>> >> removal in its own change makes it easy to revert if that regression
+>>> >> blocks the rollout.
+>>> >>=20
+>>> >> [1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf=
+@arm.com
+>>> >
+>>> > I wouldn't merge this now given that systemd checks this file. Could =
+we
+>>> > have a symbolic link instead for some time until systemd eventually g=
+ets
+>>> > updated (years?).
+>>> >
+>>>=20
+>>> I=E2=80=99ll add this in the next revision.
+>>>=20
+>>> static int create_rsi_compat_link(struct device *target_dev)
+>>> {
+>>> 	struct kobject *platform_kobj;
+>>> 	/*
+>>> 	 * target_dev is:
+>>> 	 * /sys/devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0
+>>> 	 * Create compat link /sys/devices/platform/arm-cca-dev
+>>> 	 */
+>>> 	platform_kobj =3D target_dev->kobj.parent->parent;
+>>
+>> What?  That is crazy, you don't know that is always going to be ok.
+>>
+>>> 	return sysfs_create_link(platform_kobj,
+>>> 				 &target_dev->kobj,
+>>> 				 "arm-cca-dev");
+>>
+>> No, don't do that, if a driver calls a sysfs* function, something is
+>> almost always wrong.  Don't be making random sysfs symlinks please.
+>>
+>
+> Sure, but could you explain why this is wrong? Below is the full version
+> of the updated patch.
+>
+> coco: guest: arm64 Replace RSI platform device with compat symlink
+>
+> The SMCCC firmware driver now creates the arm-smccc platform device and
+> registers the RSI device as an auxiliary device once the RSI ABI has been
+> discovered. This makes the arch-specific arm64 arm-cca-dev platform device
+> redundant.
+>
+> Remove the arm64 platform device stub and let the SMCCC core manage RSI
+> device creation.
+>
+> This changes the real device location from the old platform device path t=
+o:
+>
+>   /sys/devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0
+>
+> Keep userspace compatibility by creating a sysfs symlink at the old path:
+>
+>   /sys/devices/platform/arm-cca-dev
+>
+> A Debian Code Search check found systemd matching on the old
+> platform:arm-cca-dev device path for confidential VM detection. No other
+> userspace dependency on the old platform device path was found, but keepi=
+ng
+> the compatibility symlink avoids breaking existing systemd-based detection
+> [1].
+>
+> [1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.=
+com
+>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+>
+> modified   arch/arm64/kernel/rsi.c
+> @@ -159,18 +159,3 @@ void __init arm64_rsi_init(void)
+>=20=20
+>  	static_branch_enable(&rsi_present);
+>  }
+> -
+> -static struct platform_device rsi_dev =3D {
+> -	.name =3D "arm-cca-dev",
+> -	.id =3D PLATFORM_DEVID_NONE
+> -};
+> -
+> -static int __init arm64_create_dummy_rsi_dev(void)
+> -{
+> -	if (is_realm_world() &&
+> -	    platform_device_register(&rsi_dev))
+> -		pr_err("failed to register rsi platform device\n");
+> -	return 0;
+> -}
+> -
+> -arch_initcall(arm64_create_dummy_rsi_dev)
+> modified   drivers/firmware/smccc/rmm.c
+> @@ -4,13 +4,31 @@
+>   */
+>=20=20
+>  #include <linux/auxiliary_bus.h>
+> +#include <linux/sysfs.h>
+> +#include <linux/device.h>
+>=20=20
+>  #include "rmm.h"
+>=20=20
+> +static int create_rsi_compat_link(struct device *target_dev)
+> +{
+> +	struct kobject *platform_kobj;
+> +	/*
+> +	 * target_dev is:
+> +	 * /sys/devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0
+> +	 * Create compat link /sys/devices/platform/arm-cca-dev
+> +	 */
+> +	platform_kobj =3D target_dev->kobj.parent->parent;
+> +
+> +	return sysfs_create_link(platform_kobj,
+> +				 &target_dev->kobj,
+> +				 "arm-cca-dev");
+> +}
+> +
+>  void __init register_rsi_device(struct platform_device *pdev)
+>  {
+>  	unsigned long ret;
+>  	unsigned long ver_lower, ver_higher;
+> +	struct auxiliary_device *adev;
+>=20=20
+>  	if (arm_smccc_1_1_get_conduit() !=3D SMCCC_CONDUIT_SMC)
+>  		return;
+> @@ -19,6 +37,10 @@ void __init register_rsi_device(struct platform_device=
+ *pdev)
+>  	if (ret !=3D RSI_SUCCESS)
+>  		return;
+>=20=20
+> -	__devm_auxiliary_device_create(&pdev->dev,
+> -				       "arm_cca_guest", RSI_DEV_NAME, NULL, 0);
+> +	adev =3D __devm_auxiliary_device_create(&pdev->dev,
+> +				"arm_cca_guest", RSI_DEV_NAME, NULL, 0);
+> +	if (!adev)
+> +		return;
+> +
+> +	create_rsi_compat_link(&adev->dev);
+>  }
 
-Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
----
- drivers/devfreq/devfreq.c | 22 +++++++---------------
- 1 file changed, 7 insertions(+), 15 deletions(-)
+To make this clear, the above implies that adev parent is a platform
+device and hence target_dev->kobj.parent->parent should be platform
+kobject?
 
-diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
-index 7a70dd051644..53c40d795a13 100644
---- a/drivers/devfreq/devfreq.c
-+++ b/drivers/devfreq/devfreq.c
-@@ -1261,28 +1261,23 @@ void devfreq_resume(void)
- int devfreq_add_governor(struct devfreq_governor *governor)
- {
- 	struct devfreq_governor *g;
--	int err = 0;
- 
- 	if (!governor) {
- 		pr_err("%s: Invalid parameters.\n", __func__);
- 		return -EINVAL;
- 	}
- 
--	mutex_lock(&devfreq_list_lock);
-+	guard(mutex)(&devfreq_list_lock);
- 	g = find_devfreq_governor(governor->name);
- 	if (!IS_ERR(g)) {
- 		pr_err("%s: governor %s already registered\n", __func__,
- 		       g->name);
--		err = -EINVAL;
--		goto err_out;
-+		return -EINVAL;
- 	}
- 
- 	list_add(&governor->node, &devfreq_governor_list);
- 
--err_out:
--	mutex_unlock(&devfreq_list_lock);
--
--	return err;
-+	return 0;
- }
- EXPORT_SYMBOL(devfreq_add_governor);
- 
-@@ -1320,21 +1315,20 @@ int devfreq_remove_governor(struct devfreq_governor *governor)
- {
- 	struct devfreq_governor *g;
- 	struct devfreq *devfreq;
--	int err = 0;
- 
- 	if (!governor) {
- 		pr_err("%s: Invalid parameters.\n", __func__);
- 		return -EINVAL;
- 	}
- 
--	mutex_lock(&devfreq_list_lock);
-+	guard(mutex)(&devfreq_list_lock);
- 	g = find_devfreq_governor(governor->name);
- 	if (IS_ERR(g)) {
- 		pr_err("%s: governor %s not registered\n", __func__,
- 		       governor->name);
--		err = PTR_ERR(g);
--		goto err_out;
-+		return PTR_ERR(g);
- 	}
-+
- 	list_for_each_entry(devfreq, &devfreq_list, node) {
- 		int ret;
- 		struct device *dev = devfreq->dev.parent;
-@@ -1356,10 +1350,8 @@ int devfreq_remove_governor(struct devfreq_governor *governor)
- 	}
- 
- 	list_del(&governor->node);
--err_out:
--	mutex_unlock(&devfreq_list_lock);
- 
--	return err;
-+	return 0;
- }
- EXPORT_SYMBOL(devfreq_remove_governor);
- 
--- 
-2.43.0
+>
+>
+>>
+>> If userspace can not find the device anymore, that's fine, that's how
+>> sysfs works, devices move around all the time.  Especially platform
+>> devices as those are almost always not supposed to be platform devices :)
+>>
+>> thanks,
+>>
+>> greg k-h
+>
 
+-aneesh
 
