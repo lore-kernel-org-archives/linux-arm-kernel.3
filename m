@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69664CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 14:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9855DCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 14:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ghJU4+sBBeNZalbCO/6Wmyn1b4SsHB/Hv9J6qbQkDwk=; b=Kn10YquPIEQxYlMp5ev3oRNrAf
-	ZR3EfkwGdu1ZlQh6v2PxoFGQqLS22Ndiz5kgsdeI2lQq1ubKlQEjaJFjVtF9Kg89kjyOuAgMmYPWV
-	aJgnUlKdAEC7ocNCLqEZV8cZK2CDfeNuQMOa487hDbxJTlz1LcGIisEuKXxqPp0+nzCLEUtO4BToc
-	l/nrh+MxDYgkKJouD6MRR1YDeVF6mZQ5Q36dQSrWQXVQ/2qXfgliXW89CF/V4cekIEEz52qKK4j2s
-	CGW6AtF2laSmzmB7dWHs7zJeYhn5VMz8cW6eU+F7Om151KnU/HgwIVWsgDD2iFAhyqrsYI7Dp6aix
-	DOR1nGkg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iNZVtkyHVJXBQDQeMZ4JDUm0r0N2Ba91kVc+1rbIJH4=; b=402SyjUsqUSiz6qutu643b5sXF
+	qJr9PlPX/ojM/0cwtaut21S1pH3FnleTR+vCEbEwMvbnK5CQDcoKNT3YA+HkFnc+qz09AHmsVb4O9
+	Lqz+x0za6eU4ZSMxE4BPmhC7AZfWK/AqdmJOHuvoGfgCvvbMYtGPfr6VkLdfxcxRjf4NMH5QCrSCO
+	NlttMTPGn4RkzT2Ctf5JfobqJbp6uTDhvEoGxM+Br4+P59cdP+WKVgZxLU4eXTS6uBgRWZlTo9fLO
+	1zeyOGv46Xtv7tJ1+9AZJu+AYqVQpteLBaTXJINs4OR3bMT6YaEUXoCk4T87HOOlUGGI9OnV0lsPC
+	cCcRkfVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAxq-00000002zJi-047M;
-	Wed, 13 May 2026 14:53:34 +0000
+	id 1wNAyu-00000002zTj-1Cqf;
+	Wed, 13 May 2026 14:54:40 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAxn-00000002zIg-1CeF
+	id 1wNAyr-00000002zSc-085N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 14:53:32 +0000
+	Wed, 13 May 2026 14:54:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B9DB844521
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:53:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FCB7C2BCFC
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:53:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 42DBA44253;
+	Wed, 13 May 2026 14:54:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48FC9C19425;
+	Wed, 13 May 2026 14:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778684010;
-	bh=LMhdgoi3njzJotgYcklPor79GNIBzJsVfXsl3qI6Kk0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=TKAbkL06NRIUOFtZQUCIOXnZYnSu80pwRDQO94B9hL9he39AJIPBvovzEvwVfteaI
-	 itY8WTQZ60PL4ARlaBHG3ACL/78bajJ6pRjpeH1PFaHkqkSVXmoIuQKHlvT0jxN6Ov
-	 0YYAZpY7VdalRcNXYaI3UnixyRgxVx00phYd0xKKaqHzPslG3vMjNv8XMv/SpI9qGI
-	 80tkQl04CWSpuNKmQucrsD4rY+s2Hadw16F3jCpfyKswCiSVVGjnPgydcP/SL1GSCF
-	 XZnjO5LlhQx8oPd34xc/ZnIQWBQE+3vDF0deqIGy9e7baN2Nk4KaoQFlpSuQ4d1OE8
-	 8De+FnUxhCIzw==
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-133466cf955so1245116c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 07:53:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+cFscO2B2Epk6kHDC8xvIDd3Ca4WTzTb6eTnE8xxj+A4jv7qp/y5sNsIXcetkCok42cU40lMUar9H8x7wZW2Df@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpO38QWsDUH9OaWizZbOMT1gXuWSzv1NoE0sZ+qNmdY7BJYk/h
-	e45zbQ6VdZh70FOQ0jBSJQiTlPZ4oDiu2ivgYQDUgXeNjg6JcOySA8Pjya4MWLla93q7HQ/M3IK
-	UEJwzUejzcPHo/hUTu8s+ofXIuUrXsw==
-X-Received: by 2002:a05:7022:43a1:b0:130:5ec9:7ad0 with SMTP id
- a92af1059eb24-13436bb11f1mr2400986c88.41.1778684009895; Wed, 13 May 2026
- 07:53:29 -0700 (PDT)
+	s=k20201202; t=1778684076;
+	bh=5tb/dZ3Z6XZ9rdTRViFJg2CQhxIhIhB3K1EbtjSZ+/0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OvLTF6/v0D+Is1Oo2vvsUkztjB8o43huMqy8iw+pSIEJ/nvZeP4oZB7YNeLzpX70+
+	 F6KHL8ycBfURSnQT1p+fKlIB9OhRQVTn0tCsXa1apa7oDIctXQWRwXvxjqjrRXnGVK
+	 vd0ARq2IWqI97wp/22xXUA4xRls5LUhWjIkH09oIc79WCYDerBL44nYC8NvA/NJ6ri
+	 F+QGxwMrRLrw+4UqlN3r2QqLBtZCTVNDdmCrzGaBuNlD8cL0XM2IFfnEbrmTW1Rw7d
+	 GJhSsAo2QS1ZHFIkt5/EhT5m/ZBORkFb5yljim2NIz9XpXL5HyJ43DPn1XUH7ViMLt
+	 BGE9bIg+4eV6w==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	linux-kbuild@vger.kernel.org,
+	stable@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Kees Cook <kees@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] [v2] iommu, debugobjects: avoid gcc-16.1 section mismatch warnings
+Date: Wed, 13 May 2026 16:53:54 +0200
+Message-Id: <20260513145425.1579430-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-References: <20260331002357.7995-1-rosenp@gmail.com>
-In-Reply-To: <20260331002357.7995-1-rosenp@gmail.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Wed, 13 May 2026 14:53:17 +0000
-X-Gmail-Original-Message-ID: <CAAOTY__MJGamrOAENzdvzL3gVMdhon-yYGV8rfvsE_euG2jw0A@mail.gmail.com>
-X-Gm-Features: AVHnY4LYLjxIAceAyLRSTOkEhrTPNAlqPiXtwzu6SK6gKwAm8kNQnVmKIaBiuH0
-Message-ID: <CAAOTY__MJGamrOAENzdvzL3gVMdhon-yYGV8rfvsE_euG2jw0A@mail.gmail.com>
-Subject: Re: [PATCH] drm/mediatek: simplify mtk_crtc allocation
-To: Rosen Penev <rosenp@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"moderated list:DRM DRIVERS FOR MEDIATEK" <linux-mediatek@lists.infradead.org>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_075331_362529_66E1E9A3 
-X-CRM114-Status: GOOD (  16.41  )
+X-CRM114-CacheID: sfid-20260513_075437_114691_50B09BED 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,74 +80,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Rosen:
+From: Arnd Bergmann <arnd@arndb.de>
 
-Rosen Penev <rosenp@gmail.com> =E6=96=BC 2026=E5=B9=B43=E6=9C=8831=E6=97=A5=
-=E9=80=B1=E4=BA=8C =E4=B8=8A=E5=8D=8812:24=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> Use a flexible array member to combine allocations.
+gcc-16 has gained some more advanced inter-procedual optimization
+techniques that enable it to inline the dummy_tlb_add_page() and
+dummy_tlb_flush() function pointers into a specialized version of
+__arm_v7s_unmap:
 
-Applied to mediatek-drm-next [1], thanks.
+WARNING: modpost: vmlinux: section mismatch in reference: __arm_v7s_unmap+0x2cc (section: .text) -> dummy_tlb_add_page (section: .init.text)
+ERROR: modpost: Section mismatches detected.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-next
+From what I can tell, the transformation is correct, as this is only
+called when __arm_v7s_unmap() is called from arm_v7s_do_selftests(),
+which is also __init. Since __arm_v7s_unmap() however is not __init,
+gcc cannot inline the inner function calls directly.
 
-Regards,
-Chun-Kuang.
+In debug_objects_selftest(), the same thing happens. Both the
+caller and the leaf function are __init, but the IPA pulls
+it into a non-init one:
 
->
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/gpu/drm/mediatek/mtk_crtc.c | 13 ++++---------
->  1 file changed, 4 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediat=
-ek/mtk_crtc.c
-> index fcb16f3f7b23..914841d2396e 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_crtc.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
-> @@ -62,7 +62,6 @@ struct mtk_crtc {
->         struct device                   *dma_dev;
->         struct mtk_mutex                *mutex;
->         unsigned int                    ddp_comp_nr;
-> -       struct mtk_ddp_comp             **ddp_comp;
->         unsigned int                    num_conn_routes;
->         const struct mtk_drm_route      *conn_routes;
->
-> @@ -71,6 +70,8 @@ struct mtk_crtc {
->         bool                            config_updating;
->         /* lock for config_updating to cmd buffer */
->         spinlock_t                      config_lock;
-> +
-> +       struct mtk_ddp_comp             *ddp_comp[];
->  };
->
->  struct mtk_crtc_state {
-> @@ -1048,18 +1049,12 @@ int mtk_crtc_create(struct drm_device *drm_dev, c=
-onst unsigned int *path,
->                 }
->         }
->
-> -       mtk_crtc =3D devm_kzalloc(dev, sizeof(*mtk_crtc), GFP_KERNEL);
-> +       mtk_crtc =3D devm_kzalloc(dev, struct_size(mtk_crtc, ddp_comp, pa=
-th_len + (conn_routes ? 1 : 0)), GFP_KERNEL);
->         if (!mtk_crtc)
->                 return -ENOMEM;
->
-> -       mtk_crtc->mmsys_dev =3D priv->mmsys_dev;
->         mtk_crtc->ddp_comp_nr =3D path_len;
-> -       mtk_crtc->ddp_comp =3D devm_kcalloc(dev,
-> -                                         mtk_crtc->ddp_comp_nr + (conn_r=
-outes ? 1 : 0),
-> -                                         sizeof(*mtk_crtc->ddp_comp),
-> -                                         GFP_KERNEL);
-> -       if (!mtk_crtc->ddp_comp)
-> -               return -ENOMEM;
-> +       mtk_crtc->mmsys_dev =3D priv->mmsys_dev;
->
->         mtk_crtc->mutex =3D mtk_mutex_get(priv->mutex_dev);
->         if (IS_ERR(mtk_crtc->mutex)) {
-> --
-> 2.53.0
->
+WARNING: modpost: vmlinux: section mismatch in reference: lookup_object_or_alloc+0x7c (section: .text.lookup_object_or_alloc) -> is_static_object (section: .init.text)
+
+Marking the affected functions as not "__init" would reliably avoid this
+issue but is not a good solution because it removes an otherwise correct
+annotation. I tried marking the functions as 'noinline', but that ended
+up not covering all the affected configurations.
+
+With some more experimenting, I found that marking these functions as
+__attribute__((noipa)) is both logical and reliable.
+
+In order to keep the syntax readable, add a custom macro for this in
+include/linux/compiler_attributes.h next to other related macros and
+use it to annotate both files.
+
+Link: https://lore.kernel.org/all/abRB6g-48ZX6Yl2r@willie-the-truck/
+Cc: Will Deacon <will@kernel.org>
+Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Miguel Ojeda <ojeda@kernel.org>
+Cc: linux-kbuild@vger.kernel.org
+Cc: stable@vger.kernel.org
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+v2: I merged both patches into one, to simplify the dependency
+on the new compiler_attributes.h macro.
+---
+ drivers/iommu/io-pgtable-arm-v7s.c  | 18 ++++++++++++------
+ include/linux/compiler_attributes.h | 11 +++++++++++
+ lib/debugobjects.c                  |  2 +-
+ 3 files changed, 24 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/iommu/io-pgtable-arm-v7s.c b/drivers/iommu/io-pgtable-arm-v7s.c
+index 40e33257d3c2..1dbef8c55007 100644
+--- a/drivers/iommu/io-pgtable-arm-v7s.c
++++ b/drivers/iommu/io-pgtable-arm-v7s.c
+@@ -777,21 +777,27 @@ struct io_pgtable_init_fns io_pgtable_arm_v7s_init_fns = {
+ 
+ static struct io_pgtable_cfg *cfg_cookie __initdata;
+ 
+-static void __init dummy_tlb_flush_all(void *cookie)
++/*
++ * __noipa prevents gcc from turning indirect iommu_flush_ops calls
++ * into direct calls from a specialized __arm_v7s_unmap() that triggers
++ * a build time section mismatch assertion.
++ */
++static __noipa void __init dummy_tlb_flush_all(void *cookie)
+ {
+ 	WARN_ON(cookie != cfg_cookie);
+ }
+ 
+-static void __init dummy_tlb_flush(unsigned long iova, size_t size,
+-				   size_t granule, void *cookie)
++static __noipa void __init dummy_tlb_flush(unsigned long iova, size_t size,
++					   size_t granule, void *cookie)
+ {
+ 	WARN_ON(cookie != cfg_cookie);
+ 	WARN_ON(!(size & cfg_cookie->pgsize_bitmap));
+ }
+ 
+-static void __init dummy_tlb_add_page(struct iommu_iotlb_gather *gather,
+-				      unsigned long iova, size_t granule,
+-				      void *cookie)
++static __noipa void __init dummy_tlb_add_page(struct iommu_iotlb_gather *gather,
++					      unsigned long iova,
++					      size_t granule,
++					      void *cookie)
+ {
+ 	dummy_tlb_flush(iova, granule, granule, cookie);
+ }
+diff --git a/include/linux/compiler_attributes.h b/include/linux/compiler_attributes.h
+index c16d4199bf92..836a50f5917a 100644
+--- a/include/linux/compiler_attributes.h
++++ b/include/linux/compiler_attributes.h
+@@ -396,6 +396,17 @@
+ # define __disable_sanitizer_instrumentation
+ #endif
+ 
++/*
++ * Optional: not supported by clang
++ *
++ *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Attributes.html#index-noipa
++ */
++#if __has_attribute(noipa)
++# define __noipa __attribute__((noipa))
++#else
++# define __noipa
++#endif
++
+ /*
+  *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Function-Attributes.html#index-weak-function-attribute
+  *   gcc: https://gcc.gnu.org/onlinedocs/gcc/Common-Variable-Attributes.html#index-weak-variable-attribute
+diff --git a/lib/debugobjects.c b/lib/debugobjects.c
+index 12e2e42e6a31..c93b7ca3e1ab 100644
+--- a/lib/debugobjects.c
++++ b/lib/debugobjects.c
+@@ -1212,7 +1212,7 @@ struct self_test {
+ 
+ static __initconst const struct debug_obj_descr descr_type_test;
+ 
+-static bool __init is_static_object(void *addr)
++static __noipa bool __init is_static_object(void *addr)
+ {
+ 	struct self_test *obj = addr;
+ 
+-- 
+2.39.5
+
 
