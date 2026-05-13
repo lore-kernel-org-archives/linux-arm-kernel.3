@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3801DCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 00:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41019CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 01:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jc2UE2akxQAzjNr5wziIui7yUcuJEuqdgN0QuQVwvGI=; b=zSxVABHFxMn6aaVbmGVeWvLuMy
-	xnbOwsZfCTncEn+392Y1NpW56Lgp3tSCsBJLKYQH11Zg66/nowxmQG0KXmZJEOtNusKtRIS9onLzr
-	xgWTDeQ6lXGsxUthlt7LOV5PdNoRhllpa7e1SPVaxKRtALdykzC45SOiowrwn6wnDcgE6k4s2Hha4
-	Q20LD4GB71cBPrroasWhLDwTtjtJuAs+EBFt+xAxyFjOKlIbAgOoIzuYi1/3RIT2raxsVzsewTRVQ
-	GzNZMUGCyBLISDqkCiHfJ4D9jkaTtyeuFJVSPFVKIPoemDFS2QM+dNiaBGVGU6lc+DVGF/YAfkIf6
-	c/9mgliw==;
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iWOMFoOs5ZLB23ex2t3PflHDKuzpdvnCncHsvkS8LTU=; b=aaxq+BTC1fiiUIk26+f4k7QXws
+	BH2ith6gxoIvzawGHUJJt+X2AzY3dINCa1HetWodKJq91EHAX8xiwKfvu5n0CRBLtXvw7Mt90A2dg
+	kMOm8CHRry5cJ2ywAb9X26RbFdF1aKM50TN9K6kMXon2fHJMifF1C4nEOTXj8HOvr8PNKnMbTydeS
+	tRaYNn9dq7awXrDqc2w6mZMW/myttIrFZG2VzC9GjLBohNELe3erU6pG5Zlw5gZkd7E9jBMA1P/zB
+	OgOBJBIpY6jw0rF4ukTz6eTxB/6WGk73ec+9jzaEihI7BL0DYZdl+b5t7PQ2XJPs+0vZBJ6ZZ5Qdc
+	VJKxDb1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMxZh-00000000n9T-0Q8V;
-	Wed, 13 May 2026 00:35:45 +0000
-Received: from mail-dy1-x1329.google.com ([2607:f8b0:4864:20::1329])
+	id 1wMy0N-00000000pVA-2sIY;
+	Wed, 13 May 2026 01:03:19 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMxZe-00000000n8C-0OAZ
+	id 1wMy0L-00000000pUD-0vy8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 00:35:43 +0000
-Received: by mail-dy1-x1329.google.com with SMTP id 5a478bee46e88-2ee1054627bso5166898eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 May 2026 17:35:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=usp.br; s=usp-google; t=1778632541; x=1779237341; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jc2UE2akxQAzjNr5wziIui7yUcuJEuqdgN0QuQVwvGI=;
-        b=KLPJk/UVi5rdJzibhI6Nx6qD/avRXHgVE9LdJcH+4TG00Iv4HTujk5ucq1F6E1s8hh
-         i/OqkSKMFrSXCt5OBbfaFDXac2qpc47ezgphohzyyGCQJn9yxV/XDxV16UTkVQmlLoCw
-         u7SHQXNOXTbVC/XzJFeBhuAMsJd2JRX2iHLzGBv+IDLcnMpIwVbQKpR0ly9wmz9jDb+5
-         UcsZAeo1lJCwZaorwTV1VOm64DCQcyvgWTEYY8xl3VdW3Zm2hQUmt1ItcD7/CqYEBgII
-         SbQWAQGv7ICgCfcH70ULruRFK0HDSdJASYY0rF1qMzMs7Rn0HPHM9QA9aEmVvSqNlvct
-         7QFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778632541; x=1779237341;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=jc2UE2akxQAzjNr5wziIui7yUcuJEuqdgN0QuQVwvGI=;
-        b=PVzb3gXgS0WckuYJClKrAXCmCevjFTgiNXf4+QFw9wbzSM38j5ODVCBlKpxh1+L8Mc
-         iqFXOdK19pyPnOs1qPWqtcIgOZAzRKGPG12oQzF23C+A+CgqNkA/s2OhGPEpv6zB2By/
-         ObcdQK4SlP/bLUMKTRCIsScyluAaH28pjAIW+ULv0tlNFftbpHiwdmrJ/x+h16JUghoA
-         WYkiAwGGiFLJtdAToX6Yssotzwyx8avnduCofuQCM3ZdWQPJZCo6N70Z3T2U8DGqyUiD
-         tNORc3oFqyAdIask6ufVR3P+hgXHjL3o1T8WBAhVV2hRSJ9nPiVLeWgo50sSLYf//1/y
-         AaGQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/mvy3hPrWXfrp8rOKIVyeQspfVD7le/t+JecANrsv7XiHGNMdfsuDxJJZKE1JCpjOVFpx1GqjHKfQWIpfM8cj9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCajqQkTKO1OS/4n/evfD6IKCN3JaBMRotPc51N/wu19hJVOiY
-	wU7UQ5/60dqvVXEjRll7R8DwRP3s7uvp9k6WHemo8BFIYvqLh7J/rzAAe1b0j5IJASA=
-X-Gm-Gg: Acq92OHNHAsyLJ63DbB+l7LrrMMOeCq7jtRrohLqKdTzukCASxwIgLKeC7DdedbCIEq
-	xKtQIcLra0YYUqxoLhNt711Ewtk1uvErPr+NlOtp+si9rLfBSssh6lpqABnf4wKww7cI8B12vmp
-	FTmVm+Yiw50l6APawb1UNIYB7EoEOFcy4TULsPaIaXJriEjImU6VKob23AJg7p7xzuoqYpuIU9A
-	XAIP0DZkL3UlO8Do5p2ifXF7LxXP7XX3r5M2xemT+IvCzJBDLin9WFYIOhADplZ/mGCSVxXY7dl
-	kSNgqQu6NCtjpHV1LsqSYAjJlwdLhU9d4MCbxK3k9YjGRyHMjOFYVn2nbev8W7QxZrHnc5wQidI
-	+kT4UFDDCWZmGpZf3+Z510dcJMrJRZI2FoP0aQxtWExMpXiMTZTgE/Df61/LwhKKPKFt9fRKSgk
-	EZdrNEzJogv8ey68BbGzh75TzkH5NPxdrz8KWPwxZZLCZXXeT0DsPmaPNkFdn8K/rKksXgI94hD
-	oT/GcuFD/n1xL8mHOumqtBV4tLRpkForeiFphZcv0br03b/
-X-Received: by 2002:a05:7300:7241:b0:2ee:7b2e:8a3e with SMTP id 5a478bee46e88-2ff936311e3mr3474885eec.1.1778632541186;
-        Tue, 12 May 2026 17:35:41 -0700 (PDT)
-Received: from gui-host.Dlink ([177.140.77.53])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f91004b6a2sm18471381eec.0.2026.05.12.17.35.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 May 2026 17:35:40 -0700 (PDT)
-From: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
-To: anand.ashok.dumbre@xilinx.com,
-	andy@kernel.org,
-	conall.ogriofa@amd.com,
-	dlechner@baylibre.com,
-	jic23@kernel.org,
-	manish.narani@xilinx.com,
-	michal.simek@amd.com,
-	nuno.sa@analog.com,
-	salih.erim@amd.com
-Cc: Guilherme Ivo Bozi <guilherme.bozi@usp.br>,
-	Jonathan.Cameron@huawei.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-iio@vger.kernel.org
-Subject: [PATCH v4 3/3] iio: adc: xilinx-ams: refactor alarm mapping to table-driven approach
-Date: Tue, 12 May 2026 21:31:52 -0300
-Message-ID: <20260513003503.339418-4-guilherme.bozi@usp.br>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260513003503.339418-1-guilherme.bozi@usp.br>
-References: <20260513003503.339418-1-guilherme.bozi@usp.br>
+	Wed, 13 May 2026 01:03:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version:
+	Content-Type; bh=iWOMFoOs5ZLB23ex2t3PflHDKuzpdvnCncHsvkS8LTU=;
+	b=iK722dMgsK6yDVjlZkJn+BP2CbLApDyDAsda7/SH2VgEorS27xqd2l+CfYC6ub
+	58NUpOqV7hFVcXipuEDIGVLTOoLDCXgu1pcq560MSqJh3yGW73i16Eeg7paWs7GJ
+	HfwJT9oADQJvFVAafzmNo4R4wAU78Tfvcew+y1PB/j0ZE=
+Received: from server227.. (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wBn222_zQNq_ZQcBA--.5332S2;
+	Wed, 13 May 2026 09:02:55 +0800 (CST)
+From: liulhong617@163.com
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	liulhong617 <liulhong617@gmail.com>
+Subject: [PATCH] arm64: mm: fix accidental linear mapping of no-map reserved memory
+Date: Wed, 13 May 2026 09:02:55 +0800
+Message-Id: <20260513010255.3764038-1-liulhong617@163.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wBn222_zQNq_ZQcBA--.5332S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxWr4ktrWxtr15Zw4UAw1xuFg_yoW5Cw13p3
+	y8GFn8Cr4jqryIq3ySy34DXrn5Zan3tF45JFsIkryjyFs8WFya9F4xC3W2gryjyayxZr1Y
+	gr42ya4UWr15ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jOZ2-UUUUU=
+X-Originating-IP: [39.170.101.209]
+X-CM-SenderInfo: holxzxxrqjliqx6rljoofrz/xtbC+h-9WGoDzb+uCQAA38
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_173542_142777_3BB2C13D 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20260512_180317_660350_2C01F325 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,236 +73,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace multiple open-coded switch statements that map between
-scan_index, alarm bits, and register offsets with a centralized
-table-driven approach.
+From: liulhong617 <liulhong617@gmail.com>
 
-Introduce a struct-based alarm_map to describe the relationship
-between scan indices and alarm offsets, and add a helper to
-translate scan_index to event IDs. This removes duplicated logic
-across ams_get_alarm_offset(), ams_event_to_channel(), and
-ams_get_alarm_mask().
+When reserved-memory regions with the "no-map" property are not
+page-aligned, the kernel may accidentally map them into the linear
+mapping, contradicting the no-map semantics.
 
-The new approach improves maintainability, reduces code size,
-and makes it easier to extend or modify alarm mappings in the
-future, while preserving existing behavior.
+The root cause is a mismatch between /proc/iomem's address boundaries
+and the actual page table mapping boundaries:
 
-Signed-off-by: Guilherme Ivo Bozi <guilherme.bozi@usp.br>
+1. /proc/iomem derives its ranges from memblock via
+   memblock_region_reserved_base_pfn/memblock_region_reserved_end_pfn,
+   which perform PFN rounding so the displayed boundaries are
+   page-aligned. This gives the impression that the no-map region
+   occupies whole pages.
+
+2. However, memblock_mark_nomap() splits memblock.memory regions at
+   exact byte boundaries (memblock_isolate_range preserves raw DT
+   base/size with no alignment). When for_each_mem_range iterates the
+   non-NOMAP regions adjacent to a no-map region, it returns start/end
+   values that are NOT page-aligned — they are the precise byte
+   boundaries from the memblock split.
+
+3. These sub-page-aligned values are passed to
+   __create_pgd_mapping_locked(), which does:
+     phys &= PAGE_MASK;
+     addr = virt & PAGE_MASK;
+     end = PAGE_ALIGN(virt + size);
+   The downward rounding of phys via PAGE_MASK extends the mapped
+   range backward into the adjacent no-map region, effectively
+   including no-map memory in the linear mapping.
+
+For example, with 64K pages, reserved_region@A2000000 (base=0xA2000000,
+size=0x8000, no-map) causes for_each_mem_range to return
+start=0xA2008000 for the next mappable region. After phys &= PAGE_MASK,
+the actual mapping starts at 0xA2000000 — the entire no-map region is
+incorrectly mapped.
+
+Fix this by rounding the mappable range inward to PAGE_SIZE boundaries
+before passing it to __map_memblock: start is rounded UP and end is
+rounded DOWN. This ensures the mapped area never overlaps with adjacent
+no-map regions. The cost is at most one page of unmapped gap at each
+boundary, which is preferable to violating no-map semantics.
+
+Signed-off-by: liulhong617 <liulhong617@gmail.com>
 ---
- drivers/iio/adc/xilinx-ams.c | 161 +++++++++++++----------------------
- 1 file changed, 58 insertions(+), 103 deletions(-)
+ arch/arm64/mm/mmu.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/drivers/iio/adc/xilinx-ams.c b/drivers/iio/adc/xilinx-ams.c
-index 70a1f97f6dad..d38c4401dfce 100644
---- a/drivers/iio/adc/xilinx-ams.c
-+++ b/drivers/iio/adc/xilinx-ams.c
-@@ -102,6 +102,7 @@
- #define AMS_PS_SEQ_MASK			GENMASK(21, 0)
- #define AMS_PL_SEQ_MASK			GENMASK_ULL(59, 22)
- 
-+#define AMS_ALARM_NONE			0x000 /* not a real offset */
- #define AMS_ALARM_TEMP			0x140
- #define AMS_ALARM_SUPPLY1		0x144
- #define AMS_ALARM_SUPPLY2		0x148
-@@ -763,9 +764,49 @@ static int ams_read_raw(struct iio_dev *indio_dev,
- 	}
- }
- 
-+struct ams_alarm_map {
-+	enum ams_ps_pl_seq scan_index;
-+	unsigned int base_offset;
-+};
-+
-+/*
-+ * Array index matches enum ams_alarm_bit.
-+ * Entries with base_offset == AMS_ALARM_NONE are unused/invalid
-+ * (e.g. RESERVED) and must be skipped.
-+ */
-+static const struct ams_alarm_map alarm_map[] = {
-+	[AMS_ALARM_BIT_TEMP] = { AMS_SEQ_TEMP, AMS_ALARM_TEMP },
-+	[AMS_ALARM_BIT_SUPPLY1] = { AMS_SEQ_SUPPLY1, AMS_ALARM_SUPPLY1 },
-+	[AMS_ALARM_BIT_SUPPLY2] = { AMS_SEQ_SUPPLY2, AMS_ALARM_SUPPLY2 },
-+	[AMS_ALARM_BIT_SUPPLY3] = { AMS_SEQ_SUPPLY3, AMS_ALARM_SUPPLY3 },
-+	[AMS_ALARM_BIT_SUPPLY4] = { AMS_SEQ_SUPPLY4, AMS_ALARM_SUPPLY4 },
-+	[AMS_ALARM_BIT_SUPPLY5] = { AMS_SEQ_SUPPLY5, AMS_ALARM_SUPPLY5 },
-+	[AMS_ALARM_BIT_SUPPLY6] = { AMS_SEQ_SUPPLY6, AMS_ALARM_SUPPLY6 },
-+	[AMS_ALARM_BIT_RESERVED] = { 0, AMS_ALARM_NONE },
-+	[AMS_ALARM_BIT_SUPPLY7] = { AMS_SEQ_SUPPLY7, AMS_ALARM_SUPPLY7 },
-+	[AMS_ALARM_BIT_SUPPLY8] = { AMS_SEQ_SUPPLY8, AMS_ALARM_SUPPLY8 },
-+	[AMS_ALARM_BIT_SUPPLY9] = { AMS_SEQ_SUPPLY9, AMS_ALARM_SUPPLY9 },
-+	[AMS_ALARM_BIT_SUPPLY10] = { AMS_SEQ_SUPPLY10, AMS_ALARM_SUPPLY10 },
-+	[AMS_ALARM_BIT_VCCAMS] = { AMS_SEQ_VCCAMS, AMS_ALARM_VCCAMS },
-+	[AMS_ALARM_BIT_TEMP_REMOTE] = { AMS_SEQ_TEMP_REMOTE, AMS_ALARM_TEMP_REMOTE },
-+};
-+
-+static int ams_scan_index_to_event(int scan_index)
-+{
-+	for (unsigned int i = 0; i < ARRAY_SIZE(alarm_map); i++) {
-+		if (alarm_map[i].base_offset == AMS_ALARM_NONE)
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index dd85e093f..bc8ac7622 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1175,6 +1175,20 @@ static void __init map_mem(pgd_t *pgdp)
+ 	for_each_mem_range(i, &start, &end) {
+ 		if (start >= end)
+ 			break;
++		/*
++		 * for_each_mem_range may return sub-page-aligned boundaries
++		 * after memblock_mark_nomap() splits regions at byte precision.
++		 * __create_pgd_mapping_locked aligns phys down to PAGE_MASK,
++		 * which could accidentally map no-map memory on the boundary.
++		 * Round the mappable range inward: start UP, end DOWN, so
++		 * that the mapped area never overlaps with adjacent no-map
++		 * regions. The cost is at most one page of unmapped gap at
++		 * each boundary.
++		 */
++		start = PAGE_ALIGN(start);
++		end = end & PAGE_MASK;
++		if (start >= end)
 +			continue;
-+
-+		if (alarm_map[i].scan_index == scan_index)
-+			return i;
-+	}
-+
-+	return -EINVAL;
-+}
-+
- static int ams_get_alarm_offset(int scan_index, enum iio_event_direction dir)
- {
--	int offset;
-+	int offset, event;
- 
- 	if (scan_index >= AMS_PS_SEQ_MAX)
- 		scan_index -= AMS_PS_SEQ_MAX;
-@@ -779,36 +820,11 @@ static int ams_get_alarm_offset(int scan_index, enum iio_event_direction dir)
- 		offset = 0;
- 	}
- 
--	switch (scan_index) {
--	case AMS_SEQ_TEMP:
--		return AMS_ALARM_TEMP + offset;
--	case AMS_SEQ_SUPPLY1:
--		return AMS_ALARM_SUPPLY1 + offset;
--	case AMS_SEQ_SUPPLY2:
--		return AMS_ALARM_SUPPLY2 + offset;
--	case AMS_SEQ_SUPPLY3:
--		return AMS_ALARM_SUPPLY3 + offset;
--	case AMS_SEQ_SUPPLY4:
--		return AMS_ALARM_SUPPLY4 + offset;
--	case AMS_SEQ_SUPPLY5:
--		return AMS_ALARM_SUPPLY5 + offset;
--	case AMS_SEQ_SUPPLY6:
--		return AMS_ALARM_SUPPLY6 + offset;
--	case AMS_SEQ_SUPPLY7:
--		return AMS_ALARM_SUPPLY7 + offset;
--	case AMS_SEQ_SUPPLY8:
--		return AMS_ALARM_SUPPLY8 + offset;
--	case AMS_SEQ_SUPPLY9:
--		return AMS_ALARM_SUPPLY9 + offset;
--	case AMS_SEQ_SUPPLY10:
--		return AMS_ALARM_SUPPLY10 + offset;
--	case AMS_SEQ_VCCAMS:
--		return AMS_ALARM_VCCAMS + offset;
--	case AMS_SEQ_TEMP_REMOTE:
--		return AMS_ALARM_TEMP_REMOTE + offset;
--	default:
-+	event = ams_scan_index_to_event(scan_index);
-+	if (event < 0 || alarm_map[event].base_offset == AMS_ALARM_NONE)
- 		return 0;
--	}
-+
-+	return alarm_map[event].base_offset + offset;
- }
- 
- static const struct iio_chan_spec *ams_event_to_channel(struct iio_dev *dev,
-@@ -821,49 +837,13 @@ static const struct iio_chan_spec *ams_event_to_channel(struct iio_dev *dev,
- 		scan_index = AMS_PS_SEQ_MAX;
- 	}
- 
--	switch (event) {
--	case AMS_ALARM_BIT_TEMP:
--		scan_index += AMS_SEQ_TEMP;
--		break;
--	case AMS_ALARM_BIT_SUPPLY1:
--		scan_index += AMS_SEQ_SUPPLY1;
--		break;
--	case AMS_ALARM_BIT_SUPPLY2:
--		scan_index += AMS_SEQ_SUPPLY2;
--		break;
--	case AMS_ALARM_BIT_SUPPLY3:
--		scan_index += AMS_SEQ_SUPPLY3;
--		break;
--	case AMS_ALARM_BIT_SUPPLY4:
--		scan_index += AMS_SEQ_SUPPLY4;
--		break;
--	case AMS_ALARM_BIT_SUPPLY5:
--		scan_index += AMS_SEQ_SUPPLY5;
--		break;
--	case AMS_ALARM_BIT_SUPPLY6:
--		scan_index += AMS_SEQ_SUPPLY6;
--		break;
--	case AMS_ALARM_BIT_SUPPLY7:
--		scan_index += AMS_SEQ_SUPPLY7;
--		break;
--	case AMS_ALARM_BIT_SUPPLY8:
--		scan_index += AMS_SEQ_SUPPLY8;
--		break;
--	case AMS_ALARM_BIT_SUPPLY9:
--		scan_index += AMS_SEQ_SUPPLY9;
--		break;
--	case AMS_ALARM_BIT_SUPPLY10:
--		scan_index += AMS_SEQ_SUPPLY10;
--		break;
--	case AMS_ALARM_BIT_VCCAMS:
--		scan_index += AMS_SEQ_VCCAMS;
--		break;
--	case AMS_ALARM_BIT_TEMP_REMOTE:
--		scan_index += AMS_SEQ_TEMP_REMOTE;
--		break;
--	default:
--		break;
--	}
-+	if (event >= ARRAY_SIZE(alarm_map))
-+		return NULL;
-+
-+	if (alarm_map[event].base_offset == AMS_ALARM_NONE)
-+		return NULL;
-+
-+	scan_index += alarm_map[event].scan_index;
- 
- 	for (i = 0; i < dev->num_channels; i++)
- 		if (dev->channels[i].scan_index == scan_index)
-@@ -877,43 +857,18 @@ static const struct iio_chan_spec *ams_event_to_channel(struct iio_dev *dev,
- 
- static int ams_get_alarm_mask(int scan_index)
- {
--	int bit = 0;
-+	int bit = 0, event;
- 
- 	if (scan_index >= AMS_PS_SEQ_MAX) {
- 		bit = AMS_PL_ALARM_START;
- 		scan_index -= AMS_PS_SEQ_MAX;
- 	}
- 
--	switch (scan_index) {
--	case AMS_SEQ_TEMP:
--		return BIT(AMS_ALARM_BIT_TEMP + bit);
--	case AMS_SEQ_SUPPLY1:
--		return BIT(AMS_ALARM_BIT_SUPPLY1 + bit);
--	case AMS_SEQ_SUPPLY2:
--		return BIT(AMS_ALARM_BIT_SUPPLY2 + bit);
--	case AMS_SEQ_SUPPLY3:
--		return BIT(AMS_ALARM_BIT_SUPPLY3 + bit);
--	case AMS_SEQ_SUPPLY4:
--		return BIT(AMS_ALARM_BIT_SUPPLY4 + bit);
--	case AMS_SEQ_SUPPLY5:
--		return BIT(AMS_ALARM_BIT_SUPPLY5 + bit);
--	case AMS_SEQ_SUPPLY6:
--		return BIT(AMS_ALARM_BIT_SUPPLY6 + bit);
--	case AMS_SEQ_SUPPLY7:
--		return BIT(AMS_ALARM_BIT_SUPPLY7 + bit);
--	case AMS_SEQ_SUPPLY8:
--		return BIT(AMS_ALARM_BIT_SUPPLY8 + bit);
--	case AMS_SEQ_SUPPLY9:
--		return BIT(AMS_ALARM_BIT_SUPPLY9 + bit);
--	case AMS_SEQ_SUPPLY10:
--		return BIT(AMS_ALARM_BIT_SUPPLY10 + bit);
--	case AMS_SEQ_VCCAMS:
--		return BIT(AMS_ALARM_BIT_VCCAMS + bit);
--	case AMS_SEQ_TEMP_REMOTE:
--		return BIT(AMS_ALARM_BIT_TEMP_REMOTE + bit);
--	default:
-+	event = ams_scan_index_to_event(scan_index);
-+	if (event < 0)
- 		return 0;
--	}
-+
-+	return BIT(event + bit);
- }
- 
- static int ams_read_event_config(struct iio_dev *indio_dev,
+ 		/*
+ 		 * The linear map must allow allocation tags reading/writing
+ 		 * if MTE is present. Otherwise, it has the same attributes as
 -- 
-2.47.3
+2.34.1
 
 
