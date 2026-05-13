@@ -4,81 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3EDCD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 17:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2EECD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 17:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWwRMJn4ysC40SZu5iEtoxx7CK76uQCrAvLKY0VkjCM=; b=3Z5DB5ADGvMAuQKxffT1R9SDL4
-	efzcB6/ntgcG+LTuIS7KsUCVsG0f59PHlNSkTJJnr/uDxttUAuE1Mv06bBxtS66mXR89b2oGRcQm3
-	pWgB/Fj8cu7/q0qtxDTPIHLE8VKbcJXPdO3U5INa7ekxoxY8huu9PAGo6+MZfMGNrwDrP/FEjHpLh
-	OQpItllnv7xGSQb9JjZk+/6ZPP4BLhroQ0B8Q/IE8I9gI7hDuLGa+BCuuuJtJ684ygQiiReiTOgKo
-	I9+kIjoTjd9z1CT80IGYF8FqVib5tH0G+N4MRTFwvprQTCfqaSbol81tXAb14Qtnbaf018fC8DhXF
-	0kKDJztA==;
+	bh=gO9a9lTw6u/Y6PbEOxbqkftysVjoFRl2g81+sX/pxL0=; b=T5mRekoHkrpnPHA4V14fo0Qz3O
+	n7iuUVb1yWAmo00yHjuS7Ynmts74reAMusfDkp14/ZClyahiRMVFjXisakVRUUqKLaixmhWIrsQB6
+	h0zox7FnAU9kHCQuStJ3uNPCvmcuzBl3jdBklwIq1AHJjHAyc34gKlxBcSlf3sbzD8BPmNVoerIJ0
+	VGc/dk/wRxQxRSm6bE5GldnxcE6AJ5sdbxxYRWoXUnxTfl/FrPuTp7MGB4ea5+uguGjMlXmcisLy8
+	w3FMSAKNFZ1MEFui0qLaWbU86343wn7/J5lP7W60OGFRUzjfb+8gXZV98MeHEUntCOwHPhppR/SMI
+	8tR5ZCWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNCzi-00000003IKd-248F;
-	Wed, 13 May 2026 17:03:38 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1wND1E-00000003Id8-3TNr;
+	Wed, 13 May 2026 17:05:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNCzg-00000003IJp-2zyU
+	id 1wND1D-00000003Icq-1LZ4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 17:03:37 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2bd1dbcccf6so29358295ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 10:03:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778691815; x=1779296615; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XWwRMJn4ysC40SZu5iEtoxx7CK76uQCrAvLKY0VkjCM=;
-        b=bZO3umTWVXqz/WVGfCeGXDz4erFhP+HKM8aNFCBVQe298S1kkJ2mpjxE8Dhz+NEhIM
-         m6TQa/bZRo05rrpZiRjW/5M2ELRP/EGbnC87hgqxKqdS9GP23JTsmWrh8NiSN1OypwrB
-         UR//+AIX0BGcL6jcoXyD9wNCkl0M7B4uRO/ZaGM3vJmkmaltx0ABy64LVzl2hEi8nsUY
-         DnDcvCq51gKUOUIxJS6yUld8D18fsUDf2WTeI8OVbX1AWsbLI1YAYZeQatOuYk9TQZoS
-         lBoZf0RgQJIhSD6izG+O8A7vLyGBM5OUMtRPCOnUB0+6RXh4qRDRcuE7UupKAPMFbjEG
-         1E3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778691815; x=1779296615;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XWwRMJn4ysC40SZu5iEtoxx7CK76uQCrAvLKY0VkjCM=;
-        b=kqQzJUfnxFV036t7m1t/YqowRhzIKhuLMjlUOpJuNVM4oSbLcSKSL8vobtEGpITgPt
-         SRJ15+ZcluWrFD1l0ouc5bc3zJ+SbsC3xtHrAcFVMYKfkuMZKM2P8CDWnhTZye2/7cYv
-         e0VkdQfCha1fL4Y5D2V+1PnojUq2eAaOVcGraYHTvQR5sKkKqmkKY8sjGauVRN7XQLHf
-         oTvSUE9IlbQaSwrO7JOs7arinUIvCnpbgXNxTvSD9U6+VBtDni/yptnsijb4eNJpPiM7
-         FQZ0yFW8W5VB/KdtdW6NGitrQobu76Q6sz22j21elIOZTFQpaNdgxOa0XEUYVOnMEim+
-         +BRQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/cuYg30oNm8N6evaQfOMuFqA0Uxovy0C9nyQHkSZMSExXrRtZr5FUckxJvKh5/S2K7smx2OsYjMUTKXuo30CQw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0gu0E7NB+Rw6nELpa1YNTtELUeZLiZuNheHESfMdBrL3dL9u6
-	gOEE43QKBIgs9s0Ird5/rRtWjcZDzW5ewxfNGFcNDLLYP6g9Emz8C6wpasxPKRwNEuvd8WFBqdf
-	3cFpFmGbWabEUICqHOI8kz6p/eA==
-X-Received: from plbkf6.prod.google.com ([2002:a17:903:5c6:b0:2b9:53bb:4a09])
- (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:46c4:b0:2bd:2de3:51ad with SMTP id d9443c01a7336-2bd3043ca95mr42686725ad.34.1778691814901;
- Wed, 13 May 2026 10:03:34 -0700 (PDT)
-Date: Wed, 13 May 2026 17:03:33 +0000
-In-Reply-To: <20260512151133.GD7702@ziepe.ca>
-Mime-Version: 1.0
-References: <20260512151133.GD7702@ziepe.ca>
-X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
-Message-ID: <20260513170333.1235601-1-joonwonkang@google.com>
-Subject: Re: [PATCH RFC] iommu: Enable per-device SSID space for SVA
-From: Joonwon Kang <joonwonkang@google.com>
-To: jgg@ziepe.ca
-Cc: Alexander.Grest@microsoft.com, amhetre@nvidia.com, 
-	baolu.lu@linux.intel.com, easwar.hariharan@linux.microsoft.com, 
-	iommu@lists.linux.dev, jacob.jun.pan@linux.intel.com, joonwonkang@google.com, 
-	joro@8bytes.org, jpb@kernel.org, kees@kernel.org, kevin.tian@intel.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	nicolinc@nvidia.com, praan@google.com, robin.murphy@arm.com, 
-	smostafa@google.com, will@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_100336_751602_104D8921 
-X-CRM114-Status: GOOD (  19.06  )
+	Wed, 13 May 2026 17:05:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4DD9260126;
+	Wed, 13 May 2026 17:05:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE86DC19425;
+	Wed, 13 May 2026 17:05:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778691910;
+	bh=pD2y133+MNgkoNr3quTW76FGiTi0U6sd84qgVAoBu1g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oY1+9yFwysb+cDH0n/dgzJTvyWmbhvdAQhddqS44JEXn5L8gVbWcMAo7qTJYusa4X
+	 r/3sh6MeRxRbb/ykQhqT4ZMaCHIeI1r2WB8oSPZDj2DkIIaYIUq8w6Xpo4eZfdR6NU
+	 dPkcRlY3Sj6KmLLcKIrTTC/L/NZLfQOJ5z+JFeT2B4OpPWRM5W6Y+EsgfqcXkOi+qp
+	 fRIe9Qk4lcQ/ACRc02mPTgtwdkh+KllvoFxthMJ31n8R4rWhD/zlyUeM1Aq2LmJAtb
+	 dKIBsqe2M+NDEi0415Laq+bwL1YUqa8kKG2NRSxMWc1Tsq6562u7+CR7a9CuZyBTOy
+	 WxK16Cg4W+B0Q==
+Date: Wed, 13 May 2026 12:05:07 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Joel Stanley <joel@jms.id.au>, openbmc@lists.ozlabs.org,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Rayn Chen <rayn_chen@aspeedtech.com>, linux-i2c@vger.kernel.org,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, jk@codeconstruct.com.au,
+	andriy.shevchenko@linux.intel.com,
+	linux-arm-kernel@lists.infradead.org,
+	Andi Shyti <andi.shyti@kernel.org>
+Subject: Re: [PATCH RESEND v29 1/4] dt-bindings: i2c: Split AST2600 binding
+ into a new YAML
+Message-ID: <177869190656.1316879.13816659240778800181.robh@kernel.org>
+References: <20260513-upstream_i2c-v29-0-fe9926964d55@aspeedtech.com>
+ <20260513-upstream_i2c-v29-1-fe9926964d55@aspeedtech.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260513-upstream_i2c-v29-1-fe9926964d55@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,42 +79,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Tue, May 12, 2026 at 02:51:38PM +0000, Joonwon Kang wrote:
+
+On Wed, 13 May 2026 13:32:00 +0800, Ryan Chen wrote:
+> The AST2600 I2C controller introduces a completely new register layout
+> with separate controller and target register blocks, unlike the mixed
+> register layout used by AST2400/AST2500.
 > 
-> > Appreciate all your clarifications here. So, my understanding is that if
-> > our system does not support ST64BV and ST64BV0 or if our device does not
-> > distinguish between the posted write and the non-posted write regarding
-> > PASID, then we can lift the use of the global PASID space. Can I say this?
+> Move AST2600 I2C binding from aspeed,i2c.yaml to a dedicated
+> aspeed,ast2600-i2c.yaml schema.
 > 
-> You should do what Robin said - just have your driver use a per-device
-> PASID that it allocates and never use the global pasid allocator.
+> Besides the split, this also adjusts for AST2600-specific requirements.
+> - require two reg regions (controller register block + buffer block)
+> - use clock-frequency for bus speed description
+> - interrupts are required on AST2600
+> - use correct DTS coding style in example
 > 
-> To do this lightly re-organize the SVA code so the driver can supply
-> its own PASID, and in this mode we wouldn't activate the ENQCMD
-> features in the mm.
+> No compatible strings are changed.
+> 
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> ---
+> Changes in v26:
+> - commit message: include details of changes from original binding
+> - fix example property ordering to follow DTS coding style
+> - use consistent "AST2600" naming
+> ---
+>  .../bindings/i2c/aspeed,ast2600-i2c.yaml           | 62 ++++++++++++++++++++++
+>  .../devicetree/bindings/i2c/aspeed,i2c.yaml        |  3 +-
+>  2 files changed, 63 insertions(+), 2 deletions(-)
+> 
 
-Ah, we could actively disallow EL0 to execute ENQCMD-like instructions
-when the device driver explicitly shows the intention via a new API like
-`iommu_sva_bind_device_pasid()` that Tian mentioned earlier. And the new
-API only uses the per-device PASID space. It makes a lot of sense. It also
-means that ENQCMD-like instructions are only allowed when the PASID is
-allocated from the global PASID space.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-If a process communicates with only one device with the PASID allocated
-from the per-device PASID space, however, there should be no blocker for
-the process to execute ENQCMD-like instructions, technically speaking. In
-this case, should we allow the process to execute them? and later if the
-process tries to allocate another PASID for another device, should we
-disallow the instruction execution then? I guess this way may complicate
-the implementation without much benefit, though.
-
-To allocate a per-device PASID, I think we should do it using
-`dev->iommu_group->pasid_array` instead of making the device driver
-create its own PASID set since all the devices in the same `iommu_group`
-are supposed to share the same PASID space.
-
-Will create a new patch with the establishment so far.
-
-Thanks,
-Joonwon Kang
 
