@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A50CD484C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 04:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33278CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 04:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uMfTa9s7P+Vwc9gAJlqbhpdF2L+yd3y/frV0OQ/azyE=; b=wKkK4q3FNjFfpPYSuJhPBwfarH
-	lnTm+uKUCx01Q0TSj6QtaCuCwnLCpjbUWlXNdxdvPMs/BZ/2eUxZcXq3k0ihJIsvLwLrxVMvdA/rf
-	9R0lDOXIeDlMQk2pzWHK8Z5K34rjjDMdjJpCivIAR6bRoN612H6n9qfgp/H+kbSxS4JBGVBkXJkiO
-	EJJJZ4YES5BAc2dwmZM4QFHUE2cJl02E64r11XPNIXoBa/FIoKp5iqX6cJEr/JSImEQarvoc3Fxwi
-	mNzyHrqf0Kc7bhwKE03HS9Fo0PwmZjwy+1TkOOXxX+gBgoWJGqRT2cPag3VjS9S28Y6dMrVGe79yO
-	UNd/rVdA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ApRpJ5CgTvyAvUoBge/pm4gZOB0vW5sBGLScXsfmJtY=; b=SunO0kODbEru6kp4e27qVc3nqo
+	NJmQddy0P/5QxtG4f3IyF/bAwkTJFjfeqWwNAYFSMUkU63NJqbGO2hwX3WO93OQa/7itavuHGjYQn
+	0giLy8I1lmBaD5iXsCiix4eAuLrwI4zpDEWw5JMIX+lu4ZrrpSTAlW4J+Ap6Mn4JxqyPcyyC7NHgv
+	DqtherEDIXuT/unENSrDSrTk59c3HqbERvVBDBarCFB8baIo67FH+R3xWwbyk2LhMctfxwZTBEGni
+	CAIwswPbBoeq+UVGD6xEpjw6RXIAOmjXHTpLeQUSgys6v+D1ML8RKyCp5oxZL3U0KDUMuJ7vixtFe
+	oYPjxK3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN1UA-00000001EFV-0WVn;
-	Wed, 13 May 2026 04:46:18 +0000
+	id 1wN1UE-00000001EGz-0rlu;
+	Wed, 13 May 2026 04:46:22 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN1U6-00000001EEb-3YYu
+	id 1wN1UC-00000001EFx-0G0N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 04:46:16 +0000
+	Wed, 13 May 2026 04:46:21 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 783F2153B;
-	Tue, 12 May 2026 21:46:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDAA5153B;
+	Tue, 12 May 2026 21:46:12 -0700 (PDT)
 Received: from a085714.blr.arm.com (a085714.arm.com [10.164.18.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D50B43F7B4;
-	Tue, 12 May 2026 21:46:05 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7A6093F7B4;
+	Tue, 12 May 2026 21:46:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778647571; bh=Ar7XRjBBDowNlfF/xcbZsfZm2D+LS6KtydMQMhNZaVg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=qANEcTeU/Dcys3FkZw/b/PRPRE2ynTMco1ZYTgX/Ai0vu7esyMOaPI9mrj3ZGiakP
-	 2etoVXei2M3NDfELKQUUmNoCEjD8EgVoZdQHsihQ6wyobTh12gCNMVdSGrOb/qqJTB
-	 FF92cNEl94pedZ9CX146Cn2Zgf/i7Ml/SXhmhQ0Q=
+	t=1778647578; bh=4xGOtuj2CVRhi0hzN+I2vi5eDNTXZt1P2D73d9+j0uM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=JfI4UA/SaD7Ajfjfh8yxTqHtbVtcSTUAUubWw255DzWMMHIK+tDyVRDHMGgEPbThu
+	 g5xJ1vn3PtBxTFINgPZVi4l1xZLWtu1ZEA4oSQ5YfFlKS2lFXww/XDbf/thYdJC3ps
+	 e6KlfoTJccw+cNHmqIGPHxwbW4eztz0qPH5SFvQU=
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
@@ -54,15 +54,17 @@ Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Usama Arif <usama.arif@linux.dev>,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org
-Subject: [RFC V2 00/14] arm64/mm: Enable 128 bit page table entries
-Date: Wed, 13 May 2026 10:15:33 +0530
-Message-ID: <20260513044547.4128549-1-anshuman.khandual@arm.com>
+Subject: [RFC V2 01/14] mm: Abstract printing of pxd_val()
+Date: Wed, 13 May 2026 10:15:34 +0530
+Message-ID: <20260513044547.4128549-2-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260513044547.4128549-1-anshuman.khandual@arm.com>
+References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_214614_981221_C40300A3 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20260512_214620_194873_C4C2CAB5 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,135 +79,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_D128 is a new arm architecture feature adding support for VMSAv9-128
-translation system. FEAT_D128 is an optional feature from ARMV9.3 onwards.
-So with this feature arm64 platforms could have two different translation
-systems, VMSAv8-64 and VMSAv9-128 could selectively be enabled.
+Ahead of adding support for D128 pgtables, refactor places that print
+PTE values to use the new __PRIpte format specifier and __PRIpte_args()
+macro to prepare the argument(s). When using D128 pgtables in future,
+we can simply redefine __PRIpte and __PTIpte_args().
 
-FEAT_D128 adds 128 bit page table entries, thus supporting larger physical
-and virtual address range while also expanding available room for more MMU
-management feature bits both for HW and SW.
+Besides there is also an assumption about pxd_val() being always capped
+at 'unsigned long long' size but that will not work for D128 pgtables.
+Just increase its size to u128 if the compiler supports via a separate
+data type pxdval_t which also defaults to existing 'unsigned long long'.
 
-This series has been split into two parts. Generic MM changes followed by
-arm64 platform changes, finally enabling D128 with a new config ARM64_D128.
-
-READ_ONCE() on page table entries get routed via level specific pxdp_get()
-helpers which platforms could then override when required. These accessors
-on arm64 platform help in ensuring page table accesses are performed in an
-atomic manner while reading 128 bit page table entries.
-
-All ARM64_VA_BITS and ARM64_PA_BITS combinations for all page sizes are now
-supported both on D64 and D128 translation regimes. Although new 56 bits VA
-space is not yet supported. Similarly FEAT_D128 skip level is not supported
-currently.
-
-Basic page table geometry has also been changed with D128 as there are fewer
-entries per level. Please refer to the following table for leaf entry sizes.
-
-                    D64              D128
-------------------------------------------------
-| PAGE_SIZE |   PMD  |  PUD  |   PMD  |   PUD  |
------------------------------|-----------------|
-|     4K    |    2M  |  1G   |    1M  |  256M  |
-|    16K    |   32M  | 64G   |   16M  |   16G  |
-|    64K    |  512M  |  4T   |  256M  |    1T  |
-------------------------------------------------
-
-                         D64                        D128
---------------------------------------------------------------------
-| PAGE_SIZE |   CONT_PTE  |  CONT_PMD  |   CONT_PTE  |   CONT_PMD  |
---------------------------|------------|-------------|--------------
-|     4K    |     64K     |     32M    |     64K     |      16M    |
-|    16K    |      2M     |      1G    |      1M     |     256M    |
-|    64K    |      2M     |     16G    |      1M     |      16G    |
---------------------------------------------------------------------
-
-From arm64 kernel features perspective KVM, KASAN and UNMAP_KERNEL_AT_EL0
-are currently not supported as well.
-
-This series applies on v7.1-rc3 and there are no apparent problems while
-running MM kselftests with and without CONFIG_ARM64_D128. Besides this has
-been built tested on other platform such as x86, powerpc, riscv, arm and
-s390 etc.
-
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
 Changes in RFC V2:
 
-- Dropped some patches that were merged upstream and rebased on v7.1-rc3
 - Moved pxdval_t definition inside generic page table header per Mike
 - Restored print format in __print_bad_page_map_pgtable() per Usama
 - Renamed __PRIpte as __PRIpxx per David
-- Dropped _once from pgprot_[read|write]() callbacks per Mike
-- Moved back all helpers back from arch/arm64/mm/mmu.c into the header
-- Renamed all ptdesc_ instances as pxxval_ instead
-- Moved arm64 pgtable header READ_ONCE() replacements later in the series
-- Updated commit message for the 5-level fixmap change per David
-- Updated ARM64_CONT_[PTE|PMD]_SHIFT both for 16K and 64K base pages
-- Added abstraction for tlbi_op
-- Adopted TLBIP implementation to recent TLB flush changes
-- Updated all commit messages as required and suggested
 
-Changes in RFC V1:
+ include/linux/pgtable.h | 11 +++++++++++
+ mm/memory.c             | 23 +++++++++++++----------
+ 2 files changed, 24 insertions(+), 10 deletions(-)
 
-https://lore.kernel.org/linux-arm-kernel/20260224051153.3150613-2-anshuman.khandual@arm.com/
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@kernel.org>
-Cc: Mike Rapoport <rppt@kernel.org>
-Cc: Linu Cherian <linu.cherian@arm.com>
-Cc: Usama Arif <usama.arif@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-mm@kvack.org
-
-Anshuman Khandual (13):
-  mm: Abstract printing of pxd_val()
-  mm: Add read-write accessors for vm_page_prot
-  arm64/mm: Convert READ_ONCE() as pmdp_get() while accessing PMD
-  arm64/mm: Convert READ_ONCE() as pudp_get() while accessing PUD
-  arm64/mm: Convert READ_ONCE() as p4dp_get() while accessing P4D
-  arm64/mm: Convert READ_ONCE() as pgdp_get() while accessing PGD
-  arm64/mm: Route all pgtable reads via pxxval_get()
-  arm64/mm: Route all pgtable writes via pxxval_set()
-  arm64/mm: Route all pgtable atomics to central helpers
-  arm64/mm: Abstract printing of pxd_val()
-  arm64/mm: Override read-write accessors for vm_page_prot
-  arm64/mm: Enable fixmap with 5 level page table
-  arm64/mm: Add initial support for FEAT_D128 page tables
-
-Linu Cherian (1):
-  arm64/mm: Add an abstraction level for tlbi_op
-
- arch/arm64/Kconfig                     |  51 +++++++-
- arch/arm64/Makefile                    |   4 +
- arch/arm64/include/asm/assembler.h     |   4 +-
- arch/arm64/include/asm/el2_setup.h     |   9 ++
- arch/arm64/include/asm/pgtable-hwdef.h | 137 ++++++++++++++++++++
- arch/arm64/include/asm/pgtable-prot.h  |  18 ++-
- arch/arm64/include/asm/pgtable-types.h |  12 ++
- arch/arm64/include/asm/pgtable.h       | 169 ++++++++++++++++++++-----
- arch/arm64/include/asm/smp.h           |   1 +
- arch/arm64/include/asm/tlbflush.h      | 138 ++++++++++++++------
- arch/arm64/kernel/head.S               |  12 ++
- arch/arm64/mm/fault.c                  |  20 +--
- arch/arm64/mm/fixmap.c                 |  24 +++-
- arch/arm64/mm/hugetlbpage.c            |  10 +-
- arch/arm64/mm/kasan_init.c             |  14 +-
- arch/arm64/mm/mmu.c                    |  65 +++++-----
- arch/arm64/mm/pageattr.c               |   8 +-
- arch/arm64/mm/proc.S                   |  25 +++-
- arch/arm64/mm/trans_pgd.c              |  14 +-
- include/linux/pgtable.h                |  25 ++++
- mm/huge_memory.c                       |   4 +-
- mm/memory.c                            |  25 ++--
- mm/migrate.c                           |   2 +-
- mm/mmap.c                              |   2 +-
- 24 files changed, 624 insertions(+), 169 deletions(-)
-
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index cdd68ed3ae1a..a738048128e7 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -17,6 +17,17 @@
+ #include <asm-generic/pgtable_uffd.h>
+ #include <linux/page_table_check.h>
+ 
++#ifdef __SIZEOF_INT128__
++typedef u128 pxdval_t;
++#else
++typedef unsigned long long pxdval_t;
++#endif
++
++#ifndef __PRIpxx
++#define __PRIpxx		"016llx"
++#define __PRIpxx_args(val)	((u64)val)
++#endif
++
+ #if 5 - defined(__PAGETABLE_P4D_FOLDED) - defined(__PAGETABLE_PUD_FOLDED) - \
+ 	defined(__PAGETABLE_PMD_FOLDED) != CONFIG_PGTABLE_LEVELS
+ #error CONFIG_PGTABLE_LEVELS is not consistent with __PAGETABLE_{P4D,PUD,PMD}_FOLDED
+diff --git a/mm/memory.c b/mm/memory.c
+index ea6568571131..7b6ee3b847a0 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -521,7 +521,7 @@ static bool is_bad_page_map_ratelimited(void)
+ 
+ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long addr)
+ {
+-	unsigned long long pgdv, p4dv, pudv, pmdv;
++	pxdval_t pgdv, p4dv, pudv, pmdv;
+ 	p4d_t p4d, *p4dp;
+ 	pud_t pud, *pudp;
+ 	pmd_t pmd, *pmdp;
+@@ -535,7 +535,7 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
+ 	pgdv = pgd_val(*pgdp);
+ 
+ 	if (!pgd_present(*pgdp) || pgd_leaf(*pgdp)) {
+-		pr_alert("pgd:%08llx\n", pgdv);
++		pr_alert("pgd:%" __PRIpxx "\n", __PRIpxx_args(pgdv));
+ 		return;
+ 	}
+ 
+@@ -544,7 +544,8 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
+ 	p4dv = p4d_val(p4d);
+ 
+ 	if (!p4d_present(p4d) || p4d_leaf(p4d)) {
+-		pr_alert("pgd:%08llx p4d:%08llx\n", pgdv, p4dv);
++		pr_alert("pgd:%" __PRIpxx " p4d:%" __PRIpxx "\n",
++			 __PRIpxx_args(pgdv), __PRIpxx_args(p4dv));
+ 		return;
+ 	}
+ 
+@@ -553,7 +554,8 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
+ 	pudv = pud_val(pud);
+ 
+ 	if (!pud_present(pud) || pud_leaf(pud)) {
+-		pr_alert("pgd:%08llx p4d:%08llx pud:%08llx\n", pgdv, p4dv, pudv);
++		pr_alert("pgd:%" __PRIpxx " p4d:%" __PRIpxx " pud:%" __PRIpxx "\n",
++			 __PRIpxx_args(pgdv), __PRIpxx_args(p4dv), __PRIpxx_args(pudv));
+ 		return;
+ 	}
+ 
+@@ -567,8 +569,9 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
+ 	 * doing another map would be bad. print_bad_page_map() should
+ 	 * already take care of printing the PTE.
+ 	 */
+-	pr_alert("pgd:%08llx p4d:%08llx pud:%08llx pmd:%08llx\n", pgdv,
+-		 p4dv, pudv, pmdv);
++	pr_alert("pgd:%" __PRIpxx " p4d:%" __PRIpxx " pud:%" __PRIpxx " pmd:%" __PRIpxx "\n",
++		 __PRIpxx_args(pgdv), __PRIpxx_args(p4dv),
++		 __PRIpxx_args(pudv), __PRIpxx_args(pmdv));
+ }
+ 
+ /*
+@@ -584,7 +587,7 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
+  * page table lock.
+  */
+ static void print_bad_page_map(struct vm_area_struct *vma,
+-		unsigned long addr, unsigned long long entry, struct page *page,
++		unsigned long addr, pxdval_t entry, struct page *page,
+ 		enum pgtable_level level)
+ {
+ 	struct address_space *mapping;
+@@ -596,8 +599,8 @@ static void print_bad_page_map(struct vm_area_struct *vma,
+ 	mapping = vma->vm_file ? vma->vm_file->f_mapping : NULL;
+ 	index = linear_page_index(vma, addr);
+ 
+-	pr_alert("BUG: Bad page map in process %s  %s:%08llx", current->comm,
+-		 pgtable_level_to_str(level), entry);
++	pr_alert("BUG: Bad page map in process %s  %s:%" __PRIpxx, current->comm,
++		 pgtable_level_to_str(level), __PRIpxx_args(entry));
+ 	__print_bad_page_map_pgtable(vma->vm_mm, addr);
+ 	if (page)
+ 		dump_page(page, "bad page map");
+@@ -682,7 +685,7 @@ static void print_bad_page_map(struct vm_area_struct *vma,
+  */
+ static inline struct page *__vm_normal_page(struct vm_area_struct *vma,
+ 		unsigned long addr, unsigned long pfn, bool special,
+-		unsigned long long entry, enum pgtable_level level)
++		pxdval_t entry, enum pgtable_level level)
+ {
+ 	if (IS_ENABLED(CONFIG_ARCH_HAS_PTE_SPECIAL)) {
+ 		if (unlikely(special)) {
 -- 
 2.43.0
 
