@@ -4,94 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7AECCD4F35
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:50:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87F2CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3gq8AnA9QGLhuYSw+tICygG0pQw5Dug4NgZkZsPxWBA=; b=E06tT9rx84Xe5XITyhc1ECNFJO
-	tSfm3hCcU2+F33votGOOlLp5Io0ziaygLPUfBJA4MsKVTKW/tGMqmDgLxSuHVrvLsWYCg+eRRmah6
-	800DYONGIoTzsX3ixu+NxPDTzR+XgvgwAMlBlk1a68QCe0SbUjW/CWwlreWf0dZzxiYU8Ic1tkQOT
-	OMXm9jQhaC9jhqCnX0KN0roxxs1YF0H15BaB3uT/fXJSPjg9nZ/ELx37obOsN2R4EibWuUWY5uJDg
-	rEe5zb8t42hpNeuuzA9n+smllwH2orx2PIhpqm5njdKmjXTNtLXQ+2tI380u27fjF2Bd65ph+ZhMz
-	w2jphAYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0/8KQY9AZ2MgnmlvrkySNiD6OvsOjNfWo9JevZKubrk=; b=cQhfaNxKDdpKUgCpHxlX8mRwj2
+	XvhXCnHZ0Uh5lNedKAkSonz7fps6eXI7rKB1g4QAS4hPdnHRrJsqHNA2GEwZvjNZ/hFJ0DafnnTtd
+	BUpMDN5PnRtUdeW66rqezKikSbEOnxh9CFxQfDHfIT9E0b7gj9AmdZbHit8XtjJf1Vo8g+BwlDwTL
+	xdQ9WW6vd7jWPHou/mzSoOiSLM7CpEp2nDVyL3qu/CU9k9o0TJQgFQ383upC2KFrkq465/lfH2tL9
+	yuzXj4h0ZXasEMjdu4VzaSP3i0TY5UlP5TVUoAQJmtTzuADsmqr55LRp9qqP4awUXybd5rhp6Wpka
+	5wO9rjjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN7Ae-00000002G4U-3MD0;
-	Wed, 13 May 2026 10:50:32 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wN7Dz-00000002Got-1P2Q;
+	Wed, 13 May 2026 10:53:59 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN7Ab-00000002G31-1gfZ
+	id 1wN7Dw-00000002Go7-1BjW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 10:50:30 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-366139223e4so4041344a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 03:50:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778669428; x=1779274228; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3gq8AnA9QGLhuYSw+tICygG0pQw5Dug4NgZkZsPxWBA=;
-        b=VLx6KOBWvsOi687mHf0IfmSHBcmLVumaNoZ6e9/fZb8DbuQ+ZhdJjnYV1BoEH0DXIR
-         7VEHNgzL0uxNxWQ9LyAaq5adDwhqs8ytZf9wejuVdWAsudV7Je8VWBDz5srbKUe194ee
-         PqDmQRT+8DCe3tzSD+VYMW7/JvftoFhlc9+7REZX0JPoVDtjgkzC8T21lzYL7gQUaNq1
-         6xvoJb5pxxhPWgzxnjfriV/UqZ/PDDIhrWapF3tNJvfdmXAyWHMf8+G6HDIH0+AfQssw
-         dWDgAUQc3pX+kvbTN8mBj3iF32nhsbs+GCZYQQ0AM/6x/GnwGzez+Pw4+kvVLYnY+ECm
-         ZsRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778669428; x=1779274228;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3gq8AnA9QGLhuYSw+tICygG0pQw5Dug4NgZkZsPxWBA=;
-        b=XkytwdGY8kNJJ9bihtZGBwUq1SQb1XhWM2SDgPgu4TjFZA65udcYEwAHzCgzm6fP3/
-         prMkgmtTIDelzr3NtrqICMIpOp7exqmXFH4aVXBSQd83enQPZGX8QSMpJFyYD8hfyyTu
-         n/v9BCj7HfhVZ/HX7OUhyU15Qx8mNfZ4REnNeoumedLxKEVvoh4mhbEj9hU6L1YO6qOG
-         RQW7sMBlOl1/t7WnUCO43vGr9WofAqRq2Vi8cUZwzge4Ea+y82qQvZpSnhpD6fLr0go4
-         yHSQTKK7lTX5q9EDNUufHjwkW3jegCdiJZywPIcsFkEjChSCPJlFGpFLgYbs3P9c51Qc
-         Nh7A==
-X-Forwarded-Encrypted: i=1; AFNElJ/jbVG/KBsjXbyRQqa6YisMDfw0Bj4h8h3hAJOgNJHf6dx/Tb7OCMDPUUPJ2WQ1VcugDw+sKFwPEDsMGS6je3iR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcJlyEJkfqCMnrUPqRrUbknsPY87F6B6Y2v0U86HlS4FOqcgHe
-	ssT9M2AnsdbA3nhRs+b41WvOZoA4xID8ml1vpFXBcZPC0R0PMf2LQh6WT6kQuA==
-X-Gm-Gg: Acq92OH1l6IWzPckHpd7aP+ZdHZoOuckv5p+81daOcQCPrf8wypd5ZhsC7Hs+PRKBBu
-	7OxEp7IAvcLlC4hy+Kw+gT3TbbyQqI4AZQSqEFgpExvKdeQU1haPtTHFnkGpxG+FCB6GWiE86Kl
-	Kb48Wr9t/LRGd9m9aX6UsFr3UQLH/1ecmRb4b4MmvziKLegOhapYxAO+T1P0uOsnW62m7kprJT3
-	f2G9pNOz7oMJQDj/sRd1vui3cawc4E9JRUHelGWA12e5jUVOemR5XjQlR/ZdukyHgpJhnfapSKt
-	f8FunK3iSds3wvk3XcD3flwNM6x+DFD3n0xnG9CJ9rVbKIy6uD6K0bivN98kEla+lMXvrz4l6fc
-	19huVVU67UFpp5p7kSkydenCJB033zAG7Q1dCjPO+1HRrk+ibnv6MBHFEANgMfKRgF1XAfqDtpq
-	6BL3v49GvuQk91CnFZoGPx/A2l4/6Z3Mxo/cvy0HldQZSFXh+POjuM25qQuQ==
-X-Received: by 2002:a17:90b:54cb:b0:368:65bc:e32b with SMTP id 98e67ed59e1d1-368f3c151d8mr2923432a91.15.1778669428352;
-        Wed, 13 May 2026 03:50:28 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-368edf9b543sm2843136a91.16.2026.05.13.03.50.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 03:50:28 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
+	Wed, 13 May 2026 10:53:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778669636; x=1810205636;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1AxrIZee8mUjA5ewU8xipjThvn2WeWg0jk/1WI0ykVk=;
+  b=JQddftd3UdHADdVVAGu4HFvqcSDYeZKSh/1ICbIQ6hEZrdBQQybDn/iF
+   O5xnO4U0/Wa+YpYxlEZT6kSjqBDiHINZH6VkyOVNHc9ZyK/tpTj0hoZBR
+   oFwCl9UmfT3lT+ddIpqZG50kwNDN0RAIHh82xcx5OHfOvNY5KIJtUmJeZ
+   TmiP3EwI0ojDGc2c4NFIjlEJIKUFIY0e/WavXPxguJdJ4HBNyv7b5Oo2n
+   LYBnQPUujThtJwPjlWVvKQFzrEggKkdEzBeGTJAEbNwZwNCj+zz7j1XS+
+   2hQHbHwRB5M6u5P+K48PtLXDnIASnDxFv2NAh9gXLmA6WSHD94WDj1Rv9
+   w==;
+X-CSE-ConnectionGUID: d7aI4c5lQU+u/IZ/z1ZOoA==
+X-CSE-MsgGUID: NWsaTRi8SPmGT+/NA17iDg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11784"; a="79449521"
+X-IronPort-AV: E=Sophos;i="6.23,232,1770624000"; 
+   d="scan'208";a="79449521"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 03:53:56 -0700
+X-CSE-ConnectionGUID: XPRGVeq3Rmy5HvACLGK81Q==
+X-CSE-MsgGUID: ayfzuQmoTYq7p7cJC1RroA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,232,1770624000"; 
+   d="scan'208";a="231665666"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.106])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 May 2026 03:53:53 -0700
+Date: Wed, 13 May 2026 13:53:50 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Marcus Cooper <codekipper@gmail.com>,
-	Chen Ni <nichen@iscas.ac.cn>,
-	linux-sound@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH] ASoC: sun4i-spdif: Use guard() for spin locks
-Date: Wed, 13 May 2026 17:50:03 +0700
-Message-ID: <20260513105003.81880-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Samuel Holland <samuel@sholland.org>, linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: adc: sun20i-gpadc: support non-contiguous channel
+ lookups
+Message-ID: <agRYPp5JQ3CyCQHJ@ashevche-desk.local>
+References: <20260513-fix-sunxi-gpadc-sparse-channels-v1-1-6c21e290bcee@mmpsystems.pl>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260513-fix-sunxi-gpadc-sparse-channels-v1-1-6c21e290bcee@mmpsystems.pl>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_035029_442586_82D89D50 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260513_035356_339723_713AE398 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,64 +92,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Wed, May 13, 2026 at 11:51:31AM +0200, Michal Piekos wrote:
+> Using consumer driver like iio-hwmon which resolve channels thorugh
+> io-channels phandles will fail for sparse channels because IIO core
+> threats phandle argument as index into channel array.
+>         eg. <&gpadc 1> will fail if there is only channel@1 specified
+> 
+> Add fwnode_xlate which maps DT phandle to the registered channel whose
 
-Clean up the code using guard() for spin locks.
-Merely code refactoring, and no behavior change.
+.fwnode_xlate()
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/sunxi/sun4i-spdif.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+> chan->channel matches the hardware channel number. It allows sparse
+> channel maps to be consumed by drivers like iio-hwmon.
 
-diff --git a/sound/soc/sunxi/sun4i-spdif.c b/sound/soc/sunxi/sun4i-spdif.c
-index c2ec19437cd7..ec00779182db 100644
---- a/sound/soc/sunxi/sun4i-spdif.c
-+++ b/sound/soc/sunxi/sun4i-spdif.c
-@@ -427,10 +427,9 @@ static int sun4i_spdif_get_status(struct snd_kcontrol *kcontrol,
- 	struct snd_soc_dai *cpu_dai = snd_kcontrol_chip(kcontrol);
- 	struct sun4i_spdif_dev *host = snd_soc_dai_get_drvdata(cpu_dai);
- 	u8 *status = ucontrol->value.iec958.status;
--	unsigned long flags;
- 	unsigned int reg;
- 
--	spin_lock_irqsave(&host->lock, flags);
-+	guard(spinlock_irqsave)(&host->lock);
- 
- 	regmap_read(host->regmap, SUN4I_SPDIF_TXCHSTA0, &reg);
- 
-@@ -444,8 +443,6 @@ static int sun4i_spdif_get_status(struct snd_kcontrol *kcontrol,
- 	status[4] = reg & 0xff;
- 	status[5] = (reg >> 8) & 0x3;
- 
--	spin_unlock_irqrestore(&host->lock, flags);
--
- 	return 0;
- }
- 
-@@ -455,11 +452,10 @@ static int sun4i_spdif_set_status(struct snd_kcontrol *kcontrol,
- 	struct snd_soc_dai *cpu_dai = snd_kcontrol_chip(kcontrol);
- 	struct sun4i_spdif_dev *host = snd_soc_dai_get_drvdata(cpu_dai);
- 	u8 *status = ucontrol->value.iec958.status;
--	unsigned long flags;
- 	unsigned int reg;
- 	bool chg0, chg1;
- 
--	spin_lock_irqsave(&host->lock, flags);
-+	guard(spinlock_irqsave)(&host->lock);
- 
- 	reg = (u32)status[3] << 24;
- 	reg |= (u32)status[2] << 16;
-@@ -483,8 +479,6 @@ static int sun4i_spdif_set_status(struct snd_kcontrol *kcontrol,
- 			   SUN4I_SPDIF_TXCFG_CHSTMODE |
- 			   SUN4I_SPDIF_TXCFG_NONAUDIO, reg);
- 
--	spin_unlock_irqrestore(&host->lock, flags);
--
- 	return chg0 || chg1;
- }
- 
+...
+
+> +static int sun20i_gpadc_fwnode_xlate(struct iio_dev *indio_dev,
+> +		const struct fwnode_reference_args *iiospec)
+
+Broken indentation (I understand the motivation to shift left, but I leave it
+to Jonathan on how to proceed with this).
+
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < indio_dev->num_channels; i++)
+
+	for (unsigned int i = 0; i < indio_dev->num_channels; i++)
+
+> +		if (indio_dev->channels[i].channel == iiospec->args[0])
+> +			return i;
+> +
+> +	return -EINVAL;
+> +}
+
 -- 
-2.43.0
+With Best Regards,
+Andy Shevchenko
+
 
 
