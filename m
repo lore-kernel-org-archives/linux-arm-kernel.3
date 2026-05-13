@@ -4,47 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2040CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72492CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KY2bVcrEeFwt0QKCeF9shBLSPFZbRaUrMn4+YQmfI7w=; b=j33Vp3Gw+6ktRU2vkWFi+FyELd
-	D5elIak/kgL9ThjPAYUPR7Ppd+QBKOqhNQAQyD8PAvG+8qyKunRRJYkqZ1i6vWymQW3cScuGR2nMI
-	0ED93mN6evZfBYWW/clxdBvhbh3F0GbgiBNyASg91c/r843HRs8uiSb3eHX6WNh5bsL7JuFbriRyI
-	DfQklj9SLTYIac0pj+VLEVRRjORwC+vO+qFLw5fy4ywmMEtTD4VRXMTooK1JroIBs6SZuCnZ+i1Rl
-	xEm7qQYBtsqPtTS+/BjWK5NGvUo6gXyAVV9fipL5r7BFHgeBqOnEXwh26oQhuWDNU4eC6QJ0nUv4U
-	93SklqnQ==;
+	bh=Nh3REuVevSQPf6r2nI6yhrcAw+e3v9pXLs7UY0jy9hU=; b=Uq2HAqDbYOSNfSGsKLcOAB+gA+
+	NkOWAci7xYpZDrCGnY1d7LOBNo21nkEZvkuuMxdJgoCe7tRfH1ousu0qLuizhxLEH2FmYNJn81rMn
+	dQYbgAsoADj2YcbFIQG/F74+JN6D3aVvvee99YqKommVHJWoZbQqujM1Or4CNF8LjQgktC8UJ0kTI
+	oF6sdSppoQPXxW8sj5/vAAvrk3vPe2OQSQ48nvhVII+gajHMVDsJXajlcDhyJ3ml8w5LvZGotN7fa
+	xejlgngR+pL4JQg8SmJOLa1GVYL/hD/hsi1uiBMSnXo7y4XdEpNJb3poC90VEzmkvPRr6UX0nxboy
+	OvS9IROg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9TT-00000002dUI-34pj;
-	Wed, 13 May 2026 13:18:07 +0000
+	id 1wN9TU-00000002dVP-0Pw6;
+	Wed, 13 May 2026 13:18:08 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9TL-00000002dP0-2ToT
+	id 1wN9TO-00000002dQK-3TJk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:18:01 +0000
+	Wed, 13 May 2026 13:18:04 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D29322A27;
-	Wed, 13 May 2026 15:17:48 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 33BF32B57;
+	Wed, 13 May 2026 15:17:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778678269;
-	bh=o2udw3Crr9J1QuXaXPV5drvL6Y5aZAKT/0GYJ/rqNtE=;
+	s=mail; t=1778678273;
+	bh=AFOi9aqsSdBtds83+Z7S7alO1ZnD/XbMhJoZjnM2lgY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=vZolVgoYklIUglijceeQe7Fu95R4gzz0omMRLvGmJKSseg1AWtCVgQQRlnokoqGt6
-	 TO9GUBGql3/ZH8TAptGhMUtEztqs7mIbRLNxEpphiaNQiJShorIoxdtsAmceDGpzh8
-	 d703xckHqdq4AUm74fCWbGSeA3uHVujdCDDUtXHw=
+	b=WE4N4JwJ/CQmzHVnMY1ouYvjplftL/miJzsn5ez5up0er3bTncNR4LQDS4jwXS9yj
+	 /KAJJHesQjVElBQDPBMtnYmCiQsdzyUytlcYDvLQmAzAOKdfvgZ3aR7QPic4l169wF
+	 qJF+4sR4iMDYTu5CelXQL+JLZV2xozdQTUiB1x3k=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 13 May 2026 16:17:24 +0300
-Subject: [PATCH v2 02/16] dt-bindings: display: ti,am65x-dss: Simplify
- binding
+Date: Wed, 13 May 2026 16:17:27 +0300
+Subject: [PATCH v2 05/16] dt-bindings: display: ti,am65x-dss: Add AM62P DSS
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-beagley-ai-display-v2-2-9e9bcefde6bc@ideasonboard.com>
+Message-Id: <20260513-beagley-ai-display-v2-5-9e9bcefde6bc@ideasonboard.com>
 References: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
 In-Reply-To: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -60,26 +59,26 @@ Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4169;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3555;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=o2udw3Crr9J1QuXaXPV5drvL6Y5aZAKT/0GYJ/rqNtE=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqBHn80Ad+XRSTUuelDFgjSErBUG8JbAIrPKQ2y
- FVOufLshO2JAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCagR5/AAKCRD6PaqMvJYe
- 9XrOD/4icJtb8qOGFJrTWSOhePdRV2E6qdo5J0a8UujWjVBjSUfNEFtlMOcV0AgYOeRyQTrc3Ah
- ar1In2AgwcjYrHMowZSy2myjcyzQ1hu0venSiUr51DLTIxOet0fn84RVHWhqke0L2k2i9Z9GGTi
- vPdT3xu2nkR1sr9sDysF7ETxMXfrvjsLpD6MBsDNZ9NgYgvSbCYc3kAPK15UQEM8Z7JVM4lk/yd
- H5+A2SwQhDZXxRAKrLkjtSm0X4/4gbD0ckU7q3zn8MYu7UgR2PG9SCgLV/RvzZtrJ3T4vrR91Yp
- Wf4gv2As+NxoipQgLH90FhGAuLm/upzygvhbQ2SMNdQIW+gd1hldBZpYMQhXLsqVAyTGK2fu6fK
- QNRKGmgLqx+DYPm+X9kVf7yGWzP+zn/K8no3VDGnfCNTn5x+Um7o5jkohuKNEKyCXZPEq6sf1gc
- UDeMy+6qS8EnC/XwsyII/UBII/OFsj1ETr4snHrj9DAFMofJHajzXlXtC7t9BP7HUu/x0qUOhbj
- wqAsavkKjtOzvVkZKaXNkDNn8DUGClcTZn3F9KMHKpRSJon05wgKHUSiwIv5Sr9bzNjLHGuwBCV
- 98lEEvYOcIGmSjNiKV663ey85kQ0sIWXF8M4OzFYkdOYRsmCHymwKNfyoKHEK5vCgXnSJLgwtYG
- ISgZ0zsH+RwiFjA==
+ bh=AFOi9aqsSdBtds83+Z7S7alO1ZnD/XbMhJoZjnM2lgY=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqBHn9cxR/VbmIrYANitAxQv0Ha5gKb2WLGVSo0
+ ic8XtdyLU2JAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCagR5/QAKCRD6PaqMvJYe
+ 9YxAD/9fiOBVzu5i+ANya5HJAdJNnNcQiLsc7JQ36j0d9UkEw5FPHOzwWAQ84Kd5/dPmNYZ0zaF
+ kHYzIpV5gWqkQBHpUizCbgCct9k/xFKbIvhyO5r5x6ax3Klsbki4syoc5a0h2etruFz4ZoBlf/t
+ YVxoYzx1DSn61oBDyOkpgJacz2ukTxpCzde8t2iMD1KKgs7DWsI88wMnNvyrb+5fbgvYPveqzuA
+ WMMepPUpvQmZryEdAmRBH42FQ5Ch+Fl4aw6k2G0kZANwc8BTgAzN6nVXkbiMGSt/Dmmcw96Vy+j
+ OmNgNEwzngYhLmZJCZabNO6CfMKLflFcTBL4D+dJ6QG+O5NmCoI/k4bWUT2VJTIzRnBkx57PTk5
+ FPLscVG2H9b0/EkRsztPa8agqz+ldaCkRC7g6yDXLr7UnhPULwtjA7wolg5zNnj4fOok3vCUHNd
+ FJiWsavPY30Qg/OIRTGUFAL/9KenmlINXV9NlMKoawNa8S6rOvGd6/niVigvfUn9I9oWnuC4ubC
+ J/sCk8ox9r39N+D1LX27VYK9W9NBCNdiuvJ9UsoTYdybPzCj1/7m36+zKc4sEI0N8141NIIPXcw
+ /aU1Tixu6iy1M2lJCMzPU2bbuBjEOOi6gZgE8nvavDe0eITS/Ki4eTGrYqmRS+xPU9JkfAUowI1
+ BuyG9E6OCVKdzag==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_061759_781844_314DBA88 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20260513_061803_018743_8CDC60BB 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,110 +93,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In principle the DT binding for the DSS IP should mainly cover the DSS
-IP. The current binding also covers the SoC integration topics outside
-the DSS, mainly via the endpoint related rules and descriptions.
+TI's AM62P, J722S and AM67A SoCs contain same implementation of the
+display subsystem (DSS). There are two instances of the DSS (DSS0 and
+DSS1), each with two video ports (VP) and two video planes.
+Additionally the SoCs contain two OLDI TXes (OLDI0 and OLDI1), a MIPI
+DSI TX and a MIPI DPI output path.
 
-A more recent SoC, AM62P, has two instances of the DSS IP, and while
-both DSS IPs are identical, they are integrated slightly differently
-(e.g. which DSS output goes to an in-SoC DSI bridge, which goes to
-DPI pins, etc.).
+DSS0 supports:
+- VP0: OLDI0 in single-link mode, or OLDI0 and OLDI1 in dual-link or
+  clone mode.
+- VP1: DPI
 
-To make the bindings usable for both DSS instances, relax the binding
-slightly: remove the explicit endpoint rules, and generalize the
-descriptions.
+DSS1 supports:
+- VP0: OLDI1 in single-link mode, or DPI
+- VP1: DPI or DSI
+
+The DSI is only connected to VP1 of DSS1, but OLDI and DPI are shared
+between the DSS instances. Thus only a single VP can output to DPI, and
+a single VP can use an OLDI block. Note that in single-link
+configuration OLDI0 can be used by DSS0, and at the same time OLDI1 can
+be used by DSS1.
+
+The DSS IP itself is compatible with older SoCs. While we could use
+"ti,am625-dss" compatible string, we add a new one "ti,am62p-dss" to be
+on the safe side in case the driver needs to do something special for
+the dual-DSS case in the future.
+
+Original patch by Swamil Jain <s-jain1@ti.com>
 
 Reviewed-by: "Rob Herring (Arm)" <robh@kernel.org>
 Tested-by: Swamil Jain <s-jain1@ti.com>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- .../bindings/display/ti/ti,am65x-dss.yaml          | 55 ++++++++--------------
- 1 file changed, 20 insertions(+), 35 deletions(-)
+ .../bindings/display/ti/ti,am65x-dss.yaml          | 27 ++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-index 75d9640398f0..588d72d4ec0d 100644
+index 902ae2122d86..acb7ac635097 100644
 --- a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
 +++ b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
-@@ -12,12 +12,21 @@ maintainers:
-   - Tomi Valkeinen <tomi.valkeinen@ti.com>
+@@ -28,11 +28,38 @@ description: |
+   On AM62A7, the first VP is tied off in the SoC, and the second VP is routed to
+   external MIPI DPI pins.
  
- description: |
--  The AM625 and AM65x TI Keystone Display SubSystem has two output
--  ports and two video planes. In AM65x DSS, the first video port
--  supports 1 OLDI TX and in AM625 DSS, the first video port output is
--  internally routed to 2 OLDI TXes. The second video port supports DPI
--  format. The first plane is full video plane with all features and the
--  second is a "lite plane" without scaling support.
-+  The Display Subsystem (DSS) used in e.g. AM65x and AM625 SoCs has two output
-+  video ports (VP) and two video planes. The integration varies from SoC to SoC,
-+  affecting the routing of the video ports.
++  AM62P SoC contains two instances of the DSS:
++  On AM62P DSS0, the first VP is connected to two OLDI TX instances (the second
++  TX shared with DSS1), the second VP to external MIPI DPI pins (shared with
++  DSS1).
++  On AM62P DSS1, the first VP is connected either to the second OLDI TX, or
++  external MIPI DPI pins. The second VP is connected to either the external MIPI
++  DPI pins or a Cadence DSI TX.
 +
-+  The first plane is full video plane with all features and the second is a
-+  "lite plane" without scaling support.
++  An important note about OLDIs on AM62P:
 +
-+  On AM65x, the first VP has an integrated OLDI TX, thus the first output port
-+  is OLDI output. The second VP is routed to external MIPI DPI pins.
++  There are two OLDI hardware blocks. Each OLDI has certain configuration that
++  has to be done before it can be used. The OLDI blocks get this configuration
++  directly from the DSS block, via DSS registers. However, as a single OLDI
++  block can be used either with DSS0 or DSS1, the source for the configuration
++  changes according to a mux. This mux is set according to the OLDI
++  configuration registers in DSS0. Thus the OLDI control paths change at
++  runtime, and it is not obvious how to structure this in the DT bindings.
 +
-+  On AM625, the first VP is connected to two OLDI TX instances, and the second
-+  VP is routed to external MIPI DPI pins.
++  The solution used here is that each DSS node contains the OLDI nodes that can
++  be used with that DSS. Thus the DSS0 node has two OLDI child nodes, OLDI0 and
++  OLDI1, and the DSS1 node has one OLDI child node, OLDI1, so three OLDI DT
++  nodes in total. The two OLDI1 nodes thus refer to the same piece of hardware,
++  and they cannot be used at the same time. The selection which OLDI nodes to
++  use are chosen in the board dts files, so assuming the dts files are correct,
++  no resource conflict can happen.
 +
-+  On AM62A7, the first VP is tied off in the SoC, and the second VP is routed to
-+  external MIPI DPI pins.
- 
  properties:
    compatible:
-@@ -85,34 +94,15 @@ properties:
-     properties:
-       port@0:
-         $ref: /schemas/graph.yaml#/properties/port
--        description:
--          For AM65x DSS, the OLDI output port node from video port 1.
--          For AM625 DSS, the internal DPI output port node from video
--          port 1.
--          For AM62A7 DSS, the port is tied off inside the SoC.
--        properties:
--          endpoint@0:
--            $ref: /schemas/graph.yaml#/properties/endpoint
--            description:
--              For AM625 DSS, VP Connection to OLDI0.
--              For AM65X DSS, OLDI output from the SoC.
--
--          endpoint@1:
--            $ref: /schemas/graph.yaml#/properties/endpoint
--            description:
--              For AM625 DSS, VP Connection to OLDI1.
--
--        anyOf:
--          - required:
--              - endpoint
--          - required:
--              - endpoint@0
--              - endpoint@1
-+        description: |
-+          AM65x: OLDI output from video port 1
-+          AM62A7: Not available, tied off inside the SoC
-+          Other SoCs: Parallel video from video port 1
+     enum:
+       - ti,am625-dss
+       - ti,am62a7-dss
++      - ti,am62p-dss
+       - ti,am65x-dss
  
-       port@1:
-         $ref: /schemas/graph.yaml#/properties/port
-         description:
--          The DSS DPI output port node from video port 2
-+          Parallel video from video port 2
- 
-   ti,am65x-oldi-io-ctrl:
-     $ref: /schemas/types.yaml#/definitions/phandle
-@@ -168,11 +158,6 @@ allOf:
-     then:
-       properties:
-         oldi-transmitters: false
--        ports:
--          properties:
--            port@0:
--              properties:
--                endpoint@1: false
- 
- required:
-   - compatible
+   reg:
 
 -- 
 2.43.0
