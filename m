@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC07CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 07:56:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A20DCD37B6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 07:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rYUO05jBfnluwcXk7wM1TeHfBxeHShhB83oyD+TXx9Y=; b=2HJ7rGIr67dELQbymDNFsiRmJs
-	spFcMTweIiCRzfCj7obaCgli8uQ9kA5THXrPgbC4rlakD1O9Clf4DUgDvM/JxQD+fgknIL2i3qFPN
-	pMxnQxs40xwNZOb9vg7utYIE5qtjtWOJ6SNmJrt/8FhJiBK1lnoNT/PN4b3YvCOqvx7iLpwTAuftR
-	/l8YX1u8ya+hrAup37C3OX6hyyFID+5p2cCPv05IoTKn7toZOGATtcnAQPm1tC6oIYZNDR5wBhbQ5
-	5OxfCdog2ydi94v/LI2VCVSP1HYSzhtXlIoo2Fq+qRLeWQzD31zQypeyowNs/oH/metC+4UISVdjK
-	sFH6H4pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ROnDivWnwYFkeb8Z5ptwvScw71M9agFStQ7jRmh5Bew=; b=EPsqKD+2jTRiA8EY8Tg3CheT9+
+	jYxioDyhZVenXupZef3L4x7hBoWIna16Vr2+T7S7SZzEZfNpfglx6PjeTCeHGzHBhrsYlN9RMZRi9
+	6QqpYUyndWhApvgrXdH+kHm3W6W77VFiKG06SZMqGwEpe5WFQJCmEBAL5Da7IcdChBZPwPbA5ahmf
+	cLRjRyzJhS0zcvSAWn0aa1ecc1K7J+RIN5SwZtHT5ZbubLI0PgbjAV5T69QTa3sQ32sWKcrMgBys/
+	iJssQakWkvqov7hTsoPVtwZu4hfpEcor+4TYjQkKhYgcwhThAkxhzPSW5D78WxwI1SV58909HIOGN
+	BtrqVf9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN4Rs-00000001eiy-1UDm;
-	Wed, 13 May 2026 07:56:08 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wN4TT-00000001exZ-3XWD;
+	Wed, 13 May 2026 07:57:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN4Rp-00000001eiZ-1l2d
+	id 1wN4TR-00000001ewo-1VWQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 07:56:07 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 32B4B229;
-	Wed, 13 May 2026 09:55:50 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778658951;
-	bh=yjpuKSIX9YhnkTy1kB78nxXlSk9S5Nh1vV9uFqCDb9c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DVRLNIvxPqnTZ7FvjL5QwvJKO3lBxL/u+sqBneD59K22/nO1+vb+X6JyR6IocHVmr
-	 J/KmCvkfVtRrcF9GEt3ICI12sCWQ6op0O80tt4wFPnO5S0RqjBGdDklCkijl2TGEHh
-	 aVIzBBfuBlBXBNQXUhJHBcByTM6FKS+8/gmdxNhg=
-Message-ID: <af7006a6-6048-42c9-8771-4687a51cc245@ideasonboard.com>
-Date: Wed, 13 May 2026 10:55:55 +0300
+	Wed, 13 May 2026 07:57:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D51B94438E;
+	Wed, 13 May 2026 07:57:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D17CC2BCC7;
+	Wed, 13 May 2026 07:57:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778659064;
+	bh=bR1i92frDxooM1/4hRznpgGK1PwGwO8I8wpOQKsxaig=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=orykS+qrrrRNFxk7x/UmKrWLdvYQkQowPXI0p076mIuKFeymoBdbMkuIrhPF7xc1o
+	 aVTVCBoGbkyvc48jQn598HmxZ9Ar+o/yssqekrG3bWfzyXG5A5A+Zfcswc7eY/pjMg
+	 fT6a2+VyuOvcLb/vM8Hn2wK5zFC4yN2BLQTLNgrE0mXArVrIS3qNlmuAZ7q70TFYxR
+	 bDEMt1EpMfDA/37IbfOnPT/dcluEhOvlwGEcl4ZArCPY1PaYqgmnCeAANHks7QtDBv
+	 uMAoPxGcaERtzu4+rI623u1q+YlsWgG/fXhqcgzfnXIHC9OXl9EUnAlQfY9oRRp6Dv
+	 19/arP+5NHgzw==
+Date: Wed, 13 May 2026 00:57:42 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org, Alexandru Elisei <alexandru.elisei@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	James Clark <james.clark@linaro.org>, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v7 09/20] KVM: arm64: Set up MDCR_EL2 to handle a
+ Partitioned PMU
+Message-ID: <agQu9kLnbHjSni-C@kernel.org>
+References: <20260504211813.1804997-1-coltonlewis@google.com>
+ <20260504211813.1804997-10-coltonlewis@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/15] dt-bindings: mfd: syscon: Add
- ti,am625-dss-dpi0-clk-ctrl compatible
-To: Rob Herring <robh@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>,
- Devarsh Thakkar <devarsht@ti.com>, Louis Chauvet
- <louis.chauvet@bootlin.com>, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260420-beagley-ai-display-v1-0-f628543dfd14@ideasonboard.com>
- <20260420-beagley-ai-display-v1-3-f628543dfd14@ideasonboard.com>
- <20260505193538.GA3785056-robh@kernel.org>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Content-Language: en-US
-In-Reply-To: <20260505193538.GA3785056-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260504211813.1804997-10-coltonlewis@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_005605_604543_F85E256E 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20260513_005745_439200_11CEB68C 
+X-CRM114-Status: GOOD (  23.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,101 +87,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, May 04, 2026 at 09:18:02PM +0000, Colton Lewis wrote:
+> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+> index 3ad6b7c6e4ba7..0ab89c91e19cb 100644
+> --- a/arch/arm64/kvm/debug.c
+> +++ b/arch/arm64/kvm/debug.c
+> @@ -36,20 +36,43 @@ static int cpu_has_spe(u64 dfr0)
+>   */
+>  static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
+>  {
+> +	int hpmn = kvm_pmu_hpmn(vcpu);
+> +
+>  	preempt_disable();
+>  
+>  	/*
+>  	 * This also clears MDCR_EL2_E2PB_MASK and MDCR_EL2_E2TB_MASK
+>  	 * to disable guest access to the profiling and trace buffers
+>  	 */
+> -	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN,
+> -					 *host_data_ptr(nr_event_counters));
+> +
+> +	vcpu->arch.mdcr_el2 = FIELD_PREP(MDCR_EL2_HPMN, hpmn);
+>  	vcpu->arch.mdcr_el2 |= (MDCR_EL2_TPM |
+>  				MDCR_EL2_TPMS |
+>  				MDCR_EL2_TTRF |
+>  				MDCR_EL2_TPMCR |
+>  				MDCR_EL2_TDRA |
+> -				MDCR_EL2_TDOSA);
+> +				MDCR_EL2_TDOSA |
+> +				MDCR_EL2_HPME);
+> +
+> +	if (kvm_vcpu_pmu_is_partitioned(vcpu)) {
+> +		/*
+> +		 * Filtering these should be redundant because we trap
+> +		 * all the TYPER and FILTR registers anyway and ensure
+> +		 * they filter EL2, but set the bits if they are here.
+> +		 */
+> +		if (is_pmuv3p1(read_pmuver()))
+> +			vcpu->arch.mdcr_el2 |= MDCR_EL2_HPMD;
+> +		if (is_pmuv3p5(read_pmuver()))
+> +			vcpu->arch.mdcr_el2 |= MDCR_EL2_HCCD;
 
-On 05/05/2026 22:35, Rob Herring wrote:
-> On Mon, Apr 20, 2026 at 03:54:10PM +0300, Tomi Valkeinen wrote:
->> The DPI output pipeline in K3 SoCs contains the display subsystem (DSS)
->> which produces the in-SoC parallel video signal, and a DPI block which
->> adjusts the signal to the external MIPI DPI output.
->>
->> The DSS IP has registers to configure whether the data and sync signals
->> are driven on rising or falling clock edge, and on some SoCs these are
->> automatically conveyed to the DPI block which needs that configuration
->> to properly output the MIPI DPI signal.
->>
->> However, on some SoCs the DPI block configuration has to be done
->> manually, using an extra register outside the DSS, DPI0_CLK_CTRL in
->> MAIN_CTRL_MMR_CFG0 block, which controls the DPI block's behavior. Note
->> that while the register is named "CLK_CTRL", it's not really related to
->> clocks, but the sync and data signals.
->>
->> Currently the DPI0_CLK_CTRL is never written, so it's always 0, meaning
->> the data and sync are always driven on a rising clock edge regardless of
->> the DSS configuration.
->>
->> DPI0_CLK_CTRL register seems to be an independent "quirk" register,
->> inside MAIN_CTRL_MMR_CFG0 block, which contains general purpose system
->> registers. The registers surrounding DPI0_CLK_CTRL seem to be controlled
->> by the system firmware or linux clock drivers. So, it is just this
->> single register we can map, and we can't create a syscon node for the
->> whole (or big parts of) MAIN_CTRL_MMR_CFG0.
->>
->> I see two options to handle the register:
->>
->> 1) We could add that single register to the DSS binding as a new reg
->>     block. That feels wrong, as it's not a DSS register.
->> 2) Add it as a syscon node, which can then be used by tidss driver.
->>     It is a bit silly to create a syscon node for a single 32-bit
->>     register, though.
-> 
-> Is it really 1 register and nothing else in that h/w block? That's quite
-> unusual.
-It is just this one register that the DSS driver is interested in, and 
-that register is surrounded by registers used by other, unrelated, 
-drivers or the system firmware.
+Neither of these controls are of any consequence on unsupported
+hardware (RES0). Set them unconditionally?
 
-This has been discussed in some older threads, and to summarize:
+> +		/*
+> +		 * Take out the coarse grain traps if we are using
+> +		 * fine grain traps.
+> +		 */
+> +		if (kvm_vcpu_pmu_use_fgt(vcpu))
 
-The Soc has a so called CTRL_MMR (control memory-mapped-registers) area 
-at 0x100000, size 0x20000. It's a dumping ground for all kinds of system 
-integration registers. In the current binding, this has been just a 
-simple-bus, containing some sub-nodes (shortened version):
+I think open coding the check here would actually improve readability.
 
-main_conf: bus@100000 {
-	compatible = "simple-bus";
-	reg = <0x00 0x00100000 0x00 0x20000>;
+		if (cpus_have_final_cap(ARM64_HAS_FGT) &&
+		    (cpus_have_final_cap(ARM64_HAS_HPMN0) ||
+		     vcpu->kvm->arch.nr_pmu_counters != 0))
+			vcpu->arch.mdcr_el2 &= ~(MDCR_EL2_TPM | MDCR_EL2_TPMCR);
+> +
+> +/**
+> + * kvm_pmu_hpmn() - Calculate HPMN field value
+> + * @vcpu: Pointer to struct kvm_vcpu
+> + *
+> + * Calculate the appropriate value to set for MDCR_EL2.HPMN. If
+> + * partitioned, this is the number of counters set for the guest if
+> + * supported, falling back to max_guest_counters if needed. If we are not
+> + * partitioned or can't set the implied HPMN value, fall back to the
+> + * host value.
+> + *
+> + * Return: A valid HPMN value
+> + */
+> +u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu)
+> +{
+> +	u8 nr_guest_cntr = vcpu->kvm->arch.nr_pmu_counters;
+> +
+> +	if (kvm_vcpu_pmu_is_partitioned(vcpu)
+> +	    && !vcpu_on_unsupported_cpu(vcpu)
+> +	    && (cpus_have_final_cap(ARM64_HAS_HPMN0) || nr_guest_cntr > 0))
+> +		return nr_guest_cntr;
+> +
+> +	return *host_data_ptr(nr_event_counters);
+> +}
 
-	phy_gmii_sel: phy@4044 {
-		compatible = "ti,am654-phy-gmii-sel";
-	};
+This helper isn't helpful. Just open code it in the place where we are
+computing MDCR_EL2.
 
-	audio_refclk0: clock-controller@82e0 {
-		compatible = "ti,am62-audio-refclk";
-	};
+> @@ -542,6 +542,13 @@ u8 kvm_arm_pmu_get_max_counters(struct kvm *kvm)
+>  	if (cpus_have_final_cap(ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS))
+>  		return 1;
+>  
+> +	/*
+> +	 * If partitioned then we are limited by the max counters in
+> +	 * the guest partition.
+> +	 */
+> +	if (kvm_pmu_is_partitioned(arm_pmu))
+> +		return arm_pmu->max_guest_counters;
+> +
 
-	dss_oldi_io_ctrl: dss-oldi-io-ctrl@8600 {
-		compatible = "ti,am625-dss-oldi-io-ctrl", "syscon";
-	};
-};
+Ok, this is exactly what I was getting at earlier. What about a VM with
+an emulated PMU? It should use cntr_mask calculation, not the guest
+range.
 
-There already was the dss-oldi-io-ctrl, so this new 
-am625-dss-dpi0-clk-ctrl was added the same way as we needed a syscon.
-
-After some testing, changing the whole main_conf to a syscon seems to 
-work ok, even if inside it there are devices mapping parts of the same 
-memory area (although I'm not sure how to test all those devices). I 
-originally thought mapping the same memory area from two different 
-driers would immediately fail.
-
-So, instead of adding a new special syscon node for this single 
-register, as done in this patch, I think we can just make the whole 
-main_conf a syscon, and point to it from the display subsystem node:
-
-	ti,dpi-io-ctrl = <&main_conf>;
-
-Then the driver would need to access the register with offset 0x8300. 
-But I'm a bit reluctant to add such a SoC-integration related offset to 
-the driver. Even if the register would stay the same from SoC model to 
-another, the offset could change. So, we could, in the display subsystem 
-node, do:
-
-	ti,dpi-io-ctrl = <&main_conf 0x8300>;
-
-The driver can use syscon_regmap_lookup_by_phandle_args() and thus get 
-the offset from the dts. I think this works ok, so I'll make that change 
-for v2 unless someone has better ideas.
-
-  Tomi
-
+Thanks,
+Oliver
 
