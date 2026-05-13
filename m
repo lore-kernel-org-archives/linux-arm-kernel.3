@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99795CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDE8CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 21:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xiR080QbM62s8vT4MbmTv04ZkR7uTTVOpbLdEGUZspk=; b=QAZbMrTtFt4tAYmvnavUaisx/L
-	Fmlw695HRdcDfsYvMo5UaGWAn70DF5WvTNKa7/vOOb7zneWAFLhv2EI3hmXLpH/3iKPaLar1J7oEj
-	3h0IQwAzvdTonZEYHOsYcxNl+p+x9FB/n73RjxkmwnB4TGZ6KAA8dQeaDBqqKQxDv1u0vL0l1jR0l
-	Js0x301hHpKK4ZXKa12HqmjYJ3yFaQeKUp0xxOLfp80WFZImoHhj2lx8maxMJ4Hu6j8s6V/E3O3Nw
-	ugLOVZH+ChOyNyWqQxbxbqY+XVjfrUAG7H5/q4Y4kkJiQpqQXDHAU6980FkgNoaKId+SEeYBARr6s
-	MgPO0CvQ==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jR1Wv4oMHHpwdm4XGb1XftGJUcGelJg9xckwdNKgGB0=; b=W6DD6MUnpHlMtrxuPwpBYNguTT
+	ZMzNsJgRHD3AR0TUfRymTniOFQV/lCt4FWZeYMYwBxqN3zkwJZa00saO4AUnber017U6jDmJnF58/
+	hSy2uKjp0pZTG8Y3GQKW0xJYakWkclkw1nhZXH6gCd+pr6qzKIArop/LEyYR5RM+I3OcmtlGNUP6e
+	a/3zbDULFUbEmQHEi+0E33oxQbNGZ+UC7JO5fE2sLFC3SdBcBSjT94uSztidPjxlCyjmr9dC9DwAs
+	0lXq0s8i5XKVAT67+cu5GRTsKs2xUL/mdZKyvdF21aNu5n19XLBFaIczyrHBVBdZzO6oInit/C3JV
+	X0qFwaug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHVI-00000003rjL-1725;
-	Wed, 13 May 2026 21:52:32 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1wNHVT-00000003rlb-1Ti9;
+	Wed, 13 May 2026 21:52:43 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNHVF-00000003rip-3w7c
+	id 1wNHVQ-00000003rkT-2Hlx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 21:52:31 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-48d1b294dfeso64338845e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:52:28 -0700 (PDT)
+	Wed, 13 May 2026 21:52:41 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-44dad1b938fso4350579f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:52:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778709147; x=1779313947; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=xiR080QbM62s8vT4MbmTv04ZkR7uTTVOpbLdEGUZspk=;
-        b=dTjt15dsnid+x01hH6+HZH0jsJgeU1HFjtT7eDUu+aoMD2ZCAv4rxu9FdYJYEa+Sid
-         Wscn1hOID1btCm+/3Ie290G8VooR+o4IqZOGBqCC8DJHWiD3csi99lgNhha+u3PiDrvC
-         pSUsBBh77ekGQXwNfzJrYeW6KDkrl0+PB28IoN8je8qkyXjDve1lHCHrjxHBKCLp7VOC
-         TihDZMTAGVWn2Xm3+2y8HQYzlGwLRLFHexasbiJ6S9XQQb8ROQcJU79CNPMn0viCk9eY
-         4FASO89kUQWmmbFMMJrOAV9c+mcIA+yVCQZvky+QQjBBWj62l8vQVGr90K4CUqSQxCbo
-         JBig==
+        d=google.com; s=20251104; t=1778709158; x=1779313958; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jR1Wv4oMHHpwdm4XGb1XftGJUcGelJg9xckwdNKgGB0=;
+        b=JNn65X284ce8R+lOVl3cNxMCaC0TA/kgrXLMjgaefFl+ApVk+w7MYt4yegUayGOVZx
+         QC4AQhjIK2YBYFKhHk9RuYxa+qWhPk6rF7ddZZoCbVf4+nTjXmzD5JwtFap4jWb6qnAV
+         49lC7u6D4KTBoaSk9A4HEO4geItB/v96xpbinMNE91RRUeLBv+ZUjHOgyrmF0ZM3AT2D
+         rb26T7Tb3WPtTs6sfg9vLzDoqIOn7EQEveiPiRPDKeSFlv+gUvPvLxdzw3J2iTS4fTrz
+         ezpWFcYfq2mncy7iF9lINQIO78AfX0lUwtFseY02ZvC8LXRzxXSETZGyLaGGAwuxTjLY
+         LH3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778709147; x=1779313947;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xiR080QbM62s8vT4MbmTv04ZkR7uTTVOpbLdEGUZspk=;
-        b=NAZSXgluIf5K+9n9GuTsrpycx9wdPI1YerOZrokKibe6DFkpdDYRIE7z3kHl22FrE5
-         +ZmHunuq6cu8PIL7q6geTNqf8bLZOR2e+ymDQdkGLMxe1EuI0byqHm8pPrMAyzd0omvx
-         4nQtv/eiTO7ZdWFAQLVVfnh5yIs4W6EMoRLbOtWXJ5f99rdnB0lLfHWhwaTzL0vqikuF
-         3HQwVe5rAMTmCVnBiMAvYObOEzUagTki7a6UbJt9gdkQI3n855E8JR5MIl6k+Zo0NJeK
-         7rCsz/2vqHHSR4IPWXEmg3qviJF3pc/G659EE0Hhda1IqytL6xrDWxtHnbQxy4XZ4Mz1
-         qP3A==
-X-Forwarded-Encrypted: i=1; AFNElJ9OrE9k4FHeb0ko1+QV1VWa14u9SiuMPMnbHnV5ikQQ/QmAxZtW/d+/wkuiVupSS/z/1z7s2JSjGcT1G8A05wpR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlTQ8hV5vzIykcp2TAIovi1dT8voTUrtH7Vgoni9H/7WtCz9KA
-	wGaNZbWhnwE5+cQE8T4PTJEDdTq7TtDJFmOAuVyvG7YiBmx1G0vwVU8ZAVkHkhvbyG80wyU1RHg
-	nH6UdNTGCk9sZzQ==
-X-Received: from wmdi7.prod.google.com ([2002:a05:600c:2907:b0:485:c45a:fcc2])
+        d=1e100.net; s=20251104; t=1778709158; x=1779313958;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jR1Wv4oMHHpwdm4XGb1XftGJUcGelJg9xckwdNKgGB0=;
+        b=CDNd98ECEYC+WzSXK6cobgbrqEzr4NrwrgkesM/Yoe8giiCkAIRuhYdlack0L1ToeN
+         jiYFj2zGv6VS8Hv+U/goUpRmChtXj/en3xIn6/Wtt0Tpn/kLXjkrQsv7J3CFjHSi85kp
+         opZqLAZ1ozYP4F3w0m+c2syWkd9Slj0K0zWU8i8gk2RRjWppHQOUlcGjvMuj/hWpcCKw
+         XIF8YsBeFkyt6kE7XTXurWajjkAIAaEehRUxNNXpXZDasm6PvY0ABIMhZHI/31AOosli
+         oD/DE06aMlr3s9VU3/YiCeeQs+ek134eSkbDfRQB+UgU5qdHFo6u6c8cW61lG/69RcSa
+         Uudw==
+X-Forwarded-Encrypted: i=1; AFNElJ83hvPjrm1VVPL0GGgIlOkQSevwTK7CAXazKerHmTpYW9rYPhWB+c83rOE6GpgC6BqOtVD4ryPzqsZHyXhd5kkL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWqcbyfuBNIWIBhVRV9dewoprl66Fbz52f2jQ0uPf0ZCwqJaL9
+	JfZ+mtPz+1bB6MpyOlssCRkHoF16L7qSy+x56AapHQMObR+tggQ9X6bEDnEDXObE9/QsWDPzMmy
+	Y9nES3LhE3mqdfg==
+X-Received: from wrxk8.prod.google.com ([2002:a05:6000:48:b0:44c:2fb:a56c])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:a48:b0:48a:52ee:5776 with SMTP id 5b1f17b1804b1-48fc9a0ef80mr77492595e9.11.1778709147564;
- Wed, 13 May 2026 14:52:27 -0700 (PDT)
-Date: Wed, 13 May 2026 21:52:00 +0000
+ 2002:a05:6000:4008:b0:446:96b1:f51 with SMTP id ffacd0b85a97d-45c59cd2144mr8466705f8f.22.1778709157467;
+ Wed, 13 May 2026 14:52:37 -0700 (PDT)
+Date: Wed, 13 May 2026 21:52:01 +0000
+In-Reply-To: <20260513215203.3852661-1-smostafa@google.com>
 Mime-Version: 1.0
+References: <20260513215203.3852661-1-smostafa@google.com>
 X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
-Message-ID: <20260513215203.3852661-1-smostafa@google.com>
-Subject: [PATCH 0/3] iommu/io-pgtable-arm: iommu-pages and cleanup
+Message-ID: <20260513215203.3852661-2-smostafa@google.com>
+Subject: [PATCH 1/3] iommu/io-pgtable-arm: Use consistent sizes for page
+ allocation and freeing
 From: Mostafa Saleh <smostafa@google.com>
 To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
@@ -71,9 +74,8 @@ Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, jgg@ziepe.ca,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_145230_018605_2E1E8402 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260513_145240_595560_7F47D593 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,24 +90,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a small cleanup coming from the pKVM SMMUv3 support [1].
-However, they are not pKVM specific and useful in general.
+At the moment we use alloc_size to allocate memory but then there
+is a logical error where we just size in the error and free path,
+which might be smaller.
+Also we size to do DMA-API operations, which is OK, but confusing.
 
-The first patch is to fix a theoretical issues with alloc/free size.
-The second patch is the main one to convert the code to iommu-pages.
-The third patch is a cleanup to use address conversion consistently.
+Instead of this error-prone handling, just set size to alloc_size
+and use it everywhere.
 
-[1] https://lore.kernel.org/linux-iommu/20260501111928.259252-1-smostafa@google.com/
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ drivers/iommu/io-pgtable-arm.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-Mostafa Saleh (3):
-  iommu/io-pgtable-arm: Use consistent sizes for page allocation and
-    freeing
-  iommu/io-pgtable-arm: Rework to use the iommu-pages API
-  iommu/io-pgtable-arm: Use address conversion consistently
-
- drivers/iommu/io-pgtable-arm.c | 88 +++++++++++++++++++++++-----------
- 1 file changed, 61 insertions(+), 27 deletions(-)
-
+diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+index 0208e5897c29..0cbe545c491d 100644
+--- a/drivers/iommu/io-pgtable-arm.c
++++ b/drivers/iommu/io-pgtable-arm.c
+@@ -253,7 +253,6 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
+ 				    void *cookie)
+ {
+ 	struct device *dev = cfg->iommu_dev;
+-	size_t alloc_size;
+ 	dma_addr_t dma;
+ 	void *pages;
+ 
+@@ -261,12 +260,11 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
+ 	 * For very small starting-level translation tables the HW requires a
+ 	 * minimum alignment of at least 64 to cover all cases.
+ 	 */
+-	alloc_size = max(size, 64);
++	size = max(size, 64);
+ 	if (cfg->alloc)
+-		pages = cfg->alloc(cookie, alloc_size, gfp);
++		pages = cfg->alloc(cookie, size, gfp);
+ 	else
+-		pages = iommu_alloc_pages_node_sz(dev_to_node(dev), gfp,
+-						  alloc_size);
++		pages = iommu_alloc_pages_node_sz(dev_to_node(dev), gfp, size);
+ 
+ 	if (!pages)
+ 		return NULL;
+@@ -303,6 +301,9 @@ static void __arm_lpae_free_pages(void *pages, size_t size,
+ 				  struct io_pgtable_cfg *cfg,
+ 				  void *cookie)
+ {
++	/* See __arm_lpae_alloc_pages(). */
++	size = max(size, 64);
++
+ 	if (!cfg->coherent_walk)
+ 		dma_unmap_single(cfg->iommu_dev, __arm_lpae_dma_addr(pages),
+ 				 size, DMA_TO_DEVICE);
 -- 
 2.54.0.563.g4f69b47b94-goog
 
