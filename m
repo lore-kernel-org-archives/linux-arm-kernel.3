@@ -4,150 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A612CD4F3E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 17:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32085CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 17:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8jMP2TqROTeV+TiFaVGks9cJcMR3oF9GuGRUSfBYhhM=; b=cKJPhbsihCJRfU97o4a+g3yYr/
-	x6zM8K/u19xio4/decEmszNS1xBtLKM0Y4kJEhi5MbTTu/enlgEcBUmDYFbbHyYwGYdmmVETaXaUc
-	yns0RbHGtWz/RDw91K/3aMSaBuzWzca9ICadexdF19s8E63eJC/Rw7t5YuhroMSFo0Ma6EVvL4ojl
-	vyyQbpCelSQ7e63LQVDGETE+mj8N1U8PBthwR73ZoV/5AFCXQvia9K7rAfVcaztyI2zDAY4pszlXz
-	on5vL5Lr34EiVn+fiRQypVwZExv01laE4B8ezGAkDXd3dkS/w8RxwsMusGzjiMIRHpCOVw0wJGbbi
-	cQ/JbRSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8WdxaWCj2Vri+tTYAAdR4W5RVn4P6dQP1GQHjDxuQQ4=; b=PbpmP7tFHBZFZ4ygOG2NVxwQ3q
+	L7wCy7lAG76FlI8E6gSgHkQW+9SY7CWNtT7DeJlBdbQLHc2nfcxn8YCpm0sBvaokQqe/sGQVgil0f
+	tZLXDgCa3de/far5BgJalddogSGGoP2zZiIimJM1Pyi69Z5F5cIgPSL5hqcdjPWI0BqjX7wAlDX15
+	+N6RUVy6V++LmAZgltJ7NCjMDcs7WUJm9sDDruAixZBP851/75PwVHtPkaAlPIafjR1648E2oRr+V
+	m60niFsl+T/95AooORFQ+LVEM2orvhtPTjxPax+DfYduw45AYNEOiuMYU9SXV4T3PBe5XbboxJVbp
+	pnTAiLZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNDCq-00000003K3l-32IJ;
-	Wed, 13 May 2026 17:17:12 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wNDFK-00000003Kpd-42jq;
+	Wed, 13 May 2026 17:19:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNDCk-00000003Jxg-0Ib8
+	id 1wNDFJ-00000003KpF-2g8H
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 17:17:07 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64DEm9Xq3474831
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 17:17:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8jMP2TqROTeV+TiFaVGks9cJcMR3oF9GuGRUSfBYhhM=; b=b0Z3rieG2EfD/BoZ
-	T3kWa4Z0iSk71q8mvLzrcE/5+q6RWrATg2PHtZdT4gEXnfEpd2ifpFK/OhLkyJM1
-	jKezqu4feWh5iy1I+CwZ4dftZq6yX0cRVolF5xvYpCKhe36Y673sXn3pEqbp6wLY
-	IlqTG02j4opHoogiL+oLpj1BjrBhcZUTaYr3G5Z3JH2fW04iXVDSAYft+h9dZpqM
-	2FtDN3qAbdComPMRGgMWKGmKTwP51dbpEBsXuy8gWuIrGkKSlYT8tcx2WY6i3EBs
-	kHLoJj4/VfbweYqOPzdeaU79oGddXe24hjTHMv14niTiQFEc1oHFFQPuLWsmvK4v
-	3jOxTQ==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e4p41a0qb-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 17:17:04 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-2bdd327d970so3970489eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 10:17:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778692624; x=1779297424; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8jMP2TqROTeV+TiFaVGks9cJcMR3oF9GuGRUSfBYhhM=;
-        b=YsX6SkTFq+DEKgL00XSLUKVjW8Lz7BLWj39ibYpmVZOoY1hdT8VRxqMagln0n6I4qp
-         fj/cNMhDIPn6coZPxwctdMKIOH+RvjC+GQk+qRr4jLS/mzFh176OQ/LpQzgh04Nzky5h
-         ivf40Xt/5/4Jl9DwbBcPxElQAnnyBw9INBpdPFjxKj4dbwlPvp1sV0IuWZD1JNHBO4UN
-         Ow0r4dyWXxLubc806El0kopoIMKtHram8Nmg+/cdQo5yUcQBsZlot8L4kObOSKBUeeem
-         blwdsoEc1nEtBEBW1KTZ+VSMnvvAGBtHLxECBss1HWF9/6Lwb+DqYTGjSiNfpp5RY45Q
-         hikQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778692624; x=1779297424;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=8jMP2TqROTeV+TiFaVGks9cJcMR3oF9GuGRUSfBYhhM=;
-        b=sqYcRnioUMHl+gwpg6xishoQW8mQrqD0w7AitAYnRjL5zLL4rzFoN1ncr0nHGNiGIr
-         N1BrKsBsA33Ep3hc5fUEmgD7FGRzhPZrclFCYG+RyUrt/Z4alydu5WbCMdU68KOOmHAs
-         vSNtBkNfgwEknWobolkBszGq5H1cKAVIV4wXq7iNZqR8l5zzWx3nSQJTZUpy0XUD7W1k
-         Cx9hdxKzC26uvViNIalGTTqWG7IixdMTo7qUyDRs/JedRVhEExTNDxr78nO/XecyUHNV
-         y9EfpZcQqf3O78+cFlzhjVms0p8fOA/bw7JKwTTHRkNcIW9DbsiyA+KDSemxc8W6pP4E
-         zK6Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+w3XkrtPMm0YWghi4IwhiSDx1T3pTYYOqtjq93ueVuRGFuy/PnbvBwK2dsDAmh2G8Ebnikh2RZ3cJYXd35fcas@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOPk1VmrKQAiY44eMI8ykGRLjYK2iMr6Lq5CRU7CneTPooLcce
-	5eCg6DUYG3f6Yt7VKWNqkuvBRdaanoYdiQVlBzTH7rWAUiF+Pf7zUHsHoP1PN/U+JWfmIs0tF8U
-	lAw62XP0guMyR4bRKu4wxJmF5kuz2AQzj+BTFcYxxS5m39srrBistwegPjqnEA3hIHCvSSf+UT4
-	xJMQ==
-X-Gm-Gg: Acq92OH1ieyFq3m0HV1GvQPhWX+Q3xgSMDIkvw7XeZMtOpQS/Ddeu803mtr5JOomWKb
-	tQmVrMh/6vNKjfhcOYJCUBy9ShFB3h1IX0XYM10XGtXkmobizteyPK+EuX27A1ZguefQ0sh2rrC
-	YbQV0lGgivSrCxBXM4mLsLFWk+6n/JONZ5tFV2cASCFXjnyKqjCLmmsOATpLLjRawN1P+vah6uc
-	8PoLCyQTBL/7Si+Ni8LlWqQkpwrDD6KWqeS+S+1nhzv5ngCGpIWhgbnnVDPZBT9LyPqs+Ew+Rbu
-	mWSg+DbhxJCWbu5YgIFudppuv3aa2v3L9wiuAgytLr6AVoe+vFHI6bB3ShOnWsl6VW/iCvftqgF
-	ZxKGKOPvUk4n0Lx2bcJg1tWX1JeIrm6opHsX14matnh74qG0f4bBc3BNktSvK6+ddl09uY+0=
-X-Received: by 2002:a05:7300:d511:b0:2f9:1004:b2cd with SMTP id 5a478bee46e88-30262f3895emr226699eec.20.1778692623962;
-        Wed, 13 May 2026 10:17:03 -0700 (PDT)
-X-Received: by 2002:a05:7300:d511:b0:2f9:1004:b2cd with SMTP id 5a478bee46e88-30262f3895emr226653eec.20.1778692623279;
-        Wed, 13 May 2026 10:17:03 -0700 (PDT)
-Received: from hu-aletran-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f888d3af4esm23075939eec.25.2026.05.13.10.17.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 10:17:02 -0700 (PDT)
-From: Alex Tran <alex.tran@oss.qualcomm.com>
-Date: Wed, 13 May 2026 10:16:56 -0700
-Subject: [PATCH v2 3/5] hwmon: scmi-hwmon: Log number of sensors
+	Wed, 13 May 2026 17:19:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E1B2960121;
+	Wed, 13 May 2026 17:19:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A12FCC19425;
+	Wed, 13 May 2026 17:19:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778692784;
+	bh=wdwmWQvVhbMJShU+Cq/ZBzAiBrqBEgIBK4QCLxQP7nE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XG8b+yZprlhiDyP4N8PEd0JhlPNIBpirJzna7WY6Flqur6vQsjA/gU5DwKN4W2sF+
+	 E3RKHEG5BKTuj9Phwr7hHxW5wdXGmSDxDu09uNWCqBapj7pFqNzrbj1x0w4zLSDXMD
+	 dp/C9RR2HwsB9ouhXUUfcXqEBSxfupSTjbUBcIGCrm+9BYkEoT4ImaQC5cdHXsRnWz
+	 DOoTHmZrKaGfHNS/pptGvO0Dnb36Zw3IMhn5NEWaFTGlDETppUHAxiV/oCiPjL8TkW
+	 jrbWZT3nJjjwPxotDoTBUhqB86256m43zBEP7un3o7Cd/PlzAi3w649OaY9MjHI6P5
+	 p6VZmOG6n0DZg==
+Date: Wed, 13 May 2026 18:19:39 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: Sebastian Ene <sebastianene@google.com>, catalin.marinas@arm.com,
+	Sudeep Holla <sudeep.holla@kernel.org>, maz@kernel.org,
+	oupton@kernel.org, will@kernel.org, joey.gouly@arm.com,
+	korneld@google.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	android-kvm@google.com, mrigendra.chaubey@gmail.com,
+	perlarsen@google.com, suzuki.poulose@arm.com, vdonnefort@google.com,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH v3 1/2] firmware: arm_ffa: Fix Endpoint Memory Access
+ Descriptor offset calculation
+Message-ID: <20260513-prodigious-cobra-of-cleaning-094a72@sudeepholla>
+References: <20260512124442.1899107-1-sebastianene@google.com>
+ <20260512124442.1899107-2-sebastianene@google.com>
+ <agR98uWCHQBHuGNg@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-scmi-client-probe-log-v2-3-36607e9dd540@oss.qualcomm.com>
-References: <20260513-scmi-client-probe-log-v2-0-36607e9dd540@oss.qualcomm.com>
-In-Reply-To: <20260513-scmi-client-probe-log-v2-0-36607e9dd540@oss.qualcomm.com>
-To: Jyoti Bhayana <jbhayana@google.com>, Jonathan Cameron <jic23@kernel.org>,
-        David Lechner <dlechner@baylibre.com>,
-        =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
-        Andy Shevchenko <andy@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Cristian Marussi <cristian.marussi@arm.com>,
-        Linus Walleij <linusw@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Viresh Kumar <viresh.kumar@linaro.org>,
-        Guenter Roeck <linux@roeck-us.net>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-        arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-gpio@vger.kernel.org, linux-pm@vger.kernel.org,
-        linux-hwmon@vger.kernel.org, Alex Tran <alex.tran@oss.qualcomm.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778692619; l=817;
- i=alex.tran@oss.qualcomm.com; h=from:subject:message-id;
- bh=3u12ZFfeWx/fiqk59TYJupRQ0n5DvmJHNYpFAAetJB8=;
- b=drMsL9zyJtm9O0u5u71mfEb7eSjVSIhSmM0g7YOeZ35sVG8AknsYYy0u0vN6Wrm6jfxOHGdtg
- gHPXVlMeN7JCUSGfnbjCErOB7V68Chpm7qkXicucNIo/rWqXvEyxQR9
-X-Developer-Key: i=alex.tran@oss.qualcomm.com; a=ed25519;
- pk=vKab/gw1fXij5UviWoglv+ho+H/oOiTHyETCLfayPE0=
-X-Authority-Analysis: v=2.4 cv=df+wG3Xe c=1 sm=1 tr=0 ts=6a04b210 cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=U6dIrDiPZIM1rF_tHS4A:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDE3NCBTYWx0ZWRfX5A9jKmGoUAOb
- MXg+TRWaf+zJddW5iyWiCqyuYNzunNZ+LPRaRL67PFmCJs1K8X7c5c4ZqgCikDPUvbSI5gA5lOu
- onHTLKKIhGOmKE7iBDlaPJNCM5MdFd4HWsT7jjH/YL/KMQshd8Xw01cAMrEyuirHmpY79XCy+Nk
- rjpbFCYzUVLrbiALdxVFFsxxkCHja8Ns553TVPJy4Xz5fGV3k4oiBRF0zkjwnCOX2TWjqaf8sLe
- VDHbImMsRcCD/UD+yIz9+tMbqmkOdcReaNcNLkib/Kb5cr3hnbf3qwSq4xygUSeaAA2uMfD3Eu6
- FCzWKPuZtKVAhT07X0FCrPQsC4YReaz0e4MFeAsdrmt2nGoiRx7cIPhvarGislg126EcoPsQJzH
- UuS3jPM/BWXhL5iMYWNN49ZT5k/WR/1q7+iFI/8468BqkrMtoLPR8MYzfJEktaTgVTfdHssoz2I
- np/Juahbb0Ffdc51HFw==
-X-Proofpoint-GUID: Qckoxnho5UPZ6KJK1jv3kU9-ucra2RAl
-X-Proofpoint-ORIG-GUID: Qckoxnho5UPZ6KJK1jv3kU9-ucra2RAl
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-13_01,2026-05-13_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 malwarescore=0 priorityscore=1501 suspectscore=0 clxscore=1015
- impostorscore=0 phishscore=0 spamscore=0 lowpriorityscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605130174
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_101706_232398_6FC4B313 
-X-CRM114-Status: GOOD (  13.26  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <agR98uWCHQBHuGNg@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,32 +77,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI hwmon driver does not currently report how many sensors were
-discovered from firmware during probe. This makes it harder to confirm
-the firmware exposed sensor resources during debugging.
+On Wed, May 13, 2026 at 01:34:42PM +0000, Mostafa Saleh wrote:
+> On Tue, May 12, 2026 at 12:44:41PM +0000, Sebastian Ene wrote:
+> > Use the descriptor's `ep_mem_offset` to calculate the start of the endpoint
+> > memory access array and to comply with the FF-A spec instead of defaulting
+> > to `sizeof(struct ffa_mem_region)`.
+> > This requires moving `ffa_mem_region_additional_setup()` earlier in the setup
+> > flow.
+> > Also, add sanity checks to ensure the calculated descriptor offsets do not
+> > exceed `max_fragsize`.
+> > 
+> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > ---
+> >  drivers/firmware/arm_ffa/driver.c | 14 ++++++++++----
+> >  include/linux/arm_ffa.h           |  2 +-
+> >  2 files changed, 11 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+> > index eb2782848283..56b166290b24 100644
+> > --- a/drivers/firmware/arm_ffa/driver.c
+> > +++ b/drivers/firmware/arm_ffa/driver.c
+> > @@ -685,18 +685,25 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
+> >  	struct ffa_composite_mem_region *composite;
+> >  	struct ffa_mem_region_addr_range *constituents;
+> >  	struct ffa_mem_region_attributes *ep_mem_access;
+> > -	u32 idx, frag_len, length, buf_sz = 0, num_entries = sg_nents(args->sg);
+> > +	u32 idx, frag_len, length, buf_sz = 0, num_entries = sg_nents(args->sg), ep_offset;
+> >  
+> >  	mem_region->tag = args->tag;
+> >  	mem_region->flags = args->flags;
+> >  	mem_region->sender_id = drv_info->vm_id;
+> >  	mem_region->attributes = ffa_memory_attributes_get(func_id);
+> > +
+> > +	ffa_mem_region_additional_setup(drv_info->version, mem_region);
+> >  	composite_offset = ffa_mem_desc_offset(buffer, args->nattrs,
+> >  					       drv_info->version);
+> > +	if (composite_offset > max_fragsize - sizeof(struct ffa_composite_mem_region))
+> > +		return -ENXIO;
+> 
+> nit: This driver seems to use sizeof() with variable name rather than
+> type (except for one place) so it may be good to keep that.
+> 
 
-Log the sensor count after a successful probe, aligning the driver with
-the existing SCMI client driver logging pattern.
+Agreed, +1.
 
-Signed-off-by: Alex Tran <alex.tran@oss.qualcomm.com>
----
- drivers/hwmon/scmi-hwmon.c | 1 +
- 1 file changed, 1 insertion(+)
+> >  
+> >  	for (idx = 0; idx < args->nattrs; idx++) {
+> > -		ep_mem_access = buffer +
+> > -			ffa_mem_desc_offset(buffer, idx, drv_info->version);
+> > +		ep_offset = ffa_mem_desc_offset(buffer, idx, drv_info->version);
+> > +		if (ep_offset > max_fragsize - sizeof(struct ffa_mem_region_attributes))
+> > +			return -ENXIO;
+> > +
+> > +		ep_mem_access = buffer + ep_offset;
+> >  		ep_mem_access->receiver = args->attrs[idx].receiver;
+> >  		ep_mem_access->attrs = args->attrs[idx].attrs;
+> >  		ep_mem_access->composite_off = composite_offset;
+> > @@ -708,7 +715,6 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
+> >  	}
+> >  	mem_region->handle = 0;
+> >  	mem_region->ep_count = args->nattrs;
+> > -	ffa_mem_region_additional_setup(drv_info->version, mem_region);
+> >  
+> >  	composite = buffer + composite_offset;
+> >  	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
+> > diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
+> > index 81e603839c4a..62d67dae8b70 100644
+> > --- a/include/linux/arm_ffa.h
+> > +++ b/include/linux/arm_ffa.h
+> > @@ -445,7 +445,7 @@ ffa_mem_desc_offset(struct ffa_mem_region *buf, int count, u32 ffa_version)
+> >  	if (!FFA_MEM_REGION_HAS_EP_MEM_OFFSET(ffa_version))
+> >  		offset += offsetof(struct ffa_mem_region, ep_mem_offset);
+> >  	else
+> > -		offset += sizeof(struct ffa_mem_region);
+> > +		offset += buf->ep_mem_offset;
+> 
+> Does it make sense to also set buf->ep_mem_offset for the other
+> case in ffa_mem_region_additional_setup() and then add this
+> unconditionally here?
+> 
 
-diff --git a/drivers/hwmon/scmi-hwmon.c b/drivers/hwmon/scmi-hwmon.c
-index eec223d174c0..456ce11d050c 100644
---- a/drivers/hwmon/scmi-hwmon.c
-+++ b/drivers/hwmon/scmi-hwmon.c
-@@ -362,6 +362,7 @@ static int scmi_hwmon_probe(struct scmi_device *sdev)
- 		}
- 	}
- 
-+	dev_dbg(dev, "Initialized %d sensors\n", nr_sensors);
- 	return 0;
- }
- 
+I need to cross-check the spec, but if I vaguely recall as the name
+FFA_MEM_REGION_HAS_EP_MEM_OFFSET suggests, older versions don't have that
+field to use it.
 
 -- 
-2.43.0
-
+Regards,
+Sudeep
 
