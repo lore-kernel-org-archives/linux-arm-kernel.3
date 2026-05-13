@@ -4,80 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4998CD37B6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C56CD37B6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cTJr6d1q3t0JU9ii6+kGK0Jmb6tPoM1IcWaXxDJZ9dU=; b=acMKeo3PyMlIdaOoZFOUUYpTnX
-	68cjCuIXQ/CHbvdhPNxLKBz3LVcByQoJYg2LL+5FCiSZAE3ZYYDgRmx1s+B4kt06OxkezjFbK2vHi
-	EIZnX0yPhi8tmqXZXd6IgZbmF3OJhr4wof+RiSGG25jTiAA+gZE+s12Pv1N4yyeRD3q7ldk38cjsq
-	IgOnAyiiumvFwTRBIEZ79LgtQzqlA7ZD985exts8xM4S9F3tBgMYqtCmRnDGWa3lmO4eFwIKUXedM
-	8rFL7sk2ldf2lGCzDzdEz9Y3H3/ragTb4qs/ZBfQ1QgRzTwBdcR7vQFwmpnvOBTSxYY4UCd/p9gjC
-	TpzCGzTg==;
+	bh=Ht2QQ6l2QMI3jjLbrMSGg7m47Ftunylr0Q1SqunvI3Q=; b=twU/5iEyQ9gelbtHgguWiGgils
+	WFYpZ0hs9FGPImJ2QICD6z4cV5tkGmcMcmM1UTPinDLrFE7J4VBc/QBdtLTfurvIALSFbz8Tbe1Pn
+	2lbhjtHTEFzJnBe0EVdhHqGqMTmilIpsqaxNIH07Ts6jsvQvLXCnf7CSXKEQl96SYdN9HqOHZmxbX
+	9swrs2Zxv9mfTdP5yKZNsHf6u/bCFSYWf0xbaYjIfzlcX3QP6BKQgCJx0jMT3KbflmOMfs/vRWVuZ
+	vhiuRNY00/I1VGaf5djMp67SZFSjmzHokeROWGFuoPbw2SDzTExxDiKXETwrMqNVyymnaQUS9CSwA
+	/mP8TJUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN6o7-00000002BQy-30gE;
-	Wed, 13 May 2026 10:27:15 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wN6pr-00000002Bey-4054;
+	Wed, 13 May 2026 10:29:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN6o4-00000002BPl-2Z6i
+	id 1wN6pp-00000002BeV-2fca
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 10:27:13 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wN6na-0002e8-Ls; Wed, 13 May 2026 12:26:42 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wN6nY-000aCU-35;
-	Wed, 13 May 2026 12:26:40 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wN6nY-00000002o8f-3PSk;
-	Wed, 13 May 2026 12:26:40 +0200
-Date: Wed, 13 May 2026 12:26:40 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Rob Herring <robh@kernel.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Marek Vasut <marex@denx.de>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, laurentiu.palcu@oss.nxp.com, 
-	victor.liu@nxp.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/4] Revert "dt-bindings: display: bridge: ldb: Fill in
- reg property"
-Message-ID: <uyh5s6g7bvuufnhfjrmungp5dbyllxfrgfzaxno22knpxxojmj@qqvh75ezblpp>
-References: <20260504-v7-1-topic-ldb-fixes-v1-0-0125d937ff7f@pengutronix.de>
- <20260504-v7-1-topic-ldb-fixes-v1-2-0125d937ff7f@pengutronix.de>
- <20260505141538.GA2547282-robh@kernel.org>
- <2bl2mwpk57xgkuye2gydliymjkzikiovnb7ovnb73olwtfkjwn@byn3732grvnh>
- <CAL_JsqLYS1sgU680KNR60+OvtNwEVKWovht7K2APO3sqeJe6Nw@mail.gmail.com>
- <zbbez4lpme7szgnsd7fqufbuhmvcftw4sqrmwwwzyxu64i2ppb@fh2fgdkc6tat>
- <CAL_JsqJWyRPh_hmJW8p7+VvtcqpS0a_azjMO-PyQgkqQUfLAGA@mail.gmail.com>
+	Wed, 13 May 2026 10:29:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E1B6340A1C;
+	Wed, 13 May 2026 10:29:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F393C2BCB7;
+	Wed, 13 May 2026 10:28:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778668140;
+	bh=SMSduI5AnAM9kqchaE8jYdlaOT2npCWPyM5+zGPU3o0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oqTXi24HsgBOAFuKC6Vi/Jw3ToZ3ix8HWddmTwJTDN0Un1xAN5BkYQzXEShkWawTo
+	 GbwdlpXAgWvDqvcNS4fj4SamaL21POucJDoSE7gUJ+y6jgqAQeAzM1iOpDyFP3dDYj
+	 RbhQq9r3uXj5eja2m/YDTvPvES31K7BtxsHNPpQukkzx1jXDmNwQs88p5AhLbZkYxo
+	 WYY1U+LSv7W2Mu8THlmQACiifeBWhl6VW8dk+ILwXNmNO/9dTqLE3RnuJo2ptdVwoS
+	 hfHoLk3RKGkwl/5TkgZ09NqeNYyFzaQwl3SN0CdD5rL7XU7NeUhJHKrDEBwv+tCA7/
+	 ezv48qxYD1c9Q==
+Date: Wed, 13 May 2026 13:28:51 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Jann Horn <jannh@google.com>, Ard Biesheuvel <ardb+git@google.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Liz Prucka <lizprucka@google.com>,
+	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
+Message-ID: <agRSY-VLLdSqeMT5@kernel.org>
+References: <20260427153416.2103979-17-ardb+git@google.com>
+ <20260427153416.2103979-19-ardb+git@google.com>
+ <CAG48ez1DJ88a0pBCE-Q0VXyDuJgng8zdunb38g4b4JPU88exww@mail.gmail.com>
+ <31252c1d-a98d-4635-ab61-ce5b649e256f@app.fastmail.com>
+ <CAG48ez2xJwJDgxSH0u2G==9dOQJQxQ7WsQfU14O1H5hEWic1eA@mail.gmail.com>
+ <fb5749bb-bc87-4f0b-9ec9-8a1eb7ded3b5@app.fastmail.com>
+ <agQ7RMAw51RlNUOj@kernel.org>
+ <49d30ffe-b7e1-4b05-89e0-c3fe01348bb6@app.fastmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqJWyRPh_hmJW8p7+VvtcqpS0a_azjMO-PyQgkqQUfLAGA@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <49d30ffe-b7e1-4b05-89e0-c3fe01348bb6@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_032712_649129_B5A67EEE 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20260513_032901_730423_4B8D7521 
+X-CRM114-Status: GOOD (  30.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,133 +89,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-05-07, Rob Herring wrote:
-> On Thu, May 7, 2026 at 6:55 AM Marco Felsch <m.felsch@pengutronix.de> wrote:
-
-...
-
-> > > But nowhere have you said the LDB registers are mixed with other
-> > > functions. If they aren't, then there is absolutely nothing to change
-> > > in the binding. If they are, then yes, we shouldn't have 'reg'.
-> >
-> > No they aren't mixed with other functions (for now).
+On Wed, May 13, 2026 at 10:53:08AM +0200, Ard Biesheuvel wrote:
 > 
-> For now? Is the h/w going to change or is the binding *still* incomplete.
-
-Sorry for the confusion. By for now I mean that NXP tend to reuse IPs
-but with minor changes. So no, the binding is not incomplete with our
-current HW knowledge.
-
-> > Can you please
-> > confirm that mixing 'reg' based sub-device nodes with non 'reg' based
-> > sub-device nodes  is allowed? E.g. if the below example is allowed?
+> On Wed, 13 May 2026, at 10:50, Mike Rapoport wrote:
+> > On Tue, May 12, 2026 at 02:56:16PM +0200, Ard Biesheuvel wrote:
+> >> On Mon, 11 May 2026, at 16:40, Jann Horn wrote:
+> >> > On Mon, May 11, 2026 at 10:59 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+> >> >> I think we should simply do something along the lines of the below,
+> >> >> considering that the size of a data object tends to correlate with
+> >> >> its minimum alignment.
+> >> >>
+> >> >> I do find it rather puzzling that the compiler emits empty_zero_page
+> >> >> *after* zero_page_pfn - ideally, we'd combine the below with
+> >> >> -fdata-sections so that the linker sees all individual objects, but
+> >> >> I suspect that would create some problems elsewhere.
+> >> >>
+> >> >>
+> >> >> --- a/include/asm-generic/vmlinux.lds.h
+> >> >> +++ b/include/asm-generic/vmlinux.lds.h
+> >> >> @@ -452,7 +452,7 @@
+> >> >>  #define RO_AFTER_INIT_DATA                                   \
+> >> >>         . = ALIGN(8);                                         \
+> >> >>         __start_ro_after_init = .;                            \
+> >> >> -       *(.data..ro_after_init)                               \
+> >> >> +       *(SORT_BY_ALIGNMENT(.data..ro_after_init))            \
+> >> >
+> >> > Oh, neat, I didn't realize that's possible. That seems like a nicer
+> >> > approach...
+> >> 
+> >> Neat but rather ineffective, unfortunately. (I don't see a size
+> >> difference with the arm64 defconfig kernel)
+> >> 
+> >> Given that empty_zero_page only ever gets its address taken, we
+> >> might just move it into the linker script if that requires tweaking
+> >> anyway. We can just place it at the start of .rodata, which is
+> >> already page aligned on most architectures (and will become page
+> >> aligned unless EMPTY_ZERO_PAGE is #define'd by the arch linker
+> >> script to something else)
+> >> 
+> >> 
+> >> --- a/include/asm-generic/vmlinux.lds.h
+> >> +++ b/include/asm-generic/vmlinux.lds.h
+> >> @@ -472,6 +472,17 @@
+> >>  #endif
+> >>  #endif
+> >>  
+> >> +#ifndef EMPTY_ZERO_PAGE
+> >> +#ifndef __HAVE_COLOR_ZERO_PAGE
 > >
-> >         system-controller@4ac10000 {
-> >                 compatible = "fsl,imx93-media-blk-ctrl", "syscon";
-> >                 reg = <0x4ac10000 0x10000>;
-> >                 #address-cells = <1>;
-> >                 #size-cells = <1>;
+> > I don't think we want let architectures that don't use colored zero pages
+> > redefine it.
+> > If it will be really required we can add the ability to redefine
+> > EMPTY_ZERO_PAGE later.
 > >
-> >                 ...
-> >
-> >                 bridge@5c {
-> >                         compatible = "fsl,imx8mp-ldb";
-> >                         reg = <0x5c 0x4>, <0x128 0x4>;
-> >                         reg-names = "ldb", "lvds";
-> >
-> >                         ...
-> >                 };
-> >
-> >                 dpi-bridge {
-> >                         compatible = "nxp,imx93-pdfc";
-> >
-> >                         ...
 > 
-> Depends what is in "...". If only a compatible, then no. If there are
-> actual resources defined, then yes.
+> I was actually intending to add use this for arm64 in the next patch. It
+> already has a reserved_pg_dir in .rodata which is page-sized (i.e., up
+> to 64k in size) and guaranteed to remain all zeroes, so empty_zero_page
+> could actually be an alias for that. This is what I had in a previous
+> revision, before you turned the empty_zero_page definition into common
+> code:
 
-Please see the below full example, is this allowed?
+Works for me if from arm64 perspective that's ok :)
+ 
+> https://lore.kernel.org/all/20260320145934.2349881-16-ardb+git@google.com/
 
-system-controller@4ac10000 {
-	compatible = "fsl,imx93-media-blk-ctrl", "syscon";
-	reg = <0x4ac10000 0x10000>;
-	#address-cells = <1>;
-	#size-cells = <1>;
-
-	...
-
-	bridge@5c {
-		compatible = "fsl,imx8mp-ldb";
-		reg = <0x5c 0x4>, <0x128 0x4>;
-		reg-names = "ldb", "lvds";
-		clocks = <&clk IMX8MP_CLK_MEDIA_LDB_ROOT>;
-		clock-names = "ldb";
-		assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>;
-		assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-		status = "disabled";
-
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			port@0 {
-				reg = <0>;
-
-				ldb_from_lcdif2: endpoint {
-					remote-endpoint = <&lcdif2_to_ldb>;
-				};
-			};
-
-			port@1 {
-				reg = <1>;
-
-				ldb_lvds_ch0: endpoint {
-				};
-			};
-
-			port@2 {
-				reg = <2>;
-
-				ldb_lvds_ch1: endpoint {
-				};
-			};
-		};
-	};
-
-	dpi-bridge {
-		compatible = "nxp,imx93-pdfc";
-		status = "disabled";
-
-		ports {
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			port@0 {
-				reg = <0>;
-
-				dpi_from_lcdif: endpoint {
-					remote-endpoint = <&lcdif_to_dpi>;
-				};
-			};
-
-			port@1 {
-				reg = <1>;
-
-				dpi_to_panel: endpoint {
-				};
-			};
-		};
-	};
-};
-
-> > Furthermore I thought that for the MMIO bridge@5c device, the 'reg'
-> > porperty would either require the full register address, e.g. 0x4ac1005c
-> > or there needs to be a ranges property.
-> 
-> There should be a ranges property no matter what.
-
-Good point, something to fix too :/
-
-Regards,
-  Marco
+-- 
+Sincerely yours,
+Mike.
 
