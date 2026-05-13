@@ -4,144 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 691BDCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D42AACD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:19:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0xR1d6e8XJ0K/LDsSg/j3/H4fm3GCviKF2FjslXsJe8=; b=Ag3U5hcYJwU09nsMOVCEDTxcN7
-	/CrY1ICtpiTFZ60NKVnYtCbuVSsNbVQ4qsQcHn+LRY+Z6iGIj9Qsd+tsTOggLo2knSog3vKzYiw9R
-	Gr2qM0UZ1/u4zKQN5/KUHuFN6bK79wvyrJm4ktP8upJDq73NmrE7J7h496PHhj3Sm3AtpIj9ddJ9L
-	MFbr5F9TPkehDRTRfKEiX3DNP+7AD2WFjIzu7MWHMwffB+nV7w1Ffifyyy/BB1nbjEgc2pPRwhXPd
-	hOhhuRImBmTLfqhwRWGXd9smAshJ8k6vDTBS4lSWUfXPISL1YlB1vGv9IicbUq3Pk/0tuYTr5yLBZ
-	zZgImz2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7HfzTTvIslIljk1fIwY8vvlobMaEcqsDqYgimgdYkuc=; b=12pUYw/c64TNwX2WuzlSot6UYR
+	SCuhtat1LOFfOZORn9SP+GQUjeSIOH0tOZLKjgqFGFz5eahoy3EgDyujqwoP0t23jVE2eGE3y04LQ
+	Fo7fB/hg/iWeqU3X2D5DewBb9GVzDnLLyEnTfeyZJU7rlHRaqjp9xKhqPTU+w8qGucXlGuhBs/7+J
+	jAdv8dCtAlxIbeTWxqJBWWhd/hhlcQjQVbMpHt6VtHYNNSadtEzee3AP6lXlEeLsWtUUBiNZSQk1A
+	7B5v/pOPb52XTyy7xonEGaQfJ6Clns/WPHBa3V3v+TcMVQu8m+gyhJhFAYmjucn4P4SILzLSN12OY
+	ETpOUV9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMztZ-000000010QA-2qbS;
-	Wed, 13 May 2026 03:04:25 +0000
-Received: from mail-northeuropeazon11011054.outbound.protection.outlook.com ([52.101.65.54] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wN08T-000000011xW-0FV3;
+	Wed, 13 May 2026 03:19:49 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wMztV-000000010Kr-0H23
+	id 1wN08P-000000011x5-28Mv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:04:24 +0000
+	Wed, 13 May 2026 03:19:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rqGbuae9Z7EPzpl/jZR86fLXEWCg3IvX2R0GBGFBQzZ7lK1aqNgIGRVgNzqpxD1n9vrsbghBTDnONk2JLomCkA7vaU3acAlHG9NO27q3pQ8xagyvn306G8QBBS0srnKpwHSvLHtQeM4RB4xM9G3Numr9CImi9gJrJyves/z1F/34RAThVc3ju0YrcMoIRvrtuCc3QVikPaa2wvGZW3eicEa0nTgBl3+r+OqoJYfwRRJCCPpupiwCVbg22MS7TuRw91zU81JVZQz828ISHWgOHUH/mCWrckFwiLgLhS39B1kMNQBR03K0nhkKP0KwlRSSZoelZnbLGX/9uy7IHVDkGQ==
+ b=H7avIj/6VmfsgtBw5ppYHCL89cSwQVYg2VpG0aNTa/yT5PCbXFDZmGK5d8vOfPSjgQHAglhkT4GChFgfXaF+jnVHResjN3/OQNNb0l5gNlbeGk15a4lT2yAVaocPN1li+ZtEawhd7G7GBJ0OhflVINH3tTxKy9NsGydSUHX3jhLyyLuj6qkTABRHoqCr5oJFUVEejG2an0/TKilSH1kv1DlDtoZNS8gHpBXrqG8m1vdEkv+PYvlgAfgqUJ8Pp2QakN2+gRl/bcCEo57/HqhArboW9GXuS/i7aqXNknUnw8wzyr+9G71MjrsWYjRDjLmpMBLJDDCwhoOvd9s9XM4G9Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0xR1d6e8XJ0K/LDsSg/j3/H4fm3GCviKF2FjslXsJe8=;
- b=U+4D7qJFldKMtc+yhxTfcWrCfmAsHWbKYVj1r+idDcILLc1HSBWuuPrZPTn2gNScaZ2w8LTFnAett5Xlg79W8gLfLC44mjp0zpoTIRJ35z8b6WRyhInEtJqkBbSNwp1Bns7rXe8B2ru1sqr+JHPt175YbXNQo04ifKZecJtrgNISkVc1wbYxLQ8wbiOVOZ6IBNE3qJdoic3/0Cy5d3oSkoLjJ9ujystleyWYGroDsqiw/JM6FihZvsn9Q3IuUkQhIrfb7nranZdjBds8Xkhu1bLLKDscaOqbH8w/fArBZ02Wc8qJYboIkY1eO5w1+erkVqYHEWzx6GUyxqRLzEEw9Q==
+ bh=7HfzTTvIslIljk1fIwY8vvlobMaEcqsDqYgimgdYkuc=;
+ b=VZ1Lqq+CaV12aA/v8R08L61U9tP5ocn4GgsPGVPD8QUjANFSXvSLQXWsJvl89+DWp9CDPiltJwcjS7kPoZCc9xbG1bYGm694xhDsBnapF8qK5mLIftN5TdJTdY4Mnzwzh0Ncs3NwXxBHcWyJND7gRj9SWMXI0hY/TGGsWtLiZN+t/K7U6LxmTSCJEwUP0+iB6yA72MeBTRDXAk4/mGXdcTqGyVE9njZxnpNlwLyB0O1aTHbzbcfgcz2NePlOVLfPImXYbyn01tI9LpJ+8CHGzRBCzAixQKpCRZQkLUMCAU8HQOoxg6ozExD7JRQDp0vkvSLmudF8EuCSG92Py6OVYw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0xR1d6e8XJ0K/LDsSg/j3/H4fm3GCviKF2FjslXsJe8=;
- b=ezqvr8EWlwwx5aqVUa2IUnTye+55/oZ9PA4wkvg3VAON81UgU5JHzKz/WE6ABTiY45ZpPqjbpI0yoNDOsDetfsHq+/WmHNEnIWFAL0AwfULr1CzJiJwfEOq3LLOhR1ELpiXj+doNQFjO9Y12+ze0LnB8RndewmlMHYKKj30vyCACfcBe2C+QylsqZ+y6LMaCdLzujAsjNNO0vgTcBbgliMNa6ZSOvTdwPu6nXT8FbQClZu5BnXYynxsa9SMtnZXFKSkfdizXcfRgkzNHAWBPJoCajKvV9oWaGiKmyFyNoBovRGvnaK/OqqQ2Q504dQ7iCswzJb3E/zAcpeBxxc2Z7g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DBBPR04MB7500.eurprd04.prod.outlook.com (2603:10a6:10:1f4::16)
- by GV1PR04MB11525.eurprd04.prod.outlook.com (2603:10a6:150:282::22) with
+ bh=7HfzTTvIslIljk1fIwY8vvlobMaEcqsDqYgimgdYkuc=;
+ b=NhCPGl8t4YwRW2q/hsB4nD3wXGbEDnsePLPWSQNc8lEjpNGxbIRNBm/ko22wqsOJ8m7dNC7PeCqu0k3bmuyTZCl2Xynu2CJAIIzFPf8Wzh1jPMFwh3OdGxL6i17CmGwwtTlxuXPRQ7y1zJxeSJK2qKD4MgLUIeLIv86Mf04SokwjomxUx+elfW1F0gBRj43Am/eaqQHbbgYrKs3JgKQWLCDHz2ds0K2u00SdpOlcjc4giKmPzWd/llt1zBH7Ub8uM1KxqRzxeNIVWBXYb0iRRPapIsJjNUnI65Jy/dHW37s2Kiq+uV48ALOAyzgMRQ6CFuSkw6arjZd6+omm/PvCrA==
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
+ by GV4PR04MB11903.eurprd04.prod.outlook.com (2603:10a6:150:2ea::22) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
- 2026 03:04:17 +0000
-Received: from DBBPR04MB7500.eurprd04.prod.outlook.com
- ([fe80::c291:543b:4bde:cee7]) by DBBPR04MB7500.eurprd04.prod.outlook.com
- ([fe80::c291:543b:4bde:cee7%6]) with mapi id 15.20.9913.009; Wed, 13 May 2026
- 03:04:17 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	f.fainelli@gmail.com,
-	frank.li@nxp.com,
-	chleroy@kernel.org,
-	horms@kernel.org,
-	linux@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	andrew@lunn.ch,
-	olteanv@gmail.com
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: [PATCH v7 net-next 15/15] net: dsa: netc: add support for ethtool private statistics
-Date: Wed, 13 May 2026 11:04:54 +0800
-Message-Id: <20260513030454.1666570-16-wei.fang@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260513030454.1666570-1-wei.fang@nxp.com>
-References: <20260513030454.1666570-1-wei.fang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0029.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:17a::13) To DBBPR04MB7500.eurprd04.prod.outlook.com
- (2603:10a6:10:1f4::16)
+ 2026 03:19:35 +0000
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.20.9870.023; Wed, 13 May 2026
+ 03:19:35 +0000
+From: Chancel Liu <chancel.liu@nxp.com>
+To: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li
+	<frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>
+CC: "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>
+Subject: RE: [PATCH 1/5] clk: Add support for clock nexus dt bindings
+Thread-Topic: [PATCH 1/5] clk: Add support for clock nexus dt bindings
+Thread-Index: AQHc3158VfB70hHkmkqSrDXWncQcGLYLTw3A
+Date: Wed, 13 May 2026 03:19:35 +0000
+Message-ID: <AM9PR04MB8353787A307A3064C669BD94E3062@AM9PR04MB8353.eurprd04.prod.outlook.com>
+References: <20260509024846.2094049-1-chancel.liu@nxp.com>
+ <20260509024846.2094049-2-chancel.liu@nxp.com>
+In-Reply-To: <20260509024846.2094049-2-chancel.liu@nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB8353:EE_|GV4PR04MB11903:EE_
+x-ms-office365-filtering-correlation-id: 0153fcd5-f07e-4ac8-6717-08deb09e7597
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006|11063799003|18002099003|56012099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: VvzIDJYaGBDYvRnM6nRBej4JVZG7gKATrEM25WBd8dBRfUsAHamR8RMMafqh04JAnsjAcNEndk09N4X1jUXPHIx/lbWzPW+czvgrzX1/NEe4dACfHDt+WgUsyO86cFBfMTNWwuXneC+7Zb1fW8wJ7UyeIL3oD6djdK0KV7wEzIpmSclM6dXkDZfkHwI/y7BQDcJonvQAhxpVD+dZ9olJb8BLhgh3cZNC9gw8vNXEkoyw0ZCzY+aYhLtANL061aYuvebXobCXXVueK6A8D8zKS/a8DUjgFeS90JJzEE85aOhTSyoRQI8ENra45mpj9FeDglL+492+ZOAxdEaJowOx8TF519Dv7E1LZ+7L3i19UmH09VVdCfBD4apywOZlHzf9S9HXjHzO//do2IQw/oXk/UvRgtEYr/x5woGMbDQ6QzgJ+Qdenrm+CvUCyLRm5x4lrM+Xvnb1+URIf2eOH90xE5coAneW/3eaQ6nmSviNa2owb6loUchwLm6osLfYLIJ2AmJLsrekLYcUHFU1mXBzrHtjtk4P0f/MFPvIWVfB/6iyHD3G9n53Zw3m2O5ht65qjd3sWfi9LOfxOZCMHK1NnyooXb3swKZfSbXRk4Efv+bHo9PLX+a0wKuW1pA2A9mv2YuW/HB0/6EtptMeAwMwwZ5+8Lhptj0s/40Tv7b8nu+03kacGtHWavtEiLE3LV8xbRa9fGNGN/1KzRd7WtLz2bYO918+4JOChesk4Lj6FyYem/h4P/je6TQ/dzoMojTX
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006)(11063799003)(18002099003)(56012099003)(22082099003)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?o7QeS8gSeM45vRZ4IyvecbZHe9DT/rTx2W0DSY9TdQCwQ5c2GHve5mH7kp?=
+ =?iso-8859-1?Q?/th8XTSTbRmiYKUhyRw9bv0bV5jDZOlpegNXYyr9zzDiNeRHF8nfDOfpiz?=
+ =?iso-8859-1?Q?xaSFYSHwFEeD0J0snFFET+o65xf9H1vw1s0rmHyW9p5IgLuaYswK/bIfxC?=
+ =?iso-8859-1?Q?vVY4ucUxV0OH3Ne+RMZkjIvpD0TSHMlAZ5xbeC2eYRG4GYqN5F5eYwYRmg?=
+ =?iso-8859-1?Q?mUvAIEQSvliYWY1+d1VNVRRdmDtR+K0kkLG6EzpyaUS0Uok/u1GB9axZHh?=
+ =?iso-8859-1?Q?YQbjOmHU2mNJKXdorX7VBn+YmXO/kY4n/nGjD4BIIdfW9fwicCx8+/wwUL?=
+ =?iso-8859-1?Q?G+CN/J+OrxT5/yfGxLBDtBJyLdJzwrPl6Gwksx22vqwvS73QlVIB7+b0YO?=
+ =?iso-8859-1?Q?D3s30wNZ0qI6Xc7ckJVyF7kHT1/nQDC8qOval8toHNNvYAlh4vcUezjlha?=
+ =?iso-8859-1?Q?IxPqu5g8/9VstKjT0qoS1rq2imDfzaF61Vc50iheF2tLODMwWV0/6ixzk9?=
+ =?iso-8859-1?Q?zUpo6rLMFomSaLnXYHGVJmHJEAD+E9iVB70RQJKoGSgIoHPzc3A328uein?=
+ =?iso-8859-1?Q?7VyXXGbn3IBnjsNV1ouBNC7YmDQjPfpAiB/eSwJPa2+jRUV1L0O0wM1FSq?=
+ =?iso-8859-1?Q?pO47+hjezie1ajbD9Aw8wd8jK59e92FPVfoMG/3nMQca2rRJzvB1NSbIpm?=
+ =?iso-8859-1?Q?rnFSXZxPIrnPRSFRQ24+aCK53tcWPOnHJbUp7uCwQ3NnuOKsFp0sU+tQkZ?=
+ =?iso-8859-1?Q?RMGzZkKGrf3C1o9nISzL5de7Jep19GVH+kFX0ZAC3s+kVOFwNhamZ4BwVs?=
+ =?iso-8859-1?Q?8y/q0h8x6l8/1bLIUOPocrxIiiLBMltObnzVcTIlkkCoIUBqonIelYy7uW?=
+ =?iso-8859-1?Q?5JopPCbPi08o5aO8ZMUIspHAnGgLb89qlvAnjEj+2Js+mjo3QmywsJnAmJ?=
+ =?iso-8859-1?Q?VCCtXWMYhtnNYlokRQktnoD6YyRLCTcgor/CzTcKwZD8SSH5kTf5yZnhKd?=
+ =?iso-8859-1?Q?CK23DhNO3DbhTMHZMX2nth6gKKFtmjb5gdjXAESFcgvxR5HuD768v22UeA?=
+ =?iso-8859-1?Q?XF1+adV8FRKfJWAxCjUXJxJUBgOYvyTx/7R2wahmLBPAW5CCzsBqBIudNl?=
+ =?iso-8859-1?Q?PrBUUkczbvf64gxksiqipOivWcfFXS9zTIIyLHGN2LTh9KNjHv/Bwh0gIR?=
+ =?iso-8859-1?Q?Jppjmaw+ma+5rZfxFc5MaIik2r7z92iZSf0Ax9V9s/UoCsSEzMwqGjv4VS?=
+ =?iso-8859-1?Q?9tCarb2KDPqtLE34HJBgT7+PeIFlqXnk4FuqPvaJCjvP0xXHHm7ehyhdkl?=
+ =?iso-8859-1?Q?s8d8vskxLh+6wk8IUOQqzRZmbGvkyt5U381VPTFIrCXfaju9lSVj+2DfT+?=
+ =?iso-8859-1?Q?fCDNf8VNb6HNFY1IAFEg2IEQ7BDImV4Kahg3dbet19ToazV14Yqy2dz2A/?=
+ =?iso-8859-1?Q?mRv3VrDcO05CtOxO7NST4MMQaEZccJPecaDOCJN/RByDMbrcke+pcMGZDo?=
+ =?iso-8859-1?Q?vgkugG/XYt51qYTBDcgdelenMsl3oesv0GAtRW3VT7KJj5JfOasUMty6tc?=
+ =?iso-8859-1?Q?uL0jNH0H7KTumWlMp7P2WAfnO5qclYnLsc01WkEPm16jtqk/S2b5GXbrJx?=
+ =?iso-8859-1?Q?zYL1kKMyXzv3MmVDTXfbV5RvkaZh09EfvA7zNXRutBmHN9RG4tdEo1W14y?=
+ =?iso-8859-1?Q?3lVONjSOhYMVRa6p1ZgGSroO2bPIbjCLZ5d4VFE1IgWFqAoxgG7W1fRktF?=
+ =?iso-8859-1?Q?bD+Fdog5w82n60myoL89OeQNMBY/Moyddi6sHnXDGdht/6?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DBBPR04MB7500:EE_|GV1PR04MB11525:EE_
-X-MS-Office365-Filtering-Correlation-Id: c9ad2477-add1-40aa-aa4b-08deb09c51ed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|19092799006|56012099003|18002099003|22082099003|11063799003|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: 5+T5ZU7GutDU9QAMGZNJZJHJ/LPB8TkTkjgINwNpVu0ZsU8XsIcZEutTeC30rHOV7IwDBehrAAXbTP0OzXOYnAnTidbHs6+yuFMjSkjx0iltxrUhTKGkpr3zRH9G2V8tkdkaRbZAdF8LfpK//4CBDPTsti0KgAfF5Qc4l1CBfx5rFPWWH7xBnw1kKwsVFOrrE3uNLG3CtQIySKcHGMvs+PE0RpJbuAJsUUPZaMBYirwmBwXA7MRQH7J0XxIxEFiYaskxXK85uNcN4XFc8RZfmeM/qdcPoOIPZmRkh+VcpgQu3nCjA0Dv8uuofOWdAU0ZlpSZC4BWaqo9VTz4nrAmVIVwIZlwadhZyA/FlWCXqVzIk8C/YkaSBuKjYUgVF2B24OTnN+pCpPHdQIBtno3nC1pyUgXRZbAEBTc9rZ6m7IGGPkj3GUHv02WZPH8aZp1FA3ZKhzIam0ZFaXOypH3yI4t41KBUoce8/PI4VEtZbc4p5cK8HbhyovOPOxsQc5celO2JTtTB41EBYVGNtikLhjwBkDuvarRVogZqrUNVQzVK5vOvPAb5WnDrNovf3QbJo16E6yhrZIP7iHjW2L8aA6WWiNZVd07f7OvMr/HItQg8abgdzs4XrWJJJ3Aq4JVD6bsrnjlZlvMynb/JrvEKu2y4dtUG4YeMeon6IJNBDLRzgD3nV87OAF2sJQ3JYgIByXH1iEGd9RI6C3PxeWXE/QezYRVvljVThAua/7sjAsx8vTeIduMCsgOmduXOcuZzrwAabzMGjA+hg8EUHM6RIQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR04MB7500.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(19092799006)(56012099003)(18002099003)(22082099003)(11063799003)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S1e2wz+DQBYFO3tYShhjqOURBqEDPwP6s2uht8Kl+ocIJ51CCS2ewYhnrGi+?=
- =?us-ascii?Q?yNVBLyqqGHjwabywilAC6fpNFTvuL53OjOsJpjDTDQr7Rw+16K3MPdyycVI3?=
- =?us-ascii?Q?rdakA9UZSZU7Yx84c4xjz1buNmp9QC3sMTu3RMejc+DP0xFCT4wgmsjgc0OE?=
- =?us-ascii?Q?Bzd5lUSCNAwfz41/hFMhCV2viMoDoco6sw2DuaxQ8lMOSCImJNzyihDmDY+Q?=
- =?us-ascii?Q?8Ik6qDUvupIsByZ1p2Rr12MakekhI3ahIVy5bL3Iw5fyW/oMqE9cNqZL2aAj?=
- =?us-ascii?Q?RkgjTYPtkLS5YD3ZBeuHpqge67sg0a5g2K7LmFZaQNrjZBFhhISXq/hoJElW?=
- =?us-ascii?Q?vlL7Za26akU2k5cjiAUD1SfQw6lN6sGFdadXwH6ypaPa6EibqTY0Dqz9HuYB?=
- =?us-ascii?Q?mDJ3IUZXglhaH2wVGgQK/94PIiGwHrEWU4f4oxLejW4peWG6JDnTam5htV0c?=
- =?us-ascii?Q?rNJo0SQmqL/4ChjVdI4HsZez3PN7wX4GmL/BAF2keZyDJT/YZut/BRAaNs5s?=
- =?us-ascii?Q?ORQW9LgAdnPDXEACsZg+nG92TVY4PiBgOGeoKoQ0BENhZkfDl88ygtwrazj7?=
- =?us-ascii?Q?tkmiFgH9aNy5S3M8/8qzSPXQxaGDfawqht/thVeeYcGoFe9Nd9IClnbNpAfA?=
- =?us-ascii?Q?DPE+PaU+Sk+280N4kgGPnWEhOFOped/rw8DH6zmWE+5riVLPZTTK4A2Yk68H?=
- =?us-ascii?Q?KRvvEEz+Dtg/k70LPQ0QFPB7rxqmzr85QFW6vY5wczjcfr8iZzFqChtr0iat?=
- =?us-ascii?Q?z1rPXw8spJLjowzE17uLZlqqibaTMzCyPO4M/rE7fr5Z58sxLrfjTknp7ShI?=
- =?us-ascii?Q?l/Qdx4HLw3MQ4dvIINH8Jw5YtwbavTezMV7xJpsq3i5dEu+FGbXBfPpiCWSe?=
- =?us-ascii?Q?8uOcR765SVUe1ZskDay6ioZKXfVg9TEUQbFvhPyQ7ihZCHeqxLjxxx1ssSSZ?=
- =?us-ascii?Q?PAnhNzjieaXv5Gu7hIvm6HhjFmmAXrV229VJGUB84OBABvaAqw6nAExztcd8?=
- =?us-ascii?Q?nEvI1M5iy57OxmnaIaMu7iDWG54Q6ctbyNzEMkucDZ8tT76iZKM117kn1PTO?=
- =?us-ascii?Q?F0pq/T1UYrk0XluMVuW8fDtciPppzWAcXJPkkFQyHloQK/rBheSxXmHmgx5u?=
- =?us-ascii?Q?mixmV5jIyaitQrgZG1VKMuy2Bl29FkHmISiMSbaZZSg/To29g2eKWRs0xcTs?=
- =?us-ascii?Q?ksaXwVu/ydg3/ZFgPRik6wp6Fx7QKtFqhpOafjKeHkLTvGtST4cpBqkG8wv9?=
- =?us-ascii?Q?42eUBXI4DYiZp800Hf7KPORRsx4jivviwzfWFl6ak7PYBRv8K1rUYBfQZLjT?=
- =?us-ascii?Q?hXEuS0rA9vBBGeugjn1el20IkE/9ch+zAWDylhpzyAttkrpdrsPuAQ9Onpu0?=
- =?us-ascii?Q?AXPPH8W9jBQAlKa+c2u1yUP2dkhU0xCchWMsCOp3kB4zk6yULhbEt8h12PCf?=
- =?us-ascii?Q?7IV0y2spfb3+9zklH35wxBEb77HvFI631RdOlmOxWjQIcvetvgXj0Ig0H+zt?=
- =?us-ascii?Q?hPy+xMpULlk9NYX9qYMENuSAl0ZxnuOnmpVLpWCtG4gVhRZ+RfO3fXF7bqSt?=
- =?us-ascii?Q?Oo6kpNqdJ5etf+xghJdgi1OQJ12FYxJVKov0Ww94Z+C6lsayB6hXs1NLx2A3?=
- =?us-ascii?Q?siyc4lnn9bt77m4k94xtaBD3ZRMvg4WPy8YAJBeskqnG24FChuCz2mTBRXkD?=
- =?us-ascii?Q?1GPH239uJLO/D2HV8jASHXXeYwnvHlyAXf4v/aF/mTd7j5K3?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c9ad2477-add1-40aa-aa4b-08deb09c51ed
-X-MS-Exchange-CrossTenant-AuthSource: DBBPR04MB7500.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 03:04:17.0757
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0153fcd5-f07e-4ac8-6717-08deb09e7597
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 May 2026 03:19:35.6870
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qeO5J2VRldCERk7wpbagiqNh/GY6DG0qEvkZiazBtz7wZyz4kbmwrqNq6vEkNMIfzZgS4b7WXW7Hiwk//jY2lA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB11525
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: iVQ25XFILN1Ul6Cqfn3zIAxDsDkbpQsqysrc2Nb/blCQ0rjyFcrz9Xnooa/mLOdy/vA1z77FUa3EuhBLFJFDuA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11903
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_200421_458057_020132EC 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20260512_201945_554803_120BD854 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,315 +147,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the ethtool private statistics interface to expose additional
-port-level and MAC-level counters that are not covered by the standard
-IEEE 802.3 statistics. The pMAC counters are only reported when the port
-supports Frame Preemption (802.1Qbu/802.3br).
+Hi all,
 
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
----
- drivers/net/dsa/netc/netc_ethtool.c   | 107 ++++++++++++++++++++++++++
- drivers/net/dsa/netc/netc_main.c      |   3 +
- drivers/net/dsa/netc/netc_switch.h    |   9 +++
- drivers/net/dsa/netc/netc_switch_hw.h |  58 ++++++++++++++
- 4 files changed, 177 insertions(+)
+Please ignore this patch.
 
-diff --git a/drivers/net/dsa/netc/netc_ethtool.c b/drivers/net/dsa/netc/netc_ethtool.c
-index ac8940b5a85c..8d04db534347 100644
---- a/drivers/net/dsa/netc/netc_ethtool.c
-+++ b/drivers/net/dsa/netc/netc_ethtool.c
-@@ -19,6 +19,56 @@ static const struct ethtool_rmon_hist_range netc_rmon_ranges[] = {
- 	{ }
- };
- 
-+static const struct netc_port_stat netc_port_counters[] = {
-+	{ NETC_PTGSLACR,	"port gate late arrival frames" },
-+	{ NETC_PSDFTCR,	"port SDF transmit frames" },
-+	{ NETC_PSDFDDCR,	"port SDF drop duplicate frames" },
-+	{ NETC_PRXDCR,		"port rx discard frames" },
-+	{ NETC_PRXDCRRR,	"port rx discard read-reset" },
-+	{ NETC_PRXDCRR0,	"port rx discard reason 0" },
-+	{ NETC_PRXDCRR1,	"port rx discard reason 1" },
-+	{ NETC_PTXDCR,		"port tx discard frames" },
-+	{ NETC_PTXDCRRR,	"port tx discard read-reset" },
-+	{ NETC_PTXDCRR0,	"port tx discard reason 0" },
-+	{ NETC_PTXDCRR1,	"port tx discard reason 1" },
-+	{ NETC_BPDCR,		"bridge port discard frames" },
-+	{ NETC_BPDCRRR,	"bridge port discard read-reset" },
-+	{ NETC_BPDCRR0,	"bridge port discard reason 0" },
-+	{ NETC_BPDCRR1,	"bridge port discard reason 1" },
-+};
-+
-+static const struct netc_port_stat netc_emac_counters[] = {
-+	{ NETC_PM_ROCT(0),	"eMAC rx octets" },
-+	{ NETC_PM_RVLAN(0),	"eMAC rx VLAN frames" },
-+	{ NETC_PM_RERR(0),	"eMAC rx frame errors" },
-+	{ NETC_PM_RUCA(0),	"eMAC rx unicast frames" },
-+	{ NETC_PM_RDRP(0),	"eMAC rx dropped packets" },
-+	{ NETC_PM_RPKT(0),	"eMAC rx packets" },
-+	{ NETC_PM_TOCT(0),	"eMAC tx octets" },
-+	{ NETC_PM_TVLAN(0),	"eMAC tx VLAN frames" },
-+	{ NETC_PM_TFCS(0),	"eMAC tx FCS errors" },
-+	{ NETC_PM_TUCA(0),	"eMAC tx unicast frames" },
-+	{ NETC_PM_TPKT(0),	"eMAC tx packets" },
-+	{ NETC_PM_TUND(0),	"eMAC tx undersized packets" },
-+	{ NETC_PM_TIOCT(0),	"eMAC tx invalid octets" },
-+};
-+
-+static const struct netc_port_stat netc_pmac_counters[] = {
-+	{ NETC_PM_ROCT(1),	"pMAC rx octets" },
-+	{ NETC_PM_RVLAN(1),	"pMAC rx VLAN frames" },
-+	{ NETC_PM_RERR(1),	"pMAC rx frame errors" },
-+	{ NETC_PM_RUCA(1),	"pMAC rx unicast frames" },
-+	{ NETC_PM_RDRP(1),	"pMAC rx dropped packets" },
-+	{ NETC_PM_RPKT(1),	"pMAC rx packets" },
-+	{ NETC_PM_TOCT(1),	"pMAC tx octets" },
-+	{ NETC_PM_TVLAN(1),	"pMAC tx VLAN frames" },
-+	{ NETC_PM_TFCS(1),	"pMAC tx FCS errors" },
-+	{ NETC_PM_TUCA(1),	"pMAC tx unicast frames" },
-+	{ NETC_PM_TPKT(1),	"pMAC tx packets" },
-+	{ NETC_PM_TUND(1),	"pMAC tx undersized packets" },
-+	{ NETC_PM_TIOCT(1),	"pMAC tx invalid octets" },
-+};
-+
- static void netc_port_pause_stats(struct netc_port *np, int mac,
- 				  struct ethtool_pause_stats *stats)
- {
-@@ -188,3 +238,60 @@ void netc_port_get_eth_mac_stats(struct dsa_switch *ds, int port,
- 		break;
- 	}
- }
-+
-+int netc_port_get_sset_count(struct dsa_switch *ds, int port, int sset)
-+{
-+	struct netc_port *np = NETC_PORT(ds, port);
-+	int size;
-+
-+	if (sset != ETH_SS_STATS)
-+		return -EOPNOTSUPP;
-+
-+	size = ARRAY_SIZE(netc_port_counters) +
-+	       ARRAY_SIZE(netc_emac_counters);
-+
-+	if (np->caps.pmac)
-+		size += ARRAY_SIZE(netc_pmac_counters);
-+
-+	return size;
-+}
-+
-+void netc_port_get_strings(struct dsa_switch *ds, int port,
-+			   u32 sset, u8 *data)
-+{
-+	struct netc_port *np = NETC_PORT(ds, port);
-+	int i;
-+
-+	if (sset != ETH_SS_STATS)
-+		return;
-+
-+	for (i = 0; i < ARRAY_SIZE(netc_port_counters); i++)
-+		ethtool_cpy(&data, netc_port_counters[i].name);
-+
-+	for (i = 0; i < ARRAY_SIZE(netc_emac_counters); i++)
-+		ethtool_cpy(&data, netc_emac_counters[i].name);
-+
-+	if (!np->caps.pmac)
-+		return;
-+
-+	for (i = 0; i < ARRAY_SIZE(netc_pmac_counters); i++)
-+		ethtool_cpy(&data, netc_pmac_counters[i].name);
-+}
-+
-+void netc_port_get_ethtool_stats(struct dsa_switch *ds, int port, u64 *data)
-+{
-+	struct netc_port *np = NETC_PORT(ds, port);
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(netc_port_counters); i++)
-+		*data++ = netc_port_rd(np, netc_port_counters[i].reg);
-+
-+	for (i = 0; i < ARRAY_SIZE(netc_emac_counters); i++)
-+		*data++ = netc_port_rd64(np, netc_emac_counters[i].reg);
-+
-+	if (!np->caps.pmac)
-+		return;
-+
-+	for (i = 0; i < ARRAY_SIZE(netc_pmac_counters); i++)
-+		*data++ = netc_port_rd64(np, netc_pmac_counters[i].reg);
-+}
-diff --git a/drivers/net/dsa/netc/netc_main.c b/drivers/net/dsa/netc/netc_main.c
-index d79bd18b7e6e..fed2b1dcb856 100644
---- a/drivers/net/dsa/netc/netc_main.c
-+++ b/drivers/net/dsa/netc/netc_main.c
-@@ -1491,6 +1491,9 @@ static const struct dsa_switch_ops netc_switch_ops = {
- 	.get_rmon_stats			= netc_port_get_rmon_stats,
- 	.get_eth_ctrl_stats		= netc_port_get_eth_ctrl_stats,
- 	.get_eth_mac_stats		= netc_port_get_eth_mac_stats,
-+	.get_sset_count			= netc_port_get_sset_count,
-+	.get_strings			= netc_port_get_strings,
-+	.get_ethtool_stats		= netc_port_get_ethtool_stats,
- };
- 
- static int netc_switch_probe(struct pci_dev *pdev,
-diff --git a/drivers/net/dsa/netc/netc_switch.h b/drivers/net/dsa/netc/netc_switch.h
-index 40e54af0c356..740e1f307c45 100644
---- a/drivers/net/dsa/netc/netc_switch.h
-+++ b/drivers/net/dsa/netc/netc_switch.h
-@@ -94,6 +94,11 @@ struct netc_fdb_entry {
- 	struct hlist_node node;
- };
- 
-+struct netc_port_stat {
-+	int reg;
-+	char name[ETH_GSTRING_LEN] __nonstring;
-+};
-+
- struct netc_switch {
- 	struct pci_dev *pdev;
- 	struct device *dev;
-@@ -160,5 +165,9 @@ void netc_port_get_eth_ctrl_stats(struct dsa_switch *ds, int port,
- 				  struct ethtool_eth_ctrl_stats *ctrl_stats);
- void netc_port_get_eth_mac_stats(struct dsa_switch *ds, int port,
- 				 struct ethtool_eth_mac_stats *mac_stats);
-+int netc_port_get_sset_count(struct dsa_switch *ds, int port, int sset);
-+void netc_port_get_strings(struct dsa_switch *ds, int port,
-+			   u32 sset, u8 *data);
-+void netc_port_get_ethtool_stats(struct dsa_switch *ds, int port, u64 *data);
- 
- #endif
-diff --git a/drivers/net/dsa/netc/netc_switch_hw.h b/drivers/net/dsa/netc/netc_switch_hw.h
-index f8d436ad9623..1b016e7dd03e 100644
---- a/drivers/net/dsa/netc/netc_switch_hw.h
-+++ b/drivers/net/dsa/netc/netc_switch_hw.h
-@@ -87,6 +87,17 @@
- #define  PSR_TX_BUSY			BIT(0)
- #define  PSR_RX_BUSY			BIT(1)
- 
-+#define NETC_PTGSLACR			0x130
-+
-+#define NETC_PRXDCR			0x1c0
-+#define NETC_PRXDCRRR			0x1c4
-+#define NETC_PRXDCRR0			0x1c8
-+#define NETC_PRXDCRR1			0x1cc
-+#define NETC_PTXDCR			0x1e0
-+#define NETC_PTXDCRRR			0x1e4
-+#define NETC_PTXDCRR0			0x1e8
-+#define NETC_PTXDCRR1			0x1ec
-+
- #define NETC_PTCTMSDUR(a)		(0x208 + (a) * 0x20)
- #define  PTCTMSDUR_MAXSDU		GENMASK(15, 0)
- #define  PTCTMSDUR_SDU_TYPE		GENMASK(17, 16)
-@@ -94,6 +105,9 @@
- #define   SDU_TYPE_MPDU			1
- #define   SDU_TYPE_MSDU			2
- 
-+#define NETC_PSDFTCR			0x4c4
-+#define NETC_PSDFDDCR			0x4c8
-+
- #define NETC_BPCR			0x500
- #define  BPCR_DYN_LIMIT			GENMASK(15, 0)
- #define  BPCR_MLO			GENMASK(22, 20)
-@@ -142,6 +156,11 @@ enum netc_stg_stage {
- 	NETC_STG_STATE_FORWARDING,
- };
- 
-+#define NETC_BPDCR			0x580
-+#define NETC_BPDCRRR			0x584
-+#define NETC_BPDCRR0			0x588
-+#define NETC_BPDCRR1			0x58c
-+
- /* Definition of Switch ethernet MAC port registers */
- #define NETC_PMAC_OFFSET		0x400
- #define NETC_PM_CMD_CFG(a)		(0x1008 + (a) * 0x400)
-@@ -176,6 +195,9 @@ enum netc_stg_stage {
- /* Port MAC 0/1 Receive Ethernet Octets Counter */
- #define NETC_PM_REOCT(a)		(0x1100 + (a) * 0x400)
- 
-+/* Port MAC 0/1 Receive Octets Counter */
-+#define NETC_PM_ROCT(a)			(0x1108 + (a) * 0x400)
-+
- /* Port MAC 0/1 Receive Alignment Error Counter Register */
- #define NETC_PM_RALN(a)			(0x1110 + (a) * 0x400)
- 
-@@ -188,12 +210,27 @@ enum netc_stg_stage {
- /* Port MAC 0/1 Receive Frame Check Sequence Error Counter */
- #define NETC_PM_RFCS(a)			(0x1128 + (a) * 0x400)
- 
-+/* Port MAC 0/1 Receive VLAN Frame Counter */
-+#define NETC_PM_RVLAN(a)		(0x1130 + (a) * 0x400)
-+
-+/* Port MAC 0/1 Receive Frame Error Counter */
-+#define NETC_PM_RERR(a)			(0x1138 + (a) * 0x400)
-+
-+/* Port MAC 0/1 Receive Unicast Frame Counter */
-+#define NETC_PM_RUCA(a)			(0x1140 + (a) * 0x400)
-+
- /* Port MAC 0/1 Receive Multicast Frame Counter */
- #define NETC_PM_RMCA(a)			(0x1148 + (a) * 0x400)
- 
- /* Port MAC 0/1 Receive Broadcast Frame Counter */
- #define NETC_PM_RBCA(a)			(0x1150 + (a) * 0x400)
- 
-+/* Port MAC 0/1 Receive Dropped Packets Counter */
-+#define NETC_PM_RDRP(a)			(0x1158 + (a) * 0x400)
-+
-+/* Port MAC 0/1 Receive Packets Counter */
-+#define NETC_PM_RPKT(a)			(0x1160 + (a) * 0x400)
-+
- /* Port MAC 0/1 Receive Undersized Packet Counter */
- #define NETC_PM_RUND(a)			(0x1168 + (a) * 0x400)
- 
-@@ -236,6 +273,9 @@ enum netc_stg_stage {
- /* Port MAC 0/1 Transmit Ethernet Octets Counter */
- #define NETC_PM_TEOCT(a)		(0x1200 + (a) * 0x400)
- 
-+/* Port MAC 0/1 Transmit Octets Counter */
-+#define NETC_PM_TOCT(a)			(0x1208 + (a) * 0x400)
-+
- /* Port MAC 0/1 Transmit Excessive Deferral Packet Counter */
- #define NETC_PM_TEDFR(a)		(0x1210 + (a) * 0x400)
- 
-@@ -245,15 +285,30 @@ enum netc_stg_stage {
- /* Port MAC 0/1 Transmit Frame Counter */
- #define NETC_PM_TFRM(a)			(0x1220 + (a) * 0x400)
- 
-+/* Port MAC 0/1 Transmit Frame Check Sequence Error Counter */
-+#define NETC_PM_TFCS(a)			(0x1228 + (a) * 0x400)
-+
-+/* Port MAC 0/1 Transmit VLAN Frame Counter */
-+#define NETC_PM_TVLAN(a)		(0x1230 + (a) * 0x400)
-+
- /* Port MAC 0/1 Transmit Frame Error Counter */
- #define NETC_PM_TERR(a)			(0x1238 + (a) * 0x400)
- 
-+/* Port MAC 0/1 Transmit Unicast Frame Counter */
-+#define NETC_PM_TUCA(a)			(0x1240 + (a) * 0x400)
-+
- /* Port MAC 0/1 Transmit Multicast Frame Counter */
- #define NETC_PM_TMCA(a)			(0x1248 + (a) * 0x400)
- 
- /* Port MAC 0/1 Transmit Broadcast Frame Counter */
- #define NETC_PM_TBCA(a)			(0x1250 + (a) * 0x400)
- 
-+/* Port MAC 0/1 Transmit Packets Counter */
-+#define NETC_PM_TPKT(a)			(0x1260 + (a) * 0x400)
-+
-+/* Port MAC 0/1 Transmit Undersized Packet Counter */
-+#define NETC_PM_TUND(a)			(0x1268 + (a) * 0x400)
-+
- /* Port MAC 0/1 Transmit 64-Octet Packet Counter */
- #define NETC_PM_T64(a)			(0x1270 + (a) * 0x400)
- 
-@@ -293,6 +348,9 @@ enum netc_stg_stage {
- /* Port MAC 0/1 Transmit Excessive Collisions Counter */
- #define NETC_PM_TECOL(a)		(0x12f0 + (a) * 0x400)
- 
-+/* Port MAC 0/1 Transmit Invalid Octets Counter */
-+#define NETC_PM_TIOCT(a)		(0x12f8 + (a) * 0x400)
-+
- #define NETC_PEMDIOCR			0x1c00
- #define NETC_EMDIO_BASE			NETC_PEMDIOCR
- 
--- 
-2.34.1
+I noticed that the same change was already posted earlier by Miquel Raynal
+as part of his series ([PATCH 10/16] clk: Add support for clock nexus dt bi=
+ndings):
+ https://lkml.org/lkml/2026/3/27/1983
+
+To avoid duplication, noise, and wasted review time, I will drop my patch.
+
+Regarding the questions raised by the sashiko review (e.g. assigned-clocks =
+/
+assigned-clock-parents behavior with nexus nodes), this aligns with the
+ongoing discussion in Miquel's thread so I suggest we continue the discussi=
+on there.
+
+Sorry for the noise.
+
+Regards,=A0
+Chancel Liu
+
+> Platforms can have a standardized connector/expansion slot that exposes
+> signals like clocks to expansion boards in an SoC agnostic way.
+>=20
+> The support for nexus node has been added to handle those cases in
+> commit bd6f2fd5a1d5 ("of: Support parsing phandle argument lists through
+> a nexus node"). This commit introduced of_parse_phandle_with_args_map()
+> to handle nexus nodes in a generic way. Currently the gpio subsystem
+> adopted the support in commit c11e6f0f04db ("gpio: Support gpio nexus dt
+> bindings") and pwm subsystem adopted the support in commit
+> e71e46a6f19c4
+> ("pwm: Add support for pwm nexus dt bindings").
+>=20
+> Change the function call to use of_parse_phandle_with_args_map() that
+> parses the phandle lists of clocks to use the nexus variant. This
+> allows remapping phandles and their arguments through any number of
+> nexus nodes and end up with the actual clock provider being used.
+>=20
+> Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
+> ---
+>  drivers/clk/clk.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> index 048adfa86a5d..4240f059bec2 100644
+> --- a/drivers/clk/clk.c
+> +++ b/drivers/clk/clk.c
+> @@ -5206,8 +5206,8 @@ static int of_parse_clkspec(const struct
+> device_node *np, int index,
+>  		 */
+>  		if (name)
+>  			index =3D of_property_match_string(np, "clock-names",
+> name);
+> -		ret =3D of_parse_phandle_with_args(np, "clocks", "#clock-cells",
+> -						 index, out_args);
+> +		ret =3D of_parse_phandle_with_args_map(np, "clocks", "clock",
+> +						     index, out_args);
+>  		if (!ret)
+>  			break;
+>  		if (name && index >=3D 0)
+> --
+> 2.50.1
 
 
