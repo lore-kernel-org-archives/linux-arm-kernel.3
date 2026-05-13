@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 121B9CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8713ECD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PsTJZd+zjeTZN1BUSTfHZMgKCPJUvDM23TaUXvqMJ+0=; b=jv8dooaAO70OKLAtb9bxdVCTHT
-	UgFuKgLHjZMelpFD7bf7KjiXT578aAWtBGBQvKriWaTOC1rEnASDosVuhyaOecF1QkfER8r+qouoa
-	txb6fXyNS+6g1in/eVZY6OzDyL6J5bBfKss2n7T2WwnDYy0d1Ug1xwFRWp6JiO1CCmS/zL/IfZkxf
-	L6WFECRTTR1Wh7aL+aWGVxbtApxlYTkm1ciC5u4QPykAt3OvqCOguBRZd0vzuF/8WjVcNxadOwuMD
-	+mGHnA1Vu3tWrlOXg9PpoCaofyRWw6F5i5VBKjJZ02pf7qVv2ekupDl1USsGcxBnhKuFcnYgZg3lC
-	SZCAYb2w==;
+	bh=Yyfn1S+kqiM446gPjFcTdH4PcJ3eABMwrZuUaedQslE=; b=w44Ieni9y8DJIwveWlfN/az+K0
+	9Qx7LEGRbzvpjBkMhjuTUBocxGBIqgP3l/rY27VwHnVq3CiVa/6KFHY32jCroQ0e4edh2ot2o9V71
+	DeUDlLhEpo8u5rh9ys2TaBQxPOh/DipDPXdZZd8zOk9GoDmqT4sC55Lb+FmcQRSHFBEg6hEd6KSMd
+	c+FShuUHRHrr5r4Xtmo3jEPu46wf5W7+5K29fwic5rn+DkpH6CiRk1b7fvTb7GnSReV5tgr63HbSf
+	s9ki5V/Qobck75hAjW71Wue2PhkKOcAlYCYI00mEqKSo9QA1ayzul3dEb6Za7qOV4sqpdNer4cKql
+	qtD5EoUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9To-00000002do7-1PP8;
-	Wed, 13 May 2026 13:18:28 +0000
+	id 1wN9Tq-00000002drR-1iY5;
+	Wed, 13 May 2026 13:18:30 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9TT-00000002dTT-1Ne7
+	id 1wN9TX-00000002dZT-3Jhc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:18:10 +0000
+	Wed, 13 May 2026 13:18:14 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B0B14227A;
-	Wed, 13 May 2026 15:17:56 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2B81E2F8A;
+	Wed, 13 May 2026 15:18:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778678277;
-	bh=/cD+FN8IFiV1Cxcp/yPbJWR8MpBq6AQomdWRb1N4DGA=;
+	s=mail; t=1778678282;
+	bh=wJIwGQWQVF7nXvYZIy7GC96ascev6Pjy2rroRfLoy3Y=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OqNxR4p3maliM/Q7rE09WEzroY4/TSi/IliQAXf9C+Jbl5UHViH5+ZyzXJIVsvoWv
-	 vGpUEZHWmJBHYja2jKKn5/KIYB2AZPgctH0JDXqGa0vF7VEpjU9Tpq2ndvjzCIAhkS
-	 tjoD2jgLvd26OqhU6WWEBHulzUrh/pS+vPQ7tvXI=
+	b=Z5GVtc6sPp4nMSPPOceSEn1fHcYG0tUlRDZUOPYrPhs+sO9IGoxtrCuhr2zFxAcva
+	 V1ATauJlJ4WOGUbT2vw1ZayUQOIwsmmpnAFmJh59aIwYiZ3bi96NDyW0lguysRb+Pt
+	 eDbzaEt8Qbdq+y3a52bfDyuUELX62qch42DjR7pg=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 13 May 2026 16:17:31 +0300
-Subject: [PATCH v2 09/16] drm/tidss: Add external data and sync signal edge
- configuration
+Date: Wed, 13 May 2026 16:17:35 +0300
+Subject: [PATCH v2 13/16] drm/tidss: Add support for AM62P display
+ subsystem
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-beagley-ai-display-v2-9-9e9bcefde6bc@ideasonboard.com>
+Message-Id: <20260513-beagley-ai-display-v2-13-9e9bcefde6bc@ideasonboard.com>
 References: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
 In-Reply-To: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -60,26 +60,26 @@ Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3391;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1574;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=/cD+FN8IFiV1Cxcp/yPbJWR8MpBq6AQomdWRb1N4DGA=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqBHn/vZQea/FHHMo/D1Ic2Lo/MhzRwkSg0VICY
- oon3BJrMOKJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCagR5/wAKCRD6PaqMvJYe
- 9YD2EACEfzzuqGF4ggdLbzif9rhSMTRPxbP6XFKJNASUDLTN9DpUQU8pfcpHK0i4KqxsbsRN/Hf
- bWrKg8hyuJx0vhsJaTHKvcvcQ8xXjyJ+XGCyyyc3tPXiDmlGft5b1YUNhIiAXw6uQcT1uTtkGfm
- 8JNif0FbIzwdqwuhAUR91h5k3cgYXxw0i4IYtsZG9TxlCXBN2YY0oBiUmVnwhYEq+ixsuNCuJpI
- ddPVoXNcQUaRZOY4/yvfZXh74pGkrieZFeAZExpztMAVyoPXew/5JBYsIyjGgiG64rL61808fsC
- z+GiBNT7lgIdQT8udMDL//H7C4ui9EzA1ElBy1Y+VlDsWdqGpVskKS9Dj01r3B8ybLldWosr9+Q
- qNOqB4dm7nHVrYkPQn8S8gvix7onCdFgL+E1Oygn9lqzf+zmjnFXHV/Q2GCvXoDWYwNwXZugrPw
- RiRwPaPad0YgPTyhWA3sB9auwQ0uHMUC5nPQ4HiAyZauf3Prb7uGXyP07McvHuFTwfTML1Ihos6
- PxJ4RtVstHyXL9zPBHX9LLPe2ujDRP/HDYnv+6lVso14c56ifPaWSe2h3BSfmBGcz9ycph3Tpnj
- vuIoKZSWD+SDCrR+NLW5JoutZMqhzSJt+aDZHMjfjHW604w9UgaDRPnVqIQ4CM7uaaDXWk9Iq91
- wviI6Gu2rXzRQMg==
+ bh=/85nzazta3ZSz2DegZrNcXTx/gK83bzKu5NpUXGKZHo=;
+ b=kA0DAAgB+j2qjLyWHvUByyZiAGoEegDI1iz7h/jLtCo1kpGKDATo8OONswRA7dotGmDoL4LJy
+ 4kCMwQAAQgAHRYhBMQ4DD6WXv2BB5/zp/o9qoy8lh71BQJqBHoAAAoJEPo9qoy8lh71HGAP/jAX
+ ACMP1m5RFBSzxnk9ZpgOoTGUyyNKTfPp1XSTBcqyIiu6hBh5jbDQuqqa2YfNUkBJIJxQMeuUMo/
+ XBnlcUDY431qrEIorbOwizNQ4oatFBmQCQI6XjlmtpIg7VccLNg7QbuWUakoTse7qfNUgp9vp/i
+ B8bj54PAx7o4qYzdb4xI6bOyVVQfucJbNGnQ5kd1rg8La2ndgjCtx4k6K7xel3TYJ5SfvT9amTM
+ iwLQLZHLh2D55mlrTLzIytynrm9Q8SMsAyhuijcLl7PDvMrpAg0hSztVy+l85AVAGHT2HMF90rG
+ H1Kj+84rOvVtIw9DpIYaAx8eDFjxXkDnctlwDLJSqC2zZJH3EEQEXQvb/VCnYQi9FEOIpoqvPUu
+ twUl8yoHLpo2l+U6IltX0jOe+W/JgsANRzh+HsLLX3/Jo5Aklgj+I4QHm7MMrm0dVEiFQBYu+Cb
+ 0YJRvcpHIrgztJMmvjqm8cxR2vgH+IHd27oKaOIJGk+ZSjKV56tLIh5sYBoB+6wxSMsgfn3WgbA
+ GDWMG9lcjOE1Zkr4GTuyYdS7mFZDerbyJKY+0OJQfhXsOGPvcBovRWNgMbAf8lY+WRA7JEPTT3v
+ 0AR0IJr7tVGWMqEevXMz2wJHQNPwG1L9NTpbHDDa9f9Gtk/0m199N4LQvSn6a8jUIyhOlbF8q+k
+ 6c6hq
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_061807_517240_C89A8D7E 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20260513_061812_028738_70CDBE95 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,89 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DPI output pipeline in K3 SoCs contains the display subsystem (DSS)
-which produces the in-SoC parallel video signal, and a DPI block which
-adjusts the signal to the external MIPI DPI output.
+From: Swamil Jain <s-jain1@ti.com>
 
-The DSS IP has registers to configure whether the data and sync signals
-are driven on rising or falling clock edge, and on some SoCs these are
-automatically conveyed to the DPI block which needs that configuration
-to properly output the MIPI DPI signal.
+The DSS controller on TI's AM62P SoC features two instances of the TI
+DSS. Each DSS instance supports two video ports, similar to the DSS
+controller found on the TI AM62X SoC. This allows three independent
+video streams to be supported: OLDI, DPI, and DSI.
 
-However, on some SoCs the DPI block configuration has to be done
-manually, using an extra register outside the DSS, DPI0_CLK_CTRL from
-MAIN_CTRL_MMR_CFG0 block, which controls the DPI block's behavior.
+Since the DSS instances on AM62P are architecturally similar to those
+on the AM62X DSS controller, the existing dispc_am625_feats
+configuration can be reused for the AM62P DSS support.
 
-Add the support to get the regmap to the register via syscon, and
-configure the bits before enabling the video output.
+This commit adds the necessary device tree compatibility entry for
+"ti,am62p-dss" in the tidss driver, pointing to dispc_am625_feats,
+thereby enabling DSS support on AM62P devices.
 
-Original patch from Louis Chauvet <louis.chauvet@bootlin.com>
-
+Signed-off-by: Swamil Jain <s-jain1@ti.com>
+Tested-by: Swamil Jain <s-jain1@ti.com>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/tidss/tidss_dispc.c      | 21 +++++++++++++++++++++
- drivers/gpu/drm/tidss/tidss_dispc_regs.h |  4 ++++
- 2 files changed, 25 insertions(+)
+ drivers/gpu/drm/tidss/tidss_drv.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
-index c21ac3f51720..92cba069ed6c 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc.c
-+++ b/drivers/gpu/drm/tidss/tidss_dispc.c
-@@ -467,6 +467,8 @@ struct dispc_device {
- 	const struct dispc_features *feat;
- 
- 	struct clk *fclk;
-+	struct regmap *syscon_dpi_io_ctrl;
-+	unsigned int syscon_dpi_io_ctrl_offset;
- 
- 	bool is_enabled;
- 
-@@ -1201,6 +1203,13 @@ void dispc_vp_prepare(struct dispc_device *dispc, u32 hw_videoport,
- 				  mode->crtc_hdisplay - 1) |
- 		       FIELD_PREP(DISPC_VP_SIZE_SCREEN_VDISPLAY_MASK,
- 				  mode->crtc_vdisplay - 1));
-+
-+	if (dispc->vp_data[hw_videoport].dpi_output && dispc->syscon_dpi_io_ctrl) {
-+		regmap_write(dispc->syscon_dpi_io_ctrl,
-+			     dispc->syscon_dpi_io_ctrl_offset + 0x0,
-+			     (!ipc ? DPI0_CLK_CTRL_DATA_CLK_INVDIS : 0) |
-+			     (rf ? DPI0_CLK_CTRL_SYNC_CLK_INVDIS : 0));
-+	}
- }
- 
- void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport)
-@@ -2989,6 +2998,18 @@ int dispc_init(struct tidss_device *tidss)
- 
- 	dispc_init_errata(dispc);
- 
-+	dispc->syscon_dpi_io_ctrl =
-+		syscon_regmap_lookup_by_phandle_args(tidss->dev->of_node,
-+						     "ti,dpi-io-ctrl", 1,
-+						     &dispc->syscon_dpi_io_ctrl_offset);
-+
-+	if (PTR_ERR(dispc->syscon_dpi_io_ctrl) == -ENODEV)
-+		dispc->syscon_dpi_io_ctrl = NULL;
-+	else if (IS_ERR(dispc->syscon_dpi_io_ctrl))
-+		return dev_err_probe(dispc->dev,
-+				     PTR_ERR(dispc->syscon_dpi_io_ctrl),
-+				     "DISPC: syscon_regmap_lookup_by_phandle failed.\n");
-+
- 	dispc->fourccs = devm_kcalloc(dev, ARRAY_SIZE(dispc_color_formats),
- 				      sizeof(*dispc->fourccs), GFP_KERNEL);
- 	if (!dispc->fourccs)
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc_regs.h b/drivers/gpu/drm/tidss/tidss_dispc_regs.h
-index 382027dddce8..4cdde24d8372 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc_regs.h
-+++ b/drivers/gpu/drm/tidss/tidss_dispc_regs.h
-@@ -333,4 +333,8 @@ enum oldi_mode_reg_val { SPWG_18 = 0, JEIDA_24 = 1, SPWG_24 = 2 };
- 
- #define AM65X_OLDI_PWRDN_TX		BIT(8)
- 
-+/* Bits in the MAIN_CTRL_MMR_CFG0_DPI0_CLK_CTRL register */
-+#define DPI0_CLK_CTRL_DATA_CLK_INVDIS BIT(8)
-+#define DPI0_CLK_CTRL_SYNC_CLK_INVDIS BIT(9)
-+
- #endif /* __TIDSS_DISPC_REGS_H */
+diff --git a/drivers/gpu/drm/tidss/tidss_drv.c b/drivers/gpu/drm/tidss/tidss_drv.c
+index aef945101be4..2d056dc1c5ff 100644
+--- a/drivers/gpu/drm/tidss/tidss_drv.c
++++ b/drivers/gpu/drm/tidss/tidss_drv.c
+@@ -246,6 +246,7 @@ static const struct of_device_id tidss_of_table[] = {
+ 	{ .compatible = "ti,am625-dss", .data = &dispc_am625_feats, },
+ 	{ .compatible = "ti,am62a7-dss", .data = &dispc_am62a7_feats, },
+ 	{ .compatible = "ti,am62l-dss", .data = &dispc_am62l_feats, },
++	{ .compatible = "ti,am62p-dss", .data = &dispc_am625_feats, },
+ 	{ .compatible = "ti,am65x-dss", .data = &dispc_am65x_feats, },
+ 	{ .compatible = "ti,j721e-dss", .data = &dispc_j721e_feats, },
+ 	{ }
 
 -- 
 2.43.0
