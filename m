@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7032FCD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 19:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EF68CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 19:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRhGlj1DLlCD8bv49otCugKNEXP3RgSXpfS0//eQKhY=; b=Xeo/AwTsGGTuvBa/8AKiCMV8si
-	AwUs8CznuKM07nDl9Q74N8gHXtH9CaBJO8Wv6+zD0Bno3Q/5Rm6dTZIeRHiwU8RNRNf7l2O+h/5Fc
-	MUKdHiPz0rFYLvACc/E16VPrh697pn4E/mtHA1lLKScSyjMFIBCDoFHStOxSWsGYxDI14MxzXLS82
-	ittA9CLlWTtsiEH3sD0SJ4tdGDXUEpmTfwVOopLQ6HAqFW651kVVOT9G497egzCqhNK6XKlnsUgSa
-	Th8rWNF96cCt97xIdq6IahjcG8Y2G3mloqXneLCdhfpSo/W0qjkr3+asKoluDsfQLVdj3Hzc0EXVV
-	cDx8PCRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mXm+rWrdlDv0lhq7EN/0/i+Ea2wznLx+dx0Olp8pxY4=; b=UsbfdSfA6AvibfOvRRLa9iMzMf
+	J32uUqbmtjQG9GQV6hAbK7ObxG1oLWzLb3+P30jFMs2AaUJvlu0Kpps3em4TYfWS2OOs/PGuWbVet
+	jPDhES63oDEVWkdHiIkPbr9xWOM3WuClxmWiSCsVhMuun0LkEbsBDWF6hkTyN/mNQFz0k/20rOx3M
+	/K4IVHAkVKR851BWZ96AzV1OpZkKM8Ilz4kSJI4JTl5rustm7XOw5BgR0VHf8bAoR/3oh2eY4eCq3
+	SJvQhYNYiGyD/fHiyT4wrYbfEMddBy73dqPhaJvSTJ0vwBtzBwUCJ5VEU8tq7g0saJAT2rqYqRDMz
+	i3dXH/+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNF9h-00000003ZAX-3oEZ;
-	Wed, 13 May 2026 19:22:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNF9E-00000003Z1l-1tIJ;
+	Wed, 13 May 2026 19:21:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNF9f-00000003Z89-1J20;
-	Wed, 13 May 2026 19:22:03 +0000
+	id 1wNF9B-00000003Z17-3ydE;
+	Wed, 13 May 2026 19:21:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CAA560126;
-	Wed, 13 May 2026 19:22:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9D97C19425;
-	Wed, 13 May 2026 19:22:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3EB5742D8C;
+	Wed, 13 May 2026 19:21:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAB02C19425;
+	Wed, 13 May 2026 19:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778700122;
-	bh=XF03iY5/U9AesliWpqIit5eIC5jyJLz2T7sgVTcrVws=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OryyOlDOfc6FvZWUDMpNZ3s5CSiYeK9QwdeLGYvHig0H5nsP7UOhCabee5aQUIF/A
-	 cwUC9QtJl4Pt0jkcCySf3lWHmwGfUsKVYamOL6CXPa+pULdw2R2IIAz4vK9UfrkG+B
-	 iZ2loj35Rl8B4xNLCFiCiOOHf7xd7MiCyqPjzTrEiUQpP7h1BOS3yrCnu0ZE31aRgs
-	 kggd1gZU/SXK6XrdApCEs1SdQs1mB+Zic3AEITnF4hBsCbDNXDhi72eAzzfFRutpng
-	 bAR77pbDZaGzk+wL0Tyh5gcqz0YegyOFIn5DIGBKkI0ULjGm9BDTP0rY76enHbm6fS
-	 FOJ2Qb8xwQ5Yw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 13 May 2026 21:21:37 +0200
-Subject: [PATCH v2 2/2] arm64: dts: Add Airoha AN7583 SoC and AN7583
- Evaluation Board
+	s=k20201202; t=1778700093;
+	bh=lWXs1bqOmPoc46gGSfD4IrJfDLSHEiOP2ZwgIfqFCeE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MDDXiRpAo6z5wRS/5+yaIYY4EQErovhLH41ZDVkr0qB8WpqWuFgcJLMgOy/H/Q3N1
+	 Jji9uMHWIExSdd3X4E/ua7UQ0tp1T6G4c0x2G3u89CKeAy76o9LIM4yjFVtClZUj7w
+	 33R0wttETSyam5oZ/LMjoTJYcP1gc1T2kpJqTbxPUB4ARyk8aeOWdhePWqWLyWmt3v
+	 vyy6ueMehMy2siXqW5O72ZBjxGvvMe6Q4F6b4vH88WXDE52mB4yxag2RHIi9WN5/rQ
+	 aWKP0muE7fpTNSCMxT5Wlc1s5uPsv+9NQe8Sxfp4ftwQ7x3d+riQ/9arfYg+oUdmsc
+	 LqRy4Ur0wODZw==
+Date: Wed, 13 May 2026 14:21:30 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Liu Changjie <liucj1228@outlook.com>
+Cc: devicetree@vger.kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+	linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: arm: rockchip: Add LCKFB Taishan Pi 3M
+Message-ID: <177870008974.1728187.1071588098659841130.robh@kernel.org>
+References: <MN0PR19MB6091C07C729B83E594722E84AC3C2@MN0PR19MB6091.namprd19.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-airoha-7583-v2-2-ee0d82b37ce7@kernel.org>
-References: <20260513-airoha-7583-v2-0-ee0d82b37ce7@kernel.org>
-In-Reply-To: <20260513-airoha-7583-v2-0-ee0d82b37ce7@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Felix Fietkau <nbd@nbd.name>, 
- John Crispin <john@phrozen.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Christian Marangi <ansuelsmth@gmail.com>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <MN0PR19MB6091C07C729B83E594722E84AC3C2@MN0PR19MB6091.namprd19.prod.outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_122134_008744_28CAF007 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,194 +72,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the Airoha AN7583 SoC's dtsi and the Airoha AN7583 Evaluation
-Board's dts file.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- arch/arm64/boot/dts/airoha/Makefile       |   2 +-
- arch/arm64/boot/dts/airoha/an7583-evb.dts |  23 ++++++
- arch/arm64/boot/dts/airoha/an7583.dtsi    | 133 ++++++++++++++++++++++++++++++
- 3 files changed, 157 insertions(+), 1 deletion(-)
+On Thu, 07 May 2026 11:07:52 +0800, Liu Changjie wrote:
+> Add the compatible string for LCKFB Taishan Pi 3M, a board based on
+> the Rockchip RK3576 SoC.
+> 
+> Signed-off-by: Liu Changjie <liucj1228@outlook.com>
+> ---
+>  Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
 
-diff --git a/arch/arm64/boot/dts/airoha/Makefile b/arch/arm64/boot/dts/airoha/Makefile
-index ebea112ce1d7..6027978a35c2 100644
---- a/arch/arm64/boot/dts/airoha/Makefile
-+++ b/arch/arm64/boot/dts/airoha/Makefile
-@@ -1,2 +1,2 @@
- # SPDX-License-Identifier: GPL-2.0-only
--dtb-$(CONFIG_ARCH_AIROHA) += en7581-evb.dtb
-+dtb-$(CONFIG_ARCH_AIROHA) += en7581-evb.dtb an7583-evb.dtb
-diff --git a/arch/arm64/boot/dts/airoha/an7583-evb.dts b/arch/arm64/boot/dts/airoha/an7583-evb.dts
-new file mode 100644
-index 000000000000..fa260f6e41c1
---- /dev/null
-+++ b/arch/arm64/boot/dts/airoha/an7583-evb.dts
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+/dts-v1/;
-+
-+#include "an7583.dtsi"
-+
-+/ {
-+	model = "Airoha AN7583 Evaluation Board";
-+	compatible = "airoha,an7583-evb", "airoha,an7583";
-+
-+	aliases {
-+		serial0 = &uart1;
-+	};
-+
-+	chosen {
-+		bootargs = "console=ttyS0,115200 earlycon";
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x0 0x20000000>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/airoha/an7583.dtsi b/arch/arm64/boot/dts/airoha/an7583.dtsi
-new file mode 100644
-index 000000000000..a82ed916e61d
---- /dev/null
-+++ b/arch/arm64/boot/dts/airoha/an7583.dtsi
-@@ -0,0 +1,133 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+/ {
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		atf@80000000 {
-+			no-map;
-+			reg = <0x0 0x80000000 0x0 0x200000>;
-+		};
-+	};
-+
-+	psci {
-+		compatible = "arm,psci-1.0";
-+		method = "smc";
-+	};
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&cpu0>;
-+				};
-+
-+				core1 {
-+					cpu = <&cpu1>;
-+				};
-+			};
-+		};
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a53";
-+			reg = <0x0>;
-+			enable-method = "psci";
-+			next-level-cache = <&l2>;
-+		};
-+
-+		cpu1: cpu@1 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a53";
-+			reg = <0x1>;
-+			enable-method = "psci";
-+			next-level-cache = <&l2>;
-+		};
-+
-+		l2: l2-cache {
-+			compatible = "cache";
-+			cache-size = <0x80000>;
-+			cache-line-size = <64>;
-+			cache-level = <2>;
-+			cache-unified;
-+		};
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupt-parent = <&gic>;
-+		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	clk25m: clock-25000000 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <25000000>;
-+		clock-output-names = "clkxtal";
-+	};
-+
-+	i2c_clock: clock-20000000 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <20000000>;
-+		clock-output-names = "i2c_clock";
-+	};
-+
-+	sys_hclk: clock-100000000 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <100000000>;
-+		clock-output-names = "sys_hclk";
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		gic: interrupt-controller@9000000 {
-+			compatible = "arm,gic-v3";
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+			reg = <0x0 0x09000000 0x0 0x20000>,
-+			      <0x0 0x09080000 0x0 0x80000>,
-+			      <0x0 0x09400000 0x0 0x2000>,
-+			      <0x0 0x09500000 0x0 0x2000>,
-+			      <0x0 0x09600000 0x0 0x20000>;
-+			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+		};
-+
-+		uart1: serial@1fbf0000 {
-+			compatible = "ns16550a";
-+			reg = <0x0 0x1fbf0000 0x0 0x30>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
-+			clock-frequency = <1843200>;
-+		};
-+
-+		watchdog@1fbf0100 {
-+			compatible = "airoha,an7583-wdt", "airoha,en7581-wdt";
-+			reg = <0x0 0x1fbf0100 0x0 0x38>;
-+
-+			clocks = <&sys_hclk>;
-+			clock-names = "bus";
-+		};
-+	};
-+};
-
--- 
-2.54.0
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
