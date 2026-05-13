@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2265BCD37B6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 04:51:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34BF7CD484C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 05:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aKDO1XhgPKH5lxVyAZRVIXmcZuK1xmZ3yRxilLcIFsM=; b=zM7D8NpxNyb372X6n9SjPy9p+b
-	AYVrl8Yv7yeISmPb5XrUdxid8wvFDSdvinLCCuJGeWbzKYgdV0hKjsErJman11fB/73VADqTprCNT
-	M2T2myA9jqwUsmQ9cUoBomgOPjtz/X7XhZ6lMuRk/uK7TYtPwzHUMIaanOZ0NYXtHq+UCH8dIO04E
-	m/2iPAYN0ejA6jy3r1XN2pg8CND7YFv3MxxZkFKoetG9jtwOogk7/VbwO0zBrFLQrl5A7Jz0AAVs1
-	yKrbCnDVtPfBbT3BmXsqfJ3Bi6g6rvA9e66fC231ESfKosTuhCn0LwiOdsks/N3ihGB4bhmb81cGq
-	3gWLMk6Q==;
+	bh=2aQBbG5BBr12ydhLfhSkL/E4J0Fku1F2nvWGO6lgZKA=; b=JGEszxlYKc4zWoWwq5Qh8trNoN
+	ICyUkee3SRZq+ppqSpPFeRjAEzvVriTz46U6APlp79EWkyhtatr8eYZ9gk2f6fSyshipaeygqeOsF
+	C1A94YablTlzi3kAjCaLOWdfxOTt10BBuymCaZvI6EMXX4nblAL3OVU460Tp+lU+IiOI21ObOj4yN
+	cfNwMGhuR6/bSwUh+0fN+UR8KIZ2u8UqRrG0TaOGEn37bBd+nRh1e42xH65HvveDgIpJ/+0Jlpo15
+	pyPvGt5+j0ejGbPDoLRetKq68/nwB0kJvY6ymRp9Csb9UjWkx7pgqPYwsAl7cCovwAphT10UP/PVR
+	0CSOlSng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Nl-0000000158m-0KFd;
-	Wed, 13 May 2026 03:35:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wN1iJ-00000001H4c-3JHK;
+	Wed, 13 May 2026 05:00:55 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0N4-0000000149N-2X18
+	id 1wN1iD-00000001H20-3iIU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:34:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5141E4451B;
-	Wed, 13 May 2026 03:34:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B2C5C2BCFB;
-	Wed, 13 May 2026 03:34:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778643294;
-	bh=OGkHFIyLNKCb25myeDpCNSwUOYdeu6CUYnno4eQa9zw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B8LNs2H5q9DoQh/gBLO6iq6c01v+CW3QYgvgdboI9yooOmjPi2YU3NBCqF8kwvloo
-	 y0CMhWJGa3HpAv1i8h2v0lZVqzSvHfZ8cjBJKoXKwBdIE52TCwUEdCqqLfto038AaG
-	 eY2b9PxciMUJ47Eke5ffmHvBIT366BLiHKG9n6QewEK8TvV3ZzctsGUFYp0LR6ntGN
-	 XS6HF6wrHR2OwYUJASqwpBcjiIQZdNDhjsu+ySUQcybaLfB2NZJLFTp8mb0CCysk2q
-	 nfkQomctMVj4q4vvFfVCEYDL1dy8mb73ukhMlq0xCS2Md76QV/miojoPcvuNRJMfzP
-	 iMto8EcNZXEKA==
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: x86@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	live-patching@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	Song Liu <song@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v3 14/21] objtool: Prevent kCFI hashes from being decoded as instructions
-Date: Tue, 12 May 2026 20:34:10 -0700
-Message-ID: <b1d50c9fc9e6b9bca43833cc4ccbd88a31fed84b.1778642120.git.jpoimboe@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1778642120.git.jpoimboe@kernel.org>
-References: <cover.1778642120.git.jpoimboe@kernel.org>
+	Wed, 13 May 2026 05:00:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=Cc:To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=2aQBbG5BBr12ydhLfhSkL/E4J0Fku1F2nvWGO6lgZKA=; b=VnALRn2FAIPrnPvRuXE/00SOEU
+	ellbJLES0qQ78J/B7thoDIkE0j0MlLAuYWZJZKgWmhikw8W4/wAwLZDcd4xDjWtJG/xJ3tugTfZZ0
+	N6p5MhhkvEr66ewBSn4a9oSUihsTYk0YoOS0VyNACKD5UYNgubC7DCJylhaKqcFqAM+iMZyJZ+UVJ
+	tV5sYEs4TvekiRv6A1f4oTZ/iYUu8W0uB9aqMglwpkuVyZtVY7yNULXCUow6y76WAAWEX8uMeqyye
+	mTi/FID9oI6phlazitvLWmueyNVthwq3lXu9TIrummLy6DHYhFJ7kP55cM4AfWrpkMezUzNu3pfUw
+	3W/NmIOQ==;
+Received: from [91.102.182.218] (helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1wN1iB-0000000EbcL-1ih0;
+	Wed, 13 May 2026 07:00:47 +0200
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+Date: Wed, 13 May 2026 06:59:44 +0200
+Subject: [PATCH v2 3/3] arm64: dts: allwinner: a523: add gpadc node
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260513-sunxi-a523-gpadc-v2-3-d5efde151dac@mmpsystems.pl>
+References: <20260513-sunxi-a523-gpadc-v2-0-d5efde151dac@mmpsystems.pl>
+In-Reply-To: <20260513-sunxi-a523-gpadc-v2-0-d5efde151dac@mmpsystems.pl>
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Maksim Kiselev <bigunclemax@gmail.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Michal Piekos <michal.piekos@mmpsystems.pl>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778648397; l=1298;
+ i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
+ bh=/N5/DsYuZyXhP6df/g8ro7dcmFJQ8yyC3EItsyGlO0Y=;
+ b=7IFLix/s5zhm6Z2vJ2rXvkQgwcq7m4r9e0QlY9IbP0q9Ao1SHxmHErk7DFQE4WXUIiCZzeoui
+ XFAguZ705gpB2TreIeIY0QKwh5XXKhMh1gY77uJsYHBqyTPO6QiAESE
+X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
+ pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_203454_690980_C9E22FBD 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20260512_220050_115160_0A4F2505 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,85 +92,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-Message-ID: <20260513033410.kIjTilwQ-yN7wsi9BrSDBxGtTXii_WvjElCFnJb8AOY@z>
 
-On arm64 with CONFIG_CFI=y, Clang places a 4-byte kCFI type hash
-immediately before each address-taken function entry.  Since these
-hashes are in the text section, objtool tries to decode them, leading to
-unpredictable results (e.g., "unannotated intra-function call").
+Describe GPADC block on Allwinner A523.
 
-arm64 uses mapping symbols to annotate where code ends and data begins
-(and vice versa).  Use those to just mark such "instructions" as NOP so
-objtool will ignore them.
+Tested on Radxa Cubie A5E:
+- 2 connected channels are showing voltages in agreement with
+  schematics.
+        BOOT-SEL-ADC ~500mV
+        BOM-ADC ~1800mV
+- 3rd channel exposed on 40pin header is showing correct voltages when
+  connected to known voltage source.
 
-Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 ---
- tools/objtool/check.c               | 15 +++++++++++++++
- tools/objtool/include/objtool/elf.h |  3 +++
- 2 files changed, 18 insertions(+)
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index e05dc7a93dc1e..2b03a2d6fc952 100644
---- a/tools/objtool/check.c
-+++ b/tools/objtool/check.c
-@@ -25,6 +25,7 @@
- #include <linux/kernel.h>
- #include <linux/static_call_types.h>
- #include <linux/string.h>
-+#include <linux/kconfig.h>
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 5afa8d92acbf..4e793aeccf89 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -340,6 +340,17 @@ ledc: led-controller@2008000 {
+ 			status = "disabled";
+ 		};
  
- static unsigned long nr_cfi, nr_cfi_reused, nr_cfi_cache;
- 
-@@ -428,6 +429,8 @@ static int decode_instructions(struct objtool_file *file)
- 
- 	for_each_sec(file->elf, sec) {
- 		struct instruction *insns = NULL;
-+		struct symbol *map_sym;
-+		bool is_data = false;
- 		u8 prev_len = 0;
- 		u8 idx = 0;
- 
-@@ -454,6 +457,8 @@ static int decode_instructions(struct objtool_file *file)
- 		if (!strcmp(sec->name, ".init.text") && !opts.module)
- 			sec->init = true;
- 
-+		map_sym = list_first_entry(&sec->symbol_list, struct symbol, list);
++		gpadc: adc@2009000 {
++			compatible = "allwinner,sun55i-a523-gpadc";
++			reg = <0x2009000 0x400>;
++			clocks = <&ccu CLK_BUS_GPADC0>, <&ccu CLK_GPADC0>;
++			clock-names = "bus", "mod";
++			resets = <&ccu RST_BUS_GPADC0>;
++			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
++			#io-channel-cells = <1>;
++			status = "disabled";
++		};
 +
- 		for (offset = 0; offset < sec_size(sec); offset += insn->len) {
- 			if (!insns || idx == INSN_CHUNK_MAX) {
- 				insns = calloc(INSN_CHUNK_SIZE, sizeof(*insn));
-@@ -478,6 +483,16 @@ static int decode_instructions(struct objtool_file *file)
- 
- 			prev_len = insn->len;
- 
-+			/* Use mapping symbols to skip data in text sections */
-+			sec_for_each_sym_from(sec, map_sym) {
-+				if (map_sym->offset > offset)
-+					break;
-+				if (is_mapping_sym(map_sym))
-+					is_data = is_data_mapping_sym(map_sym);
-+			}
-+			if (is_data)
-+				insn->type = INSN_NOP;
-+
- 			/*
- 			 * By default, "ud2" is a dead end unless otherwise
- 			 * annotated, because GCC 7 inserts it for certain
-diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
-index d895023674673..9d36b14f420e2 100644
---- a/tools/objtool/include/objtool/elf.h
-+++ b/tools/objtool/include/objtool/elf.h
-@@ -507,6 +507,9 @@ static inline void set_sym_next_reloc(struct reloc *reloc, struct reloc *next)
- #define sec_for_each_sym(sec, sym)					\
- 	list_for_each_entry(sym, &sec->symbol_list, list)
- 
-+#define sec_for_each_sym_from(sec, sym)					\
-+	list_for_each_entry_from(sym, &sec->symbol_list, list)
-+
- #define sec_prev_sym(sym)						\
- 	sym->sec && sym->list.prev != &sym->sec->symbol_list ?		\
- 	list_prev_entry(sym, list) : NULL
+ 		wdt: watchdog@2050000 {
+ 			compatible = "allwinner,sun55i-a523-wdt";
+ 			reg = <0x2050000 0x20>;
+
 -- 
-2.53.0
+2.43.0
 
 
