@@ -4,121 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A902ACD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 12:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D46A4CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 12:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zyU4Sq6iUSpynWqIwbV4HNx55pG0GP3Xn1AeqfpoAcY=; b=qhrV5OgncRhS/bcYSz3k+leE0/
-	iWy7PCDY7VD98erghJefjfW0SkjLRvCHtCz7SKoeMuebjNnKsFqAZ06DUFrIymAHBtNlTfp5BOmxd
-	omrkwgpjPTorAA0wsDIm0eE9ezNPJGGckT5n4KOgMozV5cGJchniD+6OrXWK1jnobYHFd/g9h3Yc4
-	rrFW6KyI0vPC+4cfWp9G5DFhHc4LZcW+47kT/KcH77SE8YdDti1XZb59lWhx/NhRfw9pP6c3gCgba
-	TCtXEt/ec7yFr3hZRTgTveQb1Hp4kdTRY6mFGEZ4ubU3ybtnuLXT9cg0cv0YMiYQr+pitwkx1cVHY
-	2kEklopQ==;
+	bh=aQlZ/OjZycl8mO0qhkBjjI22KpQXTTVRLDnf5qieSXI=; b=eyGnsIcWu0+fklcZ90uQnVcxmF
+	VhKEkolY9yKUhcFcni5Qrdil3sVbfuXB1XbrRDSwOwHAGdiioG2R/ESlXn/WkyGQDTamtRDwEW/G/
+	lxYCHFCk+TQKmhkBnBFiiTOGTkW36kGlVKbtaUkteQTno+4asBQhfrl1RpRrT9cEYeSuLAiA099pJ
+	jrUv3OedUOlP3AxG5I7gdGGB3mV2k3pkq7bqlDKj5OwMIhQz8Uiyfi6Fu2m2DqlDfIulG2M1piOBx
+	TtvGBA3GvE5fF3yq4JNqNuwuywtDOjlFo+JQGPMwLNlY/AlTiJOtL1LfE4CrMmw0M65kP4eQGfyif
+	RUyRyFrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN8ai-00000002SrH-2e9w;
-	Wed, 13 May 2026 12:21:32 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wN8fK-00000002TqI-2GnC;
+	Wed, 13 May 2026 12:26:18 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN8ae-00000002SpQ-1PI7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 12:21:30 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-488a9033b2cso60412745e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 05:21:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778674886; x=1779279686; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zyU4Sq6iUSpynWqIwbV4HNx55pG0GP3Xn1AeqfpoAcY=;
-        b=acaE6XLstju+sGNmXUxSTe7m8+Y0YmBUTaryiFNPLkocS6qjO9xiroNLQoNZ7bRsHh
-         RazWc7B58K3DoWpYt/r7Lo+YV1gCuDsyF3P2mt2kO1KKLbMj/KuHgRLKjomvuoK3i5dJ
-         YZs3Ffyr9nn22n5JnZxSvzTsz3kQvfAf+hx7mxYc8UIH+cDZ/pb8MYe1tUb1AWWEq4CT
-         f5wVKivLGguA4tzSQ9X1/C4snTyPtnJQsDHmwFuRtXLZVOeIOICUxU4iedm7JDq0IzeQ
-         SpsseOQ3T18xUQCwIZt7d6p1v0agZof29PBFVcrlK3MCPqpW3XkP2/MkwOu3dDSqr+EY
-         5vAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778674886; x=1779279686;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zyU4Sq6iUSpynWqIwbV4HNx55pG0GP3Xn1AeqfpoAcY=;
-        b=agyMVtBuShzFb6BgnjAnU51xgZfOH99sNMIAZPUah8ySygyzKRkL1Ds4WH7LcDjgC8
-         kH0cAm0ZQ4xCYMMrVVkuq0ig7JZILKFs/gVM3vdoosT5ZoUJ/7DEMfJ7aHtvhdwzhF+/
-         8nIPSCT417UP8Ty5tl0+jb4KxPa8NiQZX4zLLS6IqIYEkAablDHtH6QbHu/neEeat7sV
-         H0lh4rrQ86C+/7efqYHjNFJcYGRtotTLshfaZQUsyF1vgFbz9KCgCwjN5bIDQyzAq6Bn
-         ZsZ9ZLUiHnJo1H0XtO0/XhSjzP7vLB087Fga0z3q8x4lczclHac76XQbAdbYKJHkBuFi
-         PukQ==
-X-Gm-Message-State: AOJu0YzbNKjtFmpqFw+4tfNJnJI9JXEBOhfibin+9yl/F38wa5WbhB8p
-	bwiruziQzluNuEFxuiHDqkwZjakLt+O78JGzfB3m85+I0zgs/qKCnDCVgI6lRFzP+cM=
-X-Gm-Gg: Acq92OE4vJV4X29cM3esxliPRxD/ObqtbVibLxIkqeYYCdCvUNEpAJWYD4bw1OYc9Lz
-	x/OJ6bWXMZ89yAwcPHg3y5caJPT4/u6kDR7zGLtNxxKwTIvClLRh+eG59EnLfgYV3ioqOTmXAPq
-	AGHR0SuJFXBlwq4/NxLA2+5SP0fcDdo3oBolV6lN6O1bgjpYuJSnKc5XEtbVoYvUi01yM+fcct5
-	bBIrISNNVznxc2DPJd33LW26W3H7sNFxOb0F9/kNmGHn1yKe+6CraIt1djDuuKm/8db6NB3gdk0
-	zj+bPOl7vLw33HGpMjqrP5xvAVExTwiIRvgOZ3lAwWJQafNMJmcaTCAz9BU02no1OBe1doeOV8f
-	FtPZx3trfoDH6AHcMq4ic/FqLbL1eIWxyGt/7QWBmczPglSt1mjlyL9rELt3DVHz3TVOF7X8v0C
-	LgZ3h0hzaPxEMYXVh9H2bjfxh36yfdXCCfm9P+FnQYTnqCMjYZEZg5YaYqEdGtJ8wM1/e+0dhgw
-	3bYI3Nk5NMWPfw=
-X-Received: by 2002:a05:600c:19ce:b0:489:a4:e578 with SMTP id 5b1f17b1804b1-48fc9a34777mr40690665e9.14.1778674886244;
-        Wed, 13 May 2026 05:21:26 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:6ee4:8e37:145:d60b? ([2a01:e0a:106d:1080:6ee4:8e37:145:d60b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fc8d68b14sm71555635e9.12.2026.05.13.05.21.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 May 2026 05:21:25 -0700 (PDT)
-Message-ID: <f965ac54-f302-4e0a-b079-564abcaaa38f@linaro.org>
-Date: Wed, 13 May 2026 14:21:25 +0200
-MIME-Version: 1.0
+	id 1wN8fH-00000002TpZ-2zs3;
+	Wed, 13 May 2026 12:26:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aqQK/zI8FTzyAbTZJcmCyTrHqZitcQxRawYa4nmUTL7Ruq7vcmoTSMHp2YjvsmJoxPizkdejtDn/6c0UgQuUn3JmO+NjlyRw+3B9WPJAVhW7oNEk2/HUNj+xC3roV9FUh6bw3UIWS0+hsIa+EcJkhHlJKHVwaTmLHrXXVEIb1Xsz/mhuAym0wWeMhAvJakvGeXzErYR6YmiSP1y56PXFnVKjgYb2C5sbFyynN6uuRIjcfnDNirdBiD75XmXKf4LWlFnBrXc2bV6tF9bBrKG5aiEnJVKs5lOKTdqAnLnjpboxI9jWbfGWk5yg3R7HsmCBrAp8iYs50LpdU1MH5kxaDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aQlZ/OjZycl8mO0qhkBjjI22KpQXTTVRLDnf5qieSXI=;
+ b=kgVjtJaXmOvVkgvhpZ5hMPPAHPDrTmg+TJDgFYOx+sNLQ6HggyoY3wWSQuKDlfkUti2kP216W3S6FTDr5+o0rp0jWY6CVzBc/FT0TyM05GDnihnB4wmqMa2jO9g8JhrZ+9gs00oquSYRteWFHKiVh6QivOPlvDqJdeLOgb4LWvvOHV5c75BKZi3p3JXbut2uW6zUJMweITBn/aTJb7y8+ZofbVX/qR9ghWfmH6eyszhigyLScb46G375J9GsZyb1KPkXHEWYYGBhGx7FIiaDrRc994E0Foe/qIKogeGHc5uhWJnwBlD2MQLWO36grLtZ9n95yE2zstqOgebcNWJwGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=genexis.eu;
+ dkim=pass header.d=genexis.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=genexis.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aQlZ/OjZycl8mO0qhkBjjI22KpQXTTVRLDnf5qieSXI=;
+ b=uxQhabWoxjKwPJhsunr/5GaUYSF0QuaQ2SpuprNymZN8SHq+qRV5B7zWS4IqJK5El7OML1AQizlVkKmesc8T4CLdBMT1c5FM6S7R1WeWwD+p/Om8b9w68jQChvn1T0xFO/418aG7UT9LjI1bNHwHIEvFfemb5rHJt+I6ishuNcz/pu3LhrLmMd+WX/0Vxpde+KE3Q87oheT+yWt1vQTcC5Q5LDvPHjSHclnFs6adjs3wW6ChbGge3eearStuDFtz4KIO8hwNMCiVsUXLBb+IF0LHySxndIGIDnb+VIXtsz/JGrdt6m6PE9PDZlkHOsnqrDO3ltc3IynTpFmLvxBLmw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=genexis.eu;
+Received: from DB9PR08MB6697.eurprd08.prod.outlook.com (2603:10a6:10:2ad::14)
+ by AM9PR08MB5906.eurprd08.prod.outlook.com (2603:10a6:20b:285::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
+ 2026 12:26:09 +0000
+Received: from DB9PR08MB6697.eurprd08.prod.outlook.com
+ ([fe80::bdec:3e95:6614:441f]) by DB9PR08MB6697.eurprd08.prod.outlook.com
+ ([fe80::bdec:3e95:6614:441f%6]) with mapi id 15.20.9891.021; Wed, 13 May 2026
+ 12:26:09 +0000
+Message-ID: <383d1b22-7749-4278-a856-b8e29bc06e73@genexis.eu>
+Date: Wed, 13 May 2026 14:26:07 +0200
 User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v2 2/3] arm64: dts: amlogic: t7: khadas-vim4: reorder root
- node
-To: linux-kernel-dev@aliel.fr, Kevin Hilman <khilman@baylibre.com>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+Subject: Re: [PATCH net-next v6 11/12] net: airoha: Support multiple LAN/WAN
+ interfaces for hw MAC address configuration
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260513-add-kvim4-sysled-v2-0-3ec9779e8875@aliel.fr>
- <20260513-add-kvim4-sysled-v2-2-3ec9779e8875@aliel.fr>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260513-add-kvim4-sysled-v2-2-3ec9779e8875@aliel.fr>
+ Conor Dooley <conor+dt@kernel.org>, Christian Marangi
+ <ansuelsmth@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, Madhur Agrawal <madhur.agrawal@airoha.com>
+References: <20260511-airoha-eth-multi-serdes-v6-0-c899462c4f75@kernel.org>
+ <20260511-airoha-eth-multi-serdes-v6-11-c899462c4f75@kernel.org>
+ <f4a11830-8a3f-4cc3-ab82-e6f02ca34ae8@genexis.eu>
+ <agOUgVn24Ls5jiHq@lore-desk>
+Content-Language: en-US
+From: Benjamin Larsson <benjamin.larsson@genexis.eu>
+In-Reply-To: <agOUgVn24Ls5jiHq@lore-desk>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: GV3PEPF0001DC2F.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:158:400::116) To DB9PR08MB6697.eurprd08.prod.outlook.com
+ (2603:10a6:10:2ad::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR08MB6697:EE_|AM9PR08MB5906:EE_
+X-MS-Office365-Filtering-Correlation-Id: c5380dec-c4c0-489b-5466-08deb0ead020
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|18002099003|22082099003|11063799003|56012099003;
+X-Microsoft-Antispam-Message-Info: FhdIAkq37wAtndTGNARgCgtE4H80ZVQJSGdmDfIHdaOlbdtFK/jVbwQy3ZXSkb07+1X0RKD1n/XV/D9iCnJZGW5ImigOEnVIXGG3U4BVEJNYn+SPHQRy3BgLDBVr3UYHqlbhE6Sg2XyvC+gHt0DNedtsoSsfYZd2jtScdqqidPhohHbSEZfFwRHWXhe7ZEJ73D+NFcyhPMi2Y+WAUs3JvU+jzFwumalwgzeLgZMTRPmEPuklBjG2kNkBsva0hWE44HtMqMh8bSOSorNTw6X0FTe5lffjfrsWUSGzztHpaWqpWjyFKCGDrCG7KehZetNrvA7r1KN2tDdbgmgTWfpkOQj5JIY9xtyeVSfGixRZw83H2qwTgSwA4gV7JYP/K0fgjpdIblT3N1m/aC/VLxCDtX8RsHcxamGRLZeeBP+MdfV6wkCT5tqKFmpKLEmYDktrAumkuq8aCq73zWf4nz0dudtYEKo31pxfuoUHCW5Q2meCgNpMxDhNoA9INBeHN63r6GDo6j99JkvB/n/+hKZpybH5KtY2KT0woC2m3JkUBAPKheSfREiOTWfTNr25QzZCcBPTD660Lm2jWkjtQAtrlG8QuZjPFEQIlNG/pksgFadNSgeZgprSQ8LRBn83jm8RWQOfJmGRgt5H8GUv7AfHZPddjGTaxciKKxCSzQ/7Q2StdaE/5jFI9wYMfOvPP/ln
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB6697.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(11063799003)(56012099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cVBaMm5hb2tEbmY5Z1lpSHJRRTJIVnZ6dUNOMWF1SUFwRDFIN0tvN2FiVHdO?=
+ =?utf-8?B?RW8xSElsM0kyankwSkVrUklOT2Z4R0VkeXo1Y1ZjbVFKNmZBblZGWkJwYXFW?=
+ =?utf-8?B?VUwxcTFCMW9GLzZHVzQwLzNERWVwZ1J4N2FFbUVrUW5GYzE1YWRnN0Q0czFp?=
+ =?utf-8?B?RmtMVE85VmtidkxibW44aEJ5SlFOZGxPNTVBdWtiTW4xeFRTWm9IbjVEYmdw?=
+ =?utf-8?B?aTZ6UWZKVm1xcERYM3h2YTNQTldqa2RRNGtWR1pBZlRvdU9RNFZQbzJFY2VN?=
+ =?utf-8?B?UFViNThZY3JvSkFRd3dZU2JMQ1pnVk9odzY2QmFqK09PQ29QdW5HdEhJU0Rx?=
+ =?utf-8?B?ZHJqaEZEaW84bFdITDVabmpXdzJZSnlLWjZmQzNmMVAzYUdpWDlRb2Y3OTdq?=
+ =?utf-8?B?NERCSldFaS9PRFRQcFJ0c1JGSkdwTFRBY2lEZnNsVWRzWDAwN1R2b0tlQUp4?=
+ =?utf-8?B?QVZyS0RxMVhmam9qNWRQR0M5L2ZsZWZRcUp0MG5KSy9qeWRjQjl2QVk1czQ3?=
+ =?utf-8?B?eWJyT0FNSlBLdE96K0J5MVFNNmlhdXBoRk1zNDhrUXYwM1g4NDIvZUJqaFVD?=
+ =?utf-8?B?NkZBbkZkc2pHSzVlZUhTa21ObUFhbXhKRmx6b3VmOGNBRVF6QUtsVjZFNU5Y?=
+ =?utf-8?B?UkdnYzc1UzhFbEN4c3AvOGV6b0l6UHRzT21NTlVHcXRhYnRsRExtV1ZkbWhC?=
+ =?utf-8?B?UWNFS3NkK1JzWEpkbHczYis0TGw2b3lraXJZUVc3VHF6ejdiMmdHM2VTbHlM?=
+ =?utf-8?B?em1LOEdUaGxaek9MN1ZtL3V5VHlGeE9HTTJQLzYraFlHQTNsSk85Q1BlYjZL?=
+ =?utf-8?B?YVREL2R0TFhWaGg4a3hjZUdLOUxlc29JTUdjYitwRE1HdWFQL2RidDZtWDZ0?=
+ =?utf-8?B?d2Y4UlJ2L2pUK0prblV6bWllZ1had2hCb0xOYUFWS28xc2lsL2ZFVjhTSThW?=
+ =?utf-8?B?MSszOEkyaXh6aXowaUxhRWR5UVNnTkljM01LOUdheU1iSFNwWHJVRGN5QlJW?=
+ =?utf-8?B?T0ppUGV2cGlnenNqQVg2SitNaFA1L2UyV1l4azNEL0xCQWdYN3licmZEQ24x?=
+ =?utf-8?B?ZW5YQmtXWDJWQjVxMDBqOUttVEtoSUpWSlZpN2hsc3pLZis0aWYxNGpNMHNT?=
+ =?utf-8?B?eW92UDhrb3hQRURQWHJ2L2R4WDN3SFpUVkx6MWQ2L3ozcEJBOFNjaVBlRFBS?=
+ =?utf-8?B?S04vUkw1ajhrZ3I5anQvQzNFS0VhS1B0eGo3ZVkraDRkZkpnenEvNDlPNjhJ?=
+ =?utf-8?B?MW1QY2ZiMHpsVTBkbmN1YWVxMDFHQW14WldHR3RUT091YzA0aXNHZVVBYUlD?=
+ =?utf-8?B?QVpXUlBzRkRObmN1Ui9jbzY3aGI5L3RtT0VwR0xDWmlVL09zditLL0JwMmp4?=
+ =?utf-8?B?b25SMlpSNjVUS3ZBSGtTUUhLSjdEaXIrSVQ2TXVRSVFsbEI1K2lMT2ZVQWhm?=
+ =?utf-8?B?YUhsTWVTekRGbU5mZzFELzJrczQzL0RVYWs1N0MwUVB1em91WWZFWGhtUFhv?=
+ =?utf-8?B?WWM0SFBJdEh4V0RhTkptLzk5UlJzSmhhMmRoMnhPNml6dmJyUnlFbVJhVXRi?=
+ =?utf-8?B?L0hZWFZvaVNVM04rVHFPRHpZUkJHakZTRzAwd3lkT05CUVlKWUsvK1pFWkZt?=
+ =?utf-8?B?TGgvNFJYamlVV0J2eUplTUxQcUZtRkJDc1BHNk5sWHpXcC9BdGt3RGJxWXIw?=
+ =?utf-8?B?YUdNWnVmOUprQkIzSTFxamZZWDY4T1hGeitpTUw5cGJacDk4dld3R2hvODlz?=
+ =?utf-8?B?d25vYjY3MjA2UURCRE53Q2dlVHpSTTlpdDg3V2xXWmg0WGdlczFkMytZajFR?=
+ =?utf-8?B?a2pCTEt1Z0hDT0pEYzRvMDFzRVJzZmRUY3hFOEw2cFg3SVI5TFE5eHJLbmxk?=
+ =?utf-8?B?Yi9zcE04blBIdUdLN2dUdHZuOG5FemZRc0FzSVMzRGNXQlRKK045b2YyQWFB?=
+ =?utf-8?B?TmoyejhoZUt6VEJOMWlXOVpmeDlYWUYxRER5OHRlYTFKMko3bVJrbVMyS1p3?=
+ =?utf-8?B?MjZWek9YOCtML2VabElhV0lRVFJic2VlN2gyMnlxc3M3Nm9NSDR0UzJyVG1p?=
+ =?utf-8?B?YkFhVmduc1pFSERBYys1dGkwc211aUNldVVneDFhRXR4RTFBdEl6TFJRb21o?=
+ =?utf-8?B?NndQVkN0M3FoR3dwZmErdENSS0dLNG4ySU8zRUxaaGx3NElCRDdDSUFxSEcx?=
+ =?utf-8?B?YVp0bnQ1cFpzSm9VdGd4ZHluamQxWEFIemIwODFpMGdJb1hrQ3BpQVo1Yk9i?=
+ =?utf-8?B?K0ZTTncwcXlHaUFyZlYzMThuaUFxMWRBK3NXVWVCQjRSakpESjdtMVA3dFE4?=
+ =?utf-8?B?MExxdHpPcVM3UGxjNHdOUnM2Q3dOMGcrUjJMeHF6MWhSV3l6ZGYvWU9TRWRK?=
+ =?utf-8?Q?f1mPpISs8jBNVYOU=3D?=
+X-OriginatorOrg: genexis.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5380dec-c4c0-489b-5466-08deb0ead020
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR08MB6697.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 12:26:09.6243
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vFCXV9g3rw7ta+xbP7sF7pQMOttI7R/Dzk3+vo1Sdw7GiDNBXtWhHKiCg/ROXL1WZuvFSmQ0AcqavOgkUR4u1LYO/ll7oGe6/vBQeFPqVt0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR08MB5906
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_052128_400272_5B1F1A6D 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260513_052615_776968_042DF424 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,56 +153,111 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/13/26 12:43, Ronald Claveau via B4 Relay wrote:
-> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> 
-> Move the xtal-clk node to restore alphabetical ordering.
-> 
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
-> ---
->   .../boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts     | 14 +++++++-------
->   1 file changed, 7 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> index 69d6118ba57e7..fd1b983354a01 100644
-> --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> @@ -45,13 +45,6 @@ secmon_reserved_bl32: secmon@5300000 {
->   		};
->   	};
->   
-> -	xtal: xtal-clk {
-> -		compatible = "fixed-clock";
-> -		clock-frequency = <24000000>;
-> -		clock-output-names = "xtal";
-> -		#clock-cells = <0>;
-> -	};
-> -
->   	dc_in: regulator-dc-in {
->   		compatible = "regulator-fixed";
->   		regulator-name = "DC_IN";
-> @@ -155,6 +148,13 @@ wifi32k: wifi32k {
->   		clock-frequency = <32768>;
->   			pwms = <&pwm_ab 0 30518 0>;
->   	};
-> +
-> +	xtal: xtal-clk {
-> +		compatible = "fixed-clock";
-> +		clock-frequency = <24000000>;
-> +		clock-output-names = "xtal";
-> +		#clock-cells = <0>;
-> +	};
->   };
->   
->   &pwm_ab {
-> 
+On 12/05/2026 22:58, Lorenzo Bianconi wrote:
+> On May 12, Benjamin Larsson wrote:
+>> Hi.
+>>
+>> On 11/05/2026 12:49, Lorenzo Bianconi wrote:
+>>> The EN7581 and AN7583 SoCs provide registers to configure hardware LAN/WAN
+>>> MAC addresses, used to determine whether received traffic is destined for
+>>> this host or should be forwarded to another device.
+>>> The SoC hardware design assumes all interfaces configured as LAN (or WAN)
+>>> share a common upper MAC address, which is programmed into the
+>>> REG_FE_{LAN,WAN}_MAC_H register. The lower bytes of 'local' addresses can
+>>> be expressed as a range via the REG_FE_MAC_LMIN and REG_FE_MAC_LMAX
+>>> registers.
+>>> Previously, only a single interface was considered when programming these
+>>> registers. Extend the logic to derive the correct minimum and maximum
+>>> values for REG_FE_MAC_LMIN/REG_FE_MAC_LMAX when two or more interfaces are
+>>> configured as LAN or WAN.
+>>>
+>>> Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
+>>> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+>>> ---
+>>>    drivers/net/ethernet/airoha/airoha_eth.c | 75 +++++++++++++++++++++++++++-----
+>>>    drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
+>>>    drivers/net/ethernet/airoha/airoha_ppe.c |  4 +-
+>>>    3 files changed, 66 insertions(+), 15 deletions(-)
+>>>
+>>> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+>>> index 16c0ff9999da..533ffe20f833 100644
+>>> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+>>> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+>>> @@ -71,20 +71,67 @@ static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
+>>>    	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
+>>>    }
+>>> -static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
+>>> +static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
+>>>    {
+>>>    	struct airoha_eth *eth = dev->eth;
+>>> -	u32 val, reg;
+>>> +	u8 ref_addr[ETH_ALEN] = {};
+>>> +	u32 reg, val, lmin, lmax;
+>>> +	int i;
+>>> +
+>>> +	lmin = (addr[3] << 16) | (addr[4] << 8) | addr[5];
+>>> +	lmax = lmin;
+>>> +
+>>> +	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
+>>> +		struct airoha_gdm_port *port = eth->ports[i];
+>>> +		int j;
+>>> +
+>>> +		if (!port)
+>>> +			continue;
+>>> +
+>>> +		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
+>>> +			struct airoha_gdm_dev *iter_dev;
+>>> +			struct net_device *netdev;
+>>> +
+>>> +			iter_dev = port->devs[j];
+>>> +			if (!iter_dev || iter_dev == dev)
+>>> +				continue;
+>>> +
+>>> +			if (airoha_is_lan_gdm_dev(iter_dev) !=
+>>> +			    airoha_is_lan_gdm_dev(dev))
+>>> +				continue;
+>>> +
+>>> +			netdev = iter_dev->dev;
+>>> +			if (netdev->reg_state != NETREG_REGISTERED)
+>>> +				continue;
+>>> +
+>>> +			ether_addr_copy(ref_addr, netdev->dev_addr);
+>>> +			val = (netdev->dev_addr[3] << 16) |
+>>> +			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
+>>> +			if (val < lmin)
+>>> +				lmin = val;
+>>> +			if (val > lmax)
+>>> +				lmax = val;
+>>> +		}
+>>> +	}
+>>> +
+>>> +	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
+>>> +		/* According to the HW design, hw mac address MS bits
+>>> +		 * must be the same for each net_device with the same
+>>> +		 * LAN/WAN configuration.
+>>> +		 */
+>>> +		return -EINVAL;
+>>> +	}
+>> Maybe this information should be relayed to the user somehow?
+> netdev_err()?
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Ok with me.
 
-Thanks,
-Neil
+MvH
+
+Benjamin Larsson
+
+
+>
+> Regards,
+> Lorenzo
+>
+>> MvH
+>>
+>> Benjamin Larsson
+>>
+
 
