@@ -4,81 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C782CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C18BCD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3VYUeXMdoMyaNZg6vvAsAVjd0aWv0uzBcYzs6K83fqY=; b=e0gkAPzTJMc2jkDDsGmmpXLdxB
-	NKhjjhp+ofmd+0PZT3Yh6Fv3p84BvOocCzCvEmRtMytQnV33n15OiyjbQRa2qTtneNGedyZkuaeUg
-	7Tqi7kaLpwjExasmg7jjEpDD1ECFzbYE7Fw55KexKojYZALDh0dUzmoGU480E2zmdBlBAMV7Qx8KF
-	nHNl9xs6xeF5sawDPHzytLvaFj3tYdcez0TM5Ez//c/3f4IdA4x7IKJmk+2fQ70LNp8wWSHfGOv0/
-	ZOVaZQ4qnnV9EWcM2FexClv0d1D2MRjWpRslABU2A1nkVufJVm8KVkp+N9DOHgRK+gl3iDpLpT7Sw
-	SKm3gynA==;
+	bh=mUL6zN7k9sGL4+4GMbqNlwhbYoJyaAh8TqAFmMn0+Ro=; b=F8XTAQtjlxBP13v5QpAq4E1CgM
+	1tew371+8BQ6GQasEgFbnkWP442eufyb+3jxvsIlSCfYDEpoy+um2J2uxGTBwTzldFHsiR5GGHDmh
+	IzM8i4oRM8j/gYId5gknfDOvaXpCBnlf7DFBFLQwvdmMxR+jvAnjOo+QyudE5ioW2RMLIb5Rt0f/Q
+	KgbAuD+87iTJAesmtAxx+Z/Mhp2HV6ORV9ce06hkbKATkzgh231uzfZjzQ2xHIg+gejq6SkaRneM4
+	jIF6ndXJfSekTxxy6LWRfDgrjF7a4eXZCgwKIBEI0qvyqwKc1owMU6torfXMhBXGORkx4kG7vmXEl
+	sSJZKoZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9To-00000002dnu-0k0O;
-	Wed, 13 May 2026 13:18:28 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9TS-00000002dSO-0uzk
+	id 1wN9WG-00000002h6a-3wVQ;
+	Wed, 13 May 2026 13:21:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wN9W3-00000002gqm-3Nk5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:18:09 +0000
-Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 92C9A2E6B;
-	Wed, 13 May 2026 15:17:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778678276;
-	bh=MrAjka1D20dEvHeE79IK5H5AEJhNel9NxBpXOhee+Q8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RmqGVWdOu7q12709miAhB1xapZHlPyt2j+E9fZEOGkDJfaCvFCvqVouom0KupF3cV
-	 A2lLDKxZQI+lXyE6Ts90cUfnNrc+hapRJeOuZvniAm7pCh3u6OoMoCRLNfI8Grg0Uo
-	 zI0MdtmHdnAqZMY5T6y7iNdmEvcifLmcETsyZmu0=
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 13 May 2026 16:17:30 +0300
-Subject: [PATCH v2 08/16] drm/tidss: Add mechanism to detect DPI output
+	Wed, 13 May 2026 13:20:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C6EE237B;
+	Wed, 13 May 2026 06:20:41 -0700 (PDT)
+Received: from e122027.arm.com (unknown [10.57.68.187])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DD0E3F836;
+	Wed, 13 May 2026 06:20:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778678446; bh=Vo8ZmmZi5qqVTJlFrfGFu6ewMMpqqhjvVp3JgbePFdg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Z5/QgpcFW7FgiX1paj+VO63eddFA9QnHFt+pj2crYGhlUahbxsuC71ETSv3kobedr
+	 j61T7tiAyYM2b8XH3UE8YqNnq/7t+90T7AtFzGwFUKHVnqB7wyrHkRbxbjfl7V/HER
+	 M+3zDkNCPQiSVsLjsEFj8oJUt9ZPL9vJlLn/iPTo=
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: [PATCH v14 27/44] arm64: RMI: Set RIPAS of initial memslots
+Date: Wed, 13 May 2026 14:17:35 +0100
+Message-ID: <20260513131757.116630-28-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260513131757.116630-1-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-beagley-ai-display-v2-8-9e9bcefde6bc@ideasonboard.com>
-References: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
-In-Reply-To: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, 
- Devarsh Thakkar <devarsht@ti.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8450;
- i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=MrAjka1D20dEvHeE79IK5H5AEJhNel9NxBpXOhee+Q8=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqBHn/32Szw/TlqUEhEHpyppXM04CluvkNOCVNd
- jHEEctIfHCJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCagR5/wAKCRD6PaqMvJYe
- 9UfMEACh7uiFdfBPA+bz5Dx9LsCTGd5Izs72YYN6XDdAG++M1MoQ7pqHel7uvh0FlCJQjURQI6Q
- cPXgZ35cLYkuoqGHq2oo1OoFKazi/yyTXh7+QqJJ9Y19T5/reFr8ZWR3lh+gVqBSoG3mDojTHr8
- gR8V6d0vLwaA7jcZf73umcVdfg5RuaT7nvE/SCbPx+6kv9Rfkn7wc+NkoSaEkAvKFCCpeLIAnXO
- DqvehT/BCymdIBrPDQ8yLgOfexBpg45Rr6KhIQAElTYmLcnFEatcAkjQKPsE110SC7W8v1J3akL
- wHPUalLfWx7jJX4mctuYnT+QsqMhvTLbA6AErnBLfcm78vLbpKhG+gwpLnt7NHt6uo3pPQerioc
- rmQXrZ2CIqG40zT2XSWEjax3AypXcjrv/bMnogWPr68GLMYxn3eQrXak6PKF/dLhiJXhrQinIoQ
- Eq0ckSD24Bc+lf3HD2xjponiM7q4bmofgw/EbQzr/kKjy4PLlNyAmp+gzBYwr+8Esv32o2LZq0G
- r5a4jIAoOD5UPn0LSAZE6kWJ99Fx4tKdt7+y4OD5gfAVEDx3DnNr8TvTm5HyJ/5zCHt9YpDpoZN
- NO7UilTu/6rXyBw8IzzNAsFdGWEvCcWGsC0c1lrWNI8ERIgorVCixvrCrczEdG2/glyEBL0RI95
- xaHvsFNp1wXXxCg==
-X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
- fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_061806_417861_279DF282 
-X-CRM114-Status: GOOD (  22.87  )
+X-CRM114-CacheID: sfid-20260513_062048_163134_2F905CE4 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,232 +91,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are situations where the driver needs to know if the output is
-going to the DPI output or not. There is no trivial way to get this
-information, as there is no "DPI bridge". We can only find this out in
-reverse: check if the output is NOT DPI, and if that is negative, then
-it must be DPI.
+The memory which the realm guest accesses must be set to RIPAS_RAM.
+Iterate over the memslots and set all gmem memslots to RIPAS_RAM.
 
-At the moment we have two non-DPI outputs: DSI and OLDI. DSI always has
-"ti,j721e-dsi" DSI bridge connected to the DSI, so we can use that for
-checking. OLDI doesn't have a compatible property, but we can check if
-the DT node has "oldi-transmitters" node as a parent, and the dss node
-itself as a grand-parent.
-
-If the output is not connected to either of the above, it must be DPI.
-
-Tested-by: Swamil Jain <s-jain1@ti.com>
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
 ---
- drivers/gpu/drm/tidss/tidss_crtc.c  | 10 +++++--
- drivers/gpu/drm/tidss/tidss_crtc.h  |  4 ++-
- drivers/gpu/drm/tidss/tidss_dispc.c |  5 +++-
- drivers/gpu/drm/tidss/tidss_dispc.h |  3 +-
- drivers/gpu/drm/tidss/tidss_kms.c   | 55 ++++++++++++++++++++++++++++++++++++-
- 5 files changed, 70 insertions(+), 7 deletions(-)
+New patch for v12.
+---
+ arch/arm64/kvm/rmi.c | 36 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-diff --git a/drivers/gpu/drm/tidss/tidss_crtc.c b/drivers/gpu/drm/tidss/tidss_crtc.c
-index a31c21c5f855..dfdf61b01dcd 100644
---- a/drivers/gpu/drm/tidss/tidss_crtc.c
-+++ b/drivers/gpu/drm/tidss/tidss_crtc.c
-@@ -192,7 +192,8 @@ static void tidss_crtc_atomic_flush(struct drm_crtc *crtc,
- 		return;
- 
- 	/* Write vp properties to HW if needed. */
--	dispc_vp_setup(tidss->dispc, tcrtc->hw_videoport, crtc->state, false);
-+	dispc_vp_setup(tidss->dispc, tcrtc->hw_videoport, crtc->state, false,
-+		       tcrtc->dpi_output);
- 
- 	/* Update plane positions if needed. */
- 	tidss_crtc_position_planes(tidss, crtc, old_crtc_state, false);
-@@ -235,7 +236,8 @@ static void tidss_crtc_atomic_enable(struct drm_crtc *crtc,
- 	if (r != 0)
- 		return;
- 
--	dispc_vp_setup(tidss->dispc, tcrtc->hw_videoport, crtc->state, true);
-+	dispc_vp_setup(tidss->dispc, tcrtc->hw_videoport, crtc->state, true,
-+		       tcrtc->dpi_output);
- 	tidss_crtc_position_planes(tidss, crtc, old_state, true);
- 
- 	/* Turn vertical blanking interrupt reporting on. */
-@@ -417,7 +419,8 @@ static const struct drm_crtc_funcs tidss_crtc_funcs = {
- 
- struct tidss_crtc *tidss_crtc_create(struct tidss_device *tidss,
- 				     u32 hw_videoport,
--				     struct drm_plane *primary)
-+				     struct drm_plane *primary,
-+				     bool dpi_output)
- {
- 	struct tidss_crtc *tcrtc;
- 	struct drm_crtc *crtc;
-@@ -430,6 +433,7 @@ struct tidss_crtc *tidss_crtc_create(struct tidss_device *tidss,
- 		return ERR_PTR(-ENOMEM);
- 
- 	tcrtc->hw_videoport = hw_videoport;
-+	tcrtc->dpi_output = dpi_output;
- 	init_completion(&tcrtc->framedone_completion);
- 
- 	crtc =  &tcrtc->crtc;
-diff --git a/drivers/gpu/drm/tidss/tidss_crtc.h b/drivers/gpu/drm/tidss/tidss_crtc.h
-index 040d1205496b..65df220698f6 100644
---- a/drivers/gpu/drm/tidss/tidss_crtc.h
-+++ b/drivers/gpu/drm/tidss/tidss_crtc.h
-@@ -20,6 +20,7 @@ struct tidss_crtc {
- 	struct drm_crtc crtc;
- 
- 	u32 hw_videoport;
-+	bool dpi_output;
- 
- 	struct drm_pending_vblank_event *event;
- 
-@@ -44,5 +45,6 @@ void tidss_crtc_error_irq(struct drm_crtc *crtc, u64 irqstatus);
- 
- struct tidss_crtc *tidss_crtc_create(struct tidss_device *tidss,
- 				     u32 hw_videoport,
--				     struct drm_plane *primary);
-+				     struct drm_plane *primary,
-+				     bool dpi_output);
- #endif
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
-index 58d5eb033bdb..c21ac3f51720 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc.c
-+++ b/drivers/gpu/drm/tidss/tidss_dispc.c
-@@ -448,6 +448,7 @@ static const u16 *dispc_common_regmap;
- 
- struct dss_vp_data {
- 	u32 *gamma_table;
-+	bool dpi_output;
- };
- 
- struct dispc_device {
-@@ -2770,8 +2771,10 @@ static void dispc_vp_set_color_mgmt(struct dispc_device *dispc,
+diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+index 209087bcf399..fb96bcaa73ed 100644
+--- a/arch/arm64/kvm/rmi.c
++++ b/arch/arm64/kvm/rmi.c
+@@ -637,12 +637,44 @@ static int realm_set_ipa_state(struct kvm_vcpu *vcpu,
+ 	return ret;
  }
  
- void dispc_vp_setup(struct dispc_device *dispc, u32 hw_videoport,
--		    const struct drm_crtc_state *state, bool newmodeset)
-+		    const struct drm_crtc_state *state, bool newmodeset,
-+		    bool dpi_output)
- {
-+	dispc->vp_data[hw_videoport].dpi_output = dpi_output;
- 	dispc_vp_set_default_color(dispc, hw_videoport, 0);
- 	dispc_vp_set_color_mgmt(dispc, hw_videoport, state, newmodeset);
- }
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc.h b/drivers/gpu/drm/tidss/tidss_dispc.h
-index 739d211d0018..6f53d554259c 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc.h
-+++ b/drivers/gpu/drm/tidss/tidss_dispc.h
-@@ -131,7 +131,8 @@ void dispc_vp_disable_clk(struct dispc_device *dispc, u32 hw_videoport);
- int dispc_vp_set_clk_rate(struct dispc_device *dispc, u32 hw_videoport,
- 			  unsigned long rate);
- void dispc_vp_setup(struct dispc_device *dispc, u32 hw_videoport,
--		    const struct drm_crtc_state *state, bool newmodeset);
-+		    const struct drm_crtc_state *state, bool newmodeset,
-+		    bool dpi_output);
- 
- int dispc_runtime_suspend(struct dispc_device *dispc);
- int dispc_runtime_resume(struct dispc_device *dispc);
-diff --git a/drivers/gpu/drm/tidss/tidss_kms.c b/drivers/gpu/drm/tidss/tidss_kms.c
-index 8bb93194e5ac..bc8b10af9a48 100644
---- a/drivers/gpu/drm/tidss/tidss_kms.c
-+++ b/drivers/gpu/drm/tidss/tidss_kms.c
-@@ -122,6 +122,50 @@ static const struct drm_mode_config_funcs mode_config_funcs = {
- 	.atomic_commit = drm_atomic_helper_commit,
- };
- 
-+static const char * const tidss_internal_bridge_compatibles[] = {
-+	"ti,j721e-dsi",
-+};
-+
-+/*
-+ * Detect whether the bridge is internal to the SoC or not. This is needed
-+ * to find out whether we are using DPI output (thus no internal bridge).
-+ * We detect this via two means:
-+ * - If the bridge's of_node has a compatible, compare to known internal values.
-+ * - If the bridge is a grand-child of DSS, and has "oldi-transmitters" parent.
-+ */
-+static bool tidss_is_bridge_internal(struct tidss_device *tidss,
-+				     struct drm_bridge *bridge)
++static int realm_init_ipa_state(struct kvm *kvm,
++				unsigned long gfn,
++				unsigned long pages)
 +{
-+	struct device_node *parent, *grand_parent;
-+	struct property *prop;
-+	bool is_internal;
-+
-+	if (WARN_ON(!bridge->of_node))
-+		return false;
-+
-+	prop = of_find_property(bridge->of_node, "compatible", NULL);
-+	for (const char *cp = of_prop_next_string(prop, NULL); cp;
-+	     cp = of_prop_next_string(prop, cp)) {
-+		for (unsigned int i = 0;
-+		     i < ARRAY_SIZE(tidss_internal_bridge_compatibles); ++i) {
-+			if (strcmp(cp, tidss_internal_bridge_compatibles[i]) == 0)
-+				return true;
-+		}
-+	}
-+
-+	parent = of_get_parent(bridge->of_node);
-+	grand_parent = of_get_parent(parent);
-+
-+	is_internal = parent && grand_parent &&
-+		      tidss->dev->of_node == grand_parent &&
-+		      of_node_name_eq(parent, "oldi-transmitters");
-+
-+	of_node_put(grand_parent);
-+	of_node_put(parent);
-+
-+	return is_internal;
++	return ripas_change(kvm, NULL, gfn_to_gpa(gfn), gfn_to_gpa(gfn + pages),
++			    RIPAS_INIT, NULL);
 +}
 +
- static int tidss_dispc_modeset_init(struct tidss_device *tidss)
+ static int realm_ensure_created(struct kvm *kvm)
  {
- 	struct device *dev = tidss->dev;
-@@ -133,6 +177,7 @@ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
- 		u32 hw_videoport;
- 		struct drm_bridge *bridge;
- 		u32 enc_type;
-+		bool dpi_output;
- 	};
+ 	/* Provided in later patch */
+ 	return -ENXIO;
+ }
  
- 	const struct dispc_features *feat = tidss->feat;
-@@ -149,6 +194,7 @@ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
- 		struct drm_panel *panel;
- 		struct drm_bridge *bridge;
- 		u32 enc_type = DRM_MODE_ENCODER_NONE;
-+		bool dpi_output;
- 		int ret;
- 
- 		ret = drm_of_find_panel_or_bridge(dev->of_node, i, 0,
-@@ -160,6 +206,11 @@ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
- 			return dev_err_probe(dev, ret, "port %d probe failed\n", i);
- 		}
- 
-+		if (bridge)
-+			dpi_output = !tidss_is_bridge_internal(tidss, bridge);
-+		else
-+			dpi_output = true;
++static int set_ripas_of_protected_regions(struct kvm *kvm)
++{
++	struct kvm_memslots *slots;
++	struct kvm_memory_slot *memslot;
++	int idx, bkt;
++	int ret = 0;
 +
- 		if (panel) {
- 			u32 conn_type;
- 
-@@ -199,6 +250,7 @@ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
- 		pipes[num_pipes].hw_videoport = i;
- 		pipes[num_pipes].bridge = bridge;
- 		pipes[num_pipes].enc_type = enc_type;
-+		pipes[num_pipes].dpi_output = dpi_output;
- 		num_pipes++;
++	idx = srcu_read_lock(&kvm->srcu);
++
++	slots = kvm_memslots(kvm);
++	kvm_for_each_memslot(memslot, bkt, slots) {
++		if (!kvm_slot_has_gmem(memslot))
++			continue;
++
++		ret = realm_init_ipa_state(kvm, memslot->base_gfn,
++					   memslot->npages);
++		if (ret)
++			break;
++	}
++	srcu_read_unlock(&kvm->srcu, idx);
++
++	return ret;
++}
++
+ int kvm_arm_rmi_populate(struct kvm *kvm,
+ 			 struct kvm_arm_rmi_populate *args)
+ {
+@@ -890,6 +922,10 @@ int kvm_activate_realm(struct kvm *kvm)
+ 			return ret;
  	}
  
-@@ -224,7 +276,8 @@ static int tidss_dispc_modeset_init(struct tidss_device *tidss)
- 		tidss->planes[tidss->num_planes++] = &tplane->plane;
- 
- 		tcrtc = tidss_crtc_create(tidss, pipes[i].hw_videoport,
--					  &tplane->plane);
-+					  &tplane->plane,
-+					  pipes[i].dpi_output);
- 		if (IS_ERR(tcrtc)) {
- 			dev_err(tidss->dev, "crtc create failed\n");
- 			return PTR_ERR(tcrtc);
-
++	ret = set_ripas_of_protected_regions(kvm);
++	if (ret)
++		return ret;
++
+ 	ret = rmi_realm_activate(virt_to_phys(realm->rd));
+ 	if (ret)
+ 		return -ENXIO;
 -- 
 2.43.0
 
