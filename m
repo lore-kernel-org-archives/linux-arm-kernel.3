@@ -4,71 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989F6CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 14:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A04CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 14:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H9fWAJmT4duqKNhGpNJ3D/Pmzw/4WJS1enftLK5nfnA=; b=AYN2/HC5fE35pcZpIJGeoqXgKU
-	lEVqYXaBn/3eGgswdF2qyJbV6WtLxgTrbbD6ca8Mai0Uoe5N8+5leZc9ETN29Jn7bNKVB4M+SUJ75
-	I2cJnuhjypzswouph5krghF8as7IQgeWXdOEwNiXTm5T4gzJycxOXycRaRdv7/7YLcAxUgV7XINeA
-	Zn5Kwqd/2lzUeD/95yFpzzN5HcV7x4X9xs1eh4FeLuGbwssUvsIwceMvi/XMEZ4uylL2vOi3furGB
-	UjusMjcL1HDuG0/eP+Lf39tRknVw1bKXJZyaFMBLOMfsp+ibAfQq8iLR8daH2367Sa8achTymJB1Y
-	bhuAwj2A==;
+	bh=Bq9WGORoYPZBXmUGqu1w+1NLwysPb53TwFNAairTvjw=; b=Gy6zZCqLyZTc3cXZGMp12fTI/h
+	6lbKC9WBXD63mbLMtuWWOhCV0kE9MlKrEfZieh5EU7M4qPqBQsWqRCyL5r5LwQjuSdz8b1EXzQm/b
+	9B/m8wx7R9q1lz4AQ2g+DqaxrGu9wk2h02Kem5mm4XzNqH1PYJJrSfZUP8+ZA80A+uswOANsBGFl5
+	UUOBPnCsNH+TFVspPycrxnzw6zPTkd8kUKtRkGiUPxKSlEDcevojQW/s0fiOBYMglkmvPHXz0zZ2R
+	DTXwe5Uriq7ng2K2QR+GPqzQOTL+vQQgiqBtkgpH9HFZYh2TSuXLz7UvrfobJIc7WYfjysRMPwkJ9
+	o+JyNoNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNApA-00000002xqV-2nob;
-	Wed, 13 May 2026 14:44:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wNAsI-00000002yRH-0ovB;
+	Wed, 13 May 2026 14:47:50 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNAp5-00000002xoS-3Uuu
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 14:44:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A969444489
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:44:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FEA8C2BCC7
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 14:44:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778683470;
-	bh=AcQajWoyianxBFqe9+pwgEA3+MQbwflajHJBLxqkzsU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Ej3HW4OBwPIi6rJmznPSDxDaw7Cb4pzfnyS5VzLoN8nWrOWAoEZQqBnyG6+xEn+D0
-	 7yQ+0yN0qvgc8YDVK5iwmHHmsRarF1KnWXlq5HRNnhf7FVJxsqatR2ZfNZ+bAEASX7
-	 20w9peYQWVBPhZVdOSboBcbVaxQJoNTGnGylj4nMQmItWMJ1zYAhV1GnO1dy83mqoG
-	 oYneIX9I6M1IyEGummRuPudQ4xwc2UdgaUrUuieMxPESU59WuaYuxFNEAQLkLAa21b
-	 zhtZklZgUnYEhUzZaiKi0bKGFtnqx742GrBbwSeN6oxk78OHZxBMrye10FYGKq1u0k
-	 /Dz8Lcjt0vzzA==
-Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-12c1a170a50so9396355c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 07:44:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ819r6tdMLd0ULEJtKQh4kOnp39qEgcgfgQGURVZrimhJ35rY1iFWdO9dehZ45a1uGvyz9MVcPbKhDdlONXYcPw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz56IG5ZKZjICBTc1sjRXOaY2SBF7s2asf4w79gr6w3Vqd+Jgjz
-	9zgPwDmAqR23LHqC0bz3KVOadwVP8//tmXLaURbFKusD0Y0Ib97XCm9Oer5MTGMGS+lEndPXQxn
-	F5NAhmIAp+7YQxDdgYnHx1BaBBAZr9A==
-X-Received: by 2002:a05:7022:45a5:b0:130:a257:f723 with SMTP id
- a92af1059eb24-1349a703b38mr2163136c88.2.1778683469857; Wed, 13 May 2026
- 07:44:29 -0700 (PDT)
+	id 1wNAsF-00000002yQQ-36oY;
+	Wed, 13 May 2026 14:47:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1778683653; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Z34X34TAKvlMFPBzLMiQeMxOY5tJcYfk5GXWV5byHgi+sixNHICT8IWftedkRe3lV2y7SXAmMlkhKaFJPqitasAx4iNYbtpUQwWGcOMj1mOvUo6PBeBPD1k5dJoXm95NYCY0xiV6U8geuK4r+mlvEPyIDNPXK3sWP/W97dxsA+Q=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1778683653; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Bq9WGORoYPZBXmUGqu1w+1NLwysPb53TwFNAairTvjw=; 
+	b=ax02RYhsjy8DejWtvvKv6ZrQXBnP8G55UsSI2RCP5xiBfyC1a9tdz+zAAFUp/obKyDNAJyjSdmLwMOYfi4iAp54c9+J9I6FgIWeWv9rZjldlJfasZbe42nQjI5ZDq/KDlW4nFumKTRmPScMMjToWL6iKfzNRBFbLTBEC2AEDCf0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1778683653;
+	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=Bq9WGORoYPZBXmUGqu1w+1NLwysPb53TwFNAairTvjw=;
+	b=OiMQMTZxXNdQs0FIeDwRBJMbKqL5MmN/NkGiOTorI9PhSffIctLaUKLziP49bNL/
+	658SrtBw1oHTQZ7GSIR349dnJU+Ly9GtCMVslND4aOZELg8+4LliZit9LHYf3B6DkUc
+	xslDa0OBlqy2+r+t2W6ZFYcKTh/nl8wcg2XnWrko=
+Received: by mx.zohomail.com with SMTPS id 1778683651997490.307654217934;
+	Wed, 13 May 2026 07:47:31 -0700 (PDT)
+Message-ID: <f59370e6-7921-4227-a8bf-ccbb9f03da23@collabora.com>
+Date: Wed, 13 May 2026 16:47:25 +0200
 MIME-Version: 1.0
-References: <20260420064544.266478-1-suryasaimadhu369@gmail.com>
-In-Reply-To: <20260420064544.266478-1-suryasaimadhu369@gmail.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Wed, 13 May 2026 14:44:17 +0000
-X-Gmail-Original-Message-ID: <CAAOTY__-A_LAaDG5QBMVAaWh0QYiNETvF_uhVevGLQr0cfxV6w@mail.gmail.com>
-X-Gm-Features: AVHnY4KoaT4lFur0qX9u_4-uJObxdFb4r8bJVHNWvz9hHmWh3RXQFM5ONm8Jba4
-Message-ID: <CAAOTY__-A_LAaDG5QBMVAaWh0QYiNETvF_uhVevGLQr0cfxV6w@mail.gmail.com>
-Subject: Re: [PATCH v2] drm/mediatek: hdmi: Convert DRM_ERROR() to drm_err()
-To: sai madhu <suryasaimadhu369@gmail.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/8] media: dt-bindings: add rockchip rk3588 vicap
+To: Rob Herring <robh@kernel.org>
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Jagan Teki <jagan@amarulasolutions.com>,
+ =?UTF-8?B?0JrRg9C30L3QtdGG0L7QsiDQnNC40YXQsNC40Ls=?=
+ <mai.kuznetsov.misha@gmail.com>,
+ Charalampos Mitrodimas <charmitro@posteo.net>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20260508-rk3588-vicap-v4-0-6a6cd6f7c90b@collabora.com>
+ <20260508-rk3588-vicap-v4-2-6a6cd6f7c90b@collabora.com>
+ <20260513124858.GA585254-robh@kernel.org>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260513124858.GA585254-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_074431_894461_99AB439D 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20260513_074747_835274_7BD3D711 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,54 +96,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, sai:
+Hi Rob,
 
-sai madhu <suryasaimadhu369@gmail.com> =E6=96=BC 2026=E5=B9=B44=E6=9C=8820=
-=E6=97=A5=E9=80=B1=E4=B8=80 =E4=B8=8A=E5=8D=886:45=E5=AF=AB=E9=81=93=EF=BC=
-=9A
->
-> The DRM_ERROR() macro is deprecated in favor of drm_err() which
-> provides device-specific logging.
->
-> Replace DRM_ERROR() with drm_err() in the Mediatek HDMI bridge
-> driver and pass the drm_device pointer via bridge->dev.
->
-> No functional change intended.
+On 5/13/26 14:48, Rob Herring wrote:
+> On Fri, May 08, 2026 at 09:31:45PM +0200, Michael Riesch wrote:
+>>[...]
+>>  properties:
+>>    compatible:
+>> -    const: rockchip,rk3568-vicap
+>> +    enum:
+>> +      - rockchip,rk3568-vicap
+>> +      - rockchip,rk3588-vicap
+>>  
+>>    reg:
+>>      maxItems: 1
+>> @@ -26,37 +32,23 @@ properties:
+>>      maxItems: 1
+>>  
+>>    clocks:
+>> -    items:
+>> -      - description: ACLK
+>> -      - description: HCLK
+>> -      - description: DCLK
+>> -      - description: ICLK
+>> +    minItems: 4
+>> +    maxItems: 5
+>>  
+>>    clock-names:
+>> -    items:
+>> -      - const: aclk
+>> -      - const: hclk
+>> -      - const: dclk
+>> -      - const: iclk
+> 
+> Just keep this here and add iclk1 on the end along with 'minItems: 4'.
 
-Applied to mediatek-drm-next [1], thanks.
+Just to make sure I get it right: The names on the RK3588 would then be
+aclk, hclk, dclk, iclk, iclk1
+?
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-next
+I liked that zero. But OK.
 
-Regards,
-Chun-Kuang.
+Looking into the future, the RK3576 downstream has aclk, hclk, dclk,
+iclk{0-4} [0]. Again, if we rename "iclk0" -> "iclk", we can do the same
+trick.
 
->
-> Signed-off-by: sai madhu <suryasaimadhu369@gmail.com>
-> ---
->  drivers/gpu/drm/mediatek/mtk_hdmi.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediat=
-ek/mtk_hdmi.c
-> index 1ea259854780..4ddcdbf7bc8c 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> @@ -981,8 +981,8 @@ static int mtk_hdmi_bridge_attach(struct drm_bridge *=
-bridge,
->         int ret;
->
->         if (!(flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)) {
-> -               DRM_ERROR("%s: The flag DRM_BRIDGE_ATTACH_NO_CONNECTOR mu=
-st be supplied\n",
-> -                         __func__);
-> +               drm_err(bridge->dev,
-> +                       "DRM_BRIDGE_ATTACH_NO_CONNECTOR must be supplied\=
-n");
->                 return -EINVAL;
->         }
->
-> --
-> 2.34.1
->
+However, the RK3562 downstream has aclk, hclk, dclk, csirx{0-3} [1]. We
+could rename those to iclk, as those iclks seem to refer to the CSI
+hosts/receivers.
+
+Yeah, should work I think. Will update in v5.
+
+Best regards,
+Michael
+
+> 
+>> +    minItems: 4
+>> +    maxItems: 5
+> 
+
+
+[0]
+https://github.com/rockchip-linux/kernel/blob/develop-6.6/arch/arm64/boot/dts/rockchip/rk3576.dtsi#L3342
+[1]
+https://github.com/rockchip-linux/kernel/blob/develop-6.6/arch/arm64/boot/dts/rockchip/rk3562.dtsi#L2073
 
