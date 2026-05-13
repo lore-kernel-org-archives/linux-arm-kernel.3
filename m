@@ -4,144 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E81CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 18:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29700CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 18:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mKJozyiXPAnQIsv7H4f79u/+ZUVGgrXC9SUuc+YMN9A=; b=qn2IsQ4Z91FSCfdCLYP/6Fp1Jo
-	Ks/vUUbJ4wZl+fA7qvPGKKVs7QqInoIEuPfo3eYX8JjMS2h8FAIXPAFhXFaKlZ7pJbz9GGOdJ1eCk
-	l5v7g8B/CMWhw1a761uo0Djn5HQHimw7K2ygGljEfKbaPRYAww5RNOZtExNf1WguLaHVFS/QVnIPW
-	cU+DaZDYNiZV5ZskBC+83rg/XenLOxD94R0UtnCoW++lKDqinp0fhd+51UoL2eefHtUlXRPlEfs/m
-	9NsGVhlXe5FeRal2RznO1BIc4joldUHQZAGAHkXxAc97/cuiSYt8kacI1ck/RkEGgmkwb8Icq9pXN
-	Bm+CM91g==;
+	bh=lUxjcmVB1mry2JFOZUVE65+ZJk/cVp6zUgik6yCWYSo=; b=ze9EC6yh97Sg7cbZl0mZSPq2JJ
+	X7GHzObAd2DyKVZQHgbMRTUReKsQnTsCc0l7QEP7h8OheAU4EDE6CvM0iHuy2+2zKrCobxynDCuiL
+	gTkJPBNsMINBtxXiJbhDKXQjKKPjRPhUhV+JXPBM4cZnnHF1Q5j2zJZNrKpRuI8vs579grZ6yGZGy
+	Vj/zuEBi1e3AqupUX7LZJFaL41QEJPTVkUbkqZU0EElHlB0QsG8P089ggaMYh/+rUM5CIbsM/h28v
+	+t4zZPj2ky+j8/N3N/wnzXwurzaj5i4lmhsHmdPQ4BWVjCBybg/Hphnba4zGe10G7VfYW29vCCM4N
+	xPDoPd5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNEIp-00000003TU2-34hW;
-	Wed, 13 May 2026 18:27:27 +0000
-Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
+	id 1wNEFT-00000003SJL-3CkR;
+	Wed, 13 May 2026 18:23:59 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNEIn-00000003TT0-0IYE
+	id 1wNEFO-00000003SEd-1qAx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 18:27:26 +0000
-Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-2f0ad52830cso10485749eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 11:27:24 -0700 (PDT)
+	Wed, 13 May 2026 18:23:56 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64DG8iS53007155
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 18:23:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	lUxjcmVB1mry2JFOZUVE65+ZJk/cVp6zUgik6yCWYSo=; b=Rc0jFcRtiw+h55So
+	zoTr6UzoG1TzenCRG2BQXvDfD6fxKCDKrQmyLxG3/4Wa1QnskXhnepcU30WtlDMR
+	zz/9dkXLcAnffHFqLks3kors5Tm70GRjvq57IMCk3wa6L0jP8xr102vGPPnq8Iol
+	3fAYLdgOU4sp/7uInRa1f7k1uShv/ddhwwPxFnd8B/6M5to5JtodKsLaHR7UAJC+
+	wgUYdnL8KgQ7h/n/Xy5YnkjnuZi0CJ+2m1uQ7IoN8LuI1V38k+AuWwns8KAMNq+L
+	NlgVMGdZH84ny1tN+npBtZROT80H8lbUDeHKYovQGMUtquWbdMEahR4Lobe0MK1r
+	GjJpbg==
+Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e4py0j0an-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 18:23:53 +0000 (GMT)
+Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-95ce07ddc14so8240278241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 11:23:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778696844; x=1779301644; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=mKJozyiXPAnQIsv7H4f79u/+ZUVGgrXC9SUuc+YMN9A=;
-        b=p0Z87kxMJZEosOeeOmJa/X15EFHEQBGIP988V7T2kiXueas8Md5EAwF1fSsr2d7slM
-         oheg5BeTJ5+DpAPBOLrkOV4lpWRAXPXJGVb/LlV2WHAIVtik1R+ZKMd24Y5lUh+IOibZ
-         CRUjELoSsdEswpQVEG/xskxHuAv3Vx4V1gNWfLOgv+jOMLltmjPAYiyLt47D61z6eOKp
-         03E2SAEtWgkTg8DpXonO3yp+VZEMqDKh/sOHzRlk74s1FYEXEho2MmP9ytkms/IpDmms
-         ZwTRoVRf3xY5tueFlspJ6/2DTU2Cst4xyDY4uSDUn+XOaeodWYm45h3z20EBGXWrE6Zu
-         b7uw==
+        d=oss.qualcomm.com; s=google; t=1778696633; x=1779301433; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lUxjcmVB1mry2JFOZUVE65+ZJk/cVp6zUgik6yCWYSo=;
+        b=C9fncjd98BV+qfpbxuweVI2UvGJkYuLKOiBrsJFG8rxj2fAfCRwGKBdgouhOR2XoKC
+         bvj2IMrWNXBHQ79JfVddP1BwshimZdG5ePc2qSK7exCqEl562J3jwWUxJyfN0unCDHFg
+         iNOciC4QtTSz7ieG5+n+JKfrUwNbpz1ZxSidfYPR0vOTW0qoHVMTfhNykRkvSSd968M9
+         1lH7dGSAie2oPjdmvZARZSCUQ02S0trNz39KE/VXHgoIklWhveZCs8B5smMma6Er3i3x
+         73HTWMODtPbtl4L0J3S3IQP7g0/GQPueP/PTp1kX4tjk2Ks7ySBWKHeWqcYwKAhjF19l
+         Dxww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778696844; x=1779301644;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mKJozyiXPAnQIsv7H4f79u/+ZUVGgrXC9SUuc+YMN9A=;
-        b=Qd0HH+VluycO4/5dVUEiYwQOtQXWgTZ7ciovQjt91rISOHmMsb5GC1i62jLs5fLK1j
-         +XTb1+zWGwdwGQ+VWE24+ZhsK373o6w1KYTKj6kBkfigN96AFDtS/tUc7JF+GPXbI4Eu
-         b8BeNjZDRwwEpmH5jilTVHwGI3/1doi4f0/dnMzQiOCKJm1n+ADQDo0YF0VmQG0mpFuy
-         KTtLTDU/C7U6nwEHW/oJQtHO4UbYnonFXJ9Df0rwXDCWvgafo1yDfDrOAyJ04L9jSiwp
-         Q1rfxz+p9c2ELM7V8nXr/GbkS1xMc7xrpY/BpgWsxqmP+2166yJKO5OMCs8ASUX0aQXh
-         knhQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8W/5Yas5jQEAixjeTKoaxBcGI2ykuq6wJrMSwsX4hUqendFWWejOXARvQH8A1CFN7P+fu0zbx+CEZPMjcE4fba@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrOtP+mGYA2ye8lnOUI0N9Zsfifgui9qWvvDZ0XL3KUu3MyTFE
-	R0LrQqLRIRtfChPAULCADe3wWFRrK73muRPS/vjwdIw6Eq/jmQBu0dtb
-X-Gm-Gg: Acq92OHNpFLGmYAe72/S8jJNT3IXQA1rbLhrzBLfyaFHsXLtgQ7s0/38qcHrRmmGfvD
-	m4CAMcRa45qoQV05eDjosjiTcNrb3tZl8YpG6fG5V/Q9sw30MJ1rhoSJRXHvHhjhTZnpUGeG+EI
-	Wx9YZi6tquYsUi8Qn+OCVZhZ59nB2I+rGfP8I80PCs9Js+P+d68P5p5d7kmf8pbr9XE5oQkolGR
-	/fCf/SBwZVbfU/t8GVbY2VwWC1rhbR8cv0EOufeRzH6f8OJUhp/oYG7AlADHoOPUAFbNY9Lcx4E
-	9AhN5KSU6umRVSAmNE0dvdwMXXnV5bQj7zzrivXoZspBtyl6xDgFSml/u8yvAXMlDFHXqZkKSrJ
-	ITbly/ZhAOu/gbXPaXD6Yo5x638jOKC7zahshIv2GlDJxvXc5yrdGc24OOsjsGxKG8f5xsVRyE3
-	pL9IIwyBQLeUE6LZjmn38YWjn5Kgxa9Ijb8IbA0CuYzsq/bD8w3AM9UX5cgFbLUClHFtaGq+jc
-X-Received: by 2002:a05:7301:7c0c:b0:2c5:60d0:702e with SMTP id 5a478bee46e88-3011996d245mr2563952eec.18.1778696843940;
-        Wed, 13 May 2026 11:27:23 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2f888e3e285sm27544171eec.27.2026.05.13.11.27.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 13 May 2026 11:27:23 -0700 (PDT)
-Message-ID: <1f2fb1de-ebc8-40ef-ac53-3348499295e3@roeck-us.net>
-Date: Wed, 13 May 2026 11:27:21 -0700
+        d=1e100.net; s=20251104; t=1778696633; x=1779301433;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=lUxjcmVB1mry2JFOZUVE65+ZJk/cVp6zUgik6yCWYSo=;
+        b=rw2rL6kw3XDnztfe7jPflAfEb1sw+BdJP/vFMRIo8MX2ZnK3+KRBlIscw32BE1/Nv2
+         KA2kwsh5dvK8KK1sWOPZn3oeJRdfM0zvmIDkAV+YZcjY1smsoW18XWNuKdhzHjqoT68V
+         cbeQI1awgq534t2ZKLU6xE0E6CbRwgduPYgdiSBCEdFmsWq0bTQR99BqOYVhJs2tnHYI
+         x1DxPUzvH3AyiuFBk1pr0h7jAiA1q9u2Y5eC7XGVH+CN1IK60mfl6eHJV14yKSyb7hiS
+         ZNjGEviUTD2lt6l+gMbnY6g8MdnlsMi3fsx1SpMaVBBbtAi6qssHzGkej0PXqeeXvWi0
+         arWA==
+X-Forwarded-Encrypted: i=1; AFNElJ8vPsV6+/xq8MPyurRZc48n62PgBqoim/Heyc3IzWqNRCr+HkFhhMAzgbc1UdYnStMmmy2C8MrPkmkT+UO/L883@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyhNPgXMgoA/roY7aK17g2t+A/4QXRJ8XFfAL7ZcOKBAYKYgv5
+	OxGbQNTWsmszAx4uZePFESVuvUglKDB53OxxJR5ZtyAt0y/Q1tsm+bcTu0o0o2ChMkzhcTh9Jpr
+	UF3+CEbkbow1YpVvuDc+MYQtGm1ZQp+hTWvIhc44JR6ECU2k5pSAnyqtALhEMOiPYDkbuOMaizU
+	y7dQ==
+X-Gm-Gg: Acq92OEDVZkc/J0sglUAJ0JHa9vudJ9WwEBXcFxIrx5lTW9BK6BMBWDDx3GWSnpYpg0
+	V9ef8RvStXwT9dDkc6WBRVLzBKrV0ARi5HIPc06YHMS7GcokYyYgBBYHLhZkyenthNejGWSfJOE
+	pFtpY6Ayqe6jqhd0P3iSbCMi5s5pK1oDg06u2wqm5tzqlNt9oDEY85u1klK+9fZs4GI3nQ4KIGL
+	SN1C+SjFCr/e4OCT894mD74B/GBE57xwU0gpEmoeS10GzvWMtCCB1qyWBh7degqgyIDvcSwy93d
+	fOYYiOlQJ8i9gZ+Sdn+Vqvoy/b3iQSCtwXvp2YxyJuBu8zQiNTDZT+MUpXtqRK6j0IZzZtFcdwx
+	tz79XZmG7uZK1SzUFY3M/R8GWxbDfngdQfsiXjD13H3AiR0VSsD8qb/jF6Udh48UOczXwSMDlu+
+	+6Qq+s/Cl2paUew0xWfFLtTc1T6RapYDLNtXw=
+X-Received: by 2002:a05:6102:3049:b0:631:37cb:1e64 with SMTP id ada2fe7eead31-637a6c2f9bfmr2354041137.4.1778696632677;
+        Wed, 13 May 2026 11:23:52 -0700 (PDT)
+X-Received: by 2002:a05:6102:3049:b0:631:37cb:1e64 with SMTP id ada2fe7eead31-637a6c2f9bfmr2354028137.4.1778696632148;
+        Wed, 13 May 2026 11:23:52 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a8a951d1f6sm4212851e87.23.2026.05.13.11.23.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 13 May 2026 11:23:51 -0700 (PDT)
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Date: Wed, 13 May 2026 21:23:21 +0300
+Subject: [PATCH RESEND v3 1/6] drm/connector: report IRQ_HPD events to
+ drm_connector_oob_hotplug_event()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/5] scmi: Log client subsystem entity counts
-To: Andy Shevchenko <andriy.shevchenko@intel.com>,
- Alex Tran <alex.tran@oss.qualcomm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Jyoti Bhayana <jbhayana@google.com>, Jonathan Cameron <jic23@kernel.org>,
- David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Cristian Marussi <cristian.marussi@arm.com>,
- Linus Walleij <linusw@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Viresh Kumar <viresh.kumar@linaro.org>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-hwmon@vger.kernel.org
-References: <20260513-scmi-client-probe-log-v1-0-00b47b1be009@oss.qualcomm.com>
- <agS8udcvqgQmiqB4@ashevche-desk.local>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <agS8udcvqgQmiqB4@ashevche-desk.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260513-hpd-irq-events-v3-1-086857017f16@oss.qualcomm.com>
+References: <20260513-hpd-irq-events-v3-0-086857017f16@oss.qualcomm.com>
+In-Reply-To: <20260513-hpd-irq-events-v3-0-086857017f16@oss.qualcomm.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Adrien Grassein <adrien.grassein@gmail.com>,
+        Jani Nikula <jani.nikula@linux.intel.com>,
+        Rodrigo Vivi <rodrigo.vivi@intel.com>,
+        Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+        Tvrtko Ursulin <tursulin@ursulin.net>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>,
+        Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+        intel-xe@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+X-Mailer: b4 0.15.1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5422;
+ i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
+ bh=lnVODOLTo2WpHrvqFht5FXa9gKD0IeWSjwE7+hKxwmM=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBqBMG034q0WD1dU9zBBukSN63zwQflgiz212FH+
+ aqfkZzELSaJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCagTBtAAKCRCLPIo+Aiko
+ 1YnxB/9wgWldcqDS/btctLZ+d4WsAunvc9HMjgx3vDv+jWuyFXbuto6YvRhbSJRFl/bn6USOWD2
+ w+hnbxoLs+GoJtRyQnFJYpcDk1fBoIczXXMR6sphI9KOwzaltd2I60W4bmVoFc5Wvsr4+nemF2Z
+ pf0UegE91hmpbV+XvOx/ta7AUoZKVfz0FRc/R5JYhifiw+cSJQjoP8x/tu4Ncj6llXyPrg1oN2K
+ eFPtDtsEXLMSMnwoXsQRLn3mVftP5QhLrFy41s+AfgyNdqoTgY07/GFwxWrUKJVCGP4hhGzQE2W
+ AnzPdKdY/9NCJym/+SY3fUf2/aD8Ud+ZcUgSLRoY/KMHiWaX
+X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTEzMDE4MyBTYWx0ZWRfX6JgoZQjXPT7v
+ iiNNNESS6zog7rdv5xeYporJQ6DNGoRS7bwHUHfXM6dAZG3ZB0QKmUHU76LlWyeGOrwZ1UWuD1w
+ z+NzlIgPOSRr/Bf+3/BSAzYW7/oS8ngGMSnH/oHkPIkMBQQDpDyMXw79768uzA/Ru9Ko/K8sQUj
+ xldkxgzYVM+GffeZiVNaIXsCL+OtyiTVgcQBfm89t4o8t4jviRaf9rU5wzTKPzrvdhagFHvBNQr
+ yZEjRbAhinPqic9wqWfsdl/tB3uqKgwXJyPoVIoY1U9eVsN7phf4kuINCbBV8HwOj+fVHxnD54f
+ MDLNGAHqq8kK70D+JJWoIJBTcaG91KrGi3IiYaoIli9EQ+lFOtHxigO20n0/qoBzoYmJh4xUPLT
+ k0ryyWJSmeKzgp1EKQnvoveH44shXvj9RlZMB9V7V3IOmspRPd5uQCswZ6XKRb7ZpS4vDRefdR9
+ nG6xqSZZGSxdkKW4KBg==
+X-Authority-Analysis: v=2.4 cv=XqXK/1F9 c=1 sm=1 tr=0 ts=6a04c1b9 cx=c_pps
+ a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
+ a=-JEBqWJC5KD3P7x9m9UA:9 a=QEXdDO2ut3YA:10 a=TD8TdBvy0hsOASGTdmB-:22
+X-Proofpoint-ORIG-GUID: j7c36tAxo6stp5g2ZhWbUJdSCgbn8kY3
+X-Proofpoint-GUID: j7c36tAxo6stp5g2ZhWbUJdSCgbn8kY3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-13_02,2026-05-13_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 phishscore=0 bulkscore=0 impostorscore=0
+ lowpriorityscore=0 malwarescore=0 adultscore=0 clxscore=1015 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605130183
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_112725_116738_A06A7BD6 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20260513_112354_616031_4E6C3C5F 
+X-CRM114-Status: GOOD (  21.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,27 +189,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/13/26 11:02, Andy Shevchenko wrote:
-> +Greg (I believe the trend is to drop such messages and not add them [back]?)
-> 
+The DisplayPort standard defines a special kind of events called IRQ.
+These events are used to notify DP Source about the events on the Sink
+side. It is extremely important for DP MST handling, where the MST
+events are reported through this IRQ.
 
-Is there some common guidance on this ? I'd be all for dropping messages
-instead of adding them, but there seems to be a perpetual battle between
-people who want to log everything and people concerned about logging noise.
-As maintainer I always seem to be stuck between those two camps.
+In case of the USB-C DP AltMode there is no actual HPD pulse, but the
+events are ported through the bits in the AltMode VDOs.
 
-Guenter
+Extend the drm_connector_oob_hotplug_event() interface and report IRQ
+events to the DisplayPort Sink drivers.
 
-> On Wed, May 13, 2026 at 09:44:18AM -0700, Alex Tran wrote:
->> SCMI client drivers do not consistently log the number of supported
->> entities discovered from firmware. This information is useful during
->> debugging because it shows which domains or resources were exposed by
->> firmware during probe.
->>
->> Add logging of the number of supported entities to the SCMI cpufreq,
->> pinctrl, reset, hwmon, and powercap client drivers after a successful
->> probe. This aligns these drivers with the existing logging in the SCMI
->> power and performance domain drivers.
-> 
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+---
+ drivers/gpu/drm/drm_connector.c          |  5 ++++-
+ drivers/usb/typec/altmodes/displayport.c | 15 +++++++++++----
+ include/drm/drm_connector.h              | 19 ++++++++++++++++++-
+ 3 files changed, 33 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+index 47dc53c4a738..edee9daccd51 100644
+--- a/drivers/gpu/drm/drm_connector.c
++++ b/drivers/gpu/drm/drm_connector.c
+@@ -3510,6 +3510,8 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+  * drm_connector_oob_hotplug_event - Report out-of-band hotplug event to connector
+  * @connector_fwnode: fwnode_handle to report the event on
+  * @status: hot plug detect logical state
++ * @extra_status: additional information provided by the sink without changing
++ * the HPD state (or in addition to such a change).
+  *
+  * On some hardware a hotplug event notification may come from outside the display
+  * driver / device. An example of this is some USB Type-C setups where the hardware
+@@ -3520,7 +3522,8 @@ struct drm_connector *drm_connector_find_by_fwnode(struct fwnode_handle *fwnode)
+  * a drm_connector reference through calling drm_connector_find_by_fwnode().
+  */
+ void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
+-				     enum drm_connector_status status)
++				     enum drm_connector_status status,
++				     enum drm_connector_status_extra extra_status)
+ {
+ 	struct drm_connector *connector;
+ 
+diff --git a/drivers/usb/typec/altmodes/displayport.c b/drivers/usb/typec/altmodes/displayport.c
+index 35d9c3086990..7182a8e2e710 100644
+--- a/drivers/usb/typec/altmodes/displayport.c
++++ b/drivers/usb/typec/altmodes/displayport.c
+@@ -189,7 +189,9 @@ static int dp_altmode_status_update(struct dp_altmode *dp)
+ 	} else {
+ 		drm_connector_oob_hotplug_event(dp->connector_fwnode,
+ 						hpd ? connector_status_connected :
+-						      connector_status_disconnected);
++						      connector_status_disconnected,
++						(hpd && irq_hpd) ? DRM_CONNECTOR_DP_IRQ_HPD :
++								   DRM_CONNECTOR_NO_EXTRA_STATUS);
+ 		dp->hpd = hpd;
+ 		sysfs_notify(&dp->alt->dev.kobj, "displayport", "hpd");
+ 		if (hpd && irq_hpd) {
+@@ -212,7 +214,10 @@ static int dp_altmode_configured(struct dp_altmode *dp)
+ 	 */
+ 	if (dp->pending_hpd) {
+ 		drm_connector_oob_hotplug_event(dp->connector_fwnode,
+-						connector_status_connected);
++						connector_status_connected,
++						dp->pending_irq_hpd ?
++						DRM_CONNECTOR_DP_IRQ_HPD :
++						DRM_CONNECTOR_NO_EXTRA_STATUS);
+ 		sysfs_notify(&dp->alt->dev.kobj, "displayport", "hpd");
+ 		dp->pending_hpd = false;
+ 		if (dp->pending_irq_hpd) {
+@@ -397,7 +402,8 @@ static int dp_altmode_vdm(struct typec_altmode *alt,
+ 			dp->data.conf = 0;
+ 			if (dp->hpd) {
+ 				drm_connector_oob_hotplug_event(dp->connector_fwnode,
+-								connector_status_disconnected);
++								connector_status_disconnected,
++								DRM_CONNECTOR_NO_EXTRA_STATUS);
+ 				dp->hpd = false;
+ 				sysfs_notify(&dp->alt->dev.kobj, "displayport", "hpd");
+ 			}
+@@ -827,7 +833,8 @@ void dp_altmode_remove(struct typec_altmode *alt)
+ 
+ 	if (dp->connector_fwnode) {
+ 		drm_connector_oob_hotplug_event(dp->connector_fwnode,
+-						connector_status_disconnected);
++						connector_status_disconnected,
++						DRM_CONNECTOR_NO_EXTRA_STATUS);
+ 
+ 		fwnode_handle_put(dp->connector_fwnode);
+ 	}
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index f83f28cae207..e05197e970d3 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -91,6 +91,22 @@ enum drm_connector_status {
+ 	connector_status_unknown = 3,
+ };
+ 
++/**
++ * enum drm_connector_status_extra - additional events sent by the sink /
++ * display together or in replacement of the HPD status changes.
++ */
++enum drm_connector_status_extra {
++	/**
++	 * @DRM_CONNECTOR_NO_EXTRA_STATUS: No additional status reported.
++	 */
++	DRM_CONNECTOR_NO_EXTRA_STATUS,
++	/**
++	 * @DRM_CONNECTOR_DP_IRQ_HPD: DisplayPort Sink has sent the
++	 * IRQ_HPD (either by the HPD short pulse or via the AltMode event).
++	 */
++	DRM_CONNECTOR_DP_IRQ_HPD,
++};
++
+ /**
+  * enum drm_connector_registration_state - userspace registration status for
+  * a &drm_connector
+@@ -2521,7 +2537,8 @@ drm_connector_is_unregistered(struct drm_connector *connector)
+ }
+ 
+ void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
+-				     enum drm_connector_status status);
++				     enum drm_connector_status status,
++				     enum drm_connector_status_extra extra_status);
+ const char *drm_get_connector_type_name(unsigned int connector_type);
+ const char *drm_get_connector_status_name(enum drm_connector_status status);
+ const char *drm_get_subpixel_order_name(enum subpixel_order order);
+
+-- 
+2.47.3
 
 
