@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98760CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 06:48:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D06CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 06:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXpUJv6v2ZCsI/xZ36aQXcs4nWlhdMEflc6JdPg9XIk=; b=GZA4mhvkowkEgF703LkyowSLqd
-	EL1njuNqk5rYU1JehoVEPgTVtMX9pDURus5UiOHCft17aYJIHwiBVkQoRkv5J3GmWtTRvNak1ZgMt
-	nG4hpg/Ri6NUFa6CJmWN/+a7ftug/VCSjjbF6Ct7QYdCRcmUVRKSpWdB8sWfY32XK6h5pRG4aPb2d
-	nZvQo0gtgQdlvTBZE7THIusZGfK9PXWtGoXS2wOAPIT3h4AcXtfDhkaHhGmqcWCiBs2SCxnMM19j0
-	w2O+yV4ii2brqmIkpntKaUZUcmjdWyQuXFj8jSuitLA0gmff+mG29ezvp+QWMrfz+ng/qa1Mt6VCq
-	K5nmAaSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=prbkpKqijRZ3fxZxXVSsD6ueoi7E15CoIDow1Ify5GM=; b=CxRPN+wn98J9L7h91I/bn8+irh
+	7iRITCer1oEundGw1uN43g+gEudV6T48viPS97/piOdz8syQXO7wdWxVxllhnWHG2+qV8oZTvo271
+	uOsk+TP+xWS8Q6UK+K/qeacDTplnZ5mg7gtFc/hRX3JLyL5SPNkUNIlGSduMjc5nurSmuVcYZ6RP1
+	uu2mP2qc9NzEip2J0piSvo3DKs7GRf8ravqf45/0bjHYcQ3bYrOYZds5WyAgvsRJWiGQoV5rn0vNH
+	S600DSMQeVzh/VDdVs7KSNc75a/LvdGEABcqoJ/aEh4fMR6pKSh2+2Ru1l3kXiHtGlJsKLHY5TaDY
+	eClPhB4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN3OE-00000001TJ1-0n2x;
-	Wed, 13 May 2026 06:48:18 +0000
-Received: from mail-m3279.qiye.163.com ([220.197.32.79])
+	id 1wN3W4-00000001U5F-3vgV;
+	Wed, 13 May 2026 06:56:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN3OA-00000001TID-1Six;
-	Wed, 13 May 2026 06:48:17 +0000
-Received: from [172.16.12.43] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3e37f556d;
-	Wed, 13 May 2026 14:48:09 +0800 (GMT+08:00)
-Message-ID: <47836044-68ba-4008-9804-4e44462346df@rock-chips.com>
-Date: Wed, 13 May 2026 14:48:09 +0800
+	id 1wN3W3-00000001U4j-1E7N
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 May 2026 06:56:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 220A760120;
+	Wed, 13 May 2026 06:56:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2E05C2BCB7;
+	Wed, 13 May 2026 06:56:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778655381;
+	bh=pumZDJ3Ed1xWVAZjH5xTGLWKQMlEkQ41itR01nJUqRQ=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=k3arSQ2kBwvpaPNRXH+Vkq8W9PZfuXCGHR5JzzBqSI0hgCeiRQQDVY/1uoiFMCI4v
+	 Ifv9qZzDJttNyP7upoxzGiZM9Mwead1p1mR96EVdFij8EVhe49OawopmxVtoxttDfv
+	 xnK0jR1eQkxqkn9mTZVb8VUNPgnzqUS8nFMO3yFlUOQKiaRT28VwVeqs6Ff2uVlhK4
+	 obaOC4kfB+OxCxGJehf1pDhIzeKJ+A4gx+zVgQXPt8F6Ql5sYs2ptQnifrjlQ51dXU
+	 peYsDgQXGrY8OeOAxDTnoLgHT1P30vuLgK83WvpnvOXh8jz83LxPIheNU83PUmnRdu
+	 0DCkAf4Iq8jXg==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v4 1/2] firmware: smccc: coco: Manage arm-smccc platform
+ device and CCA auxiliary drivers
+In-Reply-To: <agM699d4KwdjnS39@arm.com>
+References: <20260427061615.905018-1-aneesh.kumar@kernel.org>
+ <20260427061615.905018-2-aneesh.kumar@kernel.org>
+ <agM699d4KwdjnS39@arm.com>
+Date: Wed, 13 May 2026 12:26:13 +0530
+Message-ID: <yq5aa4u3u7aq.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 01/10] dt-bindings: display: rockchip: analogix-dp:
- Allow hclk as third clock
-To: Conor Dooley <conor@kernel.org>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
- cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
- dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com,
- dianders@chromium.org, m.szyprowski@samsung.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260512095644.1946084-1-damon.ding@rock-chips.com>
- <20260512095644.1946084-2-damon.ding@rock-chips.com>
- <20260512-diabetic-ahead-dd36bc2d8be7@spud>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20260512-diabetic-ahead-dd36bc2d8be7@spud>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9e2017c45803a3kunmda73fe6d4e5a4
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTRhMVh5PHxpPHkoYHU5KGVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=fGu06w7LYarZjk4xDDCGnJsKDegwnB/bS1kyb6W7f2SAs4MmyJ9sQJcg1RRnVCcOGjwgxXdMZHsKVwJjodu5BpQ+9poNN5kMd5r0f5MKvwV6Fgi35mFC4F1n4mdTlNIVjK4h1itFGaBwSofoHzXSyu2qy15cPJPjxhPHu+GC54g=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=qXpUJv6v2ZCsI/xZ36aQXcs4nWlhdMEflc6JdPg9XIk=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_234816_089380_327DF2B2 
-X-CRM114-Status: GOOD (  13.83  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,65 +78,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+Catalin Marinas <catalin.marinas@arm.com> writes:
 
-On 5/13/2026 1:12 AM, Conor Dooley wrote:
-> On Tue, May 12, 2026 at 05:56:35PM +0800, Damon Ding wrote:
->> RK3588 eDP controller requires HCLK_VO1 (video output bus clock)
->> to access the VO1 GRF registers and enable the video datapath.
->>
->> Previously, the clock was enabled implicitly via the 'rockchip,vo-grf'
->> phandle reference, which allowed the eDP to work without explicitly
->> managing the hclk_vo1 clock. However, this is not safe or explicit.
->>
->> To align with other display controllers (HDMI) on RK3588 and make
->> the clock requirement explicit, expand clock-names to support either
->> "grf" (for older SoCs) or "hclk" (for RK3588) as the third clock.
->>
->> This makes the clock dependency clear and removes reliance on implicit
->> clock enablement from GRF phandle.
->>
->> Fixes: f855146263b1 ("dt-bindings: display: rockchip: analogix-dp: Add support for RK3588")
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>
->> ---
->>
->> Changes in v4:
->> - Modify the commit msg.
->> ---
->>   .../bindings/display/rockchip/rockchip,analogix-dp.yaml       | 4 +++-
->>   1 file changed, 3 insertions(+), 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
->> index d99b23b88cc5..d2bc8636b626 100644
->> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
->> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
->> @@ -26,7 +26,9 @@ properties:
->>       items:
->>         - const: dp
->>         - const: pclk
->> -      - const: grf
->> +      - enum:
->> +          - grf
->> +          - hclk
-> 
-> Could you also enforce the correct clock name on a per-compatible basis
-> please?
-> 
-> pw-bot: changes-requested
-> 
+> + Suzuki
+>
+> On Mon, Apr 27, 2026 at 11:46:14AM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+>> index 88b50d660e85..2d2d363aaaee 100644
+>> --- a/arch/arm64/include/asm/rsi.h
+>> +++ b/arch/arm64/include/asm/rsi.h
+>> @@ -10,7 +10,7 @@
+>>  #include <linux/jump_label.h>
+>>  #include <asm/rsi_cmds.h>
+>>  
+>> -#define RSI_PDEV_NAME "arm-cca-dev"
+>> +#define RSI_DEV_NAME "arm-rsi-dev"
+> [...]
+>> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+>> index bdee057db2fd..fc9b44b7c687 100644
+>> --- a/drivers/firmware/smccc/smccc.c
+>> +++ b/drivers/firmware/smccc/smccc.c
+>> @@ -12,6 +12,8 @@
+>>  #include <linux/platform_device.h>
+>>  #include <asm/archrandom.h>
+>>  
+>> +#include "rmm.h"
+>> +
+>>  static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
+>>  static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
+>>  
+>> @@ -85,6 +87,18 @@ static int __init smccc_devices_init(void)
+>>  {
+>>  	struct platform_device *pdev;
+>>  
+>> +	pdev = platform_device_register_simple("arm-smccc",
+>> +					PLATFORM_DEVID_NONE, NULL, 0);
+>> +	if (IS_ERR(pdev)) {
+>> +		pr_err("arm-smccc: could not register device: %ld\n", PTR_ERR(pdev));
+>> +	} else {
+>> +		/*
+>> +		 * Register the RMI and RSI devices only when firmware exposes
+>> +		 * the required SMCCC function IDs at a supported revision.
+>> +		 */
+>> +		register_rsi_device(pdev);
+>> +	}
+>
+> So as per the cover letter, instead of "arm-cca-dev" as a platform
+> device, we get "arm-smccc" as a platform device with an auxiliary
+> "arm-rsi-dev" child device. This does not get rid of the platform
+> device, it just creates a synthetic platform device to represent the
+> SMCCC firmware interface.
+>
+> Looking at the earlier discussion, I think this is what Greg/Jason were
+> suggesting, except that we do not currently have an SMCCC platform
+> device:
+>
+> https://lore.kernel.org/all/2025101534-frosty-shank-00b1@gregkh/
+>
+> If we go this route, shouldn't the platform device above be created only
+> if !SMCCC_CONDUIT_NONE?
+>
 
-Yes, will do in v5.
+register_rsi_device() does check for 
 
-> 
->>   
->>     power-domains:
->>       maxItems: 1
->> -- 
->> 2.34.1
->>
+	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
+		return;
 
-Best regards,
-Damon
+>
+> "smccc_trng" would also fit this model (together with the driver),
+> assuming we don't break any user-space (searching the Debian codebase
+> did not find any use).
 
+Will switch smccc_trng to an auxiliary device in the next revision.
+
+-aneesh
 
