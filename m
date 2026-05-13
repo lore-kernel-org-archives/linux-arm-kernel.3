@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CDFCD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 23:26:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A07CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 23:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hvYAnP+tfAbV4eOZWpVc5xOr8eoezANtw8MTL1UP1M8=; b=j5ziGNHit0Yv1El7CDxfb/T66R
-	juO+OaP66ICdmemLrlz7D1iLAHa9HEMBHr6kf6MMAoayg/ER4W26B9zWiGYIrovLXgzK9lUWvg+JH
-	76SD6TULziOkd+b6CTDEfDaCJoGaBKzCWZ88pzfB7oA2DVEeWi+4D2PxzC9pFsY5MXwvBFEwrr68S
-	SFhA2cQWyG7zjr+Hcgz4VkhES+maznOlzlv/FRSj5FdWJG+8GCC/zqYXNMY7e/OGsy2vH3J5+oaDA
-	DBGZ4B9gQJu+vRl3xMWuAXlWv9ZoIrtQkopzXeDtZS7jmy3fckJa/SQUZc9nAo+i9BjUc7bbY2Go8
-	3e3quLLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E1GVpz7zUi0aa32m2cLjJs4osxlT2wkEWkq8DiEqL8I=; b=wGqwiQ/nKiQUhS/3PZsLZK2HzG
+	1BF0S4F48FugYpI8gy32DHwOhgFi5fhERm10aQYisC1XaEL7AZCfnGZIyuzDy8F0gLcH2tItYc1Fy
+	YfHr9Ys5QJBI9lu3CHly+o/FMfDNYtX401Q6B5zv49DBoMioW0lJVHCacE0Z3VBOIUkRP4aLJtRUd
+	+VduwpmFfBrupyzRbTcgUKCNHn5qdKYvsrUFr32yTBTKSFky3bSVr/uJeGF5gMEBQdbOd40T/gxsA
+	ogOT5MgAGbeurYQUIuw3oXlS3pAGHaAOOLbQ4op3dJyzDrNPxUmzWKtK3LFB23RzoPU0nZ/LTYb9w
+	4o/l4x4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNIyY-000000041t1-2l0E;
-	Wed, 13 May 2026 23:26:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNJ3K-000000042Kp-0VDE;
+	Wed, 13 May 2026 23:31:46 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNIyX-000000041st-3A44
+	id 1wNJ3H-000000042K9-3mzz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 23:26:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C591B60052;
-	Wed, 13 May 2026 23:26:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC0CEC19425;
-	Wed, 13 May 2026 23:26:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778714808;
-	bh=q3i21lJvhVy9opCji1T4ar4kNcI5PZwWn8BflTqdQ3s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gzRCoaHwgfpMxXtV5i7hcsOfWpF4L1ft/Q9VIAyK5ZJzkTiS454hh2sAIGpggmoIS
-	 B9j0knU5zEFe/qnB7P0JctaEghBvxW6W76RHLeddbrQ1CdZ6VYJDEjfnHpsZ/Qa8Th
-	 jKP3jJrqVwoINxJbxqY10pEHStpSlELHor+xoC79qPymPpXbzTaIZB0WXChSoYmsPY
-	 Lt10Kj5huXqpAvdKD88ox8f7uLKY9cVwUHH+ie6+argLgDZZDAugk3f902RWGX1eAN
-	 dTnan5PrrRuN4doIBw1aRAoURp3Z/3JPBI3LxwY4jeWjo7vesG0WPAFL6SoEkvC7bB
-	 1e87ClxSOCDqw==
-Date: Wed, 13 May 2026 18:26:35 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jun Yan <jerrysteve1101@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Paul Barker <paul.barker@sancloud.com>, Grant Feng <von81@163.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	linux-arm-msm@vger.kernel.org,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Robert Marko <robert.marko@sartura.hr>, Lee Jones <lee@kernel.org>,
-	Vincent Knecht <vincent.knecht@mailoo.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Enric Balletbo i Serra <eballetbo@gmail.com>,
-	Pavel Machek <pavel@ucw.cz>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Bjorn Andersson <andersson@kernel.org>,
-	Pavel Machek <pavel@kernel.org>, linux-leds@vger.kernel.org,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Conor Dooley <conor+dt@kernel.org>, Peter Rosin <peda@axentia.se>,
-	Baruch Siach <baruch@tkos.co.il>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Subject: Re: [PATCH 1/5] dt-bindings: leds: issi,is31fl319x: Add description
- for the shutdown-gpios property
-Message-ID: <177871479468.2298897.389759358706715014.robh@kernel.org>
-References: <20260508152435.21389-1-jerrysteve1101@gmail.com>
- <20260508152435.21389-2-jerrysteve1101@gmail.com>
+	Wed, 13 May 2026 23:31:45 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4gG8qc5q18z9vGq;
+	Thu, 14 May 2026 01:31:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1778715100;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=E1GVpz7zUi0aa32m2cLjJs4osxlT2wkEWkq8DiEqL8I=;
+	b=ZbEZzfdN3v96XPb1O7zJC0ciUUh4M2SjH3OQrY90BC2BH7uTZpha7MN6f0r6X1lToXO55q
+	amrwRDoxkWaP4uZ581Y3gFqS1cw/HOafkrI4bwlnktbyOMXPcbtN8uUj286CHKO0NlJwRf
+	0zR4ETqjCbi4G4jlqwdSKx0AHbfQWOM75ZMVWiP8awO7icpIq9YEQjVd7dOHAlyalvK2wN
+	hpe7ViRgOtWo6/D3gczNUjZ6/Fj7nZAYu5jolp+jFtG4lGP9ziagmZgVcMVNZ0tjg76pjY
+	DAGRbtim3VH525UeI2C4FHYynWF4AfflNPV6XePjo8UzsIqhcQZpwSECw9pDaw==
+Message-ID: <58894f67-1985-4e0f-9648-c568f681691b@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1778715099;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=E1GVpz7zUi0aa32m2cLjJs4osxlT2wkEWkq8DiEqL8I=;
+	b=EL8Z9YTlqG8TBCL8ROv5ei71tdSRBfdXblm1gERwQiHWGK/FlK2i/kJBwy56oamGOzeRkK
+	LwGxkQ7j/gExtd+mmeZO9U1ha+p2+OHUUk/abKthMkRa3lEmpXQ28tLhFgceJwZAGcQDWt
+	vPCaXrB9uxtXWZEojnc28g5kkfuTqCWQJMhMy0OZ1MiWHRSI38h0ZL1jyPijZxepHomNsa
+	K2chfG4va5Vt0fXST0lIowaxK/qI1jFGOm9tDBts62OjauiiMvnwmLlXGm9k5aRNEwFx5D
+	o5eunE+4IYtBZQaI+tiPAlEJWmPsNGFtjlQOP309kTlMnSI/jcpFyhsVK/uu4w==
+Date: Thu, 14 May 2026 01:31:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260508152435.21389-2-jerrysteve1101@gmail.com>
+Subject: Re: [PATCH/RFC 04/14] arm64: dts: renesas: ironhide: Enable SCMI
+ devpd, sys, and reset
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Cristian Marussi <cristian.marussi@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>,
+ Saravana Kannan <saravanak@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Ulf Hansson <ulfh@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1776793163.git.geert+renesas@glider.be>
+ <2eb3c62df7b6ccedb525569fe34c10403e2fdcf5.1776793163.git.geert+renesas@glider.be>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <2eb3c62df7b6ccedb525569fe34c10403e2fdcf5.1776793163.git.geert+renesas@glider.be>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: 9oi1c88nhrnr1xcg6nynjdfitrstd1r1
+X-MBO-RS-ID: a9fef77da217165e93b
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_163144_102001_B6273DE1 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,23 +106,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 4/21/26 8:11 PM, Geert Uytterhoeven wrote:
 
-On Fri, 08 May 2026 23:24:18 +0800, Jun Yan wrote:
-> The IS31FL319X series features an SDB shutdown pin.
-> Driving it low (active low) places the chip into hardware shutdown
-> mode for power saving, while all register contents are preserved
-> and registers are not reset.
+Hello Geert,
+
+> SCP FW SDKv4.28.0 and later for Renesas R-Car X5H Ironhide not only
+> implements the SCMI base and clock management protocols, but also the
+> SCMI power domain, system power, and reset domain management protocols.
 > 
-> Add description for the shutdown down (SDB) pin and fix the example
-> device tree binding.
+> Enable support for the latter by adding the corresponding SCMI protocol
+> subnodes.
 > 
-> Fixes: dbc801b472c1 ("dt-bindings: leds: Convert is31fl319x to dtschema")
-> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > ---
->  .../devicetree/bindings/leds/issi,is31fl319x.yaml        | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
+>   arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts | 14 ++++++++++++++
+>   1 file changed, 14 insertions(+)
 > 
+> diff --git a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
+> index e2470257d2f32a03..2fb9557a7eb9dbb7 100644
+> --- a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
+> +++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
+> @@ -31,10 +31,24 @@ scmi: scmi {
+>   			#address-cells = <1>;
+>   			#size-cells = <0>;
+>   
+> +			scmi_devpd: protocol@11 {
+> +			    reg = <0x11>;
+> +			    #power-domain-cells = <1>;
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Please indent with tabs.
 
+> +			};
+> +
+> +			scmi_sys: protocol@12 {
+> +			    reg = <0x12>;
+
+Please indent with tabs.
+
+> +			};
+> +
+>   			scmi_clk: protocol@14 {
+>   				reg = <0x14>;
+>   				#clock-cells = <1>;
+
+Here it is OK.
+
+>   			};
+> +
+> +			scmi_reset: protocol@16 {
+> +			    reg = <0x16>;
+> +			    #reset-cells = <1>;
+
+Please indent with tabs.
+
+I hope it helps!
 
