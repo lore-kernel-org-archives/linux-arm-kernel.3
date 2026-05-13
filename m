@@ -4,130 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59215CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFFACD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vqvYy20a5Jx86hYqfZOkuBqz2ypooclQXyvZoS2/rnE=; b=SDPJD4FtK1gGULX/Z6N5ROjdJq
-	CCzzeOz9rvbvVVc1gOHTqmnKLJ5aOv3zGZUK5c9f4/pBihDwR7avCJBNRij5f05qS7ftRPBSojFvj
-	9gFv27WRJQLmplq+mzSC0r+39NZZ3XLSPqdMSrHV0g4xG5v9LL4BkB2s7c7R7tyQCUcigykqIG7xg
-	d6va2iEE6IYfrvMLHPgiW2C2OX9wsrSCgdma6zi1IVomhfBThK0uhGis3ti14AeQ08BShtVuGqVZO
-	3Q3uOSTychCzua/JezKva1psx2Uzw//ScYtrLqDLjmP/SjlDcasoXaColyLFzOft4ZYNIUyXRq6wc
-	VxJk59dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X2Ooj7F76F4/htrsBO8X2cHcTBIYbwW5nBalyGxkNHs=; b=LEJh1MCEj0mRTN/oxsk4esX5gB
+	+2smhj+rsxcUpQ4GfSNL521AD6vGKeVk/WAhJLFH+UTC6zALqJd7/WCvjCDjWyXKifoKpC2C2DqCK
+	l2DDDIVZ9Y9Kb7ZeIDZRn9DVl0lXBfC3xZ+4+R3A0r+RR4pmLzWFGexjdHdRtqg920NUTd84AIZKl
+	u1k0AB48zZq6L0pkMJL6FI9kCFLnzriq7WW22X/e35O7nVJdfOmGHjssMWiCn0Db/RcMc9Sd6v+lw
+	kYA+oMzGpp8hJvhoaobGz7kOWRDz6KwJOmM814cm0xZRujW0T9hhsljY8h/WfaKPZbI4cNXwN7ALg
+	0XLezUTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Uq-000000017iB-3SIO;
-	Wed, 13 May 2026 03:42:56 +0000
-Received: from mail-westeuropeazon11011026.outbound.protection.outlook.com ([52.101.70.26] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wN0Nc-000000014rW-05ue;
+	Wed, 13 May 2026 03:35:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Up-000000017hc-0TKK
+	id 1wN0Mw-000000013tl-04Nl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:42:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Wzma5PpMmZ/NAPmX+wmdiycdMJTMuQIlgoungpoOCMZ6JiS1Xxd2vWSPaq2JZXx/x3Hv8xZepp9cITz1/SyGYHglFt/wfXCv6nRTW2GhRj5ypDJjzezAb9FALQfl5n9qAM2X+3bRFpMaR6OQdvaKbFqcLlDmzqzMo8zNXeccD2Ygd0e8batrr9hueGSEOM/rAM0kM8UtJSphyklWyoHQAo1g/AYP7PTDw2FT/pKJPh1xUYS0kek6v1aqe6jLqGoP+oJ2cpVqOPeRsSiqaW4fuz8/3lbSt8t//7T2i7o9WJbfFaBhFP6cVsZYWR/o4Xvyonv2Ey1AVqTRMe5IRW5fdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vqvYy20a5Jx86hYqfZOkuBqz2ypooclQXyvZoS2/rnE=;
- b=EbO8fsIkfCZyu/sLLj4cMzYtFz/BI24anRyoJz+fRvL889mCxGXb2nFJQD7rdCIz8JZaA8NL4eKtRSgFyefaAvpCyScaRWmFKYnHTIHmx0K3t8GcCx4jlAXg/tYQD1c64E3vdHqmquUjPaIAVl7oU881OcOrZ2aA0k4H36AaXVm8K6jNQDPyJyaywT5dD6hLqC4ttct9tAf3TG+9gved7ceIfW2ERFRNiNOE2MELLjTTy5tzK59ffTOtpIKQY/InycI9sEpOEOu3c7486oGuPbitJFH3HqkAk91dUJfFVtgx2An6ETHSrp0MLzG46pB+3MfaPjhWyltpr46y51FMfg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vqvYy20a5Jx86hYqfZOkuBqz2ypooclQXyvZoS2/rnE=;
- b=Urdz8cMuHlTuCJJvn0gxFBwOXdJN/kV+G/dc+kWk2cqDdXnbrbrXtSRoeLBSxBRqtOZm9W/JuohdcrALFFtpnYjLPTNXboVFf7Wylz6qsMsIkLR0kK+JK5vasCczpXV7JQNRBGMGG5J+gqd82kBdZig+Rd93Pc8+kKX6/kJVocewQZ0U9iLOQe2D/e7AD0cKZbZ1IMpekYwv/RHTLnPTm2i0AgLgldPjMvEgDhgZgnermz3z7Lkvr7afYtARAF+tNOajao9Qiset55RH/p6Hpn2doHmQFTL9xETcrWd8+rNjdTDEDtzoNctnumDFBZnmg0LMfKQRPBalvIvqv2323w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI0PR04MB12008.eurprd04.prod.outlook.com
- (2603:10a6:800:317::15) by DU2PR04MB8920.eurprd04.prod.outlook.com
- (2603:10a6:10:2e3::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Wed, 13 May
- 2026 03:42:49 +0000
-Received: from VI0PR04MB12008.eurprd04.prod.outlook.com
- ([fe80::3e42:1e5:5955:d68a]) by VI0PR04MB12008.eurprd04.prod.outlook.com
- ([fe80::3e42:1e5:5955:d68a%5]) with mapi id 15.20.9913.009; Wed, 13 May 2026
- 03:42:49 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	frank.li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Wed, 13 May 2026 03:34:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BBE2E444ED;
+	Wed, 13 May 2026 03:34:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 213AAC4AF16;
+	Wed, 13 May 2026 03:34:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778643285;
+	bh=/D2z4LhluhXqyHCGUz6p/RDiGmFitxBUbjhr8ydpie0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=n4wFO7NyEYV/0+gNSdpO5s6iBrXisy37EVMZ7XBcBafOcltAlXO8aNqvC66gwtukA
+	 BpAC8LbYsQ83PGTqi+BVIzjsHKleUaDINXj+X40ksQjhqfhKihbK2EMAUEE1CN7Z2O
+	 2VxRe0WmYAIYRhBeOkV23VTmSMiKwFnkptoN0E9+gsURWFFm9BWuOlNsGxdlIJOdKL
+	 HKe/rTqC3sN/Kk/T09iqfq1Tx2kMx/M5PlnfC1rVP6e99977xU8Czo5Dn+iBzn6dXB
+	 5WOSu4exmVjZxnfcBgO/MXRSObGNVub56XoGBSugxwKrYmMp/FMo46gA/gWv1UVicG
+	 7v9P0wAMQPUnw==
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: x86@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org,
+	Peter Zijlstra <peterz@infradead.org>,
+	Joe Lawrence <joe.lawrence@redhat.com>,
+	Song Liu <song@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v4] arm64: dts: imx95: Increase PCIe outbound address space to 4GB
-Date: Wed, 13 May 2026 11:44:56 +0800
-Message-Id: <20260513034456.1554188-1-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MAXPR01CA0110.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:5d::28) To VI0PR04MB12008.eurprd04.prod.outlook.com
- (2603:10a6:800:317::15)
+	Mark Rutland <mark.rutland@arm.com>,
+	Miroslav Benes <mbenes@suse.cz>,
+	Petr Mladek <pmladek@suse.com>
+Subject: [PATCH v3 02/21] arm64: Annotate intra-function calls
+Date: Tue, 12 May 2026 20:33:58 -0700
+Message-ID: <16bdb04ed6653809514d9f060702248b8e587f05.1778642120.git.jpoimboe@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <cover.1778642120.git.jpoimboe@kernel.org>
+References: <cover.1778642120.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0PR04MB12008:EE_|DU2PR04MB8920:EE_
-X-MS-Office365-Filtering-Correlation-Id: ad78bdf7-bacc-4726-77f3-08deb0a1b441
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|19092799006|52116014|366016|18002099003|56012099003|38350700014|11063799003;
-X-Microsoft-Antispam-Message-Info: MI9L5tib8u7km8XSYZXKqCi0EqFocH5MW4kgSS6VSdPhB5uRIIKEYiteGM1HEgBb4hkAHTs2zyz5dB+lQQ3p4cOfKnohOF1FwcXr1yPEf0b2Iy1SEJBnNDP12Kl2O38jLJW/tUDyzxz1FxyJucLFv1OBdr2nhq/hCsKxF0D+bi+w7Qx44z7nahWTtcdUkBGX24QuB3i01SJdAxA6+xUJHWMl6GF9YjujnJIzM48Lc/VJz4Yrx55Aag8Tv7h+Y2gX52C3bh5/TSBPY5mQIoL2Eh+HjYWTtKPes44ptoeRqN4by6XoP9uIYY+3x5LrBlADMAPnVvVsNZ8inmi+592qLH2S1FzDa5iHtu36o///dBHmZLR1//8VdGTGRHyJb7oNcm9iOkOkqkwdJv0tIZM9S2mqA1Hhgc7vmn82Xsf5qhFfEEDbWaxjqjb79Uf1RPd4WGGE5QB25taVxBv2W5c2zn/6H5JoqaguaTNrmmjqq4+kKoSMRcq4KWiV8pJ0O8j5xiOreYpPJSYfKJVYrzw9+KUSxFZ1kyE/V4l0+qTGPsezU9/C8I/S71fmTudmXVu1qozyXF+/f0cxGj+6b2U15b9ieWpzCF/iXsOjEGEKcyoVW8kFXN09lpuj5+B33GHEtXvDKqGgGC2Q4/3rc4TJswB5XyAQVMORf7ZfhN0eQ4iV8YV6EaZvwem7cOZ4OhnxYfYOufo5qXoRTOD0cxU7g9Z1hc+xFzRMWTE3ekbRhLLypCDpMNxc2T+VMM6IxUI7
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12008.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(19092799006)(52116014)(366016)(18002099003)(56012099003)(38350700014)(11063799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q4mFpwr7trhNMm7KiTbhc+ILEysNitrUDfiGuALfxkX7NyoZpAVLCsoVs6XM?=
- =?us-ascii?Q?/6XyzKSKJOmbY1ksDLfH9I3fKDE0rOO4fz8JM3XGruqcPCaDtXvXDoHZmasX?=
- =?us-ascii?Q?HGz7MN5aJ9Vhq/dg4SdcOeloE7vr344jsWZbpoxQg7A4I7zM4tUGygUScGc3?=
- =?us-ascii?Q?2rUPwIrp3FOZ4JDregCBOEGBRDSSzJNyL+/RVg4L8LtXm9dqnpdmyuonhzJz?=
- =?us-ascii?Q?0QY7paqv8OvMBQaxUr/khK31asomKMQ6CVp5g6g7uVOzb/cyYt5J+10XVNue?=
- =?us-ascii?Q?rbo4KMaYuoREVjbEn2Yj/q8YJAH3NLaw+fxKnSMbM2HjF8i6POzQ3fKoi7hE?=
- =?us-ascii?Q?o17hM7EenYCjns/3CDPm/ZX7kIF/vytL56uwbDH/RpMiPzmJnUKTCv/+vJ23?=
- =?us-ascii?Q?KCv0PIEVhuUPjNGC9Jq2Bz9bxGzAiUPSHI3hWg+LGueHlr4yQbpa8devdWIU?=
- =?us-ascii?Q?CQWlmdiLjMomNm64r2Z8sy3M5Mx0o908FMi/tD+SCnScOvl1RJj4ryWE3Mfy?=
- =?us-ascii?Q?XRTlVoEoBC4tpdHyEddD/BO+cSmXLhuwsobEmx83jF+/1Zn0ZSMIG8Gifyur?=
- =?us-ascii?Q?stbH5oUBaNqZCMPx985s22x8iHXeqr+0PP+c96uXogef6FulpM1Qyo6DjUJR?=
- =?us-ascii?Q?RSDEkSZKPmkcDaQ2E+pHaJvFO+pDBdr/47eQGpvvs5XHRH63E1b0N6pwMXfG?=
- =?us-ascii?Q?385a5qbKTHAAPo/+TzfrDaVmPEKUGDkx01E1lWEgml/SkJWavJm/PpSlqHvR?=
- =?us-ascii?Q?Y9i4JqXWNxZ+9FdZLRVXtJqQ4dlwZy7ktZfVVrPOVAAP19KP6RylHey08PYg?=
- =?us-ascii?Q?/KUXgS2q+jnux2+l/zFbToYBYtFdoog61k/4czY0mSVe8cCY5lWLxh+94SnR?=
- =?us-ascii?Q?Zjo35i6kTV3shnn6u/eKn7MmmLLmuYPlwSoc5W3zRdfzU7LInhOWo2jMlx4p?=
- =?us-ascii?Q?wSEzy1maPiqWKtC8JE73LmyMD9GihiTQpAtbp7Zq2Hi2g3iHMC/EDfUXS07O?=
- =?us-ascii?Q?x7+fmY+e6OH6ChnlZG8xxp+eqzC3tPwI44f5k7WfDqSlrAfIVnuGH7k7CZMP?=
- =?us-ascii?Q?y+iXCqC2079DqjdkhLh2tJk+rbozFiRsbfG/41uzRbvXGEcSyJjUrHgHjNna?=
- =?us-ascii?Q?EYJy7vtqwv2jhWXOuYF0HAOAsC9Ow0wkaX6iBW72eoA+hF0oUE9a2YZN4Xbx?=
- =?us-ascii?Q?IVLqZm3ZOQ0OX2gKwsx1Uc+wvQjM7waZOKe2XzxZmO2itKkuhAxmg9JOJF/v?=
- =?us-ascii?Q?PGQ9ZL7aCcd7foK+4Vj3GgAbGQ4ivOAEKjjjhjiV+TAm1FFOUMvXn9h/6fav?=
- =?us-ascii?Q?8l1Uy0QKNr0kHInw7n/Iq8ZJ3Ec5RhGjSNTrkYuEUQ9RjV0Vy1W4m/YwRqul?=
- =?us-ascii?Q?bVS9osoGndE8FKMbeBisBQtOcGpIMOKl8rOZwL8TWnQwsOdNzxvbhYsZm+tH?=
- =?us-ascii?Q?DoXulJG3iznl7oifWp3UHFwLHT5wjEzBT8c9CCQOAiKHGXdmcs3PB92iBNKT?=
- =?us-ascii?Q?iNRWY53fpKVreRjczzjC8A1NgJ/M118JN0+BoYfnfgTiMjlVRzCPrfMQCmSf?=
- =?us-ascii?Q?tqWUZJE1IJVjL+hmcViSJdwJihNgWupWn8UJy527ax1vhc73fOjcP7TvMF3c?=
- =?us-ascii?Q?OlgxKcgvHW3n3vKRMTQi/nx80h4bKOcSVRgjc6Zx7iyRHaVAr7juvxzEX/7G?=
- =?us-ascii?Q?HfCNKT3mywpUD5rZkFpuMp5Ct50fEN7mBo/iL6LCu/UqqARr6fUZfZof5a9i?=
- =?us-ascii?Q?TKTB0ZK2MA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ad78bdf7-bacc-4726-77f3-08deb0a1b441
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12008.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 03:42:49.7854
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: z8OR1YHiJXOSQ9zUI3sEbWRQMk0wbYZN9tRSGkmhGA17YcgguwlayW/90Npq95687keCu6CVIphGYHRfyIbTPA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8920
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_204255_152400_96AFBB6B 
-X-CRM114-Status: GOOD (  12.06  )
+X-CRM114-CacheID: sfid-20260512_203447_719145_83B68C9D 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,52 +80,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the PCIe outbound memory region size to 4GB, which is the actual
-hardware-supported memory space. The size was incorrectly set to 256MB
-during bring-up.
+In preparation for enabling objtool on arm64, annotate intra-function
+calls.
 
-Fixes: 3b1d5deb29ff ("arm64: dts: imx95: add pcie[0,1] and pcie-ep[0,1] support")
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+Acked-by: Song Liu <song@kernel.org>
+Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- arch/arm64/boot/dts/freescale/imx95.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
----
-Changes in v4:
-Update the flag from 0x82000000 to 0x83000000 to declare a 64-bit PCI
-space.
+ arch/arm64/kernel/entry.S       |  2 ++
+ arch/arm64/kernel/proton-pack.c | 12 +++++++-----
+ 2 files changed, 9 insertions(+), 5 deletions(-)
 
-Changes in v3:
-Update the commit message, and set the region size to the max
-hardware-supported memory space 4G.
-
-Changes in v2:
-Add the Fixes tag, and rebase to latest imx/dt64 branch.
-
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index adcc0e1d3696..d8a6a18ddfa1 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -1940,7 +1940,7 @@ pcie0: pcie@4c300000 {
- 			      <0 0x4c340000 0 0x4000>;
- 			reg-names = "dbi", "config", "atu", "app";
- 			ranges = <0x81000000 0x0 0x00000000 0x0 0x6ff00000 0 0x00100000>,
--				 <0x82000000 0x0 0x10000000 0x9 0x10000000 0 0x10000000>;
-+				 <0x83000000 0x0 0x10000000 0x9 0x00000000 1 0x00000000>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -2015,7 +2015,7 @@ pcie1: pcie@4c380000 {
- 			      <0 0x4c3c0000 0 0x4000>;
- 			reg-names = "dbi", "config", "atu", "app";
- 			ranges = <0x81000000 0 0x00000000 0x8 0x8ff00000 0 0x00100000>,
--				 <0x82000000 0 0x10000000 0xa 0x10000000 0 0x10000000>;
-+				 <0x83000000 0 0x10000000 0xa 0x00000000 1 0x00000000>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-
-base-commit: 5f9e9f83aee0fa8f2124c6f192505de2cdf7c5dc
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index e0db14e9c843a..d4cbdfb23d733 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -10,6 +10,7 @@
+ #include <linux/arm-smccc.h>
+ #include <linux/init.h>
+ #include <linux/linkage.h>
++#include <linux/annotate.h>
+ 
+ #include <asm/alternative.h>
+ #include <asm/assembler.h>
+@@ -705,6 +706,7 @@ alternative_else_nop_endif
+ 	 * entry onto the return stack and using a RET instruction to
+ 	 * enter the full-fat kernel vectors.
+ 	 */
++	ANNOTATE_INTRA_FUNCTION_CALL
+ 	bl	2f
+ 	b	.
+ 2:
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index b3801f532b10b..b63887a1b8234 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -24,6 +24,7 @@
+ #include <linux/nospec.h>
+ #include <linux/prctl.h>
+ #include <linux/sched/task_stack.h>
++#include <linux/annotate.h>
+ 
+ #include <asm/debug-monitors.h>
+ #include <asm/insn.h>
+@@ -245,11 +246,12 @@ static noinstr void qcom_link_stack_sanitisation(void)
+ {
+ 	u64 tmp;
+ 
+-	asm volatile("mov	%0, x30		\n"
+-		     ".rept	16		\n"
+-		     "bl	. + 4		\n"
+-		     ".endr			\n"
+-		     "mov	x30, %0		\n"
++	asm volatile("mov	%0, x30			\n"
++		     ".rept	16			\n"
++		     ANNOTATE_INTRA_FUNCTION_CALL "	\n"
++		     "bl	. + 4			\n"
++		     ".endr				\n"
++		     "mov	x30, %0			\n"
+ 		     : "=&r" (tmp));
+ }
+ 
 -- 
-2.37.1
+2.53.0
 
 
