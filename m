@@ -4,82 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE15ECD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 16:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7990CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 16:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=mkKg2AH9OzqTbzmtz3KJKgeEvCZA8Yl8G/ANzbR9O64=; b=aZiMhntbXNmsXz
-	tAT8MFJVJ8QkwuFJdIi6fHMdGbEYtzwjSuZ5YTMuEVkY14A7sUjdo1jkbSdezwv8U4+Q3v1PD/k0X
-	3sLR0CWPtAQ/0tkX/kmoEVeVPGHQ5g5b/pjRYBbgHk8zJpf+BtPvTcTxAhWqDeCRGCmESRBPkiRYX
-	tmNU8WDIIGkBFppd9rTsPBraJOOoUiqezqMnaLboN0OigYuNLaZdKviHjsq+tCJaaZj/KMJiaMrjr
-	zFlmVhUCrLEry2uoMD0cOsbamgtkBsy6L9JulM0wvUr9riQ2WwIepBFr5RGPhcZ4rp1YPwvPJrFy2
-	0TPGvPm9KYytw48FiGsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lsoMVLB3UeEPzEKI5+NUJas6CpiAj4Yur7BuNdvVjpA=; b=GDNOvQN0D7BMuLEMIBYkCrdU7T
+	OsBVY+t0eN8J8aa0n6nUOjr5d5JoZTqz6a1KDgCVQp13Yt/37UU9Kl5g5kXXvI94ke1Cti5jxlUQn
+	7kyHmqaPTvOMRblPIYxi8drvvjUm3byAD0a1Iu5QfBLm0DeHNwj+vciZZa+vE6j4iGVuyGNaKD2RB
+	ehaDfRZvw/dxW1TsuM/hNCv1WjR/LtEKgq/OjjyR6gQA88lgGZ6nfk3G1FV5W9gcWHNaLPZgJ8YPN
+	suPEa6L7j34zPe/5TpiGnBHgdMIZB2MEeycESXsFp+Bv5z1qlW6/7vtub9IgSCccAYW5/tah2O1U/
+	cKLRVMAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNCD6-00000003AxO-1MFw;
-	Wed, 13 May 2026 16:13:24 +0000
-Received: from mail-oo1-xc4a.google.com ([2607:f8b0:4864:20::c4a])
+	id 1wNCGR-00000003BRQ-3Tbi;
+	Wed, 13 May 2026 16:16:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNCD3-00000003Awa-2aK6
+	id 1wNCGQ-00000003BRF-360p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 16:13:22 +0000
-Received: by mail-oo1-xc4a.google.com with SMTP id 006d021491bc7-696307c7ee0so7549101eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 09:13:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1778688800; x=1779293600; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mkKg2AH9OzqTbzmtz3KJKgeEvCZA8Yl8G/ANzbR9O64=;
-        b=NErMRmX9ng2ncOfoY+/EDdrfmRUChzWMoD8RF+Y6STWrgWj91NuXVNBjuk/8EObqjR
-         vS8dE1N8xeGkwKvZZDCrZxGAkdYhsl1IP+FfOqudnsHjlZiWoHsnhyHgd86G+B4GjcHi
-         FuGiGZL4DPwUMfMlV3eCKl0TIHTsG2pQGhKI/PTVZsQ+mqrorRImHQVpk4Fo1YiQZ6Nd
-         /UkY11OCqst6OarzqKi5u5IU85Bgueuctq/5qobfXvdMtvEDAJrWAvKXGb0pZfrgz8pM
-         Axuzo5+SEpwyuc1I+2HRWTH9tHJ9JHbvifUEEkcms5mIGAtrI7Wrr+10g5K9VTM/nGhG
-         xFXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778688800; x=1779293600;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mkKg2AH9OzqTbzmtz3KJKgeEvCZA8Yl8G/ANzbR9O64=;
-        b=U/+0kURfdc8G2yrXM+lnL5h7UbWhtwdjgk8oTzVusIUb4lw7cYslnaiJoIm2BXnknp
-         NHvWfZG0cmEfx3M8HilhLCesEjhvwALmoSqRQ7OcZMy6Z0+G2UVcuvt1s/r38Ss07MfX
-         J+pHlRrgU24h8wDZxO/ywgD30O0jPVpfk+G7tTMfqOX5BevBoGlxdkPHbM5lKtBgj+ol
-         NT1OlI7Fjh09Om593RCpbg7GvQ5RHlKptilXiYBk6fM0m2EIkY6Oqxm0MMNoRqqGZNHu
-         mofae/55flmDsAnQIDlF4RfWuA3A7q3pmCmrPR8sM19OkwgfoV12s7eev3hq/aWGYZra
-         dnpw==
-X-Forwarded-Encrypted: i=1; AFNElJ9AJwn+rXIN2lF8rQWmvYKvfbm1hF6otSASZxZweaU7MIr+jDn/KO+f+IlJft64FMd+ni4f5pPqmBYJ1RT0AVcS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoPP11G/s4oJN1OLO2/4/AZpeK/Shko3qna9Q38QNp6AscsAsU
-	CZzJu4xX8Rfc0x0w0Hz5KkduWbO9yS0TD05Yzm2RqZymFOz3pDuqIkTYMii5blTFRlYRBAhUIGF
-	hwDRmGVLtzvhUUwqhZSNnmS9S+A==
-X-Received: from ioro2.prod.google.com ([2002:a05:6602:2982:b0:96b:5f81:a45f])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6820:1525:b0:696:17a7:498c with SMTP id 006d021491bc7-69b78dd26b8mr2142761eaf.30.1778688799667;
- Wed, 13 May 2026 09:13:19 -0700 (PDT)
-Date: Wed, 13 May 2026 16:13:18 +0000
-In-Reply-To: <485b8846-13d7-4d31-abf1-686d2516f772@linaro.org> (message from
- James Clark on Mon, 11 May 2026 15:51:39 +0100)
-Mime-Version: 1.0
-Message-ID: <gsnt5x4rcmox.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH v7 06/20] perf: arm_pmuv3: Add method to partition the PMU
-From: Colton Lewis <coltonlewis@google.com>
-To: James Clark <james.clark@linaro.org>
-Cc: alexandru.elisei@arm.com, pbonzini@redhat.com, corbet@lwn.net, 
-	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	kvm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_091321_673827_E9AC204E 
-X-CRM114-Status: GOOD (  29.73  )
+	Wed, 13 May 2026 16:16:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E28BC600AE;
+	Wed, 13 May 2026 16:16:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99B83C19425;
+	Wed, 13 May 2026 16:16:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778689009;
+	bh=f9/+E/R+ZsrcOhqa7I2GlG4cd6p5UxzOvSrd5ynQGt0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cVhdmWOqiQYoyW8bUF+ngNWqknk7z4gf+QmUKAr3BBZm6uaeuJ0cYtl2NeeT4FDyS
+	 DgMTu5oDqIM73e7fv+r1Upc9vUx4R/YjwQwXzvRoS/bU4eyBtbvUVgSvTFpIn3vhrn
+	 R5QMj5QD8qvVtuFi3dFxGkc+Vj1QDpiTLf80hp4V9U5zaw6bximvuKbpg4N+kWyYee
+	 vm0cr4cYs1aiaW426q5TtrbM0bCaEwmojWjCcCwXu6GUW0mRYKHgAOLQ0UwaERxrPj
+	 H9sW0nYDn7Uj0G/dYpIE5jbjHB3wp5VbHZVryf7t5wOTTnpg+umJlgZ3UTip5f7Ezp
+	 3VH7ND4j2ykkQ==
+Date: Wed, 13 May 2026 17:16:38 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Sanjay Chitroda <sanjayembeddedse@gmail.com>, Michal Piekos
+ <michal.piekos@mmpsystems.pl>, David Lechner <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Maksim Kiselev <bigunclemax@gmail.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] iio: adc: sun20i-gpadc: add A523 gpadc support
+Message-ID: <20260513171638.77af3b24@jic23-huawei>
+In-Reply-To: <4248ac7e-3cce-4db8-a2c1-710f2c903490@arm.com>
+References: <20260513-sunxi-a523-gpadc-v2-0-d5efde151dac@mmpsystems.pl>
+	<20260513-sunxi-a523-gpadc-v2-2-d5efde151dac@mmpsystems.pl>
+	<A7772824-E704-4BFD-A796-BCD81197E5A2@gmail.com>
+	<4248ac7e-3cce-4db8-a2c1-710f2c903490@arm.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,281 +79,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-James Clark <james.clark@linaro.org> writes:
+On Wed, 13 May 2026 13:53:49 +0200
+Andre Przywara <andre.przywara@arm.com> wrote:
 
-> On 04/05/2026 10:17 pm, Colton Lewis wrote:
->> For PMUv3, the register field MDCR_EL2.HPMN partitiones the PMU
->> counters into two ranges where counters 0..HPMN-1 are accessible by
->> EL1 and, if allowed, EL0 while counters HPMN..N are only accessible by
->> EL2.
+> Hi Sanjay,
+>=20
+> thanks for having a look!
+>=20
+> On 5/13/26 13:44, Sanjay Chitroda wrote:
+> >=20
+> >=20
+> > On 13 May 2026 10:29:43=E2=80=AFam IST, Michal Piekos <michal.piekos@mm=
+psystems.pl> wrote: =20
+> >> A523 differs from existing sun20i-gpadc-iio by having two clocks; bus
+> >> clock and module clock.
+> >>
+> >> Change driver to enable all clocks.
+> >>
+> >> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+> >> ---
+> >> drivers/iio/adc/sun20i-gpadc-iio.c | 11 +++++++----
+> >> 1 file changed, 7 insertions(+), 4 deletions(-)
+> >>
+> >> diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun2=
+0i-gpadc-iio.c
+> >> index 861c14da75ad..3f1f07b3a385 100644
+> >> --- a/drivers/iio/adc/sun20i-gpadc-iio.c
+> >> +++ b/drivers/iio/adc/sun20i-gpadc-iio.c
+> >> @@ -180,7 +180,7 @@ static int sun20i_gpadc_probe(struct platform_devi=
+ce *pdev)
+> >> 	struct iio_dev *indio_dev;
+> >> 	struct sun20i_gpadc_iio *info;
+> >> 	struct reset_control *rst;
+> >> -	struct clk *clk;
+> >> +	struct clk_bulk_data *clks;
+> >> 	int irq;
+> >> 	int ret;
+> >>
+> >> @@ -205,9 +205,11 @@ static int sun20i_gpadc_probe(struct platform_dev=
+ice *pdev)
+> >> 	if (IS_ERR(info->regs))
+> >> 		return PTR_ERR(info->regs);
+> >>
+> >> -	clk =3D devm_clk_get_enabled(dev, NULL);
+> >> -	if (IS_ERR(clk))
+> >> -		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock=
+\n");
+> >> +	ret =3D devm_clk_bulk_get_all_enabled(dev, &clks);
+> >> +	if (ret <=3D 0) =20
+> >=20
+> > Thank you Michal for the change.
+> >=20
+> > Have you validated the changes ?
+> > It looks while success ret would be 0 and it would give return error. =
+=20
+>=20
+> But devm_clk_bulk_get_all_enabled() returns the number of clocks found=20
+> and enabled. And since we need at least one, I think this is correct,=20
+> and the error message below reflects that.
 
->> Create a module parameter reserved_host_counters to reserve a number
->> of counters for the host. Counters not reserved for the host may be
->> used by a guest VM when the PMU is partitioned.
+True but passing 0 to dev_err_probe() isn't going to do the right thing.
 
->> Add the function armv8pmu_partition() to check the validity of the
->> reservation and record a partition has happened and the maximum
->> allowable value for HPMN.
+Though from this function, 0 is an error you need to return an error code
+not 0 which to the caller looks like a success.
 
->> Due to the difficulty this feature would create for the driver running
->> in nVHE mode, partitioning is only allowed in VHE mode. In order to
->> support a partitioning on nVHE we'd need to explicitly disable guest
->> counters on every exit and reset HPMN to place all counters in the
->> first range.
 
->> Signed-off-by: Colton Lewis <coltonlewis@google.com>
->> ---
->>    arch/arm/include/asm/arm_pmuv3.h   |  4 ++
->>    arch/arm64/include/asm/arm_pmuv3.h |  5 ++
->>    arch/arm64/kvm/Makefile            |  2 +-
->>    arch/arm64/kvm/pmu-direct.c        | 22 +++++++++
->>    drivers/perf/arm_pmuv3.c           | 77 ++++++++++++++++++++++++++++--
->>    include/kvm/arm_pmu.h              |  8 ++++
->>    include/linux/perf/arm_pmu.h       |  2 +
->>    7 files changed, 115 insertions(+), 5 deletions(-)
->>    create mode 100644 arch/arm64/kvm/pmu-direct.c
 
->> diff --git a/arch/arm/include/asm/arm_pmuv3.h  
->> b/arch/arm/include/asm/arm_pmuv3.h
->> index 2ec0e5e83fc98..154503f054886 100644
->> --- a/arch/arm/include/asm/arm_pmuv3.h
->> +++ b/arch/arm/include/asm/arm_pmuv3.h
->> @@ -221,6 +221,10 @@ static inline bool kvm_pmu_counter_deferred(struct  
->> perf_event_attr *attr)
->>    	return false;
->>    }
+>=20
+> To me that change looks good:
+>=20
+> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+>=20
+> Cheers,
+> Andre
+>=20
+>=20
+> >=20
+> > Thanks, Sanjay
+> >=20
+> >  =20
+> >> +		return dev_err_probe(
+> >> +			dev, ret,
+> >> +			"failed to enable clocks or no clocks defined\n");
+> >>
+> >> 	rst =3D devm_reset_control_get_exclusive(dev, NULL);
+> >> 	if (IS_ERR(rst))
+> >> @@ -243,6 +245,7 @@ static int sun20i_gpadc_probe(struct platform_devi=
+ce *pdev)
+> >>
+> >> static const struct of_device_id sun20i_gpadc_of_id[] =3D {
+> >> 	{ .compatible =3D "allwinner,sun20i-d1-gpadc" },
+> >> +	{ .compatible =3D "allwinner,sun55i-a523-gpadc" },
+> >> 	{ }
+> >> };
+> >> MODULE_DEVICE_TABLE(of, sun20i_gpadc_of_id);
+> >> =20
+> >  =20
+>=20
 
->> +static inline bool has_host_pmu_partition_support(void)
->> +{
->> +	return false;
->> +}
->>    static inline bool kvm_set_pmuserenr(u64 val)
->>    {
->>    	return false;
->> diff --git a/arch/arm64/include/asm/arm_pmuv3.h  
->> b/arch/arm64/include/asm/arm_pmuv3.h
->> index cf2b2212e00a2..27c4d6d47da31 100644
->> --- a/arch/arm64/include/asm/arm_pmuv3.h
->> +++ b/arch/arm64/include/asm/arm_pmuv3.h
->> @@ -171,6 +171,11 @@ static inline bool pmuv3_implemented(int pmuver)
->>    		 pmuver == ID_AA64DFR0_EL1_PMUVer_NI);
->>    }
-
->> +static inline bool is_pmuv3p1(int pmuver)
->> +{
->> +	return pmuver >= ID_AA64DFR0_EL1_PMUVer_V3P1;
->> +}
->> +
->>    static inline bool is_pmuv3p4(int pmuver)
->>    {
->>    	return pmuver >= ID_AA64DFR0_EL1_PMUVer_V3P4;
->> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
->> index 3ebc0570345cc..baf0f296c0e53 100644
->> --- a/arch/arm64/kvm/Makefile
->> +++ b/arch/arm64/kvm/Makefile
->> @@ -26,7 +26,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o  
->> pvtime.o \
->>    	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
->>    	 vgic/vgic-v5.o
-
->> -kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
->> +kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu-direct.o pmu.o
->>    kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
->>    kvm-$(CONFIG_PTDUMP_STAGE2_DEBUGFS) += ptdump.o
-
->> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
->> new file mode 100644
->> index 0000000000000..74e40e4915416
->> --- /dev/null
->> +++ b/arch/arm64/kvm/pmu-direct.c
->> @@ -0,0 +1,22 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (C) 2025 Google LLC
->> + * Author: Colton Lewis <coltonlewis@google.com>
->> + */
->> +
->> +#include <linux/kvm_host.h>
->> +
->> +#include <asm/arm_pmuv3.h>
->> +
->> +/**
->> + * has_host_pmu_partition_support() - Determine if partitioning is  
->> possible
->> + *
->> + * Partitioning is only supported in VHE mode with PMUv3
->> + *
->> + * Return: True if partitioning is possible, false otherwise
->> + */
->> +bool has_host_pmu_partition_support(void)
->> +{
->> +	return has_vhe() &&
->> +		system_supports_pmuv3();
->> +}
->> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
->> index 7ff3139dda893..6e447227d801f 100644
->> --- a/drivers/perf/arm_pmuv3.c
->> +++ b/drivers/perf/arm_pmuv3.c
->> @@ -42,6 +42,13 @@
->>    #define ARMV8_THUNDER_PERFCTR_L1I_CACHE_PREF_ACCESS		0xEC
->>    #define ARMV8_THUNDER_PERFCTR_L1I_CACHE_PREF_MISS		0xED
-
->> +static int reserved_host_counters __read_mostly = -1;
->> +bool armv8pmu_is_partitioned;
->> +
->> +module_param(reserved_host_counters, int, 0);
->> +MODULE_PARM_DESC(reserved_host_counters,
->> +		 "PMU Partition: -1 = No partition; +N = Reserve N counters for the  
->> host");
->> +
->>    /*
->>     * ARMv8 Architectural defined events, not all of these may
->>     * be supported on any given implementation. Unsupported events will
->> @@ -532,6 +539,11 @@ static void armv8pmu_pmcr_write(u64 val)
->>    	write_pmcr(val);
->>    }
-
->> +static u64 armv8pmu_pmcr_n_read(void)
->> +{
->> +	return FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read());
->> +}
->> +
->>    static int armv8pmu_has_overflowed(u64 pmovsr)
->>    {
->>    	return !!(pmovsr & ARMV8_PMU_CNT_MASK_ALL);
->> @@ -1312,6 +1324,54 @@ struct armv8pmu_probe_info {
->>    	bool present;
->>    };
-
->> +/**
->> + * armv8pmu_reservation_is_valid() - Determine if reservation is allowed
->> + * @host_counters: Number of host counters to reserve
->> + *
->> + * Determine if the number of host counters in the argument is an
->> + * allowed reservation, 0 to NR_COUNTERS inclusive.
->> + *
->> + * Return: True if reservation allowed, false otherwise
->> + */
->> +static bool armv8pmu_reservation_is_valid(int host_counters)
->> +{
->> +	return host_counters >= 0 &&
->> +		host_counters <= armv8pmu_pmcr_n_read();
->> +}
->> +
->> +/**
->> + * armv8pmu_partition() - Partition the PMU
->> + * @pmu: Pointer to pmu being partitioned
->> + * @host_counters: Number of host counters to reserve
->> + *
->> + * Partition the given PMU by taking a number of host counters to
->> + * reserve and, if it is a valid reservation, recording the
->> + * corresponding HPMN value in the max_guest_counters field of the PMU  
->> and
->> + * clearing the guest-reserved counters from the counter mask.
->> + *
->> + * Return: 0 on success, -ERROR otherwise
->> + */
->> +static int armv8pmu_partition(struct arm_pmu *pmu, int host_counters)
->> +{
->> +	u8 nr_counters;
->> +	u8 hpmn;
->> +
->> +	if (!armv8pmu_reservation_is_valid(host_counters)) {
->> +		pr_err("PMU partition reservation of %d host counters is not valid",  
->> host_counters);
->> +		return -EINVAL;
->> +	}
->> +
->> +	nr_counters = armv8pmu_pmcr_n_read();
->> +	hpmn = nr_counters - host_counters;
->> +
->> +	pmu->max_guest_counters = hpmn;
->> +	armv8pmu_is_partitioned = true;
->> +
->> +	pr_info("Partitioned PMU with %d host counters -> %u guest counters",  
->> host_counters, hpmn);
->> +
->> +	return 0;
->> +}
->> +
->>    static void __armv8pmu_probe_pmu(void *info)
->>    {
->>    	struct armv8pmu_probe_info *probe = info;
->> @@ -1326,17 +1386,26 @@ static void __armv8pmu_probe_pmu(void *info)
-
->>    	cpu_pmu->pmuver = pmuver;
->>    	probe->present = true;
->> +	cpu_pmu->max_guest_counters = -1;
-
->>    	/* Read the nb of CNTx counters supported from PMNC */
->> -	bitmap_set(cpu_pmu->cntr_mask,
->> -		   0, FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read()));
->> +	bitmap_set(cpu_pmu->hw_cntr_mask, 0, armv8pmu_pmcr_n_read());
-
->>    	/* Add the CPU cycles counter */
->> -	set_bit(ARMV8_PMU_CYCLE_IDX, cpu_pmu->cntr_mask);
->> +	set_bit(ARMV8_PMU_CYCLE_IDX, cpu_pmu->hw_cntr_mask);
-
->>    	/* Add the CPU instructions counter */
->>    	if (pmuv3_has_icntr())
->> -		set_bit(ARMV8_PMU_INSTR_IDX, cpu_pmu->cntr_mask);
->> +		set_bit(ARMV8_PMU_INSTR_IDX, cpu_pmu->hw_cntr_mask);
->> +
->> +	bitmap_copy(cpu_pmu->cntr_mask, cpu_pmu->hw_cntr_mask,  
->> ARMPMU_MAX_HWEVENTS);
->> +
->> +	if (reserved_host_counters >= 0) {
->> +		if (has_host_pmu_partition_support())
->> +			armv8pmu_partition(cpu_pmu, reserved_host_counters);
->> +		else
->> +			pr_err("PMU partition is not supported");
->> +	}
-
->>    	pmceid[0] = pmceid_raw[0] = read_pmceid0();
->>    	pmceid[1] = pmceid_raw[1] = read_pmceid1();
->> diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
->> index 24a471cf59d56..95f404cdcb2df 100644
->> --- a/include/kvm/arm_pmu.h
->> +++ b/include/kvm/arm_pmu.h
->> @@ -47,7 +47,10 @@ struct arm_pmu_entry {
->>    	struct arm_pmu *arm_pmu;
->>    };
-
->> +extern bool armv8pmu_is_partitioned;
->> +
->>    bool kvm_supports_guest_pmuv3(void);
->> +bool has_host_pmu_partition_support(void);
->>    #define kvm_arm_pmu_irq_initialized(v)	((v)->arch.pmu.irq_num >=  
->> VGIC_NR_SGIS)
->>    u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu, u64 select_idx);
->>    void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu, u64 select_idx,  
->> u64 val);
->> @@ -117,6 +120,11 @@ static inline bool kvm_supports_guest_pmuv3(void)
->>    	return false;
->>    }
-
->> +static inline bool has_host_pmu_partition_support(void)
->> +{
->> +	return false;
->> +}
->> +
->>    #define kvm_arm_pmu_irq_initialized(v)	(false)
->>    static inline u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu,
->>    					    u64 select_idx)
->> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
->> index 52b37f7bdbf9e..f7b000bb3eca8 100644
->> --- a/include/linux/perf/arm_pmu.h
->> +++ b/include/linux/perf/arm_pmu.h
->> @@ -109,6 +109,7 @@ struct arm_pmu {
->>    	 */
->>    	int		(*map_pmuv3_event)(unsigned int eventsel);
->>    	DECLARE_BITMAP(cntr_mask, ARMPMU_MAX_HWEVENTS);
->> +	DECLARE_BITMAP(hw_cntr_mask, ARMPMU_MAX_HWEVENTS);
-
-> I think this needs a comment or a clearer name. Both cntr_mask and
-> hw_cntr_mask are used in KVM and the PMU driver and it's not immediately
-> obvious what the difference is.
-
-I will clarify this. The goal was for hw_cntr_mask to be the unmodified
-reference point to restore cntr_mask later.
 
