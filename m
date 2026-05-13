@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32085CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 17:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 133F6CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 17:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8WdxaWCj2Vri+tTYAAdR4W5RVn4P6dQP1GQHjDxuQQ4=; b=PbpmP7tFHBZFZ4ygOG2NVxwQ3q
-	L7wCy7lAG76FlI8E6gSgHkQW+9SY7CWNtT7DeJlBdbQLHc2nfcxn8YCpm0sBvaokQqe/sGQVgil0f
-	tZLXDgCa3de/far5BgJalddogSGGoP2zZiIimJM1Pyi69Z5F5cIgPSL5hqcdjPWI0BqjX7wAlDX15
-	+N6RUVy6V++LmAZgltJ7NCjMDcs7WUJm9sDDruAixZBP851/75PwVHtPkaAlPIafjR1648E2oRr+V
-	m60niFsl+T/95AooORFQ+LVEM2orvhtPTjxPax+DfYduw45AYNEOiuMYU9SXV4T3PBe5XbboxJVbp
-	pnTAiLZw==;
+	bh=sEMJ782kQaUvl7mIWqMka7qxprBIvzHiqamcTzuZbCM=; b=pNumrw6BnFYibwbtqSgEGSYv8a
+	yZNulHARNESiCm8fZWWeN4DuBZMV7x+XeC+mGXrxa/EOZ0F0JvO8oOF93gxZejKKpSYk239oJyZOb
+	Nd+TIL9CtqU28RiClEU6fnXbifmv4QXmpuePjDpthG0zDIZa91v8IZ/fOg+jAeMh4314ifCjw+Rde
+	JBTDZIQqWxmud0wN8l/5awWAOdmH0XkvoOWmXSiM8TonTJbe5neEfo+4mDnn5fAOU05DLeWND8Ynl
+	v0i0UEBOxI3FvrFbXAMXn2217ItS6ferwrTiGBLNOrKS99nkr+g8rktOFIzKu7z7W5W4q8JKtIGRJ
+	+kgB054w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNDFK-00000003Kpd-42jq;
-	Wed, 13 May 2026 17:19:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNDJF-00000003LLu-4AdZ;
+	Wed, 13 May 2026 17:23:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNDFJ-00000003KpF-2g8H
+	id 1wNDJF-00000003LLX-1jG2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 17:19:45 +0000
+	Wed, 13 May 2026 17:23:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1B2960121;
-	Wed, 13 May 2026 17:19:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A12FCC19425;
-	Wed, 13 May 2026 17:19:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 869CD6012A;
+	Wed, 13 May 2026 17:23:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 651B7C2BCB7;
+	Wed, 13 May 2026 17:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778692784;
-	bh=wdwmWQvVhbMJShU+Cq/ZBzAiBrqBEgIBK4QCLxQP7nE=;
+	s=k20201202; t=1778693028;
+	bh=bVCUB+XEkZ4ZZOEMStNH8O+vVXyBxeWbiKPyxemPMoo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XG8b+yZprlhiDyP4N8PEd0JhlPNIBpirJzna7WY6Flqur6vQsjA/gU5DwKN4W2sF+
-	 E3RKHEG5BKTuj9Phwr7hHxW5wdXGmSDxDu09uNWCqBapj7pFqNzrbj1x0w4zLSDXMD
-	 dp/C9RR2HwsB9ouhXUUfcXqEBSxfupSTjbUBcIGCrm+9BYkEoT4ImaQC5cdHXsRnWz
-	 DOoTHmZrKaGfHNS/pptGvO0Dnb36Zw3IMhn5NEWaFTGlDETppUHAxiV/oCiPjL8TkW
-	 jrbWZT3nJjjwPxotDoTBUhqB86256m43zBEP7un3o7Cd/PlzAi3w649OaY9MjHI6P5
-	 p6VZmOG6n0DZg==
-Date: Wed, 13 May 2026 18:19:39 +0100
+	b=AKKGdtbP2IKmlSlB/reSdavwF9cRGIGy/x+5lin8na7Xy3QaAhy82iwgCj4ObYrrF
+	 lPbtThIyK2Toh7Hvxenq+NZB2Kscd1J9UrtdiDL80aoOUK7+/Q5w6bD0dZAeggDk2A
+	 YMNoM57+WSWlCJxJ6RCelyJxDa3HUCY94Xh+uWxHkj1We4sK9hn0W2S6rd8Mej3/U+
+	 /7OsGzJX9FaUyKhUyFTp1QfltlBxBmzgrDTsLnbboqLZvf8Uh7smupTvRbhCLcsktA
+	 S7ffRftzKjWsmjPwocyv6KgzFWGyo3NYlD3/8h/f8RzTiRb9mehDZF8AjBGwqPrzX1
+	 cthG00VUIrhNA==
+Date: Wed, 13 May 2026 18:23:43 +0100
 From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: Sebastian Ene <sebastianene@google.com>, catalin.marinas@arm.com,
-	Sudeep Holla <sudeep.holla@kernel.org>, maz@kernel.org,
-	oupton@kernel.org, will@kernel.org, joey.gouly@arm.com,
-	korneld@google.com, kvmarm@lists.linux.dev,
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org,
+	Sudeep Holla <sudeep.holla@kernel.org>, will@kernel.org,
+	joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	android-kvm@google.com, mrigendra.chaubey@gmail.com,
 	perlarsen@google.com, suzuki.poulose@arm.com, vdonnefort@google.com,
 	yuzenghui@huawei.com
-Subject: Re: [PATCH v3 1/2] firmware: arm_ffa: Fix Endpoint Memory Access
- Descriptor offset calculation
-Message-ID: <20260513-prodigious-cobra-of-cleaning-094a72@sudeepholla>
+Subject: Re: [PATCH v3 0/2] arm_ffa, KVM: Fix FF-A emad offset calculations
+Message-ID: <20260513-ludicrous-beautiful-cuttlefish-34271d@sudeepholla>
 References: <20260512124442.1899107-1-sebastianene@google.com>
- <20260512124442.1899107-2-sebastianene@google.com>
- <agR98uWCHQBHuGNg@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <agR98uWCHQBHuGNg@google.com>
+In-Reply-To: <20260512124442.1899107-1-sebastianene@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,89 +73,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 01:34:42PM +0000, Mostafa Saleh wrote:
-> On Tue, May 12, 2026 at 12:44:41PM +0000, Sebastian Ene wrote:
-> > Use the descriptor's `ep_mem_offset` to calculate the start of the endpoint
-> > memory access array and to comply with the FF-A spec instead of defaulting
-> > to `sizeof(struct ffa_mem_region)`.
-> > This requires moving `ffa_mem_region_additional_setup()` earlier in the setup
-> > flow.
-> > Also, add sanity checks to ensure the calculated descriptor offsets do not
-> > exceed `max_fragsize`.
-> > 
-> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > ---
-> >  drivers/firmware/arm_ffa/driver.c | 14 ++++++++++----
-> >  include/linux/arm_ffa.h           |  2 +-
-> >  2 files changed, 11 insertions(+), 5 deletions(-)
-> > 
-> > diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-> > index eb2782848283..56b166290b24 100644
-> > --- a/drivers/firmware/arm_ffa/driver.c
-> > +++ b/drivers/firmware/arm_ffa/driver.c
-> > @@ -685,18 +685,25 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
-> >  	struct ffa_composite_mem_region *composite;
-> >  	struct ffa_mem_region_addr_range *constituents;
-> >  	struct ffa_mem_region_attributes *ep_mem_access;
-> > -	u32 idx, frag_len, length, buf_sz = 0, num_entries = sg_nents(args->sg);
-> > +	u32 idx, frag_len, length, buf_sz = 0, num_entries = sg_nents(args->sg), ep_offset;
-> >  
-> >  	mem_region->tag = args->tag;
-> >  	mem_region->flags = args->flags;
-> >  	mem_region->sender_id = drv_info->vm_id;
-> >  	mem_region->attributes = ffa_memory_attributes_get(func_id);
-> > +
-> > +	ffa_mem_region_additional_setup(drv_info->version, mem_region);
-> >  	composite_offset = ffa_mem_desc_offset(buffer, args->nattrs,
-> >  					       drv_info->version);
-> > +	if (composite_offset > max_fragsize - sizeof(struct ffa_composite_mem_region))
-> > +		return -ENXIO;
+On Tue, May 12, 2026 at 12:44:40PM +0000, Sebastian Ene wrote:
+> Hi all,
 > 
-> nit: This driver seems to use sizeof() with variable name rather than
-> type (except for one place) so it may be good to keep that.
+> This series fixes the Endpoint Memory Access Descriptor (EMAD) offset calculations
+> and adds the necessary bounds checks for both the core FF-A driver and the pKVM
+> hypervisor.
 > 
+> Prior to FF-A version 1.1, the memory region header didn't specify an explicit offset
+> for the EMADs, leading to the assumption that they immediately follow the header.
+> However, from v1.1 onwards, the specification dictates using the `ep_mem_offset` field
+> to determine the start of the memory access array.
+> 
+> The patches in this series address this by:
+> 1. Updating the core `arm_ffa` firmware driver to correctly calculate the descriptor
+>    offset using `ep_mem_offset` rather than defaulting to `sizeof(struct ffa_mem_region)`.
+>    It also introduces bounds checking against `max_fragsize`.
+> 2. Enhancing the pKVM hypervisor validation logic to no longer strictly enforce that
+>    the descriptor strictly follows the header, aligning it with the driver behavior
+>    and the FF-A specification, while also ensuring the offset falls within the mailbox
+>    buffer bounds.
+>
 
-Agreed, +1.
+Looks good apart from the minor nits, but how do you plan to route these
+changes as they are dependent for functionality but not for the build IIUC.
 
-> >  
-> >  	for (idx = 0; idx < args->nattrs; idx++) {
-> > -		ep_mem_access = buffer +
-> > -			ffa_mem_desc_offset(buffer, idx, drv_info->version);
-> > +		ep_offset = ffa_mem_desc_offset(buffer, idx, drv_info->version);
-> > +		if (ep_offset > max_fragsize - sizeof(struct ffa_mem_region_attributes))
-> > +			return -ENXIO;
-> > +
-> > +		ep_mem_access = buffer + ep_offset;
-> >  		ep_mem_access->receiver = args->attrs[idx].receiver;
-> >  		ep_mem_access->attrs = args->attrs[idx].attrs;
-> >  		ep_mem_access->composite_off = composite_offset;
-> > @@ -708,7 +715,6 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
-> >  	}
-> >  	mem_region->handle = 0;
-> >  	mem_region->ep_count = args->nattrs;
-> > -	ffa_mem_region_additional_setup(drv_info->version, mem_region);
-> >  
-> >  	composite = buffer + composite_offset;
-> >  	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
-> > diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-> > index 81e603839c4a..62d67dae8b70 100644
-> > --- a/include/linux/arm_ffa.h
-> > +++ b/include/linux/arm_ffa.h
-> > @@ -445,7 +445,7 @@ ffa_mem_desc_offset(struct ffa_mem_region *buf, int count, u32 ffa_version)
-> >  	if (!FFA_MEM_REGION_HAS_EP_MEM_OFFSET(ffa_version))
-> >  		offset += offsetof(struct ffa_mem_region, ep_mem_offset);
-> >  	else
-> > -		offset += sizeof(struct ffa_mem_region);
-> > +		offset += buf->ep_mem_offset;
-> 
-> Does it make sense to also set buf->ep_mem_offset for the other
-> case in ffa_mem_region_additional_setup() and then add this
-> unconditionally here?
-> 
+I don't think I have any conflicting change so far, so it can go along with
+other pKVM changes. Let me know.
 
-I need to cross-check the spec, but if I vaguely recall as the name
-FFA_MEM_REGION_HAS_EP_MEM_OFFSET suggests, older versions don't have that
-field to use it.
+> Changelog
+> #########
+> 
+> v2 -> this:
+> - Fixed typo in nvhe/ffa.c (missing sizeof)
+> 
+> v1 -> v2:
+> - For pKVM, removed the strict placement enforcement for `ep_mem_offset` as it is not
+>   compliant with the spec, and avoids making assumptions about the driver's memory
+>   layout.
+> 
+> Link to:
+> ########
+> 
+> v2: https://lore.kernel.org/all/20260430160241.1934777-1-sebastianene@google.com/
+> v1: https://lore.kernel.org/all/ae9KN9nkOgDYJcGP@google.com/T/#t
+> 
+> Sebastian Ene (2):
+>   firmware: arm_ffa: Fix Endpoint Memory Access Descriptor offset
+>     calculation
+>   KVM: arm64: Validate the offset to the mem access descriptor
+> 
+>  arch/arm64/kvm/hyp/nvhe/ffa.c     | 24 ++++++++++++++++++------
+>  drivers/firmware/arm_ffa/driver.c | 14 ++++++++++----
+>  include/linux/arm_ffa.h           |  2 +-
+>  3 files changed, 29 insertions(+), 11 deletions(-)
+> 
+> -- 
+> 2.54.0.563.g4f69b47b94-goog
+> 
 
 -- 
 Regards,
