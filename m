@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CAB5CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F3ECD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 13:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IE4DnWJLwK+fvRsEeDLZ8DeZ8rUwjTP8UUNA8b7Ntng=; b=dxfSmWU8no6NX/+THZmiMicCM8
-	cGDgK/WPijkj0f33JzV5v0Y1cQphLHVcx5LvJm/3rE7p07Z3o2PACVjmhNS7MBAzUGOWGS6PDmonS
-	fnrM04s+jTLbKEZgLo71XaADXqZsOHaDM+UDy9vvkxUCrBlLajlZajJ0SbY6O8UCqaRgxucCBKCeS
-	F3kQZnXkeEujoq6FYZkfUFe3bq1ezsqCflP+vKxgDCKj//BgHSXmn/4djkQ2owBNNz/04anjnNn++
-	SLJ0nvCcp/tl1K6gYOG4FNFA2yBvlwnnsAMdaPBXd8vtspxXvmojtjixhEQSW6LNnwqi1mwvlrAu8
-	TyXsqyGQ==;
+	bh=TI5NRrZ+zLBkpp0luXsxTg5zs9xhBdh65yF3aHf9xC8=; b=ytOwH3TZ1Vq4cvjliyrhE4hHuC
+	TRNC7Jao4isxEYwAvq6/44ljXxuOoN7gKGxM8tlpITauAErotXj6E9sFUxnOPzebage1b76Y7RgKD
+	LGlPwfmTIQtQunOsPLjyb33LFH4cN8jbOhgLaTXVV9w7lAN19ugnLExtEJml4I8mB0gR3mYhQYh9o
+	bZ4NAuDceE19wm+x8x8zevh8rRRuWc/8oJAImwHYhYB1yXHovUD8xMXc7/ov93kvyv6eUEW63K8pd
+	ptFsSVVHR0b9rgQHvfYfKr/GsN5Sxn3z39EBAB0bppr28APX05/cQIQpVMwKk8FLolF8XwdeTKnMm
+	4Fz3tKFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9Vx-00000002gkV-3F2H;
-	Wed, 13 May 2026 13:20:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN9Vo-00000002gUz-1h9W
+	id 1wN9To-00000002dof-1q6R;
+	Wed, 13 May 2026 13:18:28 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wN9TV-00000002dVt-2CL9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 13:20:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70C50302D;
-	Wed, 13 May 2026 06:20:26 -0700 (PDT)
-Received: from e122027.arm.com (unknown [10.57.68.187])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BEC313F836;
-	Wed, 13 May 2026 06:20:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778678431; bh=1kOadpC0xwWNqHGyEQrN6Wf9KZ/ChH/WtQ65qKEdhn4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cgKVrJua4ix7y2A5cv2m3jnWY8A7udRgaMfsOY5/cO9TKJ8j6F1eRyeOi1tVvWdVN
-	 BgJiibI2/XtTIhbR+GbNUMYfGw6TycHoYJ2FOJJ4z0Bf11E97fvKiV1Um9N7gudc/q
-	 A6THNpThFM5JbBRdcwpAcolZHIho00qNygGy/mOw=
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo.Pieralisi2@arm.com
-Subject: [PATCH v14 24/44] KVM: arm64: Handle realm MMIO emulation
-Date: Wed, 13 May 2026 14:17:32 +0100
-Message-ID: <20260513131757.116630-25-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260513131757.116630-1-steven.price@arm.com>
-References: <20260513131757.116630-1-steven.price@arm.com>
+	Wed, 13 May 2026 13:18:11 +0000
+Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E8EFE2F84;
+	Wed, 13 May 2026 15:17:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1778678279;
+	bh=vNhPG3gt1iNAQede4sSDJktbqWiYm6dT9TVVZYkS1Jg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=wmmeqmvcAwYM3R3n48gpc9vcJ5xbooIoKw710g0UvU85u/2AvwUktsjnjpl1hNcGe
+	 PdPKryRzh6cr3VrxWa0YtSQJ6MOxdXugLpqx0MaB8hTsNJRDDtXh8vU+q8SjV1M2F9
+	 JULW1baHsJ8NhGAq8tCVfBxCeXsmX+Oe9jUqOFjg=
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Date: Wed, 13 May 2026 16:17:33 +0300
+Subject: [PATCH v2 11/16] drm/tidss: oldi: Fix OLDI signal polarities
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260513-beagley-ai-display-v2-11-9e9bcefde6bc@ideasonboard.com>
+References: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
+In-Reply-To: <20260513-beagley-ai-display-v2-0-9e9bcefde6bc@ideasonboard.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Aradhya Bhatia <aradhya.bhatia@linux.dev>, Nishanth Menon <nm@ti.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Swamil Jain <s-jain1@ti.com>, 
+ Devarsh Thakkar <devarsht@ti.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+X-Mailer: b4 0.15-dev-c25d1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4997;
+ i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
+ bh=vNhPG3gt1iNAQede4sSDJktbqWiYm6dT9TVVZYkS1Jg=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBqBHoADKKdxxycDiVBKEHdHXn6PBSrKmAg76JTO
+ qmDkuR18cWJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCagR6AAAKCRD6PaqMvJYe
+ 9f/uEACn14KBoTk3RisMc2V47Nm7Qa+OtgZ8ZtleGMyekyKkSb6msFgrJfz5VmQCiEqnb97Ur2R
+ +/STOmNOOM5++gVhOozKtzXBTcMYtTAWbHwgjMzxezpChXR0PSNKY2luLbBf2oQs23fidZfnRBc
+ lGDWz8jIU3162LDvBGsHmi79za1SXEfo0WqCzJg24yVRnwPZLSJsZiF5zM95plRJ6jY74Pi0GCf
+ nqv8PsYNEe1+zbYAw0tptHBmoCFLhEVgHfMtrVpkWctfmRSR1lA5SsHNz2eCYgh4KC1DVbDJFoH
+ WMXgxLFtxzaPrdqJDOd0wZ2B7IWUH8WAPJS86wcWToElMiebwHHKBTPEemjJv27iyM4HPpRWHQr
+ W22XWQ6rKNiLrFEpu91zwkdNcIzCf0eglWck+6IPZtnrgshRpeP5piZ0/Xn54g6ORuGzIR1jSL2
+ YsHBo+7OPKOJiH7h3hPdrQfiRLohkn38EWLMT1JGM5CbyAXltbr1c7GMRJAv4hb6gpU9UJSz5kQ
+ xfm2PAIJJtIv2pRsAN6ae1x5YV7q3e7v7tu9TTUi7ysUoX4KgBRMw2jp3tKL3EJVeP+edjUEP4m
+ aVs/MSxJEy9PcvDL01iYZlXtT4twt6xbiZOROXEbMNlEDoIf3LRat738O28RLvrKxsjwd9Dl4ZD
+ 8vRYMrNtjxuIB0A==
+X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
+ fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_062033_054457_78A37ECC 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20260513_061809_804488_1BCFFCCF 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,129 +93,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MMIO emulation for a realm cannot be done directly with the VM's
-registers as they are protected from the host. However, for emulatable
-data aborts, the RMM uses GPRS[0] to provide the read/written value.
-We can transfer this from/to the equivalent VCPU's register entry and
-then depend on the generic MMIO handling code in KVM.
+OLDI has a few issues with how it handles the signal polarities:
 
-For a MMIO read, the value is placed in the shared RecExit structure
-during kvm_handle_mmio_return() rather than in the VCPU's register
-entry.
+- It always sets OLDI_DEPOL, which means DE active low
+- It sets DRM_BUS_FLAG_DE_HIGH in struct drm_bridge_timings, i.e.
+  reverse to the OLDI_DEPOL
+- It sets DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE in struct drm_bridge_timings,
+  but the TRM says "The DSS interface is clocked on the rising edge of
+  OLDI_FWD_P_CLK pixel clock", which I read as "OLDI samples on rising
+  edge".
+- But the defined drm_bridge_timings is not actually used anywhere, even
+  if it is set to bridge->timings, so the bus flags are just ignored.
 
-Signed-off-by: Steven Price <steven.price@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+However, based on my testing, OLDI_DEPOL bit or the edge on which data
+and syncs are driven doesn't seem to affect the OLDI output. Possibly
+it's not as robust, but I did not see any effect with an oscilloscope.
+
+However, the code is still quite broken, so let's fix it:
+- Remove drm_bridge_timings
+- Set the correct input_bus_cfg.flags in tidss_oldi_atomic_check()
+- Set OLDI_DEPOL based on the DE bus flag
+
+Tested-by: Swamil Jain <s-jain1@ti.com>
+Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
-Changes since v7:
- * New comment for rec_exit_sync_dabt() explaining the call to
-   vcpu_set_reg().
-Changes since v5:
- * Inject SEA to the guest is an emulatable MMIO access triggers a data
-   abort.
- * kvm_handle_mmio_return() - disable kvm_incr_pc() for a REC (as the PC
-   isn't under the host's control) and move the REC_ENTER_EMULATED_MMIO
-   flag setting to this location (as that tells the RMM to skip the
-   instruction).
----
- arch/arm64/kvm/inject_fault.c |  4 +++-
- arch/arm64/kvm/mmio.c         | 16 ++++++++++++----
- arch/arm64/kvm/rmi-exit.c     | 14 ++++++++++++++
- 3 files changed, 29 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/tidss/tidss_oldi.c | 38 ++++++++++++++++++++++++++++----------
+ 1 file changed, 28 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-index 89982bd3345f..6492397b73d7 100644
---- a/arch/arm64/kvm/inject_fault.c
-+++ b/arch/arm64/kvm/inject_fault.c
-@@ -228,7 +228,9 @@ static void inject_abt32(struct kvm_vcpu *vcpu, bool is_pabt, u32 addr)
- 
- static void __kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
- {
--	if (vcpu_el1_is_32bit(vcpu))
-+	if (unlikely(vcpu_is_rec(vcpu)))
-+		vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_INJECT_SEA;
-+	else if (vcpu_el1_is_32bit(vcpu))
- 		inject_abt32(vcpu, iabt, addr);
- 	else
- 		inject_abt64(vcpu, iabt, addr);
-diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
-index e2285ed8c91d..6a8cb927fcca 100644
---- a/arch/arm64/kvm/mmio.c
-+++ b/arch/arm64/kvm/mmio.c
-@@ -6,6 +6,7 @@
- 
- #include <linux/kvm_host.h>
- #include <asm/kvm_emulate.h>
-+#include <asm/rmi_smc.h>
- #include <trace/events/kvm.h>
- 
- #include "trace.h"
-@@ -138,14 +139,21 @@ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu)
- 		trace_kvm_mmio(KVM_TRACE_MMIO_READ, len, run->mmio.phys_addr,
- 			       &data);
- 		data = vcpu_data_host_to_guest(vcpu, data, len);
--		vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu), data);
-+
-+		if (vcpu_is_rec(vcpu))
-+			vcpu->arch.rec.run->enter.gprs[0] = data;
-+		else
-+			vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu), data);
- 	}
- 
- 	/*
- 	 * The MMIO instruction is emulated and should not be re-executed
- 	 * in the guest.
- 	 */
--	kvm_incr_pc(vcpu);
-+	if (vcpu_is_rec(vcpu))
-+		vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_EMULATED_MMIO;
-+	else
-+		kvm_incr_pc(vcpu);
- 
- 	return 1;
- }
-@@ -167,14 +175,14 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
- 	 * No valid syndrome? Ask userspace for help if it has
- 	 * volunteered to do so, and bail out otherwise.
- 	 *
--	 * In the protected VM case, there isn't much userspace can do
-+	 * In the protected/realm VM case, there isn't much userspace can do
- 	 * though, so directly deliver an exception to the guest.
- 	 */
- 	if (!kvm_vcpu_dabt_isvalid(vcpu)) {
- 		trace_kvm_mmio_nisv(*vcpu_pc(vcpu), esr,
- 				    kvm_vcpu_get_hfar(vcpu), fault_ipa);
- 
--		if (vcpu_is_protected(vcpu))
-+		if (vcpu_is_protected(vcpu) || vcpu_is_rec(vcpu))
- 			return kvm_inject_sea_dabt(vcpu, kvm_vcpu_get_hfar(vcpu));
- 
- 		if (test_bit(KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER,
-diff --git a/arch/arm64/kvm/rmi-exit.c b/arch/arm64/kvm/rmi-exit.c
-index e7c51b6cf6ce..8ec0d179eba2 100644
---- a/arch/arm64/kvm/rmi-exit.c
-+++ b/arch/arm64/kvm/rmi-exit.c
-@@ -25,6 +25,20 @@ static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu)
- 
- static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu)
- {
-+	struct realm_rec *rec = &vcpu->arch.rec;
-+
-+	/*
-+	 * In the case of a write, copy over gprs[0] to the target GPR,
-+	 * preparing to handle MMIO write fault. The content to be written has
-+	 * been saved to gprs[0] by the RMM (even if another register was used
-+	 * by the guest). In the case of normal memory access this is redundant
-+	 * (the guest will replay the instruction), but the overhead is
-+	 * minimal.
-+	 */
-+	if (kvm_vcpu_dabt_iswrite(vcpu) && kvm_vcpu_dabt_isvalid(vcpu))
-+		vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu),
-+			     rec->run->exit.gprs[0]);
-+
- 	return kvm_handle_guest_abort(vcpu);
+diff --git a/drivers/gpu/drm/tidss/tidss_oldi.c b/drivers/gpu/drm/tidss/tidss_oldi.c
+index 17c535bfa057..e925ddaa4fd6 100644
+--- a/drivers/gpu/drm/tidss/tidss_oldi.c
++++ b/drivers/gpu/drm/tidss/tidss_oldi.c
+@@ -164,7 +164,8 @@ static void tidss_oldi_tx_power(struct tidss_oldi *oldi, bool enable)
+ 	regmap_update_bits(oldi->io_ctrl, OLDI_PD_CTRL, mask, enable ? 0 : mask);
  }
  
+-static int tidss_oldi_config(struct tidss_oldi *oldi)
++static int tidss_oldi_config(struct tidss_oldi *oldi,
++			     struct drm_bridge_state *bridge_state)
+ {
+ 	const struct oldi_bus_format *bus_fmt = NULL;
+ 	u32 oldi_cfg = 0;
+@@ -183,7 +184,8 @@ static int tidss_oldi_config(struct tidss_oldi *oldi)
+ 			 "OLDI%u: DSS port width %d not supported\n",
+ 			 oldi->oldi_instance, bus_fmt->data_width);
+ 
+-	oldi_cfg |= OLDI_DEPOL;
++	if (bridge_state->input_bus_cfg.flags & DRM_BUS_FLAG_DE_LOW)
++		oldi_cfg |= OLDI_DEPOL; /* 1 = active low */
+ 
+ 	oldi_cfg = (oldi_cfg & (~OLDI_MAP)) | (bus_fmt->oldi_mode_reg_val << 1);
+ 
+@@ -220,6 +222,22 @@ static int tidss_oldi_config(struct tidss_oldi *oldi)
+ 	return ret;
+ }
+ 
++static int tidss_oldi_atomic_check(struct drm_bridge *bridge,
++				   struct drm_bridge_state *bridge_state,
++				   struct drm_crtc_state *crtc_state,
++				   struct drm_connector_state *conn_state)
++{
++	bridge_state->input_bus_cfg.flags &=
++		~(DRM_BUS_FLAG_PIXDATA_SAMPLE_NEGEDGE |
++		  DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE);
++
++	bridge_state->input_bus_cfg.flags |=
++		DRM_BUS_FLAG_PIXDATA_SAMPLE_POSEDGE |
++		DRM_BUS_FLAG_SYNC_SAMPLE_POSEDGE;
++
++	return 0;
++}
++
+ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
+ 					 struct drm_atomic_state *state)
+ {
+@@ -228,6 +246,7 @@ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
+ 	struct drm_connector_state *conn_state;
+ 	struct drm_crtc_state *crtc_state;
+ 	struct drm_display_mode *mode;
++	struct drm_bridge_state *bridge_state;
+ 
+ 	if (oldi->link_type == OLDI_MODE_SECONDARY_CLONE_SINGLE_LINK)
+ 		return;
+@@ -245,10 +264,14 @@ static void tidss_oldi_atomic_pre_enable(struct drm_bridge *bridge,
+ 	if (WARN_ON(!crtc_state))
+ 		return;
+ 
++	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
++	if (WARN_ON(!bridge_state))
++		return;
++
+ 	mode = &crtc_state->adjusted_mode;
+ 
+ 	/* Configure the OLDI params*/
+-	tidss_oldi_config(oldi);
++	tidss_oldi_config(oldi, bridge_state);
+ 
+ 	/* Set the OLDI serial clock (7 times the pixel clock) */
+ 	tidss_oldi_set_serial_clk(oldi, mode->clock * 7 * 1000);
+@@ -329,7 +352,8 @@ tidss_oldi_mode_valid(struct drm_bridge *bridge,
+ }
+ 
+ static const struct drm_bridge_funcs tidss_oldi_bridge_funcs = {
+-	.attach	= tidss_oldi_bridge_attach,
++	.attach = tidss_oldi_bridge_attach,
++	.atomic_check = tidss_oldi_atomic_check,
+ 	.atomic_pre_enable = tidss_oldi_atomic_pre_enable,
+ 	.atomic_post_disable = tidss_oldi_atomic_post_disable,
+ 	.atomic_get_input_bus_fmts = tidss_oldi_atomic_get_input_bus_fmts,
+@@ -440,11 +464,6 @@ static int get_parent_dss_vp(struct device_node *oldi_tx, u32 *parent_vp)
+ 	return -ENODEV;
+ }
+ 
+-static const struct drm_bridge_timings default_tidss_oldi_timings = {
+-	.input_bus_flags = DRM_BUS_FLAG_SYNC_SAMPLE_NEGEDGE
+-			 | DRM_BUS_FLAG_DE_HIGH,
+-};
+-
+ void tidss_oldi_deinit(struct tidss_device *tidss)
+ {
+ 	for (int i = 0; i < tidss->num_oldis; i++) {
+@@ -598,7 +617,6 @@ int tidss_oldi_init(struct tidss_device *tidss)
+ 		/* Register the bridge. */
+ 		oldi->bridge.of_node = child;
+ 		oldi->bridge.driver_private = oldi;
+-		oldi->bridge.timings = &default_tidss_oldi_timings;
+ 
+ 		tidss->oldis[tidss->num_oldis++] = oldi;
+ 		tidss->is_ext_vp_clk[oldi->parent_vp] = true;
+
 -- 
 2.43.0
 
