@@ -4,144 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D46A4CD4F24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 12:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FEACD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 12:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aQlZ/OjZycl8mO0qhkBjjI22KpQXTTVRLDnf5qieSXI=; b=eyGnsIcWu0+fklcZ90uQnVcxmF
-	VhKEkolY9yKUhcFcni5Qrdil3sVbfuXB1XbrRDSwOwHAGdiioG2R/ESlXn/WkyGQDTamtRDwEW/G/
-	lxYCHFCk+TQKmhkBnBFiiTOGTkW36kGlVKbtaUkteQTno+4asBQhfrl1RpRrT9cEYeSuLAiA099pJ
-	jrUv3OedUOlP3AxG5I7gdGGB3mV2k3pkq7bqlDKj5OwMIhQz8Uiyfi6Fu2m2DqlDfIulG2M1piOBx
-	TtvGBA3GvE5fF3yq4JNqNuwuywtDOjlFo+JQGPMwLNlY/AlTiJOtL1LfE4CrMmw0M65kP4eQGfyif
-	RUyRyFrQ==;
+	bh=CR6mVpRz75r2CIAqgdxcR404EZDS2TqtSNRv6Q3k7eU=; b=xXr69jCxCko88quRjSFqsusXWd
+	zBWFE4q4ciGorPizyfcdnIkXmg399obaOaguLuD+w0U3ZMDImtiWUjh2XqDEyThxEAQVT9cc5LR+i
+	+o32igvRwovaWJsgLaoOyOwqSvjpvB1KcxTNy3Nr+wVz45Iw8e5mdSyL1Q+5rkBpXdq/kBMN+W9tC
+	ch+PcTuS5BVN37O8cVP9x1RxRAH9ausOOz7ngmclAmiq0V3iEVDzU1RAvNCSuqBiLL3bugs+JaqeC
+	71IAaNi6D6uMnStRcaSyfm1GNrO8SkKvHmDn0wFs7kHKlIxYQ5U9e6fAtjif61aGpp9dUtZOE9URV
+	lKdaYY0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN8fK-00000002TqI-2GnC;
-	Wed, 13 May 2026 12:26:18 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN8fH-00000002TpZ-2zs3;
-	Wed, 13 May 2026 12:26:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aqQK/zI8FTzyAbTZJcmCyTrHqZitcQxRawYa4nmUTL7Ruq7vcmoTSMHp2YjvsmJoxPizkdejtDn/6c0UgQuUn3JmO+NjlyRw+3B9WPJAVhW7oNEk2/HUNj+xC3roV9FUh6bw3UIWS0+hsIa+EcJkhHlJKHVwaTmLHrXXVEIb1Xsz/mhuAym0wWeMhAvJakvGeXzErYR6YmiSP1y56PXFnVKjgYb2C5sbFyynN6uuRIjcfnDNirdBiD75XmXKf4LWlFnBrXc2bV6tF9bBrKG5aiEnJVKs5lOKTdqAnLnjpboxI9jWbfGWk5yg3R7HsmCBrAp8iYs50LpdU1MH5kxaDg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aQlZ/OjZycl8mO0qhkBjjI22KpQXTTVRLDnf5qieSXI=;
- b=kgVjtJaXmOvVkgvhpZ5hMPPAHPDrTmg+TJDgFYOx+sNLQ6HggyoY3wWSQuKDlfkUti2kP216W3S6FTDr5+o0rp0jWY6CVzBc/FT0TyM05GDnihnB4wmqMa2jO9g8JhrZ+9gs00oquSYRteWFHKiVh6QivOPlvDqJdeLOgb4LWvvOHV5c75BKZi3p3JXbut2uW6zUJMweITBn/aTJb7y8+ZofbVX/qR9ghWfmH6eyszhigyLScb46G375J9GsZyb1KPkXHEWYYGBhGx7FIiaDrRc994E0Foe/qIKogeGHc5uhWJnwBlD2MQLWO36grLtZ9n95yE2zstqOgebcNWJwGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=genexis.eu;
- dkim=pass header.d=genexis.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=genexis.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aQlZ/OjZycl8mO0qhkBjjI22KpQXTTVRLDnf5qieSXI=;
- b=uxQhabWoxjKwPJhsunr/5GaUYSF0QuaQ2SpuprNymZN8SHq+qRV5B7zWS4IqJK5El7OML1AQizlVkKmesc8T4CLdBMT1c5FM6S7R1WeWwD+p/Om8b9w68jQChvn1T0xFO/418aG7UT9LjI1bNHwHIEvFfemb5rHJt+I6ishuNcz/pu3LhrLmMd+WX/0Vxpde+KE3Q87oheT+yWt1vQTcC5Q5LDvPHjSHclnFs6adjs3wW6ChbGge3eearStuDFtz4KIO8hwNMCiVsUXLBb+IF0LHySxndIGIDnb+VIXtsz/JGrdt6m6PE9PDZlkHOsnqrDO3ltc3IynTpFmLvxBLmw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=genexis.eu;
-Received: from DB9PR08MB6697.eurprd08.prod.outlook.com (2603:10a6:10:2ad::14)
- by AM9PR08MB5906.eurprd08.prod.outlook.com (2603:10a6:20b:285::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
- 2026 12:26:09 +0000
-Received: from DB9PR08MB6697.eurprd08.prod.outlook.com
- ([fe80::bdec:3e95:6614:441f]) by DB9PR08MB6697.eurprd08.prod.outlook.com
- ([fe80::bdec:3e95:6614:441f%6]) with mapi id 15.20.9891.021; Wed, 13 May 2026
- 12:26:09 +0000
-Message-ID: <383d1b22-7749-4278-a856-b8e29bc06e73@genexis.eu>
-Date: Wed, 13 May 2026 14:26:07 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 11/12] net: airoha: Support multiple LAN/WAN
- interfaces for hw MAC address configuration
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Christian Marangi
- <ansuelsmth@gmail.com>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, Madhur Agrawal <madhur.agrawal@airoha.com>
-References: <20260511-airoha-eth-multi-serdes-v6-0-c899462c4f75@kernel.org>
- <20260511-airoha-eth-multi-serdes-v6-11-c899462c4f75@kernel.org>
- <f4a11830-8a3f-4cc3-ab82-e6f02ca34ae8@genexis.eu>
- <agOUgVn24Ls5jiHq@lore-desk>
-Content-Language: en-US
-From: Benjamin Larsson <benjamin.larsson@genexis.eu>
-In-Reply-To: <agOUgVn24Ls5jiHq@lore-desk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: GV3PEPF0001DC2F.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:158:400::116) To DB9PR08MB6697.eurprd08.prod.outlook.com
- (2603:10a6:10:2ad::14)
+	id 1wN8i7-00000002UHx-0xXi;
+	Wed, 13 May 2026 12:29:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wN8i4-00000002UHL-2Crc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 May 2026 12:29:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 466EF165C;
+	Wed, 13 May 2026 05:28:59 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 13EC63F7B4;
+	Wed, 13 May 2026 05:29:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778675344; bh=8MAloSmMAMMd4l/G/g/2yUICqF0/LT/W/Bue6X2uJOo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tOxuLBMWjuVKvUJwvt6sg+sZg7VuI/aVrYvZYaRm2ztF/5yBmwIjwwPc4VEbn5Dbj
+	 FHE1xGMqksAu4sLf3v102nT1j/sWILjF11x/y6CCqYOd2LYl0ET9yghwCD0qJGJ6A9
+	 cXS5ZM3SzTGUcjIMhlnKP31YKmdCXqI7/d2ceOrQ=
+Date: Wed, 13 May 2026 13:28:56 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH 2/2] KVM: arm64: nv: Don't save/restore FP register
+ during a nested ERET or exception
+Message-ID: <agRuiKHWWn_88YzT@J2N7QTR9R3>
+References: <20260512140755.3676306-1-maz@kernel.org>
+ <20260512140755.3676306-3-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR08MB6697:EE_|AM9PR08MB5906:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5380dec-c4c0-489b-5466-08deb0ead020
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|18002099003|22082099003|11063799003|56012099003;
-X-Microsoft-Antispam-Message-Info: FhdIAkq37wAtndTGNARgCgtE4H80ZVQJSGdmDfIHdaOlbdtFK/jVbwQy3ZXSkb07+1X0RKD1n/XV/D9iCnJZGW5ImigOEnVIXGG3U4BVEJNYn+SPHQRy3BgLDBVr3UYHqlbhE6Sg2XyvC+gHt0DNedtsoSsfYZd2jtScdqqidPhohHbSEZfFwRHWXhe7ZEJ73D+NFcyhPMi2Y+WAUs3JvU+jzFwumalwgzeLgZMTRPmEPuklBjG2kNkBsva0hWE44HtMqMh8bSOSorNTw6X0FTe5lffjfrsWUSGzztHpaWqpWjyFKCGDrCG7KehZetNrvA7r1KN2tDdbgmgTWfpkOQj5JIY9xtyeVSfGixRZw83H2qwTgSwA4gV7JYP/K0fgjpdIblT3N1m/aC/VLxCDtX8RsHcxamGRLZeeBP+MdfV6wkCT5tqKFmpKLEmYDktrAumkuq8aCq73zWf4nz0dudtYEKo31pxfuoUHCW5Q2meCgNpMxDhNoA9INBeHN63r6GDo6j99JkvB/n/+hKZpybH5KtY2KT0woC2m3JkUBAPKheSfREiOTWfTNr25QzZCcBPTD660Lm2jWkjtQAtrlG8QuZjPFEQIlNG/pksgFadNSgeZgprSQ8LRBn83jm8RWQOfJmGRgt5H8GUv7AfHZPddjGTaxciKKxCSzQ/7Q2StdaE/5jFI9wYMfOvPP/ln
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB6697.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(11063799003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cVBaMm5hb2tEbmY5Z1lpSHJRRTJIVnZ6dUNOMWF1SUFwRDFIN0tvN2FiVHdO?=
- =?utf-8?B?RW8xSElsM0kyankwSkVrUklOT2Z4R0VkeXo1Y1ZjbVFKNmZBblZGWkJwYXFW?=
- =?utf-8?B?VUwxcTFCMW9GLzZHVzQwLzNERWVwZ1J4N2FFbUVrUW5GYzE1YWRnN0Q0czFp?=
- =?utf-8?B?RmtMVE85VmtidkxibW44aEJ5SlFOZGxPNTVBdWtiTW4xeFRTWm9IbjVEYmdw?=
- =?utf-8?B?aTZ6UWZKVm1xcERYM3h2YTNQTldqa2RRNGtWR1pBZlRvdU9RNFZQbzJFY2VN?=
- =?utf-8?B?UFViNThZY3JvSkFRd3dZU2JMQ1pnVk9odzY2QmFqK09PQ29QdW5HdEhJU0Rx?=
- =?utf-8?B?ZHJqaEZEaW84bFdITDVabmpXdzJZSnlLWjZmQzNmMVAzYUdpWDlRb2Y3OTdq?=
- =?utf-8?B?NERCSldFaS9PRFRQcFJ0c1JGSkdwTFRBY2lEZnNsVWRzWDAwN1R2b0tlQUp4?=
- =?utf-8?B?QVZyS0RxMVhmam9qNWRQR0M5L2ZsZWZRcUp0MG5KSy9qeWRjQjl2QVk1czQ3?=
- =?utf-8?B?eWJyT0FNSlBLdE96K0J5MVFNNmlhdXBoRk1zNDhrUXYwM1g4NDIvZUJqaFVD?=
- =?utf-8?B?NkZBbkZkc2pHSzVlZUhTa21ObUFhbXhKRmx6b3VmOGNBRVF6QUtsVjZFNU5Y?=
- =?utf-8?B?UkdnYzc1UzhFbEN4c3AvOGV6b0l6UHRzT21NTlVHcXRhYnRsRExtV1ZkbWhC?=
- =?utf-8?B?UWNFS3NkK1JzWEpkbHczYis0TGw2b3lraXJZUVc3VHF6ejdiMmdHM2VTbHlM?=
- =?utf-8?B?em1LOEdUaGxaek9MN1ZtL3V5VHlGeE9HTTJQLzYraFlHQTNsSk85Q1BlYjZL?=
- =?utf-8?B?YVREL2R0TFhWaGg4a3hjZUdLOUxlc29JTUdjYitwRE1HdWFQL2RidDZtWDZ0?=
- =?utf-8?B?d2Y4UlJ2L2pUK0prblV6bWllZ1had2hCb0xOYUFWS28xc2lsL2ZFVjhTSThW?=
- =?utf-8?B?MSszOEkyaXh6aXowaUxhRWR5UVNnTkljM01LOUdheU1iSFNwWHJVRGN5QlJW?=
- =?utf-8?B?T0ppUGV2cGlnenNqQVg2SitNaFA1L2UyV1l4azNEL0xCQWdYN3licmZEQ24x?=
- =?utf-8?B?ZW5YQmtXWDJWQjVxMDBqOUttVEtoSUpWSlZpN2hsc3pLZis0aWYxNGpNMHNT?=
- =?utf-8?B?eW92UDhrb3hQRURQWHJ2L2R4WDN3SFpUVkx6MWQ2L3ozcEJBOFNjaVBlRFBS?=
- =?utf-8?B?S04vUkw1ajhrZ3I5anQvQzNFS0VhS1B0eGo3ZVkraDRkZkpnenEvNDlPNjhJ?=
- =?utf-8?B?MW1QY2ZiMHpsVTBkbmN1YWVxMDFHQW14WldHR3RUT091YzA0aXNHZVVBYUlD?=
- =?utf-8?B?QVpXUlBzRkRObmN1Ui9jbzY3aGI5L3RtT0VwR0xDWmlVL09zditLL0JwMmp4?=
- =?utf-8?B?b25SMlpSNjVUS3ZBSGtTUUhLSjdEaXIrSVQ2TXVRSVFsbEI1K2lMT2ZVQWhm?=
- =?utf-8?B?YUhsTWVTekRGbU5mZzFELzJrczQzL0RVYWs1N0MwUVB1em91WWZFWGhtUFhv?=
- =?utf-8?B?WWM0SFBJdEh4V0RhTkptLzk5UlJzSmhhMmRoMnhPNml6dmJyUnlFbVJhVXRi?=
- =?utf-8?B?L0hZWFZvaVNVM04rVHFPRHpZUkJHakZTRzAwd3lkT05CUVlKWUsvK1pFWkZt?=
- =?utf-8?B?TGgvNFJYamlVV0J2eUplTUxQcUZtRkJDc1BHNk5sWHpXcC9BdGt3RGJxWXIw?=
- =?utf-8?B?YUdNWnVmOUprQkIzSTFxamZZWDY4T1hGeitpTUw5cGJacDk4dld3R2hvODlz?=
- =?utf-8?B?d25vYjY3MjA2UURCRE53Q2dlVHpSTTlpdDg3V2xXWmg0WGdlczFkMytZajFR?=
- =?utf-8?B?a2pCTEt1Z0hDT0pEYzRvMDFzRVJzZmRUY3hFOEw2cFg3SVI5TFE5eHJLbmxk?=
- =?utf-8?B?Yi9zcE04blBIdUdLN2dUdHZuOG5FemZRc0FzSVMzRGNXQlRKK045b2YyQWFB?=
- =?utf-8?B?TmoyejhoZUt6VEJOMWlXOVpmeDlYWUYxRER5OHRlYTFKMko3bVJrbVMyS1p3?=
- =?utf-8?B?MjZWek9YOCtML2VabElhV0lRVFJic2VlN2gyMnlxc3M3Nm9NSDR0UzJyVG1p?=
- =?utf-8?B?YkFhVmduc1pFSERBYys1dGkwc211aUNldVVneDFhRXR4RTFBdEl6TFJRb21o?=
- =?utf-8?B?NndQVkN0M3FoR3dwZmErdENSS0dLNG4ySU8zRUxaaGx3NElCRDdDSUFxSEcx?=
- =?utf-8?B?YVp0bnQ1cFpzSm9VdGd4ZHluamQxWEFIemIwODFpMGdJb1hrQ3BpQVo1Yk9i?=
- =?utf-8?B?K0ZTTncwcXlHaUFyZlYzMThuaUFxMWRBK3NXVWVCQjRSakpESjdtMVA3dFE4?=
- =?utf-8?B?MExxdHpPcVM3UGxjNHdOUnM2Q3dOMGcrUjJMeHF6MWhSV3l6ZGYvWU9TRWRK?=
- =?utf-8?Q?f1mPpISs8jBNVYOU=3D?=
-X-OriginatorOrg: genexis.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5380dec-c4c0-489b-5466-08deb0ead020
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR08MB6697.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 12:26:09.6243
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vFCXV9g3rw7ta+xbP7sF7pQMOttI7R/Dzk3+vo1Sdw7GiDNBXtWhHKiCg/ROXL1WZuvFSmQ0AcqavOgkUR4u1LYO/ll7oGe6/vBQeFPqVt0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR08MB5906
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260512140755.3676306-3-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_052615_776968_042DF424 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20260513_052908_644706_7991F50F 
+X-CRM114-Status: GOOD (  36.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,108 +74,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/05/2026 22:58, Lorenzo Bianconi wrote:
-> On May 12, Benjamin Larsson wrote:
->> Hi.
->>
->> On 11/05/2026 12:49, Lorenzo Bianconi wrote:
->>> The EN7581 and AN7583 SoCs provide registers to configure hardware LAN/WAN
->>> MAC addresses, used to determine whether received traffic is destined for
->>> this host or should be forwarded to another device.
->>> The SoC hardware design assumes all interfaces configured as LAN (or WAN)
->>> share a common upper MAC address, which is programmed into the
->>> REG_FE_{LAN,WAN}_MAC_H register. The lower bytes of 'local' addresses can
->>> be expressed as a range via the REG_FE_MAC_LMIN and REG_FE_MAC_LMAX
->>> registers.
->>> Previously, only a single interface was considered when programming these
->>> registers. Extend the logic to derive the correct minimum and maximum
->>> values for REG_FE_MAC_LMIN/REG_FE_MAC_LMAX when two or more interfaces are
->>> configured as LAN or WAN.
->>>
->>> Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
->>> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
->>> ---
->>>    drivers/net/ethernet/airoha/airoha_eth.c | 75 +++++++++++++++++++++++++++-----
->>>    drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
->>>    drivers/net/ethernet/airoha/airoha_ppe.c |  4 +-
->>>    3 files changed, 66 insertions(+), 15 deletions(-)
->>>
->>> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
->>> index 16c0ff9999da..533ffe20f833 100644
->>> --- a/drivers/net/ethernet/airoha/airoha_eth.c
->>> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
->>> @@ -71,20 +71,67 @@ static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
->>>    	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
->>>    }
->>> -static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
->>> +static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
->>>    {
->>>    	struct airoha_eth *eth = dev->eth;
->>> -	u32 val, reg;
->>> +	u8 ref_addr[ETH_ALEN] = {};
->>> +	u32 reg, val, lmin, lmax;
->>> +	int i;
->>> +
->>> +	lmin = (addr[3] << 16) | (addr[4] << 8) | addr[5];
->>> +	lmax = lmin;
->>> +
->>> +	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
->>> +		struct airoha_gdm_port *port = eth->ports[i];
->>> +		int j;
->>> +
->>> +		if (!port)
->>> +			continue;
->>> +
->>> +		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
->>> +			struct airoha_gdm_dev *iter_dev;
->>> +			struct net_device *netdev;
->>> +
->>> +			iter_dev = port->devs[j];
->>> +			if (!iter_dev || iter_dev == dev)
->>> +				continue;
->>> +
->>> +			if (airoha_is_lan_gdm_dev(iter_dev) !=
->>> +			    airoha_is_lan_gdm_dev(dev))
->>> +				continue;
->>> +
->>> +			netdev = iter_dev->dev;
->>> +			if (netdev->reg_state != NETREG_REGISTERED)
->>> +				continue;
->>> +
->>> +			ether_addr_copy(ref_addr, netdev->dev_addr);
->>> +			val = (netdev->dev_addr[3] << 16) |
->>> +			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
->>> +			if (val < lmin)
->>> +				lmin = val;
->>> +			if (val > lmax)
->>> +				lmax = val;
->>> +		}
->>> +	}
->>> +
->>> +	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
->>> +		/* According to the HW design, hw mac address MS bits
->>> +		 * must be the same for each net_device with the same
->>> +		 * LAN/WAN configuration.
->>> +		 */
->>> +		return -EINVAL;
->>> +	}
->> Maybe this information should be relayed to the user somehow?
-> netdev_err()?
-
-Ok with me.
-
-MvH
-
-Benjamin Larsson
-
-
+On Tue, May 12, 2026 at 03:07:55PM +0100, Marc Zyngier wrote:
+> When switching between L1 and L2, we diligently use a non-preemptible
+> put/load sequence in order to make sure that the old state is saved,
+> while the new state is brought in. Crucially, this includes the FP
+> registers.
+> 
+> However, this is a bit silly. The FP registers are completely shared
+> between the various ELs (just like the GPRs, really), and eagerly
+> save/restoring those in a non-preemptible section is just overhead.
+> Not to mention that the next access will end-up trapping, something
+> that becomes exponentially expensive as we nest deeper.
+> 
+> The temptation is therefore to completely drop this save/restore thing.
+> Why is it valid to do so? By analogy, the hypervisor doesn't try to
+> poloce things between EL1 and EL0, or between EL2 and EL0. Why should
+> it do so between EL2 and EL1 (or EL2 and L2 EL0)?
 >
-> Regards,
-> Lorenzo
->
->> MvH
->>
->> Benjamin Larsson
->>
+> Once you admit that the FP (and by extension SVE) registers are EL-agnostic,
+> the things that matter are:
 
+s/poloce/police/ ?
+
+The above is a bit flowery; it would be nice to remove the rhetorical
+questions and just state that (aside from some control registers) the
+FPSIMD/SVE/SME state is shared between exception levels and doesn't need
+to be saved/restored.
+
+How about:
+
+  When switching between L1 and L2, we save the old state using
+  kvm_arch_vcpu_put(), mutate the state in memory, then load the new
+  state using kvm_arch_vcpu_load(). Any live FPSIMD/SVE state is saved
+  and unbound, such that it can be lazily restored on a subsequent trap.
+
+  The FPSIMD/SVE state is shared by exception levels, and only a handful
+  of related control registers need to be changed when transitioning
+  between L1 and L2. The save/restore of the common state is needless
+  overhead, especially as trapping becomes exponentially more expensive
+  with nesting.
+
+  Avoid this overhead by leaving the common FPSIMD/SVE state live on the
+  CPU, and only switching the state that is distinct for L1 and L2:
+ 
+> - the trap controls: the effective values are recomputed on each entry
+>   into the guest to take the EL into account and merge the L0 and L1
+>   configuration if in a nested context, or directly use the L0 configuration
+>   in non-nested context (see __activate_traps()).
+> 
+> - the VL settings: the effective values are are also recomputed on each
+>   entry into the guest (see fpsimd_lazy_switch_to_guest()).
+
+This is true for FPSIMD+SVE today. For SME, SMCR_ELx also contains other
+controls, and will need to be dealt with similarly. It might be worth
+noting that (and that ZCR_ELx could gain new controls in future).
+
+> Since we appear to cover all bases, use the vcpu flags indicating the
+> handling of a nested ERET or exception delivery to avoid the whole FP
+> save/restore shenanigans.
+> 
+> For an EL1 L3 guest where L1 and L2 have this optimisation, this
+> results in at least a 10% wall clock reduction when running an I/O
+> heavy workload, generating a high rate of nested exceptions.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/fpsimd.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+> index 15e17aca1dec0..73eda0f46b127 100644
+> --- a/arch/arm64/kvm/fpsimd.c
+> +++ b/arch/arm64/kvm/fpsimd.c
+> @@ -28,6 +28,10 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+>  	if (!system_supports_fpsimd())
+>  		return;
+>  
+> +	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
+> +	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION))
+> +		return;
+> +
+
+I think we need a comment as to why this is safe, with some other detail
+from the commit message. It would also be good to have asserts here to
+catch if something goes wrong.
+
+How about:
+
+	/*
+	 * Avoid needless save/restore of the guest's common
+	 * FPSIMD/SVE/SME regs during transitions between L1/L2.
+	 *
+	 * These transitions only happens in a non-preemptible context
+	 * where the host regs have already been saved and unbound. The
+	 * live registers are either free or owned by the guest.
+	 */
+	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
+	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION) {
+		WARN_ON_ONCE(host_owns_fp_regs());
+		return;
+	}
+
+... ?
+
+Note: I didn't add WARN_ON_ONCE(preemptible()), since
+kvm_arch_vcpu_load_fp() should *never* be called in a preemptible
+context.
+
+>  	/*
+>  	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
+>  	 * that the host kernel is responsible for restoring this state upon
+> @@ -102,6 +106,10 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+>  {
+>  	unsigned long flags;
+>  
+> +	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
+> +	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION))
+> +		return;
+
+Likewise here, but we can reduce the comment, e.g.
+
+	/*
+	 * See comment in kvm_arch_vcpu_load_fp().
+	 */
+	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
+	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION) {
+		WARN_ON_ONCE(host_owns_fp_regs());
+		return;
+	}
+
+Thanks,
+Mark.
+
+> +
+>  	local_irq_save(flags);
+>  
+>  	if (guest_owns_fp_regs()) {
+> -- 
+> 2.47.3
+> 
 
