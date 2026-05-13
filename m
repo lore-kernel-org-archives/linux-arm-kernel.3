@@ -4,67 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BEAACD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 15:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D67BCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 15:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nObldBkoFz93TvD+rJyqHcpBLDBEZ04xwgIHNgsnAO8=; b=2PTrGdJ9dGQ92or0cmwB+BrqQb
-	CWzr7oQLrZE6DlMK4lU/l41S6GdDsZ3JYhcwl63syjmR/6Oe6qYpJh1hl7kA4eMKeettJa3jDNqsb
-	cL7QMBvKi7yowbJum5vuxWZPTQArH6kiG0ghFjd6dhZu6w3DZpyjorWp9l+TItzImBbHm8NSSM3QL
-	xaEIJXhucrK6A0vli8Hp10JC+m99tzJsGD45nHw+43FjtEUVDF/JKzkiY963HSHeIjr8hP8XL0suQ
-	QHrNWC1vdOtHQ2jOxWGXTfd7X+ghz1wnH3DgXTL8+jGM7d6Rdk8U8fv6aLbDYVyj6btKjFmmA8/4m
-	uXxKKwpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1PhLi/gU/akWa+adOOxtrBShyISnlkKmM+tsEVdwzYA=; b=M8k3SH8zTZ+zNiOad1YNZKHgJx
+	8IwNbdX1GbGOtFgGMQi9GEtGgWq/2GbicRBaPTVZPBFjN33U9frEoMAdJJ4vgX+fEQnS1yrjDlSg7
+	DUlmE2tEALog9lnr7tjZM7c1x2WKfPqdEBwOnqZAqEEfS1Ih4GNrXEGkSPGsp2Eoez1sUo9Uwyi9F
+	C63JK69ZSJ43d/UzxlM2AZ1+RCkZkF1IvSZPS9ML536dDuG4e4Gw61RUwi9tgZuO6LIkzf/uncak1
+	VWqqALJHtrZryEVs4iC1ak0Hl9xJCC3/6foF1RF9g6IQLRbeHhHBXTTbqQKFUF2lvVlptrl6VxrXI
+	UkaWfG8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNB8B-0000000316S-0GdS;
-	Wed, 13 May 2026 15:04:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wNBJR-000000032kx-2Ul2;
+	Wed, 13 May 2026 15:15:53 +0000
+Received: from mail-northeuropeazon11012058.outbound.protection.outlook.com ([52.101.66.58] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNB87-0000000315o-3h5O;
-	Wed, 13 May 2026 15:04:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2854543DB5;
-	Wed, 13 May 2026 15:04:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEDDBC19425;
-	Wed, 13 May 2026 15:04:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778684651;
-	bh=iliNH01E0zCiR4ewRpQV15XeBpC7YO/HdMRcKK4W6Pc=;
-	h=From:Date:Subject:To:Cc:From;
-	b=bjBDGjnbHvLYaOEiG9nuqJk7YEMQb2VQpKoPHXjdQXblqZcdm561Qe/3MuOtCDaZd
-	 FKzh1KCl0FBkts3VT4Ks6sJnnoKYOe3ByrO5mKx83nfoN9tTZOgSqXS9CE9B/n3luX
-	 Qb4lv/pVLkbf8crrPPNsUQnFnvwJlhUodzxSqAj7l6L+VM+s0O2wjqn2E2Bx7XtZut
-	 uikhh8u5QNKm9F00CxrprCmzOSoon4Wu8vkvafONK2ukxs3StgVssSdLXYasSisvpl
-	 K9Fj1rBSe2VxTBm36tKU+Dqei+6/lRU5bEbPFlQNPZOqyrFPSKKQYCY+RtTd70IbM7
-	 70tS4jddPVnLQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 13 May 2026 17:03:59 +0200
-Subject: [PATCH net-next] net: airoha: Reserve RX headroom to avoid skb
- reallocation
+	id 1wNBJP-000000032jv-20tS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 13 May 2026 15:15:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LDr7bjtLcV2kllAcRMe2KkpsaWEdIUwyPhxGWKUAUCvsKN4D1OtS9yTx05IvSdQR0BRghxma1WqWZBc/OkL+JJ0IC9d1poMVe1Qg94OzsytcBQK1hx1q4BlCRUaEk7LAjCEiluyWVsHMyfekMkuRBhlTBb6JAtY3qFZJ2RD1eKB6SpsyqNGKwyOsDp4P5emU1W1cDBz/9bhtiHSV8QZPA5R4jVMJ/Zn712CTq0NSNxfRcGN8lPSH9vb9COI1sFTYddtQ/fp+J8mHiYUFPTRlroJgcf8uLgrdcT+81G8Nb5Do/TeqmFZunu3NdjGPAIKQIbOg1ItOPkCxODAd5e8t8w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1PhLi/gU/akWa+adOOxtrBShyISnlkKmM+tsEVdwzYA=;
+ b=ZmbrwPY5GmlALqwzzBdaTnd7sLrDC7t7ibh/eoPtHfIFodVmA3qi9MwrasyDhd0PuOI+T/kgOw0ywX2dq/OFvWlKharNQWSjcMBAqQYwBMaKA+e5j/xqS+6hj3RCwJumyROwfl6ZFMZb+xtjpS2fsuim8vxT7VyNrPWMHTHO9JlprML55GJc0mVRRmmLMjsD0yNf//bSj0lcLrAdq0yq8xsIeqYqkZTJxZn/il+xKiz06PVTgXT/NWMu4pF/2Po4xBMHpaIzPXgNpuxef0kTr3JjIHUcALnKP/DSELDNDaTuTwTGHYQJ0bXPPNjSDvASzEmtgslJwwG5EWx50Dl3aw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1PhLi/gU/akWa+adOOxtrBShyISnlkKmM+tsEVdwzYA=;
+ b=RGKZTEecw8rgMfgHq8dVhAS2HWg1kKK4RMKYmjl2ImCyvIeIZOChhgOhta1doWG+cIyXS1c4gLYJCulsMS9plupLzuCu17M9qajDO3h6CWWnnINwTx0moVm94DvY0I/kfw+ixHBiywo+YNnLklR9Y+bo/cLl3dUoTOi6Xna2F0KEYjAqDPNtvKdYs8X6pHURY5FjYar5wJchp9HVl0slmZFD8SHOp3j+NGZpd5rv7ZYNraWfdqwThM/nbM0ZlEZiKhFeVjCpVJNsDpMACZZ2ooU0AGv4/sR82oz9G0v1QcRYKm2NlIq5LBrNQMmcrR/9HZHR65dYX961pMHaoydFXA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DB8PR04MB6985.eurprd04.prod.outlook.com (2603:10a6:10:11e::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Wed, 13 May
+ 2026 15:15:46 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9913.009; Wed, 13 May 2026
+ 15:15:46 +0000
+Date: Wed, 13 May 2026 11:15:38 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: l.stach@pengutronix.de, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v1 1/2] PCI: imx6: Configure REF_USE_PAD before PHY reset
+ for i.MX95
+Message-ID: <agSVms2Etg1taGr0@lizhi-Precision-Tower-5810>
+References: <20260512052244.49414-1-hongxing.zhu@nxp.com>
+ <20260512052244.49414-2-hongxing.zhu@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260512052244.49414-2-hongxing.zhu@nxp.com>
+X-ClientProxiedBy: PH7P221CA0004.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:32a::14) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260513-airoha-rx-headroom-v1-1-bd87798e422d@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqEMAxA0atI1hNonSp1rjLMIthos7AdUpGCe
- HeLy7f4/4TCKlzg052gfEiRnBrsq4M5UloZJTRDb/rRDPaNJJojoVaMTEFz3tAFO83knSfroIV
- /5UXqM/1C4h0T1x1+13UDkkWbjm4AAAA=
-X-Change-ID: 20260513-airoha-rx-headroom-4d19ca848a14
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Xuegang Lu <xuegang.lu@airoha.com>
-X-Mailer: b4 0.14.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DB8PR04MB6985:EE_
+X-MS-Office365-Filtering-Correlation-Id: cd3c1115-7238-4584-5bbf-08deb1028212
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|52116014|1800799024|18002099003|22082099003|38350700014|11063799003|56012099003|3023799003;
+X-Microsoft-Antispam-Message-Info: whOWVXDS8B8U9Mm3s/MZYl1W6imGCJa5H+U0bkD4E5Vohidez4Qfi5whnBaw7m0jwplUKF3uKSbPGLl24LjYo/Pw3/B2Jb5zT3gVUgoUTz3s9CuRoWVrW9fwsM5GZn+082MEyYEz+KbyfJWjmxl9m/VbUNLxL6OxGzNidClJhk+6p8nQIUt8VjA0IZ+j0V7fHc+pOiEmp0EALcdgbWkxsuDpBKFdOHcY5nVTB2zOHSfB8Pu60Oq261ZktvM2LoyQxCdh5pT8Xq3FicVQ2hi8lKUq0Yek2vZrwpHpbDtiT7/+26PfGxpaRJl38+R2VFkplrsWcGrHSEuosmiU/03TK3UyjspEnJ4bB7Kuxr8oW//2PP3wVYKzsB3JKGBAlpHBwPTRUOJ79MWKqfYW8fUgNryGJGjC9tgg+FiEsYizPRymgmqNZfHTtbNuNunwQ4/ThTRT6xvO4A2bMQIQ6m0LpsH6D3SjQqfPxa0DaEkCe62/x+wnwZnoW74viC6CjCRH0aPO4N5gRh9SkGEyvA/Rihiv6azn8jpDNy1vx/swsA6aNjBr/s0uSH+K9hhRInFMYhyTXo6xyNRcLNEC0gmjog7apstR34psCPc8ZSdWZs+L3jREmpRQkVG/u3esjGgz5mavqhNMoOnrEDRsHVZ5vDz8kahb/ZOZA6HolI+YuN8JNi00ix5txkXpVbg3FvxkRIfQttnbU8byV2jFhjHnWawHaWsHP350YxBVRtKJzR1i13IXIdUtbLYv1nLQo6a1
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(52116014)(1800799024)(18002099003)(22082099003)(38350700014)(11063799003)(56012099003)(3023799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9nIkbWvYjnGK/PerlSL+ES++Yt/judN5cOTNh1/ht0erR2s5MefI6W9SFxGo?=
+ =?us-ascii?Q?h+aD+Ow1QC5jUCa9h0Ucw2P9rxjbeXt40L3MwVZRgQr8COO0LL6D8VsU4zko?=
+ =?us-ascii?Q?SEum9ulj2GmDoIE5sXAH206XZOQSu3q8DcoyBUUc85QIwjVKIYPxJKFM7Q6t?=
+ =?us-ascii?Q?UCSj7pr6pDDl2sbmV6wuDyS0zotQ/7dvkg8PLA51LPCIwxBxMQPUlSlx3hLv?=
+ =?us-ascii?Q?tYSdXUf9viNFMCBAvo+RWySpFGr2308+Ze4rIzcpPZqVRCnOSdKSiieEtrpv?=
+ =?us-ascii?Q?bz+76rlXEAGjYdJzFfmePRZi72FV1gFsqpEGpnoCkBrp/DbtpDOiXqGrcTUs?=
+ =?us-ascii?Q?QkX9pOtU5kBwLnC/KYTRq0OiYxWKX0PrIE3ljz2hsvHbxZMlhNaohfUpp7Kp?=
+ =?us-ascii?Q?LDIRKE/jrZCvVXSsnnc2MOGquiTqmXn9LJffcfqKKi8RwEgk8xq+5kQ/aIMF?=
+ =?us-ascii?Q?AuzkA1VGPi2UyuY/21+svuhVyysGUYEjGNpeeXnoDYWmzFJgXjQ/IB4F9OD0?=
+ =?us-ascii?Q?3yRdC0P4qovXUwzemsA/j9aRepyBMzmF8QBH3hdXbb+Sz9b2GRfHGXfYmaNW?=
+ =?us-ascii?Q?b/BNR7lzaXUM1fhw0zhUBBt2pZ3ksVyJtQqs1/JwJcF9h359IdqntU783GFa?=
+ =?us-ascii?Q?wW1XMbTDsR1TfDPtGqkhC3nrDOk4ipHDhKdJd3Mufv3tSbBuR0bJ9ksM2cPG?=
+ =?us-ascii?Q?Dehw/V9xlIjBooAtGvIJclXwN1oAyk67D/r0UOUFctwEfJID2fkjm8cZNJCb?=
+ =?us-ascii?Q?3PL48wMBf9UQ5IDWeOqWRsPZV7o5Ey6d2CVCND7CqV+bVUG9y0E0BmbS+gNI?=
+ =?us-ascii?Q?lHhCpP3wByfdogKYuVJfG2C31/8jBThzTKgkCfOcOHufGVQ0R++VxWHV2J9f?=
+ =?us-ascii?Q?4cneK/OgGI+UDzy8rrlf3n7+ISC1y9g4JMVhrIzXpY2xikUa7EqXzwiOavcI?=
+ =?us-ascii?Q?4uT0kwrXhorR8YroWJORC1zNCg70vBMFXJPQAbb7golYKbx+SdTV3smUAXtX?=
+ =?us-ascii?Q?Zr48cDIWDwZ7Z2unwjG3up1vp+CnL0v3jJIpH5RlLmerxdWrlGNtL/FrMSoG?=
+ =?us-ascii?Q?KC7Se1ZCS7qlrI3LIkJYaybtPKm+poX+R4jE0HOFpT6C82dm+fN6MEwFk3v5?=
+ =?us-ascii?Q?lntiVGnwIlM9hLO+azEwxjeRLDDUM4dLZz3DZea3WKPk28qCeOCN4cU2vPoX?=
+ =?us-ascii?Q?c8EC13saxuSWkCIxMXFHtUs5F/pIpft+uKexwV+KGMdolj71kY9ml2kCub2Q?=
+ =?us-ascii?Q?jNBvIQXz2Etu0+yiehBfHzgo9usXWMdS5wh+Rmxr8o1uTuSVpv/joKZUVDlI?=
+ =?us-ascii?Q?8QFPIX2R/LChTbsti1O2MsVLneg3U8bWEZibtw+92cTJMYFkPm3O1+s3IHdU?=
+ =?us-ascii?Q?Su4NSEfvAHIZKv2xs8YUBFsLbBa9X4oKkXMMr4jNT42/52KP4Unr5L8vKzUK?=
+ =?us-ascii?Q?Sb3iuZbDq0Yqr5C7epIfoDCpDdCT4OJjKWZTCSrMOwnp5xEy1DQvZExSrezK?=
+ =?us-ascii?Q?hc8NmKHbRR9EyLAijCOMJ0hCQifnrLTwDVnEV005tUKFbDzA/oGCQpPEZl0P?=
+ =?us-ascii?Q?BeVzf9nKemFYhuuUnV20ma2P3f9fxheH7P1yyYZqvTK/A3KvklmLN0N2ETrM?=
+ =?us-ascii?Q?ZWDw5fexjue3cBLR180fPW8kwC9uvQaPpEIY4i+DjX9K9ewfjiqtWPaxDGSp?=
+ =?us-ascii?Q?vj2+AIOziLQtxz4oqTZbDGkF7K695u59KGxry3AwCp4NY//r?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cd3c1115-7238-4584-5bbf-08deb1028212
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2026 15:15:46.4904
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: K6WjIfprk0oz3/5sYC3OKsEx94Dj5bzgBpNQgRhupv3uNVJ+BNeuEMqVrKfJXyfz2gLcR06brj64rwBLMQ6yGA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6985
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_080411_965678_20AE910F 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260513_081551_520151_D3A74CF8 
+X-CRM114-Status: GOOD (  24.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,83 +139,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reserve NET_SKB_PAD + NET_IP_ALIGN bytes of headroom for received packets
-to avoid skb head reallocation when pushing protocol headers into the skb.
+On Tue, May 12, 2026 at 01:22:43PM +0800, Richard Zhu wrote:
+> According to the i.MX95 PCIe PHY Databook, the ref_use_pad signal in the
+> Common Block Signals section selects the reference clock source connected
+> to the PHY pads. Per the specification, any change to this input must be
+> followed by a PHY reset assertion to take effect.
+>
+> Move the REF_USE_PAD configuration before the PHY reset toggle to comply
+> with the required initialization sequence.
+>
+> Fixes: 47f54a902dcd ("PCI: imx6: Toggle the core reset for i.MX95 PCIe")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> ---
 
-Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 14 ++++++++------
- drivers/net/ethernet/airoha/airoha_eth.h |  2 ++
- 2 files changed, 10 insertions(+), 6 deletions(-)
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index f71fb18197ec..5a027cc7ffcb 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -543,9 +543,10 @@ static int airoha_qdma_fill_rx_queue(struct airoha_queue *q)
- 		q->queued++;
- 		nframes++;
- 
-+		offset += AIROHA_RX_HEADROOM;
- 		e->buf = page_address(page) + offset;
- 		e->dma_addr = page_pool_get_dma_addr(page) + offset;
--		e->dma_len = SKB_WITH_OVERHEAD(q->buf_size);
-+		e->dma_len = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
- 
- 		val = FIELD_PREP(QDMA_DESC_LEN_MASK, e->dma_len);
- 		WRITE_ONCE(desc->ctrl, cpu_to_le32(val));
-@@ -611,13 +612,12 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 		q->tail = (q->tail + 1) % q->ndesc;
- 		q->queued--;
- 
--		dma_sync_single_for_cpu(eth->dev, e->dma_addr,
--					SKB_WITH_OVERHEAD(q->buf_size), dir);
-+		dma_sync_single_for_cpu(eth->dev, e->dma_addr, e->dma_len,
-+					dir);
- 
- 		page = virt_to_head_page(e->buf);
- 		len = FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
--		data_len = q->skb ? q->buf_size
--				  : SKB_WITH_OVERHEAD(q->buf_size);
-+		data_len = q->skb ? AIROHA_RX_LEN(q->buf_size) : e->dma_len;
- 		if (!len || data_len < len)
- 			goto free_frag;
- 
-@@ -627,10 +627,12 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 
- 		port = eth->ports[p];
- 		if (!q->skb) { /* first buffer */
--			q->skb = napi_build_skb(e->buf, q->buf_size);
-+			q->skb = napi_build_skb(e->buf - AIROHA_RX_HEADROOM,
-+						q->buf_size);
- 			if (!q->skb)
- 				goto free_frag;
- 
-+			skb_reserve(q->skb, AIROHA_RX_HEADROOM);
- 			__skb_put(q->skb, len);
- 			skb_mark_for_recycle(q->skb);
- 			q->skb->dev = port->dev;
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 58530d096de7..d3781103abb5 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -32,6 +32,8 @@
- #define AIROHA_FE_MC_MAX_VLAN_TABLE	64
- #define AIROHA_FE_MC_MAX_VLAN_PORT	16
- #define AIROHA_NUM_TX_IRQ		2
-+#define AIROHA_RX_HEADROOM		(NET_SKB_PAD + NET_IP_ALIGN)
-+#define AIROHA_RX_LEN(_n)		((_n) - AIROHA_RX_HEADROOM)
- #define HW_DSCP_NUM			2048
- #define IRQ_QUEUE_LEN(_n)		((_n) ? 1024 : 2048)
- #define TX_DSCP_NUM			1024
-
----
-base-commit: 8ebd24a7822cbae25beeafba49b2159d6a68a5f2
-change-id: 20260513-airoha-rx-headroom-4d19ca848a14
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+>  drivers/pci/controller/dwc/pci-imx6.c | 27 ++++++++++++++++++++++++---
+>  1 file changed, 24 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 1034ac5c5f5c1..c57f18d9e4ffa 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -137,6 +137,7 @@ struct imx_pcie_drvdata {
+>  	const u32 mode_off[IMX_PCIE_MAX_INSTANCES];
+>  	const u32 mode_mask[IMX_PCIE_MAX_INSTANCES];
+>  	const struct pci_epc_features *epc_features;
+> +	int (*init_pre_reset)(struct imx_pcie *pcie);
+>  	int (*init_phy)(struct imx_pcie *pcie);
+>  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
+>  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
+> @@ -247,6 +248,24 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
+>  	return imx_pcie->controller_id == 1 ? IOMUXC_GPR16 : IOMUXC_GPR14;
+>  }
+>
+> +static int imx95_pcie_init_pre_reset(struct imx_pcie *imx_pcie)
+> +{
+> +	bool ext = imx_pcie->enable_ext_refclk;
+> +
+> +	/*
+> +	 * Regarding the Signal Descriptions of i.MX95 PCIe PHY, ref_use_pad is
+> +	 * used to select reference clock connected to a pair of pads.
+> +	 *
+> +	 * Any change in this input must be followed by phy_reset assertion.
+> +	 */
+> +
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_0,
+> +			   IMX95_PCIE_REF_USE_PAD,
+> +			   ext ? IMX95_PCIE_REF_USE_PAD : 0);
+> +
+> +	return 0;
+> +}
+> +
+>  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+>  {
+>  	bool ext = imx_pcie->enable_ext_refclk;
+> @@ -269,9 +288,6 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+>  			IMX95_PCIE_PHY_CR_PARA_SEL,
+>  			IMX95_PCIE_PHY_CR_PARA_SEL);
+>
+> -	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_GEN_CTRL,
+> -			   IMX95_PCIE_REF_USE_PAD,
+> -			   ext ? IMX95_PCIE_REF_USE_PAD : 0);
+>  	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_0,
+>  			   IMX95_PCIE_REF_CLKEN,
+>  			   ext ? 0 : IMX95_PCIE_REF_CLKEN);
+> @@ -1251,6 +1267,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  		pp->bridge->disable_device = imx_pcie_disable_device;
+>  	}
+>
+> +	if (imx_pcie->drvdata->init_pre_reset)
+> +		imx_pcie->drvdata->init_pre_reset(imx_pcie);
+> +
+>  	imx_pcie_assert_core_reset(imx_pcie);
+>  	imx_pcie_assert_perst(imx_pcie, true);
+>
+> @@ -1961,6 +1980,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
+>  		.core_reset = imx95_pcie_core_reset,
+>  		.init_phy = imx95_pcie_init_phy,
+> +		.init_pre_reset = imx95_pcie_init_pre_reset,
+>  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
+>  		.enable_ref_clk = imx95_pcie_enable_ref_clk,
+>  		.clr_clkreq_override = imx95_pcie_clr_clkreq_override,
+> @@ -2016,6 +2036,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+>  		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
+>  		.mode_off[0]  = IMX95_PE0_GEN_CTRL_1,
+>  		.mode_mask[0] = IMX95_PCIE_DEVICE_TYPE,
+> +		.init_pre_reset = imx95_pcie_init_pre_reset,
+>  		.init_phy = imx95_pcie_init_phy,
+>  		.core_reset = imx95_pcie_core_reset,
+>  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
+>
+> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+> --
+> 2.37.1
+>
 
