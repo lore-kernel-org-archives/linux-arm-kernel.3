@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DF5CD484C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CCF4CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U9MK8IcThNhi0X5Mrl5i58AxiVZzu+KeREc+YRIc/B0=; b=VmfZe+3ak2b7t/vdAR3V1wnpLy
-	XW4lwRYr4HTFEDX1BpvA9E+MWvp+w6h6f7g0hdTiJn+W2QyHW59DDGG0SL3Lz0h3bcdT65YxS7iKa
-	jQF3RBgGj7KfDRNxibFKde7dijeXPXw8g3pioFwFMV/v6ggaWRc/q6V19rehKa55WKaRENR8BOmmP
-	NvVzxBozdePMibKxlOJVfb9tCu1xcZRtlicNoO1MR6odJubMl+vgox+a4GZXRW6HHJ1ulFd3LMKa4
-	lAb1eJrHEMp0wHEg55cpyAogZ0svYrblI2YXtkpv0jo0Ge2tZQ3GkrWYuGdlyu+/dzVJrRlOMWmeh
-	7LsrIb1g==;
+	bh=/htPtQr6aQdXHdH+fTmj7gGZcJiVUckhDYNdXH3UMbc=; b=Np41Vf10uPIENsnOsMNSNWXs+P
+	jUWdWoLbhAUJQ2Scd6yG9W2EmSs4+zy5Tc/qFTL8ww6qlFFQHiC11rDi5Hp20jM0Rdn6bzlIJSpof
+	zgl/fTPMlpsHCgusSmSZ9zdJtSBoMM3nzwpJfUUK5Gt/JuUYjeeOJRD0iDBQKRQUsJowa0zGLCHSv
+	2L+GvDepCDbCUad47N5xio547EvVTgki0+UYPMpPtECu0w7vGdnFt9X0vMnJyNKN1hoohaOUOoHzq
+	JL4tRYloxLluoJ2f+I2Ar4AXiRvwdamRAivG0w6EhPnxLxmf7dCwf+eoHS35QBD1W3W5Cwj0a80h/
+	a10LEpfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Nu-000000015P5-2ugq;
-	Wed, 13 May 2026 03:35:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wN0Nv-000000015Sa-3Wvh;
+	Wed, 13 May 2026 03:35:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0N7-000000014CB-2dtP
+	id 1wN0NA-000000014It-3Mxl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:34:58 +0000
+	Wed, 13 May 2026 03:35:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87734444F3;
-	Wed, 13 May 2026 03:34:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A7F6C2BCFA;
-	Wed, 13 May 2026 03:34:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 20B176111B;
+	Wed, 13 May 2026 03:34:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E36EC4AF11;
+	Wed, 13 May 2026 03:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778643297;
-	bh=htHqB9fjsGibk8/Z1/tD3h7Th9hfmcAsTtcWLppiK1Q=;
+	s=k20201202; t=1778643292;
+	bh=Ny02yZ3OX6brRIw4EOBZjdfKy5OscDww5EM574zM+io=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QPtJ57Ss2C5oeJm5PngBvSj5BfCbp3P4yplAqZ8VoEjLZJSGSZXibJTMM/OfA7MH3
-	 grKttNw5o5/7mZFYsP5lonZ44tZFyZjsLC32PPnktBGsVnvgBxYWfsPTtRUWLjN26a
-	 PWQMk3M4oUc7lO90sI+G1cd6PXJNumU8xsaYABLQ25QrGIEWErfxQz7whWRctsMPGn
-	 ozD5FYtkW/EKryooEDN6mdJWXb8FFDnhTnuK0HYFoo0nRtvhtzSRUl8s40dMNqcmWe
-	 arBHvnTXsm800E9L4UvHnKyadiXmLcy7VWkac0ejFNx5P4rBDvepNVQNuFbCYjyfsh
-	 ZsAoKd6Iqfnmg==
+	b=KfvG7GRW0rzfBjvlsV4CVsesK0XKMhPRDKL/c3WKAKJbs4n+BpSd2ktCjwZsMz4rm
+	 thGDPtFPu2w9MnWwug/qI5csNRFYEx5kj8OOGuh5UVXSqgnZyFPErEF7Q+CJM8nK1/
+	 PBiidRGdljae2B8kFUa/eCEC1E2bvSp2ywLTQKU71xHJ8q1Dpvcye2OHnvtydGqGNM
+	 L69o1+Ox1CW0VLYSyWXEy1pHzli6r4BW2rznYdreIz0C8RZmVJE/PmJw8Crb1fyB7H
+	 gYiGCZPKrCpCQ+BEvpn1vrl1hPG4EK26vdCcJr2k4EFKRD7PWL2fJY0OktUmqRDpH9
+	 TfiSrz6rdJVrA==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,17 +55,14 @@ Cc: linux-kernel@vger.kernel.org,
 	Mark Rutland <mark.rutland@arm.com>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v3 19/21] objtool/klp: Introduce objtool for arm64
-Date: Tue, 12 May 2026 20:34:15 -0700
-Message-ID: <5b66146373b1ff1aba1318fd51867dea2eb882f6.1778642121.git.jpoimboe@kernel.org>
+Subject: [PATCH v3 12/21] objtool: Refactor elf_add_data() to use a growable data buffer
+Date: Tue, 12 May 2026 20:34:08 -0700
+Message-ID: <a0fe2363d017a2833e98ae50de797fe55c2796a4.1778642120.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1778642120.git.jpoimboe@kernel.org>
 References: <cover.1778642120.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_203457_714079_2338E50A 
-X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,343 +76,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
-Message-ID: <20260513033415.ze1wUzHIPTZijw7YtTSnT99cRYzp_IIeR_dibFK55PA@z>
+Message-ID: <20260513033408.1ZFb2x8-oSTFMWeQJYaVS7d61vl60pmihmMFdLyLrG0@z>
 
-Add basic support for arm64 on objtool.  Only "objtool klp" subcommands
-are currently supported.
+Instead of calling elf_newdata() for each new piece of data with its own
+separate buffer, keep it all in the same growable buffer so the
+section's entire data can be accessed if needed.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- arch/arm64/Kconfig                            |   2 +
- tools/objtool/Makefile                        |   4 +
- tools/objtool/arch/arm64/Build                |   2 +
- tools/objtool/arch/arm64/decode.c             | 177 ++++++++++++++++++
- .../arch/arm64/include/arch/cfi_regs.h        |  11 ++
- tools/objtool/arch/arm64/include/arch/elf.h   |  15 ++
- .../objtool/arch/arm64/include/arch/special.h |  21 +++
- tools/objtool/arch/arm64/special.c            |  21 +++
- 8 files changed, 253 insertions(+)
- create mode 100644 tools/objtool/arch/arm64/Build
- create mode 100644 tools/objtool/arch/arm64/decode.c
- create mode 100644 tools/objtool/arch/arm64/include/arch/cfi_regs.h
- create mode 100644 tools/objtool/arch/arm64/include/arch/elf.h
- create mode 100644 tools/objtool/arch/arm64/include/arch/special.h
- create mode 100644 tools/objtool/arch/arm64/special.c
+ tools/objtool/elf.c                 | 123 ++++++++++++++--------------
+ tools/objtool/include/objtool/elf.h |  13 ++-
+ 2 files changed, 71 insertions(+), 65 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index fe60738e5943b..101080fd4f99e 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -210,9 +210,11 @@ config ARM64
- 	select HAVE_HW_BREAKPOINT if PERF_EVENTS
- 	select HAVE_IOREMAP_PROT
- 	select HAVE_IRQ_TIME_ACCOUNTING
-+	select HAVE_KLP_BUILD
- 	select HAVE_LIVEPATCH
- 	select HAVE_MOD_ARCH_SPECIFIC
- 	select HAVE_NMI
-+	select HAVE_OBJTOOL
- 	select HAVE_PERF_EVENTS
- 	select HAVE_PERF_EVENTS_NMI if ARM64_PSEUDO_NMI
- 	select HAVE_PERF_REGS
-diff --git a/tools/objtool/Makefile b/tools/objtool/Makefile
-index a4484fd22a96d..94aabeee97367 100644
---- a/tools/objtool/Makefile
-+++ b/tools/objtool/Makefile
-@@ -11,6 +11,10 @@ ifeq ($(SRCARCH),loongarch)
- 	BUILD_ORC	   := y
- endif
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index 33c95a74a51bd..e09bb0a63be35 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -1134,9 +1134,6 @@ static int read_relocs(struct elf *elf)
  
-+ifeq ($(SRCARCH),arm64)
-+	ARCH_HAS_KLP := y
-+endif
+ 		rsec->base->rsec = rsec;
+ 
+-		/* nr_alloc_relocs=0: libelf owns d_buf */
+-		rsec->nr_alloc_relocs = 0;
+-
+ 		rsec->relocs = calloc(sec_num_entries(rsec), sizeof(*reloc));
+ 		if (!rsec->relocs) {
+ 			ERROR_GLIBC("calloc");
+@@ -1395,7 +1392,7 @@ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char
+ 
+ void *elf_add_data(struct elf *elf, struct section *sec, const void *data, size_t size)
+ {
+-	unsigned long offset;
++	unsigned long offset, size_old, size_new, alloc_size_old, alloc_size_new;
+ 	Elf_Scn *s;
+ 
+ 	if (!sec->sh.sh_addralign) {
+@@ -1409,30 +1406,55 @@ void *elf_add_data(struct elf *elf, struct section *sec, const void *data, size_
+ 		return NULL;
+ 	}
+ 
+-	sec->data = elf_newdata(s);
+ 	if (!sec->data) {
+-		ERROR_ELF("elf_newdata");
+-		return NULL;
++		sec->data = elf_newdata(s);
++		if (!sec->data) {
++			ERROR_ELF("elf_newdata");
++			return NULL;
++		}
 +
- ifeq ($(ARCH_HAS_KLP),y)
- 	HAVE_XXHASH = $(shell printf "$(pound)include <xxhash.h>\nXXH3_state_t *state;int main() {}" | \
- 		      $(HOSTCC) $(HOSTCFLAGS) -xc - -o /dev/null -lxxhash 2> /dev/null && echo y || echo n)
-diff --git a/tools/objtool/arch/arm64/Build b/tools/objtool/arch/arm64/Build
-new file mode 100644
-index 0000000000000..d24d5636a5b84
---- /dev/null
-+++ b/tools/objtool/arch/arm64/Build
-@@ -0,0 +1,2 @@
-+objtool-y += decode.o
-+objtool-y += special.o
-diff --git a/tools/objtool/arch/arm64/decode.c b/tools/objtool/arch/arm64/decode.c
-new file mode 100644
-index 0000000000000..47658c76e1af0
---- /dev/null
-+++ b/tools/objtool/arch/arm64/decode.c
-@@ -0,0 +1,177 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
++		sec->data->d_align = sec->sh.sh_addralign;
+ 	}
+ 
+-	sec->data->d_buf = calloc(1, size);
+-	if (!sec->data->d_buf) {
+-		ERROR_GLIBC("calloc");
+-		return NULL;
++	size_old = sec->data->d_size;
++	offset = ALIGN(size_old, sec->sh.sh_addralign);
++	size_new = offset + size;
 +
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <objtool/check.h>
-+#include <objtool/disas.h>
-+#include <objtool/elf.h>
-+#include <objtool/arch.h>
-+#include <objtool/warn.h>
-+#include <objtool/builtin.h>
++	if (!sec->data_overallocated)
++		alloc_size_old = size_old;
++	else
++		alloc_size_old = max(64UL, roundup_pow_of_two(size_old ? : 1));
 +
-+const char *arch_reg_name[CFI_NUM_REGS] = {};
++	alloc_size_new = max(64UL, roundup_pow_of_two(size_new ? : 1));
 +
-+int arch_ftrace_match(const char *name)
-+{
-+	return 0;
-+}
++	if (alloc_size_new > alloc_size_old) {
++		void *orig_buf = sec->data->d_buf;
 +
-+s64 arch_insn_adjusted_addend(struct instruction *insn, struct reloc *reloc)
-+{
-+	return reloc_addend(reloc);
-+}
++		sec->data->d_buf = calloc(1, alloc_size_new);
++		if (!sec->data->d_buf) {
++			ERROR_GLIBC("calloc");
++			return NULL;
++		}
 +
-+bool arch_callee_saved_reg(unsigned char reg)
-+{
-+	return false;
-+}
++		if (size_old)
++			memcpy(sec->data->d_buf, orig_buf, size_old);
 +
-+int arch_decode_hint_reg(u8 sp_reg, int *base)
-+{
-+	exit(-1);
-+}
++		if (orig_buf && sec->data_owned)
++			free(orig_buf);
 +
-+const char *arch_nop_insn(int len)
-+{
-+	exit(-1);
-+}
++		sec->data_owned = 1;
++		sec->data_overallocated = 1;
+ 	}
+ 
+ 	if (data)
+-		memcpy(sec->data->d_buf, data, size);
+-
+-	sec->data->d_size = size;
+-	sec->data->d_align = sec->sh.sh_addralign;
+-
+-	offset = ALIGN(sec_size(sec), sec->sh.sh_addralign);
+-	sec->sh.sh_size = offset + size;
++		memcpy(sec->data->d_buf + offset, data, size);
++	else
++		memset(sec->data->d_buf + offset, 0, size);
+ 
++	sec->data->d_size = size_new;
++	sec->sh.sh_size = size_new;
+ 	mark_sec_changed(elf, sec, true);
+-
+-	return sec->data->d_buf;
++	return sec->data->d_buf + offset;
+ }
+ 
+ struct section *elf_create_section(struct elf *elf, const char *name,
+@@ -1483,6 +1505,8 @@ struct section *elf_create_section(struct elf *elf, const char *name,
+ 			ERROR_GLIBC("calloc");
+ 			return NULL;
+ 		}
 +
-+const char *arch_ret_insn(int len)
-+{
-+	exit(-1);
-+}
-+
-+int arch_decode_instruction(struct objtool_file *file, const struct section *sec,
-+			    unsigned long offset, unsigned int maxlen,
-+			    struct instruction *insn)
-+{
-+	u32 ins;
-+
-+	if (maxlen < 4) {
-+		ERROR_INSN(insn, "can't decode instruction");
++		sec->data_owned = 1;
+ 	}
+ 
+ 	if (!gelf_getshdr(s, &sec->sh)) {
+@@ -1533,60 +1557,33 @@ static int elf_alloc_reloc(struct elf *elf, struct section *rsec)
+ 	struct reloc *old_relocs, *old_relocs_end, *new_relocs;
+ 	unsigned int nr_relocs_old = sec_num_entries(rsec);
+ 	unsigned int nr_relocs_new = nr_relocs_old + 1;
+-	unsigned long nr_alloc;
++	unsigned long nr_alloc_old = 0, nr_alloc_new;
+ 	struct symbol *sym;
+ 
+-	if (!rsec->data) {
+-		rsec->data = elf_newdata(elf_getscn(elf->elf, rsec->idx));
+-		if (!rsec->data) {
+-			ERROR_ELF("elf_newdata");
+-			return -1;
+-		}
++	if (!elf_add_data(elf, rsec, NULL, elf_rela_size(elf)))
 +		return -1;
-+	}
+ 
+-		rsec->data->d_align = 1;
+-		rsec->data->d_type = ELF_T_RELA;
+-		rsec->data->d_buf = NULL;
+-	}
++	rsec->data->d_type = ELF_T_RELA;
+ 
+-	rsec->data->d_size = nr_relocs_new * elf_rela_size(elf);
+-	rsec->sh.sh_size   = rsec->data->d_size;
++	if (rsec->relocs_overallocated)
++		nr_alloc_old = max(64UL, roundup_pow_of_two(nr_relocs_old ? : 1));
++	else
++		nr_alloc_old = nr_relocs_old;
+ 
+-	nr_alloc = max(64UL, roundup_pow_of_two(nr_relocs_new));
+-	if (nr_alloc <= rsec->nr_alloc_relocs)
++	nr_alloc_new = max(64UL, roundup_pow_of_two(nr_relocs_new ? : 1));
 +
-+	/* arm64 instructions are always LE, thus no bswap_if_needed() */
-+	ins = le32toh(*(u32 *)(sec->data->d_buf + offset));
++	if (nr_alloc_old == nr_alloc_new)
+ 		return 0;
+ 
+-	if (rsec->data->d_buf && !rsec->nr_alloc_relocs) {
+-		void *orig_buf = rsec->data->d_buf;
+-
+-		/*
+-		 * The original d_buf is owned by libelf so it can't be
+-		 * realloced.
+-		 */
+-		rsec->data->d_buf = malloc(nr_alloc * elf_rela_size(elf));
+-		if (!rsec->data->d_buf) {
+-			ERROR_GLIBC("malloc");
+-			return -1;
+-		}
+-		memcpy(rsec->data->d_buf, orig_buf,
+-		       nr_relocs_old * elf_rela_size(elf));
+-	} else {
+-		rsec->data->d_buf = realloc(rsec->data->d_buf,
+-					    nr_alloc * elf_rela_size(elf));
+-		if (!rsec->data->d_buf) {
+-			ERROR_GLIBC("realloc");
+-			return -1;
+-		}
+-	}
+-
+-	rsec->nr_alloc_relocs = nr_alloc;
+-
+-	old_relocs = rsec->relocs;
+-	new_relocs = calloc(nr_alloc, sizeof(struct reloc));
++	new_relocs = calloc(nr_alloc_new, sizeof(struct reloc));
+ 	if (!new_relocs) {
+ 		ERROR_GLIBC("calloc");
+ 		return -1;
+ 	}
+ 
++	rsec->relocs_overallocated = 1;
 +
-+	/*
-+	 * These are the bare minimum needed for static branch detection and
-+	 * checksum calculations.
-+	 */
-+	if (ins == 0xd503201f) {
-+		/* NOP: static branch */
-+		insn->type = INSN_NOP;
-+	} else if ((ins & 0xfc000000) == 0x14000000) {
-+		/* B: static branch, intra-TU sibling call */
-+		insn->type = INSN_JUMP_UNCONDITIONAL;
-+		insn->immediate = sign_extend64(ins & 0x03ffffff, 25);
-+	} else if ((ins & 0xfc000000) == 0x94000000) {
-+		/* BL: intra-TU call */
-+		insn->type = INSN_CALL;
-+		insn->immediate = sign_extend64(ins & 0x03ffffff, 25);
-+	} else if ((ins & 0xff000000) == 0x54000000) {
-+		/* B.cond: intra-TU sibling call */
-+		insn->type = INSN_JUMP_CONDITIONAL;
-+		insn->immediate = sign_extend64((ins >> 5) & 0x7ffff, 18);
-+	} else if ((ins & 0x7e000000) == 0x34000000) {
-+		/* CBZ/CBNZ: intra-TU sibling call */
-+		insn->type = INSN_JUMP_CONDITIONAL;
-+		insn->immediate = sign_extend64((ins >> 5) & 0x7ffff, 18);
-+	} else if ((ins & 0x7e000000) == 0x36000000) {
-+		/* TBZ/TBNZ: intra-TU sibling call */
-+		insn->type = INSN_JUMP_CONDITIONAL;
-+		insn->immediate = sign_extend64((ins >> 5) & 0x3fff, 13);
-+	} else {
-+		insn->type = INSN_OTHER;
-+	}
++	old_relocs = rsec->relocs;
+ 	if (!old_relocs)
+ 		goto done;
+ 
+@@ -1631,6 +1628,7 @@ static int elf_alloc_reloc(struct elf *elf, struct section *rsec)
+ 	}
+ 
+ 	free(old_relocs);
 +
-+	insn->len = 4;
-+	return 0;
-+}
+ done:
+ 	rsec->relocs = new_relocs;
+ 	return 0;
+@@ -1660,7 +1658,6 @@ struct section *elf_create_rela_section(struct elf *elf, struct section *sec,
+ 	if (nr_relocs) {
+ 		rsec->data->d_type = ELF_T_RELA;
+ 
+-		rsec->nr_alloc_relocs = nr_relocs;
+ 		rsec->relocs = calloc(nr_relocs, sizeof(struct reloc));
+ 		if (!rsec->relocs) {
+ 			ERROR_GLIBC("calloc");
+diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
+index d9c44df9cc76a..0801fcad516bb 100644
+--- a/tools/objtool/include/objtool/elf.h
++++ b/tools/objtool/include/objtool/elf.h
+@@ -58,9 +58,18 @@ struct section {
+ 	Elf_Data *data;
+ 	const char *name;
+ 	int idx;
+-	bool _changed, text, rodata, noinstr, init, truncate;
++	u32 _changed			: 1,
++	    text			: 1,
++	    rodata			: 1,
++	    noinstr			: 1,
++	    init			: 1,
++	    truncate			: 1,
++	    data_owned			: 1,
++	    data_overallocated		: 1,
++	    relocs_overallocated	: 1;
++	    /* 23 bit hole */
 +
-+size_t arch_jump_opcode_bytes(struct objtool_file *file, struct instruction *insn,
-+			      unsigned char *buf)
-+{
-+	u32 ins;
-+
-+	ins = le32toh(*(u32 *)(insn->sec->data->d_buf + insn->offset));
-+
-+	switch (insn->type) {
-+	case INSN_JUMP_UNCONDITIONAL:
-+	case INSN_CALL:
-+		ins &= ~0x03ffffff;
-+		break;
-+	case INSN_JUMP_CONDITIONAL:
-+		if ((ins & 0xff000000) == 0x54000000)
-+			ins &= ~0x00ffffe0;		   /* B.cond */
-+		else if ((ins & 0x7e000000) == 0x34000000)
-+			ins &= ~0x00ffffe0;		   /* CBZ/CBNZ */
-+		else
-+			ins &= ~0x0007ffe0;		   /* TBZ/TBNZ */
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	ins = htole32(ins);
-+	memcpy(buf, &ins, 4);
-+	return 4;
-+}
-+
-+u64 arch_adjusted_addend(struct reloc *reloc)
-+{
-+	return reloc_addend(reloc);
-+}
-+
-+unsigned long arch_jump_destination(struct instruction *insn)
-+{
-+	return insn->offset + (insn->immediate << 2);
-+}
-+
-+bool arch_pc_relative_reloc(struct reloc *reloc)
-+{
-+	switch (reloc_type(reloc)) {
-+	case R_AARCH64_PREL64:
-+	case R_AARCH64_PREL32:
-+	case R_AARCH64_PREL16:
-+	case R_AARCH64_LD_PREL_LO19:
-+	case R_AARCH64_ADR_PREL_LO21:
-+	case R_AARCH64_ADR_PREL_PG_HI21:
-+	case R_AARCH64_ADR_PREL_PG_HI21_NC:
-+	case R_AARCH64_JUMP26:
-+	case R_AARCH64_CALL26:
-+	case R_AARCH64_CONDBR19:
-+	case R_AARCH64_TSTBR14:
-+		return true;
-+	default:
-+		return false;
-+	}
-+}
-+
-+void arch_initial_func_cfi_state(struct cfi_init_state *state)
-+{
-+	state->cfa.base = CFI_UNDEFINED;
-+}
-+
-+unsigned int arch_reloc_size(struct reloc *reloc)
-+{
-+	switch (reloc_type(reloc)) {
-+	case R_AARCH64_ABS64:
-+	case R_AARCH64_PREL64:
-+		return 8;
-+	case R_AARCH64_PREL16:
-+		return 2;
-+	default:
-+		return 4;
-+	}
-+}
-+
-+#ifdef DISAS
-+int arch_disas_info_init(struct disassemble_info *dinfo)
-+{
-+	return disas_info_init(dinfo, bfd_arch_aarch64,
-+			       bfd_mach_arm_unknown, bfd_mach_aarch64,
-+			       NULL);
-+}
-+#endif /* DISAS */
-diff --git a/tools/objtool/arch/arm64/include/arch/cfi_regs.h b/tools/objtool/arch/arm64/include/arch/cfi_regs.h
-new file mode 100644
-index 0000000000000..49c81cbb6646d
---- /dev/null
-+++ b/tools/objtool/arch/arm64/include/arch/cfi_regs.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+#ifndef _OBJTOOL_ARCH_CFI_REGS_H
-+#define _OBJTOOL_ARCH_CFI_REGS_H
-+
-+/* These aren't actually used for arm64 */
-+#define CFI_BP 0
-+#define CFI_SP 0
-+#define CFI_RA 0
-+#define CFI_NUM_REGS 2
-+
-+#endif /* _OBJTOOL_ARCH_CFI_REGS_H */
-diff --git a/tools/objtool/arch/arm64/include/arch/elf.h b/tools/objtool/arch/arm64/include/arch/elf.h
-new file mode 100644
-index 0000000000000..418b90885c501
---- /dev/null
-+++ b/tools/objtool/arch/arm64/include/arch/elf.h
-@@ -0,0 +1,15 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+#ifndef _OBJTOOL_ARCH_ELF_H
-+#define _OBJTOOL_ARCH_ELF_H
-+
-+#define R_NONE		R_AARCH64_NONE
-+#define R_ABS64		R_AARCH64_ABS64
-+#define R_ABS32		R_AARCH64_ABS32
-+#define R_DATA32	R_AARCH64_PREL32
-+#define R_DATA64	R_AARCH64_PREL64
-+#define R_TEXT32	R_AARCH64_PREL32
-+#define R_TEXT64	R_AARCH64_PREL64
-+
-+#define ARCH_HAS_INLINE_ALTS 1
-+
-+#endif /* _OBJTOOL_ARCH_ELF_H */
-diff --git a/tools/objtool/arch/arm64/include/arch/special.h b/tools/objtool/arch/arm64/include/arch/special.h
-new file mode 100644
-index 0000000000000..8ae804a83ea49
---- /dev/null
-+++ b/tools/objtool/arch/arm64/include/arch/special.h
-@@ -0,0 +1,21 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+#ifndef _OBJTOOL_ARCH_SPECIAL_H
-+#define _OBJTOOL_ARCH_SPECIAL_H
-+
-+#define EX_ENTRY_SIZE 12
-+#define EX_ORIG_OFFSET 0
-+#define EX_NEW_OFFSET 4
-+
-+#define JUMP_ENTRY_SIZE 16
-+#define JUMP_ORIG_OFFSET 0
-+#define JUMP_NEW_OFFSET 4
-+#define JUMP_KEY_OFFSET 8
-+
-+#define ALT_ENTRY_SIZE 12
-+#define ALT_ORIG_OFFSET 0
-+#define ALT_NEW_OFFSET 4
-+#define ALT_FEATURE_OFFSET 8
-+#define ALT_ORIG_LEN_OFFSET 10
-+#define ALT_NEW_LEN_OFFSET 11
-+
-+#endif /* _OBJTOOL_ARCH_SPECIAL_H */
-diff --git a/tools/objtool/arch/arm64/special.c b/tools/objtool/arch/arm64/special.c
-new file mode 100644
-index 0000000000000..6ddecd362f3dd
---- /dev/null
-+++ b/tools/objtool/arch/arm64/special.c
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+#include <objtool/special.h>
-+
-+bool arch_support_alt_relocation(struct special_alt *special_alt,
-+				 struct instruction *insn,
-+				 struct reloc *reloc)
-+{
-+	return true;
-+}
-+
-+struct reloc *arch_find_switch_table(struct objtool_file *file,
-+				     struct instruction *insn,
-+				     unsigned long *table_size)
-+{
-+	return NULL;
-+}
-+
-+const char *arch_cpu_feature_name(int feature_number)
-+{
-+	return NULL;
-+}
+ 	struct reloc *relocs;
+-	unsigned long nr_alloc_relocs;
+ 	struct section *twin;
+ };
+ 
 -- 
 2.53.0
 
