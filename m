@@ -4,100 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C2ECD37B6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 09:42:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD8FACD37B6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 09:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UEsgan7+UWvqs7M6W0fM7HOY0ilw8DzM4/jZx/Jt/YM=; b=tQQOtrbsj+CIqJckryxk1Ckdwa
-	OGvBFw9VkMAYhD3QyHakdRh3yyKC0h+51qRWsoVNuDsjULUtncXY6PlDwqg8PPRUmmbPHJb7sJJ2r
-	yq3HWpJw/yVvnRgrWsA3JtX8xxvVAJ9CgqlFajdxg5cCARcqFQ1FiG/aGACVtkn0XxyIWXXBV9WKx
-	OBhclMx7ue3IbdK7qydhOQV1gHkAyo+gkZqINmDsj9av5oiPUQhWlEQ7oS1km1l2JAf8R4vcztvfQ
-	sOCb4R+gyosX46MPOXkKzHw2pIh/cEP46cZib0mEcYWQB18zs8q37vBwLlU4RPMT1WQCCZMGOBNMC
-	kvPgPCRA==;
+	bh=g4yBtoP+AK2YPvlIquQULnZH1cqZ3cAYW4fmzkPzSqU=; b=y6MVeRy4M/04WDGGsdvDljf95A
+	2IwopPCGC85N/axRL+0Q2mflMIPPa8LYAXu7tas/bUaAz0rmN8Yl2daimTxlILSVRgDKcsN3Clxfe
+	fL5yAhIOH9AU5zMAX+SIdJAf48yIq59M69CAbz8r71EqZS5ldtGeBcs3TuJ0PxnQHty5+Cc2J1JwZ
+	xCki1/skMQ3YfRzDLQDjuTiSCy5Di8W+xbdXEjBJ4kI297LqAY6VgArm9ClTeqmZW9tfkuAWhJxv+
+	92BW2OfdVt8DVEeNN8LZMpPEAH7mZgcLun7QLBWJD5+bHegRwYOsrmiknZhaktMe5TQK14pi3eUvP
+	i+ROgTDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN66P-00000001xRk-1BOW;
-	Wed, 13 May 2026 09:42:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wN67l-00000001xju-1w27;
+	Wed, 13 May 2026 09:43:29 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN66M-00000001xRF-3M1o
+	id 1wN67i-00000001xh9-0hlM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 09:42:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D58AF406DA;
-	Wed, 13 May 2026 09:42:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1D72C2BCC7;
-	Wed, 13 May 2026 09:41:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778665320;
-	bh=FRzh2TqI6eV1IGDJSpXe9vTknIKuMbT0qAfdYLMNBU8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uS7nBPA/KMSgwEaT99+fPUSNMe2gzrvpw5CRRNfXYU0BSOQ+JsRCWz8iZ82wFvt2n
-	 AHaEsHctV/lpMT0x/ErtnPOAlJ0AjVQLt+XpJwLsCA6lW4eg5x+KERjrDSB+8zoTYq
-	 UxbXTRzQP9u8VhK08Jr+rdJaGy/HXU7hxykGc6ulxlroFJW717+nB5HtIF2Y2vT8v0
-	 pJlXmmogzfNeAOb2Sa4vZqa4wbPfHySRWvepOf3xBapGgntAZi34LzwGmP40+rUKZz
-	 xyYf4ouG4TP7s7jk+dIA+9LSommSijSsIClHypoS3JOFiwCD+yhUbsl2UX0JY8axPt
-	 2hnQc6GfZB/Vw==
-Date: Wed, 13 May 2026 10:41:51 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Ge Gordon <gordon.ge@bst.ai>,
-	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Michal Simek <michal.simek@amd.com>
-Subject: Re: [PATCH 01/16] ACPI: GTDT: Parse information related to the EL2
- virtual timer
-Message-ID: <20260513-crouching-stirring-pigeon-6e46bf@sudeepholla>
-References: <20260507125544.2903406-1-maz@kernel.org>
- <20260507125544.2903406-2-maz@kernel.org>
+	Wed, 13 May 2026 09:43:28 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gFpHk1pVQzpSwF;
+	Wed, 13 May 2026 17:36:18 +0800 (CST)
+Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
+	by mail.maildlp.com (Postfix) with ESMTPS id B7F3940538;
+	Wed, 13 May 2026 17:43:19 +0800 (CST)
+Received: from localhost.localdomain (10.50.163.32) by
+ kwepemf200017.china.huawei.com (7.202.181.10) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 13 May 2026 17:43:19 +0800
+From: Jie Zhan <zhanjie9@hisilicon.com>
+To: <cwchoi00@gmail.com>, <cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
+	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <linuxarm@huawei.com>, <tianyaxiong@kylinos.cn>, <zhanjie9@hisilicon.com>,
+	<zhenglifeng1@huawei.com>, <zhangpengjie2@huawei.com>,
+	<lihuisong@huawei.com>, <prime.zeng@hisilicon.com>
+Subject: [PATCH v2 4/6] devfreq: Add module owner to devfreq governor
+Date: Wed, 13 May 2026 17:38:30 +0800
+Message-ID: <20260513093832.1645890-5-zhanjie9@hisilicon.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260513093832.1645890-1-zhanjie9@hisilicon.com>
+References: <20260513093832.1645890-1-zhanjie9@hisilicon.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260507125544.2903406-2-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemf200017.china.huawei.com (7.202.181.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_024202_880068_579F31AF 
-X-CRM114-Status: GOOD (  24.94  )
+X-CRM114-CacheID: sfid-20260513_024326_505143_C1816F1E 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,65 +73,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 01:55:29PM +0100, Marc Zyngier wrote:
-> Since ARMv8.1, the architecture has grown an EL2-private virtual
-> timer. This has been described in ACPI since ACPI v6.3 and revision
-> 3 of the GTDT table.
-> 
-> An aditional structure was added in ACPICA, though in a rather
-> bizarre way, and merged in v5.1 as 8f5a14d053100 ("ACPICA: ACPI 6.3:
-> add GTDT Revision 3 support").
-> 
-> Finally plug the table parsing in GTDT, and allow it to be eventually
-> presented to the architected timer driver.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/acpi/arm64/gtdt.c | 25 +++++++++++++++++++++++++
->  1 file changed, 25 insertions(+)
-> 
-> diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
-> index ffc867bac2d60..1a58007fccf0a 100644
-> --- a/drivers/acpi/arm64/gtdt.c
-> +++ b/drivers/acpi/arm64/gtdt.c
-> @@ -88,6 +88,19 @@ static int __init map_gt_gsi(u32 interrupt, u32 flags)
->  	return acpi_register_gsi(NULL, interrupt, trigger, polarity);
->  }
->  
-> +struct gtdt_v3 {
-> +	struct acpi_table_gtdt	gtdt_v2;
-> +	struct acpi_gtdt_el2	el2_vtimer;
-> +};
-> +
-> +static struct acpi_gtdt_el2 *gtdt_to_el2_vtimer(struct acpi_table_gtdt *gtdt)
-> +{
-> +	if (gtdt->header.revision < 3)
-> +		return NULL;
-> +
+Add an 'owner' member to struct devfreq_governor, such that we can find
+the module that holds the governor code when it's compiled as a kernel
+module.  This allows the devfreq core to properly manage the lifecycle
+of governors.
 
-We should validate the length as well just in case some platform bumped version
-but didn't add these fields. Again it is problem if the platform timers are
-also missing. We can just add the check in acpi_gtdt_init() if the version >=3
-perhaps? If (gtdt->header.length < sizeof(struct gtdt_v3) invalid table or
-something.
+Update devfreq_add_governor() and devm_devfreq_add_governor() to
+automatically set 'owner' to THIS_MODULE via helper macros.
 
-Also we have in platform_timer_valid()
-	platform_timer >= (void *)(acpi_gtdt_desc.gtdt + 1)
-which is still valid, but again if someone messes up in v3 keeping
-offset where virtual EL2 timer GSI should be present as they just copied
-it from v2, then we might allow it as valid.
+This is a prerequisite for implementing governor reference counting to
+prevent a governor module from being unloaded (except for force unload)
+while a governor is in use.
 
-Do it make sense to add that check as well in acpi_gtdt_init()? I mean
-the offset should be >= sizeof(struct gtdt_v3).
+Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+---
+ drivers/devfreq/devfreq.c        | 26 +++++++++-----------------
+ include/linux/devfreq-governor.h | 26 +++++++++++++++++++++++---
+ 2 files changed, 32 insertions(+), 20 deletions(-)
 
-Both checks can be added to acpi_gtdt_init() to avoid checking for each
-platform timer instance may be ?
-
-Other than this couple of minor nit, this patch looks fine.
-
-Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
-
+diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
+index 9e3e6a7348f8..e1363ab69173 100644
+--- a/drivers/devfreq/devfreq.c
++++ b/drivers/devfreq/devfreq.c
+@@ -1301,11 +1301,8 @@ void devfreq_resume(void)
+ 	mutex_unlock(&devfreq_list_lock);
+ }
+ 
+-/**
+- * devfreq_add_governor() - Add devfreq governor
+- * @governor:	the devfreq governor to be added
+- */
+-int devfreq_add_governor(struct devfreq_governor *governor)
++int __devfreq_add_governor(struct devfreq_governor *governor,
++			   struct module *mod)
+ {
+ 	struct devfreq_governor *g;
+ 
+@@ -1322,37 +1319,32 @@ int devfreq_add_governor(struct devfreq_governor *governor)
+ 		return -EINVAL;
+ 	}
+ 
++	governor->owner = mod;
+ 	list_add(&governor->node, &devfreq_governor_list);
+ 
+ 	return 0;
+ }
+-EXPORT_SYMBOL(devfreq_add_governor);
++EXPORT_SYMBOL(__devfreq_add_governor);
+ 
+ static void devm_devfreq_remove_governor(void *governor)
+ {
+ 	WARN_ON(devfreq_remove_governor(governor));
+ }
+ 
+-/**
+- * devm_devfreq_add_governor() - Add devfreq governor
+- * @dev:	device which adds devfreq governor
+- * @governor:	the devfreq governor to be added
+- *
+- * This is a resource-managed variant of devfreq_add_governor().
+- */
+-int devm_devfreq_add_governor(struct device *dev,
+-			      struct devfreq_governor *governor)
++int __devm_devfreq_add_governor(struct device *dev,
++				struct devfreq_governor *governor,
++				struct module *mod)
+ {
+ 	int err;
+ 
+-	err = devfreq_add_governor(governor);
++	err = __devfreq_add_governor(governor, mod);
+ 	if (err)
+ 		return err;
+ 
+ 	return devm_add_action_or_reset(dev, devm_devfreq_remove_governor,
+ 					governor);
+ }
+-EXPORT_SYMBOL(devm_devfreq_add_governor);
++EXPORT_SYMBOL(__devm_devfreq_add_governor);
+ 
+ /**
+  * devfreq_remove_governor() - Remove devfreq feature from a device.
+diff --git a/include/linux/devfreq-governor.h b/include/linux/devfreq-governor.h
+index dfdd0160a29f..1c4ff57e24de 100644
+--- a/include/linux/devfreq-governor.h
++++ b/include/linux/devfreq-governor.h
+@@ -12,6 +12,7 @@
+ #define __LINUX_DEVFREQ_DEVFREQ_H__
+ 
+ #include <linux/devfreq.h>
++struct module;
+ 
+ #define DEVFREQ_NAME_LEN			16
+ 
+@@ -50,6 +51,7 @@
+ /**
+  * struct devfreq_governor - Devfreq policy governor
+  * @node:		list node - contains registered devfreq governors
++ * @owner:		Module that this governor belongs to
+  * @name:		Governor's name
+  * @attrs:		Governor's sysfs attribute flags
+  * @flags:		Governor's feature flags
+@@ -67,6 +69,7 @@
+ struct devfreq_governor {
+ 	struct list_head node;
+ 
++	struct module *owner;
+ 	const char name[DEVFREQ_NAME_LEN];
+ 	const u64 attrs;
+ 	const u64 flags;
+@@ -81,11 +84,28 @@ void devfreq_monitor_suspend(struct devfreq *devfreq);
+ void devfreq_monitor_resume(struct devfreq *devfreq);
+ void devfreq_update_interval(struct devfreq *devfreq, unsigned int *delay);
+ 
+-int devfreq_add_governor(struct devfreq_governor *governor);
++/**
++ * devfreq_add_governor() - Add devfreq governor
++ * @governor:	The devfreq governor to be added
++ */
++#define devfreq_add_governor(governor) \
++	__devfreq_add_governor((governor), THIS_MODULE)
++int __devfreq_add_governor(struct devfreq_governor *governor,
++			   struct module *mod);
+ int devfreq_remove_governor(struct devfreq_governor *governor);
+ 
+-int devm_devfreq_add_governor(struct device *dev,
+-			      struct devfreq_governor *governor);
++/**
++ * devm_devfreq_add_governor() - Add devfreq governor
++ * @dev:	device which adds devfreq governor
++ * @governor:	the devfreq governor to be added
++ *
++ * This is a resource-managed variant of devfreq_add_governor().
++ */
++#define devm_devfreq_add_governor(dev, governor) \
++	__devm_devfreq_add_governor((dev), (governor), THIS_MODULE)
++int __devm_devfreq_add_governor(struct device *dev,
++				struct devfreq_governor *governor,
++				struct module *mod);
+ 
+ int devfreq_update_status(struct devfreq *devfreq, unsigned long freq);
+ int devfreq_update_target(struct devfreq *devfreq, unsigned long freq);
 -- 
-Regards,
-Sudeep
+2.43.0
+
 
