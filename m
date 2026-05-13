@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C56CD37B6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B66C4CD37B6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ht2QQ6l2QMI3jjLbrMSGg7m47Ftunylr0Q1SqunvI3Q=; b=twU/5iEyQ9gelbtHgguWiGgils
-	WFYpZ0hs9FGPImJ2QICD6z4cV5tkGmcMcmM1UTPinDLrFE7J4VBc/QBdtLTfurvIALSFbz8Tbe1Pn
-	2lbhjtHTEFzJnBe0EVdhHqGqMTmilIpsqaxNIH07Ts6jsvQvLXCnf7CSXKEQl96SYdN9HqOHZmxbX
-	9swrs2Zxv9mfTdP5yKZNsHf6u/bCFSYWf0xbaYjIfzlcX3QP6BKQgCJx0jMT3KbflmOMfs/vRWVuZ
-	vhiuRNY00/I1VGaf5djMp67SZFSjmzHokeROWGFuoPbw2SDzTExxDiKXETwrMqNVyymnaQUS9CSwA
-	/mP8TJUw==;
+	bh=d444E3MdN7IH9yjOwqEN7TueuW8/sZBnX9CisoRQ36s=; b=cvbNQ3mJqJvfx/6fPj4kKm4GIL
+	ftPiYST0Pcgs9mc8MJwMtf/YTzNaK+AzzCwr76QFXHDFnovVFGs12pSoX5SQmg8iShatWj/Dkhxpb
+	tBwFYe5lsg132laWMXcmMDfwmoa5jot1VWGF13IiR2WwlInXqxqFE9Ch/jJC3hswSKjCbku7IAMsQ
+	ZuN9yzKGhh06lfa3Ng6Tc0moy/Ncoyg0Bf1GTJcFdLviIaRN6HXiru0eKcnvBAj6lFmsWFN5QJxuE
+	1s9Ge6Y0Lj8fh6g5i+bNIjg9wGsoIbJAZ5I/mFz1emZTGZJIXNoKRcnMfZhF7edZaVZuv50YdUdEt
+	OZTfq63A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN6pr-00000002Bey-4054;
-	Wed, 13 May 2026 10:29:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wN6qG-00000002BjV-0f2h;
+	Wed, 13 May 2026 10:29:28 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN6pp-00000002BeV-2fca
+	id 1wN6qC-00000002BiK-1o9P
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 10:29:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1B6340A1C;
-	Wed, 13 May 2026 10:29:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F393C2BCB7;
-	Wed, 13 May 2026 10:28:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778668140;
-	bh=SMSduI5AnAM9kqchaE8jYdlaOT2npCWPyM5+zGPU3o0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oqTXi24HsgBOAFuKC6Vi/Jw3ToZ3ix8HWddmTwJTDN0Un1xAN5BkYQzXEShkWawTo
-	 GbwdlpXAgWvDqvcNS4fj4SamaL21POucJDoSE7gUJ+y6jgqAQeAzM1iOpDyFP3dDYj
-	 RbhQq9r3uXj5eja2m/YDTvPvES31K7BtxsHNPpQukkzx1jXDmNwQs88p5AhLbZkYxo
-	 WYY1U+LSv7W2Mu8THlmQACiifeBWhl6VW8dk+ILwXNmNO/9dTqLE3RnuJo2ptdVwoS
-	 hfHoLk3RKGkwl/5TkgZ09NqeNYyFzaQwl3SN0CdD5rL7XU7NeUhJHKrDEBwv+tCA7/
-	 ezv48qxYD1c9Q==
-Date: Wed, 13 May 2026 13:28:51 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Jann Horn <jannh@google.com>, Ard Biesheuvel <ardb+git@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Liz Prucka <lizprucka@google.com>,
-	Seth Jenkins <sethjenkins@google.com>, Kees Cook <kees@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v4 02/15] mm: Make empty_zero_page __ro_after_init
-Message-ID: <agRSY-VLLdSqeMT5@kernel.org>
-References: <20260427153416.2103979-17-ardb+git@google.com>
- <20260427153416.2103979-19-ardb+git@google.com>
- <CAG48ez1DJ88a0pBCE-Q0VXyDuJgng8zdunb38g4b4JPU88exww@mail.gmail.com>
- <31252c1d-a98d-4635-ab61-ce5b649e256f@app.fastmail.com>
- <CAG48ez2xJwJDgxSH0u2G==9dOQJQxQ7WsQfU14O1H5hEWic1eA@mail.gmail.com>
- <fb5749bb-bc87-4f0b-9ec9-8a1eb7ded3b5@app.fastmail.com>
- <agQ7RMAw51RlNUOj@kernel.org>
- <49d30ffe-b7e1-4b05-89e0-c3fe01348bb6@app.fastmail.com>
+	Wed, 13 May 2026 10:29:26 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wN6q0-0003LM-VQ; Wed, 13 May 2026 12:29:12 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wN6q0-000aCm-2B;
+	Wed, 13 May 2026 12:29:12 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1wN6q0-00000002oGI-2KJN;
+	Wed, 13 May 2026 12:29:12 +0200
+Date: Wed, 13 May 2026 12:29:12 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH 1/3] dt-bindings: soc: imx: fsl,imx93-media-blk-ctrl:
+ Allow LVDS Display Bridge child node
+Message-ID: <ymhkemd7ojr4aa5ak2ang4774ks2hpg4b7cpx27n7mk2cuvhj5@wn7h6j2eiu4f>
+References: <20260513-imx93-ldb-v1-0-d11c5c3cc197@nxp.com>
+ <20260513-imx93-ldb-v1-1-d11c5c3cc197@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <49d30ffe-b7e1-4b05-89e0-c3fe01348bb6@app.fastmail.com>
+In-Reply-To: <20260513-imx93-ldb-v1-1-d11c5c3cc197@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_032901_730423_4B8D7521 
-X-CRM114-Status: GOOD (  30.45  )
+X-CRM114-CacheID: sfid-20260513_032924_473706_6AD01427 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,72 +80,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 10:53:08AM +0200, Ard Biesheuvel wrote:
-> 
-> On Wed, 13 May 2026, at 10:50, Mike Rapoport wrote:
-> > On Tue, May 12, 2026 at 02:56:16PM +0200, Ard Biesheuvel wrote:
-> >> On Mon, 11 May 2026, at 16:40, Jann Horn wrote:
-> >> > On Mon, May 11, 2026 at 10:59 AM Ard Biesheuvel <ardb@kernel.org> wrote:
-> >> >> I think we should simply do something along the lines of the below,
-> >> >> considering that the size of a data object tends to correlate with
-> >> >> its minimum alignment.
-> >> >>
-> >> >> I do find it rather puzzling that the compiler emits empty_zero_page
-> >> >> *after* zero_page_pfn - ideally, we'd combine the below with
-> >> >> -fdata-sections so that the linker sees all individual objects, but
-> >> >> I suspect that would create some problems elsewhere.
-> >> >>
-> >> >>
-> >> >> --- a/include/asm-generic/vmlinux.lds.h
-> >> >> +++ b/include/asm-generic/vmlinux.lds.h
-> >> >> @@ -452,7 +452,7 @@
-> >> >>  #define RO_AFTER_INIT_DATA                                   \
-> >> >>         . = ALIGN(8);                                         \
-> >> >>         __start_ro_after_init = .;                            \
-> >> >> -       *(.data..ro_after_init)                               \
-> >> >> +       *(SORT_BY_ALIGNMENT(.data..ro_after_init))            \
-> >> >
-> >> > Oh, neat, I didn't realize that's possible. That seems like a nicer
-> >> > approach...
-> >> 
-> >> Neat but rather ineffective, unfortunately. (I don't see a size
-> >> difference with the arm64 defconfig kernel)
-> >> 
-> >> Given that empty_zero_page only ever gets its address taken, we
-> >> might just move it into the linker script if that requires tweaking
-> >> anyway. We can just place it at the start of .rodata, which is
-> >> already page aligned on most architectures (and will become page
-> >> aligned unless EMPTY_ZERO_PAGE is #define'd by the arch linker
-> >> script to something else)
-> >> 
-> >> 
-> >> --- a/include/asm-generic/vmlinux.lds.h
-> >> +++ b/include/asm-generic/vmlinux.lds.h
-> >> @@ -472,6 +472,17 @@
-> >>  #endif
-> >>  #endif
-> >>  
-> >> +#ifndef EMPTY_ZERO_PAGE
-> >> +#ifndef __HAVE_COLOR_ZERO_PAGE
-> >
-> > I don't think we want let architectures that don't use colored zero pages
-> > redefine it.
-> > If it will be really required we can add the ability to redefine
-> > EMPTY_ZERO_PAGE later.
-> >
-> 
-> I was actually intending to add use this for arm64 in the next patch. It
-> already has a reserved_pg_dir in .rodata which is page-sized (i.e., up
-> to 64k in size) and guaranteed to remain all zeroes, so empty_zero_page
-> could actually be an alias for that. This is what I had in a previous
-> revision, before you turned the empty_zero_page definition into common
-> code:
+Hi Liu,
 
-Works for me if from arm64 perspective that's ok :)
- 
-> https://lore.kernel.org/all/20260320145934.2349881-16-ardb+git@google.com/
+can we please wait for the outcome of this dicussion:
+
+https://lore.kernel.org/all/uyh5s6g7bvuufnhfjrmungp5dbyllxfrgfzaxno22knpxxojmj@qqvh75ezblpp/
+
+before we're going further?
+
+Regards,
+  Marco
+
+On 26-05-13, Liu Ying wrote:
+> i.MX93 SoC mediamix blk-ctrl contains one LDB_CTRL register and one LVDS
+> register which control video output through a LVDS interface.  Allow the
+> LVDS Display Bridge(LDB) child node and add the child node to example.
+> 
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> ---
+>  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 38 ++++++++++++++++++++++
+>  1 file changed, 38 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> index d828c2e82965..ab563b457e07 100644
+> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> @@ -26,6 +26,12 @@ properties:
+>    reg:
+>      maxItems: 1
+>  
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 1
+> +
+>    '#power-domain-cells':
+>      const: 1
+>  
+> @@ -92,6 +98,11 @@ properties:
+>        - compatible
+>        - ports
+>  
+> +  bridge@20:
+> +    type: object
+> +    $ref: /schemas/display/bridge/fsl,ldb.yaml#
+> +    unevaluatedProperties: false
+> +
+>  allOf:
+>    - if:
+>        properties:
+> @@ -163,6 +174,8 @@ examples:
+>                 <&clk IMX93_CLK_MIPI_DSI_GATE>;
+>                 clock-names = "apb", "axi", "nic", "disp", "cam",
+>                               "pxp", "lcdif", "isi", "csi", "dsi";
+> +      #address-cells = <1>;
+> +      #size-cells = <1>;
+>        #power-domain-cells = <1>;
+>  
+>        dpi-bridge {
+> @@ -190,4 +203,29 @@ examples:
+>            };
+>          };
+>        };
+> +
+> +      bridge@20 {
+> +        compatible = "fsl,imx93-ldb";
+> +        reg = <0x20 0x4>, <0x24 0x4>;
+> +        reg-names = "ldb", "lvds";
+> +        clocks = <&clk IMX93_CLK_LVDS_GATE>;
+> +        clock-names = "ldb";
+> +
+> +        ports {
+> +          #address-cells = <1>;
+> +          #size-cells = <0>;
+> +
+> +          port@0 {
+> +            reg = <0>;
+> +
+> +            endpoint {
+> +              remote-endpoint = <&lcdif_to_ldb>;
+> +            };
+> +          };
+> +
+> +          port@1 {
+> +            reg = <1>;
+> +          };
+> +        };
+> +      };
+>      };
+> 
+> -- 
+> 2.43.0
+> 
+> 
+> 
 
 -- 
-Sincerely yours,
-Mike.
+#gernperDu 
+#CallMeByMyFirstName
+
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
