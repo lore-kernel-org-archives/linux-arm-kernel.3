@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009EFCD4F35
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8EB4CD4F24
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 10:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jnb2bxZ/lnKlTGg+igX+necaPDsE1yQq4AeJ4mWz2ec=; b=dGnqHJkVNglaVdEfAOj+5C0Mt9
-	tqGRt6i/01VAkCiXjTbr8wvdKzK1EIPQxq0vB0Rdc7PnZGB1ATId6fSwTNDsERmJcVl/QCB887IXK
-	+/2wAZH5FrkqR8kYQF+q6NnIDl2E+Whv3uOjHssUz9syn/G5/BbLrQHfDAOdC6F99Yg5dP9O4FP0H
-	/4OWelkvHZQkJxzHj9ZtNTV18FtJtxl25Vj+ARzBExJILmO7YO9pQrBWAvPLIfxCtiINB6jonLHAb
-	EPF24Qyc4ym3woSQwj9Z+/K8rCvRVeSoCU3KvmOXNmjIsGs8Xndxjvhn+ysE3+7WhbYIvjOzKrP5f
-	pt5uadSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KZupwSjkQ4gsVUgCccXxooEf9YCkyv1V1BGfE224HpY=; b=Bl5oLI0D22M6hYQMPmXK+1go39
+	4N+xwIQOKjhyt0SL3YS2pCwvoOmCtqBw3122W3orCXD1nsgcQ3A7/QUW6LwNdl8lIo6lZFRDhRZGN
+	U9nrHCiaTLpYIdPGsf88Lruk+/Inh4lDdqfBP1sjRH18RlyTdutWDA8+8SEemMe8n1DTJmtFGPfuL
+	TFgQD2gBOk2YpoNNVi3PYbwRyLdsBUg0lK/nNBhr8+kSm7yGdjc1Rti+0vVo5sKkSxr75lcPyYWWK
+	zAsmyW9j3us1FxjHZxMco/q3ganNOHbYHgfrjBnuAj5tRBhzjuEXK2G52CIYHgJ1vi6cKeDLjEdYR
+	5+GaRvvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN76A-00000002FEV-0wQ3;
-	Wed, 13 May 2026 10:45:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN767-00000002FDO-2KF5
+	id 1wN77b-00000002FWf-1h85;
+	Wed, 13 May 2026 10:47:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wN77Y-00000002FVm-1A7s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 10:45:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 16089429E0;
-	Wed, 13 May 2026 10:45:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FA74C2BCFA;
-	Wed, 13 May 2026 10:45:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778669151;
-	bh=muuwARazTjEAvbXIOfzW/1TAyB+3XXA0p2SK256ykVk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AvMpum+0pqdXm9vGudPLtAmsoqsFbzz3XrQU7cRtMb7mU9DP5Qs70kk0AUdyyxdtb
-	 qDueFOICre4yQUeyMTywlSc0DEO7wUbtjUDMwDtFiFAX2WrJCHWb2rb66fr7lhj5DX
-	 mYezn7FnP8jK3rB1dUlu8+ZOE8H55IjMgrtoZTm/wMiUmdkbLP+hV+ePbOt9aIKcGX
-	 JqKbc66ny+KzcrVHmaxsGazj9jl3zcJBCQFk4IQ52v27paYFx40W27WPUMMevX1gMW
-	 DDXHG1TU0D8EM524vv5a0Q1sTqpBJRlb6AnTH1vg2RtR6qvXFJm3dgX7qH8w3CYZLG
-	 g5nJfhI4pDtaQ==
-Message-ID: <b88eb1df-6841-43b8-990d-506c8c4f2d4f@kernel.org>
-Date: Wed, 13 May 2026 05:45:48 -0500
+	Wed, 13 May 2026 10:47:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F30841595;
+	Wed, 13 May 2026 03:47:12 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6BFD63F7B4;
+	Wed, 13 May 2026 03:47:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778669238; bh=OgqGS/kY8nvnh9OETRtKIcNbhfvLGdyeAmEexN8EN5M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GXyuBGl7N+I9IrOMPtW/uKNjpwmAhSM7gBxsvvNyB2BVi+wu62ix2lIf/thUSfhBG
+	 fAeLABPGaXBAzwr+4YQY5SKBBeRr6T5chr3rbQn0ghulUpMxmbtJ4b9S5hj6xNIfmc
+	 dKet3A/A6fqE8bVbVSoXPHed9KMKjjnENhfSGJZ4=
+Date: Wed, 13 May 2026 11:47:09 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v4 1/2] firmware: smccc: coco: Manage arm-smccc platform
+ device and CCA auxiliary drivers
+Message-ID: <agRWrRqmxG2vHfg0@arm.com>
+References: <20260427061615.905018-1-aneesh.kumar@kernel.org>
+ <20260427061615.905018-2-aneesh.kumar@kernel.org>
+ <agM699d4KwdjnS39@arm.com>
+ <yq5aa4u3u7aq.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drivers: altera_edac: Guard SDRAM irq2 retrieval for
- Arria10 only
-Content-Language: en-US
-To: "Nazle Asmade, Muhammad Nazim Amirul"
- <muhammad.nazim.amirul.nazle.asmade@altera.com>, "bp@alien8.de"
- <bp@alien8.de>, "tony.luck@intel.com" <tony.luck@intel.com>
-Cc: "linux-edac@vger.kernel.org" <linux-edac@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20260508075240.23638-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <cc767b60-3b91-40d5-aa70-c5f252d1d39b@kernel.org>
- <275595ca-6044-4882-a9fd-ca9d496a27a5@altera.com>
- <de0f32eb-2216-47a8-80d4-bd66fcb253a9@kernel.org>
- <4f80ef77-a38b-4652-a1f1-1bea3e88de74@altera.com>
-From: Dinh Nguyen <dinguyen@kernel.org>
-In-Reply-To: <4f80ef77-a38b-4652-a1f1-1bea3e88de74@altera.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <yq5aa4u3u7aq.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_034551_639494_94D2ABEC 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20260513_034720_393546_26BDC87A 
+X-CRM114-Status: GOOD (  27.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,69 +78,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 13, 2026 at 12:26:13PM +0530, Aneesh Kumar K.V wrote:
+> Catalin Marinas <catalin.marinas@arm.com> writes:
+> > On Mon, Apr 27, 2026 at 11:46:14AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> >> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+> >> index 88b50d660e85..2d2d363aaaee 100644
+> >> --- a/arch/arm64/include/asm/rsi.h
+> >> +++ b/arch/arm64/include/asm/rsi.h
+> >> @@ -10,7 +10,7 @@
+> >>  #include <linux/jump_label.h>
+> >>  #include <asm/rsi_cmds.h>
+> >>  
+> >> -#define RSI_PDEV_NAME "arm-cca-dev"
+> >> +#define RSI_DEV_NAME "arm-rsi-dev"
+> > [...]
+> >> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+> >> index bdee057db2fd..fc9b44b7c687 100644
+> >> --- a/drivers/firmware/smccc/smccc.c
+> >> +++ b/drivers/firmware/smccc/smccc.c
+> >> @@ -12,6 +12,8 @@
+> >>  #include <linux/platform_device.h>
+> >>  #include <asm/archrandom.h>
+> >>  
+> >> +#include "rmm.h"
+> >> +
+> >>  static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
+> >>  static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
+> >>  
+> >> @@ -85,6 +87,18 @@ static int __init smccc_devices_init(void)
+> >>  {
+> >>  	struct platform_device *pdev;
+> >>  
+> >> +	pdev = platform_device_register_simple("arm-smccc",
+> >> +					PLATFORM_DEVID_NONE, NULL, 0);
+> >> +	if (IS_ERR(pdev)) {
+> >> +		pr_err("arm-smccc: could not register device: %ld\n", PTR_ERR(pdev));
+> >> +	} else {
+> >> +		/*
+> >> +		 * Register the RMI and RSI devices only when firmware exposes
+> >> +		 * the required SMCCC function IDs at a supported revision.
+> >> +		 */
+> >> +		register_rsi_device(pdev);
+> >> +	}
+> >
+> > So as per the cover letter, instead of "arm-cca-dev" as a platform
+> > device, we get "arm-smccc" as a platform device with an auxiliary
+> > "arm-rsi-dev" child device. This does not get rid of the platform
+> > device, it just creates a synthetic platform device to represent the
+> > SMCCC firmware interface.
+> >
+> > Looking at the earlier discussion, I think this is what Greg/Jason were
+> > suggesting, except that we do not currently have an SMCCC platform
+> > device:
+> >
+> > https://lore.kernel.org/all/2025101534-frosty-shank-00b1@gregkh/
+> >
+> > If we go this route, shouldn't the platform device above be created only
+> > if !SMCCC_CONDUIT_NONE?
+> >
+> 
+> register_rsi_device() does check for 
+> 
+> 	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
+> 		return;
 
+Yes but I meant for the "arm-smccc" platform device, not the rsi one.
+You don't want it create if SMCCC_CONDUIT_NONE.
 
-On 5/12/26 06:51, Nazle Asmade, Muhammad Nazim Amirul wrote:
-> On 12/5/2026 7:25 pm, Dinh Nguyen wrote:
->>
->>
->> On 5/11/26 20:37, Nazle Asmade, Muhammad Nazim Amirul wrote:
->>> On 11/5/2026 7:54 pm, Dinh Nguyen wrote:
->>>>
->>>>
->>>> On 5/8/26 02:52, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
->>>>> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
->>>>>
->>>>> Guard the irq2 retrieval with an of_machine_is_compatible() check so
->>>>> that platform_get_irq(pdev, 1) is only called on Arria10 platforms.
->>>>>
->>>>> Signed-off-by: Nazim Amirul
->>>>> <muhammad.nazim.amirul.nazle.asmade@altera.com>
->>>>> Signed-off-by: Niravkumar L Rabara <nirav.rabara@altera.com>
->>>>> ---
->>>>>     drivers/edac/altera_edac.c | 3 ++-
->>>>>     1 file changed, 2 insertions(+), 1 deletion(-)
->>>>>
->>>>> diff --git a/drivers/edac/altera_edac.c b/drivers/edac/altera_edac.c
->>>>> index 4edd2088c2db..b30302198cd4 100644
->>>>> --- a/drivers/edac/altera_edac.c
->>>>> +++ b/drivers/edac/altera_edac.c
->>>>> @@ -348,7 +348,8 @@ static int altr_sdram_probe(struct platform_device
->>>>> *pdev)
->>>>>         }
->>>>>         /* Arria10 has a 2nd IRQ */
->>>>> -    irq2 = platform_get_irq(pdev, 1);
->>>>> +    if (of_machine_is_compatible("altr,socfpga-arria10"))
->>>>> +        irq2 = platform_get_irq(pdev, 1);
->>>>>         layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
->>>>>         layers[0].size = 1;
->>>>
->>>> Why? We already switch on arria10 later in the same function.
->>>>
->>>> Sorry, but NAK.
->>>>
->>>> Dinh
->>> This driver were used by cyclone5 and arria10. Cyclone5 only has one
->>> interrupt whereby arria10 has 2 interrupt. That is the reason why the
->>> interrupt was guard by (of_machine_is_compatible("altr,socfpga-arria10"))
->>>
->>
->> Yes, but look at line 397,
->>
->>             /* Only the Arria10 has separate IRQs */
->>           if (of_machine_is_compatible("altr,socfpga-arria10")) {
->>                   /* Arria10 specific initialization */
->>
->> Dinh
->>
->>
-> Hi Dinh, That is true, but the one that we looking at now is at line 352
-> which enabling the second interrupt and it is not required by cyclone5.
-> Perhaps are you saying we should move the irq2 at line 352 under this
-> line 397?
-
-Yes, that would be fine.
-
-Dinh
-
+-- 
+Catalin
 
