@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C13CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4024BCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 13 May 2026 03:35:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m6XuGQXKuiUD+U0xIxQ1k+D7Wg0u6Dei0thWKgZYwRg=; b=Cb6OlEjbr1JuMS29lxKdTDbM5K
-	yn6lIJ5zSHDF5dHU9ewlCM+NnWbTsg/ZVXbHxevFjm/f7W8kBp14JMl1ZhGwgspbdcvSmRcQdww7/
-	J9619AXDrdP5kqyIXfv3rx1HmckHQ6FUeaQvGqInnBIwVJRvScb1JJvacv1jCFAwdqMvq63GH5sQS
-	0oWM+vGhII7LbpehtMQu99+ZCi5V0UiYOLoL+5zGY14cBoels1dJWMuY07J7F7Kw1jTXGk0oJQBcj
-	VgZhixDTMhDZKSYr6r1Bt0p2PicF6SuXxD9hKAzUVmEIEc1Sw6kQ8UpB8e5uuJeFYQnc5iuqkBBkj
-	TSspJNBA==;
+	bh=ve9yUrXQ/CNWv964BYcjcbjM4iu7aPgWZJq8BqEaM8s=; b=cQyXc4ayNBhRAV3oSc44cmBd0/
+	vlysmCxxLg/oely6JhLbGj/4eVJCVF3sh5kdrpHThS0S9/pmR4wYuw4w1KPoAHdMQ3I+aCtDlihFS
+	H9e+QoR1tSYR0gMXbeoh6Tj9KynhOtqf7yZuuaOAOerqrhc1hpDyKAGDMDyw91+6uMFdPYaVwCas+
+	1mSvOZLHlU/ngmJYb40fzda10ZFUjCeY9dwNL7MZpbKoGvMuBUY8XOc9JVUjyVI3oJyrNz/7XChcj
+	AmKTkLmhzP4FVJSMt2wTno4oJKtRPwtxCxw4YPT3vwbylKU4W4bVxoVJdHk71MWqAz1Wdzr7Apraa
+	SWW9escQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0NZ-000000014m6-3scb;
-	Wed, 13 May 2026 03:35:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wN0Na-000000014oJ-3G2G;
+	Wed, 13 May 2026 03:35:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wN0Mt-000000013rb-4Bev
+	id 1wN0Mv-000000013tc-1YmO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 13 May 2026 03:34:47 +0000
+	Wed, 13 May 2026 03:34:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A87AF444AD;
-	Wed, 13 May 2026 03:34:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02842C2BCFC;
-	Wed, 13 May 2026 03:34:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1D23244502;
+	Wed, 13 May 2026 03:34:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 736F2C4AF15;
+	Wed, 13 May 2026 03:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778643283;
-	bh=YLQATZuaSnhkkzf9eNAaMViHdYeqnWtOoiB9QIjH1E8=;
+	s=k20201202; t=1778643285;
+	bh=E5kQ00UQ2Ef71S/+LIcd2TddRuEa4D5lUI9w03xK5Hs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CTWc4f4xlExzoEq65yIQKtV+ICaRbk2wTx/GfaqnnWlOQayhR49FihvTkMA/gPDLW
-	 8S55+o1kmVbXMVuV7/JtZ4i2DnXpnEBHAuP9NAbqX7kI4ankoTrgmxwjlnlzYWbO5T
-	 CTmG0fp4oml6/1T+KNbmNWrIu/UQWciXeyO39X3oEDZ54dk5GhhB3AEEM+ZQoG2yqa
-	 4LJWPwvACu78sd3oCUH2Ogat4xozo9Jlci41wUZuZM+2wbYuy5yI8dCglfbOFRXzKo
-	 Lh4yCeT5V4Cv+OOwGRxhSau6XQgU95Qii7FufQfJ/TbIHoump0sIfJ9vcgNP5Imqdb
-	 WviVX4N9n+cbA==
+	b=LEvEM9lpAyNZOj1YJaY8R0CkMDWr0K6JsWqRGdXyGYF7QgGzischLDs79PKxdLeBU
+	 BoENZDTVug+uDHJBYgM2J64TiNzyuokjyqpSSrlFeQjEPWcREDOlNv2olNyJbVZsbg
+	 hS4vj8Q6y7UMTNU5XgP6bbRjDwOJ6d5Rv81YnssaHKAUzltD3qwCh4MtyZtfxCHeki
+	 cu75wQw6cyaPkAOrmAauk1TKa+xgLAB4qwbgmZCndrArp4fAxpKl0JC/SBd826v+p1
+	 N/dy0mSPSsCG/W6DvE7GOu6ACmfNQLJL3u9tjL0PAPWKFbm6au6R/YppInMWlRW9SD
+	 KnorWSwo8nSSg==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,18 +55,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Mark Rutland <mark.rutland@arm.com>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v3 21/21] klp-build: Add arm64 syscall patching macro
-Date: Tue, 12 May 2026 20:33:55 -0700
-Message-ID: <3bf3cee43039fc4da84e83d0891a92e25f40f00f.1778642121.git.jpoimboe@kernel.org>
+Subject: [PATCH v3 01/21] klp-build: Reject patches to init/*.c
+Date: Tue, 12 May 2026 20:33:57 -0700
+Message-ID: <f32864b560d40894cdb70d613480d7c2ecdb55e0.1778642120.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <cover.1778642120.git.jpoimboe@kernel.org>
 References: <cover.1778642120.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260512_203444_071665_1E6514DD 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260512_203447_609691_49A0C51A 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +79,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20260513033357.ypxHvU6nY3gMiQ_n9snp-o3YDN5uaLc7oMV_UEvDxZE@z>
 
-Add arm64 support for KLP_SYSCALL_DEFINEx(), mirroring the arm64
-__SYSCALL_DEFINEx() pattern from arch/arm64/include/asm/syscall_wrapper.h.
+init/Makefile hard-codes -fno-function-sections and -fno-data-sections,
+overriding the klp-build flags needed for patch generation.
+
+Don't allow any changes to those files; being init code they aren't
+really patchable anyway.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- include/linux/livepatch_helpers.h | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ scripts/livepatch/klp-build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/livepatch_helpers.h b/include/linux/livepatch_helpers.h
-index 99d68d0773fa8..4b647b83865f9 100644
---- a/include/linux/livepatch_helpers.h
-+++ b/include/linux/livepatch_helpers.h
-@@ -72,6 +72,25 @@
- 	}								\
- 	static inline long __klp_do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))
+diff --git a/scripts/livepatch/klp-build b/scripts/livepatch/klp-build
+index c4a7acf8edc3f..911ada05673c2 100755
+--- a/scripts/livepatch/klp-build
++++ b/scripts/livepatch/klp-build
+@@ -362,7 +362,7 @@ check_unsupported_patches() {
  
-+#elif defined(CONFIG_ARM64)
-+
-+#define __KLP_SYSCALL_DEFINEx(x, name, ...)				\
-+	static long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__));	\
-+	static inline long __klp_do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__));\
-+	asmlinkage long __arm64_sys##name(const struct pt_regs *regs);	\
-+	asmlinkage long __arm64_sys##name(const struct pt_regs *regs)	\
-+	{								\
-+		return __se_sys##name(SC_ARM64_REGS_TO_ARGS(x,__VA_ARGS__));\
-+	}								\
-+	static long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__))	\
-+	{								\
-+		long ret = __klp_do_sys##name(__MAP(x,__SC_CAST,__VA_ARGS__));\
-+		__MAP(x,__SC_TEST,__VA_ARGS__);				\
-+		__PROTECT(x, ret,__MAP(x,__SC_ARGS,__VA_ARGS__));	\
-+		return ret;						\
-+	}								\
-+	static inline long __klp_do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))
-+
- #endif
- 
- #endif /* _LINUX_LIVEPATCH_HELPERS_H */
+ 		for file in "${files[@]}"; do
+ 			case "$file" in
+-				lib/*|*/vdso/*|*/realmode/rm/*|*.S)
++				lib/*|*/vdso/*|*/realmode/rm/*|init/*|*.S)
+ 					die "${patch}: unsupported patch to $file"
+ 					;;
+ 			esac
 -- 
 2.53.0
 
