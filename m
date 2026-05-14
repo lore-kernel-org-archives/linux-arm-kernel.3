@@ -4,112 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06935CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 392A7CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CemDzzrwR3SGpVnjXIQxXW5PCfyUzVu1NubMUDPJPt4=; b=1yqGrfh1mYUmxdSsX1tYUJLjqQ
-	sWjWiaJaHyRxORoeqOgp900/Yv3WT+PBttfqbC3UC0tYEeMwSLUtukzH1Z1Z/Dn+tPNiVdHA5tjzH
-	0CPrVbOdD3b666XZC5GPIURSGjvytdPXx/JUDNoaPyV3KUEd/mE1Tk+10RDGfMAoAZxn9yj8woKXv
-	s8vCDfZys+Vwjg9oojRZzNUuGj+553DPrrUdJetx8WKFAG/+PEqWAv0jL4afqvZr/zecTpLEv9EPD
-	fKA4l6zm6G6IJNFqD8NaJad0fRbrnG4kp7r8YlgJvOwV9KQeiI0JMFt2LY0O1sT+U6IWnblDPdIMb
-	fNkVS0SA==;
+	bh=/zJBoYCXvN5LO7DBit1Ku7VesIuEtdWFZWxNt6CCQH0=; b=T3nnxm1UupRcf/AKxv/Bet+EBm
+	BTjdllgD8KLDKlBXtEg0qiIK98jCtTsiEU5r7LVd6qs29FhzF+zcTOZRB+QySbxekmF5YPVQ/U1UF
+	6blYGCGGnyRDGlP3jNOIA7HJi0ka3kyVzIrFmDQ7XK5RDPK++XUUeeIPnkB3YGrqEJVmgGrqyBD1d
+	jnPUAv+oG0UuYtDjIMhTSqPYen0XlI8dRP8hjiNBOhTNlDPXCymk+KW7dsizecL6L5NOgFJnPicCO
+	pmmJkZUT+OHoN9Sa1jhXyANyTdNUDYMjHMiU7l9X2Yrh4+p/hIj2NURCyV0LjHdJhBwunExJAxSxQ
+	w8QJ25CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNS0N-000000050Yo-1r7D;
-	Thu, 14 May 2026 09:05:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wNS52-0000000512O-3xJZ;
+	Thu, 14 May 2026 09:10:08 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNS0K-000000050Xb-4BrP
+	id 1wNS50-0000000511l-1GE6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 09:05:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1778749514;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CemDzzrwR3SGpVnjXIQxXW5PCfyUzVu1NubMUDPJPt4=;
-	b=FMWJYI48rO7n2IzNDxPMolQ/X3A41mKiQbnNgQtMdoVGVhTv0LFo/24yJd15ZVTLgulMSk
-	XSd37E8nHzUqNGCiCJtTjOpRNtcKQ2vY2gkiv/pKIqs5w3SYf2K8mrktYSSKL2eBsCBWJH
-	5Ge7g5sDEdu3kaLZA05haBZbXUMGLqE=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-56-kVl3gNqpOISatXvdeoOC8g-1; Thu, 14 May 2026 05:05:11 -0400
-X-MC-Unique: kVl3gNqpOISatXvdeoOC8g-1
-X-Mimecast-MFC-AGG-ID: kVl3gNqpOISatXvdeoOC8g_1778749511
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-48919890a95so52889195e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 02:05:11 -0700 (PDT)
+	Thu, 14 May 2026 09:10:07 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48909558b3aso75089945e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 02:10:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1778749804; x=1779354604; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/zJBoYCXvN5LO7DBit1Ku7VesIuEtdWFZWxNt6CCQH0=;
+        b=xxZNKmCpvw9IV00VzmeHAQJK+AmI4bEdu6/UqHKTIivhSg9VqoAeJlsuRTBmRumkPc
+         fcZg6e/oKvu7kaoPOZ9Un1lPD5EdaO0ktasxKbEaWeqMWJ616l9IB4BXuVbZ2SNDIy1c
+         inURf7dIMVMWj/LmjkezwYS8ysmy6cUPGhNYbdQf4Zf9jvZTw9wlnRSxTVt4uxS6XBC+
+         IsPbFLvSzg0OuBfRjib8cEU5ffUzgsZt/ZGm1QmrDONuK/8pXcae47IZ+JrcM7N1WK3W
+         3CwqBy70VbBJZ+uKAcXCRXnH4gLan4N66FhHirL89f4xeHeNACnzTi9zIr4JBsxy9Am0
+         onaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778749511; x=1779354311;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=1e100.net; s=20251104; t=1778749804; x=1779354604;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CemDzzrwR3SGpVnjXIQxXW5PCfyUzVu1NubMUDPJPt4=;
-        b=lsgcDlr+cSyEZeuYSpA0WsvDjpZMb16QRCkoHFibm0oTDk9HuDlwxjMR2NrVdgbKeU
-         3Vfgo4Y98D8kbuFgO488EaHSNVTfhwDTBE70eh34FNYGdHAF5+uXPJpjdh1fSrEZ3lSu
-         GGlX4bPe65KHxoQmTvKD558d31Sd6+68AAt4DGZgqLlT+GZw4aoYc9qHbJsw0trthLED
-         CM/ReELey21bngVX8JtcHMtutO77XyiFLp8Cf345vfPiIROsKRmq9MPTIsvLHBDCobA/
-         9AtlPU3LTd5D9Ecq8xws7Suy5iwHTRx2h4Lc9LgWPdCldeCGC6umW3qc5Use+Ra7LVDB
-         DjQg==
-X-Forwarded-Encrypted: i=1; AFNElJ81nbQy4YH0b+tsXCWDUVmSTVVGCPJVhYaasZpiaz4gUVnzNCWNeimm26kfrOnW+Qxm/ykKPZna+alQG1YD7ILV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6qOe32C0r839oDSNPz16ZOk5bkwECkEPm2rkRGGuwf4nQxGCq
-	4geiOjzchOZl+l9LoHr4AEuYER8tO1j4WOygN+QBpKfib8AeAxlGtmELNcHUXl8dlvS1kFfiOQ5
-	cK3TH8ZeVytmWWIg5X56dhyAEfGZmJGpNdb1TpaDEXsIwZvv29PleXX8Z63a+HjHwf5l1l+i7u1
-	Eo
-X-Gm-Gg: Acq92OGY4mL5FtssLIWzLGNMxcEP890DJiXQQnEPJP5hOpq82nCqjw9WaNjsgKznLGU
-	y06wYdcrfbd7pRCPAxpm913bwphJDg4aoNxYUYhloJDs0TSeOBjs0ZGd5BAySUYOXZuMHif4ORK
-	+j0HSTX9lg5K8d+4MRnRM+eb+f0R7g7Oorr/kwis6X5kfSvb0hwRFHoj22BoQFO+ZUzo4uTayXl
-	Z4dDZobagZx0V2puWsUgsXFPZC3vTZ3fI9GeGAtdQXgTDGvvUN8PNXQDcYZ3uJb5j8hvHclrbG+
-	o29zYSHphHagP2PSnteEmc1rjiYNSHG+wsH9Noku+SWDHYjLUaaT+3KvdnjUaR9FV4Zft3x9Q/Z
-	cIbaU4X70Gv9yTy7+3VjsPjK0M79/Nhi+YhkutgOSMMm7/xPfx7dsDj8=
-X-Received: by 2002:a05:600c:19cd:b0:48f:be94:d82c with SMTP id 5b1f17b1804b1-48fce9e1a34mr101445155e9.19.1778749510610;
-        Thu, 14 May 2026 02:05:10 -0700 (PDT)
-X-Received: by 2002:a05:600c:19cd:b0:48f:be94:d82c with SMTP id 5b1f17b1804b1-48fce9e1a34mr101444475e9.19.1778749510167;
-        Thu, 14 May 2026 02:05:10 -0700 (PDT)
-Received: from [192.168.88.32] ([216.128.9.106])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fd648a7e5sm51353085e9.3.2026.05.14.02.05.08
+        bh=/zJBoYCXvN5LO7DBit1Ku7VesIuEtdWFZWxNt6CCQH0=;
+        b=Kb4kE7uHD9xUgkzG7ebMav3netF3JX/wyiSZuXxXvCZEfiPhlzAqx2Zs+n57/3gO1t
+         P+a0MfcthO73sc1qxUPZdGKLl4Fk1lm73lHDqYKc+8aMuob1shlqVL2c4GCpZyF9zX73
+         qK0ju3DCVswo/uOiBZ0UYjKgHku/wcSy3ycJQRaI58ks8nshxLOb7IuWfSXr6Pu221c1
+         bpzMWlnfYLDzpNtgWWHDrNo2PfzdFmQm9e8d1FJLC5nyrdQSWZBT3yG+rYD8b+eBWVLU
+         sJucVDeEliBu0/U82KV4Qhmc/FgzdHJQtIR+dKdA6uUcTChYJsIsah+ybgIc8pgHi8x3
+         9aaw==
+X-Forwarded-Encrypted: i=1; AFNElJ8LZwuIojv5WHmY8wCgIczua7Km1IF9YCbOXUOAJAW3XkCTh14G2I9Kp82F3ZSShE7LcDkC6S5QEVEz1G8VtEI4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzA8s2g0nfgpn+Hro5UVkx4gaoheUBrVgsQlMiVOM2PtGAY+Dfq
+	YyAjK4c96Fyb+xEWB/wAPWutWiSqbhehLmSORDEPM1yWhfiHJX8KC+zeXinzIjynXrI=
+X-Gm-Gg: Acq92OFWp8k7/8A8EwLdzhWzi8zNTh4M/dZ2hHXXtMQGVbmcIC5cQB5uWyRSwkUWlR5
+	lwZiOEEzTAkp12p0MvthtyNt6xVi+/esbeIej0EzxV1vfdbflaT7GUpnW4hIHE13eCIVTqYKEQB
+	ApDexNXVq5sQvjA80yh9np23SRQQJi86uLbKxOd9RgW/n8D6qzlhT0cK4TvHb+1BMtreT7KoiaB
+	rfB8+d3FjUuiFrDmaWCdec8bbCZ8wrGzkrU9KmCExYgWSfPXMH1iNk5yPiB8oFlUvhxcsrgtV4/
+	piUovmczJI/rZNmll4f+ZQo/r6kG6tkgSlY8GBYAKJg5kR00S02kmV1xyiHvrRA+5PxbNV4b06w
+	BkPfjyBhK8igXo+BpesxZUZgLc3pHdD1SntoRXxz7vI59odzGHlg3P+tyjzL4dTq25BesaxCLyD
+	7XiezcMtQzd3OvywNoObSz24NcXZjA
+X-Received: by 2002:a05:600c:19d1:b0:48e:8499:4be0 with SMTP id 5b1f17b1804b1-48fdc714b8amr23783895e9.15.1778749804059;
+        Thu, 14 May 2026 02:10:04 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fdb2788eesm34097965e9.7.2026.05.14.02.10.02
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 May 2026 02:05:09 -0700 (PDT)
-Message-ID: <73a19f89-ccd7-4762-8e07-812d8d95ead2@redhat.com>
-Date: Thu, 14 May 2026 11:05:07 +0200
+        Thu, 14 May 2026 02:10:03 -0700 (PDT)
+Message-ID: <66797cb2-18f7-4782-9370-68d0c10c35f4@linaro.org>
+Date: Thu, 14 May 2026 10:10:02 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 09/13] net: lan966x: add PCIe FDMA support
-To: Daniel Machon <daniel.machon@microchip.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>,
- Horatiu Vultur <horatiu.vultur@microchip.com>,
- Steen Hegelund <steen.hegelund@microchip.com>, UNGLinuxDriver@microchip.com,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Herve Codina
- <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Mohsin Bashir <mohsin.bashr@gmail.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260508-lan966x-pci-fdma-v4-9-14e0c89d8d63@microchip.com>
- <20260509082720.503A6C2BCB2@smtp.kernel.org>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20260509082720.503A6C2BCB2@smtp.kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZjjtsKRRF8wirfuiNn9CiPlWapePD2nNegx6QUbBlwo_1778749511
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v7 13/20] KVM: arm64: Apply dynamic guest counter
+ reservations
+To: Colton Lewis <coltonlewis@google.com>
+Cc: alexandru.elisei@arm.com, pbonzini@redhat.com, corbet@lwn.net,
+ linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+ maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ kvm@vger.kernel.org
+References: <gsntzf23b6m2.fsf@coltonlewis-kvm.c.googlers.com>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <gsntzf23b6m2.fsf@coltonlewis-kvm.c.googlers.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_020517_112776_4160F788 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20260514_021006_391892_BFD1452E 
+X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,50 +109,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/9/26 10:27 AM, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 10 potential issue(s) to consider:
->> +static int lan966x_fdma_pci_napi_poll(struct napi_struct *napi, int weight)
->> +{
-> [ ... ]
->> +	/* Get all received skbs. */
->> +	while (counter < weight) {
->> +		if (!fdma_has_frames(fdma))
->> +			break;
->> +		/* Order DONE read before DCB/frame reads below. */
->> +		dma_rmb();
->> +		counter++;
->> +		switch (lan966x_fdma_pci_rx_check_frame(rx, &src_port)) {
->> +		case FDMA_PASS:
->> +			break;
->> +		case FDMA_ERROR:
->> +			fdma_dcb_advance(fdma);
->> +			goto allocate_new;
->> +		}
->> +		skb = lan966x_fdma_pci_rx_get_frame(rx, src_port);
->> +		fdma_dcb_advance(fdma);
->> +		if (!skb)
->> +			goto allocate_new;
+
+
+On 13/05/2026 5:45 pm, Colton Lewis wrote:
+> James Clark <james.clark@linaro.org> writes:
 > 
-> If napi_alloc_skb() fails due to memory pressure, does branching to
-> allocate_new prematurely break out of the processing loop? Since the hardware
-> interrupt was already cleared, and napi_complete_done() is called below,
-> will this cause the RX queue to stall permanently for the remaining
-> unprocessed frames? Should the code drop the packet and continue instead?
+>> On 04/05/2026 10:18 pm, Colton Lewis wrote:
+>>> Apply dynamic guest counter reservations by checking if the requested
+>>> guest mask collides with any events the host has scheduled and calling
+>>> pmu_perf_resched_update() with a hook that updates the mask of
+>>> available counters in between schedule out and schedule in.
+> 
+>>> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+>>> ---
+>>>    arch/arm64/kvm/pmu-direct.c  | 69 ++++++++++++++++++++++++++++++++ 
+>>> ++++
+>>>    include/linux/perf/arm_pmu.h |  1 +
+>>>    2 files changed, 70 insertions(+)
+> 
+>>> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
+>>> index 2252d3b905db9..14cc419dbafad 100644
+>>> --- a/arch/arm64/kvm/pmu-direct.c
+>>> +++ b/arch/arm64/kvm/pmu-direct.c
+>>> @@ -100,6 +100,73 @@ u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu)
+>>>        return *host_data_ptr(nr_event_counters);
+>>>    }
+> 
+>>> +/* Callback to update counter mask between perf scheduling */
+>>> +static void kvm_pmu_update_mask(struct pmu *pmu, void *data)
+>>> +{
+>>> +    struct arm_pmu *arm_pmu = to_arm_pmu(pmu);
+>>> +    unsigned long *new_mask = data;
+>>> +
+>>> +    bitmap_copy(arm_pmu->cntr_mask, new_mask, ARMPMU_MAX_HWEVENTS);
+>>> +}
+>>> +
+>>> +/**
+>>> + * kvm_pmu_set_guest_counters() - Handle dynamic counter reservations
+>>> + * @cpu_pmu: struct arm_pmu to potentially modify
+>>> + * @guest_mask: new guest mask for the pmu
+>>> + *
+>>> + * Check if guest counters will interfere with current host events and
+>>> + * call into perf_pmu_resched_update if a reschedule is required.
+>>> + */
+>>> +static void kvm_pmu_set_guest_counters(struct arm_pmu *cpu_pmu, u64 
+>>> guest_mask)
+>>> +{
+>>> +    struct pmu_hw_events *cpuc = this_cpu_ptr(cpu_pmu->hw_events);
+>>> +    DECLARE_BITMAP(guest_bitmap, ARMPMU_MAX_HWEVENTS);
+>>> +    DECLARE_BITMAP(new_mask, ARMPMU_MAX_HWEVENTS);
+>>> +    bool need_resched = false;
+>>> +
+>>> +    bitmap_from_arr64(guest_bitmap, &guest_mask, ARMPMU_MAX_HWEVENTS);
+>>> +    bitmap_copy(new_mask, cpu_pmu->hw_cntr_mask, ARMPMU_MAX_HWEVENTS);
+>>> +
+>>> +    if (guest_mask) {
+>>> +        /* Subtract guest counters from available host mask */
+>>> +        bitmap_andnot(new_mask, new_mask, guest_bitmap, 
+>>> ARMPMU_MAX_HWEVENTS);
+>>> +
+>>> +        /* Did we collide with an active host event? */
+>>> +        if (bitmap_intersects(cpuc->used_mask, guest_bitmap, 
+>>> ARMPMU_MAX_HWEVENTS)) {
+>>> +            int idx;
+>>> +
+>>> +            need_resched = true;
+>>> +            cpuc->host_squeezed = true;
+>>> +
+>>> +            /* Look for pinned events that are about to be preempted */
+>>> +            for_each_set_bit(idx, guest_bitmap, ARMPMU_MAX_HWEVENTS) {
+>>> +                if (test_bit(idx, cpuc->used_mask) && cpuc- 
+>>> >events[idx] &&
+>>> +                    cpuc->events[idx]->attr.pinned) {
+>>> +                    pr_warn_ratelimited("perf: Pinned host event 
+>>> squeezed out by KVM guest PMU partition\n");
+> 
+>> Hi Colton,
+> 
+>> I get "perf: Pinned host event squeezed out by KVM guest PMU partition"
+>> even with arm_pmuv3.reserved_host_counters=3 for example. I would have
+>> expected any non zero value to stop the warning.
+> 
+>> I think armv8pmu_get_single_idx() needs to be changed to allocate from
+>> the high end host counters first. A more complicated option would be
+>> checking to see if there are any non-pinned counters in the host
+>> reserved half when a new pinned counter is opened, then swapping the
+>> places of the new pinned and existing non-pinned counters so pinned
+>> always prefer being put into the host half. But it's probably not worth
+>> doing that.
+> 
+>> James
+> 
+> 
+> I agree it makes the most sense to allocate from the top, but I'm happy
+> the basic idea works.
+> 
 
-I went over the series and sashiko feedback, and generally speaking the
-series LGTM, but I think this one is real and should be addressed.
+Another thing I forgot to mention is that even with the ratelimited 
+warning, this spams the logs any time the host and guest are both using 
+the PMU and I'm not sure how useful that is.
 
-Also it would be very helpful if you could (for future series/revision)
-reply to the (wrong) sashiko comments individually explaining with a few
-words why the are off: decoding the context requires much more time for
-whoever has not wrote the code itself.
-
-I understand that dealing with AI feedback is a pain, but, paraphrasing
-a great aphorisms creator, I can assure you that ours (maintainers) pain
-is greater.
-
-Thanks,
-
-Paolo
+>>> +                    break;
+>>> +                }
+>>> +            }
+>>> +        }
+>>> +    } else {
+>>> +        /*
+>>> +         * Restoring to hw_cntr_mask.
+>>> +         * Only resched if we previously squeezed an event.
+>>> +         */
+>>> +        if (cpuc->host_squeezed) {
+>>> +            need_resched = true;
+>>> +            cpuc->host_squeezed = false;
+>>> +        }
+>>> +    }
+>>> +
+>>> +    if (need_resched) {
+>>> +        /* Collision: run full perf reschedule */
+>>> +        perf_pmu_resched_update(&cpu_pmu->pmu, kvm_pmu_update_mask, 
+>>> new_mask);
+>>> +    } else {
+>>> +        /* Host was never using guest counters anyway */
+>>> +        bitmap_copy(cpu_pmu->cntr_mask, new_mask, ARMPMU_MAX_HWEVENTS);
+>>> +    }
+>>> +}
+>>> +
+>>>    /**
+>>>     * kvm_pmu_host_counter_mask() - Compute bitmask of host-reserved 
+>>> counters
+>>>     * @pmu: Pointer to arm_pmu struct
+>>> @@ -218,6 +285,7 @@ void kvm_pmu_load(struct kvm_vcpu *vcpu)
+> 
+>>>        pmu = vcpu->kvm->arch.arm_pmu;
+>>>        guest_counters = kvm_pmu_guest_counter_mask(pmu);
+>>> +    kvm_pmu_set_guest_counters(pmu, guest_counters);
+>>>        kvm_pmu_apply_event_filter(vcpu);
+> 
+>>>        for_each_set_bit(i, &guest_counters, ARMPMU_MAX_HWEVENTS) {
+>>> @@ -319,5 +387,6 @@ void kvm_pmu_put(struct kvm_vcpu *vcpu)
+>>>        val = read_sysreg(pmintenset_el1);
+>>>        __vcpu_assign_sys_reg(vcpu, PMINTENSET_EL1, val & mask);
+> 
+>>> +    kvm_pmu_set_guest_counters(pmu, 0);
+>>>        preempt_enable();
+>>>    }
+>>> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+>>> index f7b000bb3eca8..63f88fec5e80f 100644
+>>> --- a/include/linux/perf/arm_pmu.h
+>>> +++ b/include/linux/perf/arm_pmu.h
+>>> @@ -75,6 +75,7 @@ struct pmu_hw_events {
+> 
+>>>        /* Active events requesting branch records */
+>>>        unsigned int        branch_users;
+>>> +    bool host_squeezed;
+>>>    };
+> 
+>>>    enum armpmu_attr_groups {
 
 
