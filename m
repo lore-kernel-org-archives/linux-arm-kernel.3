@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1788CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 11:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E76CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 11:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wkvNBCFWV7j6EZCDUC/J1n7DZtEKmON1vs9ZjVWgZ+s=; b=fRqXYnvb9zgBOyWLs6dMJnMWxK
-	3VhJPwPqG4MGFiAwQ+rMqFe9w6/SERzXGBWdO72kFlKFTez8ab39rkZ6H1DE2aQQV1KkQ6UMnjTJ3
-	pmS1CxVRffniTIH52FEQCahV4/+a1zLNhjxBZtrGhSnMysX/O6GbyNE3FVJBm14nWTewNUz3KJ7mx
-	dclyMrXX2plqZzgV+UKnFWKcVvPaHj0FTGnbC7nuyf/1rhUkFC2rRe50DHkrIwb6xZ4NljGtdNJ3J
-	dCqAFuxeoKpsFMRXbZ+3Aa5xuOhEyrRz4Tw5y1zQiLZ0T4JqqgI8lO3KLIt3vWlKUKiqppE4oET/2
-	JLgEebdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ES+obNUAUQwAH9k0dJtrv13rabaLtnG7zHFUDIUgi68=; b=QJAHYbp6KeoamEDY4y091tTKxk
+	cD3ZCTX0ZTbZN4f17JOgn3iVEugQxOqftqnKv6FezDUZMino9LhL/w0ie174dG9SUSyxwB071H1yP
+	DxF71MmDDIdwQfmHkwhk6NuR8AEd6mNDasDzyjBNlEduQATcoHawx1rqNzb7y3MYuOlCs1zcqnThA
+	vaaReAkDRvb3R93CEeNmzD0CRHFL9V4gWVIJM3r7cT6SY+A4zDx+b+YdYKGCJLnT8y3yWkECMpqVM
+	z5AkDG3akBCTmEeqzozo7Ljk0sCgLVXpM105RUxA4dMROWvc2Ih3d4X2bNxIki/t38ZaqHtwlLm+Y
+	a82AIpeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNU1W-00000005Jee-4BwB;
-	Thu, 14 May 2026 11:14:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNUOi-00000005ML9-3LPQ;
+	Thu, 14 May 2026 11:38:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNU1V-00000005Jdk-3AMu
+	id 1wNUOh-00000005MKz-1yDY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 14 May 2026 11:38:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ES+obNUAUQwAH9k0dJtrv13rabaLtnG7zHFUDIUgi68=; b=XqXryeLjNkHbzn20nDVaM+Ss0g
+	J/5nAPbMDHxMikY9uYgq8DgavdgtgCu7l6jEXP8L5/h+geqgjTlYszZia6ZUmpHQaYXGtsF14fOWw
+	1X1KQxAC+WAheAcuerMcI1NX39e6Hj+HsnusCD3i5thz9vrNUF5i3Xnbk2DrNXfQPfhv0FYUKxBkj
+	gUKCA6gRZWs2XCLTuMMTohqg5UJj9afrC2gxwxt/JfBH7QtkFyl8Bwi8yK23vSoy0WWtrZXb2xwty
+	Fqv/39CaB8bl4Vxj+cTT1tRrCqXwdhFZPAXZoqZ/YYyaEaUsEkCEqffL9KXjzpfW0MJnEWfcsvcyP
+	nvl6vbnQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNUOd-00000002mQy-0saW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 11:14:37 +0000
+	Thu, 14 May 2026 11:38:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 063FC60008;
-	Thu, 14 May 2026 11:14:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E5E8C2BCB8;
-	Thu, 14 May 2026 11:14:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7A0D644299;
+	Thu, 14 May 2026 11:38:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02B0BC2BCC7;
+	Thu, 14 May 2026 11:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778757276;
-	bh=zWsNF/tTn94RSQdcgyRSetzkeSvxF7zjT9TnBTUpZKg=;
-	h=From:Date:Subject:To:Cc:From;
-	b=IsneuJLtb21p+xUOoGkPQQ4Tkb4QVXAIZWj2T6Pyh8XHfhQ8in7QXVoSGd1V51f0Q
-	 qE5Jh2tLIC2zRxETNPq1FX3xH3f0vP4q9ipuBkE89HFtBgX65UQkvPhjR9ugrsFORD
-	 J0RBhKCXyznejSyizR7NfN7eVkhmB2YWHkNNgauKSU0ZkgbDF+KBVxGUpOJHKK1tXO
-	 MhsHdyZpo1SgXvzHHjhlYmzK6+06h0B1LwwwmMtHqudFn0h7jGl1BbAZeoNkVKfGNm
-	 oPs6cfEYNY+ift/2a8X4XvyK72lEd2NB/fr+nTz6wriAQvqKyLKjVkJx6IA8XT/5Cs
-	 8bh21ZBnqAKQg==
-From: Enric Balletbo i Serra <eballetbo@kernel.org>
-Date: Thu, 14 May 2026 13:14:17 +0200
-Subject: [PATCH v3] clocksource: move NXP timer selection to
- drivers/clocksource
+	s=k20201202; t=1778758709;
+	bh=r0B3lSKf8gQDDJW5cY+Yg6YjjIjao27p5dvnDeMp/SQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kNQ+9h8LGRxHG5m553fqqudypahupVGpFMNyboyE2iCh75htaN8icgnwxI/GA3+WZ
+	 gyrTswzGbrWWXcmgwvNeB2+GEhg7nMGhDVthLfAh4w/SPdZwbuBue0WcNg3f203vFE
+	 TU14B2cy1O90WgxLV3Wp+K3ND4Y8j3HavYyPYWy5yPhiCLIYinHlKd/qCSVAl6LclR
+	 MxTXtAQxX8HACwV3X5lGz9fmD0O3ihA0djCtH+exGx0LmIBRuqCTonuweozss6yk8a
+	 NSU2HeL7HcQHvv8zT3JWfwPmKfMOTZAsfvM89vsIIG+gOdgNehxJL5JK3VkiPxxbbZ
+	 JvFM3hSyoQWeQ==
+Date: Thu, 14 May 2026 13:38:27 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jiafei Pan <Jiafei.Pan@nxp.com>
+Cc: andersson@kernel.org, mathieu.poirier@linaro.org, peng.fan@nxp.com, 
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
+	festevam@gmail.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Zhiqiang.Hou@nxp.com, mingkai.hu@nxp.com, 
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] dt-bindings: remoteproc: add imx-rproc-psci
+Message-ID: <20260514-omniscient-futuristic-macaque-af0718@quoll>
+References: <20260511023928.39640-1-Jiafei.Pan@nxp.com>
+ <20260511023928.39640-2-Jiafei.Pan@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260514-fix-nxp-timer-v3-1-a3e68fdb505e@redhat.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WMywrCMBBFf0Vm7UiT9EFd+R/iIo+JnUUfJCVUS
- v/dtBtRcHku95wVIgWmCNfTCoESRx6HDOp8Atvp4UnILjPIQtaFKiR6XnBYJpy5p4CtNcIb12h
- vHWRnCpQPR+/+yNxxnMfwOvJJ7Ou/UhIoUPvS2Fq60nt9C+Q6PV/s2MOeSvKjV0L96jLrlVKmb
- W3VmLr50rdtewO5yf1a6gAAAA==
-X-Change-ID: 20260302-fix-nxp-timer-9cb1fbd7afcd
-To: Russell King <linux@armlinux.org.uk>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Enric Balletbo i Serra <eballetb@redhat.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778757274; l=3908;
- i=eballetb@redhat.com; s=20260512; h=from:subject:message-id;
- bh=8pjGWairaSrRO06DfSoKsQGunA0RWo+g3nUWQxcUGpA=;
- b=7m8+d8+HXSaZQcJXX+CZpLJUEAUJXtaBse0usCCid3aNoNa2P6OfNkJUVWIoqLJ5xJ1emN2e/
- b3HZgce8tJkCiYdMH7Kmj8m8AulEqIdQBcKMKeO0CF+1HT0cBvfhivI
-X-Developer-Key: i=eballetb@redhat.com; a=ed25519;
- pk=HEWGfVmqrAZfJ4JLImY+V4jOfS+bkE5CQrdmm/kZq5Y=
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260511023928.39640-2-Jiafei.Pan@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_123832_219971_45C6B58B 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,121 +90,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Enric Balletbo i Serra <eballetb@redhat.com>
+On Mon, May 11, 2026 at 10:39:25AM +0800, Jiafei Pan wrote:
+> Add compatible string "fsl,imx-rproc-psci" for i.MX Cortex-A Core's
+> remoteproc support.
+> 
+> Signed-off-by: Jiafei Pan <Jiafei.Pan@nxp.com>
+> 
+> ---
+> Changes in v3:
+> - Fixed dt_binding_check warnings
+> 
+> ---
+>  .../remoteproc/fsl,imx-rproc-psci.yaml        | 51 +++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.yaml
+> new file mode 100644
+> index 000000000000..28d00dbf8bc7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc-psci.yaml
+> @@ -0,0 +1,51 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/remoteproc/fsl,imx-rproc-psci.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: NXP i.MX Cortex-A Core Remote Processor via PSCI
+> +
+> +maintainers:
+> +  - Jiafei Pan <Jiafei.Pan@nxp.com>
+> +
+> +description:
+> +  This binding provides support for managing Cortex-A cores as remote
 
-The Kconfig logic for selecting the scheduler clocksource on
-NXP Vybrid (VF610) uses a `choice` block restricted to 32-bit ARM. This
-prevents 64-bit architectures, such as the NXP S32 family, from enabling
-the NXP Periodic Interrupt Timer (PIT) driver (CONFIG_NXP_PIT_TIMER).
+Describe the hardware, not the binding.
 
-Relocate the NXP clocksource selection from arch/arm/mach-imx/Kconfig to
-drivers/clocksource/Kconfig. This allows the configuration to be shared
-across different architectures.
+> +  processors on i.MX platforms using the PSCI (Power State Coordination
+> +  Interface) for CPU power management operations. This allows single
+> +  Cortex-A core or multiple Cortex-A cores to be controlled by Linux as
+> +  a remote processor, enabling them to run RTOS or bare-metal applications.
+> +
+> +properties:
+> +  compatible:
+> +    const: fsl,imx-rproc-psci
 
-Update the selection to include support for ARCH_S32 and add a "None"
-option restricted to ARCH_S32, since Vybrid lacks the ARM Architected
-Timer. The Vybrid Global Timer option is restricted to ARCH_MULTI_V7
-SOC_VF610 platforms to prevent it from being visible on Cortex-M4 builds,
-which lack the ARM Global Timer hardware.
+Why isn't the compatible specific?
 
-Fixes: bee33f22d7c3 ("clocksource/drivers/nxp-pit: Add NXP Automotive s32g2 / s32g3 support")
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Enric Balletbo i Serra <eballetb@redhat.com>
----
-Changes in v3:
-- Restrict VF_TIMER_NONE to ARCH_S32 to prevent selecting it on Vybrid
-  platforms which lack the ARM Architected Timer
-- Link to v2: https://lore.kernel.org/r/20260513-fix-nxp-timer-v2-1-533b99c57b67@redhat.com
+> +
+> +  fsl,cpus-mask:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description:
+> +      Bitmask indicating which CPU cores are assigned to this remote
+> +      processor instance. Each bit represents a CPU core, where bit N
+> +      corresponds to CPU N. For example, 0x2 (0b10) assigns CPU core 1,
+> +      while 0x6 (0b110) assigns CPU cores 1 and 2.
 
-Changes in v2:
-- Fix VF_USE_ARM_GLOBAL_TIMER dependency: use ARCH_MULTI_V7 instead of
-  ARM to prevent the option from being visible on Cortex-M4 builds
-  (Sashiko AI review)
-- Link to v1: https://lore.kernel.org/r/20260302-fix-nxp-timer-v1-1-af4bc62d4ffa@redhat.com
----
- arch/arm/mach-imx/Kconfig   | 21 ---------------------
- drivers/clocksource/Kconfig | 31 +++++++++++++++++++++++++++++++
- 2 files changed, 31 insertions(+), 21 deletions(-)
+So you partition existing Cortex-A cores? Or how exactly? Why isn't this
+deducible from the compatible (I assume you read carefully writing
+bindings)?
 
-diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
-index 6ea1bd55acf8..a361840d7a04 100644
---- a/arch/arm/mach-imx/Kconfig
-+++ b/arch/arm/mach-imx/Kconfig
-@@ -227,27 +227,6 @@ config SOC_VF610
- 	help
- 	  This enables support for Freescale Vybrid VF610 processor.
- 
--choice
--	prompt "Clocksource for scheduler clock"
--	depends on SOC_VF610
--	default VF_USE_ARM_GLOBAL_TIMER
--
--	config VF_USE_ARM_GLOBAL_TIMER
--		bool "Use ARM Global Timer"
--		depends on ARCH_MULTI_V7
--		select ARM_GLOBAL_TIMER
--		select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
--		help
--		  Use the ARM Global Timer as clocksource
--
--	config VF_USE_PIT_TIMER
--		bool "Use PIT timer"
--		select NXP_PIT_TIMER
--		help
--		  Use SoC Periodic Interrupt Timer (PIT) as clocksource
--
--endchoice
--
- endif
- 
- endif
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index d1a33a231a44..d9c76dd443f8 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -793,4 +793,35 @@ config RTK_SYSTIMER
- 	  this option only when building for a Realtek platform or for compilation
- 	  testing.
- 
-+choice
-+	prompt "NXP clocksource for scheduler clock"
-+	depends on SOC_VF610 || ARCH_S32
-+	# Default to Global Timer for Vybrid (32-bit)
-+	default VF_USE_ARM_GLOBAL_TIMER if SOC_VF610
-+	# Default to None for S32 (64-bit)
-+	default VF_TIMER_NONE if ARCH_S32
-+
-+	config VF_USE_ARM_GLOBAL_TIMER
-+		bool "Use NXP Vybrid Global Timer"
-+		depends on ARCH_MULTI_V7 && SOC_VF610
-+		select ARM_GLOBAL_TIMER
-+		select CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
-+		help
-+		  Use the NXP Vybrid Global Timer as clocksource.
-+
-+	config VF_USE_PIT_TIMER
-+		bool "Use NXP PIT timer"
-+		select NXP_PIT_TIMER
-+		help
-+		  Use NXP Periodic Interrupt Timer (PIT) as clocksource.
-+
-+	config VF_TIMER_NONE
-+		bool "None (Use standard Arch Timer)"
-+		depends on ARCH_S32
-+		help
-+		  Do not use any specific NXP timer driver. Use the standard
-+		  ARM Architected Timer instead.
-+
-+endchoice
-+
- endmenu
+> +
+> +  memory-region:
+> +    maxItems: 1
+> +    description:
+> +      Phandle to a reserved memory region to be used for the remote
+> +      processor's code and data.
+> +
+> +required:
+> +  - compatible
+> +  - fsl,cpus-mask
+> +  - memory-region
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +        remoteproc-ca55-1 {
 
----
-base-commit: 7fd2df204f342fc17d1a0bfcd474b24232fb0f32
-change-id: 20260302-fix-nxp-timer-9cb1fbd7afcd
+Implement previous comments.
 
 Best regards,
--- 
-Enric Balletbo i Serra <eballetb@redhat.com>
+Krzysztof
 
 
