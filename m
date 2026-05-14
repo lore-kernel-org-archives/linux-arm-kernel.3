@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E0E9CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:33:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19704CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q5c/1ZIMo9shqV4oxOv0ORfFGXYCxhUeiuXV8xQf348=; b=d9FUqYWJT3WZLXMQa1JxAzsccG
-	lFs5dtdq8f9AmYOQLDLctMY1J4d8kFQIfO/TRZX46A+gV5Wmj0V1VlhFe6ClxEV77fb+TDXUl7paY
-	TkVYV3aWza6LYZHC172VrYKeb4J9sXgsgqHdnT/jjWi5s8o1RzsaOMxZ+zDKbQ+Bxu7/HwXXMP7+Z
-	q5x0l4vE8B0avlyyR1o5CRuomwjf6HBtQycrCxJTclBn8x/s39a+8RLokDUwQuUomIkG0aVoyHF4w
-	89pPiZbShQ3VkidHFDhVd5RUmuFyAsFoLTZIBkPPWI7ob3WuPcQ0H3zwMnv6VC4leTAZ0votUbFQP
-	+yksekTw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kF8vI9bRnF+f9EdfIFfvyhqgDYrzH3vz8MWKfElV3z8=; b=sVX4Y/r3t62C56X8eTmH+Qq5hg
+	cKgHzJav1RESk6wyUrKZEXJopoxz2MTIuZpdSdp+Vng6t0LuWZGfXtGfUle3VSw2m6A2D0Dd4o5Gi
+	1fd8eawUYYTGSxhSfE6zwH4CX08QavtfhFgvJ79L3J+xlMwgmvTMkWIsfYWBfiwOAUKhzVBjdBQkD
+	uv5sXfaBR0UI3goeys6XFNcRl3ZftjS12mQdyA8BlHYdGyFJpl0QhrH78s9X3nhuzioaN5AsBYUCT
+	R3Ajc85nMS9DifVxkuCBCGpQt6S8mf+1b3qIG7GHP3GHpiXMPTkjYT4AJB5aTfXvbEpRfx/vZv+vZ
+	M6XXtBPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNSRu-000000054se-0fTK;
-	Thu, 14 May 2026 09:33:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNSRs-000000054rs-0RSQ
+	id 1wNSYl-000000055eM-3ZkI;
+	Thu, 14 May 2026 09:40:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNSYk-000000055e1-07vn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 14 May 2026 09:40:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=kF8vI9bRnF+f9EdfIFfvyhqgDYrzH3vz8MWKfElV3z8=; b=JhSC3sDLmnv/ESsEfd1lVBsfQm
+	Fh73UR2y9J4DJf/ca4QHC5r5TZqBO5/f+tl7slQd7r9FyfBUW+a+ryIW/hyKLZuG2PYXuVmP5J1mh
+	/m8Yy/WJA9zqhzbbMcrw6yg488QkFgxtmrBbNwzY3Q5tjc09VnKhIrN3CQGrPZVrQ8fVwARWgllQH
+	98hRtCkPzEwEC6mDp3r7zTfsUvLGjNN+LBjsHDr4qBNBS9PxTdFGFHpHMa11W+ebL+0pGua+S6IMF
+	/VjIsiGctu72KYhue3pQBOYjF8wvnAsTdzAYftFxGM4imVlDTz9K0uuD57bpPCmpxtMuiAr0wRKYX
+	mIvje1LA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNSYg-00000002ZaZ-0zIB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 09:33:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A7C03502;
-	Thu, 14 May 2026 02:33:37 -0700 (PDT)
-Received: from [10.1.37.28] (e122027.cambridge.arm.com [10.1.37.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0D2F3F85F;
-	Thu, 14 May 2026 02:33:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778751222; bh=15IYn3iLfZXckiqY4v2WG/U+nBEKAauifaebzvl2v8U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TrJFW2FE7DK1dKESIWBDe4IoPEqOi52Xs5k+YIeEW8bac5xeRkCBiGICFhWFFd8uv
-	 vCK4kCAoGx/O73KOo79kmau7br4yf19Ge4m7WFcUWYEVgAwX6liLi0xrV3L5aDHlrk
-	 MQ8oFeuLm/txVMFOmUezID+d4euoxwT3zcB89z54=
-Message-ID: <cc21ea56-827f-4077-b6f7-3ef00c0b9408@arm.com>
-Date: Thu, 14 May 2026 10:33:35 +0100
+	Thu, 14 May 2026 09:40:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C2DB543E80;
+	Thu, 14 May 2026 09:40:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E58BEC2BCB3;
+	Thu, 14 May 2026 09:40:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778751644;
+	bh=e8wmx6mCu40tXgHwdlK2Aqk7hbkeqgCMsK8w1i8eRvI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=jkf/wJlcbOh+keKTg0DD76tTmtaN0MLAAPrvStt2rFZL9aHEiesUzcwgJU+tzS9zr
+	 g5LbVSyfQBUFFv/ybgGhK/Ds+jFOYRM6cnZmtFCUxk8ztIeB9qAI7BFBmjjwuY1wDw
+	 7yPj4yM57CUBVk0APUAtB2lcCzgPvfTUB6LmXjDF2MFGHrVdfxk5en9dIN8YXj4Ga6
+	 g4pVhAyBtmP+cAXdaoWnnnq7tvH0LhvX3AcCv0TJ89MlwB/ITdGByCe+0EgelEMs29
+	 ZurbSb5IzI61PTMP0E5SxGiolP0S1PuIhnwgfjcVkOg/F4LkD62ScR54ZnLY2M41aW
+	 lLOxrpzEn5gXg==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-coco@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: [PATCH v5 0/3] Switch Arm CCA to use an auxiliary device instead of a platform device
+Date: Thu, 14 May 2026 15:10:27 +0530
+Message-ID: <20260514094030.42495-1-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 10/44] arm64: RMI: Add support for SRO
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-11-steven.price@arm.com> <yq5a8q9ma08r.fsf@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <yq5a8q9ma08r.fsf@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_023344_265686_6F01748F 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20260514_104046_966704_31D76C1F 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,127 +95,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/05/2026 09:01, Aneesh Kumar K.V wrote:
-> Steven Price <steven.price@arm.com> writes:
-> 
->> +unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp)
->> +{
->> +	unsigned long sro_handle;
->> +	struct arm_smccc_1_2_regs regs;
->> +	struct arm_smccc_1_2_regs *regs_in = &sro->regs;
->> +
->> +	rmi_smccc_invoke(regs_in, &regs);
->> +
->> +	sro_handle = regs.a1;
->> +
->> +	while (RMI_RETURN_STATUS(regs.a0) == RMI_INCOMPLETE) {
->> +		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs.a0);
->> +		int ret;
->> +
->> +		switch (RMI_RETURN_MEMREQ(regs.a0)) {
->> +		case RMI_OP_MEM_REQ_NONE:
->> +			regs = (struct arm_smccc_1_2_regs){
->> +				SMC_RMI_OP_CONTINUE, sro_handle, 0
->> +			};
->> +			rmi_smccc_invoke(&regs, &regs);
->> +			break;
->> +		case RMI_OP_MEM_REQ_DONATE:
->> +			ret = rmi_sro_donate(sro, sro_handle, regs.a2, &regs,
->> +					     gfp);
->> +			break;
->> +		case RMI_OP_MEM_REQ_RECLAIM:
->> +			ret = rmi_sro_reclaim(sro, sro_handle, &regs);
->> +			break;
->> +		default:
->> +			ret = WARN_ON(1);
->> +			break;
->> +		}
->> +
->> +		if (ret) {
->> +			if (can_cancel) {
->> +				/*
->> +				 * FIXME: Handle cancelling properly!
->> +				 *
->> +				 * If the operation has failed due to memory
->> +				 * allocation failure then the information on
->> +				 * the memory allocation should be saved, so
->> +				 * that the allocation can be repeated outside
->> +				 * of any context which prevented the
->> +				 * allocation.
->> +				 */
->> +			}
->> +			if (WARN_ON(ret))
->> +				return ret;
->> +		}
->> +	}
->> +
->> +	return regs.a0;
->> +}
-> 
-> Can you also add support to return x1,x2 etc
+As discussed here:
+https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
 
-Indeed that's going to be needed. Looking at this function again I don't 
-think we actually need the on-stack 'regs' any more. So the below (very 
-lightly tested) diff would use the regs from sro which also means they 
-will be there for the caller if it needs them.
+The general feedback was that a platform device should not be used when
+there is no underlying platform resource to represent. The existing CCA
+support uses a platform device solely to anchor the TSM interface in the
+device hierarchy, which is not an appropriate use of a platform device.
+Use an auxiliary device instead to track CCA support.
 
-Thanks,
-Steve
+The TSM framework uses the device abstraction to provide cross-architecture
+TSM and TEE I/O functionality, including enumerating available platform TEE
+I/O capabilities and provisioning connections between the platform TSM and
+device DSMs.
 
----8<---
-diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
-index a8107ca9bb6d..58a0216be409 100644
---- a/arch/arm64/kernel/rmi.c
-+++ b/arch/arm64/kernel/rmi.c
-@@ -356,30 +356,29 @@ void rmi_sro_free(struct rmi_sro_state *sro)
- unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp)
- {
- 	unsigned long sro_handle;
--	struct arm_smccc_1_2_regs regs;
--	struct arm_smccc_1_2_regs *regs_in = &sro->regs;
-+	struct arm_smccc_1_2_regs *regs = &sro->regs;
- 
--	rmi_smccc_invoke(regs_in, &regs);
-+	rmi_smccc_invoke(regs, regs);
- 
--	sro_handle = regs.a1;
-+	sro_handle = regs->a1;
- 
--	while (RMI_RETURN_STATUS(regs.a0) == RMI_INCOMPLETE) {
--		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs.a0);
-+	while (RMI_RETURN_STATUS(regs->a0) == RMI_INCOMPLETE) {
-+		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs->a0);
- 		int ret;
- 
--		switch (RMI_RETURN_MEMREQ(regs.a0)) {
-+		switch (RMI_RETURN_MEMREQ(regs->a0)) {
- 		case RMI_OP_MEM_REQ_NONE:
--			regs = (struct arm_smccc_1_2_regs){
-+			*regs = (struct arm_smccc_1_2_regs){
- 				SMC_RMI_OP_CONTINUE, sro_handle, 0
- 			};
--			rmi_smccc_invoke(&regs, &regs);
-+			rmi_smccc_invoke(regs, regs);
- 			break;
- 		case RMI_OP_MEM_REQ_DONATE:
--			ret = rmi_sro_donate(sro, sro_handle, regs.a2, &regs,
-+			ret = rmi_sro_donate(sro, sro_handle, regs->a2, regs,
- 					     gfp);
- 			break;
- 		case RMI_OP_MEM_REQ_RECLAIM:
--			ret = rmi_sro_reclaim(sro, sro_handle, &regs);
-+			ret = rmi_sro_reclaim(sro, sro_handle, regs);
- 			break;
- 		default:
- 			ret = WARN_ON(1);
-@@ -404,7 +403,7 @@ unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp)
- 		}
- 	}
- 
--	return regs.a0;
-+	return regs->a0;
- }
- 
- static int rmi_check_version(void)
+For the CCA platform, the resulting device hierarchy appears as follows.
+Note that the auxiliary device is still parented by the arm-smccc platform
+device, so the sysfs path remains under /devices/platform/arm-smccc/:
+
+$ cd /sys/class/tsm/
+$ ls -al
+total 0
+drwxr-xr-x    2 root     root             0 Jan  1 00:02 .
+drwxr-xr-x   23 root     root             0 Jan  1 00:00 ..
+lrwxrwxrwx    1 root     root             0 Jan  1 00:03 tsm0 -> ../../devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0/tsm/tsm0
+$
+
+Changes from v4:
+https://lore.kernel.org/all/20260427061615.905018-1-aneesh.kumar@kernel.org
+* Add /sys/firmware/cca/realm_guest for detecting realm guest
+* Convert smccc-trng to auxiliary device from platform device
+
+Changes from v3:
+https://lore.kernel.org/all/20260309100507.2303361-1-aneesh.kumar@kernel.org
+* Rebased onto the latest kernel
+* Drop pr_fmt() from drivers/firmware/smccc/rmm.c
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Greg KH <gregkh@linuxfoundation.org>
+Cc: Jeremy Linton <jeremy.linton@arm.com>
+Cc: Jonathan Cameron <jic23@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
+
+Aneesh Kumar K.V (Arm) (3):
+  firmware: smccc: coco: Manage arm-smccc platform device and CCA
+    auxiliary drivers
+  hwrng: arm_smccc_trng: Register as an auxiliary device
+  coco: guest: arm64: Replace dummy CCA device with sysfs ABI
+
+ Documentation/ABI/testing/sysfs-firmware-cca  | 10 ++++
+ arch/arm64/include/asm/rsi.h                  |  2 +-
+ arch/arm64/kernel/rsi.c                       | 39 ++++++++----
+ drivers/char/hw_random/arm_smccc_trng.c       | 25 ++++----
+ drivers/firmware/smccc/Kconfig                |  1 +
+ drivers/firmware/smccc/Makefile               |  1 +
+ drivers/firmware/smccc/rmm.c                  | 24 ++++++++
+ drivers/firmware/smccc/rmm.h                  | 17 ++++++
+ drivers/firmware/smccc/smccc.c                | 29 +++++++--
+ drivers/virt/coco/arm-cca-guest/Kconfig       |  1 +
+ drivers/virt/coco/arm-cca-guest/Makefile      |  2 +
+ .../{arm-cca-guest.c => arm-cca.c}            | 59 +++++++++----------
+ 12 files changed, 153 insertions(+), 57 deletions(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-firmware-cca
+ create mode 100644 drivers/firmware/smccc/rmm.c
+ create mode 100644 drivers/firmware/smccc/rmm.h
+ rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => arm-cca.c} (84%)
+
+-- 
+2.43.0
 
 
