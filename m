@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C900CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 06:15:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A19CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 06:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sjCxOlUI7zBoiSM4p76fevh1grQ/q8vOQeggmVOg+aE=; b=hsp35IttqSYEK3OH2RkBulnRYW
-	tWMp3suE1VlvWbMbl5bcWNwaVLerZD8+FAf2izWBYnvxs9qnafBbxSfJCTB+uRRuYyGww5QtvuNrC
-	HKCFMIGMhWYs6W9KYikCan8F3a6R+eTWazbqDITVVzmxj71e0+lNQ7754e43jQBe8SApNfaKGaSqY
-	9ZBqCQrV/hN1yDkg3WtG8TiORs0qNu+ggIr/IjU7tbwCAyvMiqAX+z63WH6+Qu+rWf154NScQfHLr
-	dhPusgiU3HcgRTf25IIIhRn3uSKfXeXzBkgoRJt7c10UuhNgXjoZf4YZcxAskYO6HE8n3BbbCwRtk
-	JIHvAfgA==;
+	bh=lVwzh7YuBLKrnB/3wy8MuXgNUlPj7/YkEbnMaWT4mW0=; b=voqp3OqrW4RK1ZAvEyPuTdnkQ1
+	/hMUswMAhjw0UkLEkXm9GPUqYwlPul3Yi2n2gbiwgicWvK0j8rwpNfEnO0bo7A99T5PYsPPA+1z+5
+	KPQN34OPhv7MyZjbR145ISXmtcUw5N9HUF53MRCIrEO5KeIVKjWMpGGVUNzqry8dYyt2nZeTyLIUw
+	ZyLJEdNqyoUMfdUgIbEeSC3TZ/nORAf5nDvYh5dlKpkYHNkfAfbMDQdAiJfVnHKKRrwF27+ps5Cg5
+	C+Pd3LMKhRBWYv/BfT3JBHB/e7LBQ6LLbWwenZ5SrmNLFDpKGc/caiijP7uZg8dXaSAA1KouzrmBX
+	8xiVpang==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNPLb-00000004gzN-44Ps;
-	Thu, 14 May 2026 06:15:03 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wNPUz-00000004i58-43AT;
+	Thu, 14 May 2026 06:24:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNPLY-00000004gyN-3vwi
+	id 1wNPUy-00000004i4u-2VWE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 06:15:02 +0000
-X-UUID: 39e1e9a24f5c11f1aa26b74ffac11d73-20260514
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:8e74f2ef-5e73-49bc-9a16-f10d93106e10,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:292977be64a77d164356fa5b4f3e7cc1,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|898,TC:nil,Content:0|15|
-	52,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 39e1e9a24f5c11f1aa26b74ffac11d73-20260514
-X-User: tianyaxiong@kylinos.cn
-Received: from [10.42.13.21] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <tianyaxiong@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 1098404912; Thu, 14 May 2026 14:14:55 +0800
-Message-ID: <fdcac90b-b253-45f2-81fa-81c980671f28@kylinos.cn>
-Date: Thu, 14 May 2026 14:14:52 +0800
+	Thu, 14 May 2026 06:24:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F0FEE600AE;
+	Thu, 14 May 2026 06:24:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A983DC2BCB7;
+	Thu, 14 May 2026 06:24:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778739883;
+	bh=ecGsHNVV/zGWfQo2KCz+UMgNIz0oxNVr7CL3H1ueicQ=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=VIFBftDkTqQvTeGSGdUb63C6Y5jX6Qcf/aCnqTSus57moAmWsHaY20Ek8+NzNXF7I
+	 r30wh4vj1ifGB0fA2KjcIkRogw3gf/w/DwCz8rVK9iAc/K453wPiIu8E8hBCt7TUx+
+	 djavHnjghAjLiadXV9zorYImb47+oIv4wV/oN58jnzuEcvJqM5fABJjEe+zUiHiIwr
+	 2QhZIGpd2mWiRm0jNgOlqLkPgQDFCTqrCKFDe2+QllPsd7D5xi2BKD5Z4yDZF3gpjR
+	 +BGATD5Q3YuIez48+zWs0mHgv5HFqviNpKfMGsjB3Cx0lI1Sy1ANa46iOb/RUQrXqA
+	 h/GpqX2YIjQlQ==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
+ honor DMA_ATTR_CC_SHARED
+In-Reply-To: <20260513172450.GR7702@ziepe.ca>
+References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
+ <20260512090408.794195-5-aneesh.kumar@kernel.org>
+ <agSKQrSIhizCXKwx@google.com> <20260513172450.GR7702@ziepe.ca>
+Date: Thu, 14 May 2026 11:54:30 +0530
+Message-ID: <yq5aecjea4pt.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/6] devfreq: Add module owner to devfreq governor
-To: Jie Zhan <zhanjie9@hisilicon.com>, cwchoi00@gmail.com,
- cw00.choi@samsung.com, myungjoo.ham@samsung.com, kyungmin.park@samsung.com,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: linuxarm@huawei.com, zhenglifeng1@huawei.com, zhangpengjie2@huawei.com,
- lihuisong@huawei.com, prime.zeng@hisilicon.com
-References: <20260513093832.1645890-1-zhanjie9@hisilicon.com>
- <20260513093832.1645890-5-zhanjie9@hisilicon.com>
-Content-Language: en-US
-From: Yaxiong Tian <tianyaxiong@kylinos.cn>
-In-Reply-To: <20260513093832.1645890-5-zhanjie9@hisilicon.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_231501_293913_EC189D8A 
-X-CRM114-Status: GOOD (  22.03  )
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,154 +95,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Jason Gunthorpe <jgg@ziepe.ca> writes:
 
-在 2026/5/13 17:38, Jie Zhan 写道:
-> Add an 'owner' member to struct devfreq_governor, such that we can find
-> the module that holds the governor code when it's compiled as a kernel
-> module.  This allows the devfreq core to properly manage the lifecycle
-> of governors.
+>> And that brings us to the same point whether it=E2=80=99s better to retu=
+rn
+>> the memory along with it=E2=80=99s state or we pass the requested state.
+>> I think for other cases it=E2=80=99s fine for the device/DMA-API to dict=
+ate
+>> the attrs, but not in restricted-dma case, the firmware just knows bette=
+r.
 >
-> Update devfreq_add_governor() and devm_devfreq_add_governor() to
-> automatically set 'owner' to THIS_MODULE via helper macros.
+> The memory type must be returned back at some level so downstream
+> things can do the right transformation of the phys_addr_t.
 >
-> This is a prerequisite for implementing governor reference counting to
-> prevent a governor module from being unloaded (except for force unload)
-> while a governor is in use.
+> One of the aspirational CC things that should work is a T=3D1 device
+> tries to DMA from a decrypted page, finds the address is above the dma
+> limit of the device, so it bounces it with SWIOTLB to an encrypted low
+> address page and then the DMA API internal flow switiches from working
+> with decrypted to encrypted phys_addr_t.
 >
-> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
-> ---
->   drivers/devfreq/devfreq.c        | 26 +++++++++-----------------
->   include/linux/devfreq-governor.h | 26 +++++++++++++++++++++++---
->   2 files changed, 32 insertions(+), 20 deletions(-)
+> If we can make that work then maybe the flows are designed correctly.
 >
-> diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
-> index 9e3e6a7348f8..e1363ab69173 100644
-> --- a/drivers/devfreq/devfreq.c
-> +++ b/drivers/devfreq/devfreq.c
-> @@ -1301,11 +1301,8 @@ void devfreq_resume(void)
->   	mutex_unlock(&devfreq_list_lock);
->   }
->   
-> -/**
-> - * devfreq_add_governor() - Add devfreq governor
-> - * @governor:	the devfreq governor to be added
-> - */
-> -int devfreq_add_governor(struct devfreq_governor *governor)
-> +int __devfreq_add_governor(struct devfreq_governor *governor,
-> +			   struct module *mod)
->   {
->   	struct devfreq_governor *g;
->   
-> @@ -1322,37 +1319,32 @@ int devfreq_add_governor(struct devfreq_governor *governor)
->   		return -EINVAL;
->   	}
->   
-> +	governor->owner = mod;
->   	list_add(&governor->node, &devfreq_governor_list);
->   
->   	return 0;
->   }
-> -EXPORT_SYMBOL(devfreq_add_governor);
-> +EXPORT_SYMBOL(__devfreq_add_governor);
 
-It's a bit strange to use the __ symbol here. Generally speaking, 
-functions exported with EXPORT_SYMBOL are public, while __ indicates 
-internal.
+That is what this patch series aims to do. dma_direct_map_phys() will
+derive the DMA address based on the attributes of the physical address:
 
-The same applies below.
+if (attrs & DMA_ATTR_CC_SHARED)
+        dma_addr =3D phys_to_dma_unencrypted(dev, phys);
+else
+        dma_addr =3D phys_to_dma_encrypted(dev, phys);
 
->   
->   static void devm_devfreq_remove_governor(void *governor)
->   {
->   	WARN_ON(devfreq_remove_governor(governor));
->   }
->   
-> -/**
-> - * devm_devfreq_add_governor() - Add devfreq governor
-> - * @dev:	device which adds devfreq governor
-> - * @governor:	the devfreq governor to be added
-> - *
-> - * This is a resource-managed variant of devfreq_add_governor().
-> - */
-> -int devm_devfreq_add_governor(struct device *dev,
-> -			      struct devfreq_governor *governor)
-> +int __devm_devfreq_add_governor(struct device *dev,
-> +				struct devfreq_governor *governor,
-> +				struct module *mod)
->   {
->   	int err;
->   
-> -	err = devfreq_add_governor(governor);
-> +	err = __devfreq_add_governor(governor, mod);
->   	if (err)
->   		return err;
->   
->   	return devm_add_action_or_reset(dev, devm_devfreq_remove_governor,
->   					governor);
->   }
-> -EXPORT_SYMBOL(devm_devfreq_add_governor);
-> +EXPORT_SYMBOL(__devm_devfreq_add_governor);
->   
->   /**
->    * devfreq_remove_governor() - Remove devfreq feature from a device.
-> diff --git a/include/linux/devfreq-governor.h b/include/linux/devfreq-governor.h
-> index dfdd0160a29f..1c4ff57e24de 100644
-> --- a/include/linux/devfreq-governor.h
-> +++ b/include/linux/devfreq-governor.h
-> @@ -12,6 +12,7 @@
->   #define __LINUX_DEVFREQ_DEVFREQ_H__
->   
->   #include <linux/devfreq.h>
-> +struct module;
->   
->   #define DEVFREQ_NAME_LEN			16
->   
-> @@ -50,6 +51,7 @@
->   /**
->    * struct devfreq_governor - Devfreq policy governor
->    * @node:		list node - contains registered devfreq governors
-> + * @owner:		Module that this governor belongs to
->    * @name:		Governor's name
->    * @attrs:		Governor's sysfs attribute flags
->    * @flags:		Governor's feature flags
-> @@ -67,6 +69,7 @@
->   struct devfreq_governor {
->   	struct list_head node;
->   
-> +	struct module *owner;
->   	const char name[DEVFREQ_NAME_LEN];
->   	const u64 attrs;
->   	const u64 flags;
-> @@ -81,11 +84,28 @@ void devfreq_monitor_suspend(struct devfreq *devfreq);
->   void devfreq_monitor_resume(struct devfreq *devfreq);
->   void devfreq_update_interval(struct devfreq *devfreq, unsigned int *delay);
->   
-> -int devfreq_add_governor(struct devfreq_governor *governor);
-> +/**
-> + * devfreq_add_governor() - Add devfreq governor
-> + * @governor:	The devfreq governor to be added
-> + */
-> +#define devfreq_add_governor(governor) \
-> +	__devfreq_add_governor((governor), THIS_MODULE)
-> +int __devfreq_add_governor(struct devfreq_governor *governor,
-> +			   struct module *mod);
->   int devfreq_remove_governor(struct devfreq_governor *governor);
->   
-> -int devm_devfreq_add_governor(struct device *dev,
-> -			      struct devfreq_governor *governor);
-> +/**
-> + * devm_devfreq_add_governor() - Add devfreq governor
-> + * @dev:	device which adds devfreq governor
-> + * @governor:	the devfreq governor to be added
-> + *
-> + * This is a resource-managed variant of devfreq_add_governor().
-> + */
-> +#define devm_devfreq_add_governor(dev, governor) \
-> +	__devm_devfreq_add_governor((dev), (governor), THIS_MODULE)
-> +int __devm_devfreq_add_governor(struct device *dev,
-> +				struct devfreq_governor *governor,
-> +				struct module *mod);
->   
->   int devfreq_update_status(struct devfreq *devfreq, unsigned long freq);
->   int devfreq_update_target(struct devfreq *devfreq, unsigned long freq);
+If that fails the dma_capable() check, we fall back to swiotlb_map():
+
+if (unlikely(!dma_capable(dev, dma_addr, size, true, attrs)))
+        return swiotlb_map(dev, phys, size, dir, attrs);
+
+We currently do not have an encrypted SWIOTLB pool, but once that is
+supported, swiotlb_map() should do the right thing and return the
+correct encrypted dma_addr_t based on io_tlb_mem->unencrypted:
+
+if (dev->dma_io_tlb_mem->unencrypted) {
+        dma_addr =3D phys_to_dma_unencrypted(dev, swiotlb_addr);
+        attrs |=3D DMA_ATTR_CC_SHARED;
+} else {
+        dma_addr =3D phys_to_dma_encrypted(dev, swiotlb_addr);
+}
+
+-aneesh
 
