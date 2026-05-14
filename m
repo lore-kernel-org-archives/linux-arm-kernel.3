@@ -4,86 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 442A1CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF26CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g0meuM2dktCGP0Ls8RIINE+UeHLH/T7v1m7onF+s9Lw=; b=xJyOdch/GtUZ+0V7D0roDobsPm
-	U56WNGx/f8qj20TArgjtg8RKAfS+fLw302u3p/MzboQNuznpdh5b/uJeswnWCgSurV73roFInFvOa
-	a81dII2VcU99H37Pl5+tnV+NyHaB1RE3S9BJ4eL+yT9f9kqf5sdHc4OXx4LvhuqACjSfSrWrU6QV8
-	r+g+kXN+Yxwg05wdaJcdC7dviSnn0e91kqH6zJkIuwcVz4yvlXvclnHiM+YCrUHUX+s8A3t+13Qh8
-	C7AlVHzm0m5dC2KqCg84Qlqio5Wh7f+tuMk2AJQjNT3TDb4XnHHxLi3I69mu8SmEbAifHeV5kXO/s
-	N0dGyp1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vupuZrldNnISyodqZgietZ5rJGgmjJeY1/v9Vsj3aVQ=; b=EEpsNDzJIoBiGKiAghaZAzUJzA
+	fTMk+bAWzNVUcd4LuTRDC4EpLnzpw3M+5XhXZuBG3sTAJwxA8N0D1/O++R7jEbCmwaYSOmdKdesj6
+	HELG7ysNcFQgiv6ad838JTH8lO+5/Ltou0l8lbogNah2ul1RTuVVee5yP664YQTdSkk+KAElL7Z5O
+	xuQn/qS2SXZsYf6x3Ptq88wuC3g0nZR209Ceakq0zRXF6M40dA7zJFR4LnuSls78029c03t8nPPK3
+	s37GmK4aJPfgZqdP5uLplKgWBEu/YVX51si2+BZ6o+ruckL6mB9+DmR/R86ZQ7FzS92/z0cyg5Jjk
+	1Klw3DbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVRk-00000005V5E-11tn;
-	Thu, 14 May 2026 12:45:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wNVRn-00000005V6p-1vAl;
+	Thu, 14 May 2026 12:45:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVRi-00000005V4w-1ynS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 14 May 2026 12:45:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=g0meuM2dktCGP0Ls8RIINE+UeHLH/T7v1m7onF+s9Lw=; b=YFHsz3QtNs8BB9lN8KdDnTFzZT
-	/RollCQUxLVwmktSw14Jl3bpDhz12x9/HRp6+STvtf/uHxIopRLDZGOuAoQqiSRRj2QwUkn3RUFlj
-	kuf//QCI03KwDYvk7C+uOiD8S/GowreuB5t5PJ4oPX3/hgENYiW5V4gRBzuZYDKJwMyIuMWwnO5h9
-	Cf34rV89D+DjD+4Co/hyTP9iU/YTVyWkrb0jEDu6zD0fbLn1M+2346Y79r7BmrpqxjScduN4iuCpU
-	G5apNwdGsbY+B2EgQCvqmV3lE7OT4hHhLGynmwAl2Nwtws/h333kzH+CLpFHTo5NEaVnanr8xLn/Z
-	6MbPnFSw==;
-Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVRe-00000002u7r-2wjb
+	id 1wNVRk-00000005V5D-3nMl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 12:45:45 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4gGVRj1mYbz9v8n;
-	Thu, 14 May 2026 14:45:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1778762737;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=g0meuM2dktCGP0Ls8RIINE+UeHLH/T7v1m7onF+s9Lw=;
-	b=X0gHDrKhxCF5P/S4fvZMjURB8scyGQPD6vgQH1LSOYcaVs0C6y8eR5jEz4ayx0eidhSlqo
-	ZbUQQfm1ro4j1scJaCrqedXSe50WOM6fvlJiFjmxANS2zY8mUXJWy5Ozge3SnOW0j6It/Q
-	FJQUHiDVFpWxUixizV21HEkIpIh+G8sByKSw3J09xaHsi/1itxZzULmA/s6CqCU9c+7tHd
-	IO7zl/Y+6RKYD5uTQMLb/CZ3MwLsxdfnuLvPtc8B0NxA08z8JrChbZcDYAA9txf5Ug8MUc
-	QwNgXHqZqC1fepxEbWT1V01HFGv31mOfbXsTkKuEldmgeBhWAJ5grhBPfucIcA==
-Message-ID: <32ace62d-2faf-4197-a548-93111b2a68ea@mailbox.org>
-Date: Thu, 14 May 2026 14:45:21 +0200
+	Thu, 14 May 2026 12:45:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EA36760132;
+	Thu, 14 May 2026 12:45:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AA80C2BCB8;
+	Thu, 14 May 2026 12:45:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1778762747;
+	bh=uzxXH31tSj4V03e2tHyrBCneawBM4/arZJhlthRiRYI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Kq8O/dxE1+71TBvjywPOqVDLIbXE4IJFQdg8x5tDelx2tpCYRMyYlo8lumZYHjVjo
+	 KjL98x8TbAqLzoIgLbIxH6ZZEZp8jsjxuGHjBY/TZ6n15Hzr1b+nrwii87ACxwb5KU
+	 Vx4hjQUndhL6IjLRM9AJ0+z7cLTD1fLTuONURu5w=
+Date: Thu, 14 May 2026 14:45:52 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v5 0/3] Switch Arm CCA to use an auxiliary device instead
+ of a platform device
+Message-ID: <2026051428-untaxed-slacking-d029@gregkh>
+References: <20260514094030.42495-1-aneesh.kumar@kernel.org>
+ <2026051453-batting-delighted-0a57@gregkh>
+ <yq5ase7u5kmz.fsf@kernel.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: dts: renesas: r8a78000: Fix GIC-720AE View 1
- Redistributor description
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20260513223125.43337-1-marek.vasut+renesas@mailbox.org>
- <86bjeixyi1.wl-maz@kernel.org>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <86bjeixyi1.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: 68hnufgn5133ui5p9dmagwrtyamem9zr
-X-MBO-RS-ID: 8326ad8e9f3d17f6c68
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_134543_207651_FFFD3B75 
-X-CRM114-Status: GOOD (  27.67  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <yq5ase7u5kmz.fsf@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,88 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/14/26 9:04 AM, Marc Zyngier wrote:
-> On Wed, 13 May 2026 23:30:08 +0100,
-> Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
->>
->> The Renesas R-Car X5H (R8A78000) SoC contains Arm CoreLink GIC-720AE
->> Generic Interrupt Controller with Multi View capability. Firmware has
->> access to configuration View 0, Linux kernel has access to View 1.
+On Thu, May 14, 2026 at 04:21:48PM +0530, Aneesh Kumar K.V wrote:
+> Greg KH <gregkh@linuxfoundation.org> writes:
 > 
-> Huh. That's pretty unexpected. The usual wisdom is to give the APs
-> view 0 so that it looks like a "normal" machine, rather than only a
-> partition of the system (which is what view != 0 indicates).
+> > On Thu, May 14, 2026 at 03:10:27PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> >> As discussed here:
+> >> https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
+> >> 
+> >> The general feedback was that a platform device should not be used when
+> >> there is no underlying platform resource to represent. The existing CCA
+> >> support uses a platform device solely to anchor the TSM interface in the
+> >> device hierarchy, which is not an appropriate use of a platform device.
+> >> Use an auxiliary device instead to track CCA support.
+> >
+> > Why an aux device?  If this has no platform resources, please use the
+> > faux bus support instead, that is what it is there for.  aux devices are
+> > used when you are sharing a real resource among different "child"
+> > drivers, and need some way to coordinate that sharing.  If you have no
+> > resources, there's nothing to share, so no need for the complexity that
+> > aux gives you, just use faux instead.
+> >
 > 
-> I guess there is some additional fun going on there, such as other
-> CPUs getting a portion of the GIC for themselves, and firmware
-> preventing whatever is running on the APs to interact with them...
+> We did discuss between faux an auxiliary devices early here
+> https://lore.kernel.org/all/20251010135922.GC3833649@ziepe.ca
+> 
+> To summarize auxiliary device was choosen so that we can do module
+> autoloading.
 
-This is my understanding as well, partitioning of the system is an 
-intended use case. On the development hardware I have access to, no 
-partitioning is applied, all cores are available to Linux.
+That's not a valid reason to use the aux driver, sorry.  If you have
+hardware that triggers an auto-module-load, then this is really a
+hardware driver.  If it is a "virtual" driver like this, then you need
+to explicitly load it on your own.  Don't abuse apis for reasons that
+they are not designed for.
 
->> The Arm CoreLink GIC-720AE Generic Interrupt Controller Technical
->> Reference Manual, currently latest r2p1 [1], chapter "Programmers model
->> for GIC-720AE", subchapter "Redistributor registers for control and
->> physical LPIs summary", part "GICR_TYPER, Redistributor Type Register"
->> clarifies register "GICR_TYPER" bit 4 "Last" behavior in Multi View
->> setup as follows:
->>
->> "
->> Last
->> Last Redistributor:
->>
->> 0 ... This Redistributor is not the last Redistributor on the chip.
->> 1 ... This Redistributor is the last Redistributor on the chip.
->>        When GICD_CFGID.VIEW == 1, for views 1, 2, or 3 this bit
->>        always returns 1.
->> "
->>
->> On this SoC, GICD_CFGID.VIEW is 1 and the Linux kernel has access to
->> View 1, therefore Linux kernel GICv3 driver will interpret register
->> "GICR_TYPER" bit 4 "Last" = 1 in the first Redistributor in continuous
->> Redistributor page as that first Redistributor being the one and only
->> Redistributor and will stop processing the continuous Redistributor
->> page further. This will prevent the other Redistributors from being
->> recognized by the system and used for other PEs.
->>
->> Because the hardware indicates that the continuous Redistributor page
->> is not continuous for View 1, 2, or 3, describe every Redistributor
->> separately in the DT. This makes all Redistributors for all cores
->> accessible in Linux.
->>
->> [1] https://developer.arm.com/documentation/102666/0201/Programmers-model-for-GIC-720AE/Redistributor-registers-for-control-and-physical-LPIs-summary/GICR-TYPER--Redistributor-Type-Register?lang=en
->>
-> 
-> I am amazed that you managed to find anything at all on this web site.
-> 
-> I would refrain from adding links to any ARM web sites in a commit
-> message though. They tend to have a 10 minutes half-life period, and
-> whole specs to disappear from public view when they are not flavour of
-> the week anymore.
-> 
-> A link to the equivalent PDF has better chances to survive further
-> creative^WAI slop driven reorg of the documentation:
-> 
-> https://documentation-service.arm.com/static/69ef3c1cd35efd294e335c43
-> 
-> but your best bet is to download it, archive it, and refer to it
-> yourself.
+thanks,
 
-Thank you for that. That is the one thing I did not manage to find on 
-that website, a PDF of the GIC-720AE manual. I will include that link in 
-a V2.
-
->> Fixes: 63500d12cf76 ("arm64: dts: renesas: Add R8A78000 SoC support")
->> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> 
-> Acked-by: Marc Zyngier <maz@kernel.org>
-> 
-> 	M.
-> 
-
-
--- 
-Best regards,
-Marek Vasut
+greg k-h
 
