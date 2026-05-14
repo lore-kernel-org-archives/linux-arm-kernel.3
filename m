@@ -4,110 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAFCCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B28FCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0hbzgY1+TSxHhzIUxgk18Qp5JIkqwoR/fSR0vF4BTMI=; b=ZLWZYM0Zs7QX0UVA8GF8JaRz1G
-	PmqIdx29Xmo7wRq0tdTOU60SUQYHDEtSp69JybxJAQJVDaOwdS9FZ5h9LwZcvY1oNLY3TGxSpz0no
-	eAZOOKVQ0L9irJy/Z4IiMckdX+ISBzPEvHlXlr3wB97xoXgDe3+/LWfitsuFC3VdHrls+6YfvilDR
-	zSINmnQ+xcRLOnsPTMW9WBx/O/XiRpZqIX5l/K0sJVaulvEk1aM8plhsawwlAES/7JbBVii3XfwNA
-	oazCy3VxY66pRKxPSqtucHae/VDpxk3FezX+iLHWnmnmS91X4TigqqYB9ehdbKYFc3FfVPX82Fl8/
-	JPnstP7g==;
+	bh=xoWBzW9sP/Ck4fVB57oesqdAkMALQ+sKkQQoIFfRS40=; b=fSAyvBf4KugYQE4HGrwmUDROGv
+	LNIDy9cekQ3ct8UroH22ick82pvQML3/B89LHb9FdbB++f+bXL4P9L/XlXYngjKEg1+DNUxawLTLT
+	vgjyoar0hv/e7RU/OqdjkAnASGplxqAkZN///iBd7W7ePz/pr9zovhUsyZA1RLo21Ut1kB25OWuWp
+	FO3x/xoU7v88g8ibgoqRIyoGoc/cbCLdB2eTHtRrK5qRLKgo6fMmq7SYB8xH9m0nWo5XBN5bC34YX
+	BV37yarXV8MdONx4m3P2SwqzWAICIvhv5Jsl4GCmWseAqjdcGWKYP0bPnskYIp+qeRBcxGuPJlaqr
+	Sh7rfZhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhP-00000005qA8-1qE4;
-	Thu, 14 May 2026 15:10:07 +0000
+	id 1wNYEm-00000005vpJ-3CyO;
+	Thu, 14 May 2026 15:44:36 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhJ-00000005q4l-2jfr
+	id 1wNYEl-00000005voj-2ma5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 15:10:01 +0000
+	Thu, 14 May 2026 15:44:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E0D3060172;
-	Thu, 14 May 2026 15:10:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D25EC2BCC9;
-	Thu, 14 May 2026 15:10:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AF4CE60132;
+	Thu, 14 May 2026 15:44:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31F46C2BCB3;
+	Thu, 14 May 2026 15:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778771400;
-	bh=VLsh85YozgAjTbaFo7luW5wp3AU+M3q21SDYWi9Ryio=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Hra1rIgTVjLoK89QNBtxCGTHEOp77RpndXa3zBDfmIMiJ4El0BRCuyYMGw5myO3Hi
-	 P8g2YLwxBwT/aFPMBVKnkUEPOnsT90n0ZFN/9iq41ruLTghTM/opNsu3ZyoLbvpVqB
-	 +kwv9B470AVwMmEs/jVDx7Y1nEb9jt9RduiPZ+V9T1KJRF56jzt9n3NmsD6wCtgZ45
-	 WhrHmYTwZzQYPN+MG67FatZdV4wXeVV0bCRVs0mNeP6hXyKPq6ijcLRvBAISszbbnA
-	 yRwTbfsGUl4A0pNt7njsME+mH0yB5t3+mtFWuX25Fb5QHJBtdQ/oHt2Ne0oRFQMybp
-	 Agdk0uNz9MgDg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wNXhG-00000002Oqg-2kxF;
-	Thu, 14 May 2026 15:09:58 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Ge Gordon <gordon.ge@bst.ai>,
-	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v2 07/17] arm64: dts: bst: Add EL2 virtual timer interrupt
-Date: Thu, 14 May 2026 16:09:35 +0100
-Message-ID: <20260514150945.3917510-8-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260514150945.3917510-1-maz@kernel.org>
-References: <20260514150945.3917510-1-maz@kernel.org>
+	s=k20201202; t=1778773474;
+	bh=CVhvSu6SkBppssOg7G5C2DGY9lLATzw7R1N/Bet/nzg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OfPF7T8Dkf57fQNYbdn1sJwBXS6alw7Q80vJL5FGwa2aKEx8wDyDBLGSLWsSEshsu
+	 Pn1xToB2PgjjLwZO2moTMx3IQ4j/GJussxwCtDD3BhgSJIw9qfu2RGM+IePNiMOu2e
+	 b6vVqN6As7QplUup4ak5gPy3O2D2Ri/ruJxq1IwnxJ9AhQbEid5RYXmOxbatN0RaNN
+	 W1H0TaDNZRCTLaovQQpHLbMI1jg3QzHUmGuhEgud8dgNYV9Hs0EvuRl5J5EfZhn4vI
+	 Rp+Orfxw6qDTq57H5bli8GIvbfV1OQQ7dubMPGcxe2pJGgTPJVECRXxLEo5s/InDVf
+	 VsflAmexmcR7Q==
+Date: Thu, 14 May 2026 16:44:22 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Alex Tran <alex.tran@oss.qualcomm.com>
+Cc: Jyoti Bhayana <jbhayana@google.com>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Cristian Marussi <cristian.marussi@arm.com>, Linus Walleij
+ <linusw@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Viresh Kumar <viresh.kumar@linaro.org>, Guenter
+ Roeck <linux@roeck-us.net>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-hwmon@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] scmi: Log client subsystem entity counts
+Message-ID: <20260514164422.0eba9a61@jic23-huawei>
+In-Reply-To: <20260513-scmi-client-probe-log-v2-0-36607e9dd540@oss.qualcomm.com>
+References: <20260513-scmi-client-probe-log-v2-0-36607e9dd540@oss.qualcomm.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
- heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,28 +77,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARMv8.2 based CPUs used in the bst c1200 SoC are missing the EL2
-virtual timer interrupt. Add it.
+On Wed, 13 May 2026 10:16:53 -0700
+Alex Tran <alex.tran@oss.qualcomm.com> wrote:
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/boot/dts/bst/bstc1200.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> SCMI client drivers do not consistently log the number of supported
+> entities discovered from firmware. This information is useful during
+> debugging because it shows which domains or resources were exposed by
+> firmware during probe.
+> 
+> Add logging of the number of supported entities to the SCMI cpufreq,
+> pinctrl, reset, hwmon, and powercap client drivers after a successful
+> probe. This aligns these drivers with the existing logging in the SCMI
+> power and performance domain drivers.
+> 
+> Signed-off-by: Alex Tran <alex.tran@oss.qualcomm.com>
+Hi Alex,
 
-diff --git a/arch/arm64/boot/dts/bst/bstc1200.dtsi b/arch/arm64/boot/dts/bst/bstc1200.dtsi
-index dd13c6bfc3c89..104ecf76ced10 100644
---- a/arch/arm64/boot/dts/bst/bstc1200.dtsi
-+++ b/arch/arm64/boot/dts/bst/bstc1200.dtsi
-@@ -92,6 +92,7 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
- 	};
- };
--- 
-2.47.3
+Just curious but why +CC linux-iio and IIO folk?
+
+May be you had a false suggestion to add them from get maintainers.
+If so be sure to check it's suggestions make sense!
+
+Not to worry - we can all hit the delete button ;)
+
+Jonathan
+
+
+> ---
+> Changes in v2:
+> - Use dev_dbg instead of dev_info log level
+> - Link to v1: https://lore.kernel.org/r/20260513-scmi-client-probe-log-v1-0-00b47b1be009@oss.qualcomm.com
+> 
+> ---
+> Alex Tran (5):
+>       powercap: arm_scmi_powercap: Log number of powercap domains
+>       cpufreq: scmi-cpufreq: Log number of perf domains
+>       hwmon: scmi-hwmon: Log number of sensors
+>       reset: reset-scmi: Log number of reset domains
+>       pinctrl: pinctrl-scmi: Log number of pins, groups, functions
+> 
+>  drivers/cpufreq/scmi-cpufreq.c       |  5 ++++-
+>  drivers/hwmon/scmi-hwmon.c           |  1 +
+>  drivers/pinctrl/pinctrl-scmi.c       | 11 ++++++++++-
+>  drivers/powercap/arm_scmi_powercap.c |  1 +
+>  drivers/reset/reset-scmi.c           |  8 +++++++-
+>  5 files changed, 23 insertions(+), 3 deletions(-)
+> ---
+> base-commit: 1bfaee9d3351b9b32a99766bbfb1f5baed60ddef
+> change-id: 20260509-scmi-client-probe-log-173cf85d5563
+> 
+> Best regards,
 
 
