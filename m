@@ -4,46 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC07CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 17:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70535CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 17:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W34qTxfCjvZa+ZUYbwyoKKJ8GVVJFHt9413LSd8yxlw=; b=ANvjFu4takGZoIUBHq2bSXL/d4
-	dxwobUj7V7W379hA9AW9HSS7nK/J3YwAsyvOwnB6Qyh4gFPdMf8h7KtZgrF27/Ra9WmdFTiI5s5uB
-	GXBFldHpdxmSPWWxBAoK7PWASOy/tGbnz63YebZ2FcwIgonRUzSQFKitHcYpxo+Jtjas+L3PVDJKp
-	aeE/6XngWEfi9ZrXwpzRWsCoLF0zzHG1BEnfyyFxWQuQ6Uv8bj5n+5jJ3BGKeq/8ag1xHhqGhjOY2
-	v5XpB1TUymhScLc6sW7HZ1Nc99Kije7xvifhAs3fqo4TP2JtZzLX00AAJXgfOQEQmIbSApaDiY/Z4
-	PHYoERig==;
+	bh=Sg9UIxtat/KHhFLBWuDokF+fLhHlfQUuBnNc+P1M2II=; b=nhtGwwNMH7YGwS7S1pzxXEpRUL
+	M9gRpUawp4OA94W2Zm191oqfEQhi74g+HA0g27pWDvLf3sc4ZlRG/Fwdme20iPXnRkZePVQdMRbLm
+	i1qgtsaOSyAsNV0vtcsLhsuXZHRH7V+ZSkU4EQ+HQl3HTBLbw/Wl1Is8OcuCKLOFKdzT/XA1Qx0nX
+	0qERFDQVGJxqwi9hqxDt06kNdwkpM1ffHoQ5V3tk1Nnwp6ofujSe6yuaveGrQvTj1Iuw3FtJOxBmN
+	VrCEWhHI9X8v1mEdtO5UTbU99zAbPK0NpyMJQr9GoWYuYmIb9vE5wTI4lXJFkCwZe2BGvvZ7tFn/x
+	SsUVnRtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZVp-000000069P1-3d9V;
-	Thu, 14 May 2026 17:06:17 +0000
+	id 1wNZW0-000000069Rf-0DLb;
+	Thu, 14 May 2026 17:06:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZVn-000000069OE-11Pt
+	id 1wNZVy-000000069Qx-0Gtz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 17:06:17 +0000
+	Thu, 14 May 2026 17:06:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE5741762;
-	Thu, 14 May 2026 10:06:05 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 50B9B2576;
+	Thu, 14 May 2026 10:06:19 -0700 (PDT)
 Received: from [10.1.196.96] (eglon.cambridge.arm.com [10.1.196.96])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 30D563F836;
-	Thu, 14 May 2026 10:06:07 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B51F33F836;
+	Thu, 14 May 2026 10:06:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778778370; bh=cJq7WaPtEwccN11DGbBz/bxDRdzYI63msQptK5T8nPY=;
+	t=1778778384; bh=ENKOlrf1bPvSzhWcRcK3QmmfRthDL8G7gm8zFoEiIAI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=d1aSdDFBvKaMSeOaTWTuPHs6iF2Fox8X7BdTOGPoC8lY2yUkQDGfgqoQsfp546Euh
-	 EtBxetv2Kc+KiFMo6z5kBcGHpZ8gpzasDAJLyh59uxlH+fOTq1SeKhroubHQHDjrGD
-	 40XHojM9MVNLyeDWgDniNL124z2hbyzd9g7vwAZM=
-Message-ID: <ec8bc617-9e74-4749-ab33-39d1079415cc@arm.com>
-Date: Thu, 14 May 2026 18:06:04 +0100
+	b=qpigc/8r4y4RPNauKiUfaY4xwBCkD1TmTro3mJBVGxVvx2F+kQdh9xE+Fafxb3o63
+	 zV2Ovw41NiJb5d+eNm1o5LNwO46EIcR5Ha1BNCZRUkceSzU5xpvgwpcn0fd//jLool
+	 Gjpnrxz3/RhWSt7eiP4cZqrbGuuEgO9gJl8EgA0E=
+Message-ID: <0efe369b-8a01-45b1-bd0f-4fdd4ebbb18a@arm.com>
+Date: Thu, 14 May 2026 18:06:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 next 00/10] arm_mpam: Introduce Narrow-PARTID feature
+Subject: Re: [PATCH v8 next 01/10] fs/resctrl: Fix MPAM Partid parsing errors
+ by preserving CDP state during umount
 To: Zeng Heng <zengheng4@huawei.com>, ben.horgan@arm.com,
  Dave.Martin@arm.com, tan.shaopeng@jp.fujitsu.com, reinette.chatre@intel.com,
  fenghuay@nvidia.com, tglx@kernel.org, will@kernel.org, hpa@zytor.com,
@@ -53,14 +54,15 @@ To: Zeng Heng <zengheng4@huawei.com>, ben.horgan@arm.com,
 Cc: linux-arm-kernel@lists.infradead.org, x86@kernel.org,
  linux-kernel@vger.kernel.org, wangkefeng.wang@huawei.com
 References: <20260413085405.1166412-1-zengheng4@huawei.com>
+ <20260413085405.1166412-2-zengheng4@huawei.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <20260413085405.1166412-1-zengheng4@huawei.com>
+In-Reply-To: <20260413085405.1166412-2-zengheng4@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_100615_567432_E77BD3F5 
-X-CRM114-Status: GOOD (  49.28  )
+X-CRM114-CacheID: sfid-20260514_100626_237687_225FA4C2 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,203 +79,96 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Zeng,
 
-(beware this is the first version I've seen - arm have been silently deleting your mail,
- it looks like a problem with DKIM signatures)
+I think this should be a separate patch as its fixing a problem not adding a feature. It's
+not actually relevant to the rest of the series.
 
 On 13/04/2026 09:53, Zeng Heng wrote:
-> Background
-> ==========
+> This patch fixes a pre-existing issue in the resctrl filesystem teardown
+> sequence where premature clearing of cdp_enabled could lead to MPAM Partid
+> parsing errors.
+
+resctrl changes need to go via tip, which has a bunch of rules about commit messages,
+see Documentation/process/maintainer-tip.rst
+
+You end up with a structure describing the current state, e.g:
+| When resctrl is umounted it disables CDP,
+
+what the problem is, e.g:
+| CLOSID remain in the limbo list, and the mbm monitors continue to be read
+| after umount. MPAM changes the meaning of CLOSID when CDP is enabled/disabled,
+| resulting in out of bounds accesses.
+
+Then, what you do about it, here you are:
+| Throwing away the limbo list on umount.
+
+(I don't suggest you take this wording - its just an example)
+
+"this patch" is a phrase to avoid, acronyms like CLOSID need capitalising, etc.
+
+
+> The closid to partid conversion logic inherently depends on the global
+> cdp_enabled state. However, rdt_disable_ctx() clears this flag early in
+> the umount path, while free_rmid() operations will reference after that.
+> This creates a window where partid parsing operates with inconsistent CDP
+> state, potentially makes monitor reads with wrong partid mapping.
 > 
-> On x86, the resctrl allows creating up to num_rmids monitoring groups
-> under parent control group. However, ARM64 MPAM is currently limited by
-> the PMG (Performance Monitoring Group) count, which is typically much
-> smaller than the theoretical RMID limit.
+> Additionally, rmid_entry remaining in limbo between mount sessions may
+> trigger potential partid out-of-range errors, leading to MPAM fault
+> interrupts and subsequent MPAM disablement.
 
-The MPAM PMG limit is 255. Is that not enough?
-
-I think the real problem is the CHI interconnect protocol is forcing people
-to only have 1 bit of PMG - regardless of what the architecture says. This
-isn't an MPAM problem as such - its an implementation issue.
-
-(but we can try and work around it)
+Can you give more details on this. I assume its going from CDP-disable to
+enabled, means MPAM doubles the CLOSID from the stale limbo list, making it
+out of range.
 
 
-> This creates a significant
-> scalability gap: users expecting fine-grained per-process or per-thread
-> monitoring quickly exhaust the PMG space, even when plenty of reqPARTIDs
-> remain available.
-
-This is more about MPAM's philosophical stance that PMG extents PARTID, whereas
-on x86 RMID is an independent number.
-
-Please don't muddle these - it results in muddled patches!
-If we want to try and attack both with narrowing, we should do them separately.
+> Reorder rdt_kill_sb() to delay rdt_disable_ctx() until after
+> rmdir_all_sub() and resctrl_fs_teardown() complete. This ensures
+> all rmid-related operations finish with correct CDP state.
 
 
-> The Narrow-PARTID feature, defined in the ARM MPAM architecture,
-> addresses this by associating reqPARTIDs with intPARTIDs through a
-> programmable many-to-one mapping. This allows the kernel to present more
-> logical monitoring contexts.
+> Introduce rdt_flush_limbo() to flush and cancel limbo work before the
+> filesystem teardown completes.
 
-I'd put this as "can be abused to avoid this problem"! We still have a problem with
-controls that don't alias and need to be removed from MSC that don't support narrowing.
-This isn't what the feature was designed for - but it is a really cool trick, it works
-for some real platforms, and solves a problem seen in user-space.
-
-However - throughout this series you seem to be discarding all the control-group support
-for a monitoring-only setup that allocates intPARTID for everything. This might work for
-your use-case on your platform, but it doesn't generalise to platforms without narrowing
-or where multiple control-groups are needed.
+So, discard the state in the hope we don't need it again.
+What happens if the filesystem is mounted again quickly afterwards?
+Surely we get noisy bandwidth results for ~minutes afterwards?
 
 
-> Design Overview
-> ===============
-> 
-> The implementation extends the RMID encoding to carry reqPARTID
-> information:
-> 
->   RMID = reqPARTID * NUM_PMG + PMG
-> 
-> In this patchset, a monitoring group is uniquely identified by the
-> combination of reqPARTID and PMG. The closid is represented by intPARTID,
-> which is exactly the original PARTID.
+> An alternative approach would be to cancel limbo work on umount
 
-The way I think of this is 'RMID' bits being spilled into PARTID. This
-means each control group has a set of PARTID. For MSC using narrowing,
-CLOSID would be the intPARTID value. But as you note, we need to support
-mismatches:
+Sounds like a move in the right direction - having bits of resctrl still
+taking CPU time when its not in use is surprising.
+
+I'd love to eventually remove the limbo worker and have the RMID alloc code
+search the limbo list for a clean RMID when a control/monitor group is created.
+By deferring the work as late as possible, we do less work overall.
 
 
-> For systems with homogeneous MSCs (all supporting Narrow-PARTID), the
-> driver exposes the full reqPARTID range directly. For heterogeneous
-> systems where some MSCs lack Narrow-PARTID support, the driver utilizes
-> PARTIDs beyond the intPARTID range as reqPARTIDs to expand monitoring
-> capability. The sole exception is when any type of MSCs lack Narrow-PARTID
-> support, their percentage-based control mechanism prevents the use of
-> PARTIDs as reqPARTIDs.
+> and restart it on remount with remaked bitmap.
+> However, this would require substantial changes in the resctrl layer to
+> handle CDP state transitions across mount sessions,
 
-It'd be good to have some discussion about what the interface between the
-mpam_devices code and any other user (like resctrl) should be.
+This would be necessary if the limbo timer was stopped on umount too.
+It also covers cases where you kexec and re-mount resctrl.
 
-As a hypothetical system to think about:
-  64 PARTID at the L3, which support CPOR and CCAP
-  64 PARTID and narrowing to 16 at the SLC, which supoprts CPOR
-  64 PARTID and narrowing to 32 at the memory-controller, which support MBWU_MAX
-
-I think whether using intPARTID is a benefit needs to be user-space policy.
-You've likely got a platform where that choice is obvious - but it is a
-trade-off as you lose the non-aliasing controls. In the example above, using
-narrowing on this system means losing the CCAP controls on L3 as they don't alias [*].
-Where its a policy, its likely to be one policy for resctrl, and another for any other
-user.
-We can get the resctrl glue code to turn it on unconditionally if there is no trade off,
-I think that means: no non-aliasing controls in any class that doesn't support narrowing
-- including 'unknown'. (we couldn't add them to resctrl in the future if you already chose
-to enable this).
-
-As for the interface with mpam_devices:
-I think this means the resctrl glue code needs to be able to discover which
-classes support intPARTID, and how many controls they actually have. From there
-it can apply to policy to determine whether its better to support fewer features
-in resctrl to get more RMID. (the alternative is always to ignore the MSC with
-narrowing - narrowing lets hardware lie about the features it supports).
-
-Currently the resctrl glue code has to program a configuration for two PARTID
-when CDP is being hidden on the MB resource. This is ugly and fragile. I'd like
-to explore generalising it as this narrowing stuff will also need to apply a
-configuration to a set of PARTID when that MSC doesn't support narrowing.
-In the example above, we'd need to discard the CCAP controls and write the same
-CPOR bitmap to each PARTID that is mapped together by narrowing.
+I think this is a good idea. I agree its more work.
 
 
-I think this means the resctrl glue code will need to be able to write a configuration
-to controls using the full partid_max range as it does today. But also be able to set
-the narrowing mapping on classes that support it.
-For the monitors, the resctrl glue code will need to allocate and configure a set of
-monitors, and read and sum them. This will be regardless of whether narrowing is
-supported.
+> which is beyond the
+> scope of the reqpartid feature work this patchset focuses on.
 
-I think this means allocating a table of CLOSID to PARTID(s). the intPARTID would
-always match the CLOSID. Monitors and non-narrowing MSC would need to walk the list.
-I'm hoping we can make CDP a subset of this problem.
-Some clever arithmetic may save allocating memory for a table - but if we change resctrl
-to do this dynamically, the numbers become arbitrary forcing it to be a table.
-It might also be possible to support moving monitor-groups between control groups with
-the table driven approach. (see what you think on how complex it ends up ...)
-
-I'd like to keep that grouping static for now, the table needs creating at setup time,
-(+/- CDP), to avoid problems like you've found with CDP. This means the intpartid mappings
-can be written once at setup time.
-
-I'd like to avoid exposing user ABI to control this until we get it working, then we can
-talk about whether to try making the grouping dynamically managed by resctrl. (there were
-some proposals in that area - but I can't find them on lore).
-If there are platforms were its certainly not a trade-off, we can enable it
-unconditionally - but I'm wary of this being "what we care about now", requiring user-abi
-to enable features that were detectable.
-e.g. we ignore an unknown MSC, and add a resctrl schema for it later - only we can't
-expose it if we were using narrowing. Now its a trade-off.
+Was it a mistake to include it in this series then?
 
 
-> Capability Improvements
-> =======================
-> 
-> --------------------------------------------------------------------------
-> The maximum        |  Sub-monitoring groups            | System-wide
-> number of          |  under a control group            | monitoring groups
-> --------------------------------------------------------------------------
-> Without reqPARTID  |  PMG                              | intPARTID * PMG
-> --------------------------------------------------------------------------
-> reqPARTID          |                                   |
-> static allocation  | (reqPARTID // intPARTID) * PMG    | reqPARTID * PMG
-> --------------------------------------------------------------------------
-> reqPARTID          |                                   |
-> dynamic allocation | (reqPARTID - intPARTID + 1) * PMG | reqPARTID * PMG
-> --------------------------------------------------------------------------
-> 
-> Note: The number of intPARTIDs can be capped via the boot parameter
-> mpam.intpartid_max. Under MPAM, reqPARTID count is always greater than
-> or equal to intPARTID count.
-> 
-> Series Structure
-> ================
-> 
-> Patch 1: Fix pre-existing out-of-range PARTID issue between mount sessions.
-> Patches 2-6: Implement static reqPARTID allocation.
-> Patches 7-10: Implement dynamic reqPARTID allocation.
+> The current
+> fix addresses the immediate correctness issue with minimal churn.
 
-I've had  a hard time following this series. You dive in with invasive changes, then
-unbreak things in later patches.
+I'm not a fan of papering over problems in resctrl. Could we do it properly
+by rebuilding the limbo list at mount time as you suggested above?
 
-Please added the needed infrastructure in mpam_devices.c first. This should be free of
-resctrl-isms, and 'only' needs reviewing against the architecture.
-
-Then add the resctrl glue code stuff. That needs to comply with what resctrl expects.
-
-I think the cleanest way to think about this is to break the mapping between CLOSID and
-PARTID. We're effectively moving bits of RMID out of PMG into PARTID. Adding helpers
-to explicitly do this early in those patches will make your changes clearer.
-Please avoid spraying the narrowing terms for things everywhere.
 
 
 Thanks,
 
 James
-
-
-[*] It's terminology from discussing this with Dave, just in case a summary is needed:
-  aliasing controls are like CPOR where two different PARTID with the same bitmap
-  compete for the same resource. If you give them each the same 50% of the portions,
-  they can't exceed that together.
-  non-aliasing controls are like CCAP where to different PARTID with the same fraction
-  compete for different resources. If you give them each 50% of the capacity, it adds
-  up to 100%. You can't represent 'the same' 50% using these controls.
-
-  Narrowing papers over this problem with its remapping table, which gives you a 'same'
-  property. For MSC that have controls of that shape - and where more monitors are
-  desired - we'd have to drop the controls.
-
-  I think "more monitors are desired" is going to need to be user-space policy. But
-  we can come back to how to do that later.
-
 
