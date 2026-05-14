@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15A89CD4851
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ABE4CD4F25
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hrOGjwligoDGN6a9UBVvnPrPnlwEQ4kM9IamSGqVO6A=; b=AugVD+l2B/O4yiqfmji+7Pl8gt
-	1doynnU5AThnLKt2hIq40QEowdW6syb+i1QC6OQ+1Bq1W2p/XKWKI6vZHOl9wUlegHLbk08mqUmLD
-	Ayz6yBUECKBLEARWq/QH0cH6E1RVIkjh2FnJfscSyKLZWTnURjleGXH/R6VU+eSOmC7anaJ/kg08/
-	/1ZkVXSwvZMUBWSluQrCxelCwn+70uw2vImY9BsAXfzBtVhA8LX7JmxS2H1lzHQuijBL8s+c6bT8C
-	8JwFnzsclxt3koBb2SUn28CmdaU2iLAeyo9Ggr+UlW/wxOOKKTNX/qUJBaVqAlA4E/rnoXO14BLYN
-	23zOJfYQ==;
+	bh=8rYvi+3JVZJtERBC/gfJzp98B/b/Fpz7xNSQPS8u1Nc=; b=my5QO7GyXBT3zyaHY3NlanVuNt
+	RVmHbXbklWHe9KYzGt5THZqV8cipr4L/J9hyHCx9YT9THfmeQDJ7rpy+klAxxWXynM4fhpg9eN4gq
+	wDC/2uWUNxIX9Jmx3vBLgBhnvwgf9qZYkW/5ihO0kK/IMxPJXuJOQDn4PVjbYOCJQbSPU7p4NQvvV
+	FsvfjOnch91NkQfCYCZ2Qdze5vnvDZK1v1wnC9X3LBqd3NNvlAhlgT6BobC5PMfNXKwCdCseN3+Wn
+	0t1ekD/kSZEYLbUFy7Ntgv2ylq3UITbym5Teo8MQxU6nT+yhKzZCPVlGvHcC3zacKANFX/cGP9F8c
+	Trd8geLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhs-00000005qdd-0wNX;
+	id 1wNXhs-00000005qe0-1NyE;
 	Thu, 14 May 2026 15:10:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhO-00000005q8e-32Wu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 14 May 2026 15:10:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=hrOGjwligoDGN6a9UBVvnPrPnlwEQ4kM9IamSGqVO6A=; b=P0lpXX9gC2VkJwvrLkW9trVJv0
-	HYGWHpnPDRi9EAaz3kfSfSFMFnnISpmJlUxMwKTQ8MTKG5eQDOjt+Oaz96FFWz8/SmE8tBy2vblIC
-	b+mfKkTR5fzLRK3vdWJ8q3xQN//0tBP6xN4XAAHvm5v09+qKk/GPTA6Q9dA4kqxmqRNbf/RjvP9M7
-	J4VGLqRmFWbP99wyXsU9WMspOGxxUOIG5jKkcOXrs7TtRP13sU8XDJgWAt/IwQZ+N+5/n/t66wKF1
-	47jd9lzarhB3fVu9QZcrIjV1os5VzOPHSiZfJAQ9IJo+kNSIt3hpD88Uze41EQQkZ3ngtjqGvvgPV
-	ixI4S+IQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhL-00000003Dnf-22jC
+	id 1wNXhO-00000005q5O-2NTF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 15:10:05 +0000
+	Thu, 14 May 2026 15:10:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 67193446F7;
-	Thu, 14 May 2026 15:09:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39D0DC2BCB3;
-	Thu, 14 May 2026 15:09:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 75FAE44581;
+	Thu, 14 May 2026 15:10:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ECF2C2BCC9;
+	Thu, 14 May 2026 15:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778771399;
-	bh=d59g25bV3UFh+I0ByUj8LqrxAPLpikSFsp0XFERtE2U=;
+	s=k20201202; t=1778771406;
+	bh=aUhTz9jm+Ra2Q6RC2n0qYxb1bA+A3HUaTCXCNCF7HOA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HZfWwpAvlCpy8TtLoTUUk5j0mLxbrJOfeQsQK2TKkyrZqPax+uY7KiyNPaRxJYyZx
-	 TBoxICftxEorOA2+m7blY40Xy7M/s4lh/qF2ED3iPWV8Ay40bl+edSwH6XUe8TExok
-	 K7BugzPHe9NdYIAirgReckitBbhtSBF5ta83Lw+UX6tnUOBfGrj41JayDEezKqmlD3
-	 SNgxO7jsLysGYne18wiG4/Bkx9Ua/BhU6rpDGGBsY2ZIWtXzuxiC0LIz4GR9nbx2vH
-	 GaynATfhY6vdklPhFURUdo6+ZU2mOaKgDCdURXEOUiSfvlOdbYwmyXHJc+H5mWUZ0l
-	 A9tVSythGUeew==
+	b=p/mr/DHL62FqjAlt+scNdgghJYFGghyQpnZdxz19HujERiMA3DcovaJKai0z39pHP
+	 WjgfvM+FtUY6fJ5+Pb+nHms5M9xQTXp1txiplYm7/bA705yRybXiAcGvgNwV+Vwgnn
+	 EWVhAO1qtgtHbPix28nU0FJBDN6njTAKJk8fWBEbq07e1YNjCwN09fCdLIjOVLLw6V
+	 dWclJ74btBgQtpng2GaR4qfqaZCj5c0RxYkQa4azpRZK4TAUruVs7g6QJFbXrdUgY4
+	 szvvwIwNd55M3aM+/9E+5LuaxYSrINL8NLGGsPmkdVKyLtB4ZF4Ha/94FANvU8CWBo
+	 WwlK8rkZm9Srg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wNXhE-00000002Oqg-3lxV;
-	Thu, 14 May 2026 15:09:56 +0000
+	id 1wNXhM-00000002Oqg-1mBD;
+	Thu, 14 May 2026 15:10:04 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -110,9 +95,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v2 04/17] dt-bindings: timer: arm,arch_timer: Fix requirements for interrupt description
-Date: Thu, 14 May 2026 16:09:32 +0100
-Message-ID: <20260514150945.3917510-5-maz@kernel.org>
+Subject: [PATCH v2 17/17] arm64: dts: xilinx: Add EL2 virtual timer interrupt
+Date: Thu, 14 May 2026 16:09:45 +0100
+Message-ID: <20260514150945.3917510-18-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260514150945.3917510-1-maz@kernel.org>
 References: <20260514150945.3917510-1-maz@kernel.org>
@@ -124,8 +109,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_161004_190605_CEB7BC37 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20260514_081006_649246_8B528C0D 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,71 +125,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm,arch_timer DT binding is extremely imprecise in describing
-the requirements for interrupts.
+The ARMv8.2 based CPUs used in the versal SoC are missing the EL2 virtual
+timer interrupt. Add it.
 
-Follow the architecture by making it explicit that:
-- the EL1 secure timer irq is required if EL3 is implemented
-- the EL1 physical timer irq is always required
-- the EL1 virtual timer irq is always required
-- the EL2 physical timer irq is required if EL2 is implemented
-- the EL2 virtual timer irq is required if FEAT_VHE is implemented
-
-The consequence of the above is that the minimum number of interrupts
-to be described is 2, and not 1.
-
-Finally, clean up the description which made the assumption that
-the timers are plugged into a GIC (unfortunately, that's not always
-true), drop the MMIO nonsense that has long be moved to a separate
-binding, and use the architectural terminology to describe the various
-interrupts.
-
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Michal Simek <michal.simek@amd.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- .../bindings/timer/arm,arch_timer.yaml        | 21 +++++++------------
- 1 file changed, 8 insertions(+), 13 deletions(-)
+ arch/arm64/boot/dts/xilinx/versal-net.dtsi | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/timer/arm,arch_timer.yaml b/Documentation/devicetree/bindings/timer/arm,arch_timer.yaml
-index c5fc3b6c8bd0b..c65e48a155ab6 100644
---- a/Documentation/devicetree/bindings/timer/arm,arch_timer.yaml
-+++ b/Documentation/devicetree/bindings/timer/arm,arch_timer.yaml
-@@ -10,13 +10,8 @@ maintainers:
-   - Marc Zyngier <marc.zyngier@arm.com>
-   - Mark Rutland <mark.rutland@arm.com>
- description: |+
--  ARM cores may have a per-core architected timer, which provides per-cpu timers,
--  or a memory mapped architected timer, which provides up to 8 frames with a
--  physical and optional virtual timer per frame.
--
--  The per-core architected timer is attached to a GIC to deliver its
--  per-processor interrupts via PPIs. The memory mapped timer is attached to a GIC
--  to deliver its interrupts via SPIs.
-+  The per-core architected timer is expected to deliver per-CPU interrupts
-+  (commonly to a GIC to deliver its per-processor interrupts as PPIs).
+diff --git a/arch/arm64/boot/dts/xilinx/versal-net.dtsi b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
+index 15f767608e67f..0aac93675ad77 100644
+--- a/arch/arm64/boot/dts/xilinx/versal-net.dtsi
++++ b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
+@@ -728,7 +728,8 @@ fpga: fpga-region {
  
- properties:
-   compatible:
-@@ -33,13 +28,13 @@ properties:
-           - const: arm,armv7-timer
+ 	timer: timer {
+ 		compatible = "arm,armv8-timer";
+-		interrupts = <1 13 4>, <1 14 4>, <1 11 4>, <1 10 4>;
++		interrupts = <1 13 4>, <1 14 4>, <1 11 4>, <1 10 4>,
++			     <1 12 4>;
+ 	};
  
-   interrupts:
--    minItems: 1
-+    minItems: 2
-     items:
--      - description: secure timer irq
--      - description: non-secure timer irq
--      - description: virtual timer irq
--      - description: hypervisor timer irq
--      - description: hypervisor virtual timer irq
-+      - description: EL1 secure physical timer irq, if EL3 is implemented
-+      - description: EL1 non-secure physical timer irq
-+      - description: EL1 virtual timer irq
-+      - description: EL2 physical timer irq, if EL2 is implemented
-+      - description: EL2 virtual timer irq, if FEAT_VHE is implemented
- 
-   interrupt-names:
-     oneOf:
+ 	versal_fpga: versal-fpga {
 -- 
 2.47.3
 
