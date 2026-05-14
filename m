@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D92CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E57CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6YNQDiAk/xlVO0n8LOtKzUmpF01ZP10NXjIieKLms0=; b=kJvZ+UTS27QjCx+zusAC30nHOS
-	st6PJ2FlNexM6B94v/lTYKZpW/v37Q9TeVbaFRBtK1Y3q5H+6BpB9jppLl9l4D0YCWje7YCBXrAXY
-	XYC6ASBR2XXBNngT4WCs63mD3+tt3bhHnKTWyEreIPEM5iGB4BNze/zp0UW3dBVw8TZamdb6xJywK
-	qXbFvO2lqdawFa7pzqcsCL9w6BRWpkCXNQmZm9qj9VjyApTG5Pt1dRlKUn6fF/Lj3eTHTdSvpVCyl
-	3NPyxRIBdIWO5kNnWFO1ESUzUEiQmiy3rQcW1RcioLJeL4OlmJQpC7Xe84aRhIRI9TiLEK0dH9Mzr
-	IdC4LFhw==;
+	bh=62YCeXMmrM/Knx6qU9B2QemeljmsANFcy10tsSetOcQ=; b=2+nDfgiGyU/GLQyj0Oi/N/O4C/
+	tArIbqhq6iqo52UAjJ6ceInpkF2FqtKf4l3KO9alVP3qoNSool5TeNfyblNzhALAspKXQpG7Or5kS
+	fbLJX9rWTd1Hfyv08GstBshImzaqrH+8rqzxw7k2sV8oqcOsAqOcdTKIYxMr3M1cb651a2/RC2dxw
+	zFpMpSnWBH5JJXweyQzfP0tG/DPsw3mAoVg0L7oajLVSVHgeMhc4J0UYu/Icdcll+HVUoywbOwHZD
+	UdDll9xtl/iT5+x9AOtNnYpbm6ofY/5MeY4EcHL64zXjdrtwaQnMR1oG+/vcoR7tTN0Jz+UG+xkJY
+	pCpto9TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTfc-00000005FA5-2uyQ;
-	Thu, 14 May 2026 10:52:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wNTif-00000005FfG-0yYh;
+	Thu, 14 May 2026 10:55:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTfa-00000005F9N-0WmS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 10:51:59 +0000
+	id 1wNTid-00000005Fez-3Pp2;
+	Thu, 14 May 2026 10:55:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D655C438B8;
-	Thu, 14 May 2026 10:51:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 114D4C2BCB3;
-	Thu, 14 May 2026 10:51:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0F68860008;
+	Thu, 14 May 2026 10:55:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A484C2BCB3;
+	Thu, 14 May 2026 10:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778755916;
-	bh=NdIUfducvTRfNv9EYak+8ec9D63cIOd0Q93R/5kYsIM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=TZGxBDkPMRNBmNhF9URVkpubYH9ZVQym8A3/b6mCW61gCl35FjejmAg5Nkv6Wbesg
-	 9cmY4U7pCPnrbZL00Z12bH+ewTJb9/cFganuk7XvB1fUWu8rHs8QiOhEPwJ/S3sD1J
-	 EtxFChOpUSfwkLSY+Wr+A9eIYPR4APzdb80ivSay/AYG4yQQQIeQWFvC/8rm3p04J6
-	 u5nVcJhSq0yaTi/3eVimpctCx3HHKDKC8A7us5rTjB76ZWOwuwwMfhFsWkaiHM2cFI
-	 /nL/XRo2kj6Ujd6NTPE+y4smsYdL5sRaZqCA9yG2i0baQjIe3lXqw52KSR9DUQr5VI
-	 Sg2yPIUvbctJg==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>
-Subject: Re: [PATCH v5 0/3] Switch Arm CCA to use an auxiliary device
- instead of a platform device
-In-Reply-To: <2026051453-batting-delighted-0a57@gregkh>
-References: <20260514094030.42495-1-aneesh.kumar@kernel.org>
- <2026051453-batting-delighted-0a57@gregkh>
-Date: Thu, 14 May 2026 16:21:48 +0530
-Message-ID: <yq5ase7u5kmz.fsf@kernel.org>
+	s=k20201202; t=1778756106;
+	bh=XkhZz83lofA4mVraY0m0AcH0UuZ/4Xb3/CeHB5IJ4/4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nYMYg1OEtYIi4/xJe4YkZh3xhaqx+qcobMMsNok9nKritLvV7xMMsjyA2aP/vCIE1
+	 w738kCB5f3PWpnTTQtkGN7PnNZo27uGMDKFtkpizx9sSH951tH2896jBeTTtnuQtA9
+	 MoyqrxDGSVpx2YadIc1HvYsMt12vHkD5iQMQPkODuO0PnrdaoJPOAK1/oxkNjR8v+v
+	 83WwT5ikPIYt7VM2BLQINMX1KQIH4Z/0Xkbd7nBOxykZDJtEpCSyGLIsXAgSizbdX9
+	 qXcwLa5+1vajdXGsjQQxul06yl3+PMXCkCepl2zzOwpG6ef5Ih04DMQf6BfeYwNPbD
+	 4vw/3EbIj9Y0Q==
+Date: Thu, 14 May 2026 11:54:59 +0100
+From: Lee Jones <lee@kernel.org>
+To: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Beniamino Galvani <b.galvani@gmail.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	Ronald Claveau <linux-kernel-dev@aliel.fr>
+Subject: Re: [PATCH v5 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
+Message-ID: <20260514105459.GJ305027@google.com>
+References: <20260424-add-mcu-fan-khadas-vim4-v5-0-afcfa7157b23@aliel.fr>
+ <20260424-add-mcu-fan-khadas-vim4-v5-4-afcfa7157b23@aliel.fr>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_035158_187833_A61BD4DE 
-X-CRM114-Status: GOOD (  14.42  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260424-add-mcu-fan-khadas-vim4-v5-4-afcfa7157b23@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,31 +85,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Greg KH <gregkh@linuxfoundation.org> writes:
+On Fri, 24 Apr 2026, Ronald Claveau via B4 Relay wrote:
 
-> On Thu, May 14, 2026 at 03:10:27PM +0530, Aneesh Kumar K.V (Arm) wrote:
->> As discussed here:
->> https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
->> 
->> The general feedback was that a platform device should not be used when
->> there is no underlying platform resource to represent. The existing CCA
->> support uses a platform device solely to anchor the TSM interface in the
->> device hierarchy, which is not an appropriate use of a platform device.
->> Use an auxiliary device instead to track CCA support.
+> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> 
+> Refactor probe() to use per-variant khadas_mcu_data
+> instead of hardcoded globals.
+> 
+> Add dedicated regmap configuration and device data for the VIM4 MCU,
+> with its own volatile/writeable registers.
+> 
+> Add the fan control register
+> (0–100 levels vs 0–3 for previous supported boards).
+> 
+> Add a new compatible string "khadas,vim4-mcu".
+> 
+> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> ---
+>  drivers/mfd/khadas-mcu.c | 106 ++++++++++++++++++++++++++++++++++++++++++-----
+>  1 file changed, 95 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
+> index ba981a7886921..b36b3b3ab73c0 100644
+> --- a/drivers/mfd/khadas-mcu.c
+> +++ b/drivers/mfd/khadas-mcu.c
+> @@ -75,15 +75,91 @@ static const struct regmap_config khadas_mcu_regmap_config = {
+>  	.cache_type	= REGCACHE_MAPLE,
+>  };
+>  
+> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
+> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
+> +	.max_level	= 3,
+> +};
+
+What is 3?
+
+> +
+>  static struct mfd_cell khadas_mcu_fan_cells[] = {
+>  	/* VIM1/2 Rev13+ and VIM3 only */
+> -	{ .name = "khadas-mcu-fan-ctrl", },
+> +	{
+> +		.name = "khadas-mcu-fan-ctrl",
+> +		.platform_data = &khadas_mcu_fan_pdata,
+> +		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
+> +	},
+>  };
+
+Worth making this const at one point.
+
+>  
+>  static struct mfd_cell khadas_mcu_cells[] = {
+>  	{ .name = "khadas-mcu-user-mem", },
+>  };
+>  
+> +static const struct khadas_mcu_data khadas_mcu_data = {
+> +	.regmap_config	= &khadas_mcu_regmap_config,
+> +	.cells		= khadas_mcu_cells,
+> +	.ncells		= ARRAY_SIZE(khadas_mcu_cells),
+> +	.fan_cells	= khadas_mcu_fan_cells,
+> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells),
+> +};
+
+This is a red flag!
+
+> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
+> +{
+> +	switch (reg) {
+> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
+> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
+> +	case KHADAS_MCU_WOL_INIT_START_REG:
+> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
+> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
+> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
+> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
+> +		return true;
+> +	default:
+> +		return false;
+> +	}
+> +}
+> +
+> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
+> +{
+> +	switch (reg) {
+> +	case KHADAS_MCU_VERSION_0_REG:
+> +	case KHADAS_MCU_VERSION_1_REG:
+> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
+> +		return false;
+> +	default:
+> +		return true;
+> +	}
+> +}
+> +
+> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
+> +	.reg_bits	= 8,
+> +	.reg_stride	= 1,
+> +	.val_bits	= 8,
+> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
+> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
+> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
+> +	.cache_type	= REGCACHE_MAPLE,
+> +};
+> +
+> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
+> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
+> +	.max_level	= 0x64,
+> +};
+> +
+> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
+> +	{
+> +		.name		= "khadas-mcu-fan-ctrl",
+> +		.platform_data	= &khadas_vim4_fan_pdata,
+> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
+> +	},
+> +};
+> +
+> +static const struct khadas_mcu_data khadas_vim4_mcu_data = {
+> +	.regmap_config	= &khadas_mcu_vim4_regmap_config,
+> +	.cells		= NULL,
+> +	.ncells		= 0,
+> +	.fan_cells	= khadas_mcu_vim4_cells,
+> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells),
+> +};
+> +
+>  static int khadas_mcu_probe(struct i2c_client *client)
+>  {
+>  	struct device *dev = &client->dev;
+> @@ -94,28 +170,35 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>  	if (!ddata)
+>  		return -ENOMEM;
+>  
+> +	ddata->data = i2c_get_match_data(client);
+> +	if (!ddata->data)
+> +		return -EINVAL;
+
+Shouldn't this be -ENODEV?
+
+>  	i2c_set_clientdata(client, ddata);
+>  
+>  	ddata->dev = dev;
+>  
+> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
+> +	ddata->regmap = devm_regmap_init_i2c(client,
+> +					     ddata->data->regmap_config);
+
+Use up to 100-chars to prevent this kind of wrapping.
+
+>  	if (IS_ERR(ddata->regmap)) {
+>  		ret = PTR_ERR(ddata->regmap);
+>  		dev_err(dev, "Failed to allocate register map: %d\n", ret);
+>  		return ret;
+>  	}
+
+Maybe convert this to dev_err_probe() at one point.
+
+> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> -				   khadas_mcu_cells,
+> -				   ARRAY_SIZE(khadas_mcu_cells),
+> -				   NULL, 0, NULL);
+> -	if (ret)
+> -		return ret;
+> +	if (ddata->data->cells && ddata->data->ncells) {
+> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> +					   ddata->data->cells,
+> +					   ddata->data->ncells,
+> +					   NULL, 0, NULL);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+>  	if (of_property_present(dev->of_node, "#cooling-cells"))
+>  		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+> -					    khadas_mcu_fan_cells,
+> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
+> +					    ddata->data->fan_cells,
+> +					    ddata->data->nfan_cells,
+>  					    NULL, 0, NULL);
+>  
+>  	return 0;
+> @@ -123,7 +206,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>  
+>  #ifdef CONFIG_OF
+>  static const struct of_device_id khadas_mcu_of_match[] = {
+> -	{ .compatible = "khadas,mcu", },
+> +	{ .compatible = "khadas,mcu", .data = &khadas_mcu_data },
+> +	{ .compatible = "khadas,vim4-mcu", .data = &khadas_vim4_mcu_data },
+
+We don't allow data from one registration API (MFD) to be shoved through
+another (DT).  Pass a value to match on instead, then use a switch()
+statement or similar to populate or register the devices.
+
+>  	{},
+>  };
+>  MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
+> 
+> -- 
+> 2.49.0
+> 
 >
-> Why an aux device?  If this has no platform resources, please use the
-> faux bus support instead, that is what it is there for.  aux devices are
-> used when you are sharing a real resource among different "child"
-> drivers, and need some way to coordinate that sharing.  If you have no
-> resources, there's nothing to share, so no need for the complexity that
-> aux gives you, just use faux instead.
->
-
-We did discuss between faux an auxiliary devices early here
-https://lore.kernel.org/all/20251010135922.GC3833649@ziepe.ca
-
-To summarize auxiliary device was choosen so that we can do module
-autoloading.
-
--aneesh
 
