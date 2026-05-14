@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32B7CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:20:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16810CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:29:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=daz4LMEo8nCEydnFK0zjrq9qJylLQxczPgtQdJUJrrA=; b=rzSuRPCCFnaYl/UjCb3vaApk2R
-	gnInPvdJESJhh5UFbgG5ctmGUaMW3r2lXCJtiQQLI6eD551n73WnRTnsDLd91L4h+Hz8KoSTMbBH6
-	AH5xPKuaQBTLdJQiZVtxv3xYiCP8DgxxvPZiaXx4CsIIs5DEh34VzJTe7oYLgp4tyHyyiBIFPnP79
-	JeXKls3YU342zF0iYDoxMfb4bNZhnNFSd4ARuZqv0z9RHdBV/tnaRTVpi4ydjMgvdkCZVnYb2bZqq
-	aYZ+CaD8LbAis5UHY/4lZ6oenZ6nems1DjSa9oUu1PBXvs3eSzLs0bsisYqG4gUsVZ/i490dIPOR8
-	uremnJSg==;
+	bh=sPIYUVBUYaEU2ZhC6plQdg5cDxGwIYWVjNhmGLypg3w=; b=G4l0KJPuPcju4z+mzUhInt6Yh3
+	fZEfcTv1VKEbVw7XLdxJZJq9wlHjC43Wx3kMKJ7bkL+KIo7nEcSE46JWWAAwYzSfln+qMq751gj0j
+	zovdzGXZHPbchBWo1hbEhF0gJvKvahoxSEiXMj5B+oZdz9AKrvf708ueB8EUL1pnXEI3CzL/9FwAw
+	U+HZyxI314BrV0CvOL1NXiVbzDTFb+xgGzRVH9ihfm3E6Np5xXjoRcAyCPB265HIbAQk91UGdlaJd
+	dAUweUinJoHB3xTQeGLi3gw5keufurPwzwbbb6gVSpF7+0yHId4P06IGbub1PFu1RydlNk0/5u8R6
+	IyvzDWLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNV2s-00000005RL0-29WK;
-	Thu, 14 May 2026 12:20:06 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1wNVBk-00000005SGK-1Gn7;
+	Thu, 14 May 2026 12:29:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNV2p-00000005RKQ-3epQ;
-	Thu, 14 May 2026 12:20:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1778761204; x=1810297204;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=3d8DUSA04YEeeaSJDsq0tBuKoX/EgDy6elaulwtaoYI=;
-  b=EdMdUiaDZfUGiTIdB60cT8rkUYm/RKnxd8VCnb59IFrQc91jv+lPoza4
-   FHWD24cUhZvFK5x7EiBmLfgNJhf9MFfX3yJV9p0qyV/Uw9/UIdIg4S9tt
-   e0YYbpv2HG8fhoS8G4WnYgvLopJzNbX7ozU8YrqqHtO2WSXfGpPojIMgS
-   6ogYTRioHMyZj2d7puHCgomIX1af0rFnsU9eI9MIGDU/11lNjBwzihO1m
-   L0JlYq/FvxpPRnHX9Zw4ZOQLutFLmOq9eZzoudQi3tHZdVOg/DuV9ew5f
-   7eYDLpW2ykE3bfKPjn7yRvvqUVZ7VMVaR/L4OiRnFQXgF2b67il6PkvKP
-   w==;
-X-CSE-ConnectionGUID: EqlS5TwsTWGVnRkNI2PE6w==
-X-CSE-MsgGUID: fR2hGJnuSLGdQAXfzLqqeA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11785"; a="91087132"
-X-IronPort-AV: E=Sophos;i="6.23,234,1770624000"; 
-   d="scan'208";a="91087132"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2026 05:20:02 -0700
-X-CSE-ConnectionGUID: SgABm03mTjmMHc+nrGJewg==
-X-CSE-MsgGUID: EJUbuaw/RnyDNWwkMBfBxQ==
-X-ExtLoop1: 1
-Received: from igk-lkp-server01.igk.intel.com (HELO bdf09bfdbd5f) ([10.211.93.152])
-  by fmviesa003.fm.intel.com with ESMTP; 14 May 2026 05:19:58 -0700
-Received: from kbuild by bdf09bfdbd5f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wNV2i-000000008oV-0F3n;
-	Thu, 14 May 2026 12:19:56 +0000
-Date: Thu, 14 May 2026 14:19:35 +0200
-From: kernel test robot <lkp@intel.com>
-To: Hans Zhang <18255117159@163.com>, bhelgaas@google.com,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	vigneshr@ti.com, jingoohan1@gmail.com, thomas.petazzoni@bootlin.com,
-	pali@kernel.org, ryder.lee@mediatek.com, jianjun.wang@mediatek.com,
-	claudiu.beznea.uj@bp.renesas.com, mpillai@cadence.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, robh@kernel.org,
-	s-vadapalli@ti.com, linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Hans Zhang <18255117159@163.com>
-Subject: Re: [PATCH v2 8/8] PCI: rzg3s-host: Add 100 ms delay after link
- training
-Message-ID: <202605141426.2RPW8nvf-lkp@intel.com>
-References: <20260506152346.166056-9-18255117159@163.com>
+	id 1wNVBj-00000005SG0-1Bal;
+	Thu, 14 May 2026 12:29:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B9186012B;
+	Thu, 14 May 2026 12:29:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82E94C2BCB3;
+	Thu, 14 May 2026 12:29:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778761754;
+	bh=qOWbOvqHMaeYwiDsyg5AN0nnqLfamVFB2hHGFVZd/pE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GTnbsWpzLvrGR+7jaAiWkc30RibULgmzzDGxmo57IvbRhPrFATtFElhSiiDLqeYKd
+	 6/5tRP06GN+ENFWoo8gasw+Fc+86hA3xGqw6Oq2mIESRWek8HX0/NRS4TmktTH6wL8
+	 HFr/OlbxOtW/q4rj03rUM8AKSdAw6KzKKQdS3I6B/KP5cOODlW5CZwgnTQLvBZSkXz
+	 iHxBU17+9nJ+4sTrlpUGuiEB6V/6A4sJ8a5cEZvAScknfoHFpgxs/KZ11rn7g4gOVT
+	 4DTNXiquD2CA6sr/FbisgTfO4NZBTbqGdI6N7nQRya7m4/5SXjR5r/YA+H9yJWrJtp
+	 SIH8cVqmQuf+Q==
+Date: Thu, 14 May 2026 14:29:11 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Arnab Layek <arnab.layek@mediatek.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Project_Global_Chrome_Upstream_Group@mediatek.com
+Subject: Re: [PATCH v2 1/1] dt-bindings: remoteproc: mtk,scp: Allow multiple
+ memory regions for MT8188
+Message-ID: <20260514-shiny-woodoo-saluki-1b07d3@quoll>
+References: <20260506133157.3283204-1-arnab.layek@mediatek.com>
+ <20260511121004.2984149-1-arnab.layek@mediatek.com>
+ <20260511121004.2984149-2-arnab.layek@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260506152346.166056-9-18255117159@163.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_052003_954179_2C71E970 
-X-CRM114-Status: GOOD (  10.60  )
+In-Reply-To: <20260511121004.2984149-2-arnab.layek@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,88 +75,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hans,
+On Mon, May 11, 2026 at 08:10:04PM +0800, Arnab Layek wrote:
+> The MT8188 SCP requires two reserved memory regions:
+> 1. Main SCP SRAM memory region (required)
+> 2. SCP L1TCM memory region (optional, for additional memory)
+> 
+> Some other MediaTek SoCs only use a single memory region. This patch adds
 
-kernel test robot noticed the following build errors:
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
 
-[auto build test ERROR on a293ec25d59dd96309058c70df5a4dd0f889a1e4]
+> a conditional schema using if/then to allow 1-2 memory regions
+> specifically for mediatek,mt8188-scp and mediatek,mt8188-scp-dual
+> compatibles, while keeping the default maxItems: 1 for other
+> SoCs.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Hans-Zhang/PCI-Add-pcie_wait_after_link_train-helper/20260514-132815
-base:   a293ec25d59dd96309058c70df5a4dd0f889a1e4
-patch link:    https://lore.kernel.org/r/20260506152346.166056-9-18255117159%40163.com
-patch subject: [PATCH v2 8/8] PCI: rzg3s-host: Add 100 ms delay after link training
-config: x86_64-kexec (https://download.01.org/0day-ci/archive/20260514/202605141426.2RPW8nvf-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260514/202605141426.2RPW8nvf-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202605141426.2RPW8nvf-lkp@intel.com/
-
-All error/warnings (new ones prefixed by >>):
-
-   In file included from drivers/pci/access.c:8:
->> drivers/pci/pci.h:73:3: error: call to undeclared function 'msleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      73 |                 msleep(PCIE_RESET_CONFIG_WAIT_MS);
-         |                 ^
-   1 error generated.
---
-   In file included from drivers/pci/rebar.c:17:
->> drivers/pci/pci.h:73:3: error: call to undeclared function 'msleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      73 |                 msleep(PCIE_RESET_CONFIG_WAIT_MS);
-         |                 ^
->> drivers/pci/rebar.c:142:31: warning: implicit conversion from 'unsigned long long' to 'u32' (aka 'unsigned int') changes value from 140737488355328 to 0 [-Wconstant-conversion]
-     142 |         if (size < 0 || size > ilog2(SZ_128T) - ilog2(PCI_REBAR_MIN_SIZE))
-         |                                ~~~~~~^~~~~~~~
-   include/linux/sizes.h:70:20: note: expanded from macro 'SZ_128T'
-      70 | #define SZ_128T                         _AC(0x800000000000, ULL)
-         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~
-   include/uapi/linux/const.h:21:18: note: expanded from macro '_AC'
-      21 | #define _AC(X,Y)        __AC(X,Y)
-         |                         ^~~~~~~~~
-   include/uapi/linux/const.h:20:20: note: expanded from macro '__AC'
-      20 | #define __AC(X,Y)       (X##Y)
-         |                          ^~~~
-   <scratch space>:37:1: note: expanded from here
-      37 | 0x800000000000ULL
-         | ^~~~~~~~~~~~~~~~~
-   include/linux/log2.h:162:14: note: expanded from macro 'ilog2'
-     162 |         __ilog2_u32(n) :                \
-         |         ~~~~~~~~~~~ ^
-   1 warning and 1 error generated.
---
-   In file included from drivers/pci/msi/pcidev_msi.c:5:
->> drivers/pci/msi/../pci.h:73:3: error: call to undeclared function 'msleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      73 |                 msleep(PCIE_RESET_CONFIG_WAIT_MS);
-         |                 ^
-   1 error generated.
---
-   In file included from drivers/pci/pcie/portdrv.c:22:
->> drivers/pci/pcie/../pci.h:73:3: error: call to undeclared function 'msleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      73 |                 msleep(PCIE_RESET_CONFIG_WAIT_MS);
-         |                 ^
-   1 error generated.
+Stop explaining what you did. Explain WHY. Why second entry is optional?
+Why are you changing existing binding? Was it working? Not? Why not? Why
+yes?
 
 
-vim +/msleep +73 drivers/pci/pci.h
+> 
+> Each memory region is documented with descriptions to
+> clarify their purpose, following the pattern used in other bindings.
 
-    62	
-    63	/**
-    64	 * pcie_wait_after_link_train - Wait 100 ms if link speed > 5 GT/s
-    65	 * @max_link_speed: the maximum link speed (2 = 5.0 GT/s, 3 = 8.0 GT/s, ...)
-    66	 *
-    67	 * Must be called after Link training completes and before the first
-    68	 * Configuration Request is sent.
-    69	 */
-    70	static inline void pcie_wait_after_link_train(int max_link_speed)
-    71	{
-    72		if (max_link_speed > 2)
-  > 73			msleep(PCIE_RESET_CONFIG_WAIT_MS);
-    74	}
-    75	
+Redundant. We can read the diff.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> 
+> Signed-off-by: Arnab Layek <arnab.layek@mediatek.com>
+> ---
+>  .../bindings/remoteproc/mtk,scp.yaml          | 21 +++++++++++++++++++
+>  1 file changed, 21 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> index bdbb12118da4..df13be2026a6 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/mtk,scp.yaml
+> @@ -205,6 +205,27 @@ allOf:
+>            items:
+>              - const: cfg
+>              - const: l1tcm
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          enum:
+> +            - mediatek,mt8188-scp
+> +            - mediatek,mt8188-scp-dual
+> +    then:
+> +      properties:
+> +        memory-region:
+> +          minItems: 1
+> +          items:
+> +            - description: Main SCP SRAM memory region
+> +            - description: Optional SCP L1TCM memory region
+
+Conflicts top level.
+
+> +      patternProperties:
+> +        "^scp@[a-f0-9]+$":
+> +          properties:
+> +            memory-region:
+> +              minItems: 1
+> +              items:
+> +                - description: Main SCP SRAM memory region
+> +                - description: Optional SCP L1TCM memory region
+>  
+>  additionalProperties: false
+>  
+> -- 
+> 2.45.2
+> 
 
