@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E9EACD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16CDCCD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vNWXSp7Nbj9O77x61TBFotnY7B/VVUrjuRV9QAofvts=; b=Xpzvz2t34W18IiSHab90HM45Rr
-	+adD8mySMLzbUdrYwr6k9BdSYfQiuUsI/LwEEzrrTY9wpE8qdVc1rjeagI23VVMQ5cyiGaDqCdpgE
-	CqzOtvTFumiviY81xozHdde32X3OifpVPItJrb/5HYd3e0GZC9O0aId8VH7l8TykEZTmkITTphNpA
-	ePA1Me0uX3uX1LLrge0PMqACYmg544yebGXDtqHgDKqf0n0PYm0EHysDaSpDgau/4pATsSm0iKYxz
-	Ddrwpt1bvEiNWstO1kcTP6Ti1JcQPEMvbEZnVInUox4Bj/OP9CofETvdELldUT7EeUnFGj2rqTNJ1
-	t2D7+1RQ==;
+	bh=FFjKE2ApU2SqNxtA22Y0SNIAWTSQ6SwQHjwGTZAmx6Y=; b=3ae5LhH4fzLIGxhvYYypGjK5/a
+	gUf/toPMdZy97tHCvjF4w0VD9Hx/SdDa4aJDNysOLoy9G2YEIbtv+ka7F+JhE9eMdEgNihQ/44QOw
+	iJZEEMV5ASEVc5WgMWvu/aSFjXiPchfQQ+gt4NE13dtcijVkKB4ugiDZnYPhgLEKNjQRaQhZLd3o4
+	UVWzmdqqED7nXpIN4IXU8N8u4ojmCg1qY0aNC8cFlKsO3l+e+h0Noix2aYUP0XjhxhRXkaErYjJbm
+	pPNkC26zRP7Z2x1XW0GshGkEd7G92H6/APBHSOphiuLPmmLBNk/ayLmcs331AzgCGtipqcie3VPYo
+	RfVAk9Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhP-00000005qAm-3ANA;
-	Thu, 14 May 2026 15:10:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNXhQ-00000005qDr-3KYo;
+	Thu, 14 May 2026 15:10:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhL-00000005q6a-3Oxf
+	id 1wNXhM-00000005q5O-2vQI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 15:10:03 +0000
+	Thu, 14 May 2026 15:10:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F01D860142;
-	Thu, 14 May 2026 15:10:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 998A4C2BCC9;
-	Thu, 14 May 2026 15:10:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 951FC44106;
+	Thu, 14 May 2026 15:10:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC25EC2BCB8;
+	Thu, 14 May 2026 15:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778771402;
-	bh=W4cmxivtYi3nun2PcS0FnwCVsLQ2R9LW3MSa/17BLCA=;
+	s=k20201202; t=1778771404;
+	bh=4/6vzm3F89tYIBWYAzm8ccRLU9saqSBjgruCZuRt+ck=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=N1u8qFSTueub8f6SMSIy8pRg06DFSctNcD1DQzp9+byRtu1kd33GwHylMAv8sr7sp
-	 bWUsHoeItXUranDbQA34K59y5XHwkaRCBa1iEotpQWd8vHRjfr7uwdnws2J5MH0WFa
-	 opLakp78xUuFPfQFtFzdEOJRbBsAw0YJBSzUedDo8SgkD3zkIVmbqoqDvr0PPhIVnY
-	 OLdlfZ+Kxz7de+HJfa+4cq11IwV4mN3iAH9KUZ+oDBs6n2EXGKFBYDGONM5ApPvdPB
-	 tOe8cUe7dRAFo8gnfnjiJTQtev5XTY+qZ7Y2y2lABF/8ojsTaWQkhEnAsGk/hlb+QG
-	 Oe5PL7LhUybtw==
+	b=Dc86wbumo75wkbnAHcFHy0rJm1HrHah+LgsVwUGxtzUyTWHxrsrFyU9K3QdgNs6en
+	 +BXSkFrtHjisu5VZ1oB7DQHnl8icl30+HnGFaKqXGsmMBGyfxSBhGefgqIrD8ddbGF
+	 1/j6Nf70j+1BybKgQadB/QCBdovRaM33RSa8IkGyQUskthO/3hd8LWrQsIxyaVYLCJ
+	 cM4M/4TP4fhz3MMaq97xH/YCKMhLkXDKbSwzz0vobvzpPcEbGNeBWSOasC6HDyhwL/
+	 MWij1ZWiHQb8kY7tSK+W8dHpHVYcEmiVuLZQkpZOmLglsZnJvwHOgSiIn+YqujnH9j
+	 EAMov+EvMRwOQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wNXhI-00000002Oqg-1Sww;
-	Thu, 14 May 2026 15:10:00 +0000
+	id 1wNXhK-00000002Oqg-0KU7;
+	Thu, 14 May 2026 15:10:02 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -95,9 +95,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v2 10/17] arm64: dts: intel: Add EL2 virtual timer interrupt
-Date: Thu, 14 May 2026 16:09:38 +0100
-Message-ID: <20260514150945.3917510-11-maz@kernel.org>
+Subject: [PATCH v2 13/17] arm64: dts: qcom: Add EL2 virtual timer interrupt
+Date: Thu, 14 May 2026 16:09:41 +0100
+Message-ID: <20260514150945.3917510-14-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260514150945.3917510-1-maz@kernel.org>
 References: <20260514150945.3917510-1-maz@kernel.org>
@@ -108,6 +108,9 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
  heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_081004_793465_A681D0EE 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,20 +125,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARMv8.2 based CPUs used in the agilex5 SoC are missing the EL2 virtual
-timer interrupt. Add it.
+The ARMv8.1+ based CPUs used in a number of Qualcomm SoCs are missing
+the EL2 virtual timer interrupt. Add it.
 
-Acked-by: Dinh Nguyen <dinguyen@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/qcom/eliza.dtsi     | 3 ++-
+ arch/arm64/boot/dts/qcom/hamoa.dtsi     | 3 ++-
+ arch/arm64/boot/dts/qcom/kaanapali.dtsi | 3 ++-
+ arch/arm64/boot/dts/qcom/kodiak.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/lemans.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/milos.dtsi     | 1 +
+ arch/arm64/boot/dts/qcom/monaco.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sar2130p.dtsi  | 3 ++-
+ arch/arm64/boot/dts/qcom/sc7180.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sc8180x.dtsi   | 3 ++-
+ arch/arm64/boot/dts/qcom/sc8280xp.dtsi  | 3 ++-
+ arch/arm64/boot/dts/qcom/sdm670.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sdm845.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sdx75.dtsi     | 1 +
+ arch/arm64/boot/dts/qcom/sm4450.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sm6350.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sm6375.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sm8150.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sm8250.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sm8350.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sm8450.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sm8550.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sm8650.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/sm8750.dtsi    | 3 ++-
+ arch/arm64/boot/dts/qcom/talos.dtsi     | 3 ++-
+ 25 files changed, 48 insertions(+), 23 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-index 02e62d954e949..6db2d48b9bad3 100644
---- a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-+++ b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-@@ -155,7 +155,8 @@ timer {
+diff --git a/arch/arm64/boot/dts/qcom/eliza.dtsi b/arch/arm64/boot/dts/qcom/eliza.dtsi
+index 4a7a0ac40ce62..7267e0ec44b2b 100644
+--- a/arch/arm64/boot/dts/qcom/eliza.dtsi
++++ b/arch/arm64/boot/dts/qcom/eliza.dtsi
+@@ -1880,6 +1880,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/hamoa.dtsi b/arch/arm64/boot/dts/qcom/hamoa.dtsi
+index 051dee0764167..cc638b9162c25 100644
+--- a/arch/arm64/boot/dts/qcom/hamoa.dtsi
++++ b/arch/arm64/boot/dts/qcom/hamoa.dtsi
+@@ -8982,7 +8982,8 @@ timer {
  		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
  			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
  			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
@@ -144,7 +183,313 @@ index 02e62d954e949..6db2d48b9bad3 100644
 +			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
  	};
  
- 	usbphy0: usbphy {
+ 	thermal_zones: thermal-zones {
+diff --git a/arch/arm64/boot/dts/qcom/kaanapali.dtsi b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
+index 7cc326aa1a1aa..149275828f1bc 100644
+--- a/arch/arm64/boot/dts/qcom/kaanapali.dtsi
++++ b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
+@@ -6953,7 +6953,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ 
+ 	tpdm-cdsp-llm {
+diff --git a/arch/arm64/boot/dts/qcom/kodiak.dtsi b/arch/arm64/boot/dts/qcom/kodiak.dtsi
+index 988ca5f7c8a0e..8e0a1ca0125d1 100644
+--- a/arch/arm64/boot/dts/qcom/kodiak.dtsi
++++ b/arch/arm64/boot/dts/qcom/kodiak.dtsi
+@@ -7876,6 +7876,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
+index fe6e763518230..cd9c964e884f3 100644
+--- a/arch/arm64/boot/dts/qcom/lemans.dtsi
++++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
+@@ -8585,7 +8585,8 @@ arch_timer: timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ 
+ 	turing-llm-tpdm {
+diff --git a/arch/arm64/boot/dts/qcom/milos.dtsi b/arch/arm64/boot/dts/qcom/milos.dtsi
+index 4a64a98a434b6..b991124b8ce9f 100644
+--- a/arch/arm64/boot/dts/qcom/milos.dtsi
++++ b/arch/arm64/boot/dts/qcom/milos.dtsi
+@@ -3235,6 +3235,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/monaco.dtsi b/arch/arm64/boot/dts/qcom/monaco.dtsi
+index 7b1d57460f1e6..38e54b91f0d81 100644
+--- a/arch/arm64/boot/dts/qcom/monaco.dtsi
++++ b/arch/arm64/boot/dts/qcom/monaco.dtsi
+@@ -8312,6 +8312,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sar2130p.dtsi b/arch/arm64/boot/dts/qcom/sar2130p.dtsi
+index d65ad0df68652..11ea2330f3ac5 100644
+--- a/arch/arm64/boot/dts/qcom/sar2130p.dtsi
++++ b/arch/arm64/boot/dts/qcom/sar2130p.dtsi
+@@ -3165,7 +3165,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ 
+ 	thermal-zones {
+diff --git a/arch/arm64/boot/dts/qcom/sc7180.dtsi b/arch/arm64/boot/dts/qcom/sc7180.dtsi
+index a4b17564469ee..25a9235f41b7a 100644
+--- a/arch/arm64/boot/dts/qcom/sc7180.dtsi
++++ b/arch/arm64/boot/dts/qcom/sc7180.dtsi
+@@ -4861,6 +4861,7 @@ timer {
+ 		interrupts = <GIC_PPI 1 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 2 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 3 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 4 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sc8180x.dtsi b/arch/arm64/boot/dts/qcom/sc8180x.dtsi
+index f45deb188c6c0..10344e682495c 100644
+--- a/arch/arm64/boot/dts/qcom/sc8180x.dtsi
++++ b/arch/arm64/boot/dts/qcom/sc8180x.dtsi
+@@ -4399,6 +4399,7 @@ timer {
+ 		interrupts = <GIC_PPI 1 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 2 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 3 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 4 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sc8280xp.dtsi b/arch/arm64/boot/dts/qcom/sc8280xp.dtsi
+index 761f229e8f472..e5fc52e6f613e 100644
+--- a/arch/arm64/boot/dts/qcom/sc8280xp.dtsi
++++ b/arch/arm64/boot/dts/qcom/sc8280xp.dtsi
+@@ -7043,6 +7043,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sdm670.dtsi b/arch/arm64/boot/dts/qcom/sdm670.dtsi
+index c195c79c1c85b..f6e6ac4d8abcc 100644
+--- a/arch/arm64/boot/dts/qcom/sdm670.dtsi
++++ b/arch/arm64/boot/dts/qcom/sdm670.dtsi
+@@ -604,7 +604,8 @@ timer {
+ 		interrupts = <GIC_PPI 1 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 2 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 3 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 4 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ 
+ 	soc: soc@0 {
+diff --git a/arch/arm64/boot/dts/qcom/sdm845.dtsi b/arch/arm64/boot/dts/qcom/sdm845.dtsi
+index 4ae8627d6dbc3..9ad4cd36c8927 100644
+--- a/arch/arm64/boot/dts/qcom/sdm845.dtsi
++++ b/arch/arm64/boot/dts/qcom/sdm845.dtsi
+@@ -6041,6 +6041,7 @@ timer {
+ 		interrupts = <GIC_PPI 1 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 2 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 3 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 4 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sdx75.dtsi b/arch/arm64/boot/dts/qcom/sdx75.dtsi
+index d1b61530b562f..b6cdf71051026 100644
+--- a/arch/arm64/boot/dts/qcom/sdx75.dtsi
++++ b/arch/arm64/boot/dts/qcom/sdx75.dtsi
+@@ -1583,6 +1583,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sm4450.dtsi b/arch/arm64/boot/dts/qcom/sm4450.dtsi
+index 696e2e0841ad9..c7890f5ab8f13 100644
+--- a/arch/arm64/boot/dts/qcom/sm4450.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm4450.dtsi
+@@ -681,6 +681,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sm6350.dtsi b/arch/arm64/boot/dts/qcom/sm6350.dtsi
+index 034545d2af2d1..a06c1f54e228d 100644
+--- a/arch/arm64/boot/dts/qcom/sm6350.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm6350.dtsi
+@@ -3528,6 +3528,7 @@ timer {
+ 		interrupts = <GIC_PPI 1 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 2 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 3 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 4 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sm6375.dtsi b/arch/arm64/boot/dts/qcom/sm6375.dtsi
+index ccf572bb1549b..e89cf4829f10b 100644
+--- a/arch/arm64/boot/dts/qcom/sm6375.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm6375.dtsi
+@@ -2472,6 +2472,7 @@ timer {
+ 		interrupts = <GIC_PPI 1 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 2 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 3 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 4 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sm8150.dtsi b/arch/arm64/boot/dts/qcom/sm8150.dtsi
+index 0e101096209ab..c77fea73eaeee 100644
+--- a/arch/arm64/boot/dts/qcom/sm8150.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8150.dtsi
+@@ -4630,7 +4630,8 @@ timer {
+ 		interrupts = <GIC_PPI 1 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 2 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 3 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 4 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ 
+ 	thermal-zones {
+diff --git a/arch/arm64/boot/dts/qcom/sm8250.dtsi b/arch/arm64/boot/dts/qcom/sm8250.dtsi
+index 7076720413ab2..ad44ab7d89fdb 100644
+--- a/arch/arm64/boot/dts/qcom/sm8250.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8250.dtsi
+@@ -6293,7 +6293,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ 
+ 	thermal-zones {
+diff --git a/arch/arm64/boot/dts/qcom/sm8350.dtsi b/arch/arm64/boot/dts/qcom/sm8350.dtsi
+index c830953156ec6..63081dcc94aac 100644
+--- a/arch/arm64/boot/dts/qcom/sm8350.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8350.dtsi
+@@ -4542,6 +4542,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sm8450.dtsi b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+index 03bf30b53f289..e7a890dc2e57f 100644
+--- a/arch/arm64/boot/dts/qcom/sm8450.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8450.dtsi
+@@ -6327,7 +6327,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <19200000>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sm8550.dtsi b/arch/arm64/boot/dts/qcom/sm8550.dtsi
+index 912525e9bca6f..4958b653678ae 100644
+--- a/arch/arm64/boot/dts/qcom/sm8550.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8550.dtsi
+@@ -6806,6 +6806,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sm8650.dtsi b/arch/arm64/boot/dts/qcom/sm8650.dtsi
+index 1604bc8cff373..24714688b50af 100644
+--- a/arch/arm64/boot/dts/qcom/sm8650.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8650.dtsi
+@@ -8599,6 +8599,7 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/qcom/sm8750.dtsi b/arch/arm64/boot/dts/qcom/sm8750.dtsi
+index 18fb52c14acd7..e9192b806f9f0 100644
+--- a/arch/arm64/boot/dts/qcom/sm8750.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8750.dtsi
+@@ -6796,7 +6796,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ 
+ 	tpdm-cdsp-llm {
+diff --git a/arch/arm64/boot/dts/qcom/talos.dtsi b/arch/arm64/boot/dts/qcom/talos.dtsi
+index ff5afbfce2a47..9b3172e8c5545 100644
+--- a/arch/arm64/boot/dts/qcom/talos.dtsi
++++ b/arch/arm64/boot/dts/qcom/talos.dtsi
+@@ -5153,7 +5153,8 @@ arch_timer: timer {
+ 		interrupts = <GIC_PPI 1 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 2 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 3 IRQ_TYPE_LEVEL_LOW 0>,
+-			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW 0>;
++			     <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW 0>,
++			     <GIC_PPI 4 IRQ_TYPE_LEVEL_LOW 0>;
+ 	};
+ 
+ 	thermal-zones {
 -- 
 2.47.3
 
