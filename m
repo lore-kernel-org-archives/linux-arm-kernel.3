@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CE2CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CFACD4F39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gLASyDiGDo18bW93eURt9qbOV0d309ysFYLBqEyP/mE=; b=EGpSOqEe7euaRbFWtcB3/jwrSR
-	oJNNHnkOBXdr+4Sv58nIP+SKHyK+2IwRK9nGd2E5IlLtMLkY7xffvstASwkm2yJ85KpPYfSMBObgS
-	SLpRmZ1jnngw00rDjYJmyCby7MqmkWOYzSpEGNHeb7W94KDRmT4IXNIWtv1HNGthpUUbRlyOnU59K
-	p1bovu4FaO5sg9u3oJ41JvFnf1mg0WXS8BM8d8KXxuJMb+Aw+P3/BIIHuTNTlIRzzMcLD4vU5FioJ
-	n+Q7L2uhuuCvvr6cNEaH/4LW+75HzbD5hqo/B5Ms7gjh6W+3Dn3JelPQgKiJB2KpYves5lorkvefK
-	nsUVmrWQ==;
+	bh=nVJtoJwHA1qaK/rVte5qaXvlJbiset/mhzA6ephutU0=; b=nCufalsVhgdxJttsVNfVEUcnNT
+	1DCgfSI40KHa9l9mK5Yss0ft62gkO7XUfusHnZBzRpQON4JOmcx1Ec+x29Rq6Ml42uJRBu9jxLa9U
+	ziwAfnYyhzzX6c9ASnRf90MEDrLJoGrsuO5ujbPO+QqMnnu4xWnfc2VqZbYZt8hnk5tcWDcivO5oz
+	GSb3hR7U6VCj1erqoP9LKCFz+KFOaGF1esErjRGP8JiawWMaNdT+YBcHIuEdofRv9RytgPyrwNNdT
+	VDKD9S+gOIhs0oz241IbYdCF3SRbwhV7a0f0aosZ4rxCLSN/K24zPC/EWZ+w+TXPqAVafUGy0obOh
+	o7Dpqt+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVbP-00000005Wp0-17NZ;
-	Thu, 14 May 2026 12:55:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wNVd4-00000005X3U-2JlO;
+	Thu, 14 May 2026 12:57:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVbM-00000005Wo2-2krf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 12:55:45 +0000
+	id 1wNVd2-00000005X3B-2TK3;
+	Thu, 14 May 2026 12:57:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9F3E43D1E;
-	Thu, 14 May 2026 12:55:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3695CC2BCB3;
-	Thu, 14 May 2026 12:55:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1778763343;
-	bh=Nl6b59PjQMcous4ytyzR+wCAscn4OPey4CqOkKZOb1Q=;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C9246013B;
+	Thu, 14 May 2026 12:57:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C39F1C2BCB3;
+	Thu, 14 May 2026 12:57:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778763447;
+	bh=AKwZQs2wlVU5d66RzEN5Yeb4ReFmnHAO0+173C7d698=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G8o+16UzOUWzXizJawdPj1/3+yhKYAHdPQh77qYDhUGORdPPZHOgd0SDP2LNY0otn
-	 pHpVNBTmgs4daXOu6UTG8ovzHsZiqwjwmNmx4VJcbl5aEtp+pGDd+d7h1HHuz3Cum1
-	 Y0C/eCyZ+JWHWiaIICzaKOyxN0aZrMxHq2V8NgiI=
-Date: Thu, 14 May 2026 14:55:48 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>
-Subject: Re: [PATCH v5 1/3] firmware: smccc: coco: Manage arm-smccc platform
- device and CCA auxiliary drivers
-Message-ID: <2026051420-amusement-drove-73e6@gregkh>
-References: <20260514094030.42495-1-aneesh.kumar@kernel.org>
- <20260514094030.42495-2-aneesh.kumar@kernel.org>
- <0c88bcee-65b5-4328-87e6-e1c714c3d1ca@arm.com>
+	b=JWHqLlK/wIwM/uCBb2Q7orVLvYK+1zY65FUJExviSdXrbpFG3rZp2RkmRNGEA9xLy
+	 vUlzRSt2sjt4Omv2vT3nHOZV4QLnETOk8XwsbcrTVjjIHjMiAkdzNX9nAHPIZAPvBZ
+	 fvFTsNC2+etSzMbeMG1XqkGkCbeDivxa2L5MMOMvUYoEjqkk/4tNS0yh/BxO61h5WT
+	 jFYVylaVULZdpPU46QKFfiAn6jH7lantX+Qte39+kTFwjApgi+zhy9i2EAqPP7seqG
+	 4GbFfz+2ly06YxzppyjZ7D2JBdjUfgsOaS+fwyH84bFJaF1a8FXlUfUufs6zDZf5Qv
+	 aFSS24mrSXWlg==
+Date: Thu, 14 May 2026 14:57:25 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Roman Vivchar <rva333@protonmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, 
+	David Lechner <dlechner@baylibre.com>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sen Chu <sen.chu@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+	Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, linux-iio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
+	Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH v2 01/16] dt-bindings: iio: adc: mt6359: generalize
+ description for mt63xx series
+Message-ID: <20260514-abiding-honored-mammoth-78dda0@quoll>
+References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
+ <20260512-mt6323-v2-1-3efcba579e88@protonmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <0c88bcee-65b5-4328-87e6-e1c714c3d1ca@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_055544_709394_C6BD0D00 
-X-CRM114-Status: GOOD (  14.45  )
+In-Reply-To: <20260512-mt6323-v2-1-3efcba579e88@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 12:04:13PM +0100, Suzuki K Poulose wrote:
-> Hi Aneesh
+On Tue, May 12, 2026 at 08:18:15AM +0300, Roman Vivchar wrote:
+> Update binding title to the MT63xx, since the list of compatibles already
+> includes mt6363 and mt6373 which don't belong to the mt6350 family.
 > 
-> On 14/05/2026 10:40, Aneesh Kumar K.V (Arm) wrote:
-> > Make the SMCCC driver responsible for registering the arm-smccc platform
-> > device and after confirming the relevant SMCCC function IDs, create
-> > the arm_cca_guest auxiliary device.
-> > 
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> ---
+>  Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> There are a few changes squashed in to this patch. Please could we
-> split the patch in the following order ?
-> 
-> 1. Add platform device for arm-smccc
+> diff --git a/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
+> index 5d4ab701f51a..2e8857e104f5 100644
+> --- a/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
+> +++ b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
+> @@ -4,7 +4,7 @@
+>  $id: http://devicetree.org/schemas/iio/adc/mediatek,mt6359-auxadc.yaml#
+>  $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  
+> -title: MediaTek MT6350 series PMIC AUXADC
+> +title: MediaTek MT63xx series PMIC AUXADC
 
-Do not make any more "fake" platform devices please.
+Honestly that's close to churn... Do it while adding new compatibles.
 
-> 2. Move TRNG to Auxilliary Device - (Even though it is a later patch, move
-> it before the RSI changes)
+Best regards,
+Krzysztof
 
-No, move it to the faux api please.
-
-thanks,
-
-greg k-h
 
