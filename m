@@ -4,57 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90712CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 13:02:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E1ACD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 13:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLBa0eCGlK23Uh8Va98YC010ZS+trfxb66awnxnwHIc=; b=Wc/4K8Ap4dvJdt3ZKfCIuPI133
-	0Dnp8Pl+rZEXqZvCaePIlX87m5wgMIYWjZEQ9+6CyKnuGRH895wjJloe8kjT5CMEd8mtnaMOS5iBO
-	1kYEEflKHGEB/coPIj3Fr+56E4vMdvq2hpZuz/UWYLG08YkwTQUyOfichPOoZwT543Ejo9rnG5cu4
-	wdTziFUm11sbPtr7YihmqzigXyx0yLGjcbAUD0pxECluzw9H6fg9ylR6ICpfMMi/inWxITVMC5GzB
-	P5pKtxnhc03S95XPutl9/xAUwYPWOollOV14aDOKwq3cACe6JQ63IGrrzEges3s95t2AtYJc7uv9+
-	WQxDzPXA==;
+	bh=mGZRaiY9JxfnRh/cW6JZKZ1Qeq5ua7wHmwJMRARXUaY=; b=p68gF8wZUVGwmwTlYWlxEqCS9O
+	BwND/3Qfu8LukhhRr4EW5iQRrv+iv27ZhoxvzgcRpwE8N2uSdRiV/kvvWS0p05uOSrZ2wuTFCOUMN
+	liR27uYPPjQSvDxQExAYvLookqUpwCaEfO7iXqoFzqosityuecWvZc+zlWfjq4f94RrKr7wAPnGP0
+	JhfhqlS/Em+hnVIEw2kvV/5myDSflGlht8geKvWj23hkyJnMk8P9wXPz701QyFY++HZVGuTf8ksrP
+	OJxaDHg34Y8AQ0jJDT4nM3KLKuslpFz9RokqqtJDkY1eI42c1B1+22APSOOJ3etIclT3G/gVqQKoa
+	QImWFfoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVhb-00000005XZ7-0cst;
-	Thu, 14 May 2026 13:02:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNViT-00000005XkB-25TS;
+	Thu, 14 May 2026 13:03:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVhZ-00000005XYt-1lE7;
-	Thu, 14 May 2026 13:02:09 +0000
+	id 1wNViS-00000005XjT-3MRr;
+	Thu, 14 May 2026 13:03:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AE9ED60132;
-	Thu, 14 May 2026 13:02:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1F8CC2BCB3;
-	Thu, 14 May 2026 13:02:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1778763728;
-	bh=6XkcIGEtELfy3FNPsRMpEtSIdSkCha1v4oFloaN5a2E=;
+	by tor.source.kernel.org (Postfix) with ESMTP id D332560008;
+	Thu, 14 May 2026 13:03:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03376C2BCB3;
+	Thu, 14 May 2026 13:03:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778763783;
+	bh=esmD5ZlFatNDDQ2YdV8QKifdxwq20DRFXsWE4S5ByrM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SH6sGKX8F7y134uKrqajCxGs00yhXlupBiuPqzVIUY36b/thUbq9Z21AkAvVUCz/1
-	 DYaZoMbeTIMQngQ/t6kQnkyY90yRlBGAWBF08CXB/kw0DXsGLRkOvUp0Vj6+Fz4oX6
-	 4QQOFrS4Qb2Is1u7tQKJIBMa3deSDa3h4XZbMrFw=
-Date: Thu, 14 May 2026 15:02:13 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Nick Chan <towinchenmi@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Yuriy Havrylyuk <yhavry@gmail.com>
-Subject: Re: [PATCH] nvme-apple: Reset q->sq_tail during queue init
-Message-ID: <2026051400-concert-cartridge-e96b@gregkh>
-References: <20260514-nvme-apple-sq-reset-v1-1-8931e455281e@gmail.com>
+	b=QSOtra3amH98ML2nsdTRfc9GkKHQf/NG1SRcC5xBBbhdVLToWw7QeW2O40zNleM/I
+	 I99kb6XciHwEKgmvBPyUhUXcpqDQQGmGGYaJVBiNDJgVXRAMZymfq+mhXL7QPK/FO8
+	 krbnGesieD3ZimI8Fe1E43peO4qBcos9j+CUaTqhEsBaciFx9qwit7nale3P9qpFNr
+	 iTOsmWRYmA/eq0YJQCEJZr9gvGVatXzJqfS3ezKzxHjkZQ3eLB8Hi01fKXFR9FoV6L
+	 34n53iKYgpwIP0J7zZPeHV8LhYpe8SpwINlGDEXxEW/Psx6OS0hrS47wA4eGzdcV5y
+	 OLBtsScdLhpXQ==
+Date: Thu, 14 May 2026 15:03:01 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Roman Vivchar <rva333@protonmail.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, 
+	David Lechner <dlechner@baylibre.com>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sen Chu <sen.chu@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
+	Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, linux-iio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
+	Ben Grisdale <bengris32@protonmail.ch>
+Subject: Re: [PATCH v2 16/16] MAINTAINERS: add MediaTek mt6323 PMIC thermal
+ driver maintainer
+Message-ID: <20260514-sweet-electric-buffalo-841c18@quoll>
+References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
+ <20260512-mt6323-v2-16-3efcba579e88@protonmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260514-nvme-apple-sq-reset-v1-1-8931e455281e@gmail.com>
+In-Reply-To: <20260512-mt6323-v2-16-3efcba579e88@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,66 +80,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 08:54:59PM +0800, Nick Chan wrote:
-> Fixes controller reset on Apple A11 / T8015.
+On Tue, May 12, 2026 at 08:18:30AM +0300, Roman Vivchar wrote:
+> Add myself as MediaTek mt6323 thermal driver maintainer.
 > 
-> Fixes: 04d8ecf37b5e ("nvme: apple: Add Apple A11 support")
-> Suggested-by: Yuriy Havrylyuk <yhavry@gmail.com>
-> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 > ---
->  drivers/nvme/host/apple.c | 1 +
->  1 file changed, 1 insertion(+)
+>  MAINTAINERS | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
-> diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-> index 423c9c628e7b..c692fc73babf 100644
-> --- a/drivers/nvme/host/apple.c
-> +++ b/drivers/nvme/host/apple.c
-> @@ -1009,6 +1009,7 @@ static void apple_nvme_init_queue(struct apple_nvme_queue *q)
->  	unsigned int depth = apple_nvme_queue_depth(q);
->  	struct apple_nvme *anv = queue_to_apple_nvme(q);
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index bf2e066f377d..3001a713b083 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -16355,6 +16355,11 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/mfd/mediatek,mt6397.yaml
+>  F:	drivers/leds/leds-mt6323.c
 >  
-> +	q->sq_tail = 0;
->  	q->cq_head = 0;
->  	q->cq_phase = 1;
->  	if (anv->hw->has_lsq_nvmmu)
-> 
-> ---
-> base-commit: 5d6919055dec134de3c40167a490f33c74c12581
-> change-id: 20260514-nvme-apple-sq-reset-53e22e88c7b0
-> 
-> Best regards,
-> -- 
-> Nick Chan <towinchenmi@gmail.com>
-> 
-> 
+> +MEDIATEK PMIC THERMAL DRIVER
+> +M:	Roman Vivchar <rva333@protonmail.com>
+> +S:	Odd Fixes
 
-Hi,
+Odd Fixes means driver is half-abandonded, so please explain in the
+commit msg why you add yourself as maintainer but not really committed.
+Such entry makes more sense for subsystems, but if individual driver has
+odd-fixes stage, shouldn't we just remove this maintainer entry? If so,
+why adding it in the first place?
 
-This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
-a patch that has triggered this response.  He used to manually respond
-to these common problems, but in order to save his sanity (he kept
-writing the same thing over and over, yet to different people), I was
-created.  Hopefully you will not take offence and will fix the problem
-in your patch and resubmit it so that it can be accepted into the Linux
-kernel tree.
+> +F:	drivers/thermal/mediatek/mtk_pmic_thermal.c
 
-You are receiving this message because of the following common error(s)
-as indicated below:
+Best regards,
+Krzysztof
 
-- You have marked a patch with a "Fixes:" tag for a commit that is in an
-  older released kernel, yet you do not have a cc: stable line in the
-  signed-off-by area at all, which means that the patch will not be
-  applied to any older kernel releases.  To properly fix this, please
-  follow the documented rules in the
-  Documentation/process/stable-kernel-rules.rst file for how to resolve
-  this.
-
-If you wish to discuss this problem further, or you have questions about
-how to resolve this issue, please feel free to respond to this email and
-Greg will reply once he has dug out from the pending patches received
-from other developers.
-
-thanks,
-
-greg k-h's patch email bot
 
