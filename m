@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35155CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 18:07:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76AFCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 18:09:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u74D6rvd+rsftPbO8gaDYilFpO6S33XrDEp3qyPRL2c=; b=o0uiuXP4DWCn1YKRNTDwUVxOV+
-	gxaX+qvCdAVaANItE9IZwrhavDoFKsDMQmkYzDcvJ98xDJMHwPWcpaKBY/7zLs9KJf6isofXFIG3Z
-	RE36f84GIA3y2iaXLFmSC2m4yANgFc9YNWfBkflttVLPr+O58vRa9gWMmL+B+2e+0sv1Nbz4fj+tH
-	rRbRhkU1pux5hc3hz/ZBIEWZPb+iCPDood5DZTrGNNhXo2G1AbdJ4jMt9sIRShE7UI0cbjny0SMgG
-	aueroIZvzffhhtFs2ZLfn1pvPWVy2Fz7VYFy5kAEyIaM1dUlPuOz+lTYJA54VjVioZGV4uFwIxz9J
-	oog61qHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qIeoSKyADr4Wu0dNxCKwUj5mO/2tRBSB8gSM4qMI6+A=; b=Xm68xQczj1tmK3CAMbGrjT7xyM
+	PPeE5LpQBhGosuBf75baze4pMyT/UwFpmEtG7wu3Qo9n+o6lbq8jlXgdTPqjKaPNzxOb2zMMGJgvN
+	8ZxQJfpXAKr7jM8BlKxPDzlbI2tXPvzxuuv85vKi250jEODJ8zRPbShoREaB2CHTKrfrcVfXMatdE
+	E8LIAs4PjsefmiaybNZGgF53ZHCynuxnu4LvphhgNn7p2bk4lp6BtdqEaXuhyZ3+lwBa3f22K5fO3
+	Ycv+LmkM4aaJjCpBNqCkL1QK5cGzKt8vXr9p1xbZJX88V24BJGriLSCqrWQ1MCeafbeVMnShrxxG+
+	gNo1MTZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNaSg-00000006H5I-3bD4;
-	Thu, 14 May 2026 18:07:06 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1wNaVE-00000006HNu-0rE1;
+	Thu, 14 May 2026 18:09:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNaSd-00000006H4o-3ULS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 18:07:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1778782024; x=1810318024;
-  h=date:from:to:cc:subject:message-id;
-  bh=EmaFkslMR/YNXIie1TgA5eYCd7YlbeRWaFyGJcn8bsc=;
-  b=nHk35STzRrqRzZMkzQBaFvFJ2DqZ5WclYg7HrYPWQYEsXvjj5leOYVBO
-   8xbdgl50CNR8Vp1Z7JXZK2EffqCYaFqmBanz3stAA0JuBaA4oUnDCDzaO
-   cBopSa4R/whupMnqdQuslICEAlWFc9Q9nQQeLczqnAz3vmPSa1SCJi+mD
-   s94EORR+rQNAMFJ2Ab3DWn/BxD/gcFd9nub9iNAQnTiAYSic2ZBrF30uv
-   9G0P4treH1/L8fYIBt/eFxommHCGFbMcFj+kyZj9xYJDhPfuYtqJ879bL
-   nS9M4DFY63/SZx6Xkd0lVyPtnwVuPC3iHPEu6HU3OJxM2ecbi1OcciGJd
-   w==;
-X-CSE-ConnectionGUID: d3i2hBl5Szevf+hTSODTJA==
-X-CSE-MsgGUID: 1eww5LreQQO6sMAO2mWohw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11786"; a="105191655"
-X-IronPort-AV: E=Sophos;i="6.23,235,1770624000"; 
-   d="scan'208";a="105191655"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2026 11:07:02 -0700
-X-CSE-ConnectionGUID: fcQ58vcwS3WDbZ/FiuXQww==
-X-CSE-MsgGUID: t3hY3rlMQ+KiE617R7jJVA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,235,1770624000"; 
-   d="scan'208";a="242456830"
-Received: from igk-lkp-server01.igk.intel.com (HELO bdf09bfdbd5f) ([10.211.93.152])
-  by orviesa003.jf.intel.com with ESMTP; 14 May 2026 11:07:01 -0700
-Received: from kbuild by bdf09bfdbd5f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wNaSY-000000008qr-1EeC;
-	Thu, 14 May 2026 18:06:58 +0000
-Date: Thu, 14 May 2026 20:06:26 +0200
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:timers/el2-vtimer 1/17] Warning:
- drivers/acpi/arm64/gtdt.c:35 struct member 'v3' not described in
- 'acpi_gtdt_descriptor'
-Message-ID: <202605141925.PkUUh1mk-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	id 1wNaVB-00000006HN8-3Cyt;
+	Thu, 14 May 2026 18:09:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 661EE43EF7;
+	Thu, 14 May 2026 18:09:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0692BC2BCB3;
+	Thu, 14 May 2026 18:09:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778782181;
+	bh=qIeoSKyADr4Wu0dNxCKwUj5mO/2tRBSB8gSM4qMI6+A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YFQubSlRM5X6zEXMEWCbNbJimRnRT7sqJbJ35k0XGtz8zEmn9XaadtOdDiKlcvn68
+	 HJhWWx/uTMPz6ztbtfoLDoAWvKqA1sXr1DqogHUO7cLsTI4uWWyeOwJMsBc121zWc2
+	 +vxV3fyQJEr3VvIRC568lySaLq/fyUwZc6IrgpGaFODyHfoJMiDG5B64uom7dGwR3+
+	 aTYuujDOHOFR3HodV3GS1IZdXdFa31MgU8t71suCrN0QRD1w31UqcwQVxTYnyq/lMF
+	 btbAwwT7Og8EWPPLgjyINlHHNeXzdpp4IpY/hZi89QFZ3qKJDz6nGuKXPI3ovgDQaU
+	 V+WTDCn9vhHvA==
+Date: Thu, 14 May 2026 19:09:36 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+	John Crispin <john@phrozen.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm64: dts: airoha: Add an7583 entry
+Message-ID: <20260514-throbbing-doorframe-25c289ab0b71@spud>
+References: <20260513-airoha-7583-v2-0-ee0d82b37ce7@kernel.org>
+ <20260513-airoha-7583-v2-1-ee0d82b37ce7@kernel.org>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="OsViCA6T3TKoo08k"
+Content-Disposition: inline
+In-Reply-To: <20260513-airoha-7583-v2-1-ee0d82b37ce7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_110703_920119_BD4A5DCD 
-X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-CacheID: sfid-20260514_110941_820715_3EE8A654 
+X-CRM114-Status: UNSURE (   6.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,24 +79,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git timers/el2-vtimer
-head:   e793e78f4ead18e3dfe5a3a1be912a7ec5bc55d8
-commit: c58180850debdd9b2306a86238860769137f40cd [1/17] ACPI: GTDT: Account for GTDTv3 size when walking the platform timer descriptors
-config: arm64-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20260514/202605141925.PkUUh1mk-lkp@intel.com/config)
-compiler: aarch64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260514/202605141925.PkUUh1mk-lkp@intel.com/reproduce)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202605141925.PkUUh1mk-lkp@intel.com/
+--OsViCA6T3TKoo08k
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-All warnings (new ones prefixed by >>):
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
->> Warning: drivers/acpi/arm64/gtdt.c:35 struct member 'v3' not described in 'acpi_gtdt_descriptor'
->> Warning: drivers/acpi/arm64/gtdt.c:35 struct member 'v3' not described in 'acpi_gtdt_descriptor'
+--OsViCA6T3TKoo08k
+Content-Type: application/pgp-signature; name="signature.asc"
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCagYP4AAKCRB4tDGHoIJi
+0otaAP9ciIZ3isHJRWPYjZZYBPnIzFu2RLtFlNV+1P/ZjFFC6QD/fZs0VecbfXkP
+6XvIhQzrBcqPD5u1MNqPO5JSqKNoqwU=
+=y/u2
+-----END PGP SIGNATURE-----
+
+--OsViCA6T3TKoo08k--
 
