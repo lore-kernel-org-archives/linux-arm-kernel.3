@@ -4,154 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1D5CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F33ACD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 11:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d4tnR3SQ6CQJ0n4VHz7KRV07D8f4nSkV1c5YHTLLUWs=; b=lVbpK9Oqt1iM7PF4lV13VG45v6
-	gaOr7Imzki7U/9Z/LH4/hc9WHVkBXTUnaJGJoy3/GgN0O613dxr379F7dMOg6gVr6zCu7SVEiy+ks
-	0lCC1qs72ADZi0Q41scZ+sD6LQcJpZOKJN0gbNgLBR6kJbw8C4h3qYBRLHa40aLSm5+Altm7jt3sv
-	y8U3sV8nimCGLOraEGiTSKbSfl4Nk4PPma++h/KdhF4lI0bg5HK65oVtacPBp1GIDET1zlCDtUv1D
-	wb3x/8rageibgVWCoIKaIBwvga2Ek+x+MkAiAuktbOq3VVE3Gzpubng0YgdTQWcJrE7bTV5NzEyzQ
-	yzyGm9VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Iw2J8cZhJ8Y74LUSB+AG48JADkIwA5jfsP8USNzdeCw=; b=IR13ISnQFgRBbbu/hXAc73N8LS
+	sUqxy22+yA1/vjO9tLESzB46TjVVaqlNVqEuHswBpID5mThWaY+nkBgTuhE315HIhyvaFqrfvKm06
+	KOc+0mvp7kfg0vUNBljn24jnFPDOUxsApJ5jyy1d625Hha2y2aC2cysIolBtmcVA+W38tQUCiCC+k
+	SjtnfaORqK6n6ipkqA4KYQfySyibZQ+rG6+j/tWAy9529PkIuww9Rt05sE1JnR9rTYc5lUsH+EWbV
+	9bpDqeSmytb6NGiIqt+D63XhUJo8eRUAt82KiqCZMilefC7xjVWs4w4AcAiv4JhoL+CpeEZN32HQo
+	0CGxYMrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTm1-00000005GE0-3J2Q;
-	Thu, 14 May 2026 10:58:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wNTsj-00000005GwR-1tbs;
+	Thu, 14 May 2026 11:05:33 +0000
+Received: from mail-westeuropeazon11010005.outbound.protection.outlook.com ([52.101.69.5] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTly-00000005GDN-2JTO
+	id 1wNTsf-00000005Gv3-2HCA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 10:58:35 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64E9kFYT1989636
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 10:58:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	d4tnR3SQ6CQJ0n4VHz7KRV07D8f4nSkV1c5YHTLLUWs=; b=WPXgBkWKfSDYOons
-	V8Zyw6lnEntoyM8wItKqcCFNOVKn5LY4QFrIYhl0ZZjFBpthZxifv3XziZDSR6dJ
-	nKP/sTwxc8+RSp8oXz759YxnXKiAua0IWlZG/Epxvl1UzHyFG+wz/EC0Osg7VQMN
-	fHV14RMDE7KvkjvZlyqC3dnjaB6IrOv62jHUz/SaIFuur/SXwatPODS9RHK5l15z
-	PPMFyr6BpmzP1U6ICljUF0JUIU4L2irkLVtN6NY+N8lhSZfwShSgGe2AaZVzbAST
-	Ypf7sRnSfAh4KjcwBBVzM7sEx0/Un2brxq81bZwZypCkVG78RBedibz9vbj2x5aZ
-	a5Giig==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e566bhfj8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 10:58:33 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-91056376aa0so29886585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 03:58:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778756313; x=1779361113; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=d4tnR3SQ6CQJ0n4VHz7KRV07D8f4nSkV1c5YHTLLUWs=;
-        b=CQGg5/vKiX9VZeQQV9leRrTKVoiepN+q6hXhc7tI8EwuD4tA01RwG+YJqG0W0z/yCt
-         i8S3PkuOHHBCFhN73DSLNFfv0wDDVEU4gtbnzlSlOlUQHJ93FxqHLM5b1Ia8rjKVCElp
-         GGaKj880+2pvvLj3Pw/cXP4LgrU0iEnMpakOr7ps3OGeeSdEHP+os9y5xvIoteXarnYz
-         +qZUoGKlSStQ+KD7K1Y3a+gjuPRGmEHJcRlJfc7pO/cHlGqlzMiG85JWkBm/s9oQ534N
-         0sFFXyxuQi5W82nnQi4IaYXlG9a5xA4BUrD87m0tXbwn83iJJdSPCAYu1MdOFoPVNK0R
-         fh1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778756313; x=1779361113;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=d4tnR3SQ6CQJ0n4VHz7KRV07D8f4nSkV1c5YHTLLUWs=;
-        b=IJLSs1nFBn/c3EXgSqgpXXPMwUPeaccJx/0UeqK0HYAJiETZ7Nf7+GzBGCKMcbcCFf
-         XO9HeknNS1szLhcdx4zwHZZ6WD/b8aVC1LYqbzyzNmaQvKMaw2OKPXZI23WQJyUrrNzb
-         J/dZAajXbNk9oZY3LmrP7HbwvNKqg2zeEDETdsb3WXN65XqAtH4i3Fu5yHih6fOkLDfg
-         c1FUBuYyeTwUirPtvsFQ/fSwqDIWRxfoC1gnOSKnWmKDlKWrMIxQbPZTzHOeKcZmlUqF
-         h0K4F0Nqct2eddjvNMKSDTne8KGCSBXXV4WPR2evgQrL2Tmxfas+vfcv6RFkTUclt6T7
-         5QcQ==
-X-Forwarded-Encrypted: i=1; AFNElJ89oRCxWBRubId23ERc3xSg7Z8nlbtkyh4G0+Xusu/S5wE8oC/yGXeH+OIeJXR7sFuilgy9iAu3KRZg1zt6jYB8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRqb++w3mo8LG471IFQPEgzSERTEtp+UrsH0JrQEMvKVjXwcX6
-	radrNLoN6fHc5HPcap5NsjfSSrjFrcuX6uPGIV557NJuVLcWQYaNkzjso1dkWsOR+nK7CYEPTB4
-	mCHXO77T9taRh31pCWBQj1P14fnYx6IUlYxD0Q7IYJav4EwGgQg5bn28tzwpaB79Og1+1ASObyA
-	LiQw==
-X-Gm-Gg: Acq92OGYisa0zD950Shcol4DEYlMEejeNPyrYr4AwOPh0RRp/7W9w7AJnblrNvczjY1
-	swXQ9VxPE+sWrWblrK+C03OwVX/XooSpSj00tIz5Iv4UcK++07PWg/LYIeLiEVgZ37cJwbZnxaa
-	sARM30ttsQ+RuD9ldFXqZaJkCEPpRiZmJSanWUgGZpYZJGBmhagnj+0EozupxLzpwvHQTeqcWOi
-	USjiFJpKTsvR6+V/npfJYnDxtVilyKyavAu++f1rNiqKzrd7SIQWISbKKFtmZckXZp4C9FSLM6n
-	oiOv1uqD/iFjwvszWa4YW8mdS5Rc/DU0n+zEwnhPp4/cXhlmKUkRVB2FT7SX3MeoIGMIc4mSAyw
-	AHCpbxQX2/Us2r0N/YKA01YBqpomGqYTW4QMjp4DXmxdzzVd8njoB2nG1qw8G95p7/RIpd8p4GM
-	zIM0XW+cscHtxITQ==
-X-Received: by 2002:a05:622a:608c:b0:510:144a:636 with SMTP id d75a77b69052e-5162f682709mr64383721cf.8.1778756312887;
-        Thu, 14 May 2026 03:58:32 -0700 (PDT)
-X-Received: by 2002:a05:622a:608c:b0:510:144a:636 with SMTP id d75a77b69052e-5162f682709mr64383351cf.8.1778756312468;
-        Thu, 14 May 2026 03:58:32 -0700 (PDT)
-Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-68310b3e8e5sm612419a12.4.2026.05.14.03.58.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 May 2026 03:58:30 -0700 (PDT)
-Message-ID: <f0738454-abd9-4a58-ab2a-df3479b78e95@oss.qualcomm.com>
-Date: Thu, 14 May 2026 12:58:25 +0200
-MIME-Version: 1.0
+	Thu, 14 May 2026 11:05:31 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=MJrVBAYqYychBJ5tT7xbpcibRBiIVOF0Ll17AvjomcoNr1aBEX7Q1j194pQv8M3C6MX2iWZ+LvoRFz2Vz+rZlT0Tz0bWJcFvVd4eisX83Yv/zxC96FcYiQ7oL63aEpBt6GVKCkFfl6X+bDeBLgmzQmoSL9S92HEGT8ciskuscw9cNSR8ytlldD30VsufV7OIgslS3dY23je8caNYcCcI6UkVat93aaD/WKRplkc84wXieIvr8/HRJwRcXuGC7ZvLh3yQKAwSK/6voKpGTTM+z6RLLcPvGh/WZYsRUU+eVpM5e4tk9bI8CFu9esyKg6d5qedqdHg4q6laIewLK/ixkA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Iw2J8cZhJ8Y74LUSB+AG48JADkIwA5jfsP8USNzdeCw=;
+ b=H1MJ4xv9/HYcIp2AOympMMgOD0agWuaY+verFpuWH8H3EJZ3iTVxEYU/irRI3QrqaJYWpI35obyW+eJNMG8qMIcaORXdsVpvJ8VaTRAcdJTWas0byFdrrzOUxWUhIiViX0AHr+4BP/cm1+XvKbrToBdGdRAX6YX50RgUPXVQEAVyqjVVqE+BvIRsVdmmJRy0ZcHn2s4ZiRXDpH+oICBZhnwP8Bjonld8m2pbNYdjYMHvjE6VqP++cPFUfubvhMqFqZUrmuMo9SuI5GwHAhntOWijAdHPkuFFJR28+qH7cxU5EinvAShNGqOkhd5q4HRLSdzUIh87Jx2G6904i8SnPQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Iw2J8cZhJ8Y74LUSB+AG48JADkIwA5jfsP8USNzdeCw=;
+ b=REl06Ogi563MQd7ojRezejxW4qpZF/k4ZZBF5PMpP6+cRupwi6ex+6TskA2F+p6RSZYvKQaQ1xeeYABJw1fTlFjjrJulo+WgMnbFLEfeHlCdlmJFNHhk+rWFctWAyG3zHICNGcYrt2AOn98sFv5uLYmUVvschNiamCxq9UmhgIs=
+Received: from AS4P195CA0035.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:65a::19)
+ by AS8PR08MB6581.eurprd08.prod.outlook.com (2603:10a6:20b:33a::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.23; Thu, 14 May
+ 2026 11:05:18 +0000
+Received: from AM4PEPF00027A6C.eurprd04.prod.outlook.com
+ (2603:10a6:20b:65a:cafe::a1) by AS4P195CA0035.outlook.office365.com
+ (2603:10a6:20b:65a::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.12 via Frontend Transport; Thu,
+ 14 May 2026 11:05:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM4PEPF00027A6C.mail.protection.outlook.com (10.167.16.90) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.13
+ via Frontend Transport; Thu, 14 May 2026 11:05:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uQd3jhzNdhDt4MXm7uLLlec6Y+sAaURQkRCKoE6JJ6SdzndzFWvlevop3anL2aEn839nWIEAbIyAHMHDIVjyF2VeN4jQRFvXp9wRJtSoQOnIrjRFhZgeZgCjkQuOVnHNQ+lO8a6KpKZQuyJDHoqlc6gtjPPCmEtSEipCbadFlK2bbHHxnrTMwBPYUdHZX0uf0kylzgpbbkiIo8ei/4Vlj2I+iaKmnOR8zT1IYtz3W6w4bB1yq2ZYpS1VDewXFAQV+IVR9UA1qvb/VAnZR4w93v4R+EQx+8AlMJEqNvAFZeVqsQpSGKEmZlreA1SW+riEXHoug0/oxApV0vQicgZSmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Iw2J8cZhJ8Y74LUSB+AG48JADkIwA5jfsP8USNzdeCw=;
+ b=T9GJy4QB73MpGFneJh7RNYlCAS9Y8n2UuOwf3Vz3PxxvsbTw8rDHXeOi547Um7oCjPWZ2F6D/tOpw1oF7wRrXK3zNafYucUJ6NEPg/3HPD8zJUWMw7t6aAlIPVMINsIOFBEO2kXFVGMPxk948FGLGium+n+0+beT27Oaoeq9/LUapiPkSzBYvzUye+QRL10UepKHVt60sIJU1dhcUr0kQ6aYdtsN4ca5DglTbzjBDGkGgDTHO41Am7f1iQrNyhIFkL8NSS5LnzLUbojgfN2ykEMgUfwkYWAp5/BFtF5PsdBQevPLF7RMr8g3K0a9wbW1JlSsCK4xjL45K/065TVBEg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Iw2J8cZhJ8Y74LUSB+AG48JADkIwA5jfsP8USNzdeCw=;
+ b=REl06Ogi563MQd7ojRezejxW4qpZF/k4ZZBF5PMpP6+cRupwi6ex+6TskA2F+p6RSZYvKQaQ1xeeYABJw1fTlFjjrJulo+WgMnbFLEfeHlCdlmJFNHhk+rWFctWAyG3zHICNGcYrt2AOn98sFv5uLYmUVvschNiamCxq9UmhgIs=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DU0PR08MB7616.eurprd08.prod.outlook.com (2603:10a6:10:320::20)
+ by DB3PR08MB10336.eurprd08.prod.outlook.com (2603:10a6:10:43b::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Thu, 14 May
+ 2026 11:04:14 +0000
+Received: from DU0PR08MB7616.eurprd08.prod.outlook.com
+ ([fe80::ec0b:cee1:2dd7:8b3f]) by DU0PR08MB7616.eurprd08.prod.outlook.com
+ ([fe80::ec0b:cee1:2dd7:8b3f%5]) with mapi id 15.20.9913.009; Thu, 14 May 2026
+ 11:04:14 +0000
+Message-ID: <0c88bcee-65b5-4328-87e6-e1c714c3d1ca@arm.com>
+Date: Thu, 14 May 2026 12:04:13 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] ARM: dts: qcom: msm8974-oneplus-bacon: Fix sn3193
- shutdown GPIO polarity
-To: Jun Yan <jerrysteve1101@gmail.com>, Lee Jones <lee@kernel.org>,
-        Pavel Machek <pavel@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-        Gregory Clement <gregory.clement@bootlin.com>,
-        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-        Vincent Knecht <vincent.knecht@mailoo.org>, Grant Feng <von81@163.com>,
-        Andre Przywara <andre.przywara@arm.com>,
-        Florian Fainelli <f.fainelli@gmail.com>,
-        Heiko Stuebner <heiko@sntech.de>, Michal Simek <michal.simek@amd.com>,
-        Wei Xu <xuwei5@hisilicon.com>, Robert Marko <robert.marko@sartura.hr>
-Cc: Pavel Machek <pavel@ucw.cz>, Krzysztof Kozlowski <krzk@kernel.org>,
-        Alexandre TORGUE <alexandre.torgue@st.com>,
-        Jisheng Zhang <jszhang@kernel.org>,
-        Enric Balletbo i Serra <eballetbo@gmail.com>,
-        Romain Perier <romain.perier@gmail.com>, linux-leds@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260508152435.21389-1-jerrysteve1101@gmail.com>
- <20260508152435.21389-5-jerrysteve1101@gmail.com>
+Subject: Re: [PATCH v5 1/3] firmware: smccc: coco: Manage arm-smccc platform
+ device and CCA auxiliary drivers
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Greg KH <gregkh@linuxfoundation.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>
+References: <20260514094030.42495-1-aneesh.kumar@kernel.org>
+ <20260514094030.42495-2-aneesh.kumar@kernel.org>
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260508152435.21389-5-jerrysteve1101@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260514094030.42495-2-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: wMNfQ7FEBqGOmomEUINhzzpKBHnIx_ra
-X-Authority-Analysis: v=2.4 cv=WsMb99fv c=1 sm=1 tr=0 ts=6a05aad9 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=Ffu13P_rAAAA:8 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=ZVWV2uAXYixwFVVeF7MA:9
- a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22 a=PkESTBlHdS-WH8rZy7fl:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE0MDEwOSBTYWx0ZWRfX1Z00UfgW1HaM
- PlTUre0ymuUlSDDHqeSx3J9qpM4UViu/+tFzR9elO1+3TrzujoLgBlPqlcDsqugvgw/Cj7XFGkk
- FNH89BUioEidfLnqNG2fOwTIk7/DTIueBNbWMQvb8PuB3KQQ1LpnSiyclxOXD3AvvJx/BvbifhS
- Pu/xrCjP5GVdrSxM0gdWDEhO6ilXU/5AaU4uGZ7mgWJjWCnFGGw8kRSJ9YJFZULvMsTER0Me9QQ
- l7VDfR/X1s/MfAwOMJtTRF5H8wnr9/oR3ETAKKPq3d3/4kciSnRzIuTlREc/6fkY4okEbdO2FTE
- L0NIMUUI+bvMI6JD587sKj0mGl5j2/QklLMs8pvXEAgyY8QL4/n2poCLp/xq2vCKUMFozLyrxIm
- K/Anx1qwWDSDN3Ap6F7osihx3YvJ8bCYtfjr9/QM38JA4U56wHrlin4k9INCn/2ce3Higan3zci
- hukNBo6WYDr4RGSN6tA==
-X-Proofpoint-GUID: wMNfQ7FEBqGOmomEUINhzzpKBHnIx_ra
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-14_02,2026-05-13_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 priorityscore=1501 malwarescore=0 phishscore=0 bulkscore=0
- impostorscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605140109
+X-ClientProxiedBy: LO4P265CA0120.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c6::7) To DU0PR08MB7616.eurprd08.prod.outlook.com
+ (2603:10a6:10:320::20)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: DU0PR08MB7616:EE_|DB3PR08MB10336:EE_|AM4PEPF00027A6C:EE_|AS8PR08MB6581:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd936c7f-5e63-485d-8438-08deb1a8ae82
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|56012099003|18002099003|22082099003|4143699003|11063799003;
+X-Microsoft-Antispam-Message-Info-Original: AHBY0lDTAwHlsKVgYlQH5hWthFXR7Wmn6i08eJnevTHGXRfTc6DT4ZFTqHM9eer2MN5tDS+0wa/P7PuR8QCmNDyutyDBUWuNfDiHajk72TaXIW/k+KdfT2O53REslhoo65T3WR6UWz4gZg6IijISSUqrceyOEyPJS7afJUCKY5BT2usDrwKHe6NNmC0vkdjkIA1aoqu0/RKrDvTqZCdQFRPqP6PVlsM+yonc5CKUV6jwDu2vFfy+yVki0xDM2+gxGMyNN8sjsti0ndwf4PH4WOFrOK7RR6hpY4pmN7aeMyOTidxZ95JxXnDgB0nvC0vabTicFUnrsEpnzMgcRwLOFDGdnyc/nDJF0l1UQqclf1LiYy0OiY2hO1lqXL0Z/5FXpkWmIGRxutXhqxeldXVEhguEZZ45TZpMFnQpvbaQ1hgUwA5ncxsPeQ0ylMEn6hXFSwYdxBPTD12kornRJYyt6BMPuu8Ry9sfFUUglcGF5OkPl8chzMF3MAFj4vr4zobTBFDGrVvIbGXXhsy9Ejqh1r1TlTlue5Hwb+rQGlf78ObcCnv5GtL3j3eKw8cCpO289v00Md3GznOZINy4RqnpJYzdp51RKj4+VQFYs2qt6p11BCWbQ7/Nk3p6a792DW/3m319T84SoutMH9YX0NBwbQ==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB7616.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(56012099003)(18002099003)(22082099003)(4143699003)(11063799003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: T5vJKFgrQjglsICn13ABOOUXjsultx50NTFW4pAJfomgZ3ssx6h7a5jYiAQ+eqhZebMboo+elnLyCaPlTf6rWzNy2rHBORt/ItPoU6KcwcgZSu3VLxpvbncT+9QlTdUCUxYS3xbuc2apxUzpfPxt64yu7R/kPhtKEQRTdZvh31DVZvSYx6yIHwKhKRb/ZRbv1u8ngSenKaIbwPHBr9cf7v+rk+ksus40zfwmaa7JY8zp0QtnIJeButQTl5IJWf3/efTxUCwiKo11wsJjQWE8dUkLznb2rKCzOG/MDGqqvWPJI5rqzqxU7VNNbkYqJmi1DT9qEKaUj2/BfvEBmkfiOQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3PR08MB10336
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A6C.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 4beb2496-5449-4fa1-b8af-08deb1a888c7
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|14060799003|36860700016|82310400026|376014|35042699022|13003099007|4143699003|11063799003|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: f4KUfwxErjj0wUMZB8gVN9ECuEtIF8vYzETQW0BtU77ZzOax+ZFoGXfXCeWFWO3RzuBwMJCuwniEoTXqPFeOTFdG6N6j8RN6DMLt36OHlC/7A5bHccvYi+oxB86KNQBQ5Af1ISiA6aGRNKhXur9KyqsKEdR+GOF4eM7oP8uD9XSINl+WnxuoZ49AMXN1AccO4ZoZ2ETPyZqLK79yOkJhZDncbzaE8/PfcJYpEaBOiSZOqRRt8dB3Halv8nYl1MGLV93/c95M11/plItR95u9IwS6Md5nz4JTVXPY7luQeJJ2sW102uwhERIivhGChvBxv9XIkhFshQ3W4sN01KMVEygXQ3XjRIBSLvqTnA+v1DldJJgDdXY7v2QDUpX0lKJry3Br2QIBbcSy6rtThzOIbMpEl4U1I8e0gZueVXZpPAZqhMJJ4awRN2qJgJbNq0AaCx4/pQsc6DPOkkCJOzzkNXvJbPQx3znqCywMJb1yshC1QLBK97aQ5PSfXQ0v+ewC3YvELZWa9Dtp4XC2VZgvF5K8jJUGtYv+owdLmrp5P9mDXiQCKDrNjtwc3VnVuWsmBsrPi1wNwAmvAES1sv/x9p8lqaz/MxUDcs3E+z8tyizY5EXjS1rdeaxEVfywbt4j1vBGvQXZzIJhrd8SQHpG6kPpB+S8MVmKaF7xd59gWO78LP7S7LFhRVOmilI8bNfu
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(14060799003)(36860700016)(82310400026)(376014)(35042699022)(13003099007)(4143699003)(11063799003)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 1VUIzwnov/+zEfg6ltSK+B4I/6a91N1OhfAPrWsBnJm5I7wzfbdFpb1cSPIHWon2uBO1GnGsT0oACsF/h+fsBSQdFU7Wy9rdX9lDlRQ0JQ9bCrwxvauuvPtqTGz+6u1+r4a3w7rKoCvtIYmXTVHMTguGoJNeX764eMlEiKN+jL7q74xxbl8ejtUpjFrcyQ/cKDQSg/bW9xw+RIKgRjDoIV/ASuILQUxxahT05Xd4ie+WR8B66ATvX6dCCXnUB3ScqJlmtOBaOwOPXEyYGreC1IQHHNGoFHTeuThMaN8Rs/VwXqeEmNLT87gQhT40gQvEvlQvtZqood4j9aOIvLkD+Iv6QDvza0ntwYQOsnWscCoJnN8RylSK60mtFwTiglf0JtViaDmHv3cowYrpnKDDX6cTXTdj2+yUmC/LZdq8JhEYjEdnUKY6Umr3XRlQxf6+
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2026 11:05:17.2573
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd936c7f-5e63-485d-8438-08deb1a8ae82
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A6C.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6581
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_035834_782161_27008B33 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260514_040529_801855_4B014040 
+X-CRM114-Status: GOOD (  26.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,17 +161,312 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/8/26 5:24 PM, Jun Yan wrote:
-> The sn3193 shutdown pin is active-low[1]. Correct the GPIO flags
-> from GPIO_ACTIVE_HIGH to GPIO_ACTIVE_LOW to match the hardware.
+Hi Aneesh
+
+On 14/05/2026 10:40, Aneesh Kumar K.V (Arm) wrote:
+> Make the SMCCC driver responsible for registering the arm-smccc platform
+> device and after confirming the relevant SMCCC function IDs, create
+> the arm_cca_guest auxiliary device.
 > 
-> [1] https://lumissil.com/assets/pdf/core/IS31FL3193_DS.pdf
+
+There are a few changes squashed in to this patch. Please could we
+split the patch in the following order ?
+
+1. Add platform device for arm-smccc
+2. Move TRNG to Auxilliary Device - (Even though it is a later patch, 
+move it before the RSI changes)
+3. Move RSI dev as Auxilliary
+4. Add the firmware sysfs ABI.
+
+That way, first two could be merged while we figure out (3) and (4)
+
+
+> Also update the arm-cca-guest driver to use the auxiliary device
+> interface instead of the platform device (arm-cca-dev). The removal of
+> the platform device registration will follow in a subsequent patch,
+> allowing this change to be applied without immediately breaking existing
+> userspace dependencies [1].
 > 
-> Fixes: 724ba6751532 ("ARM: dts: Move .dts files to vendor sub-directories")
-> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
+> [1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 > ---
+>   arch/arm64/include/asm/rsi.h                  |  2 +-
+>   arch/arm64/kernel/rsi.c                       |  2 +-
+>   drivers/firmware/smccc/Kconfig                |  1 +
+>   drivers/firmware/smccc/Makefile               |  1 +
+>   drivers/firmware/smccc/rmm.c                  | 24 ++++++++
+>   drivers/firmware/smccc/rmm.h                  | 17 ++++++
+>   drivers/firmware/smccc/smccc.c                | 17 ++++++
+>   drivers/virt/coco/arm-cca-guest/Kconfig       |  1 +
+>   drivers/virt/coco/arm-cca-guest/Makefile      |  2 +
+>   .../{arm-cca-guest.c => arm-cca.c}            | 59 +++++++++----------
+>   10 files changed, 94 insertions(+), 32 deletions(-)
+>   create mode 100644 drivers/firmware/smccc/rmm.c
+>   create mode 100644 drivers/firmware/smccc/rmm.h
+>   rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => arm-cca.c} (84%)
+> 
+> diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+> index 88b50d660e85..2d2d363aaaee 100644
+> --- a/arch/arm64/include/asm/rsi.h
+> +++ b/arch/arm64/include/asm/rsi.h
+> @@ -10,7 +10,7 @@
+>   #include <linux/jump_label.h>
+>   #include <asm/rsi_cmds.h>
+>   
+> -#define RSI_PDEV_NAME "arm-cca-dev"
+> +#define RSI_DEV_NAME "arm-rsi-dev"
+>   
+>   DECLARE_STATIC_KEY_FALSE(rsi_present);
+>   
+> diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+> index 9e846ce4ef9c..8380e5ba88d2 100644
+> --- a/arch/arm64/kernel/rsi.c
+> +++ b/arch/arm64/kernel/rsi.c
+> @@ -161,7 +161,7 @@ void __init arm64_rsi_init(void)
+>   }
+>   
+>   static struct platform_device rsi_dev = {
+> -	.name = RSI_PDEV_NAME,
+> +	.name = "arm-cca-dev",
+>   	.id = PLATFORM_DEVID_NONE
+>   };
+>   
+> diff --git a/drivers/firmware/smccc/Kconfig b/drivers/firmware/smccc/Kconfig
+> index 15e7466179a6..2b6984757241 100644
+> --- a/drivers/firmware/smccc/Kconfig
+> +++ b/drivers/firmware/smccc/Kconfig
+> @@ -8,6 +8,7 @@ config HAVE_ARM_SMCCC
+>   config HAVE_ARM_SMCCC_DISCOVERY
+>   	bool
+>   	depends on ARM_PSCI_FW
+> +	select AUXILIARY_BUS
+>   	default y
+>   	help
+>   	 SMCCC v1.0 lacked discoverability and hence PSCI v1.0 was updated
+> diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/smccc/Makefile
+> index 40d19144a860..146dc3c03c20 100644
+> --- a/drivers/firmware/smccc/Makefile
+> +++ b/drivers/firmware/smccc/Makefile
+> @@ -2,3 +2,4 @@
+>   #
+>   obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= smccc.o kvm_guest.o
+>   obj-$(CONFIG_ARM_SMCCC_SOC_ID)	+= soc_id.o
+> +obj-$(CONFIG_ARM64) += rmm.o
+> diff --git a/drivers/firmware/smccc/rmm.c b/drivers/firmware/smccc/rmm.c
+> new file mode 100644
+> index 000000000000..728338cb5a22
+> --- /dev/null
+> +++ b/drivers/firmware/smccc/rmm.c
+> @@ -0,0 +1,24 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 Arm Limited
+> + */
+> +
+> +#include <linux/auxiliary_bus.h>
+> +
+> +#include "rmm.h"
+> +
+> +void __init register_rsi_device(struct platform_device *pdev)
+> +{
+> +	unsigned long ret;
+> +	unsigned long ver_lower, ver_higher;
+> +
+> +	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
+> +		return;
+> +
+> +	ret = rsi_request_version(RSI_ABI_VERSION, &ver_lower, &ver_higher);
+> +	if (ret != RSI_SUCCESS)
+> +		return;
+> +
+> +	__devm_auxiliary_device_create(&pdev->dev,
+> +				       "arm_cca_guest", RSI_DEV_NAME, NULL, 0);
+> +}
+> diff --git a/drivers/firmware/smccc/rmm.h b/drivers/firmware/smccc/rmm.h
+> new file mode 100644
+> index 000000000000..a47a650d4f51
+> --- /dev/null
+> +++ b/drivers/firmware/smccc/rmm.h
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef _SMCCC_RMM_H
+> +#define _SMCCC_RMM_H
+> +
+> +#include <linux/platform_device.h>
+> +
+> +#ifdef CONFIG_ARM64
+> +#include <asm/rsi_cmds.h>
+> +void __init register_rsi_device(struct platform_device *pdev);
+> +#else
+> +
+> +static void __init register_rsi_device(struct platform_device *pdev)
+> +{
+> +
+> +}
+> +#endif
+> +#endif
+> diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+> index bdee057db2fd..eb077b9aa6da 100644
+> --- a/drivers/firmware/smccc/smccc.c
+> +++ b/drivers/firmware/smccc/smccc.c
+> @@ -12,6 +12,8 @@
+>   #include <linux/platform_device.h>
+>   #include <asm/archrandom.h>
+>   
+> +#include "rmm.h"
+> +
+>   static u32 smccc_version = ARM_SMCCC_VERSION_1_0;
+>   static enum arm_smccc_conduit smccc_conduit = SMCCC_CONDUIT_NONE;
+>   
+> @@ -85,6 +87,21 @@ static int __init smccc_devices_init(void)
+>   {
+>   	struct platform_device *pdev;
+>   
+> +	if (smccc_conduit == SMCCC_CONDUIT_NONE)
+> +		return 0;
+> +
+> +	pdev = platform_device_register_simple("arm-smccc",
+> +					PLATFORM_DEVID_NONE, NULL, 0);
+> +	if (IS_ERR(pdev)) {
+> +		pr_err("arm-smccc: could not register device: %ld\n", PTR_ERR(pdev));
+> +	} else {
+> +		/*
+> +		 * Register the RMI and RSI devices only when firmware exposes
+> +		 * the required SMCCC function IDs at a supported revision.
+> +		 */
+> +		register_rsi_device(pdev);
+> +	}
+> +
+>   	if (smccc_trng_available) {
+>   		pdev = platform_device_register_simple("smccc_trng", -1,
+>   						       NULL, 0);
+> diff --git a/drivers/virt/coco/arm-cca-guest/Kconfig b/drivers/virt/coco/arm-cca-guest/Kconfig
+> index 3f0f013f03f1..a42359a90558 100644
+> --- a/drivers/virt/coco/arm-cca-guest/Kconfig
+> +++ b/drivers/virt/coco/arm-cca-guest/Kconfig
+> @@ -2,6 +2,7 @@ config ARM_CCA_GUEST
+>   	tristate "Arm CCA Guest driver"
+>   	depends on ARM64
+>   	select TSM_REPORTS
+> +	select AUXILIARY_BUS
+>   	help
+>   	  The driver provides userspace interface to request and
+>   	  attestation report from the Realm Management Monitor(RMM).
+> diff --git a/drivers/virt/coco/arm-cca-guest/Makefile b/drivers/virt/coco/arm-cca-guest/Makefile
+> index 69eeba08e98a..75a120e24fda 100644
+> --- a/drivers/virt/coco/arm-cca-guest/Makefile
+> +++ b/drivers/virt/coco/arm-cca-guest/Makefile
+> @@ -1,2 +1,4 @@
+>   # SPDX-License-Identifier: GPL-2.0-only
+>   obj-$(CONFIG_ARM_CCA_GUEST) += arm-cca-guest.o
+> +
+> +arm-cca-guest-y +=  arm-cca.o
+> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca.c
+> similarity index 84%
+> rename from drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> rename to drivers/virt/coco/arm-cca-guest/arm-cca.c
+> index 0c9ea24a200c..7daada072cc0 100644
+> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> +++ b/drivers/virt/coco/arm-cca-guest/arm-cca.c
+> @@ -3,6 +3,7 @@
+>    * Copyright (C) 2023 ARM Ltd.
+>    */
+>   
+> +#include <linux/auxiliary_bus.h>
+>   #include <linux/arm-smccc.h>
+>   #include <linux/cc_platform.h>
+>   #include <linux/kernel.h>
+> @@ -181,52 +182,50 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+>   	return ret;
+>   }
+>   
+> -static const struct tsm_report_ops arm_cca_tsm_ops = {
+> +static const struct tsm_report_ops arm_cca_tsm_report_ops = {
+>   	.name = KBUILD_MODNAME,
+>   	.report_new = arm_cca_report_new,
+>   };
+>   
+> -/**
+> - * arm_cca_guest_init - Register with the Trusted Security Module (TSM)
+> - * interface.
+> - *
+> - * Return:
+> - * * %0        - Registered successfully with the TSM interface.
+> - * * %-ENODEV  - The execution context is not an Arm Realm.
+> - * * %-EBUSY   - Already registered.
+> - */
+> -static int __init arm_cca_guest_init(void)
+> +static void unregister_cca_tsm_report(void *data)
+> +{
+> +	tsm_report_unregister(&arm_cca_tsm_report_ops);
+> +}
+> +
+> +static int cca_devsec_tsm_probe(struct auxiliary_device *adev,
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+super minor nit: While I understand you plan to use this for DEV SEC TSM
+in the future, could we retain the generic TSM name usage ?
 
-Konrad
+> +		const struct auxiliary_device_id *id)
+>   {
+>   	int ret;
+>   
+>   	if (!is_realm_world())
+>   		return -ENODEV;
+>   
+> -	ret = tsm_report_register(&arm_cca_tsm_ops, NULL);
+> -	if (ret < 0)
+> -		pr_err("Error %d registering with TSM\n", ret);
+> +	ret = tsm_report_register(&arm_cca_tsm_report_ops, NULL);
+> +	if (ret < 0) {
+> +		dev_err_probe(&adev->dev, ret, "Error registering with TSM\n");
+> +		return ret;
+> +	}
+>   
+> -	return ret;
+> -}
+> -module_init(arm_cca_guest_init);
+> +	ret = devm_add_action_or_reset(&adev->dev, unregister_cca_tsm_report, NULL);
+> +	if (ret < 0) {
+> +		dev_err_probe(&adev->dev, ret, "Error registering devm action\n");
+> +		return ret;
+> +	}
+>   
+> -/**
+> - * arm_cca_guest_exit - unregister with the Trusted Security Module (TSM)
+> - * interface.
+> - */
+> -static void __exit arm_cca_guest_exit(void)
+> -{
+> -	tsm_report_unregister(&arm_cca_tsm_ops);
+> +	return 0;
+>   }
+> -module_exit(arm_cca_guest_exit);
+>   
+> -/* modalias, so userspace can autoload this module when RSI is available */
+> -static const struct platform_device_id arm_cca_match[] __maybe_unused = {
+> -	{ RSI_PDEV_NAME, 0},
+> -	{ }
+> +static const struct auxiliary_device_id cca_devsec_tsm_id_table[] = {
+
+same as above, s/devsec_// ?
+
+Suzuki
+
+
+> +	{ .name =  KBUILD_MODNAME "." RSI_DEV_NAME },
+> +	{}
+>   };
+> +MODULE_DEVICE_TABLE(auxiliary, cca_devsec_tsm_id_table);
+>   
+> -MODULE_DEVICE_TABLE(platform, arm_cca_match);
+> +static struct auxiliary_driver cca_devsec_tsm_driver = {
+> +	.probe = cca_devsec_tsm_probe,
+> +	.id_table = cca_devsec_tsm_id_table,
+> +};
+> +module_auxiliary_driver(cca_devsec_tsm_driver);
+>   MODULE_AUTHOR("Sami Mujawar <sami.mujawar@arm.com>");
+>   MODULE_DESCRIPTION("Arm CCA Guest TSM Driver");
+>   MODULE_LICENSE("GPL");
+
 
