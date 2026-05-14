@@ -4,60 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C94CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E0E9CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=283VyeDOYN6khzf+AS7zjUfNyo5I57uL41Xqvi4jTEM=; b=3ZhcuffXbqQfFBAOcXFfEBBlbD
-	eG+wvbHsjgxQ6Q7v0gtu3r2dqRqsDLuMKFxgfGMHPJ4s4PO1hhgBr2b0EjLj8SpfdEjue7DTcpaVP
-	OgdGQDHWL1OrgU9Fxb4/e6YgcFN6phBCKODZl2F+XhlpUVJiZjxscl2ojPA542tO/QKZWMgGnStVY
-	MXyDM3MlUQ20puJtxQUTnFUSf3EdMRxEkKaE3a3hVc4FhzgMB1u58em1avNpEVh4ALvb/SPTl+gRi
-	mzXbyGYhV/oL+jSWG0yARWRPoV89+dY0GnON2CAzq2eZwsq0PDuGH4SDYALKlmOofvfHjgcdenh+e
-	JW9tu0Wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q5c/1ZIMo9shqV4oxOv0ORfFGXYCxhUeiuXV8xQf348=; b=d9FUqYWJT3WZLXMQa1JxAzsccG
+	lFs5dtdq8f9AmYOQLDLctMY1J4d8kFQIfO/TRZX46A+gV5Wmj0V1VlhFe6ClxEV77fb+TDXUl7paY
+	TkVYV3aWza6LYZHC172VrYKeb4J9sXgsgqHdnT/jjWi5s8o1RzsaOMxZ+zDKbQ+Bxu7/HwXXMP7+Z
+	q5x0l4vE8B0avlyyR1o5CRuomwjf6HBtQycrCxJTclBn8x/s39a+8RLokDUwQuUomIkG0aVoyHF4w
+	89pPiZbShQ3VkidHFDhVd5RUmuFyAsFoLTZIBkPPWI7ob3WuPcQ0H3zwMnv6VC4leTAZ0votUbFQP
+	+yksekTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNSPg-000000054Y9-3Izk;
-	Thu, 14 May 2026 09:31:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNSPf-000000054Xb-09JH
+	id 1wNSRu-000000054se-0fTK;
+	Thu, 14 May 2026 09:33:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNSRs-000000054rs-0RSQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 09:31:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A91844151;
-	Thu, 14 May 2026 09:31:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59CC8C2BCB3;
-	Thu, 14 May 2026 09:31:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778751086;
-	bh=Szhi4DCrVMTbowBda72sF3jcnYffCJVUI6kqx9OCt1c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Aj3J/mC3MBuxwesfKfl/BkZQvEqu+k+Bsu6C+HEOTcZNSnxk391cxb9lFWCjPMZrV
-	 Z4VZjipmw65C/6E3zUZuUSXA3OfYicv+YROnQOqMp0QGteYeZFmbhNcqcV3mVXpwRg
-	 N8zj8PGeFegC18eLapnUYsICSKwGubJn2nVpeV/ULp/ZQUbu4ZPYCzJ0guTsNfHEiv
-	 BQ//00RZyQT2n/YaTn0PoloinP/FIRXGSELbqDBoImyJBrEIL2LBJ2okD1fTskUbmG
-	 55L8c3FO51RqxtEbbXrP2TCJ+UTdJa/IpZC0/rG/gzi8q9q4OPMTOmEBONNVbmu2oM
-	 8r7qG5QsMAMuQ==
-Date: Thu, 14 May 2026 10:31:23 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Jamie Nguyen <jamien@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH] firmware: arm_ffa: honor descriptor size in
- PARTITION_INFO_GET_REGS
-Message-ID: <20260514-generous-undetectable-mastiff-cc43d3@sudeepholla>
-References: <20260513032800.68807-1-jamien@nvidia.com>
+	Thu, 14 May 2026 09:33:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A7C03502;
+	Thu, 14 May 2026 02:33:37 -0700 (PDT)
+Received: from [10.1.37.28] (e122027.cambridge.arm.com [10.1.37.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0D2F3F85F;
+	Thu, 14 May 2026 02:33:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778751222; bh=15IYn3iLfZXckiqY4v2WG/U+nBEKAauifaebzvl2v8U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TrJFW2FE7DK1dKESIWBDe4IoPEqOi52Xs5k+YIeEW8bac5xeRkCBiGICFhWFFd8uv
+	 vCK4kCAoGx/O73KOo79kmau7br4yf19Ge4m7WFcUWYEVgAwX6liLi0xrV3L5aDHlrk
+	 MQ8oFeuLm/txVMFOmUezID+d4euoxwT3zcB89z54=
+Message-ID: <cc21ea56-827f-4077-b6f7-3ef00c0b9408@arm.com>
+Date: Thu, 14 May 2026 10:33:35 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260513032800.68807-1-jamien@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 10/44] arm64: RMI: Add support for SRO
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-11-steven.price@arm.com> <yq5a8q9ma08r.fsf@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <yq5a8q9ma08r.fsf@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_023127_110665_901D8640 
-X-CRM114-Status: GOOD (  22.00  )
+X-CRM114-CacheID: sfid-20260514_023344_265686_6F01748F 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,61 +84,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 08:28:00PM -0700, Jamie Nguyen wrote:
-> __ffa_partition_info_get_regs() walks the response with a hardcoded
-> 24-byte stride (regs += 3) even though the SPMC tells us the actual
-> per-descriptor size via PARTITION_INFO_SZ in x2[63:48]. The size is
-> read into buf_sz and then thrown away.
+On 14/05/2026 09:01, Aneesh Kumar K.V wrote:
+> Steven Price <steven.price@arm.com> writes:
 > 
-> That works while every SPMC returns the FF-A v1.1 layout, but it falls
-> apart against a v1.3 SPMC returning the 48-byte descriptor. The loop
-> strides over half a descriptor at a time and ends up parsing every
-> other entry from a slice of two adjacent ones.
+>> +unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp)
+>> +{
+>> +	unsigned long sro_handle;
+>> +	struct arm_smccc_1_2_regs regs;
+>> +	struct arm_smccc_1_2_regs *regs_in = &sro->regs;
+>> +
+>> +	rmi_smccc_invoke(regs_in, &regs);
+>> +
+>> +	sro_handle = regs.a1;
+>> +
+>> +	while (RMI_RETURN_STATUS(regs.a0) == RMI_INCOMPLETE) {
+>> +		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs.a0);
+>> +		int ret;
+>> +
+>> +		switch (RMI_RETURN_MEMREQ(regs.a0)) {
+>> +		case RMI_OP_MEM_REQ_NONE:
+>> +			regs = (struct arm_smccc_1_2_regs){
+>> +				SMC_RMI_OP_CONTINUE, sro_handle, 0
+>> +			};
+>> +			rmi_smccc_invoke(&regs, &regs);
+>> +			break;
+>> +		case RMI_OP_MEM_REQ_DONATE:
+>> +			ret = rmi_sro_donate(sro, sro_handle, regs.a2, &regs,
+>> +					     gfp);
+>> +			break;
+>> +		case RMI_OP_MEM_REQ_RECLAIM:
+>> +			ret = rmi_sro_reclaim(sro, sro_handle, &regs);
+>> +			break;
+>> +		default:
+>> +			ret = WARN_ON(1);
+>> +			break;
+>> +		}
+>> +
+>> +		if (ret) {
+>> +			if (can_cancel) {
+>> +				/*
+>> +				 * FIXME: Handle cancelling properly!
+>> +				 *
+>> +				 * If the operation has failed due to memory
+>> +				 * allocation failure then the information on
+>> +				 * the memory allocation should be saved, so
+>> +				 * that the allocation can be repeated outside
+>> +				 * of any context which prevented the
+>> +				 * allocation.
+>> +				 */
+>> +			}
+>> +			if (WARN_ON(ret))
+>> +				return ret;
+>> +		}
+>> +	}
+>> +
+>> +	return regs.a0;
+>> +}
 > 
-> The FF-A spec (v1.2, section 18.5) says that the producer should
-> report the descriptor size, and the consumer is supposed to stride by
-> that size and ignore any trailing fields it doesn't understand. The
-> non-REGS path (__ffa_partition_info_get) does this already, and the
-> REGS path should match.
-> 
-> Use buf_sz for the stride, and bail out with -EPROTO if the SPMC
-> reports something we can't safely walk.
-> 
-> Fixes: 7bc0f589c81d ("firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_regs_get()")
-> Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
-> ---
->  drivers/firmware/arm_ffa/driver.c | 35 ++++++++++++++++++++++++++++---
->  1 file changed, 32 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-> index c72ee4756585..b712e8a03dab 100644
-> --- a/drivers/firmware/arm_ffa/driver.c
-> +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -321,6 +321,22 @@ __ffa_partition_info_get(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
->  #define PART_INFO_ID(x)		((u16)(FIELD_GET(PART_INFO_ID_MASK, (x))))
->  #define PART_INFO_EXEC_CXT(x)	((u16)(FIELD_GET(PART_INFO_EXEC_CXT_MASK, (x))))
->  #define PART_INFO_PROPERTIES(x)	((u32)(FIELD_GET(PART_INFO_PROPS_MASK, (x))))
-> +
-> +/*
-> + * FF-A v1.2 section 13.9 Table 13.40: registers x3..x17 carry the partition
-> + * descriptors, i.e. 15 u64 of payload per FFA_PARTITION_INFO_GET_REGS call.
-> + */
-> +#define FFA_PART_INFO_REGS_PAYLOAD_U64	15
-> +
-> +/*
-> + * FF-A v1.1 partition information descriptor (FF-A v1.2 section 6.2.1
-> + * Table 6.1): id (2) + exec_ctxt (2) + properties (4) + UUID (16) = 24
-> + * bytes. This is the minimum size the SPMC must report; the kernel reads
-> + * exactly these fields and ignores any trailing ones per the forward-
-> + * compatibility rules in FF-A v1.2 section 18.5.
-> + */
+> Can you also add support to return x1,x2 etc
 
-I can't see any such details is the above mention version and section.
-Can you confirm you are looking at [1] ?
+Indeed that's going to be needed. Looking at this function again I don't 
+think we actually need the on-stack 'regs' any more. So the below (very 
+lightly tested) diff would use the regs from sro which also means they 
+will be there for the caller if it needs them.
 
--- 
-Regards,
-Sudeep
+Thanks,
+Steve
 
-[1] https://developer.arm.com/documentation/den0077/j
+---8<---
+diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
+index a8107ca9bb6d..58a0216be409 100644
+--- a/arch/arm64/kernel/rmi.c
++++ b/arch/arm64/kernel/rmi.c
+@@ -356,30 +356,29 @@ void rmi_sro_free(struct rmi_sro_state *sro)
+ unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp)
+ {
+ 	unsigned long sro_handle;
+-	struct arm_smccc_1_2_regs regs;
+-	struct arm_smccc_1_2_regs *regs_in = &sro->regs;
++	struct arm_smccc_1_2_regs *regs = &sro->regs;
+ 
+-	rmi_smccc_invoke(regs_in, &regs);
++	rmi_smccc_invoke(regs, regs);
+ 
+-	sro_handle = regs.a1;
++	sro_handle = regs->a1;
+ 
+-	while (RMI_RETURN_STATUS(regs.a0) == RMI_INCOMPLETE) {
+-		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs.a0);
++	while (RMI_RETURN_STATUS(regs->a0) == RMI_INCOMPLETE) {
++		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs->a0);
+ 		int ret;
+ 
+-		switch (RMI_RETURN_MEMREQ(regs.a0)) {
++		switch (RMI_RETURN_MEMREQ(regs->a0)) {
+ 		case RMI_OP_MEM_REQ_NONE:
+-			regs = (struct arm_smccc_1_2_regs){
++			*regs = (struct arm_smccc_1_2_regs){
+ 				SMC_RMI_OP_CONTINUE, sro_handle, 0
+ 			};
+-			rmi_smccc_invoke(&regs, &regs);
++			rmi_smccc_invoke(regs, regs);
+ 			break;
+ 		case RMI_OP_MEM_REQ_DONATE:
+-			ret = rmi_sro_donate(sro, sro_handle, regs.a2, &regs,
++			ret = rmi_sro_donate(sro, sro_handle, regs->a2, regs,
+ 					     gfp);
+ 			break;
+ 		case RMI_OP_MEM_REQ_RECLAIM:
+-			ret = rmi_sro_reclaim(sro, sro_handle, &regs);
++			ret = rmi_sro_reclaim(sro, sro_handle, regs);
+ 			break;
+ 		default:
+ 			ret = WARN_ON(1);
+@@ -404,7 +403,7 @@ unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp)
+ 		}
+ 	}
+ 
+-	return regs.a0;
++	return regs->a0;
+ }
+ 
+ static int rmi_check_version(void)
+
 
