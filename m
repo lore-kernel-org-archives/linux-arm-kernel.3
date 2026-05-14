@@ -4,60 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE7F6CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 08:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F26ECD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 08:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5NhOWysvQhf2PRkM8rGTXv3RWNRPBW2pV0hBsol8DFc=; b=iylPylZwA6zeE5pEiSPsMJPZzl
-	OCwV3K9yqGUHAo9wOZEEp+BwUArE/uAJ5Y1EXtT61c+n29k93cIDa4H5oXj14J646lxVbQ+kickFl
-	WW9jnDb2nyUon+MQwEIA/qu+tKdFoBI7brKPtmZdNlNtP8DweKW71iohv71Vp7iWVtyB2+Y23l3kh
-	gqTlgd8C9pIBARBubL7kTnSsupsli6kGg6c6G9ByyqY67GkqP/0PM9lriIjj1tb9EaMOhr0F83HkT
-	nnKnbecL9JTUCaQP6jbaMin6jZLOpQfGZTGi0RbGUCKXzlDb3+OsYQkYHzcst0CbMfag0H+COcSOT
-	tQOblggQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=B9j7VTl3wzAlWqw5YysdwceCnIU1yGTaS91uAcAJudA=; b=WbDAbkEfWZqS7oV9kHxDWTK4p+
+	6Pb0tY+czoOG7SQNF3DzWaW5g6bF8F4kL7K+fGCJ4NIkTs+tr/6l/BPHyXSgSUxG/HPhR3fOMfDpe
+	Jl3P9riVyZOSvHkLYOOpEYC9n1CEpEH3Fq6zYlX05BbzBbwaYIB0iMLYET5EfRpjxOc/+O4BFEbr9
+	8xIZ4agvMMdq/ctsd0nf9NPTLxRwlgkU2j/QXhcF2jeDu4AMisk+JXxWdSekfnVIUPn9kafvFPdmL
+	tnpU54azn5K95K35sTZ7RrSdtnuLrHpYt4I0MX7PUE3XWrcqOgToZQbDNZhA2u14zrWH5Evq/vqbv
+	j8G6BMfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNRBp-00000004ug3-2c4y;
-	Thu, 14 May 2026 08:13:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNRP7-00000004wFh-0K0O;
+	Thu, 14 May 2026 08:26:49 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNRBn-00000004ufj-3TTD
+	id 1wNRP5-00000004wEf-0B6o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 08:13:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3FB8B60129;
-	Thu, 14 May 2026 08:13:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA51FC2BCB7;
-	Thu, 14 May 2026 08:12:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778746382;
-	bh=0FaoiUoXT987e1DSGb+y8srTS7Rpy0QVcgiD2b+Qq7g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lcDhzFcqJVdkU9IiBOB6T8yUdp8ChsZOkYMuWKzMKTVBEyr3JIuOXkoJn84riwsHR
-	 N7wAH68F+Smii6qDQAawFgOmCoes/IYcqkkEgwBwgE1x/RZWQMC3x+96RiYt4PmGo0
-	 X3q29uvrzntFYaCtM2uCUkvewSH3/N9HrwfxACoa6rD40JcJ5a+mAHkmiLzRqX5CtP
-	 toMLjWnR6uVMcxIdrpGmgl17fotFjVdVE1DZP00tFgAcPEtpIgYXH/c3F1n8NaTl1/
-	 NytfTxd1ABXxMilEUZ6GxDQ2VRKXqZ+8JUj/J2p30vo3nyZ8l92oU0CuNfMx9Y2is4
-	 vtEup0/IGlfeQ==
-Date: Thu, 14 May 2026 13:42:54 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Aksh Garg <a-garg7@ti.com>
-Cc: linux-pci@vger.kernel.org, linux-doc@vger.kernel.org, 
-	kwilczynski@kernel.org, bhelgaas@google.com, corbet@lwn.net, kishon@kernel.org, 
-	skhan@linuxfoundation.org, lukas@wunner.de, cassel@kernel.org, alistair@alistair23.me, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, s-vadapalli@ti.com, 
-	danishanwar@ti.com, srk@ti.com
-Subject: Re: [PATCH v3 0/4] PCI: Add DOE support for endpoint
-Message-ID: <bf3jf3vdrzclj5a3r7hmq2z4ghmub5ksrfr3ggumya4szl2vil@o5kpykemzt66>
-References: <20260427051725.223704-1-a-garg7@ti.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	Thu, 14 May 2026 08:26:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v5+LRiocnWG6ahvOzkCx50rqrjm3M81tHHnj68gAboAZY1N01pf2UThn7F74ad4NrZeMNvRoFU93z2F3t3IkhIBAhW1wkvs+WvYkYgcXG/H7PmOVEDc69Aip7a6U8Ljs0hlS9RUQZTmCe7bNG3shT6mrWZBMD0l6bmEHuQ7QcG31lzvsVz40Zsi9zgWdaPBPrYDWemZrOjdhRKsjosay7644b8NFVRxlMk5Nlt9IKZIIiu+4WcrcShzxLZM1X10/nmRgncYtk5/CbNTKLDmGXV9cmzyUBj05yjiXicHK5X84hou7DdQoX1hHtM/NEa0fjcgTNQJJAWGZbYxlepF+/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B9j7VTl3wzAlWqw5YysdwceCnIU1yGTaS91uAcAJudA=;
+ b=isI41qQJT+w5hda6oIh7vAvbIjTcjCEMQkAEkaqPQvJrJ+8ZQXkkid22lEsJCPINY3q3YqJocJyYQ10KRsGuAc6JEQfs/oXNESn88c3EVcVPYlTXFqJeUmbj8ky0Nnm8Mc3ZNZVjv0uHAQyKHrpn+zjKF7aE5PUCF1tdnRGyhUaCHnDgiZgjrx2qFAxThyCUuJBZdRH35Y3VlLqVcH6nWNHogMXHb/2aekbcFiG3uLKL4a/fefZorytlZQ5xXCZES/ELGxoQOqYjb9WlpkUxySSAUdn4pxXbdjrUTTxkm72XrlskfTqRafDXbz1WIELjOa9SbYvbrM/RCMOBdDNcYA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B9j7VTl3wzAlWqw5YysdwceCnIU1yGTaS91uAcAJudA=;
+ b=XfodK1IvZhJXenRwHpGRsogaIZHwlR+x79Y03uCCJo+kVMWjXFKGrrviuw6i23crQVuv5LhBIHlGgV8qcN7SpFMhbBj6WvQNVmNOxP0YbbdkCf73h4gWQKJjYk6bzCUM/gQGZ6LeZsFg2dumW0xBjNC7a2t0+y4tMxr61rAuis2AD9RMux8NLzPHUUE3NzqTU92HIvMlM59WznlWlYupf3DeaA3yqrs2iZhIBmeg7N9CdEqNE40eTe6efTxe6k7G3aOKuWJrshY6VRyMZxtRCFUiNvQo95WSz0xF4oMULMRp8f9PTdBPVFEMvWMrxklRJkuHcgGDjcx/ANWTa4TnmQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8190.eurprd04.prod.outlook.com (2603:10a6:102:1bf::23)
+ by AS8PR04MB7719.eurprd04.prod.outlook.com (2603:10a6:20b:29a::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Thu, 14 May
+ 2026 08:26:41 +0000
+Received: from PAXPR04MB8190.eurprd04.prod.outlook.com
+ ([fe80::4608:7dcb:899b:e4a1]) by PAXPR04MB8190.eurprd04.prod.outlook.com
+ ([fe80::4608:7dcb:899b:e4a1%4]) with mapi id 15.20.9913.009; Thu, 14 May 2026
+ 08:26:40 +0000
+From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+To: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	NXP S32 Linux <s32@nxp.com>,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>
+Subject: [PATCH v2 0/1] add SAR ADC DTS support for S32G2/S32G3 SoCs
+Date: Thu, 14 May 2026 10:26:38 +0200
+Message-Id: <20260514082639.1181240-1-khristineandreea.barbulescu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260427051725.223704-1-a-garg7@ti.com>
+X-ClientProxiedBy: FR4P281CA0014.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:c8::12) To PAXPR04MB8190.eurprd04.prod.outlook.com
+ (2603:10a6:102:1bf::23)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8190:EE_|AS8PR04MB7719:EE_
+X-MS-Office365-Filtering-Correlation-Id: 222f032a-d4bd-4684-0096-08deb19285e9
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|1800799024|56012099003|18002099003|11063799003;
+X-Microsoft-Antispam-Message-Info: BJpKeowQhP2R/rnFA99CbdHwXHNXzs+B0MqAzRGZ/kCw5Aoon5YcZh6NDzi1izJ4farDf9ttd7mKzrONREY68xWgA6fVmJehCry1ikZDrOkHzCxDdy//tRdlDrO+kjXFy5qzTUpFZsHRFJuOZMf0ox0AGfxvXgWMI/9RzlJQV3UrGVqMDhyFxEpuxHEzs9nMd4mX0qFB+e2luRszfbgVsYckCAop+B17Pfa2XmdWEf7ILuADy3do3dFdvhIAmoyemDIHVPR019OmOkdT2q4wwUWAfZOlbF5BV4TT6cWFjqMkoaId6vnmpuMvNGrtl9MPUyetMudCcEsX91SUCF80U/ZYt0x6epQ5lprZ7te3aidpH234N4OcjM2xiff+1N3JdNqAKt7wbu7BA/SdJybUs+EaWa+jimR8dlUgKRWkZXRH/jCOHfg2zFHfpQBehrONaGryPUTGnY7JODJxNspImDMqPcYIApTjTPObJXrvjK0EkW8wxsvHXlHuh8LMKK6JAmeR+YoztzD4kxlaD195z/lM1TlBmxc6X5xT+ttGW+acGdfQYWTotZ8HKWRhny01/bTI7wxXC80UH9tICECsEZiKRi3BMN7vyeLaWtXfxmUEq15RvNn8gRRd4/x/KJToGJfmW4vzbqitFtxrbBkxT4/5cg2NgyHnCJaGokEqjkZzPdpYCSVhRp1UbZQa7dWm
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8190.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(1800799024)(56012099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MVVnUmptMDF2TC8va09VQVhiYUpocWF3R09QYkowSnVyQm9NTFcvRWRKaWFU?=
+ =?utf-8?B?VUV5UTVZcG5lZ3ZqNjdpNmJCNHRhQktZdVoxY2NDcjRsRWJ2YmVsUlFHYTM4?=
+ =?utf-8?B?NW42bEF5L2lTWnpsVkNJMnZtVXdVdHhOZ3FDU21mRnBUWFdYZjB2UVJaY0Jp?=
+ =?utf-8?B?MlRKWko1SVBVYXNiaXdyaVp5Q1JLc25EektRa3FHLy9aUFhiSHNjelZkS0Q5?=
+ =?utf-8?B?UTdURWNMNzVpOFNQdU9oUDk1VlBRVThsODd0V0o5THFwM1RYUHZ4SVV4T09Y?=
+ =?utf-8?B?MFZ1Q2xKbVQ0VStURmpCamRpMitBS0FjVjRLUUtGVmQ3TEJjbzQrcnVNQzd6?=
+ =?utf-8?B?M1ZGcDFVZ1AvNWZ4d0pUdll2L2NISGdLUnRzSVcxTjd0VDJHWVJyZm50bWQ1?=
+ =?utf-8?B?RVczN011S2xFemcyREp4eHVTZ2JoK3VzdVhYTVlHMHk5MTdEMWh0emdWdkhz?=
+ =?utf-8?B?YWRaUkFXa29yTWp6VnlwQVpyMXFOQ2ZPV3E0TzA0dmtmWkZWNlp5aTBEaUQ0?=
+ =?utf-8?B?bmh1TCtSRU9MMkIzUHE0K0c5NVFSMzhLOXFjVDlrakQ1T211TURicHlpckxp?=
+ =?utf-8?B?NWxPcmdUS2RzTjh4aDZYMVpmY1pSNDA5TGVidThsTzBaK25KMFBhZ2c2MzFs?=
+ =?utf-8?B?cXRUTWpLY2RKdU9SMjNjN3JLOEFROTcwQUFyRWdJeUxMQ3dTQnZFcmlpaUNn?=
+ =?utf-8?B?UmF6RE9pOThaSWx3RFNrMEdBV28rUTNzTGRzV2xRYWhEZ3B0dlM3cFNEVXdu?=
+ =?utf-8?B?VXh1d1d3UHF1NUZ6bUFKTytMb1RhYysvVUFSZEhrclM4Q1lBeFJiS0J0Q2tU?=
+ =?utf-8?B?MGluWEc4Y0w1ckRxYlkxQUJOenR6S3lDZkp0QzJkZ0tOWTRwV2ZOOHNmTWdp?=
+ =?utf-8?B?R3dFSEJyRUpYMXZmQmVUSi9DUmhkWGcvREg5dCt6NmNWa3hUczY4YTM4dFQ2?=
+ =?utf-8?B?NXRRY3dtRzFycWREb0tTd0EySnpIN3JFUGdsSnhIaE1MaWF3ZWlTUWlBeHVL?=
+ =?utf-8?B?Y3hkV0xrNXV6cktXeDRtQ0xaRThUbVI3aXRwNmdUUFJPdWU2blg4VEdSOERK?=
+ =?utf-8?B?d3c2MDF3ZndhaDhCL0NCWWU2NWNnTnhkZHpsRGlPRnpEdzhMNDFqZndOUEd5?=
+ =?utf-8?B?aGdtcmVuZEhGZHR3ZFAzZlk4SXZSRlhPVCsyTXhCOFF4S1VnTllYUDNDWGJN?=
+ =?utf-8?B?Rkozc1dIcUJRVVVwVm9qeFB2SXVLaUJOei9qNitUT3dKdVZaVVpWdHh6SVlF?=
+ =?utf-8?B?TGhZODFYSmVTeTdiaDY3M0xoTEJuK0M0NFRnWEtnOFltV2o3ZWlRRWFzcWQ3?=
+ =?utf-8?B?QW00eS8vSy8vR0JLUk10TTZCZTJyRkdZRjV3K3BFR285T2VVcnNtSUVsWFRy?=
+ =?utf-8?B?WnRpSm1QMkJ3Tnl2T1J6SzdDakN0Zk5jaGg3TEtqbjJ4R0Nxa28yNnBiSkFL?=
+ =?utf-8?B?ZGtWb1NkZ0FQNU8wbmZRUEJaWUpGR0ppcUEva0tMVU1ISDZwY3kxY1NURy9p?=
+ =?utf-8?B?RWF3cnZUclgyZVhHZ2p1aTlvbEZ0cUZNbVUvc0FQYStJZUdjSnhFekREdWlW?=
+ =?utf-8?B?WkdrclBXU3VNa2dyMGFCeHM2c3Y1Qm1aTU9Na2kwN0MycEMzbGVYSytlNWcx?=
+ =?utf-8?B?czNCRzAyeld3YXJPdGtVTVUwZjkyRlBHRmtMWHp6NXhqMnNMMUVMdFFZbkVv?=
+ =?utf-8?B?MVBWWmd2N2RKK0FSY05wSkQrUE5uQVorcVJDaUdjamg3KzNhTjZQcWh2Tmt2?=
+ =?utf-8?B?MlRqZGlkaEdsRzNBQTRSYW1odU1JT3YvVWx3elIyV1NKRXRJd3VBa0pPcEtt?=
+ =?utf-8?B?YU41czlGeEtNR2NYVGVUYmRqRWtKQyt6MERoeUNjMC85NEFValpZUU0yQUto?=
+ =?utf-8?B?ejQ1Nkt3U2xGVTIzYjMxbzBGazBaYnV1YnhQZjc1U09aaVptOXNuNEt1MFli?=
+ =?utf-8?B?aTYvSzhYdElQUEt1cTJCNHVueEtzUFlnNm9GaUdvOC9kTGFFd3lKcTRRM1Vk?=
+ =?utf-8?B?OTY1bXEwK2NRN1FCdEFvTWM4bVUzK0NXVVp0cXJXVmk1bFhlV01kMnY0bjlB?=
+ =?utf-8?B?US81clllNi9WMVlabHFGWnlzek4yM1ZQYndTdDlYSVRGRlRpc1Z4aHEvUFBj?=
+ =?utf-8?B?ZXVQL1dzZUVKYVI3TTh4SEQ5MERhZlZuT2pWWU8wdnBCUjZzMFNPdjYxNFZJ?=
+ =?utf-8?B?R1NNeCtlZ0dXaExYak9OV2FCeVdEcEllUmt5K1grK29yMlpmZGlISnhuQjNP?=
+ =?utf-8?B?UGhGWk5BVm5adVQvMXlXS1JiZ0l3Z1pQY05NTlNJQWxtaUlZQktmQ09JM1RO?=
+ =?utf-8?B?N0JhNXU4V3RldWFWeFE4MDNVSWVaOUxGTDNpSDNwSFFrcENxRjVPVWZJaENh?=
+ =?utf-8?Q?lMA3fwmFXoZJBqLq8S2awHX3N/JtVafCi4+Rz?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 222f032a-d4bd-4684-0096-08deb19285e9
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8190.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2026 08:26:40.6594
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WuLVZO71v/2Fa6u3KnEqhFdVeLXAEilzopSOVe0CyRYp5Fl/19Af0CQr5+Og6K1BQKG8n3s5qBS+Ghy/7t+zcEblX2GTxWnBUViiEJ4lQzGbVJyvFPi8hEIp2YMMvugF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7719
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_012647_089679_E559A635 
+X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,56 +163,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 10:47:21AM +0530, Aksh Garg wrote:
-> This patch series introduces the framework for supporting the Data
-> Object Exchange (DOE) feature for PCIe endpoint devices. Please refer
-> to the documentation added in patch 4 for details on the feature and
-> implementation architecture.
-> 
-> The implementation provides a common framework for all PCIe endpoint
-> controllers, not specific to any particular SoC vendor.
-> 
-> This patch series is the non-RFC version of the RFC series at 
-> https://lore.kernel.org/all/20260213123603.420941-1-a-garg7@ti.com/
-> 
-> The changes since v1 are documented in the respective patch description.
-> 
+This patchset aims to add one change to the S32G2/S32G3 dtsi support:
+- Add SAR ADC dts support for S32G SoC based boards
 
-Thanks for the work! I left some comments, but the series look good from the
-initial look. Once you add the callers as I suggested, I'll do a more thorough
-review.
+v2 -> v1:
+- drop 'vref' property from ADC nodes
+- reorder 'adc1' node to maintain ascending
+unit address order
 
-- Mani
+Khristine Andreea Barbulescu (1):
+  arm64: dts: s32g: add SAR ADC support for s32g2 and s32g3
 
-> Changes from v2 to v3:
-> - Rebased on 7.1-rc1.
-> 
-> v2: https://lore.kernel.org/all/20260401073022.215805-1-a-garg7@ti.com/
-> 
-> Aksh Garg (4):
->   PCI/DOE: Move common definitions to the header file
->   PCI: endpoint: Add DOE mailbox support for endpoint functions
->   PCI: endpoint: Add API for DOE initialization and setup in EPC core
->   Documentation: PCI: Add documentation for DOE endpoint support
-> 
->  Documentation/PCI/endpoint/index.rst          |   1 +
->  .../PCI/endpoint/pci-endpoint-doe.rst         | 318 ++++++++++
->  drivers/pci/doe.c                             |  11 -
->  drivers/pci/endpoint/Kconfig                  |  14 +
->  drivers/pci/endpoint/Makefile                 |   1 +
->  drivers/pci/endpoint/pci-ep-doe.c             | 552 ++++++++++++++++++
->  drivers/pci/endpoint/pci-epc-core.c           |  71 +++
->  drivers/pci/pci.h                             |  47 ++
->  include/linux/pci-doe.h                       |   8 +
->  include/linux/pci-epc.h                       |  24 +
->  10 files changed, 1036 insertions(+), 11 deletions(-)
->  create mode 100644 Documentation/PCI/endpoint/pci-endpoint-doe.rst
->  create mode 100644 drivers/pci/endpoint/pci-ep-doe.c
-> 
-> -- 
-> 2.34.1
-> 
+ arch/arm64/boot/dts/freescale/s32g2.dtsi | 22 +++++++++++++++++++++-
+ arch/arm64/boot/dts/freescale/s32g3.dtsi | 22 +++++++++++++++++++++-
+ 2 files changed, 42 insertions(+), 2 deletions(-)
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.34.1
+
 
