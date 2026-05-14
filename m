@@ -4,68 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C56CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B97E2CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:33:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i+ER/V7BqPBVcuw5u4kn1XH/+1ROjOBqJjLVfUa0dTo=; b=mKpc0O3sup0L4BCs+ELb0J4ZIE
-	XHH2tkTgsz+hCMm+YPjKszGs3dZo/QfR8MqGYu5ufeJcf9dc0596amw/aFTNU6ZEEWhoLDp1NVtaX
-	krUTQLptSqJLq682pTajR9Ntd0nkDDnrNu1IRWByeYnrRLkO6ZQBGxs+5BBzp2N+FvDD+8xvCKLfr
-	l/L3TGZ6PVaDAZjd6tvDHNXWlTNtxtLxS6cYM9c9qDVVpu2Ek3KrAOk5ZBnDlhfMtrAqTo/fWj3Vs
-	744aOqohbr7RKY7LCrnEew7iZs3uKtvIyHc7DCj2t2sEqaPtKgxnbHJS4pt/S6CnyY6q4dDiboqfd
-	3A9BXPGQ==;
+	bh=Axz5lIhYJJFKudG4NIs2q6TTP3wLlHE34k26hR6vcd0=; b=hD6dDkEnximl7pk5l+a1F4hhI5
+	ozbNhJpqHQ3d2xfG+22ZOKPLjKd2GxxY1YVdOzliHKXwprEmxWhaBzgIjpAvwj3EYXaZep3qCYPZc
+	to+0VEm78DxSk4Wa5tYpHkqSTN6jDcf04ZSVB1Hg60onbyF15EFsz7cDxN2zEeR5o8M+cWw6Bemjd
+	JGb97BnGyWCo5b9VgIF2MXfJQnoJxFvKqMHEvejhF0tB7Kbha3PiKIk8Z9h6YcmoOJenBrZUbenfL
+	dbupwA0eMxF1u6yZAfhy+FqKuvj/8iZGC24cOhWdx2lhqMYBwAPa8/K7E1NvwCvJ73Y0iXSkGqyiu
+	lyTG2YBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTLc-00000005Cek-3QrB;
-	Thu, 14 May 2026 10:31:20 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wNTNk-00000005D0J-27ZT;
+	Thu, 14 May 2026 10:33:32 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTLY-00000005CdP-3x0i
+	id 1wNTNh-00000005Czm-3Dgo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 10:31:19 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 88835C5DC68;
-	Thu, 14 May 2026 10:32:02 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 78C2C60495;
-	Thu, 14 May 2026 10:31:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 635AB11AFA057;
-	Thu, 14 May 2026 12:31:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1778754670; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=i+ER/V7BqPBVcuw5u4kn1XH/+1ROjOBqJjLVfUa0dTo=;
-	b=WMsmFB6oOYpXVZ7gDNQB/+wS3d5hKqjildZxAPiV2yRwqJnSphqGeu8MEHNVtzhalFE9nJ
-	f0drDnkagj5ZSbDHTPzCbvGrjZ1rT1LG1WlrBGz3TAOcQNFtMnPXz3SsufYByUBXKPLQLC
-	OzD2XR4Oe1Fc0ubk0PK18oPQLTnWHQxhS87+8JB1IeLZs2btUazhOgZqi25hY/fCVeuDp8
-	kqLvWiXanhnnpZykOVioNl5uSSlkLEt2qMwOcBr5bLJD+I3n4kLyJPIWej4Cd38VqZ4cBS
-	+iyedRwC6XCBAyCYILzsAwJfpXnbwS47IMVXnzSCj/ZYzhgFajKpNQHky9xECA==
-Mime-Version: 1.0
+	Thu, 14 May 2026 10:33:30 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-82fbf5d4dc2so5456824b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 03:33:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778754809; cv=none;
+        d=google.com; s=arc-20240605;
+        b=bF6bMv2UItYHf7BAoWre27QzCTyGl/BK54o09sgSJWkEKn3bhUHtD6oPV/UkAf21o0
+         m7mLnS8YrXdbHDevPRUFW0iwVt8I1VAg3mXcpURyMwgJRqNocq/yOtRCt3C8JltkWzCY
+         aRBIIH37LxMZ4nZgPtwwTNmVNGmNSgGTyq8s0rGLTWXtsVCHx6sdWKe2gVr09ruoJKUn
+         zVt9n+9hGOnkZeO2xIslsS6VtXDJLEd2XZWJloKyTivhAPxA8l8zU9m7P35EO6FRNN72
+         XrL830qJzKwkdVHh8CYlw723Ah5jrQj9AXisex21t5hbCH5UIV/sh1T/smWGn4aKYRmb
+         T43Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Axz5lIhYJJFKudG4NIs2q6TTP3wLlHE34k26hR6vcd0=;
+        fh=4nI3CmTandQAPDKhKMot1cghneUHLT0v9YOie0emonE=;
+        b=FN4CULXagXgXwTk6bdFuq/XTkrtyHulvzaS6KKl3aQ+3BUcc99miSjSmNqOOBqqtlw
+         X0B8Y5ZqaL9d9ovvIdnUit/8Hl8vVPAJlD+0NHsdfBklclUeA1LGGyY3umU9nWpwrLds
+         wu5gJAql0+8TEc9WTBeJLsnHVhieqwEMubbhX+joG1aiaGjI2gLzfwbFycqxmo6M7Rq5
+         UpeGAu+6/atIGMzOlSTE124tssnMDphUbizr0CKCnVgXdovArUKvio8r2V4nR49yVYC6
+         fffaMkRCdMb1dJj+GXMZqvCXvujXYG8y1nn1RfLqN+nFN0XbabLFVbCfsue8gCufbYnd
+         5XEA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778754809; x=1779359609; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Axz5lIhYJJFKudG4NIs2q6TTP3wLlHE34k26hR6vcd0=;
+        b=DcpgiGn+r1p4K70TggycN+6vP/67+3DYaaG8NMY+LU0YaSjgX+jpas9txngsc6ulL9
+         zUesywWaZIxS12m7aeorfrcpd1xp0XRhvgBVEp45y83qaA+JAXtExLYoQxkBIuVvNkj7
+         Ry6rH7qeqxM/xbRq8u3iPtw5kA2lzvJck0TmCBjeVFyGM2tRKhQa+WQUC55waxRUDI4k
+         jqa1c/ICvrPUjc+E3ymlqtj8IOzvuHq2U/A7JbtebSRF/4WaTspmgM0226Cz2wi0m7EO
+         jyZo+BnhP9KbG7QXUBDyA2nCfNlw4wQFUORgBQAorpmc5AsHUQXxQu4xGtnY5NTfokHZ
+         r0QA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778754809; x=1779359609;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Axz5lIhYJJFKudG4NIs2q6TTP3wLlHE34k26hR6vcd0=;
+        b=CujN0RItmHNQH9SAXGZkjDkueu0/nvtVjCoOFn3gi2fnq7Xs4Y1cA+LjVsuqskgpjq
+         F/BvaiqduJq2UMc7zczohL3QQufwUIVwOu716AekuD4B8TTVKKDWgmpzZ/Z309eaA2Sv
+         Zd2Bjz43hN0JtfjbrAlOPvoDBTqhJ82f9m+jTGfvQo4egQX0f3UZ57hTJApFZxUVBu1T
+         NWF0pDWqJ6n3BvrHt5hCw64WrUturubqbuA9cF7w3DQND69WmlUX7GkQE8uU6eBoNH61
+         yqSCh8kJw9p9IoKGXQgeaUynxobSFxnC47s7BFAZE02Wm1mm82kQLmt+CSQl9HvoVvRM
+         HMvA==
+X-Forwarded-Encrypted: i=1; AFNElJ/GF9hQ9njaZk3UqbskhldeLzgp9uoV2PjYyAEtZEyhUFb3RPm116wE46qMx4C/wp3GLO5b22OhXZapz/RhtnOb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwT2S5PwI52vdYM2upfGIhQUtHRDMh+Sr7soUMIcDRO1JToTn09
+	DVjhyz3UWMNbeIVqEjDDViafJhy/vYR1wfHyjM3aHOq4qtpXFVBwF6SAqMUUccSfblyYnX8ZMO0
+	tlZtYsUa46nKabHuAWo5435yEIcVmPOg=
+X-Gm-Gg: Acq92OETebI/IWt0G2LXcN+WwzdGByJNyd+SzYYQl44aqNeJjbetwrz9kPnCl8NVxHK
+	UGgiIn6vdkaQgtKO/anlAre/+TXX44wRjLR/YhkYGnF2R0e4H0Ylta9UTWXrzhcmkrcBXoyND11
+	DkbTDEvP0A570yQHirkmACpM0gIVadLnI5MFLIYL+Tfa6xBQLXwdtS+WtmJ8bC/Zy+n4ZkESiHd
+	Iu+lUGRTCbJNe0o/j18vDWtvMSOGj5E11ulpridQES2n9qbxNl+5p6Xu8bdqAtzvJYjkt1bAuOm
+	n7JGf0VPRmvnBEz6umdkCkXbAt1vtwbmEysCwQ==
+X-Received: by 2002:a05:6a00:ad8e:b0:82d:603f:f3a with SMTP id
+ d2e1a72fcca58-83f04277f6bmr8500889b3a.24.1778754808499; Thu, 14 May 2026
+ 03:33:28 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260513104329.81592-1-phucduc.bui@gmail.com> <20260513104329.81592-3-phucduc.bui@gmail.com>
+ <agUknFcDIfwrOCld@sirena.co.uk>
+In-Reply-To: <agUknFcDIfwrOCld@sirena.co.uk>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Thu, 14 May 2026 17:33:17 +0700
+X-Gm-Features: AVHnY4IDc6tthLgrHjXC6SYo89bL-eLMYrCt1lnu5Ycu8ceEQa82GPaz33HiBRo
+Message-ID: <CAABR9nHfXi5G4+sVnLbWWJctQHkWASTzTwiV424bO6BXZDqX+Q@mail.gmail.com>
+Subject: Re: [PATCH 2/4] ASoC: stm: stm32_i2s: Use guard() for spin locks
+To: Mark Brown <broonie@kernel.org>
+Cc: Olivier Moysan <olivier.moysan@foss.st.com>, 
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 14 May 2026 12:31:02 +0200
-Message-Id: <DIIBWIZCWTLY.P8H6UNUWM22K@bootlin.com>
-Subject: Re: [RFC PATCH net-next 0/3] net: macb: candidate fixes for silent
- TX stall on BCM2712/RP1
-Cc: "Nicolas Ferre" <nicolas.ferre@microchip.com>, "Claudiu Beznea"
- <claudiu.beznea@tuxon.dev>, "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S
- . Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>,
- "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rpi-kernel@lists.infradead.org>
-To: "Lukasz Raczylo" <lukasz@raczylo.com>, <netdev@vger.kernel.org>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <cover.1777064117.git.lukasz@raczylo.com>
-In-Reply-To: <cover.1777064117.git.lukasz@raczylo.com>
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_033117_140998_02DE379C 
-X-CRM114-Status: GOOD (  33.44  )
+X-CRM114-CacheID: sfid-20260514_033329_809326_A95233B2 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,117 +121,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Lukasz,
+Hi Mark,
 
-On Sat Apr 25, 2026 at 12:38 AM CEST, Lukasz Raczylo wrote:
-> This series proposes three candidate fixes for the silent TX stall
-> observed on Raspberry Pi 5 (BCM2712 SoC, Cadence GEM via RP1 PCIe
-> south bridge).  The bug has been reported, with reproducers, at:
+On Thu, May 14, 2026 at 8:25=E2=80=AFAM Mark Brown <broonie@kernel.org> wro=
+te:
+> How does scoped_guard interact with break statements - does this still
+> apply to the switch?  I've not looked at how they're implemented...
 
-I've taken over the MACB driver maintenance following Clandiu & Nicolas'
-work. I have read with curiosity your series and links attached
-(though I skimmed over parts because there's been a lot of discussion).
 
-Have you moved forward since your initial post? I've seen your
-still-working-on-it message from May 8th on the rpi kernel PR. I have a
-few remarks and/or questions:
+I checked the scoped_guard macro implementation...
+and You're right the break statement inside scoped_guard only exits
+the guard's implicit loop, which is not what I intended.
 
- - You still think the two fix patches solve it? Any clearer picture of
-   which of the two patches inbetween [1/3] or[2/3] fixes it? Does
-   [3/3] ever trigger on your targets?
+Since there are no further statements after the switch block in this
+function, I will replace the break with return 0 to correctly exit
+the function.
 
- - Can you clarify the exact symptoms? I've seen a few contradictory
-   facts. Two I remember:
+I'll send a v2 of the whole series with this fix.
+Would that work for you?
 
-    - You say here it is a Tx stall but I've seen messages in the linked
-      threads that say explicitely broken Tx & Rx.
-      https://github.com/cilium/cilium/issues/43198#issue-3706713821
-
-    - You say here link down/up fixes it, but there is a comment that
-      says they unload/reload the module (rtheobald). They don't say
-      explicitely that link down/up doesn't work for them though, but
-      someone before in the thread recommended link down/up. Another
-      one says "Only power cycle recovers the node" (lexfrei).
-
-    - Also, some messages point out disabling TSO / SG / EEE helped it.
-      Any comment on that? It would help point fingers.
-
-    - Some comments are about DT props missing. Is that lead dead now?
-
- - I've seen no mention of the bug having been reproduced on upstream
-   kernel (?). What does the rpi kernel bring to the table that makes
-   everyone use it?
-
- - Anything was found to increase the reproducibility of the bug? If it
-   was then a bisect could be made possible, as I've seen mentions that
-   it didn't appear on some older kernels.
-
-Now about the patches:
-
-> Reading the current driver we identified three plausible races
-> between driver and hardware, each of which could independently
-> produce the observed behaviour.  We did not determine which is the
-> actual root cause -- that likely requires either BCM2712/RP1
-> documentation we do not have, or dynamic tracing of the driver
-> during an in-situ stall.  The series therefore attempts to close
-> all three, with each commit message stating which specific race
-> that patch is targeting.
->
->   Patch 1/3 -- flush PCIe posted write after TSTART doorbell.
->   Writes to NCR are posted PCIe writes and may not reach the MAC
->   before the driver returns.  If the TSTART doorbell is lost, no
->   TX starts, no TCOMP arrives, and the ring goes quiescent.  A
->   read-back of NCR after the write is a standard read-after-write
->   PCIe flush.
-
- - Makes sense, but only on MACB mounted over PCI, which is not the
-   majority.
- - IDK if we can do better than a readl(NCR) on all platforms.
- - I am surprised it is the only writel() that needs to be flushed?
-
->   Patch 2/3 -- re-check ISR after IER re-enable in macb_tx_poll().
->   An existing comment in macb_tx_poll() notes that completions
->   raised while TCOMP is masked do not re-fire when IER is
->   re-enabled, and mitigates the window with macb_tx_complete_pending(),
->   which inspects driver-visible ring state only (after rmb()).  On
->   PCIe-attached parts the descriptor DMA write that sets TX_USED
->   can remain in flight when that check runs; the rmb() orders CPU
->   writes but does not retire peripheral DMA.  Reading ISR directly
->   after IER re-enable addresses this in two ways: (a) the MMIO read
->   is an architected PCIe read barrier for prior DMA writes, so a
->   subsequent macb_tx_complete_pending() sees up-to-date TX_USED
->   state; (b) it directly observes a pending TCOMP bit if the
->   hardware has one set.  Either signal reschedules NAPI.
-
-This will not fly because ISR might be read-to-clear.
-See macb_queue_isr_clear() and how it is used. So we cannot re-read ISR
-safely on those platforms.
-
->   Patch 3/3 -- TX stall watchdog.  Defence-in-depth.  If patches
->   1 and 2 close the races we identified, this patch performs a
->   single spin_lock_irqsave/unlock and a branch per queue per
->   second with no other effect.  If a further race remains that we
->   have not identified, it invokes the driver's own existing
->   macb_tx_restart(), which already verifies that TBQP is behind
->   tx_head before re-asserting TSTART.  We include this patch
->   because we have empirically observed multi-minute stalls on this
->   hardware; we are willing to drop it if the preference is for
->   1 and 2 to stand alone.
-
-Good idea, but that is what ndo_tx_timeout() is meant for no? It is a
-mechanism that is not specific to our HW so that should be implemented
-at the subsystem level, and it looks like it already is. :-)
-
-We are aware of a few software scheduling races that we plan on fixing.
-If your above patches ended up not fixing the issue, you could look
-into those.
-https://lore.kernel.org/netdev/DHIT9TPJQJ46.21A89R5UAFXVH@bootlin.com/
-
-Thanks!
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+Best regard,
+Phuc
 
