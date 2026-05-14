@@ -4,68 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CFACD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90712CD4F39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 13:02:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nVJtoJwHA1qaK/rVte5qaXvlJbiset/mhzA6ephutU0=; b=nCufalsVhgdxJttsVNfVEUcnNT
-	1DCgfSI40KHa9l9mK5Yss0ft62gkO7XUfusHnZBzRpQON4JOmcx1Ec+x29Rq6Ml42uJRBu9jxLa9U
-	ziwAfnYyhzzX6c9ASnRf90MEDrLJoGrsuO5ujbPO+QqMnnu4xWnfc2VqZbYZt8hnk5tcWDcivO5oz
-	GSb3hR7U6VCj1erqoP9LKCFz+KFOaGF1esErjRGP8JiawWMaNdT+YBcHIuEdofRv9RytgPyrwNNdT
-	VDKD9S+gOIhs0oz241IbYdCF3SRbwhV7a0f0aosZ4rxCLSN/K24zPC/EWZ+w+TXPqAVafUGy0obOh
-	o7Dpqt+w==;
+	bh=ZLBa0eCGlK23Uh8Va98YC010ZS+trfxb66awnxnwHIc=; b=Wc/4K8Ap4dvJdt3ZKfCIuPI133
+	0Dnp8Pl+rZEXqZvCaePIlX87m5wgMIYWjZEQ9+6CyKnuGRH895wjJloe8kjT5CMEd8mtnaMOS5iBO
+	1kYEEflKHGEB/coPIj3Fr+56E4vMdvq2hpZuz/UWYLG08YkwTQUyOfichPOoZwT543Ejo9rnG5cu4
+	wdTziFUm11sbPtr7YihmqzigXyx0yLGjcbAUD0pxECluzw9H6fg9ylR6ICpfMMi/inWxITVMC5GzB
+	P5pKtxnhc03S95XPutl9/xAUwYPWOollOV14aDOKwq3cACe6JQ63IGrrzEges3s95t2AtYJc7uv9+
+	WQxDzPXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVd4-00000005X3U-2JlO;
-	Thu, 14 May 2026 12:57:30 +0000
+	id 1wNVhb-00000005XZ7-0cst;
+	Thu, 14 May 2026 13:02:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVd2-00000005X3B-2TK3;
-	Thu, 14 May 2026 12:57:28 +0000
+	id 1wNVhZ-00000005XYt-1lE7;
+	Thu, 14 May 2026 13:02:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C9246013B;
-	Thu, 14 May 2026 12:57:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C39F1C2BCB3;
-	Thu, 14 May 2026 12:57:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778763447;
-	bh=AKwZQs2wlVU5d66RzEN5Yeb4ReFmnHAO0+173C7d698=;
+	by tor.source.kernel.org (Postfix) with ESMTP id AE9ED60132;
+	Thu, 14 May 2026 13:02:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1F8CC2BCB3;
+	Thu, 14 May 2026 13:02:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1778763728;
+	bh=6XkcIGEtELfy3FNPsRMpEtSIdSkCha1v4oFloaN5a2E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JWHqLlK/wIwM/uCBb2Q7orVLvYK+1zY65FUJExviSdXrbpFG3rZp2RkmRNGEA9xLy
-	 vUlzRSt2sjt4Omv2vT3nHOZV4QLnETOk8XwsbcrTVjjIHjMiAkdzNX9nAHPIZAPvBZ
-	 fvFTsNC2+etSzMbeMG1XqkGkCbeDivxa2L5MMOMvUYoEjqkk/4tNS0yh/BxO61h5WT
-	 jFYVylaVULZdpPU46QKFfiAn6jH7lantX+Qte39+kTFwjApgi+zhy9i2EAqPP7seqG
-	 4GbFfz+2ly06YxzppyjZ7D2JBdjUfgsOaS+fwyH84bFJaF1a8FXlUfUufs6zDZf5Qv
-	 aFSS24mrSXWlg==
-Date: Thu, 14 May 2026 14:57:25 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Roman Vivchar <rva333@protonmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Sen Chu <sen.chu@mediatek.com>, 
-	Sean Wang <sean.wang@mediatek.com>, Macpaul Lin <macpaul.lin@mediatek.com>, 
-	Lee Jones <lee@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, linux-iio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
-	Ben Grisdale <bengris32@protonmail.ch>
-Subject: Re: [PATCH v2 01/16] dt-bindings: iio: adc: mt6359: generalize
- description for mt63xx series
-Message-ID: <20260514-abiding-honored-mammoth-78dda0@quoll>
-References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
- <20260512-mt6323-v2-1-3efcba579e88@protonmail.com>
+	b=SH6sGKX8F7y134uKrqajCxGs00yhXlupBiuPqzVIUY36b/thUbq9Z21AkAvVUCz/1
+	 DYaZoMbeTIMQngQ/t6kQnkyY90yRlBGAWBF08CXB/kw0DXsGLRkOvUp0Vj6+Fz4oX6
+	 4QQOFrS4Qb2Is1u7tQKJIBMa3deSDa3h4XZbMrFw=
+Date: Thu, 14 May 2026 15:02:13 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Yuriy Havrylyuk <yhavry@gmail.com>
+Subject: Re: [PATCH] nvme-apple: Reset q->sq_tail during queue init
+Message-ID: <2026051400-concert-cartridge-e96b@gregkh>
+References: <20260514-nvme-apple-sq-reset-v1-1-8931e455281e@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260512-mt6323-v2-1-3efcba579e88@protonmail.com>
+In-Reply-To: <20260514-nvme-apple-sq-reset-v1-1-8931e455281e@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,29 +69,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 08:18:15AM +0300, Roman Vivchar wrote:
-> Update binding title to the MT63xx, since the list of compatibles already
-> includes mt6363 and mt6373 which don't belong to the mt6350 family.
+On Thu, May 14, 2026 at 08:54:59PM +0800, Nick Chan wrote:
+> Fixes controller reset on Apple A11 / T8015.
 > 
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> Fixes: 04d8ecf37b5e ("nvme: apple: Add Apple A11 support")
+> Suggested-by: Yuriy Havrylyuk <yhavry@gmail.com>
+> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 > ---
->  Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/nvme/host/apple.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
-> index 5d4ab701f51a..2e8857e104f5 100644
-> --- a/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
-> +++ b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
-> @@ -4,7 +4,7 @@
->  $id: http://devicetree.org/schemas/iio/adc/mediatek,mt6359-auxadc.yaml#
->  $schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+> index 423c9c628e7b..c692fc73babf 100644
+> --- a/drivers/nvme/host/apple.c
+> +++ b/drivers/nvme/host/apple.c
+> @@ -1009,6 +1009,7 @@ static void apple_nvme_init_queue(struct apple_nvme_queue *q)
+>  	unsigned int depth = apple_nvme_queue_depth(q);
+>  	struct apple_nvme *anv = queue_to_apple_nvme(q);
 >  
-> -title: MediaTek MT6350 series PMIC AUXADC
-> +title: MediaTek MT63xx series PMIC AUXADC
+> +	q->sq_tail = 0;
+>  	q->cq_head = 0;
+>  	q->cq_phase = 1;
+>  	if (anv->hw->has_lsq_nvmmu)
+> 
+> ---
+> base-commit: 5d6919055dec134de3c40167a490f33c74c12581
+> change-id: 20260514-nvme-apple-sq-reset-53e22e88c7b0
+> 
+> Best regards,
+> -- 
+> Nick Chan <towinchenmi@gmail.com>
+> 
+> 
 
-Honestly that's close to churn... Do it while adding new compatibles.
+Hi,
 
-Best regards,
-Krzysztof
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
 
+You are receiving this message because of the following common error(s)
+as indicated below:
+
+- You have marked a patch with a "Fixes:" tag for a commit that is in an
+  older released kernel, yet you do not have a cc: stable line in the
+  signed-off-by area at all, which means that the patch will not be
+  applied to any older kernel releases.  To properly fix this, please
+  follow the documented rules in the
+  Documentation/process/stable-kernel-rules.rst file for how to resolve
+  this.
+
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
+
+thanks,
+
+greg k-h's patch email bot
 
