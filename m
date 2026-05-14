@@ -4,113 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE735CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 17:35:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09098CD4F39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 17:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JC+WHcUhpCEgLv+z/dz5uJKI5jcxrqy0Eu1amoyfn8U=; b=315Uh1QcbSSvWfwZ3WooEGh4s2
-	DsP7qiUFTPQPxpV8X0537av/p5IJREZLpd7pME7vp3TRgbVMqnSPM5b5BaglIZJ3nfHDs8g7hKICq
-	qBUnQ+m3gd/mbk5Erejzgty8KpT/qu0hKMxFoUpDM/jrgkjCm5YG9/SQ7hmwFHmZ8D5aSEgLKqdMf
-	WuJaUZM538Y2/IlrSmOTzsyQ1Tw2MgVRSHp4lD0vZqKI73qyltgDl0/ZwjgU5yPQODEDIyLrMcXjV
-	qSDQs23hucx0WdrFjyLrosuN4rNAsgPeNjicMPAuz6FvTfd6+38aupHShUx7IvxUtqmsP03KQ8saH
-	CXM/HBXA==;
+	bh=qTMnW3DqKHnEXJbGJ3gQcHdCP8JB0FMoRa2g/dio4ao=; b=savBLJSZWAHUdeeh5ci2BjfoOB
+	z6gJqOZ78Har9J/OLS1TeXbI+h4OybYyl6XerKUk4py5d3Zk8sCumG9EP1sUuhK6bmqqgmPhNHFaR
+	lhu9+qzUCTWMa6m+1e3ebvNFOo+5Oa5xWpv891Sft+lAk/wAxqkaSMJGfVOc0dD9FSJiSOM721sRd
+	WCP4JNvM6RRRH9nmH/PzqAy6qBDgoDTbAw+gTC8l2n/oVoXRLddNH+e6Lhgh9s9ne2r40o4Fkytit
+	MjN6j8B1XQvgAPlMFi6Tu12qB/yLl8pkKWIqW8hcDQ7oJxrmd93XUK2KkNxZDSpsxJRGNSYPTiHm6
+	OzFHAAng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZxt-00000006DF4-2wbs;
-	Thu, 14 May 2026 17:35:17 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1wNa0K-00000006DgK-1Ksc;
+	Thu, 14 May 2026 17:37:48 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZxp-00000006DEY-3sfM
+	id 1wNa0I-00000006Df7-0mRj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 17:35:15 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8353fd1cb5fso60206b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 10:35:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778780112; x=1779384912; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JC+WHcUhpCEgLv+z/dz5uJKI5jcxrqy0Eu1amoyfn8U=;
-        b=etTeKrNLV3QtZY+J9D/DIm6uONX9uklTYCtfU68xaZBpFVgZFagpeWFJS+3oqBWCYF
-         KhvQjg0t5Pk6e2a5HecvYTO751pEsXIaKQM+SeMop/QEsjDTcnmaB08f8POOiwtgqyPY
-         sLWtcujC2JY+TvBncEpArv7/0ZmIxlkcu2kJlmPUgIaYvOHWCJo5hY7SB5zJ39mAEufJ
-         nCS0+0YkoJVu5koH/C3Hlo4G5lKpMHFHOvZcsWBdmjxEiHr8yD7+6XWlpi9+Krq1X46u
-         1gjp/X98yveaSt5DvjD+J//OCyLyL4IMjISCzO5oqdIZJTLDcmV3tfvFawP4sf9z2DSR
-         DUoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778780112; x=1779384912;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JC+WHcUhpCEgLv+z/dz5uJKI5jcxrqy0Eu1amoyfn8U=;
-        b=Uv5Ziv/NVzWetV8uFioewtC48bf8AclirGzP3YRzqlvk4F6TbZAPZVgRkq9JIoX2Pr
-         fbkaRqKSSPb2zeTL7Zk4et0P+3sVr45GQjZs3Tu9SePTlrY/LzdtDfa7UZyYVxQ6gYqF
-         jiGAdc8kdYZTSPjiYNpS4uNHWsCfGrzTV9Dx15UtKJ/T4HooW0EerF9ukOb3CrRqh/EM
-         Vdm5ElN54uNVfmVgpqcb7djdYFKmai6F+7u5el27R2oPC994jije4DtjMuZdp/OCfsnw
-         ldqcKj5++X6WHE6cG3FMGTOMTmr1bmkn5aJ3h7xUfQ9uPFeY7h9iKeImY1s3cQj7xjP3
-         UuAQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9UAfmA+gn6SoAp1E/VSd3uLj8eaxZXuoPv0jVLrB5C+z6WKzb53/vet5Ws/ZIaREApuITAs4ww1H7IY8JXIgaN@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywrrx7vBG+KcrO+5BCu9SEOkN4RwToG7+F3Sa71pCB0C9NQW5DJ
-	eFkFDCRFkdp6q/5DrEZWNSAYxrl4vdnU8gn1GAUEZb9fxIEp8WNm5E+208zTP4onMlc=
-X-Gm-Gg: Acq92OHZQdi1F4o96X5UIZBKjNpOOz1EUa/1ehIx5rthaMWxaZJs/zif5XVRby5brnQ
-	INt8Bbv0t8eNV3t16sKSS2n8RU/4WilJvjCL727YGrA2MCnOp2rnbm1UCYBke4Ix1hQTqnqeySF
-	5nbC8Ew2HUCGEZGBBG9fNG6eVc4oK8S5RXlLLcA4oCtbnoPJaq2HgbXKwY0OI9FOrtqRTsQ9tMx
-	uQEesUn7r3HgvueBxaTgTP/ZKpDL2FptkJO3DV7GptcMWd20TU1Up8qnxr3afWuqnG/GXPKMt61
-	+tqhScQo8sarhMN0343gdj1TESct/tgm5tcCWkIcxwlipAoiD6GX6zzMfQqG/8vavMBt7Jy3iaE
-	1qBHqhha3fqBurMloRD2oMB8Lhme8W2S/uekBB7h7bhOu5+gSxwGQzHbbAJWidflZY66h97FneC
-	bOvSqS+kRsjYcqdxv5zIjHFUBdSh4=
-X-Received: by 2002:a05:6a00:909a:b0:837:6bb9:acc1 with SMTP id d2e1a72fcca58-83f18dbabc2mr4476063b3a.13.1778780112051;
-        Thu, 14 May 2026 10:35:12 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:30c0:f7f8:e305:407f])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19c7ed3fsm3281092b3a.45.2026.05.14.10.35.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 May 2026 10:35:11 -0700 (PDT)
-Date: Thu, 14 May 2026 11:35:08 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
-	Beleswar Prasad Padhi <b-padhi@ti.com>,
-	Andrew Lunn <andrew@lunn.ch>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	dl-linux-imx <linux-imx@nxp.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-Message-ID: <agYHzH-nJLl1HFIn@p14s>
-References: <CANLsYkzt9xUczxSU28u-TfZAAjr0ufZKXAj8Eqfq=45gufXW3w@mail.gmail.com>
- <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com>
- <21de8440-adf7-454b-acfc-06e50882e075@ti.com>
- <4c526816-b127-43e7-86e9-eee4dc1152bc@foss.st.com>
- <268f8e00-91bc-43ea-ba95-077cf859e7f3@ti.com>
- <9e2492d3-8753-46c7-8db6-5f1a80b4f2e9@foss.st.com>
- <db4c18be-1c8d-4227-9fcc-1d25cec50e37@ti.com>
- <6917e3d7-8c6c-4e63-8eca-5308621ec3e8@foss.st.com>
- <afzIABSh1xtMEGbf@p14s>
- <PAXPR04MB9185BFA6E7375FAD0B15B021893C2@PAXPR04MB9185.eurprd04.prod.outlook.com>
+	Thu, 14 May 2026 17:37:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hPTEpQ7hdgMnUqP+21YYMJnuy7GG25bJHI3BKjl930LbqodNqAEbNEjjXo1ESkhYyoJAF28g5VQPbsJ/4Qg5B60GKuaYFAe5WG5KwvH5zhuPgeaf3Saa4IranV7VDfOSRmIu4eMXIwZ1RPO4a37Wx+E7IdmTHPZmd+xuXY6jVJ/Yqc+zvoWAa73lqzRYRQMNFipgHG+Hm3A6y7t+PQ7LN8XnDOzGlPlFAG82OI4EELw4CA/EjU5adljrndtA7zg1E0KpsS2AMvNTTsWGC13ZMrMHXMO209lFFqSK9yaCnYEzW5hpUYu5j3bm/mrwKPqT88JAtThzFns57ujlBhoKhQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qTMnW3DqKHnEXJbGJ3gQcHdCP8JB0FMoRa2g/dio4ao=;
+ b=ao2GTMbLOh0wSqYhSXqdwiVlrIDQk8UhNlSrqncRtwc4+IyOBfJebRKNfAkKRgR1ysprjwqAGxQmntKKnQF2DvCvUxFGbHNs+j1tTZqJbTPXbgF2rqbgor4NFgYdU175vJM3/z7ywagWxGmSh/obbyXAD+cfSasgHyR24G85bopkBXnGf4fDGpolBAW6FMiafn1e6mydabM9NszMBJVLoEJNcy9XmAEql2Sb8d1Da9bngSFSmba1+WVZUfqhgYyQmowQ/+h+Ssw1g2HVFHWtYxRopO7atIpl06WVbp9lcfsZOaFiFAner4MNQ9TPigke0PGj40Z5IVC6Z8QYAEjkdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qTMnW3DqKHnEXJbGJ3gQcHdCP8JB0FMoRa2g/dio4ao=;
+ b=MX9lKUldCxBNQvPunuVdmTQ1TdCJKD0A40uYu9+N/8406ZHkucLqDhRSj15niNou96yc5r5Om+Qfv+MgUqDdqjeTkj31GOIu5HTnArG7ulWouD61GjNfMPkPpRnfkaynS11YkT932UnanFcoZ5qTvmSYmwIm1ijybi2I0Fkfmy2I/RF08tiTL8yzWB6qVOovbDOFV+oGo1tLlTMxxRL6CNK0mgG+1PpIDj46Spc2sUG5aOhayIA+2sSvGSo8i20eoZLNMCWzxMucZWgLpMJfFAOrGbKhtSSALRaCmdpG/yUk7Uyk2im0qYq/PnH8nozFySVqFhvP75If9lr3FHCZmA==
+Received: from PH8PR12MB7183.namprd12.prod.outlook.com (2603:10b6:510:228::20)
+ by IA0PPFF4B476A86.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bea) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.21; Thu, 14 May
+ 2026 17:37:38 +0000
+Received: from PH8PR12MB7183.namprd12.prod.outlook.com
+ ([fe80::d54c:d13c:6346:4009]) by PH8PR12MB7183.namprd12.prod.outlook.com
+ ([fe80::d54c:d13c:6346:4009%4]) with mapi id 15.20.9891.021; Thu, 14 May 2026
+ 17:37:38 +0000
+From: Jamie Nguyen <jamien@nvidia.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] firmware: arm_ffa: honor descriptor size in
+ PARTITION_INFO_GET_REGS
+Thread-Topic: [PATCH] firmware: arm_ffa: honor descriptor size in
+ PARTITION_INFO_GET_REGS
+Thread-Index: AQHc4oidjgTu+I+rK0a55/7Ex9LQK7YMM0IAgAApeICAAOLtgIAAi/GA
+Date: Thu, 14 May 2026 17:37:38 +0000
+Message-ID: <5AF8DFBF-18EC-4C8A-84A0-F27298DB9BD0@nvidia.com>
+References: <20260513032800.68807-1-jamien@nvidia.com>
+ <20260513-tremendous-conscious-sunfish-06eecb@sudeepholla>
+ <5325A2E7-4987-400A-A1B2-A5C3122D88D1@nvidia.com>
+ <20260514-serious-bumblebee-of-prowess-b6bf2b@sudeepholla>
+In-Reply-To: <20260514-serious-bumblebee-of-prowess-b6bf2b@sudeepholla>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: Apple Mail (2.3864.500.181)
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PH8PR12MB7183:EE_|IA0PPFF4B476A86:EE_
+x-ms-office365-filtering-correlation-id: 2ed766ff-a1bc-4464-4d75-08deb1df7e08
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|56012099003|22082099003|18002099003|38070700021|11063799003|4143699003;
+x-microsoft-antispam-message-info: rGFSQYDiYxrX/MPXJkpN2hCf/97EX3HXWcnZX0cpHB0FHhHHLuRhuZWeiBX4hx9JZsNcSDzD7apzIw7oQ3zKC2bf+bkJb+6J4PzoE5W4AVQNc5//pMGiPQkS/NjlpZ3IpOnOtA0QpIxgm4nlffxqaXKzXcPSwb6f/I7cQXvQcInLhIagXmNMnyW/ppaUW7Y+w3OLjd9iZ9aX6Wuj1YM41TtmMZeQkHPh84zhmcQm4yQ8seVmshIRd+dt9rzsWseIpu3F9StCyhYQYdWSVA8ZRv9S5PgOk3B1oQJdTiYBw7dYkXPe+GRTSQf4PoswIcWcutPWECLd+YfpwNT+FHlCLhshpnduxk3tsj431G6nqFgZARB9lTDPEnVs3Pc/+f3/MLIX1LHhlknmOHPQFpXDuedjuP0g2LKTrrDtJc3IVzURF2QW5EZ+qKEHkDRrQ05zM/zLBu1o+0MWdByCERdkEAhlh9xsOa53Qk/WFYO1RhKpM86vlGIVX6GfvYb6NO3oBI8pWlisV7Gv6y0/7PYYdbN91mbWfIGBXj/Q6XC+DmqxAeNYGuHpPMDwLc16C4gFY0v6bw2TqzvZ1ljpor4hSunhLGjx2W2ZklRD6zdCQtvnF/SQZSrwUBe7MnwF+7J8/DGXWj8tbPvzKZJ1oB3RQ0cW+sLNHgKYkYTOeejHBjlnneFtQ0eMgWxlAhukXtjDzWgu1Iz9VLWaGn1tWEHbbVUgb5jnuxX8hjc6KVGXYKHD4IP0HlUqU4Dok4QkGHGy
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR12MB7183.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(56012099003)(22082099003)(18002099003)(38070700021)(11063799003)(4143699003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?akdFbTYyUHdzdjB6dnRMdkpBN3I5d0R6dFRjRGF1WHc2UlI2MXp5VHB1QklD?=
+ =?utf-8?B?ZG1BajVZM3oyTDArTGxHQkdPakVEaWtNejMyM2c0L2hZNEZydm5TcTFKYWdx?=
+ =?utf-8?B?YmFNUWhyS01xZm9CU29HQXg5SksxbERZNFZUVUJ2bi9wRnBwUU1vUFp5STZh?=
+ =?utf-8?B?MjlBOHpEbHVXV1c5dDFCK3VLRUZJVmpuN1FIMkFtNzNpWUw5QzUrcm1YL041?=
+ =?utf-8?B?ZmU4S3g5cXBlQXhVV2NXNjBReXAzUkpUMDVCT3pMZWttbFp5dXhoS1BTVjBs?=
+ =?utf-8?B?aWJQR1BsRXRhZVR6YnRDQzkrUTNuRzJCaW9qRUNWbFNvZkdLWTZNKzJhV0VR?=
+ =?utf-8?B?Si9uRU5mYWx4aDdQa0pYdWoreE5kTlFZSmhJaU5rM1Zwby9ubE5rNXN0a1o0?=
+ =?utf-8?B?eUpLbUNYOUVreHNHU25NT0FJYWtLdk5ic2h5UC9Vbm1PTjR5RWpyWkZiaXRx?=
+ =?utf-8?B?OUZ1dnIrWE9jcEJUeGJXd3NvZVFwQkI4TzdYOVRnVnNhMHZ0ZzUzSkhLRG1r?=
+ =?utf-8?B?OXJpb2Z3Qlc5dXcwVkMrYWoyckVHWVJNdm5sajdZN2c3SUxvajBkUjk4MEpW?=
+ =?utf-8?B?SU04WWo5bVNUMHB6Q1ZHeEdNL0hld2pVd2RZL1FFSWVJYktaektRWFIyYlp6?=
+ =?utf-8?B?b1prc2lXOCtLYW90NStWSTdrcFV4QXJxMzJLaGlQUXZwQmN1bGl4NFc4OWRm?=
+ =?utf-8?B?TWtpTDdwaXY1Tm5Yck9vcnFhUkVBVnJSc3lybDg4SkczKzNDYW5SV3AvUi8r?=
+ =?utf-8?B?L0Y0Smdyb1RhMUtONll3R1ZsaVFGMDlRb0pmY283Wjl1dFNubml0V29pZ0pD?=
+ =?utf-8?B?RWovalhCblRublZrQ3FXaEFieDV0endqMStEaEpOQjNjc1kyK1ozSkdKR3BY?=
+ =?utf-8?B?Sk9JdFV6VEhuQTlYUzEwVDRuZG1Nd0VyN0ZmV1FIa1lXVkI5TjliYi9FZnFQ?=
+ =?utf-8?B?L0VYTXlHcFgybmREUTZYRnk5T2lwQUdxMVFwTHV3STJZdG1ERlVJS1FZaTJT?=
+ =?utf-8?B?WXREbk5pVDNHMGlQR0UzV0pGK1pJYkJLOXIwdEdaaUxpNzI0NzUzMjA4ejla?=
+ =?utf-8?B?cnRwQjNBaVM5VjF6Yi9xUnBic0t0bzNzRmRTWThtNUY5ODBrblVYMGdjWDNs?=
+ =?utf-8?B?WWVGczZvMm4xaVpwNENBZWJnTXZqazQ3Wmc0T1VJZVJtT1grcFJITUlFakVn?=
+ =?utf-8?B?U3U5ZFIrd2NvajJUU3lGaDE1MWZyTE9VZVJJM20vUkNPd1dMREJQeEpQN2Rx?=
+ =?utf-8?B?azJCU2V1Vlc3aWxvbENGNytZZDg3M1lqNGlNK09VbnRzYWtKb0lDaVRVdWkr?=
+ =?utf-8?B?OXZvbW4vK3dDMVppanZMbk01UWRiRWtDcjNnRk05eTR2QmVSeTBmNVFPSDJm?=
+ =?utf-8?B?clNOWWJ5enFuVkg3R3RvS3B1a3ZYU1oyT2NxSFJCOFhFM2pWREQyRkorVzA5?=
+ =?utf-8?B?UW5XVUdjVDM0MW1BN2ZVNklBaGxlckpFcFprRzFVY0hIeXcxMTJaNTRMUHh0?=
+ =?utf-8?B?UXRZbEc4aE1LN01qaitDSWF0OE95NTZXWWhpczRmNXNMNWM1QU40WHdOS0hD?=
+ =?utf-8?B?NUh2R3N2TGgrRURSUUdXTVB1b0kvek9zUzlNOHJKYVRxanFSYjEyanNFb1l5?=
+ =?utf-8?B?Q3Y0eHN5ZjVBeTVpaC9vRExJclY5VFJnbmE1NDdXWFFwQXFLL1hCVC8xZ2V3?=
+ =?utf-8?B?MEEra3BaMjZkUzlwS2tQVGhDUTlQOFFZZ2Q4VzUxNXZCcXZvOUVwMmE4MlFI?=
+ =?utf-8?B?SytiUzQzWjF0eXNjTnNzYXZkaVJBMzR1SVFKSW5UdnRDOXJCR2w2RkFVZWVu?=
+ =?utf-8?B?TGljSC96Y1J5Z2I1SXEwelB2elhueTl6U2dIUHB0T2t4RjhtektiMlB2a0dm?=
+ =?utf-8?B?dEZWSEl4UVRqbVA1SnV5c0Z3N0d3TTRxczBhWHFTbnVpTll0cVdkRHhXd3o2?=
+ =?utf-8?B?VXVodmNPYkNSbDBrMlE4UlU3dS9sYndMdlZBeDIvK2xsdEptdWdFYU52bVhV?=
+ =?utf-8?B?N1FyWDNyZTd1eWozWTVoL3pBUEl0d1hJYWhZS1c4MXBUczY4WFU4YTBnanVG?=
+ =?utf-8?B?VkpYaFVlcVNEQW5MSkJHVmhtakNsd09lejYzUU5nOXBLTXc5QkNjb2VrdUJZ?=
+ =?utf-8?B?K0xaeXRrempLQU0vWFRwcDduZ1dzQWVaeWxzSGtOcGEya2dDeDJiRXlwdFNT?=
+ =?utf-8?B?ZTdlZWx4dmlSZmNBUW1FTnF3YzJiMXBmUzB2UktxTytJeGc0b0g2dTRhaEZp?=
+ =?utf-8?B?dzhEanFBS0V2V2tYMnJUTnZiclRpeHdMQW11QTF4YUNLZDdWRHF5SWNKTzdB?=
+ =?utf-8?B?ZGVBSUhEeFAydFJZNkM5RCtzZUZSTjBoZHBWZmdyNUNhaGdRWU5CZz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <15C1F4A9761B1E43AB18E74E66262995@namprd12.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB9185BFA6E7375FAD0B15B021893C2@PAXPR04MB9185.eurprd04.prod.outlook.com>
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR12MB7183.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ed766ff-a1bc-4464-4d75-08deb1df7e08
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 May 2026 17:37:38.3376
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: JH+qR2WG1deF0cmUz1zBrdwncPAM6uCD4gBuDV4E6+XL7xdVuzxG05/tzSKaE75nRohTgj3bf18VkvLkHT075A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFF4B476A86
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_103513_987839_429672CC 
-X-CRM114-Status: GOOD (  55.40  )
+X-CRM114-CacheID: sfid-20260514_103746_224340_20A86236 
+X-CRM114-Status: GOOD (  19.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,189 +155,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 07, 2026 at 07:43:33PM +0000, Shenwei Wang wrote:
-> 
-> 
-> > -----Original Message-----
-> > From: Mathieu Poirier <mathieu.poirier@linaro.org>
-> > Sent: Thursday, May 7, 2026 12:13 PM
-> > To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-> > Cc: Beleswar Prasad Padhi <b-padhi@ti.com>; Shenwei Wang
-> > <shenwei.wang@nxp.com>; Andrew Lunn <andrew@lunn.ch>; Linus Walleij
-> > <linusw@kernel.org>; Bartosz Golaszewski <brgl@kernel.org>; Jonathan Corbet
-> > <corbet@lwn.net>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
-> > <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Bjorn Andersson
-> > <andersson@kernel.org>; Frank Li <frank.li@nxp.com>; Sascha Hauer
-> > <s.hauer@pengutronix.de>; Shuah Khan <skhan@linuxfoundation.org>; linux-
-> > gpio@vger.kernel.org; linux-doc@vger.kernel.org; linux-kernel@vger.kernel.org;
-> > Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
-> > <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>;
-> > devicetree@vger.kernel.org; linux-remoteproc@vger.kernel.org;
-> > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; dl-linux-imx <linux-
-> > imx@nxp.com>; Bartosz Golaszewski <brgl@bgdev.pl>
-> > Subject: [EXT] Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
-> > > > >  From my perspective, based on your proposal:
-> > > > >   1) Linux should send a get_config message to the remote proc (0x405 ->
-> > 0xD). 2) The remote processor would respond with the list of ports, associated
-> > > > >      with an remote endpoint addresses.
-> > > >
-> > > >
-> > > > Agreed, we can scale it for multiple remote endpoints like this.
-> > > >
-> > > > >   3) Linux would parse the response, compare it with the DT, enable the
-> > GPIO
-> > > > >      ports accordingly, creating it local endpoint and associating it with
-> > > > >      the remote endpoint.
-> > > > > Using name service to identify the ports should avoid step 1 & 2 ...
-> > > >
-> > > >
-> > > > Yes, but won't that make a lot of hard-codings in the driver?
-> > > >
-> > > > +static struct rpmsg_device_id rpmsg_gpio_channel_id_table[] = {
-> > > > +    { .name = "rpmsg-io-25" },
-> > > > +    { .name = "rpmsg-io-32" },
-> > > > +    { .name = "rpmsg-io-35" },
-> > > > +    { },
-> > > > +};
-> > > >
-> > > > What if tomorrow another vendor decides to add more remoteproc
-> > > > controlled GPIO ports to Linux, they would have to update this
-> > > > struct in the driver everytime. And the port indexes (25/32/35)
-> > > > could also differ between vendors. We should make the driver dynamic
-> > > > i.e. vendor agnostic.
-> > > >
-> > > > I think querying the remote firmware at runtime (step 1 & 2 above)
-> > > > is a common design pattern and makes the driver vendor agnostic. But
-> > > > feel free to correct me.
-> > > >
-> > >
-> > > You are right. My proposal would require a patch in rpmsg-core. The
-> > > idea of allowing a postfix in the compatible string has been discussed
-> > > before, but, if I remember correctly, it was not concluded.
-> > >
-> > 
-> > I also remember discussing this.  I even reviewed one of Arnaud's patch and
-> > submitted one myself.  This must have been in 2020 and the reason why it wasn't
-> > merged has escaped my memory.
-> > 
-> > > /* rpmsg devices and drivers are matched using the service name */
-> > > static inline int rpmsg_id_match(const struct rpmsg_device *rpdev,
-> > >                                 const struct rpmsg_device_id *id) {
-> > >       size_t len;
-> > >
-> > > +     len = strnlen(id->name, RPMSG_NAME_SIZE);
-> > > +     if (len && id->name[len - 1] == '*')
-> > > +             return !strncmp(id->name, rpdev->id.name, len - 1);
-> > >
-> > >       return strncmp(id->name, rpdev->id.name, RPMSG_NAME_SIZE) == 0;
-> > > }
-> > >
-> > > Then, in rpmsg-gpio, and possibly in other drivers such as rpmsg-tty
-> > > and a future rpmsg-i2c, we could use:
-> > > static struct rpmsg_device_id rpmsg_gpio_channel_id_table[] = {
-> > >     { .name = "rpmsg-io" },
-> > >     { .name = "rpmsg-io-*" },
-> > >     { },
-> > > };
-> > 
-> > That was my initial approach.  We don't even need an additional "rpmsg-io-*" in
-> > rpmsg_gpio_channel_id_table[].  All we need is:
-> > 
-> > /* rpmsg devices and drivers are matched using the service name */ static inline
-> > int rpmsg_id_match(const struct rpmsg_device *rpdev,
-> >                                  const struct rpmsg_device_id *id) {
-> >  +     size_t len = strnlen(id->name, RPMSG_NAME_SIZE);
-> > 
-> >  -     return strncmp(id->name, rpdev->id.name, RPMSG_NAME_SIZE) == 0;
-> >  +     return strncmp(id->name, rpdev->id.name, len) == 0;
-> > }
-> > 
-> 
-> If we encode the port index directly into ept->src, for example:
-> 
->     ept->src = (baseaddr << 8) | port_index;
->
-
-There is no rpmsg_endpoint::src.  You likely meant ept->addr.  This would work
-but not optimal on two front:
-
-(1) rpms_endpoint::addr is a u32 and idr_alloc() returns an 'int'.  As such
-there is a possibility of conflict.  I concede the possibility is marginal, but
-it still exists.
-
-(2) By proceeding this way, the kernel exposes the GPIO controller it knows
-about.  It is preferrable to have the remote processor tell the kernel about the
-GPIO controller it wants.
-
-I am done reviewing this revision.  Given the amount of refactoring needed, I
-will not look at the code.  Please refer to this reply [1] for what I am
-expecting in the next revision. 
-
-[1]. https://lwn.net/ml/all/CANLsYkwBk0KbN-k9ce+5=oT+scdZ3nU5AOr3Fz4zT=0AFzghDA@mail.gmail.com/
- 
-> where baseaddr can be derived from the channel address, we can avoid the possible address conflict.
-> 
-> With this approach, the patch to rpmsg-core would no longer be necessary.
-> 
-> Thanks,
-> Shenwei
-> 
-> > And let the rpmsg-virtio-gpio driver parse @rpdev->id.name to match with a
-> > GPIO controller in the DT.
-> > 
-> > >
-> > > If exact name matching is strongly required, then this proposal would
-> > > not be suitablea.
-> > >
-> > > A third option would be a combination of both approaches: instantiate
-> > > the device using the same name service from the remote side, as done
-> > > in rpmsg-tty. In that case, a get_config message, or a similar
-> > > mechanism, would also be needed to retrieve the port information from the
-> > remote side.
-> > >
-> > 
-> > I'm not overly fond of a get_config message because it is one more thing we have
-> > to define and maintain.
-> > 
-> > Arnaud: is there a get_config message already defined for rpmsg_tty?
-> > 
-> > Beleswar: Can you provide a link to a virtio device that would use a get_config
-> > message?
-> > 
-> > > Tanmaya also proposed another alternative based on reserved addresses.
-> > >
-> > > At this point, I suggest letting Mathieu review the discussion and
-> > > recommend the most suitable approach.
-> > >
-> > > Thanks,
-> > > Arnaud
-> > >
-> > > > >
-> > > > > At the end, whatever solution is implemented, my main concern is
-> > > > > that the Linux driver design should, if possible, avoid adding
-> > > > > unnecessary complexity or limitations on the remote side (for instance in
-> > openAMP project).
-> > > >
-> > > >
-> > > > Yes definitely, I want the same. Feel free to let me know if this
-> > > > does not suit with the OpenAMP project.
-> > > >
-> > > > Thanks,
-> > > > Beleswar
-> > > >
-> > > > >
-> > > > > Thanks,
-> > > > > Arnaud
-> > > > >
-> > > > >
-> > > > > > So Linux does not need to send the port idx everytime while
-> > > > > > sending a gpio message anymore.
-> > > > > >
-> > > > > > Thanks,
-> > > > > > Beleswar
-> > > > > >
-> > > > > > [...]
-> > > > > >
-> > > > >
-> > >
+DQoNCj4gT24gTWF5IDE0LCAyMDI2LCBhdCAyOjE24oCvQU0sIFN1ZGVlcCBIb2xsYSA8c3VkZWVw
+LmhvbGxhQGtlcm5lbC5vcmc+IHdyb3RlOg0KPiANCj4gT24gV2VkLCBNYXkgMTMsIDIwMjYgYXQg
+MDc6NDg6MDVQTSArMDAwMCwgSmFtaWUgTmd1eWVuIHdyb3RlOg0KPj4gDQo+PiANCj4+PiBPbiBN
+YXkgMTMsIDIwMjYsIGF0IDEwOjE14oCvQU0sIFN1ZGVlcCBIb2xsYSA8c3VkZWVwLmhvbGxhQGtl
+cm5lbC5vcmc+IHdyb3RlOg0KPj4+IA0KPj4+IE9uIFR1ZSwgTWF5IDEyLCAyMDI2IGF0IDA4OjI4
+OjAwUE0gLTA3MDAsIEphbWllIE5ndXllbiB3cm90ZToNCj4+Pj4gX19mZmFfcGFydGl0aW9uX2lu
+Zm9fZ2V0X3JlZ3MoKSB3YWxrcyB0aGUgcmVzcG9uc2Ugd2l0aCBhIGhhcmRjb2RlZA0KPj4+PiAy
+NC1ieXRlIHN0cmlkZSAocmVncyArPSAzKSBldmVuIHRob3VnaCB0aGUgU1BNQyB0ZWxscyB1cyB0
+aGUgYWN0dWFsDQo+Pj4+IHBlci1kZXNjcmlwdG9yIHNpemUgdmlhIFBBUlRJVElPTl9JTkZPX1Na
+IGluIHgyWzYzOjQ4XS4gVGhlIHNpemUgaXMNCj4+Pj4gcmVhZCBpbnRvIGJ1Zl9zeiBhbmQgdGhl
+biB0aHJvd24gYXdheS4NCj4+Pj4gDQo+Pj4+IFRoYXQgd29ya3Mgd2hpbGUgZXZlcnkgU1BNQyBy
+ZXR1cm5zIHRoZSBGRi1BIHYxLjEgbGF5b3V0LCBidXQgaXQgZmFsbHMNCj4+Pj4gYXBhcnQgYWdh
+aW5zdCBhIHYxLjMgU1BNQyByZXR1cm5pbmcgdGhlIDQ4LWJ5dGUgZGVzY3JpcHRvci4gVGhlIGxv
+b3ANCj4+Pj4gc3RyaWRlcyBvdmVyIGhhbGYgYSBkZXNjcmlwdG9yIGF0IGEgdGltZSBhbmQgZW5k
+cyB1cCBwYXJzaW5nIGV2ZXJ5DQo+Pj4+IG90aGVyIGVudHJ5IGZyb20gYSBzbGljZSBvZiB0d28g
+YWRqYWNlbnQgb25lcy4NCj4+Pj4gDQo+Pj4+IFRoZSBGRi1BIHNwZWMgKHYxLjIsIHNlY3Rpb24g
+MTguNSkgc2F5cyB0aGF0IHRoZSBwcm9kdWNlciBzaG91bGQNCj4+Pj4gcmVwb3J0IHRoZSBkZXNj
+cmlwdG9yIHNpemUsIGFuZCB0aGUgY29uc3VtZXIgaXMgc3VwcG9zZWQgdG8gc3RyaWRlIGJ5DQo+
+Pj4+IHRoYXQgc2l6ZSBhbmQgaWdub3JlIGFueSB0cmFpbGluZyBmaWVsZHMgaXQgZG9lc24ndCB1
+bmRlcnN0YW5kLiBUaGUNCj4+Pj4gbm9uLVJFR1MgcGF0aCAoX19mZmFfcGFydGl0aW9uX2luZm9f
+Z2V0KSBkb2VzIHRoaXMgYWxyZWFkeSwgYW5kIHRoZQ0KPj4+PiBSRUdTIHBhdGggc2hvdWxkIG1h
+dGNoLg0KPj4+PiANCj4+Pj4gVXNlIGJ1Zl9zeiBmb3IgdGhlIHN0cmlkZSwgYW5kIGJhaWwgb3V0
+IHdpdGggLUVQUk9UTyBpZiB0aGUgU1BNQw0KPj4+PiByZXBvcnRzIHNvbWV0aGluZyB3ZSBjYW4n
+dCBzYWZlbHkgd2Fsay4NCj4+Pj4gDQo+Pj4gDQo+Pj4gQ2FuIHlvdSBjaGVjayBpZiB0aGUgaXNz
+dWUgaXMgYWRkcmVzc2VkIGluIC1uZXh0IGJ5Og0KPj4+IENvbW1pdCAzOTc0ZWExOTM4NDAgKCJm
+aXJtd2FyZTogYXJtX2ZmYTogQm91bmQgUEFSVElUSU9OX0lORk9fR0VUX1JFR1MgY29waWVzIikN
+Cj4+IA0KPj4gVGhhbmtzIGZvciB0aGUgcG9pbnRlci4gIEkgdGVzdGVkIDM5NzRlYTE5Mzg0MCBv
+biB0aGUgc2FtZSBoYXJkd2FyZQ0KPj4gdGhhdCByZXByb2R1Y2VzIHRoZSBidWcsIGJ1dCB0aGUg
+ZGVzY3JpcHRvci1zdHJpZGUgaXNzdWUgaXMgc3RpbGwNCj4+IHByZXNlbnQuDQo+PiANCj4+IFRo
+ZSByZWxldmFudCBsb29wIGF0IHRoZSBlbmQgb2YgX19mZmFfcGFydGl0aW9uX2luZm9fZ2V0X3Jl
+Z3MoKQ0KPj4gc3RpbGwgaGFzOg0KPj4gDQo+PiBidWZfc3ogPSBQQVJUSVRJT05fSU5GT19TWihw
+YXJ0aXRpb25faW5mby5hMik7DQo+PiBpZiAoYnVmX3N6ID4gc2l6ZW9mKCpidWZmZXIpKQ0KPj4g
+YnVmX3N6ID0gc2l6ZW9mKCpidWZmZXIpOw0KPj4gLi4uDQo+PiBmb3IgKGlkeCA9IDA7IGlkeCA8
+IG5yX2Rlc2M7IGlkeCsrLCBidWYrKykgew0KPj4gLi4uDQo+PiByZWdzICs9IDM7ICAvKiBidWcg
+aXMgaGVyZSAqLw0KPj4gfQ0KPj4gDQo+PiBXaXRoIDQ4LWJ5dGUgZGVzY3JpcHRvcnMgdGhlIFNQ
+TUMgcmV0dXJucyBucl9kZXNjID0gMiBwZXIgY2FsbCwNCj4gDQo+IFdlbGwgd2h5IGlzIHRoZSBm
+aXJtd2FyZSBzZW5kaW5nIDQ4Ynl0ZSBlbnRyeSB3aGVuIDI0Ynl0ZSBpcyBleHBlY3RlZC4NCg0K
+V2UncmUgc3RhcnRpbmcgdG8gdGVzdCB3aXRoIGEgdjEuMyBTUE1DIGltcGxlbWVudGF0aW9uLiAg
+VUVGSSBicmluZ3MNCnVwIGl0cyBGRi1BIGRyaXZlciBmaXJzdCBhbmQgbmVnb3RpYXRlcyB2MS4z
+LCB3aGljaCB0aGUgU1BNQyB0aGVuIG11c3QNCmtlZXAgZm9yIHRoZSBsaWZldGltZSBvZiB0aGUg
+cHJpbWFyeSBWTSBwZXIgREVOMDA3N0EgdjEuMiBSRUwwIHNlY3Rpb24NCjEzLjIuMiBbMF06DQoN
+CiAgICAiT25jZSBhbiBGRi1BIHZlcnNpb24gaGFzIGJlZW4gbmVnb3RpYXRlZCBiZXR3ZWVuIGEg
+Y2FsbGVyIGFuZCBhDQogICAgIGNhbGxlZSwgdGhlIHZlcnNpb24gbWF5IG5vdCBiZSBjaGFuZ2Vk
+IGZvciB0aGUgbGlmZXRpbWUgb2YgdGhlDQogICAgIGNhbGxpbmcgY29tcG9uZW50LuKAnQ0KDQpX
+aGVuIExpbnV4IGxhdGVyIGFza3MgZm9yIHYxLjIgdGhlIFNQTUMgc3RheXMgYXQgMS4zIGFuZCBl
+bWl0cyB0aGUNCjQ4LWJ5dGUgdjEuMyBsYXlvdXQ6IERFTjAwNzdBIHYxLjMgQUxQNCBzZWN0aW9u
+IDEzLjkgWzFdOiAiU2l6ZSBvZiBlYWNoDQpkZXNjcmlwdG9yIGlzIDQ4IGJ5dGVzIGFzIHBlciB0
+aGUgRkYtQSB2MS4zIHNwZWPigJ0uDQoNClswXTogaHR0cHM6Ly9kZXZlbG9wZXIuYXJtLmNvbS9k
+b2N1bWVudGF0aW9uL2RlbjAwNzcvag0KWzFdOiBodHRwczovL2RldmVsb3Blci5hcm0uY29tL2Rv
+Y3VtZW50YXRpb24vZGVuMDA3Ny9vDQoNCj4gLS0gDQo+IFJlZ2FyZHMsDQo+IFN1ZGVlcA0KDQo=
 
