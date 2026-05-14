@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3777BCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:57:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA12CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rq2XApI3vxhogDpPbwsH2LhjyW+EEP8duXinJmEGT4g=; b=n8X1VJWRqVPoH3ZP416X1SzqwA
-	rYJRbVksIUI8Fda4YL2jp3eAIwj3DwQcPb4nc7mlmGNE5kNWTqN0168AaopiZ19mxGF/ZsU5fCmMm
-	iubB7QY4liNWXlooJAO0pNZbHbOtzazm72HimCjyJp3EaM70gPkXJLv5V6D6Gjh1R6tokCS81N9KG
-	c404ZSPMCZFia3r9QDQDB2K+T9OTlV/x/HwRGgo6CJ/j3k2MPwNN1gaPmXp2GZq2weBbmxOhuYqNU
-	PZU9VgjyCG12LU/0HWZVgu8Bee+UB16BYGI2M15k4aeK5hps6/KIiFggCdFhYEllQ1TDdlR2PzE0K
-	CuCgpQXQ==;
+	bh=URX4wWWM95/M1Hp0Br3sAEbKSjBXseXlT81KNTuzNjU=; b=eLXmT+Y4m/RSETzKmGntocN5C/
+	76gipfVPoEys4QBqwkRB53Jap0FMlSXQUDk7eDOVFNB4KMUnwta1z2j/AhFGCyEt+m3/YtbEPmKmS
+	CZQCVIBJHaY0PQGKz9yQ4vmLOhHZyTqkDongVYuSDQyQ9JjTowajRdACFqp1LGb2QR/gzxjhBv4f9
+	1IzWafihdTg3EGegQ15vrQM8dHmnOCDG5X98DAAirmS4vdd3IwSSYi4lLk+x2j+ngwI2VqIPISetA
+	106//1tOUFQjua9AQ2UMZohn0qrlCBRMd68c2Y46oK/bKUg67w/OAJM4RrODeBWl9xcBPzp82s9c0
+	lXdM5TBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZMj-000000068Am-3Gw2;
-	Thu, 14 May 2026 16:56:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNZNa-000000068Pb-3qrU;
+	Thu, 14 May 2026 16:57:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZMc-0000000688n-44Jb
+	id 1wNZNZ-000000068PG-2sc9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 16:56:47 +0000
+	Thu, 14 May 2026 16:57:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0658B60139;
-	Thu, 14 May 2026 16:56:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FD4CC4AF09;
-	Thu, 14 May 2026 16:56:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CD7DF60008;
+	Thu, 14 May 2026 16:57:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F196EC2BCB3;
+	Thu, 14 May 2026 16:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778777805;
-	bh=aHxKi2z0EW5CeMWkd1EKJ7WBIHw0c7wEEhodM5zgoL0=;
+	s=k20201202; t=1778777834;
+	bh=oChIyfQLFymEOPNHqy7AoXKzE6HdH2VvyMttA3ZZRJo=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=EyCbU6X731gxwAhjmHkdXO8MqMC7eC6peDbiICe1vXMIp/9S9HaAR/kBNhLRQHdmc
-	 cDv5EacNhHrgc9pdVKIofJ4+UR+/tHWDxC9UMowLlzTd+ut2dehuqRHD5p+DfDDTaG
-	 L6wZhaiw5/6vRbVJ61gRdxf9FAVQ+8ACHwRPcdN3sc4KsR2pvQOaZoyN41aK5s9lvS
-	 vBka3YZKsHyiD81bsqILJYN9CBWplN5f2aT7iA0Dx+8EceXuxuTGbEc38Evy0F2mNE
-	 mbh+5uzlHEKNTcfb6T3mHSJZEKvaqljMq5Rv6np7/Q/KFJ0qWp9CgNLfaBFxYlqG0+
-	 5NkEtBFpGs9LA==
+	b=kDqaFhHGZX/arY67mGQUBp3FLp0GAUEu+kz4WLdBo+b4K/+l/H7fJdcnFM1H5ihmn
+	 EZFBD2RgMzzFyx4yJmGO6fZWT62BqyRKex9JCRqIEIXPHjChQ5uvhugzE12MeTk/Hm
+	 1w5USBUSXYhvrN6tCgRsypJgXADvNn7pFzwP9qUG220R+eYGSM59vRMeVKgCfH6VbA
+	 KNnWiW0sZu3fbDSYdaSXoEzdVWvenWLxyrEZ4QrSRc1+tuXdW5rWu77YAlLYPGTVkY
+	 ed1J5KmneI7roICI6/8fL//F1MFkjmsnhZKDrR12ysiHzk7s3N53Ewe1mN9F3uE43m
+	 FPTXoE1oCp9Sw==
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, peter.griffin@linaro.org, 
- andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com, 
- stable@vger.kernel.org, Titouan Ameline <titouan.ameline@gmail.com>
-In-Reply-To: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
-References: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
-Subject: Re: [PATCH v5 0/7] firmware: samsung: acpm: Various fixes for
- sashiko bug reports
-Message-Id: <177877780331.167822.16476754238198495357.b4-ty@b4>
-Date: Thu, 14 May 2026 18:56:43 +0200
+To: Sam Protsenko <semen.protsenko@linaro.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Alexey Klimov <alexey.klimov@linaro.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Brian Masney <bmasney@redhat.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260430-exynos850-i3c-criticalclocks-v1-1-6e1fd8dfa21b@linaro.org>
+References: <20260430-exynos850-i3c-criticalclocks-v1-1-6e1fd8dfa21b@linaro.org>
+Subject: Re: [PATCH] clk: samsung: exynos850: mark APM I3C clocks as
+ critical
+Message-Id: <177877783172.167994.5951307735596318933.b4-ty@b4>
+Date: Thu, 14 May 2026 18:57:11 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -74,32 +77,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 05 May 2026 13:12:57 +0000, Tudor Ambarus wrote:
-> Fixes for concurrency and memory ordering bugs that were identified by
-> the Sashiko review tool when proposing the GS101 ACPM TMU addition.
+On Thu, 30 Apr 2026 12:53:27 +0100, Alexey Klimov wrote:
+> The Exynos850 APM co-processor relies on the I3C bus to communicate with
+> the PMIC. Currently, there is no dedicated PMIC consumer driver managing
+> these clocks, so the clock subsystem automatically gates them during the
+> initialisation. Once gated, any subsequent ACPM communication with APM
+> results in timeouts.
 > 
-> While these bugs are genuine flaws, we haven't hit them yet, likely
-> because we don't have enough ACPM clients upstreamed to trigger the
-> race conditions.
+> As a temporary workaround (and let's hope it doesn't become permanent),
+> mark both `gout_i3c_pclk` and `gout_i3c_sclk` as CLK_IS_CRITICAL ones to
+> prevent the clock subsystem from disabling them. This makes the ACPM
+> communication functional. This workaround should be reverted once a
+> proper ACPM PMIC driver is implemented to manage these clocks.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/7] firmware: samsung: acpm: Fix cross-thread RX length corruption
-      https://git.kernel.org/krzk/linux/c/f133bd4b5daf71bccdde0ad1a4f47fac76a6bfb1
-[2/7] firmware: samsung: acpm: Fix mailbox channel leak on probe error
-      https://git.kernel.org/krzk/linux/c/b66829b17f6385cc9ffbcbe2476d532d2e3121ad
-[3/7] firmware: samsung: acpm: Fix dummy stubs to return ERR_PTR
-      https://git.kernel.org/krzk/linux/c/b4a38606991c0fad165f754db554961aadac247d
-[4/7] firmware: samsung: acpm: Add memory barrier before advancing RX pointer
-      https://git.kernel.org/krzk/linux/c/9dadf5a788164dc460a4f25e4e8798de510d63d5
-[5/7] firmware: samsung: acpm: Fix false timeouts and Use-After-Free in polling
-      https://git.kernel.org/krzk/linux/c/5ae6310453c7b1bc7848196a9acbd33584c4be75
-[6/7] firmware: samsung: acpm: Fix missing LKMM barriers in sequence allocator
-      https://git.kernel.org/krzk/linux/c/a7569019007a448826571f880d0010b7f1945e12
-[7/7] firmware: samsung: acpm: Fix infinite loop on sequence number exhaustion
-      https://git.kernel.org/krzk/linux/c/10313b4cca783ef2e38b2a76dc42dda481d7ebf3
+[1/1] clk: samsung: exynos850: mark APM I3C clocks as critical
+      (no commit info)
 
 Best regards,
 -- 
