@@ -4,77 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 691C1CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29CBCD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t2ehrxf7QRsw17Z09qG0sjQw3UivEx9IlEo452jvYDc=; b=pZh1Flo5B1RY8A2di5w+UYSn5S
-	3MsKgR47TZPEEQHugftcQGLRP2j4YMV78N8GwVlLR5NvIhuvJ6oih/OJplo1OHam8h/kXTDkzz1Vf
-	uP/QznrtgPpneifJ8qfdxNBLN4tWT0eNFU8n/PVkchoyvPwLrBOkzwahWm2O5ih0/fN1qHnYjKWvN
-	SpMDZVSnco6n62SydvnAYcoK9x+vA66vuBfhXnyRg5NGkvVCOMlMWOozX/WTxuWjwTvTD0Rv1XxBt
-	BlEXCxKDalev0IEX1Cstm1JU6U5T9T7apOJMZXzfjsWXejd5zM138JqKJUFRzHIzxMxVb2iBvCpjx
-	rHioO/ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IrRUrr+htCjLe4RtZ/CWCG2dDZoEBR0hczEnsALk+7U=; b=GYVvh7+gFvMGRw1VtAatwvNvHu
+	H8dmsntSG0hM9iy7kGPpt9fIBhzfJWU5B60Q4pQcyCAtRHi1y8wPWOwJ8ebzmTHQ5PlQkv30o3A05
+	9njyL2tarEe1auUGf8BM96uHorGlvi9PnoZlhTptgdtaDHc1CcC/BMpOcj8hnPZJDevdff573v7G9
+	LswSUDsKyRpakzKhvvFxDNMKA5l1mGljnEYd3jWZdR+LxMkUvOEkBWckfo91aIdDHOCfsu+bTOiv9
+	R+yuQziocC8gvgIs7mYkSRhyW0pSNC3YQ+apBUDnr+hGjJ23R4R6Xc3ENIRQrE4FB6D3p7npzLqq/
+	CaXY3AvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYIb-00000005wG9-0Pi3;
-	Thu, 14 May 2026 15:48:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wNXhP-00000005q9V-0tdc;
+	Thu, 14 May 2026 15:10:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYIZ-00000005wFZ-0o03;
-	Thu, 14 May 2026 15:48:32 +0000
+	id 1wNXhI-00000005q3p-2IJF
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 May 2026 15:10:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8F4A243A6B;
-	Thu, 14 May 2026 15:48:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F28C2C2BCB3;
-	Thu, 14 May 2026 15:48:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7DD466013B;
+	Thu, 14 May 2026 15:09:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1700C2BCC7;
+	Thu, 14 May 2026 15:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778773710;
-	bh=99/YmHRV/Y82fkZD0R48lVXiAZc/PRWolZfuIGwP27I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V7X1VVsXS2LJ35c20vQm++re5sDMpfP21kid1EyL9bEGyj0dLJzGrqd3PPfbd2mZm
-	 RXdnIsp/nSkGZl4NOEcevRk8foA4t4sSmY/dDN6uClkzyceduknHASc1ZyuyGd+JdW
-	 8O0OiFhPZ/zXzczSC5BMSM2NclDxXdJdDuF5R9lPAl1R+AkCokRr1ODgo2w1//eQfb
-	 Rr6Fy1wIf5ORqVpSkOHt1mMuANSTd7eX8JVUyeEUfNMxPRihOpPmY6ZS4TzlERZDl8
-	 WqpxfZQ1lSNPdECtDQrjYSaQ3ktVPXKC4DQ74+TWXxZIWh2n6vOU3AX0GScDnmO8iF
-	 3fdxdOJ+MH+MA==
-Date: Thu, 14 May 2026 10:48:27 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Roman Vivchar <rva333@protonmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Andy Shevchenko <andy@kernel.org>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Zhang Rui <rui.zhang@intel.com>, Lee Jones <lee@kernel.org>,
-	linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>,
-	Macpaul Lin <macpaul.lin@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Ben Grisdale <bengris32@protonmail.ch>,
+	s=k20201202; t=1778771399;
+	bh=HTUoneqquTaHhqPUa5kCxkZPw+ky0sQKsSZIjAZkIDA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XcyPxnTL93T8+lgQhnerH1w/2lJTpn5OcF3Cx/Yk6V1j0ZnfcNq6pI0wiOg4cGv+m
+	 GfhMiH04I676xPDlED8vtbKgtkUbBMOtdmI/uMTsrDNPraInGadr/avLjXwP9Tvj9H
+	 9KMQAnmYyUd43vQPsWj2Sc+QTESk2XY/PYB/40ycphIMdiGBh7vfZ99Ri7xO14BJEX
+	 keuig3LTGmkCMwNG4qro9ckabAGjnkwYNsDJ3iGu+5CfRg4b1gOf2ynD5m0wm2BIic
+	 Ab57ZqMbL9F7zU29PERTtUNaprZWycEs8Faku+PZBM8moHyP1GlIW85qCUCbbN9wOf
+	 ILP9I6C1XhgaQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wNXhE-00000002Oqg-1SdD;
+	Thu, 14 May 2026 15:09:56 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
-	linux-pm@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH v2 04/16] dt-bindings: mfd: mediatek: mt6397: add mt6323
- PMIC thermal
-Message-ID: <177877369030.795769.7510562882994447015.robh@kernel.org>
-References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
- <20260512-mt6323-v2-4-3efcba579e88@protonmail.com>
+	Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Ge Gordon <gordon.ge@bst.ai>,
+	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: [PATCH v2 03/17] clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE
+Date: Thu, 14 May 2026 16:09:31 +0100
+Message-ID: <20260514150945.3917510-4-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260514150945.3917510-1-maz@kernel.org>
+References: <20260514150945.3917510-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260512-mt6323-v2-4-3efcba579e88@protonmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_084831_247526_DD138EB4 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
+ heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,22 +122,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When running with at EL2 with VHE enabled, the architecture provides
+two EL2 timer/counters, dubbed physical and virtual. Apart from their
+names, they are strictly identical.
 
-On Tue, 12 May 2026 08:18:18 +0300, Roman Vivchar wrote:
-> The MediaTek mt6323 PMIC temperature can be read using AUXADC channel.
-> 
-> Add the devicetree binding documentation for the MediaTek mt6323 thermal.
-> 
-> While mt6323 exposes only a single thermal sensor, newer PMICs like
-> mt6358 provide more than one sensor. Therefore define #thermal-sensor-cells
-> as 1 to avoid breaking devicetree ABI in the future.
-> 
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> ---
->  .../devicetree/bindings/mfd/mediatek,mt6397.yaml   | 44 ++++++++++++++++++++++
->  1 file changed, 44 insertions(+)
-> 
+However, they don't get virtualised the same way, specially when
+it comes to adding arbitrary offsets to the timers. When running as
+a guest, the host CNTVOFF_EL2 does apply to the guest's view of
+CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
+the architecture is broken past the first level of virtualisation
+(it lacks some essential mechanisms to be usable, despite what
+the ARM ARM pretends).
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+This means that when running as a L2 guest hypervisor, using the
+physical timer results in traps to L0, which are then forwarded to
+L1 in order to emulate the offset, leading to even worse performance
+due to massive trap amplification (the combination of register and
+ERET trapping is absolutely lethal).
+
+Switch the arch timer code to using the virtual timer when running
+in VHE by default, only using the physical timer if the interrupt
+is not correctly described in the firmware tables (which seems
+to be an unfortunately common case). This comes as no impact on
+bare-metal, and slightly improves the situation in the virtualised
+case.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/clocksource/arm_arch_timer.c | 47 ++++++++++++++++------------
+ 1 file changed, 27 insertions(+), 20 deletions(-)
+
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index 90aeff44a2764..e3eb527650ec7 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -688,6 +688,7 @@ static void __arch_timer_setup(struct clock_event_device *clk)
+ 	clk->irq = arch_timer_ppi[arch_timer_uses_ppi];
+ 	switch (arch_timer_uses_ppi) {
+ 	case ARCH_TIMER_VIRT_PPI:
++	case ARCH_TIMER_HYP_VIRT_PPI:
+ 		clk->set_state_shutdown = arch_timer_shutdown_virt;
+ 		clk->set_state_oneshot_stopped = arch_timer_shutdown_virt;
+ 		sne = erratum_handler(set_next_event_virt);
+@@ -879,7 +880,7 @@ static void __init arch_timer_banner(void)
+ 	pr_info("cp15 timer running at %lu.%02luMHz (%s).\n",
+ 		(unsigned long)arch_timer_rate / 1000000,
+ 		(unsigned long)(arch_timer_rate / 10000) % 100,
+-		(arch_timer_uses_ppi == ARCH_TIMER_VIRT_PPI) ? "virt" : "phys");
++		arch_timer_ppi_names[arch_timer_uses_ppi]);
+ }
+ 
+ u32 arch_timer_get_rate(void)
+@@ -912,7 +913,8 @@ static void __init arch_counter_register(void)
+ 	int width;
+ 
+ 	if ((IS_ENABLED(CONFIG_ARM64) && !is_hyp_mode_available()) ||
+-	    arch_timer_uses_ppi == ARCH_TIMER_VIRT_PPI) {
++	    arch_timer_uses_ppi == ARCH_TIMER_VIRT_PPI ||
++	    arch_timer_uses_ppi == ARCH_TIMER_HYP_VIRT_PPI) {
+ 		if (arch_timer_counter_has_wa()) {
+ 			rd = arch_counter_get_cntvct_stable;
+ 			scr = raw_counter_get_cntvct_stable;
+@@ -1023,6 +1025,7 @@ static int __init arch_timer_register(void)
+ 	ppi = arch_timer_ppi[arch_timer_uses_ppi];
+ 	switch (arch_timer_uses_ppi) {
+ 	case ARCH_TIMER_VIRT_PPI:
++	case ARCH_TIMER_HYP_VIRT_PPI:
+ 		err = request_percpu_irq(ppi, arch_timer_handler_virt,
+ 					 "arch_timer", arch_timer_evt);
+ 		break;
+@@ -1090,25 +1093,34 @@ static int __init arch_timer_common_init(void)
+ /**
+  * arch_timer_select_ppi() - Select suitable PPI for the current system.
+  *
+- * If HYP mode is available, we know that the physical timer
+- * has been configured to be accessible from PL1. Use it, so
+- * that a guest can use the virtual timer instead.
++ * On AArch32, if HYP mode is available, we know that the physical
++ * timer has been configured to be accessible from PL1. Use it, so
++ * that a guest can use the virtual timer instead (though KVM host
++ * support has long been removed).
+  *
+- * On ARMv8.1 with VH extensions, the kernel runs in HYP. VHE
+- * accesses to CNTP_*_EL1 registers are silently redirected to
+- * their CNTHP_*_EL2 counterparts, and use a different PPI
+- * number.
++ * On ARMv8.1 with FEAT_VHE, the kernel runs in EL2. Accesses to
++ * CNTV_*_EL1 registers are silently redirected to their CNTHV_*_EL2
++ * counterparts, and the timer uses a different PPI number. Similar
++ * thing happen when using the EL2 physical timer. Note that a bunch
++ * of DTs out there omit the virtual EL2 timer, so fallback gracefully
++ * on the physical timer.
++ *
++ * Without VHE, if no interrupt provided for virtual timer, we'll have
++ * to stick to the physical timer. It'd better be accessible...
+  *
+- * If no interrupt provided for virtual timer, we'll have to
+- * stick to the physical timer. It'd better be accessible...
+  * For arm64 we never use the secure interrupt.
+  *
+  * Return: a suitable PPI type for the current system.
+  */
+ static enum arch_timer_ppi_nr __init arch_timer_select_ppi(void)
+ {
+-	if (is_kernel_in_hyp_mode())
++	if (is_kernel_in_hyp_mode()) {
++		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI])
++			return ARCH_TIMER_HYP_VIRT_PPI;
++
++		pr_warn_once(FW_BUG "VHE-capable CPU without EL2 virtual timer interrupt\n");
+ 		return ARCH_TIMER_HYP_PPI;
++	}
+ 
+ 	if (!is_hyp_mode_available() && arch_timer_ppi[ARCH_TIMER_VIRT_PPI])
+ 		return ARCH_TIMER_VIRT_PPI;
+@@ -1200,14 +1212,9 @@ static int __init arch_timer_acpi_init(struct acpi_table_header *table)
+ 	if (ret)
+ 		return ret;
+ 
+-	arch_timer_ppi[ARCH_TIMER_PHYS_NONSECURE_PPI] =
+-		acpi_gtdt_map_ppi(ARCH_TIMER_PHYS_NONSECURE_PPI);
+-
+-	arch_timer_ppi[ARCH_TIMER_VIRT_PPI] =
+-		acpi_gtdt_map_ppi(ARCH_TIMER_VIRT_PPI);
+-
+-	arch_timer_ppi[ARCH_TIMER_HYP_PPI] =
+-		acpi_gtdt_map_ppi(ARCH_TIMER_HYP_PPI);
++	/* The GTDT parser can't be bothered with the secure timer */
++	for (int i = ARCH_TIMER_PHYS_NONSECURE_PPI; i < ARCH_TIMER_MAX_TIMER_PPI; i++)
++		arch_timer_ppi[i] = acpi_gtdt_map_ppi(i);
+ 
+ 	arch_timer_populate_kvm_info();
+ 
+-- 
+2.47.3
 
 
