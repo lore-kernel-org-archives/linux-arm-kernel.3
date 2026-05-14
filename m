@@ -4,111 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219BACD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFFD0CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JZ8L5nwudya9vREyANm5ZGe8tkNIuiWMYZrA8ZNeBQE=; b=PeMsPHaYmlZO5K6MN9cYWIHUv+
-	I1ULsGRkSLNub8r/ar7bdAxj2CBjWYLnhWUJnjeXQSlpNhbD3H2XrB4OeRcQkp7KTY9q5NQrFdPd9
-	KfudZsWG8IvsIJLUYCGhBlBQMiugtGTEBeoDsbXOk5Sr8BIkUOfmJpHpBKrnWrMRiFyN9bcnj2Qsx
-	4k01vYByMMIPxYltSckb5bwG2bsl+nL57ZegnFO3yosjDi6TfUw/IdEa0o8OtHSrMBR9bBXx3y1B/
-	8dvMW6l16zGwPloIs3zkiS8RYb7/Dh5jYCTjvqG+jLTTUTCKpuwLVkkVQOEpA+SMAdIRB8B208/m5
-	H1VdX5NA==;
+	bh=NgBSMzG4lky7+7nbfNpjWA8DoZTKo0T1BmCluLLn0Nk=; b=QhzWC4D/pkmHOsM+tmiw/ULHrw
+	SvHhcNoC89xxBlmWbOtIPghrdQgEVpTPQJTX5OZwDVIYFqHhCFngcyNCCrq0rZMXJehKBXz3ZGo+V
+	+TJrxUg6vEc53/ms16M8XTCBWObdF3nLZWM+M7dECQBMLbdFHvb+6hUPvlO+wWjTKtm1T+2P2EJUk
+	VXF/3hUAUShgjGPT+N9U6/KidrxvjuAjRWAvv6HG5kwXdA2iLtdDBwjWcAcmfxMHjem4UQmrO5fIk
+	wjp3y2C32eE0zF+AjIEhJP+xd9VzIhzldsx91s+01rUBlkRVqI396lHdOlck5Vc1mDBI8GEdVwC3K
+	L8hjbjdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZLD-000000067sn-1XOc;
-	Thu, 14 May 2026 16:55:19 +0000
+	id 1wNZMc-0000000688s-2ulK;
+	Thu, 14 May 2026 16:56:46 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZLA-000000067s6-2hUE
+	id 1wNZMZ-00000006885-2ip2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 16:55:17 +0000
+	Thu, 14 May 2026 16:56:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC43F416FE;
-	Thu, 14 May 2026 16:55:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 267C7C2BCB3;
-	Thu, 14 May 2026 16:55:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 36EAF444FE;
+	Thu, 14 May 2026 16:56:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53813C2BCC7;
+	Thu, 14 May 2026 16:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778777715;
-	bh=A9Ps+lSXtxtbsCFcbN8DM7h1LamHgs4wzNRLMVa0fck=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gTIHN89VlVMLWCnaKZiSmFioyyuX16awRTvxxcrZhc1j19hZAnTaccjHR/QJzgtGk
-	 mu2/rjgGUSt6Q3VPXkmDwLQ6lZeP+l2JQLZPJgnSflQ0SE1eL3tpKrCcTAMQefoZK1
-	 lZjO3M+cZIv+u2Ny3y9V5BDo3aVpOQzOwPn3ikKo/v0PUl+9cdW+JdCDYd6qt+5cBs
-	 7gjSXh4Haj/5EEWJwAq/0vDRClnDczuM3rfLM3Nom3ZxXu/0+tJxRgWrpbYxyYKJRR
-	 vDLlS1aB8xdj5eKOmXHwGeOgH7vVuRRZn0ncYOcBisecw/cu8Z7Rzsi0ppeeYpjSef
-	 AETWtT2IP46qw==
-Message-ID: <b572ee14-86e3-479f-8969-29da89a2469e@kernel.org>
-Date: Thu, 14 May 2026 18:55:11 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/7] firmware: samsung: acpm: Fix cross-thread RX
- length corruption
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- peter.griffin@linaro.org, andre.draszik@linaro.org, jyescas@google.com,
- kernel-team@android.com, stable@vger.kernel.org,
- Titouan Ameline <titouan.ameline@gmail.com>
-References: <20260505-acpm-fixes-sashiko-reports-v5-0-43b5ee7f1674@linaro.org>
- <20260505-acpm-fixes-sashiko-reports-v5-1-43b5ee7f1674@linaro.org>
- <DIBOZA3G83XE.13MZJF4AJQAOU@linaro.org>
+	s=k20201202; t=1778777803;
+	bh=fSw4doSddlVNTevBJY2Hme6/meXiI88IXww216rP9AA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=mKEXOEAVd0XsGZMtYiUuGw+z7G6v61Vbn5COBkyEvJf8FrwxvstQH9kW7NTKrxZOa
+	 79waAB0kAXD+I5ylohsNSZDPivs0oNbh7vvAw2X85fVq7SyUiNTVOtcse8ruchnrYH
+	 A6UANcHPJ9iUrGZI4JgOSY7isaK1at9WtyaTr5iCKzw7wEeRBDVrBgmt76ixqpZiYt
+	 G5LYlvNsjwm18vlHy9BlWsrCcXsMy5i+mbWiErhgwETZ68AKY7BAZBB6or0CJLeqp/
+	 v6fuM+BC4I5um8vQV4aM9riOyWxpQOedu9RldQiel+8Dw9e1q6Sacxm+2h9OGXDkh2
+	 5w74XcuB6BzKw==
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <DIBOZA3G83XE.13MZJF4AJQAOU@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+To: peter.griffin@linaro.org, s.nawrocki@samsung.com, cw00.choi@samsung.com, 
+ mturquette@baylibre.com, sboyd@kernel.org, 
+ Kuan-Wei Chiu <visitorckw@gmail.com>
+Cc: andre.draszik@linaro.org, tudor.ambarus@linaro.org, 
+ alim.akhtar@samsung.com, semen.protsenko@linaro.org, wllee@google.com, 
+ hsuanting@google.com, marscheng@google.com, jserv@ccns.ncku.edu.tw, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ visitorckw@google.com, Yu-Chun Lin <eleanor.lin@realtek.com>
+In-Reply-To: <20260505171457.1960837-1-visitorckw@gmail.com>
+References: <20260505171457.1960837-1-visitorckw@gmail.com>
+Subject: Re: [PATCH] clk: samsung: gs101: Fix missing USI7_USI DIV clock in
+ peric0_clk_regs
+Message-Id: <177877779906.167822.16215877297807645211.b4-ty@b4>
+Date: Thu, 14 May 2026 18:56:39 +0200
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_095516_728172_E850E5D3 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260514_095643_710735_96C1F9B2 
+X-CRM114-Status: UNSURE (   6.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,41 +80,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/05/2026 17:17, Alexey Klimov wrote:
-> On Tue May 5, 2026 at 2:12 PM BST, Tudor Ambarus wrote:
->> Sashiko identified a cross-thread RX length corruption bug when
->> reviewing the thermal addition to ACPM [1].
->>
->> When multiple threads concurrently send IPC requests, the ACPM polling
->> mechanism can encounter responses belonging to other threads. To drain
->> the queue, the driver saves these concurrent responses into an internal
->> cache (`rx_data->cmd`) to be retrieved later by the owning thread.
->>
->> Previously, the driver incorrectly used `xfer->rxcnt` (the expected
->> receive length of the *current* polling thread) when copying data for
->> *other* threads into this cache. If the threads expected responses of
->> different lengths, this resulted in buffer underflows (leading to reads
->> of uninitialized memory) or potential buffer overflows.
->>
->> Fix this by replacing the boolean `response` flag in
->> `struct acpm_rx_data` with `rxcnt`, caching the exact expected receive
->> length for each specific transaction during transfer preparation. Use
->> this cached length when saving concurrent responses.
->>
->> Consequently, ensure that `xfer->rxcnt` is explicitly zeroed in driver
->> helpers (e.g., `acpm_dvfs_set_xfer`) for fire-and-forget messages to
->> prevent uninitialized stack garbage from being interpreted as a massive
->> expected receive length.
->>
->> Cc: stable@vger.kernel.org
->> Fixes: a88927b534ba ("firmware: add Exynos ACPM protocol driver")
->> Reported-by: Titouan Ameline <titouan.ameline@gmail.com>
-> 
-> As far as I can see, the name in this tag should be
-> Titouan Ameline de Cadeville.
 
-Ack, thanks!
+On Tue, 05 May 2026 17:14:57 +0000, Kuan-Wei Chiu wrote:
+> In the peric0_clk_regs array, the divider register offset for USI6 was
+> accidentally listed twice, while the divider for USI7 was omitted.
+> 
+> Missing this DIV register causes the USI7 clock divider setting to be
+> lost and reset to its hardware default value during a suspend/resume
+> cycle.
+> 
+> [...]
+
+Applied, thanks!
+
+[1/1] clk: samsung: gs101: Fix missing USI7_USI DIV clock in peric0_clk_regs
+      https://git.kernel.org/krzk/linux/c/78ee734b36284d82454e87a92094fdb926985b47
 
 Best regards,
-Krzysztof
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
+
 
