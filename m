@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB54CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 03:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D06BCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 03:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mhXaZyjR5wnfmrnw0I8RLf6r41iRHOPfxchv5M6XoP8=; b=ysW1w3Qrho3vial8jSZTPWgDk5
-	0WhIkQYROQews5fkuEsMGlSV1exOc37wGTE+l9v0QBxH+8LI+ocI7jEljBJbAcwtHj+tj6GNFFnhB
-	mqI0EcM0ELAvFnNtf3R2vw9HaJtMCgLepjFSwnazll70w40D5lJDWUvtbf0hq+hej5vysNAvAr+vY
-	gSbaoY4tnjm8jUXErz4oEa3MZweUDFxRHF2ftae3ruOeYNN9z1rJeee6ZjLjafTDUYHRmEYHw89/E
-	n/IIOWwU2Y4sWMISN3rM3Z/+ErwL2ZxQRknoMN2JowCD0G+3wYTKF2E+nejBi6F1USDWxf3VUGOtM
-	TTQd1tsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V8Zv1XxU0NXRkczbbte8VINxmUP6BumFNP4JQShgmbg=; b=cJ8NyozZtG0Jh2jtEMmH9nyGtE
+	lNclxXfeUMotslCz95mWublauSWhEHATPeMzTHPBfVLURU3NczC3/Dh+MZuyvzVDSw2RScixcA8NN
+	otJUi5J/Owmoc0gZh58aAMzk4y1+9DrywZvL1nskVpLwutocP+6Nv3I7LyJB0kPAGrnN7jO8U/cGE
+	UQFJ0DkEfvEWIZu8mej8GbWgThpK0gUPwO4K9NbQCXFbGbjH4+Bc/+gZgNNQtnz7VaLvu+UfyYv4j
+	84O+/pnTul8w3Z3u1Hoy4tZIJcpm/o6x3QNaxQKeOV823U0hExGArUwmw+AMfO4I6TBzMMroYPCWe
+	toD6ICUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNMZ3-00000004Qmy-0Re8;
-	Thu, 14 May 2026 03:16:45 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1wNMcP-00000004RCy-22H8;
+	Thu, 14 May 2026 03:20:13 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNMZ0-00000004Qlx-3FDl
+	id 1wNMcK-00000004RC7-3qGe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 03:16:43 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3660b84347dso4976546a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 20:16:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778728602; x=1779333402; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mhXaZyjR5wnfmrnw0I8RLf6r41iRHOPfxchv5M6XoP8=;
-        b=GMkAU5TJrmar9Cfa6dl6EpjcwHPZaGSC39MfZrhzKAE5FFHyTFJyJW9GwC8/2WiEdc
-         0SfWAdYoGA/mnPs3Qc6inPrBS/+fZUw38zCuXusTx+39lKKUJrD6XXcZYcU/u6hJdkuh
-         TBHgrIQ0b1dgPtEfbn78sT6rXjz3st/s4HYjZdIVSPjwFyN0CPzs68hclx5FcsDHq0TW
-         cYiQpT7kJtIwOK9oKKCdekLc/XHNMgyLiidLQqAH+JvBeynpLwHntG/Awru4YjcdZDhD
-         75Eao6vj/84KlD1qO3k5gdcxb7zPmWfvOhh3wmEfA2Ma+7qnU2YxSuOJfmMHDSdnvcu2
-         ZoBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778728602; x=1779333402;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mhXaZyjR5wnfmrnw0I8RLf6r41iRHOPfxchv5M6XoP8=;
-        b=PRsiL8v55vGghOLiz3TkD85bq22LkUnNtmUg/Or4uo84FmOdb4xhiDeBJZHLN6tWHh
-         R8m9+w4rJb405oBhzJK0EXsWTt1hy3YLE+PPEFG3G14SAZQ7aZp3jH5aowLshCLS01ON
-         adN95tpdH7TtXmAh0oxIUFcsWGgHMZq4L22jM1JHE0TA/8rpDDXEgSWZb/h6z0bSS/Pg
-         y+SPknwU4dvUSF/qVK9jcoqHAicu9Tyy3z45ZYO/omdW2u4pASMr7Hx3cukK086wfJ97
-         8fy+azN123YqgS2obpA6t/Pyan2g0ZO39j0p9EADG5X9s3D1eGxhzOyl5wLP4lW8j8WB
-         rcZA==
-X-Forwarded-Encrypted: i=1; AFNElJ8Wu9wZ9cGPcTBWWRVbkmJe6mGW4G8w/gLxm9qZzkPQtMxRaqYTg9wn7pb0CDnXniF77NPC2dmou4T47xuR5VL5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOQL85yN0Y1shqwdRAKNo7tcZTFL3runeEhuRBUjs/qVhh3eEd
-	Y4rgOUxWN08AqjRRD0d2QfrGQduRsswIICDP/JtfULXgXS7Kpeo4Rcmu
-X-Gm-Gg: Acq92OHmZdy/j3G5pUVdgHr+WdxB9zzJUOcmqJ4us34GaZh3U78pk14VG5lpFt36cJn
-	bGVpHcpz52tPmjrVWkly2MoluwcFXmOii/HJEVlWn1DDe0UxYmJ2PIEtMAvbkR6PcCz2qh4vpGo
-	FBpLwURacnsYGEsFp7UpotOmRl6drOA4yARkki8DQbdk7VGTlIJ05VN4cL0CHpdnUEF+mIZRcjb
-	f+AsYrnwmvQNAMRnjiIHu4e+wO4oKpDWj55bgBg/GYq0jHBl1Ai/NwaGjDbyuL4+EqTuAwfe/v6
-	Y19KYMyQpKFjt3t6dhKkaFnMKdTHXngpQgPgbTdAb/ERh6Try32e1ywEzT018ZCDHWMQvKC15ND
-	1OSN4p+sO0iKH4l+24ENmvMrSd+l8f6Wr3J5QWTKD7daYR8Wrl46soMKjbPcy13Ev+Mf8b4+FiK
-	ts62Cno5MN9S7JQJMiawejWoepXg3xrMs5pEj6WHuv
-X-Received: by 2002:a17:90a:f946:b0:364:edd2:812 with SMTP id 98e67ed59e1d1-368f40a23dcmr6192258a91.25.1778728601594;
-        Wed, 13 May 2026 20:16:41 -0700 (PDT)
-Received: from debian.prasanth ([103.177.82.138])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3692a94205asm320047a91.7.2026.05.13.20.16.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 13 May 2026 20:16:41 -0700 (PDT)
-From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-To: joel@jms.id.au,
-	andrew@codeconstruct.com.au
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-Subject: [PATCH v2 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-Date: Thu, 14 May 2026 08:46:22 +0530
-Message-ID: <20260514031622.1416922-3-prasanth.padarthi10@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260514031622.1416922-1-prasanth.padarthi10@gmail.com>
-References: <20260514031622.1416922-1-prasanth.padarthi10@gmail.com>
+	Thu, 14 May 2026 03:20:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=Cc:To:Message-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=V8Zv1XxU0NXRkczbbte8VINxmUP6BumFNP4JQShgmbg=; b=QYij6wexY6658C8GQB+Ud1GMHS
+	UexeAtIdV4B5jonQ3oMluQfemg78ENfSZp7IWxTW2ohf83AwadBuA6hoI/Gjz7W6jgvVo5U39RtrT
+	U6vHE0YbnzgzQtUoK3h4OZLc2YA74CM0L0Gly5RhPk2x9l1BR67iZhRUg4w6+HzrI2ekkoRC123Y1
+	ICxbqKyo1qJriSlFf9dvFHW73Uz0ZYiezUn/FeWy0bc5y5HiFcpbdUhCZlRP2cfa7Ef23FPK15v9X
+	Cn1xO56b2RgSt3vG2hhCbgYlCBwN8TAJ1zkIYU+gLB7eSCKb+U5ubZahS8TzVeqSdqMbTRIpMuX41
+	YIheyFzg==;
+Received: from [91.102.182.218] (helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1wNMc8-0000000H9MG-1Eyv;
+	Thu, 14 May 2026 05:19:56 +0200
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+Date: Thu, 14 May 2026 05:19:34 +0200
+Subject: [PATCH v2] iio: adc: sun20i-gpadc: support non-contiguous channel
+ lookups
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20260514-fix-sunxi-gpadc-sparse-channels-v2-1-d4a66b70c7a7@mmpsystems.pl>
+X-B4-Tracking: v=1; b=H4sIAEU/BWoC/42OTQ6DIBBGr2JYdxrAlsSueo/GheBUaRQJg0Zjv
+ HvBXqDLl7zvZ2eEwSKxR7GzgIslO7kE8lIw0zeuQ7BtYia5VPwuSnjbFWh2q4XON60B8k0ghCw
+ 7HAikVlpyVer2VrHU4gOmyLnwqn9Ms/6gibk2G72lOIXtvLCI7P2/tggQoIwUKCuuDeJzHD1tF
+ HGkqx9YfRzHF6qVKH3kAAAA
+X-Change-ID: 20260513-fix-sunxi-gpadc-sparse-channels-2b6b2063bd49
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>
+Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Michal Piekos <michal.piekos@mmpsystems.pl>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ llvm@lists.linux.dev
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778728785; l=2567;
+ i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
+ bh=mAW9smyP3Y9zNh0IDxgH/7BBIen5KUX/2eJMMof12rc=;
+ b=IzE2aCtNGPDvgiHxMVpRWxq6l4Hz7kBMcZiHPIsDF1KFpqFB8KN5/bGtIJbN82SZJaMKOPjtR
+ AyNgm7Y1d/EClBYHORnzkw4FSpaGRdXUTikaUr9cxnFtfZu18gfBWjD
+X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
+ pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_201642_818690_CEB9F097 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20260513_202009_459580_FB10F279 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,107 +97,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial device tree support for the ASRock Rack B650D4U BMC.
-The B650D4U is a server motherboard utilizing the ASPEED AST2600
-SoC for management.
+Using consumer driver like iio-hwmon which resolve channels thorugh
+io-channels phandles will fail for sparse channels because IIO core by
+default threats phandle argument as index into channel array.
+        eg. <&gpadc 1> will fail if there is only channel@1 specified
 
-Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+Add .fwnode_xlate() which maps DT phandle to the registered channel
+whose chan->channel matches the hardware channel number. It allows
+sparse channel maps to be consumed by drivers like iio-hwmon.
+
+Tested on Radxa Cubie A5E.
+
+Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 ---
- arch/arm/boot/dts/aspeed/Makefile             |  1 +
- .../dts/aspeed/aspeed-bmc-asrock-b650d4u.dts  | 71 +++++++++++++++++++
- 2 files changed, 72 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
+Changes in v2:
+- Move loop variable declaration into the for statement
+- Fix indentation using clang-format
+- Correct commit wording
+- Link to v1: https://patch.msgid.link/20260513-fix-sunxi-gpadc-sparse-channels-v1-1-6c21e290bcee@mmpsystems.pl
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index c4f064e4b..124d4f8f8 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-asrock-romed8hm3.dtb \
- 	aspeed-bmc-asrock-spc621d8hm3.dtb \
- 	aspeed-bmc-asrock-x570d4u.dtb \
-+	aspeed-bmc-asrock-b650d4u.dtb \
- 	aspeed-bmc-asus-x4tf.dtb \
- 	aspeed-bmc-bytedance-g220a.dtb \
- 	aspeed-bmc-delta-ahe50dc.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-new file mode 100644
-index 000000000..130b7f3e0
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-@@ -0,0 +1,71 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/dts-v1/;
+To: Jonathan Cameron <jic23@kernel.org>
+To: David Lechner <dlechner@baylibre.com>
+To: Nuno Sá <nuno.sa@analog.com>
+To: Andy Shevchenko <andy@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Samuel Holland <samuel@sholland.org>
+To: Nathan Chancellor <nathan@kernel.org>
+To: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+To: Bill Wendling <morbo@google.com>
+To: Justin Stitt <justinstitt@google.com>
+Cc: linux-iio@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-sunxi@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev
+---
+ drivers/iio/adc/sun20i-gpadc-iio.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gpadc-iio.c
+index 861c14da75ad..78c9a52f38df 100644
+--- a/drivers/iio/adc/sun20i-gpadc-iio.c
++++ b/drivers/iio/adc/sun20i-gpadc-iio.c
+@@ -139,8 +139,20 @@ static irqreturn_t sun20i_gpadc_irq_handler(int irq, void *data)
+ 	return IRQ_HANDLED;
+ }
+ 
++static int
++sun20i_gpadc_fwnode_xlate(struct iio_dev *indio_dev,
++			  const struct fwnode_reference_args *iiospec)
++{
++	for (unsigned int i = 0; i < indio_dev->num_channels; i++)
++		if (indio_dev->channels[i].channel == iiospec->args[0])
++			return i;
 +
-+#include "aspeed-g6.dtsi"
++	return -EINVAL;
++}
 +
-+/ {
-+	model = "ASRock Rack B650D4U BMC";
-+	compatible = "asrock,b650d4u-bmc", "aspeed,ast2600";
-+
-+	aliases {
-+		serial4 = &uart5;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial4:115200n8";
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x40000000>;
-+	};
-+};
-+
-+/* BMC Console UART */
-+&uart5 {
-+	status = "okay";
-+};
-+
-+/* SPI Flash Management */
-+&fmc {
-+	status = "okay";
-+	flash@0 {
-+		status = "okay";
-+		m25p,fast-read;
-+		label = "bmc";
-+	};
-+};
-+
-+/* Dedicated Management LAN */
-+&mdio0 {
-+	status = "okay";
-+
-+	ethphy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0>;
-+	};
-+};
-+
-+&mac0 {
-+	status = "okay";
-+	phy-mode = "rgmii-rxid";
-+	phy-handle = <&ethphy0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rgmii1_default &pinctrl_mdio1_default>;
-+};
-+
-+/* I2C Bus for FRU/EEPROM Storage */
-+&i2c7 {
-+	status = "okay";
-+	eeprom@57 {
-+		compatible = "atmel,24c02";
-+		reg = <0x57>;
-+		pagesize = <16>;
-+	};
-+};
-+
-+/* System Watchdog */
-+&wdt1 {
-+	status = "okay";
-+	aspeed,reset-type = "soc";
-+};
--- 
-2.47.3
+ static const struct iio_info sun20i_gpadc_iio_info = {
+ 	.read_raw = sun20i_gpadc_read_raw,
++	.fwnode_xlate = sun20i_gpadc_fwnode_xlate,
+ };
+ 
+ static void sun20i_gpadc_reset_assert(void *data)
+
+---
+base-commit: 1d5dcaa3bd65f2e8c9baa14a393d3a2dc5db7524
+change-id: 20260513-fix-sunxi-gpadc-sparse-channels-2b6b2063bd49
+
+Best regards,
+--  
+Michal Piekos <michal.piekos@mmpsystems.pl>
 
 
