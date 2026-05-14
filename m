@@ -4,83 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81607CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 21:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA609CD4F39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 22:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-transfer-encoding:
-	MIME-version:References:In-reply-to:Message-id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
+	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bJPU9678+y1cp2+iUvq03ogPthNxCP++IVi7e5ZAngg=; b=jSEaNjjqmZdr8HAwCZ6QVo55be
-	DokWrp8G4uDjDdiGU1ZMQk3cO/QWF9eiUSyzK+RVC6ZGNrP5ofcUBWJ8DsFNS8JG0nfh6o6yHb/xB
-	Vp/lw+1H1hw02LMittqqgvcvmLu+3bxuDOQ4kMSIAXoKvE7JCVjWPvukQq3raGSS07KJaQsNxcNMk
-	5Ux4ZfLf6HRREDA139FJ+BIUnJkPGd5ShGIwd/gKfnfWgJzbvWcgCMngEdHj/4bI9b+Zyr+PcnkMK
-	2+e5otOQCsNppVTLXLzzOUCCR6ZBZLJnTJ0MZFoCTql/uuvgit3nWXXLj4UsjzMyjMZBNkoke8qBo
-	NsTQn1SQ==;
+	bh=7vjWJsDk46G5Xa6RBKkWud45eAeGwjVG/8oNCifeuP0=; b=K9PguvGfIdLhHyjhuISAS0qL8s
+	ECDgO0L50A36x1yXC99Ra1kWvxP1Eh7YpTapu2+/xUkttEVBkfvc9iVRzcYFw2HX/k3xCn/aiHgyH
+	BM7bkQYB+cuj8TMbfNnOg7kYPngUNNCn3ijqQzHdAPglRd0Kg2wbFVlbd/Z/oG7aoXfeFZyY5k3dE
+	ntFGztIf2XT+J78L3m38514RI07ok8OWMUwIjOgccLocwuy2vhLVkkDunVBEMsqOmwM4df3thlU/3
+	pcpUuiqUJNcF1Mj+lRO4IHNT+xkmujV+6wg955O22fBB45d8dnP3aonxMkW1QsADLZUJaVISPCKpN
+	X/SGUz8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNe1M-00000006eN5-3yMd;
-	Thu, 14 May 2026 21:55:08 +0000
-Received: from acj35aaf116.lhr1.oracleemaildelivery.com ([130.35.116.116])
+	id 1wNeUa-00000006hyA-0dhp;
+	Thu, 14 May 2026 22:25:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNe1H-00000006eIQ-0i7I
+	id 1wNeUZ-00000006hxo-1Lyz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 21:55:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=oracle-uk-012026;
- d=raczylo.com;
- h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
- bh=bJPU9678+y1cp2+iUvq03ogPthNxCP++IVi7e5ZAngg=;
- b=RYZ+LyyThoTN0uoikiaeNHzMw+Dit+4i+4kIokUY+an9EnjPqTzBB2fbue2l+d+OGyXU1ADYgnZo
-   NUVl9HWbKsOTY0vbGEsRXk59AdZwb1gn8vosjMmoIK1M4GzO/At/FiiZxqRCgMCzTkqfHL1SvINQ
-   x7elnb/7sirc6+5TqZfGu9K/KrNgVlXVm5BDxDFusTh2CIuPlA+Lj0xctJ/K2cDag0QAPx2BqkDK
-   CuWgxLkSgVHkix3quqy4UNQ0b8XbTM9WIEwvEQUUCzknbkK/8Xe+olsj9DDbhPW8k36gwAJ8mYw7
-   +RnwvClAqD06zK7f1BXgP1h9FD2TG5rzX/v+6w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=prod-lhr-20191104;
- d=lhr1.rp.oracleemaildelivery.com;
- h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
- bh=bJPU9678+y1cp2+iUvq03ogPthNxCP++IVi7e5ZAngg=;
- b=SLm8OrvJEes6XY0hZlxbWPRD+1p+1DPPsAk4nlI426hZBADcohdXF/6+S36693Fs+LGzKjSULHFL
-   V0h8M3QHyJXZNMjoCGn81kgaT9HI2hmbSkndNLpum4OBFazJJqODKFYgYS0Dlhp93sBLqDg4G8uz
-   aYYCQJuTwe6DlNcZhCLavnvpVz5DPHVmRxhJEAJpChTfdQ0VhfzHhRi18bjUO+N7KJ4g06SsR4TE
-   2S9Y6RAIGxUEGs9OD1PrNFei0YVh0k8PQ8dKK/ExH/7ywa32WpEetgaW88ue/Lm8hjI6Ju5q1Pap
-   hBXR+iJ+YEx12lHzWK8PgXnT3i/Z6ecFqhe0zg==
-Received: by omta-ad3-fd3-1401-uk-london-1.omtaad3.vcndplhr.oraclevcn.com
- (Oracle Communications Messaging Server 8.1.0.1.20260212 64bit (built Feb 12
- 2026))
- with ESMTPS id <0TF12GSUXRJOC1B0@omta-ad3-fd3-1401-uk-london-1.omtaad3.vcndplhr.oraclevcn.com> for
- linux-arm-kernel@lists.infradead.org; Thu, 14 May 2026 21:55:00 +0000 (GMT)
-List-Unsubscribe-Post: List-Unsubscribe=One-Click
-From: Lukasz Raczylo <lukasz@raczylo.com>
-To: netdev@vger.kernel.org
-Cc: Theo Lebrun <theo.lebrun@bootlin.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,	linux-rpi-kernel@lists.infradead.org
-Subject: [PATCH net-next v2 1/3] net: macb: flush PCIe posted write after
- TSTART doorbell (PCIe-only)
-Date: Thu, 14 May 2026 22:54:57 +0100
-Message-id: <20260514215459.36109-2-lukasz@raczylo.com>
-X-Mailer: git-send-email 2.54.0
-In-reply-to: <20260514215459.36109-1-lukasz@raczylo.com>
-References: <cover.1777064117.git.lukasz@raczylo.com>
- <20260514215459.36109-1-lukasz@raczylo.com>
-MIME-version: 1.0
-Content-transfer-encoding: 8bit
-Reporting-Meta: AAHf+Z0YX8zBMsksb6gSGL9ZV3VCbo9am2PhbSO1iipMaVnbSZPP4U7YWpbXzRHK
- g669lhZ1JQctwueluqlqYAuNG1sS6Qw9c234jNAQjF0OSGMpjo9d9YYdMKKx6MfD
- whK1c+rSJFpjeNkbWQmyzJmCkhJCR5aD+w5Lr84BzQtRGRL79Svl/i7oW1M6D8Z8
- 5xT2OTrIXalVT++981em134AvXQj6p9LMWijMnp/+t0EgYfo1cIdscLNIBuR+G/h
- q3GcuXCt52nO2fY9fyJWxAEndm1x5ERH5eFFnNhGgC25abxovatYn8QIkRJi2Hnr
- 31hf84UQHaQpV/8X8+Jk5x+dNzFcRlz5lNZvicPnlRDe4qUm6fOHK//IXjlTor7u
- n3odvfkIrc1kktAvfEAwczjua5Alb+2bRBphXfUNhSdZ9JHh55kbO7H6fREbESxI 9vOt2sjTHA==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_145503_214128_EEB32CD2 
-X-CRM114-Status: GOOD (  18.45  )
+	Thu, 14 May 2026 22:25:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EDCAD60008;
+	Thu, 14 May 2026 22:25:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2437C2BCB3;
+	Thu, 14 May 2026 22:25:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778797517;
+	bh=l4n1GCkss3HdumT9TYk9D1dQsWaT9kxRVhMfzwbcBDM=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date:From;
+	b=AA1BYrodfUHXEl65jh+fNAg+8mo1kGu/2Jn7U16Af+p0xZjpjjeVcVypmIjHWFAeN
+	 NnX0xWg4UulKnyi0CdfCwAs9eWf9S5L0X6UIFX2sMn423HC3Rfgah3UHGleTMxMMgu
+	 wHo46egB7gv6NCD3PGDz6yNNbhODIuqC5joMUFqdE04QYrwL/80N7Qtxgju7vL+Tih
+	 romzAo6uuFLMuDRDQm4hvE3Afz1z+lCcFMdnYrDxQd+ipgmKqZqVIu/3TVhelVNBl+
+	 cUVEivtUcxAOpJLOzi/OKwFLkM5o3YzYnd9OnELchlN4+yrLgyXDq/GP4eyAyvTLsk
+	 6tEx23VluLYGg==
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v3 09/21] kbuild: Only run objtool if there is at least
+ one command
+To: x86@kernel.org
+Cc: "Peter Zijlstra" <peterz@infradead.org>, "Song Liu" <song@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, "Joe
+ Lawrence" <joe.lawrence@redhat.com>, "Will Deacon" <will@kernel.org>, "Miroslav
+ Benes" <mbenes@suse.cz>, "Petr Mladek" <pmladek@suse.com>, "Nicolas Schier" <nsc@kernel.org>, live-patching@vger.kernel.org, "Nathan
+ Chancellor" <nathan@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>
+In-Reply-To: <8699672b82fef17e73a5f2e5528478778dbdab31.1778642120.git.jpoimboe@kernel.org>
+References: <8699672b82fef17e73a5f2e5528478778dbdab31.1778642120.git.jpoimboe@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 14 May 2026 22:25:15 +0000
+Message-Id: <20260514222516.D2437C2BCB3@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,106 +68,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-macb_start_xmit() and macb_tx_restart() kick transmission by
-OR-ing MACB_BIT(TSTART) into NCR.  On PCIe-attached macb
-instances (BCM2712 + RP1 PCIe south bridge on Raspberry Pi 5 is
-the case I have in front of me), writes to NCR are posted PCIe
-writes: they are not guaranteed to reach the device before the
-issuing CPU returns.  If the TSTART doorbell does not reach the
-MAC, no TX begins, no TCOMP completion arrives, and the ring
-remains quiescent without any kernel-visible indication.
+Thank you for your contribution! Sashiko AI review found 1 potential issue(=
+s) to consider:
+- [Low] Leaking objtool options into vmlinux.o validation causes a fatal bu=
+ild failure (`--cfi requires --prefix`) and silently alters validation beha=
+vior.
+--
 
-Add a read-back of NCR after each TSTART write.  The read is an
-architected PCIe read barrier for earlier posted writes on the
-same path; it ensures the doorbell has reached the MAC before
-the function returns.  As a side effect on macb_start_xmit() it
-also flushes the preceding macb_tx_lpi_wake() NCR write -- not
-just TSTART -- since the barrier applies to all prior posted
-writes by the same requester.
+commit 68e454f3a8ccd3d638c67c092eee264996286695
+Author: Josh Poimboeuf <jpoimboe@kernel.org>
 
-The cost is one non-posted PCIe read per TSTART.  To avoid
-imposing this on SoC-integrated macb variants (Atmel, Microchip,
-SiFive, Xilinx), where NCR is on-chip MMIO and no fabric
-posted-write concern exists, gate the readback behind a new
-MACB_CAPS_PCIE_POSTED_WRITES capability set only on
-raspberrypi_rp1_config.
+kbuild: Only run objtool if there is at least one command
 
-Note that the raspberrypi/linux vendor fork carries a local
-patch around the TSTART site (a queue->tx_pending breadcrumb
-that is promoted to queue->txubr_pending by the next TCOMP
-interrupt, triggering macb_tx_restart()).  That workaround makes
-the loss recoverable under traffic, but it cannot help if TCOMP
-itself is not raised because no TX started -- which is exactly
-the case targeted here.  The handshake is not present in
-mainline.
+This commit splits the objtool arguments into commands and options to
+prevent objtool from running when no commands are enabled.
 
-Link: https://github.com/cilium/cilium/issues/43198
-Link: https://bugs.launchpad.net/ubuntu/+source/linux-raspi/+bug/2133877
-Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
----
- drivers/net/ethernet/cadence/macb.h      |  4 ++++
- drivers/net/ethernet/cadence/macb_main.c | 15 +++++++++++++++
- 2 files changed, 19 insertions(+)
+> diff --git a/scripts/Makefile.vmlinux_o b/scripts/Makefile.vmlinux_o
+> index 527352c222ff6..09af33203bd8d 100644
+> --- a/scripts/Makefile.vmlinux_o
+> +++ b/scripts/Makefile.vmlinux_o
+[ ... ]
+> @@ -36,18 +36,13 @@ endif
+>  # For !delay-objtool + CONFIG_NOINSTR_VALIDATION, it runs on both transl=
+ation
+>  # units and vmlinux.o, with the latter only used for noinstr/unret valid=
+ation.
+> =20
+> -objtool-enabled :=3D $(or $(delay-objtool),$(CONFIG_NOINSTR_VALIDATION))
+> -
+> -ifeq ($(delay-objtool),y)
+> -vmlinux-objtool-args-y					+=3D $(objtool-args-y)
+> -else
+> -vmlinux-objtool-args-$(CONFIG_OBJTOOL_WERROR)		+=3D --werror
+> +ifneq ($(delay-objtool),y)
+> +objtool-cmds-y					 =3D
+> +objtool-opts-y					+=3D --link
 
-diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
-index 2de56017e..ce9037f9e 100644
---- a/drivers/net/ethernet/cadence/macb.h
-+++ b/drivers/net/ethernet/cadence/macb.h
-@@ -791,6 +791,10 @@
- #define MACB_CAPS_USRIO_HAS_MII			BIT(26)
- #define MACB_CAPS_USRIO_HAS_REFCLK_SOURCE	BIT(27)
- #define MACB_CAPS_USRIO_HAS_TSUCLK_SOURCE	BIT(28)
-+/* Register writes are posted on the parent fabric and need a non-posted
-+ * read-back to guarantee delivery.  Currently set only on RP1.
-+ */
-+#define MACB_CAPS_PCIE_POSTED_WRITES		BIT(29)
- 
- /* LSO settings */
- #define MACB_LSO_UFO_ENABLE			0x01
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index a12aa2124..6879f3458 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -1922,6 +1922,14 @@ static void macb_tx_restart(struct macb_queue *queue)
- 
- 	spin_lock(&bp->lock);
- 	macb_writel(bp, NCR, macb_readl(bp, NCR) | MACB_BIT(TSTART));
-+	/*
-+	 * On PCIe-attached parts, flush the posted-write queue so the
-+	 * TSTART doorbell reliably reaches the MAC.  Without this the
-+	 * write can sit in the fabric and the MAC never advances,
-+	 * causing a silent TX stall.
-+	 */
-+	if (bp->caps & MACB_CAPS_PCIE_POSTED_WRITES)
-+		(void)macb_readl(bp, NCR);
- 	spin_unlock(&bp->lock);
- 
- out_tx_ptr_unlock:
-@@ -2560,6 +2568,12 @@ static netdev_tx_t macb_start_xmit(struct sk_buff *skb, struct net_device *dev)
- 	spin_lock(&bp->lock);
- 	macb_tx_lpi_wake(bp);
- 	macb_writel(bp, NCR, macb_readl(bp, NCR) | MACB_BIT(TSTART));
-+	/*
-+	 * Flush PCIe posted-write queue; see comment in macb_tx_restart().
-+	 * Also flushes the preceding macb_tx_lpi_wake() NCR write.
-+	 */
-+	if (bp->caps & MACB_CAPS_PCIE_POSTED_WRITES)
-+		(void)macb_readl(bp, NCR);
- 	spin_unlock(&bp->lock);
- 
- 	if (CIRC_SPACE(queue->tx_head, queue->tx_tail, bp->tx_ring_size) < 1)
-@@ -5674,6 +5688,7 @@ static const struct macb_config raspberrypi_rp1_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_CLK_HW_CHG |
- 		MACB_CAPS_JUMBO |
- 		MACB_CAPS_GEM_HAS_PTP |
-+		MACB_CAPS_PCIE_POSTED_WRITES |
- 		MACB_CAPS_EEE |
- 		MACB_CAPS_USRIO_HAS_MII,
- 	.dma_burst_length = 16,
--- 
-2.54.0
+Does this code unintentionally retain the options from scripts/Makefile.lib?
 
+Since objtool-cmds-y is cleared here, commands like --prefix are dropped.
+However, because objtool-opts-y is only appended to, options like --cfi
+remain active.
+
+This causes objtool to fail with a fatal error: "--cfi requires --prefix"
+during vmlinux.o validation on configurations with KCFI.=20
+
+Should objtool-opts-y be assigned directly using =3D or :=3D instead of
+appended?
+
+>  endif
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1778642120.gi=
+t.jpoimboe@kernel.org?part=3D9
 
