@@ -4,90 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56220CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C94CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l4+ZN/ez4nROwuYUMbT55lLWK9CfEBz3lhrRLyAE58o=; b=VqWVP9ZFKvogrdDmdlwW3pEy+K
-	0hhcG1ovd37zCwda5RDBzYwJlFM1r3O5SqJxfEeu8zMPLqt/a4aSCRMPbH0TCeND07PTldnrAf7Oc
-	16aelpT4T2izHGMhgoAOQLyhqMUU55LI/m5YXciqjSq1PU10P+uW+pfnWzDVle8EYGGEcvs0def32
-	WP/PAUo/adW9CHGd2DzXv+OeBDhqJPTKYsVR0ZF4amWNS4NsGpsKMdpWhdqBm/DjcNivBk5X4urU+
-	LWEy7b/aIRxW+fGo8sAnS5wxfhfQ24tKDuuHEsYqvYZHdhhgKNnjzDUk0oKH6q1qOHK25uqGGqhkU
-	Avee48zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=283VyeDOYN6khzf+AS7zjUfNyo5I57uL41Xqvi4jTEM=; b=3ZhcuffXbqQfFBAOcXFfEBBlbD
+	eG+wvbHsjgxQ6Q7v0gtu3r2dqRqsDLuMKFxgfGMHPJ4s4PO1hhgBr2b0EjLj8SpfdEjue7DTcpaVP
+	OgdGQDHWL1OrgU9Fxb4/e6YgcFN6phBCKODZl2F+XhlpUVJiZjxscl2ojPA542tO/QKZWMgGnStVY
+	MXyDM3MlUQ20puJtxQUTnFUSf3EdMRxEkKaE3a3hVc4FhzgMB1u58em1avNpEVh4ALvb/SPTl+gRi
+	mzXbyGYhV/oL+jSWG0yARWRPoV89+dY0GnON2CAzq2eZwsq0PDuGH4SDYALKlmOofvfHjgcdenh+e
+	JW9tu0Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNSAM-000000051d2-2aQZ;
-	Thu, 14 May 2026 09:15:38 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1wNSPg-000000054Y9-3Izk;
+	Thu, 14 May 2026 09:31:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNSAK-000000051c1-0QTp
+	id 1wNSPf-000000054Xb-09JH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 09:15:37 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c8021c8c42fso3360159a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 02:15:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1778750135; x=1779354935; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=l4+ZN/ez4nROwuYUMbT55lLWK9CfEBz3lhrRLyAE58o=;
-        b=lLmeOHGMZc3WLHUAipRC0WWjepTGN4aZ2tFFv+bYkp8aaVYJau39c+hxwoHILQ2EAc
-         y/7Nh4R4fSj/MlIncz01mF7rCzYU7dfQWyXx9E5fUkXws13CLSI3XavMtj097olyzctz
-         pP0Bpg4aVz9ZyjUQUKKSA5FR8aMvuS9iItieA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778750135; x=1779354935;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l4+ZN/ez4nROwuYUMbT55lLWK9CfEBz3lhrRLyAE58o=;
-        b=TWj79ZdxiRIvAm2uHZcCkBKDAhoE8CO2417BPJo82FJPWGoll+QyiC54qKrhGwn+ZG
-         32ji+YrSA5DF8u/y4oUFvnFb0/FqlHpCCd24jZ2JgyjJ8fmAygWAxw8doPMtmbtYAD7k
-         kvb7hw8IJI5wDy+JYS5coQ5nFbvWABl+9ePd5/M5vPPzKgLoCbnNx9ftS6DrJ8VITptX
-         YRYR+AQp9b7hpAuYxQbqNsf87BRc6HaAPQXnEhVhLvYqrNgGqpK0WfQiG7k6kMiLikIc
-         GcWWunvj3F/DgW8RkBvMeEy+9N+b5jxvlPx/dIYVTOsR7eJEDcvJsUYb5Oj8IqRPD+Ci
-         y4vA==
-X-Forwarded-Encrypted: i=1; AFNElJ9X6z0tR5kfi9WZbZiker8OYwtNWuBEoNQ0Ee9SYYTwvVtLA9nQ10WNGUVYCzwapl5clfNrXjkUj97CGLOnGBGm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOukILPyZHsClAzeVcTD8kMDVoBoQaUyeYrbop0gGSShOcpQNo
-	HCCKdiMIa0Ujpbop2+iQMyeLnLQ4Joa/6DidvOrWnqPe6hQSpZX2E0YPCjo+hjz6sg==
-X-Gm-Gg: Acq92OHXQDv8yW0Al4zi4l2PlO1OQmCv74c+jjQ8/SNIS8H1GOEdlJ91TDjIFYi7xML
-	8y3m7GmFRfWPoNAUO3gZwwzSnNCiOB4jKQfxZ6EWVj6OXDfv5zJWx/4NVY5kIvG7My8VaFq+35d
-	Gl46rVhyImSoluDTmtGVCgni9np4aID7OwPA3QZJZZ2LrZN9/MwKu/TM+uYz+zwUMpATYe37lZq
-	YN51M7qFcDZVwok3KSR66lXG6QrlIX2x4bMXWH5s057QEak+SCFEhSERiGZ7yEVTPCLZPifgzqi
-	H1PJNxDgZuu/k2ftuWs7LlimAH+n43hpHWz8cult4U52IJ6Rx2avDwQxSz0HcW6+/fUMrFkXHBo
-	WqxQfP+zW1GmNVOTjxSMZElcbFANY1iN7NHa/DzybHgwrTVsu2KQsnNIfrPr3xq+dIiv9gZYG2S
-	W88nf6GZbypb1JGO/q14403YvPUhHBqlp03iVND3EvqxhtdQyXcSn8Cj9JTn9lkIYVBIYRAmMxJ
-	+pTQ4gO
-X-Received: by 2002:a05:6a20:5497:b0:398:bda8:d8cd with SMTP id adf61e73a8af0-3af7fb74ea0mr7618829637.7.1778750135053;
-        Thu, 14 May 2026 02:15:35 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:3a91:2f7b:b635:8285])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c82bb0fef5esm1650768a12.15.2026.05.14.02.15.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 May 2026 02:15:34 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Mark Brown <broonie@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v4 0/6] regulator: mt6359: cleanup and add supplies
-Date: Thu, 14 May 2026 17:15:13 +0800
-Message-ID: <20260514091520.2718987-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
+	Thu, 14 May 2026 09:31:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A91844151;
+	Thu, 14 May 2026 09:31:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59CC8C2BCB3;
+	Thu, 14 May 2026 09:31:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778751086;
+	bh=Szhi4DCrVMTbowBda72sF3jcnYffCJVUI6kqx9OCt1c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Aj3J/mC3MBuxwesfKfl/BkZQvEqu+k+Bsu6C+HEOTcZNSnxk391cxb9lFWCjPMZrV
+	 Z4VZjipmw65C/6E3zUZuUSXA3OfYicv+YROnQOqMp0QGteYeZFmbhNcqcV3mVXpwRg
+	 N8zj8PGeFegC18eLapnUYsICSKwGubJn2nVpeV/ULp/ZQUbu4ZPYCzJ0guTsNfHEiv
+	 BQ//00RZyQT2n/YaTn0PoloinP/FIRXGSELbqDBoImyJBrEIL2LBJ2okD1fTskUbmG
+	 55L8c3FO51RqxtEbbXrP2TCJ+UTdJa/IpZC0/rG/gzi8q9q4OPMTOmEBONNVbmu2oM
+	 8r7qG5QsMAMuQ==
+Date: Thu, 14 May 2026 10:31:23 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Jamie Nguyen <jamien@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: Re: [PATCH] firmware: arm_ffa: honor descriptor size in
+ PARTITION_INFO_GET_REGS
+Message-ID: <20260514-generous-undetectable-mastiff-cc43d3@sudeepholla>
+References: <20260513032800.68807-1-jamien@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260513032800.68807-1-jamien@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_021536_188677_42A7DF5F 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20260514_023127_110665_901D8640 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,106 +72,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, May 12, 2026 at 08:28:00PM -0700, Jamie Nguyen wrote:
+> __ffa_partition_info_get_regs() walks the response with a hardcoded
+> 24-byte stride (regs += 3) even though the SPMC tells us the actual
+> per-descriptor size via PARTITION_INFO_SZ in x2[63:48]. The size is
+> read into buf_sz and then thrown away.
+> 
+> That works while every SPMC returns the FF-A v1.1 layout, but it falls
+> apart against a v1.3 SPMC returning the 48-byte descriptor. The loop
+> strides over half a descriptor at a time and ends up parsing every
+> other entry from a slice of two adjacent ones.
+> 
+> The FF-A spec (v1.2, section 18.5) says that the producer should
+> report the descriptor size, and the consumer is supposed to stride by
+> that size and ignore any trailing fields it doesn't understand. The
+> non-REGS path (__ffa_partition_info_get) does this already, and the
+> REGS path should match.
+> 
+> Use buf_sz for the stride, and bail out with -EPROTO if the SPMC
+> reports something we can't safely walk.
+> 
+> Fixes: 7bc0f589c81d ("firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_regs_get()")
+> Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
+> ---
+>  drivers/firmware/arm_ffa/driver.c | 35 ++++++++++++++++++++++++++++---
+>  1 file changed, 32 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+> index c72ee4756585..b712e8a03dab 100644
+> --- a/drivers/firmware/arm_ffa/driver.c
+> +++ b/drivers/firmware/arm_ffa/driver.c
+> @@ -321,6 +321,22 @@ __ffa_partition_info_get(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+>  #define PART_INFO_ID(x)		((u16)(FIELD_GET(PART_INFO_ID_MASK, (x))))
+>  #define PART_INFO_EXEC_CXT(x)	((u16)(FIELD_GET(PART_INFO_EXEC_CXT_MASK, (x))))
+>  #define PART_INFO_PROPERTIES(x)	((u32)(FIELD_GET(PART_INFO_PROPS_MASK, (x))))
+> +
+> +/*
+> + * FF-A v1.2 section 13.9 Table 13.40: registers x3..x17 carry the partition
+> + * descriptors, i.e. 15 u64 of payload per FFA_PARTITION_INFO_GET_REGS call.
+> + */
+> +#define FFA_PART_INFO_REGS_PAYLOAD_U64	15
+> +
+> +/*
+> + * FF-A v1.1 partition information descriptor (FF-A v1.2 section 6.2.1
+> + * Table 6.1): id (2) + exec_ctxt (2) + properties (4) + UUID (16) = 24
+> + * bytes. This is the minimum size the SPMC must report; the kernel reads
+> + * exactly these fields and ignores any trailing ones per the forward-
+> + * compatibility rules in FF-A v1.2 section 18.5.
+> + */
 
-This is v4 of my "MT6359 PMIC cleanup and add supplies" series. This
-version addresses review comments from Sashiko.
-
-Changes since v3:
-- Dropped duplicate 'va09' regulator from 'vsys-ldo2-supply'
-- Added ending match to regex for deprecated vcn33_[12]_(bt|wifi) nodes
-- Updated regulator DT example to use proper vcn33_[12] nodes
-- Changed vbbck's supply name to 'VIO18' to match vio18 regulator's
-  default name
-- Fixed index off-by-one in error message in mt6359_sync_vcn33_setting()
-- Added check of return value from mt6359_sync_vcn33_setting()
-- Link to v3:
-  https://lore.kernel.org/all/20260512085358.1693208-1-wenst@chromium.org/
-
-Changes since v2:
-- Fixed vsys-smps-supply property name (from "vspms-supply")
-- Collected reviewed-by on patch 3
-- Included Lee in recipients (sorry about that)
-- Link to v2:
-  https://lore.kernel.org/all/20260429074113.3720271-1-wenst@chromium.org/
-
-Changes since v1:
-- Moved regulator supply properties up to the PMIC mfd node
-  - This requires moving the properties to the mfd bindings
-- deprecated vcn33_[12]_(bt|wifi) regulators and added vcn33_[12]
-- model the deprecated ones as downstream to the new ones
-  (vcn33_[12] -> vcn33_[12]_(bt|wifi)
-- Handle internal supply of vbbck directly in the driver, instead of
-  specifying it in the binding
-- Added patch to constify data structures in the regulator driver
-- Link to v1:
-  https://lore.kernel.org/all/20260320072440.2403318-1-wenst@chromium.org/
-
-This series is part of a broader collection of regulator related
-cleanups for MediaTek Chromebooks. This one covers the MT6359 PMIC.
-
-The MT6359 PMIC is similar to the MT6358 and MT6366 PMICs. I've done
-cleanups for those in the past.
-
-Patch 1 adds the names of the power supply inputs to the binding.
-
-Patch 2 drops the restrictions on the regulator-name property from the
-binding. The name of the supply rail ideally should match the design
-schematics, not the PMIC's output name. The DT should be free to set
-whatever name it needs.
-
-Patch 3 deprecates the vcn33_[12]_(bt|wifi) regulators, and adds new
-proper vcn33_[12] regulators. The two *real* VCN33 regulator outputs
-each have two enable bits that are OR-ed together to control the
-output. This allowed WiFi and BT stacks to separately control power
-output without coordination.
-
-Patch 4 constifies the data structures used throughout the regulator
-driver. While not directly related, it touches the same context and
-it is easier to include it in the series.
-
-Patch 5 adds the supply names from the DT binding change in patch 2
-to the regulator descriptions in the driver. This patch has a whole
-bunch of checkpatch.pl warnings, but I wonder if it's because the
-context size for checking complex macros is not large enough.
-
-Patch 6 implements the changes of the DT binding change in patch 3.
-
-
-One part not yet covered in this series is the removal of the *_sshub
-regulators. These are not actual regulators, but a set of separate
-configurations to be used by the low power sensor hub or embedded
-controller. How these combine with the standard set of configurations
-set by the main processor is TBD.
-
-Device tree changes will be sent separately. The goal is to get the
-regulator tree as complete as possible. This includes adding supply
-names to other regulator DT bindings, and adding all the supply links
-to the existing DTs.
-
-Please have a look.
-
-
-Thanks
-ChenYu
-
-Chen-Yu Tsai (6):
-  mfd: dt-bindings: mt6397: Add regulator supplies
-  regulator: dt-bindings: mt6359: Drop regulator-name pattern
-    restrictions
-  regulator: dt-bindings: mt6359: Deprecate bogus vcn33_[12]_* split
-    regulators
-  regulator: mt6359: const-ify regulator descriptions
-  regulator: mt6359: Add regulator supply names
-  regulator: mt6359: Add proper ldo_vcn33_[12] regulators
-
- .../bindings/mfd/mediatek,mt6397.yaml         |  50 +++
- .../bindings/regulator/mt6359-regulator.yaml  |  70 +--
- drivers/regulator/mt6359-regulator.c          | 405 ++++++++++++------
- include/linux/regulator/mt6359-regulator.h    |  10 +-
- 4 files changed, 348 insertions(+), 187 deletions(-)
+I can't see any such details is the above mention version and section.
+Can you confirm you are looking at [1] ?
 
 -- 
-2.54.0.563.g4f69b47b94-goog
+Regards,
+Sudeep
 
+[1] https://developer.arm.com/documentation/den0077/j
 
