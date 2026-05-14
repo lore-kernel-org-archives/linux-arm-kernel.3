@@ -4,98 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B497DCD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:36:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3E9CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3E4RMWJDlN4oTIAm3vwmxetHRc24rPFl0tCcoD9zto=; b=GBJqQrl+xuSUlwKSjz/vMdXky8
-	XKxYiQZi9QS4PxBE1cnV6Yszq5u7G5Z9dnoHgMVMyA1PCz+6Kch6qIngCv34XsYVdr419PK4Lxlb9
-	t0XkT9geqERjEXJYCmP6uHracQ498T8NfpCjkLG+WpxMC3AoVlolNAhdsT7YlSlAIdlF1wzp2tuPt
-	YHgek8e1Sd3Yl9JjJj9cBKucgsWo74Dbg5NL4VsVp1xi/59/pgCbitHLiBlLkqhcESydVEAzhaBd3
-	yu1bK/+H8Wz5b4mZsBbQteENL9Fkfd7STzDHPB0ZQDSQDgydLE+PjBikyUhg/+hCCxKhSFqmDNXkQ
-	HvlHZ6GA==;
+	bh=B+8jz1452moL9rt0kxt71VhJYhsqDj3vIbzLL2VrkF8=; b=qkxlw2K04GTbGMWKPsgARh4xa6
+	Rp9pxJgDIiE8X2dQV/Rp+M3aVD4qAx/DwQbqNDheDpXyluwyBXNTMcOFoD4Tsz3Y+6nbB46NgaGur
+	+lP4DAg2Xg87QJKRykgZHCuZ6PSIjBsRJhyw2nhA2S9FIlgWtPIPVxilR/T5ZX+arxQLGqUKZSKXO
+	l7GPiNvu2EReRwoqlq7Y6lFJzc3fSXLR2MrDFkJgyqdDSzMJyZ0/e4yDDb4LhsTwwNToTLs6MPvpF
+	k0URsSgMQfZVVpAS0qGF3u9XPYvspMiF0+S4Nj6frMUrWx0khuP92JIROBw7+lX0w3veknWwLgkwq
+	OFAzMkqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVIc-00000005TRP-2zzT;
-	Thu, 14 May 2026 12:36:22 +0000
+	id 1wNVJP-00000005Tf0-3wZz;
+	Thu, 14 May 2026 12:37:11 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVIZ-00000005TQ7-2RmT
+	id 1wNVJK-00000005Tdp-0dho
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 12:36:21 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64EBeYfB1717897
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 12:36:19 GMT
+	Thu, 14 May 2026 12:37:11 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64EBeWoQ3891410
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 12:37:05 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	L3E4RMWJDlN4oTIAm3vwmxetHRc24rPFl0tCcoD9zto=; b=YdZfUXijc1B63K4O
-	JdArn+cNh/r/AmZB/J0SRCcZ28FQsxxgqDgzALCmvHrC6TZ4czcJ5FSfjCVxIdLo
-	m5wiUrTeTxnJ/Geh+XNmLOqRuJJHLJ+E7RGvS2ygDQ7P67Gp/VE6+L2Ue5sBctVH
-	BcvvCPsVXEJYwbtK1F6ULFfEP4vh+3tMCFzVpzQz6u6wbT0/KOEcco6smNCe2tx+
-	2WikL6CpTdyaCDtwnYRf16RPCqNwjI9OCSoJm6P77yHVgLxbj4DTGXUUg7br8UT2
-	RUMKUMe3kAUtmfFg5059U3y59k9H17t2qLjKS7i9zCV7MU/ScqOv4z/mAbF4AjxN
-	AXdELQ==
-Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e57y7hfdd-1
+	B+8jz1452moL9rt0kxt71VhJYhsqDj3vIbzLL2VrkF8=; b=o6BClnKN8yNiDEuw
+	15R/KC3bxZmX/hC1mXf1z8Dh5s6PM4cmyZrMI4iFZdld2n/t/5ip0XnoJe7IK0GX
+	/Ped4LO/MlD30gfNsw3sartjimlpcsF4riH0Ci+x5i609eZ2gLU/7gzp6XqdrY12
+	OhZcHgp99BhB8V3uf5PZJUXiUzlKJrJocWX6yVIIXBOatCb49LMnlNL76iv/n+WR
+	V8URCkO75sWKLzekMwaXkX/zuA62A5SJm+AWg+JvagfgMIfH7xFoyVQ1X2UOw0NT
+	gVZ+lm8GbvFZ9q/n31hEYFfyMkV371Op1xqqTgnwDHV7Kt5VMeMAk2fo4zTYT4NH
+	zJf+Qw==
+Received: from mail-vk1-f198.google.com (mail-vk1-f198.google.com [209.85.221.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e4v4tuycx-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 12:36:18 +0000 (GMT)
-Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5751eff95d6so462969e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 05:36:18 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 12:37:05 +0000 (GMT)
+Received: by mail-vk1-f198.google.com with SMTP id 71dfb90a1353d-5751990b248so700374e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 05:37:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778762178; x=1779366978; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1778762224; x=1779367024; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=L3E4RMWJDlN4oTIAm3vwmxetHRc24rPFl0tCcoD9zto=;
-        b=Ehf7VTuxmvQl4Oi+ldBPP5WezS+7UUbBrDqhsM0ghXR5e99/l30GECVrOJHN2adCgh
-         V97RDvQq9CQd4/u04ENYK62gWfSPPsnI6lx6tO9AN8Nub2yt4y9o5NaJttYlaH+k69ZJ
-         NOUoMcThok+nwc1GZR2HKLkC1yESTNkY/ITG0kIiVG7cl7syT41slI66ac7LfDWaUpGZ
-         rureLYA+RDDJ8NjQuc1GsEAJhx6W+MSu/4eACSswktRznD7u99sKMUyVxSgS/YOy3y/Z
-         884R7XAs01M/E1nPxcjfKzaeG0IgXmgoVfBTsfesHEdkjcUCIf4rfybJtNsvDU3CoLqj
-         aXCQ==
+        bh=B+8jz1452moL9rt0kxt71VhJYhsqDj3vIbzLL2VrkF8=;
+        b=YJDWCoDy/+GeIaIkxCrSvZCbl9C7IH/1BelWG+zg764HmWCpL11I/afKLtXFsVHEuq
+         ly2nRW4EZmODOiXBcJluO8X1tpBHooOAiRoWVep+jzuBJVf9RYWEyvc87Tgp4IU12+Pf
+         jfbO9UM+2F4iZq1KxVEgS4hz07uEmaGinZo6HEsHetwwnys8blfWboQYj5nrOIt+3/up
+         k1oQSBTZM7hECN6y2Kdty9tW0dUk51flXNLS4YDr/YdhQu9+NQjMNiBgQ6bWHg7DljdH
+         xRujglk6zt7x0sbnHscuajDuXPIczfGllZmwGE4jZCZaQCBeq0RYAUZV7sW+kcaje6p1
+         Dcvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778762178; x=1779366978;
+        d=1e100.net; s=20251104; t=1778762224; x=1779367024;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=L3E4RMWJDlN4oTIAm3vwmxetHRc24rPFl0tCcoD9zto=;
-        b=M+8oxcJLA0XWaldPwMowUovtfr+m82jreTpELNArqknWb7iYgyMWxTarOcHqPEZ13Y
-         7NTYQWQON8ZblzsxmzrylVRem7nl6CxLwImBwMqwtOIqTX9H6W5xxs+VL1bryfyy640P
-         5d+lvlBwGz3AekKWj6rlRj1pTkViN8qZy15ABPLAyNq9Pp9b9DrXxohiZyp1175dOEEm
-         TyPg094JDeLCk7yKq4qxmpILF3/Fz0jdmEFqZ3cdHnl2gZyOJGC0p15LnsCJbipYS3oM
-         uluRjx/WSA2A5oz5UUkjgqPQ9eup+PCmHIIwverDR2DW0/i76ljoFg/U98GRPt/bOW2l
-         snog==
-X-Forwarded-Encrypted: i=1; AFNElJ+4j6LcWbibir9S3Lx1C1psIkQxEFEdq1cY9ihKG5pFBFHGo8cdCXfCRYcLH7FFKjosLOdx+hiuFSMee/AGFaQu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6IdxkTCrnvVqL7lmh/jVJj10S7C7ih0SP72WBgZKpQJJlqRyp
-	3TvwqXPbLrnemN45bzs5TUqo0CL+kAs4VGKcDNZEBEAbAUKwL+VDvTNYNfa7kOwDcDfZxViBScN
-	ljNcMsZ0QlJlbT8apwiugqbAlteQNY2Lx82JKvue7tnPvLQ9JLF0RkIAFYEb70lRkKprQNKvaFC
-	RrEA==
-X-Gm-Gg: Acq92OEljEkQEiISZ2W90+DWrvbRC/5Hxj1Cu1iLVosz+CiK/SMiCW06+WZLHEP7f/Q
-	ugLxPxmXdzkSUu8H45ODcXhOTkCsrhu6um+bL5fpObCHd8G7oKVp5EJaHa81pZVCPDWZ1JJXrb9
-	8p98I7pnZlTAE/3zY+LxSD4H6UjHNF6DGUyMaxwzROJrIy1J/SW1kijb4oJXTmx0zfsdtZXmL+h
-	987S6HqXCNz//b5CiPT7YzjPMKYp74opQJ791R1OYCX8s23GnfeFYD5iYRGqZOgBUwYt3I4iCkH
-	mnEFvAIxNajin+P/MtHcEezx2rAjStCp/wkVy9vFl8hGlfLCoORS2LY0IaeutSOHQvbWIDpPnLo
-	OQMyIFLMnp0TcWVh+OJGIvvyOB8InhUYEUYK//pOjvpKUk8Oq1gqxzvYSu4rjlrmaPsWf4+dGmT
-	W8iRqnoVefpJQcRg==
-X-Received: by 2002:ac5:c7d4:0:b0:575:2300:9f54 with SMTP id 71dfb90a1353d-575e6f5a3b9mr1298040e0c.1.1778762177966;
-        Thu, 14 May 2026 05:36:17 -0700 (PDT)
-X-Received: by 2002:ac5:c7d4:0:b0:575:2300:9f54 with SMTP id 71dfb90a1353d-575e6f5a3b9mr1298009e0c.1.1778762177520;
-        Thu, 14 May 2026 05:36:17 -0700 (PDT)
+        bh=B+8jz1452moL9rt0kxt71VhJYhsqDj3vIbzLL2VrkF8=;
+        b=N9hBbnrx7WJnEGg9TsdW0vG0sQ8iNkPAsWfJSSvRBcUYuVqXrnvu9/aasRlZ0Yyxe4
+         tZNlmi8g0F3hVF0V3aaG0OcOTTLg/sraWV+RD17VMooKZIna9yVSdnsZOE/SMX0PjQga
+         4kHgz5cbz99/CkGdS64ChNtMjemwmjf0QhiazxXLbLPbFIxkIFVpreFdffmqT2pW0U07
+         FbOzChdseO6Mlw3ZJIfeyQq/GCS2n+oHgdoHQT8XqdRJpDDZOaOh1VlbQzVLI1EJ4+xP
+         MzL0g55lJdIPhAa6Ij4IlJOElpYpmLE76bj43ojsw5jeJldzHRfz7Ouv3ZLl7/EfxGVr
+         62EQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8eOHiYefJL7nv1kNlYrPrugnjClQ/uLmlTgd33K6DFs0Uor2VcW+cJnx69H7ztOybZu5qk0m93bOT1dzi/OF5G@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVJKYewCwh5J44WfqnkQk4w4oIaXG/l5TsGaK6dTt9Efz8CnvT
+	j9EgjhAluPjx9Z/LEJabbERGFdh8ZhGv/5066J4Qtw8GVBxjiO5MZVKwtpal6aKZGZBOnJrdYIc
+	66JusTG4lyR0VuFkOEgLMoDwJr9lySs0rmW+AbONQjwS9PIFcbdQgKkncDe6o8MJPtfCIRMiPQH
+	PjHg==
+X-Gm-Gg: Acq92OEf7/7QLV6d/1uqG91LnScqTJePjXf0goA+9493Pm2j07egbfGguSroDNSa7bT
+	AP3/L9KOgSDEWOehcOs7sNbxUj8Yr1sNYuae9GCfFPAcj/whHw5E6W5tpcyGzjwhorZH7xCGXro
+	l2dznTow5sUR92MKTUi0kA3skTWBtKnzrXmzbfW2syfqaR37zmsWELq/cj0gZFnAffiI2EcW11f
+	5kju3w+V+6KR90kf72K/Plu794/hkNoBy+2IbGCjjsxIokJpKGavICIF31/gzoC3XN+qjdKz6AH
+	U4M+V6OO1/DRKjA/Tz64aC+o6bh4PwxSsQ7kJHMX94K5qi3rnZGqLAyiowdxvZdpsMFQieJHTkQ
+	bBL83DhbJgD6uotZoyyaXmSXUIFRfTDj00gfVk9RX6ppRWI54ubpsdDMrCrkAnyrkkd8OZHM2KH
+	GnrVs=
+X-Received: by 2002:a05:6102:1150:b0:637:30f8:5cd5 with SMTP id ada2fe7eead31-6377667b9efmr1125952137.8.1778762224451;
+        Thu, 14 May 2026 05:37:04 -0700 (PDT)
+X-Received: by 2002:a05:6102:1150:b0:637:30f8:5cd5 with SMTP id ada2fe7eead31-6377667b9efmr1125947137.8.1778762224031;
+        Thu, 14 May 2026 05:37:04 -0700 (PDT)
 Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bd4f4bcf7f3sm85198466b.2.2026.05.14.05.36.13
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bd4f4bd1124sm84302766b.1.2026.05.14.05.37.00
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 May 2026 05:36:16 -0700 (PDT)
-Message-ID: <83958f30-59c5-4b15-a62a-92da02187c08@oss.qualcomm.com>
-Date: Thu, 14 May 2026 14:36:12 +0200
+        Thu, 14 May 2026 05:37:03 -0700 (PDT)
+Message-ID: <6efb980a-1d88-4d22-9ed3-1cb420317b71@oss.qualcomm.com>
+Date: Thu, 14 May 2026 14:36:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] arm64: dts: qcom: kaanapali: add the GPU SMMU node
+Subject: Re: [PATCH 7/8] arm64: dts: qcom: kaanapali-mtp: Enable GPU
 To: Akhil P Oommen <akhilpo@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
         Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
         Rob Herring <robh@kernel.org>,
@@ -116,43 +116,42 @@ To: Akhil P Oommen <akhilpo@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
 Cc: Sean Paul <sean@poorly.run>, linux-arm-kernel@lists.infradead.org,
         iommu@lists.linux.dev, devicetree@vger.kernel.org,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-        Qingqing Zhou <quic_qqzhou@quicinc.com>
+        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org
 References: <20260512-kaana-gpu-dt-v1-0-13e1c07c2050@oss.qualcomm.com>
- <20260512-kaana-gpu-dt-v1-3-13e1c07c2050@oss.qualcomm.com>
+ <20260512-kaana-gpu-dt-v1-7-13e1c07c2050@oss.qualcomm.com>
 Content-Language: en-US
 From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260512-kaana-gpu-dt-v1-3-13e1c07c2050@oss.qualcomm.com>
+In-Reply-To: <20260512-kaana-gpu-dt-v1-7-13e1c07c2050@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: 42t7gPi9OSR4-ul9Y6tiW_rC05o7GWy_
-X-Authority-Analysis: v=2.4 cv=UY9hjqSN c=1 sm=1 tr=0 ts=6a05c1c3 cx=c_pps
- a=wuOIiItHwq1biOnFUQQHKA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+X-Authority-Analysis: v=2.4 cv=XIIAjwhE c=1 sm=1 tr=0 ts=6a05c1f1 cx=c_pps
+ a=1Os3MKEOqt8YzSjcPV0cFA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
  a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=54KNg95dvv-uSQ5X8vIA:9 a=QEXdDO2ut3YA:10
- a=XD7yVLdPMpWraOa8Un9W:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: 42t7gPi9OSR4-ul9Y6tiW_rC05o7GWy_
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE0MDEyNiBTYWx0ZWRfX9YkzG2vHFHxR
- /c1B7tnIMkJzIZCnX1d66yx4cLTtHub9rb/hAA5xn1V6f7jRAmh/XCiri8edpqKccs34LpbqMtJ
- gyt+ehZD0rNqKEzWeoojMuzIHITHZwUgn9N+YDp3aRM92w4r/SttHqfvJPauRkWXSim/N8r4Bmh
- uYSpWFocB+LOmovkvHMY7jUEFkPNpFGp8Q7uv0rCDSy55SJwoY92ek6Yfy5HtdP+yPLaFo0/0Sj
- kTQYXPOb14KNqwOZ4fHhblaO9Napb48oAJK26TFixvZ63PS8NplMYVc9SdqtpYahgrzf6YwEn4W
- /EJbwrYxBkCENCr6A/arKBfl/VFYtavkQawE++Ia6U0wDxdhHkN2ENNadl1HhqSr6ET1EvtlAta
- YtiCibojdHFvBQC0AZt72O5/L9kkfu6OV4fkR11YdjXy2ZnGxwyG1aq2ozzSOg8nUY+6lLcFwxC
- kuDLzddMBgitbwqsa2A==
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=OwxjEWw48HTU6ZCEJDcA:9 a=QEXdDO2ut3YA:10
+ a=hhpmQAJR8DioWGSBphRh:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE0MDEyNiBTYWx0ZWRfX8ZqeWucKY8ik
+ 1WuWM6bqhzU4HV/DCpcSJVc3BBesZsnIvIxG2q9VZGG399OXRsg1v53gz1IUfshf/Grq0G41bKD
+ Leeuj94t/d47ZhJzzhZ14ldwiwBV+Z4rltZx4mrkUPXd2cjo/rtTWRIzswnwNe65qOwZzclYlxm
+ E9kuziDzJg3f0pO/U32QEOEpjAjkOpkpvILWICNncwAtX4ss7i7PgWio/f83wV+ideenDrjM3RQ
+ eiJAk2uRs/5CJPiE/gQi7Leirnx2BTfltbKdy8DtUSIfb1zu3MTxWFxf3MDPNcTq7W7paRQuxQQ
+ dvVZdaXlHOkGyClp3RYwCbH76QSc2qxvlHDHHHs0JoB/jnAeMT+533g27Gtk/38Z+g75M54MFJ+
+ n5KxiMyV0Ig3DQyhYBYm/soumnnAZc7BhAWD2UDyVa9zs1aX9ClcUfUT+vMdcfA8DNqN2Uus4ev
+ zagYPFruIapbqGc99TA==
+X-Proofpoint-ORIG-GUID: -r7PqGaGWWbHHpyy_fWHZyvOPs_zsDog
+X-Proofpoint-GUID: -r7PqGaGWWbHHpyy_fWHZyvOPs_zsDog
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-14_03,2026-05-13_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 malwarescore=0 clxscore=1015 lowpriorityscore=0
- priorityscore=1501 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605050000
- definitions=main-2605140126
+ phishscore=0 adultscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
+ bulkscore=0 clxscore=1015 spamscore=0 lowpriorityscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605140126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_053619_632514_BFAAC131 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20260514_053708_552647_1D68509A 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,49 +167,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 5/12/26 12:23 AM, Akhil P Oommen wrote:
-> From: Qingqing Zhou <quic_qqzhou@quicinc.com>
+> Add the secure firmware name property and enable GPU support on
+> Kaanapali MTP device.
 > 
-> Add the Adreno GPU SMMU node for kaanapali platform.
-> 
-> Signed-off-by: Qingqing Zhou <quic_qqzhou@quicinc.com>
 > Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 > ---
->  arch/arm64/boot/dts/qcom/kaanapali.dtsi | 41 +++++++++++++++++++++++++++++++++
->  1 file changed, 41 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/kaanapali.dtsi b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
-> index bab654bbd6d0..26a4de9c8d45 100644
-> --- a/arch/arm64/boot/dts/qcom/kaanapali.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
-> @@ -2597,6 +2597,47 @@ gpucc: clock-controller@3d90000 {
->  			#power-domain-cells = <1>;
->  		};
->  
-> +		adreno_smmu: iommu@3da0000 {
-> +			compatible = "qcom,kaanapali-smmu-500", "qcom,adreno-smmu",
-> +					"qcom,smmu-500", "arm,mmu-500";
 
-The lines are misaligned, but please reshuffle this to be 1 a line
-
-> +			reg = <0x0 0x3da0000 0x0 0x40000>;
-
-Please keep the 8-hex-digit padding for addr
-
-
-> +			#iommu-cells = <2>;
-> +			#global-interrupts = <1>;
-> +			dma-coherent;
-> +
-> +			power-domains = <&gpucc GPU_CC_CX_GDSC>;
-> +
-> +			clocks = <&gpucc GPU_CC_GPU_SMMU_VOTE_CLK>;
-> +			clock-names = "hlos";
-> +
-> +			interrupts = <GIC_SPI 674 IRQ_TYPE_LEVEL_HIGH>,
-> +				<GIC_SPI 678 IRQ_TYPE_LEVEL_HIGH>,
-
-likewise, please align the '<'s and align the property order in this node
-with Glymur
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
 Konrad
 
