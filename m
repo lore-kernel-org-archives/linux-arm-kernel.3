@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B545CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2404CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=docZu46gG++Kf1XBSX2+6MGhAZFNy07C3ni4sJC8Jrc=; b=kNJZjAcFU7Osv9b80HbH1VhE2Y
-	VKDmGmTr7yrb/XtMVzdMx3dmpbvRp4oitIdWkhGs7+1CZmLStAfBiKiR6saxSsDWYNndGO/gVxotl
-	t47F3ySBeMHmarssTXKO5J5PjBJ4bAXqNWe4xHzEMUbGY3hFLr5gSW1Cmjsfcj0pz5F5MKfNYi2Cj
-	WQXR9GWzinVTsCe3DHbSXD5TxhSyigN0r6X9gOmVmPgJifziUD91GUA4QVe8aBT62/OoKjdm96PyA
-	ug3nAT0shl5okdeX9zeDA15X62SeYE5lD7nnTKk7bKqE/YQVJaHlGTgxpL8dvnxCjbCIaMDPB7p4x
-	awEW4iiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yhy6NkQ+2FEgUIJ0c+IiCdunWdCMtL85smnQd+5uq+A=; b=LizAU+HHF3WnSa5vTs2MX4gT/I
+	BR9QVcjhYUKFKx4HoAbZoHEmv7Rst9JK/cnUfHrOrGpoe5Q638Dgy0j543RVsU0CzSjOqVm2jZ0q8
+	7Kme27xK0akZk4DLmzBbJPoz3/1t3zv6Ajup1UjjnvfoJa9XP0K/JalOG4ni6d4gMdVNqNSvjGBSd
+	wdg9wup61oN+KEnz/4seFu4OSczQtUkymc+3mQDy3KXPArXgi0S2RM8CZS7dY3prJl8ZOmlE2qZD4
+	V/vzkls3JIrTDhxTKF58kXPL2asnqINkQeBf15jmLk63a2aa2j842YA2UnpIcsjbVXpC42wwr6PuF
+	3czZrDdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTS5-00000005DPT-41gQ;
-	Thu, 14 May 2026 10:38:01 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wNTSK-00000005DTB-0ETv;
+	Thu, 14 May 2026 10:38:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTS3-00000005DOr-2pHL
+	id 1wNTSH-00000005DSP-1bFY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 10:38:00 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-366139223e4so4773227a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 03:37:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778755079; x=1779359879; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=docZu46gG++Kf1XBSX2+6MGhAZFNy07C3ni4sJC8Jrc=;
-        b=VVeBLr4f04hZ0tnvwrMcwjvnPQUcbOd3zAND0eywqUEsEIWLdqln4tXDtycleWRmGe
-         WzwmW1Iu3uFwY2a5PeFdV9bTysIwhHzK/zzqUtTEWU0UtuDejKZrXSMTg2eBhgA6ajO8
-         1GmJqrMbsnkbVc1P0NVHQquBuUWZpvXiKGKo00S4hcFZ6HBgafPMflo7zTchU9Qkl1pj
-         l9FoNldpVAaDT7YZPFFRTNi4JmaD8V2hx+P7d1e27EtACif6Cj+GQGbXdDrXuTiGJwxW
-         qEicUg+z8LVom13DiIEugSPwJrG8pXfX6xv8SBV26yXtEBflctst3ASlWQtEklUtJWVA
-         0Kkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778755079; x=1779359879;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=docZu46gG++Kf1XBSX2+6MGhAZFNy07C3ni4sJC8Jrc=;
-        b=rDWJNR3NJdQ+pkfGYostiUmO4Vu7ClHR/xKXxyHaXvf9CoVoA0hjgTKzEH2eNHePiq
-         fRnRK1FEF+Twz6kKQ479Cs7EqVENKlXduQHQcLHzhOHjI4ZH4Ghb96KevTQCum64v6gA
-         vuipkHAvZX5Pt0faBms91ltVAJoES23ZahuoRrDCFh9NXTEte5J66bfxmxY0EaVDwBkR
-         BHnkMAYXFY1bzCsvA65YP/qWkp4/YQpoRHSJZvaeQYUWnb3CN1UFUtvGDMd3WV7Pj2Jt
-         5E3+uaSXCg5cGfZDTukNatq/3HZtEiN0IJQSnvGsoW/1B14p8w3tYPSO5aAwozfhK4Zl
-         Ww0A==
-X-Gm-Message-State: AOJu0YwWo6Bk3tAdg5giAkvybSjiumeshPaTPjrVnzC/D4EO7Ofn6gFQ
-	C0TukwiDe9ulXU3RI8m6XzQtUPA1Vd7Eitn9v9o2ihOwr+xP4VvtgSEK7GfOD7IxZpA=
-X-Gm-Gg: Acq92OGmXl4UHx0YyAsOII7qpjnUKyxJNQS3lFouWzA7fTmf3xqmvtJK+0ZWlwJ/o7E
-	UFf1rok9NeNDfjzrogpufndKNIeaHKqnwV0GdkLUcNK6wZqoxEeHOYzhZhXQ56YOklAaTNOmywV
-	R9VjwVO6bjRGGR1a0yibnebAGD/j6DT7rm+9c/sIbSCnrpCha3UQAjeYgWaSrNuaYzYlULqLxFQ
-	D3K4LM68ssQI6Or82Fk8C6ZV6aTrq4QuCceMp8INC0u9rYv4hgHRyVtXrtwHpmiXZl4ic7t6WaP
-	dbZGmNR4yb/M69GPRLPyqGwwOludW6AyO6rVKIcysqYwMYGKHfm7dWvtLsykd3kQh0BoZ3QiFB2
-	mMuZP4m61APqP2BzIUGFxSnXrVC8xZNrwbsM4QRIfzDtm/jWaJf/j8zCb4KIYdq4ZmMn7ddVgZK
-	7WsEeJ7pl/F33g8MLNWgeh6dCWBbMxX/QIy/2jZddPRq37cjX29/LV4gda8hwC0UZBcFkiSSqp
-X-Received: by 2002:a17:90b:3c85:b0:368:12f3:fa4a with SMTP id 98e67ed59e1d1-368f3d4400dmr7945009a91.23.1778755078444;
-        Thu, 14 May 2026 03:37:58 -0700 (PDT)
-Received: from chaitanya-virtualbox.. ([103.249.241.52])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3692f4a038esm3164644a91.15.2026.05.14.03.37.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 May 2026 03:37:58 -0700 (PDT)
-From: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
-To: brgl@kernel.org,
-	andi.shyti@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Chaitanya Sabnis <chaitanya.msabnis@gmail.com>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH] i2c: davinci: fix division by zero on missing clock-frequency
-Date: Thu, 14 May 2026 16:07:40 +0530
-Message-ID: <20260514103740.5416-1-chaitanya.msabnis@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 14 May 2026 10:38:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8AB4740AB0;
+	Thu, 14 May 2026 10:38:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D05ABC2BCB3;
+	Thu, 14 May 2026 10:38:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778755092;
+	bh=6KuqpnKj9sobxjDeqvX+sSPZ/QSHETFRdP4dGEBM9Kk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CP2+Q6k+vOdNmZMCBg/czK3/XTzKq0VLFIDXnQfI8q1f+VEZYn5dEFbuxpbhMVrKZ
+	 LcDgW9pgW31NqQNAkn7M4q9P5MWsdEG75eNTJNuHXQu3VLIt8HrPHm/up/QrlZ3mY0
+	 fzPYe8svCetFMPVLD/SM0Yi3iVTZb0iVGk8XokfoS+fbK6L+SHkBqDT/iorLvpG0GL
+	 PQ5KaPxmJRTwQgTrA9hbLpPyHj25xksmDOIASEbpj14sISdX9+X/KOJo2yX7u0wUjc
+	 feFwDC2Dyev2jez7STICOVKK3blTa65kRGL11nWgCmZE1UFBSxg9fUCpd+b1OWCmNb
+	 jxpZVrv2QQt9w==
+Date: Thu, 14 May 2026 11:38:06 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Guenter Roeck <linux@roeck-us.net>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>,
+	Alex Tran <alex.tran@oss.qualcomm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Jyoti Bhayana <jbhayana@google.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Linus Walleij <linusw@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Viresh Kumar <viresh.kumar@linaro.org>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-hwmon@vger.kernel.org
+Subject: Re: [PATCH 0/5] scmi: Log client subsystem entity counts
+Message-ID: <20260514-finicky-acoustic-flounder-2dd405@sudeepholla>
+References: <20260513-scmi-client-probe-log-v1-0-00b47b1be009@oss.qualcomm.com>
+ <agS8udcvqgQmiqB4@ashevche-desk.local>
+ <1f2fb1de-ebc8-40ef-ac53-3348499295e3@roeck-us.net>
+ <2026051441-agreed-suffice-bbe1@gregkh>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2026051441-agreed-suffice-bbe1@gregkh>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_033759_714784_799BA85D 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20260514_033813_439199_4D2D554F 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,44 +89,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the 'clock-frequency' property is missing from the device tree,
-the driver falls back to DAVINCI_I2C_DEFAULT_BUS_FREQ. However, this
-macro is defined in kHz (100), whereas the device tree property is
-expected in Hz.
+On Thu, May 14, 2026 at 08:48:19AM +0200, Greg Kroah-Hartman wrote:
+> On Wed, May 13, 2026 at 11:27:21AM -0700, Guenter Roeck wrote:
+> > On 5/13/26 11:02, Andy Shevchenko wrote:
+> > > +Greg (I believe the trend is to drop such messages and not add them [back]?)
+> > > 
+> > 
+> > Is there some common guidance on this ? I'd be all for dropping messages
+> > instead of adding them, but there seems to be a perpetual battle between
+> > people who want to log everything and people concerned about logging noise.
+> > As maintainer I always seem to be stuck between those two camps.
+> 
+> When drivers work properly, they should be quiet.  This patch series
+> adds a bunch of dev_info() calls, which is not ok.  If a developer wants
+> to see extra messages, use the dev_dbg() infrastructure, or the tracing
+> infrastructure, both of which are there for this very reason.
+> 
 
-The probe function blindly divided the fallback value by 1000, causing
-integer truncation that resulted in dev->bus_freq = 0. This triggered
-a deterministic division-by-zero kernel panic when calculating clock
-dividers later in the probe sequence.
+I completely agree and tend to follow that. But I always assumed it was
+left to maintainers taste.
 
-Fix this by isolating the division so it only applies to the Hz value
-read from the device tree, cleanly assigning the kHz default otherwise.
+> So yes, I agree with Andy, this series is not ok, don't make more noise
+> please.
+> 
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260514044726.57297C2BCB7@smtp.kernel.org/
-Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
----
- drivers/i2c/busses/i2c-davinci.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+I am now thinking if [1] was the one setting example for this series. I did
+ack it as I left it to the subsystem maintainer's choice(in this case author
+as well).
 
-diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
-index a773ba082321..bd0754abdcb7 100644
---- a/drivers/i2c/busses/i2c-davinci.c
-+++ b/drivers/i2c/busses/i2c-davinci.c
-@@ -760,9 +760,9 @@ static int davinci_i2c_probe(struct platform_device *pdev)
- 
- 	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
- 	if (r)
--		prop = DAVINCI_I2C_DEFAULT_BUS_FREQ;
--
--	dev->bus_freq = prop / 1000;
-+		dev->bus_freq = DAVINCI_I2C_DEFAULT_BUS_FREQ;
-+	else
-+		dev->bus_freq = prop / 1000;
- 
- 	dev->has_pfunc = device_property_present(&pdev->dev, "ti,has-pfunc");
- 
 -- 
-2.43.0
+Regards,
+Sudeep
 
+[1] https://lore.kernel.org/all/20260304101457.7470-1-ulf.hansson@linaro.org/
 
