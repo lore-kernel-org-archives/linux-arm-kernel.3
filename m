@@ -4,99 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7687CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 14:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46F6CCD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 14:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NTa5Z0fUDWnU+L8/u/WQyWQDpDzKW0OBql8292A1sZs=; b=K+xiq2+srKSL3+cMlJXT5QuBCf
-	gHoxP4cVC1T5NHUowzhaxJZFDpVuFqJhhQN7Dbo0gIzcVw0SEMB8KIm2uhPMxuwoqDs2s9BsAkpFx
-	LL3+bd5pMKEwEJt69iO65aPozD6xEj8m04+rN6eFjkBT2IZoBT2XQ60F6WIpMR+CW4e6hoxQ1DL/7
-	+auNOLBYFRjLl11vqgDSi6K8J8yYD0cWTx7ZGEaYew+2d/E0+xa8LJkuBt9DfPgD9McWEtSZ+ILRN
-	RF9wa/w4fs/XbPOKylE8qvAZAZ77Nph6kE/lMZEb8YM/WN4tzTJ1Xr5NayD2JAbUe2Fnx2ksRRniL
-	2pmuJGTQ==;
+	bh=gE3d/1mqNsHcbczvOKMFyfwo4Ec0LoAPoKWOy4Q3dy0=; b=qrXPeiL2pq6a1LlKfx9AxBbKB+
+	wHo1wsd2K8A2IPHsw8pOPh3YpUCYYVveG4xtoDQKz8Ck2MWeu8Hu+8HXLddJQPBLFeJRE/QlkDCHA
+	yWWx2H7APShAYLaRiaFKDbTSFFQpUeVrTCoppPkebVb5G66mdQ9AdwDRYFYjEAZXd8GIQ3EE7iIk2
+	hG8clrAQRU0hyG+YsbnuysOVsDXIO2LnsRCYug+Io9B3jcFAnABSAvsMfmBxj1/AtiAkPWVk2XBZg
+	JipjZq18DJs8hSoWU1Ol6WKMrEp/KCm4T50vq4kJ6EAfLpOs5k/ExC3rKHoeRhNABOoVy57WEUYQk
+	4DK4fEWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNX2D-00000005ihl-2ovO;
-	Thu, 14 May 2026 14:27:33 +0000
+	id 1wNX2N-00000005int-3JOq;
+	Thu, 14 May 2026 14:27:43 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNX2B-00000005igN-0McB
+	id 1wNX2K-00000005ilr-2Oz9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 14:27:32 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64EBeSVA2713203
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 14:27:30 GMT
+	Thu, 14 May 2026 14:27:41 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64EBeUs01717878
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 14:27:40 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	NTa5Z0fUDWnU+L8/u/WQyWQDpDzKW0OBql8292A1sZs=; b=XlROFoIBkPohB195
-	KgDer0B4WWYjFLnsTCTJVxh7rJFtEL5BmKAfz/u4PvqV7ByMa/P4na6JHCCsPN07
-	CERLUxffjKbHGaotq5dWIigouKgGUJHMwI4OL4SlihaZFlZF5wSQJmQXw2t5V4Og
-	/axZGT4zQfoQ1xRVfh6JpIz8mPGvAAxLpiXcSMUPnWkoZeuQpcqsqdx9bEsVWZnN
-	dSN994+qOwP7w41mG731OjIcCgHEzieGSzMmnnHi1xh4p3k0tf8nnLWdFASi47cd
-	hSjHNU16RvqbAWLJRs2ppdNxaHOzmUrM8CxBz4yKck/1XNZUsrwnjND7ASNVgHdK
-	OzpMfg==
+	gE3d/1mqNsHcbczvOKMFyfwo4Ec0LoAPoKWOy4Q3dy0=; b=Za9oxAA/rF1GkL7y
+	+mI/3RVDP6D9uz3lcEGB+fbN7gbNSHIyw39ynDpsUMR8QWXxUQWyTVsVJy9UElHf
+	7HeMFJZh/3h3j7vWu+zv+Yi/smAiz6I4ygvlI25wm/GiVlde2p//43DlhdJEMP0D
+	KHsj2nkBJDVGWGqpayU+6c5x0DAKqjZah6TQOyzDj3tqnx1YGpOSPmhsPFxIbZkr
+	PczI1101hpvJDFbM3j6C1zuGsI6UG1cGHsTaJK9vD37fkeai+24a9A+Y66zBzzIz
+	01+759ZIIAqOw2RhCv937VNgHNiWH+L0SlBsC4KoIOHv8Th5rJ8x6SED4CSio8XP
+	dUUuHg==
 Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e58v89pgs-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e57y7hw4v-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 14:27:30 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2b2e8bba2e6so104872335ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 07:27:30 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 14:27:40 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ba6fe41283so91815375ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 07:27:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778768850; x=1779373650; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1778768859; x=1779373659; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=NTa5Z0fUDWnU+L8/u/WQyWQDpDzKW0OBql8292A1sZs=;
-        b=SB8kEaW3CGmVkOgAJVWO6sxoVdIPwF9FZqs8rk8kGUD9NMH2WCJ/2M2ztUU5Db/qlf
-         fptJ/6cUSEzScnC9dPT3q5xw5lnOWz1ORLGFh8fb4l06Gpb8nXYd35ZGAYYI1e1Di90t
-         745ECP6QjYgQXdxj69tdKjTZQYGSBU6NcVCb+XV2ib/sgbs9GQ9G28nxyCHEVaz1zAof
-         hJlSZYMILYbNchIxQg4xi+WARCmWoNDoLsaZBBY26/efm+vmAKtOdc5z0QAazJjF3tSt
-         J09rNyC/3bMEEe57RMDbE/i0x1oVqKgSv5THF6+3EsDyQPAAhbWQVkCWdQ6NHR/vGrrE
-         H6EQ==
+        bh=gE3d/1mqNsHcbczvOKMFyfwo4Ec0LoAPoKWOy4Q3dy0=;
+        b=bWFUQs6A79XGTHkZLwR+qkkwrdBhPs2RKhPVvKwl9ZivIBRHnwJJXtI4hFqJRV0rnd
+         jF5sYq3UZ3jPPXmpKyYYb+WSffdA/rbKHX+ZFx+upC0znbL0uCcCSIgisDiXylHCkUbN
+         fK/tool8pQKzqwXDDXGVJRpdRXgl2REqxkyDZrIF7HX0E1z8FhCUeDfThNMJTNapnu0h
+         OtOBRhwzjY21G6aEtntS/LiOo6gpAePF/r5AUWdP/KAwku/PSfHV0dkfmg8Y3mOMCqt3
+         xw/1Rf/ZHP/k1WQcLPuGk1GMtgYYveRbgSHsQwNmcOaoXp+QEhGU6BLtq6vvXiQ5RkhJ
+         bvOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778768850; x=1779373650;
+        d=1e100.net; s=20251104; t=1778768859; x=1779373659;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=NTa5Z0fUDWnU+L8/u/WQyWQDpDzKW0OBql8292A1sZs=;
-        b=GqNeQq7R78YH+hL2un8DTVqu7C8YdpkmOS1N5VZCQ1KQypbmvgN/L8hqYKzWwErRDM
-         +ofaX2EZtF5o6JH8Y183mMoxOW4B4Ulmfi7VcEtl0O+H0DuuYcmL+LDuprhMwLqxTwnF
-         RU0rfLn66wmR5wPOdxkfA+LVHKn4Z5DO++OTvUcHgkrlHZWSWmqQy4EbO89F+neHbL5b
-         v5SGpgU8JgVzaTVHF/IhI1d//V8Q/hnCuEXx0Y/OVdAO27GaF8V2rlgKkAmhJOIIj3zq
-         t5UBPXIZ4OUE50zvlISucyXjSj4bevahtCvCeZvy9UfsvlT/1/n55in9iQ8olJvY8d70
-         0fNQ==
-X-Forwarded-Encrypted: i=1; AFNElJ99WAWzUs0fluM6GtkrSbymgpnHByaFmc051RH31+jpji5BKShL2zWL+S3Fo6fYEFHiUtboJkEQFp/c1OzPuyyG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9p+VZHbPOuU9/IlhTvRVwHZOONTmJylhjxs5Kdwcm03dy9j/n
-	0lwjTfO+3Zg+84jfFUB75zPvzGmjSFL/UF7keB1RLySrlsHpjlqVWz/38dugNqZPQBeKag2Pl6t
-	KjxS2k0GFyPduNb5GabO3W7QAEhgQU/iuvrL4js0vx7psRyosmAUxiiJAqcUFz2X4TwjFbTcyqX
-	zmcA==
-X-Gm-Gg: Acq92OFieH7k2jkoEUpOGKXKPdSP0g6faRCnggL3pJPblabc2ds5Xe9FfNaOOTxPKE6
-	xK1/y5ze5BPwOCVGXBoO6B51JAlY+x80UTM+tDNeLcykwxOld4GDLPrw9XcH2ntyoKgB7d9pIPH
-	5vJaCBj6HVREBN1TDpv7ihnmZGn6XSnja/Oi52MHbe3QHgKLJ/Kui/gnmNhxeMGgcrqgGMalILy
-	li4zAocWQ0bMZW/TSMO1OAkpYr3CYOmOMCdXLVCimz8WbDGMU/3QyZWUafdpbxrJ1HxLt94uYTi
-	5+oaRpSOS9IqGmeIASjt/EB8os4ofG0u8vQygbilegdOzVzQIDRP22PjRkbHI3Xo7+Oir6tjCnE
-	kCm6uTpsgU/SR5/cFvC3ohZdolSQH7yoj7mdunE81WgaiOnmU11rjAfrOMg==
-X-Received: by 2002:a17:903:3d0b:b0:2b4:5aff:de60 with SMTP id d9443c01a7336-2bd276f2a6dmr95801795ad.22.1778768849471;
-        Thu, 14 May 2026 07:27:29 -0700 (PDT)
-X-Received: by 2002:a17:903:3d0b:b0:2b4:5aff:de60 with SMTP id d9443c01a7336-2bd276f2a6dmr95801115ad.22.1778768848834;
-        Thu, 14 May 2026 07:27:28 -0700 (PDT)
+        bh=gE3d/1mqNsHcbczvOKMFyfwo4Ec0LoAPoKWOy4Q3dy0=;
+        b=WB0K5LBmhviSCQbyEsHPFPecE463JdxBWuPIB9ok/JhU1NEyCkwVm2AHsSNqhd7U9Y
+         ECFM5Mmycp1m3vMfQ1XoDKWmdrX7Ij3u42tbtp6VwkvKafqahlZaImHdFFb0s83lMFxI
+         R0PBOn3BBln6HlaXhjCNy9bSCgPJAFG1kHJjaiu4sxfvfRCiSEnXmMmiv55/XvfKrOD2
+         taEvzTkDwhTLi5uZk3AbqqLZ+J5FFmd1IlhoOlbcHrm78t0OYEnI9B5ork4hS8dNp7Dx
+         +UNkYR137exqX1pQEhlK38HwlcAc+mbD87ES25uOvAmLEUzgXB/TdoGPBEjtVxmmwbTU
+         0euQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+PJKPqVyroytczol3x3cSaVcM9sKGdNZdLbmPajGhCDT5eJQRIX5JMJ6fCZdxeGk8sHxVOlplhmAvZoXifUGqN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAGh0RWrw8IoN+8NLa6hXjZWknyxEuVRthubYICZcATQo1qX0S
+	ymKjI4CTwB1m7Rcb3RevWSRvhDusI9vsqVAZYnZ8GEdByCapuf571APQE61Wb2leMS8n5AHky71
+	1NjFPDfmN+0RT1myjjMXTiNVCXmLYoDl2I75XI07Z4LWoYoXgwB+ENxZpN4Lf5U+lZCULcPEOKs
+	8dng==
+X-Gm-Gg: Acq92OFTWgY1xu3U4/Dm/rM5OtNzjfwkqHK8Kf55RGNMcaqeGFd60nbWdBhFXeO+wsq
+	CgKkB+yoV03PElMWyYOb4DIQl1+YuW6Xj0JqOfFCNI9M6UNTycl2lthdEQyzHTvFWEfmT2K0r+2
+	ZNO5RBV2rom0W3BxOlpTrYdANWOhCgRp2IyGIR6vAbaLaP2v88N/hUqG33EE4FdA6lRJAMPcpEI
+	RRTCMV2q4zC4TxaRNNhUevz+v4O2g9SnuGtnidYO4R4T75EVBbpLnPtUAkg1Zr/YEFADRsQmV9R
+	nPap/XaKZTkh4wVn/dTKuFs6w+LG/OKKhqEloFjlBB2JrUF0aN/KAR+K7sDQ7jgRXmIX07BkrAv
+	/sZftSbrqiNufrFRXNZ+UtShVOJkHB21LLXNPPBcIqHcIrznofDySWnWSaJ+VoSgVrvq7
+X-Received: by 2002:a17:903:120a:b0:2bc:78ec:54c0 with SMTP id d9443c01a7336-2bd2ff2a51emr89557315ad.31.1778768859262;
+        Thu, 14 May 2026 07:27:39 -0700 (PDT)
+X-Received: by 2002:a17:903:120a:b0:2bc:78ec:54c0 with SMTP id d9443c01a7336-2bd2ff2a51emr89556465ad.31.1778768858626;
+        Thu, 14 May 2026 07:27:38 -0700 (PDT)
 Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5c05ffbesm28566485ad.27.2026.05.14.07.27.19
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5c05ffbesm28566485ad.27.2026.05.14.07.27.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 May 2026 07:27:28 -0700 (PDT)
+        Thu, 14 May 2026 07:27:38 -0700 (PDT)
 From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Thu, 14 May 2026 19:55:44 +0530
-Subject: [PATCH v22 03/13] power: reset: reboot-mode: Add support for
- predefined reboot modes
+Date: Thu, 14 May 2026 19:55:45 +0530
+Subject: [PATCH v22 04/13] firmware: psci: Introduce command-based resets
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260514-arm-psci-system_reset2-vendor-reboots-v22-3-28a5bde07483@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260514-arm-psci-system_reset2-vendor-reboots-v22-4-28a5bde07483@oss.qualcomm.com>
 References: <20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com>
 In-Reply-To: <20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com>
 To: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -130,40 +129,41 @@ Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
         Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
         Srinivas Kandagatla <srini@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778768806; l=11586;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778768806; l=6677;
  i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=c0E+9Z2fyXM2CTKY2rFdNofWBhkxlwIO4amIwNdSABM=;
- b=ZX/qRQMIKdlkNUrKGzne/vk8+ntfzJi9dYdwUsB3kK1cBmW3G5xbdgok6qfqVmFISWk/uhJbl
- b85DPBsEbqiAEs1k71lUHnmEKHdU01FnndhhCnBhPyJa55ftE5krjl3
+ bh=bfZxbVm6xwqrZva4/bjqZKtMacFd3ZN//N6v7LMpV10=;
+ b=9VP2h6vkEBUeop0sGH+o9wi/BYjMPJpDm4SM0A71zlJUWo0XDTwDWz2RdsH182u6VrBzGPm6m
+ uAduIwm2DyGBXkPoCr07IxmqXWX2D4r97bu98kkKpDuxmVeuv6PtSxo
 X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
  pk=CpsuL7yZ8NReDPhGgq6Xn/SRoa59mAvzWOW0QZoo4gw=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE0MDE0NiBTYWx0ZWRfX61Q2qDpNQdsC
- Xk6GuXct8JW2aQlHSO1j2vQBEsqWlo2Hna9uKyjh9UlOembmFBPE1AdroaAWFRnZTCVk5JiSkWe
- Ggww7hfKNw4mVRC97ulW07CIpLIFKTLG4XqUs24/7oMlM51HU0Q4M7iTiFU6WRZRD2rVBnhvL4B
- k+KqaA8xHrfRzAXsMyeEkjhcxhdFlUl/H715D8J/S81NromPEFIzmFpJtiqAmB0PLkSYfYbJfIW
- kigwJsjM0iTv1ZGuy5lzwCqHIbABYmnB5DEtYiDFDwIdx4CHW6Syp8kDNAlZxnqmrb5h1vPb6Cu
- xn1YFHNkSd+uSA60kaq7bGGUle+YEDT3hSvVF5H7fgExblBIm8s3y7L7Z+jSGeg2evKrUkxaHb/
- xVKUgcUEAEG6wcgrpFdtJpzMktDNb6gbNJk6DMl0Uf7Iwe/7MPyIbtvhK0+BX0qk6ztTg6QkoWL
- 8wOajs5tcKI+uwp/erQ==
-X-Proofpoint-GUID: onNQICyUmjxmEx72WWf8qMW2zojEf-wh
-X-Authority-Analysis: v=2.4 cv=YZSNIQRf c=1 sm=1 tr=0 ts=6a05dbd2 cx=c_pps
+X-Proofpoint-ORIG-GUID: JUYlkcLaF0ng5nd6Ehtea0SSMemel4FB
+X-Authority-Analysis: v=2.4 cv=UY9hjqSN c=1 sm=1 tr=0 ts=6a05dbdc cx=c_pps
  a=IZJwPbhc+fLeJZngyXXI0A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=sGFwGsstBXFWfJrNqcQA:9 a=QEXdDO2ut3YA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=syBxKCaIGq6wZv0syL0A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
  a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-ORIG-GUID: onNQICyUmjxmEx72WWf8qMW2zojEf-wh
+X-Proofpoint-GUID: JUYlkcLaF0ng5nd6Ehtea0SSMemel4FB
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE0MDE0NiBTYWx0ZWRfX8L6kPmpdW8c+
+ 8yc082dxVvke4S13Fftl2+IypUog/F6Fi2q+yT5PIjUuuj9CRpsfB60S2ut8E1hTDZJlRd7hkhJ
+ L9yCd5SjC5Q4hQ7l1N5X8VjyPR1g4liIzXiqiG11E9btfGBvHHxFe49b5b6CVZrguq/usbz8Vfm
+ Q8kjnqtuV7lWaFzoCArULGs6BxxMIPmXH4KOp0uXPL8ieHbat4t33EPgiWKCE4Z758t1YQnmctV
+ 2B/Je/BkL42QHcD7MX7ixtElgpgo7AanIWQLYYv64TneDZM/bTwNaSeE7IhlOAZ2B9LecD3M1uD
+ RkpaaIhGSug3D1ZA1DamDEu6gPIaZDd3Xxk9KCbWgE2mxZL6QATJPZcob1Z+Qg9kgQZN3GF1yjZ
+ t4nwynrzfWK8pDfaDs9qzXgOb4b+YZNe9gjnmuF6azAexTce+No0xbgedgDktIUMAxBTztpqnpV
+ Og0lrCdggIWU1lW/IMQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-14_03,2026-05-13_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 impostorscore=0 priorityscore=1501 spamscore=0
- bulkscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605140146
+ adultscore=0 malwarescore=0 clxscore=1015 lowpriorityscore=0
+ priorityscore=1501 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605050000
+ definitions=main-2605140146
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_072731_145821_0F77EC1D 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20260514_072740_692836_DCCC13A7 
+X-CRM114-Status: GOOD (  27.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,340 +178,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-reboot-mode based drivers can define a reboot-mode by adding it under
-the reboot-mode node in device tree. This limits such drivers, to define
-any predefined reboot-modes statically within the driver and creates a
-dependency on device-tree.
+PSCI currently supports only two resets - SYSTEM_RESET and SYSTEM_RESET2
+ARCH WARM reset. The reset patch is selected based on the Linux
+reboot_mode variable. The PSCI specification now includes SYSTEM_RESET2
+for vendor-specific resets but there's no mechanism to issue these
+through psci_sys_reset().
 
-Extend the reboot-mode framework to handle predefined modes alongside
-those defined in device tree. Drivers can now define their own
-reboot-modes and register them via the framework. A centralized init
-call has been added to the reboot-mode framework and adopted by
-existing drivers. This ensures driver state is initialized together
-with predefined modes.
+Add a command-based reset mechanism that allows external drivers to set
+the psci reset command via a exported psci_set_reset_cmd() function.
+
+Define predefined reset_types - PSCI_RESET_TYPE_SYSTEM_RESET to map to
+SYSTEM_RESET, and PSCI_RESET_TYPE_SYSTEM_RESET2_ARCH_WARM to map to
+SYSTEM_RESET2 arch warm reset. Interpret zero cmd_reset_type, for
+predefined reset-command selection via cmd_cookie. For non-zero
+cmd_reset_type, check for valid vendor_reset_type and set the psci
+reset_command and cookie accordingly.
+
+Disable PSCI command-based reset by default and treat invalid reset
+commands as no‑op. psci_sys_reset() follows its original flow based on
+reboot_mode until a reset command is explicitly set by
+psci_set_reset_cmd().  In the device reset flow, psci_set_reset_cmd() is
+called in reboot_notifier phase and the device reset happens in
+psci_sys_reset() which is called later in the restart_notifier phase. If
+a kernel panic occurs in between these two phases, the reboot should
+take its original flow based on the value of reboot_mode. Disable the
+command-based reset in such case.
 
 Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
 ---
- drivers/power/reset/nvmem-reboot-mode.c  |   4 +-
- drivers/power/reset/qcom-pon.c           |   4 +-
- drivers/power/reset/reboot-mode.c        | 142 ++++++++++++++++++++++++-------
- drivers/power/reset/syscon-reboot-mode.c |   4 +-
- include/linux/reboot-mode.h              |  13 +++
- 5 files changed, 130 insertions(+), 37 deletions(-)
+ drivers/firmware/psci/psci.c | 75 ++++++++++++++++++++++++++++++++++++++++++--
+ include/linux/psci.h         | 19 +++++++++++
+ 2 files changed, 92 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/power/reset/nvmem-reboot-mode.c b/drivers/power/reset/nvmem-reboot-mode.c
-index bd05d660490c686b43134f82f1eadd7665403d20..50e5e1ff4cd3b14f634dc50cdadd97472cf0b1d0 100644
---- a/drivers/power/reset/nvmem-reboot-mode.c
-+++ b/drivers/power/reset/nvmem-reboot-mode.c
-@@ -51,8 +51,8 @@ static int nvmem_reboot_mode_probe(struct platform_device *pdev)
- 	if (!nvmem_rbm)
- 		return -ENOMEM;
+diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+index e73bae6cb23a3bfa6441503f667b0ffdfcd72536..4e0710ab09cdb0af7280ff4334aa1ea1bfe95aff 100644
+--- a/drivers/firmware/psci/psci.c
++++ b/drivers/firmware/psci/psci.c
+@@ -51,6 +51,16 @@ static int resident_cpu = -1;
+ struct psci_operations psci_ops;
+ static enum arm_smccc_conduit psci_conduit = SMCCC_CONDUIT_NONE;
  
--	nvmem_rbm->reboot.dev = &pdev->dev;
--	nvmem_rbm->reboot.write = nvmem_reboot_mode_write;
-+	reboot_mode_driver_init(&nvmem_rbm->reboot, &pdev->dev,
-+				nvmem_reboot_mode_write);
- 
- 	nvmem_rbm->cell = devm_nvmem_cell_get(&pdev->dev, "reboot-mode");
- 	if (IS_ERR(nvmem_rbm->cell)) {
-diff --git a/drivers/power/reset/qcom-pon.c b/drivers/power/reset/qcom-pon.c
-index 57b36e6186f80aff947fd7f5aae5ce280c65dc6b..95d6f5dd134d54783f5ab6c600d455862e3d39f1 100644
---- a/drivers/power/reset/qcom-pon.c
-+++ b/drivers/power/reset/qcom-pon.c
-@@ -70,9 +70,9 @@ static int qcom_pon_probe(struct platform_device *pdev)
- 	reason_shift = (long)of_device_get_match_data(&pdev->dev);
- 
- 	if (reason_shift != NO_REASON_SHIFT) {
--		pon->reboot_mode.dev = &pdev->dev;
-+		reboot_mode_driver_init(&pon->reboot_mode, &pdev->dev,
-+					qcom_pon_reboot_mode_write);
- 		pon->reason_shift = reason_shift;
--		pon->reboot_mode.write = qcom_pon_reboot_mode_write;
- 		error = devm_reboot_mode_register(&pdev->dev, &pon->reboot_mode);
- 		if (error) {
- 			dev_err(&pdev->dev, "can't register reboot mode\n");
-diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
-index f1372dc700e48043320812c3d3619ab1539e1854..d76aee524749a6ec3dff9729c2b678b7244e4f09 100644
---- a/drivers/power/reset/reboot-mode.c
-+++ b/drivers/power/reset/reboot-mode.c
-@@ -31,12 +31,12 @@ struct reboot_mode_sysfs_data {
- 	struct list_head head;
- };
- 
--static inline void reboot_mode_release_list(struct reboot_mode_sysfs_data *priv)
-+static inline void reboot_mode_release_list(struct list_head *head)
++/*
++ * Encoded reset command:
++ * bits[63:32] = cookie
++ * bits[31:0]  = reset_type
++ */
++static u64 reset_cmd;
++
++#define PSCI_RESET_TYPE(reset_cmd)	((u32)(reset_cmd))
++#define PSCI_RESET_COOKIE(reset_cmd)	((u32)((reset_cmd) >> 32))
++
+ bool psci_tos_resident_on(int cpu)
  {
- 	struct mode_info *info;
- 	struct mode_info *next;
+ 	return cpu == resident_cpu;
+@@ -80,6 +90,35 @@ static u32 psci_cpu_suspend_feature;
+ static bool psci_system_reset2_supported;
+ static bool psci_system_off2_hibernate_supported;
  
--	list_for_each_entry_safe(info, next, &priv->head, list) {
-+	list_for_each_entry_safe(info, next, head, list) {
- 		list_del(&info->list);
- 		kfree_const(info->mode);
- 		kfree(info);
-@@ -116,6 +116,51 @@ static int reboot_mode_notify(struct notifier_block *this,
++static u32 psci_fn_from_cookie(u32 cookie)
++{
++	switch (cookie) {
++	case PSCI_RESET_TYPE_SYSTEM_RESET2_ARCH_WARM:
++		if (psci_system_reset2_supported)
++			return PSCI_FN_NATIVE(1_1, SYSTEM_RESET2);
++		return 0;
++	case PSCI_RESET_TYPE_SYSTEM_RESET:
++		return PSCI_0_2_FN_SYSTEM_RESET;
++	default:
++		return 0;
++	}
++}
++
++/** psci_set_reset_cmd() - Configure reset request for psci_sys_reset()
++ * @psci_reset_cmd: reset command encoded as cookie[63:32] | reset_type[31:0]
++ *
++ * Save reset command.
++ */
++void psci_set_reset_cmd(u64 psci_reset_cmd)
++{
++	reset_cmd = psci_reset_cmd;
++}
++
++bool psci_has_system_reset2_support(void)
++{
++	return psci_system_reset2_supported;
++}
++
+ static inline bool psci_has_ext_power_state(void)
+ {
+ 	return psci_cpu_suspend_feature &
+@@ -306,8 +345,24 @@ static int get_set_conduit_method(const struct device_node *np)
+ 	return 0;
+ }
+ 
+-static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+-			  void *data)
++static void psci_handle_reset_cmd(void)
++{
++	u32 psci_sys_reset_fn;
++
++	if ((reset_cmd & BIT_ULL(31)) && psci_system_reset2_supported) {
++		/* PSCI SYSTEM_RESET2 Vendor-specific reset */
++		invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2),
++			       PSCI_RESET_TYPE(reset_cmd),
++			       PSCI_RESET_COOKIE(reset_cmd), 0);
++	} else {
++		/* cookie part of the reset_cmd decides ARCH WARM RESET vs SYSTEM_RESET */
++		psci_sys_reset_fn = psci_fn_from_cookie(PSCI_RESET_COOKIE(reset_cmd));
++		if (!PSCI_RESET_TYPE(reset_cmd) && psci_sys_reset_fn)
++			invoke_psci_fn(psci_sys_reset_fn, 0, 0, 0);
++	}
++}
++
++static void psci_handle_reboot_mode(void)
+ {
+ 	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
+ 	    psci_system_reset2_supported) {
+@@ -320,6 +375,22 @@ static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
+ 	} else {
+ 		invoke_psci_fn(PSCI_0_2_FN_SYSTEM_RESET, 0, 0, 0);
+ 	}
++}
++
++static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
++			  void *data)
++{
++	/*
++	 * Command-based resets are configured at the reboot_notifier phase.
++	 * If a kernel panic occurs between the reboot_notifier and this final
++	 * reset, ignore the command-based reset and let reboot_mode drive the
++	 * reset flow.
++	 * If reset_cmd is zero, there is no command to handle.
++	 */
++	if (reset_cmd && !panic_in_progress())
++		psci_handle_reset_cmd();
++	else
++		psci_handle_reboot_mode();
+ 
  	return NOTIFY_DONE;
  }
+diff --git a/include/linux/psci.h b/include/linux/psci.h
+index 4ca0060a3fc42ba1ca751c7862fb4ad8dda35a4c..c2458291a3faf5ac89b1528dae2c9b805a2dd075 100644
+--- a/include/linux/psci.h
++++ b/include/linux/psci.h
+@@ -21,6 +21,21 @@ bool psci_power_state_is_valid(u32 state);
+ int psci_set_osi_mode(bool enable);
+ bool psci_has_osi_support(void);
  
 +/**
-+ * reboot_mode_driver_init - Initialize reboot-mode state
-+ * @reboot: reboot mode driver object to initialize
-+ * @dev: backing device
-+ * @write: write callback for programming magic
++ * enum psci_reset_type	-	PSCI_RESET_TYPE for SYSTEM_RESET.
++ * @PSCI_RESET_TYPE_SYSTEM_RESET: Standard SYSTEM_RESET command.
++ * @PSCI_RESET_TYPE_SYSTEM_RESET2_ARCH_WARM: SYSTEM_RESET2 architectural warm reset.
 + *
-+ * This function must be called with a valid @dev and @write before calling
-+ * reboot_mode_register(), reboot_mode_add_predefined_modes(), or any other
-+ * reboot-mode framework API.
++ * These enum values map PSCI_RESET_TYPE_SYSTEM_* constants to reset strings
++ * issued from user space. When user space requests a reset, the cookie
++ * carries one of these values, and the PSCI reset path translates it into
++ * the appropriate PSCI system reset call.
 + */
-+void reboot_mode_driver_init(struct reboot_mode_driver *reboot,
-+			     struct device *dev,
-+			     int (*write)(struct reboot_mode_driver *reboot, u64 magic))
-+{
-+	memset(reboot, 0, sizeof(*reboot));
-+	reboot->dev = dev;
-+	reboot->write = write;
-+	INIT_LIST_HEAD(&reboot->head);
-+	INIT_LIST_HEAD(&reboot->predefined_modes);
-+}
-+EXPORT_SYMBOL_GPL(reboot_mode_driver_init);
-+
-+static struct mode_info *reboot_mode_create_info(const char *mode, u64 magic)
-+{
-+	struct mode_info *info;
-+
-+	if (!mode || mode[0] == '\0') {
-+		pr_err("invalid mode name(%s): too short!\n", mode);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	info = kzalloc_obj(*info, GFP_KERNEL);
-+	if (!info)
-+		return ERR_PTR(-ENOMEM);
-+
-+	info->mode = kstrdup_const(mode, GFP_KERNEL);
-+	if (!info->mode) {
-+		kfree(info);
-+		return ERR_PTR(-ENOMEM);
-+	}
-+
-+	info->magic = magic;
-+	return info;
-+}
-+
- static int reboot_mode_create_device(struct reboot_mode_driver *reboot)
- {
- 	struct reboot_mode_sysfs_data *priv;
-@@ -157,7 +202,7 @@ static int reboot_mode_create_device(struct reboot_mode_driver *reboot)
- 	return 0;
- 
- error:
--	reboot_mode_release_list(priv);
-+	reboot_mode_release_list(&priv->head);
- 	kfree(priv);
- 	return ret;
- }
-@@ -170,7 +215,7 @@ static int reboot_mode_create_device(struct reboot_mode_driver *reboot)
-  */
- int reboot_mode_register(struct reboot_mode_driver *reboot)
- {
--	struct mode_info *info = NULL;
-+	struct mode_info *info;
- 	struct property *prop;
- 	struct device_node *np = reboot->dev->of_node;
- 	size_t len = strlen(PREFIX);
-@@ -180,9 +225,11 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
- 
- 	INIT_LIST_HEAD(&reboot->head);
- 
-+	if (!np)
-+		goto predefined_modes;
-+
- 	for_each_property_of_node(np, prop) {
- 		memset(magic, 0, sizeof(magic));
--
- 		if (strncmp(prop->name, PREFIX, len))
- 			continue;
- 
-@@ -194,28 +241,18 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
- 			continue;
- 		}
- 
--		info = kzalloc(sizeof(*info), GFP_KERNEL);
--		if (!info) {
--			ret = -ENOMEM;
--			goto error;
--		}
--
--		info->magic = REBOOT_MODE_MAGIC(magic[0], magic[1]);
--		info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
--		if (!info->mode) {
--			ret =  -ENOMEM;
--			goto error;
--		} else if (info->mode[0] == '\0') {
--			kfree_const(info->mode);
--			ret = -EINVAL;
--			pr_err("invalid mode name(%s): too short!\n", prop->name);
-+		info = reboot_mode_create_info(prop->name + len,
-+					       REBOOT_MODE_MAGIC(magic[0], magic[1]));
-+		if (IS_ERR(info)) {
-+			ret = PTR_ERR(info);
- 			goto error;
- 		}
- 
- 		list_add_tail(&info->list, &reboot->head);
--		info = NULL;
- 	}
- 
-+predefined_modes:
-+	list_splice_tail_init(&reboot->predefined_modes, &reboot->head);
- 	reboot->reboot_notifier.notifier_call = reboot_mode_notify;
- 	register_reboot_notifier(&reboot->reboot_notifier);
- 
-@@ -226,7 +263,6 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
- 	return 0;
- 
- error:
--	kfree(info);
- 	reboot_mode_unregister(reboot);
- 	return ret;
- }
-@@ -259,7 +295,7 @@ static inline void reboot_mode_unregister_device(struct reboot_mode_driver *rebo
- 	if (!priv)
- 		return;
- 
--	reboot_mode_release_list(priv);
-+	reboot_mode_release_list(&priv->head);
- 	kfree(priv);
- }
- 
-@@ -269,17 +305,12 @@ static inline void reboot_mode_unregister_device(struct reboot_mode_driver *rebo
-  */
- int reboot_mode_unregister(struct reboot_mode_driver *reboot)
- {
--	struct mode_info *info;
--	struct mode_info *next;
--
- 	unregister_reboot_notifier(&reboot->reboot_notifier);
-+	reboot->reboot_notifier.notifier_call = NULL;
- 	reboot_mode_unregister_device(reboot);
- 
--	list_for_each_entry_safe(info, next, &reboot->head, list) {
--		list_del(&info->list);
--		kfree_const(info->mode);
--		kfree(info);
--	}
-+	reboot_mode_release_list(&reboot->head);
-+	reboot_mode_release_list(&reboot->predefined_modes);
- 
- 	return 0;
- }
-@@ -344,6 +375,55 @@ void devm_reboot_mode_unregister(struct device *dev,
- }
- EXPORT_SYMBOL_GPL(devm_reboot_mode_unregister);
- 
-+/**
-+ * reboot_mode_add_predefined_modes - Add predefined reboot modes
-+ * @reboot: reboot mode driver
-+ * @modes: array of predefined reboot mode entries
-+ * @count: number of entries in @modes
-+ *
-+ * Add predefined reboot modes in a single call before registration.
-+ *
-+ * @reboot must be initialized with reboot_mode_driver_init() before calling
-+ * this function.
-+ *
-+ * Returns: 0 on success, -EINVAL if @modes is NULL, @count is 0, or an entry
-+ *          has an invalid name, -EBUSY if called after reboot_mode_register()
-+ *          or if predefined modes are already present, or -ENOMEM on allocation
-+ *          failures.
-+ */
-+int reboot_mode_add_predefined_modes(struct reboot_mode_driver *reboot,
-+				     const struct reboot_mode_entry *modes,
-+				     size_t count)
-+{
-+	struct mode_info *info;
-+	int ret;
-+	size_t i;
-+
-+	if (reboot->reboot_notifier.notifier_call == reboot_mode_notify ||
-+	    !list_empty(&reboot->predefined_modes))
-+		return -EBUSY;
-+
-+	if (!modes || !count)
-+		return -EINVAL;
-+
-+	for (i = 0; i < count; i++) {
-+		info = reboot_mode_create_info(modes[i].name, modes[i].magic);
-+		if (IS_ERR(info)) {
-+			ret = PTR_ERR(info);
-+			goto error;
-+		}
-+
-+		list_add_tail(&info->list, &reboot->predefined_modes);
-+	}
-+
-+	return 0;
-+
-+error:
-+	reboot_mode_release_list(&reboot->predefined_modes);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(reboot_mode_add_predefined_modes);
-+
- static int __init reboot_mode_init(void)
- {
- 	return class_register(&reboot_mode_class);
-diff --git a/drivers/power/reset/syscon-reboot-mode.c b/drivers/power/reset/syscon-reboot-mode.c
-index 9f4b18c5e46f6a8bf197773ceceb80b250f57541..55f2fd33e0d2abc599848c936619cb6cdbaed47d 100644
---- a/drivers/power/reset/syscon-reboot-mode.c
-+++ b/drivers/power/reset/syscon-reboot-mode.c
-@@ -45,8 +45,8 @@ static int syscon_reboot_mode_probe(struct platform_device *pdev)
- 	if (!syscon_rbm)
- 		return -ENOMEM;
- 
--	syscon_rbm->reboot.dev = &pdev->dev;
--	syscon_rbm->reboot.write = syscon_reboot_mode_write;
-+	reboot_mode_driver_init(&syscon_rbm->reboot, &pdev->dev,
-+				syscon_reboot_mode_write);
- 	syscon_rbm->mask = 0xffffffff;
- 
- 	syscon_rbm->map = syscon_node_to_regmap(pdev->dev.parent->of_node);
-diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
-index 2ce189fdfff4b396d7cc6f175b30016781ae4fe9..4503ee388cd00d5e004600d51056d623ea23e345 100644
---- a/include/linux/reboot-mode.h
-+++ b/include/linux/reboot-mode.h
-@@ -15,18 +15,31 @@
- /* Get 32 bit arg2 from 64 bit magic */
- #define REBOOT_MODE_ARG2(magic) FIELD_GET(GENMASK_ULL(63, 32), magic)
- 
-+struct reboot_mode_entry {
-+	const char *name;
-+	u64 magic;
++enum psci_reset_type {
++	PSCI_RESET_TYPE_SYSTEM_RESET = 1,
++	PSCI_RESET_TYPE_SYSTEM_RESET2_ARCH_WARM,
 +};
 +
- struct reboot_mode_driver {
- 	struct device *dev;
- 	struct list_head head;
-+	/* List of predefined reboot-modes, populated via reboot_mode_add_predefined_modes(). */
-+	struct list_head predefined_modes;
- 	int (*write)(struct reboot_mode_driver *reboot, u64 magic);
- 	struct notifier_block reboot_notifier;
- };
+ struct psci_operations {
+ 	u32 (*get_version)(void);
+ 	int (*cpu_suspend)(u32 state, unsigned long entry_point);
+@@ -45,8 +60,12 @@ struct psci_0_1_function_ids get_psci_0_1_function_ids(void);
  
-+void reboot_mode_driver_init(struct reboot_mode_driver *reboot,
-+			     struct device *dev,
-+			     int (*write)(struct reboot_mode_driver *reboot, u64 magic));
- int reboot_mode_register(struct reboot_mode_driver *reboot);
- int reboot_mode_unregister(struct reboot_mode_driver *reboot);
- int devm_reboot_mode_register(struct device *dev,
- 			      struct reboot_mode_driver *reboot);
- void devm_reboot_mode_unregister(struct device *dev,
- 				 struct reboot_mode_driver *reboot);
-+int reboot_mode_add_predefined_modes(struct reboot_mode_driver *reboot,
-+				     const struct reboot_mode_entry *modes,
-+				     size_t count);
- 
+ #if defined(CONFIG_ARM_PSCI_FW)
+ int __init psci_dt_init(void);
++void psci_set_reset_cmd(u64 psci_reset_cmd);
++bool psci_has_system_reset2_support(void);
+ #else
+ static inline int psci_dt_init(void) { return 0; }
++static inline void psci_set_reset_cmd(u64 psci_reset_cmd) { }
++static inline bool psci_has_system_reset2_support(void) { return false; }
  #endif
+ 
+ #if defined(CONFIG_ARM_PSCI_FW) && defined(CONFIG_ACPI)
 
 -- 
 2.34.1
