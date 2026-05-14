@@ -4,55 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA02CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 07:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A082CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 07:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=p98KzwxjtK+qXsU6qLh3yNUQy78SrJ/P4qapIBQhRBE=; b=rJH8IoqTu5WM5h
-	E4GuiPvHV9lrB8432Mm0cOPEcUJuZBPeHR3bRvJ++BSGrNoKLCA5lr5CD9tpena+IR5p28lrPB5KY
-	wAr/R8kgSyJWlBrX1aKfqkWXl33zHiif5lxxn7iaHujP5tqHmPl4Y3d62cFLVeibjH7TIATWT3atg
-	9bd5MSzpQsAck6i+u50mJEGhqeFtu14uKMM3idJWvPqwwpAyPCZTUCWUFOrOf6G0+s6VWx8WCApSx
-	px9aWebKRyNxKi25IDhx8svg7KAQMps6OfFaR9rC/nwio9MLNLelFejNkb+1mNBxCRfF7n/NCTk8i
-	0GJWYDCJqmAI32u0cWhA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mskZtzff0QbG0AAM/QIKLNRVxIxU3/JC2q5kVbXy2aI=; b=xpQij58EoUraLcF5/z49dbrOmy
+	B6G3fNBmE4HFTNnF3fAbNoKjhDTnFonY9ohIFh1SyBFkESM/6+C/cJLE1GBIbmNHG7VEdxHmuDkAe
+	l03svRL7QxLUaqpY8Xkk282x891HGPWP4T01RiLhudBuvQLvGFpbRBowMB8y7nRERt3Aks4YZpStK
+	3xjbPLfeevhlThquCBL6h2hQrgkvArliyD2RUyfm/2xN5XD+Yiv76uRQrHzpEYS6aHpgoqFoJeudL
+	NCexaklfyAHSIwYLHg7ixaVFdvfktCtLsiL1UURPoGQqMiFgXE+eFNo5DnNPeD6/EiyviJet4R89L
+	phbg7SQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNQ5U-00000004mWx-2kDP;
-	Thu, 14 May 2026 07:02:28 +0000
-Received: from mail.puresolution.de ([212.204.113.10])
+	id 1wNQ7z-00000004n31-05sB;
+	Thu, 14 May 2026 07:05:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNQ5S-00000004mUW-0F9S
+	id 1wNQ7u-00000004n1r-1yO1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 07:02:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=puresolution.de;
-	s=neog00; t=1778737852;
-	bh=p98KzwxjtK+qXsU6qLh3yNUQy78SrJ/P4qapIBQhRBE=;
-	h=Reply-To:From:To:Subject:Date:From;
-	b=abhANs/6geRYH8zYoyQ2XLMTyvU26guy2rr58rHC9D7mNvDtiTY86Ia1zRg9/FMcx
-	 wYw34LkTX1xEQg7xby+BZJsyutXsfp+cR2pWEm4XRvVT8rR5UAriD44YzUDYn9O8BH
-	 sv1FrGE4BNK/kkuWuuxJKK2m9tEHJWQoUvFOJoel89t293/vPBavCkEsVZLGfSk6EB
-	 nv+dvhsSrAoapt4/qtz25znW99z+iNeTgGdExYarHNcEMvrZArBbnjr5klHfBdrSIQ
-	 npt6tDcSzkJDVGA7lt7SqLuJk8FQII2IBZphMZF57qXSwO99mUy0Yx5fxcEzr8v7p4
-	 a9HRwsrbAz6LQ==
-Received: from customer.lgosnga1.isp.starlink.com (unknown [98.97.79.78])
-	by mail.puresolution.de (Postfix) with ESMTPSA id 4D9CAB93DF
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 07:50:52 +0200 (CEST)
-From: "Euro Millions" <tomcat@puresolution.de>
-To: linux-arm-kernel@lists.infradead.org
-Subject: =?UTF-8?B?SGVyemxpY2hlbiBHbMO8Y2t3dW5zY2g=?=
-Date: 14 May 2026 06:50:51 +0100
-Message-ID: <20260514065051.7A4C2A467E48E7E4@puresolution.de>
-MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 14 May 2026 07:05:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AB3A243F74;
+	Thu, 14 May 2026 07:04:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A471C2BCB7;
+	Thu, 14 May 2026 07:04:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778742297;
+	bh=aPybIQGyqUA9qjM5+u2e5c6BwGWMHofN4WnuZwmO60o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GDik+5nteWXGocRGB0Pm8uCGUJSnN6oNc2y+F1YhavFhRTDEHthCx5trA99Mv3Jh+
+	 vp1sRldEp+JZQJ6+7UKoz9qaT3zz32zDEeaS9Zk6GGWpuRdOiEIXW67Nqh1OezCDEW
+	 UDSIYfxPMiZeTX4uJin6ZrPGxikS4RqmOtEnBefA6oYRJnzpZBkuNbb6OkzglXyf2H
+	 U3DFkoKagI8hBJDAkOKQvNcr/3XbNhHgpQfYCnz1uFo3QmFdqabsODphhBSO6iQdlm
+	 9nHHFuf8Csw3NdkJYrETQQh7LqGQwS0D7dLIJ3RCAVMqm7eOM2TlgTzbx4tCzjXmz4
+	 0MwL1q+TRU7FA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wNQ7r-00000002GZR-1EXq;
+	Thu, 14 May 2026 07:04:55 +0000
+Date: Thu, 14 May 2026 08:04:54 +0100
+Message-ID: <86bjeixyi1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: renesas: r8a78000: Fix GIC-720AE View 1 Redistributor description
+In-Reply-To: <20260513223125.43337-1-marek.vasut+renesas@mailbox.org>
+References: <20260513223125.43337-1-marek.vasut+renesas@mailbox.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: marek.vasut+renesas@mailbox.org, linux-arm-kernel@lists.infradead.org, conor+dt@kernel.org, geert+renesas@glider.be, krzk+dt@kernel.org, kuninori.morimoto.gx@renesas.com, magnus.damm@gmail.com, robh@kernel.org, devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_000226_246864_55FBC51C 
-X-CRM114-Status: UNSURE (   2.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260514_000458_581012_C6FBE66C 
+X-CRM114-Status: GOOD (  27.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,24 +87,80 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: emailnet@mail2webmaster.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Herzlichen Gl=C3=BCckwunsch, Sie haben =E2=82=AC650.000,00 bei den monatlic=
-hen=20
-Gewinnspielen von Euro Millions/Google Promo am 1.Mai 2026=20
-gewonnen.
+On Wed, 13 May 2026 23:30:08 +0100,
+Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
+> 
+> The Renesas R-Car X5H (R8A78000) SoC contains Arm CoreLink GIC-720AE
+> Generic Interrupt Controller with Multi View capability. Firmware has
+> access to configuration View 0, Linux kernel has access to View 1.
 
-Bitte geben Sie die folgenden Informationen ein, damit Ihr=20
-Gewinnbetrag an Sie =C3=BCberwiesen werden kann.
+Huh. That's pretty unexpected. The usual wisdom is to give the APs
+view 0 so that it looks like a "normal" machine, rather than only a
+partition of the system (which is what view != 0 indicates).
 
-Vollst=C3=A4ndiger Name:
-Heimatadresse:
-Geschlecht:
-Alter:
-Telefon:
+I guess there is some additional fun going on there, such as other
+CPUs getting a portion of the GIC for themselves, and firmware
+preventing whatever is running on the APs to interact with them...
 
-John Andrew
-Online-Koordinator
+> 
+> The Arm CoreLink GIC-720AE Generic Interrupt Controller Technical
+> Reference Manual, currently latest r2p1 [1], chapter "Programmers model
+> for GIC-720AE", subchapter "Redistributor registers for control and
+> physical LPIs summary", part "GICR_TYPER, Redistributor Type Register"
+> clarifies register "GICR_TYPER" bit 4 "Last" behavior in Multi View
+> setup as follows:
+> 
+> "
+> Last
+> Last Redistributor:
+> 
+> 0 ... This Redistributor is not the last Redistributor on the chip.
+> 1 ... This Redistributor is the last Redistributor on the chip.
+>       When GICD_CFGID.VIEW == 1, for views 1, 2, or 3 this bit
+>       always returns 1.
+> "
+> 
+> On this SoC, GICD_CFGID.VIEW is 1 and the Linux kernel has access to
+> View 1, therefore Linux kernel GICv3 driver will interpret register
+> "GICR_TYPER" bit 4 "Last" = 1 in the first Redistributor in continuous
+> Redistributor page as that first Redistributor being the one and only
+> Redistributor and will stop processing the continuous Redistributor
+> page further. This will prevent the other Redistributors from being
+> recognized by the system and used for other PEs.
+> 
+> Because the hardware indicates that the continuous Redistributor page
+> is not continuous for View 1, 2, or 3, describe every Redistributor
+> separately in the DT. This makes all Redistributors for all cores
+> accessible in Linux.
+> 
+> [1] https://developer.arm.com/documentation/102666/0201/Programmers-model-for-GIC-720AE/Redistributor-registers-for-control-and-physical-LPIs-summary/GICR-TYPER--Redistributor-Type-Register?lang=en
+>
+
+I am amazed that you managed to find anything at all on this web site.
+
+I would refrain from adding links to any ARM web sites in a commit
+message though. They tend to have a 10 minutes half-life period, and
+whole specs to disappear from public view when they are not flavour of
+the week anymore.
+
+A link to the equivalent PDF has better chances to survive further
+creative^WAI slop driven reorg of the documentation:
+
+https://documentation-service.arm.com/static/69ef3c1cd35efd294e335c43
+
+but your best bet is to download it, archive it, and refer to it
+yourself.
+
+> Fixes: 63500d12cf76 ("arm64: dts: renesas: Add R8A78000 SoC support")
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+
+Acked-by: Marc Zyngier <maz@kernel.org>
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
