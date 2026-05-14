@@ -4,225 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB8ACD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 01:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FEACD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 01:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XkWst1w6HBp7OB+s0mG2Iid9IneBnc94knKGWNrXlGw=; b=LYGYkISLluH/346+Hq4e1niXME
-	Q8QVH1i4GMwl7zkdQqG2fo8A/1dHP+YFJmn1gOKwDYkSCIQfC2DltN1YCUjNbrVd26YfiSE0vmAay
-	LUUSFK7MLqARG+4xaB1kZ2qxKVU1Rdh6MFBFhzR27TG0Q3cOJ3cP+ijJbmzFZksabi0iEhlh0k2Aa
-	PemiYbMIWpX7w/JaL7niB2jhVIe94Ku5CaGUZf4/PZFl2N7I3pWYbr7ztWTH2k8hu3AV5VH0kbXvz
-	Iy9tQa5CH4Gby241iF6Ms1shg9gl7T3UfBCuxzFrON1dICDm8pUhWPMaXUyBFedQ9fdJ9krar5vEe
-	Wdh/wIZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oqlzb4MsCIM32FrcCl+V0qQrFgZ6hA5QDr2/h7m4zmA=; b=WRHAovLn0oBl1Pvrlr+lYiFqV0
+	OYO/xVDS/pvcOZe439Ci3vTerz2shclvyVrd+k5srQHgww9gruWE6HAZGWiTogP33lLSHpcn30QQf
+	aLoHuY95vHrAWnYlQKNjZeMrflugQLFbR680OKpeyadmCAFokYqnEmYUy6HZnQXBiSPXh8MLNgKo1
+	UGEsp/aRHGd7tmw2CvgT1BQ9RlKWivFRLkCZK6BFds3pOx+Yk9SHivn/8EKExs3XKEa1Q+d1HFSX5
+	10lmwwYUKdxaVei/lNqlvTeP7Nsvkk2nas/ztl3EvKXnri2QvEkfuu+BsWR7fSKv5nbixHJCGI1Wg
+	0hivGy/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNL6o-00000004IQJ-0CZK;
-	Thu, 14 May 2026 01:43:30 +0000
-Received: from mx0b-00230701.pphosted.com ([148.163.158.9])
+	id 1wNLFU-00000004JAL-3Hli;
+	Thu, 14 May 2026 01:52:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNL6j-00000004IPZ-4AiQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 01:43:29 +0000
-Received: from pps.filterd (m0098572.ppops.net [127.0.0.1])
-	by mx0b-00230701.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64DLQcYd3314980;
-	Wed, 13 May 2026 18:43:15 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com; h=
-	cc:content-id:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	pfptdkimsnps; bh=XkWst1w6HBp7OB+s0mG2Iid9IneBnc94knKGWNrXlGw=; b=
-	GUw/VhW5MqkCaBqBOOm9Coab1YdxEAIyczhFFeFlR/vMPm/i/gatdvhkKTpWUqU5
-	tDoEI4AhAXWes0BNWQWPLE9o326ZzjO6e8XB3tnQAkGmWxNekP9HRfQg1Pj4WMht
-	P6J3zqvDTier8FZFGG4spsEfGBYvqvqwzS4u7Zn+ncQnwyBbU2iQ6vC3X3TdsMrx
-	Bqcj9DeRMVD09AiFahPPiT7d9jg9+nYKT4B+or6Xf3pzV/PBEme0Bt2csQULrqK2
-	UM9QK1eUezru9jmrf4Vq5ZmGSbeInJ4IXwCr2PBy257vgXPNqtD/tUb4Qgw1dLX+
-	cCOTEniutzS2DYCPRGeb+A==
-Received: from smtprelay-out1.synopsys.com (smtprelay-out1.synopsys.com [149.117.87.133])
-	by mx0b-00230701.pphosted.com (PPS) with ESMTPS id 4e4utf39nv-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 13 May 2026 18:43:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
-	t=1778722994; bh=XkWst1w6HBp7OB+s0mG2Iid9IneBnc94knKGWNrXlGw=;
-	h=From:To:CC:Subject:Date:References:In-Reply-To:From;
-	b=gvV4X5EkqtR54HA0c5ITVzMM/QjyMsiRBWQt2iJsL+1EPNtlZZfwDTKkYNKObb/r4
-	 dM6IMPF8JMvW22EJlp8OQFsyXVg/cwGVPzF+2tMeYDr5On+eu3vs5vxBEgyNh21dyh
-	 SStebDrZku3lZjRkhSEJjDvpq53RHcul2RQ/q3Ba7oPGGbHrZdgt/tFuDq6QP2yYMF
-	 ON+MPqInZ0kf03fqE7OWYr3/bRe9bybxCQ4OpWrgvwK5betLcOd9BhoHzwFyVbM97D
-	 A1wiZuE7xa612n+7AHS0aKhFwplZqVmkN56wum/7aCM2zZQ3K9lGKFJolpcodWayRb
-	 qa7MdT6pfcs8A==
-Received: from mailhost.synopsys.com (sv2-mailhost1.synopsys.com [10.205.2.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
-	 client-signature RSA-PSS (2048 bits))
-	(Client CN "mailhost.synopsys.com", Issuer "SNPSica2" (verified OK))
-	by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id AD57E40340;
-	Thu, 14 May 2026 01:43:14 +0000 (UTC)
-Received: from o365relay-in.synopsys.com (us03-o365relay1.synopsys.com [10.4.161.137])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits)
-	 client-signature RSA-PSS (2048 bits))
-	(Client CN "o365relay-in.synopsys.com", Issuer "Sectigo Public Server Authentication CA OV R36" (not verified))
-	by mailhost.synopsys.com (Postfix) with ESMTPS id 288FDA026F;
-	Thu, 14 May 2026 01:43:14 +0000 (UTC)
-Authentication-Results: o365relay-in.synopsys.com; dmarc=pass (p=reject dis=none) header.from=synopsys.com
-Authentication-Results: o365relay-in.synopsys.com; spf=pass smtp.mailfrom=synopsys.com
-Authentication-Results: o365relay-in.synopsys.com;
-	dkim=pass (1024-bit key; unprotected) header.d=synopsys.com header.i=@synopsys.com header.a=rsa-sha256 header.s=selector1 header.b=E5K9TF4y;
-	dkim-atps=neutral
-Received: from CO1PR07CU001.outbound.protection.outlook.com (mail-co1pr07cu00105.outbound.protection.outlook.com [40.93.10.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-384) server-signature RSA-PSS (2048 bits) server-digest SHA256
-	 client-signature RSA-PSS (2048 bits) client-digest SHA256)
-	(Client CN "mail.protection.outlook.com", Issuer "DigiCert Cloud Services CA-1" (verified OK))
-	by o365relay-in.synopsys.com (Postfix) with ESMTPS id D644240130;
-	Thu, 14 May 2026 01:43:13 +0000 (UTC)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WchfpyZ/Gsir1J4P1DOaFjAnEEq81WNQh136VYa9FlBl1kkSL9cYVWUb483bN8iF5JzP+97jW8TNTxwnKGAbWC9Og9lDvR9v5zpqRJU9hXxesDZc+mAhm03htBu+iS2Yuca3tQV58NNYVjDOTQVzw3044NVUdhXK+STnKp7Diq9tAJxAQj2hBEHH4WYn5U2tFlZyrbUcUd8otg1RR27IxAdBtRc81yA/i0Rt10pB3CGRWMJpKBtCVNObp94QjAwEBFTk5qG/rgGqcPFCvJ4GGp4wLV/VcBgQbEqfWcS/YQB0DYKTlTbGOJ1kBDtwWG6S1TV9GO0tIjkA2dWugfLFGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XkWst1w6HBp7OB+s0mG2Iid9IneBnc94knKGWNrXlGw=;
- b=btBQwil98KQJ5s/mcLI6n6/IvWZtT4cxZ5i9w8k1WKcpGioXebyzXt/mHEUTgKBVkMB+tr5+6W2sGqiH09QpwV7w/dUdOyKqw/xwJYmPGelch7NQCipQ7fxCmquGcmjA/eIriMkOF+d/ylPh5LacT1HOzWLIe8trHQvFSJf5OptJjyrrH6YJVH+BXFPQEdrDaEylSB7myzzNc3f6uABRJmK3nYx1YOnmjS1ak91SaUNNkyJ4q9hPg3zz8ndM861FVImr/n6oUCG0ko1ZLeIuaQ5eNdJhlFmWrumK7B1XTJIx6elqAGSVGKo2IeVvF2faDbvndvobNATfVBhLDyfHdg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=synopsys.com; dmarc=pass action=none header.from=synopsys.com;
- dkim=pass header.d=synopsys.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=synopsys.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XkWst1w6HBp7OB+s0mG2Iid9IneBnc94knKGWNrXlGw=;
- b=E5K9TF4yTeUwZSUKam26eWrwVbibRuhklwo5xVJClxVmKAiSznoP4y89JqwnKoCDpAJpkQd4AMyMXDJhyjjTlDT5BUyVFybe1QOVu9Y+nModr3//9obIftkMm4pjEROHqLhy/he6TBHzWrJvC2pizlMskrP61iIwBABopuX0rp8=
-Received: from LV2PR12MB5990.namprd12.prod.outlook.com (2603:10b6:408:170::16)
- by DS7PR12MB8347.namprd12.prod.outlook.com (2603:10b6:8:e5::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.18; Thu, 14 May
- 2026 01:43:07 +0000
-Received: from LV2PR12MB5990.namprd12.prod.outlook.com
- ([fe80::7b72:b921:b9bd:4899]) by LV2PR12MB5990.namprd12.prod.outlook.com
- ([fe80::7b72:b921:b9bd:4899%6]) with mapi id 15.20.9913.009; Thu, 14 May 2026
- 01:43:07 +0000
-X-SNPS-Relay: synopsys.com
-From: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-CC: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-        "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
-        "michal.simek@amd.com" <michal.simek@amd.com>,
-        "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-        "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "git@amd.com" <git@amd.com>,
-        "stable@vger.kernel.org" <stable@vger.kernel.org>
-Subject: Re: [PATCH 3/3] usb: dwc3: xilinx: fix error handling in zynqmp init
- error paths
-Thread-Topic: [PATCH 3/3] usb: dwc3: xilinx: fix error handling in zynqmp init
- error paths
-Thread-Index: AQHc4WCJ388cHRBdu0u38FjUG8Y1VrYMwxOA
-Date: Thu, 14 May 2026 01:43:07 +0000
-Message-ID: <agUnwgXyyrGQ2t2y@vbox>
-References: <20260511160814.2904882-1-radhey.shyam.pandey@amd.com>
- <20260511160814.2904882-4-radhey.shyam.pandey@amd.com>
-In-Reply-To: <20260511160814.2904882-4-radhey.shyam.pandey@amd.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: LV2PR12MB5990:EE_|DS7PR12MB8347:EE_
-x-ms-office365-filtering-correlation-id: dba5a8f6-7055-460e-34cb-08deb15a25e9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700021|4143699003|18002099003|22082099003|56012099003;
-x-microsoft-antispam-message-info: abtsHGNnjTKl5eGXa1BRwsd7VJgYJGMGpg6G+rAPWQ9U2IF2DLrashU3vccYSqjsjwmNBBZ4YpcgPXGPP+EM1W/MZVxdcYpAbn3IlRLta3CEzh9QRwfgKgpZEDHqN+KmQ9wcepOZkp7lLMPNgv4heU6KNutM4JaaxoHakApBBOGt5q7oWPaU0GHl0PqA8e6CckNu2xGyLwzLogEub7cYFuLCuwczl5TFNoofoXR+qXFS0ydFrUY9qyRRoSkDRr2ZcMjNm3Me6HYDUgA4P5aa75X7OJ29DNcRke5WCeD3oqQo8xrzv7jizQqFAJWOTwyokAj9he9/buqKX77xmhp9pkoIFw6IYf98BQciF8lyQq19h506KMpLJL6sFqan6ooXId6GaEabIocj/g7ae1P1O5rl+hR4VaMfCXy2PWBjQ2ednnmPXFo4OHhupmEKVICuVdAhLTdichxqA1HJ1PYRef+NgScMRANfDCZto/9LHt+85L4qScW3Oagmni7wLROjRSGeJnGtLhSIvAthw8nocPS19+OcYYRXHdGjXY6D3ySjJd0p7NT7fd4cA8i7jyHLb/drGit22MAtn/insXgOtPdLptoyyfgNymDBMEV7bmAwc2gFFo/uH8k2xRU04WIqMBHNTz5ooM3sIcp8EVRjJe9EbX5xbpek0Kj0l62F5cRnFX0JqPbWLvTzlTO4yjlyeWERHvbzLNwsALcCjLFw0aCFxmxEj/fIjAeutY3/O/Co2lknOM5EfnvvjCTmDim/
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5990.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700021)(4143699003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RmlRUTdWcXRHR1ROTmR0aVNFNnJJYVFydUF5UnVKaUFoYzN3dFJKWG1iYjF1?=
- =?utf-8?B?WEVhWHZQZTBvMVdJSW1OWUFHVnlGK3RYVXV6ZFRRamtBU1E1dFdnRTRNeUxl?=
- =?utf-8?B?aEhoT1EvbXUzYVRZQU5PM0pMRWJPbndtRzZXOEd3VmtsWk5RcXVwZTlGRVcr?=
- =?utf-8?B?T1lDaWkyWjVuK1FweXVaMXRDQ1pkQllaY3JjZWJBeHN5Z2FEMlFudi9hUnl1?=
- =?utf-8?B?WDdVQkNmd3JZQm9lUGduQklSUGg0MVFmWS91Y0FCek9LbDJ6enRKN1VPUjhH?=
- =?utf-8?B?NlpEOUl3SStTR1hTT2llQmdhY1JVbnpWRWs0L1dqTElMYk1mVVh1UDFOSXFL?=
- =?utf-8?B?K2x3aFpQYlpTRW04a2Z2aEhZUldFbkVxam9xMzJMaUJ6c1RMYVRSNGpoakFU?=
- =?utf-8?B?NDZRaHU3UWMxZW43UXB5NjhKcnk3M1JiWUh2dlUxdkRhVmUyY20rbXc5c1VQ?=
- =?utf-8?B?ZnMreGFOSWJrcURsTU5makowN29rVkVLSUpCVlAyZDFTdVpNYW45RXdMQUdT?=
- =?utf-8?B?UEZuTWwvL2RCalhYdDJpZEduL0YxY1pWdlQ4dkFFc3pac09ER1VmUk9NWWgy?=
- =?utf-8?B?N1NXTlVqL2d5N09BcVczVFM1RTR3VVRLN3ZYT0dhZ3U0cFlTZk0vRWpaQk1u?=
- =?utf-8?B?S1hHbU1ER3JReDV3dWg1SWFleElmRHQxMlU4Ty9NVTlqSjlFc1I0SWU2ZjU2?=
- =?utf-8?B?MVd6THR3MVpFU1YvWk5rV3lHZ0JxbFJ2SndwNTM5R3RrTUloSlBQSkNqVmtI?=
- =?utf-8?B?c0VGV1dwcklDTHlpRTZHZlVRU1ZzczdIcGZBUDNwWHcvVWY4cVFpTS9ncTFw?=
- =?utf-8?B?WFowQVBBeHhMU21FNmtLeGRIa3hjbk9ySEdzU0Npd3JYWkluU2xRdzQzMzJp?=
- =?utf-8?B?czhSODIycGlydzhKcmMrS3BHVFljN0s2MVRwYnFNZENqcWJ4Q1Eydlh4RUZz?=
- =?utf-8?B?SlpXYk14blFLbXAwZ2lqdnpkZFN0YWszME0xT0RSaTBHeW11Q3puRGVvMXJV?=
- =?utf-8?B?bnZjRVhibGx4N25kZ3JBajZ6UWRsQ2VoZmwyem50UWtxOWNhK21jckVmcHc1?=
- =?utf-8?B?WEtKMXNBclF4elZMc1V6NUNWOXAwcmpUU2JhTHpNSVJ6eG9QSW0yQWVIcndX?=
- =?utf-8?B?UG4wNzZYL3J1c1FyMS9IVlNzSTd2d3RLbnUxSURwK1A4aEZXN0xPVE9rbC92?=
- =?utf-8?B?YTk0ejVDS1cvWW1HUHl1UHl3b0ZJRUo0ZnRidk9rMjAzc00xR0dFckk4Q1VV?=
- =?utf-8?B?R3ZJYkkyRGI5NXhWU3NmbHdlcVg4ck5weDZpNXdNL24rMVNhT3pFQTlMVy9n?=
- =?utf-8?B?QXZSdXEzMWFmeWlBL1p0bXkyakdtZWZKMG45Y051NTRudDVYaFRJN21IQkZQ?=
- =?utf-8?B?a0dsVEdDYnQ0STZ5bnRqbjZZWk95V1dJV3l6d3dlVHNuaml0UnExYzRwNnJU?=
- =?utf-8?B?bWNLeU1kWTlrMDY4VjNabktNNmlVOTkram13ckJWcnpPbnkyN2VLS012bGhQ?=
- =?utf-8?B?WlNoaWdnc3A0NlN4eWtNQ1lsWnJHODExc1dxMk8yZG9BUCtxbTBBRERya2xn?=
- =?utf-8?B?cDIwcTY1YzdDYVZuN2kzTklsSzRqbUk4SlhzYlBUQUdZdDRIUWFubUJQVHJZ?=
- =?utf-8?B?ZlcxWXE2R01aL2NqRmVMUHVJZUZ0YzJ5cmhRK0tCbjNLZ3dCaDhOZm5qT2hs?=
- =?utf-8?B?NHhJU1dRM2tDT3Rkd3h4akhmU21nRk8rWFE0K3VyNGZQdzVhanNxY3A3cFlq?=
- =?utf-8?B?QlBxdUdibk9vTy94TnV2cHloTDRTdngvNTc4NTcyaHg1eVlsd0V6MjU1NHp0?=
- =?utf-8?B?czdjSUhWVFNzK0JickhCZjY2bVNPYllMcHplTWk4Q3FKTlZYWTl5MUprN0xJ?=
- =?utf-8?B?ak4xMjRKajdUVDU2WCtlQi8zRmxIcVpmSCtueVVRQmowUkJMQkYwRUtmUkJW?=
- =?utf-8?B?YkxGVjRvVThNbGQraVo3UnJCTWxsNjdsRVdteVF6TjM4RjZNSkwvblNtY3g3?=
- =?utf-8?B?cnRzU3RrSE92bWVGZVFVU25yWURrNThCUnJhbmE1dVhZRVN4YUovRXdMMTN0?=
- =?utf-8?B?MU93YzF5WUUrZXFoK2FidUJGNCtjdUx6VGdHOHdSdWdBNnVzSmxLTnZJRkZ0?=
- =?utf-8?B?YlAyZUFhbytXUTZEUDIvcjlneTQ1anJiQ1E4RXN3ckpieitjSFhscXR2TjRy?=
- =?utf-8?B?bkpYSm53MDlOZ2liZEtiSXhOSHAxNUNBMUJSQ284WldwN2lZR3V6ajVpZERy?=
- =?utf-8?B?WnBSOEVKNFhOeHRNMC9MdDVUQUJWSVZld3BzUU9PbWZUS0czRlNqQ1ZqcXFh?=
- =?utf-8?B?cXFyM3p4WGErYTZ3bzkzSWxXOExYWUJDd3ZUN0pMR3hhbTMyUW1Jdz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <36C2EF8622435B42BD2EC8180E28D9AA@namprd12.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1wNLFR-00000004J99-1YYJ;
+	Thu, 14 May 2026 01:52:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 34B094428B;
+	Thu, 14 May 2026 01:52:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B6C3C19425;
+	Thu, 14 May 2026 01:52:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778723544;
+	bh=6pDgQjyeEBWiVFg+WVkREdLSXDvJhnpd2OuFfswe+9Y=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WXPUYEAKLucuK2Ciw9f3xEQ2zn5oNhYnaL5rKpZWIR8GnQWYfDhgeSA+EM7+TwBUw
+	 w+OZ/uamSE0Sy7i4mXZzPsq0atTgcNwPTCw3LutwMYNtuYDnchhyl72EUWBrCmYGUq
+	 vv7XFngSwKk96OzTYfh16A0hT8kQ1syoWD2blvFub98z+ax5wCmuyYTDGi2Ouqcs4+
+	 r82wyIYHkJ1qpp9+RMZR6ms63DQrvaJ5ceflpxLr9qz7cBSCAvESaTTzLh7aeuUfFU
+	 UN0rHfgb0YsZTrEKEB0pioG91SJ2kkQhw0JATflkqndelnrRUClaCW6kYncZMQRE/Q
+	 Y9zw2anKBoACw==
+From: Jakub Kicinski <kuba@kernel.org>
+To: linux@fw-web.de
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	nbd@nbd.name,
+	lorenzo@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux@armlinux.org.uk,
+	mason-cw.chang@mediatek.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	daniel@makrotopia.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [net-next v8 2/3] net: ethernet: mtk_eth_soc: Add RSS support
+Date: Wed, 13 May 2026 18:52:20 -0700
+Message-ID: <20260514015221.521091-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260509190938.169290-3-linux@fw-web.de>
+References: <20260509190938.169290-3-linux@fw-web.de>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: MyzL0OMTIFeAB0+QGhXyBPMBpk0s53utHweG7l15H94HwdQlMkvEi4JDBFcGjbK2QurcZ1N0HAQcBc9+0Nl9aASxityLkFezmPMBc1TJS2nkMpaFHvrfZ6IJ9GTHwyOuSliGhS16Gqn4+37uDcTmuUynajt12YlqaQMPIiBWmr1XPpRpr259qDX8NwSt/hl/WLu8DtImEThatrx+wiB6ygl6z3y+6rv+ggQGuGd6xZIP3J1hjMNBeUv+dNVQm/iwwGGV7WAltUk/aS1jVDVCGD2aTuVeCuWCfUSrq0dORRjGR1RclqW8XHgdCuUT4feuQrGpLn8FFUdxCIlEVRR36Q==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: yOhWL4mq+ZxAJzEMmc80EXDdYFz0htKOnYJ6So5WRiMfN0ZsI198Xqy76YLIiP8y3RUocsbHGCNuEC4GmTlyf+n3CKYGuKzCXVs7mrPgw0Y3vpIdeZ/ccFLN79z+0GLXf1jYYE2P4IW60j1iBpbe0thKZ5aI3VW8Km2EmVWzDZGOAqaTk2FumwSYiPOUrNsZIBwz0xFZLQvTap/kwmSPQ2FtH0GDD1T4AjtdgRLDtup6iXn/KQ0hLDakGCY67zWLXGVKpg8xLOsBDpelKtJODPqiwHw0cY6MQxHtcm/WiRUceenkJeNgKmIH5WiKQfA3OqlNytngbJzQAuccVdSbyOKY2Ts0zi8e90oPnPDLIkAp4ZvCGUsc7VYJgWc0UUU1Phq9LZ1bExyIiZdhxoJoNOgCSpblnGf8qdvgsrKRwShX1/eL7MSqB3bpPs83WeKW9g/6BeIFf4gQP2fIl7hVs98mqdwO97y+ZA7K58tmz2UKG4GIA4/rivNjvROKLu+VnDfliiUrYs3M4KN3q/luLU3L5n/+s9MSw5XM6uXyM4uad1e+Z3slXVHBJQKb3hA5z7hICmcGPnWxI11fpVsGYWnPBu09F6xKNydVYF6Kkr5MNaxXtytWQQ/5xhubca6rtYNRKZ8AmZDlS7daHfQGQg==
-X-OriginatorOrg: synopsys.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5990.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dba5a8f6-7055-460e-34cb-08deb15a25e9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 May 2026 01:43:07.3765
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: c33c9f88-1eb7-4099-9700-16013fd9e8aa
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: FrMnF3I7eJCypoW/jm0xC/eKkhh34tF1UccktTDgn0ebHuuRMVLhtCpPjyl0xIQ0+QCE5fcKbZRpe1OHGsWsXw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8347
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE0MDAxNSBTYWx0ZWRfX6JlPPyTv2iCA
- Rlob5kd/SmDMGlV9tvMVizWWcnsjbUhCgi8/CfkikfSw8ARrddKtkR9bKJz8J882yjKn+Tn13GR
- Q67zTJRwo088bbWvquN9rSTAcv3CYHAyuDA6q/HkIJMML3hbUIB8BB2RTHeCMnncyQYDgUYA8bA
- emI4z2iT9uFfrVbhnGvZaEoeEMkDLbgKMlWICO0ReqnGINA7rVbMAfCmacoUCDEhHKc9WF5qzHX
- 67DLi+nZ7uRMIZgQa9RMHal5wm28t4phCvXWg54Cc4o1iK2FAObgOknGE+e0zLHTKwpssdE3V5l
- ZfW6pb9HlzVLicxLbLpf2+rAi7aMyGVVG/4hI+nXIrXw7KeaujFNwIipd5a6KI2NxBs8iZB2VZM
- 6O0EJDt3dySiJhGD/6pLErdA2whjgSXNKfJ6AjlTFqy1wZqsbeYRWVsJ3tBcF6bvx//wrYbR+53
- cKhjflTQmuQM7R7KwMA==
-X-Proofpoint-ORIG-GUID: XVloLwgo7H8N_XuoumUVM6DXP_6enBLe
-X-Proofpoint-GUID: XVloLwgo7H8N_XuoumUVM6DXP_6enBLe
-X-Authority-Analysis: v=2.4 cv=W/AIkxWk c=1 sm=1 tr=0 ts=6a0528b3 cx=c_pps
- a=t4gDRyhI9k+KZ5gXRQysFQ==:117 a=t4gDRyhI9k+KZ5gXRQysFQ==:17
- a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
- a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=qPHU084jO2kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=tU_645BZ7FZt8VqRJtHG:22 a=jSPayVjLy6xbsuKauFBc:22
- a=VwQbUJbxAAAA:8 a=zd2uoN0lAAAA:8 a=VFU5Akf9p8PI5X4w4VMA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-13_04,2026-05-13_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_active_cloned_notspam
- policy=outbound_active_cloned score=0 bulkscore=0 impostorscore=0
- suspectscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0 phishscore=0
- adultscore=0 clxscore=1015 priorityscore=1501 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.22.0-2605050000 definitions=main-2605140015
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260513_184326_180866_A742D1A9 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20260513_185225_471784_34CEB046 
+X-CRM114-Status: GOOD (  33.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -237,50 +85,434 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXkgMTEsIDIwMjYsIFJhZGhleSBTaHlhbSBQYW5kZXkgd3JvdGU6DQo+IEZpeCBl
-cnJvciBoYW5kbGluZyBhbmQgcmVzb3VyY2UgY2xlYW51cCBpLmUgcmVtb3ZlIGludmFsaWQNCj4g
-cGh5X2V4aXQoKSBhZnRlciBmYWlsZWQgcGh5X2luaXQoKSwgcm91dGUgZmFpbHVyZXMgdGhyb3Vn
-aA0KPiBwcm9wZXIgY2xlYW51cCBwYXRocyBhbmQgcmV0dXJuIDAgZXhwbGljaXRseSBvbiBzdWNj
-ZXNzLg0KPiANCj4gRml4ZXM6IDg0NzcwZjAyOGZhYiAoInVzYjogZHdjMzogQWRkIGRyaXZlciBm
-b3IgWGlsaW54IHBsYXRmb3JtcyIpDQo+IENjOiBzdGFibGVAdmdlci5rZXJuZWwub3JnDQo+IFNp
-Z25lZC1vZmYtYnk6IFJhZGhleSBTaHlhbSBQYW5kZXkgPHJhZGhleS5zaHlhbS5wYW5kZXlAYW1k
-LmNvbT4NCj4gLS0tDQo+ICBkcml2ZXJzL3VzYi9kd2MzL2R3YzMteGlsaW54LmMgfCAyNyArKysr
-KysrKysrKysrKystLS0tLS0tLS0tLS0NCj4gIDEgZmlsZSBjaGFuZ2VkLCAxNSBpbnNlcnRpb25z
-KCspLCAxMiBkZWxldGlvbnMoLSkNCj4gDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3VzYi9kd2Mz
-L2R3YzMteGlsaW54LmMgYi9kcml2ZXJzL3VzYi9kd2MzL2R3YzMteGlsaW54LmMNCj4gaW5kZXgg
-OTQ0NThiM2RhMWEwLi5iODMyNTA1ZTFiMDQgMTAwNjQ0DQo+IC0tLSBhL2RyaXZlcnMvdXNiL2R3
-YzMvZHdjMy14aWxpbnguYw0KPiArKysgYi9kcml2ZXJzL3VzYi9kd2MzL2R3YzMteGlsaW54LmMN
-Cj4gQEAgLTE3NiwxNSArMTc2LDEzIEBAIHN0YXRpYyBpbnQgZHdjM194bG54X2luaXRfenlucW1w
-KHN0cnVjdCBkd2MzX3hsbnggKnByaXZfZGF0YSkNCj4gIAl9DQo+ICANCj4gIAlyZXQgPSBwaHlf
-aW5pdChwcml2X2RhdGEtPnVzYjNfcGh5KTsNCj4gLQlpZiAocmV0IDwgMCkgew0KPiAtCQlwaHlf
-ZXhpdChwcml2X2RhdGEtPnVzYjNfcGh5KTsNCj4gKwlpZiAocmV0IDwgMCkNCj4gIAkJZ290byBl
-cnI7DQo+IC0JfQ0KPiAgDQo+ICAJcmV0ID0gcmVzZXRfY29udHJvbF9kZWFzc2VydChhcGJyc3Qp
-Ow0KPiAgCWlmIChyZXQgPCAwKSB7DQo+ICAJCWRldl9lcnIoZGV2LCAiRmFpbGVkIHRvIHJlbGVh
-c2UgQVBCIHJlc2V0XG4iKTsNCj4gLQkJZ290byBlcnI7DQo+ICsJCWdvdG8gZXJyX3BoeV9leGl0
-Ow0KPiAgCX0NCj4gIA0KPiAgCWlmIChwcml2X2RhdGEtPnVzYjNfcGh5KSB7DQo+IEBAIC0yMDAs
-MjYgKzE5OCwyNCBAQCBzdGF0aWMgaW50IGR3YzNfeGxueF9pbml0X3p5bnFtcChzdHJ1Y3QgZHdj
-M194bG54ICpwcml2X2RhdGEpDQo+ICAJcmV0ID0gcmVzZXRfY29udHJvbF9kZWFzc2VydChjcnN0
-KTsNCj4gIAlpZiAocmV0IDwgMCkgew0KPiAgCQlkZXZfZXJyKGRldiwgIkZhaWxlZCB0byByZWxl
-YXNlIGNvcmUgcmVzZXRcbiIpOw0KPiAtCQlnb3RvIGVycjsNCj4gKwkJZ290byBlcnJfcGh5X2V4
-aXQ7DQo+ICAJfQ0KPiAgDQo+ICAJcmV0ID0gcmVzZXRfY29udHJvbF9kZWFzc2VydChoaWJyc3Qp
-Ow0KPiAgCWlmIChyZXQgPCAwKSB7DQo+ICAJCWRldl9lcnIoZGV2LCAiRmFpbGVkIHRvIHJlbGVh
-c2UgaGliZXJuYXRpb24gcmVzZXRcbiIpOw0KPiAtCQlnb3RvIGVycjsNCj4gKwkJZ290byBlcnJf
-cGh5X2V4aXQ7DQo+ICAJfQ0KPiAgDQo+ICAJcmV0ID0gcGh5X3Bvd2VyX29uKHByaXZfZGF0YS0+
-dXNiM19waHkpOw0KPiAtCWlmIChyZXQgPCAwKSB7DQo+IC0JCXBoeV9leGl0KHByaXZfZGF0YS0+
-dXNiM19waHkpOw0KPiAtCQlnb3RvIGVycjsNCj4gLQl9DQo+ICsJaWYgKHJldCA8IDApDQo+ICsJ
-CWdvdG8gZXJyX3BoeV9leGl0Ow0KPiAgDQo+ICAJLyogdWxwaSByZXNldCB2aWEgZ3Bpby1tb2Rl
-cGluIG9yIGdwaW8tZnJhbWV3b3JrIGRyaXZlciAqLw0KPiAgCXJlc2V0X2dwaW8gPSBkZXZtX2dw
-aW9kX2dldF9vcHRpb25hbChkZXYsICJyZXNldCIsIEdQSU9EX09VVF9ISUdIKTsNCj4gIAlpZiAo
-SVNfRVJSKHJlc2V0X2dwaW8pKSB7DQo+IC0JCXJldHVybiBkZXZfZXJyX3Byb2JlKGRldiwgUFRS
-X0VSUihyZXNldF9ncGlvKSwNCj4gLQkJCQkgICAgICJGYWlsZWQgdG8gcmVxdWVzdCByZXNldCBH
-UElPXG4iKTsNCj4gKwkJcmV0ID0gUFRSX0VSUihyZXNldF9ncGlvKTsNCj4gKwkJZ290byBlcnJf
-cGh5X3Bvd2VyX29mZjsNCj4gIAl9DQo+ICANCj4gIAlpZiAocmVzZXRfZ3Bpbykgew0KPiBAQCAt
-MjI5LDYgKzIyNSwxMyBAQCBzdGF0aWMgaW50IGR3YzNfeGxueF9pbml0X3p5bnFtcChzdHJ1Y3Qg
-ZHdjM194bG54ICpwcml2X2RhdGEpDQo+ICAJfQ0KPiAgDQo+ICAJZHdjM194bG54X3NldF9jb2hl
-cmVuY3kocHJpdl9kYXRhLCBYTE5YX1VTQl9UUkFGRklDX1JPVVRFX0NPTkZJRyk7DQo+ICsNCj4g
-KwlyZXR1cm4gMDsNCj4gKw0KPiArZXJyX3BoeV9wb3dlcl9vZmY6DQo+ICsJcGh5X3Bvd2VyX29m
-Zihwcml2X2RhdGEtPnVzYjNfcGh5KTsNCj4gK2Vycl9waHlfZXhpdDoNCj4gKwlwaHlfZXhpdChw
-cml2X2RhdGEtPnVzYjNfcGh5KTsNCj4gIGVycjoNCj4gIAlyZXR1cm4gcmV0Ow0KPiAgfQ0KPiAt
-LSANCj4gMi40NC40DQo+IA0KDQpUaGlzIGZpeCBzaG91bGQgYmUgYSBzZXBhcmF0ZSBwYXRjaCBm
-cm9tIHRoaXMgY2xlYW51cCBzZXJpZXMuDQoNClRoYW5rcywNClRoaW5o
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+Subject: net: ethernet: mtk_eth_soc: Add RSS support
+
+This commit adds Receive Side Scaling support for the mtk_eth_soc driver,
+enabling up to four RX rings on MT7988 with ethtool -x and
+--set-rxfh-indir support. It also reworks the RX NAPI / IRQ handling
+into per-ring instances and renames eth->irq[] to eth->irq_fe[] /
+eth->irq_pdma[].
+
+> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+
+[ ... ]
+
+> @@ -2235,16 +2199,15 @@ static int mtk_poll_rx(struct napi_struct *napi, int budget,
+[ ... ]
+> @@ -2436,7 +2399,7 @@ static int mtk_poll_rx(struct napi_struct *napi, int budget,
+>  		 * we continue
+>  		 */
+>  		wmb();
+> -		mtk_update_rx_cpu_idx(eth);
+> +		mtk_update_rx_cpu_idx(eth, ring);
+>  	}
+>  
+>  	eth->rx_packets += done;
+
+[High]
+With RSS enabled, up to MTK_RX_NAPI_NUM (=4) NAPI instances can run
+concurrently on different CPUs.  eth->rx_packets, eth->rx_bytes (here)
+and eth->rx_events (incremented in mtk_handle_irq_rx with IRQF_SHARED)
+are plain u32 fields with no atomic, no spinlock, and no per-CPU
+storage:
+
+	eth->rx_packets += done;
+	eth->rx_bytes += bytes;
+	dim_update_sample(eth->rx_events, eth->rx_packets, eth->rx_bytes,
+			  &dim_sample);
+	net_dim(&eth->rx_dim, &dim_sample);
+
+Pre-patch a single rx_napi serialised these accesses.  Are these
+unsynchronised cross-CPU updates intentional?  The corrupted values
+feed dim_update_sample() / net_dim() which drives interrupt
+moderation, and eth->rx_dim is a single struct dim shared across all
+RX NAPIs.
+
+> @@ -2645,7 +2608,9 @@ static int mtk_napi_tx(struct napi_struct *napi, int budget)
+>  
+>  static int mtk_napi_rx(struct napi_struct *napi, int budget)
+>  {
+> -	struct mtk_eth *eth = container_of(napi, struct mtk_eth, rx_napi);
+> +	struct mtk_napi *rx_napi = container_of(napi, struct mtk_napi, napi);
+> +	struct mtk_eth *eth = rx_napi->eth;
+> +	struct mtk_rx_ring *ring = rx_napi->rx_ring;
+>  	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
+>  	int rx_done_total = 0;
+
+[Medium]
+mtk_napi_rx() calls mtk_handle_status_irq(eth) on entry of every poll.
+mtk_handle_status_irq() does an unprotected read / clear of
+MTK_INT_STATUS2 and calls mtk_stats_update():
+
+	status2 = mtk_r32(eth, MTK_INT_STATUS2);
+	if (unlikely(status2 & (MTK_GDM1_AF | MTK_GDM2_AF))) {
+		mtk_stats_update(eth);
+		mtk_w32(eth, (MTK_GDM1_AF | MTK_GDM2_AF), MTK_INT_STATUS2);
+	}
+
+With multiple rx_napi instances polling on different CPUs, can a fresh
+AF event arriving between the read and the write be silently dropped,
+or stats be double-counted?  The per-MAC stats_lock taken inside
+mtk_stats_update_mac does not synchronise the status read or the
+clear.
+
+[ ... ]
+
+> @@ -3222,6 +3192,105 @@ static int mtk_hwlro_get_fdir_all(struct net_device *dev,
+[ ... ]
+> +static int mtk_rss_init(struct mtk_eth *eth)
+> +{
+> +	const struct mtk_soc_data *soc = eth->soc;
+> +	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
+> +	struct mtk_rss_params *rss_params = &eth->rss_params;
+> +	u32 val;
+> +	int i;
+> +
+> +	netdev_rss_key_fill(rss_params->hash_key, MTK_RSS_HASH_KEYSIZE);
+> +
+> +	for (i = 0; i < MTK_RSS_MAX_INDIRECTION_TABLE; i++)
+> +		rss_params->indirection_table[i] = ethtool_rxfh_indir_default(i, eth->soc->rss_num);
+> +
+> +	if (soc->rx.desc_size == sizeof(struct mtk_rx_dma)) {
+> +		/* Set RSS rings to PSE modes */
+> +		for (i = 1; i <= MTK_HW_LRO_RING_NUM(eth); i++) {
+> +			val = mtk_r32(eth, MTK_LRO_CTRL_DW2_CFG(reg_map, i));
+> +			val |= MTK_RING_PSE_MODE;
+> +			mtk_w32(eth, val, MTK_LRO_CTRL_DW2_CFG(reg_map, i));
+> +		}
+> +
+> +		/* Enable non-lro multiple rx */
+> +		val = mtk_r32(eth, reg_map->pdma.lro_ctrl_dw0);
+> +		val |= MTK_NON_LRO_MULTI_EN;
+> +		mtk_w32(eth, val, reg_map->pdma.lro_ctrl_dw0);
+> +
+> +		/* Enable RSS dly int supoort */
+> +		val |= MTK_LRO_DLY_INT_EN;
+> +		mtk_w32(eth, val, reg_map->pdma.lro_ctrl_dw0);
+> +	}
+
+[Medium]
+Is this block reachable on any SoC?  mtk_rss_init() is only invoked
+from mtk_dma_init() under MTK_HAS_CAPS(MTK_RSS).  Only mt7988_data
+sets MTK_RSS in caps, and mt7988_data uses
+rx.desc_size = sizeof(struct mtk_rx_dma_v2), not
+sizeof(struct mtk_rx_dma).
+
+If the PSE-mode / MTK_NON_LRO_MULTI_EN / MTK_LRO_DLY_INT_EN
+programming is needed on MT7988, is it being silently skipped?  If it
+was intended for mt7981 / mt7986, those SoCs never reach this path
+because their caps lack MTK_RSS.
+
+There is also a typo above: "RSS dly int supoort" -> "support".
+
+[ ... ]
+
+> +	/* Set perRSS GRP INT */
+> +	mtk_m32(eth, MTK_RX_DONE_INT(eth, MTK_RSS_RING(1)),
+> +		MTK_RX_DONE_INT(eth, MTK_RSS_RING(1)), reg_map->pdma.int_grp);
+
+[ ... ]
+
+> +
+> +	return 0;
+> +}
+
+[ ... ]
+
+> @@ -3312,6 +3381,17 @@ static int mtk_dma_init(struct mtk_eth *eth)
+[ ... ]
+> +	if (MTK_HAS_CAPS(eth->soc->caps, MTK_RSS)) {
+> +		for (i = 1; i < MTK_RX_RSS_NUM(eth); i++) {
+> +			err = mtk_rx_alloc(eth, MTK_RSS_RING(i), MTK_RX_FLAGS_NORMAL);
+> +			if (err)
+> +				return err;
+> +		}
+> +		err = mtk_rss_init(eth);
+> +		if (err)
+> +			return err;
+> +	}
+> +
+
+[ ... ]
+
+> @@ -3437,14 +3523,36 @@ static int mtk_get_irqs(struct platform_device *pdev, struct mtk_eth *eth)
+>  	return 0;
+>  }
+>  
+> -static irqreturn_t mtk_handle_irq_rx(int irq, void *_eth)
+> +static int mtk_get_irqs_pdma(struct platform_device *pdev, struct mtk_eth *eth)
+>  {
+> -	struct mtk_eth *eth = _eth;
+> +	char rxring[] = "pdma0";
+> +	int i;
+> +
+> +	for (i = 0; i < MTK_PDMA_IRQ_NUM; i++) {
+> +		rxring[4] = '0' + i;
+> +		eth->irq_pdma[i] = platform_get_irq_byname(pdev, rxring);
+> +		if (eth->irq_pdma[i] < 0)
+> +			return eth->irq_pdma[i];
+> +	}
+> +
+> +	return 0;
+> +}
+
+[High]
+This loop demands all four pdma0..pdma3 IRQs whenever
+MTK_HAS_CAPS(MTK_PDMA_INT) is set, but the same patch adds
+MTK_PDMA_INT to MT7981_CAPS and MT7986_CAPS — SoCs which do not
+have MTK_RSS.  On those SoCs only rx_napi[0] / pdma0 is ever
+referenced (every pdma1..pdma3 use site is gated on
+MTK_HAS_CAPS(MTK_RSS) in probe / open / stop / dma_init / dma_free).
+
+Existing MT7981 / MT7986 device trees declare only fe1 / fe2.  Does
+this turn into a probe-time -ENXIO failure for those boards?  Should
+the call to mtk_get_irqs_pdma(), or at least the requests for
+pdma1..pdma3, be folded under MTK_HAS_CAPS(MTK_RSS) so older DTs
+continue to probe?
+
+> +
+> +static irqreturn_t mtk_handle_irq_rx(int irq, void *priv)
+> +{
+> +	struct mtk_napi *rx_napi = priv;
+> +	struct mtk_eth *eth = rx_napi->eth;
+> +	struct mtk_rx_ring *ring = rx_napi->rx_ring;
+>  
+>  	eth->rx_events++;
+> -	if (likely(napi_schedule_prep(&eth->rx_napi))) {
+> -		mtk_rx_irq_disable(eth, eth->soc->rx.irq_done_mask);
+> -		__napi_schedule(&eth->rx_napi);
+> +	if (unlikely(!(mtk_r32(eth, eth->soc->reg_map->pdma.irq_status) &
+> +		       mtk_r32(eth, eth->soc->reg_map->pdma.irq_mask) &
+> +		       MTK_RX_DONE_INT(eth, ring->ring_no))))
+> +		return IRQ_NONE;
+
+[High]
+Pre-patch mt7988_data set rx.irq_done_mask = MTK_RX_DONE_INT_V2 =
+BIT(14).  Post-patch the per-soc field is removed and replaced with
+MTK_RX_DONE_INT(eth, ring_no), which for V3 (mt7988) expands to
+BIT(24 + ring_no), so MTK_RX_DONE_INT(eth, 0) is now BIT(24) instead
+of BIT(14).
+
+Is the bit number change intentional?  If MT7988 RX-done is actually
+signalled on BIT(14), the new mask never matches, mtk_handle_irq_rx
+returns IRQ_NONE, and RX traffic stalls.  If BIT(14) was wrong all
+along, could the commit message describe the silent fix?  The patch
+otherwise advertises only RSS.
+
+[ ... ]
+
+> @@ -3888,9 +4011,7 @@ static void mtk_dim_rx(struct work_struct *work)
+[ ... ]
+> -	val = mtk_r32(eth, reg_map->pdma.delay_irq);
+> -	val &= MTK_PDMA_DELAY_TX_MASK;
+> -	val |= MTK_PDMA_DELAY_RX_EN;
+> +	val = MTK_PDMA_DELAY_RX_EN;
+[ ... ]
+> -	mtk_w32(eth, val, reg_map->pdma.delay_irq);
+>  	if (MTK_HAS_CAPS(eth->soc->caps, MTK_QDMA))
+> -		mtk_w32(eth, val, reg_map->qdma.delay_irq);
+> +		mtk_m32(eth, MTK_PDMA_DELAY_TX_MASK,
+> +			val << MTK_PDMA_DELAY_TX_PTIME_SHIFT, reg_map->qdma.delay_irq);
+> +
+> +	if (eth->soc->rx.desc_size == sizeof(struct mtk_rx_dma)) {
+> +		mtk_m32(eth, MTK_PDMA_DELAY_RX_MASK, val, reg_map->pdma.delay_irq);
+> +		mtk_w32(eth, val, reg_map->pdma.lro_rx1_dly_int);
+> +		mtk_w32(eth, val, reg_map->pdma.lro_rx1_dly_int + 0x4);
+> +		mtk_w32(eth, val, reg_map->pdma.lro_rx1_dly_int + 0x8);
+> +	} else {
+> +		val = val | (val << MTK_PDMA_DELAY_RX_RING_SHIFT);
+> +		mtk_w32(eth, val, reg_map->pdma.rx_delay_irq);
+> +	}
+
+[Critical]
+The new branch is gated on rx.desc_size, not on a capability bit.
+rt5350_data (MT7628) has rx.desc_size = sizeof(struct mtk_rx_dma) and
+uses mt7628_reg_map, which does not initialise lro_rx1_dly_int (it
+defaults to 0).
+
+mtk_hw_init() calls mtk_dim_rx(&eth->rx_dim.work) inside the MT7628
+branch, and net_dim invokes it again on every moderation update.  Each
+call therefore performs:
+
+	mtk_w32(eth, val, 0);
+	mtk_w32(eth, val, 0x4);
+	mtk_w32(eth, val, 0x8);
+
+These offsets land in the Frame Engine global config region
+(MTK_FE_GLO_CFG(0) = 0x00 etc.) instead of any LRO/RSS register, with
+val containing MTK_PDMA_DELAY_RX_EN = BIT(15).  Can this corrupt
+MT7628 frame-engine state on every boot and every NAPI moderation
+update?  Should the branch be gated on MTK_HWLRO or MTK_RSS rather
+than on rx.desc_size?
+
+[Medium]
+On V3 hardware (the only chip enabling RSS) only two ring slots are
+programmed here:
+
+	val = val | (val << MTK_PDMA_DELAY_RX_RING_SHIFT);
+	mtk_w32(eth, val, reg_map->pdma.rx_delay_irq);
+
+With MTK_PDMA_DELAY_RX_RING_SHIFT = 16 the register holds two rings,
+but RSS uses MTK_RX_RSS_NUM(eth) = 4 rings.  Do rings 2 and 3 ever
+receive DIM-driven moderation updates after probe, or do they stay at
+the hardware default?
+
+[ ... ]
+
+> @@ -4149,6 +4285,25 @@ static void mtk_hw_reset_monitor_work(struct work_struct *work)
+[ ... ]
+> +static int mtk_napi_init(struct mtk_eth *eth)
+> +{
+[ ... ]
+> +}
+
+[ ... ]
+
+> @@ -4238,12 +4393,11 @@ static int mtk_hw_init(struct mtk_eth *eth, bool reset)
+[ ... ]
+
+> @@ -4700,8 +4860,13 @@ static void mtk_get_ethtool_stats(struct net_device *dev,
+>  
+>  static u32 mtk_get_rx_ring_count(struct net_device *dev)
+>  {
+> +	struct mtk_mac *mac = netdev_priv(dev);
+> +	struct mtk_eth *eth = mac->hw;
+> +
+>  	if (dev->hw_features & NETIF_F_LRO)
+>  		return MTK_MAX_RX_RING_NUM;
+> +	else if (MTK_HAS_CAPS(eth->soc->caps, MTK_RSS))
+> +		return MTK_RX_RSS_NUM(eth);
+>  
+>  	return 0;
+>  }
+
+[ ... ]
+
+> @@ -4784,6 +4949,70 @@ static int mtk_set_eee(struct net_device *dev, struct ethtool_keee *eee)
+[ ... ]
+> +static int mtk_set_rxfh(struct net_device *dev, struct ethtool_rxfh_param *rxfh,
+> +			struct netlink_ext_ack *extack)
+> +{
+> +	struct mtk_mac *mac = netdev_priv(dev);
+> +	struct mtk_eth *eth = mac->hw;
+> +	struct mtk_rss_params *rss_params = &eth->rss_params;
+> +	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
+> +	int i;
+> +
+> +	if (rxfh->hfunc != ETH_RSS_HASH_NO_CHANGE &&
+> +	    rxfh->hfunc != ETH_RSS_HASH_TOP)
+> +		return -EOPNOTSUPP;
+> +
+> +	if (rxfh->key) {
+> +		memcpy(rss_params->hash_key, rxfh->key,
+> +		       sizeof(rss_params->hash_key));
+> +		for (i = 0; i < MTK_RSS_HASH_KEYSIZE / sizeof(u32); i++)
+> +			mtk_w32(eth, rss_params->hash_key[i],
+> +				MTK_RSS_HASH_KEY_DW(reg_map, i));
+> +	}
+> +
+> +	if (rxfh->indir) {
+> +		for (i = 0; i < MTK_RSS_MAX_INDIRECTION_TABLE; i++)
+> +			rss_params->indirection_table[i] = rxfh->indir[i];
+> +		for (i = 0; i < MTK_RSS_MAX_INDIRECTION_TABLE / 16; i++)
+> +			mtk_w32(eth, mtk_rss_indr_table(rss_params, i),
+> +				MTK_RSS_INDR_TABLE_DW(reg_map, i));
+> +	}
+> +
+> +	return 0;
+> +}
+
+[High]
+Should this op (and .get_rxfh / .get_rxfh_key_size /
+.get_rxfh_indir_size) be gated on MTK_HAS_CAPS(MTK_RSS)?  As written,
+mtk_ethtool_ops exposes them unconditionally for every SoC the driver
+supports.
+
+MTK_RSS_HASH_KEY_DW(reg_map, x) and MTK_RSS_INDR_TABLE_DW(reg_map, x)
+are computed as (reg_map)->pdma.rss_glo_cfg + 0x20 + ... and + 0x50 +
+... .  mtk_reg_map (mt2701/mt7621/mt7622/mt7623/mt7629) and
+mt7628_reg_map do not initialise rss_glo_cfg, so it defaults to 0.
+
+A CAP_NET_ADMIN user invoking ethtool -X dev hkey ... on those SoCs
+would write user-controlled u32 values into absolute frame-engine
+offsets 0x20..0x44 (and indirection writes to 0x50..0x6c).  Can these
+ops be made conditional on MTK_RSS, or filled in only for the RSS-
+capable SoC?
+
+[Medium]
+mtk_set_rxfh() does not validate user-supplied indir[i] entries
+against MTK_RX_RSS_NUM(eth).  The packing helper allots only 2 bits
+per entry:
+
+	val |= (rss_params->indirection_table[i] << (2 * (i % 16)));
+
+ethtool core only enforces indir[i] < num_rx_rings when
+num_rx_rings is non-zero, and MTK_RSS hardware has at most 4 rings.
+Should the driver reject values >= MTK_RX_RSS_NUM(eth) so they don't
+silently bleed across the 2-bit slots in the packed register?  The
+indirection table also stores the raw u32 into a u8 field, which
+truncates 4..255 instead of catching them.
+
+[Medium]
+mtk_rss_init() wraps key / indirection writes with an
+MTK_RSS_CFG_REQ pause / release handshake:
+
+	/* Pause */
+	val |= MTK_RSS_CFG_REQ;
+	mtk_w32(eth, val, reg_map->pdma.rss_glo_cfg);
+	...
+	/* Release pause */
+	val &= ~(MTK_RSS_CFG_REQ);
+
+mtk_set_rxfh() writes the same registers at runtime without that
+handshake.  Can the hardware sample partially-updated key /
+indirection state and steer packets to incorrect or out-of-range
+rings while the write loop is in flight?
+
+[ ... ]
+
+> @@ -5424,6 +5708,7 @@ static const struct mtk_soc_data mt2701_data = {
+
+[ ... entries for mt2701/mt7621/mt7622/mt7623/mt7629/rt5350 ... ]
+
+> @@ -5567,16 +5851,16 @@ static const struct mtk_soc_data mt7981_data = {
+[ ... ]
+>  	.foe_entry_size = MTK_FOE_ENTRY_V2_SIZE,
+> +	.rss_num = 4,
+[ ... ]
+> @@ -5597,6 +5881,7 @@ static const struct mtk_soc_data mt7986_data = {
+[ ... ]
+>  	.foe_entry_size = MTK_FOE_ENTRY_V2_SIZE,
+> +	.rss_num = 4,
+
+[Low]
+mt7981_data and mt7986_data set rss_num = 4, but MT7981_CAPS and
+MT7986_CAPS do not include MTK_RSS (only MT7988_CAPS does).  Every
+RSS code path is gated on MTK_HAS_CAPS(MTK_RSS) before consulting
+rss_num, so this has no current effect, but the SoC capability table
+becomes internally inconsistent.  Should rss_num be 0 on these SoCs
+until MTK_RSS is actually wired up and tested for them?
+
+> @@ -5627,20 +5911,20 @@ static const struct mtk_soc_data mt7988_data = {
+[ ... ]
+>  	.foe_entry_size = MTK_FOE_ENTRY_V3_SIZE,
+> +	.rss_num = 4,
+[ ... ]
+>  	.rx = {
+>  		.desc_size = sizeof(struct mtk_rx_dma_v2),
+> -		.irq_done_mask = MTK_RX_DONE_INT_V2,
+>  		.dma_l4_valid = RX_DMA_L4_VALID_V2,
+>  		.dma_max_len = MTK_TX_DMA_BUF_LEN_V2,
+>  		.dma_len_offset = 8,
+> -		.dma_size = MTK_DMA_SIZE(2K),
+> +		.dma_size = MTK_DMA_SIZE(1K),
+>  	},
+>  };
+
+[ ... ]
+-- 
+pw-bot: cr
 
