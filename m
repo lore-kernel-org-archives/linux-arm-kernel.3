@@ -4,113 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F9CBCD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C421CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RkPjqCzei1qs4lsLRpPYWOszzEiBZY+5+KZ0A6n4vY0=; b=alkRDq/8V69zQXYRmQvE3quaPO
-	IzOj8c8fiUBAkdh56XsZp9/dUAouBjWCL0Xce1Wu/CN89Xi8z5QLgQD04MR58CVRR0ckvLLGrMJNT
-	4NFFNTgE3XAM+qKl5UTot73POVpnMNj3rG/1uDWcB15ohMkwNc0Kokq2ZjwlMh4eU2o7N1CblsBxt
-	9d+fLAbTxs8sE4n34R+bkm5fci7WWR5aB1L4487tBcdcgR1nfG86l/LkGAzcambMzrcigqjQxx4Ss
-	DQlEvqRpB1ONsxKrFrWqewwrN5mXOz3FZ6O+qV/AKEJOMQequ2I6hOjfm3fkynpBxEhcyKQd/uOli
-	y6xhkYKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eYXd8HA7NIedKDT16VEUKdG9K7xMUHUqGq+blCrAy2Q=; b=zfPXn0U08LV98i
+	RVgJtn8Xb6bfQKJM/LBbjl7gNiqaFgbGivTbLs6MvMK8Zi5reHsvWO6b/JLbxFpTManez0Rck55TM
+	22BnyU5Y/OhOGq+e2wSP8gCrbRXQb4HfU14nY9OdaXvxsQP64MRdp3ivvFbMttT/66Pz8T+1lbtvP
+	65sbZyZSs55FeEaPy81nFNqVeuByGy4nKQKGqRK/JffWszOnIsgtkRBgpoSGNamy+XEmAdHIBvJO5
+	wBrE7AISvf47SXnOJzDTh8J4F+Q11f06KLFZmxbUS+3JrsHRDfb6EMqjOA/tcn6aITXXv9FgFAOyA
+	33Y/DXE+xPJQ8EWc4BbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhs-00000005qe8-1pUq;
-	Thu, 14 May 2026 15:10:36 +0000
-Received: from mail-dl1-x1231.google.com ([2607:f8b0:4864:20::1231])
+	id 1wNXiG-00000005r6f-44GI;
+	Thu, 14 May 2026 15:11:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhR-00000005qDe-18mE
+	id 1wNXi1-00000005qpq-2Nuj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 14 May 2026 15:10:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=eYXd8HA7NIedKDT16VEUKdG9K7xMUHUqGq+blCrAy2Q=; b=i/LPwm2WC6Guz6iC5XANYehWY0
+	S6E79oZWACPNJ2ujoWufxLL+PjvZoxPl1/xbI1cNO8NMbnLqf3fyQsQId75W6njiKohHMFS0LMJiY
+	9iZmlcniIoh/HsadO3VARxn4bgmE0OD+om3APY4UvtEi+0ZrthVYp1BL/mLLkZIidZYNsu7/btOPT
+	boPWzjBQzyP/J45sMYjzQ8GppKCkrU13P4ZMJIltz7Ke+86+fZH2lq6t0ot+OmmexZUomkSej1XgO
+	5A5RY2o+9kjeDbO1VBzCk2vOGPVzN1LtD8BbetNqqcO7xLlO0lCH34+UzmPNmZvpAnp8kiauYuEjm
+	Hczgl76g==;
+Received: from smtp1.tecnico.ulisboa.pt ([2001:690:2100:1::15])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNXhy-00000003DwE-1TUs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 15:10:10 +0000
-Received: by mail-dl1-x1231.google.com with SMTP id a92af1059eb24-134a84f0aa7so98513c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 08:10:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778771408; cv=none;
-        d=google.com; s=arc-20240605;
-        b=N7RedqUBZ4aazmWc4erpMw7+O50ry82R5r2LZ5zXFtHrMOD1unW5KeH6CxDwrPTr3A
-         wRXd5LtFTerAowEcCYqg7HoerXy2EXvI2GDiLmamw+d5WhesTGVRT6oP7hrBojRMWJJH
-         nuzSjjHkLlZPAflElzzkZS+FgnehjBAaKiMmZSfFKNsuKiLzAmFDWVKEE6I5+JcsOlWJ
-         lF/2w8tnPwxpzo+i9AzC+S8P450+LVG2ctf4soe8W8jdznuILToi2xl4x6kxqCf34HKW
-         2ZupRZuykvEHTKTogSGgsuXa+v3OybiCtff085kNSby25RoGDHWMaSG6jEppY4DnCnpV
-         uKDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=RkPjqCzei1qs4lsLRpPYWOszzEiBZY+5+KZ0A6n4vY0=;
-        fh=tTHzWeJkIt0G0RtGz7yZuTNPG81hHMUWpchIct5v7go=;
-        b=YT4pUpCoPrr//05dpnQjaYB+mRpNZB1HufijRQgCZUFNjgxi6yvItDx7Q7hMKZ1gGI
-         Lc3HVWnP66NGr8sWPP9yPLnDeapMx6hbJlYJxAWqHGWyAt1zyBpgI4Mu4HGwrSt1ED2g
-         eLL3HfdVk9JCYmq69IW4TBkBJEYh02BnPyj93PkLrAzmLBoGjKReQQ++A1g1LbR8Z+gL
-         wxz7cOA2TM+L+K1hwWE+RQnUaZZePgHQEJf9nluPw0B5FBrz1RBTPBJ4zR0Nxatov3jk
-         9uUBxknfIEmInCG5Uir2OxGIY1ZG+lp/IcfYjE8OhiRQBT1x1cVj9cwWq6UFrUV6HhRd
-         ZiqA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778771408; x=1779376208; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RkPjqCzei1qs4lsLRpPYWOszzEiBZY+5+KZ0A6n4vY0=;
-        b=SbEZ4wa7PuUNZdtMA1odmW/P3TGu6lgrLbhDa81ETVoewu302BR3+2F4IG+n7NXGxb
-         t7kcCCfS8b0uoXpooa1GShTuOrVBtT54L3zkBdo7u+8u5NwwS2Qu3KSw6bttna6R/bK7
-         W0IuP2SzzJwzNdMZsK104dC9uT3Oe4SQltH83t9CCiT70zr03Tug4rI0i88ap/Jq+ISU
-         dibqTanjrQFMHtkCpZoWJ9mt6Il2Sz6uQNLeJG2I3LBca0dE/A5lPQCvYQUhUt/Tx0lE
-         lgLmhYfz00Lqu76RI8Z5v/PKFWy8Kz3gfunYtAWeqpvPtb74/lV6Ol42Uo0iUfAMF2KN
-         GWMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778771408; x=1779376208;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=RkPjqCzei1qs4lsLRpPYWOszzEiBZY+5+KZ0A6n4vY0=;
-        b=DsnpwdJBVUj12lpM8akx42JUhzXTDLvrJH16Jxnu2VTNULUrwOVyKE8or6l9SDIpGO
-         8AjDOb3J4eixr7JKKlgmhvqab7Nt8mz+Mu1FQjlHQ6+S/7I+DgySEe5jPmlYLdjqYRcg
-         un6giRUAUHEFCLKRY1E8s3iboCfV90sS+gteGF/lPrcEixT6G7CoXxizeaky8FwfbIEO
-         KffS7c40I0go6vpqixcZV1QHMrqLzcmmLpfuRWzyYxCUXFlJQROUejJsPdVVQxx/QdkS
-         5swtnSnYP36yZ2H64Id9aoupTXIY5BkmGG/UAD+MvIVuqq321nbbNG3KQAnBxuGiauFG
-         qg3w==
-X-Forwarded-Encrypted: i=1; AFNElJ/n39ToUs2Rcl5knXG2WUvh2L+M+SxIU+St8JT/j4CkkDduvkqzcGfgGZ4RCI2Kyq9jgz7z/80101edrqVP1yXi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyzy/HjLinCLoZQLiQx8kUP5xky2hcOc/3hLFltl8ymBpX8By9O
-	t3SVBvh6EfhmpBT11KegBjd8tjhx0IAn5/mA8pCbYnSZBpcoc4Jquv0NkognEbJ4b8WQUeV9eLT
-	L2nGd87esXU/zcTybtKvE7nurExoWq2Y=
-X-Gm-Gg: Acq92OHKfKlqVxJKTpMEZocpQTMPWpzP4WbYoulVDPFnesAwJtNI3A27GsvbNcSeVAO
-	+SKkpaN0x9U6OVK5yMJJxHY9EnYjbAUh8WZyF//9MFaUXgMB4htU0oH59/FOOCYJO36M+3sKD6M
-	AOjm4PyRX8KiwticwkK0FcJ33gDC2uQFNsMMnAHwTZ2oYJt3HyU1H0POjTcPslVD2G6bGCKoRnO
-	98hdGlfPUttrbW6dX7Tq+eF95KlYl3siI8cJb4U9hgdnV6SRqgOdh69kyHFz/EEeN+RMfPX0n5U
-	xlTEZoDCff1+5aeIsO+tgB5NGT/LqmCegzRXKt5XzV9JjpDjKF9qTFxFBSMSL32A70V1SyWc6Sp
-	+gyav8Zut1vGobExp1Nd5Y0E=
-X-Received: by 2002:a05:7300:2150:b0:2d1:9b35:4f03 with SMTP id
- 5a478bee46e88-30119a739camr2362416eec.5.1778771408152; Thu, 14 May 2026
- 08:10:08 -0700 (PDT)
+	Thu, 14 May 2026 15:10:44 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTP id 2A7F56000874;
+	Thu, 14 May 2026 15:47:30 +0100 (WEST)
+X-Virus-Scanned: by amavis-2.13.0 (20230106) (Debian) at tecnico.ulisboa.pt
+Received: from smtp1.tecnico.ulisboa.pt ([127.0.0.1])
+ by localhost (smtp1.tecnico.ulisboa.pt [127.0.0.1]) (amavis, port 10025)
+ with LMTP id muTaDOIg6hAT; Thu, 14 May 2026 15:47:28 +0100 (WEST)
+Received: from mail1.tecnico.ulisboa.pt (mail1.ist.utl.pt [IPv6:2001:690:2100:1::b3dd:b9ac])
+	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTPS id 4DB63600086F;
+	Thu, 14 May 2026 15:47:27 +0100 (WEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tecnico.ulisboa.pt;
+	s=mail2; t=1778770047;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=eYXd8HA7NIedKDT16VEUKdG9K7xMUHUqGq+blCrAy2Q=;
+	b=D59NU0rvOt5xK4H8TdW4OWgxoGyZ/QHLPKe5y3ciaIviesFMLfoOFf6+JuFvit5g3LQH5T
+	I6T/P5Lu9wCF0XkYYLSs2ApDh/3lUc3y4oAp5ZPmb8LdC34upXp2TynafKjoChSAYWluxN
+	FnW0ZjiK5Vn/aT8qvxu0CHDGvpc5mFgvfSc68ZCzq9zrV9plNzzJetDCEkMGSKFM9MxGJL
+	mnWVn/lhrIz5m7VzpvBV1O5O2PiLTmPpNuy9Y7htfaJiX3/widNU1ytHmQhenhRqIbNeU0
+	xceE55r3AqAj+E+3CcAaf4ZOUFllXU6G1ifCm0bBwZgfRpp2sZxkkVKyNaQSUQ==
+Received: from [192.168.1.94] (2a02-842a-00d7-bd01-2527-ff0d-f555-b6e4.rev.sfr.net [IPv6:2a02:842a:d7:bd01:2527:ff0d:f555:b6e4])
+	(Authenticated sender: ist187313)
+	by mail1.tecnico.ulisboa.pt (Postfix) with ESMTPSA id 9D94D360249;
+	Thu, 14 May 2026 15:47:25 +0100 (WEST)
+From: Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
+Subject: [PATCH 0/4] power: sys-off: fix Pixel C shutdown via MAX77620
+Date: Thu, 14 May 2026 16:47:18 +0200
+Message-Id: <20260514-smaug-poweroff-v1-0-30f9a4688966@tecnico.ulisboa.pt>
 MIME-Version: 1.0
-References: <20260511-arm-avoid-rust-with-kasan-v1-1-24d55f4a900b@kernel.org>
- <agGRnHVTLiwobb9W@google.com> <20260511090943.GA1029560@ax162>
- <CANiq72nm_3KM4gMnb0x34oJk1+_8XrUz-43zwW58Mr1UHG8qtQ@mail.gmail.com> <20260514123539.GA1781775@ax162>
-In-Reply-To: <20260514123539.GA1781775@ax162>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Thu, 14 May 2026 17:09:55 +0200
-X-Gm-Features: AVHnY4K4FPfnCtiB6KX494dgF2K9qH9aUDHSKjAUM2cHs1-ctz9GH5wRqeeAVhY
-Message-ID: <CANiq72nZ5hW545-k1jpjR=tbEuKigm3fBcVhuuafCmoYPZzq7Q@mail.gmail.com>
-Subject: Re: [PATCH] ARM: Do not select HAVE_RUST when KASAN is enabled
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Alice Ryhl <aliceryhl@google.com>, Russell King <linux@armlinux.org.uk>, 
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
-	Christian Schrrefl <chrisi.schrefl@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMzQqFIBBA4VeJWV9BJYV6lctdpI01QRnO7Qeid
+ 89q+S3OOYAxETLUxQEJV2KKU4b6FOD7ZupQUJsNWmorjSoFj83SiTlumGIIorLaemOkcs5Djua
+ EgfZn+P295sUN6P/3Bc7zAuqVfTtyAAAA
+X-Change-ID: 20260514-smaug-poweroff-9626c5501bbc
+To: Mark Rutland <mark.rutland@arm.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, 
+ Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778770045; l=2142;
+ i=diogo.ivo@tecnico.ulisboa.pt; s=20240529; h=from:subject:message-id;
+ bh=ZpsaXMnT8mGaJqAf4d/VAYCqi6dkod4gfaRjgq9A7Bw=;
+ b=/P4GnGyDmcmpOljiLDZFxUjiKx9mtbf0Jo+QarzqIuAHLNZ+yx8kBKj4Cu8dyidx9Qkn3qAES
+ vSqDg0koDmyAb37rWOnWoDs3v0hpZq1cm7MmrXt5dFMIx2s71uDXlzl
+X-Developer-Key: i=diogo.ivo@tecnico.ulisboa.pt; a=ed25519;
+ pk=BRGXhMh1q5KDlZ9y2B8SodFFY8FGupal+NMtJPwRpUQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_081009_337388_40FC6C93 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20260514_161042_772524_014F0232 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,26 +112,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 2:35=E2=80=AFPM Nathan Chancellor <nathan@kernel.or=
-g> wrote:
->
-> FWIW, I think Russell has been away dealing with personal stuff
-> recently:
->
->   https://lore.kernel.org/aeDSTIS9-TDSihbX@shell.armlinux.org.uk/
->
-> So I doubt he would fight you taking it, given that it is Rust related.
-> I am rather selfishly motivated to have it picked up and merged because
-> I have to remember to pass KCONFIG_ALLCONFIG=3D<(echo CONFIG_RUST=3Dn) ev=
-ery
-> time that I have to test arm allmodconfig. But don't feel rushed to pick
-> it up if you want to wait for a formal agreement on the path forward.
+This series migrates PSCI and MAX77620 poweroff handling to the
+sys-off framework and fixes shutdown on the Pixel C (Smaug).
 
-Thanks for the context -- in that case, yeah, I will apply it to avoid
-you (and others) further trouble.
+The first two patches replace legacy pm_power_off usage in the PSCI
+and MAX77620 drivers with sys-off handlers. Besides aligning both
+drivers with the modern poweroff infrastructure, this removes the
+global callback dependency and allows multiple handlers to coexist
+with explicit priorities.
 
-If someone shouts I can take it out.
+The remaining patches address shutdown on the Pixel C. Although the
+platform exposes PSCI firmware, its SYSTEM_OFF implementation is not
+functional:
 
-Cheers,
-Miguel
+    __dead2 void tegra_system_off(void)
+    {
+            ERROR("Tegra System Off: operation not handled.\n");
+            panic();
+    }
+
+Downstream kernels instead rely on the MAX77620 PMIC to perform the
+shutdown sequence. To mirror that behavior upstream, register the
+MAX77620 handler with higher priority than PSCI on Smaug systems and
+mark the PMIC as the system power controller in device tree.
+
+Patch overview:
+  1. firmware: psci: switch SYSTEM_OFF to sys-off handler API
+  2. mfd: max77620: convert poweroff support to sys-off API
+  3. mfd: max77620: override PSCI poweroff handler on Smaug
+  4. arm64: dts: tegra: smaug: mark MAX77620 as system power controller
+
+Tested on a Pixel C, where poweroff now completes successfully
+instead of hanging in PSCI firmware.
+
+Signed-off-by: Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
+---
+Diogo Ivo (4):
+      firmware: psci: switch SYSTEM_OFF to sys-off handler API
+      mfd: max77620: convert poweroff support to sys-off API
+      mfd: max77620: override PSCI poweroff handler on Pixel C
+      arm64: tegra: smaug: mark MAX77620 as system power controller
+
+ arch/arm64/boot/dts/nvidia/tegra210-smaug.dts |  2 ++
+ drivers/firmware/psci/psci.c                  |  8 +++---
+ drivers/mfd/max77620.c                        | 36 ++++++++++++++++++++-------
+ 3 files changed, 34 insertions(+), 12 deletions(-)
+---
+base-commit: f327c8ef8a6905ee97b62e42d808603c5b759418
+change-id: 20260514-smaug-poweroff-9626c5501bbc
+
+Best regards,
+--  
+Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
+
 
