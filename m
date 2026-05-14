@@ -4,132 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6C1CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D46ADCD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MfVF/sVIizu7yBjtBo8OhVgOh4a314wgd47rB1vzduU=; b=Iv+aYzPwpeN9/TECAPvdf4kui7
-	rMckzGUm1yFR0ime4olx2SrZ8earURGjczKyG5asCXsRuHG3pNI4YMkua1VqMN0sDAovimDPM2K6j
-	nb5SjfvyJQPwzsrQX2SKAjzD7p4JkAM0Bdzn4OQuPdX9zG7Kc8+hLhlSPykASbeq2mOmb1C8RbraD
-	w9siI2N2BNSD2dyZ2kMQMjQs2UHOWtpYSY1Uh47Lnyp2CJQI+/3tVnpYvWoyWQ0WRZFDYoxP6LMvi
-	01cvvuAb8Ky9zWj+59oLqBc8hX1scJEB4C+0H54UcJIGbIqNrQDjb/6ARIBYzigzzM+oQeBeYkX+F
-	hGPdIDEw==;
+	bh=02NHwmt4Q/1Wwv24vtMYzG1XiCeSXVTnDMbrgdzumy0=; b=b7QcbueT80hmR6uaX9yJ5v28jN
+	rG5eXJepKzZpGkeEjmb6RjuYGHRR7Ed5ePifSXCvAXbgYzGYzuuHGSlyX1hrt7XHwFIbe3YpfCoR9
+	rg5n6p1y1XPn4P0aHc4ujP9l8LEjIvVief+VUHxDAcjBFFB+5TFBFXMhAKwNbfDlh29z8NQpsPwLy
+	FJcXhoNOvbRAkqE7Zj7JS0ITkFDQm8QVJ1A7cTqEd88r0hESP05p4FXqVotmDlxUZ04dW04JCsZuJ
+	OVl3QwFgsa8zLXMgs4BOuFKmNhqM02ARmR9E7b0OqROos9kVMNOcTdeq6qVqLsFMgaYCiXurzQCY/
+	vOeggS3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYUJ-00000005yWN-3Ld9;
-	Thu, 14 May 2026 16:00:39 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wNXiS-00000005rJV-1XOo;
+	Thu, 14 May 2026 15:11:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYUH-00000005yVS-2wBL
+	id 1wNXiQ-00000005rHK-3uYG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 14 May 2026 15:11:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
+	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=02NHwmt4Q/1Wwv24vtMYzG1XiCeSXVTnDMbrgdzumy0=; b=ENF4L1a/dUPqMRDeXpmWFKVxkI
+	OPcFHgEzf/f0+5w5Y+hXPyEUi6WqX4f1pcP7YvYDrH3/3+T+9ubvhFWpKiKfrmmt7ZO3wqyBsg4kr
+	BaEaNus+e/7h/s3OAmQW8w+Hut8c1xtyX2/EeLqV07BiFUA9wf4+59y4Ihpp2B1yheRo4cEARr+2j
+	laAB8ogW/cOltpW3RyB2D7Tb/WKwz4iJyngwLGHdXLrxW7V38mbPcbvJQuhHHqxO0APj4B7a4wXbi
+	9YqQnzIgzz4uLA+uqt2oMSyfS1WLi+TICC9yUwBTYsKNUZRIgvq6XCfnfDczZzsjrgn92lS2F5Z12
+	zrnY/05A==;
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNXiM-00000003E1m-0OTx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 16:00:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qpklNozB/F/xoCZdr1zHcaFwNcwZEAqviltRJWGc6fxSp2pnjtmSOeZA/YgHXiQd0TZtu/59uLR0wS/lZvLWksdJZPNXjFv+fcQuioTkqPVvxGednnfJ1yF+G081YVacMvtbhaROXQ2M0nE8s8ZPjLLI+kUvlNYWiMo3KTHncTii2SreuwqRpfbcmF0f3FR5Pg8MZoq48pZ0MH3HwgsNaHwqYiVKwUaby8K+RT4ilmIKe37sB2ZD4j2QMcI1mffF60pFGgHekhXs74qzYjKwQOnfcfJ9By7yfwAvbgDDJ4hSBs6gMObKYwH13WOmNCLn5E416yXYvrHAZtuSbEBCHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MfVF/sVIizu7yBjtBo8OhVgOh4a314wgd47rB1vzduU=;
- b=XtyA+Md1ifglBOCtv6NMSQVtEp4AzY2n+3QQx55EwMcdMZYlVOovJR7x05VMewmy+9Lefq0sHme2GU6FfZcXqFtDtikloVrqWcsOkwCHW3HTHCbz1LlTpCsRMYLTgkDvD+d7+oKv7oDdMrH3fJ22WawFcwAqaB2219Lbg0ljfoolwEXmC+rIMWXf3kZC4KLfHZDmc4/EXyCubKZlOeGlfwwvK18ZCtvl+fQm+V4yHPGgPc/r9ppT9Q70uNMdTNwZ/JzI9ASMgy0xrJNHnmSfn5Jw3cbsV9E2t4ODLWo9jsOb5tpLChUIVryW8nmvdXHZhiG7rerLJnDa7o0/PJALsQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MfVF/sVIizu7yBjtBo8OhVgOh4a314wgd47rB1vzduU=;
- b=pFTfuSz0p+44252M8rIAolfcc0pLO1FYf8JBxed51z0R3udQt4r3uvCf7TYrzz/uFdmecXazdIJlibLtmmMan+l83espbeka/E9DLKJVG22VRKNDsoNEaXvWggFEPvA1Eb6bH8HmB8OHDeVmz90zGYv1OwBhiGz9upX5eD0hQ0u66SPYCBimtKcpdKAMUTR9mCg/mPHWEnDbhClECffqC238lmv4gA01zDXrw3sfXdHLc+Hy+H5jd4E+1V1Q7sxgEfIh1AlbHctpIWrqEiBEkWRtEcPqS0f8TWCV+2zRunDNZXK5UEpc1njmb/mfDFq2vbR+FfxLoJpsGS6q5jUyIQ==
-Received: from SN7PR12MB7226.namprd12.prod.outlook.com (2603:10b6:806:2a9::18)
- by MW4PR12MB6850.namprd12.prod.outlook.com (2603:10b6:303:1ed::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Thu, 14 May
- 2026 16:00:28 +0000
-Received: from SN7PR12MB7226.namprd12.prod.outlook.com
- ([fe80::c07d:130a:7def:6807]) by SN7PR12MB7226.namprd12.prod.outlook.com
- ([fe80::c07d:130a:7def:6807%5]) with mapi id 15.20.9891.008; Thu, 14 May 2026
- 16:00:28 +0000
-From: Besar Wicaksono <bwicaksono@nvidia.com>
-To: Saurav Sachidanand <sauravsc@amazon.com>, Will Deacon <will@kernel.org>
-CC: Mark Rutland <mark.rutland@arm.com>, Ilkka Koskinen
-	<ilkka@os.amperecomputing.com>, Andi Shyti <andi.shyti@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-perf-users@vger.kernel.org"
-	<linux-perf-users@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "aghayev@amazon.com" <aghayev@amazon.com>,
-	"juew@amazon.com" <juew@amazon.com>
-Subject: RE: [PATCH 4/4] perf: nvidia_t410_c2c: handle PERF_EF_UPDATE in stop
-Thread-Topic: [PATCH 4/4] perf: nvidia_t410_c2c: handle PERF_EF_UPDATE in stop
-Thread-Index: AQHc4z4hSNFVtg6au0Wn+5ONRoyL97YNrujg
-Date: Thu, 14 May 2026 16:00:28 +0000
-Message-ID: <SN7PR12MB7226B1387B53D0DCE6A0DB8AA0072@SN7PR12MB7226.namprd12.prod.outlook.com>
-References: <20260514010629.76558-1-sauravsc@amazon.com>
- <20260514010629.76558-4-sauravsc@amazon.com>
-In-Reply-To: <20260514010629.76558-4-sauravsc@amazon.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN7PR12MB7226:EE_|MW4PR12MB6850:EE_
-x-ms-office365-filtering-correlation-id: c933961c-8ec5-45cb-2c60-08deb1d1eb1b
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700021|11063799003|4143699003|22082099003|18002099003|56012099003;
-x-microsoft-antispam-message-info: 7sBpeMMEvFZYESb13rL59Qevpsez/HH/k3v3MZlJ9a9ZWxkG6ohlipyGR+ki3bQ+lkrEUMTp7yknLSCobf4TAGxcyOGlyTvU5EmeK/dGL72jcZIWt7Sgcj5acoK9aa5b5giZMVEBgeIaCx+02Xj3yW7hOP+OEy7bsW6/+4NhVH873XOS8PkpaNcbc6FZxXuJW2Q05XGCDmaK+zw3gTBscL3rvavJA5jEG+yJQoQWB3to8fLKHZCw7FMpC/NNsRmAc4YPeN/YWz9+y6EE6x438sZfAfkRaxKAYXKlUnMrprDqALXqFgZO8qWZQOjGmkwZFccjyHaPj+ykESFo3M8RwE+YibSbxPYkWv0qm2yqXgeHe1m/7uhREujkpBX5fnb8Yr4TLkexDfG6/y6Y5dOspvJ4PqQkL+BnKja8ih319pCndfPu9pdklaK/RjBx8B2dDT6FB4Ek7kXn83PhI/v/CDBl+U3jCtf0nuc6cIH6mwbCn8d6b6zHrtTHx9uf6pByiPv83xMpz3vQBi6Ihlr+BBzXXwu4Ts7zKvGQHKfF0oC8HkMr5jVc33OdJ3J5OKjBMme7/TZMIwj7PPULw1yWIoG80r8XdgpoIoSVC5tfd4abw0vr3ox6yr7VQB6Jod5p6birgBkRdua71xYTIpIBTSpGj9XBJnUCEIYsvXG4ktqgOn3pW0soukuI9Rbz/0ZNlYmjeUahlAL4M/HKsC2ma9C+AsfchY+FSzBzC6lro8uUpqwp0bRw2XeAWl4eYiad
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB7226.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700021)(11063799003)(4143699003)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?UVtD+vVrGj98IT6AsTzBr9NQObb6wE7c4hDUHgOyW3nmUeB++J6GCLGDvKzh?=
- =?us-ascii?Q?LA+6hpELT5Ly/bqD4I65s9hMvUAV1PoO9xXm+stKTPnEaD5PBs4xHx/eoYe8?=
- =?us-ascii?Q?0c2kwkwjMHH5iJLvAHgOu5WDwiCm0TWuF8w5XX4p+f1WyziRTaaZvfbbFTZq?=
- =?us-ascii?Q?/wsard7Jn9DneXK50ocvDayjOACnFDlr105gFf2I4K4Vj/HnBHU/XyfF8GQO?=
- =?us-ascii?Q?2t6POu+d4kcjCwPdmKtwHRWy0+Sji96rRraueVInngGNhGlFAUERzDlPk3zJ?=
- =?us-ascii?Q?F5e81GnMZrNAexRyDQJwrGY21nOuSGDXgp/w79SBqqMXVhXxMs8Vqqct4941?=
- =?us-ascii?Q?41gcV0fQJADlGFTdJY/eNbOUmogQXO8gasaYqP57VzfehX3qgCO0u1FcFbfG?=
- =?us-ascii?Q?x46bQuKJO6QPkRH7FERrXNUqQhJ1Tgj0eEUM+VWdwr/nXGU3krTgweM7Q4cz?=
- =?us-ascii?Q?FZkQ/P02AeZMKVpnRB4Z+3tzwgDx1BDWPu4wlmCkPI+8us1diQF06V+/s+1n?=
- =?us-ascii?Q?toxSD5vH1FwMWuhzSjEN7995JfcU+73ykZ3mse35WVc+x4yKNZIJ9OuSLR/7?=
- =?us-ascii?Q?24woO9Pjte6pHz4QSA7LospngjjQWOAdypaBCGDe0wwKXAeGkVJ+5zdkCDJs?=
- =?us-ascii?Q?Dk5xON5v3tptOoHOi7KvSVrGO9tWxmjg3++1KQ+4f+ZIWrRBdLQTNzB2Anpq?=
- =?us-ascii?Q?gMaxaKW9OJao0Iqyc8wezkSPBsK9H5WBZLDFA2VjpH9JoAoBrA5Wd60xdWBQ?=
- =?us-ascii?Q?g0veNpaLNpzX8iifG4Zs9wtCK5G7OYzzMhd07D1BmG7s0tEFoyVvW2ylI1nY?=
- =?us-ascii?Q?5G6Cj8TIs3k5kJDdDqbWS9l7cmykiawtsMV0xvb9zSVV5q0DJ5iiO30wQox5?=
- =?us-ascii?Q?6W2uH0WkQtnwokrI9WfVJag86sOmmd9wqJyNpLgKF7f7ojGg71jeH6hGR/vS?=
- =?us-ascii?Q?gn8clZ6uXNvLDCVqTvrO6HAsNluTYufdgoCRpB6c4GVuWCnbhoOOOgYipIi4?=
- =?us-ascii?Q?NMNsJnoV58TurFYu1b5nydTF6/HN7uYMwWGKeBeZNeWQSVN40QGGrvREYJtF?=
- =?us-ascii?Q?Q++ISyQhmGc93HM7D9U0LKkkHNAzc6o2VtnmIwelaHn7n2AX8j3mmqj+8FYa?=
- =?us-ascii?Q?Y9sCI8bmH5hlM/MCZslbZwOuSWx43CdydB8emKcuyPoldDQz3Wh3fA6GLMbD?=
- =?us-ascii?Q?Z5gzUbT4D52sg1YJWvklBhYc8HhSeSNSByqT5JKcEtvaMRoiVpYy7GqoJJ85?=
- =?us-ascii?Q?BdMNK8QvAZXudU7aC0Pb5JJsWSIvGAzMj4uNMUal5icohAncgEhEy+aaZ2Xq?=
- =?us-ascii?Q?rMaBRIRTDjDcgB1Eh/fLA3DCEwHeDMEZ0S29qYoRPLkhE3IePqIpYdVcul5D?=
- =?us-ascii?Q?WC0JgITQLgHbzX3DktiubH7+G91sLSb+rNfKc2iZjq2E5GhPsDE+I/Zka8OP?=
- =?us-ascii?Q?r2MupLCkOwzz4DvoQ+O3YxkT/Q8N7QP/9K1Y6zCCxL6ZFA37Kt2cEmAsA29a?=
- =?us-ascii?Q?aSkS6kMWHD1uJ3P88Org28RPtqH0wOpfr0eN2CzsdgOyXpS2acr19j45MBT+?=
- =?us-ascii?Q?Uv67eaJXRdykB4ME6sIYPuDU9FUbHttAUzZVQGmtqB5s8RDuxqNQoLxczGBY?=
- =?us-ascii?Q?aV+1wf84z5zs+mfUJXUXozbxDlx4nPnxcg15B+Ux/JZHUuO9cuBWIq6KYQS+?=
- =?us-ascii?Q?+9Jd88Kvny0n/Bq16rBunBVnoutRz0fLSLds17181DDzMrvclkmRjhEk+CQd?=
- =?us-ascii?Q?UzQytOLAXQ=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 14 May 2026 15:11:09 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-449de065cb3so7410702f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 08:11:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778771464; x=1779376264; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=02NHwmt4Q/1Wwv24vtMYzG1XiCeSXVTnDMbrgdzumy0=;
+        b=hWgNH2jn1I6aX84Y99F227P8heEKoUcmNLoqLi3FeeXrPkxCF5LOpyGm7O7GzTYc0r
+         VxlrxwmYCWGQWfWFRs3aarJAoMP1QMjCYshtWhHldbFQIxFafTFcYmqb8rjSBJ6yEYfa
+         TCe5geOPkzvMxj86Yb/CHbtF3uniODvRktFb1AKAFAtkowovcgV/OQK201GW5ezWIHun
+         rTviAvpTpVWENb3u45T/dks2ycHKfXz39RQ3NjGwUCWmrZ2AVvgYnRZlv7Y4GTzsgZyd
+         E5TtFIPC7llQhEpfDJhxPQFyoM4aW1TONphF9a0c7wFMoHXoZ5Co8AZQWem9/LNuT9Iy
+         fy2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778771464; x=1779376264;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=02NHwmt4Q/1Wwv24vtMYzG1XiCeSXVTnDMbrgdzumy0=;
+        b=ssY1aJOLy4y8E9yWkPY0i792RX/ynHSZx9UbmDjD7S6v7SG9BWP3F2PUADaiotFEPn
+         mFkk1UF7M/cwwBVekgLSAysebXxzz1PrMZK9DLSAioUe/0x04oGcrpqTBN9mdIRF0Q+z
+         Ho2dq9xURyp38wk1SYUnEZH2Z8SspZOKwkRz8AADEQWKi3bExLL8PVS87ZZKU6AWzVpA
+         SoGz6K7Zm07Rl9YCEt84vBUzyt+7PtNc9KkEBDMWkI79ui+ftGodjzW/2T80wmyH3d4G
+         Ba40bWrrFAtkdbwF7dGkuQsAziKoQ/DsNG6GFwL8isR/klgg1BrvlgLaY/eCm2Ak0nv1
+         Sq4Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/mwg/CTaHK+KhBe2h8ShaYU1FovIOahkWaOP9VJ+B6NJa/GDnN1pIXGCX+vQWVCtLXX9ogkqD+vQeTD6XiBs1v@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYz/nwUkn7TiIHoSW5aUwj+py2X7BGOowKA4ay7mEiJ0mzGcoT
+	nF7X/CKJDIF1yWJAGADzeWYVHHKLDJnCdXGjf9orYiGErq227WPCFxC8Eojb89PdPg0=
+X-Gm-Gg: Acq92OHs+IusX5wJIw9636elU7xI52Y1psWuF7XI0T9S1B8TPahctZUlT7p4sjwdWeP
+	jiqkVdO2CAqI8yHoNBR0NNDoH/gktEOc91mf4rg9V/b4T3tAc8Leks3BhjgNXw5S9EQf8U9qfv/
+	UfXrd0vEwQK2/3pTzyDPKxgxx3gYwFUEzQFcm7uWyfoJqVOIsDMNqzZ7UrvtOnopLIUFt9cNUuu
+	+bNteW649MqysQ92Ter9F1YjMY5U3g2P6ZkXbjVNfewnHfmzAyLE8zqHTWZM7hk0OAAvqXH8sZh
+	UysPlolVJevav20jpinzNFF9tBEdzOPGdXakuYanKP21OdFZTFlTwIOYRCPg1eRDc30XxAm+ogs
+	h4oS0m73IjkS28x2lldQfxzzLO22VpMwPd+rmcZaNFlyIQHZUVERLts89UnotVVAGMN7t1x2RvC
+	gYetZBs0H1EhVa5ssgUw9bmPimQ89YYg==
+X-Received: by 2002:a05:6000:26c1:b0:439:c62a:6dc2 with SMTP id ffacd0b85a97d-45c7bb4a90emr12856516f8f.41.1778771463953;
+        Thu, 14 May 2026 08:11:03 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:8f63:bf1e:b5:28d8])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-45d9ed30110sm8047555f8f.13.2026.05.14.08.11.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 May 2026 08:11:03 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
+ <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Xianwei Zhao <xianwei.zhao@amlogic.com>,
+  Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  jian.hu@amlogic.com,
+  linux-kernel@vger.kernel.org,  linux-clk@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-amlogic@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 07/10] clk: amlogic: Support POWER_OF_TWO for PLL
+ pre-divider
+In-Reply-To: <20260511-b4-a9_clk-v1-7-41cb4071b7c9@amlogic.com> (Jian Hu via's
+	message of "Mon, 11 May 2026 20:47:29 +0800")
+References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
+	<20260511-b4-a9_clk-v1-7-41cb4071b7c9@amlogic.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Thu, 14 May 2026 17:11:01 +0200
+Message-ID: <1jy0hm6n7e.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB7226.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c933961c-8ec5-45cb-2c60-08deb1d1eb1b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 May 2026 16:00:28.3859
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 7DirS0mUlpOK8P2l44sDC3cZKoaejrRcPd7jfAwjRD1t4rwD9t8mjn4OB+t27XByiejLbyM4cZeuTKFZkJvrVw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6850
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_090037_739649_67E5BAA8 
-X-CRM114-Status: GOOD (  17.49  )
+X-CRM114-CacheID: sfid-20260514_161106_607041_92448A40 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,60 +122,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On lun. 11 mai 2026 at 20:47, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
 
+> From: Jian Hu <jian.hu@amlogic.com>
+>
+> The A9 PLL pre-divider uses a division factor of 2^n to ensure a clock
+> duty cycle of 50% after predivision.
+>
+> Add flag 'CLK_MESON_PLL_N_POWER_OF_TWO' to indicate that the PLL
+> pre-divider division factor is 2^n.
 
-> -----Original Message-----
-> From: Saurav Sachidanand <sauravsc@amazon.com>
-> Sent: Wednesday, May 13, 2026 8:06 PM
-> To: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>; Besar Wicaksono
-> <bwicaksono@nvidia.com>; Ilkka Koskinen
-> <ilkka@os.amperecomputing.com>; Andi Shyti <andi.shyti@kernel.org>; linux=
--
-> arm-kernel@lists.infradead.org; linux-perf-users@vger.kernel.org; linux-
-> kernel@vger.kernel.org; aghayev@amazon.com; juew@amazon.com; Saurav
-> Sachidanand <sauravsc@amazon.com>
-> Subject: [PATCH 4/4] perf: nvidia_t410_c2c: handle PERF_EF_UPDATE in stop
->=20
-> External email: Use caution opening links or attachments
->=20
->=20
-> nv_c2c_pmu_stop() does not read the final counter value when called
-> with PERF_EF_UPDATE. The last counter delta is lost when perf core
-> removes the event.
->=20
-> Add the standard PMU stop pattern: bail out if already stopped, call
-> nv_c2c_pmu_event_update() when PERF_EF_UPDATE is requested, then mark
-> the event stopped.
->=20
-> Fixes: 2f89b7f78c50 ("perf: add NVIDIA Tegra410 C2C PMU")
-> Signed-off-by: Saurav Sachidanand <sauravsc@amazon.com>
+I understand what you are doing here but I have to ask why this can't be
+implemented with independent dividers that already supports power of 2 ?
+
+>
+> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
 > ---
->  drivers/perf/nvidia_t410_c2c_pmu.c | 6 ++++++
->  1 file changed, 6 insertions(+)
->=20
-> diff --git a/drivers/perf/nvidia_t410_c2c_pmu.c
-> b/drivers/perf/nvidia_t410_c2c_pmu.c
-> index 662fa1bc833a5..39d0e661e4c5c 100644
-> --- a/drivers/perf/nvidia_t410_c2c_pmu.c
-> +++ b/drivers/perf/nvidia_t410_c2c_pmu.c
-> @@ -394,6 +394,12 @@ static void nv_c2c_pmu_start(struct perf_event
-> *event, int pmu_flags)
->=20
->  static void nv_c2c_pmu_stop(struct perf_event *event, int pmu_flags)
+>  drivers/clk/meson/clk-pll.c | 28 +++++++++++++++++++++++-----
+>  drivers/clk/meson/clk-pll.h |  2 ++
+>  2 files changed, 25 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
+> index 8568ad6ba7b6..49483e431d44 100644
+> --- a/drivers/clk/meson/clk-pll.c
+> +++ b/drivers/clk/meson/clk-pll.c
+> @@ -66,6 +66,9 @@ static unsigned long __pll_params_to_rate(unsigned long parent_rate,
+>  		rate += DIV_ROUND_UP_ULL(frac_rate, frac_max);
+>  	}
+>  
+> +	if (pll->flags & CLK_MESON_PLL_N_POWER_OF_TWO)
+> +		n = 1 << n;
+> +
+>  	return DIV_ROUND_UP_ULL(rate, n);
+>  }
+>  
+> @@ -83,7 +86,7 @@ static unsigned long meson_clk_pll_recalc_rate(struct clk_hw *hw,
+>  	 * it would result in a division by zero. The rate can't be
+>  	 * calculated in this case
+>  	 */
+> -	if (n == 0)
+> +	if (n == 0 && !(pll->flags & CLK_MESON_PLL_N_POWER_OF_TWO))
+>  		return 0;
+>  
+>  	m = meson_parm_read(clk->map, &pll->m);
+> @@ -103,7 +106,12 @@ static unsigned int __pll_params_with_frac(unsigned long rate,
 >  {
-> +       if (event->hw.state & PERF_HES_STOPPED)
-> +               return;
+>  	unsigned int frac_max = pll->frac_max ? pll->frac_max :
+>  						(1 << pll->frac.width);
+> -	u64 val = (u64)rate * n;
+> +	u64 val;
 > +
-> +       if (pmu_flags & PERF_EF_UPDATE)
-> +               nv_c2c_pmu_event_update(event);
+> +	if (pll->flags & CLK_MESON_PLL_N_POWER_OF_TWO)
+> +		n = 1 << n;
 > +
+> +	val = (u64)rate * n;
+>  
+>  	/* Bail out if we are already over the requested rate */
+>  	if (rate < parent_rate * m / n)
+> @@ -142,7 +150,8 @@ static int meson_clk_get_pll_table_index(unsigned int index,
+>  					 unsigned int *n,
+>  					 struct meson_clk_pll_data *pll)
+>  {
+> -	if (!pll->table[index].n)
+> +	if (!pll->table[index].n &&
+> +	    !(pll->flags & CLK_MESON_PLL_N_POWER_OF_TWO))
+>  		return -EINVAL;
+>  
+>  	*m = pll->table[index].m;
+> @@ -156,7 +165,12 @@ static unsigned int meson_clk_get_pll_range_m(unsigned long rate,
+>  					      unsigned int n,
+>  					      struct meson_clk_pll_data *pll)
+>  {
+> -	u64 val = (u64)rate * n;
+> +	u64 val;
+> +
+> +	if (pll->flags & CLK_MESON_PLL_N_POWER_OF_TWO)
+> +		n = 1 << n;
+> +
+> +	val = (u64)rate * n;
+>  
+>  	if (__pll_round_closest_mult(pll))
+>  		return DIV_ROUND_CLOSEST_ULL(val, parent_rate);
+> @@ -173,11 +187,15 @@ static int meson_clk_get_pll_range_index(unsigned long rate,
+>  {
+>  	*n = index + 1;
+>  
+> +	if ((pll->flags & CLK_MESON_PLL_N_POWER_OF_TWO))
+> +		*n = index;
+> +
+>  	/* Check the predivider range */
+>  	if (*n >= (1 << pll->n.width))
+>  		return -EINVAL;
+>  
+> -	if (*n == 1) {
+> +	if ((*n == 1 && !(pll->flags & CLK_MESON_PLL_N_POWER_OF_TWO)) ||
+> +	    (*n == 0 && (pll->flags & CLK_MESON_PLL_N_POWER_OF_TWO))) {
+>  		/* Get the boundaries out the way */
+>  		if (rate <= pll->range->min * parent_rate) {
+>  			*m = pll->range->min;
+> diff --git a/drivers/clk/meson/clk-pll.h b/drivers/clk/meson/clk-pll.h
+> index 1be7e6e77631..60b2772a54c8 100644
+> --- a/drivers/clk/meson/clk-pll.h
+> +++ b/drivers/clk/meson/clk-pll.h
+> @@ -33,6 +33,8 @@ struct pll_mult_range {
+>  #define CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH	BIT(2)
+>  /* rst signal is active-low (Power-on reset) */
+>  #define CLK_MESON_PLL_RST_ACTIVE_LOW	BIT(3)
+> +/* The division factor of the PLL pre-divider is 2^n */
+> +#define CLK_MESON_PLL_N_POWER_OF_TWO	BIT(4)
+>  
+>  struct meson_clk_pll_data {
+>  	struct parm en;
 
-Hi Saurav,
-
-This call is not needed since the driver called it on pmu_disable callback.
-Adding it on stop callback would be redundant.
-
-Regards,
-Besar
+-- 
+Jerome
 
