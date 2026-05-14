@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5813CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 14:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58251CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 14:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0x75qfZ974oSd0DncU4aTxFtPQ8gBmzZoEemuSqf3zc=; b=2N0uhKPPRY0D4KhhIG94+RGCYq
-	d9EM7XQwOIkZomWzPeb1pu+2tjDMH2vrWXscxkwWCp4wkIQX7AU6Bid5Bx65mlSWbbJX05ElbCR4I
-	QM/+kW8FivTusaNEWSt8QRyuiGXbPwDrtGW2+94jW2XkCmqevtlmKyxBSyhSZWL6+c6W12qVBnD4w
-	GmTZB7pDfQ2IqGkhLkClnGOQnxkjsonWiLZYE+J9OJITKVSIcF3S3zfxW6Zzp7MmzPDCquPPy58JY
-	dYpZnYykLJYiJEivtT6IZBbpMgz71xJ6be7Y3s6quEvNPHC2hqAIKakBIBTYlQEbgYrOYO0PmcTeb
-	Pa3sJQpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLBceJIUIkXBbEAd36GneXji+KFTwt+3OEMl9TEgGAg=; b=QMlLBjsIsT+/PxvEsCGjW4fIF/
+	r9IvAnihe88QQAI4xgkwl8CHRyiBzTHm+s1ur1JNQ4mjR/uH3Pv81sVq4jt8WDx79hpRoqHydfm6w
+	5ztsSGY0kY7m1lWWcFbAB6o999c0Mn3n86jaCNzA3mmXWJTspSNBnVrFt4i3MQUhK83XgKjyTEbJf
+	etPWYUQwfKEb6rZtJcS5SLUfhcZEyp0UHRP+py/sDRW3lEobuWpLDQEThSsHwViIC8q/f59pPaEfv
+	SAh5UqAigy9+pvSmqF5fMrxgdoiRckqM53nsXc4aX9Pm/oFLQwSsl7vfTwv9QTdV2FL9EpoxxO/3N
+	7mx4lCqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXF9-00000005ldp-3fkd;
-	Thu, 14 May 2026 14:40:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wNXHo-00000005m6R-1lXL;
+	Thu, 14 May 2026 14:43:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXF7-00000005ld1-2pzR;
-	Thu, 14 May 2026 14:40:54 +0000
+	id 1wNXHn-00000005m6C-1EZa
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 May 2026 14:43:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC04A41B45;
-	Thu, 14 May 2026 14:40:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CC21C2BCB3;
-	Thu, 14 May 2026 14:40:52 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6CB7860132;
+	Thu, 14 May 2026 14:43:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 264C6C2BCC9;
+	Thu, 14 May 2026 14:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778769652;
-	bh=0x75qfZ974oSd0DncU4aTxFtPQ8gBmzZoEemuSqf3zc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hsiUv2jWzSZcTZyJ3ZxI4lwIXNvq6oZk0wdTmalRDH6gmavvQVOau0eatDbAmNE3E
-	 dKMmjjjqB5w7o8AAE5Gx0bDZjjXftJaMOVzbTlcKvHDOY5RghDgdx7AEiqxHmw0Uea
-	 0uPRNF0VaaA1bWhUx53DrHwBL+qjuFHb4zI4WReKoYuaE8350LwwkwWuibHeERtE4b
-	 FhjLcGiK6RZLKw7LH0OhI7xnwr+uCbpBVyX6IxX+RlfbL2diZi4omvTa849vbNUDP4
-	 zur04KOX4onh4bcnu0lPpDb1Bdt3w3nYVTCvNxUmPPLWRBU2GD8ZNgHIudj9ukZsAW
-	 4uHikaYewcDSg==
-Date: Thu, 14 May 2026 08:40:50 -0600
-From: Keith Busch <kbusch@kernel.org>
-To: Nick Chan <towinchenmi@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Yuriy Havrylyuk <yhavry@gmail.com>
-Subject: Re: [PATCH v2] nvme-apple: Reset q->sq_tail during queue init
-Message-ID: <agXe8lAqUu8Uwb1l@kbusch-mbp>
-References: <20260514-nvme-apple-sq-reset-v2-1-84cbb5c70bf5@gmail.com>
+	s=k20201202; t=1778769818;
+	bh=vYgSx3dmEm0ZEEAz8YRdNmK7l9u7//QUaR05wrA5BAY=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=Ai1tpI3aDfb2QvDeKsYxG3EdOoJNoxxp3mZVlKehdBzqRg794VxG0iOi7DInbQjWW
+	 5f7sbtOVr5xR7igPW5+7ocZgBoGkbeWY41tUlYkYy036HiHvi5Xs8swWgwYVVODiLT
+	 iywtq+BIUTGl4070jjcMHZP0k1maSkiHqT3UhS7D4rVmooCHZzXV30ZHuhpqDK6mut
+	 8k2XvUQaYrhCMMxAVuWRJrQ8ovotO45zAb6nC8OX0wv6KQuCrfEuOtsUcvN1OVvg/W
+	 eedSkrToE1ol0TTOq8FVlmPCvszgYlT8iLPls+ufdK/azJKbFmTUtUd6nACCOlmxz0
+	 LplWwo3DueAWg==
+From: Lee Jones <lee@kernel.org>
+To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+ William Zhang <william.zhang@broadcom.com>, 
+ Anand Gore <anand.gore@broadcom.com>, 
+ Kursad Oney <kursad.oney@broadcom.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
+ Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>, 
+ linux-leds@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260505102846.186219-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260505102846.186219-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH] leds: Move MODULE_DEVICE_TABLE next to the
+ table itself
+Message-Id: <177876981488.2795269.15417552684114266100.b4-ty@b4>
+Date: Thu, 14 May 2026 15:43:34 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260514-nvme-apple-sq-reset-v2-1-84cbb5c70bf5@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_074053_730245_DAD3E860 
-X-CRM114-Status: UNSURE (   6.70  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,9 +79,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 09:16:01PM +0800, Nick Chan wrote:
-> Fixes a "duplicate tag error for tag 0" firmware crash during controller
-> reset while setting up the admin queue on Apple A11 / T8015.
+On Tue, 05 May 2026 12:28:45 +0200, Krzysztof Kozlowski wrote:
+> By convention MODULE_DEVICE_TABLE() immediately follows the ID table it
+> exports, because this is easier to read and verify.  It also makes more
+> sense since #ifdef for ACPI or OF could hide both of them.
+> 
+> Most of the privers already have this correctly placed, so adjust
+> the missing ones.  No functional impact.
+> 
+> [...]
 
-Thanks, applied to nvme-7.1.
+Applied, thanks!
+
+[1/1] leds: Move MODULE_DEVICE_TABLE next to the table itself
+      commit: 7c3d6730e8f03220f48e70ba9d4c05296aa83fae
+
+--
+Lee Jones [李琼斯]
+
 
