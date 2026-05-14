@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 148E5CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC431CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z1V4NPuyeQa7H6wkwBSfixLDgZEqBYs08A2L49MD/po=; b=Y3c+TJROjm9kVBRKQUyHM6GJvl
-	/ZKErNfNgDCw07iRyhyKIeDZVaFqvN4ni/bS7RAryf6JfHmuBR9Ln6FdASLtdOKUrRM6tsI9DT92z
-	QRxzok7jOilKLr89ajxtpnsllEOkQob4xyMMROJI+SNlSFu3VrisXtjsHQJN13vmXBoDyGujr/kh5
-	icZ7zDEgWiwLF12dpfpuGkeE+4uTByVVemQnArBgnxrwFNH0fe9717pQGSSkrZ6odFl4RdOQLpHUd
-	PiVsXKeVj2n7pIctC8l+o+7IuX/fm+S0fxbSIaV6Jo1Gai3WeBS9JjFXZ2qh/5kpqblwKhQ64q4Q5
-	9GoLfijQ==;
+	bh=Mn4Kwfv53EbvvGSZgfpwONUvjLBXCStucRWlcVTWwHg=; b=i82VeI2/Vq1urFl7ZhWw40utW/
+	DiSmAiA5S5mUdvx9NZCuwEVC7OSGkd5T96urmRrHwXUfR+8w30mzBTYwn99sYV6gh0vw8kVgJ2jWn
+	SdgEAOGioOlYy5qs8AnfWVuYp/jHB6Lhd0cszs5Gkbsn9qDLHl0EY0PIWF3EFe62ITOLzv54M+Bn4
+	G3KTQiJrbNYfJM8bWvEkYGsYEnqH6/Yr4y/uiGqzJ7ShV+vovdnmhslOPaoEw4ByM+EZQXo2uiDRf
+	71X0XupMEVcKqMjB+svIqc1LObImX8t64iL9vyuET8iUju9G9eqXJ7HIKB77RsEFTW/VtZJjarqjs
+	UCISg/RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhP-00000005q9n-1JNO;
-	Thu, 14 May 2026 15:10:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wNXhQ-00000005qCk-1pIJ;
+	Thu, 14 May 2026 15:10:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhH-00000005q3J-0X3n
+	id 1wNXhM-00000005q79-3pwJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 15:10:00 +0000
+	Thu, 14 May 2026 15:10:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D6F744708;
-	Thu, 14 May 2026 15:09:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF8CC2BD05;
-	Thu, 14 May 2026 15:09:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B7C8760180;
+	Thu, 14 May 2026 15:10:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61F5CC2BCFA;
+	Thu, 14 May 2026 15:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778771397;
-	bh=+Y/GGoTKNCM3giuKbq04aPtsbFnmhL9znjR/JyKh7Js=;
+	s=k20201202; t=1778771403;
+	bh=VC6LANEhwgs+80fyZ4VYEW4hOL3vmlUcBIfmWto4pj8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LDMDAMzGaA9jC172A8eLW/Cb0mO2TltTn8gVbgo/Zu4q/jYWo3Znc+RhmuMsC2Rdk
-	 DrE+eWcdwRjhRlKy+13DyVwe+uR8xaRCv5XUpspSMep1T5jwIatMHujwLSLo7576cC
-	 L3Um7uOf+i/wLipca02Vku6OO8ANsm+A3eJxH3UaQnYAQPchqQcgD31ZiOAhpkkEHz
-	 EPHtwH0GL63NCZpCykOs/slBb6U1UmYrMDI+19mYOAvy1dxm3QwXEcpHMRYq1EIX/y
-	 ssmif1ajBeDmtTW9NAqTcP3eT7QDd2biSGD0+EQKLI8uXI2FEodphCyZ2k6k3hR6JG
-	 wAdkXRHD52M8g==
+	b=Es1RJIPAGDyyeqjbKKdh5hErUvtyukBcrKID7q4gTF39L8aFdwN/fBQ+9zJsuPzDC
+	 w9JgTtcB/lDuiQ2XW3Io/CaMtP95QgVgmmmpOf33sNJoUC3OvWWKFIKjq7Qt7RBfGO
+	 9w+0CQKJi6NCpMZsihl0TtyKytBMyPVctWqU2Q8W5F0z1gqeZQhTj1N6NtWHDn6TYQ
+	 eye0o5P3tWpZ1KtVhnFh19NfPvGf4BmbHk1cBWcPno/d+Vg/quhaz6zDNlcJCGzQnZ
+	 /K5/XpquESj+uEUByp8CL5++bQ55YyUO0QALpRpOAhMzcsIb7l0sYsfzjwD6HbAbEf
+	 Tf8agXQObN3VQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wNXhD-00000002Oqg-3KQ6;
-	Thu, 14 May 2026 15:09:55 +0000
+	id 1wNXhJ-00000002Oqg-27aB;
+	Thu, 14 May 2026 15:10:01 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -95,9 +95,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v2 02/17] ACPI: GTDT: Parse information related to the EL2 virtual timer
-Date: Thu, 14 May 2026 16:09:30 +0100
-Message-ID: <20260514150945.3917510-3-maz@kernel.org>
+Subject: [PATCH v2 12/17] arm64: dts: nvidia: Add EL2 virtual timer interrupt
+Date: Thu, 14 May 2026 16:09:40 +0100
+Message-ID: <20260514150945.3917510-13-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260514150945.3917510-1-maz@kernel.org>
 References: <20260514150945.3917510-1-maz@kernel.org>
@@ -108,9 +108,6 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
  heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_080959_198593_63D6769E 
-X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,75 +122,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have a way to identify GTDTv3, allow the information
-related to the EL2 virtual timer to be retrieved by the interface
-used by the architected timer driver.
+The ARMv8.2 based CPUs used in a number of nvidia SoCs are missing
+the EL2 virtual timer interrupt. Add it.
 
-Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/acpi/arm64/gtdt.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ arch/arm64/boot/dts/nvidia/tegra194.dtsi | 2 ++
+ arch/arm64/boot/dts/nvidia/tegra234.dtsi | 3 ++-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
-index b9d9b8edf2df7..d9b43592c22cd 100644
---- a/drivers/acpi/arm64/gtdt.c
-+++ b/drivers/acpi/arm64/gtdt.c
-@@ -42,6 +42,14 @@ struct gtdt_v3 {
- 
- static struct acpi_gtdt_descriptor acpi_gtdt_desc __initdata;
- 
-+static __init struct acpi_gtdt_el2 *gtdt_to_el2_vtimer(struct acpi_table_gtdt *gtdt)
-+{
-+	if (!acpi_gtdt_desc.v3)
-+		return NULL;
-+
-+	return &container_of(gtdt, struct gtdt_v3, gtdt_v2)->el2_vtimer;
-+}
-+
- static __init bool platform_timer_valid(void *platform_timer)
- {
- 	struct acpi_gtdt_header *gh = platform_timer;
-@@ -113,6 +121,7 @@ static int __init map_gt_gsi(u32 interrupt, u32 flags)
- int __init acpi_gtdt_map_ppi(int type)
- {
- 	struct acpi_table_gtdt *gtdt = acpi_gtdt_desc.gtdt;
-+	struct acpi_gtdt_el2 *el2_vtimer = gtdt_to_el2_vtimer(gtdt);
- 
- 	switch (type) {
- 	case ARCH_TIMER_PHYS_NONSECURE_PPI:
-@@ -125,6 +134,12 @@ int __init acpi_gtdt_map_ppi(int type)
- 	case ARCH_TIMER_HYP_PPI:
- 		return map_gt_gsi(gtdt->non_secure_el2_interrupt,
- 				  gtdt->non_secure_el2_flags);
-+	case ARCH_TIMER_HYP_VIRT_PPI:
-+		if (el2_vtimer && el2_vtimer->virtual_el2_timer_gsiv)
-+			return map_gt_gsi(el2_vtimer->virtual_el2_timer_gsiv,
-+					  el2_vtimer->virtual_el2_timer_flags);
-+
-+		return 0;
- 	default:
- 		pr_err("Failed to map timer interrupt: invalid type.\n");
- 	}
-@@ -142,6 +157,7 @@ int __init acpi_gtdt_map_ppi(int type)
- bool __init acpi_gtdt_c3stop(int type)
- {
- 	struct acpi_table_gtdt *gtdt = acpi_gtdt_desc.gtdt;
-+	struct acpi_gtdt_el2 *el2_vtimer = gtdt_to_el2_vtimer(gtdt);
- 
- 	switch (type) {
- 	case ARCH_TIMER_PHYS_NONSECURE_PPI:
-@@ -153,6 +169,10 @@ bool __init acpi_gtdt_c3stop(int type)
- 	case ARCH_TIMER_HYP_PPI:
- 		return !(gtdt->non_secure_el2_flags & ACPI_GTDT_ALWAYS_ON);
- 
-+	case ARCH_TIMER_HYP_VIRT_PPI:
-+		return el2_vtimer && el2_vtimer->virtual_el2_timer_gsiv &&
-+		       !(el2_vtimer->virtual_el2_timer_flags & ACPI_GTDT_ALWAYS_ON);
-+
- 	default:
- 		pr_err("Failed to get c3stop info: invalid type.\n");
- 	}
+diff --git a/arch/arm64/boot/dts/nvidia/tegra194.dtsi b/arch/arm64/boot/dts/nvidia/tegra194.dtsi
+index 849694f751d90..45cc180ac9973 100644
+--- a/arch/arm64/boot/dts/nvidia/tegra194.dtsi
++++ b/arch/arm64/boot/dts/nvidia/tegra194.dtsi
+@@ -3163,6 +3163,8 @@ timer {
+ 			     <GIC_PPI 11
+ 				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 10
++				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12
+ 				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+ 		interrupt-parent = <&gic>;
+ 		always-on;
+diff --git a/arch/arm64/boot/dts/nvidia/tegra234.dtsi b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
+index 04a95b6658caa..ab9813f9ba30c 100644
+--- a/arch/arm64/boot/dts/nvidia/tegra234.dtsi
++++ b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
+@@ -5872,7 +5872,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+ 		interrupt-parent = <&gic>;
+ 		always-on;
+ 	};
 -- 
 2.47.3
 
