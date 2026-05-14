@@ -4,152 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F66ECD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 08:26:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06935CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2BYEaD/Jxlqzkuz1PpTcK5Kr2yxGtyvnpGQIDSCdBCg=; b=pUwZNOaew2s6lGuyPXEb08YSoP
-	ozAL/mo58O0kAbThe7Mb1kJNt0FhJdYOcY7SvbXhB/DZGQ+Q4MSFCoh7h9dV4r7VLpsxpIh4ws8De
-	5oMuUoAz5zTPr4CHKGKpIEfJtnge99bITC4FzF/m8lmngM1FDsLgCULJ/mocppkr0rGkTtNcjk+m3
-	+rYbEO+ByYp/EUc9O2QYw3nl1wL2fOOCoS4bXA7Ku7D+sBZU3UPcWxH+MoGCpvGeiRET8iT3wpRMB
-	a/CAK3Ho7SrG/8R6ZeMDJiHgcYN7VQYDwGvgsascTOvAlfi+cNo2VOIggNv6mIegKLaJnVK9XIuIw
-	kbl+NzaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CemDzzrwR3SGpVnjXIQxXW5PCfyUzVu1NubMUDPJPt4=; b=1yqGrfh1mYUmxdSsX1tYUJLjqQ
+	sWjWiaJaHyRxORoeqOgp900/Yv3WT+PBttfqbC3UC0tYEeMwSLUtukzH1Z1Z/Dn+tPNiVdHA5tjzH
+	0CPrVbOdD3b666XZC5GPIURSGjvytdPXx/JUDNoaPyV3KUEd/mE1Tk+10RDGfMAoAZxn9yj8woKXv
+	s8vCDfZys+Vwjg9oojRZzNUuGj+553DPrrUdJetx8WKFAG/+PEqWAv0jL4afqvZr/zecTpLEv9EPD
+	fKA4l6zm6G6IJNFqD8NaJad0fRbrnG4kp7r8YlgJvOwV9KQeiI0JMFt2LY0O1sT+U6IWnblDPdIMb
+	fNkVS0SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNRPA-00000004wGX-0h7B;
-	Thu, 14 May 2026 08:26:52 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wNS0N-000000050Yo-1r7D;
+	Thu, 14 May 2026 09:05:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNRP6-00000004wEf-2Xlb
+	id 1wNS0K-000000050Xb-4BrP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 08:26:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ckno8GxTLv/ngc8WRWwgP9Q6gYKnOljpFt2LlnFb1qEIPZpy9N4gWqxO23gSIA1No1mqwlCZ+BYp/xhFZvHi/DA72B0ENJFUdTjH3tYghuyWX6TBqYXGLgsfNvqSDq+TT2jOV4LIb688aIa8bOyVkNUGGuHaS28fpCgaP1WmC7hXyNS0dwxFvrT6vaWkL41uspesoMGHa+1XbE+wJPXnolLdRpQ31RtEGG0S8iLnrTOD8N7xONS8PkD231sP1QUWtzysPE3964WKqn9IZXiCvrf5MQJxDa6CvbdLqm49I4eGk1kJC0hkCE8Au4RF27qIh6+aeyMIxD+XLWrVM19jlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2BYEaD/Jxlqzkuz1PpTcK5Kr2yxGtyvnpGQIDSCdBCg=;
- b=IT6kNYORogB/7SKUxGd9exocEcIuP1AWAVGKqBxneozVpTUJmPgxu7M3rFR2LfMuKbE6fXDn1Vf8B5/n0DHgcyNyx07jIgDVTgRlr5WO3aVvRqMtiWlQ279DEItyxrS7M7/esY7XED6jESZNFNf2cveilP1MKIckE3qR4EPHk/RnSSjKTR+0YV6WmMAIt5+o8zuPk5/wI0KQ/Ao6FLshgKVQjqMNZla8+/dkECXOgYsBU/gRlREzieeJ9HCIUOQxp8nKqPqEDMZJ8SlbBNRTqqWP+mMJy+jVi86jOkTlkmuueznhfnzSJn6v7qZvJhimCnXnEGUAVjl0BJ0xKLYWGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2BYEaD/Jxlqzkuz1PpTcK5Kr2yxGtyvnpGQIDSCdBCg=;
- b=WOeTp2Y5YHnlwmJqQxitfvaPS/qk3i2USbpvlXAWg+dErHq2hbWEy5YKh6taAfnm6c8IeqjbvukqYihM+WlIfCpYFLEbhF7ug6EB3aVumGwR4o5VekFRUuJhsIjMjimL+6OUO58obuSinfIiZk2E68WeA3DNNU6oz/rpYRLymfvnl65wJbVZSG22DFWQ8j2GQxXIm88DJrVaLmB7I5t4lnOINh8gstMAbd8TrQja+4oo8jgoUPqQBr1w0l5wnrDT04s0F/T2s16cEfgAw6vpjfbFiwNANGgNKQ9a1t8Ps7JaQ/QJr6p/4efLpUZRdLYOCSKl17i+e0brORyhXqH6/A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8190.eurprd04.prod.outlook.com (2603:10a6:102:1bf::23)
- by AS8PR04MB7719.eurprd04.prod.outlook.com (2603:10a6:20b:29a::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Thu, 14 May
- 2026 08:26:42 +0000
-Received: from PAXPR04MB8190.eurprd04.prod.outlook.com
- ([fe80::4608:7dcb:899b:e4a1]) by PAXPR04MB8190.eurprd04.prod.outlook.com
- ([fe80::4608:7dcb:899b:e4a1%4]) with mapi id 15.20.9913.009; Thu, 14 May 2026
- 08:26:42 +0000
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-To: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	NXP S32 Linux <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>
-Subject: [PATCH v2 1/1] arm64: dts: s32g: add SAR ADC support for s32g2 and s32g3
-Date: Thu, 14 May 2026 10:26:39 +0200
-Message-Id: <20260514082639.1181240-2-khristineandreea.barbulescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260514082639.1181240-1-khristineandreea.barbulescu@oss.nxp.com>
-References: <20260514082639.1181240-1-khristineandreea.barbulescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0014.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:c8::12) To PAXPR04MB8190.eurprd04.prod.outlook.com
- (2603:10a6:102:1bf::23)
+	Thu, 14 May 2026 09:05:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1778749514;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CemDzzrwR3SGpVnjXIQxXW5PCfyUzVu1NubMUDPJPt4=;
+	b=FMWJYI48rO7n2IzNDxPMolQ/X3A41mKiQbnNgQtMdoVGVhTv0LFo/24yJd15ZVTLgulMSk
+	XSd37E8nHzUqNGCiCJtTjOpRNtcKQ2vY2gkiv/pKIqs5w3SYf2K8mrktYSSKL2eBsCBWJH
+	5Ge7g5sDEdu3kaLZA05haBZbXUMGLqE=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-56-kVl3gNqpOISatXvdeoOC8g-1; Thu, 14 May 2026 05:05:11 -0400
+X-MC-Unique: kVl3gNqpOISatXvdeoOC8g-1
+X-Mimecast-MFC-AGG-ID: kVl3gNqpOISatXvdeoOC8g_1778749511
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-48919890a95so52889195e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 02:05:11 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778749511; x=1779354311;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CemDzzrwR3SGpVnjXIQxXW5PCfyUzVu1NubMUDPJPt4=;
+        b=lsgcDlr+cSyEZeuYSpA0WsvDjpZMb16QRCkoHFibm0oTDk9HuDlwxjMR2NrVdgbKeU
+         3Vfgo4Y98D8kbuFgO488EaHSNVTfhwDTBE70eh34FNYGdHAF5+uXPJpjdh1fSrEZ3lSu
+         GGlX4bPe65KHxoQmTvKD558d31Sd6+68AAt4DGZgqLlT+GZw4aoYc9qHbJsw0trthLED
+         CM/ReELey21bngVX8JtcHMtutO77XyiFLp8Cf345vfPiIROsKRmq9MPTIsvLHBDCobA/
+         9AtlPU3LTd5D9Ecq8xws7Suy5iwHTRx2h4Lc9LgWPdCldeCGC6umW3qc5Use+Ra7LVDB
+         DjQg==
+X-Forwarded-Encrypted: i=1; AFNElJ81nbQy4YH0b+tsXCWDUVmSTVVGCPJVhYaasZpiaz4gUVnzNCWNeimm26kfrOnW+Qxm/ykKPZna+alQG1YD7ILV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6qOe32C0r839oDSNPz16ZOk5bkwECkEPm2rkRGGuwf4nQxGCq
+	4geiOjzchOZl+l9LoHr4AEuYER8tO1j4WOygN+QBpKfib8AeAxlGtmELNcHUXl8dlvS1kFfiOQ5
+	cK3TH8ZeVytmWWIg5X56dhyAEfGZmJGpNdb1TpaDEXsIwZvv29PleXX8Z63a+HjHwf5l1l+i7u1
+	Eo
+X-Gm-Gg: Acq92OGY4mL5FtssLIWzLGNMxcEP890DJiXQQnEPJP5hOpq82nCqjw9WaNjsgKznLGU
+	y06wYdcrfbd7pRCPAxpm913bwphJDg4aoNxYUYhloJDs0TSeOBjs0ZGd5BAySUYOXZuMHif4ORK
+	+j0HSTX9lg5K8d+4MRnRM+eb+f0R7g7Oorr/kwis6X5kfSvb0hwRFHoj22BoQFO+ZUzo4uTayXl
+	Z4dDZobagZx0V2puWsUgsXFPZC3vTZ3fI9GeGAtdQXgTDGvvUN8PNXQDcYZ3uJb5j8hvHclrbG+
+	o29zYSHphHagP2PSnteEmc1rjiYNSHG+wsH9Noku+SWDHYjLUaaT+3KvdnjUaR9FV4Zft3x9Q/Z
+	cIbaU4X70Gv9yTy7+3VjsPjK0M79/Nhi+YhkutgOSMMm7/xPfx7dsDj8=
+X-Received: by 2002:a05:600c:19cd:b0:48f:be94:d82c with SMTP id 5b1f17b1804b1-48fce9e1a34mr101445155e9.19.1778749510610;
+        Thu, 14 May 2026 02:05:10 -0700 (PDT)
+X-Received: by 2002:a05:600c:19cd:b0:48f:be94:d82c with SMTP id 5b1f17b1804b1-48fce9e1a34mr101444475e9.19.1778749510167;
+        Thu, 14 May 2026 02:05:10 -0700 (PDT)
+Received: from [192.168.88.32] ([216.128.9.106])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fd648a7e5sm51353085e9.3.2026.05.14.02.05.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 May 2026 02:05:09 -0700 (PDT)
+Message-ID: <73a19f89-ccd7-4762-8e07-812d8d95ead2@redhat.com>
+Date: Thu, 14 May 2026 11:05:07 +0200
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8190:EE_|AS8PR04MB7719:EE_
-X-MS-Office365-Filtering-Correlation-Id: 267298b0-3593-4b16-e486-08deb192870b
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|1800799024|56012099003|18002099003|11063799003|22082099003;
-X-Microsoft-Antispam-Message-Info: 6CNmQ/1Ovsa7rS3RUDT5f22mhz4OAF/2dmkOk7TGQnqP0ZKin3ujJe9VdGYBDdE/RDAm+fv/+mPw3dhnmrxEGD3zBssVeFYELxaSGAhLGucrnibdL3WxS0CWNdTfb/ubyHGGGiqcQmnMQGWh+QTPjxA/wGstzjVU/6j9wA2zcZ8yQNsI6Xr+erlmYj3SEsuOVcQmtBQkmIZckEdMRnQDaNVSHx0f1cBzAENoijJCnR8TapEQ5W3u5QBHRUGIzNqgiIOSE/ZWIf72PwncfE3AW2oYAlnwkIHq/L3YDH7aCynjVVJN9zvVD/X96/7zTi2kUzNxG3S34o3fWV9ipUBnaUR2zw8lEuIPsYrUcYHCto4anTj/r3EeTzJ/NaNxVkNvHD1nOBHRvGaWXaUpeypwxq1Q3rS5vupBr9/2UqZ1i4FM0GOxlOp0YKyReKZEwz77WUBYTrL0gg2ky0+FOuK/6gAvFhCrOOOwhZOxjrljU5pDu/82GyIkUW10EtAS1roHY4XT1hazTxpJoyJEaInPEZQiRRDG9HQHIVZ7ABbfeFp/R3gXKvJDgmnORcs5Drmv1jeCM6jbCbU3lrzyeae8H57rLFvVhkUaFDl27pz67+YTtARX51mODvS8zfwcAQvKF8Y2KjLxLvk/ls6uYaO6HFYIrTtnD/5uxPfhK6usRUAGGJnoM2tFU+YODBH8ez/5
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8190.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(1800799024)(56012099003)(18002099003)(11063799003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dDhvZHMwOENOTE9BVTlhZUpVY1hvTzE1aitQeUh5NnRiUDRNaCtaQ21BTlhs?=
- =?utf-8?B?Y1hhMkIxVm52YVJMM1pRM1VQYU96TmROV0tMVFFQNkZZblQ4QjdwWVpKUWhH?=
- =?utf-8?B?RXNObVJnQTZrQ0RPbFExNndvWVBIRDY2NHVpVjRnbFFZRGhkMEkwTmpPTzgz?=
- =?utf-8?B?VEJVTjdLcGNqdVJaMWdGOW9jN0F3MEE3Ty9aMjNscVFwZ1RxV0ZCcTlWcENw?=
- =?utf-8?B?V3gzeHR0OTBCUTBRU2JDWnRiK3hta2JWOHRGU2c3N2NmRWEyemJsRWpVUmd2?=
- =?utf-8?B?UWpRekVFNElHbUUyMWZsNnM1elZDUEJLbE5ISXpNYStpd01hY2JwbWs1NnhI?=
- =?utf-8?B?Q1F5akNENTg5TjhhSks2RlI0Q3N6dEYzLzZJN3o5MW0yQU5GbTFIMEtsUlp4?=
- =?utf-8?B?b3JCYWYzbXluNHBoL2VXM1VML0trNGdPTHNlalhhb3ZBQlltZFJQRWpRTVl2?=
- =?utf-8?B?Nm9Ta1U2aHVWczhsRXU2VW1ZSk41dE9SeVlwMW5FRjZ1Yk1LTFk4ZmZ0blRB?=
- =?utf-8?B?dEswOUo3NktETFc4TGJEc2oyUjVraElUbW5pSTZkUFVYbEQ0Y1Z5WnZNTVF4?=
- =?utf-8?B?NW9BOXB5RmtxSGU5Tmllb0lQaFhSTWxXRHB0M2xWeHhnWjVuVG0reU56TTA1?=
- =?utf-8?B?Q0h4a1hISExHbDJyd29jZ1piYXJzR1pmZDJKaUt3d0c5MkpBYllMaWxHbUUz?=
- =?utf-8?B?SjFyeEZJL2EzTlFaTG1mSE1xd2t6TE94c2xzeXNOR3NxaDJ3MG8rYTFNOE5V?=
- =?utf-8?B?dUd0b2lJMDAzTmN0UERCVllTcnlsa2xEMmRLME4vYlFON01vcEl3eUR2YU00?=
- =?utf-8?B?YVF1c0NndFM1OXp5RXhJTGp3Y0dQUTRGRWsxblAyNXFneGIvZ01lTER3RHhD?=
- =?utf-8?B?dURjdDJvTlNLYWphck1SYS9qVlU3aVpTVzY0SjR6QUVtaXZlMUgwZzZvQXVw?=
- =?utf-8?B?STZ5VFNjdUdWbXdKdUNtRUFaWG1wTHNBWFRMdllhcFRvbzJRbVQxYnpxWWQ0?=
- =?utf-8?B?RTZCeVM3UEV4WFRzYkJhNkFSTDViQW5uQzBLWXMwNE5uVkcvRThVdTBTOE8r?=
- =?utf-8?B?cVhTM1FISnExUlhjZy9vOVNuRzRVc2tMRWhpcHRqVm1TUTdodjg0VXRweFFh?=
- =?utf-8?B?Q2l4TTRGeVVrTXZVTC9DTUdtMkpLaFcyb2tmblZua3FhK0p6QlFqemd5c3hR?=
- =?utf-8?B?RjFYOVRud0RWTy9NUG91ZkZtUEV6cDNJQ1hrQjhveW9NdzkrUzQ1MlVaNnVD?=
- =?utf-8?B?UHZlQnZRMVFlQWZEZ2taYVFCMm00dGNxUmZrYlJFU1B6U21xdWEwc2dhUi9o?=
- =?utf-8?B?MlBzV0drSDJOd2Zra2hpbEhqa2FRNW1KRkYybndOeEpPeGNEckFJVVBXU0dB?=
- =?utf-8?B?SjFxN2lQR1RPS2pFOUZ5K2NDc0dVN240c3lWMmVGUEdERTcvN2h2SVc0dkF6?=
- =?utf-8?B?QjVRajMvS2JaY2NqR1lZUEluT3FHSDBoVVpnSHMyaUZkSDR1ZkNManpzZWZO?=
- =?utf-8?B?S2wrZm1mOUNFd0QvOGdaQnhDcTRrTUN4S001NnlJSmxPTzRlOHhzSHBCUVVj?=
- =?utf-8?B?cWZ5MjFlTEhYL0FiUUxKd0hLZW9uenlvd0tTZmRYenpPVE1ucW9UZlltTXVP?=
- =?utf-8?B?MHpXOHhZUUNrbUhUdFRXSUlSMXc1YmZKTjNkek9HM1BzelgxbUZ2L2JJbjJU?=
- =?utf-8?B?TDMyaCtTQlVmWlhleE4wUFA2VHV6S1I3VTB0ZVdQTjFZQnUxUFQ4M3Z0M2ov?=
- =?utf-8?B?TlA2Mk9ZY3ZvcHJSTmZDc2YvNVhUQ2pWOGJ2Nm1DMGprUHBmNXhxcGxXbnRT?=
- =?utf-8?B?Um94Z25PbHhvU2hoL3I2R09NdFpKWkdJYVpzd3RTb0pTUkNaWDFUT0xHU2Fh?=
- =?utf-8?B?b0VtMVorWGE2dE9mS25nTVNmSEo1SkZEeEgrMHBCbjZNZWRiUlF3M1hXclB3?=
- =?utf-8?B?My9CVzB2UDltelBuZlBROS9oeFMzL2lKUWJGNUl6dE1ZOE01WDVNNjRhZ2Zz?=
- =?utf-8?B?amRBSTFtSFR3dWtsWUlpYkNlcFk5VHFrc0NvOHhvOGh2YnowL05WdXBjeUt4?=
- =?utf-8?B?YndPVjUxSFhOTzZuYjU2S2RrR0ZaSmVFWlUvMlJvdzN1eXAvWGpOSnowNUVU?=
- =?utf-8?B?S1l2T1dCbCtKUGxsOVMwNGFackt2a2VYT3RUa0YxdkhtVi9BRVhPQVEycEtv?=
- =?utf-8?B?S0ZmM2QySlBycUluSVh0NVR3MEd6TzJZMWR2T3QzVkNLRUkvSmp6anVjdXgv?=
- =?utf-8?B?ZUhpcHFzdDRvNUdROVllSno3TFZJRERVd2RPMStPQTJ0bXloTmZUQk5YZ204?=
- =?utf-8?B?aHpDV0ZKTlEzUlRwaU43dWl5bmg2anVVaEJSaklJN0xzSmgxQnFsSEVMUGUz?=
- =?utf-8?Q?f2V33E71zKUR3ds/4PlSudRb7VmHxz1a9aaF0?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 267298b0-3593-4b16-e486-08deb192870b
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8190.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2026 08:26:42.7439
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: b8YaFwc1CceRaHYFAV03fyql6WXbj6qMRg6Q75aqgavthlZsUQwLKfTUEeknlVolabJkPlQrPHc7w5aynKfA2GTuGpHFam+rnrG/LXNmh2l9snsYkUV59iz8YOc2YmgK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7719
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 09/13] net: lan966x: add PCIe FDMA support
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>,
+ Horatiu Vultur <horatiu.vultur@microchip.com>,
+ Steen Hegelund <steen.hegelund@microchip.com>, UNGLinuxDriver@microchip.com,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, Herve Codina
+ <herve.codina@bootlin.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Mohsin Bashir <mohsin.bashr@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260508-lan966x-pci-fdma-v4-9-14e0c89d8d63@microchip.com>
+ <20260509082720.503A6C2BCB2@smtp.kernel.org>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20260509082720.503A6C2BCB2@smtp.kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ZjjtsKRRF8wirfuiNn9CiPlWapePD2nNegx6QUbBlwo_1778749511
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_012648_651273_24852EC4 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20260514_020517_112776_4160F788 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,108 +124,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ADC0 and ADC1 for S32G2 and S32G3 SoCs.
+On 5/9/26 10:27 AM, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 10 potential issue(s) to consider:
+>> +static int lan966x_fdma_pci_napi_poll(struct napi_struct *napi, int weight)
+>> +{
+> [ ... ]
+>> +	/* Get all received skbs. */
+>> +	while (counter < weight) {
+>> +		if (!fdma_has_frames(fdma))
+>> +			break;
+>> +		/* Order DONE read before DCB/frame reads below. */
+>> +		dma_rmb();
+>> +		counter++;
+>> +		switch (lan966x_fdma_pci_rx_check_frame(rx, &src_port)) {
+>> +		case FDMA_PASS:
+>> +			break;
+>> +		case FDMA_ERROR:
+>> +			fdma_dcb_advance(fdma);
+>> +			goto allocate_new;
+>> +		}
+>> +		skb = lan966x_fdma_pci_rx_get_frame(rx, src_port);
+>> +		fdma_dcb_advance(fdma);
+>> +		if (!skb)
+>> +			goto allocate_new;
+> 
+> If napi_alloc_skb() fails due to memory pressure, does branching to
+> allocate_new prematurely break out of the processing loop? Since the hardware
+> interrupt was already cleared, and napi_complete_done() is called below,
+> will this cause the RX queue to stall permanently for the remaining
+> unprocessed frames? Should the code drop the packet and continue instead?
 
-Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
----
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 22 +++++++++++++++++++++-
- arch/arm64/boot/dts/freescale/s32g3.dtsi | 22 +++++++++++++++++++++-
- 2 files changed, 42 insertions(+), 2 deletions(-)
+I went over the series and sashiko feedback, and generally speaking the
+series LGTM, but I think this one is real and should be addressed.
 
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 51d00dac12de..6f1952fbbcfe 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -3,7 +3,7 @@
-  * NXP S32G2 SoC family
-  *
-  * Copyright (c) 2021 SUSE LLC
-- * Copyright 2017-2021, 2024-2025 NXP
-+ * Copyright 2017-2021, 2024-2026 NXP
-  */
- 
- #include <dt-bindings/interrupt-controller/arm-gic.h>
-@@ -554,6 +554,16 @@ i2c2: i2c@401ec000 {
- 			status = "disabled";
- 		};
- 
-+		adc0: adc@401f8000 {
-+			compatible = "nxp,s32g2-sar-adc";
-+			reg = <0x401f8000 0x1000>;
-+			interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clks 0x41>;
-+			dmas = <&edma0 0 32>;
-+			dma-names = "rx";
-+			status = "disabled";
-+		};
-+
- 		swt4: watchdog@40200000 {
- 			compatible = "nxp,s32g2-swt";
- 			reg = <0x40200000 0x1000>;
-@@ -717,6 +727,16 @@ i2c4: i2c@402dc000 {
- 			status = "disabled";
- 		};
- 
-+		adc1: adc@402e8000 {
-+			compatible = "nxp,s32g2-sar-adc";
-+			reg = <0x402e8000 0x1000>;
-+			interrupts = <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clks 0x41>;
-+			dmas = <&edma1 1 32>;
-+			dma-names = "rx";
-+			status = "disabled";
-+		};
-+
- 		usdhc0: mmc@402f0000 {
- 			compatible = "nxp,s32g2-usdhc";
- 			reg = <0x402f0000 0x1000>;
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index e314f3c7d61d..5cfb37c1216a 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
- /*
-- * Copyright 2021-2025 NXP
-+ * Copyright 2021-2026 NXP
-  *
-  * Authors: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-  *          Ciprian Costea <ciprianmarian.costea@nxp.com>
-@@ -617,6 +617,16 @@ i2c2: i2c@401ec000 {
- 			status = "disabled";
- 		};
- 
-+		adc0: adc@401f8000 {
-+			compatible = "nxp,s32g3-sar-adc", "nxp,s32g2-sar-adc";
-+			reg = <0x401f8000 0x1000>;
-+			interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clks 0x41>;
-+			dmas = <&edma0 0 32>;
-+			dma-names = "rx";
-+			status = "disabled";
-+		};
-+
- 		swt4: watchdog@40200000 {
- 			compatible = "nxp,s32g3-swt", "nxp,s32g2-swt";
- 			reg = <0x40200000 0x1000>;
-@@ -792,6 +802,16 @@ i2c4: i2c@402dc000 {
- 			status = "disabled";
- 		};
- 
-+		adc1: adc@402e8000 {
-+			compatible = "nxp,s32g3-sar-adc", "nxp,s32g2-sar-adc";
-+			reg = <0x402e8000 0x1000>;
-+			interrupts = <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clks 0x41>;
-+			dmas = <&edma1 1 32>;
-+			dma-names = "rx";
-+			status = "disabled";
-+		};
-+
- 		usdhc0: mmc@402f0000 {
- 			compatible = "nxp,s32g3-usdhc",
- 				     "nxp,s32g2-usdhc";
--- 
-2.34.1
+Also it would be very helpful if you could (for future series/revision)
+reply to the (wrong) sashiko comments individually explaining with a few
+words why the are off: decoding the context requires much more time for
+whoever has not wrote the code itself.
+
+I understand that dealing with AI feedback is a pain, but, paraphrasing
+a great aphorisms creator, I can assure you that ours (maintainers) pain
+is greater.
+
+Thanks,
+
+Paolo
 
 
