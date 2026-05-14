@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CABCD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 06:44:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F022DCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 06:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rvs7i0m2mkFEM33dw5Pxs+v6bQPAjwc2DIz49z/H1v8=; b=t3YeKtGUOacMUUb5Dj+fEZ9bf0
-	QSWFS3DqRJRwBC9rChbIdCmCZpYB/SJ8u12MrgH3xPIlfVclp6J66YxBVrr0CIlQ7akiBB1eYDVdu
-	s/r1wrPht5P2bxjZgeSrUfZ00FvGmFnNDaFUVSOYSDgRK+QTmnqjEhbNO26KwpZbqJnXMAe9BHNhc
-	YC0HN6sLI4fDti8yk0V4nqyEkARYLfoXUvgYCGuye1FLuM+uKYTMSeZxc8ObkSZPj8AGNxss2NR8h
-	oiNlHuWXmsxsbhIFM516uF1PvJqVscQ5hLPoiVbeEt4/+Xaqz1fJDfkUN4R2JxqXpva8PbqbKNuK3
-	wjbleRZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w02SH6PIRFOFu6YnjfK7owcWnXxBUkNw8szwIzUQj54=; b=458NqqR/MH4DZdacTqvYVRS6sw
+	YGOUVMf8vSdoi58raL20O7gt3izcuuAo7J4q65CGKf5SCRgwiE6A15idTqZiuIt/PZ8/kPaRNlcdi
+	hLonYZK/zD5cuN+KcYoDlq3w+P8jg1gWrSINQTE1C12LlXRt65K0OmM2AujypCP44Ve3PjgVHkT30
+	NjA6tAu6JLK+UAomDpF2BhW8SOf1NBvhcnHG16oGPVu8f+xzhs5tT0gtv0ywkxKxDRQ59Nun0GxJj
+	cYrhcF6hII0/uRVwF2Eof78NJYWY/53pOjZtBK/FwDiwo3KE9u8/uEEePrZqobMQKgqVde/3seBqg
+	GrdUMSZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNPnc-00000004jzq-26tj;
-	Thu, 14 May 2026 06:44:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNPoi-00000004kBm-3UAx;
+	Thu, 14 May 2026 06:45:08 +0000
+Received: from mail-dy1-x132c.google.com ([2607:f8b0:4864:20::132c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNPnb-00000004jzg-1G3x
+	id 1wNPog-00000004kB5-0YrN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 06:43:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 26574600AE;
-	Thu, 14 May 2026 06:43:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EEDEC2BCB7;
-	Thu, 14 May 2026 06:43:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778741037;
-	bh=z4iol9lK0tCBS7gF375F2wgexcgoZs/yOTdmOdhJrT8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Eqb8nqJRD4jn8FUHLZb1zwzarUwB4NXIhnDJ5PXTpnFHWgPdxLXzWOxNiqTvn1dxz
-	 9rVAASvmP0A334BlZgTwN8EljEGAkxucD2GVY/BbOLLyFmrWHVhx/VHk+xv47u3q+y
-	 1WiADo//KfcdSKqvkwyHzxAIC+WuaZ7btXRjGTr5l7G8FxrBmZiTnqLxfTOCUf3hag
-	 6MUCNPcLLac1RM4IYOGp/0xShHU+vbukrN86N3yMcl+PQOFhn5Oma5+Zu8zXOUGlU5
-	 BNqjnQKD4aaBKc+wMFZ+YwAYc4M01+/41ln8ozk2JMZ6fZiTg/6K9Fd2O81QLeLu9M
-	 Q9B7DCbpfbadw==
-Date: Thu, 14 May 2026 08:43:55 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Josua Mayer <josua@solid-run.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Li Yang <leoyang.li@nxp.com>, 
-	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Yazan Shhady <yazan.shhady@solid-run.com>, 
-	Jon Nettleton <jon@solid-run.com>, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev
-Subject: Re: [PATCH v6 05/10] dt-bindings: arm: fsl: Add solidrun lx2160a
- twins board
-Message-ID: <20260514-macho-white-tapir-4f8cf2@quoll>
-References: <20260512-lx2160-pci-v6-0-d0ff72d3c983@solid-run.com>
- <20260512-lx2160-pci-v6-5-d0ff72d3c983@solid-run.com>
+	Thu, 14 May 2026 06:45:07 +0000
+Received: by mail-dy1-x132c.google.com with SMTP id 5a478bee46e88-2b4520f6b32so12748197eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 13 May 2026 23:45:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pcc-me-uk.20251104.gappssmtp.com; s=20251104; t=1778741105; x=1779345905; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=w02SH6PIRFOFu6YnjfK7owcWnXxBUkNw8szwIzUQj54=;
+        b=a7Z9/U+92OadBnT3XYA1t1n/S1ulG1bCuFdj4jIwJJ2udgTJ80VwYPu7gHumYcFeyF
+         qwF1HJI+EfCPokCWZZ97Kp+JzhDiisOdE663q0JfcmcBpvvl8hHuby7f8A1H0M54mVp8
+         syAxux9DR9Cyj2uiBBta0OpspIjip05fFIGhHxE5JPA0IQhV7/qz8LPk6v0GccSzOG/2
+         Vy/qKK+XKdiYwSIli4K2zoGIGgBKaLRlzipQ34e3fWRs1+Whxts9s0ENz5Wuaa68saDB
+         t6v7VA8DlOtPGCn3Dc7zEmZLa2fPyc7Ecrua2u9F0reodf+mEh0yIPhVBjGrZcvMSHH2
+         wFaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778741105; x=1779345905;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=w02SH6PIRFOFu6YnjfK7owcWnXxBUkNw8szwIzUQj54=;
+        b=Wi3SCZT6gBq3p/SnmYN+CIrIGYzcQBXRNZZK8/j7jt+/ssWLtBt9k432nvefxpADrr
+         0iV2q8O0T1CAnj7BtuJjIm7AEGFm+QWdq6Q1XfysWItgejl6JRnuT4kobFZvhxHnt2cE
+         V+OyygsBjyjeZta9PgHb2tb9jkTj3B2vWAfWtKRgNuGzSUcrEZnmihnjKzavVvALI2Kh
+         M+Sh2ooaih511ihM3LhpFj4FE4pqf/CVHYiB9iB1PB6gVaep0c/ZBj5rruCqsah6vbtD
+         vVFSQ68lhv/5u+Vl1l/3LkiwotVLqtX5e1CTlJnKwnR+ICUJTSnKveden/mFSx7uK1Ll
+         53pg==
+X-Forwarded-Encrypted: i=1; AFNElJ/xeinkWcBJzHfvEtwVVlt+lfu/2gljjY4wnMskKXFkp7xltoM/Y/kw0NLKEneb72KgLvHWb/aN5nwGjzbkoa5J@lists.infradead.org
+X-Gm-Message-State: AOJu0Yye0sSZAOYBk2duulhWNA0EDQk6SvMG3IzU7G+4dOABhiYU0cYZ
+	I1eLF6A6B+yn+lmTwzaFKuPW4kB3liCC6jh/OxWQ1PLFf/QCCmU2z2bu8oTkPTFgy30=
+X-Gm-Gg: Acq92OG3UJ/Em4jx2eJz6ETV9U6PiQ7DNKEbwShMKCZV4hQroQw1lMCPsHnl/kelmLw
+	YuZLBFSRQrfurxjY/umLoDoyaOUo8mQVXNEcFM27Z/1MwUPJw2Zv2Zqpmbt6d1Vor95Sl6kjRoW
+	B19iFpA0ckRkYOCLH8g1w/nfPjWb7AVgYSvOqnQ7WqGBtRWQILYtm03S53A5fNpjX4cLc2rucet
+	Wa1nfYdyFvxj/UcQqvCCUrTEmxburrbKZsQ4dWPrMDSeAqJF6Q/M+b/rdfTW8F2cYHnMC8jeXgl
+	Cq/tp1D8gU5kkSTspDgJEOHzovXHnAlE5X0wV7Xcpdd7ZOqoHyDhLW9VRBtqlaMoj90mjj9/3E/
+	iyjot+Gz1+h+bTWDWQn3IPqbmxgk2dU/rpkPs2KcsjQqjDVCZKALM4UtOwvkStHTv0OB7sgq1kd
+	iSnpVZ+Y/ooZTKAIzE++/PviF+IVV6PjXGkGmgJJYxtl9To5YJCrnptPA=
+X-Received: by 2002:a05:7301:3d0f:b0:2e6:ffa8:ef85 with SMTP id 5a478bee46e88-301512632c6mr3381953eec.0.1778741104665;
+        Wed, 13 May 2026 23:45:04 -0700 (PDT)
+Received: from localhost (c-67-180-161-137.hsd1.ca.comcast.net. [67.180.161.137])
+        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-302973bc8ddsm1807663eec.21.2026.05.13.23.45.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 May 2026 23:45:03 -0700 (PDT)
+From: Peter Collingbourne <peter@pcc.me.uk>
+To: Sjoerd Simons <sjoerd@collabora.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Peter Collingbourne <peter@pcc.me.uk>
+Subject: [PATCH v2] arm64: dts: mediatek: mt7981b: Add PMU
+Date: Wed, 13 May 2026 23:44:45 -0700
+Message-ID: <20260514064445.83487-1-peter@pcc.me.uk>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260512-lx2160-pci-v6-5-d0ff72d3c983@solid-run.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260513_234506_423834_ABF3C784 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,21 +103,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 04:39:00PM +0200, Josua Mayer wrote:
-> The SolidRun LX2160A Twins board supports two configurations, one with
-> with a sinle CEX-7 module, and one with two (dual).
-> 
-> The dual configuration was not yet tested.
+The interrupt number was taken from a downstream DTS of the similar MT7987
+[1] and verified on my OpenWrt One.
 
-And how do see dual configuration? New compatible? For the same
-hardware (the same because from SoC point of view it will be exactly
-the same)?
+Signed-off-by: Peter Collingbourne <peter@pcc.me.uk>
+Link: [1] https://github.com/openwrt/openwrt/blob/e4b3d5c799aef3be20b7f6079e8e5a14b215c116/target/linux/mediatek/dts/mt7987.dtsi#L246
+---
+v2:
+* Remove interrupt-parent
 
-You must post complete binding, otherwise this feels risky and when you
-actually try running dual configuration you will see that existing
-binding makes no sense.
+ arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+index 1bbe219380f9..ba6720031908 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+@@ -38,6 +38,11 @@ oscillator-40m {
+ 		#clock-cells = <0>;
+ 	};
+ 
++	pmu {
++		compatible = "arm,cortex-a53-pmu";
++		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
++	};
++
+ 	psci {
+ 		compatible = "arm,psci-1.0";
+ 		method = "smc";
+-- 
+2.54.0
 
 
