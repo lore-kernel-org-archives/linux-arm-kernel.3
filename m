@@ -4,50 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CD23CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 14:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A794CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 14:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XrPBUdxveGevad2ZewXPqw3ZVwqDv6ZHIn3lWZU72po=; b=WQH6cD56GNPmcP
-	qy64Viz3BWT+bq/SIVI+X1pEvwSUCIzfJciMb8OUSw6cbgA0KWWVzCmJdQoJZwBfLot3ZgEcq5hTd
-	OVaISvMEQdBEplV0csxGZH0iGua26mSpvBA7u1uIZvI9HwdmKxC4RVvZxHjzx4lIRCBsvPqggdNdJ
-	oEYG7cw9P7KmpG+xPs1+qEdHEDc7tOexPBxSXWQZwpGTJpVeRoa+5Lz4U3oBTD0W8hHAChJdEti4a
-	qolxkiwv4hdRSvvi/tcgKQJzZze79Ip4U5AXANvehRFUNMDSah/y2ttjAxjYaTXwcv1PNz1NB2z3j
-	3MRBp9+LYGynyS21sLdQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FPD6IywSZnrD27yDLSyDvvak94+4lO6RGWvtYSIoN0c=; b=H5XU6yvWKoObNLZrr3l9naEAm/
+	UDg/+cV1VwGdQ6s+YtfEoXNjO133f9/OPIII6Eg1Ikr6upmjyE9BrtVWo4EzCoLYr49kvS72rP9Gp
+	mzhXYOhVth3aQFbSI9qADUOZn03LWIxYuV+QymnfFSUDglz0GMb5e6LKEt8XXV27i+UvVRbWEbu0C
+	Ef0raokcFM7iGEMblM6khcDzyJbHlXUvGimnQRw0bCgWRN+SULg25GIgPrC5OnRwhky7vqo0EJAjm
+	bvwvU08Il2ZtVucjg9fFdtdfFcTlMmtUt2sHKonesCUeevdh3VIrYrPOfEfBcNaq1EaOXwR+vBgB9
+	G8JogQmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXUw-00000005oGV-2z2G;
-	Thu, 14 May 2026 14:57:14 +0000
+	id 1wNXV0-00000005oHV-3OWP;
+	Thu, 14 May 2026 14:57:18 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXUs-00000005oEl-44dy
+	id 1wNXUv-00000005oG4-0cNs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 14:57:12 +0000
+	Thu, 14 May 2026 14:57:14 +0000
 Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:1da4:3c70:f102:9ea:5df7])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 048D156D;
-	Thu, 14 May 2026 16:56:55 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id F13D9D7E;
+	Thu, 14 May 2026 16:57:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1778770616;
-	bh=jf0R18WespItFzG7ULJQW6zPsWauxoz3heCTUJvRNI0=;
-	h=From:Subject:Date:To:Cc:From;
-	b=A4c+OwLBiKuD5/Ckxxh+/cq5XKI9Qsd1wK+F1MR32yca/maexmXtm7/VGzHpvIIU9
-	 MZDvmPmzkg/es7CeDea/80X9X6J3EtJxN787Vl1BmqGoA6sO6+cNTg7JCNAjT+h4gD
-	 OF4QI3F7bXv6f7b4jazJA/JSw9J0sM7Ngjz20OwU=
+	s=mail; t=1778770622;
+	bh=p5dIUacsdc61vj2qf0gBR53uOK91lDwLXjQqK5PFL8Q=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=EDgCc6giUGl9V07YHGKxWVXC0kBPZjbZX6VElrSFLp/PMfT9Xy+4GAQsZakVYf6sN
+	 UgaKTNnoZDV7BHe6B4J3rxyXH5xb9yuKJpB1YS6FEJ6zkIgo+sX/HZGpczSVx97A2P
+	 IZXWq2vyPY1T3FkqoOHwM+Ayq+474QbCDYno0Jv4=
 From: Jai Luthra <jai.luthra@ideasonboard.com>
-Subject: [PATCH 0/4] arm64: dts: ti: BeagleY-AI camera overlays
-Date: Thu, 14 May 2026 20:26:26 +0530
-Message-Id: <20260514-beagley-cameras-v1-0-5c3500b5a436@ideasonboard.com>
+Date: Thu, 14 May 2026 20:26:27 +0530
+Subject: [PATCH 1/4] arm64: dts: ti: k3-am67a-beagley-ai: Add I2C2 pinctrl
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MSQqAMBAF0atIrw2YoHG4irho41cbnEhAFPHuB
- pdvUfVQgBcEapKHPE4Jsm8ROk3IzbxNUDJEk8mMzQqdqx48LbiV4xWegzLawXJdcTlqitXhMcr
- 1H9vufT+AMx70YQAAAA==
-X-Change-ID: 20260514-beagley-cameras-21ce6a98a7f1
+Message-Id: <20260514-beagley-cameras-v1-1-5c3500b5a436@ideasonboard.com>
+References: <20260514-beagley-cameras-v1-0-5c3500b5a436@ideasonboard.com>
+In-Reply-To: <20260514-beagley-cameras-v1-0-5c3500b5a436@ideasonboard.com>
 To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
  Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -58,26 +56,26 @@ Cc: Robert Nelson <robertcnelson@gmail.com>, Andrew Davis <afd@ti.com>,
  linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Jai Luthra <jai.luthra@ideasonboard.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1148;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1102;
  i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
- bh=jf0R18WespItFzG7ULJQW6zPsWauxoz3heCTUJvRNI0=;
- b=kA0DAAoBQ96R+SSacUUByyZiAGoF4q6g2UlOdI+V6i/UR/BKlMTnnU6lCwZf5/vUmdcnXyJDm
- 4kCMwQAAQoAHRYhBE3g2Bjl1XXo1FqvxUPekfkkmnFFBQJqBeKuAAoJEEPekfkkmnFFg7gP/Asy
- l3HUOHGfxTu+T9Lh0u/IhJt4/Fk3/cK4DlJifXorUTFn9+5ceRrH777f5M/ZB5r/uXtuPkKxBqI
- NDBNwInjr0WZepQuJlRBlignVPp4iwfqGg5NRzdP4UI1AI0N3u5tw9ukF4Kux667lDgCkd85IuX
- jLK+5IxqZUtXCiclOREpOyft1/Z0qsJDMVwNhHpKwAQpGdZwUqcz2L1WhlWZ6hYdNm15TAcA1C4
- 9oTdjd1AKkphIMROuszq6NJpQImmE2SKzCws0VgDqazZLX782xdchNzYLQn+fhPfprVbZ0CCyn7
- T92Q1lavdggBWumzQJrTYk19gJxX5Z0URDrBsy0WHjAZrrZymn6OcZfbLyyeNWVDG//h+L1Q+sg
- 7vR1zd2gBk6/7Jo7nOd5hRf6A6+3/zPNtSLhXtqTXmkSMUh7Ksw10sRwNLahRHVGcXFmQP5ZVZa
- mSXjvSfYTpIJW9Veigp2HDRFF8IHWjDgdfjAzYe2km47Rs8m0qULHIXEBTVBFnzv2rMjhkk1VST
- VImUt5C/6TJQix2U32pvlaTKgtINg7nGFVKcNKI5I+FwgYJ2wl+soMDOycyuO5S7l+M1l2uJJk1
- JasDSzn3SK+6IJfXNdN1Hqspnck/zkv0tvWzNviu4Pfp6qU51l4Z8H0A3HkdFSs5OEyBAaZi8Zc
- yN1QX
+ bh=p5dIUacsdc61vj2qf0gBR53uOK91lDwLXjQqK5PFL8Q=;
+ b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBqBeK4EbMrywm3O05+gaKttVqYSd6KiUsxAGrOS
+ CCz4G2U3BWJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCagXiuAAKCRBD3pH5JJpx
+ RSdkD/0d88493PAbF6uA7hyDP0EyY04m1hXO7O1MPdOD6/rVcf82s1+7nnXEOQ1ywTh6ZeywKXl
+ OA1jToXhcF4mkCayG1XRI+xzt9at7E4e+NLVPf3iLfZXLsjSb8mhUDuDn12WzbdoXn1AUo/aeXP
+ zBQccdOHJtjiqHkfjk32Sl+njSe4SIGprvOqCmcOj1TI6wqKk7mCBZ07plWltTCr1cE+phToirq
+ akYgcZNXX4YxfkuJU5JSl7o7VG79BxWD+fgws9Dfqjx6XyHHPtJ/pTpUSAwCuaruApeDDa+KrEW
+ QVfb5W4cSnDHyrVbna4oQFdhRLT87sGV01GqHjoBudssv65R4TR98WNQ50akgsOOK9NeRQj+S5Q
+ comRMWaBLjYGc33ZOVRufAt0Isi5K1cdK2D4ieG31Ln7arlnWlnQYqjGr8yFIQrMswM/8PwfJlB
+ ewUgezNTpw0Kk0uyN+BM31e/Ws4vzgMERV4EjqW8RFFu2PMLOunjQrrPLKbHptpVkoviCxT+c6q
+ wuHc1lx1N/FL1hLULHqJn1rp+/DXZ8auSJW5ZmDXESv/YkOxfGv9+tKwvXJYhrt+EcO001JXFDz
+ HrjTYjmigbmR3fVHAYIYwLjrhB36lW8gG+LcZuXhrUFBNF1i8tWgU+nq1APEbjpyWEU93/5ZegV
+ hZU4OInG3TWi1UA==
 X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
  fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_075711_468481_A399CE39 
-X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-CacheID: sfid-20260514_075713_329666_A08E4F1B 
+X-CRM114-Status: UNSURE (   7.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,33 +91,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for using RPi V2.1 camera module on any of the
-two 22-pin CSI ports of BeagleY-AI.
-
-The first two patches fix the base DTB to support I2C-2 (used by CSI0)
-and setup the DSI0/CSI1 mux (used by CSI1).
-
-Next two patches add the two DT overlays for CSI0 and CSI1.
+I2C2 is used by camera sensor devices connected on the 22-pin CSI0
+connector. Add the pin definition here so I2C2 may be enabled by the
+camera sensor overlays.
 
 Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
 ---
-Jai Luthra (4):
-      arm64: dts: ti: k3-am67a-beagley-ai: Add I2C2 pinctrl
-      arm64: dts: ti: k3-am67a-beagley-ai: Add DSI0/CSI1 mux
-      arm64: dts: ti: k3-am67a-beagley-ai: Add overlay for IMX219 on CSI0
-      arm64: dts: ti: k3-am67a-beagley-ai: Add overlay for IMX219 on CSI1
+ arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
- arch/arm64/boot/dts/ti/Makefile                    |   8 ++
- .../dts/ti/k3-am67a-beagley-ai-csi0-imx219.dtso    | 121 +++++++++++++++++++++
- .../dts/ti/k3-am67a-beagley-ai-csi1-imx219.dtso    | 121 +++++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts     |  27 +++++
- 4 files changed, 277 insertions(+)
----
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
-change-id: 20260514-beagley-cameras-21ce6a98a7f1
+diff --git a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+index 5255e04b9ac7..06aac02a7668 100644
+--- a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
++++ b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
+@@ -157,6 +157,13 @@ J722S_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (B22) I2C0_SDA */
+ 		bootph-all;
+ 	};
+ 
++	main_i2c2_pins_default: main-i2c2-default-pins {
++		pinctrl-single,pins = <
++			J722S_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (P22) GPMC0_CSn2.I2C2_SCL */
++			J722S_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (P23) GPMC0_CSn3.I2C2_SDA */
++		>;
++	};
++
+ 	main_uart0_pins_default: main-uart0-default-pins {
+ 		pinctrl-single,pins = <
+ 			J722S_IOPAD(0x01c8, PIN_INPUT, 0)	/* (A22) UART0_RXD */
 
-Best regards,
 -- 
-Jai Luthra <jai.luthra@ideasonboard.com>
+2.54.0
 
 
