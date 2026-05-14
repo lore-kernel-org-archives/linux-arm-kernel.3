@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB29CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32B7CD4F39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 12:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pSxyMhepbltjo+/qfsH50GQ7y+k3llxjzRCuYimqObg=; b=WewX3ljzeKsInKlYFpCwvgKm3H
-	wGv1A7640VdDi/1ELEOysyj/NUN3TeKbOYkeT6/sWGK8l0NIy5Dwc6NLvs1yeXzvEfH3ZTEKB12Bs
-	/JbC0ACvWxloixmksi5DeC689Si+iuZ72vq4fkAdy/Z6X5IOWyT2ORwir+6EbsX+4NUADWvjMDWQq
-	Dn2NdM7drlo4zBKwFPweh0Z6N3Ni/5vIOZAixxPlANGDjUefRIWnLov5wk6A5EqJ8zAtaBWMexBER
-	b5nEZKuyXAY0L+GasntAF5+4DxnTz+Bs9bNjQ6XscFfEYNEZiE0zRkAeyqnoNIpJfI0wICjANIsnK
-	Wrb7WSuQ==;
+	bh=daz4LMEo8nCEydnFK0zjrq9qJylLQxczPgtQdJUJrrA=; b=rzSuRPCCFnaYl/UjCb3vaApk2R
+	gnInPvdJESJhh5UFbgG5ctmGUaMW3r2lXCJtiQQLI6eD551n73WnRTnsDLd91L4h+Hz8KoSTMbBH6
+	AH5xPKuaQBTLdJQiZVtxv3xYiCP8DgxxvPZiaXx4CsIIs5DEh34VzJTe7oYLgp4tyHyyiBIFPnP79
+	JeXKls3YU342zF0iYDoxMfb4bNZhnNFSd4ARuZqv0z9RHdBV/tnaRTVpi4ydjMgvdkCZVnYb2bZqq
+	aYZ+CaD8LbAis5UHY/4lZ6oenZ6nems1DjSa9oUu1PBXvs3eSzLs0bsisYqG4gUsVZ/i490dIPOR8
+	uremnJSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNUzn-00000005QxW-09EH;
-	Thu, 14 May 2026 12:16:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wNV2s-00000005RL0-29WK;
+	Thu, 14 May 2026 12:20:06 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNUzl-00000005QxI-1dIw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 14 May 2026 12:16:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=pSxyMhepbltjo+/qfsH50GQ7y+k3llxjzRCuYimqObg=; b=PuVIsWGt4w3kr4lScOHZEx9psT
-	1TSMC9poIx2IENKdygTtoS4gqmML85guMC3+3TY9jvdjhR5/wEvkx8WpEhR7jz8FW5IOlMyheH0qI
-	gPI4/u437AYk7x+0suPOV/h118dfEaeRRh4yLNW0uAdNhF0BvtVZB8HlSDV/vqwwWH+GoJrlsHE13
-	38RqSO6qXR0QennviDAjA8juz7RQSbdx9hX6v7bnaH4WKi3Ppq03kBa1xDZX/NcQC9tz4L2YwHTKH
-	5lc0wwapYtXPGtcEx6108HekzKSRDaH4u58arfwZiTyGXmN+1Davh5pc0j+/OQ96AAcJ2jMgvZNn/
-	FzYzUATw==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNUzh-00000002qYH-433s
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 12:16:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=pSxyMhepbltjo+/qfsH50GQ7y+k3llxjzRCuYimqObg=; b=RxES1V9AbPBFkgrLjmu0PiBWe8
-	ulik2w1AH7SPArvIbxsubgsW9J0H8ELKcCdisyPfSZy4mlkJcWSSZ8/RQnxCFhsVyEdDq9/6w3IxX
-	hyV3nJ1/v4d2Ao4lLDr1nHzyWxdCRN3zsXLjt7sOjagEZxx1wSbdxGz68Vc4T7d6Cz0Y=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wNUzg-002tuE-Pw; Thu, 14 May 2026 14:16:48 +0200
-Date: Thu, 14 May 2026 14:16:48 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
-Cc: brgl@kernel.org, andi.shyti@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH] i2c: davinci: fix division by zero on missing
- clock-frequency
-Message-ID: <1ce483f8-1d9a-40c3-a45e-6ca536010b20@lunn.ch>
-References: <20260514103740.5416-1-chaitanya.msabnis@gmail.com>
+	id 1wNV2p-00000005RKQ-3epQ;
+	Thu, 14 May 2026 12:20:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778761204; x=1810297204;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3d8DUSA04YEeeaSJDsq0tBuKoX/EgDy6elaulwtaoYI=;
+  b=EdMdUiaDZfUGiTIdB60cT8rkUYm/RKnxd8VCnb59IFrQc91jv+lPoza4
+   FHWD24cUhZvFK5x7EiBmLfgNJhf9MFfX3yJV9p0qyV/Uw9/UIdIg4S9tt
+   e0YYbpv2HG8fhoS8G4WnYgvLopJzNbX7ozU8YrqqHtO2WSXfGpPojIMgS
+   6ogYTRioHMyZj2d7puHCgomIX1af0rFnsU9eI9MIGDU/11lNjBwzihO1m
+   L0JlYq/FvxpPRnHX9Zw4ZOQLutFLmOq9eZzoudQi3tHZdVOg/DuV9ew5f
+   7eYDLpW2ykE3bfKPjn7yRvvqUVZ7VMVaR/L4OiRnFQXgF2b67il6PkvKP
+   w==;
+X-CSE-ConnectionGUID: EqlS5TwsTWGVnRkNI2PE6w==
+X-CSE-MsgGUID: fR2hGJnuSLGdQAXfzLqqeA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11785"; a="91087132"
+X-IronPort-AV: E=Sophos;i="6.23,234,1770624000"; 
+   d="scan'208";a="91087132"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2026 05:20:02 -0700
+X-CSE-ConnectionGUID: SgABm03mTjmMHc+nrGJewg==
+X-CSE-MsgGUID: EJUbuaw/RnyDNWwkMBfBxQ==
+X-ExtLoop1: 1
+Received: from igk-lkp-server01.igk.intel.com (HELO bdf09bfdbd5f) ([10.211.93.152])
+  by fmviesa003.fm.intel.com with ESMTP; 14 May 2026 05:19:58 -0700
+Received: from kbuild by bdf09bfdbd5f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wNV2i-000000008oV-0F3n;
+	Thu, 14 May 2026 12:19:56 +0000
+Date: Thu, 14 May 2026 14:19:35 +0200
+From: kernel test robot <lkp@intel.com>
+To: Hans Zhang <18255117159@163.com>, bhelgaas@google.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	vigneshr@ti.com, jingoohan1@gmail.com, thomas.petazzoni@bootlin.com,
+	pali@kernel.org, ryder.lee@mediatek.com, jianjun.wang@mediatek.com,
+	claudiu.beznea.uj@bp.renesas.com, mpillai@cadence.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, robh@kernel.org,
+	s-vadapalli@ti.com, linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Hans Zhang <18255117159@163.com>
+Subject: Re: [PATCH v2 8/8] PCI: rzg3s-host: Add 100 ms delay after link
+ training
+Message-ID: <202605141426.2RPW8nvf-lkp@intel.com>
+References: <20260506152346.166056-9-18255117159@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260514103740.5416-1-chaitanya.msabnis@gmail.com>
+In-Reply-To: <20260506152346.166056-9-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_131650_433849_3216908D 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20260514_052003_954179_2C71E970 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +93,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 04:07:40PM +0530, Chaitanya Sabnis wrote:
-> When the 'clock-frequency' property is missing from the device tree,
-> the driver falls back to DAVINCI_I2C_DEFAULT_BUS_FREQ. However, this
-> macro is defined in kHz (100), whereas the device tree property is
-> expected in Hz.
-> 
-> The probe function blindly divided the fallback value by 1000, causing
-> integer truncation that resulted in dev->bus_freq = 0. This triggered
-> a deterministic division-by-zero kernel panic when calculating clock
-> dividers later in the probe sequence.
-> 
-> Fix this by isolating the division so it only applies to the Hz value
-> read from the device tree, cleanly assigning the kHz default otherwise.
+Hi Hans,
 
-Why not keep the patch simple and just change the value of
-DAVINCI_I2C_DEFAULT_BUS_FREQ to Hz?
+kernel test robot noticed the following build errors:
 
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/20260514044726.57297C2BCB7@smtp.kernel.org/
-> Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+[auto build test ERROR on a293ec25d59dd96309058c70df5a4dd0f889a1e4]
 
-Please also added a Fixes: tag.
+url:    https://github.com/intel-lab-lkp/linux/commits/Hans-Zhang/PCI-Add-pcie_wait_after_link_train-helper/20260514-132815
+base:   a293ec25d59dd96309058c70df5a4dd0f889a1e4
+patch link:    https://lore.kernel.org/r/20260506152346.166056-9-18255117159%40163.com
+patch subject: [PATCH v2 8/8] PCI: rzg3s-host: Add 100 ms delay after link training
+config: x86_64-kexec (https://download.01.org/0day-ci/archive/20260514/202605141426.2RPW8nvf-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260514/202605141426.2RPW8nvf-lkp@intel.com/reproduce)
 
-       Andrew
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202605141426.2RPW8nvf-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+   In file included from drivers/pci/access.c:8:
+>> drivers/pci/pci.h:73:3: error: call to undeclared function 'msleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      73 |                 msleep(PCIE_RESET_CONFIG_WAIT_MS);
+         |                 ^
+   1 error generated.
+--
+   In file included from drivers/pci/rebar.c:17:
+>> drivers/pci/pci.h:73:3: error: call to undeclared function 'msleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      73 |                 msleep(PCIE_RESET_CONFIG_WAIT_MS);
+         |                 ^
+>> drivers/pci/rebar.c:142:31: warning: implicit conversion from 'unsigned long long' to 'u32' (aka 'unsigned int') changes value from 140737488355328 to 0 [-Wconstant-conversion]
+     142 |         if (size < 0 || size > ilog2(SZ_128T) - ilog2(PCI_REBAR_MIN_SIZE))
+         |                                ~~~~~~^~~~~~~~
+   include/linux/sizes.h:70:20: note: expanded from macro 'SZ_128T'
+      70 | #define SZ_128T                         _AC(0x800000000000, ULL)
+         |                                         ^~~~~~~~~~~~~~~~~~~~~~~~
+   include/uapi/linux/const.h:21:18: note: expanded from macro '_AC'
+      21 | #define _AC(X,Y)        __AC(X,Y)
+         |                         ^~~~~~~~~
+   include/uapi/linux/const.h:20:20: note: expanded from macro '__AC'
+      20 | #define __AC(X,Y)       (X##Y)
+         |                          ^~~~
+   <scratch space>:37:1: note: expanded from here
+      37 | 0x800000000000ULL
+         | ^~~~~~~~~~~~~~~~~
+   include/linux/log2.h:162:14: note: expanded from macro 'ilog2'
+     162 |         __ilog2_u32(n) :                \
+         |         ~~~~~~~~~~~ ^
+   1 warning and 1 error generated.
+--
+   In file included from drivers/pci/msi/pcidev_msi.c:5:
+>> drivers/pci/msi/../pci.h:73:3: error: call to undeclared function 'msleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      73 |                 msleep(PCIE_RESET_CONFIG_WAIT_MS);
+         |                 ^
+   1 error generated.
+--
+   In file included from drivers/pci/pcie/portdrv.c:22:
+>> drivers/pci/pcie/../pci.h:73:3: error: call to undeclared function 'msleep'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      73 |                 msleep(PCIE_RESET_CONFIG_WAIT_MS);
+         |                 ^
+   1 error generated.
+
+
+vim +/msleep +73 drivers/pci/pci.h
+
+    62	
+    63	/**
+    64	 * pcie_wait_after_link_train - Wait 100 ms if link speed > 5 GT/s
+    65	 * @max_link_speed: the maximum link speed (2 = 5.0 GT/s, 3 = 8.0 GT/s, ...)
+    66	 *
+    67	 * Must be called after Link training completes and before the first
+    68	 * Configuration Request is sent.
+    69	 */
+    70	static inline void pcie_wait_after_link_train(int max_link_speed)
+    71	{
+    72		if (max_link_speed > 2)
+  > 73			msleep(PCIE_RESET_CONFIG_WAIT_MS);
+    74	}
+    75	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
