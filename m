@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8355CCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:17:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3747CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:18:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ldCCilHHgHAyMoP6wUIRMAqV7bFF7WXeuBbonTJZdxA=; b=w6Pq+p7aSJ6LWf2FRYdi9a23ZP
-	9MwytS3d69Osg9WcADOFQLd4tBRryxdEXA7rNWfR8kwMl1c47/+POybg6Pr/n38l9pxNELpDTDOu0
-	BzRAeqNgIzqV93k15QCqiqHXe9JFsKrFqFMHM7zifiZMYxW4n6JmCG+Hfi3z2tjjsV3crFfKnINGp
-	Z7SgeHx1Z16rZFNRB9zHf5PmmxQBvz4FsD5kz7lbwDCbKCDsr8iNaNoXlXgzy3L8+w7Am6qsYU5P1
-	3zmNwDoGwympjjSQ+vr2aJipVrV/YN9mQ9FmslU7XjSkNkEo25hHKpJZOv/SeznJHcRC8jAnU/809
-	SW+CdV/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DTdaNJIrefz2l4TKTINHZnBE2yA7/TvGYhBFkQnzSKA=; b=t3kvAKIXKC7iPnLVlsYK+CaIwF
+	KNuO/HwjfiFdr1IAuh9bWcMZgNJ0ltG/PzHnV784vbDYSgCT0yy2oSR9BQlV+tmseOaSx2xmzC5Ed
+	NMmoZ8TJDuOQ48O/dtCk7BqGPrAURZnjbyB4AkGGS6F/VFP8JePHf+SuHsIXH9Z4IA1I5ihBudOdG
+	yPQwI2vX/wd4kF7VTyHsjDiP/iA3E6xafaGZegbOmyPzJsme4QMrJ8emVbawgPpfS56T2yddvQ9zN
+	IYhAkuzrlZvDQzIIoTdjH0E3p8A0bVzC73P6/8fJd1dGGT8oCawXDYHU3ZXKVMDgJpWe1ESA7xcEu
+	OnD39/lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYkp-000000061QW-1uCX;
-	Thu, 14 May 2026 16:17:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNYlB-000000061Zq-38IW;
+	Thu, 14 May 2026 16:18:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYko-000000061QF-2aLB;
-	Thu, 14 May 2026 16:17:42 +0000
+	id 1wNYl8-000000061YC-3foP;
+	Thu, 14 May 2026 16:18:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B2FE760138;
-	Thu, 14 May 2026 16:17:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A914EC2BCB3;
-	Thu, 14 May 2026 16:17:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 44870444E3;
+	Thu, 14 May 2026 16:18:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20EC7C2BCB3;
+	Thu, 14 May 2026 16:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778775461;
-	bh=NZmAc9HrKWORqZFVU2eBSr94To7Vjsv0TRyPrPbCY04=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I3/AXt9hgkbcXNcCtG108srb1FZaFAJP6sB4eDR9jU82nD5FibRFXheIFU32QZ2Yl
-	 XZgazWy5/KebCqspESsmlD7FBvOB6s60nGUeZjs5mhmOFpv03EXB2l9yDj5YDz9RCA
-	 0K7zNwOaa7isDlDmveywQFSdAlcLYVgiq2CLGaQ4DKAtFQWwk8XBjWRXDjlcLb1DUl
-	 iRu1GJFGA3ay+/bgWSEtjPM2OWIdmDoJtorc0MJ3HHSE7WlCuQUAXs9SIyPvu/jHS5
-	 r2uplDqRbuiWkxFhffKXYet3msNBVZRRwV26I0xc071W+Z7d21AIUps3tgk6AQjN8H
-	 VrPTqnSOU4kPQ==
-Date: Thu, 14 May 2026 21:47:37 +0530
+	s=k20201202; t=1778775482;
+	bh=hyF5D8Pc/kYQIaWvIB9S8/rv8IKNlIdZ14J3dKVxG7o=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=MY5L+XXfqtr6WnaCfpqdESQw0LlnFZidXkjWb7IM5EBPu/biNN2ouhUUqHoXdPyU3
+	 bLxduLXK8kEDtK39M04WPNZZBMu7kfUlfh1TaaDvyDXKKJ8S9PPtNNtL50LPCXeS8G
+	 JU/gACrG59F/ZbGrJ4AykiuDWL9NJdmIkd1uQGg9TlSiCOn6Q6sxJM9eZ9cOHY8Of1
+	 h3VzdWsvKljBY3A8swYkAO8nipCiR5GsOkx8odm0DvlsGYY/pmMpVizkKCUpcZlVyH
+	 Ki+/faUSa9P8O+dVaOOxG+ViiGmtzF05o8AmZMiDHNhajwqe3jhEspqACex6e/1anr
+	 ElP+VOG9XGxJg==
 From: Vinod Koul <vkoul@kernel.org>
 To: Heiko Stuebner <heiko@sntech.de>
-Cc: neil.armstrong@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	jonas@kwiboo.se
-Subject: Re: [PATCH v2 4/5] phy: rockchip: inno-usb2: Add clkout_ctl_phy
- support
-Message-ID: <agX1obJdYdNhnvnN@vaman>
+Cc: neil.armstrong@linaro.org, robh@kernel.org, krzk+dt@kernel.org, 
+ conor+dt@kernel.org, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ jonas@kwiboo.se
+In-Reply-To: <20260505170410.3265305-1-heiko@sntech.de>
 References: <20260505170410.3265305-1-heiko@sntech.de>
- <20260505170410.3265305-5-heiko@sntech.de>
+Subject: Re: [PATCH v2 0/5] rockchip: Add USB 2.0 support for RK3528
+Message-Id: <177877547874.1092446.2280455106153826984.b4-ty@kernel.org>
+Date: Thu, 14 May 2026 21:47:58 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260505170410.3265305-5-heiko@sntech.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_091802_951306_D2EA3316 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,33 +74,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05-05-26, 19:04, Heiko Stuebner wrote:
-> From: Jonas Karlman <jonas@kwiboo.se>
-> 
-> The 480m clk is controlled using regs in the PHY address space and not
-> in the USB GRF address space on e.g. RK3528 and RK3506.
-> 
-> Add a clkout_ctl_phy usb2phy_reg to handle enable/disable of the 480m
-> clk on these SoCs.
-> 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> ---
->  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 47 +++++++++++++++----
->  1 file changed, 38 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-> index 7cec45192393..d8879fcd4291 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-> @@ -179,6 +179,7 @@ struct rockchip_usb2phy_cfg {
->  	unsigned int	num_ports;
->  	int (*phy_tuning)(struct rockchip_usb2phy *rphy);
->  	struct usb2phy_reg	clkout_ctl;
-> +	struct usb2phy_reg	clkout_ctl_phy;
 
-This gives a kernel-doc warning. I have applied please send fix for this
+On Tue, 05 May 2026 19:04:05 +0200, Heiko Stuebner wrote:
+> This series adds support for USB 2.0 on Rockchip RK3528 to the
+> Innosilicon usbphy driver.
+> 
+> The usb3 support has already been merge for the naneng combophy
+> last year.
+> 
+> Changes in v2:
+> - rebase on top of v7.1-rc1
+> - split off dwc3 compatible and dts changes
+> - add error handling to regmap_write (Vinod)
+> - v1 is here
+>   https://lore.kernel.org/linux-rockchip/20250723122323.2344916-1-jonas@kwiboo.se/
+> 
+> [...]
 
+Applied, thanks!
+
+[1/5] dt-bindings: phy: rockchip,inno-usb2phy: Require GRF for RK3568/RV1108
+      commit: a896852613136e6babe6036567ab0989fb322a57
+[2/5] phy: rockchip: inno-usb2: Simplify rockchip,usbgrf handling
+      commit: be29cd958f5393004a24cd7b5b1da88dd90a651b
+[3/5] dt-bindings: phy: rockchip,inno-usb2phy: Add compatible for RK3528
+      commit: c430f042f4ba2c5abd592b6924f028d3bb09d4cf
+[4/5] phy: rockchip: inno-usb2: Add clkout_ctl_phy support
+      commit: 2775541de0580ab1cd077dfef710e6316563d567
+[5/5] phy: rockchip: inno-usb2: Add support for RK3528
+      commit: 864b3617df827865a95a06f06f09a8d57a795b91
+
+Best regards,
 -- 
 ~Vinod
+
+
 
