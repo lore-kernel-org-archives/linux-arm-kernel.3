@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C17FCD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 13:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D264CCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 13:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=taKCx9Nb2TPnSGhHCZQBj99OEa8LzQ1Cza/JYYLK7UI=; b=uDUQ6rLxe+J/pfRP0k/hRWQqpM
-	3AMS05hsa7p/wjVOwGNBxYvFcBpqKfPTmnGV67wLutQGlEmo8GVpzbe+NkLaF6ROzwU1YdpiBbSah
-	A0keuAi2SUrxBD2jjY0ihozO8pw/irrdI5JGer1QCTF8i4X0DFx5F5RuXoKXJQGG6DvGEaOd4vdk3
-	W9V2lwwqFIoaXpFmimGk6SiUqM+xi/MOfbBj1yGRGoEZc+cNQzkVkIkaIGxnAH3caEQp0EcUiS5Wv
-	0cpAQPh1VTklKpdCMaAx8A5E/oW7uU3gY4Y4i3CTbWxm7qYjJSPw+znBRzS+QvJ5wD5MHQliKGIUN
-	5OAeS+1A==;
+	bh=DX5b1CsjcgHXIXtt3Qhe9sQ6MCkR09t/5i6hqSQr34k=; b=E/2tQ2pv9pWL1dpmy84YFZ2THZ
+	hXU9eS+t6GjnFozkLCEqgFAocV9Yb2djNFH2Sb0wgt2SSjZ3hucYxB2Q4067X2gMw7RflIvBkE/JU
+	hi85FY1mC1f4TVfI1Lbekq3rwFIEBqvgS0My0L5tZa9sx8F168L1NtnsiZPifYrl60WQOvGsw55yd
+	nK/YWf38vjsJD3h9HIWNdhBoPWojIvN+oPjw9204gbsg4yncUql+8xv+w7rvAdhl335/HUV40KYNh
+	X4VRHyBPPW4T6u+A87uAnHIfi/YVjJxOhmsY1XMGXOqCjhhoqM9WRc4UcAf4W/ImYuQ645thggUQK
+	YBkJx26A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNW1y-00000005aoP-1xPp;
-	Thu, 14 May 2026 13:23:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNW1w-00000005anZ-10Iz
+	id 1wNW4B-00000005b4F-2uzn;
+	Thu, 14 May 2026 13:25:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNW4A-00000005b3w-3Bzu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 13:23:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 333281762;
-	Thu, 14 May 2026 06:23:05 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7BDAA3F836;
-	Thu, 14 May 2026 06:23:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778764990; bh=52lWMczGKHZvEJn7oAy5U2Gjb81vsaAdQyKAug/jxIg=;
+	Thu, 14 May 2026 13:25:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DB2C060008;
+	Thu, 14 May 2026 13:25:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D5C9C2BCB3;
+	Thu, 14 May 2026 13:25:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1778765129;
+	bh=ulvgFg4I9zSaMwz7wledEYXjpK13Lp8Du0yVblLwaFs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qcQTSWwmow5qyPzQbZ75EveQmTxgqPM2UdSpBqi7eQnlwFLAGQ/YXnmnH1rg/pkfg
-	 OYimjJRdH5gb4e+D/Xu6TEaYnxSUtEA4ky2sS6g+efEhXcciz/318ClKBtWQx5IzTR
-	 wrALKYw4YlhnPiMuHinwCzEzy/0prDOnHzVuM6HY=
-Date: Thu, 14 May 2026 14:23:05 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
+	b=sUDZdsT49F3H4o4qXneQukxv8TbyR0l2UU/Q12k2y3GXhcoX/xAy2MFgs0+wzmGaR
+	 mwlITCJKMQFiuYiD7iq0yxCP7FyB40/uOHZnVQnBmEQi4CGDl8btVLja6XtI1zF/4j
+	 fwEnt/y7j7cTfQth12a7q3sK6vK0tHDwLFGLNhfk=
+Date: Thu, 14 May 2026 15:25:34 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Jeremy Linton <jeremy.linton@arm.com>,
 	Jonathan Cameron <jic23@kernel.org>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+	Steven Price <steven.price@arm.com>
 Subject: Re: [PATCH v5 1/3] firmware: smccc: coco: Manage arm-smccc platform
  device and CCA auxiliary drivers
-Message-ID: <agXMuSIGAEXz88xY@arm.com>
+Message-ID: <2026051445-magician-coffee-962f@gregkh>
 References: <20260514094030.42495-1-aneesh.kumar@kernel.org>
  <20260514094030.42495-2-aneesh.kumar@kernel.org>
+ <0c88bcee-65b5-4328-87e6-e1c714c3d1ca@arm.com>
+ <2026051420-amusement-drove-73e6@gregkh>
+ <agXL12bNh4gGyK1K@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260514094030.42495-2-aneesh.kumar@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_062312_365531_B4CAF0CF 
-X-CRM114-Status: GOOD (  13.40  )
+In-Reply-To: <agXL12bNh4gGyK1K@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,38 +77,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 03:10:28PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> diff --git a/drivers/firmware/smccc/rmm.h b/drivers/firmware/smccc/rmm.h
-> new file mode 100644
-> index 000000000000..a47a650d4f51
-> --- /dev/null
-> +++ b/drivers/firmware/smccc/rmm.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +#ifndef _SMCCC_RMM_H
-> +#define _SMCCC_RMM_H
-> +
-> +#include <linux/platform_device.h>
-> +
-> +#ifdef CONFIG_ARM64
-> +#include <asm/rsi_cmds.h>
-> +void __init register_rsi_device(struct platform_device *pdev);
-> +#else
-> +
-> +static void __init register_rsi_device(struct platform_device *pdev)
+On Thu, May 14, 2026 at 02:19:19PM +0100, Catalin Marinas wrote:
+> On Thu, May 14, 2026 at 02:55:48PM +0200, Greg Kroah-Hartman wrote:
+> > On Thu, May 14, 2026 at 12:04:13PM +0100, Suzuki K Poulose wrote:
+> > > On 14/05/2026 10:40, Aneesh Kumar K.V (Arm) wrote:
+> > > > Make the SMCCC driver responsible for registering the arm-smccc platform
+> > > > device and after confirming the relevant SMCCC function IDs, create
+> > > > the arm_cca_guest auxiliary device.
+> > > > 
+> > > 
+> > > There are a few changes squashed in to this patch. Please could we
+> > > split the patch in the following order ?
+> > > 
+> > > 1. Add platform device for arm-smccc
+> > 
+> > Do not make any more "fake" platform devices please.
+> > 
+> > > 2. Move TRNG to Auxilliary Device - (Even though it is a later patch, move
+> > > it before the RSI changes)
+> > 
+> > No, move it to the faux api please.
+> 
+> So should we end up with:
+> 
+>   /sys/devices/faux/arm-smccc/
+>     smccc_trng/
+>     arm-rsi-dev/
 
-Nit: static inline here (I think Sashiko mentioned it on a previous
-version.
+What types are these child devices?  Also faux ones?
 
-> +{
-> +
-> +}
+If so, great.
 
-And unnecessary empty line between curly braces.
+thanks,
 
-Just these notpicks for now. Suzuki and Sudeep already covered the
-splitting of this patch and we need to agree on the sysfs hierarchy.
-
--- 
-Catalin
+greg k-h
 
