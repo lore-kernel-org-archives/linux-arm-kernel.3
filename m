@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F1FCD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F3FCD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:06:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kdwPUE6uMU4a+MsZ+02gTvznxPhCfL9jHHrYZahv22g=; b=MeMmpn8+MfZ4usPnAvzmi+eabl
-	xRbWn4St7Ax5Y2axoJzN2AN6Ww7eMHkyipBvlXajeyoCyzN+763DKNQDN/d7moVqBx6g5MOn/WSYD
-	tUI98D404KX3D2hACID6bz4PGn1LT7m6Xpe69eTwnIxMO5ABb0mdzxZK66SNHZWBzoH7qlAnW0kqn
-	0SGbxw+HcsdIRVCWJbEglI066ASpr4HdorQy2iIozw4nrg/kQPAo4aosbdwSFw668zokLrN9a3wVH
-	e2j+RWxGBlOozyYSy3azS2SOGQMwiM/i7bHFowPcMGtdlVjXCVBBNySSxOzQGLMrKOGjh2N/34tRk
-	aS4chz+Q==;
+	bh=iVYOFKxX2nTK7xBG+dFvf5BN63MQ7IZrJ1lALABuKpI=; b=SastZHAYEhbdNQgHexL4qUxbox
+	CUuUt6hfnTwRfvuVCGinH5h7KDlHoSwN1x07slkPZ/sCT8f3NxambV25tmyXEyqsyg5nI8p8igBeA
+	iQ+WvCEetM4s7PoXI/QZgDdaKqXlbyWIJ5ZRylhei3bD6unvmB1BPoWpg7z9av5FXAQWJ+8BQ13PR
+	ml2jupYlX/ZB+7P1zy54WsGaNnlxO1g93mm9yDngyPDzXf9/uQPunUVX7ZdSCuiCug9bSW1KC/0Nk
+	uvGTefKFF+AmlyxaOlKqULx5Ie0Zfq80WBW9xA4oKLlf6rABkgYYaR487oyFuosokK8GKRzmDHtfG
+	8Xd8aSIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhQ-00000005qCJ-1EBm;
+	id 1wNXhQ-00000005qBt-0Zaw;
 	Thu, 14 May 2026 15:10:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhL-00000005q6Y-28gc
+	id 1wNXhM-00000005q71-0ngu
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 14 May 2026 15:10:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDBE6445B2;
-	Thu, 14 May 2026 15:10:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7203C2BCB3;
-	Thu, 14 May 2026 15:10:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 63C72601EE;
+	Thu, 14 May 2026 15:10:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDDB1C2BCF7;
+	Thu, 14 May 2026 15:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778771401;
-	bh=CJXY43NWPhe/kEFDLFlqtBJ4A3u4UFccm33o2sFJ4aY=;
+	s=k20201202; t=1778771403;
+	bh=C8QlCN0PZK11mrLCs9oNNpttQLwIcnWA9/xtBgloldA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gO0a0pIhUpTdgHdyF4vgz6aqQo36picuSTdt6Q2FcDwt/v7L6H1qUbB+ltK0gvtnz
-	 bqmgTV8vd9+QM6u4gs88ZtQQ1aqAE4gokOnNL4B/uZhxXBcqMwv9DexusdvcfLWOwS
-	 TAg/AZd9p0SDyzGAz+6+AJUyPCMZdBIQydWMiKIs1Ed0Xt4YyvctL+HkZKVfgnosdf
-	 rLc7h42v1aH/QfdxZE1PQdaZwmq1vlHtJj5BVq4YbYqlb/oSofhZgg4nbiZjzG+nJI
-	 oc9WoQnHs9aLuyym/VYNTiDHvkW1AirfIuKbxeG7XbisFffac8MnLFwfhOTrIc1i0T
-	 a4KJx5Or0OHWQ==
+	b=bB+58+95/TzzBp24rUI1z+IPih41NT7A/xFOGhhrt9+ymAUJrMnkFNP0tEkE8O9ht
+	 RYqH2VnHH4wOFjCe/KwMDKhbub8irBzh+dK/9rHHg1NPuSSiWzMsen183uWoIEQqRF
+	 5T9VkrXghJJHurlvTptdq5eDcuKEg0SFD1zfLYD110W8zLO8Zbw0ou7IBXlrcsZH/b
+	 9Ag3w/NfzTHpDcywEmH8w7RtdYotx5MO3Y6pPUqO+HLDn8Tlwld0ivnZoTEx4vv+VQ
+	 29jjeKo/cv5tE5bsaRmDgAs8nYYHn2AjK/zcOJhFIS6pOTdR0jgn9anzZQ0PEinmLk
+	 B1BfOWhNpic7A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wNXhH-00000002Oqg-3Nc6;
-	Thu, 14 May 2026 15:09:59 +0000
+	id 1wNXhI-00000002Oqg-3wPw;
+	Thu, 14 May 2026 15:10:01 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -95,9 +95,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v2 09/17] arm64: dts: freescale: Add EL2 virtual timer interrupt
-Date: Thu, 14 May 2026 16:09:37 +0100
-Message-ID: <20260514150945.3917510-10-maz@kernel.org>
+Subject: [PATCH v2 11/17] arm64: dts: mediatek: Add EL2 virtual timer interrupt
+Date: Thu, 14 May 2026 16:09:39 +0100
+Message-ID: <20260514150945.3917510-12-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260514150945.3917510-1-maz@kernel.org>
 References: <20260514150945.3917510-1-maz@kernel.org>
@@ -108,9 +108,6 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
  heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_081003_621782_82E3CD39 
-X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,87 +122,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARMv8.2 based CPUs used in a number of NXP/FSL SoCs are missing
+The ARMv8.1+ based CPUs used in a number of Mediatek SoCs are missing
 the EL2 virtual timer interrupt. Add it.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/boot/dts/freescale/imx91_93_common.dtsi | 3 ++-
- arch/arm64/boot/dts/freescale/imx94.dtsi           | 3 ++-
- arch/arm64/boot/dts/freescale/imx95.dtsi           | 3 ++-
- arch/arm64/boot/dts/freescale/imx952.dtsi          | 3 ++-
- arch/arm64/boot/dts/freescale/s32n79.dtsi          | 3 ++-
+ arch/arm64/boot/dts/mediatek/mt6779.dtsi | 3 ++-
+ arch/arm64/boot/dts/mediatek/mt8186.dtsi | 3 ++-
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi | 3 ++-
+ arch/arm64/boot/dts/mediatek/mt8192.dtsi | 3 ++-
+ arch/arm64/boot/dts/mediatek/mt8195.dtsi | 3 ++-
  5 files changed, 10 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-index 46a5d2df074d5..679b9a6f7160f 100644
---- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
-@@ -82,7 +82,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
- 		clock-frequency = <24000000>;
- 		arm,no-tick-in-suspend;
- 		interrupt-parent = <&gic>;
-diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
-index c460ece6070f8..7431ce293625b 100644
---- a/arch/arm64/boot/dts/freescale/imx94.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
-@@ -147,7 +147,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
- 		clock-frequency = <24000000>;
- 		interrupt-parent = <&gic>;
- 		arm,no-tick-in-suspend;
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 71394871d8dd0..e318048dc755b 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -524,7 +524,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
- 		clock-frequency = <24000000>;
- 		arm,no-tick-in-suspend;
- 		interrupt-parent = <&gic>;
-diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/dts/freescale/imx952.dtsi
-index b30707837f353..7c65956bc72dc 100644
---- a/arch/arm64/boot/dts/freescale/imx952.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
-@@ -298,7 +298,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
- 		clock-frequency = <24000000>;
- 		arm,no-tick-in-suspend;
- 		interrupt-parent = <&gic>;
-diff --git a/arch/arm64/boot/dts/freescale/s32n79.dtsi b/arch/arm64/boot/dts/freescale/s32n79.dtsi
-index 94ab58783fdc8..fb40abec4c5cd 100644
---- a/arch/arm64/boot/dts/freescale/s32n79.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32n79.dtsi
-@@ -357,6 +357,7 @@ timer: timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+diff --git a/arch/arm64/boot/dts/mediatek/mt6779.dtsi b/arch/arm64/boot/dts/mediatek/mt6779.dtsi
+index 70f3375916e8c..106df7603d533 100644
+--- a/arch/arm64/boot/dts/mediatek/mt6779.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt6779.dtsi
+@@ -108,7 +108,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
  	};
- };
+ 
+ 	soc {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8186.dtsi b/arch/arm64/boot/dts/mediatek/mt8186.dtsi
+index b91f88ffae0e8..a4621ce370d8e 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8186.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8186.dtsi
+@@ -815,7 +815,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
+ 	};
+ 
+ 	soc {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+index 75133794cec38..614e75f46c72d 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+@@ -918,7 +918,8 @@ timer: timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
+ 		clock-frequency = <13000000>;
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/mediatek/mt8192.dtsi b/arch/arm64/boot/dts/mediatek/mt8192.dtsi
+index 9f8f115edd4cc..873c4fae6afc9 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8192.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8192.dtsi
+@@ -328,7 +328,8 @@ timer: timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
+ 		clock-frequency = <13000000>;
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
+index c72e34c57629d..3c9a7a08612b9 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
+@@ -451,7 +451,8 @@ timer: timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
+ 	};
+ 
+ 	soc {
 -- 
 2.47.3
 
