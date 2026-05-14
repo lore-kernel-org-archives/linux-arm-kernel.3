@@ -4,112 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979D9CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F1FCD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZiQXZb6NUnm5rugMsEwxpmdM+g4n8nQfWs3k9bS6QQ=; b=R7twbr6md1AJuvJbs75xHDU1fk
-	o5pOmwhlsMXPrejaf6HseF5MOKq/3ys72aIuW/R3fbmK30DivXNatjPd+qZlJ3vo8yLosD5jPy91R
-	6LL9ARugHmT8/B4a+btgJf8flZepLoFrayC3GhCXbKfRxVCdaKc5MICm2WRpueXgNrtqyMRE9Lyud
-	GND6s/OrAcX2YGo2CsKuYqFfVW16RrEJcwyYHm8brUhwyS40oi83ltk6T6jBi8/47ZJ1lLRPICiED
-	E6mwjLB7Y0G7A6MV0RfDI5C1wardRNCpwiLxCHL6Hb1x5YSsi437l6MIRaoGFQv9FPXl2RDp0H+zJ
-	sxkKQKaw==;
+	bh=kdwPUE6uMU4a+MsZ+02gTvznxPhCfL9jHHrYZahv22g=; b=MeMmpn8+MfZ4usPnAvzmi+eabl
+	xRbWn4St7Ax5Y2axoJzN2AN6Ww7eMHkyipBvlXajeyoCyzN+763DKNQDN/d7moVqBx6g5MOn/WSYD
+	tUI98D404KX3D2hACID6bz4PGn1LT7m6Xpe69eTwnIxMO5ABb0mdzxZK66SNHZWBzoH7qlAnW0kqn
+	0SGbxw+HcsdIRVCWJbEglI066ASpr4HdorQy2iIozw4nrg/kQPAo4aosbdwSFw668zokLrN9a3wVH
+	e2j+RWxGBlOozyYSy3azS2SOGQMwiM/i7bHFowPcMGtdlVjXCVBBNySSxOzQGLMrKOGjh2N/34tRk
+	aS4chz+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYUP-00000005yYc-3k1G;
-	Thu, 14 May 2026 16:00:45 +0000
+	id 1wNXhQ-00000005qCJ-1EBm;
+	Thu, 14 May 2026 15:10:08 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYUN-00000005yXW-1Mxh
+	id 1wNXhL-00000005q6Y-28gc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 16:00:44 +0000
+	Thu, 14 May 2026 15:10:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E35D3441C1;
-	Thu, 14 May 2026 16:00:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBA94C2BCB3;
-	Thu, 14 May 2026 16:00:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DDBE6445B2;
+	Thu, 14 May 2026 15:10:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7203C2BCB3;
+	Thu, 14 May 2026 15:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778774442;
-	bh=aYIL80rw3C3EF35cMMlhXqCBtlwG7P1QQusFd7N/ghs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=em/MXqlU3TAY/8GnuMO8/XcHtFL1qNc9dqnURgTg7r+mFc7moSSYxpGuZ10RyE+Nr
-	 yLWlFFYcGhvPy8OdZRymbUrHib5JjCNE/fxdhBHqRBH1yA8YhNkcsQXDYkDnSQdCcQ
-	 tJmhgVTysQfMtRloqRkOpmmrMKkKmJ6kOmucOFMcAkZ4yW2la60SEKmTHUbcsmvN4M
-	 VfOWN/2+hcIaDpPGUe7TuoevqNMQRIDkKNHqgP1HB+GeetUYNb4mCqq5RuKatrGy7x
-	 MO22us0v8xIJXtXcxSmviu8984HfScWa++ln/7zTeUn6OIbQ++d0X4O0TFBuu6T/xy
-	 VcMUbcf5j4/Ag==
-Message-ID: <a51d0e53-3134-475d-a19f-67d7d0695cfe@kernel.org>
-Date: Thu, 14 May 2026 18:00:38 +0200
+	s=k20201202; t=1778771401;
+	bh=CJXY43NWPhe/kEFDLFlqtBJ4A3u4UFccm33o2sFJ4aY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=gO0a0pIhUpTdgHdyF4vgz6aqQo36picuSTdt6Q2FcDwt/v7L6H1qUbB+ltK0gvtnz
+	 bqmgTV8vd9+QM6u4gs88ZtQQ1aqAE4gokOnNL4B/uZhxXBcqMwv9DexusdvcfLWOwS
+	 TAg/AZd9p0SDyzGAz+6+AJUyPCMZdBIQydWMiKIs1Ed0Xt4YyvctL+HkZKVfgnosdf
+	 rLc7h42v1aH/QfdxZE1PQdaZwmq1vlHtJj5BVq4YbYqlb/oSofhZgg4nbiZjzG+nJI
+	 oc9WoQnHs9aLuyym/VYNTiDHvkW1AirfIuKbxeG7XbisFffac8MnLFwfhOTrIc1i0T
+	 a4KJx5Or0OHWQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wNXhH-00000002Oqg-3Nc6;
+	Thu, 14 May 2026 15:09:59 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Ge Gordon <gordon.ge@bst.ai>,
+	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: [PATCH v2 09/17] arm64: dts: freescale: Add EL2 virtual timer interrupt
+Date: Thu, 14 May 2026 16:09:37 +0100
+Message-ID: <20260514150945.3917510-10-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260514150945.3917510-1-maz@kernel.org>
+References: <20260514150945.3917510-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] dt-bindings: usb: dwc3-xilinx: Add MMI USB support
- on Versal Gen2 platform
-To: "Pandey, Radhey Shyam" <radheys@amd.com>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, michal.simek@amd.com, Thinh.Nguyen@synopsys.com,
- p.zabel@pengutronix.de, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, git@amd.com
-References: <20260429173050.1772377-1-radhey.shyam.pandey@amd.com>
- <20260429173050.1772377-2-radhey.shyam.pandey@amd.com>
- <20260503-enchanted-galago-of-relaxation-dcda7f@quoll>
- <f9f25ef4-a541-45a2-b98c-4a411239993b@amd.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <f9f25ef4-a541-45a2-b98c-4a411239993b@amd.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
+ heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_090043_407087_1CB135F6 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20260514_081003_621782_82E3CD39 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,102 +125,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/05/2026 21:01, Pandey, Radhey Shyam wrote:
->> On Wed, Apr 29, 2026 at 11:00:47PM +0530, Radhey Shyam Pandey wrote:
->>>   additionalProperties: false
->>>   
->>>   examples:
->>> @@ -156,3 +193,30 @@ examples:
->>>               };
->>>           };
->>>       };
->>> +  - |
->>> +    #include <dt-bindings/power/xlnx-zynqmp-power.h>
->>> +    #include <dt-bindings/reset/xlnx-zynqmp-resets.h>
->>> +    #include <dt-bindings/phy/phy.h>
->>> +    usb {
->>> +        #address-cells = <1>;
->>> +        #size-cells = <1>;
->> Please follow DTS coding style.
-> Thanks for the review. will fix it in next version.
->>> +        compatible = "xlnx,versal2-mmi-dwc3";
->> I really doubt that DWC3 block comes without addressing space
->> (registers), so either you just misrepresented things, like created a
->> fake block and syscon, or forgot to combine DWC3 with the wrapper.
->>
->> And if you built with W=1 your DTS you would see errors. How do you see
->> it now? Where do you place it? Wrapper must be outside of soc, but DWC3
->> child must be inside. Did you read submitting patches and writing
->> bindings documents?
-> Apologies for missing the DTS sanity check earlier. I am summarizing the
-> problem statement and possible solution. Please review.
-> 
-> For MMI USB in current implementation it need a parent/child
-> representation. However, the parent IP is shared across DP, USB,
-> and HDCP, so it cannot have a USB-dedicated parent reg space.
-> 
-> 1. Versal platform
->    - Parent: USB wrapper IP → has its own I/O space
->    - Child: USB DWC3
-> 
-> 2. Versal Gen2 platform - MMI USB
->    - Parent subsystem combines DP, USB, and HDCP in a single I/O space
->    - Children:
->      - USB DWC3
->      - DP
->      - HDCP
-> 
-> To model the Versal Gen2 MMI USB parent register space, I introduced
-> xlnx,usb-syscon, allowing the DWC3 driver to access parent registers
-> via a syscon handle, addressing the v1 review comment.
+The ARMv8.2 based CPUs used in a number of NXP/FSL SoCs are missing
+the EL2 virtual timer interrupt. Add it.
 
-Syscon phandle is not to express such relationsship.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/boot/dts/freescale/imx91_93_common.dtsi | 3 ++-
+ arch/arm64/boot/dts/freescale/imx94.dtsi           | 3 ++-
+ arch/arm64/boot/dts/freescale/imx95.dtsi           | 3 ++-
+ arch/arm64/boot/dts/freescale/imx952.dtsi          | 3 ++-
+ arch/arm64/boot/dts/freescale/s32n79.dtsi          | 3 ++-
+ 5 files changed, 10 insertions(+), 5 deletions(-)
 
-> 
-> However, making reg optional satisfies schema validation but fails
-> DTB checks.
-> 
-> versal2.dtsi:1: Warning (simple_bus_reg):
-> /axi/mmi-usb: missing or empty reg/ranges property
+diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+index 46a5d2df074d5..679b9a6f7160f 100644
+--- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+@@ -82,7 +82,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		arm,no-tick-in-suspend;
+ 		interrupt-parent = <&gic>;
+diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
+index c460ece6070f8..7431ce293625b 100644
+--- a/arch/arm64/boot/dts/freescale/imx94.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
+@@ -147,7 +147,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		interrupt-parent = <&gic>;
+ 		arm,no-tick-in-suspend;
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index 71394871d8dd0..e318048dc755b 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -524,7 +524,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		arm,no-tick-in-suspend;
+ 		interrupt-parent = <&gic>;
+diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/dts/freescale/imx952.dtsi
+index b30707837f353..7c65956bc72dc 100644
+--- a/arch/arm64/boot/dts/freescale/imx952.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
+@@ -298,7 +298,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 		clock-frequency = <24000000>;
+ 		arm,no-tick-in-suspend;
+ 		interrupt-parent = <&gic>;
+diff --git a/arch/arm64/boot/dts/freescale/s32n79.dtsi b/arch/arm64/boot/dts/freescale/s32n79.dtsi
+index 94ab58783fdc8..fb40abec4c5cd 100644
+--- a/arch/arm64/boot/dts/freescale/s32n79.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32n79.dtsi
+@@ -357,6 +357,7 @@ timer: timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+-- 
+2.47.3
 
-Yep, exactly.
-
-> 
-> To fix it i think we can switch from parent/child representation to
-> flat DT representation for the Versal Gen2 platform, similar to
-> existing implementations in qcom,snps-dwc3 and Google Tensor G5 DWC3
-> bindings[1].
-> 
-> The Google Tensor DWC3 binding uses a syscon phandle to access USB
-> configuration registers, which aligns well with the Versal Gen2 MMI
-
-Not true. Just read the binding. If you refer to Tensor, then to access
-A FEW configuration registers. If you refer to LGA, then it has address
-space.
-
-> USB IP, where wrapper subsystem shares a common register space for
-> USB along with other IPs.
-
-
-
-> 
-> If this approach looks fine , will create binding for MMI USB using
-> this flat representation and send out next version.
-> 
-> usb@fe200000 {
-> compatible = "xlnx,versal2-mmi-dwc3";
-> reg = <0xfe200000 0x40000>;
-> xlnx,usb-syscon = <&udh_slcr 0x005c 0x0070 0x00c4 0x00f8>;
-> <snip>
-> };
-
-So I am confused. We ask, since long time, to have unified child.
-Several platforms were already converted. What are you discussing with
-in such case?
-
-Are you going to have unified node or not?
-
-
-Best regards,
-Krzysztof
 
