@@ -4,62 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93EDECD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 14:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33817CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 14:23:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mt9FeFSXuY+5ZNksdcVOSgLU6/oDihFQ8sIYU5CyybQ=; b=B1Nx0cTUGgEbgCWbUZrwDztphJ
-	kuweqWRQ+iLG21pR1HqMbaYK0WzMkf31kp0dn4eFBFV2/7XVhGaeE/q5UmTykbtJFh1ACKz0J2sr1
-	HB4Tr29TpRgMKHIDO4W/UOfpkwDa3/5KChpekMW8uYmZKj7dBZ7XHaytwtEMXXxrgEtqAs5DtBL1w
-	nm1OaLtd8Ug9Nu2KlStGWdEEzMtqWwqv3O7hJ2wK+yUlHW9KFnrDaunx6hPb2jZy+KC+QXmhVI4Vs
-	Vipnsh2ZKeCs++Ez+dJCG6EuZWhRXQFXOloCwHnorxWolXfa+CFvQjcKjBI3ysmyn5TBGC8z2dXH9
-	eBOm7Jxg==;
+	bh=ZdySX/ZAG+QDlmVqBL6ay9H8VC+3eImS5s4YAi/Erhc=; b=ox4bBGPSRU2iHz5pmCThh4H1jF
+	eKMlXFK77fBXyEEYqoZTWtwaMeqvlzJaeFZOQYfSEc1LxwseynZA/GTHBRl8S1dBuv1lbQ2CQ3bXu
+	wWw0hIASv3wRb/8s3rS02rcFOvi6fuPZP5FECI7O/SAvdkVwBalqFqaKXqDwqQ/eaE16a6w4BPZPj
+	mZK79SzP+tO7sEOJhtf82HKIWNnbK9yfXCBuVFk/mnSFPvfOI5s4ECkKuci8F5BAYKEGXBxl971km
+	pnLfIlguczg3HhfKa454Z3KGMLTrbvrWaLap8mSEK4qo1Q4dB5AqY2pJJ1gzC3yHx4NsxPfZR8xxi
+	lZ0fwoRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNWx3-00000005hVe-2B8S;
-	Thu, 14 May 2026 14:22:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNWx1-00000005hV7-24GT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 14:22:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5E541596;
-	Thu, 14 May 2026 07:22:04 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E5C2F3F7B4;
-	Thu, 14 May 2026 07:22:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778768530; bh=jn0zV61/doOPQNK4OQIglceav/z+X7+0bmexe6PpHME=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l+2R1CoUx58cpy4/3QYINPN6/LC9yL+32Zxj1VL4lz2WFweVo0ndf5/20AmjCWw6k
-	 TNq1D46yx7i6KtZsZu97GRt3OaCqhnupEQCg4q4KOBWYJkkBofmk5wumMe9WyV00YG
-	 4zkiYyhwRuSMZHNvHrzHd1SyEZR1jMUlgAUE2pQ8=
-Date: Thu, 14 May 2026 15:22:04 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: James Morse <james.morse@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	zengheng4@huawei.com, wangkefeng.wang@huawei.com,
-	xry111@xry111.site, yang@os.amperecomputing.com,
-	reinette.chatre@intel.com, will@kernel.org, thuth@redhat.com,
-	ben.horgan@arm.com, mrigendra.chaubey@gmail.com,
-	fenghuay@nvidia.com, ahmed.genidi@arm.com
-Subject: Re: [PATCH v3 3/4] arm64: cpufeature: Add support for the MPAM v0.1
- architecture version
-Message-ID: <agXajDtWt9RmgOXT@arm.com>
-References: <20260508162341.3762549-1-james.morse@arm.com>
- <20260508162341.3762549-4-james.morse@arm.com>
+	id 1wNWxw-00000005hgv-3E5X;
+	Thu, 14 May 2026 14:23:08 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNWxu-00000005hfz-1xOb;
+	Thu, 14 May 2026 14:23:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778768586; x=1810304586;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=1+cb2sStXOE2OW7LJ8lDA5+VJbnboBqGunLXZmnPBgo=;
+  b=HHBcmpSqqjSdIGLnGoe2EB9GajemTWpobs36i0E/MgrPFZbfwu9Ro0yw
+   hb7+FVuYDXeqdlRsb5+u0pvabJM7L2whOdrqPvHtCx+CjTS/8LKxoLvcq
+   c1L9LNouD1SchgN+/PEnidp20TMs54jGWOP3xKjYU2r2LScLVQFIVxRlF
+   jagjyT1T9xof2S6Z/IoQHyLAsd0rxfxf9w8qvHncZxtZ4BZubVTBqrU+H
+   vkK4/V+zzF4aocajCfMzPJIHiliVVb3BVqcQxQWAG+C7AR5mSiYtw9HcC
+   MHBkFP4hcLc/g7E4EV8AH8zhqi/QmoSiyvqGUkhitJLqUpvrM56anlMbg
+   Q==;
+X-CSE-ConnectionGUID: eMrLJ1x4SjGUx1brmackWA==
+X-CSE-MsgGUID: C3RcO5ftRyC3IQcX0NdP3w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11786"; a="79422781"
+X-IronPort-AV: E=Sophos;i="6.23,234,1770624000"; 
+   d="scan'208";a="79422781"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2026 07:23:04 -0700
+X-CSE-ConnectionGUID: MoTmitk+SYGyMdDayYUivQ==
+X-CSE-MsgGUID: j2Ra0cpgRtCqNzrKqlrxCg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,234,1770624000"; 
+   d="scan'208";a="238289913"
+Received: from igk-lkp-server01.igk.intel.com (HELO bdf09bfdbd5f) ([10.211.93.152])
+  by orviesa008.jf.intel.com with ESMTP; 14 May 2026 07:22:59 -0700
+Received: from kbuild by bdf09bfdbd5f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wNWxk-000000008or-1YWQ;
+	Thu, 14 May 2026 14:22:56 +0000
+Date: Thu, 14 May 2026 16:22:22 +0200
+From: kernel test robot <lkp@intel.com>
+To: Hans Zhang <18255117159@163.com>, bhelgaas@google.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	vigneshr@ti.com, jingoohan1@gmail.com, thomas.petazzoni@bootlin.com,
+	pali@kernel.org, ryder.lee@mediatek.com, jianjun.wang@mediatek.com,
+	claudiu.beznea.uj@bp.renesas.com, mpillai@cadence.com
+Cc: oe-kbuild-all@lists.linux.dev, robh@kernel.org, s-vadapalli@ti.com,
+	linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Hans Zhang <18255117159@163.com>
+Subject: Re: [PATCH v2 8/8] PCI: rzg3s-host: Add 100 ms delay after link
+ training
+Message-ID: <202605141646.YYkbS6Hg-lkp@intel.com>
+References: <20260506152346.166056-9-18255117159@163.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260508162341.3762549-4-james.morse@arm.com>
+In-Reply-To: <20260506152346.166056-9-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_072211_651563_3B192F75 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20260514_072306_575849_F081239F 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,42 +94,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 08, 2026 at 05:23:40PM +0100, James Morse wrote:
-> From: Zeng Heng <zengheng4@huawei.com>
-> 
-> According to the MPAM spec [1], the supported architecture versions are
-> v1.0, v1.1 and v0.1. MPAM versions v0.1 and v1.1 are functionally
-> identical, but v0.1 additionally supports the FORCE_NS feature.
-> 
-> ID_AA64PR | ID_AA64PR | MPAM Extension | Notes
-> F0_EL1.   | F1_EL1.   | Architecture   |
-> MPAM      | MPAM_frac | version        |
-> ---------------------------------------------------------------------------
-> 0b0000    | 0b0001    | v0.1           | MPAM v0.1 is implemented.
->           |           |                | MPAM v0.1 is the same as MPAM v1.1
->           |           |                | with FORCE_NS which is
->           |           |                | incompatible with MPAM v1.0.
-> ---------------------------------------------------------------------------
-> 0b0001    | 0b0000    | v1.0           | MPAM v1.0 is implemented.
-> ---------------------------------------------------------------------------
-> 0b0001    | 0b0001    | v1.1           | MPAM v1.1 is implemented.
->           |           |                | MPAM v1.1 includes all features of
->           |           |                | MPAM v1.0.
->           |           |                | It must not include FORCE_NS.
-> 
-> FORCE_NS is a feature that operates in EL3 mode. Consequently, the current
-> Linux MPAM driver is also compatible with MPAM v0.1. To support v0.1, the
-> existing driver which only checks ID_AA64PFR0_EL1.MPAM for the major
-> version needs to examine ID_AA64PFR1_EL1.MPAM_frac for the minor version
-> as well.
-> 
-> [1] https://developer.arm.com/documentation/ddi0598/db/?lang=en
-> 
-> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-> Reviewed-by: James Morse <james.morse@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
+Hi Hans,
 
-Not sure how this will go in for 7.2, so:
+kernel test robot noticed the following build errors:
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+[auto build test ERROR on a293ec25d59dd96309058c70df5a4dd0f889a1e4]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Hans-Zhang/PCI-Add-pcie_wait_after_link_train-helper/20260514-132815
+base:   a293ec25d59dd96309058c70df5a4dd0f889a1e4
+patch link:    https://lore.kernel.org/r/20260506152346.166056-9-18255117159%40163.com
+patch subject: [PATCH v2 8/8] PCI: rzg3s-host: Add 100 ms delay after link training
+config: arm64-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20260514/202605141646.YYkbS6Hg-lkp@intel.com/config)
+compiler: aarch64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260514/202605141646.YYkbS6Hg-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202605141646.YYkbS6Hg-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from drivers/pci/controller/pci-thunder-pem.c:16:
+   drivers/pci/controller/../pci.h: In function 'pcie_wait_after_link_train':
+>> drivers/pci/controller/../pci.h:73:17: error: implicit declaration of function 'msleep' [-Wimplicit-function-declaration]
+      73 |                 msleep(PCIE_RESET_CONFIG_WAIT_MS);
+         |                 ^~~~~~
+--
+   In file included from drivers/pci/controller/dwc/pcie-al.c:14:
+   drivers/pci/controller/dwc/../../pci.h: In function 'pcie_wait_after_link_train':
+>> drivers/pci/controller/dwc/../../pci.h:73:17: error: implicit declaration of function 'msleep' [-Wimplicit-function-declaration]
+      73 |                 msleep(PCIE_RESET_CONFIG_WAIT_MS);
+         |                 ^~~~~~
+
+
+vim +/msleep +73 drivers/pci/controller/../pci.h
+
+    62	
+    63	/**
+    64	 * pcie_wait_after_link_train - Wait 100 ms if link speed > 5 GT/s
+    65	 * @max_link_speed: the maximum link speed (2 = 5.0 GT/s, 3 = 8.0 GT/s, ...)
+    66	 *
+    67	 * Must be called after Link training completes and before the first
+    68	 * Configuration Request is sent.
+    69	 */
+    70	static inline void pcie_wait_after_link_train(int max_link_speed)
+    71	{
+    72		if (max_link_speed > 2)
+  > 73			msleep(PCIE_RESET_CONFIG_WAIT_MS);
+    74	}
+    75	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
