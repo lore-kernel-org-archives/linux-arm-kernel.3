@@ -4,97 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 392A7CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3955DCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 09:10:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/zJBoYCXvN5LO7DBit1Ku7VesIuEtdWFZWxNt6CCQH0=; b=T3nnxm1UupRcf/AKxv/Bet+EBm
-	BTjdllgD8KLDKlBXtEg0qiIK98jCtTsiEU5r7LVd6qs29FhzF+zcTOZRB+QySbxekmF5YPVQ/U1UF
-	6blYGCGGnyRDGlP3jNOIA7HJi0ka3kyVzIrFmDQ7XK5RDPK++XUUeeIPnkB3YGrqEJVmgGrqyBD1d
-	jnPUAv+oG0UuYtDjIMhTSqPYen0XlI8dRP8hjiNBOhTNlDPXCymk+KW7dsizecL6L5NOgFJnPicCO
-	pmmJkZUT+OHoN9Sa1jhXyANyTdNUDYMjHMiU7l9X2Yrh4+p/hIj2NURCyV0LjHdJhBwunExJAxSxQ
-	w8QJ25CA==;
+	bh=zAIcYPs9CA2AQzBaKWRzvmYp5PdiO4TrDMadoZEFNPQ=; b=tdN9vjKN0YgoQsPt1LWD03exdJ
+	+8jZIg2FK2TC8kPyz49L2u2kGu3ACJOcRUj7K/Vx9oxgerIaGnnh92tm5H41H9NYn6FDJDjAjClBL
+	3EdOUmE2XAM2EZ3MgDyAh1upej2ezLR0l4s+aP8BKpzqAUGa8zP3QzpmOkukdtBpmuReZpG+4MTNd
+	SVb+MUIy3ZwmptyKaAx7IwXB5pOlA5DtLl/XXB2mK4QEv0Fy6Tm+SiCZo/KLHDnfeAqyXyqUXdCh1
+	uRkSRzHH9AExAgH3miH+P/eFph1fDQuH92eE/Rk1VMlTefjVCAvOT6G3AjQ4PIq1PnbqaXPD07QpQ
+	YcvlP5tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNS52-0000000512O-3xJZ;
-	Thu, 14 May 2026 09:10:08 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNS50-0000000511l-1GE6
+	id 1wNS5E-0000000514l-0BpB;
+	Thu, 14 May 2026 09:10:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNS5B-0000000513b-13wN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 09:10:07 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48909558b3aso75089945e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 02:10:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778749804; x=1779354604; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/zJBoYCXvN5LO7DBit1Ku7VesIuEtdWFZWxNt6CCQH0=;
-        b=xxZNKmCpvw9IV00VzmeHAQJK+AmI4bEdu6/UqHKTIivhSg9VqoAeJlsuRTBmRumkPc
-         fcZg6e/oKvu7kaoPOZ9Un1lPD5EdaO0ktasxKbEaWeqMWJ616l9IB4BXuVbZ2SNDIy1c
-         inURf7dIMVMWj/LmjkezwYS8ysmy6cUPGhNYbdQf4Zf9jvZTw9wlnRSxTVt4uxS6XBC+
-         IsPbFLvSzg0OuBfRjib8cEU5ffUzgsZt/ZGm1QmrDONuK/8pXcae47IZ+JrcM7N1WK3W
-         3CwqBy70VbBJZ+uKAcXCRXnH4gLan4N66FhHirL89f4xeHeNACnzTi9zIr4JBsxy9Am0
-         onaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778749804; x=1779354604;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/zJBoYCXvN5LO7DBit1Ku7VesIuEtdWFZWxNt6CCQH0=;
-        b=Kb4kE7uHD9xUgkzG7ebMav3netF3JX/wyiSZuXxXvCZEfiPhlzAqx2Zs+n57/3gO1t
-         P+a0MfcthO73sc1qxUPZdGKLl4Fk1lm73lHDqYKc+8aMuob1shlqVL2c4GCpZyF9zX73
-         qK0ju3DCVswo/uOiBZ0UYjKgHku/wcSy3ycJQRaI58ks8nshxLOb7IuWfSXr6Pu221c1
-         bpzMWlnfYLDzpNtgWWHDrNo2PfzdFmQm9e8d1FJLC5nyrdQSWZBT3yG+rYD8b+eBWVLU
-         sJucVDeEliBu0/U82KV4Qhmc/FgzdHJQtIR+dKdA6uUcTChYJsIsah+ybgIc8pgHi8x3
-         9aaw==
-X-Forwarded-Encrypted: i=1; AFNElJ8LZwuIojv5WHmY8wCgIczua7Km1IF9YCbOXUOAJAW3XkCTh14G2I9Kp82F3ZSShE7LcDkC6S5QEVEz1G8VtEI4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA8s2g0nfgpn+Hro5UVkx4gaoheUBrVgsQlMiVOM2PtGAY+Dfq
-	YyAjK4c96Fyb+xEWB/wAPWutWiSqbhehLmSORDEPM1yWhfiHJX8KC+zeXinzIjynXrI=
-X-Gm-Gg: Acq92OFWp8k7/8A8EwLdzhWzi8zNTh4M/dZ2hHXXtMQGVbmcIC5cQB5uWyRSwkUWlR5
-	lwZiOEEzTAkp12p0MvthtyNt6xVi+/esbeIej0EzxV1vfdbflaT7GUpnW4hIHE13eCIVTqYKEQB
-	ApDexNXVq5sQvjA80yh9np23SRQQJi86uLbKxOd9RgW/n8D6qzlhT0cK4TvHb+1BMtreT7KoiaB
-	rfB8+d3FjUuiFrDmaWCdec8bbCZ8wrGzkrU9KmCExYgWSfPXMH1iNk5yPiB8oFlUvhxcsrgtV4/
-	piUovmczJI/rZNmll4f+ZQo/r6kG6tkgSlY8GBYAKJg5kR00S02kmV1xyiHvrRA+5PxbNV4b06w
-	BkPfjyBhK8igXo+BpesxZUZgLc3pHdD1SntoRXxz7vI59odzGHlg3P+tyjzL4dTq25BesaxCLyD
-	7XiezcMtQzd3OvywNoObSz24NcXZjA
-X-Received: by 2002:a05:600c:19d1:b0:48e:8499:4be0 with SMTP id 5b1f17b1804b1-48fdc714b8amr23783895e9.15.1778749804059;
-        Thu, 14 May 2026 02:10:04 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fdb2788eesm34097965e9.7.2026.05.14.02.10.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 May 2026 02:10:03 -0700 (PDT)
-Message-ID: <66797cb2-18f7-4782-9370-68d0c10c35f4@linaro.org>
-Date: Thu, 14 May 2026 10:10:02 +0100
+	Thu, 14 May 2026 09:10:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE5563502;
+	Thu, 14 May 2026 02:10:08 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0733A3F85F;
+	Thu, 14 May 2026 02:10:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778749814; bh=6WdgSVMT1/HuNpQmTptj568ulJx8H66BVsxpAr09b64=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dGDtK0A4Gt7rlrsd7zSytiBBV0jCpOpMzhhPBLrR7Rl6GygveWfJtBdh8JtTyNN5i
+	 LVI90aLOElSV4O8S/j4nQkbGmNEWmbO23VhMjDb0VtSgUoQ0N+QsIDx2qwF+1avWGM
+	 OFqYbGR4TT3h/3vn4NuYY2JLu7S6CrtpgITZH7cQ=
+Message-ID: <9b9dddc6-16d0-44a9-a785-37c072f73af0@arm.com>
+Date: Thu, 14 May 2026 10:10:04 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 13/20] KVM: arm64: Apply dynamic guest counter
- reservations
-To: Colton Lewis <coltonlewis@google.com>
-Cc: alexandru.elisei@arm.com, pbonzini@redhat.com, corbet@lwn.net,
- linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
- maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
- kvm@vger.kernel.org
-References: <gsntzf23b6m2.fsf@coltonlewis-kvm.c.googlers.com>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH 5/5] arm_mpam: detect and enable MPAM-Fb PCC support
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260429141339.3171205-1-andre.przywara@arm.com>
+ <20260429141339.3171205-6-andre.przywara@arm.com>
+ <42144185-2d4b-4340-a2e4-aff871637e2f@arm.com>
+ <81f8bea6-bcf3-4523-ae0e-3d45c32800cb@arm.com>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <gsntzf23b6m2.fsf@coltonlewis-kvm.c.googlers.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <81f8bea6-bcf3-4523-ae0e-3d45c32800cb@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_021006_391892_BFD1452E 
-X-CRM114-Status: GOOD (  24.20  )
+X-CRM114-CacheID: sfid-20260514_021017_401801_BA8B0F0D 
+X-CRM114-Status: GOOD (  29.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,161 +79,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andre,
 
-
-On 13/05/2026 5:45 pm, Colton Lewis wrote:
-> James Clark <james.clark@linaro.org> writes:
+On 5/13/26 15:51, Andre Przywara wrote:
+> Hi Ben,
 > 
->> On 04/05/2026 10:18 pm, Colton Lewis wrote:
->>> Apply dynamic guest counter reservations by checking if the requested
->>> guest mask collides with any events the host has scheduled and calling
->>> pmu_perf_resched_update() with a hook that updates the mask of
->>> available counters in between schedule out and schedule in.
-> 
->>> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> On 5/8/26 12:48, Ben Horgan wrote:
+>> Hi Andre,
+>>
+>> On 4/29/26 15:13, Andre Przywara wrote:
+>>> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
+>>> registers through a firmware interface. This requires a shared memory
+>>> region to hold the message, and a mailbox to trigger the access.
+>>> For ACPI this is wrapped as a PCC channel, described using existing
+>>> ACPI abstractions.
+>>>
+>>> Add code to parse those PCC table descriptions associated with an MSC,
+>>> and store the parsed information in the MSC struct.
+>>> This will be used by the MPAM-Fb access wrapper code.
+>>>
+>>> [1] https://developer.arm.com/documentation/den0144/latest
+>>>
+>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 >>> ---
->>>    arch/arm64/kvm/pmu-direct.c  | 69 ++++++++++++++++++++++++++++++++ 
->>> ++++
->>>    include/linux/perf/arm_pmu.h |  1 +
->>>    2 files changed, 70 insertions(+)
-> 
->>> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
->>> index 2252d3b905db9..14cc419dbafad 100644
->>> --- a/arch/arm64/kvm/pmu-direct.c
->>> +++ b/arch/arm64/kvm/pmu-direct.c
->>> @@ -100,6 +100,73 @@ u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu)
->>>        return *host_data_ptr(nr_event_counters);
->>>    }
-> 
->>> +/* Callback to update counter mask between perf scheduling */
->>> +static void kvm_pmu_update_mask(struct pmu *pmu, void *data)
->>> +{
->>> +    struct arm_pmu *arm_pmu = to_arm_pmu(pmu);
->>> +    unsigned long *new_mask = data;
+>>>   drivers/acpi/arm64/mpam.c      |  2 ++
+>>>   drivers/resctrl/mpam_devices.c | 46 +++++++++++++++++++++++++++++++---
+>>>   2 files changed, 45 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+>>> index 99c2bdbb3314..edb4d10e8dc3 100644
+>>> --- a/drivers/acpi/arm64/mpam.c
+>>> +++ b/drivers/acpi/arm64/mpam.c
+>>> @@ -341,6 +341,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
+>>>       } else if (iface == MPAM_IFACE_PCC) {
+>>>           props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
+>>>                               tbl_msc->base_address);
+>>> +        props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
+>>> +                            tbl_msc->identifier);
+>>>       }
+>>>         acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
+>>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>>> index 62aa04cb6905..6f0d0959d3a4 100644
+>>> --- a/drivers/resctrl/mpam_devices.c
+>>> +++ b/drivers/resctrl/mpam_devices.c
+>>> @@ -19,6 +19,7 @@
+>>>   #include <linux/irqdesc.h>
+>>>   #include <linux/list.h>
+>>>   #include <linux/lockdep.h>
+>>> +#include <linux/mailbox_client.h>
+>>>   #include <linux/mutex.h>
+>>>   #include <linux/platform_device.h>
+>>>   #include <linux/printk.h>
+>>> @@ -27,6 +28,9 @@
+>>>   #include <linux/types.h>
+>>>   #include <linux/workqueue.h>
+>>>   +#include <acpi/pcc.h>
+>>> +#include <acpi/acpi_io.h>
 >>> +
->>> +    bitmap_copy(arm_pmu->cntr_mask, new_mask, ARMPMU_MAX_HWEVENTS);
+>>>   #include "mpam_internal.h"
+>>>   #include "mpam_fb.h"
+>>>   @@ -1042,7 +1046,8 @@ static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
+>>>         mpam_mon_sel_lock_held(msc);
+>>>   -    WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+>>> +    if (msc->iface == MPAM_IFACE_MMIO)
+>>> +        WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+>>
+>> This should be in a different patch.
+> 
+> Which one, preferably? A separate one? Or patch 3/5, which adds the PCC access code?
+> This one here is the patch that enables non-MMIO accesses, so I figured that's the place we should relax this check.
+
+I thought this matched the WARN_ON_ONCE() changes in patch 3/5 but that patch just concentrates on the lower level so
+I'm ok to keep it in this patch. I think you've missed a similar WARN_ON_ONCE() in mpam_msc_zero_mbwu_l() though.
+
+> 
+>>
+>>>       WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+>>>         mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
+>>> @@ -2042,10 +2047,15 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>>>       mpam_free_garbage();
+>>>   }
+>>>   +static void mpam_pcc_rx_callback(struct mbox_client *cl, void *msg)
+>>> +{
+>>> +    /* TODO: wake up tasks blocked on this MSC's PCC channel */
 >>> +}
 >>> +
->>> +/**
->>> + * kvm_pmu_set_guest_counters() - Handle dynamic counter reservations
->>> + * @cpu_pmu: struct arm_pmu to potentially modify
->>> + * @guest_mask: new guest mask for the pmu
->>> + *
->>> + * Check if guest counters will interfere with current host events and
->>> + * call into perf_pmu_resched_update if a reschedule is required.
->>> + */
->>> +static void kvm_pmu_set_guest_counters(struct arm_pmu *cpu_pmu, u64 
->>> guest_mask)
->>> +{
->>> +    struct pmu_hw_events *cpuc = this_cpu_ptr(cpu_pmu->hw_events);
->>> +    DECLARE_BITMAP(guest_bitmap, ARMPMU_MAX_HWEVENTS);
->>> +    DECLARE_BITMAP(new_mask, ARMPMU_MAX_HWEVENTS);
->>> +    bool need_resched = false;
+>>>   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>>   {
+>>>       int err;
+>>> -    u32 tmp;
+>>> +    u32 pcc_subspace_id;
+>>>       struct mpam_msc *msc;
+>>>       struct resource *msc_res;
+>>>       struct device *dev = &pdev->dev;
+>>> @@ -2090,7 +2100,8 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>>       if (err)
+>>>           return ERR_PTR(err);
+>>>   -    if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
+>>> +    if (device_property_read_u32(&pdev->dev, "pcc-channel",
+>>> +                     &pcc_subspace_id))
+>>>           msc->iface = MPAM_IFACE_MMIO;
+>>>       else
+>>>           msc->iface = MPAM_IFACE_PCC;
+>>> @@ -2106,6 +2117,35 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>>           }
+>>>           msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>>>           msc->mapped_hwpage = io;
+>>> +    } else if (msc->iface == MPAM_IFACE_PCC) {
+>>> +        u32 msc_id;
 >>> +
->>> +    bitmap_from_arr64(guest_bitmap, &guest_mask, ARMPMU_MAX_HWEVENTS);
->>> +    bitmap_copy(new_mask, cpu_pmu->hw_cntr_mask, ARMPMU_MAX_HWEVENTS);
->>> +
->>> +    if (guest_mask) {
->>> +        /* Subtract guest counters from available host mask */
->>> +        bitmap_andnot(new_mask, new_mask, guest_bitmap, 
->>> ARMPMU_MAX_HWEVENTS);
->>> +
->>> +        /* Did we collide with an active host event? */
->>> +        if (bitmap_intersects(cpuc->used_mask, guest_bitmap, 
->>> ARMPMU_MAX_HWEVENTS)) {
->>> +            int idx;
->>> +
->>> +            need_resched = true;
->>> +            cpuc->host_squeezed = true;
->>> +
->>> +            /* Look for pinned events that are about to be preempted */
->>> +            for_each_set_bit(idx, guest_bitmap, ARMPMU_MAX_HWEVENTS) {
->>> +                if (test_bit(idx, cpuc->used_mask) && cpuc- 
->>> >events[idx] &&
->>> +                    cpuc->events[idx]->attr.pinned) {
->>> +                    pr_warn_ratelimited("perf: Pinned host event 
->>> squeezed out by KVM guest PMU partition\n");
+>>> +        msc->pcc_cl.dev = &pdev->dev;
+>>> +        msc->pcc_cl.rx_callback = mpam_pcc_rx_callback;
+>>> +        msc->pcc_cl.tx_block = false;
+>>
+>> How do we make sure that, for instance, a MON_SEL write has completed before we start reading
+>> the associated counters? Is there an ordering guarantee?
 > 
->> Hi Colton,
-> 
->> I get "perf: Pinned host event squeezed out by KVM guest PMU partition"
->> even with arm_pmuv3.reserved_host_counters=3 for example. I would have
->> expected any non zero value to stop the warning.
-> 
->> I think armv8pmu_get_single_idx() needs to be changed to allocate from
->> the high end host counters first. A more complicated option would be
->> checking to see if there are any non-pinned counters in the host
->> reserved half when a new pinned counter is opened, then swapping the
->> places of the new pinned and existing non-pinned counters so pinned
->> always prefer being put into the host half. But it's probably not worth
->> doing that.
-> 
->> James
-> 
-> 
-> I agree it makes the most sense to allocate from the top, but I'm happy
-> the basic idea works.
-> 
+> What is your concern here, exactly? To group all the accesses selected by one MON_SEL write, we have the mon_sel lock
+> (now mutex) already. And on the mbox side I think we are safe because the PCC channel is exclusive, we have the per-
+> channel mutex (pcc_chan_lock, in patch 3/5), and we wait for confirmation from the other end, even for writes. So as
 
-Another thing I forgot to mention is that even with the ratelimited 
-warning, this spams the logs any time the host and guest are both using 
-the PMU and I'm not sure how useful that is.
+That sounds like there is no problem then. I wasn't sure that we were waiting for confirmation of writes. We can assume
+that the f/w end of the link processing the requests in the order it acknowledges them, right?
 
->>> +                    break;
->>> +                }
->>> +            }
->>> +        }
->>> +    } else {
->>> +        /*
->>> +         * Restoring to hw_cntr_mask.
->>> +         * Only resched if we previously squeezed an event.
->>> +         */
->>> +        if (cpuc->host_squeezed) {
->>> +            need_resched = true;
->>> +            cpuc->host_squeezed = false;
->>> +        }
->>> +    }
+Is the waiting for confirmation of writes done by this bit of patch 3?
+
++	status = readl(chan->shmem + SCMI_MSG_HEADER_OFS);
++	if (FIELD_GET(MPAM_MSC_TOKEN_MASK, status) != token)
++		return -ETIMEDOUT;
+
+
+> long as the MON_SEL write appears in program order before the counter read, all should be good, no? Am I missing something?
+
+I expect that I'm the one who was missing something.
+
+Thanks,
+
+Ben
+
+> 
+> Cheers,
+> Andre
+> 
+>>
+>> Thanks,
+>>
+>> Ben
+>>
+>>> +        msc->pcc_cl.tx_tout = 1000; /* 1s */
+>>> +        msc->pcc_cl.knows_txdone = false;
 >>> +
->>> +    if (need_resched) {
->>> +        /* Collision: run full perf reschedule */
->>> +        perf_pmu_resched_update(&cpu_pmu->pmu, kvm_pmu_update_mask, 
->>> new_mask);
->>> +    } else {
->>> +        /* Host was never using guest counters anyway */
->>> +        bitmap_copy(cpu_pmu->cntr_mask, new_mask, ARMPMU_MAX_HWEVENTS);
->>> +    }
->>> +}
+>>> +        if (device_property_read_u32(&pdev->dev, "msc-id", &msc_id)) {
+>>> +            pr_err("missing MPAM-Fb MSC identifier\n");
+>>> +            return ERR_PTR(-EINVAL);
+>>> +        }
+>>> +        msc->mpam_fb_msc_id = msc_id;
 >>> +
->>>    /**
->>>     * kvm_pmu_host_counter_mask() - Compute bitmask of host-reserved 
->>> counters
->>>     * @pmu: Pointer to arm_pmu struct
->>> @@ -218,6 +285,7 @@ void kvm_pmu_load(struct kvm_vcpu *vcpu)
+>>> +        msc->pcc_chan = pcc_mbox_request_channel(&msc->pcc_cl,
+>>> +                             pcc_subspace_id);
+>>> +        if (IS_ERR(msc->pcc_chan)) {
+>>> +            pr_err("Failed to request MSC PCC channel\n");
+>>> +            return (void *)msc->pcc_chan;
+>>> +        }
+>>> +
+>>> +        if (msc->pcc_chan->shmem_size < MPAM_FB_MAX_MSG_SIZE) {
+>>> +            pr_err("MPAM-Fb PCC channel size too small.\n");
+>>> +            pcc_mbox_free_channel(msc->pcc_chan);
+>>> +            return ERR_PTR(-ENOMEM);
+>>> +        }
+>>> +
+>>> +        mutex_init(&msc->pcc_chan_lock);
+>>>       } else {
+>>>           return ERR_PTR(-EINVAL);
+>>>       }
+>>
 > 
->>>        pmu = vcpu->kvm->arch.arm_pmu;
->>>        guest_counters = kvm_pmu_guest_counter_mask(pmu);
->>> +    kvm_pmu_set_guest_counters(pmu, guest_counters);
->>>        kvm_pmu_apply_event_filter(vcpu);
-> 
->>>        for_each_set_bit(i, &guest_counters, ARMPMU_MAX_HWEVENTS) {
->>> @@ -319,5 +387,6 @@ void kvm_pmu_put(struct kvm_vcpu *vcpu)
->>>        val = read_sysreg(pmintenset_el1);
->>>        __vcpu_assign_sys_reg(vcpu, PMINTENSET_EL1, val & mask);
-> 
->>> +    kvm_pmu_set_guest_counters(pmu, 0);
->>>        preempt_enable();
->>>    }
->>> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
->>> index f7b000bb3eca8..63f88fec5e80f 100644
->>> --- a/include/linux/perf/arm_pmu.h
->>> +++ b/include/linux/perf/arm_pmu.h
->>> @@ -75,6 +75,7 @@ struct pmu_hw_events {
-> 
->>>        /* Active events requesting branch records */
->>>        unsigned int        branch_users;
->>> +    bool host_squeezed;
->>>    };
-> 
->>>    enum armpmu_attr_groups {
 
 
