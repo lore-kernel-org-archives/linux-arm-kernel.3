@@ -4,65 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F37ACCD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 17:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CB9CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 17:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uPj9J1X7eyw53jt5WZspLXe//R8OFWHajtSNq/gOv4o=; b=RlBK0m8livFVM6uTBBEYGt0rlB
-	pDdw2h/J45TKr7YlOarnEXk+YajgwtCKYjAwU8brdDnAnfmG59cblDk9FqHnWKPL6ohAxBd8rAiGY
-	+c7LayRi9MmozDTX6vevkd4Sf9ObCTzF+BYaNZXtcJ4No9m39g/HWLNl6czEZF0gLLIZD8u54J34H
-	JxPDG+jf380uxk46bxx7KMcBrZiIlfGLahpn2DqcZ+Ws5hUbRV/iTMGiBc/puOUkYJM2Ck1QuX5L7
-	1HQijMC08DT9NE7U62MarRo1G3/ndPcoMbYRRcLlyG3nYe41OlPyLgeOjzpQwasS2dXOJfD4MKY6/
-	dECl8RPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SrnuSv5qhMXlEsx73t70dgDKQOe4sGpC9//5bK2oF5o=; b=EwSLIa41eT65IkcC6SJgYkfF4C
+	AUIAz7TFIlvubS0AX68C5t6Je4+ZVHdUxY51cdXxdTAlSh7lcw4tlsaiQpUR9GTnNixscVMfeHTlo
+	iH4GnlKytXsqbs/ijnZvea+mvJRz4YNaUO90KcIIyNL4AiCow8TTC290A2ATbD/4Wgk67SZknqqle
+	2BvKjKzjO56J7NgoX6dPPxGFS+ZRSP3r48MljjEg+629/O2bGVsoDbhRI/6I4T4zdN1rCWrngH/WW
+	z6YqeN7sr9DMpiYHMMLBDnf5nHVj7S88ykXZ6JnVjrqZpHWcRTM9MMbRcz5BQv46IF27BONFM/O7W
+	c863ygbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZe6-00000006AyJ-2qak;
-	Thu, 14 May 2026 17:14:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNZej-00000006B7i-3fY3;
+	Thu, 14 May 2026 17:15:29 +0000
+Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZe5-00000006Axt-2HRt
+	id 1wNZeh-00000006B6k-0FEA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 17:14:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ECCA560132;
-	Thu, 14 May 2026 17:14:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3129EC2BCB3;
-	Thu, 14 May 2026 17:14:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1778778888;
-	bh=lnMo7v72zKFu0y5mB8UTk6zkeqM8ivoNe5mhWgmpWJc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T0VQQMoSq4qeiV+RKPVYcmqx/kdov6X/u7Zmn4OdaEJ+/hDjgWMZoieDA3RFytw9F
-	 irelPH8A3CnpAnl3ZdvzhJo9klRwnWxvyq64BIBbJbzJd/YDYBo9FSjEsORKOMgXDj
-	 gre+RlIDYWD5+RT7+NcLJuNxFpqBEbL+P8doJAvs=
-Date: Thu, 14 May 2026 19:14:52 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, linux-coco@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>
-Subject: Re: [PATCH v5 1/3] firmware: smccc: coco: Manage arm-smccc platform
- device and CCA auxiliary drivers
-Message-ID: <2026051404-headboard-cabbage-e09a@gregkh>
-References: <20260514094030.42495-1-aneesh.kumar@kernel.org>
- <20260514094030.42495-2-aneesh.kumar@kernel.org>
- <0c88bcee-65b5-4328-87e6-e1c714c3d1ca@arm.com>
- <2026051420-amusement-drove-73e6@gregkh>
- <yq5alddm5a6w.fsf@kernel.org>
+	Thu, 14 May 2026 17:15:28 +0000
+Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-651d6347a69so140838d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 10:15:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778778926; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Ff6nBVGFpTmKtVa/AeIUpbtqA7NNRXt8iaLUMfbrBVsfWU3PTTTGcirqtPclM/LPYs
+         UuqBJAockGemJIsv3jj3HRFWsA/2ky5XrREia5saeU+Khs7KJFwXnG3+JsvO3/6UR9YD
+         7BAJGoLOcOly6SytM1Z8RdGcIvUS1j2MohmPmwU8ojsBziwk4aD8nSsO0V0G/QF05lgD
+         1XPBsNfq/9qFP7DAie5ktcemT0WAZP2b2D8oGoHNAKhmWpWQTo/ITfoLGCE//wdI+dMP
+         MziWncmWk1yWNpAR4obi1grmVSbui501EYb3fciItKMmzp+3Mr92KKYD1hE4+nrYD6ya
+         dl3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SrnuSv5qhMXlEsx73t70dgDKQOe4sGpC9//5bK2oF5o=;
+        fh=fSoTTd1Y5Nx6YNSqKOy3LWKNH9gZbGyHCoEV8DVT+Xw=;
+        b=cVW1UtSN93ZqcHtEcHSBD7ZlYxQyOhjZrMFsfD5uKlWhOFWGeR7+CkkxELEoPnodVC
+         L6hxUujzi0W9zcEY22qtQqj/cBdgQBCt5Bg0Zbona4/h7F1CHTYf8eVPs5pU+gBtIfPU
+         BxNu/52KyXodH5cUgExn90o4OxX84dF70TzEE29V/e7E7M1CA+mxKpVIPpQwjZkaHJlc
+         b6XePw0DlMzGLtoiK7eetT9f8/b3PHhc2Btgp/OGmEkM8RHglljig437duFGPni+Nbqj
+         7UE7MCiF9/hG9tWitDaSZAGBRc8mapFrSUs8UgttGiHVZfC/NMbNjU0Jg+D4jSucC/gr
+         FMPA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778778926; x=1779383726; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SrnuSv5qhMXlEsx73t70dgDKQOe4sGpC9//5bK2oF5o=;
+        b=UBpYy8Q1oDw3rMgZx9iOMvBbIFV90vH+dvPF4olW6tZ6E1tm/tVYJ0o0wCtPotBQ//
+         +nQB7MTqepB9m28ZiFAegVzI9FXnH4Ytgut2jL5G2QbCnH0F+D78CM7N11nabruzYoGy
+         NwegZXBjBycDqvG4gxXaD2YH0xg15/Lz3NMxeEP9B24lMhLmAyG8vJKSMxN1jgxve+5k
+         KRCkAmXDelv8cl1rBPBwF4qp9i1pQgwnSgZFbUuyrNK6C0E2eXKsErSs4pVtbUfcg7Db
+         hOTkzRXHs8UOFpPdJ500p+XTx0kC72tPHQFa9riMrTmMz9ryuAOY32sE2wOECjmcDcUY
+         xw8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778778926; x=1779383726;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=SrnuSv5qhMXlEsx73t70dgDKQOe4sGpC9//5bK2oF5o=;
+        b=QEAp7UMuUpU502pTBJ6U+Fs8ntymNlt3FuOLiDQ7aEgiUXam+VrF2YmKoUbt7VrAQL
+         INcW3VaA5qZzMjRDaAwOgI8IiBUUnIr5zRNHZx2zR3Wvy2XlO0WKEREG5ubw37VnsQrk
+         w0FDMoBupAQVhmV7fzhgi2kZJNfhr6Te/5spXzh3RM4mM7V6rOoMTfEA7muQB6Yva0R8
+         mOZ9GBRgM7tCdQEh+us9ZtvfBawx5hdYJBXKLjO7zud2+DCszee/xMKSb0R3B9AzOXSN
+         q65ihJq2iCdbRxRLnx2fxN4M/nID5sX9IyNONv+N1ZVjsxgFCOnEoJwo/vfTZbAE6jsM
+         J7pQ==
+X-Gm-Message-State: AOJu0YwOKeU0RPFPMSe7eBwSHMK/ff12qkX8z7bXk6D9XjLPMSnmMBIb
+	wc8ktpNb8rISXoyMkpGV4MalI3ZNzHPrQ6EoBnaBvxTqymtvGjg/K10ym2dU7PE532Jfrl68k/m
+	/1+6bkve286z8p4k8+iRm54eMDP7cBOk=
+X-Gm-Gg: Acq92OE0w4BdvWmf3I1MKUIpoPC9tyuZDKI0FWVRLBgHhkiDrH1KR1GEEaF+irfg2nv
+	Si0XAsVmIG2cJfP/ORc9SSJMf8tYQCwn9jdcspoKNpEIhnTDpsd823yatnFQXmAsZGoun8tm6Qy
+	aHHgVWoZAkyUp6EYUK0v00wtNLOksrbpMDZUfmm80gh3OsTfqZVCsTPj+r8r+qP3ZZrhD4OziuC
+	vvnIGbcgOqO6VWesOCk1vL1MSTksqcUoSP6UqlzMe/3P5OS2TRn6ZHBvrMqxjSvukcYcwnFMhM+
+	/PuS
+X-Received: by 2002:a05:690c:9d:b0:7bd:956c:336a with SMTP id
+ 00721157ae682-7c7e6680aa4mr38458997b3.13.1778778925673; Thu, 14 May 2026
+ 10:15:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5alddm5a6w.fsf@kernel.org>
+References: <20260513170101.1858213-1-ekffu200098@gmail.com>
+In-Reply-To: <20260513170101.1858213-1-ekffu200098@gmail.com>
+From: Sang-Heon Jeon <ekffu200098@gmail.com>
+Date: Fri, 15 May 2026 02:15:14 +0900
+X-Gm-Features: AVHnY4I52m6OqetD8zs2j_RpJSUkshaeW2w_brAl40byB_E35tL-5V_r53MTehY
+Message-ID: <CABFDxMGDJ=Fzz37KJ7j=MD+d7n59L=jN1D1NPpQipMNujciCxA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: mm: drop redundant remap of FDT first page
+To: catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_101527_506082_A0BBA828 
+X-CRM114-Status: GOOD (  24.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,55 +114,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 08:07:27PM +0530, Aneesh Kumar K.V wrote:
-> Greg KH <gregkh@linuxfoundation.org> writes:
-> 
-> > On Thu, May 14, 2026 at 12:04:13PM +0100, Suzuki K Poulose wrote:
-> >> Hi Aneesh
-> >> 
-> >> On 14/05/2026 10:40, Aneesh Kumar K.V (Arm) wrote:
-> >> > Make the SMCCC driver responsible for registering the arm-smccc platform
-> >> > device and after confirming the relevant SMCCC function IDs, create
-> >> > the arm_cca_guest auxiliary device.
-> >> > 
-> >> 
-> >> There are a few changes squashed in to this patch. Please could we
-> >> split the patch in the following order ?
-> >> 
-> >> 1. Add platform device for arm-smccc
-> >
-> > Do not make any more "fake" platform devices please.
-> >
-> >> 2. Move TRNG to Auxilliary Device - (Even though it is a later patch, move
-> >> it before the RSI changes)
-> >
-> > No, move it to the faux api please.
-> >
-> 
-> 
-> Maybe I was not complete in my previous reply. I did not want to repeat
-> the entire thread, so I quoted the lore link for more details.
-> 
-> 1. We have platform firmware-provided SMCCC interfaces. Based on the
-> support/availability of these function IDs, we want to load multiple
-> drivers.
-> 2. This patch series adds a platform device to represent the
-> firmware-provided SMCCC resource.
-> 3. Different SMCCC ranges are now represented as auxiliary devices.
-> 4. Different subsystems, such as TSM, can autoload their backend drivers
-> based on the availability of these SMCCC ranges, which are now
-> represented as auxiliary devices.
-> 
-> You had agreed to all of this in the previous discussion here:
-> https://lore.kernel.org/all/2025101516-handbook-hyphen-62ec@gregkh
+On Thu, May 14, 2026 at 2:01=E2=80=AFAM Sang-Heon Jeon <ekffu200098@gmail.c=
+om> wrote:
+>
+> fixmap_remap_fdt() calls create_mapping_noalloc() to map the first
+> page of the FDT to read its magic and totalsize from the header. If
+> the FDT does not fit in a single page, it calls create_mapping_noalloc()
+> again to map the rest.
+>
+> The second mapping redundantly covers the first page that was just
+> mapped by the first mapping.
+>
+> Start the second mapping at dt_phys_base + PAGE_SIZE so it only covers
+> the pages that have not been mapped yet. No functional change.
+>
+> Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
+> ---
+> QEMU-based test results
+>
+> $ qemu-system-aarch64 -M virt -singlestep -d nochain,exec ...
+>
+> Count log lines from fixmap_remap_fdt() entry to return
+> - entry PC : address of the <fixmap_remap_fdt> symbol
+> - return PC : next address of each bl ... <fixmap_remap_fdt>
+>
+> 1) AS-IS
+>   - 1st call (KERNEL) : 4935
+>   - 2nd call (KERNEL_RO) : 14151
+> 2) TO-BE
+>   - 1st call : 4888
+>   - 2nd call : 14104
+>
+> ---
+> Hello,
+>
+> While looking into boot information, I found a minor cleanup point.
+> If I misunderstood anything, please feel free to let me know.
+>
+> Thank you for taking valuable time to review this work.
+>
+> Best Regards,
+> Sang-Heon Jeon
+> ---
+>  arch/arm64/mm/fixmap.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> index c5c5425791da..f8aea5572f7c 100644
+> --- a/arch/arm64/mm/fixmap.c
+> +++ b/arch/arm64/mm/fixmap.c
+> @@ -167,8 +167,9 @@ void *__init fixmap_remap_fdt(phys_addr_t dt_phys, in=
+t *size, pgprot_t prot)
+>                 return NULL;
+>
+>         if (offset + *size > PAGE_SIZE) {
 
-Then why did someone say "this is a fake platform device with no actual
-resources"?  That's what I was triggering off of.
+Based on sashiko review [1], I made another patch [2].
+Please check that patch as well. Thank you.
 
-Again, if you have actual platform resources, GREAT, use a platform
-device and aux.  If you do not, then do NOT use a platform device.
+[1] https://sashiko.dev/#/patchset/20260513170101.1858213-1-ekffu200098%40g=
+mail.com
+[2] https://lore.kernel.org/all/20260514171304.2034930-1-ekffu200098@gmail.=
+com/
 
-totally confused,
+Best Regards,
+Sang-Heon Jeon
 
-greg k-h
+
+
+> -               create_mapping_noalloc(dt_phys_base, dt_virt_base,
+> -                                      offset + *size, prot);
+> +               create_mapping_noalloc(dt_phys_base + PAGE_SIZE,
+> +                       dt_virt_base + PAGE_SIZE,
+> +                       offset + *size - PAGE_SIZE, prot);
+>         }
+>
+>         return dt_virt;
+> --
+> 2.43.0
+>
 
