@@ -4,73 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E57CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:55:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E99C4CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=62YCeXMmrM/Knx6qU9B2QemeljmsANFcy10tsSetOcQ=; b=2+nDfgiGyU/GLQyj0Oi/N/O4C/
-	tArIbqhq6iqo52UAjJ6ceInpkF2FqtKf4l3KO9alVP3qoNSool5TeNfyblNzhALAspKXQpG7Or5kS
-	fbLJX9rWTd1Hfyv08GstBshImzaqrH+8rqzxw7k2sV8oqcOsAqOcdTKIYxMr3M1cb651a2/RC2dxw
-	zFpMpSnWBH5JJXweyQzfP0tG/DPsw3mAoVg0L7oajLVSVHgeMhc4J0UYu/Icdcll+HVUoywbOwHZD
-	UdDll9xtl/iT5+x9AOtNnYpbm6ofY/5MeY4EcHL64zXjdrtwaQnMR1oG+/vcoR7tTN0Jz+UG+xkJY
-	pCpto9TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ugaYhQMdHgCLc3ycLRJE+Z8L0hEpvpeq9twMKBH/jdM=; b=jRBiBnnfRY1k9chPNsdT/XNePv
+	U3UEEue+ksjWGM63Z6R1YavB9siAQecFEQPW9D7OvwOsVQCufWcWco5ReGggCinnpEiuSsh6+632L
+	Yrgui4sMHfiISrckxxuuDsPa+NnJWOaw8vxGv90T4Q7kkX79Pk8eAM6q7puEROjOdfnIx9OP1MTqZ
+	iCD7Isk75x+JePNZODteqAWzeX8aZAegZi6nJXisr6XajMPcH+RtXHi8VZiLliI8BKKK53ji4WWaF
+	mp+uBRCYgwl7kKbM8gVSex6ZXuf1GD+jAx/8+Y4R12FXbhC3K6BpZk0EmrtK6QbKVr6Q8s8aw1LYI
+	lOZcf3yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTif-00000005FfG-0yYh;
-	Thu, 14 May 2026 10:55:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNTlu-00000005GCQ-2tzQ;
+	Thu, 14 May 2026 10:58:30 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTid-00000005Fez-3Pp2;
-	Thu, 14 May 2026 10:55:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F68860008;
-	Thu, 14 May 2026 10:55:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A484C2BCB3;
-	Thu, 14 May 2026 10:55:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778756106;
-	bh=XkhZz83lofA4mVraY0m0AcH0UuZ/4Xb3/CeHB5IJ4/4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nYMYg1OEtYIi4/xJe4YkZh3xhaqx+qcobMMsNok9nKritLvV7xMMsjyA2aP/vCIE1
-	 w738kCB5f3PWpnTTQtkGN7PnNZo27uGMDKFtkpizx9sSH951tH2896jBeTTtnuQtA9
-	 MoyqrxDGSVpx2YadIc1HvYsMt12vHkD5iQMQPkODuO0PnrdaoJPOAK1/oxkNjR8v+v
-	 83WwT5ikPIYt7VM2BLQINMX1KQIH4Z/0Xkbd7nBOxykZDJtEpCSyGLIsXAgSizbdX9
-	 qXcwLa5+1vajdXGsjQQxul06yl3+PMXCkCepl2zzOwpG6ef5Ih04DMQf6BfeYwNPbD
-	 4vw/3EbIj9Y0Q==
-Date: Thu, 14 May 2026 11:54:59 +0100
-From: Lee Jones <lee@kernel.org>
-To: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Beniamino Galvani <b.galvani@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	Ronald Claveau <linux-kernel-dev@aliel.fr>
-Subject: Re: [PATCH v5 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
-Message-ID: <20260514105459.GJ305027@google.com>
-References: <20260424-add-mcu-fan-khadas-vim4-v5-0-afcfa7157b23@aliel.fr>
- <20260424-add-mcu-fan-khadas-vim4-v5-4-afcfa7157b23@aliel.fr>
+	id 1wNTlr-00000005GBq-1sl7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 May 2026 10:58:29 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64E9kAOP2305162
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 10:58:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ugaYhQMdHgCLc3ycLRJE+Z8L0hEpvpeq9twMKBH/jdM=; b=TfBg2xmAmNv6MCNo
+	3ULu9CR4Fl+XS607s+gfLtb0P2kwgxHhbZI/Xt8PrQJHyLHCG/YkcWABtlWJDEd7
+	STKXpUYOllfCydBOqNjBeyBDopdbYK5eEIkXbBguUL0QGCN0tB3ehaxmzPzn6ciU
+	swp05WR1fTcm89FPZ9VaQtvFslC+PiUBatmncQUbIdzenyp9l5IdNacaI0ahrHt+
+	H9UhwXK5pG1riIokxOJabMlJvle+B600rjee9p4UuDih/7tN00aziiUVFAmqq6HB
+	F5CUb7z4qB1O0rneqUPEPnJUAwkvYnXiC5MkEdYVDaxM2pxSs5fq49VOnW7leeaS
+	l7EpDQ==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e5b0brfbx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 10:58:26 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-90cced2eecaso79297885a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 03:58:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1778756305; x=1779361105; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ugaYhQMdHgCLc3ycLRJE+Z8L0hEpvpeq9twMKBH/jdM=;
+        b=KRdpn/2jhF/iDi6KlI9LsvmGAe0YZaPx3FkfXuwJzdd0XAbHgpo2qxe7MBvn5wO/4m
+         V9Ht38cv1vqLtgmfEN6heqEGPbS2jrnzsaBQQoItipV20u5RgPqSV0aDRJQCgSy1uxlq
+         OELEM8vXRq+yCTPIWNfGuKTYIkCFLiULpK5V09GvP3ZDKf3WE/33AiX+fSCysaZ2KxEL
+         4/Hz1LvKFNJyUbpS2idHmmLF4NNTllYXu44VD31PIi/uEl3B7xMHUe7SCQaIHuyTW9oh
+         wHiM7FFk32tsdsqt/9EtbJhqZOtB4PusafJufxoK74VJUG6kVaS0SD4v8+dmQTnjTc5O
+         1hWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778756305; x=1779361105;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ugaYhQMdHgCLc3ycLRJE+Z8L0hEpvpeq9twMKBH/jdM=;
+        b=aP877E6YTo5jZ4oXGQYc43McLQxjmy1QXHMcfiM7Jptrb/a72MJpVp6MWJxMp3QceU
+         5RkXF91F3E8+U4hxIeA38eQa6H8OZFRVGasVDJfHEM9ATr5iGaOGGdwEu8h9/DJJxkQa
+         jDgwc9IaNptife2m7HtbQYJ9dThydmp8DOeWKIpMcy7t6kMbCFamwz1zgrePrTeIwa1A
+         7JE3oxk0w00OnyyAMU18evbPf/NV3cH/TigNfREk/NSlCr9DFFHbW3RyPqw5uIcEpnXi
+         Tio6/5mDs9aywQ8R3Fbwnnfd4EJ90d9GYsvaHxhQsXYDGefUTbxU6W/meNkfonvBBZQJ
+         oAEA==
+X-Forwarded-Encrypted: i=1; AFNElJ8MBWZ3oU5zOlPzw872PNq9+7I0u58jDLvVEZSe2S7PxM1+baVp+w89FSjkyrFoR0rS6+9nsC/l8wG0RG9a7O/k@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcNsRdqinblRF2d549qoYIr0rw9c1H2xipjOOmAynCI6Cyp3lS
+	n6x63+Kr9nCSJBaFgHP4w6P39qVy/1PpzoO6QNVGKRGbTRscnM8lALokVrcdwDMRljbgxgvO5Up
+	9DouySji3mkU+10u5wkawjOj3/4Zp3gm2b+VstP2A7IwLqxckQILCficcRWkol4NIX5G1SWrxSx
+	TS+A==
+X-Gm-Gg: Acq92OHguDSg3r4KMc5/CpBjIIeX2W1blxhnAR0a2jgi5Roc5o/jFC6LGBPcHKlb2L8
+	GJc0DENGPJGYixNYZKkfr/5In+xrPwo/SjJ2bCtq6rZop/fYiwKQ/RyTOpewf3yhs01bonImPsC
+	hSHkezXmH9sF8KOUjjtr1q8XiVAkOe1VdXe+52pt5lQ17pzlZc7nybbjYZ9zeoh9VEaAU3XIAJz
+	+TlBAs1m5I/sIcwn8TFJfJjRMylWsar6aeSwQSJ5t6v/2dv7yQB7MXylJyvOq3/9qrhi9nvpP/z
+	t5+Z28MQxZdhEOQtQbnSBMsmJK00RJTuv2klQGa0IFmn2TyD74SWmNrOVR2QHoJi1zRpLGlC/wq
+	1JD6ilq84cSL2UNnItYR4+7CNwtmqJmxKhi1b+sbJkzrR9Hntj/zlU1xWl72GbCslfV7LEapuxp
+	hjcO0=
+X-Received: by 2002:a05:622a:156:b0:509:39b5:a977 with SMTP id d75a77b69052e-5162f64a2b5mr72360071cf.5.1778756305317;
+        Thu, 14 May 2026 03:58:25 -0700 (PDT)
+X-Received: by 2002:a05:622a:156:b0:509:39b5:a977 with SMTP id d75a77b69052e-5162f64a2b5mr72359701cf.5.1778756304841;
+        Thu, 14 May 2026 03:58:24 -0700 (PDT)
+Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-68310b3e8e5sm612419a12.4.2026.05.14.03.58.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 May 2026 03:58:23 -0700 (PDT)
+Message-ID: <c892df0c-1fb1-4cb5-ba17-4b75aa52b214@oss.qualcomm.com>
+Date: Thu, 14 May 2026 12:58:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260424-add-mcu-fan-khadas-vim4-v5-4-afcfa7157b23@aliel.fr>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] arm64: dts: qcom: msm8916-alcatel-idol347: Fix sn3190
+ shutdown GPIO polarity
+To: Jun Yan <jerrysteve1101@gmail.com>, Lee Jones <lee@kernel.org>,
+        Pavel Machek <pavel@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+        Gregory Clement <gregory.clement@bootlin.com>,
+        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+        Vincent Knecht <vincent.knecht@mailoo.org>, Grant Feng <von81@163.com>,
+        Andre Przywara <andre.przywara@arm.com>,
+        Heiko Stuebner <heiko@sntech.de>,
+        Romain Perier <romain.perier@gmail.com>,
+        Paul Barker <paul.barker@sancloud.com>,
+        Patrice Chotard <patrice.chotard@foss.st.com>,
+        Robert Marko <robert.marko@sartura.hr>
+Cc: Pavel Machek <pavel@ucw.cz>, Krzysztof Kozlowski <krzk@kernel.org>,
+        Jesper Nilsson <jesper.nilsson@axis.com>,
+        Peter Rosin <peda@axentia.se>, linux-leds@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260508152435.21389-1-jerrysteve1101@gmail.com>
+ <20260508152435.21389-4-jerrysteve1101@gmail.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260508152435.21389-4-jerrysteve1101@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE0MDEwOSBTYWx0ZWRfX/vzPfN1nSoFq
+ rSDJVuK2oFCVRVZo5poxBov5Ps+8Gll9r2zatvWQY4p/o9GzXqUs0ImU1VBZIJ8Ti7Vx1kq/L6j
+ ZPNlCgXRf+2/2DMI1pQuDBR6K/kyO3IHCvEU+YfD9axLM77Y13q5kcCFuOaOYzlmOX7XT2ocgfU
+ Do2IvNW/eZUihy6x6fHMWPKXDCy0XuFx4COO5ZSefImaPV7R3Oo05Jm5Cuo9LYLG4OJC8RZst7u
+ 1g3n4Urwe6Kkwa7/S9sfDiU8n4S6xW6H7pZZu/ayTX4VUn4wr7DgKddRHXbry9r8ESCsig21AgK
+ ds0nDqYxL2mTNo6bQujcHZX2xQlw4BhHt1E6o3amgJemDo/vPGc+0RX6UmDQO3jjjB9PJF4c0CN
+ ix/AyRCGpA8rlkUDEBwebdMiRkAkY2fzfhUyUKvRwtiD1iSO8P30fRw9cAfKjxiZE/a3lPePwM8
+ YAjFIjDFawOdhTsAmIg==
+X-Authority-Analysis: v=2.4 cv=b+2CJNGx c=1 sm=1 tr=0 ts=6a05aad2 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=Ffu13P_rAAAA:8 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=ZVWV2uAXYixwFVVeF7MA:9
+ a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22 a=PkESTBlHdS-WH8rZy7fl:22
+X-Proofpoint-GUID: cfIgN2jZ18JBT8lD_3qwa4eC73pT-nxa
+X-Proofpoint-ORIG-GUID: cfIgN2jZ18JBT8lD_3qwa4eC73pT-nxa
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-14_02,2026-05-13_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 phishscore=0 adultscore=0 lowpriorityscore=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605050000 definitions=main-2605140109
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_035827_616571_2A836DAF 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,202 +166,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Apr 2026, Ronald Claveau via B4 Relay wrote:
-
-> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+On 5/8/26 5:24 PM, Jun Yan wrote:
+> The sn3190 shutdown pin is active-low [1]. Correct the GPIO flags
+> from GPIO_ACTIVE_HIGH to GPIO_ACTIVE_LOW to match the hardware.
 > 
-> Refactor probe() to use per-variant khadas_mcu_data
-> instead of hardcoded globals.
+> [1] https://lumissil.com/assets/pdf/core/IS31FL3190_DS.pdf
 > 
-> Add dedicated regmap configuration and device data for the VIM4 MCU,
-> with its own volatile/writeable registers.
-> 
-> Add the fan control register
-> (0–100 levels vs 0–3 for previous supported boards).
-> 
-> Add a new compatible string "khadas,vim4-mcu".
-> 
-> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+> Fixes: 1c8cc183d070 ("arm64: dts: qcom: msm8916-alcatel-idol347: add LED indicator")
+> Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
 > ---
->  drivers/mfd/khadas-mcu.c | 106 ++++++++++++++++++++++++++++++++++++++++++-----
->  1 file changed, 95 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
-> index ba981a7886921..b36b3b3ab73c0 100644
-> --- a/drivers/mfd/khadas-mcu.c
-> +++ b/drivers/mfd/khadas-mcu.c
-> @@ -75,15 +75,91 @@ static const struct regmap_config khadas_mcu_regmap_config = {
->  	.cache_type	= REGCACHE_MAPLE,
->  };
->  
-> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
-> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
-> +	.max_level	= 3,
-> +};
 
-What is 3?
+Assuming you get the other backwards compat pieces in:
 
-> +
->  static struct mfd_cell khadas_mcu_fan_cells[] = {
->  	/* VIM1/2 Rev13+ and VIM3 only */
-> -	{ .name = "khadas-mcu-fan-ctrl", },
-> +	{
-> +		.name = "khadas-mcu-fan-ctrl",
-> +		.platform_data = &khadas_mcu_fan_pdata,
-> +		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
-> +	},
->  };
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Worth making this const at one point.
-
->  
->  static struct mfd_cell khadas_mcu_cells[] = {
->  	{ .name = "khadas-mcu-user-mem", },
->  };
->  
-> +static const struct khadas_mcu_data khadas_mcu_data = {
-> +	.regmap_config	= &khadas_mcu_regmap_config,
-> +	.cells		= khadas_mcu_cells,
-> +	.ncells		= ARRAY_SIZE(khadas_mcu_cells),
-> +	.fan_cells	= khadas_mcu_fan_cells,
-> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells),
-> +};
-
-This is a red flag!
-
-> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
-> +{
-> +	switch (reg) {
-> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
-> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
-> +	case KHADAS_MCU_WOL_INIT_START_REG:
-> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
-> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
-> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
-> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
-> +		return true;
-> +	default:
-> +		return false;
-> +	}
-> +}
-> +
-> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
-> +{
-> +	switch (reg) {
-> +	case KHADAS_MCU_VERSION_0_REG:
-> +	case KHADAS_MCU_VERSION_1_REG:
-> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
-> +		return false;
-> +	default:
-> +		return true;
-> +	}
-> +}
-> +
-> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
-> +	.reg_bits	= 8,
-> +	.reg_stride	= 1,
-> +	.val_bits	= 8,
-> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
-> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
-> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
-> +	.cache_type	= REGCACHE_MAPLE,
-> +};
-> +
-> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
-> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
-> +	.max_level	= 0x64,
-> +};
-> +
-> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
-> +	{
-> +		.name		= "khadas-mcu-fan-ctrl",
-> +		.platform_data	= &khadas_vim4_fan_pdata,
-> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
-> +	},
-> +};
-> +
-> +static const struct khadas_mcu_data khadas_vim4_mcu_data = {
-> +	.regmap_config	= &khadas_mcu_vim4_regmap_config,
-> +	.cells		= NULL,
-> +	.ncells		= 0,
-> +	.fan_cells	= khadas_mcu_vim4_cells,
-> +	.nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells),
-> +};
-> +
->  static int khadas_mcu_probe(struct i2c_client *client)
->  {
->  	struct device *dev = &client->dev;
-> @@ -94,28 +170,35 @@ static int khadas_mcu_probe(struct i2c_client *client)
->  	if (!ddata)
->  		return -ENOMEM;
->  
-> +	ddata->data = i2c_get_match_data(client);
-> +	if (!ddata->data)
-> +		return -EINVAL;
-
-Shouldn't this be -ENODEV?
-
->  	i2c_set_clientdata(client, ddata);
->  
->  	ddata->dev = dev;
->  
-> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
-> +	ddata->regmap = devm_regmap_init_i2c(client,
-> +					     ddata->data->regmap_config);
-
-Use up to 100-chars to prevent this kind of wrapping.
-
->  	if (IS_ERR(ddata->regmap)) {
->  		ret = PTR_ERR(ddata->regmap);
->  		dev_err(dev, "Failed to allocate register map: %d\n", ret);
->  		return ret;
->  	}
-
-Maybe convert this to dev_err_probe() at one point.
-
-> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-> -				   khadas_mcu_cells,
-> -				   ARRAY_SIZE(khadas_mcu_cells),
-> -				   NULL, 0, NULL);
-> -	if (ret)
-> -		return ret;
-> +	if (ddata->data->cells && ddata->data->ncells) {
-> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-> +					   ddata->data->cells,
-> +					   ddata->data->ncells,
-> +					   NULL, 0, NULL);
-> +		if (ret)
-> +			return ret;
-> +	}
->  
->  	if (of_property_present(dev->of_node, "#cooling-cells"))
->  		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
-> -					    khadas_mcu_fan_cells,
-> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
-> +					    ddata->data->fan_cells,
-> +					    ddata->data->nfan_cells,
->  					    NULL, 0, NULL);
->  
->  	return 0;
-> @@ -123,7 +206,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
->  
->  #ifdef CONFIG_OF
->  static const struct of_device_id khadas_mcu_of_match[] = {
-> -	{ .compatible = "khadas,mcu", },
-> +	{ .compatible = "khadas,mcu", .data = &khadas_mcu_data },
-> +	{ .compatible = "khadas,vim4-mcu", .data = &khadas_vim4_mcu_data },
-
-We don't allow data from one registration API (MFD) to be shoved through
-another (DT).  Pass a value to match on instead, then use a switch()
-statement or similar to populate or register the devices.
-
->  	{},
->  };
->  MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
-> 
-> -- 
-> 2.49.0
-> 
->
+Konrad
 
