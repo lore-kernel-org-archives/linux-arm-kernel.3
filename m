@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49A54CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BBCCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PFHj47c6qJXPg7YyyPPPr06dTCFXBrH1mNb8u9bVy+Q=; b=2h+TqOR1+kjMdQYhTSBRQYnWnL
-	ktu699+e+2nnyhJzXzbGncrq8nelIETiZhjJbv3kdIMaLH4cTv8ch5Cu6tr7yMbH0MOXLnI15/hQm
-	mzLfHv1Cw2V4sDNp+tDmA/Gm94LU5gNtBrB6XXqzCFu/L9S8T/CKaxgvxl0mEnV8YDsDidxhsMTyJ
-	x8ZxdY3sZaPNnBo53tmPCB8f+sA0p4ouK4V4W73x7ve9KP5FXS1denyZUTgeFtWyJg95TfyO3UkK0
-	liojHr2aasDehvTS7l3hNQkBtVbG7XKcnG36MjvZG8IXHGh2nd9KsuvEkLRtgQwVY/1XAcQyGFoIB
-	2LclT6Cw==;
+	bh=d7T6wzUDec4336BxIngLV82kCrrKAPX2+jfs+nI48nk=; b=jQjzxwmMxA1mArVTkHAdSNgWXq
+	2FI1/+PkpvCHQQ/LqXTms8ORXBtxTH7dWAVuxBfdZoDEuZRh36GheLgNA6cMu4M2kUontE6q8HXrH
+	rHQOVjZ5okkyZ6IYmvjMvrBGh599Pp4E2tOtrKIV0I3thzkbbjTspb164035IgESBbWC0GMmSAkqh
+	r73fA3GWfs2ivdZE3MDktP7UzJ3JcFiFLnO2dzh1v4OqRGZ6P7uWgufGvofYZmsqZz6a27wgeocMY
+	Z1/ydj5Hbe18RYtEsmu7jxsSM6dmct3QH9YVCt1DJQkCop2b3tEuA6NsocGIuxGQarXMKf+TLCc+r
+	zfoLMMEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhs-00000005qcy-0XCF;
-	Thu, 14 May 2026 15:10:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wNXhr-00000005qco-43Fg;
+	Thu, 14 May 2026 15:10:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhO-00000005q8j-2gp2
+	id 1wNXhN-00000005q6Y-227f
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 14 May 2026 15:10:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1848E60139;
-	Thu, 14 May 2026 15:10:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7CA9C2BCB8;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4427D44498;
+	Thu, 14 May 2026 15:10:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21E0CC2BCB3;
 	Thu, 14 May 2026 15:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1778771405;
-	bh=SYhI9mJBt1jThfR8leDkHslN2mb7/RuCI4SqdrZLTgs=;
+	bh=MJi7t5TPt89sDo4VGxfAxl6xMQMyA0A0mhskuAXvJcY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ES1xi4wdqz35qugKqn7dzEHIcXb+EnegUzxMOTIXu/cc5MT9KY8dinU1xUTvCVlv0
-	 LpFM3TMyyshZ2MId8/l4u4mVDmpFX0WHqtsG03fnbpY7LZfSupnpr7n/wdIwGlVqhj
-	 AYB2oOF8t4ZYN4Ziu+DLmQeT4+8u9oNo2/L2S7G3+9KQ4Ip4EUNe/8M7Y8pzvkRnSa
-	 mSViOnZMDrzOQW24gTbveeKkN2GJJXDDoLhPZBBdApxXKc2fuUblud5H85xJgSLA3l
-	 kXJA+NcMidCGYPDMYidzRKUrCdxLJkA8zFTknWzKYv6W8i68SOhQpta1z+L/VitYdv
-	 7yt7Gt5d2AbZw==
+	b=WNU9PJPowuhssWeGJO1BUIFX7sLHIe7hIso0qsGzNLGQM4PaVe9Uxewj6tsP3cQYU
+	 Es2G3W6gI9epB/2G2oDi+rJbB0NxjUB//BjT9Xe7vyH46u0rOHU4uW/NBNP+7ZzvQa
+	 x+ALi1J/9fsZt1tQHW5r0dhwfim7fA01GCvgDrDHYP4r57RX1xNjqLHE2sW4h2je3S
+	 VSI/axqomx6pRei/0WBZrbxG4itk3GNYjSoJFUvQ5FWDDTDb+D4mGQRv/OhEF/6xeA
+	 13xDLhzHrveGXO6ZSQ+AOn6MXKRHXw/8jStnDCGUjuCsbp+u/JkL3AWWWQWwAPBbDp
+	 Ht2uwHaNEWn8w==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wNXhL-00000002Oqg-3XbW;
+	id 1wNXhL-00000002Oqg-0w0j;
 	Thu, 14 May 2026 15:10:03 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
@@ -95,9 +95,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v2 16/17] arm64: dts: sprd: Add EL2 virtual timer interrupt
-Date: Thu, 14 May 2026 16:09:44 +0100
-Message-ID: <20260514150945.3917510-17-maz@kernel.org>
+Subject: [PATCH v2 15/17] arm64: dts: rockchip: Add EL2 virtual timer interrupt
+Date: Thu, 14 May 2026 16:09:43 +0100
+Message-ID: <20260514150945.3917510-16-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260514150945.3917510-1-maz@kernel.org>
 References: <20260514150945.3917510-1-maz@kernel.org>
@@ -108,6 +108,9 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
  heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_081005_567461_073AD216 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,58 +125,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARMv8.2 based CPUs used in a number of Unisoc SoCs are missing
+The ARMv8.2 based CPUs used in a number of Rockchip SoCs are missing
 the EL2 virtual timer interrupt. Add it.
 
+Acked-by: Heiko Stuebner <heiko@sntech.de>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/boot/dts/sprd/sc9863a.dtsi | 3 ++-
- arch/arm64/boot/dts/sprd/ums512.dtsi  | 3 ++-
- arch/arm64/boot/dts/sprd/ums9620.dtsi | 3 ++-
- 3 files changed, 6 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/sprd/sc9863a.dtsi b/arch/arm64/boot/dts/sprd/sc9863a.dtsi
-index 31799579d7f2e..18e61c25aa36f 100644
---- a/arch/arm64/boot/dts/sprd/sc9863a.dtsi
-+++ b/arch/arm64/boot/dts/sprd/sc9863a.dtsi
-@@ -130,7 +130,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>, /* Physical Secure PPI */
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>, /* Physical Non-Secure PPI */
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>, /* Virtual PPI */
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>; /* Hipervisor PPI */
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>, /* Hypervisor physical PPI */
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>; /* Hypervisor virtual PPI */
+diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+index 64bdd8b7754b5..a5832895bd392 100644
+--- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+@@ -195,7 +195,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>;
+ 		arm,no-tick-in-suspend;
  	};
  
- 	pmu {
-diff --git a/arch/arm64/boot/dts/sprd/ums512.dtsi b/arch/arm64/boot/dts/sprd/ums512.dtsi
-index efa14309cc4ef..4105647aabd17 100644
---- a/arch/arm64/boot/dts/sprd/ums512.dtsi
-+++ b/arch/arm64/boot/dts/sprd/ums512.dtsi
-@@ -133,7 +133,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>, /* Physical Secure PPI */
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>, /* Physical Non-Secure PPI */
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>, /* Virtual PPI */
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>; /* Hipervisor PPI */
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>, /* Hypervisor physical PPI */
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>; /* Hypervisor virtual PPI */
- 	};
- 
- 	pmu-a55 {
-diff --git a/arch/arm64/boot/dts/sprd/ums9620.dtsi b/arch/arm64/boot/dts/sprd/ums9620.dtsi
-index 2458071320c9b..037e3401d4991 100644
---- a/arch/arm64/boot/dts/sprd/ums9620.dtsi
-+++ b/arch/arm64/boot/dts/sprd/ums9620.dtsi
-@@ -141,7 +141,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>, /* Physical Secure PPI */
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>, /* Physical Non-Secure PPI */
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>, /* Virtual PPI */
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>; /* Hipervisor PPI */
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>, /* Hypervisor physical PPI */
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>; /* Hypervisor virtual PPI */
- 	};
- 
- 	pmu-a55 {
 -- 
 2.47.3
 
