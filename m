@@ -4,109 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B97E2CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B545CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Axz5lIhYJJFKudG4NIs2q6TTP3wLlHE34k26hR6vcd0=; b=hD6dDkEnximl7pk5l+a1F4hhI5
-	ozbNhJpqHQ3d2xfG+22ZOKPLjKd2GxxY1YVdOzliHKXwprEmxWhaBzgIjpAvwj3EYXaZep3qCYPZc
-	to+0VEm78DxSk4Wa5tYpHkqSTN6jDcf04ZSVB1Hg60onbyF15EFsz7cDxN2zEeR5o8M+cWw6Bemjd
-	JGb97BnGyWCo5b9VgIF2MXfJQnoJxFvKqMHEvejhF0tB7Kbha3PiKIk8Z9h6YcmoOJenBrZUbenfL
-	dbupwA0eMxF1u6yZAfhy+FqKuvj/8iZGC24cOhWdx2lhqMYBwAPa8/K7E1NvwCvJ73Y0iXSkGqyiu
-	lyTG2YBQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=docZu46gG++Kf1XBSX2+6MGhAZFNy07C3ni4sJC8Jrc=; b=kNJZjAcFU7Osv9b80HbH1VhE2Y
+	VKDmGmTr7yrb/XtMVzdMx3dmpbvRp4oitIdWkhGs7+1CZmLStAfBiKiR6saxSsDWYNndGO/gVxotl
+	t47F3ySBeMHmarssTXKO5J5PjBJ4bAXqNWe4xHzEMUbGY3hFLr5gSW1Cmjsfcj0pz5F5MKfNYi2Cj
+	WQXR9GWzinVTsCe3DHbSXD5TxhSyigN0r6X9gOmVmPgJifziUD91GUA4QVe8aBT62/OoKjdm96PyA
+	ug3nAT0shl5okdeX9zeDA15X62SeYE5lD7nnTKk7bKqE/YQVJaHlGTgxpL8dvnxCjbCIaMDPB7p4x
+	awEW4iiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTNk-00000005D0J-27ZT;
-	Thu, 14 May 2026 10:33:32 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1wNTS5-00000005DPT-41gQ;
+	Thu, 14 May 2026 10:38:01 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNTNh-00000005Czm-3Dgo
+	id 1wNTS3-00000005DOr-2pHL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 10:33:30 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-82fbf5d4dc2so5456824b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 03:33:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778754809; cv=none;
-        d=google.com; s=arc-20240605;
-        b=bF6bMv2UItYHf7BAoWre27QzCTyGl/BK54o09sgSJWkEKn3bhUHtD6oPV/UkAf21o0
-         m7mLnS8YrXdbHDevPRUFW0iwVt8I1VAg3mXcpURyMwgJRqNocq/yOtRCt3C8JltkWzCY
-         aRBIIH37LxMZ4nZgPtwwTNmVNGmNSgGTyq8s0rGLTWXtsVCHx6sdWKe2gVr09ruoJKUn
-         zVt9n+9hGOnkZeO2xIslsS6VtXDJLEd2XZWJloKyTivhAPxA8l8zU9m7P35EO6FRNN72
-         XrL830qJzKwkdVHh8CYlw723Ah5jrQj9AXisex21t5hbCH5UIV/sh1T/smWGn4aKYRmb
-         T43Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Axz5lIhYJJFKudG4NIs2q6TTP3wLlHE34k26hR6vcd0=;
-        fh=4nI3CmTandQAPDKhKMot1cghneUHLT0v9YOie0emonE=;
-        b=FN4CULXagXgXwTk6bdFuq/XTkrtyHulvzaS6KKl3aQ+3BUcc99miSjSmNqOOBqqtlw
-         X0B8Y5ZqaL9d9ovvIdnUit/8Hl8vVPAJlD+0NHsdfBklclUeA1LGGyY3umU9nWpwrLds
-         wu5gJAql0+8TEc9WTBeJLsnHVhieqwEMubbhX+joG1aiaGjI2gLzfwbFycqxmo6M7Rq5
-         UpeGAu+6/atIGMzOlSTE124tssnMDphUbizr0CKCnVgXdovArUKvio8r2V4nR49yVYC6
-         fffaMkRCdMb1dJj+GXMZqvCXvujXYG8y1nn1RfLqN+nFN0XbabLFVbCfsue8gCufbYnd
-         5XEA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 14 May 2026 10:38:00 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-366139223e4so4773227a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 03:37:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778754809; x=1779359609; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Axz5lIhYJJFKudG4NIs2q6TTP3wLlHE34k26hR6vcd0=;
-        b=DcpgiGn+r1p4K70TggycN+6vP/67+3DYaaG8NMY+LU0YaSjgX+jpas9txngsc6ulL9
-         zUesywWaZIxS12m7aeorfrcpd1xp0XRhvgBVEp45y83qaA+JAXtExLYoQxkBIuVvNkj7
-         Ry6rH7qeqxM/xbRq8u3iPtw5kA2lzvJck0TmCBjeVFyGM2tRKhQa+WQUC55waxRUDI4k
-         jqa1c/ICvrPUjc+E3ymlqtj8IOzvuHq2U/A7JbtebSRF/4WaTspmgM0226Cz2wi0m7EO
-         jyZo+BnhP9KbG7QXUBDyA2nCfNlw4wQFUORgBQAorpmc5AsHUQXxQu4xGtnY5NTfokHZ
-         r0QA==
+        d=gmail.com; s=20251104; t=1778755079; x=1779359879; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=docZu46gG++Kf1XBSX2+6MGhAZFNy07C3ni4sJC8Jrc=;
+        b=VVeBLr4f04hZ0tnvwrMcwjvnPQUcbOd3zAND0eywqUEsEIWLdqln4tXDtycleWRmGe
+         WzwmW1Iu3uFwY2a5PeFdV9bTysIwhHzK/zzqUtTEWU0UtuDejKZrXSMTg2eBhgA6ajO8
+         1GmJqrMbsnkbVc1P0NVHQquBuUWZpvXiKGKo00S4hcFZ6HBgafPMflo7zTchU9Qkl1pj
+         l9FoNldpVAaDT7YZPFFRTNi4JmaD8V2hx+P7d1e27EtACif6Cj+GQGbXdDrXuTiGJwxW
+         qEicUg+z8LVom13DiIEugSPwJrG8pXfX6xv8SBV26yXtEBflctst3ASlWQtEklUtJWVA
+         0Kkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778754809; x=1779359609;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Axz5lIhYJJFKudG4NIs2q6TTP3wLlHE34k26hR6vcd0=;
-        b=CujN0RItmHNQH9SAXGZkjDkueu0/nvtVjCoOFn3gi2fnq7Xs4Y1cA+LjVsuqskgpjq
-         F/BvaiqduJq2UMc7zczohL3QQufwUIVwOu716AekuD4B8TTVKKDWgmpzZ/Z309eaA2Sv
-         Zd2Bjz43hN0JtfjbrAlOPvoDBTqhJ82f9m+jTGfvQo4egQX0f3UZ57hTJApFZxUVBu1T
-         NWF0pDWqJ6n3BvrHt5hCw64WrUturubqbuA9cF7w3DQND69WmlUX7GkQE8uU6eBoNH61
-         yqSCh8kJw9p9IoKGXQgeaUynxobSFxnC47s7BFAZE02Wm1mm82kQLmt+CSQl9HvoVvRM
-         HMvA==
-X-Forwarded-Encrypted: i=1; AFNElJ/GF9hQ9njaZk3UqbskhldeLzgp9uoV2PjYyAEtZEyhUFb3RPm116wE46qMx4C/wp3GLO5b22OhXZapz/RhtnOb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT2S5PwI52vdYM2upfGIhQUtHRDMh+Sr7soUMIcDRO1JToTn09
-	DVjhyz3UWMNbeIVqEjDDViafJhy/vYR1wfHyjM3aHOq4qtpXFVBwF6SAqMUUccSfblyYnX8ZMO0
-	tlZtYsUa46nKabHuAWo5435yEIcVmPOg=
-X-Gm-Gg: Acq92OETebI/IWt0G2LXcN+WwzdGByJNyd+SzYYQl44aqNeJjbetwrz9kPnCl8NVxHK
-	UGgiIn6vdkaQgtKO/anlAre/+TXX44wRjLR/YhkYGnF2R0e4H0Ylta9UTWXrzhcmkrcBXoyND11
-	DkbTDEvP0A570yQHirkmACpM0gIVadLnI5MFLIYL+Tfa6xBQLXwdtS+WtmJ8bC/Zy+n4ZkESiHd
-	Iu+lUGRTCbJNe0o/j18vDWtvMSOGj5E11ulpridQES2n9qbxNl+5p6Xu8bdqAtzvJYjkt1bAuOm
-	n7JGf0VPRmvnBEz6umdkCkXbAt1vtwbmEysCwQ==
-X-Received: by 2002:a05:6a00:ad8e:b0:82d:603f:f3a with SMTP id
- d2e1a72fcca58-83f04277f6bmr8500889b3a.24.1778754808499; Thu, 14 May 2026
- 03:33:28 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1778755079; x=1779359879;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=docZu46gG++Kf1XBSX2+6MGhAZFNy07C3ni4sJC8Jrc=;
+        b=rDWJNR3NJdQ+pkfGYostiUmO4Vu7ClHR/xKXxyHaXvf9CoVoA0hjgTKzEH2eNHePiq
+         fRnRK1FEF+Twz6kKQ479Cs7EqVENKlXduQHQcLHzhOHjI4ZH4Ghb96KevTQCum64v6gA
+         vuipkHAvZX5Pt0faBms91ltVAJoES23ZahuoRrDCFh9NXTEte5J66bfxmxY0EaVDwBkR
+         BHnkMAYXFY1bzCsvA65YP/qWkp4/YQpoRHSJZvaeQYUWnb3CN1UFUtvGDMd3WV7Pj2Jt
+         5E3+uaSXCg5cGfZDTukNatq/3HZtEiN0IJQSnvGsoW/1B14p8w3tYPSO5aAwozfhK4Zl
+         Ww0A==
+X-Gm-Message-State: AOJu0YwWo6Bk3tAdg5giAkvybSjiumeshPaTPjrVnzC/D4EO7Ofn6gFQ
+	C0TukwiDe9ulXU3RI8m6XzQtUPA1Vd7Eitn9v9o2ihOwr+xP4VvtgSEK7GfOD7IxZpA=
+X-Gm-Gg: Acq92OGmXl4UHx0YyAsOII7qpjnUKyxJNQS3lFouWzA7fTmf3xqmvtJK+0ZWlwJ/o7E
+	UFf1rok9NeNDfjzrogpufndKNIeaHKqnwV0GdkLUcNK6wZqoxEeHOYzhZhXQ56YOklAaTNOmywV
+	R9VjwVO6bjRGGR1a0yibnebAGD/j6DT7rm+9c/sIbSCnrpCha3UQAjeYgWaSrNuaYzYlULqLxFQ
+	D3K4LM68ssQI6Or82Fk8C6ZV6aTrq4QuCceMp8INC0u9rYv4hgHRyVtXrtwHpmiXZl4ic7t6WaP
+	dbZGmNR4yb/M69GPRLPyqGwwOludW6AyO6rVKIcysqYwMYGKHfm7dWvtLsykd3kQh0BoZ3QiFB2
+	mMuZP4m61APqP2BzIUGFxSnXrVC8xZNrwbsM4QRIfzDtm/jWaJf/j8zCb4KIYdq4ZmMn7ddVgZK
+	7WsEeJ7pl/F33g8MLNWgeh6dCWBbMxX/QIy/2jZddPRq37cjX29/LV4gda8hwC0UZBcFkiSSqp
+X-Received: by 2002:a17:90b:3c85:b0:368:12f3:fa4a with SMTP id 98e67ed59e1d1-368f3d4400dmr7945009a91.23.1778755078444;
+        Thu, 14 May 2026 03:37:58 -0700 (PDT)
+Received: from chaitanya-virtualbox.. ([103.249.241.52])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3692f4a038esm3164644a91.15.2026.05.14.03.37.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 May 2026 03:37:58 -0700 (PDT)
+From: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+To: brgl@kernel.org,
+	andi.shyti@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chaitanya Sabnis <chaitanya.msabnis@gmail.com>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH] i2c: davinci: fix division by zero on missing clock-frequency
+Date: Thu, 14 May 2026 16:07:40 +0530
+Message-ID: <20260514103740.5416-1-chaitanya.msabnis@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260513104329.81592-1-phucduc.bui@gmail.com> <20260513104329.81592-3-phucduc.bui@gmail.com>
- <agUknFcDIfwrOCld@sirena.co.uk>
-In-Reply-To: <agUknFcDIfwrOCld@sirena.co.uk>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Thu, 14 May 2026 17:33:17 +0700
-X-Gm-Features: AVHnY4IDc6tthLgrHjXC6SYo89bL-eLMYrCt1lnu5Ycu8ceEQa82GPaz33HiBRo
-Message-ID: <CAABR9nHfXi5G4+sVnLbWWJctQHkWASTzTwiV424bO6BXZDqX+Q@mail.gmail.com>
-Subject: Re: [PATCH 2/4] ASoC: stm: stm32_i2s: Use guard() for spin locks
-To: Mark Brown <broonie@kernel.org>
-Cc: Olivier Moysan <olivier.moysan@foss.st.com>, 
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_033329_809326_A95233B2 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20260514_033759_714784_799BA85D 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,25 +98,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+When the 'clock-frequency' property is missing from the device tree,
+the driver falls back to DAVINCI_I2C_DEFAULT_BUS_FREQ. However, this
+macro is defined in kHz (100), whereas the device tree property is
+expected in Hz.
 
-On Thu, May 14, 2026 at 8:25=E2=80=AFAM Mark Brown <broonie@kernel.org> wro=
-te:
-> How does scoped_guard interact with break statements - does this still
-> apply to the switch?  I've not looked at how they're implemented...
+The probe function blindly divided the fallback value by 1000, causing
+integer truncation that resulted in dev->bus_freq = 0. This triggered
+a deterministic division-by-zero kernel panic when calculating clock
+dividers later in the probe sequence.
 
+Fix this by isolating the division so it only applies to the Hz value
+read from the device tree, cleanly assigning the kHz default otherwise.
 
-I checked the scoped_guard macro implementation...
-and You're right the break statement inside scoped_guard only exits
-the guard's implicit loop, which is not what I intended.
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260514044726.57297C2BCB7@smtp.kernel.org/
+Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+---
+ drivers/i2c/busses/i2c-davinci.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Since there are no further statements after the switch block in this
-function, I will replace the break with return 0 to correctly exit
-the function.
+diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
+index a773ba082321..bd0754abdcb7 100644
+--- a/drivers/i2c/busses/i2c-davinci.c
++++ b/drivers/i2c/busses/i2c-davinci.c
+@@ -760,9 +760,9 @@ static int davinci_i2c_probe(struct platform_device *pdev)
+ 
+ 	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
+ 	if (r)
+-		prop = DAVINCI_I2C_DEFAULT_BUS_FREQ;
+-
+-	dev->bus_freq = prop / 1000;
++		dev->bus_freq = DAVINCI_I2C_DEFAULT_BUS_FREQ;
++	else
++		dev->bus_freq = prop / 1000;
+ 
+ 	dev->has_pfunc = device_property_present(&pdev->dev, "ti,has-pfunc");
+ 
+-- 
+2.43.0
 
-I'll send a v2 of the whole series with this fix.
-Would that work for you?
-
-Best regard,
-Phuc
 
