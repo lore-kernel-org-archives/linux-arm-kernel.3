@@ -4,116 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17552CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 13:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 976A5CD4F39
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 13:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XffS63nvsbe4oTzaioosgAz3vOOS/6ED4ftz/gYY9zU=; b=A2GJ0o3QANEzGqLJQucEfKrh3z
-	wMhVWF1VR9HF3zxNK6I7WlbqJA3J7HPo7j/GfuTpT/vqamfPYmyh09N7q6OnaGe8ez3uCGV88fa2F
-	fIFEK8/N2ukaCtHOeG7Umd1cNgSLesHpdjSZjnQlaH/myIDFfqTEZ6w6lJItf+s+VCNgTAJpxGrs4
-	dNNmQtbxlAYfG256N4CCJt8VKtt7+RqSvPmteNoNKTw2FZQQ0MsSMG4xOGsNIuJ1uRvDKaehfWZR8
-	NHV2LQAGcsMFhnjgFDkZDI0fbl6XtuigU6PhRa61VfPE5N27Uk+edktnqNA2EVbM/+dYpv6IJNp/X
-	65A649aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dxjsDTEPx7x+FMifRYMV1hqCeB1iIjDkPxo6+pakXPM=; b=3zrcP2AoPKGfBrNmaUAzPWVmpI
+	/2lvdxfwAO0pGjfB2/ch2OUwo9b848KSS2BOAq9QifSrYXgFiJ6/ipPDxURZJ5UeB0xrKQrXgzZ/J
+	L5COljinNovooOFQol7irpZkQQB7IoPOLBOA0u2a+rTAEicuSDljIX7SfbzJ6Oo9faxFkk3Pytzcm
+	gfSl6hAE/Y7mj+Bw/3dzvKPhceyNm9cj/NwaE3GelMzZEbXPgfvEpAP8FXLuWR+prlcl+6PvPxazT
+	VTNynzAQGDhvjs3gKzmlzEGVGYU97zC1ZHfqu/B1tw9+Hedwt+qwzN1OoGWV0En5CBYqVY/1MxUk8
+	hpw8Gz9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVkv-00000005Y8u-0q9h;
-	Thu, 14 May 2026 13:05:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNVvZ-00000005ZUu-2ynv;
+	Thu, 14 May 2026 13:16:37 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNVkt-00000005Y8h-2zTy;
-	Thu, 14 May 2026 13:05:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C4D960008;
-	Thu, 14 May 2026 13:05:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F25DC2BCB3;
-	Thu, 14 May 2026 13:05:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778763934;
-	bh=qwpiFtWnr4LxDDLDUtr0TqHzCS9wJ3hUilfbgpQ/5g0=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=ZsTLbai0ZhcbUjzN0IWudmSmptlkazUu16ecsRLC7b847WuBkDc3IqZv+KQR8pYSJ
-	 APv0ObE5E6HwSfyQu+IHr2wyKuWmY+JkGDkZwWq9i5VEfwfPAIpMpI/kG/48DCddq2
-	 vCzhM0NG1xJAMx202rdggv2OXBZJkUngyEu2q+WNH36u24KBM+80x5tD/iD07+FprA
-	 RrD4PNGx5HKmEWLNsTQT5ar8mVJhbukeYTSMMVydP4xfXT2e9fw7+robI3qca6XVt0
-	 tX69pZqT2flncaq8dypeobtZd1jBRlct+yutw8MY/irNo+usgblSRChddkgbQ80pbf
-	 RTBxU2YAEG1qA==
-Message-ID: <b001d2f2-9cfb-48dd-9ca8-c9b1b853ced9@kernel.org>
-Date: Thu, 14 May 2026 15:05:28 +0200
+	id 1wNVvX-00000005ZTz-0Cg3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 May 2026 13:16:36 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2ba4efedbeaso55811925ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 06:16:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778764594; x=1779369394; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dxjsDTEPx7x+FMifRYMV1hqCeB1iIjDkPxo6+pakXPM=;
+        b=qqy/8aYwnqJNM2CffDNSar4qr4eb92Fh3KHpH2dvIGPRy09ajKNH5wIEajxir5e2h5
+         FvQT1L/Scq9f471xIJGQtAQda3Z8qStTBFnRKIDsMgVpR8LaluKKexv/hqzgVH7jkMW6
+         m4vxPWBkb88jbKBc8U4+/L1qFZK9Q3YZH3SAFvyl9ek1BuBc+6/FbcaJ7cbn/RsnCZuE
+         CA8EP10PJF3GuDz32oHDTZL322aS4xfp4Ta7VOmxTomc05OLBn9mDIiTM5cdigBnZ0HF
+         Tg9Juc544nDeNMoJbLYhpWtNi5jl3iPsybt1LJmIl6HzNBsVI3CpWeSyc4XVoL6lSwkb
+         y+/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778764594; x=1779369394;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dxjsDTEPx7x+FMifRYMV1hqCeB1iIjDkPxo6+pakXPM=;
+        b=d8AOxMt6R6vBoB0sqovfJY9E1JQkjO0ngfUKTcos+BGUofC57EmowqANToyxOOlZ6v
+         pG2G1asZ3l6oP2BZoh2eFrdE4AzTIMrv8AJlS1gMFUkli3D2aaayL/TvQf0BXKGkbhho
+         sPyYQelhoR9CsEN7it6D9yJmPPhYCrDbEaMqfh2CfBoUKK/LqGxiBjGG6XKg//JbGXMl
+         p2iAu2fXi/zZUu2OAIyh24nK9SBfA9bS5Wnu7QZ4h+RicFrggmSNoU3k0zQfhT+bgTW9
+         KetGvYYA2witlNY+dAYFjLh8Y+LGesgdFdAkUQ9JwbDVnpKIPtO4tdPslbs//NGmSY05
+         MqkQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8+LdC3pJ6T2aiweU6XaGsGFV3Qp0f3kgeYCEV7CUnbc978iI+q14BQp7VuVEHGLuuemWUwXlsKNofUmmVcP6ZZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxRTLQo1Zj9m5NRZq/2eXJpdOLvYvRpjN30F++pnacV4Z9ZVsp
+	3oI4ND7gNHFRj+LPrfPm6kx8apMlK260jDAnJGTG8bBGRu++b5x7pJxHyRotEI0o
+X-Gm-Gg: Acq92OGDSxkvNzgwaLanmjPBRs5EgizH6raeso1x7N+9bG4Be5KhH5SjiCMcXPprwwA
+	kvpCsjKeme5LXXlpMiXzwwtkU3jK/ryQ4LQiDZIeIjyrfsR1YMnrLHHkRepUwCfF5lA0z+Daxrh
+	B1c3NeztP532WUxSnfSngvknnuA5X9NaSl3mA48m7MlhutHE0cvDcn4/mwYldanVRIpS5nZzpFx
+	kaEO4RpvlL891X+iNL00pJLi6QmFBMm40T04EjQMTAL9lDa5HBnCJR74u1H4qho+lZWW6ecXk5I
+	DvK+sorxdSIKxup/k3UAJsznE8NYXYIIr/SNU/gUGxxaQ+PxiOm+Pia+fqDcMVZUdIaG5xpTT/2
+	LtHMrhUJBpQc7roULkziPRKlVyfLm7PDPYUf9EvB6LMeIw/zl9keeHKpk8thJzaDIOd8UdsZxSe
+	SOdP2XpoC3bvEuMXxTR/mw05QeMc0ZBFH383g=
+X-Received: by 2002:a17:903:388c:b0:2bc:e62a:979b with SMTP id d9443c01a7336-2bd30333de6mr80854555ad.30.1778764594127;
+        Thu, 14 May 2026 06:16:34 -0700 (PDT)
+Received: from [127.0.1.1] ([59.188.211.98])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2bd5bd5f30bsm30953275ad.16.2026.05.14.06.16.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 14 May 2026 06:16:33 -0700 (PDT)
+From: Nick Chan <towinchenmi@gmail.com>
+Date: Thu, 14 May 2026 21:16:01 +0800
+Subject: [PATCH v2] nvme-apple: Reset q->sq_tail during queue init
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 15/16] MAINTAINERS: add MediaTek mt6323 PMIC EFUSE
- driver maintainer
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Roman Vivchar <rva333@protonmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
- Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>,
- Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
- Ben Grisdale <bengris32@protonmail.ch>
-References: <20260512-mt6323-v2-0-3efcba579e88@protonmail.com>
- <20260512-mt6323-v2-15-3efcba579e88@protonmail.com>
- <20260514-spiritual-grouse-of-abracadabra-d91bc9@quoll>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260514-spiritual-grouse-of-abracadabra-d91bc9@quoll>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260514-nvme-apple-sq-reset-v2-1-84cbb5c70bf5@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ6CMBBFr0Jm7RhaqFZW3sOwQPzCJECxJY2Gc
+ HcrB3D5XvLfXynACwJV2UoeUYK4KYE+ZNT2zdSB5ZGYdK5PuVElT3EEN/M8gMOLPQIWNgW0hrX
+ t+Z5TWs4eT3nv1VuduJewOP/ZT6L62f+9qFixvRQKpTHaKly7sZHh2LqR6m3bvmtHeGy2AAAA
+X-Change-ID: 20260514-nvme-apple-sq-reset-53e22e88c7b0
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>, 
+ Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>, 
+ Sagi Grimberg <sagi@grimberg.me>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Yuriy Havrylyuk <yhavry@gmail.com>, 
+ Nick Chan <towinchenmi@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1204; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=jl08X3NCLgmcZoiX/JRkZFjNthe8bvfBiVgfd+XVW5g=;
+ b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBqBcsvQUZgV7lMIoBJkU6SplIAUQALX59m3rswM
+ Ju0qI6zlQ6JAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCagXLLwAKCRABygi3psUI
+ JN8JEACwOZAPoKWuJZMLfBID3QAgWkZEOfVVIl1hXXM5d17MAF1zrTZA8DDoNnOxJJhQJiRsOlp
+ +QA8rVCZkVF2d3eukmBADzOGA2sLHHgzFHdHsMiC1TzaVmyOyHlosVYQ4QpCOrntfYn8Ief+kf1
+ dU2C8V6wfmrP69rmjJWBOxIWG/ITq2+A+PgNZFJw8rvIYw7EmdvudX8Ad+9YnsgyRlsTUEBg1zE
+ SPe4LTeH1C9DL0SFhyCuAOsQ3YGr7L0E923wAgUPYmUzmATooVEhyGVouKE0p80jPPTSWjkTq+2
+ sIBrK9qlOFgLaWFxUgYP6/Y2R6NFal9KSyn9nQtcuc+JrnbXisbX2XRYRnW4T3zIFqBPJeIwaBr
+ HEKQfto0SI0mOrxyueKQsge5FMYjDF5noX0ZqsOmPs9j9yJOI2lAk0PBlAa2trKC3NL1Giz5XuV
+ 6pyftpibUZeTTMDlCKryZCaa7P2htuazpMHGUktU6f3mlGDXKPXLu2KW5kZwRovQFlp6HaMR9/1
+ 4q+WnDsfn8R3j0qo7VGd1uXtbS4gAGtOJHimc54QP82uq/92L8GUEQu2THl1jhNTbPmZ0XSD1Qq
+ JE32qAW2gU2Bskqmit3QUg9ywWgIG/qsW0aqk+BVCKXsASJL2YkOZxQQP1YuKftd/zp6yR95cvp
+ 29qFsWAWPK+XS6Q==
+X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
+ fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260514_061635_081270_6BF7EA02 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,35 +121,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/05/2026 15:04, Krzysztof Kozlowski wrote:
-> On Tue, May 12, 2026 at 08:18:29AM +0300, Roman Vivchar wrote:
->> Add myself as MediaTek mt6323 EFUSE driver maintainer.
->>
->> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
->> ---
->>  MAINTAINERS | 5 +++++
->>  1 file changed, 5 insertions(+)
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 52249c301633..bf2e066f377d 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -16342,6 +16342,11 @@ M:	Roman Vivchar <rva333@protonmail.com>
->>  S:	Odd Fixes
->>  F:	drivers/iio/adc/mt6323-auxadc.c
->>  
->> +MEDIATEK PMIC EFUSE DRIVER
->> +M:	Roman Vivchar <rva333@protonmail.com>
->> +S:	Odd Fixes
->> +F:	drivers/nvmem/mt6323-efuse.c
-> 
-> I don't understand why this cannot be one maintainer entry.
-> Really, these are just single drivers.
+Fixes a "duplicate tag error for tag 0" firmware crash during controller
+reset while setting up the admin queue on Apple A11 / T8015.
 
-Heh, and now I see my comment on v1 which you did not implement.
+Fixes: 04d8ecf37b5e ("nvme: apple: Add Apple A11 support")
+Cc: stable@vger.kernel.org
+Suggested-by: Yuriy Havrylyuk <yhavry@gmail.com>
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+---
+Changes in v2:
+- Cc stable
+- Details on how controller reset is fixed
+- Link to v1: https://lore.kernel.org/r/20260514-nvme-apple-sq-reset-v1-1-8931e455281e@gmail.com
+---
+ drivers/nvme/host/apple.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-SQUASHED. Please see git rebase and the meaning of squash.
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index 423c9c628e7b..c692fc73babf 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -1009,6 +1009,7 @@ static void apple_nvme_init_queue(struct apple_nvme_queue *q)
+ 	unsigned int depth = apple_nvme_queue_depth(q);
+ 	struct apple_nvme *anv = queue_to_apple_nvme(q);
+ 
++	q->sq_tail = 0;
+ 	q->cq_head = 0;
+ 	q->cq_phase = 1;
+ 	if (anv->hw->has_lsq_nvmmu)
+
+---
+base-commit: 5d6919055dec134de3c40167a490f33c74c12581
+change-id: 20260514-nvme-apple-sq-reset-53e22e88c7b0
 
 Best regards,
-Krzysztof
+-- 
+Nick Chan <towinchenmi@gmail.com>
+
 
