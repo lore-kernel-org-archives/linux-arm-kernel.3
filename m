@@ -4,126 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43721CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 07:56:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90AF0CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 08:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Krl89dt8qzKrexr8K9CxsQo6Z/Gi0nQcpDBaZk0Jw7g=; b=4k9SthVRFdpSFvucAnKgZND5CB
-	aEVwU3VQpg57MqJmxJaXvuWRWklW67Tf8xwc9s5OiJ36U3BYa1iF9FLJm8zh8LFooAgoKka/3d+qZ
-	XU+Cl6694lhLX+2WtiwBOqMb1qeQbNb7lrt1mFn3LZsjQ5maBwbxwdf7aEdzWRAe42C8fnWUAzHjd
-	ABDqHsQ3uszaHNRzaRuXkIXuPJwcZBwWldxcg5HZqsRjuBedzFrDQ3gt71li9p7MgBoW0K4tN5geD
-	xycXEdfdSy+6Bbl02SdUYsEoHaPbTZvxOquDB1q1nLLF274sYwtHvSbM/CJBOqdrz8sgtwd1+Wfui
-	W4B0KJQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1r306kBheAkrQGBihlT36n4qp6ujIg1DBW8NVxi1+6s=; b=uYpjNsMs6ZeY/JzUrRTxDU27EM
+	/oKsTOTdx/pk2OR0QA97aokVajWOyRGgCdiOSgoEVg/L41VwEw0Nm1YCYDouYqDRynaupdKxW5lhh
+	XW15zKilhnkS2T/0K0V9iSlBaAAzgmRHWwyY1pGMw9X8wKMFSN0M5d/5MwJLDaUOXvOkX1Nil/XyA
+	xTZzfYLlSDMWxv2l1mpXpvh93EMfTy4CmFR/jZOISvfLONNFLnhWBLjtXnkXcbc2q8l9vCWSpQyNu
+	yCeFULKcZDYglwNGsAe4qiHJgU/h6pv1J02VoLmIqp32LsmJT98kxX59bjyZ5O5i78876wttgo3hw
+	ptknBuqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNQvi-00000004sRZ-0HEc;
-	Thu, 14 May 2026 07:56:26 +0000
-Received: from mail-westcentralusazon11010031.outbound.protection.outlook.com ([40.93.198.31] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wNR0W-00000004tKQ-2ob1;
+	Thu, 14 May 2026 08:01:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNQve-00000004sQ5-1Kpj
+	id 1wNR0U-00000004tJu-09Vd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 07:56:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fgkz3KrijgjeydWHdBl8xFpVZ3y79bo6dBPB/4njmIvPsMvFlg7gQsDS8qpOd+6C1SKVaiacaWz3VvRCLf7b1N+ZTvL8RI6JwF9wSU8SAfY8ssHrHmZjqksRaET7Suq/3iv34fKAsh2VYB1zQNf8uVlb/pZwC7UuQF6sUx4n6RgWySHZmOuKCPDBG6+dd5znk8xwJm2aaVVCqn6dDMnHD+5OwjpE5Uz0WqXOX9lzeCDVGgQCu4EenIQlFYaCOYvsEEYeqmwdpaM5yoSJChIxRKp6MpWlmM1q0NiWygWIzb3OUHK98oXD59H02icvywDyxIV2fyo/qEGPW8NuujS6RQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Krl89dt8qzKrexr8K9CxsQo6Z/Gi0nQcpDBaZk0Jw7g=;
- b=muwtBEJVjoJi0+iBWjN86xvRa1hvZGwOxNtzDdkxcd1+Sffj8ug+/Cd6wsKGDNP4vbRvk6yfmWHu/+Fv7oYG0BzPhcV7dynqPeAb1QocY44V/9k8IyLk/BkUDhkzlWz0N0lSCbRFjlXSe5BqJOxgSGqYf5XfsPdMooldVr9jhS+INXbNOR4sOxZqJQImRLn7x2jTqIbhjJWydcWkdM0t+8M0TNEWvJll6n3rNk8UePqLQ4n+bZQjnm7r/eK2HaXSCVoWJs0VkxEm8V4htAGzuKcfSAqqhtMJmfkMTCZdhIKV1HQW739rprvb1M2W+RG3ofTLh8eaqsb1Z6xuJzIieg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=davemloft.net smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Krl89dt8qzKrexr8K9CxsQo6Z/Gi0nQcpDBaZk0Jw7g=;
- b=CV+uY0GXPkn5Pk5PyEjTajF4oQm6pXAkPx98LLzIAAiEDAg//UB/j7Mv2zwIst0TQc0WCU0f+IU6SUyOQCFIKv4A0j3K5oGGZdWynasn1RuMDjOcU/ndysXanb3ojmSwrrOD3gIz/fei+g39usjCe1XvkOg2lmHNi6Vgc0IpZ8A=
-Received: from CH0PR03CA0052.namprd03.prod.outlook.com (2603:10b6:610:b3::27)
- by SJ2PR10MB7828.namprd10.prod.outlook.com (2603:10b6:a03:56c::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Thu, 14 May
- 2026 07:56:15 +0000
-Received: from CH3PEPF0000000F.namprd04.prod.outlook.com
- (2603:10b6:610:b3:cafe::b1) by CH0PR03CA0052.outlook.office365.com
- (2603:10b6:610:b3::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.12 via Frontend Transport; Thu,
- 14 May 2026 07:56:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CH3PEPF0000000F.mail.protection.outlook.com (10.167.244.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Thu, 14 May 2026 07:56:13 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 14 May
- 2026 02:56:09 -0500
-Received: from DFLE210.ent.ti.com (10.64.6.68) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 14 May
- 2026 02:56:09 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE210.ent.ti.com
- (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 14 May 2026 02:56:09 -0500
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64E7u94k1661183;
-	Thu, 14 May 2026 02:56:09 -0500
-Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 64E7u8h2005237;
-	Thu, 14 May 2026 02:56:09 -0500
-From: MD Danish Anwar <danishanwar@ti.com>
-To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, MD Danish Anwar
-	<danishanwar@ti.com>, Roger Quadros <rogerq@kernel.org>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Meghana Malladi <m-malladi@ti.com>, Jacob Keller
-	<jacob.e.keller@intel.com>, David Carlier <devnexen@gmail.com>, "Vadim
- Fedorenko" <vadim.fedorenko@linux.dev>, Kevin Hao <haokexin@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>
-Subject: [PATCH net-next v2 0/2] Add ICSSG firmware stats related to HSR
-Date: Thu, 14 May 2026 13:26:03 +0530
-Message-ID: <20260514075605.850674-1-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 14 May 2026 08:01:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6EC974020C;
+	Thu, 14 May 2026 08:01:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 873E2C2BCC7;
+	Thu, 14 May 2026 08:01:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778745681;
+	bh=YTT3wpiFKK2siKn7VB9xMRxwfCKefIy+RDPtffN3pIg=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=KfuT90G2ESMWQbmWA7EwQ+PxsLgj/Ta0NabGR6iGez+3gbJJ8F6mlQ13yKjbvA+WJ
+	 uw3uv6k+KUBUmNSACOZ8BgnFzfKaXoiFX+o49MPEZfegdjPqJv75rmMTA+cpMTx9Rr
+	 pZmrEw2U1EAGmfEUbuI/CpEk1QfZQzJjBDVsSDyACzpFmbD6gDQlr4xuItiqqmzvqW
+	 xQwDijnGx6/3fan8w5F5COM3fI58wYFJwSKVjPIabnbKGbyzMkDoCZPvUgYGjwoiWn
+	 ziTb4MKhIuBt19SCK/WqPQJxBRasw9psTnM9Ruj9zAE4E2HDyH9VR/dZvKMxRmDZ0M
+	 2kjUJ85XtKh9Q==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 10/44] arm64: RMI: Add support for SRO
+In-Reply-To: <20260513131757.116630-11-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-11-steven.price@arm.com>
+Date: Thu, 14 May 2026 13:31:08 +0530
+Message-ID: <yq5a8q9ma08r.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF0000000F:EE_|SJ2PR10MB7828:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2d9d83f9-41ac-481e-161b-08deb18e44ed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|376014|7416014|82310400026|921020|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: DQjQQ/2J/OWZZkOezKcKeVZIw0mCCfYQTFMc15k22FbqRv/XaJHYhM1bDkZVhjo6syPJFaJSF2FYBybRQimZfldunsAK15cE0KW+gs3jRU7M/DDuMOG5ClJqBXJkM+SXJGp1T/XYnCWu2JWi7nJ7Ym7ijJmW4gOPC4++xp8OYSqAIje70JfRjn/IhaZkDVPiCAlbh9Ed7DVIcwNQTXCU13ZapkRpbSnMbqFh5QI2yRn5nw4ZUGYawe9jAWEnjHUycGbjDsN9M7VaX3r+KNxOGFxyyPRClb0GItTx6Rs/a8vEiwiKPLMspdSLYRJqokIVGcSqAwR1rB+qh6wz8J1S/yol69nKNFTzuidDuW6aW1ITTCEn+Ys3m9KnqfEh3UJ+SS5l09TB+adn/tbQYCMbf/TMGp14D9WUewO80bWJEn/iws1dQWG2SUHSJKByAIeirw5Ge3F+M+H55v7dgMSz/WrJjAUlY/fteMyV8fwBjpQFOZInqoYRMyw7+Lj8QZhB9QWAcf6y4tRuyAKCflQKf80BrgDMVwXCQxA2Ysc3LQG4rFMvnRe5QFHNe+1AyGoX79L3tMWUJKweuLNbTRR4BBkH2ry+Za1qT2WjRjubIC+HvGdxqu7rGCo1knIuWOozIYNfYL3O2QpFjETsyYoB2ynuqeAQADa+fOF43awN8r/ICmZ9zPVGkXj/pU+NVP4covEbIIYt34tX7AD0XCiHxJX2hhCQ28E0zDX4Se8KZEV4vs/1toh8WjcJr18cNHQh9fttPzjR9J/ONisMq21HApmX2SCIamHhBZ8lXl5GwX0=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(7416014)(82310400026)(921020)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: vI3OHkv2C3K94i2mp/6lO9PExf/JGuUWG9NZAR8u/V+AEdrGs23xru7Zfyd+x1gIeubGnHLQvdoxN6EWbx1FYaEZz5cLzdmYusuHvinnLo49A/HyHGe7spx0QL0i7U2oanCWJ7EiSCeDcGBbwxJpJhenhNNy4hQNkbN9m9pDfDVms3GGPZBQaomoxcarIAhHbZOMGcrldWLyz07dgBhFRA5g0FzFMuWHrSg09pzjH+0lybpReAG1GBrqS8v6TsFSZg0rJe4mEXe8O0b7GDU/rHhwoH1ClhZ45pJmskKacLBfwJPMimbVMZkDIYzG4lX0fN6BnKNDY813VAclpSKLXx7E2JLRAUcVKDOA5q1ZTUGZd/mpl1zORx92BPmL14coVgXAiKn3XbT/rcAqyZ6HQpEfDtzlimpFphHFptQt3Cj5RNDBtR+EZHEUbY7OBodU
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2026 07:56:13.2025
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2d9d83f9-41ac-481e-161b-08deb18e44ed
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000F.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR10MB7828
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_005622_356629_C71979D3 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20260514_010122_120349_F7A27E7D 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,46 +90,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds HSR and LRE firmware PA statistics to the TI ICSSG
-ethtool stats interface, and places static_assert() guards next to the
-stat descriptor arrays to catch count mismatches at build time.
+Steven Price <steven.price@arm.com> writes:
 
-Patch 1 adds static_assert() immediately after each of
-icssg_all_miig_stats[] and icssg_all_pa_stats[] in icssg_stats.h,
-verifying that ICSSG_NUM_MIIG_STATS and ICSSG_NUM_PA_STATS stay in
-sync with the actual array sizes.
+> +unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp)
+> +{
+> +	unsigned long sro_handle;
+> +	struct arm_smccc_1_2_regs regs;
+> +	struct arm_smccc_1_2_regs *regs_in = &sro->regs;
+> +
+> +	rmi_smccc_invoke(regs_in, &regs);
+> +
+> +	sro_handle = regs.a1;
+> +
+> +	while (RMI_RETURN_STATUS(regs.a0) == RMI_INCOMPLETE) {
+> +		bool can_cancel = RMI_RETURN_CAN_CANCEL(regs.a0);
+> +		int ret;
+> +
+> +		switch (RMI_RETURN_MEMREQ(regs.a0)) {
+> +		case RMI_OP_MEM_REQ_NONE:
+> +			regs = (struct arm_smccc_1_2_regs){
+> +				SMC_RMI_OP_CONTINUE, sro_handle, 0
+> +			};
+> +			rmi_smccc_invoke(&regs, &regs);
+> +			break;
+> +		case RMI_OP_MEM_REQ_DONATE:
+> +			ret = rmi_sro_donate(sro, sro_handle, regs.a2, &regs,
+> +					     gfp);
+> +			break;
+> +		case RMI_OP_MEM_REQ_RECLAIM:
+> +			ret = rmi_sro_reclaim(sro, sro_handle, &regs);
+> +			break;
+> +		default:
+> +			ret = WARN_ON(1);
+> +			break;
+> +		}
+> +
+> +		if (ret) {
+> +			if (can_cancel) {
+> +				/*
+> +				 * FIXME: Handle cancelling properly!
+> +				 *
+> +				 * If the operation has failed due to memory
+> +				 * allocation failure then the information on
+> +				 * the memory allocation should be saved, so
+> +				 * that the allocation can be repeated outside
+> +				 * of any context which prevented the
+> +				 * allocation.
+> +				 */
+> +			}
+> +			if (WARN_ON(ret))
+> +				return ret;
+> +		}
+> +	}
+> +
+> +	return regs.a0;
+> +}
 
-Patch 2 adds ten new firmware counters for HSR forwarding-path drops,
-host-egress-path drops, and LRE duplicate-detection, updates
-icssg_ndo_get_stats64() to fold the relevant counters into rx_errors
-and rx_dropped, bumps ICSSG_NUM_PA_STATS to 42 (caught immediately by
-the static_assert from patch 1 if the constant is ever left behind),
-and documents all new entries in icssg_prueth.rst.
+Can you also add support to return x1,x2 etc
 
-Changes in v2:
- - Drop the ARRAY_SIZE()-based macro approach from v1 (which caused
-   binary bloat by pulling the static const arrays into every TU via
-   icssg_prueth.h) as suggested by David Carlier <devnexen@gmail.com>
- - Add static_assert() next to each array in icssg_stats.h instead,
-   keeping the numeric #defines and the original include graph. As
-   suggested by David Carlier <devnexen@gmail.com>
+This would help things like
 
-v1 https://lore.kernel.org/all/20260512060627.3781329-1-danishanwar@ti.com/
+static int rmi_rtt_dev_unmap(unsigned long rd_phys,
+		unsigned long base, unsigned long top,
+		unsigned long *out_ipa, unsigned long *out_desc,
+		unsigned long *rmi_ret)
+{
+	unsigned long flags = RMI_ADDR_TYPE_SINGLE;
+	struct rmi_sro_state *sro __free(sro) =
+		rmi_sro_init(SMC_RMI_RTT_DEV_UNMAP, rd_phys, base, top, flags, NULL);
+	if (!sro)
+		return -ENOMEM;
 
-MD Danish Anwar (2):
-  net: ti: icssg: Add static_assert to guard stat array counts
-  net: ti: icssg: Add HSR and LRE PA statistics
+	*rmi_ret = rmi_sro_execute(sro);
+	if (*rmi_ret)
+		return 0;
 
- .../device_drivers/ethernet/ti/icssg_prueth.rst    | 10 ++++++++++
- drivers/net/ethernet/ti/icssg/icssg_common.c       |  7 +++++--
- drivers/net/ethernet/ti/icssg/icssg_prueth.h       |  2 +-
- drivers/net/ethernet/ti/icssg/icssg_stats.h        | 14 ++++++++++++++
- drivers/net/ethernet/ti/icssg/icssg_switch_map.h   | 10 ++++++++++
- 5 files changed, 40 insertions(+), 3 deletions(-)
+	*out_ipa = sro->regs.a1;
+	*out_desc = sro->regs.a2;
 
+	return 0;
+}
 
-base-commit: 18dc8e6d15d7a30888beec46a1e01ca0f98508fa
--- 
-2.34.1
-
+-aneesh
 
