@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F0FACD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80739CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 10:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DPzV/baLNkVaJccG7G3d5CG6tP06gvG8Jd3kErhl6FY=; b=r0MpinE3LTfuoCnSXiJvqeTqDQ
-	gP8z8YLsS4so7Ar+4OEBwK2ZXN9Qa1D7lKpMw7U1jK+gLCxTftkVtu5VcxvhQT5Tjb7IBhH8TpYIi
-	zFmHVw5Is3eu42tJ3j07R8EZmxvc01OgyFaMAULJrsrEEamSnkbZWMtiopRufdvKr3QwC902iK+gb
-	njIQaxu8Z4jEe7yKV/V+8vSD2YP+xHOswwDIiBAHt8h06YZiaHRAbVGRX5r4l9KgNVpBO9IzetRtQ
-	ReKiz2daqPEco0BMYDrtRiX3HEBqg80ZU5enjmK06xxK/WPhqFlRZesE/tnzwqzpOSKCJauA3BzyX
-	r29lIUBw==;
+	bh=a49HefPrLN3684t7i07u4fpCn79yODS1Mq70Vx6MPJg=; b=RSKdkVICnpn6CdIlLMs+KPqXBL
+	KPJtJzluBFP5Z7x3bjP5f+BMiM5UJZE6NEdLzbTEHRzfmXb2EXoLmt1dZl/O1lTUnLMKTPGBjQe+M
+	KROuBq3CV1D3LDusam1fJRpQwMtqEUUU1GkRLYnT9LXZEekwOsbt3s/4uwmCDMymN7esywPMu/VBz
+	2hn7dDChW8kckDcRclqEemh1zffwyl6GaS9IjPevqGAD4y8bOOsDUtu2JJtQG/DfJBotUX/yEAS5F
+	N5cEjGtUxmX8IimJy29XW25NgHPW9SGvdvZrrNfjuHwmM2uXzGv32rTmWwspeoZS3V0UbsVx2BNPx
+	E1RIevwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNT9O-00000005B1c-2RBP;
-	Thu, 14 May 2026 10:18:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wNT9l-00000005B7B-2Mu3;
+	Thu, 14 May 2026 10:19:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNT9J-00000005B0v-49iu
+	id 1wNT9k-00000005B6i-252d
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 10:18:39 +0000
+	Thu, 14 May 2026 10:19:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 633BD441C3;
-	Thu, 14 May 2026 10:18:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8261C2BCB3;
-	Thu, 14 May 2026 10:18:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778753917;
-	bh=ZGWiAPbTqoxuhJhRPMeTnGjOAtHOa3jNZ5ZiMKaEnxA=;
+	by tor.source.kernel.org (Postfix) with ESMTP id C29D360121;
+	Thu, 14 May 2026 10:19:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06778C2BCB3;
+	Thu, 14 May 2026 10:19:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1778753943;
+	bh=e7xpXAWRH3bKtSRCX5MeXqyvSqXqOnDZwGaBzAXQNeE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fp4rGbatiaMOWKd4wH4cmd0T542EPya70ORRMod5CQ24BC2eKMW3AT2LM+cNqlxzN
-	 ixzWb8VKTQa5vqphpiA5O/ivx9+BKluroUUGXhIxmTnEo4eYYc7peeJzK2azj9IKeG
-	 6vX0OeCyo9GTQCeDEccmjrUrMCAB2ZfFjFnLLHmyCrU3mZe6LyS08xoWuT9yEayW8b
-	 2iN2hxLFvcOtHVVL6iMU6Tb9avBr+NFXZJNysP59U9TYcGc1b+k5ONqjtsehdUkLy+
-	 QDrn0D92+HPBQG5ZCLd0UPuDX7PM2vVSEg6EYP5TmTmgottHFXvi6x1FwesAqG/LYk
-	 9Q3tW8mGsKZYA==
-Date: Thu, 14 May 2026 12:18:34 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Luca Weiss <luca.weiss@fairphone.com>, 
-	Ajit Pandey <ajit.pandey@oss.qualcomm.com>, Imran Shaik <imran.shaik@oss.qualcomm.com>, 
-	Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 1/7] dt-bindings: clock: qcom: Add video clock
- controller on Qualcomm Eliza SoC
-Message-ID: <20260514-obedient-crouching-bulldog-7d63a8@quoll>
-References: <20260513-eliza_mm_cc_v2-v4-0-e61b5434e8d9@oss.qualcomm.com>
- <20260513-eliza_mm_cc_v2-v4-1-e61b5434e8d9@oss.qualcomm.com>
+	b=fwk0SggmadWbfD2nzQQTWx7NR2HYpAvnoney57HrAoss7sdm+WwFFvMF/pSctOZcK
+	 R2KyopyPnQ336M+VhYNt863kDzXcDuQ4+CS2i8lBt4DjvFyW88wg8QqD1o2asKSOru
+	 dyJmTJp43CfSTv7T4PFeWIxqt68YX/ubYkoTmKlM=
+Date: Thu, 14 May 2026 12:19:08 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH v5 0/3] Switch Arm CCA to use an auxiliary device instead
+ of a platform device
+Message-ID: <2026051453-batting-delighted-0a57@gregkh>
+References: <20260514094030.42495-1-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260513-eliza_mm_cc_v2-v4-1-e61b5434e8d9@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_031838_045505_C7671291 
-X-CRM114-Status: GOOD (  10.84  )
+In-Reply-To: <20260514094030.42495-1-aneesh.kumar@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,22 +74,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 08:57:36PM +0530, Taniya Das wrote:
-> Eliza Video clock controller is on CX and MX rails similar to Milos.
-> Add compatible string for Eliza video clock controller to the existing
-> Milos videocc binding and add the dt-bindings header for Eliza.
+On Thu, May 14, 2026 at 03:10:27PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> As discussed here:
+> https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
 > 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
-> ---
->  .../bindings/clock/qcom,milos-videocc.yaml         |  9 ++++--
->  include/dt-bindings/clock/qcom,eliza-videocc.h     | 37 ++++++++++++++++++++++
->  2 files changed, 44 insertions(+), 2 deletions(-)
+> The general feedback was that a platform device should not be used when
+> there is no underlying platform resource to represent. The existing CCA
+> support uses a platform device solely to anchor the TSM interface in the
+> device hierarchy, which is not an appropriate use of a platform device.
+> Use an auxiliary device instead to track CCA support.
 
-Please allow others to actually review your patchsets. You sent v4
-immediately without waiting for v3 review.... which did happen. So now
-please address somewhere comments for v3.
+Why an aux device?  If this has no platform resources, please use the
+faux bus support instead, that is what it is there for.  aux devices are
+used when you are sharing a real resource among different "child"
+drivers, and need some way to coordinate that sharing.  If you have no
+resources, there's nothing to share, so no need for the complexity that
+aux gives you, just use faux instead.
 
-Best regards,
-Krzysztof
+thanks,
 
+greg k-h
 
