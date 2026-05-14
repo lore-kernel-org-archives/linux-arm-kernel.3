@@ -4,94 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1398ECD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0013FCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 16:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LhH0JEjl/o5WVfg5yQmTjjb3Q7eOlu7i/UoVw2wy4NY=; b=GMJu58zgCadlzGd+b+re9LC3Fl
-	B+AmtuohN22xs3fbcq8lb1fj5BbzcgUHlVnquYMQvQi/HUmrIfSj0c3vHQW3L2Mqbpn4av6nPtgHt
-	1Fz1GAqKslhvTjTiCh+rXPcA5boVZzMBKdUZouNo3qIgOmnvDcgoJen65qtwBQ+mRTDU2+FoBNbDZ
-	Z9KBbwSVf8Sn1G1ZM3FP7hwb+0eexkNM0aX7lqw+5cSHEcEEOPKta55xIv3B3KTryzx+Y6/Yu5zrI
-	VpJHmt2WOvarwlKlIvS6n32fFr8az4N+FiBGMB1y+xqF4UqGktPQDUcILu1qsuWk+JyzLNlkWXOYZ
-	uMxHPEAw==;
+	bh=S5IPGtMTr36U0PQ9/cgM7SuFHGMjQUvHJU9qcrF7GzM=; b=c9Slml0M3JOw9ZTXefb9SJAoCl
+	rEE+S5sPbtsriblqcmMNxeHGyYXc5LpesB6MTNN5zhOiYEDSijQs//QuNOJsYCFKvDDCkO7/ugaz2
+	WkaLT2f8HOZt+SESsMgjNoPLJ7T35TKmTXDfq8P6RV3Hu5niTc+WAlSyKhci1a6Xl+y8kdCZuNFoh
+	ZXyMzu6HokKt3M9f0/T6Z3lyoLR0EmP+dsArPeKgv/KtknyWl3tHYzQaRjHeNeQ8ow3UJCkmvkFSD
+	Z17ng2Kur89DgayNJyqI9pkMkDJct+XZwdURg1Ro6MBC96d6BO1hEFBZ+lTpyVrgSU78Qau3FZs3c
+	pG6NmRoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYud-000000063Wd-0Ipp;
-	Thu, 14 May 2026 16:27:51 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wNZ5Z-000000064zg-1KG0;
+	Thu, 14 May 2026 16:39:09 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNYuY-000000063VY-1uBB
+	id 1wNZ5V-000000064ye-34HF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 16:27:48 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-48e6db3ff7eso34978075e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 09:27:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778776064; x=1779380864; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LhH0JEjl/o5WVfg5yQmTjjb3Q7eOlu7i/UoVw2wy4NY=;
-        b=t9z0Xgsdf3uGdm8RmxQEpKQdmVDrzIZUUz+kDDXkKgNJg/jTDlERst1ZlhAv14uKeu
-         d/yNiBaBZTp2xVOhaUs3PG9D/SfEdOe254I2y7yrZyl3UsDVT/qQqFxJd9RczHW7oPPf
-         MjEQ5vLxAjyKaDxLtRK1odowsswCcj1mPxRwqpFxzVJWZXsjZCmS6XAy7rdPcZiJ6FY4
-         a4xa+VHjMI4KbxTGZ5xNtf/7n4exfYE7MesxqPALaVcoVck5u0N35DrrI/ch5NY5L9Wu
-         /cyjSls+ymlOvROnWxohJ+ftlimgFfVLqYrox3wd6ymEn8E1RHIsVHgYhKDxa6p5uUHv
-         o8gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778776064; x=1779380864;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=LhH0JEjl/o5WVfg5yQmTjjb3Q7eOlu7i/UoVw2wy4NY=;
-        b=r0hw8Qs64Og8MQy7LOt54OeOjQMZLSIavYSSQPCGW2B8kp3lJhfljSYoPB5XasMATC
-         Jm7WmI1A7JATlg3lrOva2DkRvqIRMhuI62BPjPSvRmzXa2q7RBkc8k89aZurl+8R8E0h
-         SHq9lSRamyyp2qwW15AroXsIbOI+KCin2dCq4lj9o3pN5Y/ZxzYGoMyA8KW/1bVZzZ+q
-         NkdUp0OCChA6izBckxkZtwVGFPXAFvBP9+zO/2RKqPwe1TKahPc4fcBPFcyRLNGSTTQM
-         qJP5b2Q77LuhpWA6TJx8dYa1zJ7I6WlvHNnNG4U0rKmDhgUrwcHcq7ZCK8ppiqP4vMzQ
-         mDig==
-X-Forwarded-Encrypted: i=1; AFNElJ8e2+wwZMd0dMEM1O1QACLDOszmo/vhhm35WSrGulI5J6IhVl+xk+NOidbPSy04ByJGusyCaQ1MUjlf+z2BdiwN@lists.infradead.org
-X-Gm-Message-State: AOJu0YwM1Z5J6yXLV+cNP0x7nt7MYYvaCLgUwvcHgKQwhalpPZ0K+Hbu
-	/tDpOqiJdTI2D3/YvY3jqN58N5x/gp7HxB7k664dJyT+XCXCsT04PeIIpKstcoMeIeA=
-X-Gm-Gg: Acq92OEc4eg3eabPFAKuoBWsJ57Y8p/tIo7wbuGxX2CIf865OZpFMqlICgxErkm/cw2
-	xtwFTurG7qOnurgoywdJgFwBh5h7x8KQzvksNBIKzqMPnJ5Nx3Zc6lUfIPZboUnNFWDddF/Guwm
-	RsrtHcM+Fvyje8N8HQYVR/kAKzoL3jRjHUa3Gg57Vc2yfb7EyfDXElsvzFZttibXEwQbwue6khp
-	pzvGAjZKUue8q3IReou4l+xy9W+yqsIBBtI9glptweuxjhTInc52ezXyNql0KR+QhuxcVbTg0/a
-	sOcpM0S1rIF4S23EvEDslb3SDGMUWysaFxawpzFBOFb/u8sDaDEOBf3YC7ClEHKNwfzhCMaFz3H
-	XC6Keks3oF45BY11QiZVZoaRlsTN1RmMlIIDjg1iLFiybk1LfYo6bMD+tJ6h67a91cPXQHkf82l
-	+N6KPWqaoGvlER6BS/2ahCHmq8KXCvvg==
-X-Received: by 2002:a05:600c:3b0f:b0:48f:e230:72fb with SMTP id 5b1f17b1804b1-48fe6631512mr881995e9.32.1778776064522;
-        Thu, 14 May 2026 09:27:44 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:8f63:bf1e:b5:28d8])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-48fd72984f5sm22510545e9.15.2026.05.14.09.27.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 May 2026 09:27:44 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Xianwei Zhao <xianwei.zhao@amlogic.com>,
-  Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  jian.hu@amlogic.com,
-  linux-kernel@vger.kernel.org,  linux-clk@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 10/10] clk: amlogic: Add A9 AO clock controller driver
-In-Reply-To: <20260511-b4-a9_clk-v1-10-41cb4071b7c9@amlogic.com> (Jian Hu
-	via's message of "Mon, 11 May 2026 20:47:32 +0800")
-References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
-	<20260511-b4-a9_clk-v1-10-41cb4071b7c9@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Thu, 14 May 2026 18:27:42 +0200
-Message-ID: <1j33zu6jnl.fsf@starbuckisacylon.baylibre.com>
+	Thu, 14 May 2026 16:39:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778776746; x=1810312746;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=cls7IPinDAJ4b3PTL8XCcu0rl21Ew6Pr39r4QM3qoI0=;
+  b=la5j9l5a8qzu49LYQCjOO/u5HJev850+9fAg0XtsgvY/yxMspeywBUce
+   nnZ/W9IxCmqs9VbC1mibfSnzdPOAKaFyFznQ3Zf7pAyxY0qXKvo+SAetu
+   uoB51lAiDMbgTopwf2cJuAz+JNbx/02xzYI1EfDqh2VcWkrObWzFevmc2
+   NXJaX4EqfFgj6OiRaZy5LSgsZTBU13smsHFIX1vOHLSJlROMJuK1JCjuV
+   YBpkBrg4oBPBOUmmYNpwGzOXiE2SKXXB5/FPpxzxF+7+6w7NiMbLalHGB
+   kbtRhQhUsq8/UWM06J6suN9pjhM/PATmVx/fXiMffeJcr6d+s0pbkL3Oh
+   w==;
+X-CSE-ConnectionGUID: tNxU6gXbSmKxNzWWoJvJgw==
+X-CSE-MsgGUID: CoYyNybZS8+38zMNciUF0A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11786"; a="97297740"
+X-IronPort-AV: E=Sophos;i="6.23,234,1770624000"; 
+   d="scan'208";a="97297740"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2026 09:39:05 -0700
+X-CSE-ConnectionGUID: 8cq09PghQLGn8tLqRF0WUw==
+X-CSE-MsgGUID: EX+UGtKNR82rsN4eDF7OAQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,234,1770624000"; 
+   d="scan'208";a="233995058"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2026 09:39:05 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 14 May 2026 09:39:04 -0700
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Thu, 14 May 2026 09:39:04 -0700
+Received: from BN8PR05CU002.outbound.protection.outlook.com (52.101.57.3) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Thu, 14 May 2026 09:39:04 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dTaTZ5aTGK/1W6pJvPDMWiIoottPNbKnB8i7DVHgZrHCBPVWFSqCMIFnXXN/6Mv47o0g2cHCNExqVpoSfM0wHU4vE43+DKoN7X4dtISNk570JXBOiydGHzxyeFe337+LIehKFFTPLx9PgvmABdkMr+c1knYeRA/6ZiRRdWey0xIGqrVEF1erSf+3Qu6MY9NXrSBnVxto4hPV2N1xCzFti4FCLeIahn7ooRO5mR4x5Eo7jIuqfyOeXM4QWwmnhQ1Faw+MHHvj0o/alWq4oczEdJ4g1uEYiHQdmxlFttgkITu3YZVwnb1Nmfpqxt5FKTs9AIvOXLnTJrcfjYPlAVGyqA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=S5IPGtMTr36U0PQ9/cgM7SuFHGMjQUvHJU9qcrF7GzM=;
+ b=S5kW4StPj7peBoUMZtOQbtNjMjAndrQl5vxELrR+H11mIn/y9UJw6fZ3bdZHNs3tbBv95TFQpYfKfpg8nNXaqF3nDc0F79FJLsJF9xVYai97j6uc5n/PpClYYms7IOENCH4Y1afUJrwhKfh7wHPhbODoZ2ltN03RwcCiGV0ACPonBCzSZWDhWAs5XqW8f1uSj/e7cHUfkJc4kYssY98yKtFh8WzDgDgvMYxVHrH7WtD+QCNLlGZXOCqrV5YaOqlXXvY6AH8yH5IRh8d3t0T7FNbowyQhzplJDnSAxVBj/EWkcD94lnSBwWWMhx0Xv8OxX8KebGKQ52ZI9YSeVVuqxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SN7PR11MB7592.namprd11.prod.outlook.com (2603:10b6:806:343::16)
+ by SAVPR11MB9549.namprd11.prod.outlook.com (2603:10b6:806:4e9::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Thu, 14 May
+ 2026 16:39:01 +0000
+Received: from SN7PR11MB7592.namprd11.prod.outlook.com
+ ([fe80::3e09:8700:df72:37b6]) by SN7PR11MB7592.namprd11.prod.outlook.com
+ ([fe80::3e09:8700:df72:37b6%6]) with mapi id 15.20.9913.012; Thu, 14 May 2026
+ 16:39:00 +0000
+Message-ID: <c579daa4-2144-4524-b107-6322281f5209@intel.com>
+Date: Thu, 14 May 2026 09:38:57 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/2] net: ti: icssg: Derive stats array lengths
+ from ARRAY_SIZE
+To: MD Danish Anwar <danishanwar@ti.com>, David CARLIER <devnexen@gmail.com>
+CC: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
+	<corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Roger Quadros
+	<rogerq@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, Meghana Malladi
+	<m-malladi@ti.com>, Kevin Hao <haokexin@gmail.com>, Vadim Fedorenko
+	<vadim.fedorenko@linux.dev>, <netdev@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Vignesh Raghavendra <vigneshr@ti.com>
+References: <20260512060627.3781329-1-danishanwar@ti.com>
+ <20260512060627.3781329-2-danishanwar@ti.com>
+ <CA+XhMqykBWcMdk+iNnOtUxM4MX6jpDyUwfuAVZFbjAShO9_v7Q@mail.gmail.com>
+ <6a1f411c-d7ed-463b-abf1-277d8cc0c184@ti.com>
+ <9fbf6682-b521-4b7e-b5b6-af91694ed051@intel.com>
+ <e28d2931-004e-4935-a0b5-d554ece76fb2@ti.com>
+Content-Language: en-US
+From: Jacob Keller <jacob.e.keller@intel.com>
+In-Reply-To: <e28d2931-004e-4935-a0b5-d554ece76fb2@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MW4P221CA0006.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:303:8b::11) To SN7PR11MB7592.namprd11.prod.outlook.com
+ (2603:10b6:806:343::16)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR11MB7592:EE_|SAVPR11MB9549:EE_
+X-MS-Office365-Filtering-Correlation-Id: f2476586-d0f0-4103-c36e-08deb1d74cd9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|11063799003|4143699003|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: NjQG7c4amekimMB5id5Lml/UV0xfD8M3uPz9LcI6s2xEq+gZ79payMybkJTpeCdtfZoERY2wOMo+y6Bj+4mvm9YAaoX17M5M3IqIdLguO/tbdd2NeJ0Uxp8JTvg9+gsqSSv7Pw17A5ntJx2S7fcEoZCN8sHzmUpQdkmjHXnJcenP7Qw8UqdL11SwwCmigfGiKa2JHIT3Hsnry0KBMTEk8zgJ+NSrVaXtdk9aluM2B1QxPaQ2NgLF7nSjfrmh+IQ5SMZpvqP2IQa0tCqgwRglLUpjfmqy2+6NGEv+E3s6d83Emvj6FbF5bmDoFbgbaWR9Fpal7pXQ9r9OVdRYFOO76DXgflFpL2uD9SLYi3H1wv3lh+bww71Wi+HhWNIhFRn3648jwO+yR9z9MvRF40AOFm8hGYYIEDKenpJT4ng4vmj5DKKb03r8mDfU1oi5lnkEWbsBGD7lQ4f9hqHFKGTKl+2ZxQPJpBui6fPryKHYki5ARKwSLudSz1ImN9Uw3JfC2cXkdJwA+MPu3PYlQ0DevaN7b0oyan5BW3LdfcZXfGkKopMWoAXNJawZSvJeersP0fEydms6rqtKPcvsi0mkIO3WswfkxiCDkafClFZdze01pMY+EYiS07Ddou5F/uqCldJODrTIcLFQYaqjJEG6yB3MiDG+4DCMRM/aXPn/EY7Tz29FwvtrThXBDjCaXYIY
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR11MB7592.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(11063799003)(4143699003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QjRHdTdjYjhML0FWNVNFQ1g0c3BLcTVEY1R6bzFnQ0VyTFFSY3FiZWcxVHBu?=
+ =?utf-8?B?Z3JVWXJYajlmSEhIK0hTRkMySHFLcEwwNGJybGxOR1pqMVlRR0JXS3BGdVNo?=
+ =?utf-8?B?ekg5cWlydnpENGliS0hMWWUzOFh6b2VXb00zWnEwU0UrTnFEOVhzM3RoSmpQ?=
+ =?utf-8?B?QTJSSTg1VTlibGV6SVg1YXNFYlpoTUZHS0txT3c3UkNZeXV2UVpFQVNTYW9k?=
+ =?utf-8?B?dFdjWnI0RThvT0gvR3Z0NkUzeDlJQzhXUFlQeXJIYU1oRTQyZWNHaEk0aTR1?=
+ =?utf-8?B?ZzdJaG93ci82dW14ZWE4ZDkvYUVhbG82M0RFeXZ4amxWenFHL0dzekVzcDUy?=
+ =?utf-8?B?SDFJcXpjSVRnbHZlSTgwSnM1UDh1MTZlYkFQRjIxWWE2akhkRHV3dU5Zb1JU?=
+ =?utf-8?B?enFnTllrc0prNFcvZEkvb2dhQTF2akNkZm13cGNQbG51V0hTM1hQcENWRmh3?=
+ =?utf-8?B?NkV1czQ3VUtKY0oxTHhMNElLT012eW16QW9UdHBDOEE1YWpONjQ4Z0VDbmNK?=
+ =?utf-8?B?eUorczE1b0VIbTFiUjd0UDhIWXlRWVhHeEZvMXMxeFB3UFRCMTNEeWdBWm5V?=
+ =?utf-8?B?L1dnaTNxUVZ3d3V1QmxhcDlTVEhtYTZ4MWtYRUJkVnppNXMwek9mWm9PaXd4?=
+ =?utf-8?B?ZFYrT1NmcUZybXpLN1g0cGx4dVFuSFpQeFNITmVISGNWM1EyK2FBQUpCNWpl?=
+ =?utf-8?B?MnpvZGJxRGJQVWUrOE4zUzVuYW1XNmxsVDM1VE1MYTY2TUk4VXQ0YjNEb25P?=
+ =?utf-8?B?NlMyaDVIc05kQ2NUN2pCaHZ2N01Fa2ZJUDNKbEY0T1VYNXBDeW1KQmdTNXdY?=
+ =?utf-8?B?aHBkbVIzbm9nczdxNjRSMXg1Ni9KcjMxM3B6akk1c05PMUVpS2liOG1oMUFC?=
+ =?utf-8?B?Um8vQ3hwOEJoYXNNbUtkTzFUd2Q1b0RLYWU3V1ZhUlVYTzhqaWNtVFNsSEZI?=
+ =?utf-8?B?Q0gzZHRHWlY4dk1yRnVyeFdSMmNjQ3hxR3lMVm4xV09FRHFKT3BnbTFzNEkv?=
+ =?utf-8?B?Yi95SEFLVnNtZ0RXQTZYckpISGFzKytxblMrdG4vRVlYZFBFSzJKaUFoUUxp?=
+ =?utf-8?B?R2RtTFU1bHkrQUNFOG13TENCZm1Sa2xYcHorYW9YUWJoQVU4TEVtbG1YZlF1?=
+ =?utf-8?B?eDlDaWRLaVE0UEpPbUQrTHhic0xwRGFHb0ZpdG05MlliOEZBakhkUWY5T0tP?=
+ =?utf-8?B?OTJHYjFJWmxZSTNrSDJlSEM2enkrNW9ZOUlTaVk0STdoV3FnVlBxb0w5WTJQ?=
+ =?utf-8?B?SDRpVCtXZGhrZDhhb3J0RzhJUSt5MlNpY2lBZ0NOVWd5TFF6Ri8ya3d4Viti?=
+ =?utf-8?B?N0Y0VGY2K0ZhNCtKN3JNdEgxQTFSbE1UV0djVEdiVUxySXRYTVhjaGUxQWt5?=
+ =?utf-8?B?ZGliMDVPcHZvZFZBdENrdld3WFpDK3BRZXFmTzVpd1BMdnVpYzFZNEhkS0tp?=
+ =?utf-8?B?Y1RRZUJwWkNiOER3RUQ5NTBhMDlPSTMrNmpqbjVYYnlQQXV1QTZhUFdrcElZ?=
+ =?utf-8?B?clhiMXJybUJ5SFc0UDRBbExJc3luS1NuWjNyRVBya0RObTg4YURiYVNqSzdF?=
+ =?utf-8?B?NzBaNUhCNHBlRjVTMlRERUhNT2xnVlhVRHlpRUk1aXRhQysrY0psb1FKRzVz?=
+ =?utf-8?B?aS9OQVRvenBHU0NYSFRidkxTbjlPUWtPNmtTUmp2SHlTUit0d0xWRXhvQ2x3?=
+ =?utf-8?B?Q3FIUzJxQnorU254aXQ0anZJMVhpVkxXWlVwUXg4V2R4M0pBYndUWmNuT0Jx?=
+ =?utf-8?B?RXRsM0hpdHVsdmlwdGNZbkhoZENVdkp4d29iRyt6TUU2RVhoajR2QkVBVHE2?=
+ =?utf-8?B?Mm9DRVN0OXNKRVZrWWRRcmxHQnZnakdydDJvcHdyT01vL0RQMjYvZGJuR2No?=
+ =?utf-8?B?NGErMWhhTk4zM2p0a3pMOER3YVR5TmRIa1dTRjlXdlFPdzBNbm41a0pxL3Jk?=
+ =?utf-8?B?R3p1eTU2dHJBa1VuL0U1TFFSb3ZoSFg1T1F1dWdUeEhLZEZxRXc5Y2lqdlhz?=
+ =?utf-8?B?Zmhod3l1ZjNPSTJreVV6ZUxxMG40V3ZUSjMxenlpMWxpbjNIMFcwaUZoajR4?=
+ =?utf-8?B?U0QxNlo4OTNVYlVKOTB1RUpiRHJ4cFZ1L3lXakp4R0dpYnVLb01WdTlaZUN5?=
+ =?utf-8?B?ZkdvVTdVTzBodGhuSno2d3ArZ3lNWTFhVkE2MC9LZlU2UGNzS2dSMnphQUFV?=
+ =?utf-8?B?RW04dFpkZ096Tk9YclM2eVlvWHZxNFNjWFJZM1JtR1orMThFOTVobkFRK2hk?=
+ =?utf-8?B?bUtyVUIwcEtGR3pmQ2pzeDZkeHowUFN3Y2R1emNvT1duQ0xGTFZnbnFWSmtq?=
+ =?utf-8?B?aGhmb3dBOW84b1dzR1NGMFpyTVRmcWRQNVlYdXVBWiszd2pnVDJxbjMreTBz?=
+ =?utf-8?Q?p5OxOf+KDI8q9UHI=3D?=
+X-Exchange-RoutingPolicyChecked: WUJWzRFfB6AJInA9yr3gGeQrsJXH8/voLDA2EMP8W0MkTqohZSi/KVE3t2Ej248zJ5VNK3UEP5klaimAkoDLSriHGnfvhc1j33PZnDOO6STuQUDnS1wbH3uizH42qEYAH+vcXFGvFk/SZGbafjeAL5uR7L05hTFDhzorfI5GTFH+Hjxva94inneajiKgAYATayfFlSf5h42HdX6Qbu4SAaTDsFVrWyK+7GHNVe38M58hqCVeWdxu18dZSPTl6tV24Gkgr6CZAJdkXYYcYFwkuCWc30b6K77PzXLWUxp3TWt33zmiN49qUnzeDQvHBcnBuHQA3iawRfzk3mrXX/nmYQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: f2476586-d0f0-4103-c36e-08deb1d74cd9
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR11MB7592.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 May 2026 16:39:00.1749
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BYHtrteL/b46R+5vL/CrwXQ5ZPfJ2VwTLq6VKq3O9tmKS+I8jUa0flHs6XZnQavtS0d10JAxpNfxcQCd9opgSfoHntTnbWm/LAkK05lS2DY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAVPR11MB9549
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_092746_641763_C819B564 
-X-CRM114-Status: GOOD (  20.78  )
+X-CRM114-CacheID: sfid-20260514_093905_794024_D9DDE14B 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,535 +195,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On lun. 11 mai 2026 at 20:47, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
+On 5/13/2026 9:56 PM, MD Danish Anwar wrote:
+> Hi Jacob,
+> 
+> On 14/05/26 1:30 am, Jacob Keller wrote:
+>> The way we solved this in the Intel drivers is to use a single array
+>> which contains both the stat name as well as the offset from the
+>> structure where the stat resides.
+>>
+>> The stat string code just iterates over the stat list for the strings,
+>> while the stat value code iterates the array and computes the stat
+>> address from the offset and size and base structure pointer. Each object
+>> that has stats has its own stat array structure.
+>>
+>> This is probably overkill, but the advantage is that the strings and
+>> their values are stored together and adding a new stat is as simple as
+>> adding a new entry to that list.
+>>
+>> I.e.
+>>
+>> struct ice_stats {
+>>         char stat_string[ETH_GSTRING_LEN];
+>>         int sizeof_stat;
+>>         int stat_offset;
+>> };
+>>
+>> #define ICE_STAT(_type, _name, _stat) { \
+>>         .stat_string = _name, \
+>>         .sizeof_stat = sizeof_field(_type, _stat), \
+>>         .stat_offset = offsetof(_type, _stat) \
+>> }
+>>
+>> #define ICE_VSI_STAT(_name, _stat) \
+>>                 ICE_STAT(struct ice_vsi, _name, _stat)
+>> #define ICE_PF_STAT(_name, _stat) \
+>>                 ICE_STAT(struct ice_pf, _name, _stat)
+>>
+>>
+>> Then the stats for the individial arrays are defined like this:
+>>
+>> static const struct ice_stats ice_gstrings_vsi_stats[] = {
+>>         ICE_VSI_STAT(ICE_RX_UNICAST, eth_stats.rx_unicast),
+>>         ICE_VSI_STAT(ICE_TX_UNICAST, eth_stats.tx_unicast),
+>>         ICE_VSI_STAT(ICE_RX_MULTICAST, eth_stats.rx_multicast),
+>>         ICE_VSI_STAT(ICE_TX_MULTICAST, eth_stats.tx_multicast),
+>>         ICE_VSI_STAT(ICE_RX_BROADCAST, eth_stats.rx_broadcast),
+>>         ICE_VSI_STAT(ICE_TX_BROADCAST, eth_stats.tx_broadcast),
+>> 	...
+>> };
+>>
+>> (Note, ICE_RX_UNICAST is a macro that defines the string value.. I don't
+>> recall who changed this to macros or why vs just having the strings be
+>> directly in the definition...)
+>>
+> 
+> Thanks for sharing the ice driver pattern — that's a clean design.
+> 
+>> This is probably a lot bigger refactor to make work, and may not be
+>> exactly suitable for your driver. I've considered "upgrading" these data
+> 
+> Yes, I need to see if refactoring is applicable to ICSSG or not. I will
+> look into this and send a separate patch / series in future if
+> applicable. For this series I will stick with what David Carlier suggested.
+> 
+Makes sense. No need to bloat this by more work immediately. I just
+wanted to point it out.
 
-> From: Jian Hu <jian.hu@amlogic.com>
->
-> Add the Always-on clock controller driver for the Amlogic A9 SoC family.
->
-> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
-> ---
->  drivers/clk/meson/Makefile   |   2 +-
->  drivers/clk/meson/a9-aoclk.c | 494 +++++++++++++++++++++++++++++++++++++++++++
->  2 files changed, 495 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/clk/meson/Makefile b/drivers/clk/meson/Makefile
-> index 2b5b67b14efc..91af609ce815 100644
-> --- a/drivers/clk/meson/Makefile
-> +++ b/drivers/clk/meson/Makefile
-> @@ -20,7 +20,7 @@ obj-$(CONFIG_COMMON_CLK_AXG_AUDIO) += axg-audio.o
->  obj-$(CONFIG_COMMON_CLK_A1_PLL) += a1-pll.o
->  obj-$(CONFIG_COMMON_CLK_A1_PERIPHERALS) += a1-peripherals.o
->  obj-$(CONFIG_COMMON_CLK_A9_PLL) += a9-pll.o
-> -obj-$(CONFIG_COMMON_CLK_A9_PERIPHERALS) += a9-peripherals.o
-> +obj-$(CONFIG_COMMON_CLK_A9_PERIPHERALS) += a9-peripherals.o a9-aoclk.o
->  obj-$(CONFIG_COMMON_CLK_C3_PLL) += c3-pll.o
->  obj-$(CONFIG_COMMON_CLK_C3_PERIPHERALS) += c3-peripherals.o
->  obj-$(CONFIG_COMMON_CLK_GXBB) += gxbb.o gxbb-aoclk.o
-> diff --git a/drivers/clk/meson/a9-aoclk.c b/drivers/clk/meson/a9-aoclk.c
-> new file mode 100644
-> index 000000000000..3c42eaf585d2
-> --- /dev/null
-> +++ b/drivers/clk/meson/a9-aoclk.c
-> @@ -0,0 +1,494 @@
-> +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-> +/*
-> + * Copyright (C) 2026 Amlogic, Inc. All rights reserved
-> + */
-> +
-> +#include <linux/clk-provider.h>
-> +#include <linux/platform_device.h>
-> +#include <dt-bindings/clock/amlogic,a9-aoclkc.h>
-> +#include "clk-regmap.h"
-> +#include "clk-dualdiv.h"
-> +#include "meson-clkc-utils.h"
-> +
-> +#define AO_OSCIN_CTRL			0x00
-> +#define AO_SYS_CLK0			0x04
-> +#define AO_PWM_CLK_A_CTRL		0x1c
-> +#define AO_PWM_CLK_B_CTRL		0x20
-> +#define AO_PWM_CLK_C_CTRL		0x24
-> +#define AO_PWM_CLK_D_CTRL		0x28
-> +#define AO_PWM_CLK_E_CTRL		0x2c
-> +#define AO_PWM_CLK_F_CTRL		0x30
-> +#define AO_PWM_CLK_G_CTRL		0x34
-> +#define AO_CEC_CTRL0			0x38
-> +#define AO_CEC_CTRL1			0x3c
-> +#define AO_RTC_BY_OSCIN_CTRL0		0x50
-> +#define AO_RTC_BY_OSCIN_CTRL1		0x54
-> +
-> +#define A9_COMP_SEL(_name, _reg, _shift, _mask, _pdata) \
-> +	MESON_COMP_SEL(a9_, _name, _reg, _shift, _mask, _pdata, NULL, 0, 0)
-                       a9_ao_ ?
-
-
-> +
-> +#define A9_COMP_DIV(_name, _reg, _shift, _width) \
-> +	MESON_COMP_DIV(a9_, _name, _reg, _shift, _width, 0, CLK_SET_RATE_PARENT)
-> +
-> +#define A9_COMP_GATE(_name, _reg, _bit) \
-> +	MESON_COMP_GATE(a9_, _name, _reg, _bit, CLK_SET_RATE_PARENT)
-> +
-> +static struct clk_regmap a9_ao_xtal_in = {
-> +	.data = &(struct clk_regmap_gate_data){
-> +		.offset = AO_OSCIN_CTRL,
-> +		.bit_idx = 3,
-> +	},
-> +	.hw.init = &(struct clk_init_data) {
-> +		.name = "ao_xtal_in",
-> +		.ops = &clk_regmap_gate_ops,
-> +		.parent_data = &(const struct clk_parent_data) {
-> +			.fw_name = "xtal",
-> +		},
-> +		.num_parents = 1,
-> +		/*
-> +		 * It may be ao_sys's parent clock, its child clocks mark
-> +		 * CLK_IS_CRITICAL, So mark CLK_IS_CRITICAL for it.
-> +		 */
-> +		.flags = CLK_IS_CRITICAL,
-> +	},
-> +};
-> +
-> +static struct clk_regmap a9_ao_xtal = {
-> +	.data = &(struct clk_regmap_mux_data) {
-> +		.offset = AO_OSCIN_CTRL,
-> +		.mask = 0x1,
-> +		.shift = 0,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "ao_xtal",
-> +		.ops = &clk_regmap_mux_ops,
-> +		/* ext_32k is from external PAD, do not automatically reparent */
-> +		.parent_data = (const struct clk_parent_data []) {
-> +			{ .hw = &a9_ao_xtal_in.hw },
-> +			{ .fw_name = "ext_32k", },
-> +		},
-> +		.num_parents = 2,
-> +		.flags = CLK_SET_RATE_NO_REPARENT,
-> +	},
-> +};
-> +
-> +static struct clk_regmap a9_ao_sys = {
-> +	.data = &(struct clk_regmap_mux_data) {
-> +		.offset = AO_OSCIN_CTRL,
-> +		.mask = 0x1,
-> +		.shift = 1,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "ao_sys",
-> +		.ops = &clk_regmap_mux_ops,
-> +		.parent_data = (const struct clk_parent_data []) {
-> +			{ .hw = &a9_ao_xtal.hw },
-> +			{ .fw_name = "sys", },
-> +		},
-> +		.num_parents = 2,
-> +		.flags = CLK_SET_PARENT_GATE,
-> +	},
-> +};
-> +
-> +static const struct clk_parent_data a9_ao_pclk_parents = { .hw = &a9_ao_sys.hw };
-> +
-> +#define A9_AO_PCLK(_name, _bit, _flags)		       \
-> +	MESON_PCLK(a9_ao_sys_##_name, AO_SYS_CLK0, _bit, \
-> +		   &a9_ao_pclk_parents, _flags)
-> +
-> +/*
-> + * A9 integrates a low-power microprocessor (Always-on CPU: AOCPU). Some AO sys
-> + * clocks control the AOCPU modules. Mark the AOCPU-related clocks with
-> + * CLK_IS_CRITICAL to avoid them being disabled and impacting AOCPU functionality.
-> + * AOCPU-related clocks list:
-> + * - clktree
-> + * - rst_ctrl
-> + * - pad
-> + * - irq
-> + * - pwrctrl
-> + * - aocpu
-> + * - sram
-> + */
-> +static A9_AO_PCLK(i2c3,		0,	0);
-> +static A9_AO_PCLK(rtc_reg,	1,	0);
-> +static A9_AO_PCLK(clktree,	2,	CLK_IS_CRITICAL);
-> +static A9_AO_PCLK(rst_ctrl,	3,	CLK_IS_CRITICAL);
-> +static A9_AO_PCLK(pad,		4,	CLK_IS_CRITICAL);
-> +static A9_AO_PCLK(rtc_dig,	5,	0);
-> +static A9_AO_PCLK(irq,		6,	CLK_IS_CRITICAL);
-> +static A9_AO_PCLK(pwrctrl,	7,	CLK_IS_CRITICAL);
-> +static A9_AO_PCLK(pwm_a,	8,	0);
-> +static A9_AO_PCLK(pwm_b,	9,	0);
-> +static A9_AO_PCLK(pwm_c,	10,	0);
-> +static A9_AO_PCLK(pwm_d,	11,	0);
-> +static A9_AO_PCLK(pwm_e,	12,	0);
-> +static A9_AO_PCLK(pwm_f,	13,	0);
-> +static A9_AO_PCLK(pwm_g,	14,	0);
-> +static A9_AO_PCLK(i2c_a,	15,	0);
-> +static A9_AO_PCLK(i2c_b,	16,	0);
-> +static A9_AO_PCLK(i2c_c,	17,	0);
-> +static A9_AO_PCLK(i2c_d,	18,	0);
-> +static A9_AO_PCLK(sed,		19,	0);
-> +static A9_AO_PCLK(ir_ctrl,	20,	0);
-> +static A9_AO_PCLK(uart_b,	21,	0);
-> +static A9_AO_PCLK(uart_c,	22,	0);
-> +static A9_AO_PCLK(uart_d,	23,	0);
-> +static A9_AO_PCLK(uart_e,	24,	0);
-> +static A9_AO_PCLK(spisg_0,	25,	0);
-> +static A9_AO_PCLK(rtc_secure,	26,	0);
-> +static A9_AO_PCLK(cec,		27,	0);
-> +static A9_AO_PCLK(aocpu,	28,	CLK_IS_CRITICAL);
-> +static A9_AO_PCLK(sram,		29,	CLK_IS_CRITICAL);
-> +static A9_AO_PCLK(spisg_1,	30,	0);
-> +static A9_AO_PCLK(spisg_2,	31,	0);
-> +
-> +static const struct clk_parent_data a9_ao_pwm_parents[] = {
-> +	{ .hw = &a9_ao_xtal.hw },
-> +	{ .fw_name = "fdiv5", },
-> +	{ .fw_name = "fdiv4", },
-> +	{ .fw_name = "fdiv3", }
-> +};
-> +
-> +static A9_COMP_SEL(ao_pwm_a, AO_PWM_CLK_A_CTRL, 9, 0x7, a9_ao_pwm_parents);
-> +static A9_COMP_DIV(ao_pwm_a, AO_PWM_CLK_A_CTRL, 0, 8);
-> +static A9_COMP_GATE(ao_pwm_a, AO_PWM_CLK_A_CTRL, 8);
-> +
-> +static A9_COMP_SEL(ao_pwm_b, AO_PWM_CLK_B_CTRL, 9, 0x7, a9_ao_pwm_parents);
-> +static A9_COMP_DIV(ao_pwm_b, AO_PWM_CLK_B_CTRL, 0, 8);
-> +static A9_COMP_GATE(ao_pwm_b, AO_PWM_CLK_A_CTRL, 8);
-> +
-> +static A9_COMP_SEL(ao_pwm_c, AO_PWM_CLK_C_CTRL, 9, 0x7, a9_ao_pwm_parents);
-> +static A9_COMP_DIV(ao_pwm_c, AO_PWM_CLK_C_CTRL, 0, 8);
-> +static A9_COMP_GATE(ao_pwm_c, AO_PWM_CLK_C_CTRL, 8);
-> +
-> +static A9_COMP_SEL(ao_pwm_d, AO_PWM_CLK_D_CTRL, 9, 0x7, a9_ao_pwm_parents);
-> +static A9_COMP_DIV(ao_pwm_d, AO_PWM_CLK_D_CTRL, 0, 8);
-> +static A9_COMP_GATE(ao_pwm_d, AO_PWM_CLK_D_CTRL, 8);
-> +
-> +static A9_COMP_SEL(ao_pwm_e, AO_PWM_CLK_E_CTRL, 9, 0x7, a9_ao_pwm_parents);
-> +static A9_COMP_DIV(ao_pwm_e, AO_PWM_CLK_E_CTRL, 0, 8);
-> +static A9_COMP_GATE(ao_pwm_e, AO_PWM_CLK_E_CTRL, 8);
-> +
-> +static A9_COMP_SEL(ao_pwm_f, AO_PWM_CLK_F_CTRL, 9, 0x7, a9_ao_pwm_parents);
-> +static A9_COMP_DIV(ao_pwm_f, AO_PWM_CLK_F_CTRL, 0, 8);
-> +static A9_COMP_GATE(ao_pwm_f, AO_PWM_CLK_F_CTRL, 8);
-> +
-> +static A9_COMP_SEL(ao_pwm_g, AO_PWM_CLK_G_CTRL, 9, 0x7, a9_ao_pwm_parents);
-> +static A9_COMP_DIV(ao_pwm_g, AO_PWM_CLK_G_CTRL, 0, 8);
-> +static A9_COMP_GATE(ao_pwm_g, AO_PWM_CLK_G_CTRL, 8);
-> +
-> +static struct clk_regmap a9_ao_rtc_dualdiv_in = {
-> +	.data = &(struct clk_regmap_gate_data){
-> +		.offset = AO_RTC_BY_OSCIN_CTRL0,
-> +		.bit_idx = 31,
-> +	},
-> +	.hw.init = &(struct clk_init_data) {
-> +		.name = "ao_rtc_duandiv_in",
-> +		.ops = &clk_regmap_gate_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&a9_ao_xtal.hw
-> +		},
-> +		.num_parents = 1,
-> +	},
-> +};
-> +
-> +static const struct meson_clk_dualdiv_param a9_ao_dualdiv_table[] = {
-> +	{ 733, 732, 8, 11, 1 },
-> +	{ /* sentinel */ }
-> +};
-> +
-> +static struct clk_regmap a9_ao_rtc_dualdiv_div = {
-> +	.data = &(struct meson_clk_dualdiv_data){
-> +		.n1 = {
-> +			.reg_off = AO_RTC_BY_OSCIN_CTRL0,
-> +			.shift   = 0,
-> +			.width   = 12,
-> +		},
-> +		.n2 = {
-> +			.reg_off = AO_RTC_BY_OSCIN_CTRL0,
-> +			.shift   = 12,
-> +			.width   = 12,
-> +		},
-> +		.m1 = {
-> +			.reg_off = AO_RTC_BY_OSCIN_CTRL1,
-> +			.shift   = 0,
-> +			.width   = 12,
-> +		},
-> +		.m2 = {
-> +			.reg_off = AO_RTC_BY_OSCIN_CTRL1,
-> +			.shift   = 12,
-> +			.width   = 12,
-> +		},
-> +		.dual = {
-> +			.reg_off = AO_RTC_BY_OSCIN_CTRL0,
-> +			.shift   = 28,
-> +			.width   = 1,
-> +		},
-> +		.table = a9_ao_dualdiv_table,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "a9_ao_rtc_dualdiv_div",
-> +		.ops = &meson_clk_dualdiv_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&a9_ao_rtc_dualdiv_in.hw
-> +		},
-> +		.num_parents = 1,
-> +	},
-> +};
-> +
-> +static struct clk_regmap a9_ao_rtc_dualdiv_sel = {
-> +	.data = &(struct clk_regmap_mux_data) {
-> +		.offset = AO_RTC_BY_OSCIN_CTRL1,
-> +		.mask = 0x1,
-> +		.shift = 24,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "ao_rtc_dualdiv_sel",
-> +		.ops = &clk_regmap_mux_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&a9_ao_rtc_dualdiv_div.hw,
-> +			&a9_ao_rtc_dualdiv_in.hw,
-> +		},
-> +		.num_parents = 2,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +static struct clk_regmap a9_ao_rtc_dualdiv = {
-> +	.data = &(struct clk_regmap_gate_data){
-> +		.offset = AO_RTC_BY_OSCIN_CTRL0,
-> +		.bit_idx = 30,
-> +	},
-> +	.hw.init = &(struct clk_init_data) {
-> +		.name = "ao_rtc_dualdiv",
-> +		.ops = &clk_regmap_gate_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&a9_ao_rtc_dualdiv_sel.hw
-> +		},
-> +		.num_parents = 1,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +static struct clk_regmap a9_ao_rtc = {
-> +	.data = &(struct clk_regmap_mux_data) {
-> +		.offset = AO_RTC_BY_OSCIN_CTRL1,
-> +		.mask = 0x1,
-> +		.shift = 30,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "ao_rtc",
-> +		.ops = &clk_regmap_mux_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&a9_ao_xtal.hw,
-> +			&a9_ao_rtc_dualdiv.hw,
-> +		},
-> +		.num_parents = 2,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +static struct clk_regmap a9_ao_cec_dualdiv_in = {
-> +	.data = &(struct clk_regmap_gate_data){
-> +		.offset = AO_CEC_CTRL0,
-> +		.bit_idx = 31,
-> +	},
-> +	.hw.init = &(struct clk_init_data) {
-> +		.name = "ao_cec_dualdiv_in",
-> +		.ops = &clk_regmap_gate_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&a9_ao_xtal.hw
-> +		},
-> +		.num_parents = 1,
-> +	},
-> +};
-> +
-> +static struct clk_regmap a9_ao_cec_dualdiv_div = {
-> +	.data = &(struct meson_clk_dualdiv_data){
-> +		.n1 = {
-> +			.reg_off = AO_CEC_CTRL0,
-> +			.shift   = 0,
-> +			.width   = 12,
-> +		},
-> +		.n2 = {
-> +			.reg_off = AO_CEC_CTRL0,
-> +			.shift   = 12,
-> +			.width   = 12,
-> +		},
-> +		.m1 = {
-> +			.reg_off = AO_CEC_CTRL1,
-> +			.shift   = 0,
-> +			.width   = 12,
-> +		},
-> +		.m2 = {
-> +			.reg_off = AO_CEC_CTRL1,
-> +			.shift   = 12,
-> +			.width   = 12,
-> +		},
-> +		.dual = {
-> +			.reg_off = AO_CEC_CTRL0,
-> +			.shift   = 28,
-> +			.width   = 1,
-> +		},
-> +		.table = a9_ao_dualdiv_table,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "ao_cec_dualdiv_div",
-> +		.ops = &meson_clk_dualdiv_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&a9_ao_cec_dualdiv_in.hw
-> +		},
-> +		.num_parents = 1,
-> +	},
-> +};
-> +
-> +static struct clk_regmap a9_ao_cec_dualdiv_sel = {
-> +	.data = &(struct clk_regmap_mux_data) {
-> +		.offset = AO_CEC_CTRL1,
-> +		.mask = 0x1,
-> +		.shift = 24,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "ao_cec_dualdiv_sel",
-> +		.ops = &clk_regmap_mux_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&a9_ao_cec_dualdiv_div.hw,
-> +			&a9_ao_cec_dualdiv_in.hw,
-> +		},
-> +		.num_parents = 2,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +static struct clk_regmap a9_ao_cec_dualdiv = {
-> +	.data = &(struct clk_regmap_gate_data){
-> +		.offset = AO_CEC_CTRL0,
-> +		.bit_idx = 30,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "ao_cec_dualdiv",
-> +		.ops = &clk_regmap_gate_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&a9_ao_cec_dualdiv_sel.hw
-> +		},
-> +		.num_parents = 1,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +static struct clk_regmap a9_ao_cec = {
-> +	.data = &(struct clk_regmap_mux_data) {
-> +		.offset = AO_CEC_CTRL1,
-> +		.mask = 0x1,
-> +		.shift = 30,
-> +	},
-> +	.hw.init = &(struct clk_init_data){
-> +		.name = "ao_cec",
-> +		.ops = &clk_regmap_mux_ops,
-> +		.parent_hws = (const struct clk_hw *[]) {
-> +			&a9_ao_cec_dualdiv.hw,
-> +			&a9_ao_rtc.hw,
-> +		},
-> +		.num_parents = 2,
-> +		.flags = CLK_SET_RATE_PARENT,
-> +	},
-> +};
-> +
-> +static struct clk_hw *a9_ao_hw_clks[] = {
-> +	[CLKID_AO_XTAL_IN]		= &a9_ao_xtal_in.hw,
-> +	[CLKID_AO_XTAL]			= &a9_ao_xtal.hw,
-> +	[CLKID_AO_SYS]			= &a9_ao_sys.hw,
-> +	[CLKID_AO_SYS_I3C]		= &a9_ao_sys_i2c3.hw,
-> +	[CLKID_AO_SYS_RTC_REG]		= &a9_ao_sys_rtc_reg.hw,
-> +	[CLKID_AO_SYS_CLKTREE]		= &a9_ao_sys_clktree.hw,
-> +	[CLKID_AO_SYS_RST_CTRL]		= &a9_ao_sys_rst_ctrl.hw,
-> +	[CLKID_AO_SYS_PAD]		= &a9_ao_sys_pad.hw,
-> +	[CLKID_AO_SYS_RTC_DIG]		= &a9_ao_sys_rtc_dig.hw,
-> +	[CLKID_AO_SYS_IRQ]		= &a9_ao_sys_irq.hw,
-> +	[CLKID_AO_SYS_PWRCTRL]		= &a9_ao_sys_pwrctrl.hw,
-> +	[CLKID_AO_SYS_PWM_A]		= &a9_ao_sys_pwm_a.hw,
-> +	[CLKID_AO_SYS_PWM_B]		= &a9_ao_sys_pwm_b.hw,
-> +	[CLKID_AO_SYS_PWM_C]		= &a9_ao_sys_pwm_c.hw,
-> +	[CLKID_AO_SYS_PWM_D]		= &a9_ao_sys_pwm_d.hw,
-> +	[CLKID_AO_SYS_PWM_E]		= &a9_ao_sys_pwm_e.hw,
-> +	[CLKID_AO_SYS_PWM_F]		= &a9_ao_sys_pwm_f.hw,
-> +	[CLKID_AO_SYS_PWM_G]		= &a9_ao_sys_pwm_g.hw,
-> +	[CLKID_AO_SYS_I2C_A]		= &a9_ao_sys_i2c_a.hw,
-> +	[CLKID_AO_SYS_I2C_B]		= &a9_ao_sys_i2c_b.hw,
-> +	[CLKID_AO_SYS_I2C_C]		= &a9_ao_sys_i2c_c.hw,
-> +	[CLKID_AO_SYS_I2C_D]		= &a9_ao_sys_i2c_d.hw,
-> +	[CLKID_AO_SYS_SED]		= &a9_ao_sys_sed.hw,
-> +	[CLKID_AO_SYS_IR_CTRL]		= &a9_ao_sys_ir_ctrl.hw,
-> +	[CLKID_AO_SYS_UART_B]		= &a9_ao_sys_uart_b.hw,
-> +	[CLKID_AO_SYS_UART_C]		= &a9_ao_sys_uart_c.hw,
-> +	[CLKID_AO_SYS_UART_D]		= &a9_ao_sys_uart_d.hw,
-> +	[CLKID_AO_SYS_UART_E]		= &a9_ao_sys_uart_e.hw,
-> +	[CLKID_AO_SYS_SPISG_0]		= &a9_ao_sys_spisg_0.hw,
-> +	[CLKID_AO_SYS_RTC_SECURE]	= &a9_ao_sys_rtc_secure.hw,
-> +	[CLKID_AO_SYS_CEC]		= &a9_ao_sys_cec.hw,
-> +	[CLKID_AO_SYS_AOCPU]		= &a9_ao_sys_aocpu.hw,
-> +	[CLKID_AO_SYS_SRAM]		= &a9_ao_sys_sram.hw,
-> +	[CLKID_AO_SYS_SPISG_1]		= &a9_ao_sys_spisg_1.hw,
-> +	[CLKID_AO_SYS_SPISG_2]		= &a9_ao_sys_spisg_2.hw,
-> +	[CLKID_AO_PWM_A_SEL]		= &a9_ao_pwm_a_sel.hw,
-> +	[CLKID_AO_PWM_A_DIV]		= &a9_ao_pwm_a_div.hw,
-> +	[CLKID_AO_PWM_A]		= &a9_ao_pwm_a.hw,
-> +	[CLKID_AO_PWM_B_SEL]		= &a9_ao_pwm_b_sel.hw,
-> +	[CLKID_AO_PWM_B_DIV]		= &a9_ao_pwm_b_div.hw,
-> +	[CLKID_AO_PWM_B]		= &a9_ao_pwm_b.hw,
-> +	[CLKID_AO_PWM_C_SEL]		= &a9_ao_pwm_c_sel.hw,
-> +	[CLKID_AO_PWM_C_DIV]		= &a9_ao_pwm_c_div.hw,
-> +	[CLKID_AO_PWM_C]		= &a9_ao_pwm_c.hw,
-> +	[CLKID_AO_PWM_D_SEL]		= &a9_ao_pwm_d_sel.hw,
-> +	[CLKID_AO_PWM_D_DIV]		= &a9_ao_pwm_d_div.hw,
-> +	[CLKID_AO_PWM_D]		= &a9_ao_pwm_d.hw,
-> +	[CLKID_AO_PWM_E_SEL]		= &a9_ao_pwm_e_sel.hw,
-> +	[CLKID_AO_PWM_E_DIV]		= &a9_ao_pwm_e_div.hw,
-> +	[CLKID_AO_PWM_E]		= &a9_ao_pwm_e.hw,
-> +	[CLKID_AO_PWM_F_SEL]		= &a9_ao_pwm_f_sel.hw,
-> +	[CLKID_AO_PWM_F_DIV]		= &a9_ao_pwm_f_div.hw,
-> +	[CLKID_AO_PWM_F]		= &a9_ao_pwm_f.hw,
-> +	[CLKID_AO_PWM_G_SEL]		= &a9_ao_pwm_g_sel.hw,
-> +	[CLKID_AO_PWM_G_DIV]		= &a9_ao_pwm_g_div.hw,
-> +	[CLKID_AO_PWM_G]		= &a9_ao_pwm_g.hw,
-> +	[CLKID_AO_RTC_DUALDIV_IN]	= &a9_ao_rtc_dualdiv_in.hw,
-> +	[CLKID_AO_RTC_DUALDIV_DIV]	= &a9_ao_rtc_dualdiv_div.hw,
-> +	[CLKID_AO_RTC_DUALDIV_SEL]	= &a9_ao_rtc_dualdiv_sel.hw,
-> +	[CLKID_AO_RTC_DUALDIV]		= &a9_ao_rtc_dualdiv.hw,
-> +	[CLKID_AO_RTC]			= &a9_ao_rtc.hw,
-> +	[CLKID_AO_CEC_DUALDIV_IN]	= &a9_ao_cec_dualdiv_in.hw,
-> +	[CLKID_AO_CEC_DUALDIV_DIV]	= &a9_ao_cec_dualdiv_div.hw,
-> +	[CLKID_AO_CEC_DUALDIV_SEL]	= &a9_ao_cec_dualdiv_sel.hw,
-> +	[CLKID_AO_CEC_DUALDIV]		= &a9_ao_cec_dualdiv.hw,
-> +	[CLKID_AO_CEC]			= &a9_ao_cec.hw,
-> +};
-> +
-> +static const struct meson_clkc_data a9_ao_clkc_data = {
-> +	.hw_clks = {
-> +		.hws = a9_ao_hw_clks,
-> +		.num = ARRAY_SIZE(a9_ao_hw_clks),
-> +	},
-> +};
-> +
-> +static const struct of_device_id a9_ao_clkc_match_table[] = {
-> +	{
-> +		.compatible	= "amlogic,a9-aoclkc",
-> +		.data		= &a9_ao_clkc_data,
-> +	},
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, a9_ao_clkc_match_table);
-> +
-> +static struct platform_driver a9_ao_clkc_driver = {
-> +	.probe		= meson_clkc_mmio_probe,
-> +	.driver		= {
-> +		.name	= "a9-aoclkc",
-> +		.of_match_table = a9_ao_clkc_match_table,
-> +	},
-> +};
-> +module_platform_driver(a9_ao_clkc_driver);
-> +
-> +MODULE_DESCRIPTION("Amlogic A9 Always-ON Clock Controller driver");
-> +MODULE_AUTHOR("Jian Hu <jian.hu@amlogic.com>");
-> +MODULE_LICENSE("GPL");
-> +MODULE_IMPORT_NS("CLK_MESON");
-
--- 
-Jerome
+I'd like to uplift this infrastructure into core helpers so that other
+drivers can more easily benefit without duplicating the scaffolding, but
+its always been a low priority task especially since the private driver
+stats are somewhat of a legacy/deprecated interface. (Maintainers don't
+generally like driver developers making up their own statistics...)
 
