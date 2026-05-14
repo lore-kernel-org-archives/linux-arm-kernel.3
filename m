@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 882FECD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E9EACD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f8ddYQ6IUyK0BRSDkw8CsjmcMCMWSB6UGi+gDtyyM68=; b=i6RkE1Q6Qz6kxsz5QnLHMwFXU+
-	kObwRNqyjQSHockAVr2fFL/RfihkUkLnhjlCe1MwTIre1KK7U0TEP3QLbyRgucBMZ9dsdK322NWAB
-	7xsGtomrxbdRqqhWRWLCKBOhm8ajpR6vseV4ackVGqIw4fbS9t6iw/Dv/pVc9DJxWxzupZvS/cSsU
-	qBaNf6pO4d+H1ltEP+7M5yQSkdNCgK13QxyJiOVRa8fZHyeV+Vn1KgxfEcmdeQ8wF2PT8cCqHXDXR
-	4ViSnjZjsCNow9f8TjfMssfq9siuFizkbo4UejGtA79inEk7JtLS1eyjOyzxEpmJ+QRB2/AADtaj6
-	VGcrH+AQ==;
+	bh=vNWXSp7Nbj9O77x61TBFotnY7B/VVUrjuRV9QAofvts=; b=Xpzvz2t34W18IiSHab90HM45Rr
+	+adD8mySMLzbUdrYwr6k9BdSYfQiuUsI/LwEEzrrTY9wpE8qdVc1rjeagI23VVMQ5cyiGaDqCdpgE
+	CqzOtvTFumiviY81xozHdde32X3OifpVPItJrb/5HYd3e0GZC9O0aId8VH7l8TykEZTmkITTphNpA
+	ePA1Me0uX3uX1LLrge0PMqACYmg544yebGXDtqHgDKqf0n0PYm0EHysDaSpDgau/4pATsSm0iKYxz
+	Ddrwpt1bvEiNWstO1kcTP6Ti1JcQPEMvbEZnVInUox4Bj/OP9CofETvdELldUT7EeUnFGj2rqTNJ1
+	t2D7+1RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhQ-00000005qD4-2dV6;
-	Thu, 14 May 2026 15:10:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wNXhP-00000005qAm-3ANA;
+	Thu, 14 May 2026 15:10:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhN-00000005q7z-36ir
+	id 1wNXhL-00000005q6a-3Oxf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 15:10:05 +0000
+	Thu, 14 May 2026 15:10:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2FBA66015B;
-	Thu, 14 May 2026 15:10:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0ED5C2BCC9;
-	Thu, 14 May 2026 15:10:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F01D860142;
+	Thu, 14 May 2026 15:10:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 998A4C2BCC9;
+	Thu, 14 May 2026 15:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778771404;
-	bh=e3b8zS4UD3XlGc9Yo4V+dB0th3koUfZN0pRhHe1x6dE=;
+	s=k20201202; t=1778771402;
+	bh=W4cmxivtYi3nun2PcS0FnwCVsLQ2R9LW3MSa/17BLCA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pvynrZJDrRqJCCqUmOuWLoza3EQYrV8ceISGGsyCJG7dX2qt572PX22+8fa8ku8mE
-	 tF5NKe2/wZFcfm46LjrawMFd9Z4n6uG3SptDvhp5ydY134hj7Oru35+4Kp3vhiq9dn
-	 vHr53nNmHm+69ImMd+seUNFkGvXhCb4aDlP/qux5WNCk9KVw2pg7tDdYCHzm9FnDGL
-	 ZSqD+wLPX8BnVAGgJcWZfNFSsPuVRpLdkdRy2+3pM4pPu49jeXm4v7rLu+xRvJULPz
-	 pPDX+SB3lhP9mhMIoOK/9yhRfpqC7bXz5m1ROK85GQ0JxoRuVr4cgNF6yLkVzvMlOW
-	 gp/PKeqQfkl+w==
+	b=N1u8qFSTueub8f6SMSIy8pRg06DFSctNcD1DQzp9+byRtu1kd33GwHylMAv8sr7sp
+	 bWUsHoeItXUranDbQA34K59y5XHwkaRCBa1iEotpQWd8vHRjfr7uwdnws2J5MH0WFa
+	 opLakp78xUuFPfQFtFzdEOJRbBsAw0YJBSzUedDo8SgkD3zkIVmbqoqDvr0PPhIVnY
+	 OLdlfZ+Kxz7de+HJfa+4cq11IwV4mN3iAH9KUZ+oDBs6n2EXGKFBYDGONM5ApPvdPB
+	 tOe8cUe7dRAFo8gnfnjiJTQtev5XTY+qZ7Y2y2lABF/8ojsTaWQkhEnAsGk/hlb+QG
+	 Oe5PL7LhUybtw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wNXhK-00000002Oqg-2fPB;
-	Thu, 14 May 2026 15:10:02 +0000
+	id 1wNXhI-00000002Oqg-1Sww;
+	Thu, 14 May 2026 15:10:00 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -95,9 +95,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v2 14/17] arm64: dts: realtek: Add EL2 virtual timer interrupt
-Date: Thu, 14 May 2026 16:09:42 +0100
-Message-ID: <20260514150945.3917510-15-maz@kernel.org>
+Subject: [PATCH v2 10/17] arm64: dts: intel: Add EL2 virtual timer interrupt
+Date: Thu, 14 May 2026 16:09:38 +0100
+Message-ID: <20260514150945.3917510-11-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260514150945.3917510-1-maz@kernel.org>
 References: <20260514150945.3917510-1-maz@kernel.org>
@@ -122,19 +122,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARMv8.2 based CPUs used in a number of Realtek SoCs are missing
-the EL2 virtual timer interrupt. Add it.
+The ARMv8.2 based CPUs used in the agilex5 SoC are missing the EL2 virtual
+timer interrupt. Add it.
 
+Acked-by: Dinh Nguyen <dinguyen@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/boot/dts/realtek/rtd16xx.dtsi | 3 ++-
+ arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/realtek/rtd16xx.dtsi b/arch/arm64/boot/dts/realtek/rtd16xx.dtsi
-index 3a7f6e35b7f74..43b13d133c324 100644
---- a/arch/arm64/boot/dts/realtek/rtd16xx.dtsi
-+++ b/arch/arm64/boot/dts/realtek/rtd16xx.dtsi
-@@ -105,7 +105,8 @@ timer {
+diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
+index 02e62d954e949..6db2d48b9bad3 100644
+--- a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
++++ b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
+@@ -155,7 +155,8 @@ timer {
  		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
  			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
  			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
@@ -143,7 +144,7 @@ index 3a7f6e35b7f74..43b13d133c324 100644
 +			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
  	};
  
- 	arm_pmu: pmu {
+ 	usbphy0: usbphy {
 -- 
 2.47.3
 
