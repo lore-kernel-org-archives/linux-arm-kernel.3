@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB3E4CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 17:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B27FCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 17:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ranXWKRhhfeffYG39L6YAknxenMYzYXGHr09Vb/2vp0=; b=GA/NqSRQxAEJdzXddyqb54eZ6a
-	dc8e6gvoPC0yfta7ftK0RquXVyO23JqxV1RYzPc8ATrxF4D93J1p5GNFCXBvt0v99cFtq5R2zAEsq
-	5kdOPi4S7YV/aeRdf6WHFr+Tk+biQpAOGiVinYGLnj+T1fiXHTKjWDPXeSoCc+f5MQp6TBFz0aYz9
-	jKbv9WXdmBoJ2JwvjGgFx4fKrJLLlbsDVwEo4lmdu84ydCAPJZj7O64Yj+Hi8y5VEDucbkNJaINAy
-	FZNweKad7SjcuJ5TAs1bCZPUzB83hqW4vkUM6Hcqqe1wWyoYVairTsCspJOGVdyjkNAVo+CFHT146
-	8AEIcTWQ==;
+	bh=t6NBCCHPcRlz/X1sbSdp5SPdTzKxR1F4eIZOxXUh7u4=; b=2mi7KLh/g23Vux5ISxnA27HbYb
+	S8/0vv9oftjQYALci8E1xIoQ/YupqSCEN5Be7o3A8JuHoL+AOltaFvviIMpxs9Lgkhe8jDc5U/8BX
+	ERIqUWE6FOsbDUTrtm53QH5Pp1IC/MrgNLEWzFXBhoPI7mUmEflzoIy0o4IT00EzEJoN/xquE+h/y
+	Xuyvf6w2I5iBtPRN7Tq6H1/UMygVMq6c1nvvtOL/Mf2DhPfnylfyeygX5HDC2b2vOlUhMyAq9/+QO
+	QY81OGi2BFkYmFUAb/qUkWuWt3m9rtjqygD44cix7bCyrCX5C2AnwXuICzCIIYd1AddQr+0aNpgTr
+	VjtBi40w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZZY-00000006ACS-3cVB;
-	Thu, 14 May 2026 17:10:08 +0000
-Received: from meesny.iki.fi ([2001:67c:2b0:1c1::201])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNZZW-00000006AB8-1fgC
+	id 1wNZZk-00000006AGH-42WQ;
+	Thu, 14 May 2026 17:10:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNZZi-00000006AFA-3Hld
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 17:10:07 +0000
-Received: from darkstar.musicnaut.iki.fi (85-76-71-86-nat.elisa-mobile.fi [85.76.71.86])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: aaro.koskinen)
-	by meesny.iki.fi (Postfix) with ESMTPSA id 4gGcJf05VvzyNR;
-	Thu, 14 May 2026 20:09:53 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
-	t=1778778597;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ranXWKRhhfeffYG39L6YAknxenMYzYXGHr09Vb/2vp0=;
-	b=NBmeMdjENBZTv7/Amm+WcH+TaIAVge9MiDpPc7lqohkAw3Yxll7B2Fq4P31BjFEqxZAZXr
-	pvhjydh1WCfWORgWOg7eggMsIXKqgoM9EW/k/DMxGVsEfVZYkSFKhzJIuv21phLMxkSVBR
-	TGl6dqLpHkSmVHQ46MIhlLNzay74470=
-ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=meesny; cv=none; t=1778778597;
-	b=QPYw6Vu51ExZfbQa3Xj3m/1pL5ULQl202XrGAgHYwZCmkap4askr0+RYiySHKCPNWTm/uV
-	wQHfc5vQ0ZKht7lm/yg+tcPi/ZITb+Ip0VPf12Lu8fZoL3twhhNblYyVrQCsyuKT4sm0/4
-	DGI5syvOFtPw+Kh1soGrk9DAPhpIuJU=
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=meesny; t=1778778597;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ranXWKRhhfeffYG39L6YAknxenMYzYXGHr09Vb/2vp0=;
-	b=lUtqBFVa0qm8A+UC5ouzsPiunNWCpn+iSiB1yuaIBBvGrtv+En5LaVobuqeSEBiTKnfC2y
-	a8m08Fn+kifwUh+pl19P1UNOM3zGNxSn88WFI69Vd74FwsWDtnuaJ4T/0xx9pB7lI4RZl5
-	WkgloBlnkeewHzjEJTAEv2NZbGWeEmE=
-Date: Thu, 14 May 2026 20:09:51 +0300
-From: Aaro Koskinen <aaro.koskinen@iki.fi>
-To: Andreas Kemnade <andreas@kemnade.info>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>, Arnd Bergmann <arnd@arndb.de>,
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org
-Subject: Re: [PATCH v7 0/3] ARM: omap1: use real firmware node lookup for
- GPIOs on Nokia 770
-Message-ID: <agYB3-T9yz9-hdr4@darkstar.musicnaut.iki.fi>
-References: <20260430-nokia770-gpio-swnodes-v7-0-c88f74c90dd6@oss.qualcomm.com>
- <CAMRc=MdN9EpQVW=1Sb-9hRdt56Y5NNbskujjq2RiXhu90t0QyA@mail.gmail.com>
- <20260513145926.2dc4d037@kemnade.info>
+	Thu, 14 May 2026 17:10:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A320D25DE;
+	Thu, 14 May 2026 10:10:11 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC6C63F836;
+	Thu, 14 May 2026 10:10:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778778616; bh=QIcPCYJhXPs7IX6f0RotHqQm1SVDBkwqA4iJRWyzoSw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rylaXg6T4uAIfiR56zy6O5kwO5eSAcqXi3RA1utMgYam8saAff4YcZFSiSdBoDE6j
+	 JHybvRSTp8NUjMkGcHL6uOPDNxE4hjMiszHM7uLsJoXHJ7PesrwH8dm53f9Tl1k6tp
+	 R2o33YfHX2KIG3I+fGGySHH6BPvrIFNw1WiGhFbY=
+Date: Thu, 14 May 2026 18:10:09 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Greg KH <gregkh@linuxfoundation.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>
+Subject: Re: [PATCH v5 1/3] firmware: smccc: coco: Manage arm-smccc platform
+ device and CCA auxiliary drivers
+Message-ID: <agYB8SZUlfXpjkgF@arm.com>
+References: <20260514094030.42495-1-aneesh.kumar@kernel.org>
+ <20260514094030.42495-2-aneesh.kumar@kernel.org>
+ <0c88bcee-65b5-4328-87e6-e1c714c3d1ca@arm.com>
+ <2026051420-amusement-drove-73e6@gregkh>
+ <agXL12bNh4gGyK1K@arm.com>
+ <yq5ajyt65a5y.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260513145926.2dc4d037@kemnade.info>
+In-Reply-To: <yq5ajyt65a5y.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_101006_612478_BA44451D 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20260514_101018_862026_EC56BBF1 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +81,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, May 14, 2026 at 08:08:01PM +0530, Aneesh Kumar K.V wrote:
+> Catalin Marinas <catalin.marinas@arm.com> writes:
+> > On Thu, May 14, 2026 at 02:55:48PM +0200, Greg Kroah-Hartman wrote:
+> >> On Thu, May 14, 2026 at 12:04:13PM +0100, Suzuki K Poulose wrote:
+> >> > On 14/05/2026 10:40, Aneesh Kumar K.V (Arm) wrote:
+> >> > > Make the SMCCC driver responsible for registering the arm-smccc platform
+> >> > > device and after confirming the relevant SMCCC function IDs, create
+> >> > > the arm_cca_guest auxiliary device.
+> >> > > 
+> >> > 
+> >> > There are a few changes squashed in to this patch. Please could we
+> >> > split the patch in the following order ?
+> >> > 
+> >> > 1. Add platform device for arm-smccc
+> >> 
+> >> Do not make any more "fake" platform devices please.
+> >> 
+> >> > 2. Move TRNG to Auxilliary Device - (Even though it is a later patch, move
+> >> > it before the RSI changes)
+> >> 
+> >> No, move it to the faux api please.
+> >
+> > So should we end up with:
+> >
+> >   /sys/devices/faux/arm-smccc/
+> >     smccc_trng/
+> >     arm-rsi-dev/
+> >       tsm/tsm0
+> >
+> >   /sys/class/tsm/tsm0
+> >     -> ../../devices/faux/arm-smccc/arm-rsi-dev/tsm/tsm0
+> >
+> >   /sys/firmware/cca/
+> >     realm_guest
+> 
+> But we need the ability to autoload different TSM backend drivers based
+> on the support/availability of these SMCCC function-id ranges. faux
+> device don't support that.
 
-On Wed, May 13, 2026 at 02:59:26PM +0200, Andreas Kemnade wrote:
-> On Mon, 11 May 2026 15:34:39 +0200
-> Bartosz Golaszewski <brgl@kernel.org> wrote:
-> > > This converts Nokia 770 to using real firmware node lookup for GPIOs by
-> > > attaching the software nodes describing GPIO controllers to their target
-> > > devices.
-> > >
-> > > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> > 
-> > Hi!
-> > 
-> > Gentle ping, can this be queued now for v7.2?
-> > 
-> So any objections from your side, Aaro?
+It breaks this but can we not have some systemd rule that checks
+/sys/firmware/cca/realm_guest and modprobes arm_cca_guest?
 
-It's fine.
+Alternatively, we could do a request_module("arm_cca_guest") if
+RSI is available when we check it in smccc_devices_init(). Or make it
+even fancier with a request_module("arm-smccc-service-...") (some ID
+range while arm-cca-guest.c has a corresponding MODULE_ALIAS() for that
+SMCCC range.
 
-Acked-by: Aaro Koskinen <aaro.koskinen@iki.fi>
-
-A.
+-- 
+Catalin
 
