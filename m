@@ -4,50 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BBCCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F83CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 15:10:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d7T6wzUDec4336BxIngLV82kCrrKAPX2+jfs+nI48nk=; b=jQjzxwmMxA1mArVTkHAdSNgWXq
-	2FI1/+PkpvCHQQ/LqXTms8ORXBtxTH7dWAVuxBfdZoDEuZRh36GheLgNA6cMu4M2kUontE6q8HXrH
-	rHQOVjZ5okkyZ6IYmvjMvrBGh599Pp4E2tOtrKIV0I3thzkbbjTspb164035IgESBbWC0GMmSAkqh
-	r73fA3GWfs2ivdZE3MDktP7UzJ3JcFiFLnO2dzh1v4OqRGZ6P7uWgufGvofYZmsqZz6a27wgeocMY
-	Z1/ydj5Hbe18RYtEsmu7jxsSM6dmct3QH9YVCt1DJQkCop2b3tEuA6NsocGIuxGQarXMKf+TLCc+r
-	zfoLMMEA==;
+	bh=7V0thKaaXLknaSFFCEKfUqz/WjfEeC5sDR0O7VSr4io=; b=BKehpbL1/+EkKk9xtvJsMU5oAC
+	XPmdeqaXrGuHGb82MeLuThEyPu3zabjv+3+dB8jJDsS7aDmuHDCfUYnwq0yL5BFbG+ZUmPA64Fy4W
+	rH1Tx6w+OkKaQ0r2Y00RDRztEyI5VwSTAGiuyGrRjzyua/zTD8twggqKQCOAlxTnwOZoMKCyBT26m
+	AvPr/oOSo/hTgYWflu61OgZRRhKe5n73yzQYuw3d2qNcDAWaKzeDIDyJI0xAQMranex6qbEe3nApi
+	86D3kHMRpMEDzg2cUtzUvAaYKdUq/BTgAtUhZ9E2V+kHrVCxXfQZ+jc81LmH4KAxktF+pKdu+JBqW
+	hucBW5aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhr-00000005qco-43Fg;
-	Thu, 14 May 2026 15:10:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wNXhs-00000005qcs-0B4C;
+	Thu, 14 May 2026 15:10:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNXhN-00000005q6Y-227f
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wNXhO-00000005q8f-33Sr
+	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 14 May 2026 15:10:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=7V0thKaaXLknaSFFCEKfUqz/WjfEeC5sDR0O7VSr4io=; b=Hlmk6qFBsBEKR0Iw4eyLW2ftYm
+	sh8PDitb0w9gsmO7sDdtyM4EGFBMad1hfSw4pOkGKtzp20rSwjbgvY6jbpNnttOpVTjJ6z8J62Btn
+	p3/gphJ9d4uvc4loOz5iV/0/CUV35WEfwM762KnvSyZsBfmzYwlddlUxgT+wV0RjXU/Krcb8E61VK
+	5/9RyvCwP30sfpSPWGDvzmFzbHT4UEt71K7LSz57z36LsjNaSULv/rFMZ4cOtVqDHJeZzFYUwhZuh
+	9boKK4H2kDEV/bmFrHFbL0otCLg0upvE4p265+QEd2gFWlILsnJIG1Hh6f2mtsm+nhYh8BmGBATgL
+	RT7F+xqA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNXhL-00000003Dng-1yZn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 May 2026 15:10:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4427D44498;
-	Thu, 14 May 2026 15:10:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21E0CC2BCB3;
-	Thu, 14 May 2026 15:10:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D33844709;
+	Thu, 14 May 2026 15:09:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AF23C2BCFB;
+	Thu, 14 May 2026 15:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778771405;
-	bh=MJi7t5TPt89sDo4VGxfAxl6xMQMyA0A0mhskuAXvJcY=;
+	s=k20201202; t=1778771399;
+	bh=AUUR2mNpd4MZjYN5NiaEO2JmuYp8gYDD2xKReT+S1UA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WNU9PJPowuhssWeGJO1BUIFX7sLHIe7hIso0qsGzNLGQM4PaVe9Uxewj6tsP3cQYU
-	 Es2G3W6gI9epB/2G2oDi+rJbB0NxjUB//BjT9Xe7vyH46u0rOHU4uW/NBNP+7ZzvQa
-	 x+ALi1J/9fsZt1tQHW5r0dhwfim7fA01GCvgDrDHYP4r57RX1xNjqLHE2sW4h2je3S
-	 VSI/axqomx6pRei/0WBZrbxG4itk3GNYjSoJFUvQ5FWDDTDb+D4mGQRv/OhEF/6xeA
-	 13xDLhzHrveGXO6ZSQ+AOn6MXKRHXw/8jStnDCGUjuCsbp+u/JkL3AWWWQWwAPBbDp
-	 Ht2uwHaNEWn8w==
+	b=SG+xOPmwQfEwmi60wxXn13aXig2rzNj7gGwX7r8a8w3dhb5abuddwrXYi9ytKPeK9
+	 miGFEa/RAVBrncFx0lL1vI8DH48o+NR4SEW+LhzhRt9Awgl/+GMlgbC8T1jFjcaOhx
+	 1f+cCh7/do+PmrRzFJFg2a+to7fEGNxdnKIobtmUbVNQSAQKcubDfrx4tIC/9SrjSF
+	 mrb1HW08D/S1FCkF8ov/+FZ25tfN9gbzv14WsRGCzLWtdQBDOsuJXdY3nzCxgUdHlP
+	 M4gVKmxHVY9cE4OXNL07q7JZ9YDJ4NyS1tgQ704CZtYEHLiqkg2Ako7Luq4p20L7Y2
+	 03tPGpFoD2uCA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wNXhL-00000002Oqg-0w0j;
-	Thu, 14 May 2026 15:10:03 +0000
+	id 1wNXhF-00000002Oqg-23HS;
+	Thu, 14 May 2026 15:09:57 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -95,9 +110,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v2 15/17] arm64: dts: rockchip: Add EL2 virtual timer interrupt
-Date: Thu, 14 May 2026 16:09:43 +0100
-Message-ID: <20260514150945.3917510-16-maz@kernel.org>
+Subject: [PATCH v2 05/17] arm64: dts: allwinner: Add EL2 virtual timer interrupt
+Date: Thu, 14 May 2026 16:09:33 +0100
+Message-ID: <20260514150945.3917510-6-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260514150945.3917510-1-maz@kernel.org>
 References: <20260514150945.3917510-1-maz@kernel.org>
@@ -109,8 +124,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_081005_567461_073AD216 
-X-CRM114-Status: GOOD (  11.96  )
+X-CRM114-CacheID: sfid-20260514_161004_152781_60B56EF9 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,29 +140,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARMv8.2 based CPUs used in a number of Rockchip SoCs are missing
-the EL2 virtual timer interrupt. Add it.
+The ARMv8.2 based CPUs used in the A523 SoC (and derivatives)
+are missing the EL2 virtual timer interrupt. Add it.
 
-Acked-by: Heiko Stuebner <heiko@sntech.de>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 3 ++-
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 64bdd8b7754b5..a5832895bd392 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -195,7 +195,8 @@ timer {
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 5afa8d92acbfb..d3c47966e8fc8 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -101,7 +101,8 @@ timer {
  		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>,
  			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>,
  			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>,
 -			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>;
 +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>,
 +			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>;
- 		arm,no-tick-in-suspend;
  	};
  
+ 	soc {
 -- 
 2.47.3
 
