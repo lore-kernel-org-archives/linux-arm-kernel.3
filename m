@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037C4CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 11:45:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FC4CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 11:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MuqNLnHQ7AjY34gb9tcmUNHMK6k8UlScLgrQcuj0G9I=; b=2sxaHCMc9/jm1lpuGIUIQr0kzZ
-	5hO3jvkHW8eKXt6IpUQtMp/62QMIa07+TBrb0OOgphDao1pO3wCJ1aa89dBrrVPWW8t8U2oXKYT4i
-	z80JuRNneoFNzht/4Ci4RnugMzBRvLKp0cykhX/dcmEKfc36KBAQconI8xpq2GT+EUx9nqX7+f3bC
-	+DurmhqsDaurqHmKDx5n4P/o7YufUd/brUk3U8TEsDYZiBkg9ogZemI/uL246zfwu1E/x+SYeHP/n
-	9Do/H9SLWvbuWwFo99oiDXAYKKyHpDnEueDlntF6H+kWhHhSDHnQSpAFxD9jQycO4krRio4Sajp5l
-	2spVbFMQ==;
+	bh=F7QqRK+vJwix/ayKByAbEKb6eQ8RJStQ5RJixgEEBZM=; b=lK5G+MZ4bA46vFkf4lynD1Eos6
+	GjGUWYYXtgj2qzTwmfo9C70wJFns/Cu7XCv9m2ZV7SdR4/6S4WA6nZawarqUDulGuEwZ5LUYFRvs6
+	4OQOpNLrRPui5KN1w3MhgkhCSPWhyXgf5Y1CKOOaw6qa8nPzuFMf9JJ+AVgZIlZc05K5PtSkLgNj5
+	avdvb8PCkpoqslDRGWUvHczDDvjSNqwF4kAm/eR0Z116vxcxY9G5KnYjRfTSkviP2g8MA/HYijNYT
+	BAwpfFGH5Mg/iK9D+g9eUVTJrIvSUA81g4yNHBxiH4VGFYkvTNslXbirINckouyclqxPtCbJjum2C
+	hg1fiEDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNUVj-00000005NIr-0CXc;
-	Thu, 14 May 2026 11:45:51 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wNUVu-00000005NNf-0s6V;
+	Thu, 14 May 2026 11:46:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNUVf-00000005NHf-33M9;
-	Thu, 14 May 2026 11:45:48 +0000
-X-UUID: 6d863e4c4f8a11f1afed4741b24580c9-20260514
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=MuqNLnHQ7AjY34gb9tcmUNHMK6k8UlScLgrQcuj0G9I=;
-	b=YwuNilMcvqbwn3NM8KYsuArtMfCGidrF44Vz1rotVL+drQrTJ57Ppkx/+ke64IUkqshilkIN6G0IRsag5X/4/W0Jl5u+xnwEPeyLzkXRqYohB+4Tr9n2xOYaSgdQDY2r/2LvsM5Gluc5eaSle+Omf7tkRGNN31nfjnMNyPKRX1M=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.14,REQID:5deb838e-415b-4769-995d-fe58bcdf67d4,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:9091e75,CLOUDID:76bd41c8-ea23-4b4b-9221-06b52a563801,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|865|888|898,TC:-5,Cont
-	ent:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0
-	,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 6d863e4c4f8a11f1afed4741b24580c9-20260514
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
-	(envelope-from <arnab.layek@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1672894135; Thu, 14 May 2026 04:45:38 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 14 May 2026 19:45:35 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 14 May 2026 19:45:36 +0800
-From: Arnab Layek <arnab.layek@mediatek.com>
-To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: <arnab.layek@mediatek.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>, <andersson@kernel.org>,
-	<mathieu.poirier@linaro.org>, <linux-remoteproc@vger.kernel.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v3 0/1] dt-bindings: remoteproc: mtk,scp: Allow multiple memory regions for MT8188
-Date: Thu, 14 May 2026 19:45:32 +0800
-Message-ID: <20260514114533.174008-1-arnab.layek@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20260506133157.3283204-1-arnab.layek@mediatek.com>
-References: <20260506133157.3283204-1-arnab.layek@mediatek.com>
+	id 1wNUVr-00000005NLl-0HbL
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 14 May 2026 11:46:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A4A643F87;
+	Thu, 14 May 2026 11:45:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADB66C2BCB3;
+	Thu, 14 May 2026 11:45:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778759158;
+	bh=2qY+QrMvacCd0TNq2vMKYHt/7+sltOZK495vCl1gMrw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m7HJM3UhSyxbHLmMV58PGUYajjFrgyPXrNAmfLHOY65Frnr3xSrYJCWygNqusOeco
+	 6CeZAJw1n09L3Wj6Oe6Ps83sKMtZXUat3PA4xOY4XhMJctyD2f3ZWa1Z9s/SoWLgcg
+	 qLDoBdpy+nCgUG086euRS14/HNnZoazSP+JXltdav4o3nP1ElfldjfJpjkwMXGbnTk
+	 kF8n4Rtc4G/XWko662oc+pmMKB/cSv4NO0IPkkzruHVL7/TakExqmsnWu2w7x+mjTr
+	 NAQs0plgY/WgdwbOb05WNWMSoaEGx603k+80/4q4eNwJlhmIedyPvatmK1wi3eAViq
+	 oTB5ByaEVyZ2w==
+Date: Thu, 14 May 2026 13:45:55 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Judith Mendez <jm@ti.com>
+Cc: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Andrew Davis <afd@ti.com>, Bryan Brattlof <bb@ti.com>
+Subject: Re: [PATCH v3 1/3] dt-bindings: arm: ti: Add am62l3-beaglebadge
+Message-ID: <20260514-jumping-futuristic-condor-9f0503@quoll>
+References: <20260513233447.2713737-1-jm@ti.com>
+ <20260513233447.2713737-2-jm@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260513233447.2713737-2-jm@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_044547_781347_F34B8FE7 
-X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-CacheID: sfid-20260514_044559_615724_D751B6DF 
+X-CRM114-Status: UNSURE (   7.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,40 +76,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series updates the mtk,scp dt-binding schema to support MT8188's
-requirement for two memory regions while maintaining backward
-compatibility for other MediaTek SoCs.
+On Wed, May 13, 2026 at 06:34:45PM -0500, Judith Mendez wrote:
+> This board is based on ti,am62l3.
+> 
+> https://beagleboard.org
 
-The schema uses a permissive base with restrictive conditionals:
-1) Base schema allows all devices minItems: 1, maxItems: 2
-2) Non-MT8188 devices (mt8183, mt8186, mt8192, mt8195, mt8195-dual) are
-   restricted to maxItems: 1, overriding the base
-3) MT8188 devices (mt8188, mt8188-dual) set minItems: 1 with item
-   descriptions, inheriting maxItems: 2 from base, making the second
-   L1TCM region optional
+Drop, it's just vendor website.
 
-Changes in v3:
-- Removed "Tested on..." line per Krzysztof's feedback (bindings cannot be tested)
-- Added minItems: 1 to MT8188 conditional to make L1TCM region truly optional
-- Clarified commit message to specifically reference mediatek,jpeg-encoder.yaml pattern
-- Restructured schema per Conor's feedback: base allows maxItems: 2, conditionals restrict
-- Added explicit restrictions for non-MT8188 devices (maxItems: 1)
-- Added technical explanation of the permissive base + restrictive conditionals pattern
+> https://github.com/beagleboard/BeagleBadge
 
-Changes in v2:
-- Added conditional schema for MT8188 to allow 1-2 memory regions
-- Added descriptions for each memory region
-- Did not work: base maxItems: 1 conflicted with conditional trying to allow 2
+Missing blank line. Please follow standard patch format.
 
-Arnab Layek (1):
-  dt-bindings: remoteproc: mtk,scp: Allow multiple memory regions for
-    MT8188
+Maybe that was supposed to be tag?
 
- .../bindings/remoteproc/mtk,scp.yaml          | 45 ++++++++++++++++++-
- 1 file changed, 43 insertions(+), 2 deletions(-)
-
--- 
-2.45.2
-
+Best regards,
+Krzysztof
 
 
