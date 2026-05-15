@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A9BECD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 08:58:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605D9CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 08:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kCJiMf6aW4/wRpGmSU4WGqroY7tsrQX031t/RA/jJGQ=; b=wl5WYyZwtwM6zDt0Siy7+7myPl
-	acQw+JH1p0FlhMGHaOwcG2uP3L3Ja3WaP7SDuh2tLchJtFmZrahp+tv3bRQnHAmkHefZkxPwONgLE
-	2e5lvCw3DNGyTLYPrRWk67yu+X6M9in3WLzkJzgShU2/n4dm0A3W/h+LY4A2Zr/dohI1HTqibWxYQ
-	TNhkF4K0kVDU9BoomUJKZ31va3S/iqDriEKIK72QxTgwXf/lF3MYDMYcBPR4PxuroaM/21AuWqDvP
-	9wk7IKGC7o2EPProSYCQKepoklkk8p2YLw3I7I4axhErkK22Jsfxi4oJ3QyLrVibbD2c1bjFo/XpE
-	lk3MyIbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N/2Q/+hDnHMkFnxQQrnEIwh3Lhr71rTHDivWVOjWQnU=; b=QMCT8l0SY3IT4WwztjmwQnAVuK
+	IawWjNlD4XyfI/yKG5iTaoPP4zGEd1Hjf4aBO0d2qv7wG6nVHp1Bovo1rAMHT56DcyyxOWEB/bz58
+	4Xc9/rL3qrXY8zauiaM7tNcDU6PSD/elyxT7HGn9C1l9VKomdPOaqqsG2tTnoQdqIpnFL0QfuT6ZS
+	8iCFtWa5OOY9/0Pl/MX2P2CdNz2Np05r3OmYRoZdjCM4YCMsx5qjeW5lZ3Yrja29+tTJKgXgGLr+M
+	9utpS7ztRtPliRv39sH28HPdJ+shmHWd4k37G9Qe1NwIZn5PvlUO2rxZeK1LAxxBI00BO8ars00g2
+	T3akcZcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoNV-00000007o1m-3VUG;
-	Fri, 15 May 2026 08:58:41 +0000
+	id 1wNoNZ-00000007o40-0a5z;
+	Fri, 15 May 2026 08:58:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNoNW-00000007o1p-1gfy
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 15 May 2026 08:58:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=N/2Q/+hDnHMkFnxQQrnEIwh3Lhr71rTHDivWVOjWQnU=; b=UBlyoaZ/lNA3c8Q6a+bGpqH168
+	yxbkOCqxww2KpTGEdYzuA8Li7IN7An5IA+ygJSV9H925UrusqV8ANw/HEBkSWbsuTd0yxiC9uqFrC
+	Dyx+F7NvZO2dJomuTWPOCNWT05yqbUT7fTvguD53XkE1/sd19m9HErfdbmno4HxlT0Q600+EQlO39
+	B5OSzp4P2xfn7CjdsLUivL1OTXX+Iz0pADBuuiCwhQoRZgvGRxMUGUNLlPI4DbLT1tHejRWmz6OW0
+	DDlRhNFT6OscDiwC6DAMtUpo2fIIU0tefOV++u8IwGPszuAol5+Zgh3rjBiCNEfk+KUdnlBgtvGCn
+	8wExzhTQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoNS-00000007o0S-2Uox
+	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNoNS-00000004gZM-3H6k
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 08:58:39 +0000
+	Fri, 15 May 2026 08:58:41 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1877225E3;
-	Fri, 15 May 2026 01:58:30 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8BCE23F7B4;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91E1D26A4;
 	Fri, 15 May 2026 01:58:31 -0700 (PDT)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5C16B3FAF5;
+	Fri, 15 May 2026 01:58:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778835515; bh=jV5bXdtpOjz07c8aVu/DQNoLK0X8K5E5q+WDYtjkBWE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M+U8Z9rjEYBpu+LUUutT3hOsrHX0KM2xYEHMH5VcdHnMhIctVv91O/zvchkF/fd76
-	 dSLPNQjmmCaFSbmwxX1n9fU4ly0gSlHynPkRXeze63jNZwCAlYvjCnNSzR2aQtZNuH
-	 36Q9/1vMty1KtMjaIj+ByOXRL+xEWOdHGoJB19hA=
+	t=1778835516; bh=Xf1MKewX1qHIoEYl7yF7sCbi2Zzhjv/ESbywRaQiUYw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PicMm3+eRwPFO1YojcuvsED2Q2H66VvtbZEw0e4P8BxfibmSmAXfMRYdmPuFiDHET
+	 dz107WYMOKzfN+x554qVUwCMR3UEonMX0gWc58O8a4WGoZLMNJyL87+kRA6TvoUjx4
+	 BfRG1sEGGJnKkYri08g6HHPtYrvSacLDe3bf3fZw=
+From: Ben Horgan <ben.horgan@arm.com>
+To: ben.horgan@arm.com
+Cc: james.morse@arm.com,
+	reinette.chatre@intel.com,
+	fenghuay@nvidia.com,
+	linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] arm_mpam: Fix software reset values of MPAMCFG_PRI
 Date: Fri, 15 May 2026 09:58:25 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Dylan Hatch <dylanbhatch@google.com>
-Cc: Roman Gushchin <roman.gushchin@linux.dev>,
-	Weinan Liu <wnliu@google.com>, Will Deacon <will@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Indu Bhagat <ibhagatgnu@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Kosina <jikos@kernel.org>, Jens Remus <jremus@linux.ibm.com>,
-	Prasanna Kumar T S M <ptsm@linux.microsoft.com>,
-	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>,
-	joe.lawrence@redhat.com, linux-toolchains@vger.kernel.org,
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Randy Dunlap <rdunlap@infradead.org>
-Subject: Re: [PATCH v5 3/8] arm64: entry: add unwind info for various kernel
- entries
-Message-ID: <agbgMb6jrgiFFHRX@J2N7QTR9R3>
-References: <20260428183643.3796063-1-dylanbhatch@google.com>
- <20260428183643.3796063-4-dylanbhatch@google.com>
- <afIjFLbUrdxWA6eR@J2N7QTR9R3.cambridge.arm.com>
- <CADBMgpxBeYUdA5X8BPgkgz=KQyN=NQ760bXygwXfvVRScNzgbA@mail.gmail.com>
+Message-ID: <20260515085825.1157812-1-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CADBMgpxBeYUdA5X8BPgkgz=KQyN=NQ760bXygwXfvVRScNzgbA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_015838_716590_E16CE38B 
-X-CRM114-Status: GOOD (  40.09  )
+X-CRM114-CacheID: sfid-20260515_095839_624248_06C1A396 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,151 +85,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 08:30:43PM -0700, Dylan Hatch wrote:
-> On Wed, Apr 29, 2026 at 8:26 AM Mark Rutland <mark.rutland@arm.com> wrote:
-> > On Tue, Apr 28, 2026 at 06:36:38PM +0000, Dylan Hatch wrote:
-> > > From: Weinan Liu <wnliu@google.com>
-> > >
-> > > DWARF CFI (Call Frame Information) specifies how to recover the return
-> > > address and callee-saved registers at each PC in a given function.
-> > > Compilers are able to generate the CFI annotations when they compile
-> > > the code to assembly language. For handcrafted assembly, we need to
-> > > annotate them by hand.
-> > >
-> > > Annotate minimal CFI to enable stacktracing using SFrame for kernel
-> > > exception entries through el1*_64_*() paths
-> >
-> > I thought we were only consuming SFrame when unwinding an exeption
-> > boundary?
-> >
-> > We shouldn't be taking exceptions _from_ the entry assembly functions
-> > unless something has gone horribly wrong, and so I don't see why we'd
-> > need CFI entries for the entry assembly functions.
-> >
-> > Am I missing some reason we need CFI entries for the entry assembly
-> > functions? I strongly suspect it is not necessary to add these, and I'd
-> > prefer to omit them.
-> 
-> I believe the el1 entry functions are called in an exception, and are
-> called before call_on_irq_stack. 
+Priority partitioning is not supported other than to set the per-PARTID
+defaults in MPAMCFG_PRI, INTPRI and DSPRI, to the highest priority. When 0
+is the lowest priority, all ones is the highest priority. However, these
+values are calculated with an extra higher bit set.
 
-Yes, but I don't think that matters. See below for more details.
+Luckily, there is still no chance of setting functional bits incorrectly.
+When the priority widths are maximal, this is ensured as the fields have
+width 16 and a u16 holds the value for each field. When the widths are
+smaller, the higher order bits beyond the advertised widths,
+MPAMF_PRI_IDR.DSPRI_WD and MPAMF_PRI_IDR.INTPRI_WD, in the priority fields
+INTPRI and DSPRI are not used to calculate the priority.  It is not
+specified whether these higher order bits are RAZ/WI or Res0 and so it is
+desirable not to set them to avoid the chance of misleading reads.
 
-> Example stacktrace segment:
-> 
-> [  262.119564]  handle_percpu_devid_irq+0xb4/0x348
-> [  262.119913]  handle_irq_desc+0x3c/0x68
-> [  262.120196]  generic_handle_domain_irq+0x20/0x40
-> [  262.120678]  gic_handle_irq+0x48/0xe0
-> [  262.121005]  call_on_irq_stack+0x30/0x48
-> [  262.121412]  do_interrupt_handler+0x88/0xa0
-> [  262.121779]  el1_interrupt+0x38/0x58
-> [  262.122089]  el1h_64_irq_handler+0x18/0x30
-> [  262.122617]  el1h_64_irq+0x6c/0x70
+Correct the priority reset values.
 
-The segment immediately above can be unwound using FP, as frame records
-were created consistently, and there are no exception boundaries. No CFI
-needed.
+Fixes: 880df85d8673 ("arm_mpam: Probe and reset the rest of the features")
+Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+---
+ drivers/resctrl/mpam_devices.c | 26 ++++++++++++++++----------
+ 1 file changed, 16 insertions(+), 10 deletions(-)
 
-It's legitimate to take an exception from parts of call_on_irq_stack(),
-so it makes sense for that to have CFI, but for the specific unwind
-segment above, CFI isn't necessary.
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 41b14344b16f..a627dc2c53de 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -1539,12 +1539,9 @@ static u16 mpam_wa_t241_calc_min_from_max(struct mpam_props *props,
+ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 				      struct mpam_config *cfg)
+ {
+-	u32 pri_val = 0;
+ 	u16 cmax = MPAMCFG_CMAX_CMAX;
+ 	struct mpam_msc *msc = ris->vmsc->msc;
+ 	struct mpam_props *rprops = &ris->props;
+-	u16 dspri = GENMASK(rprops->dspri_wd, 0);
+-	u16 intpri = GENMASK(rprops->intpri_wd, 0);
+ 
+ 	mutex_lock(&msc->part_sel_lock);
+ 	__mpam_part_sel(ris->ris_idx, partid, msc);
+@@ -1609,16 +1606,25 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 
+ 	if (mpam_has_feature(mpam_feat_intpri_part, rprops) ||
+ 	    mpam_has_feature(mpam_feat_dspri_part, rprops)) {
+-		/* aces high? */
+-		if (!mpam_has_feature(mpam_feat_intpri_part_0_low, rprops))
+-			intpri = 0;
+-		if (!mpam_has_feature(mpam_feat_dspri_part_0_low, rprops))
+-			dspri = 0;
++		u32 pri_val = 0;
++
++		if (mpam_has_feature(mpam_feat_intpri_part, rprops)) {
++			u16 intpri = GENMASK(rprops->intpri_wd - 1, 0);
++
++			/* aces high? */
++			if (!mpam_has_feature(mpam_feat_intpri_part_0_low, rprops))
++				intpri = 0;
+ 
+-		if (mpam_has_feature(mpam_feat_intpri_part, rprops))
+ 			pri_val |= FIELD_PREP(MPAMCFG_PRI_INTPRI, intpri);
+-		if (mpam_has_feature(mpam_feat_dspri_part, rprops))
++		}
++		if (mpam_has_feature(mpam_feat_dspri_part, rprops)) {
++			u16 dspri = GENMASK(rprops->dspri_wd - 1, 0);
++
++			if (!mpam_has_feature(mpam_feat_dspri_part_0_low, rprops))
++				dspri = 0;
++
+ 			pri_val |= FIELD_PREP(MPAMCFG_PRI_DSPRI, dspri);
++		}
+ 
+ 		mpam_write_partsel_reg(msc, PRI, pri_val);
+ 	}
+-- 
+2.43.0
 
-Everything in the stacktrace segment above was executed *after* HW took
-the exception.
-
-<< EXCEPTION BOUNDARY HERE >>
-
-Everything in the stacktrace segment(s) below was executed *before* HW
-took the exception.
-
-The unwinder knows that it has crossed this exception boundary by virtue
-of finding a FRAME_META_TYPE_PT_REGS frame record.
-
-> [  262.123159]  _raw_spin_unlock_irq+0x10/0x60 (P)
-
-The unwinder knows that the value of pt_regs::pc was *definitely* the PC
-at the time the exception was taken, so that entry is reliable. No CFI
-needed.
-
-> [  262.123720]  __filemap_add_folio+0x200/0x580 (L)
-
-The unwinder doesn't know whether the LR should be used, and needs CFI
-to determine that.
-
-After this point, an FP unwind can be used until we encounter the next
-exception boundary.
-
-> [  262.124145]  filemap_add_folio+0xec/0x300
-> [  262.124674]  page_cache_ra_unbounded+0x128/0x368
-> [  262.125338]  do_page_cache_ra+0x70/0x98
-> [  262.125875]  page_cache_ra_order+0x460/0x4e0
-
-The segment immediately above can be unwound using FP. No CFI needed.
-
-> Here, el1h_64_irq is the last function that appears in the exception
-> stack before _raw_spin_unlock_irq and __filemap_add_folio are
-> recovered from the saved PC and LR, respectively. So we therefore need
-> the CFI annotations in order to unwind through the full exception
-> boundary.
-> 
-> Is my interpretation here correct?
-
-Given you say "full exception boundary" here, I think we might be using
-the term "exception boundary" to mean different things.
-
-As per the example above, I'm using "exception boundary" to mean the a
-point between two entries in the stacktrace where HW took an exception.
-
-Did my comments on the example help?
-
-> > > and irq entries through call_on_irq_stack()
-> >
-> > Needing some sort of unwind annotations for call_on_irq_stack() makes
-> > sense to me, but don't we need something for other assembly functions
-> > too?
-> >
-> > We can interrupt things like memset(); I assume we'll treat those as
-> > unreliable until annotated?
-> 
-> While looking into adding these annotations, I noticed a pattern where
-> a sibling call is made to a local function:
-> 
-> SYM_FUNC_START(__pi_memset)
-> alternative_if_not ARM64_HAS_MOPS
->         b       __pi_memset_generic
-> alternative_else_nop_endif
-> 
->         mov     dst, dstin
->         setp    [dst]!, count!, val_x
->         setm    [dst]!, count!, val_x
->         sete    [dst]!, count!, val_x
->         ret
-> SYM_FUNC_END(__pi_memset)
-> 
-> In this case, do we consider the stacktrace unreliable since
-> __pi_memset may not appear in the trace?
-
-This is a tail-call, and __pi_memset_generic() will not return to
-__pi_memset(). Once the branch to __pi_memset_generic() has been
-executed, it's fine for __pi_memset() to not show up in the trace.
-
-The key thing is that no more instructions from __pi_memset() itself
-will be executed unless it was called again (from its entry point).
-
-> Or is this not important because assembly functions cannot be directly
-> livepatched anyway?
-
-To the best of my knowledge, reliable stacktrace is only used to
-determine whether any thread is still within an old version of a
-patchable function (including where it's within a callee thereof).
-
-I am not aware of a case where we'd need to detect whether a thread is
-still within a non-patchable function, but I can't rule out that as a
-possibility.
-
-That's more of a question for the livepatching maintainers.
-
-Thanks,
-Mark.
 
