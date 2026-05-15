@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58A7CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 20:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAB4CD4F46
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 20:08:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S+mK8/6ipbQeWy92MO7zB2Q3VTy73XFWLLsSDeyQjfk=; b=pxflp4VTOqXFO9h2Hru7cJqKpi
-	VqmxRTWWE4epLGa0jfQ+ue3ZoQAhQ95tGxUzNVLlZ6Zr+FuPtmHFa7QlMcJNgh29nRenraoDGzIKw
-	+6I14Xd+cGtvNeNPWiqjHGl3PheeTQ9kr3HU5trIWHqLwPUvwWSgLYRf3sp1o+RFwfS/Jf4y0e5I3
-	qJiuaSL/4wY3GEKehWkFMBNVRjEzrRhUNpIATXAcshlv37S7kTW11cWxwhKjiSf3q5lx6HX/RHgxD
-	LZIdJHqDLGadjZBUQcamQX8KjvTJ+p+jCwt8y7uztC8eiL5lgZd+xiQfh+8rb6+Y7KbH8hJfs32y6
-	q5cVHdbg==;
+	bh=XCv0CI0Kl1FuQrwuXpQdkzXigJP0ZjntJ+UDakx/svk=; b=ivZmFA4DRvppGZ2ESIAGLIXxUw
+	+Av6jXNol/xa6kdyRqEKT+JxKE3QoQRMoUidiU4wO0sqcExR94/K0tspd3oiN/DT1fClcTePLh+nJ
+	Cs12FY++fsUKqMiroJgw0AuQPAfGDrUTdxM3o68rUgOxgxnn5/vfVVo98zeLvBVztGsydYsw3BOH3
+	z+sj75ON/NHX5QZJzTFZdWU/61oymjk1LDFRyoMfFAVXYRJyLMwIYCA3bHohRIgqbp4A+bXi2/Y70
+	q7I8HgU34mZXpOJ9hGK3ADaW56cVOQSGghw3SiNL1/3YvvRfH0aJ18u6dkzPuGFWU0xUesSk20xKM
+	mpmGn7fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNypo-00000009Ibk-3Hix;
+	id 1wNypo-00000009Ic2-3h90;
 	Fri, 15 May 2026 20:08:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNypi-00000009IZd-49sF
+	id 1wNypm-00000009Iay-2XuH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 20:08:32 +0000
+	Fri, 15 May 2026 20:08:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23C9C35E2;
-	Fri, 15 May 2026 13:08:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A7952938;
+	Fri, 15 May 2026 13:08:28 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D6653F836;
-	Fri, 15 May 2026 13:08:27 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A67793F836;
+	Fri, 15 May 2026 13:08:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778875710; bh=aOsH1YCn+EwL0qAEi8vE3nZ4UoXCREiMhOSX0+t9ZU0=;
+	t=1778875713; bh=nEThYjxyXyykIclpWYRqGDGlNxEOL1uDXknX+lMn2DI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=EI1ytdKUfYkuDt0XafV5qmTScOrxL+kPdp3drBQ8wjkZjBaRMptnzl1+yS8bwZoZh
-	 Str3b5+5kD/hK9QNvV8FEKln6tR0JzTJ1jEdGltU96/XRg9+unfguOqiY/ht+tkQlO
-	 9L1fEXAXJOzWmAh+NPTnN8DdisMp2rCf/Hk8CXyo=
+	b=AKddu7mmdcaQk+W0K1QfHOILKxxDv0Fkz1jWuTNRm6ClXFC07d1z0vyZ7K8mtopd9
+	 VUjiqn5FZyND7YvExfopjWgOYwPWmrFGHjkBu5+CEcQhZ/Nh11GbqXQnAkGHNxQfbo
+	 uE7BY/U5fqHpmi7T9rBjPazclC7MPCv5yImzW2jo=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 15 May 2026 21:08:09 +0100
-Subject: [PATCH v14 02/28] coresight: Handle helper enable failure properly
+Date: Fri, 15 May 2026 21:08:10 +0100
+Subject: [PATCH v14 03/28] coresight: Extract device init into
+ coresight_init_device()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-arm_coresight_path_power_management_improvement-v14-2-f88c4a3ecfe9@arm.com>
+Message-Id: <20260515-arm_coresight_path_power_management_improvement-v14-3-f88c4a3ecfe9@arm.com>
 References: <20260515-arm_coresight_path_power_management_improvement-v14-0-f88c4a3ecfe9@arm.com>
 In-Reply-To: <20260515-arm_coresight_path_power_management_improvement-v14-0-f88c4a3ecfe9@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -61,16 +62,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778875700; l=1420;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778875700; l=2118;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=aOsH1YCn+EwL0qAEi8vE3nZ4UoXCREiMhOSX0+t9ZU0=;
- b=tgwxW2zLt4q0gTulElLzl+ZxwwHh0Qeuc7OpUO3aHXYKYc04ujFDgQYsQa8muuoKIPMdZY+YB
- IPCiH5AaWJVApKXqEzrySOlMCRYbgo1TrAr8o6Ac5Dgrvo30+JHNpBW
+ bh=nEThYjxyXyykIclpWYRqGDGlNxEOL1uDXknX+lMn2DI=;
+ b=aRupIbrMpLJg2ICEudJ7WrGJp/815SiTSBu+T34mW10OYmMOmn23Okf1pVAFXBdolYSpO1D92
+ NIFBcUe/xYWDa22b6FYeT1J8Jlug+WPXgMT1twhvMoin63kNOZg080V
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_130831_096400_1C5D75A7 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20260515_130834_733723_FDB76799 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,45 +86,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If a helper fails to be enabled, unwind any helpers that were already
-enabled earlier in the loop. This avoids leaving partially enabled
-helpers behind.
+This commit extracts the allocation and initialization of the coresight
+device structure into a separate function to make future extensions
+easier.
 
-Fixes: 6148652807ba ("coresight: Enable and disable helper devices adjacent to the path")
+Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 Reviewed-by: James Clark <james.clark@linaro.org>
 Tested-by: James Clark <james.clark@linaro.org>
-Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ drivers/hwtracing/coresight/coresight-core.c | 27 +++++++++++++++++++--------
+ 1 file changed, 19 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 2105bb8139407bb579ed2517c1eecccda0a9c2d7..256f6a32621b8e086d02427317e5d35d0f29a3c9 100644
+index 256f6a32621b8e086d02427317e5d35d0f29a3c9..d5d18168b48125c91f556f3867f0719592f0ccc8 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -499,10 +499,19 @@ static int coresight_enable_helpers(struct coresight_device *csdev,
- 
- 		ret = coresight_enable_helper(helper, mode, path);
- 		if (ret)
--			return ret;
-+			goto err;
- 	}
- 
- 	return 0;
-+
-+err:
-+	while (i--) {
-+		helper = csdev->pdata->out_conns[i]->dest_dev;
-+		if (helper && coresight_is_helper(helper))
-+			coresight_disable_helper(helper, path);
-+	}
-+
-+	return ret;
+@@ -1334,20 +1334,16 @@ void coresight_release_platform_data(struct device *dev,
+ 	devm_kfree(dev, pdata);
  }
  
- int coresight_enable_path(struct coresight_path *path, enum cs_mode mode)
+-struct coresight_device *coresight_register(struct coresight_desc *desc)
++static struct coresight_device *
++coresight_init_device(struct coresight_desc *desc)
+ {
+-	int ret;
+ 	struct coresight_device *csdev;
+-	bool registered = false;
+ 
+ 	csdev = kzalloc_obj(*csdev);
+-	if (!csdev) {
+-		ret = -ENOMEM;
+-		goto err_out;
+-	}
++	if (!csdev)
++		return ERR_PTR(-ENOMEM);
+ 
+ 	csdev->pdata = desc->pdata;
+-
+ 	csdev->type = desc->type;
+ 	csdev->subtype = desc->subtype;
+ 	csdev->ops = desc->ops;
+@@ -1360,6 +1356,21 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+ 	csdev->dev.release = coresight_device_release;
+ 	csdev->dev.bus = &coresight_bustype;
+ 
++	return csdev;
++}
++
++struct coresight_device *coresight_register(struct coresight_desc *desc)
++{
++	int ret;
++	struct coresight_device *csdev;
++	bool registered = false;
++
++	csdev = coresight_init_device(desc);
++	if (IS_ERR(csdev)) {
++		ret = PTR_ERR(csdev);
++		goto err_out;
++	}
++
+ 	if (csdev->type == CORESIGHT_DEV_TYPE_SINK ||
+ 	    csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) {
+ 		raw_spin_lock_init(&csdev->perf_sink_id_map.lock);
 
 -- 
 2.34.1
