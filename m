@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC7BACD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 21:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D19CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 21:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7qgjgFxUvKpGr/7MrBVaKHvp/HakTh8FDvf1KsdtDJg=; b=WgDoHtZgMsCV2KXfU/iTYQmPD4
-	a2BMi3Wr6pPR9lodsAzh+DAVqqJI9XLBqDYWpYNNlX0RsiAqhG7/jKfvVJ/5FiOl4/iZc5TyJXSm2
-	3AoeNM2Egvfl61zmpupxpjJc5d/a0W6tIYJ/M+9SX2NZLuGXZhLbX8r9TbVk3eJNcHRIGJUoScglI
-	BSbv5iuzZMAfDal/TryBpEn+a/ju+hzNyipqJSzPTdS/Yi8P//1Lwv3rMDbzAVrOp452igjuFzsmo
-	/KugF1HnaI/RnmlfeOZsbXxMJ3sunYYw5/vM+UF7mV0ImaIJptgyOnIahiLT1nE8eTL0wDOm25Hwi
-	yxW1skww==;
+	bh=x5SQ+vRj770VUI1IW4I4HiJKOsdiTNXp0Dc6M8FCj2M=; b=0rvyLUyY8ErT5w1S2BAZE3xCM0
+	Z8fzL6EwZEeDW9MgPlK7tkG7wg/yKmzXqtDzvFeJYsPiLQCDobRqryyIuJyzuP6mpdcjWceVqZKio
+	ghOrQMKBBYAyKb8kTRYVattr88A+QBItxIAVEEs9KHREMJTOu+6lKWWY7B6Qe77G2ScOf8sXGxA1B
+	YSGAZKDtJWWC5LOz2UbrrHsODan9pYfwZh/0Vjoj8vlaRZpIPwQPgELDg6eAn6TcVWrq3h3jgA0Tc
+	D+RYlzwl+u8gN4k+76zeQXJiDIR8KwTebiUFnTsi1bNlz42HyNkAtBA14uI2uCtp8w6XHd4/6rja+
+	ogvCz6Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNzth-00000009Uje-3jYQ;
-	Fri, 15 May 2026 21:16:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wNzw1-00000009V4F-0yBr;
+	Fri, 15 May 2026 21:19:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNztg-00000009Uio-0FBv
+	id 1wNzvz-00000009V3k-0BNx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 21:16:41 +0000
+	Fri, 15 May 2026 21:19:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D99544150
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 21:16:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40CB9C2BCC9
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 21:16:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 898D4444A6
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 21:19:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EBDAC4AF0C
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 21:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778879799;
-	bh=7qgjgFxUvKpGr/7MrBVaKHvp/HakTh8FDvf1KsdtDJg=;
+	s=k20201202; t=1778879942;
+	bh=S6/5n/eY5SBAzU2YfEnW0M7mbgHygbpeduVPRCNsd8w=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LxqPmvQ37XmgJv0g9FYqqAbFZ4wLw1KWv0esVfhgYnDPcDVFZlyWkNdgR8qw+ry4o
-	 QdajIWCniDHrCXqSWmIJisX55Gqby0FdJVvlhWUEV9JuR4oYAEUzGUZQtPI1G3R4r2
-	 tC+mymZulXwu7TlHutwXnWH9d6gFS2NSvatyMxjHcTPOh8Msktq3/20gLk5DVelMvi
-	 keSWMHCYwuarN2Zpm+Mswl0DYiaiiFSgYZu+V2uZg6Inj1Fg7bm3EW9/1ZjtSKqrWn
-	 5h6rmiJbnvOoplz4BmBaXXb7jnUs7kLXbYV6wJnOsuJ8WTEOH+KR9mN294vdaS98V0
-	 V3zH4UvlLqYpA==
-Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-8c921396e37so3405766d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 14:16:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+Ldyers0BBhfOc06zYyUD+Opegd08Z+6pPSeHZauLj4W0eICWtaGzSicSAAUPlPo+G7Y0pVaDrVv7VFIUxR4Pq@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhoRW55BaEoG9Xy8zojApwATY2tl4OuLyQ4HKYVz4Y6eLFDD49
-	j545c79RP6/9x20LnhNP+ghoA52kM5SkmQGRxv9GziXzHcbSWcZiASd0E4n5GWoOJnNvP+TT5pw
-	y3x09zKmMstrgvv3mmAnNSfHR5N166A8=
-X-Received: by 2002:a05:6214:501a:b0:8ca:190a:8cde with SMTP id
- 6a1803df08f44-8ca190a8f16mr56910566d6.21.1778879798474; Fri, 15 May 2026
- 14:16:38 -0700 (PDT)
+	b=szPKIhRi+/8AqpqvN8IRpi1Moy1C7m9duw4rfSX22utImDW4Ga3q/gvy6EQNELj6B
+	 CHsbYpb0xDfYiPy9XD8ak3rLsaQPD950edVpaBRJIeJoYiWfgAmndUBwEykVxE8EPX
+	 op+iLUGUeeNb8th3OqomdM1ZkA7Llbm7JIwPdvzoEs+NzSgRhLdxHK+8yqtDWGMzVN
+	 CgVcWkzQDzim9YEBvl5fJKsZzeC5lCd4B+S3JOc2sQuHRTwBjknni/7g0wqgDYQuVt
+	 RjnysyksI07hTBa6ClvSJ4XKHEpitMitOq4WTJoJ6NGnFbJuorhFkhzuJqHwUZLaCX
+	 BYEyzY9TzCqzg==
+Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-8bc3ef10cc4so4021266d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 14:19:02 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+xZauAqMJU6I26thAPiPrrCEqPQUW+JP8tn8WpxZpRCgO7vjDETuiUyIJskry4dxImYKsMUPKglXu72CigsLun@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXIoPo5S2vqlGjsNaZ10otG8329K4zqLwqseuIkt1WRGOHnYMv
+	YTshgamF8l02h6I9PT6tU6zR5kR1jfd3NyNucvq74fCBn6PFWAEDMMF+FdKA9M5OBsrPVszs9Sz
+	VPHuBViYQHNlRjsM3jUOnjzyX2r/FbR4=
+X-Received: by 2002:ac8:7d53:0:b0:516:51da:ae52 with SMTP id
+ d75a77b69052e-5165a1e8b62mr79944801cf.33.1778879941192; Fri, 15 May 2026
+ 14:19:01 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1778642120.git.jpoimboe@kernel.org> <f32864b560d40894cdb70d613480d7c2ecdb55e0.1778642120.git.jpoimboe@kernel.org>
-In-Reply-To: <f32864b560d40894cdb70d613480d7c2ecdb55e0.1778642120.git.jpoimboe@kernel.org>
+References: <cover.1778642120.git.jpoimboe@kernel.org> <74623fad8c45d26a3da6c5420b00156d8f7c2150.1778642120.git.jpoimboe@kernel.org>
+In-Reply-To: <74623fad8c45d26a3da6c5420b00156d8f7c2150.1778642120.git.jpoimboe@kernel.org>
 From: Song Liu <song@kernel.org>
-Date: Fri, 15 May 2026 14:16:26 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW7ZVeqDoZCDzdahEXSmboC+gA9T4pmUm4hxmutp12h1oA@mail.gmail.com>
-X-Gm-Features: AVHnY4INuRGnhlm_RhZATCu11IG0BAUIhjY5JXNgPGnjB1-OrybrKm47hicJN7g
-Message-ID: <CAPhsuW7ZVeqDoZCDzdahEXSmboC+gA9T4pmUm4hxmutp12h1oA@mail.gmail.com>
-Subject: Re: [PATCH v3 01/21] klp-build: Reject patches to init/*.c
+Date: Fri, 15 May 2026 14:18:49 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW4G5H979FCvk0tfebOxjBcMak5n3Cx8YB6yhtSLaJiGzw@mail.gmail.com>
+X-Gm-Features: AVHnY4J8krqK1Xboui47oB88bHhzXLaHBxExeYAz32cX9_pfyW7wyKMKsDyD1kQ
+Message-ID: <CAPhsuW4G5H979FCvk0tfebOxjBcMak5n3Cx8YB6yhtSLaJiGzw@mail.gmail.com>
+Subject: Re: [PATCH v3 04/21] arm64: Rename TRAMP_VALIAS -> TRAMP_VALIAS_ASM
+ in asm-offsets
 To: Josh Poimboeuf <jpoimboe@kernel.org>
 Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
 	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
@@ -69,9 +70,8 @@ Cc: x86@kernel.org, linux-kernel@vger.kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_141640_118597_6FBF99C0 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260515_141903_109275_56DA3031 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,14 +86,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 8:35=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org=
+On Tue, May 12, 2026 at 8:34=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org=
 > wrote:
 >
-> init/Makefile hard-codes -fno-function-sections and -fno-data-sections,
-> overriding the klp-build flags needed for patch generation.
+> Rename the asm-offsets TRAMP_VALIAS macro to TRAMP_VALIAS_ASM, following
+> the naming convention already used by PIE_E0_ASM and PIE_E1_ASM.  This
+> disambiguates the asm-offsets-generated constant from the C macro of the
+> same name defined in fixmap.h and vectors.h.
 >
-> Don't allow any changes to those files; being init code they aren't
-> really patchable anyway.
+> This is needed by a later patch which adds new includes to asm-offsets.c
+> that would otherwise conflict with the C version.
 >
 > Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 
