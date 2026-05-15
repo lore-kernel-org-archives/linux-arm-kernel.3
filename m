@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E7A2CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 02:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1008CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 02:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZDNnIRMHkSYwMfxR5k4l5ncBbucBQZkKPFW617Sixjs=; b=qoNEHgSR5u8n2O6mN6WDxCnHJT
-	KQnQVw2O0pWhmniT2S4v4Hy4OgMhR5Ae+On9GdJA+XmqPDixvKVMEOib59ZE+rIRYFKl141KGhVwn
-	kTl0ShSLlkL+TPqldkPOD+d6DXLjp+7iln/7H8WeuSATGePhaD7vGCVtfv6K0gUC4p7kEkbvG0bD+
-	ByNGlZITVqcHrpEdUjQH75qu6HGOzNg9zrl//Ex9qzooBXOymHJ36aXVrqRqkfyJ/aPgaaPPehXX+
-	Uwx29Y0vlmnYeDchQJ+jo2U3fLjy2b9Y9lI3/RF+Mr4rDcLrL9Y6YKx5mpZK9Q71gGfNUj7l18Odn
-	IFoXA7Pw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4Gq0+69BzbH6lC7+bTVsEXzNE4pKUS6ML366m/Lt5uc=; b=FzWI4KwPISHNwe
+	575SwLd2DPJ47TvoozFddSSQ4xscPwefYlowFx1q0dXF8QYN9dkSC1FvQ3mjBGH4A9Xzsy3e27aM1
+	mDMVP8UbvCwzZoui7oBwrvb8hRLHqRAzJGOBms94ybmEL+FZRbcWeSdUVNDqXBIA8BgLQb1ukYGwS
+	KlSUgRsAWTPUAkC3hDADYSOneXUrs8mQNIbfgO5gOY5t4BPs0pv33XvXfVWh/gKUh6HWvfUS1PaIl
+	2EHeaWfQVKXCCn8ViW/XJ7JcqjOjHkgcCV77eq/Tob/5zxuQi3i2BODvmlVq23iACUAGxGfH134em
+	Cj6g1tLYi1QXuvFQlfRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNiXc-000000079Ox-1v4w;
-	Fri, 15 May 2026 02:44:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wNiY7-000000079UB-2Tvd;
+	Fri, 15 May 2026 02:45:15 +0000
+Received: from mail-lj1-f178.google.com ([209.85.208.178])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNiXZ-000000079OK-1Kb3
+	id 1wNiY5-000000079TX-1m5c
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 02:44:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A40BD42E05;
-	Fri, 15 May 2026 02:44:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF2B7C2BCB3;
-	Fri, 15 May 2026 02:44:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778813080;
-	bh=xddcZ6kMGB/rYMEe75+BVJi4hJyQUito4b9gPm8fIH4=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date:From;
-	b=pa6o4LlxYgmirQt3ntPFMTLSJDXIAwZIOH9BQDvGw+2rFq7bMQUumud4wBa3/93kl
-	 gb72mifNw4QLgld1sRYfhZbUzYQWYCRTSy+SEHYeOIgO+rIsJpwtAllPA+Qs8+UvvI
-	 Rz96xPcOQtUzsnnqTVm/nlYqQJe/tzKErYoBMqll8NviSZIc6zlx2tbzew9o3S3JFf
-	 620nORRqfWEZ+RmQ6wCaLewA6Z63H35S9Nc4rG2lbXHSHjTaweyWkBmZvX/hu9Rwmk
-	 TnvfXN9XcY+y4n6Io8U4VvMdbhiLFgM3ToV1rkx+DI3SrG3f52ex8A5/N3crhtBAzw
-	 aKHgbYJmNCuaw==
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v3 21/21] klp-build: Add arm64 syscall patching macro
-To: x86@kernel.org
-Cc: "Miroslav Benes" <mbenes@suse.cz>, live-patching@vger.kernel.org, "Peter
- Zijlstra" <peterz@infradead.org>, "Will Deacon" <will@kernel.org>, "Joe
- Lawrence" <joe.lawrence@redhat.com>, "Catalin Marinas" <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, "Mark
- Rutland" <mark.rutland@arm.com>, "Song Liu" <song@kernel.org>, linux-kernel@vger.kernel.org, "Petr
- Mladek" <pmladek@suse.com>
-In-Reply-To: <3bf3cee43039fc4da84e83d0891a92e25f40f00f.1778642121.git.jpoimboe@kernel.org>
-References: <3bf3cee43039fc4da84e83d0891a92e25f40f00f.1778642121.git.jpoimboe@kernel.org>
-Content-Type: text/plain; charset=utf-8
+	Fri, 15 May 2026 02:45:15 +0000
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-39397d63804so99640221fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 19:45:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778813109; x=1779417909;
+        h=content-transfer-encoding:to:subject:message-id:date:from:reply-to
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=4Gq0+69BzbH6lC7+bTVsEXzNE4pKUS6ML366m/Lt5uc=;
+        b=D0TWb803/PE+Ai5IuCfXaboiUbgBOJ4kllAqL1fUNiqwuHIjFAM/raKu6z9A4qYrpH
+         Z5tsPHEnSoHDokn9dKo0U8+C7Pg3cEHdijfy8xKYtTNMqcLcskSiMfafWqFfINw9z1HF
+         sw66J0xwa5o6cm4PUnFTKp3Wk5s3/N5c19LkKLo5DRWTwgFbCcO2ac8Ar3b+4snNuseK
+         X2UAb3YQTP86HGVVwc6y9QY3j9Vw1yQlNwyxue5thCm82BHuM0daYgvVDSDn+cgMKNaP
+         tZl9mC96YfepJBv5bYKwz7holhOQRxXsHaO4Jba3KKaDvVHnfPIt6YHfUS9Xsf5f1mXu
+         ISbQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+Fu7crLaMbhjgMzn5jMcsUBUeL3oH0l1Iw1j40D2Dpd1evrQzHhyFZJPLUKZ7kmWw7FBHZQpMMiZBMGxWeIEs5@lists.infradead.org
+X-Gm-Message-State: AOJu0YybCFucq7qqS69mHR/eeUSgoRT6+atSbnkp8iJDlaAy8zaO+Va6
+	cCoKCi0o/NVjZc0DjR230F+YNGaL35EBfX4jl4DaDUBHhiC9Gu9Bszw+MaCb2veo
+X-Gm-Gg: Acq92OEyK9bk/0mIJMa1FyrCHv3oV1FYBVz7J2YvI4yDg9ZH1kG3dSCcDPSC+GJa/oc
+	bnYD5tlMobwH3RSumVMsjYI5rj/BIaiKGBSkuGd0jfrq+B2K5qN5ZXNPK2z0R3ib8SgduElUNOF
+	o1zgMj84dIJACKEQXqhCdKjeyI7HlmYze+ngDZiL/tsHhqmPnxgl0J/QQoxol4r3sNfWaBARQGr
+	wKTCzbMwSRCVKLs1HO76t9Csu3vbIP6tFOwBJoJma36KzQ6pae72A/SHwVzkSkFgLOiIFcfis2n
+	qf5ryaO/biOTS44b/Tz+aBJcI/pUtnJWmH+kKmak6rqv8N5IUsk7XuhezsqLdhPH/RDP+CL2Pbf
+	Q/KtbgalBsYG+D0C+LLVpwujN8n3D4DRpHjPGoKLlltXHwQL/XWt4VouOb4esyw0pgq4fpXkwKM
+	+9Ho7/WEnaPhvOAw4tjm3uaX+G1h0AqeiU2KybBNOZ+SPAfv0sLdJHI5A=
+X-Received: by 2002:a05:6512:a92:b0:5a4:d21:de07 with SMTP id 2adb3069b0e04-5aa0e600e2cmr478033e87.1.1778813109247;
+        Thu, 14 May 2026 19:45:09 -0700 (PDT)
+Received: from mail-lj1-f175.google.com (mail-lj1-f175.google.com. [209.85.208.175])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a90f10c4fasm903876e87.5.2026.05.14.19.45.08
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 May 2026 19:45:08 -0700 (PDT)
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-39397d63804so99640011fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 19:45:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/PE0s+v/+8tf+fvarClrmTmuTTbYuYPaneg+MyI3EyqICUQPgLf78+1WkEM+0JF+82+wsPPWJW8f7v6mtdAjTn@lists.infradead.org
+X-Received: by 2002:a2e:9dcd:0:b0:394:987:945e with SMTP id
+ 38308e7fff4ca-39561d5819emr3540321fa.1.1778813108037; Thu, 14 May 2026
+ 19:45:08 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260301144939.1832806-1-andrej.skvortzov@gmail.com>
+ <CAGb2v64PvGdViT6DWHiNGoK=5L8DpfjVAdv+LbNf_Uisy6v0Aw@mail.gmail.com> <agY70wRwrkdI2pk4@skv.local>
+In-Reply-To: <agY70wRwrkdI2pk4@skv.local>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Fri, 15 May 2026 10:44:54 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67c3DKq=Bz_HU45xwiyAh8JhMv+uOB6+=7JVGtJNE2UTQ@mail.gmail.com>
+X-Gm-Features: AVHnY4IAFKEb5fFsOKR9Ml4CdBf0EmQCbXRlmyRzS5WkYLAAPCuf1-bVK9uD2LU
+Message-ID: <CAGb2v67c3DKq=Bz_HU45xwiyAh8JhMv+uOB6+=7JVGtJNE2UTQ@mail.gmail.com>
+Subject: Re: [PATCH] bus: sunxi-rsb: Always check register address validity
+To: Andrey Skvortsov <andrej.skvortzov@gmail.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Date: Fri, 15 May 2026 02:44:39 +0000
-Message-Id: <20260515024439.AF2B7C2BCB3@smtp.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_194441_377682_498FB3C4 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20260514_194513_468914_EBEE3937 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,61 +94,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential issue(=
-s) to consider:
-- [Medium] The arm64 __KLP_SYSCALL_DEFINEx macro omits the ALLOW_ERROR_INJE=
-CTION declaration, silently breaking BPF error injection for livepatched sy=
-scalls.
---
+On Fri, May 15, 2026 at 5:17=E2=80=AFAM Andrey Skvortsov
+<andrej.skvortzov@gmail.com> wrote:
+>
+>
+> On 26-03-14 15:33, Chen-Yu Tsai wrote:
+> > On Sun, Mar 1, 2026 at 10:50=E2=80=AFPM Andrey Skvortsov
+> > <andrej.skvortzov@gmail.com> wrote:
+> > >
+> > > From: Samuel Holland <samuel@sholland.org>
+> > >
+> > > The register address was already validated for read operations in
+> > > regmap_sunxi_rsb_reg_read before being truncated to a u8. Write opera=
+tions
+> > > have the same set of possible addresses, and the address is being tru=
+ncated
+> > > from u32 to u8 here as well, so the same check is needed.
+> > >
+> > > Signed-off-by: Samuel Holland <samuel@sholland.org>
+> > > Signed-off-by: Andrey Skvortsov <andrej.skvortzov@gmail.com>
+> >
+> > Should probably have:
+> >
+> > Fixes: d787dcdb9c8f ("bus: sunxi-rsb: Add driver for Allwinner Reduced
+> > Serial Bus")
+> >
+> > I will added (via b4) when applying.
+> >
+> > Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+>
+> Hi,
+>
+> do I need to update and resend this patch?
 
-commit b4d1a9ea352f196a7fd3e7198fdade51440d08e5
-Author: Josh Poimboeuf <jpoimboe@kernel.org>
+Sorry this fell through the cracks. I've applied it now.
 
-klp-build: Add arm64 syscall patching macro
 
-This commit adds arm64 support for KLP_SYSCALL_DEFINEx(). The commit
-message states it is mirroring the arm64 __SYSCALL_DEFINEx() pattern from
-arch/arm64/include/asm/syscall_wrapper.h.
-
-> diff --git a/include/linux/livepatch_helpers.h b/include/linux/livepatch_=
-helpers.h
-> index 99d68d0773fa8..4b647b83865f9 100644
-> --- a/include/linux/livepatch_helpers.h
-> +++ b/include/linux/livepatch_helpers.h
-> @@ -72,6 +72,25 @@
->  	}								\
->  	static inline long __klp_do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))
-> =20
-> +#elif defined(CONFIG_ARM64)
-> +
-> +#define __KLP_SYSCALL_DEFINEx(x, name, ...)				\
-> +	static long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__));	\
-> +	static inline long __klp_do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__));\
-> +	asmlinkage long __arm64_sys##name(const struct pt_regs *regs);	\
-> +	asmlinkage long __arm64_sys##name(const struct pt_regs *regs)	\
-> +	{								\
-> +		return __se_sys##name(SC_ARM64_REGS_TO_ARGS(x,__VA_ARGS__));\
-> +	}								\
-
-Does this macro definition omit the ALLOW_ERROR_INJECTION declaration?
-
-The standard arm64 __SYSCALL_DEFINEx() macro explicitly registers the top-l=
-evel
-syscall handler with ALLOW_ERROR_INJECTION() to enable BPF error injection
-workflows like bpf_override_return(). The x86 implementation correctly
-preserves this functionality.
-
-Because this macro is missing that declaration, it looks like it might
-introduce a regression where BPF cannot inject errors into the replacement
-syscalls in a livepatch module on arm64.
-
-[ ... ]
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1778642120.gi=
-t.jpoimboe@kernel.org?part=3D21
+ChenYu
 
