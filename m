@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42727CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 11:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC30CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 11:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
-	:Subject:Message-ID:From:Content-Transfer-Encoding:Content-Type:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xY+E/upLJxEjmvM3j7C4ks+xfWlSY3E/fLSmuAvnhNI=; b=tZhBYayKWbMTOVKGqRVfy9YWQZ
-	WQ9pUkerdBBy7jsvflQliujElYmxDGaXpuro3WO8VnLaerlmyrO0clf8nGEvu3aIXk0Ovyxyb6X9W
-	4Sd1FJjT0CPtY0RLo78KtyANe0wiv9Vi5AwaxkdOJJNeZIfKqRwwF9MWQjdehbJ2r1orqjRGNcSm6
-	+vX8LROfcIvYd/hft0WOmXcG29vBC2uguBqHvvD7ehCqeZ8VpNhZd4dPV15C6ryD/EYm/gxvfGxiG
-	K4DeNbC5lM1Kdii9y+SCcIuGw7BPCPXuKmrptZBiGGtRgjAjuDnsQ/NPxBDBZRjAbcwGh4oy9Ce9f
-	7xhd0F2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=azYrGFYJcArrhMc/4jBsN0eJtlLXO6sWrGP2OnPQSkg=; b=olmQaRZVIh4viFUHjHIO06V4L7
+	pjyxoIN8x0U2qGY1l8RvtPiBiWfBpRFUCJSZUgS4mx11mCjzUPd0lZOKsOO8/gsBNbhKBhxLIe5tH
+	FhlliEoyrZsxIFKJbYlvxnruaxb7nFp+ATjs7bS3QlOTd7/mSodzH1RukJgWlH93tQWkM8UVzV0Yx
+	MRspy/nHNEJ3emFfdZ4bshqRI+DFEmIJ2Palq/0g8P4Bag9NQv4Znm/Hyq/AvcUFpLzQpfD9LtIlc
+	4gsto0brLfXC5haZ+lLq1KXNzlMaxJrkrYu+2YWuLTcVywBSZMxLU/JcKiBg4pIsUN0PXrYF+1+gX
+	+KpP5ykQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNqU3-000000089NJ-0O9t;
-	Fri, 15 May 2026 11:13:35 +0000
-Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNqTz-000000089K2-1lEO
+	id 1wNqYQ-000000089xT-3LSO;
+	Fri, 15 May 2026 11:18:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNqYO-000000089wl-1Qcd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 11:13:32 +0000
+	Fri, 15 May 2026 11:18:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B66FD22FC;
+	Fri, 15 May 2026 04:17:57 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A6C83F85F;
+	Fri, 15 May 2026 04:18:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778843882; bh=hdnT2rSiLjso6CNM6o27JC8OpHzATjAy38dvAzOX6iQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TK+iwPcVSYtu355kSoesA7oDUYqeiR+Y7J1P2jHfUPHjtSQr1PLd8k9SgkZAHF/1w
+	 PapGLu0RciGXoVBnY8ygMWHGpA4Yr9I3m39Af+5dRzVAZJgmkR1AtIP2QmePA4Xkpm
+	 za3Ze9bVvqjTCV9HHrNmA8YCtW9CntOdXwS+AuTg=
+Date: Fri, 15 May 2026 12:18:00 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Jie Gan <jie.gan@oss.qualcomm.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v12 19/28] coresight: Save active path for system tracers
+Message-ID: <20260515111800.GM34802@e132581.arm.com>
+References: <20260511-arm_coresight_path_power_management_improvement-v12-0-1c9dcb1de8c9@arm.com>
+ <20260511-arm_coresight_path_power_management_improvement-v12-19-1c9dcb1de8c9@arm.com>
+ <a40b0d0f-bbf8-4ba4-9370-2b5be71bdc44@arm.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1778843595;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xY+E/upLJxEjmvM3j7C4ks+xfWlSY3E/fLSmuAvnhNI=;
-	b=OaF/xShMio5pJ01/fel5DMXE3YdlVSumEvuZa6aNn7Uw9tp/Z2OdB1rsusp8RHJiyyZ902
-	JGsr6f2ap+f4Hdsp637l3HEhTcuEjc0TP1tskvJ/pGVqoUisBO2ugLoqT8yY3ovM4ArsZZ
-	+mjHogAd+q2BkujTSSCy1GoKAvIacKw=
-Date: Fri, 15 May 2026 11:13:05 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Frank Wunderlich" <frank.wunderlich@linux.dev>
-Message-ID: <935a73a6e458b2d4fed2e59192e725483ca62126@linux.dev>
-TLS-Required: No
-Subject: Re: [net-next v8 2/3] net: ethernet: mtk_eth_soc: Add RSS support
-To: "Jakub Kicinski" <kuba@kernel.org>, "Mason Chang"
- <mason-cw.chang@mediatek.com>
-Cc: "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
- netdev@vger.kernel.org, "Russell King" <linux@armlinux.org.uk>,
- linux-kernel@vger.kernel.org, "Andrew Lunn" <andrew+netdev@lunn.ch>,
- "Eric Dumazet" <edumazet@google.com>, linux-mediatek@lists.infradead.org,
- "Daniel Golle" <daniel@makrotopia.org>, "Matthias Brugger"
- <matthias.bgg@gmail.com>, "Paolo Abeni" <pabeni@redhat.com>, "Lorenzo
- Bianconi" <lorenzo@kernel.org>, "David S. Miller" <davem@davemloft.net>,
- linux-arm-kernel@lists.infradead.org, "Felix Fietkau" <nbd@nbd.name>,
- "Frank Wunderlich" <linux@fw-web.de>
-In-Reply-To: <20260513185625.48e69837@kernel.org>
-References: <20260509190938.169290-1-linux@fw-web.de>
- <20260509190938.169290-3-linux@fw-web.de>
- <20260513185625.48e69837@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a40b0d0f-bbf8-4ba4-9370-2b5be71bdc44@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_041331_668827_05E04586 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20260515_041804_428853_7D34B657 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,71 +79,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+On Fri, May 15, 2026 at 11:54:22AM +0100, Suzuki K Poulose wrote:
 
-thanks for your review, i have to discuss the previous parts (AI-review)
-with MTK on how to make it better. The changes there seem not trivial for
-me and this will take some time.
+[...]
 
-Am 14. Mai 2026 um 03:56 schrieb "Jakub Kicinski" <kuba@kernel.org>:
->=20
->=20On Sat, 9 May 2026 21:09:31 +0200 Frank Wunderlich wrote:
->=20
->=20>=20
->=20> From: Mason Chang <mason-cw.chang@mediatek.com>
-> >=20=20
->=20>  Add support for Receive Side Scaling.
-> >=20=20
->=20>  We can adjust SMP affinity with the following command:
-> >  echo [CPU bitmap num] > /proc/irq/[virtual IRQ ID]/smp_affinity,
-> >  with interrupts evenly assigned to 4 CPUs, we were able to measure
-> >  an RX throughput of 7.3Gbps using iperf3 on the MT7988. Further
-> >  optimizations will be carried out in the future.
-> >=20
->=20Would be great to split this up a little more for ease of review.
+> > +	/*
+> > +	 * Update the path pointer until after the source is enabled to avoid
+> > +	 * races where multiple paths attempt to enable the same source.
+> > +	 *
+> > +	 * Do not set the path pointer here for per-CPU sources; set it locally
+> > +	 * on the CPU instead. Otherwise, there is a window where the path is
+> > +	 * enabled but the pointer is not yet set, causing CPU PM notifiers to
+> > +	 * miss PM operations due to reading a NULL pointer.
+> > +	 */
+> > +	if (!coresight_is_percpu_source(csdev))
+> > +		csdev->path = path;
+> 
+> Do we need to specail case this for non-percpu sources ? We could always let
+> the driver save/clear the path leaving the core out of it. We can fix it
+> separately from this series in a follow up patch.
 
-you mean splitting the code into more separate patches or the commit desc=
-ription?
+This patch has a big reason is for patch 22. After saving csdev->path,
+then patch 22 can totally remove IDR cache related things.
 
-> >=20
->=20> +static int mtk_rss_init(struct mtk_eth *eth)
-> >  +{
-> >  + const struct mtk_soc_data *soc =3D eth->soc;
-> >  + const struct mtk_reg_map *reg_map =3D eth->soc->reg_map;
-> >  + struct mtk_rss_params *rss_params =3D &eth->rss_params;
-> >=20
->=20reverse xmas tree should be followed, please fix everywhere in this
-> submission=20
+Otherwise, we can drop this patch and patch 22, this wouldn't impact
+CPU PM stuffs.
 
-will=20check again when we have the fixed flow (AI-review).
-
-> >=20
->=20>  +/* struct mtk_rss_params - This is the structure holding paramete=
-rs
-> >  + * for the RSS ring
-> >  + * @hash_key The element is used to record the
-> >  + * secret key for the RSS ring
-> >  + * indirection_table The element is used to record the
-> >  + * indirection table for the RSS ring
-> >  + */
-> >=20
->=20Quite odd looking comment. Having the right side aligned like that
-> makes it header to correlate where doc for fields start.
-> And there's @ missing for indirection_table.
-
-dito
-
-@Mason: have you found some time for looking into the AI suggestions?
-Maybe it is better discussing changes here if they match upstream
-requirements as i did only up-port the SDK-patches with some small
-changes and made tests :)
-As a note: i have not activated RSS/LRO on other mt798x because it was
-not clear, if RSS or LRO is better for them and only mt7988 can do both
-simultanously. AI also complained about it. And this decision causes
-changes in code too.
-It would be great if you can use the actual state here as base for
-changes so that i do not miss anything when upporting the SDK state again=
-.
-
-regards Frank
+Thanks,
+Leo
 
