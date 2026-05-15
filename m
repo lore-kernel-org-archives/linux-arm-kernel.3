@@ -4,70 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC933CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 14:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989ECCD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 14:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t5HxVxO0gFtZ3oLwzGq+c+24pxM1HLwXGR6T5XrXEkg=; b=v+d36lpZ6Rav2n3W7UeHN9eZZY
-	hTDtZH43OmhZpDLj/RcWYQvQ3iVt0MPKSF7VsktDZQNn56l7ZPZiGUqSyM2i8I2Sy+PM749X4on76
-	li9y/B9/OlE3z9rPlEfS+j/zhrrZlreQRzkc+oeget2y8MEraIu6goRlngmGRBKGLjvah1TcBMHL2
-	p1KWlBiZbH3x91Diqy3MLnL8ra4abtyM6ieJiLi1VeRdaSmP7nW2yNW9jaiv1r0VEQ3a4ybdFb8AK
-	vpyZZGN3S48O6eQ7TVoETQ/T6+DrqpKaLoQRyibn5GUOeByKwt/toZNM5VGPKCQmBfxSOqNcwL/s9
-	Me92L/qQ==;
+	bh=ePXGiG32ePZCUq++ub2uUTWLQnF7fF/+KzdsGsly5x0=; b=eITrnHtuT2qXwHblX4CUXU/l+k
+	ltz6oEoX3oH6zPg6cxchc0sgU8QOAI2rkYtiltgkgBLcPauUlP8PZ5SfIjuExGBYikcMvKDZOOfFt
+	M08FgdVwmW3GJrK/fwynIvcBRf00F5wiAWuFVAdoNo3UrkeT+YaD3Ij7VWv+exUdMGjNtRiUjwmKo
+	9zAykLERt1+WWHlN+WVqYnuvjlP8PNlVd3QaoVp78uxe2NGFJhPtz0ktUJX+SP80wpg/5OqZkR6cs
+	qxTbHdetPh2uZnClA7/WnxfMA8ZQQCUUJTyLKfVdsAWjKoxwHXTMLgUXPk2HWnSSJSyH8V5WQ25nG
+	8WwHH3DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNtBc-00000008WgY-0ULR;
-	Fri, 15 May 2026 14:06:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNtBW-00000008WeE-3ht8
+	id 1wNtRJ-00000008YqL-0yv8;
+	Fri, 15 May 2026 14:22:57 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNtRF-00000008Ypn-3Tko
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 14:06:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE5EC35A6;
-	Fri, 15 May 2026 07:06:31 -0700 (PDT)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 51B793F836;
-	Fri, 15 May 2026 07:06:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778853997; bh=/X5vvNOKH2UKMw4tT6pijLDefuLZqv7SXoC571MH1NI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fcjXZtSZl2ZNrGbX6+vWkP9u57+qjXoxb6pY1g1Os5S26m6y5WFJX35ZMh+e3QsT6
-	 DvQImAJ+dn92pHdHv32vcq/1VtsSovXI1bemv6yNfKjeW9ii1j0yrtr3ktbKCJI3e7
-	 Y1lrLT2iHh+AE7jLrjcl77GgBqKk6LLw+u2jMYPE=
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: james.morse@arm.com,
-	reinette.chatre@intel.com,
-	fenghuay@nvidia.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	corbet@lwn.net,
-	x86@kernel.org,
-	linux-doc@vger.kernel.org,
-	dave.martin@arm.com,
-	Dave Martin <Dave.Martin@arm.com>,
-	Ben Horgan <Ben.Horgan@arm.com>
-Subject: [PATCH v3 3/3] fs/resctrl: Factor MBA parse-time conversion to be per-arch
-Date: Fri, 15 May 2026 15:06:12 +0100
-Message-ID: <20260515140612.1205251-4-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260515140612.1205251-1-ben.horgan@arm.com>
-References: <20260515140612.1205251-1-ben.horgan@arm.com>
+	Fri, 15 May 2026 14:22:55 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64FBTiU64090474;
+	Fri, 15 May 2026 14:22:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=ePXGiG
+	32ePZCUq++ub2uUTWLQnF7fF/+KzdsGsly5x0=; b=PmCOX4/0aDo+7UG5tlvAVb
+	cSqcZxIBQZOEiPJSh4+qXG6v2FjUarxGVwKQ5cXQR/8uewD8qIw+Vawiy84A8YHQ
+	/qVHweI/4f4GY0s7Oq8hiqWnoXG3raQ7VcwH9r37S2nY7Wd6DfpBBPqFMbb9Oe/p
+	IjU3wCZCTIra2FiLH2Uvdg7RBPQlEHAV4zh2MRE1yNqU55p4wGmvlnxOykpM9kcC
+	mlbFYWEgSgeJAvhRmjCM2rv4EK2gbo/XIcVTlAXsULiSzDO954jQT6+MfqaiJO97
+	1MxwZylCEliWo7BKTXmjUKmwnHO3O8Htri0k8j0q4DGJRrNY6c0+wdpR0QGRpylg
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4e5m93ukk5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 15 May 2026 14:22:31 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64FE975D007100;
+	Fri, 15 May 2026 14:22:30 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4e5kvcbvvb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 15 May 2026 14:22:30 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64FEMRbE27722094
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 15 May 2026 14:22:27 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1B94120040;
+	Fri, 15 May 2026 14:22:27 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id F10DC20043;
+	Fri, 15 May 2026 14:22:25 +0000 (GMT)
+Received: from [192.168.178.55] (unknown [9.87.148.246])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 15 May 2026 14:22:25 +0000 (GMT)
+From: Gerd Bayer <gbayer@linux.ibm.com>
+Date: Fri, 15 May 2026 16:22:05 +0200
+Subject: [PATCH 3/5] powerpc/pci: Use official API to iterate over PCI
+ buses
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260515-priv_root_buses-v1-3-f8e393c57390@linux.ibm.com>
+References: <20260515-priv_root_buses-v1-0-f8e393c57390@linux.ibm.com>
+In-Reply-To: <20260515-priv_root_buses-v1-0-f8e393c57390@linux.ibm.com>
+To: Richard Henderson <richard.henderson@linaro.org>,
+        Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@kernel.org>,
+        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin" <hpa@zytor.com>
+Cc: Yinghai Lu <yinghai@kernel.org>, linux-alpha@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+        Gerd Bayer <gbayer@linux.ibm.com>
+X-Mailer: b4 0.14.3
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: FFfQU0OrTn0zzdD30lRJSC_3o5nA81Sl
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE1MDE0MyBTYWx0ZWRfX0MJB1F+swIDZ
+ cDbREqzjGwweWu9LtDXzqRraaE00hp2HmBvfB4Hdb0TMN5q6RdAnSW4eAjeWA1X9W/H5swreQqp
+ 9L66gh7eZsV+DgyIZf/hOUx1xInEx3cLbpln7ZRsgL8MfywX2Wwq6hdlDJfAZppxDcNFMm30gpC
+ zPDwRlo2T/Gf1oSUQV3Hp7AHmsDlX1Ft0OUUscMuas1Rz83PCQ7yRVGQ82Rg5M0DZkbwW8ybBfb
+ 8IKWlZ5qmxWgzgNOakRqpaQ/mYzWsmEZaq4Myj0x6NzuYeAfD5jKeMHH1oPKAMfwDSqSD9yGJ6C
+ jBQxuEIyLd6LZf1dIfGW1L6mYWivyHAs5kFyht1FrSXycpTyfwdfRn/s7+SqkI68NpBXyTB4+r9
+ a1agbgMlTSMm0jSzZoMts6TwiGLH4V2/Gr704LRE2nxwtEI3Y2schRKqyJBI23fEm4psOjl9YVa
+ J1XDIe2C9Nm4pboY0Sw==
+X-Authority-Analysis: v=2.4 cv=ZZEt8MVA c=1 sm=1 tr=0 ts=6a072c28 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
+ a=Nc3X6MLr1OvL3U8oulEA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: wCwM_yqRW6cn_hXtPnpJTdbPYVQduWPs
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-15_03,2026-05-13_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 malwarescore=0 bulkscore=0 impostorscore=0
+ phishscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605150143
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_070639_007784_60AE8765 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20260515_072253_884211_1450C1B7 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,99 +132,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Martin <Dave.Martin@arm.com>
+Replace iterating over pci_root_buses with the official
+pci_find_next_bus() call provided by PCI core. This allows to make
+pci_root_buses private to PCI core.
 
-The control value parser for the MB resource currently coerces the
-memory bandwidth percentage value from userspace to be an exact
-multiple of the rdt_resource::resctrl_membw::bw_gran parameter.
-
-On MPAM systems, this results in somewhat worse-than-worst-case
-rounding, since the bandwidth granularity advertised to resctrl by the
-MPAM driver is in general only an approximation to the actual hardware
-granularity on these systems, and the hardware bandwidth allocation
-control value is not natively a percentage -- necessitating a further
-conversion in the resctrl_arch_update_domains() path, regardless of the
-conversion done at parse time.
-
-For MPAM and x86 use their custom pre-prepared parse-time conversion,
-resctrl_arch_preconvert_bw(). This will avoid accumulated error
-from rounding the value twice on MPAM systems. For x86 systems there
-is no functional change.
-
-Clarify the documentation, but avoid overly exact promises.
-
-Clamping to bw_min and bw_max still feels generic: leave it in the core
-code, for now.
-
-[ BH: Split out x86 specific changes ]
-Signed-off-by: Dave Martin <Dave.Martin@arm.com>
-Signed-off-by: Ben Horgan <Ben.Horgan@arm.com>
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Signed-off-by: Gerd Bayer <gbayer@linux.ibm.com>
 ---
- Documentation/filesystems/resctrl.rst | 17 +++++++++--------
- fs/resctrl/ctrlmondata.c              |  6 +++---
- 2 files changed, 12 insertions(+), 11 deletions(-)
+ arch/powerpc/kernel/pci-common.c | 7 ++++---
+ arch/powerpc/kernel/pci_64.c     | 4 ++--
+ 2 files changed, 6 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/filesystems/resctrl.rst b/Documentation/filesystems/resctrl.rst
-index b003bed339fd..4322d8025453 100644
---- a/Documentation/filesystems/resctrl.rst
-+++ b/Documentation/filesystems/resctrl.rst
-@@ -236,12 +236,11 @@ with respect to allocation:
- 		user can request.
+diff --git a/arch/powerpc/kernel/pci-common.c b/arch/powerpc/kernel/pci-common.c
+index 8efe95a0c4ff..1e0be7bcaa56 100644
+--- a/arch/powerpc/kernel/pci-common.c
++++ b/arch/powerpc/kernel/pci-common.c
+@@ -1417,10 +1417,10 @@ static void __init pcibios_reserve_legacy_regions(struct pci_bus *bus)
  
- "bandwidth_gran":
--		The granularity in which the memory bandwidth
--		percentage is allocated. The allocated
--		b/w percentage is rounded off to the next
--		control step available on the hardware. The
--		available bandwidth control steps are:
--		min_bandwidth + N * bandwidth_gran.
-+		The approximate granularity in which the memory bandwidth
-+		percentage is allocated. The allocated bandwidth percentage
-+		is rounded up to the next control step available on the
-+		hardware. The available hardware steps are no larger than
-+		this value.
- 
- "delay_linear":
- 		Indicates if the delay scale is linear or
-@@ -871,8 +870,10 @@ The minimum bandwidth percentage value for each cpu model is predefined
- and can be looked up through "info/MB/min_bandwidth". The bandwidth
- granularity that is allocated is also dependent on the cpu model and can
- be looked up at "info/MB/bandwidth_gran". The available bandwidth
--control steps are: min_bw + N * bw_gran. Intermediate values are rounded
--to the next control step available on the hardware.
-+control steps are, approximately, min_bw + N * bw_gran.  The steps may
-+appear irregular due to rounding to an exact percentage: bw_gran is the
-+maximum interval between the percentage values corresponding to any two
-+adjacent steps in the hardware.
- 
- The bandwidth throttling is a core specific mechanism on some of Intel
- SKUs. Using a high bandwidth and a low bandwidth setting on two threads
-diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
-index 9a7dfc48cb2e..934e12f5d145 100644
---- a/fs/resctrl/ctrlmondata.c
-+++ b/fs/resctrl/ctrlmondata.c
-@@ -37,8 +37,8 @@ typedef int (ctrlval_parser_t)(struct rdt_parse_data *data,
- /*
-  * Check whether MBA bandwidth percentage value is correct. The value is
-  * checked against the minimum and max bandwidth values specified by the
-- * hardware. The allocated bandwidth percentage is rounded to the next
-- * control step available on the hardware.
-+ * hardware. The allocated bandwidth percentage is converted as
-+ * appropriate for consumption by the specific hardware driver.
-  */
- static bool bw_validate(char *buf, u32 *data, struct rdt_resource *r)
+ void __init pcibios_resource_survey(void)
  {
-@@ -71,7 +71,7 @@ static bool bw_validate(char *buf, u32 *data, struct rdt_resource *r)
- 		return false;
+-	struct pci_bus *b;
++	struct pci_bus *b = NULL;
+ 
+ 	/* Allocate and assign resources */
+-	list_for_each_entry(b, &pci_root_buses, node)
++	while ((b = pci_find_next_bus(b)) != NULL)
+ 		pcibios_allocate_bus_resources(b);
+ 	if (!pci_has_flag(PCI_REASSIGN_ALL_RSRC)) {
+ 		pcibios_allocate_resources(0);
+@@ -1432,7 +1432,8 @@ void __init pcibios_resource_survey(void)
+ 	 * bus available resources to avoid allocating things on top of them
+ 	 */
+ 	if (!pci_has_flag(PCI_PROBE_ONLY)) {
+-		list_for_each_entry(b, &pci_root_buses, node)
++		b = NULL; /* Start all over */
++		while ((b = pci_find_next_bus(b)) != NULL)
+ 			pcibios_reserve_legacy_regions(b);
  	}
  
--	*data = roundup(bw, (unsigned long)r->membw.bw_gran);
-+	*data = resctrl_arch_preconvert_bw(bw, r);
- 	return true;
- }
+diff --git a/arch/powerpc/kernel/pci_64.c b/arch/powerpc/kernel/pci_64.c
+index e27342ef128b..f816d063b984 100644
+--- a/arch/powerpc/kernel/pci_64.c
++++ b/arch/powerpc/kernel/pci_64.c
+@@ -227,7 +227,7 @@ SYSCALL_DEFINE3(pciconfig_iobase, long, which, unsigned long, in_bus,
+ 			  unsigned long, in_devfn)
+ {
+ 	struct pci_controller* hose;
+-	struct pci_bus *tmp_bus, *bus = NULL;
++	struct pci_bus *tmp_bus = NULL, *bus = NULL;
+ 	struct device_node *hose_node;
  
+ 	/* Argh ! Please forgive me for that hack, but that's the
+@@ -248,7 +248,7 @@ SYSCALL_DEFINE3(pciconfig_iobase, long, which, unsigned long, in_bus,
+ 	 * used on pre-domains setup. We return the first match
+ 	 */
+ 
+-	list_for_each_entry(tmp_bus, &pci_root_buses, node) {
++	while ((tmp_bus = pci_find_next_bus(tmp_bus)) != NULL) {
+ 		if (in_bus >= tmp_bus->number &&
+ 		    in_bus <= tmp_bus->busn_res.end) {
+ 			bus = tmp_bus;
+
 -- 
-2.43.0
+2.54.0
 
 
