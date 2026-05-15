@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3565CCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 21:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E8CCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 21:54:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jz2thKifJmuimuViZo05mWoG7e6CD2hwI+lB9tLFrT0=; b=jenyWYhU/gUy9HiWHvo5LdpuQS
-	l6BgZJzRvAyCsdM+uVwNds1+ptdqPXlmxwlCsLeOsGc32PfaSQRzgey/DtV6yFZFJQQXsFH3xWkW/
-	E29ys89r9SU3L5K8LyRRYwMQKC1ebNW1wmllRuoVD/kd+jrbMoDWohTDWu3dgs8EBAjInNaKw3hvN
-	JroMYy56/p9hzSrCtoR6RrvfPWu4qHf96Rt1VFvXyk5KqHW92OpoGzGA+djP98qFMieK4ord5tGUV
-	4Ad9iktWCIldnAaKRJBa3F4LXBfYU5Gy6jBlacjB+79iLte9GWkE9Ke/oO+fVjnrTqizsJRP8hrDt
-	AyMgexjw==;
+	bh=5rBKfu/n6TaE4ORb/ekTINMqGjQC+tBNeO+kLcISMlw=; b=MgbnEPeFkR5h/l1WA2XkGvQhSP
+	jLhDmj7qHrbSTqfrkouMByxnWRWrxHoa+C72wigZGMnHrK3tf5qLok8TFNM6OaIJWtssm32t0Dqgj
+	LMZbsEzXax8gARYEqUdbTR7qf6joJRPPWInXcJD5W2r1o/yFlMFDKd1bmcdAldpy2NO+azzR2dQam
+	Cot6uJg4khM+T2oYHPepMwPJkjNfv9zCubYZ9c6xbgwTYuMlG+trVKnd/idzOIxXgiqWPbIKH7PnZ
+	qXgXPI+0tV7kn3AG3wfhOMNmWekdD5mt3D3WiXuhOksx95cPzSeR2jInPV7ZXmveq7Z4Sgr8zlWTT
+	Af3pkadQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO0Rw-00000009ZSE-1HDu;
-	Fri, 15 May 2026 21:52:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO0Rt-00000009ZRh-2S8Y
+	id 1wO0UY-00000009Zkd-2i2M;
+	Fri, 15 May 2026 21:54:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wO0UW-00000009Zk3-1mxK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 21:52:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D48101BCB;
-	Fri, 15 May 2026 14:51:54 -0700 (PDT)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 371183F85F;
-	Fri, 15 May 2026 14:51:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778881920; bh=w/NSnWPxO2pPbEQZolqzwkIT6PojPrmpavCWj0wqYGU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nCPJZG/ymBaYmcyERMbxLdIsHQoNGJJEJxaWy2/8f+2GnZIHlMZ+4GS5187VVvwoY
-	 IH2pP9VPYV9gZM+MXD1JIlOMUxGgO/ZclmXl4a955uYPg0wdQKJNQFcQLflkdYlRLM
-	 krq3CmKprRwSY7QjrDU8svR6X78wpShjn/zYDMXo=
-Date: Fri, 15 May 2026 23:51:12 +0200
-From: Andre Przywara <andre.przywara@arm.com>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH] arm64: dts: allwinner: Cubie A5E: enable SPI flash
-Message-ID: <20260515235112.3d2a0c5e@ryzen.lan>
-In-Reply-To: <CAGb2v66drOyBgNU0hFo356MKTFnggNmyzrANok+-U31NzZCUEw@mail.gmail.com>
-References: <20260511221741.25888-1-andre.przywara@arm.com>
-	<CAGb2v64u4sqwiiQcEBg-XvmJ2DLEpSj-_AWNbp14RAp-GXP7OA@mail.gmail.com>
-	<ee9fca66-d079-4ad7-9cb3-5077e8a4f6d6@arm.com>
-	<CAGb2v66drOyBgNU0hFo356MKTFnggNmyzrANok+-U31NzZCUEw@mail.gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	Fri, 15 May 2026 21:54:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2328543BD0;
+	Fri, 15 May 2026 21:54:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F238C2BCB0;
+	Fri, 15 May 2026 21:54:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778882083;
+	bh=z8IkZDkb9rYC7txK+tLrs+vGOwLssrMK0Sf54P06p8U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jAMTApsYrZp+mXnWD8PSIcMznkdECU4xg7uTVi3WUZyq1YoSmk7BHL6AtjsIeD/Wv
+	 gKClyrunnWTJwDhyowWPq7PdfyIAkz1RUduzf/oXq7pYWqhw0rdYwoG1qZn4SUTPOc
+	 MjfxmXhwJL9burW4aXYg/rl5COEL3nx88Faf3egE8FQ7ox4F30SJ/930+Be2ypuOuW
+	 o4ljdOQHZvA2kToKrY5IFCko0D3XDhL1Sk4DxcI87yAGqQQ34Ze9YEmBBOSpXwUsIp
+	 Ieye6x2rxfV8UuT6uJitJcbi5/8RF8DECXNn3ACfz//aGNHvI0re8IejF06Rl2ZOZp
+	 bOcw7iwqpa3gw==
+Message-ID: <13bf6323-b5af-494d-ad1f-1bb7eac2d8ab@kernel.org>
+Date: Fri, 15 May 2026 16:54:41 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: socfpga: arria10: Increase JFFS2 rootfs
+ partition size
+To: muhammad.nazim.amirul.nazle.asmade@altera.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260511081520.20247-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+Content-Language: en-US
+From: Dinh Nguyen <dinguyen@kernel.org>
+In-Reply-To: <20260511081520.20247-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_145201_817296_1D39271C 
-X-CRM114-Status: GOOD (  36.43  )
+X-CRM114-CacheID: sfid-20260515_145444_489160_28576D28 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,125 +75,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 16 May 2026 00:12:17 +0800
-Chen-Yu Tsai <wens@kernel.org> wrote:
 
-> On Wed, May 13, 2026 at 5:19=E2=80=AFPM Andre Przywara <andre.przywara@ar=
-m.com> wrote:
-> >
-> > Hi Chen-Yu,
-> >
-> > thanks for chipping in!
-> >
-> > On 5/13/26 07:21, Chen-Yu Tsai wrote: =20
-> > > Hi,
-> > >
-> > > On Tue, May 12, 2026 at 6:18=E2=80=AFAM Andre Przywara <andre.przywar=
-a@arm.com> wrote: =20
-> > >>
-> > >> The Cubie A5E board comes with 16MiB of SPI NOR flash.
-> > >>
-> > >> Enable the SPI0 DT node and describe the configuration.
-> > >>
-> > >> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > >> ---
-> > >>   .../boot/dts/allwinner/sun55i-a527-cubie-a5e.dts  | 15 +++++++++++=
-++++
-> > >>   1 file changed, 15 insertions(+)
-> > >>
-> > >> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts=
- b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> > >> index bfdf1728cd14b..7ad22fc85d1fd 100644
-> > >> --- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> > >> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> > >> @@ -344,6 +344,21 @@ &r_pio {
-> > >>          vcc-pm-supply =3D <&reg_aldo3>;
-> > >>   };
-> > >>
-> > >> +&spi0  {
-> > >> +       pinctrl-names =3D "default";
-> > >> +       pinctrl-0 =3D <&spi0_pc_pins>, <&spi0_cs0_pc_pin>,
-> > >> +                   <&spi0_hold_pc_pin>, <&spi0_wp_pc_pin>; =20
-> > >
-> > > This whole thing needs to be an overlay. The HOLD and WP pins
-> > > conflict with eMMC usage, so it seems that Radxa only populates
-> > > one or the other.
-> > >
-> > > If you look at the pictures on their official website, you'll see the
-> > > SPI NOR chip populated, but not the eMMC chip. On the linux-sunxi wiki
-> > > page, you'll see the opposite. =20
-> >
-> > Well, I have a hard time spotting any actual eMMC SKUs in the shops any=
-way.
-> > But you are right, the hold and WP pins conflict with eMMC, whereas the
-> > other pins are not.
-> > =20
-> > > And you probably want to enable QSPI, like Sashiko mentioned. =20
-> >
-> > Well, in the interest of keeping this simple and enabling the usage of
-> > SPI flash for all the users out there, I'd rather drop the extra pins.
-> > This is mostly really useful for booting the firmware, maybe loading a
-> > tiny kernel or other data once, so performance is not a big concern in
-> > this use case. The BootROM surely does not use QSPI. =20
->=20
-> Given that the pins are tied on physically, if someone then enables mmc2
-> for a potentially present eMMC, the two pins could be toggled by the
-> MMC controller, causing the flash to misbehave. I'm slightly concerned
-> about this possibility.
 
-That's a good point, but that means it's really a hardware design
-issue: you cannot have SPI together with eMMC on this board.
+On 5/11/26 03:15, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
+> From: Niravkumar L Rabara <niravkumar.l.rabara@altera.com>
+> 
+> Increase the JFFS2 partition size to support larger root filesystem.
+> Also fix the partition label to match the actual start address.
+> 
+> Signed-off-by: Niravkumar L Rabara <niravkumar.l.rabara@altera.com>
+> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+> ---
+>   .../arm/boot/dts/intel/socfpga/socfpga_arria10_socdk_nand.dts | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm/boot/dts/intel/socfpga/socfpga_arria10_socdk_nand.dts b/arch/arm/boot/dts/intel/socfpga/socfpga_arria10_socdk_nand.dts
+> index a662df319a84..5f9b98b0b393 100644
+> --- a/arch/arm/boot/dts/intel/socfpga/socfpga_arria10_socdk_nand.dts
+> +++ b/arch/arm/boot/dts/intel/socfpga/socfpga_arria10_socdk_nand.dts
+> @@ -18,9 +18,9 @@ partition@0 {
+>   			label = "Boot and fpga data";
+>   			reg = <0x0 0x02500000>;
+>   		};
+> -		partition@1c00000 {
+> +		partition@2500000 {
+>   			label = "Root Filesystem - JFFS2";
+> -			reg = <0x02500000 0x05500000>;
+> +			reg = <0x02500000 0x3db00000>;
+>   		};
+>   	};
+>   };
 
-I don't know if Radxa ships the eMMC SKUs without SPI flash, I
-will try to query Tom Cubie about this.
+Applied!
 
-I would prefer to go with SPI flash, at least for now: I think that's
-what most users have, and the eMMC versions are rare so far? Since we
-don't have an eMMC node in the DT anyway, that should be fine for now.
-If someone adds eMMC support later, we would need to figure this out.
-We could mark one as disabled, and leave it up to users (or U-Boot)
-to decide which to enable.
-On the H6 there is a similar problem: PC5 is both SPI0_CS and MMC2_CMD,
-so on the PineH64 we disable the SPI flash, in favour of eMMC, which is
-more useful for users (but sunxi-fel SPI access and U-Boot SPI loading
-work nevertheless). But given the apparent prevalence of SPI boards vs.
-those with eMMC for the Cubie A5E, I would go with SPI on this one.
-
-Does that make sense? Any thoughts?
-
-Cheers,
-Andre
-
-> > And as you say, if people are really interested in the last bit of
-> > performance, they can use an overlay.
-> >
-> > Cheers,
-> > Andre
-> > =20
-> > >
-> > >
-> > > ChenYu
-> > >
-> > > =20
-> > >> +       status =3D "okay";
-> > >> +
-> > >> +       flash@0 {
-> > >> +               compatible =3D "winbond,w25q128", "jedec,spi-nor";
-> > >> +               reg =3D <0>;
-> > >> +               spi-max-frequency =3D <40000000>;
-> > >> +               #address-cells =3D <1>;
-> > >> +               #size-cells =3D <1>;
-> > >> +       };
-> > >> +};
-> > >> +
-> > >>   &uart0 {
-> > >>          pinctrl-names =3D "default";
-> > >>          pinctrl-0 =3D <&uart0_pb_pins>;
-> > >> --
-> > >> 2.46.4
-> > >> =20
-> > > =20
-> > =20
->=20
+Thanks,
+Dinh
 
 
