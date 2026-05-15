@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0870ACD4F4E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BA0CD4F47
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rDDrzBwWLv7cxXzysL5yYXylItmsqFDKcdeZuZx/a38=; b=3/UL6BpFsVHbLMuZ5dPNyfu9H6
-	zAmQs7bcCehLywhIepD86lrG/J1jHJiQZz4Q8DTQLrDZz0M9cf0YVvK7hio92G6scWR2gk3EQwBYB
-	ArSB6JezO3rHEM4CupfwDbwB8lCyvYPGV7bRcDp5QlgY5G9co+HocCL/YAsnK7rRXQE9V9mZj8HSO
-	rOMgdj2L5UobXQYt+e5XQfaoLfID6k82vxZuM6jR2yOqci0+1wPqVo1ctEMhK2wnAr+XOLmBGNwVx
-	0hkKdzF3vQRAwF6Cgf7g4Iy5Y8ziYBcW45zPv5bCL9KCYy279i8f3kbTsDrWMF1w1usH4fd4eF3gc
-	lRo9WDGA==;
+	bh=kImEqI0xCMuGmoIKI0CGRRt1bkclZfcyl+UtBK7F4Ss=; b=YAx5gWwrQZtvLCRslpd3F+cwUU
+	lDiDeT7rjD1KqQrggymd7xDRqfJ/MMpEo7meCFUg0zYi1QF57Q6ZIhQ25xAuuqgq9HCLQytiuQkQD
+	73HjNyHGl34R/HCM97Br941vGhnAL036MsBboJEJUiF77+Dzgxfunl6B8xagWDhUnBtc67eduZGxB
+	g7Z2uyYK7K7QXSEHBNMBdv+I1d3rBGxuJ05Ldrm05kBVaJAvZPmQ3CvlJ+FkB4aFVdiV6XVfyimQm
+	CI2lTFG0aDVjo2i4Clym5DkeH9PA81J1wc26qD2RmuK+SyW6WYuTUonbqDWlPen0BjemsxMsLhNvj
+	v3PWDmnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuCC-00000008fAc-1Rjg;
+	id 1wNuCC-00000008fBk-3dwy;
 	Fri, 15 May 2026 15:11:24 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuC7-00000008f7j-2zLs
+	id 1wNuCA-00000008f9J-3Vqw
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 May 2026 15:11:19 +0000
+	Fri, 15 May 2026 15:11:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=rDDrzBwWLv7cxXzysL5yYXylItmsqFDKcdeZuZx/a38=; b=p/nTJFlZu0YB9AqZbs5/sSLdJ5
-	MznL+aMmgWzu/v4q5ZWlG7DVNJHAnu/hmskzhfbXWER0GoR8xysxi+gEb73FrgCPdvxuA7wrs7uVI
-	Qw/LyOAPOjjtEAZJTsjuZ1MTvKmwpy+aVc3VOd91eY/WfYndIJ+o0yfXh/A2eiMmycu2fnrKG3d4k
-	O5BwNVwS14CVsgYUEPcH3AiG3c6SHiJydS9t/PAeIqbwNdBgRZj4KbJKIsURh0Ad4WR0d4eIBI6Ye
-	AwSgWmHuw22zmbm+6D4F9+2wmO25WBdBXJ/2Au9XFVE/ufXmWwNZ4GcMG8xbdOzb+BSgto05quiVv
-	qDR8LNEg==;
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	bh=kImEqI0xCMuGmoIKI0CGRRt1bkclZfcyl+UtBK7F4Ss=; b=a1e57tEDyc6BSOsYP/3j2j0mcI
+	+MtyQxFn/BFmM9F6IA9uQ0wN6JskM8kpiABEjKTucKZyjFWisE1g21CkbB+1z9lj2+rYmqfXCvFff
+	yQyFgbXVwq+yqrJWBft81tt4zZ5ppA9rmhIZghUaWvBE7rQutOkwUf6iEcrRfGiLDkRy/DCWdyIYQ
+	ZIaTuAH/BEMLIlnOlVy4p8YQiQYFdsC7IOjSdQVs2VXw1444BRy/t62f9+RHO3k/yOCUgv47eGGlD
+	G+XhK+9QMH8Af+UB141lbJ9GAj2tqNa6z9Qhzf+zACY8aikEauflUcgqHxPyrpsM+ZbS9CqIOjdhH
+	WqcwW8Xw==;
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuC4-00000005XKe-2tDb
+	id 1wNuC7-00000005XLh-1CcQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 15:11:18 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-449de065cb3so8536483f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 08:11:16 -0700 (PDT)
+	Fri, 15 May 2026 15:11:21 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-488b3f8fa2bso9161405e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 08:11:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778857875; x=1779462675; darn=lists.infradead.org;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778857878; x=1779462678; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rDDrzBwWLv7cxXzysL5yYXylItmsqFDKcdeZuZx/a38=;
-        b=Tt5qtDUH3vkzCy1du1eV0CoQkoOO3UcusdyDzPSitWLUAFNmbgQjF857fJV7Sk6q75
-         +Omems9+AdR8zqUwSMXrcRxn+FvotIiu3/f0QQjjLJGP5OQDJYrWCNFgkCZKpSPBbvhw
-         QGo7p+fNh4AhIT9t9QcOuKQOKZJpK1YkDklf+j6PNIG/oWtBtSrQP0icOB7wz/gS7pQ1
-         tMIhDHI+R8SJxNCsu5BGmklcIJ9hiLMR9vfW0btQhhDUqBRphTESVE6Sb/s8kJwLk2Kc
-         WyUpZesafXNx7ebsuggvk7CSs8ZV0Qhpu62usU6k98NPqdQ/oWpXJeQnIxuER/uJNxnR
-         cECg==
+        bh=kImEqI0xCMuGmoIKI0CGRRt1bkclZfcyl+UtBK7F4Ss=;
+        b=THe8ZxifFKeVXVxtwJ0RQMf4O+E21SJEW1gvK7fRsV8zT6KtUhaeq8PYbAURntvRWR
+         22VG4WOM/4H/vqsot2i8Bjm/pUxw8D8qzFklj4ayLUWJZy02EFRRm3FqsI8IXBdhGS3D
+         K6RcW6potKvbLHKSE1Et+Zj+BbHbhUToq428bpXVhIIcyvHMT7NWsLhtz1KuSwI0h1mr
+         6sxRAAVOVRA/Iu0zFOstXwpwd1SOt3KmdMgxaDIQUqb5Aj3Ik68D9tHzZCAGRYEC5SRX
+         LATwk1nDGiDp0AsnWI8Bnqi6rvjsHDVZSXBqNqJVbaxk/90X5Qxuw59YDKcei77ORv4O
+         z0FQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778857875; x=1779462675;
+        d=1e100.net; s=20251104; t=1778857878; x=1779462678;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=rDDrzBwWLv7cxXzysL5yYXylItmsqFDKcdeZuZx/a38=;
-        b=C6EZZUPQKxUvy+yDgHemjw/+KSdSqXO0cicbboMi7+Hg1RCzwWS0nobjjPPOcbjxIo
-         39iY3vi+483VPUKDO69OBPclzTZMb/p3dybDy3/IpaxZGRkQu6Fs5yR6IJ7O0uBK/6PW
-         eldjVUweWmMvySnyw5wj80G2FJwe5greKQmbVQY8e1Un7eimqXeIZSdH/lgpAZnMByzG
-         6LOh+t6zSwBaBxzrSomI1vnoSNpAMqQk3J3KfX6neEg+ofseAeyk3Wzb7QzDyVq93Kmj
-         y2SFiUd1Xg6ER2V2XLncGdcAnKZBn4x5xaFAdjk4hEQ//AYTzo0BxwKx3L5Gh4oyPUOa
-         8M4w==
-X-Forwarded-Encrypted: i=1; AFNElJ/oKJPIH+jyXsfQ1jllij9ytXNwWPEcxNeA1gMXpJvlCDODWT332K7oV7mAuxONNUN1IMRNGNpFHZtfvQoUx6F6@lists.infradead.org
-X-Gm-Message-State: AOJu0YzETGOHESbFSMLryx9Qw6fLupw0bFmlpVJPCuBurQlm4zzocR1Y
-	3cKBxKDatZvq4tpfcgkeRNypPUVIkaUs9oPDuLSYEGI09HESIIHTTkjUJFxRtKrohVU=
-X-Gm-Gg: Acq92OHubt5iNsqHZBl8Ny0HOyyHBqG8pRTFP4zHCn0U4UIbAsz1AwodsgG0XgI4AzK
-	rSMi7eFeaZSppclQPc4KeJ6Cg/bn4xkGirvUY6Is+i1Sys+LqvjcgmE6X04eB7/QFInvR+2j5ZN
-	r+MpwDALqA8PU1duZNl4QsoB/YxKOUTtPoZVWrMGavDhxTNbQnNXEx5VfSo++07ecLX9ICIUzIn
-	aesJPVZDnC/ce1CO7b+vh2ImA2LErjH+5ptsrKMRYHY0ivpui/ezuKhIHPNrJiJtwbRrQNQrwaW
-	VxQE2G08iad14xocPtfQBmNLYqqAAOL9rqMRUykMKIzWoTykE6+u+TaO9NksqtLIitQhMuR1CJq
-	ib825MdXeP6s6TWly8lYOFuEgmiRqcUhMEzJLF2ofK+7qu2OG8mJ6B2BOzc/CzvxTCaEPS/Ar42
-	0yjgx+JGubCrqoKMh80cSt
-X-Received: by 2002:a05:6000:250a:b0:45d:4b37:7fcf with SMTP id ffacd0b85a97d-45e5c58951emr6150818f8f.15.1778857875103;
-        Fri, 15 May 2026 08:11:15 -0700 (PDT)
+        bh=kImEqI0xCMuGmoIKI0CGRRt1bkclZfcyl+UtBK7F4Ss=;
+        b=siIQ0nMTYoroXJNCPFwlWMbGb9OlSsn3ZMJ2THqhDK/j4xQKt/FBzXcUR+0mA+pzq2
+         FluymwGZ5ZaypvGY1ntOcJ5HHm8/Kj/wjYanpDF+u+6dcSAri+a/GlcLEv9ajQVSZKCx
+         Yut84QWNaVw/JjdQhzR7os9wFMTSu8F8iLzgj5YQB3w/udqvg+WfDGN8LVQ6Fi3/YaJ6
+         Jax3GsXWet4AeRUDJozN10x2nLZaK9vOBzpu50zFO0rZtlUf5STptXpshNIdMueV5Prx
+         pjwhJxpwdZAZ3NrXBJ/nA1CtS8iivBkZgy7PIpNoQ1dBsY/m13RQ5Bzs7Kjezf5q9TBW
+         FPYQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+RMC7oBzy0HE59IO0CWq/4bU5TL3w98+4KMFtXDhKZv2e4RZQBkp+Whh5mhCduHyftFp8OvxSIOyBkqw8n2rlQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7H3ZRJORanyV+NaCX+l0fRT3h6LnEsGLCQLhyDeEcUQhR+71a
+	tKvU+GPR9ENdA/EEiYzai4QWYbQfoc/pcXivQ0FHNeAnY9iE5oSzdPGKjQLu6t61JOE=
+X-Gm-Gg: Acq92OEqb4CdeBCHg/tqLUMmky0eDdVyfoa/BVfF8KCKG+6YXsyHaPkqHUbwgzGpc2W
+	CrQ3rvuw6Iu39DJ79uF0ysSt7zT7DPm2EQi5tAOUvj8OWgjYAvP1DZUGvwS2NNjkvqLT1z5MEHc
+	+8K1Kry2pK9Aq4qdr1r95m3BLHXtjHDXARN+k3VywS+GQrZZgFsnNWunNRjgY1JkclXgF/Q51LM
+	tRTPvbH8cwLNdcCl/ZEqtimRhdQu0j/DXDzpEa1OzwN20Hb8vtS0vogvNLp0yGJGOjE9x2jqyFP
+	TyskEbxrlKXW+KV/OuwIXQ9dcT6E0UpkbZD5TC9/FeILn1Rjzd1EoyrO4NctvQmdJk+p7VsqK0z
+	l0wNk9tliVEUg90yqe250Z9dhF1yzdvyPzGyDlAKzTKftiXHkZRXy7/FZHR4uPJfl2gIN4XmrFV
+	HvojUy+T48ejQDDX877UJgYP2CK047Dt4=
+X-Received: by 2002:a05:600c:a41a:b0:48e:6be6:168d with SMTP id 5b1f17b1804b1-48fd6333317mr83104435e9.8.1778857877832;
+        Fri, 15 May 2026 08:11:17 -0700 (PDT)
 Received: from [127.0.1.1] ([151.41.223.93])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a19c2dsm15262062f8f.21.2026.05.15.08.11.14
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a19c2dsm15262062f8f.21.2026.05.15.08.11.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 May 2026 08:11:14 -0700 (PDT)
+        Fri, 15 May 2026 08:11:17 -0700 (PDT)
 From: Valerio Setti <vsetti@baylibre.com>
-Date: Fri, 15 May 2026 17:10:37 +0200
-Subject: [PATCH 1/4] ASoC: meson: gx: add gx-formatter and gx-interface
+Date: Fri, 15 May 2026 17:10:39 +0200
+Subject: [PATCH 3/4] ASoC: meson: aiu: introduce I2S output formatter
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-reshape-aiu-as-axg-v1-1-53b457784ff3@baylibre.com>
+Message-Id: <20260515-reshape-aiu-as-axg-v1-3-53b457784ff3@baylibre.com>
 References: <20260515-reshape-aiu-as-axg-v1-0-53b457784ff3@baylibre.com>
 In-Reply-To: <20260515-reshape-aiu-as-axg-v1-0-53b457784ff3@baylibre.com>
 To: Jerome Brunet <jbrunet@baylibre.com>, 
@@ -103,17 +103,17 @@ Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  Valerio Setti <vsetti@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11315; i=vsetti@baylibre.com;
- h=from:subject:message-id; bh=j6Zh4RLoIBZtyp/kwYar+Xu3SLB01yR+UX6gB7d84TE=;
- b=owGbwMvMwCF2z3ty7kUrRgbG02pJDFns5v31Lufn3Togwrkoq36i9Qw/rjX9GdeMVPrFWk+yH
- Fun+Muto5SFQYyDQVZMkYVl+r3fBaVqD40TThbAzGFlAhnCwMUpABM5xMrIsFjmd/bqK9ytE3dO
- Pvxcr6I7fsrG8NwWPUGJH20TdFW3mTEyTJYTNnnVqf89bObMKLn4HxtbVkpOFO5mvtskMT9jWUI
- /FwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4421; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=wXLRsbmPRrk2661x1UmBAXkax+7ikv0+c3YhjvlmDR8=;
+ b=owGbwMvMwCF2z3ty7kUrRgbG02pJDFns5hPy3xhovfLOb3TVEor+UPEoLmeizsMrXCYtob4e6
+ vl7llR0lLIwiHEwyIopsrBMv/e7oFTtoXHCyQKYOaxMIEMYuDgFYCKzKxkZ3t/kCix7vmv955Uh
+ 65Rmz1sTe7T+/qO4uLANpgwSbHcOrmBkeB7h+O7ye+nJPlYCvD/vyCTP4xSazmuz6NSPsqYABYX
+ LfAA=
 X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
  fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_161117_127021_AC4849CC 
-X-CRM114-Status: GOOD (  29.73  )
+X-CRM114-CacheID: sfid-20260515_161119_856289_3BA550A5 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,427 +128,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These files are the basic block which allow to shape I2S in GX devices
-the same as the AXG ones: the DAI backend only controls the interface
-(i.e. clocks and pins) whereas a formatter takes care of properly
-formatting the data.
+Introduce aiu-formatter-i2s, a gx_formatter implementation for the AIU I2S
+playback path. This is going to replace data formatting tasks that are
+currently being implemented in aiu-encoder-i2s.
 
-gx-formatter and gx-interface are strongly inspired to axg-tdm-formatter
-and axg-tdm, respectively. The long term plan is to join the two platforms
-to use the same formatter solution.
-
-There is only a minor addition here compared to what has been done for
-AXG and it's "gx_formatter_create()" which is required in order to let
-already existing AIU code to make use of this formatter without making any
-devicetree change.
+This should ideally follow the same design pattern used on the AXG
+platform (see axg-tdmout), but the problem here is that all playback
+features (including data formatting) so far are implemented in the AIU
+component. Getting the full AXG design would mean introducing incompatible
+device-tree changes. Therefore aiu-formatter-i2s is kept very simple and
+it only implements the bare minimum functionalities to provide I2S
+playback formatting. It's not a standalone component though because this
+is still implemented by AIU.
 
 Signed-off-by: Valerio Setti <vsetti@baylibre.com>
 ---
- sound/soc/meson/Makefile       |   1 +
- sound/soc/meson/gx-formatter.c | 277 +++++++++++++++++++++++++++++++++++++++++
- sound/soc/meson/gx-formatter.h |  47 +++++++
- sound/soc/meson/gx-interface.h |  45 +++++++
- 4 files changed, 370 insertions(+)
+ sound/soc/meson/Makefile            |   1 +
+ sound/soc/meson/aiu-formatter-i2s.c | 106 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 107 insertions(+)
 
 diff --git a/sound/soc/meson/Makefile b/sound/soc/meson/Makefile
-index 24078e4396b02d545d8ba4bcb1632979001354e3..146ec81526ba091a174a113ce3d8412ddbbfd9dd 100644
+index 146ec81526ba091a174a113ce3d8412ddbbfd9dd..f9ec0ebb01f048728b8f85fd8e58fb90df990470 100644
 --- a/sound/soc/meson/Makefile
 +++ b/sound/soc/meson/Makefile
-@@ -4,6 +4,7 @@ snd-soc-meson-aiu-y := aiu.o
- snd-soc-meson-aiu-y += aiu-acodec-ctrl.o
+@@ -5,6 +5,7 @@ snd-soc-meson-aiu-y += aiu-acodec-ctrl.o
  snd-soc-meson-aiu-y += aiu-codec-ctrl.o
  snd-soc-meson-aiu-y += aiu-encoder-i2s.o
-+snd-soc-meson-aiu-y += gx-formatter.o
+ snd-soc-meson-aiu-y += gx-formatter.o
++snd-soc-meson-aiu-y += aiu-formatter-i2s.o
  snd-soc-meson-aiu-y += aiu-encoder-spdif.o
  snd-soc-meson-aiu-y += aiu-fifo.o
  snd-soc-meson-aiu-y += aiu-fifo-i2s.o
-diff --git a/sound/soc/meson/gx-formatter.c b/sound/soc/meson/gx-formatter.c
+diff --git a/sound/soc/meson/aiu-formatter-i2s.c b/sound/soc/meson/aiu-formatter-i2s.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..db93546ed9217f711fcdbeddbd815ce21f27bab5
+index 0000000000000000000000000000000000000000..c7eff04521de3c282f7f79864143e073ff1b2f27
 --- /dev/null
-+++ b/sound/soc/meson/gx-formatter.c
-@@ -0,0 +1,277 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++++ b/sound/soc/meson/aiu-formatter-i2s.c
+@@ -0,0 +1,106 @@
++// SPDX-License-Identifier: GPL-2.0
 +//
 +// Copyright (c) 2026 BayLibre, SAS.
 +// Author: Valerio Setti <vsetti@baylibre.com>
 +
-+#include <linux/module.h>
-+#include <linux/of_platform.h>
-+#include <linux/regmap.h>
-+#include <sound/soc.h>
-+
-+#include "gx-formatter.h"
-+
-+struct gx_formatter {
-+	struct list_head list;
-+	struct gx_stream *stream;
-+	const struct gx_formatter_driver *drv;
-+	bool enabled;
-+	struct regmap *map;
-+};
-+
-+static int gx_formatter_enable(struct gx_formatter *formatter)
-+{
-+	int ret;
-+
-+	/* Do nothing if the formatter is already enabled */
-+	if (formatter->enabled)
-+		return 0;
-+
-+	/* Setup the stream parameter in the formatter */
-+	if (formatter->drv->ops->prepare) {
-+		ret = formatter->drv->ops->prepare(formatter->map,
-+					   formatter->drv->quirks,
-+					   formatter->stream);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	/* Finally, actually enable the formatter */
-+	if (formatter->drv->ops->enable)
-+		formatter->drv->ops->enable(formatter->map);
-+
-+	formatter->enabled = true;
-+
-+	return 0;
-+}
-+
-+static void gx_formatter_disable(struct gx_formatter *formatter)
-+{
-+	/* Do nothing if the formatter is already disabled */
-+	if (!formatter->enabled)
-+		return;
-+
-+	if (formatter->drv->ops->disable)
-+		formatter->drv->ops->disable(formatter->map);
-+
-+	formatter->enabled = false;
-+}
-+
-+static int gx_formatter_attach(struct gx_formatter *formatter)
-+{
-+	struct gx_stream *ts = formatter->stream;
-+	int ret = 0;
-+
-+	mutex_lock(&ts->lock);
-+
-+	/* Catch up if the stream is already running when we attach */
-+	if (ts->ready) {
-+		ret = gx_formatter_enable(formatter);
-+		if (ret) {
-+			pr_err("failed to enable formatter\n");
-+			goto out;
-+		}
-+	}
-+
-+	list_add_tail(&formatter->list, &ts->formatter_list);
-+out:
-+	mutex_unlock(&ts->lock);
-+	return ret;
-+}
-+
-+static void gx_formatter_detach(struct gx_formatter *formatter)
-+{
-+	struct gx_stream *ts = formatter->stream;
-+
-+	mutex_lock(&ts->lock);
-+	list_del(&formatter->list);
-+	mutex_unlock(&ts->lock);
-+
-+	gx_formatter_disable(formatter);
-+}
-+
-+static int gx_formatter_power_up(struct gx_formatter *formatter,
-+				      struct snd_soc_dapm_widget *w)
-+{
-+	struct gx_stream *ts = formatter->drv->ops->get_stream(w);
-+	int ret;
-+
-+	/*
-+	 * If we don't get a stream at this stage, it would mean that the
-+	 * widget is powering up but is not attached to any backend DAI.
-+	 * It should not happen, ever !
-+	 */
-+	if (WARN_ON(!ts))
-+		return -ENODEV;
-+
-+	formatter->stream = ts;
-+	ret = gx_formatter_attach(formatter);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static void gx_formatter_power_down(struct gx_formatter *formatter)
-+{
-+	gx_formatter_detach(formatter);
-+	formatter->stream = NULL;
-+}
-+
-+int gx_formatter_event(struct snd_soc_dapm_widget *w,
-+		       struct snd_kcontrol *control,
-+		       int event)
-+{
-+	struct snd_soc_component *c;
-+	struct gx_formatter *formatter;
-+	int ret = 0;
-+
-+	c = snd_soc_dapm_to_component(w->dapm);
-+
-+	if (w->priv)
-+		formatter = w->priv;
-+	else
-+		formatter = snd_soc_component_get_drvdata(c);
-+
-+	switch (event) {
-+	case SND_SOC_DAPM_PRE_PMU:
-+		ret = gx_formatter_power_up(formatter, w);
-+		break;
-+
-+	case SND_SOC_DAPM_PRE_PMD:
-+		gx_formatter_power_down(formatter);
-+		break;
-+
-+	default:
-+		dev_err(c->dev, "Unexpected event %d\n", event);
-+		return -EINVAL;
-+	}
-+
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(gx_formatter_event);
-+
-+int gx_formatter_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	const struct gx_formatter_driver *drv;
-+	struct gx_formatter *formatter;
-+	void __iomem *regs;
-+
-+	drv = of_device_get_match_data(dev);
-+	if (!drv) {
-+		dev_err(dev, "failed to match device\n");
-+		return -ENODEV;
-+	}
-+
-+	formatter = devm_kzalloc(dev, sizeof(*formatter), GFP_KERNEL);
-+	if (!formatter)
-+		return -ENOMEM;
-+	platform_set_drvdata(pdev, formatter);
-+	formatter->drv = drv;
-+
-+	regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(regs))
-+		return PTR_ERR(regs);
-+
-+	formatter->map = devm_regmap_init_mmio(dev, regs, drv->regmap_cfg);
-+	if (IS_ERR(formatter->map)) {
-+		dev_err(dev, "failed to init regmap: %ld\n",
-+			PTR_ERR(formatter->map));
-+		return PTR_ERR(formatter->map);
-+	}
-+
-+	return devm_snd_soc_register_component(dev, drv->component_drv,
-+					       NULL, 0);
-+}
-+EXPORT_SYMBOL_GPL(gx_formatter_probe);
-+
-+int gx_formatter_create(struct device *dev,
-+			struct snd_soc_dapm_widget *w,
-+			const struct gx_formatter_driver *drv,
-+			struct regmap *regmap)
-+{
-+	struct gx_formatter *formatter;
-+
-+	formatter = devm_kzalloc(dev, sizeof(*formatter), GFP_KERNEL);
-+	if (!formatter)
-+		return -ENOMEM;
-+
-+	formatter->drv = drv;
-+	formatter->map = regmap;
-+
-+	w->priv = formatter;
-+
-+	return 0;
-+}
-+
-+int gx_stream_start(struct gx_stream *ts)
-+{
-+	struct gx_formatter *formatter;
-+	int ret = 0;
-+
-+	mutex_lock(&ts->lock);
-+
-+	/* Start all the formatters attached to the stream */
-+	list_for_each_entry(formatter, &ts->formatter_list, list) {
-+		ret = gx_formatter_enable(formatter);
-+		if (ret) {
-+			pr_err("failed to start tdm stream\n");
-+			goto out;
-+		}
-+	}
-+
-+	ts->ready = true;
-+
-+out:
-+	mutex_unlock(&ts->lock);
-+	return ret;
-+}
-+EXPORT_SYMBOL_GPL(gx_stream_start);
-+
-+void gx_stream_stop(struct gx_stream *ts)
-+{
-+	struct gx_formatter *formatter;
-+
-+	mutex_lock(&ts->lock);
-+	ts->ready = false;
-+
-+	/* Stop all the formatters attached to the stream */
-+	list_for_each_entry(formatter, &ts->formatter_list, list) {
-+		gx_formatter_disable(formatter);
-+	}
-+
-+	mutex_unlock(&ts->lock);
-+}
-+EXPORT_SYMBOL_GPL(gx_stream_stop);
-+
-+struct gx_stream *gx_stream_alloc(struct gx_iface *iface)
-+{
-+	struct gx_stream *ts;
-+
-+	ts = kzalloc(sizeof(*ts), GFP_KERNEL);
-+	if (ts) {
-+		INIT_LIST_HEAD(&ts->formatter_list);
-+		mutex_init(&ts->lock);
-+		ts->iface = iface;
-+	}
-+
-+	return ts;
-+}
-+EXPORT_SYMBOL_GPL(gx_stream_alloc);
-+
-+void gx_stream_free(struct gx_stream *ts)
-+{
-+	/*
-+	 * If the list is not empty, it would mean that one of the formatter
-+	 * widget is still powered and attached to the interface while we
-+	 * are removing the TDM DAI. It should not be possible
-+	 */
-+	WARN_ON(!list_empty(&ts->formatter_list));
-+	mutex_destroy(&ts->lock);
-+	kfree(ts);
-+}
-+EXPORT_SYMBOL_GPL(gx_stream_free);
-+
-+MODULE_DESCRIPTION("Amlogic GX formatter driver");
-+MODULE_AUTHOR("Valerio Setti <vsetti@baylibre.com>");
-+MODULE_LICENSE("GPL");
-diff --git a/sound/soc/meson/gx-formatter.h b/sound/soc/meson/gx-formatter.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..05670c3dfb9f43ac3ee959f1d3d11bacee020c43
---- /dev/null
-+++ b/sound/soc/meson/gx-formatter.h
-@@ -0,0 +1,47 @@
-+/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-+/*
-+ * Copyright (c) 2026 Baylibre SAS.
-+ * Author: Valerio Setti <vsetti@baylibre.com>
-+ */
-+
-+#ifndef _MESON_GX_FORMATTER_H
-+#define _MESON_GX_FORMATTER_H
-+
-+#include "gx-interface.h"
-+
-+struct platform_device;
-+struct regmap;
-+struct snd_soc_dapm_widget;
-+struct snd_kcontrol;
-+
-+struct gx_formatter_hw {
-+	unsigned int skew_offset;
-+};
-+
-+struct gx_formatter_ops {
-+	struct gx_stream *(*get_stream)(struct snd_soc_dapm_widget *w);
-+	void (*enable)(struct regmap *map);
-+	void (*disable)(struct regmap *map);
-+	int (*prepare)(struct regmap *map,
-+		       const struct gx_formatter_hw *quirks,
-+		       struct gx_stream *ts);
-+};
-+
-+struct gx_formatter_driver {
-+	const struct snd_soc_component_driver *component_drv;
-+	const struct regmap_config *regmap_cfg;
-+	const struct gx_formatter_ops *ops;
-+	const struct gx_formatter_hw *quirks;
-+};
-+
-+int gx_formatter_event(struct snd_soc_dapm_widget *w,
-+		       struct snd_kcontrol *control,
-+		       int event);
-+int gx_formatter_probe(struct platform_device *pdev);
-+
-+int gx_formatter_create(struct device *dev,
-+			struct snd_soc_dapm_widget *w,
-+			const struct gx_formatter_driver *drv,
-+			struct regmap *regmap);
-+
-+#endif /* _MESON_GX_FORMATTER_H */
-diff --git a/sound/soc/meson/gx-interface.h b/sound/soc/meson/gx-interface.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..d9ab894589fa039f7fdd76765390630a2c6d8fbf
---- /dev/null
-+++ b/sound/soc/meson/gx-interface.h
-@@ -0,0 +1,45 @@
-+/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-+/*
-+ * Copyright (c) 2026 Baylibre SAS.
-+ * Author: Valerio Setti <vsetti@baylibre.com>
-+ */
-+
-+#ifndef _MESON_GX_INTERFACE_H
-+#define _MESON_GX_INTERFACE_H
-+
-+#include <linux/clk.h>
-+#include <linux/regmap.h>
-+#include <sound/pcm.h>
++#include <sound/pcm_params.h>
 +#include <sound/soc.h>
 +#include <sound/soc-dai.h>
 +
-+struct gx_iface {
-+	struct clk *mclk;
-+	unsigned long mclk_rate;
++#include "aiu.h"
++#include "gx-formatter.h"
 +
-+	/* format is common to all the DAIs of the iface */
-+	unsigned int fmt;
++#define AIU_I2S_SOURCE_DESC_MODE_8CH	BIT(0)
++#define AIU_I2S_SOURCE_DESC_MODE_24BIT	BIT(5)
++#define AIU_I2S_SOURCE_DESC_MODE_32BIT	BIT(9)
++#define AIU_I2S_SOURCE_DESC_MODE_SPLIT	BIT(11)
++#define AIU_RST_SOFT_I2S_FAST		BIT(0)
 +
-+	/* For component wide symmetry */
-+	int rate;
++#define AIU_I2S_DAC_CFG_MSB_FIRST	BIT(2)
++
++static struct snd_soc_dai *
++aiu_formatter_i2s_get_be(struct snd_soc_dapm_widget *w)
++{
++	struct snd_soc_dapm_path *p;
++	struct snd_soc_dai *be;
++
++	snd_soc_dapm_widget_for_each_sink_path(w, p) {
++		if (!p->connect)
++			continue;
++
++		if (p->sink->id == snd_soc_dapm_dai_in)
++			return (struct snd_soc_dai *)p->sink->priv;
++
++		be = aiu_formatter_i2s_get_be(p->sink);
++		if (be)
++			return be;
++	}
++
++	return NULL;
++}
++
++static struct gx_stream *
++aiu_formatter_i2s_get_stream(struct snd_soc_dapm_widget *w)
++{
++	struct snd_soc_dai *be = aiu_formatter_i2s_get_be(w);
++
++	if (!be)
++		return NULL;
++
++	return snd_soc_dai_dma_data_get_playback(be);
++}
++
++static int aiu_formatter_i2s_prepare(struct regmap *map,
++				 const struct gx_formatter_hw *quirks,
++				 struct gx_stream *ts)
++{
++	/* Always operate in split (classic interleaved) mode */
++	unsigned int desc = AIU_I2S_SOURCE_DESC_MODE_SPLIT;
++	unsigned int tmp;
++
++	/* Reset required to update the pipeline */
++	regmap_write(map, AIU_RST_SOFT, AIU_RST_SOFT_I2S_FAST);
++	regmap_read(map, AIU_I2S_SYNC, &tmp);
++
++	switch (ts->physical_width) {
++	case 16: /* Nothing to do */
++		break;
++
++	case 32:
++		desc |= (AIU_I2S_SOURCE_DESC_MODE_24BIT |
++			 AIU_I2S_SOURCE_DESC_MODE_32BIT);
++		break;
++
++	default:
++		return -EINVAL;
++	}
++
++	switch (ts->channels) {
++	case 2: /* Nothing to do */
++		break;
++	case 8:
++		desc |= AIU_I2S_SOURCE_DESC_MODE_8CH;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	regmap_update_bits(map, AIU_I2S_SOURCE_DESC,
++				AIU_I2S_SOURCE_DESC_MODE_8CH |
++				AIU_I2S_SOURCE_DESC_MODE_24BIT |
++				AIU_I2S_SOURCE_DESC_MODE_32BIT |
++				AIU_I2S_SOURCE_DESC_MODE_SPLIT,
++				desc);
++
++	/* Send data MSB first */
++	regmap_update_bits(map, AIU_I2S_DAC_CFG,
++				AIU_I2S_DAC_CFG_MSB_FIRST,
++				AIU_I2S_DAC_CFG_MSB_FIRST);
++
++	return 0;
++}
++
++const struct gx_formatter_ops aiu_formatter_i2s_ops = {
++	.get_stream	= aiu_formatter_i2s_get_stream,
++	.prepare	= aiu_formatter_i2s_prepare,
 +};
-+
-+struct gx_stream {
-+	struct gx_iface *iface;
-+	struct list_head formatter_list;
-+	struct mutex lock;
-+	unsigned int channels;
-+	unsigned int width;
-+	unsigned int physical_width;
-+	bool ready;
-+
-+	/* For continuous clock tracking */
-+	bool clk_enabled;
-+};
-+
-+struct gx_stream *gx_stream_alloc(struct gx_iface *iface);
-+void gx_stream_free(struct gx_stream *ts);
-+int gx_stream_start(struct gx_stream *ts);
-+void gx_stream_stop(struct gx_stream *ts);
-+
-+#endif /* _MESON_GX_INTERFACE_H */
 
 -- 
 2.39.5
