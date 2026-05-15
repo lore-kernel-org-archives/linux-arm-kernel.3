@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E12CD4F46
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 21:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3565CCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 21:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IDW1HU8MX2uR56M/a+rvf7omTt/9cVqCm5QYJV0x2YM=; b=aKjb/LAMQ5t5NIO6Oz+qOmmpji
-	y5MmEs/7yLyQBMXQCp4uXWMz6Z9rbnVjFCLd9M7rymzonGLsHOeLRL83a+9Vr7BfoXXKHgOKkY6qP
-	zL8XvA27Kjws4AC3M8H6BgN1gqbnN87mabzzHertmTF/ftJ4uf8W78qZHDG39BemasHBr5mQtM7or
-	GVFNaRL9Jdz3bxF3tl8vfgEKB/u3HalK9ngHt1kwJsPkprKqgNwdpXmbe7JO617WoJ9WWCm4cf3Tn
-	MhWIfOLh6TlXra3wrOGv1ifYr5jDsjyPNcgoB4NSALJNrFmj6ck7/h8uGKmXvTJdaSAjJcOUuyc8c
-	4hAXUcTg==;
+	bh=jz2thKifJmuimuViZo05mWoG7e6CD2hwI+lB9tLFrT0=; b=jenyWYhU/gUy9HiWHvo5LdpuQS
+	l6BgZJzRvAyCsdM+uVwNds1+ptdqPXlmxwlCsLeOsGc32PfaSQRzgey/DtV6yFZFJQQXsFH3xWkW/
+	E29ys89r9SU3L5K8LyRRYwMQKC1ebNW1wmllRuoVD/kd+jrbMoDWohTDWu3dgs8EBAjInNaKw3hvN
+	JroMYy56/p9hzSrCtoR6RrvfPWu4qHf96Rt1VFvXyk5KqHW92OpoGzGA+djP98qFMieK4ord5tGUV
+	4Ad9iktWCIldnAaKRJBa3F4LXBfYU5Gy6jBlacjB+79iLte9GWkE9Ke/oO+fVjnrTqizsJRP8hrDt
+	AyMgexjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO0Gz-00000009XnU-42Vc;
-	Fri, 15 May 2026 21:40:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO0Gr-00000009Xii-0RNc
+	id 1wO0Rw-00000009ZSE-1HDu;
+	Fri, 15 May 2026 21:52:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wO0Rt-00000009ZRh-2S8Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 21:40:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4B0A242E1A;
-	Fri, 15 May 2026 21:40:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 281F3C2BCC9;
-	Fri, 15 May 2026 21:40:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778881236;
-	bh=0Ah9riKcMKwBIpqNmOBl467uryMyUb2ojTGT0CiJ5h4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=AAAYLiDOreL+3Zi6wdbHcPlPeTZ6MIYwwKeJ5T5TOcFWtNfL8Fuakn106SqpVNip4
-	 ov1AQ+fR7Ke1OW2EZQ//cOMsncvDnhcN7rPzFDmPP0rsWoO2uKCmrnJJ6MyYFIvXAc
-	 NvD8me6xAv8KYFSPXolehZVgcQG0mv6GNRzx0G0s2KokZE2NUztMflHop2sqARkabg
-	 t5+GGDgSasCQsRriKI14wryy6RX3GeeLSHfY1t+77H2IiEU731DJpL8zdcgrpmRaE2
-	 YmJuQsrmoqo8b/UeoODjApDz5wHaNk7JvopYJcHmzBbrOVpZ9FOQsHrj2FKKqubjAL
-	 P9SFfqAlENxBg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 1EE11CD4F46;
-	Fri, 15 May 2026 21:40:36 +0000 (UTC)
-From: Frank Li via B4 Relay <devnull+Frank.Li.nxp.com@kernel.org>
-Date: Fri, 15 May 2026 17:40:33 -0400
-Subject: [PATCH 2/6] ARM: dts: imx: remove redundant bus-width for
- video-mux
+	Fri, 15 May 2026 21:52:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D48101BCB;
+	Fri, 15 May 2026 14:51:54 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 371183F85F;
+	Fri, 15 May 2026 14:51:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778881920; bh=w/NSnWPxO2pPbEQZolqzwkIT6PojPrmpavCWj0wqYGU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nCPJZG/ymBaYmcyERMbxLdIsHQoNGJJEJxaWy2/8f+2GnZIHlMZ+4GS5187VVvwoY
+	 IH2pP9VPYV9gZM+MXD1JIlOMUxGgO/ZclmXl4a955uYPg0wdQKJNQFcQLflkdYlRLM
+	 krq3CmKprRwSY7QjrDU8svR6X78wpShjn/zYDMXo=
+Date: Fri, 15 May 2026 23:51:12 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chen-Yu Tsai <wens@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH] arm64: dts: allwinner: Cubie A5E: enable SPI flash
+Message-ID: <20260515235112.3d2a0c5e@ryzen.lan>
+In-Reply-To: <CAGb2v66drOyBgNU0hFo356MKTFnggNmyzrANok+-U31NzZCUEw@mail.gmail.com>
+References: <20260511221741.25888-1-andre.przywara@arm.com>
+	<CAGb2v64u4sqwiiQcEBg-XvmJ2DLEpSj-_AWNbp14RAp-GXP7OA@mail.gmail.com>
+	<ee9fca66-d079-4ad7-9cb3-5077e8a4f6d6@arm.com>
+	<CAGb2v66drOyBgNU0hFo356MKTFnggNmyzrANok+-U31NzZCUEw@mail.gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-imx25_dts_simple_warning_2-v1-2-b06bff192a05@nxp.com>
-References: <20260515-imx25_dts_simple_warning_2-v1-0-b06bff192a05@nxp.com>
-In-Reply-To: <20260515-imx25_dts_simple_warning_2-v1-0-b06bff192a05@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778881235; l=6988;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=lsqAi27NmpHk2hV97xNohJAnacVRFQ+MMLjYxzPWZII=;
- b=AHjVm4kP5ZBOwXAvyxgR1y3F1numoUiNMtCVDVF44m8Uwv2IPBvF/EUr72fiCcFdgBNjZ5XoF
- XiJUvRuwFQOA81ff2FysicwFU/v1pUWvCG/7ThNK/7DhisZ3aOpX9zn
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-Endpoint-Received: by B4 Relay for Frank.Li@nxp.com/20240130 with
- auth_id=121
-X-Original-From: Frank Li <Frank.Li@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_144037_212099_38DD5605 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260515_145201_817296_1D39271C 
+X-CRM114-Status: GOOD (  36.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,219 +73,128 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Frank.Li@nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Sat, 16 May 2026 00:12:17 +0800
+Chen-Yu Tsai <wens@kernel.org> wrote:
 
-Remove redundant bus-width property according to video-mux.yaml to fix
-below CHECK_DTBS warnings:
-arch/arm/boot/dts/nxp/imx/imx6dl-gw51xx.dtb: ipu1_csi0_mux (video-mux): port@4:endpoint: Unevaluated properties are not allowed ('bus-width' was unexpected)
-        from schema $id: http://devicetree.org/schemas/media/video-mux.yaml
+> On Wed, May 13, 2026 at 5:19=E2=80=AFPM Andre Przywara <andre.przywara@ar=
+m.com> wrote:
+> >
+> > Hi Chen-Yu,
+> >
+> > thanks for chipping in!
+> >
+> > On 5/13/26 07:21, Chen-Yu Tsai wrote: =20
+> > > Hi,
+> > >
+> > > On Tue, May 12, 2026 at 6:18=E2=80=AFAM Andre Przywara <andre.przywar=
+a@arm.com> wrote: =20
+> > >>
+> > >> The Cubie A5E board comes with 16MiB of SPI NOR flash.
+> > >>
+> > >> Enable the SPI0 DT node and describe the configuration.
+> > >>
+> > >> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > >> ---
+> > >>   .../boot/dts/allwinner/sun55i-a527-cubie-a5e.dts  | 15 +++++++++++=
+++++
+> > >>   1 file changed, 15 insertions(+)
+> > >>
+> > >> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts=
+ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+> > >> index bfdf1728cd14b..7ad22fc85d1fd 100644
+> > >> --- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+> > >> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
+> > >> @@ -344,6 +344,21 @@ &r_pio {
+> > >>          vcc-pm-supply =3D <&reg_aldo3>;
+> > >>   };
+> > >>
+> > >> +&spi0  {
+> > >> +       pinctrl-names =3D "default";
+> > >> +       pinctrl-0 =3D <&spi0_pc_pins>, <&spi0_cs0_pc_pin>,
+> > >> +                   <&spi0_hold_pc_pin>, <&spi0_wp_pc_pin>; =20
+> > >
+> > > This whole thing needs to be an overlay. The HOLD and WP pins
+> > > conflict with eMMC usage, so it seems that Radxa only populates
+> > > one or the other.
+> > >
+> > > If you look at the pictures on their official website, you'll see the
+> > > SPI NOR chip populated, but not the eMMC chip. On the linux-sunxi wiki
+> > > page, you'll see the opposite. =20
+> >
+> > Well, I have a hard time spotting any actual eMMC SKUs in the shops any=
+way.
+> > But you are right, the hold and WP pins conflict with eMMC, whereas the
+> > other pins are not.
+> > =20
+> > > And you probably want to enable QSPI, like Sashiko mentioned. =20
+> >
+> > Well, in the interest of keeping this simple and enabling the usage of
+> > SPI flash for all the users out there, I'd rather drop the extra pins.
+> > This is mostly really useful for booting the firmware, maybe loading a
+> > tiny kernel or other data once, so performance is not a big concern in
+> > this use case. The BootROM surely does not use QSPI. =20
+>=20
+> Given that the pins are tied on physically, if someone then enables mmc2
+> for a potentially present eMMC, the two pins could be toggled by the
+> MMC controller, causing the flash to misbehave. I'm slightly concerned
+> about this possibility.
 
-The bus-width already set at remote endpoint (camera).
+That's a good point, but that means it's really a hardware design
+issue: you cannot have SPI together with eMMC on this board.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm/boot/dts/nxp/imx/imx6dl-gw52xx.dts      | 2 --
- arch/arm/boot/dts/nxp/imx/imx6dl-gw53xx.dts      | 2 --
- arch/arm/boot/dts/nxp/imx/imx6dl-gw54xx.dts      | 2 --
- arch/arm/boot/dts/nxp/imx/imx6q-gw52xx.dts       | 2 --
- arch/arm/boot/dts/nxp/imx/imx6q-gw53xx.dts       | 2 --
- arch/arm/boot/dts/nxp/imx/imx6q-gw54xx.dts       | 4 ----
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi    | 2 --
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi    | 2 --
- arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi    | 2 --
- arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi | 2 --
- 10 files changed, 22 deletions(-)
+I don't know if Radxa ships the eMMC SKUs without SPI flash, I
+will try to query Tom Cubie about this.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-gw52xx.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-gw52xx.dts
-index 9ea23dd54f3ce0d8e3abad2c2ced7798a2854489..62b05fe70cd97b16553b65371ee8efb77168d61b 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-gw52xx.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-gw52xx.dts
-@@ -32,12 +32,10 @@ adv7180_to_ipu1_csi1_mux: endpoint {
- };
- 
- &ipu1_csi1_from_ipu1_csi1_mux {
--	bus-width = <8>;
- };
- 
- &ipu1_csi1_mux_from_parallel_sensor {
- 	remote-endpoint = <&adv7180_to_ipu1_csi1_mux>;
--	bus-width = <8>;
- };
- 
- &ipu1_csi1 {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-gw53xx.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-gw53xx.dts
-index 182e8194c2490b520aa065e11933795aaa6d7a71..c1787510d3941d77ca1e9f76560d2e57852bf995 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-gw53xx.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-gw53xx.dts
-@@ -32,12 +32,10 @@ adv7180_to_ipu1_csi1_mux: endpoint {
- };
- 
- &ipu1_csi1_from_ipu1_csi1_mux {
--	bus-width = <8>;
- };
- 
- &ipu1_csi1_mux_from_parallel_sensor {
- 	remote-endpoint = <&adv7180_to_ipu1_csi1_mux>;
--	bus-width = <8>;
- };
- 
- &ipu1_csi1 {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-gw54xx.dts b/arch/arm/boot/dts/nxp/imx/imx6dl-gw54xx.dts
-index a106c4e3e32995f4fe7801f04ce549dd50283c85..934b0325e6f5acffd72f8063bf7d9e5de02b1093 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6dl-gw54xx.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6dl-gw54xx.dts
-@@ -32,12 +32,10 @@ adv7180_to_ipu1_csi1_mux: endpoint {
- };
- 
- &ipu1_csi1_from_ipu1_csi1_mux {
--	bus-width = <8>;
- };
- 
- &ipu1_csi1_mux_from_parallel_sensor {
- 	remote-endpoint = <&adv7180_to_ipu1_csi1_mux>;
--	bus-width = <8>;
- };
- 
- &ipu1_csi1 {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-gw52xx.dts b/arch/arm/boot/dts/nxp/imx/imx6q-gw52xx.dts
-index 6e1c493c9c8c49343313a71f0c72570915a311cd..31996ddde117acbe50166da8fbe6a6290a895211 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-gw52xx.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-gw52xx.dts
-@@ -32,12 +32,10 @@ adv7180_to_ipu2_csi1_mux: endpoint {
- };
- 
- &ipu2_csi1_from_ipu2_csi1_mux {
--	bus-width = <8>;
- };
- 
- &ipu2_csi1_mux_from_parallel_sensor {
- 	remote-endpoint = <&adv7180_to_ipu2_csi1_mux>;
--	bus-width = <8>;
- };
- 
- &ipu2_csi1 {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-gw53xx.dts b/arch/arm/boot/dts/nxp/imx/imx6q-gw53xx.dts
-index f13df8e9c8c4b213d4371d93ef6e4a19e969dcd6..f224273fa863ecbc41e14df1f0324b5ef4192a9e 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-gw53xx.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-gw53xx.dts
-@@ -32,12 +32,10 @@ adv7180_to_ipu2_csi1_mux: endpoint {
- };
- 
- &ipu2_csi1_from_ipu2_csi1_mux {
--	bus-width = <8>;
- };
- 
- &ipu2_csi1_mux_from_parallel_sensor {
- 	remote-endpoint = <&adv7180_to_ipu2_csi1_mux>;
--	bus-width = <8>;
- };
- 
- &ipu2_csi1 {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-gw54xx.dts b/arch/arm/boot/dts/nxp/imx/imx6q-gw54xx.dts
-index d5d46908cf6ed8f15ec03584146d7af5b2d9d72d..804ee044be52d716a6e6cfb97b8aa4520d3b9baa 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-gw54xx.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-gw54xx.dts
-@@ -90,12 +90,10 @@ tda1997x_to_ipu1_csi0_mux: endpoint {
- };
- 
- &ipu1_csi0_from_ipu1_csi0_mux {
--	bus-width = <16>;
- };
- 
- &ipu1_csi0_mux_from_parallel_sensor {
- 	remote-endpoint = <&tda1997x_to_ipu1_csi0_mux>;
--	bus-width = <16>;
- };
- 
- &ipu1_csi0 {
-@@ -104,12 +102,10 @@ &ipu1_csi0 {
- };
- 
- &ipu2_csi1_from_ipu2_csi1_mux {
--	bus-width = <8>;
- };
- 
- &ipu2_csi1_mux_from_parallel_sensor {
- 	remote-endpoint = <&adv7180_to_ipu2_csi1_mux>;
--	bus-width = <8>;
- };
- 
- &ipu2_csi1 {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi
-index beff5a0f58ab48d4d7b8f14f9e695763dc2e3bdf..fb18b87adb441e4e11ddab602c3e3a8e302fa81c 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw51xx.dtsi
-@@ -384,12 +384,10 @@ adv7180_to_ipu1_csi0_mux: endpoint {
- };
- 
- &ipu1_csi0_from_ipu1_csi0_mux {
--	bus-width = <8>;
- };
- 
- &ipu1_csi0_mux_from_parallel_sensor {
- 	remote-endpoint = <&adv7180_to_ipu1_csi0_mux>;
--	bus-width = <8>;
- };
- 
- &ipu1_csi0 {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi
-index 6136a95b9259977bd2debb05e2a480cd1e2fb765..55647c1dacfa5d26c386ebf490c50ef825b99e94 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw551x.dtsi
-@@ -440,12 +440,10 @@ tda1997x_to_ipu1_csi0_mux: endpoint {
- };
- 
- &ipu1_csi0_from_ipu1_csi0_mux {
--	bus-width = <16>;
- };
- 
- &ipu1_csi0_mux_from_parallel_sensor {
- 	remote-endpoint = <&tda1997x_to_ipu1_csi0_mux>;
--	bus-width = <16>;
- };
- 
- &ipu1_csi0 {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi
-index 552114a69f5b9575a3685fcbbae11a7fc2673e45..bdbcad5e35d8258353831f211776e4fd8c2e684d 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-gw553x.dtsi
-@@ -397,12 +397,10 @@ adv7180_to_ipu1_csi0_mux: endpoint {
- };
- 
- &ipu1_csi0_from_ipu1_csi0_mux {
--	bus-width = <8>;
- };
- 
- &ipu1_csi0_mux_from_parallel_sensor {
- 	remote-endpoint = <&adv7180_to_ipu1_csi0_mux>;
--	bus-width = <8>;
- };
- 
- &ipu1_csi0 {
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi
-index b9dde0af3b995feb49fef38fb0fda69eee3a5750..40d8887cb8bc7f3ce1948fbeadbde6c0d4d1ff0c 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-sabreauto.dtsi
-@@ -245,12 +245,10 @@ accelerometer@1c {
- };
- 
- &ipu1_csi0_from_ipu1_csi0_mux {
--	bus-width = <8>;
- };
- 
- &ipu1_csi0_mux_from_parallel_sensor {
- 	remote-endpoint = <&adv7180_to_ipu1_csi0_mux>;
--	bus-width = <8>;
- };
- 
- &ipu1_csi0 {
+I would prefer to go with SPI flash, at least for now: I think that's
+what most users have, and the eMMC versions are rare so far? Since we
+don't have an eMMC node in the DT anyway, that should be fine for now.
+If someone adds eMMC support later, we would need to figure this out.
+We could mark one as disabled, and leave it up to users (or U-Boot)
+to decide which to enable.
+On the H6 there is a similar problem: PC5 is both SPI0_CS and MMC2_CMD,
+so on the PineH64 we disable the SPI flash, in favour of eMMC, which is
+more useful for users (but sunxi-fel SPI access and U-Boot SPI loading
+work nevertheless). But given the apparent prevalence of SPI boards vs.
+those with eMMC for the Cubie A5E, I would go with SPI on this one.
 
--- 
-2.43.0
+Does that make sense? Any thoughts?
 
+Cheers,
+Andre
+
+> > And as you say, if people are really interested in the last bit of
+> > performance, they can use an overlay.
+> >
+> > Cheers,
+> > Andre
+> > =20
+> > >
+> > >
+> > > ChenYu
+> > >
+> > > =20
+> > >> +       status =3D "okay";
+> > >> +
+> > >> +       flash@0 {
+> > >> +               compatible =3D "winbond,w25q128", "jedec,spi-nor";
+> > >> +               reg =3D <0>;
+> > >> +               spi-max-frequency =3D <40000000>;
+> > >> +               #address-cells =3D <1>;
+> > >> +               #size-cells =3D <1>;
+> > >> +       };
+> > >> +};
+> > >> +
+> > >>   &uart0 {
+> > >>          pinctrl-names =3D "default";
+> > >>          pinctrl-0 =3D <&uart0_pb_pins>;
+> > >> --
+> > >> 2.46.4
+> > >> =20
+> > > =20
+> > =20
+>=20
 
 
