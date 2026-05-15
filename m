@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C1D8CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 09:53:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C9E3CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 09:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-transfer-encoding:
-	Content-type:MIME-version:References:In-reply-to:Message-id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KhYQsRh4VyQqcPigw9u1q21Z8nnaa7Jt0zu3uVsvbqU=; b=c0ybhgso7SoA1xv5athfuLjeUY
-	rqVTfCXHI3ywu5UwEnPfusaWWx0p92mu+R60DdGGvCigTS3UDlrMxbLa0yuIeu8b45wGUFRLg1QOh
-	sdeI6Bl7RWb5JarFdPAKGYpxGxGe0ga1YgTpIXUJGqpfRS6CJLpmKg8pgoPhA5VcIyaU041ZN95oj
-	coPxqckbmJWtuxU+AvJpOLuJL2jnmUt0VbGJG8U1JTFIKUqdyO/zrpBg8OkKRMZuyEdNezi4gqBHh
-	ANJAfZifUHvQdBxFtLJBWwOfnnO0tpQhMqIeVAxpfkVTaykOwc5mE2jQlcQTBP421lUVrVc06j02N
-	MD9AeAPg==;
+	bh=8lgcXJbkmWxfoIl/l3mnMaLF4tf0hEEYiEUFZoCsgGI=; b=a7xpOc+lDD9C9RuGtxLGp51Uj8
+	RxAaPHycizsGfaocYwhr40xovH0FQoVY28fq+z6xFzoaC1Z3ynZeRJKLUCUwNbmZqrAwyLPkfrzW4
+	RxDad8Qup4FROyaN5Ca+L6gVqwHSniZGPm0uqK8cVvp6K8eA6NKcjmWpx+qB13tSvFQ8n4GXgxbTN
+	hJuNZBLPryaIT1oYJH79zki3B1JYUdd6Vfc9Y2OQ9+KO916jOjrxwQ4CafclDn+f9Eyawb7qdOynZ
+	/q3Z5MpQvzzVbeA+4x0+LiBfEYoT+RBEho3QXrKLpQoMiH8I0MTepTaTFd6VIohBFKhZgijmahfj8
+	4ANRcNbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpEn-00000007xdj-1iNP;
-	Fri, 15 May 2026 09:53:45 +0000
-Received: from acj35aaf122.lhr1.oracleemaildelivery.com ([130.35.116.122])
+	id 1wNpJE-00000007yDx-02p7;
+	Fri, 15 May 2026 09:58:20 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpEi-00000007xcQ-46pA
+	id 1wNpJB-00000007yDB-1i30
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 09:53:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=oracle-uk-012026;
- d=raczylo.com;
- h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
- bh=KhYQsRh4VyQqcPigw9u1q21Z8nnaa7Jt0zu3uVsvbqU=;
- b=BXaOS/4xxQt0EQLwE8prridr5hlJlks2vzBQDWAv1Aon95Dyf//NLXuXbMTy7N9ACVZeWgYzC1o5
-   YBxXW61ncI3a6GFwFNa7pSQ3PI7HfmFS+qyPzKIXIvG120+MGrz4+uCYtTu0fvuvpXgFeDtw5JZH
-   wNPcpcVKZ6q3AbsJ4Htj61ls+fQJ8xjKqfDaH2q6nS8n/IC6f2je3yVKW8Ekel43ckB6CsN1HKHh
-   t5SvRVJFugPmkzydHZhCHkC+Wyw9lEpXmdw/IMDrf89e77ijyGrH/26sc/uEPogElTa4ui9xuG4G
-   S1hQ7akGmiH6BaPzipatDrYnIRDuXVtQrSFZ/g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=prod-lhr-20191104;
- d=lhr1.rp.oracleemaildelivery.com;
- h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
- bh=KhYQsRh4VyQqcPigw9u1q21Z8nnaa7Jt0zu3uVsvbqU=;
- b=uxt3RsM51CWGljFyQkVTGaCQP86pW22nCJzg8K9dGoSQmbHgW1nRRPRYJAkfkqZ6juFg6vysFoNp
-   OMDgTdRvOJrxM8XiIrOYoyWUIfsOtivcjItiQRYtPMkvPARP8tyiWUbPmP5Y6w7RXZh0mRgYhLlg
-   S9wKCQBT8BXP1I4JoIf1OBNbLsyte24Nx5jVoA7CJmwTSVl9eDZ3jsHBfpOc5+bJ4QdEOb9oOoNC
-   YgKxYA92pmmoS0PtAsUHLNUvvHK+h4yO2ok+1c//I+lSIHoLvNxTsdgNCLzwIXF6hCqqFNT29LeA
-   QdbgDvJduvDl7gBxZ6Nu9Scn/eQ9nNaou6iLvQ==
-Received: by omta-ad2-fd1-1402-uk-london-1.omtaad2.vcndplhr.oraclevcn.com
- (Oracle Communications Messaging Server 8.1.0.1.20260212 64bit (built Feb 12
- 2026))
- with ESMTPS id <0TF21UAHEOTC7W80@omta-ad2-fd1-1402-uk-london-1.omtaad2.vcndplhr.oraclevcn.com> for
- linux-arm-kernel@lists.infradead.org; Fri, 15 May 2026 09:53:36 +0000 (GMT)
-List-Unsubscribe-Post: List-Unsubscribe=One-Click
-From: Lukasz Raczylo <lukasz@raczylo.com>
-To: netdev@vger.kernel.org
-Cc: Theo Lebrun <theo.lebrun@bootlin.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,	linux-rpi-kernel@lists.infradead.org
-Subject: [PATCH net-next] net: macb: fix build of TX stall watchdog by
- replacing undefined netdev_warn_ratelimited
-Date: Fri, 15 May 2026 10:53:36 +0100
-Message-id: <20260515095336.92237-1-lukasz@raczylo.com>
-X-Mailer: git-send-email 2.54.0
-In-reply-to: <20260514215459.36109-4-lukasz@raczylo.com>
-References: <cover.1777064117.git.lukasz@raczylo.com>
- <20260514215459.36109-1-lukasz@raczylo.com>
- <20260514215459.36109-4-lukasz@raczylo.com>
-MIME-version: 1.0
-Content-type: text/plain; charset=UTF-8
-Content-transfer-encoding: 8bit
-Reporting-Meta: AAGGMLVl544WMl84tN2V29poZax5nOlse0gFMRELc/TH6YxsiNZHF6OLG0TWO1Bd
- uRwGSxavSrmdgKx8Xt/y+S5+RT3Vo97Xt8gD1G9ztIwHKyGRhoDZUT7z8K1thxID
- vJByNGZaKr4By5jwNbao3q/WTDFslA0/JdsKGF0AkxCnxvysLxTbJG+oPpxJ4veT
- +aBl+oN5F6yo5j4erwAN1ry1MLm7pUgnZyjqSBIlXePXbuXLeOGnPF+rAc+npWw4
- s7gk9aa3nEiWrJi4OJAgky11r85GECIzGBCDVKbycS1EQTZlSgeSqP7H7i1v5k6/
- rK2ffzwJWhl2ExkPIyfbqAP7KN/c49uJPV8kDgaI56HN1ZKJuGO+8aass3ZRyK4C
- zmEM80JiFCENjXLCeoZLu9AXYpb6osX5hqWaxnSmuuIkz1OKuzonjTMd7IgoeaW3 EeTojGO7dA==
+	Fri, 15 May 2026 09:58:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1778839097; x=1810375097;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=oWtNtLFEzhEorQ0wHbh9xN1hmDt/Ws71h7zt9GVd3PI=;
+  b=KyLf/4L67wWL6uxbZWeE1JNUlvpVLmQfWVXUG0ArkkL1JjOC2ZuVIC70
+   kIWbKZNjM9/eBwckMod4B/PLRk5jZOqIBmIGlz5fPBSaLrlhOwoV/mmfc
+   NL/v1jJtgdeJGhG5fQBmm+C6xdr7SyYyC7bhlAZenZleZpUaPTh3t9YZ6
+   cEzTD7OUF/CrO+EXdMKS5/r5NipS6ES04dqsYCpdnd+QSv+DV7lN+QPUr
+   bs/WPaf4efx6x28UiIiZKgQalHrbbZW1xatXz37wR2UIRvJG4XBIVSePZ
+   cndf80NT4sT2sp5duImN7DqrJDt83k4vm4oeE2HWvr1TL1PoDxMplcRgZ
+   Q==;
+X-CSE-ConnectionGUID: tPpFVbmlQVyUrJeCq5qw1g==
+X-CSE-MsgGUID: OQ64741MRoSIOz0zCJfh6Q==
+X-IronPort-AV: E=Sophos;i="6.23,236,1770620400"; 
+   d="scan'208";a="288921340"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 May 2026 02:58:16 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 15 May 2026 02:58:15 -0700
+Received: from [10.159.205.44] (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Fri, 15 May 2026 02:58:13 -0700
+Message-ID: <067c55c0-d56c-496e-bf75-5c3491524256@microchip.com>
+Date: Fri, 15 May 2026 11:58:13 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] irqchip/atmel-aic5: Free SMR cache on init failure
+To: Yuho Choi <dbgh9129@gmail.com>, Thomas Gleixner <tglx@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20260513233139.659956-1-dbgh9129@gmail.com>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-US, fr
+Organization: microchip
+In-Reply-To: <20260513233139.659956-1-dbgh9129@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_025342_106355_98A20AC8 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260515_025817_464850_5CCF1442 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +87,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-netdev_warn_ratelimited() does not exist in this kernel -- neither
-mainline net-next nor raspberrypi/linux rpi-6.18.y define a
-netdev_*_ratelimited() family.  I confused it with the existing
-net_warn_ratelimited() / pr_warn_ratelimited() macros when
-authoring v2 patch 3 of the macb silent TX stall series, and the
-result fails to build with implicit-function-declaration.
+On 14/05/2026 at 01:31, Yuho Choi wrote:
+> sama5d2_aic5_of_init() allocates the SMR cache before calling
+> aic5_of_init(). If that fails, the cache is left allocated even though
+> no IRQ domain was installed and the cache will not be used.
+> 
+> Free the cache on the failure path and clear the global pointer.
 
-Replace with the standard `if (printk_ratelimit()) netdev_warn(...)`
-pattern.  Same semantics intended by v2 patch 3 (bounded log noise,
-retains the netdev prefix in the message); works in every kernel
-version.
+No aic5 = no viable system to run on: I'm not sure it's worth 
+considering the case.
 
-Fixes the build of patch 3/3 of:
+> Fixes: a50ac562ef48 ("irqchip/atmel-aic5: Handle suspend to RAM")
+> Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+> ---
+>   drivers/irqchip/irq-atmel-aic5.c | 11 ++++++++++-
+>   1 file changed, 10 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-atmel-aic5.c b/drivers/irqchip/irq-atmel-aic5.c
+> index 1f14b401f71d..58650eb16880 100644
+> --- a/drivers/irqchip/irq-atmel-aic5.c
+> +++ b/drivers/irqchip/irq-atmel-aic5.c
+> @@ -358,13 +358,22 @@ static int __init sama5d2_aic5_of_init(struct device_node *node,
+>                                         struct device_node *parent)
+>   {
+>   #ifdef CONFIG_PM
+> +       int rc = 0;
+>          smr_cache = kcalloc(DIV_ROUND_UP(NR_SAMA5D2_IRQS, 32) * 32,
+>                              sizeof(*smr_cache), GFP_KERNEL);
+>          if (!smr_cache)
+>                  return -ENOMEM;
+> -#endif
+> 
+> +       rc = aic5_of_init(node, parent, NR_SAMA5D2_IRQS);
+> +       if (rc) {
+> +               kfree(smr_cache);
+> +               smr_cache = NULL;
+> +       }
+> +
+> +       return rc;
+> +#else
+>          return aic5_of_init(node, parent, NR_SAMA5D2_IRQS);
+> +#endif
+>   }
+>   IRQCHIP_DECLARE(sama5d2_aic5, "atmel,sama5d2-aic", sama5d2_aic5_of_init);
+> 
+> --
+> 2.43.0
+> 
 
-  https://lore.kernel.org/netdev/20260514215459.36109-1-lukasz@raczylo.com/T/
-
-Caught by an independent build test on the Talos Linux Pi 5 build
-(John Laur / johnlaur on GitHub), reported at:
-
-  https://github.com/siderolabs/sbc-raspberrypi/issues/91#issuecomment-4456874307
-
-Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
----
- drivers/net/ethernet/cadence/macb_main.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -2057,10 +2057,11 @@ static void macb_tx_stall_watchdog(struct work_struct *work)
- 	spin_unlock_irqrestore(&queue->tx_ptr_lock, flags);
-
- 	if (stalled) {
--		netdev_warn_ratelimited(bp->dev,
--					"TX stall detected on queue %u (tail=%u head=%u); re-kicking TSTART\n",
--					(unsigned int)(queue - bp->queues),
--					cur_tail, cur_head);
-+		if (printk_ratelimit())
-+			netdev_warn(bp->dev,
-+				    "TX stall detected on queue %u (tail=%u head=%u); re-kicking TSTART\n",
-+				    (unsigned int)(queue - bp->queues),
-+				    cur_tail, cur_head);
- 		macb_tx_restart(queue);
- 	}
-
---
-2.54.0
 
