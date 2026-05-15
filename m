@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9D4CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:46:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 838F3CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1b6vOaMqCEmG/2hVtTitY/n7/xIXSH100fgEF2P5KM=; b=V1P6s/Ix7F+V30MFfgDtewuLSO
-	DMG5UV5xnO7FKFxtXmfY+L9DZa7FX8holT7pDbnWqnNC1ChP0FHUCgPaloPJRnUnVDke3Ki3T93Zn
-	XWbr5YdRokOXqlXdl3VzID752fmW86UVdrOnCjt9XeuUO5Ju/pTGP5HsMBFAMVKdQ6QJSt2zemY4M
-	Pr1pGjVmjT6CtDIVAbzirG5IjbiSAbDF5f8O8pN3/wzLu5ShH1dP7k4u1O2rm2Nnl7B3WydJih+D+
-	d/9hKP3yz3o2zf4/H/MgrDtG8NMn6dm8krBrBbwmvKD+JwjM46JKTGC9O5jPi6kQJbwCMwwgR7KJm
-	4PKLeh+A==;
+	bh=/CSLmDbyhy1KqJA/GwBQpVBtRerv1qwdFbhgOsJTz3Y=; b=06JoCNmu9mvQnvrTTXVXwLxPz8
+	z0GcYD9RZU1G0ene5MWnt58yaStGmfa5YmVryYIb02fqU4RxaQFH1KGXSg6nQzFUXR0rofoJpGJqO
+	1bc4iJrbF+Z00j6hau2vzwG708ZOFFqqCGxACf9fJxMinM9d68XOyTo4Umadr6PG7fzY0Fp2EjJuo
+	EGW2CTrMMJU2RNuTyNvs5aLzfF/XbZ1biCaUjzDDvaoPlwdi9SXRMmSb3M7oQolZK3yJ1e/SHolBS
+	iyEyLikA1BzjxDPmxnaOnJMkHdYIxHCqGAIwTzxprlw4BU5fno2hLDg0p8ZBnoRKVyMYQ02ikO7Za
+	wOzZ/LKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNujf-00000008mgf-2Vf5;
-	Fri, 15 May 2026 15:45:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNujc-00000008mg6-2MB1
+	id 1wNuXP-00000008iTn-0q07;
+	Fri, 15 May 2026 15:33:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNuXM-00000008iNS-2Jso
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 15 May 2026 15:33:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=/CSLmDbyhy1KqJA/GwBQpVBtRerv1qwdFbhgOsJTz3Y=; b=kq6NGF5mjl3KJeZiF+H1iBTlZf
+	gJX7cAtWFfZIsi42A1JHEK/waT3rVyQRnBjv2PKN6n5mHUej1jvgGZbDHklaOhkO7giTG0I4EK8Zp
+	1YPPajgWbeHcYct6XXWoXda/qHWyfue0vwCGATeeyUryzNqven3ci7HJoCOo3CyzJFybkx19EoAHQ
+	R2eXoB+MXijydHqixpT8ODhU63Z06lBBxhyeYU0CIBU/myPlgTmp5XsKnZ2EWOUC2jW9sRBmmmb2s
+	cNpqbXMwmF48b3oCT+JOy9JrLNWcWll18KU5LsC5iBlb3/PSDEjowbILEzfnhDuH5+c95YYBeIC9O
+	cSKQ9TEg==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNuXJ-00000005Zpr-0tGp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 15:45:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEEA32880;
-	Fri, 15 May 2026 08:45:49 -0700 (PDT)
-Received: from [10.57.26.77] (unknown [10.57.26.77])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CBC833F85F;
-	Fri, 15 May 2026 08:45:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778859954; bh=lA78vabUeY/22HO3Al62otFUM7kmkVISd/R4lqOcEqs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Gq1gZDmhBBR3xBpVO39L92KoXFlrafc8fyy4LfMu8kNMWIgI8MxcLHdyFZv7qzHFQ
-	 WMRVXN6kZROEi6GWBA2v63g9iiwuuCYjkIUb/avJTmhl+bQRbMKOeoD+PACmxnuvpt
-	 6r95A61MvwvKI9imttp1WJz3CoWsSrO66fffBKd8=
-Message-ID: <d1793d84-3a69-41c4-9cd4-1d52a64d12ae@arm.com>
-Date: Fri, 15 May 2026 16:45:51 +0100
+	Fri, 15 May 2026 15:33:15 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1wNuWt-0005OF-9T; Fri, 15 May 2026 17:32:47 +0200
+From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Fri, 15 May 2026 17:32:32 +0200
+Subject: [PATCH v6 06/28] media: rockchip: rga: fix too small buffer size
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 23/28] coresight: Control path during CPU idle
-Content-Language: en-GB
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Jie Gan <jie.gan@oss.qualcomm.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20260511-arm_coresight_path_power_management_improvement-v12-0-1c9dcb1de8c9@arm.com>
- <20260511-arm_coresight_path_power_management_improvement-v12-23-1c9dcb1de8c9@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260511-arm_coresight_path_power_management_improvement-v12-23-1c9dcb1de8c9@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260515-spu-rga3-v6-6-e547152eb9c9@pengutronix.de>
+References: <20260515-spu-rga3-v6-0-e547152eb9c9@pengutronix.de>
+In-Reply-To: <20260515-spu-rga3-v6-0-e547152eb9c9@pengutronix.de>
+To: Jacob Chen <jacob-chen@iotwrt.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
+ sebastian.reichel@collabora.com, m.tretter@pengutronix.de, 
+ p.zabel@pengutronix.de, 
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>
+X-Mailer: b4 0.15.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_084556_785741_84BEA8EB 
-X-CRM114-Status: GOOD (  33.25  )
+X-CRM114-CacheID: sfid-20260515_163313_636760_9A56C0FB 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,178 +90,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/05/2026 12:11, Leo Yan wrote:
-> Extend the CPU PM flow to control the path: disable from source up to
-> the node before the sink, then re-enable the same range on restore.
-> To avoid latency, control it up to the node before the sink.
-> 
-> Track per-CPU PM restore failures using percpu_pm_failed.  Once a CPU
-> hits a restore failure, set the percpu_pm_failed and return NOTIFY_BAD
-> on subsequent notifications to avoid repeating half-completed
-> transitions.
-> 
-> Setting percpu_pm_failed permanently blocks CPU PM on that CPU.  Such
-> failures are typically seen during development; disabling PM operations
-> simplifies the implementation, and a warning highlights the issue.
-> 
-> Reviewed-by: James Clark <james.clark@linaro.org>
-> Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Tested-by: James Clark <james.clark@linaro.org>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-core.c | 90 +++++++++++++++++++++++-----
->   1 file changed, 75 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index f07f6f28b9162911cdc673a454702f3ac4dc29ad..674fc375ff44e732405563af7be9dc8fae118e41 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -38,6 +38,7 @@ static DEFINE_PER_CPU(struct coresight_device *, csdev_sink);
->   
->   static DEFINE_RAW_SPINLOCK(coresight_dev_lock);
->   static DEFINE_PER_CPU(struct coresight_device *, csdev_source);
-> +static DEFINE_PER_CPU(bool, percpu_pm_failed);
+Fix the command buffer size being only a quarter of the actual size.
+The RGA_CMDBUF_SIZE macro was potentially intended to specify the length
+of the cmdbuf u32 array pointer. But as it's used to specify the size of
+the allocation, which is counted in bytes. Therefore adjust the macro
+size to bytes as it better matches the variable name and adjust it's
+users accordingly.
 
-We have to reset this when the ETM4x module is taken off or the etmN
-device is unregistered ?
+As the command buffer is relatively small, it probably didn't caused
+an issue due to being smaller than a single page.
 
-Rest looks fine to me.
+Fixes: f7e7b48e6d79 ("[media] rockchip/rga: v4l2 m2m support")
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 
-Suzuki
+---
 
+Flagged by Sashiko:
+https://sashiko.dev/#/patchset/20260325-spu-rga3-v4-0-e90ec1c61354%40pengutronix.de?part=10
+---
+ drivers/media/platform/rockchip/rga/rga-hw.c | 2 +-
+ drivers/media/platform/rockchip/rga/rga-hw.h | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
->   
->   /**
->    * struct coresight_node - elements of a path, from source to sink
-> @@ -1840,7 +1841,7 @@ static void coresight_release_device_list(void)
->   	}
->   }
->   
-> -static struct coresight_device *coresight_cpu_get_active_source(void)
-> +static struct coresight_path *coresight_cpu_get_active_path(void)
->   {
->   	struct coresight_device *source;
->   	bool is_active = false;
-> @@ -1856,22 +1857,32 @@ static struct coresight_device *coresight_cpu_get_active_source(void)
->   
->   	/*
->   	 * It is expected to run in atomic context, so it cannot be preempted
-> -	 * to disable the source. Here returns the active source pointer
-> -	 * without concern that its state may change. Since the build path has
-> -	 * taken a reference on the component, the source can be safely used
-> -	 * by the caller.
-> +	 * to disable the path. Here returns the active path pointer without
-> +	 * concern that its state may change. Since the build path has taken
-> +	 * a reference on the component, the path can be safely used by the
-> +	 * caller.
->   	 */
-> -	return is_active ? source : NULL;
-> +	return is_active ? source->path : NULL;
->   }
->   
-> -static int coresight_pm_is_needed(struct coresight_device *csdev)
-> +/* Return: 1 if PM is required, 0 if skip, or a negative error */
-> +static int coresight_pm_is_needed(struct coresight_path *path)
->   {
-> -	if (!csdev)
-> +	struct coresight_device *source;
-> +
-> +	if (this_cpu_read(percpu_pm_failed))
-> +		return -EIO;
-> +
-> +	if (!path)
-> +		return 0;
-> +
-> +	source = coresight_get_source(path);
-> +	if (!source)
->   		return 0;
->   
->   	/* pm_save_disable() and pm_restore_enable() must be paired */
-> -	if (coresight_ops(csdev)->pm_save_disable &&
-> -	    coresight_ops(csdev)->pm_restore_enable)
-> +	if (coresight_ops(source)->pm_save_disable &&
-> +	    coresight_ops(source)->pm_restore_enable)
->   		return 1;
->   
->   	return 0;
-> @@ -1887,22 +1898,71 @@ static void coresight_pm_device_restore(struct coresight_device *csdev)
->   	coresight_ops(csdev)->pm_restore_enable(csdev);
->   }
->   
-> +static int coresight_pm_save(struct coresight_path *path)
-> +{
-> +	struct coresight_device *source = coresight_get_source(path);
-> +	struct coresight_node *from, *to;
-> +	int ret;
-> +
-> +	ret = coresight_pm_device_save(source);
-> +	if (ret)
-> +		return ret;
-> +
-> +	from = coresight_path_first_node(path);
-> +	/* Disable up to the node before sink */
-> +	to = list_prev_entry(coresight_path_last_node(path), link);
-> +	coresight_disable_path_from_to(path, from, to);
-> +
-> +	return 0;
-> +}
-> +
-> +static void coresight_pm_restore(struct coresight_path *path)
-> +{
-> +	struct coresight_device *source = coresight_get_source(path);
-> +	struct coresight_node *from, *to;
-> +	int ret;
-> +
-> +	from = coresight_path_first_node(path);
-> +	/* Enable up to the node before sink */
-> +	to = list_prev_entry(coresight_path_last_node(path), link);
-> +	ret = coresight_enable_path_from_to(path, coresight_get_mode(source),
-> +					    from, to);
-> +	if (ret)
-> +		goto path_failed;
-> +
-> +	coresight_pm_device_restore(source);
-> +	return;
-> +
-> +path_failed:
-> +	pr_err("Failed in coresight PM restore on CPU%d: %d\n",
-> +	       smp_processor_id(), ret);
-> +
-> +	/*
-> +	 * Once PM fails on a CPU, set percpu_pm_failed and leave it set until
-> +	 * reboot. This prevents repeated partial transitions during idle
-> +	 * entry and exit.
-> +	 */
-> +	this_cpu_write(percpu_pm_failed, true);
-> +}
-> +
->   static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
->   				   void *v)
->   {
-> -	struct coresight_device *csdev = coresight_cpu_get_active_source();
-> +	struct coresight_path *path = coresight_cpu_get_active_path();
-> +	int ret;
->   
-> -	if (!coresight_pm_is_needed(csdev))
-> -		return NOTIFY_DONE;
-> +	ret = coresight_pm_is_needed(path);
-> +	if (ret <= 0)
-> +		return ret ? NOTIFY_BAD : NOTIFY_DONE;
->   
->   	switch (cmd) {
->   	case CPU_PM_ENTER:
-> -		if (coresight_pm_device_save(csdev))
-> +		if (coresight_pm_save(path))
->   			return NOTIFY_BAD;
->   		break;
->   	case CPU_PM_EXIT:
->   	case CPU_PM_ENTER_FAILED:
-> -		coresight_pm_device_restore(csdev);
-> +		coresight_pm_restore(path);
->   		break;
->   	default:
->   		return NOTIFY_DONE;
-> 
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+index 43ed742a16492..d1618bb247501 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.c
++++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+@@ -414,7 +414,7 @@ static void rga_cmd_set(struct rga_ctx *ctx,
+ {
+ 	struct rockchip_rga *rga = ctx->rga;
+ 
+-	memset(rga->cmdbuf_virt, 0, RGA_CMDBUF_SIZE * 4);
++	memset(rga->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
+ 
+ 	rga_cmd_set_src_addr(ctx, src->dma_desc_pa);
+ 	/*
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.h b/drivers/media/platform/rockchip/rga/rga-hw.h
+index cc6bd7f5b0300..2b8537a5fd0d7 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.h
++++ b/drivers/media/platform/rockchip/rga/rga-hw.h
+@@ -6,7 +6,7 @@
+ #ifndef __RGA_HW_H__
+ #define __RGA_HW_H__
+ 
+-#define RGA_CMDBUF_SIZE 0x20
++#define RGA_CMDBUF_SIZE 0x80
+ 
+ /* Hardware limits */
+ #define MAX_WIDTH 8192
+
+-- 
+2.54.0
 
 
