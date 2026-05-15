@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE20FCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 07:31:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73463CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 07:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X3AkEkRJJo0jVO99ov3hOjezsomQAOLSpaf7FKnhiJ0=; b=SgRXPHMUNYaU1HTi1UivdlUjdC
-	4EFkaV1FaIx4niAI1puhMNFpAGhVkrf+o5uOul9DXdKd8rVkCoNzYjvwAkbcUat8NMW6oQL0sKOUB
-	t54mh3vL+5i2Zwuujrm+lhuQWKWeAq91JnY43JMB8o56WBnYoehNs8NIfIz6jpaRlh8XZRqyjVkT4
-	vTUVequE3l6fAaYhwfDc58lJp3xb/MovlT7M+wQyv0kuyNixxLdycaf4r+BZFSAdaB/7c8M/f8EGc
-	quj7jc/iXTcP1o3I0h0KTtnYuyTOgqqaiG2/QnRxPrY7kMe5pZLMc0HJXHl0fQtdPzI8LN6D6xmHc
-	FEoD7pOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s8bFFpy7vAgyFoeBTkcLLUVME5xCxm2dioKs7bupTms=; b=ZrAh+HHy79u68IHc9FeEITI7sQ
+	D59DiYALYwjXFxZLOOlinjDRZn6Wjvys5SfJcd5SyfE7zPGsytAc1SgdxIZlgz/6URTd7ysYD+Lrv
+	dpiUiH3j8YC+aZljMgFaB5uYsWQ5v4ZMAp6F3vXJoqk41PQE6MK4wP05ofS4xsIBe2Srp+teOvTqt
+	haVdUk7OgRxRXrUkW1kZ8374bo/1FcrHTYo1MDD99JzeSLmkFgUwe0ebRO4g1+0bdOrDoQ63DXA/C
+	yHg0bL0v/3mU0GXpAYoCbKBa4SFuITPiYCwqbN3s4hWnBh1GbqjLRP2KeEo7YsTQj2Sa8WK1UCWab
+	T6MBXWIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNn1S-00000007cqB-0pkl;
-	Fri, 15 May 2026 07:31:50 +0000
-Received: from azure-sdnproxy.icoremail.net ([52.229.168.213])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNn1N-00000007cpF-3EZd
+	id 1wNn6j-00000007dMv-36M5;
+	Fri, 15 May 2026 07:37:17 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNn6h-00000007dMO-1lQA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 07:31:49 +0000
-Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
- ajax-webmail-app1 (Coremail) ; Fri, 15 May 2026 15:31:16 +0800 (GMT+08:00)
-X-Originating-IP: [10.11.96.26]
-Date: Fri, 15 May 2026 15:31:16 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-To: "Andrew Lunn" <andrew@lunn.ch>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
+	Fri, 15 May 2026 07:37:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778830636; x=1810366636;
+  h=date:from:to:subject:message-id:references:mime-version:
+   in-reply-to;
+  bh=vNeDJZqrvT2j2rRlp/BEtuA+HNSXejvJ2vRYm+fgkOU=;
+  b=NGnGBmP6QNFpf4Q2/1tqjCiQS26fdmJfMJLkkZ8MMVAxasFLJCPy3S3x
+   1WcQryIe/9jCy7rOkN7rMCLcwLSZxugl1i78lQ+MeTojJDJDMXOsA0CKo
+   XHqoxBhB9IVS26WK3SuvmZArFSHQ/Rq/HF482yw2fGh0AXKAdKO80TLeT
+   atXwgDgZMLSZ2bisdlnFp1Ml1R1wfFgMOFKJHa0p9ThglZVkmbc/Sx6Lt
+   yrLY0ae8uoe8ErIDSMrG0yACyUBNr41FunmsmkfdhP3cKYUpFUlsdsfpp
+   GkP7ZW8GgMZlVp6fhcEvdLdrBPdKN6G67K3zlwmxQnpBjqS8v3WtWCpfF
+   Q==;
+X-CSE-ConnectionGUID: YbsEVQy9STiwhq7osMmCEg==
+X-CSE-MsgGUID: EamuVIguQWaDuHvmS7LCIw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11786"; a="97212649"
+X-IronPort-AV: E=Sophos;i="6.23,236,1770624000"; 
+   d="scan'208";a="97212649"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2026 00:37:13 -0700
+X-CSE-ConnectionGUID: nFREjJbdTEKf9kDYhKUDQQ==
+X-CSE-MsgGUID: ZIy/Yzj7Ta+BOv/Jd0QFew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,236,1770624000"; 
+   d="scan'208";a="268965588"
+Received: from vpanait-mobl.ger.corp.intel.com (HELO localhost) ([10.245.245.33])
+  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2026 00:37:10 -0700
+Date: Fri, 15 May 2026 10:37:07 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Greg Ungerer <gerg@linux-m68k.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
+	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
-Subject: Re: Re: [PATCH net v1 1/2] dt-bindings: ethernet: eswin: refine
- delay model and HSP register description
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
- 20241203(6b039d88) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
-In-Reply-To: <2436c6e9-4aad-4ffd-9fef-0cbbe38dc66d@lunn.ch>
-References: <20260507083037.152-1-lizhi2@eswincomputing.com>
- <20260507083136.175-1-lizhi2@eswincomputing.com>
- <2436c6e9-4aad-4ffd-9fef-0cbbe38dc66d@lunn.ch>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
+Subject: Re: [PATCH v2 08/11] m68k: stmark2: add mcf5441x DAC platform devices
+Message-ID: <agbNIye6ZfERYeHD@ashevche-desk.local>
+References: <20260513-wip-stmark2-dac-v2-0-fcdae50cf51a@baylibre.com>
+ <20260513-wip-stmark2-dac-v2-8-fcdae50cf51a@baylibre.com>
+ <agTcEECgJvBydhe2@ashevche-desk.local>
+ <y4zg2d5zghoz3miqevutiin5swfnx5y2zew2zlv4jklxsyly5g@sxeyvth2tkrk>
 MIME-Version: 1.0
-Message-ID: <29bee81.8323.19e2a8bf746.Coremail.lizhi2@eswincomputing.com>
-X-Coremail-Locale: en_US
-X-CM-TRANSID: TAJkCgBn_HDFywZq+qYZAA--.7037W
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAgEIDGoF+ZIKMwACs4
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <y4zg2d5zghoz3miqevutiin5swfnx5y2zew2zlv4jklxsyly5g@sxeyvth2tkrk>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_003145_961210_D2B193B2 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260515_003715_513272_EBF08EE3 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,61 +97,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cgo+IC0tLS0tT3JpZ2luYWwgTWVzc2FnZXMtLS0tLQo+IEZyb206ICJBbmRyZXcgTHVubiIgPGFu
-ZHJld0BsdW5uLmNoPgo+IFNlbmQgdGltZTpUaHVyc2RheSwgMDcvMDUvMjAyNiAyMDoyOToxMAo+
-IFRvOiBsaXpoaTJAZXN3aW5jb21wdXRpbmcuY29tCj4gQ2M6IGFuZHJldytuZXRkZXZAbHVubi5j
-aCwgZGF2ZW1AZGF2ZW1sb2Z0Lm5ldCwgZWR1bWF6ZXRAZ29vZ2xlLmNvbSwga3ViYUBrZXJuZWwu
-b3JnLCBwYWJlbmlAcmVkaGF0LmNvbSwgcm9iaEBrZXJuZWwub3JnLCBrcnprK2R0QGtlcm5lbC5v
-cmcsIGNvbm9yK2R0QGtlcm5lbC5vcmcsIG5ldGRldkB2Z2VyLmtlcm5lbC5vcmcsIGRldmljZXRy
-ZWVAdmdlci5rZXJuZWwub3JnLCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCBtY29xdWVs
-aW4uc3RtMzJAZ21haWwuY29tLCBhbGV4YW5kcmUudG9yZ3VlQGZvc3Muc3QuY29tLCBybWsra2Vy
-bmVsQGFybWxpbnV4Lm9yZy51aywgbWF4aW1lLmNoZXZhbGxpZXJAYm9vdGxpbi5jb20sIGxpbnV4
-LXN0bTMyQHN0LW1kLW1haWxtYW4uc3Rvcm1yZXBseS5jb20sIGxpbnV4LWFybS1rZXJuZWxAbGlz
-dHMuaW5mcmFkZWFkLm9yZywgbmluZ3l1QGVzd2luY29tcHV0aW5nLmNvbSwgbGlubWluQGVzd2lu
-Y29tcHV0aW5nLmNvbSwgcGlua2VzaC52YWdoZWxhQGVpbmZvY2hpcHMuY29tLCBwcml0ZXNoLnBh
-dGVsQGVpbmZvY2hpcHMuY29tLCB3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29tCj4gU3Vi
-amVjdDogUmU6IFtQQVRDSCBuZXQgdjEgMS8yXSBkdC1iaW5kaW5nczogZXRoZXJuZXQ6IGVzd2lu
-OiByZWZpbmUgZGVsYXkgbW9kZWwgYW5kIEhTUCByZWdpc3RlciBkZXNjcmlwdGlvbgo+IAo+ID4g
-ICAgICBldGhlcm5ldEA1MDQwMDAwMCB7Cj4gPiAgICAgICAgICBjb21wYXRpYmxlID0gImVzd2lu
-LGVpYzc3MDAtcW9zLWV0aCIsICJzbnBzLGR3bWFjLTUuMjAiOwo+ID4gICAgICAgICAgcmVnID0g
-PDB4NTA0MDAwMDAgMHgxMDAwMD47Cj4gPiAtICAgICAgICBjbG9ja3MgPSA8JmQwX2Nsb2NrIDE4
-Nj4sIDwmZDBfY2xvY2sgMTcxPiwgPCZkMF9jbG9jayA0MD4sCj4gPiAtICAgICAgICAgICAgICAg
-IDwmZDBfY2xvY2sgMTkzPjsKPiA+IC0gICAgICAgIGNsb2NrLW5hbWVzID0gImF4aSIsICJjZmci
-LCAic3RtbWFjZXRoIiwgInR4IjsKPiA+ICAgICAgICAgIGludGVycnVwdC1wYXJlbnQgPSA8JnBs
-aWM+Owo+ID4gICAgICAgICAgaW50ZXJydXB0cyA9IDw2MT47Cj4gPiAgICAgICAgICBpbnRlcnJ1
-cHQtbmFtZXMgPSAibWFjaXJxIjsKPiA+IC0gICAgICAgIHBoeS1tb2RlID0gInJnbWlpLWlkIjsK
-PiA+IC0gICAgICAgIHBoeS1oYW5kbGUgPSA8JnBoeTA+Owo+ID4gKyAgICAgICAgY2xvY2tzID0g
-PCZkMF9jbG9jayAxODY+LCA8JmQwX2Nsb2NrIDE3MT4sIDwmZDBfY2xvY2sgNDA+LAo+ID4gKyAg
-ICAgICAgICAgICAgICA8JmQwX2Nsb2NrIDE5Mz47Cj4gPiArICAgICAgICBjbG9jay1uYW1lcyA9
-ICJheGkiLCAiY2ZnIiwgInN0bW1hY2V0aCIsICJ0eCI7Cj4gCj4gUGxlYXNlIGRvbid0IG1vdmUg
-dGhlIGNsb2NrcyBhcm91bmQsIHNpbmNlIHRoZXkgaGF2ZSBub3RoaW5nIHRvIGRvCj4gd2l0aCBS
-R01JSSBkZWxheXMuCj4gCj4gCj4gPiAgICAgICAgICByZXNldHMgPSA8JnJlc2V0IDk1PjsKPiA+
-ICAgICAgICAgIHJlc2V0LW5hbWVzID0gInN0bW1hY2V0aCI7Cj4gPiAtICAgICAgICByeC1pbnRl
-cm5hbC1kZWxheS1wcyA9IDwyMDA+Owo+ID4gLSAgICAgICAgdHgtaW50ZXJuYWwtZGVsYXktcHMg
-PSA8MjAwPjsKPiA+IC0gICAgICAgIGVzd2luLGhzcC1zcC1jc3IgPSA8JmhzcF9zcF9jc3IgMHgx
-MDAgMHgxMDggMHgxMTg+Owo+ID4gLSAgICAgICAgc25wcyxheGktY29uZmlnID0gPCZzdG1tYWNf
-YXhpX3NldHVwPjsKPiA+ICsgICAgICAgIGVzd2luLGhzcC1zcC1jc3IgPSA8JmhzcF9zcF9jc3Ig
-MHgxMDAgMHgxMDggMHgxMTggMHgxMTQgMHgxMWM+Owo+ID4gKyAgICAgICAgcGh5LWhhbmRsZSA9
-IDwmcGh5MD47Cj4gPiArICAgICAgICBwaHktbW9kZSA9ICJyZ21paS1pZCI7Cj4gPiAgICAgICAg
-ICBzbnBzLGFhbDsKPiA+ICAgICAgICAgIHNucHMsZml4ZWQtYnVyc3Q7Cj4gPiAgICAgICAgICBz
-bnBzLHRzbzsKPiA+IC0gICAgICAgIHN0bW1hY19heGlfc2V0dXA6IHN0bW1hYy1heGktY29uZmln
-IHsKPiA+ICsgICAgICAgIHNucHMsYXhpLWNvbmZpZyA9IDwmc3RtbWFjX2F4aV9zZXR1cF9nbWFj
-MD47Cj4gPiArCj4gPiArICAgICAgICBzdG1tYWNfYXhpX3NldHVwX2dtYWMwOiBzdG1tYWMtYXhp
-LWNvbmZpZyB7Cj4gCj4gQW5kIHdoYXQgZG8gdGhlc2UgY2hhbmdlcyBoYXZlIHRvIGRvIHdpdGgg
-UkdNSUkgZGVsYXlzPwo+IAoKSGkgQW5kcmV3LAoKQmVmb3JlIHNlbmRpbmcgdGhlIG5leHQgcmV2
-aXNpb24sIEkgd291bGQgbGlrZSB0byBjb25maXJtIG9uZSBwb2ludCBhYm91dAp0aGUgYmluZGlu
-ZyB1cGRhdGUuCgpJbiB5b3VyIHByZXZpb3VzIHJldmlldyBjb21tZW50OgpodHRwczovL2xvcmUu
-a2VybmVsLm9yZy9sa21sLzdlNTkzZWRlLTU5ZWItNDMxNi1hYjcyLTk0OWE1MWMwMDhjNkBsdW5u
-LmNoLwoKeW91IG1lbnRpb25lZCB0aGF0ICJhIHdlbGwgZGVzaWduZWQgYm9hcmQgc2hvdWxkIG5v
-dCBuZWVkIGRlbGF5cyIuCgpCYXNlZCBvbiB0aGF0LCBJIGFtIHBsYW5uaW5nIHRvIHJlbW92ZSBy
-eC1pbnRlcm5hbC1kZWxheS1wcyBhbmQKdHgtaW50ZXJuYWwtZGVsYXktcHMgZnJvbSB0aGUgcmVx
-dWlyZWQgbGlzdC4KClRoZSBpbnRlbnRpb24gaXMgdGhhdCB0aGVzZSBwcm9wZXJ0aWVzIHJlbWFp
-biBhdmFpbGFibGUgZm9yIE1BQy1zaWRlCmZpbmUgdHVuaW5nIHdoZW4gbmVlZGVkLCBidXQgYXJl
-IG9wdGlvbmFsIHNpbmNlIHRoZSByZXF1aXJlZCBSR01JSSBkZWxheQptYXkgaW5zdGVhZCBiZSBw
-cm92aWRlZCBieSB0aGUgUEhZIChmb3IgZXhhbXBsZSB3aXRoIHJnbWlpLWlkKSBvciBieSB0aGUK
-Ym9hcmQgZGVzaWduLgoKV291bGQgeW91IGNvbnNpZGVyIHRoaXMgdG8gYmUgYSBmaXggdG8gYW4g
-b3Zlcmx5IHJlc3RyaWN0aXZlIHNjaGVtYQpyZXF1aXJlbWVudCwgb3IgbW9yZSBvZiBhIHNjaGVt
-YSByZWxheGF0aW9uIC8gaW1wcm92ZW1lbnQ/CgpUaGlzIHdpbGwgaGVscCBkZXRlcm1pbmUgd2hl
-dGhlciB0aGlzIGNoYW5nZSBzaG91bGQgcmVtYWluIGluIHRoZSBuZXQKc2VyaWVzIG9yIGJlIG1v
-dmVkIHRvIGEgZm9sbG93LXVwIG5ldC1uZXh0IHNlcmllcy4KClRoYW5rcywKWmhpIExpCg==
+On Thu, May 14, 2026 at 09:15:09AM +0200, Angelo Dureghello wrote:
+> On 13.05.2026 23:16, Andy Shevchenko wrote:
+> > On Wed, May 13, 2026 at 11:14:32AM +0200, Angelo Dureghello wrote:
+
+...
+
+> > Same for the rest. But I haven't seen the followups and don't know if those
+> > structures are going to be expanded. The commit message doesn't say anything
+> > about that. So I assume my suggestion valid.
+> 
+> no. They are not going to be expanded, anyway, is there a real gain
+> using an hardcoded 1 there ?
+
+The 1 is a side-effect the whole point is to avoid array of 1 element.
+
+> Would not reissue a v3 for this honestly.
+
+Seems you will need to have a v3 based on other comments. Indeed, for its own
+it's not needed to reissue a new version.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
