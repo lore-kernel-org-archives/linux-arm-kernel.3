@@ -4,67 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4A1CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 12:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE551CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 12:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5M6X3G55kF4dCEW9Gm74DMxN0Pg8vaNgLib92UCrPY4=; b=RW8cp1Ys6o2vpcWieJ0cpR+X0e
-	fTQVDaCHbarppN2Lj2OZsrMoo03SDK3N1zfJGJMh+K1l4KUEuUUIrvZkR2IAfQrFQ3dAIXHtedTos
-	bBNQgP2/inM84MVS+Mkcp4O1EubPl3ta2MwW2UmQLSBZflYJ+UpO9igJiUNSxOlKjYc+crzBnmJnL
-	SLOR/kzZomQxoYAHPZqnt1i1VC/A20x6E3WpKZj+No1tfxueL23DzDik+X/lKjNo7f0PjxotLiKyh
-	9/hETZjxIwbXkthK/BdPKUdyRbbBRaIv7822OlRVKPaWBFiAteTQ2zO0GdduC5wB/JX9tMXfC+JIr
-	Wf9ZyCdA==;
+	bh=uBzfgW0qtBXhxFvclZQRqwoWEvow81+l0PS3ctqnHQY=; b=ZgieGyhK5tJ5KDLUm++RCQSyjQ
+	9VkVgb4IhSEH7CPFJAx4iP2JNQtRzXrlgIGps7g85CiuZWa0FQENUDRHUY28VsDdAVOzaAxpHJGyN
+	lYkAGP20/8Fq/URF5z0iwYTC6dFHAGheITreFanQWbSbXo/XlA8WhnsBU4duXcXnbvEHfSNRiFP+J
+	kXbbjcPpxtoEVUIb0GGfNKw04gD09mVw4cLjuBXgiMZpJ2BmjS3jq8/dmf8CEIYbMFuBINqZwVv7N
+	MwZvzOENU3lD2MXAsReBM+5x8Hhj2YVH3hGGVruh0BxjjstQ2GIZfmq9NxnQI2k+vXT1cuGaoPPTU
+	gtHmPS6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNrx0-00000008MkA-2CKF;
-	Fri, 15 May 2026 12:47:34 +0000
+	id 1wNs1g-00000008NC6-0HN4;
+	Fri, 15 May 2026 12:52:24 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNrwx-00000008MjM-3YEo
+	id 1wNs1d-00000008NBS-0Svf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 12:47:33 +0000
+	Fri, 15 May 2026 12:52:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C489C4325F;
-	Fri, 15 May 2026 12:47:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 065FCC2BCB7;
-	Fri, 15 May 2026 12:47:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1311B43EB5;
+	Fri, 15 May 2026 12:52:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C40FBC2BCB0;
+	Fri, 15 May 2026 12:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778849250;
-	bh=RutxBLw/fTqyWYne9ALFxGxyYBTrKY4dBcGpCUx/QLM=;
+	s=k20201202; t=1778849539;
+	bh=5o6LcG/vxhfqiQV9se/iRFOt5vrH9A9e5YPVJb41mtw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EOqYLJxfBaT3DbXlN83O21rR2IWjpFpD16bBcbsEFx+OwTxbhNN8iNRxIdg03WBX2
-	 g7HhVxvca6FcFAZc39BfEDW0kd2AvxAElL5X4jNDWx+6L0xYfbtYLasXHr4hOESWI6
-	 50MLH7eiRkxoftXw93sMVQ5SOAM5SsRk0DExr2wJOyPWOa+75JWEviB1Edo/nSLOcD
-	 skcDlEbcV+BFAdOUQmhVehP644dOep+jnmoWJSRd76omn+4GVHDDu38RU3hyvvTrBJ
-	 unreLhq+tgTsVGEpkopvbOf6c476Fp8EMpAs56uI9rhnV6XEoFTYwX7B5BHeyx41LJ
-	 rZhGMYQr2nmdA==
-Date: Fri, 15 May 2026 18:17:22 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Aksh Garg <a-garg7@ti.com>
-Cc: linux-pci@vger.kernel.org, linux-doc@vger.kernel.org, 
-	kwilczynski@kernel.org, bhelgaas@google.com, corbet@lwn.net, kishon@kernel.org, 
-	skhan@linuxfoundation.org, lukas@wunner.de, cassel@kernel.org, alistair@alistair23.me, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, s-vadapalli@ti.com, 
-	danishanwar@ti.com, srk@ti.com
-Subject: Re: [PATCH v3 3/4] PCI: endpoint: Add API for DOE initialization and
- setup in EPC core
-Message-ID: <mn7rnqdunp4mq45a7ypf26rfpzjr2gik7w4p7hpj4x3r3fzfzz@dlrsn27u5mbf>
-References: <20260427051725.223704-1-a-garg7@ti.com>
- <20260427051725.223704-4-a-garg7@ti.com>
- <m4z3q3pe3ro5vkl4uq4zkewpjdqccgeact2hj4tjnkonttx4vr@ndan37zzwgxc>
- <3853ba15-d096-4cf4-b52f-8a2e5f50fe53@ti.com>
+	b=UXNXeVPzBEGfGCmQ6Zh9balsm9/02tDjxIvzcZ74o357Kj3TLMs5Xfcb9ZDKWUHZs
+	 ig7KXiHw98Zc3EGJ78sJw2h326fCayz5R/+BRUwjc5/6zwFqc9FuG7MRZUMBo97aXs
+	 m41dbxwzJ11MrhVgLwvHa/mYCcdwkV9SlTVec9IKa99pdqnAIgvOIQzkqNQmw6H8Oq
+	 WysXyObH5DQ32PZJn0Zpwcwr5HSwpT4UwCutUx1cqseRCfhexogpZ36ByUxcGZF3VY
+	 McM+sIfpFi/ln6F0XyLSohKlvmXH4fV41RMlYusKqxXUhqaOsn2rdi2KpJVCNGjQn+
+	 UqTD9IdYw4Mrg==
+Date: Fri, 15 May 2026 13:52:10 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Ge Gordon <gordon.ge@bst.ai>,
+	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: Re: [PATCH v2 01/17] ACPI: GTDT: Account for GTDTv3 size when
+ walking the platform timer descriptors
+Message-ID: <20260515-crafty-thundering-frigatebird-ea6db0@sudeepholla>
+References: <20260514150945.3917510-1-maz@kernel.org>
+ <20260514150945.3917510-2-maz@kernel.org>
+ <20260515-prudent-vagabond-beetle-cad34b@sudeepholla>
+ <864ik8ykzd.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <3853ba15-d096-4cf4-b52f-8a2e5f50fe53@ti.com>
+In-Reply-To: <864ik8ykzd.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_054732_021964_344D82F3 
-X-CRM114-Status: GOOD (  28.47  )
+X-CRM114-CacheID: sfid-20260515_055221_278976_5DFE842C 
+X-CRM114-Status: GOOD (  32.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,79 +114,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 15, 2026 at 10:21:52AM +0530, Aksh Garg wrote:
-> 
-> 
-> On 14/05/26 13:38, Manivannan Sadhasivam wrote:
-> > On Mon, Apr 27, 2026 at 10:47:24AM +0530, Aksh Garg wrote:
-> > > Add pci_epc_setup_doe() API in EPC core driver to initialize and setup
-> > > the DOE framework for an endpoint controller. The API discovers the DOE
-> > > capabilities (extended capability ID 0x2E), and registers each discovered
-> > > DOE mailbox for all the functions in the endpoint controller. This API
-> > > should be invoked by the controller driver during probe based on the
-> > > doe_capable feature.
+On Fri, May 15, 2026 at 12:23:50PM +0100, Marc Zyngier wrote:
+> On Fri, 15 May 2026 10:51:52 +0100,
+> Sudeep Holla <sudeep.holla@kernel.org> wrote:
+> > 
+> > On Thu, May 14, 2026 at 04:09:29PM +0100, Marc Zyngier wrote:
+> > > Since ARMv8.1, the architecture has grown an EL2-private virtual
+> > > timer. This has been described in ACPI since ACPI v6.3 and revision
+> > > 3 of the GTDT table.
 > > > 
-> > > Add pci_epc_destroy_doe() API in EPC core driver for cleanup of DOE
-> > > resources, which should be invoked by the controller driver during
-> > > controller cleanup based on the doe_capable feature.
+> > > An aditional structure was added in ACPICA, though in a rather
+> > > bizarre way, and merged in v5.1 as 8f5a14d053100 ("ACPICA: ACPI 6.3:
+> > > add GTDT Revision 3 support").
 > > > 
-> > > Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > > Signed-off-by: Aksh Garg <a-garg7@ti.com>
+> > > Finally plug the table parsing in GTDT, and correct the parsing of
+> > > the platform timer subtables to account for the expanded size of
+> > > the base table.
+> > > 
+> > > Suggested-by: Sudeep Holla <sudeep.holla@kernel.org>
+> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
 > > > ---
+> > >  drivers/acpi/arm64/gtdt.c | 15 ++++++++++++++-
+> > >  1 file changed, 14 insertions(+), 1 deletion(-)
 > > > 
-> > > Changes from v2 to v3:
-> > > - Rebased on 7.1-rc1.
-> > > 
-> > > Changes since v1:
-> > > - New patch added to v2 (not present in v1)
-> > > 
-> > > v2: https://lore.kernel.org/all/20260401073022.215805-4-a-garg7@ti.com/
-> > > 
-> > > This patch is introduced based on the feedback provided by Manivannan
-> > > Sadhasivam at [1].
-> > > 
+> > > diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
+> > > index ffc867bac2d60..b9d9b8edf2df7 100644
+> > > --- a/drivers/acpi/arm64/gtdt.c
+> > > +++ b/drivers/acpi/arm64/gtdt.c
+> > > @@ -32,6 +32,12 @@ struct acpi_gtdt_descriptor {
+> > >  	struct acpi_table_gtdt *gtdt;
+> > >  	void *gtdt_end;
+> > >  	void *platform_timer;
+> > > +	bool v3;
+> > > +};
+> > > +
+> > > +struct gtdt_v3 {
+> > > +	struct acpi_table_gtdt	gtdt_v2;
+> > > +	struct acpi_gtdt_el2	el2_vtimer;
+> > >  };
+> > >  
+> > >  static struct acpi_gtdt_descriptor acpi_gtdt_desc __initdata;
+> > > @@ -39,8 +45,14 @@ static struct acpi_gtdt_descriptor acpi_gtdt_desc __initdata;
+> > >  static __init bool platform_timer_valid(void *platform_timer)
+> > >  {
+> > >  	struct acpi_gtdt_header *gh = platform_timer;
+> > > +	void *platform_timer_begin;
+> > > +
+> > > +	if (acpi_gtdt_desc.v3)
+> > > +		platform_timer_begin = container_of(acpi_gtdt_desc.gtdt, struct gtdt_v3, gtdt_v2) + 1;
+> > > +	else
+> > > +		platform_timer_begin = acpi_gtdt_desc.gtdt + 1;
+> > >
+> > > -	return (platform_timer >= (void *)(acpi_gtdt_desc.gtdt + 1) &&
+> > > +	return (platform_timer >= platform_timer_begin &&
+> > >  		platform_timer < acpi_gtdt_desc.gtdt_end &&
+> > >  		gh->length != 0 &&
+> > >  		platform_timer + gh->length <= acpi_gtdt_desc.gtdt_end);
+> > > @@ -169,6 +181,7 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
+> > >  	acpi_gtdt_desc.gtdt = gtdt;
+> > >  	acpi_gtdt_desc.gtdt_end = (void *)table + table->length;
+> > >  	acpi_gtdt_desc.platform_timer = NULL;
+> > > +	acpi_gtdt_desc.v3 = gtdt->header.revision >= 3 && gtdt->header.length >= sizeof(struct gtdt_v3);
 > > 
-> > Sweet! But I was expecting you to add atleast one EPC driver implementation to
-> > make use of these APIs.
-> > 
-> > Also, why can't you call these APIs from the EPC core directly? Maybe during
-> > pci_epc_init_notify() once the register accesses become valid.
+> > Regarding Sashiko’s comment about the missing length validation for GTDT v2, I
+> > realised that the current check could cause a malformed v3 table to be
+> > interpreted as v2 if its length does not match the expected v3
+> > length.
 > 
-> Can we add the DOE initialization API to pci_epc_init_notify()? This
-> API seems to be called to notify the EPF drivers that the EPC device's
-> initialization has been completed, as the name and description suggests.
-
-That's correct. But there is no harm in calling something like
-pci_epc_init_capabilities() inside its definition. Only concern would be that
-pci_epc_init_notify() is mostly called from threaded IRQ handlers. So loading
-the handler would not be recommended. But since it is threaded anyway and we
-don't have a better place to call, it would be OK.
-
-We could've called this from pci_epc_{create/start}, but some controllers won't
-allow accessing CSRs without REFCLK. So only after pci_init_notify(), CSRs can
-be accessed.
-
-> As 'pci_epc_doe_setup' is a part of EPC initialization, I thought the
-> EPC drivers should call this API before calling the pci_epc_init_notify().
+> Yeah, that's overall dodgy. As much as I hate having to write a
+> validating parser for ACPI, we need to be prepared for the worst.
 > 
-> However, I agree with your suggestion to call the DOE setup API directly
-> from the EPC core instead of sprinkling over the EPC drivers. I would
-> recommend renaming the pci_epc_init_notify() API (and hence the
-> pci_epc_deinit_notify() as well) to something like pci_epc_init_complete(),
-> and add the DOE setup API/logic just before the
-> logic of notifying the EPF devices.
+> > It would be better to fail early and return an error rather than allow
+> > processing to continue with the table incorrectly interpreted as v2.
 > 
+> How about something like the hack below?
+>
 
-No need to rename this API. Just use as is:
+LGTM and might please Sashiko too.
 
-	pci_epc_init_notify()
-		-> pci_epc_init_capabilities()
-			-> pci_epc_init_doe()
-		-> epf->event_ops->epc_init()
-
-- Mani
+Reviewed-by:  Sudeep Holla <sudeep.holla@kernel.org>
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Regards,
+Sudeep
 
