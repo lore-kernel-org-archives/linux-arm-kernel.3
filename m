@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BE4CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 12:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4A1CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 12:47:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EF+740UnJnqAgctNgdg2R5aHolnMpCTYC3TQf0irLIg=; b=HoWrWYX0FK6v0KARAuCVGDrrks
-	ust99wxbTCMisNZYmXupK2f2GHyOnVylDnPYeDvKj/CBJHV2PKviaIW0rCbVPV5grutqnsbTxeebU
-	Nvy3mYNce2cLVJVl4WiEMJZ/vgaSdQiSHVLL/EGZQRfBt747fnBknkm3ipN2qTNWbiUuTDdoYxbox
-	mKCrv+e6YbeNqxTmbB/mPPGmswtfno6t3xCc7VoMvKlBdw7zzorj25Zqj7bktJCuohwrrzhiM1JUy
-	YsY8AsxoBevDhVqr2S9F2LHTzBzjb6l+T27rmcj6ozuNSkKeq+0fTO2ebl5OzfxUJCIbXVnoLJRXO
-	qp5Xz5rQ==;
+	bh=5M6X3G55kF4dCEW9Gm74DMxN0Pg8vaNgLib92UCrPY4=; b=RW8cp1Ys6o2vpcWieJ0cpR+X0e
+	fTQVDaCHbarppN2Lj2OZsrMoo03SDK3N1zfJGJMh+K1l4KUEuUUIrvZkR2IAfQrFQ3dAIXHtedTos
+	bBNQgP2/inM84MVS+Mkcp4O1EubPl3ta2MwW2UmQLSBZflYJ+UpO9igJiUNSxOlKjYc+crzBnmJnL
+	SLOR/kzZomQxoYAHPZqnt1i1VC/A20x6E3WpKZj+No1tfxueL23DzDik+X/lKjNo7f0PjxotLiKyh
+	9/hETZjxIwbXkthK/BdPKUdyRbbBRaIv7822OlRVKPaWBFiAteTQ2zO0GdduC5wB/JX9tMXfC+JIr
+	Wf9ZyCdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNrwj-00000008MgP-1XR5;
-	Fri, 15 May 2026 12:47:17 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wNrx0-00000008MkA-2CKF;
+	Fri, 15 May 2026 12:47:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNrwh-00000008Mfc-0GDA;
-	Fri, 15 May 2026 12:47:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=EF+740UnJnqAgctNgdg2R5aHolnMpCTYC3TQf0irLIg=; b=AdIB5a9FUoLhQ4tXb72J/+z7zV
-	VgffyIEypIZ1NCJb4YLBK2VXZEv+t1X8oIUGnDxhRLLWnolVTY+zgqJnwfUJZR8PqTpPZ82DaRmXh
-	MZSUGME5WHiQBxF5e9CvxdSWWK2+CHHKSr9PHlpbtICid4HGLvOtt68R2tA1Rbo2WHTA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wNrwW-0033xq-8P; Fri, 15 May 2026 14:47:04 +0200
-Date: Fri, 15 May 2026 14:47:04 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Lukasz Raczylo <lukasz@raczylo.com>
-Cc: netdev@vger.kernel.org, Theo Lebrun <theo.lebrun@bootlin.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rpi-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next] net: macb: fix build of TX stall watchdog by
- replacing undefined netdev_warn_ratelimited
-Message-ID: <3aa11074-2b96-422e-8725-35c5522272d3@lunn.ch>
-References: <cover.1777064117.git.lukasz@raczylo.com>
- <20260514215459.36109-1-lukasz@raczylo.com>
- <20260514215459.36109-4-lukasz@raczylo.com>
- <20260515095336.92237-1-lukasz@raczylo.com>
+	id 1wNrwx-00000008MjM-3YEo
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 May 2026 12:47:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C489C4325F;
+	Fri, 15 May 2026 12:47:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 065FCC2BCB7;
+	Fri, 15 May 2026 12:47:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778849250;
+	bh=RutxBLw/fTqyWYne9ALFxGxyYBTrKY4dBcGpCUx/QLM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EOqYLJxfBaT3DbXlN83O21rR2IWjpFpD16bBcbsEFx+OwTxbhNN8iNRxIdg03WBX2
+	 g7HhVxvca6FcFAZc39BfEDW0kd2AvxAElL5X4jNDWx+6L0xYfbtYLasXHr4hOESWI6
+	 50MLH7eiRkxoftXw93sMVQ5SOAM5SsRk0DExr2wJOyPWOa+75JWEviB1Edo/nSLOcD
+	 skcDlEbcV+BFAdOUQmhVehP644dOep+jnmoWJSRd76omn+4GVHDDu38RU3hyvvTrBJ
+	 unreLhq+tgTsVGEpkopvbOf6c476Fp8EMpAs56uI9rhnV6XEoFTYwX7B5BHeyx41LJ
+	 rZhGMYQr2nmdA==
+Date: Fri, 15 May 2026 18:17:22 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Aksh Garg <a-garg7@ti.com>
+Cc: linux-pci@vger.kernel.org, linux-doc@vger.kernel.org, 
+	kwilczynski@kernel.org, bhelgaas@google.com, corbet@lwn.net, kishon@kernel.org, 
+	skhan@linuxfoundation.org, lukas@wunner.de, cassel@kernel.org, alistair@alistair23.me, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, s-vadapalli@ti.com, 
+	danishanwar@ti.com, srk@ti.com
+Subject: Re: [PATCH v3 3/4] PCI: endpoint: Add API for DOE initialization and
+ setup in EPC core
+Message-ID: <mn7rnqdunp4mq45a7ypf26rfpzjr2gik7w4p7hpj4x3r3fzfzz@dlrsn27u5mbf>
+References: <20260427051725.223704-1-a-garg7@ti.com>
+ <20260427051725.223704-4-a-garg7@ti.com>
+ <m4z3q3pe3ro5vkl4uq4zkewpjdqccgeact2hj4tjnkonttx4vr@ndan37zzwgxc>
+ <3853ba15-d096-4cf4-b52f-8a2e5f50fe53@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260515095336.92237-1-lukasz@raczylo.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3853ba15-d096-4cf4-b52f-8a2e5f50fe53@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_054715_106168_C4F08C53 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20260515_054732_021964_344D82F3 
+X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +79,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 15, 2026 at 10:53:36AM +0100, Lukasz Raczylo wrote:
-> netdev_warn_ratelimited() does not exist in this kernel -- neither
-> mainline net-next nor raspberrypi/linux rpi-6.18.y define a
-> netdev_*_ratelimited() family.  I confused it with the existing
-> net_warn_ratelimited() / pr_warn_ratelimited() macros when
-> authoring v2 patch 3 of the macb silent TX stall series, and the
-> result fails to build with implicit-function-declaration.
+On Fri, May 15, 2026 at 10:21:52AM +0530, Aksh Garg wrote:
 > 
-> Replace with the standard `if (printk_ratelimit()) netdev_warn(...)`
-> pattern.  Same semantics intended by v2 patch 3 (bounded log noise,
-> retains the netdev prefix in the message); works in every kernel
-> version.
 > 
-> Fixes the build of patch 3/3 of:
+> On 14/05/26 13:38, Manivannan Sadhasivam wrote:
+> > On Mon, Apr 27, 2026 at 10:47:24AM +0530, Aksh Garg wrote:
+> > > Add pci_epc_setup_doe() API in EPC core driver to initialize and setup
+> > > the DOE framework for an endpoint controller. The API discovers the DOE
+> > > capabilities (extended capability ID 0x2E), and registers each discovered
+> > > DOE mailbox for all the functions in the endpoint controller. This API
+> > > should be invoked by the controller driver during probe based on the
+> > > doe_capable feature.
+> > > 
+> > > Add pci_epc_destroy_doe() API in EPC core driver for cleanup of DOE
+> > > resources, which should be invoked by the controller driver during
+> > > controller cleanup based on the doe_capable feature.
+> > > 
+> > > Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > > Signed-off-by: Aksh Garg <a-garg7@ti.com>
+> > > ---
+> > > 
+> > > Changes from v2 to v3:
+> > > - Rebased on 7.1-rc1.
+> > > 
+> > > Changes since v1:
+> > > - New patch added to v2 (not present in v1)
+> > > 
+> > > v2: https://lore.kernel.org/all/20260401073022.215805-4-a-garg7@ti.com/
+> > > 
+> > > This patch is introduced based on the feedback provided by Manivannan
+> > > Sadhasivam at [1].
+> > > 
+> > 
+> > Sweet! But I was expecting you to add atleast one EPC driver implementation to
+> > make use of these APIs.
+> > 
+> > Also, why can't you call these APIs from the EPC core directly? Maybe during
+> > pci_epc_init_notify() once the register accesses become valid.
+> 
+> Can we add the DOE initialization API to pci_epc_init_notify()? This
+> API seems to be called to notify the EPF drivers that the EPC device's
+> initialization has been completed, as the name and description suggests.
 
-What you should do is reply to patch 3/3 and say
+That's correct. But there is no harm in calling something like
+pci_epc_init_capabilities() inside its definition. Only concern would be that
+pci_epc_init_notify() is mostly called from threaded IRQ handlers. So loading
+the handler would not be recommended. But since it is threaded anyway and we
+don't have a better place to call, it would be OK.
 
-self NACK
+We could've called this from pci_epc_{create/start}, but some controllers won't
+allow accessing CSRs without REFCLK. So only after pci_init_notify(), CSRs can
+be accessed.
 
-and explain why it is broken.
+> As 'pci_epc_doe_setup' is a part of EPC initialization, I thought the
+> EPC drivers should call this API before calling the pci_epc_init_notify().
+> 
+> However, I agree with your suggestion to call the DOE setup API directly
+> from the EPC core instead of sprinkling over the EPC drivers. I would
+> recommend renaming the pci_epc_init_notify() API (and hence the
+> pci_epc_deinit_notify() as well) to something like pci_epc_init_complete(),
+> and add the DOE setup API/logic just before the
+> logic of notifying the EPF devices.
+> 
 
-Then wait 24 hours, and send a new version of the patch series, with
-patch 3/3 fixed.
+No need to rename this API. Just use as is:
 
-    Andrew
+	pci_epc_init_notify()
+		-> pci_epc_init_capabilities()
+			-> pci_epc_init_doe()
+		-> epf->event_ops->epc_init()
 
----
-pw-bot: cr
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
