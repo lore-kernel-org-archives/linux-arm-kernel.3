@@ -4,72 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02C25CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 05:40:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAABCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 05:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iizYTJX5EmybqG8LJ5U61c42f+3Bl+gwgY9z3qf5SUk=; b=r7bKpiSq5We37043mdQDfKI6jX
-	53QO/pO4dB2A3uJgtRVMKAscqZAymM72MIVT5Qi8VJ7PAXykeJGn1kE2p8jF5QmQRiHnvaAcXvNHh
-	1uE3GR8b6nFgPfKN/R2RUogV+Hi8fuIZHJ8gZENra7vWRvMHhKAasc01PPl3fGKg5H56JwzZY5QvK
-	d4tonMjkVQAUEVTzh7qT5EVYfj9FI7RmS0Pfmds7xN5nYFW+NtCaEEOjpxFjtq8K8tm0yZsgTzbnA
-	Mpi45hX8ZxVyaFSnPm1W273Y/5/loVvK3rBnh3dU8N48u26/Bm9kSes7sS6hSJeo0WuXM16H71QVR
-	gJZqM2og==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LjOkyueT8zC+PGmeGzFKi6nT+KqN6aS6QotS5Vb3Pbg=; b=0BC5hPVoui50USze8ec/B6jcCs
+	i8D1LbIWAgqwKgEKB6Qp/pmb56aAOrnupE7Wg24uNWS74adSTsCF+jjeO3XV935KW4YZwlgoxnMrd
+	YtzGHmTRdGzNi8eAPlGhwuUpG/bR5RhuqNtZNO7ap4EVqe7n2XcU0o1LTd+nqQakl83P5FrRDRZMP
+	eLcSkWOgn/kA9yDvT2OA3qNLOEJoYbWFcg/TR5yAb9QM7Sw3aN511S9K7GfuZW+AhFfy0Ig0x1vkl
+	vsqgL1mkngoJxKyKDknsGGO1FW6zje8DqyAtEhUYhq8x/RRlzMyXxLQ9+4WklIaiaLXrqr4hnAXJl
+	dBKZq8WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNlHg-00000007QZf-23EF;
-	Fri, 15 May 2026 05:40:28 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNlHd-00000007QYr-1YBJ
+	id 1wNlQ2-00000007RnF-2nzZ;
+	Fri, 15 May 2026 05:49:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNlPz-00000007Rlz-4Bkf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 05:40:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=ii
-	zYTJX5EmybqG8LJ5U61c42f+3Bl+gwgY9z3qf5SUk=; b=ZgvlwtMbvG5zdcwKM1
-	bEcBP1pCGEoye4D0eALrnDkBR3EqjbXMyYhyXkdYrBLw4MInHo4EsX/rgGK0dfbS
-	Fxy3xuBLGRgTn02mrX7dxRRJt7whzWIK8CT1oL8xXUFO1m0jg1gWKc5SL/7zEucT
-	qwl7fSzVxeDaLnhWJibFu6vrU=
-Received: from PC-YLX4CAEK.company.local (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3n5GCsQZqBgrWBQ--.2418S2;
-	Fri, 15 May 2026 13:39:15 +0800 (CST)
-From: Ding Hui <dinghui1111@163.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org (open list:STMMAC ETHERNET DRIVER),
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: dinghui@lixiang.com,
-	xiasanbo@lixiang.com,
-	yangchen11@lixiang.com,
-	liuxuanjun@lixiang.com
-Subject: [PATCH] net: stmmac: fix fatal bus error on resume by reinitializing RX buffers
-Date: Fri, 15 May 2026 13:38:37 +0800
-Message-Id: <20260515053856.2310369-1-dinghui1111@163.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 15 May 2026 05:49:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F10DF2659;
+	Thu, 14 May 2026 22:48:53 -0700 (PDT)
+Received: from [10.164.18.66] (unknown [10.164.18.66])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F1A953F85F;
+	Thu, 14 May 2026 22:48:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778824139; bh=Ua9XP2t8wZs196UuDUJ+sQyVgcH0lmHelOVyZKJC5O4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hkryT5XejjE9ee6hMhAaNIq9D1EAk9hbUCvf4K0brgW0h9afmkZvc5b7/DX0aI5PT
+	 upitpVHAzTymB4zZDRMiV4H5/kRJGmmawI8/vtmbrkxGJ6xLbfVGNFa8w1UBYY+4/l
+	 OUwfh4pWWAbq6KZCj7v5sFIJBCRaqbX7XoaSUsxY=
+Message-ID: <f69e9bd0-5991-48e3-87a7-6ce5c39678ef@arm.com>
+Date: Fri, 15 May 2026 11:18:53 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3n5GCsQZqBgrWBQ--.2418S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxGw1Dtw47Ww4DGw4rCr1ftFb_yoW5Kr1rpa
-	9Ik3y2yw1ktF4xJw43Jw48ZFy5XayrtF45G3s7Gws3ua1avF9Yvr13trWjva48CFn5AF1f
-	tFW5Caykua1UArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jEsjbUUUUU=
-X-Originating-IP: [220.248.55.69]
-X-CM-SenderInfo: pglqwx1xlriiqr6rljoofrz/xtbC8wOo1GoGsYOaZwAA3v
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Remove @arch from __load_stage2()
+To: Zenghui Yu <zenghui.yu@linux.dev>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+ suzuki.poulose@arm.com
+References: <20260318144305.56831-1-zenghui.yu@linux.dev>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20260318144305.56831-1-zenghui.yu@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_224025_809074_689C0E73 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20260514_224904_354930_EE776A3F 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,96 +71,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ding Hui <dinghui@lixiang.com>
 
-On suspend, stmmac_suspend() calls stmmac_disable_all_queues() which
-stops the RX NAPI, but the RX DMA engine may still be running for a
-short window before stmmac_stop_all_dma() takes effect. During that
-window the hardware can write incoming frames into the buffers pointed
-to by the RX descriptors and write back the descriptors (clearing the
-OWN bit, updating length/status). Because NAPI is already disabled,
-the driver never refills these descriptors, so the RX ring is left in
-a "consumed but not refilled" state with HW-written content in the
-descriptor buffer-address fields.
 
-On resume, stmmac_clear_descriptors() only re-arms the OWN bit (rdes3)
-and does not repopulate the RX buffer address fields. As a result the
-descriptors still contain whatever the hardware wrote back during the
-suspend race. When the DMA is restarted, it dereferences these stale
-addresses and triggers a fatal bus error.
+On 18/03/26 8:13 PM, Zenghui Yu wrote:
+> From: "Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
+> 
+> Since commit fe49fd940e22 ("KVM: arm64: Move VTCR_EL2 into struct s2_mmu"),
+> @arch is no longer required to obtain the per-kvm_s2_mmu vtcr and can be
+> removed from __load_stage2().
+> 
+> Signed-off-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
 
-Fix this by treating the RX ring the same way as on close/open around
-a PM transition:
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
- - In stmmac_suspend(), after stmmac_stop_all_dma(), walk every RX
-   queue and free its buffers via dma_free_rx_xskbufs() when an XSK
-   pool is attached or dma_free_rx_skbufs() otherwise, then reset
-   rx_q->buf_alloc_num and clear rx_q->xsk_pool so the queue state
-   matches a freshly closed queue.
-
- - In stmmac_resume(), call init_dma_rx_desc_rings() before
-   stmmac_reset_queues_param() so RX buffers are re-allocated and
-   the descriptor buffer-address fields are properly repopulated
-   before the DMA is restarted.
-
-After this change, post-resume RX descriptors always reference freshly
-allocated, driver-owned buffers, and the bus error no longer occurs.
-
-Signed-off-by: Ding Hui <dinghui@lixiang.com>
----
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 3591755ea30b..8ed43187cf20 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -8176,6 +8176,9 @@ int stmmac_suspend(struct device *dev)
- {
- 	struct net_device *ndev = dev_get_drvdata(dev);
- 	struct stmmac_priv *priv = netdev_priv(ndev);
-+	u32 rx_count = priv->plat->rx_queues_to_use;
-+	struct stmmac_rx_queue *rx_q;
-+	u32 queue;
- 	u8 chan;
- 
- 	if (!ndev || !netif_running(ndev))
-@@ -8198,6 +8201,19 @@ int stmmac_suspend(struct device *dev)
- 	/* Stop TX/RX DMA */
- 	stmmac_stop_all_dma(priv);
- 
-+	/* Free RX queue resources */
-+	for (queue = 0; queue < rx_count; queue++) {
-+		rx_q = &priv->dma_conf.rx_queue[queue];
-+
-+		/* Release the DMA RX socket buffers */
-+		if (rx_q->xsk_pool)
-+			dma_free_rx_xskbufs(priv, &priv->dma_conf, queue);
-+		else
-+			dma_free_rx_skbufs(priv, &priv->dma_conf, queue);
-+		rx_q->buf_alloc_num = 0;
-+		rx_q->xsk_pool = NULL;
-+	}
-+
- 	stmmac_legacy_serdes_power_down(priv);
- 
- 	/* Enable Power down mode by programming the PMT regs */
-@@ -8316,6 +8332,14 @@ int stmmac_resume(struct device *dev)
- 
- 	mutex_lock(&priv->lock);
- 
-+	ret = init_dma_rx_desc_rings(ndev, &priv->dma_conf, GFP_KERNEL);
-+	if (ret < 0) {
-+		netdev_err(priv->dev, "%s: rx dma desc rings init failed\n", __func__);
-+		mutex_unlock(&priv->lock);
-+		rtnl_unlock();
-+		return ret;
-+	}
-+
- 	stmmac_reset_queues_param(priv);
- 
- 	stmmac_free_tx_skbufs(priv);
--- 
-2.34.1
+> ---
+>  arch/arm64/include/asm/kvm_mmu.h              | 3 +--
+>  arch/arm64/kvm/at.c                           | 2 +-
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h | 2 +-
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 2 +-
+>  arch/arm64/kvm/hyp/nvhe/switch.c              | 2 +-
+>  arch/arm64/kvm/hyp/nvhe/tlb.c                 | 4 ++--
+>  arch/arm64/kvm/hyp/vhe/switch.c               | 2 +-
+>  arch/arm64/kvm/hyp/vhe/tlb.c                  | 4 ++--
+>  8 files changed, 10 insertions(+), 11 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+> index d968aca0461a..c1e535e3d931 100644
+> --- a/arch/arm64/include/asm/kvm_mmu.h
+> +++ b/arch/arm64/include/asm/kvm_mmu.h
+> @@ -318,8 +318,7 @@ static __always_inline u64 kvm_get_vttbr(struct kvm_s2_mmu *mmu)
+>   * Must be called from hyp code running at EL2 with an updated VTTBR
+>   * and interrupts disabled.
+>   */
+> -static __always_inline void __load_stage2(struct kvm_s2_mmu *mmu,
+> -					  struct kvm_arch *arch)
+> +static __always_inline void __load_stage2(struct kvm_s2_mmu *mmu)
+>  {
+>  	write_sysreg(mmu->vtcr, vtcr_el2);
+>  	write_sysreg(kvm_get_vttbr(mmu), vttbr_el2);
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index a024d9a770dc..3b61da0a24d8 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -1379,7 +1379,7 @@ static u64 __kvm_at_s1e01_fast(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
+>  		}
+>  	}
+>  	write_sysreg_el1(vcpu_read_sys_reg(vcpu, SCTLR_EL1),	SYS_SCTLR);
+> -	__load_stage2(mmu, mmu->arch);
+> +	__load_stage2(mmu);
+>  
+>  skip_mmu_switch:
+>  	/* Temporarily switch back to guest context */
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> index 5f9d56754e39..803961cdd39e 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> @@ -63,7 +63,7 @@ int refill_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages,
+>  static __always_inline void __load_host_stage2(void)
+>  {
+>  	if (static_branch_likely(&kvm_protected_mode_initialized))
+> -		__load_stage2(&host_mmu.arch.mmu, &host_mmu.arch);
+> +		__load_stage2(&host_mmu.arch.mmu);
+>  	else
+>  		write_sysreg(0, vttbr_el2);
+>  }
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index d815265bd374..87a169838481 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -336,7 +336,7 @@ int __pkvm_prot_finalize(void)
+>  	kvm_flush_dcache_to_poc(params, sizeof(*params));
+>  
+>  	write_sysreg_hcr(params->hcr_el2);
+> -	__load_stage2(&host_mmu.arch.mmu, &host_mmu.arch);
+> +	__load_stage2(&host_mmu.arch.mmu);
+>  
+>  	/*
+>  	 * Make sure to have an ISB before the TLB maintenance below but only
+> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+> index 779089e42681..3938997e7963 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+> @@ -299,7 +299,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+>  	__sysreg_restore_state_nvhe(guest_ctxt);
+>  
+>  	mmu = kern_hyp_va(vcpu->arch.hw_mmu);
+> -	__load_stage2(mmu, kern_hyp_va(mmu->arch));
+> +	__load_stage2(mmu);
+>  	__activate_traps(vcpu);
+>  
+>  	__hyp_vgic_restore_state(vcpu);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/tlb.c b/arch/arm64/kvm/hyp/nvhe/tlb.c
+> index 3dc1ce0d27fe..01226a5168d2 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/tlb.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/tlb.c
+> @@ -110,7 +110,7 @@ static void enter_vmid_context(struct kvm_s2_mmu *mmu,
+>  	if (vcpu)
+>  		__load_host_stage2();
+>  	else
+> -		__load_stage2(mmu, kern_hyp_va(mmu->arch));
+> +		__load_stage2(mmu);
+>  
+>  	asm(ALTERNATIVE("isb", "nop", ARM64_WORKAROUND_SPECULATIVE_AT));
+>  }
+> @@ -128,7 +128,7 @@ static void exit_vmid_context(struct tlb_inv_context *cxt)
+>  		return;
+>  
+>  	if (vcpu)
+> -		__load_stage2(mmu, kern_hyp_va(mmu->arch));
+> +		__load_stage2(mmu);
+>  	else
+>  		__load_host_stage2();
+>  
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index 9db3f11a4754..bc8090d915bf 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -219,7 +219,7 @@ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
+>  
+>  	__vcpu_load_switch_sysregs(vcpu);
+>  	__vcpu_load_activate_traps(vcpu);
+> -	__load_stage2(vcpu->arch.hw_mmu, vcpu->arch.hw_mmu->arch);
+> +	__load_stage2(vcpu->arch.hw_mmu);
+>  }
+>  
+>  void kvm_vcpu_put_vhe(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/hyp/vhe/tlb.c b/arch/arm64/kvm/hyp/vhe/tlb.c
+> index 35855dadfb1b..539e44d09f17 100644
+> --- a/arch/arm64/kvm/hyp/vhe/tlb.c
+> +++ b/arch/arm64/kvm/hyp/vhe/tlb.c
+> @@ -60,7 +60,7 @@ static void enter_vmid_context(struct kvm_s2_mmu *mmu,
+>  	 * place before clearing TGE. __load_stage2() already
+>  	 * has an ISB in order to deal with this.
+>  	 */
+> -	__load_stage2(mmu, mmu->arch);
+> +	__load_stage2(mmu);
+>  	val = read_sysreg(hcr_el2);
+>  	val &= ~HCR_TGE;
+>  	write_sysreg_hcr(val);
+> @@ -78,7 +78,7 @@ static void exit_vmid_context(struct tlb_inv_context *cxt)
+>  
+>  	/* ... and the stage-2 MMU context that we switched away from */
+>  	if (cxt->mmu)
+> -		__load_stage2(cxt->mmu, cxt->mmu->arch);
+> +		__load_stage2(cxt->mmu);
+>  
+>  	if (cpus_have_final_cap(ARM64_WORKAROUND_SPECULATIVE_AT)) {
+>  		/* Restore the registers to what they were */
 
 
