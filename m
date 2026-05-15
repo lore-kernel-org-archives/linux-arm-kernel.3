@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C31D6CD4F47
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 18:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16355CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 18:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0YGU4c4vIZn/nT3d1QQR6+Fz+qbFWKXFOw5KZ4zOxqU=; b=FtzH5cwInBTg9hWgL0GohAooJe
-	uxx6W5X4B9UQ2c8c3+Ke6C0HZKoNmqwobD3a7vfWrRBXVy0uww1oPwX3vgIbulAd9Lpu3wwv2jqTw
-	bAXSKSRcGgx2vj/72jjBdLCVHSFEHJoPnC6FOyJABoCpd428/oIg+wNiteR4llhTl6xWo4x6BOqoq
-	9MZhqxD4myGvrBAfyl59TdGarHmUd1WQxMa2Dm1FoKqTE260LnIdqtYp9Ir+MykWmID5aZvqaqG8F
-	JM5m2xgu38pD9iumGPktrokPO+k5BNr7bcp6iW/PCthtA7MuXiUwlz/aKVCuHh3p/Ab6GIYxtRY5c
-	FmHcr14g==;
+	bh=Q8kJvCUix0IufXX19XTzGna3ld/8JruCx9lQOIaEJa0=; b=kgvu94bGTMY7FQ1RdItAxP4x/g
+	HO8NfwBIFBs37H2GTBE28O1FBRz8X4Uf1MED6sQpz8NVeN9vcTg9QvDNVELj3WdfFGd95eJ0wiIl/
+	flLxwx+wFwcjqY6zUQpMwet0XKKh0vb8kotqsAvV/KN8DE2I2ikGcjvp3ic4QK+C1cwH3L3UriXCc
+	5kzfOsJDHZnm82ZE1fHhikQw46OjW166j5t1IIRzIxr9UG4TQ0kziOQUNplQI6ZHsDu79FPKFxrAH
+	iAgSOUk0OHYDJxcrSh/FSgFmDTcZtfwFTreNCZhknESlwQOtz+BAHM+ig1Ryd9hQQcIvJUGcpyMJR
+	wMVCjF/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNxeC-000000098LL-3s2W;
-	Fri, 15 May 2026 18:52:32 +0000
+	id 1wNxeO-000000098bi-1CIn;
+	Fri, 15 May 2026 18:52:44 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNxe9-000000098G1-1SA0
+	id 1wNxeF-000000098PU-29bz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 18:52:30 +0000
+	Fri, 15 May 2026 18:52:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 158DC2938;
-	Fri, 15 May 2026 11:52:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6481B1516;
+	Fri, 15 May 2026 11:52:29 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 758F53F836;
-	Fri, 15 May 2026 11:52:25 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC12D3F836;
+	Fri, 15 May 2026 11:52:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778871148; bh=XM5IP3F6HfiflE9OfelCL3nnJDzqWTO3ZGB6HjPA3Wg=;
+	t=1778871154; bh=cEs4PxprBvqDrAQtZJ8uAQGsFeo8bh6Rvl/d/DeH95M=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QuJjVzCdbiYqKlqqobq9Uw3Zole2XZ7Kynyvr2O8kYLHxStG9em6qCy+vYuJaxOx3
-	 yxRC+kSfyu6uhSRgaq5kGpfonVt9y7vTfTsvu5lDbHylNGAYfjpYvm7p+mc/WLjPZn
-	 ONUpvRLHn6ZhnZ5x9rFeWa/5rJtIZSJGpIrLswtY=
+	b=WeNBefBgF4JEI4wiwUAwk9JC4QxQ1ktueJWbn9OMdmpAsMnh116aktXLeQji666wH
+	 7rBABPQQhp87MxEX7yaKIPEDVdsgDi+eOoPA3aA/7CQK9jJRRkiS+Gq2STEGBYlVyi
+	 1UXOGtmCRKk+QjrYl49UUxGHb4LCh3LEEpMMLu84=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 15 May 2026 19:51:38 +0100
-Subject: [PATCH v13 15/28] coresight: Disable source helpers in
- coresight_disable_path()
+Date: Fri, 15 May 2026 19:51:40 +0100
+Subject: [PATCH v13 17/28] coresight: Use helpers to fetch first and last
+ nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-arm_coresight_path_power_management_improvement-v13-15-9dfc558ed65e@arm.com>
+Message-Id: <20260515-arm_coresight_path_power_management_improvement-v13-17-9dfc558ed65e@arm.com>
 References: <20260515-arm_coresight_path_power_management_improvement-v13-0-9dfc558ed65e@arm.com>
 In-Reply-To: <20260515-arm_coresight_path_power_management_improvement-v13-0-9dfc558ed65e@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -62,16 +62,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778871097; l=4167;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778871097; l=1946;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=XM5IP3F6HfiflE9OfelCL3nnJDzqWTO3ZGB6HjPA3Wg=;
- b=pK/QUBLUeyQirvwDuo7g6u3KeoUaM+oSI8GUN+peZVEof6lw+06opkpQS0mI2HPqQm7zHQofh
- fxX4Y6vyy5ZBkyn13BX+Uos9GVtfFW+1jApftbm4ASlU6Ap+EBJRxfa
+ bh=cEs4PxprBvqDrAQtZJ8uAQGsFeo8bh6Rvl/d/DeH95M=;
+ b=9ilBUpgJqXuFz6uwwIfZ/9awhHND0DbtE8SHyguc+RbzB3ZV95Ep7VIpwc8DIBjyNpetF/Rxa
+ 8m/reCBkFmLA4RCKAExBkBOjxMwF2DKS5ME/RGlYJy/QArhE/8sjNBl
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_115229_522426_E7B93AA5 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20260515_115235_722084_BF61C6F2 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,21 +86,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-coresight_enable_path() enables helpers attached to every device in
-the path, including those bound to the source. However,
-coresight_disable_path() skips the source node, so source helpers had
-to be disabled separately in coresight_disable_source().
+Replace open code with coresight_path_first_node() and
+coresight_path_last_node() for fetching the nodes.
 
-Move source helper disabling into coresight_disable_path() instead.
-Make coresight_disable_path_from() start from the passed node nd, so
-it can also disable helpers on the source. Update the comments
-accordingly.
-
-As coresight_disable_path_from() now changes its semantics from
-"start beyond nd" to "start from nd", update the failure handling in
-coresight_enable_path(). If enabling a node fails, iterate to the
-previous node (the last successfully enabled one) and pass it to
-coresight_disable_path_from() for rollback.
+Check that the node is not NULL before accessing csdev field.
 
 Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
@@ -108,79 +97,49 @@ Reviewed-by: James Clark <james.clark@linaro.org>
 Tested-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 27 ++++++++-------------------
- 1 file changed, 8 insertions(+), 19 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 309f3a844e8fc653771fb0bf19aeb43efc998dd7..d65cdce1dfef9bb1df40eb7df67274d2f6b30750 100644
+index 62a12a90988949ccc8c181c8edde7939e4f986ab..61ae7b6c7a836caafaf87787af91a1f5326c16ec 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -456,19 +456,12 @@ static void coresight_disable_helpers(struct coresight_device *csdev,
- }
- 
- /*
-- * Helper function to call source_ops(csdev)->disable and also disable the
-- * helpers.
-- *
-- * There is an imbalance between coresight_enable_path() and
-- * coresight_disable_path(). Enabling also enables the source's helpers as part
-- * of the path, but disabling always skips the first item in the path (which is
-- * the source), so sources and their helpers don't get disabled as part of that
-- * function and we need the extra step here.
-+ * coresight_disable_source() only disables the source, but do nothing for
-+ * the associated helpers, which are controlled as part of the path.
-  */
- void coresight_disable_source(struct coresight_device *csdev, void *data)
+@@ -174,11 +174,16 @@ void coresight_put_percpu_source_ref(struct coresight_device *csdev)
+ struct coresight_device *coresight_get_source(struct coresight_path *path)
  {
- 	source_ops(csdev)->disable(csdev, data);
--	coresight_disable_helpers(csdev, NULL);
- }
- EXPORT_SYMBOL_GPL(coresight_disable_source);
+ 	struct coresight_device *csdev;
++	struct coresight_node *nd;
  
-@@ -495,9 +488,9 @@ int coresight_resume_source(struct coresight_device *csdev)
- EXPORT_SYMBOL_GPL(coresight_resume_source);
+ 	if (!path)
+ 		return NULL;
  
- /*
-- * coresight_disable_path_from : Disable components in the given path beyond
-- * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
-- * disabled.
-+ * coresight_disable_path_from : Disable components in the given path starting
-+ * from @nd in the list. If @nd is NULL, all the components, except the SOURCE
-+ * are disabled.
-  */
- static void coresight_disable_path_from(struct coresight_path *path,
- 					struct coresight_node *nd)
-@@ -508,7 +501,7 @@ static void coresight_disable_path_from(struct coresight_path *path,
- 	if (!nd)
- 		nd = list_first_entry(&path->path_list, struct coresight_node, link);
+-	csdev = list_first_entry(&path->path_list, struct coresight_node, link)->csdev;
++	nd = coresight_path_first_node(path);
++	if (!nd)
++		return NULL;
++
++	csdev = nd->csdev;
+ 	if (!coresight_is_device_source(csdev))
+ 		return NULL;
  
--	list_for_each_entry_continue(nd, &path->path_list, link) {
-+	list_for_each_entry_from(nd, &path->path_list, link) {
- 		csdev = nd->csdev;
- 		type = csdev->type;
+@@ -711,11 +716,16 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode)
+ struct coresight_device *coresight_get_sink(struct coresight_path *path)
+ {
+ 	struct coresight_device *csdev;
++	struct coresight_node *nd;
  
-@@ -528,12 +521,6 @@ static void coresight_disable_path_from(struct coresight_path *path,
- 			coresight_disable_sink(csdev);
- 			break;
- 		case CORESIGHT_DEV_TYPE_SOURCE:
--			/*
--			 * We skip the first node in the path assuming that it
--			 * is the source. So we don't expect a source device in
--			 * the middle of a path.
--			 */
--			WARN_ON(1);
- 			break;
- 		case CORESIGHT_DEV_TYPE_LINK:
- 			parent = list_prev_entry(nd, link)->csdev;
-@@ -648,6 +635,8 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode)
- err_disable_helpers:
- 	coresight_disable_helpers(csdev, path);
- err_disable_path:
-+	/* Fetch the previous node, the last successfully enabled one */
-+	nd = list_next_entry(nd, link);
- 	coresight_disable_path_from(path, nd);
- 	goto out;
- }
+ 	if (!path)
+ 		return NULL;
+ 
+-	csdev = list_last_entry(&path->path_list, struct coresight_node, link)->csdev;
++	nd = coresight_path_last_node(path);
++	if (!nd)
++		return NULL;
++
++	csdev = nd->csdev;
+ 	if (csdev->type != CORESIGHT_DEV_TYPE_SINK &&
+ 	    csdev->type != CORESIGHT_DEV_TYPE_LINKSINK)
+ 		return NULL;
 
 -- 
 2.34.1
