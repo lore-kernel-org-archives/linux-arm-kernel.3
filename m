@@ -4,105 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3968FCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 08:43:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 361EDCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 08:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqerFP1ZN9krhO+NQgHUFbrEHV8W7RtHQhpONw2B/SM=; b=KldO3B8s3Utd1DT1YvUMcJzrEo
-	4m4DHvh6lesImtLcAZAbWf7ULe/2bK8eDViqSbh4u48ZteLA5fwzTGid3rj/4KsSORI7VmT9u1p0r
-	CRvFEkHSB5NKe9qNZrJxxxDys+nkp95R66CR+y/5JtjRbWkqZM4uZhoeclLIFES68dICriO/9fzQ0
-	eKrChUXTcW1FV1XX3ii5cDiVM13K4JqXCOYmQTujXAsBsFRTAJ3g9e/FERJmR3d68BXZUBmCfwLum
-	yzNzskuKTRcBZAxImfEbCg7wXCsU6lzKBzVnEyi+nsa7sr30ohwQ+nZJtwC1HR/92DgOBGgtlfIn2
-	rVzfUA9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jrdhtZOC+ncwVP4lGZN2yhfRYMK2CtL5hHp30Z+P7H8=; b=QK8FSMS64OZ7idYLb8ppr9B8qQ
+	bB3uD0tjbOF4jdIcXTQYuMJBRdcu+gf0X7bMWrMaCwgJZUUWOzbp9N20tG8qBoE3yFEaRds6VTKx8
+	Ag+QaV0rD38s3qS2WyMS7t5meWZBk1UeKLhmfZVEO9CYo7Gz8S+GjO+uM3aKrRmvn8fLKyKVBqj5B
+	sG+PuaaAXqEmbY9hAyjpBLSZZLxO7CuYC8SAXR+drnSruAfJ2M3/GbmZy+e1gI/BzQNeDFKYGCXp4
+	qGJ5Fty+O615Y1gFAM0XGfV+0L9jC00W2kIFNrYjLpfx1WeAP6D552sdrU5Vzn0rDtPJ1OzMgaJsW
+	3wTkF3Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNo8G-00000007lqx-2ub9;
-	Fri, 15 May 2026 08:42:56 +0000
-Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNo8E-00000007lqA-1Lel
+	id 1wNoJ4-00000007nQa-1Fjc;
+	Fri, 15 May 2026 08:54:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNoJ0-00000007nMJ-3Cqz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 08:42:55 +0000
-Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-651c5d525f6so12142449d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 01:42:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778834573; cv=none;
-        d=google.com; s=arc-20240605;
-        b=XzS2DUW8DQK3weVpgMV+IETP7EJLtVR+S8HIicdXqRfuXcwbB+hQY0FzyV1NXi48Ok
-         fr/p4BsaazqYQIOD9IVMBBom/Gduk9s6yllCxbuVm2eszDTRm/aoY+XHUkBf9nr+1FVi
-         O6yIKQINlVdV8F1n/ZCeyYq7uvCgKSIBQzoqL8qxAlfC9USLN+VRHgMWXKt0qVQFbSEU
-         KVOxK0v2fiHzf7BdMrQANufRfvqBFk99UaiYrxZlxOET/p2HPfeeIaUKwAAtXI5fgD4U
-         vvL3+X29R/wg9ltf0YZakERtoGQx54oR9UOzfy3VHCWSvL4SwxwMQRdoGj/xv8jaZvS7
-         QbAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=NqerFP1ZN9krhO+NQgHUFbrEHV8W7RtHQhpONw2B/SM=;
-        fh=J16BTcnymVAPlXaTvtzFN0g1HdsqSsKU6zzvpb0hYQE=;
-        b=N25/kv4BWNUeYkWRBPWZl4scMfr0x/N93aJr03iNNzzGHX2YZ4X9xXCEbImTq+ar8l
-         /IKEOaKk4Z7WTu82+62m6B4WBNoTsWsCjgHRXlzkrnd2PMCmoE/O+rF9fe/0IaPszG6p
-         BrZSCMXHfcdBbEh6ckbhvQ32n2OEzcBG976hNg6u+Zv4SXUib4QMYAfjXxVv7cGpREFt
-         6qao4ziZSfDvxH24mITjUD0edB+kayb9PVMJwFRXfRg2+STAXXlnI/KuJTS8kCL0Ynxv
-         YwbkF62Z1qOLQnE2XCG3NqrnpV6WoO1gHQcRpfioMwB91qnjgFOzrxdwjRqpjKxixqIw
-         6fGQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778834573; x=1779439373; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NqerFP1ZN9krhO+NQgHUFbrEHV8W7RtHQhpONw2B/SM=;
-        b=Y6uObfvvBU5/dYRjkrIxic55cB7ZAdiXGMaZeogsqYHbna2wE3TNxp0dIlAWgOgKms
-         Ua8+7cLhTg2AYS0LS3zP5CSX9hX8eevtyaNq85ExwBZgVKjf5RXKeztx5zs7JOeFZTA8
-         7AwlIHvfuTfy9F7h75TzFRglH0jB/6u4NdBBk2Q5DnjFAFtQBONSIqEDtlxkicEOaS6K
-         1H3tIjDIsmi+TwJ0YC8huu8jnxUF74H9JR0G52RMdCYKU0YY6bApifHrHgNED21XKxvU
-         9vklwXuUV4pqRAgR1x8b4gUJhFMaIArqUKTkqukiXY3xOPjICMYiQVqf1qomxvFyP40E
-         meSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778834573; x=1779439373;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=NqerFP1ZN9krhO+NQgHUFbrEHV8W7RtHQhpONw2B/SM=;
-        b=T8OPUH3lU7xvBQohyMSDa47eIu5nl8C5g2UxBZS6p5hmMWGGm9a4ZcDvNFsdSd8fza
-         q6WKLMDP+emjhLTpupkvKuWxCfXVgVxyvJ0UCwStkEN2rFD3A3wtuBSLOtjG6e5jSCiQ
-         VRbTvPvf3Q3XCD3JAnTHBqcBY9y/jU8eAkoDgri1loAaem27/IB/LNbabUYyNF+8Tcfx
-         07V4Lk4uEL3Gh0ACHIcjy5ekWG0dOHDANns2fCD6SRnMfT4FN0XZQta0T/lFRcOClvxl
-         MntEGqmJLAYMD6ioj8eGiuUfoxMdVwIenMsyZmLcp9xtaQQOsD0Rn3leB4OXNbJbIyMH
-         zMTQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+77qag+cvvEw/Pfo9wsaPhtvzbHm++5EnpqCKxcnx773zvMpxsuPCgI8OTO+vnjoB/LaumYKV2sy3Cwrlcv+0Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwccA+rcXB+S0cla2mOZEhMb73Twe+Omg6OTXuH5R61kYbFtWsZ
-	f0tV7HxJwXQOTEWU/HCnBpL1idnJmDFRsZx1XSc8IvwU6ay6I7If+GUvDhqYzYTwYyQI8hUenhn
-	v/n2GH5oMIGRdaW8r+Ukt8QucEdiwhFw=
-X-Gm-Gg: Acq92OFmarDzxuPpagtUSo/uVHGp+0F4zEpyUOb7B3wKxGuEc0ds9Yen5K78fOiPxdP
-	zxYt3UfJZOW1kMzPUmzhb/xRVRYz4bQTFft4qrGTfYGj6YR6a+EcJuyVcnYMBuv9u4X94Fp2Bdt
-	8HNuJgC8GqGZ0utZOEOpioJyQDLeptdDSKCtnBVZUjfTAbObw+LUltFVW/W0htu5YAplWa9bWCM
-	8Tw4GnxRWBodYinWwMLNmfk9QEMBd5gF1ZhMzq2+ZnLlLfG3Io4O2l4jtGpy0zbM11Tv/UTR8jI
-	yQZ40qLklFMeVAJ9kqc=
-X-Received: by 2002:a05:690e:11c1:b0:65c:4b93:4261 with SMTP id
- 956f58d0204a3-65e228e2050mr2929469d50.64.1778834573102; Fri, 15 May 2026
- 01:42:53 -0700 (PDT)
+	Fri, 15 May 2026 08:54:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B913A3597;
+	Fri, 15 May 2026 01:53:52 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 74DF93F7B4;
+	Fri, 15 May 2026 01:53:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778835238; bh=J8r6ADKH+Z5jHPKFi221LwI804qFaj/OEXhMifsRm1M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eYwqtNHRgV7X0NnglSahkmOSmX4kBAm5TsswoqpLf9Oc93QrO5CgE2VLEomxTv7v0
+	 fA4cmIjcQFypMNutkhynOOZyD8dXTqlT63ac/9/zAlv4aCCasnchDLvr7HKOsDkO5Y
+	 zkipzpiAom0xRW6mz4URZDkWmNyHjzfCFB+Pzp9o=
+Date: Fri, 15 May 2026 09:53:54 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v6 07/13] coresight: etm4x: fix inconsistencies with
+ sysfs configuration
+Message-ID: <20260515085354.GH34802@e132581.arm.com>
+References: <20260422132203.977549-1-yeoreum.yun@arm.com>
+ <20260422132203.977549-8-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-References: <20260514103740.5416-1-chaitanya.msabnis@gmail.com> <1ce483f8-1d9a-40c3-a45e-6ca536010b20@lunn.ch>
-In-Reply-To: <1ce483f8-1d9a-40c3-a45e-6ca536010b20@lunn.ch>
-From: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
-Date: Fri, 15 May 2026 14:12:43 +0530
-X-Gm-Features: AVHnY4JEjymFDabfng7P110Y37cdzsT70TLrv5QMB__FOlUHUuBPsZy2L1nMErY
-Message-ID: <CABjkosFHLErOziCrYhJJxtpMg01t36LqAfr-zz1wE4HSZhfzFA@mail.gmail.com>
-Subject: Re: [PATCH] i2c: davinci: fix division by zero on missing clock-frequency
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: brgl@kernel.org, andi.shyti@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260422132203.977549-8-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_014254_368149_88CCDF0F 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20260515_015402_943066_DC40374A 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,43 +72,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On Wed, Apr 22, 2026 at 02:21:57PM +0100, Yeoreum Yun wrote:
 
-That makes complete sense. Updating the macro to Hz is a much cleaner
-approach and aligns perfectly with the expected unit of the device
-tree property.
+[...]
 
-I have track down the original commit for the Fixes: tag and send out a v2.
+>   - Since active_config and related fields are accessed only by the local CPU
+>     in etm4_enable/disable_sysfs_smp_call() (similar to perf enable/disable),
+>     remove the lock/unlock from the sysfs enable/disable path and
+>     startup/dying_cpu except when to access config fields.
 
-Thanks for the review!
-Chaitanya
+Thanks for writing this up, which is helpful for understanding.
+
+[...]
+
+> @@ -918,40 +948,29 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>  
+>  	/* enable any config activated by configfs */
+>  	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+
+With the patch [1], we can move cscfg_config_sysfs_get_active_cfg() to
+smp call. As a result, all things for enabling cscfg can be in the
+same place.
+
+[1] https://lore.kernel.org/linux-arm-kernel/20260511-arm_coresight_path_power_management_improvement-v12-14-1c9dcb1de8c9@arm.com/
+
+> -	if (cfg_hash) {
+> -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> -		if (ret) {
+> -			etm4_release_trace_id(drvdata);
+> -			return ret;
+> -		}
+> -	}
+> -
+> -	raw_spin_lock(&drvdata->spinlock);
+> -
+> -	drvdata->trcid = path->trace_id;
+> -
+> -	/* Tracer will never be paused in sysfs mode */
+> -	drvdata->paused = false;
+>  
+>  	/*
+>  	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+>  	 * ensures that register writes occur when cpu is powered.
+>  	 */
+>  	arg.drvdata = drvdata;
+> +	arg.path = path;
+> +	arg.cfg_hash = cfg_hash;
+> +	arg.preset = preset;
+
+Connect with the comment above , don't need to pass cfg_hash/preset anymore.
+
+> +	raw_spin_lock(&drvdata->spinlock);
+> +	arg.config = drvdata->config;
+> +	raw_spin_unlock(&drvdata->spinlock);
+
+Seems to me, this is right way for locking - here we simply use
+spinlock for exclusive access config from sysfs knobs.
+
+However, we avoid the config copy and directly access in SMP call?
+we still can use the raw spinlock in SMP call.
+
+My suggestion is:
+
+- First use a patch to move the drvdata assignment to SMP call and
+  remove spinlock;
+- Then, rebase this patch for moving cscfg into SMP call.
+
+If so, we only need add a new field "arg->path", right?
 
 
-On Thu, May 14, 2026 at 5:46=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> On Thu, May 14, 2026 at 04:07:40PM +0530, Chaitanya Sabnis wrote:
-> > When the 'clock-frequency' property is missing from the device tree,
-> > the driver falls back to DAVINCI_I2C_DEFAULT_BUS_FREQ. However, this
-> > macro is defined in kHz (100), whereas the device tree property is
-> > expected in Hz.
-> >
-> > The probe function blindly divided the fallback value by 1000, causing
-> > integer truncation that resulted in dev->bus_freq =3D 0. This triggered
-> > a deterministic division-by-zero kernel panic when calculating clock
-> > dividers later in the probe sequence.
-> >
-> > Fix this by isolating the division so it only applies to the Hz value
-> > read from the device tree, cleanly assigning the kHz default otherwise.
->
-> Why not keep the patch simple and just change the value of
-> DAVINCI_I2C_DEFAULT_BUS_FREQ to Hz?
->
-> > Reported-by: Sashiko <sashiko-bot@kernel.org>
-> > Closes: https://lore.kernel.org/all/20260514044726.57297C2BCB7@smtp.ker=
-nel.org/
-> > Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
->
-> Please also added a Fixes: tag.
->
->        Andrew
+> @@ -1857,13 +1875,11 @@ static int etm4_starting_cpu(unsigned int cpu)
+>  	if (!etmdrvdata[cpu])
+>  		return 0;
+>  
+> -	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
+
+With the change [2], the starting and dying functions have been
+removed.
+
+If you rebase patches on the top PM series, then you will not bother
+this. Anyway, this is right to remove spinlock for hotplug notifiers.
+
+[2] https://lore.kernel.org/linux-arm-kernel/20260511-arm_coresight_path_power_management_improvement-v12-27-1c9dcb1de8c9@arm.com/
+
 
