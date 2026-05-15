@@ -4,53 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6C1CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 13:38:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92BA7CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 13:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sf1F0/C0m7vbnS/gpjFl6eVZuvQ+HK16qEk1R6APd5I=; b=OSfvThX7NmNBIdl1kUtzg/7EaZ
-	lckaTGU59GXTfJl4s/ZK4z3TXN2mFW+VUOpnMGeqfdHExDPic5DdyFnK6cUU37DvAKm6jK0ZC1Wuj
-	lt0QFVs6DQDv9DY2FCf+WOPITGFycbcUTste/ew1Iky8SQwXzl1I1nbUkEh7uYksUQMu1IYlGypQg
-	ZBQLbHXPv2ghyFM1pkmaWYPwerTWVM8LGzsEqLemwy7y/oyI0dY04A79je1gBfJygvK9WhyE7F0PA
-	M8yGHHsWNcwHveRr/Euh5ekFRbfXzP/NkabojruwHT+NfQEaUkWfbbmn884Auj6x47w2L2ZT/0TZp
-	vpXnif6Q==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=boouljTFgfnq1oLM8iKohy2+cB/PolWDy0lkbdhAh7A=; b=SQVAwnBmsvc5nl5ubTTo24BPcd
+	HVy/SGDVZ0pyrVhCM6QR/VgYlcwpzWDGvj16aS5AQm143G/x4hZmcXJ7VskRX0vJ7YMRGQ8njfvfH
+	XFGJuzLv4hVwF6J5Kdut8siIkiuIx7wnuX38QmIwiEa+ikTA67U8vYEZ9LfGxiMCk0DaQJr14ob1j
+	bua08VVVRrrSPEHmj6eiCO6cjn2QHCi5PZgJWc+BBrwVTyGMlltYSnGhgiYXRT/LMzui6GQYB7/tW
+	Ok5vOheogn/PedJMWrIuNhU9KLn5WASjNE6N4cGX1N88+kgbOG4V+UUUEx27PMUZ7oLQSkE4YXvlc
+	STtedl7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNsjk-00000008SuC-3zod;
-	Fri, 15 May 2026 13:37:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNsji-00000008StW-41Sm
+	id 1wNstv-00000008U1Y-36Tj;
+	Fri, 15 May 2026 13:48:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNstv-00000008U1E-0JAl
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 15 May 2026 13:48:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=boouljTFgfnq1oLM8iKohy2+cB/PolWDy0lkbdhAh7A=; b=Ys2hQd8zNMvpdpMtbEjTgizUxK
+	Y+bLetkHOT0u4b+fsSjHztUwVatUjx9RgeSaBumNP0zzh75Hd7b6j5pkjNk79DGozRCXDG3QWt2mZ
+	Dr4v5/g+YHi8wEDqEWqJ7COgoEJ760+Un1xMUrC/8NdN3IsyFZDzPhNwx7+ooIz2z6bU6YmdS7CK4
+	hqH6omhymTnxWbci9zzJmvTRDR+V/5eNKCWLTQZV79yx/y4RvIFbflzV+XeoywxbzZ6D1507UDcm3
+	6MFkeRfitmkyXgw1SmWXG8UmYN7Lm5T6tjmAnLsk8Md5zXs/P42NGvCT80vQS813MkTK/+93gMPHe
+	9N79Na5w==;
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNstr-00000005LVI-0goY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 13:37:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2266327D3
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 06:37:47 -0700 (PDT)
-Received: from login2.euhpc.arm.com (login2.euhpc.arm.com [10.6.38.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D23153F85F
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 06:37:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778852272; bh=2j8jeCXFUoYsOFX1hD6wuGvMBsdQ39Kjb3acDVAV5CY=;
-	h=From:To:Subject:Date:From;
-	b=aC4jBPQAkmYCrDwDArFi4NZgi5l7Js22jU9FwVjTPRfMnBHadnRjSZy9N8FavV75p
-	 3iK74HYluDgr13ter3FTJydjz16bxzJMRZxQaHNjP7TBnklrFyHGcm0pPyjhijdnW3
-	 2sizL7tg6xDWSqQuP+YbT1UynBv5iStWOYCoS5m0=
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] arm64: probes: Handle probes on hinted conditional branch instructions
-Date: Fri, 15 May 2026 14:37:29 +0100
-Message-Id: <20260515133729.112196-1-vladimir.murzin@arm.com>
-X-Mailer: git-send-email 2.24.0
+	Fri, 15 May 2026 13:48:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zuanh5bwopTcN0eB6eh5AKje0jOlR9CcwkS0/inUOnqjbjsJKpxTkqQEgPIUgyqnyKPASWSePNJd4IIuqh03dFDRBC+XM5BAwD6ytomzzEnhsx9aDAlK4LjK7IZUf3SZ0gUiHNmjTtZ+rfO+L4fEjCI0lfuMwvoWZyLoA1wUZzcR6M5uu4zVypmK9o/ImKgz5J87wsqsBoL6MHRLX9mJXvzJUYrdXiCAUJqHwZyCnPdHGLuRaTKMsd3NH2v2z/x7mY2YaaRx8ceaU2Hk5cBJwmtam6G1qqP8DK44kyfTJdg1LhVC9LasWnAR1bGId4ACTZup2jwOV9RHIz3UE5REEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=boouljTFgfnq1oLM8iKohy2+cB/PolWDy0lkbdhAh7A=;
+ b=ZwGibVM0eyb3l4IaAlwwIzuG5CLorsTmAV0KSP/99Oqp4JpFCQUo3Dx/ldvWSxDdCiuMglwy529DMayCo1bms0I2gRgQkgRiIwIVb55YO12owqf3jmL4E1+8KqzaYBsrXru3fYBCrcreef50myJ3nus/+bbW5Ok58ESLVQd4VjTop56GVXgXJtq9p6fGKh3HULIVgshlfvbGiC1RNY6n6NE+PR3mE4kixULdi9q5+HWQo4l8JGORy20nceOXsL5Us9Ug9UI91NudWkgkDyWNw5EFznqaPWU9x1ImTA5YYAMXvEsbbkuXPolvWCTEJMYBJOPi6wSd/6tuRiCxatqOZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=boouljTFgfnq1oLM8iKohy2+cB/PolWDy0lkbdhAh7A=;
+ b=OY+P4zWJtf8iwNx7YUaiaZQMQpDyCQoSy8Qc5NMeN5aCktnFxeNgddXUqH3bP/vzdMX9KQOjJnoniLFN+WJwcNMP3FZ7BLoB0wGHks2tuyuT1cb644XEX47/UgGbSBA4eiEhdXr7cXqB/BzkO3aaTR7a7Hg8wj+S6vy1hjweLKM=
+Received: from DS7PR05CA0102.namprd05.prod.outlook.com (2603:10b6:8:56::22) by
+ SJ5PPFD9B14F409.namprd10.prod.outlook.com (2603:10b6:a0f:fc02::7d4) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Fri, 15 May
+ 2026 13:48:12 +0000
+Received: from CY4PEPF0000EDD2.namprd03.prod.outlook.com
+ (2603:10b6:8:56:cafe::ac) by DS7PR05CA0102.outlook.office365.com
+ (2603:10b6:8:56::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.9 via Frontend Transport; Fri, 15
+ May 2026 13:48:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CY4PEPF0000EDD2.mail.protection.outlook.com (10.167.241.198) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Fri, 15 May 2026 13:48:09 +0000
+Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 15 May
+ 2026 08:48:09 -0500
+Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE201.ent.ti.com
+ (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 15 May
+ 2026 08:48:09 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Fri, 15 May 2026 08:48:09 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64FDm9Bk350374;
+	Fri, 15 May 2026 08:48:09 -0500
+From: Nishanth Menon <nm@ti.com>
+To: <ssantosh@kernel.org>, <gehariprasath@ti.com>, Siddharth Vadapalli
+	<s-vadapalli@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <stable@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<srk@ti.com>
+Subject: Re: [PATCH v2] soc: ti: k3-ringacc: Fix access mode for k3_ringacc_ring_pop_tail_io/proxy
+Date: Fri, 15 May 2026 08:48:05 -0500
+Message-ID: <177885279926.149261.9133136693378554303.b4-ty@b4>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20260501124129.362192-1-s-vadapalli@ti.com>
+References: <20260501124129.362192-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD2:EE_|SJ5PPFD9B14F409:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1c5b0fec-dd88-4fd8-b59b-08deb28899db
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: M4vIKN77Cja64SMVT1JsSUs5pCZuOpt9twhBIRaznPh9oKB42EAkoNVitkV7mAaQIi74AsJDHcenH11eEZyQf6ixTanSqVzg/5yO7w4iPFzXn9k9PdPOoa/WstpZS/UAcVBvzcGzGt3hh4Bsrfd0QLhjPkqZSYnFxjrOoY5JgJHuXra5H3ySKSz42tJ+ucBH6FWM0HW0N5dPEeJyQ+HWSH/8J+79YAwoYWRHILMEQBtOVDNHJpJvJTh337ahOES0qMhA2UCXLEaU0Dz4LeSddng2ALkD4wTGodXchIIdcFDd7kwV6ekGpGm2RBCSW1+QcO7sMhed2da04tvWpt+TK6zodjnMTX8iiWy+4xflwwY/+JmUjR10AYweH7rHgEWEWHEzOEv7lgE5cBmUapOiT53CDoUxuXPh131K2vmwNyFFJ6av+4iy6Oai7x/WBSXKiQHfTjO/1qGaubK0Ko7fyepC6ZvFoSAa6+zKmmbPCFsrzuhl1q3/QWuK/SZ4lmocUgu2Ro9ioApcua+6lVkngwvXHerNuA0QQoER2Hn4rDj3YWVBTuMDyI0vUyamWmRbeo51PMc20d0z7HydyVfFErIskdPK3QQCU5zNGoeJlPEJeh7CDpgI2fetppyPOq0PwmZSc7d95PV8txzrrQVpmh94UXI8ZA32vcXUD4aNwSgHV0Beu/f9YxCy3l+9nu/3nkkyOem+sfSzaPag/ljcERKphZb4g94YnHvBmBxXuro=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ztTNNVX7ZXASGu7MFboztD1YxgchIphMhX4xsdbDxdxI9p6Bu3AuRQJSpxQiQIXGSBuFTJ0lVX3nUsA4CXP0NGxShayIiHRlMxAqCFibTG8tX6qPV1sC79SgDQfooI8DJZShGEoU+cPH9IMLnHR73kUapTSw+ZW3/xGxWoaNXpbfoFMu5jXejqQk0gKpa0r6oBDp56BhMwcYodPDzBMQZtWepcIbQsddML3shTvPUt36qlX4Uo0URss30qwdE6V7vM4Jf4W2uXojZqdy1YkvSOGDilN7TTZGXmGnT4+EKcxD5vk9+yMmdN4BckpPgiSyba04oJ7jmolGA29xo+zqhECZGmWwdY8zsOC25pSPH7FgLFJSq1Cab/NQVsLTR2+Mltpk+hKFpNQdk2TTp+ZuFi2hN4CJtgq9AevU+Y0pg0oOdQt98otCbpl8GThb/tW6
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2026 13:48:09.8998
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1c5b0fec-dd88-4fd8-b59b-08deb28899db
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD2.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFD9B14F409
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_063755_041994_15519D3C 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260515_144823_738206_C612D164 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,33 +146,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BC.cond instructions introduced by FEAT_HBC cannot be executed
-out-of-line, like other branch instructions. However, they can be
-simulated in the same way as B.cond instructions.
+Hi Siddharth Vadapalli,
 
-Extend the B.cond decoder mask to match BC.cond instructions as well,
-and handle them using the existing B.cond simulation path.
+On Fri, 01 May 2026 18:10:54 +0530, Siddharth Vadapalli wrote:
+> k3_ringacc_ring_pop_tail_io() and k3_ringacc_ring_pop_tail_proxy()
+> incorrectly use K3_RINGACC_ACCESS_MODE_POP_HEAD instead of
+> K3_RINGACC_ACCESS_MODE_POP_TAIL. This will result in ring elements being
+> popped in the reverse order of that which the caller expects. Fix this.
 
-Fixes: 7f86d128e437 ("arm64: add HWCAP for FEAT_HBC (hinted conditional branches)")
-Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
----
- arch/arm64/include/asm/insn.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I have applied the following to branch ti-drivers-soc-next on [1].
 
-diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index f463a654a2bb..cc0702fa64a7 100644
---- a/arch/arm64/include/asm/insn.h
-+++ b/arch/arm64/include/asm/insn.h
-@@ -409,7 +409,7 @@ __AARCH64_INSN_FUNCS(cbz,	0x7F000000, 0x34000000)
- __AARCH64_INSN_FUNCS(cbnz,	0x7F000000, 0x35000000)
- __AARCH64_INSN_FUNCS(tbz,	0x7F000000, 0x36000000)
- __AARCH64_INSN_FUNCS(tbnz,	0x7F000000, 0x37000000)
--__AARCH64_INSN_FUNCS(bcond,	0xFF000010, 0x54000000)
-+__AARCH64_INSN_FUNCS(bcond,	0xFF000000, 0x54000000)
- __AARCH64_INSN_FUNCS(svc,	0xFFE0001F, 0xD4000001)
- __AARCH64_INSN_FUNCS(hvc,	0xFFE0001F, 0xD4000002)
- __AARCH64_INSN_FUNCS(smc,	0xFFE0001F, 0xD4000003)
+I am queuing this up for the next window as things seem functional at
+this point as well and was a bug that was present for a long time, so
+I dont see this introduced in the current window.
+
+Thank you!
+
+[1/1] soc: ti: k3-ringacc: Fix access mode for k3_ringacc_ring_pop_tail_io/proxy
+      commit: b920352cfd2b0fcd1249ff006618c939b64fc8f7
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent up the chain during
+the next merge window (or sooner if it is a relevant bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
 -- 
-2.34.1
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
 
