@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B6ACD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 16:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A60CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 16:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a4EXCGuqAKLFlT2ch+EyLK8KXtNwop1URIzzeLrAJG0=; b=z7TaC9BJDfTPnB
-	oLsmKfBCOD1kS7TuZxt4iOUmi3A6h1ekNY+QhtA/HWDmqRrcEemIWxHEBuF4RX0WtPbbN7C3j8DJV
-	s3CgylTLc76Wdz8Fe87H/x2AQxZOxTAZRQZoohMn3UcZBrRdT5wDApNOmuZ3MPOLJmnR/wC6Ssyrn
-	0G/+wqcjq2mEHFKKNPxFpK9AKWhOBEoR98eOpRLejp2/eLeeCN171ZggYf89uwGM7kCeEOmtZ1EGs
-	/ENBu8sbehylbeEg2eKXHShH+AqGKPX6w7FZuYVrUoaAHrpzRF3MZluoTATEsOsxu0tZt47JfQDTU
-	7+If69Er+BCH2rB40b9Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O8vHgJ4vvkqtxkyisUTo0eeQhbNxkW1pe2hMHmXDTF0=; b=cZbDPXjNFhyTqfTdF1r/4xmQ9s
+	NTyfK1xFRWTcY23v5igXxNc2cvrRllPrQ5YaTHBvM9xFABH0MoyvWHWHFnWFx24+4RnsDhs7LGM9U
+	S8V3j2d0lESs9q3FdpeUQI6udEH5iuGV/uc2/BjHx5t5GfUfZ6Px8nloZvsWCGjwzx2Z5uW6c2n/F
+	EF1hEk6yY+oHVmlH34qtzqMIV8+3bBgZ+ruUJpyO7IYwl0558VGxdSorKKMpADnAAcbLPrLSJwnw2
+	s3cwfAyLr3124AvwgxsaKhZ1KUI6DD/1tMFon2pT2MIa64IaFIwNFpa7l4MwoZFEL7Dc0OWps3Ae5
+	4QQMtY+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNv9O-00000008pbi-2mDv;
-	Fri, 15 May 2026 16:12:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wNv9T-00000008pdF-37te;
+	Fri, 15 May 2026 16:12:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNv9N-00000008pbH-0lYh
+	id 1wNv9O-00000008pba-2fMk
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 15 May 2026 16:12:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E4AB84026B
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 16:12:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9202C2BCC7
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 16:12:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778861552;
-	bh=ajfMeNlbacyrJhotvON69vV08gKAAPbB+tQGK/f4yF8=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=lNsiVpgzp/XRQAqxwaKH8NMC9j740bxLutzSLti6/867t9T6oFIX05Traa5lD5Nh+
-	 QlCJAfzz796aQqNjkyXOObduMn9RyJ7i1k62pLM+jQXG1O7enPpH6BhoSgW+32+UJ5
-	 s6PNasBCryu59ytr6teI9OLO88zIhs5SVmLvmOumTek3x62V/gU5aUeF57E+oJ2IA1
-	 rs+9k5mA/O7Bk34GKOARd0wm8SZSKRIXQrUFuANdE5+jvhE4IWOHMyiZsHJOCL6T20
-	 /M7G7Y+OKX/TlsM60dkUS1hKzzhfJnrqTsfZjxj0WjeJqnQjz3inzIZCz3jUknFSah
-	 74iL8643V8RnA==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-38e7d983f91so154481fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 09:12:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+wKP5iA08SFO0P8VL9lMtfBViyzwneE3gyIelsxOBS7biovo0f37a8MFSMGDv5lQaxXAS1hzCet0+Sg5v00X4R@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwtfovhD7aGEflDjfxr1J6ZeNaoHnwv0PJn77Qc8OTD+wbqo1W
-	j+0TNhFsxT+8M/TIcuPaPG06pTN2mdGM0xF+CVKvnqwp86Y1NHMbVL06aHjuq4+nyf3FYJITm+M
-	V4Orkveo2OFVLpOJn0h8gDZgZjUsFIAk=
-X-Received: by 2002:a05:651c:1593:b0:394:331:c26d with SMTP id
- 38308e7fff4ca-39561c07bf6mr16170691fa.6.1778861551206; Fri, 15 May 2026
- 09:12:31 -0700 (PDT)
+	by tor.source.kernel.org (Postfix) with ESMTP id BC842601DB;
+	Fri, 15 May 2026 16:12:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 215F9C2BCB0;
+	Fri, 15 May 2026 16:12:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1778861553;
+	bh=0XQnd2YwS/W/uVBWUWi/9pCJKs6cHEZbJMCWmyBkbT0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MirhqWj1beMH0NqazlR+3vSNFFpsWTdabgvs4m7AzVuUt3V9Szw5HSE4kC+QpO9/y
+	 q2L2CF/HT8MlVndQbvA5qdN8xyb8Al187vRIjVpPS3h4P0a16xY7KI0AV8YphbNh5I
+	 cE7WoP2SJZEvvNi61St7DvrDJg7aNagRvH9XriVs=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.6 372/474] arm64/mm: Enable batched TLB flush in unmap_hotplug_range()
+Date: Fri, 15 May 2026 17:48:01 +0200
+Message-ID: <20260515154723.076108421@linuxfoundation.org>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260515154715.053014143@linuxfoundation.org>
+References: <20260515154715.053014143@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-References: <20260511221741.25888-1-andre.przywara@arm.com>
- <CAGb2v64u4sqwiiQcEBg-XvmJ2DLEpSj-_AWNbp14RAp-GXP7OA@mail.gmail.com> <ee9fca66-d079-4ad7-9cb3-5077e8a4f6d6@arm.com>
-In-Reply-To: <ee9fca66-d079-4ad7-9cb3-5077e8a4f6d6@arm.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Sat, 16 May 2026 00:12:17 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66drOyBgNU0hFo356MKTFnggNmyzrANok+-U31NzZCUEw@mail.gmail.com>
-X-Gm-Features: AVHnY4IAiy7whTy9FnGtvfBRFabJs2Ii_3tvaDmPh7Gdax0WMKu2QkVOACnxggs
-Message-ID: <CAGb2v66drOyBgNU0hFo356MKTFnggNmyzrANok+-U31NzZCUEw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: allwinner: Cubie A5E: enable SPI flash
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_091233_262567_FEA959BC 
-X-CRM114-Status: GOOD (  29.52  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,104 +73,142 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 5:19=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
-com> wrote:
->
-> Hi Chen-Yu,
->
-> thanks for chipping in!
->
-> On 5/13/26 07:21, Chen-Yu Tsai wrote:
-> > Hi,
-> >
-> > On Tue, May 12, 2026 at 6:18=E2=80=AFAM Andre Przywara <andre.przywara@=
-arm.com> wrote:
-> >>
-> >> The Cubie A5E board comes with 16MiB of SPI NOR flash.
-> >>
-> >> Enable the SPI0 DT node and describe the configuration.
-> >>
-> >> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> >> ---
-> >>   .../boot/dts/allwinner/sun55i-a527-cubie-a5e.dts  | 15 +++++++++++++=
-++
-> >>   1 file changed, 15 insertions(+)
-> >>
-> >> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts b=
-/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> >> index bfdf1728cd14b..7ad22fc85d1fd 100644
-> >> --- a/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> >> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-cubie-a5e.dts
-> >> @@ -344,6 +344,21 @@ &r_pio {
-> >>          vcc-pm-supply =3D <&reg_aldo3>;
-> >>   };
-> >>
-> >> +&spi0  {
-> >> +       pinctrl-names =3D "default";
-> >> +       pinctrl-0 =3D <&spi0_pc_pins>, <&spi0_cs0_pc_pin>,
-> >> +                   <&spi0_hold_pc_pin>, <&spi0_wp_pc_pin>;
-> >
-> > This whole thing needs to be an overlay. The HOLD and WP pins
-> > conflict with eMMC usage, so it seems that Radxa only populates
-> > one or the other.
-> >
-> > If you look at the pictures on their official website, you'll see the
-> > SPI NOR chip populated, but not the eMMC chip. On the linux-sunxi wiki
-> > page, you'll see the opposite.
->
-> Well, I have a hard time spotting any actual eMMC SKUs in the shops anywa=
-y.
-> But you are right, the hold and WP pins conflict with eMMC, whereas the
-> other pins are not.
->
-> > And you probably want to enable QSPI, like Sashiko mentioned.
->
-> Well, in the interest of keeping this simple and enabling the usage of
-> SPI flash for all the users out there, I'd rather drop the extra pins.
-> This is mostly really useful for booting the firmware, maybe loading a
-> tiny kernel or other data once, so performance is not a big concern in
-> this use case. The BootROM surely does not use QSPI.
+6.6-stable review patch.  If anyone has any objections, please let me know.
 
-Given that the pins are tied on physically, if someone then enables mmc2
-for a potentially present eMMC, the two pins could be toggled by the
-MMC controller, causing the flash to misbehave. I'm slightly concerned
-about this possibility.
+------------------
+
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+
+[ Upstream commit 48478b9f791376b4b89018d7afdfd06865498f65 ]
+
+During a memory hot remove operation, both linear and vmemmap mappings for
+the memory range being removed, get unmapped via unmap_hotplug_range() but
+mapped pages get freed only for vmemmap mapping. This is just a sequential
+operation where each table entry gets cleared, followed by a leaf specific
+TLB flush, and then followed by memory free operation when applicable.
+
+This approach was simple and uniform both for vmemmap and linear mappings.
+But linear mapping might contain CONT marked block memory where it becomes
+necessary to first clear out all entire in the range before a TLB flush.
+This is as per the architecture requirement. Hence batch all TLB flushes
+during the table tear down walk and finally do it in unmap_hotplug_range().
+
+Prior to this fix, it was hypothetically possible for a speculative access
+to a higher address in the contiguous block to fill the TLB with shattered
+entries for the entire contiguous range after a lower address had already
+been cleared and invalidated. Due to the table entries being shattered, the
+subsequent TLB invalidation for the higher address would not then clear the
+TLB entries for the lower address, meaning stale TLB entries could persist.
+
+Besides it also helps in improving the performance via TLBI range operation
+along with reduced synchronization instructions. The time spent executing
+unmap_hotplug_range() improved 97% measured over a 2GB memory hot removal
+in KVM guest.
+
+This scheme is not applicable during vmemmap mapping tear down where memory
+needs to be freed and hence a TLB flush is required after clearing out page
+table entry.
+
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Closes: https://lore.kernel.org/all/aWZYXhrT6D2M-7-N@willie-the-truck/
+Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+Cc: stable@vger.kernel.org
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+[ replaced `__pte_clear()` with `pte_clear()` ]
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ arch/arm64/mm/mmu.c |   36 ++++++++++++++++++++----------------
+ 1 file changed, 20 insertions(+), 16 deletions(-)
+
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -870,10 +870,14 @@ static void unmap_hotplug_pte_range(pmd_
+ 
+ 		WARN_ON(!pte_present(pte));
+ 		pte_clear(&init_mm, addr, ptep);
+-		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-		if (free_mapped)
++		if (free_mapped) {
++			/* CONT blocks are not supported in the vmemmap */
++			WARN_ON(pte_cont(pte));
++			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+ 			free_hotplug_page_range(pte_page(pte),
+ 						PAGE_SIZE, altmap);
++		}
++		/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 	} while (addr += PAGE_SIZE, addr < end);
+ }
+ 
+@@ -894,15 +898,14 @@ static void unmap_hotplug_pmd_range(pud_
+ 		WARN_ON(!pmd_present(pmd));
+ 		if (pmd_sect(pmd)) {
+ 			pmd_clear(pmdp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PMD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				/* CONT blocks are not supported in the vmemmap */
++				WARN_ON(pmd_cont(pmd));
++				flush_tlb_kernel_range(addr, addr + PMD_SIZE);
+ 				free_hotplug_page_range(pmd_page(pmd),
+ 							PMD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pmd_table(pmd));
+@@ -927,15 +930,12 @@ static void unmap_hotplug_pud_range(p4d_
+ 		WARN_ON(!pud_present(pud));
+ 		if (pud_sect(pud)) {
+ 			pud_clear(pudp);
+-
+-			/*
+-			 * One TLBI should be sufficient here as the PUD_SIZE
+-			 * range is mapped with a single block entry.
+-			 */
+-			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+-			if (free_mapped)
++			if (free_mapped) {
++				flush_tlb_kernel_range(addr, addr + PUD_SIZE);
+ 				free_hotplug_page_range(pud_page(pud),
+ 							PUD_SIZE, altmap);
++			}
++			/* unmap_hotplug_range() flushes TLB for !free_mapped */
+ 			continue;
+ 		}
+ 		WARN_ON(!pud_table(pud));
+@@ -965,6 +965,7 @@ static void unmap_hotplug_p4d_range(pgd_
+ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 				bool free_mapped, struct vmem_altmap *altmap)
+ {
++	unsigned long start = addr;
+ 	unsigned long next;
+ 	pgd_t *pgdp, pgd;
+ 
+@@ -986,6 +987,9 @@ static void unmap_hotplug_range(unsigned
+ 		WARN_ON(!pgd_present(pgd));
+ 		unmap_hotplug_p4d_range(pgdp, addr, next, free_mapped, altmap);
+ 	} while (addr = next, addr < end);
++
++	if (!free_mapped)
++		flush_tlb_kernel_range(start, end);
+ }
+ 
+ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
 
 
-ChenYu
-
-> And as you say, if people are really interested in the last bit of
-> performance, they can use an overlay.
->
-> Cheers,
-> Andre
->
-> >
-> >
-> > ChenYu
-> >
-> >
-> >> +       status =3D "okay";
-> >> +
-> >> +       flash@0 {
-> >> +               compatible =3D "winbond,w25q128", "jedec,spi-nor";
-> >> +               reg =3D <0>;
-> >> +               spi-max-frequency =3D <40000000>;
-> >> +               #address-cells =3D <1>;
-> >> +               #size-cells =3D <1>;
-> >> +       };
-> >> +};
-> >> +
-> >>   &uart0 {
-> >>          pinctrl-names =3D "default";
-> >>          pinctrl-0 =3D <&uart0_pb_pins>;
-> >> --
-> >> 2.46.4
-> >>
-> >
->
 
