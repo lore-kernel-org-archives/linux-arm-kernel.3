@@ -4,110 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82991CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 14:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A1BCCD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C1D/1YterPCnTmcPwmatqIt56Q+poHbCW9oYvcHSQ2M=; b=xUpZVlaWhs/zGwf1qJq0Eh75f5
-	TYkN9f3RLXWCPjoFUcjPeQPI5G8kGyOmmTruPEi2Sw5LPfIz2q99geOj2pRMVZzMkxXg1IOZyqp3l
-	AQ/Ew3xZ/ViW3WJ3ukB1PGDLAD3QI/Gysh0EojH6pCf1m2oSN5UU9iEN74x28cRmV+3cO3HNUCDMi
-	igGiRz5PvBUoz3cK/W4PlBsfAfy36mWOWyNaeSBJ6pIoDUyTrS0DeTidWXdC1KPNEIO30NervTa1A
-	GO2i/0WuS13ppf5QjtLLm8S/w6b1G50PP58p+Z7NCCSpVUPU+ckECVoJ8Yjx/nbmHbi8E029S4mqw
-	DdL7k/eQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D0aVJ1oI07M7fsLfw7yCfiuyUD9A/pHOpyMY/I0o1C0=; b=ogNComeW4k7WJolERPwye3iM3U
+	MAgyWVvOazlz1pfv3Tc0CllEXgY37bZirN9nw95JjL5D8fzAYXERCav7fcjblOM+PJ2eTqpMUY3N4
+	LyzxVMJfM1thy3Zk+ApqkGi7ZfLNfdrJCJBxiSUW84Sdz0zIJZIMWjRBPjWdiHVNv2+FvZFXQwNHl
+	Pw3F+C3KBk3edE5yS9kDj0h0e9kdQ78oVNO/O+gdtqk7RFnTTPxp+Mc05NQ8EBUN5MG9HbTzaios6
+	6ZnotwKzS4Nbz6IF/zBCyr3GRN/KB7ok00WiPk24vKonsNC39hxouaTx6hWtt2G2uSjjCOWZZqofE
+	clbDYsXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNttX-00000008ch5-0gWb;
-	Fri, 15 May 2026 14:52:07 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wNu6c-00000008eSb-0Vnc;
+	Fri, 15 May 2026 15:05:38 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNttU-00000008cg3-057g
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 14:52:05 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 4B04666D5C;
-	Fri, 15 May 2026 14:52:00 +0000 (UTC)
-Authentication-Results: smtp-out2.suse.de;
-	none
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 041E0593A9;
-	Fri, 15 May 2026 14:52:00 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id BdG/ABAzB2onPgAAD6G6ig
-	(envelope-from <dsterba@suse.cz>); Fri, 15 May 2026 14:52:00 +0000
-Date: Fri, 15 May 2026 16:51:58 +0200
-From: David Sterba <dsterba@suse.cz>
-To: "H. Peter Anvin" <hpa@zytor.com>
-Cc: kreijack@inwind.it, Goffredo Baroncelli <kreijack@libero.it>,
-	Christoph Hellwig <hch@lst.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
-	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
-Message-ID: <20260515145158.GP2558453@suse.cz>
-References: <20260512052230.2947683-1-hch@lst.de>
- <20260512052230.2947683-2-hch@lst.de>
- <20260512114231.GG2558453@suse.cz>
- <20260513054742.GA1018@lst.de>
- <0a8d1ff4-f5a2-49e9-aa45-d25dbe4ded40@libero.it>
- <0507CCEF-0548-442F-8703-1D006B5E068B@zytor.com>
+	id 1wNu6Z-00000008eRC-1IoX;
+	Fri, 15 May 2026 15:05:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=D0aVJ1oI07M7fsLfw7yCfiuyUD9A/pHOpyMY/I0o1C0=;
+	b=ogJCGY5GZCO33EocCv82XtHrz71uQciISGEtOBaI6KUPvqZBTXI1vlRhWzoRMJ
+	AoMm1RqkBfRCAHa6aRGQUK801b33FTNE3yrwHQyrsI0nzqh+wa0+n9vXpaGLcZwn
+	3BifagXBGJ7WKejgWWYPtGM6QO3a0kB+lq3idysEMul7k=
+Received: from [IPV6:240e:b8f:91b3:d000:79ec:4c96:c180:869b] (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wDnr6MGNgdqmNEiBg--.36082S2;
+	Fri, 15 May 2026 23:04:39 +0800 (CST)
+Message-ID: <01f61c3f-d2a7-4ce3-a820-a5502312a07f@163.com>
+Date: Fri, 15 May 2026 23:04:39 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 6/8] PCI: aardvark: Add 100 ms delay after link
+ training
+To: =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+ mani@kernel.org, vigneshr@ti.com, jingoohan1@gmail.com,
+ thomas.petazzoni@bootlin.com, ryder.lee@mediatek.com,
+ jianjun.wang@mediatek.com, claudiu.beznea.uj@bp.renesas.com,
+ mpillai@cadence.com, robh@kernel.org, s-vadapalli@ti.com,
+ linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260506152346.166056-1-18255117159@163.com>
+ <20260506152346.166056-7-18255117159@163.com>
+ <20260512212531.jupoocz7acv22qyg@pali>
+ <581e91fb-2e57-43ed-b79d-19dbf384b955@163.com>
+ <20260513072008.vol4htgbzquly2rb@pali>
+ <15532890-ce22-4b20-96d9-e7f7c47050d2@163.com>
+ <20260513185442.mw3md5te7dhojyd7@pali>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <20260513185442.mw3md5te7dhojyd7@pali>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <0507CCEF-0548-442F-8703-1D006B5E068B@zytor.com>
-User-Agent: Mutt/1.5.23.1-rc1 (2014-03-12)
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Rspamd-Queue-Id: 4B04666D5C
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+X-CM-TRANSID: _____wDnr6MGNgdqmNEiBg--.36082S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3XF1xXrWrJF4xWry5Wry7Awb_yoW3Zr43pF
+	W5Ga9FyF47Jr13u3W0q3W8ZFyjqan8C343Xrn8X347Wr9I9FyDtF12krWfuasrGr4vyr12
+	vw45tFy3CwnIva7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07URVbkUUUUU=
+X-Originating-IP: [240e:b8f:91b3:d000:79ec:4c96:c180:869b]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6wjrj2oHNgiRnAAA3Z
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_075204_207564_008C88F8 
-X-CRM114-Status: GOOD (  22.69  )
+X-CRM114-CacheID: sfid-20260515_080535_765863_D171B6E7 
+X-CRM114-Status: GOOD (  49.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,34 +83,202 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: dsterba@suse.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 12:57:53PM -0700, H. Peter Anvin wrote:
-> On May 14, 2026 12:51:59 PM PDT, Goffredo Baroncelli <kreijack@libero.it> wrote:
-> >On 13/05/2026 07.47, Christoph Hellwig wrote:
-> >> On Tue, May 12, 2026 at 01:42:31PM +0200, David Sterba wrote:
-> >
-> >> 
-> >>> The degenerate modes of
-> >>> raid0, 5, or 6 are explicit as a possible middle step when converting
-> >>> profiles.  We can use a fallback implementation for this case if the
-> >>> accelerated implementations cannot do it.
-> >> 
-> >> This is not about a degenerated mode.  For a degenerated RAID 6, parity
-> >> generation uses the RAID 5 XOR routines as the second parity will be
-> >> missing.  This is about generating two parities for a single data disk,
-> >> which must be explicitly selected.
-> >> 
-> >
-> >I think that the David concern is : "what happens for an already
-> >existing btrfs raid6 3 disks filesystem when the user upgrade the kernel ?"
-> >(I am thinking when a new BG needs to be allocated)...
-> 
-> That's what I'm saying – it should invoke the RAID-1 code under the cover (as with 3 disks, D = P = Q.)
 
-Thanks, it was not clear to me what you meant. For the two edge cases
-the code should do simple memcpy for both calculations of parity and
-recovery.
+
+On 5/14/26 02:54, Pali Rohár wrote:
+> On Wednesday 13 May 2026 15:34:46 Hans Zhang wrote:
+>> On 5/13/26 15:20, Pali Rohár wrote:
+>>> On Wednesday 13 May 2026 15:00:04 Hans Zhang wrote:
+>>>>
+>>>>
+>>>> On 5/13/26 05:25, Pali Rohár wrote:
+>>>>> On Wednesday 06 May 2026 23:23:44 Hans Zhang wrote:
+>>>>>> The Aardvark PCIe controller driver waits for the link to come up but
+>>>>>> does not implement the mandatory 100 ms delay after link training
+>>>>>> completes for speeds greater than 5.0 GT/s (PCIe r6.0 sec 6.6.1).
+>>>>>>
+>>>>>> The driver already maintains a 'link_gen' field that holds the negotiated
+>>>>>> link speed. Use it together with pcie_wait_after_link_train() to insert
+>>>>>> the required delay immediately after confirming that the link is up.
+>>>>>>
+>>>>>> Signed-off-by: Hans Zhang <18255117159@163.com>
+>>>>>> ---
+>>>>>>     drivers/pci/controller/pci-aardvark.c | 4 +++-
+>>>>>>     1 file changed, 3 insertions(+), 1 deletion(-)
+>>>>>>
+>>>>>> diff --git a/drivers/pci/controller/pci-aardvark.c b/drivers/pci/controller/pci-aardvark.c
+>>>>>> index e34bea1ff0ac..526351c21c49 100644
+>>>>>> --- a/drivers/pci/controller/pci-aardvark.c
+>>>>>> +++ b/drivers/pci/controller/pci-aardvark.c
+>>>>>> @@ -350,8 +350,10 @@ static int advk_pcie_wait_for_link(struct advk_pcie *pcie)
+>>>>>>     	/* check if the link is up or not */
+>>>>>>     	for (retries = 0; retries < LINK_WAIT_MAX_RETRIES; retries++) {
+>>>>>> -		if (advk_pcie_link_up(pcie))
+>>>>>> +		if (advk_pcie_link_up(pcie)) {
+>>>>>> +			pcie_wait_after_link_train(pcie->link_gen);
+>>>>>>     			return 0;
+>>>>>> +		}
+>>>>>>     		usleep_range(LINK_WAIT_USLEEP_MIN, LINK_WAIT_USLEEP_MAX);
+>>>>>>     	}
+>>>>>> -- 
+>>>>>> 2.34.1
+>>>>>>
+>>>>>
+>>>>> Are you sure that this is correct to do? Have you checked the A3720
+>>>>> Functional Specification which describes how to bring PCIe link up?
+>>>>>
+>>>>> A3720 PCIe controller is buggy and needs more timing hacks to make it
+>>>>> behave. Playing with random sleeps can break its internal logic.
+>>>>> I'm not sure if it could be safe without proper testing.
+>>>>>
+>>>>> And IIRC A3720 PCIe controller is just PCIe2.0 with 5 GT/s.
+>>>>
+>>>>
+>>>> Hi Pali,
+>>>>
+>>>> 1. This driver does not support A3720.
+>>>>
+>>>> static const struct of_device_id advk_pcie_of_match_table[] = {
+>>>> 	{ .compatible = "marvell,armada-3700-pcie", },
+>>>> 	{},
+>>>> };
+>>>> MODULE_DEVICE_TABLE(of, advk_pcie_of_match_table);
+>>>>
+>>>> If you need support for A3720, please submit the corresponding patch so that
+>>>> Bjorn and Mani can review it.
+>>>
+>>> 3700 (or 37xx) is family and covers both a3710 and a3720. In most cases is the
+>>> a3720 dominant and hence identifiers 3700 and 3720 are begin mixed.
+>>>
+>>>>
+>>>> 2. If A3720 only supports GEN2, you can configure "max-link-speed" to be 2
+>>>> in the DT. This will not affect the functionality of this patch.
+>>>
+>>> Whole A37xx supports only GEN2. And in DT files for 37xx should be
+>>> already there max-link-speed.
+>>>
+>>> Seems that in advk_pcie_of_match_table there is no GEN3 device
+>>> specified.
+>>>
+>>
+>> Hi Pali,
+>>
+>> However, I saw many GEN3 assignments and conditions in the code.
+>>
+>> ret = of_pci_get_max_link_speed(dev->of_node);
+>> if (ret <= 0 || ret > 3)
+>> 	pcie->link_gen = 3;
+>> else
+>> 	pcie->link_gen = ret;
+>>
+>>
+>> static void advk_pcie_train_link(struct advk_pcie *pcie)
+>> {
+>> 	struct device *dev = &pcie->pdev->dev;
+>> 	u32 reg;
+>> 	int ret;
+>>
+>> 	/*
+>> 	 * Setup PCIe rev / gen compliance based on device tree property
+>> 	 * 'max-link-speed' which also forces maximal link speed.
+>> 	 */
+>> 	reg = advk_readl(pcie, PCIE_CORE_CTRL0_REG);
+>> 	reg &= ~PCIE_GEN_SEL_MSK;
+>> 	if (pcie->link_gen == 3)
+>> 		reg |= SPEED_GEN_3;
+>> 	else if (pcie->link_gen == 2)
+>> 		reg |= SPEED_GEN_2;
+>> 	else
+>> 		reg |= SPEED_GEN_1;
+>> 	advk_writel(pcie, reg, PCIE_CORE_CTRL0_REG);
+>>
+>> 	/*
+>> 	 * Set maximal link speed value also into PCIe Link Control 2 register.
+>> 	 * Armada 3700 Functional Specification says that default value is based
+>> 	 * on SPEED_GEN but tests showed that default value is always 8.0 GT/s.
+>> 	 */
+>> 	reg = advk_readl(pcie, PCIE_CORE_PCIEXP_CAP + PCI_EXP_LNKCTL2);
+>> 	reg &= ~PCI_EXP_LNKCTL2_TLS;
+>> 	if (pcie->link_gen == 3)
+>> 		reg |= PCI_EXP_LNKCTL2_TLS_8_0GT;
+>> 	else if (pcie->link_gen == 2)
+>> 		reg |= PCI_EXP_LNKCTL2_TLS_5_0GT;
+>> 	else
+>> 		reg |= PCI_EXP_LNKCTL2_TLS_2_5GT;
+>> 	advk_writel(pcie, reg, PCIE_CORE_PCIEXP_CAP + PCI_EXP_LNKCTL2);
+>>
+>> ....
+>>
+>>
+>> If you are certain about the relevant information. Is it understandable that
+>> we need to delete the code related to GEN3?
+> 
+> Ok. So some explanation. pci-aardvark.c is implementing driver for PCIe
+> controller with codename aardvark. I have no idea from what this
+> codename comes and what is represents. What we know that the driver was
+> written for A37xx SoC platform according to A37xx functional specification.
+> As it is common in SoC world, vendors just buy some IP and integrate it
+> into SoC. In this case Marvell bought this PCIe controller IP and
+> integrated it into the A37xx. In past I tried to investigate what it
+> could be and IIRC my assumption was that it was PCIe IP from Denali.
+> Denali was acquired by Cadence, and when I compared Cadence PCIe
+> controller registers and PCIe controller registers in A37xx functional
+> specification there were large overlap. For me it looked like new
+> Cadence PCIe controller is an evolution (or new version) of what is in
+> A37xx. So this was some confirmation of my theory. Linux kernel has
+> separate driver for PCIe controller from Cadence and for refactoring
+> there were ideas to merge these two drivers... But there were more
+> important things, fix issues related to A37xx PCIe, lot of changes
+> which address these issues were sent to the list but they were not
+> taken. I do not think that it makes sense to do refactoring or doing any
+> other changes before addressing any existing issues with these
+> drivers (like PCIe card is not working correctly).
+> 
+> There are reported more HW erratas for this PCIe controller which needs
+> to be addressed in the software (meaning in Linux kernel) to make PCIe
+> card working properly. And there are more design HW decision which needs
+> does not conform to the PCIe specification and those deviations needs to
+> be "fixed" or "adjusted" in software (meaning in pci-aardvark.c driver)
+> to make PCI/PCIe compatible drivers to work correctly.
+> 
+> Now about GEN3. From register allocation it looks like that PCIe IP
+> supports GEN3. A37xx does not support it (or at least officially). This
+> does not mean that there cannot be some SoC with this "aardvark" PCIe IP
+> that is GEN3 capable. Just we see that such SoC is not supported by Linux.
+> Also as the comment in above code says, by default the speed is reported
+> as 8.0 GT/s, so changing it to 5.0 GT/s or 2.5 GT/s is needed as so code
+> some parts of GEN3 code in the driver is needed.
+> 
+> Does it makes sense to remove it? Does it makes sense to spend time on
+> such thing which does not address any existing issue? For me not.
+> Because it does not fix any _real_ issue with existing PCIe cards. And
+> for refactoring it is better to merge drivers as explained above and
+> IIRC cadence driver has HW on which is GEN3 used.
+> 
+> Now about your change. If you are sure that pcie_wait_after_link_train()
+> function is noop for pcie->link_gen == 2 || pcie->link_gen == 1 then go
+> ahead, I have no objects. I have not looked deeply at the change. I just
+> spotted some change which is touching timing critical code path which
+> was problematic in the past and broke many wifi cards. So I'm really
+> careful to prevent breaking Linux support again.
+> 
+
+Hi Pali,
+
+This condition, pcie->link_gen == 2 || pcie->link_gen == 1, will have no 
+effect.
+
+
+Best regards,
+Hans
+
+> As maintainers decided to not take any new changes from me for this
+> driver, I have no motivation to prepare any new changes. I will rather
+> spend my free time on something which will make sense and not be wasting
+> of my free time.
+>
+
 
