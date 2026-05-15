@@ -4,136 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6727BCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 13:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 116B5CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 13:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQVeOWx7iw5YJp6VsO++lGZtHEAOIMcxlHFpSrd7isQ=; b=25hPWEgXHKgiUGVo+YjxoN+9/P
-	pjrOwwnbSpUDBHcsFKDcrgyGxP/g31Pk3WTO4/hbTRO744+S5jm8aVclgzRLY6msn62TrOuCzMb2F
-	+Pw6ZEg9j8ACOah30GqNP7QN1sYVy3x6jWcNK0Xq4l0XjayFYMMx/LZwbzoCFMkW0kslO+6EwY19V
-	MWgKDHVNQGVrAh1Xnws2X0xdD7dTlvwv0ovtK0LnQgRf36CE/Kr8B0m4MJ9lpq6/362nqEjIJttAJ
-	8t9YDayL+reOFj6l3jpd57dhHhDxTy3v/7xex5Of57CVPCpID/tHiOo20ouRaa+rifXsz8GVAQ1N2
-	mgXIMYwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d7sJIQD9tWQIe4BdjnAe96u8pxDyEGA325KU5uwZDdI=; b=MuMF+UlvwTMOc3nt9Dht/G1V9B
+	90y2exMhpIrsDoraFySoVm+CuhvftPSZLjBHoen7z0TQzKfArwOeCuGiGl8pbAcQUs8xV9vEeg/34
+	KUdj5jHPAMWQa80DXwVE6JUdvxQGJZuoz7XWHrigiQsZCcBhBrm7kuc078mpGBb5UN7zwl6NPnXBv
+	29xKfGPfBRYq8tc0Gnz7ju3od8CK8rg6LwwAa9Hv19y2fTmWm7nFFxmtuEdBenqEN/M7kLmrjdk4h
+	yiyzKifYihb36Fhg3yZ01kf5Xlg70+74Yix0y/IjE6ifDC72vRHmRa/+JerMrzZEgEQYAwoDjqXQQ
+	wtkT6gUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNsvD-00000008UJb-0SPG;
-	Fri, 15 May 2026 13:49:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wNszo-00000008V3E-404u;
+	Fri, 15 May 2026 13:54:32 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNsvB-00000008UIz-21ta
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 May 2026 13:49:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=eQVeOWx7iw5YJp6VsO++lGZtHEAOIMcxlHFpSrd7isQ=; b=h0as5AmdwPA+/7pnCDPC4Y5dqM
-	Pq7Jzc4UnPYzzNywK94UMn/8q0Jq2Z+puSJipY61PipC/XcHwiqEjiEBAfDBXBOOkeXNc9MDB7odI
-	0PTv5SwBRMUTwDZTWIFx844hKeSgx2K3oRcyISZM7/GO+85Tjc22DUc84LV5BFPRR+vGMmI+bJtWe
-	Y+Nibk21T41A3JO7GY5IchnSLpZHQAVuBBHIp8z3c/N9d955kQPzVlGRdjx8Q4LpSRSav4NTGL+cY
-	aW7HtZsBTysLGrAj9fzxr0IY4byrmDI/sy8I+gnsTUhI8tXKIHlRYNdxRv+SqimKXWGHOOEnNq0HG
-	4WSCKRQg==;
-Received: from mail-centralusazon11011020.outbound.protection.outlook.com ([52.101.62.20] helo=DM5PR21CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNsv7-00000005LmA-29oI
+	id 1wNszm-00000008V2W-2mzC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 13:49:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Lvh1O/vGQItM/nN0qyQfkLu3xkhLH84cJ5DCA2391bmQ17LxtRWoM47AV2mCYVGuoDnUhrkyJIjVoAWefVFCDAltZFZ61BeUhm478s5kwexgMAyYxxlkFCdHx+TzEgSxHsCQMBMDN+ou7Oh3sG3YC+aTR81mI3bbHi1TZqSb8LIMX8pk6gZAY6/QoxIgNic861XkDoFq8QOIoaIqeqrLx2UEyFwuBJ2xtIhHtxqkas7wc6hGQ/LNhBBYxdDrsSbLWZGoVnbgcK185oC5wILJOWkTdBY+3YrHE+hzb12ts6Rh4apDQzhoIjCS1I6D3THwks789stj7R0kKaT6FIDMrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eQVeOWx7iw5YJp6VsO++lGZtHEAOIMcxlHFpSrd7isQ=;
- b=KAxFMW+8rmMYticEW4UsQSjJAl8ZhTztNzh0fb4xkzN+WAOXAA8TPokzA6jn1f5L/ELooxSCDCqTkTtE1qfbIMRD2PJOoJMTwbrWof+bk0QZolfPuAaLL6uD6vGnsDJf/2zIEtAE6BIstFuePJ91OWPxqV9/W1aYZgn84P4eUToE98ENea1WF8nPtKecZw5iBeCiI2vWKdOUlmevZ1QZiL5YEFgPUbM3XGC/zMl3SkrFT9XeH/t5AuR08QDkKy6DCh48yAiN90vPldbp+i4Cpg6s98BqTSgi09pA7HwRSA+KhA0Idhda+Vw0x9DpijByzllJob4QeQXnIyVoolJBUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eQVeOWx7iw5YJp6VsO++lGZtHEAOIMcxlHFpSrd7isQ=;
- b=muZNrvA3w9DLB/Bl/R9gdDsmUonRhnYmokkcbRoq3eMoQQKIv7yyG0aca1zcxIP64D0y9lD+inGXxOfpzbCYkOMLtoQr9pLRnEq2XIbwFmeDhdAVP4wSNszHZW6AmA2BuX/h6upK9e+koiERJgkbygTnZz+KDfpW4KoMIqy3r3Q=
-Received: from DS7PR05CA0094.namprd05.prod.outlook.com (2603:10b6:8:56::11) by
- MW5PR10MB5762.namprd10.prod.outlook.com (2603:10b6:303:19b::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Fri, 15 May
- 2026 13:49:34 +0000
-Received: from CY4PEPF0000EDD2.namprd03.prod.outlook.com
- (2603:10b6:8:56:cafe::4) by DS7PR05CA0094.outlook.office365.com
- (2603:10b6:8:56::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.21 via Frontend Transport; Fri, 15
- May 2026 13:49:34 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CY4PEPF0000EDD2.mail.protection.outlook.com (10.167.241.198) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Fri, 15 May 2026 13:49:32 +0000
-Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 15 May
- 2026 08:49:25 -0500
-Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 15 May
- 2026 08:49:25 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 15 May 2026 08:49:25 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64FDnPjo351833;
-	Fri, 15 May 2026 08:49:25 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Francesco Dolcini <francesco@dolcini.it>,
-	Vitor Soares <ivitro@gmail.com>
-CC: Nishanth Menon <nm@ti.com>, Vitor Soares <vitor.soares@toradex.com>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1] arm64: dts: ti: k3-am62-verdin: Add DSI to HDMI adapter overlay
-Date: Fri, 15 May 2026 08:49:19 -0500
-Message-ID: <177885293435.150913.7857351307778264255.b4-ty@b4>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20260506143427.348806-2-ivitro@gmail.com>
-References: <20260506143427.348806-2-ivitro@gmail.com>
+	Fri, 15 May 2026 13:54:31 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-91080895355so294552085a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 06:54:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1778853269; x=1779458069; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=d7sJIQD9tWQIe4BdjnAe96u8pxDyEGA325KU5uwZDdI=;
+        b=VfKiIL1LGDOvfHLhzmMN2DiMFog6XBx8lw+zbp3OrSRqgfunkjgLq9YTknTHfOKzho
+         LZI2cpuSxMCCkEck8IDzHdt/jnhT9AHAhDVpQZ1w5jkBv0OwkKvXCdoAgdfO5GtSzwpF
+         abHk1tZIRJdRzep+CxxMPEddnIydtLZvbVHS/WCrboG4oI2qQSSYMsBnTfZf8z7C/p9F
+         p8k2KiJ0BQjZ97Wq//DQAHwn63VzVQ/yH9/xZy8WU/2CnDiZJGnFpy2m5u9QBjk56DGs
+         EeDkGK9uUKPjg8i2hEDCuyO0l0nMhuHYfUuMZn/XQsj3yQj0uCjpOMIciy5H1oJdeTb/
+         Q1Yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778853269; x=1779458069;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=d7sJIQD9tWQIe4BdjnAe96u8pxDyEGA325KU5uwZDdI=;
+        b=PMBUUkh2IW4D0BvfVnGqQ1PhHuVyTyK0D9efZZx9qkB9P/VYaHT9RngigCL/oKzM1J
+         oFrkdIksCwMJTOFeOx8aHi/geElwSQu8MKQa/7/DhgtYBc14OktWPKAKdGUO8FNK2VbZ
+         ga9CyZoYjChkkGS1igr5QMssEQtRgQDViOz62EkANP3tic0AZN8YsMx8OD0KWyfVTqZe
+         7Nx1VtrXQ0E2ehxdBLD3VBNwtJTLAEGrG++5/QPJJ1K/8Pk/pSWABFLcwAkH3xTaQM1q
+         6+rI6L2IUMozd7sPXUNM9pyV/Wo5E0SJm/lGfET3AVCUGHFQp+B61asqQCHv7QoUKOJD
+         MCFA==
+X-Forwarded-Encrypted: i=1; AFNElJ84RcYzaqEzj6wPXBg8rGqbnynzTRhCfS4CLcIZnT6kXvheMBGjqP97oHVgpAcLCXLSYpUQU1soP0ogHehj9lod@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9qDMWH4kkX7Em2j2DnD5p6JU5fNSzV8wIDI5mey2UJwxVU69q
+	VAV1fIQR1o8OW9OSEdRKXgUKSMqHRCQJMXq5cnCS4oIwFHwElk6ixLCePcq0+xLTngo=
+X-Gm-Gg: Acq92OGsIaF+Fsx3GFafe8V7gGEYgNwFO3TdpXABmawDZVqLnigVgcjEHyWcix+XRvS
+	FyhQRKH8o6TKF7SiTYtqbg6JJ+HjnuBr4VA2e3r7DfJZH8xMuAID1dtGmeV5tEfXF6ZeO5kS92n
+	rAwF/wj/OkkUVSg2mEa+Zew7lwLuNyCEu+4pR/LcK/+c/0S4E2zi0/wS41LAm9kBcDwc93iKM/0
+	/M/ybW3pw//EHfVfiJCAgZX+7wylkaWFtD8u5mloBZwI2g1o4cBEhiQK6O4rTN0vBfVA/p5AFvb
+	6CqyAeX7qrP68xpS5P13b3uI6LlDhRtKuQnqMgxqJfv9YZ+hRjYa2673HDgNUFKySnUsBu6hD+x
+	8VGhNGaCyZ0FXqhn7Y1QoQVvrBODEKvnLkSMBrOEL5bS+XSD8QW+QZ5CArTTFgdExzwYwb2LUI6
+	3XJTWVgWhMqNUfp+O6k/Kv/u4/yJrJuV1SugtGycr3JViafjbdC4UFQz5OZG4ZC8TzxzU+gsx3Z
+	7tE/+m62udiVygqIl6poKi10Sw=
+X-Received: by 2002:a05:620a:7116:b0:8db:7315:706c with SMTP id af79cd13be357-911d0f4a568mr660861285a.59.1778853269479;
+        Fri, 15 May 2026 06:54:29 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-910bae24879sm589818085a.18.2026.05.15.06.54.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 May 2026 06:54:28 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wNszk-00000007TGH-1wJJ;
+	Fri, 15 May 2026 10:54:28 -0300
+Date: Fri, 15 May 2026 10:54:28 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, robin.murphy@arm.com, will@kernel.org,
+	joro@8bytes.org
+Subject: Re: [PATCH 2/3] iommu/io-pgtable-arm: Rework to use the iommu-pages
+ API
+Message-ID: <20260515135428.GG7702@ziepe.ca>
+References: <20260513215203.3852661-1-smostafa@google.com>
+ <20260513215203.3852661-3-smostafa@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD2:EE_|MW5PR10MB5762:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7a4c672a-658f-497a-85b8-08deb288cb50
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|7416014|3023799003|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: k4QlSEx+IGaYgg4brH/uCTXEaqlZYngG9IwHIs5JzUQi5NFlJlGTnCPrRDQiNQ6ldDFXhUOIRsIRl2ZhfZRBZHWplleh5w0ELGHA0hzDmSIsTaz9Q90w4oIViWMfHZD2pGmJ5oceJpfSmddRxvwZb2ixBCKutrBiLlYij6gfzerJy9xbx7Utp3EecRpo2wkaI4q329Haw8EkS4ZLdEZogBD6VMuPiUhGDMP7JmLhBvKr9onfiYmOGYPggF0sTtQ8W+BsesOOKR2HnagawGQaG45GS/3+N/b6BJzrhQCuccdTyUnYn9kCIHHrz1PgxVEUOliQtI2NGl6jRhopFrMjzJs+lwY1tXtctk7m59zWvCLwPUDoAQG/phJv1BZU4xkebUfzYQcIdQ0cnQwg4B4lGClu65BCJXFfNabpchvVk0dMyMYAKZmHKln2ZxTnPJv0HWaI095fN+p5ajJ8wpsS8mIjgrbpPITYxOUqBxh9WoelHWb890vGP+KRcfUsTndzZllWPGXeEZiNQRKFtMkm8KOtSgosaigGWaCqloGCc4uDq9CRbWGc2giSrFuFPgeTarrxpeofZmFCQpjItAEPtzvYTdsSk2zSiFkP7t4NjqTWpoBAFxaKLwD6HM7FNFB76YaaV4x0qXFpHc/9CEQS+ev2s7Ov3XNJ/3v3RF2XjsoCwEn01liW5GpoytdmgwNiEPcUcYM8aQ2m7yHPLpk14RTUEKAic4hFmRmQ/ccxvXs=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(7416014)(3023799003)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 4ksiVClnMbaWOS2yAxFVXBCZyeiynkCEIczGncwLNO3r+LHsjmbUuhXnDeI0cejLknqNUWdy3hme1r1tHItTEAUOHEOMPE58yRQiqJeFvMOFhz6mXoUwdz4uyRBNTZfVjKMPAjap6wWZz5Abh6A9H6dYsueledJAzB1NwdIjk8TzxORCcsmp0sDgh61CSdmS2M/t43aR3IMF31N9NV6sbjJSFY4+IGp4hp1/ehgpv+/3KyWY0O6w4Q9bPa4J226sAGczzP1t3yQHn490ROABJmv1gVXAq+JV5Q9w/osncHg5abKDiQcC+CKkGmUClSp7hZsMLWROlrgzGlHh7KG5ZTQuL8DosSbeubqtCeUitp5xzdRIAzuI904cANuffaoezdc7s+zraE3BbMmpz0F/EcXvbEXcpVJEfecODQiiEIfQgDLFoohOtXNRZcArhbBK
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2026 13:49:32.8469
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7a4c672a-658f-497a-85b8-08deb288cb50
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD2.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR10MB5762
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260513215203.3852661-3-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_144941_962178_CE552769 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20260515_065430_713625_968DD023 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,47 +105,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vitor Soares,
-
-On Wed, 06 May 2026 15:34:26 +0100, Vitor Soares wrote:
-> Add a device-tree overlay for the Toradex DSI to HDMI Adapter, an
-> accessory that connects to the Verdin DSI_1 interface and provides a
-> full-size HDMI Type-A output. The adapter is based on the Lontium
-> LT8912B DSI-to-HDMI bridge.
+On Wed, May 13, 2026 at 09:52:02PM +0000, Mostafa Saleh wrote:
+> Update the io-pgtable-arm allocator to use the iommu-pages API.
 > 
-> The overlay is also combined with the Verdin AM62 carrier board device
-> trees to provide ready-to-use DTBs for the Dahlia and Development Board
-> carriers, in both WiFi and non-WiFi SoM variants.
+> Replace the DMA API usage from __arm_lpae_alloc_pages() with
+> iommu_pages_start_incoherent() and from __arm_lpae_free_pages() with
+> iommu_pages_free_incoherent().
 > 
-> [...]
+> Since the iommu-pages API relies on metadata stored in the struct page
+> during iommu_alloc_pages_node_sz(), it cannot be used safely with memory
+> allocated via the custom cfg->alloc (which may not be backed by pages).
+> So, isolate that logic and keep it as it.
+> 
+> Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  drivers/iommu/io-pgtable-arm.c | 79 ++++++++++++++++++++++++----------
+>  1 file changed, 56 insertions(+), 23 deletions(-)
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-[1/1] arm64: dts: ti: k3-am62-verdin: Add DSI to HDMI adapter overlay
-      commit: 48f1f6f480741f014f3774096236fff91cdcc297
+I feel the setup for incoherent walk for panthor is kind of sketchy,
+if you select incoherent walk and pass in a random GPU driver struct
+device there are alot of assumptions suddenly to know the dma API is
+doing the right thing..
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
-
+Jason
 
