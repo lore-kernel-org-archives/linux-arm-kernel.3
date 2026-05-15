@@ -4,74 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655B8CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 00:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F097FCD4F39
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 01:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DPlLXz0Gi7CqHPT1NLnWDqwIMSLmTM9cbGxCEnUy2oE=; b=pxwTmRVmeolQazXzQQFTxGxDlQ
-	2jisjJ2WlhpckrHfbkWbyZp8IR1Qk+pvPxLzBxayiO4eqLdLVC9W5+ByMkERJWSs/zyGGOAuoqYdU
-	adUV59Isg+7xBbj9NwZxSH78PTe2QvrJSH8A6VvJ18s5eNLcyzJ2Tpiu+BGoxWQLzMotsIhX5E8Uy
-	B0TMCLGJL0O6ZUkCNd2SH2PlochKEd5SPz7uEzybwXhvYeGXqQpF4NLTpjuTs5lRx+GHeQPQtewhk
-	okZ0aqdOayFdRMNGdnnZ6LZaNM0L4QZ0+6XtiYnPHmtI21501DZC/k/WElHPExlSSfMIUyK4kdRhG
-	MTBvUSyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=aDuylUwBvTWIWpNHqrWWz6jS9i+377i0dWDApU2/2Ak=; b=Bu6kdKD8dwcNh0
+	DHv9RWRjTqPm3xp9tNY3uI2SQ0yojfNJ7DhsGtpdH2rORQon5WVyCwdv+IwBA/4ONWACzaIdBjm6y
+	q6ZfXtnLegLhnhns+MXlBurXobmRkHAL/vi82THUYdxSNSoL389X3jR/6VhR5oXwcCVeCkFw4BLBH
+	gzDFJrx1TWgqIgVUfqgrPzHN675fYsJJsmBMxzI6+mH6GekskPAsayVmFTUm0fTDwvg/vbuqOMsC3
+	ukOg0CbcWtgBdDT68h85zgatnFpMoZp+pw5q6l6oQQDe0DbQuVsldZrOgReujsHQlqrGgsYwVr+li
+	Zb+aCB0Bei6WWz1Q6wxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNgQ0-00000006uyR-20zY;
-	Fri, 15 May 2026 00:28:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wNhBB-00000006zNR-1jKU;
+	Fri, 15 May 2026 01:17:29 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNgPx-00000006uxs-2BT6;
-	Fri, 15 May 2026 00:28:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D861044301;
-	Fri, 15 May 2026 00:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24972C2BCB3;
-	Fri, 15 May 2026 00:28:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778804920;
-	bh=1pZiWvBhnqpkHnvABTbPJV3MrqThd/XnMjqELMyQAfk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gDZopiaXEuLmbxRVtu2LNZBW8ZsvcPy0oNkp+Sw2hi05Y+eATPkT0ax3t/rkKz1gV
-	 8sZ26tsyVqPB2tGkdcea9zSEsCh74+BTGl/b2UGintZqO/9GHoeAe4SDMJpqi4l49S
-	 maTiw9VeGOHgeayLdwfRrgvLneG4C0RmisI2JKZRSVH4i/7HVjWr/TaVhaQiMXDbEh
-	 E4O+ZrYzW0IFwdAXnMRYmofaJtYCAxObDvuVrAObK6OO2nBFqPpE3dUirDK2na9W15
-	 JhymhkelrgSjLaTNGj4Zw8c+PGan8coxx4/gR4Jkl6PWrP/aaSrAL6Rt2jnlC7NKHZ
-	 qyZpUCYkoeOCw==
-Date: Thu, 14 May 2026 21:28:37 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: adrian.hunter@intel.com, dapeng1.mi@linux.intel.com,
-	james.clark@linaro.org, namhyung@kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Li Guan <guanli.oerv@isrc.iscas.ac.cn>, 9erthalion6@gmail.com,
-	alex@ghiti.fr, alexander.shishkin@linux.intel.com,
-	andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
-	atrajeev@linux.ibm.com, howardchu95@gmail.com,
-	john.g.garry@oracle.com, jolsa@kernel.org, leo.yan@linux.dev,
-	libunwind-devel@nongnu.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org, mingo@redhat.com,
-	palmer@dabbelt.com, peterz@infradead.org, pjw@kernel.org,
-	shimin.guo@skydio.com, tglozar@redhat.com, tmricht@linux.ibm.com,
-	will@kernel.org
-Subject: Re: [PATCH v5 0/7] perf libunwind multiple remote support
-Message-ID: <agZotfb5C06VIcEd@x1>
-References: <20260413024805.1316480-1-irogers@google.com>
- <20260513233151.572332-1-irogers@google.com>
- <CAP-5=fW6S1XzZvq=kWj6ma=O1UCDrVV3ZNbzK0fMS_ho6e1qVg@mail.gmail.com>
- <agZiS2-fY49MjsY6@x1>
+	id 1wNhB8-00000006zMn-0U3X
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 May 2026 01:17:27 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c69:1da4:3c70:f102:9ea:5df7])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3B7B763C;
+	Fri, 15 May 2026 03:17:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1778807833;
+	bh=SBhtUk5LxStn9uFGuOs1Bm4gzHoDQePMv+PnFCWJ4RY=;
+	h=From:Subject:Date:To:Cc:From;
+	b=VhKyTsrfHKzmNBpoTCdjkj3IibBSzGlxDe1e0xi4dkzIvXupaijM7Gwi6jAakP939
+	 uW4QXzdZRVTYM7Y0zoDByDH+sCEVx3iqAqu5l6W8F6SQtFyCCdZ5n3gzAFQnnGBZZI
+	 sfyMWu4jKp0Qb+3WonLWazOqNITHUAtJdAMDTgmg=
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Subject: [PATCH v2 0/4] arm64: dts: ti: BeagleY-AI camera overlays
+Date: Fri, 15 May 2026 06:46:35 +0530
+Message-Id: <20260515-beagley-cameras-v2-0-f6acb66c9995@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <agZiS2-fY49MjsY6@x1>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNyw6DIBBFf8XMujSAQh+r/kfjYoRRJ6lioCE1x
+ n8vdd/lOck9d4NEkSnBvdogUubEYS6gTxW4EeeBBPvCoKW20qhGdITDi1bhcKKISWjlyOLtipd
+ eQVktkXr+HMVnW3jk9A5xPQ6y+tn/rayEFMbVRsrOYFPbB3vCFOYuYPRnFyZo933/AhO0Sti1A
+ AAA
+X-Change-ID: 20260514-beagley-cameras-21ce6a98a7f1
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Robert Nelson <robertcnelson@gmail.com>, Andrew Davis <afd@ti.com>, 
+ Devarsh Thakkar <devarsht@ti.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Jai Luthra <jai.luthra@ideasonboard.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1402;
+ i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
+ bh=SBhtUk5LxStn9uFGuOs1Bm4gzHoDQePMv+PnFCWJ4RY=;
+ b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBqBnQCZXKMi58q2DFuN5EE8FDoGtu4TVgM2YT1G
+ 0KYMxGFKxmJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCagZ0AgAKCRBD3pH5JJpx
+ RewbD/9wSG+iuYpObc8Nycwy0qPw3c7N8yQimTzRFb50QUXJl/eS+JKg2hgpfNU87w9gxiG4pDP
+ dPGKCdvF3FGXAozPpzhdofC1kPg4wQgd71yeA1gnrP4n99wKv05PgS7lHjBQJBGx9addBzQVVvO
+ /bNkxgXUEZ0x4lYAq+CBXi4WLXzsbsQJsT1DGIZBJST2qXF4+u4v/dB0PV1E0YZQR1ki9MFPLlt
+ dqhi5L3hmp67m56EcMqHkoxwVODj54DktoNQ/qj4QiTO2BYS+aqFHmFnG9Pa7/9TRV4cHn+CrCy
+ 3JLpUE+BJkgXMWxtsqc6aU35AHSDuCqE7St/DoQFDlkFeISSNA9thrUxRhvQJsxPswXjX+/96dZ
+ 1GPbaUV//LHXnjx4VVqps8QFGx4lsXW40HswW79LBQIiunIgwvYY3wgHqHwPxQ2M8opKtcjUUvb
+ G/hmYBGHJdXxZbFdu+fdf2Uh09eCmN9LCjG+kVvxCo9qfKAGQTp8IN/SbqEPxHUjH3L41g4ClAd
+ xraFseC8/NO2MHnng2ff/SzJkVHv6nOThVLLEwShVrQtfk8e0kyEQxGoike/TKxdNZ0OdS9EUUp
+ 8PQmlqqBFsKKeRFOEZ7+pdK9k5V900y06/acMZ+PTLrmeHagt61StmsfLEL39cKkqWazA1SuU3s
+ j6J60IOrEohur3w==
+X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
+ fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_172841_600250_F89E0CEF 
-X-CRM114-Status: GOOD (  27.50  )
+X-CRM114-CacheID: sfid-20260514_181726_303954_9E52BF86 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +94,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 09:01:18PM -0300, Arnaldo Carvalho de Melo wrote:
-> On Thu, May 14, 2026 at 09:51:09AM -0700, Ian Rogers wrote:
-> > On Wed, May 13, 2026 at 4:32 PM Ian Rogers <irogers@google.com> wrote:
-> > > Fix the libunwind build for when libdw and libunwind are feature
-> > > detected, currently failing with a duplicate symbol.
-> > >
-> > > Refactor the libunwind support so that whenever a remote target is
-> > > available, perf functions using the ELF machine can use that remote
-> > > target regardless of what the host/local machine is. Migrate existing
-> > > libunwind supported architectures like powerpc, arm64 and loongarch so
-> > > that they can work in a cross-architecture way. Add support for
-> > > RISC-V. Make the code more regular in function names, etc. and avoid
-> > > including a C-file. This increases the lines of code. It is similar in
-> > > style to the unwind-libdw implementation. It is hoped that the more
-> > > uniform nature of the code will help with refactoring the perf
-> > > registers for SIMD/APX support.
-> > >
-> > > Aside from local host testing these patches are under tested, in part
-> > > as I'm failing to see how to build libunwind with support for multiple
-> > > remote targets. Please could I get help in testing.
-> > 
-> > So the patches failed to apply in Sashiko:
-> > https://sashiko.dev/#/patchset/20260513233151.572332-1-irogers%40google.com
-> > The baseline logs show perf-tools-next was at commit 8c8f20936143
-> > ("perf build: Remove NO_GTK2 build test") which is 6 patches
-> > out-of-date compared to the current tip these patches are against. I
-> > ran Sashiko locally, so I don't expect a huge amount from the reviews.
-> > Currently Sashiko is catching up with a backlog because its tokens
-> > have a lower priority and there was high load earlier in the week.
-> > Anyway, I could repost the patches for Sashiko review but given the
-> > backlog I think that would just create noise at the moment. Hopefully
-> > I can get human review so we can move forward with merging these
-> > improvements.
-> 
-> Trying to apply it now, will also run sashiko locally.
+This series adds support for using RPi V2 camera module through the
+22-pin CSI connectors present on BeagleY-AI.
 
-Its in perf-tools-next tmp.perf-tools-next,
+The first two patches add support for I2C-2 (used by CSI0) and setup the
+DSI0/CSI1 mux (used by CSI1) in the board devicetree.
 
-Running build tests now and will let sashiko running locally, probably
-will push out tomorrow morning if nothing major is reported.
+Next two patches add two DT overlays, for CSI0 and CSI1 respectively.
 
-To make progress I think we can go on addressing some Sashiko reviews
-with followup series otherwise it drags for a long time.
+Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
+---
+Changes in v2:
+- Use PIN_OUTPUT for the camera reset GPIO pins (I forgot to change the
+  sysconfig generated line).
+- Link to v1: https://lore.kernel.org/r/20260514-beagley-cameras-v1-0-5c3500b5a436@ideasonboard.com
 
-- Arnaldo
+---
+Jai Luthra (4):
+      arm64: dts: ti: k3-am67a-beagley-ai: Add I2C2 pinctrl
+      arm64: dts: ti: k3-am67a-beagley-ai: Add DSI0/CSI1 mux
+      arm64: dts: ti: k3-am67a-beagley-ai: Add overlay for IMX219 on CSI0
+      arm64: dts: ti: k3-am67a-beagley-ai: Add overlay for IMX219 on CSI1
+
+ arch/arm64/boot/dts/ti/Makefile                    |   8 ++
+ .../dts/ti/k3-am67a-beagley-ai-csi0-imx219.dtso    | 121 +++++++++++++++++++++
+ .../dts/ti/k3-am67a-beagley-ai-csi1-imx219.dtso    | 121 +++++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts     |  27 +++++
+ 4 files changed, 277 insertions(+)
+---
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+change-id: 20260514-beagley-cameras-21ce6a98a7f1
+
+Best regards,
+-- 
+Jai Luthra <jai.luthra@ideasonboard.com>
+
 
