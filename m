@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2243CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 13:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63500CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 13:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1O3Uv9ZACqlT1DjzNL55O3hGy5mm/f60RLVWQ8N0rvQ=; b=QklcrA0vayw6RXTPTQYFBL/81f
-	oR/rzzmBe+Nax7w3HOQ95HKrygZL/ZdlQygxjaKQ4uFd5I0X9oW+HrJnUO7gmjeEor83w4IqIWkiE
-	FBLBnDK9/QX6AJDZY10vp6NPbrfqJzzmlIONGD2ZyU51EKQ4CKBVPtBbBDkveLgdkSRkDW/EROTsC
-	if2SwysuhJ48glNFgxT4alvWrbDKqmP6cGvPteUplFZh9W0Cxj2A1a2ViPSpat251ajXGNhTWQk67
-	b5OHOfsyh9p5mF2BqgGm1XfG5zxjVf5oI0SOGxYzfcqSDwAjfzrlDaaWlznkFCr1eGmLC0qNMjemx
-	2BdYZ+uQ==;
+	bh=VyTIEquFqFfuHxV6IhHCBxuRdbr+JpQQcmqbOA5i2Bk=; b=XCtCuE/gKj5lGqYoI5gRIZE9nU
+	o5lCkNbdMow3HQvYU883WXvfN5qzcZ0vmW6AZZw4E+vGIhh4OCY0flSSbKzPx3ueu/hIwa+x3NpIQ
+	LS21pPc7e1+NtpLvbpwfQZ20HPXg9g7SgjXhC84icWKu/2DfRMNiElutaapb75VQE6bvYTrl+defe
+	lLiOrcbwQEWV75s54otVPpi+oiBQ0CGHLcH7zwSIEPoUrokFBqtY1GuyUfbSOmUiurWkniPTPCBSi
+	00N30Xk54QZtrNGeKK4UN1u0G3PLlKKlufE21w+EEvq56OQvYARr+A09i2yU4mxoNslnSM2H0xGBY
+	6VqRtG/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNsN0-00000008Q4J-2bu5;
-	Fri, 15 May 2026 13:14:26 +0000
+	id 1wNsOf-00000008QIF-3j33;
+	Fri, 15 May 2026 13:16:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNsMz-00000008Q3w-0Fnw
+	id 1wNsOe-00000008QI2-2Oz7
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 May 2026 13:14:25 +0000
+	Fri, 15 May 2026 13:16:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=1O3Uv9ZACqlT1DjzNL55O3hGy5mm/f60RLVWQ8N0rvQ=; b=BxIdPsImr6pCnRslwzJHklPZpc
-	zSqmE9zCz+W7Gk2rOQNBra1LZKTLAsUrFdgDoBPdW4iiWOHYS1z0SQHsjHxN6X7Pxge4dAYM9wcPk
-	/UiP7FwTx18CthBjYoApmI+PRjaGdZpEjZJFCDEMYWVOdNgUEeIc/UzH/t4rFWPiGXS3WjZClcWEL
-	MkB5G59BPKmPh0CbR0rgWSieEgYDv40Z4IzVisWu+d2Uj3pjH5X6x9Y93Ufg4RRM60XMLJ21nNsIq
-	ZPIIxUB2X+ERf8iaDY98owAMwT5qtsNa8/O95JC6E4txqi/bG2Y30e7iOjTIdbbAHZbqqOONnsaTy
-	RWsWp5Ug==;
+	bh=VyTIEquFqFfuHxV6IhHCBxuRdbr+JpQQcmqbOA5i2Bk=; b=jFRx5098Tl4L/dHdnxGM6vmF0z
+	KGJPE5XlL7JEtwxNo8YM/g+vSvZ7a2grZiI72++ZikZSSxaleOruL+M7Ms4Kosft6cgZm0g0TrfxM
+	y4ND4z5OvxRMJI5HJHIKWoPRGkIGpI2a7JTAKmlwTccYxGBER1+GytqM6krc8GtQdtHoszGfWW9nr
+	5JFcM104zzc4ti0V1cMbbTKWB7u0OE2U5dg6qUpVLbsR+5LFtHpEMq6q8FTZZLbnRXgU1CGresA+g
+	Odm0Dy4lt+XSkWffHILJdK1lWJ22r5ScIB0bYKtrhNpiGtpi8SznhDnzCl99T+yB26MT8ZYkA7FDu
+	2Y9DKAMA==;
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNsMw-00000005GqZ-0YAJ
+	id 1wNsOb-00000005H5G-2GM1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 13:14:24 +0000
+	Fri, 15 May 2026 13:16:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=1O3Uv9ZACqlT1DjzNL55O3hGy5mm/f60RLVWQ8N0rvQ=; b=GDb9KE3dc8qmyI0VEzFmQ754UX
-	AhMwsKMwKCOBjsy2MY+59KnOdLreZtA9w1qLHxsKCSSQuVtbXRKdfyj0QKkD5afAtyMA0LK3ObL30
-	qlfGJTJDYfLT+pMTnzVEQDLgvaRPUTslm1VeNk6uhfDBBAjuw/n940U/2W8iRDykFW8w=;
+	bh=VyTIEquFqFfuHxV6IhHCBxuRdbr+JpQQcmqbOA5i2Bk=; b=TCaEaAwc38dS3dOtMX+BczGYmw
+	ikIewtgHwAGnezJbSgCwQygvwisD0pC84V8Akm9onuj/OrlgpTlsx3ImF/Yoef30zPM+56a0KtKXC
+	KnJVXABGqTfkNTHodAXPwli4hSUUQlCYSz/u07Zb3e5bn3aiuTEYcwZqDC+AjzLjq+gE=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1wNsMg-0034A1-U0; Fri, 15 May 2026 15:14:06 +0200
-Date: Fri, 15 May 2026 15:14:06 +0200
+	id 1wNsOb-0034By-9m; Fri, 15 May 2026 15:16:05 +0200
+Date: Fri, 15 May 2026 15:16:05 +0200
 From: Andrew Lunn <andrew@lunn.ch>
-To: =?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
-Subject: Re: Re: [PATCH net v1 1/2] dt-bindings: ethernet: eswin: refine
- delay model and HSP register description
-Message-ID: <0581dba0-c500-4a21-935f-9324692fce78@lunn.ch>
-References: <20260507083037.152-1-lizhi2@eswincomputing.com>
- <20260507083136.175-1-lizhi2@eswincomputing.com>
- <2436c6e9-4aad-4ffd-9fef-0cbbe38dc66d@lunn.ch>
- <29bee81.8323.19e2a8bf746.Coremail.lizhi2@eswincomputing.com>
+To: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+Cc: brgl@kernel.org, andi.shyti@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH] i2c: davinci: fix division by zero on missing
+ clock-frequency
+Message-ID: <c67aa3e3-b995-47b8-958a-d655447b59ec@lunn.ch>
+References: <20260514103740.5416-1-chaitanya.msabnis@gmail.com>
+ <1ce483f8-1d9a-40c3-a45e-6ca536010b20@lunn.ch>
+ <CABjkosFHLErOziCrYhJJxtpMg01t36LqAfr-zz1wE4HSZhfzFA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <29bee81.8323.19e2a8bf746.Coremail.lizhi2@eswincomputing.com>
+In-Reply-To: <CABjkosFHLErOziCrYhJJxtpMg01t36LqAfr-zz1wE4HSZhfzFA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_141422_531361_EF3EB193 
-X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-CacheID: sfid-20260515_141606_010243_7F84C344 
+X-CRM114-Status: UNSURE (   9.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,11 +87,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> This will help determine whether this change should remain in the net
-> series or be moved to a follow-up net-next series.
+On Fri, May 15, 2026 at 02:12:43PM +0530, Chaitanya Sabnis wrote:
+> Hi Andrew,
+> 
+> That makes complete sense. Updating the macro to Hz is a much cleaner
+> approach and aligns perfectly with the expected unit of the device
+> tree property.
+> 
+> I have track down the original commit for the Fixes: tag and send out a v2.
+> 
+> Thanks for the review!
 
-net-next. It does not fix anything which is broken, and bothers
-people.
+Please don't top post on mailing lists.
 
-	  Andrew
+       Andrew
 
