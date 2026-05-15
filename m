@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BEB9CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 09:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBBB7CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 09:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qVLuPSwVempVOh4OjB6BMpRx1NMTNlQPkqfhkemv5r0=; b=SA0w4JroV0u5uWJoURRzRSQlCY
-	5PbV77I1uEY703vK9vvgdr6dwdQFcoBeasSlRLObb6YBjEGmm9PrQUnBOs/chunhuAN4HtumghjtP
-	lNhgK976a6QzM2PpG+pVKgLVrYYE+m8Cz+Iowp3vrDFpeqkuBvIPmtlV4y7DfCUBFRd1orjquOhGi
-	h05nnPIRGz05e6nMnACJLiPDiBjf+LIh3AY0s1Uk1TDgIrOZGb6JD/W/XNyq7DGsJKDaRovKZc39X
-	QZPnIjUPAiw+V00iTBrTUYdziJ2CgnAmAzlEkxCbvIXFXGYZspQD83UuSsZJd6CeED4Lm26HhUSHp
-	zKE1U1oA==;
+	bh=ppvZio4KLnzq4q/KW8MzT8nudBBCjg+lEjRqcmhEYog=; b=35IUDPnG9JeQElJyBQbtQO7JOr
+	H83lU7GyRfXyRIkb4zVb52SqBiEhJ8bL8E+mA3ZTmwcMJjYLmzHB1zGFUPSgm0G+Di0f0U5nrvgmi
+	odQqnHIODrUMYbhRNMVZRs9O172/FGjxlF+0ZUIW7z1bTjVkydAYDTdFKvgC0pUdwHYdlpeAFVFB3
+	w1wDUEiAdG93bX5l02GZTt1W33igNtjI0xVZYUCFb95PMwXzCYX87gG5eSe7q2R3D5gCetnPv0B1S
+	Tq+b8ePWu0j8ICCq3Z5BO/BXe2L4Kc2m5+XupRHnNf3mxzMFk1cNcU0snYNopzgSodjpsG5bF/AEi
+	c/Jv4rZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoaV-00000007r1n-2iI7;
-	Fri, 15 May 2026 09:12:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wNoll-00000007sAs-3KvJ;
+	Fri, 15 May 2026 09:23:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoaT-00000007r1H-21eC;
-	Fri, 15 May 2026 09:12:07 +0000
+	id 1wNolk-00000007sAI-33DS
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 May 2026 09:23:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30E0542A9B;
-	Fri, 15 May 2026 09:12:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8D50C2BCB0;
-	Fri, 15 May 2026 09:12:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A45FB60581;
+	Fri, 15 May 2026 09:23:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DC31C2BCB0;
+	Fri, 15 May 2026 09:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778836324;
-	bh=ezInJyFm/d7b/zaAGKXD/lqLjaLONJlsN86X11bWh9I=;
+	s=k20201202; t=1778837023;
+	bh=AwYB5qEle5qClbxh2ptaO9cbSszb0tZ8KAQzR3xrtPk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dLeGmsfC42LmUDWjMf22yS8ryXFBK3vitMGaWOkpBa7G1omlyYY2fM7uSiv9gkZQi
-	 z1gjt0dJl6Q9G+PdpJby27SceI9nJRtTw07Q0jbkHqik1WyMPysHoRkkbvElLPvaC+
-	 wQU3yCrKOYSBeev1ZVhMP545xJVWernWYlLBboa4xapfiDpM+AYe2DHwcCYZsbYHMX
-	 UGmDx7bj3Xvyt53FNtS2jkYjVUMVd+CnVjxc+5lmS4hEWhE7nh/i9+2WtBYFlSDJM8
-	 DNMrNPmSQqy18YShS05KIHUQ9f0kMdxTBeZTDQeH4zsVv6uQkHqpx5/D89qtE9LKFA
-	 eR/FYsG1SKqlQ==
-Date: Fri, 15 May 2026 11:12:00 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Benjamin Larsson <benjamin.larsson@genexis.eu>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v6 01/12] dt-bindings: net: airoha: Add EN7581
- ethernet-ports properties
-Message-ID: <agbjYLb3FeFSVoyb@lore-desk>
-References: <20260511-airoha-eth-multi-serdes-v6-0-c899462c4f75@kernel.org>
- <20260511-airoha-eth-multi-serdes-v6-1-c899462c4f75@kernel.org>
- <20260514140130.GA257001-robh@kernel.org>
+	b=PRiDrwmkiDtfDqKCZnBdvNM+X/X8bZozNhS51TzN2KYDyOo/tQHEoMt7oFngw4PH6
+	 TUMC1yPUQtOs7K7rhpY6lgDbOkjPKp9Hv/g+r5xSsSxMt3lJkSbyVyLTfNTZxrqkAe
+	 Fxu5HR26xnHnm2hj5w6nWSbQkvAAdT2h7I28bBYQBCYOacgflrbS4y0AVTVk9FGPzS
+	 sW/NFev843wgWvF2f/hPM1sHz4wRSK6tF3ibVnnOyIdAX5uUX+5wkmuGiVb//uajmA
+	 EeEU5MtEFelR2Eaap9WdsH1+m/sZ4m0M4lqoepoHsb/+lR6obns86zA695ElHPvs8s
+	 1uNrcvoisJQeQ==
+Date: Fri, 15 May 2026 10:23:40 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Jamie Nguyen <jamien@nvidia.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] firmware: arm_ffa: honor descriptor size in
+ PARTITION_INFO_GET_REGS
+Message-ID: <20260515-zippy-notorious-caiman-ea4ec6@sudeepholla>
+References: <20260513032800.68807-1-jamien@nvidia.com>
+ <20260513-tremendous-conscious-sunfish-06eecb@sudeepholla>
+ <5325A2E7-4987-400A-A1B2-A5C3122D88D1@nvidia.com>
+ <20260514-serious-bumblebee-of-prowess-b6bf2b@sudeepholla>
+ <5AF8DFBF-18EC-4C8A-84A0-F27298DB9BD0@nvidia.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0BJ5H8Z2afeCFdbr"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260514140130.GA257001-robh@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_021205_601152_D15FF53A 
-X-CRM114-Status: GOOD (  23.37  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5AF8DFBF-18EC-4C8A-84A0-F27298DB9BD0@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,161 +75,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, May 14, 2026 at 05:37:38PM +0000, Jamie Nguyen wrote:
+> 
+> 
+> > On May 14, 2026, at 2:16 AM, Sudeep Holla <sudeep.holla@kernel.org> wrote:
+> > 
+> > On Wed, May 13, 2026 at 07:48:05PM +0000, Jamie Nguyen wrote:
+> >> 
+> >> 
+> >>> On May 13, 2026, at 10:15 AM, Sudeep Holla <sudeep.holla@kernel.org> wrote:
+> >>> 
+> >>> On Tue, May 12, 2026 at 08:28:00PM -0700, Jamie Nguyen wrote:
+> >>>> __ffa_partition_info_get_regs() walks the response with a hardcoded
+> >>>> 24-byte stride (regs += 3) even though the SPMC tells us the actual
+> >>>> per-descriptor size via PARTITION_INFO_SZ in x2[63:48]. The size is
+> >>>> read into buf_sz and then thrown away.
+> >>>> 
+> >>>> That works while every SPMC returns the FF-A v1.1 layout, but it falls
+> >>>> apart against a v1.3 SPMC returning the 48-byte descriptor. The loop
+> >>>> strides over half a descriptor at a time and ends up parsing every
+> >>>> other entry from a slice of two adjacent ones.
+> >>>> 
+> >>>> The FF-A spec (v1.2, section 18.5) says that the producer should
+> >>>> report the descriptor size, and the consumer is supposed to stride by
+> >>>> that size and ignore any trailing fields it doesn't understand. The
+> >>>> non-REGS path (__ffa_partition_info_get) does this already, and the
+> >>>> REGS path should match.
+> >>>> 
+> >>>> Use buf_sz for the stride, and bail out with -EPROTO if the SPMC
+> >>>> reports something we can't safely walk.
+> >>>> 
+> >>> 
+> >>> Can you check if the issue is addressed in -next by:
+> >>> Commit 3974ea193840 ("firmware: arm_ffa: Bound PARTITION_INFO_GET_REGS copies")
+> >> 
+> >> Thanks for the pointer.  I tested 3974ea193840 on the same hardware
+> >> that reproduces the bug, but the descriptor-stride issue is still
+> >> present.
+> >> 
+> >> The relevant loop at the end of __ffa_partition_info_get_regs()
+> >> still has:
+> >> 
+> >> buf_sz = PARTITION_INFO_SZ(partition_info.a2);
+> >> if (buf_sz > sizeof(*buffer))
+> >> buf_sz = sizeof(*buffer);
+> >> ...
+> >> for (idx = 0; idx < nr_desc; idx++, buf++) {
+> >> ...
+> >> regs += 3;  /* bug is here */
+> >> }
+> >> 
+> >> With 48-byte descriptors the SPMC returns nr_desc = 2 per call,
+> > 
+> > Well why is the firmware sending 48byte entry when 24byte is expected.
+> 
+> We're starting to test with a v1.3 SPMC implementation.  UEFI brings
+> up its FF-A driver first and negotiates v1.3, which the SPMC then must
+> keep for the lifetime of the primary VM per DEN0077A v1.2 REL0 section
+> 13.2.2 [0]:
+> 
+>     "Once an FF-A version has been negotiated between a caller and a
+>      callee, the version may not be changed for the lifetime of the
+>      calling component.”
+> 
 
---0BJ5H8Z2afeCFdbr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I need to check the v1.3-alpha specs to understand/recall the version
+negotiations but until v1.2 and the current driver which is v1.2 we don't
+have any idea about all these new changes. But since v1.2 already has size
+of descriptor, we can and must handle that independently of this new
+version (re-)negotiation.
 
-> On Mon, May 11, 2026 at 12:49:27PM +0200, Lorenzo Bianconi wrote:
-> > EN7581 and AN7583 SoCs support connecting multiple external SerDes to G=
-DM3
-> > or GDM4 ports via a hw arbiter that manages the traffic in a TDM manner.
-> > As a result multiple net_devices can connect to the same GDM{3,4} port
-> > and there is a theoretical "1:n" relation between GDM ports and
-> > net_devices.
-> > Introduce the ethernet-port property in order to model a given net_devi=
-ce
-> > that is connected via the external arbiter to the GDM{3,4} port (that
-> > is represented by the ethernet property. Please note GDM1 or GDM2 does =
-not
-> > support the connection with the external arbiter and are represented
-> > by ethernet property.
-> >=20
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  .../devicetree/bindings/net/airoha,en7581-eth.yaml | 64 ++++++++++++++=
-+++++++-
-> >  1 file changed, 63 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-eth.ya=
-ml b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-> > index fbe2ddcdd909..642f300c0945 100644
-> > --- a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-> > +++ b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-> > @@ -130,6 +130,50 @@ patternProperties:
-> >          maximum: 4
-> >          description: GMAC port identifier
-> > =20
-> > +      '#address-cells':
-> > +        const: 1
->=20
-> blank line
-
-ack, I will fix it in v7.
-
->=20
-> > +      '#size-cells':
-> > +        const: 0
-> > +
-> > +    allOf:
-> > +      - if:
-> > +          properties:
-> > +            reg:
-> > +              contains:
-> > +                items:
-> > +                  - enum:
-> > +                      - 3
-> > +                      - 4
-> > +        then:
-> > +          properties:
-> > +            '#address-cells':
-> > +              const: 1
-> > +            '#size-cells':
-> > +              const: 0
->=20
-> Why do you have these twice? Drop this one.
-
-ack, I will fix it in v7.
-
->=20
-> > +
-> > +          patternProperties:
-> > +            "^ethernet-port@[0-5]$":
-> > +              type: object
-> > +              unevaluatedProperties: false
-> > +              $ref: ethernet-controller.yaml#
-> > +              description: External ethernet port ID available on the =
-GDM port
-> > +
-> > +              properties:
-> > +                compatible:
-> > +                  const: airoha,eth-port
-> > +
-> > +                reg:
-> > +                  maxItems: 1
->=20
-> Instead, 'maximum: 5'.
-
-ack, I will fix it in v7.
-
->=20
-> > +                  description: External ethernet port identifier
-> > +
-> > +              required:
-> > +                - reg
-> > +                - compatible
-> > +
-> > +          required:
-> > +            - "#address-cells"
-> > +            - "#size-cells"
-> > +
-> >      required:
-> >        - reg
-> >        - compatible
-> > @@ -191,9 +235,27 @@ examples:
-> >          #address-cells =3D <1>;
-> >          #size-cells =3D <0>;
-> > =20
-> > -        mac: ethernet@1 {
-> > +        mac1: ethernet@1 {
->=20
-> Just drop unused labels.
-
-ack, I will fix it in v7.
-
+-- 
 Regards,
-Lorenzo
-
->=20
-> >            compatible =3D "airoha,eth-mac";
-> >            reg =3D <1>;
-> >          };
-> > +
-> > +        mac4: ethernet@4 {
-> > +          compatible =3D "airoha,eth-mac";
-> > +          reg =3D <4>;
-> > +
-> > +          #address-cells =3D <1>;
-> > +          #size-cells =3D <0>;
-> > +
-> > +          ethernet-port@0 {
-> > +            compatible =3D "airoha,eth-port";
-> > +            reg =3D <0>;
-> > +          };
-> > +
-> > +          ethernet-port@1 {
-> > +            compatible =3D "airoha,eth-port";
-> > +            reg =3D <1>;
-> > +          };
-> > +        };
-> >        };
-> >      };
-> >=20
-> > --=20
-> > 2.54.0
-> >=20
-
---0BJ5H8Z2afeCFdbr
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCagbjYAAKCRA6cBh0uS2t
-rOXiAP44pwN0k6371R9brljGliJaHzd+jLmOlP+Fz+duEXskIwEAx58Rf002P7nU
-Tst7hPK0DwlRxEsE9KgSF4NcFS/08A8=
-=EZ9T
------END PGP SIGNATURE-----
-
---0BJ5H8Z2afeCFdbr--
+Sudeep
 
