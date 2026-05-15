@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FA6CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ECC8CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b3MZCS1HuztjJxpsFB5ujJTKzI09qa7c1GfV9lB7BII=; b=hcP7CmBBx4a9NsZPqd39aFkli1
-	S8CmgYGIXXdqy63gJJImYMedIxlF0la7NZu1WBEkLe0uF+FMEUx8N+hw8QyJCBK0VG+MauXkHQd58
-	lhZK1embSsrVHido0z70QQDRmmdcFQmuZOEKCQqWFWs5uQl2Icof8ljo977uZsydSabIFbctAPjg1
-	SBemSeChIsjfKVlhoHqlVsiKD5MTxTVLSrp4r0FFtSUQGC8uM4jwW/SU2kzQwL6yq5d5OKg4mGnbj
-	eWD/cmVywSwyUxToemIo9B61wPt1rkP9sicYIBgVLat1rhbyOZMzI64j58eXXNMKhhpXdyexQCg2w
-	aF/tWG2w==;
+	bh=WzkA232MLWZxi5NpTkMsxXaXUjDb8M2r6LvddZ8DHbY=; b=EKwaCthQ0TAjCNyhMv+u3T9IfI
+	ME+C0yUcpT22bYOZQOE4JpswfSs5RjNaBRabOiRFInyuJWBNhKlu2zHB63bIw4W7e5namTW4fMJXi
+	uN4Xs1i/qeY56Q+0utmUxySJDNzpb6GucWs8xzA7Mb0lwEFF+mxVWHBC3soFWHCt56WfD6R9hl4ve
+	euTDVm+nCeqpe2VASFn3egTIZVEkYO6qcBUBnOolAcjFuvcTJzFPiq5JHP0KocODX0uGC1CNlv6ll
+	c4y9PM3t4KmcOg1QnrdEzT8kl3hKOASod59SqssmnEdTaGt1rcDJD1O8uaNW4PZSKp0UBG2W3c7Uu
+	zOD4wx3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuYd-00000008kZx-2AEp;
+	id 1wNuYd-00000008ka9-2jh5;
 	Fri, 15 May 2026 15:34:35 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuY3-00000008jim-1rzu
+	id 1wNuY4-00000008jkZ-08CR
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 May 2026 15:33:59 +0000
+	Fri, 15 May 2026 15:34:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=b3MZCS1HuztjJxpsFB5ujJTKzI09qa7c1GfV9lB7BII=; b=iO5UrjsCK4xSLu3mZbOpvSFlqq
-	xfRU9Qq5iviqtocg/DVDM/UG7/AXG6oON3eanMHYVc2pgRNRAsMjbA1aampwwiXYq18W77XZcDBBC
-	lHn+HboIZ1pIr6jOEsUMqUuk5MJHVM1PKGpfYLfXqXevH15r6HHMKmRR3F7Oh8FY/+N+b3g5dVQIC
-	5a/zbZkKEio7XVoqj3mzFfLWUBvSszQ2UhnFnLO0kjclp7srF5S3MyLdLJLoiSf+hlmcjHoB/USvy
-	VLl06OhwHlpzCQSyLDk/tym3iFTM1OKrodToQHeYS/DYudvFg7tp1WDMA72Akfamo/b68flMIUwzN
-	rOYSMLaw==;
+	bh=WzkA232MLWZxi5NpTkMsxXaXUjDb8M2r6LvddZ8DHbY=; b=DSZOn3FjhEjtmgNW2IIF7Ak99z
+	L99RCJo/ZtGMpR2UlnOzcd/4IxzTVfqFzkywVxzkwP22UhvY+1qTM4M4z4rKjXPdYZvFDt2YG+0/N
+	PpEW487Z29tUSNvD3kTz8bxUdL/Cv5BSkP1tueKo2qMWq+db8ZSJxEUoumhfSYgMbspDGvNIOI+qL
+	1/OhU4gA+bYcPtJ6NoHFTfVvefw3dsofSlvAh9xjfMB44X9qSl6unuYcMkZhuiteCQplycki3KckF
+	uS3MFYV4No4q+MacuWqH36v1gIC/dBM6T4y8lcadDkp9VPsEdQP29A2CEhg3giBETDrJupHy02FN0
+	NAoB2T6g==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuY0-00000005a7A-0fHV
+	id 1wNuY0-00000005a7B-0lkY
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 15 May 2026 15:33:58 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wNuXL-0005OF-Sr; Fri, 15 May 2026 17:33:15 +0200
+	id 1wNuXK-0005OF-7C; Fri, 15 May 2026 17:33:14 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Fri, 15 May 2026 17:32:52 +0200
-Subject: [PATCH v6 26/28] media: rockchip: rga: disable multi-core support
+Date: Fri, 15 May 2026 17:32:51 +0200
+Subject: [PATCH v6 25/28] media: rockchip: rga: add feature flags
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260515-spu-rga3-v6-26-e547152eb9c9@pengutronix.de>
+Message-Id: <20260515-spu-rga3-v6-25-e547152eb9c9@pengutronix.de>
 References: <20260515-spu-rga3-v6-0-e547152eb9c9@pengutronix.de>
 In-Reply-To: <20260515-spu-rga3-v6-0-e547152eb9c9@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -74,8 +74,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_163356_540901_E54402F1 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20260515_163356_564519_020FD68C 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,88 +90,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Disable multi-core support in preparation of the RGA3 addition. The
-RK3588 SoC features two equal RGA3 cores. This allows scheduling of the
-work between both cores, which is not yet implemented. Until it is
-implemented avoid exposing both cores as independent video devices to
-prevent an ABI breakage when multi-core support is added.
+In preparation to the RGA3 addition add feature flags, which can limit
+the exposed feature set of the video device, like rotating or selection
+support. This is necessary as the RGA3 doesn't initially implement the
+full feature set currently exposed by the driver.
 
-This patch is copied from the Hantro driver patch to disable multi core
-support by Sebastian Reichel. See
-commit ccdeb8d57f7f ("media: hantro: Disable multicore support")
-
-Link: https://lore.kernel.org/all/20240618183816.77597-4-sebastian.reichel@collabora.com/
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
----
- drivers/media/platform/rockchip/rga/rga.c | 47 +++++++++++++++++++++++++++++++
- 1 file changed, 47 insertions(+)
 
+---
+Changes in v6:
+- Dropped selection feature, as the RGA3 also has basic support for the
+  seleciton API. Flagged by Sashiko
+  https://sashiko.dev/#/patchset/20260428-spu-rga3-v5-0-eb7f5d019d86%40pengutronix.de?part=28
+---
+ drivers/media/platform/rockchip/rga/rga-hw.c |  3 +++
+ drivers/media/platform/rockchip/rga/rga.c    | 20 ++++++++++++--------
+ drivers/media/platform/rockchip/rga/rga.h    |  6 ++++++
+ 3 files changed, 21 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+index 616ea1bc11311..be1bc8ddbd03b 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.c
++++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+@@ -602,6 +602,9 @@ const struct rga_hw rga2_hw = {
+ 	.max_height = MAX_HEIGHT,
+ 	.max_scaling_factor = MAX_SCALING_FACTOR,
+ 	.stride_alignment = 4,
++	.features = RGA_FEATURE_FLIP
++		  | RGA_FEATURE_ROTATE
++		  | RGA_FEATURE_BG_COLOR,
+ 
+ 	.setup_cmdbuf = rga_hw_setup_cmdbuf,
+ 	.start = rga_hw_start,
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 8d60e94da32d8..0152b8ef2da2f 100644
+index 1878b4e26360b..8d60e94da32d8 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -711,6 +711,49 @@ static int rga_parse_dt(struct rockchip_rga *rga)
- 	return 0;
- }
+@@ -177,17 +177,21 @@ static int rga_setup_ctrls(struct rga_ctx *ctx)
  
-+/*
-+ * Some SoCs, like RK3588 have multiple identical RGA3 cores, but the
-+ * kernel is currently missing support for multi-core handling. Exposing
-+ * separate devices for each core to userspace is bad, since that does
-+ * not allow scheduling tasks properly (and creates ABI). With this workaround
-+ * the driver will only probe for the first core and early exit for the other
-+ * cores. Once the driver gains multi-core support, the same technique
-+ * for detecting the main core can be used to cluster all cores together.
-+ */
-+static int rga_disable_multicore(struct device *dev)
-+{
-+	struct device_node *node = NULL;
-+	const char *compatible;
-+	bool is_main_core;
-+	int ret;
-+
-+	/* Intentionally ignores the fallback strings */
-+	ret = of_property_read_string(dev->of_node, "compatible", &compatible);
-+	if (ret)
-+		return ret;
-+
-+	/* The first compatible and available node found is considered the main core */
-+	do {
-+		node = of_find_compatible_node(node, NULL, compatible);
-+		if (of_device_is_available(node))
-+			break;
-+	} while (node);
-+
-+	if (!node)
-+		return -EINVAL;
-+
-+	is_main_core = (dev->of_node == node);
-+
-+	of_node_put(node);
-+
-+	if (!is_main_core) {
-+		dev_info(dev, "missing multi-core support, ignoring this instance\n");
-+		return -ENODEV;
+ 	v4l2_ctrl_handler_init(&ctx->ctrl_handler, 4);
+ 
+-	v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
+-			  V4L2_CID_HFLIP, 0, 1, 1, 0);
++	if (rga->hw->features & RGA_FEATURE_FLIP) {
++		v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
++				  V4L2_CID_HFLIP, 0, 1, 1, 0);
+ 
+-	v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
+-			  V4L2_CID_VFLIP, 0, 1, 1, 0);
++		v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
++				  V4L2_CID_VFLIP, 0, 1, 1, 0);
 +	}
-+
-+	return 0;
-+}
-+
- static int rga_probe(struct platform_device *pdev)
- {
- 	struct rockchip_rga *rga;
-@@ -721,6 +764,10 @@ static int rga_probe(struct platform_device *pdev)
- 	if (!pdev->dev.of_node)
- 		return -ENODEV;
  
-+	ret = rga_disable_multicore(&pdev->dev);
-+	if (ret)
-+		return ret;
+-	v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
+-			  V4L2_CID_ROTATE, 0, 270, 90, 0);
++	if (rga->hw->features & RGA_FEATURE_ROTATE)
++		v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
++				  V4L2_CID_ROTATE, 0, 270, 90, 0);
+ 
+-	v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
+-			  V4L2_CID_BG_COLOR, 0, 0xffffffff, 1, 0);
++	if (rga->hw->features & RGA_FEATURE_BG_COLOR)
++		v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
++				  V4L2_CID_BG_COLOR, 0, 0xffffffff, 1, 0);
+ 
+ 	if (ctx->ctrl_handler.error) {
+ 		int err = ctx->ctrl_handler.error;
+diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+index effe364a86b02..feaf40acd4ee4 100644
+--- a/drivers/media/platform/rockchip/rga/rga.h
++++ b/drivers/media/platform/rockchip/rga/rga.h
+@@ -6,6 +6,7 @@
+ #ifndef __RGA_H__
+ #define __RGA_H__
+ 
++#include <linux/bits.h>
+ #include <linux/clk.h>
+ #include <linux/platform_device.h>
+ #include <media/videobuf2-v4l2.h>
+@@ -137,6 +138,10 @@ static inline void rga_mod(struct rockchip_rga *rga, u32 reg, u32 val, u32 mask)
+ 	rga_write(rga, reg, temp);
+ };
+ 
++#define RGA_FEATURE_FLIP	BIT(0)
++#define RGA_FEATURE_ROTATE	BIT(1)
++#define RGA_FEATURE_BG_COLOR	BIT(2)
 +
- 	rga = devm_kzalloc(&pdev->dev, sizeof(*rga), GFP_KERNEL);
- 	if (!rga)
- 		return -ENOMEM;
+ struct rga_hw {
+ 	const char *card_type;
+ 	bool has_internal_iommu;
+@@ -145,6 +150,7 @@ struct rga_hw {
+ 	u32 max_width, max_height;
+ 	u8 max_scaling_factor;
+ 	u8 stride_alignment;
++	u8 features;
+ 
+ 	void (*setup_cmdbuf)(struct rga_ctx *ctx);
+ 	void (*start)(struct rockchip_rga *rga,
 
 -- 
 2.54.0
