@@ -4,119 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41431CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 11:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42727CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 11:13:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=af/yghLR2+xqLbk1FPILjihUH6yHT7F+ChXmTjZB99s=; b=dIQN0KpkH84f3f+xUz4Km4yOnc
-	58KsBF0fZ/4AlkcKDu2JpJA2STUMGU64pLZg+YdZaFOxnFv3tr6yzYksF4KNrLnmjweUlh4++YzFL
-	r80aWloImM2ASsVJcErBL1tuq9HR8Le1hN2224yHaBH45F41VnMxEiKT7ACvgn+a7Qv5JKedK/8mb
-	fb4jUvii01Qn7B7Pyg819AVvpG9L0tKoldax4UmOKbE0y7LKDTkqhviDTo+fOBWOTo51BikAhOGYs
-	PSeNV1N7kVvNjohhIj1xwkXbj/e/bzta8gq+8Y9EUSAgQnasrCjwi37Vd4O/UMBkAyloQ64RU48sA
-	FmmSU2ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:Cc:To
+	:Subject:Message-ID:From:Content-Transfer-Encoding:Content-Type:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xY+E/upLJxEjmvM3j7C4ks+xfWlSY3E/fLSmuAvnhNI=; b=tZhBYayKWbMTOVKGqRVfy9YWQZ
+	WQ9pUkerdBBy7jsvflQliujElYmxDGaXpuro3WO8VnLaerlmyrO0clf8nGEvu3aIXk0Ovyxyb6X9W
+	4Sd1FJjT0CPtY0RLo78KtyANe0wiv9Vi5AwaxkdOJJNeZIfKqRwwF9MWQjdehbJ2r1orqjRGNcSm6
+	+vX8LROfcIvYd/hft0WOmXcG29vBC2uguBqHvvD7ehCqeZ8VpNhZd4dPV15C6ryD/EYm/gxvfGxiG
+	K4DeNbC5lM1Kdii9y+SCcIuGw7BPCPXuKmrptZBiGGtRgjAjuDnsQ/NPxBDBZRjAbcwGh4oy9Ce9f
+	7xhd0F2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNqTL-000000089BK-3qUK;
-	Fri, 15 May 2026 11:12:51 +0000
-Received: from mail-northcentralusazon11010058.outbound.protection.outlook.com ([52.101.193.58] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wNqU3-000000089NJ-0O9t;
+	Fri, 15 May 2026 11:13:35 +0000
+Received: from out-185.mta0.migadu.com ([2001:41d0:1004:224b::b9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNqTI-0000000899i-1bTZ
+	id 1wNqTz-000000089K2-1lEO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 11:12:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xtf8gcNYsrMwJEr53EiPQSG/9JnFaVs1QaDpZYkuDIsBSARUpvTUUe5x4UmIbkf3v7WGhwKeGuiH4k6KwuVPn1NJY4sfzZxX5WQy1x4TQti0WEfvcYspz3ExaKIMNy2pgQQbuf7/OIVqFN1qcHcN8V4XjeZxe/vpv5XjCGqOY87eEf3OqI/jThIgvTJA3ABHekVbIwmo74iLZt1IRqiMiwZw4cByyGozDxhNYHSX7+RmrRLSEkkqYG1jtUoGlrnlvMcdWgE304sI8KKfMLU6dsZNTsjAV4ByKWNG7h0QWqK5R5VOdWS5E31vSYfCDeZE1f6HMdWUU1NYfbN6fKwIvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=af/yghLR2+xqLbk1FPILjihUH6yHT7F+ChXmTjZB99s=;
- b=R65+6Eqj50RJZa2BiJeid+RPyMIPwzIGROuZ2SSkCPb7eTj3hYl3IvxSmeEDxMsj7d+9F/Op6Z8oFd0N5b19mYT+pD6rFVmwnGdGp20cS89yHduBR8mIU2l9NqtspQMJT8whILb56T0o2ABZEPz3oNez4RcGo/zgwPOnjdqKetIZRAtsLfrxPZe/SiTehCTN4wfsuCXYbGHf2Fgx4kYZzY2xeEitNLg71yQ22ZffBG3WjqZ0hDkA0hOVeUnq/or/kU5EljXzSBjmPIiIRrQYPNT18TiMM86FLZwKzinM0RGPhH/K6x5x7orMt67Vl57505m1n4l8RUUIsSv5vI3z/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=af/yghLR2+xqLbk1FPILjihUH6yHT7F+ChXmTjZB99s=;
- b=gqMT4p/1xcrsqPx5EaopJEusflxyj6gyFIbEhny0on1TbCjKWJkCOwfNFGWsQ0mJWPUePyf4kgBh3z4WQ9thBzNiaOAVhaheIXFrlc+X3rBHrvIKmrDHmrZrysxH9FDrSGwpSm9MmbG3lKfDaX5MnmVOQ1jre9ScJGX4XX1WIwQ=
-Received: from SN7PR04CA0210.namprd04.prod.outlook.com (2603:10b6:806:126::35)
- by SJ2PR10MB7559.namprd10.prod.outlook.com (2603:10b6:a03:546::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Fri, 15 May
- 2026 11:12:41 +0000
-Received: from SA2PEPF00001507.namprd04.prod.outlook.com
- (2603:10b6:806:126:cafe::f3) by SN7PR04CA0210.outlook.office365.com
- (2603:10b6:806:126::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.12 via Frontend Transport; Fri,
- 15 May 2026 11:12:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- SA2PEPF00001507.mail.protection.outlook.com (10.167.242.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Fri, 15 May 2026 11:12:40 +0000
-Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 15 May
- 2026 06:12:39 -0500
-Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE211.ent.ti.com
- (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 15 May
- 2026 06:12:38 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Fri, 15 May 2026 06:12:38 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64FBCc38125592;
-	Fri, 15 May 2026 06:12:38 -0500
-Date: Fri, 15 May 2026 06:12:38 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Md Shofiqul Islam <shofiqtest@gmail.com>
-CC: <ssantosh@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] soc: ti: knav_qmss_queue: Implement resource cleanup
- in remove()
-Message-ID: <20260515111238.ucnvzhomcxvfylc7@coveted>
-References: <20260506154114.2288-1-shofiqtest@gmail.com>
- <177878513972.16124.2519778203402988912@gmail.com>
+	Fri, 15 May 2026 11:13:32 +0000
 MIME-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1778843595;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xY+E/upLJxEjmvM3j7C4ks+xfWlSY3E/fLSmuAvnhNI=;
+	b=OaF/xShMio5pJ01/fel5DMXE3YdlVSumEvuZa6aNn7Uw9tp/Z2OdB1rsusp8RHJiyyZ902
+	JGsr6f2ap+f4Hdsp637l3HEhTcuEjc0TP1tskvJ/pGVqoUisBO2ugLoqT8yY3ovM4ArsZZ
+	+mjHogAd+q2BkujTSSCy1GoKAvIacKw=
+Date: Fri, 15 May 2026 11:13:05 +0000
 Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <177878513972.16124.2519778203402988912@gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00001507:EE_|SJ2PR10MB7559:EE_
-X-MS-Office365-Filtering-Correlation-Id: 194cd9e7-ae15-40f2-0c02-08deb272e134
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|56012099003|4143699003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: SxbV8lVV8qy+jktlSm0E24ijVs3vdYVBI7RVnbhAJZGAzOBxFHJC3nODHzGFePehltKo8E9QOdkC4Yusu0JuZU4FJFwNOM2MIGJx+nimBRSAg5n1u1Ezgs08YKScR7Eycw1ZmgWsVl4lhnHVS9RSN+VueYcx81jDPj8lEL6+GQntoiAG9tRCCAYoRItOiyoSEoksO2Ccg0SjXshizxV05fBG1Qw4hKcLZw4KdXVbSjMPNYQOyjGmmS0NVxQxJSTGF6Sz5x/Kf9OD1MZBZovPb5vHHqXfzC5zXSrlTF4m+UeMNAuWHvKAjbv9KOSNkI3UwVQdpz3thrPoVc7b5ktZSoylmR2AQj23swv3ONRB1cixv/d8uqNM8sRjGf+ry6yzbDQwAwB6zG0kKXfxZ9vSfy9D++cdXxzdy9mutiWw84fpZV4koxYV7KMBshFgQ9TRWTFBY+A4B4C9clJknPe0Q2Lw/bklRRXTfK1sThrC2SOoZ9Z3wXCn8V39Z/NUWA++eOmrhFsGHMBSUGZP5W5wtT6B08ANBSF/kR3zjQnJxQ8pOqBHzQbBl/3CtM+Vw12sETSAUTrajNl60fMysXeq7rz6DE445/V7mCE/A9WCnPw98bFtQhpSITTn3l5EXVtSXYtQG0FJtjfots7P6quNy4+jP9wwvNquKBRu5gelFl0hLkoY4MWx0FuybCF2iJevnaOv905dE94Uw7Gq46Slutviamb5KvXJClis30rdakw=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(56012099003)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: v34SKZEav/io0cJjEwtNyFE5QZU8N7mVMeoQbOup29q0DJWifV+rAfbOrhDjCkz0fJsuUUC7UJcZpnRer6AlWBelGZzUEHvnLNM2yEvrjLsa250RhobtLjrSntQ9hS3wuqPB349FqHOxQZN4iTehg/oLCE+ZXs8LEGu49lJOa3n3LyYtktWX+0CSPfJg08HVeDxb0YKqHrydNvWQjbjC3cnt2Ytp4XKYxyezryW94n5d9OrA6HQ9ilZVcKBJD0h2PIKdZCx2ZwQNcXbO+d84MEatEoRn0od1OPAuXKOzjTOgmRvwMMl6cL0qf+BoCyr7htRZXMv2wG6P1U/e7vDwwCIR2q5sespEFBmXHF+QoTTUajokPn5BILnET6MdRr7HStNalPIUNVnlYhh5cq5mVnGLj6ltw4Lphf6PvvTjewBrVoj/Gwk9kw0jwlrNPEtt
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2026 11:12:40.6725
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 194cd9e7-ae15-40f2-0c02-08deb272e134
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001507.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR10MB7559
+Content-Transfer-Encoding: quoted-printable
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Frank Wunderlich" <frank.wunderlich@linux.dev>
+Message-ID: <935a73a6e458b2d4fed2e59192e725483ca62126@linux.dev>
+TLS-Required: No
+Subject: Re: [net-next v8 2/3] net: ethernet: mtk_eth_soc: Add RSS support
+To: "Jakub Kicinski" <kuba@kernel.org>, "Mason Chang"
+ <mason-cw.chang@mediatek.com>
+Cc: "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
+ netdev@vger.kernel.org, "Russell King" <linux@armlinux.org.uk>,
+ linux-kernel@vger.kernel.org, "Andrew Lunn" <andrew+netdev@lunn.ch>,
+ "Eric Dumazet" <edumazet@google.com>, linux-mediatek@lists.infradead.org,
+ "Daniel Golle" <daniel@makrotopia.org>, "Matthias Brugger"
+ <matthias.bgg@gmail.com>, "Paolo Abeni" <pabeni@redhat.com>, "Lorenzo
+ Bianconi" <lorenzo@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ linux-arm-kernel@lists.infradead.org, "Felix Fietkau" <nbd@nbd.name>,
+ "Frank Wunderlich" <linux@fw-web.de>
+In-Reply-To: <20260513185625.48e69837@kernel.org>
+References: <20260509190938.169290-1-linux@fw-web.de>
+ <20260509190938.169290-3-linux@fw-web.de>
+ <20260513185625.48e69837@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_041248_551857_CB534C0D 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20260515_041331_668827_05E04586 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,29 +79,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21:58-20260514, Md Shofiqul Islam wrote:
-> Hi Nishanth,
-> 
-> Gentle ping on this patch. You suggested this fix — the patch
-> implements exactly what was discussed: stopping PDSPs and freeing
-> queue regions and queue ranges before disabling runtime PM,
-> mirroring the cleanup already done in the probe error path, and
-> setting device_ready to false before teardown.
-> 
-> Could you take a look and provide an Acked-by if it looks correct?
-> 
-> The patch has been waiting since November 2025 across several
-> versions with no reviewer feedback.
-> 
-> Link: https://lore.kernel.org/linux-arm-kernel/20260506154114.2288-1-shofiqtest@gmail.com/
+Hi Jakub,
 
-Usually the latest version of the patch does need a few days of
-soaking in mailing list before being picked up. I was going to do that
-later today.
+thanks for your review, i have to discuss the previous parts (AI-review)
+with MTK on how to make it better. The changes there seem not trivial for
+me and this will take some time.
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Am 14. Mai 2026 um 03:56 schrieb "Jakub Kicinski" <kuba@kernel.org>:
+>=20
+>=20On Sat, 9 May 2026 21:09:31 +0200 Frank Wunderlich wrote:
+>=20
+>=20>=20
+>=20> From: Mason Chang <mason-cw.chang@mediatek.com>
+> >=20=20
+>=20>  Add support for Receive Side Scaling.
+> >=20=20
+>=20>  We can adjust SMP affinity with the following command:
+> >  echo [CPU bitmap num] > /proc/irq/[virtual IRQ ID]/smp_affinity,
+> >  with interrupts evenly assigned to 4 CPUs, we were able to measure
+> >  an RX throughput of 7.3Gbps using iperf3 on the MT7988. Further
+> >  optimizations will be carried out in the future.
+> >=20
+>=20Would be great to split this up a little more for ease of review.
+
+you mean splitting the code into more separate patches or the commit desc=
+ription?
+
+> >=20
+>=20> +static int mtk_rss_init(struct mtk_eth *eth)
+> >  +{
+> >  + const struct mtk_soc_data *soc =3D eth->soc;
+> >  + const struct mtk_reg_map *reg_map =3D eth->soc->reg_map;
+> >  + struct mtk_rss_params *rss_params =3D &eth->rss_params;
+> >=20
+>=20reverse xmas tree should be followed, please fix everywhere in this
+> submission=20
+
+will=20check again when we have the fixed flow (AI-review).
+
+> >=20
+>=20>  +/* struct mtk_rss_params - This is the structure holding paramete=
+rs
+> >  + * for the RSS ring
+> >  + * @hash_key The element is used to record the
+> >  + * secret key for the RSS ring
+> >  + * indirection_table The element is used to record the
+> >  + * indirection table for the RSS ring
+> >  + */
+> >=20
+>=20Quite odd looking comment. Having the right side aligned like that
+> makes it header to correlate where doc for fields start.
+> And there's @ missing for indirection_table.
+
+dito
+
+@Mason: have you found some time for looking into the AI suggestions?
+Maybe it is better discussing changes here if they match upstream
+requirements as i did only up-port the SDK-patches with some small
+changes and made tests :)
+As a note: i have not activated RSS/LRO on other mt798x because it was
+not clear, if RSS or LRO is better for them and only mt7988 can do both
+simultanously. AI also complained about it. And this decision causes
+changes in code too.
+It would be great if you can use the actual state here as base for
+changes so that i do not miss anything when upporting the SDK state again=
+.
+
+regards Frank
 
