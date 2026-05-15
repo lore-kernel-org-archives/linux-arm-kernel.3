@@ -4,102 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE07BCD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 14:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE156CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 14:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GXP+iNJCHZbqWc4hXlcmm81+IGUZub0k8gEMQgHw71Y=; b=DszieohBWwR5RgiyLD2ArhPJ5w
-	5sBiIrWd/XTHfrPiDe93MZMeNZPQjXazl+AO+jF98IJ58/QrC8cdQBaueXLuzNLxv3wfjKkk2D2Ia
-	Q7vp/4j8lsviHJngI9ANTyFPMpZlKMrjuvv8/V6qmrBI7jccC8HEqS2WpXebw7HnrhAhce7aEQ0qo
-	iVVIVq8xLnqeFs7NC1o0FSgoIXMwamNiK66EBOjSB0P6/ud489RzwHDUO2FbEmpCAvHyt1BQCFI43
-	HIihrMM1h4GtzsTlYJ4oZdpMtNhUR6i07JciCXWna7TyHKFr/1WrDIz7flJze37tu5EfghfrvmbFl
-	LW/7wOCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BhDCX0BeBYnwWA32ZFaR+chaz72usXB4Mf6HfsvuBiQ=; b=VUWAjMDax0o52Or4zgCVMlboEy
+	wX0vWX2pylGCT/heQTGUb62nfbXPsXqXZVp5Cd4N5Xewg9JA2adAYYr4m7H9YPXZcTplTMuqXeRFX
+	Z1LY8wWa+afkAR0LBoxg4NqFs14Plt6n+QDKBOKeP5QpNJ0kOHZRYTjwbZM1orb6SIDmPHhlFkMuU
+	D+Ider2ZGsQs4DjnkR0Mo/EOYjjU2JX87ux5d+9u6E8WIQMizuiw1sgv8J6FKKb7UGyRf450TgnU6
+	pjmGSjpClRUoMOvKMBk4uMeMyh4IECZ8sOn5TT+GU8qtEOpwHwnq0NR1wnX6OPzhguz4PVaqInZEk
+	tqYzgEFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNt5J-00000008Vox-22YF;
-	Fri, 15 May 2026 14:00:13 +0000
-Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
+	id 1wNt78-00000008W3r-3C9t;
+	Fri, 15 May 2026 14:02:06 +0000
+Received: from mail-westeuropeazon11011044.outbound.protection.outlook.com ([52.101.70.44] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNt5G-00000008Vnr-3d4N
+	id 1wNt75-00000008W2Y-2Pdd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 14:00:12 +0000
-Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-65c6a2158d3so8555211d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 07:00:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778853610; cv=none;
-        d=google.com; s=arc-20240605;
-        b=IDGIlDp52yqfaEGhapvq8HmaYwMSv71z+dOB687FDduWJmYvImOWNZkj8aQI+2eXF6
-         j8zh3HxTvKAhimPOnubCJCgwUKiMVbqtxcLJ3MzSRfyFMj5FS3dwwpKdh4rv9WiOEbNG
-         Oy9gUM0faK6swP3F9TXlE44hZXq1iUvtguidX/QCPoa3sQYnYfr0r+8EKwvl2K8Tvv8z
-         Sw3T9UHrsUZ34dWNiwp4a2Wh09xK5IY/dHvhZufA9hePHwKXDHZJNYRn6xOlYHa3MyHf
-         oiJ5dGHpRrhETsrWT083dd9/b3N+2+F52K7dkpA+Gx319o0MfjXHlViUdAlH/x76ENrf
-         1Fyw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GXP+iNJCHZbqWc4hXlcmm81+IGUZub0k8gEMQgHw71Y=;
-        fh=fSoTTd1Y5Nx6YNSqKOy3LWKNH9gZbGyHCoEV8DVT+Xw=;
-        b=fv6MfQ4GJhKEHBiDDOUXszF1efasl/rUzERQlkFbTHApc7bLektintahvDnAqRuaHz
-         3Ku0uW5Xg0Zut+D0i+IBw8FBoccM4PjXSWrupVXz2v+axEp9/zgsLzWPdSAG/4EXHucO
-         36eT94Ki9cp+AP9Cst+zYcra6O3ea3suA+kS9YyU6eKluCaY0wWu0DT/+rSGViuYa8X1
-         9h7b/+n3Q1T2T4FaOY1svwbcrY21Z9i5BLGmga3hdyOpHI71sghn23BF957DZcQOPIgy
-         yLFG6Wf7M29kSVcSAvjlX0hTUZK01jZYc1n2pI57kRx5VzGIlG/NNxOlWBHQhx6mPS06
-         gvIw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778853610; x=1779458410; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GXP+iNJCHZbqWc4hXlcmm81+IGUZub0k8gEMQgHw71Y=;
-        b=rUvE73nutkNvBotSsAyX+FDQD17zqVrQJkQ6jxpwkgGLr7LKqwswkwittt+mUlHAm2
-         1g4ActJuNDJ3jashZZfZ+1QT9+5mGNYjGYWOmUudPrb9yxKp0gKipVXUbUprItnJX9Fv
-         ECJepqWbNlBDenPtJZvVkhJhlsK1bqz2RBo1/LPOQOYlKaS7jXg2u4Xlf+bALkhlXNv1
-         SFp0M6L3AeCO2r8yo+iBfGCWEIi0R+yiiKFhhVE3aNXvO/WR08pbOKgXJKKwrSBYQiI6
-         J1hjnjwIn2SUxn6BEpKIYFpA0+tvYZEauacF8dwAPu42VR52EXrkyS24VxOo3IDMbSNV
-         C5DA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778853610; x=1779458410;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=GXP+iNJCHZbqWc4hXlcmm81+IGUZub0k8gEMQgHw71Y=;
-        b=qe6vCl3tR9XomsoNFREgrQV+mDep9zDmClSSpbT/RHga7fRhH9At3VWlKf8O58KKdf
-         JAw6ETs9vHuyHYRfYAvN6TSL8kNl2EFP3X2g0coS5Pp0GfRQoFnuPxE0r5IYAfonYRYj
-         HLga+rpLl/bS+FMeTjO5L+p0+8poqsPHCv3Oa7XAhHWCZVzZ2U9wZrwSCyLbU7OG3l/o
-         p9zzhgTvsiAWCiBWxbmIY5ZpcCgfVYTaA/aXgs/ykJyzlUBSQwbiZGKuIXKYT2oCkNuR
-         bAAxYkkg/Y/iPTiUFtMW7w1/wDKT8WMhP9Km2EIet4QG7mUDeIRP/AjgQ/WwVHesav3t
-         HGnA==
-X-Gm-Message-State: AOJu0YxrH49nwarAJjhX12vzckFhZP4U0XuogZvBpW+ISoEN7y2JbKGG
-	nPIu9CNtMskDfIufwARUmP1q2QBWJ5uL+amQwrQKWjPckSupZqsPOmcLU2E2XKeEQRcGh7F0+oU
-	beiBWxebczNsGtUbj+1EZTZKeEdeVDSik2fUI
-X-Gm-Gg: Acq92OHeYPEXe0BDB1m1K5d4Pq21W/zfYGBafB0+8LpbCFEkPbxg5gndY7EvjRNbi4N
-	udcXl8ukzTr3Q962fIZE6ICNyXfiPuMkfe4TDHXpuouUjcI9ibiW85ZRCHGR8qkhQgkvjVC1M5e
-	0nvT286OLPD9pDGx0t7piaMMQTJCu40l/lP+1jjK1gvv3hJdCFSiZh/omnzOWRoX60tZewXzuva
-	j0T6Z4ylDwEGTIYKcWn6pXoc760hXyiUyGTYA/bSTlqxn9F17FNWaQ/HaSXl1kISuC8JC+Ohc3R
-	n8wQ0DEeBYkaOVM=
-X-Received: by 2002:a05:690c:60c6:b0:7b8:f152:7545 with SMTP id
- 00721157ae682-7c959b91611mr43397077b3.9.1778853609392; Fri, 15 May 2026
- 07:00:09 -0700 (PDT)
+	Fri, 15 May 2026 14:02:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CAKSOlOk2NwYpZgzrmw1AmhlfomXUzNfi8dO8FFa+EwPK95bz9JxDM9XX+YdDXmaVX7IIHHLHY0t1gHzht46oqbJWHedAmoBHRD30Tv4MQ67BV7jQMOb3IiQVD6wKKULAFbTEkqjOWI5l2/hQiTCG6MzDu4tHXtLHjRCjy/cVl/sZRpxMIQBtVKXuYaVq2iq3tz7FlXPGmnyCvgsslWWn8uqqDuEtB+2lbh1QWEnB5jWQg/x8QYqdDV4MQqap2/VTh9ngk22Mkmg2osJ5ShBR7gOIGag6WGgfsrl+W9DiF6FfE5GhQ5IzR4F5hMreAq4MGHSS2PrehAW2XGhZgYlkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BhDCX0BeBYnwWA32ZFaR+chaz72usXB4Mf6HfsvuBiQ=;
+ b=ji6EjuY13TUYs+EX0sD9JIvUu/gmJ0oniy3svMkfhk40BIkb2vzVfhoIEfTV4+N9ZVh43pOHxSOFFa+zn6muPzopoy1Eb5xhwwMAm8cHq88g+4HcmzwdtkCVfVXBJdVVqXET+l7g6fjedDtY4gHngII/5sTA0hgqM7BUaEvYrA688mWJ4wWfA9pDG4pVspTgs+kvb/F7r+TG+NfvyVZS/HaCsDJnogthLub+OKk17wKdOy4TpXvmxZNNtDFgFPjJhFRVcduWtEls3PZOhhvA9Ycs3wlqSkEC2ClAMOlp3FSKgF1iu7Jp/zYfGP80evIYuVxt3heLG5NGhH7VEfJoVA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BhDCX0BeBYnwWA32ZFaR+chaz72usXB4Mf6HfsvuBiQ=;
+ b=I2cif1VVZ3UvVdhkO3gq09yntN53jixfVPHb+E1NeNzkLMGSmslcH3E4JMOvh5zfJHnQvfBPbeQF1R4s5/uUsyGpdfE6/JWDJP9bYDenSY0t17Rodcw/5fWdMZtE42GWw9pKL3Y+GcCEHGByFkIDNcFK0mgw5/3HEaA494BJ0ZLpCnrXD5xB8erYuhS03ZtWT32wJklUWc3WF3g2raV9WjN8wbkeTa9LVuhfnNS4bXCpPS1vKKckMkUNfe7c78KN4t7ZBCqZx1nq2s72G8W1B9p8UyCxQ81qyIWQ/N3QpqU8UPNrEkXpdK612BMhZvuOhGzemCD9IbX7F+5yeOpBng==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by GVXPR04MB10945.eurprd04.prod.outlook.com (2603:10a6:150:21e::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Fri, 15 May
+ 2026 14:01:55 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.20.9913.009; Fri, 15 May 2026
+ 14:01:54 +0000
+Date: Fri, 15 May 2026 10:01:47 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Robby Cai <robby.cai@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	s.hauer@pengutronix.de, festevam@gmail.com,
+	sebastian.krzyszkowiak@puri.sm, kernel@pengutronix.de,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/1] arm64: dts: imx8mq-evk: Enable MIPI CSI and dual
+ OV5640 cameras
+Message-ID: <agcnS4H_XJRL7duw@lizhi-Precision-Tower-5810>
+References: <20260515111143.2980956-1-robby.cai@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260515111143.2980956-1-robby.cai@nxp.com>
+X-ClientProxiedBy: SA0PR11CA0134.namprd11.prod.outlook.com
+ (2603:10b6:806:131::19) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260514171304.2034930-1-ekffu200098@gmail.com> <CABFDxMHngr+cyjZdiJTZATh2D5jC=qO+92B1VVrr0w9TNtx6nw@mail.gmail.com>
-In-Reply-To: <CABFDxMHngr+cyjZdiJTZATh2D5jC=qO+92B1VVrr0w9TNtx6nw@mail.gmail.com>
-From: Sang-Heon Jeon <ekffu200098@gmail.com>
-Date: Fri, 15 May 2026 22:59:58 +0900
-X-Gm-Features: AVHnY4KxTO6qvSBe_ecaSK1uVVo2LQahxtkC-2sLbaGIp0ivY25un_odaBzOmBI
-Message-ID: <CABFDxMFYLY+ABT4rfnn6ipXwkqEafF+uTeYBfOOoyRKr7Bn1Aw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: mm: use u32 for FDT size in fixmap_remap_fdt()
-To: catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|GVXPR04MB10945:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8b0f5ade-fc8c-42bb-0921-08deb28a857a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|19092799006|52116014|1800799024|376014|38350700014|18002099003|22082099003|56012099003|11063799003;
+X-Microsoft-Antispam-Message-Info: 6K4y86AV+uRoEK8TqLCiX72kgqjHMdrN/n5WhTaioCZQcbJclrPimF0Z7wzdfyOOWqxCj++8vn9wokYDhDykbuOmJ9GdgnfGZGtWxcMX0gfovr0oGLYlsjX3+EbqF0yhEsld45MhVBMcIXuS8+nby9rwARibWfhgEj4MrQTmNoyF5XNPMhN77NVfFJy6bpWA3DJlwJTmDtQjZX9yASs1OhwG6vZklCasfH8JImobta3oQnN1YJ21P84sOhNXbBN249PnqcaQF/3w1ysqwf1NeD8UuMXtR8RWtKO36EheSb0JtS2KokYm0jyCfZJ1FGuRIb3zUEw/lmGf4xI8g+4Zv7cyUkelPRt9fBgWF2uqdPAtB8c6JASWQd02tgOQeTA2XPXvL7INaGrnX7DfsU0GDSLum4outIJv3zqs+nvT/YzForzvnhIpSUQD7k+YNOmWjz2xCSlSb5fxblv60XT99fGdtfkKt9zDYDWGf2dS65IioQsUd9bwbh94GUsqjQ/QfpdbxzVNxcUdCRoddoGCWOUq3bLz7ipei1XjHb62S9zYG4X3nIBN2iZZ2hcr315wNcI1+fGrNnCR90QLimDXX/e0m12pPdu3WjLauQ5Skk0NVvA8bJjJpMs8dB03cuMk37FbcikUKOu7hiyh0ZIwKoKXipL5AR8xEC6Bon+kXjDmQ5iYyAeLMC3XwXZJXXp6MVwCvjGHZgIDMhTwK+RWFA8msr62NchxRB8t9FnaUVlaymUop6wA4ChHFFAvQ/+j
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(19092799006)(52116014)(1800799024)(376014)(38350700014)(18002099003)(22082099003)(56012099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MWs3tX2d8ASSD1VgbsyFITWPjrMx+7P2dqGSNlieOjjRRI8RCyWjA4CPaWfK?=
+ =?us-ascii?Q?ancUoz3AfLHuswBtnjk+5vzJOhdMbhCBjf6EPDSaY4JTEQxvPEBAnRL4a7HX?=
+ =?us-ascii?Q?elaFDm/RTcEcaxvRrrxQrE81B3vfDs37Ut32C3YHZDgmo00Les9fmwSH5j2r?=
+ =?us-ascii?Q?Gn4c5u9xg1VR8vGMjb2WhKpKezPR2Yal4ESqiP72LI4aP6soYPmGxfvGrTu6?=
+ =?us-ascii?Q?8nl9K3wc7GoWgDtB2mqT33sCuXNuxPe8Vu8/FPb/UKaLOfEj/85oOlTzWx8d?=
+ =?us-ascii?Q?rSWqqfwr3QdUWUzHDbDW4nbkPfueX5LtTsJY2Tym5afYcQ+BF5WljITZumZo?=
+ =?us-ascii?Q?HV9jbHWUR3L3JBdJ6xeFfRURcjbBgx+d5zfmZx5ZFHi3q/q3Jatj6IgjWrKd?=
+ =?us-ascii?Q?bFflr0D6pUYTLkoCMVmBI5TttzaLc5s5is455dm9cmfYfSqiOpExZPACQyCz?=
+ =?us-ascii?Q?GEc3ti7x8SWw6+FmeyWVvKsUQ0qDPjMF4Acg6YSMdHqZw7shG8RrTEiiXepL?=
+ =?us-ascii?Q?+bDMdl4deYuJT+xcI/Qugs9jeZdVRm6wGDWe44LBOrEJPE/XR7rjatbK8Hqx?=
+ =?us-ascii?Q?Ar8R9Xpdfx5TeGDDZFyxINFf/s8waruJK59wg/x83+fxRVAMqnDR2cVCsUfk?=
+ =?us-ascii?Q?GRWk+TUZSA+hL05FmcykVKqxe4w5yWi5QXoPF6Me1Xlr26O2LwNcRg51HXQL?=
+ =?us-ascii?Q?bj1p4dPcQh6cInMtL/nHm3P98vRZq23SqHpnwzQ9OVl/NK7tkW693BK2f3gb?=
+ =?us-ascii?Q?MBkYQHEAUdbM8AEWBhRtFtDo/2VMQwE81idShvrsqVi4K7ZUbmNKreZsGlZ4?=
+ =?us-ascii?Q?ADOFTpnj4Nd3lDcfAMHBY8HKKqeaO4rBUYotjk4rWYkccwelWzGq/UI1LpCL?=
+ =?us-ascii?Q?ydcM3K8LmbeeTgn8K4wHc11SMlClipwK0RSyeeufUzsAqgKRWb8UgFO10xaX?=
+ =?us-ascii?Q?HafQkK5NNUP0q0t2HbYevqTgSlUNv9RLwLyc7KIuF+g1wI2icMqq66jt5bhz?=
+ =?us-ascii?Q?jn3+eA3pVFWtiNfUXf3RpmIqNVmLFh4mB5Wl+qbx6uKdbzQRdHYIFiIzpl5O?=
+ =?us-ascii?Q?v7MSe2OEZ0F3LaLQnTZ+w+uRxFymvF6o2gVzE6Y5QpAbqobhFvGwhfQ8R/nG?=
+ =?us-ascii?Q?Hh784pNBG/yXGKJIYoE3O3sy89j6aMhpW6btCqdjt/cML3jztGDGHJtxkSo6?=
+ =?us-ascii?Q?bvVua3/fHAN6eeH5jIRQPsi9RQUPs+YCHPOquNIHwM0dSSLqR9eQRbxCF5fU?=
+ =?us-ascii?Q?QH6qPj0vecUS6GGQPUzWmtcXnVCWSscxtnpvzOmcipQK6yH9t0lamOFk1bkJ?=
+ =?us-ascii?Q?NO731urRPMNGWMhufyb/+3tj9OWogGLjdzfO2+OG2v4KHkwwCL0qmkAVRhG/?=
+ =?us-ascii?Q?g55m7blyYmwgb6MbR36EiURLBjdLdHkhEbbVHVy7SFrhSzo2r/Lvc2oZ7psL?=
+ =?us-ascii?Q?SYTnnD9IBwSRElRloLVnCea82ru63yaXIeU4alJP8+7vnJELdHv+qo+H6fq5?=
+ =?us-ascii?Q?WB6kHeeFliLEalcdulwjhOXpFsrH+lBpMwrE20Bbgs6X7XTDk4ZvcbENJGyn?=
+ =?us-ascii?Q?PR053uMidzlKpIu04bshn3Lhtbq0lVhVjJjy1O8R2zbBZXLblwurmgl2nhZW?=
+ =?us-ascii?Q?LUV8+UEGMZZkOIjmJpEjtQVdTvmQqhwf0QkCvOLifJRiYe0rQ7Aabk4r2NVw?=
+ =?us-ascii?Q?79o8RpEO7NoPQrjjHmwAyGS9bDXOrLb9dugQQJ8dUG/UeuFa?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8b0f5ade-fc8c-42bb-0921-08deb28a857a
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2026 14:01:54.9121
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Al9xZ3Ufnl5DQYCC2U01DhTPjv4gkePhrEKCdR/mKoQ1t6BPqUDzhYsekWeOyZQnIwy4qEEYz1mQHQEQhQQpiQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10945
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_070010_931332_29AAA435 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20260515_070204_198089_6C9AF4E1 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,121 +137,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 15, 2026 at 10:55=E2=80=AFPM Sang-Heon Jeon <ekffu200098@gmail.=
-com> wrote:
+On Fri, May 15, 2026 at 07:11:43PM +0800, Robby Cai wrote:
+> Enable the MIPI CSI bridges and corresponding CSI-2 host interfaces
+> on the i.MX8MQ EVK, and add two OV5640 camera sensors.
 >
-> On Fri, May 15, 2026 at 2:13=E2=80=AFAM Sang-Heon Jeon <ekffu200098@gmail=
-.com> wrote:
-> >
-> > fixmap_remap_fdt() uses a signed int for the FDT size, so a malformed
-> > totalsize bigger than INT_MAX wrongly passes the MAX_FDT_SIZE check.
-> > Then create_mapping_noalloc() is called with a huge size and triggers
-> > a BUG_ON() in the MMU code, with no diagnostic about the malformed FDT.
-> >
-> > Change the FDT size from int to u32, which is the return type of
-> > fdt_totalsize(). So a malformed totalsize no longer wrongly passes the
-> > MAX_FDT_SIZE check, and setup_machine_fdt() prints a pr_crit
-> > diagnostic for it, not a BUG_ON in the MMU code.
-> >
-> > Fixes: 61bd93ce801b ("arm64: use fixmap region for permanent FDT mappin=
-g")
-> > Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
-> > ---
-> >  arch/arm64/include/asm/mmu.h | 2 +-
-> >  arch/arm64/kernel/setup.c    | 4 ++--
-> >  arch/arm64/mm/fixmap.c       | 4 ++--
-> >  3 files changed, 5 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.=
-h
-> > index 5e1211c540ab..a6b388ef4c3f 100644
-> > --- a/arch/arm64/include/asm/mmu.h
-> > +++ b/arch/arm64/include/asm/mmu.h
-> > @@ -68,7 +68,7 @@ extern void create_mapping_noalloc(phys_addr_t phys, =
-unsigned long virt,
-> >  extern void create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
-> >                                unsigned long virt, phys_addr_t size,
-> >                                pgprot_t prot, bool page_mappings_only);
-> > -extern void *fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t=
- prot);
-> > +extern void *fixmap_remap_fdt(phys_addr_t dt_phys, u32 *size, pgprot_t=
- prot);
-> >  extern void mark_linear_text_alias_ro(void);
-> >  extern int split_kernel_leaf_mapping(unsigned long start, unsigned lon=
-g end);
-> >  extern void linear_map_maybe_split_to_ptes(void);
-> > diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
-> > index 23c05dc7a8f2..7cabac0546dc 100644
-> > --- a/arch/arm64/kernel/setup.c
-> > +++ b/arch/arm64/kernel/setup.c
-> > @@ -169,7 +169,7 @@ static void __init smp_build_mpidr_hash(void)
-> >
-> >  static void __init setup_machine_fdt(phys_addr_t dt_phys)
-> >  {
-> > -       int size =3D 0;
-> > +       u32 size =3D 0;
-> >         void *dt_virt =3D fixmap_remap_fdt(dt_phys, &size, PAGE_KERNEL)=
-;
-> >         const char *name;
-> >
-> > @@ -182,7 +182,7 @@ static void __init setup_machine_fdt(phys_addr_t dt=
-_phys)
-> >          */
-> >         if (!early_init_dt_scan(dt_virt, dt_phys)) {
-> >                 pr_crit("\n"
-> > -                       "Error: invalid device tree blob: PA=3D%pa, VA=
-=3D%px, size=3D%d bytes\n"
-> > +                       "Error: invalid device tree blob: PA=3D%pa, VA=
-=3D%px, size=3D%u bytes\n"
-> >                         "The dtb must be 8-byte aligned and must not ex=
-ceed 2 MB in size.\n"
-> >                         "\nPlease check your bootloader.\n",
-> >                         &dt_phys, dt_virt, size);
-> > diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> > index c5c5425791da..c692e6ac2405 100644
-> > --- a/arch/arm64/mm/fixmap.c
-> > +++ b/arch/arm64/mm/fixmap.c
-> > @@ -134,11 +134,11 @@ void __set_fixmap(enum fixed_addresses idx,
-> >         }
-> >  }
-> >
-> > -void *__init fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t=
- prot)
-> > +void *__init fixmap_remap_fdt(phys_addr_t dt_phys, u32 *size, pgprot_t=
- prot)
-> >  {
-> >         const u64 dt_virt_base =3D __fix_to_virt(FIX_FDT);
-> >         phys_addr_t dt_phys_base;
-> > -       int offset;
-> > +       u32 offset;
+> The sensors are connected via I2C1 and I2C2, each with proper
+> endpoint descriptions to form complete media pipelines.
 >
-> Also sashiko found another issue with malformed total size. And I
-> think that can be resolved by the following changes.
+> The resulting pipelines are:
+>
+>   - OV5640 (I2C2) -> MIPI CSI1 -> CSI1 bridge
+>   - OV5640 (I2C1) -> MIPI CSI2 -> CSI2 bridge
+>
+> Both pipelines have been validated on the i.MX8MQ EVK using the
+> upstream OV5640 driver.
+>
+> Both OV5640 sensors share a single reset GPIO on this board,
+> which prevents independent hardware reset when both cameras
+> are enabled. As a result, the reset line is kept deasserted
+> via a GPIO hog, and sensor reset is performed via software.
 
-Add missing sashiko review link :
-https://sashiko.dev/#/patchset/20260514171304.2034930-1-ekffu200098%40gmail=
-.com
+Does reset_control_get_shared() resolve this problem?
 
->         *size =3D fdt_totalsize(dt_virt);
->   +     if (*size < sizeof(struct fdt_header))
->   +             return NULL;
->
-> Before sending a separate patch about malformed totalsize. First, I'd
-> rather check reviewers' opinions.
->
-> 1. Do we need to care about malformed totalsize? (including addressed
-> by the current patch)
-> 2. Does the above change need to be merged with the current patch or not?
->
-> Looking forward to your feedback.
->
-> Best Regards,
-> Sang-Heon Jeon
->
-> >         void *dt_virt;
-> >
-> >         /*
-> > --
-> > 2.43.0
-> >
+Frank
 
