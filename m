@@ -4,67 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8DEBCD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 10:54:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CACFCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 10:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wDhDgAuXOeD0pPRDTmM6h0iJN02LwwWCd0CW1+CS+vM=; b=RhGRosqtq3IwQT4VtRWLwdfe/Z
-	yJdPD+ejTMfOHgh3oMwAocgeXgvVqUvSxntlm3/IQzYtokZhw3V597PxSRWJWw+VvJGhI4mBUdR19
-	eZQ6nqWMcfqAQQtf0W+L7qAC4SUEruA6Z8ylDbAQ9vL+IsgMlk5V6UQslIETO+QPTpFeeDTD2tXmT
-	EeDvWGdzcXaqv/ubWlrvvkqpSKxsWMxD+26Fct2gCyajnDln46rOf2jvj7jJH4u2zi2qHReyMG7WX
-	3o98l61nJzazcTW0c3YIE2q1XyVKmwoqEprRZFI9cKy1lqKd0Fupff0yNfVqpEjpswyPQmHGCPz8T
-	kozKn8Mg==;
+	bh=Lu/ICIRwMvB9Zl2jHO5QRZoifsQ07TW+kX9mhHyrhDY=; b=mCifqNSYwXo9OY1oe6aOj2KUpD
+	phZLkbpv3q25+7q1KWtyVTmoTPnA2EJWMQ4KbTsPI19iXnhAlPr6uBPSlWbafnFbrKhC9PCcqn/ZH
+	VeSoovWbS4z8UJ2K6drvQEnuHJjY7K4N7V/RSltlwuk7p6PkUySbdeSVuYjYPFOt9GBcQXwu8hiv9
+	p5MflkO4Q2LUFfQg6a1obE2Zsi39SjYbE0j3wSRgFnY8wFm8XohqzMVnamWMjCHAQH+1XKZUcjzam
+	h7ZIL4wW85Z0Gkmi0KE5VP6LN+lRTKRn5GQqHMmMehKIlCVWXkKUVtahS1OAZdttNplchU9ARczbV
+	s0j3cvbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNqBd-000000086fk-3Xkk;
-	Fri, 15 May 2026 10:54:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNqBb-000000086f4-21lJ
+	id 1wNqBs-000000086jN-3zyW;
+	Fri, 15 May 2026 10:54:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNqBr-000000086iu-0C3n
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 15 May 2026 10:54:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Lu/ICIRwMvB9Zl2jHO5QRZoifsQ07TW+kX9mhHyrhDY=; b=n8oF6+c77cZiuzL+bqC5eieXm0
+	WuOIkjk4nzBkOsdK2Tr+JsWHkvlwIE/qsfdQ7pB3TttmO2V4fYJurLuye6+GhI1MfHXFJUY2m+4hi
+	BqAQd87wVgC446JdYbzI5DqYc/CokKVTFlRf+EGMHz4hcHtJiGty9EYiV+ZBf5w7gP+UjXMeXHzGe
+	ZAZ5LhlmHmp5Qx9CGCgDQPTEeOV/tMtK7Sic24VvCGstUdw4y6RvXLBkBWVK5lZxgCsV2cW0d8Egj
+	vlayLivMjpNVhKNPS+ouIf6UdkFpzIIx145xIvQ4G1gvHLmUlBc0pMFHZLw9QnL2d3Na9lwBI+rRq
+	Fk3Xou+w==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNqBn-00000004xqo-0GfF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 10:54:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DF4D22FC;
-	Fri, 15 May 2026 03:54:23 -0700 (PDT)
-Received: from [10.57.26.40] (unknown [10.57.26.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D4F443FAF5;
-	Fri, 15 May 2026 03:54:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778842468; bh=H7MJsX9jsODINQGlfy1MCRS84oO0OdoWKKVS6csFg2c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=moUnevfOE/pdqaEsml6rGpeXJ6JgNJu1ClSO/SdtGoaEon0qWINrSlT295ZGPubbz
-	 qavwb/x3fGLczuCSrSuRXGu+zrDCRFT/Ldr5XPVCwgnWhxkW/cB9Wo0uKp0BOiMdDN
-	 Nv+8k2969KD3E2hB986l6SGpigLWQov8cCQlYYO8=
-Message-ID: <a40b0d0f-bbf8-4ba4-9370-2b5be71bdc44@arm.com>
-Date: Fri, 15 May 2026 11:54:22 +0100
+	Fri, 15 May 2026 10:54:45 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64F5LpI9656082
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 10:54:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Lu/ICIRwMvB9Zl2jHO5QRZoifsQ07TW+kX9mhHyrhDY=; b=MFoy1cOXPtGvkye2
+	9kaT1rre9BofxaNLweYPIrA9vBgHGpzOgHp+QeS1H9H/CULXiAOoq/taV1LxaIui
+	rjWopT1wm/IqSFW+ey1yTHbrdMG1B1ACp9GuGcQ9MDDDcK75znZ6b5vEJeVyB4vN
+	6u1EEgRrSl4dY0w4NZSGB4IqRANy3uHNMSBfLd3eT3GBMyj91v1qVJJRL7+Hwjcd
+	Nj3QTEP+fWmCx0mX09HHqQnGVLVnLBaFaw5C01IcsEr8nY3KSrPB5puGy4sam64y
+	pgPIY6zcbpZgfCxfas/nfrrhryo6gorKwxdw6wre4PX/5vODEtzEheqk9UUumrA3
+	ntqqHQ==
+Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e5m1ptywe-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 10:54:41 +0000 (GMT)
+Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-9569deb349aso353751241.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 03:54:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1778842480; x=1779447280; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Lu/ICIRwMvB9Zl2jHO5QRZoifsQ07TW+kX9mhHyrhDY=;
+        b=CRlbRV5Zpg/x3QnkPxIMQIB9/T7h5e+uRwlFs+5qh73UUmUbVgd+dGEnIk3iviyoM4
+         cJbD7zrtIkzo01ry6HCgo2YFfGuBTpkUHTzPkuVmqm08GLj0TFzE/KovXHlFLfYL3yW2
+         y0QOJ1WIttLn1eS7dmPZmknkzuPVcrrvp5fhon/Gq9ud1OQyNqS5Kq1ddVGjUBGJojeX
+         e9q0k5xENYEVNNzS5hEDklocQNU46A4qZ55MAJZiTbCrp81HIIb/piWaQzLRhHHjdlDc
+         BkqzBLVbDkbftQW95/xU3lex6YK7t794ClQhVZtKMQxC3Wc090mwLjjDbI1wjOnT6tlV
+         URoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778842480; x=1779447280;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Lu/ICIRwMvB9Zl2jHO5QRZoifsQ07TW+kX9mhHyrhDY=;
+        b=iuM6OBrJnaB8xfGKwWceK9eKQhlP1BPmiyzOd9rAlcPzMJi1xnKC7KGQtEKF+zjcHx
+         A43XoP3IFXTkZ5rog6fRkXqg9Za3znI3azcRLormDn0Jb2LUKX2VHdhb2Nu6xLJ/Yb/6
+         ICZaKH5vLXRr+MrFqieVipRTx8Duj3x2Q17a9+P3HQFHJMsIkbbzZ3sCMJCk5O6Ugr7t
+         /nLvKTEoebQdIFfFsUhZcIpVxUtounoFDLXkJNgaRzWIc0IflAHwuAcoMPyejXn4Qb45
+         TMyH91cn1X3vKo3WMOPFMQqJh2vMjBIs0QsucR0B9gQhF1A3ew7/kRENKcYYwt4+70LV
+         jQVw==
+X-Forwarded-Encrypted: i=1; AFNElJ++wLADv19oLWSp0mwGk9Mf8te/e6JS9XCABMJApWcIzpKD/aEXzJc0HNCV2Uwib1ilbUsShgIflAc7HK4E04ro@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeNtMeHZUBEORSmmY5ZsceYHUcgNreCZNrBLjoR1XDSJ/WjJq6
+	VVq38hElZMVWmdu59PNSnIQdYEGKMoYXLInucJGBUPYQcxTkOKnpM49XbVxd1sHGBgEY5GhLKfA
+	FeGpCWSiT8K0vat9hq4hl2qj0ewvyCrTE/dt2BUh+l/q7KOQs1dUhAG+gs4U469HsPp/39dQ1Ty
+	4CZw==
+X-Gm-Gg: Acq92OHWJpdd7NA7V6zgrPB0rqEgR71T6KqIApOHckfk7osXMcT+kgBi3qhhs+lB+IQ
+	+W6GxE4Z/kjjV3+LgO/yaif7xCqLdCNlNma/QVEUQIWJSSUeLQztqCWx6sS0D+bB7ysuQ/CYauQ
+	nAokjNgkhiRS1JswgfKi/KrJue2YUkk5973Vd6Z/ZtJU8tVxYyjzmL7OW1annBeDjpylOqPHVVq
+	psIi/FVCdrJs6ZwuY2JGV3n8iGEHBprdc0sDBoQH9kko4el2oGaBeZWpl1/pk31Bz1EraThUJI8
+	kbdIfOuUxGX5eNfD+7QdpBFR3Gf6Uhmw6649gBoKAqJ0wLEI3w01SUKjArRxAKerYu6OAUSKYzP
+	xHlWa+d3gqauO0obg1hhql/P7Zb763LpLwnJO4hechm+RU0MZNboQkFnn/ej/tJ5MVi7MEpC2zb
+	SG9tViCPUkC+8PeA==
+X-Received: by 2002:a67:f109:0:b0:612:13af:f5de with SMTP id ada2fe7eead31-63a3ec8bb31mr438168137.3.1778842480179;
+        Fri, 15 May 2026 03:54:40 -0700 (PDT)
+X-Received: by 2002:a67:f109:0:b0:612:13af:f5de with SMTP id ada2fe7eead31-63a3ec8bb31mr438163137.3.1778842479785;
+        Fri, 15 May 2026 03:54:39 -0700 (PDT)
+Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bd4f4c23feasm212857866b.14.2026.05.15.03.54.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 May 2026 03:54:38 -0700 (PDT)
+Message-ID: <02578386-a492-4342-95aa-9cfb00c8bacd@oss.qualcomm.com>
+Date: Fri, 15 May 2026 12:54:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 19/28] coresight: Save active path for system tracers
-Content-Language: en-GB
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
- Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
- Jie Gan <jie.gan@oss.qualcomm.com>,
- Yuanfang Zhang <quic_yuanfang@quicinc.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20260511-arm_coresight_path_power_management_improvement-v12-0-1c9dcb1de8c9@arm.com>
- <20260511-arm_coresight_path_power_management_improvement-v12-19-1c9dcb1de8c9@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260511-arm_coresight_path_power_management_improvement-v12-19-1c9dcb1de8c9@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 3/3] interconnect: qcom: Make important drivers default
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Georgi Djakov <djakov@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260428-interconnect-qcom-clean-arm64-v1-0-e6bc3f7832db@oss.qualcomm.com>
+ <20260428-interconnect-qcom-clean-arm64-v1-3-e6bc3f7832db@oss.qualcomm.com>
+ <bb02291a-1579-4069-b6b1-757a0b5fb7e6@oss.qualcomm.com>
+ <ca6c656c-07a1-466c-9c1f-a2efbf1498d0@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <ca6c656c-07a1-466c-9c1f-a2efbf1498d0@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: G9RFM5a2HMutU2jauir4M9LvE3qtnuvo
+X-Proofpoint-ORIG-GUID: G9RFM5a2HMutU2jauir4M9LvE3qtnuvo
+X-Authority-Analysis: v=2.4 cv=GrhyPE1C c=1 sm=1 tr=0 ts=6a06fb71 cx=c_pps
+ a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=HltSbr2RFzsJciUvgNYA:9 a=QEXdDO2ut3YA:10 a=TD8TdBvy0hsOASGTdmB-:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE1MDExMCBTYWx0ZWRfX6WaOGHYl+E0i
+ jc0dVCqiafRoIOVVqZAwVrK4o949QMb1GMLrjG3nUIgPqRn1t1bdyl11o7Ox16f3kgOaHqf+3wl
+ DtcHCon76MdPKZogf88LnBGoSxCBnEKsK69jYLbj83xV3Yp5Q9lbWDeSZZ96D+8a7KGGbEfE0DT
+ 1vIlsgSgNM/0McYrRqLgsKtHfgFA0WPwH05a3rLE8LawOGeIHGlnuq6phoNmBJOCzFihKCATT02
+ S18MyIKHgQIyCpaFm3H/oTGxj3656wWvcuA4qz3CG6nFXKWaPhkg4emE/2RwI7+pTzU9Yf0fQjo
+ kuFkYPY7VTUpcxiV6ot4TjNxETlRmta/20N5A6HlE+B7aJ27AllYj8WMuJ+9PKzR2IivCtXX9qt
+ eCs+cx+3bGx3xQKS9WTc4Fx7pBfnoIKFT4spBsexveqwhwOW+DceCIOIa6Juqt+EndBshlvHpfq
+ TFqpa29Q+ECct60cJqw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-15_02,2026-05-13_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1015 lowpriorityscore=0 adultscore=0 bulkscore=0
+ spamscore=0 suspectscore=0 impostorscore=0 phishscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605150110
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_035431_797623_AFB1D5C7 
-X-CRM114-Status: GOOD (  26.69  )
+X-CRM114-CacheID: sfid-20260515_115444_087948_D388DEA9 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,97 +166,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/05/2026 12:11, Leo Yan wrote:
-> This commit only set the path pointer for system tracers (e.g. STM) in
-> coresight_{enable|disable}_source().
+On 4/29/26 5:09 PM, Krzysztof Kozlowski wrote:
+> On 29/04/2026 11:23, Konrad Dybcio wrote:
+>> On 4/28/26 7:32 PM, Krzysztof Kozlowski wrote:
+>>> The interconnect drivers for Qualcomm SoC Network-on-Chip are covering a
+>>> basic or fundamental SoC feature: bandwidth management between internal
+>>> SoC blocks.  SoC can boot without these, but power management or
+>>> performance will be affected.  These drivers do not represent any sort
+>>> of buses visible to the board designers/configurators, thus they should
+>>> be always enabled, regardless how SoC is used in the final board.
+>>>
+>>> Kernel configuration should not ask users choice of drivers when that
+>>> choice is obvious and known to the developers that answer should be
+>>> 'yes' or 'module'.
+>>
+>> I'd say let's make them all `default ARCH_QCOM` - all of these drivers
+>> are required to boot (minus the OSM_L3 driver which is "only" highly
+>> desired, so that your CPU's bus isn't heavily bottlenecked)
 > 
-> Later changes will set the path pointer locally for per-CPU sources.
-> This is because the mode and path pointer must be set together, so that
-> they are observed atomically by the CPU PM notifier.
-> 
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Reviewed-by: James Clark <james.clark@linaro.org>
-> Tested-by: James Clark <james.clark@linaro.org>
-> Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-core.c | 23 ++++++++++++++++++++++-
->   include/linux/coresight.h                    |  2 ++
->   2 files changed, 24 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index ff882769cab2bb20bc2cb768e86f111f8a09cc8d..f07f6f28b9162911cdc673a454702f3ac4dc29ad 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -487,10 +487,28 @@ int coresight_enable_source(struct coresight_device *csdev,
->   			    struct perf_event *event, enum cs_mode mode,
->   			    struct coresight_path *path)
->   {
-> +	int ret;
-> +
->   	if (!coresight_is_device_source(csdev))
->   		return -EINVAL;
->   
-> -	return source_ops(csdev)->enable(csdev, event, mode, path);
-> +	ret = source_ops(csdev)->enable(csdev, event, mode, path);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/*
-> +	 * Update the path pointer until after the source is enabled to avoid
-> +	 * races where multiple paths attempt to enable the same source.
-> +	 *
-> +	 * Do not set the path pointer here for per-CPU sources; set it locally
-> +	 * on the CPU instead. Otherwise, there is a window where the path is
-> +	 * enabled but the pointer is not yet set, causing CPU PM notifiers to
-> +	 * miss PM operations due to reading a NULL pointer.
-> +	 */
-> +	if (!coresight_is_percpu_source(csdev))
-> +		csdev->path = path;
+> So the few of them should not be a module? That's what you want to say?
 
-Do we need to specail case this for non-percpu sources ? We could always 
-let the driver save/clear the path leaving the core out of it. We can 
-fix it separately from this series in a follow up patch.
+I'm saying that if you only want to shoot yourself in the foot and not
+in the face, you can make them modules
 
-Suzuki
+But the L3 driver is required to make the caches run at a reasonable
+speed, so that they don't bottleneck the rest of the system's mem
+bandwidth
 
-
-
-> +
-> +	return 0;
->   }
->   
->   void coresight_disable_source(struct coresight_device *csdev, void *data)
-> @@ -498,6 +516,9 @@ void coresight_disable_source(struct coresight_device *csdev, void *data)
->   	if (!coresight_is_device_source(csdev))
->   		return;
->   
-> +	if (!coresight_is_percpu_source(csdev))
-> +		csdev->path = NULL;
-> +
->   	source_ops(csdev)->disable(csdev, data);
->   }
->   EXPORT_SYMBOL_GPL(coresight_disable_source);
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 5f9d7ea9f5941ab01eb6a084ca558a9417c7727f..58d474b269806d32cad6ed87da96550b06f1f30f 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -257,6 +257,7 @@ struct coresight_trace_id_map {
->    *		by @coresight_ops.
->    * @access:	Device i/o access abstraction for this device.
->    * @dev:	The device entity associated to this component.
-> + * @path:	Activated path pointer (only used for source device).
->    * @mode:	The device mode, i.e sysFS, Perf or disabled. This is actually
->    *		an 'enum cs_mode' but stored in an atomic type. Access is always
->    *		through atomic APIs, ensuring SMP-safe synchronisation between
-> @@ -291,6 +292,7 @@ struct coresight_device {
->   	const struct coresight_ops *ops;
->   	struct csdev_access access;
->   	struct device dev;
-> +	struct coresight_path *path;
->   	atomic_t mode;
->   	int refcnt;
->   	int cpu;
-> 
-
+Konrad
 
