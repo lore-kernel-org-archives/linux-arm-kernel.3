@@ -4,77 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F309CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 04:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D9C0CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 04:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A3ggIcTT9QpNE6xAWUcm+Edx6+JDZ1X1JlzR3+EsdbA=; b=Cpv0IRwirlD2yc+/xrXnWKPr61
-	oCGpvTREvVwOuV7bLDaCplIJ/24EtN6/+TFTpFDxzQ+a81UjSynCyJmTsZEIzujr+/F3e7W1T7Q0D
-	8NxblwSx2pqdxc5+AjTCVa28cWJAVUYLnuuDwr0R920waOXsHgtO9q7bgDjfR9XOMHQBy0tRB8VQ8
-	JVECgvwEvAHM7f3ZYg4KUNiCqRmpPMbleTy8Cvj8KTp6/Y13kj1jkfbFkTzgqq0qMLpSsV9zCF0Vy
-	24zghvRY0pLazpHSvBojKBsXQHR7XSjfjMUY+1c6ezwYiKJXwCXMCWtKrlqYQ9G0NbFqUS5ZN0ffv
-	j72aqPcg==;
+	bh=7Ze77vbekY63STpWUt0uP8LUCQHGr3bsiE2SLku80DU=; b=K1Jg/6bD+4mOSui2cmxo2qkN9c
+	ojbi6CGHDuLi7R3kgspWA9o6KYMq1voeIptU6CEMOJtFCT24RziBdN1ADcNkapVt+mU3NW/j1+bsC
+	V9EtCQN0OTGzWM6DoFZ9TDmtzhdbTvSMStGN4W9nQo5SUJxyGZxopePwzf4Cz+xBzjR2MXr6FgTXp
+	rs9EeZ+BvoJ/GWw04EP0iIMmGIyCsSPeZReoVB+aZlK8FtrFW/IhEvKTWuYtD+fkVeLa99RnZRJDL
+	avHcY8OFo9edhR4Xzaa+mmlUkeOnlU+VOTm4crON/ll0TR9/eD0nJiMXjfyOnGuv0WDtMnYMnP04D
+	I+SjRqbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNkJI-00000007K1F-1mxw;
-	Fri, 15 May 2026 04:38:04 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1wNkU2-00000007LEQ-3Xwt;
+	Fri, 15 May 2026 04:49:10 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNkJF-00000007Jzr-2Bc3;
-	Fri, 15 May 2026 04:38:02 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 1C6DB68BFE; Fri, 15 May 2026 06:37:58 +0200 (CEST)
-Date: Fri, 15 May 2026 06:37:57 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: "H. Peter Anvin" <hpa@zytor.com>
-Cc: kreijack@inwind.it, Goffredo Baroncelli <kreijack@libero.it>,
-	Christoph Hellwig <hch@lst.de>, David Sterba <dsterba@suse.cz>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-	David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
-	Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-raid@vger.kernel.org
-Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
-Message-ID: <20260515043757.GB3855@lst.de>
-References: <20260512052230.2947683-1-hch@lst.de> <20260512052230.2947683-2-hch@lst.de> <20260512114231.GG2558453@suse.cz> <20260513054742.GA1018@lst.de> <0a8d1ff4-f5a2-49e9-aa45-d25dbe4ded40@libero.it> <0507CCEF-0548-442F-8703-1D006B5E068B@zytor.com>
+	id 1wNkTz-00000007LDp-3S4H
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 May 2026 04:49:09 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-366375c4076so4236911a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 21:49:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1778820546; cv=none;
+        d=google.com; s=arc-20240605;
+        b=C/NOYa+uygh0D+UQ9cyjzxAlA8I+H2bc0AZbf03z4o6HOC2AXvr2Sy2YccpmSpbY0y
+         8yl/a4cHmApiV26CmwA2GWizmlXWAxGYGo4e8gSpr2xS+A3Ad3sb5u3tzh19vj1/JXrL
+         wbDTjVbEBG+KDOt2PEzVWyDdFRZbAGCvHfet9cxZnjgp4BxtVj113ubXX4HxawY/IhBa
+         3LZh/PiE1jL/er3DAyUG4nvtf3G9KQyaqH9K857hA0xUQyFKiPzK3eZAteic7DZt1RwN
+         CFObrdmZDhrlzdvSjjjgkOF5HT4SJDDy48hoaQ0RDW9QouuvYvriLfas3QK25l60ojPw
+         DniQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=7Ze77vbekY63STpWUt0uP8LUCQHGr3bsiE2SLku80DU=;
+        fh=xkyLmLO+wKO6tiXX/lYGcH+nFtEQ1l/USNroK140xN0=;
+        b=ELi0cAMxIHE3qXC0SYQe8rIYmpX/IdcDvOBYaD3ZnCMyeQJlhn89gFp1c3CFHv7gBU
+         4ROuQ4Tv5avtzAuaK68mMhzmbBEmP5CsRGtUBQ11lrL4PGeyKp80jEijPJ7ixSZUH1JM
+         C8EQGGKQBnX0Gf49DIPxHdz2tani1/by+yz2CPGGgCrL/LRDo1hfEEBxDO/vLxDBhQsG
+         Ffa7F/lDZeHKgNqNX83Tqrig938xbJpv3fN3TskOq6I+DncQTzFc1Vr8rZBC0mc6WZIi
+         Mhx8H0cnFjqL0reZJUbADbCCD6CdpC1IwdHqQOr/KxSeoOKXSIwUeQg/K+xJh2rNtgPY
+         v58w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778820546; x=1779425346; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=7Ze77vbekY63STpWUt0uP8LUCQHGr3bsiE2SLku80DU=;
+        b=et3RRDYseuoRhZUwhKE0EFgu1jy+Yo/hc40Zd4y/iGrnqCRXpcBAOA2/mvRpaXV5DI
+         1pljXGhoZ+baQR7xL9BVXGMrILteVUAVW4KOkb6xuVSQzWY3jLQfX96JWF3CoKNg9Bw8
+         kl+QwZjLznQKAK1tUANG61/V4kQU+XIhscOiEDiWpUUUOCCQtmfsjBDLpkpjM8szjIyy
+         vqbSMl8KtwfGwIM211/vShlQTZf3SLiyOCa/iwyVouIUGDATUopKh0jALUxxrzQ0oQfA
+         JzHdQibpmYItK+RC/M85ReDSGYTEpexfbAryECQU9br/MAu/8C1Zcp2ak/T9Bxod0WoZ
+         /sTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778820546; x=1779425346;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7Ze77vbekY63STpWUt0uP8LUCQHGr3bsiE2SLku80DU=;
+        b=svcIYUVN2xV1RI9GbEnqbZHX7EF7lBEAyRmUuXztXjrG7p2BiMMv0rfrw2mOhRudYg
+         yfY9cqByYpV8GIS3HxbD32sx1PVbwooUYBVFmll84x8WHZv5Hy5L+Zm+ZPLwmMflMIOb
+         AANZOarwbp15KI2dsuogyg5/NrVBAGI0uz7Cxg+U2CwuMojmbO57KWAeuQ1e5WhXKNS2
+         486+Lp8hDLWes4ysWiAEKFXxCo5hgQ+bDYR0mM+0JlG7WFOOV15VyUqMAXMyv14/1Zit
+         hdcaCYBrqajeb59X3G5GPNIgE63Drsjxic5s7YoB0BJaxMEdkjO19Tv30HdiF6xeM8zo
+         ioag==
+X-Forwarded-Encrypted: i=1; AFNElJ9w6QfQsS1P9nb0bU1A2Ti4BP3AkYAd2DJsEiLiPlUw7CQnNqIFGo4KWKRxz7tX9qm1inYQPIH80dlVMt5gkX7C@lists.infradead.org
+X-Gm-Message-State: AOJu0YxC6bNKy2srjE6qV6BxCKaKpi4zcIRNSRwXy5UETVh9rKsy3CNz
+	3EMUDlZOuJkYmXQ6Q430nuUkiaOKkVFfgAXbJdxAJ8JaOEv+Z1a2qHnf2M1FPyDZGeDLB2YrBoZ
+	RkfeO2dgvyby+Pspvp8ahWwyFYWyKzi0=
+X-Gm-Gg: Acq92OFk9zMQjMOn2uC6cWX+u+A7xNei4FbkOrUjHgvzejxrV3JOXyrzqM9Zu42pVN2
+	xSELeb8CivFiW0DP9cW8YMnOQrFbw6foghrlmPml0AG1w9/26uaOajQTBC/ypaBigg3KQFbOgdT
+	zBxDtKPyuWimBs7l4SpszWdp/pLFB+pXysED4u3rRugZ//7qu0xKjionpy4t4hi8FXEa+aKWrey
+	MIvFDAOod7VgY3FEJtlyLX+g8qxGX19DNp9vprPWp6qWTC5YCOQtnXtn9XIyeWh2RhQnNBZL2kO
+	kBoJaA1KHlKpOwUDkx25tj3tM2MsvWL7U4aFoXjmqw/K9RLh
+X-Received: by 2002:a17:90b:57c7:b0:369:2e00:1ff0 with SMTP id
+ 98e67ed59e1d1-369519c6663mr2379277a91.6.1778820546309; Thu, 14 May 2026
+ 21:49:06 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <0507CCEF-0548-442F-8703-1D006B5E068B@zytor.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+References: <20260513104329.81592-1-phucduc.bui@gmail.com> <20260513104329.81592-3-phucduc.bui@gmail.com>
+ <agUknFcDIfwrOCld@sirena.co.uk> <CAABR9nHfXi5G4+sVnLbWWJctQHkWASTzTwiV424bO6BXZDqX+Q@mail.gmail.com>
+ <agZ92TVjcYpEv_eH@sirena.co.uk>
+In-Reply-To: <agZ92TVjcYpEv_eH@sirena.co.uk>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Fri, 15 May 2026 11:48:55 +0700
+X-Gm-Features: AVHnY4LSRW3rAmjavn6_eDy_Qm1nhNiehY-HxiVuY8qyBRTItYTFMQaIPdHoTM4
+Message-ID: <CAABR9nHR13e3d46_Z7Q8ZkjQzKbkcPs2Er4sAvq6G1EEj-xoXw@mail.gmail.com>
+Subject: Re: [PATCH 2/4] ASoC: stm: stm32_i2s: Use guard() for spin locks
+To: Mark Brown <broonie@kernel.org>
+Cc: Olivier Moysan <olivier.moysan@foss.st.com>, 
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_213801_702192_F411FBE9 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20260514_214907_868703_EF384784 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,10 +120,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 12:57:53PM -0700, H. Peter Anvin wrote:
-> That's what I'm saying – it should invoke the RAID-1 code under the
-> cover (as with 3 disks, D = P = Q.)
+Hi,
 
-Yes, if the btrfs maintainer cared for this setup that is what should
-be done.
+
+> > I'll send a v2 of the whole series with this fix.
+> > Would that work for you?
+>
+> Yes.
+
+Thank you for the confirmation.
+By the way, I have an architectural question that came up during my cleanup...
+
+I noticed that the STM drivers currently manage clk_prepare_enable()/
+clk_disable_unprepare() directly from the dai_startup()/shutdown() paths.
+
+After looking through various vendor audio drivers, I noticed that
+PM/clock handling styles still vary quite a lot between implementations.
+
+For example:
+
+some Intel drivers enable clocks during dai_link init.
+
+Samsung separates bus/interface clocks and operational clocks,
+enabling them in different paths such as probe() and set_sysclk()
+
+UX500 and STM enable clocks during DAI startup()/shutdown()
+
+Tegra, Sunxi, and Rockchip often manage clocks through runtime
+PM callbacks
+
+From a maintainer perspective, is there generally interest in gradually
+converging these drivers toward more modern/common PM patterns,
+or is preserving existing hardware-specific sequencing usually preferred
+unless there is a concrete issue to solve?
+
+Best regard,
+Phuc
 
