@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A19CD4F39
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 14 May 2026 23:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11955CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 00:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=miij9I2PE8Na3TIkQh0hnw52K4XjSNEPKnF1xyHd/7Y=; b=teJUiFHFKTagGiKvfexGw+Q4RZ
-	HMRPqvJWpqk/UZM2C8As5oyrxWc0lCJdRoyUbG3EPUmRQx1+Td3jIzaLO9lHr6QkZWTMpr4pIyI9G
-	bimGmD4l0BLZMqZfwjZ50Mt6LF4PClEXS+EGdKt6mwb1+rXcuC9z7Aux8YSWCdxsklKGH7wZIJDdQ
-	dyadTlP3XQru7TbiMjGoFMOdm95OIjaMCF1DZMkpBWRBz5NusT0SGSR+6Qt/xrWFmESmgW0DU+6Uo
-	cfmFnzUU9PkNBUWnPHcA21uFxDOudfK6fdADl1APvld9pzliJys9e8cVi7t04eWe+kFmu2uhNgAft
-	4zNHAeGg==;
+	bh=p6uhRUiW+eldhh1YclRaJ4cIYTKdwtUso/LSw+v9Ygg=; b=YBoWu9EiS/9tmPVVDVDtbxS6TR
+	MpS1WX+l0bOF+sO4bdPnx71TM8y3FIB4adysAIw8E7NVP9f9lOrRH8mQkXSyJfdlCwvTG45qyZxG+
+	Nq20fJx92/SaW4JAViPPAfcFLQa/DzucZuM7fcSONjn+b4CMufcK49RKdF550Gc1/JvzJhucUsohy
+	ucnRIDwZ5+hOVvnHlA4OAGwSCzjW4MsrJfVW45MEOUXcl7izawzeFvbMsH00J+Vx7p69vnxLdv1yk
+	RwESvD/NHmMBJUpEnhv/nMRzZiWaXs6D6KYh2su3g8h+13JAb/Nrcf8ZoHe/SkkhoDP+gGSp43TXv
+	rfuvR3MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNfoU-00000006r1T-1ljX;
-	Thu, 14 May 2026 23:49:58 +0000
+	id 1wNfzW-00000006s37-1Yar;
+	Fri, 15 May 2026 00:01:22 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNfoT-00000006r1K-2nrl
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 14 May 2026 23:49:57 +0000
+	id 1wNfzU-00000006s2k-0J4O;
+	Fri, 15 May 2026 00:01:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4E47960008;
-	Thu, 14 May 2026 23:49:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 654AEC2BCB3;
-	Thu, 14 May 2026 23:49:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C6B6860008;
+	Fri, 15 May 2026 00:01:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9D03C2BCB3;
+	Fri, 15 May 2026 00:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778802596;
-	bh=TmAevODjhHZElM4G8U/haaPgw/WZu5pMLQPDCwmCXJ0=;
+	s=k20201202; t=1778803278;
+	bh=qcyh1k6oDWxzqMUIRNWfJA2lNDX2xIYpO4RsFgvB/Pc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=URFfURfgVGgzEYd8Mj9WJP8dbk1n67SD7BBTY1psdrs8lvi172VGJa8CSNFSxVxhT
-	 JF+jTmgX2RsUoYZmn+9ruk3zmTTvThlorID4d4yccop0Tk5/5i8nxhrli4eAWBqmQR
-	 3Mx2xSZCGnJKRn+yGvKFF/LgrBuyNrZ5hjpXap9SyIKPwy9umFrCfl+dgL8htfgoM0
-	 FBUnKMgH+avDF7NUtdicunn/YPY9OrM9BKF8DVuuOrYaQZt5Fdw2fci2y3fALpjaD+
-	 eMz2y0HfUHJZcwulblRKfkVuw9/XVEYiZnM2SzIHGh6CR+fGHki4aj9TBWps7d/Q0C
-	 Rmv55SGmSOGdg==
-Date: Thu, 14 May 2026 20:49:52 -0300
+	b=ORTs2e47LDfXtxpftrsgmc0BBJfhsGWPf3S7imib3v4dWSmqlGKYQTWNchK/6tqqv
+	 28zSEFcawoJf5V5dMaouJ/OjkKLtq1W+p1dESsernOwMwK7viKW4dlettM9fHGZJ/g
+	 GUI/V3HUvr+ResYK5Wo+/EnZVSefKesf7+hwdq5+G5er6JKBevdLzivjuiELJUBEww
+	 BBRyyBE1t8374ptrmuPzDNmNofdZC8dRo2ivwgc/FhQ4blzhzcWxfDchMnGEL3jS2K
+	 vMhmTj6OBA4dBHPhOVFmkR66JiCZSaodo3uE/UB6rBNz3FPqlkz2ZY0XPM4GiMfpiH
+	 Rwch+YpztSmpw==
+Date: Thu, 14 May 2026 21:01:15 -0300
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Ian Rogers <irogers@google.com>
-Cc: james.clark@linaro.org, namhyung@kernel.org, adrian.hunter@intel.com,
-	alexander.shishkin@linux.intel.com, dapeng1.mi@linux.intel.com,
+Cc: adrian.hunter@intel.com, dapeng1.mi@linux.intel.com,
+	james.clark@linaro.org, namhyung@kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Li Guan <guanli.oerv@isrc.iscas.ac.cn>, 9erthalion6@gmail.com,
+	alex@ghiti.fr, alexander.shishkin@linux.intel.com,
+	andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
+	atrajeev@linux.ibm.com, howardchu95@gmail.com,
 	john.g.garry@oracle.com, jolsa@kernel.org, leo.yan@linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, mark.rutland@arm.com,
-	mike.leach@arm.com, mingo@redhat.com, peterz@infradead.org,
-	shimin.guo@skydio.com, will@kernel.org
-Subject: Re: [PATCH v2] perf record: Refactor ARM64 leaf caller setup out of
- arch
-Message-ID: <agZfoDoXEVjF7fBK@x1>
-References: <20260507170622.611933-1-irogers@google.com>
- <20260512054140.3427725-1-irogers@google.com>
- <CAP-5=fU7Y5b2KERuYJuKBK0nqD6GAo_r_QhxesbVw6T3bqrgQQ@mail.gmail.com>
+	libunwind-devel@nongnu.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org, mingo@redhat.com,
+	palmer@dabbelt.com, peterz@infradead.org, pjw@kernel.org,
+	shimin.guo@skydio.com, tglozar@redhat.com, tmricht@linux.ibm.com,
+	will@kernel.org
+Subject: Re: [PATCH v5 0/7] perf libunwind multiple remote support
+Message-ID: <agZiS2-fY49MjsY6@x1>
+References: <20260413024805.1316480-1-irogers@google.com>
+ <20260513233151.572332-1-irogers@google.com>
+ <CAP-5=fW6S1XzZvq=kWj6ma=O1UCDrVV3ZNbzK0fMS_ho6e1qVg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP-5=fU7Y5b2KERuYJuKBK0nqD6GAo_r_QhxesbVw6T3bqrgQQ@mail.gmail.com>
+In-Reply-To: <CAP-5=fW6S1XzZvq=kWj6ma=O1UCDrVV3ZNbzK0fMS_ho6e1qVg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,24 +82,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 10:38:07AM -0700, Ian Rogers wrote:
-> On Mon, May 11, 2026 at 10:41 PM Ian Rogers <irogers@google.com> wrote:
+On Thu, May 14, 2026 at 09:51:09AM -0700, Ian Rogers wrote:
+> On Wed, May 13, 2026 at 4:32 PM Ian Rogers <irogers@google.com> wrote:
+> > Fix the libunwind build for when libdw and libunwind are feature
+> > detected, currently failing with a duplicate symbol.
 > >
-> > Code in tools/perf/arch causes portability issues/opaqueness and LTO
-> > issues due to the use of weak symbols. Move the adding of LR to the
-> > sample_user_regs into arm64-frame-pointer-unwind-support.c conditional
-> > on EM_HOST == EM_AARCH64 (false on all non-ARM64 builds). This also
-> > better encapsulates the use of the sampled registers by
-> > get_leaf_frame_caller_aarch64 and the set up by the new
-> > add_leaf_frame_caller_opts_aarch64, exposing opportunities for
-> > possibly sampling PC and SP to help the unwinder.
+> > Refactor the libunwind support so that whenever a remote target is
+> > available, perf functions using the ELF machine can use that remote
+> > target regardless of what the host/local machine is. Migrate existing
+> > libunwind supported architectures like powerpc, arm64 and loongarch so
+> > that they can work in a cross-architecture way. Add support for
+> > RISC-V. Make the code more regular in function names, etc. and avoid
+> > including a C-file. This increases the lines of code. It is similar in
+> > style to the unwind-libdw implementation. It is hoped that the more
+> > uniform nature of the code will help with refactoring the perf
+> > registers for SIMD/APX support.
 > >
-> > Reviewed-by: James Clark <james.clark@linaro.org>
-> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > Aside from local host testing these patches are under tested, in part
+> > as I'm failing to see how to build libunwind with support for multiple
+> > remote targets. Please could I get help in testing.
 > 
-> Ping.
+> So the patches failed to apply in Sashiko:
+> https://sashiko.dev/#/patchset/20260513233151.572332-1-irogers%40google.com
+> The baseline logs show perf-tools-next was at commit 8c8f20936143
+> ("perf build: Remove NO_GTK2 build test") which is 6 patches
+> out-of-date compared to the current tip these patches are against. I
+> ran Sashiko locally, so I don't expect a huge amount from the reviews.
+> Currently Sashiko is catching up with a backlog because its tokens
+> have a lower priority and there was high load earlier in the week.
+> Anyway, I could repost the patches for Sashiko review but given the
+> backlog I think that would just create noise at the moment. Hopefully
+> I can get human review so we can move forward with merging these
+> improvements.
 
-Thanks, applied to perf-tools-next, for v7.2.
+Trying to apply it now, will also run sashiko locally.
 
 - Arnaldo
 
