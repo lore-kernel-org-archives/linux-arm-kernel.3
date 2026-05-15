@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9824DCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 17:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FCDCD4F47
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 17:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7wVByEQNzHAoTLnCJhtnshp7ljQBgBd5RO0oGJrAuAM=; b=IYsYrh9/UxNPXIBI90TOriFdZk
-	MCF5zRNdUYqCJp7Z5QSvqW4mqWnkxu0zuaGdyio9N0e/T6INl1OH9kjKSBKlyuPRVcqtlX1Ma/FKF
-	AQWEKyLev6WU4/P4z2Ir5iqoysoh9nAOjDWM6GwLIbINKreeuVWYSWu2UsuWWKFnGvHcuzNUaN9of
-	+84B70dQNu9kQIxHQRrjMzLPBUKEaJ7sL+EAfdek/g0NKQsyybIajJ/CWJSRlWhy5E5Q/yRZ9vzen
-	AaLisbQxY23A4n9HbYYuUIxADefxtYG8SmAHUPf2a90HOBt10U9qQhR7SCZdw7LGlTjYKcahVst0Q
-	wVdChnUw==;
+	bh=wLuPzKvrSzHkaCJJGeMDqoTA3l2mSjliAhV8bnUhOhA=; b=bQjpaiZtRDM7SUaQpIwTrAJ9VE
+	vgYuElGL5wzKBiD50B2FR77srHnSjZQVfDGMJ1pVbSSGQ2PSL9CT0eydYwruzyelpW7kWVUHYJZ8t
+	JC3tx1REC0DGT/hNEmjVBs9IU21L97wYqnFq+KJYZGqMfTETifM0ANh3w7gL5CwkxzUZtltjkIoLR
+	pBbA3myaLlCMZFtl/5O+IkAYsTsXPlf0qKMKAQiMocjGwTiB0dxOGJyRXHDyKPSjxuA57llL1WTu0
+	IYmKvr4CHfSCTkfSkw0GU9jlmuTEpRnUB5efqNw5XmvhxW/unS5PvG4hmXMmggHtqC8Y53meqJqlw
+	d0F1yCgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNwDR-00000008yJj-2RtI;
-	Fri, 15 May 2026 17:20:49 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1wNwDU-00000008yLf-3FvC;
+	Fri, 15 May 2026 17:20:52 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNwDO-00000008yHz-2Y0V
+	id 1wNwDS-00000008yKL-3Ne0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 17:20:47 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c80203b9d7bso17668a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 10:20:46 -0700 (PDT)
+	Fri, 15 May 2026 17:20:51 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2ba0fc8b1f0so743225ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 10:20:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778865646; x=1779470446; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1778865650; x=1779470450; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7wVByEQNzHAoTLnCJhtnshp7ljQBgBd5RO0oGJrAuAM=;
-        b=KtTXcyFmn4Dbf1DFOEIXxZ8/3I0gorGKmWv7ZkEdql6QFLJqActic9/6Pr6x2E8Z+W
-         jdXD5FpHOEWSr3BV+gW48bEwM0C6chjdpDHfVzxALrL/0UB+3MI499PW2M3TBET1VQkI
-         KfzwlAH4w0uaXnXgblbiWs7xGQK9odmv6LN6c3j6AxhW8T4PUownHMRAfex9GEZSNyHq
-         gVaPJOleOMFm2rqGeo56vGxSQJxfcbfK2io/d2EL698owOJLSQdLVbBoQ4x28oa80qmb
-         PvopWuTKoe8llS2fjrLiMUkYTuI+AXBjSqiBnw8iJ8TlDYQ7lGUExTRxZJsVDrlOmvcs
-         HJGg==
+        bh=wLuPzKvrSzHkaCJJGeMDqoTA3l2mSjliAhV8bnUhOhA=;
+        b=juMHRVfSSQxOaime0Oa761rDysBjwZtH8VsgYh8B33EYX/uGabNNqdHiW39EyhgRdm
+         dFSF8SRu3ND/Y5KQe1Urj8WdbFi2hROrCxEGz+gWiCWdbGw6UzdJiJKKxlyabut34bMI
+         Wjv1+j7TLXxg8QZD7XLbcaPJkafn6NYxIV06M3PGx2M6ARyP5QsXARLZGVcsP+alE9lG
+         bqbZtdHeQXtlUdxv1pOIll/qYNanzJjw32vtPIYwi+n27k7XKS/GzgpQ7C4THLmeXa8W
+         UwMthM/XjJbtlm7fF5YN2VnENvbmNPoKGNdbZ/mQx2K2Ogi7ASeiAt+a0RyZXe5vk6Im
+         0vyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778865646; x=1779470446;
+        d=1e100.net; s=20251104; t=1778865650; x=1779470450;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=7wVByEQNzHAoTLnCJhtnshp7ljQBgBd5RO0oGJrAuAM=;
-        b=kCqSagefqo3XiIWvyx8sfLnXCUIREXFZGNabTjXd6GGGskXhaykxnuPQAA+gu1fIOx
-         j4nhMaq2xI9IoUHG/kSPDnNsijW3K1ZbzEitRTBqhVmNTbUf9I4HCELFnPIWHdhblZzZ
-         3YlSIRGz/Y8Cgnw7v0JKDwrIbifNmwkEEyAgT1y4VJPgES7w6yge6O7zg1Plv9mkFovu
-         XfbQFCxAH8tVtx6ViU8pbXrkHobPteEUPo1JSSJ132RNmBPXK5O+gX9A7qIkK2O4JikJ
-         Yw5w3mLjbkeRIaVWW2mVgfDUtAvo//tEJOrSb6g+EpdZPphyd3AYN56nFtDzCrdzVEdl
-         H1cA==
-X-Forwarded-Encrypted: i=1; AFNElJ8b1aSm69Lb18z2hmieJA+c3AWJS7R7Uc3nKUkyh6URpmQOmAVC2gF9oQeiOVxqu0svLNIdVAdaILheQ/dX14Ik@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz85cO7UrYhq/09zk0GQX1sgH6+7y87RoqQ8H4qbxrLNGj6aBaD
-	UG5B3n/HXPjhOMDC8YMVQr18PP9Rpgo3DB1ri+vbvO1XwTewgHogaA/P
-X-Gm-Gg: Acq92OE6dQ5KpmuMDmdTKlHy+JePilZ/c+rNvPf7vQmBpKXDXfUF9fAwZ0Ux9RAm6tZ
-	44KtlaNKA+zESOxr8rkD35SickatZ93X2CCYkrJJ58OPaj6DEBmwAzNMSkV/E3SLaBDQLpVpdbz
-	CRqLpNQl5VwJ5GLrU4pw9rluOTlGpruFT6vEopi4Xg0enz4KZl8Cj8mq6aVO4ly6sYhTB9OO+pu
-	sg9x3M+crl5cLj6xqv7BgtujFWDZX1x23zRCrc+PxQYXete4krVfjeWAdsAjtQlDmIuMYCxyTrP
-	PuTq04jznJVvaqPkcL5dKoS36TTdJcQTbyKDnviiHFvz7p66f6ZQZfUMtJxJwe+NV5OfLWNKXP4
-	1Q1I/I21NLRpk7T4O1H4VeC/xVvY/+gtJgJfI+dbuHRyYSlzvLCw3x3uKrWmeOhDO/Tp/QGTvIV
-	eBrmcvc0zRH5KxHIKo2MMyljOAuEathG9hcGKjaMmKt/S+HePJDIPtPrN28xhxYU2+Q9hasZdVs
-	N3yDyy2K9zZDEu76bQ=
-X-Received: by 2002:a17:902:bb96:b0:2bd:147d:c712 with SMTP id d9443c01a7336-2bd7e78540bmr38358085ad.1.1778865645369;
-        Fri, 15 May 2026 10:20:45 -0700 (PDT)
+        bh=wLuPzKvrSzHkaCJJGeMDqoTA3l2mSjliAhV8bnUhOhA=;
+        b=reLAN2qMT3+8/4/VHIlRhASwQHvEo4xK+vy07KK+kVrUERsT3LSQoVnHqm6MfKzLsL
+         giI0C+bCQAoFWt4T2BQJi9XTVL1aWwStQZEYJgMnxTQFi3VfhWTjuL+E/+6fPUG/khSw
+         yh9k1wke0zrNBBl9BcrzCG+Yp5sIfHp5FNoOH37+t+qJ8ccRJTyXQRHGSOIauvdOm2X5
+         efZFB5kjy3vyOaEykBiQmBM43BPgs6Ys9nvuIE2mhCfUaGfEM2K24iFIAbm2qJvNXGK+
+         iSOCvalpAYLEHgm/B968Kybpif+tR32ny8iy6P2s5m1ykWXaT2L9dvbjX8YfyJINgJZH
+         ljgA==
+X-Forwarded-Encrypted: i=1; AFNElJ9feh0nYDXjVrgm+/eaOdT3JR9gNm9OwD+g5ATOFzrqxBo+Cew3JjnXMeJqgXUS3r25lLn9Uzkl1JKsUlT95jiO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6tCDRGdhnYDU9x4LdJn9eYiTaoVL8jBxjM2PKDJ+tFASa/iUa
+	/drgXmGCYqXWxvyDHSwzP3946+uUg7dbS49ohJJ8uzJCGzBJz5Q8DVYh
+X-Gm-Gg: Acq92OEmpSTjggcHdcWCU7L93qpFmUa48d0tIPU0Pt1HPwAKRWDq2zIEFYpsc1T5t3S
+	9F1SduIWemsWmg+djpkKesRt3SbYmkI9tHeEd6gyxBf3VTojKicF2imaziDtEMRmPpmqxg6507/
+	+DFGNHTDNCplXdDd1KKDAGM/g/447s/j3Yn2L7NUT0TDJJtz940RtLegEzjVdHUuJ7MgxvOanTu
+	3gca7Ue2e0BjOA0NA4XuUcU+tJlIPtZXKamke87ofyVrN5MtZo/Ake42Fo/5sbmyVnGJkXdnk1G
+	ycPZDcDpl0duLzi+OkEHc0qC+C1uZw+wkVmxEsmUrMc6nTLubUAglCo+vzXYkzPPMRVzOnJyZTZ
+	hFu9g9pJ9c1eKSBlNQsw1waB+0WU0tlV9FR+bqQpuRaDF+qZEwxjbJtPByDxOBAdnBYMnuHB0Bs
+	vKR3bWfDMdJoM0U1me2DAudkEEKMTrOFJMYNJo8nMQnrjjGlk1TFqzrkCN4HwKMBLAV3hHPlUsQ
+	mdTRFFXF5vVcoVodpQ=
+X-Received: by 2002:a17:902:7688:b0:2ba:22db:e1e0 with SMTP id d9443c01a7336-2bd7e8aad48mr43607435ad.10.1778865649587;
+        Fri, 15 May 2026 10:20:49 -0700 (PDT)
 Received: from junjungu-PC.localdomain ([223.166.246.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5c0600c3sm63151085ad.29.2026.05.15.10.20.41
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5c0600c3sm63151085ad.29.2026.05.15.10.20.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 May 2026 10:20:44 -0700 (PDT)
+        Fri, 15 May 2026 10:20:49 -0700 (PDT)
 From: Felix Gu <ustc.gu@gmail.com>
-Date: Sat, 16 May 2026 01:20:34 +0800
-Subject: [PATCH 1/2] spi: atmel: fix resource leak on DMA buffer allocation
- failure
+Date: Sat, 16 May 2026 01:20:35 +0800
+Subject: [PATCH 2/2] spi: atmel: fix DMA resource leak on probe error paths
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260516-atmel-v1-1-674fb4707af6@gmail.com>
+Message-Id: <20260516-atmel-v1-2-674fb4707af6@gmail.com>
 References: <20260516-atmel-v1-0-674fb4707af6@gmail.com>
 In-Reply-To: <20260516-atmel-v1-0-674fb4707af6@gmail.com>
 To: Ryan Wanner <ryan.wanner@microchip.com>, 
@@ -93,16 +92,16 @@ Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Mark Brown <broonie@opensource.wolfsonmicro.com>, 
  Felix Gu <ustc.gu@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778865636; l=5833;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778865636; l=2147;
  i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=lGBlNCNijk/Efa5PcvFYiun6BRP1lu0JZOhZHIl9RTg=;
- b=5Q+74fz79MgI4YIBMsTxIncGfHx+moPofA723Hs/A6xnwjiRnVh8nzw2LNOwc4mgE2iWD/nBL
- HHV9kWxV/dkBpiXGKjC6jk+WyFnJypGwKXXSKG6GakYrEojezMZrrMB
+ bh=Y4G8qeOAlLyitSmwDgedqstgSrqLdlv00S5ry4Dhr3o=;
+ b=vYNHvbuBkLq8xy1hzqJDfrUoFwFc/yX8ohsH1Ku1L/igMJWL76sCYmv8fpBw6zA8qxw6a1iTU
+ C9wu8+ztKqzCZWaWMXRx17ntiRkxLkkTHsfeLpeTZ0bF0iyuliCoVIx
 X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
  pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_102046_660811_E8FFE534 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20260515_102050_858933_D98372D4 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,199 +116,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The original code set use_dma to false when dma_alloc_coherent() fails,
-so DMA channels allocated earlier were never freed, causing a resource
-leak.
+The DMA resources allocated by atmel_spi_configure_dma() were not
+released when devm_request_irq() or clk_prepare_enable() failed.
+Route these two error paths through out_free_dma so that
+atmel_spi_release_dma() releases the channels.
 
-Fix by moving the bounce buffer allocation into
-atmel_spi_configure_dma() and extending atmel_spi_release_dma() to
-also free the bounce buffers. Any allocation failure in the DMA
-configuration path now rolls back both channels and buffers through
-the same release function.
+The same issue existed in the gclk_prepare_enable() failure path,
+which jumped to out_disable_clk and returned without DMA cleanup.
+The new fall-through from out_disable_clk into out_free_dma now
+handles it as well.
 
-Fixes: a9889ed62d06 ("spi: atmel: Implements transfers with bounce buffer")
+Fixes: 1ccc404a7fc4 ("spi/spi-atmel: add dmaengine support")
 Signed-off-by: Felix Gu <ustc.gu@gmail.com>
 ---
- drivers/spi/spi-atmel.c | 113 ++++++++++++++++++++++++------------------------
- 1 file changed, 57 insertions(+), 56 deletions(-)
+ drivers/spi/spi-atmel.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/spi/spi-atmel.c b/drivers/spi/spi-atmel.c
-index 25aa294631c8..e519a86a2b45 100644
+index e519a86a2b45..893f7c7ce358 100644
 --- a/drivers/spi/spi-atmel.c
 +++ b/drivers/spi/spi-atmel.c
-@@ -559,6 +559,34 @@ static int atmel_spi_dma_slave_config(struct atmel_spi *as, u8 bits_per_word)
- 	return err;
- }
- 
-+static void atmel_spi_release_dma(struct spi_controller *host,
-+				  struct atmel_spi *as)
-+{
-+	if (host->dma_rx) {
-+		dma_release_channel(host->dma_rx);
-+		host->dma_rx = NULL;
-+	}
-+	if (host->dma_tx) {
-+		dma_release_channel(host->dma_tx);
-+		host->dma_tx = NULL;
-+	}
-+
-+	if (IS_ENABLED(CONFIG_SOC_SAM_V4_V5)) {
-+		if (as->addr_tx_bbuf) {
-+			dma_free_coherent(&as->pdev->dev, SPI_MAX_DMA_XFER,
-+					  as->addr_tx_bbuf,
-+					  as->dma_addr_tx_bbuf);
-+			as->addr_tx_bbuf = NULL;
-+		}
-+		if (as->addr_rx_bbuf) {
-+			dma_free_coherent(&as->pdev->dev, SPI_MAX_DMA_XFER,
-+					  as->addr_rx_bbuf,
-+					  as->dma_addr_rx_bbuf);
-+			as->addr_rx_bbuf = NULL;
-+		}
-+	}
-+}
-+
- static int atmel_spi_configure_dma(struct spi_controller *host,
- 				   struct atmel_spi *as)
- {
-@@ -569,7 +597,8 @@ static int atmel_spi_configure_dma(struct spi_controller *host,
- 	if (IS_ERR(host->dma_tx)) {
- 		err = PTR_ERR(host->dma_tx);
- 		dev_dbg(dev, "No TX DMA channel, DMA is disabled\n");
--		goto error_clear;
-+		host->dma_tx = NULL;
-+		return err;
+@@ -1625,12 +1625,12 @@ static int atmel_spi_probe(struct platform_device *pdev)
+ 					0, dev_name(&pdev->dev), host);
  	}
+ 	if (ret)
+-		return ret;
++		goto out_free_dma;
  
- 	host->dma_rx = dma_request_chan(dev, "rx");
-@@ -580,12 +609,31 @@ static int atmel_spi_configure_dma(struct spi_controller *host,
- 		 * requested tx channel.
- 		 */
- 		dev_dbg(dev, "No RX DMA channel, DMA is disabled\n");
--		goto error;
-+		host->dma_rx = NULL;
-+		goto err_release_dma;
- 	}
+ 	/* Initialize the hardware */
+ 	ret = clk_prepare_enable(clk);
+ 	if (ret)
+-		return ret;
++		goto out_free_dma;
  
- 	err = atmel_spi_dma_slave_config(as, 8);
- 	if (err)
--		goto error;
-+		goto err_release_dma;
-+
-+	if (IS_ENABLED(CONFIG_SOC_SAM_V4_V5)) {
-+		as->addr_tx_bbuf = dma_alloc_coherent(dev, SPI_MAX_DMA_XFER,
-+						      &as->dma_addr_tx_bbuf,
-+						      GFP_KERNEL | GFP_DMA);
-+		if (!as->addr_tx_bbuf) {
-+			err = -ENOMEM;
-+			goto err_release_dma;
-+		}
-+
-+		as->addr_rx_bbuf = dma_alloc_coherent(dev, SPI_MAX_DMA_XFER,
-+						      &as->dma_addr_rx_bbuf,
-+						      GFP_KERNEL | GFP_DMA);
-+		if (!as->addr_rx_bbuf) {
-+			err = -ENOMEM;
-+			goto err_release_dma;
-+		}
-+	}
+ 	/*
+ 	 * In cases where the peripheral clock is higher,the FLEX_SPI_CSRx.SCBR
+@@ -1661,7 +1661,7 @@ static int atmel_spi_probe(struct platform_device *pdev)
  
- 	dev_info(&as->pdev->dev,
- 			"Using %s (tx) and %s (rx) for DMA transfers\n",
-@@ -593,13 +641,10 @@ static int atmel_spi_configure_dma(struct spi_controller *host,
- 			dma_chan_name(host->dma_rx));
+ 	ret = spi_register_controller(host);
+ 	if (ret)
+-		goto out_free_dma;
++		goto out_disable_rpm;
+ 
+ 	/* go! */
+ 	dev_info(&pdev->dev, "Atmel SPI Controller version 0x%x at 0x%08lx (irq %d)\n",
+@@ -1670,18 +1670,18 @@ static int atmel_spi_probe(struct platform_device *pdev)
  
  	return 0;
--error:
--	if (!IS_ERR(host->dma_rx))
--		dma_release_channel(host->dma_rx);
--	if (!IS_ERR(host->dma_tx))
--		dma_release_channel(host->dma_tx);
--error_clear:
--	host->dma_tx = host->dma_rx = NULL;
-+
-+err_release_dma:
-+	atmel_spi_release_dma(host, as);
-+
- 	return err;
- }
  
-@@ -611,18 +656,6 @@ static void atmel_spi_stop_dma(struct spi_controller *host)
- 		dmaengine_terminate_all(host->dma_tx);
- }
- 
--static void atmel_spi_release_dma(struct spi_controller *host)
--{
--	if (host->dma_rx) {
--		dma_release_channel(host->dma_rx);
--		host->dma_rx = NULL;
--	}
--	if (host->dma_tx) {
--		dma_release_channel(host->dma_tx);
--		host->dma_tx = NULL;
--	}
--}
--
- /* This function is called by the DMA driver from tasklet context */
- static void dma_callback(void *data)
- {
-@@ -1581,30 +1614,6 @@ static int atmel_spi_probe(struct platform_device *pdev)
- 		as->use_pdc = true;
- 	}
- 
--	if (IS_ENABLED(CONFIG_SOC_SAM_V4_V5)) {
--		as->addr_rx_bbuf = dma_alloc_coherent(&pdev->dev,
--						      SPI_MAX_DMA_XFER,
--						      &as->dma_addr_rx_bbuf,
--						      GFP_KERNEL | GFP_DMA);
--		if (!as->addr_rx_bbuf) {
--			as->use_dma = false;
--		} else {
--			as->addr_tx_bbuf = dma_alloc_coherent(&pdev->dev,
--					SPI_MAX_DMA_XFER,
--					&as->dma_addr_tx_bbuf,
--					GFP_KERNEL | GFP_DMA);
--			if (!as->addr_tx_bbuf) {
--				as->use_dma = false;
--				dma_free_coherent(&pdev->dev, SPI_MAX_DMA_XFER,
--						  as->addr_rx_bbuf,
--						  as->dma_addr_rx_bbuf);
--			}
--		}
--		if (!as->use_dma)
--			dev_info(host->dev.parent,
--				 "  can not allocate dma coherent memory\n");
--	}
--
- 	if (as->caps.has_dma_support && !as->use_dma)
- 		dev_info(&pdev->dev, "Atmel SPI Controller using PIO only\n");
- 
-@@ -1666,7 +1675,7 @@ static int atmel_spi_probe(struct platform_device *pdev)
+-out_free_dma:
++out_disable_rpm:
+ 	pm_runtime_disable(&pdev->dev);
  	pm_runtime_set_suspended(&pdev->dev);
- 
- 	if (as->use_dma)
--		atmel_spi_release_dma(host);
-+		atmel_spi_release_dma(host, as);
- 
+-
+-	if (as->use_dma)
+-		atmel_spi_release_dma(host, as);
+-
  	spi_writel(as, CR, SPI_BIT(SWRST));
  	spi_writel(as, CR, SPI_BIT(SWRST)); /* AT91SAM9263 Rev B workaround */
-@@ -1689,15 +1698,7 @@ static void atmel_spi_remove(struct platform_device *pdev)
- 	/* reset the hardware and block queue progress */
- 	if (as->use_dma) {
- 		atmel_spi_stop_dma(host);
--		atmel_spi_release_dma(host);
--		if (IS_ENABLED(CONFIG_SOC_SAM_V4_V5)) {
--			dma_free_coherent(&pdev->dev, SPI_MAX_DMA_XFER,
--					  as->addr_tx_bbuf,
--					  as->dma_addr_tx_bbuf);
--			dma_free_coherent(&pdev->dev, SPI_MAX_DMA_XFER,
--					  as->addr_rx_bbuf,
--					  as->dma_addr_rx_bbuf);
--		}
+-	clk_disable_unprepare(as->gclk);
++	if (as->gclk)
++		clk_disable_unprepare(as->gclk);
+ out_disable_clk:
+ 	clk_disable_unprepare(clk);
++out_free_dma:
++	if (as->use_dma)
 +		atmel_spi_release_dma(host, as);
- 	}
  
- 	spin_lock_irq(&as->lock);
+ 	return ret;
+ }
 
 -- 
 2.43.0
