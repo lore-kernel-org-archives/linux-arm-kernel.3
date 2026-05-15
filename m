@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16D5CD343F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8987ECD4851
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 12:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3t/HTiJglvdzsJ47aN9ASMLT/MJgYi+zd+v25Q1+h+E=; b=aHI5V9Gun4Ublj7g+UlIwFC4pd
-	MbTwLvZXNMZJwdq0kH5UXbhuzZ6j6+Nyoad9IG6vm92Rb12K9O7JRWcSncfsWszHzv8JxEvLLVM6t
-	cvzOWYy8yX57FDM3pibw4uoNtdhTRWkM9gHeh1jM54dQ/95ekfie5qPK4wpTAxt5YpITO2VdNLhCR
-	pQb/YN2KXCstFTfJBTjlzdIwDzUnyitQViwymds8q0WkFqijIBiLUET7vMqHV4jIeprwYaQuddgMb
-	fwHbgeBu0FFCtXbu5qjHS4hYb6Q2eLTOWmD1SWlqD7FRQ2Cu2vqFYhrfteVfHWPLHuufQ4JBV0OPe
-	oMn8bVzw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ea/4RzxEzKT31bEDQIXyxVIvc8FvNcipfvT1OSWbCeE=; b=qHaSUT6iUl0AeC8h2w80If5cvP
+	4dXyEzpOBtoUCSbyYNqeOKbvpI700ljyDP8kYNMmbfg25uz35/Mq5SDgnrtL9lRxbYGlaouO/Jxyq
+	IS9Fh8IbEUoFAD3qgIhTXcT4YsYgbd7yh+Kf6RoHScAfyLnIIwwIW3jX69OG4Bo2tS4ctthV4f1f3
+	RdcrojfGoh/FowGQCWWPaOtlWvcfKI5RlkZyZk84XpG0mIibA0jbe5g+w2IDI9Og7zjsKHxmDtZAh
+	dN6Fu4UWB/+nGY2xIaMZnotE9JAtbAIGH6wHykoj/YS7SPd0WYsoRSK7ZwFbMHTTfgTMvVrX0ayim
+	gG9lymsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNrD8-00000008GO3-4C5i;
+	id 1wNrD9-00000008GOL-0QbF;
 	Fri, 15 May 2026 12:00:11 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNrD6-00000008GMh-0GgZ
+	id 1wNrD6-00000008GMv-3FJq
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 15 May 2026 12:00:09 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-38e84ed22bdso90357111fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 05:00:07 -0700 (PDT)
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5a884ebba7dso9141261e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 05:00:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1778846405; x=1779451205; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3t/HTiJglvdzsJ47aN9ASMLT/MJgYi+zd+v25Q1+h+E=;
-        b=VRNFZsA+PmG8HwfMg9flUWqxV41bOy+ILqGhxeS8SR+sOdkT0Sr3LFHNHcox4B+aN+
-         /yBEmV94/tT2byyOeK+iRzqyKUDZ5fVOK3kKoULUMGkzgxqyCR1GD6o6Ox2/dZlE60GN
-         pnEZxluQZofiol/xqbldQLdZCLwSs7PBNxMW+8uuh/E3yZfdcGlTVIpLJ43Gb0yDUuzy
-         uZF5AhW+UjW/tTXI2sgPPfCG+U/Goz/cQia2xcX/qG0hL2oNRYqu0eDjCVKkICAXqImc
-         aFuv1mknPr0U0OYg9iImnkgL6/n++ZEt3co3BRhFLjT2kizDq/U2KbyAPZVmdL4Lm/RN
-         CZhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778846405; x=1779451205;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=sartura.hr; s=sartura; t=1778846407; x=1779451207; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3t/HTiJglvdzsJ47aN9ASMLT/MJgYi+zd+v25Q1+h+E=;
-        b=p5yiG1XNpzXnRMF+zjFNLriRfAoD8UDHHR5VMWvi9ZTrCBdVWj5JqjohvpMky1h0g4
-         nTCuqEoIhmXREc7PfPvrWz4ED41oPIRHjWBxQdbjm5205f2Pozyj5DUHqS62oI5Fgj58
-         K1wnz92b/HJQJl2ICURfkQyawjeIbd5PE2usV8N6zZLDHl+aqIQQsqHZEogdVyWOtFur
-         LhbEXpNbo/JLt7pZh4MdM7frfdXHoCYqnf5CVIvFpVNMPYo25SJq09LL448jYtl6Am/h
-         xxvrbpNo40idIOplwshBVjJDsVes7pKXDKwMkiNx2zQHoUdIw0GcBaXHhakWfDW62b8X
-         Ujrg==
-X-Forwarded-Encrypted: i=1; AFNElJ8yXlP9denU3KYW11HLxGtt22Y3gtkusPA9i0aIDvfLDStQF8ML8n0nf029z5SUW9ZMC8Cf4w41KHXTHYYm0KPN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUiA/xrE8nFHhxDmDT2CY9kTzAT99aKLUfvEeZGTpdqbX9e/s9
-	/qUgm4CbcLVmW9r0Cndt/CNV0TapPMhyAEDSHlMbfKffOKPXb9SEgreosxhfqmICZho=
-X-Gm-Gg: Acq92OEyat/OQWWIttafpz0dI/11rd4oXdd9lAXcq2svBJOWBCIQ2RSW6t5BnTU7dk5
-	0LZuRDpxYoNib9D7rhkWayb0AIzKca+SIO2/Qn1iaJMzWOV1iHAtxvltuUnrPrmAhYOnBeFCm1y
-	4B2iz3kh1u2mm0EwY/gfZGFZIh1n5ewkuQI1Qd9cUBB5aquXEtLer42NF0vrvrLU6HBW6fndpVp
-	0Y9ufbR+0fDuXU/7zIlfKHasuYtL2bNO03wP+ng2fduE7dDwqwxqNqVY80aWwJTrV33zrZyTikk
-	o6lnZ4JJ2dYHjSqpOtJwLjyB25XsAhruxhNqnmQhzr1Hb1AREH6kouG582BNq5z0d42/XWe+Lek
-	F8FxpqchfCc2FO/eivMzC7biWdv3GIseInDIVvcyH9m7vA15ODx43lYt004CoirsFMfsvqr2sWq
-	ax2FjXKliucrPumtHjCnirUkE0HTe3Jl2yXVsjIfcdYcDPLKhNo9Z+b3a5JiN7H178J6yaeEbLI
-	9pJpCewa8KYx19GtwOJuzqiPvdvmVbs
-X-Received: by 2002:a05:651c:3150:b0:38a:3ad8:6f32 with SMTP id 38308e7fff4ca-39561f26730mr7785271fa.30.1778846405389;
-        Fri, 15 May 2026 05:00:05 -0700 (PDT)
+        bh=ea/4RzxEzKT31bEDQIXyxVIvc8FvNcipfvT1OSWbCeE=;
+        b=M8aANpH4Rwk9xAwHXNgZdd0dJ0gRVUoqlrYDgFY8FWBeTNly7bPubK2G5zXj+RxWvr
+         9a4tq0tdcwwfa4oKw0aThxZTr5hSr8sAYBjC1HHioZoACqIKA+gFk2mI44PQBP/7CzeP
+         PRalNfOWXJWn1y839hZaRrpnwPtCNaA0DOT83yoB7MV968htFOId7HyT7X2gbkNug8Nv
+         q9yEqtATECmwVnNLzUg1tHC8TX4hwapg/wrycKmhqohRG0ctwf2uVwyarIguwrBs6WLI
+         2V4+eXg1Xl1jTeiV9Fl0FnD14JxdpzMMlcWY0ZaBizh4BDXkkkCClzlQuH3h3o1caKW/
+         ms+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778846407; x=1779451207;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ea/4RzxEzKT31bEDQIXyxVIvc8FvNcipfvT1OSWbCeE=;
+        b=D0X9kOOENJUdLDBmZM7ZB4PDzNeTI54BMmfb3ccQIws62TZsfBGEREn5I9XF0EYXRE
+         BFoZ51vsHjEllVfVGyCTBM04pw2krZFur3hVC5xWoJ+PFIu4yf7mXDOTx8JygaLybBPp
+         1tFsP4MePBPnkFJ4DmSYVctmmy1LzDbWfe/O/jLk0a52mkFdaYsFYJy57VmO57ccFyEt
+         YT6jz9RGr4QAMgWmRbMT01smY5aBC5V5xLnStEdUh2fLL11rgbpvyyTKtYwuyGPieqpS
+         sI5KzVOel3Cq4pksyOa5tDFxCMliPTL7+04I99SquPyPjOFZT5L0C4EtLT2VRbhtiSVs
+         Mfqg==
+X-Forwarded-Encrypted: i=1; AFNElJ/HbL2jCHXpEU3yYRABz9oZRwM70C+Zc5mn1HCssMy+SpTk9tt7fD38iFD9A9Ki3AHAvWXt0+NhZxAFNQDak0tr@lists.infradead.org
+X-Gm-Message-State: AOJu0YypmMdzB9cvrN+6pY5aE0mJAePyDIJG/W0MlDCBunQ3r9xk0Bsr
+	lNFQin/3ptjqYcA6CLtt0fnidC9ldsDqSp5rpzVqkviGvUjMlE1g5J4iPFWXq6awhO4=
+X-Gm-Gg: Acq92OHUVtBHJpt4rnzVXzFt4IHe5yRlnx8ytI+NHg5jtIVdP4miaiOaU6V0XDRdoO3
+	4x56dYUAbJmP2p30cpbI9qurLGEMGC/mLNVBI2LOMEM6cAmc09wUYgxYi4TvlNbbQ27gE4DcqP+
+	Iivq+yrlyRV2ocNqFq9v0kNx3aiH1TbQxgII+mE5x8P+iVCqAie9PyCfumZCw42BQY0NukqNPPl
+	Bhk4LSjrbTjvaT4iDuuP4QM+CmwFSWAQ0OEKWzVV2KAkYIjtA/W7DDPt7Po95oXkJf1LNk9qXDe
+	Wa5DWTsoHW2QVPy0GlSC1QaIa13ey1Hq0QPaSf82rZ1EdSyj1D0hTS14TWFy55G6000gStEGN+L
+	Zl2RO5fLki/Af244LVcS+ErNWae0uTUQS4PBpX55knqOfOsRDB/x8fCrBYk2xrD4j5pRSVOJXVk
+	mhUqRuALkPaFdJ/MXRjfZbLmXOlqNuiqvWEMUjNGIn6bSr7RgNHQaOqPTahzfexWgWwlTcpE1WP
+	2dEf+LP0Cr8ef+gIab/Az+EtK+74MCw
+X-Received: by 2002:a05:6512:3c98:b0:5a9:163a:9ebc with SMTP id 2adb3069b0e04-5aa0e612da4mr1402039e87.19.1778846406756;
+        Fri, 15 May 2026 05:00:06 -0700 (PDT)
 Received: from fedora (d-zg2-146.globalnet.hr. [213.149.37.146])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3945cb015f9sm14679631fa.32.2026.05.15.05.00.04
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3945cb015f9sm14679631fa.32.2026.05.15.05.00.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 May 2026 05:00:05 -0700 (PDT)
+        Fri, 15 May 2026 05:00:06 -0700 (PDT)
 From: Robert Marko <robert.marko@sartura.hr>
 X-Google-Original-From: Robert Marko <robimarko@gmail.com>
 To: srini@kernel.org,
@@ -83,18 +84,18 @@ To: srini@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: luka.perkov@sartura.hr,
-	Robert Marko <robert.marko@sartura.hr>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3 1/3] dt-bindings: nvmem: lan9662-otpc: Add LAN969x series
-Date: Fri, 15 May 2026 13:59:07 +0200
-Message-ID: <20260515115954.701155-1-robimarko@gmail.com>
+	Robert Marko <robert.marko@sartura.hr>
+Subject: [PATCH v3 2/3] nvmem: lan9662-otp: add support for LAN969x
+Date: Fri, 15 May 2026 13:59:08 +0200
+Message-ID: <20260515115954.701155-2-robimarko@gmail.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260515115954.701155-1-robimarko@gmail.com>
+References: <20260515115954.701155-1-robimarko@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_050008_115297_4B17B461 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260515_050008_834745_41F88474 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,32 +110,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Robert Marko <robert.marko@sartura.hr>
+From: Horatiu Vultur <horatiu.vultur@microchip.com>
 
-Unlike LAN966x series which has 8K of OTP space, LAN969x series has 16K of
-OTP space, so document the compatible.
+Microchip LAN969x provides OTP with the same control logic, only the size
+differs as LAN969x has 16KB of OTP instead of 8KB like on LAN966x.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 ---
 Changes in v3:
-* Pick Acked-by from Conor
+* Rebase onto current next-20260508
 
- .../devicetree/bindings/nvmem/microchip,lan9662-otpc.yaml        | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/nvmem/Kconfig        |  2 +-
+ drivers/nvmem/lan9662-otpc.c | 12 +++++++++---
+ 2 files changed, 10 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/nvmem/microchip,lan9662-otpc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,lan9662-otpc.yaml
-index f97c6beb4766..c03e96afe564 100644
---- a/Documentation/devicetree/bindings/nvmem/microchip,lan9662-otpc.yaml
-+++ b/Documentation/devicetree/bindings/nvmem/microchip,lan9662-otpc.yaml
-@@ -25,6 +25,7 @@ properties:
-           - const: microchip,lan9662-otpc
-       - enum:
-           - microchip,lan9662-otpc
-+          - microchip,lan9691-otpc
+diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+index 74ddbd0f79b0..78b648e14727 100644
+--- a/drivers/nvmem/Kconfig
++++ b/drivers/nvmem/Kconfig
+@@ -138,7 +138,7 @@ config NVMEM_JZ4780_EFUSE
  
-   reg:
-     maxItems: 1
+ config NVMEM_LAN9662_OTPC
+ 	tristate "Microchip LAN9662 OTP controller support"
+-	depends on SOC_LAN966 || COMPILE_TEST
++	depends on SOC_LAN966 || ARCH_LAN969X || COMPILE_TEST
+ 	depends on HAS_IOMEM
+ 	help
+ 	  This driver enables the OTP controller available on Microchip LAN9662
+diff --git a/drivers/nvmem/lan9662-otpc.c b/drivers/nvmem/lan9662-otpc.c
+index 56fc19f092a7..62d1d6381bf8 100644
+--- a/drivers/nvmem/lan9662-otpc.c
++++ b/drivers/nvmem/lan9662-otpc.c
+@@ -27,7 +27,6 @@
+ #define OTP_OTP_STATUS_OTP_CPUMPEN		BIT(1)
+ #define OTP_OTP_STATUS_OTP_BUSY			BIT(0)
+ 
+-#define OTP_MEM_SIZE 8192
+ #define OTP_SLEEP_US 10
+ #define OTP_TIMEOUT_US 500000
+ 
+@@ -176,7 +175,6 @@ static struct nvmem_config otp_config = {
+ 	.word_size = 1,
+ 	.reg_read = lan9662_otp_read,
+ 	.reg_write = lan9662_otp_write,
+-	.size = OTP_MEM_SIZE,
+ };
+ 
+ static int lan9662_otp_probe(struct platform_device *pdev)
+@@ -196,6 +194,7 @@ static int lan9662_otp_probe(struct platform_device *pdev)
+ 
+ 	otp_config.priv = otp;
+ 	otp_config.dev = dev;
++	otp_config.size = (uintptr_t) device_get_match_data(dev);
+ 
+ 	nvmem = devm_nvmem_register(dev, &otp_config);
+ 
+@@ -203,7 +202,14 @@ static int lan9662_otp_probe(struct platform_device *pdev)
+ }
+ 
+ static const struct of_device_id lan9662_otp_match[] = {
+-	{ .compatible = "microchip,lan9662-otpc", },
++	{
++		.compatible = "microchip,lan9662-otpc",
++		.data = (const void *) SZ_8K,
++	},
++	{
++		.compatible = "microchip,lan9691-otpc",
++		.data = (const void *) SZ_16K,
++	},
+ 	{ },
+ };
+ MODULE_DEVICE_TABLE(of, lan9662_otp_match);
 -- 
 2.54.0
 
