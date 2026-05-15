@@ -4,68 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E48A0CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 11:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16D5CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 12:00:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tED5dwnj315XjkrIWNQbx34834+SR14pbuCDCqP1fp8=; b=jin6CIE0t9N/OwXJHTF9TYrBOe
-	XG6nvrus2DiR4aiBjQk65lT9x0XKu9mFimWiZS5ACuItR7Lw+1GXBSnHYVpCRQ+ZdAg+g9lnUdXTD
-	yPEwHcSB5h4gp/nySNLl3hDau6eLZuDfTLNzTcKQSDafIOqIymrl34Zd8NYFdEqfVYkWCFChi2v/O
-	jGvwfWk98K5kUzSc8pdqpnT6uQN0NM0n8gj3Y6l5T43xCZJU15ZpaTooATPnD2IUkdm60YPjQ4S8g
-	OfIrvMMeb8Siuv3L1wMYCN0koXGTu1mDySpjzIf7jYWCOFznwtKt3+qZCD8gCji1McVIYtHCzv5qj
-	yoLh/6xA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3t/HTiJglvdzsJ47aN9ASMLT/MJgYi+zd+v25Q1+h+E=; b=aHI5V9Gun4Ublj7g+UlIwFC4pd
+	MbTwLvZXNMZJwdq0kH5UXbhuzZ6j6+Nyoad9IG6vm92Rb12K9O7JRWcSncfsWszHzv8JxEvLLVM6t
+	cvzOWYy8yX57FDM3pibw4uoNtdhTRWkM9gHeh1jM54dQ/95ekfie5qPK4wpTAxt5YpITO2VdNLhCR
+	pQb/YN2KXCstFTfJBTjlzdIwDzUnyitQViwymds8q0WkFqijIBiLUET7vMqHV4jIeprwYaQuddgMb
+	fwHbgeBu0FFCtXbu5qjHS4hYb6Q2eLTOWmD1SWlqD7FRQ2Cu2vqFYhrfteVfHWPLHuufQ4JBV0OPe
+	oMn8bVzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNrBs-00000008G8A-081U;
-	Fri, 15 May 2026 11:58:52 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wNrD8-00000008GO3-4C5i;
+	Fri, 15 May 2026 12:00:11 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNrBp-00000008G7W-1NDH
+	id 1wNrD6-00000008GMh-0GgZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 11:58:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=tED5dwnj315XjkrIWNQbx34834+SR14pbuCDCqP1fp8=; b=rasTR9evdB4dfCLMjM38qWDGj1
-	bT02YPoZDRO6VV6bIgLy6E+0pxgrHtxk0XFhjeOvm0mDijBy5NmECTkswXzikpfGF5hFus2dCAm+p
-	fzVRL5e28EtFNXn4PQCYbTkPlQBmN1TKXSctPr1rc/ejXk/4VQphRvbiaVwu8AZosntg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wNrBO-0033c2-Pz; Fri, 15 May 2026 13:58:22 +0200
-Date: Fri, 15 May 2026 13:58:22 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Ding Hui <dinghui1111@163.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	"open list:STMMAC ETHERNET DRIVER" <netdev@vger.kernel.org>,
-	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
-	"moderated list:ARM/STM32 ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>, dinghui@lixiang.com,
-	xiasanbo@lixiang.com, yangchen11@lixiang.com,
-	liuxuanjun@lixiang.com
-Subject: Re: [PATCH] net: stmmac: fix fatal bus error on resume by
- reinitializing RX buffers
-Message-ID: <e731631e-53f3-484b-994d-4b551f241d05@lunn.ch>
-References: <20260515053856.2310369-1-dinghui1111@163.com>
+	Fri, 15 May 2026 12:00:09 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-38e84ed22bdso90357111fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 05:00:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sartura.hr; s=sartura; t=1778846405; x=1779451205; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3t/HTiJglvdzsJ47aN9ASMLT/MJgYi+zd+v25Q1+h+E=;
+        b=VRNFZsA+PmG8HwfMg9flUWqxV41bOy+ILqGhxeS8SR+sOdkT0Sr3LFHNHcox4B+aN+
+         /yBEmV94/tT2byyOeK+iRzqyKUDZ5fVOK3kKoULUMGkzgxqyCR1GD6o6Ox2/dZlE60GN
+         pnEZxluQZofiol/xqbldQLdZCLwSs7PBNxMW+8uuh/E3yZfdcGlTVIpLJ43Gb0yDUuzy
+         uZF5AhW+UjW/tTXI2sgPPfCG+U/Goz/cQia2xcX/qG0hL2oNRYqu0eDjCVKkICAXqImc
+         aFuv1mknPr0U0OYg9iImnkgL6/n++ZEt3co3BRhFLjT2kizDq/U2KbyAPZVmdL4Lm/RN
+         CZhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778846405; x=1779451205;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3t/HTiJglvdzsJ47aN9ASMLT/MJgYi+zd+v25Q1+h+E=;
+        b=p5yiG1XNpzXnRMF+zjFNLriRfAoD8UDHHR5VMWvi9ZTrCBdVWj5JqjohvpMky1h0g4
+         nTCuqEoIhmXREc7PfPvrWz4ED41oPIRHjWBxQdbjm5205f2Pozyj5DUHqS62oI5Fgj58
+         K1wnz92b/HJQJl2ICURfkQyawjeIbd5PE2usV8N6zZLDHl+aqIQQsqHZEogdVyWOtFur
+         LhbEXpNbo/JLt7pZh4MdM7frfdXHoCYqnf5CVIvFpVNMPYo25SJq09LL448jYtl6Am/h
+         xxvrbpNo40idIOplwshBVjJDsVes7pKXDKwMkiNx2zQHoUdIw0GcBaXHhakWfDW62b8X
+         Ujrg==
+X-Forwarded-Encrypted: i=1; AFNElJ8yXlP9denU3KYW11HLxGtt22Y3gtkusPA9i0aIDvfLDStQF8ML8n0nf029z5SUW9ZMC8Cf4w41KHXTHYYm0KPN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUiA/xrE8nFHhxDmDT2CY9kTzAT99aKLUfvEeZGTpdqbX9e/s9
+	/qUgm4CbcLVmW9r0Cndt/CNV0TapPMhyAEDSHlMbfKffOKPXb9SEgreosxhfqmICZho=
+X-Gm-Gg: Acq92OEyat/OQWWIttafpz0dI/11rd4oXdd9lAXcq2svBJOWBCIQ2RSW6t5BnTU7dk5
+	0LZuRDpxYoNib9D7rhkWayb0AIzKca+SIO2/Qn1iaJMzWOV1iHAtxvltuUnrPrmAhYOnBeFCm1y
+	4B2iz3kh1u2mm0EwY/gfZGFZIh1n5ewkuQI1Qd9cUBB5aquXEtLer42NF0vrvrLU6HBW6fndpVp
+	0Y9ufbR+0fDuXU/7zIlfKHasuYtL2bNO03wP+ng2fduE7dDwqwxqNqVY80aWwJTrV33zrZyTikk
+	o6lnZ4JJ2dYHjSqpOtJwLjyB25XsAhruxhNqnmQhzr1Hb1AREH6kouG582BNq5z0d42/XWe+Lek
+	F8FxpqchfCc2FO/eivMzC7biWdv3GIseInDIVvcyH9m7vA15ODx43lYt004CoirsFMfsvqr2sWq
+	ax2FjXKliucrPumtHjCnirUkE0HTe3Jl2yXVsjIfcdYcDPLKhNo9Z+b3a5JiN7H178J6yaeEbLI
+	9pJpCewa8KYx19GtwOJuzqiPvdvmVbs
+X-Received: by 2002:a05:651c:3150:b0:38a:3ad8:6f32 with SMTP id 38308e7fff4ca-39561f26730mr7785271fa.30.1778846405389;
+        Fri, 15 May 2026 05:00:05 -0700 (PDT)
+Received: from fedora (d-zg2-146.globalnet.hr. [213.149.37.146])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3945cb015f9sm14679631fa.32.2026.05.15.05.00.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 May 2026 05:00:05 -0700 (PDT)
+From: Robert Marko <robert.marko@sartura.hr>
+X-Google-Original-From: Robert Marko <robimarko@gmail.com>
+To: srini@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nicolas.ferre@microchip.com,
+	claudiu.beznea@tuxon.dev,
+	horatiu.vultur@microchip.com,
+	daniel.machon@microchip.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: luka.perkov@sartura.hr,
+	Robert Marko <robert.marko@sartura.hr>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 1/3] dt-bindings: nvmem: lan9662-otpc: Add LAN969x series
+Date: Fri, 15 May 2026 13:59:07 +0200
+Message-ID: <20260515115954.701155-1-robimarko@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260515053856.2310369-1-dinghui1111@163.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_045849_369468_942A4E2D 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20260515_050008_115297_4B17B461 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,33 +109,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Fix this by treating the RX ring the same way as on close/open around
-> a PM transition:
-> 
->  - In stmmac_suspend(), after stmmac_stop_all_dma(), walk every RX
->    queue and free its buffers via dma_free_rx_xskbufs() when an XSK
->    pool is attached or dma_free_rx_skbufs() otherwise, then reset
->    rx_q->buf_alloc_num and clear rx_q->xsk_pool so the queue state
->    matches a freshly closed queue.
-> 
->  - In stmmac_resume(), call init_dma_rx_desc_rings() before
->    stmmac_reset_queues_param() so RX buffers are re-allocated and
->    the descriptor buffer-address fields are properly repopulated
->    before the DMA is restarted.
+From: Robert Marko <robert.marko@sartura.hr>
 
-The problem with this is, if the system is under memory pressure, it
-might not be able to allocate the new RX buffers. So on resume, your
-network interface dies.
+Unlike LAN966x series which has 8K of OTP space, LAN969x series has 16K of
+OTP space, so document the compatible.
 
-For configuration changes which require buffers to be change, like
-ethtool --set-ring, sometimes changing the MTU, you first allocate the
-new buffers, and only if successful do you free the old buffers, so
-that you can gracefully fail.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+---
+Changes in v3:
+* Pick Acked-by from Conor
 
-That free and then release idea does not work for resume.
+ .../devicetree/bindings/nvmem/microchip,lan9662-otpc.yaml        | 1 +
+ 1 file changed, 1 insertion(+)
 
-So, can you live with the buffers you have, and just reset the
-descriptors?
+diff --git a/Documentation/devicetree/bindings/nvmem/microchip,lan9662-otpc.yaml b/Documentation/devicetree/bindings/nvmem/microchip,lan9662-otpc.yaml
+index f97c6beb4766..c03e96afe564 100644
+--- a/Documentation/devicetree/bindings/nvmem/microchip,lan9662-otpc.yaml
++++ b/Documentation/devicetree/bindings/nvmem/microchip,lan9662-otpc.yaml
+@@ -25,6 +25,7 @@ properties:
+           - const: microchip,lan9662-otpc
+       - enum:
+           - microchip,lan9662-otpc
++          - microchip,lan9691-otpc
+ 
+   reg:
+     maxItems: 1
+-- 
+2.54.0
 
-	Andrew
 
