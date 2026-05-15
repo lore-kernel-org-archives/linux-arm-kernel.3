@@ -4,74 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9CBCD4F48
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 18:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F65CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 18:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gJNxFW6Vk3MweHIHiRIiUNGVF1bAnakuWo1taEAlzLQ=; b=cCGkYiyv/DDQdcgdEW76mwg4IU
-	zPbcBxvSwzs9scFdDAQ+JviOh1Yrp5fr4wbQHFaGUHWYSczgVGM4xU7EfczYQPdXWYHg6kEJgote+
-	dHMeGX2NlrhI3uZEqD0UjZA/eK/NfDq5LL6TMAycKdb9+tp2JuD/3NGaoRabwlDBlkrpDxAm+cAAO
-	CWO9qM4XFnoQW5e2e5jFgzrOEu7hQ//PaqbPk9PAI7V77160mL5n/hFktmLlNBaU+nqnEK3jMJI+J
-	0V4tbdlFVCfxtRyLvOctMlH/VPzyVmVAiajA9OyyMR6dfL3aeD7ni0U/H5Ru7ex9j0aVz5Dl2vCBF
-	1/nCV9dQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yxLY9EqpF77hSPOoFBzsiCl9/0u0FyX67Jy/NSMRVXo=; b=VFK1DZ20AlmlkA2yADzwJ2NMsV
+	VetWAOegUcIgFwTWPpdT1ODBFcEmF5mccD3i4akHYT5TyIjli3N91rh4EpNLF8qLSZ82RY8Y2QXUY
+	5rSdlIc3kKwxghZqkOmJSDNqgiRmPngS1vCSe7Gvdb6KW0rug8+IkdePRB9MeVDIPwDyKhItDy02A
+	6PHn1vpoW9K2KYJkSYU5ASLFzXn+X7CsNbvNdSdizq/ZY4LzDWtB50KPLSuau3dpp0KAiMBa6X0LU
+	M+MOkTnxGyWSS23uZ2hi/c5v2c5iuXFI/A0n6nT5Bjlfe+JpNEwaPJ/+Sn49Bd5CR78/VyLAGtBAv
+	WLzVczwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNxf0-000000099KY-1Jy5;
-	Fri, 15 May 2026 18:53:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNxel-000000098cN-0boZ
+	id 1wNxig-00000009ADS-1lt0;
+	Fri, 15 May 2026 18:57:10 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNxie-00000009AD3-0N4m
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 15 May 2026 18:57:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=yxLY9EqpF77hSPOoFBzsiCl9/0u0FyX67Jy/NSMRVXo=; b=frXfdh1ERuj/ZF7VL69XoqRGlu
+	NrxNFYKCfZ62AC1oiQanhY08jwEzIUxg8DygKrb7wTrq4AJmsVrW0phENOFPxN7izK5HnkveBzuBL
+	q6eU1cxPZs9OJgKNm+yjXET8hNbGXy5LRBRNqPYoNHZBZ+uqQeFm0ld9Si72QmwwDZgEQEu8jE2QH
+	B/PrQPsqKfvegUaAGiJMTROXvFpQdnTsMw3tCFDsvcJM5PzZHWjci9T2fsITXG4KsmmrFUZxU2UuP
+	/bi9gyirToi9y5RdQsjZgYJxAaVjhBMq7bre8ugasftWK5U3OX6tcuLOJtZ2YN88qejd89LYHMbjR
+	Cg5KMmgw==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNxia-0000000620F-2tTR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 18:53:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0FDFF35D5;
-	Fri, 15 May 2026 11:53:01 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 783F83F836;
-	Fri, 15 May 2026 11:53:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778871186; bh=4lw52HGBsvRjmf2rD2OZS+qbGWIcWAuZyD2X9mK7Bec=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=BSo4DTviNYCxoEZ4pEopwdqKIdJPcxCx3wbFoi5vaT2mSw9l/fnuUn7rfeeXcGacT
-	 OhYxmrFApR+U/+f0iozWDllOeYEpbY42TZbMfhYz8dZFOUqjc1UYaQ0Hj2STSVCpcb
-	 /tXHkrjLq11I/d0TBPD37W/w+RwWt7aJhwn5N6og=
-From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 15 May 2026 19:51:50 +0100
-Subject: [PATCH v13 27/28] coresight: Move CPU hotplug callbacks to core
- layer
+	Fri, 15 May 2026 18:57:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1778871415;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=yxLY9EqpF77hSPOoFBzsiCl9/0u0FyX67Jy/NSMRVXo=;
+	b=J2jJei2nqopR2OqqW07ohanchkqG58vZnn50ViYXM6/fnkejuWk3MIh1eTVS0UJuH8rcCv
+	Hbp1IkIjnqR+FCBe5Tob9EKF+RHi1SyKZSmyQmrachFonodZb0YonAPOIRCflFxirble3e
+	3VvEeSm6VE0I01UnDWHdZqsahT5xyyM=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1778871423;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=yxLY9EqpF77hSPOoFBzsiCl9/0u0FyX67Jy/NSMRVXo=;
+	b=aO28jCqzl+PEmPtnVRyn3/e+ROcwQLqEQxHxgIBiXXZIEUMuVZxO9vM0+5v12VKgxvXKh5
+	8YcAaBj5emSTJ5EfPxRqeE1i1737461DFZUQOvY/xg3Uw5Cm2TDL64T78dLARzAdhv0Iu5
+	rrJBXoxTGtyqeewWsI4DYMzzsOebLFc=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-231-sVFDpB2MP2ec2VGg9EbMEQ-1; Fri, 15 May 2026 14:56:53 -0400
+X-MC-Unique: sVFDpB2MP2ec2VGg9EbMEQ-1
+X-Mimecast-MFC-AGG-ID: sVFDpB2MP2ec2VGg9EbMEQ_1778871413
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-48fd33b4921so653415e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 11:56:53 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778871413; x=1779476213;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yxLY9EqpF77hSPOoFBzsiCl9/0u0FyX67Jy/NSMRVXo=;
+        b=GIcvBwolH8UKZ8dlGeC8K1WDR1+PQJ2n2kBAuzbk2UQrXwVkXYFNk8TDIjQeyYnBMe
+         2/zZooAomBDx5BsLrW6WQ/K8pVG+YE0LMYvwsI7rDmrX/HSAjW++Ycm3TjeCtYFazdSQ
+         iTmL6MnpUKn53aTHFbdSGU/yIaoKgzYcFv5XFsWVEpzA9d0QqWeHccXnUwg7tV8eiMa0
+         Yf6jsn7CMevqF5/vluAoQg7vePFFphZhmM6nbQCLIV6qjUiprk8tUaKfXf4ExhJuzRqR
+         LwBp/ZManNm/eA3/sT6BRMvRfu+0ve9igK1EVW6TYpIFR6caOAzEyfnNUTEj5dH/5OoL
+         /Lyg==
+X-Gm-Message-State: AOJu0YyUGcDD0Wtp56nLqiBShX2MbolQZvIBxHx/UkB+6u4zVvIy8w/3
+	W8AsmI1pcL4WWbbkdGMuiKJ8ArXG6yqdN+NHq7yPbej2EiPDZxqJhGQYtkJKSCpEyH/+RzhMhB8
+	Q42iJB8PYy06uA3QTPU2tUngpm6CnEeKOKoL8PlkBSnVyWCh/YLLk0YHXv2ktRyM9A1udN2sU22
+	OX
+X-Gm-Gg: Acq92OGWkagZEr01/ELFnYHQmuKmD41auN5g5dWZQKZx6ZlZgSetF7jcbcqiWuFVwUm
+	I9iKOnEyy+5V1bhZw+CukxPDy+2XA31hRXByVSXOIEkKR0/UgLJu1rgZd283Z5bV8/ZNnBb06+h
+	a+TDyWOI+27HZT2H0W3CA/B4j2EJ0AsozFduIWkiDxHljBB/0n6PHyjR0ZtKgm711IFbaKygpkJ
+	8xi4onxHuqjV73ESn+7GbQlw794yXJjVuId74ry3w2WMHRHPISzquyx0SrmlV+DRn75AUL05M3F
+	xwNh31IfQ1jcf6xRMyLBxpgeWw93OHHemOs4TohSJIweZhSiMa64jTrBgHgkJ9nfUeOKzQI6kQw
+	+GzF0bciqLb1KtRAxW2xgoiWLT8TtJdK8AzI=
+X-Received: by 2002:a05:600c:8b56:b0:48e:7f1c:8776 with SMTP id 5b1f17b1804b1-48fe6514c83mr81580105e9.25.1778871412661;
+        Fri, 15 May 2026 11:56:52 -0700 (PDT)
+X-Received: by 2002:a05:600c:8b56:b0:48e:7f1c:8776 with SMTP id 5b1f17b1804b1-48fe6514c83mr81579835e9.25.1778871412212;
+        Fri, 15 May 2026 11:56:52 -0700 (PDT)
+Received: from costa-tp.bos2.lab ([2a00:a041:e223:1b00:fe51:8bb:7986:c897])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fea52a0bfsm32066625e9.0.2026.05.15.11.56.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 May 2026 11:56:51 -0700 (PDT)
+From: Costa Shulyupin <costa.shul@redhat.com>
+To: Arnd Bergmann <arnd@arndb.de>,
+	linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	Costa Shulyupin <costa.shul@redhat.com>
+Subject: [PATCH v1] include: Remove unused dma-iop32x.h
+Date: Fri, 15 May 2026 21:54:41 +0300
+Message-ID: <20260515185447.1530941-1-costa.shul@redhat.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-arm_coresight_path_power_management_improvement-v13-27-9dfc558ed65e@arm.com>
-References: <20260515-arm_coresight_path_power_management_improvement-v13-0-9dfc558ed65e@arm.com>
-In-Reply-To: <20260515-arm_coresight_path_power_management_improvement-v13-0-9dfc558ed65e@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
- Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>, 
- Keita Morisaki <keyz@google.com>, Jie Gan <jie.gan@oss.qualcomm.com>, 
- Yuanfang Zhang <quic_yuanfang@quicinc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778871097; l=9870;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=4lw52HGBsvRjmf2rD2OZS+qbGWIcWAuZyD2X9mK7Bec=;
- b=7KO6Iem/vPmKXZtqUkn4n/SKFyvOdezSTIbcOteXv7bH7ftjxDXXzY7J3TZdv4R7fEG5s/KGD
- IQcgM814YtmBI+xz0EYmBF7VdwsiSGkX0yPY0f3CMm0503hCAO4Pif9
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zOYO6mVQ3LLmR75Zot_CPVc7ZNXjSJ7Y0jW__8donr0_1778871413
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=true
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_115307_295024_1D6C8F21 
-X-CRM114-Status: GOOD (  25.46  )
+X-CRM114-CacheID: sfid-20260515_195705_175665_DE030A5A 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,304 +130,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit moves CPU hotplug callbacks from ETMv4 driver to core layer.
-The motivation is the core layer can control all components on an
-activated path rather but not only managing tracer in ETMv4 driver.
+The IOP32X platform was removed in commit b91a69d162aa
+("ARM: iop32x: remove the platform") and its DMA driver in
+commit cd0ab43ec91a ("dmaengine: remove iop-adma driver").
+No file includes this header.
 
-The perf event layer will disable CoreSight PMU event 'cs_etm' when
-hotplug off a CPU.  That means a perf mode will be always converted to
-disabled mode in CPU hotplug.  Arm CoreSight CPU hotplug callbacks only
-need to handle the Sysfs mode and ignore the perf mode.
-
-Add a 'mode' argument to coresight_pm_get_active_path() so it only
-returns active paths for the relevant mode. Define the enum with bit
-flags so it is safe for bitwise operations.
-
-Change CPUHP_AP_ARM_CORESIGHT_STARTING to CPUHP_AP_ARM_CORESIGHT_ONLINE
-so that the CPU hotplug callback runs in the online state and thread
-context, allowing coresight_disable_sysfs() to be called directly to
-disable the path.
-
-Tested-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Assisted-by: Claude:claude-opus-4-6
+Signed-off-by: Costa Shulyupin <costa.shul@redhat.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c       | 48 ++++++++++++++++++----
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 40 ------------------
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 37 -----------------
- include/linux/coresight.h                          |  6 +--
- include/linux/cpuhotplug.h                         |  2 +-
- 5 files changed, 43 insertions(+), 90 deletions(-)
+ include/linux/platform_data/dma-iop32x.h | 110 -----------------------
+ 1 file changed, 110 deletions(-)
+ delete mode 100644 include/linux/platform_data/dma-iop32x.h
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 7c7503d7eeb3967efd179d5f91df578d5827bcd3..6e827cfee85efac39f94ccbb7451449d01bd36d6 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1847,7 +1847,7 @@ static void coresight_release_device_list(void)
- 	}
- }
- 
--static struct coresight_path *coresight_cpu_get_active_path(void)
-+static struct coresight_path *coresight_cpu_get_active_path(enum cs_mode mode)
- {
- 	struct coresight_device *source;
- 	bool is_active = false;
-@@ -1856,17 +1856,17 @@ static struct coresight_path *coresight_cpu_get_active_path(void)
- 	if (!source)
- 		return NULL;
- 
--	if (coresight_get_mode(source) != CS_MODE_DISABLED)
-+	if (coresight_get_mode(source) & mode)
- 		is_active = true;
- 
- 	coresight_put_percpu_source_ref(source);
- 
- 	/*
--	 * It is expected to run in atomic context, so it cannot be preempted
--	 * to disable the path. Here returns the active path pointer without
--	 * concern that its state may change. Since the build path has taken
--	 * a reference on the component, the path can be safely used by the
--	 * caller.
-+	 * It is expected to run in atomic context or with the CPU lock held for
-+	 * sysfs mode, so it cannot be preempted to disable the path. Here
-+	 * returns the active path pointer without concern that its state may
-+	 * change. Since the build path has taken a reference on the component,
-+	 * the path can be safely used by the caller.
- 	 */
- 	return is_active ? source->path : NULL;
- }
-@@ -1985,7 +1985,8 @@ static void coresight_pm_restore(struct coresight_path *path)
- static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
- 				   void *v)
- {
--	struct coresight_path *path = coresight_cpu_get_active_path();
-+	struct coresight_path *path =
-+		coresight_cpu_get_active_path(CS_MODE_SYSFS | CS_MODE_PERF);
- 	int ret;
- 
- 	ret = coresight_pm_is_needed(path);
-@@ -2012,13 +2013,42 @@ static struct notifier_block coresight_cpu_pm_nb = {
- 	.notifier_call = coresight_cpu_pm_notify,
- };
- 
-+static int coresight_dying_cpu(unsigned int cpu)
-+{
-+	struct coresight_path *path;
-+
-+	/*
-+	 * The perf event layer will disable PMU events in the CPU
-+	 * hotplug. Here only handles SYSFS case.
-+	 */
-+	path = coresight_cpu_get_active_path(CS_MODE_SYSFS);
-+	if (!path)
-+		return 0;
-+
-+	coresight_disable_sysfs(coresight_get_source(path));
-+	return 0;
-+}
-+
- static int __init coresight_pm_setup(void)
- {
--	return cpu_pm_register_notifier(&coresight_cpu_pm_nb);
-+	int ret;
-+
-+	ret = cpu_pm_register_notifier(&coresight_cpu_pm_nb);
-+	if (ret)
-+		return ret;
-+
-+	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_ONLINE,
-+					"arm/coresight-core:dying",
-+					NULL, coresight_dying_cpu);
-+	if (ret)
-+		cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
-+
-+	return ret;
- }
- 
- static void coresight_pm_cleanup(void)
- {
-+	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_ONLINE);
- 	cpu_pm_unregister_notifier(&coresight_cpu_pm_nb);
- }
- 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index c6fe8b25b855a4119110fee4162f55c0154c3d05..862ad0786699c41433eae8683406b3c1340a6cb6 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -699,35 +699,6 @@ static int etm_online_cpu(unsigned int cpu)
- 	return 0;
- }
- 
--static int etm_starting_cpu(unsigned int cpu)
--{
--	if (!etmdrvdata[cpu])
--		return 0;
+diff --git a/include/linux/platform_data/dma-iop32x.h b/include/linux/platform_data/dma-iop32x.h
+deleted file mode 100644
+index ac83cff89549..000000000000
+--- a/include/linux/platform_data/dma-iop32x.h
++++ /dev/null
+@@ -1,110 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * Copyright © 2006, Intel Corporation.
+- */
+-#ifndef IOP_ADMA_H
+-#define IOP_ADMA_H
+-#include <linux/types.h>
+-#include <linux/dmaengine.h>
+-#include <linux/interrupt.h>
 -
--	spin_lock(&etmdrvdata[cpu]->spinlock);
--	if (!etmdrvdata[cpu]->os_unlock) {
--		etm_os_unlock(etmdrvdata[cpu]);
--		etmdrvdata[cpu]->os_unlock = true;
--	}
+-#define IOP_ADMA_SLOT_SIZE 32
+-#define IOP_ADMA_THRESHOLD 4
+-#ifdef DEBUG
+-#define IOP_PARANOIA 1
+-#else
+-#define IOP_PARANOIA 0
+-#endif
+-#define iop_paranoia(x) BUG_ON(IOP_PARANOIA && (x))
 -
--	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
--		etm_enable_hw(etmdrvdata[cpu]);
--	spin_unlock(&etmdrvdata[cpu]->spinlock);
--	return 0;
--}
+-#define DMA0_ID 0
+-#define DMA1_ID 1
+-#define AAU_ID 2
 -
--static int etm_dying_cpu(unsigned int cpu)
--{
--	if (!etmdrvdata[cpu])
--		return 0;
+-/**
+- * struct iop_adma_device - internal representation of an ADMA device
+- * @pdev: Platform device
+- * @id: HW ADMA Device selector
+- * @dma_desc_pool: base of DMA descriptor region (DMA address)
+- * @dma_desc_pool_virt: base of DMA descriptor region (CPU address)
+- * @common: embedded struct dma_device
+- */
+-struct iop_adma_device {
+-	struct platform_device *pdev;
+-	int id;
+-	dma_addr_t dma_desc_pool;
+-	void *dma_desc_pool_virt;
+-	struct dma_device common;
+-};
 -
--	spin_lock(&etmdrvdata[cpu]->spinlock);
--	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
--		etm_disable_hw(etmdrvdata[cpu]);
--	spin_unlock(&etmdrvdata[cpu]->spinlock);
--	return 0;
--}
+-/**
+- * struct iop_adma_chan - internal representation of an ADMA device
+- * @pending: allows batching of hardware operations
+- * @lock: serializes enqueue/dequeue operations to the slot pool
+- * @mmr_base: memory mapped register base
+- * @chain: device chain view of the descriptors
+- * @device: parent device
+- * @common: common dmaengine channel object members
+- * @last_used: place holder for allocation to continue from where it left off
+- * @all_slots: complete domain of slots usable by the channel
+- * @slots_allocated: records the actual size of the descriptor slot pool
+- * @irq_tasklet: bottom half where iop_adma_slot_cleanup runs
+- */
+-struct iop_adma_chan {
+-	int pending;
+-	spinlock_t lock; /* protects the descriptor slot pool */
+-	void __iomem *mmr_base;
+-	struct list_head chain;
+-	struct iop_adma_device *device;
+-	struct dma_chan common;
+-	struct iop_adma_desc_slot *last_used;
+-	struct list_head all_slots;
+-	int slots_allocated;
+-	struct tasklet_struct irq_tasklet;
+-};
 -
- static bool etm_arch_supported(u8 arch)
- {
- 	switch (arch) {
-@@ -795,13 +766,6 @@ static int __init etm_hp_setup(void)
- {
- 	int ret;
- 
--	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
--					"arm/coresight:starting",
--					etm_starting_cpu, etm_dying_cpu);
+-/**
+- * struct iop_adma_desc_slot - IOP-ADMA software descriptor
+- * @slot_node: node on the iop_adma_chan.all_slots list
+- * @chain_node: node on the op_adma_chan.chain list
+- * @hw_desc: virtual address of the hardware descriptor chain
+- * @phys: hardware address of the hardware descriptor chain
+- * @group_head: first operation in a transaction
+- * @slot_cnt: total slots used in an transaction (group of operations)
+- * @slots_per_op: number of slots per operation
+- * @idx: pool index
+- * @tx_list: list of descriptors that are associated with one operation
+- * @async_tx: support for the async_tx api
+- * @group_list: list of slots that make up a multi-descriptor transaction
+- *	for example transfer lengths larger than the supported hw max
+- * @xor_check_result: result of zero sum
+- * @crc32_result: result crc calculation
+- */
+-struct iop_adma_desc_slot {
+-	struct list_head slot_node;
+-	struct list_head chain_node;
+-	void *hw_desc;
+-	struct iop_adma_desc_slot *group_head;
+-	u16 slot_cnt;
+-	u16 slots_per_op;
+-	u16 idx;
+-	struct list_head tx_list;
+-	struct dma_async_tx_descriptor async_tx;
+-	union {
+-		u32 *xor_check_result;
+-		u32 *crc32_result;
+-		u32 *pq_check_result;
+-	};
+-};
 -
--	if (ret)
--		return ret;
+-struct iop_adma_platform_data {
+-	int hw_id;
+-	dma_cap_mask_t cap_mask;
+-	size_t pool_size;
+-};
 -
- 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
- 					"arm/coresight:online",
- 					etm_online_cpu, NULL);
-@@ -812,15 +776,11 @@ static int __init etm_hp_setup(void)
- 		return 0;
- 	}
- 
--	/* failed dyn state - remove others */
--	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
--
- 	return ret;
- }
- 
- static void etm_hp_clear(void)
- {
--	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
- 	if (hp_online) {
- 		cpuhp_remove_state_nocalls(hp_online);
- 		hp_online = 0;
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 343ba9ce946a7ea3776c06d43364cdce823e2c80..14bb31bd6a0b979051dd17963218c00165a0ebb8 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -1833,33 +1833,6 @@ static int etm4_online_cpu(unsigned int cpu)
- 	return 0;
- }
- 
--static int etm4_starting_cpu(unsigned int cpu)
--{
--	if (!etmdrvdata[cpu])
--		return 0;
--
--	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
--	if (!etmdrvdata[cpu]->os_unlock)
--		etm4_os_unlock(etmdrvdata[cpu]);
--
--	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
--		etm4_enable_hw(etmdrvdata[cpu]);
--	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
--	return 0;
--}
--
--static int etm4_dying_cpu(unsigned int cpu)
--{
--	if (!etmdrvdata[cpu])
--		return 0;
--
--	raw_spin_lock(&etmdrvdata[cpu]->spinlock);
--	if (coresight_get_mode(etmdrvdata[cpu]->csdev))
--		etm4_disable_hw(etmdrvdata[cpu]);
--	raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
--	return 0;
--}
--
- static inline bool etm4_pm_save_needed(struct etmv4_drvdata *drvdata)
- {
- 	return !!drvdata->save_state;
-@@ -2120,13 +2093,6 @@ static int __init etm4_pm_setup(void)
- {
- 	int ret;
- 
--	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING,
--					"arm/coresight4:starting",
--					etm4_starting_cpu, etm4_dying_cpu);
--
--	if (ret)
--		return ret;
--
- 	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
- 					"arm/coresight4:online",
- 					etm4_online_cpu, NULL);
-@@ -2137,14 +2103,11 @@ static int __init etm4_pm_setup(void)
- 		return 0;
- 	}
- 
--	/* failed dyn state - remove others */
--	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
- 	return ret;
- }
- 
- static void etm4_pm_clear(void)
- {
--	cpuhp_remove_state_nocalls(CPUHP_AP_ARM_CORESIGHT_STARTING);
- 	if (hp_online) {
- 		cpuhp_remove_state_nocalls(hp_online);
- 		hp_online = 0;
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 76ef4c0965125cd11830df0151a6707d3e3b638d..add0579cad884c62b8c8e5ff82264966ff0613b7 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -344,9 +344,9 @@ struct coresight_path {
- };
- 
- enum cs_mode {
--	CS_MODE_DISABLED,
--	CS_MODE_SYSFS,
--	CS_MODE_PERF,
-+	CS_MODE_DISABLED = 0,
-+	CS_MODE_SYSFS	 = BIT(0),
-+	CS_MODE_PERF	 = BIT(1),
- };
- 
- #define coresight_ops(csdev)	csdev->ops
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index 22ba327ec2278c132572950848ade2b814787eb5..0fb3a2a62eb001bcc813422eba2ce8fbf92c260a 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -180,7 +180,6 @@ enum cpuhp_state {
- 	CPUHP_AP_DUMMY_TIMER_STARTING,
- 	CPUHP_AP_ARM_XEN_STARTING,
- 	CPUHP_AP_ARM_XEN_RUNSTATE_STARTING,
--	CPUHP_AP_ARM_CORESIGHT_STARTING,
- 	CPUHP_AP_ARM_CORESIGHT_CTI_STARTING,
- 	CPUHP_AP_ARM64_ISNDEP_STARTING,
- 	CPUHP_AP_SMPCFD_DYING,
-@@ -200,6 +199,7 @@ enum cpuhp_state {
- 	CPUHP_AP_IRQ_AFFINITY_ONLINE,
- 	CPUHP_AP_BLK_MQ_ONLINE,
- 	CPUHP_AP_ARM_MVEBU_SYNC_CLOCKS,
-+	CPUHP_AP_ARM_CORESIGHT_ONLINE,
- 	CPUHP_AP_X86_INTEL_EPB_ONLINE,
- 	CPUHP_AP_PERF_ONLINE,
- 	CPUHP_AP_PERF_X86_ONLINE,
-
+-#define to_iop_sw_desc(addr_hw_desc) \
+-	container_of(addr_hw_desc, struct iop_adma_desc_slot, hw_desc)
+-#define iop_hw_desc_slot_idx(hw_desc, idx) \
+-	( (void *) (((unsigned long) hw_desc) + ((idx) << 5)) )
+-#endif
 -- 
-2.34.1
+2.53.0
 
 
