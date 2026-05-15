@@ -4,122 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B2EFCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 21:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B9D7CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 21:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IKcFwPeea/9VwL8YT+o0/mGEQbWW+vWbTOi8vtsGE4M=; b=qYmuIP4oKnPgjeDJiperWhfCpb
-	RLi15+2JB8XigDvT8FftqW+D8LLzo03YkoapOqSggCOUk32Ay+eIchDkTUt4KDSZMMMiVOETAPO1v
-	gW4haV29EJ5KC/o8M2FRt4xOaDnB03V1ZJy1KgnuUuOt9P/gW0CcMNP6qJcgZ3CbLsZA7zI+UUdyS
-	oikEfOyQyqErDaAJJP376RGMlgK3o4oKLUzKEtYmdvxGM8tlFsew5FNIUJH9Xfr3fJB8riSs+BWMB
-	MqFJmGHWvS6k5xOikKbdZFZh7YmWaxBHTuoDzg37lc5LSVZ2Sw3lDB2W9s20AfFQVHzmZu1fE+54o
-	8mAdXIlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dbjZStXLEh138nsa2G4YhX1F04rK5mkTXOocNIIQ7A8=; b=gXYIGh+jKQT5yBvcL5A/p7/dRD
+	x1Xi5nFOabRjsv7LYhv90/pxgGtfN+mcBMSg4J1sYU/LTVGOgAlq/NsunF3WJ6tCh3TypIVBp2hQM
+	WNeAB1Xhfx/RwJbiRQ7B8dMBIbyH/iwJUsDpqeQDi9uvTkd9x4n+xwYnueCPlX4Qg70ov1ero5fkG
+	Olx5EwSC+FMvf8DoLSHnvlhlz+ZG4pADm3ACzx7Yfmyqzmrz28inVfnJYmnjzCTM59HPLodglhfaL
+	hSnppCQPMgyZkXCvp0ua8jed5gENRCs1/yoLkdFpATTzBzdsg3nEx8toA5oKX1SqsrM1KIlC1tyw4
+	rUNDVrVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNzh3-00000009Rar-2Zqr;
-	Fri, 15 May 2026 21:03:37 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wNzjZ-00000009S0C-09Tz;
+	Fri, 15 May 2026 21:06:13 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNzh0-00000009Ra7-4BzP
+	id 1wNzjS-00000009RvH-2F5P
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 21:03:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J0RfgoxjDCTMvsv2HjEUD1AKy8zolIKhcyfu5PTmfiN1l3mUpACrAHA4jC15jzcOQpd86sh/JNkrq5lKJP1vcgjNbi1xeNaYRM4/YMFt5maBJ17099d/AqW86Z2/PrDvQ1paaA8Ay6xeLxLmOOcdFw7lBpVAUCmM4rEXuw7l7yCDWPrFRSmgyOirn8yydge3Pn3DNiKRns3y/wZ06KpqFDTJgC4Q3v4Qd3ZkjX0r28UKV7dHipCcYbJgUl6WKWgYySd/lUu0r4sMKHHhUowg3cmpdHtOYIUrX8AwowIULW06BIHyuWZ35no0/qg4s29ctfeikxuYy/poSyEH3i2EUQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IKcFwPeea/9VwL8YT+o0/mGEQbWW+vWbTOi8vtsGE4M=;
- b=XKtuETXTpfsN/3QVXheWRhRV7tUUCio9C7DdtfICielhGdFUO9l/6plgAjOc6BXRatDXv8yml3EEW93LVbmnMDYVjuZHeXhFGYHWiAOoH76+EIUob3i8rqvatywb2xdVpU+05pCnbIqEAGU4eBsR/YKjF1x5v6Vbcof7TdS3nfpWqzaMGmwJucKRn8XqV0AtdqhiInozzcTZ9hJKf0RvDLKEikO1sRR7kKu4nrBIWsaGt9ltu16otTq0sagyuE0yaVArXZnUzc0PTFQM3GGW3pi1Q0ycZYTYEZCrqlM6qhOs0Tx0zPxV8qE/u7hGqfIZK65mRqEk3VkPIziqIkzTng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IKcFwPeea/9VwL8YT+o0/mGEQbWW+vWbTOi8vtsGE4M=;
- b=Rxh1Wdt7yL5TWrynl3mH2NURsQx2UQei2IJablCkriPJklSr/Ialmt0CMTnYUxwzZG1ePvNee3hya6XzFFz74YTRAykxfdVPmP++NoJ8isCdz68SERR7aVYashnz+BqLixwo+QU+aBY5l5jOumupkHq8WJObrSgJwSbVkNuy4KhXvJqVbNUYUmbAcXWkX39SVNZTWO/BlJv4d0QesyhGFtpXCMKYRnbe4fHIZwlvAOA5GO38MU/Xb241xaQRshh/1r2EubskPX/5InZHy2WpzgtHyG5qs9VwgDo9jw0mkSFmQjRHTobUfTjro9QSPE4oMCe350kQVqpCrfp9ltpDaw==
-Received: from BN9PR03CA0933.namprd03.prod.outlook.com (2603:10b6:408:108::8)
- by LV3PR12MB9257.namprd12.prod.outlook.com (2603:10b6:408:1b7::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.20; Fri, 15 May
- 2026 21:03:21 +0000
-Received: from BN1PEPF00005FFF.namprd05.prod.outlook.com
- (2603:10b6:408:108:cafe::63) by BN9PR03CA0933.outlook.office365.com
- (2603:10b6:408:108::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9846.22 via Frontend Transport; Fri,
- 15 May 2026 21:03:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN1PEPF00005FFF.mail.protection.outlook.com (10.167.243.231) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Fri, 15 May 2026 21:03:21 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 15 May
- 2026 14:02:59 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Fri, 15 May 2026 14:02:59 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.182)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 15 May 2026 14:02:58 -0700
-Date: Fri, 15 May 2026 14:02:57 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <iommu@lists.linux.dev>, Jonathan Hunter <jonathanh@nvidia.com>, "Joerg
- Roedel" <joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-tegra@vger.kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Thierry
- Reding" <thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, "Will
- Deacon" <will@kernel.org>, David Matlack <dmatlack@google.com>, Pasha
- Tatashin <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, Pranjal
- Shrivastava <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 3/9] iommu/arm-smmu-v3: Use the HW arm_smmu_cmd in
- cmdq submission functions
-Message-ID: <ageKAQC7yAzI0xB6@Asurada-Nvidia>
-References: <0-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
- <3-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
+	Fri, 15 May 2026 21:06:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1778879149;
+ bh=dbjZStXLEh138nsa2G4YhX1F04rK5mkTXOocNIIQ7A8=;
+ b=wk+oQ3DdC0udryFJbxD0GbokjKy9R8CGReaS9CxLsJQ/UWxNQH5rjs+RM/71ojLPiRHeYmNSm
+ aCI6WhDONR7bNwPE4Q57cemQLaXd+nRFYmU/k1mkrHVDRpvNn6cZEMIgXNSkcNCKW3rAGLawJA9
+ 86QsAZfz8ozB7HHqNoPJaM4kUp6MXInGeLhFkcP5SUTheDxj8+1SSyzvTnHMwzq8ZaHnjVkhWpz
+ /0W4qB2NcKh/aPAjah+vDXLkDzzFQUcvLHr9UdD6MMZkXSRDIhcwyckPlNUHr4MPOYsSV7rQYfP
+ s51Bptx5KMkyBHTDHHDDQzh/9Uz4Jjx8XHs68QOI2u1Q==
+X-Forward-Email-ID: 6a078a7e26842e7d336abf95
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.8.12
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <d69b500b-0473-496d-b17e-c60ce9839e0c@kwiboo.se>
+Date: Fri, 15 May 2026 23:04:58 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <3-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00005FFF:EE_|LV3PR12MB9257:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62feb9ad-0ea0-4b61-939d-08deb2c5657f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700016|82310400026|3023799003|18002099003|22082099003|56012099003|4143699003|11063799003;
-X-Microsoft-Antispam-Message-Info: SgcbjysddkVdOxaC8DU9j0cJs6gM4Bpz2BCy+CizH8ZY9RSZr+fSDDOUKeN/X0ECJHkCaj4ZXy6Dogjv+9hLfHKyynGbuWfys9BdZuuBfeyQronfe0feRA/L5oolvu15JirEslf2GjlHP3Xt/alWc2jA06Op8Jxgp3417OsLg04okn17PDdtyhBk0nWvvMMHZ7vAkzPwlila2VPkGcirF/jXGeG1E8kp0EzVRn/GAu4vhq5WmRMaKnQKcIJPB7AFm55TtBGkJ+zL1h7qoCnjjVouUMyuxQIpnDpns6D/AzwVDHJ7L3hvaiA1coGa+09diSDXUWrWolzYkkf4APeaG5N/2/qcECIf/4cElJOlzNNpjEMZ0pQ6KsrKaIBH+oLA/Q/oRj9FUnaDZs4hOMYsV79v8uufh0NXOOZOHJaFZ+EJlFjAYx/tuZcKX0bQLi4qCacGUsK7mwIoHRrwzL50QsO1famlFN8UU016YZAofHYaJRZfJ5EtprbCbcYR1NQCbrn5N8a3p4eQquSqkGQb8umNnjMg9lgj0upKE1yG15+lTebeTt9MIIa0bifTaJrAR2dImiiRvjPzkfhtDb4oYGqVjdk0KDVL8tsNX2nusxBLc0ojoZDXmm39m6nynZm74EDw1lVHGLypuEJOxVHXB7KvQ6BmWVQqhaJCDSyz93YtvNJdpaOkE9tCz7n1DqhuRIknxUeiPGJTwU079ZLgyNcv0XXCQnojOEAEUdeDNdM=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700016)(82310400026)(3023799003)(18002099003)(22082099003)(56012099003)(4143699003)(11063799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ip1cdjmp4XwMZxYkmNRi2yirekCdoaLpHq2RgjizvQQBXAdPfleBMl0fpQPLHj3qMYlrnkfXVn9yaIb+9oO432hfOOC1WAHgNj//dVeOX6o53LCGOV1HRTbnn+zAmbAT+uQ+iOOYRE7EYokNJp9zU9H/hKBudenn7UjbtcifJNrbZmxsUvMEy5OCA+0iqqr5v48d8N4Xd+PiWDx6+7Lze314UuYWbLG7Ns4CNasFTr5Fd6rpfdNZkbsqN771Z8e/OUHtEUL0zl99FG6z4JSIEIeG/DJZ3T7/mbYi018y+BXFxpGOwQ4phJxrvvJu33BKMgO7dXi26FykuOZNS0sf4PbiCbzc8paa/5QSS71Bwhc6kWv2gQNFF7BrcNyrQ9/8Jaf80ce6wVahIzOOv1u7ex0qOhQUE/B/t8auq6kQGhbUmp38hBVyeXJ2eYLJMRC9
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2026 21:03:21.2420
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62feb9ad-0ea0-4b61-939d-08deb2c5657f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00005FFF.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9257
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] phy: rockchip: inno-hdmi: Add configure() and
+ validate() ops
+To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-phy@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260515195512.1757363-1-jonas@kwiboo.se>
+ <20260515195512.1757363-2-jonas@kwiboo.se>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20260515195512.1757363-2-jonas@kwiboo.se>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_140335_041721_FD4ACB42 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20260515_140610_022261_E3AB6093 
+X-CRM114-Status: GOOD (  20.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,31 +79,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 08:57:42PM -0300, Jason Gunthorpe wrote:
-> Continue removing struct arm_smmu_cmdq_ent in favour of the HW based
-> struct arm_smmu_cmd. Switch the lower level issue commands to work on
-> the native struct by lifting arm_smmu_cmdq_build_cmd() into all the
-> callers.
+Hi,
+
+On 5/15/2026 9:55 PM, Jonas Karlman wrote:
+> The commit 10ed34d6eaaf ("phy: Add HDMI configuration options")
+> introduced a way for HDMI PHYs to be configured through the generic
+> phy_configure() function.
 > 
-> Following patches will revise each of the arm_smmu_cmdq_build_cmd()
-> call sites to replace it with the HW struct.
+> This driver derives the TMDS character rate from the pixel clock and the
+> PHY bus width setting. However, no in-tree consumer of this PHY has ever
+> called phy_set_bus_width() to change the TMDS character rate as only
+> 8-bit RGB output is supported by the HDMI display driver.
 > 
-> Reviewed-by: Mostafa Saleh <smostafa@google.com>
-> Reviewed-by: Pranjal Shrivastava <praan@google.com>
-> Tested-by: Pranjal Shrivastava <praan@google.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-[...]
-> @@ -3446,6 +3447,7 @@ arm_smmu_install_new_domain_invs(struct arm_smmu_attach_state *state)
->  static void arm_smmu_inv_flush_iotlb_tag(struct arm_smmu_inv *inv)
->  {
->  	struct arm_smmu_cmdq_ent cmd = {};
-> +	struct arm_smmu_cmd hw_cmd;
+> Add configure() and validate() ops to allow consumers to configure the
+> TMDS character rate using phy_configure(). Fallback to the deprecated
+> way of using the PHY bus width to configure the TMDS character rate.
+> 
+> A typical call chain during DRM modeset on a RK3328 device:
+> 
+>   dw_hdmi_rockchip_encoder_atomic_check():
+>   - inno_hdmi_phy_validate(): pixclock 148500000 tmdsclock 594000000
+> 
+>   dw_hdmi_rockchip_encoder_atomic_mode_set():
+>   - inno_hdmi_phy_configure(): pixclock 148500000
+>     - inno_hdmi_phy_validate(): pixclock 148500000 tmdsclock 594000000
+> 
+>   vop_crtc_atomic_enable():
+>   - inno_hdmi_phy_rk3328_clk_set_rate(): rate 594000000 tmdsclk 594000000
+>   - inno_hdmi_phy_rk3328_clk_set_rate(): pixclock 594000000 tmdsclock 594000000
+>   - inno_hdmi_phy_rk3328_clk_recalc_rate(): pixclock 594000000 vco 594000000
+> 
+>   dw_hdmi_rockchip_encoder_enable():
+>   - inno_hdmi_phy_power_on(): Inno HDMI PHY Power On
+>   - inno_hdmi_phy_rk3328_clk_set_rate(): rate 594000000 tmdsclk 594000000
+> 
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> ---
+> Changes in v3:
+> - Change validate() ops to only validate tmdsclock
+> - Add comments about expected consumer usage
+> - Update commit message with a typical call chain
+> Changes in v2:
+> - Add validate() ops to validate that the TMDS rate is supported
+> - Split out parts that remove the old workaround into a separate patch
+> 
+> Patch "drm/rockchip: dw_hdmi: Configure HDMI PHY in atomic_mode_set()"
+> at [1] adds phy_validate() and phy_configure() calls for this HDMI PHY.
+> 
+> [1] https://lore.kernel.org/dri-devel/20260510183114.1248840-10-jonas@kwiboo.se/
+> ---
+>  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 60 ++++++++++++++++++-
+>  1 file changed, 59 insertions(+), 1 deletion(-)
 
-Following the other pattern, this could be:
-    "cmd" -> "ent" and "hw_cmd" -> "cmd"?
+[snip]
 
-That being said, at the end of the series, these all get removed.
+> +static int inno_hdmi_phy_validate(struct phy *phy, enum phy_mode mode,
+> +				  int submode, union phy_configure_opts *opts)
+> +{
+> +	const struct pre_pll_config *cfg = pre_pll_cfg_table;
+> +	unsigned long tmdsclock;
+> +
+> +	if (!(mode == PHY_MODE_HDMI && submode == PHY_HDMI_MODE_TMDS))
+> +		return -EINVAL;
+> +
+> +	if (!opts->hdmi.tmds_char_rate || opts->hdmi.tmds_char_rate > 594000000)
+> +		return -EINVAL;
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+Sashiko reasoning log pointed out that a consumer of phy_validate() or
+phy_configure() can make a call with opts=NULL, so I may likely send a
+v4 of this series to fix such possible NULL pointer dereference here.
+
+Or is that something that possible should be checked before phy core
+calls the .validate()/.configure() ops?
+
+Multiple other phy .configure() ops seem to dereference opts members
+without any type of opts NULL check. (next-20260508)
+
+Regards,
+Jonas
+
+[snip]
 
