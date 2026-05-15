@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1848BCD343F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACD1CD4F25
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 14:23:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,80 +12,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sSrBZLpLsG21cYV5sFRehKkQIMmaXEBuOlBtNeue/K0=; b=j+q8p1FS0dIllVBMwZTn3i0CW+
-	9VTnuZunRbXIHPC257Och5klt5VHNVlNILmwUovU6DahVscEPkt2iZFVjw6wRRCHdCEIPUuxVJF4r
-	bVpH6Job2u5XAGN2El9ZaEz39/VLGdmadpLa7lskb0/rvZiSKSBWuxhZw6iHBa5/tRqMFGLsW3gLO
-	AE4MSvLDIo7WG0zdMH/rVJMyPNVmZSqpJVhQaV11tt5RAyYq1H66CldpBekKx1doolyomDMCsGZb/
-	97VPvnsf4hPl6o5YoukJTBeF1PrkwUfupwCPpluPXTKYXYeE3W3hZ+gFW8uH04Nr9BWGzrr/psjIk
-	TejXqPtQ==;
+	bh=ufGlv0CVGjiDuGZD9L5jSfGD3Qkubf2rfZSAyyegaMI=; b=MdvjtmhoCqsTisqucD0OvR6IMB
+	yTAB52tMQi4gyX4VNhjGQjQgqhICFXOKpj+IBm8UtyTDVfJ1tQ1WRcBV1ljalMWvFsIMifiGkjxMr
+	CUqCFqox2xxsTAgPtR0SG31/weJ9x//4+DDraH9JM/G4IJ1TyspdT9lSZP+ExdIuo9sVQ+68LJqBn
+	bYSvvkh7NZhSxvbUsx+yToalrUWQ7ZhAYovG7jFfpMQNth0QCqSNH/6TY4FxvURiiIaA/x3PInHqu
+	0fZwdqzx1cxGAaKd3AzmZ8SKCXD5sioDA2ieuH5BzTKTwrgiKhO73Fq0gjIHbo4RE/AvIOSv5veqG
+	/SISUb6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNtRO-00000008YsB-2ABP;
+	id 1wNtRO-00000008YsM-2Yxr;
 	Fri, 15 May 2026 14:23:02 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNtRM-00000008Yr1-3UH9
+	id 1wNtRN-00000008Yr8-01Zw
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 May 2026 14:23:00 +0000
+	Fri, 15 May 2026 14:23:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=sSrBZLpLsG21cYV5sFRehKkQIMmaXEBuOlBtNeue/K0=; b=SFsRtwjSS1DQyAohCWydK4zmcT
-	hXvh5QEVAbEkjB8OQNtEJs9j+IZa1yI4Ht7of9akKa/p3Xt87W8MziZiE9uGFu5CVe2z9WkBxqLgT
-	jZfv5CQZymz1gX7GtB0ZNNKoocCegUttzDDI6x9iJ15UBL4A9jJHJWwX6TOJ4INL8nl512MJeLBK0
-	w3/V+vSTHzZ9XmFo/pEiqL3O6BcxL+hCFkYeptoUag+B9rsQCXsNLiAaXHXYnAN85kukA5MYDPr2K
-	Ri0vt6KfamzK1uJgGU+06WTSYzaII/G0HclylfgzAwDLWUT74T8Bbd0RDAa4UKDO7JNazGUJelsMU
-	k4+wAJ3Q==;
+	bh=ufGlv0CVGjiDuGZD9L5jSfGD3Qkubf2rfZSAyyegaMI=; b=C+uhxca+Qvba9NK+M/yPu2nJAC
+	H8QeYwXuuk1+0jusmdk5WLSZxJts2LlgDbTZGwGmalMdxulexbxw430KFTVSOLomXRUx6qT0d2QzX
+	SCAd9iQhCb4wCM6a35muzFHbwk8C6yrf2aAM891qHPGB5T1j7EZ/IFiXi1XuRSgCGNMoTGtrDHepO
+	PGrnl8rbuw9vL8dzWXboe/NyYWHaB1tYeRbOHqP/SnjtmzJro5p9XTYGj2XBHBda7zJ2C0KFjHpqx
+	xHQYObmvH+t0E5muZMrx+B58VX/AQRrZCqYfzAuYm+UHvMYsr484MfcgUj+6dubgw9aEyIHw2sIpO
+	rsBB0GNQ==;
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNtRJ-00000005R8x-1qwf
+	id 1wNtRJ-00000005R9D-3acr
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 15 May 2026 14:22:59 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64FAWWhF3950751;
-	Fri, 15 May 2026 14:22:34 GMT
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64FBH4RO394204;
+	Fri, 15 May 2026 14:22:31 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=sSrBZL
-	pLsG21cYV5sFRehKkQIMmaXEBuOlBtNeue/K0=; b=DQyfFv7hqyMqDY11+8o6y2
-	Gb8giGVwPZ25I3udbDcpgZX8ubOe6/CS+Oh2WAGQQ4QO4NGF7Z6QH+82qkC2uDxu
-	QEA7br6P123CEF/PgSu12dmD/Zf1Gx+EAgApa0HRteFFkN+F79C7Q38mQzm2zv18
-	+9sOHLEKAn6yio/1+xTNAbxStGxNvCqx/dHMZJVaUI/e8gLGt8+zIraYFYrBtovd
-	/4+Ale/7IfWRAiLfvYAhWOCvWygF65fkaTfDWvRkdo7VkHXJSVCt703YjzKBjBCl
-	nSrT+0QpCNKO/uoXYcdMMrP/xevd9XGOIKsK4s+vYhfn9wYA835pr/Fb/LY8I+0A
+	:message-id:mime-version:references:subject:to; s=pp1; bh=ufGlv0
+	CVGjiDuGZD9L5jSfGD3Qkubf2rfZSAyyegaMI=; b=JKCe11946uEaM37tUPyS9y
+	+GBxXV5ecwZBQGE0MG4VXlSrNehAMbch2D7dDWZrZycQBS1ldFCCiHMj1JuZ5yPY
+	icRai+mkrMt/HT8ndPt5ABv8XmVAI48Co4KO97PEtDj85CHe1Im0jjBL5OXR0gYU
+	wJsBhcNMQtI03lEMPQlMavDm4KAEDRjiIn4wHiUvrCb0cGK1nbFZLMTlK+3xgsBs
+	ButtUnAXawJ1NqpcQif3FkFW9zK+6xTnKsIg88JNRZLTdEpmYWOwdgQW7egbjttN
+	1Kmoe9a4vSz5RNHoqkTR2EzSdFRc6orkdtFnXNLJP5UnVrw+To+I9TlTn0hi7Wrg
 	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4e5m8ybkfb-1
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4e5m8vbkuv-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 15 May 2026 14:22:33 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64FE9Dxo026631;
-	Fri, 15 May 2026 14:22:32 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4e5kvckvdu-1
+	Fri, 15 May 2026 14:22:30 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64FE9Ft3006470;
+	Fri, 15 May 2026 14:22:29 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4e5kvckveb-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 15 May 2026 14:22:32 +0000 (GMT)
+	Fri, 15 May 2026 14:22:29 +0000 (GMT)
 Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64FEMS1545089222
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64FEMPAo31195568
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 15 May 2026 14:22:28 GMT
+	Fri, 15 May 2026 14:22:26 GMT
 Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 445612004D;
-	Fri, 15 May 2026 14:22:28 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id DB78920040;
+	Fri, 15 May 2026 14:22:25 +0000 (GMT)
 Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 309FA20043;
-	Fri, 15 May 2026 14:22:27 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id BFEF620043;
+	Fri, 15 May 2026 14:22:24 +0000 (GMT)
 Received: from [192.168.178.55] (unknown [9.87.148.246])
 	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 15 May 2026 14:22:27 +0000 (GMT)
+	Fri, 15 May 2026 14:22:24 +0000 (GMT)
 From: Gerd Bayer <gbayer@linux.ibm.com>
-Date: Fri, 15 May 2026 16:22:06 +0200
-Subject: [PATCH 4/5] x86/pci: Use official API to iterate over PCI buses
+Date: Fri, 15 May 2026 16:22:04 +0200
+Subject: [PATCH 2/5] arm/pci: Use official API to iterate over PCI buses
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-priv_root_buses-v1-4-f8e393c57390@linux.ibm.com>
+Message-Id: <20260515-priv_root_buses-v1-2-f8e393c57390@linux.ibm.com>
 References: <20260515-priv_root_buses-v1-0-f8e393c57390@linux.ibm.com>
 In-Reply-To: <20260515-priv_root_buses-v1-0-f8e393c57390@linux.ibm.com>
 To: Richard Henderson <richard.henderson@linaro.org>,
@@ -106,32 +106,32 @@ Cc: Yinghai Lu <yinghai@kernel.org>, linux-alpha@vger.kernel.org,
 X-Mailer: b4 0.14.3
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: 9Fn6JSOYn5leHLgBxi1ZPSEXCI3IZ1Fr
-X-Authority-Analysis: v=2.4 cv=Os5/DS/t c=1 sm=1 tr=0 ts=6a072c2a cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+X-Proofpoint-ORIG-GUID: aFzaU5N9Oxsa1AO5roV0iznLLypVfmcE
+X-Authority-Analysis: v=2.4 cv=duXrzVg4 c=1 sm=1 tr=0 ts=6a072c27 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
  a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
- a=OS3CRczKEtLnDcx_Za4A:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: Hovlul_bhRsIek30WEVnGj5qQFZaeLIw
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE1MDE0MyBTYWx0ZWRfX8fTqgyx8V9Rj
- 7PIPlXLIF2L+55hDHOOLgFHrNMNvc+E9B/YgLccoZ9JbpahswH+v0GcPtNUy1Fj/4YbDFMmjpN5
- dsOAzBtjiTJGzessVoH9tOvhsmvQqkhRJYcrYG4+sPegQbIJZrtixlITfUPJUTFb+b8jrwPmd89
- xzvZcmH0VHM0f9gFbct8PjAQfk/vjPi9eVEyl2gTNvoonUq3wIEvqxS1yQ7vPgwHle4FiApuoLw
- lEOE9WqGAblLXwLwbBGJwjUi63SlvtDBcXrNMK0MnmgPskxcksDNPcdzhHif80L4SQjmEHID0lH
- WVpnEqFSmDr2BJVq1aCE1we6mrvOrz14mU99t6i0yH5u3MS1pGOSD5+2ojbUXsIfqat+2BNPngS
- ZNds6u3CUxixk0LLa9V5IyiZvcIlKW666DsSaV8LZXI+t1aQFLBxNxT/c9fr0dJ8Ch0oqjZU8+s
- T9qrTeS+f9x7LA7dKfA==
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
+ a=HxxVBxD7FXS1ytRSE9oA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: Vk9kN3RNJI3bq8vbFbT44kmcusmLN0wu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE1MDE0MyBTYWx0ZWRfX7dDcHAfANlOI
+ GKwpojpJaG7R1bvch3otKbJzIwMp0BiWYn7rHqHR3N9164Ug1+J362q2Fem5JBuahC6NVudBKnc
+ LLC3VjG7QHU2CqVb3hnUmY4HfpmYn/dT+/Ky1s+Yr9BZfEZfWgtdTYF5jLuRUNYt/v7RkiuB0FU
+ y4FIqW1KYb5BlSaehRP+Ni/edGqSaZSLIDHFyOZevqI53BWkXgM2pqJEO0K7Bx3w0gHqPC+YMdz
+ dqwwGhGSECKYNwXWsBxZ4IN+4iA+nemw20T8fMpQN1I2y7XdzS5d62Fki2F5QytcYa5Dr7bYutI
+ 3x4suhzacH5WtZfDYgGF16sQaz9Oi1z9DR7g2g4nQNaEiuUe7qsJkKqwjZx+chY1C76yhNxMvWy
+ 1eKwF+edzqgjeT36CHG5SB8yhBWF4FCjWXuakv5486/oTMfIqCOUWEiMl8gHyfmB+SS4oy+9SBG
+ 4PohG+EbdVb16N2Spaw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-15_03,2026-05-13_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 impostorscore=0 clxscore=1015 lowpriorityscore=0
- adultscore=0 malwarescore=0 priorityscore=1501 bulkscore=0 suspectscore=0
+ malwarescore=0 clxscore=1015 priorityscore=1501 phishscore=0 bulkscore=0
+ adultscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605150143
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_152258_070608_9FE8F85A 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20260515_152258_490113_9C6F230D 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,49 +152,25 @@ pci_root_buses private to PCI core.
 
 Signed-off-by: Gerd Bayer <gbayer@linux.ibm.com>
 ---
- arch/x86/pci/i386.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ arch/arm/kernel/bios32.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/pci/i386.c b/arch/x86/pci/i386.c
-index e2de26b82940..194d0fa3cec8 100644
---- a/arch/x86/pci/i386.c
-+++ b/arch/x86/pci/i386.c
-@@ -357,10 +357,10 @@ static void pcibios_allocate_rom_resources(struct pci_bus *bus)
+diff --git a/arch/arm/kernel/bios32.c b/arch/arm/kernel/bios32.c
+index ac0e890510da..35642c9ba054 100644
+--- a/arch/arm/kernel/bios32.c
++++ b/arch/arm/kernel/bios32.c
+@@ -59,9 +59,9 @@ static void pcibios_bus_report_status(struct pci_bus *bus, u_int status_mask, in
  
- static int __init pcibios_assign_resources(void)
+ void pcibios_report_status(u_int status_mask, int warn)
  {
 -	struct pci_bus *bus;
 +	struct pci_bus *bus = NULL;
  
- 	if (!(pci_probe & PCI_ASSIGN_ROMS))
--		list_for_each_entry(bus, &pci_root_buses, node)
-+		while ((bus = pci_find_next_bus(bus)) != NULL)
- 			pcibios_allocate_rom_resources(bus);
- 
- 	pci_assign_unassigned_resources();
-@@ -390,16 +390,18 @@ void pcibios_resource_survey_bus(struct pci_bus *bus)
- 
- void __init pcibios_resource_survey(void)
- {
--	struct pci_bus *bus;
-+	struct pci_bus *bus = NULL;
- 
- 	DBG("PCI: Allocating resources\n");
- 
 -	list_for_each_entry(bus, &pci_root_buses, node)
 +	while ((bus = pci_find_next_bus(bus)) != NULL)
- 		pcibios_allocate_bus_resources(bus);
+ 		pcibios_bus_report_status(bus, status_mask, warn);
+ }
  
--	list_for_each_entry(bus, &pci_root_buses, node)
-+	bus = NULL; /* start all over */
-+	while ((bus = pci_find_next_bus(bus)) != NULL)
- 		pcibios_allocate_resources(bus, 0);
--	list_for_each_entry(bus, &pci_root_buses, node)
-+	bus = NULL; /* start all over */
-+	while ((bus = pci_find_next_bus(bus)) != NULL)
- 		pcibios_allocate_resources(bus, 1);
- 
- 	e820__reserve_resources_late();
 
 -- 
 2.54.0
