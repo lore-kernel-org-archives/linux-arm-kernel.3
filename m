@@ -4,50 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1544CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 09:59:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0D9CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 10:06:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5DafoOK1jLyHJzO0RFqnB8+Y/ge29bL0UvXx91zvJ1U=; b=qVgzCBszwEjBHuiw+Qvy0QZV20
-	qy98IUV4o2VXInDV3duwjFIPQ4H3TZrTcAAIqWGVzycUMNwivpT1wQDwaH7ZUZnjU0Em2G3Gw/4Cx
-	6ec0B+OCQaZQUCQxTJb9Vg2+IjTF+TcEEgCPb/OgGHLmVhZ0EBx3Q0++P5Jpd4po3UCSCRdkciOpO
-	0Y9fpiGjtNTuYQ/15lz8gIDiF2Mw9J17dHhrNVcGp2PqIdl+sOi69qU7b/LR3fdl/MPTRCuYwpfDe
-	81XgtHztdQTExjCwtm5Myc5iuWcj1ry2Lbbg28wvPT6BzbHKVEsj3gOnqMEnlX4dN03q8YDxeAmlx
-	7FRkBWLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qWCqvCsw488UrxsEEAVXsOu6HYtz2EaEDsBHVjiAQE0=; b=ZNLzDN5DyhwajfQUZnTbYaENUf
+	sAemX9VScoNftvLmVA5HXSoTUbyKdjLGIgFqJZTaYY4XAwSr4aIB++zWxUm0/doopuzTqRlqMEO2Z
+	LUcwaOAA3ksrNBH8ON1/8hzb2o5ZuBVei7CGQggBXso5y5eev//TUM59GO4thr1Gyd11PxJVt3FCg
+	hpZqJfErA8RsUSTEf4045ni0FmNpz/gYjlACnjLiVeFujUOVw+QcDutHd2oTAIvF8pK1mnQUxASfX
+	od6wkhP+2Z4NEDOsVFzCNIkNckTiRQPO6nsIVmv8iVyxRsYGYb0RuSTG1p7xvjc+ddG1bRaOh6vEX
+	NR+PI9LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpKO-00000007yUp-1gM0;
-	Fri, 15 May 2026 09:59:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpKL-00000007yT7-1php
+	id 1wNpQf-00000007zKs-2Noi;
+	Fri, 15 May 2026 10:06:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNpQc-00000007zK7-36BB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 09:59:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4974343D5E;
-	Fri, 15 May 2026 09:59:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF8E6C2BCB0;
-	Fri, 15 May 2026 09:59:26 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] firmware: arm_scmi: Fix OOB in scmi_power_name_get()
-Date: Fri, 15 May 2026 11:59:15 +0200
-Message-ID: <75caae28bdffb55199a0bc6cac5df112a966c608.1778838987.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	Fri, 15 May 2026 10:06:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A54E52574;
+	Fri, 15 May 2026 03:05:51 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68F4B3F7B4;
+	Fri, 15 May 2026 03:05:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778839556; bh=jsu6XEXW/ycUYiQs2UGhLieyNt2HgGm38xKOuWtBQRM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RyoTG2Ha473cFmGToKi56liP4pN/RaZunI+BPMGfIXANFiogOdrGTYE7HF9xC0XbP
+	 IoiWz80170JW+1tC/FutmFKyXYlGleANET7nrAvZH83xY19ZoFOckm5dvjgxCX2Qtc
+	 dTmS1UA8Jl7cYMd10XRtyHrqgeV8R3coh51TBOfo=
+Date: Fri, 15 May 2026 11:05:54 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v6 04/13] coresight: etm4x: exclude ss_status from
+ drvdata->config
+Message-ID: <20260515100554.GK34802@e132581.arm.com>
+References: <20260422132203.977549-1-yeoreum.yun@arm.com>
+ <20260422132203.977549-5-yeoreum.yun@arm.com>
+ <20260508152742.GI3778514@e132581.arm.com>
+ <af8gp9rsY6zyo5r7@e129823.arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <af8gp9rsY6zyo5r7@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_025929_499101_1AFEF110 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20260515_030558_918970_DC2C6DB2 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,37 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_power_name_get() does not validate the domain number passed by the
-external caller, which may lead to an out-of-bounds access.
+On Sat, May 09, 2026 at 12:55:19PM +0100, Yeoreum Yun wrote:
 
-Fix this by returning "unknown" for invalid domains, like
-scmi_reset_name_get() does.
+> > >  	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
+> > >  	for (i = 0; i < caps->nr_ss_cmp; i++) {
+> > > -		drvdata->config.ss_status[i] =
+> > > -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> > > +		drvdata->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
+> > > +		drvdata->ss_status[i] &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
+> > > +					  TRCSSCSRn_DA | TRCSSCSRn_INST);
+> > 
+> > It is fine for read these capacity bits when probe, but we need to clear
+> > status when a session is starting to avoid the stale value left from
+> > previous session:
+> > 
+> >   drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
 
-Fixes: 76a6550990e296a7 ("firmware: arm_scmi: add initial support for power protocol")
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
- drivers/firmware/arm_scmi/power.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+> But, I want to clarify that the perf is one of exceptional case
+> since the "etm4_parse_event_config()" is called at the "resume" of session
+> for per-thread mode event.
 
-diff --git a/drivers/firmware/arm_scmi/power.c b/drivers/firmware/arm_scmi/power.c
-index 3aa84ceb6d2bab68..4a7215e02dec035d 100644
---- a/drivers/firmware/arm_scmi/power.c
-+++ b/drivers/firmware/arm_scmi/power.c
-@@ -204,8 +204,12 @@ scmi_power_name_get(const struct scmi_protocol_handle *ph,
- 		    u32 domain)
- {
- 	struct scmi_power_info *pi = ph->get_priv(ph);
--	struct power_dom_info *dom = pi->dom_info + domain;
-+	struct power_dom_info *dom;
-+
-+	if (domain >= pi->num_domains)
-+		return "unknown";
- 
-+	dom = pi->dom_info + domain;
- 	return dom->name;
- }
- 
--- 
-2.43.0
+Good point!
 
+The right way would move etm4_parse_event_config() to setup AUX phase
+(e.g., call it when build path).
+
+> Anyway as we discussed, since now there have been no issue
+> relavant for those bits, let the clear drvdata->ss_status at the
+> etm4_parse_event_config().
+
+I am fine to clear status in etm4_parse_event_config() in this series.
+
+Thanks,
+Leo
 
