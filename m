@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BAE9CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 02:45:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7982CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 02:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ptUIZymul3ehhI7rUyxRaajvyqi2HEBRiPMP4Iu5Uns=; b=CTPk0llibY+qdwpz4ur3EgX6UV
-	H6EuItAfvE0/wylEm4kPEixZaLVtb2vkKL+ZIRHeJKCtshdfpf7jxcu+Ag6g9EUi+Yu+Hy4nFPBiA
-	wZ2t+SAjaMTd3HJv+XLbOTclQYnlbe9ln5iR+DtRUdEWFevTX98pRdLU3aoLpZiYAwQ5Py/3CVqO7
-	/Udyd12VB+Bpvadg4UFfnuyURU3wLmjYLYh38OcN52WcnzkgGFKeyrZchPVyVMeC4TxOOMonihlwo
-	3wGikqwIzBzVsneS76p7Dj0Ek+FYflK1nXu0y0JAW+Zw674hXcs1t0ga+ChJM/pBAaqxVl4zDypyx
-	h8Em5kEQ==;
+	bh=wiOcpYgO5JDj+FjoQaOM0eym/Auz/dWfyTv2lzex6Rs=; b=f1hHUHaD9iD21T6f4SbqSJl/99
+	Sec2CBBLnL3/zz40Ah/smtYBnxAnXZkCLc+MekF95r1uirs6kObKRYQO1TpOtUOxFKLV1OfqzQOW0
+	S6XEg4/e/4oCPUVhq8EDeHr4c6FcaJL4DOF075ZL3qhK40SWUSCoPrVxEr47Cg85IRg0P2sj4Obx/
+	Otp+dOCPsXm1oqAFuntLLJxpD41z9srrpzgH7rOnKtsIS2Pg4DqqKAPN8Y8YCHpVgDp2A9FLFh5h7
+	3SoeAQbaS91V1JoDUMAKSqHfqitc58jpDLUjzJjEVOqoBPt+rueMGTXU9BzuDkaHtZuUrSgXlbcKu
+	pwHYzzUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNiYB-000000079WE-2pt2;
-	Fri, 15 May 2026 02:45:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wNigM-00000007AUK-0YE5;
+	Fri, 15 May 2026 02:53:46 +0000
+Received: from mail-m19731101.qiye.163.com ([220.197.31.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNiY7-000000079UA-3dBQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 02:45:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 516D54450A;
-	Fri, 15 May 2026 02:45:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1C13C2BCC9;
-	Fri, 15 May 2026 02:45:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778813115;
-	bh=CAei6OyLs4Wh4ZQBWKlQtYH2e5Z/B4QH1dkxlz+9PUg=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=TRlSO5xWcbYmlEcPCUHsV4Jeg6XGaio3XVs+9VyC/2rtYgAyKS3tt4SE8Lg4fyL9m
-	 rwyb+JQ5b4pzCvRsNNP55O3SvvUlR61C1ry2W5aYC170gH0oR1XWcii7e2eApMZ7sY
-	 enUkxz2o3dJX4tfOvgc8xGRWx1MMSAZAvzhcjeUzg0LLzXAz2QqK0j1rJTmwBmeyOx
-	 A9/RA2vXSTTU84NUIujjFLiOUgRat+oFriPkgIq1fhFy9mXM1hqPP6nNdxCW2TPaVW
-	 cHYpUZ5sO0WKBKNSacKGFUtjwrZ586y2DZehrAZjtFGjLXZCgxu+T0iXBEFs+3Z7nY
-	 DW0rbBUPOO85g==
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Chen-Yu Tsai <wens@kernel.org>, 
- Andrey Skvortsov <andrej.skvortzov@gmail.com>
-In-Reply-To: <20260301144939.1832806-1-andrej.skvortzov@gmail.com>
-References: <20260301144939.1832806-1-andrej.skvortzov@gmail.com>
-Subject: Re: [PATCH] bus: sunxi-rsb: Always check register address validity
-Message-Id: <177881311362.121816.11798899480694318999.b4-ty@kernel.org>
-Date: Fri, 15 May 2026 10:45:13 +0800
+	id 1wNigJ-00000007ATc-0w2S;
+	Fri, 15 May 2026 02:53:44 +0000
+Received: from [172.16.12.43] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3e805fe57;
+	Fri, 15 May 2026 10:53:37 +0800 (GMT+08:00)
+Message-ID: <f9fd086e-9d9f-40a3-9393-7cfa5c426c66@rock-chips.com>
+Date: Fri, 15 May 2026 10:53:37 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/3] dt-bindings: display: bridge: analogix-dp: Add
+ data-lanes support for endpoint
+To: Conor Dooley <conor@kernel.org>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
+ rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
+ cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
+ dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com,
+ dianders@chromium.org, m.szyprowski@samsung.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260514070133.2275069-1-damon.ding@rock-chips.com>
+ <20260514070133.2275069-3-damon.ding@rock-chips.com>
+ <20260514-jolly-confining-997882e502c7@spud>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <20260514-jolly-confining-997882e502c7@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+X-HM-Tid: 0a9e298dc37203a3kunm6bd5d8e111d35b
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZGhofSVZPShpPHUtKTB
+	pLTEtWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tIVUpLSEpKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=bNuiS2Dre4Q5BTbn3B1+0fBx2UlyKHcHIU2sndZ4rhJCriwHPmLgl2XgQ0+5OezFxNij6gzxyCaFuJ9XbQD19js2/mtL18ORxirq3opoRFCafpHIl1GwXZuzlWA27nAx7xFTpabrXENpRkIAGv0cmL/NRF6OFA+Vs0hUey4n0NI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=wiOcpYgO5JDj+FjoQaOM0eym/Auz/dWfyTv2lzex6Rs=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_194515_930663_93509EBC 
-X-CRM114-Status: UNSURE (   6.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260514_195343_430214_312C4CBA 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,21 +83,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 01 Mar 2026 17:49:39 +0300, Andrey Skvortsov wrote:
-> The register address was already validated for read operations in
-> regmap_sunxi_rsb_reg_read before being truncated to a u8. Write operations
-> have the same set of possible addresses, and the address is being truncated
-> from u32 to u8 here as well, so the same check is needed.
+Hi Conor,
+
+On 5/15/2026 2:19 AM, Conor Dooley wrote:
+> On Thu, May 14, 2026 at 03:01:32PM +0800, Damon Ding wrote:
+>> Add data-lanes property support to the port@1 endpoint for physical
+>> lane mapping configuration.
+>>
+>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>> ---
+>>   .../bindings/display/bridge/analogix,dp.yaml  | 24 +++++++++++++++----
+>>   1 file changed, 20 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml b/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+>> index 62f0521b0924..a82f9b7776c0 100644
+>> --- a/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+>> +++ b/Documentation/devicetree/bindings/display/bridge/analogix,dp.yaml
+>> @@ -36,19 +36,35 @@ properties:
+>>         Hotplug detect GPIO.
+>>         Indicates which GPIO should be used for hotplug detection
+>>   
+>> +  data-lanes:
+>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>> +    deprecated: true
 > 
+> Why are you adding a new property as deprecated? Why does this duplicate
+> what you're adding to the port node? At the very least, your commit is
+> lacking an explanation.
+> pw-bot: changes-requested
 > 
 
-Applied to sunxi/fixes-for-7.1 in local tree, thanks!
+Thank you for the review.
 
-[1/1] bus: sunxi-rsb: Always check register address validity
-      commit: 322f01103323199cdd9eff8cb6aacbf1248ce36e
+I referenced the implementation in 
+Documentation/devicetree/bindings/display/msm/dp-controller.yaml. After 
+evaluating QCOM DP driver and other drivers, I agree that implementing 
+'data-lanes' in the endpoint node is the preferred and common approach 
+nowadays.
+
+The top-level `data-lanes` property together with the `deprecated` mark 
+was leftover content from my early reference and arrangement, which I 
+neglected to delete before submitting. It is redundant, unreasonable and 
+should not have been added at all.
+
+I will fix it in the next version.
 
 Best regards,
--- 
-Chen-Yu Tsai <wens@kernel.org>
+Damon
+
+> 
+>> +    minItems: 1
+>> +    maxItems: 4
+>> +    items:
+>> +      maximum: 3
+>> +
+>>     ports:
+>>       $ref: /schemas/graph.yaml#/properties/ports
+>>   
+>>       properties:
+>>         port@0:
+>>           $ref: /schemas/graph.yaml#/properties/port
+>> -        description:
+>> -          Input node to receive pixel data.
+>> +        description: Input node to receive pixel data.
+>>   
+>>         port@1:
+>>           $ref: /schemas/graph.yaml#/properties/port
+>> -        description:
+>> -          Port node with one endpoint connected to a dp-connector node.
+>> +        description: Port node with one endpoint connected to sink device node.
+>> +        properties:
+>> +          endpoint:
+>> +            $ref: /schemas/media/video-interfaces.yaml#
+>> +            unevaluatedProperties: false
+>> +            properties:
+>> +              data-lanes:
+>> +                minItems: 1
+>> +                maxItems: 4
+>> +                items:
+>> +                  enum: [ 0, 1, 2, 3 ]
+>>   
+>>       required:
+>>         - port@0
+>> -- 
+>> 2.34.1
+>>
 
 
