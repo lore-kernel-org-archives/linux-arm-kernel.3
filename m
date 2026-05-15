@@ -4,85 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E58B0CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 07:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5820BCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 07:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uwNaBu43rxQllHv6+z7TRNAqYwKgzIvoObxnJ1m0b5M=; b=rRBqF/GHazqP3CMHH+dMvDyLDW
-	lWu9vBJWUBNy6IZVrH+X6cOPpPw9OoKsLg4JKarDZPYmgb3mcBXzHf14NkGQE6u020e3nP1m6hXOR
-	FBBj5ingmN3Z4vZxrFPP5t3xboie6I+VJlnxb/WtC08A+hNFgrxr45OBjyqa60amTZDkXrANDQ7XM
-	w+yAhVsFRvQtdEZCDQaBy23JMFNDpFSAVl/hVR/63h/aeYEZnDKVQXIUlSabvWEuj3vZEMPzj6SmT
-	zXYihniji4JJADrAfzXixECR1upprwzGH1rupjRttT8sEYr7rhooQG0LZYd71mbVUtb4plBCRnpf1
-	zWeZ0aEA==;
+	bh=P5i3jr/Ze5LIkO9MuiHcaAM6dwhzewxwm2J6/ovcRNo=; b=cYbDMjyIjpBvkoj1U8Gxf86dhh
+	fdaKrVNxv0GV/3WXqkBrCD/qjlZYtmqhXMOqFspV8Me2qFmrgCGEpzrA0Bmr6iQRDJza7bTVKfvpF
+	IFf5QK+ZdzWxsWDdvl+DgSEWRv4eghXdGjVMMkszVZVuvk22XAapU/u3IDVDwvugqzZMtLNUV1+1c
+	YBbo9WUwwCJOSuTTqoC6EaKULE/aaTg5Zef9oFKJyL7tGK/raf5UejCOXPnASsYxyXXmLdme2hald
+	e5M6mwOoKV8ZfJEd6t2LhuCSXeSDfzf0J2HIllaalywFTOqrlSJdZG/lxEyMqh9uHZ7rNvE0tOeh6
+	084uAamw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNn7w-00000007dZU-48kk;
-	Fri, 15 May 2026 07:38:32 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1wNnMy-00000007fKa-3Ytd;
+	Fri, 15 May 2026 07:54:04 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNn7u-00000007dYx-2Vm9
+	id 1wNnMv-00000007fJW-3Zjb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 07:38:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1778830711; x=1810366711;
-  h=date:from:to:subject:message-id:references:mime-version:
-   in-reply-to;
-  bh=lP9tVmtwzbLQRudPjuo1zfBP9p5/3imREIYkZ6AvAmw=;
-  b=nxgN6fwS59tpDahkjD2IVGrVrqQq1D7CG34SkcB1KGu/1JdtjyF0NQwK
-   MJyijXm2mzGIS+mR+nXWqP4h0Rgsq9Wx5B253RofM6fiZLWlOSOlq2Xmb
-   SVcnZ95i2z9yqofqDYMrIGwc+gYVT8gexAfAYuZ73zgTM2o926H84S1S3
-   cyB59LpAnmtDCfKu/xmc42gXG2tN3T44YJuTHFv91w+7DHkzNBRlFcdfR
-   QcUNkKgO/sNxKX4/Zw2/Lp3ZfhJ/NAGEWnlWdIA7nL565PhE2vzgnUXxp
-   iEz8j6zdyIdI2WLNUZiphMwHss1bneCd9jJ3UwSBlxT0zD0Rd8s6FQZXc
-   g==;
-X-CSE-ConnectionGUID: 8pXgttXVQ5mafbBAbPkfzg==
-X-CSE-MsgGUID: 1LNyiDbLQc6YDQn/eXmUmA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11786"; a="79956078"
-X-IronPort-AV: E=Sophos;i="6.23,236,1770624000"; 
-   d="scan'208";a="79956078"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2026 00:38:30 -0700
-X-CSE-ConnectionGUID: KzgjRThqSPG4EwBrKnmLxw==
-X-CSE-MsgGUID: EIw5Ob1JRaKbZTPEx77eBQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,236,1770624000"; 
-   d="scan'208";a="242618938"
-Received: from vpanait-mobl.ger.corp.intel.com (HELO localhost) ([10.245.245.33])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2026 00:38:26 -0700
-Date: Fri, 15 May 2026 10:38:23 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Greg Ungerer <gerg@linux-m68k.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Steven King <sfking@fdwdc.com>, Arnd Bergmann <arnd@arndb.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>,
-	linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
-Subject: Re: [PATCH v2 09/11] m68k: stmark2: use ioport.h macros for resources
-Message-ID: <agbNbzD__8IDk5UA@ashevche-desk.local>
-References: <20260513-wip-stmark2-dac-v2-0-fcdae50cf51a@baylibre.com>
- <20260513-wip-stmark2-dac-v2-9-fcdae50cf51a@baylibre.com>
- <agTcoVbImqMgfQy5@ashevche-desk.local>
- <cabngw2wuxh7cfx4cw4ik46dmxs72u47jyo6hcwgdd7a5whny2@dsp4cysetarw>
+	Fri, 15 May 2026 07:54:03 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1778831636;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P5i3jr/Ze5LIkO9MuiHcaAM6dwhzewxwm2J6/ovcRNo=;
+	b=qtpUpvocYMS6ga/mG6+yHhgkECgfN4/AWHu4OEWfwDxipL5TsdQ5X3k+V+I7b14vol/Ctv
+	LpOvxyM8j8DcbYElrkoCF4USg0Lz7TKZMixJ4X1GEElr76JRimy/rGExHvpN/mrdb65GAW
+	Gc77mhFCmV1DUq3wnCiPLUmslcUvKlBQpEPW+dzhPRlGUMbflE3JJl5GUP5p/3x3KtYgMx
+	7ZEghSFNU3wSI5T898bHC4ltszzph/Mv7J+ibXEOR2XJ56jj7LNt0FNxcZunVNUB6npV9g
+	XpgT7vJpFDejIJEdJDPY6myZJhftYdOLHgFgzvdR/lv4jJVSrKgRs/ww97oMGw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1778831636;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=P5i3jr/Ze5LIkO9MuiHcaAM6dwhzewxwm2J6/ovcRNo=;
+	b=8QaW9UMC9D6WJDmRgFabqQSsEY7fzsi0K5cWTpOqVGgiQzDFkqENkkeARQkt0ciOL8/adq
+	qTcPuuNMZL70cODQ==
+To: Krzysztof Kozlowski <krzk@kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
+ linux-kernel@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+ Ilpo =?utf-8?Q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, Andy
+ Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Thomas Fourier
+ <fourier.thomas@gmail.com>, Kees Cook <kees@kernel.org>,
+ linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, sparclinux@vger.kernel.org, Peter
+ Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+ <tudor.ambarus@linaro.org>, =?utf-8?Q?Andr=C3=A9?= Draszik
+ <andre.draszik@linaro.org>,
+ Alexey Klimov <alexey.klimov@linaro.org>
+Subject: Re: [PATCH tty v4 2/6] serial: Replace driver usage of UPF_CONS_FLOW
+In-Reply-To: <1a5abd2e-e9ab-4a48-94c2-5e082f57adde@kernel.org>
+References: <20260506121606.5805-1-john.ogness@linutronix.de>
+ <20260506121606.5805-3-john.ogness@linutronix.de>
+ <87lddvy2dl.fsf@jogness.linutronix.de>
+ <1a5abd2e-e9ab-4a48-94c2-5e082f57adde@kernel.org>
+Date: Fri, 15 May 2026 09:59:55 +0206
+Message-ID: <87wlx56rcc.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cabngw2wuxh7cfx4cw4ik46dmxs72u47jyo6hcwgdd7a5whny2@dsp4cysetarw>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_003830_680881_D443B9E9 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20260515_005402_032173_6FA57660 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,28 +89,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 09:20:38AM +0200, Angelo Dureghello wrote:
-> On 13.05.2026 23:18, Andy Shevchenko wrote:
-> > On Wed, May 13, 2026 at 11:14:33AM +0200, Angelo Dureghello wrote:
+On 2026-05-13, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>> (This email is particularly directed at the Samsung folks.)
+>> 
+>> Responding to Sashiko:
+>> 
+>> https://sashiko.dev/#/patchset/20260506121606.5805-1-john.ogness%40linutronix.de
+>> 
+>> On 2026-05-06, Sashiko wrote:
+>>>> diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
+>>>> index e27806bf2cf3e..2f94fc798cffb 100644
+>>>> --- a/drivers/tty/serial/samsung_tty.c
+>>>> +++ b/drivers/tty/serial/samsung_tty.c
+>>>> @@ -319,7 +319,7 @@ static void s3c24xx_serial_stop_tx(struct uart_port *port)
+>>>>  	ourport->tx_enabled = 0;
+>>>>  	ourport->tx_in_progress = 0;
+>>>>  
+>>>> -	if (port->flags & UPF_CONS_FLOW)
+>>>> +	if (uart_cons_flow_enabled(port))
+>>>>  		s3c24xx_serial_rx_enable(port);
+>>>
+>>> This isn't a new bug introduced by this patch, but does this code
+>>> result in a recursive spinlock acquisition and deadlock when console
+>>> flow control is enabled?
+>>>
+>>> The serial core framework calls port->ops->stop_tx() with the
+>>> port->lock spinlock already held. When uart_cons_flow_enabled(port)
+>>> evaluates to true, s3c24xx_serial_stop_tx() invokes
+>>> s3c24xx_serial_rx_enable().
+>>>
+>>> Looking at s3c24xx_serial_rx_enable(), it unconditionally attempts to
+>>> acquire the exact same lock again:
+>>>
+>>> static void s3c24xx_serial_rx_enable(struct uart_port *port)
+>>> {
+>>> 	struct s3c24xx_uart_port *ourport = to_ourport(port);
+>>> 	unsigned long flags;
+>>> 	...
+>>> 	uart_port_lock_irqsave(port, &flags);
+>>> 	...
+>>> }
+>>>
+>>> Because spinlocks are not recursive in the kernel, it appears this
+>>> sequence would cause an immediate deadlock on the same CPU.
+>> 
+>> Although out of scope for my series, the reported issue is real. Perhaps
+>> something for Krzysztof or Alim to look into.
+>> 
+>>>> @@ -493,7 +493,7 @@ static void s3c24xx_serial_start_tx(struct uart_port *port)
+>>>>  	struct tty_port *tport = &port->state->port;
+>>>>  
+>>>>  	if (!ourport->tx_enabled) {
+>>>> -		if (port->flags & UPF_CONS_FLOW)
+>>>> +		if (uart_cons_flow_enabled(port))
+>>>>  			s3c24xx_serial_rx_disable(port);
+>>>
+>>> Similarly here, s3c24xx_serial_start_tx() is also called with
+>>> port->lock held, and s3c24xx_serial_rx_disable() will attempt to
+>>> acquire port->lock again:
+>>>
+>>> static void s3c24xx_serial_rx_disable(struct uart_port *port)
+>>> {
+>>> 	struct s3c24xx_uart_port *ourport = to_ourport(port);
+>>> 	unsigned long flags;
+>>> 	...
+>>> 	uart_port_lock_irqsave(port, &flags);
+>>> 	...
+>>> }
+>>>
+>>> Could this pre-existing locking issue in the samsung_tty driver be
+>>> addressed so that the rx enable/disable helpers do not try to take the
+>>> port lock when it is already held by the caller?
+>> 
+>> Also legitimate. But out of scope for my series.
+>
+>
+> Thanks for letting us know. Deadlock did not happen so far, so something
+> is missing in Sashiko's report. :)
 
-...
+Nothing is missing. I am guessing you never use console flow
+control. The deadlock is clearly visible:
 
-> > This conversion drops hard indices, would it be a problem (for example,
-> > some code modifies the fields based on the [hard coded] index...)?
-> > 
-> > If not, perhaps good to mention in the commit message and move IRQ to be the
-> > second one?
-> 
-> i can't see any directly-related code accessing these resources by index,
-> so would not change this if there isn't any risk. 
-> Also i see DEFINE_RES_() stuff widely used in other arch, so thios make me
-> think accessing by index is something wrong.
+->stop_tx() (always called with the port locked)
+  s3c24xx_serial_stop_tx()
+    s3c24xx_serial_rx_enable()
+      uart_port_lock_irqsave() (DEADLOCK!)
 
-OK, thanks for confirming.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+John Ogness
 
