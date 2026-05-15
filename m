@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45BB0CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 01:27:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7760ECD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 01:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rDwkTqOgmwxqXqkIzich47iD5eb1x6hgJlV+oeHQedE=; b=PBNWCIhRW7qZl21k8Eau7C5OhE
-	IMMup6K8DyHF8lFKPCoyQMCgGC0INLU0h4ahAM5watXthHdj9GBizTXin2/KzPHg9T/mtSIsqXu7a
-	TA1bSSIbLxHAh0qnN20zJcyrLbfqMRb3IaWKujzlnv2xNZQf3X36wS8ZkfgnUkGsaavwgyp56WfUo
-	aCchZ6INx7Mb5bsy1wSoZwjpwdCmvIX9E9HsjRPkq66lKYp0zzJ65XwuLurdHvreHrk47U8kcCQZX
-	xNVVt1jsaGWGOFZubeGAaxCsXGmRyKuMUoyH6VfRBu6hL/otiQrAG4wcz0aopdoEEYy9oNHCGgZe8
-	EVo/GtRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TwkKuzLLfBGt7gYMyeQmg9FZZMVsNIjoHTwhCA/UqBw=; b=PGwwCRzjGITb1av0IfperjikhX
+	qquDAck8HqYl52VqrJt+h73nRiHEtLJpUFC6w5dxeqcLuROyMSO80OMWOhqqGDKD9Q3VVCJYxAWE5
+	/Ic/MnXU+ThUohRGB+R8aFFqXodiGUuyOIuD3swKP58c9Nq/RSkUz/6fQmuiENWmpqnpkyElu62Pt
+	ljodCgiwPzDIK7CgFuxo6Cq3B9r6zyslKagOmdM70c5O16I8bRX76J3vPRW80zc4ZR3hYSL8Wv+nR
+	ECD4mpBTUSQXA9cwhD5XBiOF0y05/yhE221XJ30qVg4AYeUVovRqcmOHK7RKt2OEQlBQETi2AbZZa
+	YAPoaUiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNhKc-000000071Yg-30Qi;
-	Fri, 15 May 2026 01:27:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wNhfA-000000073Nd-2D1g;
+	Fri, 15 May 2026 01:48:28 +0000
+Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNhKa-000000071Y1-2q8S;
-	Fri, 15 May 2026 01:27:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B1424382D;
-	Fri, 15 May 2026 01:27:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B9D4C2BCB3;
-	Fri, 15 May 2026 01:27:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778808431;
-	bh=jds/KUEnMypQxF/dsmHVwU7tav2q16u3klT9lSJO4Dw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TKn5CzOw33zLhbULxmodZj4uSBxZUoymOm3B0RWi06fo/Tj2RARVGhm2M6dBAApiH
-	 hZdpobN+XsohyfcO+zcpdWbhWFuz+9THuBp/UQBrRu5mAHgEFO/nDgHtth+FviXQem
-	 /K4dEkKuze88YD2gaGUbeg7IO9LX6wXwlPwCBdpv1unf/Vvd3zNC9AwuirSn1ocquu
-	 LPtaOWT8gpJtSbqvCL/0WpfaECf1gYilANfyrwqjI1psxqkVZxVBgU0Xr/WW5ke+JY
-	 OFrjwxtt27geZM/MJWdFqpITcKcRyFl7HDV6OxZY+YyfPMsF26p1GhijOUUowI4pYB
-	 AURsy24vtCkRw==
-Date: Fri, 15 May 2026 10:27:09 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-To: lirongqing <lirongqing@baidu.com>
-Cc: Ryder Lee <ryder.lee@mediatek.com>, 
-	Jianjun Wang <jianjun.wang@mediatek.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] PCI: mediatek: Fix operator precedence in
- PCIE_FTS_NUM_L0 macro
-Message-ID: <20260515012505.GA3166828@rocinante>
-References: <20260515005552.2343-1-lirongqing@baidu.com>
+	id 1wNhf7-000000073Mo-0vGK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 May 2026 01:48:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1778809706; x=1810345706;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=j0dgi6mqkVZNV7ocMNHlFqrMjp1EX9ypNbxVmKH1VvM=;
+  b=OIoA0klt6i+gp/Ndm0JJq+BrM3UkU5MSlxBLFLoKQyi/nBBM1Iy1qDbl
+   WfzDS6rVpiBaTHzzLBCD4Va6jS0931+X/06JBVOzOtOnETsgWZJpqEs2+
+   YeYB+6z6GW2cMz4NizAFcVDpariS6Zt0bHTxZqIpus7TYCqhoIvt2EURf
+   1AFRVMW96j2QxByDYxL/qmjYlDZPUHtC9PBk1Fhe7ulrP9tAP7CHVN9Qw
+   AY3xGgv9N5B4akEXpMcKPBCcZIDO6T8MR/3dcZ75WLT0NhueM3tNHtWbG
+   o/3pRxQWnGRVIWq8+IEKjuhg0bR2gwb8B2/NhovcTiPPy7nATOpZJSOls
+   Q==;
+X-CSE-ConnectionGUID: rEEaBhQ9QseLfkrcCeq9hQ==
+X-CSE-MsgGUID: 7GRpIDNLSaipxMeiEHs2Pg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11786"; a="240610955"
+X-IronPort-AV: E=Sophos;i="6.23,235,1770562800"; 
+   d="scan'208";a="240610955"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2026 10:48:20 +0900
+Received: from az2nlsmgm1.o.css.fujitsu.com (unknown [10.150.26.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id ABBD17A5D
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 01:48:19 +0000 (UTC)
+Received: from az2nlsmom1.o.css.fujitsu.com (az2nlsmom1.o.css.fujitsu.com [10.150.26.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 5763BC0340F
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 01:48:19 +0000 (UTC)
+Received: from [127.0.1.1] (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
+	by az2nlsmom1.o.css.fujitsu.com (Postfix) with ESMTP id E611082DDC6;
+	Fri, 15 May 2026 01:48:13 +0000 (UTC)
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Date: Fri, 15 May 2026 10:48:05 +0900
+Subject: [PATCH] Enable stage 2 translation in L2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260515005552.2343-1-lirongqing@baidu.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260515-enable-s2-hello_nested-v1-1-41f3faca1a08@fujitsu.com>
+X-B4-Tracking: v=1; b=H4sIAFR7BmoC/x3MQQqDMBBG4avIrDsQI2rrVUqRRH91IETJFBHEu
+ xtcfov3TlIkgVJXnJSwi8oaM8pXQcPi4gyWMZussY2py5oRnQ9gtbwghLWP0D9G9lVjnMXH+3d
+ LOd4SJjme8fd3XTf65LLxaAAAAA==
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+ Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Itaru Kitayama <itaru.kitayama@fujitsu.com>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_182712_741746_9901BE10 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20260514_184825_905503_F67DA799 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +98,470 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+IPA size and start level are configurable at build time.
 
-> The original PCIE_FTS_NUM_L0(x) macro was buggy due to improper operator
-> precedence, where ((x) & 0xff << 8) was evaluated as ((x) & 0xff00).
-> 
-> Instead of just fixing the parentheses, use the standard FIELD_PREP()
-> macro. This makes the code more robust by automatically handling masks
-> and shifts, while also adding compile-time type and range checking to
-> ensure the value fits within PCIE_FTS_NUM_MASK.
-> 
-> Fixes: 637cfacae96f ("PCI: mediatek: Add MediaTek PCIe host controller support")
-> Signed-off-by: Li RongQing <lirongqing@baidu.com>
-> ---
->  drivers/pci/controller/pcie-mediatek.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
-> index 7572252..00f0e29 100644
-> --- a/drivers/pci/controller/pcie-mediatek.c
-> +++ b/drivers/pci/controller/pcie-mediatek.c
-> @@ -61,7 +61,7 @@
->  /* MediaTek specific configuration registers */
->  #define PCIE_FTS_NUM		0x70c
->  #define PCIE_FTS_NUM_MASK	GENMASK(15, 8)
-> -#define PCIE_FTS_NUM_L0(x)	((x) & 0xff << 8)
-> +#define PCIE_FTS_NUM_L0(x)	FIELD_PREP(PCIE_FTS_NUM_MASK, x)
+Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+---
+Enable stage 2 translation in L2, but keep stage 1 remain off
+as Wei Lin prefers. Types are changed accordingly due to the
+recent selftest-wide changes.
+---
+ tools/testing/selftests/kvm/arm64/hello_nested.c   |  11 +-
+ tools/testing/selftests/kvm/include/arm64/nested.h |  38 ++-
+ tools/testing/selftests/kvm/lib/arm64/hyp-entry.S  |   5 +
+ tools/testing/selftests/kvm/lib/arm64/nested.c     | 279 ++++++++++++++++++++-
+ 4 files changed, 322 insertions(+), 11 deletions(-)
 
-Aww.  Nice catch!  Thank you for fixing this!
+diff --git a/tools/testing/selftests/kvm/arm64/hello_nested.c b/tools/testing/selftests/kvm/arm64/hello_nested.c
+index 69f4d8e750e2..1ac045894b89 100644
+--- a/tools/testing/selftests/kvm/arm64/hello_nested.c
++++ b/tools/testing/selftests/kvm/arm64/hello_nested.c
+@@ -18,9 +18,9 @@
+ /*
+  * TPIDR_EL2 is used to store vcpu id, so save and restore it.
+  */
+-static vm_paddr_t ucall_translate_to_gpa(void *gva)
++static gpa_t ucall_translate_to_gpa(void *gva)
+ {
+-	vm_paddr_t gpa;
++	gpa_t gpa;
+ 	u64 vcpu_id = read_sysreg(tpidr_el2);
+ 
+ 	GUEST_SYNC2(XLATE2GPA, gva);
+@@ -50,7 +50,7 @@ static void guest_code(void)
+ 	struct vcpu vcpu;
+ 	struct hyp_data hyp_data;
+ 	int ret;
+-	vm_paddr_t l2_pc, l2_stack_top;
++	gpa_t l2_pc, l2_stack_top;
+ 	/* force 16-byte alignment for the stack pointer */
+ 	u8 l2_stack[L2STACKSZ] __attribute__((aligned(16)));
+ 	u64 arg1, arg2;
+@@ -92,7 +92,7 @@ int main(void)
+ 	struct kvm_vcpu *vcpu;
+ 	struct kvm_vm *vm;
+ 	struct ucall uc;
+-	vm_paddr_t gpa;
++	gpa_t gpa;
+ 
+ 	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
+ 	vm = vm_create(1);
+@@ -102,13 +102,14 @@ int main(void)
+ 	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
+ 	kvm_arch_vm_finalize_vcpus(vm);
+ 
++	prepare_hyp_state(vm, vcpu);
+ 	while (true) {
+ 		vcpu_run(vcpu);
+ 
+ 		switch (get_ucall(vcpu, &uc)) {
+ 		case UCALL_SYNC:
+ 			if (uc.args[0] == XLATE2GPA) {
+-				gpa = addr_gva2gpa(vm, (vm_vaddr_t)uc.args[1]);
++				gpa = addr_gva2gpa(vm, (gva_t)uc.args[1]);
+ 				vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL2), gpa);
+ 			}
+ 			break;
+diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+index b16a72488858..b4ccca3593db 100644
+--- a/tools/testing/selftests/kvm/include/arm64/nested.h
++++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+@@ -18,14 +18,44 @@
+ 
+ #include <asm/ptrace.h>
+ #include "kvm_util.h"
++#include "processor.h"
+ 
+ extern char hyp_vectors[];
+ 
++#ifdef CONFIG_ARM64_64K_PAGES
++
++#define VTCR_EL2_TGRAN                  64K
++#define VTCR_EL2_TGRAN_SL0_BASE         3UL
++
++#elif defined(CONFIG_ARM64_16K_PAGES)
++
++#define VTCR_EL2_TGRAN                  16K
++#define VTCR_EL2_TGRAN_SL0_BASE         3UL
++
++#else   /* 4K */
++
++#define VTCR_EL2_TGRAN                  4K
++#define VTCR_EL2_TGRAN_SL0_BASE         2UL
++
++#endif
++
++struct s2_config {
++	u64 granule;
++	u8 ia_bits;
++	u8 oa_bits;
++	u8 start_level;
++};
++
++u64 get_l1_vtcr(const struct s2_config *cfg);
++
++void nested_map(struct kvm_vm *vm, const struct s2_config *cfg, gpa_t guest_pgd, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
++void nested_map_memslot(struct kvm_vm *vm, const struct s2_config *cfg, gpa_t guest_pgd, u32 memslot);
++
+ enum vcpu_sysreg {
+ 	__INVALID_SYSREG__,   /* 0 is reserved as an invalid value */
+ 
+ 	SP_EL1,
+-
++	ESR_EL2,
+ 	NR_SYS_REGS
+ };
+ 
+@@ -47,12 +77,14 @@ struct hyp_data {
+ };
+ 
+ void prepare_hyp(void);
+-void init_vcpu(struct vcpu *vcpu, vm_paddr_t l2_pc, vm_paddr_t l2_stack_top);
++void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top);
+ int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data);
+ 
+ u64 do_hvc(u64 action, u64 arg1, u64 arg2);
++u64 vcpu_get_esr_el2(struct vcpu *vcpu);
++
+ u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
+-void __hyp_exception(u64 type);
++void __hyp_exception(u64 type, u64 esr, u64 elr, u64 far, u64 hpfar, u64 spsr);
+ 
+ void __sysreg_save_el1_state(struct cpu_context *ctxt);
+ void __sysreg_restore_el1_state(struct cpu_context *ctxt);
+diff --git a/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S b/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+index 6341f6e05c90..fcf7bb303b77 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
++++ b/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+@@ -30,6 +30,11 @@ el1_error:
+ 	b	__guest_exit
+ 
+ el2_sync:
++	mrs	x1, esr_el2
++	mrs	x2, elr_el2
++	mrs	x3, far_el2
++	mrs	x4, hpfar_el2
++	mrs	x5, spsr_el2
+ 	mov	x0, #ARM_EXCEPTION_EL2_TRAP
+ 	b	__hyp_exception
+ 
+diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+index b30d20b101c4..104c98d29eb9 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/nested.c
++++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+@@ -7,15 +7,269 @@
+ #include "processor.h"
+ #include "test_util.h"
+ #include <asm/sysreg.h>
++#include <linux/sizes.h>
++
++static const struct s2_config default_s2_cfg = {
++        .granule        = SZ_4K,
++        .ia_bits        = 40,
++        .oa_bits        = 40,
++        .start_level    = 0,
++};
++
++static u64 s2_alloc_page_table(struct kvm_vm *vm, const struct s2_config *cfg)
++{
++        u64 nr_pages = cfg->granule >> vm->page_shift;
++
++        TEST_ASSERT(!(cfg->granule & (vm->page_size - 1)),
++                    "S2 granule 0x%lx smaller/not aligned to VM page size 0x%x",
++                    cfg->granule, vm->page_size);
++
++        return vm_phy_pages_alloc(vm, nr_pages,
++                                  KVM_GUEST_PAGE_TABLE_MIN_PADDR,
++                                  vm->memslots[MEM_REGION_PT]);
++}
+ 
+ void prepare_hyp(void)
+ {
+-	write_sysreg(HCR_EL2_E2H | HCR_EL2_RW, hcr_el2);
++	write_sysreg(HCR_EL2_E2H | HCR_EL2_RW | HCR_EL2_VM, hcr_el2);
+ 	write_sysreg(hyp_vectors, vbar_el2);
+ 	isb();
+ }
+ 
+-void init_vcpu(struct vcpu *vcpu, vm_paddr_t l2_pc, vm_paddr_t l2_stack_top)
++static unsigned int s2_granule_shift(const struct s2_config *cfg)
++{
++	switch (cfg->granule) {
++	case SZ_4K:
++		return 12;
++	case SZ_16K:
++		return 14;
++	case SZ_64K:
++		return 16;
++	default:
++		TEST_FAIL("Unsupported stage-2 granule %u", cfg->granule);
++	}
++}
++
++static unsigned int s2_level_stride(const struct s2_config *cfg)
++{
++	return s2_granule_shift(cfg) - 3;
++}
++
++static unsigned int s2_ptrs_per_table(const struct s2_config *cfg)
++{
++	return 1U << s2_level_stride(cfg);
++}
++
++static u64 s2_index_mask(const struct s2_config *cfg)
++{
++	return s2_ptrs_per_table(cfg) - 1;
++}
++
++static unsigned int s2_last_level(const struct s2_config *cfg)
++{
++	return 3;
++}
++
++static unsigned int s2_level_shift(const struct s2_config *cfg,
++				   unsigned int level)
++{
++	return s2_granule_shift(cfg) +
++	       (s2_last_level(cfg) - level) * s2_level_stride(cfg);
++}
++
++static u64 s2_table_mask(const struct s2_config *cfg)
++{
++	return GENMASK_ULL(cfg->ia_bits - 1, s2_granule_shift(cfg));
++}
++
++static u64 s2_output_mask(const struct s2_config *cfg)
++{
++	return GENMASK_ULL(cfg->oa_bits - 1, s2_granule_shift(cfg));
++}
++
++static u64 s2_desc_table(u64 paddr, const struct s2_config *cfg)
++{
++	return (paddr & s2_table_mask(cfg)) | 0x3;
++}
++
++#define S2_MEMATTR_NORMAL_WB		0xfUL
++#define S2_MEMATTR_SHIFT		2
++
++#define S2_S2AP_R			BIT(6)
++#define S2_S2AP_W			BIT(7)
++
++#define S2_SH_INNER			(3UL << 8)
++
++
++static u64 s2_desc_page(u64 paddr, u64 flags, const struct s2_config *cfg)
++{
++	u64 desc;
++
++	desc = paddr & s2_output_mask(cfg);
++
++	/* Stage-2 lower attrs */
++	desc |= S2_MEMATTR_NORMAL_WB << S2_MEMATTR_SHIFT;
++	desc |= S2_S2AP_R | S2_S2AP_W;
++	desc |= S2_SH_INNER;
++	desc |= PTE_AF;
++
++	/* L3 page descriptor: bits[1:0] = 0b11 */
++	desc |= PTE_TYPE_PAGE;
++	desc |= PTE_VALID;
++
++	return desc;
++}
++
++static inline int ipa_bits_to_ps(unsigned int ipa_bits)
++{
++	switch (ipa_bits) {
++	case 32:
++		return 0b000;
++	case 36:
++		return 0b001;
++	case 40:
++		return 0b010;
++	case 42:
++		return 0b011;
++	case 44:
++		return 0b100;
++	case 48:
++		return 0b101;
++	case 52:
++		return 0b110;
++	default:
++		return -EINVAL;
++	}
++}
++
++u64 get_l1_vtcr(const struct s2_config *cfg)
++{
++	if (!cfg)
++		cfg = &default_s2_cfg;
++
++	return  FIELD_PREP(VTCR_EL2_PS, ipa_bits_to_ps(cfg->ia_bits)) |
++		FIELD_PREP(VTCR_EL2_TG0, VTCR_EL2_TG0_4K) |
++		FIELD_PREP(VTCR_EL2_ORGN0_MASK, VTCR_EL2_ORGN0_WBWA) |
++		FIELD_PREP(VTCR_EL2_IRGN0_MASK, VTCR_EL2_IRGN0_WBWA) |
++		FIELD_PREP(VTCR_EL2_SH0_MASK, VTCR_EL2_SH0_INNER) |
++		FIELD_PREP(VTCR_EL2_SL0, VTCR_EL2_TGRAN_SL0_BASE - cfg->start_level) |
++		FIELD_PREP(VTCR_EL2_T0SZ_MASK, 64 - cfg->ia_bits);
++}
++
++void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
++{
++        const struct s2_config *cfg = &default_s2_cfg;
++        u64 guest_pgd;
++
++        vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTCR_EL2), get_l1_vtcr(cfg));
++
++        guest_pgd = s2_alloc_page_table(vm, cfg);
++        nested_map_memslot(vm, cfg, guest_pgd, 0);
++
++	pr_debug("cfg=%p ia_bits=%u oa_bits=%u granule=%u\n",
++	cfg, cfg->ia_bits, cfg->oa_bits, cfg->granule);
++
++        vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2), guest_pgd);
++}
++
++static void __nested_pg_map(struct kvm_vm *vm,
++			    const struct s2_config *cfg,
++			    u64 guest_pgd,
++			    u64 nested_paddr,
++			    u64 paddr,
++			    u64 flags)
++{
++	u64 granule = 1ULL << s2_granule_shift(cfg);
++	u64 *ptep;
++	unsigned int level;
++
++	TEST_ASSERT(!(nested_paddr & (granule - 1)),
++		    "L2 IPA not granule aligned: 0x%lx granule 0x%lx",
++		    nested_paddr, granule);
++
++	TEST_ASSERT(!(paddr & (granule - 1)),
++		    "PA not granule aligned: 0x%lx granule 0x%lx",
++		    paddr, granule);
++
++	ptep = addr_gpa2hva(vm, guest_pgd);
++
++	for (level = cfg->start_level; level < s2_last_level(cfg); level++) {
++		u64 idx;
++		u64 desc;
++
++		idx = (nested_paddr >> s2_level_shift(cfg, level)) &
++		      s2_index_mask(cfg);
++
++		ptep += idx;
++		desc = *ptep;
++
++		if (!desc) {
++			u64 table = s2_alloc_page_table(vm, cfg);
++
++			desc = s2_desc_table(table, cfg);
++			*ptep = desc;
++		}
++
++		ptep = addr_gpa2hva(vm, desc & s2_table_mask(cfg));
++	}
++
++	ptep += (nested_paddr >> s2_granule_shift(cfg)) & s2_index_mask(cfg);
++	*ptep = s2_desc_page(paddr, flags, cfg);
++}
++
++void nested_map(struct kvm_vm *vm,
++		const struct s2_config *cfg,
++		gpa_t guest_pgd,
++		u64 nested_paddr,
++		u64 paddr,
++		u64 size)
++{
++	u64 granule;
++	size_t npages;
++
++	if (!cfg)
++		cfg = &default_s2_cfg;
++
++	granule = 1ULL << s2_granule_shift(cfg);
++
++	TEST_ASSERT(!(size & (granule - 1)),
++		    "Mapping size 0x%lx not aligned to granule 0x%lx",
++		    size, granule);
++
++	TEST_ASSERT(nested_paddr + size > nested_paddr, "IPA overflow");
++	TEST_ASSERT(paddr + size > paddr, "PA overflow");
++
++	npages = size / granule;
++
++	while (npages--) {
++		__nested_pg_map(vm, cfg, guest_pgd, nested_paddr, paddr,
++				MT_NORMAL);
++
++		nested_paddr += granule;
++		paddr += granule;
++	}
++}
++
++void nested_map_memslot(struct kvm_vm *vm,
++			const struct s2_config *cfg,
++			gpa_t guest_pgd,
++			u32 memslot)
++{
++	struct userspace_mem_region *region;
++	u64 gpa, end;
++
++	region = memslot2region(vm, memslot);
++
++	gpa = region->region.guest_phys_addr;
++	end = gpa + region->region.memory_size;
++
++	pr_debug("nested S2 map slot %u: GPA %#lx-%#lx\n", memslot, gpa, end);
++
++	for (; gpa < end; gpa += cfg->granule)
++		nested_map(vm, cfg, guest_pgd, gpa, gpa, cfg->granule);
++}
++
++void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top)
+ {
+ 	memset(vcpu, 0, sizeof(*vcpu));
+ 	vcpu->context.regs.pc = l2_pc;
+@@ -46,13 +300,32 @@ int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data)
+ 
+ 	vcpu->context.regs.pc = read_sysreg(elr_el2);
+ 	vcpu->context.regs.pstate = read_sysreg(spsr_el2);
++	vcpu->context.sys_regs[ESR_EL2] = read_sysreg(esr_el2);
+ 
+ 	__sysreg_save_el1_state(&vcpu->context);
+ 
+ 	return ret;
+ }
+ 
+-void __hyp_exception(u64 type)
++u64 vcpu_get_esr_el2(struct vcpu *vcpu)
+ {
++	return vcpu->context.sys_regs[ESR_EL2];
++
++}
++
++void __hyp_exception(u64 type, u64 esr, u64 elr, u64 far, u64 hpfar, u64 spsr)
++{
++	u64 ec = esr >> 26;
++	u64 iss = esr & GENMASK_ULL(24, 0);
++	u64 ipa = ((hpfar & GENMASK_ULL(39, 4)) << 8) |
++		  (far & GENMASK_ULL(11, 0));
++
++	GUEST_FAIL("Unexpected hyp exception: type=%lu "
++		   "ESR_EL2=%#lx EC=%#lx ISS=%#lx "
++		   "ELR_EL2=%#lx FAR_EL2=%#lx HPFAR_EL2=%#lx IPA=%#lx "
++		   "SPSR_EL2=%#lx",
++		   type, esr, ec, iss, elr, far, hpfar, ipa, spsr);
+ 	GUEST_FAIL("Unexpected hyp exception! type: %lx\n", type);
++
++
+ }
 
-Happy to offer:
+---
+base-commit: eb656a0272c639d43be7a9bdd1c5f31eff3afe86
+change-id: 20260515-enable-s2-hello_nested-b360a2e9bb87
 
-  Reviewed-by: Krzysztof Wilczyński <kwilczynski@kernel.org>
+Best regards,
+-- 
+Itaru Kitayama <itaru.kitayama@fujitsu.com>
 
-All the best,
-
-	Krzysztof
 
