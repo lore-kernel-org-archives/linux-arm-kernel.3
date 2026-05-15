@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F89CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E47CD4F4D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qaRwSJkj71DNE0YbfTf14VRRvxVSfW5xkQ+x+0djFaM=; b=CYAcQVqEZcULuKwbFY7i01Dhas
-	ZsKUZtWDTbYrYZl+G6VPu4DdLQuDOopq5sMG3xUwb0Cgm9YayNTFJZOe6tCu5VodBFIcoeAVwV3As
-	1Kd7Of8PrGkPbxns8q8/ZCPciA/8cAger8ejvVCwuwTofQDVjqVbVBLxxY7sa1WzQVKaWRmKe5+OT
-	cMMcOKnH7FubahJRZ0fVtdDBIfHtDwmDhwgm77JclR3ICzR33BsL16fLAr8AWPgV0FfN1BuM6/F8R
-	/fbnWNd8ya6jmdR2bisEq/Yl08meqcSl/sBezFH7sTONaNSTZmUDsfCdsVXrm03y0htnbnCxsZgxP
-	D9/JQj0w==;
+	bh=2F0h6IEMxDxvMksG6aGfcOoLuwIxCQctxRZTNMN5Tzs=; b=ww5HpbotiCA5sEqgp5mQr/JMXQ
+	x8O/5JEzzh1LyCX9N6EszG1A9THr4X5Gp+T7nG/AQ6M5GfuvyPQx+/wefi3cQBPGQJ2pNZJEdOcCu
+	6eUFtNzIyN7lA3SN3IhCwMaN0BVccpoDh800tvZtNRKinNba8swMUBrqBnyOFMlmpElLQ6Eiy4daB
+	LiYk6q+3QLYibNPWPIyu0dqIx4yt3o6JsQZ3WGgDr41VlXG/s5bjPTFgSmygKHx/DTVNkSw7H7c11
+	OlDsBuFi84k7YGUeRPXu3LEAb9GZNhUn3waIgd+LLHLIzfv6YPSJjjZu7xmZy4dj6Pb4y7JliIReF
+	wX9mm9ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuY0-00000008jc3-09Ld;
-	Fri, 15 May 2026 15:33:56 +0000
+	id 1wNuXq-00000008jII-3vUp;
+	Fri, 15 May 2026 15:33:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuXp-00000008jBL-0R8K
+	id 1wNuXh-00000008iy8-1pWa
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 May 2026 15:33:45 +0000
+	Fri, 15 May 2026 15:33:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=qaRwSJkj71DNE0YbfTf14VRRvxVSfW5xkQ+x+0djFaM=; b=VqKSuk7Sjr6KsKfoR5gF9j47pB
-	ES0K4+iEmtAqIYZ++IXLsvYLKtlufTqWtywAgBT602y+z9ZBLQBvO89ppjfRadr/DdLLfuqE7jzPX
-	Gx9Y+csbc8fX5WIvFn9P78hS/03VCDwXPATrE8nRp4PIkDJ2z0Wn99c6s4Vn5Yke/0YTXXnJkPCyD
-	Ng6B8jvUukeq8ZpNW00DwCfzq7NSDav3frnYROGeYV6qzs9WEqifC3ukHiUy7GljpRRN3inDzhp9W
-	bcZa64tmSKu8c/DbLj3FhdLVJ9eJ2Yj7drHvMm1fWVL8m3hZJIPDE0PuN+0jXDt0Sc2CUKY+66dkj
-	47jn7DSA==;
+	bh=2F0h6IEMxDxvMksG6aGfcOoLuwIxCQctxRZTNMN5Tzs=; b=C31pOyj2PwdUbZjmIktKJXsyTU
+	rHkdR57e6ySPprA4Ffv0NobOa75tzTdQqMQZn1+y3D1MTkwJYmdF0gJuIEsYtzAKqZh1evJ7AYwT3
+	2HgJFAFfFfsaEwvrLgbIKOAbN0Vyxy5f5azell6vdpZEyPEEqL4kFBJF3dhe1VnCLeCu8HqEaF265
+	SHi4BbuS7GZBQTQykClYhq7IqDUeThRAlMi2nVF3fjel2llukhvqYtaV3Jq2/2/HIV2NAHaZoYRCm
+	2GBBQrZ4Lg769Ue23ONDCH2J9xfi6NU1eUMG6cMtwyKqXX4rrcqd97IXgkHJk0CZR1FNWEAhyva/j
+	eUWPUgOw==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuXl-00000005a1p-0odH
+	id 1wNuXd-00000005Zyy-39hH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 15:33:43 +0000
+	Fri, 15 May 2026 15:33:36 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wNuX5-0005OF-Di; Fri, 15 May 2026 17:32:59 +0200
+	id 1wNuX2-0005OF-Ga; Fri, 15 May 2026 17:32:56 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Fri, 15 May 2026 17:32:40 +0200
-Subject: [PATCH v6 14/28] media: rockchip: rga: move cmdbuf to rga_ctx
+Date: Fri, 15 May 2026 17:32:38 +0200
+Subject: [PATCH v6 12/28] media: rockchip: rga: avoid odd frame sizes for
+ YUV formats
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260515-spu-rga3-v6-14-e547152eb9c9@pengutronix.de>
+Message-Id: <20260515-spu-rga3-v6-12-e547152eb9c9@pengutronix.de>
 References: <20260515-spu-rga3-v6-0-e547152eb9c9@pengutronix.de>
 In-Reply-To: <20260515-spu-rga3-v6-0-e547152eb9c9@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -74,8 +75,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_163341_677116_0CD0E4E6 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20260515_163334_736287_4421F22F 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,249 +91,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the command buffer to the rga_ctx struct in preparation to reuse
-an already prepared command buffer. This allows to split the command
-buffer setup in a further commit to setup a template for the command
-buffer at streamon and only update the buffer addresses in device_run
-and trigger the command stream. No sync point is added, as one command
-buffer should only be used for one conversion at a time.
+Avoid odd frame sizes for YUV formats, as they may cause undefined
+behavior. This is done in preparation for the RGA3, which hangs when the
+output format is set to 129x129 pixel YUV420 SP (NV12).
+
+This requirement is documented explicitly for the RGA3 in  section 5.6.3
+of the RK3588 TRM Part 2. For the RGA2 the RK3588 TRM Part 2
+(section 6.1.2) and RK3568 TRM Part 2 (section 14.2) only mentions the
+x/y offsets and stride aligning requirements. But the vendor driver for
+the RGA2 also contains checks for the width and height to be aligned to
+2 bytes.
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga-hw.c | 28 +++++++---------
- drivers/media/platform/rockchip/rga/rga.c    | 48 ++++++++++++++++------------
- drivers/media/platform/rockchip/rga/rga.h    |  5 +--
- 3 files changed, 41 insertions(+), 40 deletions(-)
+ drivers/media/platform/rockchip/rga/rga.c | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index 17f7a67c0b4bb..9881c14f908d5 100644
---- a/drivers/media/platform/rockchip/rga/rga-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -122,8 +122,7 @@ static struct rga_addr_offset *rga_lookup_draw_pos(struct
- 
- static void rga_cmd_set_src_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- {
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int reg;
- 
- 	reg = RGA_MMU_SRC_BASE - RGA_MODE_BASE_REG;
-@@ -135,8 +134,7 @@ static void rga_cmd_set_src_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- 
- static void rga_cmd_set_src1_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- {
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int reg;
- 
- 	reg = RGA_MMU_SRC1_BASE - RGA_MODE_BASE_REG;
-@@ -148,8 +146,7 @@ static void rga_cmd_set_src1_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- 
- static void rga_cmd_set_dst_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- {
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int reg;
- 
- 	reg = RGA_MMU_DST_BASE - RGA_MODE_BASE_REG;
-@@ -162,7 +159,7 @@ static void rga_cmd_set_dst_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
- static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
- {
- 	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int scale_dst_w, scale_dst_h;
- 	unsigned int src_h, src_w, dst_h, dst_w;
- 	union rga_src_info src_info;
-@@ -322,8 +319,7 @@ static void rga_cmd_set_src_info(struct rga_ctx *ctx,
- 				 struct rga_addr_offset *offset)
- {
- 	struct rga_corners_addr_offset src_offsets;
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int src_h, src_w, src_x, src_y;
- 
- 	src_h = ctx->in.crop.height;
-@@ -350,8 +346,7 @@ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
- {
- 	struct rga_addr_offset *dst_offset;
- 	struct rga_corners_addr_offset offsets;
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	unsigned int dst_h, dst_w, dst_x, dst_y;
- 	unsigned int mir_mode = 0;
- 	unsigned int rot_mode = 0;
-@@ -397,8 +392,7 @@ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
- 
- static void rga_cmd_set_mode(struct rga_ctx *ctx)
- {
--	struct rockchip_rga *rga = ctx->rga;
--	u32 *dest = rga->cmdbuf_virt;
-+	u32 *dest = ctx->cmdbuf_virt;
- 	union rga_mode_ctrl mode;
- 	union rga_alpha_ctrl0 alpha_ctrl0;
- 	union rga_alpha_ctrl1 alpha_ctrl1;
-@@ -423,7 +417,7 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- {
- 	struct rockchip_rga *rga = ctx->rga;
- 
--	memset(rga->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
-+	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
- 
- 	rga_cmd_set_src_addr(ctx, src->dma_desc_pa);
- 	/*
-@@ -439,11 +433,11 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- 	rga_cmd_set_dst_info(ctx, &dst->offset);
- 	rga_cmd_set_trans_info(ctx);
- 
--	rga_write(rga, RGA_CMD_BASE, rga->cmdbuf_phy);
-+	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
- 
- 	/* sync CMD buf for RGA */
--	dma_sync_single_for_device(rga->dev, rga->cmdbuf_phy,
--		PAGE_SIZE, DMA_BIDIRECTIONAL);
-+	dma_sync_single_for_device(rga->dev, ctx->cmdbuf_phy,
-+				   PAGE_SIZE, DMA_BIDIRECTIONAL);
- }
- 
- static void rga_hw_start(struct rockchip_rga *rga,
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 77b8c7ab74274..bf6bbcbfc869b 100644
+index f599c992829dd..77b8c7ab74274 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -219,6 +219,16 @@ static int rga_open(struct file *file)
- 	ctx = kzalloc_obj(*ctx);
- 	if (!ctx)
- 		return -ENOMEM;
+@@ -337,6 +337,19 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	struct rga_ctx *ctx = file_to_rga_ctx(file);
+ 	const struct rga_hw *hw = ctx->rga->hw;
+ 	struct rga_fmt *fmt;
++	struct v4l2_frmsize_stepwise frmsize = {
++		.min_width = hw->min_width,
++		.max_width = hw->max_width,
++		.min_height = hw->min_height,
++		.max_height = hw->max_height,
++		.step_width = 1,
++		.step_height = 1,
++	};
 +
-+	/* Create CMD buffer */
-+	ctx->cmdbuf_virt = dma_alloc_attrs(rga->dev, rga->hw->cmdbuf_size,
-+					   &ctx->cmdbuf_phy, GFP_KERNEL,
-+					   DMA_ATTR_WRITE_COMBINE);
-+	if (!ctx->cmdbuf_virt) {
-+		ret = -ENOMEM;
-+		goto rel_ctx;
++	if (v4l2_is_format_yuv(v4l2_format_info(pix_fmt->pixelformat))) {
++		frmsize.step_width = 2;
++		frmsize.step_height = 2;
 +	}
-+
- 	ctx->rga = rga;
- 	/* Set default formats */
- 	ctx->in = def_frame;
-@@ -230,15 +240,13 @@ static int rga_open(struct file *file)
- 			    ctx->out.fmt->fourcc, def_width, def_height);
  
- 	if (mutex_lock_interruptible(&rga->mutex)) {
--		kfree(ctx);
--		return -ERESTARTSYS;
-+		ret = -ERESTARTSYS;
-+		goto rel_cmdbuf;
- 	}
- 	ctx->fh.m2m_ctx = v4l2_m2m_ctx_init(rga->m2m_dev, ctx, &queue_init);
- 	if (IS_ERR(ctx->fh.m2m_ctx)) {
- 		ret = PTR_ERR(ctx->fh.m2m_ctx);
--		mutex_unlock(&rga->mutex);
--		kfree(ctx);
--		return ret;
-+		goto unlock_mutex;
- 	}
- 	v4l2_fh_init(&ctx->fh, video_devdata(file));
- 	v4l2_fh_add(&ctx->fh, file);
-@@ -252,6 +260,15 @@ static int rga_open(struct file *file)
- 	mutex_unlock(&rga->mutex);
+ 	if (V4L2_TYPE_IS_CAPTURE(f->type)) {
+ 		const struct rga_frame *frm;
+@@ -358,11 +371,7 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	if (!fmt)
+ 		fmt = &hw->formats[0];
  
- 	return 0;
-+
-+unlock_mutex:
-+	mutex_unlock(&rga->mutex);
-+rel_cmdbuf:
-+	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, ctx->cmdbuf_virt,
-+		       ctx->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
-+rel_ctx:
-+	kfree(ctx);
-+	return ret;
- }
- 
- static int rga_release(struct file *file)
-@@ -266,6 +283,10 @@ static int rga_release(struct file *file)
- 	v4l2_ctrl_handler_free(&ctx->ctrl_handler);
- 	v4l2_fh_del(&ctx->fh, file);
- 	v4l2_fh_exit(&ctx->fh);
-+
-+	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, ctx->cmdbuf_virt,
-+		       ctx->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
-+
- 	kfree(ctx);
- 
- 	mutex_unlock(&rga->mutex);
-@@ -720,19 +741,10 @@ static int rga_probe(struct platform_device *pdev)
- 
- 	pm_runtime_put(rga->dev);
- 
--	/* Create CMD buffer */
--	rga->cmdbuf_virt = dma_alloc_attrs(rga->dev, rga->hw->cmdbuf_size,
--					   &rga->cmdbuf_phy, GFP_KERNEL,
--					   DMA_ATTR_WRITE_COMBINE);
--	if (!rga->cmdbuf_virt) {
--		ret = -ENOMEM;
--		goto rel_m2m;
--	}
+-	pix_fmt->width = clamp(pix_fmt->width,
+-			       hw->min_width, hw->max_width);
+-	pix_fmt->height = clamp(pix_fmt->height,
+-				hw->min_height, hw->max_height);
 -
- 	ret = video_register_device(vfd, VFL_TYPE_VIDEO, -1);
- 	if (ret) {
- 		v4l2_err(&rga->v4l2_dev, "Failed to register video device\n");
--		goto free_dma;
-+		goto rel_m2m;
- 	}
++	v4l2_apply_frmsize_constraints(&pix_fmt->width, &pix_fmt->height, &frmsize);
+ 	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt->height);
+ 	pix_fmt->field = V4L2_FIELD_NONE;
  
- 	v4l2_info(&rga->v4l2_dev, "Registered %s as /dev/%s\n",
-@@ -740,9 +752,6 @@ static int rga_probe(struct platform_device *pdev)
- 
- 	return 0;
- 
--free_dma:
--	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, rga->cmdbuf_virt,
--		       rga->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
- rel_m2m:
- 	v4l2_m2m_release(rga->m2m_dev);
- rel_vdev:
-@@ -759,9 +768,6 @@ static void rga_remove(struct platform_device *pdev)
- {
- 	struct rockchip_rga *rga = platform_get_drvdata(pdev);
- 
--	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, rga->cmdbuf_virt,
--		       rga->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
--
- 	v4l2_info(&rga->v4l2_dev, "Removing\n");
- 
- 	v4l2_m2m_release(rga->m2m_dev);
-diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index 27b3c9b4f220c..04aeb7b429523 100644
---- a/drivers/media/platform/rockchip/rga/rga.h
-+++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -53,6 +53,9 @@ struct rga_ctx {
- 	struct rga_frame out;
- 	struct v4l2_ctrl_handler ctrl_handler;
- 
-+	void *cmdbuf_virt;
-+	dma_addr_t cmdbuf_phy;
-+
- 	int osequence;
- 	int csequence;
- 
-@@ -89,8 +92,6 @@ struct rockchip_rga {
- 	spinlock_t ctrl_lock;
- 
- 	struct rga_ctx *curr;
--	dma_addr_t cmdbuf_phy;
--	void *cmdbuf_virt;
- 
- 	const struct rga_hw *hw;
- };
 
 -- 
 2.54.0
