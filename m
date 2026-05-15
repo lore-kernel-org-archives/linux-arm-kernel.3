@@ -4,84 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C115FCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 13:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2243CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 13:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-transfer-encoding:
-	Content-type:MIME-version:References:In-reply-to:Message-id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WmCkvmN6o6bO9QADm6W/QC4PRSk13s/99dA2BWd17CM=; b=tKHI2NFm5a+kMNhS551oxHExA/
-	SkbIJZGzm8grXxQIDx2GRra9vH+ufoNDVhcY0lKf36uELO5YJTy3U66a+uzX3LrHemtRHF2Slzssv
-	LZjqy6shrbXxmJv88jM31LtAsPuXt/7lHQJY/8EdjcUVovvRNhtx05bc7oliLwLvXbSC7ejOVd45Y
-	3LY7yzDpwgXujY7RKOp7oLP18ZTAavRvCD2cy7qCRE6hjOoLVIBUmchmFQOKYcPfZh3GKCzSueXGZ
-	T8tXjx/Zi6nxUTammIqcz3EZl/lbyLqq/T+rfKp7IcTcdtLNztt18sIUt+Mmp68V7yyVt9kLZWA2c
-	73Tb8mFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1O3Uv9ZACqlT1DjzNL55O3hGy5mm/f60RLVWQ8N0rvQ=; b=QklcrA0vayw6RXTPTQYFBL/81f
+	oR/rzzmBe+Nax7w3HOQ95HKrygZL/ZdlQygxjaKQ4uFd5I0X9oW+HrJnUO7gmjeEor83w4IqIWkiE
+	FBLBnDK9/QX6AJDZY10vp6NPbrfqJzzmlIONGD2ZyU51EKQ4CKBVPtBbBDkveLgdkSRkDW/EROTsC
+	if2SwysuhJ48glNFgxT4alvWrbDKqmP6cGvPteUplFZh9W0Cxj2A1a2ViPSpat251ajXGNhTWQk67
+	b5OHOfsyh9p5mF2BqgGm1XfG5zxjVf5oI0SOGxYzfcqSDwAjfzrlDaaWlznkFCr1eGmLC0qNMjemx
+	2BdYZ+uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNsHk-00000008POM-3C6A;
-	Fri, 15 May 2026 13:09:00 +0000
-Received: from acj35aaf124.lhr1.oracleemaildelivery.com ([130.35.116.124])
+	id 1wNsN0-00000008Q4J-2bu5;
+	Fri, 15 May 2026 13:14:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNsHd-00000008PMQ-2lET
+	id 1wNsMz-00000008Q3w-0Fnw
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 15 May 2026 13:14:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=1O3Uv9ZACqlT1DjzNL55O3hGy5mm/f60RLVWQ8N0rvQ=; b=BxIdPsImr6pCnRslwzJHklPZpc
+	zSqmE9zCz+W7Gk2rOQNBra1LZKTLAsUrFdgDoBPdW4iiWOHYS1z0SQHsjHxN6X7Pxge4dAYM9wcPk
+	/UiP7FwTx18CthBjYoApmI+PRjaGdZpEjZJFCDEMYWVOdNgUEeIc/UzH/t4rFWPiGXS3WjZClcWEL
+	MkB5G59BPKmPh0CbR0rgWSieEgYDv40Z4IzVisWu+d2Uj3pjH5X6x9Y93Ufg4RRM60XMLJ21nNsIq
+	ZPIIxUB2X+ERf8iaDY98owAMwT5qtsNa8/O95JC6E4txqi/bG2Y30e7iOjTIdbbAHZbqqOONnsaTy
+	RWsWp5Ug==;
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNsMw-00000005GqZ-0YAJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 13:08:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=oracle-uk-012026;
- d=raczylo.com;
- h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
- bh=WmCkvmN6o6bO9QADm6W/QC4PRSk13s/99dA2BWd17CM=;
- b=Trzl58e05NFzMxI3+pQxQYPmoF18latc0kNh/F2OAc43opimE4Xx94F8F1aTUJPLmlqoYKoOGjhL
-   sOygmrXVcOThNhSilX3jHwnQsXnkeSFyqL/Vi2I+LxA4uCopxfQekY7WIkHT1Io9Fa22qPSvS7y5
-   Tp90TYdMQcATnifhU+N6NrRNsPEC3VNDJSiqOQK/4d/5FRdQlruUHD4GE+nzeDcu8NJUfQ4QPBp4
-   ia7vgaxBu7ypSyrs0/090+r8k4FIT7KdvZsdWdyinnKAwO2yZ7ToX3Fd9OgUrZzRt5k/ZfBUyIFD
-   qdfbD3XwqR7r25AiQnhzzBPlkWU5BvBypki5PQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=prod-lhr-20191104;
- d=lhr1.rp.oracleemaildelivery.com;
- h=Date:To:From:Subject:Message-Id:MIME-Version:Sender:List-Unsubscribe:List-Unsubscribe-Post;
- bh=WmCkvmN6o6bO9QADm6W/QC4PRSk13s/99dA2BWd17CM=;
- b=K8ksLF1aUQWDlYMWgQ4HM+9cVIFntibIy8hCLU72qMFbmnIC72lAhuasCdRoOvUte3TXujvAr0D3
-   NYqj61QlfEjTMQzP27fmVzHkDJ5irvkhL94f5qqQwLitL9/J+FNKuLh50vgP5LOYCZd5+DmHbBF2
-   mVL4inoUZ8h1VIIzBYZWqCQwZtL28riwHl0Kp/MxbZLcRDb96qbxSlTshP62HCE9JxzcI86k9yxa
-   kD/gUIzJRloJMjELODPT0rw/WgzcIp2blyyEiQge73hoiZZxaB57Z2IDqeop2Z0aQXDzKqNwedEu
-   tZ0k8ov5yduINgsA5+zHr84hu/aJa1VTIoh0+Q==
-Received: by omta-ad1-fd3-1401-uk-london-1.omtaad1.vcndplhr.oraclevcn.com
- (Oracle Communications Messaging Server 8.1.0.1.20260212 64bit (built Feb 12
- 2026))
- with ESMTPS id <0TF21Z7JRXUP8AA0@omta-ad1-fd3-1401-uk-london-1.omtaad1.vcndplhr.oraclevcn.com> for
- linux-arm-kernel@lists.infradead.org; Fri, 15 May 2026 13:08:49 +0000 (GMT)
-List-Unsubscribe-Post: List-Unsubscribe=One-Click
-From: Lukasz Raczylo <lukasz@raczylo.com>
-To: netdev@vger.kernel.org
-Cc: Theo Lebrun <theo.lebrun@bootlin.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,	linux-rpi-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v2 3/3] net: macb: add TX stall watchdog to
- recover from lost TCOMP interrupts
-Date: Fri, 15 May 2026 14:08:49 +0100
-Message-id: <20260515130849.920-1-lukasz@raczylo.com>
-X-Mailer: git-send-email 2.54.0
-In-reply-to: <20260514215459.36109-4-lukasz@raczylo.com>
-References: <20260514215459.36109-1-lukasz@raczylo.com>
- <20260514215459.36109-4-lukasz@raczylo.com>
-MIME-version: 1.0
-Content-type: text/plain; charset=UTF-8
-Content-transfer-encoding: 8bit
-Reporting-Meta: AAFF3HPCkK227CD7Se5cCyOO/blLikgODObmwE6SfhbsjUFD20BWLFJliQfsfrvY
- BFb1EX9GcB+16PC4cMFmM4XkUsoI59cMbEd5WXzoYSEAND5N2VkkfZ/igRwiIkX6
- GKnLNQKroT7O3tyf+KMwQlsClATKT657zTmtxir+9xFWsIDbTKSJD5Rau4a9TZlx
- 3IsHc3E+ClKxIqQrAI8XMRHMMgvhb7vvCdscXI8atYGyjeUrfHgC85lBjenAY7Ap
- NCQ1YgdIe0BUN0h1vh5sePVZHsd82bb2HtYrMmCWn/cbjWpkvkeeZGLu+YfF2BR+
- zev9ZNP3hPdCuu1CWG764c6AcLk+fs1W1PxUhJmr8300ACa6l17xYczeq0SBSVow
- QQGfvXYWGH2p/rpuKOsZaOf8gB0v1qtgMI77gWthy4YKvh3G5GTNkEm0iZ5MqNd+ TYwy9uAVXA==
+	Fri, 15 May 2026 13:14:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=1O3Uv9ZACqlT1DjzNL55O3hGy5mm/f60RLVWQ8N0rvQ=; b=GDb9KE3dc8qmyI0VEzFmQ754UX
+	AhMwsKMwKCOBjsy2MY+59KnOdLreZtA9w1qLHxsKCSSQuVtbXRKdfyj0QKkD5afAtyMA0LK3ObL30
+	qlfGJTJDYfLT+pMTnzVEQDLgvaRPUTslm1VeNk6uhfDBBAjuw/n940U/2W8iRDykFW8w=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wNsMg-0034A1-U0; Fri, 15 May 2026 15:14:06 +0200
+Date: Fri, 15 May 2026 15:14:06 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: =?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com
+Subject: Re: Re: [PATCH net v1 1/2] dt-bindings: ethernet: eswin: refine
+ delay model and HSP register description
+Message-ID: <0581dba0-c500-4a21-935f-9324692fce78@lunn.ch>
+References: <20260507083037.152-1-lizhi2@eswincomputing.com>
+ <20260507083136.175-1-lizhi2@eswincomputing.com>
+ <2436c6e9-4aad-4ffd-9fef-0cbbe38dc66d@lunn.ch>
+ <29bee81.8323.19e2a8bf746.Coremail.lizhi2@eswincomputing.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <29bee81.8323.19e2a8bf746.Coremail.lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_060855_000929_A72DB2ED 
-X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-CacheID: sfid-20260515_141422_531361_EF3EB193 
+X-CRM114-Status: UNSURE (   6.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,46 +95,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-self NACK
+> This will help determine whether this change should remain in the net
+> series or be moved to a follow-up net-next series.
 
-This patch references netdev_warn_ratelimited(), which does not exist
-in mainline net-next or in raspberrypi/linux rpi-6.18.y -- no
-netdev_*_ratelimited() helper is defined.  I confused it with the
-existing net_warn_ratelimited() / pr_warn_ratelimited() /
-dev_warn_ratelimited() family while authoring v2.  The result fails
-to build with implicit-function-declaration on every kernel that
-includes <linux/netdevice.h>.
+net-next. It does not fix anything which is broken, and bothers
+people.
 
-The bug was caught by John Laur via an independent build test on the
-Talos Linux Pi 5 build and reported at:
-
-  https://github.com/siderolabs/sbc-raspberrypi/issues/91#issuecomment-4456874307
-
-I incorrectly tried to address this by sending a standalone fix-up
-patch to netdev as:
-
-  https://lore.kernel.org/netdev/20260515095336.92237-1-lukasz@raczylo.com/T/
-
-Andrew Lunn pointed out that this is not the correct workflow on
-netdev -- the right thing to do is self-NACK the broken patch on the
-original thread, wait 24 hours, and resend the whole series as v3.
-Apologies for the noise; this reply is that self-NACK.
-
-Patches 1/3 and 2/3 do not reference netdev_warn_ratelimited() and
-are unaffected by this build break; their content stands.  In v3:
-
-  * 3/3 will use `if (printk_ratelimit()) netdev_warn(...)` in place
-    of the non-existent netdev_warn_ratelimited(), matching the
-    semantics intended in v2 (bounded log noise, retains the netdev
-    prefix in the message).
-  * The standalone fix-up patch above (Message-ID
-    <20260515095336.92237-1-lukasz@raczylo.com>) should be considered
-    withdrawn -- v3 supersedes it.
-  * Cover letter will carry a changelog noting the v2->v3 delta and
-    this self-NACK.
-
-I will send v3 no earlier than 24 hours from this message, per
-Andrew's guidance and standard netdev practice.
-
-Signed-off-by: Lukasz Raczylo <lukasz@raczylo.com>
+	  Andrew
 
