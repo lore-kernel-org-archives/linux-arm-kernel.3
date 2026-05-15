@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC67CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 10:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9EA2CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 10:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jCI3MNXSgN8EqftdIbv5mkwDxt9ritBP6tWBFGh9yLY=; b=QD7AZgDWWLGCj3XWrshNSpWREQ
-	96b1PX/tjSFH8+vGHmmlL2YPlRrwTYntGhAG+dc26QLRscDj1Tm1JN2Jioixdx6Ra6Td2kVb3q+mW
-	wUidhOnpbMv5Nvot1EcgsRkS9ARbtk7lq72HKbifx+Zv3hpJ0nHeYaAcEoLqXAeiLcKDeT8ip8uFV
-	SdzfEXV/EyCSjduf5ZmSXIYhtFen78lRqiXR8oJE2z0EI/3/a0HX+5blYpcsFiCNHOeBkAXoTKZaw
-	akDjfAI45AVJPrhlFmtfZsTlNJZPcHs7vLv6jf+aZim+76pClxbJFfcgOIXCkva2sZ3KrEDln7msa
-	xVo5yOFQ==;
+	bh=AsUycJ+zCiYZK5tBYyxZukzAw+VPDch/p8Fmpkqu1Ck=; b=obDF+ZpT+aamrvAZQzl8hYW2OR
+	ThLu9OWhjjRnqOik0Ad8A1Ke+WCekwavi+D8X/0IOv3DkKGTXKccD9uc1iHNOWYkqbYedC9pDg+AF
+	4LP05j/1iZgf+lj1Ozzl1UIIOO7ZFTCzJYORkKzm08HkvgBIygCZJ69uJqJWENNoUVoyzWgMg8utl
+	URbo8fFVh8p4UeVWz4b7UaBxzUoxdC7u7cbKCJ5aD5uksNh8031JNj/j1o6mOQdbf1uZ3AvPL5XBk
+	7szqz2YLEJNkrHn/AxYR2KtWYVtztzBtZ5WfW4QFrC/J7lFnZwyEPpRW5ZbDdgKxptw3VDW2/GASG
+	OFNixyOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpqB-000000083Yz-2p5s;
-	Fri, 15 May 2026 10:32:23 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wNpqQ-000000083eI-3Fr3;
+	Fri, 15 May 2026 10:32:38 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpq8-000000083Vj-1yje
+	id 1wNpqO-000000083ag-006f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 10:32:22 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gH3Gy3LLqz12LpG;
-	Fri, 15 May 2026 18:24:58 +0800 (CST)
+	Fri, 15 May 2026 10:32:37 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gH3Gn6NKmzLlTv;
+	Fri, 15 May 2026 18:24:49 +0800 (CST)
 Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7A0D040538;
-	Fri, 15 May 2026 18:32:02 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id C2DA44056C;
+	Fri, 15 May 2026 18:32:27 +0800 (CST)
 Received: from [10.67.121.58] (10.67.121.58) by kwepemf200017.china.huawei.com
  (7.202.181.10) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 15 May
- 2026 18:32:01 +0800
-Message-ID: <93cbb609-9b90-4551-8bf9-19e9ca657baf@hisilicon.com>
-Date: Fri, 15 May 2026 18:32:01 +0800
+ 2026 18:32:27 +0800
+Message-ID: <b1c5e72f-6b8f-4601-b51c-c9aee56be8a4@hisilicon.com>
+Date: Fri, 15 May 2026 18:32:26 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/6] devfreq: Factor out devfreq_set_governor()
+Subject: Re: [PATCH v2 4/6] devfreq: Add module owner to devfreq governor
 To: Yaxiong Tian <tianyaxiong@kylinos.cn>, <cwchoi00@gmail.com>,
 	<cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
 	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
@@ -50,19 +50,19 @@ CC: <linuxarm@huawei.com>, <zhenglifeng1@huawei.com>,
 	<zhangpengjie2@huawei.com>, <lihuisong@huawei.com>,
 	<prime.zeng@hisilicon.com>
 References: <20260513093832.1645890-1-zhanjie9@hisilicon.com>
- <20260513093832.1645890-4-zhanjie9@hisilicon.com>
- <418993e5-ae44-48a4-98d7-250d0f359b0a@kylinos.cn>
+ <20260513093832.1645890-5-zhanjie9@hisilicon.com>
+ <fdcac90b-b253-45f2-81fa-81c980671f28@kylinos.cn>
 Content-Language: en-US
 From: Jie Zhan <zhanjie9@hisilicon.com>
-In-Reply-To: <418993e5-ae44-48a4-98d7-250d0f359b0a@kylinos.cn>
+In-Reply-To: <fdcac90b-b253-45f2-81fa-81c980671f28@kylinos.cn>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 X-Originating-IP: [10.67.121.58]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemf200017.china.huawei.com (7.202.181.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_033220_706479_AE9F1820 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20260515_033236_362211_6B088A06 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,37 +79,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 5/14/2026 2:09 PM, Yaxiong Tian wrote:
+On 5/14/2026 2:14 PM, Yaxiong Tian wrote:
 > 
 > 在 2026/5/13 17:38, Jie Zhan 写道:
->> Factor out common governor setting logic into devfreq_set_governor() so as
->> to consolidate the code in governor_store() and devfreq_add_device().
+>> Add an 'owner' member to struct devfreq_governor, such that we can find
+>> the module that holds the governor code when it's compiled as a kernel
+>> module.  This allows the devfreq core to properly manage the lifecycle
+>> of governors.
 >>
->> The caller is expected to hold 'devfreq_list_lock', enforced via
->> lockdep_assert_held().  This is required because devfreq_add_device() must
->> hold the lock from setting governor until the device is added to
->> 'devfreq_list', so that a concurrent devfreq_remove_governor() cannot free
->> the governor in between.
+>> Update devfreq_add_governor() and devm_devfreq_add_governor() to
+>> automatically set 'owner' to THIS_MODULE via helper macros.
+>>
+>> This is a prerequisite for implementing governor reference counting to
+>> prevent a governor module from being unloaded (except for force unload)
+>> while a governor is in use.
 >>
 >> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+>> ---
+>>   drivers/devfreq/devfreq.c        | 26 +++++++++-----------------
+>>   include/linux/devfreq-governor.h | 26 +++++++++++++++++++++++---
+>>   2 files changed, 32 insertions(+), 20 deletions(-)
+>>
+>> diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
+>> index 9e3e6a7348f8..e1363ab69173 100644
+>> --- a/drivers/devfreq/devfreq.c
+>> +++ b/drivers/devfreq/devfreq.c
+>> @@ -1301,11 +1301,8 @@ void devfreq_resume(void)
+>>       mutex_unlock(&devfreq_list_lock);
+>>   }
+>>   -/**
+>> - * devfreq_add_governor() - Add devfreq governor
+>> - * @governor:    the devfreq governor to be added
+>> - */
+>> -int devfreq_add_governor(struct devfreq_governor *governor)
+>> +int __devfreq_add_governor(struct devfreq_governor *governor,
+>> +               struct module *mod)
+>>   {
+>>       struct devfreq_governor *g;
+>>   @@ -1322,37 +1319,32 @@ int devfreq_add_governor(struct devfreq_governor *governor)
+>>           return -EINVAL;
+>>       }
+>>   +    governor->owner = mod;
+>>       list_add(&governor->node, &devfreq_governor_list);
+>>         return 0;
+>>   }
+>> -EXPORT_SYMBOL(devfreq_add_governor);
+>> +EXPORT_SYMBOL(__devfreq_add_governor);
 > 
-> I'm a bit unclear about the purpose of this commit, or the problem it solves. Can you explain it more clearly?
+> It's a bit strange to use the __ symbol here. Generally speaking, functions exported with EXPORT_SYMBOL are public, while __ indicates internal.
 > 
+> The same applies below.
 > 
-`governor_store()` and `devfreq_add_device()` share the similar governor
-setting code when `devfreq->governor` can be NULL, so unifying and
-factoring out the common governor setting logic with two main purposes:
-1. Reduce code duplication.
-2. Prepare for the next few patches which add refcounting for the governor
-modules -- There would be less `try_module_get()` and `module_put()` by
-factoring out `devfreq_set_governor()`.
+Actually it's common (typically in some kernel core code) to do this for
+keeping the API the same while extending an existing ABI with more
+parameters, such that those callers (in our case, governor code) don't have
+to change.
 
-I'll explain this more in the commit log.
+If this is not favoured, we can also touch the existing governors and make
+them assign 'governor->owner'.
+
+I'm happy with both.
 
 Thanks,
 Jie
->> ---
->>   drivers/devfreq/devfreq.c | 117 ++++++++++++++++++--------------------
->>   1 file changed, 56 insertions(+), 61 deletions(-)
+
 [ ... ]
 
