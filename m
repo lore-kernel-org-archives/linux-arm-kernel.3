@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B508CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 01:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45BB0CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 01:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQoXexgGKldlhbc2YrP2DRv7q8ep63O6KuKYlEbgc5I=; b=O4gN9q3+eaUlRbtyK9xF2mOPm5
-	FzXNGCwIgatdGsruqgkJazZ++3uXqld1b77zwa90gFsMDx8Su0PlbSEJCIGm1or2AT4qSk6gztq2X
-	99T8CSOMcs9Dgt03ffXJeIpDTRpdbCcqUFkfd8jIh2CcrijHsqXQd9kAxZ39N9G5PUxEF9/1tiQex
-	lZLj6LlB6S7RfSVRmgQRRqPWKXQHFRfqsjC08TbbMbCIKAHuDW2ssEoex1lxtgUypVF49qZmSv1zW
-	XRZbZZeTZ9wjP2NSKxWKhByGwHE5vGw/hOSzW3fAX4y0nwng8JKM1eW8rMJIrj5724hkQBrDZ4SSG
-	3GdVO3Lw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rDwkTqOgmwxqXqkIzich47iD5eb1x6hgJlV+oeHQedE=; b=PBNWCIhRW7qZl21k8Eau7C5OhE
+	IMMup6K8DyHF8lFKPCoyQMCgGC0INLU0h4ahAM5watXthHdj9GBizTXin2/KzPHg9T/mtSIsqXu7a
+	TA1bSSIbLxHAh0qnN20zJcyrLbfqMRb3IaWKujzlnv2xNZQf3X36wS8ZkfgnUkGsaavwgyp56WfUo
+	aCchZ6INx7Mb5bsy1wSoZwjpwdCmvIX9E9HsjRPkq66lKYp0zzJ65XwuLurdHvreHrk47U8kcCQZX
+	xNVVt1jsaGWGOFZubeGAaxCsXGmRyKuMUoyH6VfRBu6hL/otiQrAG4wcz0aopdoEEYy9oNHCGgZe8
+	EVo/GtRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNhDa-000000070WI-07NK;
-	Fri, 15 May 2026 01:19:58 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNhDY-000000070Vu-3n2i
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 May 2026 01:19:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Message-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Reply-To:
-	Subject:From:Sender:MIME-Version:Content-ID:Content-Description;
-	bh=SQoXexgGKldlhbc2YrP2DRv7q8ep63O6KuKYlEbgc5I=; b=Tkp4hVnIKucJ/EwCRf91yrBboC
-	05YXeTeJOrplvlUPsUaJBGqu1HHToNACprksT9dnwRtsvRptEBnBWoHrnEDT7WukR9s8uIfY3yIdx
-	6urvuNyvrvk10V0j3QsMMUcF6bm2OzZxgOjkKhYPamKcGXA/5GgWR0ibxxja169XDJP4r3j5xzZPd
-	x6/5yafopcO5B1LfcU3r8ngkDnL7mAM9edjERDcUngqjRQwudASCFqIS8FQP8cd0CB+MB5nwF0rdg
-	FMK10aQ3JWwCLNnfnvIb8wisSAFjattAuDfoR6ojI93AxNqOtTsrBzmBAq+ZG00mOnTjwfcaGBxjE
-	PldiuEbw==;
+	id 1wNhKc-000000071Yg-30Qi;
+	Fri, 15 May 2026 01:27:14 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNhDS-00000000kjM-3Wzv
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 01:19:55 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNhKa-000000071Y1-2q8S;
+	Fri, 15 May 2026 01:27:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8AA72407DE;
-	Fri, 15 May 2026 01:19:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F225CC2BCC7;
-	Fri, 15 May 2026 01:19:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B1424382D;
+	Fri, 15 May 2026 01:27:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B9D4C2BCB3;
+	Fri, 15 May 2026 01:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778807988;
-	bh=3j+5BX7wS+F4Sxy4cieVbQ+E3J8B4XkGmkCnhpoT/H8=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date:From;
-	b=GcV7ZhqlUSboF6CD1sjOsAE4IYTwRxyYAGQU19lsJe9QOk6Im3vb2h2Qmm0LMiPbA
-	 GR4SAQQIt80eZV4WxxKf5gr+lXzvAgaRL1Dpje2ptn5l97L1Z/rBsEV6ox/Kbm9240
-	 3P6uf7zdIFWHbGUodD6B1QrZwluS+Zo6ja3t7yDHFiNSnxC8NVjRFN2fld0mGRGtw1
-	 CAQMyCUIi/oM68b6dSUTdyNj1wfUp+H3Rl1QyCnAjiHYoiLlaUbywWmFweJibfJJos
-	 ds2rzDjvppaUNZb+Q+9f1HsH3PUBt40eLj4zXOKghe+V8BuD296aaEsxzIg7Q6Is3O
-	 4g7mst3vcA2FA==
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v3 17/21] objtool/klp: Don't correlate arm64 mapping
- symbols
-To: x86@kernel.org
-Cc: linux-kernel@vger.kernel.org, "Petr Mladek" <pmladek@suse.com>, "Song
- Liu" <song@kernel.org>, live-patching@vger.kernel.org, "Mark Rutland" <mark.rutland@arm.com>, "Peter
- Zijlstra" <peterz@infradead.org>, linux-arm-kernel@lists.infradead.org, "Will
- Deacon" <will@kernel.org>, "Miroslav Benes" <mbenes@suse.cz>, "Catalin
- Marinas" <catalin.marinas@arm.com>, "Joe Lawrence" <joe.lawrence@redhat.com>
-In-Reply-To: <48efc64058f667159d3dedf367c1d4cdedf84f1c.1778642120.git.jpoimboe@kernel.org>
-References: <48efc64058f667159d3dedf367c1d4cdedf84f1c.1778642120.git.jpoimboe@kernel.org>
+	s=k20201202; t=1778808431;
+	bh=jds/KUEnMypQxF/dsmHVwU7tav2q16u3klT9lSJO4Dw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TKn5CzOw33zLhbULxmodZj4uSBxZUoymOm3B0RWi06fo/Tj2RARVGhm2M6dBAApiH
+	 hZdpobN+XsohyfcO+zcpdWbhWFuz+9THuBp/UQBrRu5mAHgEFO/nDgHtth+FviXQem
+	 /K4dEkKuze88YD2gaGUbeg7IO9LX6wXwlPwCBdpv1unf/Vvd3zNC9AwuirSn1ocquu
+	 LPtaOWT8gpJtSbqvCL/0WpfaECf1gYilANfyrwqjI1psxqkVZxVBgU0Xr/WW5ke+JY
+	 OFrjwxtt27geZM/MJWdFqpITcKcRyFl7HDV6OxZY+YyfPMsF26p1GhijOUUowI4pYB
+	 AURsy24vtCkRw==
+Date: Fri, 15 May 2026 10:27:09 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
+To: lirongqing <lirongqing@baidu.com>
+Cc: Ryder Lee <ryder.lee@mediatek.com>, 
+	Jianjun Wang <jianjun.wang@mediatek.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] PCI: mediatek: Fix operator precedence in
+ PCIE_FTS_NUM_L0 macro
+Message-ID: <20260515012505.GA3166828@rocinante>
+References: <20260515005552.2343-1-lirongqing@baidu.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 15 May 2026 01:19:47 +0000
-Message-Id: <20260515011947.F225CC2BCC7@smtp.kernel.org>
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260515005552.2343-1-lirongqing@baidu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_021951_086422_9BE09DCE 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260514_182712_741746_9901BE10 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,60 +73,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential issue(=
-s) to consider:
-- [Medium] The `is_mapping_sym()` function relies on an overly broad substr=
-ing match (`strchr(sym->name, '$')`), which risks falsely classifying any u=
-nannotated (`STT_NOTYPE`) symbol containing a `$` as an ARM64 mapping symbo=
-l.
---
+Hello,
 
-commit fb925cb10f7a9c6ab8ecefca87d3cd3b4e4da879
-Author: Josh Poimboeuf <jpoimboe@kernel.org>
+> The original PCIE_FTS_NUM_L0(x) macro was buggy due to improper operator
+> precedence, where ((x) & 0xff << 8) was evaluated as ((x) & 0xff00).
+> 
+> Instead of just fixing the parentheses, use the standard FIELD_PREP()
+> macro. This makes the code more robust by automatically handling masks
+> and shifts, while also adding compile-time type and range checking to
+> ensure the value fits within PCIE_FTS_NUM_MASK.
+> 
+> Fixes: 637cfacae96f ("PCI: mediatek: Add MediaTek PCIe host controller support")
+> Signed-off-by: Li RongQing <lirongqing@baidu.com>
+> ---
+>  drivers/pci/controller/pcie-mediatek.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
+> index 7572252..00f0e29 100644
+> --- a/drivers/pci/controller/pcie-mediatek.c
+> +++ b/drivers/pci/controller/pcie-mediatek.c
+> @@ -61,7 +61,7 @@
+>  /* MediaTek specific configuration registers */
+>  #define PCIE_FTS_NUM		0x70c
+>  #define PCIE_FTS_NUM_MASK	GENMASK(15, 8)
+> -#define PCIE_FTS_NUM_L0(x)	((x) & 0xff << 8)
+> +#define PCIE_FTS_NUM_L0(x)	FIELD_PREP(PCIE_FTS_NUM_MASK, x)
 
-objtool/klp: Don't correlate arm64 mapping symbols
+Aww.  Nice catch!  Thank you for fixing this!
 
-This commit updates the livepatch diff tool to skip the correlation of arm64
-mapping symbols. These symbols mark transitions between code and data but a=
-re
-not standard symbols that require correlation.
+Happy to offer:
 
-> diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
-> index eb21f3bf3120b..e1d4d94c9d77c 100644
-> --- a/tools/objtool/klp-diff.c
-> +++ b/tools/objtool/klp-diff.c
-> @@ -501,6 +501,7 @@ static bool dont_correlate(struct symbol *sym)
->  	       is_prefix_func(sym) ||
->  	       is_uncorrelated_static_local(sym) ||
->  	       is_local_label(sym) ||
-> +	       is_mapping_sym(sym) ||
+  Reviewed-by: Krzysztof Wilczyński <kwilczynski@kernel.org>
 
-Does this code risk falsely classifying user-defined or macro-generated
-assembly labels as mapping symbols?
+All the best,
 
-Looking at the definition:
-
-tools/objtool/include/objtool/elf.h:is_mapping_sym() {
-        return is_notype_sym(sym) && strchr(sym->name, '$');
-}
-
-Because it relies on a broad substring match, could this exclude valid
-unannotated STT_NOTYPE symbols containing a $ from correlation across all
-architectures?
-
-Triggering a livepatching failure would require an unusual edge case, but
-would it be safer to use a stricter match for standard arm64 mapping symbol
-formats like $x or $d?
-
->  	       is_string_sec(sym->sec) ||
->  	       is_anonymous_rodata(sym) ||
-[ ... ]
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1778642120.gi=
-t.jpoimboe@kernel.org?part=3D17
+	Krzysztof
 
