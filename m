@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E15CD343F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D71DDCD4F3C
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 20:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,40 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G7ZgdVSrarspk5Marm9WbR2CB3bVvhe8wethSnJ0ixQ=; b=Hg8rPQankUJR5GmZgrsHDu+Zs5
-	Ad0FEy1FQhPI/14gbGlqOokIzVJ4jsGueyTf0o2Lnmqx0/XGWBk/aaZOS+Sr7QFjwn4GFTAGj0ePO
-	PEuaoDZA0uQm2ECx88/XxGhb0+xWaPStz/RsUuHWnV3/MAKQK7y33jmz0cpqDk8zrIC4vhnB1HMtw
-	N7EFeC84x/YYVAQdhszaZcNPWfyotl3/oy/AWcYs31xo/uR1dnkk3CU5jnEULmxdfScn4gM1qcju9
-	vlqtmvRXuEw/MLMr8pZrqxsDkn3ZnkHJe03a6ul2Cg7NppLuzrPEk8YykmXMz+ZHBHMyNk+sUaKFB
-	vIkyG8rg==;
+	bh=yzb2ehcTNabcS/e/cKdoWie5/YIm0Fw9jbF54PFh9dM=; b=O3BoRfe7cj5Yy8yIfhpGlivGY9
+	LtOZ3IhdOQqmpDlpskgX2z9IdVY3DRy9lyxtwA6i35Mr/3JK/nPQp2iDKQSEMQi3mVxOSuW9SuSUj
+	Cnlg1mwi8fokjHq63A4pJ7QzxqVJZGJfiFmWVizoMkyCOS0Qw7xkww2EyGkqzA9YiLADOJd9jx+zT
+	JO9gAOKqmrrPcwQvYXjqLwJ+x14PzO9nh7r6XnP1vjnqzXmRBIH/lNv4UdMO8o3fxR4nQt02CNYEJ
+	77sjy3SIWwAie70DB8fKOtuz5rThHvE4OAyt3/muRdKuGX1rUsf7acLIhX23zLvXGApj91UxE8e/W
+	C56Djj3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNypy-00000009IhL-1I7O;
+	id 1wNypy-00000009Iha-1hZ3;
 	Fri, 15 May 2026 20:08:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNypp-00000009Icq-48T8
+	id 1wNypu-00000009Iee-0i1E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 20:08:41 +0000
+	Fri, 15 May 2026 20:08:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64F3B35E4;
-	Fri, 15 May 2026 13:08:31 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8CAC735E6;
+	Fri, 15 May 2026 13:08:34 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C98E13F836;
-	Fri, 15 May 2026 13:08:33 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F24E33F836;
+	Fri, 15 May 2026 13:08:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778875716; bh=ygxqfqm6Py3roCBGHbWm4JPS8O0UtfR/lFDMPaXNusg=;
+	t=1778875719; bh=zaFhlZsN+iN8HE35Tn8+7/NIEnXHa4lMgRYmEo5l/RE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=b/cLASNI8fKygyfprY3/uxqqBItCircU8sqU2b1vzyIB5hYf/wIrTFMusX9nw1tMz
-	 JRSAtTrSHJ6xOGbsMKequdnylF3XewpEqFjPg2xz40DI+Urfg6ucatIIPk8ZsZ3nwx
-	 w7G5RCyfc3QXJicpURdH782/jKVhKfpjNVU91Z3k=
+	b=TOjTv4eA3tUZEesPDaeRVvQjZs+3l+qbrWY879FHUUiCWqY05B8pdFSTV0IxZFRIY
+	 OEkDqXKhbMMdFZL2dmLOZ+YFmG0A16W47ZcewG1PcBIK5rYxSyzbHyftzTttfisLvP
+	 NcYqF4aw7s5ycRJQiUgTIoJYvZO2HO0SW1Z2PNMs=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 15 May 2026 21:08:11 +0100
-Subject: [PATCH v14 04/28] coresight: Populate CPU ID into coresight_device
+Date: Fri, 15 May 2026 21:08:12 +0100
+Subject: [PATCH v14 05/28] coresight: Remove .cpu_id() callback from source
+ ops
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-arm_coresight_path_power_management_improvement-v14-4-f88c4a3ecfe9@arm.com>
+Message-Id: <20260515-arm_coresight_path_power_management_improvement-v14-5-f88c4a3ecfe9@arm.com>
 References: <20260515-arm_coresight_path_power_management_improvement-v14-0-f88c4a3ecfe9@arm.com>
 In-Reply-To: <20260515-arm_coresight_path_power_management_improvement-v14-0-f88c4a3ecfe9@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -61,16 +62,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778875700; l=7577;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778875700; l=7101;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=ygxqfqm6Py3roCBGHbWm4JPS8O0UtfR/lFDMPaXNusg=;
- b=OrpHsdwDpQGvPyJBisKjNfCc2BaCgVSNt9Dx6Tc7bVCWLqSMUCew7UacdRX3qfzUU1cDv0+0C
- nhvFpXDorwDAjRCvlZ7j7A9YYzltQsSpN7DlrdHft7QlViz7lVR5QL3
+ bh=zaFhlZsN+iN8HE35Tn8+7/NIEnXHa4lMgRYmEo5l/RE=;
+ b=sl7FEakr5/SLkhDXjlV0reqd2Hwm4UkRTMU4I08GIWM0pLEMbkedgM4vxozepwlQakS6FgC1I
+ 4mRysifGvMKAmBS9cAY4umfJE27daWCHYrRpcdgCdaoANQLRoliBi40
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_130840_284286_D4124C5D 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20260515_130842_299441_4779CBF9 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,12 +86,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new flag CORESIGHT_DESC_CPU_BOUND to indicate components that
-are CPU bound.  Populate CPU ID into the coresight_device structure;
-otherwise, set CPU ID to -1 for non CPU bound devices.
+The CPU ID can be fetched directly from the coresight_device structure,
+so the .cpu_id() callback is no longer needed.
 
-Use the {0} initializer to clear coresight_desc structures to avoid
-uninitialized values.
+Remove the .cpu_id() callback from source ops and update callers
+accordingly.
 
 Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
@@ -98,168 +98,156 @@ Reviewed-by: James Clark <james.clark@linaro.org>
 Tested-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-catu.c       |  2 +-
- drivers/hwtracing/coresight/coresight-core.c       | 13 +++++++++++++
- drivers/hwtracing/coresight/coresight-cti-core.c   |  9 ++++++---
- drivers/hwtracing/coresight/coresight-etm3x-core.c |  2 ++
- drivers/hwtracing/coresight/coresight-etm4x-core.c |  2 ++
- drivers/hwtracing/coresight/coresight-trbe.c       |  2 ++
- include/linux/coresight.h                          |  8 ++++++++
- 7 files changed, 34 insertions(+), 4 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c       | 8 ++++----
+ drivers/hwtracing/coresight/coresight-etm-perf.c   | 2 +-
+ drivers/hwtracing/coresight/coresight-etm3x-core.c | 8 --------
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 8 --------
+ drivers/hwtracing/coresight/coresight-sysfs.c      | 4 ++--
+ include/linux/coresight.h                          | 3 ---
+ 6 files changed, 7 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-index ce71dcddfca2558eddd625de58a709b151f2e07e..43abe13995cf3c96e70dcf97856872d70f71345a 100644
---- a/drivers/hwtracing/coresight/coresight-catu.c
-+++ b/drivers/hwtracing/coresight/coresight-catu.c
-@@ -514,7 +514,7 @@ static int __catu_probe(struct device *dev, struct resource *res)
- 	int ret = 0;
- 	u32 dma_mask;
- 	struct catu_drvdata *drvdata;
--	struct coresight_desc catu_desc;
-+	struct coresight_desc catu_desc = { 0 };
- 	struct coresight_platform_data *pdata = NULL;
- 	void __iomem *base;
- 
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index d5d18168b48125c91f556f3867f0719592f0ccc8..ffed314d1313518b1db1e702986edb0dfc6644d3 100644
+index ffed314d1313518b1db1e702986edb0dfc6644d3..5c711e5175014d2a7dce1ec544cd6c89f60d3a7a 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1350,6 +1350,19 @@ coresight_init_device(struct coresight_desc *desc)
- 	csdev->access = desc->access;
- 	csdev->orphan = true;
+@@ -799,7 +799,7 @@ static int _coresight_build_path(struct coresight_device *csdev,
+ 		goto out;
  
-+	if (desc->flags & CORESIGHT_DESC_CPU_BOUND) {
-+		csdev->cpu = desc->cpu;
-+	} else {
-+		/* A per-CPU source or sink must set CPU_BOUND flag */
-+		if (coresight_is_percpu_source(csdev) ||
-+		    coresight_is_percpu_sink(csdev)) {
-+			kfree(csdev);
-+			return ERR_PTR(-EINVAL);
-+		}
-+
-+		csdev->cpu = -1;
-+	}
-+
- 	csdev->dev.type = &coresight_dev_type[desc->type];
- 	csdev->dev.groups = desc->groups;
- 	csdev->dev.parent = desc->dev;
-diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-index 2f4c9362709a90b12a1aeb5016905b7d4474b912..b2c9a4db13b4e5554bca565c17ed299fdfdb30ff 100644
---- a/drivers/hwtracing/coresight/coresight-cti-core.c
-+++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-@@ -659,7 +659,7 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 	void __iomem *base;
- 	struct device *dev = &adev->dev;
- 	struct cti_drvdata *drvdata = NULL;
--	struct coresight_desc cti_desc;
-+	struct coresight_desc cti_desc = { 0 };
- 	struct coresight_platform_data *pdata = NULL;
- 	struct resource *res = &adev->res;
+ 	if (coresight_is_percpu_source(csdev) && coresight_is_percpu_sink(sink) &&
+-	    sink == per_cpu(csdev_sink, source_ops(csdev)->cpu_id(csdev))) {
++	    sink == per_cpu(csdev_sink, csdev->cpu)) {
+ 		if (_coresight_build_path(sink, source, sink, path) == 0) {
+ 			found = true;
+ 			goto out;
+@@ -1026,7 +1026,7 @@ coresight_find_default_sink(struct coresight_device *csdev)
+ 	/* look for a default sink if we have not found for this device */
+ 	if (!csdev->def_sink) {
+ 		if (coresight_is_percpu_source(csdev))
+-			csdev->def_sink = per_cpu(csdev_sink, source_ops(csdev)->cpu_id(csdev));
++			csdev->def_sink = per_cpu(csdev_sink, csdev->cpu);
+ 		if (!csdev->def_sink)
+ 			csdev->def_sink = coresight_find_sink(csdev, &depth);
+ 	}
+@@ -1764,10 +1764,10 @@ int coresight_etm_get_trace_id(struct coresight_device *csdev, enum cs_mode mode
+ {
+ 	int cpu, trace_id;
  
-@@ -702,11 +702,14 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 	 * eCPU ID. System CTIs will have the name cti_sys<I> where I is an
- 	 * index allocated by order of discovery.
- 	 */
--	if (drvdata->ctidev.cpu >= 0)
-+	if (drvdata->ctidev.cpu >= 0) {
-+		cti_desc.cpu = drvdata->ctidev.cpu;
-+		cti_desc.flags = CORESIGHT_DESC_CPU_BOUND;
- 		cti_desc.name = devm_kasprintf(dev, GFP_KERNEL, "cti_cpu%d",
- 					       drvdata->ctidev.cpu);
--	else
-+	} else {
- 		cti_desc.name = coresight_alloc_device_name("cti_sys", dev);
-+	}
- 	if (!cti_desc.name)
- 		return -ENOMEM;
+-	if (csdev->type != CORESIGHT_DEV_TYPE_SOURCE || !source_ops(csdev)->cpu_id)
++	if (csdev->type != CORESIGHT_DEV_TYPE_SOURCE)
+ 		return -EINVAL;
+ 
+-	cpu = source_ops(csdev)->cpu_id(csdev);
++	cpu = csdev->cpu;
+ 	switch (mode) {
+ 	case CS_MODE_SYSFS:
+ 		trace_id = coresight_trace_id_get_cpu_id(cpu);
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index 89ba7c9a66137007a9f39efb3f04d55e8237eacb..7434f68d448253ed3de5acae45ded50e68ff2dcf 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -825,7 +825,7 @@ static void etm_addr_filters_sync(struct perf_event *event)
+ int etm_perf_symlink(struct coresight_device *csdev, bool link)
+ {
+ 	char entry[sizeof("cpu9999999")];
+-	int ret = 0, cpu = source_ops(csdev)->cpu_id(csdev);
++	int ret = 0, cpu = csdev->cpu;
+ 	struct device *pmu_dev = etm_pmu.dev;
+ 	struct device *cs_dev = &csdev->dev;
  
 diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index a547a6d2e0bde84748f753e5529d316c4f5e82e2..eb665db1a37d9970f7f55395c0aa23b98a7f3118 100644
+index eb665db1a37d9970f7f55395c0aa23b98a7f3118..ab47f69e923fb191b48b82367dce465c79b3a93d 100644
 --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -891,6 +891,8 @@ static int etm_probe(struct amba_device *adev, const struct amba_id *id)
- 	desc.pdata = pdata;
- 	desc.dev = dev;
- 	desc.groups = coresight_etm_groups;
-+	desc.cpu = drvdata->cpu;
-+	desc.flags = CORESIGHT_DESC_CPU_BOUND;
- 	drvdata->csdev = coresight_register(&desc);
- 	if (IS_ERR(drvdata->csdev))
- 		return PTR_ERR(drvdata->csdev);
+@@ -466,13 +466,6 @@ static void etm_enable_sysfs_smp_call(void *info)
+ 		coresight_set_mode(csdev, CS_MODE_DISABLED);
+ }
+ 
+-static int etm_cpu_id(struct coresight_device *csdev)
+-{
+-	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-
+-	return drvdata->cpu;
+-}
+-
+ void etm_release_trace_id(struct etm_drvdata *drvdata)
+ {
+ 	coresight_trace_id_put_cpu_id(drvdata->cpu);
+@@ -684,7 +677,6 @@ static void etm_disable(struct coresight_device *csdev,
+ }
+ 
+ static const struct coresight_ops_source etm_source_ops = {
+-	.cpu_id		= etm_cpu_id,
+ 	.enable		= etm_enable,
+ 	.disable	= etm_disable,
+ };
 diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index a251375db24b17c22490a71f97308119b89a5975..8f270bfc74723f1fc1cead2da1725ab6b50f910e 100644
+index 8f270bfc74723f1fc1cead2da1725ab6b50f910e..b7312570a7ae1f0355c01b6f7a54ea2dd8891097 100644
 --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
 +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -2291,6 +2291,8 @@ static int etm4_add_coresight_dev(struct etm4_init_arg *init_arg)
- 	desc.pdata = pdata;
- 	desc.dev = dev;
- 	desc.groups = coresight_etmv4_groups;
-+	desc.cpu = drvdata->cpu;
-+	desc.flags = CORESIGHT_DESC_CPU_BOUND;
- 	drvdata->csdev = coresight_register(&desc);
- 	if (IS_ERR(drvdata->csdev))
- 		return PTR_ERR(drvdata->csdev);
-diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-index 1511f8eb95afb5b4610b8fbdacc8b174b6b08530..14e35b9660d76e47619cc6026b94929b3bb3e02b 100644
---- a/drivers/hwtracing/coresight/coresight-trbe.c
-+++ b/drivers/hwtracing/coresight/coresight-trbe.c
-@@ -1289,6 +1289,8 @@ static void arm_trbe_register_coresight_cpu(struct trbe_drvdata *drvdata, int cp
- 	desc.ops = &arm_trbe_cs_ops;
- 	desc.groups = arm_trbe_groups;
- 	desc.dev = dev;
-+	desc.cpu = cpu;
-+	desc.flags = CORESIGHT_DESC_CPU_BOUND;
- 	trbe_csdev = coresight_register(&desc);
- 	if (IS_ERR(trbe_csdev))
- 		goto cpu_clear;
+@@ -231,13 +231,6 @@ static void etm4_cs_unlock(struct etmv4_drvdata *drvdata,
+ 		CS_UNLOCK(csa->base);
+ }
+ 
+-static int etm4_cpu_id(struct coresight_device *csdev)
+-{
+-	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+-
+-	return drvdata->cpu;
+-}
+-
+ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
+ {
+ 	coresight_trace_id_put_cpu_id(drvdata->cpu);
+@@ -1205,7 +1198,6 @@ static void etm4_pause_perf(struct coresight_device *csdev)
+ }
+ 
+ static const struct coresight_ops_source etm4_source_ops = {
+-	.cpu_id		= etm4_cpu_id,
+ 	.enable		= etm4_enable,
+ 	.disable	= etm4_disable,
+ 	.resume_perf	= etm4_resume_perf,
+diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+index da6f22b512c92ab0cff5bb239495a1ab6d2a0dbe..905c973e99cea884e242eab460b31544c49378ad 100644
+--- a/drivers/hwtracing/coresight/coresight-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+@@ -232,7 +232,7 @@ int coresight_enable_sysfs(struct coresight_device *csdev)
+ 		 * be a single session per tracer (when working from sysFS)
+ 		 * a per-cpu variable will do just fine.
+ 		 */
+-		cpu = source_ops(csdev)->cpu_id(csdev);
++		cpu = csdev->cpu;
+ 		per_cpu(tracer_path, cpu) = path;
+ 		break;
+ 	case CORESIGHT_DEV_SUBTYPE_SOURCE_SOFTWARE:
+@@ -284,7 +284,7 @@ void coresight_disable_sysfs(struct coresight_device *csdev)
+ 
+ 	switch (csdev->subtype.source_subtype) {
+ 	case CORESIGHT_DEV_SUBTYPE_SOURCE_PROC:
+-		cpu = source_ops(csdev)->cpu_id(csdev);
++		cpu = csdev->cpu;
+ 		path = per_cpu(tracer_path, cpu);
+ 		per_cpu(tracer_path, cpu) = NULL;
+ 		break;
 diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 2131febebee93d609df1aea8534a10898b600be2..687190ca11ddeaa83193caa3903a480bac3060d1 100644
+index 687190ca11ddeaa83193caa3903a480bac3060d1..e9c20ceb9016fa3db256b8c1147c1fd2027b7b0d 100644
 --- a/include/linux/coresight.h
 +++ b/include/linux/coresight.h
-@@ -141,6 +141,8 @@ struct csdev_access {
- 		.base		= (_addr),	\
- 	})
- 
-+#define CORESIGHT_DESC_CPU_BOUND	BIT(0)
-+
+@@ -395,15 +395,12 @@ struct coresight_ops_link {
  /**
-  * struct coresight_desc - description of a component required from drivers
-  * @type:	as defined by @coresight_dev_type.
-@@ -153,6 +155,8 @@ struct csdev_access {
-  *		in the component's sysfs sub-directory.
-  * @name:	name for the coresight device, also shown under sysfs.
-  * @access:	Describe access to the device
-+ * @flags:	The descritpion flags.
-+ * @cpu:	The CPU this component is affined to.
+  * struct coresight_ops_source - basic operations for a source
+  * Operations available for sources.
+- * @cpu_id:	returns the value of the CPU number this component
+- *		is associated to.
+  * @enable:	enables tracing for a source.
+  * @disable:	disables tracing for a source.
+  * @resume_perf: resumes tracing for a source in perf session.
+  * @pause_perf:	pauses tracing for a source in perf session.
   */
- struct coresight_desc {
- 	enum coresight_dev_type type;
-@@ -163,6 +167,8 @@ struct coresight_desc {
- 	const struct attribute_group **groups;
- 	const char *name;
- 	struct csdev_access access;
-+	u32 flags;
-+	int cpu;
- };
- 
- /**
-@@ -260,6 +266,7 @@ struct coresight_trace_id_map {
-  *		device's spinlock when the coresight_mutex held and mode ==
-  *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
-  *		spinlock.
-+ * @cpu:	The CPU this component is affined to (-1 for not CPU bound).
-  * @orphan:	true if the component has connections that haven't been linked.
-  * @sysfs_sink_activated: 'true' when a sink has been selected for use via sysfs
-  *		by writing a 1 to the 'enable_sink' file.  A sink can be
-@@ -286,6 +293,7 @@ struct coresight_device {
- 	struct device dev;
- 	atomic_t mode;
- 	int refcnt;
-+	int cpu;
- 	bool orphan;
- 	/* sink specific fields */
- 	bool sysfs_sink_activated;
+ struct coresight_ops_source {
+-	int (*cpu_id)(struct coresight_device *csdev);
+ 	int (*enable)(struct coresight_device *csdev, struct perf_event *event,
+ 		      enum cs_mode mode, struct coresight_path *path);
+ 	void (*disable)(struct coresight_device *csdev,
 
 -- 
 2.34.1
