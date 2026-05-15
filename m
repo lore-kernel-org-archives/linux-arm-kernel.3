@@ -4,116 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BA0CD4F47
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2857CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kImEqI0xCMuGmoIKI0CGRRt1bkclZfcyl+UtBK7F4Ss=; b=YAx5gWwrQZtvLCRslpd3F+cwUU
-	lDiDeT7rjD1KqQrggymd7xDRqfJ/MMpEo7meCFUg0zYi1QF57Q6ZIhQ25xAuuqgq9HCLQytiuQkQD
-	73HjNyHGl34R/HCM97Br941vGhnAL036MsBboJEJUiF77+Dzgxfunl6B8xagWDhUnBtc67eduZGxB
-	g7Z2uyYK7K7QXSEHBNMBdv+I1d3rBGxuJ05Ldrm05kBVaJAvZPmQ3CvlJ+FkB4aFVdiV6XVfyimQm
-	CI2lTFG0aDVjo2i4Clym5DkeH9PA81J1wc26qD2RmuK+SyW6WYuTUonbqDWlPen0BjemsxMsLhNvj
-	v3PWDmnQ==;
+	bh=RRB3Y2YQ+APcKP7l5/kae082y4gNxYkEp69iZi+4bao=; b=l0DtNzKXb9geAviQl3dX17ae2U
+	O/hIyn9u1Tao6HvffPrZplg6ZFZN9CSLAwz3s8jODv23Rhjr661v9C1buos59LMMFWzrqXfLGbR/T
+	mDOWDjaXKNtjbDHqaKqC0CxpMv9Exw/hk0Q0xreTQ4C4nih9CktPTlYe5k6j0JiEIgyPeY4rlvlb/
+	YYZ0ig2uuMZIhOFVAS6sXPwKv1nRFdO6qc0dEtrRWxBdC7qM0mPp4Q3C3bbkB6AoZPkEEdmK1SDFK
+	9ClqVV5sp0EBUbYFIsQAvx3IS4lsAN7y+WRXqf6tPJ0qoCNEtIQC8WgRPwcH7aXxffvmH28Uhgddj
+	zJP7DPzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuCC-00000008fBk-3dwy;
-	Fri, 15 May 2026 15:11:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wNuDr-00000008fhv-2oTy;
+	Fri, 15 May 2026 15:13:07 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuCA-00000008f9J-3Vqw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 May 2026 15:11:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=kImEqI0xCMuGmoIKI0CGRRt1bkclZfcyl+UtBK7F4Ss=; b=a1e57tEDyc6BSOsYP/3j2j0mcI
-	+MtyQxFn/BFmM9F6IA9uQ0wN6JskM8kpiABEjKTucKZyjFWisE1g21CkbB+1z9lj2+rYmqfXCvFff
-	yQyFgbXVwq+yqrJWBft81tt4zZ5ppA9rmhIZghUaWvBE7rQutOkwUf6iEcrRfGiLDkRy/DCWdyIYQ
-	ZIaTuAH/BEMLIlnOlVy4p8YQiQYFdsC7IOjSdQVs2VXw1444BRy/t62f9+RHO3k/yOCUgv47eGGlD
-	G+XhK+9QMH8Af+UB141lbJ9GAj2tqNa6z9Qhzf+zACY8aikEauflUcgqHxPyrpsM+ZbS9CqIOjdhH
-	WqcwW8Xw==;
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuC7-00000005XLh-1CcQ
+	id 1wNuDp-00000008fhN-29eh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 15:11:21 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-488b3f8fa2bso9161405e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 08:11:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1778857878; x=1779462678; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kImEqI0xCMuGmoIKI0CGRRt1bkclZfcyl+UtBK7F4Ss=;
-        b=THe8ZxifFKeVXVxtwJ0RQMf4O+E21SJEW1gvK7fRsV8zT6KtUhaeq8PYbAURntvRWR
-         22VG4WOM/4H/vqsot2i8Bjm/pUxw8D8qzFklj4ayLUWJZy02EFRRm3FqsI8IXBdhGS3D
-         K6RcW6potKvbLHKSE1Et+Zj+BbHbhUToq428bpXVhIIcyvHMT7NWsLhtz1KuSwI0h1mr
-         6sxRAAVOVRA/Iu0zFOstXwpwd1SOt3KmdMgxaDIQUqb5Aj3Ik68D9tHzZCAGRYEC5SRX
-         LATwk1nDGiDp0AsnWI8Bnqi6rvjsHDVZSXBqNqJVbaxk/90X5Qxuw59YDKcei77ORv4O
-         z0FQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778857878; x=1779462678;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=kImEqI0xCMuGmoIKI0CGRRt1bkclZfcyl+UtBK7F4Ss=;
-        b=siIQ0nMTYoroXJNCPFwlWMbGb9OlSsn3ZMJ2THqhDK/j4xQKt/FBzXcUR+0mA+pzq2
-         FluymwGZ5ZaypvGY1ntOcJ5HHm8/Kj/wjYanpDF+u+6dcSAri+a/GlcLEv9ajQVSZKCx
-         Yut84QWNaVw/JjdQhzR7os9wFMTSu8F8iLzgj5YQB3w/udqvg+WfDGN8LVQ6Fi3/YaJ6
-         Jax3GsXWet4AeRUDJozN10x2nLZaK9vOBzpu50zFO0rZtlUf5STptXpshNIdMueV5Prx
-         pjwhJxpwdZAZ3NrXBJ/nA1CtS8iivBkZgy7PIpNoQ1dBsY/m13RQ5Bzs7Kjezf5q9TBW
-         FPYQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+RMC7oBzy0HE59IO0CWq/4bU5TL3w98+4KMFtXDhKZv2e4RZQBkp+Whh5mhCduHyftFp8OvxSIOyBkqw8n2rlQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7H3ZRJORanyV+NaCX+l0fRT3h6LnEsGLCQLhyDeEcUQhR+71a
-	tKvU+GPR9ENdA/EEiYzai4QWYbQfoc/pcXivQ0FHNeAnY9iE5oSzdPGKjQLu6t61JOE=
-X-Gm-Gg: Acq92OEqb4CdeBCHg/tqLUMmky0eDdVyfoa/BVfF8KCKG+6YXsyHaPkqHUbwgzGpc2W
-	CrQ3rvuw6Iu39DJ79uF0ysSt7zT7DPm2EQi5tAOUvj8OWgjYAvP1DZUGvwS2NNjkvqLT1z5MEHc
-	+8K1Kry2pK9Aq4qdr1r95m3BLHXtjHDXARN+k3VywS+GQrZZgFsnNWunNRjgY1JkclXgF/Q51LM
-	tRTPvbH8cwLNdcCl/ZEqtimRhdQu0j/DXDzpEa1OzwN20Hb8vtS0vogvNLp0yGJGOjE9x2jqyFP
-	TyskEbxrlKXW+KV/OuwIXQ9dcT6E0UpkbZD5TC9/FeILn1Rjzd1EoyrO4NctvQmdJk+p7VsqK0z
-	l0wNk9tliVEUg90yqe250Z9dhF1yzdvyPzGyDlAKzTKftiXHkZRXy7/FZHR4uPJfl2gIN4XmrFV
-	HvojUy+T48ejQDDX877UJgYP2CK047Dt4=
-X-Received: by 2002:a05:600c:a41a:b0:48e:6be6:168d with SMTP id 5b1f17b1804b1-48fd6333317mr83104435e9.8.1778857877832;
-        Fri, 15 May 2026 08:11:17 -0700 (PDT)
-Received: from [127.0.1.1] ([151.41.223.93])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a19c2dsm15262062f8f.21.2026.05.15.08.11.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 May 2026 08:11:17 -0700 (PDT)
-From: Valerio Setti <vsetti@baylibre.com>
-Date: Fri, 15 May 2026 17:10:39 +0200
-Subject: [PATCH 3/4] ASoC: meson: aiu: introduce I2S output formatter
+	Fri, 15 May 2026 15:13:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778857985; x=1810393985;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=4IhRgNHwgF9KisZ+y9jAJ0AYhpD36rJJFkukHbZlp/o=;
+  b=e4LCYAalhDWJTwBorpaICSl+XWerdGgEF6ksh02hjz9g08Q8OezcsBU8
+   c2orjOPnlP1TM1JbG/Ze3TAxsbBQ01qJwKKBo0yv/HE6+QUhbJ99joF+A
+   rcDVVNbYGoQ6L2nHAyuaO3cxHSIfZdFyQwNXL7X8FsAWqMMBzANGEqHSZ
+   06Hjkz0JG6qWKoaF/KRxt5x35+5CMBns5eTKLdAK1GUBCp6N+d4s1GrY3
+   TfIYPhUQLw9+f8bGJ3BNyd8LP3okc+4PmFLUEeTyp2p/EM8VRhxCoCrhl
+   UiUlKVz9tAKn2oxDWNqkkSF/KziJbjFyXaguEA5iv+NJjIEE34S67/u4/
+   w==;
+X-CSE-ConnectionGUID: zVIlbT/LQCuUAVoWJZiV4Q==
+X-CSE-MsgGUID: nH9ikR9XTOu3b4vZJdk9Bg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11787"; a="79984375"
+X-IronPort-AV: E=Sophos;i="6.23,236,1770624000"; 
+   d="scan'208";a="79984375"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2026 08:13:04 -0700
+X-CSE-ConnectionGUID: 50mF0sFfS8OzpJSmSM7YlQ==
+X-CSE-MsgGUID: 27YDzGnWRYGPkx/USbgI8A==
+X-ExtLoop1: 1
+Received: from dwoodwor-mobl2.amr.corp.intel.com (HELO [10.125.108.157]) ([10.125.108.157])
+  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2026 08:13:02 -0700
+Message-ID: <553c703f-ba9c-4785-91ba-2cf62ceb9653@intel.com>
+Date: Fri, 15 May 2026 08:13:03 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/5] x86/pci: Use official API to iterate over PCI buses
+To: Gerd Bayer <gbayer@linux.ibm.com>,
+ Richard Henderson <richard.henderson@linaro.org>,
+ Matt Turner <mattst88@gmail.com>, Magnus Lindholm <linmag7@gmail.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>
+Cc: Yinghai Lu <yinghai@kernel.org>, linux-alpha@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org
+References: <20260515-priv_root_buses-v1-0-f8e393c57390@linux.ibm.com>
+ <20260515-priv_root_buses-v1-4-f8e393c57390@linux.ibm.com>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20260515-priv_root_buses-v1-4-f8e393c57390@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-reshape-aiu-as-axg-v1-3-53b457784ff3@baylibre.com>
-References: <20260515-reshape-aiu-as-axg-v1-0-53b457784ff3@baylibre.com>
-In-Reply-To: <20260515-reshape-aiu-as-axg-v1-0-53b457784ff3@baylibre.com>
-To: Jerome Brunet <jbrunet@baylibre.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- Valerio Setti <vsetti@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4421; i=vsetti@baylibre.com;
- h=from:subject:message-id; bh=wXLRsbmPRrk2661x1UmBAXkax+7ikv0+c3YhjvlmDR8=;
- b=owGbwMvMwCF2z3ty7kUrRgbG02pJDFns5hPy3xhovfLOb3TVEor+UPEoLmeizsMrXCYtob4e6
- vl7llR0lLIwiHEwyIopsrBMv/e7oFTtoXHCyQKYOaxMIEMYuDgFYCKzKxkZ3t/kCix7vmv955Uh
- 65Rmz1sTe7T+/qO4uLANpgwSbHcOrmBkeB7h+O7ye+nJPlYCvD/vyCTP4xSazmuz6NSPsqYABYX
- LfAA=
-X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
- fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_161119_856289_3BA550A5 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20260515_081305_627688_E5CA4C37 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,151 +139,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce aiu-formatter-i2s, a gx_formatter implementation for the AIU I2S
-playback path. This is going to replace data formatting tasks that are
-currently being implemented in aiu-encoder-i2s.
+On 5/15/26 07:22, Gerd Bayer wrote:
+>  static int __init pcibios_assign_resources(void)
+>  {
+> -	struct pci_bus *bus;
+> +	struct pci_bus *bus = NULL;
+>  
+>  	if (!(pci_probe & PCI_ASSIGN_ROMS))
+> -		list_for_each_entry(bus, &pci_root_buses, node)
+> +		while ((bus = pci_find_next_bus(bus)) != NULL)
+>  			pcibios_allocate_rom_resources(bus);
 
-This should ideally follow the same design pattern used on the AXG
-platform (see axg-tdmout), but the problem here is that all playback
-features (including data formatting) so far are implemented in the AIU
-component. Getting the full AXG design would mean introducing incompatible
-device-tree changes. Therefore aiu-formatter-i2s is kept very simple and
-it only implements the bare minimum functionalities to provide I2S
-playback formatting. It's not a standalone component though because this
-is still implemented by AIU.
+What's with the 'bus = NULL'? I thought there was some crazy macro magic
+going on or something, but pci_find_next_bus() looks like a normal
+function that's just taking a pointer and not _modifying_ the pointer value.
 
-Signed-off-by: Valerio Setti <vsetti@baylibre.com>
----
- sound/soc/meson/Makefile            |   1 +
- sound/soc/meson/aiu-formatter-i2s.c | 106 ++++++++++++++++++++++++++++++++++++
- 2 files changed, 107 insertions(+)
+Also, wouldn't this be a more readable way of writing what you have?
 
-diff --git a/sound/soc/meson/Makefile b/sound/soc/meson/Makefile
-index 146ec81526ba091a174a113ce3d8412ddbbfd9dd..f9ec0ebb01f048728b8f85fd8e58fb90df990470 100644
---- a/sound/soc/meson/Makefile
-+++ b/sound/soc/meson/Makefile
-@@ -5,6 +5,7 @@ snd-soc-meson-aiu-y += aiu-acodec-ctrl.o
- snd-soc-meson-aiu-y += aiu-codec-ctrl.o
- snd-soc-meson-aiu-y += aiu-encoder-i2s.o
- snd-soc-meson-aiu-y += gx-formatter.o
-+snd-soc-meson-aiu-y += aiu-formatter-i2s.o
- snd-soc-meson-aiu-y += aiu-encoder-spdif.o
- snd-soc-meson-aiu-y += aiu-fifo.o
- snd-soc-meson-aiu-y += aiu-fifo-i2s.o
-diff --git a/sound/soc/meson/aiu-formatter-i2s.c b/sound/soc/meson/aiu-formatter-i2s.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..c7eff04521de3c282f7f79864143e073ff1b2f27
---- /dev/null
-+++ b/sound/soc/meson/aiu-formatter-i2s.c
-@@ -0,0 +1,106 @@
-+// SPDX-License-Identifier: GPL-2.0
-+//
-+// Copyright (c) 2026 BayLibre, SAS.
-+// Author: Valerio Setti <vsetti@baylibre.com>
-+
-+#include <sound/pcm_params.h>
-+#include <sound/soc.h>
-+#include <sound/soc-dai.h>
-+
-+#include "aiu.h"
-+#include "gx-formatter.h"
-+
-+#define AIU_I2S_SOURCE_DESC_MODE_8CH	BIT(0)
-+#define AIU_I2S_SOURCE_DESC_MODE_24BIT	BIT(5)
-+#define AIU_I2S_SOURCE_DESC_MODE_32BIT	BIT(9)
-+#define AIU_I2S_SOURCE_DESC_MODE_SPLIT	BIT(11)
-+#define AIU_RST_SOFT_I2S_FAST		BIT(0)
-+
-+#define AIU_I2S_DAC_CFG_MSB_FIRST	BIT(2)
-+
-+static struct snd_soc_dai *
-+aiu_formatter_i2s_get_be(struct snd_soc_dapm_widget *w)
-+{
-+	struct snd_soc_dapm_path *p;
-+	struct snd_soc_dai *be;
-+
-+	snd_soc_dapm_widget_for_each_sink_path(w, p) {
-+		if (!p->connect)
-+			continue;
-+
-+		if (p->sink->id == snd_soc_dapm_dai_in)
-+			return (struct snd_soc_dai *)p->sink->priv;
-+
-+		be = aiu_formatter_i2s_get_be(p->sink);
-+		if (be)
-+			return be;
-+	}
-+
-+	return NULL;
-+}
-+
-+static struct gx_stream *
-+aiu_formatter_i2s_get_stream(struct snd_soc_dapm_widget *w)
-+{
-+	struct snd_soc_dai *be = aiu_formatter_i2s_get_be(w);
-+
-+	if (!be)
-+		return NULL;
-+
-+	return snd_soc_dai_dma_data_get_playback(be);
-+}
-+
-+static int aiu_formatter_i2s_prepare(struct regmap *map,
-+				 const struct gx_formatter_hw *quirks,
-+				 struct gx_stream *ts)
-+{
-+	/* Always operate in split (classic interleaved) mode */
-+	unsigned int desc = AIU_I2S_SOURCE_DESC_MODE_SPLIT;
-+	unsigned int tmp;
-+
-+	/* Reset required to update the pipeline */
-+	regmap_write(map, AIU_RST_SOFT, AIU_RST_SOFT_I2S_FAST);
-+	regmap_read(map, AIU_I2S_SYNC, &tmp);
-+
-+	switch (ts->physical_width) {
-+	case 16: /* Nothing to do */
-+		break;
-+
-+	case 32:
-+		desc |= (AIU_I2S_SOURCE_DESC_MODE_24BIT |
-+			 AIU_I2S_SOURCE_DESC_MODE_32BIT);
-+		break;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	switch (ts->channels) {
-+	case 2: /* Nothing to do */
-+		break;
-+	case 8:
-+		desc |= AIU_I2S_SOURCE_DESC_MODE_8CH;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	regmap_update_bits(map, AIU_I2S_SOURCE_DESC,
-+				AIU_I2S_SOURCE_DESC_MODE_8CH |
-+				AIU_I2S_SOURCE_DESC_MODE_24BIT |
-+				AIU_I2S_SOURCE_DESC_MODE_32BIT |
-+				AIU_I2S_SOURCE_DESC_MODE_SPLIT,
-+				desc);
-+
-+	/* Send data MSB first */
-+	regmap_update_bits(map, AIU_I2S_DAC_CFG,
-+				AIU_I2S_DAC_CFG_MSB_FIRST,
-+				AIU_I2S_DAC_CFG_MSB_FIRST);
-+
-+	return 0;
-+}
-+
-+const struct gx_formatter_ops aiu_formatter_i2s_ops = {
-+	.get_stream	= aiu_formatter_i2s_get_stream,
-+	.prepare	= aiu_formatter_i2s_prepare,
-+};
+	while (bus = pci_find_next_bus(bus))
 
--- 
-2.39.5
+For that matter isn't the kernel idiom for these things:
 
+	for_each_pci_bus(bus) {
+		// do bus stuff
+	}
+
+I'm kinda surprised there isn't one of those already.
 
