@@ -4,98 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45177CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 18:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2723BCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 18:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rcOSrIvcAcDO9WkkqWoNEexjLGDP5koDwQkJhDioOAo=; b=NpHNn29UgCg/L+5YodrGEuxxzP
-	oVx0IBh/JJGjHAvML31xO8oyDf/IvALIbJ/7AKwKqN28ZfaU1WyjrrEEaPHhOM3TEkQsPf+P7EsMl
-	sIVNVNXbug14hvCvEzUwmutFhZyoEes4S8MjX0NA0kMQWGlMaiHPx6OOUNI39rUIFb9NIWpgjeXKP
-	OKPaRmbpe8qvWqenHMfTWr8K6A4W+taVLIj7XlS0E0GuqjhwPoUjoAMHsNlEsP8GfI2oRkRiwcXkr
-	dMFDnWNLVHg+rY1dnd7TJcDrqEoZ7smw+TZPaciepA8VEhUhwIyUW7M8TDOeGJipB/tUkYqsm6JY+
-	KV/W1Ebw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=hT2axnghXXd+OE+1RPcRkjtfsjCKi0HtJ8nHAev22zg=; b=eO02Ez2KK+Hpw5
+	zXjgQ8L1Y6+SdrH72caOqQt0/Kw99FnFw2Ie8f0jX0J3khuxsZGS/xAMXRyvvVn/wu1rDCI7txzGe
+	+Ww/XYF3lLCF02E7Uo+DfdwQRwTTs8C+2xV0tH2IbIKaaF4HiK3xLnWBG8Rzy8bAIWxUuCOYYE8gj
+	N0AhY/k21+I41kK10kIWRl/JhUk76cOgqgP4FkqSn5R0druaW4kC529l4HNv+B5wp19/cltNdGUPq
+	r0K9EbSSV7Y2ZWvsfZVBoG3hCljBb/2hnv/bOyETjtcdIxwzIDnOfvF8jwAvwWJEofapRr/ujNefG
+	CCwy0c5fvhuYWgh5eYhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNwvr-000000093Rk-1Pew;
-	Fri, 15 May 2026 18:06:43 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1wNx3U-0000000947O-0KpK;
+	Fri, 15 May 2026 18:14:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNwvo-000000093RA-2298
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 18:06:41 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-8b701756684so13220266d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 11:06:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1778868399; x=1779473199; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rcOSrIvcAcDO9WkkqWoNEexjLGDP5koDwQkJhDioOAo=;
-        b=Bd6S/7mZkyvAwZ94Tz/DSdsVWfMqfR1AozZOwcwS+YePm+h2pkzafWWI+lXyqlkdcY
-         mU1FH7QGFTgRa4svouHHIKHfkSh92MvKfpYASyOiG/8hFEgxOrhMViqJg3EzIgRHxiSp
-         Mw63euwJOpTN5ZWxvjGL95a8CUOP9rFQJKQ+59H+EkvkKucJfMKHqGQZ2gzj3PNtrcpw
-         pFPm3euEYtLMVytmdk+jes35q1y1vsM+iHIMtsBISaFFXzokdbB8pOnmz8z/tESuc4uR
-         PpvzPt7SKPlnpWwYlvap84KmoudlShm1emZGqZXhyX/iJPBzrap8GP9pbfMbFKd7ISIW
-         vlCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778868399; x=1779473199;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rcOSrIvcAcDO9WkkqWoNEexjLGDP5koDwQkJhDioOAo=;
-        b=KA0YYxWXzvafeRETKLdu98mhTl7nvzJdC2C99kdSD3pyYM9vXnarsYd0AyEhdxW8b0
-         T/gW1GxD8fufbvV+cAoZ5ETKUfCqdIQpZAJ1W2n5PEmgjDzchvl90g3/7pbN/Vr90bBi
-         UdN4wkUJiCe53L8Z8fh/N/XC48lKtBwrTpCLuRdrJC0frGsDPsghk3UC02aEBsy1JY7E
-         hTqBmpEJnYCeT9BniS74z3IRIJv/iFQ6nZZIrQlsClcJzO5MSdSpQwUhCiQst5KJOWUT
-         TNQaTh1wq58vqC39+zNW5ZdGUlndI4kga2TBRKn2u6mL3MYswpsXt364tHZx4mv1lRc0
-         wttQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/fyHtP9J2Yxqwuu0UfnmmrSfVcuZB5kvA30z73ClvS21olRxHwpeyejVfuSv+f8iXhFYRCieJAwtDGZTohUDRk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/oSRia3pX8faSw8VmgCbKZPyKgeWB/Cguwvup9TmlSKeRAC+n
-	VS4tXRmvQUJiPrM5cmc06Pz0I8pANi0EWnmxBzP2wQQMfjtHJHYfIrtGoxEme7YxX9o=
-X-Gm-Gg: Acq92OEIXqIGKGeZDUEahza/TGJQzBPCYqLV96BLQ9Hhp/6jhDVXMpVQeu+ZLTMslQg
-	1TADCJL6ozGpe0QevuY5phhDuWqZxMlysHG0cwHasVS/XxkIPVxBqFK0KrlWO6hUoG/CoJyVO7A
-	eBB/VT1UfS7OwUq1QXlqgCRuO4he0pasWJjfR5q3cqV9FfiuqGwc4FQk8y0aNDjo5vCCrnNMUgW
-	Y2RbP3q1f9TKegA28PxhPAEeH3YwxHeuQ5jXxII2pppO9yt8fuoTGs5xzPN7qOQMdJmygvSQwWi
-	hhKZ408zwUpxONttx/FNQpap/z/YCj87Wd8+y2qTRqXRftQx6iK9CZA03fjHv7K0AJBXCCdmbrA
-	z0iqFha0uIgmPr7FttvbOPjmLdAsIzEuh+YKMjG01ReJ7CYeOaQfB5XnO8HLt6efvfLxu5JejjT
-	C91GqQQf3qD6zvDsEnlQl8S2kG/0SXp133xHK1fNTX1YqOao/21Z3RCi8G/YdMm/G0Y4jxKrYX9
-	nXUiQ==
-X-Received: by 2002:a05:620a:a092:b0:8ef:6b87:5c52 with SMTP id af79cd13be357-910b14f8cb0mr1004416585a.38.1778868399150;
-        Fri, 15 May 2026 11:06:39 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8c90c35cdb1sm58747396d6.46.2026.05.15.11.06.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 May 2026 11:06:38 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wNwvm-00000007s92-0MaY;
-	Fri, 15 May 2026 15:06:38 -0300
-Date: Fri, 15 May 2026 15:06:38 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Joerg Roedel <joro@8bytes.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, linux-kbuild@vger.kernel.org,
-	stable@vger.kernel.org, Robin Murphy <robin.murphy@arm.com>,
-	Kees Cook <kees@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] [v2] iommu, debugobjects: avoid gcc-16.1 section
- mismatch warnings
-Message-ID: <20260515180638.GH7702@ziepe.ca>
-References: <20260513145425.1579430-1-arnd@kernel.org>
+	id 1wNx3S-00000009476-0sB9;
+	Fri, 15 May 2026 18:14:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B205600FC;
+	Fri, 15 May 2026 18:14:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1072C2BCB0;
+	Fri, 15 May 2026 18:14:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778868872;
+	bh=s/joay8SWXDw6yqU8I34kjBc3z3fFJJ+aAAgSOP8Uj8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=p71fEosAwm4sa42reA6Ycd/eE63vRXoa7txtMBRP1VFKeeDqUzCs4g9/HbDEkuCpT
+	 DUapKMiyCA2gZXO2Gqg2cKGbxhn/1AK/DM9XmCqgiU1NAqvcxJGxrriVHCFhcdYmnf
+	 EZsQpiMmyS8ZxBr474vAZ+dDEXahUaRx4CBDKSNDr70Hcm4dyd0b285ihsZWV8f3dT
+	 f18V4u7Iq1U15rocD4iVQaJHrAoMSC2UxVINZ36Oc5V5j6LW9sEvSxjzBtdpYwk9l7
+	 a0hAfrjfTSvruuVkIl5LhyM6r6tEWjXkYRIZmp+3D7qkjBzGYKPS2g2KVWRSwCGmvN
+	 j44S0+P85PbiA==
+Date: Fri, 15 May 2026 13:14:31 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Dom Cobley <popcornmix@gmail.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Hans Zhang <18255117159@163.com>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] PCI: brcmstb: Assign pcie->gen from
+ of_pci_get_max_link_speed()
+Message-ID: <20260515181431.GA505137@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260513145425.1579430-1-arnd@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_110640_626156_7AE75722 
-X-CRM114-Status: GOOD (  16.96  )
+In-Reply-To: <20260506164537.103196-1-florian.fainelli@broadcom.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,36 +77,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 04:53:54PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
+On Wed, May 06, 2026 at 09:45:37AM -0700, Florian Fainelli wrote:
+> After commit 03f920936977 ("PCI: controller: Validate max-link-speed"),
+> pcie->gen stopped being assigned and as a result the established PCIe
+> link would stop supporting Gen3 speeds on 2712 since pcie->gen is used
+> to populate LnkCntl2 and LnkCap in brcm_pcie_set_gen().
 > 
-> gcc-16 has gained some more advanced inter-procedual optimization
-> techniques that enable it to inline the dummy_tlb_add_page() and
-> dummy_tlb_flush() function pointers into a specialized version of
-> __arm_v7s_unmap:
+> Whether the 'max-link-speed' property is not specified, or it exceeds
+> Gen3, resort to the HW defaults.
 > 
-> WARNING: modpost: vmlinux: section mismatch in reference: __arm_v7s_unmap+0x2cc (section: .text) -> dummy_tlb_add_page (section: .init.text)
-> ERROR: modpost: Section mismatches detected.
+> Link: https://github.com/raspberrypi/linux/issues/7343
+> Reported-by: Dom Cobley <popcornmix@gmail.com>
+> Reported-by: Phil Elwell <phil@raspberrypi.com>
+> Fixes: 03f920936977 ("PCI: controller: Validate max-link-speed")
+> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> Change-Id: Ic5431469dd7a6c8b391f84f27119dad876256880
+
+Applied to pci/for-linus for v7.1, thanks!
+
+Sashiko pointed out a couple issues, but they're unrelated to this
+patch, so I'll watch for future patches to address them.
+
+> ---
+> Changes in v2:
 > 
-> From what I can tell, the transformation is correct, as this is only
-> called when __arm_v7s_unmap() is called from arm_v7s_do_selftests(),
-> which is also __init. Since __arm_v7s_unmap() however is not __init,
-> gcc cannot inline the inner function calls directly.
-
-The selftests should be moved into a kunit like was done for pgtable-arm:
-
-commit 699b059962add22b2a324645b6ae2a607fc1a93e
-Author: Mostafa Saleh <smostafa@google.com>
-Date:   Mon Nov 3 12:33:50 2025 +0000
-
-    iommu/io-pgtable-arm: Move selftests to a separate file
-    
-    Clean up the io-pgtable-arm library by moving the selftests out.
-    Next the tests will be registered with kunit.
-    
-
-Then you won't have these section problems because the code will be in
-another module :)
-
-Jason
+> - utilize of_pci_get_max_link_speed() directly
+> - also validate against exceeding Gen3
+> 
+>  drivers/pci/controller/pcie-brcmstb.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+> index 714bcab97b60..08a0e7091ced 100644
+> --- a/drivers/pci/controller/pcie-brcmstb.c
+> +++ b/drivers/pci/controller/pcie-brcmstb.c
+> @@ -2072,8 +2072,10 @@ static int brcm_pcie_probe(struct platform_device *pdev)
+>  		return PTR_ERR(pcie->clk);
+>  
+>  	ret = of_pci_get_max_link_speed(np);
+> -	if (pcie_get_link_speed(ret) == PCI_SPEED_UNKNOWN)
+> +	if (ret < 0 || ret > 3)
+>  		pcie->gen = 0;
+> +	else
+> +		pcie->gen = ret;
+>  
+>  	pcie->ssc = of_property_read_bool(np, "brcm,enable-ssc");
+>  
+> -- 
+> 2.34.1
+> 
 
