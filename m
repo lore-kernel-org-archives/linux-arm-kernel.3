@@ -4,125 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF23CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 04:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7625CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 05:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ql/yWFbe6jeVzVyeeXr/zEdyk2wzBWjtashLsUzKeVY=; b=cV4n5ko+4vVZolxzsZTtyHAN75
-	JluLFQsBnpsvmB1msB7RZWtlzptVh90ESXYsWtclIq+txiz9IWMf0i/mYy9206k8fPcSIwRSa4di+
-	nP6OUEy5J4VNfjbPOi7NgndzNN7CWUQqjovxXKZSXGDd169IIqXhwe29MYijc5CDyqPadNWj8X4L5
-	K+yPUj/QHIkrv1fJyWNjgIbkYdGk8OiTRBTI+fhsGzzXdQInC25v+AfpehpXwhJ3Tnt5kawupsGfS
-	evd8yAizig8ORRk7dzl5XdKXszmRf0k9Lc+SsuRYG1ZdC9n8YYAGb7DJcCoczXvvquEbyjNWYY4+Y
-	0UY75xQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=w+GCJ/s/NoLwoOj/9HgeyhslBqOVUKKF+QLyiI9pf3g=; b=M3I3QRwzz6QuwouDE0WZsuzpzV
+	FF5iSC0lHsK8Q5FjIRs0FbUF7BwitD7JG0zJ9kucEeC9e2sS5HcEqNsiJ1jlbYexx/umPmvt+YHVJ
+	tm4LhCFF6K3jqnnAh8W+1ifwC4K/Q7WaE8kJHaVMJL3XgRECCzD4lmCTDA2hir7ZV+nLLxdD5cGJq
+	XgXOAQEfm8LIQzOPndDPavHq42pTRWxyeBsgeL3ePyXr2cgrOKec1Eq9kBt5sMV6VjQ0b0u885ejj
+	Uq0Sc2DTjkI1xwc7ZWfA7KhKfCnXcU1wu465UPKgJdVVz0YhKAmTj0o70erAkfJpd/DyAZYzZUCsl
+	xCOq9xZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNkWy-00000007Lak-0znh;
-	Fri, 15 May 2026 04:52:12 +0000
-Received: from mail-westcentralusazon11010002.outbound.protection.outlook.com ([40.93.198.2] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wNkjG-00000007Mx4-3ytO;
+	Fri, 15 May 2026 05:04:54 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNkWu-00000007LaH-3D16
+	id 1wNkjE-00000007MwY-2aXI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 04:52:10 +0000
+	Fri, 15 May 2026 05:04:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vlbFdr3vW2O2Vy93bseHH8m9B24QIjcwBmVKRltx0jS1NoyFHAYjIKr7hIVpUd3IwX8xUU1uZ0j0uphikl5I7dhXKiKwyaxaSH1nsEWd6+1VrRerOSF6I/OYwd9ZzhAGh4yor6bzHYvtz6AcIWej2/+IfT3xN/v7pVjxqxsyO/WV99YcTeDUdNQEIRh5myrJMQjq8G6J5YFEMNP/J+vggGV550X//s1yqsZCDmfhmKV1HSnUmODnPgFBJAgIladB8RcLkN8hVEqPKXJXANCupKeG9DFXRvsV1k3ZRIrJ5ggslAtmfHuX4B2enMI0denNVgpzF795h4ufMjXkdxMQ4g==
+ b=hmFynEPV7BpjWMswDEIxcaC9k5pRXCEmbnwj/2BMzW1WfmSSqwjDOX9fqQBLfFzn9yKAsDW8s8jaU9nWbpe9jMAFq0FyN7WdFvjUkcf6lNWma0+pLlndLKUOu93EmTMvn/lbqqGFbg+Av6Boyq+pql1P6F9hSyKyyZHvQOjP0LGPfArVvb8Q+zU0dNg25shkAbN2fb0L1hlRzn5aTCkALx0Mh4drKurneApWimsdhYIAzkmz+5nRVdUOELezodrQTHzoGdUnK2FXAEwzox5oZa6qFKPYiVTPU91ktwvF7e5hWoAo+6hEqm4IKzWDwr6BC2eZs0Rnkdi6aOG2s/G6dA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ql/yWFbe6jeVzVyeeXr/zEdyk2wzBWjtashLsUzKeVY=;
- b=SwNKzf19Ve6AW3rGl/gODc4SIYQLfcCUpV9U8U8F8F2mDwIMNPj3YdID11gdgJgVALhTASnIxGsYZkZ6y2qWMiOXcI4CvbostLLAr3lae+6+tIFVgU2VRdA2txr7XDRpEjcfMk/VbKEnJl4Oj7SeUTfMoeZ1LxOSifUo+JYeeFDYKv3QmFa4d4godFYxa7er9Q/6gT9+GZBgJdrI7RfVuCLHRy+5dnAD/V4cAvoxrim6J2UXbwSJjd7hjlibnlsgCVK29DdXYDVol62E26PDWkW2XJ0dvODhkr8tcnPXpGXlg5YqxPIKOpyTqI9UOlwdeo0ACqywNBnDGFlFs5ZdhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=w+GCJ/s/NoLwoOj/9HgeyhslBqOVUKKF+QLyiI9pf3g=;
+ b=xywZm1EZNGFklin7jSgegk7tfiX52wkosfeKf5DR+QND13d6mvp9sO2tx5XVNuxnjK4mLr9Pi2ABdfxZxO9c5bT8Zd06UVhjR2chgsgO+SGuFRLkroCNoEBBIMEkn/voLEIrk5E2FxkODjY8ZEZQOD9tVha/2RVJv+vAEDryz0hHDeEwCFLtMEyaQB0qniIo66gIS1iB3Kf4gVMOqvxfhKKIg5jdQPJCOZ2JUN7TIrUlhFVjwNCqFjRyGSQFZzRhKZpJ5ezbDQrSIJx7oGjNM0eblAXWFCdf6fMtys0qN1vKSbHJMxTx2q30gqh/4aQpT2yA0tJ9EaB3G74bbIZXZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ql/yWFbe6jeVzVyeeXr/zEdyk2wzBWjtashLsUzKeVY=;
- b=Iu35Uo2o7z2D3la+9sdxRdUsf4GExee3M8/B+ogp9Ali6W8F8o7GfbGOoGRjPkP5HeQRErMC+NYOqhi/HbUsz6Pm4Q7XZNtd0qXx+48/tI2sODzntI7mbauY0SgBdsdP9u3BM9wE2nhsBhTJJ9i46XKhMVGMAwyDyCchQ/mL3dQ=
-Received: from BN0PR04CA0078.namprd04.prod.outlook.com (2603:10b6:408:ea::23)
- by DS0PR10MB6798.namprd10.prod.outlook.com (2603:10b6:8:13c::20) with
+ bh=w+GCJ/s/NoLwoOj/9HgeyhslBqOVUKKF+QLyiI9pf3g=;
+ b=hfNuYy9uhVC8bbOAdodpqjukqD5ZCK32/r1nyJVaf+VzUZiuxiWFb7vQfSkO8vODC0Fu3nyBw+ItRBWJW0Jy3foEC4TLQbkC9n6yoMUGSp+0vNqXIm5qsLz5awlFZ5x6PE811qvRwb3ZfaebAwJz2UWATfaZhktLiIbKe7YJHiIYoePGFnk3Febw3tsO9UBk2VW9fWmwh7fRM9b9uorGLYjQ67IH+ppSDurQAYTbSVCf4bCUb8Bokx++n5pfiU/HcKLE+gJc2P8sotW2ROQErVqeLv3vWvSsS4fXQm/7t6f2x5Z3EFvZlcE1dB4tGB6ETdVHoFNAnIoHXJ2Oa+UpqA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by CH4PR03MB7700.namprd03.prod.outlook.com (2603:10b6:610:236::17) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Fri, 15 May
- 2026 04:52:02 +0000
-Received: from BN2PEPF00004FC1.namprd04.prod.outlook.com
- (2603:10b6:408:ea:cafe::b9) by BN0PR04CA0078.outlook.office365.com
- (2603:10b6:408:ea::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.18 via Frontend Transport; Fri, 15
- May 2026 04:52:02 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN2PEPF00004FC1.mail.protection.outlook.com (10.167.243.187) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Fri, 15 May 2026 04:52:00 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 14 May
- 2026 23:51:58 -0500
-Received: from DFLE202.ent.ti.com (10.64.6.60) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 14 May
- 2026 23:51:58 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 14 May 2026 23:51:58 -0500
-Received: from [10.24.68.129] (a0507033-hp.dhcp.ti.com [10.24.68.129])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64F4prfX3129581;
-	Thu, 14 May 2026 23:51:53 -0500
-Message-ID: <3853ba15-d096-4cf4-b52f-8a2e5f50fe53@ti.com>
-Date: Fri, 15 May 2026 10:21:52 +0530
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Fri, 15 May
+ 2026 05:04:46 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%6]) with mapi id 15.20.9913.009; Fri, 15 May 2026
+ 05:04:46 +0000
+From: muhammad.nazim.amirul.nazle.asmade@altera.com
+To: dinguyen@kernel.org,
+	bp@alien8.de,
+	tony.luck@intel.com
+Cc: linux-edac@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] EDAC/altera: Guard SDRAM irq2 retrieval for Arria10 only
+Date: Thu, 14 May 2026 22:04:44 -0700
+Message-ID: <20260515050444.10380-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+X-Mailer: git-send-email 2.43.7
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BYAPR05CA0005.namprd05.prod.outlook.com
+ (2603:10b6:a03:c0::18) To SJ0PR03MB6964.namprd03.prod.outlook.com
+ (2603:10b6:a03:432::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] PCI: endpoint: Add API for DOE initialization and
- setup in EPC core
-To: Manivannan Sadhasivam <mani@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<kwilczynski@kernel.org>, <bhelgaas@google.com>, <corbet@lwn.net>,
-	<kishon@kernel.org>, <skhan@linuxfoundation.org>, <lukas@wunner.de>,
-	<cassel@kernel.org>, <alistair@alistair23.me>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<s-vadapalli@ti.com>, <danishanwar@ti.com>, <srk@ti.com>
-References: <20260427051725.223704-1-a-garg7@ti.com>
- <20260427051725.223704-4-a-garg7@ti.com>
- <m4z3q3pe3ro5vkl4uq4zkewpjdqccgeact2hj4tjnkonttx4vr@ndan37zzwgxc>
-Content-Language: en-US
-From: Aksh Garg <a-garg7@ti.com>
-In-Reply-To: <m4z3q3pe3ro5vkl4uq4zkewpjdqccgeact2hj4tjnkonttx4vr@ndan37zzwgxc>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF00004FC1:EE_|DS0PR10MB6798:EE_
-X-MS-Office365-Filtering-Correlation-Id: 37040f4d-3174-4b84-489d-08deb23db38e
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|CH4PR03MB7700:EE_
+X-MS-Office365-Filtering-Correlation-Id: a3739d6a-83c2-4150-3060-08deb23f7b84
+X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|7416014|376014|4143699003|56012099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: lnm0o5QpqWkLQLEx2iXX7rOXLcO8geyLjEOoxiwnJOhM56pwBwpn1Tn7naR8cFNFq2vH1YEwXyxsXTuaQqA32ePAxoQYFJkZknexN4KCXk4YMXv1jQOILqN+3eblfsGMMWpMyXxh+QE6OR+hIgfPqCgkk4Qi3bvqQOyEskNZtvmlxcn/O81vUGaDFmQAwcAoa8VMB4QId1h1nQ4Lrt0sz4ugmmPxM9XpPJd9Qj3DDoEK7KFMAErhhrOfssj2KujPiMFClcPw1jgWPABkrDpE4W8WuWnIDjpXm91GctNhHby0xVTbNzWYyyX9DA5H8eJ1MhDQmK+8PE3Bo/iwTFgWgsgOl9SppPVF/2ZibIzymz2euRhw6c0nrVQ1ZT2/wiqsD2ZOUeB0lb9hi5yME134iAPytckX7iRAJOcoOf91F0CK/U6XHsRv5ZZ+vH3GwF/V8IOczUrRa79ZWN2xa0LLjQCW1Fn4N+Xm7vfIxGdn2qcppFTO4LaHOkh21+O4AK/LJIPsgZnOUqpr0EjYJ1Nu5HvYNdCuomg3YHBxNsxQDTBDw5eamG3fvtOTxbTcFjGqyIV/wCRnvVDoNnD2eVbEKPV8KncyLlKuO9MnwPo/DKY9GfCOL+0Th/GDA0sqnrjGkg66CK6C3QADtSEGOymXrwRU1VZ4hnyJM0qkMXgAdmJB7W4qYIuLPfxkegi48b9+t1y9vpDPsrO1djVLJ4unbZZ+/gVVFCxPLKNxohERfw4=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(7416014)(376014)(4143699003)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: gN+pG27q8lTZSdU8XLntk9vBk4EjdISbTYxaopsCwqLB5gx69SuncTRZb7KXbOKtiFXD8vsFM48bhtHDCkfslPtKNB0h97aL99VvcmLmMdo1jbzMMcDsC2Gatv1/vH8kzlVeEH7z35+kCFx4A/lOOX1S4xkMOzcyJ9RXEUtmd9FZFHUWYwc7OCLP4D0BIRSRyQ4P+Iiq1P0NrodeHl6t0i3PZdmUsxnlV+817sq2n6Z/NjHgpru21KGJIPjZ2aQYrlFmbUjf5rmChS4ZTnj+2366oXnYqsJiiohfcBATWpzBTTarpIM7KdjoidoDGAbmdEdufCOBJ9nHHdm7SzE7sufpveO3GWfxMcV/RUptiJqjZ3pgyD/LQIr2Wrksjapdmd0K+NCE1GcLW4AeMqDfFLwzO/LTTKj7az76NalVv/nAdg1UWoG+2OvOqXhC5Bf2
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2026 04:52:00.7166
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|55112099003|56012099003|18002099003|11063799003;
+X-Microsoft-Antispam-Message-Info: gMqy6vfyH3EhTdx/jBy233EDjldw3DAKRXRCOqPcwP8GEEpiJPPg7HwN0Xvxt/J98H95g4HGHsethoJjHLG0NZglArM5dJs14xE7mqijGsJCwVXYEjxIZx9G1QCMyh6BUpY5UbM9XgKHoUukQe++cJK+zFttajNCY0A/QvR/I30aLmVVhWXf8ouWnfanao6PyWaZfwA1++z2pqFEYDJGSJO2NwjUESIc6UmRXQ3dANbXSTzQwwoarSI0PcGTY9jExVLDEkWkhLv33EezfVnWQuKYymJFwpQUtCka6f244xLvxlZMhYi6NjQh2hd6zuAwSP3SXdG11TJzE0Q5kby+2q71i8pD/PNNB3eyhJ97RGj3JqJuOFTSkzHeFqLDcag+jn9n8U95CAO6dzw5JvQnomdf53caG29fB6sxlRIVweQTXk1ANAQTeSQyXhpsxRVng62UVMZf0SAYjsHQ/KTIpK3Ja1MHt8tQhg2E/9L2+fvetCFxwk4ak74/8cL0CagQUh8q0b3on/9+dWQv2MeYsL2ue6J6lxt6dV/rl2+7/DZKf+Rk9v1oUR/jWeq1ZJ4clS8aWihS7aNf5arJr7XI3coG0UK4c136nChnqb5dBl2BrVfLErHyHo0oWIfJUWNCeWo1peYy77GjPAosDtro+ok9aj3w8KLcIpXDAIYip5R6OoJInl0V7cmobUezftJ7
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(55112099003)(56012099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ql0DlEX4mUzKRxqBI1jdNFh+7ZOdl1dIXkD+jJGF/tmi1WBJ4p9WeJoh3LO/?=
+ =?us-ascii?Q?FguhC/yK/uSgnQXV35S+u8Q35nENqH4+9wPiM5W87AgL04ddDTqA5MZa3bY2?=
+ =?us-ascii?Q?rTOZkTLBwB8kqrmT1TpedOfimNbmDOyrrlOOjsbFb7/bRUxu/EwfbKK8gaCU?=
+ =?us-ascii?Q?D+7jZ4efgGwsgXCC5jB6AzyXuQiXhaBfRPszvopMnadmQ1h3k8iSaFmXlxUa?=
+ =?us-ascii?Q?hF6hyhb7xvxKaEWiCVN3AjzGR0/xU8Bj5zlwM4l1ZAbdj8kDrNbKdOKrYYkx?=
+ =?us-ascii?Q?TI0MICIWllOTLDo2xoS2X/HwCiSWOQ6yJQ+3e8XKYI3g20butCPhnZQyRk5M?=
+ =?us-ascii?Q?6/LpAlD3JN20zyNi2iOT3JQBc7+AfQQQzirq44R3atWoN5gibdcRE7Dpa91z?=
+ =?us-ascii?Q?KDZzy/Ukc2lwLvpEBXBDAfDsZN1OxpJDLcVdUG8Kq8ODB3g6R+n4xbtOm+Fu?=
+ =?us-ascii?Q?eVL6Br8jiKRL5QhgSp73rIvmIlGSFNmj7re1FbpU0Wuew9kq27eVDWyxlgvJ?=
+ =?us-ascii?Q?SRoQ0gGIZB14wJj0pshsqkq2CJifKPHXoL28fju/0yRL+DAsJiNuf7xbT08W?=
+ =?us-ascii?Q?bP/cLe07NmTP1J6iczFHk3+J9aRsBN8UB4kBwqxCwWLK3qNXp2Yg/nmWBlaN?=
+ =?us-ascii?Q?zpHqzokdxrWMvwLhz3YtJ4dX6tFLbuogdpQ4WFZpeo7rjCfeYCwjiubuQAcx?=
+ =?us-ascii?Q?eZTvEnj4Q1EXWNpQaoPLwMVHLyL5GDjclU/SrhbOFbXUUmlk44z8RV3zkav7?=
+ =?us-ascii?Q?C5tfiyBPg3NEnGQNzmNeAykcCNWdOjcFp/EkGxqFOAkTVJrnRQRlpei9eHVQ?=
+ =?us-ascii?Q?ROhT6FRGyr7Z4SL4AJU97HlfwE1C3nSGgofzNxpkrANQbGAGVlh7vI+eV/BL?=
+ =?us-ascii?Q?RM2Efr8ekz1F+GPKDJIY7m0ksImefgXnlpVZbUAsJs4mVHVM+zr10N1tM94z?=
+ =?us-ascii?Q?51+cvLp14YC6iXNBBkxF9Gz1/NlNrFaEIfPrHlGs+KnVYxaqbIyPz9HjgnB+?=
+ =?us-ascii?Q?YM2nfHlXfmfKlZlYt6sXIv6fddtVSNSmDp/VZL24ffbWf0VYX+qfvZtCBtQp?=
+ =?us-ascii?Q?1mXCgLFdQaefqjMjgtUjGO4oysFpjBV6QnKTs/I7l02rxls00YgsKMY0MmdU?=
+ =?us-ascii?Q?t3PRnbgng4gXRaZyiPFfP2taCF314k4yn9IW0qLCTGD7HuvHXMQ+YvoP5bOy?=
+ =?us-ascii?Q?10X4AUAF4q1EoElz/qnnl4tVRW8/L8uwJ9ZSoxu5vDscTRygTmTye/5gkMEJ?=
+ =?us-ascii?Q?k+6737lEq2BANaVukQ62xgM90N/pKNnmM+JGKfo5Fb1B0EA0grt3YfoH0QqC?=
+ =?us-ascii?Q?uDchD83TVb4rBEVB2lMCC+GV2HHanbZKnCoBzN773fDFuIm+S3sQFQc/ychq?=
+ =?us-ascii?Q?kjtkHvQ5hAsnW9DcMxRlnJGO6V3imbLJL3mYgTioczpi+vHRwn+DLXtuCeIz?=
+ =?us-ascii?Q?ZJI8I7eVyfDRgIpUYoL7OYT3OxaPTuTolWn2h/yrpg6CvRFQ61S0DjxDCQZQ?=
+ =?us-ascii?Q?FrBtaxIBvWgvXUa8OMLiAROQCfyBFYI/dxtktszg4sDCqsszuAfSbCPVixGA?=
+ =?us-ascii?Q?Y4YnLxMOiHKc0lMEsv+Ss0S4Ei0Z+poUcsplAC0kNeiXg+2VgQSFVmmgmlso?=
+ =?us-ascii?Q?r/IHaY+rNZCccAjSfJByggNhcyT/Sv087HCacWQ1sE0P4TMVaqxjYO9E2AKn?=
+ =?us-ascii?Q?AeX8p2vDMmZhTQHmLTQ3QzPq2eAY3yOif8KlhpG9wMKl70PpXL5yUMKdlXMB?=
+ =?us-ascii?Q?YSy7Prl3T9t8RxpgZpp5V6OqFdN0skg0BWz+17M4ycdYEYQn6TROdBszGH62?=
+X-MS-Exchange-AntiSpam-MessageData-1: yfR4A85TN4g+0Q==
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a3739d6a-83c2-4150-3060-08deb23f7b84
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2026 05:04:46.1443
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37040f4d-3174-4b84-489d-08deb23db38e
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FC1.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6798
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: y+Hqk9Bz0sehzv7fWUp98zSerLSMDGnvIV7th1QSNdhUT9cKxzKgl6zGuaX5EoCG9jwjBKL0G958gd9OUhjTk4iBixGbMat4E8EVVRe0H4KJozUlAqTuuG+EJF9q3VqbkYip1YbvaH2aLcepxrhIXg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR03MB7700
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_215208_944899_089B8BCC 
-X-CRM114-Status: GOOD (  30.89  )
+X-CRM114-CacheID: sfid-20260514_220452_667917_F881D6B1 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,223 +139,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 
+Guard the irq2 retrieval with an of_machine_is_compatible() check so
+that platform_get_irq(pdev, 1) is only called on Arria10 platforms.
 
-On 14/05/26 13:38, Manivannan Sadhasivam wrote:
-> On Mon, Apr 27, 2026 at 10:47:24AM +0530, Aksh Garg wrote:
->> Add pci_epc_setup_doe() API in EPC core driver to initialize and setup
->> the DOE framework for an endpoint controller. The API discovers the DOE
->> capabilities (extended capability ID 0x2E), and registers each discovered
->> DOE mailbox for all the functions in the endpoint controller. This API
->> should be invoked by the controller driver during probe based on the
->> doe_capable feature.
->>
->> Add pci_epc_destroy_doe() API in EPC core driver for cleanup of DOE
->> resources, which should be invoked by the controller driver during
->> controller cleanup based on the doe_capable feature.
->>
->> Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
->> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
->> Signed-off-by: Aksh Garg <a-garg7@ti.com>
->> ---
->>
->> Changes from v2 to v3:
->> - Rebased on 7.1-rc1.
->>
->> Changes since v1:
->> - New patch added to v2 (not present in v1)
->>
->> v2: https://lore.kernel.org/all/20260401073022.215805-4-a-garg7@ti.com/
->>
->> This patch is introduced based on the feedback provided by Manivannan
->> Sadhasivam at [1].
->>
-> 
-> Sweet! But I was expecting you to add atleast one EPC driver implementation to
-> make use of these APIs.
-> 
-> Also, why can't you call these APIs from the EPC core directly? Maybe during
-> pci_epc_init_notify() once the register accesses become valid.
+Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+---
+v3: Fix commit header formatting to follow EDAC/altera: prefix
+    convention as per maintainer feedback.
+v2: Move irq2 = platform_get_irq(pdev, 1) inside the existing
+    of_machine_is_compatible("altr,socfpga-arria10") block instead of
+    adding a separate duplicate guard around it.
+---
+ drivers/edac/altera_edac.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Can we add the DOE initialization API to pci_epc_init_notify()? This
-API seems to be called to notify the EPF drivers that the EPC device's
-initialization has been completed, as the name and description suggests.
-As 'pci_epc_doe_setup' is a part of EPC initialization, I thought the
-EPC drivers should call this API before calling the pci_epc_init_notify().
-
-However, I agree with your suggestion to call the DOE setup API directly
-from the EPC core instead of sprinkling over the EPC drivers. I would
-recommend renaming the pci_epc_init_notify() API (and hence the
-pci_epc_deinit_notify() as well) to something like 
-pci_epc_init_complete(), and add the DOE setup API/logic just before the
-logic of notifying the EPF devices.
-
-Please suggest if the above would be acceptable.
-
-Regards,
-Aksh Garg
-
-> 
-> - Mani
-> 
->> [1]: https://lore.kernel.org/all/p57x6jleaim5w7t2k3v7tioujnaxuovfpj5euop5ogefvw23se@y5fw3che5p5d/
->>
->>   drivers/pci/endpoint/pci-epc-core.c | 71 +++++++++++++++++++++++++++++
->>   include/linux/pci-epc.h             | 21 +++++++++
->>   2 files changed, 92 insertions(+)
->>
->> diff --git a/drivers/pci/endpoint/pci-epc-core.c b/drivers/pci/endpoint/pci-epc-core.c
->> index 6c3c58185fc5..5a95a07b7d3a 100644
->> --- a/drivers/pci/endpoint/pci-epc-core.c
->> +++ b/drivers/pci/endpoint/pci-epc-core.c
->> @@ -14,6 +14,8 @@
->>   #include <linux/pci-epf.h>
->>   #include <linux/pci-ep-cfs.h>
->>   
->> +#include "../pci.h"
->> +
->>   static const struct class pci_epc_class = {
->>   	.name = "pci_epc",
->>   };
->> @@ -548,6 +550,75 @@ void pci_epc_mem_unmap(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
->>   }
->>   EXPORT_SYMBOL_GPL(pci_epc_mem_unmap);
->>   
->> +/**
->> + * pci_epc_doe_setup() - Setup and discover DOE mailboxes for all functions
->> + * @epc: the EPC device on which DOE mailboxes has to be setup
->> + *
->> + * Discover DOE (Data Object Exchange) capabilities for all physical functions
->> + * in the endpoint controller and register DOE mailboxes.
->> + *
->> + * This API should be called by the controller driver during initialization
->> + * if DOE support is available (indicated by doe_capable in pci_epc_features).
->> + *
->> + * RETURNS: 0 on success, -errno on failure
->> + */
->> +int pci_epc_doe_setup(struct pci_epc *epc)
->> +{
->> +	u16 cap_offset = 0;
->> +	u8 func_no;
->> +	int ret;
->> +
->> +	if (!epc || !epc->ops || !epc->ops->find_ext_capability)
->> +		return -EINVAL;
->> +
->> +	/* Initialize DOE framework for this controller */
->> +	ret = pci_ep_doe_init(epc);
->> +	if (ret)
->> +		return ret;
->> +
->> +	/* Discover DOE capabilities for all functions */
->> +	for (func_no = 0; func_no < epc->max_functions; func_no++) {
->> +		while ((cap_offset = epc->ops->find_ext_capability(epc, func_no, 0,
->> +								   cap_offset,
->> +								   PCI_EXT_CAP_ID_DOE))) {
->> +			/* Register this DOE mailbox */
->> +			ret = pci_ep_doe_add_mailbox(epc, func_no, cap_offset);
->> +			if (ret) {
->> +				dev_err(&epc->dev,
->> +					"[pf%d:offset %x] failed to add DOE mailbox\n",
->> +					func_no, cap_offset);
->> +			}
->> +		}
->> +	}
->> +
->> +	dev_dbg(&epc->dev, "DOE mailboxes setup complete\n");
->> +	return 0;
->> +}
->> +EXPORT_SYMBOL_GPL(pci_epc_doe_setup);
->> +
->> +/**
->> + * pci_epc_doe_destroy() - Destroy and cleanup DOE mailboxes
->> + * @epc: the EPC device on which DOE mailboxes has to be destroyed
->> + *
->> + * Destroy all DOE mailboxes registered on this endpoint controller and
->> + * free associated resources.
->> + *
->> + * This API should be called by the controller driver during controller cleanup
->> + * if DOE support is available (indicated by doe_capable in pci_epc_features).
->> + *
->> + * RETURNS: 0 on success, -errno on failure
->> + */
->> +int pci_epc_doe_destroy(struct pci_epc *epc)
->> +{
->> +	if (!epc)
->> +		return -EINVAL;
->> +
->> +	pci_ep_doe_destroy(epc);
->> +	dev_dbg(&epc->dev, "DOE mailboxes destroyed\n");
->> +	return 0;
->> +}
->> +EXPORT_SYMBOL_GPL(pci_epc_doe_destroy);
->> +
->>   /**
->>    * pci_epc_clear_bar() - reset the BAR
->>    * @epc: the EPC device for which the BAR has to be cleared
->> diff --git a/include/linux/pci-epc.h b/include/linux/pci-epc.h
->> index dd26294c8175..7b0f258ef330 100644
->> --- a/include/linux/pci-epc.h
->> +++ b/include/linux/pci-epc.h
->> @@ -84,6 +84,8 @@ struct pci_epc_map {
->>    * @start: ops to start the PCI link
->>    * @stop: ops to stop the PCI link
->>    * @get_features: ops to get the features supported by the EPC
->> + * @find_ext_capability: ops to find extended capability offset for a function
->> + *			 in endpoint controller
->>    * @owner: the module owner containing the ops
->>    */
->>   struct pci_epc_ops {
->> @@ -115,6 +117,8 @@ struct pci_epc_ops {
->>   	void	(*stop)(struct pci_epc *epc);
->>   	const struct pci_epc_features* (*get_features)(struct pci_epc *epc,
->>   						       u8 func_no, u8 vfunc_no);
->> +	u16	(*find_ext_capability)(struct pci_epc *epc, u8 func_no,
->> +				       u8 vfunc_no, u16 start, u8 cap);
->>   	struct module *owner;
->>   };
->>   
->> @@ -270,6 +274,7 @@ struct pci_epc_bar_desc {
->>    * @msi_capable: indicate if the endpoint function has MSI capability
->>    * @msix_capable: indicate if the endpoint function has MSI-X capability
->>    * @intx_capable: indicate if the endpoint can raise INTx interrupts
->> + * @doe_capable: indicate if the endpoint function has DOE capability
->>    * @bar: array specifying the hardware description for each BAR
->>    * @align: alignment size required for BAR buffer allocation
->>    */
->> @@ -280,6 +285,7 @@ struct pci_epc_features {
->>   	unsigned int	msi_capable : 1;
->>   	unsigned int	msix_capable : 1;
->>   	unsigned int	intx_capable : 1;
->> +	unsigned int	doe_capable : 1;
->>   	struct	pci_epc_bar_desc bar[PCI_STD_NUM_BARS];
->>   	size_t	align;
->>   };
->> @@ -368,6 +374,21 @@ int pci_epc_mem_map(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
->>   void pci_epc_mem_unmap(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
->>   		       struct pci_epc_map *map);
->>   
->> +#ifdef CONFIG_PCI_ENDPOINT_DOE
->> +int pci_epc_doe_setup(struct pci_epc *epc);
->> +int pci_epc_doe_destroy(struct pci_epc *epc);
->> +#else
->> +static inline int pci_epc_doe_setup(struct pci_epc *epc)
->> +{
->> +	return -EOPNOTSUPP;
->> +}
->> +
->> +static inline int pci_epc_doe_destroy(struct pci_epc *epc)
->> +{
->> +	return -EOPNOTSUPP;
->> +}
->> +#endif
->> +
->>   #else
->>   static inline void pci_epc_init_notify(struct pci_epc *epc)
->>   {
->> -- 
->> 2.34.1
->>
-> 
+diff --git a/drivers/edac/altera_edac.c b/drivers/edac/altera_edac.c
+index 4edd2088c2db..ee6ced033f2c 100644
+--- a/drivers/edac/altera_edac.c
++++ b/drivers/edac/altera_edac.c
+@@ -347,9 +347,6 @@ static int altr_sdram_probe(struct platform_device *pdev)
+ 		return irq;
+ 	}
+ 
+-	/* Arria10 has a 2nd IRQ */
+-	irq2 = platform_get_irq(pdev, 1);
+-
+ 	layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
+ 	layers[0].size = 1;
+ 	layers[0].is_virt_csrow = true;
+@@ -395,6 +392,9 @@ static int altr_sdram_probe(struct platform_device *pdev)
+ 
+ 	/* Only the Arria10 has separate IRQs */
+ 	if (of_machine_is_compatible("altr,socfpga-arria10")) {
++		/* Arria10 has a 2nd IRQ */
++		irq2 = platform_get_irq(pdev, 1);
++
+ 		/* Arria10 specific initialization */
+ 		res = a10_init(mc_vbase);
+ 		if (res < 0)
+-- 
+2.43.7
 
 
