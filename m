@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ECC8CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF5CCD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 15:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WzkA232MLWZxi5NpTkMsxXaXUjDb8M2r6LvddZ8DHbY=; b=EKwaCthQ0TAjCNyhMv+u3T9IfI
-	ME+C0yUcpT22bYOZQOE4JpswfSs5RjNaBRabOiRFInyuJWBNhKlu2zHB63bIw4W7e5namTW4fMJXi
-	uN4Xs1i/qeY56Q+0utmUxySJDNzpb6GucWs8xzA7Mb0lwEFF+mxVWHBC3soFWHCt56WfD6R9hl4ve
-	euTDVm+nCeqpe2VASFn3egTIZVEkYO6qcBUBnOolAcjFuvcTJzFPiq5JHP0KocODX0uGC1CNlv6ll
-	c4y9PM3t4KmcOg1QnrdEzT8kl3hKOASod59SqssmnEdTaGt1rcDJD1O8uaNW4PZSKp0UBG2W3c7Uu
-	zOD4wx3Q==;
+	bh=QrjuY7uy5nvixKEjU1FUTT8FM6J9SjG7ajXG6VuZAHQ=; b=eFIvJ59RDayr/S2U3qDlzZinmv
+	jvNFEvy2lYMm6Jd+GIYO+P5szV6SW1Qz/lSZpLtWE016KjG+t8yn61GdkMKGl1owfhJqNYpL12qew
+	HuptmaUrEjKvWF1NIlQPYzgthifF6Sk7Ju5jKJzeedPwomvKdmyY2Z3AdLJOz0kML9Fbu5Ju3yN7m
+	+n0l7VN5cd859mBtisk/tIk5pvmLQpla5sgcSWLcVy0maSc4kk1zEdR9hNhVx+E/3EiNwCVMJOcyD
+	UBQjBG3i2fu+WRCGUoa53QRXKt2b4NOKAymeDEAU1YVg8bviFE/bmLDB+2RY7XZS6df4i9FhWnfY+
+	p3SHKi9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuYd-00000008ka9-2jh5;
-	Fri, 15 May 2026 15:34:35 +0000
+	id 1wNuYi-00000008kdY-3r1K;
+	Fri, 15 May 2026 15:34:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuY4-00000008jkZ-08CR
+	id 1wNuYA-00000008jyj-2Jld
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 May 2026 15:34:00 +0000
+	Fri, 15 May 2026 15:34:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=WzkA232MLWZxi5NpTkMsxXaXUjDb8M2r6LvddZ8DHbY=; b=DSZOn3FjhEjtmgNW2IIF7Ak99z
-	L99RCJo/ZtGMpR2UlnOzcd/4IxzTVfqFzkywVxzkwP22UhvY+1qTM4M4z4rKjXPdYZvFDt2YG+0/N
-	PpEW487Z29tUSNvD3kTz8bxUdL/Cv5BSkP1tueKo2qMWq+db8ZSJxEUoumhfSYgMbspDGvNIOI+qL
-	1/OhU4gA+bYcPtJ6NoHFTfVvefw3dsofSlvAh9xjfMB44X9qSl6unuYcMkZhuiteCQplycki3KckF
-	uS3MFYV4No4q+MacuWqH36v1gIC/dBM6T4y8lcadDkp9VPsEdQP29A2CEhg3giBETDrJupHy02FN0
-	NAoB2T6g==;
+	bh=QrjuY7uy5nvixKEjU1FUTT8FM6J9SjG7ajXG6VuZAHQ=; b=GKBVwIf++XM2+uWg74NmaN4gaO
+	DI54Yh2FqTvyRFx1gdPG7o51yYG/QlXcABC2gMqQyldHQnnQPBJ4+own9efE0xyGKgjWzzy7Rl1F6
+	qjgY6pXpuwwe8PVdQFVrrTaWWul/UicLe5T1cAhpQpoWHJgrTtVGPXJviaVphQdFgTV9KJxuoKX6f
+	pKnenASfyZL/RF4fok/c9tEYcdAGGdD0aJ+1DakZgvcSkl9fLYEwlqZLAADmSVLURbiUAUTEti5/Z
+	1wMcN7unu8rX8vxTMoCUD6Q28c6d43Q8pyJbNdRQ7WISbgtQfTwY0/xmIhX5z65AfhFxyNMD3m8Ej
+	X+WjithQ==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNuY0-00000005a7B-0lkY
+	id 1wNuY6-00000005aAG-0IGC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 15:33:58 +0000
+	Fri, 15 May 2026 15:34:04 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wNuXK-0005OF-7C; Fri, 15 May 2026 17:33:14 +0200
+	id 1wNuXO-0005OF-PN; Fri, 15 May 2026 17:33:18 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Fri, 15 May 2026 17:32:51 +0200
-Subject: [PATCH v6 25/28] media: rockchip: rga: add feature flags
+Date: Fri, 15 May 2026 17:32:54 +0200
+Subject: [PATCH v6 28/28] arm64: dts: rockchip: add rga3 dt nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260515-spu-rga3-v6-25-e547152eb9c9@pengutronix.de>
+Message-Id: <20260515-spu-rga3-v6-28-e547152eb9c9@pengutronix.de>
 References: <20260515-spu-rga3-v6-0-e547152eb9c9@pengutronix.de>
 In-Reply-To: <20260515-spu-rga3-v6-0-e547152eb9c9@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -66,16 +66,15 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
  sebastian.reichel@collabora.com, m.tretter@pengutronix.de, 
  p.zabel@pengutronix.de, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_163356_564519_020FD68C 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20260515_163402_571030_C1738CDB 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,104 +89,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation to the RGA3 addition add feature flags, which can limit
-the exposed feature set of the video device, like rotating or selection
-support. This is necessary as the RGA3 doesn't initially implement the
-full feature set currently exposed by the driver.
+Add devicetree nodes for the RGA3 (Raster Graphics Acceleration 3)
+peripheral in the RK3588.
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+The existing rga node refers to the RGA2-Enhanced peripheral. The RK3588
+contains one RGA2-Enhanced core and two RGA3 cores. Both feature a similar
+functionality of scaling, cropping and rotating of up to two input
+images into one output image. Key differences of the RGA3 are:
+
+- supports 10bit YUV output formats
+- supports 8x8 tiles and FBCD as inputs and outputs
+- supports BT2020 color space conversion
+- max output resolution of (8192-64)x(8192-64)
+- MMU can map up to 32G DDR RAM
+- fully planar formats (3 planes) are not supported
+- max scale up/down factor of 8 (RGA2 allows up to 16)
+
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 
 ---
 Changes in v6:
-- Dropped selection feature, as the RGA3 also has basic support for the
-  seleciton API. Flagged by Sashiko
-  https://sashiko.dev/#/patchset/20260428-spu-rga3-v5-0-eb7f5d019d86%40pengutronix.de?part=28
+- reordered before the rga node to fix the sorting order.
+  Flagged by sashiko.dev:
+  https://sashiko.dev/#/patchset/20260325-spu-rga3-v4-0-e90ec1c61354%40pengutronix.de?part=27
 ---
- drivers/media/platform/rockchip/rga/rga-hw.c |  3 +++
- drivers/media/platform/rockchip/rga/rga.c    | 20 ++++++++++++--------
- drivers/media/platform/rockchip/rga/rga.h    |  6 ++++++
- 3 files changed, 21 insertions(+), 8 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 44 +++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index 616ea1bc11311..be1bc8ddbd03b 100644
---- a/drivers/media/platform/rockchip/rga/rga-hw.c
-+++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -602,6 +602,9 @@ const struct rga_hw rga2_hw = {
- 	.max_height = MAX_HEIGHT,
- 	.max_scaling_factor = MAX_SCALING_FACTOR,
- 	.stride_alignment = 4,
-+	.features = RGA_FEATURE_FLIP
-+		  | RGA_FEATURE_ROTATE
-+		  | RGA_FEATURE_BG_COLOR,
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 4fb8888c281c8..a4f44af512375 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1262,6 +1262,50 @@ vpu121_mmu: iommu@fdb50800 {
+ 		#iommu-cells = <0>;
+ 	};
  
- 	.setup_cmdbuf = rga_hw_setup_cmdbuf,
- 	.start = rga_hw_start,
-diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 1878b4e26360b..8d60e94da32d8 100644
---- a/drivers/media/platform/rockchip/rga/rga.c
-+++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -177,17 +177,21 @@ static int rga_setup_ctrls(struct rga_ctx *ctx)
- 
- 	v4l2_ctrl_handler_init(&ctx->ctrl_handler, 4);
- 
--	v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
--			  V4L2_CID_HFLIP, 0, 1, 1, 0);
-+	if (rga->hw->features & RGA_FEATURE_FLIP) {
-+		v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
-+				  V4L2_CID_HFLIP, 0, 1, 1, 0);
- 
--	v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
--			  V4L2_CID_VFLIP, 0, 1, 1, 0);
-+		v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
-+				  V4L2_CID_VFLIP, 0, 1, 1, 0);
-+	}
- 
--	v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
--			  V4L2_CID_ROTATE, 0, 270, 90, 0);
-+	if (rga->hw->features & RGA_FEATURE_ROTATE)
-+		v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
-+				  V4L2_CID_ROTATE, 0, 270, 90, 0);
- 
--	v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
--			  V4L2_CID_BG_COLOR, 0, 0xffffffff, 1, 0);
-+	if (rga->hw->features & RGA_FEATURE_BG_COLOR)
-+		v4l2_ctrl_new_std(&ctx->ctrl_handler, &rga_ctrl_ops,
-+				  V4L2_CID_BG_COLOR, 0, 0xffffffff, 1, 0);
- 
- 	if (ctx->ctrl_handler.error) {
- 		int err = ctx->ctrl_handler.error;
-diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index effe364a86b02..feaf40acd4ee4 100644
---- a/drivers/media/platform/rockchip/rga/rga.h
-+++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -6,6 +6,7 @@
- #ifndef __RGA_H__
- #define __RGA_H__
- 
-+#include <linux/bits.h>
- #include <linux/clk.h>
- #include <linux/platform_device.h>
- #include <media/videobuf2-v4l2.h>
-@@ -137,6 +138,10 @@ static inline void rga_mod(struct rockchip_rga *rga, u32 reg, u32 val, u32 mask)
- 	rga_write(rga, reg, temp);
- };
- 
-+#define RGA_FEATURE_FLIP	BIT(0)
-+#define RGA_FEATURE_ROTATE	BIT(1)
-+#define RGA_FEATURE_BG_COLOR	BIT(2)
++	rga3_core0: rga@fdb60000 {
++		compatible = "rockchip,rk3588-rga3";
++		reg = <0x0 0xfdb60000 0x0 0x200>;
++		interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_0>, <&cru HCLK_RGA3_0>, <&cru CLK_RGA3_0_CORE>;
++		clock-names = "aclk", "hclk", "sclk";
++		resets = <&cru SRST_RGA3_0_CORE>, <&cru SRST_A_RGA3_0>, <&cru SRST_H_RGA3_0>;
++		reset-names = "core", "axi", "ahb";
++		power-domains = <&power RK3588_PD_RGA30>;
++		iommus = <&rga3_0_mmu>;
++	};
 +
- struct rga_hw {
- 	const char *card_type;
- 	bool has_internal_iommu;
-@@ -145,6 +150,7 @@ struct rga_hw {
- 	u32 max_width, max_height;
- 	u8 max_scaling_factor;
- 	u8 stride_alignment;
-+	u8 features;
- 
- 	void (*setup_cmdbuf)(struct rga_ctx *ctx);
- 	void (*start)(struct rockchip_rga *rga,
++	rga3_0_mmu: iommu@fdb60f00 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdb60f00 0x0 0x100>;
++		interrupts = <GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_0>, <&cru HCLK_RGA3_0>;
++		clock-names = "aclk", "iface";
++		#iommu-cells = <0>;
++		power-domains = <&power RK3588_PD_RGA30>;
++	};
++
++	rga3_core1: rga@fdb70000 {
++		compatible = "rockchip,rk3588-rga3";
++		reg = <0x0 0xfdb70000 0x0 0x200>;
++		interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_1>, <&cru HCLK_RGA3_1>, <&cru CLK_RGA3_1_CORE>;
++		clock-names = "aclk", "hclk", "sclk";
++		resets = <&cru SRST_RGA3_1_CORE>, <&cru SRST_A_RGA3_1>, <&cru SRST_H_RGA3_1>;
++		reset-names = "core", "axi", "ahb";
++		power-domains = <&power RK3588_PD_RGA31>;
++		iommus = <&rga3_1_mmu>;
++	};
++
++	rga3_1_mmu: iommu@fdb70f00 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdb70f00 0x0 0x100>;
++		interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RGA3_1>, <&cru HCLK_RGA3_1>;
++		clock-names = "aclk", "iface";
++		#iommu-cells = <0>;
++		power-domains = <&power RK3588_PD_RGA31>;
++	};
++
+ 	rga: rga@fdb80000 {
+ 		compatible = "rockchip,rk3588-rga", "rockchip,rk3288-rga";
+ 		reg = <0x0 0xfdb80000 0x0 0x180>;
 
 -- 
 2.54.0
