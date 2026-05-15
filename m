@@ -4,141 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C26CCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 11:12:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41431CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 11:12:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6u7L0Q9dnsKKK3HvrGHppxM7smIumAyVg/mpzy/UTJw=; b=ZWPhlZP6lRJ0I/LjTqNku33csY
-	GC2Im/wDQmx0y35sSsHghq6D9i7vy7IQOi9Ww/2Wr9d+YSxeB3J3NrtlTHWaZNaIXc6is2sSVyu4x
-	ajgdNG/lKFdcj9QE7ylSnRgneSidKEnT0ALmk4aqs1hf3jhkRsGMYMYWwFDBmFJvlVQRwBVYYgweR
-	KvnZjFs+odVqKtV62r393vBIHlLgZ9WEqbcfigtRTbVD+BVFF3WTA8YlKqrQbcg2I6sRlZgU/vUk/
-	BIuWOraytaDLjKGcM/HfM4NrXv6pESdjm4lPmfKWsP9WSnSB9ojQd0TnVRWXDV0j48slW/jo8lFhB
-	UsecAQYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=af/yghLR2+xqLbk1FPILjihUH6yHT7F+ChXmTjZB99s=; b=dIQN0KpkH84f3f+xUz4Km4yOnc
+	58KsBF0fZ/4AlkcKDu2JpJA2STUMGU64pLZg+YdZaFOxnFv3tr6yzYksF4KNrLnmjweUlh4++YzFL
+	r80aWloImM2ASsVJcErBL1tuq9HR8Le1hN2224yHaBH45F41VnMxEiKT7ACvgn+a7Qv5JKedK/8mb
+	fb4jUvii01Qn7B7Pyg819AVvpG9L0tKoldax4UmOKbE0y7LKDTkqhviDTo+fOBWOTo51BikAhOGYs
+	PSeNV1N7kVvNjohhIj1xwkXbj/e/bzta8gq+8Y9EUSAgQnasrCjwi37Vd4O/UMBkAyloQ64RU48sA
+	FmmSU2ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNqSg-000000088yx-0R22;
-	Fri, 15 May 2026 11:12:10 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wNqTL-000000089BK-3qUK;
+	Fri, 15 May 2026 11:12:51 +0000
+Received: from mail-northcentralusazon11010058.outbound.protection.outlook.com ([52.101.193.58] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNqSd-000000088yI-1eTu
+	id 1wNqTI-0000000899i-1bTZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 11:12:08 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64F5TCl83220018
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 11:12:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6u7L0Q9dnsKKK3HvrGHppxM7smIumAyVg/mpzy/UTJw=; b=cgE/jV7t8xMKnFVH
-	YZkEnvtWnrlbERrnipBi40loNRNCzgU42CBGR/YE3+jUfwcqfus1M++99vnj2BYW
-	rocamrHtTAmMpzAmf6ufWQ5xAcKFcvszWmtTMzfG9Yyhd/nzuPC/WgfU4Iu1qkhh
-	pkwfqZgfxahzxbVur8CTMjloITWevR/9r//hC+V9Q7HvGlY/kmEmpHgRx+Qx6y+Y
-	F1LsWLVIXXfTSxj/TWVZnzKM062ChV5ROaixzujS+O9j1PBC+8QQ/BnJu1plmNU8
-	2WAr9F2r8E5fP8bsRcxeNIJvqWqjqGs2tBmlOzZpOJJPg0vrubRFY/aSYzYfzbl3
-	oWq6eA==
-Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com [209.85.217.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e5m1s2yag-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 11:12:06 +0000 (GMT)
-Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-63126f42441so636434137.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 04:12:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778843525; x=1779448325; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6u7L0Q9dnsKKK3HvrGHppxM7smIumAyVg/mpzy/UTJw=;
-        b=h69nWzP2RBpClwgZOJi56h2SMHlfws0bPPi2/z90YB3Cfv8gOYPgXP23D3tkyjJnIN
-         xlBaI0ow/drwZQGvSO9/1KgnR8QvwRrDqs5+zjAVoGclxOUFHrvlVVT5I+tglY4AMrMv
-         KJEb2GCdnMmKeSPZ/lXEjhQnPEAp0fYMOo/3sZlyNb+j5ER3IGzc5VQJHwUA6JOCmHAP
-         FV+xhxLSU80X05rzJuR5a7zbZe/RG4Y47qRgnsou8IJiXu6lO9PbTds5jS6bE5WJELxX
-         CgeJOd3Dqv8yfHrQC9SSmRMspTt0PJ7y5fDqAYtHfgXZuitmaxQ1NkXZA1JS3DNX/jMV
-         Y6jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778843525; x=1779448325;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6u7L0Q9dnsKKK3HvrGHppxM7smIumAyVg/mpzy/UTJw=;
-        b=AKhbbPOv4AUqjrXtIPsBO58MKw2+bPjBzNoWgvQACdpmuE50ND/d+eeFKYuVMm0kvk
-         zs6fh+nFJN+9PzbtYR7UXEOftnpdBoi5Rq95/l7rkNObTT/HnmqvnfXm/AJgeTCMLabT
-         exe65dKQzSbrcAvMdNKYc34bxWv2GMgWo7PBF7oCoB0Fcu6vLOYZKa0MCETiCBgGo3dv
-         YU7/T/bMJZDxDw1wQICJMJKQgFuCNvCtvi4Ooxj0pX8CIZtsyxaJWLmupT3MdTqd4ipf
-         nmV+HxElCJuIMqmHBdkkau3UAhwhCaVUNZy4KTG4DXxcFii0r5VgYFpxpPN+MsXgjQdp
-         somw==
-X-Forwarded-Encrypted: i=1; AFNElJ/736vi+GlRM7uWGo0aLvFS79b6vDtdNsIo45JQc+T0sGd0LLAKsKhlIoWXD15DTE/4Si7N1oiWj/cQio+h5yDg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMlzGHar3rRk3vd5aIy6AdLXKfEC9UjPxTctnbaYnqxoR0LxMT
-	pPKbOTnJlWc8XeRJvLuFm9MKEP+st/B4FxMGWHMTPWuMygVsORUgI9Kabks6rx4hxAQtrykEpLx
-	6vSKew4OFHcktFuI7RIQsaHMBJGC9+usKmH24aShQj6j/7Ri8UOeoPA48sNKGcgvzyPtiqpzVMh
-	/OYg==
-X-Gm-Gg: Acq92OHAotMcLFCPq6I5oWUImFuB8aKCOu2IMhy2h0JpjcvqMYeKcD90zGH0cNgJxIi
-	1sbLbQA1nCv8D1+S0wyPLSTppWuDKbV3KBdopTdltVpLbt185lrAbiG5GKie6ojsf38iPIrcSSP
-	b33Vqd/RHB4pqdeBTHw+H/LeaOY8La2p9P0ZW5AHY5zTb83t+RTapeP3p+sa31SmHYUoIKhzCyt
-	1DT+yusjYUKRuHvS5QVheeDVcmqTw8RGjkzWy1CqR/lrUDNY2idtPSf/FIK+PrSO35F7D9H+aqk
-	Laaqz6A6aJuSjdaEusIu1YzNORD8kaHEi6o97w8j5pTUWZGfj4RHYnfFIg1s9r48uxKNk6yT3Rd
-	+iaWumttZXv4kXpXYmxeSFVWKl80+Gt8+nX6A7ywOJlbGgNrE3yN3TIJehCVVrXLTUKH5SDx8RG
-	95xRs=
-X-Received: by 2002:a05:6102:30ab:b0:637:30f8:5cd5 with SMTP id ada2fe7eead31-63a40dc920cmr389925137.8.1778843525597;
-        Fri, 15 May 2026 04:12:05 -0700 (PDT)
-X-Received: by 2002:a05:6102:30ab:b0:637:30f8:5cd5 with SMTP id ada2fe7eead31-63a40dc920cmr389918137.8.1778843525034;
-        Fri, 15 May 2026 04:12:05 -0700 (PDT)
-Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bd4f4eac613sm206295666b.56.2026.05.15.04.12.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 15 May 2026 04:12:04 -0700 (PDT)
-Message-ID: <62f6c5fd-c952-4bcf-9125-c5fe92fca1dc@oss.qualcomm.com>
-Date: Fri, 15 May 2026 13:12:02 +0200
+	Fri, 15 May 2026 11:12:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xtf8gcNYsrMwJEr53EiPQSG/9JnFaVs1QaDpZYkuDIsBSARUpvTUUe5x4UmIbkf3v7WGhwKeGuiH4k6KwuVPn1NJY4sfzZxX5WQy1x4TQti0WEfvcYspz3ExaKIMNy2pgQQbuf7/OIVqFN1qcHcN8V4XjeZxe/vpv5XjCGqOY87eEf3OqI/jThIgvTJA3ABHekVbIwmo74iLZt1IRqiMiwZw4cByyGozDxhNYHSX7+RmrRLSEkkqYG1jtUoGlrnlvMcdWgE304sI8KKfMLU6dsZNTsjAV4ByKWNG7h0QWqK5R5VOdWS5E31vSYfCDeZE1f6HMdWUU1NYfbN6fKwIvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=af/yghLR2+xqLbk1FPILjihUH6yHT7F+ChXmTjZB99s=;
+ b=R65+6Eqj50RJZa2BiJeid+RPyMIPwzIGROuZ2SSkCPb7eTj3hYl3IvxSmeEDxMsj7d+9F/Op6Z8oFd0N5b19mYT+pD6rFVmwnGdGp20cS89yHduBR8mIU2l9NqtspQMJT8whILb56T0o2ABZEPz3oNez4RcGo/zgwPOnjdqKetIZRAtsLfrxPZe/SiTehCTN4wfsuCXYbGHf2Fgx4kYZzY2xeEitNLg71yQ22ZffBG3WjqZ0hDkA0hOVeUnq/or/kU5EljXzSBjmPIiIRrQYPNT18TiMM86FLZwKzinM0RGPhH/K6x5x7orMt67Vl57505m1n4l8RUUIsSv5vI3z/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=af/yghLR2+xqLbk1FPILjihUH6yHT7F+ChXmTjZB99s=;
+ b=gqMT4p/1xcrsqPx5EaopJEusflxyj6gyFIbEhny0on1TbCjKWJkCOwfNFGWsQ0mJWPUePyf4kgBh3z4WQ9thBzNiaOAVhaheIXFrlc+X3rBHrvIKmrDHmrZrysxH9FDrSGwpSm9MmbG3lKfDaX5MnmVOQ1jre9ScJGX4XX1WIwQ=
+Received: from SN7PR04CA0210.namprd04.prod.outlook.com (2603:10b6:806:126::35)
+ by SJ2PR10MB7559.namprd10.prod.outlook.com (2603:10b6:a03:546::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Fri, 15 May
+ 2026 11:12:41 +0000
+Received: from SA2PEPF00001507.namprd04.prod.outlook.com
+ (2603:10b6:806:126:cafe::f3) by SN7PR04CA0210.outlook.office365.com
+ (2603:10b6:806:126::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9913.12 via Frontend Transport; Fri,
+ 15 May 2026 11:12:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ SA2PEPF00001507.mail.protection.outlook.com (10.167.242.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.13 via Frontend Transport; Fri, 15 May 2026 11:12:40 +0000
+Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 15 May
+ 2026 06:12:39 -0500
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Fri, 15 May
+ 2026 06:12:38 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Fri, 15 May 2026 06:12:38 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64FBCc38125592;
+	Fri, 15 May 2026 06:12:38 -0500
+Date: Fri, 15 May 2026 06:12:38 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Md Shofiqul Islam <shofiqtest@gmail.com>
+CC: <ssantosh@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] soc: ti: knav_qmss_queue: Implement resource cleanup
+ in remove()
+Message-ID: <20260515111238.ucnvzhomcxvfylc7@coveted>
+References: <20260506154114.2288-1-shofiqtest@gmail.com>
+ <177878513972.16124.2519778203402988912@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] interconnect: qcom: Make important drivers default
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Georgi Djakov <djakov@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260428-interconnect-qcom-clean-arm64-v1-0-e6bc3f7832db@oss.qualcomm.com>
- <20260428-interconnect-qcom-clean-arm64-v1-3-e6bc3f7832db@oss.qualcomm.com>
- <bb02291a-1579-4069-b6b1-757a0b5fb7e6@oss.qualcomm.com>
- <ca6c656c-07a1-466c-9c1f-a2efbf1498d0@oss.qualcomm.com>
- <02578386-a492-4342-95aa-9cfb00c8bacd@oss.qualcomm.com>
- <720715a0-eb4f-4083-a67f-aa380e130d6c@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <720715a0-eb4f-4083-a67f-aa380e130d6c@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE1MDExMyBTYWx0ZWRfX6AzSK6D9uRLF
- qNraIYAymV1aKCZqMSApyFaOCxHTSjOPPe2lxY7AxQXLrAgBMCiyqrocUTdA9uGmZzhZH8HSy+3
- YpTUmIL4JwYgeLZ/wRnO/iligxqDrGPc2hMffECzmWM/50TYuYCvSobD2rsLw48UsEOTRY9SxyC
- IenG3+wJ+AFjoPJXFYVgYuHh9ne3wG9Y2I9XAAZPHFaU1ojE+MysHR3rs9gCkuuTx4nsnOyy6p7
- 657iK6xHFBwSvtKxrYwbT9Shtg6CQ4cSe5i5wcglNEhH2eDehKZjr+602Y1lrIukqp6Qtse+u9T
- axnHkd5YeP/9tjF+ullrD7hVKUW6E1CDLLU4hF2a61/m6jcqn3IhFi/FzA42/M6EdeD4HDVkoKE
- SvCOGNC/xBnSkJsMYwbGwkDfcMJxY8qp4v/tLXJYVpo1mK1P00UGWu+c/YBmLdTFFSWKm4RwHtc
- v1y82RPJYSE0vL1PN2g==
-X-Proofpoint-GUID: MrzxurJHMmos35b2R1j6xSOvVsGpMJEj
-X-Proofpoint-ORIG-GUID: MrzxurJHMmos35b2R1j6xSOvVsGpMJEj
-X-Authority-Analysis: v=2.4 cv=HJ7z0Itv c=1 sm=1 tr=0 ts=6a06ff86 cx=c_pps
- a=DUEm7b3gzWu7BqY5nP7+9g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=uUpgVYKiIJP92WW26QwA:9 a=QEXdDO2ut3YA:10 a=-aSRE8QhW-JAV6biHavz:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-15_02,2026-05-13_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 suspectscore=0 phishscore=0 spamscore=0
- clxscore=1015 impostorscore=0 adultscore=0 bulkscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605150113
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <177878513972.16124.2519778203402988912@gmail.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00001507:EE_|SJ2PR10MB7559:EE_
+X-MS-Office365-Filtering-Correlation-Id: 194cd9e7-ae15-40f2-0c02-08deb272e134
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|56012099003|4143699003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: SxbV8lVV8qy+jktlSm0E24ijVs3vdYVBI7RVnbhAJZGAzOBxFHJC3nODHzGFePehltKo8E9QOdkC4Yusu0JuZU4FJFwNOM2MIGJx+nimBRSAg5n1u1Ezgs08YKScR7Eycw1ZmgWsVl4lhnHVS9RSN+VueYcx81jDPj8lEL6+GQntoiAG9tRCCAYoRItOiyoSEoksO2Ccg0SjXshizxV05fBG1Qw4hKcLZw4KdXVbSjMPNYQOyjGmmS0NVxQxJSTGF6Sz5x/Kf9OD1MZBZovPb5vHHqXfzC5zXSrlTF4m+UeMNAuWHvKAjbv9KOSNkI3UwVQdpz3thrPoVc7b5ktZSoylmR2AQj23swv3ONRB1cixv/d8uqNM8sRjGf+ry6yzbDQwAwB6zG0kKXfxZ9vSfy9D++cdXxzdy9mutiWw84fpZV4koxYV7KMBshFgQ9TRWTFBY+A4B4C9clJknPe0Q2Lw/bklRRXTfK1sThrC2SOoZ9Z3wXCn8V39Z/NUWA++eOmrhFsGHMBSUGZP5W5wtT6B08ANBSF/kR3zjQnJxQ8pOqBHzQbBl/3CtM+Vw12sETSAUTrajNl60fMysXeq7rz6DE445/V7mCE/A9WCnPw98bFtQhpSITTn3l5EXVtSXYtQG0FJtjfots7P6quNy4+jP9wwvNquKBRu5gelFl0hLkoY4MWx0FuybCF2iJevnaOv905dE94Uw7Gq46Slutviamb5KvXJClis30rdakw=
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(56012099003)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: v34SKZEav/io0cJjEwtNyFE5QZU8N7mVMeoQbOup29q0DJWifV+rAfbOrhDjCkz0fJsuUUC7UJcZpnRer6AlWBelGZzUEHvnLNM2yEvrjLsa250RhobtLjrSntQ9hS3wuqPB349FqHOxQZN4iTehg/oLCE+ZXs8LEGu49lJOa3n3LyYtktWX+0CSPfJg08HVeDxb0YKqHrydNvWQjbjC3cnt2Ytp4XKYxyezryW94n5d9OrA6HQ9ilZVcKBJD0h2PIKdZCx2ZwQNcXbO+d84MEatEoRn0od1OPAuXKOzjTOgmRvwMMl6cL0qf+BoCyr7htRZXMv2wG6P1U/e7vDwwCIR2q5sespEFBmXHF+QoTTUajokPn5BILnET6MdRr7HStNalPIUNVnlYhh5cq5mVnGLj6ltw4Lphf6PvvTjewBrVoj/Gwk9kw0jwlrNPEtt
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2026 11:12:40.6725
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 194cd9e7-ae15-40f2-0c02-08deb272e134
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001507.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR10MB7559
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_041207_556543_1E1531B1 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20260515_041248_551857_CB534C0D 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,39 +131,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/15/26 1:11 PM, Krzysztof Kozlowski wrote:
-> On 15/05/2026 12:54, Konrad Dybcio wrote:
->> On 4/29/26 5:09 PM, Krzysztof Kozlowski wrote:
->>> On 29/04/2026 11:23, Konrad Dybcio wrote:
->>>> On 4/28/26 7:32 PM, Krzysztof Kozlowski wrote:
->>>>> The interconnect drivers for Qualcomm SoC Network-on-Chip are covering a
->>>>> basic or fundamental SoC feature: bandwidth management between internal
->>>>> SoC blocks.  SoC can boot without these, but power management or
->>>>> performance will be affected.  These drivers do not represent any sort
->>>>> of buses visible to the board designers/configurators, thus they should
->>>>> be always enabled, regardless how SoC is used in the final board.
->>>>>
->>>>> Kernel configuration should not ask users choice of drivers when that
->>>>> choice is obvious and known to the developers that answer should be
->>>>> 'yes' or 'module'.
->>>>
->>>> I'd say let's make them all `default ARCH_QCOM` - all of these drivers
->>>> are required to boot (minus the OSM_L3 driver which is "only" highly
->>>> desired, so that your CPU's bus isn't heavily bottlenecked)
->>>
->>> So the few of them should not be a module? That's what you want to say?
->>
->> I'm saying that if you only want to shoot yourself in the foot and not
->> in the face, you can make them modules
->>
->> But the L3 driver is required to make the caches run at a reasonable
->> speed, so that they don't bottleneck the rest of the system's mem
->> bandwidth
+On 21:58-20260514, Md Shofiqul Islam wrote:
+> Hi Nishanth,
 > 
-> okidoki, so I will mark all as default built-in as you said, including
-> the OSM_L3, based on your explanation.
+> Gentle ping on this patch. You suggested this fix — the patch
+> implements exactly what was discussed: stopping PDSPs and freeing
+> queue regions and queue ranges before disabling runtime PM,
+> mirroring the cleanup already done in the probe error path, and
+> setting device_ready to false before teardown.
+> 
+> Could you take a look and provide an Acked-by if it looks correct?
+> 
+> The patch has been waiting since November 2025 across several
+> versions with no reviewer feedback.
+> 
+> Link: https://lore.kernel.org/linux-arm-kernel/20260506154114.2288-1-shofiqtest@gmail.com/
 
-Thanks!
+Usually the latest version of the patch does need a few days of
+soaking in mailing list before being picked up. I was going to do that
+later today.
 
-Konrad
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
