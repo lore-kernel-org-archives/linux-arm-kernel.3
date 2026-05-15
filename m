@@ -4,77 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5820BCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 07:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFFA6CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 07:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P5i3jr/Ze5LIkO9MuiHcaAM6dwhzewxwm2J6/ovcRNo=; b=cYbDMjyIjpBvkoj1U8Gxf86dhh
-	fdaKrVNxv0GV/3WXqkBrCD/qjlZYtmqhXMOqFspV8Me2qFmrgCGEpzrA0Bmr6iQRDJza7bTVKfvpF
-	IFf5QK+ZdzWxsWDdvl+DgSEWRv4eghXdGjVMMkszVZVuvk22XAapU/u3IDVDwvugqzZMtLNUV1+1c
-	YBbo9WUwwCJOSuTTqoC6EaKULE/aaTg5Zef9oFKJyL7tGK/raf5UejCOXPnASsYxyXXmLdme2hald
-	e5M6mwOoKV8ZfJEd6t2LhuCSXeSDfzf0J2HIllaalywFTOqrlSJdZG/lxEyMqh9uHZ7rNvE0tOeh6
-	084uAamw==;
+	bh=idYK+oiNy6LxPtdmf43l7b0w4xlTiQ+GkPjSdrvWsvE=; b=ZoJFfEmmtep5f8Epw+x/6wIfFd
+	sJFVpt5UZVbTSE7Bb+jkde2488NKwEAH3lRY5M4O03sYklRfRdA6+29YB75tBqON9XsC5ZJUunU6O
+	v/K56yMriiFbqLFkkHL3lH+l0VCMxPI2oCkc1rX9RDC5cFABDCPmGi9+SKTVJzcJnFuRtAIVbf9NE
+	qSNAgfeCJ5Om0LbA3thCKrAWyXB8Eoeb3yGx/AHmjRbdheiJ0Ref5mtWRz+ozoKu51fguyfarfTmQ
+	Inj1Urv7UkXUEDFejGo0NnWnEteB4QmhVy4kJwjAcTdKA4DAteeSf0Qcq1ExcXULhdAjOwm9QJ++G
+	oSaz6yXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNnMy-00000007fKa-3Ytd;
-	Fri, 15 May 2026 07:54:04 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wNnN9-00000007fMQ-3zbM;
+	Fri, 15 May 2026 07:54:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNnMv-00000007fJW-3Zjb
+	id 1wNnN8-00000007fM0-0ICI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 07:54:03 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1778831636;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P5i3jr/Ze5LIkO9MuiHcaAM6dwhzewxwm2J6/ovcRNo=;
-	b=qtpUpvocYMS6ga/mG6+yHhgkECgfN4/AWHu4OEWfwDxipL5TsdQ5X3k+V+I7b14vol/Ctv
-	LpOvxyM8j8DcbYElrkoCF4USg0Lz7TKZMixJ4X1GEElr76JRimy/rGExHvpN/mrdb65GAW
-	Gc77mhFCmV1DUq3wnCiPLUmslcUvKlBQpEPW+dzhPRlGUMbflE3JJl5GUP5p/3x3KtYgMx
-	7ZEghSFNU3wSI5T898bHC4ltszzph/Mv7J+ibXEOR2XJ56jj7LNt0FNxcZunVNUB6npV9g
-	XpgT7vJpFDejIJEdJDPY6myZJhftYdOLHgFgzvdR/lv4jJVSrKgRs/ww97oMGw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1778831636;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P5i3jr/Ze5LIkO9MuiHcaAM6dwhzewxwm2J6/ovcRNo=;
-	b=8QaW9UMC9D6WJDmRgFabqQSsEY7fzsi0K5cWTpOqVGgiQzDFkqENkkeARQkt0ciOL8/adq
-	qTcPuuNMZL70cODQ==
-To: Krzysztof Kozlowski <krzk@kernel.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, Alim
- Akhtar <alim.akhtar@samsung.com>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
- linux-kernel@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
- Ilpo =?utf-8?Q?J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, Andy
- Shevchenko
- <andriy.shevchenko@linux.intel.com>, Thomas Fourier
- <fourier.thomas@gmail.com>, Kees Cook <kees@kernel.org>,
- linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, sparclinux@vger.kernel.org, Peter
- Griffin <peter.griffin@linaro.org>, Tudor Ambarus
- <tudor.ambarus@linaro.org>, =?utf-8?Q?Andr=C3=A9?= Draszik
- <andre.draszik@linaro.org>,
- Alexey Klimov <alexey.klimov@linaro.org>
-Subject: Re: [PATCH tty v4 2/6] serial: Replace driver usage of UPF_CONS_FLOW
-In-Reply-To: <1a5abd2e-e9ab-4a48-94c2-5e082f57adde@kernel.org>
-References: <20260506121606.5805-1-john.ogness@linutronix.de>
- <20260506121606.5805-3-john.ogness@linutronix.de>
- <87lddvy2dl.fsf@jogness.linutronix.de>
- <1a5abd2e-e9ab-4a48-94c2-5e082f57adde@kernel.org>
-Date: Fri, 15 May 2026 09:59:55 +0206
-Message-ID: <87wlx56rcc.fsf@jogness.linutronix.de>
+	Fri, 15 May 2026 07:54:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1592960581;
+	Fri, 15 May 2026 07:54:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33FA7C2BCC7;
+	Fri, 15 May 2026 07:54:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778831652;
+	bh=6ceNaQOsWeuicN4hn04erefEjHrpUzdn7iOlsxG3uV4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OQCUnjVl95zerEu5idPYQgFx5D1M+KBHFdz6BwSmSbcvV3+ktlYEqSupy6T017Wof
+	 ES3463b/oqdcvR2oGHQqucZl0PtOw2ptAGwcNz63XcWeF1G4/Tm2k+bLVAC5Va18m/
+	 +LNI6hPLN693AfDNkwep6l/L9y8dElHu0paB/sczHAXca2lwT7fsefpvjJ0GMcOlDb
+	 N1TjpZypvaLrz3IsYBnEhQzm5zX3MgoqZUPecakF402Twai+x3ydBubgEgeQFZaWoZ
+	 Dboapk/t353YYcpHvDlXocRN2rx1fHhZ8txKf/FIISCcx9qMdf7HbXcimAZqRY63ze
+	 ewa2ALJACJ9lg==
+Date: Fri, 15 May 2026 09:54:10 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	gregkh@linuxfoundation.org, pawell@cadence.com, rogerq@kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+	cix-kernel-upstream@cixtech.com, linux-arm-kernel@lists.infradead.org, arnd@arndb.de
+Subject: Re: [PATCH 3/4] dt-bindings: usb: add CIX Sky1 Cadence USB3
+ controller
+Message-ID: <20260515-dynamic-archetypal-reindeer-dc6dd5@quoll>
+References: <20260511024244.981941-1-peter.chen@cixtech.com>
+ <20260511024244.981941-4-peter.chen@cixtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_005402_032173_6FA57660 
-X-CRM114-Status: GOOD (  15.31  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260511024244.981941-4-peter.chen@cixtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,91 +72,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-13, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->> (This email is particularly directed at the Samsung folks.)
->> 
->> Responding to Sashiko:
->> 
->> https://sashiko.dev/#/patchset/20260506121606.5805-1-john.ogness%40linutronix.de
->> 
->> On 2026-05-06, Sashiko wrote:
->>>> diff --git a/drivers/tty/serial/samsung_tty.c b/drivers/tty/serial/samsung_tty.c
->>>> index e27806bf2cf3e..2f94fc798cffb 100644
->>>> --- a/drivers/tty/serial/samsung_tty.c
->>>> +++ b/drivers/tty/serial/samsung_tty.c
->>>> @@ -319,7 +319,7 @@ static void s3c24xx_serial_stop_tx(struct uart_port *port)
->>>>  	ourport->tx_enabled = 0;
->>>>  	ourport->tx_in_progress = 0;
->>>>  
->>>> -	if (port->flags & UPF_CONS_FLOW)
->>>> +	if (uart_cons_flow_enabled(port))
->>>>  		s3c24xx_serial_rx_enable(port);
->>>
->>> This isn't a new bug introduced by this patch, but does this code
->>> result in a recursive spinlock acquisition and deadlock when console
->>> flow control is enabled?
->>>
->>> The serial core framework calls port->ops->stop_tx() with the
->>> port->lock spinlock already held. When uart_cons_flow_enabled(port)
->>> evaluates to true, s3c24xx_serial_stop_tx() invokes
->>> s3c24xx_serial_rx_enable().
->>>
->>> Looking at s3c24xx_serial_rx_enable(), it unconditionally attempts to
->>> acquire the exact same lock again:
->>>
->>> static void s3c24xx_serial_rx_enable(struct uart_port *port)
->>> {
->>> 	struct s3c24xx_uart_port *ourport = to_ourport(port);
->>> 	unsigned long flags;
->>> 	...
->>> 	uart_port_lock_irqsave(port, &flags);
->>> 	...
->>> }
->>>
->>> Because spinlocks are not recursive in the kernel, it appears this
->>> sequence would cause an immediate deadlock on the same CPU.
->> 
->> Although out of scope for my series, the reported issue is real. Perhaps
->> something for Krzysztof or Alim to look into.
->> 
->>>> @@ -493,7 +493,7 @@ static void s3c24xx_serial_start_tx(struct uart_port *port)
->>>>  	struct tty_port *tport = &port->state->port;
->>>>  
->>>>  	if (!ourport->tx_enabled) {
->>>> -		if (port->flags & UPF_CONS_FLOW)
->>>> +		if (uart_cons_flow_enabled(port))
->>>>  			s3c24xx_serial_rx_disable(port);
->>>
->>> Similarly here, s3c24xx_serial_start_tx() is also called with
->>> port->lock held, and s3c24xx_serial_rx_disable() will attempt to
->>> acquire port->lock again:
->>>
->>> static void s3c24xx_serial_rx_disable(struct uart_port *port)
->>> {
->>> 	struct s3c24xx_uart_port *ourport = to_ourport(port);
->>> 	unsigned long flags;
->>> 	...
->>> 	uart_port_lock_irqsave(port, &flags);
->>> 	...
->>> }
->>>
->>> Could this pre-existing locking issue in the samsung_tty driver be
->>> addressed so that the rx enable/disable helpers do not try to take the
->>> port lock when it is already held by the caller?
->> 
->> Also legitimate. But out of scope for my series.
->
->
-> Thanks for letting us know. Deadlock did not happen so far, so something
-> is missing in Sashiko's report. :)
+On Mon, May 11, 2026 at 10:42:43AM +0800, Peter Chen wrote:
+> Add a binding for the CIX Sky1 integration of the Cadence USBSSP DRD
+> controller. The schema documents the glue register window, clocks,
+> resets, interrupts and S5 system controller phandle.
+> 
+> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+> ---
+>  .../bindings/usb/cix,sky1-cdns3.yaml          | 151 ++++++++++++++++++
 
-Nothing is missing. I am guessing you never use console flow
-control. The deadlock is clearly visible:
+Why are you mixing USB patches with DTS in one patchset? Don't.
 
-->stop_tx() (always called with the port locked)
-  s3c24xx_serial_stop_tx()
-    s3c24xx_serial_rx_enable()
-      uart_port_lock_irqsave() (DEADLOCK!)
+>  1 file changed, 151 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/usb/cix,sky1-cdns3.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/usb/cix,sky1-cdns3.yaml b/Documentation/devicetree/bindings/usb/cix,sky1-cdns3.yaml
+> new file mode 100644
+> index 000000000000..23d82d8cc9bc
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/cix,sky1-cdns3.yaml
 
-John Ogness
+Complete mess of filename. There is no such compatible.
+
+> @@ -0,0 +1,151 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/cix,sky1-cdns3.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: CIX Sky1 Cadence USB3 Controller
+> +
+> +maintainers:
+> +  - Peter Chen <peter.chen@cixtech.com>
+> +
+> +description:
+> +  The CIX Sky1 USB3 controller is based on the Cadence USBSSP DRD
+> +  controller. The integration adds glue registers and mode strap controls
+> +  in the Sky1 S5 system controller.
+> +
+> +allOf:
+> +  - $ref: usb-drd.yaml#
+> +  - $ref: usb-xhci.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: cix,sky1-usb3
+> +      - const: cix,cdns-usb3
+
+I don't understand the fallback compatible. You claim this device is
+called EXACTLY like vendor cdns? Nope, you SoC specific compatibles.
+
+
+> +
+> +  reg:
+> +    items:
+> +      - description: OTG controller registers
+> +      - description: Device controller registers
+> +      - description: XHCI host controller registers
+> +      - description: Sky1 USB glue registers
+> +
+> +  reg-names:
+> +    items:
+> +      - const: otg
+> +      - const: dev
+> +      - const: xhci
+
+Wrong order, look at cdns,usb3 schema.
+
+> +      - const: glue
+> +
+> +  interrupts:
+> +    items:
+> +      - description: XHCI host controller interrupt
+> +      - description: Device controller interrupt
+> +      - description: OTG/DRD controller interrupt
+> +      - description: Wakeup interrupt
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: host
+> +      - const: peripheral
+> +      - const: otg
+> +      - const: wakeup
+> +
+> +  clocks:
+> +    items:
+> +      - description: Start-of-frame clock
+> +      - description: AXI bus clock
+> +      - description: Low-power mode clock
+> +      - description: APB register interface clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: sof
+> +      - const: aclk
+> +      - const: lpm
+> +      - const: pclk
+> +
+> +  resets:
+> +    items:
+> +      - description: APB register reset
+> +      - description: Controller reset
+> +
+> +  reset-names:
+> +    items:
+> +      - const: prst
+
+apb
+
+> +      - const: rst
+
+controller or core
+
+> +
+> +  cix,syscon-usb:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to the Sky1 S5 system controller used to program USB mode
+> +      strap controls.
+> +
+> +  dma-coherent: true
+> +
+> +  maximum-speed:
+> +    enum: [super-speed-plus, super-speed, high-speed, full-speed]
+
+Why isn't this deducible from the compatible?
+
+> +
+> +  phys:
+> +    minItems: 1
+> +    maxItems: 2
+
+No, this is not flexible.
+
+> +
+> +  phy-names:
+> +    minItems: 1
+> +    maxItems: 2
+> +    items:
+> +      anyOf:
+> +        - const: cdns3,usb2-phy
+> +        - const: cdns3,usb3-phy
+
+Drop all this and define standard names.
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +  - cix,syscon-usb
+
+phys should be required, no?
+
+> +
+> +unevaluatedProperties: false
+
+Best regards,
+Krzysztof
+
 
