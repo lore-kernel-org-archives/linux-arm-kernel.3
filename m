@@ -4,59 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAABCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 05:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D665CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 06:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LjOkyueT8zC+PGmeGzFKi6nT+KqN6aS6QotS5Vb3Pbg=; b=0BC5hPVoui50USze8ec/B6jcCs
-	i8D1LbIWAgqwKgEKB6Qp/pmb56aAOrnupE7Wg24uNWS74adSTsCF+jjeO3XV935KW4YZwlgoxnMrd
-	YtzGHmTRdGzNi8eAPlGhwuUpG/bR5RhuqNtZNO7ap4EVqe7n2XcU0o1LTd+nqQakl83P5FrRDRZMP
-	eLcSkWOgn/kA9yDvT2OA3qNLOEJoYbWFcg/TR5yAb9QM7Sw3aN511S9K7GfuZW+AhFfy0Ig0x1vkl
-	vsqgL1mkngoJxKyKDknsGGO1FW6zje8DqyAtEhUYhq8x/RRlzMyXxLQ9+4WklIaiaLXrqr4hnAXJl
-	dBKZq8WQ==;
+	bh=F4wG8bH1gfDBcb14JbvmcrOJGC7+5HB1bq/2ymPAYSI=; b=ft6uxQUM1hniqEoZdiMFpfv9Kg
+	pBVPrSF/r7uP7C4zbFONbjCy8C5PhKYmYjwNyddPa2/4GK7MEYNIWRSZiNt88hZ0uh10q7DBVtsk8
+	LaispkHH2VsV3wmIC4+1Al33e2HEMjn2G5X2a057oOKDj0TJ5sHMAGu0fXktvv9orb1IUn3OpO7rg
+	dqyfgzavfUF4n4KTifpBWXqL/YZYuVa9TGmtiDg2hIHwEcDW1q7RrBMmJtw/++8pC9x3Dp+q5z4P7
+	z467pHm57ZGMo+/4XqhVTNFamGpvxCqnKk+1rWgBI+SlCRlMtEY4SN2O8MXXzIclPMSZ9Hn7oFqRI
+	Eo+NKqsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNlQ2-00000007RnF-2nzZ;
-	Fri, 15 May 2026 05:49:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNlPz-00000007Rlz-4Bkf
+	id 1wNlzk-00000007VYc-02oy;
+	Fri, 15 May 2026 06:26:00 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNlzg-00000007VXt-2RgP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 05:49:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F10DF2659;
-	Thu, 14 May 2026 22:48:53 -0700 (PDT)
-Received: from [10.164.18.66] (unknown [10.164.18.66])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F1A953F85F;
-	Thu, 14 May 2026 22:48:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778824139; bh=Ua9XP2t8wZs196UuDUJ+sQyVgcH0lmHelOVyZKJC5O4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hkryT5XejjE9ee6hMhAaNIq9D1EAk9hbUCvf4K0brgW0h9afmkZvc5b7/DX0aI5PT
-	 upitpVHAzTymB4zZDRMiV4H5/kRJGmmawI8/vtmbrkxGJ6xLbfVGNFa8w1UBYY+4/l
-	 OUwfh4pWWAbq6KZCj7v5sFIJBCRaqbX7XoaSUsxY=
-Message-ID: <f69e9bd0-5991-48e3-87a7-6ce5c39678ef@arm.com>
-Date: Fri, 15 May 2026 11:18:53 +0530
+	Fri, 15 May 2026 06:25:57 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c828daf83e2so2791335a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 14 May 2026 23:25:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778826355; x=1779431155; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=F4wG8bH1gfDBcb14JbvmcrOJGC7+5HB1bq/2ymPAYSI=;
+        b=bIY78eEpifsLUSJor8f9uKkYGlR05PMOc3e5Gnr0p2178nSPWCxKUmJ/vPiyyyND15
+         wSG4hE4ZqkG5U+QjT01ot3AfpgRXQTbOQdquXWDHTihpMibrdE9rm10BYTnDnUwaQ9Ht
+         dYkHl9rKwzZ6B+Pij47lNzfA5Nad6tfny/3CMfhGx2v5VgRGFigitJYrACjugvKN4Ihr
+         YkZT1oJclbsDejaupVZjPXknleRvCopcYdbehNSdes0yvm1ZlpkEnywWYyWztm/mcJQH
+         I8zNMtz858QsbrSIbET5Znk+mJIt8OUIr7A/M2bFGonTDIX+OD9Cuv6TID4/7gLdYpU4
+         x3Bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778826355; x=1779431155;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=F4wG8bH1gfDBcb14JbvmcrOJGC7+5HB1bq/2ymPAYSI=;
+        b=ik1S8WE3kWjR09uEWRWb6k+0n/sPu5eOylBC1UdHfdx8XgeRn6TAJgd+Fb23/B3ert
+         Lp5cgysbh7MeQMl8ESBpLg7oAs5OFbfX2rKotbmT4UVfylU4iSVBAcno8rTb2jOiOWAv
+         yR/Q+toCXGSvL5W6N6LhA7zBY2PPE2SDFyJ1Zg8Y1iATsGLvBVADioFjjPCKPje31EKC
+         0+2nI78yT376Fs+khbm0gzMJnBt9YIxyYvZYgtoldR0QTFbF5CJJgtwUdCjFc5zowsQj
+         saGh5VGC3g2ulNI4Abh4MKVxaKb6J4vugFe60Vurv89mSxeVKptm8VDuVSq4xaPoqt5C
+         oS2w==
+X-Forwarded-Encrypted: i=1; AFNElJ+lAXbiRg1lwbBr7CJVVPr5FmaDWKrihi1JzfuzaGRtuvHa/d+Hl00ptCGHI+Ki10ASJMf1wZB0US7xwaiC651A@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSLBIfglq2hTsA3/MKeVNQAyblmoXL/hcQaGIiZYNgvVD9oNU3
+	T6KKURCTMWeXkJZL6IH8DYiDfaiLX7iKb03ZCtetuNbyJ5tJjFr+UHWu
+X-Gm-Gg: Acq92OE8RoL063ZsQSXbe5CtZYKlcNbQBpxMITz1VCYFhMv8f2kpti8Pt/0HrN9khZ3
+	9JC0AN6b74QTDupnIojhI5houFYHknNO/eJ/wM5ERF3PmNzutGKG/gj8GKnH0CZCoqqavPvA90n
+	6OLpmOR13mxoHhdBwxo5Vd4l2K2NhtKMED3CWiKvrwEHGbP0xsbEzFkaprKFnZBawe4bnOwSia9
+	TonnobEa4bnPORnyZhPx0Ekv4gfRVH6owDehWlkijk6oT2pbb2QkYVum8klmTgRdH3Jh+vfRIf4
+	fg6dE3H0fMzxpdk14bx4fvg5snaQWe4xRBly7RCBZp2koCsov51wLG5bwUkuGn5jIqELTL9jswx
+	GWq7MIGOtRnFHrrZpaqzcpEUW5wFpx/hSHlLcixKw30jVK0kNLdmD1X9QyowHAdJxAQwWjoywmt
+	UZi7lkgeRrg3r/2cFwCaG0phbBm5b+G/CFCme4gc+WlL20U6QTOM/JloDSRtk76Gg6hZyYcYA4K
+	xZB
+X-Received: by 2002:a05:6a20:560c:b0:3a8:2af3:ce8b with SMTP id adf61e73a8af0-3b22e72fb16mr2125835637.14.1778826355136;
+        Thu, 14 May 2026 23:25:55 -0700 (PDT)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c82bb0ff0edsm4688486a12.20.2026.05.14.23.25.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 May 2026 23:25:54 -0700 (PDT)
+Message-ID: <1a42a168-1dbb-467e-9053-b5585a737f71@gmail.com>
+Date: Fri, 15 May 2026 14:25:48 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Remove @arch from __load_stage2()
-To: Zenghui Yu <zenghui.yu@linux.dev>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
- suzuki.poulose@arm.com
-References: <20260318144305.56831-1-zenghui.yu@linux.dev>
+Subject: Re: [PATCH 2/2] drm/verisilicon: add support for Nuvoton MA35D1
+ DCUltra Lite display controller
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260511075142.54752-1-a0987203069@gmail.com>
+ <20260511075142.54752-3-a0987203069@gmail.com>
+ <93e69179dbc495188cfffd8015350b3a55ce7876.camel@iscas.ac.cn>
+ <de35406e-874d-4bdd-be7f-3d74dc37b13f@gmail.com>
+ <3b94806073de8bd1d79aa7ec956493f67679e46b.camel@iscas.ac.cn>
+ <dfbc4042-64cf-49f2-a5de-12260beffaa0@gmail.com>
+ <4bf6efbb222ebc4d770ad613d17c6185e7cb2fda.camel@iscas.ac.cn>
+ <1d04dd6d-f245-4b83-96b0-c5491fad8093@gmail.com>
+ <76a9e9b676509e85484a1eb31c723b46c7e21a19.camel@iscas.ac.cn>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20260318144305.56831-1-zenghui.yu@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <76a9e9b676509e85484a1eb31c723b46c7e21a19.camel@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_224904_354930_EE776A3F 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20260514_232556_634854_12B4865D 
+X-CRM114-Status: GOOD (  26.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,151 +116,173 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 5/12/2026 9:12 PM, Icenowy Zheng wrote:
+> 在 2026-05-12二的 18:59 +0800，Joey Lu写道：
+>> On 5/12/2026 6:01 PM, Icenowy Zheng wrote:
+>>> 在 2026-05-12二的 17:06 +0800，Joey Lu写道：
+>>>
+>>> ======= 8< =============
+>>>>>>>> diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>>>>>> b/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>>>>>> index 7a93049368db..225af322de32 100644
+>>>>>>>> --- a/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>>>>>> +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
+>>>>>>>> @@ -164,13 +164,16 @@ static void
+>>>>>>>> vs_bridge_enable_common(struct
+>>>>>>>> vs_crtc *crtc,
+>>>>>>>>      			VSDC_DISP_PANEL_CONFIG_CLK_EN);
+>>>>>>>>      	regmap_set_bits(dc->regs,
+>>>>>>>> VSDC_DISP_PANEL_CONFIG(output),
+>>>>>>>>      			VSDC_DISP_PANEL_CONFIG_RUNNING);
+>>>>>>>> -	regmap_clear_bits(dc->regs,
+>>>>>>>> VSDC_DISP_PANEL_START,
+>>>>>>>> -			
+>>>>>>>> VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
+>>>>>>>> -	regmap_set_bits(dc->regs, VSDC_DISP_PANEL_START,
+>>>>>>>> -
+>>>>>>>> 			VSDC_DISP_PANEL_START_RUNNING(ou
+>>>>>>>> tput));
+>>>>>>>>      
+>>>>>>>> -	regmap_set_bits(dc->regs,
+>>>>>>>> VSDC_DISP_PANEL_CONFIG_EX(crtc-
+>>>>>>>>> id),
+>>>>>>>> -
+>>>>>>>> 			VSDC_DISP_PANEL_CONFIG_EX_COMMIT);
+>>>>>>>> +	if (dc->info->has_config_ex) {
+>>>>>>>> +		regmap_clear_bits(dc->regs,
+>>>>>>>> VSDC_DISP_PANEL_START,
+>>>>>>>> +				
+>>>>>>>> VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
+>>>>>>>> +		regmap_set_bits(dc->regs,
+>>>>>>>> VSDC_DISP_PANEL_START,
+>>>>>>>> +				VSDC_DISP_PANEL_START_RU
+>>>>>>>> NNIN
+>>>>>>>> G(ou
+>>>>>>>> tput
+>>>>>>>> ));
+>>>>>>>> +
+>>>>>>>> +		regmap_set_bits(dc->regs,
+>>>>>>>> VSDC_DISP_PANEL_CONFIG_EX(crtc->id),
+>>>>>>>> +				VSDC_DISP_PANEL_CONFIG_E
+>>>>>>>> X_CO
+>>>>>>>> MMIT
+>>>>>>>> );
+>>>>>>> Should the commit operation happen on DC8000/DCUltraLite
+>>>>>>> too?
+>>>>>>> (By
+>>>>>>> writing to DcregFrameBufferConfig0.VALID).
+>>>>>>>
+>>>>>>> Many registers written has "Note: This field is double
+>>>>>>> buffered" in
+>>>>>>> the
+>>>>>>> DCUltraLite documentation.
+>>>>>>>
+>>>>>>> I suggest create a static function for commit -- write to
+>>>>>>> the
+>>>>>>> corresponding commit bit on DC8200, and write to
+>>>>>>> DcregFrameBufferConfig0.VALID on DC8000/DCUltraLite.
+>>>>>> [a] There is no commit operation for DCUltra Lite.
+>>>>>> I'll not add a `VSDC_FB_CONFIG_VALID` macro. VALID (BIT(3))
+>>>>>> is a
+>>>>>> hardware-managed double-buffer status bit: hardware writes
+>>>>>> 1=PENDING
+>>>>>> when a new register set is ready and clears to 0=WORKING
+>>>>>> after
+>>>>>> the
+>>>>>> VBLANK copy. Software must never write it, and there is no
+>>>>>> polling
+>>>>>> use
+>>>>> It seems to be writable and controls whether register buffering
+>>>>> is
+>>>>> enabled, see [1].
+>>>>>
+>>>>> The description of this bit in MA35D1 TRM says "This ensures a
+>>>>> frame
+>>>>> will always start with a valid working set if this register is
+>>>>> programmed last, which reduces the need for SW to wait for the
+>>>>> start of
+>>>>> a VBLANK signal in order to ensure all states are loaded before
+>>>>> the
+>>>>> next VBLANK", which indicates some kind of "committing write",
+>>>>> although
+>>>>> the code at [1] seems to indicate that double buffering is only
+>>>>> enabled
+>>>>> when bit is cleared.
+>>>>>
+>>>>> Anyway this bit should be programmable, and "Software must
+>>>>> never
+>>>>> write
+>>>>> it" contradicts with the MA35D1 TRM.
+>>>>>
+>>>>> Thanks,
+>>>>> Icenowy
+>>>>>
+>>>>> [1]
+>>>>> https://github.com/rockos-riscv/rockos-kernel/blob/rockos-v6.6.y/drivers/gpu/drm/eswin/es_dc_hw.c#L993
+>>>> Thank you for the correction. I'll add
+>>>> `#define VSDC_FB_CONFIG_VALID BIT(3)` to vs_primary_plane_regs.h
+>>>> and
+>>>> write it in `vs_primary_plane_commit()` for non-config_ex
+>>>> variants.
+>>>>>> case in the driver that requires a named constant. For non-
+>>>>>> config_ex
+>>>>>> variants, `vs_primary_plane_commit()` performs no commit
+>>>>>> operation —
+>>>>>> `VSDC_FB_CONFIG_ENABLE` (OUTPUT, BIT(0)) is set in
+>>>>>> `vs_crtc_atomic_enable()` and `VSDC_FB_CONFIG_RESET` (BIT(4))
+>>>>>> is
+>>>>>> set/cleared in the bridge enable/disable paths.
+>>> Well according to the driver code for DC8000 from Eswin, and the
+>>> bit
+>>> named "VALID", maybe it should be cleared before programming the
+>>> registers, and set after programming registers, to make the process
+>>> of
+>>> programming registers atomic from the perspective of the display
+>>> controller.
+>>>
+>>> Anyway this should require testing on real hardware to verify.
+>>>
+>>> By the way, I see multiple peripheral drivers for MA35D1 get
+>>> applied in
+>>> the torvalds tree, but the device tree is still only a skeleton;
+>>> when
+>>> will the device tree be updated?
+>>>
+>>> Thanks,
+>>> Icenowy
+>> Thanks for pointing this out. I’ll perform tests on real hardware
+>> since
+>> I haven’t used this bit before.
+>>
+>> As for the device tree, we plan to update it comprehensively after
+>> completing several major IPs, with the goal of releasing the update
+>> later this year.
+> Well I bought a MA35D1 board (MYIR MYB-LMA35 + RGB LCD) earlier this
+> year (and this is where I got the MA35D1 identification register
+> values). Hope I can have a chance to test this driver by myself.
+>
+> As MMC, Ethernet and USB support is all applied, maybe it's already
+> worthy to update the device tree ;-)
+>
+> Thanks,
+> Icenowy
 
-On 18/03/26 8:13 PM, Zenghui Yu wrote:
-> From: "Zenghui Yu (Huawei)" <zenghui.yu@linux.dev>
-> 
-> Since commit fe49fd940e22 ("KVM: arm64: Move VTCR_EL2 into struct s2_mmu"),
-> @arch is no longer required to obtain the per-kvm_s2_mmu vtcr and can be
-> removed from __load_stage2().
-> 
-> Signed-off-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
+Yes you can!
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+I have performed hardware validation on the MA35D1 and found that this 
+bit acts as a manual latch for the shadow registers rather than an 
+auto-clearing trigger, which clarifies the slightly ambiguous 
+description in the TRM.
 
-> ---
->  arch/arm64/include/asm/kvm_mmu.h              | 3 +--
->  arch/arm64/kvm/at.c                           | 2 +-
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h | 2 +-
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 2 +-
->  arch/arm64/kvm/hyp/nvhe/switch.c              | 2 +-
->  arch/arm64/kvm/hyp/nvhe/tlb.c                 | 4 ++--
->  arch/arm64/kvm/hyp/vhe/switch.c               | 2 +-
->  arch/arm64/kvm/hyp/vhe/tlb.c                  | 4 ++--
->  8 files changed, 10 insertions(+), 11 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-> index d968aca0461a..c1e535e3d931 100644
-> --- a/arch/arm64/include/asm/kvm_mmu.h
-> +++ b/arch/arm64/include/asm/kvm_mmu.h
-> @@ -318,8 +318,7 @@ static __always_inline u64 kvm_get_vttbr(struct kvm_s2_mmu *mmu)
->   * Must be called from hyp code running at EL2 with an updated VTTBR
->   * and interrupts disabled.
->   */
-> -static __always_inline void __load_stage2(struct kvm_s2_mmu *mmu,
-> -					  struct kvm_arch *arch)
-> +static __always_inline void __load_stage2(struct kvm_s2_mmu *mmu)
->  {
->  	write_sysreg(mmu->vtcr, vtcr_el2);
->  	write_sysreg(kvm_get_vttbr(mmu), vttbr_el2);
-> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-> index a024d9a770dc..3b61da0a24d8 100644
-> --- a/arch/arm64/kvm/at.c
-> +++ b/arch/arm64/kvm/at.c
-> @@ -1379,7 +1379,7 @@ static u64 __kvm_at_s1e01_fast(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
->  		}
->  	}
->  	write_sysreg_el1(vcpu_read_sys_reg(vcpu, SCTLR_EL1),	SYS_SCTLR);
-> -	__load_stage2(mmu, mmu->arch);
-> +	__load_stage2(mmu);
->  
->  skip_mmu_switch:
->  	/* Temporarily switch back to guest context */
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> index 5f9d56754e39..803961cdd39e 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-> @@ -63,7 +63,7 @@ int refill_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages,
->  static __always_inline void __load_host_stage2(void)
->  {
->  	if (static_branch_likely(&kvm_protected_mode_initialized))
-> -		__load_stage2(&host_mmu.arch.mmu, &host_mmu.arch);
-> +		__load_stage2(&host_mmu.arch.mmu);
->  	else
->  		write_sysreg(0, vttbr_el2);
->  }
-> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> index d815265bd374..87a169838481 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> @@ -336,7 +336,7 @@ int __pkvm_prot_finalize(void)
->  	kvm_flush_dcache_to_poc(params, sizeof(*params));
->  
->  	write_sysreg_hcr(params->hcr_el2);
-> -	__load_stage2(&host_mmu.arch.mmu, &host_mmu.arch);
-> +	__load_stage2(&host_mmu.arch.mmu);
->  
->  	/*
->  	 * Make sure to have an ISB before the TLB maintenance below but only
-> diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-> index 779089e42681..3938997e7963 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-> @@ -299,7 +299,7 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
->  	__sysreg_restore_state_nvhe(guest_ctxt);
->  
->  	mmu = kern_hyp_va(vcpu->arch.hw_mmu);
-> -	__load_stage2(mmu, kern_hyp_va(mmu->arch));
-> +	__load_stage2(mmu);
->  	__activate_traps(vcpu);
->  
->  	__hyp_vgic_restore_state(vcpu);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/tlb.c b/arch/arm64/kvm/hyp/nvhe/tlb.c
-> index 3dc1ce0d27fe..01226a5168d2 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/tlb.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/tlb.c
-> @@ -110,7 +110,7 @@ static void enter_vmid_context(struct kvm_s2_mmu *mmu,
->  	if (vcpu)
->  		__load_host_stage2();
->  	else
-> -		__load_stage2(mmu, kern_hyp_va(mmu->arch));
-> +		__load_stage2(mmu);
->  
->  	asm(ALTERNATIVE("isb", "nop", ARM64_WORKAROUND_SPECULATIVE_AT));
->  }
-> @@ -128,7 +128,7 @@ static void exit_vmid_context(struct tlb_inv_context *cxt)
->  		return;
->  
->  	if (vcpu)
-> -		__load_stage2(mmu, kern_hyp_va(mmu->arch));
-> +		__load_stage2(mmu);
->  	else
->  		__load_host_stage2();
->  
-> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> index 9db3f11a4754..bc8090d915bf 100644
-> --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> @@ -219,7 +219,7 @@ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
->  
->  	__vcpu_load_switch_sysregs(vcpu);
->  	__vcpu_load_activate_traps(vcpu);
-> -	__load_stage2(vcpu->arch.hw_mmu, vcpu->arch.hw_mmu->arch);
-> +	__load_stage2(vcpu->arch.hw_mmu);
->  }
->  
->  void kvm_vcpu_put_vhe(struct kvm_vcpu *vcpu)
-> diff --git a/arch/arm64/kvm/hyp/vhe/tlb.c b/arch/arm64/kvm/hyp/vhe/tlb.c
-> index 35855dadfb1b..539e44d09f17 100644
-> --- a/arch/arm64/kvm/hyp/vhe/tlb.c
-> +++ b/arch/arm64/kvm/hyp/vhe/tlb.c
-> @@ -60,7 +60,7 @@ static void enter_vmid_context(struct kvm_s2_mmu *mmu,
->  	 * place before clearing TGE. __load_stage2() already
->  	 * has an ISB in order to deal with this.
->  	 */
-> -	__load_stage2(mmu, mmu->arch);
-> +	__load_stage2(mmu);
->  	val = read_sysreg(hcr_el2);
->  	val &= ~HCR_TGE;
->  	write_sysreg_hcr(val);
-> @@ -78,7 +78,7 @@ static void exit_vmid_context(struct tlb_inv_context *cxt)
->  
->  	/* ... and the stage-2 MMU context that we switched away from */
->  	if (cxt->mmu)
-> -		__load_stage2(cxt->mmu, cxt->mmu->arch);
-> +		__load_stage2(cxt->mmu);
->  
->  	if (cpus_have_final_cap(ARM64_WORKAROUND_SPECULATIVE_AT)) {
->  		/* Restore the registers to what they were */
+Following your suggestion, I will align the implementation with ESWIN's 
+DC8000 logic: setting the VALID bit at atomic_begin and clearing it at 
+atomic_flush. My tests confirm this allows the hardware to latch the 
+plane configuration correctly while avoiding the blank screen issues 
+observed with other configurations.
 
+I am preparing the v2 patchset with this change, along with the 
+requested commit splits, and will submit it shortly.🙂
+
+>>>>> ========= 8< ==========
+>>>>>
 
