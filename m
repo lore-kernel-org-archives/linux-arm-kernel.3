@@ -4,123 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B25CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 23:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF84BCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 23:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hxdFYX0NrCooEGJIy8ZSeSxLvLyFiXMAAGzwgRKyJ8o=; b=dve9RHOhB/H1R2SsVVpMeaJYBX
-	ApAo04wqZJdfc1qX9/qnuao1j/8VHcoMjR2SetDaTg7rdJVgIijfL1vfEjdjN2S5Xl7GsGBrxDNSU
-	CSRRhgsvB/P73GUGCI/SpUIrW9pqgCwEB6SC3wH6D8kiIf3UefMwbIolMA53aGWUwFXKDOLLJao7i
-	wssRR46eZIqG4EAgL4llRDbbMHf1WpQh3sFHR3ODqvG/2qkdgps6CVVL0HBDuTGJYTpLI1J0csyYP
-	H0aVPxClwB4XG8iW0NLrgrdPHtnXdEOYqPuPhYnBw87MY2wLIWW+vhrFrHsJBFYvSVF6SZlTX0clS
-	izaZxvXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=13W8vqjDTUkOwRMDWh9WUbax5RjY2p2CDpd84EuUOP4=; b=rPm3rk1a1xN8TLcwr31TODGeK8
+	1rgef1SkHRfux9I7SG6OaCux3Q606r0BKoPs32sUtMIgQfUeuHleuj4jdAaR/p43kIEUL69ohvzkU
+	Yc3eCT50gjURFCHWCUN8m3wzF/jtErKOEu08Of6LC4qQYmNFVew2JL2kn1DPlxhrctyT1AeSDl4Ho
+	FrlEVmG2YC27UfrYKUGY6PLzlKR1zpskbgKaKmEEJJ/H0EdIN+RaIX2uT8dPOvYYJLKbs6eKXu0EN
+	9u+J7geJliWrN2GsAV8zkJ2jWp7YJJ9JAXh4VPmZqgfRjmsnLv6GvXsu8IggR83IyP/kOF9YZIB7i
+	bg15uMLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO1zH-00000009j0t-1Kum;
-	Fri, 15 May 2026 23:30:35 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO1zF-00000009j0L-0mmT
+	id 1wO27d-00000009jnl-0pCe;
+	Fri, 15 May 2026 23:39:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wO27Y-00000009jml-3QLu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 23:30:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=suFeXs15sKrt+AQVIf4r1llxX30EXvK5d0PhiccrK/nHP+SNwl+myB7BLRIfiUXYt6KEDX/6S2l/WteJObBMYtX0Ct2ReCrLT/5OvFIMTn9dX1lhEY8ZN5RykfqG3rJFhnIYwyHY4RExrR6fhzO7UX1AiMfgYM8Fzw4dtPj1DJgEE+1luzC67e5w5InXl9wRtAmerXQmynX5HJM4cyhMR79EqD/xLqCKDG+A7fhYTHIai7ER47XO2NMDth/lurrNiYcrMM9elaXGgv+ghOnnzG5AjRFquDjhwW4fxEKIrUBodtqtreaxPa0nC044X1NpusNWNZsD4U87zu3FFxVj5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hxdFYX0NrCooEGJIy8ZSeSxLvLyFiXMAAGzwgRKyJ8o=;
- b=p32+6oyDhOZ7bmf+3hrhOuVpgGrjeYZLdcLegSgjzF2UoTx73MxNMpjhDBxKt1UsiPGZwPKQ+Vyw3K9wxtkr8lRLsgyNr8DudfRn3eU1WLwwnXCA4DiYpOgNuvhPBceiz7kOQn5GuHWDUT8zhoqN/m28voBF0q+3Z08PUjxeHAj3P+ulljnUQDhHwbfbz9RC6fnlwnbEq+CRA8igJQlbfffhExXwSLct0Y5VmrRI4oDHXLx3wfBTW/AMYuqqyihs2qCyBMftn7cEV7pnteO1ld2sLqgwUP/pI8ALXjxlk1vA7jW67SgBqxSQmNs6yP5domJvFvVxJQKGDbG7LVL0jA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hxdFYX0NrCooEGJIy8ZSeSxLvLyFiXMAAGzwgRKyJ8o=;
- b=K4U4XAIg6rNiRQs5hD8xg3LpENi7T3ocjS4fZGEy5iPPuEJirMh+Of3NJzhQcI0AUoCYRX/WOsbFEA2nnTdSfbq1wgpJXVrCfe8Q1pdb2dRGbqZ5AGBYA5CKMwVDDbAm102RN/edBUt9Kx7AzhChzO/kUwVl/R8T6pvIyun90As84Tqp0oNWtuh3H5hCyOirH/RlNUBqcjsQDCKMlkTM5OtTbCUaKIvzZky45l3VC/jUXIX2u14H3/v47cP8R5FS8UpKLpP61rIRHsxDssNDyOnn3oyLN1YD6desfWkGvVQw4xjhZ4tl9ihetXnc5h/PnyQE5SfnUIbUdtxnrI6YWg==
-Received: from PH7PR17CA0052.namprd17.prod.outlook.com (2603:10b6:510:325::19)
- by DS0PR12MB7725.namprd12.prod.outlook.com (2603:10b6:8:136::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Fri, 15 May
- 2026 23:30:15 +0000
-Received: from SN1PEPF000397B1.namprd05.prod.outlook.com
- (2603:10b6:510:325:cafe::79) by PH7PR17CA0052.outlook.office365.com
- (2603:10b6:510:325::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.19 via Frontend Transport; Fri, 15
- May 2026 23:30:15 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SN1PEPF000397B1.mail.protection.outlook.com (10.167.248.55) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Fri, 15 May 2026 23:30:15 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 15 May
- 2026 16:30:00 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 15 May
- 2026 16:30:00 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.7)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 15 May 2026 16:29:59 -0700
-Date: Fri, 15 May 2026 16:29:57 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <iommu@lists.linux.dev>, Jonathan Hunter <jonathanh@nvidia.com>, "Joerg
- Roedel" <joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-tegra@vger.kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Thierry
- Reding" <thierry.reding@kernel.org>, Krishna Reddy <vdumpa@nvidia.com>, "Will
- Deacon" <will@kernel.org>, David Matlack <dmatlack@google.com>, Pasha
- Tatashin <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, Pranjal
- Shrivastava <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 4/9] iommu/arm-smmu-v3: Convert arm_smmu_cmdq_batch
- cmds to struct arm_smmu_cmd
-Message-ID: <agesdZNkLPExzUpx@Asurada-Nvidia>
-References: <0-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
- <4-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
+	Fri, 15 May 2026 23:39:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF5B022FC;
+	Fri, 15 May 2026 16:39:01 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9DABD3F85F;
+	Fri, 15 May 2026 16:38:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778888347; bh=hcyi/oQQYFZ0VBh4EERVTQPgaMQsOUZKGv3aL0avj9M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pPkwFu5D+YbH2+PpMwRTpME8igQ1y2qLUKm9sYXy4XipkRaiTw+MnZkf3cLn1Ge7O
+	 HVAblJg3cV+31efMuWUyKMt2R7inzWu4pynGFnlLK2OBD3Um9meAy+J1U5xXLJ/i8U
+	 /tDMGc53F7bdHTNTw1tBhaCIVUVWPaIpCFa8JIdM=
+Date: Sat, 16 May 2026 01:38:15 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+ <sudeep.holla@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
+ Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Ge Gordon
+ <gordon.ge@bst.ai>, BST Linux Kernel Upstream Group
+ <bst-upstream@bstai.top>, Jesper Nilsson <jesper.nilsson@axis.com>, Lars
+ Persson <lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Dinh Nguyen
+ <dinguyen@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter
+ <jonathanh@nvidia.com>, Bjorn Andersson <andersson@kernel.org>, Konrad
+ Dybcio <konradybcio@kernel.org>, Andreas =?UTF-8?B?RsOkcmJlcg==?=
+ <afaerber@suse.de>, Heiko Stuebner <heiko@sntech.de>, Shawn Lin
+ <shawn.lin@rock-chips.com>, Orson Zhai <orsonzhai@gmail.com>, Baolin Wang
+ <baolin.wang@linux.alibaba.com>, Michal Simek <michal.simek@amd.com>,
+ linux-sunxi <linux-sunxi@lists.linux.dev>
+Subject: Re: [PATCH v2 05/17] arm64: dts: allwinner: Add EL2 virtual timer
+ interrupt
+Message-ID: <20260516013815.6dd21da3@ryzen.lan>
+In-Reply-To: <20260514150945.3917510-6-maz@kernel.org>
+References: <20260514150945.3917510-1-maz@kernel.org>
+	<20260514150945.3917510-6-maz@kernel.org>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <4-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397B1:EE_|DS0PR12MB7725:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8eef110f-455e-43bb-cc48-08deb2d9eb1a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|82310400026|7416014|376014|56012099003|22082099003|18002099003|11063799003|4143699003;
-X-Microsoft-Antispam-Message-Info: WOMXLrQgcvNyyKs5XE0idZqQUzmVuGhuWV1u4dyd5cpq/0dmPKn466ExaNuhwgB3OOFc9K0S2hsi9bQG4DaOzgJVLjXGJoLREon+BHv4z0rUVi5rrwhEJHZlqi3Fxi4tyuNhB4HMud1pAIT7m/SIp9m6Jsqxd5WIe1NnvbJd+2njrVACyATjsRYfdok7n6guta8QH/ytjDGeOgTQS5dLrGd3p/5yZyTJp+fX1jCb6VXG5xIornbRgDyvRdKlKVsclR4yGaSJ4cXlaLD63jUOv3lZQED+r3pcLkGlQVOZix1i/f5QzmBY808j1VxEVRsXL80Mnr/sT3QsUKCgXd0d8UvvU/+uxgrWx51B/XwtqDIbYbCajAMzsO+38WY/lvcTQXGqGNng3cGh417Zi98rh+oX/6z8UG/utX/6t/Wvgvl+pkrq0EufcLLIteTo2LP9unwe3Qs7YPw/d7I6ig4Tf4WHuYVeR9fDsB45d96m3diKTkGmDynPw4oN67IwRv90l298F3tUa8phiRUvXAQsRJT8MPc0IxNc9XFFmlOaON4EH3j/vfwkMquYo2JKx0B2UGNYsaQtvNDcAsSr16yQCTg7nMoCbQ2G0kGHA/ck0mwQcAeLqrO1etER9DnM4ybGg+8fvh8INyuPRwt+knIG6+QtoSjYWqmvRVh3hBRDB9QkbR2dPCkfieQnumQZ1qWptwEbQUQHEp/p/VXzV5dbJeb8pwc7rzSQM5uVy2plJLE=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(7416014)(376014)(56012099003)(22082099003)(18002099003)(11063799003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: UOpsLU5vwyqod/o1WFWxEXgRRm0r4MhyzosHXf7JI6z/nXHd8eNK3WRMhTP8Xb8FsxOEBNuFC1pi5HI0upxI/ecd1R2P+a4s18H9ooFojKPmImxaHwaRV322LkEte5Bq1gOZfE7fNQFArnF6gRKvYSwjzh3HT24JCVHYhYc3rpp0YtUfyb5G4fraKPqtPlLOmpQlFXy7UPMJxLwlljCi1JEG7Jdb7ExujFrZtmnuFpH3mk+UuSEscMm3/9Se/aITfcwKCv4NyUrg8YDAhIQ9+GVD6T900UV7fLCvX37VpIqq5mvI+J6iYGNDdF1jnlb8SklQh5ziHT139mBKWJ8mB0kiFpklvf/4uktwNpHybpx4yazmg5ZOagIti8O1JmTNM+0kcnOmmbF8HgBE2t9ikwXQp27sKU0QyMVoD7tlSUayHQB4tPzkGTdiW/uFG23H
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2026 23:30:15.4135
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8eef110f-455e-43bb-cc48-08deb2d9eb1a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B1.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7725
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_163033_232036_45EA92ED 
-X-CRM114-Status: UNSURE (   8.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260515_163909_105547_20C81E57 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,19 +97,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 08:57:43PM -0300, Jason Gunthorpe wrote:
-> Convert the batch's type to also get the remaining helper functions to
-> use the new type and complete replacing naked u64s with the new struct.
-> 
-> The low-level queue_write()/queue_read()/queue_remove_raw() functions
-> remain u64-based since they are shared by event and PRI queues which
-> have different entry sizes.
-> 
-> Reviewed-by: Mostafa Saleh <smostafa@google.com>
-> Reviewed-by: Pranjal Shrivastava <praan@google.com>
-> Tested-by: Pranjal Shrivastava <praan@google.com>
-> Tested-by: Mostafa Saleh <smostafa@google.com>
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+On Thu, 14 May 2026 16:09:33 +0100
+Marc Zyngier <maz@kernel.org> wrote:
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+> The ARMv8.2 based CPUs used in the A523 SoC (and derivatives)
+> are missing the EL2 virtual timer interrupt. Add it.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+
+Works, with [v2 03/17] and this patch I see the arch timer IRQ being
+int ID 28, and working, where it was 26 before. dmesg confirms that:
+[    0.000000] arch_timer: cp15 timer running at 24.00MHz (hyp-virt).
+
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+Tested-by: Andre Przywara <andre.przywara@arm.com>
+
+Cheers,
+Andre
+
+> ---
+>  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> index 5afa8d92acbfb..d3c47966e8fc8 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> @@ -101,7 +101,8 @@ timer {
+>  		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>,
+>  			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>,
+>  			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>,
+> -			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>;
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>,
+> +			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>;
+>  	};
+>  
+>  	soc {
+
 
