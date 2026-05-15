@@ -4,73 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605D9CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 08:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D41CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 09:02:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N/2Q/+hDnHMkFnxQQrnEIwh3Lhr71rTHDivWVOjWQnU=; b=QMCT8l0SY3IT4WwztjmwQnAVuK
-	IawWjNlD4XyfI/yKG5iTaoPP4zGEd1Hjf4aBO0d2qv7wG6nVHp1Bovo1rAMHT56DcyyxOWEB/bz58
-	4Xc9/rL3qrXY8zauiaM7tNcDU6PSD/elyxT7HGn9C1l9VKomdPOaqqsG2tTnoQdqIpnFL0QfuT6ZS
-	8iCFtWa5OOY9/0Pl/MX2P2CdNz2Np05r3OmYRoZdjCM4YCMsx5qjeW5lZ3Yrja29+tTJKgXgGLr+M
-	9utpS7ztRtPliRv39sH28HPdJ+shmHWd4k37G9Qe1NwIZn5PvlUO2rxZeK1LAxxBI00BO8ars00g2
-	T3akcZcg==;
+	bh=MeVtd5jgWtEcTyZTMUFtTZGp+FoBlkEpQv/hKwoH+Rk=; b=dTEUVfPc3S+HP8bgR27VpH7BxH
+	3tUayYfbOuaNnkONtuPnu77jofHItqLr5ZgLXysew5ez/D4xguLb2FsN23ousEtblXh8C4Gcil0cu
+	ifNg83DaFFmw2uGOdBR5jG+bb5yUfNg817WPvL1rg4k0GOkvkMQTRArJYi3uXvnOIA3soUmVW84/i
+	vSqSuWNrgDgpTmFDDI5JvZjAQvfMkoq19jb3oQJxrs+1W5W/bQgm8uFMvdgNxGYrZUMZ08GeyTsVZ
+	8TlIf+rbIZCeOz4XwTMRvpbMDZeDPDKXadqm5HwSMifSPnNxceZw2EK4/pms3d3vUcj+rH9VzYe+I
+	qzCL8Klg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoNZ-00000007o40-0a5z;
-	Fri, 15 May 2026 08:58:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wNoQu-00000007oZZ-2mAJ;
+	Fri, 15 May 2026 09:02:12 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoNW-00000007o1p-1gfy
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 15 May 2026 08:58:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=N/2Q/+hDnHMkFnxQQrnEIwh3Lhr71rTHDivWVOjWQnU=; b=UBlyoaZ/lNA3c8Q6a+bGpqH168
-	yxbkOCqxww2KpTGEdYzuA8Li7IN7An5IA+ygJSV9H925UrusqV8ANw/HEBkSWbsuTd0yxiC9uqFrC
-	Dyx+F7NvZO2dJomuTWPOCNWT05yqbUT7fTvguD53XkE1/sd19m9HErfdbmno4HxlT0Q600+EQlO39
-	B5OSzp4P2xfn7CjdsLUivL1OTXX+Iz0pADBuuiCwhQoRZgvGRxMUGUNLlPI4DbLT1tHejRWmz6OW0
-	DDlRhNFT6OscDiwC6DAMtUpo2fIIU0tefOV++u8IwGPszuAol5+Zgh3rjBiCNEfk+KUdnlBgtvGCn
-	8wExzhTQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNoNS-00000004gZM-3H6k
+	id 1wNoQr-00000007oY9-0qmT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 08:58:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91E1D26A4;
-	Fri, 15 May 2026 01:58:31 -0700 (PDT)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5C16B3FAF5;
-	Fri, 15 May 2026 01:58:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778835516; bh=Xf1MKewX1qHIoEYl7yF7sCbi2Zzhjv/ESbywRaQiUYw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=PicMm3+eRwPFO1YojcuvsED2Q2H66VvtbZEw0e4P8BxfibmSmAXfMRYdmPuFiDHET
-	 dz107WYMOKzfN+x554qVUwCMR3UEonMX0gWc58O8a4WGoZLMNJyL87+kRA6TvoUjx4
-	 BfRG1sEGGJnKkYri08g6HHPtYrvSacLDe3bf3fZw=
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: james.morse@arm.com,
-	reinette.chatre@intel.com,
-	fenghuay@nvidia.com,
+	Fri, 15 May 2026 09:02:11 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3665b67ed66so4897311a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 02:02:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1778835728; x=1779440528; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MeVtd5jgWtEcTyZTMUFtTZGp+FoBlkEpQv/hKwoH+Rk=;
+        b=YtDOxmCYYyt5c0hJBKra1EZHBRtXn6LzRKZR085rGC2D4EY8p0zjrS/M6dUQSfmQYw
+         FyKgAMc63RDaV7J71lBvNvQ5RF/F/v/BOcA1UZLzWhI0Uw+qt/OZob/wjc2fpVIM/Kqq
+         +y1qwQwZxUCJg0Zu45iF9gbbpwP5U3uBs1W+4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778835728; x=1779440528;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MeVtd5jgWtEcTyZTMUFtTZGp+FoBlkEpQv/hKwoH+Rk=;
+        b=Z2qhHFS1D2/eK+jp+msYCWpyYObOtmUJmARyer041FbAzvBhIHv2v5NLIgFNxSHwPr
+         o3wgufEyJUcorw6tWxc/zz9ITV3af1X/kHKlIrgOD27IP6uLKxzdNjfVIAZBj8XfdZkM
+         mMd7QwpUmrNTMoznxeSwtySiE7yhbs6advHANjyMWSpcBRdcYyoGXFm+XZvRxO0qlXSR
+         MhZoLOfI++NVR682Tigh+LsLCeA649U60uh4fos6Vx3XkWvl/dZy6dN/zZ9NDcOR1Bd7
+         FyKS1gJs4hV/ImtWPLI22Z71ZE+OQ3g4vS28RjKxZaxVIhJ3hN8YDOU3BGHm8MQu4ORT
+         IQPg==
+X-Forwarded-Encrypted: i=1; AFNElJ/6eUVbxGni+/aKmqLfd+33YXGdzMnrU/girRDJTqkD42ajL6ViKcYqnDYHecTIe2WSu/K+g3Nbnc7WsVcEADy9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzpqx70ad99Koe6EUjZCAh2tkZaA3g0b8eBBibKS6HkiPRC+64C
+	E6HGtUdNc3FElO1zk8Zg3cm+ehFBkY5siXbM525Z8g9G9MbtUwRoDDjaRB0OxfgasA==
+X-Gm-Gg: Acq92OGN/E0RG3oYUU5HNZqZFtes1AYHBY1s3jmrfkyHPgluTlcXScHbKaAuPzt4nI7
+	kBgc4OXDhEYT+bpXOo+3dqQJCIyngTFDLX9DxMhouo4uS/SL/RE3X8KkS6h5SDhjLxcBLHcWxRV
+	7flogfK89u5FJwgJk9saU3HurdAojEU1qqXvEtZVPo2F5LCh5Ao8FpUs6vK5v0kI0Kold7rS/dI
+	3bwbSjSrNpaEKtMYW8Y0Si8o0vzgUmTsqPd01kTUzsqDrDF+ShwtD+xDb8WuYovNa5r4c51RjwW
+	vfKh5DewK5QkXwwQYB7WKkbM7/kYAztSCUQRl0Wfs0hSbMznlWnWfoK54LvP0Dh2LMT4gv8Fz8Z
+	d2Zl5BIu03IbUks4eUQUTq8WPgMBfmc1Rhz672fGcQf7HxD+Ib/FDOip4L0P7oDNfrgAmHvFkrd
+	BBcekDjAL2oft4w8WbMqCmYrHjXD4/7QP/tu9m31B/F62YZAkmQGVtTVrFWmKzclc6bNRXxHRO8
+	22VO5VS
+X-Received: by 2002:a17:90b:2d08:b0:362:e826:cefe with SMTP id 98e67ed59e1d1-36951ca6064mr3062453a91.23.1778835727968;
+        Fri, 15 May 2026 02:02:07 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:b3d8:e32e:c2fc:c31e])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36951584654sm2076537a91.7.2026.05.15.02.02.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 May 2026 02:02:07 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] arm_mpam: Fix software reset values of MPAMCFG_PRI
-Date: Fri, 15 May 2026 09:58:25 +0100
-Message-ID: <20260515085825.1157812-1-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
+	Manivannan Sadhasivam <mani@kernel.org>
+Subject: [PATCH RFC 00/12] arm64: mediatek: Add M.2 E-key slot on Chromebooks
+Date: Fri, 15 May 2026 17:01:36 +0800
+Message-ID: <20260515090149.3169406-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_095839_624248_06C1A396 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260515_020209_277318_0FCC48D9 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,79 +105,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Priority partitioning is not supported other than to set the per-PARTID
-defaults in MPAMCFG_PRI, INTPRI and DSPRI, to the highest priority. When 0
-is the lowest priority, all ones is the highest priority. However, these
-values are calculated with an extra higher bit set.
+Hi everyone,
 
-Luckily, there is still no chance of setting functional bits incorrectly.
-When the priority widths are maximal, this is ensured as the fields have
-width 16 and a u16 holds the value for each field. When the widths are
-smaller, the higher order bits beyond the advertised widths,
-MPAMF_PRI_IDR.DSPRI_WD and MPAMF_PRI_IDR.INTPRI_WD, in the priority fields
-INTPRI and DSPRI are not used to calculate the priority.  It is not
-specified whether these higher order bits are RAZ/WI or Res0 and so it is
-desirable not to set them to avoid the chance of misleading reads.
+This series is my attempt at enabling power sequencing for USB to support
+the USB connection on M.2 E-key slots. M.2 E-key was enabled in v7.1-rc1
+with just PCIe and UART supported [1].
 
-Correct the priority reset values.
+Most of the series is based on next-20260508, while the DT changes also
+depend on some other DT cleanup patches I sent [2][3].
 
-Fixes: 880df85d8673 ("arm_mpam: Probe and reset the rest of the features")
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
----
- drivers/resctrl/mpam_devices.c | 26 ++++++++++++++++----------
- 1 file changed, 16 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 41b14344b16f..a627dc2c53de 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -1539,12 +1539,9 @@ static u16 mpam_wa_t241_calc_min_from_max(struct mpam_props *props,
- static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
- 				      struct mpam_config *cfg)
- {
--	u32 pri_val = 0;
- 	u16 cmax = MPAMCFG_CMAX_CMAX;
- 	struct mpam_msc *msc = ris->vmsc->msc;
- 	struct mpam_props *rprops = &ris->props;
--	u16 dspri = GENMASK(rprops->dspri_wd, 0);
--	u16 intpri = GENMASK(rprops->intpri_wd, 0);
- 
- 	mutex_lock(&msc->part_sel_lock);
- 	__mpam_part_sel(ris->ris_idx, partid, msc);
-@@ -1609,16 +1606,25 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
- 
- 	if (mpam_has_feature(mpam_feat_intpri_part, rprops) ||
- 	    mpam_has_feature(mpam_feat_dspri_part, rprops)) {
--		/* aces high? */
--		if (!mpam_has_feature(mpam_feat_intpri_part_0_low, rprops))
--			intpri = 0;
--		if (!mpam_has_feature(mpam_feat_dspri_part_0_low, rprops))
--			dspri = 0;
-+		u32 pri_val = 0;
-+
-+		if (mpam_has_feature(mpam_feat_intpri_part, rprops)) {
-+			u16 intpri = GENMASK(rprops->intpri_wd - 1, 0);
-+
-+			/* aces high? */
-+			if (!mpam_has_feature(mpam_feat_intpri_part_0_low, rprops))
-+				intpri = 0;
- 
--		if (mpam_has_feature(mpam_feat_intpri_part, rprops))
- 			pri_val |= FIELD_PREP(MPAMCFG_PRI_INTPRI, intpri);
--		if (mpam_has_feature(mpam_feat_dspri_part, rprops))
-+		}
-+		if (mpam_has_feature(mpam_feat_dspri_part, rprops)) {
-+			u16 dspri = GENMASK(rprops->dspri_wd - 1, 0);
-+
-+			if (!mpam_has_feature(mpam_feat_dspri_part_0_low, rprops))
-+				dspri = 0;
-+
- 			pri_val |= FIELD_PREP(MPAMCFG_PRI_DSPRI, dspri);
-+		}
- 
- 		mpam_write_partsel_reg(msc, PRI, pri_val);
- 	}
+Patch 1 reworks the power sequencing framework to allow matching against
+different USB ports. The consumer API gains an "index" parameter (which
+is the USB port number on the hub), while the provider API is reworked
+to pass the index to the matching function of the providing driver.
+
+Patch 2 implements the index matching in the pcie-m2 driver. Matching
+only happens when a valid (>= 0) index is given.
+
+Patch 3 reworks the power sequencing targets for the E-key connector in
+the pcie-m2 driver to add targets for USB and SDIO. The former is used
+later on in this series.
+
+Patch 4 reworks the USB hub driver to return the actual error code from
+hub_configure() in hub_probe(). This is needed in the next patch to
+correctly return -EPROBE_DEFER.
+
+Patch 5 lets the USB hub driver look for power sequencers for each port.
+Currently this only works for M.2 E-key connections, but it could be
+extended to cover other cases. It should also make port reset via turning
+off the port VBUS work, even when VBUS is not directly controlled by the
+hub.
+
+I expect some discussion on this patch, because a) it adds some
+OF-specific code into an otherwise generic (core) driver, and
+b) it doesn't yet handle USB 2.0 / 3.x shared ports; it ends up powering
+on the port twice, which negates the port reset part.
+
+Patch 6 reverts an incorrectly modeled OF graph connection for the
+MediaTek XHCI controller.
+
+Patch 7 then adds a proper representation.
+
+Patches 8 through 12 enable the M.2 E-key slots (used for WiFi/BT) and
+USB type-A connectors found on MediaTek-based Chromebooks. These are
+provided in this series for reference. The USB type-A connector changes,
+while not directly related, have overlapping context, and was easier to
+include. They were also used to test some extra local changes I tried
+to convert the USB A connector from an onboard USB device to a power
+sequencing provider.
+
+
+As this series changes existing power sequencing API, and also uses the
+changed API in subsequent patches, I think the best way to merge this
+is for Bartosz to take the power sequencing patches and provide an
+immutable tag for Greg to merge and then merge the USB patches.
+
+The DT patches can go through the soc tree once all the driver and DT
+binding changes are merged.
+
+
+Thanks
+ChenYu
+
+P.S. I'll be at Embedded Recipes if anyone wants to discuss details.
+
+[1] https://lore.kernel.org/all/20260326-pci-m2-e-v7-0-43324a7866e6@oss.qualcomm.com/
+[2] https://lore.kernel.org/all/20260505101408.1796563-1-wenst@chromium.org/
+[3] https://lore.kernel.org/all/20260514101254.2749300-1-wenst@chromium.org/
+
+
+Chen-Yu Tsai (12):
+  power: sequencing: Add index parameter for getting power sequencer
+  power: sequencing: pcie-m2: implement port index matching
+  power: sequencing: pcie-m2: Add usb and sdio targets for E-key
+    connector
+  usb: hub: Return actual error from hub_configure() in hub_probe()
+  usb: hub: Power on connected M.2 E-key connectors
+  Revert "dt-bindings: usb: mediatek,mtk-xhci: Add port for SuperSpeed
+    EP"
+  dt-bindings: usb: mediatek,mtk-xhci: Allow ports for USB connections
+  arm64: dts: mediatek: mt8192-asurada: Add USB type-A connector
+  arm64: dts: mediatek: mt8192-asurada: Add M.2 E-key slot
+  arm64: dts: mediatek: mt8195-cherry: Add M.2 E-key slot
+  arm64: dts: mediatek: mt8195-cherry: Add USB type-A connector
+  arm64: dts: mediatek: mt8188-geralt: Add WiFi/BT as M.2 E-key slot
+
+ .../bindings/usb/mediatek,mtk-xhci.yaml       |  17 +-
+ .../boot/dts/mediatek/mt8188-geralt.dtsi      |  93 ++++++++++-
+ .../boot/dts/mediatek/mt8192-asurada.dtsi     | 139 +++++++++++++++--
+ .../boot/dts/mediatek/mt8195-cherry.dtsi      | 146 +++++++++++++++++-
+ drivers/power/sequencing/core.c               |  12 +-
+ drivers/power/sequencing/pwrseq-pcie-m2.c     |  65 +++++---
+ drivers/power/sequencing/pwrseq-qcom-wcn.c    |   6 +-
+ drivers/power/sequencing/pwrseq-thead-gpu.c   |   2 +-
+ drivers/usb/core/hub.c                        |  22 ++-
+ drivers/usb/core/hub.h                        |   2 +
+ drivers/usb/core/port.c                       |  54 ++++++-
+ include/linux/pwrseq/consumer.h               |   6 +-
+ include/linux/pwrseq/provider.h               |   2 +-
+ 13 files changed, 508 insertions(+), 58 deletions(-)
+
 -- 
-2.43.0
+2.54.0.563.g4f69b47b94-goog
 
 
