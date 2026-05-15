@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF671CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 02:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E7A2CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 02:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
+	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U0zZkFsIJMlo+SmTsm1vbbfTBR0506CjYpUXxe4Vvng=; b=wPJ3MaDxzYIpsDrA07RLx19HvR
-	DCP7/Re0VnZGH4aKwdcvIILVKfPEWt5P7NIHEg3wwyo5HBwto6firDxyHx4PhJzkHa0Qte93IVgjD
-	uFlrKTtONVKPKdxsgN5FWqCe7aiGY07iKn3fbgJwF+AVBYEPQ5jQrMTg0nSQY3hXW/GAwxD+lb1w0
-	UybqAJnCo9UDZdKQhSrVpVSyy7hMszPHxP+1KOxDEYei1HrF2515XPdPVuA+6eASUWnCesD9OL5Jf
-	0XYKIdVY8XNxOiBhyvcBuY2lPv4ORMo5iQXM1aCGSExype66kl+0EUox0Ez7L+BJbXQ13/jVXpzdq
-	4DPM/X3w==;
+	bh=ZDNnIRMHkSYwMfxR5k4l5ncBbucBQZkKPFW617Sixjs=; b=qoNEHgSR5u8n2O6mN6WDxCnHJT
+	KQnQVw2O0pWhmniT2S4v4Hy4OgMhR5Ae+On9GdJA+XmqPDixvKVMEOib59ZE+rIRYFKl141KGhVwn
+	kTl0ShSLlkL+TPqldkPOD+d6DXLjp+7iln/7H8WeuSATGePhaD7vGCVtfv6K0gUC4p7kEkbvG0bD+
+	ByNGlZITVqcHrpEdUjQH75qu6HGOzNg9zrl//Ex9qzooBXOymHJ36aXVrqRqkfyJ/aPgaaPPehXX+
+	Uwx29Y0vlmnYeDchQJ+jo2U3fLjy2b9Y9lI3/RF+Mr4rDcLrL9Y6YKx5mpZK9Q71gGfNUj7l18Odn
+	IFoXA7Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNiPv-000000078RK-3MNT;
-	Fri, 15 May 2026 02:36:47 +0000
-Received: from mail-m8382.xmail.ntesmail.com ([156.224.83.82])
+	id 1wNiXc-000000079Ox-1v4w;
+	Fri, 15 May 2026 02:44:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNiPr-000000078Pt-1eOR;
-	Fri, 15 May 2026 02:36:45 +0000
-Received: from [172.16.12.43] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3e7fc10ae;
-	Fri, 15 May 2026 10:36:32 +0800 (GMT+08:00)
-Message-ID: <f290b425-d5e1-46dd-a63e-0fac53067ca0@rock-chips.com>
-Date: Fri, 15 May 2026 10:36:32 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 01/10] dt-bindings: display: rockchip: analogix-dp: Fix
- hclk as third clock for RK3588
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
- cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
- dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com,
- dianders@chromium.org, m.szyprowski@samsung.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260513074414.2053435-1-damon.ding@rock-chips.com>
- <20260513074414.2053435-2-damon.ding@rock-chips.com>
- <20260514-elegant-agate-pug-449ec2@quoll>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20260514-elegant-agate-pug-449ec2@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e297e20f403a3kunmc0deb7cd11afb4
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaHkgfVkMfShlLT0kdS0lKTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=LqrIEfZA+38ljtZG4tF5/WXxztcTnpzY/0OJHfmpE6+LRkFfaUBXdEd9wAWhiPI+0kT6NObp8PeeC962DlhXclUpfPS8fboSaz+TH7sCUqcyub0csGGdW0gd7744Ue1MZAg6ad/M3haGgxeWshyXu7maKjiAb/B0UcwE2TAEa+k=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=U0zZkFsIJMlo+SmTsm1vbbfTBR0506CjYpUXxe4Vvng=;
-	h=date:mime-version:subject:message-id:from;
+	id 1wNiXZ-000000079OK-1Kb3
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 15 May 2026 02:44:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A40BD42E05;
+	Fri, 15 May 2026 02:44:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF2B7C2BCB3;
+	Fri, 15 May 2026 02:44:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778813080;
+	bh=xddcZ6kMGB/rYMEe75+BVJi4hJyQUito4b9gPm8fIH4=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date:From;
+	b=pa6o4LlxYgmirQt3ntPFMTLSJDXIAwZIOH9BQDvGw+2rFq7bMQUumud4wBa3/93kl
+	 gb72mifNw4QLgld1sRYfhZbUzYQWYCRTSy+SEHYeOIgO+rIsJpwtAllPA+Qs8+UvvI
+	 Rz96xPcOQtUzsnnqTVm/nlYqQJe/tzKErYoBMqll8NviSZIc6zlx2tbzew9o3S3JFf
+	 620nORRqfWEZ+RmQ6wCaLewA6Z63H35S9Nc4rG2lbXHSHjTaweyWkBmZvX/hu9Rwmk
+	 TnvfXN9XcY+y4n6Io8U4VvMdbhiLFgM3ToV1rkx+DI3SrG3f52ex8A5/N3crhtBAzw
+	 aKHgbYJmNCuaw==
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v3 21/21] klp-build: Add arm64 syscall patching macro
+To: x86@kernel.org
+Cc: "Miroslav Benes" <mbenes@suse.cz>, live-patching@vger.kernel.org, "Peter
+ Zijlstra" <peterz@infradead.org>, "Will Deacon" <will@kernel.org>, "Joe
+ Lawrence" <joe.lawrence@redhat.com>, "Catalin Marinas" <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, "Mark
+ Rutland" <mark.rutland@arm.com>, "Song Liu" <song@kernel.org>, linux-kernel@vger.kernel.org, "Petr
+ Mladek" <pmladek@suse.com>
+In-Reply-To: <3bf3cee43039fc4da84e83d0891a92e25f40f00f.1778642121.git.jpoimboe@kernel.org>
+References: <3bf3cee43039fc4da84e83d0891a92e25f40f00f.1778642121.git.jpoimboe@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 15 May 2026 02:44:39 +0000
+Message-Id: <20260515024439.AF2B7C2BCB3@smtp.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260514_193644_042382_002F2393 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260514_194441_377682_498FB3C4 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,138 +70,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Thank you for your contribution! Sashiko AI review found 1 potential issue(=
+s) to consider:
+- [Medium] The arm64 __KLP_SYSCALL_DEFINEx macro omits the ALLOW_ERROR_INJE=
+CTION declaration, silently breaking BPF error injection for livepatched sy=
+scalls.
+--
 
-On 5/14/2026 6:03 PM, Krzysztof Kozlowski wrote:
-> On Wed, May 13, 2026 at 03:44:05PM +0800, Damon Ding wrote:
->> RK3588 eDP controller requires HCLK_VO1 (video output bus clock)
->> to access the VO1 GRF registers and enable the video datapath.
-> 
-> To access GRF? Then it is the same clock input.
+commit b4d1a9ea352f196a7fd3e7198fdade51440d08e5
+Author: Josh Poimboeuf <jpoimboe@kernel.org>
 
-Not the same as RK3399 case.
-(The same as the descriptions in [0])
+klp-build: Add arm64 syscall patching macro
 
-RK3588 hclk_vo1 related NOC design:
+This commit adds arm64 support for KLP_SYSCALL_DEFINEx(). The commit
+message states it is mirroring the arm64 __SYSCALL_DEFINEx() pattern from
+arch/arm64/include/asm/syscall_wrapper.h.
 
-PD_VO1
-    hclk_vo1
-      └─ pclk_vo1_root
+> diff --git a/include/linux/livepatch_helpers.h b/include/linux/livepatch_=
+helpers.h
+> index 99d68d0773fa8..4b647b83865f9 100644
+> --- a/include/linux/livepatch_helpers.h
+> +++ b/include/linux/livepatch_helpers.h
+> @@ -72,6 +72,25 @@
+>  	}								\
+>  	static inline long __klp_do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))
+> =20
+> +#elif defined(CONFIG_ARM64)
+> +
+> +#define __KLP_SYSCALL_DEFINEx(x, name, ...)				\
+> +	static long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__));	\
+> +	static inline long __klp_do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__));\
+> +	asmlinkage long __arm64_sys##name(const struct pt_regs *regs);	\
+> +	asmlinkage long __arm64_sys##name(const struct pt_regs *regs)	\
+> +	{								\
+> +		return __se_sys##name(SC_ARM64_REGS_TO_ARGS(x,__VA_ARGS__));\
+> +	}								\
 
-Then the clock tree design:
+Does this macro definition omit the ALLOW_ERROR_INJECTION declaration?
 
-hclk_vo1 (200M)
-├─ hclk_vo1_niu_en
-│    └─ hclk_vo1_niu (200M)
-├─ hclk_hdcp1_en
-│    └─ hclk_hdcp1 (200M)
-├─ hclk_i2s5_8ch_en
-│    └─ hclk_i2s5_8ch (200M)
-├─ hclk_spdif4_en
-│    └─ hclk_spdif4 (200M)
-├─ hclk_spdifrx1_en
-│    └─ hclk_spdifrx1 (200M)
-├─ hclk_i2s9_8ch_en
-│    └─ hclk_i2s9_8ch (200M)
-└─ hclk_i2s6_8ch_en
-       └─ hclk_i2s6_8ch (200M)
+The standard arm64 __SYSCALL_DEFINEx() macro explicitly registers the top-l=
+evel
+syscall handler with ALLOW_ERROR_INJECTION() to enable BPF error injection
+workflows like bpf_override_return(). The x86 implementation correctly
+preserves this functionality.
 
-pclk_vo1_root (150M)
-├─ pclk_edp0_en
-│    └─ pclk_edp0 (150M)
-├─ pclk_edp1_en
-│    └─ pclk_edp1 (150M)
-├─ pclk_hdmitx1_en
-│    └─ pclk_hdmitx1 (150M)
-├─ pclk_vo1grf_en
-│    └─ pclk_vo1grf (150M)
-├─ pclk_hdcp1_en
-│    └─ pclk_hdcp1 (150M)
-├─ pclk_hdmitx0_en
-│    └─ pclk_hdmitx0 (150M)
-└─ pclk_trng1_en
-      └─ pclk_trng1 (150M)
+Because this macro is missing that declaration, it looks like it might
+introduce a regression where BPF cannot inject errors into the replacement
+syscalls in a livepatch module on arm64.
 
-On RK3399, the 'grf' clock is only used exclusively for GRF register access.
+[ ... ]
 
-But on RK3576/RK3588, the 'hclk' (HCLK_VO1) acts as the parent clock for 
-pclk_vo1_root in NOC design. Meanwhile pclk_vo1_root is further the 
-parent of pclk_vo1grf and pclk_edp0/pclk_edp1 in clock tree. So this 
-hclk affects both GRF register access and the overall APB clock domain 
-of the eDP controller, which makes it necessary to be listed independently.
-
-> 
-> AGAIN (reiterated soooo many times by me): you describe here clock
-> input, NOT OUTPUT.
-> 
-
-You're absolutely right, thank you for the repeated clarification.
-
-I used "video output bus clock" as a shorthand to refer to HCLK_VO1,
-which clocks the entire video output domain including eDP and HDMI
-interfaces.
-
-I will rephrase the commit message more precisely in the next version.
-
->>
->> Previously, the clock was enabled implicitly via the 'rockchip,vo-grf'
->> phandle reference, which allowed the eDP to work without explicitly
->> managing the hclk_vo1 clock. However, this is not safe or explicit.
->>
->> Enforce the correct third clock name on a per-compatible basis to
->> standardize clock requirements per SoC. This makes the clock
->> dependency clear and removes reliance on implicit clock enablement
->> from GRF phandle.
->>
->> Fixes: f855146263b1 ("dt-bindings: display: rockchip: analogix-dp: Add support for RK3588")
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>
->> ---
->>
->> Changes in v4:
->> - Modify the commit msg.
->>
->> Changes in v5:
->> - Enforce the correct third clock name on a per-compatible basis.
->> - Modify the commit msg simultaneously.
->> ---
->>   .../rockchip/rockchip,analogix-dp.yaml        | 37 +++++++++++++++++--
->>   1 file changed, 33 insertions(+), 4 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
->> index d99b23b88cc5..8001c1facf98 100644
->> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
->> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
->> @@ -23,10 +23,7 @@ properties:
->>   
->>     clock-names:
->>       minItems: 2
->> -    items:
->> -      - const: dp
->> -      - const: pclk
->> -      - const: grf
-> 
-> What is 'grf' clock in such case?
-> 
-
-The 'grf' clock here was specifically for RK3399, which is only used for 
-GRF register access.
-
-Moreover, the control logic for the new 'hclk' clock is different from 
-'grf' clock:
-- The 'grf' clock was gated dynamically before/after GRF register access;
-- The 'hclk' needs to be enabled during probe and kept running 
-continuously [1].
-
-Best regards,
-Damon
-
-[0] 
-https://lore.kernel.org/all/c349eaf2-5852-4bb6-9dac-f7240e1c8098@rock-chips.com/
-[1] 
-https://lore.kernel.org/all/20260513074414.2053435-6-damon.ding@rock-chips.com/
-
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1778642120.gi=
+t.jpoimboe@kernel.org?part=3D21
 
