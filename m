@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37765CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 20:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70196CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 20:49:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yOPbK2OFF6IcrfoJraZaWua7RTa6T7n9+bq8VLS6qCY=; b=gpYoG7wSo5FZNi2+IYwGX8vSvB
-	/TCAS8XdaE4lmMtmW4/ECTEKr6akG4pCbhmZ3ZRdMtfxEHFf8PkcVK3hwZ6ekzFSWJZZH+NSpJFbw
-	BFaaOUnR6ro265/jGRfNP66M9Az27lsJybzoh4hXLbFGcAaO2XyHON71xBO8j4vEFRO1j1Pe3gux9
-	qI6Uv9S5IQ0hqaQxUCThc0aQs5/rH5gD3nvbUc2gIxTn0TyYYKP9d5KOSAWqMWV/ULqUIeDbukaIq
-	l5p+wmfFu8/F++WbBbwM1jBHSbRftabMCAm1Y9v237+C/aAH1jh8y3B4XtGIbDrOdvBuANkYs9/Bh
-	p2H/p1qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PegKaT1mtH+mwv7bm3xAQDV4/D5RAVdIgX7KfYRGxm0=; b=bB2ZBGwKmsp9msHnfACX9WTP4s
+	84jL3VuHEkI3zqN3zxm/5o9MFOf53U9DEmdccvxDmQzh2uYBkgx43046Uo8YyKa/6w3RtnJuykVgm
+	2/4puaerh1Ad5WDq3RsIL9tgmhx4oPXMIPjTku+06UxbtvYb1TR9bXLE1qKcoPRUl7sBbaM66Ouf4
+	Mhnji7yDTViNyIlSh0IbyckD1ynseswVY/mXdejTs6BYO3/j4Y5eCkuDJugck9hJFEuHiTg/XyAOa
+	VpZTEudKtA+z+5s1J+NIvuD+Km5M0l0J6Rm2HLFBxIWfqtXPaMaPHJEXoRaOYy3FBjG2FiHgBpmiX
+	/sN4th/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNzOA-00000009P0k-2kHW;
-	Fri, 15 May 2026 20:44:06 +0000
-Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
+	id 1wNzSq-00000009Pnq-0eRz;
+	Fri, 15 May 2026 20:48:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNzO6-00000009Ozg-3SNl;
-	Fri, 15 May 2026 20:44:05 +0000
-Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 64FJxdt93762934
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Fri, 15 May 2026 12:59:40 -0700
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 64FJxdt93762934
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2026042601; t=1778875185;
-	bh=yOPbK2OFF6IcrfoJraZaWua7RTa6T7n9+bq8VLS6qCY=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=HvwBqnLT38+P8wOr09I0oo/MRbA0gltt1BvxpDB/CXoHAI/p9iMtZP4Acni9CBE8i
-	 UuQANyZJcLZO9XcaPLGm0i1Xg+soCjS4z5NjIoUETnDDa930DiHBVRAOT/MRlLb9jY
-	 QYrQ9QMS7lPYMHGvM8plKfNxe30Gl9az6f+vOCv0hNim3O4/Bdo2qSTnUxGO9V7Nx4
-	 F46aEk0Mx5DZE0TAlF3l22P0Yw61+alulS+V4O2YtDdYTlzt2T6qIuwD2KE0nXfR9T
-	 jNDuDCJ8yXY/CId0JmSkw1Ar6+GJQTs5O0RqwrWv5l7cMbOBEgdh93GvzIYQG1gbNB
-	 I9HJmsdG2PKng==
-Date: Fri, 15 May 2026 12:59:34 -0700
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: Christoph Hellwig <hch@lst.de>, kreijack@inwind.it
-CC: David Sterba <dsterba@suse.cz>, Andrew Morton <akpm@linux-foundation.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-        Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
-        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        Herbert Xu <herbert@gondor.apana.org.au>,
-        Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
-        David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-        Song Liu <song@kernel.org>,
-        Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
-        Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
-        linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
-        linux-raid@vger.kernel.org
-Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20260515043705.GA3855@lst.de>
-References: <20260512052230.2947683-1-hch@lst.de> <20260512052230.2947683-2-hch@lst.de> <20260512114231.GG2558453@suse.cz> <20260513054742.GA1018@lst.de> <0a8d1ff4-f5a2-49e9-aa45-d25dbe4ded40@libero.it> <20260515043705.GA3855@lst.de>
-Message-ID: <34C16854-1065-4542-8836-DDED58EC1844@zytor.com>
+	id 1wNzSn-00000009Pn3-0nzk;
+	Fri, 15 May 2026 20:48:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4CE164195D;
+	Fri, 15 May 2026 20:48:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A77BC2BCB0;
+	Fri, 15 May 2026 20:48:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778878132;
+	bh=mnxRonVmc3SIVkJfuxHHi9gFpuH063Z0knM8Jl4+ZUo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sY2x9j3tc+tNhoOAjU2yJZ7X/GCf60U9IvfrSx7LcvtPasbU2cxHxAKyv2I/l+x2b
+	 WD8hAJuJ/HsTQafeO3rR4o8YjGHqPegt/gXQy0QhgLcRFVGGZG+K8YTa3FeFIfRcVI
+	 6H5NSPaKbg2ZN75fKPC4Mjv0Hp0wMcE67ud5+WEmjT87runl0RBGG4ydGYCKA0n4IH
+	 nuaPA6ApcBc6YTCMf/RNhArlzvQNxKRxTFCVMCj3PpvAHPA8srRQL/psG7sHJR/1CX
+	 P2SXhwyzb655eVLIC9OI14twWN/GvvUPjPIyWADwFRXEa7yHS2xsn/6kwzhIHSYldV
+	 IaFHoxPUu7HvA==
+Date: Fri, 15 May 2026 17:48:48 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: adrian.hunter@intel.com, dapeng1.mi@linux.intel.com,
+	james.clark@linaro.org, namhyung@kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Li Guan <guanli.oerv@isrc.iscas.ac.cn>, 9erthalion6@gmail.com,
+	alex@ghiti.fr, alexander.shishkin@linux.intel.com,
+	andrew.jones@oss.qualcomm.com, aou@eecs.berkeley.edu,
+	atrajeev@linux.ibm.com, howardchu95@gmail.com,
+	john.g.garry@oracle.com, jolsa@kernel.org, leo.yan@linux.dev,
+	libunwind-devel@nongnu.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org, mingo@redhat.com,
+	palmer@dabbelt.com, peterz@infradead.org, pjw@kernel.org,
+	shimin.guo@skydio.com, tglozar@redhat.com, tmricht@linux.ibm.com,
+	will@kernel.org
+Subject: Re: [PATCH v5 4/7] perf unwind-libunwind: Make libunwind register
+ reading cross platform
+Message-ID: <ageGsOVhDDKnvQhQ@x1>
+References: <20260413024805.1316480-1-irogers@google.com>
+ <20260513233151.572332-1-irogers@google.com>
+ <20260513233151.572332-5-irogers@google.com>
+ <agdyluuau3wPQOtX@x1>
+ <CAP-5=fUeGOSH1LO1oSbWnpmXfv_RzxfFE+YCQ07PC19gLHDEsA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAP-5=fUeGOSH1LO1oSbWnpmXfv_RzxfFE+YCQ07PC19gLHDEsA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_134404_555906_3BDB1C02 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20260515_134853_253628_C910D847 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,29 +88,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On May 14, 2026 9:37:05 PM PDT, Christoph Hellwig <hch@lst=2Ede> wrote:
->On Thu, May 14, 2026 at 09:51:59PM +0200, Goffredo Baroncelli wrote:
->> I think that the David concern is : "what happens for an already
->> existing btrfs raid6 3 disks filesystem when the user upgrade the kerne=
-l ?"
->> (I am thinking when a new BG needs to be allocated)=2E=2E=2E
->
->Then it will cleanly fail to mount instead of constantly corrupting data
->and memory with every write, yes=2E  Which clearly suggest that such
->file systems don't exist in the wild=2E
->
->But if btrfs wants to keep supporting this I'll just add a _unsafe
->version without the check in the core library=2E
+On Fri, May 15, 2026 at 12:38:48PM -0700, Ian Rogers wrote:
+> On Fri, May 15, 2026 at 12:23 PM Arnaldo Carvalho de Melo <acme@kernel.org> wrote:
 
-I don't think this is a good idea=2E Error out; it is the btrfs maintainer=
-s' job to ensure user data isn't lost=2E=20
+> > +++ b/tools/perf/util/libunwind-arch/libunwind-ppc32.c
+> > @@ -23,6 +23,8 @@ int __get_perf_regnum_for_unw_regnum_ppc32(int unw_regnum __maybe_unused)
+> >                 return PERF_REG_POWERPC_CTR;
+> >         case UNW_PPC32_XER:
+> >                 return PERF_REG_POWERPC_XER;
+> > +       case UNW_PPC32_NIP:
+> > +               return PERF_REG_POWERPC_NIP;
+> >         default:
+> >                 pr_err("unwind: invalid reg id %d\n", unw_regnum);
+> >                 return -EINVAL;
+> > ⬢ [acme@toolbx perf-tools-next]$
 
-The RAID-6 code has *never* supported only 3 units, and if it ever worked =
-for *any* of the implementations it was purely by accident=2E Speaking as t=
-he original author I should know; this was deliberate as in some cases the =
-degenerate case (3) would have required extra trays in the code to no user =
-benefit=2E=20
+> > Ok? It was the only issue found in this patch.
+ 
+> Looks good, the NIP is in the original code that I copied, so I don't
+> understand how I lost this, but good catch!
 
-I would not be surprised if the kernel crashed or corrupted the page cache=
- in that case=2E
+What I have is in tmp.perf-tools-next, doing a container build now,
+still need to look at the other findings, but they seems either trivial
+or complaints about making  the build time more inneficient by not
+caching some feature tests, so I think I'll fix the trivial like I did
+in the above case (posting diffs to the list) and leave the build time
+for later so that we make progress.
+
+Will try to do this later today so that I publish it to perf-tools-next
+for it to soak a bit in linux-next.
+
+- Arnaldo
 
