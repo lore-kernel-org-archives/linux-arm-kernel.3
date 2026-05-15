@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BBCCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 21:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77399CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 21:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CY1y/tNdnxCqvCuYMSlbXrj4NmjiYIYzfxdvgPG2Xl4=; b=aNQRgs2TmjtKd0K7J6qU0Dn0xB
-	6D8SAhSkcH6cRIHMdWcaSSxtGEEidWM5wOjisxkFrqs4frC8WHvR6cbkKRoGvSJbebAkxFkUcjz/x
-	BNVHbTrxR5k8IaMeUJn8VfR3AtmtdE8q4puIT9122LUzGX0gOeb72uGrO7vfVXmfPBKGSKvVS9kBZ
-	Kwt7kuYf9hgPkfkHhsJgebjdjAAzBcRJiirTQ4cDaw9xtD8cEIPEUKXNF+2o/ju/yaY2l9KIFcleD
-	NabtdRT04OK1Dccy0PJaEa64b74eyQ9X6TiMxCpMvb786vzVGx948Pr+QXwvBKMn1A/g5Dk1HUCy1
-	xfHa+zqg==;
+	bh=XNjSF0BuHIS43aXN3xvCmUPCSiH3rB9apJtNwPEINiA=; b=aB5OxefbzlGgxmi/BNFwZPrWLU
+	QJ+SR7gBLZ0DfdVZe8wC35JCmMj4L9R0gh3OeJMEaNTMoLgbxd8HFN5TZRmV5lm/64EcUGCkV1Aa/
+	JO6h5Wwom60dPWsqi5m723tztR/nwTyl1Y1aIAePdDRkyPf9zFNoZx1R6FHY3X+XEqamJuo9dYl+3
+	Q6sgtuYnlm0WlbS3y4n/L8ZGyrtsgWv5FXEtnm0O1ZpjB5P1hOflWjloa8DtRvca7MZ/AVUKhvu4A
+	WSM+sD3CRi4qZ67rkCJR/PRXxGG9c4baF1Rht2r3fIZI3eVA6jqOiAqodaMys+Q8rnaD+tzY7rFoE
+	OFQ7iDNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNzxW-00000009VIL-22qx;
-	Fri, 15 May 2026 21:20:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wO0Gt-00000009Xkt-1xNp;
+	Fri, 15 May 2026 21:40:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNzxU-00000009VHk-17WX
+	id 1wO0Gr-00000009Xij-0HRg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 21:20:37 +0000
+	Fri, 15 May 2026 21:40:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 89FF644508
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 21:20:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66A68C2BCFB
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 21:20:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A9D1443B4;
+	Fri, 15 May 2026 21:40:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3D21DC2BCFA;
+	Fri, 15 May 2026 21:40:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778880035;
-	bh=pdmef4fBgIAbfqgK4jVS0fI/dYehx2orZtpEc9nD0JU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IYOY24OWX6ceCGsHtAjp6Wvo1cIMp9hgQ/9aKGF7NTGTeSz+QxXtMpRfNtF+8N/1I
-	 vbfJWf+yHy6VoG7E08uKcdz3YUDN4bO4jZpTE8K11oT2TYwPEvqXzBzVcZgqU+WTuI
-	 ZpgOTuV8+6ulfK6z12BiiWZo0kuz3otSiPECpO/hi1xFbYnt5b5ouBQk0Dm28nYjRz
-	 dG5UGYsyPjrvLcwkkmTg7QMNTks54KjV5yeUIddpFeY9cXZ8BNydEWpo997iIYOxqb
-	 nrkHuKZ/qyZyrT0khwC+bxD+uW1227kxfE6N+so/vdHdjAHlFppic5OSEotpaKKGVl
-	 XOqBC7HsVZuqw==
-Received: by mail-qv1-f46.google.com with SMTP id 6a1803df08f44-8b4298d271fso6480756d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 14:20:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8jwOajHV1qs9aBPiFSYzoj73FCheeYqcLtoeWmMsKL3VqugNdTR0iQRJ0BGzVWv+ZECcEKmWBulN6nShyHjw5z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJ7pKCgaRZ0ThJcVzMequKYwOA5XUB7vPSJTSK9hW7QLPuyjR5
-	RdxpnyBVKxwwyVvFyu3c7R0WrbGYuyNs6wtJQHuAD9gYY1c30YON8gU8qSpkasMeIqk+07hVLkh
-	lu6+rdDZWw4miJxdQkEd3gcMSmwkkG44=
-X-Received: by 2002:a05:6214:5c42:b0:8ca:16fd:7297 with SMTP id
- 6a1803df08f44-8ca16fd752cmr63903586d6.30.1778880034532; Fri, 15 May 2026
- 14:20:34 -0700 (PDT)
+	s=k20201202; t=1778881236;
+	bh=iHR42uvynaw9Y8gIAY8rdBOv8ZX9fIc9NWtVHx2Zq3I=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=VPiZRLZCz5TXnuoSJO7dQLfx0FU/jV4n0/EpWtp1wUhbxOOCgIBpqW0sA+wYH2Bgd
+	 IIONWjr4TRaL50sa0SC8JOfy0azol6a0EKbYtW7Yt02Uz0+CHC36YYazZrJpDCOv4H
+	 W9IPYGQ71WUW7/f6D3u2H/3hbAqMpcVOy2XnXZg7QkKvdqprSTSXJorQXAwgmPcr6v
+	 D0Zks8u4Ze3JaPJFjw1CMD/pWhn4SOMcduXdqLElaikmwIR3XcUq0YQJKkggvqIsWg
+	 TAS43jv9TKoTdo2USsbat0T8uUcYIuZ4sc9VRNnOwLSPXtmtRjVNSumenckSC1WoLD
+	 4OZqgDEjz+KrA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 355D9CD4F3C;
+	Fri, 15 May 2026 21:40:36 +0000 (UTC)
+From: Frank Li via B4 Relay <devnull+Frank.Li.nxp.com@kernel.org>
+Date: Fri, 15 May 2026 17:40:34 -0400
+Subject: [PATCH 3/6] ARM: dts: imx: Add bus-type for ov5642/ov5640
 MIME-Version: 1.0
-References: <cover.1778642120.git.jpoimboe@kernel.org> <236050080db7b2462fdb13a03ed48a8efb2415a4.1778642120.git.jpoimboe@kernel.org>
-In-Reply-To: <236050080db7b2462fdb13a03ed48a8efb2415a4.1778642120.git.jpoimboe@kernel.org>
-From: Song Liu <song@kernel.org>
-Date: Fri, 15 May 2026 14:20:23 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW7ZrmF+5kPn=SqSvG_9hMYg90Oxp=JNZyEGXvU0KvJQbA@mail.gmail.com>
-X-Gm-Features: AVHnY4L9sdxUgUXVbcL56ZDtdzvOBRji1QMIemxm16TDxuJg2SXmVG3dhNfVWn8
-Message-ID: <CAPhsuW7ZrmF+5kPn=SqSvG_9hMYg90Oxp=JNZyEGXvU0KvJQbA@mail.gmail.com>
-Subject: Re: [PATCH v3 16/21] objtool/klp: Filter arm64 mapping symbols in find_symbol_by_offset()
-To: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
-	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
-	Joe Lawrence <joe.lawrence@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	Mark Rutland <mark.rutland@arm.com>, Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260515-imx25_dts_simple_warning_2-v1-3-b06bff192a05@nxp.com>
+References: <20260515-imx25_dts_simple_warning_2-v1-0-b06bff192a05@nxp.com>
+In-Reply-To: <20260515-imx25_dts_simple_warning_2-v1-0-b06bff192a05@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778881235; l=1774;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=HGMs+AFWVIG/7Db0qb4OWvzhAHmrd9vKYw4rG4RNH/M=;
+ b=BrOivWXgIRm6WZZQFShvH95LUpQF7Ss1xcHT4UfO/710V+1sIlkj1h/Wd+IZPa2kE/HFX76hq
+ udFGBEuy6jEB5qPuPvkaMk0/k8QHcioEeOjEOLfl+n3gl4ScLOt0j3x
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-Endpoint-Received: by B4 Relay for Frank.Li@nxp.com/20240130 with
+ auth_id=121
+X-Original-From: Frank Li <Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_142036_331417_D68A689E 
-X-CRM114-Status: UNSURE (   8.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260515_144037_155502_94BA6EEB 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,18 +86,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Frank.Li@nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 8:34=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org=
-> wrote:
->
-> ARM64 ELF objects contain $d/$x mapping symbols (STT_NOTYPE) at offset 0
-> in data/text sections.  These aren't "real" symbols so filter them from
-> find_symbol_by_offset(), consistent with the existing section symbol
-> filter.
->
-> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+From: Frank Li <Frank.Li@nxp.com>
 
-Acked-by: Song Liu <song@kernel.org>
+Add bus-type (MEDIA_BUS_TYPE_PARALLEL) for ov5642/ov5640. i.MX53 and
+i.MX6UL only supports parallel csi interface. Fix below CHECK_DTBS
+warnings:
+  arm/boot/dts/nxp/imx/imx53-smd.dtb: ov5642@3c (ovti,ov5642): port:endpoint: 'bus-type' is a required property
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx53-smd.dts         | 2 ++
+ arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi | 1 +
+ 2 files changed, 3 insertions(+)
+
+diff --git a/arch/arm/boot/dts/nxp/imx/imx53-smd.dts b/arch/arm/boot/dts/nxp/imx/imx53-smd.dts
+index a1e19f9709b2c7c7d02812f2b5c2afd382fb5d86..8c02731c7ba9db794627e085feb8a4e957d8c5c3 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx53-smd.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx53-smd.dts
+@@ -5,6 +5,7 @@
+ 
+ /dts-v1/;
+ #include <dt-bindings/input/input.h>
++#include <dt-bindings/media/video-interfaces.h>
+ #include "imx53.dtsi"
+ 
+ / {
+@@ -314,6 +315,7 @@ camera: ov5642@3c {
+ 		port {
+ 			ov5642_to_ipu_csi0: endpoint {
+ 				remote-endpoint = <&ipu_csi0_from_parallel_sensor>;
++				bus-type = <MEDIA_BUS_TYPE_PARALLEL>;
+ 				bus-width = <8>;
+ 				hsync-active = <1>;
+ 				vsync-active = <1>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi
+index 3d147b160ecf150f2f3b6afa8b5873fabc2ba96f..32afe4130e21126bf6e476db1091c4a45b8cf5bc 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi
+@@ -217,6 +217,7 @@ camera@3c {
+ 		port {
+ 			ov5640_to_parallel: endpoint {
+ 				remote-endpoint = <&parallel_from_ov5640>;
++				bus-type = <MEDIA_BUS_TYPE_PARALLEL>;
+ 				bus-width = <8>;
+ 				data-shift = <2>; /* lines 9:2 are used */
+ 				hsync-active = <0>;
+
+-- 
+2.43.0
+
+
 
