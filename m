@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0D9CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 10:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F83CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 10:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qWCqvCsw488UrxsEEAVXsOu6HYtz2EaEDsBHVjiAQE0=; b=ZNLzDN5DyhwajfQUZnTbYaENUf
-	sAemX9VScoNftvLmVA5HXSoTUbyKdjLGIgFqJZTaYY4XAwSr4aIB++zWxUm0/doopuzTqRlqMEO2Z
-	LUcwaOAA3ksrNBH8ON1/8hzb2o5ZuBVei7CGQggBXso5y5eev//TUM59GO4thr1Gyd11PxJVt3FCg
-	hpZqJfErA8RsUSTEf4045ni0FmNpz/gYjlACnjLiVeFujUOVw+QcDutHd2oTAIvF8pK1mnQUxASfX
-	od6wkhP+2Z4NEDOsVFzCNIkNckTiRQPO6nsIVmv8iVyxRsYGYb0RuSTG1p7xvjc+ddG1bRaOh6vEX
-	NR+PI9LQ==;
+	bh=0NOpOwkgJ5f65i3HdxYzurXp1b4GnIXq+QJwlD8RCh8=; b=qRXEt0RidLvoLHdvCCVOVp0FS0
+	A8xnlnIU33e5bfc3/LuF3wKESSNAWlGyMxOIhIr+SSzScMTSYMKQRkuy6/rjibV1f9+yvTQTILW0u
+	qgwnp39gomCTlK+nJWtlhrNDC5MWK9tJrIdcCoWdi75H5qcpPXWoi35l7CDz8YHY8ThprRfKKkkuj
+	pDdL8lI3LHkkGgZpTnPjpdgTwojxQeqsVkb//Q4ollCTU5pGKWkauk5NVk2mWBLJQWR9V3hQKtXhG
+	1Vi5ZZX1KhFK6YCqz8wrxq7CB/PZT3I9KKFA0HmfTdN/EDpDu0d8f28lOLnR7nqGKZRxgz5Or9xLM
+	GO+hglfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpQf-00000007zKs-2Noi;
-	Fri, 15 May 2026 10:06:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNpQc-00000007zK7-36BB
+	id 1wNpfU-000000081Gr-2Wod;
+	Fri, 15 May 2026 10:21:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNpfT-000000081GK-1D8T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 10:06:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A54E52574;
-	Fri, 15 May 2026 03:05:51 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68F4B3F7B4;
-	Fri, 15 May 2026 03:05:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778839556; bh=jsu6XEXW/ycUYiQs2UGhLieyNt2HgGm38xKOuWtBQRM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RyoTG2Ha473cFmGToKi56liP4pN/RaZunI+BPMGfIXANFiogOdrGTYE7HF9xC0XbP
-	 IoiWz80170JW+1tC/FutmFKyXYlGleANET7nrAvZH83xY19ZoFOckm5dvjgxCX2Qtc
-	 dTmS1UA8Jl7cYMd10XRtyHrqgeV8R3coh51TBOfo=
-Date: Fri, 15 May 2026 11:05:54 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v6 04/13] coresight: etm4x: exclude ss_status from
- drvdata->config
-Message-ID: <20260515100554.GK34802@e132581.arm.com>
-References: <20260422132203.977549-1-yeoreum.yun@arm.com>
- <20260422132203.977549-5-yeoreum.yun@arm.com>
- <20260508152742.GI3778514@e132581.arm.com>
- <af8gp9rsY6zyo5r7@e129823.arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <af8gp9rsY6zyo5r7@e129823.arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_030558_918970_DC2C6DB2 
-X-CRM114-Status: GOOD (  14.77  )
+	Fri, 15 May 2026 10:21:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B94360583;
+	Fri, 15 May 2026 10:21:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36A20C2BCB0;
+	Fri, 15 May 2026 10:21:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778840478;
+	bh=axThhzIei62WMqZ0/cwTAYunJ77KwZqp+AkX3EkBR4Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=URrClAU9bqMbk/ZOtAuQWvjWADo+TWA3p7Re2tvPiPnjRU0vruoZR4TlZwDAiv6M8
+	 2VXnwIsJQlJEz9HNXmhaYGuxU9YriWfj9PHCVU66SPw/Zydb04fZuYbFtWfwQK9Q8u
+	 NOfFQaBTTP1J9Na9kr+y6mSFIz48trt7bAhgEWjHP8GqYcAvZ9GAj0DoNC31gXp5DG
+	 4qEgqbDeBEcH0IdyAcoGGxHIy5KLHcNBnDz1n9nVDE6pJJyqlhidtPklYXiEfyj1j9
+	 RiJ1NT89BlrTMzmmVHaZ0w2Vc42OTErl+5UWLf+E4zZDXdNnJb1vNZ+/ITRJmwiSV0
+	 K9x7JxkImtxNA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wNpfQ-00000002eRs-08N4;
+	Fri, 15 May 2026 10:21:16 +0000
+Date: Fri, 15 May 2026 11:21:15 +0100
+Message-ID: <867bp5x9b8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kernel-team@android.com
+Subject: Re: [PATCH] KVM: arm64: Fix nVHE/pKVM hyp tracing error on invalid desc
+In-Reply-To: <20260514162624.3477857-1-vdonnefort@google.com>
+References: <20260514162624.3477857-1-vdonnefort@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kernel-team@android.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +87,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 09, 2026 at 12:55:19PM +0100, Yeoreum Yun wrote:
+On Thu, 14 May 2026 17:26:24 +0100,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> pKVM must validate the host-provided tracing buffer descriptor.
+> However, if an error is found, the hypervisor would just return 0 to the
+> host. Fix the return value on validation failure.
+> 
+> While at it, rename the function to hyp_trace_desc_is_valid() and skip
+> validation for the nVHE mode as we trust host-provided data in that
+> case.
+> 
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-> > >  	caps->nr_ss_cmp = FIELD_GET(TRCIDR4_NUMSSCC_MASK, etmidr4);
-> > >  	for (i = 0; i < caps->nr_ss_cmp; i++) {
-> > > -		drvdata->config.ss_status[i] =
-> > > -			etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> > > +		drvdata->ss_status[i] = etm4x_relaxed_read32(csa, TRCSSCSRn(i));
-> > > +		drvdata->ss_status[i] &= (TRCSSCSRn_PC | TRCSSCSRn_DV |
-> > > +					  TRCSSCSRn_DA | TRCSSCSRn_INST);
-> > 
-> > It is fine for read these capacity bits when probe, but we need to clear
-> > status when a session is starting to avoid the stale value left from
-> > previous session:
-> > 
-> >   drvdata->ss_status[idx] &= ~(TRCSSCSRn_STATUS | TRCSSCSRn_PENDING);
+Fixes: tag? Should it be considered as a Cc: to stable?
 
-> But, I want to clarify that the perf is one of exceptional case
-> since the "etm4_parse_event_config()" is called at the "resume" of session
-> for per-thread mode event.
+	M.
 
-Good point!
-
-The right way would move etm4_parse_event_config() to setup AUX phase
-(e.g., call it when build path).
-
-> Anyway as we discussed, since now there have been no issue
-> relavant for those bits, let the clear drvdata->ss_status at the
-> etm4_parse_event_config().
-
-I am fine to clear status in etm4_parse_event_config() in this series.
-
-Thanks,
-Leo
+-- 
+Without deviation from the norm, progress is not possible.
 
