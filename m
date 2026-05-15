@@ -4,67 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC30CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 11:18:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F4FCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 11:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=azYrGFYJcArrhMc/4jBsN0eJtlLXO6sWrGP2OnPQSkg=; b=olmQaRZVIh4viFUHjHIO06V4L7
-	pjyxoIN8x0U2qGY1l8RvtPiBiWfBpRFUCJSZUgS4mx11mCjzUPd0lZOKsOO8/gsBNbhKBhxLIe5tH
-	FhlliEoyrZsxIFKJbYlvxnruaxb7nFp+ATjs7bS3QlOTd7/mSodzH1RukJgWlH93tQWkM8UVzV0Yx
-	MRspy/nHNEJ3emFfdZ4bshqRI+DFEmIJ2Palq/0g8P4Bag9NQv4Znm/Hyq/AvcUFpLzQpfD9LtIlc
-	4gsto0brLfXC5haZ+lLq1KXNzlMaxJrkrYu+2YWuLTcVywBSZMxLU/JcKiBg4pIsUN0PXrYF+1+gX
-	+KpP5ykQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7hJW99QzTUPZBllYVm+TBIgruQjOjTkHlpTo7G/vJj4=; b=l/zfsBu3udyBTgVTzWHzjqeKG6
+	/vwweWBn9Yr8dMoDqODN3cRD5N30dgcMNOrEyT2UmfKSi+MbYWkoueYZG5TFfAFi5w1Dc65ckV5G9
+	+La0KwnjFHmbPzWOrCJPEQfknx623e16O9/bRv0qCq/7IWpXpTWclPxt8fE6WLgQYgfTzMQeweWVz
+	tsLBdsrNO5su0NLpr1MpgVOZzg7IEEseLwIielD3YjOmzvPGtSUUcGRtiUnZJx4ta2Wl0kSBwTY3U
+	sh8QdLqUX04bYmSFK24m7sY/0zvGMU7wOB1lAYdyVR3+tJfuWVs/wEEO6lAZOEhMjhrO+im5fRuVZ
+	Yvs8jXOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNqYQ-000000089xT-3LSO;
-	Fri, 15 May 2026 11:18:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNqYO-000000089wl-1Qcd
+	id 1wNqZJ-00000008A7q-0ceA;
+	Fri, 15 May 2026 11:19:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNqZG-00000008A7J-2VJb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 11:18:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B66FD22FC;
-	Fri, 15 May 2026 04:17:57 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5A6C83F85F;
-	Fri, 15 May 2026 04:18:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778843882; bh=hdnT2rSiLjso6CNM6o27JC8OpHzATjAy38dvAzOX6iQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TK+iwPcVSYtu355kSoesA7oDUYqeiR+Y7J1P2jHfUPHjtSQr1PLd8k9SgkZAHF/1w
-	 PapGLu0RciGXoVBnY8ygMWHGpA4Yr9I3m39Af+5dRzVAZJgmkR1AtIP2QmePA4Xkpm
-	 za3Ze9bVvqjTCV9HHrNmA8YCtW9CntOdXwS+AuTg=
-Date: Fri, 15 May 2026 12:18:00 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Jie Gan <jie.gan@oss.qualcomm.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v12 19/28] coresight: Save active path for system tracers
-Message-ID: <20260515111800.GM34802@e132581.arm.com>
-References: <20260511-arm_coresight_path_power_management_improvement-v12-0-1c9dcb1de8c9@arm.com>
- <20260511-arm_coresight_path_power_management_improvement-v12-19-1c9dcb1de8c9@arm.com>
- <a40b0d0f-bbf8-4ba4-9370-2b5be71bdc44@arm.com>
+	Fri, 15 May 2026 11:19:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3850E442EA;
+	Fri, 15 May 2026 11:18:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33665C2BCB8;
+	Fri, 15 May 2026 11:18:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778843938;
+	bh=sKvK17XFtB7O3JTO2XibL+7RbjllQMlitbBlBsG1gaM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=m5A2TPG+cuHrAManHagMpx3MoYxlVcAKk4DyjNuOEhS0mKGKC/9Pi4uZCnWlTkIgj
+	 b8vKAbpygFV6TUkt2jcULnolikte/bl6vXOeQp55nssR7OYXPEwkwgGGBB2iNtHSmx
+	 21Od4rVHfRBUNNOEIpILtMzZetQwD+jZZ1664NcwRSKRTrti68xrgy77LMehE6bWO/
+	 5jcHA976OtRCtSJ6qlIsa0VoKqpnG6jLZIPM2Sb/nJG7qaUlHqzVPvsi3XWkqSR0sZ
+	 0XFejLoG2eXvkbKeK/hUW7sPLyS6VTzH5LOzhRqKy+2O/Uyy9pUYsjpHXQqzjV5GY1
+	 bh6csPAScPNhQ==
+Message-ID: <ccc8ab6c-d301-4585-8be3-1977485c5e87@kernel.org>
+Date: Fri, 15 May 2026 13:18:53 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a40b0d0f-bbf8-4ba4-9370-2b5be71bdc44@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] dt-bindings: usb: add CIX Sky1 Cadence USB3
+ controller
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ gregkh@linuxfoundation.org, pawell@cadence.com, rogerq@kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-usb@vger.kernel.org, cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org, arnd@arndb.de
+References: <20260511024244.981941-1-peter.chen@cixtech.com>
+ <20260511024244.981941-4-peter.chen@cixtech.com>
+ <20260515-dynamic-archetypal-reindeer-dc6dd5@quoll>
+ <agb0he7vvbqSIym5@nchen-desktop>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <agb0he7vvbqSIym5@nchen-desktop>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_041804_428853_7D34B657 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20260515_041858_681668_75CE9001 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +123,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 15, 2026 at 11:54:22AM +0100, Suzuki K Poulose wrote:
-
-[...]
-
-> > +	/*
-> > +	 * Update the path pointer until after the source is enabled to avoid
-> > +	 * races where multiple paths attempt to enable the same source.
-> > +	 *
-> > +	 * Do not set the path pointer here for per-CPU sources; set it locally
-> > +	 * on the CPU instead. Otherwise, there is a window where the path is
-> > +	 * enabled but the pointer is not yet set, causing CPU PM notifiers to
-> > +	 * miss PM operations due to reading a NULL pointer.
-> > +	 */
-> > +	if (!coresight_is_percpu_source(csdev))
-> > +		csdev->path = path;
+On 15/05/2026 12:25, Peter Chen wrote:
+> On 26-05-15 09:54:10, Krzysztof Kozlowski wrote:
+>> EXTERNAL EMAIL
+>>
+>> On Mon, May 11, 2026 at 10:42:43AM +0800, Peter Chen wrote:
+>>> Add a binding for the CIX Sky1 integration of the Cadence USBSSP DRD
+>>> controller. The schema documents the glue register window, clocks,
+>>> resets, interrupts and S5 system controller phandle.
+>>>
+>>> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+>>> ---
+>>>  .../bindings/usb/cix,sky1-cdns3.yaml          | 151 ++++++++++++++++++
+>>
+>> Why are you mixing USB patches with DTS in one patchset? Don't.
 > 
-> Do we need to specail case this for non-percpu sources ? We could always let
-> the driver save/clear the path leaving the core out of it. We can fix it
-> separately from this series in a follow up patch.
+> In this series, the 1st patch is the IP core driver changes (export APIs for glue layer
+> use), and the second glue layer patch is the user for new adding APIs.
 
-This patch has a big reason is for patch 22. After saving csdev->path,
-then patch 22 can totally remove IDR cache related things.
 
-Otherwise, we can drop this patch and patch 22, this wouldn't impact
-CPU PM stuffs.
+Not really answer to my question. Why is DTS here? It has nothing to do
+with 1st patch, second patch or this one.
 
-Thanks,
-Leo
+
+> Normally, we combine dt-binding, driver (glue layer) and DTS changes at one patch series.
+> 
+> It is much like below submission:
+> 
+> https://lore.kernel.org/all/20250318-dwc3-refactor-v5-0-90ea6e5b3ba4@oss.qualcomm.com/
+
+Which is also wrong. Why do people pick bad examples as arguments
+instead of finding one of my many emails telling why is that incorrect?
+Or maybe all the folks who dig through the archives and found my emails
+did not continued discussion...
+
+
+Best regards,
+Krzysztof
 
