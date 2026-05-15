@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8AACD4F47
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 18:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9A5CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 18:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mB/01rJSuruqyjiIu2rnzBU1MPHprmcbMYuSgZB1DWM=; b=UelUaLW0Fxu19uvSJqHO+lEd5X
-	Wz0FJkBpX/CZ+AXeUwF2fEYatR3kUdbDBhbJKbRzOmAd2a/RuX6Gd+2Hz+eZ0ZZV/FXMS1o6aUglK
-	02nMnqkV086wAjhlxM7RieArM4sY0c0hfSIDEIWGjU5/v3/pT5G/UMKogQfryEUkJuSiJvJstouOg
-	bvhWosCdI76Virh2wTGkCR3Y0hm/edzzeBkKP0DYfOXGkdxXh+/cMuILz7sgHwvJRrmyzVQNqB0uZ
-	2Ep4k0aKeewgqto4hUtCyNKA+KmNzpiTBvdRax6FyiHHVhaBpfp7ZtdTKozweCxUJfUExbphp1Ft4
-	jFyWjEmA==;
+	bh=g7hEiB4pbPGecnZFTyqesWBwgJZ0Xx1Iz7ukH44DFi0=; b=PFZYUCYIzigLUa9ssJh5MLq/sE
+	2aA+fTmKlzaWwbqrNCFhl1hdX5bo8vLYif4UTxZKjFupnZc0hRx5vyoFSEToOjdYGRh1mw75Mao5A
+	1wldOI8KiAlegNIJpTVKaecOv0nCec3cxLUFoxydPs8P4sTP+knP+z6gjb6chV964xUOxib9j6T+Q
+	ft8/ZOTMWEA75ymA0Uck1jDZBl8Woet5A/mi3+HF2Ti8o5VpUDqCUaBs31eBQVRgmi+57pdVYWgd6
+	B+8etrGIJsgYWCJH0QdKYAGJOoh35z7OOkTYtcpBb+t3M+wabiz3nS9qQer4YB6MCaSEb/7nuko9T
+	vpvPCPYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNxeP-000000098d4-0eId;
-	Fri, 15 May 2026 18:52:45 +0000
+	id 1wNxec-000000098tT-30IO;
+	Fri, 15 May 2026 18:52:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNxeJ-000000098Ue-1shC
+	id 1wNxeP-000000098cN-0eD8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 18:52:41 +0000
+	Fri, 15 May 2026 18:52:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93D2D27D3;
-	Fri, 15 May 2026 11:52:32 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E57DE27D3;
+	Fri, 15 May 2026 11:52:38 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F26C83F836;
-	Fri, 15 May 2026 11:52:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5BE293F836;
+	Fri, 15 May 2026 11:52:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778871157; bh=/97r9BgHQjtGXQGquhQOHm9lF1MSkVbCGAKJivzTMSs=;
+	t=1778871164; bh=x6Qxrdzs8yU6+2ecIQkvtzr+/P/7hUZqsMY9HVrj+HM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TsGUcMmBTto1x8nb8+98bbHRctiMwZ0TeywVv0/e2ae+FMZQpwDRHcVxFTrK57q+0
-	 nosWA8gTNde3MFZ/InsFatQ/nFzhk4aLOHik3ZkTWHtvXDr+oXZLxGN/Y+3XDzj1wx
-	 jNsTA0rkXdOqscUeZNh+L7XPqZeC+fDibCUkNL2I=
+	b=K4WBishiUj0SakuCOP2/oruzOyOuL/yOJxEsT++m/nTp1wo+kPe26fFfNRU6L2KEk
+	 Bgb/YfN0oMIpeWlfAn5MJ4dhRrtv8qt4HJsYjrscwkwifIAak5jR9yvXSF9xKDN4Yo
+	 g00OxU3oGcYMW8azmL7/FlbXZ69aG9QcjaSLwhEQ=
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 15 May 2026 19:51:41 +0100
-Subject: [PATCH v13 18/28] coresight: Introduce coresight_enable_source()
- helper
+Date: Fri, 15 May 2026 19:51:43 +0100
+Subject: [PATCH v13 20/28] coresight: etm4x: Set active path on target CPU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-arm_coresight_path_power_management_improvement-v13-18-9dfc558ed65e@arm.com>
+Message-Id: <20260515-arm_coresight_path_power_management_improvement-v13-20-9dfc558ed65e@arm.com>
 References: <20260515-arm_coresight_path_power_management_improvement-v13-0-9dfc558ed65e@arm.com>
 In-Reply-To: <20260515-arm_coresight_path_power_management_improvement-v13-0-9dfc558ed65e@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -62,16 +61,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778871097; l=4297;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778871097; l=2600;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=/97r9BgHQjtGXQGquhQOHm9lF1MSkVbCGAKJivzTMSs=;
- b=G15xs12daSt0pMbaym/AhjxcXpsbkWmNQipZMZBoQvc+DN3ehwh8SrwEnsOxdW1uAv94ejFeL
- GqG36v/HwxFA7nlQROcoULELp3761+QRtYPHEA2ha8eWYvPpZNyPj/Q
+ bh=x6Qxrdzs8yU6+2ecIQkvtzr+/P/7hUZqsMY9HVrj+HM=;
+ b=VA5bmBY/tji4VB7z5SX3p9hSgkaommhAmqfIRT2Q23d6G9aSjrUQ+ren/XrUD12bL2Nu1yjqA
+ UCEAx3mGmvIDbnilKZV+C+LqGTEVQhxNky1D+REGhbG1OgkgUPmRT8z
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_115239_635330_0151F05B 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20260515_115245_318688_97F0B746 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,96 +85,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the coresight_enable_source() helper for enabling source
-device.
+Set the path pointer on the target CPU during ETM enable and disable.
 
-Add validation to ensure the device is a source before proceeding with
-further operations.
+This ensures the device mode and path pointer are updated together and
+observed atomically by the CPU PM notifier.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
 Tested-by: James Clark <james.clark@linaro.org>
 Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: James Clark <james.clark@linaro.org>
 Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c     | 18 ++++++++++++++++--
- drivers/hwtracing/coresight/coresight-etm-perf.c |  2 +-
- drivers/hwtracing/coresight/coresight-priv.h     |  3 +++
- drivers/hwtracing/coresight/coresight-sysfs.c    |  2 +-
- 4 files changed, 21 insertions(+), 4 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 61ae7b6c7a836caafaf87787af91a1f5326c16ec..f833b73ebc168b2b039e5f0900594d0bde5ff916 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -479,11 +479,25 @@ static void coresight_disable_helpers(struct coresight_device *csdev,
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index fef1270439e9d770fc0459e9ab8cab7cb40827ee..343ba9ce946a7ea3776c06d43364cdce823e2c80 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -238,6 +238,7 @@ void etm4_release_trace_id(struct etmv4_drvdata *drvdata)
+ 
+ struct etm4_enable_arg {
+ 	struct etmv4_drvdata *drvdata;
++	struct coresight_path *path;
+ 	int rc;
+ };
+ 
+@@ -625,8 +626,12 @@ static void etm4_enable_sysfs_smp_call(void *info)
+ 	arg->rc = etm4_enable_hw(arg->drvdata);
+ 
+ 	/* The tracer didn't start */
+-	if (arg->rc)
++	if (arg->rc) {
+ 		coresight_set_mode(csdev, CS_MODE_DISABLED);
++		return;
++	}
++
++	csdev->path = arg->path;
  }
  
  /*
-- * coresight_disable_source() only disables the source, but do nothing for
-- * the associated helpers, which are controlled as part of the path.
-+ * coresight_enable_source() and coresight_disable_source() only enable and
-+ * disable the source, but do nothing for the associated helpers, which are
-+ * controlled as part of the path.
-  */
-+int coresight_enable_source(struct coresight_device *csdev,
-+			    struct perf_event *event, enum cs_mode mode,
-+			    struct coresight_path *path)
-+{
-+	if (!coresight_is_device_source(csdev))
-+		return -EINVAL;
-+
-+	return source_ops(csdev)->enable(csdev, event, mode, path);
-+}
-+
- void coresight_disable_source(struct coresight_device *csdev, void *data)
- {
-+	if (!coresight_is_device_source(csdev))
-+		return;
-+
- 	source_ops(csdev)->disable(csdev, data);
- }
- EXPORT_SYMBOL_GPL(coresight_disable_source);
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index 89b99c3caedbc34da57f406797701425d36a1333..09b21a711a8764ea429d712890265c84648e889e 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -593,7 +593,7 @@ static void etm_event_start(struct perf_event *event, int flags)
- 		goto fail_end_stop;
+@@ -894,9 +899,13 @@ static int etm4_enable_perf(struct coresight_device *csdev,
  
- 	/* Finally enable the tracer */
--	if (source_ops(source)->enable(source, event, CS_MODE_PERF, path))
-+	if (coresight_enable_source(source, event, CS_MODE_PERF, path))
- 		goto fail_disable_path;
+ out:
+ 	/* Failed to start tracer; roll back to DISABLED mode */
+-	if (ret)
++	if (ret) {
+ 		coresight_set_mode(csdev, CS_MODE_DISABLED);
+-	return ret;
++		return ret;
++	}
++
++	csdev->path = path;
++	return 0;
+ }
+ 
+ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_path *path)
+@@ -926,6 +935,7 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+ 	 * ensures that register writes occur when cpu is powered.
+ 	 */
+ 	arg.drvdata = drvdata;
++	arg.path = path;
+ 	ret = smp_call_function_single(drvdata->cpu,
+ 				       etm4_enable_sysfs_smp_call, &arg, 1);
+ 	if (!ret)
+@@ -1067,6 +1077,7 @@ static void etm4_disable_sysfs_smp_call(void *info)
+ 
+ 	etm4_disable_hw(drvdata);
+ 
++	drvdata->csdev->path = NULL;
+ 	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
+ }
+ 
+@@ -1096,6 +1107,7 @@ static int etm4_disable_perf(struct coresight_device *csdev,
+ 	/* TRCVICTLR::SSSTATUS, bit[9] */
+ 	filters->ssstatus = (control & BIT(9));
+ 
++	drvdata->csdev->path = NULL;
+ 	coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
  
  	/*
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 808d1546f568278d62fe72d871b6af82eb830074..dddac946659fcc63799d4b009f1c7ccd9f1809b6 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -251,6 +251,9 @@ struct coresight_device *coresight_get_percpu_sink(int cpu);
- struct coresight_device *coresight_get_source(struct coresight_path *path);
- struct coresight_device *coresight_get_percpu_source_ref(int cpu);
- void coresight_put_percpu_source_ref(struct coresight_device *csdev);
-+int coresight_enable_source(struct coresight_device *csdev,
-+			    struct perf_event *event, enum cs_mode mode,
-+			    struct coresight_path *path);
- void coresight_disable_source(struct coresight_device *csdev, void *data);
- void coresight_pause_source(struct coresight_device *csdev);
- int coresight_resume_source(struct coresight_device *csdev);
-diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
-index 682500b7296c20453edd0290e1dc44124e0c3228..9ec112b457bbdc85f807eccc6944bf39e5e363e1 100644
---- a/drivers/hwtracing/coresight/coresight-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-sysfs.c
-@@ -66,7 +66,7 @@ static int coresight_enable_source_sysfs(struct coresight_device *csdev,
- 	 */
- 	lockdep_assert_held(&coresight_mutex);
- 	if (coresight_get_mode(csdev) != CS_MODE_SYSFS) {
--		ret = source_ops(csdev)->enable(csdev, NULL, mode, path);
-+		ret = coresight_enable_source(csdev, NULL, mode, path);
- 		if (ret)
- 			return ret;
- 	}
 
 -- 
 2.34.1
