@@ -4,113 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB9DCD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 17:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B9BCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 17:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y9ew+pYP4bXUyEVQiFKSYkoEqWdE49A8q03yhewBg3U=; b=35b9cR9UHCoqDDiYUxw4ZBnhcj
-	vj5LlvgOaKlChDIsZcSXpE3MJ/9D+EcwQGDmJPvFkq61hwr9VtOVbCFq10aTWZYjGOBXHE0IrEAvd
-	VOxJkRz0fq6WhVtgCcAIEpdq31uXYEiytyzNWMb8cOlH+YwGyXoSW0OCHIo5wxgKoVOJMVt+pDyC2
-	O+bxe51V8zwI59FmnZ7g7+Bj0QMyFDyn/0SJJBHBmI7fdlFy+TOmiYAQWmSdRIlz1FbtRHBhvTSaS
-	A351uwVFeM7ko0CbJ3gKIyyefYSlOhWzIU12aIo94lSmHQh/aW0wvrTlKwIYy2XyNeuqsP5n8/M5d
-	apWsKFGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aGYyBWo+9+yOvNuFGsYyiFsCMkaC4YR5bjaqf1qoRjE=; b=TNVwyJ2xSF11YSuHhcw5Y7RQ8+
+	1ALVRswrcpCYarY3l6YRu55dCApBBrwACIBvdLDQnoM3byAaddkBlv30qo1ddnwEeak2RukU2Q2qm
+	tlc84hiIeL5FFrNLKdeWLJ/muEeH0Gu8ihqXVlAEVFAQOvHfqLGs61PCvJbRJXXdDwu9T7v7mu9po
+	ZrgoM1AJwkly6qPWu7MdmXK4V8Cek6T9bxvBVQSs3fNyrxK3dqHe7VRJnXaRELewLCTUx63KMMJxI
+	Drh8DYNHlimsl3KLYrGPJ5aW1ijI1AE0DuVi21SskKHbU8YtPxoLbuRQ4on5PahwyHY41OIXg87Np
+	B1e8EAyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNwbK-000000091NM-1Q7c;
-	Fri, 15 May 2026 17:45:30 +0000
-Received: from mail-southcentralusazon11011061.outbound.protection.outlook.com ([40.93.194.61] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wNwg6-000000091vo-3R8d;
+	Fri, 15 May 2026 17:50:26 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNwbH-000000091MT-3dwj
+	id 1wNwg4-000000091v8-2nWH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 17:45:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TpkqZuM4yEdIPfpkqaVQTG6tT27TDPaIa9N6GXR0y9ePlmjnxxInnXUgulpygDeKEXLL0o9ud4wuw0B78d0ExUcsFe+g509bxRr1PGXIPBjw/Yh4FDhP8k4gn5+df6ao6CspefsQ+m83SJ6QrvekRjnlo1egNKmc4Ldr/R+vCjvmama4kVVuAPHXVbEEW+thvhuNmfndAlEdl1diL1A/21gHEfdtk9ILoBrCVXFnw1uwXjlkSz1o3fEw0aj+cs0jE1G4mQQCAKSlafBsbVjigbsidwouBttGsNyLuD43gudN8L223jRS5xxBH7qG3xOkceyKWozp+amIh5ZAZaXoGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y9ew+pYP4bXUyEVQiFKSYkoEqWdE49A8q03yhewBg3U=;
- b=Du/IJgb5NMnjtErJo0k2ud0ztjHjhX47e1sxKtUTRpv4JNknnrrkmm687PUJFSyTxANwVpz401cORKraGwzQy8/00sftCXro1lSz3HFFyKpR2ZizVGpxcYR+iRAWoskGYd83u1D6ylLlkyHJ4ekb3DKY9CmdZg2VQtrixzn6r1rR9ZKkswbHtgBxa8QE3jV+ZuXsJdfrZJWGSed6IiEesAdCfN0G1M614eMBtmpDNHSvanx8lwRhpldDPZ0q4jPdVIjk4DZlqvlYeON8yOYwYTEuasqYiXEqQwMpt0Cp7KVh8AdduyZl1vgMsOi5N7kffr4zxJ9MaWUnAT4cBojqtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y9ew+pYP4bXUyEVQiFKSYkoEqWdE49A8q03yhewBg3U=;
- b=cPJ5tjpwx932Imx4oe6pWMkSBlHE+bODNLSUDTIk2lT5xerHjN/CNTR3zOdDQZfYqp1U4t7/s5EkHc17tAkc0qLCXt8TXN9umyYr7fNsCRDpAWlmylFNUyv1goyQbviKB32hcwD6JzDUb/ZoeDnopUHTi9t+gqU6t8pXyRN648YotmpQzjHQYouB2poXz1kv4dY3H67xmW0DdyhjPfD7p+s13PsBs8xc+rd0zMgfx6thFfYYp6Qm+89eb7/qqcWop9cO4pTznFFLY9ogcpHJ8exfra8f2Vki9Fz7clFYm0L8HsRxqc1xebGfrFnan90kjNjGRSI6G2dsFnJQ33v0bQ==
-Received: from BL1PR13CA0320.namprd13.prod.outlook.com (2603:10b6:208:2c1::25)
- by SA1PR12MB7318.namprd12.prod.outlook.com (2603:10b6:806:2b3::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.19; Fri, 15 May
- 2026 17:45:13 +0000
-Received: from MN1PEPF0000ECD5.namprd02.prod.outlook.com
- (2603:10b6:208:2c1:cafe::a9) by BL1PR13CA0320.outlook.office365.com
- (2603:10b6:208:2c1::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.19 via Frontend Transport; Fri, 15
- May 2026 17:45:13 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- MN1PEPF0000ECD5.mail.protection.outlook.com (10.167.242.133) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.25.13 via Frontend Transport; Fri, 15 May 2026 17:45:12 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 15 May
- 2026 10:44:53 -0700
-Received: from localhost.localdomain (10.126.231.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 15 May
- 2026 10:44:51 -0700
-From: Jamie Nguyen <jamien@nvidia.com>
-To: <sudeep.holla@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<jamien@nvidia.com>
-Subject: [PATCH v2] firmware: arm_ffa: honor descriptor size in PARTITION_INFO_GET_REGS
-Date: Fri, 15 May 2026 10:44:32 -0700
-Message-ID: <20260515174432.13419-1-jamien@nvidia.com>
-X-Mailer: git-send-email 2.46.2
-In-Reply-To: <20260515-quixotic-active-dragon-2ee2c6@sudeepholla>
-References: <20260515-quixotic-active-dragon-2ee2c6@sudeepholla>
+	Fri, 15 May 2026 17:50:25 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4891b02a0acso140945e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 10:50:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778867422; x=1779472222; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=aGYyBWo+9+yOvNuFGsYyiFsCMkaC4YR5bjaqf1qoRjE=;
+        b=GZeJ3EuYHBCBK1PpqadGE9zVdWLtsbGc1IW85dph71oMIeye3+CdqUE0KIce8chJPK
+         7g2vF4nXI2P7KXUIqfUJFLoocbX+orwY7ygdDnYaDfyrleC8c7T56dOaSk3u3XPbU1oO
+         FszjxVeu0b1DWKjFWovfgIIhS9MzsX+qCgUZrhItoG1iqDLOaZkQ5Myzrj3xBnicvNX8
+         +SzUe+yuLG+9+MqH64bD6hbH7onutvSSOoU3s8N6RZU5B5ltVda76keUTCUn7pQbfcDr
+         LGQPLmU62dpCpp33oZP6dwKTwl6hOs6DMzH1F8sCiL0mtfPXuqRebcYsBFZdlqzjOzXT
+         GgyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778867422; x=1779472222;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aGYyBWo+9+yOvNuFGsYyiFsCMkaC4YR5bjaqf1qoRjE=;
+        b=lmQB3CIi8UMT3h1jRzrz3zwD93hBu7tlK28oJfGuosK/VIWk3daIZt+wIpGNLOwi+D
+         9Oc4DXds/k2p3avf2ZKP5TaylNf4JGMorQCiNiJLxMFro9BR376VgJBZhrZWn/eBQWw1
+         znguOYk/+8IiWXZJKdbV7XDqUmSHKH2jI8tPzHcN4l5uuXcqmh6fUZ6gCKpmUkG5/7Kq
+         DrsPUH0ou4ZpvytncUvNLiInb86OLTl35EP1IY0WACvwQ4rJ5ODOsp/R6DOdKERcsOEa
+         TDOLA/cXL5iwvRUXnR/nDuCOOpUrz6NLlRxfkWxtVBqd1ObJbTpcTJLVQE2EaQgwkEEo
+         lhkQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+UnbZMsQrJHrlx0M55ab0fHlBS9WF95JpX6XBOAM08xhhNQXSq4cq77++IVcnQqvGvh4TGBbP6v9ctnJ0kn+xr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkFhU9DsnBjGAT6jEwFaFFQFKbaTcJ6eiB5cgldWkWLTLnEib9
+	99H0srgPU14rLCc+8BRvxp6gr9bs53nRTHi+VhkD40JdJVnWps2eO+Yh
+X-Gm-Gg: Acq92OGedP+blfGGLDFI0uDaw5aDtj8J2NHeVctE19tpH6lWKBY1CRa8VIcd7M7Fteb
+	/alMCKpPXUjtaToKaZl7KjoyyxZT9R2pH/d8g+Wwuf5nhNuVvtfVySTTKhkWC8kx5NeB+sdk5Nm
+	ptv8Zn5u8wXB+fMNfEGgNRTWKDsCoraEpE/syCePacvNjTiELVs3Q+gmN0aW4y5SgE8m1PhqZdF
+	hijUbPo8Oz8qREbfs3A4ofL2nVJcOI8qHtaprwiXyUTEUL2VWjLjMW7efVsBPTKG0najf7b/tMJ
+	Ad0EiCx1XypQmCvgGgzv8LrYg8AwUwVlH+tuvwt8Btpkx499rqZitwrn6cbtJMjQ6qzapiqHnWU
+	ZFDnFYtcIfgsaUXF3j1r/NL8i8Ri48+ovTv6Yg5UR0o39l3wnZ/HGjkRUzJpPmu6MI5YTOBnuMz
+	bTEleAu7ZkQdgGaU+rtF100exNEvYW0c4InrqCBG+5dbQB
+X-Received: by 2002:a05:600c:45d0:b0:488:a797:f099 with SMTP id 5b1f17b1804b1-48fe61f0787mr36281325e9.3.1778867422082;
+        Fri, 15 May 2026 10:50:22 -0700 (PDT)
+Received: from localhost.localdomain ([82.215.118.79])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe5694fcasm66713435e9.5.2026.05.15.10.50.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 May 2026 10:50:21 -0700 (PDT)
+From: Stepan Ionichev <sozdayvek@gmail.com>
+To: Frank.Li@nxp.com
+Cc: s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	shawnguo@kernel.org,
+	gregkh@linuxfoundation.org,
+	hcazarim@yahoo.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	sozdayvek@gmail.com
+Subject: [PATCH] firmware: imx: scu-irq: accumulate wakeup sources via sysfs_emit_at()
+Date: Fri, 15 May 2026 22:50:01 +0500
+Message-Id: <20260515175002.34853-1-sozdayvek@gmail.com>
+X-Mailer: git-send-email 2.33.0.windows.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.126.231.37]
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000ECD5:EE_|SA1PR12MB7318:EE_
-X-MS-Office365-Filtering-Correlation-Id: c956484c-4420-43a3-ecb3-08deb2a9b771
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|1800799024|56012099003|22082099003|18002099003|11063799003;
-X-Microsoft-Antispam-Message-Info: dnBLFJ68qA+V8prLLfDMO0GTxmIp7AyZCfc5hV+g5ITLRMK3m2ntjy6U4hW1oejkHFKByuivvuazkMacb/we5aW0Ldt/5fc5z5gFTiZTHgE47SPvryy7/SIpa97pn6fCtIS5Q8yIqRLsyV5WgA4f1IIhz/o14RwnTZMiTnmmipEGo00VbQZHxv3iInE8Qn6KKeyQSB3WP4XBwmF+Dgr3vVVB+mIjIDmlKRgYsdXgVbRpaUb4ojnCZpBy6NDbc5NSH16KExkYLw3scl0BOWw+9SUf8JREmJwDEKZGujXHgh+YfZymXvg2PyigEtHvK8zF//3xMXJjyPbZyRcuQM8INBe9aaAZqHtuJHm/v8KN1A/1G7IgoDU44HljHsYdy//i5vAvggzf2zOdn7h0Z784mDUZIXhNjUl+h8IbY+iwT20pnWPTqSaGhs4g0xFxHnkKiMdcNXmXXj+4i6wn3JJmdUW2MNgOBoVnLzlE2hO9aOvUlwOK1/dMSUTvAsv+G2YkEnxE3HLQlAzJp+AjT/Lf3t6j/k05xNuqnPG8/nIzVYfHJygfspVAVoYNBR3jp+GgcgVrTVkSLGBOS9Nk0/7sXirWx69z4r6nzvP4NncloalBMN1Uc+fvg4VclGZp1R6y7YJJZoSFMQ3dY7XTDoq5hid430sxplRd/E0oDIcEmsVMRdzBc3XDAG/t6GwVsUsq/DLcuEd1/0E4zT87CoSemt4QhA7Skcf9ipePJA+WDhk=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(1800799024)(56012099003)(22082099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: xCE9rzHQ6HjFHs68kYZKDWsncKEdWwv9t/M+gYbM+lHlr62+R52Ud9s2xHxnBjN4UHL5eqSy9RLNBJD7M7Gi03VAzpAASvbtvavG0lN5+69tJIMgdP991RdufL1TW1drkzlC/Az5X/mSVRjZgQSf68P33S2pzI3tUzkTKKJ/98lWsf13kfvhJs4rzFyh+ABwJyXR+5bKgoOt5W8pRYSTBIbEmP5enE9ZRw5BsMS+eHktg3LunchX9ryQ8bfH1Gz9/wZLbpzFHBKr5wwzqGJsZOVMIv25/BEnhvwYIH8EawRuZeKRppq4w7a0syo0oYPYT5ioZbvsGjG3oqf8QZ8wX25n7JcurQgwtwKU5CjITCduL0x7H5RsiGJICBKOpY8hQi8j55MYIKUqgvUUvAfgKoPxXb8cD/cg+AcfN6t6Z5MIPIh4CNXXeGYutrq/171v
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 May 2026 17:45:12.8175
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c956484c-4420-43a3-ecb3-08deb2a9b771
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000ECD5.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7318
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_104527_913243_E625C240 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20260515_105024_725691_E2EFFFF0 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,80 +103,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__ffa_partition_info_get_regs() walks the response with a hardcoded
-24-byte stride (regs += 3) even though the SPMC tells us the actual
-per-descriptor size via PARTITION_INFO_SZ in x2[63:48]. The size is
-read into buf_sz and then thrown away.
+wakeup_source_show() walks all IMX_SC_IRQ_NUM_GROUP groups and, for
+every group with a wakeup_src set, writes a line into the sysfs
+output buffer:
 
-That works while every SPMC returns the FF-A v1.1 layout, but it falls
-apart against a v1.3 SPMC returning the 48-byte descriptor. The loop
-strides over half a descriptor at a time and ends up parsing every
-other entry from a slice of two adjacent ones.
+	for (i = 0; i < IMX_SC_IRQ_NUM_GROUP; i++) {
+		if (!scu_irq_wakeup[i].wakeup_src)
+			continue;
 
-The FF-A spec (v1.2, section 18.5) says that the producer should
-report the descriptor size, and the consumer is supposed to stride by
-that size and ignore any trailing fields it doesn't understand. The
-non-REGS path (__ffa_partition_info_get) does this already, and the
-REGS path should match.
+		if (scu_irq_wakeup[i].valid)
+			sprintf(buf, "Wakeup source group = %d, ...", ...);
+		else
+			sprintf(buf, "Spurious SCU wakeup, group = %d, ...", ...);
+	}
 
-Use buf_sz for the stride, and bail out with -EINVAL if the SPMC
-reports something we can't safely walk.
+	return strlen(buf);
 
-Fixes: ba85c644ac8d ("firmware: arm_ffa: Add support for FFA_PARTITION_INFO_GET_REGS")
-Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
+Each iteration calls sprintf(buf, ...) starting at buf[0], so the
+previous group's line is overwritten. When several groups have
+wakeup_src set simultaneously, userspace reading
+/sys/.../wakeup_src sees only the last group reported, not the full
+set. The trailing return strlen(buf) reports only that last line's
+length for the same reason.
+
+sprintf() also has no buffer length argument; sysfs callbacks must
+not write past PAGE_SIZE.
+
+Convert to sysfs_emit_at() with a running offset so each group's
+line is appended after the previous one, and bound the writes to
+the PAGE_SIZE sysfs limit. Return the accumulated length directly
+instead of strlen(buf).
+
+Fixes: c081197a33a2 ("firmware: imx: scu-irq: support identifying SCU wakeup source from sysfs")
+Signed-off-by: Stepan Ionichev <sozdayvek@gmail.com>
 ---
-Changes in v2:
-- Rebase onto linux-next; reuse the
-  FFA_PART_INFO_GET_REGS_{REGS_PER_DESC,MAX_DESC} macros it added instead of
-  introducing new ones.
-- Return -EINVAL instead of -EPROTO to match surrounding checks.
-- Update Fixes: tag to the commit that introduced the hardcoded stride.
----
- drivers/firmware/arm_ffa/driver.c | 20 +++++++++++++++++---
- 1 file changed, 17 insertions(+), 3 deletions(-)
+ drivers/firmware/imx/imx-scu-irq.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index b9f17fda7243..38ae4476e864 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -374,9 +374,23 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
- 			return -EINVAL;
+diff --git a/drivers/firmware/imx/imx-scu-irq.c b/drivers/firmware/imx/imx-scu-irq.c
+index a68d38f89..d1fb20d95 100644
+--- a/drivers/firmware/imx/imx-scu-irq.c
++++ b/drivers/firmware/imx/imx-scu-irq.c
+@@ -179,6 +179,7 @@ static void imx_scu_irq_callback(struct mbox_client *c, void *msg)
  
- 		tag = UUID_INFO_TAG(partition_info.a2);
-+
-+		/*
-+		 * Per FF-A v1.2 section 18.5 the SPMC reports the per-
-+		 * descriptor size and consumers must stride by that size,
-+		 * reading only the fields they understand and ignoring any
-+		 * trailing ones. Reject sizes that cannot hold the v1.1
-+		 * fields parsed below, are not u64-aligned, or whose total
-+		 * payload would walk past the x3..x17 window (e.g. a v1.3
-+		 * 48-byte descriptor with nr_desc > 2).
-+		 */
- 		buf_sz = PARTITION_INFO_SZ(partition_info.a2);
--		if (buf_sz > sizeof(*buffer))
--			buf_sz = sizeof(*buffer);
-+		if (buf_sz < FFA_PART_INFO_GET_REGS_REGS_PER_DESC * sizeof(u64) ||
-+		    buf_sz % sizeof(u64) ||
-+		    nr_desc * (buf_sz / sizeof(u64)) >
-+		    FFA_PART_INFO_GET_REGS_MAX_DESC *
-+		    FFA_PART_INFO_GET_REGS_REGS_PER_DESC)
-+			return -EINVAL;
+ static ssize_t wakeup_source_show(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
+ {
++	ssize_t len = 0;
+ 	int i;
  
- 		regs = (void *)&partition_info.a3;
- 		for (idx = 0; idx < nr_desc; idx++, buf++) {
-@@ -395,7 +409,7 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
- 			buf->exec_ctxt = PART_INFO_EXEC_CXT(val);
- 			buf->properties = PART_INFO_PROPERTIES(val);
- 			uuid_copy(&buf->uuid, &uuid_regs.uuid);
--			regs += 3;
-+			regs += buf_sz / sizeof(u64);
- 		}
- 		start_idx = cur_idx + 1;
+ 	for (i = 0; i < IMX_SC_IRQ_NUM_GROUP; i++) {
+@@ -186,14 +187,16 @@ static ssize_t wakeup_source_show(struct kobject *kobj, struct kobj_attribute *a
+ 			continue;
  
-
-base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+ 		if (scu_irq_wakeup[i].valid)
+-			sprintf(buf, "Wakeup source group = %d, irq = 0x%x\n",
++			len += sysfs_emit_at(buf, len,
++				"Wakeup source group = %d, irq = 0x%x\n",
+ 				i, scu_irq_wakeup[i].wakeup_src);
+ 		else
+-			sprintf(buf, "Spurious SCU wakeup, group = %d, irq = 0x%x\n",
++			len += sysfs_emit_at(buf, len,
++				"Spurious SCU wakeup, group = %d, irq = 0x%x\n",
+ 				i, scu_irq_wakeup[i].wakeup_src);
+ 	}
+ 
+-	return strlen(buf);
++	return len;
+ }
+ 
+ int imx_scu_enable_general_irq_channel(struct device *dev)
 -- 
-2.34.1
+2.43.0
 
 
