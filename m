@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6DEDCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 20:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A60CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 20:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RyGafwdCt3x/g0QzVWJIypA8vetW0tTDwYoQi1w4h74=; b=PxbprGqXLJSfvKc+yv8sgT6kx4
-	Ee91+YMV2/NpoHVe8jzqzLi93PUqFc3iuvirbzKPUMNx9VllOfQx6HkY2PLeBE53Yi0JgPPYIrSvy
-	SCRp33D/PYxeUBwE8Wc6BHmm6l0Ug3yYblaEYuELJT+SoeNuecxexpgBwaDkGqtUS+QBwl2hU+z1/
-	fqMVygXS3liDwBmHhCXY2Q48fyD3DIqbLxBej0zdZNXkN/mSKMTVdTWiwCS9Oh1IZOKj4SZHOxad4
-	ALlSz+M4Te1/UutPmRw9THQOV523ATlAXi7rFbb/oVIqxDv4nITl0WiPgRt2KDa+9XzEpCHVM1dHT
-	z/G3oUsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NakMRS46W1oL9mqbKvNepb8mTvQx3uQdatcK6E5xQD8=; b=NabhOfcAFVCR8YX8QsXeqxIujf
+	9SEL2Oh+X3awPM9B3CRSCFuZkeP96qHcfO8iWju+zRY5xc0sS5sK9AKeyYijFnRdge1KI1SwxObXv
+	wSGQBz2JkPVXuIYIV50wrEh50ZE0843+sbRsySjVoqN4iDdELPxtXxG4urRlGT6JIvEc3xX05Q0Tv
+	Zi2asArK2DBh3egjppbsBATNMmdHv5V+dzgfGkGtar9oimZGA1IqfgP/TNmIOQX1teOuAiWkJtAo2
+	1X3CH+djUW85COHwJHh3vpjAImICLFcfIVPnrSC73PyffeEpVHTb7tMaY4RuM/1mAZD/iFDf0m1jc
+	13A3MXYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNyqG-00000009Ixa-1UZp;
-	Fri, 15 May 2026 20:09:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNyq4-00000009Ine-3yM7
+	id 1wNzaa-00000009Ql8-00f8;
+	Fri, 15 May 2026 20:56:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wNzaX-00000009QkU-15C1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 20:08:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43E2435ED;
-	Fri, 15 May 2026 13:08:47 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A8B1C3F836;
-	Fri, 15 May 2026 13:08:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778875732; bh=k2A7GtXH6QZ5Unx0VpGpTx7vHk1WJEBp7z9kY2xYmQQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Bt+s5QczYtX32I4MQyDW60epb5utvBr9aKA6EFAjebFDTDsh3NxyPLGL7Dz2Vv4FD
-	 bSVsTVBuzoo2DX9GwTNi+U1b9/S7xU4emHz7Ms7Nb9nbNW8w/7V850lwpYlHPp8oWR
-	 3AOXiVaMH1o+dGOBpIqTS5pg2ddP9AA8HSyqXV3k=
-From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 15 May 2026 21:08:16 +0100
-Subject: [PATCH v14 09/28] coresight: Move per-CPU source pointer to core
- layer
+	Fri, 15 May 2026 20:56:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1681B41AD4;
+	Fri, 15 May 2026 20:56:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E107C2BCB0;
+	Fri, 15 May 2026 20:56:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778878612;
+	bh=NakMRS46W1oL9mqbKvNepb8mTvQx3uQdatcK6E5xQD8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=Dt5TkGt39ZtVjDyH9NqztBlMdcQ9g678kION37ACp00mHIhB5JTmHFXdL4Uhiq/6C
+	 msqNy3bCtbyVcKP5oClpR7TqvTflTd4F8DSkn93XSMYyMrzWn44QGL1CJUveu3UE68
+	 58aMCQeSrXUrdsZUTIjdWo8pCYUYlJdMic7yXEBRGLLFbq00QGVVTnnON6/IDK0Dbt
+	 K6xg8bC7174Upc6+q79jqCJSORlFiibUbv5Bs6GECqchO/MVP9lhKs2sxoaRJZ9SFy
+	 So/+HDZXkueSsqvlhQBYGQYMXqvvD3VJyUZhFoDed+xuLQkSFVivEd++Ho+Ox7IsuG
+	 Ed4fR9Nof9gvw==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>, Will Deacon <will@kernel.org>, Joerg
+ Roedel <joro@8bytes.org>, Miguel Ojeda <ojeda@kernel.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Nathan Chancellor <nathan@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, linux-kbuild@vger.kernel.org,
+ stable@vger.kernel.org, Robin Murphy <robin.murphy@arm.com>, Kees Cook
+ <kees@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] [v2] iommu, debugobjects: avoid gcc-16.1 section
+ mismatch warnings
+In-Reply-To: <20260513145425.1579430-1-arnd@kernel.org>
+References: <20260513145425.1579430-1-arnd@kernel.org>
+Date: Fri, 15 May 2026 22:56:47 +0200
+Message-ID: <87mry0xugg.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-arm_coresight_path_power_management_improvement-v14-9-f88c4a3ecfe9@arm.com>
-References: <20260515-arm_coresight_path_power_management_improvement-v14-0-f88c4a3ecfe9@arm.com>
-In-Reply-To: <20260515-arm_coresight_path_power_management_improvement-v14-0-f88c4a3ecfe9@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
- Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>, 
- Keita Morisaki <keyz@google.com>, Jie Gan <jie.gan@oss.qualcomm.com>, 
- Yuanfang Zhang <quic_yuanfang@quicinc.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Tamas Petz <tamas.petz@arm.com>, Thomas Gleixner <tglx@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778875700; l=5684;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=k2A7GtXH6QZ5Unx0VpGpTx7vHk1WJEBp7z9kY2xYmQQ=;
- b=/T7lidz35Kecczu+JJARL+w8C1Bw3+eiBR4MGV0V2uQY8ea8Qb6hFevc3lX7ZIMOFqO3Al95t
- r8haDnDIiTaBgoW5v8YJuwxs3cDrzU622VCTqWvTce5XcO8rZivitRL
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_130853_066629_84E186BA 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20260515_135653_314624_737F8C03 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,155 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the per-CPU source pointer from ETM perf to the core layer, as this
-will be used for not only perf session and also for CPU PM notifiers.
+On Wed, May 13 2026 at 16:53, Arnd Bergmann wrote:
+> Link: https://lore.kernel.org/all/abRB6g-48ZX6Yl2r@willie-the-truck/
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Thomas Gleixner <tglx@kernel.org>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Miguel Ojeda <ojeda@kernel.org>
+> Cc: linux-kbuild@vger.kernel.org
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> v2: I merged both patches into one, to simplify the dependency
+> on the new compiler_attributes.h macro.
 
-Provides coresight_{set|clear|get}_percpu_source() helpers to access the
-per-CPU source pointer. Add a raw spinlock to protect exclusive access.
+Which you could have split into 'provide macro', fix A, fix B ..., but
+that's just pedantry :)
 
-Device registration and unregistration call the set and clear helpers
-for init and teardown the pointers.
+But seriously, this is way more palatable than the other hacks!
 
-Update callers to invoke coresight_get_percpu_source() for retrieving
-the pointer.
-
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Tested-by: James Clark <james.clark@linaro.org>
-Tested-by: Jie Gan <jie.gan@oss.qualcomm.com>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-core.c     | 38 ++++++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-etm-perf.c | 14 +++------
- drivers/hwtracing/coresight/coresight-priv.h     |  1 +
- 3 files changed, 43 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 6b098c3cab0b8a710863bceb2c5f9584ad0bd8af..995a4a1bab3d983141237f453b6f630e73e69e5e 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -35,6 +35,9 @@
- DEFINE_MUTEX(coresight_mutex);
- static DEFINE_PER_CPU(struct coresight_device *, csdev_sink);
- 
-+static DEFINE_RAW_SPINLOCK(coresight_dev_lock);
-+static DEFINE_PER_CPU(struct coresight_device *, csdev_source);
-+
- /**
-  * struct coresight_node - elements of a path, from source to sink
-  * @csdev:	Address of an element.
-@@ -82,6 +85,39 @@ struct coresight_device *coresight_get_percpu_sink(int cpu)
- }
- EXPORT_SYMBOL_GPL(coresight_get_percpu_sink);
- 
-+static void coresight_set_percpu_source(struct coresight_device *csdev)
-+{
-+	if (!csdev || !coresight_is_percpu_source(csdev))
-+		return;
-+
-+	guard(raw_spinlock_irqsave)(&coresight_dev_lock);
-+
-+	/* Expect no device to be set yet */
-+	WARN_ON(per_cpu(csdev_source, csdev->cpu));
-+	per_cpu(csdev_source, csdev->cpu) = csdev;
-+}
-+
-+static void coresight_clear_percpu_source(struct coresight_device *csdev)
-+{
-+	if (!csdev || !coresight_is_percpu_source(csdev))
-+		return;
-+
-+	guard(raw_spinlock_irqsave)(&coresight_dev_lock);
-+
-+	/* The per-CPU pointer should contain the same csdev */
-+	WARN_ON(per_cpu(csdev_source, csdev->cpu) != csdev);
-+	per_cpu(csdev_source, csdev->cpu) = NULL;
-+}
-+
-+struct coresight_device *coresight_get_percpu_source(int cpu)
-+{
-+	if (WARN_ON(cpu < 0))
-+		return NULL;
-+
-+	guard(raw_spinlock_irqsave)(&coresight_dev_lock);
-+	return per_cpu(csdev_source, cpu);
-+}
-+
- struct coresight_device *coresight_get_source(struct coresight_path *path)
- {
- 	struct coresight_device *csdev;
-@@ -1452,6 +1488,7 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 	if (ret)
- 		goto out_unlock;
- 
-+	coresight_set_percpu_source(csdev);
- 	mutex_unlock(&coresight_mutex);
- 
- 	if (cti_assoc_ops && cti_assoc_ops->add)
-@@ -1481,6 +1518,7 @@ void coresight_unregister(struct coresight_device *csdev)
- 		cti_assoc_ops->remove(csdev);
- 
- 	mutex_lock(&coresight_mutex);
-+	coresight_clear_percpu_source(csdev);
- 	etm_perf_del_symlink_sink(csdev);
- 	coresight_remove_conns(csdev);
- 	coresight_clear_default_sink(csdev);
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index bab85f7dac4757173912639ea016cdc32e5616fb..b9e556818c3c6873ed53e5a1b8052443dd7740d0 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -49,7 +49,6 @@ struct etm_ctxt {
- };
- 
- static DEFINE_PER_CPU(struct etm_ctxt, etm_ctxt);
--static DEFINE_PER_CPU(struct coresight_device *, csdev_src);
- 
- GEN_PMU_FORMAT_ATTR(cycacc);
- GEN_PMU_FORMAT_ATTR(timestamp);
-@@ -386,7 +385,7 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
- 		struct coresight_path *path;
- 		struct coresight_device *csdev;
- 
--		csdev = per_cpu(csdev_src, cpu);
-+		csdev = coresight_get_percpu_source(cpu);
- 		/*
- 		 * If there is no ETM associated with this CPU clear it from
- 		 * the mask and continue with the rest. If ever we try to trace
-@@ -864,17 +863,12 @@ int etm_perf_symlink(struct coresight_device *csdev, bool link)
- 	if (!etm_perf_up)
- 		return -EPROBE_DEFER;
- 
--	if (link) {
-+	if (link)
- 		ret = sysfs_create_link(&pmu_dev->kobj, &cs_dev->kobj, entry);
--		if (ret)
--			return ret;
--		per_cpu(csdev_src, cpu) = csdev;
--	} else {
-+	else
- 		sysfs_remove_link(&pmu_dev->kobj, entry);
--		per_cpu(csdev_src, cpu) = NULL;
--	}
- 
--	return 0;
-+	return ret;
- }
- EXPORT_SYMBOL_GPL(etm_perf_symlink);
- 
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 75029744561f7744225c7b866eee60e0f7cf9e10..4d6f5bc1df9cc5dfd974a8b27820328e7916f169 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -249,6 +249,7 @@ void coresight_add_helper(struct coresight_device *csdev,
- void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
- struct coresight_device *coresight_get_percpu_sink(int cpu);
- struct coresight_device *coresight_get_source(struct coresight_path *path);
-+struct coresight_device *coresight_get_percpu_source(int cpu);
- void coresight_disable_source(struct coresight_device *csdev, void *data);
- void coresight_pause_source(struct coresight_device *csdev);
- int coresight_resume_source(struct coresight_device *csdev);
-
--- 
-2.34.1
-
+Acked-by: Thomas Gleixner <tglx@kernel.org>
 
