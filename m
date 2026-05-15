@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 974BCCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 08:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC79BCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 08:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=syWBrqR7zwtt+/fWp/QMy2BIrRLrmXyFwQmB0RT+WeI=; b=l/hKRdYDG0G0PErmOLDp4mv2Y+
-	17LfrkHlaDvPCodAwQDGxWVsb3moOj67lqUxj2YuaezjK7nLMnU9BW97G/FQwovdkuPW6CKeV7U4x
-	JVnBD9NnhOxBInzY7z02YnDp0KmGmEVXyJp7b+DTv4sM0H5h+4W2ppd+JLrG8AHJfmbDGwZF8aGEh
-	g7tKGYaanLDgWWzKcNqXfVBmhswBWmFZnGRklMapBr9WnHvBWW2mK4hmmhTWfDmNix8ytuGIpcBJe
-	ilwlFVV5U3wg6ZexK4KxfBirGPYgALbCO0A2kldikUOCPWUoJf3TCtANIaxHQy1dhSL047DM2Nx9N
-	q/KGp70A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mUQeo4WtwZOyiPosjJ+e5V/s5KXRfRIpXXnzgHHEpY0=; b=ghG0pyXkaiiyr5aiE7gy3CCDVy
+	FdCagwzA+JuzGdcF/6kz3j3dqEMUfVvwZ61HpHSXN2gSGQVuhOb3ml+bnwxHEWoeIFp646kNSsBBX
+	YtwNgo1b4ZwK/WYaUAxOvZnE99BpYHa2NGt9hlxFKDinJaLJRd/Iz1v9xJMCaP0CSI7mvH6nU5aIU
+	kH6ZflgOz8AhVQzCKjCm5DIByBNtMwTlMY5h1NjZK+2tB3zC3ED+a7kFuzkzapwKCR25NEhawQ5A8
+	q5DjLZxBPObyCpj6BqXbD4egsNBeYErIWz664AJaL2YwwaIZV7HzwiXbbuNzdzkzTC4SLaXXQsoFA
+	Z0aJYMdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNo4c-00000007l8w-3vOQ;
-	Fri, 15 May 2026 08:39:10 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wNo5G-00000007lIK-0LxX;
+	Fri, 15 May 2026 08:39:50 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNo4X-00000007l6L-1rUJ
+	id 1wNo5C-00000007lHJ-2YPe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 08:39:08 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.82])
-	by APP-05 (Coremail) with SMTP id zQCowAAHlwqc2wZqB+ZSEA--.46578S2;
-	Fri, 15 May 2026 16:38:53 +0800 (CST)
-Message-ID: <1c4d8611411e2d14699ac0b9aeb5b2377feedc8a.camel@iscas.ac.cn>
-Subject: Re: [PATCH 2/2] drm/verisilicon: add support for Nuvoton MA35D1
- DCUltra Lite display controller
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Fri, 15 May 2026 16:38:52 +0800
-In-Reply-To: <1a42a168-1dbb-467e-9053-b5585a737f71@gmail.com>
-References: <20260511075142.54752-1-a0987203069@gmail.com>
-	 <20260511075142.54752-3-a0987203069@gmail.com>
-	 <93e69179dbc495188cfffd8015350b3a55ce7876.camel@iscas.ac.cn>
-	 <de35406e-874d-4bdd-be7f-3d74dc37b13f@gmail.com>
-	 <3b94806073de8bd1d79aa7ec956493f67679e46b.camel@iscas.ac.cn>
-	 <dfbc4042-64cf-49f2-a5de-12260beffaa0@gmail.com>
-	 <4bf6efbb222ebc4d770ad613d17c6185e7cb2fda.camel@iscas.ac.cn>
-	 <1d04dd6d-f245-4b83-96b0-c5491fad8093@gmail.com>
-	 <76a9e9b676509e85484a1eb31c723b46c7e21a19.camel@iscas.ac.cn>
-	 <1a42a168-1dbb-467e-9053-b5585a737f71@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	Fri, 15 May 2026 08:39:48 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2baca4df358so53879065ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 01:39:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1778834385; x=1779439185; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=mUQeo4WtwZOyiPosjJ+e5V/s5KXRfRIpXXnzgHHEpY0=;
+        b=FHoUP59LVQoYEzjUfBwbNEFDK7rv0/euJoCvmJp+Nt4TxjLUYoyOQSU+YEY0ddBlA+
+         hpA8bpmcYpbZKEt0NGnV4WQ0GQ/bFP5OvPaKeyu6I1yXFOYahE/bMlPAOSUd/jAN4iB7
+         1Bp1hh1NeHcytmz33iHXGHyox2WNt6Zv9yY2PH902Jw68VRyP8+SRF8Xu/At4AM2SkxB
+         s4EoR9VwwvWEpdjdW79cNU7RECEPBMgL8/aGz/mXvDKCULpcV4vVYtQaz9pJTaUWtPEK
+         e4ExIJYJG/7qrNHrBs+yHUKv5NlWRmruWqa51R7ikXxC9q9Mgjz/PtClTKB7ZYrPfo0S
+         PFMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778834385; x=1779439185;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mUQeo4WtwZOyiPosjJ+e5V/s5KXRfRIpXXnzgHHEpY0=;
+        b=nmpjXLwQ1IvB/qeavzicZq3/g8cU0GLnuORlncBwn/hM8Rj5IQlDcgxtC+wlWILmij
+         Yff7IGzqVib46WbZiGiWjEgDIlvoJarXszUY20wQCn98BiBoBjVbO/4+Ppuj+WXEgCNO
+         iTn2dPxOVhsykjxA1gJZ8tRnEVoNuIq2/xq2LMAaz1m/TVP/K91O2Y1RZxriHYmR0f/j
+         RPsacsQVIcP/4W/Yd0tgC42+yAiqXodOHhbeGIxqMibuU6z7asokIylCVeZRzpdzzAkv
+         t8cmNXobTzf9afitR5b94WOUB1CfQaDRzPFucZnBnfHi/TWAOXko7SFWmVHkho8U/pUA
+         OoSw==
+X-Gm-Message-State: AOJu0YzZFURorQ0AgDXcSsI8uC4oW4mmpr31j7h+tjRqTZVd1CRreSFu
+	uW4i1AqKOesqFwkNtVDaC7oXpxZcvft9gyxG0AM0tJea2zdL2lwGXUPM
+X-Gm-Gg: Acq92OHvgm40bgWRUCX/84oABBt37iQuJ2Mcmfbcm2PWsIBz3QTy6WYTPx9GZbLoDpF
+	tFGgjmNJaH2hLc3L4+i3TBMxN9i7SSOTCzSGGjpRbDNsBFTLAIuhxKqCfSEwHKK+tUGiVvSoVwD
+	NcVtDjej0h5AOo/3rmfzRLkaoLnBUBdfT5SPImzlpNJeTjhPFIV65kZ0YP8BHwCRxCW5W51ygAe
+	S0TVx4kEnn8PifFYZJwX4MGd2gKUMt2oOWH+usyJdOyxrUJs1XwWySgswtp7ic5rUrmqhmlQE3v
+	dBHyznqmR507aYF/U4AJxg62y7FBBXzZL5frkxSBhERFU7AnpzSxlOGS2i6seYxo8ubDZacWMpB
+	jbhUN2elNY/saXfpHqyiKrHhGfnCw4y/RLMU5sl1QsAvd6A698vFh6bI76wa8Bg5qUJnSxnAmCF
+	9nFj/rq4IqgKnf1l47/Iw1ORB27t1aV8O7GmUcVV5M8I4kpB9cnYPH1YNaJyWaMphcjTB5g1E5V
+	CEiQ7xcQqU=
+X-Received: by 2002:a17:903:3d4f:b0:2ae:450c:951e with SMTP id d9443c01a7336-2bd7e9040a2mr24024255ad.17.1778834385278;
+        Fri, 15 May 2026 01:39:45 -0700 (PDT)
+Received: from chaitanya-virtualbox.. ([103.249.241.55])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5c05fcb3sm53551645ad.26.2026.05.15.01.39.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 May 2026 01:39:44 -0700 (PDT)
+From: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+To: brgl@kernel.org,
+	andi.shyti@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chaitanya Sabnis <chaitanya.msabnis@gmail.com>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH v2] i2c: davinci: fix division by zero on missing clock-frequency
+Date: Fri, 15 May 2026 14:09:26 +0530
+Message-ID: <20260515083927.5033-1-chaitanya.msabnis@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-CM-TRANSID: zQCowAAHlwqc2wZqB+ZSEA--.46578S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxtFyUXF4DAr15CF4UWr1ftFb_yoW3Gw1fpr
-	ykGFW0kr4DJryayr47tw1DtFyjyw1UJw43Wr1kJr1rXr1qyr17WF4UJr1UCF1kWr1kGr18
-	Jr48JrWxXry5ArUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvqb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
-	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
-	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY
-	1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8Jw
-	C20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAF
-	wI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjx
-	v20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2
-	jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0x
-	ZFpf9x07betCcUUUUU=
-X-Originating-IP: [112.94.100.82]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_013905_865084_DB966435 
-X-CRM114-Status: GOOD (  46.68  )
+X-CRM114-CacheID: sfid-20260515_013946_645672_3298FF3A 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,234 +99,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-05-15=E4=BA=94=E7=9A=84 14:25 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
->=20
-> On 5/12/2026 9:12 PM, Icenowy Zheng wrote:
-> > =E5=9C=A8 2026-05-12=E4=BA=8C=E7=9A=84 18:59 +0800=EF=BC=8CJoey Lu=E5=
-=86=99=E9=81=93=EF=BC=9A
-> > > On 5/12/2026 6:01 PM, Icenowy Zheng wrote:
-> > > > =E5=9C=A8 2026-05-12=E4=BA=8C=E7=9A=84 17:06 +0800=EF=BC=8CJoey Lu=
-=E5=86=99=E9=81=93=EF=BC=9A
-> > > >=20
-> > > > =3D=3D=3D=3D=3D=3D=3D 8< =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > > > > > > > > diff --git a/drivers/gpu/drm/verisilicon/vs_bridge.c
-> > > > > > > > > b/drivers/gpu/drm/verisilicon/vs_bridge.c
-> > > > > > > > > index 7a93049368db..225af322de32 100644
-> > > > > > > > > --- a/drivers/gpu/drm/verisilicon/vs_bridge.c
-> > > > > > > > > +++ b/drivers/gpu/drm/verisilicon/vs_bridge.c
-> > > > > > > > > @@ -164,13 +164,16 @@ static void
-> > > > > > > > > vs_bridge_enable_common(struct
-> > > > > > > > > vs_crtc *crtc,
-> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0			VSDC_DISP_PANEL_CONFIG_C=
-LK_E
-> > > > > > > > > N);
-> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0	regmap_set_bits(dc->regs,
-> > > > > > > > > VSDC_DISP_PANEL_CONFIG(output),
-> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0			VSDC_DISP_PANEL_CONFIG_R=
-UNNI
-> > > > > > > > > NG);
-> > > > > > > > > -	regmap_clear_bits(dc->regs,
-> > > > > > > > > VSDC_DISP_PANEL_START,
-> > > > > > > > > -		=09
-> > > > > > > > > VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
-> > > > > > > > > -	regmap_set_bits(dc->regs,
-> > > > > > > > > VSDC_DISP_PANEL_START,
-> > > > > > > > > -
-> > > > > > > > > 			VSDC_DISP_PANEL_START_RUNNIN
-> > > > > > > > > G(ou
-> > > > > > > > > tput));
-> > > > > > > > > =C2=A0=C2=A0=C2=A0=C2=A0=20
-> > > > > > > > > -	regmap_set_bits(dc->regs,
-> > > > > > > > > VSDC_DISP_PANEL_CONFIG_EX(crtc-
-> > > > > > > > > > id),
-> > > > > > > > > -
-> > > > > > > > > 			VSDC_DISP_PANEL_CONFIG_EX_CO
-> > > > > > > > > MMIT);
-> > > > > > > > > +	if (dc->info->has_config_ex) {
-> > > > > > > > > +		regmap_clear_bits(dc->regs,
-> > > > > > > > > VSDC_DISP_PANEL_START,
-> > > > > > > > > +			=09
-> > > > > > > > > VSDC_DISP_PANEL_START_MULTI_DISP_SYNC);
-> > > > > > > > > +		regmap_set_bits(dc->regs,
-> > > > > > > > > VSDC_DISP_PANEL_START,
-> > > > > > > > > +				VSDC_DISP_PANEL_STAR
-> > > > > > > > > T_RU
-> > > > > > > > > NNIN
-> > > > > > > > > G(ou
-> > > > > > > > > tput
-> > > > > > > > > ));
-> > > > > > > > > +
-> > > > > > > > > +		regmap_set_bits(dc->regs,
-> > > > > > > > > VSDC_DISP_PANEL_CONFIG_EX(crtc->id),
-> > > > > > > > > +				VSDC_DISP_PANEL_CONF
-> > > > > > > > > IG_E
-> > > > > > > > > X_CO
-> > > > > > > > > MMIT
-> > > > > > > > > );
-> > > > > > > > Should the commit operation happen on
-> > > > > > > > DC8000/DCUltraLite
-> > > > > > > > too?
-> > > > > > > > (By
-> > > > > > > > writing to DcregFrameBufferConfig0.VALID).
-> > > > > > > >=20
-> > > > > > > > Many registers written has "Note: This field is double
-> > > > > > > > buffered" in
-> > > > > > > > the
-> > > > > > > > DCUltraLite documentation.
-> > > > > > > >=20
-> > > > > > > > I suggest create a static function for commit -- write
-> > > > > > > > to
-> > > > > > > > the
-> > > > > > > > corresponding commit bit on DC8200, and write to
-> > > > > > > > DcregFrameBufferConfig0.VALID on DC8000/DCUltraLite.
-> > > > > > > [a] There is no commit operation for DCUltra Lite.
-> > > > > > > I'll not add a `VSDC_FB_CONFIG_VALID` macro. VALID
-> > > > > > > (BIT(3))
-> > > > > > > is a
-> > > > > > > hardware-managed double-buffer status bit: hardware
-> > > > > > > writes
-> > > > > > > 1=3DPENDING
-> > > > > > > when a new register set is ready and clears to 0=3DWORKING
-> > > > > > > after
-> > > > > > > the
-> > > > > > > VBLANK copy. Software must never write it, and there is
-> > > > > > > no
-> > > > > > > polling
-> > > > > > > use
-> > > > > > It seems to be writable and controls whether register
-> > > > > > buffering
-> > > > > > is
-> > > > > > enabled, see [1].
-> > > > > >=20
-> > > > > > The description of this bit in MA35D1 TRM says "This
-> > > > > > ensures a
-> > > > > > frame
-> > > > > > will always start with a valid working set if this register
-> > > > > > is
-> > > > > > programmed last, which reduces the need for SW to wait for
-> > > > > > the
-> > > > > > start of
-> > > > > > a VBLANK signal in order to ensure all states are loaded
-> > > > > > before
-> > > > > > the
-> > > > > > next VBLANK", which indicates some kind of "committing
-> > > > > > write",
-> > > > > > although
-> > > > > > the code at [1] seems to indicate that double buffering is
-> > > > > > only
-> > > > > > enabled
-> > > > > > when bit is cleared.
-> > > > > >=20
-> > > > > > Anyway this bit should be programmable, and "Software must
-> > > > > > never
-> > > > > > write
-> > > > > > it" contradicts with the MA35D1 TRM.
-> > > > > >=20
-> > > > > > Thanks,
-> > > > > > Icenowy
-> > > > > >=20
-> > > > > > [1]
-> > > > > > https://github.com/rockos-riscv/rockos-kernel/blob/rockos-v6.6.=
-y/drivers/gpu/drm/eswin/es_dc_hw.c#L993
-> > > > > Thank you for the correction. I'll add
-> > > > > `#define VSDC_FB_CONFIG_VALID BIT(3)` to
-> > > > > vs_primary_plane_regs.h
-> > > > > and
-> > > > > write it in `vs_primary_plane_commit()` for non-config_ex
-> > > > > variants.
-> > > > > > > case in the driver that requires a named constant. For
-> > > > > > > non-
-> > > > > > > config_ex
-> > > > > > > variants, `vs_primary_plane_commit()` performs no commit
-> > > > > > > operation =E2=80=94
-> > > > > > > `VSDC_FB_CONFIG_ENABLE` (OUTPUT, BIT(0)) is set in
-> > > > > > > `vs_crtc_atomic_enable()` and `VSDC_FB_CONFIG_RESET`
-> > > > > > > (BIT(4))
-> > > > > > > is
-> > > > > > > set/cleared in the bridge enable/disable paths.
-> > > > Well according to the driver code for DC8000 from Eswin, and
-> > > > the
-> > > > bit
-> > > > named "VALID", maybe it should be cleared before programming
-> > > > the
-> > > > registers, and set after programming registers, to make the
-> > > > process
-> > > > of
-> > > > programming registers atomic from the perspective of the
-> > > > display
-> > > > controller.
-> > > >=20
-> > > > Anyway this should require testing on real hardware to verify.
-> > > >=20
-> > > > By the way, I see multiple peripheral drivers for MA35D1 get
-> > > > applied in
-> > > > the torvalds tree, but the device tree is still only a
-> > > > skeleton;
-> > > > when
-> > > > will the device tree be updated?
-> > > >=20
-> > > > Thanks,
-> > > > Icenowy
-> > > Thanks for pointing this out.=C2=A0I=E2=80=99ll perform tests on real=
- hardware
-> > > since
-> > > I haven=E2=80=99t used this bit before.
-> > >=20
-> > > As for the device tree,=C2=A0we plan to update it comprehensively
-> > > after
-> > > completing several major IPs, with the goal of releasing the
-> > > update
-> > > later this year.
-> > Well I bought a MA35D1 board (MYIR MYB-LMA35 + RGB LCD) earlier
-> > this
-> > year (and this is where I got the MA35D1 identification register
-> > values). Hope I can have a chance to test this driver by myself.
-> >=20
-> > As MMC, Ethernet and USB support is all applied, maybe it's already
-> > worthy to update the device tree ;-)
-> >=20
-> > Thanks,
-> > Icenowy
->=20
-> Yes you can!
->=20
-> I have performed hardware validation on the MA35D1 and found that
-> this=20
-> bit acts as a manual latch for the shadow registers rather than an=20
-> auto-clearing trigger, which clarifies the slightly ambiguous=20
-> description in the TRM.
->=20
-> Following your suggestion, I will align the implementation with
-> ESWIN's=20
-> DC8000 logic: setting the VALID bit at atomic_begin and clearing it
+When the 'clock-frequency' property is missing from the device tree,
+the driver falls back to DAVINCI_I2C_DEFAULT_BUS_FREQ. However, this
+macro was defined in kHz (100), whereas the device tree property is
+expected in Hz.
 
-Ah do you mean clearing it at begin and setting it at flush?
+The probe function divided the fallback value by 1000, causing
+integer truncation that resulted in dev->bus_freq = 0. This triggered
+a deterministic division-by-zero kernel panic when calculating clock
+dividers later in the probe sequence.
 
-In the Eswin driver (which seems to be based on reference code by
-Verisilicon, I saw similar driver code for DC8200),
-dc_hw_enable_shadow_register() clears VALID bit when enable is true,
-and all register setting sequences calls that function with enable =3D
-true before setting and enable =3D false after setting.
+Fix this by redefining DAVINCI_I2C_DEFAULT_BUS_FREQ in Hz (100000)
+to match the expected device tree property unit, allowing the existing
+division logic to work correctly for both cases.
 
-In addition, considering this bit is called "VALID" instead of
-"INVALID", I think it represents that the DC will apply the new setting
-when it's set and keep the current setting when it's cleared, so I
-think it should be cleared before modeset sequence and be set after
-modeset sequence.
+Fixes: b04ce6385979 ("i2c: davinci: kill platform data")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260514044726.57297C2BCB7@smtp.kernel.org/
+Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+---
+ drivers/i2c/busses/i2c-davinci.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Thanks,
-Icenowy
-
-> at=20
-> atomic_flush. My tests confirm this allows the hardware to latch the=20
-> plane configuration correctly while avoiding the blank screen issues=20
-> observed with other configurations.
->=20
-> I am preparing the v2 patchset with this change, along with the=20
-> requested commit splits, and will submit it shortly.=F0=9F=99=82
->=20
-> > > > > > =3D=3D=3D=3D=3D=3D=3D=3D=3D 8< =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> > > > > >=20
+diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
+index a773ba082321..bd0754abdcb7 100644
+--- a/drivers/i2c/busses/i2c-davinci.c
++++ b/drivers/i2c/busses/i2c-davinci.c
+@@ -760,9 +760,9 @@ static int davinci_i2c_probe(struct platform_device *pdev)
+ 
+ 	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
+ 	if (r)
+-		prop = DAVINCI_I2C_DEFAULT_BUS_FREQ;
+-
+-	dev->bus_freq = prop / 1000;
++		dev->bus_freq = DAVINCI_I2C_DEFAULT_BUS_FREQ;
++	else
++		dev->bus_freq = prop / 1000;
+ 
+ 	dev->has_pfunc = device_property_present(&pdev->dev, "ti,has-pfunc");
+ 
+-- 
+2.43.0
 
 
